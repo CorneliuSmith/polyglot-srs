@@ -60,7 +60,7 @@ The `morphology JSONB` field on vocabulary stores language-specific features. Th
 
 ### Initial Users & ESL Strategy
 
-Initial users are the founder's Arabic and Russian-speaking friends learning English (ESL), plus the founder learning Russian and Arabic. The platform serves both directions from day one. English pack is positioned for ESL learners — definitions, translations, and drill prompts must render in the learner's native language (Russian or Arabic), not English-only. A translations table stores vocabulary definitions per UI language.
+Initial users are the founder's Arabic and Russian-speaking friends learning English (ESL), plus the founder learning Russian and Arabic. The platform serves both directions from day one. English pack is positioned for ESL learners — definitions, translations, and drill prompts must render in the learner's native language, not English-only. Supported UI/native languages for ESL: Russian, Arabic, Spanish, and Portuguese. A translations table stores vocabulary definitions per UI language.
 
 ### Progressive Grammar Curriculum (Bunpro Model)
 

@@ -55,8 +55,8 @@ Requirements for initial release. Each maps to roadmap phases.
 
 ### ESL Support
 
-- [ ] **ESL-01**: ESL learners see vocabulary definitions and drill translations in their native language (Russian or Arabic)
-- [ ] **ESL-02**: Vocabulary supports multiple translations per UI language via translations table
+- [ ] **ESL-01**: ESL learners see vocabulary definitions and drill translations in their native language (Russian, Arabic, Spanish, or Portuguese)
+- [ ] **ESL-02**: Vocabulary supports multiple translations per UI language via translations table (UI languages: en, ru, ar, es, pt)
 
 ### Review Experience
 
@@ -145,13 +145,70 @@ Which phases cover which requirements. Updated during roadmap creation.
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| (populated by roadmapper) | | |
+| DB-01 | Phase 1 | Pending |
+| DB-02 | Phase 1 | Pending |
+| DB-03 | Phase 1 | Pending |
+| DB-04 | Phase 1 | Pending |
+| DB-05 | Phase 1 | Pending |
+| DB-06 | Phase 1 | Pending |
+| DB-07 | Phase 1 | Pending |
+| SRS-01 | Phase 1 | Pending |
+| SRS-02 | Phase 1 | Pending |
+| SRS-03 | Phase 1 | Pending |
+| SRS-04 | Phase 1 | Pending |
+| SRS-05 | Phase 1 | Pending |
+| AUTH-01 | Phase 1 | Pending |
+| AUTH-02 | Phase 1 | Pending |
+| AUTH-03 | Phase 1 | Pending |
+| NLP-01 | Phase 2 | Pending |
+| NLP-02 | Phase 2 | Pending |
+| NLP-03 | Phase 2 | Pending |
+| NLP-04 | Phase 2 | Pending |
+| NLP-05 | Phase 2 | Pending |
+| NLP-06 | Phase 2 | Pending |
+| NLP-07 | Phase 2 | Pending |
+| NLP-08 | Phase 2 | Pending |
+| NLP-09 | Phase 2 | Pending |
+| NLP-10 | Phase 2 | Pending |
+| SEED-01 | Phase 3 | Pending |
+| SEED-02 | Phase 3 | Pending |
+| SEED-03 | Phase 3 | Pending |
+| SEED-04 | Phase 3 | Pending |
+| REV-01 | Phase 4 | Pending |
+| REV-02 | Phase 4 | Pending |
+| REV-03 | Phase 4 | Pending |
+| REV-04 | Phase 4 | Pending |
+| REV-05 | Phase 4 | Pending |
+| REV-06 | Phase 4 | Pending |
+| REV-07 | Phase 4 | Pending |
+| REV-08 | Phase 4 | Pending |
+| UX-01 | Phase 4 | Pending |
+| UX-02 | Phase 4 | Pending |
+| UX-03 | Phase 4 | Pending |
+| UX-08 | Phase 4 | Pending |
+| PROF-01 | Phase 4 | Pending |
+| PROF-02 | Phase 4 | Pending |
+| PROG-01 | Phase 5 | Pending |
+| PROG-02 | Phase 5 | Pending |
+| PROG-03 | Phase 5 | Pending |
+| PROG-04 | Phase 5 | Pending |
+| PROG-05 | Phase 5 | Pending |
+| ESL-01 | Phase 5 | Pending |
+| ESL-02 | Phase 5 | Pending |
+| UX-04 | Phase 5 | Pending |
+| PROF-03 | Phase 5 | Pending |
+| ENRICH-01 | Phase 6 | Pending |
+| ENRICH-02 | Phase 6 | Pending |
+| ENRICH-03 | Phase 6 | Pending |
+| UX-05 | Phase 6 | Pending |
+| UX-06 | Phase 6 | Pending |
+| UX-07 | Phase 6 | Pending |
 
 **Coverage:**
-- v1 requirements: 49 total
-- Mapped to phases: 0
-- Unmapped: 49 ⚠️
+- v1 requirements: 58 total
+- Mapped to phases: 58
+- Unmapped: 0
 
 ---
 *Requirements defined: 2026-03-12*
-*Last updated: 2026-03-12 after initial definition*
+*Last updated: 2026-03-12 after roadmap creation*
