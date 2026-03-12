@@ -58,6 +58,14 @@ Each language has unique grammar dimensions that must be deeply modeled, not tre
 
 The `morphology JSONB` field on vocabulary stores language-specific features. The NLP abstraction layer (`BaseNLP`) defines the interface; each language backend implements analysis, lemmatization, morphological family enumeration, and answer checking with language-appropriate rules.
 
+### Initial Users & ESL Strategy
+
+Initial users are the founder's Arabic and Russian-speaking friends learning English (ESL), plus the founder learning Russian and Arabic. The platform serves both directions from day one. English pack is positioned for ESL learners — definitions, translations, and drill prompts must render in the learner's native language (Russian or Arabic), not English-only. A translations table stores vocabulary definitions per UI language.
+
+### Progressive Grammar Curriculum (Bunpro Model)
+
+The content model is Bunpro-style progressive grammar, not flat vocabulary lists. Like Bunpro structures Japanese around JLPT levels (N5→N1), each language needs grammar concepts ordered by CEFR level with prerequisite chains. Each grammar point requires multiple varied drill sentences testing the concept in different contexts — comprehension, not rote memorization. Grammar curriculum sourcing (what concepts at what level, what order, what example sentences) is an open research question for each language and should be investigated during the relevant phase.
+
 ### Seed Data Strategy
 
 Baseline language data is downloaded from open sources (OpenRussian, Arabic Wordnet, COCA/WordNet), transformed to fit our schema, and stored in our Supabase database. Scripts handle download → transform → load. Data lives in our DB shaped for our needs, not as raw external dumps.
