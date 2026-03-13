@@ -34,8 +34,8 @@ Decimal phases appear between their surrounding integers in numeric order.
 **Plans**: 3 plans
 
 Plans:
-- [ ] 01-01-PLAN.md -- Project scaffold, database schema migrations, RLS policies, and language seed data
-- [ ] 01-02-PLAN.md -- SM-2 algorithm with ease recovery, quality auto-mapping, and interval fuzzing (TDD)
+- [x] 01-01-PLAN.md -- Project scaffold, database schema migrations, RLS policies, and language seed data
+- [x] 01-02-PLAN.md -- SM-2 algorithm with ease recovery, quality auto-mapping, and interval fuzzing (TDD)
 - [ ] 01-03-PLAN.md -- FastAPI app, JWT auth, RLS-aware repository layer, and API endpoints
 
 ### Phase 2: NLP Backends and Answer Validation
@@ -129,7 +129,7 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4 -> 5/6 (5 and 6 can run in par
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. Schema, Auth, and SRS Engine | 0/3 | Not started | - |
+| 1. Schema, Auth, and SRS Engine | 2/3 | In Progress|  |
 | 2. NLP Backends and Answer Validation | 0/3 | Not started | - |
 | 3. Seed Data Pipeline | 0/2 | Not started | - |
 | 4. Core Review Experience | 0/4 | Not started | - |

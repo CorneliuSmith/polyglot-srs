@@ -9,21 +9,21 @@ Requirements for initial release. Each maps to roadmap phases.
 
 ### Schema & Database
 
-- [ ] **DB-01**: PostgreSQL schema with all tables language-parameterized via language_id FK
-- [ ] **DB-02**: Row-level security policies on all user tables (user_cards, review_log, user_subscriptions, user_notes_import) ensuring users only access own data
-- [ ] **DB-03**: Language seed data (Russian, Arabic, English) inserted on schema creation
-- [ ] **DB-04**: Morphology JSONB on vocabulary stores per-language grammar features (gender, aspect, root, form, etc.)
-- [ ] **DB-05**: Translations table storing vocabulary definitions per UI language (not just English definitions)
-- [ ] **DB-06**: Drill sentences support multiple varied sentences per grammar point to prevent rote memorization
-- [ ] **DB-07**: User content subscriptions table tracks which grammar/vocab level lists a user is subscribed to within a language
+- [x] **DB-01**: PostgreSQL schema with all tables language-parameterized via language_id FK
+- [x] **DB-02**: Row-level security policies on all user tables (user_cards, review_log, user_subscriptions, user_notes_import) ensuring users only access own data
+- [x] **DB-03**: Language seed data (Russian, Arabic, English) inserted on schema creation
+- [x] **DB-04**: Morphology JSONB on vocabulary stores per-language grammar features (gender, aspect, root, form, etc.)
+- [x] **DB-05**: Translations table storing vocabulary definitions per UI language (not just English definitions)
+- [x] **DB-06**: Drill sentences support multiple varied sentences per grammar point to prevent rote memorization
+- [x] **DB-07**: User content subscriptions table tracks which grammar/vocab level lists a user is subscribed to within a language
 
 ### SRS Engine
 
-- [ ] **SRS-01**: SM-2 algorithm correctly schedules cards based on quality rating (0-5)
-- [ ] **SRS-02**: Card state tracks ease_factor (floor 1.3), interval, repetitions, streak, lapses
-- [ ] **SRS-03**: Failed reviews (quality < 3) reset repetitions and interval to 1
-- [ ] **SRS-04**: Review log records every review with quality, time taken, and timestamp
-- [ ] **SRS-05**: Cards sorted by next_review ascending for review session queue
+- [x] **SRS-01**: SM-2 algorithm correctly schedules cards based on quality rating (0-5)
+- [x] **SRS-02**: Card state tracks ease_factor (floor 1.3), interval, repetitions, streak, lapses
+- [x] **SRS-03**: Failed reviews (quality < 3) reset repetitions and interval to 1
+- [x] **SRS-04**: Review log records every review with quality, time taken, and timestamp
+- [x] **SRS-05**: Cards sorted by next_review ascending for review session queue
 
 ### NLP & Answer Validation
 
@@ -145,18 +145,18 @@ Which phases cover which requirements. Updated during roadmap creation.
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| DB-01 | Phase 1 | Pending |
-| DB-02 | Phase 1 | Pending |
-| DB-03 | Phase 1 | Pending |
-| DB-04 | Phase 1 | Pending |
-| DB-05 | Phase 1 | Pending |
-| DB-06 | Phase 1 | Pending |
-| DB-07 | Phase 1 | Pending |
-| SRS-01 | Phase 1 | Pending |
-| SRS-02 | Phase 1 | Pending |
-| SRS-03 | Phase 1 | Pending |
-| SRS-04 | Phase 1 | Pending |
-| SRS-05 | Phase 1 | Pending |
+| DB-01 | Phase 1 | Complete |
+| DB-02 | Phase 1 | Complete |
+| DB-03 | Phase 1 | Complete |
+| DB-04 | Phase 1 | Complete |
+| DB-05 | Phase 1 | Complete |
+| DB-06 | Phase 1 | Complete |
+| DB-07 | Phase 1 | Complete |
+| SRS-01 | Phase 1 | Complete |
+| SRS-02 | Phase 1 | Complete |
+| SRS-03 | Phase 1 | Complete |
+| SRS-04 | Phase 1 | Complete |
+| SRS-05 | Phase 1 | Complete |
 | AUTH-01 | Phase 1 | Pending |
 | AUTH-02 | Phase 1 | Pending |
 | AUTH-03 | Phase 1 | Pending |
