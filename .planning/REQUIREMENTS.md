@@ -94,9 +94,9 @@ Requirements for initial release. Each maps to roadmap phases.
 
 ### Authentication
 
-- [ ] **AUTH-01**: User can create account with email/password via Supabase Auth
-- [ ] **AUTH-02**: User can log in with Google OAuth
-- [ ] **AUTH-03**: User session persists across browser refresh
+- [x] **AUTH-01**: User can create account with email/password via Supabase Auth
+- [x] **AUTH-02**: User can log in with Google OAuth
+- [x] **AUTH-03**: User session persists across browser refresh
 
 ## v2 Requirements
 
@@ -157,9 +157,9 @@ Which phases cover which requirements. Updated during roadmap creation.
 | SRS-03 | Phase 1 | Complete |
 | SRS-04 | Phase 1 | Complete |
 | SRS-05 | Phase 1 | Complete |
-| AUTH-01 | Phase 1 | Pending |
-| AUTH-02 | Phase 1 | Pending |
-| AUTH-03 | Phase 1 | Pending |
+| AUTH-01 | Phase 1 | Complete |
+| AUTH-02 | Phase 1 | Complete |
+| AUTH-03 | Phase 1 | Complete |
 | NLP-01 | Phase 2 | Pending |
 | NLP-02 | Phase 2 | Pending |
 | NLP-03 | Phase 2 | Pending |
