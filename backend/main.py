@@ -12,6 +12,7 @@ from backend.repositories.pool import close_pool, init_pool
 from backend.routers.auth import router as auth_router
 from backend.routers.languages import router as languages_router
 from backend.routers.review import router as review_router
+from backend.services.nlp import init_nlp_backends
 
 
 def create_app() -> FastAPI:
@@ -21,6 +22,15 @@ def create_app() -> FastAPI:
     async def lifespan(app: FastAPI):
         settings = get_settings()
         await init_pool(settings.database_url)
+        # Initialize NLP backends — wrapped in try/except so the app can start
+        # even when NLP libraries are not yet installed (dev convenience).
+        try:
+            init_nlp_backends()
+        except Exception:  # noqa: BLE001
+            import logging
+            logging.getLogger(__name__).warning(
+                "init_nlp_backends() failed — NLP answer validation unavailable"
+            )
         yield
         await close_pool()
 
