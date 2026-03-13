@@ -48,9 +48,10 @@ Plans:
   3. Russian backend accepts Latin-to-Cyrillic transliteration as CORRECT_SLOPPY and returns WRONG_FORM with aspect explanation when wrong aspect partner is used
   4. Arabic backend never fails on diacritic presence/absence and returns WRONG_FORM with root + form table when wrong verb form is used
   5. Answer alternatives array is checked before returning WRONG for all languages
-**Plans**: 4 plans
+**Plans**: 5 plans
 
 Plans:
+- [ ] 02-00-PLAN.md -- Wave 0: failing test scaffolds for all NLP backends (RED phase)
 - [ ] 02-01-PLAN.md -- BaseNLP interface, 4-tier check_answer pipeline, AnswerResult relocation, NLP registry
 - [ ] 02-02-PLAN.md -- Russian NLP backend with pymorphy3, transliteration, aspect detection (TDD)
 - [ ] 02-03-PLAN.md -- Arabic NLP backend with camel-tools, diacritic invariance, verb form detection (TDD)
@@ -131,7 +132,7 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4 -> 5/6 (5 and 6 can run in par
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
 | 1. Schema, Auth, and SRS Engine | 2/3 | In Progress|  |
-| 2. NLP Backends and Answer Validation | 0/4 | Not started | - |
+| 2. NLP Backends and Answer Validation | 0/5 | Not started | - |
 | 3. Seed Data Pipeline | 0/2 | Not started | - |
 | 4. Core Review Experience | 0/4 | Not started | - |
 | 5. Progressive Content and ESL | 0/3 | Not started | - |
