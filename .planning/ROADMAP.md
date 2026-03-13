@@ -31,12 +31,12 @@ Decimal phases appear between their surrounding integers in numeric order.
   3. RLS policies enforce that users can only read/write their own data (tested with two separate user accounts)
   4. SM-2 algorithm correctly computes next interval, ease factor (floor 1.3), and resets on failed reviews, with ease recovery mechanism
   5. Review log records every review event with quality rating, time taken, and timestamp
-**Plans**: TBD
+**Plans**: 3 plans
 
 Plans:
-- [ ] 01-01: TBD
-- [ ] 01-02: TBD
-- [ ] 01-03: TBD
+- [ ] 01-01-PLAN.md -- Project scaffold, database schema migrations, RLS policies, and language seed data
+- [ ] 01-02-PLAN.md -- SM-2 algorithm with ease recovery, quality auto-mapping, and interval fuzzing (TDD)
+- [ ] 01-03-PLAN.md -- FastAPI app, JWT auth, RLS-aware repository layer, and API endpoints
 
 ### Phase 2: NLP Backends and Answer Validation
 **Goal**: The system can validate typed answers in Russian, Arabic, and English with nuanced morphological feedback
