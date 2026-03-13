@@ -27,16 +27,16 @@ Requirements for initial release. Each maps to roadmap phases.
 
 ### NLP & Answer Validation
 
-- [ ] **NLP-01**: BaseNLP abstract interface with normalize, lemmatize, get_morphological_family, get_aspect_partner, check_answer
-- [ ] **NLP-02**: 4-tier answer validation: exact → normalized → lemma → morphological family, returning AnswerResult enum (CORRECT / CORRECT_SLOPPY / WRONG_FORM / WRONG)
-- [ ] **NLP-03**: Russian NLP backend (pymorphy3) with morphological analysis, lemmatization, case/gender/aspect detection
-- [ ] **NLP-04**: Russian answer validation accepts Latin→Cyrillic transliteration as CORRECT_SLOPPY
-- [ ] **NLP-05**: Russian aspect partner detection returns WRONG_FORM with explanation when wrong aspect used
-- [ ] **NLP-06**: Arabic NLP backend (camel-tools) with tashkeel stripping, alef normalization (أإآ→ا), tatweel removal, root extraction
-- [ ] **NLP-07**: Arabic answer validation never fails purely on diacritic presence/absence
-- [ ] **NLP-08**: Arabic verb form detection returns WRONG_FORM with root + form table when wrong form used
-- [ ] **NLP-09**: English NLP backend (spaCy) with lemmatization, article stripping, irregular verb handling
-- [ ] **NLP-10**: Answer alternatives array checked before returning WRONG (regional spellings, archaic forms, aspect partners)
+- [x] **NLP-01**: BaseNLP abstract interface with normalize, lemmatize, get_morphological_family, get_aspect_partner, check_answer
+- [x] **NLP-02**: 4-tier answer validation: exact → normalized → lemma → morphological family, returning AnswerResult enum (CORRECT / CORRECT_SLOPPY / WRONG_FORM / WRONG)
+- [x] **NLP-03**: Russian NLP backend (pymorphy3) with morphological analysis, lemmatization, case/gender/aspect detection
+- [x] **NLP-04**: Russian answer validation accepts Latin→Cyrillic transliteration as CORRECT_SLOPPY
+- [x] **NLP-05**: Russian aspect partner detection returns WRONG_FORM with explanation when wrong aspect used
+- [x] **NLP-06**: Arabic NLP backend (camel-tools) with tashkeel stripping, alef normalization (أإآ→ا), tatweel removal, root extraction
+- [x] **NLP-07**: Arabic answer validation never fails purely on diacritic presence/absence
+- [x] **NLP-08**: Arabic verb form detection returns WRONG_FORM with root + form table when wrong form used
+- [x] **NLP-09**: English NLP backend (spaCy) with lemmatization, article stripping, irregular verb handling
+- [x] **NLP-10**: Answer alternatives array checked before returning WRONG (regional spellings, archaic forms, aspect partners)
 
 ### Seed Data
 
@@ -160,16 +160,16 @@ Which phases cover which requirements. Updated during roadmap creation.
 | AUTH-01 | Phase 1 | Complete |
 | AUTH-02 | Phase 1 | Complete |
 | AUTH-03 | Phase 1 | Complete |
-| NLP-01 | Phase 2 | Pending |
-| NLP-02 | Phase 2 | Pending |
-| NLP-03 | Phase 2 | Pending |
-| NLP-04 | Phase 2 | Pending |
-| NLP-05 | Phase 2 | Pending |
-| NLP-06 | Phase 2 | Pending |
-| NLP-07 | Phase 2 | Pending |
-| NLP-08 | Phase 2 | Pending |
-| NLP-09 | Phase 2 | Pending |
-| NLP-10 | Phase 2 | Pending |
+| NLP-01 | Phase 2 | Complete |
+| NLP-02 | Phase 2 | Complete |
+| NLP-03 | Phase 2 | Complete |
+| NLP-04 | Phase 2 | Complete |
+| NLP-05 | Phase 2 | Complete |
+| NLP-06 | Phase 2 | Complete |
+| NLP-07 | Phase 2 | Complete |
+| NLP-08 | Phase 2 | Complete |
+| NLP-09 | Phase 2 | Complete |
+| NLP-10 | Phase 2 | Complete |
 | SEED-01 | Phase 3 | Pending |
 | SEED-02 | Phase 3 | Pending |
 | SEED-03 | Phase 3 | Pending |

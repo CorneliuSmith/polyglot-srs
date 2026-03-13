@@ -2,15 +2,15 @@
 gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
-status: executing
-stopped_at: Completed Phase 1
-last_updated: "2026-03-13"
-last_activity: "2026-03-13 -- Completed Plan 03: FastAPI app, JWT auth, repos, API routers (31 tests pass)"
+status: completed
+stopped_at: Completed 02-00-PLAN.md (NLP TDD RED phase)
+last_updated: "2026-03-13T20:52:14.873Z"
+last_activity: "2026-03-13 -- Completed Plan 03: FastAPI app, JWT auth, repos, API routers"
 progress:
   total_phases: 6
   completed_phases: 1
-  total_plans: 3
-  completed_plans: 3
+  total_plans: 8
+  completed_plans: 4
   percent: 17
 ---
 
@@ -48,6 +48,7 @@ Progress: [██░░░░░░░░] 17%
 **Recent Trend:**
 - Last 5 plans: 01-01 (scaffold), 01-02 (SRS engine), 01-03 (API layer)
 - Trend: stable
+| Phase 02-nlp-backends-and-answer-validation P00 | 4 | 2 tasks | 4 files |
 
 ## Accumulated Context
 
@@ -66,6 +67,9 @@ Recent decisions affecting current work:
 - [Phase 01]: Per-operation RLS policies (SELECT/INSERT/UPDATE/DELETE separately) on user tables
 - [Phase 01]: morphology JSONB on vocabulary for per-language grammar features
 - [Phase 01]: Polymorphic card_id + card_type discriminator on user_cards
+- [Phase 02-00]: get_aspect_partner(verb, card_context=None) standardized two-parameter signature — Layer 5 in check_answer calls self.get_aspect_partner(correct, card_context)
+- [Phase 02-00]: Arabic tests use pytest.importorskip('camel_tools') to skip gracefully when camel-tools data not installed; English uses importorskip('spacy') similarly
+- [Phase 02-00]: Taa marbuta vs ha tested as CORRECT_SLOPPY — not normalized away — avoids conflating semantically distinct words
 
 ### Pending Todos
 
@@ -79,6 +83,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-03-13
-Stopped at: Completed Phase 1
+Last session: 2026-03-13T20:52:14.870Z
+Stopped at: Completed 02-00-PLAN.md (NLP TDD RED phase)
 Resume file: None
