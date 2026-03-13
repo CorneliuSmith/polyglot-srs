@@ -9,7 +9,8 @@ from __future__ import annotations
 import random
 from dataclasses import dataclass
 from datetime import datetime, timedelta, timezone
-from enum import Enum
+
+from backend.services.nlp.base import AnswerResult  # noqa: F401 — re-exported for callers
 
 # ---------------------------------------------------------------------------
 # Constants
@@ -29,23 +30,8 @@ EASE_TARGET: float = 2.5
 
 
 # ---------------------------------------------------------------------------
-# Enums
-# ---------------------------------------------------------------------------
-
-class AnswerResult(Enum):
-    """User answer quality categories.
-
-    This is a LOCKED DECISION — values map directly to SM-2 quality scores
-    via QUALITY_MAP and must not be changed without updating dependent code.
-    """
-    CORRECT = "correct"
-    CORRECT_SLOPPY = "correct_sloppy"
-    WRONG_FORM = "wrong_form"
-    WRONG = "wrong"
-
-
-# ---------------------------------------------------------------------------
 # Quality mapping (LOCKED DECISION)
+# AnswerResult is defined in backend.services.nlp.base and imported above.
 # ---------------------------------------------------------------------------
 
 QUALITY_MAP: dict[AnswerResult, int] = {
