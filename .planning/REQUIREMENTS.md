@@ -40,10 +40,10 @@ Requirements for initial release. Each maps to roadmap phases.
 
 ### Seed Data
 
-- [ ] **SEED-01**: Russian seed data imported from OpenRussian TSV dumps (words + translations), transformed for our schema
+- [x] **SEED-01**: Russian seed data imported from OpenRussian TSV dumps (words + translations), transformed for our schema
 - [ ] **SEED-02**: Arabic seed data imported from Arabic Wordnet + OpenSubtitles frequency list
 - [ ] **SEED-03**: English seed data imported from COCA frequency list + WordNet definitions
-- [ ] **SEED-04**: Seed scripts download, transform, and load data into Supabase — data lives in our DB shaped for our needs
+- [x] **SEED-04**: Seed scripts download, transform, and load data into Supabase — data lives in our DB shaped for our needs
 
 ### Progressive Content
 
@@ -170,10 +170,10 @@ Which phases cover which requirements. Updated during roadmap creation.
 | NLP-08 | Phase 2 | Complete |
 | NLP-09 | Phase 2 | Complete |
 | NLP-10 | Phase 2 | Complete |
-| SEED-01 | Phase 3 | Pending |
+| SEED-01 | Phase 3 | Complete |
 | SEED-02 | Phase 3 | Pending |
 | SEED-03 | Phase 3 | Pending |
-| SEED-04 | Phase 3 | Pending |
+| SEED-04 | Phase 3 | Complete |
 | REV-01 | Phase 4 | Pending |
 | REV-02 | Phase 4 | Pending |
 | REV-03 | Phase 4 | Pending |
