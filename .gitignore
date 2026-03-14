@@ -49,3 +49,11 @@ supabase/.branches/
 
 # Logs
 *.log
+
+# Seed data — downloaded files are large and should not be committed
+# Curated/hand-crafted files are explicitly allowed below
+data/ru_*.tsv
+data/ar_*.tsv
+data/en_*.tsv
+!data/ar_seed.json
+!data/en_frequency.tsv
