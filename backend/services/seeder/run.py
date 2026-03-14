@@ -4,6 +4,7 @@ Usage:
     python -m backend.services.seeder.run --language ru
     python -m backend.services.seeder.run --language all
     python -m backend.services.seeder.run --language ar --db-url postgresql://...
+    python -m backend.services.seeder.run --file vocab.csv --language ar
 """
 import argparse
 import asyncio
@@ -24,12 +25,30 @@ async def main():
         default=os.environ.get("DATABASE_URL"),
         help="PostgreSQL connection URL (or set DATABASE_URL env var)",
     )
+    parser.add_argument(
+        "--file", "-f",
+        help="Import vocabulary from a CSV or TSV file (requires --language, cannot be 'all')",
+    )
     args = parser.parse_args()
 
     logging.basicConfig(level=logging.INFO, format="%(name)s | %(message)s")
 
     if not args.db_url:
         print("ERROR: DATABASE_URL not set. Pass --db-url or set DATABASE_URL env var.")
+        return
+
+    # --file mode: route to CSVImporter instead of built-in seeders
+    if args.file:
+        if not args.language or args.language == "all":
+            print("ERROR: --language is required when using --file (cannot be 'all')")
+            return
+        from .csv_importer import CSVImporter
+        seeder = CSVImporter(args.db_url, args.language, args.file)
+        try:
+            count = await seeder.run()
+            print(f"OK {seeder.language_code}: {count} words loaded from {args.file}")
+        except Exception as e:
+            print(f"FAIL {seeder.language_code}: {e}")
         return
 
     seeders = []
