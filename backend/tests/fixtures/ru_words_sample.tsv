@@ -1,0 +1,11 @@
+id	bare	accented	rank	position	part_of_speech	disabled
+1	я	я́	1		pronoun	0
+2	быть	быть	2		verb	0
+3	он	он	3		pronoun	0
+4	они	они	4		pronoun	0
+5	это	это	5		pronoun	0
+6	говорить	говори́ть	600		verb	0
+7	книга	кни́га	1600		noun	0
+8	работать	рабо́тать	3100		verb	0
+9	disabled_word	disabled_word	100		noun	1
+10	студент	студе́нт	5100		noun	0
