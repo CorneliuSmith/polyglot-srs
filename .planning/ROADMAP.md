@@ -70,7 +70,7 @@ Plans:
 
 Plans:
 - [ ] 03-01-PLAN.md -- Seed infrastructure (BaseSeeder, CLI, migration) + Russian seeder (OpenRussian TSV + pymorphy3)
-- [ ] 03-02-PLAN.md -- Arabic seeder with curated seed file + optional camel-tools enrichment
+- [x] 03-02-PLAN.md -- Arabic seeder with curated seed file + optional camel-tools enrichment
 - [ ] 03-03-PLAN.md -- English seeder (WordNet + frequency list) + integration validation
 - [x] 03-04-PLAN.md -- Generic CSV/TSV importer with validation (script checks, schema checks, error reporting)
 
@@ -135,7 +135,7 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4 -> 5/6 (5 and 6 can run in par
 |-------|----------------|--------|-----------|
 | 1. Schema, Auth, and SRS Engine | 2/3 | In Progress|  |
 | 2. NLP Backends and Answer Validation | 3/5 | In Progress | - |
-| 3. Seed Data Pipeline | 2/4 | In Progress|  |
+| 3. Seed Data Pipeline | 3/4 | In Progress|  |
 | 4. Core Review Experience | 0/4 | Not started | - |
 | 5. Progressive Content and ESL | 0/3 | Not started | - |
 | 6. Content Enrichment and Language Polish | 0/3 | Not started | - |

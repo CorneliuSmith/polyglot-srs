@@ -3,15 +3,15 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: in_progress
-stopped_at: Completed 03-04-PLAN.md
-last_updated: "2026-03-14T15:32:06Z"
-last_activity: "2026-03-14 -- Phase 3, Plan 4 complete: Generic CSV/TSV Importer with Validation"
+stopped_at: Completed 03-02-PLAN.md
+last_updated: "2026-03-14T15:33:05Z"
+last_activity: "2026-03-14 -- Phase 3, Plan 2 complete: Arabic Seeder with 225-word curated seed"
 progress:
   total_phases: 6
   completed_phases: 2
   total_plans: 12
-  completed_plans: 10
-  percent: 39
+  completed_plans: 11
+  percent: 42
 ---
 
 # Project State
@@ -21,16 +21,16 @@ progress:
 See: .planning/PROJECT.md (updated 2026-03-12)
 
 **Core value:** Smart SRS review loop with language-aware answer checking -- users type answers and get nuanced feedback powered by per-language NLP backends
-**Current focus:** Phase 3 in progress. Plans 03-01 and 03-04 complete. Plans 03-02 and 03-03 remaining.
+**Current focus:** Phase 3 in progress. Plans 03-01, 03-02 and 03-04 complete. Plan 03-03 remaining.
 
 ## Current Position
 
 Phase: 3 of 6 (Seed Data Pipeline) — IN PROGRESS
-Plan: 4 of 4 in phase — 03-01 and 03-04 complete, 03-02 and 03-03 remaining
-Status: BaseSeeder + RussianSeeder + CSVImporter with 53 tests passing
-Last activity: 2026-03-14 -- 03-04 Generic CSV/TSV Importer with Validation complete
+Plan: 3 of 4 in phase — 03-01, 03-02 and 03-04 complete, 03-03 remaining
+Status: BaseSeeder + RussianSeeder + ArabicSeeder + CSVImporter with 73 tests passing
+Last activity: 2026-03-14 -- 03-02 Arabic Seeder with 225-word curated seed complete
 
-Progress: [████░░░░░░] 39%
+Progress: [█████░░░░░] 42%
 
 ## Performance Metrics
 
@@ -45,7 +45,7 @@ Progress: [████░░░░░░] 39%
 |-------|-------|-------|----------|
 | 01-schema-auth-and-srs-engine | 3/3 | ~24 min | ~8 min |
 | 02-nlp-backends-and-answer-validation | 5/5 | ~16 min | ~3 min |
-| 03-seed-data-pipeline | 2/4 | ~13 min | ~6.5 min |
+| 03-seed-data-pipeline | 3/4 | ~21 min | ~7 min |
 
 ## Accumulated Context
 
@@ -85,6 +85,9 @@ Recent decisions affecting current work:
 - [03-04]: Fail-fast CSV validation — all row errors collected before any DB write; ValueError lists every failure
 - [03-04]: Unknown language codes skip script validation rather than failing — forward-compatible for new languages
 - [03-04]: DictReader None-safety: (row.get(key) or '') pattern — DictReader yields None for empty cells when column exists in header
+- [03-02]: Curated 225-word seed over Arabic Wordnet — better quality, stable, 31.7 KB
+- [03-02]: setdefault for camel-tools enrichment — seed file morphology takes priority over analyzer
+- [03-02]: if v is not None strips morphology Nones while preserving falsy strings
 
 ### Pending Todos
 
@@ -96,6 +99,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-03-14T15:32:06Z
-Stopped at: Completed 03-04-PLAN.md
+Last session: 2026-03-14T15:33:05Z
+Stopped at: Completed 03-02-PLAN.md
 Resume file: None
