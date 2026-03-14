@@ -3,15 +3,15 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: in_progress
-stopped_at: Completed 03-01-PLAN.md
-last_updated: "2026-03-14T15:25:08Z"
-last_activity: "2026-03-14 -- Phase 3, Plan 1 complete: Seed Infrastructure + Russian Seeder"
+stopped_at: Completed 03-04-PLAN.md
+last_updated: "2026-03-14T15:32:06Z"
+last_activity: "2026-03-14 -- Phase 3, Plan 4 complete: Generic CSV/TSV Importer with Validation"
 progress:
   total_phases: 6
   completed_phases: 2
   total_plans: 12
-  completed_plans: 9
-  percent: 36
+  completed_plans: 10
+  percent: 39
 ---
 
 # Project State
@@ -21,16 +21,16 @@ progress:
 See: .planning/PROJECT.md (updated 2026-03-12)
 
 **Core value:** Smart SRS review loop with language-aware answer checking -- users type answers and get nuanced feedback powered by per-language NLP backends
-**Current focus:** Phase 3 in progress. Plan 03-01 complete, plans 03-02 and 03-03 ready.
+**Current focus:** Phase 3 in progress. Plans 03-01 and 03-04 complete. Plans 03-02 and 03-03 remaining.
 
 ## Current Position
 
 Phase: 3 of 6 (Seed Data Pipeline) — IN PROGRESS
-Plan: 1 of 3 in phase — 03-01 complete
-Status: BaseSeeder + RussianSeeder implemented with 30 tests passing
-Last activity: 2026-03-14 -- 03-01 Seed Infrastructure + Russian Seeder complete
+Plan: 4 of 4 in phase — 03-01 and 03-04 complete, 03-02 and 03-03 remaining
+Status: BaseSeeder + RussianSeeder + CSVImporter with 53 tests passing
+Last activity: 2026-03-14 -- 03-04 Generic CSV/TSV Importer with Validation complete
 
-Progress: [████░░░░░░] 36%
+Progress: [████░░░░░░] 39%
 
 ## Performance Metrics
 
@@ -45,7 +45,7 @@ Progress: [████░░░░░░] 36%
 |-------|-------|-------|----------|
 | 01-schema-auth-and-srs-engine | 3/3 | ~24 min | ~8 min |
 | 02-nlp-backends-and-answer-validation | 5/5 | ~16 min | ~3 min |
-| 03-seed-data-pipeline | 1/3 | ~9 min | ~9 min |
+| 03-seed-data-pipeline | 2/4 | ~13 min | ~6.5 min |
 
 ## Accumulated Context
 
@@ -82,6 +82,9 @@ Recent decisions affecting current work:
 - [03-01]: morphology passed as JSON string to asyncpg with ::jsonb cast — asyncpg does not auto-serialize dicts for jsonb
 - [03-01]: reading=None when accented == bare — avoids redundant data for words without accent markers
 - [03-01]: CLI runner gracefully skips ar/en seeders with ImportError for incremental rollout
+- [03-04]: Fail-fast CSV validation — all row errors collected before any DB write; ValueError lists every failure
+- [03-04]: Unknown language codes skip script validation rather than failing — forward-compatible for new languages
+- [03-04]: DictReader None-safety: (row.get(key) or '') pattern — DictReader yields None for empty cells when column exists in header
 
 ### Pending Todos
 
@@ -93,6 +96,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-03-14T15:25:08Z
-Stopped at: Completed 03-01-PLAN.md
+Last session: 2026-03-14T15:32:06Z
+Stopped at: Completed 03-04-PLAN.md
 Resume file: None
