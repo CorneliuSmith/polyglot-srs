@@ -1,0 +1,87 @@
+[
+  {
+    "word": "كتب",
+    "reading": "كَتَبَ",
+    "pos": "verb",
+    "rank": 15,
+    "root": "كتب",
+    "form": "I",
+    "translations": {"en": "to write"}
+  },
+  {
+    "word": "كتاب",
+    "reading": "كِتَاب",
+    "pos": "noun",
+    "rank": 42,
+    "root": "كتب",
+    "gender": "m",
+    "translations": {"en": "book"}
+  },
+  {
+    "word": "مدرسة",
+    "reading": "مَدْرَسَة",
+    "pos": "noun",
+    "rank": 29,
+    "root": "درس",
+    "gender": "f",
+    "translations": {"en": "school"}
+  },
+  {
+    "word": "تكلم",
+    "reading": "تَكَلَّمَ",
+    "pos": "verb",
+    "rank": 30,
+    "root": "كلم",
+    "form": "V",
+    "translations": {"en": "to speak"}
+  },
+  {
+    "word": "استطاع",
+    "reading": "اسْتَطَاعَ",
+    "pos": "verb",
+    "rank": 35,
+    "root": "طوع",
+    "form": "X",
+    "translations": {"en": "to be able to"}
+  },
+  {
+    "word": "جميل",
+    "reading": "جَمِيل",
+    "pos": "adj",
+    "rank": 43,
+    "root": "جمل",
+    "translations": {"en": "beautiful"}
+  },
+  {
+    "word": "في",
+    "reading": "فِي",
+    "pos": "particle",
+    "rank": 1,
+    "translations": {"en": "in, at"}
+  },
+  {
+    "word": "تليفون",
+    "reading": "تِلِيفُون",
+    "pos": "noun",
+    "rank": 97,
+    "gender": "m",
+    "translations": {"en": "telephone"}
+  },
+  {
+    "word": "مرحبا",
+    "reading": "مَرْحَبًا",
+    "pos": "phrase",
+    "rank": 134,
+    "root": "رحب",
+    "translations": {"en": "hello, welcome"}
+  },
+  {
+    "word": "اقتصاد",
+    "reading": "اِقْتِصَاد",
+    "pos": "noun",
+    "rank": 292,
+    "root": "قصد",
+    "gender": "m",
+    "translations": {"en": "economy"}
+  }
+]
