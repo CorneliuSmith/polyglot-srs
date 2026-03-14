@@ -1,0 +1,61 @@
+"""CLI runner for vocabulary seed scripts.
+
+Usage:
+    python -m backend.services.seeder.run --language ru
+    python -m backend.services.seeder.run --language all
+    python -m backend.services.seeder.run --language ar --db-url postgresql://...
+"""
+import argparse
+import asyncio
+import logging
+import os
+
+
+async def main():
+    parser = argparse.ArgumentParser(description="Seed vocabulary data into the database")
+    parser.add_argument(
+        "--language", "-l",
+        choices=["ru", "ar", "en", "all"],
+        default="all",
+        help="Language to seed (default: all)",
+    )
+    parser.add_argument(
+        "--db-url",
+        default=os.environ.get("DATABASE_URL"),
+        help="PostgreSQL connection URL (or set DATABASE_URL env var)",
+    )
+    args = parser.parse_args()
+
+    logging.basicConfig(level=logging.INFO, format="%(name)s | %(message)s")
+
+    if not args.db_url:
+        print("ERROR: DATABASE_URL not set. Pass --db-url or set DATABASE_URL env var.")
+        return
+
+    seeders = []
+    if args.language in ("ru", "all"):
+        from .seed_russian import RussianSeeder
+        seeders.append(RussianSeeder(args.db_url))
+    if args.language in ("ar", "all"):
+        try:
+            from .seed_arabic import ArabicSeeder
+            seeders.append(ArabicSeeder(args.db_url))
+        except ImportError:
+            print("SKIP ar: seed_arabic module not yet implemented")
+    if args.language in ("en", "all"):
+        try:
+            from .seed_english import EnglishSeeder
+            seeders.append(EnglishSeeder(args.db_url))
+        except ImportError:
+            print("SKIP en: seed_english module not yet implemented")
+
+    for seeder in seeders:
+        try:
+            count = await seeder.run()
+            print(f"OK {seeder.language_code}: {count} words loaded")
+        except Exception as e:
+            print(f"FAIL {seeder.language_code}: {e}")
+
+
+if __name__ == "__main__":
+    asyncio.run(main())
