@@ -1,0 +1,9 @@
+word,definition,pos,level,frequency_rank
+,no word here,noun,A1,
+good,,verb,A1,
+table,a flat-topped piece of furniture,bad_pos,A1,
+chair,a separate seat for one person,noun,Z9,
+lamp,a device for giving light,noun,A1,-5
+book,a written or printed work,noun,A1,
+book,a duplicate book entry,noun,A1,
+pen,a writing instrument,noun,A1,0

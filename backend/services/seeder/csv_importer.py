@@ -136,7 +136,7 @@ class CSVImporter(BaseSeeder):
             # Morphology JSONB from optional columns
             morphology: dict[str, str] = {}
             for key in ("root", "form", "gender", "aspect", "aspect_partner"):
-                val = row.get(key, "").strip()
+                val = (row.get(key) or "").strip()
                 if val:
                     morphology[key] = val
 
@@ -144,25 +144,25 @@ class CSVImporter(BaseSeeder):
             translations: dict[str, str] = {"en": row["definition"].strip()}
             for locale in ("ru", "ar", "es", "pt"):
                 col = f"definition_{locale}"
-                val = row.get(col, "").strip()
+                val = (row.get(col) or "").strip()
                 if val:
                     translations[locale] = val
 
             # Pipe-separated alternatives
-            alt_str = row.get("alternatives", "").strip()
+            alt_str = (row.get("alternatives") or "").strip()
             alternatives = (
                 [a.strip() for a in alt_str.split("|") if a.strip()] if alt_str else []
             )
 
-            freq = row.get("frequency_rank", "").strip()
+            freq = (row.get("frequency_rank") or "").strip()
             freq_rank = int(freq) if freq and freq.isdigit() else None
-            level_raw = row.get("level", "").strip().upper()
+            level_raw = (row.get("level") or "").strip().upper()
             level = level_raw or self.rank_to_level(freq_rank)
 
             records.append({
                 "word": row["word"].strip(),
-                "reading": row.get("reading", "").strip() or None,
-                "pos": row.get("pos", "").strip().lower() or None,
+                "reading": (row.get("reading") or "").strip() or None,
+                "pos": (row.get("pos") or "").strip().lower() or None,
                 "level": level or None,
                 "frequency_rank": freq_rank,
                 "morphology": json.dumps(morphology, ensure_ascii=False) if morphology else "{}",
