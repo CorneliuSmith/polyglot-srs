@@ -84,13 +84,14 @@ Plans:
   3. User can start a Learn session that adds a batch of new items from subscribed lists, and a Review session that drills only previously learned items via SRS queue
   4. Arabic content renders correctly in RTL layout with proper bidirectional text handling, and on-screen keyboards work for Cyrillic and Arabic input
   5. Interface is mobile-responsive with touch-friendly targets (44px+)
-**Plans**: TBD
+**Plans**: 5 plans
 
 Plans:
-- [ ] 04-01: TBD
-- [ ] 04-02: TBD
-- [ ] 04-03: TBD
-- [ ] 04-04: TBD
+- [ ] 04-01-PLAN.md -- Backend API: extend get_due_cards with content JOIN, add validate-answer, learn, and dashboard endpoints
+- [ ] 04-02-PLAN.md -- Frontend scaffold: Vite + React + Tailwind v4, Supabase auth, API client, Zustand stores, routing
+- [ ] 04-03-PLAN.md -- Login page + dashboard with language picker, due count, streak, CEFR progress, session buttons
+- [ ] 04-04-PLAN.md -- Review session: DrillCard, FeedbackPanel, RatingButtons, useReviewSession hook, session summary
+- [ ] 04-05-PLAN.md -- RTL layout for Arabic, on-screen keyboards for Cyrillic/Arabic, mobile responsiveness audit
 
 ### Phase 5: Progressive Content and ESL
 **Goal**: Grammar content is structured as a progressive CEFR curriculum with prerequisite chains, and ESL learners see content in their native language
@@ -136,6 +137,6 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4 -> 5/6 (5 and 6 can run in par
 | 1. Schema, Auth, and SRS Engine | 2/3 | In Progress|  |
 | 2. NLP Backends and Answer Validation | 3/5 | In Progress | - |
 | 3. Seed Data Pipeline | 3/4 | In Progress|  |
-| 4. Core Review Experience | 0/4 | Not started | - |
+| 4. Core Review Experience | 0/5 | Not started | - |
 | 5. Progressive Content and ESL | 0/3 | Not started | - |
 | 6. Content Enrichment and Language Polish | 0/3 | Not started | - |
