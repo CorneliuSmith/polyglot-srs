@@ -66,8 +66,8 @@ Requirements for initial release. Each maps to roadmap phases.
 - [ ] **REV-04**: WRONG_FORM feedback shows grammar explanation (aspect distinction, case needed, verb form table)
 - [ ] **REV-05**: CORRECT_SLOPPY shows warning with nudge toward correct form
 - [ ] **REV-06**: Session summary shows accuracy %, time spent, cards reviewed
-- [ ] **REV-07**: Learn mode adds a batch of new items from user's subscribed grammar/vocab level lists within the active language
-- [ ] **REV-08**: Review mode drills only previously learned items from the active language via SRS queue
+- [x] **REV-07**: Learn mode adds a batch of new items from user's subscribed grammar/vocab level lists within the active language
+- [x] **REV-08**: Review mode drills only previously learned items from the active language via SRS queue
 
 ### Content Enrichment
 
@@ -77,7 +77,7 @@ Requirements for initial release. Each maps to roadmap phases.
 
 ### Frontend & UX
 
-- [ ] **UX-01**: Per-language dashboard showing due card count, current streak, CEFR progress bars
+- [x] **UX-01**: Per-language dashboard showing due card count, current streak, CEFR progress bars
 - [ ] **UX-02**: RTL layout for Arabic (dir="rtl", Noto Naskh Arabic font, mirrored layouts, large font size)
 - [ ] **UX-03**: On-screen keyboards for Cyrillic and Arabic script input
 - [ ] **UX-04**: Browse grammar points and vocabulary by language and CEFR level
@@ -180,9 +180,9 @@ Which phases cover which requirements. Updated during roadmap creation.
 | REV-04 | Phase 4 | Pending |
 | REV-05 | Phase 4 | Pending |
 | REV-06 | Phase 4 | Pending |
-| REV-07 | Phase 4 | Pending |
-| REV-08 | Phase 4 | Pending |
-| UX-01 | Phase 4 | Pending |
+| REV-07 | Phase 4 | Complete |
+| REV-08 | Phase 4 | Complete |
+| UX-01 | Phase 4 | Complete |
 | UX-02 | Phase 4 | Pending |
 | UX-03 | Phase 4 | Pending |
 | UX-08 | Phase 4 | Pending |

@@ -2,15 +2,15 @@
 gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
-status: Backend review API complete — validate-answer, learn, dashboard endpoints with 282 tests passing
-stopped_at: Completed 04-01-PLAN.md
-last_updated: "2026-03-15T00:00:00.000Z"
+status: completed
+stopped_at: Completed 04-03-PLAN.md
+last_updated: "2026-03-15T05:52:47.588Z"
 last_activity: 2026-03-15 -- 04-01 review API endpoints with NLP dispatch and dashboard stats
 progress:
   total_phases: 6
   completed_phases: 3
   total_plans: 17
-  completed_plans: 14
+  completed_plans: 15
   percent: 47
 ---
 
@@ -48,6 +48,7 @@ Progress: [██████░░░░] 47%
 | 03-seed-data-pipeline | 3/4 | ~21 min | ~7 min |
 | 04-core-review-experience P04-02 | 12 | 2 tasks | 20 files |
 | 04-core-review-experience P04-01 | ~8 min | 2 tasks | 7 files |
+| Phase 04-core-review-experience P04-03 | 29min | 2 tasks | 10 files |
 
 ## Accumulated Context
 
@@ -98,6 +99,10 @@ Recent decisions affecting current work:
 - [04-01]: ValueError from get_nlp() caught and returned as HTTP 422 not 500 in validate-answer endpoint
 - [04-01]: TestClient mocks: patch backend.main.init_pool/close_pool/get_settings to bypass lifespan DB init
 - [04-01]: Streak grace period: if no review today but review yesterday, streak counts from yesterday
+- [Phase 04-03]: ProtectedRoute checks loading before isAuthenticated to prevent flash redirect to /login during session restore
+- [Phase 04-03]: LanguagePicker auto-selects first language via useEffect when store is null and languages are loaded, persisting to both store and server
+- [Phase 04-03]: CEFRProgress always renders all 6 CEFR levels with progress[level] ?? 0 so users see what is ahead even with empty progress
+- [Phase 04-03]: authStore loading starts true; set false after getSession() resolves — prevents flash redirect on hard refresh
 
 ### Pending Todos
 
@@ -109,6 +114,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-03-15T00:00:00.000Z
-Stopped at: Completed 04-01-PLAN.md
+Last session: 2026-03-15T05:52:47.584Z
+Stopped at: Completed 04-03-PLAN.md
 Resume file: None
