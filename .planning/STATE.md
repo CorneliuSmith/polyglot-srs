@@ -3,14 +3,14 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: completed
-stopped_at: Completed 04-03-PLAN.md
-last_updated: "2026-03-15T05:52:47.588Z"
+stopped_at: Completed 04-04-PLAN.md
+last_updated: "2026-03-15T06:03:57.139Z"
 last_activity: 2026-03-15 -- 04-01 review API endpoints with NLP dispatch and dashboard stats
 progress:
   total_phases: 6
   completed_phases: 3
   total_plans: 17
-  completed_plans: 15
+  completed_plans: 16
   percent: 47
 ---
 
@@ -49,6 +49,7 @@ Progress: [██████░░░░] 47%
 | 04-core-review-experience P04-02 | 12 | 2 tasks | 20 files |
 | 04-core-review-experience P04-01 | ~8 min | 2 tasks | 7 files |
 | Phase 04-core-review-experience P04-03 | 29min | 2 tasks | 10 files |
+| Phase 04-core-review-experience P04-04 | 20 | 2 tasks | 14 files |
 
 ## Accumulated Context
 
@@ -103,6 +104,9 @@ Recent decisions affecting current work:
 - [Phase 04-03]: LanguagePicker auto-selects first language via useEffect when store is null and languages are loaded, persisting to both store and server
 - [Phase 04-03]: CEFRProgress always renders all 6 CEFR levels with progress[level] ?? 0 so users see what is ahead even with empty progress
 - [Phase 04-03]: authStore loading starts true; set false after getSession() resolves — prevents flash redirect on hard refresh
+- [Phase 04-04]: vitest globals:true added to vitest.config.ts — jest-dom setup.ts expects global expect which was undefined without it
+- [Phase 04-04]: mock.calls[0][0].toMatchObject() used in tests instead of toHaveBeenCalledWith() — TanStack Query passes context as second arg to mutationFn breaking strict equality
+- [Phase 04-44]: DrillCard vocabulary mode: absence of {{answer}} marker indicates type-the-word mode matching 04-01 backend where sentence=definition for vocabulary cards
 
 ### Pending Todos
 
@@ -114,6 +118,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-03-15T05:52:47.584Z
-Stopped at: Completed 04-03-PLAN.md
+Last session: 2026-03-15T06:03:57.135Z
+Stopped at: Completed 04-04-PLAN.md
 Resume file: None

@@ -60,12 +60,12 @@ Requirements for initial release. Each maps to roadmap phases.
 
 ### Review Experience
 
-- [ ] **REV-01**: Review session presents due cards in queue, sorted by next_review
-- [ ] **REV-02**: Fill-in-the-blank drill mode with {{answer}} markers in sentences
-- [ ] **REV-03**: Quality rating buttons (Again/Hard/Good/Easy) map to SM-2 quality scores
-- [ ] **REV-04**: WRONG_FORM feedback shows grammar explanation (aspect distinction, case needed, verb form table)
-- [ ] **REV-05**: CORRECT_SLOPPY shows warning with nudge toward correct form
-- [ ] **REV-06**: Session summary shows accuracy %, time spent, cards reviewed
+- [x] **REV-01**: Review session presents due cards in queue, sorted by next_review
+- [x] **REV-02**: Fill-in-the-blank drill mode with {{answer}} markers in sentences
+- [x] **REV-03**: Quality rating buttons (Again/Hard/Good/Easy) map to SM-2 quality scores
+- [x] **REV-04**: WRONG_FORM feedback shows grammar explanation (aspect distinction, case needed, verb form table)
+- [x] **REV-05**: CORRECT_SLOPPY shows warning with nudge toward correct form
+- [x] **REV-06**: Session summary shows accuracy %, time spent, cards reviewed
 - [x] **REV-07**: Learn mode adds a batch of new items from user's subscribed grammar/vocab level lists within the active language
 - [x] **REV-08**: Review mode drills only previously learned items from the active language via SRS queue
 
@@ -174,12 +174,12 @@ Which phases cover which requirements. Updated during roadmap creation.
 | SEED-02 | Phase 3 | Pending |
 | SEED-03 | Phase 3 | Pending |
 | SEED-04 | Phase 3 | Complete |
-| REV-01 | Phase 4 | Pending |
-| REV-02 | Phase 4 | Pending |
-| REV-03 | Phase 4 | Pending |
-| REV-04 | Phase 4 | Pending |
-| REV-05 | Phase 4 | Pending |
-| REV-06 | Phase 4 | Pending |
+| REV-01 | Phase 4 | Complete |
+| REV-02 | Phase 4 | Complete |
+| REV-03 | Phase 4 | Complete |
+| REV-04 | Phase 4 | Complete |
+| REV-05 | Phase 4 | Complete |
+| REV-06 | Phase 4 | Complete |
 | REV-07 | Phase 4 | Complete |
 | REV-08 | Phase 4 | Complete |
 | UX-01 | Phase 4 | Complete |
