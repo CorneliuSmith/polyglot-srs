@@ -87,7 +87,7 @@ Plans:
 **Plans**: 5 plans
 
 Plans:
-- [ ] 04-01-PLAN.md -- Backend API: extend get_due_cards with content JOIN, add validate-answer, learn, and dashboard endpoints
+- [x] 04-01-PLAN.md -- Backend API: extend get_due_cards with content JOIN, add validate-answer, learn, and dashboard endpoints
 - [ ] 04-02-PLAN.md -- Frontend scaffold: Vite + React + Tailwind v4, Supabase auth, API client, Zustand stores, routing
 - [ ] 04-03-PLAN.md -- Login page + dashboard with language picker, due count, streak, CEFR progress, session buttons
 - [ ] 04-04-PLAN.md -- Review session: DrillCard, FeedbackPanel, RatingButtons, useReviewSession hook, session summary
@@ -137,6 +137,6 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4 -> 5/6 (5 and 6 can run in par
 | 1. Schema, Auth, and SRS Engine | 2/3 | In Progress|  |
 | 2. NLP Backends and Answer Validation | 3/5 | In Progress | - |
 | 3. Seed Data Pipeline | 3/4 | In Progress|  |
-| 4. Core Review Experience | 1/5 | In Progress|  |
+| 4. Core Review Experience | 2/5 | In Progress|  |
 | 5. Progressive Content and ESL | 0/3 | Not started | - |
 | 6. Content Enrichment and Language Polish | 0/3 | Not started | - |

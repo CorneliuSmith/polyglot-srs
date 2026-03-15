@@ -2,16 +2,16 @@
 gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
-status: BaseSeeder + RussianSeeder + ArabicSeeder + CSVImporter with 73 tests passing
-stopped_at: Completed 04-02-PLAN.md
-last_updated: "2026-03-15T05:15:13.146Z"
-last_activity: 2026-03-14 -- 03-02 Arabic Seeder with 225-word curated seed complete
+status: Backend review API complete — validate-answer, learn, dashboard endpoints with 282 tests passing
+stopped_at: Completed 04-01-PLAN.md
+last_updated: "2026-03-15T00:00:00.000Z"
+last_activity: 2026-03-15 -- 04-01 review API endpoints with NLP dispatch and dashboard stats
 progress:
   total_phases: 6
   completed_phases: 3
   total_plans: 17
-  completed_plans: 13
-  percent: 42
+  completed_plans: 14
+  percent: 47
 ---
 
 # Project State
@@ -21,16 +21,16 @@ progress:
 See: .planning/PROJECT.md (updated 2026-03-12)
 
 **Core value:** Smart SRS review loop with language-aware answer checking -- users type answers and get nuanced feedback powered by per-language NLP backends
-**Current focus:** Phase 3 in progress. Plans 03-01, 03-02 and 03-04 complete. Plan 03-03 remaining.
+**Current focus:** Phase 4 in progress. Plan 04-01 complete (backend API). 04-02 (frontend scaffold) also complete. 04-03 remaining.
 
 ## Current Position
 
-Phase: 3 of 6 (Seed Data Pipeline) — IN PROGRESS
-Plan: 3 of 4 in phase — 03-01, 03-02 and 03-04 complete, 03-03 remaining
-Status: BaseSeeder + RussianSeeder + ArabicSeeder + CSVImporter with 73 tests passing
-Last activity: 2026-03-14 -- 03-02 Arabic Seeder with 225-word curated seed complete
+Phase: 4 of 6 (Core Review Experience) — IN PROGRESS
+Plan: 2 of 5 in phase — 04-01 and 04-02 complete, 04-03 through 04-05 remaining
+Status: Backend review API complete — validate-answer, learn, dashboard with 282 tests
+Last activity: 2026-03-15 -- 04-01 review API endpoints with NLP dispatch and dashboard stats
 
-Progress: [█████░░░░░] 42%
+Progress: [██████░░░░] 47%
 
 ## Performance Metrics
 
@@ -46,7 +46,8 @@ Progress: [█████░░░░░] 42%
 | 01-schema-auth-and-srs-engine | 3/3 | ~24 min | ~8 min |
 | 02-nlp-backends-and-answer-validation | 5/5 | ~16 min | ~3 min |
 | 03-seed-data-pipeline | 3/4 | ~21 min | ~7 min |
-| Phase 04-core-review-experience P04-02 | 12 | 2 tasks | 20 files |
+| 04-core-review-experience P04-02 | 12 | 2 tasks | 20 files |
+| 04-core-review-experience P04-01 | ~8 min | 2 tasks | 7 files |
 
 ## Accumulated Context
 
@@ -92,6 +93,11 @@ Recent decisions affecting current work:
 - [Phase 04-core-review-experience]: QueryClientProvider wraps AppInner inside App.tsx — App owns its providers for encapsulation
 - [Phase 04-core-review-experience]: [04-02]: axios 401 retry uses double cast (as unknown as Record<string,unknown>) to set _retry flag — avoids TypeScript index signature mismatch on InternalAxiosRequestConfig
 - [Phase 04-core-review-experience]: [04-02]: Zustand persist key is 'polyglot-prefs' for active language selection
+- [04-01]: Two separate queries merged in Python for get_due_cards (vocabulary + grammar) — cleaner than UNION ALL with type casting
+- [04-01]: Vocabulary cards: sentence=definition, correct_answer=word (type-the-word, no {{answer}} marker)
+- [04-01]: ValueError from get_nlp() caught and returned as HTTP 422 not 500 in validate-answer endpoint
+- [04-01]: TestClient mocks: patch backend.main.init_pool/close_pool/get_settings to bypass lifespan DB init
+- [04-01]: Streak grace period: if no review today but review yesterday, streak counts from yesterday
 
 ### Pending Todos
 
@@ -103,6 +109,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-03-15T05:15:13.143Z
-Stopped at: Completed 04-02-PLAN.md
+Last session: 2026-03-15T00:00:00.000Z
+Stopped at: Completed 04-01-PLAN.md
 Resume file: None
