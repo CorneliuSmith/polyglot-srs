@@ -89,7 +89,7 @@ Requirements for initial release. Each maps to roadmap phases.
 ### User Profile
 
 - [ ] **PROF-01**: User profile stores batch size setting (default 5 new items per Learn session per list)
-- [ ] **PROF-02**: User selects active language in UI — all Learn/Review/Dashboard scoped to that language
+- [x] **PROF-02**: User selects active language in UI — all Learn/Review/Dashboard scoped to that language
 - [ ] **PROF-03**: User manages which grammar/vocab level lists they are subscribed to within each language
 
 ### Authentication
@@ -187,7 +187,7 @@ Which phases cover which requirements. Updated during roadmap creation.
 | UX-03 | Phase 4 | Pending |
 | UX-08 | Phase 4 | Pending |
 | PROF-01 | Phase 4 | Pending |
-| PROF-02 | Phase 4 | Pending |
+| PROF-02 | Phase 4 | Complete |
 | PROG-01 | Phase 5 | Pending |
 | PROG-02 | Phase 5 | Pending |
 | PROG-03 | Phase 5 | Pending |

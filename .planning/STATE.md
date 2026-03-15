@@ -3,14 +3,14 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: BaseSeeder + RussianSeeder + ArabicSeeder + CSVImporter with 73 tests passing
-stopped_at: Completed 03-02-PLAN.md
-last_updated: "2026-03-15T01:47:03.337Z"
+stopped_at: Completed 04-02-PLAN.md
+last_updated: "2026-03-15T05:15:13.146Z"
 last_activity: 2026-03-14 -- 03-02 Arabic Seeder with 225-word curated seed complete
 progress:
   total_phases: 6
   completed_phases: 3
-  total_plans: 12
-  completed_plans: 12
+  total_plans: 17
+  completed_plans: 13
   percent: 42
 ---
 
@@ -46,6 +46,7 @@ Progress: [█████░░░░░] 42%
 | 01-schema-auth-and-srs-engine | 3/3 | ~24 min | ~8 min |
 | 02-nlp-backends-and-answer-validation | 5/5 | ~16 min | ~3 min |
 | 03-seed-data-pipeline | 3/4 | ~21 min | ~7 min |
+| Phase 04-core-review-experience P04-02 | 12 | 2 tasks | 20 files |
 
 ## Accumulated Context
 
@@ -88,6 +89,9 @@ Recent decisions affecting current work:
 - [03-02]: Curated 225-word seed over Arabic Wordnet — better quality, stable, 31.7 KB
 - [03-02]: setdefault for camel-tools enrichment — seed file morphology takes priority over analyzer
 - [03-02]: if v is not None strips morphology Nones while preserving falsy strings
+- [Phase 04-core-review-experience]: QueryClientProvider wraps AppInner inside App.tsx — App owns its providers for encapsulation
+- [Phase 04-core-review-experience]: [04-02]: axios 401 retry uses double cast (as unknown as Record<string,unknown>) to set _retry flag — avoids TypeScript index signature mismatch on InternalAxiosRequestConfig
+- [Phase 04-core-review-experience]: [04-02]: Zustand persist key is 'polyglot-prefs' for active language selection
 
 ### Pending Todos
 
@@ -99,6 +103,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-03-14T15:33:05Z
-Stopped at: Completed 03-02-PLAN.md
+Last session: 2026-03-15T05:15:13.143Z
+Stopped at: Completed 04-02-PLAN.md
 Resume file: None

@@ -137,6 +137,6 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4 -> 5/6 (5 and 6 can run in par
 | 1. Schema, Auth, and SRS Engine | 2/3 | In Progress|  |
 | 2. NLP Backends and Answer Validation | 3/5 | In Progress | - |
 | 3. Seed Data Pipeline | 3/4 | In Progress|  |
-| 4. Core Review Experience | 0/5 | Not started | - |
+| 4. Core Review Experience | 1/5 | In Progress|  |
 | 5. Progressive Content and ESL | 0/3 | Not started | - |
 | 6. Content Enrichment and Language Polish | 0/3 | Not started | - |
