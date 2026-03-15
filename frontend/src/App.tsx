@@ -7,15 +7,12 @@ import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { supabase } from './lib/supabase'
 import { useAuthStore } from './stores/authStore'
 import LoginPage from './features/auth/LoginPage'
+import DashboardPage from './features/dashboard/DashboardPage'
 import ProtectedRoute from './components/ProtectedRoute'
 
 const queryClient = new QueryClient()
 
 // Placeholder pages — will be replaced in 04-04 and 04-05
-function DashboardPage() {
-  return <div>Dashboard</div>
-}
-
 function ReviewSessionPage() {
   return <div>Review Session</div>
 }
