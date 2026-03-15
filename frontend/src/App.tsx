@@ -8,18 +8,11 @@ import { supabase } from './lib/supabase'
 import { useAuthStore } from './stores/authStore'
 import LoginPage from './features/auth/LoginPage'
 import DashboardPage from './features/dashboard/DashboardPage'
+import ReviewSessionPage from './features/review/ReviewSessionPage'
+import LearnPage from './features/review/LearnPage'
 import ProtectedRoute from './components/ProtectedRoute'
 
 const queryClient = new QueryClient()
-
-// Placeholder pages — will be replaced in 04-04 and 04-05
-function ReviewSessionPage() {
-  return <div>Review Session</div>
-}
-
-function LearnPage() {
-  return <div>Learn</div>
-}
 
 const router = createBrowserRouter([
   {
