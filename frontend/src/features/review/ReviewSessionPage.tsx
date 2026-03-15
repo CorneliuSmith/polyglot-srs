@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useRef } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useQuery, useMutation } from '@tanstack/react-query'
 import { getDueCards, validateAnswer, submitReview } from '../../api/review'
@@ -8,12 +8,15 @@ import DrillCard from './DrillCard'
 import FeedbackPanel from './FeedbackPanel'
 import RatingButtons from './RatingButtons'
 import SessionSummary from './SessionSummary'
+import OnScreenKeyboard from '../keyboards/OnScreenKeyboard'
 
 export default function ReviewSessionPage() {
   const navigate = useNavigate()
   const activeLanguageId = usePrefsStore((s) => s.activeLanguageId)
   const [userInput, setUserInput] = useState('')
   const [lastInput, setLastInput] = useState('')
+  const [showKeyboard, setShowKeyboard] = useState(true)
+  const inputRef = useRef<HTMLInputElement>(null)
 
   const { data: cards = [], isLoading } = useQuery({
     queryKey: ['due-cards', activeLanguageId],
@@ -67,6 +70,26 @@ export default function ReviewSessionPage() {
     session.rate(answerResult)
   }
 
+  const handleKeyboardKeyPress = (key: string) => {
+    const input = inputRef.current
+    if (!input) {
+      // If no ref available, just append
+      setUserInput((prev) => prev + key)
+      return
+    }
+
+    const start = input.selectionStart ?? input.value.length
+    const end = input.selectionEnd ?? input.value.length
+    const newValue = input.value.slice(0, start) + key + input.value.slice(end)
+    setUserInput(newValue)
+
+    // Restore cursor position after React re-render
+    requestAnimationFrame(() => {
+      input.focus()
+      input.setSelectionRange(start + key.length, start + key.length)
+    })
+  }
+
   if (isLoading) {
     return (
       <div className="min-h-screen bg-gray-50 flex items-center justify-center">
@@ -83,7 +106,7 @@ export default function ReviewSessionPage() {
           <button
             type="button"
             onClick={() => navigate('/')}
-            className="text-indigo-600 hover:underline text-sm"
+            className="text-indigo-600 hover:underline text-sm touch-manipulation"
           >
             Back to Dashboard
           </button>
@@ -106,7 +129,7 @@ export default function ReviewSessionPage() {
   const card = session.currentCard
   if (!card) return null
 
-  const dir = card.language_code === 'ar' ? 'rtl' : 'ltr'
+  const needsKeyboard = card.language_code === 'ru' || card.language_code === 'ar'
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -128,7 +151,7 @@ export default function ReviewSessionPage() {
         </div>
 
         {/* Card area */}
-        <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-8">
+        <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-6 md:p-8">
           {card.hint && (
             <p className="text-sm text-gray-400 text-center mb-4">{card.hint}</p>
           )}
@@ -139,20 +162,12 @@ export default function ReviewSessionPage() {
             onChange={setUserInput}
             onSubmit={handleSubmitAnswer}
             disabled={session.phase !== 'answering' || validateMutation.isPending}
-            dir={dir}
+            languageCode={card.language_code}
+            inputRef={inputRef}
           />
 
           {card.translation && session.phase === 'answering' && (
             <p className="text-xs text-gray-400 text-center mt-4">{card.translation}</p>
-          )}
-
-          {session.phase !== 'answering' && (
-            <button
-              type="button"
-              onClick={handleSubmitAnswer}
-              disabled={validateMutation.isPending || session.phase !== 'answering'}
-              className="hidden"
-            />
           )}
         </div>
 
@@ -162,11 +177,34 @@ export default function ReviewSessionPage() {
             type="button"
             onClick={handleSubmitAnswer}
             disabled={!userInput.trim() || validateMutation.isPending}
-            className="w-full bg-indigo-600 hover:bg-indigo-700 disabled:opacity-50 text-white font-semibold rounded-xl px-6 py-3 text-sm transition-colors"
+            className="w-full bg-indigo-600 hover:bg-indigo-700 disabled:opacity-50 text-white font-semibold rounded-xl px-6 py-3 text-sm transition-colors touch-manipulation"
             style={{ minHeight: '44px' }}
           >
             {validateMutation.isPending ? 'Checking…' : 'Submit Answer'}
           </button>
+        )}
+
+        {/* On-screen keyboard for Russian and Arabic */}
+        {needsKeyboard && session.phase === 'answering' && (
+          <div className="space-y-2">
+            <div className="flex justify-end">
+              <button
+                type="button"
+                onClick={() => setShowKeyboard((v) => !v)}
+                className="text-xs text-gray-500 hover:text-gray-700 border border-gray-200 rounded-lg px-3 py-1.5 touch-manipulation"
+                style={{ minHeight: '44px' }}
+              >
+                {showKeyboard ? 'Hide Keyboard' : 'Show Keyboard'}
+              </button>
+            </div>
+            {showKeyboard && (
+              <OnScreenKeyboard
+                languageCode={card.language_code as 'ru' | 'ar'}
+                onKeyPress={handleKeyboardKeyPress}
+                inputRef={inputRef}
+              />
+            )}
+          </div>
         )}
 
         {/* Feedback phase */}
