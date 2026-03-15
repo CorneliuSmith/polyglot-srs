@@ -2,20 +2,16 @@ import { useEffect } from 'react'
 import {
   createBrowserRouter,
   RouterProvider,
-  Navigate,
-  Outlet,
 } from 'react-router-dom'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { supabase } from './lib/supabase'
 import { useAuthStore } from './stores/authStore'
+import LoginPage from './features/auth/LoginPage'
+import ProtectedRoute from './components/ProtectedRoute'
 
 const queryClient = new QueryClient()
 
-// Placeholder pages
-function LoginPage() {
-  return <div>Login</div>
-}
-
+// Placeholder pages — will be replaced in 04-04 and 04-05
 function DashboardPage() {
   return <div>Dashboard</div>
 }
@@ -28,22 +24,13 @@ function LearnPage() {
   return <div>Learn</div>
 }
 
-// Protected route wrapper
-function ProtectedLayout() {
-  const isAuthenticated = useAuthStore((s) => s.isAuthenticated)()
-  if (!isAuthenticated) {
-    return <Navigate to="/login" replace />
-  }
-  return <Outlet />
-}
-
 const router = createBrowserRouter([
   {
     path: '/login',
     element: <LoginPage />,
   },
   {
-    element: <ProtectedLayout />,
+    element: <ProtectedRoute />,
     children: [
       { path: '/', element: <DashboardPage /> },
       { path: '/review', element: <ReviewSessionPage /> },
@@ -54,11 +41,13 @@ const router = createBrowserRouter([
 
 function AppInner() {
   const setSession = useAuthStore((s) => s.setSession)
+  const setLoading = useAuthStore((s) => s.setLoading)
 
   useEffect(() => {
-    // Initialise session from storage
+    // Initialise session from storage then clear loading
     supabase.auth.getSession().then(({ data }) => {
       setSession(data.session)
+      setLoading(false)
     })
 
     // Track auth state changes (login, logout, token refresh)
@@ -71,7 +60,7 @@ function AppInner() {
     return () => {
       listener.subscription.unsubscribe()
     }
-  }, [setSession])
+  }, [setSession, setLoading])
 
   return <RouterProvider router={router} />
 }
