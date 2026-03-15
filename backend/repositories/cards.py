@@ -8,26 +8,169 @@ import asyncpg
 async def get_due_cards(
     conn: asyncpg.Connection, language_id: str, limit: int = 20
 ) -> list[dict]:
-    """Return due cards for the authenticated user, sorted by next_review ASC.
+    """Return due cards for the authenticated user with full card content.
 
-    RLS automatically filters to the connection's user context.
+    Performs two queries (one for vocabulary, one for grammar) merged in Python
+    and sorted by next_review ASC.  RLS automatically filters to the
+    connection's user context.
+
+    Vocabulary cards — type-the-word mode:
+      sentence = definition text (no {{answer}} marker)
+      correct_answer = vocabulary.word
+
+    Grammar cards — fill-in-the-blank mode:
+      sentence = drill sentence with {{answer}} marker
+      correct_answer = grammar_points.title (placeholder for Phase 4)
     """
-    rows = await conn.fetch(
+    # -- Vocabulary cards ---------------------------------------------------
+    vocab_rows = await conn.fetch(
         """
-        SELECT id, user_id, language_id, card_type, card_id,
-               ease_factor, interval, repetitions, streak, lapses,
-               next_review, last_review, is_suspended, created_at
-        FROM user_cards
-        WHERE language_id = $1
-          AND next_review <= now()
-          AND is_suspended = false
-        ORDER BY next_review ASC
+        SELECT
+            uc.id,
+            uc.user_id,
+            uc.language_id,
+            uc.card_type,
+            uc.card_id,
+            -- type-the-word mode: sentence = definition, answer = word
+            COALESCE(t.definition, v.word) AS sentence,
+            v.word                          AS correct_answer,
+            NULL::text                      AS hint,
+            NULL::text                      AS translation,
+            v.morphology                    AS morphology,
+            v.alternatives                  AS alternatives,
+            l.code                          AS language_code,
+            uc.ease_factor,
+            uc.interval,
+            uc.repetitions,
+            uc.streak,
+            uc.lapses,
+            uc.next_review
+        FROM user_cards uc
+        JOIN vocabulary v       ON uc.card_id = v.id
+        JOIN languages l        ON uc.language_id = l.id
+        LEFT JOIN translations t
+               ON v.id = t.vocabulary_id AND t.locale = 'en'
+        WHERE uc.language_id = $1
+          AND uc.card_type = 'vocabulary'
+          AND uc.next_review <= now()
+          AND uc.is_suspended = false
+        ORDER BY uc.next_review ASC
         LIMIT $2
         """,
         language_id,
         limit,
     )
-    return [dict(r) for r in rows]
+
+    # -- Grammar cards -------------------------------------------------------
+    grammar_rows = await conn.fetch(
+        """
+        SELECT
+            uc.id,
+            uc.user_id,
+            uc.language_id,
+            uc.card_type,
+            uc.card_id,
+            -- fill-in-the-blank mode: sentence contains {{answer}} marker
+            ds.sentence                     AS sentence,
+            gp.title                        AS correct_answer,
+            ds.hint                         AS hint,
+            ds.translation                  AS translation,
+            NULL::jsonb                     AS morphology,
+            NULL::text[]                    AS alternatives,
+            l.code                          AS language_code,
+            uc.ease_factor,
+            uc.interval,
+            uc.repetitions,
+            uc.streak,
+            uc.lapses,
+            uc.next_review
+        FROM user_cards uc
+        JOIN grammar_points gp  ON uc.card_id = gp.id
+        JOIN languages l        ON uc.language_id = l.id
+        LEFT JOIN drill_sentences ds ON gp.id = ds.grammar_point_id
+        WHERE uc.language_id = $1
+          AND uc.card_type = 'grammar'
+          AND uc.next_review <= now()
+          AND uc.is_suspended = false
+        ORDER BY uc.next_review ASC
+        LIMIT $2
+        """,
+        language_id,
+        limit,
+    )
+
+    # Merge and sort by next_review
+    combined = [dict(r) for r in vocab_rows] + [dict(r) for r in grammar_rows]
+    combined.sort(key=lambda r: r["next_review"])
+    return combined[:limit]
+
+
+async def add_learn_batch(
+    conn: asyncpg.Connection,
+    user_id: str,
+    language_id: str,
+    batch_size: int,
+) -> dict:
+    """Add a batch of new vocabulary cards to user_cards from subscribed lists.
+
+    Selects vocabulary the user has not yet learned, ordered by frequency_rank
+    ASC (most frequent first), limited to batch_size.  Cards are inserted with
+    default SRS values and next_review = now() so they are immediately due.
+
+    Returns:
+        {"added": int, "items": list[str]}  — count and list of new user_card IDs
+    """
+    # Select candidate vocabulary IDs the user hasn't started yet
+    vocab_rows = await conn.fetch(
+        """
+        SELECT v.id
+        FROM vocabulary v
+        JOIN content_lists cl
+               ON v.language_id = cl.language_id
+              AND cl.list_type = 'vocabulary'
+        JOIN user_content_subscriptions ucs
+               ON cl.id = ucs.content_list_id
+              AND ucs.user_id = $1
+        WHERE v.language_id = $2
+          AND v.id NOT IN (
+              SELECT card_id FROM user_cards
+              WHERE user_id = $1 AND card_type = 'vocabulary'
+          )
+        ORDER BY v.frequency_rank ASC NULLS LAST
+        LIMIT $3
+        """,
+        user_id,
+        language_id,
+        batch_size,
+    )
+
+    if not vocab_rows:
+        return {"added": 0, "items": []}
+
+    vocab_ids = [r["id"] for r in vocab_rows]
+
+    # Insert new user_cards for each selected vocabulary item
+    inserted_ids = []
+    for vocab_id in vocab_ids:
+        row = await conn.fetchrow(
+            """
+            INSERT INTO user_cards
+                (user_id, language_id, card_type, card_id,
+                 ease_factor, interval, repetitions, streak, lapses,
+                 next_review)
+            VALUES
+                ($1, $2, 'vocabulary', $3,
+                 2.5, 0, 0, 0, 0,
+                 now())
+            RETURNING id
+            """,
+            user_id,
+            language_id,
+            vocab_id,
+        )
+        inserted_ids.append(str(row["id"]))
+
+    return {"added": len(inserted_ids), "items": inserted_ids}
 
 
 async def update_card_srs(
