@@ -41,8 +41,8 @@ Requirements for initial release. Each maps to roadmap phases.
 ### Seed Data
 
 - [x] **SEED-01**: Russian seed data imported from OpenRussian TSV dumps (words + translations), transformed for our schema
-- [ ] **SEED-02**: Arabic seed data imported from Arabic Wordnet + OpenSubtitles frequency list
-- [ ] **SEED-03**: English seed data imported from COCA frequency list + WordNet definitions
+- [x] **SEED-02**: Arabic seed data from curated 225-word JSON (Arabic Wordnet XML too unstable; curated data has verified roots, forms, tashkeel)
+- [x] **SEED-03**: English seed data from subtitle-derived frequency list + WordNet definitions (COCA requires license; open frequency list used instead)
 - [x] **SEED-04**: Seed scripts download, transform, and load data into Supabase — data lives in our DB shaped for our needs
 
 ### Progressive Content

@@ -62,9 +62,9 @@ Plans:
 **Depends on**: Phase 1, Phase 2
 **Requirements**: SEED-01, SEED-02, SEED-03, SEED-04
 **Success Criteria** (what must be TRUE):
-  1. Russian vocabulary is loaded from OpenRussian TSV with translations, morphology JSONB (including aspect partner data), and frequency ranking
-  2. Arabic vocabulary is loaded from Arabic Wordnet + OpenSubtitles frequency list with root extraction and morphology JSONB populated
-  3. English vocabulary is loaded from COCA frequency list + WordNet definitions with lemma and morphology data
+  1. Russian vocabulary is loaded from OpenRussian TSV with translations, morphology JSONB (gender, aspect, animacy), and frequency ranking (aspect_partner deferred to Phase 6 enrichment — pymorphy3 doesn't provide it)
+  2. Arabic vocabulary is loaded from curated 225-word seed file with root extraction and morphology JSONB populated (Arabic Wordnet XML too unstable; curated data preferred)
+  3. English vocabulary is loaded from subtitle-derived frequency list + WordNet definitions with lemma and morphology data (COCA requires license)
   4. Seed scripts are repeatable (download, transform, load) and produce data shaped for the application schema, not raw external formats
 **Plans**: 4 plans
 
