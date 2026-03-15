@@ -10,6 +10,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from backend.config import get_settings
 from backend.repositories.pool import close_pool, init_pool
 from backend.routers.auth import router as auth_router
+from backend.routers.dashboard import router as dashboard_router
 from backend.routers.languages import router as languages_router
 from backend.routers.review import router as review_router
 from backend.services.nlp import init_nlp_backends
@@ -37,6 +38,7 @@ def create_app() -> FastAPI:
     _app = FastAPI(title="PolyglotSRS", lifespan=lifespan)
 
     _app.include_router(auth_router, prefix="/api/auth", tags=["auth"])
+    _app.include_router(dashboard_router, prefix="/api/dashboard", tags=["dashboard"])
     _app.include_router(languages_router, prefix="/api/languages", tags=["languages"])
     _app.include_router(review_router, prefix="/api/review", tags=["review"])
 

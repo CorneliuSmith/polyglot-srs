@@ -1,4 +1,4 @@
-"""Review router — due cards and SM-2 submission."""
+"""Review router — due cards, SM-2 submission, NLP validation, and learn."""
 
 from __future__ import annotations
 
@@ -6,9 +6,10 @@ from pydantic import BaseModel
 from fastapi import APIRouter, Depends, HTTPException, status
 
 from backend.dependencies import get_current_user
-from backend.repositories.cards import get_due_cards, update_card_srs
+from backend.repositories.cards import get_due_cards, update_card_srs, add_learn_batch
 from backend.repositories.pool import rls_connection
 from backend.repositories.review import insert_review_log
+from backend.services.nlp import validate_answer_async
 from backend.services.srs import (
     AnswerResult,
     CardState,
@@ -30,6 +31,17 @@ class SubmitReview(BaseModel):
     card_id: str
     answer_result: str
     time_taken_ms: int | None = None
+
+
+class ValidateAnswerRequest(BaseModel):
+    language_code: str
+    user_input: str
+    correct_answer: str
+    card_context: dict | None = None
+
+
+class LearnRequest(BaseModel):
+    language_id: str
 
 
 @router.get("/due")
@@ -113,3 +125,55 @@ async def submit_review(
         "interval": result.interval,
         "quality": quality,
     }
+
+
+@router.post("/validate-answer")
+async def validate_answer(
+    body: ValidateAnswerRequest,
+    user: dict = Depends(get_current_user),
+):
+    """Validate the user's typed answer using the language-specific NLP backend.
+
+    Returns the AnswerResult enum name in lowercase and an optional feedback string.
+    Returns HTTP 422 (not 500) when the language code has no registered backend.
+    """
+    try:
+        answer_result, feedback = await validate_answer_async(
+            body.language_code,
+            body.user_input,
+            body.correct_answer,
+            body.card_context,
+        )
+    except ValueError as exc:
+        raise HTTPException(
+            status_code=422,
+            detail=f"Unsupported language: {body.language_code}",
+        ) from exc
+
+    return {
+        "answer_result": answer_result.name.lower(),
+        "feedback": feedback,
+    }
+
+
+@router.post("/learn")
+async def learn(
+    body: LearnRequest,
+    user: dict = Depends(get_current_user),
+):
+    """Add a batch of new vocabulary cards from the user's subscribed lists.
+
+    Reads batch_size from the user's profile (default 5 if no profile row).
+    Returns the count of added cards and their new user_card IDs.
+    """
+    async with rls_connection(user["id"]) as conn:
+        # Read batch_size from user_profiles (default 5 if no row)
+        profile_row = await conn.fetchrow(
+            "SELECT batch_size FROM user_profiles WHERE id = $1",
+            user["id"],
+        )
+        batch_size = int(profile_row["batch_size"]) if profile_row else 5
+
+        result = await add_learn_batch(conn, user["id"], body.language_id, batch_size)
+
+    return result
