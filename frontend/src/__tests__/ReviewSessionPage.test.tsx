@@ -23,7 +23,7 @@ import { usePrefsStore } from '../stores/prefsStore'
 const mockGetDueCards = getDueCards as ReturnType<typeof vi.fn>
 const mockValidateAnswer = validateAnswer as ReturnType<typeof vi.fn>
 const mockSubmitReview = submitReview as ReturnType<typeof vi.fn>
-const mockUsePrefsStore = usePrefsStore as ReturnType<typeof vi.fn>
+const mockUsePrefsStore = usePrefsStore as unknown as ReturnType<typeof vi.fn>
 
 const testCard: DueCard = {
   id: 'card-abc',

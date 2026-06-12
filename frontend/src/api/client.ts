@@ -21,12 +21,13 @@ apiClient.interceptors.response.use(
     if (
       axios.isAxiosError(error) &&
       error.response?.status === 401 &&
-      !(error.config as unknown as Record<string, unknown>)?._retry
+      error.config &&
+      !(error.config as unknown as Record<string, unknown>)._retry
     ) {
       const config = error.config as unknown as Record<string, unknown>
       config._retry = true
       const { data } = await supabase.auth.refreshSession()
-      if (data.session?.access_token && error.config) {
+      if (data.session?.access_token) {
         error.config.headers = error.config.headers ?? {}
         error.config.headers.Authorization = `Bearer ${data.session.access_token}`
         return apiClient(error.config)

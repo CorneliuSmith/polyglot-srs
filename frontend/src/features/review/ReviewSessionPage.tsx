@@ -16,6 +16,7 @@ export default function ReviewSessionPage() {
   const [userInput, setUserInput] = useState('')
   const [lastInput, setLastInput] = useState('')
   const [showKeyboard, setShowKeyboard] = useState(true)
+  const [saveErrorCount, setSaveErrorCount] = useState(0)
   const inputRef = useRef<HTMLInputElement>(null)
 
   const { data: cards = [], isLoading } = useQuery({
@@ -35,10 +36,12 @@ export default function ReviewSessionPage() {
     },
   })
 
+  // The session advances optimistically in rate(); if the backend save
+  // fails, the review is lost server-side, so surface that to the user.
   const submitMutation = useMutation({
     mutationFn: submitReview,
-    onSuccess: () => {
-      // card already advanced in rate()
+    onError: () => {
+      setSaveErrorCount((n) => n + 1)
     },
   })
 
@@ -51,8 +54,8 @@ export default function ReviewSessionPage() {
       user_input: userInput.trim(),
       correct_answer: card.correct_answer,
       card_context: {
-        morphology: card.morphology,
-        alternatives: card.alternatives,
+        morphology: card.morphology ?? {},
+        alternatives: card.alternatives ?? [],
       },
     })
   }
@@ -117,12 +120,24 @@ export default function ReviewSessionPage() {
 
   if (session.phase === 'summary' || session.isComplete) {
     return (
-      <SessionSummary
-        accuracy={session.accuracy}
-        totalTimeMs={session.totalTimeMs}
-        cardsReviewed={session.cardsReviewed}
-        onFinish={() => navigate('/')}
-      />
+      <div>
+        {saveErrorCount > 0 && (
+          <div
+            role="alert"
+            className="max-w-2xl mx-auto mt-4 bg-red-50 border border-red-200 text-red-700 text-sm rounded-xl px-4 py-3"
+          >
+            {saveErrorCount === 1
+              ? '1 review could not be saved and will reappear in a future session.'
+              : `${saveErrorCount} reviews could not be saved and will reappear in a future session.`}
+          </div>
+        )}
+        <SessionSummary
+          accuracy={session.accuracy}
+          totalTimeMs={session.totalTimeMs}
+          cardsReviewed={session.cardsReviewed}
+          onFinish={() => navigate('/')}
+        />
+      </div>
     )
   }
 
@@ -134,6 +149,16 @@ export default function ReviewSessionPage() {
   return (
     <div className="min-h-screen bg-gray-50">
       <div className="max-w-2xl mx-auto px-4 py-8 space-y-6">
+        {saveErrorCount > 0 && (
+          <div
+            role="alert"
+            className="bg-red-50 border border-red-200 text-red-700 text-sm rounded-xl px-4 py-3"
+          >
+            {saveErrorCount === 1
+              ? 'Your last review could not be saved. Check your connection — it will reappear in a future session.'
+              : `${saveErrorCount} reviews could not be saved. Check your connection — they will reappear in a future session.`}
+          </div>
+        )}
         {/* Progress */}
         <div className="flex items-center justify-between text-sm text-gray-500">
           <span>

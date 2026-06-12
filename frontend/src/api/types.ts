@@ -11,10 +11,11 @@ export interface DueCard {
   card_id: string
   sentence: string
   correct_answer: string
-  hint?: string
-  translation?: string
-  morphology: Record<string, unknown>
-  alternatives: string[]
+  hint?: string | null
+  translation?: string | null
+  // null for grammar cards — the backend only populates these for vocabulary
+  morphology: Record<string, unknown> | null
+  alternatives: string[] | null
   language_code: string
   ease_factor: number
   interval: number
@@ -54,10 +55,15 @@ export interface LearnResponse {
   items: string[]
 }
 
+export interface CEFRLevelProgress {
+  learned: number
+  total: number
+}
+
 export interface DashboardStats {
   due_count: number
   streak_days: number
-  cefr_progress: Record<string, number>
+  cefr_progress: Record<string, CEFRLevelProgress>
 }
 
 export interface UserProfile {

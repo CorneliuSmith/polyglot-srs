@@ -6,7 +6,7 @@ import arabicLayout from 'simple-keyboard-layouts/build/layouts/arabic'
 interface OnScreenKeyboardProps {
   languageCode: 'ru' | 'ar'
   onKeyPress: (key: string) => void
-  inputRef?: React.RefObject<HTMLInputElement>
+  inputRef?: React.RefObject<HTMLInputElement | null>
 }
 
 export default function OnScreenKeyboard({ languageCode, onKeyPress }: OnScreenKeyboardProps) {
