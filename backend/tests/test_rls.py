@@ -23,7 +23,7 @@ USER_B_ID = "00000000-0000-0000-0000-000000000002"
 @pytest.mark.asyncio
 async def test_user_cannot_see_other_user_cards():
     """User A should not see User B's cards via RLS."""
-    from backend.repositories.pool import init_pool, close_pool, rls_connection
+    from backend.repositories.pool import close_pool, init_pool, rls_connection
 
     await init_pool(os.environ["DATABASE_URL"])
     try:
@@ -44,7 +44,7 @@ async def test_user_cannot_see_other_user_cards():
 @pytest.mark.asyncio
 async def test_user_cannot_insert_card_for_other_user():
     """INSERT with mismatched user_id should be rejected by RLS."""
-    from backend.repositories.pool import init_pool, close_pool, rls_connection
+    from backend.repositories.pool import close_pool, init_pool, rls_connection
 
     await init_pool(os.environ["DATABASE_URL"])
     try:
@@ -59,7 +59,7 @@ async def test_user_cannot_insert_card_for_other_user():
 @pytest.mark.asyncio
 async def test_review_log_is_append_only():
     """UPDATE and DELETE on review_log should be blocked by RLS."""
-    from backend.repositories.pool import init_pool, close_pool, rls_connection
+    from backend.repositories.pool import close_pool, init_pool, rls_connection
 
     await init_pool(os.environ["DATABASE_URL"])
     try:

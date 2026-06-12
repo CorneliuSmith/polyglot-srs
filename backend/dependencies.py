@@ -32,6 +32,7 @@ async def get_current_user(
             settings.supabase_jwt_secret,
             audience="authenticated",
             algorithms=["HS256"],
+            options={"require": ["exp", "sub"]},
         )
         return {"id": payload["sub"], "email": payload.get("email")}
     except jwt.PyJWTError:

@@ -1,7 +1,7 @@
 """Tests for BaseSeeder infrastructure."""
 import pytest
-from backend.services.seeder.base import BaseSeeder
 
+from backend.services.seeder.base import BaseSeeder
 
 # ── Concrete stub for testing abstract interface ──────────────────────────────
 

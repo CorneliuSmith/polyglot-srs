@@ -2,11 +2,11 @@
 
 from __future__ import annotations
 
-from pydantic import BaseModel
 from fastapi import APIRouter, Depends, HTTPException, status
+from pydantic import BaseModel
 
 from backend.dependencies import get_current_user
-from backend.repositories.cards import get_due_cards, update_card_srs, add_learn_batch
+from backend.repositories.cards import add_learn_batch, get_due_cards, update_card_srs
 from backend.repositories.pool import rls_connection
 from backend.repositories.review import insert_review_log
 from backend.services.nlp import validate_answer_async

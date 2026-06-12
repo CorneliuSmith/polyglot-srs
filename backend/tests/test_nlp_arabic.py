@@ -19,7 +19,6 @@ import pytest
 from backend.services.nlp.arabic import ArabicNLP
 from backend.services.nlp.base import AnswerResult
 
-
 # ---------------------------------------------------------------------------
 # TestArabicNormalization (NLP-06)
 # ---------------------------------------------------------------------------
@@ -29,7 +28,7 @@ class TestArabicNormalization:
 
     @pytest.fixture
     def nlp(self):
-        camel_tools = pytest.importorskip("camel_tools")
+        pytest.importorskip("camel_tools")
         return ArabicNLP()
 
     def test_normalize_strips_tashkeel(self, nlp):
@@ -75,7 +74,7 @@ class TestDiacriticInvariance:
 
     @pytest.fixture
     def nlp(self):
-        camel_tools = pytest.importorskip("camel_tools")
+        pytest.importorskip("camel_tools")
         return ArabicNLP()
 
     def test_user_without_tashkeel_matches_answer_with_tashkeel(self, nlp):
@@ -110,7 +109,7 @@ class TestTaaMarbuta:
 
     @pytest.fixture
     def nlp(self):
-        camel_tools = pytest.importorskip("camel_tools")
+        pytest.importorskip("camel_tools")
         return ArabicNLP()
 
     def test_taa_marbuta_vs_ha_returns_correct_sloppy(self, nlp):
@@ -134,7 +133,7 @@ class TestArabicLemmatization:
 
     @pytest.fixture
     def nlp(self):
-        camel_tools = pytest.importorskip("camel_tools")
+        pytest.importorskip("camel_tools")
         return ArabicNLP()
 
     def test_lemmatize_returns_lex_field(self, nlp):
@@ -162,7 +161,7 @@ class TestVerbFormDetection:
 
     @pytest.fixture
     def nlp(self):
-        camel_tools = pytest.importorskip("camel_tools")
+        pytest.importorskip("camel_tools")
         return ArabicNLP()
 
     def test_same_root_different_form_returns_wrong_form(self, nlp):
@@ -199,7 +198,7 @@ class TestArabicAspectPartner:
 
     @pytest.fixture
     def nlp(self):
-        camel_tools = pytest.importorskip("camel_tools")
+        pytest.importorskip("camel_tools")
         return ArabicNLP()
 
     def test_get_aspect_partner_returns_none(self, nlp):
@@ -222,7 +221,7 @@ class TestArabicFullPipeline:
 
     @pytest.fixture
     def nlp(self):
-        camel_tools = pytest.importorskip("camel_tools")
+        pytest.importorskip("camel_tools")
         return ArabicNLP()
 
     def test_exact_arabic_match(self, nlp):

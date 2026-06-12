@@ -35,8 +35,8 @@ logger = logging.getLogger(__name__)
 _analyzer = None
 
 try:
-    from camel_tools.morphology.database import MorphologyDB
     from camel_tools.morphology.analyzer import Analyzer
+    from camel_tools.morphology.database import MorphologyDB
     from camel_tools.utils.dediac import dediac_ar
     from camel_tools.utils.normalize import normalize_alef_ar
 

@@ -3,8 +3,8 @@
 from __future__ import annotations
 
 import json
+from collections.abc import AsyncIterator
 from contextlib import asynccontextmanager
-from typing import AsyncIterator
 
 import asyncpg
 
@@ -51,16 +51,21 @@ async def rls_connection(user_id: str) -> AsyncIterator[asyncpg.Connection]:
     the authenticated user's ID within RLS policies.
 
     CRITICAL: Third argument to set_config MUST be true (transaction-scoped)
-    to prevent user context leaking across pooled connections.
+    to prevent user context leaking across pooled connections.  That only
+    works inside an explicit transaction — in autocommit mode each statement
+    is its own transaction, so the setting would vanish before the next
+    query.  All work on the yielded connection therefore runs in a single
+    transaction (which also makes multi-statement handlers atomic).
     """
     pool = get_pool()
     async with pool.acquire() as conn:
-        claims = json.dumps({"sub": user_id, "role": "authenticated"})
-        await conn.execute(
-            "SELECT set_config('request.jwt.claims', $1, true)",
-            claims,
-        )
-        await conn.execute(
-            "SELECT set_config('role', 'authenticated', true)",
-        )
-        yield conn
+        async with conn.transaction():
+            claims = json.dumps({"sub": user_id, "role": "authenticated"})
+            await conn.execute(
+                "SELECT set_config('request.jwt.claims', $1, true)",
+                claims,
+            )
+            await conn.execute(
+                "SELECT set_config('role', 'authenticated', true)",
+            )
+            yield conn

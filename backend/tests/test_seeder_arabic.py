@@ -1,9 +1,10 @@
 """Tests for ArabicSeeder — uses fixture JSON file, no network calls."""
 import json
-import pytest
 from contextlib import ExitStack
 from pathlib import Path
 from unittest.mock import patch
+
+import pytest
 
 from backend.services.seeder.seed_arabic import ArabicSeeder
 
@@ -39,7 +40,7 @@ class TestArabicSeederDownload:
             # patch name to the sample so the file exists
             with patch("backend.services.seeder.seed_arabic.DATA_DIR", FIXTURES_DIR):
                 # Write a temporary ar_seed.json stub (just check the path logic)
-                import tempfile, os
+                import tempfile
                 with tempfile.TemporaryDirectory() as tmpdir:
                     tmp_path = Path(tmpdir)
                     (tmp_path / "ar_seed.json").write_text("[]", encoding="utf-8")

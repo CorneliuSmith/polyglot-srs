@@ -23,6 +23,7 @@ dependencies = [
     "camel-tools>=1.5.2",      # Arabic NLP (MSA light model)
     "spacy>=3.7",              # English NLP — also run: python -m spacy download en_core_web_sm
     "lemminflect>=0.2.3",      # English inflection for morphological family expansion
+    "nltk>=3.8",               # WordNet for English seeder — also run: python -m nltk.downloader wordnet omw-1.4
     "cyrtranslit>=1.1",        # Cyrillic ↔ Latin transliteration for Russian
 ]
 
@@ -43,3 +44,8 @@ target-version = "py311"
 [tool.ruff.lint]
 select = ["E", "F", "I", "N", "W", "UP"]
 ignore = ["E501"]
+
+[tool.ruff.lint.per-file-ignores]
+# Tests: allow constant-style locals, acronym import aliases, and unused
+# fixture vars in TODO-stubbed RLS tests.
+"backend/tests/*" = ["N806", "N817", "F841"]

@@ -1,9 +1,10 @@
 """Base seeder infrastructure for language vocabulary seed scripts."""
-from abc import ABC, abstractmethod
-from pathlib import Path
-import asyncpg
 import json
 import logging
+from abc import ABC, abstractmethod
+from pathlib import Path
+
+import asyncpg
 
 DATA_DIR = Path(__file__).resolve().parents[3] / "data"
 

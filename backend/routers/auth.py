@@ -6,7 +6,7 @@ from fastapi import APIRouter, Depends, HTTPException, status
 from pydantic import BaseModel
 
 from backend.dependencies import get_current_user
-from backend.repositories.pool import get_pool, rls_connection
+from backend.repositories.pool import rls_connection
 
 router = APIRouter()
 

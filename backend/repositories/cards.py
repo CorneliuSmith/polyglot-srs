@@ -64,35 +64,39 @@ async def get_due_cards(
     # -- Grammar cards -------------------------------------------------------
     grammar_rows = await conn.fetch(
         """
-        SELECT
-            uc.id,
-            uc.user_id,
-            uc.language_id,
-            uc.card_type,
-            uc.card_id,
-            -- fill-in-the-blank mode: sentence contains {{answer}} marker
-            ds.sentence                     AS sentence,
-            gp.title                        AS correct_answer,
-            ds.hint                         AS hint,
-            ds.translation                  AS translation,
-            NULL::jsonb                     AS morphology,
-            NULL::text[]                    AS alternatives,
-            l.code                          AS language_code,
-            uc.ease_factor,
-            uc.interval,
-            uc.repetitions,
-            uc.streak,
-            uc.lapses,
-            uc.next_review
-        FROM user_cards uc
-        JOIN grammar_points gp  ON uc.card_id = gp.id
-        JOIN languages l        ON uc.language_id = l.id
-        LEFT JOIN drill_sentences ds ON gp.id = ds.grammar_point_id
-        WHERE uc.language_id = $1
-          AND uc.card_type = 'grammar'
-          AND uc.next_review <= now()
-          AND uc.is_suspended = false
-        ORDER BY uc.next_review ASC
+        SELECT * FROM (
+            SELECT DISTINCT ON (uc.id)
+                uc.id,
+                uc.user_id,
+                uc.language_id,
+                uc.card_type,
+                uc.card_id,
+                -- fill-in-the-blank mode: sentence contains {{answer}} marker;
+                -- fall back to the grammar point title if no drill sentence exists
+                COALESCE(ds.sentence, gp.title) AS sentence,
+                gp.title                        AS correct_answer,
+                ds.hint                         AS hint,
+                ds.translation                  AS translation,
+                NULL::jsonb                     AS morphology,
+                NULL::text[]                    AS alternatives,
+                l.code                          AS language_code,
+                uc.ease_factor,
+                uc.interval,
+                uc.repetitions,
+                uc.streak,
+                uc.lapses,
+                uc.next_review
+            FROM user_cards uc
+            JOIN grammar_points gp  ON uc.card_id = gp.id
+            JOIN languages l        ON uc.language_id = l.id
+            LEFT JOIN drill_sentences ds ON gp.id = ds.grammar_point_id
+            WHERE uc.language_id = $1
+              AND uc.card_type = 'grammar'
+              AND uc.next_review <= now()
+              AND uc.is_suspended = false
+            ORDER BY uc.id, ds.display_order ASC
+        ) g
+        ORDER BY g.next_review ASC
         LIMIT $2
         """,
         language_id,
@@ -120,14 +124,19 @@ async def add_learn_batch(
     Returns:
         {"added": int, "items": list[str]}  — count and list of new user_card IDs
     """
-    # Select candidate vocabulary IDs the user hasn't started yet
+    # Select candidate vocabulary IDs the user hasn't started yet.
+    # Content lists are level-based: a NULL-level list covers the whole
+    # language; otherwise membership means vocabulary.level = list.level.
+    # DISTINCT guards against duplicates when multiple subscribed lists
+    # match the same word (would violate user_cards' unique constraint).
     vocab_rows = await conn.fetch(
         """
-        SELECT v.id
+        SELECT DISTINCT v.id, v.frequency_rank
         FROM vocabulary v
         JOIN content_lists cl
                ON v.language_id = cl.language_id
               AND cl.list_type = 'vocabulary'
+              AND (cl.level IS NULL OR cl.level = v.level)
         JOIN user_content_subscriptions ucs
                ON cl.id = ucs.content_list_id
               AND ucs.user_id = $1

@@ -1,10 +1,10 @@
 """Russian vocabulary seeder using OpenRussian TSV data."""
 import csv
 import json
-import logging
+
 import httpx
 
-from .base import BaseSeeder, DATA_DIR
+from .base import DATA_DIR, BaseSeeder
 
 WORDS_URL = "https://downloads.openrussian.org/ru/words.tsv"
 TRANSLATIONS_URL = "https://downloads.openrussian.org/ru/translations.tsv"

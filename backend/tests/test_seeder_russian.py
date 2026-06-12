@@ -1,9 +1,10 @@
 """Tests for RussianSeeder — uses fixture TSV files, no network calls."""
 import json
-import pytest
 from contextlib import ExitStack
 from pathlib import Path
 from unittest.mock import patch
+
+import pytest
 
 from backend.services.seeder.seed_russian import RussianSeeder
 
