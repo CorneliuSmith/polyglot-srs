@@ -4,11 +4,68 @@ import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query'
 import { getLanguages } from '../../api/profile'
 import {
   approveGrammar,
+  createGrammarPoint,
   getGrammarForLanguage,
   saveGrammarExplanation,
 } from '../../api/contribute'
 import type { GrammarPointEdit } from '../../api/contribute'
 import { usePrefsStore } from '../../stores/prefsStore'
+import DrillsEditor from './DrillsEditor'
+
+function NewPointForm({
+  languageId,
+  onCreated,
+}: {
+  languageId: string
+  onCreated: () => void
+}) {
+  const [title, setTitle] = useState('')
+  const [level, setLevel] = useState('A1')
+
+  const createMutation = useMutation({
+    mutationFn: () => createGrammarPoint({ language_id: languageId, title, level }),
+    onSuccess: () => {
+      setTitle('')
+      onCreated()
+    },
+  })
+
+  return (
+    <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-4 flex flex-wrap items-end gap-2">
+      <div className="flex-1 min-w-[180px]">
+        <label className="block text-xs font-medium text-gray-500">New grammar point</label>
+        <input
+          value={title}
+          onChange={(e) => setTitle(e.target.value)}
+          placeholder="e.g. Dative case"
+          className="w-full rounded-lg border border-gray-300 px-3 py-2 text-sm"
+        />
+      </div>
+      <select
+        value={level}
+        onChange={(e) => setLevel(e.target.value)}
+        className="rounded-lg border border-gray-300 px-2 py-2 text-sm"
+      >
+        {['A1', 'A2', 'B1', 'B2', 'C1', 'C2'].map((l) => (
+          <option key={l} value={l}>{l}</option>
+        ))}
+      </select>
+      <button
+        type="button"
+        onClick={() => createMutation.mutate()}
+        disabled={!title.trim() || createMutation.isPending}
+        className="bg-indigo-600 hover:bg-indigo-700 disabled:opacity-50 text-white font-semibold rounded-lg px-4 py-2 text-sm"
+      >
+        Create
+      </button>
+      {createMutation.isError && (
+        <span className="text-xs text-red-500 w-full">
+          Could not create (the title may already exist).
+        </span>
+      )}
+    </div>
+  )
+}
 
 function PointEditor({
   point,
@@ -116,6 +173,8 @@ function PointEditor({
           <span className="text-xs text-red-500">Save failed.</span>
         )}
       </div>
+
+      <DrillsEditor pointId={point.id} />
     </div>
   )
 }
@@ -165,6 +224,10 @@ export default function ContributorPage() {
             You don’t have a contributor role for {language?.name ?? 'this language'}.
             Ask an admin for access.
           </div>
+        )}
+
+        {data && activeLanguageId && (
+          <NewPointForm languageId={activeLanguageId} onCreated={refresh} />
         )}
 
         {data && data.points.length === 0 && (

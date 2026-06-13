@@ -34,8 +34,8 @@ import unicodedata
 from anthropic import AsyncAnthropic
 
 from backend.config import get_settings
-from backend.services.nlp import init_nlp_backends, validate_answer_async
-from backend.services.nlp.base import AnswerResult
+from backend.services.drills import is_answerable
+from backend.services.nlp import init_nlp_backends
 from backend.services.seeder.seed_grammar import GrammarSeeder
 from backend.services.tutor import _LANGUAGE_BRIEFS
 
@@ -165,13 +165,11 @@ async def validate_drill(language_code: str, drill: dict) -> bool:
     full = (drill.get("full_sentence") or "").strip()
     if "{{answer}}" not in sentence or not answer:
         return False
+    # The model's full_sentence must equal the sentence with the blank filled,
+    # so the blank and the answer actually agree.
     if _nfc(sentence.replace("{{answer}}", answer)) != _nfc(full):
         return False
-    try:
-        result, _ = await validate_answer_async(language_code, answer, answer)
-    except ValueError:
-        return False  # no NLP backend for this language
-    return result == AnswerResult.CORRECT
+    return await is_answerable(language_code, answer)
 
 
 async def validate_curriculum(

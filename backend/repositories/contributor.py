@@ -90,6 +90,115 @@ async def get_point_language(conn: asyncpg.Connection, point_id: str) -> str | N
     return str(lid) if lid else None
 
 
+async def get_point_language_and_code(
+    conn: asyncpg.Connection, point_id: str
+) -> tuple[str, str] | None:
+    """Return (language_id, language_code) for a grammar point, or None."""
+    row = await conn.fetchrow(
+        """
+        SELECT gp.language_id, l.code
+        FROM grammar_points gp
+        JOIN languages l ON gp.language_id = l.id
+        WHERE gp.id = $1
+        """,
+        point_id,
+    )
+    if row is None:
+        return None
+    return str(row["language_id"]), row["code"]
+
+
+async def create_grammar_point(
+    conn: asyncpg.Connection,
+    language_id: str,
+    title: str,
+    level: str | None,
+    explanation: str | None,
+    culture_note: str | None,
+    references: list | None,
+    submitted_by: str,
+) -> str | None:
+    """Create a contributor grammar point (privileged). None if the title exists."""
+    next_order = await conn.fetchval(
+        "SELECT COALESCE(MAX(display_order), 0) + 1 FROM grammar_points WHERE language_id = $1",
+        language_id,
+    )
+    pid = await conn.fetchval(
+        """
+        INSERT INTO grammar_points
+            (language_id, title, explanation, culture_note, level,
+             display_order, explanation_source, reviewed,
+             reference_links, explanation_submitted_by)
+        VALUES ($1, $2, $3, $4, $5, $6, 'contributor', false, $7::jsonb, $8)
+        ON CONFLICT (language_id, title) DO NOTHING
+        RETURNING id
+        """,
+        language_id, title, explanation, culture_note, level, next_order,
+        json.dumps(clean_references(references), ensure_ascii=False), submitted_by,
+    )
+    return str(pid) if pid else None
+
+
+async def list_drills(conn: asyncpg.Connection, point_id: str) -> list[dict]:
+    """List a grammar point's drill sentences for editing."""
+    rows = await conn.fetch(
+        """
+        SELECT id, sentence, answer, translation, hint, display_order
+        FROM drill_sentences
+        WHERE grammar_point_id = $1
+        ORDER BY display_order ASC
+        """,
+        point_id,
+    )
+    return [
+        {
+            "id": str(r["id"]),
+            "sentence": r["sentence"],
+            "answer": r["answer"],
+            "translation": r["translation"],
+            "hint": r["hint"],
+            "display_order": r["display_order"],
+        }
+        for r in rows
+    ]
+
+
+async def add_drill(
+    conn: asyncpg.Connection,
+    point_id: str,
+    sentence: str,
+    answer: str,
+    translation: str | None,
+    hint: str | None,
+) -> str:
+    """Insert a drill sentence (privileged). Adding a drill marks the point unreviewed."""
+    next_order = await conn.fetchval(
+        "SELECT COALESCE(MAX(display_order), 0) + 1 FROM drill_sentences WHERE grammar_point_id = $1",
+        point_id,
+    )
+    drill_id = await conn.fetchval(
+        """
+        INSERT INTO drill_sentences
+            (grammar_point_id, sentence, answer, translation, hint, display_order)
+        VALUES ($1, $2, $3, $4, $5, $6)
+        RETURNING id
+        """,
+        point_id, sentence, answer, translation or None, hint or None, next_order,
+    )
+    await conn.execute(
+        "UPDATE grammar_points SET reviewed = false WHERE id = $1", point_id
+    )
+    return str(drill_id)
+
+
+async def delete_drill(conn: asyncpg.Connection, drill_id: str) -> bool:
+    """Delete a drill sentence (privileged)."""
+    result = await conn.execute(
+        "DELETE FROM drill_sentences WHERE id = $1", drill_id
+    )
+    return result.endswith("1")
+
+
 async def save_explanation(
     conn: asyncpg.Connection,
     point_id: str,

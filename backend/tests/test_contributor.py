@@ -193,3 +193,106 @@ class TestContributeEndpoints:
             )
         assert resp.status_code == 200
         mock_grant.assert_awaited_once()
+
+
+class TestCreatePoint:
+    def test_create_requires_role(self, client):
+        with _roles([]):
+            resp = client.post(
+                "/api/contribute/grammar",
+                json={"language_id": LANG, "title": "New point"},
+                headers=_auth_headers(),
+            )
+        assert resp.status_code == 403
+
+    def test_create_succeeds(self, client):
+        with _roles([{"language_id": LANG, "role": "contributor"}]), \
+             patch("backend.routers.contribute.create_grammar_point",
+                   new=AsyncMock(return_value=POINT)):
+            resp = client.post(
+                "/api/contribute/grammar",
+                json={"language_id": LANG, "title": "New point", "level": "A1"},
+                headers=_auth_headers(),
+            )
+        assert resp.status_code == 200
+        assert resp.json() == {"id": POINT}
+
+    def test_duplicate_title_409(self, client):
+        with _roles([{"language_id": LANG, "role": "contributor"}]), \
+             patch("backend.routers.contribute.create_grammar_point",
+                   new=AsyncMock(return_value=None)):
+            resp = client.post(
+                "/api/contribute/grammar",
+                json={"language_id": LANG, "title": "Dup"},
+                headers=_auth_headers(),
+            )
+        assert resp.status_code == 409
+
+
+class TestDrills:
+    def test_list_drills_role_gated(self, client):
+        with _roles([]), \
+             patch("backend.routers.contribute.get_point_language_and_code",
+                   new=AsyncMock(return_value=(LANG, "tr"))):
+            resp = client.get(
+                f"/api/contribute/grammar/{POINT}/drills", headers=_auth_headers()
+            )
+        assert resp.status_code == 403
+
+    def test_add_drill_validates_answerability(self, client):
+        # validate_drill returns False -> 422, no write
+        with _roles([{"language_id": LANG, "role": "contributor"}]), \
+             patch("backend.routers.contribute.get_point_language_and_code",
+                   new=AsyncMock(return_value=(LANG, "tr"))), \
+             patch("backend.routers.contribute.validate_drill",
+                   new=AsyncMock(return_value=False)), \
+             patch("backend.routers.contribute.add_drill", new=AsyncMock()) as mock_add:
+            resp = client.post(
+                f"/api/contribute/grammar/{POINT}/drills",
+                json={"sentence": "no blank", "answer": "x"},
+                headers=_auth_headers(),
+            )
+        assert resp.status_code == 422
+        mock_add.assert_not_awaited()
+
+    def test_add_drill_succeeds_when_answerable(self, client):
+        with _roles([{"language_id": LANG, "role": "contributor"}]), \
+             patch("backend.routers.contribute.get_point_language_and_code",
+                   new=AsyncMock(return_value=(LANG, "tr"))), \
+             patch("backend.routers.contribute.validate_drill",
+                   new=AsyncMock(return_value=True)), \
+             patch("backend.routers.contribute.add_drill",
+                   new=AsyncMock(return_value="drill-1")) as mock_add:
+            resp = client.post(
+                f"/api/contribute/grammar/{POINT}/drills",
+                json={"sentence": "Kitap {{answer}}.", "answer": "masada",
+                      "translation": "The book is on the table."},
+                headers=_auth_headers(),
+            )
+        assert resp.status_code == 200
+        assert resp.json() == {"id": "drill-1"}
+        mock_add.assert_awaited_once()
+
+    def test_add_drill_unknown_point_404(self, client):
+        with _roles([{"language_id": LANG, "role": "contributor"}]), \
+             patch("backend.routers.contribute.get_point_language_and_code",
+                   new=AsyncMock(return_value=None)):
+            resp = client.post(
+                f"/api/contribute/grammar/{POINT}/drills",
+                json={"sentence": "Kitap {{answer}}.", "answer": "masada"},
+                headers=_auth_headers(),
+            )
+        assert resp.status_code == 404
+
+    def test_delete_drill(self, client):
+        with _roles([{"language_id": LANG, "role": "contributor"}]), \
+             patch("backend.routers.contribute.get_point_language_and_code",
+                   new=AsyncMock(return_value=(LANG, "tr"))), \
+             patch("backend.routers.contribute.delete_drill",
+                   new=AsyncMock(return_value=True)) as mock_del:
+            resp = client.delete(
+                f"/api/contribute/grammar/{POINT}/drills/drill-1",
+                headers=_auth_headers(),
+            )
+        assert resp.status_code == 200
+        mock_del.assert_awaited_once()

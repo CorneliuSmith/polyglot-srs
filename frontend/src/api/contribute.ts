@@ -51,3 +51,45 @@ export async function saveGrammarExplanation(
 export async function approveGrammar(pointId: string): Promise<void> {
   await apiClient.post(`/api/contribute/grammar/${pointId}/approve`)
 }
+
+export interface Drill {
+  id: string
+  sentence: string
+  answer: string
+  translation: string | null
+  hint: string | null
+  display_order: number
+}
+
+export async function createGrammarPoint(input: {
+  language_id: string
+  title: string
+  level?: string | null
+  explanation?: string
+  culture_note?: string
+}): Promise<{ id: string }> {
+  const response = await apiClient.post('/api/contribute/grammar', input)
+  return response.data
+}
+
+export async function getDrills(pointId: string): Promise<Drill[]> {
+  const response = await apiClient.get<{ drills: Drill[] }>(
+    `/api/contribute/grammar/${pointId}/drills`,
+  )
+  return response.data.drills
+}
+
+export async function addDrill(
+  pointId: string,
+  input: { sentence: string; answer: string; translation?: string; hint?: string },
+): Promise<{ id: string }> {
+  const response = await apiClient.post(
+    `/api/contribute/grammar/${pointId}/drills`,
+    input,
+  )
+  return response.data
+}
+
+export async function deleteDrill(pointId: string, drillId: string): Promise<void> {
+  await apiClient.delete(`/api/contribute/grammar/${pointId}/drills/${drillId}`)
+}
