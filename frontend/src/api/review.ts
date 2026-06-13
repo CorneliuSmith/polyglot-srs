@@ -45,9 +45,11 @@ export async function submitReview(
 
 export async function startLearnSession(
   languageId: string,
+  cardType: 'vocabulary' | 'grammar' = 'vocabulary',
 ): Promise<LearnResponse> {
   const response = await apiClient.post<LearnResponse>('/api/review/learn', {
     language_id: languageId,
+    card_type: cardType,
   })
   return response.data
 }

@@ -19,5 +19,9 @@ for lang in tr sw yo ha xh; do
 done
 
 echo
-echo "Done. Load into the database with:"
+echo "Done. Load vocabulary into the database with:"
 echo "  python -m backend.services.seeder.run --language all"
+echo "Load grammar curricula (points, drills, explanations):"
+echo "  python -m backend.services.seeder.seed_grammar --language all"
+echo "Generate AI grammar explanations for points that lack them:"
+echo "  python -m backend.services.seeder.generate_grammar --language ru --generate"

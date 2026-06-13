@@ -74,7 +74,9 @@ async def get_due_cards(
                 -- fill-in-the-blank mode: sentence contains {{answer}} marker;
                 -- fall back to the grammar point title if no drill sentence exists
                 COALESCE(ds.sentence, gp.title) AS sentence,
-                gp.title                        AS correct_answer,
+                -- the answer is the form that fills the {{answer}} blank;
+                -- fall back to the title for points without authored drills
+                COALESCE(ds.answer, gp.title)   AS correct_answer,
                 ds.hint                         AS hint,
                 ds.translation                  AS translation,
                 NULL::jsonb                     AS morphology,
@@ -176,6 +178,65 @@ async def add_learn_batch(
             user_id,
             language_id,
             vocab_id,
+        )
+        inserted_ids.append(str(row["id"]))
+
+    return {"added": len(inserted_ids), "items": inserted_ids}
+
+
+async def add_grammar_learn_batch(
+    conn: asyncpg.Connection,
+    user_id: str,
+    language_id: str,
+    batch_size: int,
+) -> dict:
+    """Add a batch of new grammar cards from the user's subscribed grammar lists.
+
+    Mirrors add_learn_batch but for grammar_points: selects points the user
+    hasn't started, ordered by display_order, from grammar content lists the
+    user is subscribed to (matched by level), and inserts grammar user_cards
+    due immediately.
+    """
+    rows = await conn.fetch(
+        """
+        SELECT DISTINCT gp.id, gp.display_order
+        FROM grammar_points gp
+        JOIN content_lists cl
+               ON gp.language_id = cl.language_id
+              AND cl.list_type = 'grammar'
+              AND (cl.level IS NULL OR cl.level = gp.level)
+        JOIN user_content_subscriptions ucs
+               ON cl.id = ucs.content_list_id
+              AND ucs.user_id = $1
+        WHERE gp.language_id = $2
+          AND gp.id NOT IN (
+              SELECT card_id FROM user_cards
+              WHERE user_id = $1 AND card_type = 'grammar'
+          )
+        ORDER BY gp.display_order ASC
+        LIMIT $3
+        """,
+        user_id,
+        language_id,
+        batch_size,
+    )
+    if not rows:
+        return {"added": 0, "items": []}
+
+    inserted_ids = []
+    for r in rows:
+        row = await conn.fetchrow(
+            """
+            INSERT INTO user_cards
+                (user_id, language_id, card_type, card_id,
+                 ease_factor, interval, repetitions, streak, lapses, next_review)
+            VALUES
+                ($1, $2, 'grammar', $3, 2.5, 0, 0, 0, 0, now())
+            RETURNING id
+            """,
+            user_id,
+            language_id,
+            r["id"],
         )
         inserted_ids.append(str(row["id"]))
 

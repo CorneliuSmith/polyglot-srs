@@ -7,6 +7,7 @@ from pydantic import BaseModel
 
 from backend.dependencies import get_current_user
 from backend.repositories.cards import (
+    add_grammar_learn_batch,
     add_learn_batch,
     get_card_detail,
     get_due_cards,
@@ -47,6 +48,7 @@ class ValidateAnswerRequest(BaseModel):
 
 class LearnRequest(BaseModel):
     language_id: str
+    card_type: str = "vocabulary"
 
 
 @router.get("/due")
@@ -186,11 +188,16 @@ async def learn(
     body: LearnRequest,
     user: dict = Depends(get_current_user),
 ):
-    """Add a batch of new vocabulary cards from the user's subscribed lists.
+    """Add a batch of new cards (vocabulary or grammar) from subscribed lists.
 
     Reads batch_size from the user's profile (default 5 if no profile row).
     Returns the count of added cards and their new user_card IDs.
     """
+    if body.card_type not in ("vocabulary", "grammar"):
+        raise HTTPException(
+            status_code=status.HTTP_422_UNPROCESSABLE_ENTITY,
+            detail="card_type must be 'vocabulary' or 'grammar'",
+        )
     async with rls_connection(user["id"]) as conn:
         # Read batch_size from user_profiles (default 5 if no row)
         profile_row = await conn.fetchrow(
@@ -199,6 +206,13 @@ async def learn(
         )
         batch_size = int(profile_row["batch_size"]) if profile_row else 5
 
-        result = await add_learn_batch(conn, user["id"], body.language_id, batch_size)
+        if body.card_type == "grammar":
+            result = await add_grammar_learn_batch(
+                conn, user["id"], body.language_id, batch_size
+            )
+        else:
+            result = await add_learn_batch(
+                conn, user["id"], body.language_id, batch_size
+            )
 
     return result

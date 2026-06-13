@@ -1,0 +1,50 @@
+{
+  "lists": [
+    {
+      "level": "A1",
+      "title": "Turkish A1 Grammar",
+      "description": "Foundational Turkish grammar: vowel harmony, core suffixes."
+    }
+  ],
+  "points": [
+    {
+      "title": "Locative case (-de / -da)",
+      "level": "A1",
+      "source": "contributor",
+      "reviewed": true,
+      "display_order": 1,
+      "explanation": "The locative suffix means 'in/on/at'. It harmonizes with the last vowel of the word: -de after front vowels (e, i, ö, ü) and -da after back vowels (a, ı, o, u). After a voiceless consonant it hardens to -te/-ta.",
+      "culture_note": "Vowel harmony runs through almost all Turkish suffixes — learning to hear front vs back vowels pays off everywhere.",
+      "drills": [
+        {"sentence": "Kitap {{answer}}.", "answer": "masada", "translation": "The book is on the table.", "hint": "masa + -da (back vowel)", "display_order": 1},
+        {"sentence": "Öğretmen {{answer}}.", "answer": "evde", "translation": "The teacher is at home.", "hint": "ev + -de (front vowel)", "display_order": 2}
+      ]
+    },
+    {
+      "title": "Plural (-ler / -lar)",
+      "level": "A1",
+      "source": "contributor",
+      "reviewed": true,
+      "display_order": 2,
+      "explanation": "Form the plural by adding -ler after front vowels and -lar after back vowels. Important exception: after a number, the noun stays singular — üç kitap ('three books'), never üç kitaplar.",
+      "culture_note": "",
+      "drills": [
+        {"sentence": "{{answer}} masada.", "answer": "kitaplar", "translation": "The books are on the table.", "hint": "kitap + -lar (back vowel)", "display_order": 1},
+        {"sentence": "{{answer}} okulda.", "answer": "öğrenciler", "translation": "The students are at school.", "hint": "öğrenci + -ler (front vowel)", "display_order": 2}
+      ]
+    },
+    {
+      "title": "Present continuous (-iyor)",
+      "level": "A1",
+      "source": "contributor",
+      "reviewed": true,
+      "display_order": 3,
+      "explanation": "The -iyor suffix marks an ongoing action ('am/is/are doing'). Its buffer vowel harmonizes (ı/i/u/ü) and a personal ending follows. For 'I', add -um: oku → okuyorum, iç → içiyorum.",
+      "culture_note": "",
+      "drills": [
+        {"sentence": "Ben kitap {{answer}}.", "answer": "okuyorum", "translation": "I am reading a book.", "hint": "oku + -yor + -um", "display_order": 1},
+        {"sentence": "Ben su {{answer}}.", "answer": "içiyorum", "translation": "I am drinking water.", "hint": "iç + -iyor + -um", "display_order": 2}
+      ]
+    }
+  ]
+}

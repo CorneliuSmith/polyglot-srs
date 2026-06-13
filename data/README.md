@@ -80,6 +80,18 @@ grammar explanation, a culture note, and example sentences. That text lives
 on `grammar_points` (`explanation`, `culture_note`) with provenance in
 `explanation_source`, populated three ways:
 
+The grammar curriculum itself (which points exist, their drill sentences, and
+hand-authored explanations) is seeded from `data/grammar/{code}_grammar.json`:
+
+```sh
+# Load grammar points + drills + a grammar content_list per level.
+# Ships accurate A1 starter curricula for Russian (ru) and Turkish (tr);
+# add more by dropping a curriculum JSON in data/grammar/.
+python -m backend.services.seeder.seed_grammar --language all
+```
+
+Then fill explanations for any points that lack them:
+
 ```sh
 # AI-generated (Claude, grounded on the language's linguistics brief + drill
 # sentences), cached in the DB; never overwrites contributor content:

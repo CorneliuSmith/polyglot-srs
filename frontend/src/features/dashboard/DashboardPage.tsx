@@ -28,13 +28,20 @@ export default function DashboardPage() {
   })
 
   const learnMutation = useMutation({
-    mutationFn: () => startLearnSession(activeLanguageId!),
+    mutationFn: (cardType: 'vocabulary' | 'grammar') =>
+      startLearnSession(activeLanguageId!, cardType),
     onSuccess: () => navigate('/review'),
   })
 
   const handleLearn = () => {
     if (activeLanguageId) {
-      learnMutation.mutate()
+      learnMutation.mutate('vocabulary')
+    }
+  }
+
+  const handleLearnGrammar = () => {
+    if (activeLanguageId) {
+      learnMutation.mutate('grammar')
     }
   }
 
@@ -96,13 +103,22 @@ export default function DashboardPage() {
             className="w-full bg-indigo-600 hover:bg-indigo-700 disabled:opacity-50 text-white font-semibold rounded-xl px-6 py-3 text-sm transition-colors"
             style={{ minHeight: '44px' }}
           >
-            {learnMutation.isPending ? 'Starting…' : 'Learn New Cards'}
+            {learnMutation.isPending ? 'Starting…' : 'Learn Vocabulary'}
+          </button>
+          <button
+            type="button"
+            onClick={handleLearnGrammar}
+            disabled={isLoading || learnMutation.isPending || !activeLanguageId}
+            className="w-full bg-indigo-600 hover:bg-indigo-700 disabled:opacity-50 text-white font-semibold rounded-xl px-6 py-3 text-sm transition-colors"
+            style={{ minHeight: '44px' }}
+          >
+            {learnMutation.isPending ? 'Starting…' : 'Learn Grammar'}
           </button>
           <button
             type="button"
             onClick={handleReview}
             disabled={isLoading || !stats || stats.due_count === 0}
-            className="w-full bg-white hover:bg-gray-50 disabled:opacity-50 text-indigo-600 font-semibold rounded-xl px-6 py-3 text-sm border border-indigo-200 transition-colors"
+            className="w-full bg-white hover:bg-gray-50 disabled:opacity-50 text-indigo-600 font-semibold rounded-xl px-6 py-3 text-sm border border-indigo-200 transition-colors sm:col-span-2"
             style={{ minHeight: '44px' }}
           >
             Review Due Cards
