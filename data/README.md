@@ -108,7 +108,21 @@ python -m backend.services.seeder.generate_grammar --language ru \
 | `ai` | `--generate` (Claude); set `TUTOR_DEV_MOCK=true` to populate canned text with no key | `reviewed = false` — promote after a human checks it |
 | `wiktionary` | open-source usage notes from kaikki | future |
 
-A specialist-contributor **UI/role** (so non-engineers can author and approve
-notes in-app) is a future step — today contributors hand off a JSON file. The
-AI generator and importer share the provenance column so the two coexist
-without clobbering each other.
+Specialists can also author notes **in-app**: grant a role and they edit
+grammar explanations at `/contribute` (submissions land `reviewed = false`;
+an admin approves them). Bootstrap the first admin with SQL, then grant the
+rest via the API:
+
+```sql
+-- first admin (run once against the DB):
+INSERT INTO contributor_roles (user_id, role) VALUES ('<auth-user-id>', 'admin');
+```
+
+```sh
+# CLI JSON import is still available for bulk hand-off:
+python -m backend.services.seeder.generate_grammar --language ru \
+    --import-file data/ru_grammar_notes.json
+```
+
+All three sources (AI, contributor, open) share the `explanation_source` +
+`reviewed` columns so they coexist without clobbering each other.

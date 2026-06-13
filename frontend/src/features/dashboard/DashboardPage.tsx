@@ -2,6 +2,7 @@ import { useNavigate } from 'react-router-dom'
 import { useQuery, useMutation } from '@tanstack/react-query'
 import { getDashboardStats } from '../../api/dashboard'
 import { startLearnSession } from '../../api/review'
+import { getMyRoles } from '../../api/contribute'
 import { usePrefsStore } from '../../stores/prefsStore'
 import LanguagePicker from '../../components/LanguagePicker'
 import DueCount from './DueCount'
@@ -26,6 +27,14 @@ export default function DashboardPage() {
     queryFn: () => getDashboardStats(activeLanguageId!),
     enabled: !!activeLanguageId,
   })
+
+  // Surfaces the Contribute link only to users who hold a contributor role.
+  const { data: roleInfo } = useQuery({
+    queryKey: ['my-roles'],
+    queryFn: getMyRoles,
+    retry: false,
+  })
+  const canContribute = (roleInfo?.roles?.length ?? 0) > 0
 
   const learnMutation = useMutation({
     mutationFn: (cardType: 'vocabulary' | 'grammar') =>
@@ -142,6 +151,17 @@ export default function DashboardPage() {
           </span>
           <span aria-hidden className="text-indigo-500">→</span>
         </button>
+
+        {/* Contributor link — only for users with a role */}
+        {canContribute && (
+          <button
+            type="button"
+            onClick={() => navigate('/contribute')}
+            className="w-full text-sm text-gray-500 hover:text-indigo-600 hover:underline text-left"
+          >
+            Contribute grammar notes →
+          </button>
+        )}
       </div>
     </div>
   )

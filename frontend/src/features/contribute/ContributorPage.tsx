@@ -1,0 +1,158 @@
+import { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
+import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query'
+import { getLanguages } from '../../api/profile'
+import {
+  approveGrammar,
+  getGrammarForLanguage,
+  saveGrammarExplanation,
+} from '../../api/contribute'
+import type { GrammarPointEdit } from '../../api/contribute'
+import { usePrefsStore } from '../../stores/prefsStore'
+
+function PointEditor({
+  point,
+  isAdmin,
+  onSaved,
+}: {
+  point: GrammarPointEdit
+  isAdmin: boolean
+  onSaved: () => void
+}) {
+  const [explanation, setExplanation] = useState(point.explanation ?? '')
+  const [cultureNote, setCultureNote] = useState(point.culture_note ?? '')
+
+  const saveMutation = useMutation({
+    mutationFn: () => saveGrammarExplanation(point.id, explanation, cultureNote),
+    onSuccess: onSaved,
+  })
+  const approveMutation = useMutation({
+    mutationFn: () => approveGrammar(point.id),
+    onSuccess: onSaved,
+  })
+
+  return (
+    <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-5 space-y-3">
+      <div className="flex items-center justify-between">
+        <h2 className="font-semibold text-gray-900">
+          {point.title}
+          {point.level && <span className="text-xs text-gray-400 ml-2">{point.level}</span>}
+        </h2>
+        <span
+          className={
+            point.reviewed
+              ? 'text-xs rounded-full px-2 py-0.5 bg-green-100 text-green-700'
+              : 'text-xs rounded-full px-2 py-0.5 bg-amber-100 text-amber-700'
+          }
+        >
+          {point.reviewed ? 'reviewed' : 'pending'} · {point.explanation_source}
+        </span>
+      </div>
+
+      <label className="block text-xs font-medium text-gray-500">Explanation</label>
+      <textarea
+        value={explanation}
+        onChange={(e) => setExplanation(e.target.value)}
+        rows={4}
+        className="w-full rounded-lg border border-gray-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500"
+      />
+
+      <label className="block text-xs font-medium text-gray-500">Culture note (optional)</label>
+      <textarea
+        value={cultureNote}
+        onChange={(e) => setCultureNote(e.target.value)}
+        rows={2}
+        className="w-full rounded-lg border border-gray-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500"
+      />
+
+      <div className="flex items-center gap-2">
+        <button
+          type="button"
+          onClick={() => saveMutation.mutate()}
+          disabled={!explanation.trim() || saveMutation.isPending}
+          className="bg-indigo-600 hover:bg-indigo-700 disabled:opacity-50 text-white font-semibold rounded-lg px-4 py-2 text-sm"
+        >
+          {saveMutation.isPending ? 'Saving…' : 'Save (pending review)'}
+        </button>
+        {isAdmin && !point.reviewed && point.explanation && (
+          <button
+            type="button"
+            onClick={() => approveMutation.mutate()}
+            disabled={approveMutation.isPending}
+            className="bg-green-600 hover:bg-green-700 disabled:opacity-50 text-white font-semibold rounded-lg px-4 py-2 text-sm"
+          >
+            Approve
+          </button>
+        )}
+        {saveMutation.isError && (
+          <span className="text-xs text-red-500">Save failed.</span>
+        )}
+      </div>
+    </div>
+  )
+}
+
+export default function ContributorPage() {
+  const navigate = useNavigate()
+  const queryClient = useQueryClient()
+  const activeLanguageId = usePrefsStore((s) => s.activeLanguageId)
+
+  const { data: languages = [] } = useQuery({ queryKey: ['languages'], queryFn: getLanguages })
+  const language = languages.find((l) => l.id === activeLanguageId)
+
+  const { data, isLoading, isError, error } = useQuery({
+    queryKey: ['contribute-grammar', activeLanguageId],
+    queryFn: () => getGrammarForLanguage(activeLanguageId!),
+    enabled: !!activeLanguageId,
+    retry: false,
+  })
+
+  const refresh = () =>
+    queryClient.invalidateQueries({ queryKey: ['contribute-grammar', activeLanguageId] })
+
+  // A 403 means the user has no contributor role for this language.
+  const forbidden =
+    isError && (error as { response?: { status?: number } })?.response?.status === 403
+
+  return (
+    <div className="min-h-screen bg-gray-50">
+      <div className="max-w-2xl mx-auto px-4 py-8 space-y-4">
+        <div className="flex items-center justify-between">
+          <h1 className="text-2xl font-bold text-gray-900">
+            Contribute · {language?.name ?? ''} grammar
+          </h1>
+          <button
+            type="button"
+            onClick={() => navigate('/')}
+            className="text-sm text-indigo-600 hover:underline"
+          >
+            Dashboard
+          </button>
+        </div>
+
+        {isLoading && <p className="text-gray-500">Loading…</p>}
+
+        {forbidden && (
+          <div className="bg-white rounded-2xl border border-gray-100 p-6 text-gray-600">
+            You don’t have a contributor role for {language?.name ?? 'this language'}.
+            Ask an admin for access.
+          </div>
+        )}
+
+        {data && data.points.length === 0 && (
+          <p className="text-gray-500">No grammar points for this language yet.</p>
+        )}
+
+        {data &&
+          data.points.map((point) => (
+            <PointEditor
+              key={point.id}
+              point={point}
+              isAdmin={data.is_admin}
+              onSaved={refresh}
+            />
+          ))}
+      </div>
+    </div>
+  )
+}

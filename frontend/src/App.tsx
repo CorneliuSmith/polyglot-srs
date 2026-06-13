@@ -11,6 +11,7 @@ import DashboardPage from './features/dashboard/DashboardPage'
 import ReviewSessionPage from './features/review/ReviewSessionPage'
 import LearnPage from './features/review/LearnPage'
 import TutorPage from './features/tutor/TutorPage'
+import ContributorPage from './features/contribute/ContributorPage'
 import ProtectedRoute from './components/ProtectedRoute'
 
 const queryClient = new QueryClient()
@@ -27,6 +28,7 @@ const router = createBrowserRouter([
       { path: '/review', element: <ReviewSessionPage /> },
       { path: '/learn', element: <LearnPage /> },
       { path: '/tutor', element: <TutorPage /> },
+      { path: '/contribute', element: <ContributorPage /> },
     ],
   },
 ])

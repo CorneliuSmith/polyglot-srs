@@ -44,6 +44,22 @@ def get_pool() -> asyncpg.Pool:
 
 
 @asynccontextmanager
+async def privileged_connection() -> AsyncIterator[asyncpg.Connection]:
+    """Acquire a connection WITHOUT the authenticated RLS context.
+
+    Runs as the pool's database role (which owns the content tables), so it
+    can write content tables (e.g. grammar_points) that RLS would otherwise
+    restrict. Authorization for these writes is enforced in the application
+    layer BEFORE calling this — never expose it to unchecked user input.
+    Wrapped in a transaction for atomicity.
+    """
+    pool = get_pool()
+    async with pool.acquire() as conn:
+        async with conn.transaction():
+            yield conn
+
+
+@asynccontextmanager
 async def rls_connection(user_id: str) -> AsyncIterator[asyncpg.Connection]:
     """Acquire a connection with RLS context set for the given user.
 
