@@ -109,6 +109,23 @@ export default function DashboardPage() {
             {stats ? ` (${stats.due_count})` : ''}
           </button>
         </div>
+
+        {/* AI Tutor */}
+        <button
+          type="button"
+          onClick={() => navigate('/tutor')}
+          disabled={!activeLanguageId}
+          className="w-full bg-white hover:bg-gray-50 disabled:opacity-50 text-gray-800 font-semibold rounded-xl px-6 py-3 text-sm border border-gray-200 transition-colors text-left flex items-center justify-between"
+          style={{ minHeight: '44px' }}
+        >
+          <span>
+            Practice with AI Tutor
+            <span className="block text-xs font-normal text-gray-500">
+              Coaching on the words you keep missing
+            </span>
+          </span>
+          <span aria-hidden className="text-indigo-500">→</span>
+        </button>
       </div>
     </div>
   )

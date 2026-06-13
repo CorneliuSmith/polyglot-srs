@@ -12,6 +12,13 @@ class Settings(BaseSettings):
     environment: str = "development"
     cors_origins: list[str] = ["http://localhost:5173"]
 
+    # AI tutor (Claude API). Empty key disables the tutor endpoints.
+    anthropic_api_key: str = ""
+    tutor_model: str = "claude-opus-4-8"
+    # Development convenience: grant tutor access to everyone until the
+    # billing pipeline (Stripe, v2) writes tutor_entitlements rows.
+    tutor_free_access: bool = True
+
     model_config = SettingsConfigDict(env_file=".env", env_file_encoding="utf-8")
 
 

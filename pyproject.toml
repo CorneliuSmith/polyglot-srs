@@ -16,6 +16,8 @@ dependencies = [
     "asyncpg>=0.31",
     "PyJWT>=2.8",
     "httpx>=0.27",
+    "anthropic>=0.100",        # Claude API — AI tutor feature
+
     # NLP backends — install before running 02-02 through 02-04
     "pymorphy3>=2.0",          # Russian morphology (community fork of pymorphy2)
     # camel-tools requires Python <=3.12 and system deps (cmake, boost-devel).

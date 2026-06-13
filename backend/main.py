@@ -13,6 +13,7 @@ from backend.routers.auth import router as auth_router
 from backend.routers.dashboard import router as dashboard_router
 from backend.routers.languages import router as languages_router
 from backend.routers.review import router as review_router
+from backend.routers.tutor import router as tutor_router
 from backend.services.nlp import init_nlp_backends
 
 
@@ -41,6 +42,7 @@ def create_app() -> FastAPI:
     _app.include_router(dashboard_router, prefix="/api/dashboard", tags=["dashboard"])
     _app.include_router(languages_router, prefix="/api/languages", tags=["languages"])
     _app.include_router(review_router, prefix="/api/review", tags=["review"])
+    _app.include_router(tutor_router, prefix="/api/tutor", tags=["tutor"])
 
     @_app.get("/api/health")
     async def health():
