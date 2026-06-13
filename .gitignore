@@ -52,8 +52,13 @@ supabase/.branches/
 
 # Seed data — downloaded files are large and should not be committed
 # Curated/hand-crafted files are explicitly allowed below
+data/raw/
 data/ru_*.tsv
 data/ar_*.tsv
 data/en_*.tsv
+data/*_sentences.tsv
 !data/ar_seed.json
 !data/en_frequency.tsv
+# Merged outputs of backend/services/seeder/source_data.py (small, reviewed)
+!data/sw_frequency.tsv
+!data/tr_frequency.tsv

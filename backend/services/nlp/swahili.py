@@ -28,7 +28,9 @@ logger = logging.getLogger(__name__)
 _SUBJECT_PREFIXES = ("wa", "ni", "tu", "u", "a", "m")
 
 # Tense/aspect markers that follow the subject prefix
-_TENSE_MARKERS = ("na", "li", "ta", "me", "ki", "hu")
+# (na present, li past, ta future, me perfect, ki conditional/participial,
+#  hu habitual, ka narrative "and then...")
+_TENSE_MARKERS = ("na", "li", "ta", "me", "ki", "hu", "ka")
 
 _MIN_STEM_LEN = 3
 
