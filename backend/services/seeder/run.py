@@ -16,7 +16,7 @@ async def main():
     parser = argparse.ArgumentParser(description="Seed vocabulary data into the database")
     parser.add_argument(
         "--language", "-l",
-        choices=["ru", "ar", "en", "sw", "tr", "yo", "all"],
+        choices=["ru", "ar", "en", "sw", "tr", "yo", "ha", "xh", "all"],
         default="all",
         help="Language to seed (default: all)",
     )
@@ -76,6 +76,12 @@ async def main():
     if args.language in ("yo", "all"):
         from .seed_yoruba import YorubaSeeder
         seeders.append(YorubaSeeder(args.db_url))
+    if args.language in ("ha", "all"):
+        from .seed_hausa import HausaSeeder
+        seeders.append(HausaSeeder(args.db_url))
+    if args.language in ("xh", "all"):
+        from .seed_xhosa import XhosaSeeder
+        seeders.append(XhosaSeeder(args.db_url))
 
     for seeder in seeders:
         try:

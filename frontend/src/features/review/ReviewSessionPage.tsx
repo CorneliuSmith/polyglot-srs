@@ -145,8 +145,9 @@ export default function ReviewSessionPage() {
   if (!card) return null
 
   // Russian/Arabic need a full script keyboard; Turkish needs ç ğ ı İ ö ş ü;
-  // Yoruba needs underdots and tone-marked vowels (ẹ ọ ṣ á à ọ́ ...)
-  const needsKeyboard = ['ru', 'ar', 'tr', 'yo'].includes(card.language_code)
+  // Yoruba needs underdots + tone marks; Hausa needs hooked ɓ ɗ ƙ ƴ and ʼy.
+  // Xhosa is omitted: it's plain ASCII (clicks are c/q/x), no special keys.
+  const needsKeyboard = ['ru', 'ar', 'tr', 'yo', 'ha'].includes(card.language_code)
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -226,7 +227,7 @@ export default function ReviewSessionPage() {
             </div>
             {showKeyboard && (
               <OnScreenKeyboard
-                languageCode={card.language_code as 'ru' | 'ar' | 'tr' | 'yo'}
+                languageCode={card.language_code as 'ru' | 'ar' | 'tr' | 'yo' | 'ha'}
                 onKeyPress={handleKeyboardKeyPress}
                 inputRef={inputRef}
               />

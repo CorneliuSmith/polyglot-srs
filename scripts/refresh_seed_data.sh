@@ -10,7 +10,7 @@
 set -euo pipefail
 cd "$(dirname "$0")/.."
 
-for lang in tr sw yo; do
+for lang in tr sw yo ha xh; do
     echo "=== $lang: frequency + translations (kaikki/Wiktionary, CC-BY-SA) ==="
     python -m backend.services.seeder.source_data --language "$lang" --source kaikki
     echo "=== $lang: graded example sentences (Tatoeba, CC-BY) ==="

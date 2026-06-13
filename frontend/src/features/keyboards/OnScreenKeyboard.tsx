@@ -5,7 +5,7 @@ import arabicLayout from 'simple-keyboard-layouts/build/layouts/arabic'
 import turkishLayout from 'simple-keyboard-layouts/build/layouts/turkish'
 
 interface OnScreenKeyboardProps {
-  languageCode: 'ru' | 'ar' | 'tr' | 'yo'
+  languageCode: 'ru' | 'ar' | 'tr' | 'yo' | 'ha'
   onKeyPress: (key: string) => void
   inputRef?: React.RefObject<HTMLInputElement | null>
 }
@@ -23,11 +23,23 @@ const yorubaLayout = {
   ],
 }
 
+// Hausa Boko orthography: QWERTY plus the hooked consonants and glottal ʼy
+// that aren't on a standard keyboard.
+const hausaLayout = {
+  default: [
+    'q w e r t y u i o p',
+    'a s d f g h j k l',
+    'z x c v b n m {space}',
+    'ɓ ɗ ƙ ƴ ʼy ʼ',
+  ],
+}
+
 const LAYOUTS = {
   ru: russianLayout.layout,
   ar: arabicLayout.layout,
   tr: turkishLayout.layout,
   yo: yorubaLayout,
+  ha: hausaLayout,
 }
 
 export default function OnScreenKeyboard({ languageCode, onKeyPress }: OnScreenKeyboardProps) {

@@ -47,6 +47,10 @@ python -c "import asyncio, os; from pathlib import Path; \
 | Translations (`--source kaikki`) | [kaikki.org](https://kaikki.org/dictionary/) Wiktionary extracts | CC-BY-SA-3.0 | Best coverage (10-50x more words). Requires attribution to Wiktionary + share-alike on the data. |
 | Yoruba frequency | [Niger-Volta-LTI/yoruba-text](https://github.com/Niger-Volta-LTI/yoruba-text) (TheYorubaBlog, Iroyin news, Òwe proverbs) | GPL-3.0 | Fully diacritized, NFC-normalized contemporary text (~200k tokens). JW300 subfolder deliberately excluded (restrictive jw.org terms). Fetched via sparse git clone. |
 | Yoruba translations | kaikki.org Yoruba extract | CC-BY-SA-3.0 | Only dictionary source — no FreeDict exists. Tone-stripped fallback matching folds corpus tokens onto diacritized Wiktionary headwords. |
+| Xhosa frequency | [christos-c/bible-corpus](https://github.com/christos-c/bible-corpus) Xhosa | Public domain | Bootstrap (register-skewed, ~446k tokens). Prefer a Leipzig/Wikipedia CC-BY list for production. Verb conjugations fold onto stems via XhosaNLP. |
+| Xhosa translations | kaikki.org Xhosa extract | CC-BY-SA-3.0 | No FreeDict exists. |
+| Hausa frequency | **you supply** plain-text under `data/raw/hausa_corpus/` | — | No PD corpus is reachable from the pipeline. Use a **commercially-usable** source: Hausa Wikipedia (CC-BY-SA), [Leipzig Corpora](https://wortschatz.uni-leipzig.de/en/download) (CC-BY), or OPUS news. **Do NOT use the Masakhane `lacuna_pos_ner` Hausa corpus — it is CC-BY-NC (non-commercial).** |
+| Hausa translations | kaikki.org Hausa extract | CC-BY-SA-3.0 | Irregular plurals from Wiktionary are stored as answer alternatives. |
 | Example sentences | [Tatoeba](https://tatoeba.org/en/downloads) per-language exports | CC-BY-2.0-FR | Attribution required; stored per-row in `example_sentences.license`. Yoruba coverage on Tatoeba is thin; the Òwe corpus's parallel en/yo proverbs are a future supplement. |
 | Russian | OpenRussian TSV dumps | CC-BY-SA | see `seed_russian.py` |
 | English | NLTK WordNet + bundled frequency list | WordNet License | see `seed_english.py` |
@@ -55,6 +59,14 @@ python -c "import asyncio, os; from pathlib import Path; \
 Wiktionary (CC-BY-SA), Tatoeba (CC-BY), OpenSubtitles/FrequencyWords
 (CC-BY-SA), and OpenRussian satisfies the attribution clauses. Share-alike
 applies to the *data*, not your application code.
+
+> ⚠️ **The non-commercial trap.** The best-known African-language NLP datasets
+> are often **CC-BY-NC** (non-commercial) and cannot ship in a paid product:
+> Masakhane's `lacuna_pos_ner` corpora and MENYO-20k (the strongest en-yo
+> parallel set) are both NC. JW300 (jw.org) is also restricted. Always check
+> the license before adding a source here — prefer Wikipedia (CC-BY-SA),
+> Leipzig Corpora (CC-BY), Tatoeba (CC-BY), and Wiktionary/kaikki (CC-BY-SA),
+> all of which are commercial-safe with attribution.
 
 `data/raw/` holds cached downloads and is gitignored. The committed
 `sw_frequency.tsv` / `tr_frequency.tsv` were generated with
