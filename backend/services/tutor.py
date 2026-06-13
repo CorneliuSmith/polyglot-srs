@@ -59,6 +59,18 @@ _LANGUAGE_BRIEFS: dict[str, str] = {
         "noun classes. Decompose conjugated verbs into their morphemes so the "
         "learner sees the system, not memorized strings."
     ),
+    "yo": (
+        "Language: Yoruba.\n"
+        "You are an expert in Niger-Congo linguistics, specializing in Yoruba. "
+        "Key teaching dimensions: the three-tone system (high ́, mid "
+        "unmarked, low ̀) and how tone alone distinguishes words (ọkọ "
+        "husband / ọkọ̀ vehicle / oko farm); the underdotted vowels ẹ and ọ "
+        "and consonant ṣ as distinct phonemes; vowel harmony; serial verb "
+        "constructions; and subject pronouns + the rich aspect particles "
+        "(ti, ń, máa, yóò). Always write fully diacritized Yoruba. When the "
+        "learner omits or mistakes tone marks, contrast the minimal pair "
+        "they accidentally typed so they hear why tone matters."
+    ),
     "tr": (
         "Language: Turkish.\n"
         "You are an expert in Turkic linguistics. Key teaching dimensions: "

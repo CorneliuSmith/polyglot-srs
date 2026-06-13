@@ -75,8 +75,8 @@ def client():
 
 
 class TestBuildSystemBlocks:
-    def test_all_five_languages_have_briefs(self):
-        for code in ("ru", "ar", "en", "sw", "tr"):
+    def test_all_six_languages_have_briefs(self):
+        for code in ("ru", "ar", "en", "sw", "tr", "yo"):
             blocks = build_system_blocks(code, [])
             assert len(blocks) == 2
             assert "tutor" in blocks[0]["text"].lower()

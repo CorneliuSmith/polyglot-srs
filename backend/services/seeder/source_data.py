@@ -26,9 +26,18 @@ Example sentences (graded by progression):
     app can serve i+1 sentences: examples where everything is within the
     learner's vocabulary except the card being studied.
 
+Yoruba:
+  - Frequency: contemporary diacritized corpora (TheYorubaBlog + Iroyin
+    news) from Niger-Volta-LTI/yoruba-text (GPL-3.0), fetched via sparse
+    git clone — the full repo is 500MB; we take ~1MB.
+  - Translations: kaikki.org Yoruba extract only (no FreeDict dictionary
+    exists). Tone-stripped fallback matching links corpus tokens whose
+    tone marks differ from the Wiktionary headword.
+
 Usage:
     python -m backend.services.seeder.source_data --language tr
     python -m backend.services.seeder.source_data --language sw
+    python -m backend.services.seeder.source_data --language yo --source kaikki
     python -m backend.services.seeder.source_data --language tr --source kaikki
     python -m backend.services.seeder.source_data --language tr --sentences
 """
@@ -40,6 +49,8 @@ import csv
 import json
 import logging
 import re
+import subprocess
+import unicodedata
 import xml.etree.ElementTree as ET
 from collections import Counter
 from pathlib import Path
@@ -48,6 +59,7 @@ import httpx
 
 from backend.services.nlp.swahili import SwahiliNLP
 from backend.services.nlp.turkish import TurkishNLP, turkish_lower
+from backend.services.nlp.yoruba import YorubaNLP, strip_tones
 from backend.services.seeder.base import DATA_DIR
 
 logger = logging.getLogger("source_data")
@@ -73,13 +85,20 @@ SOURCES = {
     ),
     "tr_kaikki": "https://kaikki.org/dictionary/Turkish/kaikki.org-dictionary-Turkish.jsonl",
     "sw_kaikki": "https://kaikki.org/dictionary/Swahili/kaikki.org-dictionary-Swahili.jsonl",
+    "yo_kaikki": "https://kaikki.org/dictionary/Yoruba/kaikki.org-dictionary-Yoruba.jsonl",
+    "yo_corpus_repo": "https://github.com/Niger-Volta-LTI/yoruba-text.git",
     # Tatoeba ISO-639-3 codes: tur = Turkish, swh = coastal Swahili
     "tatoeba_sentences": "https://downloads.tatoeba.org/exports/per_language/{iso3}/{iso3}_sentences.tsv.bz2",
     "tatoeba_links": "https://downloads.tatoeba.org/exports/per_language/{iso3}/{iso3}-eng_links.tsv.bz2",
     "tatoeba_eng": "https://downloads.tatoeba.org/exports/per_language/eng/eng_sentences.tsv.bz2",
 }
 
-TATOEBA_ISO3 = {"tr": "tur", "sw": "swh"}
+TATOEBA_ISO3 = {"tr": "tur", "sw": "swh", "yo": "yor"}
+
+# Contemporary, openly licensed sub-corpora of Niger-Volta-LTI/yoruba-text.
+# Deliberately excludes JW300 (jw.org terms are restrictive) and keeps the
+# religious texts out of the frequency model (register skew).
+YORUBA_CORPUS_DIRS = ("TheYorubaBlog", "Iroyin", "Owe/yo")
 
 
 def download(url: str, dest: Path, timeout: float = 300.0) -> Path:
@@ -283,6 +302,77 @@ def build_swahili_rows(
     ]
 
 
+def fetch_yoruba_corpus(cache_dir: Path) -> Path:
+    """Sparse-clone the diacritized Yoruba corpora (~1-12MB of a 500MB repo)."""
+    repo_dir = cache_dir / "yoruba-text"
+    if repo_dir.exists() and any(repo_dir.glob("*/")):
+        logger.info("Using cached yoruba-text checkout")
+        return repo_dir
+    repo_dir.parent.mkdir(parents=True, exist_ok=True)
+    subprocess.run(
+        ["git", "clone", "--depth", "1", "--filter=blob:none", "--sparse",
+         SOURCES["yo_corpus_repo"], str(repo_dir)],
+        check=True, capture_output=True,
+    )
+    subprocess.run(
+        ["git", "-C", str(repo_dir), "sparse-checkout", "set", *YORUBA_CORPUS_DIRS],
+        check=True, capture_output=True,
+    )
+    return repo_dir
+
+
+def yoruba_corpus_counts(repo_dir: Path) -> Counter:
+    """Count NFC-normalized word tokens across the checked-out corpora."""
+    counts: Counter = Counter()
+    for sub in YORUBA_CORPUS_DIRS:
+        base = repo_dir / sub
+        if not base.exists():
+            continue
+        for path in sorted(base.rglob("*.txt")):
+            try:
+                text = path.read_text(encoding="utf-8")
+            except UnicodeDecodeError:
+                continue
+            text = unicodedata.normalize("NFC", text.lower())
+            for token in _WORD_RE.findall(text):
+                counts[token] += 1
+    return counts
+
+
+def build_yoruba_rows(
+    counts: Counter,
+    dictionary: dict[str, dict],
+    max_words: int = 10000,
+) -> list[dict]:
+    """Merge Yoruba corpus counts with a (diacritized) dictionary.
+
+    Corpus tokens match headwords directly first; otherwise the tone-stripped
+    token is looked up against a tone-stripped headword index, so corpus text
+    with inconsistent tone marking still folds onto the right Wiktionary
+    entry. Counts aggregate onto the fully diacritized headword.
+    """
+    toneless_index: dict[str, str] = {}
+    for headword in dictionary:
+        toneless_index.setdefault(strip_tones(headword), headword)
+
+    agg: dict[str, int] = {}
+    for token, count in counts.items():
+        token = unicodedata.normalize("NFC", token)
+        headword = None
+        if token in dictionary:
+            headword = token
+        else:
+            headword = toneless_index.get(strip_tones(token))
+        if headword:
+            agg[headword] = agg.get(headword, 0) + count
+
+    ordered = sorted(agg.items(), key=lambda kv: kv[1], reverse=True)[:max_words]
+    return [
+        {"word": w, "pos": dictionary[w].get("pos"), "gloss": dictionary[w]["gloss"]}
+        for w, _count in ordered
+    ]
+
+
 # ---------------------------------------------------------------------------
 # Example sentences (Tatoeba) — graded by progression
 # ---------------------------------------------------------------------------
@@ -472,6 +562,17 @@ def build_language(language: str, source: str, max_words: int, cache_dir: Path) 
             wanted = set(counts) | {nlp.lemmatize(w) for w in counts}
         dictionary = _build_dictionary("sw", source, cache_dir, wanted)
         rows = build_swahili_rows(counts, dictionary, max_words)
+    elif language == "yo":
+        if source != "kaikki":
+            raise ValueError(
+                "Yoruba has no FreeDict dictionary — run with --source kaikki"
+            )
+        repo_dir = fetch_yoruba_corpus(cache_dir)
+        counts = yoruba_corpus_counts(repo_dir)
+        # No 'wanted' filter: tone-stripped fallback matching needs the full
+        # headword set, and the Yoruba kaikki extract is small (~10k entries).
+        dictionary = _build_dictionary("yo", source, cache_dir, None)
+        rows = build_yoruba_rows(counts, dictionary, max_words)
     else:
         raise ValueError(f"Unsupported language: {language}")
 
@@ -502,7 +603,8 @@ def build_sentences(language: str, cache_dir: Path, per_word: int = 3) -> Path:
         for row in csv.DictReader(f, delimiter="\t"):
             rank_by_word[row["word"]] = int(row["rank"])
 
-    lemmatize = (TurkishNLP() if language == "tr" else SwahiliNLP()).lemmatize
+    nlp_by_lang = {"tr": TurkishNLP, "sw": SwahiliNLP, "yo": YorubaNLP}
+    lemmatize = nlp_by_lang[language]().lemmatize
     rows = build_sentence_rows(
         parse_tatoeba_sentences(tgt),
         parse_tatoeba_sentences(eng),
@@ -519,7 +621,7 @@ def build_sentences(language: str, cache_dir: Path, per_word: int = 3) -> Path:
 
 def main() -> None:
     parser = argparse.ArgumentParser(description="Build seed data from open datasets")
-    parser.add_argument("--language", "-l", choices=["tr", "sw"], required=True)
+    parser.add_argument("--language", "-l", choices=["tr", "sw", "yo"], required=True)
     parser.add_argument(
         "--source", choices=["freedict", "kaikki"], default="freedict",
         help="Translation source: freedict (small, instant) or kaikki (large, best coverage)",

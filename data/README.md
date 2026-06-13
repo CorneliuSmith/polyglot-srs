@@ -4,8 +4,12 @@ Vocabulary and sentence seed files in this directory are built by the
 sourcing pipeline, not scraped:
 
 ```sh
+./scripts/refresh_seed_data.sh   # everything, from the best sources (run with open internet)
+
+# or per language:
 python -m backend.services.seeder.source_data --language tr            # frequency + translations
 python -m backend.services.seeder.source_data --language sw
+python -m backend.services.seeder.source_data --language yo --source kaikki  # Yoruba needs kaikki
 python -m backend.services.seeder.source_data --language tr --sentences  # + graded Tatoeba examples
 python -m backend.services.seeder.source_data --language tr --source kaikki  # best coverage (large download)
 ```
@@ -41,7 +45,9 @@ python -c "import asyncio, os; from pathlib import Path; \
 | Swahili frequency | [christos-c/bible-corpus](https://github.com/christos-c/bible-corpus) Swahili NT | Public domain | Bootstrap only — register-skewed. Prefer a [Leipzig Corpora](https://wortschatz.uni-leipzig.de/en/download) or [An Crúbadán](http://crubadan.org/) list (CC-BY) for production. |
 | Translations (bundled TSVs) | [FreeDict](https://github.com/freedict/fd-dictionaries) tur-eng / swh-eng | **GPL-2.0-or-later** | OK for server-side use; **re-source from kaikki before distributing the data** (e.g. in a mobile app bundle). |
 | Translations (`--source kaikki`) | [kaikki.org](https://kaikki.org/dictionary/) Wiktionary extracts | CC-BY-SA-3.0 | Best coverage (10-50x more words). Requires attribution to Wiktionary + share-alike on the data. |
-| Example sentences | [Tatoeba](https://tatoeba.org/en/downloads) per-language exports | CC-BY-2.0-FR | Attribution required; stored per-row in `example_sentences.license`. |
+| Yoruba frequency | [Niger-Volta-LTI/yoruba-text](https://github.com/Niger-Volta-LTI/yoruba-text) (TheYorubaBlog, Iroyin news, Òwe proverbs) | GPL-3.0 | Fully diacritized, NFC-normalized contemporary text (~200k tokens). JW300 subfolder deliberately excluded (restrictive jw.org terms). Fetched via sparse git clone. |
+| Yoruba translations | kaikki.org Yoruba extract | CC-BY-SA-3.0 | Only dictionary source — no FreeDict exists. Tone-stripped fallback matching folds corpus tokens onto diacritized Wiktionary headwords. |
+| Example sentences | [Tatoeba](https://tatoeba.org/en/downloads) per-language exports | CC-BY-2.0-FR | Attribution required; stored per-row in `example_sentences.license`. Yoruba coverage on Tatoeba is thin; the Òwe corpus's parallel en/yo proverbs are a future supplement. |
 | Russian | OpenRussian TSV dumps | CC-BY-SA | see `seed_russian.py` |
 | English | NLTK WordNet + bundled frequency list | WordNet License | see `seed_english.py` |
 

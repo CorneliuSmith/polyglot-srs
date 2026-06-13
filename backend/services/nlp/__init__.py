@@ -33,6 +33,7 @@ def init_nlp_backends() -> None:
         ("en", "backend.services.nlp.english", "EnglishNLP"),
         ("sw", "backend.services.nlp.swahili", "SwahiliNLP"),
         ("tr", "backend.services.nlp.turkish", "TurkishNLP"),
+        ("yo", "backend.services.nlp.yoruba", "YorubaNLP"),
     ]
     for lang_code, module_path, class_name in candidates:
         try:
