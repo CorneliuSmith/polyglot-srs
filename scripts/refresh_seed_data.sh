@@ -21,7 +21,9 @@ done
 echo
 echo "Done. Load vocabulary into the database with:"
 echo "  python -m backend.services.seeder.run --language all"
-echo "Load grammar curricula (points, drills, explanations):"
+echo "Load hand-authored grammar curricula (Russian, Turkish):"
 echo "  python -m backend.services.seeder.seed_grammar --language all"
-echo "Generate AI grammar explanations for points that lack them:"
+echo "AI-generate a curriculum for a language without one (NLP-validated drills):"
+echo "  python -m backend.services.seeder.generate_curriculum --language sw --generate"
+echo "Fill AI grammar explanations for points that lack them:"
 echo "  python -m backend.services.seeder.generate_grammar --language ru --generate"

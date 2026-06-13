@@ -90,6 +90,17 @@ hand-authored explanations) is seeded from `data/grammar/{code}_grammar.json`:
 python -m backend.services.seeder.seed_grammar --language all
 ```
 
+For languages without a hand-authored curriculum, AI-generate one (points +
+drill sentences). Every generated drill is self-validated through that
+language's own NLP backend — only drills whose answer actually validates (and
+whose blank matches its answer) are kept; the rest are dropped. Everything is
+written as `ai` / unreviewed for a specialist to approve in `/contribute`:
+
+```sh
+python -m backend.services.seeder.generate_curriculum --language sw --dry-run    # validate + report
+python -m backend.services.seeder.generate_curriculum --language sw --generate   # write to DB
+```
+
 Then fill explanations for any points that lack them:
 
 ```sh
