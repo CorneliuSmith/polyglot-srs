@@ -144,7 +144,8 @@ export default function ReviewSessionPage() {
   const card = session.currentCard
   if (!card) return null
 
-  const needsKeyboard = card.language_code === 'ru' || card.language_code === 'ar'
+  // Russian/Arabic need a full script keyboard; Turkish needs ç ğ ı İ ö ş ü
+  const needsKeyboard = ['ru', 'ar', 'tr'].includes(card.language_code)
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -224,7 +225,7 @@ export default function ReviewSessionPage() {
             </div>
             {showKeyboard && (
               <OnScreenKeyboard
-                languageCode={card.language_code as 'ru' | 'ar'}
+                languageCode={card.language_code as 'ru' | 'ar' | 'tr'}
                 onKeyPress={handleKeyboardKeyPress}
                 inputRef={inputRef}
               />
