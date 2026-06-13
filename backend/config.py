@@ -15,6 +15,8 @@ class Settings(BaseSettings):
     # AI tutor (Claude API). Empty key disables the tutor endpoints.
     anthropic_api_key: str = ""
     tutor_model: str = "claude-opus-4-8"
+    # Cheaper model for the off-the-hot-path session summarizer / memory extractor.
+    tutor_summary_model: str = "claude-sonnet-4-6"
     # Development convenience: grant tutor access to everyone until the
     # billing pipeline (Stripe, v2) writes tutor_entitlements rows.
     tutor_free_access: bool = True

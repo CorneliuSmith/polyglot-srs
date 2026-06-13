@@ -1,10 +1,13 @@
-import { useEffect, useRef, useState } from 'react'
+import { useCallback, useEffect, useRef, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useQuery, useMutation } from '@tanstack/react-query'
 import { getLanguages } from '../../api/profile'
-import { getTutorStatus, sendTutorMessage } from '../../api/tutor'
+import { endTutorSession, getTutorStatus, sendTutorMessage } from '../../api/tutor'
 import type { TutorMessage } from '../../api/tutor'
 import { usePrefsStore } from '../../stores/prefsStore'
+
+// Summarize into memory after this long without activity.
+const IDLE_MS = 3 * 60 * 1000
 
 export default function TutorPage() {
   const navigate = useNavigate()
@@ -14,11 +17,31 @@ export default function TutorPage() {
   const [sendError, setSendError] = useState<string | null>(null)
   const bottomRef = useRef<HTMLDivElement>(null)
 
+  // Refs so the session-end flush reads live values without re-subscribing.
+  const messagesRef = useRef<TutorMessage[]>([])
+  const endedRef = useRef(false)
+  const langRef = useRef<{ id: string; code: string } | null>(null)
+  const idleTimer = useRef<ReturnType<typeof setTimeout> | null>(null)
+  messagesRef.current = messages
+
   const { data: languages = [] } = useQuery({
     queryKey: ['languages'],
     queryFn: getLanguages,
   })
   const language = languages.find((l) => l.id === activeLanguageId)
+  if (language) langRef.current = { id: language.id, code: language.code }
+
+  // Flush the conversation into durable memory. Fire-and-forget, idempotent
+  // per session (endedRef guards double-sends from button + unmount + idle).
+  const flushSession = useCallback(() => {
+    const lang = langRef.current
+    const convo = messagesRef.current
+    if (endedRef.current || !lang || convo.length < 2) return
+    endedRef.current = true
+    void endTutorSession(lang.id, lang.code, convo).catch(() => {
+      // Best-effort: memory summary is not critical to the user's flow.
+    })
+  }, [])
 
   const { data: status, isLoading: statusLoading } = useQuery({
     queryKey: ['tutor-status', activeLanguageId, language?.code],
@@ -43,6 +66,14 @@ export default function TutorPage() {
     bottomRef.current?.scrollIntoView?.({ behavior: 'smooth' })
   }, [messages, sendMutation.isPending])
 
+  // Flush on unmount (navigating away ends the session).
+  useEffect(() => {
+    return () => {
+      if (idleTimer.current) clearTimeout(idleTimer.current)
+      flushSession()
+    }
+  }, [flushSession])
+
   const handleSend = () => {
     const text = input.trim()
     if (!text || sendMutation.isPending || !language) return
@@ -50,6 +81,16 @@ export default function TutorPage() {
     setMessages(history)
     setInput('')
     sendMutation.mutate(history)
+    // New activity reopens the session and resets the idle countdown.
+    endedRef.current = false
+    if (idleTimer.current) clearTimeout(idleTimer.current)
+    idleTimer.current = setTimeout(flushSession, IDLE_MS)
+  }
+
+  const handleEndSession = () => {
+    if (idleTimer.current) clearTimeout(idleTimer.current)
+    flushSession()
+    navigate('/')
   }
 
   if (statusLoading || !language) {
@@ -115,10 +156,10 @@ export default function TutorPage() {
           </div>
           <button
             type="button"
-            onClick={() => navigate('/')}
+            onClick={handleEndSession}
             className="text-sm text-indigo-600 hover:underline"
           >
-            Dashboard
+            End session
           </button>
         </div>
 
