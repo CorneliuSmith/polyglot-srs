@@ -13,8 +13,7 @@ grounded in two layers of learner data:
 Memory is read at the start of every turn (grounding) and written two ways
 (hybrid): the tutor's `remember` tool locks in high-salience facts mid-chat,
 and a cheaper post-session summarizer folds the conversation into the profile
-and a fresh session summary. This is the agent analogue of reading/writing
-markdown context files in a Claude project.
+and a fresh study-session summary when the learner ends or leaves a session.
 
 Prompt structure (ordered for prompt caching — stable prefix first):
   system[0]  shared tutor charter + per-language linguistics brief (cached)
