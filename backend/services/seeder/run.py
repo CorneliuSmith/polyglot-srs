@@ -16,7 +16,7 @@ async def main():
     parser = argparse.ArgumentParser(description="Seed vocabulary data into the database")
     parser.add_argument(
         "--language", "-l",
-        choices=["ru", "ar", "en", "all"],
+        choices=["ru", "ar", "en", "sw", "tr", "yo", "all"],
         default="all",
         help="Language to seed (default: all)",
     )
@@ -67,6 +67,15 @@ async def main():
             seeders.append(EnglishSeeder(args.db_url))
         except ImportError:
             print("SKIP en: seed_english module not yet implemented")
+    if args.language in ("sw", "all"):
+        from .seed_swahili import SwahiliSeeder
+        seeders.append(SwahiliSeeder(args.db_url))
+    if args.language in ("tr", "all"):
+        from .seed_turkish import TurkishSeeder
+        seeders.append(TurkishSeeder(args.db_url))
+    if args.language in ("yo", "all"):
+        from .seed_yoruba import YorubaSeeder
+        seeders.append(YorubaSeeder(args.db_url))
 
     for seeder in seeders:
         try:

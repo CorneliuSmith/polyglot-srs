@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 
-from datetime import date, timedelta
+from datetime import UTC, date, datetime, timedelta
 
 import asyncpg
 
@@ -44,7 +44,7 @@ async def get_dashboard_stats(
     # Fetch distinct review dates descending to count consecutive days
     date_rows = await conn.fetch(
         """
-        SELECT DISTINCT DATE(rl.created_at) AS review_date
+        SELECT DISTINCT DATE(rl.created_at AT TIME ZONE 'UTC') AS review_date
         FROM review_log rl
         JOIN user_cards uc ON rl.card_id = uc.id
         WHERE rl.user_id = $1
@@ -101,11 +101,14 @@ def _compute_streak(review_dates: set[date]) -> int:
 
     A streak of 1 means the user reviewed today only.  If no review today
     but a review yesterday, the streak is still counted from yesterday.
+
+    "Today" is the current UTC date, matching the UTC day boundaries used
+    when extracting review dates in SQL.
     """
     if not review_dates:
         return 0
 
-    today = date.today()
+    today = datetime.now(UTC).date()
     # Allow streak to start from today or yesterday (grace period)
     start = today if today in review_dates else today - timedelta(days=1)
     if start not in review_dates:

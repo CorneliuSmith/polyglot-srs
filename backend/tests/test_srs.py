@@ -12,18 +12,16 @@ Tests cover:
 - Review log / next_review support (SRS-04 prep)
 - Due card ordering (SRS-05 prep)
 """
+from datetime import UTC, datetime
+
 import pytest
-from datetime import timezone, timedelta, datetime
 
 from backend.services.srs import (
-    CardState,
-    SRSUpdate,
     AnswerResult,
-    QUALITY_MAP,
-    sm2_update,
+    CardState,
     map_answer_to_quality,
+    sm2_update,
 )
-
 
 # ---------------------------------------------------------------------------
 # Helpers
@@ -263,7 +261,7 @@ class TestNextReview:
     def test_srs_update_contains_next_review(self):
         """next_review is a timezone-aware datetime in the future."""
         state = fresh_card()
-        before = datetime.now(timezone.utc)
+        before = datetime.now(UTC)
         result = sm2_update(state, quality=4)
         assert result.next_review.tzinfo is not None
         assert result.next_review > before

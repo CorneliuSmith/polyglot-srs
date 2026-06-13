@@ -9,7 +9,7 @@ interface DrillCardProps {
   languageCode?: string
   /** @deprecated use languageCode instead; kept for backward compat */
   dir?: 'ltr' | 'rtl'
-  inputRef?: React.RefObject<HTMLInputElement>
+  inputRef?: React.RefObject<HTMLInputElement | null>
 }
 
 export default function DrillCard({

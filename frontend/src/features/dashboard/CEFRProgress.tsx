@@ -1,7 +1,9 @@
+import type { CEFRLevelProgress } from '../../api/types'
+
 const CEFR_LEVELS = ['A1', 'A2', 'B1', 'B2', 'C1', 'C2']
 
 interface CEFRProgressProps {
-  progress: Record<string, number>
+  progress: Record<string, CEFRLevelProgress>
 }
 
 export default function CEFRProgress({ progress }: CEFRProgressProps) {
@@ -12,8 +14,8 @@ export default function CEFRProgress({ progress }: CEFRProgressProps) {
       </h2>
       <div className="space-y-3">
         {CEFR_LEVELS.map((level) => {
-          const value = progress[level] ?? 0
-          const pct = Math.round(value * 100)
+          const { learned = 0, total = 0 } = progress[level] ?? {}
+          const pct = total > 0 ? Math.round((learned / total) * 100) : 0
           return (
             <div key={level} className="flex items-center gap-3">
               <span className="w-7 text-xs font-semibold text-gray-500 shrink-0">{level}</span>

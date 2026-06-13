@@ -1,9 +1,8 @@
 """English vocabulary seeder using WordNet definitions and a bundled frequency list."""
 import csv
 import json
-import logging
 
-from .base import BaseSeeder, DATA_DIR
+from .base import DATA_DIR, BaseSeeder  # noqa: F401 — DATA_DIR re-exported so tests can patch it
 
 # Filename constant so tests can patch DATA_DIR
 FREQ_FILENAME = "en_frequency.tsv"

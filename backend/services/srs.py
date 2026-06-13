@@ -8,7 +8,7 @@ from __future__ import annotations
 
 import random
 from dataclasses import dataclass
-from datetime import datetime, timedelta, timezone
+from datetime import UTC, datetime, timedelta
 
 from backend.services.nlp.base import AnswerResult  # noqa: F401 — re-exported for callers
 
@@ -164,7 +164,7 @@ def sm2_update(state: CardState, quality: int) -> SRSUpdate:
         fuzz = random.uniform(0.95, 1.05)
         new_interval = max(1, round(new_interval * fuzz))
 
-    next_review = datetime.now(timezone.utc) + timedelta(days=new_interval)
+    next_review = datetime.now(UTC) + timedelta(days=new_interval)
 
     return SRSUpdate(
         ease_factor=round(new_ease, 10),  # avoid floating-point drift

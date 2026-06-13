@@ -1,5 +1,6 @@
 """Integration tests validating all three seeders + CSV importer produce correct schema."""
 import json
+
 import pytest
 
 from backend.services.seeder.base import BaseSeeder
@@ -29,10 +30,10 @@ class TestSeederImports:
         assert importer.language_code == "ar"
 
     def test_all_seeders_extend_base(self):
-        from backend.services.seeder.seed_russian import RussianSeeder
+        from backend.services.seeder.csv_importer import CSVImporter
         from backend.services.seeder.seed_arabic import ArabicSeeder
         from backend.services.seeder.seed_english import EnglishSeeder
-        from backend.services.seeder.csv_importer import CSVImporter
+        from backend.services.seeder.seed_russian import RussianSeeder
 
         for cls in (RussianSeeder, ArabicSeeder, EnglishSeeder, CSVImporter):
             assert issubclass(cls, BaseSeeder), f"{cls.__name__} must extend BaseSeeder"
@@ -86,10 +87,9 @@ class TestRussianTransformSchema:
     """Russian seeder transform() output matches vocabulary schema."""
 
     @pytest.fixture
-    def records(self, tmp_path):
-        import asyncio
-        from backend.services.seeder.seed_russian import RussianSeeder
+    async def records(self, tmp_path):
         import backend.services.seeder.seed_russian as mod
+        from backend.services.seeder.seed_russian import RussianSeeder
 
         # Create fixture TSV files
         words_tsv = tmp_path / "ru_words.tsv"
@@ -115,7 +115,7 @@ class TestRussianTransformSchema:
         mod.DATA_DIR = tmp_path
         try:
             seeder = RussianSeeder("fake://db")
-            return asyncio.get_event_loop().run_until_complete(seeder.transform())
+            return await seeder.transform()
         finally:
             mod.DATA_DIR = original
 
@@ -135,11 +135,11 @@ class TestArabicTransformSchema:
     """Arabic seeder transform() output matches vocabulary schema."""
 
     @pytest.fixture
-    def records(self, tmp_path):
-        import asyncio
+    async def records(self, tmp_path):
         import json as json_mod
-        from backend.services.seeder.seed_arabic import ArabicSeeder
+
         import backend.services.seeder.seed_arabic as mod
+        from backend.services.seeder.seed_arabic import ArabicSeeder
 
         # Create fixture seed file
         seed_file = tmp_path / "ar_seed.json"
@@ -154,7 +154,7 @@ class TestArabicTransformSchema:
         mod.DATA_DIR = tmp_path
         try:
             seeder = ArabicSeeder("fake://db")
-            return asyncio.get_event_loop().run_until_complete(seeder.transform())
+            return await seeder.transform()
         finally:
             mod.DATA_DIR = original
 
@@ -174,10 +174,9 @@ class TestEnglishTransformSchema:
     """English seeder transform() output matches vocabulary schema."""
 
     @pytest.fixture
-    def records(self, tmp_path):
-        import asyncio
-        from backend.services.seeder.seed_english import EnglishSeeder
+    async def records(self, tmp_path):
         import backend.services.seeder.seed_english as mod
+        from backend.services.seeder.seed_english import EnglishSeeder
 
         # Create small fixture frequency file
         freq_file = tmp_path / "en_frequency.tsv"
@@ -190,7 +189,7 @@ class TestEnglishTransformSchema:
         mod.DATA_DIR = tmp_path
         try:
             seeder = EnglishSeeder("fake://db")
-            return asyncio.get_event_loop().run_until_complete(seeder.transform())
+            return await seeder.transform()
         finally:
             mod.DATA_DIR = original_dir
 

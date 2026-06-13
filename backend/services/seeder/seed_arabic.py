@@ -1,8 +1,7 @@
 """Arabic vocabulary seeder using a curated bundled seed file."""
 import json
-import logging
 
-from .base import BaseSeeder, DATA_DIR
+from .base import DATA_DIR, BaseSeeder
 
 
 class ArabicSeeder(BaseSeeder):

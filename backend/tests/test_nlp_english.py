@@ -18,10 +18,10 @@ gracefully when spaCy is not installed.
 
 import pytest
 
-# These imports will fail with ImportError — that is intentional (RED phase).
-from backend.services.nlp.english import EnglishNLP
 from backend.services.nlp.base import AnswerResult
 
+# These imports will fail with ImportError — that is intentional (RED phase).
+from backend.services.nlp.english import EnglishNLP
 
 # ---------------------------------------------------------------------------
 # TestEnglishNormalization (NLP-09)

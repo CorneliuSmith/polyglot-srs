@@ -16,10 +16,10 @@ import unicodedata
 
 import pytest
 
-# These imports will fail with ImportError — that is intentional (RED phase).
-from backend.services.nlp.base import AnswerResult, BaseNLP
 from backend.services.nlp import NLP_BACKENDS, get_nlp, init_nlp_backends
 
+# These imports will fail with ImportError — that is intentional (RED phase).
+from backend.services.nlp.base import AnswerResult, BaseNLP
 
 # ---------------------------------------------------------------------------
 # StubNLP — a minimal concrete subclass used throughout these tests.

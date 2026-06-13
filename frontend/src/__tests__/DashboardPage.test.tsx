@@ -40,13 +40,15 @@ describe('StreakBadge', () => {
 })
 
 describe('CEFRProgress', () => {
+  // Mirrors the backend contract: cefr_progress maps each level to
+  // {learned, total} counts (see backend/repositories/dashboard.py).
   const progress = {
-    A1: 1.0,
-    A2: 0.75,
-    B1: 0.5,
-    B2: 0.25,
-    C1: 0.1,
-    C2: 0.0,
+    A1: { learned: 100, total: 100 },
+    A2: { learned: 75, total: 100 },
+    B1: { learned: 50, total: 100 },
+    B2: { learned: 25, total: 100 },
+    C1: { learned: 10, total: 100 },
+    C2: { learned: 0, total: 100 },
   }
 
   it('renders all 6 CEFR levels', () => {

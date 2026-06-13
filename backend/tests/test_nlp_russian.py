@@ -12,10 +12,10 @@ does not exist yet. This is the RED phase — implementations created in plan 02
 
 import pytest
 
-# These imports will fail with ImportError — that is intentional (RED phase).
-from backend.services.nlp.russian import RussianNLP
 from backend.services.nlp.base import AnswerResult
 
+# These imports will fail with ImportError — that is intentional (RED phase).
+from backend.services.nlp.russian import RussianNLP
 
 # ---------------------------------------------------------------------------
 # TestRussianNormalization (NLP-03)

@@ -27,8 +27,8 @@ logger = logging.getLogger(__name__)
 # when spaCy is present but the model is not downloaded.
 
 try:
-    import spacy
     import lemminflect  # noqa: F401 -- side effect: registers spaCy extensions
+    import spacy
     _nlp = spacy.load("en_core_web_sm")
 except ImportError as _import_err:
     logger.warning(
