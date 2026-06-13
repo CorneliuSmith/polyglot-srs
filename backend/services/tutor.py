@@ -345,6 +345,37 @@ def merge_remembered(
     return user, lang
 
 
+def _mock_chat(language_code: str, history: list[dict], weak_areas: list[dict]) -> tuple[str, list[dict]]:
+    """Canned tutor turn for dev mock mode — no Claude API call.
+
+    Echoes context so the chat UI is exercised, drills the first weak item if
+    present, and supports a `/remember <scope> <key> <value>` command so the
+    remember→persist path can be tested deterministically.
+    """
+    last_user = next(
+        (m["content"] for m in reversed(history) if m["role"] == "user"), ""
+    )
+    remembered: list[dict] = []
+    if last_user.startswith("/remember"):
+        parts = last_user.split(maxsplit=3)
+        if len(parts) == 4 and parts[1] in ("global", "language"):
+            remembered.append({"scope": parts[1], "key": parts[2], "value": parts[3]})
+            return f"[dev mock] Remembered ({parts[1]}) {parts[2]} = {parts[3]}.", remembered
+
+    drill = ""
+    if weak_areas:
+        w = weak_areas[0]
+        drill = (
+            f' Let\'s drill "{w.get("word")}" ({w.get("definition")}) — '
+            "use it in a sentence."
+        )
+    reply = (
+        f"[dev mock tutor — no Claude API call] I'm your {language_code} tutor. "
+        f'You said: "{last_user[:120]}".{drill}'
+    )
+    return reply, remembered
+
+
 async def tutor_chat(
     language_code: str,
     messages: list[dict],
@@ -364,6 +395,9 @@ async def tutor_chat(
     history = sanitize_history(messages)
     if not history:
         raise ValueError("Conversation must contain at least one user message")
+
+    if getattr(settings, "tutor_dev_mock", False):
+        return _mock_chat(language_code, history, weak_areas)
 
     client = AsyncAnthropic(api_key=settings.anthropic_api_key)
     system = build_system_blocks(
@@ -479,6 +513,20 @@ async def summarize_session(
             "user_profile_updates": {},
             "language_profile_updates": {},
             "session_summary": prior_summary or "",
+        }
+
+    if getattr(settings, "tutor_dev_mock", False):
+        user_turns = [m["content"] for m in history if m["role"] == "user"]
+        topics = ", ".join(t[:30] for t in user_turns[:3])
+        return {
+            "user_profile_updates": {},
+            "language_profile_updates": (
+                {"last_session_topics": topics} if topics else {}
+            ),
+            "session_summary": (
+                f"[dev mock] {len(user_turns)} learner turns. "
+                f"Topics touched: {topics}."
+            ),
         }
 
     transcript = "\n".join(f"{m['role']}: {m['content']}" for m in history)

@@ -53,9 +53,16 @@ async def _check_entitlement(user_id: str, language_id: str) -> bool:
         return await has_tutor_entitlement(conn, user_id, language_id)
 
 
-def _require_configured(language_code: str) -> None:
+def _tutor_configured() -> bool:
+    """True when the tutor can run — a real API key, or dev mock mode."""
     settings = get_settings()
-    if not settings.anthropic_api_key:
+    return bool(settings.anthropic_api_key) or getattr(
+        settings, "tutor_dev_mock", False
+    )
+
+
+def _require_configured(language_code: str) -> None:
+    if not _tutor_configured():
         raise HTTPException(
             status_code=status.HTTP_503_SERVICE_UNAVAILABLE,
             detail="AI tutor is not configured on this server",
@@ -74,8 +81,7 @@ async def tutor_status(
     user: dict = Depends(get_current_user),
 ):
     """Report whether the tutor is available and the user is entitled to it."""
-    settings = get_settings()
-    available = bool(settings.anthropic_api_key) and language_code in _LANGUAGE_BRIEFS
+    available = _tutor_configured() and language_code in _LANGUAGE_BRIEFS
     entitled = await _check_entitlement(user["id"], language_id) if available else False
     return {"available": available, "entitled": entitled}
 

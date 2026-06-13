@@ -39,6 +39,7 @@ class FakeSettings:
     tutor_model = "claude-opus-4-8"
     tutor_summary_model = "claude-sonnet-4-6"
     tutor_free_access = True
+    tutor_dev_mock = False
 
 
 def _make_token() -> str:
@@ -467,3 +468,78 @@ class TestSummarizeSession:
             )
         assert result["session_summary"] == "keep me"
         assert result["user_profile_updates"] == {}
+
+
+# ---------------------------------------------------------------------------
+# Dev mock mode — no API key, no Claude API calls
+# ---------------------------------------------------------------------------
+
+
+class _MockSettings(FakeSettings):
+    anthropic_api_key = ""
+    tutor_dev_mock = True
+
+
+class TestDevMock:
+    @pytest.mark.asyncio
+    async def test_chat_makes_no_api_call(self):
+        from backend.services import tutor as tutor_mod
+
+        def boom(*a, **k):
+            raise AssertionError("Anthropic client must not be built in mock mode")
+
+        with patch.object(tutor_mod, "get_settings", return_value=_MockSettings()), \
+             patch.object(tutor_mod, "AsyncAnthropic", side_effect=boom):
+            reply, remembered = await tutor_mod.tutor_chat(
+                "tr",
+                [{"role": "user", "content": "hello"}],
+                [{"word": "ev", "definition": "house"}],
+            )
+        assert "dev mock" in reply.lower()
+        assert "ev" in reply  # drills the weak item
+        assert remembered == []
+
+    @pytest.mark.asyncio
+    async def test_remember_command_parsed(self):
+        from backend.services import tutor as tutor_mod
+
+        with patch.object(tutor_mod, "get_settings", return_value=_MockSettings()), \
+             patch.object(tutor_mod, "AsyncAnthropic", side_effect=AssertionError):
+            _, remembered = await tutor_mod.tutor_chat(
+                "tr",
+                [{"role": "user", "content": "/remember global native_language English"}],
+                [],
+            )
+        assert remembered == [
+            {"scope": "global", "key": "native_language", "value": "English"}
+        ]
+
+    @pytest.mark.asyncio
+    async def test_summary_is_deterministic(self):
+        from backend.services import tutor as tutor_mod
+
+        with patch.object(tutor_mod, "get_settings", return_value=_MockSettings()), \
+             patch.object(tutor_mod, "AsyncAnthropic", side_effect=AssertionError):
+            result = await tutor_mod.summarize_session(
+                "tr",
+                [{"role": "user", "content": "teach me the locative"},
+                 {"role": "assistant", "content": "..."}],
+            )
+        assert "dev mock" in result["session_summary"]
+        assert result["language_profile_updates"]["last_session_topics"]
+
+    def test_endpoint_works_without_api_key(self, client):
+        # Router + service both see mock settings; no key, real (mock) tutor runs.
+        from backend.services import tutor as tutor_mod
+
+        with patch("backend.routers.tutor.get_settings", return_value=_MockSettings()), \
+             patch.object(tutor_mod, "get_settings", return_value=_MockSettings()), \
+             patch.object(tutor_mod, "AsyncAnthropic", side_effect=AssertionError), \
+             patch("backend.routers.tutor.get_weak_areas", new=AsyncMock(return_value=[])), \
+             patch("backend.routers.tutor.get_study_stats", new=AsyncMock(return_value={})), \
+             patch("backend.routers.tutor.get_user_profile", new=AsyncMock(return_value={})), \
+             patch("backend.routers.tutor.get_language_profile",
+                   new=AsyncMock(return_value={"profile": {}, "session_summary": ""})):
+            resp = client.post("/api/tutor/chat", json=_chat_body(), headers=_auth_headers())
+        assert resp.status_code == 200
+        assert "dev mock" in resp.json()["reply"].lower()

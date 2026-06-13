@@ -17,6 +17,12 @@ class Settings(BaseSettings):
     tutor_model: str = "claude-opus-4-8"
     # Cheaper model for the off-the-hot-path session summarizer / memory extractor.
     tutor_summary_model: str = "claude-sonnet-4-6"
+    # Dev-only: when true, the tutor returns canned responses with no API key
+    # and no Claude API calls — for testing the full flow (chat, entitlement,
+    # memory, session summary) before wiring up real billing. Never enable in
+    # production. Try `/remember global native_language English` in the chat to
+    # exercise the remember→persist path.
+    tutor_dev_mock: bool = False
     # Development convenience: grant tutor access to everyone until the
     # billing pipeline (Stripe, v2) writes tutor_entitlements rows.
     tutor_free_access: bool = True
