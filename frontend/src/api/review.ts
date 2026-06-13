@@ -1,5 +1,6 @@
 import apiClient from './client'
 import type {
+  CardDetail,
   DueCard,
   ValidateAnswerRequest,
   ValidateAnswerResponse,
@@ -7,6 +8,13 @@ import type {
   SubmitReviewResponse,
   LearnResponse,
 } from './types'
+
+export async function getCardDetail(cardId: string): Promise<CardDetail> {
+  const response = await apiClient.get<CardDetail>(
+    `/api/review/card/${cardId}/detail`,
+  )
+  return response.data
+}
 
 export async function getDueCards(languageId: string): Promise<DueCard[]> {
   const response = await apiClient.get<DueCard[]>('/api/review/due', {

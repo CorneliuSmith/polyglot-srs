@@ -72,3 +72,31 @@ applies to the *data*, not your application code.
 `sw_frequency.tsv` / `tr_frequency.tsv` were generated with
 `--source freedict` (this environment cannot reach kaikki.org); regenerate
 with `--source kaikki` for production coverage and friendlier licensing.
+
+## Grammar explanations (the review "Show grammar" panel)
+
+When a learner answers a card they can optionally expand a panel showing a
+grammar explanation, a culture note, and example sentences. That text lives
+on `grammar_points` (`explanation`, `culture_note`) with provenance in
+`explanation_source`, populated three ways:
+
+```sh
+# AI-generated (Claude, grounded on the language's linguistics brief + drill
+# sentences), cached in the DB; never overwrites contributor content:
+python -m backend.services.seeder.generate_grammar --language ru --generate
+
+# Hand-authored by a language specialist (marked reviewed + trusted):
+python -m backend.services.seeder.generate_grammar --language ru \
+    --import-file data/ru_grammar_notes.json
+```
+
+| Source (`explanation_source`) | How | Trust |
+|---|---|---|
+| `contributor` | `--import-file` JSON `[{title, explanation, culture_note}]` from a specialist | `reviewed = true` |
+| `ai` | `--generate` (Claude); set `TUTOR_DEV_MOCK=true` to populate canned text with no key | `reviewed = false` — promote after a human checks it |
+| `wiktionary` | open-source usage notes from kaikki | future |
+
+A specialist-contributor **UI/role** (so non-engineers can author and approve
+notes in-app) is a future step — today contributors hand off a JSON file. The
+AI generator and importer share the provenance column so the two coexist
+without clobbering each other.

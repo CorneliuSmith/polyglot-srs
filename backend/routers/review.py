@@ -6,7 +6,12 @@ from fastapi import APIRouter, Depends, HTTPException, status
 from pydantic import BaseModel
 
 from backend.dependencies import get_current_user
-from backend.repositories.cards import add_learn_batch, get_due_cards, update_card_srs
+from backend.repositories.cards import (
+    add_learn_batch,
+    get_card_detail,
+    get_due_cards,
+    update_card_srs,
+)
 from backend.repositories.pool import rls_connection
 from backend.repositories.review import insert_review_log
 from backend.services.nlp import validate_answer_async
@@ -53,6 +58,26 @@ async def get_due(
     async with rls_connection(user["id"]) as conn:
         cards = await get_due_cards(conn, language_id)
     return cards
+
+
+@router.get("/card/{card_id}/detail")
+async def card_detail(
+    card_id: str,
+    user: dict = Depends(get_current_user),
+):
+    """Return the optional 'review this card' content (grammar/usage + examples).
+
+    Powers the expandable panel shown after answering — lazy-loaded so it only
+    costs a query when the learner chooses to dig in rather than just continue.
+    """
+    async with rls_connection(user["id"]) as conn:
+        detail = await get_card_detail(conn, card_id)
+    if detail is None:
+        raise HTTPException(
+            status_code=status.HTTP_404_NOT_FOUND,
+            detail="Card not found",
+        )
+    return detail
 
 
 @router.post("/submit")

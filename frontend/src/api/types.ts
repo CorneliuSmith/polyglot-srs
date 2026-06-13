@@ -25,6 +25,24 @@ export interface DueCard {
   next_review: string
 }
 
+export interface CardDetailExample {
+  sentence: string
+  translation: string | null
+  hint: string | null
+}
+
+export interface CardDetail {
+  card_type: 'grammar' | 'vocabulary'
+  title: string | null
+  part_of_speech: string | null
+  definition: string | null
+  usage_note: string | null
+  morphology: Record<string, unknown> | string | null
+  explanation: string | null
+  culture_note: string | null
+  examples: CardDetailExample[]
+}
+
 export interface ValidateAnswerRequest {
   language_code: string
   user_input: string

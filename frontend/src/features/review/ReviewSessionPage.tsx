@@ -6,6 +6,7 @@ import { usePrefsStore } from '../../stores/prefsStore'
 import { useReviewSession } from './useReviewSession'
 import DrillCard from './DrillCard'
 import FeedbackPanel from './FeedbackPanel'
+import ReviewDetail from './ReviewDetail'
 import RatingButtons from './RatingButtons'
 import SessionSummary from './SessionSummary'
 import OnScreenKeyboard from '../keyboards/OnScreenKeyboard'
@@ -244,6 +245,11 @@ export default function ReviewSessionPage() {
                 feedback={session.validationResult.feedback}
                 correctAnswer={card.correct_answer}
                 userInput={lastInput}
+              />
+              <ReviewDetail
+                cardId={card.id}
+                cardType={card.card_type}
+                languageCode={card.language_code}
               />
               <RatingButtons
                 onRate={handleRate}

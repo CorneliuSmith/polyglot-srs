@@ -206,3 +206,94 @@ async def update_card_srs(
         srs_update["next_review"],
         card_id,
     )
+
+
+async def get_card_detail(
+    conn: asyncpg.Connection, card_id: str
+) -> dict | None:
+    """Return the rich "review this card" content for the optional panel.
+
+    The shape differs by card type (vocab vs grammar sets review differently):
+      - vocabulary: word, definition, usage note, morphology, and graded
+        example sentences (word seen in context).
+      - grammar: title, broad explanation, culture note, and the point's
+        drill sentences with translations.
+
+    *card_id* is a user_cards id; RLS on the connection scopes it to the
+    authenticated user, so a card the user doesn't own returns None.
+    """
+    card = await conn.fetchrow(
+        "SELECT card_type, card_id FROM user_cards WHERE id = $1", card_id
+    )
+    if card is None:
+        return None
+
+    if card["card_type"] == "vocabulary":
+        v = await conn.fetchrow(
+            """
+            SELECT v.word, v.part_of_speech, v.usage_note, v.morphology,
+                   t.definition
+            FROM vocabulary v
+            LEFT JOIN translations t
+                   ON v.id = t.vocabulary_id AND t.locale = 'en'
+            WHERE v.id = $1
+            """,
+            card["card_id"],
+        )
+        examples = await conn.fetch(
+            """
+            SELECT sentence, translation
+            FROM example_sentences
+            WHERE vocabulary_id = $1
+            ORDER BY difficulty_rank ASC NULLS LAST
+            LIMIT 5
+            """,
+            card["card_id"],
+        )
+        return {
+            "card_type": "vocabulary",
+            "title": v["word"] if v else None,
+            "part_of_speech": v["part_of_speech"] if v else None,
+            "definition": v["definition"] if v else None,
+            "usage_note": v["usage_note"] if v else None,
+            "morphology": v["morphology"] if v else None,
+            "explanation": None,
+            "culture_note": None,
+            "examples": [
+                {"sentence": e["sentence"], "translation": e["translation"], "hint": None}
+                for e in examples
+            ],
+        }
+
+    # grammar
+    gp = await conn.fetchrow(
+        """
+        SELECT title, explanation, culture_note, explanation_source
+        FROM grammar_points WHERE id = $1
+        """,
+        card["card_id"],
+    )
+    examples = await conn.fetch(
+        """
+        SELECT sentence, translation, hint
+        FROM drill_sentences
+        WHERE grammar_point_id = $1
+        ORDER BY display_order ASC
+        LIMIT 5
+        """,
+        card["card_id"],
+    )
+    return {
+        "card_type": "grammar",
+        "title": gp["title"] if gp else None,
+        "part_of_speech": None,
+        "definition": None,
+        "usage_note": None,
+        "morphology": None,
+        "explanation": gp["explanation"] if gp else None,
+        "culture_note": gp["culture_note"] if gp else None,
+        "examples": [
+            {"sentence": e["sentence"], "translation": e["translation"], "hint": e["hint"]}
+            for e in examples
+        ],
+    }
