@@ -5,6 +5,11 @@ export interface ContributorRole {
   role: string
 }
 
+export interface ReferenceLink {
+  title: string
+  url: string
+}
+
 export interface GrammarPointEdit {
   id: string
   title: string
@@ -13,6 +18,7 @@ export interface GrammarPointEdit {
   culture_note: string | null
   explanation_source: string
   reviewed: boolean
+  references: ReferenceLink[]
 }
 
 export async function getMyRoles(): Promise<{ roles: ContributorRole[]; is_admin: boolean }> {
@@ -33,10 +39,12 @@ export async function saveGrammarExplanation(
   pointId: string,
   explanation: string,
   cultureNote: string,
+  references: ReferenceLink[] = [],
 ): Promise<void> {
   await apiClient.put(`/api/contribute/grammar/${pointId}`, {
     explanation,
     culture_note: cultureNote,
+    references,
   })
 }
 

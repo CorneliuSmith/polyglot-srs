@@ -35,6 +35,14 @@ class TestGrammarTransform:
                 assert "{{answer}}" in d["sentence"]
                 assert d["answer"]
 
+    def test_real_curriculum_includes_references(self):
+        data = GrammarSeeder("fake://db", "ru").transform()
+        prep = next(p for p in data["points"] if "Prepositional" in p["title"])
+        assert prep["references"]
+        assert all(
+            r["url"].startswith("https://") for r in prep["references"]
+        )
+
     def test_real_turkish_curriculum_parses(self):
         data = GrammarSeeder("fake://db", "tr").transform()
         titles = [p["title"] for p in data["points"]]

@@ -45,6 +45,7 @@ describe('ContributorPage', () => {
         id: 'p1', title: 'Locative case', level: 'A1',
         explanation: 'Old explanation', culture_note: null,
         explanation_source: 'ai', reviewed: false,
+        references: [{ title: 'Wiktionary', url: 'https://en.wiktionary.org/wiki/-de' }],
       }],
     })
     mockSave.mockResolvedValue(undefined)
@@ -58,7 +59,9 @@ describe('ContributorPage', () => {
     fireEvent.click(screen.getByRole('button', { name: /save \(pending review\)/i }))
 
     await waitFor(() => {
-      expect(mockSave).toHaveBeenCalledWith('p1', 'Better explanation', '')
+      expect(mockSave).toHaveBeenCalledWith('p1', 'Better explanation', '', [
+        { title: 'Wiktionary', url: 'https://en.wiktionary.org/wiki/-de' },
+      ])
     })
   })
 

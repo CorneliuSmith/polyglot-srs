@@ -2,7 +2,11 @@
 
 from __future__ import annotations
 
+import json
+
 import asyncpg
+
+from backend.services.references import clean_references
 
 
 async def get_due_cards(
@@ -320,6 +324,7 @@ async def get_card_detail(
             "morphology": v["morphology"] if v else None,
             "explanation": None,
             "culture_note": None,
+            "references": [],
             "examples": [
                 {"sentence": e["sentence"], "translation": e["translation"], "hint": None}
                 for e in examples
@@ -329,7 +334,7 @@ async def get_card_detail(
     # grammar
     gp = await conn.fetchrow(
         """
-        SELECT title, explanation, culture_note, explanation_source
+        SELECT title, explanation, culture_note, explanation_source, reference_links
         FROM grammar_points WHERE id = $1
         """,
         card["card_id"],
@@ -344,6 +349,15 @@ async def get_card_detail(
         """,
         card["card_id"],
     )
+    references = []
+    if gp and gp["reference_links"]:
+        raw = gp["reference_links"]
+        if isinstance(raw, str):
+            try:
+                raw = json.loads(raw)
+            except (json.JSONDecodeError, TypeError):
+                raw = []
+        references = clean_references(raw)
     return {
         "card_type": "grammar",
         "title": gp["title"] if gp else None,
@@ -353,6 +367,7 @@ async def get_card_detail(
         "morphology": None,
         "explanation": gp["explanation"] if gp else None,
         "culture_note": gp["culture_note"] if gp else None,
+        "references": references,
         "examples": [
             {"sentence": e["sentence"], "translation": e["translation"], "hint": e["hint"]}
             for e in examples

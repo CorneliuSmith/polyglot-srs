@@ -7,7 +7,11 @@ connection AFTER the router has checked the caller's role in the app layer.
 
 from __future__ import annotations
 
+import json
+
 import asyncpg
+
+from backend.services.references import clean_references
 
 
 async def get_roles(conn: asyncpg.Connection, user_id: str) -> list[dict]:
@@ -47,13 +51,22 @@ async def list_grammar_points(
     rows = await conn.fetch(
         """
         SELECT id, title, level, explanation, culture_note,
-               explanation_source, reviewed
+               explanation_source, reviewed, reference_links
         FROM grammar_points
         WHERE language_id = $1
         ORDER BY display_order ASC, title ASC
         """,
         language_id,
     )
+
+    def _refs(raw):
+        if isinstance(raw, str):
+            try:
+                raw = json.loads(raw)
+            except (json.JSONDecodeError, TypeError):
+                raw = []
+        return clean_references(raw)
+
     return [
         {
             "id": str(r["id"]),
@@ -63,6 +76,7 @@ async def list_grammar_points(
             "culture_note": r["culture_note"],
             "explanation_source": r["explanation_source"],
             "reviewed": r["reviewed"],
+            "references": _refs(r["reference_links"]),
         }
         for r in rows
     ]
@@ -82,19 +96,23 @@ async def save_explanation(
     explanation: str,
     culture_note: str,
     submitted_by: str,
+    references: list | None = None,
 ) -> bool:
-    """Save a contributor explanation (privileged). Marks it pending review."""
+    """Save a contributor explanation + references (privileged). Pending review."""
+    refs = clean_references(references)
     result = await conn.execute(
         """
         UPDATE grammar_points
         SET explanation = $2,
             culture_note = NULLIF($3, ''),
+            reference_links = $5::jsonb,
             explanation_source = 'contributor',
             reviewed = false,
             explanation_submitted_by = $4
         WHERE id = $1
         """,
         point_id, explanation, culture_note, submitted_by,
+        json.dumps(refs, ensure_ascii=False),
     )
     return result.endswith("1")
 

@@ -15,6 +15,10 @@
       "display_order": 1,
       "explanation": "The prepositional case marks location after в (in) and на (on). It only ever appears after a preposition, which is why it is called 'prepositional'. Most nouns take the ending -е: стол → на столе, Москва → в Москве.",
       "culture_note": "Use в for enclosed spaces and cities (в Москве) and на for surfaces, open areas, and some events (на работе, 'at work').",
+      "references": [
+        {"title": "Wiktionary: Russian prepositional case", "url": "https://en.wiktionary.org/wiki/Appendix:Russian_nouns"},
+        {"title": "Wikipedia: Prepositional case", "url": "https://en.wikipedia.org/wiki/Prepositional_case"}
+      ],
       "drills": [
         {"sentence": "Книга на {{answer}}.", "answer": "столе", "translation": "The book is on the table.", "hint": "стол → prepositional", "display_order": 1},
         {"sentence": "Я живу в {{answer}}.", "answer": "Москве", "translation": "I live in Moscow.", "hint": "Москва → prepositional", "display_order": 2}

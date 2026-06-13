@@ -135,12 +135,17 @@ class TestContributeEndpoints:
                    new=AsyncMock(return_value=True)) as mock_save:
             resp = client.put(
                 f"/api/contribute/grammar/{POINT}",
-                json={"explanation": "The locative marks location."},
+                json={
+                    "explanation": "The locative marks location.",
+                    "references": [{"title": "Wiktionary", "url": "https://en.wiktionary.org/wiki/-de"}],
+                },
                 headers=_auth_headers(),
             )
         assert resp.status_code == 200
         assert resp.json() == {"saved": True, "reviewed": False}
         mock_save.assert_awaited_once()
+        # references flow through to the repository layer
+        assert mock_save.await_args.kwargs["references"][0]["url"].startswith("https://")
 
     def test_update_missing_point_404(self, client):
         with _roles([{"language_id": None, "role": "admin"}]), \

@@ -32,6 +32,8 @@ import logging
 
 import asyncpg
 
+from backend.services.references import clean_references
+
 from .base import DATA_DIR
 
 GRAMMAR_DIR = DATA_DIR / "grammar"
@@ -85,6 +87,7 @@ class GrammarSeeder:
                 "source": source,
                 "reviewed": bool(p.get("reviewed", False)),
                 "display_order": int(p.get("display_order") or 0),
+                "references": clean_references(p.get("references")),
                 "drills": drills,
             })
         return {"lists": data.get("lists", []), "points": points}
@@ -117,20 +120,22 @@ class GrammarSeeder:
                     """
                     INSERT INTO grammar_points
                         (language_id, title, explanation, culture_note, level,
-                         display_order, explanation_source, reviewed)
-                    VALUES ($1, $2, $3, $4, $5, $6, $7, $8)
+                         display_order, explanation_source, reviewed, reference_links)
+                    VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9::jsonb)
                     ON CONFLICT (language_id, title) DO UPDATE SET
                         explanation = EXCLUDED.explanation,
                         culture_note = EXCLUDED.culture_note,
                         level = EXCLUDED.level,
                         display_order = EXCLUDED.display_order,
                         explanation_source = EXCLUDED.explanation_source,
-                        reviewed = EXCLUDED.reviewed
+                        reviewed = EXCLUDED.reviewed,
+                        reference_links = EXCLUDED.reference_links
                     RETURNING id
                     """,
                     language_id, point["title"], point["explanation"],
                     point["culture_note"], point["level"], point["display_order"],
                     point["source"], point["reviewed"],
+                    json.dumps(point.get("references") or [], ensure_ascii=False),
                 )
                 # Replace drills so re-seeding is idempotent.
                 await conn.execute(

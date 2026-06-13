@@ -21,9 +21,26 @@ function PointEditor({
 }) {
   const [explanation, setExplanation] = useState(point.explanation ?? '')
   const [cultureNote, setCultureNote] = useState(point.culture_note ?? '')
+  // One "Title | https://url" per line — parsed on save.
+  const [refsText, setRefsText] = useState(
+    (point.references ?? []).map((r) => `${r.title} | ${r.url}`).join('\n'),
+  )
+
+  const parseRefs = () =>
+    refsText
+      .split('\n')
+      .map((line) => {
+        const i = line.indexOf('|')
+        if (i === -1) return null
+        const title = line.slice(0, i).trim()
+        const url = line.slice(i + 1).trim()
+        return title && url ? { title, url } : null
+      })
+      .filter((r): r is { title: string; url: string } => r !== null)
 
   const saveMutation = useMutation({
-    mutationFn: () => saveGrammarExplanation(point.id, explanation, cultureNote),
+    mutationFn: () =>
+      saveGrammarExplanation(point.id, explanation, cultureNote, parseRefs()),
     onSuccess: onSaved,
   })
   const approveMutation = useMutation({
@@ -63,6 +80,17 @@ function PointEditor({
         onChange={(e) => setCultureNote(e.target.value)}
         rows={2}
         className="w-full rounded-lg border border-gray-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500"
+      />
+
+      <label className="block text-xs font-medium text-gray-500">
+        References (one per line: Title | https://url)
+      </label>
+      <textarea
+        value={refsText}
+        onChange={(e) => setRefsText(e.target.value)}
+        rows={2}
+        placeholder="Wiktionary: locative case | https://en.wiktionary.org/..."
+        className="w-full rounded-lg border border-gray-300 px-3 py-2 text-sm font-mono focus:outline-none focus:ring-2 focus:ring-indigo-500"
       />
 
       <div className="flex items-center gap-2">

@@ -31,6 +31,11 @@ export interface CardDetailExample {
   hint: string | null
 }
 
+export interface ReferenceLink {
+  title: string
+  url: string
+}
+
 export interface CardDetail {
   card_type: 'grammar' | 'vocabulary'
   title: string | null
@@ -40,6 +45,7 @@ export interface CardDetail {
   morphology: Record<string, unknown> | string | null
   explanation: string | null
   culture_note: string | null
+  references: ReferenceLink[]
   examples: CardDetailExample[]
 }
 

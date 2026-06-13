@@ -92,6 +92,26 @@ export default function ReviewDetail({ cardId, cardType, languageCode }: ReviewD
                 </div>
               )}
 
+              {data.references && data.references.length > 0 && (
+                <div>
+                  <h3 className="font-semibold text-gray-700 mb-1">References</h3>
+                  <ul className="space-y-1">
+                    {data.references.map((ref, i) => (
+                      <li key={i}>
+                        <a
+                          href={ref.url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-indigo-600 hover:underline"
+                        >
+                          {ref.title}
+                        </a>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+
               {!data.explanation &&
                 !data.definition &&
                 !data.usage_note &&

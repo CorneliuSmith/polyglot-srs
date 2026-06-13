@@ -26,9 +26,15 @@ from backend.repositories.pool import privileged_connection, rls_connection
 router = APIRouter()
 
 
+class ReferenceLink(BaseModel):
+    title: str
+    url: str
+
+
 class ExplanationUpdate(BaseModel):
     explanation: str = Field(min_length=1)
     culture_note: str = ""
+    references: list[ReferenceLink] = Field(default_factory=list)
 
 
 class RoleGrant(BaseModel):
@@ -81,7 +87,8 @@ async def update_grammar(
         )
     async with privileged_connection() as conn:
         await save_explanation(
-            conn, point_id, body.explanation, body.culture_note, user["id"]
+            conn, point_id, body.explanation, body.culture_note, user["id"],
+            references=[r.model_dump() for r in body.references],
         )
     return {"saved": True, "reviewed": False}
 
