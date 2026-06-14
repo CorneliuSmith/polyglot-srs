@@ -17,17 +17,22 @@ EXPECTED_TABLES = [
     "vocabulary",
     "translations",
     "content_lists",
-    "content_list_items",
+    "user_content_subscriptions",
     "drill_sentences",
+    "example_sentences",
     "user_profiles",
     "user_cards",
     "review_log",
+    "tutor_user_profile",
+    "tutor_language_profile",
+    "contributor_roles",
+    "card_feedback",
 ]
 
 
 @pytest.mark.asyncio
 async def test_all_tables_exist():
-    """Verify all 10 schema tables exist."""
+    """Verify the core schema tables exist."""
     import asyncpg
 
     conn = await asyncpg.connect(os.environ["DATABASE_URL"])

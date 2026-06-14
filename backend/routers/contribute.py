@@ -35,6 +35,7 @@ from backend.repositories.contributor import (
 )
 from backend.repositories.pool import privileged_connection, rls_connection
 from backend.services.drills import validate_drill
+from backend.services.rate_limit import ai_review_limiter
 from backend.services.semantic_check import ai_available, semantic_check_point
 
 router = APIRouter()
@@ -265,6 +266,11 @@ async def ai_check(
         raise HTTPException(
             status_code=status.HTTP_503_SERVICE_UNAVAILABLE,
             detail="AI review is not configured on this server",
+        )
+    if not ai_review_limiter.allow(user["id"]):
+        raise HTTPException(
+            status_code=status.HTTP_429_TOO_MANY_REQUESTS,
+            detail="Too many AI checks — try again in a minute.",
         )
     async with rls_connection(user["id"]) as conn:
         roles = await get_roles(conn, user["id"])

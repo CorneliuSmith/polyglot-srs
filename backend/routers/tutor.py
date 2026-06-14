@@ -18,6 +18,7 @@ from backend.repositories.tutor import (
     upsert_language_profile,
     upsert_user_profile,
 )
+from backend.services.rate_limit import tutor_chat_limiter
 from backend.services.tutor import (
     _LANGUAGE_BRIEFS,
     merge_remembered,
@@ -102,6 +103,11 @@ async def chat(
         raise HTTPException(
             status_code=status.HTTP_402_PAYMENT_REQUIRED,
             detail="Tutor access requires a subscription for this language",
+        )
+    if not tutor_chat_limiter.allow(user["id"]):
+        raise HTTPException(
+            status_code=status.HTTP_429_TOO_MANY_REQUESTS,
+            detail="You're sending messages too fast — slow down a moment.",
         )
 
     async with rls_connection(user["id"]) as conn:
