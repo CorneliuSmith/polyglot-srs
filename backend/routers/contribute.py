@@ -18,6 +18,7 @@ from backend.repositories.contributor import (
     create_grammar_point,
     delete_drill,
     get_feedback_language,
+    get_language_policy,
     get_point_for_check,
     get_point_language,
     get_point_language_and_code,
@@ -30,6 +31,7 @@ from backend.repositories.contributor import (
     resolve_feedback,
     save_ai_check,
     save_explanation,
+    set_language_policy,
 )
 from backend.repositories.pool import privileged_connection, rls_connection
 from backend.services.drills import validate_drill
@@ -93,7 +95,36 @@ async def grammar_for_language(
                 detail="You don't have a contributor role for this language",
             )
         points = await list_grammar_points(conn, language_id)
-    return {"points": points, "is_admin": is_admin(roles)}
+        policy = await get_language_policy(conn, language_id)
+    return {"points": points, "is_admin": is_admin(roles), "review_policy": policy}
+
+
+class PolicyUpdate(BaseModel):
+    language_id: str
+    policy: str
+
+
+@router.post("/language-policy")
+async def update_language_policy(
+    body: PolicyUpdate,
+    user: dict = Depends(get_current_user),
+):
+    """Set a language's grammar review policy (admin-only)."""
+    if body.policy not in ("strict", "ai_ok"):
+        raise HTTPException(
+            status_code=status.HTTP_422_UNPROCESSABLE_ENTITY,
+            detail="policy must be 'strict' or 'ai_ok'",
+        )
+    async with rls_connection(user["id"]) as conn:
+        roles = await get_roles(conn, user["id"])
+    if not is_admin(roles):
+        raise HTTPException(
+            status_code=status.HTTP_403_FORBIDDEN,
+            detail="Only an admin can change the review policy",
+        )
+    async with privileged_connection() as conn:
+        await set_language_policy(conn, body.language_id, body.policy)
+    return {"policy": body.policy}
 
 
 @router.put("/grammar/{point_id}")

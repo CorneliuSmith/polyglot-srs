@@ -13,6 +13,7 @@ vi.mock('../api/contribute', () => ({
   createGrammarPoint: vi.fn(),
   getFeedback: vi.fn(() => Promise.resolve([])),
   resolveFeedback: vi.fn(),
+  setLanguagePolicy: vi.fn(),
 }))
 // DrillsEditor is its own tested unit; stub it here to keep this test focused.
 vi.mock('../features/contribute/DrillsEditor', () => ({ default: () => null }))
@@ -58,7 +59,7 @@ describe('ContributorPage', () => {
   })
 
   it('lists editable grammar points and saves an edit', async () => {
-    mockGetGrammar.mockResolvedValue({ is_admin: false, points: [basePoint] })
+    mockGetGrammar.mockResolvedValue({ is_admin: false, points: [basePoint], review_policy: "strict" })
     mockSave.mockResolvedValue(undefined)
     renderPage()
 
@@ -92,7 +93,7 @@ describe('ContributorPage', () => {
   })
 
   it('shows the required human review status and runs the AI check', async () => {
-    mockGetGrammar.mockResolvedValue({ is_admin: true, points: [basePoint] })
+    mockGetGrammar.mockResolvedValue({ is_admin: true, points: [basePoint], review_policy: "strict" })
     mockAiCheck.mockResolvedValue({ status: 'concerns', notes: 'Drill 2 answer is wrong.' })
     renderPage()
 

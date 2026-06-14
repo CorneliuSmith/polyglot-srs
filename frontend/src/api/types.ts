@@ -45,6 +45,7 @@ export interface CardDetail {
   morphology: Record<string, unknown> | string | null
   explanation: string | null
   culture_note: string | null
+  reviewed: boolean | null
   references: ReferenceLink[]
   examples: CardDetailExample[]
 }

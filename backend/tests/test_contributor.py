@@ -108,7 +108,9 @@ class TestContributeEndpoints:
     def test_list_grammar_with_role(self, client):
         with _roles([{"language_id": LANG, "role": "contributor"}]), \
              patch("backend.routers.contribute.list_grammar_points",
-                   new=AsyncMock(return_value=[{"id": POINT, "title": "Locative"}])):
+                   new=AsyncMock(return_value=[{"id": POINT, "title": "Locative"}])), \
+             patch("backend.routers.contribute.get_language_policy",
+                   new=AsyncMock(return_value="strict")):
             resp = client.get(
                 "/api/contribute/grammar", params={"language_id": LANG},
                 headers=_auth_headers(),
@@ -236,6 +238,50 @@ class TestAiCheck:
             )
         assert resp.status_code == 200
         mock_grant.assert_awaited_once()
+
+
+class TestReviewPolicy:
+    def test_set_requires_admin(self, client):
+        with _roles([{"language_id": LANG, "role": "contributor"}]):
+            resp = client.post(
+                "/api/contribute/language-policy",
+                json={"language_id": LANG, "policy": "ai_ok"},
+                headers=_auth_headers(),
+            )
+        assert resp.status_code == 403
+
+    def test_set_as_admin(self, client):
+        with _roles([{"language_id": None, "role": "admin"}]), \
+             patch("backend.routers.contribute.set_language_policy",
+                   new=AsyncMock(return_value=True)) as mock_set:
+            resp = client.post(
+                "/api/contribute/language-policy",
+                json={"language_id": LANG, "policy": "ai_ok"},
+                headers=_auth_headers(),
+            )
+        assert resp.status_code == 200
+        assert resp.json() == {"policy": "ai_ok"}
+        mock_set.assert_awaited_once()
+
+    def test_invalid_policy_422(self, client):
+        resp = client.post(
+            "/api/contribute/language-policy",
+            json={"language_id": LANG, "policy": "whatever"},
+            headers=_auth_headers(),
+        )
+        assert resp.status_code == 422
+
+    def test_grammar_listing_includes_policy(self, client):
+        with _roles([{"language_id": LANG, "role": "contributor"}]), \
+             patch("backend.routers.contribute.list_grammar_points",
+                   new=AsyncMock(return_value=[])), \
+             patch("backend.routers.contribute.get_language_policy",
+                   new=AsyncMock(return_value="ai_ok")):
+            resp = client.get(
+                "/api/contribute/grammar", params={"language_id": LANG},
+                headers=_auth_headers(),
+            )
+        assert resp.json()["review_policy"] == "ai_ok"
 
 
 class TestCreatePoint:

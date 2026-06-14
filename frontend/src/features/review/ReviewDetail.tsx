@@ -46,6 +46,12 @@ export default function ReviewDetail({ cardId, cardType, languageCode }: ReviewD
 
           {data && (
             <>
+              {data.card_type === 'grammar' && data.reviewed === false && (
+                <p className="inline-block text-xs rounded-full px-2 py-0.5 bg-gray-100 text-gray-500">
+                  Draft · pending expert review
+                </p>
+              )}
+
               {data.explanation && (
                 <div>
                   <h3 className="font-semibold text-gray-700 mb-1">Grammar</h3>

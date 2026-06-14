@@ -8,6 +8,7 @@ import {
   getGrammarForLanguage,
   runAiCheck,
   saveGrammarExplanation,
+  setLanguagePolicy,
 } from '../../api/contribute'
 import type { GrammarPointEdit } from '../../api/contribute'
 import { usePrefsStore } from '../../stores/prefsStore'
@@ -223,6 +224,48 @@ function PointEditor({
   )
 }
 
+function ReviewPolicyControl({
+  languageId,
+  policy,
+  onChanged,
+}: {
+  languageId: string
+  policy: string
+  onChanged: () => void
+}) {
+  const mutation = useMutation({
+    mutationFn: (next: 'strict' | 'ai_ok') => setLanguagePolicy(languageId, next),
+    onSuccess: onChanged,
+  })
+  return (
+    <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-4 text-sm">
+      <div className="font-semibold text-gray-700 mb-1">Review policy (admin)</div>
+      <p className="text-xs text-gray-500 mb-2">
+        {policy === 'strict'
+          ? 'Strict: learners only see grammar a human has approved.'
+          : 'Open: learners also see AI-passed grammar, labelled “pending expert review”, until approved.'}
+      </p>
+      <div className="flex gap-2">
+        {(['strict', 'ai_ok'] as const).map((p) => (
+          <button
+            key={p}
+            type="button"
+            onClick={() => mutation.mutate(p)}
+            disabled={mutation.isPending || policy === p}
+            className={
+              policy === p
+                ? 'rounded-lg px-3 py-1.5 text-xs bg-indigo-600 text-white'
+                : 'rounded-lg px-3 py-1.5 text-xs border border-gray-300 text-gray-600 hover:bg-gray-50'
+            }
+          >
+            {p === 'strict' ? 'Strict' : 'Open (review later)'}
+          </button>
+        ))}
+      </div>
+    </div>
+  )
+}
+
 export default function ContributorPage() {
   const navigate = useNavigate()
   const queryClient = useQueryClient()
@@ -272,6 +315,13 @@ export default function ContributorPage() {
 
         {data && activeLanguageId && (
           <>
+            {data.is_admin && (
+              <ReviewPolicyControl
+                languageId={activeLanguageId}
+                policy={data.review_policy}
+                onChanged={refresh}
+              />
+            )}
             <FeedbackPanel languageId={activeLanguageId} />
             <NewPointForm languageId={activeLanguageId} onCreated={refresh} />
           </>

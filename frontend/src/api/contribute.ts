@@ -32,11 +32,21 @@ export async function getMyRoles(): Promise<{ roles: ContributorRole[]; is_admin
 
 export async function getGrammarForLanguage(
   languageId: string,
-): Promise<{ points: GrammarPointEdit[]; is_admin: boolean }> {
+): Promise<{ points: GrammarPointEdit[]; is_admin: boolean; review_policy: string }> {
   const response = await apiClient.get('/api/contribute/grammar', {
     params: { language_id: languageId },
   })
   return response.data
+}
+
+export async function setLanguagePolicy(
+  languageId: string,
+  policy: 'strict' | 'ai_ok',
+): Promise<void> {
+  await apiClient.post('/api/contribute/language-policy', {
+    language_id: languageId,
+    policy,
+  })
 }
 
 export async function saveGrammarExplanation(

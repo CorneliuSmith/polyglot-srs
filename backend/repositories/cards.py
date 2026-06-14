@@ -205,6 +205,7 @@ async def add_grammar_learn_batch(
         """
         SELECT DISTINCT gp.id, gp.display_order
         FROM grammar_points gp
+        JOIN languages l ON gp.language_id = l.id
         JOIN content_lists cl
                ON gp.language_id = cl.language_id
               AND cl.list_type = 'grammar'
@@ -213,7 +214,9 @@ async def add_grammar_learn_batch(
                ON cl.id = ucs.content_list_id
               AND ucs.user_id = $1
         WHERE gp.language_id = $2
-          AND gp.reviewed = true   -- only human-reviewed grammar reaches learners
+          -- review policy: strict = reviewed only; ai_ok = also AI-passed
+          AND (gp.reviewed = true
+               OR (l.grammar_review_policy = 'ai_ok' AND gp.ai_check_status = 'pass'))
           AND gp.id NOT IN (
               SELECT card_id FROM user_cards
               WHERE user_id = $1 AND card_type = 'grammar'
@@ -325,6 +328,7 @@ async def get_card_detail(
             "morphology": v["morphology"] if v else None,
             "explanation": None,
             "culture_note": None,
+            "reviewed": True,  # vocabulary has no review gate
             "references": [],
             "examples": [
                 {"sentence": e["sentence"], "translation": e["translation"], "hint": None}
@@ -335,7 +339,8 @@ async def get_card_detail(
     # grammar
     gp = await conn.fetchrow(
         """
-        SELECT title, explanation, culture_note, explanation_source, reference_links
+        SELECT title, explanation, culture_note, explanation_source,
+               reference_links, reviewed
         FROM grammar_points WHERE id = $1
         """,
         card["card_id"],
@@ -368,6 +373,7 @@ async def get_card_detail(
         "morphology": None,
         "explanation": gp["explanation"] if gp else None,
         "culture_note": gp["culture_note"] if gp else None,
+        "reviewed": gp["reviewed"] if gp else True,
         "references": references,
         "examples": [
             {"sentence": e["sentence"], "translation": e["translation"], "hint": e["hint"]}

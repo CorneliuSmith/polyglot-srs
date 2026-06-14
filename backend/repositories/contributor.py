@@ -132,6 +132,25 @@ async def save_ai_check(
     )
 
 
+async def get_language_policy(conn: asyncpg.Connection, language_id: str) -> str:
+    """Return a language's grammar_review_policy ('strict' | 'ai_ok')."""
+    policy = await conn.fetchval(
+        "SELECT grammar_review_policy FROM languages WHERE id = $1", language_id
+    )
+    return policy or "strict"
+
+
+async def set_language_policy(
+    conn: asyncpg.Connection, language_id: str, policy: str
+) -> bool:
+    """Set a language's grammar review policy (privileged, admin-only)."""
+    result = await conn.execute(
+        "UPDATE languages SET grammar_review_policy = $2 WHERE id = $1",
+        language_id, policy,
+    )
+    return result.endswith("1")
+
+
 async def get_point_language(conn: asyncpg.Connection, point_id: str) -> str | None:
     """Return the language_id of a grammar point, or None if it doesn't exist."""
     lid = await conn.fetchval(
