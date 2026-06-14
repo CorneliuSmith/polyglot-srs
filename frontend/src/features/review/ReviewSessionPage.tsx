@@ -11,6 +11,7 @@ import CardFeedback from './CardFeedback'
 import RatingButtons from './RatingButtons'
 import SessionSummary from './SessionSummary'
 import OnScreenKeyboard from '../keyboards/OnScreenKeyboard'
+import type { KeyboardLanguage } from '../keyboards/OnScreenKeyboard'
 
 export default function ReviewSessionPage() {
   const navigate = useNavigate()
@@ -146,10 +147,11 @@ export default function ReviewSessionPage() {
   const card = session.currentCard
   if (!card) return null
 
-  // Russian/Arabic need a full script keyboard; Turkish needs ç ğ ı İ ö ş ü;
-  // Yoruba needs underdots + tone marks; Hausa needs hooked ɓ ɗ ƙ ƴ and ʼy.
-  // Xhosa is omitted: it's plain ASCII (clicks are c/q/x), no special keys.
-  const needsKeyboard = ['ru', 'ar', 'tr', 'yo', 'ha'].includes(card.language_code)
+  // Non-Latin scripts and Latin languages with accents/diacritics get an
+  // on-screen helper. (Xhosa/English omitted: plain ASCII.)
+  const needsKeyboard = [
+    'ru', 'ar', 'tr', 'yo', 'ha', 'es', 'it', 'fr', 'de', 'ca', 'mi',
+  ].includes(card.language_code)
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -229,7 +231,7 @@ export default function ReviewSessionPage() {
             </div>
             {showKeyboard && (
               <OnScreenKeyboard
-                languageCode={card.language_code as 'ru' | 'ar' | 'tr' | 'yo' | 'ha'}
+                languageCode={card.language_code as KeyboardLanguage}
                 onKeyPress={handleKeyboardKeyPress}
                 inputRef={inputRef}
               />

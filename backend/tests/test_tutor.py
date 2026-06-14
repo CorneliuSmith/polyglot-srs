@@ -102,14 +102,17 @@ def client():
 
 
 class TestBuildSystemBlocks:
-    def test_all_eight_languages_have_briefs(self):
-        for code in ("ru", "ar", "en", "sw", "tr", "yo", "ha", "xh"):
+    LANGS = ("ru", "ar", "en", "sw", "tr", "yo", "ha", "xh",
+             "es", "it", "fr", "de", "ca", "mi")
+
+    def test_all_languages_have_briefs(self):
+        for code in self.LANGS:
             blocks = build_system_blocks(code, [])
             assert len(blocks) == 2
             assert "tutor" in blocks[0]["text"].lower()
 
     def test_briefs_mention_register(self):
-        for code in ("ru", "ar", "en", "sw", "tr", "yo", "ha", "xh"):
+        for code in self.LANGS:
             assert "register" in build_system_blocks(code, [])[0]["text"].lower()
 
     def test_stable_block_is_cached(self):

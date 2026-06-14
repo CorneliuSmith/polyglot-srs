@@ -52,6 +52,8 @@ python -c "import asyncio, os; from pathlib import Path; \
 | Hausa frequency | **you supply** plain-text under `data/raw/hausa_corpus/` | — | No PD corpus is reachable from the pipeline. Use a **commercially-usable** source: Hausa Wikipedia (CC-BY-SA), [Leipzig Corpora](https://wortschatz.uni-leipzig.de/en/download) (CC-BY), or OPUS news. **Do NOT use the Masakhane `lacuna_pos_ner` Hausa corpus — it is CC-BY-NC (non-commercial).** |
 | Hausa translations | kaikki.org Hausa extract | CC-BY-SA-3.0 | Irregular plurals from Wiktionary are stored as answer alternatives. |
 | Example sentences | [Tatoeba](https://tatoeba.org/en/downloads) per-language exports | CC-BY-2.0-FR | Attribution required; stored per-row in `example_sentences.license`. Yoruba coverage on Tatoeba is thin; the Òwe corpus's parallel en/yo proverbs are a future supplement. |
+| Spanish/Italian/French/German/Catalan | HermitDave FrequencyWords (OpenSubtitles 2018) | CC-BY-SA-4.0 | frequency; merged with kaikki Wiktionary (`--source kaikki`). |
+| Māori (mi) | **you supply** `data/mi_frequency.tsv` | — | No OpenSubtitles list; drop a CC-licensed frequency TSV (e.g. from a Māori corpus) plus kaikki glosses. |
 | Russian | OpenRussian TSV dumps | CC-BY-SA | see `seed_russian.py` |
 | English | NLTK WordNet + bundled frequency list | WordNet License | see `seed_english.py` |
 

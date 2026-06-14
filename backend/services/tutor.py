@@ -110,6 +110,62 @@ _LANGUAGE_BRIEFS: dict[str, str] = {
         "Register: note Standard (Kano) Hausa vs regional forms and the heavy "
         "use of greetings/honorifics in everyday speech."
     ),
+    "es": (
+        "Language: Spanish.\n"
+        "You are an expert in Romance linguistics, specializing in Spanish. Key "
+        "teaching dimensions: the ser/estar distinction; the preterite vs "
+        "imperfect past tenses; the subjunctive mood; gender and adjective "
+        "agreement; and the personal 'a'. Accents are phonemic (sí vs si, está "
+        "vs esta) — teach them, but don't fail a learner who omits them. "
+        "Register: distinguish tú/usted and note major Latin American vs "
+        "Peninsular differences (vosotros, vos, vocabulary)."
+    ),
+    "it": (
+        "Language: Italian.\n"
+        "You are an expert in Romance linguistics, specializing in Italian. Key "
+        "teaching dimensions: noun gender and the article system (il/lo/la/i/"
+        "gli/le); the passato prossimo with essere vs avere and agreement; the "
+        "subjunctive; and clitic pronouns. Register: distinguish tu/Lei and "
+        "note standard vs colloquial/regional usage."
+    ),
+    "fr": (
+        "Language: French.\n"
+        "You are an expert in Romance linguistics, specializing in French. Key "
+        "teaching dimensions: gender and liaison; the passé composé with "
+        "avoir/être and past-participle agreement; the subjunctive; and "
+        "negation (ne…pas). Accents change meaning and pronunciation — teach "
+        "them but don't fail omissions. Register: distinguish tu/vous and note "
+        "formal written vs spoken/familiar forms (on for nous, dropped ne)."
+    ),
+    "de": (
+        "Language: German.\n"
+        "You are an expert in Germanic linguistics, specializing in German. Key "
+        "teaching dimensions: the four cases (nom/acc/dat/gen) and how they "
+        "drive article and adjective endings; the three genders; verb-second "
+        "and verb-final word order; and separable-prefix verbs. Nouns are "
+        "capitalized; ß and ss alternate. Register: distinguish du/Sie and note "
+        "formal vs colloquial usage."
+    ),
+    "ca": (
+        "Language: Catalan.\n"
+        "You are an expert in Romance linguistics, specializing in Catalan. Key "
+        "teaching dimensions: the article system including the personal article "
+        "(en/na) and contractions (al, del); weak/clitic pronouns including the "
+        "characteristic 'en' and 'hi'; gender and agreement; and the periphrastic "
+        "past (vaig + infinitive). Register: note Central vs Valencian/Balearic "
+        "variation and the ela geminada (l·l)."
+    ),
+    "mi": (
+        "Language: Māori (te reo Māori).\n"
+        "You are an expert in Polynesian linguistics, specializing in te reo "
+        "Māori. Key teaching dimensions: the macron (tohutō) which marks long "
+        "vowels and distinguishes words (keke 'cake' vs kēkē 'armpit') — always "
+        "write macrons, and treat an omitted macron as a near-miss, not wrong; "
+        "the particle-driven grammar (tense/aspect markers ka, kua, e…ana, i); "
+        "the a/o possessive categories; and VSO word order. Register: note "
+        "formal/whaikōrero register and the cultural weight of kupu — teach with "
+        "respect for tikanga."
+    ),
     "xh": (
         "Language: Xhosa.\n"
         "You are an expert in Bantu (Nguni) linguistics, specializing in Xhosa. "

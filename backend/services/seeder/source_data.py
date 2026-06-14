@@ -58,11 +58,27 @@ from pathlib import Path
 import httpx
 
 from backend.services.nlp.hausa import HausaNLP, normalize_hausa
+from backend.services.nlp.latin_base import (
+    CatalanNLP,
+    FrenchNLP,
+    GermanNLP,
+    ItalianNLP,
+    MaoriNLP,
+    SpanishNLP,
+)
 from backend.services.nlp.swahili import SwahiliNLP
 from backend.services.nlp.turkish import TurkishNLP, turkish_lower
 from backend.services.nlp.xhosa import XhosaNLP
 from backend.services.nlp.yoruba import YorubaNLP, strip_tones
 from backend.services.seeder.base import DATA_DIR
+
+# Latin-script languages sourced generically from a HermitDave frequency list
+# (OpenSubtitles) + a kaikki Wiktionary dictionary.
+FREQUENCYWORDS_LANGS = {"es", "it", "fr", "de", "ca"}
+LATIN_NLP = {
+    "es": SpanishNLP, "it": ItalianNLP, "fr": FrenchNLP,
+    "de": GermanNLP, "ca": CatalanNLP, "mi": MaoriNLP,
+}
 
 logger = logging.getLogger("source_data")
 
@@ -90,6 +106,17 @@ SOURCES = {
     "yo_kaikki": "https://kaikki.org/dictionary/Yoruba/kaikki.org-dictionary-Yoruba.jsonl",
     "xh_kaikki": "https://kaikki.org/dictionary/Xhosa/kaikki.org-dictionary-Xhosa.jsonl",
     "ha_kaikki": "https://kaikki.org/dictionary/Hausa/kaikki.org-dictionary-Hausa.jsonl",
+    "es_kaikki": "https://kaikki.org/dictionary/Spanish/kaikki.org-dictionary-Spanish.jsonl",
+    "it_kaikki": "https://kaikki.org/dictionary/Italian/kaikki.org-dictionary-Italian.jsonl",
+    "fr_kaikki": "https://kaikki.org/dictionary/French/kaikki.org-dictionary-French.jsonl",
+    "de_kaikki": "https://kaikki.org/dictionary/German/kaikki.org-dictionary-German.jsonl",
+    "ca_kaikki": "https://kaikki.org/dictionary/Catalan/kaikki.org-dictionary-Catalan.jsonl",
+    "mi_kaikki": "https://kaikki.org/dictionary/Maori/kaikki.org-dictionary-Maori.jsonl",
+    # HermitDave FrequencyWords (OpenSubtitles 2018), per ISO code.
+    "frequencywords": (
+        "https://raw.githubusercontent.com/hermitdave/FrequencyWords/"
+        "master/content/2018/{code}/{code}_50k.txt"
+    ),
     "yo_corpus_repo": "https://github.com/Niger-Volta-LTI/yoruba-text.git",
     # Public-domain bible corpus — frequency bootstrap for Xhosa (no
     # OpenSubtitles list exists). Prefer a CC-BY Leipzig/Wikipedia list for
@@ -429,6 +456,32 @@ def _rows_from_counts(
     ]
 
 
+def build_frequency_rows(
+    freq: list[tuple[int, str, int]],
+    dictionary: dict[str, dict],
+    lemmatize,
+    max_words: int = 10000,
+) -> list[dict]:
+    """Merge a HermitDave frequency list with a dictionary (direct then lemma)."""
+    agg: dict[str, int] = {}
+    for _rank, form, count in freq:
+        form = form.strip().lower()
+        headword = None
+        if form in dictionary:
+            headword = form
+        else:
+            lemma = lemmatize(form)
+            if lemma != form and lemma in dictionary:
+                headword = lemma
+        if headword:
+            agg[headword] = agg.get(headword, 0) + count
+    ordered = sorted(agg.items(), key=lambda kv: kv[1], reverse=True)[:max_words]
+    return [
+        {"word": w, "pos": dictionary[w].get("pos"), "gloss": dictionary[w]["gloss"]}
+        for w, _count in ordered
+    ]
+
+
 def build_xhosa_rows(counts, dictionary, max_words=10000):
     """Merge Xhosa bible-corpus counts with a dictionary (Nguni lemmatizer)."""
     return _rows_from_counts(counts, dictionary, XhosaNLP().lemmatize, max_words)
@@ -663,6 +716,20 @@ def build_language(language: str, source: str, max_words: int, cache_dir: Path) 
             )
         dictionary = _build_dictionary("ha", source, cache_dir, None)
         rows = build_hausa_rows(counts, dictionary, max_words)
+    elif language in FREQUENCYWORDS_LANGS:
+        if source != "kaikki":
+            raise ValueError(
+                f"{language} has no FreeDict dictionary — run with --source kaikki"
+            )
+        freq_path = download(
+            SOURCES["frequencywords"].format(code=language),
+            cache_dir / f"{language}_50k.txt",
+        )
+        freq = parse_hermitdave(freq_path)
+        dictionary = _build_dictionary(language, source, cache_dir, None)
+        rows = build_frequency_rows(
+            freq, dictionary, LATIN_NLP[language]().lemmatize, max_words
+        )
     else:
         raise ValueError(f"Unsupported language: {language}")
 
@@ -715,7 +782,9 @@ def build_sentences(language: str, cache_dir: Path, per_word: int = 3) -> Path:
 def main() -> None:
     parser = argparse.ArgumentParser(description="Build seed data from open datasets")
     parser.add_argument(
-        "--language", "-l", choices=["tr", "sw", "yo", "ha", "xh"], required=True
+        "--language", "-l",
+        choices=["tr", "sw", "yo", "ha", "xh", "es", "it", "fr", "de", "ca"],
+        required=True
     )
     parser.add_argument(
         "--source", choices=["freedict", "kaikki"], default="freedict",
