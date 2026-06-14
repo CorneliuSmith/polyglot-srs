@@ -11,6 +11,8 @@ vi.mock('../api/contribute', () => ({
   approveGrammar: vi.fn(),
   runAiCheck: vi.fn(),
   createGrammarPoint: vi.fn(),
+  getFeedback: vi.fn(() => Promise.resolve([])),
+  resolveFeedback: vi.fn(),
 }))
 // DrillsEditor is its own tested unit; stub it here to keep this test focused.
 vi.mock('../features/contribute/DrillsEditor', () => ({ default: () => null }))

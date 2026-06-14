@@ -3,7 +3,7 @@
 from __future__ import annotations
 
 from fastapi import APIRouter, Depends, HTTPException, status
-from pydantic import BaseModel
+from pydantic import BaseModel, Field
 
 from backend.dependencies import get_current_user
 from backend.repositories.cards import (
@@ -14,7 +14,7 @@ from backend.repositories.cards import (
     update_card_srs,
 )
 from backend.repositories.pool import rls_connection
-from backend.repositories.review import insert_review_log
+from backend.repositories.review import add_card_feedback, insert_review_log
 from backend.services.nlp import validate_answer_async
 from backend.services.srs import (
     AnswerResult,
@@ -51,6 +51,10 @@ class LearnRequest(BaseModel):
     card_type: str = "vocabulary"
 
 
+class CardFeedbackRequest(BaseModel):
+    message: str = Field(min_length=1, max_length=1000)
+
+
 @router.get("/due")
 async def get_due(
     language_id: str,
@@ -80,6 +84,20 @@ async def card_detail(
             detail="Card not found",
         )
     return detail
+
+
+@router.post("/card/{card_id}/feedback")
+async def submit_card_feedback(
+    card_id: str,
+    body: CardFeedbackRequest,
+    user: dict = Depends(get_current_user),
+):
+    """Let a learner flag a problem with a card they're reviewing."""
+    async with rls_connection(user["id"]) as conn:
+        ok = await add_card_feedback(conn, user["id"], card_id, body.message.strip())
+    if not ok:
+        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Card not found")
+    return {"submitted": True}
 
 
 @router.post("/submit")

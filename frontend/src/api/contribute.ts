@@ -104,3 +104,25 @@ export async function addDrill(
 export async function deleteDrill(pointId: string, drillId: string): Promise<void> {
   await apiClient.delete(`/api/contribute/grammar/${pointId}/drills/${drillId}`)
 }
+
+export interface CardFeedbackItem {
+  id: string
+  card_type: 'grammar' | 'vocabulary'
+  content_id: string
+  card_title: string | null
+  message: string
+  status: string
+  created_at: string | null
+}
+
+export async function getFeedback(languageId: string): Promise<CardFeedbackItem[]> {
+  const response = await apiClient.get<{ feedback: CardFeedbackItem[] }>(
+    '/api/contribute/feedback',
+    { params: { language_id: languageId } },
+  )
+  return response.data.feedback
+}
+
+export async function resolveFeedback(feedbackId: string): Promise<void> {
+  await apiClient.post(`/api/contribute/feedback/${feedbackId}/resolve`)
+}

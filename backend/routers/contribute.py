@@ -17,6 +17,7 @@ from backend.repositories.contributor import (
     can_contribute,
     create_grammar_point,
     delete_drill,
+    get_feedback_language,
     get_point_for_check,
     get_point_language,
     get_point_language_and_code,
@@ -24,7 +25,9 @@ from backend.repositories.contributor import (
     grant_role,
     is_admin,
     list_drills,
+    list_feedback,
     list_grammar_points,
+    resolve_feedback,
     save_ai_check,
     save_explanation,
 )
@@ -270,6 +273,45 @@ async def approve_grammar(
     if not ok:
         raise HTTPException(status_code=404, detail="Grammar point not found")
     return {"approved": True}
+
+
+@router.get("/feedback")
+async def feedback_queue(
+    language_id: str,
+    user: dict = Depends(get_current_user),
+):
+    """List learner feedback for a language (role-gated)."""
+    async with rls_connection(user["id"]) as conn:
+        roles = await get_roles(conn, user["id"])
+    if not can_contribute(roles, language_id):
+        raise HTTPException(
+            status_code=status.HTTP_403_FORBIDDEN,
+            detail="You don't have a contributor role for this language",
+        )
+    async with privileged_connection() as conn:
+        items = await list_feedback(conn, language_id)
+    return {"feedback": items}
+
+
+@router.post("/feedback/{feedback_id}/resolve")
+async def resolve_card_feedback(
+    feedback_id: str,
+    user: dict = Depends(get_current_user),
+):
+    """Mark a learner feedback item resolved (role-gated by its language)."""
+    async with rls_connection(user["id"]) as conn:
+        roles = await get_roles(conn, user["id"])
+    async with privileged_connection() as conn:
+        language_id = await get_feedback_language(conn, feedback_id)
+        if language_id is None:
+            raise HTTPException(status_code=404, detail="Feedback not found")
+        if not can_contribute(roles, language_id):
+            raise HTTPException(
+                status_code=status.HTTP_403_FORBIDDEN,
+                detail="You don't have a contributor role for this language",
+            )
+        await resolve_feedback(conn, feedback_id)
+    return {"resolved": True}
 
 
 @router.post("/roles")

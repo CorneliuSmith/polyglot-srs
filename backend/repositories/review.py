@@ -39,3 +39,29 @@ async def insert_review_log(
         answer_result,
     )
     return dict(row)
+
+
+async def add_card_feedback(
+    conn: asyncpg.Connection, user_id: str, card_id: str, message: str
+) -> bool:
+    """Record a learner's feedback on a card, tied to its underlying content.
+
+    *card_id* is the learner's user_cards id; RLS scopes it to them. The
+    feedback is stored against the grammar point / vocabulary so contributors
+    can act on it. Returns False if the card isn't the user's.
+    """
+    card = await conn.fetchrow(
+        "SELECT card_type, card_id, language_id FROM user_cards WHERE id = $1",
+        card_id,
+    )
+    if card is None:
+        return False
+    await conn.execute(
+        """
+        INSERT INTO card_feedback
+            (user_id, language_id, card_type, content_id, message)
+        VALUES ($1, $2, $3, $4, $5)
+        """,
+        user_id, card["language_id"], card["card_type"], card["card_id"], message,
+    )
+    return True

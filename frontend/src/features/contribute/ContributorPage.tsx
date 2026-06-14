@@ -12,6 +12,7 @@ import {
 import type { GrammarPointEdit } from '../../api/contribute'
 import { usePrefsStore } from '../../stores/prefsStore'
 import DrillsEditor from './DrillsEditor'
+import FeedbackPanel from './FeedbackPanel'
 
 function NewPointForm({
   languageId,
@@ -270,7 +271,10 @@ export default function ContributorPage() {
         )}
 
         {data && activeLanguageId && (
-          <NewPointForm languageId={activeLanguageId} onCreated={refresh} />
+          <>
+            <FeedbackPanel languageId={activeLanguageId} />
+            <NewPointForm languageId={activeLanguageId} onCreated={refresh} />
+          </>
         )}
 
         {data && data.points.length === 0 && (

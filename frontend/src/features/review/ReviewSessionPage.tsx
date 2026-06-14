@@ -7,6 +7,7 @@ import { useReviewSession } from './useReviewSession'
 import DrillCard from './DrillCard'
 import FeedbackPanel from './FeedbackPanel'
 import ReviewDetail from './ReviewDetail'
+import CardFeedback from './CardFeedback'
 import RatingButtons from './RatingButtons'
 import SessionSummary from './SessionSummary'
 import OnScreenKeyboard from '../keyboards/OnScreenKeyboard'
@@ -255,6 +256,9 @@ export default function ReviewSessionPage() {
                 onRate={handleRate}
                 nlpResult={session.validationResult.answer_result}
               />
+              <div className="text-center">
+                <CardFeedback cardId={card.id} />
+              </div>
             </div>
           )}
       </div>

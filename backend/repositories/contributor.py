@@ -295,6 +295,57 @@ async def approve_explanation(
     return result.endswith("1")
 
 
+async def list_feedback(
+    conn: asyncpg.Connection, language_id: str, status_filter: str = "open"
+) -> list[dict]:
+    """List learner feedback for a language (privileged read after role check)."""
+    rows = await conn.fetch(
+        """
+        SELECT f.id, f.card_type, f.content_id, f.message, f.status, f.created_at,
+               COALESCE(gp.title, v.word) AS card_title
+        FROM card_feedback f
+        LEFT JOIN grammar_points gp
+               ON f.card_type = 'grammar' AND gp.id = f.content_id
+        LEFT JOIN vocabulary v
+               ON f.card_type = 'vocabulary' AND v.id = f.content_id
+        WHERE f.language_id = $1 AND f.status = $2
+        ORDER BY f.created_at DESC
+        LIMIT 100
+        """,
+        language_id, status_filter,
+    )
+    return [
+        {
+            "id": str(r["id"]),
+            "card_type": r["card_type"],
+            "content_id": str(r["content_id"]),
+            "card_title": r["card_title"],
+            "message": r["message"],
+            "status": r["status"],
+            "created_at": r["created_at"].isoformat() if r["created_at"] else None,
+        }
+        for r in rows
+    ]
+
+
+async def get_feedback_language(
+    conn: asyncpg.Connection, feedback_id: str
+) -> str | None:
+    """Return the language_id of a feedback row, or None."""
+    lid = await conn.fetchval(
+        "SELECT language_id FROM card_feedback WHERE id = $1", feedback_id
+    )
+    return str(lid) if lid else None
+
+
+async def resolve_feedback(conn: asyncpg.Connection, feedback_id: str) -> bool:
+    """Mark a feedback item resolved (privileged)."""
+    result = await conn.execute(
+        "UPDATE card_feedback SET status = 'resolved' WHERE id = $1", feedback_id
+    )
+    return result.endswith("1")
+
+
 async def grant_role(
     conn: asyncpg.Connection,
     user_id: str,
