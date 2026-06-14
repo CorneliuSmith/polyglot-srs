@@ -19,6 +19,10 @@ export interface GrammarPointEdit {
   explanation_source: string
   reviewed: boolean
   references: ReferenceLink[]
+  ai_check_status: 'pass' | 'concerns' | null
+  ai_check_notes: string | null
+  reviewed_by: string | null
+  reviewed_at: string | null
 }
 
 export async function getMyRoles(): Promise<{ roles: ContributorRole[]; is_admin: boolean }> {
@@ -50,6 +54,13 @@ export async function saveGrammarExplanation(
 
 export async function approveGrammar(pointId: string): Promise<void> {
   await apiClient.post(`/api/contribute/grammar/${pointId}/approve`)
+}
+
+export async function runAiCheck(
+  pointId: string,
+): Promise<{ status: 'pass' | 'concerns'; notes: string }> {
+  const response = await apiClient.post(`/api/contribute/grammar/${pointId}/ai-check`)
+  return response.data
 }
 
 export interface Drill {

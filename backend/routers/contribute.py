@@ -17,6 +17,7 @@ from backend.repositories.contributor import (
     can_contribute,
     create_grammar_point,
     delete_drill,
+    get_point_for_check,
     get_point_language,
     get_point_language_and_code,
     get_roles,
@@ -24,10 +25,12 @@ from backend.repositories.contributor import (
     is_admin,
     list_drills,
     list_grammar_points,
+    save_ai_check,
     save_explanation,
 )
 from backend.repositories.pool import privileged_connection, rls_connection
 from backend.services.drills import validate_drill
+from backend.services.semantic_check import ai_available, semantic_check_point
 
 router = APIRouter()
 
@@ -218,12 +221,43 @@ async def remove_drill(
     return {"deleted": True}
 
 
+@router.post("/grammar/{point_id}/ai-check")
+async def ai_check(
+    point_id: str,
+    user: dict = Depends(get_current_user),
+):
+    """Run the advisory AI semantic review and store its verdict on the point."""
+    if not ai_available():
+        raise HTTPException(
+            status_code=status.HTTP_503_SERVICE_UNAVAILABLE,
+            detail="AI review is not configured on this server",
+        )
+    async with rls_connection(user["id"]) as conn:
+        roles = await get_roles(conn, user["id"])
+        info = await get_point_language_and_code(conn, point_id)
+        if info is None:
+            raise HTTPException(status_code=404, detail="Grammar point not found")
+        if not can_contribute(roles, info[0]):
+            raise HTTPException(
+                status_code=status.HTTP_403_FORBIDDEN,
+                detail="You don't have a contributor role for this language",
+            )
+        point = await get_point_for_check(conn, point_id)
+
+    result = await semantic_check_point(
+        point["language_code"], point["title"], point["explanation"], point["drills"]
+    )
+    async with privileged_connection() as conn:
+        await save_ai_check(conn, point_id, result["status"], result["notes"])
+    return result
+
+
 @router.post("/grammar/{point_id}/approve")
 async def approve_grammar(
     point_id: str,
     user: dict = Depends(get_current_user),
 ):
-    """Approve a grammar explanation (admin-only)."""
+    """Record the human linguist sign-off (admin-only). Gates learner exposure."""
     async with rls_connection(user["id"]) as conn:
         roles = await get_roles(conn, user["id"])
     if not is_admin(roles):
@@ -232,7 +266,7 @@ async def approve_grammar(
             detail="Only an admin can approve content",
         )
     async with privileged_connection() as conn:
-        ok = await approve_explanation(conn, point_id)
+        ok = await approve_explanation(conn, point_id, user["id"])
     if not ok:
         raise HTTPException(status_code=404, detail="Grammar point not found")
     return {"approved": True}

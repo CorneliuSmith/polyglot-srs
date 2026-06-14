@@ -6,6 +6,7 @@ import {
   approveGrammar,
   createGrammarPoint,
   getGrammarForLanguage,
+  runAiCheck,
   saveGrammarExplanation,
 } from '../../api/contribute'
 import type { GrammarPointEdit } from '../../api/contribute'
@@ -104,6 +105,10 @@ function PointEditor({
     mutationFn: () => approveGrammar(point.id),
     onSuccess: onSaved,
   })
+  const aiCheckMutation = useMutation({
+    mutationFn: () => runAiCheck(point.id),
+    onSuccess: onSaved,
+  })
 
   return (
     <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-5 space-y-3">
@@ -119,8 +124,46 @@ function PointEditor({
               : 'text-xs rounded-full px-2 py-0.5 bg-amber-100 text-amber-700'
           }
         >
-          {point.reviewed ? 'reviewed' : 'pending'} · {point.explanation_source}
+          {point.reviewed ? 'reviewed' : 'pending review'} · {point.explanation_source}
         </span>
+      </div>
+
+      {/* Checks: AI semantic review (advisory) + required human linguist review */}
+      <div className="rounded-lg bg-gray-50 border border-gray-100 p-3 space-y-2 text-xs">
+        <div className="flex items-center gap-2 flex-wrap">
+          <span className="font-semibold text-gray-600">AI semantic check:</span>
+          {point.ai_check_status === 'pass' && (
+            <span className="rounded-full px-2 py-0.5 bg-green-100 text-green-700">passed</span>
+          )}
+          {point.ai_check_status === 'concerns' && (
+            <span className="rounded-full px-2 py-0.5 bg-amber-100 text-amber-800">concerns</span>
+          )}
+          {!point.ai_check_status && <span className="text-gray-400">not run</span>}
+          <button
+            type="button"
+            onClick={() => aiCheckMutation.mutate()}
+            disabled={aiCheckMutation.isPending}
+            className="text-indigo-600 hover:underline disabled:opacity-50"
+          >
+            {aiCheckMutation.isPending ? 'Checking…' : 'Run AI check'}
+          </button>
+          {aiCheckMutation.isError && <span className="text-red-500">AI check unavailable</span>}
+        </div>
+        {point.ai_check_notes && (
+          <p className="text-gray-600 whitespace-pre-wrap">{point.ai_check_notes}</p>
+        )}
+        <div>
+          <span className="font-semibold text-gray-600">Human linguist review:</span>{' '}
+          {point.reviewed ? (
+            <span className="text-green-700">
+              signed off{point.reviewed_at ? ` (${point.reviewed_at.slice(0, 10)})` : ''}
+            </span>
+          ) : (
+            <span className="text-amber-700">
+              required — not yet reviewed (learners won’t see this until approved)
+            </span>
+          )}
+        </div>
       </div>
 
       <label className="block text-xs font-medium text-gray-500">Explanation</label>
@@ -166,7 +209,7 @@ function PointEditor({
             disabled={approveMutation.isPending}
             className="bg-green-600 hover:bg-green-700 disabled:opacity-50 text-white font-semibold rounded-lg px-4 py-2 text-sm"
           >
-            Approve
+            Approve (linguist sign-off)
           </button>
         )}
         {saveMutation.isError && (

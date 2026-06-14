@@ -164,15 +164,58 @@ class TestContributeEndpoints:
             )
         assert resp.status_code == 403
 
-    def test_approve_as_admin(self, client):
+    def test_approve_as_admin_records_reviewer(self, client):
         with _roles([{"language_id": None, "role": "admin"}]), \
              patch("backend.routers.contribute.approve_explanation",
-                   new=AsyncMock(return_value=True)):
+                   new=AsyncMock(return_value=True)) as mock_approve:
             resp = client.post(
                 f"/api/contribute/grammar/{POINT}/approve", headers=_auth_headers()
             )
         assert resp.status_code == 200
         assert resp.json() == {"approved": True}
+        # reviewer id is passed through to be stamped in the DB
+        assert mock_approve.await_args.args[2] == TEST_USER_ID
+
+
+class TestAiCheck:
+    def test_requires_role(self, client):
+        with _roles([]), \
+             patch("backend.routers.contribute.ai_available", return_value=True), \
+             patch("backend.routers.contribute.get_point_language_and_code",
+                   new=AsyncMock(return_value=(LANG, "tr"))):
+            resp = client.post(
+                f"/api/contribute/grammar/{POINT}/ai-check", headers=_auth_headers()
+            )
+        assert resp.status_code == 403
+
+    def test_runs_and_stores_verdict(self, client):
+        verdict = {"status": "concerns", "notes": "Drill 2 answer should be 'evde'."}
+        with _roles([{"language_id": LANG, "role": "contributor"}]), \
+             patch("backend.routers.contribute.ai_available", return_value=True), \
+             patch("backend.routers.contribute.get_point_language_and_code",
+                   new=AsyncMock(return_value=(LANG, "tr"))), \
+             patch("backend.routers.contribute.get_point_for_check",
+                   new=AsyncMock(return_value={
+                       "title": "Locative", "explanation": "...",
+                       "language_code": "tr", "drills": [],
+                   })), \
+             patch("backend.routers.contribute.semantic_check_point",
+                   new=AsyncMock(return_value=verdict)), \
+             patch("backend.routers.contribute.save_ai_check",
+                   new=AsyncMock()) as mock_save:
+            resp = client.post(
+                f"/api/contribute/grammar/{POINT}/ai-check", headers=_auth_headers()
+            )
+        assert resp.status_code == 200
+        assert resp.json() == verdict
+        mock_save.assert_awaited_once()
+
+    def test_unconfigured_503(self, client):
+        with patch("backend.routers.contribute.ai_available", return_value=False):
+            resp = client.post(
+                f"/api/contribute/grammar/{POINT}/ai-check", headers=_auth_headers()
+            )
+        assert resp.status_code == 503
 
     def test_grant_role_requires_admin(self, client):
         with _roles([{"language_id": LANG, "role": "contributor"}]):

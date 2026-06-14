@@ -213,6 +213,7 @@ async def add_grammar_learn_batch(
                ON cl.id = ucs.content_list_id
               AND ucs.user_id = $1
         WHERE gp.language_id = $2
+          AND gp.reviewed = true   -- only human-reviewed grammar reaches learners
           AND gp.id NOT IN (
               SELECT card_id FROM user_cards
               WHERE user_id = $1 AND card_type = 'grammar'

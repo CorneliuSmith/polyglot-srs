@@ -51,7 +51,8 @@ async def list_grammar_points(
     rows = await conn.fetch(
         """
         SELECT id, title, level, explanation, culture_note,
-               explanation_source, reviewed, reference_links
+               explanation_source, reviewed, reference_links,
+               ai_check_status, ai_check_notes, reviewed_by, reviewed_at
         FROM grammar_points
         WHERE language_id = $1
         ORDER BY display_order ASC, title ASC
@@ -77,9 +78,58 @@ async def list_grammar_points(
             "explanation_source": r["explanation_source"],
             "reviewed": r["reviewed"],
             "references": _refs(r["reference_links"]),
+            "ai_check_status": r["ai_check_status"],
+            "ai_check_notes": r["ai_check_notes"],
+            "reviewed_by": str(r["reviewed_by"]) if r["reviewed_by"] else None,
+            "reviewed_at": r["reviewed_at"].isoformat() if r["reviewed_at"] else None,
         }
         for r in rows
     ]
+
+
+async def get_point_for_check(
+    conn: asyncpg.Connection, point_id: str
+) -> dict | None:
+    """Load a grammar point + its drills for the AI semantic review."""
+    gp = await conn.fetchrow(
+        """
+        SELECT gp.title, gp.explanation, l.code AS language_code
+        FROM grammar_points gp
+        JOIN languages l ON gp.language_id = l.id
+        WHERE gp.id = $1
+        """,
+        point_id,
+    )
+    if gp is None:
+        return None
+    drills = await conn.fetch(
+        """
+        SELECT sentence, answer, translation
+        FROM drill_sentences WHERE grammar_point_id = $1
+        ORDER BY display_order ASC
+        """,
+        point_id,
+    )
+    return {
+        "title": gp["title"],
+        "explanation": gp["explanation"],
+        "language_code": gp["language_code"],
+        "drills": [dict(d) for d in drills],
+    }
+
+
+async def save_ai_check(
+    conn: asyncpg.Connection, point_id: str, status: str, notes: str
+) -> None:
+    """Persist the AI semantic-check verdict (privileged)."""
+    await conn.execute(
+        """
+        UPDATE grammar_points
+        SET ai_check_status = $2, ai_check_notes = NULLIF($3, ''), ai_checked_at = now()
+        WHERE id = $1
+        """,
+        point_id, status, notes,
+    )
 
 
 async def get_point_language(conn: asyncpg.Connection, point_id: str) -> str | None:
@@ -226,10 +276,21 @@ async def save_explanation(
     return result.endswith("1")
 
 
-async def approve_explanation(conn: asyncpg.Connection, point_id: str) -> bool:
-    """Mark a grammar point's explanation reviewed (privileged, admin-only)."""
+async def approve_explanation(
+    conn: asyncpg.Connection, point_id: str, reviewer_id: str
+) -> bool:
+    """Record the human linguist sign-off (privileged, admin-only).
+
+    Marks the point reviewed and stamps who/when — this is the required
+    semantic check that gates whether learners ever see the content.
+    """
     result = await conn.execute(
-        "UPDATE grammar_points SET reviewed = true WHERE id = $1", point_id
+        """
+        UPDATE grammar_points
+        SET reviewed = true, reviewed_by = $2, reviewed_at = now()
+        WHERE id = $1
+        """,
+        point_id, reviewer_id,
     )
     return result.endswith("1")
 

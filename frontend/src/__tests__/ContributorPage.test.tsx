@@ -9,17 +9,34 @@ vi.mock('../api/contribute', () => ({
   getGrammarForLanguage: vi.fn(),
   saveGrammarExplanation: vi.fn(),
   approveGrammar: vi.fn(),
+  runAiCheck: vi.fn(),
+  createGrammarPoint: vi.fn(),
 }))
+// DrillsEditor is its own tested unit; stub it here to keep this test focused.
+vi.mock('../features/contribute/DrillsEditor', () => ({ default: () => null }))
 vi.mock('../stores/prefsStore', () => ({
   usePrefsStore: vi.fn(() => 'lang-tr'),
 }))
 
 import { getLanguages } from '../api/profile'
-import { getGrammarForLanguage, saveGrammarExplanation } from '../api/contribute'
+import {
+  getGrammarForLanguage,
+  saveGrammarExplanation,
+  runAiCheck,
+} from '../api/contribute'
 
 const mockGetLanguages = getLanguages as ReturnType<typeof vi.fn>
 const mockGetGrammar = getGrammarForLanguage as ReturnType<typeof vi.fn>
 const mockSave = saveGrammarExplanation as ReturnType<typeof vi.fn>
+const mockAiCheck = runAiCheck as ReturnType<typeof vi.fn>
+
+const basePoint = {
+  id: 'p1', title: 'Locative case', level: 'A1',
+  explanation: 'Old explanation', culture_note: null,
+  explanation_source: 'ai', reviewed: false,
+  references: [{ title: 'Wiktionary', url: 'https://en.wiktionary.org/wiki/-de' }],
+  ai_check_status: null, ai_check_notes: null, reviewed_by: null, reviewed_at: null,
+}
 
 function renderPage() {
   const queryClient = new QueryClient({ defaultOptions: { queries: { retry: false } } })
@@ -39,20 +56,12 @@ describe('ContributorPage', () => {
   })
 
   it('lists editable grammar points and saves an edit', async () => {
-    mockGetGrammar.mockResolvedValue({
-      is_admin: false,
-      points: [{
-        id: 'p1', title: 'Locative case', level: 'A1',
-        explanation: 'Old explanation', culture_note: null,
-        explanation_source: 'ai', reviewed: false,
-        references: [{ title: 'Wiktionary', url: 'https://en.wiktionary.org/wiki/-de' }],
-      }],
-    })
+    mockGetGrammar.mockResolvedValue({ is_admin: false, points: [basePoint] })
     mockSave.mockResolvedValue(undefined)
     renderPage()
 
     expect(await screen.findByText('Locative case')).toBeDefined()
-    expect(screen.getByText(/pending · ai/i)).toBeDefined()
+    expect(screen.getByText(/pending review · ai/i)).toBeDefined()
 
     const textarea = screen.getByDisplayValue('Old explanation')
     fireEvent.change(textarea, { target: { value: 'Better explanation' } })
@@ -74,13 +83,23 @@ describe('ContributorPage', () => {
   it('shows an Approve button only for admins', async () => {
     mockGetGrammar.mockResolvedValue({
       is_admin: true,
-      points: [{
-        id: 'p1', title: 'Locative', level: 'A1',
-        explanation: 'Has content', culture_note: null,
-        explanation_source: 'contributor', reviewed: false,
-      }],
+      points: [{ ...basePoint, explanation: 'Has content', explanation_source: 'contributor' }],
     })
     renderPage()
-    expect(await screen.findByRole('button', { name: /approve/i })).toBeDefined()
+    expect(await screen.findByRole('button', { name: /approve \(linguist/i })).toBeDefined()
+  })
+
+  it('shows the required human review status and runs the AI check', async () => {
+    mockGetGrammar.mockResolvedValue({ is_admin: true, points: [basePoint] })
+    mockAiCheck.mockResolvedValue({ status: 'concerns', notes: 'Drill 2 answer is wrong.' })
+    renderPage()
+
+    // The human linguist review is flagged as required and not yet done.
+    expect(await screen.findByText(/required — not yet reviewed/i)).toBeDefined()
+
+    fireEvent.click(screen.getByRole('button', { name: /run ai check/i }))
+    await waitFor(() => {
+      expect(mockAiCheck).toHaveBeenCalledWith('p1')
+    })
   })
 })
