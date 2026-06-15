@@ -17,6 +17,9 @@ class Settings(BaseSettings):
     tutor_model: str = "claude-opus-4-8"
     # Cheaper model for the off-the-hot-path session summarizer / memory extractor.
     tutor_summary_model: str = "claude-sonnet-4-6"
+    # Optional Redis for distributed rate limiting across workers. Empty = the
+    # in-memory per-process limiter (fine for a single worker / dev).
+    redis_url: str = ""
     # Dev-only: when true, the tutor returns canned responses with no API key
     # and no Claude API calls — for testing the full flow (chat, entitlement,
     # memory, session summary) before wiring up real billing. Never enable in

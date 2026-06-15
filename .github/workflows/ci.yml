@@ -18,9 +18,17 @@ jobs:
         options: >-
           --health-cmd "pg_isready -U postgres"
           --health-interval 10s --health-timeout 5s --health-retries 5
+      redis:
+        image: redis:7
+        ports: ["6379:6379"]
+        options: >-
+          --health-cmd "redis-cli ping"
+          --health-interval 10s --health-timeout 5s --health-retries 5
     env:
       # Drives the real-Postgres integration/RLS tests (skipped if unset).
       INTEGRATION_DATABASE_URL: postgresql://postgres:postgres@localhost:5432/polyglot_test
+      # Drives the real-Redis rate-limiter tests (skipped if unset).
+      REDIS_TEST_URL: redis://localhost:6379/0
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
@@ -34,7 +42,7 @@ jobs:
           # Lean test subset — heavy NLP backends (spaCy, camel-tools) degrade
           # gracefully and their tests skip, so they aren't needed in CI.
           pip install fastapi "uvicorn[standard]" pydantic pydantic-settings \
-            asyncpg PyJWT httpx anthropic pymorphy3 cyrtranslit lemminflect \
+            asyncpg PyJWT httpx anthropic redis pymorphy3 cyrtranslit lemminflect \
             nltk ruff pytest pytest-asyncio cffi
       - name: Download NLTK WordNet (English seeder)
         run: python -m nltk.downloader -q wordnet omw-1.4

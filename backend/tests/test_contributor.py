@@ -219,6 +219,15 @@ class TestAiCheck:
             )
         assert resp.status_code == 503
 
+    def test_rate_limited_429(self, client):
+        from backend.services.rate_limit import ai_review_limiter
+        with patch("backend.routers.contribute.ai_available", return_value=True), \
+             patch.object(ai_review_limiter, "allow", new=AsyncMock(return_value=False)):
+            resp = client.post(
+                f"/api/contribute/grammar/{POINT}/ai-check", headers=_auth_headers()
+            )
+        assert resp.status_code == 429
+
     def test_grant_role_requires_admin(self, client):
         with _roles([{"language_id": LANG, "role": "contributor"}]):
             resp = client.post(

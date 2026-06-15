@@ -314,7 +314,7 @@ class TestTutorChatEndpoint:
 
     def test_rate_limited_429(self, client):
         from backend.services.rate_limit import tutor_chat_limiter
-        with patch.object(tutor_chat_limiter, "allow", return_value=False):
+        with patch.object(tutor_chat_limiter, "allow", new=AsyncMock(return_value=False)):
             resp = client.post("/api/tutor/chat", json=_chat_body(), headers=_auth_headers())
         assert resp.status_code == 429
 

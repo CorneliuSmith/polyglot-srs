@@ -104,7 +104,7 @@ async def chat(
             status_code=status.HTTP_402_PAYMENT_REQUIRED,
             detail="Tutor access requires a subscription for this language",
         )
-    if not tutor_chat_limiter.allow(user["id"]):
+    if not await tutor_chat_limiter.allow(user["id"]):
         raise HTTPException(
             status_code=status.HTTP_429_TOO_MANY_REQUESTS,
             detail="You're sending messages too fast — slow down a moment.",

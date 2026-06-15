@@ -267,7 +267,7 @@ async def ai_check(
             status_code=status.HTTP_503_SERVICE_UNAVAILABLE,
             detail="AI review is not configured on this server",
         )
-    if not ai_review_limiter.allow(user["id"]):
+    if not await ai_review_limiter.allow(user["id"]):
         raise HTTPException(
             status_code=status.HTTP_429_TOO_MANY_REQUESTS,
             detail="Too many AI checks — try again in a minute.",
