@@ -7,7 +7,7 @@ export interface Language {
 
 export interface DueCard {
   id: string
-  card_type: 'grammar' | 'vocabulary'
+  card_type: 'grammar' | 'vocabulary' | 'personal'
   card_id: string
   sentence: string
   correct_answer: string
@@ -37,7 +37,7 @@ export interface ReferenceLink {
 }
 
 export interface CardDetail {
-  card_type: 'grammar' | 'vocabulary'
+  card_type: 'grammar' | 'vocabulary' | 'personal'
   title: string | null
   part_of_speech: string | null
   definition: string | null

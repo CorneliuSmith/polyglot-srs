@@ -152,6 +152,23 @@ export default function DashboardPage() {
           <span aria-hidden className="text-indigo-500">→</span>
         </button>
 
+        {/* Learn from your own text */}
+        <button
+          type="button"
+          onClick={() => navigate('/notes')}
+          disabled={!activeLanguageId}
+          className="w-full bg-white hover:bg-gray-50 disabled:opacity-50 text-gray-800 font-semibold rounded-xl px-6 py-3 text-sm border border-gray-200 transition-colors text-left flex items-center justify-between"
+          style={{ minHeight: '44px' }}
+        >
+          <span>
+            Learn from your own text
+            <span className="block text-xs font-normal text-gray-500">
+              Turn anything you read into review cards
+            </span>
+          </span>
+          <span aria-hidden className="text-indigo-500">→</span>
+        </button>
+
         {/* Contributor link — only for users with a role */}
         {canContribute && (
           <button

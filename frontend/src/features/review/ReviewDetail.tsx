@@ -5,7 +5,7 @@ import LanguageWrapper from '../../components/LanguageWrapper'
 
 interface ReviewDetailProps {
   cardId: string
-  cardType: 'grammar' | 'vocabulary'
+  cardType: 'grammar' | 'vocabulary' | 'personal'
   languageCode: string
 }
 

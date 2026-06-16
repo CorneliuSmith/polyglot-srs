@@ -238,6 +238,36 @@ async def test_grammar_learn_respects_review_policy(pool):
     assert res2["added"] == 1  # the previously-hidden AI-passed point
 
 
+async def test_personal_cloze_card_flow_and_isolation(pool):
+    from backend.repositories.notes import create_note, create_personal_card
+
+    lang = await _language(pool, "func3")
+    a = await _new_user(pool, "a@notes")
+    b = await _new_user(pool, "b@notes")
+
+    async with pool.rls_connection(a) as conn:
+        note = await create_note(conn, a, lang, "My text", "El gato duerme.")
+        await create_personal_card(
+            conn, a, lang, "El {{answer}} duerme.", "gato", "The cat sleeps.", note,
+        )
+        # A's personal card shows up as due, in cloze form
+        due = await get_due_cards(conn, lang)
+        personal = [c for c in due if c["card_type"] == "personal"]
+        assert personal and personal[0]["correct_answer"] == "gato"
+        assert "{{answer}}" in personal[0]["sentence"]
+        detail = await get_card_detail(conn, personal[0]["id"])
+    assert detail["card_type"] == "personal"
+    assert detail["definition"] == "The cat sleeps."
+
+    # B sees none of A's notes or personal cards (RLS)
+    async with pool.rls_connection(b) as conn:
+        notes = await conn.fetch("SELECT id FROM user_notes")
+        clozes = await conn.fetch("SELECT id FROM user_cloze_cards")
+        b_due = await get_due_cards(conn, lang)
+    assert notes == [] and clozes == []
+    assert [c for c in b_due if c["card_type"] == "personal"] == []
+
+
 async def _card_ids(conn, user_id):
     rows = await conn.fetch(
         "SELECT card_id FROM user_cards WHERE user_id = $1 AND card_type = 'grammar'",

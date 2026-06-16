@@ -109,8 +109,48 @@ async def get_due_cards(
         limit,
     )
 
+    # -- Personal cloze cards (learner's own text) --------------------------
+    personal_rows = await conn.fetch(
+        """
+        SELECT
+            uc.id,
+            uc.user_id,
+            uc.language_id,
+            uc.card_type,
+            uc.card_id,
+            cc.sentence                     AS sentence,
+            cc.answer                       AS correct_answer,
+            NULL::text                      AS hint,
+            cc.translation                  AS translation,
+            NULL::jsonb                     AS morphology,
+            NULL::text[]                    AS alternatives,
+            l.code                          AS language_code,
+            uc.ease_factor,
+            uc.interval,
+            uc.repetitions,
+            uc.streak,
+            uc.lapses,
+            uc.next_review
+        FROM user_cards uc
+        JOIN user_cloze_cards cc ON uc.card_id = cc.id
+        JOIN languages l         ON uc.language_id = l.id
+        WHERE uc.language_id = $1
+          AND uc.card_type = 'personal'
+          AND uc.next_review <= now()
+          AND uc.is_suspended = false
+        ORDER BY uc.next_review ASC
+        LIMIT $2
+        """,
+        language_id,
+        limit,
+    )
+
     # Merge and sort by next_review
-    combined = [dict(r) for r in vocab_rows] + [dict(r) for r in grammar_rows]
+    combined = (
+        [dict(r) for r in vocab_rows]
+        + [dict(r) for r in grammar_rows]
+        + [dict(r) for r in personal_rows]
+    )
     combined.sort(key=lambda r: r["next_review"])
     return combined[:limit]
 
@@ -296,6 +336,25 @@ async def get_card_detail(
     )
     if card is None:
         return None
+
+    if card["card_type"] == "personal":
+        cc = await conn.fetchrow(
+            "SELECT answer, translation FROM user_cloze_cards WHERE id = $1",
+            card["card_id"],
+        )
+        return {
+            "card_type": "personal",
+            "title": cc["answer"] if cc else None,
+            "part_of_speech": None,
+            "definition": cc["translation"] if cc else None,
+            "usage_note": None,
+            "morphology": None,
+            "explanation": None,
+            "culture_note": None,
+            "reviewed": True,
+            "references": [],
+            "examples": [],
+        }
 
     if card["card_type"] == "vocabulary":
         v = await conn.fetchrow(

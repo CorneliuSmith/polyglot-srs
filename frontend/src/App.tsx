@@ -11,6 +11,7 @@ import DashboardPage from './features/dashboard/DashboardPage'
 import ReviewSessionPage from './features/review/ReviewSessionPage'
 import LearnPage from './features/review/LearnPage'
 import TutorPage from './features/tutor/TutorPage'
+import NotesPage from './features/notes/NotesPage'
 import ContributorPage from './features/contribute/ContributorPage'
 import ProtectedRoute from './components/ProtectedRoute'
 
@@ -28,6 +29,7 @@ const router = createBrowserRouter([
       { path: '/review', element: <ReviewSessionPage /> },
       { path: '/learn', element: <LearnPage /> },
       { path: '/tutor', element: <TutorPage /> },
+      { path: '/notes', element: <NotesPage /> },
       { path: '/contribute', element: <ContributorPage /> },
     ],
   },
