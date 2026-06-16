@@ -57,10 +57,13 @@ async def _insert_card(pool_mod, user_id: str, language_id: str) -> str:
 
 async def test_all_migrations_applied(pool):
     async with pool.privileged_connection() as conn:
-        n = await conn.fetchval(
-            "SELECT count(*) FROM information_schema.tables WHERE table_schema='public'"
+        rows = await conn.fetch(
+            "SELECT table_name FROM information_schema.tables WHERE table_schema='public'"
         )
-    assert n >= 12  # vocabulary, user_cards, tutor_*, contributor_roles, ...
+    names = {r["table_name"] for r in rows}
+    assert len(names) >= 12  # vocabulary, user_cards, tutor_*, contributor_roles, ...
+    # personal-text feature tables must be present
+    assert {"user_notes", "user_cloze_cards"} <= names
 
 
 # ── RLS isolation: the #1 risk ───────────────────────────────────────────────

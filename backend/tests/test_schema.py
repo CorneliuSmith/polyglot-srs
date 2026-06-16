@@ -27,6 +27,8 @@ EXPECTED_TABLES = [
     "tutor_language_profile",
     "contributor_roles",
     "card_feedback",
+    "user_notes",
+    "user_cloze_cards",
 ]
 
 
