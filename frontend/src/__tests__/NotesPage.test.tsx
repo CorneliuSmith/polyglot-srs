@@ -8,17 +8,19 @@ vi.mock('../api/profile', () => ({ getLanguages: vi.fn() }))
 vi.mock('../api/notes', () => ({
   extractText: vi.fn(),
   createPersonalCard: vi.fn(),
+  saveNote: vi.fn(),
 }))
 vi.mock('../stores/prefsStore', () => ({
   usePrefsStore: vi.fn(() => 'lang-es'),
 }))
 
 import { getLanguages } from '../api/profile'
-import { extractText, createPersonalCard } from '../api/notes'
+import { extractText, createPersonalCard, saveNote } from '../api/notes'
 
 const mockGetLanguages = getLanguages as ReturnType<typeof vi.fn>
 const mockExtract = extractText as ReturnType<typeof vi.fn>
 const mockCreate = createPersonalCard as ReturnType<typeof vi.fn>
+const mockSaveNote = saveNote as ReturnType<typeof vi.fn>
 
 function renderPage() {
   const queryClient = new QueryClient({ defaultOptions: { queries: { retry: false } } })
@@ -49,6 +51,7 @@ describe('NotesPage', () => {
       },
     ])
     mockCreate.mockResolvedValue({ id: 'card-1', sentence: 'El {{answer}} duerme.' })
+    mockSaveNote.mockResolvedValue({ id: 'note-1' })
 
     renderPage()
 
@@ -74,9 +77,12 @@ describe('NotesPage', () => {
           sentence: 'El gato duerme.',
           answer: 'gato',
           translation: 'The cat sleeps.',
+          noteId: 'note-1',
         }),
       )
     })
+    // The source passage is saved once and the card links back to it.
+    expect(mockSaveNote).toHaveBeenCalledWith('lang-es', 'El gato duerme.', 'El gato duerme.')
     expect(await screen.findByText(/added 1 card/i)).toBeDefined()
   })
 

@@ -261,6 +261,12 @@ async def test_personal_cloze_card_flow_and_isolation(pool):
         detail = await get_card_detail(conn, personal[0]["id"])
     assert detail["card_type"] == "personal"
     assert detail["definition"] == "The cat sleeps."
+    # the detail surfaces the word back in its original sentence, and the
+    # source note it came from
+    assert detail["examples"] == [
+        {"sentence": "El gato duerme.", "translation": "The cat sleeps.", "hint": None}
+    ]
+    assert detail["usage_note"] == "From your note: My text"
 
     # B sees none of A's notes or personal cards (RLS)
     async with pool.rls_connection(b) as conn:

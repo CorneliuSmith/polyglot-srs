@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useQuery, useMutation } from '@tanstack/react-query'
 import { getLanguages } from '../../api/profile'
-import { createPersonalCard, extractText } from '../../api/notes'
+import { createPersonalCard, extractText, saveNote } from '../../api/notes'
 import type { ExtractedSentence } from '../../api/notes'
 import { usePrefsStore } from '../../stores/prefsStore'
 import LanguageWrapper from '../../components/LanguageWrapper'
@@ -20,24 +20,41 @@ export default function NotesPage() {
   const [selection, setSelection] = useState<Selection | null>(null)
   const [translation, setTranslation] = useState('')
   const [addedCount, setAddedCount] = useState(0)
+  // The pasted text is saved once as a note (lazily, on the first card) so the
+  // cards made from it link back to the passage they came from.
+  const [noteId, setNoteId] = useState<string | null>(null)
 
   const { data: languages = [] } = useQuery({ queryKey: ['languages'], queryFn: getLanguages })
   const language = languages.find((l) => l.id === activeLanguageId)
 
   const extractMutation = useMutation({
     mutationFn: () => extractText(activeLanguageId!, language!.code, text),
-    onSuccess: setSentences,
+    onSuccess: (result) => {
+      setSentences(result)
+      // A fresh analysis is a new source passage — start a new note.
+      setNoteId(null)
+      setAddedCount(0)
+    },
   })
 
   const cardMutation = useMutation({
-    mutationFn: () =>
-      createPersonalCard({
+    mutationFn: async () => {
+      let nid = noteId
+      if (!nid) {
+        const title = text.trim().split(/\s+/).slice(0, 6).join(' ')
+        const note = await saveNote(activeLanguageId!, text, title)
+        nid = note.id
+        setNoteId(nid)
+      }
+      return createPersonalCard({
         languageId: activeLanguageId!,
         languageCode: language!.code,
         sentence: selection!.sentence,
         answer: selection!.answer,
         translation,
-      }),
+        noteId: nid,
+      })
+    },
     onSuccess: () => {
       setAddedCount((n) => n + 1)
       setSelection(null)

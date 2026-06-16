@@ -338,22 +338,43 @@ async def get_card_detail(
         return None
 
     if card["card_type"] == "personal":
+        from backend.services.extract import ANSWER_MARKER
+
         cc = await conn.fetchrow(
-            "SELECT answer, translation FROM user_cloze_cards WHERE id = $1",
+            """
+            SELECT cc.answer, cc.translation, cc.sentence, n.title AS note_title
+            FROM user_cloze_cards cc
+            LEFT JOIN user_notes n ON cc.note_id = n.id
+            WHERE cc.id = $1
+            """,
             card["card_id"],
+        )
+        # Show the word back in its original sentence — the "seen in context"
+        # payoff of learning from your own text.
+        examples = []
+        if cc and cc["sentence"]:
+            full = cc["sentence"].replace(ANSWER_MARKER, cc["answer"] or "")
+            examples = [{
+                "sentence": full,
+                "translation": cc["translation"],
+                "hint": None,
+            }]
+        usage = (
+            f"From your note: {cc['note_title']}"
+            if cc and cc["note_title"] else None
         )
         return {
             "card_type": "personal",
             "title": cc["answer"] if cc else None,
             "part_of_speech": None,
             "definition": cc["translation"] if cc else None,
-            "usage_note": None,
+            "usage_note": usage,
             "morphology": None,
             "explanation": None,
             "culture_note": None,
             "reviewed": True,
             "references": [],
-            "examples": [],
+            "examples": examples,
         }
 
     if card["card_type"] == "vocabulary":
