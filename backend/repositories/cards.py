@@ -294,20 +294,24 @@ async def add_grammar_learn_batch(
 async def update_card_srs(
     conn: asyncpg.Connection, card_id: str, srs_update: dict
 ) -> None:
-    """Update a card's SRS fields after review."""
+    """Update a card's FSRS fields after review."""
     await conn.execute(
         """
         UPDATE user_cards
-        SET ease_factor = $1,
-            interval = $2,
-            repetitions = $3,
-            streak = $4,
-            lapses = $5,
-            next_review = $6,
+        SET stability = $1,
+            difficulty = $2,
+            state = $3,
+            interval = $4,
+            repetitions = $5,
+            streak = $6,
+            lapses = $7,
+            next_review = $8,
             last_review = now()
-        WHERE id = $7
+        WHERE id = $9
         """,
-        srs_update["ease_factor"],
+        srs_update["stability"],
+        srs_update["difficulty"],
+        srs_update["state"],
         srs_update["interval"],
         srs_update["repetitions"],
         srs_update["streak"],

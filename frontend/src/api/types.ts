@@ -70,8 +70,10 @@ export interface SubmitReviewRequest {
 
 export interface SubmitReviewResponse {
   next_review: string
-  ease_factor: number
   interval: number
+  stability: number
+  difficulty: number
+  state: string
   quality: number
 }
 

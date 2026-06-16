@@ -2,7 +2,8 @@
 BaseNLP abstract interface and AnswerResult enum for the NLP answer-validation layer.
 
 This module defines:
-  - AnswerResult: relocated from services/srs.py (LOCKED values)
+  - AnswerResult: the four answer judgements (LOCKED values), re-exported by
+    services/fsrs.py for the scheduler
   - BaseNLP: ABC with 4 abstract methods and a concrete 6-layer check_answer template
 """
 from __future__ import annotations

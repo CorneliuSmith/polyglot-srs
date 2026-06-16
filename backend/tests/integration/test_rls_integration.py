@@ -16,8 +16,11 @@ from backend.repositories.cards import (
     add_learn_batch,
     get_card_detail,
     get_due_cards,
+    update_card_srs,
 )
+from backend.repositories.review import insert_review_log
 from backend.repositories.tutor import get_user_profile, upsert_user_profile
+from backend.services.fsrs import CardState, Rating, fsrs_review
 
 from .conftest import requires_db
 
@@ -275,6 +278,64 @@ async def test_personal_cloze_card_flow_and_isolation(pool):
         b_due = await get_due_cards(conn, lang)
     assert notes == [] and clozes == []
     assert [c for c in b_due if c["card_type"] == "personal"] == []
+
+
+async def test_fsrs_submit_persists_state_and_logs(pool):
+    """The FSRS submit path writes stability/difficulty/state and a review_log row."""
+    lang = await _language(pool, "fsrs1")
+    user = await _new_user(pool, "learner@fsrs")
+    card_id = await _insert_card(pool, user, lang)
+
+    async with pool.rls_connection(user) as conn:
+        # A brand-new card has no FSRS state yet.
+        before = await conn.fetchrow(
+            "SELECT stability, difficulty, state, interval FROM user_cards WHERE id = $1",
+            card_id,
+        )
+        assert before["stability"] is None and before["state"] == "new"
+
+        result = fsrs_review(CardState(), Rating.GOOD, 0.0, enable_fuzz=False)
+        await update_card_srs(conn, card_id, {
+            "stability": result.stability,
+            "difficulty": result.difficulty,
+            "state": result.state,
+            "interval": result.interval,
+            "repetitions": result.repetitions,
+            "streak": result.streak,
+            "lapses": result.lapses,
+            "next_review": result.next_review,
+        })
+        await insert_review_log(
+            conn,
+            user_id=user,
+            card_id=card_id,
+            quality=4,
+            answer_result="correct",
+            interval_before=before["interval"],
+            interval_after=result.interval,
+            stability_before=None,
+            stability_after=result.stability,
+            difficulty_before=None,
+            difficulty_after=result.difficulty,
+            time_taken_ms=1500,
+        )
+
+        after = await conn.fetchrow(
+            "SELECT stability, difficulty, state, interval, repetitions "
+            "FROM user_cards WHERE id = $1",
+            card_id,
+        )
+        log = await conn.fetchrow(
+            "SELECT stability_after, difficulty_after, ease_factor_before, quality "
+            "FROM review_log WHERE card_id = $1",
+            card_id,
+        )
+
+    assert after["stability"] == pytest.approx(result.stability)
+    assert after["state"] == "review" and after["repetitions"] == 1
+    assert log["stability_after"] == pytest.approx(result.stability)
+    assert log["ease_factor_before"] is None  # legacy column now optional
+    assert log["quality"] == 4
 
 
 async def _card_ids(conn, user_id):

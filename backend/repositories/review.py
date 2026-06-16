@@ -7,36 +7,42 @@ import asyncpg
 
 async def insert_review_log(
     conn: asyncpg.Connection,
+    *,
     user_id: str,
     card_id: str,
     quality: int,
-    ease_before: float,
-    ease_after: float,
+    answer_result: str | None,
     interval_before: int,
     interval_after: int,
+    stability_before: float | None,
+    stability_after: float,
+    difficulty_before: float | None,
+    difficulty_after: float,
     time_taken_ms: int | None,
-    answer_result: str | None,
 ) -> dict:
-    """Insert a review log entry and return the created record."""
+    """Insert a review log entry (FSRS variables) and return the record."""
     row = await conn.fetchrow(
         """
         INSERT INTO review_log (
-            user_id, card_id, quality,
-            ease_factor_before, ease_factor_after,
+            user_id, card_id, quality, answer_result,
             interval_before, interval_after,
-            time_taken_ms, answer_result
-        ) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9)
+            stability_before, stability_after,
+            difficulty_before, difficulty_after,
+            time_taken_ms
+        ) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11)
         RETURNING id, created_at
         """,
         user_id,
         card_id,
         quality,
-        ease_before,
-        ease_after,
+        answer_result,
         interval_before,
         interval_after,
+        stability_before,
+        stability_after,
+        difficulty_before,
+        difficulty_after,
         time_taken_ms,
-        answer_result,
     )
     return dict(row)
 

@@ -40,8 +40,8 @@ async def get_weak_areas(
     """Return the user's weakest vocabulary cards for a language.
 
     Ranks cards by recent failures first (wrong / wrong_form answers in the
-    last 30 days), then by lapse count and low ease. Each entry carries the
-    word, its definition, morphology, and failure stats so the tutor can
+    last 30 days), then by lapse count and FSRS difficulty. Each entry carries
+    the word, its definition, morphology, and failure stats so the tutor can
     build targeted drills.
     """
     rows = await conn.fetch(
@@ -51,7 +51,7 @@ async def get_weak_areas(
             v.part_of_speech,
             v.morphology,
             t.definition          AS definition,
-            uc.ease_factor,
+            uc.difficulty,
             uc.lapses,
             uc.streak,
             COUNT(rl.id) FILTER (
@@ -68,14 +68,16 @@ async def get_weak_areas(
         WHERE uc.user_id = $1
           AND uc.language_id = $2
         GROUP BY v.word, v.part_of_speech, v.morphology, t.definition,
-                 uc.ease_factor, uc.lapses, uc.streak
+                 uc.difficulty, uc.lapses, uc.streak
         HAVING uc.lapses > 0
-            OR uc.ease_factor < 2.3
+            -- FSRS difficulty is 1 (easy) .. 10 (hard); >= 7 flags a hard card
+            OR COALESCE(uc.difficulty, 0) >= 7
             OR COUNT(rl.id) FILTER (
                    WHERE rl.answer_result IN ('wrong', 'wrong_form')
                      AND rl.created_at > now() - interval '30 days'
                ) > 0
-        ORDER BY recent_failures DESC, uc.lapses DESC, uc.ease_factor ASC
+        ORDER BY recent_failures DESC, uc.lapses DESC,
+                 COALESCE(uc.difficulty, 0) DESC
         LIMIT $3
         """,
         user_id,
@@ -101,7 +103,7 @@ async def get_study_stats(
             COUNT(*) FILTER (WHERE repetitions > 0)         AS learned_cards,
             COUNT(*) FILTER (WHERE next_review <= now()
                                AND is_suspended = false)    AS due_now,
-            ROUND(AVG(ease_factor)::numeric, 2)             AS avg_ease
+            ROUND(AVG(difficulty)::numeric, 2)             AS avg_difficulty
         FROM user_cards
         WHERE user_id = $1 AND language_id = $2
         """,

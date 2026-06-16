@@ -1,6 +1,8 @@
-"""Review router — due cards, SM-2 submission, NLP validation, and learn."""
+"""Review router — due cards, FSRS submission, NLP validation, and learn."""
 
 from __future__ import annotations
+
+from datetime import UTC, datetime
 
 from fastapi import APIRouter, Depends, HTTPException, status
 from pydantic import BaseModel, Field
@@ -15,13 +17,14 @@ from backend.repositories.cards import (
 )
 from backend.repositories.pool import rls_connection
 from backend.repositories.review import add_card_feedback, insert_review_log
-from backend.services.nlp import validate_answer_async
-from backend.services.srs import (
+from backend.services.fsrs import (
     AnswerResult,
     CardState,
+    fsrs_review,
     map_answer_to_quality,
-    sm2_update,
+    map_answer_to_rating,
 )
+from backend.services.nlp import validate_answer_async
 
 router = APIRouter()
 
@@ -105,7 +108,7 @@ async def submit_review(
     body: SubmitReview,
     user: dict = Depends(get_current_user),
 ):
-    """Apply SM-2 update to a card and record the review log entry."""
+    """Apply the FSRS update to a card and record the review log entry."""
     ar_enum = ANSWER_RESULT_MAP.get(body.answer_result)
     if ar_enum is None:
         raise HTTPException(
@@ -115,11 +118,14 @@ async def submit_review(
         )
 
     quality = map_answer_to_quality(ar_enum)
+    rating = map_answer_to_rating(ar_enum)
+    now = datetime.now(UTC)
 
     async with rls_connection(user["id"]) as conn:
-        # Fetch current card state
+        # Fetch current FSRS state
         row = await conn.fetchrow(
-            "SELECT ease_factor, interval, repetitions, streak, lapses "
+            "SELECT stability, difficulty, state, interval, "
+            "repetitions, streak, lapses, last_review "
             "FROM user_cards WHERE id = $1",
             body.card_id,
         )
@@ -129,21 +135,27 @@ async def submit_review(
                 detail="Card not found",
             )
 
-        state = CardState(
-            ease_factor=float(row["ease_factor"]),
-            interval=row["interval"],
+        card = CardState(
+            stability=float(row["stability"]) if row["stability"] is not None else None,
+            difficulty=float(row["difficulty"]) if row["difficulty"] is not None else None,
+            state=row["state"],
             repetitions=row["repetitions"],
             streak=row["streak"],
             lapses=row["lapses"],
         )
+        # Days since the previous review drive the forgetting curve.
+        elapsed_days = (
+            (now - row["last_review"]).total_seconds() / 86400.0
+            if row["last_review"] else 0.0
+        )
+        interval_before = row["interval"]
 
-        ease_before = state.ease_factor
-        interval_before = state.interval
-
-        result = sm2_update(state, quality)
+        result = fsrs_review(card, rating, elapsed_days, now=now)
 
         await update_card_srs(conn, body.card_id, {
-            "ease_factor": result.ease_factor,
+            "stability": result.stability,
+            "difficulty": result.difficulty,
+            "state": result.state,
             "interval": result.interval,
             "repetitions": result.repetitions,
             "streak": result.streak,
@@ -156,18 +168,22 @@ async def submit_review(
             user_id=user["id"],
             card_id=body.card_id,
             quality=quality,
-            ease_before=ease_before,
-            ease_after=result.ease_factor,
+            answer_result=body.answer_result,
             interval_before=interval_before,
             interval_after=result.interval,
+            stability_before=card.stability,
+            stability_after=result.stability,
+            difficulty_before=card.difficulty,
+            difficulty_after=result.difficulty,
             time_taken_ms=body.time_taken_ms,
-            answer_result=body.answer_result,
         )
 
     return {
         "next_review": result.next_review.isoformat(),
-        "ease_factor": result.ease_factor,
         "interval": result.interval,
+        "stability": result.stability,
+        "difficulty": result.difficulty,
+        "state": result.state,
         "quality": quality,
     }
 
