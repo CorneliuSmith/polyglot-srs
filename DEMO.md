@@ -35,19 +35,28 @@ for f in supabase/migrations/*.sql; do psql "$DATABASE_URL" -f "$f"; done
 
 ### d. Seed content (offline — no API key or internet)
 ```bash
-python -m backend.services.seeder.run --language sw        # Swahili vocab
-python -m backend.services.seeder.run --language tr        # Turkish vocab
+python -m backend.services.seeder.run --language sw        # Swahili vocab (~1204)
+python -m backend.services.seeder.run --language tr        # Turkish vocab (~766)
+python -m backend.services.seeder.run --language ar        # Arabic vocab (curated)
+python -m backend.services.seeder.run --language en        # English vocab (WordNet glosses)
 python -m backend.services.seeder.seed_grammar --language tr
 python -m backend.services.seeder.seed_grammar --language ru
 ```
 Verify it landed:
 ```bash
-psql "$DATABASE_URL" -c "select count(*) from vocabulary;"        # ~1970
+psql "$DATABASE_URL" -c "select count(*) from vocabulary;"        # a few thousand
 psql "$DATABASE_URL" -c "select count(*) from content_lists;"     # > 0  (KEY)
 psql "$DATABASE_URL" -c "select count(*) from drill_sentences;"   # > 0
 ```
 If `content_lists` is 0, onboarding can't subscribe you to anything and "Learn"
 will be empty — re-run the seeders.
+
+> **Which languages actually have content?** Turkish (vocab + grammar — your
+> lead), Swahili / Arabic / English (vocab only), Russian (grammar only; its
+> vocab needs an internet download). The rest — Yoruba, Hausa, Xhosa, Spanish,
+> Italian, French, German, Catalan, Maori — have working graders + tutors but
+> **no data bundled**; they stay empty until you run the sourcing pipeline
+> (`scripts/refresh_seed_data.sh`) from a machine with open internet.
 
 ---
 
@@ -107,8 +116,9 @@ A screenshot + the language + what you clicked is enough for me to chase it down
 
 ## Known limitations (not bugs — don't be surprised)
 
-- Only **Turkish, Swahili, Russian** have seeded content right now; other
-  languages are empty until seeded.
+- Content coverage today: **Turkish** (vocab + grammar), **Swahili / Arabic /
+  English** (vocab), **Russian** (grammar only). All other languages have
+  graders + tutors but no bundled data — empty until sourced.
 - **FSRS personalization** (per-language weight tuning) does nothing until real
   review history accumulates — everyone starts on solid defaults. Correct.
 - **Audio** uses the device's built-in voices, so quality/coverage varies by
