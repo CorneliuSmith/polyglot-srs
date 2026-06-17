@@ -1,7 +1,8 @@
 import { useCallback, useEffect, useRef, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { useQuery, useMutation } from '@tanstack/react-query'
+import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query'
 import { getLanguages } from '../../api/profile'
+import { createCheckout } from '../../api/billing'
 import { endTutorSession, getTutorStatus, sendTutorMessage } from '../../api/tutor'
 import type { TutorMessage } from '../../api/tutor'
 import { usePrefsStore } from '../../stores/prefsStore'
@@ -11,6 +12,7 @@ const IDLE_MS = 3 * 60 * 1000
 
 export default function TutorPage() {
   const navigate = useNavigate()
+  const queryClient = useQueryClient()
   const activeLanguageId = usePrefsStore((s) => s.activeLanguageId)
   const [messages, setMessages] = useState<TutorMessage[]>([])
   const [input, setInput] = useState('')
@@ -47,6 +49,19 @@ export default function TutorPage() {
     queryKey: ['tutor-status', activeLanguageId, language?.code],
     queryFn: () => getTutorStatus(activeLanguageId!, language!.code),
     enabled: !!activeLanguageId && !!language,
+  })
+
+  // Start a subscription. Real mode hands back a Stripe Checkout URL to
+  // redirect to; dev-mock grants directly, so we just refetch entitlement.
+  const subscribeMutation = useMutation({
+    mutationFn: () => createCheckout(activeLanguageId!),
+    onSuccess: (res) => {
+      if (res.url) {
+        window.location.href = res.url
+      } else {
+        queryClient.invalidateQueries({ queryKey: ['tutor-status'] })
+      }
+    },
   })
 
   const sendMutation = useMutation({
@@ -131,8 +146,20 @@ export default function TutorPage() {
           </p>
           <button
             type="button"
+            onClick={() => subscribeMutation.mutate()}
+            disabled={subscribeMutation.isPending}
+            className="bg-indigo-600 hover:bg-indigo-700 disabled:opacity-50 text-white font-semibold rounded-xl px-6 py-3 text-sm"
+            style={{ minHeight: '44px' }}
+          >
+            {subscribeMutation.isPending ? 'Starting…' : `Subscribe to the ${language.name} tutor`}
+          </button>
+          {subscribeMutation.isError && (
+            <p className="text-sm text-red-500">Couldn’t start checkout — try again.</p>
+          )}
+          <button
+            type="button"
             onClick={() => navigate('/')}
-            className="text-indigo-600 hover:underline text-sm"
+            className="block mx-auto text-indigo-600 hover:underline text-sm"
           >
             Back to Dashboard
           </button>

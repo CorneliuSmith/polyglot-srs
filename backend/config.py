@@ -27,8 +27,20 @@ class Settings(BaseSettings):
     # exercise the remember→persist path.
     tutor_dev_mock: bool = False
     # Development convenience: grant tutor access to everyone until the
-    # billing pipeline (Stripe, v2) writes tutor_entitlements rows.
+    # billing pipeline (Stripe) writes tutor_entitlements rows. Set False in
+    # production so entitlements actually govern access.
     tutor_free_access: bool = True
+
+    # Stripe billing for the tutor add-on. Empty secret disables checkout.
+    stripe_secret_key: str = ""
+    stripe_webhook_secret: str = ""
+    stripe_price_id: str = ""          # the tutor subscription Price id
+    # Dev-only: "buy" the tutor with no Stripe key — /checkout grants the
+    # entitlement directly so the gated → unlocked flow is testable. Never
+    # enable in production.
+    stripe_dev_mock: bool = False
+    # Base URL the user is sent back to after Stripe Checkout.
+    app_base_url: str = "http://localhost:5173"
 
     model_config = SettingsConfigDict(env_file=".env", env_file_encoding="utf-8")
 

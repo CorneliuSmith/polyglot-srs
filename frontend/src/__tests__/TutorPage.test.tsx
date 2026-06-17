@@ -14,17 +14,23 @@ vi.mock('../api/tutor', () => ({
   endTutorSession: vi.fn(),
 }))
 
+vi.mock('../api/billing', () => ({
+  createCheckout: vi.fn(),
+}))
+
 vi.mock('../stores/prefsStore', () => ({
   usePrefsStore: vi.fn(() => 'lang-tr'),
 }))
 
 import { getLanguages } from '../api/profile'
 import { getTutorStatus, sendTutorMessage, endTutorSession } from '../api/tutor'
+import { createCheckout } from '../api/billing'
 
 const mockGetLanguages = getLanguages as ReturnType<typeof vi.fn>
 const mockGetTutorStatus = getTutorStatus as ReturnType<typeof vi.fn>
 const mockSendTutorMessage = sendTutorMessage as ReturnType<typeof vi.fn>
 const mockEndTutorSession = endTutorSession as ReturnType<typeof vi.fn>
+const mockCreateCheckout = createCheckout as ReturnType<typeof vi.fn>
 
 const turkish = { id: 'lang-tr', code: 'tr', name: 'Turkish', rtl: false }
 
@@ -60,6 +66,21 @@ describe('TutorPage', () => {
     mockGetTutorStatus.mockResolvedValue({ available: true, entitled: false })
     renderPage()
     expect(await screen.findByText(/paid add-on/i)).toBeDefined()
+  })
+
+  it('subscribe redirects to the Stripe Checkout URL', async () => {
+    mockGetTutorStatus.mockResolvedValue({ available: true, entitled: false })
+    mockCreateCheckout.mockResolvedValue({ granted: false, url: 'https://checkout.stripe/x' })
+    const original = window.location
+    Object.defineProperty(window, 'location', { value: { href: '' }, writable: true })
+    renderPage()
+
+    fireEvent.click(await screen.findByRole('button', { name: /subscribe to the/i }))
+    await waitFor(() => {
+      expect(mockCreateCheckout).toHaveBeenCalledWith('lang-tr')
+      expect(window.location.href).toBe('https://checkout.stripe/x')
+    })
+    Object.defineProperty(window, 'location', { value: original, writable: true })
   })
 
   it('shows unavailable state when the tutor is not configured', async () => {

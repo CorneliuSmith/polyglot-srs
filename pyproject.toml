@@ -20,6 +20,7 @@ dependencies = [
     "redis>=5",                # distributed rate limiting (optional via REDIS_URL)
     "numpy>=1.26",             # FSRS weight optimizer
     "scipy>=1.11",             # FSRS weight optimizer (L-BFGS-B fit)
+    "stripe>=11",              # tutor add-on billing (Checkout + webhooks)
 
     # NLP backends — install before running 02-02 through 02-04
     "pymorphy3>=2.0",          # Russian morphology (community fork of pymorphy2)

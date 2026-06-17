@@ -10,6 +10,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from backend.config import get_settings
 from backend.repositories.pool import close_pool, init_pool
 from backend.routers.auth import router as auth_router
+from backend.routers.billing import router as billing_router
 from backend.routers.contribute import router as contribute_router
 from backend.routers.dashboard import router as dashboard_router
 from backend.routers.languages import router as languages_router
@@ -49,6 +50,7 @@ def create_app() -> FastAPI:
     _app.include_router(onboarding_router, prefix="/api/onboarding", tags=["onboarding"])
     _app.include_router(tutor_router, prefix="/api/tutor", tags=["tutor"])
     _app.include_router(contribute_router, prefix="/api/contribute", tags=["contribute"])
+    _app.include_router(billing_router, prefix="/api/billing", tags=["billing"])
 
     @_app.get("/api/health")
     async def health():

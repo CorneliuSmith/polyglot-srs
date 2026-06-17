@@ -527,6 +527,48 @@ async def test_vocab_seeder_creates_content_lists(pool):
     assert [r["level"] for r in rows] == ["A1", "A2"]
 
 
+async def test_billing_grant_revoke_and_entitlement_rls(pool):
+    """Stripe-driven grant/revoke toggles the tutor entitlement; users can read
+    their own billing customer but cannot grant themselves entitlements."""
+    from backend.repositories.billing import (
+        get_customer_id,
+        grant_entitlement,
+        revoke_by_subscription,
+        save_customer_id,
+    )
+    from backend.repositories.tutor import has_tutor_entitlement
+
+    lang = await _language(pool, "bill")
+    user = await _new_user(pool, "buyer@bill")
+    other = await _new_user(pool, "other@bill")
+
+    async with pool.privileged_connection() as conn:
+        await grant_entitlement(
+            conn, user, lang, subscription_id="sub_x", customer_id="cus_x"
+        )
+        assert await has_tutor_entitlement(conn, user, lang) is True
+
+        # A canceled subscription webhook deactivates the entitlement.
+        assert await revoke_by_subscription(conn, "sub_x") == 1
+        assert await has_tutor_entitlement(conn, user, lang) is False
+
+        await save_customer_id(conn, user, "cus_x")
+
+    async with pool.rls_connection(user) as conn:
+        # The user can read their own Stripe customer mapping.
+        assert await get_customer_id(conn, user) == "cus_x"
+        # ...but cannot grant themselves an entitlement (writes are service-role).
+        with pytest.raises(asyncpg.exceptions.InsufficientPrivilegeError):
+            await conn.execute(
+                "INSERT INTO tutor_entitlements (user_id, language_id) VALUES ($1, $2)",
+                user, lang,
+            )
+
+    async with pool.rls_connection(other) as conn:
+        # Another user can't see the buyer's customer mapping.
+        assert await get_customer_id(conn, other) is None
+
+
 async def _card_ids(conn, user_id):
     rows = await conn.fetch(
         "SELECT card_id FROM user_cards WHERE user_id = $1 AND card_type = 'grammar'",

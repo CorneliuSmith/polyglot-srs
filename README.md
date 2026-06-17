@@ -77,6 +77,16 @@ reviews have accumulated:
 
     python -m backend.jobs.fit_fsrs_weights --db-url "$DATABASE_URL"
 
+## Billing (tutor add-on)
+
+The AI tutor is gated by `tutor_entitlements`, driven by Stripe. Set
+`STRIPE_SECRET_KEY`, `STRIPE_WEBHOOK_SECRET`, and `STRIPE_PRICE_ID`, point a
+Stripe webhook at `POST /api/billing/webhook`, and set `TUTOR_FREE_ACCESS=false`
+so entitlements actually govern access. A completed checkout grants the
+(user, language) entitlement; a canceled/unpaid subscription revokes it. For
+local testing without Stripe, set `STRIPE_DEV_MOCK=true` — the subscribe button
+then grants access directly so you can exercise the gated → unlocked flow.
+
 ## Docs
 
 - [`data/README.md`](data/README.md) — data sourcing, licensing, grammar pipeline
