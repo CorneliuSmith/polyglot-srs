@@ -102,14 +102,18 @@ def _sign(payload: bytes, secret: str) -> str:
 
 class TestConstructEvent:
     def test_valid_signature_round_trips(self):
-        payload = json.dumps({"type": "invoice.paid", "data": {"object": {}}}).encode()
+        # Real Stripe events carry a top-level "object": "event" — Stripe's
+        # verifier reads it to tell v1 from v2 events.
+        payload = json.dumps(
+            {"object": "event", "type": "invoice.paid", "data": {"object": {}}}
+        ).encode()
         header = _sign(payload, WEBHOOK_SECRET)
         with patch("backend.services.billing.get_settings", return_value=FakeSettings()):
             event = billing.construct_event(payload, header)
         assert event["type"] == "invoice.paid"
 
     def test_bad_signature_raises(self):
-        payload = b'{"type": "invoice.paid", "data": {"object": {}}}'
+        payload = b'{"object": "event", "type": "invoice.paid", "data": {"object": {}}}'
         with patch("backend.services.billing.get_settings", return_value=FakeSettings()):
             with pytest.raises(Exception):
                 billing.construct_event(payload, _sign(payload, "wrong_secret"))
