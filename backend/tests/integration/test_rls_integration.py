@@ -7,6 +7,7 @@ intended, and that the actual repository SQL runs against the real schema.
 from __future__ import annotations
 
 import uuid
+from datetime import timedelta
 
 import asyncpg
 import pytest
@@ -65,8 +66,8 @@ async def test_all_migrations_applied(pool):
         )
     names = {r["table_name"] for r in rows}
     assert len(names) >= 12  # vocabulary, user_cards, tutor_*, contributor_roles, ...
-    # personal-text feature tables must be present
-    assert {"user_notes", "user_cloze_cards"} <= names
+    # personal-text + FSRS-weights feature tables must be present
+    assert {"user_notes", "user_cloze_cards", "fsrs_weights"} <= names
 
 
 # ── RLS isolation: the #1 risk ───────────────────────────────────────────────
@@ -336,6 +337,68 @@ async def test_fsrs_submit_persists_state_and_logs(pool):
     assert log["stability_after"] == pytest.approx(result.stability)
     assert log["ease_factor_before"] is None  # legacy column now optional
     assert log["quality"] == 4
+
+
+async def test_fsrs_weight_fit_resolve_and_isolation(pool):
+    """The fit job stores per-language weights the scheduler resolves; per-user
+    rows stay private to their owner."""
+    from backend.jobs.fit_fsrs_weights import fit_languages
+    from backend.repositories.fsrs_weights import get_effective_params
+
+    lang = await _language(pool, "fsrsw")
+    a = await _new_user(pool, "a@weights")
+    b = await _new_user(pool, "b@weights")
+    card = await _insert_card(pool, a, lang)
+
+    # Lay down a short review history for user A's card.
+    async with pool.privileged_connection() as conn:
+        base = await conn.fetchval("SELECT now()")
+        grades = [("correct", 4), ("correct", 4), ("wrong", 1), ("correct", 4)]
+        for i, (answer, quality) in enumerate(grades):
+            await conn.execute(
+                """
+                INSERT INTO review_log
+                    (user_id, card_id, quality, answer_result,
+                     interval_before, interval_after, created_at)
+                VALUES ($1, $2, $3, $4, $5, $6, $7)
+                """,
+                a, card, quality, answer, i, i + 1,
+                base + timedelta(days=i * 2),
+            )
+        # Fit per-language weights with a low threshold for the test.
+        fitted = await fit_languages(conn, min_reviews=2)
+        assert fitted == 1
+        stored = await conn.fetchval(
+            "SELECT params FROM fsrs_weights WHERE language_id = $1 AND scope = 'language'",
+            lang,
+        )
+    assert stored is not None and len(stored) == 19
+
+    # The scheduler resolves the per-language fit for any user of that language.
+    async with pool.rls_connection(b) as conn:
+        resolved = await get_effective_params(conn, b, lang)
+    assert resolved == tuple(stored)
+
+    # A per-user row is private: B never resolves A's personal weights.
+    async with pool.privileged_connection() as conn:
+        await conn.execute(
+            """
+            INSERT INTO fsrs_weights (scope, language_id, user_id, params, review_count)
+            VALUES ('user_language', $1, $2, $3, 1500)
+            """,
+            lang, a, [0.9] * 19,
+        )
+    async with pool.rls_connection(b) as conn:
+        rows = await conn.fetch("SELECT scope FROM fsrs_weights")
+        b_resolved = await get_effective_params(conn, b, lang)
+    # B sees only the shared language row, not A's user_language row.
+    assert {r["scope"] for r in rows} == {"language"}
+    assert b_resolved == tuple(stored)
+    assert b_resolved != (0.9,) * 19
+
+    async with pool.rls_connection(a) as conn:
+        a_resolved = await get_effective_params(conn, a, lang)
+    assert a_resolved == (0.9,) * 19  # A gets their own per-user weights
 
 
 async def _card_ids(conn, user_id):

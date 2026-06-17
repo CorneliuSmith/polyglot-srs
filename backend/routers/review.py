@@ -15,6 +15,7 @@ from backend.repositories.cards import (
     get_due_cards,
     update_card_srs,
 )
+from backend.repositories.fsrs_weights import get_effective_params
 from backend.repositories.pool import rls_connection
 from backend.repositories.review import add_card_feedback, insert_review_log
 from backend.services.fsrs import (
@@ -124,7 +125,7 @@ async def submit_review(
     async with rls_connection(user["id"]) as conn:
         # Fetch current FSRS state
         row = await conn.fetchrow(
-            "SELECT stability, difficulty, state, interval, "
+            "SELECT language_id, stability, difficulty, state, interval, "
             "repetitions, streak, lapses, last_review "
             "FROM user_cards WHERE id = $1",
             body.card_id,
@@ -150,7 +151,9 @@ async def submit_review(
         )
         interval_before = row["interval"]
 
-        result = fsrs_review(card, rating, elapsed_days, now=now)
+        # Resolve the most specific fitted weights for this user + language.
+        params = await get_effective_params(conn, user["id"], str(row["language_id"]))
+        result = fsrs_review(card, rating, elapsed_days, now=now, params=params)
 
         await update_card_srs(conn, body.card_id, {
             "stability": result.stability,

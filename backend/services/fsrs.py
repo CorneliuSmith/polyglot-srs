@@ -215,6 +215,33 @@ def _fuzz(interval: int, maximum_interval: int) -> int:
     return random.randint(lo, hi)
 
 
+def next_state(
+    params: tuple[float, ...],
+    stability: float | None,
+    difficulty: float | None,
+    rating: int,
+    elapsed_days: float,
+) -> tuple[float, float]:
+    """Return (stability, difficulty) after one review.
+
+    stability/difficulty are None for a card's first review, which seeds them
+    from the grade. Otherwise they're updated from the card's retrievability at
+    review time. This is the single source of truth for the FSRS memory model —
+    both the scheduler and the weight optimizer call it, so their math can never
+    drift apart.
+    """
+    w = params
+    if stability is None or difficulty is None:
+        return max(_init_stability(w, rating), MIN_STABILITY), _init_difficulty(w, rating)
+    r = retrievability(max(0.0, elapsed_days), stability)
+    new_difficulty = _next_difficulty(w, difficulty, rating)
+    if rating == Rating.AGAIN:
+        new_stability = _stability_on_forget(w, difficulty, stability, r)
+    else:
+        new_stability = _stability_on_recall(w, difficulty, stability, r, rating)
+    return max(new_stability, MIN_STABILITY), new_difficulty
+
+
 def fsrs_review(
     card: CardState,
     rating: Rating,
@@ -235,28 +262,19 @@ def fsrs_review(
         now: review time (defaults to UTC now); next_review = now + interval.
         retention: target probability of recall the interval aims for.
         maximum_interval: hard cap on the interval in days.
-        params: FSRS weights.
+        params: FSRS weights (resolve per-language/per-user before calling).
         enable_fuzz: apply interval fuzz (disable for deterministic tests).
     """
     now = now or datetime.now(UTC)
-    w = params
     is_lapse = rating == Rating.AGAIN
 
-    if card.stability is None or card.difficulty is None or card.state == NEW:
-        # First review: seed stability and difficulty from the grade.
-        stability = _init_stability(w, rating)
-        difficulty = _init_difficulty(w, rating)
-    else:
-        r = retrievability(max(0.0, elapsed_days), card.stability)
-        difficulty = _next_difficulty(w, card.difficulty, rating)
-        if is_lapse:
-            stability = _stability_on_forget(w, card.difficulty, card.stability, r)
-        else:
-            stability = _stability_on_recall(
-                w, card.difficulty, card.stability, r, rating
-            )
-
-    stability = max(stability, MIN_STABILITY)
+    # A card still in the 'new' state is treated as a first review even if stale
+    # stability/difficulty linger on the row.
+    prev_stability = None if card.state == NEW else card.stability
+    prev_difficulty = None if card.state == NEW else card.difficulty
+    stability, difficulty = next_state(
+        params, prev_stability, prev_difficulty, rating, elapsed_days
+    )
 
     if is_lapse:
         repetitions, streak, lapses, state = 0, 0, card.lapses + 1, RELEARNING

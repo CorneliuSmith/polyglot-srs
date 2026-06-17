@@ -67,6 +67,16 @@ licensing, the `scripts/refresh_seed_data.sh` pipeline, AI generation, and the
 contributor workflow). Nothing is pre-seeded — the schema and pipeline are in
 place; run the seeders/generators against your database to populate content.
 
+## Scheduling
+
+Reviews are scheduled with FSRS-5 (stability + difficulty per card). The
+scheduler uses per-language weights fit from pooled review history, falling
+back to built-in defaults, with an optional per-user-per-language override.
+Refresh the fitted weights periodically (e.g. nightly cron) once enough
+reviews have accumulated:
+
+    python -m backend.jobs.fit_fsrs_weights --db-url "$DATABASE_URL"
+
 ## Docs
 
 - [`data/README.md`](data/README.md) — data sourcing, licensing, grammar pipeline

@@ -29,6 +29,7 @@ EXPECTED_TABLES = [
     "card_feedback",
     "user_notes",
     "user_cloze_cards",
+    "fsrs_weights",
 ]
 
 
