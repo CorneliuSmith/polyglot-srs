@@ -248,6 +248,7 @@ export default function ReviewSessionPage() {
                 feedback={session.validationResult.feedback}
                 correctAnswer={card.correct_answer}
                 userInput={lastInput}
+                languageCode={card.language_code}
               />
               <ReviewDetail
                 cardId={card.id}

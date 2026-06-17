@@ -6,6 +6,7 @@ import { createPersonalCard, extractText, saveNote } from '../../api/notes'
 import type { ExtractedSentence } from '../../api/notes'
 import { usePrefsStore } from '../../stores/prefsStore'
 import LanguageWrapper from '../../components/LanguageWrapper'
+import SpeakButton from '../../components/SpeakButton'
 
 interface Selection {
   sentence: string
@@ -113,7 +114,8 @@ export default function NotesPage() {
               New words are highlighted. Tap any word to make a fill-in-the-blank card.
             </p>
             {sentences.map((s, i) => (
-              <div key={i} className="leading-loose">
+              <div key={i} className="leading-loose flex items-start gap-1">
+                <SpeakButton text={s.sentence} languageCode={language.code} />
                 <LanguageWrapper languageCode={language.code}>
                   <span>
                     {s.words.length === 0 && s.sentence}

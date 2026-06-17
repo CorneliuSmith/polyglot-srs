@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { useQuery } from '@tanstack/react-query'
 import { getCardDetail } from '../../api/review'
 import LanguageWrapper from '../../components/LanguageWrapper'
+import SpeakButton from '../../components/SpeakButton'
 
 interface ReviewDetailProps {
   cardId: string
@@ -79,9 +80,12 @@ export default function ReviewDetail({ cardId, cardType, languageCode }: ReviewD
                   <ul className="space-y-2">
                     {data.examples.map((ex, i) => (
                       <li key={i}>
-                        <LanguageWrapper languageCode={languageCode}>
-                          <span className="text-gray-800">{ex.sentence}</span>
-                        </LanguageWrapper>
+                        <span className="flex items-start gap-1">
+                          <LanguageWrapper languageCode={languageCode}>
+                            <span className="text-gray-800">{ex.sentence}</span>
+                          </LanguageWrapper>
+                          <SpeakButton text={ex.sentence} languageCode={languageCode} />
+                        </span>
                         {ex.translation && (
                           <span className="block text-gray-500">{ex.translation}</span>
                         )}
