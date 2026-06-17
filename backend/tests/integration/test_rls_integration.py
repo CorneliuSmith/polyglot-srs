@@ -401,6 +401,62 @@ async def test_fsrs_weight_fit_resolve_and_isolation(pool):
     assert a_resolved == (0.9,) * 19  # A gets their own per-user weights
 
 
+async def test_onboarding_subscribes_and_unlocks_learning(pool):
+    """Completing onboarding subscribes the user to content at/below their level,
+    which is what makes 'Learn' actually return cards."""
+    from backend.repositories.onboarding import (
+        complete_onboarding,
+        get_status,
+        sample_placement_items,
+    )
+
+    lang = await _language(pool, "onbrd")
+    user = await _new_user(pool, "newbie@onboard")
+
+    async with pool.privileged_connection() as conn:
+        # Content lists across three levels (grammar + vocab each).
+        for level in ("A1", "A2", "B1"):
+            for list_type in ("grammar", "vocabulary"):
+                await conn.execute(
+                    "INSERT INTO content_lists (language_id, list_type, level, title) "
+                    "VALUES ($1, $2, $3, $4)",
+                    lang, list_type, level, f"{level} {list_type}",
+                )
+        # A graded word (A1) with a definition so it becomes learnable + placeable.
+        vid = await conn.fetchval(
+            "INSERT INTO vocabulary (language_id, word, frequency_rank, level) "
+            "VALUES ($1, 'hola', 1, 'A1') RETURNING id", lang,
+        )
+        await conn.execute(
+            "INSERT INTO translations (vocabulary_id, locale, definition) "
+            "VALUES ($1, 'en', 'hello')", vid,
+        )
+
+    async with pool.rls_connection(user) as conn:
+        # Before: not onboarded, no subscriptions, nothing to learn.
+        assert (await get_status(conn, user))["onboarded"] is False
+        assert (await add_learn_batch(conn, user, lang, 5))["added"] == 0
+
+        result = await complete_onboarding(conn, user, lang, "A2")
+        # A1 + A2 lists only (B1 is above the chosen level): 2 levels × 2 types.
+        assert result["subscribed"] == 4
+
+        status = await get_status(conn, user)
+        assert status["onboarded"] is True
+        assert status["active_language_id"] == lang
+        assert status["has_subscriptions"] is True
+
+        # The payoff: subscribed content is now learnable.
+        learned = await add_learn_batch(conn, user, lang, 5)
+        assert learned["added"] == 1
+
+        # Idempotent: completing again creates no duplicate subscriptions.
+        assert (await complete_onboarding(conn, user, lang, "A2"))["subscribed"] == 0
+
+        items = await sample_placement_items(conn, lang)
+    assert any(i["prompt"] == "hello" and i["level"] == "A1" for i in items)
+
+
 async def _card_ids(conn, user_id):
     rows = await conn.fetch(
         "SELECT card_id FROM user_cards WHERE user_id = $1 AND card_type = 'grammar'",

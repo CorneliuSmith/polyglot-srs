@@ -1,8 +1,9 @@
-import { useNavigate } from 'react-router-dom'
+import { Navigate, useNavigate } from 'react-router-dom'
 import { useQuery, useMutation } from '@tanstack/react-query'
 import { getDashboardStats } from '../../api/dashboard'
 import { startLearnSession } from '../../api/review'
 import { getMyRoles } from '../../api/contribute'
+import { getOnboardingStatus } from '../../api/onboarding'
 import { usePrefsStore } from '../../stores/prefsStore'
 import LanguagePicker from '../../components/LanguagePicker'
 import DueCount from './DueCount'
@@ -21,6 +22,12 @@ function SkeletonCard() {
 export default function DashboardPage() {
   const navigate = useNavigate()
   const activeLanguageId = usePrefsStore((s) => s.activeLanguageId)
+
+  // First-run users are routed into onboarding before they can study.
+  const { data: onboarding, isLoading: onboardingLoading } = useQuery({
+    queryKey: ['onboarding-status'],
+    queryFn: getOnboardingStatus,
+  })
 
   const { data: stats, isLoading } = useQuery({
     queryKey: ['dashboard', activeLanguageId],
@@ -56,6 +63,10 @@ export default function DashboardPage() {
 
   const handleReview = () => {
     navigate('/review')
+  }
+
+  if (!onboardingLoading && onboarding && !onboarding.onboarded) {
+    return <Navigate to="/onboarding" replace />
   }
 
   return (
