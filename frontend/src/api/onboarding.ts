@@ -8,8 +8,10 @@ export interface OnboardingStatus {
 
 export interface PlacementItem {
   id: string
+  kind: 'vocabulary' | 'grammar'
   level: string
   prompt: string
+  translation: string | null
 }
 
 export interface PlacementResponse {

@@ -56,7 +56,8 @@ def client():
 def _items(n):
     levels = ["A1", "A2", "B1", "B2", "C1", "C2"]
     return [
-        {"id": f"id-{i}", "level": levels[i % len(levels)], "prompt": f"def {i}"}
+        {"id": f"id-{i}", "kind": "vocabulary", "level": levels[i % len(levels)],
+         "prompt": f"def {i}", "translation": None}
         for i in range(n)
     ]
 
@@ -92,8 +93,8 @@ class TestOnboarding:
 
     def test_score_placement_estimates_level(self, client):
         answers = {
-            "a1": {"word": "uno", "level": "A1"},
-            "b1": {"word": "dos", "level": "B1"},
+            "a1": {"answer": "uno", "level": "A1"},
+            "b1": {"answer": "dos", "level": "B1"},
         }
         with patch("backend.routers.onboarding._language_code",
                    new=AsyncMock(return_value="es")), \

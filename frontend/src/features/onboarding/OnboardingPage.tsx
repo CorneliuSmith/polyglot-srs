@@ -135,12 +135,21 @@ export default function OnboardingPage() {
         {step === 'placement' && language && (
           <section className="space-y-4">
             <h2 className="font-semibold text-gray-800">
-              Type each word in {language.name}. Skip any you don't know.
+              Fill in each answer in {language.name}. Skip any you don't know.
             </h2>
             <div className="space-y-3">
               {items.map((item) => (
                 <div key={item.id} className="rounded-xl border border-gray-100 bg-white p-3">
-                  <p className="text-sm text-gray-700">{item.prompt}</p>
+                  {item.kind === 'grammar' ? (
+                    <LanguageWrapper languageCode={language.code}>
+                      <p className="text-sm text-gray-800">{item.prompt}</p>
+                    </LanguageWrapper>
+                  ) : (
+                    <p className="text-sm text-gray-700">{item.prompt}</p>
+                  )}
+                  {item.translation && (
+                    <p className="text-xs text-gray-400">{item.translation}</p>
+                  )}
                   <LanguageWrapper languageCode={language.code}>
                     <input
                       value={responses[item.id] ?? ''}

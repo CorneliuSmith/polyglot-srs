@@ -93,7 +93,7 @@ async def score_placement(
         if item is None or item["level"] is None:
             continue
         try:
-            result, _ = await validate_answer_async(code, answer.input, item["word"], None)
+            result, _ = await validate_answer_async(code, answer.input, item["answer"], None)
         except ValueError as exc:
             raise HTTPException(
                 status_code=422, detail=f"Unsupported language: {code}"

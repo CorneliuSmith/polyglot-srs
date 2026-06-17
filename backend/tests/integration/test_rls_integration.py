@@ -457,6 +457,41 @@ async def test_onboarding_subscribes_and_unlocks_learning(pool):
     assert any(i["prompt"] == "hello" and i["level"] == "A1" for i in items)
 
 
+async def test_placement_includes_grammar_cloze(pool):
+    """Placement mixes vocabulary and reviewed grammar cloze drills."""
+    from backend.repositories.onboarding import (
+        get_placement_answers,
+        sample_placement_items,
+    )
+
+    lang = await _language(pool, "gplace")
+    async with pool.privileged_connection() as conn:
+        gp = await conn.fetchval(
+            "INSERT INTO grammar_points (language_id, title, level, reviewed, display_order) "
+            "VALUES ($1, 'Adjective agreement', 'A2', true, 1) RETURNING id", lang,
+        )
+        drill = await conn.fetchval(
+            """
+            INSERT INTO drill_sentences
+                (grammar_point_id, sentence, answer, translation, display_order)
+            VALUES ($1, 'la casa {{answer}}', 'roja', 'the red house', 1)
+            RETURNING id
+            """,
+            gp,
+        )
+
+    async with pool.rls_connection(await _new_user(pool, "g@place")) as conn:
+        items = await sample_placement_items(conn, lang)
+        grammar_items = [i for i in items if i["kind"] == "grammar"]
+        answers = await get_placement_answers(conn, lang, [str(drill)])
+
+    assert grammar_items, "expected a grammar placement item"
+    item = grammar_items[0]
+    assert item["prompt"] == "la casa ____"  # the {{answer}} marker is blanked
+    assert item["translation"] == "the red house"
+    assert answers[str(drill)] == {"answer": "roja", "level": "A2"}
+
+
 async def _card_ids(conn, user_id):
     rows = await conn.fetch(
         "SELECT card_id FROM user_cards WHERE user_id = $1 AND card_type = 'grammar'",

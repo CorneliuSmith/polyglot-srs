@@ -72,8 +72,8 @@ describe('OnboardingPage', () => {
     mockGetPlacement.mockResolvedValue({
       available: true,
       items: [
-        { id: 'i1', level: 'A1', prompt: 'hello' },
-        { id: 'i2', level: 'B1', prompt: 'house' },
+        { id: 'i1', kind: 'vocabulary', level: 'A1', prompt: 'hello', translation: null },
+        { id: 'i2', kind: 'grammar', level: 'B1', prompt: 'la ____ roja', translation: 'the red house' },
       ],
     })
     mockScore.mockResolvedValue({ estimated_level: 'B1', per_level: {} })

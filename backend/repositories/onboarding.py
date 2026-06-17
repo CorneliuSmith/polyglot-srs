@@ -9,8 +9,13 @@ from __future__ import annotations
 
 import asyncpg
 
+from backend.services.extract import ANSWER_MARKER
+
 # CEFR ladder, easiest first.
 CEFR_ORDER: tuple[str, ...] = ("A1", "A2", "B1", "B2", "C1", "C2")
+
+# Shown in a grammar cloze where the answer goes.
+_BLANK = "____"
 
 
 def levels_at_or_below(level: str) -> list[str]:
@@ -56,12 +61,13 @@ async def get_status(conn: asyncpg.Connection, user_id: str) -> dict:
 async def sample_placement_items(
     conn: asyncpg.Connection, language_id: str, *, per_level: int = 3
 ) -> list[dict]:
-    """Sample graded vocabulary as placement prompts (definition → type the word).
+    """Sample graded placement prompts across vocabulary and grammar.
 
-    Picks the most frequent words at each CEFR level so the test probes common,
-    representative vocabulary. Returns items without the answer.
+    Vocabulary items show an English definition (type the word); grammar items
+    show a reviewed cloze sentence with a blank (type the missing form). Both
+    pick the most representative items per CEFR level. Answers are not returned.
     """
-    rows = await conn.fetch(
+    vocab = await conn.fetch(
         """
         SELECT id, level, prompt FROM (
             SELECT
@@ -83,25 +89,81 @@ async def sample_placement_items(
         language_id,
         per_level,
     )
-    return [
-        {"id": str(r["id"]), "level": r["level"], "prompt": r["prompt"]}
-        for r in rows
+    grammar = await conn.fetch(
+        """
+        SELECT id, level, sentence, translation FROM (
+            SELECT
+                ds.id,
+                gp.level,
+                ds.sentence,
+                ds.translation,
+                row_number() OVER (
+                    PARTITION BY gp.level ORDER BY gp.display_order, ds.display_order
+                ) AS rn
+            FROM drill_sentences ds
+            JOIN grammar_points gp ON ds.grammar_point_id = gp.id
+            WHERE gp.language_id = $1
+              AND gp.level IS NOT NULL
+              AND gp.reviewed = true
+              AND ds.sentence LIKE '%' || $3 || '%'
+        ) ranked
+        WHERE rn <= $2
+        ORDER BY level, rn
+        """,
+        language_id,
+        per_level,
+        ANSWER_MARKER,
+    )
+
+    items = [
+        {"id": str(r["id"]), "kind": "vocabulary", "level": r["level"],
+         "prompt": r["prompt"], "translation": None}
+        for r in vocab
+    ] + [
+        {"id": str(r["id"]), "kind": "grammar", "level": r["level"],
+         "prompt": r["sentence"].replace(ANSWER_MARKER, _BLANK),
+         "translation": r["translation"]}
+        for r in grammar
     ]
+    # Interleave by level so a short test still spans the difficulty range.
+    items.sort(key=lambda it: (
+        CEFR_ORDER.index(it["level"]) if it["level"] in CEFR_ORDER else len(CEFR_ORDER),
+        it["kind"],
+    ))
+    return items
 
 
 async def get_placement_answers(
     conn: asyncpg.Connection, language_id: str, item_ids: list[str]
 ) -> dict[str, dict]:
-    """Return {item_id: {"word", "level"}} for scoring placement answers."""
+    """Return {item_id: {"answer", "level"}} for scoring placement answers.
+
+    Items may be vocabulary or grammar drills; both id spaces are looked up and
+    merged (UUIDs don't collide across the two tables).
+    """
     if not item_ids:
         return {}
-    rows = await conn.fetch(
-        "SELECT id, word, level FROM vocabulary "
+    vocab = await conn.fetch(
+        "SELECT id, word AS answer, level FROM vocabulary "
         "WHERE language_id = $1 AND id = ANY($2::uuid[])",
         language_id,
         item_ids,
     )
-    return {str(r["id"]): {"word": r["word"], "level": r["level"]} for r in rows}
+    grammar = await conn.fetch(
+        """
+        SELECT ds.id, ds.answer, gp.level
+        FROM drill_sentences ds
+        JOIN grammar_points gp ON ds.grammar_point_id = gp.id
+        WHERE gp.language_id = $1 AND ds.id = ANY($2::uuid[])
+        """,
+        language_id,
+        item_ids,
+    )
+    answers = {str(r["id"]): {"answer": r["answer"], "level": r["level"]} for r in vocab}
+    answers.update(
+        {str(r["id"]): {"answer": r["answer"], "level": r["level"]} for r in grammar}
+    )
+    return answers
 
 
 async def complete_onboarding(
