@@ -1,0 +1,31 @@
+rank	word	pos	en
+1	je	pron	I
+2	tu	pron	you
+3	il	pron	he/she
+4	nous	pron	we
+5	être	verb	to be
+6	avoir	verb	to have
+7	aller	verb	to go
+8	manger	verb	to eat
+9	boire	verb	to drink
+10	vouloir	verb	to want
+11	voir	verb	to see
+12	dire	verb	to say
+13	eau	noun	water
+14	nourriture	noun	food
+15	maison	noun	house
+16	personne	noun	person
+17	jour	noun	day
+18	oui	adv	yes
+19	non	adv	no
+20	merci	interjection	thank you
+600	apprendre	verb	to learn
+700	parler	verb	to speak
+800	comprendre	verb	to understand
+900	savoir	verb	to know
+1000	écrire	verb	to write
+1100	lire	verb	to read
+1200	livre	noun	book
+1250	langue	noun	language
+1300	grand	adj	big
+1350	bon	adj	good

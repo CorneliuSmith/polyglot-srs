@@ -1,0 +1,29 @@
+rank	word	pos	en
+1	mna	pron	I
+2	wena	pron	you
+3	yena	pron	he/she
+4	thina	pron	we
+7	ukuhamba	verb	to go
+8	ukutya	verb	to eat
+9	ukusela	verb	to drink
+10	ukufuna	verb	to want
+11	ukubona	verb	to see
+12	ukuthi	verb	to say
+13	amanzi	noun	water
+14	ukudla	noun	food
+15	indlu	noun	house
+16	umntu	noun	person
+17	usuku	noun	day
+18	ewe	adv	yes
+19	hayi	adv	no
+20	enkosi	interjection	thank you
+600	ukufunda	verb	to learn
+700	ukuthetha	verb	to speak
+800	ukuqonda	verb	to understand
+900	ukwazi	verb	to know
+1000	ukubhala	verb	to write
+1100	ukufunda	verb	to read
+1200	incwadi	noun	book
+1250	ulwimi	noun	language
+1300	nkulu	adj	big
+1350	lungile	adj	good

@@ -2,9 +2,9 @@
 
 A foolproof path to a working demo, plus what to watch for and report back.
 
-> **Headline language: Turkish.** It's the only language seeded with vocabulary
-> **and** grammar **and** a real placement test. Swahili is good for vocabulary.
-> Don't demo Yoruba / Hausa / Xhosa / Maori — no content seeded yet.
+> **Headline languages: Turkish and Spanish.** Both have vocabulary **and**
+> grammar **and** a real (mixed) placement test. Every other language has at
+> least starter vocabulary once seeded (see §1d for exactly what's where).
 
 ---
 
@@ -35,11 +35,20 @@ for f in supabase/migrations/*.sql; do psql "$DATABASE_URL" -f "$f"; done
 
 ### d. Seed content (offline — no API key or internet)
 ```bash
-python -m backend.services.seeder.run --language sw        # Swahili vocab (~1204)
-python -m backend.services.seeder.run --language tr        # Turkish vocab (~766)
-python -m backend.services.seeder.run --language ar        # Arabic vocab (curated)
-python -m backend.services.seeder.run --language en        # English vocab (WordNet glosses)
+# Large frequency-sourced vocab:
+python -m backend.services.seeder.run --language sw   # Swahili (~1204)
+python -m backend.services.seeder.run --language tr   # Turkish (~766)
+python -m backend.services.seeder.run --language ar   # Arabic (curated)
+python -m backend.services.seeder.run --language en   # English (WordNet glosses)
+
+# Curated A1/A2 starter vocab (~30 words each):
+for L in es fr de it ca mi yo ha xh; do
+  python -m backend.services.seeder.run --language $L
+done
+
+# Grammar (reviewed points + cloze drills; also feeds placement):
 python -m backend.services.seeder.seed_grammar --language tr
+python -m backend.services.seeder.seed_grammar --language es
 python -m backend.services.seeder.seed_grammar --language ru
 ```
 Verify it landed:
@@ -51,12 +60,16 @@ psql "$DATABASE_URL" -c "select count(*) from drill_sentences;"   # > 0
 If `content_lists` is 0, onboarding can't subscribe you to anything and "Learn"
 will be empty — re-run the seeders.
 
-> **Which languages actually have content?** Turkish (vocab + grammar — your
-> lead), Swahili / Arabic / English (vocab only), Russian (grammar only; its
-> vocab needs an internet download). The rest — Yoruba, Hausa, Xhosa, Spanish,
-> Italian, French, German, Catalan, Maori — have working graders + tutors but
-> **no data bundled**; they stay empty until you run the sourcing pipeline
-> (`scripts/refresh_seed_data.sh`) from a machine with open internet.
+> **Which languages have content?**
+> - **Full** (vocab + grammar + placement): **Turkish, Spanish**.
+> - **Vocab** (placement is vocab-only): Swahili, Arabic, English, and curated
+>   starters for French, German, Italian, Catalan, Maori, Yoruba, Hausa, Xhosa.
+> - **Grammar only**: Russian (its vocab needs an internet download).
+>
+> The curated starters (~30 words) are enough to demo onboarding → placement →
+> learn → review per language, but they're small. For a full corpus, run the
+> sourcing pipeline (`scripts/refresh_seed_data.sh`) from a machine with open
+> internet, then re-seed.
 
 ---
 
@@ -116,9 +129,10 @@ A screenshot + the language + what you clicked is enough for me to chase it down
 
 ## Known limitations (not bugs — don't be surprised)
 
-- Content coverage today: **Turkish** (vocab + grammar), **Swahili / Arabic /
-  English** (vocab), **Russian** (grammar only). All other languages have
-  graders + tutors but no bundled data — empty until sourced.
+- Content coverage today: **Turkish & Spanish** (vocab + grammar), **Swahili /
+  Arabic / English** plus curated starters for **French, German, Italian,
+  Catalan, Maori, Yoruba, Hausa, Xhosa** (vocab), **Russian** (grammar only).
+  Starter sets are small (~30 words) — fine to demo, not a full curriculum.
 - **FSRS personalization** (per-language weight tuning) does nothing until real
   review history accumulates — everyone starts on solid defaults. Correct.
 - **Audio** uses the device's built-in voices, so quality/coverage varies by

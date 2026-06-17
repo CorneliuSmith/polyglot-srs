@@ -22,6 +22,14 @@ After this, onboarding/placement and the learn loop work end-to-end for those
 languages. Everything below regenerates or extends this data and needs internet
 (sourcing) or an Anthropic API key (AI grammar/curriculum generation).
 
+### Curated starter seeds
+
+`{es,fr,de,it,ca,mi,yo,ha,xh}_frequency.tsv` and `grammar/es_grammar.json` are
+small, **hand-authored** A1/A2 starter sets (~30 words each), not sourced
+frequency corpora — enough to make onboarding, placement, and the learn/review
+loop work per language for a demo. Replace them by running the sourcing
+pipeline below for a full, frequency-ranked corpus.
+
 ## Full pipeline — sources, licensing, and regeneration
 
 Vocabulary and sentence seed files in this directory are built by the
