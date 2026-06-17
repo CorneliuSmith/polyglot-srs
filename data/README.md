@@ -1,5 +1,29 @@
 # Seed data — sources, licensing, and regeneration
 
+## Quick start — seed offline (no API key, no internet)
+
+The bundled files in this directory are enough to populate a working corpus
+without any external calls. Against your `DATABASE_URL` (e.g. Supabase):
+
+```sh
+# Vocabulary (bundled frequency+translation TSVs). Auto-assigns CEFR levels
+# from frequency rank AND creates a vocabulary content_list per level, so the
+# words are immediately subscribable by onboarding and "Learn Vocabulary".
+python -m backend.services.seeder.run --language sw   # 1204 words
+python -m backend.services.seeder.run --language tr   # 766 words
+
+# Grammar (bundled curriculum JSON: reviewed points + cloze drills + a grammar
+# content_list per level). Reviewed drills also feed placement.
+python -m backend.services.seeder.seed_grammar --language ru
+python -m backend.services.seeder.seed_grammar --language tr
+```
+
+After this, onboarding/placement and the learn loop work end-to-end for those
+languages. Everything below regenerates or extends this data and needs internet
+(sourcing) or an Anthropic API key (AI grammar/curriculum generation).
+
+## Full pipeline — sources, licensing, and regeneration
+
 Vocabulary and sentence seed files in this directory are built by the
 sourcing pipeline, not scraped:
 

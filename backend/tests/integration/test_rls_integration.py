@@ -492,6 +492,41 @@ async def test_placement_includes_grammar_cloze(pool):
     assert answers[str(drill)] == {"answer": "roja", "level": "A2"}
 
 
+async def test_vocab_seeder_creates_content_lists(pool):
+    """Seeding vocabulary also creates a content_list per level, so the words
+    are immediately subscribable (otherwise 'Learn Vocabulary' stays empty)."""
+    from backend.services.seeder.base import BaseSeeder
+
+    from .conftest import INTEGRATION_DSN
+
+    class _Seeder(BaseSeeder):
+        language_code = "mi"
+
+        async def download(self):  # pragma: no cover - not used
+            pass
+
+        async def transform(self):  # pragma: no cover - not used
+            return []
+
+    seeder = _Seeder(INTEGRATION_DSN)
+    n = await seeder.load([
+        {"word": "aroha", "level": "A1", "frequency_rank": 1,
+         "translations": {"en": "love"}},
+        {"word": "whenua", "level": "A2", "frequency_rank": 600,
+         "translations": {"en": "land"}},
+    ])
+    assert n == 2
+
+    async with pool.privileged_connection() as conn:
+        rows = await conn.fetch(
+            "SELECT level FROM content_lists "
+            "WHERE list_type = 'vocabulary' "
+            "AND language_id = (SELECT id FROM languages WHERE code = 'mi') "
+            "ORDER BY level"
+        )
+    assert [r["level"] for r in rows] == ["A1", "A2"]
+
+
 async def _card_ids(conn, user_id):
     rows = await conn.fetch(
         "SELECT card_id FROM user_cards WHERE user_id = $1 AND card_type = 'grammar'",

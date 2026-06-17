@@ -84,6 +84,23 @@ class BaseSeeder(ABC):
                 if count % 1000 == 0:
                     self.logger.info(f"Loaded {count} records...")
 
+            # Create a vocabulary content_list per CEFR level present, so the
+            # loaded words are subscribable (onboarding) and learnable. Without
+            # this, "Learn Vocabulary" has nothing to draw from after seeding.
+            levels = sorted({rec.get("level") for rec in records if rec.get("level")})
+            for level in levels:
+                await conn.execute("""
+                    INSERT INTO content_lists (language_id, list_type, level, title, description)
+                    VALUES ($1, 'vocabulary', $2, $3, $4)
+                    ON CONFLICT (language_id, list_type, level) DO UPDATE SET
+                        title = EXCLUDED.title
+                """, self.language_id, level, f"{level} Vocabulary",
+                    f"Frequency-ranked {self.language_code} vocabulary ({level}).")
+            if levels:
+                self.logger.info(
+                    f"Ensured {len(levels)} vocabulary content list(s): {', '.join(levels)}"
+                )
+
             self.logger.info(f"Finished loading {count} records for {self.language_code}")
             return count
         finally:
