@@ -1,0 +1,50 @@
+{
+  "lists": [
+    {
+      "level": "A1",
+      "title": "Spanish A1 Grammar",
+      "description": "Foundational Spanish grammar: articles, ser, and present-tense verbs."
+    }
+  ],
+  "points": [
+    {
+      "title": "Definite articles (el / la)",
+      "level": "A1",
+      "source": "contributor",
+      "reviewed": true,
+      "display_order": 1,
+      "explanation": "Spanish nouns have grammatical gender. Use 'el' before masculine singular nouns and 'la' before feminine singular nouns. Most nouns ending in -o are masculine (el libro) and most ending in -a are feminine (la casa), but there are exceptions you learn word by word.",
+      "culture_note": "Gender is grammatical, not literal — 'el mapa' (the map) is masculine despite ending in -a, a Greek-derived exception.",
+      "drills": [
+        {"sentence": "{{answer}} casa es grande.", "answer": "la", "translation": "The house is big.", "hint": "feminine singular", "display_order": 1},
+        {"sentence": "{{answer}} libro es nuevo.", "answer": "el", "translation": "The book is new.", "hint": "masculine singular", "display_order": 2}
+      ]
+    },
+    {
+      "title": "The verb ser (to be) — present",
+      "level": "A1",
+      "source": "contributor",
+      "reviewed": true,
+      "display_order": 2,
+      "explanation": "'Ser' expresses permanent or defining qualities: identity, origin, profession. Present forms: soy, eres, es, somos, sois, son. Use ser for who/what something is (Soy estudiante), and the separate verb estar for temporary states and location.",
+      "culture_note": "Spanish has two verbs for 'to be' — ser (essence) and estar (state). 'Es aburrido' = he is boring; 'está aburrido' = he is bored.",
+      "drills": [
+        {"sentence": "Yo {{answer}} estudiante.", "answer": "soy", "translation": "I am a student.", "hint": "yo form of ser", "display_order": 1},
+        {"sentence": "Nosotros {{answer}} amigos.", "answer": "somos", "translation": "We are friends.", "hint": "nosotros form of ser", "display_order": 2}
+      ]
+    },
+    {
+      "title": "Present tense of -ar verbs",
+      "level": "A1",
+      "source": "contributor",
+      "reviewed": true,
+      "display_order": 3,
+      "explanation": "Regular -ar verbs (hablar, estudiar, trabajar) drop -ar and add endings: -o, -as, -a, -amos, -áis, -an. So hablar → hablo, hablas, habla, hablamos, habláis, hablan.",
+      "culture_note": "-ar verbs are the largest and most regular Spanish verb group, so mastering this pattern unlocks hundreds of verbs at once.",
+      "drills": [
+        {"sentence": "Nosotros {{answer}} español.", "answer": "hablamos", "translation": "We speak Spanish.", "hint": "hablar, nosotros", "display_order": 1},
+        {"sentence": "Ella {{answer}} en una oficina.", "answer": "trabaja", "translation": "She works in an office.", "hint": "trabajar, ella", "display_order": 2}
+      ]
+    }
+  ]
+}

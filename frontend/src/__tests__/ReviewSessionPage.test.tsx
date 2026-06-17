@@ -49,8 +49,10 @@ const mockValidateResponse: ValidateAnswerResponse = {
 
 const mockSubmitResponse: SubmitReviewResponse = {
   next_review: '2026-03-22T00:00:00Z',
-  ease_factor: 2.6,
   interval: 7,
+  stability: 7.2,
+  difficulty: 5.1,
+  state: 'review',
   quality: 4,
 }
 

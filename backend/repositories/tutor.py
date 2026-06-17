@@ -7,6 +7,8 @@ the learner is actually struggling with rather than generic content.
 
 from __future__ import annotations
 
+import json
+
 import asyncpg
 
 
@@ -38,8 +40,8 @@ async def get_weak_areas(
     """Return the user's weakest vocabulary cards for a language.
 
     Ranks cards by recent failures first (wrong / wrong_form answers in the
-    last 30 days), then by lapse count and low ease. Each entry carries the
-    word, its definition, morphology, and failure stats so the tutor can
+    last 30 days), then by lapse count and FSRS difficulty. Each entry carries
+    the word, its definition, morphology, and failure stats so the tutor can
     build targeted drills.
     """
     rows = await conn.fetch(
@@ -49,7 +51,7 @@ async def get_weak_areas(
             v.part_of_speech,
             v.morphology,
             t.definition          AS definition,
-            uc.ease_factor,
+            uc.difficulty,
             uc.lapses,
             uc.streak,
             COUNT(rl.id) FILTER (
@@ -66,14 +68,16 @@ async def get_weak_areas(
         WHERE uc.user_id = $1
           AND uc.language_id = $2
         GROUP BY v.word, v.part_of_speech, v.morphology, t.definition,
-                 uc.ease_factor, uc.lapses, uc.streak
+                 uc.difficulty, uc.lapses, uc.streak
         HAVING uc.lapses > 0
-            OR uc.ease_factor < 2.3
+            -- FSRS difficulty is 1 (easy) .. 10 (hard); >= 7 flags a hard card
+            OR COALESCE(uc.difficulty, 0) >= 7
             OR COUNT(rl.id) FILTER (
                    WHERE rl.answer_result IN ('wrong', 'wrong_form')
                      AND rl.created_at > now() - interval '30 days'
                ) > 0
-        ORDER BY recent_failures DESC, uc.lapses DESC, uc.ease_factor ASC
+        ORDER BY recent_failures DESC, uc.lapses DESC,
+                 COALESCE(uc.difficulty, 0) DESC
         LIMIT $3
         """,
         user_id,
@@ -81,3 +85,168 @@ async def get_weak_areas(
         limit,
     )
     return [dict(r) for r in rows]
+
+
+async def get_study_stats(
+    conn: asyncpg.Connection, user_id: str, language_id: str
+) -> dict:
+    """Return overall study performance for a language (not just failures).
+
+    Gives the tutor the bird's-eye view: how much has been studied, how
+    accurate the learner is lately, how due they are, and how far up the
+    CEFR ladder their learned cards reach — so it can set session ambition.
+    """
+    cards = await conn.fetchrow(
+        """
+        SELECT
+            COUNT(*)                                        AS total_cards,
+            COUNT(*) FILTER (WHERE repetitions > 0)         AS learned_cards,
+            COUNT(*) FILTER (WHERE next_review <= now()
+                               AND is_suspended = false)    AS due_now,
+            ROUND(AVG(difficulty)::numeric, 2)             AS avg_difficulty
+        FROM user_cards
+        WHERE user_id = $1 AND language_id = $2
+        """,
+        user_id,
+        language_id,
+    )
+    reviews = await conn.fetchrow(
+        """
+        SELECT
+            COUNT(*)                                                       AS reviews_30d,
+            COUNT(*) FILTER (
+                WHERE rl.answer_result IN ('correct', 'correct_sloppy')
+            )                                                              AS correct_30d
+        FROM review_log rl
+        JOIN user_cards uc ON rl.card_id = uc.id
+        WHERE rl.user_id = $1
+          AND uc.language_id = $2
+          AND rl.created_at > now() - interval '30 days'
+        """,
+        user_id,
+        language_id,
+    )
+    level = await conn.fetchval(
+        """
+        SELECT MAX(v.level)
+        FROM user_cards uc
+        JOIN vocabulary v ON uc.card_id = v.id AND uc.card_type = 'vocabulary'
+        WHERE uc.user_id = $1 AND uc.language_id = $2 AND uc.repetitions > 0
+        """,
+        user_id,
+        language_id,
+    )
+
+    reviews_30d = int(reviews["reviews_30d"]) if reviews else 0
+    correct_30d = int(reviews["correct_30d"]) if reviews else 0
+    accuracy = round(correct_30d / reviews_30d, 2) if reviews_30d else None
+
+    return {
+        "total_cards": int(cards["total_cards"]) if cards else 0,
+        "learned_cards": int(cards["learned_cards"]) if cards else 0,
+        "due_now": int(cards["due_now"]) if cards else 0,
+        "avg_ease": float(cards["avg_ease"]) if cards and cards["avg_ease"] else None,
+        "reviews_last_30d": reviews_30d,
+        "accuracy_last_30d": accuracy,
+        "highest_level_reached": level,
+    }
+
+
+# ---------------------------------------------------------------------------
+# Learner memory — global profile + per-language profile/summary
+# ---------------------------------------------------------------------------
+
+def _load_jsonb(value) -> dict:
+    """asyncpg returns jsonb as a str by default — decode to a dict."""
+    if value is None:
+        return {}
+    if isinstance(value, str):
+        try:
+            return json.loads(value)
+        except (json.JSONDecodeError, TypeError):
+            return {}
+    return dict(value)
+
+
+async def get_user_profile(conn: asyncpg.Connection, user_id: str) -> dict:
+    """Return the learner's global profile dict (empty if none yet)."""
+    row = await conn.fetchrow(
+        "SELECT profile FROM tutor_user_profile WHERE user_id = $1", user_id
+    )
+    return _load_jsonb(row["profile"]) if row else {}
+
+
+async def get_language_profile(
+    conn: asyncpg.Connection, user_id: str, language_id: str
+) -> dict:
+    """Return {"profile": dict, "session_summary": str} for a language."""
+    row = await conn.fetchrow(
+        """
+        SELECT profile, session_summary
+        FROM tutor_language_profile
+        WHERE user_id = $1 AND language_id = $2
+        """,
+        user_id,
+        language_id,
+    )
+    if not row:
+        return {"profile": {}, "session_summary": ""}
+    return {
+        "profile": _load_jsonb(row["profile"]),
+        "session_summary": row["session_summary"] or "",
+    }
+
+
+async def upsert_user_profile(
+    conn: asyncpg.Connection, user_id: str, profile: dict
+) -> None:
+    """Replace the learner's global profile with *profile*."""
+    await conn.execute(
+        """
+        INSERT INTO tutor_user_profile (user_id, profile, updated_at)
+        VALUES ($1, $2::jsonb, now())
+        ON CONFLICT (user_id) DO UPDATE
+            SET profile = EXCLUDED.profile, updated_at = now()
+        """,
+        user_id,
+        json.dumps(profile, ensure_ascii=False),
+    )
+
+
+async def upsert_language_profile(
+    conn: asyncpg.Connection,
+    user_id: str,
+    language_id: str,
+    profile: dict,
+    session_summary: str | None = None,
+    touch_session: bool = False,
+) -> None:
+    """Upsert a per-language profile.
+
+    session_summary is only overwritten when a non-None value is passed, so
+    the `remember` tool (which updates `profile` mid-session) doesn't clobber
+    the summary the post-session summarizer wrote.
+    """
+    await conn.execute(
+        """
+        INSERT INTO tutor_language_profile
+            (user_id, language_id, profile, session_summary, last_session_at, updated_at)
+        VALUES (
+            $1, $2, $3::jsonb,
+            COALESCE($4, ''),
+            CASE WHEN $5 THEN now() ELSE NULL END,
+            now()
+        )
+        ON CONFLICT (user_id, language_id) DO UPDATE SET
+            profile = EXCLUDED.profile,
+            session_summary = COALESCE($4, tutor_language_profile.session_summary),
+            last_session_at = CASE WHEN $5 THEN now()
+                                   ELSE tutor_language_profile.last_session_at END,
+            updated_at = now()
+        """,
+        user_id,
+        language_id,
+        json.dumps(profile, ensure_ascii=False),
+        session_summary,
+        touch_session,
+    )

@@ -57,10 +57,28 @@ from pathlib import Path
 
 import httpx
 
+from backend.services.nlp.hausa import HausaNLP, normalize_hausa
+from backend.services.nlp.latin_base import (
+    CatalanNLP,
+    FrenchNLP,
+    GermanNLP,
+    ItalianNLP,
+    MaoriNLP,
+    SpanishNLP,
+)
 from backend.services.nlp.swahili import SwahiliNLP
 from backend.services.nlp.turkish import TurkishNLP, turkish_lower
+from backend.services.nlp.xhosa import XhosaNLP
 from backend.services.nlp.yoruba import YorubaNLP, strip_tones
 from backend.services.seeder.base import DATA_DIR
+
+# Latin-script languages sourced generically from a HermitDave frequency list
+# (OpenSubtitles) + a kaikki Wiktionary dictionary.
+FREQUENCYWORDS_LANGS = {"es", "it", "fr", "de", "ca"}
+LATIN_NLP = {
+    "es": SpanishNLP, "it": ItalianNLP, "fr": FrenchNLP,
+    "de": GermanNLP, "ca": CatalanNLP, "mi": MaoriNLP,
+}
 
 logger = logging.getLogger("source_data")
 
@@ -86,14 +104,39 @@ SOURCES = {
     "tr_kaikki": "https://kaikki.org/dictionary/Turkish/kaikki.org-dictionary-Turkish.jsonl",
     "sw_kaikki": "https://kaikki.org/dictionary/Swahili/kaikki.org-dictionary-Swahili.jsonl",
     "yo_kaikki": "https://kaikki.org/dictionary/Yoruba/kaikki.org-dictionary-Yoruba.jsonl",
+    "xh_kaikki": "https://kaikki.org/dictionary/Xhosa/kaikki.org-dictionary-Xhosa.jsonl",
+    "ha_kaikki": "https://kaikki.org/dictionary/Hausa/kaikki.org-dictionary-Hausa.jsonl",
+    "es_kaikki": "https://kaikki.org/dictionary/Spanish/kaikki.org-dictionary-Spanish.jsonl",
+    "it_kaikki": "https://kaikki.org/dictionary/Italian/kaikki.org-dictionary-Italian.jsonl",
+    "fr_kaikki": "https://kaikki.org/dictionary/French/kaikki.org-dictionary-French.jsonl",
+    "de_kaikki": "https://kaikki.org/dictionary/German/kaikki.org-dictionary-German.jsonl",
+    "ca_kaikki": "https://kaikki.org/dictionary/Catalan/kaikki.org-dictionary-Catalan.jsonl",
+    "mi_kaikki": "https://kaikki.org/dictionary/Maori/kaikki.org-dictionary-Maori.jsonl",
+    # HermitDave FrequencyWords (OpenSubtitles 2018), per ISO code.
+    "frequencywords": (
+        "https://raw.githubusercontent.com/hermitdave/FrequencyWords/"
+        "master/content/2018/{code}/{code}_50k.txt"
+    ),
     "yo_corpus_repo": "https://github.com/Niger-Volta-LTI/yoruba-text.git",
+    # Public-domain bible corpus — frequency bootstrap for Xhosa (no
+    # OpenSubtitles list exists). Prefer a CC-BY Leipzig/Wikipedia list for
+    # production register coverage.
+    "xh_corpus": (
+        "https://raw.githubusercontent.com/christos-c/bible-corpus/"
+        "master/bibles/Xhosa.xml"
+    ),
     # Tatoeba ISO-639-3 codes: tur = Turkish, swh = coastal Swahili
     "tatoeba_sentences": "https://downloads.tatoeba.org/exports/per_language/{iso3}/{iso3}_sentences.tsv.bz2",
     "tatoeba_links": "https://downloads.tatoeba.org/exports/per_language/{iso3}/{iso3}-eng_links.tsv.bz2",
     "tatoeba_eng": "https://downloads.tatoeba.org/exports/per_language/eng/eng_sentences.tsv.bz2",
 }
 
-TATOEBA_ISO3 = {"tr": "tur", "sw": "swh", "yo": "yor"}
+TATOEBA_ISO3 = {"tr": "tur", "sw": "swh", "yo": "yor", "ha": "hau", "xh": "xho"}
+
+# Hausa has no reachable public-domain corpus in this pipeline; the user drops
+# commercially-usable plain-text (Hausa Wikipedia CC-BY-SA, Leipzig CC-BY, or
+# OPUS news) here and the pipeline counts it.
+HAUSA_CORPUS_DIRNAME = "hausa_corpus"
 
 # Contemporary, openly licensed sub-corpora of Niger-Volta-LTI/yoruba-text.
 # Deliberately excludes JW300 (jw.org terms are restrictive) and keeps the
@@ -373,6 +416,82 @@ def build_yoruba_rows(
     ]
 
 
+def plaintext_dir_counts(directory: Path) -> Counter:
+    """Count lowercased word tokens across every .txt file under *directory*."""
+    counts: Counter = Counter()
+    if not directory.exists():
+        return counts
+    for path in sorted(directory.rglob("*.txt")):
+        try:
+            text = path.read_text(encoding="utf-8")
+        except UnicodeDecodeError:
+            continue
+        for token in _WORD_RE.findall(text.lower()):
+            counts[token] += 1
+    return counts
+
+
+def _rows_from_counts(
+    counts: Counter,
+    dictionary: dict[str, dict],
+    lemmatize,
+    max_words: int,
+) -> list[dict]:
+    """Aggregate corpus counts onto dictionary headwords (direct, then lemma)."""
+    agg: dict[str, int] = {}
+    for token, count in counts.items():
+        headword = None
+        if token in dictionary:
+            headword = token
+        else:
+            lemma = lemmatize(token)
+            if lemma != token and lemma in dictionary:
+                headword = lemma
+        if headword:
+            agg[headword] = agg.get(headword, 0) + count
+    ordered = sorted(agg.items(), key=lambda kv: kv[1], reverse=True)[:max_words]
+    return [
+        {"word": w, "pos": dictionary[w].get("pos"), "gloss": dictionary[w]["gloss"]}
+        for w, _count in ordered
+    ]
+
+
+def build_frequency_rows(
+    freq: list[tuple[int, str, int]],
+    dictionary: dict[str, dict],
+    lemmatize,
+    max_words: int = 10000,
+) -> list[dict]:
+    """Merge a HermitDave frequency list with a dictionary (direct then lemma)."""
+    agg: dict[str, int] = {}
+    for _rank, form, count in freq:
+        form = form.strip().lower()
+        headword = None
+        if form in dictionary:
+            headword = form
+        else:
+            lemma = lemmatize(form)
+            if lemma != form and lemma in dictionary:
+                headword = lemma
+        if headword:
+            agg[headword] = agg.get(headword, 0) + count
+    ordered = sorted(agg.items(), key=lambda kv: kv[1], reverse=True)[:max_words]
+    return [
+        {"word": w, "pos": dictionary[w].get("pos"), "gloss": dictionary[w]["gloss"]}
+        for w, _count in ordered
+    ]
+
+
+def build_xhosa_rows(counts, dictionary, max_words=10000):
+    """Merge Xhosa bible-corpus counts with a dictionary (Nguni lemmatizer)."""
+    return _rows_from_counts(counts, dictionary, XhosaNLP().lemmatize, max_words)
+
+
+def build_hausa_rows(counts, dictionary, max_words=10000):
+    """Merge Hausa corpus counts with a dictionary (apostrophe-normalized)."""
+    return _rows_from_counts(counts, dictionary, normalize_hausa, max_words)
+
+
 # ---------------------------------------------------------------------------
 # Example sentences (Tatoeba) — graded by progression
 # ---------------------------------------------------------------------------
@@ -573,6 +692,44 @@ def build_language(language: str, source: str, max_words: int, cache_dir: Path) 
         # headword set, and the Yoruba kaikki extract is small (~10k entries).
         dictionary = _build_dictionary("yo", source, cache_dir, None)
         rows = build_yoruba_rows(counts, dictionary, max_words)
+    elif language == "xh":
+        if source != "kaikki":
+            raise ValueError(
+                "Xhosa has no FreeDict dictionary — run with --source kaikki"
+            )
+        corpus_path = download(SOURCES["xh_corpus"], cache_dir / "xh_bible.xml")
+        counts = corpus_word_counts(corpus_path)
+        dictionary = _build_dictionary("xh", source, cache_dir, None)
+        rows = build_xhosa_rows(counts, dictionary, max_words)
+    elif language == "ha":
+        if source != "kaikki":
+            raise ValueError(
+                "Hausa has no FreeDict dictionary — run with --source kaikki"
+            )
+        corpus_dir = cache_dir / HAUSA_CORPUS_DIRNAME
+        counts = plaintext_dir_counts(corpus_dir)
+        if not counts:
+            raise FileNotFoundError(
+                f"No Hausa corpus text found under {corpus_dir}. Drop "
+                "commercially-usable plain-text there (Hausa Wikipedia "
+                "CC-BY-SA, Leipzig CC-BY, or OPUS news) — see data/README.md."
+            )
+        dictionary = _build_dictionary("ha", source, cache_dir, None)
+        rows = build_hausa_rows(counts, dictionary, max_words)
+    elif language in FREQUENCYWORDS_LANGS:
+        if source != "kaikki":
+            raise ValueError(
+                f"{language} has no FreeDict dictionary — run with --source kaikki"
+            )
+        freq_path = download(
+            SOURCES["frequencywords"].format(code=language),
+            cache_dir / f"{language}_50k.txt",
+        )
+        freq = parse_hermitdave(freq_path)
+        dictionary = _build_dictionary(language, source, cache_dir, None)
+        rows = build_frequency_rows(
+            freq, dictionary, LATIN_NLP[language]().lemmatize, max_words
+        )
     else:
         raise ValueError(f"Unsupported language: {language}")
 
@@ -603,7 +760,10 @@ def build_sentences(language: str, cache_dir: Path, per_word: int = 3) -> Path:
         for row in csv.DictReader(f, delimiter="\t"):
             rank_by_word[row["word"]] = int(row["rank"])
 
-    nlp_by_lang = {"tr": TurkishNLP, "sw": SwahiliNLP, "yo": YorubaNLP}
+    nlp_by_lang = {
+        "tr": TurkishNLP, "sw": SwahiliNLP, "yo": YorubaNLP,
+        "xh": XhosaNLP, "ha": HausaNLP,
+    }
     lemmatize = nlp_by_lang[language]().lemmatize
     rows = build_sentence_rows(
         parse_tatoeba_sentences(tgt),
@@ -621,7 +781,11 @@ def build_sentences(language: str, cache_dir: Path, per_word: int = 3) -> Path:
 
 def main() -> None:
     parser = argparse.ArgumentParser(description="Build seed data from open datasets")
-    parser.add_argument("--language", "-l", choices=["tr", "sw", "yo"], required=True)
+    parser.add_argument(
+        "--language", "-l",
+        choices=["tr", "sw", "yo", "ha", "xh", "es", "it", "fr", "de", "ca"],
+        required=True
+    )
     parser.add_argument(
         "--source", choices=["freedict", "kaikki"], default="freedict",
         help="Translation source: freedict (small, instant) or kaikki (large, best coverage)",

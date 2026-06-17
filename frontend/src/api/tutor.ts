@@ -32,3 +32,19 @@ export async function sendTutorMessage(
   })
   return response.data.reply
 }
+
+/**
+ * Tell the backend a session is over so it can summarize the conversation
+ * into the learner's durable memory. Best-effort — callers ignore failures.
+ */
+export async function endTutorSession(
+  languageId: string,
+  languageCode: string,
+  messages: TutorMessage[],
+): Promise<void> {
+  await apiClient.post('/api/tutor/session/end', {
+    language_id: languageId,
+    language_code: languageCode,
+    messages,
+  })
+}

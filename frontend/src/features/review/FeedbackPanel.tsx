@@ -1,8 +1,11 @@
+import SpeakButton from '../../components/SpeakButton'
+
 interface FeedbackPanelProps {
   answerResult: string
   feedback: string | null
   correctAnswer: string
   userInput: string
+  languageCode?: string
 }
 
 export default function FeedbackPanel({
@@ -10,6 +13,7 @@ export default function FeedbackPanel({
   feedback,
   correctAnswer,
   userInput,
+  languageCode,
 }: FeedbackPanelProps) {
   let bgClass = ''
   let heading = ''
@@ -75,6 +79,17 @@ export default function FeedbackPanel({
         <p className="text-xs mt-2 opacity-70">
           Your answer: <span className="font-medium">{userInput}</span>
         </p>
+      )}
+
+      {languageCode && (
+        <div className="mt-2 flex items-center gap-1 text-sm">
+          <SpeakButton
+            text={correctAnswer}
+            languageCode={languageCode}
+            label={`Hear "${correctAnswer}"`}
+          />
+          <span className="opacity-70">Hear it</span>
+        </div>
       )}
     </div>
   )

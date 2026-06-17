@@ -1,0 +1,31 @@
+rank	word	pos	en
+1	jo	pron	I
+2	tu	pron	you
+3	ell	pron	he/she
+4	nosaltres	pron	we
+5	ser	verb	to be
+6	tenir	verb	to have
+7	anar	verb	to go
+8	menjar	verb	to eat
+9	beure	verb	to drink
+10	voler	verb	to want
+11	veure	verb	to see
+12	dir	verb	to say
+13	aigua	noun	water
+14	aliment	noun	food
+15	casa	noun	house
+16	persona	noun	person
+17	dia	noun	day
+18	sí	adv	yes
+19	no	adv	no
+20	gràcies	interjection	thank you
+600	aprendre	verb	to learn
+700	parlar	verb	to speak
+800	entendre	verb	to understand
+900	saber	verb	to know
+1000	escriure	verb	to write
+1100	llegir	verb	to read
+1200	llibre	noun	book
+1250	llengua	noun	language
+1300	gran	adj	big
+1350	bo	adj	good

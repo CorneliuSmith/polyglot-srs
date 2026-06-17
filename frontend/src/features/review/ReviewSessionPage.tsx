@@ -6,9 +6,12 @@ import { usePrefsStore } from '../../stores/prefsStore'
 import { useReviewSession } from './useReviewSession'
 import DrillCard from './DrillCard'
 import FeedbackPanel from './FeedbackPanel'
+import ReviewDetail from './ReviewDetail'
+import CardFeedback from './CardFeedback'
 import RatingButtons from './RatingButtons'
 import SessionSummary from './SessionSummary'
 import OnScreenKeyboard from '../keyboards/OnScreenKeyboard'
+import type { KeyboardLanguage } from '../keyboards/OnScreenKeyboard'
 
 export default function ReviewSessionPage() {
   const navigate = useNavigate()
@@ -144,9 +147,11 @@ export default function ReviewSessionPage() {
   const card = session.currentCard
   if (!card) return null
 
-  // Russian/Arabic need a full script keyboard; Turkish needs ç ğ ı İ ö ş ü;
-  // Yoruba needs underdots and tone-marked vowels (ẹ ọ ṣ á à ọ́ ...)
-  const needsKeyboard = ['ru', 'ar', 'tr', 'yo'].includes(card.language_code)
+  // Non-Latin scripts and Latin languages with accents/diacritics get an
+  // on-screen helper. (Xhosa/English omitted: plain ASCII.)
+  const needsKeyboard = [
+    'ru', 'ar', 'tr', 'yo', 'ha', 'es', 'it', 'fr', 'de', 'ca', 'mi',
+  ].includes(card.language_code)
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -226,7 +231,7 @@ export default function ReviewSessionPage() {
             </div>
             {showKeyboard && (
               <OnScreenKeyboard
-                languageCode={card.language_code as 'ru' | 'ar' | 'tr' | 'yo'}
+                languageCode={card.language_code as KeyboardLanguage}
                 onKeyPress={handleKeyboardKeyPress}
                 inputRef={inputRef}
               />
@@ -243,11 +248,20 @@ export default function ReviewSessionPage() {
                 feedback={session.validationResult.feedback}
                 correctAnswer={card.correct_answer}
                 userInput={lastInput}
+                languageCode={card.language_code}
+              />
+              <ReviewDetail
+                cardId={card.id}
+                cardType={card.card_type}
+                languageCode={card.language_code}
               />
               <RatingButtons
                 onRate={handleRate}
                 nlpResult={session.validationResult.answer_result}
               />
+              <div className="text-center">
+                <CardFeedback cardId={card.id} />
+              </div>
             </div>
           )}
       </div>

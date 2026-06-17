@@ -7,7 +7,7 @@ export interface Language {
 
 export interface DueCard {
   id: string
-  card_type: 'grammar' | 'vocabulary'
+  card_type: 'grammar' | 'vocabulary' | 'personal'
   card_id: string
   sentence: string
   correct_answer: string
@@ -23,6 +23,31 @@ export interface DueCard {
   streak: number
   lapses: number
   next_review: string
+}
+
+export interface CardDetailExample {
+  sentence: string
+  translation: string | null
+  hint: string | null
+}
+
+export interface ReferenceLink {
+  title: string
+  url: string
+}
+
+export interface CardDetail {
+  card_type: 'grammar' | 'vocabulary' | 'personal'
+  title: string | null
+  part_of_speech: string | null
+  definition: string | null
+  usage_note: string | null
+  morphology: Record<string, unknown> | string | null
+  explanation: string | null
+  culture_note: string | null
+  reviewed: boolean | null
+  references: ReferenceLink[]
+  examples: CardDetailExample[]
 }
 
 export interface ValidateAnswerRequest {
@@ -45,8 +70,10 @@ export interface SubmitReviewRequest {
 
 export interface SubmitReviewResponse {
   next_review: string
-  ease_factor: number
   interval: number
+  stability: number
+  difficulty: number
+  state: string
   quality: number
 }
 

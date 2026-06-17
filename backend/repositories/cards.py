@@ -2,7 +2,11 @@
 
 from __future__ import annotations
 
+import json
+
 import asyncpg
+
+from backend.services.references import clean_references
 
 
 async def get_due_cards(
@@ -74,7 +78,9 @@ async def get_due_cards(
                 -- fill-in-the-blank mode: sentence contains {{answer}} marker;
                 -- fall back to the grammar point title if no drill sentence exists
                 COALESCE(ds.sentence, gp.title) AS sentence,
-                gp.title                        AS correct_answer,
+                -- the answer is the form that fills the {{answer}} blank;
+                -- fall back to the title for points without authored drills
+                COALESCE(ds.answer, gp.title)   AS correct_answer,
                 ds.hint                         AS hint,
                 ds.translation                  AS translation,
                 NULL::jsonb                     AS morphology,
@@ -103,8 +109,48 @@ async def get_due_cards(
         limit,
     )
 
+    # -- Personal cloze cards (learner's own text) --------------------------
+    personal_rows = await conn.fetch(
+        """
+        SELECT
+            uc.id,
+            uc.user_id,
+            uc.language_id,
+            uc.card_type,
+            uc.card_id,
+            cc.sentence                     AS sentence,
+            cc.answer                       AS correct_answer,
+            NULL::text                      AS hint,
+            cc.translation                  AS translation,
+            NULL::jsonb                     AS morphology,
+            NULL::text[]                    AS alternatives,
+            l.code                          AS language_code,
+            uc.ease_factor,
+            uc.interval,
+            uc.repetitions,
+            uc.streak,
+            uc.lapses,
+            uc.next_review
+        FROM user_cards uc
+        JOIN user_cloze_cards cc ON uc.card_id = cc.id
+        JOIN languages l         ON uc.language_id = l.id
+        WHERE uc.language_id = $1
+          AND uc.card_type = 'personal'
+          AND uc.next_review <= now()
+          AND uc.is_suspended = false
+        ORDER BY uc.next_review ASC
+        LIMIT $2
+        """,
+        language_id,
+        limit,
+    )
+
     # Merge and sort by next_review
-    combined = [dict(r) for r in vocab_rows] + [dict(r) for r in grammar_rows]
+    combined = (
+        [dict(r) for r in vocab_rows]
+        + [dict(r) for r in grammar_rows]
+        + [dict(r) for r in personal_rows]
+    )
     combined.sort(key=lambda r: r["next_review"])
     return combined[:limit]
 
@@ -182,23 +228,90 @@ async def add_learn_batch(
     return {"added": len(inserted_ids), "items": inserted_ids}
 
 
+async def add_grammar_learn_batch(
+    conn: asyncpg.Connection,
+    user_id: str,
+    language_id: str,
+    batch_size: int,
+) -> dict:
+    """Add a batch of new grammar cards from the user's subscribed grammar lists.
+
+    Mirrors add_learn_batch but for grammar_points: selects points the user
+    hasn't started, ordered by display_order, from grammar content lists the
+    user is subscribed to (matched by level), and inserts grammar user_cards
+    due immediately.
+    """
+    rows = await conn.fetch(
+        """
+        SELECT DISTINCT gp.id, gp.display_order
+        FROM grammar_points gp
+        JOIN languages l ON gp.language_id = l.id
+        JOIN content_lists cl
+               ON gp.language_id = cl.language_id
+              AND cl.list_type = 'grammar'
+              AND (cl.level IS NULL OR cl.level = gp.level)
+        JOIN user_content_subscriptions ucs
+               ON cl.id = ucs.content_list_id
+              AND ucs.user_id = $1
+        WHERE gp.language_id = $2
+          -- review policy: strict = reviewed only; ai_ok = also AI-passed
+          AND (gp.reviewed = true
+               OR (l.grammar_review_policy = 'ai_ok' AND gp.ai_check_status = 'pass'))
+          AND gp.id NOT IN (
+              SELECT card_id FROM user_cards
+              WHERE user_id = $1 AND card_type = 'grammar'
+          )
+        ORDER BY gp.display_order ASC
+        LIMIT $3
+        """,
+        user_id,
+        language_id,
+        batch_size,
+    )
+    if not rows:
+        return {"added": 0, "items": []}
+
+    inserted_ids = []
+    for r in rows:
+        row = await conn.fetchrow(
+            """
+            INSERT INTO user_cards
+                (user_id, language_id, card_type, card_id,
+                 ease_factor, interval, repetitions, streak, lapses, next_review)
+            VALUES
+                ($1, $2, 'grammar', $3, 2.5, 0, 0, 0, 0, now())
+            RETURNING id
+            """,
+            user_id,
+            language_id,
+            r["id"],
+        )
+        inserted_ids.append(str(row["id"]))
+
+    return {"added": len(inserted_ids), "items": inserted_ids}
+
+
 async def update_card_srs(
     conn: asyncpg.Connection, card_id: str, srs_update: dict
 ) -> None:
-    """Update a card's SRS fields after review."""
+    """Update a card's FSRS fields after review."""
     await conn.execute(
         """
         UPDATE user_cards
-        SET ease_factor = $1,
-            interval = $2,
-            repetitions = $3,
-            streak = $4,
-            lapses = $5,
-            next_review = $6,
+        SET stability = $1,
+            difficulty = $2,
+            state = $3,
+            interval = $4,
+            repetitions = $5,
+            streak = $6,
+            lapses = $7,
+            next_review = $8,
             last_review = now()
-        WHERE id = $7
+        WHERE id = $9
         """,
-        srs_update["ease_factor"],
+        srs_update["stability"],
+        srs_update["difficulty"],
+        srs_update["state"],
         srs_update["interval"],
         srs_update["repetitions"],
         srs_update["streak"],
@@ -206,3 +319,148 @@ async def update_card_srs(
         srs_update["next_review"],
         card_id,
     )
+
+
+async def get_card_detail(
+    conn: asyncpg.Connection, card_id: str
+) -> dict | None:
+    """Return the rich "review this card" content for the optional panel.
+
+    The shape differs by card type (vocab vs grammar sets review differently):
+      - vocabulary: word, definition, usage note, morphology, and graded
+        example sentences (word seen in context).
+      - grammar: title, broad explanation, culture note, and the point's
+        drill sentences with translations.
+
+    *card_id* is a user_cards id; RLS on the connection scopes it to the
+    authenticated user, so a card the user doesn't own returns None.
+    """
+    card = await conn.fetchrow(
+        "SELECT card_type, card_id FROM user_cards WHERE id = $1", card_id
+    )
+    if card is None:
+        return None
+
+    if card["card_type"] == "personal":
+        from backend.services.extract import ANSWER_MARKER
+
+        cc = await conn.fetchrow(
+            """
+            SELECT cc.answer, cc.translation, cc.sentence, n.title AS note_title
+            FROM user_cloze_cards cc
+            LEFT JOIN user_notes n ON cc.note_id = n.id
+            WHERE cc.id = $1
+            """,
+            card["card_id"],
+        )
+        # Show the word back in its original sentence — the "seen in context"
+        # payoff of learning from your own text.
+        examples = []
+        if cc and cc["sentence"]:
+            full = cc["sentence"].replace(ANSWER_MARKER, cc["answer"] or "")
+            examples = [{
+                "sentence": full,
+                "translation": cc["translation"],
+                "hint": None,
+            }]
+        usage = (
+            f"From your note: {cc['note_title']}"
+            if cc and cc["note_title"] else None
+        )
+        return {
+            "card_type": "personal",
+            "title": cc["answer"] if cc else None,
+            "part_of_speech": None,
+            "definition": cc["translation"] if cc else None,
+            "usage_note": usage,
+            "morphology": None,
+            "explanation": None,
+            "culture_note": None,
+            "reviewed": True,
+            "references": [],
+            "examples": examples,
+        }
+
+    if card["card_type"] == "vocabulary":
+        v = await conn.fetchrow(
+            """
+            SELECT v.word, v.part_of_speech, v.usage_note, v.morphology,
+                   t.definition
+            FROM vocabulary v
+            LEFT JOIN translations t
+                   ON v.id = t.vocabulary_id AND t.locale = 'en'
+            WHERE v.id = $1
+            """,
+            card["card_id"],
+        )
+        examples = await conn.fetch(
+            """
+            SELECT sentence, translation
+            FROM example_sentences
+            WHERE vocabulary_id = $1
+            ORDER BY difficulty_rank ASC NULLS LAST
+            LIMIT 5
+            """,
+            card["card_id"],
+        )
+        return {
+            "card_type": "vocabulary",
+            "title": v["word"] if v else None,
+            "part_of_speech": v["part_of_speech"] if v else None,
+            "definition": v["definition"] if v else None,
+            "usage_note": v["usage_note"] if v else None,
+            "morphology": v["morphology"] if v else None,
+            "explanation": None,
+            "culture_note": None,
+            "reviewed": True,  # vocabulary has no review gate
+            "references": [],
+            "examples": [
+                {"sentence": e["sentence"], "translation": e["translation"], "hint": None}
+                for e in examples
+            ],
+        }
+
+    # grammar
+    gp = await conn.fetchrow(
+        """
+        SELECT title, explanation, culture_note, explanation_source,
+               reference_links, reviewed
+        FROM grammar_points WHERE id = $1
+        """,
+        card["card_id"],
+    )
+    examples = await conn.fetch(
+        """
+        SELECT sentence, translation, hint
+        FROM drill_sentences
+        WHERE grammar_point_id = $1
+        ORDER BY display_order ASC
+        LIMIT 5
+        """,
+        card["card_id"],
+    )
+    references = []
+    if gp and gp["reference_links"]:
+        raw = gp["reference_links"]
+        if isinstance(raw, str):
+            try:
+                raw = json.loads(raw)
+            except (json.JSONDecodeError, TypeError):
+                raw = []
+        references = clean_references(raw)
+    return {
+        "card_type": "grammar",
+        "title": gp["title"] if gp else None,
+        "part_of_speech": None,
+        "definition": None,
+        "usage_note": None,
+        "morphology": None,
+        "explanation": gp["explanation"] if gp else None,
+        "culture_note": gp["culture_note"] if gp else None,
+        "reviewed": gp["reviewed"] if gp else True,
+        "references": references,
+        "examples": [
+            {"sentence": e["sentence"], "translation": e["translation"], "hint": e["hint"]}
+            for e in examples
+        ],
+    }

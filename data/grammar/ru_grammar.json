@@ -1,0 +1,54 @@
+{
+  "lists": [
+    {
+      "level": "A1",
+      "title": "Russian A1 Grammar",
+      "description": "Foundational Russian grammar: core cases and verb aspect."
+    }
+  ],
+  "points": [
+    {
+      "title": "Prepositional case (location: в / на)",
+      "level": "A1",
+      "source": "contributor",
+      "reviewed": true,
+      "display_order": 1,
+      "explanation": "The prepositional case marks location after в (in) and на (on). It only ever appears after a preposition, which is why it is called 'prepositional'. Most nouns take the ending -е: стол → на столе, Москва → в Москве.",
+      "culture_note": "Use в for enclosed spaces and cities (в Москве) and на for surfaces, open areas, and some events (на работе, 'at work').",
+      "references": [
+        {"title": "Wiktionary: Russian prepositional case", "url": "https://en.wiktionary.org/wiki/Appendix:Russian_nouns"},
+        {"title": "Wikipedia: Prepositional case", "url": "https://en.wikipedia.org/wiki/Prepositional_case"}
+      ],
+      "drills": [
+        {"sentence": "Книга на {{answer}}.", "answer": "столе", "translation": "The book is on the table.", "hint": "стол → prepositional", "display_order": 1},
+        {"sentence": "Я живу в {{answer}}.", "answer": "Москве", "translation": "I live in Moscow.", "hint": "Москва → prepositional", "display_order": 2}
+      ]
+    },
+    {
+      "title": "Accusative case (direct object)",
+      "level": "A1",
+      "source": "contributor",
+      "reviewed": true,
+      "display_order": 2,
+      "explanation": "The accusative marks the direct object — the thing the action is done to. Feminine nouns ending in -а change to -у (книга → книгу). Most masculine inanimate and neuter nouns look the same as the dictionary form.",
+      "culture_note": "",
+      "drills": [
+        {"sentence": "Я читаю {{answer}}.", "answer": "книгу", "translation": "I am reading a book.", "hint": "книга → accusative", "display_order": 1},
+        {"sentence": "Я люблю {{answer}}.", "answer": "музыку", "translation": "I love music.", "hint": "музыка → accusative", "display_order": 2}
+      ]
+    },
+    {
+      "title": "Genitive of absence (у меня нет …)",
+      "level": "A1",
+      "source": "contributor",
+      "reviewed": true,
+      "display_order": 3,
+      "explanation": "To say something is absent, use нет followed by the genitive case. Masculine nouns typically add -а (брат → брата); feminine -а nouns change to -ы/-и (вода → воды).",
+      "culture_note": "The same pattern expresses 'I don't have …': у меня нет + genitive.",
+      "drills": [
+        {"sentence": "У меня нет {{answer}}.", "answer": "брата", "translation": "I don't have a brother.", "hint": "брат → genitive", "display_order": 1},
+        {"sentence": "Здесь нет {{answer}}.", "answer": "воды", "translation": "There is no water here.", "hint": "вода → genitive", "display_order": 2}
+      ]
+    }
+  ]
+}

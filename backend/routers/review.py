@@ -1,21 +1,31 @@
-"""Review router — due cards, SM-2 submission, NLP validation, and learn."""
+"""Review router — due cards, FSRS submission, NLP validation, and learn."""
 
 from __future__ import annotations
 
+from datetime import UTC, datetime
+
 from fastapi import APIRouter, Depends, HTTPException, status
-from pydantic import BaseModel
+from pydantic import BaseModel, Field
 
 from backend.dependencies import get_current_user
-from backend.repositories.cards import add_learn_batch, get_due_cards, update_card_srs
+from backend.repositories.cards import (
+    add_grammar_learn_batch,
+    add_learn_batch,
+    get_card_detail,
+    get_due_cards,
+    update_card_srs,
+)
+from backend.repositories.fsrs_weights import get_effective_params
 from backend.repositories.pool import rls_connection
-from backend.repositories.review import insert_review_log
-from backend.services.nlp import validate_answer_async
-from backend.services.srs import (
+from backend.repositories.review import add_card_feedback, insert_review_log
+from backend.services.fsrs import (
     AnswerResult,
     CardState,
+    fsrs_review,
     map_answer_to_quality,
-    sm2_update,
+    map_answer_to_rating,
 )
+from backend.services.nlp import validate_answer_async
 
 router = APIRouter()
 
@@ -42,6 +52,11 @@ class ValidateAnswerRequest(BaseModel):
 
 class LearnRequest(BaseModel):
     language_id: str
+    card_type: str = "vocabulary"
+
+
+class CardFeedbackRequest(BaseModel):
+    message: str = Field(min_length=1, max_length=1000)
 
 
 @router.get("/due")
@@ -55,12 +70,46 @@ async def get_due(
     return cards
 
 
+@router.get("/card/{card_id}/detail")
+async def card_detail(
+    card_id: str,
+    user: dict = Depends(get_current_user),
+):
+    """Return the optional 'review this card' content (grammar/usage + examples).
+
+    Powers the expandable panel shown after answering — lazy-loaded so it only
+    costs a query when the learner chooses to dig in rather than just continue.
+    """
+    async with rls_connection(user["id"]) as conn:
+        detail = await get_card_detail(conn, card_id)
+    if detail is None:
+        raise HTTPException(
+            status_code=status.HTTP_404_NOT_FOUND,
+            detail="Card not found",
+        )
+    return detail
+
+
+@router.post("/card/{card_id}/feedback")
+async def submit_card_feedback(
+    card_id: str,
+    body: CardFeedbackRequest,
+    user: dict = Depends(get_current_user),
+):
+    """Let a learner flag a problem with a card they're reviewing."""
+    async with rls_connection(user["id"]) as conn:
+        ok = await add_card_feedback(conn, user["id"], card_id, body.message.strip())
+    if not ok:
+        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Card not found")
+    return {"submitted": True}
+
+
 @router.post("/submit")
 async def submit_review(
     body: SubmitReview,
     user: dict = Depends(get_current_user),
 ):
-    """Apply SM-2 update to a card and record the review log entry."""
+    """Apply the FSRS update to a card and record the review log entry."""
     ar_enum = ANSWER_RESULT_MAP.get(body.answer_result)
     if ar_enum is None:
         raise HTTPException(
@@ -70,11 +119,14 @@ async def submit_review(
         )
 
     quality = map_answer_to_quality(ar_enum)
+    rating = map_answer_to_rating(ar_enum)
+    now = datetime.now(UTC)
 
     async with rls_connection(user["id"]) as conn:
-        # Fetch current card state
+        # Fetch current FSRS state
         row = await conn.fetchrow(
-            "SELECT ease_factor, interval, repetitions, streak, lapses "
+            "SELECT language_id, stability, difficulty, state, interval, "
+            "repetitions, streak, lapses, last_review "
             "FROM user_cards WHERE id = $1",
             body.card_id,
         )
@@ -84,21 +136,29 @@ async def submit_review(
                 detail="Card not found",
             )
 
-        state = CardState(
-            ease_factor=float(row["ease_factor"]),
-            interval=row["interval"],
+        card = CardState(
+            stability=float(row["stability"]) if row["stability"] is not None else None,
+            difficulty=float(row["difficulty"]) if row["difficulty"] is not None else None,
+            state=row["state"],
             repetitions=row["repetitions"],
             streak=row["streak"],
             lapses=row["lapses"],
         )
+        # Days since the previous review drive the forgetting curve.
+        elapsed_days = (
+            (now - row["last_review"]).total_seconds() / 86400.0
+            if row["last_review"] else 0.0
+        )
+        interval_before = row["interval"]
 
-        ease_before = state.ease_factor
-        interval_before = state.interval
-
-        result = sm2_update(state, quality)
+        # Resolve the most specific fitted weights for this user + language.
+        params = await get_effective_params(conn, user["id"], str(row["language_id"]))
+        result = fsrs_review(card, rating, elapsed_days, now=now, params=params)
 
         await update_card_srs(conn, body.card_id, {
-            "ease_factor": result.ease_factor,
+            "stability": result.stability,
+            "difficulty": result.difficulty,
+            "state": result.state,
             "interval": result.interval,
             "repetitions": result.repetitions,
             "streak": result.streak,
@@ -111,18 +171,22 @@ async def submit_review(
             user_id=user["id"],
             card_id=body.card_id,
             quality=quality,
-            ease_before=ease_before,
-            ease_after=result.ease_factor,
+            answer_result=body.answer_result,
             interval_before=interval_before,
             interval_after=result.interval,
+            stability_before=card.stability,
+            stability_after=result.stability,
+            difficulty_before=card.difficulty,
+            difficulty_after=result.difficulty,
             time_taken_ms=body.time_taken_ms,
-            answer_result=body.answer_result,
         )
 
     return {
         "next_review": result.next_review.isoformat(),
-        "ease_factor": result.ease_factor,
         "interval": result.interval,
+        "stability": result.stability,
+        "difficulty": result.difficulty,
+        "state": result.state,
         "quality": quality,
     }
 
@@ -161,11 +225,16 @@ async def learn(
     body: LearnRequest,
     user: dict = Depends(get_current_user),
 ):
-    """Add a batch of new vocabulary cards from the user's subscribed lists.
+    """Add a batch of new cards (vocabulary or grammar) from subscribed lists.
 
     Reads batch_size from the user's profile (default 5 if no profile row).
     Returns the count of added cards and their new user_card IDs.
     """
+    if body.card_type not in ("vocabulary", "grammar"):
+        raise HTTPException(
+            status_code=status.HTTP_422_UNPROCESSABLE_ENTITY,
+            detail="card_type must be 'vocabulary' or 'grammar'",
+        )
     async with rls_connection(user["id"]) as conn:
         # Read batch_size from user_profiles (default 5 if no row)
         profile_row = await conn.fetchrow(
@@ -174,6 +243,13 @@ async def learn(
         )
         batch_size = int(profile_row["batch_size"]) if profile_row else 5
 
-        result = await add_learn_batch(conn, user["id"], body.language_id, batch_size)
+        if body.card_type == "grammar":
+            result = await add_grammar_learn_batch(
+                conn, user["id"], body.language_id, batch_size
+            )
+        else:
+            result = await add_learn_batch(
+                conn, user["id"], body.language_id, batch_size
+            )
 
     return result
