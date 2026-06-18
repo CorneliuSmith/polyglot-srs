@@ -8,7 +8,6 @@ import DrillCard from './DrillCard'
 import FeedbackPanel from './FeedbackPanel'
 import ReviewDetail from './ReviewDetail'
 import CardFeedback from './CardFeedback'
-import RatingButtons from './RatingButtons'
 import SessionSummary from './SessionSummary'
 import OnScreenKeyboard from '../keyboards/OnScreenKeyboard'
 import type { KeyboardLanguage } from '../keyboards/OnScreenKeyboard'
@@ -255,10 +254,32 @@ export default function ReviewSessionPage() {
                 cardType={card.card_type}
                 languageCode={card.language_code}
               />
-              <RatingButtons
-                onRate={handleRate}
-                nlpResult={session.validationResult.answer_result}
-              />
+              {/* The answer was already graded by the NLP check; auto-record
+                  that grade (it drives FSRS scheduling + the tutor's weak-area
+                  analysis) and just let the learner continue, with a manual
+                  override for a lucky-correct answer. */}
+              <div className="space-y-2">
+                <button
+                  type="button"
+                  onClick={() => handleRate(session.validationResult!.answer_result)}
+                  disabled={submitMutation.isPending}
+                  className="w-full bg-indigo-600 hover:bg-indigo-700 disabled:opacity-50 text-white font-semibold rounded-xl px-6 py-3 text-sm transition-colors"
+                  style={{ minHeight: '44px' }}
+                >
+                  Continue
+                </button>
+                {(session.validationResult.answer_result === 'correct' ||
+                  session.validationResult.answer_result === 'correct_sloppy') && (
+                  <button
+                    type="button"
+                    onClick={() => handleRate('wrong')}
+                    disabled={submitMutation.isPending}
+                    className="block mx-auto text-xs text-gray-400 hover:text-red-500"
+                  >
+                    I actually got it wrong
+                  </button>
+                )}
+              </div>
               <div className="text-center">
                 <CardFeedback cardId={card.id} />
               </div>

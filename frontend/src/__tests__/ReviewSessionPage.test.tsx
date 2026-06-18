@@ -163,9 +163,9 @@ describe('ReviewSessionPage', () => {
       expect(screen.getByTestId('feedback-panel')).toBeDefined()
     })
 
-    // Click the "Easy" rating button
-    const easyButton = screen.getByRole('button', { name: /easy/i })
-    fireEvent.click(easyButton)
+    // Click Continue (auto-records the NLP grade)
+    const continueButton = screen.getByRole('button', { name: /continue/i })
+    fireEvent.click(continueButton)
 
     // Verify submitReview called with correct args (REV-03 coverage)
     await waitFor(() => {
@@ -189,8 +189,8 @@ describe('ReviewSessionPage', () => {
 
     await waitFor(() => screen.getByTestId('feedback-panel'))
 
-    const easyButton = screen.getByRole('button', { name: /easy/i })
-    fireEvent.click(easyButton)
+    const continueButton = screen.getByRole('button', { name: /continue/i })
+    fireEvent.click(continueButton)
 
     await waitFor(() => {
       expect(screen.getByText('Session Complete')).toBeDefined()
@@ -206,7 +206,7 @@ describe('ReviewSessionPage', () => {
     fireEvent.keyDown(input, { key: 'Enter' })
 
     await waitFor(() => screen.getByTestId('feedback-panel'))
-    fireEvent.click(screen.getByRole('button', { name: /easy/i }))
+    fireEvent.click(screen.getByRole('button', { name: /continue/i }))
 
     await waitFor(() => {
       expect(screen.getByTestId('accuracy')).toBeDefined()
