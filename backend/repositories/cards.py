@@ -6,6 +6,7 @@ import json
 
 import asyncpg
 
+from backend.services.extract import make_cloze
 from backend.services.references import clean_references
 
 
@@ -27,6 +28,9 @@ async def get_due_cards(
       correct_answer = grammar_points.title (placeholder for Phase 4)
     """
     # -- Vocabulary cards ---------------------------------------------------
+    # Teach the word in context: a real example sentence with the word blanked
+    # out (cloze), with its translation as a hint. Falls back to the plain
+    # definition -> type-the-word prompt only when no example sentence exists.
     vocab_rows = await conn.fetch(
         """
         SELECT
@@ -35,11 +39,10 @@ async def get_due_cards(
             uc.language_id,
             uc.card_type,
             uc.card_id,
-            -- type-the-word mode: sentence = definition, answer = word
-            COALESCE(t.definition, v.word) AS sentence,
-            v.word                          AS correct_answer,
-            NULL::text                      AS hint,
-            NULL::text                      AS translation,
+            v.word                          AS word,
+            t.definition                    AS definition,
+            ex.sentence                     AS example_sentence,
+            ex.translation                  AS example_translation,
             v.morphology                    AS morphology,
             v.alternatives                  AS alternatives,
             l.code                          AS language_code,
@@ -54,6 +57,13 @@ async def get_due_cards(
         JOIN languages l        ON uc.language_id = l.id
         LEFT JOIN translations t
                ON v.id = t.vocabulary_id AND t.locale = 'en'
+        LEFT JOIN LATERAL (
+            SELECT es.sentence, es.translation
+            FROM example_sentences es
+            WHERE es.vocabulary_id = v.id
+            ORDER BY es.difficulty_rank ASC NULLS LAST
+            LIMIT 1
+        ) ex ON true
         WHERE uc.language_id = $1
           AND uc.card_type = 'vocabulary'
           AND uc.next_review <= now()
@@ -147,12 +157,47 @@ async def get_due_cards(
 
     # Merge and sort by next_review
     combined = (
-        [dict(r) for r in vocab_rows]
+        [_vocab_card(r) for r in vocab_rows]
         + [dict(r) for r in grammar_rows]
         + [dict(r) for r in personal_rows]
     )
     combined.sort(key=lambda r: r["next_review"])
     return combined[:limit]
+
+
+def _vocab_card(r: asyncpg.Record) -> dict:
+    """Shape a vocabulary row into a card, preferring a cloze example sentence.
+
+    When the word has an example sentence, blank the word out of it (so the
+    learner produces it in context) and surface the sentence translation as a
+    hint. Otherwise fall back to the definition -> type-the-word prompt.
+    """
+    word = r["word"]
+    cloze = make_cloze(r["example_sentence"], word) if r["example_sentence"] else None
+    if cloze:
+        sentence, translation, hint = cloze, r["example_translation"], r["definition"]
+    else:
+        sentence, translation, hint = (r["definition"] or word), None, None
+    return {
+        "id": r["id"],
+        "user_id": r["user_id"],
+        "language_id": r["language_id"],
+        "card_type": r["card_type"],
+        "card_id": r["card_id"],
+        "sentence": sentence,
+        "correct_answer": word,
+        "hint": hint,
+        "translation": translation,
+        "morphology": r["morphology"],
+        "alternatives": r["alternatives"],
+        "language_code": r["language_code"],
+        "ease_factor": r["ease_factor"],
+        "interval": r["interval"],
+        "repetitions": r["repetitions"],
+        "streak": r["streak"],
+        "lapses": r["lapses"],
+        "next_review": r["next_review"],
+    }
 
 
 async def add_learn_batch(

@@ -206,6 +206,41 @@ async def test_vocab_learn_and_due_flow(pool):
     assert detail["definition"] == "house"
 
 
+async def test_vocab_card_is_cloze_when_example_sentence_exists(pool):
+    """A vocab word with an example sentence is taught in context: the due card
+    is the sentence with the word blanked, plus its translation as a hint."""
+    lang = await _language(pool, "vctx")
+    user = await _new_user(pool, "ctx@learn")
+    async with pool.privileged_connection() as conn:
+        vid = await conn.fetchval(
+            "INSERT INTO vocabulary (language_id, word, frequency_rank, level) "
+            "VALUES ($1, 'gato', 1, 'A1') RETURNING id", lang,
+        )
+        await conn.execute(
+            "INSERT INTO translations (vocabulary_id, locale, definition) "
+            "VALUES ($1, 'en', 'cat')", vid,
+        )
+        await conn.execute(
+            "INSERT INTO example_sentences (language_id, vocabulary_id, sentence, translation) "
+            "VALUES ($1, $2, 'El gato duerme.', 'The cat sleeps.')", lang, vid,
+        )
+        list_id = await conn.fetchval(
+            "INSERT INTO content_lists (language_id, list_type, level, title) "
+            "VALUES ($1, 'vocabulary', 'A1', 'A1 vocab') RETURNING id", lang,
+        )
+        await conn.execute(
+            "INSERT INTO user_content_subscriptions (user_id, content_list_id) "
+            "VALUES ($1, $2)", user, list_id,
+        )
+    async with pool.rls_connection(user) as conn:
+        await add_learn_batch(conn, user, lang, 5)
+        due = await get_due_cards(conn, lang)
+    card = next(c for c in due if c["correct_answer"] == "gato")
+    assert card["sentence"] == "El {{answer}} duerme."   # word blanked in context
+    assert card["translation"] == "The cat sleeps."       # sentence translation
+    assert card["hint"] == "cat"                          # meaning as a hint
+
+
 async def test_grammar_learn_respects_review_policy(pool):
     lang = await _language(pool, "func2")
     user = await _new_user(pool, "learner@grammar")

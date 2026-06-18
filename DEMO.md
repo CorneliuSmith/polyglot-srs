@@ -50,6 +50,12 @@ done
 python -m backend.services.seeder.seed_grammar --language tr
 python -m backend.services.seeder.seed_grammar --language es
 python -m backend.services.seeder.seed_grammar --language ru
+
+# Example sentences — vocab is taught IN A SENTENCE (word blanked) when these
+# exist, not as a bare flashcard. Curated starters ship for every curated lang:
+for L in es fr de it ca mi yo ha xh tr; do
+  python -m backend.services.seeder.seed_sentences --language $L
+done
 ```
 Verify it landed:
 ```bash
