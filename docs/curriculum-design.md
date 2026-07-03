@@ -51,6 +51,10 @@ pages** (explanation, examples, sources), grouped by level, with per-point
 "add to reviews". Applied here: the `/grammar` page, `GET /api/curriculum/…`,
 and `POST /api/curriculum/learn`.
 
+**Content depth targets** (owner-decided): paths run A1→**C2** per language;
+**6 drills per grammar point** (minimum 4) and **4 example sentences per
+vocabulary word**, so sentence rotation gives varied exposure on every review.
+
 ## Invariants the code enforces
 
 - Visibility on the path = human-reviewed, or AI-passed when the language's

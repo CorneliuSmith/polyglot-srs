@@ -271,7 +271,7 @@ export default function ReviewSessionPage() {
                   Continue
                 </button>
                 {(session.validationResult.answer_result === 'correct' ||
-                  session.validationResult.answer_result === 'correct_sloppy') && (
+                  session.validationResult.answer_result === 'correct_sloppy') ? (
                   <button
                     type="button"
                     onClick={() => handleRate('wrong')}
@@ -279,6 +279,19 @@ export default function ReviewSessionPage() {
                     className="block mx-auto text-xs text-gray-400 hover:text-red-500"
                   >
                     I actually got it wrong
+                  </button>
+                ) : (
+                  /* Bunpro-style undo for slips: retype without recording a
+                     grade — the retry still counts toward time-taken. */
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setUserInput(lastInput)
+                      session.retry()
+                    }}
+                    className="block mx-auto text-xs text-gray-400 hover:text-indigo-600"
+                  >
+                    Typo? Re-enter your answer
                   </button>
                 )}
               </div>

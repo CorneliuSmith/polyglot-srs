@@ -21,6 +21,7 @@ export interface ReviewSessionState {
   cardsReviewed: number
   setValidationResult: (result: ValidateAnswerResponse) => void
   rate: (answerResult: string) => void
+  retry: () => void
   advance: () => void
   elapsedMs: () => number
 }
@@ -85,6 +86,14 @@ export function useReviewSession(cards: DueCard[]): ReviewSessionState {
     [currentCard, currentIndex, deck.length],
   )
 
+  // Bunpro-style "typo — let me re-enter": discard the judgement and return
+  // to answering the SAME card. Nothing is recorded or submitted, and the
+  // timer keeps running, so a retried answer still reports honest time-taken.
+  const retry = useCallback(() => {
+    setPhase('answering')
+    setValidationResultState(null)
+  }, [])
+
   const advance = useCallback(() => {
     setCurrentIndex((i) => i + 1)
     setPhase('answering')
@@ -108,6 +117,7 @@ export function useReviewSession(cards: DueCard[]): ReviewSessionState {
     cardsReviewed,
     setValidationResult,
     rate,
+    retry,
     advance,
     elapsedMs,
   }

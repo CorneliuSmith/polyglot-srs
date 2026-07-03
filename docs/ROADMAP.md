@@ -7,7 +7,10 @@ Read this whole file once before taking a package.
 ## 1. North star
 
 Teach languages **through sentences with context** — a learner always produces
-words and grammar inside real sentences, never bare flashcards. Bunpro-parity
+words and grammar inside real sentences, never bare flashcards. The Bunpro
+principle, exactly: **grammar points progress in a fixed, researched order,
+but the sentences shown for each point VARY on every review** — exposure to
+the pattern in many contexts, not memorization of one string. Bunpro-parity
 on the grammar-path experience, with two differentiators: (a) **African
 languages first-class** (Swahili, Yoruba, Hausa, Xhosa — the underserved
 market), and (b) personal input ("learn from your own text") + AI tutors that
@@ -23,7 +26,12 @@ coach from the learner's actual failure history.
   mixed placement; personal notes → cloze cards; AI tutor with memory,
   weak-area grounding (vocab + grammar), entitlements, Stripe billing;
   contributor + AI-check + linguist-approval workflow; RLS multi-tenancy
-  proven by integration tests; CI (Python 3.11 & 3.12).
+  proven by integration tests; CI (Python 3.11 & 3.12). Review-session UX is
+  Bunpro-style: the typed answer is auto-graded by the NLP layer (no manual
+  rating), a miss offers "Typo? Re-enter your answer" (nothing recorded),
+  correct-but-lucky offers "I actually got it wrong", the grammar point is
+  viewable on demand after any answer ("Show grammar"), and misses re-drill
+  before the session ends.
 - **Grammar paths seeded**: sw 32 · yo 24 · xh 24 · ha 22 (A1→C1-equivalent),
   es 12 · tr 10 · ru 8 (A1). Every point: can-do function, explanation,
   references, ≥2 validated drills.
@@ -73,10 +81,12 @@ coach from the learner's actual failure history.
 Effort ≈ S (<half day), M (a day), L (multi-day). "Model" = recommended Claude
 model for the agent doing it (see §6 for reasoning).
 
-### WP1 — Variation sentences for every grammar point  ⭐ next
-**Goal:** every grammar point has **4–6 drills** (currently 2) so the rotation
-system shows genuinely varied contexts — different persons, tenses, vocabulary,
-and registers per principle. This is what makes rotation teach the *pattern*.
+### WP1 — Variation sentences everywhere  ⭐ next
+**Targets (owner-decided):** every grammar point gets **6 drills** (hard
+minimum 4) varying person, tense, vocabulary, and register; every vocabulary
+word gets **4 example sentences** (the rotation engine already consumes as
+many as exist for both). Grammar gets more than vocab because the *pattern*
+is what varies; 4 contexts is sufficient for a word.
 **Steps:** for each `data/grammar/{code}_grammar.json`, append drills to
 existing points (do not retitle); vary subject person, object, and setting;
 answers must stay single whole words/word-forms; every drill validated by
@@ -85,14 +95,18 @@ translations natural English. Well-resourced languages can be drafted by a
 cheaper model **but every batch goes through the AI semantic check**
 (`semantic_check.py`) and lands as `reviewed: true` only after a stronger
 model (or human) verifies each drill.
-**Acceptance:** ≥4 drills/point for all seeded languages; seed passes; a
-rotation integration test still passes; spot-check 10 random drills/language.
+**Acceptance:** 6 drills/point (≥4 floor) for all seeded grammar; 4 sentences/
+word for seeded vocab (extend data/sentences/*.tsv); seed passes; rotation
+integration test passes; spot-check 10 random drills/language.
 **Model:** African languages: `claude-fable-5` (or `claude-opus-4-8`); es/fr/
 de/it/tr/ru/en/ca: draft with `claude-sonnet-5`, verify with `claude-opus-4-8`.
 **Effort:** L (content), S (no code changes needed).
 
-### WP2 — Deepen Spanish/Turkish/Russian to C1
-**Goal:** ~35–45 points each, per official inventories.
+### WP2 — Deepen Spanish/Turkish/Russian to C2
+**Goal:** ~45–55 points each, per official inventories, ALL THE WAY TO C2
+(C2 adds discourse-level items: es — cleft/inversion, subtle subjunctive
+concordance, register; tr — complex converb chains, formal registers; ru —
+participial style, aspect nuance in context).
 **Topic checklists** (order = display order):
 - **es** (Plan Curricular B1→C1): reflexives; gustar-type verbs; preterite vs
   imperfect; future & conditional; present subjunctive (triggers); imperative
@@ -132,16 +146,17 @@ straight to `claude-fable-5`/`claude-opus-4-8`.
 speakers/linguists as contributors (roles exist; ContributorPage supports
 review + approval + AI checks); have them audit tone marks (yo), concords
 (xh), aspect glosses (ha), and approve or fix each point. (b) Extend sw to
-~45 points (conditionals variants, -po-/-vyo- relatives, comparatives, more
-classes), yo/ha/xh to ~35. (c) WP1 variation drills for all four.
+~50 points and yo/ha/xh to ~40, through C2-equivalent (sw: -po-/-vyo-
+relatives, -japo- concessives, comparatives, remaining classes, register;
+similar discourse-level closers for yo/ha/xh). (c) WP1 variation drills for all four.
 **Acceptance:** every African point re-approved by a named human reviewer
 (`reviewed_by` set), or explicitly flagged Draft.
 **Model:** `claude-fable-5` for authoring/triage; humans are the gate.
 **Effort:** L, partly external (people).
 
 ### WP5 — Vocabulary + sentence corpora at scale
-**Goal:** ≥3,000 frequency-ranked words/language with ≥3 example sentences per
-word (feeds vocab cloze + rotation). Requires internet.
+**Goal:** ≥3,000 frequency-ranked words/language with **≥4 example sentences**
+per word (feeds vocab cloze + rotation). Requires internet.
 **Steps:** `./scripts/refresh_seed_data.sh` (or per-language
 `source_data --language X --source kaikki [--sentences]`) → generates
 `data/*_frequency.tsv` + `*_sentences.tsv` → `seeder.run` + `seed_sentences`
