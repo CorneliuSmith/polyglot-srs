@@ -16,7 +16,7 @@ class Settings(BaseSettings):
     anthropic_api_key: str = ""
     tutor_model: str = "claude-opus-4-8"
     # Cheaper model for the off-the-hot-path session summarizer / memory extractor.
-    tutor_summary_model: str = "claude-sonnet-4-6"
+    tutor_summary_model: str = "claude-sonnet-5"
     # Optional Redis for distributed rate limiting across workers. Empty = the
     # in-memory per-process limiter (fine for a single worker / dev).
     redis_url: str = ""
