@@ -39,6 +39,13 @@ machinery taught earlier in the path** (e.g. Spanish adjective agreement comes
 after gender, articles, and ser; the Turkish accusative comes after the
 suffix system is established).
 
+**Languages without an official CEFR inventory** (Swahili, Yoruba, Hausa,
+Xhosa, Māori): levels are CEFR-*equivalent*, assigned by structural complexity
+following the Core Inventory's functional progression and the processability
+stages — e.g. Bantu verb extensions (passive/causative/applicative) sit at B2
+the way Romance subjunctive does. Sources are the standard reference grammars
+cited on each point.
+
 **4. Bunpro's product model.** An ordered path of **readable grammar-point
 pages** (explanation, examples, sources), grouped by level, with per-point
 "add to reviews". Applied here: the `/grammar` page, `GET /api/curriculum/…`,

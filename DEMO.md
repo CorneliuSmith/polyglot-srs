@@ -139,10 +139,10 @@ A screenshot + the language + what you clicked is enough for me to chase it down
 
 ## Known limitations (not bugs — don't be surprised)
 
-- Content coverage today: **Turkish & Spanish** (vocab + grammar), **Swahili /
-  Arabic / English** plus curated starters for **French, German, Italian,
-  Catalan, Maori, Yoruba, Hausa, Xhosa** (vocab), **Russian** (grammar only).
-  Starter sets are small (~30 words) — fine to demo, not a full curriculum.
+- Content coverage today — grammar paths: **Swahili 32, Yoruba 24, Xhosa 24,
+  Hausa 22 points (A1→C1)**; Spanish 12, Turkish 10, Russian 8 (A1, deepening
+  planned). Vocab: Swahili/Turkish/Arabic/English corpora + curated starters
+  elsewhere (~30 words). See docs/ROADMAP.md for the build-out plan.
 - **FSRS personalization** (per-language weight tuning) does nothing until real
   review history accumulates — everyone starts on solid defaults. Correct.
 - **Audio** uses the device's built-in voices, so quality/coverage varies by

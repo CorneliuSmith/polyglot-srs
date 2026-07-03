@@ -1,0 +1,811 @@
+{
+  "lists": [
+    {
+      "level": "A1",
+      "title": "Xhosa A1 Grammar",
+      "description": "Foundations: subject concords, the first noun classes, copulatives, negation, locatives, having."
+    },
+    {
+      "level": "A2",
+      "title": "Xhosa A2 Grammar",
+      "description": "Possessive/object/adjective concords, recent past, future, demonstratives."
+    },
+    {
+      "level": "B1",
+      "title": "Xhosa B1 Grammar",
+      "description": "Negation across tenses, subjunctive, remote past, relative clauses."
+    },
+    {
+      "level": "B2",
+      "title": "Xhosa B2 Grammar",
+      "description": "Verb extensions: passive, causative, applicative."
+    },
+    {
+      "level": "C1",
+      "title": "Xhosa C1 Grammar",
+      "description": "Reciprocal and ukuba/xa clause linking."
+    }
+  ],
+  "points": [
+    {
+      "title": "Subject concords and the present (ndi-, u-, ba-…)",
+      "level": "A1",
+      "function": "Say who is doing what",
+      "source": "contributor",
+      "reviewed": true,
+      "display_order": 1,
+      "explanation": "Every verb starts with a subject concord: ndi- (I), u- (you / he-she cl.1), si- (we), ni- (you all), ba- (they). The long present adds -ya- when nothing follows the verb: Ndiyafunda (I am studying); with an object the -ya- drops: Ndifunda isiXhosa (I study Xhosa).",
+      "culture_note": "",
+      "references": [
+        {
+          "title": "Wikipedia: Xhosa language — grammar",
+          "url": "https://en.wikipedia.org/wiki/Xhosa_language#Grammar"
+        }
+      ],
+      "drills": [
+        {
+          "sentence": "{{answer}} isiXhosa.",
+          "answer": "Ndifunda",
+          "translation": "I study Xhosa.",
+          "hint": "ndi- + funda (no -ya- before an object)",
+          "display_order": 1
+        },
+        {
+          "sentence": "{{answer}}.",
+          "answer": "Ndiyafunda",
+          "translation": "I am studying.",
+          "hint": "long present with -ya-",
+          "display_order": 2
+        }
+      ]
+    },
+    {
+      "title": "Noun classes 1/2: um-/aba- (people)",
+      "level": "A1",
+      "function": "Talk about people, one or many",
+      "source": "contributor",
+      "reviewed": true,
+      "display_order": 2,
+      "explanation": "Xhosa nouns carry class prefixes. Class 1/2 is people: umntu/abantu (person/people), umfundi/abafundi (student/s), umntwana/abantwana (child/ren). The class drives agreement on everything that follows.",
+      "culture_note": "The class system (about 15 classes) is the engine of the whole language — one class pair at a time is the way in.",
+      "references": [
+        {
+          "title": "Wikipedia: Xhosa language — grammar",
+          "url": "https://en.wikipedia.org/wiki/Xhosa_language#Grammar"
+        },
+        {
+          "title": "Wikipedia: Bantu noun classes",
+          "url": "https://en.wikipedia.org/wiki/Noun_class#Bantu_languages"
+        }
+      ],
+      "drills": [
+        {
+          "sentence": "Umfundi omnye, {{answer}} ababini.",
+          "answer": "abafundi",
+          "translation": "One student, two students.",
+          "hint": "aba- plural",
+          "display_order": 1
+        },
+        {
+          "sentence": "{{answer}} uyafunda.",
+          "answer": "Umntwana",
+          "translation": "The child is studying.",
+          "hint": "um- singular (class 1)",
+          "display_order": 2
+        }
+      ]
+    },
+    {
+      "title": "Noun classes 5/6 and 7/8",
+      "level": "A1",
+      "function": "Use the ili-/ama- and isi-/izi- families",
+      "source": "contributor",
+      "reviewed": true,
+      "display_order": 3,
+      "explanation": "Class 5/6: i(li)-/ama- — ilizwe/amazwe (country/ies), iqanda/amaqanda (egg/s). Class 7/8: isi-/izi- — isitya/izitya (dish/es); isi- also names languages: isiXhosa, isiNgesi (English).",
+      "culture_note": "",
+      "references": [
+        {
+          "title": "Wikipedia: Xhosa language — grammar",
+          "url": "https://en.wikipedia.org/wiki/Xhosa_language#Grammar"
+        },
+        {
+          "title": "Wikipedia: Bantu noun classes",
+          "url": "https://en.wikipedia.org/wiki/Noun_class#Bantu_languages"
+        }
+      ],
+      "drills": [
+        {
+          "sentence": "Iqanda elinye, {{answer}} amabini.",
+          "answer": "amaqanda",
+          "translation": "One egg, two eggs.",
+          "hint": "ama- plural (class 6)",
+          "display_order": 1
+        },
+        {
+          "sentence": "Ndithetha {{answer}}.",
+          "answer": "isiXhosa",
+          "translation": "I speak Xhosa.",
+          "hint": "isi- language noun",
+          "display_order": 2
+        }
+      ]
+    },
+    {
+      "title": "Noun classes 9/10: in-/izin-",
+      "level": "A1",
+      "function": "Use the in-/izin- family",
+      "source": "contributor",
+      "reviewed": true,
+      "display_order": 4,
+      "explanation": "Class 9/10 covers many everyday nouns and animals: inja/izinja (dog/s), indlu/izindlu (house/s), incwadi/iincwadi (book/s — long ii- plural). Their agreements use i-/zi-: Inja iyatya (The dog is eating), Izinja ziyatya.",
+      "culture_note": "",
+      "references": [
+        {
+          "title": "Wikipedia: Xhosa language — grammar",
+          "url": "https://en.wikipedia.org/wiki/Xhosa_language#Grammar"
+        },
+        {
+          "title": "Wikipedia: Bantu noun classes",
+          "url": "https://en.wikipedia.org/wiki/Noun_class#Bantu_languages"
+        }
+      ],
+      "drills": [
+        {
+          "sentence": "Inja enye, {{answer}} ezimbini.",
+          "answer": "izinja",
+          "translation": "One dog, two dogs.",
+          "hint": "izin- plural",
+          "display_order": 1
+        },
+        {
+          "sentence": "Incwadi enye, {{answer}} ezimbini.",
+          "answer": "iincwadi",
+          "translation": "One book, two books.",
+          "hint": "long ii- plural",
+          "display_order": 2
+        }
+      ]
+    },
+    {
+      "title": "Identifying copulatives (ngu-, yi-)",
+      "level": "A1",
+      "function": "Say 'it is …'",
+      "source": "contributor",
+      "reviewed": true,
+      "display_order": 5,
+      "explanation": "'It is X' prefixes the noun: ngu- for class 1/1a (people/names) — NguThemba (It's Themba), ngumfundi (he's a student); yi- for class 9 — yincwadi (it's a book); li-, si-, etc. for other classes. Negation prefixes asi-: asingumfundi (he is not a student).",
+      "culture_note": "",
+      "references": [
+        {
+          "title": "Wikipedia: Xhosa language — grammar",
+          "url": "https://en.wikipedia.org/wiki/Xhosa_language#Grammar"
+        }
+      ],
+      "drills": [
+        {
+          "sentence": "{{answer}} lo.",
+          "answer": "NguThemba",
+          "translation": "This is Themba.",
+          "hint": "ngu- + name",
+          "display_order": 1
+        },
+        {
+          "sentence": "{{answer}} le.",
+          "answer": "Yincwadi",
+          "translation": "This is a book.",
+          "hint": "yi- + class-9 noun",
+          "display_order": 2
+        }
+      ]
+    },
+    {
+      "title": "Present negative (andi-…-i)",
+      "level": "A1",
+      "function": "Say what is not happening",
+      "source": "contributor",
+      "reviewed": true,
+      "display_order": 6,
+      "explanation": "Wrap the verb in a negative concord and final -i: ndiyafunda → andifundi (I don't study), uyafuna → akafuni (he doesn't want — u- becomes aka-), bayasebenza → abasebenzi (they don't work).",
+      "culture_note": "",
+      "references": [
+        {
+          "title": "Wikipedia: Xhosa language — grammar",
+          "url": "https://en.wikipedia.org/wiki/Xhosa_language#Grammar"
+        }
+      ],
+      "drills": [
+        {
+          "sentence": "{{answer}} isiNgesi.",
+          "answer": "Andithethi",
+          "translation": "I don't speak English.",
+          "hint": "andi- + thetha + -i",
+          "display_order": 1
+        },
+        {
+          "sentence": "{{answer}} ukutya.",
+          "answer": "Akafuni",
+          "translation": "He/she doesn't want food.",
+          "hint": "aka- + funa + -i",
+          "display_order": 2
+        }
+      ]
+    },
+    {
+      "title": "Locatives (e-…-ini)",
+      "level": "A1",
+      "function": "Say where things happen",
+      "source": "contributor",
+      "reviewed": true,
+      "display_order": 7,
+      "explanation": "Places are made with e- (and often -ini): isikolo → esikolweni (at school), indlu → endlwini (in the house), iKapa → eKapa (in Cape Town). Ndihlala eKapa (I live in Cape Town), Ndiya esikolweni (I'm going to school).",
+      "culture_note": "",
+      "references": [
+        {
+          "title": "Wikipedia: Xhosa language — grammar",
+          "url": "https://en.wikipedia.org/wiki/Xhosa_language#Grammar"
+        }
+      ],
+      "drills": [
+        {
+          "sentence": "Ndihlala {{answer}}.",
+          "answer": "eKapa",
+          "translation": "I live in Cape Town.",
+          "hint": "e- + place name",
+          "display_order": 1
+        },
+        {
+          "sentence": "Abantwana bafunda {{answer}}.",
+          "answer": "esikolweni",
+          "translation": "The children study at school.",
+          "hint": "e- + isikolo + -ini",
+          "display_order": 2
+        }
+      ]
+    },
+    {
+      "title": "Questions (ntoni, bani, phi)",
+      "level": "A1",
+      "function": "Ask what, who, and where",
+      "source": "contributor",
+      "reviewed": true,
+      "display_order": 8,
+      "explanation": "Question words follow the verb: Ufuna ntoni? (What do you want?), Ngubani igama lakho? (What/who is your name?), Uhlala phi? (Where do you live?). Yes/no questions just use rising intonation, or open with Ingaba: Ingaba uyeza? (Are you coming?).",
+      "culture_note": "",
+      "references": [
+        {
+          "title": "Wikipedia: Xhosa language — grammar",
+          "url": "https://en.wikipedia.org/wiki/Xhosa_language#Grammar"
+        }
+      ],
+      "drills": [
+        {
+          "sentence": "Ufuna {{answer}}?",
+          "answer": "ntoni",
+          "translation": "What do you want?",
+          "hint": "'what' after the verb",
+          "display_order": 1
+        },
+        {
+          "sentence": "Uhlala {{answer}}?",
+          "answer": "phi",
+          "translation": "Where do you live?",
+          "hint": "'where' after the verb",
+          "display_order": 2
+        }
+      ]
+    },
+    {
+      "title": "To have: -na-",
+      "level": "A1",
+      "function": "Say what people have",
+      "source": "contributor",
+      "reviewed": true,
+      "display_order": 9,
+      "explanation": "'Have' fuses -na- with the noun: ndi + na + incwadi → Ndinencwadi (I have a book), Unemali (you have / she has money), Banabantwana (they have children). Negative: Andinamali (I have no money).",
+      "culture_note": "",
+      "references": [
+        {
+          "title": "Wikipedia: Xhosa language — grammar",
+          "url": "https://en.wikipedia.org/wiki/Xhosa_language#Grammar"
+        }
+      ],
+      "drills": [
+        {
+          "sentence": "{{answer}}.",
+          "answer": "Ndinencwadi",
+          "translation": "I have a book.",
+          "hint": "ndi + na + incwadi fused",
+          "display_order": 1
+        },
+        {
+          "sentence": "{{answer}}.",
+          "answer": "Andinamali",
+          "translation": "I have no money.",
+          "hint": "negative: a- + ndi + na + imali",
+          "display_order": 2
+        }
+      ]
+    },
+    {
+      "title": "Possessive concords (yam, wam, bam…)",
+      "level": "A2",
+      "function": "Say whose something is",
+      "source": "contributor",
+      "reviewed": true,
+      "display_order": 1,
+      "explanation": "The possessive agrees with the THING possessed: incwadi yam (my book, cl.9 ya-), umntwana wam (my child, cl.1 wa-), isitya sam (my dish, cl.7 sa-), abantwana bam (my children, cl.2 ba-). The endings -m (my), -kho (your), -khe (his/her) stay constant.",
+      "culture_note": "",
+      "references": [
+        {
+          "title": "Wikipedia: Xhosa language — grammar",
+          "url": "https://en.wikipedia.org/wiki/Xhosa_language#Grammar"
+        }
+      ],
+      "drills": [
+        {
+          "sentence": "Incwadi {{answer}} ilahlekile.",
+          "answer": "yam",
+          "translation": "My book is lost.",
+          "hint": "class-9 possessive + 'my'",
+          "display_order": 1
+        },
+        {
+          "sentence": "Umntwana {{answer}} uyafunda.",
+          "answer": "wakhe",
+          "translation": "Her child is studying.",
+          "hint": "class-1 possessive + 'her'",
+          "display_order": 2
+        }
+      ]
+    },
+    {
+      "title": "Recent past (-ile)",
+      "level": "A2",
+      "function": "Say what (has) happened",
+      "source": "contributor",
+      "reviewed": true,
+      "display_order": 2,
+      "explanation": "The recent past ends in -ile when the verb closes the clause: Ndifundile (I studied / have studied), Bafikile (They have arrived). Before an object the short form -e is used: Ndibone umfundi? — commonly Ndibonile in isolation; keep -ile clause-final at this level.",
+      "culture_note": "",
+      "references": [
+        {
+          "title": "Wikipedia: Xhosa language — grammar",
+          "url": "https://en.wikipedia.org/wiki/Xhosa_language#Grammar"
+        }
+      ],
+      "drills": [
+        {
+          "sentence": "{{answer}}.",
+          "answer": "Ndifundile",
+          "translation": "I have studied.",
+          "hint": "recent past -ile",
+          "display_order": 1
+        },
+        {
+          "sentence": "Abantwana {{answer}}.",
+          "answer": "bafikile",
+          "translation": "The children have arrived.",
+          "hint": "ba- + fika + -ile",
+          "display_order": 2
+        }
+      ]
+    },
+    {
+      "title": "Future (-za ku-)",
+      "level": "A2",
+      "function": "Say what will happen",
+      "source": "contributor",
+      "reviewed": true,
+      "display_order": 3,
+      "explanation": "The future combines -za (come) with the infinitive: Ndiza kufunda (I will study), Uza kufika ngomso (She will arrive tomorrow), Siza kuthetha (We will talk). Colloquially it contracts (ndizo-/ndizaku-).",
+      "culture_note": "",
+      "references": [
+        {
+          "title": "Wikipedia: Xhosa language — grammar",
+          "url": "https://en.wikipedia.org/wiki/Xhosa_language#Grammar"
+        }
+      ],
+      "drills": [
+        {
+          "sentence": "Ndiza {{answer}} ngomso.",
+          "answer": "kufunda",
+          "translation": "I will study tomorrow.",
+          "hint": "ku- infinitive after -za",
+          "display_order": 1
+        },
+        {
+          "sentence": "{{answer}} kufika ngomso.",
+          "answer": "Uza",
+          "translation": "He/she will arrive tomorrow.",
+          "hint": "u- + -za",
+          "display_order": 2
+        }
+      ]
+    },
+    {
+      "title": "Object concords",
+      "level": "A2",
+      "function": "Point the verb at its object",
+      "source": "contributor",
+      "reviewed": true,
+      "display_order": 4,
+      "explanation": "The object can live inside the verb as a concord before the stem: Ndiyayifunda (incwadi) — I am reading it (the book, cl.9 -yi-); Ndiyambona (umntu) — I see him (cl.1 -m-); Ndiyazithanda (izinja) — I love them (cl.10 -zi-).",
+      "culture_note": "",
+      "references": [
+        {
+          "title": "Wikipedia: Xhosa language — grammar",
+          "url": "https://en.wikipedia.org/wiki/Xhosa_language#Grammar"
+        }
+      ],
+      "drills": [
+        {
+          "sentence": "Incwadi? {{answer}}.",
+          "answer": "Ndiyayifunda",
+          "translation": "The book? I am reading it.",
+          "hint": "object -yi- (class 9) inside the verb",
+          "display_order": 1
+        },
+        {
+          "sentence": "UThemba? {{answer}}.",
+          "answer": "Ndiyambona",
+          "translation": "Themba? I see him.",
+          "hint": "object -m- (class 1) inside the verb",
+          "display_order": 2
+        }
+      ]
+    },
+    {
+      "title": "Adjective concords (omhle, entle…)",
+      "level": "A2",
+      "function": "Describe nouns with agreement",
+      "source": "contributor",
+      "reviewed": true,
+      "display_order": 5,
+      "explanation": "Adjectives take a concord from the noun's class: umntwana omhle (a beautiful child), abantwana abahle, incwadi entle (a nice book, cl.9), isitya esihle. The stem (-hle beautiful, -khulu big, -ncinci small) is constant; the concord changes.",
+      "culture_note": "",
+      "references": [
+        {
+          "title": "Wikipedia: Xhosa language — grammar",
+          "url": "https://en.wikipedia.org/wiki/Xhosa_language#Grammar"
+        }
+      ],
+      "drills": [
+        {
+          "sentence": "umntwana {{answer}}",
+          "answer": "omhle",
+          "translation": "a beautiful child",
+          "hint": "class-1 adjective concord + -hle",
+          "display_order": 1
+        },
+        {
+          "sentence": "incwadi {{answer}}",
+          "answer": "entle",
+          "translation": "a nice book",
+          "hint": "class-9 concord + -hle → entle",
+          "display_order": 2
+        }
+      ]
+    },
+    {
+      "title": "Demonstratives (lo, le, eli…)",
+      "level": "A2",
+      "function": "Point out this and that",
+      "source": "contributor",
+      "reviewed": true,
+      "display_order": 6,
+      "explanation": "Demonstratives agree with the class: lo mntu (this person, cl.1), le ncwadi (this book, cl.9), eli qanda (this egg, cl.5), esi sitya (this dish, cl.7), aba bantwana (these children, cl.2). 'That' lengthens: loo, leyo, elo…",
+      "culture_note": "",
+      "references": [
+        {
+          "title": "Wikipedia: Xhosa language — grammar",
+          "url": "https://en.wikipedia.org/wiki/Xhosa_language#Grammar"
+        }
+      ],
+      "drills": [
+        {
+          "sentence": "{{answer}} mntu uyafunda.",
+          "answer": "Lo",
+          "translation": "This person is studying.",
+          "hint": "class-1 'this'",
+          "display_order": 1
+        },
+        {
+          "sentence": "{{answer}} ncwadi intle.",
+          "answer": "Le",
+          "translation": "This book is nice.",
+          "hint": "class-9 'this'",
+          "display_order": 2
+        }
+      ]
+    },
+    {
+      "title": "Negative past and future",
+      "level": "B1",
+      "function": "Deny things in any tense",
+      "source": "contributor",
+      "reviewed": true,
+      "display_order": 1,
+      "explanation": "Negative past uses a-…-anga: Andifundanga (I didn't study), Abafikanga (they didn't arrive). Negative future inserts -zi: Andizi kufunda (I will not study), Akazi kufika (she won't arrive).",
+      "culture_note": "",
+      "references": [
+        {
+          "title": "Wikipedia: Xhosa language — grammar",
+          "url": "https://en.wikipedia.org/wiki/Xhosa_language#Grammar"
+        }
+      ],
+      "drills": [
+        {
+          "sentence": "{{answer}} izolo.",
+          "answer": "Andifundanga",
+          "translation": "I didn't study yesterday.",
+          "hint": "a- + -anga past negative",
+          "display_order": 1
+        },
+        {
+          "sentence": "{{answer}} kufunda ngomso.",
+          "answer": "Andizi",
+          "translation": "I will not study tomorrow.",
+          "hint": "negative future auxiliary",
+          "display_order": 2
+        }
+      ]
+    },
+    {
+      "title": "Subjunctive (-e) and ma- (let's)",
+      "level": "B1",
+      "function": "Suggest, urge, and express purpose",
+      "source": "contributor",
+      "reviewed": true,
+      "display_order": 2,
+      "explanation": "The subjunctive swaps final -a for -e: Masifunde! (Let's study!, ma- + si- + -e), Ndifuna ukuba ufunde (I want you to study), Yiza ukuze sithethe (Come so that we talk).",
+      "culture_note": "",
+      "references": [
+        {
+          "title": "Wikipedia: Xhosa language — grammar",
+          "url": "https://en.wikipedia.org/wiki/Xhosa_language#Grammar"
+        }
+      ],
+      "drills": [
+        {
+          "sentence": "{{answer}}!",
+          "answer": "Masifunde",
+          "translation": "Let's study!",
+          "hint": "ma- + si- + funda + -e",
+          "display_order": 1
+        },
+        {
+          "sentence": "Ndifuna ukuba {{answer}}.",
+          "answer": "ufunde",
+          "translation": "I want you to study.",
+          "hint": "subjunctive -e",
+          "display_order": 2
+        }
+      ]
+    },
+    {
+      "title": "Remote past (a-…-a)",
+      "level": "B1",
+      "function": "Tell what happened long ago",
+      "source": "contributor",
+      "reviewed": true,
+      "display_order": 3,
+      "explanation": "The remote past fuses the concord with -a-: ndi + a → nda-: Ndahlala eKapa (I lived in Cape Town, back then), Wafunda eRhini (He studied in Makhanda), Bathetha (they spoke, long ago). It is the storytelling past.",
+      "culture_note": "",
+      "references": [
+        {
+          "title": "Wikipedia: Xhosa language — grammar",
+          "url": "https://en.wikipedia.org/wiki/Xhosa_language#Grammar"
+        }
+      ],
+      "drills": [
+        {
+          "sentence": "{{answer}} eKapa kudala.",
+          "answer": "Ndahlala",
+          "translation": "I lived in Cape Town long ago.",
+          "hint": "ndi + -a- fused",
+          "display_order": 1
+        },
+        {
+          "sentence": "{{answer}} eRhini.",
+          "answer": "Wafunda",
+          "translation": "He studied in Makhanda (long ago).",
+          "hint": "u + -a- fused",
+          "display_order": 2
+        }
+      ]
+    },
+    {
+      "title": "Relative clauses (o-…-yo)",
+      "level": "B1",
+      "function": "Describe with 'who/that/which'",
+      "source": "contributor",
+      "reviewed": true,
+      "display_order": 4,
+      "explanation": "Relatives wrap the verb in a relative concord and -yo: umntwana ofundayo (the child who studies), abantwana abafundayo, incwadi endiyifundayo (the book that I am reading — with the object concord inside).",
+      "culture_note": "",
+      "references": [
+        {
+          "title": "Wikipedia: Xhosa language — grammar",
+          "url": "https://en.wikipedia.org/wiki/Xhosa_language#Grammar"
+        }
+      ],
+      "drills": [
+        {
+          "sentence": "umntwana {{answer}}",
+          "answer": "ofundayo",
+          "translation": "the child who studies",
+          "hint": "relative o- + funda + -yo",
+          "display_order": 1
+        },
+        {
+          "sentence": "incwadi {{answer}}",
+          "answer": "endiyifundayo",
+          "translation": "the book that I am reading",
+          "hint": "relative + ndi + object -yi-",
+          "display_order": 2
+        }
+      ]
+    },
+    {
+      "title": "Passive (-wa)",
+      "level": "B2",
+      "function": "Say what is done, without the doer",
+      "source": "contributor",
+      "reviewed": true,
+      "display_order": 1,
+      "explanation": "Insert -w- before the final vowel: funda → fundwa, thetha → thethwa: Incwadi iyafundwa (The book is being read), IsiXhosa sithethwa eKapa (Xhosa is spoken in Cape Town), Umsebenzi wenziwe (The work has been done).",
+      "culture_note": "",
+      "references": [
+        {
+          "title": "Wikipedia: Xhosa language — grammar",
+          "url": "https://en.wikipedia.org/wiki/Xhosa_language#Grammar"
+        }
+      ],
+      "drills": [
+        {
+          "sentence": "Incwadi {{answer}}.",
+          "answer": "iyafundwa",
+          "translation": "The book is being read.",
+          "hint": "i- + -ya- + fundwa",
+          "display_order": 1
+        },
+        {
+          "sentence": "IsiXhosa {{answer}} eKapa.",
+          "answer": "sithethwa",
+          "translation": "Xhosa is spoken in Cape Town.",
+          "hint": "si- + thethwa",
+          "display_order": 2
+        }
+      ]
+    },
+    {
+      "title": "Causative (-isa)",
+      "level": "B2",
+      "function": "Make or help something happen",
+      "source": "contributor",
+      "reviewed": true,
+      "display_order": 2,
+      "explanation": "-isa turns 'do' into 'cause to do': funda (learn) → fundisa (teach), sebenza (work) → sebenzisa (use — 'make work'): Utitshala ufundisa abantwana (The teacher teaches the children), Ndisebenzisa ifowuni (I use a phone).",
+      "culture_note": "",
+      "references": [
+        {
+          "title": "Wikipedia: Xhosa language — grammar",
+          "url": "https://en.wikipedia.org/wiki/Xhosa_language#Grammar"
+        }
+      ],
+      "drills": [
+        {
+          "sentence": "Utitshala {{answer}} abantwana.",
+          "answer": "ufundisa",
+          "translation": "The teacher teaches the children.",
+          "hint": "causative of -funda",
+          "display_order": 1
+        },
+        {
+          "sentence": "{{answer}} ifowuni yam.",
+          "answer": "Ndisebenzisa",
+          "translation": "I am using my phone.",
+          "hint": "causative of -sebenza",
+          "display_order": 2
+        }
+      ]
+    },
+    {
+      "title": "Applicative (-ela)",
+      "level": "B2",
+      "function": "Do something for or to someone",
+      "source": "contributor",
+      "reviewed": true,
+      "display_order": 3,
+      "explanation": "-ela adds a beneficiary or direction: bhala (write) → bhalela (write to/for): Ndibhalela umama ileta (I am writing mother a letter); sebenza → sebenzela (work for): Usebenzela inkampani (She works for a company).",
+      "culture_note": "",
+      "references": [
+        {
+          "title": "Wikipedia: Xhosa language — grammar",
+          "url": "https://en.wikipedia.org/wiki/Xhosa_language#Grammar"
+        }
+      ],
+      "drills": [
+        {
+          "sentence": "{{answer}} umama ileta.",
+          "answer": "Ndibhalela",
+          "translation": "I am writing a letter to mother.",
+          "hint": "applicative of -bhala",
+          "display_order": 1
+        },
+        {
+          "sentence": "{{answer}} inkampani enkulu.",
+          "answer": "Usebenzela",
+          "translation": "She works for a big company.",
+          "hint": "applicative of -sebenza",
+          "display_order": 2
+        }
+      ]
+    },
+    {
+      "title": "Reciprocal (-ana)",
+      "level": "C1",
+      "function": "Say people do things to each other",
+      "source": "contributor",
+      "reviewed": true,
+      "display_order": 1,
+      "explanation": "-ana makes the action mutual: thanda → thandana (love each other): Bayathandana (They love each other); bona → bonana (see each other): Sobonana ngomso (We'll see each other tomorrow); ncedana (help each other).",
+      "culture_note": "",
+      "references": [
+        {
+          "title": "Wikipedia: Xhosa language — grammar",
+          "url": "https://en.wikipedia.org/wiki/Xhosa_language#Grammar"
+        }
+      ],
+      "drills": [
+        {
+          "sentence": "{{answer}}.",
+          "answer": "Bayathandana",
+          "translation": "They love each other.",
+          "hint": "reciprocal of -thanda",
+          "display_order": 1
+        },
+        {
+          "sentence": "{{answer}} ngomso!",
+          "answer": "Sobonana",
+          "translation": "See you tomorrow! (we shall see each other)",
+          "hint": "reciprocal of -bona, future",
+          "display_order": 2
+        }
+      ]
+    },
+    {
+      "title": "Conditions with ukuba",
+      "level": "C1",
+      "function": "Make 'if' and 'that' clauses",
+      "source": "contributor",
+      "reviewed": true,
+      "display_order": 2,
+      "explanation": "Ukuba opens conditions and 'that' clauses: Ukuba uyafunda, uza kuphumelela (If you study, you will pass), Ndiyazi ukuba uyeza (I know that you are coming). 'When(ever)' uses xa with the participial: Xa ndifunda… (When I study…).",
+      "culture_note": "",
+      "references": [
+        {
+          "title": "Wikipedia: Xhosa language — grammar",
+          "url": "https://en.wikipedia.org/wiki/Xhosa_language#Grammar"
+        }
+      ],
+      "drills": [
+        {
+          "sentence": "{{answer}} uyafunda, uza kuphumelela.",
+          "answer": "Ukuba",
+          "translation": "If you study, you will pass.",
+          "hint": "'if' opener",
+          "display_order": 1
+        },
+        {
+          "sentence": "Ndiyazi {{answer}} uyeza.",
+          "answer": "ukuba",
+          "translation": "I know that you are coming.",
+          "hint": "'that' complementizer",
+          "display_order": 2
+        }
+      ]
+    }
+  ]
+}
