@@ -70,6 +70,8 @@ export default function ReviewSessionPage() {
       card_id: card.id,
       answer_result: answerResult,
       time_taken_ms: session.elapsedMs(),
+      // sentences rotate per review — log which one was actually shown
+      prompt_sentence: card.sentence,
     })
 
     session.rate(answerResult)

@@ -1,7 +1,6 @@
 import { Navigate, useNavigate } from 'react-router-dom'
-import { useQuery, useMutation } from '@tanstack/react-query'
+import { useQuery } from '@tanstack/react-query'
 import { getDashboardStats } from '../../api/dashboard'
-import { startLearnSession } from '../../api/review'
 import { getMyRoles } from '../../api/contribute'
 import { getOnboardingStatus } from '../../api/onboarding'
 import { usePrefsStore } from '../../stores/prefsStore'
@@ -43,22 +42,14 @@ export default function DashboardPage() {
   })
   const canContribute = (roleInfo?.roles?.length ?? 0) > 0
 
-  const learnMutation = useMutation({
-    mutationFn: (cardType: 'vocabulary' | 'grammar') =>
-      startLearnSession(activeLanguageId!, cardType),
-    onSuccess: () => navigate('/review'),
-  })
-
+  // Learning routes through /learn, which TEACHES the new items (lesson
+  // pages) before they are ever quizzed.
   const handleLearn = () => {
-    if (activeLanguageId) {
-      learnMutation.mutate('vocabulary')
-    }
+    if (activeLanguageId) navigate('/learn?type=vocabulary')
   }
 
   const handleLearnGrammar = () => {
-    if (activeLanguageId) {
-      learnMutation.mutate('grammar')
-    }
+    if (activeLanguageId) navigate('/learn?type=grammar')
   }
 
   const handleReview = () => {
@@ -127,20 +118,20 @@ export default function DashboardPage() {
           <button
             type="button"
             onClick={handleLearn}
-            disabled={isLoading || learnMutation.isPending || !activeLanguageId}
+            disabled={isLoading || !activeLanguageId}
             className="w-full bg-indigo-600 hover:bg-indigo-700 disabled:opacity-50 text-white font-semibold rounded-xl px-6 py-3 text-sm transition-colors"
             style={{ minHeight: '44px' }}
           >
-            {learnMutation.isPending ? 'Starting…' : 'Learn Vocabulary'}
+            Learn Vocabulary
           </button>
           <button
             type="button"
             onClick={handleLearnGrammar}
-            disabled={isLoading || learnMutation.isPending || !activeLanguageId}
+            disabled={isLoading || !activeLanguageId}
             className="w-full bg-indigo-600 hover:bg-indigo-700 disabled:opacity-50 text-white font-semibold rounded-xl px-6 py-3 text-sm transition-colors"
             style={{ minHeight: '44px' }}
           >
-            {learnMutation.isPending ? 'Starting…' : 'Learn Grammar'}
+            Learn Grammar
           </button>
           <button
             type="button"

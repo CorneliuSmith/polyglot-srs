@@ -37,20 +37,24 @@ async def get_weak_areas(
     language_id: str,
     limit: int = 12,
 ) -> list[dict]:
-    """Return the user's weakest vocabulary cards for a language.
+    """Return the user's weakest items — vocabulary AND grammar — for a language.
 
-    Ranks cards by recent failures first (wrong / wrong_form answers in the
-    last 30 days), then by lapse count and FSRS difficulty. Each entry carries
-    the word, its definition, morphology, and failure stats so the tutor can
-    build targeted drills.
+    Ranks by recent failures (wrong / wrong_form in the last 30 days), then
+    lapse count and FSRS difficulty. Vocabulary entries carry the word,
+    definition, and morphology; grammar entries carry the point's title (as
+    `word`, so downstream prompt/mock formatting is uniform) and CEFR level.
+    Both feed the tutor, so it coaches on failed grammar patterns too, not just
+    missed words.
     """
-    rows = await conn.fetch(
+    vocab_rows = await conn.fetch(
         """
         SELECT
+            'vocabulary'          AS kind,
             v.word,
             v.part_of_speech,
             v.morphology,
             t.definition          AS definition,
+            NULL::text            AS level,
             uc.difficulty,
             uc.lapses,
             uc.streak,
@@ -84,7 +88,54 @@ async def get_weak_areas(
         language_id,
         limit,
     )
-    return [dict(r) for r in rows]
+    grammar_rows = await conn.fetch(
+        """
+        SELECT
+            'grammar'             AS kind,
+            gp.title              AS word,
+            NULL::text            AS part_of_speech,
+            NULL::jsonb           AS morphology,
+            NULL::text            AS definition,
+            gp.level              AS level,
+            uc.difficulty,
+            uc.lapses,
+            uc.streak,
+            COUNT(rl.id) FILTER (
+                WHERE rl.answer_result IN ('wrong', 'wrong_form')
+                  AND rl.created_at > now() - interval '30 days'
+            ) AS recent_failures,
+            MAX(rl.created_at) FILTER (
+                WHERE rl.answer_result IN ('wrong', 'wrong_form')
+            ) AS last_failed_at
+        FROM user_cards uc
+        JOIN grammar_points gp ON uc.card_id = gp.id AND uc.card_type = 'grammar'
+        LEFT JOIN review_log rl ON rl.card_id = uc.id
+        WHERE uc.user_id = $1
+          AND uc.language_id = $2
+        GROUP BY gp.title, gp.level, uc.difficulty, uc.lapses, uc.streak
+        HAVING uc.lapses > 0
+            OR COALESCE(uc.difficulty, 0) >= 7
+            OR COUNT(rl.id) FILTER (
+                   WHERE rl.answer_result IN ('wrong', 'wrong_form')
+                     AND rl.created_at > now() - interval '30 days'
+               ) > 0
+        ORDER BY recent_failures DESC, uc.lapses DESC,
+                 COALESCE(uc.difficulty, 0) DESC
+        LIMIT $3
+        """,
+        user_id,
+        language_id,
+        limit,
+    )
+    merged = [dict(r) for r in vocab_rows] + [dict(r) for r in grammar_rows]
+    merged.sort(
+        key=lambda r: (
+            -(r["recent_failures"] or 0),
+            -(r["lapses"] or 0),
+            -(r["difficulty"] or 0),
+        )
+    )
+    return merged[:limit]
 
 
 async def get_study_stats(

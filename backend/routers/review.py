@@ -41,6 +41,9 @@ class SubmitReview(BaseModel):
     card_id: str
     answer_result: str
     time_taken_ms: int | None = None
+    # The exact sentence the learner was shown (sentences rotate per review);
+    # logged so failures are analyzable per-sentence, not just per-card.
+    prompt_sentence: str | None = Field(default=None, max_length=1000)
 
 
 class ValidateAnswerRequest(BaseModel):
@@ -179,6 +182,7 @@ async def submit_review(
             difficulty_before=card.difficulty,
             difficulty_after=result.difficulty,
             time_taken_ms=body.time_taken_ms,
+            prompt_sentence=body.prompt_sentence,
         )
 
     return {
@@ -228,7 +232,10 @@ async def learn(
     """Add a batch of new cards (vocabulary or grammar) from subscribed lists.
 
     Reads batch_size from the user's profile (default 5 if no profile row).
-    Returns the count of added cards and their new user_card IDs.
+    Returns the count of added cards, their new user_card IDs, and a `lessons`
+    payload — the full teachable content of each new item (explanation,
+    examples, references) so the client can PRESENT the material before the
+    first quiz, instead of quizzing on something never seen.
     """
     if body.card_type not in ("vocabulary", "grammar"):
         raise HTTPException(
@@ -252,4 +259,10 @@ async def learn(
                 conn, user["id"], body.language_id, batch_size
             )
 
-    return result
+        lessons = []
+        for card_id in result["items"]:
+            detail = await get_card_detail(conn, card_id)
+            if detail:
+                lessons.append({"card_id": card_id, **detail})
+
+    return {**result, "lessons": lessons}

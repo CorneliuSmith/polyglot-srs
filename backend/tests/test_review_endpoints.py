@@ -184,6 +184,9 @@ async def test_learn_adds_batch_of_cards(client):
 
     with patch("backend.routers.review.rls_connection") as mock_rls, patch(
         "backend.routers.review.add_learn_batch", new=AsyncMock(return_value=fake_result)
+    ), patch(
+        "backend.routers.review.get_card_detail",
+        new=AsyncMock(return_value={"card_type": "vocabulary", "title": "casa"}),
     ):
         conn = _make_fake_conn(batch_size=3)
         mock_rls.return_value.__aenter__ = AsyncMock(return_value=conn)
@@ -199,6 +202,9 @@ async def test_learn_adds_batch_of_cards(client):
     data = resp.json()
     assert data["added"] == 3
     assert data["items"] == ["id-1", "id-2", "id-3"]
+    # The teach-before-quiz payload: one lesson per new card
+    assert [lesson["card_id"] for lesson in data["lessons"]] == fake_result["items"]
+    assert data["lessons"][0]["title"] == "casa"
 
 
 @pytest.mark.asyncio
@@ -214,6 +220,9 @@ async def test_learn_reads_batch_size_from_profile(client):
 
     with patch("backend.routers.review.rls_connection") as mock_rls, patch(
         "backend.routers.review.add_learn_batch", new=capture_batch
+    ), patch(
+        "backend.routers.review.get_card_detail",
+        new=AsyncMock(return_value={"card_type": "vocabulary", "title": "casa"}),
     ):
         conn = _make_fake_conn(batch_size=10)
         mock_rls.return_value.__aenter__ = AsyncMock(return_value=conn)
@@ -242,6 +251,9 @@ async def test_learn_defaults_batch_size_to_5_when_no_profile(client):
 
     with patch("backend.routers.review.rls_connection") as mock_rls, patch(
         "backend.routers.review.add_learn_batch", new=capture_batch
+    ), patch(
+        "backend.routers.review.get_card_detail",
+        new=AsyncMock(return_value={"card_type": "vocabulary", "title": "casa"}),
     ):
         conn = _make_fake_conn(profile_exists=False)
         mock_rls.return_value.__aenter__ = AsyncMock(return_value=conn)

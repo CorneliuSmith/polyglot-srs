@@ -31,10 +31,14 @@ export function useReviewSession(cards: DueCard[]): ReviewSessionState {
   const [validationResult, setValidationResultState] =
     useState<ValidateAnswerResponse | null>(null)
   const [results, setResults] = useState<SessionResult[]>([])
+  // Missed cards are appended here and re-drilled before the session ends,
+  // so a session only completes once everything has been produced correctly.
+  const [requeued, setRequeued] = useState<DueCard[]>([])
   const cardStartTime = useRef<number>(Date.now())
 
-  const currentCard = cards[currentIndex] ?? null
-  const isComplete = currentIndex >= cards.length
+  const deck = [...cards, ...requeued]
+  const currentCard = deck[currentIndex] ?? null
+  const isComplete = currentIndex >= deck.length
 
   const accuracy =
     results.length === 0
@@ -44,7 +48,8 @@ export function useReviewSession(cards: DueCard[]): ReviewSessionState {
         ).length / results.length
 
   const totalTimeMs = results.reduce((sum, r) => sum + r.timeTakenMs, 0)
-  const cardsReviewed = results.length
+  // Unique cards, so re-drilled misses don't inflate the summary.
+  const cardsReviewed = new Set(results.map((r) => r.cardId)).size
 
   const setValidationResult = useCallback((result: ValidateAnswerResponse) => {
     setValidationResultState(result)
@@ -54,14 +59,19 @@ export function useReviewSession(cards: DueCard[]): ReviewSessionState {
   const rate = useCallback(
     (answerResult: string) => {
       const timeTakenMs = Date.now() - cardStartTime.current
+      const missed = answerResult === 'wrong' || answerResult === 'wrong_form'
       if (currentCard) {
         setResults((prev) => [
           ...prev,
           { cardId: currentCard.id, answerResult, timeTakenMs },
         ])
+        if (missed) {
+          setRequeued((prev) => [...prev, currentCard])
+        }
       }
       const nextIndex = currentIndex + 1
-      if (nextIndex >= cards.length) {
+      const deckLength = deck.length + (missed && currentCard ? 1 : 0)
+      if (nextIndex >= deckLength) {
         setPhase('summary')
         setCurrentIndex(nextIndex)
       } else {
@@ -71,7 +81,8 @@ export function useReviewSession(cards: DueCard[]): ReviewSessionState {
         cardStartTime.current = Date.now()
       }
     },
-    [currentCard, currentIndex, cards.length],
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    [currentCard, currentIndex, deck.length],
   )
 
   const advance = useCallback(() => {

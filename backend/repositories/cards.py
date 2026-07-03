@@ -6,7 +6,7 @@ import json
 
 import asyncpg
 
-from backend.services.extract import make_cloze
+from backend.services.extract import ANSWER_MARKER, make_cloze
 from backend.services.references import clean_references
 
 
@@ -29,8 +29,10 @@ async def get_due_cards(
     """
     # -- Vocabulary cards ---------------------------------------------------
     # Teach the word in context: a real example sentence with the word blanked
-    # out (cloze), with its translation as a hint. Falls back to the plain
-    # definition -> type-the-word prompt only when no example sentence exists.
+    # out (cloze), with its translation as a hint. All of the word's sentences
+    # are fetched and the shown one ROTATES with the card's repetition count,
+    # so the learner practices the word, not one memorized sentence. Falls back
+    # to the plain definition -> type-the-word prompt when no sentence works.
     vocab_rows = await conn.fetch(
         """
         SELECT
@@ -41,8 +43,8 @@ async def get_due_cards(
             uc.card_id,
             v.word                          AS word,
             t.definition                    AS definition,
-            ex.sentence                     AS example_sentence,
-            ex.translation                  AS example_translation,
+            ex.sentences                    AS example_sentences,
+            ex.translations                 AS example_translations,
             v.morphology                    AS morphology,
             v.alternatives                  AS alternatives,
             l.code                          AS language_code,
@@ -58,11 +60,13 @@ async def get_due_cards(
         LEFT JOIN translations t
                ON v.id = t.vocabulary_id AND t.locale = 'en'
         LEFT JOIN LATERAL (
-            SELECT es.sentence, es.translation
+            SELECT
+                array_agg(es.sentence
+                          ORDER BY es.difficulty_rank ASC NULLS LAST, es.id) AS sentences,
+                array_agg(es.translation
+                          ORDER BY es.difficulty_rank ASC NULLS LAST, es.id) AS translations
             FROM example_sentences es
             WHERE es.vocabulary_id = v.id
-            ORDER BY es.difficulty_rank ASC NULLS LAST
-            LIMIT 1
         ) ex ON true
         WHERE uc.language_id = $1
           AND uc.card_type = 'vocabulary'
@@ -76,43 +80,45 @@ async def get_due_cards(
     )
 
     # -- Grammar cards -------------------------------------------------------
+    # Fill-in-the-blank drills. All of a point's drills are fetched and the
+    # shown one rotates with the repetition count (same reasoning as vocab).
     grammar_rows = await conn.fetch(
         """
-        SELECT * FROM (
-            SELECT DISTINCT ON (uc.id)
-                uc.id,
-                uc.user_id,
-                uc.language_id,
-                uc.card_type,
-                uc.card_id,
-                -- fill-in-the-blank mode: sentence contains {{answer}} marker;
-                -- fall back to the grammar point title if no drill sentence exists
-                COALESCE(ds.sentence, gp.title) AS sentence,
-                -- the answer is the form that fills the {{answer}} blank;
-                -- fall back to the title for points without authored drills
-                COALESCE(ds.answer, gp.title)   AS correct_answer,
-                ds.hint                         AS hint,
-                ds.translation                  AS translation,
-                NULL::jsonb                     AS morphology,
-                NULL::text[]                    AS alternatives,
-                l.code                          AS language_code,
-                uc.ease_factor,
-                uc.interval,
-                uc.repetitions,
-                uc.streak,
-                uc.lapses,
-                uc.next_review
-            FROM user_cards uc
-            JOIN grammar_points gp  ON uc.card_id = gp.id
-            JOIN languages l        ON uc.language_id = l.id
-            LEFT JOIN drill_sentences ds ON gp.id = ds.grammar_point_id
-            WHERE uc.language_id = $1
-              AND uc.card_type = 'grammar'
-              AND uc.next_review <= now()
-              AND uc.is_suspended = false
-            ORDER BY uc.id, ds.display_order ASC
-        ) g
-        ORDER BY g.next_review ASC
+        SELECT
+            uc.id,
+            uc.user_id,
+            uc.language_id,
+            uc.card_type,
+            uc.card_id,
+            gp.title                        AS title,
+            d.sentences                     AS drill_sentences,
+            d.answers                       AS drill_answers,
+            d.hints                         AS drill_hints,
+            d.translations                  AS drill_translations,
+            l.code                          AS language_code,
+            uc.ease_factor,
+            uc.interval,
+            uc.repetitions,
+            uc.streak,
+            uc.lapses,
+            uc.next_review
+        FROM user_cards uc
+        JOIN grammar_points gp  ON uc.card_id = gp.id
+        JOIN languages l        ON uc.language_id = l.id
+        LEFT JOIN LATERAL (
+            SELECT
+                array_agg(ds.sentence    ORDER BY ds.display_order, ds.id) AS sentences,
+                array_agg(ds.answer      ORDER BY ds.display_order, ds.id) AS answers,
+                array_agg(ds.hint        ORDER BY ds.display_order, ds.id) AS hints,
+                array_agg(ds.translation ORDER BY ds.display_order, ds.id) AS translations
+            FROM drill_sentences ds
+            WHERE ds.grammar_point_id = gp.id
+        ) d ON true
+        WHERE uc.language_id = $1
+          AND uc.card_type = 'grammar'
+          AND uc.next_review <= now()
+          AND uc.is_suspended = false
+        ORDER BY uc.next_review ASC
         LIMIT $2
         """,
         language_id,
@@ -158,38 +164,20 @@ async def get_due_cards(
     # Merge and sort by next_review
     combined = (
         [_vocab_card(r) for r in vocab_rows]
-        + [dict(r) for r in grammar_rows]
+        + [_grammar_card(r) for r in grammar_rows]
         + [dict(r) for r in personal_rows]
     )
     combined.sort(key=lambda r: r["next_review"])
     return combined[:limit]
 
 
-def _vocab_card(r: asyncpg.Record) -> dict:
-    """Shape a vocabulary row into a card, preferring a cloze example sentence.
-
-    When the word has an example sentence, blank the word out of it (so the
-    learner produces it in context) and surface the sentence translation as a
-    hint. Otherwise fall back to the definition -> type-the-word prompt.
-    """
-    word = r["word"]
-    cloze = make_cloze(r["example_sentence"], word) if r["example_sentence"] else None
-    if cloze:
-        sentence, translation, hint = cloze, r["example_translation"], r["definition"]
-    else:
-        sentence, translation, hint = (r["definition"] or word), None, None
+def _srs_fields(r: asyncpg.Record) -> dict:
     return {
         "id": r["id"],
         "user_id": r["user_id"],
         "language_id": r["language_id"],
         "card_type": r["card_type"],
         "card_id": r["card_id"],
-        "sentence": sentence,
-        "correct_answer": word,
-        "hint": hint,
-        "translation": translation,
-        "morphology": r["morphology"],
-        "alternatives": r["alternatives"],
         "language_code": r["language_code"],
         "ease_factor": r["ease_factor"],
         "interval": r["interval"],
@@ -197,6 +185,66 @@ def _vocab_card(r: asyncpg.Record) -> dict:
         "streak": r["streak"],
         "lapses": r["lapses"],
         "next_review": r["next_review"],
+    }
+
+
+def _vocab_card(r: asyncpg.Record) -> dict:
+    """Shape a vocabulary row into a card, preferring a cloze example sentence.
+
+    The word's sentences rotate with the repetition count so successive reviews
+    show different contexts (memorize the word, not one sentence). Each
+    candidate is tried through make_cloze — a sentence where the word is
+    inflected beyond a whole-word match is skipped. Falls back to the
+    definition -> type-the-word prompt when nothing clozes.
+    """
+    word = r["word"]
+    sentences = r["example_sentences"] or []
+    translations = r["example_translations"] or []
+    sentence, translation, hint = (r["definition"] or word), None, None
+    n = len(sentences)
+    for i in range(n):
+        idx = (r["repetitions"] + i) % n
+        cloze = make_cloze(sentences[idx], word)
+        if cloze:
+            sentence = cloze
+            translation = translations[idx] if idx < len(translations) else None
+            hint = r["definition"]
+            break
+    return {
+        **_srs_fields(r),
+        "sentence": sentence,
+        "correct_answer": word,
+        "hint": hint,
+        "translation": translation,
+        "morphology": r["morphology"],
+        "alternatives": r["alternatives"],
+    }
+
+
+def _grammar_card(r: asyncpg.Record) -> dict:
+    """Shape a grammar row into a fill-in-the-blank card, rotating drills.
+
+    Drills rotate with the repetition count. Points without drills fall back to
+    a type-the-title card for legacy rows only — new learns are gated on having
+    drills, so this shouldn't be reachable for fresh content.
+    """
+    drills = r["drill_sentences"] or []
+    if drills:
+        idx = r["repetitions"] % len(drills)
+        sentence = drills[idx]
+        answer = (r["drill_answers"] or [None])[idx]
+        hint = (r["drill_hints"] or [None] * len(drills))[idx]
+        translation = (r["drill_translations"] or [None] * len(drills))[idx]
+    else:
+        sentence, answer, hint, translation = r["title"], r["title"], None, None
+    return {
+        **_srs_fields(r),
+        "sentence": sentence,
+        "correct_answer": answer,
+        "hint": hint,
+        "translation": translation,
+        "morphology": None,
+        "alternatives": None,
     }
 
 
@@ -302,6 +350,10 @@ async def add_grammar_learn_batch(
           -- review policy: strict = reviewed only; ai_ok = also AI-passed
           AND (gp.reviewed = true
                OR (l.grammar_review_policy = 'ai_ok' AND gp.ai_check_status = 'pass'))
+          -- a point with no drills has nothing to quiz — never learnable
+          AND EXISTS (
+              SELECT 1 FROM drill_sentences ds WHERE ds.grammar_point_id = gp.id
+          )
           AND gp.id NOT IN (
               SELECT card_id FROM user_cards
               WHERE user_id = $1 AND card_type = 'grammar'
@@ -387,8 +439,6 @@ async def get_card_detail(
         return None
 
     if card["card_type"] == "personal":
-        from backend.services.extract import ANSWER_MARKER
-
         cc = await conn.fetchrow(
             """
             SELECT cc.answer, cc.translation, cc.sentence, n.title AS note_title
@@ -415,6 +465,7 @@ async def get_card_detail(
         return {
             "card_type": "personal",
             "title": cc["answer"] if cc else None,
+            "reading": None,
             "part_of_speech": None,
             "definition": cc["translation"] if cc else None,
             "usage_note": usage,
@@ -429,7 +480,7 @@ async def get_card_detail(
     if card["card_type"] == "vocabulary":
         v = await conn.fetchrow(
             """
-            SELECT v.word, v.part_of_speech, v.usage_note, v.morphology,
+            SELECT v.word, v.reading, v.part_of_speech, v.usage_note, v.morphology,
                    t.definition
             FROM vocabulary v
             LEFT JOIN translations t
@@ -451,6 +502,7 @@ async def get_card_detail(
         return {
             "card_type": "vocabulary",
             "title": v["word"] if v else None,
+            "reading": v["reading"] if v else None,
             "part_of_speech": v["part_of_speech"] if v else None,
             "definition": v["definition"] if v else None,
             "usage_note": v["usage_note"] if v else None,
@@ -476,7 +528,7 @@ async def get_card_detail(
     )
     examples = await conn.fetch(
         """
-        SELECT sentence, translation, hint
+        SELECT sentence, answer, translation, hint
         FROM drill_sentences
         WHERE grammar_point_id = $1
         ORDER BY display_order ASC
@@ -496,6 +548,7 @@ async def get_card_detail(
     return {
         "card_type": "grammar",
         "title": gp["title"] if gp else None,
+        "reading": None,
         "part_of_speech": None,
         "definition": None,
         "usage_note": None,
@@ -505,7 +558,12 @@ async def get_card_detail(
         "reviewed": gp["reviewed"] if gp else True,
         "references": references,
         "examples": [
-            {"sentence": e["sentence"], "translation": e["translation"], "hint": e["hint"]}
+            {
+                # Detail/lesson views show the COMPLETED sentence, not the blank
+                "sentence": e["sentence"].replace(ANSWER_MARKER, e["answer"]),
+                "translation": e["translation"],
+                "hint": e["hint"],
+            }
             for e in examples
         ],
     }
