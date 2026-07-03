@@ -102,12 +102,16 @@ Sign up with a fresh account and walk the whole path. Expected behavior — and
    count > 0.
 4. **Learn Vocabulary / Learn Grammar** queues cards; **Review Due Cards** runs
    a session. Answer one right and one wrong.
-5. **After answering**, the feedback panel shows the correct answer with a 🔈
+5. **Grammar path** (dashboard → "Grammar path") — the full ordered syllabus
+   grouped by level, each point readable with a can-do line, explanation,
+   examples, and sources; "Add to my reviews" pulls a single point into your
+   queue. (Try Spanish or Turkish — 12 and 10 points respectively.)
+6. **After answering**, the feedback panel shows the correct answer with a 🔈
    **speaker button** — click it; Turkish should be spoken aloud. Expand
    **"Show grammar"** for the explanation + example sentences (also speakable).
-6. **Learn from your own text** — paste a Turkish sentence, tap a word, add a
+7. **Learn from your own text** — paste a Turkish sentence, tap a word, add a
    card; it enters your reviews.
-7. **AI Tutor** — opens and responds (mock or real), or shows the **Subscribe**
+8. **AI Tutor** — opens and responds (mock or real), or shows the **Subscribe**
    button if you configured the billing demo.
 
 ---

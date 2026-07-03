@@ -2,17 +2,162 @@
   "lists": [
     {
       "level": "A1",
-      "title": "Turkish A1 Grammar",
-      "description": "Foundational Turkish grammar: vowel harmony, core suffixes."
+      "title": "Turkish A1 Grammar Path",
+      "description": "A1 grammar in the order of the standard CEFR-aligned Turkish curricula (Yedi İklim / İstanbul): 'to be' suffixes and demonstratives first, then plural, questions, existence, possession, cases, and the present continuous."
     }
   ],
   "points": [
     {
-      "title": "Locative case (-de / -da)",
+      "title": "Personal pronouns and 'to be' (-(y)im, -sin…)",
       "level": "A1",
+      "function": "Introduce yourself and others",
       "source": "contributor",
       "reviewed": true,
       "display_order": 1,
+      "explanation": "Turkish has no separate verb 'to be' in the present — a personal suffix attaches straight to the noun or adjective: öğrenci-yim (I am a student), öğretmen-sin (you are a teacher), o doktor (he/she is a doctor — third person takes no suffix). The suffix vowel follows vowel harmony, and -y- is inserted after a vowel: iyi-yim (I'm fine).",
+      "culture_note": "Dropping the pronoun is normal — 'Öğrenciyim' alone is a complete, natural sentence. The pronoun is added for contrast or emphasis.",
+      "references": [
+        {
+          "title": "Wikipedia: Turkish grammar",
+          "url": "https://en.wikipedia.org/wiki/Turkish_grammar"
+        },
+        {
+          "title": "Wikipedia: Turkish copula",
+          "url": "https://en.wikipedia.org/wiki/Turkish_copula"
+        }
+      ],
+      "drills": [
+        {
+          "sentence": "Ben {{answer}}.",
+          "answer": "öğrenciyim",
+          "translation": "I am a student.",
+          "hint": "öğrenci + -(y)im",
+          "display_order": 1
+        },
+        {
+          "sentence": "Sen {{answer}}.",
+          "answer": "öğretmensin",
+          "translation": "You are a teacher.",
+          "hint": "öğretmen + -sin",
+          "display_order": 2
+        }
+      ]
+    },
+    {
+      "title": "Demonstratives (bu, şu, o)",
+      "level": "A1",
+      "function": "Point things out",
+      "source": "contributor",
+      "reviewed": true,
+      "display_order": 2,
+      "explanation": "Three distances: bu (this, near me), şu (that, a bit away / something I'm pointing at), o (that, over there — also 'he/she/it'). With a noun they work like English: bu kitap (this book), o ev (that house).",
+      "culture_note": "",
+      "references": [
+        {
+          "title": "Wikipedia: Turkish grammar",
+          "url": "https://en.wikipedia.org/wiki/Turkish_grammar"
+        },
+        {
+          "title": "Wiktionary: bu (Turkish)",
+          "url": "https://en.wiktionary.org/wiki/bu#Turkish"
+        }
+      ],
+      "drills": [
+        {
+          "sentence": "{{answer}} bir kitap.",
+          "answer": "Bu",
+          "translation": "This is a book.",
+          "hint": "near the speaker",
+          "display_order": 1
+        },
+        {
+          "sentence": "{{answer}} bir ev.",
+          "answer": "O",
+          "translation": "That (over there) is a house.",
+          "hint": "far from both speakers",
+          "display_order": 2
+        }
+      ]
+    },
+    {
+      "title": "Plural (-ler / -lar)",
+      "level": "A1",
+      "function": "Talk about more than one",
+      "source": "contributor",
+      "reviewed": true,
+      "display_order": 3,
+      "explanation": "Form the plural by adding -ler after front vowels and -lar after back vowels. Important exception: after a number, the noun stays singular — üç kitap ('three books'), never üç kitaplar.",
+      "culture_note": "",
+      "references": [
+        {
+          "title": "Wikipedia: Turkish grammar",
+          "url": "https://en.wikipedia.org/wiki/Turkish_grammar"
+        },
+        {
+          "title": "Wiktionary: -ler (Turkish)",
+          "url": "https://en.wiktionary.org/wiki/-ler#Turkish"
+        }
+      ],
+      "drills": [
+        {
+          "sentence": "Evde iki {{answer}} var.",
+          "answer": "kedi",
+          "translation": "There are two cats in the house.",
+          "hint": "noun stays SINGULAR after a number",
+          "display_order": 1
+        },
+        {
+          "sentence": "{{answer}} bahçede.",
+          "answer": "Çocuklar",
+          "translation": "The children are in the garden.",
+          "hint": "çocuk + back-vowel plural",
+          "display_order": 2
+        }
+      ]
+    },
+    {
+      "title": "Question particle (mı / mi / mu / mü)",
+      "level": "A1",
+      "function": "Turn any statement into a yes/no question",
+      "source": "contributor",
+      "reviewed": true,
+      "display_order": 4,
+      "explanation": "Add the particle after the word you are asking about; it is written separately and harmonizes with the last vowel: kitap mı?, öğrenci mi?, doktor mu?, Türk mü? Personal endings attach to the particle: Öğrenci misin? (Are you a student?).",
+      "culture_note": "",
+      "references": [
+        {
+          "title": "Wikipedia: Turkish grammar",
+          "url": "https://en.wikipedia.org/wiki/Turkish_grammar"
+        },
+        {
+          "title": "Wiktionary: mı (Turkish)",
+          "url": "https://en.wiktionary.org/wiki/m%C4%B1#Turkish"
+        }
+      ],
+      "drills": [
+        {
+          "sentence": "Sen öğrenci {{answer}}?",
+          "answer": "misin",
+          "translation": "Are you a student?",
+          "hint": "mi + -sin",
+          "display_order": 1
+        },
+        {
+          "sentence": "Bu kitap {{answer}}?",
+          "answer": "mı",
+          "translation": "Is this a book?",
+          "hint": "harmonizes with 'kitap'",
+          "display_order": 2
+        }
+      ]
+    },
+    {
+      "title": "Locative case (-de / -da)",
+      "level": "A1",
+      "function": "Say where something is",
+      "source": "contributor",
+      "reviewed": true,
+      "display_order": 5,
       "explanation": "The locative suffix means 'in/on/at'. It harmonizes with the last vowel of the word: -de after front vowels (e, i, ö, ü) and -da after back vowels (a, ı, o, u). After a voiceless consonant it hardens to -te/-ta.",
       "culture_note": "Vowel harmony runs through almost all Turkish suffixes — learning to hear front vs back vowels pays off everywhere.",
       "references": [
@@ -27,64 +172,112 @@
       ],
       "drills": [
         {
-          "sentence": "Kitap {{answer}}.",
-          "answer": "masada",
-          "translation": "The book is on the table.",
-          "hint": "masa + -da (back vowel)",
+          "sentence": "Ben {{answer}}.",
+          "answer": "evdeyim",
+          "translation": "I am at home.",
+          "hint": "ev + -de + -(y)im",
           "display_order": 1
         },
         {
-          "sentence": "Öğretmen {{answer}}.",
-          "answer": "evde",
-          "translation": "The teacher is at home.",
-          "hint": "ev + -de (front vowel)",
+          "sentence": "Kitap {{answer}}.",
+          "answer": "masada",
+          "translation": "The book is on the table.",
+          "hint": "masa + -da",
           "display_order": 2
         }
       ]
     },
     {
-      "title": "Plural (-ler / -lar)",
+      "title": "Var / yok — there is, there isn't",
       "level": "A1",
+      "function": "Say what exists and what doesn't",
       "source": "contributor",
       "reviewed": true,
-      "display_order": 2,
-      "explanation": "Form the plural by adding -ler after front vowels and -lar after back vowels. Important exception: after a number, the noun stays singular — üç kitap ('three books'), never üç kitaplar.",
+      "display_order": 6,
+      "explanation": "'Var' asserts existence and 'yok' denies it; both come at the end: Evde süt var (There is milk at home), Parkta kimse yok (There is nobody in the park). With the locative this is also how Turkish says 'have': Bende para var (I have money, lit. 'at me money exists').",
       "culture_note": "",
+      "references": [
+        {
+          "title": "Wikipedia: Turkish grammar",
+          "url": "https://en.wikipedia.org/wiki/Turkish_grammar"
+        },
+        {
+          "title": "Wiktionary: var (Turkish)",
+          "url": "https://en.wiktionary.org/wiki/var#Turkish"
+        }
+      ],
       "drills": [
         {
-          "sentence": "{{answer}} masada.",
-          "answer": "kitaplar",
-          "translation": "The books are on the table.",
-          "hint": "kitap + -lar (back vowel)",
+          "sentence": "Evde süt {{answer}}.",
+          "answer": "var",
+          "translation": "There is milk at home.",
+          "hint": "existence",
           "display_order": 1
         },
         {
-          "sentence": "{{answer}} okulda.",
-          "answer": "öğrenciler",
-          "translation": "The students are at school.",
-          "hint": "öğrenci + -ler (front vowel)",
+          "sentence": "Parkta kimse {{answer}}.",
+          "answer": "yok",
+          "translation": "There is no one in the park.",
+          "hint": "non-existence",
           "display_order": 2
         }
-      ],
+      ]
+    },
+    {
+      "title": "Possessive suffixes (-im, -in, -i…)",
+      "level": "A1",
+      "function": "Say whose something is",
+      "source": "contributor",
+      "reviewed": true,
+      "display_order": 7,
+      "explanation": "Possession is marked ON the possessed noun: ev-im (my house), ev-in (your house), ev-i (his/her house). The optional genitive pronoun adds emphasis: benim evim. Vowels harmonize: araba-m (my car), araban (your car).",
+      "culture_note": "",
       "references": [
         {
-          "title": "Wikipedia: Turkish grammar — plural",
-          "url": "https://en.wikipedia.org/wiki/Turkish_grammar#Plural"
+          "title": "Wikipedia: Turkish grammar",
+          "url": "https://en.wikipedia.org/wiki/Turkish_grammar"
         },
         {
-          "title": "Wiktionary: -ler (Turkish)",
-          "url": "https://en.wiktionary.org/wiki/-ler#Turkish"
+          "title": "Wikipedia: Turkish grammar — possession",
+          "url": "https://en.wikipedia.org/wiki/Turkish_grammar#Possessive_suffixes"
+        }
+      ],
+      "drills": [
+        {
+          "sentence": "Benim {{answer}} büyük.",
+          "answer": "evim",
+          "translation": "My house is big.",
+          "hint": "ev + -im",
+          "display_order": 1
+        },
+        {
+          "sentence": "Senin {{answer}} nerede?",
+          "answer": "araban",
+          "translation": "Where is your car?",
+          "hint": "araba + -n",
+          "display_order": 2
         }
       ]
     },
     {
       "title": "Present continuous (-iyor)",
       "level": "A1",
+      "function": "Talk about what is happening now",
       "source": "contributor",
       "reviewed": true,
-      "display_order": 3,
+      "display_order": 8,
       "explanation": "The -iyor suffix marks an ongoing action ('am/is/are doing'). Its buffer vowel harmonizes (ı/i/u/ü) and a personal ending follows. For 'I', add -um: oku → okuyorum, iç → içiyorum.",
       "culture_note": "",
+      "references": [
+        {
+          "title": "Wikipedia: Turkish grammar — present continuous",
+          "url": "https://en.wikipedia.org/wiki/Turkish_grammar#Present_tense"
+        },
+        {
+          "title": "Wiktionary: -iyor (Turkish)",
+          "url": "https://en.wiktionary.org/wiki/-iyor#Turkish"
+        }
+      ],
       "drills": [
         {
           "sentence": "Ben kitap {{answer}}.",
@@ -94,21 +287,83 @@
           "display_order": 1
         },
         {
-          "sentence": "Ben su {{answer}}.",
-          "answer": "içiyorum",
-          "translation": "I am drinking water.",
-          "hint": "iç + -iyor + -um",
+          "sentence": "O çay {{answer}}.",
+          "answer": "içiyor",
+          "translation": "He/she is drinking tea.",
+          "hint": "iç + -iyor",
           "display_order": 2
         }
-      ],
+      ]
+    },
+    {
+      "title": "Negative present continuous (-miyor)",
+      "level": "A1",
+      "function": "Say what is not happening",
+      "source": "contributor",
+      "reviewed": true,
+      "display_order": 9,
+      "explanation": "Insert the negative -m(a/e)- before -iyor; the vowel harmonizes and shrinks: iç-m-iyor-um → içmiyorum (I am not drinking), izle-m-iyor → izlemiyor (he isn't watching). The stress falls just before the negative.",
+      "culture_note": "",
       "references": [
         {
-          "title": "Wikipedia: Turkish grammar — present continuous",
-          "url": "https://en.wikipedia.org/wiki/Turkish_grammar#Present_tense"
+          "title": "Wikipedia: Turkish grammar",
+          "url": "https://en.wikipedia.org/wiki/Turkish_grammar"
         },
         {
-          "title": "Wiktionary: -iyor (Turkish)",
-          "url": "https://en.wiktionary.org/wiki/-iyor#Turkish"
+          "title": "Wiktionary: -me (Turkish negative)",
+          "url": "https://en.wiktionary.org/wiki/-me#Turkish"
+        }
+      ],
+      "drills": [
+        {
+          "sentence": "Ben kahve {{answer}}.",
+          "answer": "içmiyorum",
+          "translation": "I am not drinking coffee.",
+          "hint": "iç + -m + -iyor + -um",
+          "display_order": 1
+        },
+        {
+          "sentence": "O televizyon {{answer}}.",
+          "answer": "izlemiyor",
+          "translation": "He is not watching TV.",
+          "hint": "izle + -m + -iyor",
+          "display_order": 2
+        }
+      ]
+    },
+    {
+      "title": "Accusative case (-ı / -i / -u / -ü)",
+      "level": "A1",
+      "function": "Mark a specific, definite object",
+      "source": "contributor",
+      "reviewed": true,
+      "display_order": 10,
+      "explanation": "A DEFINITE direct object takes the accusative: Kitabı okuyorum (I am reading THE book) vs Kitap okuyorum (I read books / a book, indefinite — no suffix). The vowel harmonizes four ways, and final p/ç/t/k soften: kitap → kitabı.",
+      "culture_note": "Whether the object is 'definite' decides the suffix — a meaning-driven case system rather than a mechanical one.",
+      "references": [
+        {
+          "title": "Wikipedia: Turkish grammar",
+          "url": "https://en.wikipedia.org/wiki/Turkish_grammar"
+        },
+        {
+          "title": "Wikipedia: Turkish grammar — cases",
+          "url": "https://en.wikipedia.org/wiki/Turkish_grammar#Cases"
+        }
+      ],
+      "drills": [
+        {
+          "sentence": "Ben {{answer}} okuyorum.",
+          "answer": "kitabı",
+          "translation": "I am reading the book.",
+          "hint": "kitap → kitabı (definite object)",
+          "display_order": 1
+        },
+        {
+          "sentence": "O {{answer}} seviyor.",
+          "answer": "çayı",
+          "translation": "He/she loves the tea.",
+          "hint": "çay + -ı",
+          "display_order": 2
         }
       ]
     }

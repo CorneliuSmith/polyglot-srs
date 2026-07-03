@@ -326,6 +326,66 @@ async def test_personal_cloze_card_flow_and_isolation(pool):
     assert [c for c in b_due if c["card_type"] == "personal"] == []
 
 
+async def test_grammar_curriculum_path(pool):
+    """The browsable grammar path: ordered points with can-do functions, the
+    learner's status overlaid, readable point pages, and per-point learning."""
+    from backend.repositories.curriculum import (
+        get_curriculum,
+        get_curriculum_point,
+        learn_point,
+    )
+
+    lang = await _language(pool, "curr1")
+    user = await _new_user(pool, "path@learn")
+    async with pool.privileged_connection() as conn:
+        first = await conn.fetchval(
+            "INSERT INTO grammar_points "
+            " (language_id, title, level, function_note, explanation, reviewed, display_order, reference_links) "
+            "VALUES ($1, 'Point one', 'A1', 'Say who you are', 'Explained.', true, 1, "
+            " '[{\"title\": \"Source\", \"url\": \"https://example.org/one\"}]'::jsonb) RETURNING id",
+            lang,
+        )
+        await conn.execute(
+            "INSERT INTO drill_sentences (grammar_point_id, sentence, answer, translation, display_order) "
+            "VALUES ($1, 'Yo {{answer}} aquí.', 'estoy', 'I am here.', 1)", first,
+        )
+        # readable but NOT quizzable (no drills), later in the path
+        await conn.execute(
+            "INSERT INTO grammar_points (language_id, title, level, function_note, reviewed, display_order) "
+            "VALUES ($1, 'Point two', 'A2', 'Describe things', true, 1)", lang,
+        )
+        # invisible draft (unreviewed, no AI pass) must not appear
+        await conn.execute(
+            "INSERT INTO grammar_points (language_id, title, level, reviewed, display_order) "
+            "VALUES ($1, 'Hidden draft', 'A1', false, 2)", lang,
+        )
+
+    async with pool.rls_connection(user) as conn:
+        path = await get_curriculum(conn, user, lang)
+        assert [p["title"] for p in path] == ["Point one", "Point two"]  # ordered, draft hidden
+        assert path[0]["function_note"] == "Say who you are"
+        assert path[0]["learnable"] is True and path[0]["learned"] is False
+        assert path[1]["learnable"] is False  # no drills -> read-only
+
+        # The point page reads like a lesson: completed example + source.
+        page = await get_curriculum_point(conn, user, str(first))
+        assert page["examples"][0]["sentence"] == "Yo estoy aquí."
+        assert page["references"][0]["url"] == "https://example.org/one"
+
+        # Learn THIS point from the path; it becomes due and is idempotent.
+        assert (await learn_point(conn, user, str(first)))["added"] is True
+        assert (await learn_point(conn, user, str(first))) == {
+            "added": False, "reason": "already_learned",
+        }
+        drill_less = next(p["id"] for p in path if p["title"] == "Point two")
+        assert (await learn_point(conn, user, drill_less))["reason"] == "no_drills"
+
+        refreshed = await get_curriculum(conn, user, lang)
+        assert refreshed[0]["learned"] is True
+        due = await get_due_cards(conn, lang)
+    assert any(c["correct_answer"] == "estoy" for c in due)
+
+
 async def test_sentences_rotate_with_repetitions(pool):
     """Successive reviews show DIFFERENT sentences for the same item, so the
     learner practices the word/pattern rather than memorizing one string."""

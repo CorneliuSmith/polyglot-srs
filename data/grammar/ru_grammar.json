@@ -2,27 +2,136 @@
   "lists": [
     {
       "level": "A1",
-      "title": "Russian A1 Grammar",
-      "description": "Foundational Russian grammar: core cases and verb aspect."
+      "title": "Russian A1 Grammar Path",
+      "description": "A1 grammar in TORFL-elementary order: gender and 'это' sentences first, then present-tense verbs, the first cases (prepositional for place, accusative for objects), possessives, past tense, and the genitive of absence."
     }
   ],
   "points": [
     {
-      "title": "Prepositional case (location: в / на)",
+      "title": "Gender of nouns (он, она, оно)",
       "level": "A1",
+      "function": "Refer back to people and things",
       "source": "contributor",
       "reviewed": true,
       "display_order": 1,
-      "explanation": "The prepositional case marks location after в (in) and на (on). It only ever appears after a preposition, which is why it is called 'prepositional'. Most nouns take the ending -е: стол → на столе, Москва → в Москве.",
-      "culture_note": "Use в for enclosed spaces and cities (в Москве) and на for surfaces, open areas, and some events (на работе, 'at work').",
+      "explanation": "Every noun is masculine, feminine, or neuter — usually visible in the ending: consonant = masculine (дом), -а/-я = feminine (книга), -о/-е = neuter (окно). The pronoun that replaces a noun matches its gender: Где дом? — Он там. Где книга? — Она на столе.",
+      "culture_note": "",
       "references": [
         {
-          "title": "Wiktionary: Russian prepositional case",
-          "url": "https://en.wiktionary.org/wiki/Appendix:Russian_nouns"
+          "title": "Wikipedia: Test of Russian as a Foreign Language (TORFL)",
+          "url": "https://en.wikipedia.org/wiki/Test_of_Russian_as_a_Foreign_Language"
         },
         {
-          "title": "Wikipedia: Prepositional case",
-          "url": "https://en.wikipedia.org/wiki/Prepositional_case"
+          "title": "Wikipedia: Russian declension — gender",
+          "url": "https://en.wikipedia.org/wiki/Russian_declension"
+        }
+      ],
+      "drills": [
+        {
+          "sentence": "Где книга? — {{answer}} на столе.",
+          "answer": "Она",
+          "translation": "Where is the book? — It is on the table.",
+          "hint": "книга is feminine",
+          "display_order": 1
+        },
+        {
+          "sentence": "Где дом? — {{answer}} там.",
+          "answer": "Он",
+          "translation": "Where is the house? — It is there.",
+          "hint": "дом is masculine",
+          "display_order": 2
+        }
+      ]
+    },
+    {
+      "title": "Это — this is / it is",
+      "level": "A1",
+      "function": "Introduce and identify things",
+      "source": "contributor",
+      "reviewed": true,
+      "display_order": 2,
+      "explanation": "'Это' plus a noun makes a complete sentence — Russian drops 'to be' in the present: Это дом (This is a house), Это мой друг (This is my friend). Negate with не: Это не школа.",
+      "culture_note": "No articles and no present-tense 'to be': 'Я студент' is literally 'I student' — and completely correct.",
+      "references": [
+        {
+          "title": "Wikipedia: Russian grammar",
+          "url": "https://en.wikipedia.org/wiki/Russian_grammar"
+        },
+        {
+          "title": "Wiktionary: это (Russian)",
+          "url": "https://en.wiktionary.org/wiki/%D1%8D%D1%82%D0%BE#Russian"
+        }
+      ],
+      "drills": [
+        {
+          "sentence": "{{answer}} мой друг.",
+          "answer": "Это",
+          "translation": "This is my friend.",
+          "hint": "identifying someone",
+          "display_order": 1
+        },
+        {
+          "sentence": "{{answer}} школа.",
+          "answer": "Это",
+          "translation": "This is a school.",
+          "hint": "identifying a thing",
+          "display_order": 2
+        }
+      ]
+    },
+    {
+      "title": "Present tense (читать, говорить)",
+      "level": "A1",
+      "function": "Talk about what people do",
+      "source": "contributor",
+      "reviewed": true,
+      "display_order": 3,
+      "explanation": "First conjugation (читать): читаю, читаешь, читает, читаем, читаете, читают. Second conjugation (говорить): говорю, говоришь, говорит, говорим, говорите, говорят. The ending alone tells you the person, so pronouns are often kept for clarity but the verb does the work.",
+      "culture_note": "",
+      "references": [
+        {
+          "title": "Wikipedia: Test of Russian as a Foreign Language (TORFL)",
+          "url": "https://en.wikipedia.org/wiki/Test_of_Russian_as_a_Foreign_Language"
+        },
+        {
+          "title": "Wikipedia: Russian conjugation",
+          "url": "https://en.wikipedia.org/wiki/Russian_conjugation"
+        }
+      ],
+      "drills": [
+        {
+          "sentence": "Я {{answer}} книгу.",
+          "answer": "читаю",
+          "translation": "I am reading a book.",
+          "hint": "читать, я",
+          "display_order": 1
+        },
+        {
+          "sentence": "Ты хорошо {{answer}} по-русски.",
+          "answer": "говоришь",
+          "translation": "You speak Russian well.",
+          "hint": "говорить, ты",
+          "display_order": 2
+        }
+      ]
+    },
+    {
+      "title": "Prepositional case (location: в / на)",
+      "level": "A1",
+      "function": "Say where something is",
+      "source": "contributor",
+      "reviewed": true,
+      "display_order": 4,
+      "explanation": "The prepositional case marks location after в (in) and на (on). It only ever appears after a preposition, which is why it is taught first among the cases: в Москве (in Moscow), на столе (on the table). Singular endings are usually -е.",
+      "culture_note": "",
+      "references": [
+        {
+          "title": "Wikipedia: Test of Russian as a Foreign Language (TORFL)",
+          "url": "https://en.wikipedia.org/wiki/Test_of_Russian_as_a_Foreign_Language"
+        },
+        {
+          "title": "Wikipedia: Russian declension — prepositional",
+          "url": "https://en.wikipedia.org/wiki/Russian_declension"
         }
       ],
       "drills": [
@@ -30,14 +139,14 @@
           "sentence": "Книга на {{answer}}.",
           "answer": "столе",
           "translation": "The book is on the table.",
-          "hint": "стол → prepositional",
+          "hint": "стол + -е",
           "display_order": 1
         },
         {
           "sentence": "Я живу в {{answer}}.",
           "answer": "Москве",
           "translation": "I live in Moscow.",
-          "hint": "Москва → prepositional",
+          "hint": "Москва + -е",
           "display_order": 2
         }
       ]
@@ -45,70 +154,152 @@
     {
       "title": "Accusative case (direct object)",
       "level": "A1",
+      "function": "Say what the action is done to",
       "source": "contributor",
       "reviewed": true,
-      "display_order": 2,
-      "explanation": "The accusative marks the direct object — the thing the action is done to. Feminine nouns ending in -а change to -у (книга → книгу). Most masculine inanimate and neuter nouns look the same as the dictionary form.",
+      "display_order": 5,
+      "explanation": "The direct object takes the accusative. Feminine -а becomes -у (книга → книгу, газета → газету); masculine inanimate nouns don't change (читаю журнал). Animate masculine nouns borrow the genitive form — that contrast comes at A2.",
       "culture_note": "",
-      "drills": [
-        {
-          "sentence": "Я читаю {{answer}}.",
-          "answer": "книгу",
-          "translation": "I am reading a book.",
-          "hint": "книга → accusative",
-          "display_order": 1
-        },
-        {
-          "sentence": "Я люблю {{answer}}.",
-          "answer": "музыку",
-          "translation": "I love music.",
-          "hint": "музыка → accusative",
-          "display_order": 2
-        }
-      ],
       "references": [
         {
-          "title": "Wikipedia: Russian grammar — accusative",
+          "title": "Wikipedia: Test of Russian as a Foreign Language (TORFL)",
+          "url": "https://en.wikipedia.org/wiki/Test_of_Russian_as_a_Foreign_Language"
+        },
+        {
+          "title": "Wikipedia: Russian declension — accusative",
           "url": "https://en.wikipedia.org/wiki/Russian_declension#Accusative"
         },
         {
           "title": "Wiktionary: Russian nouns (declension)",
           "url": "https://en.wiktionary.org/wiki/Appendix:Russian_nouns"
         }
+      ],
+      "drills": [
+        {
+          "sentence": "Я читаю {{answer}}.",
+          "answer": "книгу",
+          "translation": "I am reading a book.",
+          "hint": "книга → книгу",
+          "display_order": 1
+        },
+        {
+          "sentence": "Она пишет {{answer}}.",
+          "answer": "письмо",
+          "translation": "She is writing a letter.",
+          "hint": "neuter — no change",
+          "display_order": 2
+        }
+      ]
+    },
+    {
+      "title": "Possessive pronouns (мой, моя, моё)",
+      "level": "A1",
+      "function": "Say whose something is",
+      "source": "contributor",
+      "reviewed": true,
+      "display_order": 6,
+      "explanation": "Possessives agree with the gender of the THING owned, not the owner: мой дом (m), моя книга (f), моё окно (n), мои книги (pl). The same pattern covers твой (your), наш (our), ваш (your, formal/plural).",
+      "culture_note": "",
+      "references": [
+        {
+          "title": "Wikipedia: Russian grammar",
+          "url": "https://en.wikipedia.org/wiki/Russian_grammar"
+        },
+        {
+          "title": "Wiktionary: мой (Russian)",
+          "url": "https://en.wiktionary.org/wiki/%D0%BC%D0%BE%D0%B9#Russian"
+        }
+      ],
+      "drills": [
+        {
+          "sentence": "Это {{answer}} книга.",
+          "answer": "моя",
+          "translation": "This is my book.",
+          "hint": "книга is feminine",
+          "display_order": 1
+        },
+        {
+          "sentence": "Это {{answer}} дом.",
+          "answer": "мой",
+          "translation": "This is my house.",
+          "hint": "дом is masculine",
+          "display_order": 2
+        }
+      ]
+    },
+    {
+      "title": "Past tense (-л)",
+      "level": "A1",
+      "function": "Talk about what happened",
+      "source": "contributor",
+      "reviewed": true,
+      "display_order": 7,
+      "explanation": "Drop -ть and add -л, then agree with the SUBJECT's gender: он читал, она читала, оно читало, они читали. Even 'to be' reappears in the past: он был, она была, они были.",
+      "culture_note": "The past tense agrees in gender, not person — a historical participle. A woman says 'я читала', a man 'я читал'.",
+      "references": [
+        {
+          "title": "Wikipedia: Test of Russian as a Foreign Language (TORFL)",
+          "url": "https://en.wikipedia.org/wiki/Test_of_Russian_as_a_Foreign_Language"
+        },
+        {
+          "title": "Wikipedia: Russian conjugation — past",
+          "url": "https://en.wikipedia.org/wiki/Russian_conjugation"
+        }
+      ],
+      "drills": [
+        {
+          "sentence": "Она {{answer}} в Москве.",
+          "answer": "была",
+          "translation": "She was in Moscow.",
+          "hint": "быть, feminine subject",
+          "display_order": 1
+        },
+        {
+          "sentence": "Он {{answer}} фильм.",
+          "answer": "смотрел",
+          "translation": "He watched a film.",
+          "hint": "смотреть, masculine subject",
+          "display_order": 2
+        }
       ]
     },
     {
       "title": "Genitive of absence (у меня нет …)",
       "level": "A1",
+      "function": "Say what you have and don't have",
       "source": "contributor",
       "reviewed": true,
-      "display_order": 3,
-      "explanation": "To say something is absent, use нет followed by the genitive case. Masculine nouns typically add -а (брат → брата); feminine -а nouns change to -ы/-и (вода → воды).",
-      "culture_note": "The same pattern expresses 'I don't have …': у меня нет + genitive.",
-      "drills": [
-        {
-          "sentence": "У меня нет {{answer}}.",
-          "answer": "брата",
-          "translation": "I don't have a brother.",
-          "hint": "брат → genitive",
-          "display_order": 1
-        },
-        {
-          "sentence": "Здесь нет {{answer}}.",
-          "answer": "воды",
-          "translation": "There is no water here.",
-          "hint": "вода → genitive",
-          "display_order": 2
-        }
-      ],
+      "display_order": 8,
+      "explanation": "Possession is 'у + person + есть': У меня есть брат (I have a brother). Absence is 'нет + genitive': У меня нет брата (I don't have a brother — брат takes genitive -а). This у-construction is the everyday way to say 'have'; the verb иметь is bookish.",
+      "culture_note": "",
       "references": [
         {
-          "title": "Wikipedia: Russian grammar — genitive",
+          "title": "Wikipedia: Test of Russian as a Foreign Language (TORFL)",
+          "url": "https://en.wikipedia.org/wiki/Test_of_Russian_as_a_Foreign_Language"
+        },
+        {
+          "title": "Wikipedia: Russian declension — genitive",
           "url": "https://en.wikipedia.org/wiki/Russian_declension#Genitive"
         },
         {
           "title": "Wiktionary: нет (Russian)",
           "url": "https://en.wiktionary.org/wiki/%D0%BD%D0%B5%D1%82#Russian"
+        }
+      ],
+      "drills": [
+        {
+          "sentence": "У меня нет {{answer}}.",
+          "answer": "времени",
+          "translation": "I have no time.",
+          "hint": "время in the genitive",
+          "display_order": 1
+        },
+        {
+          "sentence": "У неё нет {{answer}}.",
+          "answer": "машины",
+          "translation": "She doesn't have a car.",
+          "hint": "машина → genitive -ы",
+          "display_order": 2
         }
       ]
     }

@@ -82,6 +82,7 @@ class GrammarSeeder:
             points.append({
                 "title": title,
                 "level": p.get("level"),
+                "function": (p.get("function") or "").strip() or None,
                 "explanation": (p.get("explanation") or "").strip() or None,
                 "culture_note": (p.get("culture_note") or "").strip() or None,
                 "source": source,
@@ -119,10 +120,11 @@ class GrammarSeeder:
                 gp_id = await conn.fetchval(
                     """
                     INSERT INTO grammar_points
-                        (language_id, title, explanation, culture_note, level,
-                         display_order, explanation_source, reviewed, reference_links)
-                    VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9::jsonb)
+                        (language_id, title, function_note, explanation, culture_note,
+                         level, display_order, explanation_source, reviewed, reference_links)
+                    VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10::jsonb)
                     ON CONFLICT (language_id, title) DO UPDATE SET
+                        function_note = EXCLUDED.function_note,
                         explanation = EXCLUDED.explanation,
                         culture_note = EXCLUDED.culture_note,
                         level = EXCLUDED.level,
@@ -132,9 +134,9 @@ class GrammarSeeder:
                         reference_links = EXCLUDED.reference_links
                     RETURNING id
                     """,
-                    language_id, point["title"], point["explanation"],
-                    point["culture_note"], point["level"], point["display_order"],
-                    point["source"], point["reviewed"],
+                    language_id, point["title"], point.get("function"),
+                    point["explanation"], point["culture_note"], point["level"],
+                    point["display_order"], point["source"], point["reviewed"],
                     json.dumps(point.get("references") or [], ensure_ascii=False),
                 )
                 # Replace drills so re-seeding is idempotent.

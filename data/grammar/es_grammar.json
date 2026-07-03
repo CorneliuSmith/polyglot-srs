@@ -2,60 +2,453 @@
   "lists": [
     {
       "level": "A1",
-      "title": "Spanish A1 Grammar",
-      "description": "Foundational Spanish grammar: articles, ser, and present-tense verbs."
+      "title": "Spanish A1 Grammar Path",
+      "description": "A1 grammar in Plan Curricular (Instituto Cervantes) order: pronouns and nouns first, then articles, the two copulas, present-tense verb families, negation, existence, and questions."
     }
   ],
   "points": [
     {
-      "title": "Definite articles (el / la)",
+      "title": "Subject pronouns (yo, tú, él…)",
       "level": "A1",
+      "function": "Say who you are talking about",
       "source": "contributor",
       "reviewed": true,
       "display_order": 1,
-      "explanation": "Spanish nouns have grammatical gender. Use 'el' before masculine singular nouns and 'la' before feminine singular nouns. Most nouns ending in -o are masculine (el libro) and most ending in -a are feminine (la casa), but there are exceptions you learn word by word.",
-      "culture_note": "Gender is grammatical, not literal — 'el mapa' (the map) is masculine despite ending in -a, a Greek-derived exception.",
+      "explanation": "The subject pronouns are: yo (I), tú (you, informal), él/ella (he/she), usted (you, formal), nosotros/nosotras (we), vosotros/vosotras (you all, Spain), ellos/ellas (they), ustedes (you all). Because the verb ending already shows the person, Spanish usually DROPS the pronoun — you say it mainly for emphasis or contrast: 'Yo soy de México (pero él no)'.",
+      "culture_note": "tú vs usted matters socially: tú with friends, family, and peers; usted with strangers, elders, and formal situations. Regions differ — much of Latin America uses ustedes for ALL plural 'you'.",
       "references": [
-        {"title": "Wikipedia: Spanish nouns — gender", "url": "https://en.wikipedia.org/wiki/Spanish_nouns#Gender"},
-        {"title": "Wikipedia: Spanish determiners — articles", "url": "https://en.wikipedia.org/wiki/Spanish_determiners#Articles"}
+        {
+          "title": "Plan Curricular del Instituto Cervantes: Gramática A1–A2",
+          "url": "https://cvc.cervantes.es/ensenanza/biblioteca_ele/plan_curricular/niveles/02_gramatica_inventario_a1-a2.htm"
+        },
+        {
+          "title": "Wikipedia: Spanish pronouns",
+          "url": "https://en.wikipedia.org/wiki/Spanish_pronouns"
+        }
       ],
       "drills": [
-        {"sentence": "{{answer}} casa es grande.", "answer": "la", "translation": "The house is big.", "hint": "feminine singular", "display_order": 1},
-        {"sentence": "{{answer}} libro es nuevo.", "answer": "el", "translation": "The book is new.", "hint": "masculine singular", "display_order": 2}
+        {
+          "sentence": "{{answer}} soy de México.",
+          "answer": "Yo",
+          "translation": "I am from Mexico.",
+          "hint": "the 'I' pronoun, said for emphasis",
+          "display_order": 1
+        },
+        {
+          "sentence": "{{answer}} eres mi amigo.",
+          "answer": "Tú",
+          "translation": "You are my friend.",
+          "hint": "informal singular 'you'",
+          "display_order": 2
+        }
+      ]
+    },
+    {
+      "title": "Gender and number of nouns",
+      "level": "A1",
+      "function": "Name people and things, one or many",
+      "source": "contributor",
+      "reviewed": true,
+      "display_order": 2,
+      "explanation": "Every Spanish noun is masculine or feminine. Most nouns in -o are masculine (libro) and most in -a are feminine (casa). Plurals add -s after a vowel (casa → casas) and -es after a consonant (ciudad → ciudades). Gender and number ripple through the whole sentence — articles and adjectives must match the noun.",
+      "culture_note": "",
+      "references": [
+        {
+          "title": "Plan Curricular del Instituto Cervantes: Gramática A1–A2",
+          "url": "https://cvc.cervantes.es/ensenanza/biblioteca_ele/plan_curricular/niveles/02_gramatica_inventario_a1-a2.htm"
+        },
+        {
+          "title": "Wikipedia: Spanish nouns",
+          "url": "https://en.wikipedia.org/wiki/Spanish_nouns"
+        }
+      ],
+      "drills": [
+        {
+          "sentence": "Tengo dos {{answer}}.",
+          "answer": "libros",
+          "translation": "I have two books.",
+          "hint": "plural of libro",
+          "display_order": 1
+        },
+        {
+          "sentence": "Las {{answer}} son bonitas.",
+          "answer": "casas",
+          "translation": "The houses are pretty.",
+          "hint": "plural of casa",
+          "display_order": 2
+        }
+      ]
+    },
+    {
+      "title": "Definite articles (el / la)",
+      "level": "A1",
+      "function": "Point to a specific thing",
+      "source": "contributor",
+      "reviewed": true,
+      "display_order": 3,
+      "explanation": "Spanish nouns have grammatical gender. Use 'el' before masculine singular nouns and 'la' before feminine singular nouns; the plurals are 'los' and 'las'. Most nouns ending in -o are masculine (el libro) and most ending in -a are feminine (la casa), but there are exceptions you learn word by word.",
+      "culture_note": "Gender is grammatical, not literal — 'el mapa' (the map) is masculine despite ending in -a, a Greek-derived exception.",
+      "references": [
+        {
+          "title": "Plan Curricular del Instituto Cervantes: Gramática A1–A2",
+          "url": "https://cvc.cervantes.es/ensenanza/biblioteca_ele/plan_curricular/niveles/02_gramatica_inventario_a1-a2.htm"
+        },
+        {
+          "title": "Wikipedia: Spanish determiners — articles",
+          "url": "https://en.wikipedia.org/wiki/Spanish_determiners#Articles"
+        }
+      ],
+      "drills": [
+        {
+          "sentence": "{{answer}} casa es grande.",
+          "answer": "la",
+          "translation": "The house is big.",
+          "hint": "feminine singular",
+          "display_order": 1
+        },
+        {
+          "sentence": "{{answer}} libro es nuevo.",
+          "answer": "el",
+          "translation": "The book is new.",
+          "hint": "masculine singular",
+          "display_order": 2
+        }
+      ]
+    },
+    {
+      "title": "Indefinite articles (un / una)",
+      "level": "A1",
+      "function": "Mention something for the first time",
+      "source": "contributor",
+      "reviewed": true,
+      "display_order": 4,
+      "explanation": "'Un' goes before masculine singular nouns and 'una' before feminine singular nouns: un perro, una casa. The plurals 'unos/unas' mean 'some'. Use the indefinite article to introduce something new; after that, switch to el/la because it is now known.",
+      "culture_note": "",
+      "references": [
+        {
+          "title": "Plan Curricular del Instituto Cervantes: Gramática A1–A2",
+          "url": "https://cvc.cervantes.es/ensenanza/biblioteca_ele/plan_curricular/niveles/02_gramatica_inventario_a1-a2.htm"
+        },
+        {
+          "title": "Wiktionary: un (Spanish)",
+          "url": "https://en.wiktionary.org/wiki/un#Spanish"
+        }
+      ],
+      "drills": [
+        {
+          "sentence": "Tengo {{answer}} perro.",
+          "answer": "un",
+          "translation": "I have a dog.",
+          "hint": "masculine singular",
+          "display_order": 1
+        },
+        {
+          "sentence": "Es {{answer}} casa grande.",
+          "answer": "una",
+          "translation": "It is a big house.",
+          "hint": "feminine singular",
+          "display_order": 2
+        }
       ]
     },
     {
       "title": "The verb ser (to be) — present",
       "level": "A1",
+      "function": "Say who or what someone is",
       "source": "contributor",
       "reviewed": true,
-      "display_order": 2,
+      "display_order": 5,
       "explanation": "'Ser' expresses permanent or defining qualities: identity, origin, profession. Present forms: soy, eres, es, somos, sois, son. Use ser for who/what something is (Soy estudiante), and the separate verb estar for temporary states and location.",
       "culture_note": "Spanish has two verbs for 'to be' — ser (essence) and estar (state). 'Es aburrido' = he is boring; 'está aburrido' = he is bored.",
       "references": [
-        {"title": "Wikipedia: Spanish verbs — ser and estar", "url": "https://en.wikipedia.org/wiki/Spanish_verbs#Ser_and_estar"},
-        {"title": "Wiktionary: ser (Spanish)", "url": "https://en.wiktionary.org/wiki/ser#Spanish"}
+        {
+          "title": "Plan Curricular del Instituto Cervantes: Gramática A1–A2",
+          "url": "https://cvc.cervantes.es/ensenanza/biblioteca_ele/plan_curricular/niveles/02_gramatica_inventario_a1-a2.htm"
+        },
+        {
+          "title": "Wikipedia: Spanish verbs — ser and estar",
+          "url": "https://en.wikipedia.org/wiki/Spanish_verbs#Ser_and_estar"
+        },
+        {
+          "title": "Wiktionary: ser (Spanish)",
+          "url": "https://en.wiktionary.org/wiki/ser#Spanish"
+        }
       ],
       "drills": [
-        {"sentence": "Yo {{answer}} estudiante.", "answer": "soy", "translation": "I am a student.", "hint": "yo form of ser", "display_order": 1},
-        {"sentence": "Nosotros {{answer}} amigos.", "answer": "somos", "translation": "We are friends.", "hint": "nosotros form of ser", "display_order": 2}
+        {
+          "sentence": "Yo {{answer}} estudiante.",
+          "answer": "soy",
+          "translation": "I am a student.",
+          "hint": "yo form of ser",
+          "display_order": 1
+        },
+        {
+          "sentence": "Nosotros {{answer}} amigos.",
+          "answer": "somos",
+          "translation": "We are friends.",
+          "hint": "nosotros form of ser",
+          "display_order": 2
+        }
+      ]
+    },
+    {
+      "title": "The verb estar — location and states",
+      "level": "A1",
+      "function": "Say where things are and how you feel",
+      "source": "contributor",
+      "reviewed": true,
+      "display_order": 6,
+      "explanation": "'Estar' covers location and temporary states: estoy, estás, está, estamos, estáis, están. Location ALWAYS takes estar, even for permanent places: 'Madrid está en España'. States that can change — tired, cold, happy — also take estar: 'Estoy cansado'.",
+      "culture_note": "",
+      "references": [
+        {
+          "title": "Plan Curricular del Instituto Cervantes: Gramática A1–A2",
+          "url": "https://cvc.cervantes.es/ensenanza/biblioteca_ele/plan_curricular/niveles/02_gramatica_inventario_a1-a2.htm"
+        },
+        {
+          "title": "Wiktionary: estar (Spanish)",
+          "url": "https://en.wiktionary.org/wiki/estar#Spanish"
+        }
+      ],
+      "drills": [
+        {
+          "sentence": "Yo {{answer}} en casa.",
+          "answer": "estoy",
+          "translation": "I am at home.",
+          "hint": "yo form of estar",
+          "display_order": 1
+        },
+        {
+          "sentence": "La comida {{answer}} fría.",
+          "answer": "está",
+          "translation": "The food is cold.",
+          "hint": "él/ella form of estar",
+          "display_order": 2
+        }
       ]
     },
     {
       "title": "Present tense of -ar verbs",
       "level": "A1",
+      "function": "Talk about what people do",
       "source": "contributor",
       "reviewed": true,
-      "display_order": 3,
+      "display_order": 7,
       "explanation": "Regular -ar verbs (hablar, estudiar, trabajar) drop -ar and add endings: -o, -as, -a, -amos, -áis, -an. So hablar → hablo, hablas, habla, hablamos, habláis, hablan.",
       "culture_note": "-ar verbs are the largest and most regular Spanish verb group, so mastering this pattern unlocks hundreds of verbs at once.",
       "references": [
-        {"title": "Wikipedia: Spanish conjugation — present indicative", "url": "https://en.wikipedia.org/wiki/Spanish_conjugation#Present"},
-        {"title": "Wiktionary: hablar (conjugation)", "url": "https://en.wiktionary.org/wiki/hablar#Conjugation"}
+        {
+          "title": "Plan Curricular del Instituto Cervantes: Gramática A1–A2",
+          "url": "https://cvc.cervantes.es/ensenanza/biblioteca_ele/plan_curricular/niveles/02_gramatica_inventario_a1-a2.htm"
+        },
+        {
+          "title": "Wikipedia: Spanish conjugation — present indicative",
+          "url": "https://en.wikipedia.org/wiki/Spanish_conjugation#Present"
+        },
+        {
+          "title": "Wiktionary: hablar (conjugation)",
+          "url": "https://en.wiktionary.org/wiki/hablar#Conjugation"
+        }
       ],
       "drills": [
-        {"sentence": "Nosotros {{answer}} español.", "answer": "hablamos", "translation": "We speak Spanish.", "hint": "hablar, nosotros", "display_order": 1},
-        {"sentence": "Ella {{answer}} en una oficina.", "answer": "trabaja", "translation": "She works in an office.", "hint": "trabajar, ella", "display_order": 2}
+        {
+          "sentence": "Nosotros {{answer}} español.",
+          "answer": "hablamos",
+          "translation": "We speak Spanish.",
+          "hint": "hablar, nosotros",
+          "display_order": 1
+        },
+        {
+          "sentence": "Ella {{answer}} en una oficina.",
+          "answer": "trabaja",
+          "translation": "She works in an office.",
+          "hint": "trabajar, ella",
+          "display_order": 2
+        }
+      ]
+    },
+    {
+      "title": "Present tense of -er and -ir verbs",
+      "level": "A1",
+      "function": "Talk about eating, drinking, living, and more",
+      "source": "contributor",
+      "reviewed": true,
+      "display_order": 8,
+      "explanation": "-er verbs (comer, beber) take -o, -es, -e, -emos, -éis, -en; -ir verbs (vivir, escribir) are the same except nosotros/vosotros: -imos, -ís. So como, comes, come, comemos… and vivo, vives, vive, vivimos…",
+      "culture_note": "",
+      "references": [
+        {
+          "title": "Plan Curricular del Instituto Cervantes: Gramática A1–A2",
+          "url": "https://cvc.cervantes.es/ensenanza/biblioteca_ele/plan_curricular/niveles/02_gramatica_inventario_a1-a2.htm"
+        },
+        {
+          "title": "Wiktionary: comer (conjugation)",
+          "url": "https://en.wiktionary.org/wiki/comer#Conjugation"
+        },
+        {
+          "title": "Wiktionary: vivir (conjugation)",
+          "url": "https://en.wiktionary.org/wiki/vivir#Conjugation"
+        }
+      ],
+      "drills": [
+        {
+          "sentence": "Yo {{answer}} agua.",
+          "answer": "bebo",
+          "translation": "I drink water.",
+          "hint": "beber, yo",
+          "display_order": 1
+        },
+        {
+          "sentence": "Nosotros {{answer}} en Madrid.",
+          "answer": "vivimos",
+          "translation": "We live in Madrid.",
+          "hint": "vivir, nosotros",
+          "display_order": 2
+        }
+      ]
+    },
+    {
+      "title": "Negation with no",
+      "level": "A1",
+      "function": "Say what is not so",
+      "source": "contributor",
+      "reviewed": true,
+      "display_order": 9,
+      "explanation": "Put 'no' directly before the conjugated verb: 'No tengo tiempo' (I don't have time), 'Ella no habla inglés'. Answering a question negatively often doubles it: '¿Hablas francés? — No, no hablo francés.'",
+      "culture_note": "",
+      "references": [
+        {
+          "title": "Plan Curricular del Instituto Cervantes: Gramática A1–A2",
+          "url": "https://cvc.cervantes.es/ensenanza/biblioteca_ele/plan_curricular/niveles/02_gramatica_inventario_a1-a2.htm"
+        },
+        {
+          "title": "Wikipedia: Spanish grammar — negation",
+          "url": "https://en.wikipedia.org/wiki/Spanish_grammar#Negation"
+        }
+      ],
+      "drills": [
+        {
+          "sentence": "{{answer}} tengo tiempo.",
+          "answer": "No",
+          "translation": "I don't have time.",
+          "hint": "negation before the verb",
+          "display_order": 1
+        },
+        {
+          "sentence": "Ella {{answer}} habla inglés.",
+          "answer": "no",
+          "translation": "She doesn't speak English.",
+          "hint": "negation before the verb",
+          "display_order": 2
+        }
+      ]
+    },
+    {
+      "title": "Hay — there is / there are",
+      "level": "A1",
+      "function": "Say what exists or is available",
+      "source": "contributor",
+      "reviewed": true,
+      "display_order": 10,
+      "explanation": "'Hay' (from haber) is invariable: it means both 'there is' and 'there are'. 'Hay un libro en la mesa', 'Hay tres cafés', 'No hay leche'. Use hay for existence; use estar to locate something specific you already know about.",
+      "culture_note": "",
+      "references": [
+        {
+          "title": "Plan Curricular del Instituto Cervantes: Gramática A1–A2",
+          "url": "https://cvc.cervantes.es/ensenanza/biblioteca_ele/plan_curricular/niveles/02_gramatica_inventario_a1-a2.htm"
+        },
+        {
+          "title": "Wiktionary: hay (Spanish)",
+          "url": "https://en.wiktionary.org/wiki/hay#Spanish"
+        }
+      ],
+      "drills": [
+        {
+          "sentence": "{{answer}} un libro en la mesa.",
+          "answer": "Hay",
+          "translation": "There is a book on the table.",
+          "hint": "there is",
+          "display_order": 1
+        },
+        {
+          "sentence": "No {{answer}} leche.",
+          "answer": "hay",
+          "translation": "There is no milk.",
+          "hint": "there is (negated)",
+          "display_order": 2
+        }
+      ]
+    },
+    {
+      "title": "Question words (qué, dónde, cómo…)",
+      "level": "A1",
+      "function": "Ask about things, places, people, and time",
+      "source": "contributor",
+      "reviewed": true,
+      "display_order": 11,
+      "explanation": "The interrogatives carry a written accent: qué (what), dónde (where), cómo (how), quién (who), cuándo (when), cuánto (how much). Questions are wrapped in ¿…?: '¿Dónde estás?', '¿Cómo te llamas?'. Word order stays simple — question word + verb.",
+      "culture_note": "The upside-down ¿ opens every question in writing — it tells the reader the intonation before the sentence starts.",
+      "references": [
+        {
+          "title": "Plan Curricular del Instituto Cervantes: Gramática A1–A2",
+          "url": "https://cvc.cervantes.es/ensenanza/biblioteca_ele/plan_curricular/niveles/02_gramatica_inventario_a1-a2.htm"
+        },
+        {
+          "title": "Wikipedia: Spanish grammar — interrogatives",
+          "url": "https://en.wikipedia.org/wiki/Spanish_grammar"
+        }
+      ],
+      "drills": [
+        {
+          "sentence": "¿{{answer}} estás?",
+          "answer": "Dónde",
+          "translation": "Where are you?",
+          "hint": "asking about place",
+          "display_order": 1
+        },
+        {
+          "sentence": "¿{{answer}} te llamas?",
+          "answer": "Cómo",
+          "translation": "What is your name? (lit. how do you call yourself)",
+          "hint": "asking 'how'",
+          "display_order": 2
+        }
+      ]
+    },
+    {
+      "title": "Adjective agreement",
+      "level": "A1",
+      "function": "Describe people and things correctly",
+      "source": "contributor",
+      "reviewed": true,
+      "display_order": 12,
+      "explanation": "Adjectives match their noun in gender and number: casa blanca, libros nuevos. Adjectives in -o have four forms (blanco/blanca/blancos/blancas); adjectives in -e or a consonant only change for number (grande/grandes, azul/azules). Most adjectives FOLLOW the noun.",
+      "culture_note": "",
+      "references": [
+        {
+          "title": "Plan Curricular del Instituto Cervantes: Gramática A1–A2",
+          "url": "https://cvc.cervantes.es/ensenanza/biblioteca_ele/plan_curricular/niveles/02_gramatica_inventario_a1-a2.htm"
+        },
+        {
+          "title": "Wikipedia: Spanish adjectives",
+          "url": "https://en.wikipedia.org/wiki/Spanish_adjectives"
+        }
+      ],
+      "drills": [
+        {
+          "sentence": "La casa es {{answer}}.",
+          "answer": "blanca",
+          "translation": "The house is white.",
+          "hint": "blanco, feminine singular",
+          "display_order": 1
+        },
+        {
+          "sentence": "Los libros son {{answer}}.",
+          "answer": "nuevos",
+          "translation": "The books are new.",
+          "hint": "nuevo, masculine plural",
+          "display_order": 2
+        }
       ]
     }
   ]
