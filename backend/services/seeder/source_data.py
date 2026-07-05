@@ -741,6 +741,11 @@ def build_language(language: str, source: str, max_words: int, cache_dir: Path) 
 
 def build_sentences(language: str, cache_dir: Path, per_word: int = 3) -> Path:
     """Build data/{language}_sentences.tsv from Tatoeba (needs tatoeba.org access)."""
+    if language not in TATOEBA_ISO3:
+        raise ValueError(
+            f"No Tatoeba sentence pipeline for '{language}' yet "
+            f"(supported: {', '.join(sorted(TATOEBA_ISO3))})"
+        )
     iso3 = TATOEBA_ISO3[language]
     tgt = download(
         SOURCES["tatoeba_sentences"].format(iso3=iso3),
@@ -799,7 +804,14 @@ def main() -> None:
     args = parser.parse_args()
 
     logging.basicConfig(level=logging.INFO, format="%(name)s | %(message)s")
-    build_language(args.language, args.source, args.max_words, args.cache_dir)
+    freq_tsv = DATA_DIR / f"{args.language}_frequency.tsv"
+    if args.sentences and freq_tsv.exists():
+        # A sentences run must never rebuild — and possibly overwrite with a
+        # lesser source — a frequency file that already exists. Delete the
+        # TSV (or run without --sentences) to force a rebuild.
+        logger.info("Keeping existing %s; building sentences only", freq_tsv)
+    else:
+        build_language(args.language, args.source, args.max_words, args.cache_dir)
     if args.sentences:
         build_sentences(args.language, args.cache_dir)
 

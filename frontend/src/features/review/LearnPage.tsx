@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { useNavigate, useSearchParams } from 'react-router-dom'
 import { useMutation, useQuery } from '@tanstack/react-query'
 import { startLearnSession } from '../../api/review'
@@ -27,8 +27,12 @@ export default function LearnPage() {
     mutationFn: () => startLearnSession(activeLanguageId!, cardType),
   })
 
+  // Guard against firing twice (React 18 StrictMode remounts effects in dev) —
+  // a duplicate call would learn a second batch of items.
+  const started = useRef(false)
   useEffect(() => {
-    if (activeLanguageId) {
+    if (activeLanguageId && !started.current) {
+      started.current = true
       learnMutation.mutate()
     }
     // Run once on mount

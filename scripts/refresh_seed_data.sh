@@ -12,10 +12,11 @@ cd "$(dirname "$0")/.."
 
 for lang in tr sw yo ha xh es it fr de ca; do
     echo "=== $lang: frequency + translations (kaikki/Wiktionary, CC-BY-SA) ==="
-    python -m backend.services.seeder.source_data --language "$lang" --source kaikki
+    python -m backend.services.seeder.source_data --language "$lang" --source kaikki \
+        || echo "WARN: $lang frequency build failed — continuing. (ha needs a manual corpus under data/raw/hausa_corpus — see data/README.md)"
     echo "=== $lang: graded example sentences (Tatoeba, CC-BY) ==="
-    python -m backend.services.seeder.source_data --language "$lang" --sentences \
-        || echo "WARN: $lang sentences failed (Tatoeba unreachable or tiny corpus) — continuing"
+    python -m backend.services.seeder.source_data --language "$lang" --source kaikki --sentences \
+        || echo "WARN: $lang sentences skipped (no Tatoeba pipeline yet, Tatoeba unreachable, or tiny corpus) — continuing"
 done
 
 echo
