@@ -189,7 +189,7 @@ describe('ReviewSessionPage', () => {
     fireEvent.keyDown(input, { key: 'Enter' })
     await waitFor(() => screen.getByTestId('feedback-panel'))
 
-    fireEvent.click(screen.getByRole('button', { name: /typo\? re-enter/i }))
+    fireEvent.click(screen.getByRole('button', { name: /undo/i }))
 
     // Back to answering the SAME card, previous input restored for editing,
     // and nothing was submitted to the backend.

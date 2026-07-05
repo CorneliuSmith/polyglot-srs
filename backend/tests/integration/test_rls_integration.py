@@ -386,9 +386,10 @@ async def test_grammar_curriculum_path(pool):
     assert any(c["correct_answer"] == "estoy" for c in due)
 
 
-async def test_sentences_rotate_with_repetitions(pool):
-    """Successive reviews show DIFFERENT sentences for the same item, so the
-    learner practices the word/pattern rather than memorizing one string."""
+async def test_sentences_change_every_appearance(pool):
+    """Each appearance of a card shows a sentence at random but NEVER the one
+    shown immediately before (tracked via review_log.prompt_sentence) — the
+    learner practices the word/pattern, not one memorized string."""
     lang = await _language(pool, "rot1")
     user = await _new_user(pool, "rotate@learn")
     async with pool.privileged_connection() as conn:
@@ -424,21 +425,31 @@ async def test_sentences_rotate_with_repetitions(pool):
             "VALUES ($1, $2, 'grammar', $3) RETURNING id", user, lang, gp,
         )
 
-    seen_vocab, seen_grammar = set(), set()
-    for reps in (0, 1, 2):
+    async def _log_shown(cid, prompt):
         async with pool.privileged_connection() as conn:
             await conn.execute(
-                "UPDATE user_cards SET repetitions = $1, next_review = now() "
-                "WHERE id = ANY($2::uuid[])", reps, [card_id, g_card],
+                "INSERT INTO review_log (user_id, card_id, quality, answer_result, "
+                " interval_before, interval_after, prompt_sentence) "
+                "VALUES ($1, $2, 4, 'correct', 0, 1, $3)", user, cid, prompt,
             )
+
+    prev_v = prev_g = None
+    seen_v, seen_g = set(), set()
+    for _ in range(4):
         async with pool.rls_connection(user) as conn:
             due = {c["id"]: c for c in await get_due_cards(conn, lang)}
-        seen_vocab.add(due[card_id]["sentence"])
-        seen_grammar.add(due[g_card]["sentence"])
-    assert len(seen_vocab) == 2      # both sentences appeared across reps
-    assert len(seen_grammar) == 2    # both drills appeared across reps
-    # reps 0 and 2 wrap back to the same sentence (deterministic rotation)
-    assert all("{{answer}}" in s for s in seen_vocab | seen_grammar)
+        v_shown = due[card_id]["sentence"]
+        g_shown = due[g_card]["sentence"]
+        assert "{{answer}}" in v_shown and "{{answer}}" in g_shown
+        if prev_v is not None:
+            assert v_shown != prev_v   # never repeats the last-shown sentence
+            assert g_shown != prev_g
+        await _log_shown(card_id, v_shown)
+        await _log_shown(g_card, g_shown)
+        prev_v, prev_g = v_shown, g_shown
+        seen_v.add(v_shown)
+        seen_g.add(g_shown)
+    assert len(seen_v) == 2 and len(seen_g) == 2  # both contexts get exposure
 
 
 async def test_review_log_records_prompt_sentence(pool):
@@ -573,9 +584,11 @@ async def test_fsrs_weight_fit_resolve_and_isolation(pool):
                 a, card, quality, answer, i, i + 1,
                 base + timedelta(days=i * 2),
             )
-        # Fit per-language weights with a low threshold for the test.
+        # Fit per-language weights with a low threshold for the test. Other
+        # tests may have logged reviews for their own languages, so assert
+        # inclusively rather than on the exact count.
         fitted = await fit_languages(conn, min_reviews=2)
-        assert fitted == 1
+        assert fitted >= 1
         stored = await conn.fetchval(
             "SELECT params FROM fsrs_weights WHERE language_id = $1 AND scope = 'language'",
             lang,

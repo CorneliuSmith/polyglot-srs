@@ -31,9 +31,9 @@ describe('ReviewDetail', () => {
     expect(mockGetCardDetail).not.toHaveBeenCalled()
   })
 
-  it('labels the toggle "More examples" for vocab cards', () => {
+  it('labels the toggle "Show examples" for vocab cards', () => {
     renderDetail({ cardType: 'vocabulary' })
-    expect(screen.getByRole('button', { name: /more examples/i })).toBeDefined()
+    expect(screen.getByRole('button', { name: /show examples/i })).toBeDefined()
   })
 
   it('lazy-loads and shows grammar explanation + culture note on expand', async () => {

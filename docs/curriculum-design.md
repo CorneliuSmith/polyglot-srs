@@ -52,8 +52,9 @@ pages** (explanation, examples, sources), grouped by level, with per-point
 and `POST /api/curriculum/learn`.
 
 **Content depth targets** (owner-decided): paths run A1→**C2** per language;
-**6 drills per grammar point** (minimum 4) and **4 example sentences per
-vocabulary word**, so sentence rotation gives varied exposure on every review.
+**6 drills per grammar point** (minimum 4) and **6–10 graded example sentences
+per vocabulary word** (minimum 4; vocab ≥ grammar). A card shows a different
+sentence on every appearance — never the one shown last time.
 
 ## Invariants the code enforces
 

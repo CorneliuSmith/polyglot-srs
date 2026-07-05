@@ -10,6 +10,7 @@ import ReviewDetail from './ReviewDetail'
 import CardFeedback from './CardFeedback'
 import SessionSummary from './SessionSummary'
 import OnScreenKeyboard from '../keyboards/OnScreenKeyboard'
+import SpeakButton from '../../components/SpeakButton'
 import type { KeyboardLanguage } from '../keyboards/OnScreenKeyboard'
 
 export default function ReviewSessionPage() {
@@ -19,6 +20,8 @@ export default function ReviewSessionPage() {
   const [lastInput, setLastInput] = useState('')
   const [showKeyboard, setShowKeyboard] = useState(true)
   const [saveErrorCount, setSaveErrorCount] = useState(0)
+  // Graduated hint disclosure (Bunpro-style dots): 0 = nothing revealed.
+  const [hintLevel, setHintLevel] = useState(0)
   const inputRef = useRef<HTMLInputElement>(null)
 
   const { data: cards = [], isLoading } = useQuery({
@@ -70,10 +73,11 @@ export default function ReviewSessionPage() {
       card_id: card.id,
       answer_result: answerResult,
       time_taken_ms: session.elapsedMs(),
-      // sentences rotate per review — log which one was actually shown
+      // sentences change per appearance — log which one was actually shown
       prompt_sentence: card.sentence,
     })
 
+    setHintLevel(0)
     session.rate(answerResult)
   }
 
@@ -148,6 +152,20 @@ export default function ReviewSessionPage() {
   const card = session.currentCard
   if (!card) return null
 
+  // Hint layers available for this card: 1 = the gloss/hint, 2 = translation.
+  const maxHint = (card.hint ? 1 : 0) + (card.translation ? 1 : 0)
+  const translationHintAt = card.hint ? 2 : 1
+  const result = session.validationResult?.answer_result
+  const resultStyles =
+    result === 'correct'
+      ? 'border-green-400 text-green-700'
+      : result === 'correct_sloppy'
+        ? 'border-amber-400 text-amber-700'
+        : 'border-red-400 text-red-600'
+  const completedSentence = card.sentence.includes('{{answer}}')
+    ? card.sentence.replace('{{answer}}', card.correct_answer)
+    : card.correct_answer
+
   // Non-Latin scripts and Latin languages with accents/diacritics get an
   // on-screen helper. (Xhosa/English omitted: plain ASCII.)
   const needsKeyboard = [
@@ -167,6 +185,29 @@ export default function ReviewSessionPage() {
               : `${saveErrorCount} reviews could not be saved. Check your connection — they will reappear in a future session.`}
           </div>
         )}
+        {/* Session utility bar (Bunpro-style: exit, path, tutor, settings) */}
+        <div className="flex items-center justify-between">
+          <button
+            type="button"
+            onClick={() => navigate('/')}
+            aria-label="Exit session"
+            className="text-xl leading-none text-gray-400 hover:text-indigo-600"
+          >
+            ←
+          </button>
+          <div className="flex items-center gap-4 text-sm text-gray-400">
+            <button type="button" onClick={() => navigate('/grammar')} className="hover:text-indigo-600">
+              Path
+            </button>
+            <button type="button" onClick={() => navigate('/tutor')} className="hover:text-indigo-600">
+              Tutor
+            </button>
+            <button type="button" onClick={() => navigate('/settings')} aria-label="Settings" className="hover:text-indigo-600">
+              ⚙
+            </button>
+          </div>
+        </div>
+
         {/* Progress */}
         <div className="flex items-center justify-between text-sm text-gray-500">
           <span>
@@ -185,7 +226,7 @@ export default function ReviewSessionPage() {
 
         {/* Card area */}
         <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-6 md:p-8">
-          {card.hint && (
+          {card.hint && (session.phase !== 'answering' || hintLevel >= 1) && (
             <p className="text-sm text-gray-400 text-center mb-4">{card.hint}</p>
           )}
 
@@ -199,22 +240,44 @@ export default function ReviewSessionPage() {
             inputRef={inputRef}
           />
 
-          {card.translation && session.phase === 'answering' && (
-            <p className="text-xs text-gray-400 text-center mt-4">{card.translation}</p>
-          )}
+          {card.translation &&
+            (session.phase !== 'answering' || hintLevel >= translationHintAt) && (
+              <p className="text-xs text-gray-400 text-center mt-4">{card.translation}</p>
+            )}
         </div>
 
-        {/* Submit button (answering phase) */}
+        {/* Answer bar (answering phase): just the arrow, Bunpro-style */}
         {session.phase === 'answering' && (
-          <button
-            type="button"
-            onClick={handleSubmitAnswer}
-            disabled={!userInput.trim() || validateMutation.isPending}
-            className="w-full bg-indigo-600 hover:bg-indigo-700 disabled:opacity-50 text-white font-semibold rounded-xl px-6 py-3 text-sm transition-colors touch-manipulation"
-            style={{ minHeight: '44px' }}
-          >
-            {validateMutation.isPending ? 'Checking…' : 'Submit Answer'}
-          </button>
+          <div className="space-y-2">
+            <button
+              type="button"
+              aria-label="Submit answer"
+              onClick={handleSubmitAnswer}
+              disabled={!userInput.trim() || validateMutation.isPending}
+              className="w-full bg-white hover:bg-gray-50 disabled:opacity-40 text-gray-500 hover:text-indigo-600 rounded-2xl border-2 border-gray-300 px-6 py-2 text-2xl leading-none transition-colors touch-manipulation"
+              style={{ minHeight: '44px' }}
+            >
+              {validateMutation.isPending ? '…' : '→'}
+            </button>
+            {maxHint > 0 && (
+              <button
+                type="button"
+                aria-label="Show a hint"
+                onClick={() => setHintLevel((h) => Math.min(h + 1, maxHint))}
+                className="flex items-center gap-2 text-sm text-gray-400 hover:text-indigo-600"
+              >
+                Hint
+                {Array.from({ length: maxHint }).map((_, i) => (
+                  <span
+                    key={i}
+                    className={`inline-block w-2 h-2 rounded-full ${
+                      i < hintLevel ? 'bg-indigo-500' : 'bg-gray-300'
+                    }`}
+                  />
+                ))}
+              </button>
+            )}
+          </div>
         )}
 
         {/* On-screen keyboard for Russian and Arabic */}
@@ -261,39 +324,50 @@ export default function ReviewSessionPage() {
                   analysis) and just let the learner continue, with a manual
                   override for a lucky-correct answer. */}
               <div className="space-y-2">
-                <button
-                  type="button"
-                  onClick={() => handleRate(session.validationResult!.answer_result)}
-                  disabled={submitMutation.isPending}
-                  className="w-full bg-indigo-600 hover:bg-indigo-700 disabled:opacity-50 text-white font-semibold rounded-xl px-6 py-3 text-sm transition-colors"
-                  style={{ minHeight: '44px' }}
+                {/* Result pill: audio, the answer, and the arrow to continue.
+                    The grade was already decided by the NLP check. */}
+                <div
+                  className={`flex items-center gap-2 bg-white rounded-2xl border-2 px-3 py-1.5 shadow-sm ${resultStyles}`}
                 >
-                  Continue
-                </button>
-                {(session.validationResult.answer_result === 'correct' ||
-                  session.validationResult.answer_result === 'correct_sloppy') ? (
+                  <SpeakButton text={completedSentence} languageCode={card.language_code} />
+                  <span className="flex-1 text-center font-semibold">
+                    {card.correct_answer}
+                  </span>
                   <button
                     type="button"
-                    onClick={() => handleRate('wrong')}
+                    aria-label="Continue"
+                    onClick={() => handleRate(session.validationResult!.answer_result)}
                     disabled={submitMutation.isPending}
-                    className="block mx-auto text-xs text-gray-400 hover:text-red-500"
+                    className="text-2xl leading-none px-2 text-gray-500 hover:text-indigo-600 disabled:opacity-50"
+                    style={{ minHeight: '44px' }}
                   >
-                    I actually got it wrong
+                    →
                   </button>
-                ) : (
-                  /* Bunpro-style undo for slips: retype without recording a
-                     grade — the retry still counts toward time-taken. */
+                </div>
+                <div className="flex items-center justify-center gap-6">
+                  {/* Bunpro-style undo: retype without recording a grade. */}
                   <button
                     type="button"
                     onClick={() => {
                       setUserInput(lastInput)
                       session.retry()
                     }}
-                    className="block mx-auto text-xs text-gray-400 hover:text-indigo-600"
+                    className="text-xs text-gray-400 hover:text-indigo-600"
                   >
-                    Typo? Re-enter your answer
+                    ↺ Undo
                   </button>
-                )}
+                  {(session.validationResult.answer_result === 'correct' ||
+                    session.validationResult.answer_result === 'correct_sloppy') && (
+                    <button
+                      type="button"
+                      onClick={() => handleRate('wrong')}
+                      disabled={submitMutation.isPending}
+                      className="text-xs text-gray-400 hover:text-red-500"
+                    >
+                      I actually got it wrong
+                    </button>
+                  )}
+                </div>
               </div>
               <div className="text-center">
                 <CardFeedback cardId={card.id} />

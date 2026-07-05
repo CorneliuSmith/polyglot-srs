@@ -84,9 +84,10 @@ model for the agent doing it (see §6 for reasoning).
 ### WP1 — Variation sentences everywhere  ⭐ next
 **Targets (owner-decided):** every grammar point gets **6 drills** (hard
 minimum 4) varying person, tense, vocabulary, and register; every vocabulary
-word gets **4 example sentences** (the rotation engine already consumes as
-many as exist for both). Grammar gets more than vocab because the *pattern*
-is what varies; 4 contexts is sufficient for a word.
+word gets **6–10 graded example sentences** (hard minimum 4) — vocab carries
+AT LEAST as many sentences as grammar, matching Bunpro's long graded example
+lists (grade them via example_sentences.difficulty_rank). The engine already
+consumes as many as exist and picks a different one on every appearance.
 **Steps:** for each `data/grammar/{code}_grammar.json`, append drills to
 existing points (do not retitle); vary subject person, object, and setting;
 answers must stay single whole words/word-forms; every drill validated by
@@ -95,9 +96,10 @@ translations natural English. Well-resourced languages can be drafted by a
 cheaper model **but every batch goes through the AI semantic check**
 (`semantic_check.py`) and lands as `reviewed: true` only after a stronger
 model (or human) verifies each drill.
-**Acceptance:** 6 drills/point (≥4 floor) for all seeded grammar; 4 sentences/
-word for seeded vocab (extend data/sentences/*.tsv); seed passes; rotation
-integration test passes; spot-check 10 random drills/language.
+**Acceptance:** 6 drills/point (≥4 floor) for all seeded grammar; 6+ graded
+sentences/word (≥4 floor) for seeded vocab (extend data/sentences/*.tsv);
+seed passes; the per-appearance variety integration test passes; spot-check
+10 random drills/language.
 **Model:** African languages: `claude-fable-5` (or `claude-opus-4-8`); es/fr/
 de/it/tr/ru/en/ca: draft with `claude-sonnet-5`, verify with `claude-opus-4-8`.
 **Effort:** L (content), S (no code changes needed).
@@ -241,6 +243,21 @@ review forecast ("due tomorrow: N"); streak heatmap; per-deck settings.
 **Model:** `claude-sonnet-5` (`claude-haiku-4-5-20251001` for mechanical
 string extraction). **Effort:** M each.
 
+### WP13 — Session & item-page parity (Bunpro reference shots)
+Already adopted: arrow-only submit/continue pill, Undo (nothing recorded),
+graduated Hint dots, per-appearance sentence change, "Show examples" for
+vocab, session utility bar (exit/path/tutor/settings). Remaining, in order:
+(a) blur-until-toggled Sentence/Translation visibility in example lists;
+(b) Resources = references split Online (links) / Offline (book + page) with
+per-user read-tracking; (c) Related grid on grammar points (authorable
+`related` titles + contrastive one-liners + the learner's stage badge on each);
+(d) attach personal (self-study) sentences to vocabulary items and show them
+under Examples; (e) named SRS stages (Beginner/Adept/…) mapped from FSRS
+state + a progress panel (first studied, times studied, accuracy, ghost
+count); (f) Quick-Cram of a related set; (g) in-app search; (h) theme
+switcher. **Model:** `claude-sonnet-5` implementation with a design-consistency
+verify pass one tier up. **Effort:** M–L.
+
 ## 6. Model selection guide
 
 | Task type | Model | Why |
@@ -258,6 +275,20 @@ string extraction). **Effort:** M each.
 Two standing rules: **generated content is never self-certified** (a different,
 stronger model or a human verifies), and **African-language content always gets
 the strongest available model plus a human gate**.
+
+**Fallback chain when a model is retired or unavailable** (e.g. when
+`claude-fable-5` goes away): substitute the next tier down and keep the
+verifier one tier above the drafter —
+
+1. `claude-fable-5` → `claude-opus-4-8` → `claude-sonnet-5` →
+   `claude-haiku-4-5-20251001`.
+2. If newer Claude generations exist by then, remap by role instead of by
+   name: "latest frontier model" for low-resource linguistics, security, and
+   verification; "latest mid-tier" for feature code and high-resource
+   drafting; "latest small" for mechanical work. Check the current lineup at
+   platform.claude.com/docs before assigning.
+3. Never let the same model draft AND verify its own content batch — if only
+   one tier is available, a human takes the verify role.
 
 ## 7. Definition of done (any package)
 

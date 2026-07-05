@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import json
+import random
 
 import asyncpg
 
@@ -30,9 +31,10 @@ async def get_due_cards(
     # -- Vocabulary cards ---------------------------------------------------
     # Teach the word in context: a real example sentence with the word blanked
     # out (cloze), with its translation as a hint. All of the word's sentences
-    # are fetched and the shown one ROTATES with the card's repetition count,
-    # so the learner practices the word, not one memorized sentence. Falls back
-    # to the plain definition -> type-the-word prompt when no sentence works.
+    # are fetched and each APPEARANCE shows one at random — never the sentence
+    # shown last time (review_log.prompt_sentence) — so the learner practices
+    # the word, not one memorized string. Falls back to the plain
+    # definition -> type-the-word prompt when no sentence works.
     vocab_rows = await conn.fetch(
         """
         SELECT
@@ -45,6 +47,7 @@ async def get_due_cards(
             t.definition                    AS definition,
             ex.sentences                    AS example_sentences,
             ex.translations                 AS example_translations,
+            lp.prompt_sentence              AS last_prompt,
             v.morphology                    AS morphology,
             v.alternatives                  AS alternatives,
             l.code                          AS language_code,
@@ -68,6 +71,13 @@ async def get_due_cards(
             FROM example_sentences es
             WHERE es.vocabulary_id = v.id
         ) ex ON true
+        LEFT JOIN LATERAL (
+            SELECT rl.prompt_sentence
+            FROM review_log rl
+            WHERE rl.card_id = uc.id AND rl.prompt_sentence IS NOT NULL
+            ORDER BY rl.created_at DESC
+            LIMIT 1
+        ) lp ON true
         WHERE uc.language_id = $1
           AND uc.card_type = 'vocabulary'
           AND uc.next_review <= now()
@@ -80,8 +90,8 @@ async def get_due_cards(
     )
 
     # -- Grammar cards -------------------------------------------------------
-    # Fill-in-the-blank drills. All of a point's drills are fetched and the
-    # shown one rotates with the repetition count (same reasoning as vocab).
+    # Fill-in-the-blank drills. All of a point's drills are fetched and each
+    # appearance shows one at random, never the last-shown (same as vocab).
     grammar_rows = await conn.fetch(
         """
         SELECT
@@ -95,6 +105,7 @@ async def get_due_cards(
             d.answers                       AS drill_answers,
             d.hints                         AS drill_hints,
             d.translations                  AS drill_translations,
+            lp.prompt_sentence              AS last_prompt,
             l.code                          AS language_code,
             uc.ease_factor,
             uc.interval,
@@ -114,6 +125,13 @@ async def get_due_cards(
             FROM drill_sentences ds
             WHERE ds.grammar_point_id = gp.id
         ) d ON true
+        LEFT JOIN LATERAL (
+            SELECT rl.prompt_sentence
+            FROM review_log rl
+            WHERE rl.card_id = uc.id AND rl.prompt_sentence IS NOT NULL
+            ORDER BY rl.created_at DESC
+            LIMIT 1
+        ) lp ON true
         WHERE uc.language_id = $1
           AND uc.card_type = 'grammar'
           AND uc.next_review <= now()
@@ -191,25 +209,25 @@ def _srs_fields(r: asyncpg.Record) -> dict:
 def _vocab_card(r: asyncpg.Record) -> dict:
     """Shape a vocabulary row into a card, preferring a cloze example sentence.
 
-    The word's sentences rotate with the repetition count so successive reviews
-    show different contexts (memorize the word, not one sentence). Each
-    candidate is tried through make_cloze — a sentence where the word is
-    inflected beyond a whole-word match is skipped. Falls back to the
+    The sentence changes on EVERY appearance of the card (Bunpro-style): pick
+    randomly among the word's sentences, never repeating the one shown last
+    time (review_log.prompt_sentence). Sentences where the word is inflected
+    beyond a whole-word match are skipped by make_cloze. Falls back to the
     definition -> type-the-word prompt when nothing clozes.
     """
     word = r["word"]
     sentences = r["example_sentences"] or []
     translations = r["example_translations"] or []
-    sentence, translation, hint = (r["definition"] or word), None, None
-    n = len(sentences)
-    for i in range(n):
-        idx = (r["repetitions"] + i) % n
-        cloze = make_cloze(sentences[idx], word)
+    candidates = []
+    for i, raw in enumerate(sentences):
+        cloze = make_cloze(raw, word)
         if cloze:
-            sentence = cloze
-            translation = translations[idx] if idx < len(translations) else None
-            hint = r["definition"]
-            break
+            candidates.append((cloze, translations[i] if i < len(translations) else None))
+    sentence, translation, hint = (r["definition"] or word), None, None
+    if candidates:
+        pool = [c for c in candidates if c[0] != r["last_prompt"]] or candidates
+        sentence, translation = random.choice(pool)
+        hint = r["definition"]
     return {
         **_srs_fields(r),
         "sentence": sentence,
@@ -224,13 +242,16 @@ def _vocab_card(r: asyncpg.Record) -> dict:
 def _grammar_card(r: asyncpg.Record) -> dict:
     """Shape a grammar row into a fill-in-the-blank card, rotating drills.
 
-    Drills rotate with the repetition count. Points without drills fall back to
+    The drill changes on every appearance (random, never the last-shown). Points without drills fall back to
     a type-the-title card for legacy rows only — new learns are gated on having
     drills, so this shouldn't be reachable for fresh content.
     """
     drills = r["drill_sentences"] or []
     if drills:
-        idx = r["repetitions"] % len(drills)
+        pool = [i for i, d in enumerate(drills) if d != r["last_prompt"]] or list(
+            range(len(drills))
+        )
+        idx = random.choice(pool)
         sentence = drills[idx]
         answer = (r["drill_answers"] or [None])[idx]
         hint = (r["drill_hints"] or [None] * len(drills))[idx]
