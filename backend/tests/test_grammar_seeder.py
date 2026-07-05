@@ -47,7 +47,10 @@ class TestGrammarTransform:
         data = GrammarSeeder("fake://db", "tr").transform()
         titles = [p["title"] for p in data["points"]]
         assert any("Locative" in t for t in titles)
-        assert all(p["source"] == "contributor" and p["reviewed"] for p in data["points"])
+        # Every point has a valid source; the A1 core is human-reviewed, while
+        # deeper levels MAY be drafts (reviewed=false) awaiting verification.
+        assert all(p["source"] == "contributor" for p in data["points"])
+        assert any(p["reviewed"] for p in data["points"])
 
     def test_invalid_drills_and_points_skipped(self, tmp_path):
         import backend.services.seeder.seed_grammar as mod

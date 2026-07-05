@@ -318,7 +318,10 @@ async def add_learn_batch(
 
     vocab_ids = [r["id"] for r in vocab_rows]
 
-    # Insert new user_cards for each selected vocabulary item
+    # Insert new user_cards for each selected vocabulary item.
+    # ON CONFLICT DO NOTHING: two concurrent learn calls (e.g. React
+    # StrictMode double-firing the mutation) can both select the same
+    # candidates; the loser of the insert race must skip, not 500.
     inserted_ids = []
     for vocab_id in vocab_ids:
         row = await conn.fetchrow(
@@ -331,13 +334,15 @@ async def add_learn_batch(
                 ($1, $2, 'vocabulary', $3,
                  2.5, 0, 0, 0, 0,
                  now())
+            ON CONFLICT (user_id, card_type, card_id) DO NOTHING
             RETURNING id
             """,
             user_id,
             language_id,
             vocab_id,
         )
-        inserted_ids.append(str(row["id"]))
+        if row is not None:
+            inserted_ids.append(str(row["id"]))
 
     return {"added": len(inserted_ids), "items": inserted_ids}
 
@@ -389,6 +394,7 @@ async def add_grammar_learn_batch(
     if not rows:
         return {"added": 0, "items": []}
 
+    # Same racing-learn-call guard as add_learn_batch.
     inserted_ids = []
     for r in rows:
         row = await conn.fetchrow(
@@ -398,13 +404,15 @@ async def add_grammar_learn_batch(
                  ease_factor, interval, repetitions, streak, lapses, next_review)
             VALUES
                 ($1, $2, 'grammar', $3, 2.5, 0, 0, 0, 0, now())
+            ON CONFLICT (user_id, card_type, card_id) DO NOTHING
             RETURNING id
             """,
             user_id,
             language_id,
             r["id"],
         )
-        inserted_ids.append(str(row["id"]))
+        if row is not None:
+            inserted_ids.append(str(row["id"]))
 
     return {"added": len(inserted_ids), "items": inserted_ids}
 

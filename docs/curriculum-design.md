@@ -56,6 +56,42 @@ and `POST /api/curriculum/learn`.
 per vocabulary word** (minimum 4; vocab ≥ grammar). A card shows a different
 sentence on every appearance — never the one shown last time.
 
+## Language-shaped cards (typology principle)
+
+**Point counts SHOULD differ across languages — do not equalize them.**
+Bunpro's Japanese needs ~900 grammar points because Japanese externalizes
+meaning into thousands of distinct analytic phrase patterns. Synthetic
+languages (Russian, Turkish, the Bantu languages) pack the same meaning into
+morphology instead, so they legitimately have fewer phrase-pattern points —
+and the missing depth must be carried by **richer vocabulary cards that link
+back to grammar**, not by inventing filler points.
+
+Concrete per-typology rules for authors and agents:
+
+- **Russian aspect pairs** (читать/прочитать) are ONE vocabulary card: the
+  imperfective is the headword, the perfective partner lives in
+  `alternatives` + `morphology.aspect_partner` (the NLP layer already accepts
+  partners via `get_aspect_partner`), and the card links to the aspect
+  grammar point for learners confused about which to use. Same treatment for
+  **motion-verb pairs** (идти/ходить) → the verbs-of-motion point.
+- **Case-language nouns** (ru, de): the vocab card's `morphology` carries a
+  mini declension sample (nom/acc/gen at minimum) shown on the item page,
+  linking to the relevant case points. The learner meets the forms where the
+  word lives, and the rule where the pattern lives.
+- **Turkish (agglutinative)**: vocab cards show 2–3 harmonized suffixed forms
+  (evim, evde, evler) in `morphology`; the grammar path owns the suffix
+  system itself. Sneak vocabulary variety into grammar drills — every suffix
+  drill is also a vocab exposure.
+- **Bantu nouns** (sw, xh): the card always shows the class pair
+  (mtoto/watoto) and its concords, linking to that class's grammar point.
+- **Tonal languages** (yo): every form carries tone marks; tone-stripped
+  answers grade as CORRECT_SLOPPY (coach, don't fail — already enforced).
+
+The bridge mechanism is `vocabulary.morphology` (JSONB) + `alternatives` +
+the Related links planned in WP13(c), extended to vocab→grammar. Follow
+Bunpro's card model, but make informed per-language decisions so each word
+type teaches everything a learner needs about it.
+
 ## Invariants the code enforces
 
 - Visibility on the path = human-reviewed, or AI-passed when the language's

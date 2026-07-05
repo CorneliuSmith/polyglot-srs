@@ -10,6 +10,31 @@ A foolproof path to a working demo, plus what to watch for and report back.
 
 ## 1. One-time setup
 
+### 0. Python — use 3.11 or 3.12 (NOT 3.13/3.14)
+
+The full install pins NLP libraries (camel-tools, spaCy) that don't build on
+Python 3.13+. On 3.11/3.12 this works:
+
+```bash
+python3.12 -m venv .venv && source .venv/bin/activate
+pip install -e ".[dev]"
+```
+
+**On a newer Python (3.13/3.14) — or if the full install fails** — you can
+still run the whole demo with a lean install. Everything works except the
+heavyweight per-language lemmatizers (grading falls back to string/morphology
+matching, which the demo languages barely notice):
+
+```bash
+pip install fastapi "uvicorn[standard]" pydantic pydantic-settings asyncpg \
+    PyJWT cryptography httpx anthropic redis numpy scipy stripe
+pip install nltk   # only needed to seed English (WordNet glosses)
+```
+
+Do the steps below **in this order**: env → migrations → (optionally source
+fresh data) → seed → run. Seeding before migrations, or running before
+seeding, is what produces an app with nothing in it.
+
 ### a. Backend env (`.env`)
 Copy `.env.example` → `.env` and fill in the Supabase values (URL, anon key,
 service role key, JWT secret, `DATABASE_URL`). Then pick your demo mode:
@@ -46,10 +71,9 @@ for L in es fr de it ca mi yo ha xh; do
   python -m backend.services.seeder.run --language $L
 done
 
-# Grammar (reviewed points + cloze drills; also feeds placement):
-python -m backend.services.seeder.seed_grammar --language tr
-python -m backend.services.seeder.seed_grammar --language es
-python -m backend.services.seeder.seed_grammar --language ru
+# Grammar (reviewed points + cloze drills; also feeds placement) — seeds every
+# language with a path: es 43 · tr 40 · sw 32 · yo 24 · xh 24 · ha 22 · ru 8
+python -m backend.services.seeder.seed_grammar --language all
 
 # Example sentences — vocab is taught IN A SENTENCE (word blanked) when these
 # exist, not as a bare flashcard. Curated starters ship for every curated lang:
@@ -73,9 +97,30 @@ will be empty — re-run the seeders.
 > - **Grammar only**: Russian (its vocab needs an internet download).
 >
 > The curated starters (~30 words) are enough to demo onboarding → placement →
-> learn → review per language, but they're small. For a full corpus, run the
-> sourcing pipeline (`scripts/refresh_seed_data.sh`) from a machine with open
-> internet, then re-seed.
+> learn → review per language, but they're small.
+
+### e. Optional: pull full corpora (needs open internet)
+
+`scripts/refresh_seed_data.sh` rebuilds `data/*_frequency.tsv` and
+`data/*_sentences.tsv` from kaikki.org (Wiktionary) and Tatoeba. Notes:
+
+- Per-language failures **warn and continue** — a bad language no longer kills
+  the run.
+- **Hausa** needs a manually supplied corpus (drop plain text under
+  `data/raw/hausa_corpus/` — see `data/README.md`); until then its frequency
+  step warns and is skipped.
+- Sentences exist for **tr, sw, yo, xh, ha** (Tatoeba); the Romance/German
+  languages warn "no Tatoeba pipeline yet" — expected.
+- The files it writes are just TSVs — **nothing reaches the app until you
+  re-seed**:
+
+```bash
+./scripts/refresh_seed_data.sh
+python -m backend.services.seeder.run --language all        # vocab → DB
+for L in tr sw yo xh ha; do
+  python -m backend.services.seeder.seed_sentences --language $L
+done
+```
 
 ---
 
@@ -105,7 +150,7 @@ Sign up with a fresh account and walk the whole path. Expected behavior — and
 5. **Grammar path** (dashboard → "Grammar path") — the full ordered syllabus
    grouped by level, each point readable with a can-do line, explanation,
    examples, and sources; "Add to my reviews" pulls a single point into your
-   queue. (Try Spanish or Turkish — 12 and 10 points respectively.)
+   queue. (Try Spanish or Turkish — full A1→C2 paths, 43 and 40 points.)
 6. **After answering**, the feedback panel shows the correct answer with a 🔈
    **speaker button** — click it; Turkish should be spoken aloud. Expand
    **"Show grammar"** for the explanation + example sentences (also speakable).
@@ -137,15 +182,39 @@ A screenshot + the language + what you clicked is enough for me to chase it down
 
 ---
 
+## Troubleshooting — errors we've actually seen
+
+- **`pip install -e ".[dev]"` fails building camel-tools / spaCy** → you're on
+  Python 3.13/3.14. Use a 3.11/3.12 venv, or the lean install in §1.0.
+- **500 on "Learn" (`UniqueViolationError … user_cards_user_id_card_type_card_id_key`)**
+  → fixed; the learn endpoint is now idempotent under double-fired requests.
+  If you still see it you're running an old build — pull this branch and
+  restart uvicorn.
+- **`refresh_seed_data.sh` output shrinks (e.g. Turkish 10000 → 766 words) or
+  aborts at Hausa** → fixed; the sentences pass no longer rebuilds/overwrites
+  the frequency file, and per-language failures warn instead of aborting.
+  Re-run the script on this branch, then **re-seed** (§1e) — TSVs alone don't
+  change the app.
+- **App runs but everything is empty** (no placement items, "nothing to
+  learn") → the database wasn't seeded, or was seeded before migrations.
+  Check §1d's verify queries; `content_lists = 0` is the giveaway. Re-run
+  migrations, then all of §1d.
+- **Signup/login fails or every API call is 401** → frontend and backend point
+  at different Supabase projects, or the JWT settings in `.env` don't match
+  the project's. Recheck §1a/§1b.
+
+---
+
 ## Known limitations (not bugs — don't be surprised)
 
-- Content coverage today — grammar paths: **Swahili 32, Yoruba 24, Xhosa 24,
-  Hausa 22 points (A1→C1)**; Spanish 12, Turkish 10, Russian 8 (A1, deepening
-  planned). Vocab: Swahili/Turkish/Arabic/English corpora + curated starters
-  elsewhere (~30 words). See docs/ROADMAP.md for the build-out plan.
+- Content coverage today — grammar paths: **Spanish 43 and Turkish 40 (full
+  A1→C2)**; Swahili 32, Yoruba 24, Xhosa 24, Hausa 22 (A1→C1-equivalent);
+  Russian 8 (A1 — next to deepen). Vocab: Swahili/Turkish/Arabic/English
+  corpora + curated starters elsewhere (~30 words). See docs/ROADMAP.md for
+  the build-out plan.
 - **FSRS personalization** (per-language weight tuning) does nothing until real
   review history accumulates — everyone starts on solid defaults. Correct.
 - **Audio** uses the device's built-in voices, so quality/coverage varies by
   device; it's free and has a seam to add higher-quality cached audio later.
 - **Grammar in placement** only appears for languages with *reviewed* grammar
-  (Turkish, Russian).
+  (all seven languages with a path, after `seed_grammar --language all`).

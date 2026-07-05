@@ -6,6 +6,7 @@ intended, and that the actual repository SQL runs against the real schema.
 """
 from __future__ import annotations
 
+import asyncio
 import uuid
 from datetime import timedelta
 
@@ -204,6 +205,55 @@ async def test_vocab_learn_and_due_flow(pool):
         assert any(c["correct_answer"] == "casa" for c in due)
         detail = await get_card_detail(conn, due[0]["id"])
     assert detail["definition"] == "house"
+
+
+async def test_concurrent_learn_calls_are_idempotent(pool):
+    """Two learn calls racing (e.g. React StrictMode double-firing the learn
+    mutation) must not 500 with UniqueViolationError, and must not duplicate
+    cards. The first call holds its transaction open while the second selects
+    the same candidate — the second's INSERT then hits the unique index."""
+    lang = await _language(pool, "race1")
+    user = await _new_user(pool, "race@learn")
+    async with pool.privileged_connection() as conn:
+        await conn.execute(
+            "INSERT INTO vocabulary (language_id, word, frequency_rank, level) "
+            "VALUES ($1, 'agua', 1, 'A1')", lang,
+        )
+        list_id = await conn.fetchval(
+            "INSERT INTO content_lists (language_id, list_type, level, title) "
+            "VALUES ($1, 'vocabulary', 'A1', 'A1 vocab') RETURNING id", lang,
+        )
+        await conn.execute(
+            "INSERT INTO user_content_subscriptions (user_id, content_list_id) "
+            "VALUES ($1, $2)", user, list_id,
+        )
+
+    first_inserted = asyncio.Event()
+
+    async def first():
+        async with pool.rls_connection(user) as conn:
+            res = await add_learn_batch(conn, user, lang, 5)
+            first_inserted.set()
+            # Hold the transaction open so the second call's SELECT cannot see
+            # this insert and it races into the same unique-index slot.
+            await asyncio.sleep(0.3)
+            return res
+
+    async def second():
+        await first_inserted.wait()
+        async with pool.rls_connection(user) as conn:
+            return await add_learn_batch(conn, user, lang, 5)
+
+    r1, r2 = await asyncio.gather(first(), second())
+    assert r1["added"] == 1
+    assert r2["added"] == 0  # lost the race quietly — no UniqueViolationError
+
+    async with pool.privileged_connection() as conn:
+        n = await conn.fetchval(
+            "SELECT count(*) FROM user_cards "
+            "WHERE user_id = $1 AND card_type = 'vocabulary'", user,
+        )
+    assert n == 1
 
 
 async def test_vocab_card_is_cloze_when_example_sentence_exists(pool):
