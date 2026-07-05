@@ -33,7 +33,8 @@ coach from the learner's actual failure history.
   viewable on demand after any answer ("Show grammar"), and misses re-drill
   before the session ends.
 - **Grammar paths seeded**: es 43 (full A1→C2, Plan Curricular order),
-  sw 32 · yo 24 · xh 24 · ha 22 (A1→C1-equivalent), tr 10 · ru 8 (A1).
+  tr 40 (full A1→C2, cross-model verified), sw 32 · yo 24 · xh 24 ·
+  ha 22 (A1→C1-equivalent), ru 8 (A1 — next in WP2).
   Every point: can-do function, explanation, references, ≥2 validated
   drills. Volume target = Bunpro-level depth: WP1 (6 drills/pt, 6–10
   sentences/word) and WP2/WP3/WP4 grow every language toward 45–55 points.
