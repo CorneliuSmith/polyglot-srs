@@ -46,7 +46,11 @@ coach from the learner's actual failure history.
 1. **Pedagogy**: new items are TAUGHT before quizzed; a grammar point without
    drills is readable, never learnable; drills only use structures earlier in
    the path (processability); every point carries a can-do `function`,
-   references (official inventory where one exists), and level.
+   references (official inventory where one exists), and level. Cards are
+   **language-shaped**: follow "Language-shaped cards" in
+   docs/curriculum-design.md — point counts differ by typology, aspect/motion
+   pairs share a vocab card linking to their grammar point, case-language
+   nouns carry declension samples, Bantu nouns carry class pairs + concords.
 2. **Data flow**: all learner-visible content writes go through the seeders /
    privileged connection; never weaken an RLS policy; entitlements are written
    only by billing webhooks/seeders.
@@ -127,7 +131,10 @@ participial style, aspect nuance in context).
   aspect pairs; imperative; reflexives -ся; comparatives; short adjectives;
   numerals + case; time expressions; conditional бы; relative который;
   participles (active/passive); gerunds; impersonal constructions; verbal
-  prefixes.
+  prefixes. **Russian-specific card design:** aspect pairs and motion-verb
+  pairs are single vocab cards (partner in alternatives +
+  morphology.aspect_partner) linking to their grammar points; noun cards
+  carry declension samples — see "Language-shaped cards".
 **Acceptance:** same bar as existing points (function, refs incl. official
 inventory, 2+ drills each — 4+ if WP1 has landed); seed + suites green.
 **Model:** `claude-opus-4-8` or `claude-fable-5` (morphology accuracy).
@@ -259,6 +266,20 @@ state + a progress panel (first studied, times studied, accuracy, ghost
 count); (f) Quick-Cram of a related set; (g) in-app search; (h) theme
 switcher. **Model:** `claude-sonnet-5` implementation with a design-consistency
 verify pass one tier up. **Effort:** M–L.
+
+### WP14 — Dashboard parity (owner's Bunpro dashboard screenshots)
+Home page becomes the command center, our style: top bar keeps OUR
+differentiators — the **language switcher** and a **Tutor** link — alongside
+Learn/Review; big **Learn N/day** and **Review N** buttons with live counts;
+**review forecast** (hourly/daily, from user_cards.next_review); **activity
+chart** (reviews/day, vocab vs grammar, from review_log); **named-stage
+progress tiles** (Beginner/Adept/Seasoned/Expert/Master mapped from FSRS
+stability bands, plus Self-Study and Ghost counts) with a Grammar/Vocab
+toggle; **profile card** (streak flame week, per-level progress bars for
+grammar+vocab like Bunpro's JLPT bars — ours per CEFR level, days studied,
+last-session accuracy, items studied). Community section deferred until
+there's a community. **Model:** `claude-sonnet-5`, design pass one tier up.
+**Effort:** M–L.
 
 ## 6. Model selection guide
 
