@@ -32,9 +32,11 @@ coach from the learner's actual failure history.
   correct-but-lucky offers "I actually got it wrong", the grammar point is
   viewable on demand after any answer ("Show grammar"), and misses re-drill
   before the session ends.
-- **Grammar paths seeded**: sw 32 · yo 24 · xh 24 · ha 22 (A1→C1-equivalent),
-  es 12 · tr 10 · ru 8 (A1). Every point: can-do function, explanation,
-  references, ≥2 validated drills.
+- **Grammar paths seeded**: es 43 (full A1→C2, Plan Curricular order),
+  sw 32 · yo 24 · xh 24 · ha 22 (A1→C1-equivalent), tr 10 · ru 8 (A1).
+  Every point: can-do function, explanation, references, ≥2 validated
+  drills. Volume target = Bunpro-level depth: WP1 (6 drills/pt, 6–10
+  sentences/word) and WP2/WP3/WP4 grow every language toward 45–55 points.
 - **Vocabulary**: sw ~1200, tr ~770, ar/en corpora; ~30-word curated starters
   for es/fr/de/it/ca/mi/yo/ha/xh, each with cloze example sentences.
 - **Suites**: `backend/tests` (578) and `frontend` vitest (106) green.
