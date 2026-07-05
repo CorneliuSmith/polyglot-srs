@@ -187,6 +187,67 @@ describe('useReviewSession', () => {
     })
   })
 
+  describe('missed cards are re-drilled before the session ends', () => {
+    it('a wrong answer requeues the card at the end of the deck', () => {
+      const { result } = renderHook(() => useReviewSession([card1, card2]))
+      act(() => {
+        result.current.rate('wrong')
+      })
+      act(() => {
+        result.current.rate('correct')
+      })
+      // Both originals done, but the missed card comes back.
+      expect(result.current.isComplete).toBe(false)
+      expect(result.current.currentCard?.id).toBe('card-1')
+      act(() => {
+        result.current.rate('correct')
+      })
+      expect(result.current.isComplete).toBe(true)
+    })
+
+    it('wrong_form also requeues; correct does not', () => {
+      const { result } = renderHook(() => useReviewSession([card1]))
+      act(() => {
+        result.current.rate('wrong_form')
+      })
+      expect(result.current.isComplete).toBe(false)
+      expect(result.current.currentCard?.id).toBe('card-1')
+      act(() => {
+        result.current.rate('correct_sloppy')
+      })
+      expect(result.current.isComplete).toBe(true)
+    })
+
+    it('cardsReviewed counts unique cards, not retry attempts', () => {
+      const { result } = renderHook(() => useReviewSession([card1]))
+      act(() => {
+        result.current.rate('wrong')
+      })
+      act(() => {
+        result.current.rate('correct')
+      })
+      expect(result.current.results).toHaveLength(2) // both attempts recorded
+      expect(result.current.cardsReviewed).toBe(1)   // one card studied
+    })
+  })
+
+  describe('retry (typo re-entry)', () => {
+    it('returns to answering on the same card without recording a result', () => {
+      const { result } = renderHook(() => useReviewSession([card1, card2]))
+      act(() => {
+        result.current.setValidationResult({ answer_result: 'wrong', feedback: null })
+      })
+      expect(result.current.phase).toBe('feedback')
+      act(() => {
+        result.current.retry()
+      })
+      expect(result.current.phase).toBe('answering')
+      expect(result.current.currentCard?.id).toBe('card-1') // same card
+      expect(result.current.results).toHaveLength(0)        // nothing recorded
+      expect(result.current.validationResult).toBeNull()
+    })
+  })
+
   describe('elapsedMs', () => {
     it('returns a non-negative number', () => {
       const { result } = renderHook(() => useReviewSession([card1]))

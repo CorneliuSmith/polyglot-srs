@@ -291,16 +291,22 @@ def _format_memory(
                     morph = json.loads(morph)
                 except (json.JSONDecodeError, TypeError):
                     morph = {}
-            items.append({
+            item = {
+                # 'vocabulary' = a word; 'grammar' = a grammar point/pattern
+                "kind": area.get("kind") or "vocabulary",
                 "word": area.get("word"),
                 "meaning": area.get("definition"),
                 "part_of_speech": area.get("part_of_speech"),
                 "recent_failures": int(area.get("recent_failures") or 0),
                 "total_lapses": int(area.get("lapses") or 0),
                 "morphology": morph or {},
-            })
+            }
+            if area.get("level"):
+                item["cefr_level"] = area["level"]
+            items.append(item)
         parts.append(
-            "Current weak items (from their SRS review history, worst first):\n"
+            "Current weak items (from their SRS review history, worst first; "
+            "kind=grammar means a grammar pattern to coach, not a word):\n"
             + json.dumps(items, ensure_ascii=False, indent=1)
         )
 

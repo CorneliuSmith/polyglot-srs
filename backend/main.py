@@ -12,6 +12,7 @@ from backend.repositories.pool import close_pool, init_pool
 from backend.routers.auth import router as auth_router
 from backend.routers.billing import router as billing_router
 from backend.routers.contribute import router as contribute_router
+from backend.routers.curriculum import router as curriculum_router
 from backend.routers.dashboard import router as dashboard_router
 from backend.routers.languages import router as languages_router
 from backend.routers.notes import router as notes_router
@@ -45,6 +46,7 @@ def create_app() -> FastAPI:
     _app.include_router(auth_router, prefix="/api/auth", tags=["auth"])
     _app.include_router(dashboard_router, prefix="/api/dashboard", tags=["dashboard"])
     _app.include_router(languages_router, prefix="/api/languages", tags=["languages"])
+    _app.include_router(curriculum_router, prefix="/api/curriculum", tags=["curriculum"])
     _app.include_router(review_router, prefix="/api/review", tags=["review"])
     _app.include_router(notes_router, prefix="/api/notes", tags=["notes"])
     _app.include_router(onboarding_router, prefix="/api/onboarding", tags=["onboarding"])

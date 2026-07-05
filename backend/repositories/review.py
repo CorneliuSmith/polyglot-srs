@@ -19,6 +19,7 @@ async def insert_review_log(
     difficulty_before: float | None,
     difficulty_after: float,
     time_taken_ms: int | None,
+    prompt_sentence: str | None = None,
 ) -> dict:
     """Insert a review log entry (FSRS variables) and return the record."""
     row = await conn.fetchrow(
@@ -28,8 +29,8 @@ async def insert_review_log(
             interval_before, interval_after,
             stability_before, stability_after,
             difficulty_before, difficulty_after,
-            time_taken_ms
-        ) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11)
+            time_taken_ms, prompt_sentence
+        ) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12)
         RETURNING id, created_at
         """,
         user_id,
@@ -43,6 +44,7 @@ async def insert_review_log(
         difficulty_before,
         difficulty_after,
         time_taken_ms,
+        prompt_sentence,
     )
     return dict(row)
 

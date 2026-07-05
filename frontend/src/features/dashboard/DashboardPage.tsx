@@ -1,7 +1,6 @@
 import { Navigate, useNavigate } from 'react-router-dom'
-import { useQuery, useMutation } from '@tanstack/react-query'
+import { useQuery } from '@tanstack/react-query'
 import { getDashboardStats } from '../../api/dashboard'
-import { startLearnSession } from '../../api/review'
 import { getMyRoles } from '../../api/contribute'
 import { getOnboardingStatus } from '../../api/onboarding'
 import { usePrefsStore } from '../../stores/prefsStore'
@@ -43,22 +42,14 @@ export default function DashboardPage() {
   })
   const canContribute = (roleInfo?.roles?.length ?? 0) > 0
 
-  const learnMutation = useMutation({
-    mutationFn: (cardType: 'vocabulary' | 'grammar') =>
-      startLearnSession(activeLanguageId!, cardType),
-    onSuccess: () => navigate('/review'),
-  })
-
+  // Learning routes through /learn, which TEACHES the new items (lesson
+  // pages) before they are ever quizzed.
   const handleLearn = () => {
-    if (activeLanguageId) {
-      learnMutation.mutate('vocabulary')
-    }
+    if (activeLanguageId) navigate('/learn?type=vocabulary')
   }
 
   const handleLearnGrammar = () => {
-    if (activeLanguageId) {
-      learnMutation.mutate('grammar')
-    }
+    if (activeLanguageId) navigate('/learn?type=grammar')
   }
 
   const handleReview = () => {
@@ -75,6 +66,14 @@ export default function DashboardPage() {
         {/* Header */}
         <div className="flex items-center justify-between">
           <h1 className="text-2xl font-bold text-gray-900">Dashboard</h1>
+          <button
+            type="button"
+            onClick={() => navigate('/settings')}
+            aria-label="Settings"
+            className="text-sm text-gray-500 hover:text-indigo-600"
+          >
+            Settings
+          </button>
         </div>
 
         {/* Language picker */}
@@ -119,20 +118,20 @@ export default function DashboardPage() {
           <button
             type="button"
             onClick={handleLearn}
-            disabled={isLoading || learnMutation.isPending || !activeLanguageId}
+            disabled={isLoading || !activeLanguageId}
             className="w-full bg-indigo-600 hover:bg-indigo-700 disabled:opacity-50 text-white font-semibold rounded-xl px-6 py-3 text-sm transition-colors"
             style={{ minHeight: '44px' }}
           >
-            {learnMutation.isPending ? 'Starting…' : 'Learn Vocabulary'}
+            Learn Vocabulary
           </button>
           <button
             type="button"
             onClick={handleLearnGrammar}
-            disabled={isLoading || learnMutation.isPending || !activeLanguageId}
+            disabled={isLoading || !activeLanguageId}
             className="w-full bg-indigo-600 hover:bg-indigo-700 disabled:opacity-50 text-white font-semibold rounded-xl px-6 py-3 text-sm transition-colors"
             style={{ minHeight: '44px' }}
           >
-            {learnMutation.isPending ? 'Starting…' : 'Learn Grammar'}
+            Learn Grammar
           </button>
           <button
             type="button"
@@ -145,6 +144,23 @@ export default function DashboardPage() {
             {stats ? ` (${stats.due_count})` : ''}
           </button>
         </div>
+
+        {/* Grammar path */}
+        <button
+          type="button"
+          onClick={() => navigate('/grammar')}
+          disabled={!activeLanguageId}
+          className="w-full bg-white hover:bg-gray-50 disabled:opacity-50 text-gray-800 font-semibold rounded-xl px-6 py-3 text-sm border border-gray-200 transition-colors text-left flex items-center justify-between"
+          style={{ minHeight: '44px' }}
+        >
+          <span>
+            Grammar path
+            <span className="block text-xs font-normal text-gray-500">
+              Browse and read every grammar point in order
+            </span>
+          </span>
+          <span aria-hidden className="text-indigo-500">→</span>
+        </button>
 
         {/* AI Tutor */}
         <button

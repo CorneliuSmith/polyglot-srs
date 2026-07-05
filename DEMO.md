@@ -50,6 +50,12 @@ done
 python -m backend.services.seeder.seed_grammar --language tr
 python -m backend.services.seeder.seed_grammar --language es
 python -m backend.services.seeder.seed_grammar --language ru
+
+# Example sentences — vocab is taught IN A SENTENCE (word blanked) when these
+# exist, not as a bare flashcard. Curated starters ship for every curated lang:
+for L in es fr de it ca mi yo ha xh tr; do
+  python -m backend.services.seeder.seed_sentences --language $L
+done
 ```
 Verify it landed:
 ```bash
@@ -96,12 +102,16 @@ Sign up with a fresh account and walk the whole path. Expected behavior — and
    count > 0.
 4. **Learn Vocabulary / Learn Grammar** queues cards; **Review Due Cards** runs
    a session. Answer one right and one wrong.
-5. **After answering**, the feedback panel shows the correct answer with a 🔈
+5. **Grammar path** (dashboard → "Grammar path") — the full ordered syllabus
+   grouped by level, each point readable with a can-do line, explanation,
+   examples, and sources; "Add to my reviews" pulls a single point into your
+   queue. (Try Spanish or Turkish — 12 and 10 points respectively.)
+6. **After answering**, the feedback panel shows the correct answer with a 🔈
    **speaker button** — click it; Turkish should be spoken aloud. Expand
    **"Show grammar"** for the explanation + example sentences (also speakable).
-6. **Learn from your own text** — paste a Turkish sentence, tap a word, add a
+7. **Learn from your own text** — paste a Turkish sentence, tap a word, add a
    card; it enters your reviews.
-7. **AI Tutor** — opens and responds (mock or real), or shows the **Subscribe**
+8. **AI Tutor** — opens and responds (mock or real), or shows the **Subscribe**
    button if you configured the billing demo.
 
 ---
@@ -129,10 +139,10 @@ A screenshot + the language + what you clicked is enough for me to chase it down
 
 ## Known limitations (not bugs — don't be surprised)
 
-- Content coverage today: **Turkish & Spanish** (vocab + grammar), **Swahili /
-  Arabic / English** plus curated starters for **French, German, Italian,
-  Catalan, Maori, Yoruba, Hausa, Xhosa** (vocab), **Russian** (grammar only).
-  Starter sets are small (~30 words) — fine to demo, not a full curriculum.
+- Content coverage today — grammar paths: **Swahili 32, Yoruba 24, Xhosa 24,
+  Hausa 22 points (A1→C1)**; Spanish 12, Turkish 10, Russian 8 (A1, deepening
+  planned). Vocab: Swahili/Turkish/Arabic/English corpora + curated starters
+  elsewhere (~30 words). See docs/ROADMAP.md for the build-out plan.
 - **FSRS personalization** (per-language weight tuning) does nothing until real
   review history accumulates — everyone starts on solid defaults. Correct.
 - **Audio** uses the device's built-in voices, so quality/coverage varies by

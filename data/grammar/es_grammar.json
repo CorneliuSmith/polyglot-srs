@@ -2,48 +2,1582 @@
   "lists": [
     {
       "level": "A1",
-      "title": "Spanish A1 Grammar",
-      "description": "Foundational Spanish grammar: articles, ser, and present-tense verbs."
+      "title": "Spanish A1 Grammar Path",
+      "description": "A1 grammar in Plan Curricular (Instituto Cervantes) order: pronouns and nouns first, then articles, the two copulas, present-tense verb families, negation, existence, and questions."
+    },
+    {
+      "level": "A2",
+      "title": "Spanish A2 Grammar Path",
+      "description": "Everyday past and preferences: reflexives, gustar, the two pasts, plans, progressive, object pronouns, comparison."
+    },
+    {
+      "level": "B1",
+      "title": "Spanish B1 Grammar Path",
+      "description": "The independent-speaker layer: perfect, future, conditional, first subjunctive, commands, por/para, se, clitic clusters."
+    },
+    {
+      "level": "B2",
+      "title": "Spanish B2 Grammar Path",
+      "description": "Complex sentences: past subjunctive, conditionals, pluperfect, reported speech, precise relatives, purpose/concession."
+    },
+    {
+      "level": "C1",
+      "title": "Spanish C1 Grammar Path",
+      "description": "Formal register: perfect and pluperfect subjunctive, ser-passive, clefts."
+    },
+    {
+      "level": "C2",
+      "title": "Spanish C2 Grammar Path",
+      "description": "Native-like nuance: forceful concession, literary -se forms, layered denial."
     }
   ],
   "points": [
     {
-      "title": "Definite articles (el / la)",
+      "title": "Subject pronouns (yo, tú, él…)",
       "level": "A1",
+      "function": "Say who you are talking about",
       "source": "contributor",
       "reviewed": true,
       "display_order": 1,
-      "explanation": "Spanish nouns have grammatical gender. Use 'el' before masculine singular nouns and 'la' before feminine singular nouns. Most nouns ending in -o are masculine (el libro) and most ending in -a are feminine (la casa), but there are exceptions you learn word by word.",
-      "culture_note": "Gender is grammatical, not literal — 'el mapa' (the map) is masculine despite ending in -a, a Greek-derived exception.",
+      "explanation": "The subject pronouns are: yo (I), tú (you, informal), él/ella (he/she), usted (you, formal), nosotros/nosotras (we), vosotros/vosotras (you all, Spain), ellos/ellas (they), ustedes (you all). Because the verb ending already shows the person, Spanish usually DROPS the pronoun — you say it mainly for emphasis or contrast: 'Yo soy de México (pero él no)'.",
+      "culture_note": "tú vs usted matters socially: tú with friends, family, and peers; usted with strangers, elders, and formal situations. Regions differ — much of Latin America uses ustedes for ALL plural 'you'.",
+      "references": [
+        {
+          "title": "Plan Curricular del Instituto Cervantes: Gramática A1–A2",
+          "url": "https://cvc.cervantes.es/ensenanza/biblioteca_ele/plan_curricular/niveles/02_gramatica_inventario_a1-a2.htm"
+        },
+        {
+          "title": "Wikipedia: Spanish pronouns",
+          "url": "https://en.wikipedia.org/wiki/Spanish_pronouns"
+        }
+      ],
       "drills": [
-        {"sentence": "{{answer}} casa es grande.", "answer": "la", "translation": "The house is big.", "hint": "feminine singular", "display_order": 1},
-        {"sentence": "{{answer}} libro es nuevo.", "answer": "el", "translation": "The book is new.", "hint": "masculine singular", "display_order": 2}
+        {
+          "sentence": "{{answer}} soy de México.",
+          "answer": "Yo",
+          "translation": "I am from Mexico.",
+          "hint": "the 'I' pronoun, said for emphasis",
+          "display_order": 1
+        },
+        {
+          "sentence": "{{answer}} eres mi amigo.",
+          "answer": "Tú",
+          "translation": "You are my friend.",
+          "hint": "informal singular 'you'",
+          "display_order": 2
+        }
+      ]
+    },
+    {
+      "title": "Gender and number of nouns",
+      "level": "A1",
+      "function": "Name people and things, one or many",
+      "source": "contributor",
+      "reviewed": true,
+      "display_order": 2,
+      "explanation": "Every Spanish noun is masculine or feminine. Most nouns in -o are masculine (libro) and most in -a are feminine (casa). Plurals add -s after a vowel (casa → casas) and -es after a consonant (ciudad → ciudades). Gender and number ripple through the whole sentence — articles and adjectives must match the noun.",
+      "culture_note": "",
+      "references": [
+        {
+          "title": "Plan Curricular del Instituto Cervantes: Gramática A1–A2",
+          "url": "https://cvc.cervantes.es/ensenanza/biblioteca_ele/plan_curricular/niveles/02_gramatica_inventario_a1-a2.htm"
+        },
+        {
+          "title": "Wikipedia: Spanish nouns",
+          "url": "https://en.wikipedia.org/wiki/Spanish_nouns"
+        }
+      ],
+      "drills": [
+        {
+          "sentence": "Tengo dos {{answer}}.",
+          "answer": "libros",
+          "translation": "I have two books.",
+          "hint": "plural of libro",
+          "display_order": 1
+        },
+        {
+          "sentence": "Las {{answer}} son bonitas.",
+          "answer": "casas",
+          "translation": "The houses are pretty.",
+          "hint": "plural of casa",
+          "display_order": 2
+        }
+      ]
+    },
+    {
+      "title": "Definite articles (el / la)",
+      "level": "A1",
+      "function": "Point to a specific thing",
+      "source": "contributor",
+      "reviewed": true,
+      "display_order": 3,
+      "explanation": "Spanish nouns have grammatical gender. Use 'el' before masculine singular nouns and 'la' before feminine singular nouns; the plurals are 'los' and 'las'. Most nouns ending in -o are masculine (el libro) and most ending in -a are feminine (la casa), but there are exceptions you learn word by word.",
+      "culture_note": "Gender is grammatical, not literal — 'el mapa' (the map) is masculine despite ending in -a, a Greek-derived exception.",
+      "references": [
+        {
+          "title": "Plan Curricular del Instituto Cervantes: Gramática A1–A2",
+          "url": "https://cvc.cervantes.es/ensenanza/biblioteca_ele/plan_curricular/niveles/02_gramatica_inventario_a1-a2.htm"
+        },
+        {
+          "title": "Wikipedia: Spanish determiners — articles",
+          "url": "https://en.wikipedia.org/wiki/Spanish_determiners#Articles"
+        }
+      ],
+      "drills": [
+        {
+          "sentence": "{{answer}} casa es grande.",
+          "answer": "la",
+          "translation": "The house is big.",
+          "hint": "feminine singular",
+          "display_order": 1
+        },
+        {
+          "sentence": "{{answer}} libro es nuevo.",
+          "answer": "el",
+          "translation": "The book is new.",
+          "hint": "masculine singular",
+          "display_order": 2
+        }
+      ]
+    },
+    {
+      "title": "Indefinite articles (un / una)",
+      "level": "A1",
+      "function": "Mention something for the first time",
+      "source": "contributor",
+      "reviewed": true,
+      "display_order": 4,
+      "explanation": "'Un' goes before masculine singular nouns and 'una' before feminine singular nouns: un perro, una casa. The plurals 'unos/unas' mean 'some'. Use the indefinite article to introduce something new; after that, switch to el/la because it is now known.",
+      "culture_note": "",
+      "references": [
+        {
+          "title": "Plan Curricular del Instituto Cervantes: Gramática A1–A2",
+          "url": "https://cvc.cervantes.es/ensenanza/biblioteca_ele/plan_curricular/niveles/02_gramatica_inventario_a1-a2.htm"
+        },
+        {
+          "title": "Wiktionary: un (Spanish)",
+          "url": "https://en.wiktionary.org/wiki/un#Spanish"
+        }
+      ],
+      "drills": [
+        {
+          "sentence": "Tengo {{answer}} perro.",
+          "answer": "un",
+          "translation": "I have a dog.",
+          "hint": "masculine singular",
+          "display_order": 1
+        },
+        {
+          "sentence": "Es {{answer}} casa grande.",
+          "answer": "una",
+          "translation": "It is a big house.",
+          "hint": "feminine singular",
+          "display_order": 2
+        }
       ]
     },
     {
       "title": "The verb ser (to be) — present",
       "level": "A1",
+      "function": "Say who or what someone is",
       "source": "contributor",
       "reviewed": true,
-      "display_order": 2,
+      "display_order": 5,
       "explanation": "'Ser' expresses permanent or defining qualities: identity, origin, profession. Present forms: soy, eres, es, somos, sois, son. Use ser for who/what something is (Soy estudiante), and the separate verb estar for temporary states and location.",
       "culture_note": "Spanish has two verbs for 'to be' — ser (essence) and estar (state). 'Es aburrido' = he is boring; 'está aburrido' = he is bored.",
+      "references": [
+        {
+          "title": "Plan Curricular del Instituto Cervantes: Gramática A1–A2",
+          "url": "https://cvc.cervantes.es/ensenanza/biblioteca_ele/plan_curricular/niveles/02_gramatica_inventario_a1-a2.htm"
+        },
+        {
+          "title": "Wikipedia: Spanish verbs — ser and estar",
+          "url": "https://en.wikipedia.org/wiki/Spanish_verbs#Ser_and_estar"
+        },
+        {
+          "title": "Wiktionary: ser (Spanish)",
+          "url": "https://en.wiktionary.org/wiki/ser#Spanish"
+        }
+      ],
       "drills": [
-        {"sentence": "Yo {{answer}} estudiante.", "answer": "soy", "translation": "I am a student.", "hint": "yo form of ser", "display_order": 1},
-        {"sentence": "Nosotros {{answer}} amigos.", "answer": "somos", "translation": "We are friends.", "hint": "nosotros form of ser", "display_order": 2}
+        {
+          "sentence": "Yo {{answer}} estudiante.",
+          "answer": "soy",
+          "translation": "I am a student.",
+          "hint": "yo form of ser",
+          "display_order": 1
+        },
+        {
+          "sentence": "Nosotros {{answer}} amigos.",
+          "answer": "somos",
+          "translation": "We are friends.",
+          "hint": "nosotros form of ser",
+          "display_order": 2
+        }
+      ]
+    },
+    {
+      "title": "The verb estar — location and states",
+      "level": "A1",
+      "function": "Say where things are and how you feel",
+      "source": "contributor",
+      "reviewed": true,
+      "display_order": 6,
+      "explanation": "'Estar' covers location and temporary states: estoy, estás, está, estamos, estáis, están. Location ALWAYS takes estar, even for permanent places: 'Madrid está en España'. States that can change — tired, cold, happy — also take estar: 'Estoy cansado'.",
+      "culture_note": "",
+      "references": [
+        {
+          "title": "Plan Curricular del Instituto Cervantes: Gramática A1–A2",
+          "url": "https://cvc.cervantes.es/ensenanza/biblioteca_ele/plan_curricular/niveles/02_gramatica_inventario_a1-a2.htm"
+        },
+        {
+          "title": "Wiktionary: estar (Spanish)",
+          "url": "https://en.wiktionary.org/wiki/estar#Spanish"
+        }
+      ],
+      "drills": [
+        {
+          "sentence": "Yo {{answer}} en casa.",
+          "answer": "estoy",
+          "translation": "I am at home.",
+          "hint": "yo form of estar",
+          "display_order": 1
+        },
+        {
+          "sentence": "La comida {{answer}} fría.",
+          "answer": "está",
+          "translation": "The food is cold.",
+          "hint": "él/ella form of estar",
+          "display_order": 2
+        }
       ]
     },
     {
       "title": "Present tense of -ar verbs",
       "level": "A1",
+      "function": "Talk about what people do",
+      "source": "contributor",
+      "reviewed": true,
+      "display_order": 7,
+      "explanation": "Regular -ar verbs (hablar, estudiar, trabajar) drop -ar and add endings: -o, -as, -a, -amos, -áis, -an. So hablar → hablo, hablas, habla, hablamos, habláis, hablan.",
+      "culture_note": "-ar verbs are the largest and most regular Spanish verb group, so mastering this pattern unlocks hundreds of verbs at once.",
+      "references": [
+        {
+          "title": "Plan Curricular del Instituto Cervantes: Gramática A1–A2",
+          "url": "https://cvc.cervantes.es/ensenanza/biblioteca_ele/plan_curricular/niveles/02_gramatica_inventario_a1-a2.htm"
+        },
+        {
+          "title": "Wikipedia: Spanish conjugation — present indicative",
+          "url": "https://en.wikipedia.org/wiki/Spanish_conjugation#Present"
+        },
+        {
+          "title": "Wiktionary: hablar (conjugation)",
+          "url": "https://en.wiktionary.org/wiki/hablar#Conjugation"
+        }
+      ],
+      "drills": [
+        {
+          "sentence": "Nosotros {{answer}} español.",
+          "answer": "hablamos",
+          "translation": "We speak Spanish.",
+          "hint": "hablar, nosotros",
+          "display_order": 1
+        },
+        {
+          "sentence": "Ella {{answer}} en una oficina.",
+          "answer": "trabaja",
+          "translation": "She works in an office.",
+          "hint": "trabajar, ella",
+          "display_order": 2
+        }
+      ]
+    },
+    {
+      "title": "Present tense of -er and -ir verbs",
+      "level": "A1",
+      "function": "Talk about eating, drinking, living, and more",
+      "source": "contributor",
+      "reviewed": true,
+      "display_order": 8,
+      "explanation": "-er verbs (comer, beber) take -o, -es, -e, -emos, -éis, -en; -ir verbs (vivir, escribir) are the same except nosotros/vosotros: -imos, -ís. So como, comes, come, comemos… and vivo, vives, vive, vivimos…",
+      "culture_note": "",
+      "references": [
+        {
+          "title": "Plan Curricular del Instituto Cervantes: Gramática A1–A2",
+          "url": "https://cvc.cervantes.es/ensenanza/biblioteca_ele/plan_curricular/niveles/02_gramatica_inventario_a1-a2.htm"
+        },
+        {
+          "title": "Wiktionary: comer (conjugation)",
+          "url": "https://en.wiktionary.org/wiki/comer#Conjugation"
+        },
+        {
+          "title": "Wiktionary: vivir (conjugation)",
+          "url": "https://en.wiktionary.org/wiki/vivir#Conjugation"
+        }
+      ],
+      "drills": [
+        {
+          "sentence": "Yo {{answer}} agua.",
+          "answer": "bebo",
+          "translation": "I drink water.",
+          "hint": "beber, yo",
+          "display_order": 1
+        },
+        {
+          "sentence": "Nosotros {{answer}} en Madrid.",
+          "answer": "vivimos",
+          "translation": "We live in Madrid.",
+          "hint": "vivir, nosotros",
+          "display_order": 2
+        }
+      ]
+    },
+    {
+      "title": "Negation with no",
+      "level": "A1",
+      "function": "Say what is not so",
+      "source": "contributor",
+      "reviewed": true,
+      "display_order": 9,
+      "explanation": "Put 'no' directly before the conjugated verb: 'No tengo tiempo' (I don't have time), 'Ella no habla inglés'. Answering a question negatively often doubles it: '¿Hablas francés? — No, no hablo francés.'",
+      "culture_note": "",
+      "references": [
+        {
+          "title": "Plan Curricular del Instituto Cervantes: Gramática A1–A2",
+          "url": "https://cvc.cervantes.es/ensenanza/biblioteca_ele/plan_curricular/niveles/02_gramatica_inventario_a1-a2.htm"
+        },
+        {
+          "title": "Wikipedia: Spanish grammar — negation",
+          "url": "https://en.wikipedia.org/wiki/Spanish_grammar#Negation"
+        }
+      ],
+      "drills": [
+        {
+          "sentence": "{{answer}} tengo tiempo.",
+          "answer": "No",
+          "translation": "I don't have time.",
+          "hint": "negation before the verb",
+          "display_order": 1
+        },
+        {
+          "sentence": "Ella {{answer}} habla inglés.",
+          "answer": "no",
+          "translation": "She doesn't speak English.",
+          "hint": "negation before the verb",
+          "display_order": 2
+        }
+      ]
+    },
+    {
+      "title": "Hay — there is / there are",
+      "level": "A1",
+      "function": "Say what exists or is available",
+      "source": "contributor",
+      "reviewed": true,
+      "display_order": 10,
+      "explanation": "'Hay' (from haber) is invariable: it means both 'there is' and 'there are'. 'Hay un libro en la mesa', 'Hay tres cafés', 'No hay leche'. Use hay for existence; use estar to locate something specific you already know about.",
+      "culture_note": "",
+      "references": [
+        {
+          "title": "Plan Curricular del Instituto Cervantes: Gramática A1–A2",
+          "url": "https://cvc.cervantes.es/ensenanza/biblioteca_ele/plan_curricular/niveles/02_gramatica_inventario_a1-a2.htm"
+        },
+        {
+          "title": "Wiktionary: hay (Spanish)",
+          "url": "https://en.wiktionary.org/wiki/hay#Spanish"
+        }
+      ],
+      "drills": [
+        {
+          "sentence": "{{answer}} un libro en la mesa.",
+          "answer": "Hay",
+          "translation": "There is a book on the table.",
+          "hint": "there is",
+          "display_order": 1
+        },
+        {
+          "sentence": "No {{answer}} leche.",
+          "answer": "hay",
+          "translation": "There is no milk.",
+          "hint": "there is (negated)",
+          "display_order": 2
+        }
+      ]
+    },
+    {
+      "title": "Question words (qué, dónde, cómo…)",
+      "level": "A1",
+      "function": "Ask about things, places, people, and time",
+      "source": "contributor",
+      "reviewed": true,
+      "display_order": 11,
+      "explanation": "The interrogatives carry a written accent: qué (what), dónde (where), cómo (how), quién (who), cuándo (when), cuánto (how much). Questions are wrapped in ¿…?: '¿Dónde estás?', '¿Cómo te llamas?'. Word order stays simple — question word + verb.",
+      "culture_note": "The upside-down ¿ opens every question in writing — it tells the reader the intonation before the sentence starts.",
+      "references": [
+        {
+          "title": "Plan Curricular del Instituto Cervantes: Gramática A1–A2",
+          "url": "https://cvc.cervantes.es/ensenanza/biblioteca_ele/plan_curricular/niveles/02_gramatica_inventario_a1-a2.htm"
+        },
+        {
+          "title": "Wikipedia: Spanish grammar — interrogatives",
+          "url": "https://en.wikipedia.org/wiki/Spanish_grammar"
+        }
+      ],
+      "drills": [
+        {
+          "sentence": "¿{{answer}} estás?",
+          "answer": "Dónde",
+          "translation": "Where are you?",
+          "hint": "asking about place",
+          "display_order": 1
+        },
+        {
+          "sentence": "¿{{answer}} te llamas?",
+          "answer": "Cómo",
+          "translation": "What is your name? (lit. how do you call yourself)",
+          "hint": "asking 'how'",
+          "display_order": 2
+        }
+      ]
+    },
+    {
+      "title": "Adjective agreement",
+      "level": "A1",
+      "function": "Describe people and things correctly",
+      "source": "contributor",
+      "reviewed": true,
+      "display_order": 12,
+      "explanation": "Adjectives match their noun in gender and number: casa blanca, libros nuevos. Adjectives in -o have four forms (blanco/blanca/blancos/blancas); adjectives in -e or a consonant only change for number (grande/grandes, azul/azules). Most adjectives FOLLOW the noun.",
+      "culture_note": "",
+      "references": [
+        {
+          "title": "Plan Curricular del Instituto Cervantes: Gramática A1–A2",
+          "url": "https://cvc.cervantes.es/ensenanza/biblioteca_ele/plan_curricular/niveles/02_gramatica_inventario_a1-a2.htm"
+        },
+        {
+          "title": "Wikipedia: Spanish adjectives",
+          "url": "https://en.wikipedia.org/wiki/Spanish_adjectives"
+        }
+      ],
+      "drills": [
+        {
+          "sentence": "La casa es {{answer}}.",
+          "answer": "blanca",
+          "translation": "The house is white.",
+          "hint": "blanco, feminine singular",
+          "display_order": 1
+        },
+        {
+          "sentence": "Los libros son {{answer}}.",
+          "answer": "nuevos",
+          "translation": "The books are new.",
+          "hint": "nuevo, masculine plural",
+          "display_order": 2
+        }
+      ]
+    },
+    {
+      "title": "Reflexive verbs (levantarse)",
+      "level": "A2",
+      "function": "Talk about your daily routine",
+      "source": "contributor",
+      "reviewed": true,
+      "display_order": 1,
+      "explanation": "Reflexive verbs carry a pronoun that points back at the subject: me levanto (I get up), te duchas, se viste, nos acostamos. The pronoun goes before the conjugated verb, and the infinitive keeps -se: levantarse.",
+      "culture_note": "",
+      "references": [
+        {
+          "title": "Plan Curricular del Instituto Cervantes: Gramática A1–A2",
+          "url": "https://cvc.cervantes.es/ensenanza/biblioteca_ele/plan_curricular/niveles/02_gramatica_inventario_a1-a2.htm"
+        },
+        {
+          "title": "Wikipedia: Spanish pronouns — reflexive",
+          "url": "https://en.wikipedia.org/wiki/Spanish_pronouns"
+        }
+      ],
+      "drills": [
+        {
+          "sentence": "Yo me {{answer}} a las siete.",
+          "answer": "levanto",
+          "translation": "I get up at seven.",
+          "hint": "levantarse, yo",
+          "display_order": 1
+        },
+        {
+          "sentence": "Ella se {{answer}} temprano.",
+          "answer": "acuesta",
+          "translation": "She goes to bed early.",
+          "hint": "acostarse, ella",
+          "display_order": 2
+        }
+      ]
+    },
+    {
+      "title": "Gustar and similar verbs",
+      "level": "A2",
+      "function": "Say what you like and dislike",
+      "source": "contributor",
+      "reviewed": true,
+      "display_order": 2,
+      "explanation": "Gustar works backwards: the thing liked is the SUBJECT, so the verb agrees with it — Me gusta el café (coffee pleases me), Me gustan los libros (books please me). The person appears as me/te/le/nos/os/les. Encantar, interesar, and doler follow the same pattern.",
+      "culture_note": "Learners who say 'yo gusto café' get corrected fast — thinking 'X pleases me' instead of 'I like X' is the unlock.",
+      "references": [
+        {
+          "title": "Plan Curricular del Instituto Cervantes: Gramática A1–A2",
+          "url": "https://cvc.cervantes.es/ensenanza/biblioteca_ele/plan_curricular/niveles/02_gramatica_inventario_a1-a2.htm"
+        },
+        {
+          "title": "Wiktionary: gustar (Spanish)",
+          "url": "https://en.wiktionary.org/wiki/gustar#Spanish"
+        }
+      ],
+      "drills": [
+        {
+          "sentence": "Me {{answer}} el café.",
+          "answer": "gusta",
+          "translation": "I like coffee.",
+          "hint": "singular thing liked",
+          "display_order": 1
+        },
+        {
+          "sentence": "Me {{answer}} los libros.",
+          "answer": "gustan",
+          "translation": "I like books.",
+          "hint": "plural things liked",
+          "display_order": 2
+        }
+      ]
+    },
+    {
+      "title": "Preterite — regular verbs",
+      "level": "A2",
+      "function": "Say what you did",
       "source": "contributor",
       "reviewed": true,
       "display_order": 3,
-      "explanation": "Regular -ar verbs (hablar, estudiar, trabajar) drop -ar and add endings: -o, -as, -a, -amos, -áis, -an. So hablar → hablo, hablas, habla, hablamos, habláis, hablan.",
-      "culture_note": "-ar verbs are the largest and most regular Spanish verb group, so mastering this pattern unlocks hundreds of verbs at once.",
+      "explanation": "The preterite reports completed past events: hablar → hablé, hablaste, habló, hablamos, hablasteis, hablaron; -er/-ir verbs share endings: comí, comiste, comió… Ayer hablé con mi madre (Yesterday I spoke with my mother).",
+      "culture_note": "",
+      "references": [
+        {
+          "title": "Plan Curricular del Instituto Cervantes: Gramática A1–A2",
+          "url": "https://cvc.cervantes.es/ensenanza/biblioteca_ele/plan_curricular/niveles/02_gramatica_inventario_a1-a2.htm"
+        },
+        {
+          "title": "Wikipedia: Spanish conjugation — preterite",
+          "url": "https://en.wikipedia.org/wiki/Spanish_conjugation"
+        }
+      ],
       "drills": [
-        {"sentence": "Nosotros {{answer}} español.", "answer": "hablamos", "translation": "We speak Spanish.", "hint": "hablar, nosotros", "display_order": 1},
-        {"sentence": "Ella {{answer}} en una oficina.", "answer": "trabaja", "translation": "She works in an office.", "hint": "trabajar, ella", "display_order": 2}
+        {
+          "sentence": "Ayer {{answer}} con mi madre.",
+          "answer": "hablé",
+          "translation": "Yesterday I spoke with my mother.",
+          "hint": "hablar, yo",
+          "display_order": 1
+        },
+        {
+          "sentence": "Ella {{answer}} la puerta.",
+          "answer": "abrió",
+          "translation": "She opened the door.",
+          "hint": "abrir, ella",
+          "display_order": 2
+        }
+      ]
+    },
+    {
+      "title": "Preterite — key irregulars (fui, hice, tuve)",
+      "level": "A2",
+      "function": "Tell what happened with the most common verbs",
+      "source": "contributor",
+      "reviewed": true,
+      "display_order": 4,
+      "explanation": "The most frequent verbs are irregular in the preterite: ser/ir share fui, fuiste, fue…; hacer → hice, hizo; tener → tuve; estar → estuve; poder → pude. They carry no written accent: fue, hizo.",
+      "culture_note": "",
+      "references": [
+        {
+          "title": "Plan Curricular del Instituto Cervantes: Gramática A1–A2",
+          "url": "https://cvc.cervantes.es/ensenanza/biblioteca_ele/plan_curricular/niveles/02_gramatica_inventario_a1-a2.htm"
+        },
+        {
+          "title": "Wiktionary: ir (Spanish conjugation)",
+          "url": "https://en.wiktionary.org/wiki/ir#Spanish"
+        }
+      ],
+      "drills": [
+        {
+          "sentence": "Ayer {{answer}} al cine.",
+          "answer": "fui",
+          "translation": "Yesterday I went to the cinema.",
+          "hint": "ir, yo",
+          "display_order": 1
+        },
+        {
+          "sentence": "Él {{answer}} mucho trabajo.",
+          "answer": "tuvo",
+          "translation": "He had a lot of work.",
+          "hint": "tener, él",
+          "display_order": 2
+        }
+      ]
+    },
+    {
+      "title": "Imperfect (hablaba)",
+      "level": "A2",
+      "function": "Describe how things used to be",
+      "source": "contributor",
+      "reviewed": true,
+      "display_order": 5,
+      "explanation": "The imperfect paints background and habits: -ar verbs take -aba (hablaba, jugaba), -er/-ir take -ía (comía, vivía). Only three verbs are irregular: era, iba, veía. Cuando era niño, jugaba mucho (When I was a child, I played a lot).",
+      "culture_note": "Preterite vs imperfect is THE Spanish past-tense contrast: what happened (preterite) against what was going on (imperfect).",
+      "references": [
+        {
+          "title": "Plan Curricular del Instituto Cervantes: Gramática A1–A2",
+          "url": "https://cvc.cervantes.es/ensenanza/biblioteca_ele/plan_curricular/niveles/02_gramatica_inventario_a1-a2.htm"
+        },
+        {
+          "title": "Wikipedia: Spanish verbs — imperfect",
+          "url": "https://en.wikipedia.org/wiki/Spanish_verbs"
+        }
+      ],
+      "drills": [
+        {
+          "sentence": "Cuando era niño, {{answer}} mucho.",
+          "answer": "jugaba",
+          "translation": "When I was a child, I used to play a lot.",
+          "hint": "jugar, habitual past",
+          "display_order": 1
+        },
+        {
+          "sentence": "Antes {{answer}} en Madrid.",
+          "answer": "vivíamos",
+          "translation": "We used to live in Madrid.",
+          "hint": "vivir, nosotros",
+          "display_order": 2
+        }
+      ]
+    },
+    {
+      "title": "Ir a + infinitive (near future)",
+      "level": "A2",
+      "function": "Talk about plans",
+      "source": "contributor",
+      "reviewed": true,
+      "display_order": 6,
+      "explanation": "Plans and near future use ir a + infinitive: Voy a viajar mañana (I'm going to travel tomorrow), Vamos a comer (We're going to eat). Only ir conjugates; the second verb stays an infinitive.",
+      "culture_note": "",
+      "references": [
+        {
+          "title": "Plan Curricular del Instituto Cervantes: Gramática A1–A2",
+          "url": "https://cvc.cervantes.es/ensenanza/biblioteca_ele/plan_curricular/niveles/02_gramatica_inventario_a1-a2.htm"
+        },
+        {
+          "title": "Wikipedia: Spanish verbs — periphrases",
+          "url": "https://en.wikipedia.org/wiki/Spanish_verbs"
+        }
+      ],
+      "drills": [
+        {
+          "sentence": "{{answer}} a viajar mañana.",
+          "answer": "Voy",
+          "translation": "I am going to travel tomorrow.",
+          "hint": "ir, yo",
+          "display_order": 1
+        },
+        {
+          "sentence": "Ellos {{answer}} a comer.",
+          "answer": "van",
+          "translation": "They are going to eat.",
+          "hint": "ir, ellos",
+          "display_order": 2
+        }
+      ]
+    },
+    {
+      "title": "Estar + gerund (present progressive)",
+      "level": "A2",
+      "function": "Say what is happening right now",
+      "source": "contributor",
+      "reviewed": true,
+      "display_order": 7,
+      "explanation": "Right-now actions use estar + gerund: -ando for -ar verbs (hablando), -iendo for -er/-ir (comiendo, viviendo; leyendo and durmiendo are irregular). Estoy leyendo un libro (I am reading a book).",
+      "culture_note": "",
+      "references": [
+        {
+          "title": "Plan Curricular del Instituto Cervantes: Gramática A1–A2",
+          "url": "https://cvc.cervantes.es/ensenanza/biblioteca_ele/plan_curricular/niveles/02_gramatica_inventario_a1-a2.htm"
+        },
+        {
+          "title": "Wikipedia: Spanish verbs — gerund",
+          "url": "https://en.wikipedia.org/wiki/Spanish_verbs"
+        }
+      ],
+      "drills": [
+        {
+          "sentence": "Estoy {{answer}} un libro.",
+          "answer": "leyendo",
+          "translation": "I am reading a book.",
+          "hint": "leer, gerund",
+          "display_order": 1
+        },
+        {
+          "sentence": "Ella está {{answer}}.",
+          "answer": "durmiendo",
+          "translation": "She is sleeping.",
+          "hint": "dormir, gerund",
+          "display_order": 2
+        }
+      ]
+    },
+    {
+      "title": "Direct object pronouns (lo, la, los, las)",
+      "level": "A2",
+      "function": "Avoid repeating what you already mentioned",
+      "source": "contributor",
+      "reviewed": true,
+      "display_order": 8,
+      "explanation": "Replace known direct objects with lo/la/los/las agreeing with the noun: ¿El libro? Lo tengo (I have it). The pronoun goes before the conjugated verb, or attaches to an infinitive/gerund: quiero verla.",
+      "culture_note": "",
+      "references": [
+        {
+          "title": "Plan Curricular del Instituto Cervantes: Gramática A1–A2",
+          "url": "https://cvc.cervantes.es/ensenanza/biblioteca_ele/plan_curricular/niveles/02_gramatica_inventario_a1-a2.htm"
+        },
+        {
+          "title": "Wikipedia: Spanish pronouns — object",
+          "url": "https://en.wikipedia.org/wiki/Spanish_pronouns"
+        }
+      ],
+      "drills": [
+        {
+          "sentence": "¿El libro? {{answer}} tengo yo.",
+          "answer": "Lo",
+          "translation": "The book? I have it.",
+          "hint": "masculine singular object",
+          "display_order": 1
+        },
+        {
+          "sentence": "¿Las llaves? No {{answer}} veo.",
+          "answer": "las",
+          "translation": "The keys? I don't see them.",
+          "hint": "feminine plural object",
+          "display_order": 2
+        }
+      ]
+    },
+    {
+      "title": "Indirect object pronouns (le, les)",
+      "level": "A2",
+      "function": "Say to whom or for whom",
+      "source": "contributor",
+      "reviewed": true,
+      "display_order": 9,
+      "explanation": "The receiver is marked with me/te/le/nos/os/les, usually doubled with a + person: Le di el libro a Juan (I gave the book to Juan), Les escribí a mis padres. Le/les don't mark gender.",
+      "culture_note": "",
+      "references": [
+        {
+          "title": "Plan Curricular del Instituto Cervantes: Gramática A1–A2",
+          "url": "https://cvc.cervantes.es/ensenanza/biblioteca_ele/plan_curricular/niveles/02_gramatica_inventario_a1-a2.htm"
+        },
+        {
+          "title": "Wikipedia: Spanish pronouns — object",
+          "url": "https://en.wikipedia.org/wiki/Spanish_pronouns"
+        }
+      ],
+      "drills": [
+        {
+          "sentence": "{{answer}} di el libro a Juan.",
+          "answer": "Le",
+          "translation": "I gave the book to Juan.",
+          "hint": "to him",
+          "display_order": 1
+        },
+        {
+          "sentence": "{{answer}} escribí a mis padres.",
+          "answer": "Les",
+          "translation": "I wrote to my parents.",
+          "hint": "to them",
+          "display_order": 2
+        }
+      ]
+    },
+    {
+      "title": "Comparatives (más… que, tan… como)",
+      "level": "A2",
+      "function": "Compare people and things",
+      "source": "contributor",
+      "reviewed": true,
+      "display_order": 10,
+      "explanation": "More/less: más/menos + adjective + que — Ella es más alta que yo. Equality: tan + adjective + como — Es tan alto como su padre. Irregulars: mejor (better), peor (worse), mayor, menor.",
+      "culture_note": "",
+      "references": [
+        {
+          "title": "Plan Curricular del Instituto Cervantes: Gramática A1–A2",
+          "url": "https://cvc.cervantes.es/ensenanza/biblioteca_ele/plan_curricular/niveles/02_gramatica_inventario_a1-a2.htm"
+        },
+        {
+          "title": "Wikipedia: Spanish grammar — comparison",
+          "url": "https://en.wikipedia.org/wiki/Spanish_grammar"
+        }
+      ],
+      "drills": [
+        {
+          "sentence": "Ella es {{answer}} alta que yo.",
+          "answer": "más",
+          "translation": "She is taller than me.",
+          "hint": "'more' comparative",
+          "display_order": 1
+        },
+        {
+          "sentence": "Es tan alto {{answer}} su padre.",
+          "answer": "como",
+          "translation": "He is as tall as his father.",
+          "hint": "equality 'as'",
+          "display_order": 2
+        }
+      ]
+    },
+    {
+      "title": "Present perfect (he hablado)",
+      "level": "B1",
+      "function": "Connect the past to now",
+      "source": "contributor",
+      "reviewed": true,
+      "display_order": 1,
+      "explanation": "Haber (he, has, ha, hemos, habéis, han) + participle (-ado/-ido): Hoy he trabajado mucho (Today I've worked a lot). Common irregular participles: hecho, dicho, visto, escrito, puesto, vuelto.",
+      "culture_note": "Spain uses the present perfect for today's events (hoy he comido); much of Latin America prefers the preterite (hoy comí). Both are correct.",
+      "references": [
+        {
+          "title": "Plan Curricular del Instituto Cervantes: Gramática B1–B2",
+          "url": "https://cvc.cervantes.es/ensenanza/biblioteca_ele/plan_curricular/niveles/02_gramatica_inventario_b1-b2.htm"
+        },
+        {
+          "title": "Wikipedia: Spanish verbs — compound tenses",
+          "url": "https://en.wikipedia.org/wiki/Spanish_verbs"
+        }
+      ],
+      "drills": [
+        {
+          "sentence": "Hoy {{answer}} trabajado mucho.",
+          "answer": "he",
+          "translation": "Today I have worked a lot.",
+          "hint": "haber, yo",
+          "display_order": 1
+        },
+        {
+          "sentence": "¿Has {{answer}} esa película?",
+          "answer": "visto",
+          "translation": "Have you seen that film?",
+          "hint": "ver, irregular participle",
+          "display_order": 2
+        }
+      ]
+    },
+    {
+      "title": "Future simple (hablaré)",
+      "level": "B1",
+      "function": "Make predictions and promises",
+      "source": "contributor",
+      "reviewed": true,
+      "display_order": 2,
+      "explanation": "Attach -é, -ás, -á, -emos, -éis, -án to the whole infinitive: hablaré, comerás, vivirá. A few stems change: tendré, haré, podré, saldré. It also expresses guesses: Serán las diez (It must be around ten).",
+      "culture_note": "",
+      "references": [
+        {
+          "title": "Plan Curricular del Instituto Cervantes: Gramática B1–B2",
+          "url": "https://cvc.cervantes.es/ensenanza/biblioteca_ele/plan_curricular/niveles/02_gramatica_inventario_b1-b2.htm"
+        },
+        {
+          "title": "Wikipedia: Spanish conjugation — future",
+          "url": "https://en.wikipedia.org/wiki/Spanish_conjugation"
+        }
+      ],
+      "drills": [
+        {
+          "sentence": "Mañana {{answer}} contigo.",
+          "answer": "hablaré",
+          "translation": "Tomorrow I will speak with you.",
+          "hint": "hablar, yo",
+          "display_order": 1
+        },
+        {
+          "sentence": "Ellos {{answer}} tarde.",
+          "answer": "llegarán",
+          "translation": "They will arrive late.",
+          "hint": "llegar, ellos",
+          "display_order": 2
+        }
+      ]
+    },
+    {
+      "title": "Conditional (hablaría)",
+      "level": "B1",
+      "function": "Say what you would do; soften requests",
+      "source": "contributor",
+      "reviewed": true,
+      "display_order": 3,
+      "explanation": "Infinitive + -ía endings: hablaría, comerías, viviríamos; the future's irregular stems repeat: tendría, haría. Uses: hypotheticals (Viajaría por el mundo) and politeness (¿Podrías ayudarme?).",
+      "culture_note": "",
+      "references": [
+        {
+          "title": "Plan Curricular del Instituto Cervantes: Gramática B1–B2",
+          "url": "https://cvc.cervantes.es/ensenanza/biblioteca_ele/plan_curricular/niveles/02_gramatica_inventario_b1-b2.htm"
+        },
+        {
+          "title": "Wikipedia: Spanish conjugation — conditional",
+          "url": "https://en.wikipedia.org/wiki/Spanish_conjugation"
+        }
+      ],
+      "drills": [
+        {
+          "sentence": "Me {{answer}} viajar por el mundo.",
+          "answer": "gustaría",
+          "translation": "I would like to travel the world.",
+          "hint": "gustar, conditional",
+          "display_order": 1
+        },
+        {
+          "sentence": "¿Qué {{answer}} tú en mi lugar?",
+          "answer": "harías",
+          "translation": "What would you do in my place?",
+          "hint": "hacer, tú",
+          "display_order": 2
+        }
+      ]
+    },
+    {
+      "title": "Present subjunctive — wishes and requests",
+      "level": "B1",
+      "function": "Express wants about other people",
+      "source": "contributor",
+      "reviewed": true,
+      "display_order": 4,
+      "explanation": "After querer que, es importante que, ojalá…, the second verb goes to the subjunctive: -ar verbs flip to -e endings (hables), -er/-ir to -a (comas, vengas). Quiero que vengas temprano (I want you to come early).",
+      "culture_note": "The subjunctive is where Spanish 'feels different': it marks wanting, doubting, and valuing rather than stating.",
+      "references": [
+        {
+          "title": "Plan Curricular del Instituto Cervantes: Gramática B1–B2",
+          "url": "https://cvc.cervantes.es/ensenanza/biblioteca_ele/plan_curricular/niveles/02_gramatica_inventario_b1-b2.htm"
+        },
+        {
+          "title": "Wikipedia: Spanish subjunctive",
+          "url": "https://en.wikipedia.org/wiki/Subjunctive_mood_in_Spanish"
+        }
+      ],
+      "drills": [
+        {
+          "sentence": "Quiero que {{answer}} temprano.",
+          "answer": "vengas",
+          "translation": "I want you to come early.",
+          "hint": "venir, subjunctive tú",
+          "display_order": 1
+        },
+        {
+          "sentence": "Es importante que {{answer}} agua.",
+          "answer": "bebas",
+          "translation": "It's important that you drink water.",
+          "hint": "beber, subjunctive tú",
+          "display_order": 2
+        }
+      ]
+    },
+    {
+      "title": "Imperative — affirmative and negative (tú)",
+      "level": "B1",
+      "function": "Give instructions and warnings",
+      "source": "contributor",
+      "reviewed": true,
+      "display_order": 5,
+      "explanation": "Affirmative tú = third-person present (¡Abre la puerta!), with irregulars ven, haz, di, pon, sal. NEGATIVE commands switch to the subjunctive: ¡No hagas eso!, ¡No vengas tarde! Pronouns attach after affirmatives (dímelo) but precede negatives (no me lo digas).",
+      "culture_note": "",
+      "references": [
+        {
+          "title": "Plan Curricular del Instituto Cervantes: Gramática B1–B2",
+          "url": "https://cvc.cervantes.es/ensenanza/biblioteca_ele/plan_curricular/niveles/02_gramatica_inventario_b1-b2.htm"
+        },
+        {
+          "title": "Wikipedia: Spanish verbs — imperative",
+          "url": "https://en.wikipedia.org/wiki/Spanish_verbs"
+        }
+      ],
+      "drills": [
+        {
+          "sentence": "¡{{answer}} la puerta!",
+          "answer": "Abre",
+          "translation": "Open the door!",
+          "hint": "abrir, tú command",
+          "display_order": 1
+        },
+        {
+          "sentence": "¡No {{answer}} eso!",
+          "answer": "hagas",
+          "translation": "Don't do that!",
+          "hint": "hacer, negative command = subjunctive",
+          "display_order": 2
+        }
+      ]
+    },
+    {
+      "title": "Por vs para",
+      "level": "B1",
+      "function": "Choose the right 'for'",
+      "source": "contributor",
+      "reviewed": true,
+      "display_order": 6,
+      "explanation": "Para points forward: purpose, destination, deadline — Este regalo es para ti; Salgo para Madrid. Por looks at cause, exchange, movement through, and means — Gracias por tu ayuda; Pasamos por el parque; por teléfono.",
+      "culture_note": "",
+      "references": [
+        {
+          "title": "Plan Curricular del Instituto Cervantes: Gramática B1–B2",
+          "url": "https://cvc.cervantes.es/ensenanza/biblioteca_ele/plan_curricular/niveles/02_gramatica_inventario_b1-b2.htm"
+        },
+        {
+          "title": "Wikipedia: Spanish prepositions",
+          "url": "https://en.wikipedia.org/wiki/Spanish_prepositions"
+        }
+      ],
+      "drills": [
+        {
+          "sentence": "Este regalo es {{answer}} ti.",
+          "answer": "para",
+          "translation": "This gift is for you.",
+          "hint": "destination/recipient",
+          "display_order": 1
+        },
+        {
+          "sentence": "Gracias {{answer}} tu ayuda.",
+          "answer": "por",
+          "translation": "Thanks for your help.",
+          "hint": "cause",
+          "display_order": 2
+        }
+      ]
+    },
+    {
+      "title": "Impersonal and passive se",
+      "level": "B1",
+      "function": "Say what 'one does' or 'is done'",
+      "source": "contributor",
+      "reviewed": true,
+      "display_order": 7,
+      "explanation": "Se + third person removes the doer: Se habla español (Spanish is spoken / one speaks Spanish), Aquí se venden frutas (fruit is sold here — verb agrees with the noun). It's the everyday passive; ser + participle is more formal.",
+      "culture_note": "",
+      "references": [
+        {
+          "title": "Plan Curricular del Instituto Cervantes: Gramática B1–B2",
+          "url": "https://cvc.cervantes.es/ensenanza/biblioteca_ele/plan_curricular/niveles/02_gramatica_inventario_b1-b2.htm"
+        },
+        {
+          "title": "Wikipedia: Spanish grammar — se",
+          "url": "https://en.wikipedia.org/wiki/Spanish_grammar"
+        }
+      ],
+      "drills": [
+        {
+          "sentence": "{{answer}} habla español aquí.",
+          "answer": "Se",
+          "translation": "Spanish is spoken here.",
+          "hint": "impersonal marker",
+          "display_order": 1
+        },
+        {
+          "sentence": "Aquí se {{answer}} frutas.",
+          "answer": "venden",
+          "translation": "Fruit is sold here.",
+          "hint": "agrees with plural 'frutas'",
+          "display_order": 2
+        }
+      ]
+    },
+    {
+      "title": "Double object pronouns (se lo)",
+      "level": "B1",
+      "function": "Say 'it to him/her/them' smoothly",
+      "source": "contributor",
+      "reviewed": true,
+      "display_order": 8,
+      "explanation": "Indirect before direct: me lo, te la… When both are third person, le/les becomes SE: Le di el libro → Se lo di (I gave it to him). Order is fixed: se lo/la/los/las.",
+      "culture_note": "",
+      "references": [
+        {
+          "title": "Plan Curricular del Instituto Cervantes: Gramática B1–B2",
+          "url": "https://cvc.cervantes.es/ensenanza/biblioteca_ele/plan_curricular/niveles/02_gramatica_inventario_b1-b2.htm"
+        },
+        {
+          "title": "Wikipedia: Spanish pronouns — clitic combinations",
+          "url": "https://en.wikipedia.org/wiki/Spanish_pronouns"
+        }
+      ],
+      "drills": [
+        {
+          "sentence": "¿El libro? {{answer}} lo di ayer a Juan.",
+          "answer": "Se",
+          "translation": "The book? I gave it to Juan yesterday.",
+          "hint": "le + lo → se lo",
+          "display_order": 1
+        },
+        {
+          "sentence": "El regalo, se {{answer}} di a María.",
+          "answer": "lo",
+          "translation": "The gift — I gave it to María.",
+          "hint": "direct object after se",
+          "display_order": 2
+        }
+      ]
+    },
+    {
+      "title": "Past (imperfect) subjunctive (hablara)",
+      "level": "B2",
+      "function": "Talk about unreal or reported wants",
+      "source": "contributor",
+      "reviewed": true,
+      "display_order": 1,
+      "explanation": "Built from the ellos-preterite minus -ron plus -ra endings: hablara, tuviera, viniera (an -se variant exists). Triggered by past-tense wanting (Quería que vinieras) and unreal conditions (Si tuviera dinero…).",
+      "culture_note": "",
+      "references": [
+        {
+          "title": "Plan Curricular del Instituto Cervantes: Gramática B1–B2",
+          "url": "https://cvc.cervantes.es/ensenanza/biblioteca_ele/plan_curricular/niveles/02_gramatica_inventario_b1-b2.htm"
+        },
+        {
+          "title": "Wikipedia: Spanish subjunctive — imperfect",
+          "url": "https://en.wikipedia.org/wiki/Subjunctive_mood_in_Spanish"
+        }
+      ],
+      "drills": [
+        {
+          "sentence": "Si {{answer}} dinero, viajaría.",
+          "answer": "tuviera",
+          "translation": "If I had money, I would travel.",
+          "hint": "tener, past subjunctive",
+          "display_order": 1
+        },
+        {
+          "sentence": "Quería que {{answer}} conmigo.",
+          "answer": "vinieras",
+          "translation": "I wanted you to come with me.",
+          "hint": "venir, past subjunctive tú",
+          "display_order": 2
+        }
+      ]
+    },
+    {
+      "title": "Si-clauses (real and unreal)",
+      "level": "B2",
+      "function": "Reason about conditions and consequences",
+      "source": "contributor",
+      "reviewed": true,
+      "display_order": 2,
+      "explanation": "Real: si + present → future (Si estudias, aprobarás). Unreal present: si + past subjunctive → conditional (Si tuviera, viajaría). Unreal past: si + pluperfect subjunctive → conditional perfect (Si hubiera sabido, no habría venido).",
+      "culture_note": "",
+      "references": [
+        {
+          "title": "Plan Curricular del Instituto Cervantes: Gramática B1–B2",
+          "url": "https://cvc.cervantes.es/ensenanza/biblioteca_ele/plan_curricular/niveles/02_gramatica_inventario_b1-b2.htm"
+        },
+        {
+          "title": "Wikipedia: Spanish grammar — conditional sentences",
+          "url": "https://en.wikipedia.org/wiki/Spanish_grammar"
+        }
+      ],
+      "drills": [
+        {
+          "sentence": "Si estudias, {{answer}}.",
+          "answer": "aprobarás",
+          "translation": "If you study, you will pass.",
+          "hint": "real condition, future",
+          "display_order": 1
+        },
+        {
+          "sentence": "Si hubiera sabido, no {{answer}} venido.",
+          "answer": "habría",
+          "translation": "Had I known, I would not have come.",
+          "hint": "conditional perfect",
+          "display_order": 2
+        }
+      ]
+    },
+    {
+      "title": "Pluperfect (había hablado)",
+      "level": "B2",
+      "function": "Order past events",
+      "source": "contributor",
+      "reviewed": true,
+      "display_order": 3,
+      "explanation": "Había, habías… + participle marks a past before another past: Cuando llegué, ya había salido (When I arrived, she had already left).",
+      "culture_note": "",
+      "references": [
+        {
+          "title": "Plan Curricular del Instituto Cervantes: Gramática B1–B2",
+          "url": "https://cvc.cervantes.es/ensenanza/biblioteca_ele/plan_curricular/niveles/02_gramatica_inventario_b1-b2.htm"
+        },
+        {
+          "title": "Wikipedia: Spanish verbs — compound tenses",
+          "url": "https://en.wikipedia.org/wiki/Spanish_verbs"
+        }
+      ],
+      "drills": [
+        {
+          "sentence": "Cuando llegué, ya {{answer}} salido.",
+          "answer": "había",
+          "translation": "When I arrived, she had already left.",
+          "hint": "haber, imperfect",
+          "display_order": 1
+        },
+        {
+          "sentence": "Nunca {{answer}} visto el mar.",
+          "answer": "habíamos",
+          "translation": "We had never seen the sea.",
+          "hint": "haber, nosotros",
+          "display_order": 2
+        }
+      ]
+    },
+    {
+      "title": "Reported speech (dijo que…)",
+      "level": "B2",
+      "function": "Report what people said",
+      "source": "contributor",
+      "reviewed": true,
+      "display_order": 4,
+      "explanation": "Shifting into the past moves tenses back: 'Estoy cansado' → Dijo que estaba cansado; 'Vendré' → Dijo que vendría; commands become subjunctive: Me dijo que viniera.",
+      "culture_note": "",
+      "references": [
+        {
+          "title": "Plan Curricular del Instituto Cervantes: Gramática B1–B2",
+          "url": "https://cvc.cervantes.es/ensenanza/biblioteca_ele/plan_curricular/niveles/02_gramatica_inventario_b1-b2.htm"
+        },
+        {
+          "title": "Wikipedia: Indirect speech — Spanish",
+          "url": "https://en.wikipedia.org/wiki/Indirect_speech"
+        }
+      ],
+      "drills": [
+        {
+          "sentence": "Dijo que {{answer}} cansado.",
+          "answer": "estaba",
+          "translation": "He said he was tired.",
+          "hint": "present → imperfect",
+          "display_order": 1
+        },
+        {
+          "sentence": "Me dijo que {{answer}} mañana.",
+          "answer": "vendría",
+          "translation": "She told me she would come tomorrow.",
+          "hint": "future → conditional",
+          "display_order": 2
+        }
+      ]
+    },
+    {
+      "title": "Relative pronouns (quien, cuyo)",
+      "level": "B2",
+      "function": "Build precise descriptions",
+      "source": "contributor",
+      "reviewed": true,
+      "display_order": 5,
+      "explanation": "Beyond que: quien(es) after prepositions for people (la mujer con quien hablé), cuyo/a/os/as = whose, agreeing with the THING owned (el autor cuyo libro leí), and el que / lo que for selection and ideas.",
+      "culture_note": "",
+      "references": [
+        {
+          "title": "Plan Curricular del Instituto Cervantes: Gramática B1–B2",
+          "url": "https://cvc.cervantes.es/ensenanza/biblioteca_ele/plan_curricular/niveles/02_gramatica_inventario_b1-b2.htm"
+        },
+        {
+          "title": "Wikipedia: Spanish grammar — relative clauses",
+          "url": "https://en.wikipedia.org/wiki/Spanish_grammar"
+        }
+      ],
+      "drills": [
+        {
+          "sentence": "La mujer con {{answer}} hablé es doctora.",
+          "answer": "quien",
+          "translation": "The woman with whom I spoke is a doctor.",
+          "hint": "person after preposition",
+          "display_order": 1
+        },
+        {
+          "sentence": "El autor, {{answer}} libro leí, es chileno.",
+          "answer": "cuyo",
+          "translation": "The author, whose book I read, is Chilean.",
+          "hint": "'whose', agrees with libro",
+          "display_order": 2
+        }
+      ]
+    },
+    {
+      "title": "Subjunctive after para que, aunque…",
+      "level": "B2",
+      "function": "Express purpose and concession",
+      "source": "contributor",
+      "reviewed": true,
+      "display_order": 6,
+      "explanation": "Purpose always takes subjunctive: Te lo digo para que lo sepas (…so that you know). Aunque + subjunctive concedes something unconfirmed: Aunque llueva, iremos (Even if it rains, we'll go) — with indicative it reports fact (Aunque llueve… = even though it IS raining).",
+      "culture_note": "",
+      "references": [
+        {
+          "title": "Plan Curricular del Instituto Cervantes: Gramática B1–B2",
+          "url": "https://cvc.cervantes.es/ensenanza/biblioteca_ele/plan_curricular/niveles/02_gramatica_inventario_b1-b2.htm"
+        },
+        {
+          "title": "Wikipedia: Spanish subjunctive — subordinate clauses",
+          "url": "https://en.wikipedia.org/wiki/Subjunctive_mood_in_Spanish"
+        }
+      ],
+      "drills": [
+        {
+          "sentence": "Te lo digo para que lo {{answer}}.",
+          "answer": "sepas",
+          "translation": "I'm telling you so that you know.",
+          "hint": "saber, subjunctive",
+          "display_order": 1
+        },
+        {
+          "sentence": "Aunque {{answer}}, iremos.",
+          "answer": "llueva",
+          "translation": "Even if it rains, we will go.",
+          "hint": "llover, subjunctive",
+          "display_order": 2
+        }
+      ]
+    },
+    {
+      "title": "Perfect subjunctive (haya hablado)",
+      "level": "C1",
+      "function": "Judge and doubt completed events",
+      "source": "contributor",
+      "reviewed": true,
+      "display_order": 1,
+      "explanation": "Haya, hayas… + participle appears after present-tense triggers about completed things: Espero que hayas llegado bien (I hope you've arrived safely), No creo que lo haya hecho (I don't think he's done it).",
+      "culture_note": "",
+      "references": [
+        {
+          "title": "Plan Curricular del Instituto Cervantes: Gramática C1–C2",
+          "url": "https://cvc.cervantes.es/ensenanza/biblioteca_ele/plan_curricular/niveles/02_gramatica_inventario_c1-c2.htm"
+        },
+        {
+          "title": "Wikipedia: Spanish subjunctive — perfect",
+          "url": "https://en.wikipedia.org/wiki/Subjunctive_mood_in_Spanish"
+        }
+      ],
+      "drills": [
+        {
+          "sentence": "Espero que {{answer}} llegado bien.",
+          "answer": "hayas",
+          "translation": "I hope you have arrived safely.",
+          "hint": "haber, subjunctive tú",
+          "display_order": 1
+        },
+        {
+          "sentence": "No creo que lo {{answer}} hecho.",
+          "answer": "haya",
+          "translation": "I don't think he has done it.",
+          "hint": "haber, subjunctive él",
+          "display_order": 2
+        }
+      ]
+    },
+    {
+      "title": "Pluperfect subjunctive + conditional perfect",
+      "level": "C1",
+      "function": "Regret and rewrite the past",
+      "source": "contributor",
+      "reviewed": true,
+      "display_order": 2,
+      "explanation": "The unreal past pairs si + hubiera + participle with habría + participle: Si hubiera estudiado, habría aprobado (Had I studied, I would have passed). Hubiera can replace habría colloquially in the result clause.",
+      "culture_note": "",
+      "references": [
+        {
+          "title": "Plan Curricular del Instituto Cervantes: Gramática C1–C2",
+          "url": "https://cvc.cervantes.es/ensenanza/biblioteca_ele/plan_curricular/niveles/02_gramatica_inventario_c1-c2.htm"
+        }
+      ],
+      "drills": [
+        {
+          "sentence": "Si {{answer}} estudiado, habría aprobado.",
+          "answer": "hubiera",
+          "translation": "If I had studied, I would have passed.",
+          "hint": "haber, pluperfect subjunctive",
+          "display_order": 1
+        },
+        {
+          "sentence": "Si me lo hubieras dicho, te {{answer}} ayudado.",
+          "answer": "habría",
+          "translation": "If you had told me, I would have helped you.",
+          "hint": "conditional perfect",
+          "display_order": 2
+        }
+      ]
+    },
+    {
+      "title": "Passive with ser + participle",
+      "level": "C1",
+      "function": "Write in a formal register",
+      "source": "contributor",
+      "reviewed": true,
+      "display_order": 3,
+      "explanation": "Formal/written passive: ser + participle agreeing with the subject, agent with por — La novela fue escrita en 1967; Los puentes fueron construidos por los romanos. Everyday speech prefers the se-passive.",
+      "culture_note": "",
+      "references": [
+        {
+          "title": "Plan Curricular del Instituto Cervantes: Gramática C1–C2",
+          "url": "https://cvc.cervantes.es/ensenanza/biblioteca_ele/plan_curricular/niveles/02_gramatica_inventario_c1-c2.htm"
+        },
+        {
+          "title": "Wikipedia: Spanish grammar — passive voice",
+          "url": "https://en.wikipedia.org/wiki/Spanish_grammar"
+        }
+      ],
+      "drills": [
+        {
+          "sentence": "La novela fue {{answer}} en 1967.",
+          "answer": "escrita",
+          "translation": "The novel was written in 1967.",
+          "hint": "escribir, participle agrees with novela",
+          "display_order": 1
+        },
+        {
+          "sentence": "Los puentes fueron {{answer}} por los romanos.",
+          "answer": "construidos",
+          "translation": "The bridges were built by the Romans.",
+          "hint": "agrees with puentes",
+          "display_order": 2
+        }
+      ]
+    },
+    {
+      "title": "Cleft sentences (fue… quien / lo que)",
+      "level": "C1",
+      "function": "Put the spotlight exactly where you want it",
+      "source": "contributor",
+      "reviewed": true,
+      "display_order": 4,
+      "explanation": "Emphasis via ser + relative: Fue María quien lo dijo (It was María who said it), Es eso lo que me preocupa (That's what worries me), Fue en Madrid donde nos conocimos.",
+      "culture_note": "",
+      "references": [
+        {
+          "title": "Plan Curricular del Instituto Cervantes: Gramática C1–C2",
+          "url": "https://cvc.cervantes.es/ensenanza/biblioteca_ele/plan_curricular/niveles/02_gramatica_inventario_c1-c2.htm"
+        },
+        {
+          "title": "Wikipedia: Cleft sentence",
+          "url": "https://en.wikipedia.org/wiki/Cleft_sentence"
+        }
+      ],
+      "drills": [
+        {
+          "sentence": "Fue María {{answer}} lo dijo.",
+          "answer": "quien",
+          "translation": "It was María who said it.",
+          "hint": "person focus",
+          "display_order": 1
+        },
+        {
+          "sentence": "Es eso lo {{answer}} me preocupa.",
+          "answer": "que",
+          "translation": "That is what worries me.",
+          "hint": "idea focus, lo que",
+          "display_order": 2
+        }
+      ]
+    },
+    {
+      "title": "Concessive intensifiers (por más que, digan lo que digan)",
+      "level": "C2",
+      "function": "Concede forcefully, native-style",
+      "source": "contributor",
+      "reviewed": true,
+      "display_order": 1,
+      "explanation": "High-register concession runs on the subjunctive: Por más que insistas, no lo lograrás (However much you insist…); reduplicated subjunctive: Digan lo que digan, seguiré (Whatever they say, I'll carry on); sea como sea (be that as it may).",
+      "culture_note": "",
+      "references": [
+        {
+          "title": "Plan Curricular del Instituto Cervantes: Gramática C1–C2",
+          "url": "https://cvc.cervantes.es/ensenanza/biblioteca_ele/plan_curricular/niveles/02_gramatica_inventario_c1-c2.htm"
+        }
+      ],
+      "drills": [
+        {
+          "sentence": "Por más que {{answer}}, no lo lograrás.",
+          "answer": "insistas",
+          "translation": "However much you insist, you won't manage it.",
+          "hint": "insistir, subjunctive",
+          "display_order": 1
+        },
+        {
+          "sentence": "Digan lo que {{answer}}, seguiré.",
+          "answer": "digan",
+          "translation": "Whatever they say, I will carry on.",
+          "hint": "reduplicated subjunctive",
+          "display_order": 2
+        }
+      ]
+    },
+    {
+      "title": "Literary -se subjunctive and ojalá + past",
+      "level": "C2",
+      "function": "Read and write literary Spanish",
+      "source": "contributor",
+      "reviewed": true,
+      "display_order": 2,
+      "explanation": "The -se forms (hablase, tuviese) are interchangeable with -ra in subordinate clauses and mark a literary register: Si él supiese la verdad… Ojalá + past subjunctive voices unlikely wishes: Ojalá pudiese venir (If only he could come).",
+      "culture_note": "",
+      "references": [
+        {
+          "title": "Plan Curricular del Instituto Cervantes: Gramática C1–C2",
+          "url": "https://cvc.cervantes.es/ensenanza/biblioteca_ele/plan_curricular/niveles/02_gramatica_inventario_c1-c2.htm"
+        },
+        {
+          "title": "Wikipedia: Spanish subjunctive — forms",
+          "url": "https://en.wikipedia.org/wiki/Subjunctive_mood_in_Spanish"
+        }
+      ],
+      "drills": [
+        {
+          "sentence": "Si él {{answer}} la verdad, callaría.",
+          "answer": "supiese",
+          "translation": "If he knew the truth, he would keep quiet.",
+          "hint": "saber, -se form",
+          "display_order": 1
+        },
+        {
+          "sentence": "Ojalá {{answer}} venir.",
+          "answer": "pudiese",
+          "translation": "If only he could come.",
+          "hint": "poder, -se form",
+          "display_order": 2
+        }
+      ]
+    },
+    {
+      "title": "No es que + subjunctive (nuanced denial)",
+      "level": "C2",
+      "function": "Deny one framing while asserting another",
+      "source": "contributor",
+      "reviewed": true,
+      "display_order": 3,
+      "explanation": "'No es que + subjunctive, es que + indicative' rejects an interpretation and substitutes the real one: No es que no quiera, es que no puedo (It's not that I don't want to — I can't). The denied clause is subjunctive; the asserted one indicative.",
+      "culture_note": "",
+      "references": [
+        {
+          "title": "Plan Curricular del Instituto Cervantes: Gramática C1–C2",
+          "url": "https://cvc.cervantes.es/ensenanza/biblioteca_ele/plan_curricular/niveles/02_gramatica_inventario_c1-c2.htm"
+        }
+      ],
+      "drills": [
+        {
+          "sentence": "No es que no {{answer}}, es que no puedo.",
+          "answer": "quiera",
+          "translation": "It's not that I don't want to — it's that I can't.",
+          "hint": "querer, subjunctive",
+          "display_order": 1
+        },
+        {
+          "sentence": "No es que me {{answer}} mal, es que no lo conozco.",
+          "answer": "caiga",
+          "translation": "It's not that I dislike him — I just don't know him.",
+          "hint": "caer(se) bien/mal, subjunctive",
+          "display_order": 2
+        }
       ]
     }
   ]

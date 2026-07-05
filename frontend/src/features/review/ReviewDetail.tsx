@@ -26,7 +26,7 @@ export default function ReviewDetail({ cardId, cardType, languageCode }: ReviewD
     staleTime: 5 * 60 * 1000,
   })
 
-  const label = cardType === 'grammar' ? 'Show grammar' : 'More examples'
+  const label = cardType === 'grammar' ? 'Show grammar' : 'Show examples'
 
   return (
     <div className="border-t border-gray-100 pt-3">

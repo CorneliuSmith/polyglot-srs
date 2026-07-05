@@ -163,9 +163,9 @@ describe('ReviewSessionPage', () => {
       expect(screen.getByTestId('feedback-panel')).toBeDefined()
     })
 
-    // Click the "Easy" rating button
-    const easyButton = screen.getByRole('button', { name: /easy/i })
-    fireEvent.click(easyButton)
+    // Click Continue (auto-records the NLP grade)
+    const continueButton = screen.getByRole('button', { name: /continue/i })
+    fireEvent.click(continueButton)
 
     // Verify submitReview called with correct args (REV-03 coverage)
     await waitFor(() => {
@@ -179,6 +179,34 @@ describe('ReviewSessionPage', () => {
     })
   })
 
+  it('a wrong judgement offers Bunpro-style re-entry without recording a grade', async () => {
+    mockValidateAnswer.mockResolvedValueOnce({ answer_result: 'wrong', feedback: null })
+    renderWithProviders(<ReviewSessionPage />)
+    await waitFor(() => screen.getByRole('textbox'))
+
+    const input = screen.getByRole('textbox')
+    fireEvent.change(input, { target: { value: 'gose' } })  // a slip
+    fireEvent.keyDown(input, { key: 'Enter' })
+    await waitFor(() => screen.getByTestId('feedback-panel'))
+
+    fireEvent.click(screen.getByRole('button', { name: /undo/i }))
+
+    // Back to answering the SAME card, previous input restored for editing,
+    // and nothing was submitted to the backend.
+    const retryInput = await screen.findByRole('textbox')
+    expect((retryInput as HTMLInputElement).value).toBe('gose')
+    expect(mockSubmitReview).not.toHaveBeenCalled()
+
+    fireEvent.change(retryInput, { target: { value: 'goes' } })
+    fireEvent.keyDown(retryInput, { key: 'Enter' })
+    await waitFor(() => screen.getByTestId('feedback-panel'))
+    fireEvent.click(screen.getByRole('button', { name: /continue/i }))
+    await waitFor(() => {
+      expect(mockSubmitReview).toHaveBeenCalledTimes(1)
+      expect(mockSubmitReview.mock.calls[0][0].answer_result).toBe('correct')
+    })
+  })
+
   it('shows SessionSummary after all cards are rated', async () => {
     renderWithProviders(<ReviewSessionPage />)
     await waitFor(() => screen.getByRole('textbox'))
@@ -189,8 +217,8 @@ describe('ReviewSessionPage', () => {
 
     await waitFor(() => screen.getByTestId('feedback-panel'))
 
-    const easyButton = screen.getByRole('button', { name: /easy/i })
-    fireEvent.click(easyButton)
+    const continueButton = screen.getByRole('button', { name: /continue/i })
+    fireEvent.click(continueButton)
 
     await waitFor(() => {
       expect(screen.getByText('Session Complete')).toBeDefined()
@@ -206,7 +234,7 @@ describe('ReviewSessionPage', () => {
     fireEvent.keyDown(input, { key: 'Enter' })
 
     await waitFor(() => screen.getByTestId('feedback-panel'))
-    fireEvent.click(screen.getByRole('button', { name: /easy/i }))
+    fireEvent.click(screen.getByRole('button', { name: /continue/i }))
 
     await waitFor(() => {
       expect(screen.getByTestId('accuracy')).toBeDefined()

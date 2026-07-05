@@ -39,6 +39,8 @@ export interface ReferenceLink {
 export interface CardDetail {
   card_type: 'grammar' | 'vocabulary' | 'personal'
   title: string | null
+  // pronunciation aid: transliteration, vowelled form, etc. (vocabulary only)
+  reading?: string | null
   part_of_speech: string | null
   definition: string | null
   usage_note: string | null
@@ -66,6 +68,8 @@ export interface SubmitReviewRequest {
   card_id: string
   answer_result: string
   time_taken_ms: number | null
+  // the exact sentence shown (sentences rotate) — logged for analysis
+  prompt_sentence?: string | null
 }
 
 export interface SubmitReviewResponse {
@@ -77,9 +81,15 @@ export interface SubmitReviewResponse {
   quality: number
 }
 
+/** Teachable content for one newly added item — shown BEFORE the first quiz. */
+export interface Lesson extends CardDetail {
+  card_id: string
+}
+
 export interface LearnResponse {
   added: number
   items: string[]
+  lessons: Lesson[]
 }
 
 export interface CEFRLevelProgress {

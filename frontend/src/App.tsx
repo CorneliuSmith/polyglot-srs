@@ -13,6 +13,8 @@ import LearnPage from './features/review/LearnPage'
 import TutorPage from './features/tutor/TutorPage'
 import NotesPage from './features/notes/NotesPage'
 import OnboardingPage from './features/onboarding/OnboardingPage'
+import SettingsPage from './features/settings/SettingsPage'
+import GrammarPathPage from './features/curriculum/GrammarPathPage'
 import ContributorPage from './features/contribute/ContributorPage'
 import ProtectedRoute from './components/ProtectedRoute'
 
@@ -28,6 +30,8 @@ const router = createBrowserRouter([
     children: [
       { path: '/', element: <DashboardPage /> },
       { path: '/onboarding', element: <OnboardingPage /> },
+      { path: '/settings', element: <SettingsPage /> },
+      { path: '/grammar', element: <GrammarPathPage /> },
       { path: '/review', element: <ReviewSessionPage /> },
       { path: '/learn', element: <LearnPage /> },
       { path: '/tutor', element: <TutorPage /> },
