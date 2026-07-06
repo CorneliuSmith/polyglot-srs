@@ -27,13 +27,13 @@ describe('ReviewDetail', () => {
 
   it('is collapsed by default and does not fetch', () => {
     renderDetail({ cardType: 'grammar' })
-    expect(screen.getByRole('button', { name: /show grammar/i })).toBeDefined()
+    expect(screen.getByRole('button', { name: /show info/i })).toBeDefined()
     expect(mockGetCardDetail).not.toHaveBeenCalled()
   })
 
-  it('labels the toggle "Show examples" for vocab cards', () => {
+  it('labels the toggle "Show info" for vocab cards', () => {
     renderDetail({ cardType: 'vocabulary' })
-    expect(screen.getByRole('button', { name: /show examples/i })).toBeDefined()
+    expect(screen.getByRole('button', { name: /show info/i })).toBeDefined()
   })
 
   it('lazy-loads and shows grammar explanation + culture note on expand', async () => {
@@ -50,7 +50,7 @@ describe('ReviewDetail', () => {
     })
     renderDetail({ cardType: 'grammar' })
 
-    fireEvent.click(screen.getByRole('button', { name: /show grammar/i }))
+    fireEvent.click(screen.getByRole('button', { name: /show info/i }))
 
     expect(await screen.findByText(/express location with -de\/-da/i)).toBeDefined()
     expect(screen.getByText(/everyday directions/i)).toBeDefined()

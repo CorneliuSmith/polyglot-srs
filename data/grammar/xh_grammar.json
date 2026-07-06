@@ -47,7 +47,7 @@
           "sentence": "{{answer}} isiXhosa.",
           "answer": "Ndifunda",
           "translation": "I study Xhosa.",
-          "hint": "ndi- + funda (no -ya- before an object)",
+          "hint": "to learn + 'I' concord (no -ya- before an object)",
           "display_order": 1
         },
         {
@@ -56,6 +56,34 @@
           "translation": "I am studying.",
           "hint": "long present with -ya-",
           "display_order": 2
+        },
+        {
+          "sentence": "{{answer}} isiXhosa kakuhle.",
+          "answer": "Uthetha",
+          "translation": "You speak Xhosa well.",
+          "hint": "thetha, u- (you)",
+          "display_order": 3
+        },
+        {
+          "sentence": "Abantwana {{answer}}.",
+          "answer": "bayadlala",
+          "translation": "The children are playing.",
+          "hint": "dlala, ba- + -ya-",
+          "display_order": 4
+        },
+        {
+          "sentence": "{{answer}} amanzi.",
+          "answer": "Sifuna",
+          "translation": "We want water.",
+          "hint": "funa, si- (we)",
+          "display_order": 5
+        },
+        {
+          "sentence": "{{answer}} itiye.",
+          "answer": "Ufuna",
+          "translation": "You want tea.",
+          "hint": "funa, u- (you)",
+          "display_order": 6
         }
       ]
     },
@@ -92,6 +120,34 @@
           "translation": "The child is studying.",
           "hint": "um- singular (class 1)",
           "display_order": 2
+        },
+        {
+          "sentence": "Umntu omnye, {{answer}} ababini.",
+          "answer": "abantu",
+          "translation": "One person, two people.",
+          "hint": "umntu → plural",
+          "display_order": 3
+        },
+        {
+          "sentence": "{{answer}} bayasebenza.",
+          "answer": "Abafazi",
+          "translation": "The women are working.",
+          "hint": "umfazi → plural",
+          "display_order": 4
+        },
+        {
+          "sentence": "{{answer}} uyathetha.",
+          "answer": "Umfundi",
+          "translation": "The student is speaking.",
+          "hint": "person prefix um-",
+          "display_order": 5
+        },
+        {
+          "sentence": "Utitshala omnye, {{answer}} ababini.",
+          "answer": "ootitshala",
+          "translation": "One teacher, two teachers.",
+          "hint": "class 1a takes oo- in the plural",
+          "display_order": 6
         }
       ]
     },
@@ -128,6 +184,34 @@
           "translation": "I speak Xhosa.",
           "hint": "isi- language noun",
           "display_order": 2
+        },
+        {
+          "sentence": "Ihashe elinye, {{answer}} amabini.",
+          "answer": "amahashe",
+          "translation": "One horse, two horses.",
+          "hint": "ihashe → class 6",
+          "display_order": 3
+        },
+        {
+          "sentence": "Isitya esinye, {{answer}} ezimbini.",
+          "answer": "izitya",
+          "translation": "One dish, two dishes.",
+          "hint": "isitya → class 8",
+          "display_order": 4
+        },
+        {
+          "sentence": "{{answer}} likhulu.",
+          "answer": "Ilizwe",
+          "translation": "The country is big.",
+          "hint": "class 5 — li- concord",
+          "display_order": 5
+        },
+        {
+          "sentence": "Ndifunda {{answer}}.",
+          "answer": "isiNgesi",
+          "translation": "I am learning English.",
+          "hint": "language prefix isi-",
+          "display_order": 6
         }
       ]
     },
@@ -164,6 +248,34 @@
           "translation": "One book, two books.",
           "hint": "long ii- plural",
           "display_order": 2
+        },
+        {
+          "sentence": "Imoto enye, {{answer}} ezimbini.",
+          "answer": "iimoto",
+          "translation": "One car, two cars.",
+          "hint": "imoto → iin- plural",
+          "display_order": 3
+        },
+        {
+          "sentence": "Indlu enye, {{answer}} ezimbini.",
+          "answer": "izindlu",
+          "translation": "One house, two houses.",
+          "hint": "indlu → izin- plural",
+          "display_order": 4
+        },
+        {
+          "sentence": "{{answer}} iyakhonkotha.",
+          "answer": "Inja",
+          "translation": "The dog is barking.",
+          "hint": "class 9 — i- concord",
+          "display_order": 5
+        },
+        {
+          "sentence": "{{answer}} ziyabaleka.",
+          "answer": "Izinja",
+          "translation": "The dogs are running.",
+          "hint": "class 10 — zi- concord",
+          "display_order": 6
         }
       ]
     },
@@ -196,6 +308,34 @@
           "translation": "This is a book.",
           "hint": "yi- + class-9 noun",
           "display_order": 2
+        },
+        {
+          "sentence": "{{answer}} lowo.",
+          "answer": "NguSipho",
+          "translation": "That is Sipho.",
+          "hint": "ngu- + name",
+          "display_order": 3
+        },
+        {
+          "sentence": "{{answer}} leyo.",
+          "answer": "Yimoto",
+          "translation": "That is a car.",
+          "hint": "yi- + class 9 noun",
+          "display_order": 4
+        },
+        {
+          "sentence": "Lo {{answer}}.",
+          "answer": "ngutitshala",
+          "translation": "This is a teacher.",
+          "hint": "ngu- + class 1 noun",
+          "display_order": 5
+        },
+        {
+          "sentence": "Eli {{answer}}.",
+          "answer": "liqanda",
+          "translation": "This is an egg.",
+          "hint": "li- + class 5 noun",
+          "display_order": 6
         }
       ]
     },
@@ -219,15 +359,43 @@
           "sentence": "{{answer}} isiNgesi.",
           "answer": "Andithethi",
           "translation": "I don't speak English.",
-          "hint": "andi- + thetha + -i",
+          "hint": "to speak + negative, I (final vowel changes)",
           "display_order": 1
         },
         {
           "sentence": "{{answer}} ukutya.",
           "answer": "Akafuni",
           "translation": "He/she doesn't want food.",
-          "hint": "aka- + funa + -i",
+          "hint": "to want + negative, he/she",
           "display_order": 2
+        },
+        {
+          "sentence": "{{answer}} amanzi.",
+          "answer": "Andifuni",
+          "translation": "I don't want water.",
+          "hint": "to want + negative, I",
+          "display_order": 3
+        },
+        {
+          "sentence": "{{answer}} eKapa.",
+          "answer": "Andihlali",
+          "translation": "I don't live in Cape Town.",
+          "hint": "to live + negative, I",
+          "display_order": 4
+        },
+        {
+          "sentence": "Abantwana {{answer}} ukutya.",
+          "answer": "abafuni",
+          "translation": "The children don't want food.",
+          "hint": "to want + negative, they",
+          "display_order": 5
+        },
+        {
+          "sentence": "Utitshala {{answer}} namhlanje.",
+          "answer": "akasebenzi",
+          "translation": "The teacher isn't working today.",
+          "hint": "to work + negative, he/she",
+          "display_order": 6
         }
       ]
     },
@@ -260,6 +428,34 @@
           "translation": "The children study at school.",
           "hint": "e- + isikolo + -ini",
           "display_order": 2
+        },
+        {
+          "sentence": "Umama uhlala {{answer}}.",
+          "answer": "eGoli",
+          "translation": "Mum lives in Johannesburg.",
+          "hint": "e- + place name",
+          "display_order": 3
+        },
+        {
+          "sentence": "Ndiya {{answer}} ngomso.",
+          "answer": "edolophini",
+          "translation": "I am going to town tomorrow.",
+          "hint": "idolophu → e-…-ini",
+          "display_order": 4
+        },
+        {
+          "sentence": "Utata usebenza {{answer}}.",
+          "answer": "efama",
+          "translation": "Dad works on the farm.",
+          "hint": "ifama → e-",
+          "display_order": 5
+        },
+        {
+          "sentence": "Abantwana badlala {{answer}}.",
+          "answer": "epakini",
+          "translation": "The children play in the park.",
+          "hint": "ipaki → e-…-ini",
+          "display_order": 6
         }
       ]
     },
@@ -292,6 +488,34 @@
           "translation": "Where do you live?",
           "hint": "'where' after the verb",
           "display_order": 2
+        },
+        {
+          "sentence": "{{answer}} igama lakho?",
+          "answer": "Ngubani",
+          "translation": "What is your name?",
+          "hint": "names ask 'who'",
+          "display_order": 3
+        },
+        {
+          "sentence": "Ufika {{answer}}?",
+          "answer": "nini",
+          "translation": "When do you arrive?",
+          "hint": "when",
+          "display_order": 4
+        },
+        {
+          "sentence": "Usebenza {{answer}}?",
+          "answer": "phi",
+          "translation": "Where do you work?",
+          "hint": "where",
+          "display_order": 5
+        },
+        {
+          "sentence": "Ubona {{answer}}?",
+          "answer": "bani",
+          "translation": "Whom do you see?",
+          "hint": "who(m)",
+          "display_order": 6
         }
       ]
     },
@@ -312,18 +536,46 @@
       ],
       "drills": [
         {
-          "sentence": "{{answer}}.",
+          "sentence": "{{answer}} entle.",
           "answer": "Ndinencwadi",
-          "translation": "I have a book.",
+          "translation": "I have a beautiful book.",
           "hint": "ndi + na + incwadi fused",
           "display_order": 1
         },
         {
-          "sentence": "{{answer}}.",
+          "sentence": "{{answer}} namhlanje.",
           "answer": "Andinamali",
-          "translation": "I have no money.",
+          "translation": "I have no money today.",
           "hint": "negative: a- + ndi + na + imali",
           "display_order": 2
+        },
+        {
+          "sentence": "{{answer}} ezimbini.",
+          "answer": "Ndineencwadi",
+          "translation": "I have two books.",
+          "hint": "ndi + na + iincwadi",
+          "display_order": 3
+        },
+        {
+          "sentence": "UThemba {{answer}}.",
+          "answer": "unemali",
+          "translation": "Themba has money.",
+          "hint": "u + na + imali",
+          "display_order": 4
+        },
+        {
+          "sentence": "{{answer}} abantwana abathathu.",
+          "answer": "Banabantwana",
+          "translation": "They have three children.",
+          "hint": "ba + na + abantwana",
+          "display_order": 5
+        },
+        {
+          "sentence": "Umama {{answer}}.",
+          "answer": "unendlu",
+          "translation": "Mum has a house.",
+          "hint": "u + na + indlu",
+          "display_order": 6
         }
       ]
     },
@@ -356,6 +608,34 @@
           "translation": "Her child is studying.",
           "hint": "class-1 possessive + 'her'",
           "display_order": 2
+        },
+        {
+          "sentence": "Imoto {{answer}} intsha.",
+          "answer": "yakho",
+          "translation": "Your car is new.",
+          "hint": "class 9 ya- + you",
+          "display_order": 3
+        },
+        {
+          "sentence": "Abantwana {{answer}} bayafunda.",
+          "answer": "bam",
+          "translation": "My children are studying.",
+          "hint": "people-class concord + 'my'",
+          "display_order": 4
+        },
+        {
+          "sentence": "Indlu {{answer}} inkulu.",
+          "answer": "yabo",
+          "translation": "Their house is big.",
+          "hint": "class 9 ya- + them",
+          "display_order": 5
+        },
+        {
+          "sentence": "Igama {{answer}} nguThemba.",
+          "answer": "lakhe",
+          "translation": "His name is Themba.",
+          "hint": "class 5 la- + him",
+          "display_order": 6
         }
       ]
     },
@@ -388,6 +668,34 @@
           "translation": "The children have arrived.",
           "hint": "ba- + fika + -ile",
           "display_order": 2
+        },
+        {
+          "sentence": "Umama {{answer}}.",
+          "answer": "ufikile",
+          "translation": "Mum has arrived.",
+          "hint": "fika + -ile",
+          "display_order": 3
+        },
+        {
+          "sentence": "{{answer}} kakhulu.",
+          "answer": "Sisebenzile",
+          "translation": "We have worked hard.",
+          "hint": "sebenza + -ile, si-",
+          "display_order": 4
+        },
+        {
+          "sentence": "Utata {{answer}}.",
+          "answer": "ulele",
+          "translation": "Dad is asleep (has slept).",
+          "hint": "lala → lele",
+          "display_order": 5
+        },
+        {
+          "sentence": "Abafundi {{answer}}.",
+          "answer": "baphumelele",
+          "translation": "The students have passed.",
+          "hint": "phumelela → phumelele",
+          "display_order": 6
         }
       ]
     },
@@ -418,8 +726,36 @@
           "sentence": "{{answer}} kufika ngomso.",
           "answer": "Uza",
           "translation": "He/she will arrive tomorrow.",
-          "hint": "u- + -za",
+          "hint": "'you' concord + future marker",
           "display_order": 2
+        },
+        {
+          "sentence": "{{answer}} kusebenza ngomso.",
+          "answer": "Ndiza",
+          "translation": "I am going to work tomorrow.",
+          "hint": "'I' concord + future marker",
+          "display_order": 3
+        },
+        {
+          "sentence": "Siza {{answer}} eKapa.",
+          "answer": "kuya",
+          "translation": "We are going to go to Cape Town.",
+          "hint": "infinitive 'to go' after the future marker",
+          "display_order": 4
+        },
+        {
+          "sentence": "Abantwana {{answer}} kudlala.",
+          "answer": "baza",
+          "translation": "The children are going to play.",
+          "hint": "'they' concord + future marker",
+          "display_order": 5
+        },
+        {
+          "sentence": "Uza {{answer}} ntoni ngomso?",
+          "answer": "kwenza",
+          "translation": "What are you going to do tomorrow?",
+          "hint": "infinitive 'to do' (vowels fuse)",
+          "display_order": 6
         }
       ]
     },
@@ -452,6 +788,34 @@
           "translation": "Themba? I see him.",
           "hint": "object -m- (class 1) inside the verb",
           "display_order": 2
+        },
+        {
+          "sentence": "Amanzi? {{answer}}.",
+          "answer": "Ndiyawasela",
+          "translation": "The water? I am drinking it.",
+          "hint": "class 6 object -wa-",
+          "display_order": 3
+        },
+        {
+          "sentence": "Imoto? {{answer}}.",
+          "answer": "Ndiyayibona",
+          "translation": "The car? I see it.",
+          "hint": "class 9 object -yi-",
+          "display_order": 4
+        },
+        {
+          "sentence": "Abantwana? {{answer}}.",
+          "answer": "Ndiyabathanda",
+          "translation": "The children? I love them.",
+          "hint": "class 2 object -ba-",
+          "display_order": 5
+        },
+        {
+          "sentence": "IsiXhosa? {{answer}}.",
+          "answer": "Ndiyasithetha",
+          "translation": "Xhosa? I speak it.",
+          "hint": "class 7 object -si-",
+          "display_order": 6
         }
       ]
     },
@@ -482,8 +846,36 @@
           "sentence": "incwadi {{answer}}",
           "answer": "entle",
           "translation": "a nice book",
-          "hint": "class-9 concord + -hle → entle",
+          "hint": "beautiful + class-9 concord",
           "display_order": 2
+        },
+        {
+          "sentence": "abantwana {{answer}}",
+          "answer": "abahle",
+          "translation": "beautiful children",
+          "hint": "beautiful + class-2 concord",
+          "display_order": 3
+        },
+        {
+          "sentence": "indlu {{answer}}",
+          "answer": "enkulu",
+          "translation": "a big house",
+          "hint": "big + class-9 concord",
+          "display_order": 4
+        },
+        {
+          "sentence": "iqanda {{answer}}",
+          "answer": "elikhulu",
+          "translation": "a big egg",
+          "hint": "big + class-5 concord",
+          "display_order": 5
+        },
+        {
+          "sentence": "izindlu {{answer}}",
+          "answer": "ezinkulu",
+          "translation": "big houses",
+          "hint": "big + class-10 concord",
+          "display_order": 6
         }
       ]
     },
@@ -516,6 +908,34 @@
           "translation": "This book is nice.",
           "hint": "class-9 'this'",
           "display_order": 2
+        },
+        {
+          "sentence": "{{answer}} qanda likhulu.",
+          "answer": "Eli",
+          "translation": "This egg is big.",
+          "hint": "class 5 — this",
+          "display_order": 3
+        },
+        {
+          "sentence": "{{answer}} bantu bayasebenza.",
+          "answer": "Aba",
+          "translation": "These people are working.",
+          "hint": "class 2 — these",
+          "display_order": 4
+        },
+        {
+          "sentence": "{{answer}} zindlu zinkulu.",
+          "answer": "Ezi",
+          "translation": "These houses are big.",
+          "hint": "class 10 — these",
+          "display_order": 5
+        },
+        {
+          "sentence": "{{answer}} sitya sihle.",
+          "answer": "Esi",
+          "translation": "This dish is beautiful.",
+          "hint": "class 7 — this",
+          "display_order": 6
         }
       ]
     },
@@ -548,6 +968,34 @@
           "translation": "I will not study tomorrow.",
           "hint": "negative future auxiliary",
           "display_order": 2
+        },
+        {
+          "sentence": "{{answer}} ukutya izolo.",
+          "answer": "Andithenganga",
+          "translation": "I didn't buy food yesterday.",
+          "hint": "to buy + past negative, I",
+          "display_order": 3
+        },
+        {
+          "sentence": "Abantwana {{answer}} izolo.",
+          "answer": "abafikanga",
+          "translation": "The children didn't arrive yesterday.",
+          "hint": "to arrive + past negative, they",
+          "display_order": 4
+        },
+        {
+          "sentence": "UThemba {{answer}} kufika ngomso.",
+          "answer": "akazi",
+          "translation": "Themba is not going to arrive tomorrow.",
+          "hint": "future negative, he — the short -zi form",
+          "display_order": 5
+        },
+        {
+          "sentence": "Asizi {{answer}} ngomso.",
+          "answer": "kudlala",
+          "translation": "We are not going to play tomorrow.",
+          "hint": "infinitive 'to play' after the negative future",
+          "display_order": 6
         }
       ]
     },
@@ -580,6 +1028,34 @@
           "translation": "I want you to study.",
           "hint": "subjunctive -e",
           "display_order": 2
+        },
+        {
+          "sentence": "{{answer}} ngoku!",
+          "answer": "Masihambe",
+          "translation": "Let's go now!",
+          "hint": "to go + 'let's' (final vowel changes)",
+          "display_order": 3
+        },
+        {
+          "sentence": "Ndifuna ukuba {{answer}} kakuhle.",
+          "answer": "uthethe",
+          "translation": "I want you to speak well.",
+          "hint": "thetha → -e",
+          "display_order": 4
+        },
+        {
+          "sentence": "{{answer}} ukutya!",
+          "answer": "Masithenge",
+          "translation": "Let's buy food!",
+          "hint": "to buy + 'let's' (final vowel changes)",
+          "display_order": 5
+        },
+        {
+          "sentence": "Ufuna ukuba {{answer}} ntoni?",
+          "answer": "ndenze",
+          "translation": "What do you want me to do?",
+          "hint": "to do + subjunctive, I (vowels fuse)",
+          "display_order": 6
         }
       ]
     },
@@ -612,6 +1088,34 @@
           "translation": "He studied in Makhanda (long ago).",
           "hint": "u + -a- fused",
           "display_order": 2
+        },
+        {
+          "sentence": "{{answer}} eGoli kudala.",
+          "answer": "Ndasebenza",
+          "translation": "I worked in Johannesburg long ago.",
+          "hint": "ndi + a → nda-",
+          "display_order": 3
+        },
+        {
+          "sentence": "Umama {{answer}} eMonti.",
+          "answer": "wahlala",
+          "translation": "Mum lived in East London long ago.",
+          "hint": "u + a → wa-",
+          "display_order": 4
+        },
+        {
+          "sentence": "{{answer}} eRhini kudala.",
+          "answer": "Safunda",
+          "translation": "We studied in Makhanda long ago.",
+          "hint": "si + a → sa-",
+          "display_order": 5
+        },
+        {
+          "sentence": "UMandela {{answer}} eQunu.",
+          "answer": "wakhula",
+          "translation": "Mandela grew up in Qunu.",
+          "hint": "to grow up + remote past, he",
+          "display_order": 6
         }
       ]
     },
@@ -635,7 +1139,7 @@
           "sentence": "umntwana {{answer}}",
           "answer": "ofundayo",
           "translation": "the child who studies",
-          "hint": "relative o- + funda + -yo",
+          "hint": "to study + relative frame, class 1",
           "display_order": 1
         },
         {
@@ -644,6 +1148,34 @@
           "translation": "the book that I am reading",
           "hint": "relative + ndi + object -yi-",
           "display_order": 2
+        },
+        {
+          "sentence": "umntu {{answer}}",
+          "answer": "othethayo",
+          "translation": "a person who speaks",
+          "hint": "to speak + relative frame, class 1",
+          "display_order": 3
+        },
+        {
+          "sentence": "abantwana {{answer}}",
+          "answer": "abadlalayo",
+          "translation": "children who play",
+          "hint": "to play + relative frame, class 2",
+          "display_order": 4
+        },
+        {
+          "sentence": "imoto {{answer}}",
+          "answer": "ebalekayo",
+          "translation": "a car that goes fast",
+          "hint": "to run + relative frame, class 9",
+          "display_order": 5
+        },
+        {
+          "sentence": "ukutya {{answer}}",
+          "answer": "endikuthandayo",
+          "translation": "food that I love",
+          "hint": "to love + relative frame with 'I' and a class-15 object",
+          "display_order": 6
         }
       ]
     },
@@ -667,15 +1199,43 @@
           "sentence": "Incwadi {{answer}}.",
           "answer": "iyafundwa",
           "translation": "The book is being read.",
-          "hint": "i- + -ya- + fundwa",
+          "hint": "to read + passive, class 9",
           "display_order": 1
         },
         {
           "sentence": "IsiXhosa {{answer}} eKapa.",
           "answer": "sithethwa",
           "translation": "Xhosa is spoken in Cape Town.",
-          "hint": "si- + thethwa",
+          "hint": "to speak + passive, class 7",
           "display_order": 2
+        },
+        {
+          "sentence": "Ukutya {{answer}}.",
+          "answer": "kuyaphekwa",
+          "translation": "The food is being cooked.",
+          "hint": "pheka → phekwa, ku- class",
+          "display_order": 3
+        },
+        {
+          "sentence": "Iingoma {{answer}} apha.",
+          "answer": "ziculwa",
+          "translation": "Songs are sung here.",
+          "hint": "cula → culwa, zi- class",
+          "display_order": 4
+        },
+        {
+          "sentence": "Imali {{answer}}.",
+          "answer": "ithathiwe",
+          "translation": "The money has been taken.",
+          "hint": "thatha → thathiwe (perfect passive)",
+          "display_order": 5
+        },
+        {
+          "sentence": "Abantwana {{answer}} ngumama.",
+          "answer": "bathandwa",
+          "translation": "The children are loved by their mother.",
+          "hint": "thanda → thandwa, agent ngu-",
+          "display_order": 6
         }
       ]
     },
@@ -708,6 +1268,34 @@
           "translation": "I am using my phone.",
           "hint": "causative of -sebenza",
           "display_order": 2
+        },
+        {
+          "sentence": "Umama {{answer}} umntwana.",
+          "answer": "ulalisa",
+          "translation": "Mum is putting the child to sleep.",
+          "hint": "lala → lalisa",
+          "display_order": 3
+        },
+        {
+          "sentence": "{{answer}} incwadi kubafundi.",
+          "answer": "Ndibonisa",
+          "translation": "I am showing the book to the students.",
+          "hint": "bona → bonisa",
+          "display_order": 4
+        },
+        {
+          "sentence": "Le nto {{answer}} abantu.",
+          "answer": "yonwabisa",
+          "translation": "This thing makes people happy.",
+          "hint": "onwaba → onwabisa",
+          "display_order": 5
+        },
+        {
+          "sentence": "Ootitshala {{answer}} abantwana isiXhosa.",
+          "answer": "bafundisa",
+          "translation": "The teachers teach the children Xhosa.",
+          "hint": "funda → fundisa",
+          "display_order": 6
         }
       ]
     },
@@ -740,6 +1328,34 @@
           "translation": "She works for a big company.",
           "hint": "applicative of -sebenza",
           "display_order": 2
+        },
+        {
+          "sentence": "Umama {{answer}} abantwana ukutya.",
+          "answer": "uphekela",
+          "translation": "Mum cooks food for the children.",
+          "hint": "pheka → phekela",
+          "display_order": 3
+        },
+        {
+          "sentence": "{{answer}} umhlobo wam incwadi.",
+          "answer": "Ndithengela",
+          "translation": "I am buying a book for my friend.",
+          "hint": "thenga → thengela",
+          "display_order": 4
+        },
+        {
+          "sentence": "{{answer}} umama wakhe imali.",
+          "answer": "Uthumelela",
+          "translation": "He sends money to his mother.",
+          "hint": "thumela → thumelela",
+          "display_order": 5
+        },
+        {
+          "sentence": "{{answer}} usana ingoma.",
+          "answer": "Siculela",
+          "translation": "We are singing a song for the baby.",
+          "hint": "cula → culela",
+          "display_order": 6
         }
       ]
     },
@@ -772,6 +1388,34 @@
           "translation": "See you tomorrow! (we shall see each other)",
           "hint": "reciprocal of -bona, future",
           "display_order": 2
+        },
+        {
+          "sentence": "Abahlobo {{answer}}.",
+          "answer": "bayancedana",
+          "translation": "The friends help each other.",
+          "hint": "nceda → ncedana",
+          "display_order": 3
+        },
+        {
+          "sentence": "{{answer}} rhoqo.",
+          "answer": "Sibonana",
+          "translation": "We see each other often.",
+          "hint": "bona → bonana",
+          "display_order": 4
+        },
+        {
+          "sentence": "Abantu {{answer}} ekuseni.",
+          "answer": "bayabulisana",
+          "translation": "People greet each other in the morning.",
+          "hint": "bulisa → bulisana",
+          "display_order": 5
+        },
+        {
+          "sentence": "Oomama {{answer}} edolophini.",
+          "answer": "badibana",
+          "translation": "The mothers meet in town.",
+          "hint": "dibana — meet each other",
+          "display_order": 6
         }
       ]
     },
@@ -804,6 +1448,34 @@
           "translation": "I know that you are coming.",
           "hint": "'that' complementizer",
           "display_order": 2
+        },
+        {
+          "sentence": "{{answer}} ufuna ukuphumelela, funda.",
+          "answer": "Ukuba",
+          "translation": "If you want to succeed, study.",
+          "hint": "if",
+          "display_order": 3
+        },
+        {
+          "sentence": "Andazi {{answer}} uza kufika nini.",
+          "answer": "ukuba",
+          "translation": "I don't know when he is going to arrive.",
+          "hint": "whether/that",
+          "display_order": 4
+        },
+        {
+          "sentence": "{{answer}} imvula iyana, siza kuhlala endlwini.",
+          "answer": "Ukuba",
+          "translation": "If it rains, we will stay in the house.",
+          "hint": "if",
+          "display_order": 5
+        },
+        {
+          "sentence": "Ndiyavuya {{answer}} ufikile.",
+          "answer": "ukuba",
+          "translation": "I am glad that you have arrived.",
+          "hint": "that",
+          "display_order": 6
         }
       ]
     }

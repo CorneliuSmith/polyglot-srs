@@ -1,0 +1,779 @@
+{
+  "lists": [
+    {
+      "level": "A1",
+      "title": "Catalan A1 Grammar Path",
+      "description": "A1 grammar in communicative order: pronouns (and when to drop them), noun gender and number, both article families, ser and tenir, the conjugation families, negation, hi ha, questions, and adjective agreement."
+    }
+  ],
+  "points": [
+    {
+      "title": "Subject pronouns (jo, tu, ell…)",
+      "level": "A1",
+      "function": "Say who you are talking about — when it needs saying",
+      "source": "contributor",
+      "reviewed": true,
+      "display_order": 1,
+      "explanation": "Jo (I), tu (you, informal), ell/ella (he/she), vostè (you, formal), nosaltres (we), vosaltres (you all), ells/elles (they). The verb ending already names the person, so Catalan usually drops the pronoun — parlo català — and uses it only for emphasis or contrast.",
+      "culture_note": "Vostè takes third-person verb forms, like Spanish usted — but Catalans reach for it less often than Spaniards do.",
+      "references": [
+        {
+          "title": "Wikipedia: Catalan grammar",
+          "url": "https://en.wikipedia.org/wiki/Catalan_grammar"
+        },
+        {
+          "title": "Wikipedia: Pro-drop language",
+          "url": "https://en.wikipedia.org/wiki/Pro-drop_language"
+        }
+      ],
+      "drills": [
+        {
+          "sentence": "{{answer}} soc de Barcelona.",
+          "answer": "Jo",
+          "translation": "I am from Barcelona.",
+          "hint": "I",
+          "display_order": 1
+        },
+        {
+          "sentence": "{{answer}} ets el meu amic.",
+          "answer": "Tu",
+          "translation": "You are my friend.",
+          "hint": "you — informal",
+          "display_order": 2
+        },
+        {
+          "sentence": "{{answer}} és la meva germana.",
+          "answer": "Ella",
+          "translation": "She is my sister.",
+          "hint": "she",
+          "display_order": 3
+        },
+        {
+          "sentence": "{{answer}} som estudiants.",
+          "answer": "Nosaltres",
+          "translation": "We are students.",
+          "hint": "we",
+          "display_order": 4
+        },
+        {
+          "sentence": "{{answer}} són de Girona.",
+          "answer": "Ells",
+          "translation": "They are from Girona.",
+          "hint": "they (masculine)",
+          "display_order": 5
+        },
+        {
+          "sentence": "{{answer}} sou molt amables.",
+          "answer": "Vosaltres",
+          "translation": "You (all) are very kind.",
+          "hint": "you — plural",
+          "display_order": 6
+        }
+      ]
+    },
+    {
+      "title": "Gender and number of nouns",
+      "level": "A1",
+      "function": "Name people and things, one or many",
+      "source": "contributor",
+      "reviewed": true,
+      "display_order": 2,
+      "explanation": "Nouns are masculine or feminine; feminines often end in -a (casa), masculines in a consonant or -e (llibre, gat). Plural adds -s, with -a becoming -es (casa → cases). Watch the spelling shifts that keep pronunciation: plaça → places.",
+      "culture_note": "",
+      "references": [
+        {
+          "title": "Wikipedia: Catalan grammar — nouns",
+          "url": "https://en.wikipedia.org/wiki/Catalan_grammar"
+        },
+        {
+          "title": "Wikipedia: Grammatical gender",
+          "url": "https://en.wikipedia.org/wiki/Grammatical_gender"
+        }
+      ],
+      "drills": [
+        {
+          "sentence": "Tinc dos {{answer}}.",
+          "answer": "llibres",
+          "translation": "I have two books.",
+          "hint": "book, plural",
+          "display_order": 1
+        },
+        {
+          "sentence": "Les {{answer}} són boniques.",
+          "answer": "cases",
+          "translation": "The houses are beautiful.",
+          "hint": "house, plural (-a → -es)",
+          "display_order": 2
+        },
+        {
+          "sentence": "Tinc tres {{answer}}.",
+          "answer": "germanes",
+          "translation": "I have three sisters.",
+          "hint": "sister, plural",
+          "display_order": 3
+        },
+        {
+          "sentence": "Els {{answer}} són grans.",
+          "answer": "jardins",
+          "translation": "The gardens are big.",
+          "hint": "garden, plural",
+          "display_order": 4
+        },
+        {
+          "sentence": "Tinc dos {{answer}} a casa.",
+          "answer": "gats",
+          "translation": "I have two cats at home.",
+          "hint": "cat, plural",
+          "display_order": 5
+        },
+        {
+          "sentence": "Les {{answer}} són noves.",
+          "answer": "cadires",
+          "translation": "The chairs are new.",
+          "hint": "chair, plural",
+          "display_order": 6
+        }
+      ]
+    },
+    {
+      "title": "Definite articles (el / la / els / les)",
+      "level": "A1",
+      "function": "Point to a specific thing",
+      "source": "contributor",
+      "reviewed": true,
+      "display_order": 3,
+      "explanation": "El (masculine), la (feminine), els and les in the plural. Before a vowel both singulars become l' (l'amic, l'escola). Catalan even puts an article before people's names in speech: la Maria, en Joan.",
+      "culture_note": "The 'personal article' (en/na or el/la before names) is a very Catalan touch — la Núria arriba demà.",
+      "references": [
+        {
+          "title": "Wikipedia: Catalan grammar — articles",
+          "url": "https://en.wikipedia.org/wiki/Catalan_grammar"
+        },
+        {
+          "title": "Wiktionary: el (Catalan)",
+          "url": "https://en.wiktionary.org/wiki/el#Catalan"
+        }
+      ],
+      "drills": [
+        {
+          "sentence": "{{answer}} casa és gran.",
+          "answer": "La",
+          "translation": "The house is big.",
+          "hint": "feminine singular",
+          "display_order": 1
+        },
+        {
+          "sentence": "{{answer}} llibre és nou.",
+          "answer": "El",
+          "translation": "The book is new.",
+          "hint": "masculine singular",
+          "display_order": 2
+        },
+        {
+          "sentence": "{{answer}} nens juguen fora.",
+          "answer": "Els",
+          "translation": "The children are playing outside.",
+          "hint": "masculine plural",
+          "display_order": 3
+        },
+        {
+          "sentence": "{{answer}} cafè és calent.",
+          "answer": "El",
+          "translation": "The coffee is hot.",
+          "hint": "masculine singular",
+          "display_order": 4
+        },
+        {
+          "sentence": "{{answer}} porta és oberta.",
+          "answer": "La",
+          "translation": "The door is open.",
+          "hint": "feminine singular",
+          "display_order": 5
+        },
+        {
+          "sentence": "{{answer}} noies són simpàtiques.",
+          "answer": "Les",
+          "translation": "The girls are nice.",
+          "hint": "feminine plural",
+          "display_order": 6
+        }
+      ]
+    },
+    {
+      "title": "Indefinite articles (un / una)",
+      "level": "A1",
+      "function": "Mention something for the first time",
+      "source": "contributor",
+      "reviewed": true,
+      "display_order": 4,
+      "explanation": "Un for masculine (un gos), una for feminine (una casa). The plurals uns/unes mean 'some': uns amics. No elision here — una idea keeps its article whole.",
+      "culture_note": "",
+      "references": [
+        {
+          "title": "Wikipedia: Catalan grammar — articles",
+          "url": "https://en.wikipedia.org/wiki/Catalan_grammar"
+        },
+        {
+          "title": "Wiktionary: un (Catalan)",
+          "url": "https://en.wiktionary.org/wiki/un#Catalan"
+        }
+      ],
+      "drills": [
+        {
+          "sentence": "Tinc {{answer}} gos.",
+          "answer": "un",
+          "translation": "I have a dog.",
+          "hint": "masculine",
+          "display_order": 1
+        },
+        {
+          "sentence": "És {{answer}} casa gran.",
+          "answer": "una",
+          "translation": "It is a big house.",
+          "hint": "feminine",
+          "display_order": 2
+        },
+        {
+          "sentence": "Ell té {{answer}} idea.",
+          "answer": "una",
+          "translation": "He has an idea.",
+          "hint": "idea is feminine",
+          "display_order": 3
+        },
+        {
+          "sentence": "És {{answer}} bon llibre.",
+          "answer": "un",
+          "translation": "It is a good book.",
+          "hint": "masculine",
+          "display_order": 4
+        },
+        {
+          "sentence": "Tinc {{answer}} pregunta.",
+          "answer": "una",
+          "translation": "I have a question.",
+          "hint": "feminine",
+          "display_order": 5
+        },
+        {
+          "sentence": "És {{answer}} dia bonic.",
+          "answer": "un",
+          "translation": "It is a beautiful day.",
+          "hint": "masculine",
+          "display_order": 6
+        }
+      ]
+    },
+    {
+      "title": "Ser — present (soc, ets, és…)",
+      "level": "A1",
+      "function": "Say who or what someone is",
+      "source": "contributor",
+      "reviewed": true,
+      "display_order": 5,
+      "explanation": "Ser (to be): soc, ets, és, som, sou, són. Since the 2016 spelling reform, soc has no accent — but és and són keep theirs to stay distinct from other words. Professions take no article: ella és professora.",
+      "culture_note": "",
+      "references": [
+        {
+          "title": "Wiktionary: ser (Catalan)",
+          "url": "https://en.wiktionary.org/wiki/ser#Catalan"
+        },
+        {
+          "title": "Wikipedia: Catalan grammar",
+          "url": "https://en.wikipedia.org/wiki/Catalan_grammar"
+        }
+      ],
+      "drills": [
+        {
+          "sentence": "Jo {{answer}} estudiant.",
+          "answer": "soc",
+          "translation": "I am a student.",
+          "hint": "to be, I",
+          "display_order": 1
+        },
+        {
+          "sentence": "Tu {{answer}} molt alt.",
+          "answer": "ets",
+          "translation": "You are very tall.",
+          "hint": "to be, you (informal)",
+          "display_order": 2
+        },
+        {
+          "sentence": "Ella {{answer}} professora.",
+          "answer": "és",
+          "translation": "She is a teacher.",
+          "hint": "to be, she — with accent",
+          "display_order": 3
+        },
+        {
+          "sentence": "Nosaltres {{answer}} amics.",
+          "answer": "som",
+          "translation": "We are friends.",
+          "hint": "to be, we",
+          "display_order": 4
+        },
+        {
+          "sentence": "Vosaltres {{answer}} catalans?",
+          "answer": "sou",
+          "translation": "Are you (all) Catalan?",
+          "hint": "to be, you (plural)",
+          "display_order": 5
+        },
+        {
+          "sentence": "Ells {{answer}} a casa.",
+          "answer": "són",
+          "translation": "They are at home.",
+          "hint": "to be, they — with accent",
+          "display_order": 6
+        }
+      ]
+    },
+    {
+      "title": "Tenir — present (tinc gana)",
+      "level": "A1",
+      "function": "Say what you have — and how you feel",
+      "source": "contributor",
+      "reviewed": true,
+      "display_order": 6,
+      "explanation": "Tenir (to have): tinc, tens, té, tenim, teniu, tenen. Catalan HAS its states: tenir gana (be hungry), tenir set (thirsty), tenir raó (be right), tenir vint anys (be twenty).",
+      "culture_note": "",
+      "references": [
+        {
+          "title": "Wiktionary: tenir (Catalan)",
+          "url": "https://en.wiktionary.org/wiki/tenir#Catalan"
+        },
+        {
+          "title": "Wikipedia: Catalan grammar",
+          "url": "https://en.wikipedia.org/wiki/Catalan_grammar"
+        }
+      ],
+      "drills": [
+        {
+          "sentence": "Jo {{answer}} vint anys.",
+          "answer": "tinc",
+          "translation": "I am twenty years old.",
+          "hint": "to have, I",
+          "display_order": 1
+        },
+        {
+          "sentence": "Tu {{answer}} gana?",
+          "answer": "tens",
+          "translation": "Are you hungry?",
+          "hint": "to have, you (informal)",
+          "display_order": 2
+        },
+        {
+          "sentence": "Ella {{answer}} un gat.",
+          "answer": "té",
+          "translation": "She has a cat.",
+          "hint": "to have, she — with accent",
+          "display_order": 3
+        },
+        {
+          "sentence": "Nosaltres {{answer}} una pregunta.",
+          "answer": "tenim",
+          "translation": "We have a question.",
+          "hint": "to have, we",
+          "display_order": 4
+        },
+        {
+          "sentence": "Vosaltres {{answer}} raó.",
+          "answer": "teniu",
+          "translation": "You (all) are right.",
+          "hint": "to have, you (plural)",
+          "display_order": 5
+        },
+        {
+          "sentence": "Ells {{answer}} set.",
+          "answer": "tenen",
+          "translation": "They are thirsty.",
+          "hint": "to have, they",
+          "display_order": 6
+        }
+      ]
+    },
+    {
+      "title": "Present tense of -ar verbs",
+      "level": "A1",
+      "function": "Talk about what people do",
+      "source": "contributor",
+      "reviewed": true,
+      "display_order": 7,
+      "explanation": "The biggest family. Drop -ar, add: -o, -es, -a, -em, -eu, -en (parlar → parlo, parles, parla, parlem, parleu, parlen). The ending names the person, so the pronoun usually stays home.",
+      "culture_note": "",
+      "references": [
+        {
+          "title": "Wikipedia: Catalan grammar — verbs",
+          "url": "https://en.wikipedia.org/wiki/Catalan_grammar"
+        },
+        {
+          "title": "Wiktionary: parlar (Catalan)",
+          "url": "https://en.wiktionary.org/wiki/parlar#Catalan"
+        }
+      ],
+      "drills": [
+        {
+          "sentence": "Nosaltres {{answer}} català.",
+          "answer": "parlem",
+          "translation": "We speak Catalan.",
+          "hint": "to speak, we",
+          "display_order": 1
+        },
+        {
+          "sentence": "Ella {{answer}} en una oficina.",
+          "answer": "treballa",
+          "translation": "She works in an office.",
+          "hint": "to work, she",
+          "display_order": 2
+        },
+        {
+          "sentence": "Tu {{answer}} música cada dia?",
+          "answer": "escoltes",
+          "translation": "Do you listen to music every day?",
+          "hint": "to listen, you (informal)",
+          "display_order": 3
+        },
+        {
+          "sentence": "Ells {{answer}} a futbol.",
+          "answer": "juguen",
+          "translation": "They play football.",
+          "hint": "to play, they",
+          "display_order": 4
+        },
+        {
+          "sentence": "Vosaltres {{answer}} català?",
+          "answer": "estudieu",
+          "translation": "Do you (all) study Catalan?",
+          "hint": "to study, you (plural)",
+          "display_order": 5
+        },
+        {
+          "sentence": "Jo {{answer}} el pa.",
+          "answer": "compro",
+          "translation": "I buy the bread.",
+          "hint": "to buy, I",
+          "display_order": 6
+        }
+      ]
+    },
+    {
+      "title": "-re and -ir verbs (perdre, dormir, llegir)",
+      "level": "A1",
+      "function": "Sleep, read, hear — the other families",
+      "source": "contributor",
+      "reviewed": true,
+      "display_order": 8,
+      "explanation": "-re verbs: perdre → perdo, perds, perd, perdem, perdeu, perden. -ir verbs come plain (dormir → dormo) or with -eix- in the singular and third plural (llegir → llegeixo, llegeixes, llegeix… but llegim, llegiu). Preferir takes -eix- too.",
+      "culture_note": "",
+      "references": [
+        {
+          "title": "Wikipedia: Catalan grammar — verbs",
+          "url": "https://en.wikipedia.org/wiki/Catalan_grammar"
+        },
+        {
+          "title": "Wiktionary: llegir (Catalan)",
+          "url": "https://en.wiktionary.org/wiki/llegir#Catalan"
+        }
+      ],
+      "drills": [
+        {
+          "sentence": "Jo {{answer}} molt.",
+          "answer": "dormo",
+          "translation": "I sleep a lot.",
+          "hint": "to sleep, I",
+          "display_order": 1
+        },
+        {
+          "sentence": "Nosaltres {{answer}} una carta.",
+          "answer": "escrivim",
+          "translation": "We are writing a letter.",
+          "hint": "to write, we",
+          "display_order": 2
+        },
+        {
+          "sentence": "Ella {{answer}} el diari.",
+          "answer": "llegeix",
+          "translation": "She reads the newspaper.",
+          "hint": "to read, she (-eix- type)",
+          "display_order": 3
+        },
+        {
+          "sentence": "Tu {{answer}} la música?",
+          "answer": "sents",
+          "translation": "Do you hear the music?",
+          "hint": "to hear, you (informal)",
+          "display_order": 4
+        },
+        {
+          "sentence": "Vosaltres {{answer}} un pastís?",
+          "answer": "preferiu",
+          "translation": "Do you (all) prefer a cake?",
+          "hint": "to prefer, you (plural)",
+          "display_order": 5
+        },
+        {
+          "sentence": "Jo {{answer}} cafè cada matí.",
+          "answer": "prenc",
+          "translation": "I have coffee every morning.",
+          "hint": "to take, I (irregular)",
+          "display_order": 6
+        }
+      ]
+    },
+    {
+      "title": "Negation with no",
+      "level": "A1",
+      "function": "Say what is not so",
+      "source": "contributor",
+      "reviewed": true,
+      "display_order": 9,
+      "explanation": "No goes directly before the verb: no parlo anglès, no tinc temps. Emphatic denial can add pas after the verb (no vindrà pas), a very Catalan flourish you'll hear more than need.",
+      "culture_note": "",
+      "references": [
+        {
+          "title": "Wikipedia: Catalan grammar — negation",
+          "url": "https://en.wikipedia.org/wiki/Catalan_grammar"
+        },
+        {
+          "title": "Wiktionary: no (Catalan)",
+          "url": "https://en.wiktionary.org/wiki/no#Catalan"
+        }
+      ],
+      "drills": [
+        {
+          "sentence": "Jo {{answer}} parlo anglès.",
+          "answer": "no",
+          "translation": "I don't speak English.",
+          "hint": "before the verb",
+          "display_order": 1
+        },
+        {
+          "sentence": "Ell {{answer}} treballa el diumenge.",
+          "answer": "no",
+          "translation": "He doesn't work on Sundays.",
+          "hint": "before the verb",
+          "display_order": 2
+        },
+        {
+          "sentence": "Nosaltres {{answer}} estem cansats.",
+          "answer": "no",
+          "translation": "We are not tired.",
+          "hint": "before the verb",
+          "display_order": 3
+        },
+        {
+          "sentence": "Ella {{answer}} menja carn.",
+          "answer": "no",
+          "translation": "She doesn't eat meat.",
+          "hint": "before the verb",
+          "display_order": 4
+        },
+        {
+          "sentence": "Tu {{answer}} menges?",
+          "answer": "no",
+          "translation": "Aren't you eating?",
+          "hint": "before the verb",
+          "display_order": 5
+        },
+        {
+          "sentence": "Vosaltres {{answer}} balleu?",
+          "answer": "no",
+          "translation": "You (all) don't dance?",
+          "hint": "before the verb",
+          "display_order": 6
+        }
+      ]
+    },
+    {
+      "title": "Hi ha — there is / there are",
+      "level": "A1",
+      "function": "Say what exists or is available",
+      "source": "contributor",
+      "reviewed": true,
+      "display_order": 10,
+      "explanation": "Hi ha covers 'there is' and 'there are' — invariable: hi ha un llibre, hi ha dos cafès. Negative: no hi ha pa. The little hi is the same locative pronoun that makes Catalan Catalan.",
+      "culture_note": "",
+      "references": [
+        {
+          "title": "Wiktionary: hi ha (Catalan)",
+          "url": "https://en.wiktionary.org/wiki/hi_ha#Catalan"
+        },
+        {
+          "title": "Wikipedia: Catalan grammar",
+          "url": "https://en.wikipedia.org/wiki/Catalan_grammar"
+        }
+      ],
+      "drills": [
+        {
+          "sentence": "Hi {{answer}} un llibre sobre la taula.",
+          "answer": "ha",
+          "translation": "There is a book on the table.",
+          "hint": "the verb of the fixed phrase",
+          "display_order": 1
+        },
+        {
+          "sentence": "{{answer}} ha dos cafès al carrer.",
+          "answer": "Hi",
+          "translation": "There are two cafés on the street.",
+          "hint": "the locative particle",
+          "display_order": 2
+        },
+        {
+          "sentence": "No hi {{answer}} llet.",
+          "answer": "ha",
+          "translation": "There is no milk.",
+          "hint": "the verb of the fixed phrase",
+          "display_order": 3
+        },
+        {
+          "sentence": "Hi ha {{answer}} gat al jardí.",
+          "answer": "un",
+          "translation": "There is a cat in the garden.",
+          "hint": "indefinite article, masculine",
+          "display_order": 4
+        },
+        {
+          "sentence": "Què hi {{answer}} per sopar?",
+          "answer": "ha",
+          "translation": "What is there for dinner?",
+          "hint": "the verb of the fixed phrase",
+          "display_order": 5
+        },
+        {
+          "sentence": "No {{answer}} ha problemes.",
+          "answer": "hi",
+          "translation": "There are no problems.",
+          "hint": "the locative particle",
+          "display_order": 6
+        }
+      ]
+    },
+    {
+      "title": "Question words (on, com, què…)",
+      "level": "A1",
+      "function": "Ask about places, people, time, and reasons",
+      "source": "contributor",
+      "reviewed": true,
+      "display_order": 11,
+      "explanation": "On (where), com (how), què (what), quan (when), per què (why), quant/quants (how much/many), qui (who). Question word first, verb next: On vius?",
+      "culture_note": "",
+      "references": [
+        {
+          "title": "Wikipedia: Catalan grammar — interrogatives",
+          "url": "https://en.wikipedia.org/wiki/Catalan_grammar"
+        },
+        {
+          "title": "Wiktionary: on (Catalan)",
+          "url": "https://en.wiktionary.org/wiki/on#Catalan"
+        }
+      ],
+      "drills": [
+        {
+          "sentence": "{{answer}} vius?",
+          "answer": "On",
+          "translation": "Where do you live?",
+          "hint": "where",
+          "display_order": 1
+        },
+        {
+          "sentence": "{{answer}} et dius?",
+          "answer": "Com",
+          "translation": "What is your name?",
+          "hint": "how — names ask 'how' in Catalan",
+          "display_order": 2
+        },
+        {
+          "sentence": "{{answer}} és el teu aniversari?",
+          "answer": "Quan",
+          "translation": "When is your birthday?",
+          "hint": "when",
+          "display_order": 3
+        },
+        {
+          "sentence": "{{answer}} mires?",
+          "answer": "Què",
+          "translation": "What are you watching?",
+          "hint": "what",
+          "display_order": 4
+        },
+        {
+          "sentence": "{{answer}} germans tens?",
+          "answer": "Quants",
+          "translation": "How many brothers do you have?",
+          "hint": "how many",
+          "display_order": 5
+        },
+        {
+          "sentence": "{{answer}} és el teu professor?",
+          "answer": "Qui",
+          "translation": "Who is your teacher?",
+          "hint": "who",
+          "display_order": 6
+        }
+      ]
+    },
+    {
+      "title": "Adjective agreement",
+      "level": "A1",
+      "function": "Describe people and things correctly",
+      "source": "contributor",
+      "reviewed": true,
+      "display_order": 12,
+      "explanation": "Four-form adjectives follow the noun pattern: nou, nova, nous, noves. Some have one singular form for both genders (amable, gran). Adjectives usually FOLLOW the noun: una casa blanca.",
+      "culture_note": "",
+      "references": [
+        {
+          "title": "Wikipedia: Catalan grammar — adjectives",
+          "url": "https://en.wikipedia.org/wiki/Catalan_grammar"
+        },
+        {
+          "title": "Wiktionary: nou (Catalan)",
+          "url": "https://en.wiktionary.org/wiki/nou#Catalan"
+        }
+      ],
+      "drills": [
+        {
+          "sentence": "La casa és {{answer}}.",
+          "answer": "blanca",
+          "translation": "The house is white.",
+          "hint": "white — feminine",
+          "display_order": 1
+        },
+        {
+          "sentence": "Els llibres són {{answer}}.",
+          "answer": "nous",
+          "translation": "The books are new.",
+          "hint": "new — masculine plural",
+          "display_order": 2
+        },
+        {
+          "sentence": "La meva germana és molt {{answer}}.",
+          "answer": "amable",
+          "translation": "My sister is very kind.",
+          "hint": "kind — one singular form",
+          "display_order": 3
+        },
+        {
+          "sentence": "El cafè és {{answer}}.",
+          "answer": "calent",
+          "translation": "The coffee is hot.",
+          "hint": "hot — masculine",
+          "display_order": 4
+        },
+        {
+          "sentence": "Les flors són {{answer}}.",
+          "answer": "boniques",
+          "translation": "The flowers are pretty.",
+          "hint": "pretty — feminine plural",
+          "display_order": 5
+        },
+        {
+          "sentence": "El film és {{answer}}.",
+          "answer": "interessant",
+          "translation": "The film is interesting.",
+          "hint": "interesting — masculine",
+          "display_order": 6
+        }
+      ]
+    }
+  ]
+}

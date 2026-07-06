@@ -60,6 +60,34 @@
           "translation": "He/she is not a doctor.",
           "hint": "negative of ni",
           "display_order": 2
+        },
+        {
+          "sentence": "Wewe {{answer}} mwanafunzi.",
+          "answer": "ni",
+          "translation": "You are a student.",
+          "hint": "to be — affirmative",
+          "display_order": 3
+        },
+        {
+          "sentence": "Mimi {{answer}} daktari, mimi ni mwalimu.",
+          "answer": "si",
+          "translation": "I am not a doctor, I am a teacher.",
+          "hint": "to be — negative",
+          "display_order": 4
+        },
+        {
+          "sentence": "Wao {{answer}} wakulima.",
+          "answer": "ni",
+          "translation": "They are farmers.",
+          "hint": "to be — affirmative",
+          "display_order": 5
+        },
+        {
+          "sentence": "Juma {{answer}} daktari.",
+          "answer": "ni",
+          "translation": "Juma is a doctor.",
+          "hint": "to be — affirmative",
+          "display_order": 6
         }
       ]
     },
@@ -92,6 +120,34 @@
           "translation": "They study a lot.",
           "hint": "the 'they' prefix",
           "display_order": 2
+        },
+        {
+          "sentence": "{{answer}}nakunywa chai.",
+          "answer": "A",
+          "translation": "He/she is drinking tea.",
+          "hint": "he/she prefix",
+          "display_order": 3
+        },
+        {
+          "sentence": "{{answer}}nacheza mpira.",
+          "answer": "Tu",
+          "translation": "We are playing football.",
+          "hint": "we prefix",
+          "display_order": 4
+        },
+        {
+          "sentence": "{{answer}}nafanya kazi?",
+          "answer": "U",
+          "translation": "Are you working?",
+          "hint": "you (singular) prefix",
+          "display_order": 5
+        },
+        {
+          "sentence": "{{answer}}napika chakula.",
+          "answer": "M",
+          "translation": "You (plural) are cooking food.",
+          "hint": "you (plural) prefix",
+          "display_order": 6
         }
       ]
     },
@@ -119,15 +175,43 @@
           "sentence": "Yeye {{answer}} chai.",
           "answer": "anakunywa",
           "translation": "She is drinking tea.",
-          "hint": "a- + -na- + kunywa",
+          "hint": "to drink + present, he/she",
           "display_order": 1
         },
         {
           "sentence": "Sisi {{answer}} Kiswahili.",
           "answer": "tunajifunza",
           "translation": "We are learning Swahili.",
-          "hint": "tu- + -na- + jifunza",
+          "hint": "to learn + present, we",
           "display_order": 2
+        },
+        {
+          "sentence": "Mimi {{answer}} kitabu.",
+          "answer": "ninasoma",
+          "translation": "I am reading a book.",
+          "hint": "soma, mimi",
+          "display_order": 3
+        },
+        {
+          "sentence": "Watoto {{answer}} mpira.",
+          "answer": "wanacheza",
+          "translation": "The children are playing football.",
+          "hint": "cheza, wao",
+          "display_order": 4
+        },
+        {
+          "sentence": "Baba {{answer}} kazi.",
+          "answer": "anafanya",
+          "translation": "Father is working.",
+          "hint": "fanya, yeye",
+          "display_order": 5
+        },
+        {
+          "sentence": "Nyinyi {{answer}} chai.",
+          "answer": "mnakunywa",
+          "translation": "You (plural) are drinking tea.",
+          "hint": "kunywa, nyinyi",
+          "display_order": 6
         }
       ]
     },
@@ -164,6 +248,34 @@
           "translation": "The teacher is reading.",
           "hint": "singular, m-/mw- class",
           "display_order": 2
+        },
+        {
+          "sentence": "Mtu mmoja, {{answer}} wengi.",
+          "answer": "watu",
+          "translation": "One person, many people.",
+          "hint": "mtu → plural",
+          "display_order": 3
+        },
+        {
+          "sentence": "{{answer}} wanafanya kazi shambani.",
+          "answer": "Wakulima",
+          "translation": "The farmers are working in the field.",
+          "hint": "mkulima → plural",
+          "display_order": 4
+        },
+        {
+          "sentence": "Mwanafunzi mmoja, {{answer}} watano.",
+          "answer": "wanafunzi",
+          "translation": "One student, five students.",
+          "hint": "student → plural (people class)",
+          "display_order": 5
+        },
+        {
+          "sentence": "{{answer}} analima shamba.",
+          "answer": "Mkulima",
+          "translation": "The farmer farms the field.",
+          "hint": "person prefix M-",
+          "display_order": 6
         }
       ]
     },
@@ -196,6 +308,34 @@
           "translation": "The book is on the table.",
           "hint": "ki- class noun",
           "display_order": 2
+        },
+        {
+          "sentence": "Kiti kimoja, {{answer}} vitatu.",
+          "answer": "viti",
+          "translation": "One chair, three chairs.",
+          "hint": "kiti → plural",
+          "display_order": 3
+        },
+        {
+          "sentence": "{{answer}} kimoja kiko mezani.",
+          "answer": "Kiti",
+          "translation": "One chair is at the table.",
+          "hint": "thing prefix Ki-",
+          "display_order": 4
+        },
+        {
+          "sentence": "{{answer}} viwili viko mezani.",
+          "answer": "Vitabu",
+          "translation": "Two books are on the table.",
+          "hint": "kitabu → plural",
+          "display_order": 5
+        },
+        {
+          "sentence": "Kisu kimoja, {{answer}} vinne.",
+          "answer": "visu",
+          "translation": "One knife, four knives.",
+          "hint": "kisu → plural",
+          "display_order": 6
         }
       ]
     },
@@ -228,6 +368,34 @@
           "translation": "He doesn't drink coffee.",
           "hint": "ha- + -nywa + -i",
           "display_order": 2
+        },
+        {
+          "sentence": "Sisi {{answer}} kahawa.",
+          "answer": "hatunywi",
+          "translation": "We don't drink coffee.",
+          "hint": "to drink + present negative, we (final vowel changes)",
+          "display_order": 3
+        },
+        {
+          "sentence": "Wewe {{answer}} nyama?",
+          "answer": "huli",
+          "translation": "Don't you eat meat?",
+          "hint": "to eat + present negative, you",
+          "display_order": 4
+        },
+        {
+          "sentence": "Wao {{answer}} Kiingereza.",
+          "answer": "hawasemi",
+          "translation": "They don't speak English.",
+          "hint": "to speak + present negative, they",
+          "display_order": 5
+        },
+        {
+          "sentence": "Mtoto {{answer}} shule leo.",
+          "answer": "haendi",
+          "translation": "The child is not going to school today.",
+          "hint": "ha + a + end + i",
+          "display_order": 6
         }
       ]
     },
@@ -251,15 +419,43 @@
           "sentence": "Jana {{answer}} sokoni.",
           "answer": "nilienda",
           "translation": "Yesterday I went to the market.",
-          "hint": "ni- + -li- + enda",
+          "hint": "to go + past, I",
           "display_order": 1
         },
         {
           "sentence": "Wao {{answer}} chakula.",
           "answer": "walipika",
           "translation": "They cooked food.",
-          "hint": "wa- + -li- + pika",
+          "hint": "to cook + past, they",
           "display_order": 2
+        },
+        {
+          "sentence": "Sisi {{answer}} Kiswahili mwaka jana.",
+          "answer": "tulijifunza",
+          "translation": "We learned Swahili last year.",
+          "hint": "jifunza, sisi + -li-",
+          "display_order": 3
+        },
+        {
+          "sentence": "Yeye {{answer}} barua jana.",
+          "answer": "aliandika",
+          "translation": "She wrote a letter yesterday.",
+          "hint": "andika, yeye + -li-",
+          "display_order": 4
+        },
+        {
+          "sentence": "Mimi {{answer}} chai asubuhi.",
+          "answer": "nilikunywa",
+          "translation": "I drank tea in the morning.",
+          "hint": "kunywa, mimi + -li-",
+          "display_order": 5
+        },
+        {
+          "sentence": "Watoto {{answer}} mpira jana.",
+          "answer": "walicheza",
+          "translation": "The children played football yesterday.",
+          "hint": "cheza, wao + -li-",
+          "display_order": 6
         }
       ]
     },
@@ -283,15 +479,43 @@
           "sentence": "Kesho {{answer}} shule.",
           "answer": "nitaenda",
           "translation": "Tomorrow I will go to school.",
-          "hint": "ni- + -ta- + enda",
+          "hint": "to go + future, I",
           "display_order": 1
         },
         {
           "sentence": "Wao {{answer}} kesho.",
           "answer": "watafika",
           "translation": "They will arrive tomorrow.",
-          "hint": "wa- + -ta- + fika",
+          "hint": "to arrive + future, they",
           "display_order": 2
+        },
+        {
+          "sentence": "Sisi {{answer}} sokoni kesho.",
+          "answer": "tutaenda",
+          "translation": "We will go to the market tomorrow.",
+          "hint": "enda, sisi + -ta-",
+          "display_order": 3
+        },
+        {
+          "sentence": "Mimi {{answer}} ugali jioni.",
+          "answer": "nitapika",
+          "translation": "I will cook ugali in the evening.",
+          "hint": "pika, mimi + -ta-",
+          "display_order": 4
+        },
+        {
+          "sentence": "Yeye {{answer}} barua kesho.",
+          "answer": "ataandika",
+          "translation": "He will write a letter tomorrow.",
+          "hint": "andika, yeye + -ta-",
+          "display_order": 5
+        },
+        {
+          "sentence": "Wewe {{answer}} kazi kesho?",
+          "answer": "utafanya",
+          "translation": "Will you work tomorrow?",
+          "hint": "fanya, wewe + -ta-",
+          "display_order": 6
         }
       ]
     },
@@ -324,6 +548,34 @@
           "translation": "Where are you going?",
           "hint": "asking 'where'",
           "display_order": 2
+        },
+        {
+          "sentence": "{{answer}} anakuja?",
+          "answer": "Nani",
+          "translation": "Who is coming?",
+          "hint": "who",
+          "display_order": 3
+        },
+        {
+          "sentence": "Jina lako ni {{answer}}?",
+          "answer": "nani",
+          "translation": "What is your name?",
+          "hint": "names ask 'who' in Swahili",
+          "display_order": 4
+        },
+        {
+          "sentence": "Utafika {{answer}}?",
+          "answer": "lini",
+          "translation": "When will you arrive?",
+          "hint": "when",
+          "display_order": 5
+        },
+        {
+          "sentence": "Unapenda kitabu {{answer}}?",
+          "answer": "gani",
+          "translation": "Which book do you like?",
+          "hint": "which",
+          "display_order": 6
         }
       ]
     },
@@ -356,6 +608,34 @@
           "translation": "The big book is here.",
           "hint": "-kubwa with ki- agreement",
           "display_order": 2
+        },
+        {
+          "sentence": "Nyumba {{answer}} iko mjini.",
+          "answer": "kubwa",
+          "translation": "The big house is in town.",
+          "hint": "N class — no prefix change",
+          "display_order": 3
+        },
+        {
+          "sentence": "Mtoto {{answer}} analala.",
+          "answer": "mdogo",
+          "translation": "The small child is sleeping.",
+          "hint": "M- class singular",
+          "display_order": 4
+        },
+        {
+          "sentence": "Vitabu {{answer}} viko mezani.",
+          "answer": "vizuri",
+          "translation": "The good books are on the table.",
+          "hint": "Vi- class plural",
+          "display_order": 5
+        },
+        {
+          "sentence": "Watu {{answer}} wanafanya kazi.",
+          "answer": "wengi",
+          "translation": "Many people are working.",
+          "hint": "Wa- class plural",
+          "display_order": 6
         }
       ]
     },
@@ -379,15 +659,43 @@
           "sentence": "{{answer}} chakula.",
           "answer": "Nimekula",
           "translation": "I have eaten.",
-          "hint": "ni- + -me- + kula",
+          "hint": "to eat + perfect, I",
           "display_order": 1
         },
         {
           "sentence": "Mgeni {{answer}}.",
           "answer": "amefika",
           "translation": "The guest has arrived.",
-          "hint": "a- + -me- + fika",
+          "hint": "to arrive + perfect, he/she",
           "display_order": 2
+        },
+        {
+          "sentence": "Watoto {{answer}} shuleni.",
+          "answer": "wamefika",
+          "translation": "The children have arrived at school.",
+          "hint": "fika, wao + -me-",
+          "display_order": 3
+        },
+        {
+          "sentence": "Sisi {{answer}} kazi.",
+          "answer": "tumemaliza",
+          "translation": "We have finished the work.",
+          "hint": "maliza, sisi + -me-",
+          "display_order": 4
+        },
+        {
+          "sentence": "Yeye {{answer}} barua.",
+          "answer": "ameandika",
+          "translation": "She has written the letter.",
+          "hint": "andika, yeye + -me-",
+          "display_order": 5
+        },
+        {
+          "sentence": "Mimi {{answer}} chai tayari.",
+          "answer": "nimekunywa",
+          "translation": "I have already drunk tea.",
+          "hint": "kunywa, mimi + -me-",
+          "display_order": 6
         }
       ]
     },
@@ -420,6 +728,34 @@
           "translation": "He saw me yesterday.",
           "hint": "object -ni- 'me' inside the verb",
           "display_order": 2
+        },
+        {
+          "sentence": "Mimi {{answer}} jana.",
+          "answer": "nilikuona",
+          "translation": "I saw you yesterday.",
+          "hint": "-ku- = you",
+          "display_order": 3
+        },
+        {
+          "sentence": "Yeye {{answer}} kila siku.",
+          "answer": "anawasaidia",
+          "translation": "He helps them every day.",
+          "hint": "-wa- = them",
+          "display_order": 4
+        },
+        {
+          "sentence": "Wao {{answer}} sasa.",
+          "answer": "wanatuita",
+          "translation": "They are calling us now.",
+          "hint": "-tu- = us",
+          "display_order": 5
+        },
+        {
+          "sentence": "Mama {{answer}} asubuhi.",
+          "answer": "alimwona",
+          "translation": "Mother saw him in the morning.",
+          "hint": "-mw- = him/her",
+          "display_order": 6
         }
       ]
     },
@@ -452,6 +788,34 @@
           "translation": "The car has arrived.",
           "hint": "li- agreement + -me-",
           "display_order": 2
+        },
+        {
+          "sentence": "Tunda moja, {{answer}} mengi.",
+          "answer": "matunda",
+          "translation": "One fruit, many fruits.",
+          "hint": "tunda → plural",
+          "display_order": 3
+        },
+        {
+          "sentence": "Yai moja, {{answer}} matano.",
+          "answer": "mayai",
+          "translation": "One egg, five eggs.",
+          "hint": "yai → plural",
+          "display_order": 4
+        },
+        {
+          "sentence": "Gari {{answer}} barabarani.",
+          "answer": "liko",
+          "translation": "The car is on the road.",
+          "hint": "li- concord + -ko",
+          "display_order": 5
+        },
+        {
+          "sentence": "Magari {{answer}} hapa.",
+          "answer": "yako",
+          "translation": "The cars are here.",
+          "hint": "ya- concord + -ko",
+          "display_order": 6
         }
       ]
     },
@@ -479,11 +843,39 @@
           "display_order": 1
         },
         {
-          "sentence": "Nyumba {{answer}} ni kubwa.",
+          "sentence": "Nyumba {{answer}} mbili ni kubwa.",
           "answer": "hizi",
-          "translation": "These houses are big.",
+          "translation": "These two houses are big.",
           "hint": "class 10 'these'",
           "display_order": 2
+        },
+        {
+          "sentence": "Ndizi {{answer}} ni tamu.",
+          "answer": "hizi",
+          "translation": "These bananas are sweet.",
+          "hint": "N class plural — these",
+          "display_order": 3
+        },
+        {
+          "sentence": "Barua {{answer}} imefika leo.",
+          "answer": "hii",
+          "translation": "This letter arrived today.",
+          "hint": "N class singular — this",
+          "display_order": 4
+        },
+        {
+          "sentence": "Nyumba yangu {{answer}} karibu na soko.",
+          "answer": "iko",
+          "translation": "My house is near the market.",
+          "hint": "i- concord + -ko",
+          "display_order": 5
+        },
+        {
+          "sentence": "Nguo {{answer}} sana.",
+          "answer": "zinapendeza",
+          "translation": "The clothes are very attractive.",
+          "hint": "zi- concord, plural",
+          "display_order": 6
         }
       ]
     },
@@ -516,6 +908,34 @@
           "translation": "My house is small.",
           "hint": "-angu with N-class",
           "display_order": 2
+        },
+        {
+          "sentence": "Watoto {{answer}} wako shuleni.",
+          "answer": "wangu",
+          "translation": "My children are at school.",
+          "hint": "Wa- class + my",
+          "display_order": 3
+        },
+        {
+          "sentence": "Kitabu {{answer}} kiko wapi?",
+          "answer": "chako",
+          "translation": "Where is your book?",
+          "hint": "Ki- class + your",
+          "display_order": 4
+        },
+        {
+          "sentence": "Nyumba {{answer}} iko mbali.",
+          "answer": "yake",
+          "translation": "His/her house is far away.",
+          "hint": "N class + his/her",
+          "display_order": 5
+        },
+        {
+          "sentence": "Gari {{answer}} limefika.",
+          "answer": "lake",
+          "translation": "His/her car has arrived.",
+          "hint": "Ma- class singular + his/her",
+          "display_order": 6
         }
       ]
     },
@@ -548,6 +968,34 @@
           "translation": "Juma's house is big.",
           "hint": "'of' agreeing with nyumba",
           "display_order": 2
+        },
+        {
+          "sentence": "Watoto {{answer}} mwalimu wako hapa.",
+          "answer": "wa",
+          "translation": "The teacher's children are here.",
+          "hint": "people-class 'of'",
+          "display_order": 3
+        },
+        {
+          "sentence": "Jina {{answer}} mtoto ni Juma.",
+          "answer": "la",
+          "translation": "The child's name is Juma.",
+          "hint": "Ma-class singular 'of'",
+          "display_order": 4
+        },
+        {
+          "sentence": "Vitabu {{answer}} wanafunzi viko mezani.",
+          "answer": "vya",
+          "translation": "The students' books are on the table.",
+          "hint": "Vi- class plural",
+          "display_order": 5
+        },
+        {
+          "sentence": "Nguo {{answer}} mama ziko hapa.",
+          "answer": "za",
+          "translation": "Mother's clothes are here.",
+          "hint": "N class plural",
+          "display_order": 6
         }
       ]
     },
@@ -571,15 +1019,43 @@
           "sentence": "{{answer}} kitabu kizuri.",
           "answer": "Nina",
           "translation": "I have a good book.",
-          "hint": "ni + na fused",
+          "hint": "'I' + 'have' fused",
           "display_order": 1
         },
         {
           "sentence": "Yeye {{answer}} watoto watatu.",
           "answer": "ana",
           "translation": "She has three children.",
-          "hint": "a + na fused",
+          "hint": "'he/she' + 'have' fused",
           "display_order": 2
+        },
+        {
+          "sentence": "Sisi {{answer}} nyumba kubwa.",
+          "answer": "tuna",
+          "translation": "We have a big house.",
+          "hint": "sisi + -na",
+          "display_order": 3
+        },
+        {
+          "sentence": "Wewe {{answer}} kalamu?",
+          "answer": "una",
+          "translation": "Do you have a pen?",
+          "hint": "wewe + -na",
+          "display_order": 4
+        },
+        {
+          "sentence": "Wao {{answer}} shamba.",
+          "answer": "wana",
+          "translation": "They have a farm.",
+          "hint": "wao + -na",
+          "display_order": 5
+        },
+        {
+          "sentence": "Mimi {{answer}} pesa, samahani.",
+          "answer": "sina",
+          "translation": "I don't have money, sorry.",
+          "hint": "'I' negative + 'have' fused",
+          "display_order": 6
         }
       ]
     },
@@ -610,8 +1086,36 @@
           "sentence": "{{answer}} kelele!",
           "answer": "Usipige",
           "translation": "Don't make noise!",
-          "hint": "usi- + -e negative command",
+          "hint": "negative command — 'don't make (noise)'",
           "display_order": 2
+        },
+        {
+          "sentence": "{{answer}} hapa, tafadhali.",
+          "answer": "Njoo",
+          "translation": "Come here, please.",
+          "hint": "kuja — irregular imperative",
+          "display_order": 3
+        },
+        {
+          "sentence": "{{answer}} mlango!",
+          "answer": "Funga",
+          "translation": "Close the door!",
+          "hint": "to close — plain imperative",
+          "display_order": 4
+        },
+        {
+          "sentence": "{{answer}} maji mengi.",
+          "answer": "Kunywa",
+          "translation": "Drink a lot of water.",
+          "hint": "to drink — plain imperative",
+          "display_order": 5
+        },
+        {
+          "sentence": "{{answer}} shuleni!",
+          "answer": "Usichelewe",
+          "translation": "Don't be late to school!",
+          "hint": "negative: u-si-…-e",
+          "display_order": 6
         }
       ]
     },
@@ -644,6 +1148,34 @@
           "translation": "Let's go to the market to buy fruit.",
           "hint": "purpose: tu- + nunua + -e",
           "display_order": 2
+        },
+        {
+          "sentence": "Nataka {{answer}} nyumbani mapema.",
+          "answer": "urudi",
+          "translation": "I want you to return home early.",
+          "hint": "rudi keeps -i (Arabic-origin verb), wewe → u-",
+          "display_order": 3
+        },
+        {
+          "sentence": "Ni muhimu {{answer}} kila siku.",
+          "answer": "tusome",
+          "translation": "It is important that we study every day.",
+          "hint": "soma, sisi → -e",
+          "display_order": 4
+        },
+        {
+          "sentence": "Mwambie {{answer}} hapa.",
+          "answer": "aje",
+          "translation": "Tell him to come here.",
+          "hint": "kuja, yeye → -e",
+          "display_order": 5
+        },
+        {
+          "sentence": "{{answer}} nini sasa?",
+          "answer": "Nifanye",
+          "translation": "What should I do now?",
+          "hint": "fanya, mimi → -e",
+          "display_order": 6
         }
       ]
     },
@@ -667,15 +1199,43 @@
           "sentence": "Jana {{answer}} kazi.",
           "answer": "sikufanya",
           "translation": "Yesterday I didn't do work.",
-          "hint": "si- + -ku- + fanya",
+          "hint": "to do + past negative, I",
           "display_order": 1
         },
         {
           "sentence": "Yeye {{answer}} kesho.",
           "answer": "hatakuja",
           "translation": "She will not come tomorrow.",
-          "hint": "ha- + -ta- + kuja",
+          "hint": "to come + future negative, he",
           "display_order": 2
+        },
+        {
+          "sentence": "Sisi {{answer}} jana.",
+          "answer": "hatukuenda",
+          "translation": "We didn't go yesterday.",
+          "hint": "to go + past negative, we",
+          "display_order": 3
+        },
+        {
+          "sentence": "Mimi {{answer}} kesho.",
+          "answer": "sitakuja",
+          "translation": "I won't come tomorrow.",
+          "hint": "to come + future negative, I",
+          "display_order": 4
+        },
+        {
+          "sentence": "Wao {{answer}} chakula.",
+          "answer": "hawakupika",
+          "translation": "They didn't cook food.",
+          "hint": "to cook + past negative, they",
+          "display_order": 5
+        },
+        {
+          "sentence": "Wewe {{answer}} kazi kesho?",
+          "answer": "hutafanya",
+          "translation": "Won't you work tomorrow?",
+          "hint": "to work + future negative, you",
+          "display_order": 6
         }
       ]
     },
@@ -699,15 +1259,43 @@
           "sentence": "Mtu {{answer}} anasoma ni mwalimu.",
           "answer": "ambaye",
           "translation": "The person who is reading is a teacher.",
-          "hint": "amba- + -ye (class 1)",
+          "hint": "relative 'who' — person class",
           "display_order": 1
         },
         {
           "sentence": "Kitabu {{answer}} nilinunua ni kizuri.",
           "answer": "ambacho",
           "translation": "The book that I bought is good.",
-          "hint": "amba- + -cho (class 7)",
+          "hint": "relative 'which' — Ki class",
           "display_order": 2
+        },
+        {
+          "sentence": "Nyumba {{answer}} tulinunua ni kubwa.",
+          "answer": "ambayo",
+          "translation": "The house that we bought is big.",
+          "hint": "N class singular",
+          "display_order": 3
+        },
+        {
+          "sentence": "Watu {{answer}} wanafanya kazi hapa ni wazuri.",
+          "answer": "ambao",
+          "translation": "The people who work here are good.",
+          "hint": "Wa- class plural",
+          "display_order": 4
+        },
+        {
+          "sentence": "Mtu {{answer}} jana ni mgeni.",
+          "answer": "aliyefika",
+          "translation": "The person who arrived yesterday is a guest.",
+          "hint": "to arrive + past with the relative infix, he",
+          "display_order": 5
+        },
+        {
+          "sentence": "Gari {{answer}} nililinunua ni zuri.",
+          "answer": "ambalo",
+          "translation": "The car that I bought is good.",
+          "hint": "Ma- class singular",
+          "display_order": 6
         }
       ]
     },
@@ -731,7 +1319,7 @@
           "sentence": "Watoto wako {{answer}}.",
           "answer": "shuleni",
           "translation": "The children are at school.",
-          "hint": "shule + -ni",
+          "hint": "school + locative ending",
           "display_order": 1
         },
         {
@@ -740,6 +1328,34 @@
           "translation": "Is there food on the table?",
           "hint": "existence 'there is'",
           "display_order": 2
+        },
+        {
+          "sentence": "Chakula kiko {{answer}}.",
+          "answer": "mezani",
+          "translation": "The food is on the table.",
+          "hint": "table + locative ending",
+          "display_order": 3
+        },
+        {
+          "sentence": "{{answer}} maji ndani ya chupa?",
+          "answer": "Mna",
+          "translation": "Is there water inside the bottle?",
+          "hint": "interior locative",
+          "display_order": 4
+        },
+        {
+          "sentence": "Wazazi wangu wako {{answer}}.",
+          "answer": "nyumbani",
+          "translation": "My parents are at home.",
+          "hint": "home + locative ending",
+          "display_order": 5
+        },
+        {
+          "sentence": "Vitabu viko {{answer}}.",
+          "answer": "mfukoni",
+          "translation": "The books are in the bag.",
+          "hint": "bag + locative ending",
+          "display_order": 6
         }
       ]
     },
@@ -763,15 +1379,43 @@
           "sentence": "Yeye {{answer}} kila siku.",
           "answer": "husoma",
           "translation": "She reads every day.",
-          "hint": "habitual hu- + soma",
+          "hint": "to read + habitual prefix",
           "display_order": 1
         },
         {
           "sentence": "Watu {{answer}} chai asubuhi.",
           "answer": "hunywa",
           "translation": "People drink tea in the morning.",
-          "hint": "habitual hu- + nywa",
+          "hint": "to drink + habitual prefix",
           "display_order": 2
+        },
+        {
+          "sentence": "Yeye {{answer}} mapema kila siku.",
+          "answer": "huamka",
+          "translation": "She habitually wakes up early every day.",
+          "hint": "to wake up + habitual prefix",
+          "display_order": 3
+        },
+        {
+          "sentence": "Wakulima {{answer}} asubuhi.",
+          "answer": "hulima",
+          "translation": "Farmers till the land in the morning.",
+          "hint": "to till + habitual prefix",
+          "display_order": 4
+        },
+        {
+          "sentence": "Sisi {{answer}} sokoni kila wiki.",
+          "answer": "huenda",
+          "translation": "We go to the market every week.",
+          "hint": "to go + habitual prefix",
+          "display_order": 5
+        },
+        {
+          "sentence": "Watoto {{answer}} mpira jioni.",
+          "answer": "hucheza",
+          "translation": "Children play football in the evening.",
+          "hint": "to play + habitual prefix",
+          "display_order": 6
         }
       ]
     },
@@ -795,15 +1439,43 @@
           "sentence": "Yeye {{answer}} mwalimu zamani.",
           "answer": "alikuwa",
           "translation": "He was a teacher long ago.",
-          "hint": "a- + -li- + kuwa",
+          "hint": "'to be' + past, he/she",
           "display_order": 1
         },
         {
           "sentence": "Mimi {{answer}} daktari.",
           "answer": "nitakuwa",
           "translation": "I will be a doctor.",
-          "hint": "ni- + -ta- + kuwa",
+          "hint": "'to be' + future, I",
           "display_order": 2
+        },
+        {
+          "sentence": "Sisi {{answer}} shuleni jana.",
+          "answer": "tulikuwa",
+          "translation": "We were at school yesterday.",
+          "hint": "kuwa, sisi + -li-",
+          "display_order": 3
+        },
+        {
+          "sentence": "Wao {{answer}} hapa kesho.",
+          "answer": "watakuwa",
+          "translation": "They will be here tomorrow.",
+          "hint": "kuwa, wao + -ta-",
+          "display_order": 4
+        },
+        {
+          "sentence": "Wewe {{answer}} wapi jana?",
+          "answer": "ulikuwa",
+          "translation": "Where were you yesterday?",
+          "hint": "kuwa, wewe + -li-",
+          "display_order": 5
+        },
+        {
+          "sentence": "Hali ya hewa {{answer}} nzuri kesho.",
+          "answer": "itakuwa",
+          "translation": "The weather will be good tomorrow.",
+          "hint": "kuwa, N class i- + -ta-",
+          "display_order": 6
         }
       ]
     },
@@ -831,15 +1503,43 @@
           "sentence": "Chakula {{answer}}.",
           "answer": "kimepikwa",
           "translation": "The food has been cooked.",
-          "hint": "ki- + -me- + pik + -wa",
+          "hint": "to cook + passive + perfect (Ki class)",
           "display_order": 1
         },
         {
           "sentence": "Barua {{answer}} jana.",
           "answer": "iliandikwa",
           "translation": "The letter was written yesterday.",
-          "hint": "i- + -li- + andik + -wa",
+          "hint": "to write + passive + past (N class)",
           "display_order": 2
+        },
+        {
+          "sentence": "Mlango {{answer}}.",
+          "answer": "umefungwa",
+          "translation": "The door has been closed.",
+          "hint": "funga → fungwa, u- class",
+          "display_order": 3
+        },
+        {
+          "sentence": "Chakula {{answer}} na mama.",
+          "answer": "kilipikwa",
+          "translation": "The food was cooked by mother.",
+          "hint": "pika → pikwa, ki- class",
+          "display_order": 4
+        },
+        {
+          "sentence": "Kazi hii {{answer}} kesho.",
+          "answer": "itafanywa",
+          "translation": "This work will be done tomorrow.",
+          "hint": "fanya → fanywa, N class",
+          "display_order": 5
+        },
+        {
+          "sentence": "Wezi {{answer}} jana.",
+          "answer": "walikamatwa",
+          "translation": "The thieves were caught yesterday.",
+          "hint": "kamata → kamatwa",
+          "display_order": 6
         }
       ]
     },
@@ -872,6 +1572,34 @@
           "translation": "Please return my book.",
           "hint": "causative of -rudi",
           "display_order": 2
+        },
+        {
+          "sentence": "Mama {{answer}} mtoto chakula.",
+          "answer": "analisha",
+          "translation": "Mother feeds the child food.",
+          "hint": "kula → lisha",
+          "display_order": 3
+        },
+        {
+          "sentence": "Habari hii {{answer}} watu.",
+          "answer": "itafurahisha",
+          "translation": "This news will make people happy.",
+          "hint": "furahi → furahisha",
+          "display_order": 4
+        },
+        {
+          "sentence": "Juma {{answer}} maji.",
+          "answer": "alichemsha",
+          "translation": "Juma boiled the water.",
+          "hint": "chemka → chemsha",
+          "display_order": 5
+        },
+        {
+          "sentence": "Tafadhali {{answer}} gari.",
+          "answer": "simamisha",
+          "translation": "Please stop the car.",
+          "hint": "to stand → causative 'bring to a stop'",
+          "display_order": 6
         }
       ]
     },
@@ -904,6 +1632,34 @@
           "translation": "I will write you a letter.",
           "hint": "applicative of -andika + -ku-",
           "display_order": 2
+        },
+        {
+          "sentence": "Baba {{answer}} watoto zawadi.",
+          "answer": "aliwanunulia",
+          "translation": "Father bought the children presents.",
+          "hint": "nunua → nunulia + -wa-",
+          "display_order": 3
+        },
+        {
+          "sentence": "Tafadhali {{answer}} mlango.",
+          "answer": "nifungulie",
+          "translation": "Please open the door for me.",
+          "hint": "fungua → fungulia, subjunctive",
+          "display_order": 4
+        },
+        {
+          "sentence": "Mama {{answer}} mgeni chai.",
+          "answer": "atamletea",
+          "translation": "Mother will bring the guest tea.",
+          "hint": "leta → letea + -m-",
+          "display_order": 5
+        },
+        {
+          "sentence": "Rafiki yangu {{answer}} barua.",
+          "answer": "aliniandikia",
+          "translation": "My friend wrote me a letter.",
+          "hint": "andika → andikia + -ni-",
+          "display_order": 6
         }
       ]
     },
@@ -936,6 +1692,34 @@
           "translation": "This work is getting done today.",
           "hint": "stative of -fanya",
           "display_order": 2
+        },
+        {
+          "sentence": "Mlango huu {{answer}} kwa urahisi.",
+          "answer": "unafunguka",
+          "translation": "This door opens easily.",
+          "hint": "fungua → funguka",
+          "display_order": 3
+        },
+        {
+          "sentence": "Chakula hiki {{answer}}.",
+          "answer": "kimeharibika",
+          "translation": "This food has gone bad.",
+          "hint": "haribu → haribika",
+          "display_order": 4
+        },
+        {
+          "sentence": "Maneno yake {{answer}}.",
+          "answer": "yanaeleweka",
+          "translation": "His words are understandable.",
+          "hint": "elewa → eleweka",
+          "display_order": 5
+        },
+        {
+          "sentence": "Glasi {{answer}} jana.",
+          "answer": "ilivunjika",
+          "translation": "The glass broke yesterday.",
+          "hint": "vunja → vunjika",
+          "display_order": 6
         }
       ]
     },
@@ -968,6 +1752,34 @@
           "translation": "See you tomorrow! (we will see each other)",
           "hint": "reciprocal of -ona, future",
           "display_order": 2
+        },
+        {
+          "sentence": "Marafiki {{answer}} kila siku.",
+          "answer": "wanasaidiana",
+          "translation": "The friends help each other every day.",
+          "hint": "saidia → saidiana",
+          "display_order": 3
+        },
+        {
+          "sentence": "Sisi {{answer}} sokoni jana.",
+          "answer": "tulikutana",
+          "translation": "We met each other at the market yesterday.",
+          "hint": "kuta → kutana",
+          "display_order": 4
+        },
+        {
+          "sentence": "Ndugu wawili {{answer}} sana.",
+          "answer": "wanafanana",
+          "translation": "The two siblings look very much alike.",
+          "hint": "fanana — resemble each other",
+          "display_order": 5
+        },
+        {
+          "sentence": "Watu hawa {{answer}} vizuri.",
+          "answer": "wanaelewana",
+          "translation": "These people understand each other well.",
+          "hint": "elewa → elewana",
+          "display_order": 6
         }
       ]
     },
@@ -991,15 +1803,43 @@
           "sentence": "{{answer}} kwa bidii, utafaulu.",
           "answer": "Ukisoma",
           "translation": "If you study hard, you will succeed.",
-          "hint": "u- + -ki- + soma",
+          "hint": "to study + 'if', you",
           "display_order": 1
         },
         {
           "sentence": "Mvua {{answer}}, tutabaki nyumbani.",
           "answer": "ikinyesha",
           "translation": "If it rains, we will stay home.",
-          "hint": "i- + -ki- + nyesha",
+          "hint": "to rain + 'if' (N class)",
           "display_order": 2
+        },
+        {
+          "sentence": "{{answer}} mapema, tutaondoka.",
+          "answer": "Ukifika",
+          "translation": "If you arrive early, we will leave.",
+          "hint": "fika, wewe + -ki-",
+          "display_order": 3
+        },
+        {
+          "sentence": "{{answer}} pesa, nitanunua gari.",
+          "answer": "Nikipata",
+          "translation": "If I get money, I will buy a car.",
+          "hint": "pata, mimi + -ki-",
+          "display_order": 4
+        },
+        {
+          "sentence": "Watoto {{answer}} kwa bidii, watafaulu.",
+          "answer": "wakisoma",
+          "translation": "If the children study hard, they will succeed.",
+          "hint": "soma, wao + -ki-",
+          "display_order": 5
+        },
+        {
+          "sentence": "{{answer}} chakula, tutakula pamoja.",
+          "answer": "Akipika",
+          "translation": "If she cooks food, we will eat together.",
+          "hint": "pika, yeye + -ki-",
+          "display_order": 6
         }
       ]
     },
@@ -1023,15 +1863,43 @@
           "sentence": "{{answer}} na pesa, ningesafiri.",
           "answer": "Ningekuwa",
           "translation": "If I had money, I would travel.",
-          "hint": "ni- + -nge- + kuwa",
+          "hint": "'to be' + hypothetical, I",
           "display_order": 1
         },
         {
           "sentence": "{{answer}}, ungalifaulu.",
           "answer": "Ungalisoma",
           "translation": "Had you studied, you would have passed.",
-          "hint": "u- + -ngali- + soma",
+          "hint": "to study + past hypothetical, you",
           "display_order": 2
+        },
+        {
+          "sentence": "{{answer}} mapema, tungewahi basi.",
+          "answer": "Tungeamka",
+          "translation": "If we woke up early, we would catch the bus.",
+          "hint": "amka, sisi + -nge-",
+          "display_order": 3
+        },
+        {
+          "sentence": "Yeye {{answer}} kama angejua.",
+          "answer": "angekuja",
+          "translation": "He would come if he knew.",
+          "hint": "kuja, yeye + -nge-",
+          "display_order": 4
+        },
+        {
+          "sentence": "Kama ungejua, {{answer}} nini?",
+          "answer": "ungefanya",
+          "translation": "If you knew, what would you do?",
+          "hint": "fanya, wewe + -nge-",
+          "display_order": 5
+        },
+        {
+          "sentence": "{{answer}} mvua, tungalibaki nyumbani.",
+          "answer": "Ingalinyesha",
+          "translation": "Had it rained, we would have stayed home.",
+          "hint": "nyesha, N class + -ngali-",
+          "display_order": 6
         }
       ]
     },
@@ -1055,15 +1923,43 @@
           "sentence": "Alienda sokoni, {{answer}} ndizi.",
           "answer": "akanunua",
           "translation": "He went to the market and (then) bought bananas.",
-          "hint": "a- + -ka- + nunua",
+          "hint": "to buy + narrative 'and then', he/she",
           "display_order": 1
         },
         {
           "sentence": "Nilifika nyumbani, {{answer}} chakula.",
           "answer": "nikapika",
           "translation": "I got home and then cooked food.",
-          "hint": "ni- + -ka- + pika",
+          "hint": "to cook + narrative 'and then', I",
           "display_order": 2
+        },
+        {
+          "sentence": "Tulienda mjini, {{answer}} rafiki zetu.",
+          "answer": "tukaona",
+          "translation": "We went to town and saw our friends.",
+          "hint": "ona, sisi + -ka-",
+          "display_order": 3
+        },
+        {
+          "sentence": "Aliamka mapema, {{answer}} chai.",
+          "answer": "akanywa",
+          "translation": "He woke up early and drank tea.",
+          "hint": "kunywa, yeye + -ka-",
+          "display_order": 4
+        },
+        {
+          "sentence": "Walifika nyumbani, {{answer}} chakula.",
+          "answer": "wakala",
+          "translation": "They arrived home and ate food.",
+          "hint": "kula, wao + -ka-",
+          "display_order": 5
+        },
+        {
+          "sentence": "Nilinunua kitabu, {{answer}} kusoma.",
+          "answer": "nikaanza",
+          "translation": "I bought a book and began to read.",
+          "hint": "anza, mimi + -ka-",
+          "display_order": 6
         }
       ]
     }

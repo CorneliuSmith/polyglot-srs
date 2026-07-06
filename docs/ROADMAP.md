@@ -22,7 +22,14 @@ coach from the learner's actual failure history.
   6-layer NLP answer grading for all 14 languages (diacritics coach, don't
   fail); teach-before-quiz lessons; sentence rotation with per-sentence
   logging (`review_log.prompt_sentence`); in-session re-drill of misses;
-  browsable grammar path (`/grammar`) with per-point learning; onboarding +
+  teach-before-quiz is a hard gate: learn batches are created suspended, each
+  lesson ends with a first-check drill (the lesson payload's `quiz`), and only
+  a correct answer confirms THAT card into reviews
+  (POST /api/review/learn/confirm); abandoned or failed walkthroughs re-teach;
+  Bunpro-style learn decks (per-level lists with progress,
+  GET /api/review/decks, level-scoped batches that auto-queue the deck);
+  graduated hints disclose the translation first and the morphology recipe
+  last; browsable grammar path (`/grammar`) with per-point learning; onboarding +
   mixed placement; personal notes → cloze cards; AI tutor with memory,
   weak-area grounding (vocab + grammar), entitlements, Stripe billing;
   contributor + AI-check + linguist-approval workflow; RLS multi-tenancy
@@ -32,15 +39,23 @@ coach from the learner's actual failure history.
   correct-but-lucky offers "I actually got it wrong", the grammar point is
   viewable on demand after any answer ("Show grammar"), and misses re-drill
   before the session ends.
-- **Grammar paths seeded**: es 43 (full A1→C2, Plan Curricular order),
-  tr 40 (full A1→C2, cross-model verified), sw 32 · yo 24 · xh 24 ·
-  ha 22 (A1→C1-equivalent), ru 8 (A1 — next in WP2).
-  Every point: can-do function, explanation, references, ≥2 validated
-  drills. Volume target = Bunpro-level depth: WP1 (6 drills/pt, 6–10
-  sentences/word) and WP2/WP3/WP4 grow every language toward 45–55 points.
+- **Grammar paths seeded — ALL 14 languages**: es 43 (full A1→C2, Plan
+  Curricular order), tr 40 (full A1→C2, cross-model verified), ru 51 (full
+  A1→C2 per TORFL — A2+ are `reviewed: false` drafts awaiting verification),
+  sw 32 · yo 24 · xh 24 · ha 22 (A1→C1-equivalent), and 12-point A1 paths
+  for fr · de · it · ca · mi · ar · en (WP3). **WP1 drill bar met everywhere:
+  6 drills/point (1,920 drills total)**, validated for single-word answers,
+  no answer leakage, no duplicate frames, English-functional hints. Every
+  point: can-do function, explanation, references.
 - **Vocabulary**: sw ~1200, tr ~770, ar/en corpora; ~30-word curated starters
-  for es/fr/de/it/ca/mi/yo/ha/xh, each with cloze example sentences.
-- **Suites**: `backend/tests` (578) and `frontend` vitest (106) green.
+  for es/fr/de/it/ca/mi/yo/ha/xh, each with cloze example sentences; ru 58
+  curated starters implementing the language-shaped card design (aspect/motion
+  pairs as single cards via alternatives + morphology.aspect_partner, noun
+  declension samples in morphology) with 6 example sentences per word.
+- **Ops**: `scripts/setup_db.sh` rebuilds or repairs any database end-to-end
+  (tracked migrations that self-baseline on pre-migrated DBs, offline seed,
+  verification; `--local` targets a local Postgres via the auth shim).
+- **Suites**: `backend/tests` (602) and `frontend` vitest (108) green.
 
 ## 3. Non-negotiable invariants (every agent, every package)
 
@@ -89,6 +104,14 @@ Effort ≈ S (<half day), M (a day), L (multi-day). "Model" = recommended Claude
 model for the agent doing it (see §6 for reasoning).
 
 ### WP1 — Variation sentences everywhere  ⭐ next
+**Status:** grammar half DONE — 6 drills/point for all seven seeded paths
+(1,416 drills), hints rewritten to English gloss+function recipes that never
+assemble the answer (422 rewritten). Sentence half DONE for every curated
+starter set (~6/word: es/fr/de/it/ca/mi/yo/ha/xh/tr/ru — ~2,100 curated
+sentences) and seed_sentences now also consumes the sourcing pipeline's
+Tatoeba TSVs (data/{code}_sentences.tsv, graded difficulty_rank). Remaining:
+corpora-scale words (sw/tr/en/ar/yo full frequency lists) need WP5 sourcing
+or WP6 generation.
 **Targets (owner-decided):** every grammar point gets **6 drills** (hard
 minimum 4) varying person, tense, vocabulary, and register; every vocabulary
 word gets **6–10 graded example sentences** (hard minimum 4) — vocab carries
@@ -112,6 +135,11 @@ de/it/tr/ru/en/ca: draft with `claude-sonnet-5`, verify with `claude-opus-4-8`.
 **Effort:** L (content), S (no code changes needed).
 
 ### WP2 — Deepen Spanish/Turkish/Russian to C2
+**Status:** DONE — es 43 · tr 40 · ru 51, all A1→C2. Russian A2–C2 (43
+points) are drafts pending a cross-model verification pass before
+promotion to `reviewed: true`; the aspect-pair/motion-pair vocab card
+design is implemented (data/ru_starter.tsv + csv_importer declension
+columns + alternatives persisted in BaseSeeder).
 **Goal:** ~45–55 points each, per official inventories, ALL THE WAY TO C2
 (C2 adds discourse-level items: es — cleft/inversion, subtle subjunctive
 concordance, register; tr — complex converb chains, formal registers; ru —
@@ -142,6 +170,13 @@ inventory, 2+ drills each — 4+ if WP1 has landed); seed + suites green.
 **Effort:** L per language.
 
 ### WP3 — A1 paths for fr, de, it, ca, mi, ar, en
+**Status:** DONE — every language now has a grammar tab. 12 points × 6 drills
+per language (504 drills), mirroring the Spanish A1 template with the
+per-language adaptations below (de: V2 + accusative; ar: root-and-pattern,
+sun/moon letters, nominal sentences, iḍāfa; mi: TAM particles kei te/i/ka +
+a/o possession; en: articles, third-person -s, do-support, continuous for
+learners from other languages). Landed reviewed:true (A1-core precedent);
+a cross-model verification pass is still recommended, ar and mi first.
 **Goal:** ~12-point A1 paths so every language has a grammar tab.
 Mirror the Spanish A1 template (pronouns → nouns/gender → articles → copula →
 present verbs → negation → existence → questions → agreement), adapted per
@@ -269,6 +304,14 @@ switcher. **Model:** `claude-sonnet-5` implementation with a design-consistency
 verify pass one tier up. **Effort:** M–L.
 
 ### WP14 — Dashboard parity (owner's Bunpro dashboard screenshots)
+**Status:** core DONE — Learn/Review command-center cards with live counts,
+Bunpro-style learn-deck dropdown (per-level progress rows), 7-day review
+forecast, 14-day activity chart (vocab vs grammar), named-stage tiles
+(Beginner/Adept/Seasoned/Expert/Master from FSRS stability bands + Self-Study
++ Ghosts) with Grammar/Vocab toggle, and the profile card (streak flame week,
+days studied, last-session accuracy, items studied). Remaining: hourly
+forecast granularity, per-level grammar+vocab combined bars, community
+section (deferred).
 Home page becomes the command center, our style: top bar keeps OUR
 differentiators — the **language switcher** and a **Tutor** link — alongside
 Learn/Review; big **Learn N/day** and **Review N** buttons with live counts;

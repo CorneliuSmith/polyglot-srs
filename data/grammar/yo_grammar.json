@@ -56,6 +56,34 @@
           "translation": "They went home.",
           "hint": "the 'they' pronoun",
           "display_order": 2
+        },
+        {
+          "sentence": "{{answer}} fẹ́ ìwé.",
+          "answer": "O",
+          "translation": "You want a book.",
+          "hint": "you (singular)",
+          "display_order": 3
+        },
+        {
+          "sentence": "{{answer}} lọ sí oko.",
+          "answer": "Ó",
+          "translation": "He went to the farm.",
+          "hint": "he/she — with tone",
+          "display_order": 4
+        },
+        {
+          "sentence": "{{answer}} fẹ́ omi tútù.",
+          "answer": "A",
+          "translation": "We want cold water.",
+          "hint": "we",
+          "display_order": 5
+        },
+        {
+          "sentence": "{{answer}} lọ sí ọjà.",
+          "answer": "Ẹ",
+          "translation": "You (plural) went to the market.",
+          "hint": "you (plural)",
+          "display_order": 6
         }
       ]
     },
@@ -83,15 +111,43 @@
           "sentence": "Mo ní {{answer}} kan.",
           "answer": "ọkọ̀",
           "translation": "I have a vehicle.",
-          "hint": "low-tone ọkọ̀ = vehicle",
+          "hint": "vehicle — the low-tone twin",
           "display_order": 1
         },
         {
           "sentence": "{{answer}} mi wà ní ilé.",
           "answer": "Ọkọ",
           "translation": "My husband is at home.",
-          "hint": "mid-tone ọkọ = husband",
+          "hint": "husband — the mid-tone twin",
           "display_order": 2
+        },
+        {
+          "sentence": "Mo fi {{answer}} ra oúnjẹ.",
+          "answer": "owó",
+          "translation": "I bought food with money.",
+          "hint": "money — mid-high tones",
+          "display_order": 3
+        },
+        {
+          "sentence": "Fọ {{answer}} rẹ kí o tó jẹun.",
+          "answer": "ọwọ́",
+          "translation": "Wash your hands before you eat.",
+          "hint": "hand — with subdot and high tone",
+          "display_order": 4
+        },
+        {
+          "sentence": "{{answer}} ọmọdé dùn.",
+          "answer": "Ìgbà",
+          "translation": "Childhood days are sweet.",
+          "hint": "time/season — low-low tones",
+          "display_order": 5
+        },
+        {
+          "sentence": "Mo ra {{answer}} tuntun lánàá.",
+          "answer": "ọkọ̀",
+          "translation": "I bought a new vehicle yesterday.",
+          "hint": "vehicle — the low-tone twin",
+          "display_order": 6
         }
       ]
     },
@@ -119,15 +175,43 @@
           "sentence": "Mo {{answer}} olùkọ́.",
           "answer": "jẹ́",
           "translation": "I am a teacher.",
-          "hint": "category 'to be'",
+          "hint": "the copula for professions and qualities",
           "display_order": 1
         },
         {
           "sentence": "Olùkọ́ {{answer}} mí.",
           "answer": "ni",
           "translation": "I am a teacher (it is a teacher that I am).",
-          "hint": "identity/focus 'to be'",
+          "hint": "the copula for identifying",
           "display_order": 2
+        },
+        {
+          "sentence": "Ó {{answer}} dókítà.",
+          "answer": "jẹ́",
+          "translation": "She is a doctor.",
+          "hint": "the copula for professions and qualities",
+          "display_order": 3
+        },
+        {
+          "sentence": "Èmi {{answer}} Adé.",
+          "answer": "ni",
+          "translation": "I am Ade.",
+          "hint": "the copula for identifying",
+          "display_order": 4
+        },
+        {
+          "sentence": "Wọ́n {{answer}} àgbẹ̀.",
+          "answer": "jẹ́",
+          "translation": "They are farmers.",
+          "hint": "the copula for professions and qualities",
+          "display_order": 5
+        },
+        {
+          "sentence": "Ta {{answer}} ìwọ?",
+          "answer": "ni",
+          "translation": "Who are you?",
+          "hint": "the copula for identifying",
+          "display_order": 6
         }
       ]
     },
@@ -160,6 +244,34 @@
           "translation": "I went to the market.",
           "hint": "direction preposition",
           "display_order": 2
+        },
+        {
+          "sentence": "Màmá {{answer}} ní ilé.",
+          "answer": "wà",
+          "translation": "Mother is at home.",
+          "hint": "to be located",
+          "display_order": 3
+        },
+        {
+          "sentence": "Ìwé náà wà {{answer}} orí tábìlì.",
+          "answer": "ní",
+          "translation": "The book is on the table.",
+          "hint": "at/on",
+          "display_order": 4
+        },
+        {
+          "sentence": "A lọ {{answer}} ilé ìwé.",
+          "answer": "sí",
+          "translation": "We went to school.",
+          "hint": "motion towards",
+          "display_order": 5
+        },
+        {
+          "sentence": "Ọmọ náà {{answer}} ní ọjà.",
+          "answer": "wà",
+          "translation": "The child is at the market.",
+          "hint": "to be located",
+          "display_order": 6
         }
       ]
     },
@@ -190,8 +302,36 @@
           "sentence": "{{answer}} sí omi.",
           "answer": "Kò",
           "translation": "There is no water.",
-          "hint": "kò sí = there isn't",
+          "hint": "'there is no' — negator + existence verb",
           "display_order": 2
+        },
+        {
+          "sentence": "Wọ́n {{answer}} dé.",
+          "answer": "kò",
+          "translation": "They have not arrived.",
+          "hint": "negator before the verb",
+          "display_order": 3
+        },
+        {
+          "sentence": "Ọmọ náà {{answer}} sùn.",
+          "answer": "kò",
+          "translation": "The child did not sleep.",
+          "hint": "negator before the verb",
+          "display_order": 4
+        },
+        {
+          "sentence": "{{answer}} sí oúnjẹ ní ilé.",
+          "answer": "Kò",
+          "translation": "There is no food at home.",
+          "hint": "'there is no' — negator + existence verb",
+          "display_order": 5
+        },
+        {
+          "sentence": "Ó {{answer}} dára.",
+          "answer": "kò",
+          "translation": "It is not good.",
+          "hint": "negator before the verb",
+          "display_order": 6
         }
       ]
     },
@@ -224,6 +364,34 @@
           "translation": "She is eating.",
           "hint": "'eat (food)' after ń",
           "display_order": 2
+        },
+        {
+          "sentence": "Wọ́n {{answer}} ṣiṣẹ́.",
+          "answer": "ń",
+          "translation": "They are working.",
+          "hint": "progressive marker",
+          "display_order": 3
+        },
+        {
+          "sentence": "Ọmọ náà ń {{answer}}.",
+          "answer": "sùn",
+          "translation": "The child is sleeping.",
+          "hint": "to sleep",
+          "display_order": 4
+        },
+        {
+          "sentence": "Mo ń {{answer}} oúnjẹ.",
+          "answer": "sè",
+          "translation": "I am cooking food.",
+          "hint": "to cook",
+          "display_order": 5
+        },
+        {
+          "sentence": "Bàbá {{answer}} ka ìwé.",
+          "answer": "ń",
+          "translation": "Father is reading a book.",
+          "hint": "progressive marker",
+          "display_order": 6
         }
       ]
     },
@@ -256,6 +424,34 @@
           "translation": "I saw two children.",
           "hint": "'two' after the noun",
           "display_order": 2
+        },
+        {
+          "sentence": "Mo rí {{answer}} ọmọ ní ọjà.",
+          "answer": "àwọn",
+          "translation": "I saw the children at the market.",
+          "hint": "plural marker",
+          "display_order": 3
+        },
+        {
+          "sentence": "Ilé {{answer}} tóbi.",
+          "answer": "mẹ́ta",
+          "translation": "Three houses are big.",
+          "hint": "number follows the noun — three",
+          "display_order": 4
+        },
+        {
+          "sentence": "{{answer}} obìnrin ń ṣiṣẹ́.",
+          "answer": "Àwọn",
+          "translation": "The women are working.",
+          "hint": "plural marker",
+          "display_order": 5
+        },
+        {
+          "sentence": "Mo ní ìwé {{answer}}.",
+          "answer": "mẹ́rin",
+          "translation": "I have four books.",
+          "hint": "number follows the noun — four",
+          "display_order": 6
         }
       ]
     },
@@ -286,8 +482,36 @@
           "sentence": "{{answer}} ni orúkọ rẹ?",
           "answer": "Kí",
           "translation": "What is your name?",
-          "hint": "kí ni = what",
+          "hint": "'what' — the first half",
           "display_order": 2
+        },
+        {
+          "sentence": "{{answer}} o ti jẹun?",
+          "answer": "Ṣé",
+          "translation": "Have you eaten?",
+          "hint": "yes/no question",
+          "display_order": 3
+        },
+        {
+          "sentence": "{{answer}} ni èyí?",
+          "answer": "Kí",
+          "translation": "What is this?",
+          "hint": "'what' — the first half",
+          "display_order": 4
+        },
+        {
+          "sentence": "Níbo {{answer}} o ń lọ?",
+          "answer": "ni",
+          "translation": "Where are you going?",
+          "hint": "the copula that follows a question word",
+          "display_order": 5
+        },
+        {
+          "sentence": "{{answer}} ni ọmọ yẹn?",
+          "answer": "Ta",
+          "translation": "Who is that child?",
+          "hint": "who",
+          "display_order": 6
         }
       ]
     },
@@ -320,6 +544,34 @@
           "translation": "His/her house is big.",
           "hint": "'his/her' after the noun",
           "display_order": 2
+        },
+        {
+          "sentence": "Ilé {{answer}} wà ní Èkó.",
+          "answer": "wa",
+          "translation": "Our house is in Lagos.",
+          "hint": "our",
+          "display_order": 3
+        },
+        {
+          "sentence": "Ìwé {{answer}} dà?",
+          "answer": "rẹ",
+          "translation": "Where is your book?",
+          "hint": "your (singular)",
+          "display_order": 4
+        },
+        {
+          "sentence": "Aṣọ {{answer}} dára.",
+          "answer": "wọn",
+          "translation": "Their clothes are nice.",
+          "hint": "their",
+          "display_order": 5
+        },
+        {
+          "sentence": "Ti {{answer}} ni ìwé yìí.",
+          "answer": "èmi",
+          "translation": "This book is mine.",
+          "hint": "emphatic possession — ti + pronoun",
+          "display_order": 6
         }
       ]
     },
@@ -352,6 +604,34 @@
           "translation": "They have arrived.",
           "hint": "perfect marker",
           "display_order": 2
+        },
+        {
+          "sentence": "A {{answer}} parí iṣẹ́ náà.",
+          "answer": "ti",
+          "translation": "We have finished the work.",
+          "hint": "perfect marker",
+          "display_order": 3
+        },
+        {
+          "sentence": "Ọmọ náà {{answer}} jí.",
+          "answer": "ti",
+          "translation": "The child has woken up.",
+          "hint": "perfect marker",
+          "display_order": 4
+        },
+        {
+          "sentence": "Mo {{answer}} rí i.",
+          "answer": "ti",
+          "translation": "I have seen him.",
+          "hint": "perfect marker",
+          "display_order": 5
+        },
+        {
+          "sentence": "Bàbá {{answer}} dé láti oko.",
+          "answer": "ti",
+          "translation": "Father has arrived from the farm.",
+          "hint": "perfect marker",
+          "display_order": 6
         }
       ]
     },
@@ -375,15 +655,43 @@
           "sentence": "Mo {{answer}} lọ ní ọ̀la.",
           "answer": "máa",
           "translation": "I will go tomorrow.",
-          "hint": "everyday future marker",
+          "hint": "future — the everyday form",
           "display_order": 1
         },
         {
           "sentence": "Wọ́n {{answer}} wá.",
           "answer": "máa",
           "translation": "They will come.",
-          "hint": "future marker",
+          "hint": "future — the everyday form",
           "display_order": 2
+        },
+        {
+          "sentence": "A {{answer}} jẹun ní ilé.",
+          "answer": "máa",
+          "translation": "We will eat at home.",
+          "hint": "future — the everyday form",
+          "display_order": 3
+        },
+        {
+          "sentence": "Ó {{answer}} wá ní ọ̀la.",
+          "answer": "yóò",
+          "translation": "He will come tomorrow.",
+          "hint": "future — the formal form",
+          "display_order": 4
+        },
+        {
+          "sentence": "Wọ́n {{answer}} kọ́ ilé tuntun.",
+          "answer": "yóò",
+          "translation": "They will build a new house.",
+          "hint": "future — the formal form",
+          "display_order": 5
+        },
+        {
+          "sentence": "Mo {{answer}} ra ọkọ̀ tuntun.",
+          "answer": "máa",
+          "translation": "I will buy a new vehicle.",
+          "hint": "future — the everyday form",
+          "display_order": 6
         }
       ]
     },
@@ -416,6 +724,34 @@
           "translation": "They like me.",
           "hint": "'me' after the verb",
           "display_order": 2
+        },
+        {
+          "sentence": "Wọ́n rí {{answer}} ní ọjà.",
+          "answer": "wa",
+          "translation": "They saw us at the market.",
+          "hint": "us",
+          "display_order": 3
+        },
+        {
+          "sentence": "Mo pè {{answer}} lánàá.",
+          "answer": "ọ́",
+          "translation": "I called you yesterday.",
+          "hint": "you (singular) — high tone",
+          "display_order": 4
+        },
+        {
+          "sentence": "A fẹ́ràn {{answer}}.",
+          "answer": "yín",
+          "translation": "We love you (plural).",
+          "hint": "you (plural)",
+          "display_order": 5
+        },
+        {
+          "sentence": "Bàbá pè {{answer}}.",
+          "answer": "wọ́n",
+          "translation": "Father called them.",
+          "hint": "them",
+          "display_order": 6
         }
       ]
     },
@@ -448,6 +784,34 @@
           "translation": "The house is big.",
           "hint": "quality word used as a verb",
           "display_order": 2
+        },
+        {
+          "sentence": "Omi náà {{answer}}.",
+          "answer": "tutù",
+          "translation": "The water is cold.",
+          "hint": "to be cold",
+          "display_order": 3
+        },
+        {
+          "sentence": "Ọmọ yìí {{answer}}.",
+          "answer": "ga",
+          "translation": "This child is tall.",
+          "hint": "to be tall",
+          "display_order": 4
+        },
+        {
+          "sentence": "Aṣọ rẹ {{answer}}.",
+          "answer": "mọ́",
+          "translation": "Your clothes are clean.",
+          "hint": "to be clean",
+          "display_order": 5
+        },
+        {
+          "sentence": "Ilé wa {{answer}}.",
+          "answer": "kéré",
+          "translation": "Our house is small.",
+          "hint": "to be small",
+          "display_order": 6
         }
       ]
     },
@@ -480,6 +844,34 @@
           "translation": "That man is tall.",
           "hint": "'that' after the noun",
           "display_order": 2
+        },
+        {
+          "sentence": "Ọjà {{answer}} jìnnà.",
+          "answer": "yẹn",
+          "translation": "That market is far away.",
+          "hint": "that",
+          "display_order": 3
+        },
+        {
+          "sentence": "Aṣọ {{answer}} mọ́.",
+          "answer": "yìí",
+          "translation": "This cloth is clean.",
+          "hint": "this",
+          "display_order": 4
+        },
+        {
+          "sentence": "Ilé {{answer}} ga.",
+          "answer": "yẹn",
+          "translation": "That house is tall.",
+          "hint": "that",
+          "display_order": 5
+        },
+        {
+          "sentence": "Oúnjẹ {{answer}} dùn.",
+          "answer": "yìí",
+          "translation": "This food is delicious.",
+          "hint": "this",
+          "display_order": 6
         }
       ]
     },
@@ -512,6 +904,34 @@
           "translation": "Don't go!",
           "hint": "negative command marker",
           "display_order": 2
+        },
+        {
+          "sentence": "{{answer}} jẹun níbí!",
+          "answer": "Má",
+          "translation": "Don't eat here!",
+          "hint": "negative command",
+          "display_order": 3
+        },
+        {
+          "sentence": "{{answer}} oúnjẹ náà!",
+          "answer": "Jẹ",
+          "translation": "Eat the food!",
+          "hint": "to eat — bare verb",
+          "display_order": 4
+        },
+        {
+          "sentence": "{{answer}} ìwé rẹ!",
+          "answer": "Kà",
+          "translation": "Read your book!",
+          "hint": "to read — bare verb",
+          "display_order": 5
+        },
+        {
+          "sentence": "Má {{answer}}!",
+          "answer": "pariwo",
+          "translation": "Don't shout!",
+          "hint": "to make noise",
+          "display_order": 6
         }
       ]
     },
@@ -544,6 +964,34 @@
           "translation": "The book that I bought is good.",
           "hint": "relativizer",
           "display_order": 2
+        },
+        {
+          "sentence": "Obìnrin {{answer}} ó ń ṣiṣẹ́ níbí dára.",
+          "answer": "tí",
+          "translation": "The woman who works here is good.",
+          "hint": "relative marker",
+          "display_order": 3
+        },
+        {
+          "sentence": "Oúnjẹ {{answer}} o sè dùn.",
+          "answer": "tí",
+          "translation": "The food that you cooked is delicious.",
+          "hint": "relative marker",
+          "display_order": 4
+        },
+        {
+          "sentence": "Ilé {{answer}} wọ́n kọ́ tóbi.",
+          "answer": "tí",
+          "translation": "The house that they built is big.",
+          "hint": "relative marker",
+          "display_order": 5
+        },
+        {
+          "sentence": "Ọmọ {{answer}} ó sùn ti jí.",
+          "answer": "tí",
+          "translation": "The child who was sleeping has woken up.",
+          "hint": "relative marker — high tone",
+          "display_order": 6
         }
       ]
     },
@@ -576,6 +1024,34 @@
           "translation": "It is the market that I went to.",
           "hint": "focus marker",
           "display_order": 2
+        },
+        {
+          "sentence": "Èmi {{answer}} mo sè oúnjẹ.",
+          "answer": "ni",
+          "translation": "It was I who cooked the food.",
+          "hint": "focus marker",
+          "display_order": 3
+        },
+        {
+          "sentence": "Lánàá {{answer}} wọ́n dé.",
+          "answer": "ni",
+          "translation": "It was yesterday that they arrived.",
+          "hint": "focus marker",
+          "display_order": 4
+        },
+        {
+          "sentence": "Ìwé {{answer}} mo rà.",
+          "answer": "ni",
+          "translation": "It was a book that I bought.",
+          "hint": "focus marker",
+          "display_order": 5
+        },
+        {
+          "sentence": "Níbí {{answer}} a ń gbé.",
+          "answer": "ni",
+          "translation": "It is here that we live.",
+          "hint": "focus marker",
+          "display_order": 6
         }
       ]
     },
@@ -612,6 +1088,34 @@
           "translation": "He carried the load away (carry-go).",
           "hint": "'go' completing 'take away'",
           "display_order": 2
+        },
+        {
+          "sentence": "Gbé ìwé náà {{answer}} fún mi.",
+          "answer": "wá",
+          "translation": "Bring the book to me.",
+          "hint": "carry + come",
+          "display_order": 3
+        },
+        {
+          "sentence": "Ó sáré {{answer}} ilé.",
+          "answer": "lọ",
+          "translation": "He ran off home.",
+          "hint": "run + go",
+          "display_order": 4
+        },
+        {
+          "sentence": "Mo mú owó {{answer}} ọjà.",
+          "answer": "lọ",
+          "translation": "I took money to the market.",
+          "hint": "take + go",
+          "display_order": 5
+        },
+        {
+          "sentence": "Ó bù omi {{answer}} mi.",
+          "answer": "fún",
+          "translation": "She poured water for me.",
+          "hint": "pour + give",
+          "display_order": 6
         }
       ]
     },
@@ -635,15 +1139,43 @@
           "sentence": "Bí o {{answer}} kàwé, wàá yege.",
           "answer": "bá",
           "translation": "If you study, you will pass.",
-          "hint": "the 'if' particle before the verb",
+          "hint": "the second half of the frame",
           "display_order": 1
         },
         {
           "sentence": "Bí òjò {{answer}} rọ̀, a ó dúró.",
           "answer": "bá",
           "translation": "If it rains, we will stay.",
-          "hint": "the 'if' particle",
+          "hint": "the second half of the frame",
           "display_order": 2
+        },
+        {
+          "sentence": "Bí a {{answer}} ṣiṣẹ́, a ó rí owó.",
+          "answer": "bá",
+          "translation": "If we work, we will get money.",
+          "hint": "the second half of the frame",
+          "display_order": 3
+        },
+        {
+          "sentence": "{{answer}} o bá dé, pè mí.",
+          "answer": "Bí",
+          "translation": "When you arrive, call me.",
+          "hint": "the first half of the frame",
+          "display_order": 4
+        },
+        {
+          "sentence": "Bí ó bá {{answer}}, a ó lọ.",
+          "answer": "dé",
+          "translation": "If he arrives, we will go.",
+          "hint": "to arrive",
+          "display_order": 5
+        },
+        {
+          "sentence": "Bí wọ́n {{answer}} sùn, má pariwo.",
+          "answer": "bá",
+          "translation": "If they are asleep, don't make noise.",
+          "hint": "the second half of the frame",
+          "display_order": 6
         }
       ]
     },
@@ -674,8 +1206,36 @@
           "sentence": "Ilé yìí tóbi ju ilé yẹn {{answer}}.",
           "answer": "lọ",
           "translation": "This house is bigger than that house.",
-          "hint": "the closing particle",
+          "hint": "the closing word of the comparison frame",
           "display_order": 2
+        },
+        {
+          "sentence": "Adé ga ju Olú {{answer}}.",
+          "answer": "lọ",
+          "translation": "Ade is taller than Olu.",
+          "hint": "the closing word of the comparison frame",
+          "display_order": 3
+        },
+        {
+          "sentence": "Oúnjẹ yìí dùn {{answer}} tiwa lọ.",
+          "answer": "ju",
+          "translation": "This food is tastier than ours.",
+          "hint": "exceed",
+          "display_order": 4
+        },
+        {
+          "sentence": "Mo fẹ́ràn tii {{answer}} kọfí lọ.",
+          "answer": "ju",
+          "translation": "I like tea more than coffee.",
+          "hint": "exceed",
+          "display_order": 5
+        },
+        {
+          "sentence": "Ọkọ̀ yìí yára ju ti mi {{answer}}.",
+          "answer": "lọ",
+          "translation": "This vehicle is faster than mine.",
+          "hint": "the closing word of the comparison frame",
+          "display_order": 6
         }
       ]
     },
@@ -706,8 +1266,36 @@
           "sentence": "Ó {{answer}} í mu ọtí.",
           "answer": "kì",
           "translation": "He does not (habitually) drink alcohol.",
-          "hint": "negative habitual kì í",
+          "hint": "the negative habitual opener",
           "display_order": 2
+        },
+        {
+          "sentence": "Wọ́n {{answer}} ń ṣiṣẹ́ ní ọjọ́ Sátidé.",
+          "answer": "máa",
+          "translation": "They usually work on Saturdays.",
+          "hint": "habitual — first part",
+          "display_order": 3
+        },
+        {
+          "sentence": "A máa {{answer}} jẹun ní aago méje.",
+          "answer": "ń",
+          "translation": "We usually eat at seven o'clock.",
+          "hint": "habitual — second part",
+          "display_order": 4
+        },
+        {
+          "sentence": "Ó {{answer}} í jí ní kùtùkùtù.",
+          "answer": "kì",
+          "translation": "He doesn't usually wake up early.",
+          "hint": "the negative habitual opener",
+          "display_order": 5
+        },
+        {
+          "sentence": "Màmá {{answer}} ń sè oúnjẹ ní alẹ́.",
+          "answer": "máa",
+          "translation": "Mother usually cooks in the evening.",
+          "hint": "habitual — first part",
+          "display_order": 6
         }
       ]
     },
@@ -740,6 +1328,34 @@
           "translation": "I know that you have arrived.",
           "hint": "'that' complementizer",
           "display_order": 2
+        },
+        {
+          "sentence": "Ó rò {{answer}} mo ti lọ.",
+          "answer": "pé",
+          "translation": "He thought that I had gone.",
+          "hint": "that",
+          "display_order": 3
+        },
+        {
+          "sentence": "Wọ́n gbàgbọ́ {{answer}} òjò yóò rọ̀.",
+          "answer": "pé",
+          "translation": "They believe that it will rain.",
+          "hint": "that",
+          "display_order": 4
+        },
+        {
+          "sentence": "Mo gbọ́ {{answer}} o ṣàìsàn.",
+          "answer": "pé",
+          "translation": "I heard that you were ill.",
+          "hint": "that",
+          "display_order": 5
+        },
+        {
+          "sentence": "Ó sọ fún mi {{answer}} kí n dúró.",
+          "answer": "pé",
+          "translation": "He told me that I should wait.",
+          "hint": "that",
+          "display_order": 6
         }
       ]
     },
@@ -772,6 +1388,34 @@
           "translation": "You are being called (lit. they are calling you).",
           "hint": "impersonal 'they'",
           "display_order": 2
+        },
+        {
+          "sentence": "{{answer}} ta ilé náà.",
+          "answer": "Wọ́n",
+          "translation": "The house has been sold.",
+          "hint": "impersonal 'they'",
+          "display_order": 3
+        },
+        {
+          "sentence": "{{answer}} yóò ṣí ilé ìwé tuntun.",
+          "answer": "Wọ́n",
+          "translation": "A new school will be opened.",
+          "hint": "impersonal 'they'",
+          "display_order": 4
+        },
+        {
+          "sentence": "{{answer}} mú ọlọ́ṣà náà lánàá.",
+          "answer": "Wọ́n",
+          "translation": "The thief was caught yesterday.",
+          "hint": "impersonal 'they'",
+          "display_order": 5
+        },
+        {
+          "sentence": "{{answer}} ń kọ́ ọ̀nà tuntun.",
+          "answer": "Wọ́n",
+          "translation": "A new road is being built.",
+          "hint": "impersonal 'they'",
+          "display_order": 6
         }
       ]
     },
@@ -804,6 +1448,34 @@
           "translation": "It rained; nevertheless, we went.",
           "hint": "'nevertheless'",
           "display_order": 2
+        },
+        {
+          "sentence": "Bí ó tilẹ̀ jẹ́ {{answer}} ó rẹ̀ mí, mo parí iṣẹ́.",
+          "answer": "pé",
+          "translation": "Although I was tired, I finished the work.",
+          "hint": "the closing word of the frame",
+          "display_order": 3
+        },
+        {
+          "sentence": "Bí ó {{answer}} jẹ́ pé kò sí owó, a rí oúnjẹ.",
+          "answer": "tilẹ̀",
+          "translation": "Although there was no money, we found food.",
+          "hint": "middle of the frame",
+          "display_order": 4
+        },
+        {
+          "sentence": "Ó ṣàìsàn; {{answer}}, ó lọ síbi iṣẹ́.",
+          "answer": "síbẹ̀",
+          "translation": "He was ill; nevertheless, he went to work.",
+          "hint": "nevertheless",
+          "display_order": 5
+        },
+        {
+          "sentence": "Bí ó tilẹ̀ {{answer}} pé ilé jìnnà, a rìn.",
+          "answer": "jẹ́",
+          "translation": "Although the house is far, we walked.",
+          "hint": "the copula inside the frame",
+          "display_order": 6
         }
       ]
     }

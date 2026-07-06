@@ -1,0 +1,779 @@
+{
+  "lists": [
+    {
+      "level": "A1",
+      "title": "German A1 Grammar Path",
+      "description": "A1 grammar in communicative order: pronouns, the three genders, both article families, sein and haben, the present tense, verb-second word order, negation with nicht and kein, es gibt, questions, and the first case (accusative)."
+    }
+  ],
+  "points": [
+    {
+      "title": "Subject pronouns (ich, du, er…)",
+      "level": "A1",
+      "function": "Say who you are talking about",
+      "source": "contributor",
+      "reviewed": true,
+      "display_order": 1,
+      "explanation": "The subject pronouns are ich (I), du (you, informal), er/sie/es (he/she/it), wir (we), ihr (you all, informal), sie (they) and Sie (you, formal — always capitalized). Formal Sie takes the same verb form as 'they'.",
+      "culture_note": "Germans switch from Sie to du more slowly than you might expect — wait for the offer ('Wir können uns duzen').",
+      "references": [
+        {
+          "title": "Wikipedia: German pronouns",
+          "url": "https://en.wikipedia.org/wiki/German_pronouns"
+        },
+        {
+          "title": "Wikipedia: German grammar",
+          "url": "https://en.wikipedia.org/wiki/German_grammar"
+        }
+      ],
+      "drills": [
+        {
+          "sentence": "{{answer}} wohne in Berlin.",
+          "answer": "Ich",
+          "translation": "I live in Berlin.",
+          "hint": "I",
+          "display_order": 1
+        },
+        {
+          "sentence": "{{answer}} bist mein Freund.",
+          "answer": "Du",
+          "translation": "You are my friend.",
+          "hint": "you — informal",
+          "display_order": 2
+        },
+        {
+          "sentence": "{{answer}} ist meine Schwester.",
+          "answer": "Sie",
+          "translation": "She is my sister.",
+          "hint": "she",
+          "display_order": 3
+        },
+        {
+          "sentence": "{{answer}} sind Studenten.",
+          "answer": "Wir",
+          "translation": "We are students.",
+          "hint": "we",
+          "display_order": 4
+        },
+        {
+          "sentence": "{{answer}} seid sehr nett.",
+          "answer": "Ihr",
+          "translation": "You (all) are very nice.",
+          "hint": "you — plural informal",
+          "display_order": 5
+        },
+        {
+          "sentence": "{{answer}} arbeitet bei einer Bank.",
+          "answer": "Er",
+          "translation": "He works at a bank.",
+          "hint": "he",
+          "display_order": 6
+        }
+      ]
+    },
+    {
+      "title": "Gender and number of nouns",
+      "level": "A1",
+      "function": "Name people and things, one or many",
+      "source": "contributor",
+      "reviewed": true,
+      "display_order": 2,
+      "explanation": "German nouns have THREE genders — masculine (der Mann), feminine (die Frau), neuter (das Kind) — and are always capitalized. Plurals form several ways (-e, -er, -en, -s, umlaut: Buch → Bücher, Haus → Häuser), so learn each noun with its gender AND its plural.",
+      "culture_note": "",
+      "references": [
+        {
+          "title": "Wikipedia: German nouns",
+          "url": "https://en.wikipedia.org/wiki/German_nouns"
+        },
+        {
+          "title": "Wikipedia: Grammatical gender",
+          "url": "https://en.wikipedia.org/wiki/Grammatical_gender"
+        }
+      ],
+      "drills": [
+        {
+          "sentence": "Ich habe zwei {{answer}}.",
+          "answer": "Bücher",
+          "translation": "I have two books.",
+          "hint": "book, plural (umlaut)",
+          "display_order": 1
+        },
+        {
+          "sentence": "Die {{answer}} sind schön.",
+          "answer": "Häuser",
+          "translation": "The houses are beautiful.",
+          "hint": "house, plural (umlaut)",
+          "display_order": 2
+        },
+        {
+          "sentence": "Ich habe drei {{answer}}.",
+          "answer": "Schwestern",
+          "translation": "I have three sisters.",
+          "hint": "sister, plural",
+          "display_order": 3
+        },
+        {
+          "sentence": "Die {{answer}} spielen im Garten.",
+          "answer": "Kinder",
+          "translation": "The children are playing in the garden.",
+          "hint": "child, plural",
+          "display_order": 4
+        },
+        {
+          "sentence": "Ich habe zwei {{answer}} zu Hause.",
+          "answer": "Katzen",
+          "translation": "I have two cats at home.",
+          "hint": "cat, plural",
+          "display_order": 5
+        },
+        {
+          "sentence": "Die {{answer}} sind neu.",
+          "answer": "Autos",
+          "translation": "The cars are new.",
+          "hint": "car, plural (-s)",
+          "display_order": 6
+        }
+      ]
+    },
+    {
+      "title": "Definite articles (der / die / das)",
+      "level": "A1",
+      "function": "Point to a specific thing",
+      "source": "contributor",
+      "reviewed": true,
+      "display_order": 3,
+      "explanation": "Der for masculine (der Mann), die for feminine (die Frau), das for neuter (das Haus) — and die again for every plural (die Kinder). The article is the gender's uniform: memorize noun and article as one word.",
+      "culture_note": "",
+      "references": [
+        {
+          "title": "Wikipedia: German articles",
+          "url": "https://en.wikipedia.org/wiki/German_articles"
+        },
+        {
+          "title": "Wikipedia: German grammar",
+          "url": "https://en.wikipedia.org/wiki/German_grammar"
+        }
+      ],
+      "drills": [
+        {
+          "sentence": "{{answer}} Haus ist groß.",
+          "answer": "Das",
+          "translation": "The house is big.",
+          "hint": "neuter",
+          "display_order": 1
+        },
+        {
+          "sentence": "{{answer}} Mann ist Lehrer.",
+          "answer": "Der",
+          "translation": "The man is a teacher.",
+          "hint": "masculine",
+          "display_order": 2
+        },
+        {
+          "sentence": "{{answer}} Frau ist Ärztin.",
+          "answer": "Die",
+          "translation": "The woman is a doctor.",
+          "hint": "feminine",
+          "display_order": 3
+        },
+        {
+          "sentence": "{{answer}} Kaffee ist heiß.",
+          "answer": "Der",
+          "translation": "The coffee is hot.",
+          "hint": "masculine",
+          "display_order": 4
+        },
+        {
+          "sentence": "{{answer}} Kinder spielen draußen.",
+          "answer": "Die",
+          "translation": "The children are playing outside.",
+          "hint": "plural",
+          "display_order": 5
+        },
+        {
+          "sentence": "{{answer}} Auto ist schnell.",
+          "answer": "Das",
+          "translation": "The car is fast.",
+          "hint": "neuter",
+          "display_order": 6
+        }
+      ]
+    },
+    {
+      "title": "Indefinite articles (ein / eine)",
+      "level": "A1",
+      "function": "Mention something for the first time",
+      "source": "contributor",
+      "reviewed": true,
+      "display_order": 4,
+      "explanation": "Ein for masculine and neuter (ein Mann, ein Haus), eine for feminine (eine Frau). There is no plural indefinite article — plural just drops it: Das sind Bücher. The endings change with case; that story starts with the accusative later in this path.",
+      "culture_note": "",
+      "references": [
+        {
+          "title": "Wikipedia: German articles",
+          "url": "https://en.wikipedia.org/wiki/German_articles"
+        },
+        {
+          "title": "Wiktionary: ein (German)",
+          "url": "https://en.wiktionary.org/wiki/ein#German"
+        }
+      ],
+      "drills": [
+        {
+          "sentence": "Das ist {{answer}} Haus.",
+          "answer": "ein",
+          "translation": "That is a house.",
+          "hint": "neuter",
+          "display_order": 1
+        },
+        {
+          "sentence": "Das ist {{answer}} gute Idee.",
+          "answer": "eine",
+          "translation": "That is a good idea.",
+          "hint": "feminine",
+          "display_order": 2
+        },
+        {
+          "sentence": "Er ist {{answer}} Freund von mir.",
+          "answer": "ein",
+          "translation": "He is a friend of mine.",
+          "hint": "masculine",
+          "display_order": 3
+        },
+        {
+          "sentence": "Das ist {{answer}} Katze.",
+          "answer": "eine",
+          "translation": "That is a cat.",
+          "hint": "feminine",
+          "display_order": 4
+        },
+        {
+          "sentence": "Hier ist {{answer}} Stuhl.",
+          "answer": "ein",
+          "translation": "Here is a chair.",
+          "hint": "masculine",
+          "display_order": 5
+        },
+        {
+          "sentence": "Das ist {{answer}} schönes Auto.",
+          "answer": "ein",
+          "translation": "That is a beautiful car.",
+          "hint": "neuter",
+          "display_order": 6
+        }
+      ]
+    },
+    {
+      "title": "Sein — present (ich bin, du bist…)",
+      "level": "A1",
+      "function": "Say who or what someone is",
+      "source": "contributor",
+      "reviewed": true,
+      "display_order": 5,
+      "explanation": "Sein (to be) is completely irregular: ich bin, du bist, er/sie/es ist, wir sind, ihr seid, sie/Sie sind. Professions and nationalities take no article: sie ist Lehrerin, ich bin Deutscher.",
+      "culture_note": "",
+      "references": [
+        {
+          "title": "Wiktionary: sein (German)",
+          "url": "https://en.wiktionary.org/wiki/sein#German"
+        },
+        {
+          "title": "Wikipedia: German conjugation",
+          "url": "https://en.wikipedia.org/wiki/German_conjugation"
+        }
+      ],
+      "drills": [
+        {
+          "sentence": "Ich {{answer}} Student.",
+          "answer": "bin",
+          "translation": "I am a student.",
+          "hint": "to be, I",
+          "display_order": 1
+        },
+        {
+          "sentence": "Du {{answer}} sehr groß.",
+          "answer": "bist",
+          "translation": "You are very tall.",
+          "hint": "to be, you (informal)",
+          "display_order": 2
+        },
+        {
+          "sentence": "Sie {{answer}} Lehrerin.",
+          "answer": "ist",
+          "translation": "She is a teacher.",
+          "hint": "to be, she",
+          "display_order": 3
+        },
+        {
+          "sentence": "Wir {{answer}} Freunde.",
+          "answer": "sind",
+          "translation": "We are friends.",
+          "hint": "to be, we",
+          "display_order": 4
+        },
+        {
+          "sentence": "Ihr {{answer}} müde.",
+          "answer": "seid",
+          "translation": "You (all) are tired.",
+          "hint": "to be, you (plural)",
+          "display_order": 5
+        },
+        {
+          "sentence": "Die Kinder {{answer}} im Garten.",
+          "answer": "sind",
+          "translation": "The children are in the garden.",
+          "hint": "to be, they",
+          "display_order": 6
+        }
+      ]
+    },
+    {
+      "title": "Haben — present (ich habe Hunger)",
+      "level": "A1",
+      "function": "Say what you have — and how you feel",
+      "source": "contributor",
+      "reviewed": true,
+      "display_order": 6,
+      "explanation": "Haben (to have): ich habe, du hast, er/sie hat, wir haben, ihr habt, sie/Sie haben. Like French, German HAS its states: Hunger haben (be hungry), Durst haben (be thirsty), Recht haben (be right), Glück haben (be lucky).",
+      "culture_note": "",
+      "references": [
+        {
+          "title": "Wiktionary: haben (German)",
+          "url": "https://en.wiktionary.org/wiki/haben#German"
+        },
+        {
+          "title": "Wikipedia: German conjugation",
+          "url": "https://en.wikipedia.org/wiki/German_conjugation"
+        }
+      ],
+      "drills": [
+        {
+          "sentence": "Ich {{answer}} Hunger.",
+          "answer": "habe",
+          "translation": "I am hungry.",
+          "hint": "to have, I",
+          "display_order": 1
+        },
+        {
+          "sentence": "Du {{answer}} Recht.",
+          "answer": "hast",
+          "translation": "You are right.",
+          "hint": "to have, you (informal)",
+          "display_order": 2
+        },
+        {
+          "sentence": "Sie {{answer}} eine Katze.",
+          "answer": "hat",
+          "translation": "She has a cat.",
+          "hint": "to have, she",
+          "display_order": 3
+        },
+        {
+          "sentence": "Wir {{answer}} Zeit.",
+          "answer": "haben",
+          "translation": "We have time.",
+          "hint": "to have, we",
+          "display_order": 4
+        },
+        {
+          "sentence": "Ihr {{answer}} Glück.",
+          "answer": "habt",
+          "translation": "You (all) are lucky.",
+          "hint": "to have, you (plural)",
+          "display_order": 5
+        },
+        {
+          "sentence": "{{answer}} Sie Fragen?",
+          "answer": "Haben",
+          "translation": "Do you have questions?",
+          "hint": "to have, you (formal) — question order",
+          "display_order": 6
+        }
+      ]
+    },
+    {
+      "title": "Present tense of regular verbs",
+      "level": "A1",
+      "function": "Talk about what people do",
+      "source": "contributor",
+      "reviewed": true,
+      "display_order": 7,
+      "explanation": "Drop -en from the infinitive, add: -e, -st, -t, -en, -t, -en (lernen → ich lerne, du lernst, er lernt, wir lernen, ihr lernt, sie lernen). German present covers English 'do' and 'am doing' both: ich lerne = I learn AND I am learning.",
+      "culture_note": "",
+      "references": [
+        {
+          "title": "Wikipedia: German conjugation",
+          "url": "https://en.wikipedia.org/wiki/German_conjugation"
+        },
+        {
+          "title": "Wiktionary: lernen (German)",
+          "url": "https://en.wiktionary.org/wiki/lernen#German"
+        }
+      ],
+      "drills": [
+        {
+          "sentence": "Ich {{answer}} Deutsch.",
+          "answer": "lerne",
+          "translation": "I am learning German.",
+          "hint": "to learn, I",
+          "display_order": 1
+        },
+        {
+          "sentence": "Du {{answer}} gut.",
+          "answer": "singst",
+          "translation": "You sing well.",
+          "hint": "to sing, you (informal)",
+          "display_order": 2
+        },
+        {
+          "sentence": "Er {{answer}} in Hamburg.",
+          "answer": "wohnt",
+          "translation": "He lives in Hamburg.",
+          "hint": "to live, he",
+          "display_order": 3
+        },
+        {
+          "sentence": "Wir {{answer}} Musik.",
+          "answer": "hören",
+          "translation": "We are listening to music.",
+          "hint": "to listen, we",
+          "display_order": 4
+        },
+        {
+          "sentence": "Ihr {{answer}} Fußball.",
+          "answer": "spielt",
+          "translation": "You (all) play football.",
+          "hint": "to play, you (plural)",
+          "display_order": 5
+        },
+        {
+          "sentence": "Sie {{answer}} jeden Tag.",
+          "answer": "arbeiten",
+          "translation": "They work every day.",
+          "hint": "to work, they",
+          "display_order": 6
+        }
+      ]
+    },
+    {
+      "title": "Verb second (V2) word order",
+      "level": "A1",
+      "function": "Build German sentences in the German order",
+      "source": "contributor",
+      "reviewed": true,
+      "display_order": 8,
+      "explanation": "The conjugated verb is ALWAYS the second element of a statement. Start with anything else — time, place — and the subject slides behind the verb: Ich lerne heute Deutsch → Heute lerne ich Deutsch. The verb stays put; everything else dances around it.",
+      "culture_note": "V2 is the single most German thing about German — internalize it at A1 and everything later gets easier.",
+      "references": [
+        {
+          "title": "Wikipedia: V2 word order",
+          "url": "https://en.wikipedia.org/wiki/V2_word_order"
+        },
+        {
+          "title": "Wikipedia: German sentence structure",
+          "url": "https://en.wikipedia.org/wiki/German_sentence_structure"
+        }
+      ],
+      "drills": [
+        {
+          "sentence": "Heute {{answer}} ich Deutsch.",
+          "answer": "lerne",
+          "translation": "Today I am learning German.",
+          "hint": "to learn, I — verb stays second",
+          "display_order": 1
+        },
+        {
+          "sentence": "Morgen {{answer}} wir nach Berlin.",
+          "answer": "fahren",
+          "translation": "Tomorrow we are travelling to Berlin.",
+          "hint": "to travel, we — verb stays second",
+          "display_order": 2
+        },
+        {
+          "sentence": "Am Montag {{answer}} er Fußball.",
+          "answer": "spielt",
+          "translation": "On Monday he plays football.",
+          "hint": "to play, he — verb stays second",
+          "display_order": 3
+        },
+        {
+          "sentence": "Jetzt {{answer}} sie Kaffee.",
+          "answer": "trinkt",
+          "translation": "Now she is drinking coffee.",
+          "hint": "to drink, she — verb stays second",
+          "display_order": 4
+        },
+        {
+          "sentence": "Abends {{answer}} ich Musik.",
+          "answer": "höre",
+          "translation": "In the evenings I listen to music.",
+          "hint": "to listen, I — verb stays second",
+          "display_order": 5
+        },
+        {
+          "sentence": "Hier {{answer}} meine Schwester.",
+          "answer": "wohnt",
+          "translation": "My sister lives here.",
+          "hint": "to live, she — verb stays second",
+          "display_order": 6
+        }
+      ]
+    },
+    {
+      "title": "Negation with nicht and kein",
+      "level": "A1",
+      "function": "Say what is not so",
+      "source": "contributor",
+      "reviewed": true,
+      "display_order": 9,
+      "explanation": "Two negators with a clean split: kein negates nouns with ein or no article (ich habe kein Auto, keine Zeit); nicht negates everything else — verbs, adjectives, definite nouns (das ist nicht richtig, ich wohne nicht hier). Kein agrees like ein: kein/keine.",
+      "culture_note": "",
+      "references": [
+        {
+          "title": "Wikipedia: German grammar — negation",
+          "url": "https://en.wikipedia.org/wiki/German_grammar"
+        },
+        {
+          "title": "Wiktionary: kein (German)",
+          "url": "https://en.wiktionary.org/wiki/kein#German"
+        }
+      ],
+      "drills": [
+        {
+          "sentence": "Ich habe {{answer}} Auto.",
+          "answer": "kein",
+          "translation": "I don't have a car.",
+          "hint": "noun negator, neuter",
+          "display_order": 1
+        },
+        {
+          "sentence": "Sie hat {{answer}} Zeit.",
+          "answer": "keine",
+          "translation": "She has no time.",
+          "hint": "noun negator, feminine",
+          "display_order": 2
+        },
+        {
+          "sentence": "Das ist {{answer}} richtig.",
+          "answer": "nicht",
+          "translation": "That is not right.",
+          "hint": "negates an adjective",
+          "display_order": 3
+        },
+        {
+          "sentence": "Wir wohnen {{answer}} in Berlin.",
+          "answer": "nicht",
+          "translation": "We don't live in Berlin.",
+          "hint": "negates the verb phrase",
+          "display_order": 4
+        },
+        {
+          "sentence": "Ich habe {{answer}} Geld.",
+          "answer": "kein",
+          "translation": "I have no money.",
+          "hint": "noun negator, neuter",
+          "display_order": 5
+        },
+        {
+          "sentence": "Er ist {{answer}} müde.",
+          "answer": "nicht",
+          "translation": "He is not tired.",
+          "hint": "negates an adjective",
+          "display_order": 6
+        }
+      ]
+    },
+    {
+      "title": "Es gibt — there is / there are",
+      "level": "A1",
+      "function": "Say what exists or is available",
+      "source": "contributor",
+      "reviewed": true,
+      "display_order": 10,
+      "explanation": "Es gibt covers 'there is' AND 'there are' — always singular gibt: es gibt einen Park, es gibt viele Cafés. What exists goes in the accusative (einen Park). Negative: es gibt kein/keine…",
+      "culture_note": "",
+      "references": [
+        {
+          "title": "Wiktionary: es gibt (German)",
+          "url": "https://en.wiktionary.org/wiki/es_gibt#German"
+        },
+        {
+          "title": "Wikipedia: German grammar",
+          "url": "https://en.wikipedia.org/wiki/German_grammar"
+        }
+      ],
+      "drills": [
+        {
+          "sentence": "Es {{answer}} einen Park in der Nähe.",
+          "answer": "gibt",
+          "translation": "There is a park nearby.",
+          "hint": "the verb of the fixed phrase",
+          "display_order": 1
+        },
+        {
+          "sentence": "{{answer}} gibt viele Cafés hier.",
+          "answer": "Es",
+          "translation": "There are many cafés here.",
+          "hint": "the dummy subject",
+          "display_order": 2
+        },
+        {
+          "sentence": "Gibt {{answer}} hier ein Hotel?",
+          "answer": "es",
+          "translation": "Is there a hotel here?",
+          "hint": "the dummy subject, question order",
+          "display_order": 3
+        },
+        {
+          "sentence": "Es gibt {{answer}} Brot.",
+          "answer": "kein",
+          "translation": "There is no bread.",
+          "hint": "noun negator, neuter",
+          "display_order": 4
+        },
+        {
+          "sentence": "Was {{answer}} es zum Essen?",
+          "answer": "gibt",
+          "translation": "What is there to eat?",
+          "hint": "the verb of the fixed phrase",
+          "display_order": 5
+        },
+        {
+          "sentence": "Es gibt {{answer}} Probleme.",
+          "answer": "keine",
+          "translation": "There are no problems.",
+          "hint": "noun negator, plural",
+          "display_order": 6
+        }
+      ]
+    },
+    {
+      "title": "Question words (wo, wie, was…)",
+      "level": "A1",
+      "function": "Ask about places, people, time, and reasons",
+      "source": "contributor",
+      "reviewed": true,
+      "display_order": 11,
+      "explanation": "Wo (where), wie (how), was (what), wann (when), warum (why), wer (who), woher (where from), wohin (where to). The question word takes first position and the verb follows — V2 again: Wo wohnst du?",
+      "culture_note": "",
+      "references": [
+        {
+          "title": "Wikipedia: German grammar — interrogatives",
+          "url": "https://en.wikipedia.org/wiki/German_grammar"
+        },
+        {
+          "title": "Wiktionary: wer (German)",
+          "url": "https://en.wiktionary.org/wiki/wer#German"
+        }
+      ],
+      "drills": [
+        {
+          "sentence": "{{answer}} wohnst du?",
+          "answer": "Wo",
+          "translation": "Where do you live?",
+          "hint": "where",
+          "display_order": 1
+        },
+        {
+          "sentence": "{{answer}} heißt du?",
+          "answer": "Wie",
+          "translation": "What is your name?",
+          "hint": "how — names ask 'how' in German",
+          "display_order": 2
+        },
+        {
+          "sentence": "{{answer}} ist das?",
+          "answer": "Was",
+          "translation": "What is that?",
+          "hint": "what",
+          "display_order": 3
+        },
+        {
+          "sentence": "{{answer}} kommst du?",
+          "answer": "Woher",
+          "translation": "Where do you come from?",
+          "hint": "where from",
+          "display_order": 4
+        },
+        {
+          "sentence": "{{answer}} beginnt der Kurs?",
+          "answer": "Wann",
+          "translation": "When does the course begin?",
+          "hint": "when",
+          "display_order": 5
+        },
+        {
+          "sentence": "{{answer}} ist dein Lehrer?",
+          "answer": "Wer",
+          "translation": "Who is your teacher?",
+          "hint": "who",
+          "display_order": 6
+        }
+      ]
+    },
+    {
+      "title": "Accusative case (den / einen)",
+      "level": "A1",
+      "function": "Mark the direct object",
+      "source": "contributor",
+      "reviewed": true,
+      "display_order": 12,
+      "explanation": "The direct object takes the accusative — and only MASCULINE articles change: der → den, ein → einen (ich sehe den Mann, ich habe einen Hund). Feminine, neuter, and plural look identical to the nominative: ich lese das Buch, ich sehe die Frau.",
+      "culture_note": "One changing gender is a gentle introduction — dative and genitive wait politely at A2.",
+      "references": [
+        {
+          "title": "Wikipedia: German declension — accusative",
+          "url": "https://en.wikipedia.org/wiki/German_declension"
+        },
+        {
+          "title": "Wikipedia: Accusative case",
+          "url": "https://en.wikipedia.org/wiki/Accusative_case"
+        }
+      ],
+      "drills": [
+        {
+          "sentence": "Ich sehe {{answer}} Mann.",
+          "answer": "den",
+          "translation": "I see the man.",
+          "hint": "definite article — masculine object",
+          "display_order": 1
+        },
+        {
+          "sentence": "Sie liest {{answer}} Buch.",
+          "answer": "das",
+          "translation": "She is reading the book.",
+          "hint": "neuter — unchanged as object",
+          "display_order": 2
+        },
+        {
+          "sentence": "Wir kaufen {{answer}} Tisch.",
+          "answer": "einen",
+          "translation": "We are buying a table.",
+          "hint": "indefinite article — masculine object",
+          "display_order": 3
+        },
+        {
+          "sentence": "Er trinkt {{answer}} Kaffee.",
+          "answer": "einen",
+          "translation": "He is drinking a coffee.",
+          "hint": "indefinite article — masculine object",
+          "display_order": 4
+        },
+        {
+          "sentence": "Ich frage {{answer}} Lehrer.",
+          "answer": "den",
+          "translation": "I ask the teacher.",
+          "hint": "definite article — masculine object",
+          "display_order": 5
+        },
+        {
+          "sentence": "Sie hat {{answer}} Hund.",
+          "answer": "einen",
+          "translation": "She has a dog.",
+          "hint": "indefinite article — masculine object",
+          "display_order": 6
+        }
+      ]
+    }
+  ]
+}

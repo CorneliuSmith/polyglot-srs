@@ -1,13 +1,53 @@
+import { useState } from 'react'
 import { Navigate, useNavigate } from 'react-router-dom'
 import { useQuery } from '@tanstack/react-query'
 import { getDashboardStats } from '../../api/dashboard'
+import { getLearnDecks } from '../../api/review'
 import { getMyRoles } from '../../api/contribute'
 import { getOnboardingStatus } from '../../api/onboarding'
 import { usePrefsStore } from '../../stores/prefsStore'
 import LanguagePicker from '../../components/LanguagePicker'
-import DueCount from './DueCount'
-import StreakBadge from './StreakBadge'
 import CEFRProgress from './CEFRProgress'
+import ForecastStrip from './ForecastStrip'
+import ActivityChart from './ActivityChart'
+import StageTiles from './StageTiles'
+import ProfileCard from './ProfileCard'
+import type { LearnDeck } from '../../api/types'
+
+/** One Bunpro-style deck row: level + type, progress bar, learned/total. */
+function DeckRow({ deck, onLearn }: { deck: LearnDeck; onLearn: (d: LearnDeck) => void }) {
+  const pct = deck.total > 0 ? Math.round((deck.learned / deck.total) * 100) : 0
+  const label = `${deck.level ?? 'All'} · ${deck.list_type === 'grammar' ? 'Grammar' : 'Vocab'}`
+  const done = deck.total > 0 && deck.learned >= deck.total
+  return (
+    <button
+      type="button"
+      onClick={() => onLearn(deck)}
+      disabled={done}
+      className="w-full text-left px-4 py-3 hover:bg-gray-50 disabled:opacity-60 border-t border-gray-100 first:border-t-0"
+    >
+      <div className="flex items-center justify-between gap-3">
+        <span className="text-sm font-medium text-gray-800">{label}</span>
+        <span className="flex items-center gap-2">
+          {deck.subscribed && !done && (
+            <span className="text-[10px] uppercase tracking-wide bg-indigo-50 text-indigo-500 rounded px-1.5 py-0.5">
+              In queue
+            </span>
+          )}
+          <span className="text-xs tabular-nums text-gray-500">
+            {deck.learned} / {deck.total}
+          </span>
+        </span>
+      </div>
+      <div className="mt-2 w-full bg-gray-100 rounded-full h-1.5">
+        <div
+          className={`h-1.5 rounded-full ${done ? 'bg-green-400' : 'bg-indigo-500'}`}
+          style={{ width: `${pct}%` }}
+        />
+      </div>
+    </button>
+  )
+}
 
 function SkeletonCard() {
   return (
@@ -21,6 +61,7 @@ function SkeletonCard() {
 export default function DashboardPage() {
   const navigate = useNavigate()
   const activeLanguageId = usePrefsStore((s) => s.activeLanguageId)
+  const [learnOpen, setLearnOpen] = useState(false)
 
   // First-run users are routed into onboarding before they can study.
   const { data: onboarding, isLoading: onboardingLoading } = useQuery({
@@ -34,6 +75,18 @@ export default function DashboardPage() {
     enabled: !!activeLanguageId,
   })
 
+  // Bunpro-style learn decks: per-level sections with progress.
+  const { data: decks = [] } = useQuery({
+    queryKey: ['learn-decks', activeLanguageId],
+    queryFn: () => getLearnDecks(activeLanguageId!),
+    enabled: !!activeLanguageId,
+  })
+  const visibleDecks = decks.filter((d) => d.total > 0)
+  const newAvailable = visibleDecks.reduce(
+    (sum, d) => sum + Math.max(d.total - d.learned, 0),
+    0,
+  )
+
   // Surfaces the Contribute link only to users who hold a contributor role.
   const { data: roleInfo } = useQuery({
     queryKey: ['my-roles'],
@@ -43,13 +96,12 @@ export default function DashboardPage() {
   const canContribute = (roleInfo?.roles?.length ?? 0) > 0
 
   // Learning routes through /learn, which TEACHES the new items (lesson
-  // pages) before they are ever quizzed.
-  const handleLearn = () => {
-    if (activeLanguageId) navigate('/learn?type=vocabulary')
-  }
-
-  const handleLearnGrammar = () => {
-    if (activeLanguageId) navigate('/learn?type=grammar')
+  // pages) before they are ever quizzed. Deck rows scope the batch to one
+  // level; the plain buttons draw from everything queued.
+  const handleLearnDeck = (deck: LearnDeck) => {
+    if (!activeLanguageId) return
+    const levelParam = deck.level ? `&level=${encodeURIComponent(deck.level)}` : ''
+    navigate(`/learn?type=${deck.list_type}${levelParam}`)
   }
 
   const handleReview = () => {
@@ -84,16 +136,68 @@ export default function DashboardPage() {
           <LanguagePicker />
         </div>
 
-        {/* Stats grid */}
+        {/* Command center: Learn (deck sections) + Review, Bunpro-style */}
         {isLoading || !stats ? (
           <div className="grid grid-cols-2 gap-4">
             <SkeletonCard />
             <SkeletonCard />
           </div>
         ) : (
-          <div className="grid grid-cols-2 gap-4">
-            <DueCount count={stats.due_count} />
-            <StreakBadge days={stats.streak_days} />
+          <div className="space-y-3">
+            <div className="grid grid-cols-2 gap-4">
+              <button
+                type="button"
+                onClick={() => setLearnOpen((v) => !v)}
+                disabled={!activeLanguageId}
+                className="rounded-2xl bg-slate-900 hover:bg-slate-800 disabled:opacity-50 text-white p-5 text-left transition-colors"
+                style={{ minHeight: '44px' }}
+              >
+                <span className="block text-sm font-semibold uppercase tracking-wide text-slate-300">
+                  Learn
+                </span>
+                <span className="block text-3xl font-bold mt-1">
+                  {newAvailable}
+                </span>
+                <span className="block text-xs text-slate-400 mt-1">
+                  new items available {learnOpen ? '▴' : '▾'}
+                </span>
+              </button>
+              <button
+                type="button"
+                onClick={handleReview}
+                disabled={stats.due_count === 0}
+                className="rounded-2xl bg-indigo-600 hover:bg-indigo-700 disabled:opacity-50 text-white p-5 text-left transition-colors"
+                style={{ minHeight: '44px' }}
+              >
+                <span className="block text-sm font-semibold uppercase tracking-wide text-indigo-200">
+                  Review
+                </span>
+                <span className="block text-3xl font-bold mt-1">{stats.due_count}</span>
+                <span className="block text-xs text-indigo-200 mt-1">cards due now</span>
+              </button>
+            </div>
+
+            {/* Deck sections (like Bunpro's Learn Queue Decks) */}
+            {learnOpen && (
+              <div className="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
+                {visibleDecks.length === 0 ? (
+                  <p className="px-4 py-3 text-sm text-gray-500">
+                    No decks for this language yet.
+                  </p>
+                ) : (
+                  visibleDecks.map((deck) => (
+                    <DeckRow key={deck.id} deck={deck} onLearn={handleLearnDeck} />
+                  ))
+                )}
+              </div>
+            )}
+
+            {stats.forecast && <ForecastStrip forecast={stats.forecast} />}
+            {stats.activity && <ActivityChart activity={stats.activity} />}
+            {stats.stages && <StageTiles stages={stats.stages} />}
+            {stats.profile && (
+              <ProfileCard profile={stats.profile} streakDays={stats.streak_days} />
+            )}
           </div>
         )}
 
@@ -112,38 +216,6 @@ export default function DashboardPage() {
         ) : (
           <CEFRProgress progress={stats.cefr_progress} />
         )}
-
-        {/* Action buttons */}
-        <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
-          <button
-            type="button"
-            onClick={handleLearn}
-            disabled={isLoading || !activeLanguageId}
-            className="w-full bg-indigo-600 hover:bg-indigo-700 disabled:opacity-50 text-white font-semibold rounded-xl px-6 py-3 text-sm transition-colors"
-            style={{ minHeight: '44px' }}
-          >
-            Learn Vocabulary
-          </button>
-          <button
-            type="button"
-            onClick={handleLearnGrammar}
-            disabled={isLoading || !activeLanguageId}
-            className="w-full bg-indigo-600 hover:bg-indigo-700 disabled:opacity-50 text-white font-semibold rounded-xl px-6 py-3 text-sm transition-colors"
-            style={{ minHeight: '44px' }}
-          >
-            Learn Grammar
-          </button>
-          <button
-            type="button"
-            onClick={handleReview}
-            disabled={isLoading || !stats || stats.due_count === 0}
-            className="w-full bg-white hover:bg-gray-50 disabled:opacity-50 text-indigo-600 font-semibold rounded-xl px-6 py-3 text-sm border border-indigo-200 transition-colors sm:col-span-2"
-            style={{ minHeight: '44px' }}
-          >
-            Review Due Cards
-            {stats ? ` (${stats.due_count})` : ''}
-          </button>
-        </div>
 
         {/* Grammar path */}
         <button

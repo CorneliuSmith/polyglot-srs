@@ -1,0 +1,779 @@
+{
+  "lists": [
+    {
+      "level": "A1",
+      "title": "Italian A1 Grammar Path",
+      "description": "A1 grammar in communicative order: pronouns (and when to drop them), noun gender and number, both article families, essere and avere, the three conjugations, negation, c'è / ci sono, questions, and adjective agreement."
+    }
+  ],
+  "points": [
+    {
+      "title": "Subject pronouns (io, tu, lui…)",
+      "level": "A1",
+      "function": "Say who you are talking about — when it needs saying",
+      "source": "contributor",
+      "reviewed": true,
+      "display_order": 1,
+      "explanation": "Io (I), tu (you, informal), lui/lei (he/she), Lei (you, formal), noi (we), voi (you all), loro (they). The verb ending already says who — so Italian normally DROPS the pronoun (parlo italiano = I speak Italian) and uses it only for emphasis or contrast.",
+      "culture_note": "Formal 'you' is Lei — grammatically 'she', even for a man. Waiters, officials, strangers: Lei.",
+      "references": [
+        {
+          "title": "Wikipedia: Italian grammar — pronouns",
+          "url": "https://en.wikipedia.org/wiki/Italian_grammar"
+        },
+        {
+          "title": "Wikipedia: Pro-drop language",
+          "url": "https://en.wikipedia.org/wiki/Pro-drop_language"
+        }
+      ],
+      "drills": [
+        {
+          "sentence": "{{answer}} sono di Roma.",
+          "answer": "Io",
+          "translation": "I am from Rome.",
+          "hint": "I",
+          "display_order": 1
+        },
+        {
+          "sentence": "{{answer}} sei il mio migliore amico.",
+          "answer": "Tu",
+          "translation": "You are my best friend.",
+          "hint": "you — informal",
+          "display_order": 2
+        },
+        {
+          "sentence": "{{answer}} è mia sorella.",
+          "answer": "Lei",
+          "translation": "She is my sister.",
+          "hint": "she",
+          "display_order": 3
+        },
+        {
+          "sentence": "{{answer}} siamo studenti.",
+          "answer": "Noi",
+          "translation": "We are students.",
+          "hint": "we",
+          "display_order": 4
+        },
+        {
+          "sentence": "{{answer}} sono i miei genitori.",
+          "answer": "Loro",
+          "translation": "They are my parents.",
+          "hint": "they",
+          "display_order": 5
+        },
+        {
+          "sentence": "{{answer}} è il mio professore.",
+          "answer": "Lui",
+          "translation": "He is my teacher.",
+          "hint": "he",
+          "display_order": 6
+        }
+      ]
+    },
+    {
+      "title": "Gender and number of nouns",
+      "level": "A1",
+      "function": "Name people and things, one or many",
+      "source": "contributor",
+      "reviewed": true,
+      "display_order": 2,
+      "explanation": "Most nouns wear their gender openly: -o masculine (libro), -a feminine (casa). Plurals swap the vowel: -o → -i (libri), -a → -e (case). Nouns in -e can be either gender (il fiore, la notte) and pluralize to -i.",
+      "culture_note": "",
+      "references": [
+        {
+          "title": "Wikipedia: Italian grammar — nouns",
+          "url": "https://en.wikipedia.org/wiki/Italian_grammar"
+        },
+        {
+          "title": "Wikipedia: Grammatical gender",
+          "url": "https://en.wikipedia.org/wiki/Grammatical_gender"
+        }
+      ],
+      "drills": [
+        {
+          "sentence": "Ho due {{answer}}.",
+          "answer": "libri",
+          "translation": "I have two books.",
+          "hint": "book, plural",
+          "display_order": 1
+        },
+        {
+          "sentence": "Le {{answer}} sono belle.",
+          "answer": "case",
+          "translation": "The houses are beautiful.",
+          "hint": "house, plural",
+          "display_order": 2
+        },
+        {
+          "sentence": "Ho tre {{answer}}.",
+          "answer": "sorelle",
+          "translation": "I have three sisters.",
+          "hint": "sister, plural",
+          "display_order": 3
+        },
+        {
+          "sentence": "I {{answer}} sono grandi.",
+          "answer": "giardini",
+          "translation": "The gardens are big.",
+          "hint": "garden, plural",
+          "display_order": 4
+        },
+        {
+          "sentence": "Ho due {{answer}} a casa.",
+          "answer": "gatti",
+          "translation": "I have two cats at home.",
+          "hint": "cat, plural",
+          "display_order": 5
+        },
+        {
+          "sentence": "Le {{answer}} sono nuove.",
+          "answer": "macchine",
+          "translation": "The cars are new.",
+          "hint": "car, plural",
+          "display_order": 6
+        }
+      ]
+    },
+    {
+      "title": "Definite articles (il / la / i / le)",
+      "level": "A1",
+      "function": "Point to a specific thing",
+      "source": "contributor",
+      "reviewed": true,
+      "display_order": 3,
+      "explanation": "Il for masculine (il libro), la for feminine (la casa); plurals i and le. Before s+consonant or z, masculine takes lo (lo zaino, plural gli). Before vowels, l' (l'amico). Italian loves its articles — even before possessives: la mia casa.",
+      "culture_note": "",
+      "references": [
+        {
+          "title": "Wikipedia: Italian grammar — articles",
+          "url": "https://en.wikipedia.org/wiki/Italian_grammar"
+        },
+        {
+          "title": "Wiktionary: il (Italian)",
+          "url": "https://en.wiktionary.org/wiki/il#Italian"
+        }
+      ],
+      "drills": [
+        {
+          "sentence": "{{answer}} casa è grande.",
+          "answer": "La",
+          "translation": "The house is big.",
+          "hint": "feminine singular",
+          "display_order": 1
+        },
+        {
+          "sentence": "{{answer}} libro è nuovo.",
+          "answer": "Il",
+          "translation": "The book is new.",
+          "hint": "masculine singular",
+          "display_order": 2
+        },
+        {
+          "sentence": "{{answer}} bambini giocano fuori.",
+          "answer": "I",
+          "translation": "The children are playing outside.",
+          "hint": "masculine plural",
+          "display_order": 3
+        },
+        {
+          "sentence": "{{answer}} caffè è caldo.",
+          "answer": "Il",
+          "translation": "The coffee is hot.",
+          "hint": "masculine singular",
+          "display_order": 4
+        },
+        {
+          "sentence": "{{answer}} ragazze sono simpatiche.",
+          "answer": "Le",
+          "translation": "The girls are nice.",
+          "hint": "feminine plural",
+          "display_order": 5
+        },
+        {
+          "sentence": "{{answer}} zaino è pesante.",
+          "answer": "Lo",
+          "translation": "The backpack is heavy.",
+          "hint": "masculine before z-",
+          "display_order": 6
+        }
+      ]
+    },
+    {
+      "title": "Indefinite articles (un / una / uno)",
+      "level": "A1",
+      "function": "Mention something for the first time",
+      "source": "contributor",
+      "reviewed": true,
+      "display_order": 4,
+      "explanation": "Un for masculine (un cane), una for feminine (una casa), uno before s+consonant or z (uno zaino), un' before feminine vowels (un'idea). No plural form — 'some' is expressed other ways later.",
+      "culture_note": "",
+      "references": [
+        {
+          "title": "Wikipedia: Italian grammar — articles",
+          "url": "https://en.wikipedia.org/wiki/Italian_grammar"
+        },
+        {
+          "title": "Wiktionary: uno (Italian)",
+          "url": "https://en.wiktionary.org/wiki/uno#Italian"
+        }
+      ],
+      "drills": [
+        {
+          "sentence": "Ho {{answer}} cane.",
+          "answer": "un",
+          "translation": "I have a dog.",
+          "hint": "masculine",
+          "display_order": 1
+        },
+        {
+          "sentence": "È {{answer}} casa grande.",
+          "answer": "una",
+          "translation": "It is a big house.",
+          "hint": "feminine",
+          "display_order": 2
+        },
+        {
+          "sentence": "È {{answer}} bella giornata.",
+          "answer": "una",
+          "translation": "It is a beautiful day.",
+          "hint": "feminine",
+          "display_order": 3
+        },
+        {
+          "sentence": "Lui è {{answer}} amico.",
+          "answer": "un",
+          "translation": "He is a friend.",
+          "hint": "masculine — no apostrophe for masculine",
+          "display_order": 4
+        },
+        {
+          "sentence": "Ho {{answer}} zaino nuovo.",
+          "answer": "uno",
+          "translation": "I have a new backpack.",
+          "hint": "masculine before z-",
+          "display_order": 5
+        },
+        {
+          "sentence": "È {{answer}} buon libro.",
+          "answer": "un",
+          "translation": "It is a good book.",
+          "hint": "masculine",
+          "display_order": 6
+        }
+      ]
+    },
+    {
+      "title": "Essere — present (sono, sei, è…)",
+      "level": "A1",
+      "function": "Say who or what someone is",
+      "source": "contributor",
+      "reviewed": true,
+      "display_order": 5,
+      "explanation": "Essere (to be): sono, sei, è, siamo, siete, sono. Note sono doubles for 'I am' and 'they are' — context (or a pronoun) tells them apart. Professions drop the article: sono studente.",
+      "culture_note": "",
+      "references": [
+        {
+          "title": "Wiktionary: essere (Italian)",
+          "url": "https://en.wiktionary.org/wiki/essere#Italian"
+        },
+        {
+          "title": "Wikipedia: Italian conjugation",
+          "url": "https://en.wikipedia.org/wiki/Italian_conjugation"
+        }
+      ],
+      "drills": [
+        {
+          "sentence": "Io {{answer}} studente.",
+          "answer": "sono",
+          "translation": "I am a student.",
+          "hint": "to be, I",
+          "display_order": 1
+        },
+        {
+          "sentence": "Tu {{answer}} molto alto.",
+          "answer": "sei",
+          "translation": "You are very tall.",
+          "hint": "to be, you (informal)",
+          "display_order": 2
+        },
+        {
+          "sentence": "Lei {{answer}} professoressa.",
+          "answer": "è",
+          "translation": "She is a teacher.",
+          "hint": "to be, she",
+          "display_order": 3
+        },
+        {
+          "sentence": "Noi {{answer}} amici.",
+          "answer": "siamo",
+          "translation": "We are friends.",
+          "hint": "to be, we",
+          "display_order": 4
+        },
+        {
+          "sentence": "Voi {{answer}} italiani?",
+          "answer": "siete",
+          "translation": "Are you (all) Italian?",
+          "hint": "to be, you (plural)",
+          "display_order": 5
+        },
+        {
+          "sentence": "Loro {{answer}} a casa.",
+          "answer": "sono",
+          "translation": "They are at home.",
+          "hint": "to be, they",
+          "display_order": 6
+        }
+      ]
+    },
+    {
+      "title": "Avere — present (ho fame)",
+      "level": "A1",
+      "function": "Say what you have — and how you feel",
+      "source": "contributor",
+      "reviewed": true,
+      "display_order": 6,
+      "explanation": "Avere (to have): ho, hai, ha, abbiamo, avete, hanno — the h is silent, written only to distinguish from other words. Italian HAS its states: ho fame (I'm hungry), ho sete (thirsty), ho vent'anni (I'm twenty), hai ragione (you're right).",
+      "culture_note": "",
+      "references": [
+        {
+          "title": "Wiktionary: avere (Italian)",
+          "url": "https://en.wiktionary.org/wiki/avere#Italian"
+        },
+        {
+          "title": "Wikipedia: Italian conjugation",
+          "url": "https://en.wikipedia.org/wiki/Italian_conjugation"
+        }
+      ],
+      "drills": [
+        {
+          "sentence": "Io {{answer}} vent'anni.",
+          "answer": "ho",
+          "translation": "I am twenty years old.",
+          "hint": "to have, I",
+          "display_order": 1
+        },
+        {
+          "sentence": "Tu {{answer}} fame?",
+          "answer": "hai",
+          "translation": "Are you hungry?",
+          "hint": "to have, you (informal)",
+          "display_order": 2
+        },
+        {
+          "sentence": "Lei {{answer}} un gatto.",
+          "answer": "ha",
+          "translation": "She has a cat.",
+          "hint": "to have, she",
+          "display_order": 3
+        },
+        {
+          "sentence": "Noi {{answer}} una domanda.",
+          "answer": "abbiamo",
+          "translation": "We have a question.",
+          "hint": "to have, we",
+          "display_order": 4
+        },
+        {
+          "sentence": "Voi {{answer}} ragione.",
+          "answer": "avete",
+          "translation": "You (all) are right.",
+          "hint": "to have, you (plural)",
+          "display_order": 5
+        },
+        {
+          "sentence": "Loro {{answer}} sete.",
+          "answer": "hanno",
+          "translation": "They are thirsty.",
+          "hint": "to have, they",
+          "display_order": 6
+        }
+      ]
+    },
+    {
+      "title": "Present tense of -are verbs",
+      "level": "A1",
+      "function": "Talk about what people do",
+      "source": "contributor",
+      "reviewed": true,
+      "display_order": 7,
+      "explanation": "The biggest family. Drop -are, add: -o, -i, -a, -iamo, -ate, -ano (parlare → parlo, parli, parla, parliamo, parlate, parlano). Because the ending names the person, the pronoun usually stays home.",
+      "culture_note": "",
+      "references": [
+        {
+          "title": "Wikipedia: Italian conjugation — first conjugation",
+          "url": "https://en.wikipedia.org/wiki/Italian_conjugation"
+        },
+        {
+          "title": "Wiktionary: parlare (Italian)",
+          "url": "https://en.wiktionary.org/wiki/parlare#Italian"
+        }
+      ],
+      "drills": [
+        {
+          "sentence": "Noi {{answer}} italiano.",
+          "answer": "parliamo",
+          "translation": "We speak Italian.",
+          "hint": "to speak, we",
+          "display_order": 1
+        },
+        {
+          "sentence": "Lei {{answer}} in un ufficio.",
+          "answer": "lavora",
+          "translation": "She works in an office.",
+          "hint": "to work, she",
+          "display_order": 2
+        },
+        {
+          "sentence": "Tu {{answer}} il cioccolato?",
+          "answer": "ami",
+          "translation": "Do you love chocolate?",
+          "hint": "to love, you (informal)",
+          "display_order": 3
+        },
+        {
+          "sentence": "Loro {{answer}} a calcio.",
+          "answer": "giocano",
+          "translation": "They play football.",
+          "hint": "to play, they",
+          "display_order": 4
+        },
+        {
+          "sentence": "Voi {{answer}} a Roma?",
+          "answer": "abitate",
+          "translation": "Do you (all) live in Rome?",
+          "hint": "to live, you (plural)",
+          "display_order": 5
+        },
+        {
+          "sentence": "Io {{answer}} il pane.",
+          "answer": "compro",
+          "translation": "I buy the bread.",
+          "hint": "to buy, I",
+          "display_order": 6
+        }
+      ]
+    },
+    {
+      "title": "-ere and -ire verbs (prendere, dormire, finire)",
+      "level": "A1",
+      "function": "Take, sleep, finish — the other two families",
+      "source": "contributor",
+      "reviewed": true,
+      "display_order": 8,
+      "explanation": "-ere verbs: prendo, prendi, prende, prendiamo, prendete, prendono. -ire verbs come in two flavours: plain (dormire → dormo) and -isc- (finire → finisco, finisci, finisce… but finiamo, finite without it). Preferire and capire follow the -isc- pattern.",
+      "culture_note": "",
+      "references": [
+        {
+          "title": "Wikipedia: Italian conjugation",
+          "url": "https://en.wikipedia.org/wiki/Italian_conjugation"
+        },
+        {
+          "title": "Wiktionary: finire (Italian)",
+          "url": "https://en.wiktionary.org/wiki/finire#Italian"
+        }
+      ],
+      "drills": [
+        {
+          "sentence": "Io {{answer}} il treno alle otto.",
+          "answer": "prendo",
+          "translation": "I take the train at eight.",
+          "hint": "to take, I",
+          "display_order": 1
+        },
+        {
+          "sentence": "Noi {{answer}} una lettera.",
+          "answer": "scriviamo",
+          "translation": "We are writing a letter.",
+          "hint": "to write, we",
+          "display_order": 2
+        },
+        {
+          "sentence": "Loro {{answer}} molto.",
+          "answer": "dormono",
+          "translation": "They sleep a lot.",
+          "hint": "to sleep, they",
+          "display_order": 3
+        },
+        {
+          "sentence": "Lei {{answer}} il lavoro alle sei.",
+          "answer": "finisce",
+          "translation": "She finishes work at six.",
+          "hint": "to finish, she (-isc- type)",
+          "display_order": 4
+        },
+        {
+          "sentence": "Tu {{answer}} la musica?",
+          "answer": "senti",
+          "translation": "Do you hear the music?",
+          "hint": "to hear, you (informal)",
+          "display_order": 5
+        },
+        {
+          "sentence": "Voi {{answer}} un dolce?",
+          "answer": "preferite",
+          "translation": "Do you (all) prefer a dessert?",
+          "hint": "to prefer, you (plural)",
+          "display_order": 6
+        }
+      ]
+    },
+    {
+      "title": "Negation with non",
+      "level": "A1",
+      "function": "Say what is not so",
+      "source": "contributor",
+      "reviewed": true,
+      "display_order": 9,
+      "explanation": "One word, one rule: non goes directly before the verb. Non parlo inglese. Non ho tempo. Nothing else moves.",
+      "culture_note": "",
+      "references": [
+        {
+          "title": "Wikipedia: Italian grammar — negation",
+          "url": "https://en.wikipedia.org/wiki/Italian_grammar"
+        },
+        {
+          "title": "Wiktionary: non (Italian)",
+          "url": "https://en.wiktionary.org/wiki/non#Italian"
+        }
+      ],
+      "drills": [
+        {
+          "sentence": "Io {{answer}} parlo inglese.",
+          "answer": "non",
+          "translation": "I don't speak English.",
+          "hint": "before the verb",
+          "display_order": 1
+        },
+        {
+          "sentence": "Lui {{answer}} lavora la domenica.",
+          "answer": "non",
+          "translation": "He doesn't work on Sundays.",
+          "hint": "before the verb",
+          "display_order": 2
+        },
+        {
+          "sentence": "Noi {{answer}} siamo stanchi.",
+          "answer": "non",
+          "translation": "We are not tired.",
+          "hint": "before the verb",
+          "display_order": 3
+        },
+        {
+          "sentence": "Lei {{answer}} mangia carne.",
+          "answer": "non",
+          "translation": "She doesn't eat meat.",
+          "hint": "before the verb",
+          "display_order": 4
+        },
+        {
+          "sentence": "Tu {{answer}} mangi?",
+          "answer": "non",
+          "translation": "Aren't you eating?",
+          "hint": "before the verb",
+          "display_order": 5
+        },
+        {
+          "sentence": "Voi {{answer}} ballate?",
+          "answer": "non",
+          "translation": "You (all) don't dance?",
+          "hint": "before the verb",
+          "display_order": 6
+        }
+      ]
+    },
+    {
+      "title": "C'è and ci sono — there is / there are",
+      "level": "A1",
+      "function": "Say what exists or is available",
+      "source": "contributor",
+      "reviewed": true,
+      "display_order": 10,
+      "explanation": "Unlike French and German, Italian minds the number: c'è for one thing (c'è un libro), ci sono for several (ci sono due caffè). Negative: non c'è / non ci sono.",
+      "culture_note": "",
+      "references": [
+        {
+          "title": "Wiktionary: c'è (Italian)",
+          "url": "https://en.wiktionary.org/wiki/c%27%C3%A8#Italian"
+        },
+        {
+          "title": "Wikipedia: Italian grammar",
+          "url": "https://en.wikipedia.org/wiki/Italian_grammar"
+        }
+      ],
+      "drills": [
+        {
+          "sentence": "{{answer}} un libro sul tavolo.",
+          "answer": "C'è",
+          "translation": "There is a book on the table.",
+          "hint": "singular",
+          "display_order": 1
+        },
+        {
+          "sentence": "Ci {{answer}} due caffè in questa strada.",
+          "answer": "sono",
+          "translation": "There are two cafés on this street.",
+          "hint": "plural — the verb",
+          "display_order": 2
+        },
+        {
+          "sentence": "{{answer}} sono molte persone qui.",
+          "answer": "Ci",
+          "translation": "There are many people here.",
+          "hint": "plural — the little word",
+          "display_order": 3
+        },
+        {
+          "sentence": "C'è {{answer}} gatto in giardino.",
+          "answer": "un",
+          "translation": "There is a cat in the garden.",
+          "hint": "indefinite article, masculine",
+          "display_order": 4
+        },
+        {
+          "sentence": "Non {{answer}} pane.",
+          "answer": "c'è",
+          "translation": "There is no bread.",
+          "hint": "singular",
+          "display_order": 5
+        },
+        {
+          "sentence": "Ci {{answer}} problemi?",
+          "answer": "sono",
+          "translation": "Are there problems?",
+          "hint": "plural — the verb",
+          "display_order": 6
+        }
+      ]
+    },
+    {
+      "title": "Question words (dove, come, che…)",
+      "level": "A1",
+      "function": "Ask about places, people, time, and reasons",
+      "source": "contributor",
+      "reviewed": true,
+      "display_order": 11,
+      "explanation": "Dove (where), come (how), che/che cosa (what), quando (when), perché (why), quanto/quanti (how much/many), chi (who). No helper verb needed — question word plus verb: Dove abiti?",
+      "culture_note": "",
+      "references": [
+        {
+          "title": "Wikipedia: Italian grammar — interrogatives",
+          "url": "https://en.wikipedia.org/wiki/Italian_grammar"
+        },
+        {
+          "title": "Wiktionary: dove (Italian)",
+          "url": "https://en.wiktionary.org/wiki/dove#Italian"
+        }
+      ],
+      "drills": [
+        {
+          "sentence": "{{answer}} abiti?",
+          "answer": "Dove",
+          "translation": "Where do you live?",
+          "hint": "where",
+          "display_order": 1
+        },
+        {
+          "sentence": "{{answer}} ti chiami?",
+          "answer": "Come",
+          "translation": "What is your name?",
+          "hint": "how — names ask 'how' in Italian",
+          "display_order": 2
+        },
+        {
+          "sentence": "{{answer}} è il tuo compleanno?",
+          "answer": "Quando",
+          "translation": "When is your birthday?",
+          "hint": "when",
+          "display_order": 3
+        },
+        {
+          "sentence": "{{answer}} cosa guardi?",
+          "answer": "Che",
+          "translation": "What are you watching?",
+          "hint": "what",
+          "display_order": 4
+        },
+        {
+          "sentence": "{{answer}} fratelli hai?",
+          "answer": "Quanti",
+          "translation": "How many brothers do you have?",
+          "hint": "how many",
+          "display_order": 5
+        },
+        {
+          "sentence": "{{answer}} piangi?",
+          "answer": "Perché",
+          "translation": "Why are you crying?",
+          "hint": "why",
+          "display_order": 6
+        }
+      ]
+    },
+    {
+      "title": "Adjective agreement",
+      "level": "A1",
+      "function": "Describe people and things correctly",
+      "source": "contributor",
+      "reviewed": true,
+      "display_order": 12,
+      "explanation": "Adjectives in -o have four forms (nuovo, nuova, nuovi, nuove); adjectives in -e have two (grande, grandi). They agree with the noun in gender and number and usually FOLLOW it: una casa bianca.",
+      "culture_note": "",
+      "references": [
+        {
+          "title": "Wikipedia: Italian grammar — adjectives",
+          "url": "https://en.wikipedia.org/wiki/Italian_grammar"
+        },
+        {
+          "title": "Wiktionary: nuovo (Italian)",
+          "url": "https://en.wiktionary.org/wiki/nuovo#Italian"
+        }
+      ],
+      "drills": [
+        {
+          "sentence": "La casa è {{answer}}.",
+          "answer": "bianca",
+          "translation": "The house is white.",
+          "hint": "white — feminine",
+          "display_order": 1
+        },
+        {
+          "sentence": "I libri sono {{answer}}.",
+          "answer": "nuovi",
+          "translation": "The books are new.",
+          "hint": "new — masculine plural",
+          "display_order": 2
+        },
+        {
+          "sentence": "Mia sorella è molto {{answer}}.",
+          "answer": "gentile",
+          "translation": "My sister is very kind.",
+          "hint": "kind — -e type",
+          "display_order": 3
+        },
+        {
+          "sentence": "Il caffè è {{answer}}.",
+          "answer": "caldo",
+          "translation": "The coffee is hot.",
+          "hint": "hot — masculine",
+          "display_order": 4
+        },
+        {
+          "sentence": "Le ragazze sono {{answer}}.",
+          "answer": "simpatiche",
+          "translation": "The girls are nice.",
+          "hint": "nice — feminine plural",
+          "display_order": 5
+        },
+        {
+          "sentence": "Il film è {{answer}}.",
+          "answer": "interessante",
+          "translation": "The film is interesting.",
+          "hint": "interesting — -e type",
+          "display_order": 6
+        }
+      ]
+    }
+  ]
+}

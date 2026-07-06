@@ -278,15 +278,19 @@ def fsrs_review(
 
     if is_lapse:
         repetitions, streak, lapses, state = 0, 0, card.lapses + 1, RELEARNING
+        # A failed card STAYS DUE until it is answered correctly (Bunpro
+        # ghost semantics): the miss updates the memory state, but the card
+        # never leaves the queue — closing the window after a fail doesn't
+        # make the review disappear until some future interval.
+        interval = 0
     else:
         repetitions = card.repetitions + 1
         streak = card.streak + 1
         lapses = card.lapses
         state = REVIEW
-
-    interval = _interval_from_stability(stability, retention, maximum_interval)
-    if enable_fuzz:
-        interval = _fuzz(interval, maximum_interval)
+        interval = _interval_from_stability(stability, retention, maximum_interval)
+        if enable_fuzz:
+            interval = _fuzz(interval, maximum_interval)
 
     return FSRSUpdate(
         stability=round(stability, 6),

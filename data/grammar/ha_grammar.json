@@ -56,6 +56,34 @@
           "translation": "She is here.",
           "hint": "the 'she' pronoun",
           "display_order": 2
+        },
+        {
+          "sentence": "{{answer}} ɗalibi ne.",
+          "answer": "Shi",
+          "translation": "He is a student.",
+          "hint": "he",
+          "display_order": 3
+        },
+        {
+          "sentence": "{{answer}} muna nan.",
+          "answer": "Mu",
+          "translation": "We are here.",
+          "hint": "we — emphatic",
+          "display_order": 4
+        },
+        {
+          "sentence": "{{answer}} malama ce.",
+          "answer": "Ita",
+          "translation": "She is a teacher.",
+          "hint": "she",
+          "display_order": 5
+        },
+        {
+          "sentence": "{{answer}} kana aiki.",
+          "answer": "Kai",
+          "translation": "You (masculine) are working.",
+          "hint": "you (m) — emphatic",
+          "display_order": 6
         }
       ]
     },
@@ -79,15 +107,43 @@
           "sentence": "Ni malami {{answer}}.",
           "answer": "ne",
           "translation": "I am a (male) teacher.",
-          "hint": "masculine particle",
+          "hint": "which particle? check gender/number of the noun",
           "display_order": 1
         },
         {
           "sentence": "Ita malama {{answer}}.",
           "answer": "ce",
           "translation": "She is a (female) teacher.",
-          "hint": "feminine particle",
+          "hint": "which particle? mota is feminine",
           "display_order": 2
+        },
+        {
+          "sentence": "Su ɗalibai {{answer}}.",
+          "answer": "ne",
+          "translation": "They are students.",
+          "hint": "which particle? check gender/number of the noun",
+          "display_order": 3
+        },
+        {
+          "sentence": "Wannan mota {{answer}}.",
+          "answer": "ce",
+          "translation": "This is a car.",
+          "hint": "which particle? mota is feminine",
+          "display_order": 4
+        },
+        {
+          "sentence": "Audu manomi {{answer}}.",
+          "answer": "ne",
+          "translation": "Audu is a farmer.",
+          "hint": "which particle? check gender/number of the noun",
+          "display_order": 5
+        },
+        {
+          "sentence": "Wannan ruwa {{answer}}.",
+          "answer": "ne",
+          "translation": "This is water.",
+          "hint": "which particle? check gender/number of the noun",
+          "display_order": 6
         }
       ]
     },
@@ -120,6 +176,34 @@
           "translation": "She went to the market.",
           "hint": "completive 'she'",
           "display_order": 2
+        },
+        {
+          "sentence": "{{answer}} zo gida.",
+          "answer": "Sun",
+          "translation": "They came home.",
+          "hint": "they — completive",
+          "display_order": 3
+        },
+        {
+          "sentence": "{{answer}} sayi shinkafa.",
+          "answer": "Mun",
+          "translation": "We bought rice.",
+          "hint": "we — completive",
+          "display_order": 4
+        },
+        {
+          "sentence": "{{answer}} karanta littafi.",
+          "answer": "Ya",
+          "translation": "He read a book.",
+          "hint": "he — completive",
+          "display_order": 5
+        },
+        {
+          "sentence": "{{answer}} dafa abinci.",
+          "answer": "Kin",
+          "translation": "You (feminine) cooked food.",
+          "hint": "you (f) — completive",
+          "display_order": 6
         }
       ]
     },
@@ -152,6 +236,34 @@
           "translation": "He is working now.",
           "hint": "continuous 'he'",
           "display_order": 2
+        },
+        {
+          "sentence": "{{answer}} karatu.",
+          "answer": "Tana",
+          "translation": "She is studying.",
+          "hint": "she — continuous",
+          "display_order": 3
+        },
+        {
+          "sentence": "Yara {{answer}} wasa.",
+          "answer": "suna",
+          "translation": "The children are playing.",
+          "hint": "they — continuous",
+          "display_order": 4
+        },
+        {
+          "sentence": "{{answer}} aikin gida.",
+          "answer": "Muna",
+          "translation": "We are doing housework.",
+          "hint": "we — continuous",
+          "display_order": 5
+        },
+        {
+          "sentence": "{{answer}} barci?",
+          "answer": "Kana",
+          "translation": "Are you (masculine) sleeping?",
+          "hint": "you (m) — continuous",
+          "display_order": 6
         }
       ]
     },
@@ -184,6 +296,34 @@
           "translation": "She will return tomorrow.",
           "hint": "future 'she'",
           "display_order": 2
+        },
+        {
+          "sentence": "{{answer}} zo gobe.",
+          "answer": "Zai",
+          "translation": "He will come tomorrow.",
+          "hint": "he — future, one word",
+          "display_order": 3
+        },
+        {
+          "sentence": "Za {{answer}} tafi kasuwa.",
+          "answer": "mu",
+          "translation": "We will go to the market.",
+          "hint": "we",
+          "display_order": 4
+        },
+        {
+          "sentence": "Za {{answer}} ci abinci?",
+          "answer": "ka",
+          "translation": "Will you (masculine) eat?",
+          "hint": "you (m)",
+          "display_order": 5
+        },
+        {
+          "sentence": "Za {{answer}} dawo da yamma.",
+          "answer": "su",
+          "translation": "They will return in the evening.",
+          "hint": "they",
+          "display_order": 6
         }
       ]
     },
@@ -216,6 +356,34 @@
           "translation": "There is no money.",
           "hint": "'there is not'",
           "display_order": 2
+        },
+        {
+          "sentence": "{{answer}} mutane da yawa a kasuwa.",
+          "answer": "Akwai",
+          "translation": "There are many people at the market.",
+          "hint": "existence",
+          "display_order": 3
+        },
+        {
+          "sentence": "{{answer}} abinci a gida.",
+          "answer": "Babu",
+          "translation": "There is no food at home.",
+          "hint": "absence",
+          "display_order": 4
+        },
+        {
+          "sentence": "{{answer}} ruwa a rijiya?",
+          "answer": "Akwai",
+          "translation": "Is there water in the well?",
+          "hint": "existence, question",
+          "display_order": 5
+        },
+        {
+          "sentence": "{{answer}} wata matsala.",
+          "answer": "Babu",
+          "translation": "There is no problem.",
+          "hint": "absence",
+          "display_order": 6
         }
       ]
     },
@@ -239,15 +407,43 @@
           "sentence": "{{answer}} ci abinci ba.",
           "answer": "Ban",
           "translation": "I did not eat food.",
-          "hint": "ba + na fused, first half",
+          "hint": "negative + 'I' fused — the opening half",
           "display_order": 1
         },
         {
           "sentence": "Ba ta zo {{answer}}.",
           "answer": "ba",
           "translation": "She did not come.",
-          "hint": "the closing ba",
+          "hint": "the closing half of the frame",
           "display_order": 2
+        },
+        {
+          "sentence": "{{answer}} zo ba.",
+          "answer": "Bai",
+          "translation": "He didn't come.",
+          "hint": "he + negative completive",
+          "display_order": 3
+        },
+        {
+          "sentence": "Ba su zo {{answer}}.",
+          "answer": "ba",
+          "translation": "They didn't come.",
+          "hint": "the closing half of the frame",
+          "display_order": 4
+        },
+        {
+          "sentence": "{{answer}} ta dafa abinci ba.",
+          "answer": "Ba",
+          "translation": "She didn't cook food.",
+          "hint": "the opening half of the frame",
+          "display_order": 5
+        },
+        {
+          "sentence": "Ba mu gan shi {{answer}}.",
+          "answer": "ba",
+          "translation": "We didn't see him.",
+          "hint": "the closing half of the frame",
+          "display_order": 6
         }
       ]
     },
@@ -271,15 +467,43 @@
           "sentence": "{{answer}} Audu yana nan.",
           "answer": "Littafin",
           "translation": "Audu's book is here.",
-          "hint": "littafi + -n (masculine)",
+          "hint": "book + masculine linker",
           "display_order": 1
         },
         {
           "sentence": "{{answer}} Audu sabuwa ce.",
           "answer": "Motar",
           "translation": "Audu's car is new.",
-          "hint": "mota + -r (feminine)",
+          "hint": "car + feminine linker",
           "display_order": 2
+        },
+        {
+          "sentence": "{{answer}} Audu ya zo.",
+          "answer": "Ɗan",
+          "translation": "Audu's son came.",
+          "hint": "son + masculine linker",
+          "display_order": 3
+        },
+        {
+          "sentence": "Sunan {{answer}} Audu ne.",
+          "answer": "yaron",
+          "translation": "The boy's name is Audu.",
+          "hint": "boy + masculine linker",
+          "display_order": 4
+        },
+        {
+          "sentence": "{{answer}} nan sabuwa ce.",
+          "answer": "Rigar",
+          "translation": "This gown is new.",
+          "hint": "gown + feminine linker",
+          "display_order": 5
+        },
+        {
+          "sentence": "{{answer}} ya yi kyau.",
+          "answer": "Aikin",
+          "translation": "The work is good.",
+          "hint": "work + masculine linker",
+          "display_order": 6
         }
       ]
     },
@@ -312,6 +536,34 @@
           "translation": "Who came?",
           "hint": "'who'",
           "display_order": 2
+        },
+        {
+          "sentence": "{{answer}} gidanka?",
+          "answer": "Ina",
+          "translation": "Where is your house?",
+          "hint": "where",
+          "display_order": 3
+        },
+        {
+          "sentence": "{{answer}} za ka tafi?",
+          "answer": "Yaushe",
+          "translation": "When will you go?",
+          "hint": "when",
+          "display_order": 4
+        },
+        {
+          "sentence": "{{answer}} ne kuɗin wannan?",
+          "answer": "Nawa",
+          "translation": "How much does this cost?",
+          "hint": "how much",
+          "display_order": 5
+        },
+        {
+          "sentence": "{{answer}} ya dafa abinci?",
+          "answer": "Wa",
+          "translation": "Who cooked the food?",
+          "hint": "who",
+          "display_order": 6
         }
       ]
     },
@@ -344,6 +596,34 @@
           "translation": "The children are playing.",
           "hint": "plural of yaro",
           "display_order": 2
+        },
+        {
+          "sentence": "{{answer}} suna karatu.",
+          "answer": "Ɗalibai",
+          "translation": "The students are studying.",
+          "hint": "ɗalibi → plural",
+          "display_order": 3
+        },
+        {
+          "sentence": "Ina da {{answer}} uku.",
+          "answer": "littattafai",
+          "translation": "I have three books.",
+          "hint": "littafi → plural",
+          "display_order": 4
+        },
+        {
+          "sentence": "{{answer}} suna kasuwa.",
+          "answer": "Mata",
+          "translation": "The women are at the market.",
+          "hint": "mace → plural",
+          "display_order": 5
+        },
+        {
+          "sentence": "{{answer}} sun tafi gona.",
+          "answer": "Manoma",
+          "translation": "The farmers went to the farm.",
+          "hint": "manomi → plural",
+          "display_order": 6
         }
       ]
     },
@@ -376,6 +656,34 @@
           "translation": "They heard us.",
           "hint": "'us' after the verb",
           "display_order": 2
+        },
+        {
+          "sentence": "Na gan {{answer}} jiya.",
+          "answer": "ta",
+          "translation": "I saw her yesterday.",
+          "hint": "her",
+          "display_order": 3
+        },
+        {
+          "sentence": "Sun kira {{answer}}.",
+          "answer": "ni",
+          "translation": "They called me.",
+          "hint": "me",
+          "display_order": 4
+        },
+        {
+          "sentence": "Ta taimaki {{answer}}.",
+          "answer": "su",
+          "translation": "She helped them.",
+          "hint": "them",
+          "display_order": 5
+        },
+        {
+          "sentence": "Za mu gan {{answer}} gobe.",
+          "answer": "ku",
+          "translation": "We will see you (plural) tomorrow.",
+          "hint": "you (plural)",
+          "display_order": 6
         }
       ]
     },
@@ -399,15 +707,43 @@
           "sentence": "{{answer}} yana nan.",
           "answer": "Littafina",
           "translation": "My book is here.",
-          "hint": "littafi + -na",
+          "hint": "book + 'my'",
           "display_order": 1
         },
         {
           "sentence": "{{answer}} sabuwa ce.",
           "answer": "Motata",
           "translation": "My car is new.",
-          "hint": "mota + -ta ('my', feminine noun)",
+          "hint": "car + 'my' (feminine noun)",
           "display_order": 2
+        },
+        {
+          "sentence": "{{answer}} tana nan.",
+          "answer": "Motarsa",
+          "translation": "His car is here.",
+          "hint": "car + feminine linker + 'his'",
+          "display_order": 3
+        },
+        {
+          "sentence": "{{answer}} ya tafi.",
+          "answer": "Ɗansa",
+          "translation": "His son left.",
+          "hint": "son + masculine linker + 'his'",
+          "display_order": 4
+        },
+        {
+          "sentence": "{{answer}} suna gida.",
+          "answer": "Yaranmu",
+          "translation": "Our children are at home.",
+          "hint": "children + linker + 'our'",
+          "display_order": 5
+        },
+        {
+          "sentence": "{{answer}} tsohuwa ce.",
+          "answer": "Rigarki",
+          "translation": "Your (feminine) gown is old.",
+          "hint": "gown + feminine linker + 'your (f)'",
+          "display_order": 6
         }
       ]
     },
@@ -440,6 +776,34 @@
           "translation": "Don't go!",
           "hint": "negative-command word",
           "display_order": 2
+        },
+        {
+          "sentence": "{{answer}} ruwa!",
+          "answer": "Sha",
+          "translation": "Drink water!",
+          "hint": "to drink — bare verb",
+          "display_order": 3
+        },
+        {
+          "sentence": "Kada {{answer}} manta!",
+          "answer": "ka",
+          "translation": "Don't forget!",
+          "hint": "the subjunctive pronoun after the prohibitive",
+          "display_order": 4
+        },
+        {
+          "sentence": "{{answer}} abinci!",
+          "answer": "Ci",
+          "translation": "Eat!",
+          "hint": "to eat — bare verb",
+          "display_order": 5
+        },
+        {
+          "sentence": "{{answer}} a nan!",
+          "answer": "Zauna",
+          "translation": "Sit here!",
+          "hint": "to sit — bare verb",
+          "display_order": 6
         }
       ]
     },
@@ -472,6 +836,34 @@
           "translation": "He usually comes here every day.",
           "hint": "habitual 'he'",
           "display_order": 2
+        },
+        {
+          "sentence": "{{answer}} dafa abinci da yamma.",
+          "answer": "Takan",
+          "translation": "She usually cooks in the evening.",
+          "hint": "she — habitual",
+          "display_order": 3
+        },
+        {
+          "sentence": "{{answer}} je makaranta da ƙafa.",
+          "answer": "Mukan",
+          "translation": "We usually walk to school.",
+          "hint": "we — habitual",
+          "display_order": 4
+        },
+        {
+          "sentence": "{{answer}} yi aiki har dare.",
+          "answer": "Sukan",
+          "translation": "They usually work until night.",
+          "hint": "they — habitual",
+          "display_order": 5
+        },
+        {
+          "sentence": "{{answer}} sha ruwa da yawa?",
+          "answer": "Kakan",
+          "translation": "Do you (masculine) usually drink a lot of water?",
+          "hint": "you (m) — habitual",
+          "display_order": 6
         }
       ]
     },
@@ -504,6 +896,34 @@
           "translation": "Let's go to the market.",
           "hint": "subjunctive 'we' after bari",
           "display_order": 2
+        },
+        {
+          "sentence": "Ina so {{answer}} tafi yanzu.",
+          "answer": "su",
+          "translation": "I want them to go now.",
+          "hint": "they — subjunctive pronoun",
+          "display_order": 3
+        },
+        {
+          "sentence": "Bari {{answer}} gani.",
+          "answer": "in",
+          "translation": "Let me see.",
+          "hint": "I — subjunctive",
+          "display_order": 4
+        },
+        {
+          "sentence": "Ya kamata {{answer}} yi aiki.",
+          "answer": "ka",
+          "translation": "You should work.",
+          "hint": "you (m) — subjunctive",
+          "display_order": 5
+        },
+        {
+          "sentence": "Ina so {{answer}} dafa abinci.",
+          "answer": "ta",
+          "translation": "I want her to cook.",
+          "hint": "she — subjunctive",
+          "display_order": 6
         }
       ]
     },
@@ -527,7 +947,7 @@
           "sentence": "Mutumin {{answer}} ya zo malami ne.",
           "answer": "da",
           "translation": "The man who came is a teacher.",
-          "hint": "relative 'da'",
+          "hint": "the short relative after a noun",
           "display_order": 1
         },
         {
@@ -536,6 +956,34 @@
           "translation": "The one who came is a teacher.",
           "hint": "m. relative pronoun",
           "display_order": 2
+        },
+        {
+          "sentence": "{{answer}} ta zo malama ce.",
+          "answer": "Wadda",
+          "translation": "The one (feminine) who came is a teacher.",
+          "hint": "feminine relative",
+          "display_order": 3
+        },
+        {
+          "sentence": "{{answer}} suka zo ɗalibai ne.",
+          "answer": "Waɗanda",
+          "translation": "Those who came are students.",
+          "hint": "plural relative",
+          "display_order": 4
+        },
+        {
+          "sentence": "Yarinyar {{answer}} ta zo tana nan.",
+          "answer": "da",
+          "translation": "The girl who came is here.",
+          "hint": "the short relative after a noun",
+          "display_order": 5
+        },
+        {
+          "sentence": "Mutanen {{answer}} suka tafi manoma ne.",
+          "answer": "da",
+          "translation": "The people who left are farmers.",
+          "hint": "the short relative after a noun",
+          "display_order": 6
         }
       ]
     },
@@ -568,6 +1016,34 @@
           "translation": "The thing I am doing is good.",
           "hint": "relative continuous 'I'",
           "display_order": 2
+        },
+        {
+          "sentence": "Me {{answer}} yi?",
+          "answer": "kake",
+          "translation": "What are you (masculine) doing?",
+          "hint": "you (m) + -ke",
+          "display_order": 3
+        },
+        {
+          "sentence": "Me {{answer}} so?",
+          "answer": "kike",
+          "translation": "What do you (feminine) want?",
+          "hint": "you (f) + -ke",
+          "display_order": 4
+        },
+        {
+          "sentence": "Inda {{answer}} zaune yana da nisa.",
+          "answer": "muke",
+          "translation": "Where we live is far away.",
+          "hint": "we + -ke",
+          "display_order": 5
+        },
+        {
+          "sentence": "Abin da {{answer}} nema kuɗi ne.",
+          "answer": "suke",
+          "translation": "What they are seeking is money.",
+          "hint": "they + -ke",
+          "display_order": 6
         }
       ]
     },
@@ -600,6 +1076,34 @@
           "translation": "Had I known. (a set phrase)",
           "hint": "'know' in the regret idiom",
           "display_order": 2
+        },
+        {
+          "sentence": "{{answer}} ruwa ya sauka, ba za mu fita ba.",
+          "answer": "Idan",
+          "translation": "If it rains, we won't go out.",
+          "hint": "if",
+          "display_order": 3
+        },
+        {
+          "sentence": "{{answer}} ka gama, ka zo.",
+          "answer": "In",
+          "translation": "When you finish, come.",
+          "hint": "if/when — short form",
+          "display_order": 4
+        },
+        {
+          "sentence": "Idan ka {{answer}}, za ka ci jarrabawa.",
+          "answer": "karanta",
+          "translation": "If you study, you will pass the exam.",
+          "hint": "to study/read",
+          "display_order": 5
+        },
+        {
+          "sentence": "Da na {{answer}}, da na gaya maka.",
+          "answer": "sani",
+          "translation": "Had I known, I would have told you.",
+          "hint": "counterfactual da … da",
+          "display_order": 6
         }
       ]
     },
@@ -632,6 +1136,34 @@
           "translation": "You are being called.",
           "hint": "impersonal continuous",
           "display_order": 2
+        },
+        {
+          "sentence": "{{answer}} sayar da motar.",
+          "answer": "An",
+          "translation": "The car has been sold.",
+          "hint": "completed — impersonal",
+          "display_order": 3
+        },
+        {
+          "sentence": "{{answer}} jiran ka a ofis.",
+          "answer": "Ana",
+          "translation": "You are being waited for at the office.",
+          "hint": "ongoing — impersonal",
+          "display_order": 4
+        },
+        {
+          "sentence": "{{answer}} kama ɓarawo jiya.",
+          "answer": "An",
+          "translation": "A thief was caught yesterday.",
+          "hint": "completed — impersonal",
+          "display_order": 5
+        },
+        {
+          "sentence": "{{answer}} noman shinkafa a nan.",
+          "answer": "Ana",
+          "translation": "Rice is farmed here.",
+          "hint": "ongoing — impersonal",
+          "display_order": 6
         }
       ]
     },
@@ -664,6 +1196,34 @@
           "translation": "This one is better (exceeds in goodness).",
           "hint": "'goodness' after fi",
           "display_order": 2
+        },
+        {
+          "sentence": "Ta fi ni {{answer}}.",
+          "answer": "hankali",
+          "translation": "She is more sensible than me.",
+          "hint": "quality noun — sense",
+          "display_order": 3
+        },
+        {
+          "sentence": "Audu ya fi Musa {{answer}}.",
+          "answer": "ƙarfi",
+          "translation": "Audu is stronger than Musa.",
+          "hint": "quality noun — strength",
+          "display_order": 4
+        },
+        {
+          "sentence": "Zaki ya {{answer}} kare ƙarfi.",
+          "answer": "fi",
+          "translation": "A lion is stronger than a dog.",
+          "hint": "exceed",
+          "display_order": 5
+        },
+        {
+          "sentence": "Wannan ya fi wancan {{answer}}.",
+          "answer": "tsada",
+          "translation": "This one is more expensive than that one.",
+          "hint": "quality noun — costliness",
+          "display_order": 6
         }
       ]
     },
@@ -696,6 +1256,34 @@
           "translation": "I heard that they left.",
           "hint": "'that' complementizer",
           "display_order": 2
+        },
+        {
+          "sentence": "Ta ce {{answer}} ba za ta zo ba.",
+          "answer": "cewa",
+          "translation": "She said that she would not come.",
+          "hint": "that",
+          "display_order": 3
+        },
+        {
+          "sentence": "Mun ji {{answer}} an gina sabuwar makaranta.",
+          "answer": "cewa",
+          "translation": "We heard that a new school has been built.",
+          "hint": "that",
+          "display_order": 4
+        },
+        {
+          "sentence": "Ya {{answer}} cewa zai taimake mu.",
+          "answer": "ce",
+          "translation": "He said that he would help us.",
+          "hint": "to say",
+          "display_order": 5
+        },
+        {
+          "sentence": "Na yi imani {{answer}} za su dawo.",
+          "answer": "cewa",
+          "translation": "I believe that they will return.",
+          "hint": "that",
+          "display_order": 6
         }
       ]
     },
@@ -719,15 +1307,43 @@
           "sentence": "Audu {{answer}} ya zo.",
           "answer": "ne",
           "translation": "It was Audu who came.",
-          "hint": "focus particle (masculine)",
+          "hint": "focus particle — masculine/plural or non-feminine focus",
           "display_order": 1
         },
         {
           "sentence": "Jiya {{answer}} suka tafi.",
           "answer": "ne",
           "translation": "It was yesterday that they left.",
-          "hint": "focus on a time word",
+          "hint": "focus particle — masculine/plural or non-feminine focus",
           "display_order": 2
+        },
+        {
+          "sentence": "Ita {{answer}} ta dafa abinci.",
+          "answer": "ce",
+          "translation": "It was she who cooked the food.",
+          "hint": "feminine focus",
+          "display_order": 3
+        },
+        {
+          "sentence": "A kasuwa {{answer}} na gan shi.",
+          "answer": "ne",
+          "translation": "It was at the market that I saw him.",
+          "hint": "focus particle — masculine/plural or non-feminine focus",
+          "display_order": 4
+        },
+        {
+          "sentence": "Audu {{answer}} ya rubuta wasiƙar.",
+          "answer": "ne",
+          "translation": "It was Audu who wrote the letter.",
+          "hint": "focus particle — masculine/plural or non-feminine focus",
+          "display_order": 5
+        },
+        {
+          "sentence": "Yau {{answer}} za mu tafi.",
+          "answer": "ne",
+          "translation": "It is today that we will go.",
+          "hint": "focus particle — masculine/plural or non-feminine focus",
+          "display_order": 6
         }
       ]
     }

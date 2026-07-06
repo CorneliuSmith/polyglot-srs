@@ -196,7 +196,9 @@ async def get_study_stats(
         "total_cards": int(cards["total_cards"]) if cards else 0,
         "learned_cards": int(cards["learned_cards"]) if cards else 0,
         "due_now": int(cards["due_now"]) if cards else 0,
-        "avg_ease": float(cards["avg_ease"]) if cards and cards["avg_ease"] else None,
+        "avg_difficulty": (
+            float(cards["avg_difficulty"]) if cards and cards["avg_difficulty"] else None
+        ),
         "reviews_last_30d": reviews_30d,
         "accuracy_last_30d": accuracy,
         "highest_level_reached": level,

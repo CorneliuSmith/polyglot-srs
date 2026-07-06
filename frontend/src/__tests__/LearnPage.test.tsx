@@ -9,14 +9,20 @@ vi.mock('react-router-dom', async (orig) => ({
   ...(await orig<typeof import('react-router-dom')>()),
   useNavigate: () => mockNavigate,
 }))
-vi.mock('../api/review', () => ({ startLearnSession: vi.fn() }))
+vi.mock('../api/review', () => ({
+  startLearnSession: vi.fn(),
+  confirmLearnSession: vi.fn(),
+  validateAnswer: vi.fn(),
+}))
 vi.mock('../api/profile', () => ({ getLanguages: vi.fn() }))
 vi.mock('../stores/prefsStore', () => ({ usePrefsStore: vi.fn(() => 'lang-es') }))
 
-import { startLearnSession } from '../api/review'
+import { confirmLearnSession, startLearnSession, validateAnswer } from '../api/review'
 import { getLanguages } from '../api/profile'
 
 const mockLearn = startLearnSession as ReturnType<typeof vi.fn>
+const mockConfirm = confirmLearnSession as ReturnType<typeof vi.fn>
+const mockValidate = validateAnswer as ReturnType<typeof vi.fn>
 const mockGetLanguages = getLanguages as ReturnType<typeof vi.fn>
 
 const grammarLesson = {
@@ -33,6 +39,14 @@ const grammarLesson = {
   reviewed: true,
   references: [{ title: 'Wikipedia: ser and estar', url: 'https://example.org/ser' }],
   examples: [{ sentence: 'Yo soy estudiante.', translation: 'I am a student.', hint: null }],
+  quiz: {
+    sentence: 'Yo {{answer}} estudiante.',
+    answer: 'soy',
+    translation: 'I am a student.',
+    hint: null,
+    morphology: null,
+    alternatives: [],
+  },
 }
 
 const vocabLesson = {
@@ -49,6 +63,14 @@ const vocabLesson = {
   reviewed: true,
   references: [],
   examples: [{ sentence: 'El agua está fría.', translation: 'The water is cold.', hint: null }],
+  quiz: {
+    sentence: 'El {{answer}} está fría.',
+    answer: 'agua',
+    translation: 'The water is cold.',
+    hint: 'water',
+    morphology: null,
+    alternatives: [],
+  },
 }
 
 function renderPage(path = '/learn?type=grammar') {
@@ -82,22 +104,59 @@ describe('LearnPage (teach-before-quiz)', () => {
     expect(screen.getByText('Yo soy estudiante.')).toBeDefined()
     expect(screen.getByRole('link', { name: /wikipedia: ser/i })).toBeDefined()
 
+    // Advancing is gated on answering the check sentence correctly.
+    const nextBtn = screen.getByRole('button', { name: /next/i }) as HTMLButtonElement
+    expect(nextBtn.disabled).toBe(true)
+
+    mockValidate.mockResolvedValue({ answer_result: 'correct', feedback: null })
+    mockConfirm.mockResolvedValue({ confirmed: 1 })
+    fireEvent.change(screen.getByRole('textbox'), { target: { value: 'soy' } })
+    fireEvent.click(screen.getByRole('button', { name: /check answer/i }))
+    // A correct first check queues THIS card for review.
+    await waitFor(() => expect(mockConfirm).toHaveBeenCalledWith(['uc-1']))
+    expect(await screen.findByText(/added to your reviews/i)).toBeDefined()
+
     // Page to lesson 2 (vocab): word + meaning + context sentence.
     fireEvent.click(screen.getByRole('button', { name: /next/i }))
     expect(await screen.findByText(/2 of 2/)).toBeDefined()
     expect(screen.getByText('water')).toBeDefined()
     expect(screen.getByText('El agua está fría.')).toBeDefined()
 
-    // Only after the last lesson can the quiz start.
+    // The quiz can only start once the last lesson's check is passed.
+    const startBtn = screen.getByRole('button', { name: /start reviewing/i }) as HTMLButtonElement
+    expect(startBtn.disabled).toBe(true)
+    fireEvent.change(screen.getByRole('textbox'), { target: { value: 'agua' } })
+    fireEvent.click(screen.getByRole('button', { name: /check answer/i }))
+    await waitFor(() => expect(mockConfirm).toHaveBeenCalledWith(['uc-2']))
+
     fireEvent.click(screen.getByRole('button', { name: /start reviewing/i }))
-    expect(mockNavigate).toHaveBeenCalledWith('/review')
-    expect(mockLearn).toHaveBeenCalledWith('lang-es', 'grammar')
+    await waitFor(() => expect(mockNavigate).toHaveBeenCalledWith('/review'))
+    expect(mockLearn).toHaveBeenCalledWith('lang-es', 'grammar', undefined)
+  })
+
+  it('keeps the card out of reviews until the check is answered correctly', async () => {
+    mockLearn.mockResolvedValue({
+      added: 1,
+      items: ['uc-1'],
+      lessons: [grammarLesson],
+    })
+    renderPage()
+    await screen.findByText(/1 of 1/)
+
+    mockValidate.mockResolvedValue({ answer_result: 'wrong', feedback: null })
+    fireEvent.change(screen.getByRole('textbox'), { target: { value: 'eres' } })
+    fireEvent.click(screen.getByRole('button', { name: /check answer/i }))
+
+    expect(await screen.findByText(/not quite/i)).toBeDefined()
+    expect(mockConfirm).not.toHaveBeenCalled()
+    const startBtn = screen.getByRole('button', { name: /start reviewing/i }) as HTMLButtonElement
+    expect(startBtn.disabled).toBe(true)
   })
 
   it('passes the vocabulary card type from the query string', async () => {
     mockLearn.mockResolvedValue({ added: 1, items: ['uc-2'], lessons: [vocabLesson] })
     renderPage('/learn?type=vocabulary')
-    await waitFor(() => expect(mockLearn).toHaveBeenCalledWith('lang-es', 'vocabulary'))
+    await waitFor(() => expect(mockLearn).toHaveBeenCalledWith('lang-es', 'vocabulary', undefined))
   })
 
   it('explains when there is nothing new to learn', async () => {

@@ -1,0 +1,523 @@
+word	sentence	translation	difficulty_rank
+si	Si ya maana.	It's not important.	47
+ya	Si ya maana.	It's not important.	47
+maana	Si ya maana.	It's not important.	47
+si	Wewe si mtu.	You're not a man.	62
+wewe	Wewe si mtu.	You're not a man.	62
+mtu	Wewe si mtu.	You're not a man.	62
+wote	Wote ndani!	All aboard!	67
+ndani	Wote ndani!	All aboard!	67
+habari	Habari?	How are things?	70
+jambo	Jambo!	Hi!	82
+nini	Nini?	What?	88
+nini	Unafanya nini?	What are you doing?	88
+fanya	Unafanya nini?	What are you doing?	88
+nini	Mnafanya nini?	What are you doing?	88
+fanya	Mnafanya nini?	What are you doing?	88
+kwa	Kwa nini!?	Why!	88
+mwenye	Mtu ni mwenye nguvu.	The man is strong.	91
+ni	Mtu ni mwenye nguvu.	The man is strong.	91
+nguvu	Mtu ni mwenye nguvu.	The man is strong.	91
+mtu	Mtu ni mwenye nguvu.	The man is strong.	91
+haya	Wewe unahaya sana	You're very shy.	101
+wewe	Wewe unahaya sana	You're very shy.	101
+sana	Wewe unahaya sana	You're very shy.	101
+kubwa	Ni siku kubwa.	It's a great day.	106
+ni	Ni siku kubwa.	It's a great day.	106
+siku	Ni siku kubwa.	It's a great day.	106
+ni	Ni kazi yake.	He is responsible for it.	113
+yake	Ni kazi yake.	He is responsible for it.	113
+kazi	Ni kazi yake.	He is responsible for it.	113
+kazi	Nilifanya kazi yangu.	I did my job.	113
+yangu	Nilifanya kazi yangu.	I did my job.	113
+fanya	Nilifanya kazi yangu.	I did my job.	113
+mimi	Mimi ni nani?	Who am I?	120
+nani	Mimi ni nani?	Who am I?	120
+nani	Mtu huyu ni nani?	Who is this man?	120
+huyu	Mtu huyu ni nani?	Who is this man?	120
+mtu	Mtu huyu ni nani?	Who is this man?	120
+wewe	Wewe ni nani?	Who are you?	120
+nani	Wewe ni nani?	Who are you?	120
+yeye	Yeye ni nani?	Who's she?	120
+kazi	Bado tunafanya kazi hiyo.	We're still working that out.	140
+hiyo	Bado tunafanya kazi hiyo.	We're still working that out.	140
+bado	Bado tunafanya kazi hiyo.	We're still working that out.	140
+si	Yeye si mtoto.	He is not a child.	144
+yeye	Yeye si mtoto.	He is not a child.	144
+mtoto	Yeye si mtoto.	He is not a child.	144
+yeye	Yeye ni mtoto tu.	He is nothing but a child.	144
+tu	Yeye ni mtoto tu.	He is nothing but a child.	144
+mtoto	Yeye ni mtoto tu.	He is nothing but a child.	144
+chakula	Je, unataka chakula?	Do you want food?	147
+taka	Je, unataka chakula?	Do you want food?	147
+je	Je, unataka chakula?	Do you want food?	147
+nyumba	Yeye ni ndani ya nyumba hii.	He is inside this house.	151
+ndani	Yeye ni ndani ya nyumba hii.	He is inside this house.	151
+ya	Yeye ni ndani ya nyumba hii.	He is inside this house.	151
+hii	Yeye ni ndani ya nyumba hii.	He is inside this house.	151
+weza	Yeye anaweza kuliko Mimi.	He's a lot better at it than I am.	156
+mimi	Yeye anaweza kuliko Mimi.	He's a lot better at it than I am.	156
+kuliko	Yeye anaweza kuliko Mimi.	He's a lot better at it than I am.	156
+moja	Nilipata moja.	I found one.	169
+pata	Nilipata moja.	I found one.	169
+habari	Habari gani?	What's new?	171
+gani	Habari gani?	What's new?	171
+gani	Unafanya kazi gani?	What's your profession?	171
+nchi	Unaishi katika nchi gani?	What country do you live in?	171
+ishi	Unaishi katika nchi gani?	What country do you live in?	171
+gani	Unaishi katika nchi gani?	What country do you live in?	171
+katika	Unaishi katika nchi gani?	What country do you live in?	171
+mwanamke	Wewe si mwanamke.	You're not a woman.	174
+mwanamke	Je, unajua mwanamke huyu?	Do you know this lady?	174
+jua	Je, unajua mwanamke huyu?	Do you know this lady?	174
+huyu	Je, unajua mwanamke huyu?	Do you know this lady?	174
+je	Je, unajua mwanamke huyu?	Do you know this lady?	174
+wangu	Wewe ni mwanamke wangu.	You're my woman.	174
+mwanamke	Wewe ni mwanamke wangu.	You're my woman.	174
+sikia	Nilisikia hayo.	I heard that.	182
+hayo	Nilisikia hayo.	I heard that.	182
+hiyo	Hiyo si kweli hata kidogo.	That's not true at all.	195
+kidogo	Hiyo si kweli hata kidogo.	That's not true at all.	195
+kweli	Hiyo si kweli hata kidogo.	That's not true at all.	195
+hata	Hiyo si kweli hata kidogo.	That's not true at all.	195
+ingia	Nitaingia.	I'll jump in.	205
+mimi	Mimi ni mwalimu.	I am a teacher.	206
+mwalimu	Mimi ni mwalimu.	I am a teacher.	206
+wangu	Yeye ni mwalimu wangu.	She is my teacher.	206
+mwalimu	Yeye ni mwalimu wangu.	She is my teacher.	206
+rudi	Nitarudi.	I'll come back.	221
+sababu	Ndiyo, kuna sababu kubwa mbili.	Yes, there are two important reasons.	237
+ndiyo	Ndiyo, kuna sababu kubwa mbili.	Yes, there are two important reasons.	237
+kuna	Ndiyo, kuna sababu kubwa mbili.	Yes, there are two important reasons.	237
+mbili	Ndiyo, kuna sababu kubwa mbili.	Yes, there are two important reasons.	237
+kubwa	Ndiyo, kuna sababu kubwa mbili.	Yes, there are two important reasons.	237
+chakula	Kuna chakula gani?	What kind of food is there?	237
+kuna	Kuna chakula gani?	What kind of food is there?	237
+kila	Kuna mahali kwa kila mtu.	There's a place for everybody.	237
+kuna	Kuna mahali kwa kila mtu.	There's a place for everybody.	237
+kwa	Kuna mahali kwa kila mtu.	There's a place for everybody.	237
+mahali	Kuna mahali kwa kila mtu.	There's a place for everybody.	237
+hiki	Kazi yake nini kitu hiki?	What is this thing used for?	238
+kitu	Kazi yake nini kitu hiki?	What is this thing used for?	238
+yake	Kazi yake nini kitu hiki?	What is this thing used for?	238
+karibu	Aliishi karibu nasi.	She lived next door to us.	241
+nasi	Aliishi karibu nasi.	She lived next door to us.	241
+ishi	Aliishi karibu nasi.	She lived next door to us.	241
+kitu	Hakuna kitu chini ya kiti.	There's nothing under the chair.	248
+kiti	Hakuna kitu chini ya kiti.	There's nothing under the chair.	248
+ya	Hakuna kitu chini ya kiti.	There's nothing under the chair.	248
+chini	Hakuna kitu chini ya kiti.	There's nothing under the chair.	248
+hakuna	Hakuna kitu chini ya kiti.	There's nothing under the chair.	248
+leo	Habari za leo?	How are you today?	251
+habari	Habari za leo?	How are you today?	251
+za	Habari za leo?	How are you today?	251
+tazama	Je, unatazama habari?	Do you watch the news?	254
+je	Je, unatazama habari?	Do you watch the news?	254
+ondoka	Tunaondoka sasa.	We're leaving now.	258
+sasa	Tunaondoka sasa.	We're leaving now.	258
+ondoka	Aliondoka.	He left.	258
+kwangu	Chukua moja ya kwangu.	Take one of me.	265
+moja	Chukua moja ya kwangu.	Take one of me.	265
+chukua	Chukua moja ya kwangu.	Take one of me.	265
+nchi	Yuko nchi za nje.	He is abroad.	266
+nje	Yuko nchi za nje.	He is abroad.	266
+yuko	Yuko nchi za nje.	He is abroad.	266
+za	Yuko nchi za nje.	He is abroad.	266
+mkate	Ninataka mkate.	I want bread.	274
+taka	Ninataka mkate.	I want bread.	274
+ana	Ana imani.	She has hope.	277
+imani	Ana imani.	She has hope.	277
+safari	Ninaenda katika safari.	I'm going on a trip.	281
+enda	Ninaenda katika safari.	I'm going on a trip.	281
+katika	Ninaenda katika safari.	I'm going on a trip.	281
+anza	Ninaanza safari.	I'm hitting the road.	281
+safari	Ninaanza safari.	I'm hitting the road.	281
+enda	Wataenda kesho.	They will go tomorrow.	289
+kesho	Wataenda kesho.	They will go tomorrow.	289
+za	Habari za mchana?	How are you today?	293
+mchana	Habari za mchana?	How are you today?	293
+kubwa	Ni ahadi kubwa sana.	It's a huge commitment.	299
+sana	Ni ahadi kubwa sana.	It's a huge commitment.	299
+ahadi	Ni ahadi kubwa sana.	It's a huge commitment.	299
+yuko	Mwalimu yuko wapi?	Where is the teacher?	300
+mwalimu	Mwalimu yuko wapi?	Where is the teacher?	300
+wapi	Mwalimu yuko wapi?	Where is the teacher?	300
+jina	Jina lako nani?	What's your name?	305
+lako	Jina lako nani?	What's your name?	305
+jina	Jina lako ni nani?	What's your name?	305
+lako	Jina lako ni nani?	What's your name?	305
+jambo	Jambo, jina lako ni nani?	Hello, what's your name?	305
+lako	Jambo, jina lako ni nani?	Hello, what's your name?	305
+jina	Jambo, jina lako ni nani?	Hello, what's your name?	305
+yangu	Wewe ni rafiki yangu.	You are my friend.	306
+rafiki	Wewe ni rafiki yangu.	You are my friend.	306
+hiyo	Hiyo ni siri?	Is that a secret?	323
+siri	Hiyo ni siri?	Is that a secret?	323
+sawa	Sawa.	It doesn't matter.	330
+sawa	Sawa, sawa.	Alright, OK.	330
+sasa	Hapo, hapo. Ni afadhali kwa sasa.	There, there. It's all better now.	338
+hapo	Hapo, hapo. Ni afadhali kwa sasa.	There, there. It's all better now.	338
+afadhali	Hapo, hapo. Ni afadhali kwa sasa.	There, there. It's all better now.	338
+kwa	Hapo, hapo. Ni afadhali kwa sasa.	There, there. It's all better now.	338
+vizuri	Nimefanya vizuri hapa.	I've done well here.	339
+hapa	Nimefanya vizuri hapa.	I've done well here.	339
+moja	Nenda moja kwa moja.	Go straight ahead.	342
+nenda	Nenda moja kwa moja.	Go straight ahead.	342
+andika	Wanaandika.	They're writing.	345
+andika	Mnaandika.	You're writing.	345
+andika	Unaandika.	You're writing.	345
+hapa	Nitaandika nini hapa?	What shall I write here?	345
+ogopa	Umeogopa nini?	What are you scared of?	347
+ukweli	Ninaogopa hiyo ndio ukweli.	I fear that is the truth.	347
+ogopa	Ninaogopa hiyo ndio ukweli.	I fear that is the truth.	347
+ndio	Ninaogopa hiyo ndio ukweli.	I fear that is the truth.	347
+mchana	Nitafanya kazi hadi 8:30 mchana.	I'm going to be busy until 2:30.	352
+hadi	Nitafanya kazi hadi 8:30 mchana.	I'm going to be busy until 2:30.	352
+mama	Mama alilia.	Mama cried.	357
+lia	Mama alilia.	Mama cried.	357
+kitu	Fanya kitu juu ya kelele hiyo.	Do something about that noise.	376
+juu	Fanya kitu juu ya kelele hiyo.	Do something about that noise.	376
+kelele	Fanya kitu juu ya kelele hiyo.	Do something about that noise.	376
+kila	Aliongea nami kila siku.	He talked to me every day.	378
+siku	Aliongea nami kila siku.	He talked to me every day.	378
+ongea	Aliongea nami kila siku.	He talked to me every day.	378
+nami	Aliongea nami kila siku.	He talked to me every day.	378
+uhai	Maji ni uhai.	Water is life.	392
+maji	Maji ni uhai.	Water is life.	392
+furahi	Ninafurahi.	I'm happy.	394
+thamani	Je,hii ni ya thamani?	Is this valuable?	398
+hii	Je,hii ni ya thamani?	Is this valuable?	398
+halali	Ni halali.	It isn't fake.	400
+fika	Tutafika lini?	When will we arrive?	401
+lini	Tutafika lini?	When will we arrive?	401
+mti	Ule ni mti.	That's a tree.	402
+ule	Ule ni mti.	That's a tree.	402
+kelele	Ulisikia kelele nyuma yako.	You heard a noise behind you.	420
+yako	Ulisikia kelele nyuma yako.	You heard a noise behind you.	420
+sikia	Ulisikia kelele nyuma yako.	You heard a noise behind you.	420
+nyuma	Ulisikia kelele nyuma yako.	You heard a noise behind you.	420
+mwanafunzi	Wewe ni mwanafunzi.	You are a student.	421
+safiri	Wamesafiri.	They went on a voyage.	432
+kumbuka	Unakumbuka?	Do you remember?	439
+lake	Je, unakumbuka jina lake?	Do you remember her name?	439
+kumbuka	Je, unakumbuka jina lake?	Do you remember her name?	439
+penda	Ninapenda mwili wako.	I like your body.	443
+mwili	Ninapenda mwili wako.	I like your body.	443
+wako	Ninapenda mwili wako.	I like your body.	443
+sikiliza	Sikiliza.	Listen.	449
+sina	Sina habari kamwe.	I have absolutely no clue.	455
+kamwe	Sina habari kamwe.	I have absolutely no clue.	455
+kidogo	Sina nia hata kidogo.	I'm not interested at all.	455
+nia	Sina nia hata kidogo.	I'm not interested at all.	455
+sina	Sina nia hata kidogo.	I'm not interested at all.	455
+hata	Sina nia hata kidogo.	I'm not interested at all.	455
+tofauti	Hali ya mume wangu ni tofauti.	My husband's situation is different.	456
+hali	Hali ya mume wangu ni tofauti.	My husband's situation is different.	456
+mume	Hali ya mume wangu ni tofauti.	My husband's situation is different.	456
+wangu	Hali ya mume wangu ni tofauti.	My husband's situation is different.	456
+wakati	Uliweka wakati.	You made good time.	463
+weka	Uliweka wakati.	You made good time.	463
+acha	Unadhani ataacha lini?	When do you think he'll stop?	469
+lini	Unadhani ataacha lini?	When do you think he'll stop?	469
+dhani	Unadhani ataacha lini?	When do you think he'll stop?	469
+hana	Yeye hana moyo hata kidogo.	He has no heart at all.	473
+moyo	Yeye hana moyo hata kidogo.	He has no heart at all.	473
+kidogo	Yeye hana moyo hata kidogo.	He has no heart at all.	473
+hata	Yeye hana moyo hata kidogo.	He has no heart at all.	473
+kiongozi	Nani kiongozi hapa?	Who's in command here?	492
+hapa	Nani kiongozi hapa?	Who's in command here?	492
+mna	Je, mna njaa?	Are you hungry?	499
+njaa	Je, mna njaa?	Are you hungry?	499
+deni	Ahadi ni deni.	A promise is a debt.	501
+ahadi	Ahadi ni deni.	A promise is a debt.	501
+uko	Uko tayari?	Are you ready?	503
+tayari	Uko tayari?	Are you ready?	503
+uko	Uko wapi?	Where are you?	503
+wapi	Uko wapi?	Where are you?	503
+njaa	Je, una njaa?	Are you hungry?	511
+una	Je, una njaa?	Are you hungry?	511
+hakika	Una hakika uko sawa?	Are you sure you're OK?	511
+sawa	Una hakika uko sawa?	Are you sure you're OK?	511
+una	Una hakika uko sawa?	Are you sure you're OK?	511
+uko	Una hakika uko sawa?	Are you sure you're OK?	511
+asubuhi	Habari za asubuhi?	How are you this morning?	516
+watu	Habari za asubuhi watu!	Good morning, people!	516
+asubuhi	Habari za asubuhi watu!	Good morning, people!	516
+kaa	Kaa kimya!	Stay calm!	519
+kimya	Kaa kimya!	Stay calm!	519
+tisa	Ni saa tisa.	It's three o'clock.	528
+saa	Ni saa tisa.	It's three o'clock.	528
+tuko	Tuko wapi sasa?	Where are we now?	534
+sasa	Tuko wapi sasa?	Where are we now?	534
+wapi	Tuko wapi sasa?	Where are we now?	534
+tu	Nimepitia hapa tu sasa hivi.	I only happened to pass here just now.	535
+hivi	Nimepitia hapa tu sasa hivi.	I only happened to pass here just now.	535
+pitia	Nimepitia hapa tu sasa hivi.	I only happened to pass here just now.	535
+tupa	Je, utatupa hii?	Will you give this to us?	539
+hii	Je, utatupa hii?	Will you give this to us?	539
+nina	Nina mbwa.	I have a dog.	545
+mbwa	Nina mbwa.	I have a dog.	545
+ogopa	Anaogopa sana mbwa.	She's very afraid of dogs.	545
+sana	Anaogopa sana mbwa.	She's very afraid of dogs.	545
+mbwa	Anaogopa sana mbwa.	She's very afraid of dogs.	545
+wao	Je, wao ni mbwa wako?	Are those your dogs?	545
+wako	Je, wao ni mbwa wako?	Are those your dogs?	545
+mbwa	Je, wao ni mbwa wako?	Are those your dogs?	545
+zungumza	Nimezungumza tu nao.	I just had a talk with them.	548
+nao	Nimezungumza tu nao.	I just had a talk with them.	548
+tu	Nimezungumza tu nao.	I just had a talk with them.	548
+njia	Njia za upepo kando ya barabara.	The path winds along the road.	550
+kando	Njia za upepo kando ya barabara.	The path winds along the road.	550
+barabara	Njia za upepo kando ya barabara.	The path winds along the road.	550
+upepo	Njia za upepo kando ya barabara.	The path winds along the road.	550
+muda	Mkutano ulichukua muda gani?	How long was the meeting?	559
+mkutano	Mkutano ulichukua muda gani?	How long was the meeting?	559
+chukua	Mkutano ulichukua muda gani?	How long was the meeting?	559
+hiki	Kitabu hiki ni mzee kiasi gani?	How old is this book?	593
+kiasi	Kitabu hiki ni mzee kiasi gani?	How old is this book?	593
+kitabu	Kitabu hiki ni mzee kiasi gani?	How old is this book?	593
+mzee	Kitabu hiki ni mzee kiasi gani?	How old is this book?	593
+mkristo	Mimi ni mkristo.	I'm a Christian.	598
+chini	Mbwa yuko chini ya meza.	The dog is under the table.	605
+yuko	Mbwa yuko chini ya meza.	The dog is under the table.	605
+meza	Mbwa yuko chini ya meza.	The dog is under the table.	605
+changu	Kitabu changu ni hapa.	My book is here.	608
+kitabu	Kitabu changu ni hapa.	My book is here.	608
+changu	Hakuna changu hapa.	There's nothing for me here.	608
+hakuna	Hakuna changu hapa.	There's nothing for me here.	608
+shughuli	Sisi tuna shughuli nyingi.	We are busy men.	614
+sisi	Sisi tuna shughuli nyingi.	We are busy men.	614
+nyingi	Sisi tuna shughuli nyingi.	We are busy men.	614
+tuna	Sisi tuna shughuli nyingi.	We are busy men.	614
+nia	Penye nia, pana njia.	Where there's a will, there's a way.	624
+pana	Penye nia, pana njia.	Where there's a will, there's a way.	624
+njia	Penye nia, pana njia.	Where there's a will, there's a way.	624
+penye	Penye nia, pana njia.	Where there's a will, there's a way.	624
+hivyo	Si rahisi hivyo.	It's not that simple.	627
+rahisi	Si rahisi hivyo.	It's not that simple.	627
+muhimu	Si muhimu.	It's not important.	631
+muhimu	Elimu ni muhimu.	Education is important.	631
+elimu	Elimu ni muhimu.	Education is important.	631
+fikiri	Unafikiri ni muhimu?	Do you really think it's necessary?	631
+muhimu	Unafikiri ni muhimu?	Do you really think it's necessary?	631
+maliza	Nimemaliza.	I'm ready.	642
+amani	Maliza ghasia; tafuta amani.	End violence; pursue peace.	642
+ghasia	Maliza ghasia; tafuta amani.	End violence; pursue peace.	642
+maliza	Maliza ghasia; tafuta amani.	End violence; pursue peace.	642
+tafuta	Maliza ghasia; tafuta amani.	End violence; pursue peace.	642
+samaki	Samaki, tafadhali	Fish, please.	645
+tafadhali	Samaki, tafadhali	Fish, please.	645
+wimbo	Je, unajua wimbo huu?	Do you know this song?	654
+huu	Je, unajua wimbo huu?	Do you know this song?	654
+jua	Je, unajua wimbo huu?	Do you know this song?	654
+nina	Nina umri sawa na wewe.	I am more or less the same age as you.	671
+umri	Nina umri sawa na wewe.	I am more or less the same age as you.	671
+na	Nina umri sawa na wewe.	I am more or less the same age as you.	671
+msaada	Anahitaji msaada.	She needs help.	676
+hitaji	Anahitaji msaada.	She needs help.	676
+wakati	Tunahitaji wakati zaidi.	We need some more time.	676
+zaidi	Tunahitaji wakati zaidi.	We need some more time.	676
+hitaji	Tunahitaji wakati zaidi.	We need some more time.	676
+ana	Mama wangu ana homa.	My mother is sick.	677
+mama	Mama wangu ana homa.	My mother is sick.	677
+homa	Mama wangu ana homa.	My mother is sick.	677
+elewa	Kule watu wanaelewa.	The people there are not so dumb.	679
+kule	Kule watu wanaelewa.	The people there are not so dumb.	679
+watu	Kule watu wanaelewa.	The people there are not so dumb.	679
+elewa	Siku moja utaelewa.	One day you'll understand.	679
+siku	Siku moja utaelewa.	One day you'll understand.	679
+muda	Unapoteza sana muda wangu.	You're seriously wasting my time.	681
+poteza	Unapoteza sana muda wangu.	You're seriously wasting my time.	681
+sheria	Alivunja sheria	He broke the law.	684
+vunja	Alivunja sheria	He broke the law.	684
+mama	Niliita mama yangu.	I contacted my mothers.	689
+yangu	Niliita mama yangu.	I contacted my mothers.	689
+ita	Niliita mama yangu.	I contacted my mothers.	689
+kinywaji	Karibu kinywaji.	Have yourself a drink.	707
+karibu	Karibu kinywaji.	Have yourself a drink.	707
+swali	Nina swali.	I have a question.	715
+nina	Nina swali.	I have a question.	715
+jibu	Umepata jibu kwa swali hili?	Have you found an answer to this question?	715
+pata	Umepata jibu kwa swali hili?	Have you found an answer to this question?	715
+hili	Umepata jibu kwa swali hili?	Have you found an answer to this question?	715
+swali	Umepata jibu kwa swali hili?	Have you found an answer to this question?	715
+sisi	Sisi ni watu wa ajabu.	We're so weird.	717
+watu	Sisi ni watu wa ajabu.	We're so weird.	717
+ajabu	Sisi ni watu wa ajabu.	We're so weird.	717
+wa	Sisi ni watu wa ajabu.	We're so weird.	717
+farasi	Farasi anaruka.	The horse is jumping.	723
+ruka	Farasi anaruka.	The horse is jumping.	723
+rafiki	Rafiki yangu anataka maziwa.	My friend wants milk.	726
+maziwa	Rafiki yangu anataka maziwa.	My friend wants milk.	726
+taka	Rafiki yangu anataka maziwa.	My friend wants milk.	726
+mkutano	Je, huna mkutano?	Don't you have a meeting?	728
+huna	Je, huna mkutano?	Don't you have a meeting?	728
+leo	Je, leo jioni huna muda?	Aren't you free tonight?	728
+huna	Je, leo jioni huna muda?	Aren't you free tonight?	728
+muda	Je, leo jioni huna muda?	Aren't you free tonight?	728
+jioni	Je, leo jioni huna muda?	Aren't you free tonight?	728
+mji	Mji wetu bado hauna huduma ya maji.	Our city has no water service yet.	729
+huduma	Mji wetu bado hauna huduma ya maji.	Our city has no water service yet.	729
+bado	Mji wetu bado hauna huduma ya maji.	Our city has no water service yet.	729
+wetu	Mji wetu bado hauna huduma ya maji.	Our city has no water service yet.	729
+maji	Mji wetu bado hauna huduma ya maji.	Our city has no water service yet.	729
+hauna	Mji wetu bado hauna huduma ya maji.	Our city has no water service yet.	729
+chupa	Ninajaza chupa hii kwa mafuta.	I am filling this bottle with oil.	758
+mafuta	Ninajaza chupa hii kwa mafuta.	I am filling this bottle with oil.	758
+jaza	Ninajaza chupa hii kwa mafuta.	I am filling this bottle with oil.	758
+angalia	Wote tuliangalia saa yake.	All of us stared at her.	768
+yake	Wote tuliangalia saa yake.	All of us stared at her.	768
+wote	Wote tuliangalia saa yake.	All of us stared at her.	768
+saa	Wote tuliangalia saa yake.	All of us stared at her.	768
+biashara	Je, kuna biashara gani hapa?	What's the deal here?	770
+biashara	"""Una biashara gani hapa?"" Aliuliza kijana."	"""What business have you here?"" asked the lad."	770
+uliza	"""Una biashara gani hapa?"" Aliuliza kijana."	"""What business have you here?"" asked the lad."	770
+una	"""Una biashara gani hapa?"" Aliuliza kijana."	"""What business have you here?"" asked the lad."	770
+kijana	"""Una biashara gani hapa?"" Aliuliza kijana."	"""What business have you here?"" asked the lad."	770
+jana	Nani alienda nawe jana?	Who went with you yesterday?	772
+enda	Nani alienda nawe jana?	Who went with you yesterday?	772
+nawe	Nani alienda nawe jana?	Who went with you yesterday?	772
+kubali	Je, unakubali ua unakataa?	Do you agree or disagree?	789
+ua	Je, unakubali ua unakataa?	Do you agree or disagree?	789
+kataa	Je, unakubali ua unakataa?	Do you agree or disagree?	789
+bei	Ni bei gani?	How much is it?	798
+bei	Bei gani?	What is the price?	798
+lala	Nyamaza! Amelala.	Hush! He's sleeping.	800
+nyamaza	Nyamaza! Amelala.	Hush! He's sleeping.	800
+mungu	Mungu aliumba dunia.	God created the world.	803
+umba	Mungu aliumba dunia.	God created the world.	803
+dunia	Mungu aliumba dunia.	God created the world.	803
+elekea	Wanaelekea huku.	They're heading this way.	806
+huku	Wanaelekea huku.	They're heading this way.	806
+elekea	Unaelekea wapi?	Where on earth are you going?	806
+hili	Nitashinda hili.	I'm going to win this.	815
+shinda	Nitashinda hili.	I'm going to win this.	815
+zima	Zima taa.	Turn off the light.	830
+taa	Zima taa.	Turn off the light.	830
+lake	Tisa ukiondoa sita, jibu lake ni nini?	How many is nine minus six?	831
+jibu	Tisa ukiondoa sita, jibu lake ni nini?	How many is nine minus six?	831
+ondoa	Tisa ukiondoa sita, jibu lake ni nini?	How many is nine minus six?	831
+tisa	Tisa ukiondoa sita, jibu lake ni nini?	How many is nine minus six?	831
+sita	Tisa ukiondoa sita, jibu lake ni nini?	How many is nine minus six?	831
+jambo	Afya ni jambo muhimu kwa furaha.	Health is an important factor of happiness.	832
+furaha	Afya ni jambo muhimu kwa furaha.	Health is an important factor of happiness.	832
+afya	Afya ni jambo muhimu kwa furaha.	Health is an important factor of happiness.	832
+daktari	Mimi si daktari.	I'm not a doctor.	833
+daktari	Yeye ni daktari.	She's a doctor.	833
+nyinyi	Nyinyi ni nani?	Who are you?	837
+baba	Baba yangu alisema hapana.	My papa said no.	871
+hapana	Baba yangu alisema hapana.	My papa said no.	871
+sema	Baba yangu alisema hapana.	My papa said no.	871
+ngapi	Ulipata ngapi?	How many did you get?	903
+pata	Ulipata ngapi?	How many did you get?	903
+bishana	Kwa nini unabishana naye?	Why do you argue with him?	918
+naye	Kwa nini unabishana naye?	Why do you argue with him?	918
+nywa	Mbona unanywa maji?	Why are you drinking water?	920
+mbona	Mbona unanywa maji?	Why are you drinking water?	920
+maji	Mbona unanywa maji?	Why are you drinking water?	920
+ardhi	Ua wa nyumba yangu ni hatua moja chini kuliko ardhi.	My backyard is one step down and lower than the ground.	922
+kuliko	Ua wa nyumba yangu ni hatua moja chini kuliko ardhi.	My backyard is one step down and lower than the ground.	922
+nyumba	Ua wa nyumba yangu ni hatua moja chini kuliko ardhi.	My backyard is one step down and lower than the ground.	922
+ua	Ua wa nyumba yangu ni hatua moja chini kuliko ardhi.	My backyard is one step down and lower than the ground.	922
+hatua	Ua wa nyumba yangu ni hatua moja chini kuliko ardhi.	My backyard is one step down and lower than the ground.	922
+wa	Ua wa nyumba yangu ni hatua moja chini kuliko ardhi.	My backyard is one step down and lower than the ground.	922
+chini	Ua wa nyumba yangu ni hatua moja chini kuliko ardhi.	My backyard is one step down and lower than the ground.	922
+mji	Kanisa la zamani liko kaskazini mwa mji.	The old church is located in the northern part of the city.	933
+mwa	Kanisa la zamani liko kaskazini mwa mji.	The old church is located in the northern part of the city.	933
+kaskazini	Kanisa la zamani liko kaskazini mwa mji.	The old church is located in the northern part of the city.	933
+kanisa	Kanisa la zamani liko kaskazini mwa mji.	The old church is located in the northern part of the city.	933
+liko	Kanisa la zamani liko kaskazini mwa mji.	The old church is located in the northern part of the city.	933
+la	Kanisa la zamani liko kaskazini mwa mji.	The old church is located in the northern part of the city.	933
+zamani	Kanisa la zamani liko kaskazini mwa mji.	The old church is located in the northern part of the city.	933
+kama	Furaha ni kama kioo: ni hafifu.	Happiness is like glass: it is fragile.	935
+hafifu	Furaha ni kama kioo: ni hafifu.	Happiness is like glass: it is fragile.	935
+furaha	Furaha ni kama kioo: ni hafifu.	Happiness is like glass: it is fragile.	935
+kioo	Furaha ni kama kioo: ni hafifu.	Happiness is like glass: it is fragile.	935
+soma	Nani anasoma?	Who is reading?	941
+soma	Wanasoma kitabu.	They're reading a book.	941
+kitabu	Wanasoma kitabu.	They're reading a book.	941
+soma	Unasoma.	You're reading.	941
+changu	Ninasoma kitabu changu.	I'm reading my book.	941
+hadithi	Nilisoma hadithi jana.	I read a story yesterday.	941
+jana	Nilisoma hadithi jana.	I read a story yesterday.	941
+kwenye	Waliingia ndani kwenye eneo la adui.	They drove deep into enemy territory.	963
+ingia	Waliingia ndani kwenye eneo la adui.	They drove deep into enemy territory.	963
+adui	Waliingia ndani kwenye eneo la adui.	They drove deep into enemy territory.	963
+eneo	Waliingia ndani kwenye eneo la adui.	They drove deep into enemy territory.	963
+la	Waliingia ndani kwenye eneo la adui.	They drove deep into enemy territory.	963
+ndani	Waliingia ndani kwenye eneo la adui.	They drove deep into enemy territory.	963
+vunjika	Nimevunjika moyo.	I'm not disappointed.	968
+moyo	Nimevunjika moyo.	I'm not disappointed.	968
+katika	Fedha zake ni katika benki.	His money is in the bank.	973
+fedha	Fedha zake ni katika benki.	His money is in the bank.	973
+zake	Fedha zake ni katika benki.	His money is in the bank.	973
+benki	Fedha zake ni katika benki.	His money is in the bank.	973
+benki	Baba yake anafanya kazi benki.	Her father is a bank employee.	973
+baba	Baba yake anafanya kazi benki.	Her father is a bank employee.	973
+chakula	Chakula kiko tayari.	Lunch is served.	997
+kiko	Chakula kiko tayari.	Lunch is served.	997
+tayari	Chakula kiko tayari.	Lunch is served.	997
+uza	Katika soko, mkulima anauza mkate wa mkulima wake.	At the market, the farmer is selling his farmer's bread.	1001
+mkate	Katika soko, mkulima anauza mkate wa mkulima wake.	At the market, the farmer is selling his farmer's bread.	1001
+soko	Katika soko, mkulima anauza mkate wa mkulima wake.	At the market, the farmer is selling his farmer's bread.	1001
+mkulima	Katika soko, mkulima anauza mkate wa mkulima wake.	At the market, the farmer is selling his farmer's bread.	1001
+wa	Katika soko, mkulima anauza mkate wa mkulima wake.	At the market, the farmer is selling his farmer's bread.	1001
+wake	Katika soko, mkulima anauza mkate wa mkulima wake.	At the market, the farmer is selling his farmer's bread.	1001
+polepole	Punguza polepole.	Just slow down.	1019
+punguza	Punguza polepole.	Just slow down.	1019
+hesabu	Ninachukia hesabu.	I hate maths.	1022
+chukia	Ninachukia hesabu.	I hate maths.	1022
+mjinga	Mimi si mjinga.	I'm not an idiot.	1027
+mno	Bei ziko juu mno siku hizi.	Prices are high these days.	1029
+bei	Bei ziko juu mno siku hizi.	Prices are high these days.	1029
+ziko	Bei ziko juu mno siku hizi.	Prices are high these days.	1029
+juu	Bei ziko juu mno siku hizi.	Prices are high these days.	1029
+hizi	Bei ziko juu mno siku hizi.	Prices are high these days.	1029
+ongeza	Ongeza sauti ya muziki.	Turn the music up!	1048
+muziki	Ongeza sauti ya muziki.	Turn the music up!	1048
+sauti	Ongeza sauti ya muziki.	Turn the music up!	1048
+paka	Nina paka.	I have a cat.	1054
+paka	Hii paka ni yangu.	This is my cat.	1054
+hisi	Ninahisi kiu.	I feel thirsty.	1077
+kiu	Ninahisi kiu.	I feel thirsty.	1077
+rafiki	Rafiki yangu anataka sukari.	My friend wants sugar.	1088
+sukari	Rafiki yangu anataka sukari.	My friend wants sugar.	1088
+sukari	Rafiki yangu anatumia sukari.	My friend uses sugar.	1088
+tumia	Rafiki yangu anatumia sukari.	My friend uses sugar.	1088
+mlango	Mtu alibisha mlango.	Someone knocked on the door.	1102
+bisha	Mtu alibisha mlango.	Someone knocked on the door.	1102
+onana	Tutaonana kesho!	See you tomorrow!	1109
+kesho	Tutaonana kesho!	See you tomorrow!	1109
+kwenye	Mkahawa uko kwenye ghorofa ya chini, ghorofa mbili chini.	The cafe is on the ground floor, two floors below.	1120
+ghorofa	Mkahawa uko kwenye ghorofa ya chini, ghorofa mbili chini.	The cafe is on the ground floor, two floors below.	1120
+mbili	Mkahawa uko kwenye ghorofa ya chini, ghorofa mbili chini.	The cafe is on the ground floor, two floors below.	1120
+hawa	Mkahawa uko kwenye ghorofa ya chini, ghorofa mbili chini.	The cafe is on the ground floor, two floors below.	1120
+dakika	Atarudi chini ya dakika kumi.	She will be back in less than ten minutes.	1142
+rudi	Atarudi chini ya dakika kumi.	She will be back in less than ten minutes.	1142
+kumi	Atarudi chini ya dakika kumi.	She will be back in less than ten minutes.	1142
+ngapi	Ni aina ngapi zipo hapo?	How many kinds are there?	1147
+zipo	Ni aina ngapi zipo hapo?	How many kinds are there?	1147
+hapo	Ni aina ngapi zipo hapo?	How many kinds are there?	1147
+aina	Ni aina ngapi zipo hapo?	How many kinds are there?	1147
+dada	Dada yangu ni mwerevu sana!	My sister is a genius!	1153
+mwerevu	Dada yangu ni mwerevu sana!	My sister is a genius!	1153
+matata	Hakuna matata.	Don't worry.	1165
+hakuna	Hakuna matata.	Don't worry.	1165
+komesha	Komesha.	Pull the plug.	1169
+bora	Ni bora Kama utaomba msamaha mapema.	If you're going to apologise, sooner is better.	1174
+kama	Ni bora Kama utaomba msamaha mapema.	If you're going to apologise, sooner is better.	1174
+msamaha	Ni bora Kama utaomba msamaha mapema.	If you're going to apologise, sooner is better.	1174
+omba	Ni bora Kama utaomba msamaha mapema.	If you're going to apologise, sooner is better.	1174
+mapema	Ni bora Kama utaomba msamaha mapema.	If you're going to apologise, sooner is better.	1174
+zungumzia	Watu wanazungumzia sana ndoa	There's been too much talk about that marriage.	1177
+ndoa	Watu wanazungumzia sana ndoa	There's been too much talk about that marriage.	1177
+simba	Simba ndiye mfalme wa msitu.	The lion is the king of the jungle.	1179
+msitu	Simba ndiye mfalme wa msitu.	The lion is the king of the jungle.	1179
+ndiye	Simba ndiye mfalme wa msitu.	The lion is the king of the jungle.	1179
+mfalme	Simba ndiye mfalme wa msitu.	The lion is the king of the jungle.	1179
+mjukuu	Huyu ni Nina, mjukuu wako.	This is Nina, your granddaughter.	1188
+wako	Huyu ni Nina, mjukuu wako.	This is Nina, your granddaughter.	1188
+huyu	Huyu ni Nina, mjukuu wako.	This is Nina, your granddaughter.	1188
+tangaza	Watatangaza mshindi kesho ..	They will announce the winner tomorrow.	1189
+mshindi	Watatangaza mshindi kesho ..	They will announce the winner tomorrow.	1189
+kesho	Watatangaza mshindi kesho ..	They will announce the winner tomorrow.	1189

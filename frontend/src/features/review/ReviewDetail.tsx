@@ -4,19 +4,28 @@ import { getCardDetail } from '../../api/review'
 import LanguageWrapper from '../../components/LanguageWrapper'
 import SpeakButton from '../../components/SpeakButton'
 
+export interface ReviewCardStats {
+  repetitions: number
+  streak: number
+  lapses: number
+  next_review?: string | null
+}
+
 interface ReviewDetailProps {
   cardId: string
   cardType: 'grammar' | 'vocabulary' | 'personal'
   languageCode: string
+  stats?: ReviewCardStats
 }
 
 /**
- * Optional, lazy-loaded "review this card" panel shown after answering.
+ * Optional, lazy-loaded "Show info" panel shown after answering — the full
+ * item page, Bunpro-style: title + can-do line, explanation, examples,
+ * culture note, resources, and the learner's own progress on this card.
  * Collapsed by default — a learner who's satisfied with the quick feedback
- * just rates and moves on. Grammar cards reveal a broad explanation + culture
- * note + example sentences; vocabulary cards reveal usage notes + examples.
+ * just continues.
  */
-export default function ReviewDetail({ cardId, cardType, languageCode }: ReviewDetailProps) {
+export default function ReviewDetail({ cardId, languageCode, stats }: ReviewDetailProps) {
   const [open, setOpen] = useState(false)
 
   const { data, isLoading, isError } = useQuery({
@@ -25,8 +34,6 @@ export default function ReviewDetail({ cardId, cardType, languageCode }: ReviewD
     enabled: open,
     staleTime: 5 * 60 * 1000,
   })
-
-  const label = cardType === 'grammar' ? 'Show grammar' : 'Show examples'
 
   return (
     <div className="border-t border-gray-100 pt-3">
@@ -37,7 +44,7 @@ export default function ReviewDetail({ cardId, cardType, languageCode }: ReviewD
         className="text-sm text-indigo-600 hover:underline touch-manipulation"
         style={{ minHeight: '44px' }}
       >
-        {open ? 'Hide' : label}
+        {open ? 'Hide info' : 'Show info'}
       </button>
 
       {open && (
@@ -47,6 +54,57 @@ export default function ReviewDetail({ cardId, cardType, languageCode }: ReviewD
 
           {data && (
             <>
+              {/* Item header: what this card IS */}
+              <div className="text-center py-2">
+                <LanguageWrapper languageCode={languageCode}>
+                  <p className="text-2xl font-bold text-gray-900">{data.title}</p>
+                </LanguageWrapper>
+                {(data.function_note || data.definition) && (
+                  <p className="text-sm text-gray-500 mt-1">
+                    {data.function_note ?? data.definition}
+                  </p>
+                )}
+              </div>
+
+              {/* The learner's history with this card */}
+              {stats && (
+                <div className="grid grid-cols-4 gap-2 text-center bg-gray-50 rounded-xl p-3">
+                  <div>
+                    <span className="block text-base font-semibold text-gray-800 tabular-nums">
+                      {stats.repetitions}
+                    </span>
+                    <span className="block text-[10px] uppercase tracking-wide text-gray-400">
+                      Times studied
+                    </span>
+                  </div>
+                  <div>
+                    <span className="block text-base font-semibold text-gray-800 tabular-nums">
+                      {stats.streak}
+                    </span>
+                    <span className="block text-[10px] uppercase tracking-wide text-gray-400">
+                      Streak
+                    </span>
+                  </div>
+                  <div>
+                    <span className="block text-base font-semibold text-gray-800 tabular-nums">
+                      {stats.lapses}
+                    </span>
+                    <span className="block text-[10px] uppercase tracking-wide text-gray-400">
+                      Misses
+                    </span>
+                  </div>
+                  <div>
+                    <span className="block text-base font-semibold text-gray-800">
+                      {stats.next_review
+                        ? new Date(stats.next_review).toLocaleDateString()
+                        : '—'}
+                    </span>
+                    <span className="block text-[10px] uppercase tracking-wide text-gray-400">
+                      Next review
+                    </span>
+                  </div>
+                </div>
+              )}
               {data.card_type === 'grammar' && data.reviewed === false && (
                 <p className="inline-block text-xs rounded-full px-2 py-0.5 bg-gray-100 text-gray-500">
                   Draft · pending expert review
@@ -55,7 +113,7 @@ export default function ReviewDetail({ cardId, cardType, languageCode }: ReviewD
 
               {data.explanation && (
                 <div>
-                  <h3 className="font-semibold text-gray-700 mb-1">Grammar</h3>
+                  <h3 className="font-semibold text-gray-700 mb-1">About</h3>
                   <p className="text-gray-700 whitespace-pre-wrap">{data.explanation}</p>
                 </div>
               )}
@@ -104,7 +162,7 @@ export default function ReviewDetail({ cardId, cardType, languageCode }: ReviewD
 
               {data.references && data.references.length > 0 && (
                 <div>
-                  <h3 className="font-semibold text-gray-700 mb-1">References</h3>
+                  <h3 className="font-semibold text-gray-700 mb-1">Resources</h3>
                   <ul className="space-y-1">
                     {data.references.map((ref, i) => (
                       <li key={i}>

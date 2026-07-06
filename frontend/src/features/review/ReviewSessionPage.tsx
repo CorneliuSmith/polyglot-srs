@@ -1,6 +1,6 @@
-import { useState, useRef } from 'react'
+import { useState, useRef, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { useQuery, useMutation } from '@tanstack/react-query'
+import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query'
 import { getDueCards, validateAnswer, submitReview } from '../../api/review'
 import { usePrefsStore } from '../../stores/prefsStore'
 import { useReviewSession } from './useReviewSession'
@@ -15,13 +15,17 @@ import type { KeyboardLanguage } from '../keyboards/OnScreenKeyboard'
 
 export default function ReviewSessionPage() {
   const navigate = useNavigate()
+  const queryClient = useQueryClient()
   const activeLanguageId = usePrefsStore((s) => s.activeLanguageId)
   const [userInput, setUserInput] = useState('')
   const [lastInput, setLastInput] = useState('')
   const [showKeyboard, setShowKeyboard] = useState(true)
   const [saveErrorCount, setSaveErrorCount] = useState(0)
   // Graduated hint disclosure (Bunpro-style dots): 0 = nothing revealed.
-  const [hintLevel, setHintLevel] = useState(0)
+  // Persisted in prefs — the level chosen last time stays chosen, across
+  // cards and across sessions, until the learner changes it.
+  const hintLevel = usePrefsStore((s) => s.hintLevel)
+  const setHintLevel = usePrefsStore((s) => s.setHintLevel)
   const inputRef = useRef<HTMLInputElement>(null)
 
   const { data: cards = [], isLoading } = useQuery({
@@ -77,9 +81,28 @@ export default function ReviewSessionPage() {
       prompt_sentence: card.sentence,
     })
 
-    setHintLevel(0)
+    // The hint level intentionally carries over to the next card (persisted
+    // preference) — no reset here.
     session.rate(answerResult)
   }
+
+  // Enter advances after grading: the input is disabled during feedback, so
+  // a document-level listener carries the keyboard flow forward — answer with
+  // Enter, continue with Enter, never touch the mouse.
+  useEffect(() => {
+    if (session.phase !== 'feedback' && session.phase !== 'rating') return
+    const onKeyDown = (e: KeyboardEvent) => {
+      if (e.key !== 'Enter' || submitMutation.isPending) return
+      const result = session.validationResult?.answer_result
+      if (result) {
+        e.preventDefault()
+        handleRate(result)
+      }
+    }
+    document.addEventListener('keydown', onKeyDown)
+    return () => document.removeEventListener('keydown', onKeyDown)
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [session.phase, session.validationResult, submitMutation.isPending])
 
   const handleKeyboardKeyPress = (key: string) => {
     const input = inputRef.current
@@ -143,7 +166,15 @@ export default function ReviewSessionPage() {
           accuracy={session.accuracy}
           totalTimeMs={session.totalTimeMs}
           cardsReviewed={session.cardsReviewed}
-          onFinish={() => navigate('/')}
+          onFinish={() => {
+            // The session changed due counts and deck progress — drop the
+            // cached dashboard state so it's fresh on arrival, not after a
+            // manual reload.
+            queryClient.invalidateQueries({ queryKey: ['dashboard'] })
+            queryClient.invalidateQueries({ queryKey: ['due-cards'] })
+            queryClient.invalidateQueries({ queryKey: ['learn-decks'] })
+            navigate('/')
+          }}
         />
       </div>
     )
@@ -152,9 +183,12 @@ export default function ReviewSessionPage() {
   const card = session.currentCard
   if (!card) return null
 
-  // Hint layers available for this card: 1 = the gloss/hint, 2 = translation.
+  // Hint layers for this card. The translation comes FIRST (a lexical cue —
+  // it says what to express without saying how); the gloss/hint comes LAST,
+  // because morphology-recipe hints like "masa + -da" essentially spell out
+  // the answer and must stay behind the final disclosure level.
   const maxHint = (card.hint ? 1 : 0) + (card.translation ? 1 : 0)
-  const translationHintAt = card.hint ? 2 : 1
+  const glossHintAt = card.translation ? 2 : 1
   const result = session.validationResult?.answer_result
   const resultStyles =
     result === 'correct'
@@ -226,7 +260,7 @@ export default function ReviewSessionPage() {
 
         {/* Card area */}
         <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-6 md:p-8">
-          {card.hint && (session.phase !== 'answering' || hintLevel >= 1) && (
+          {card.hint && (session.phase !== 'answering' || hintLevel >= glossHintAt) && (
             <p className="text-sm text-gray-400 text-center mb-4">{card.hint}</p>
           )}
 
@@ -241,7 +275,7 @@ export default function ReviewSessionPage() {
           />
 
           {card.translation &&
-            (session.phase !== 'answering' || hintLevel >= translationHintAt) && (
+            (session.phase !== 'answering' || hintLevel >= 1) && (
               <p className="text-xs text-gray-400 text-center mt-4">{card.translation}</p>
             )}
         </div>
@@ -263,7 +297,7 @@ export default function ReviewSessionPage() {
               <button
                 type="button"
                 aria-label="Show a hint"
-                onClick={() => setHintLevel((h) => Math.min(h + 1, maxHint))}
+                onClick={() => setHintLevel(hintLevel >= maxHint ? 0 : hintLevel + 1)}
                 className="flex items-center gap-2 text-sm text-gray-400 hover:text-indigo-600"
               >
                 Hint
@@ -318,6 +352,12 @@ export default function ReviewSessionPage() {
                 cardId={card.id}
                 cardType={card.card_type}
                 languageCode={card.language_code}
+                stats={{
+                  repetitions: card.repetitions,
+                  streak: card.streak,
+                  lapses: card.lapses,
+                  next_review: card.next_review,
+                }}
               />
               {/* The answer was already graded by the NLP check; auto-record
                   that grade (it drives FSRS scheduling + the tutor's weak-area

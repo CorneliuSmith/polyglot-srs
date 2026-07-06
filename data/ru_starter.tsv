@@ -1,0 +1,59 @@
+word	definition	pos	level	frequency_rank	gender	aspect	aspect_partner	alternatives	acc	gen	prep
+читать	to read	verb	A1	1		impf	прочитать	прочитать
+писать	to write	verb	A1	2		impf	написать	написать
+говорить	to speak, to say	verb	A1	3		impf	сказать	сказать
+делать	to do, to make	verb	A1	4		impf	сделать	сделать
+смотреть	to watch, to look	verb	A1	5		impf	посмотреть	посмотреть
+слушать	to listen	verb	A1	6		impf	послушать	послушать
+покупать	to buy	verb	A2	7		impf	купить	купить
+давать	to give	verb	A2	8		impf	дать	дать
+звонить	to call (by phone)	verb	A2	9		impf	позвонить	позвонить
+помогать	to help	verb	A2	10		impf	помочь	помочь
+открывать	to open	verb	A2	11		impf	открыть	открыть
+закрывать	to close	verb	A2	12		impf	закрыть	закрыть
+начинать	to begin	verb	A2	13		impf	начать	начать
+брать	to take	verb	A2	14		impf	взять	взять
+пить	to drink	verb	A1	15		impf	выпить	выпить
+учить	to learn, to study (something)	verb	A1	16		impf	выучить	выучить
+идти	to go (on foot, one direction)	verb	A2	17		impf	ходить	ходить
+ехать	to go (by vehicle, one direction)	verb	A2	18		impf	ездить	ездить
+жить	to live	verb	A1	19		impf
+работать	to work	verb	A1	20		impf
+знать	to know	verb	A1	21		impf
+любить	to love	verb	A1	22		impf
+хотеть	to want	verb	A1	23		impf
+заниматься	to study, to be occupied with	verb	A2	24		impf
+учиться	to study (at an institution)	verb	A2	25		impf
+нравиться	to be pleasing (to like)	verb	A2	26		impf	понравиться	понравиться
+книга	book	noun	A1	27	f				книгу	книги	книге
+дом	house, home	noun	A1	28	m				дом	дома	доме
+окно	window	noun	A1	29	n				окно	окна	окне
+стол	table	noun	A1	30	m				стол	стола	столе
+школа	school	noun	A1	31	f				школу	школы	школе
+письмо	letter	noun	A1	32	n				письмо	письма	письме
+машина	car	noun	A1	33	f				машину	машины	машине
+время	time	noun	A2	34	n				время	времени	времени
+брат	brother	noun	A1	35	m				брата	брата	брате
+сестра	sister	noun	A1	36	f				сестру	сестры	сестре
+мама	mum, mother	noun	A1	37	f				маму	мамы	маме
+друг	friend	noun	A1	38	m				друга	друга	друге
+учитель	teacher	noun	A1	39	m				учителя	учителя	учителе
+врач	doctor	noun	A1	40	m				врача	врача	враче
+город	city	noun	A1	41	m				город	города	городе
+работа	work, job	noun	A1	42	f				работу	работы	работе
+деньги	money	noun	A2	43	pl				деньги	денег	деньгах
+вода	water	noun	A1	44	f				воду	воды	воде
+молоко	milk	noun	A1	45	n				молоко	молока	молоке
+газета	newspaper	noun	A1	46	f				газету	газеты	газете
+фильм	film	noun	A1	47	m				фильм	фильма	фильме
+музыка	music	noun	A1	48	f				музыку	музыки	музыке
+язык	language, tongue	noun	A1	49	m				язык	языка	языке
+урок	lesson	noun	A1	50	m				урок	урока	уроке
+магазин	shop	noun	A1	51	m				магазин	магазина	магазине
+хорошо	well, good	adv	A1	52
+плохо	badly	adv	A1	53
+сегодня	today	adv	A1	54
+завтра	tomorrow	adv	A1	55
+вчера	yesterday	adv	A1	56
+дома	at home	adv	A1	57
+очень	very	adv	A1	58

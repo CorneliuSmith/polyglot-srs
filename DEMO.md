@@ -71,13 +71,18 @@ for L in es fr de it ca mi yo ha xh; do
   python -m backend.services.seeder.run --language $L
 done
 
-# Grammar (reviewed points + cloze drills; also feeds placement) — seeds every
-# language with a path: es 43 · tr 40 · sw 32 · yo 24 · xh 24 · ha 22 · ru 8
+# Russian starter vocab (~58 words, offline — aspect-pair cards with
+# declension samples; the full OpenRussian corpus in §1e still applies):
+python -m backend.services.seeder.run --file data/ru_starter.tsv --language ru
+
+# Grammar (reviewed points + cloze drills; also feeds placement) — seeds ALL
+# 14 languages: es 43 · tr 40 · ru 51 · sw 32 · yo 24 · xh 24 · ha 22, plus
+# 12-point A1 paths for fr/de/it/ca/mi/ar/en
 python -m backend.services.seeder.seed_grammar --language all
 
 # Example sentences — vocab is taught IN A SENTENCE (word blanked) when these
 # exist, not as a bare flashcard. Curated starters ship for every curated lang:
-for L in es fr de it ca mi yo ha xh tr; do
+for L in es fr de it ca mi yo ha xh tr ru sw; do
   python -m backend.services.seeder.seed_sentences --language $L
 done
 ```
@@ -91,10 +96,11 @@ If `content_lists` is 0, onboarding can't subscribe you to anything and "Learn"
 will be empty — re-run the seeders.
 
 > **Which languages have content?**
-> - **Full** (vocab + grammar + placement): **Turkish, Spanish**.
-> - **Vocab** (placement is vocab-only): Swahili, Arabic, English, and curated
+> - **Full** (vocab + grammar + placement): **Turkish, Spanish, Russian**
+>   (Russian A2–C2 grammar ships as drafts pending verification; A1 is live).
+> - **Every other language** now has a grammar tab too (12-point A1 path)
+>   on top of its vocabulary: Swahili, Arabic, English corpora and curated
 >   starters for French, German, Italian, Catalan, Maori, Yoruba, Hausa, Xhosa.
-> - **Grammar only**: Russian (its vocab needs an internet download).
 >
 > The curated starters (~30 words) are enough to demo onboarding → placement →
 > learn → review per language, but they're small.
@@ -184,6 +190,13 @@ A screenshot + the language + what you clicked is enough for me to chase it down
 
 ## Troubleshooting — errors we've actually seen
 
+- **500 on the grammar path (`UndefinedColumnError: column gp.function_note
+  does not exist`)** → the database is behind on migrations. Re-run §1c (the
+  migration loop is safe to repeat — every migration is idempotent), then
+  restart uvicorn.
+- **500 on tutor chat (`KeyError`/`avg_ease` in `repositories/tutor.py`)** →
+  fixed in code. Pull the latest and restart uvicorn — a `--reload` server
+  usually picks it up, but a plain `uvicorn` won't.
 - **`pip install -e ".[dev]"` fails building camel-tools / spaCy** → you're on
   Python 3.13/3.14. Use a 3.11/3.12 venv, or the lean install in §1.0.
 - **500 on "Learn" (`UniqueViolationError … user_cards_user_id_card_type_card_id_key`)**
@@ -207,10 +220,12 @@ A screenshot + the language + what you clicked is enough for me to chase it down
 
 ## Known limitations (not bugs — don't be surprised)
 
-- Content coverage today — grammar paths: **Spanish 43 and Turkish 40 (full
-  A1→C2)**; Swahili 32, Yoruba 24, Xhosa 24, Hausa 22 (A1→C1-equivalent);
-  Russian 8 (A1 — next to deepen). Vocab: Swahili/Turkish/Arabic/English
-  corpora + curated starters elsewhere (~30 words). See docs/ROADMAP.md for
+- Content coverage today — grammar paths: **Spanish 43 (6 drills/point) and
+  Turkish 40 (full A1→C2)**; **Russian 51 (full A1→C2, 6 drills/point — A2+
+  are drafts pending verification, hidden until approved)**; Swahili 32,
+  Yoruba 24, Xhosa 24, Hausa 22 (A1→C1-equivalent). Vocab:
+  Swahili/Turkish/Arabic/English corpora + curated starters elsewhere
+  (~30 words; Russian ~58 with aspect-pair cards). See docs/ROADMAP.md for
   the build-out plan.
 - **FSRS personalization** (per-language weight tuning) does nothing until real
   review history accumulates — everyone starts on solid defaults. Correct.

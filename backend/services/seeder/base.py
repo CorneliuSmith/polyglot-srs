@@ -56,20 +56,26 @@ class BaseSeeder(ABC):
                 if isinstance(morphology, dict):
                     morphology = json.dumps(morphology, ensure_ascii=False)
 
+                # Alternatives (regional spellings, aspect/motion partners):
+                # only records that carry the key overwrite the column, so
+                # seeders that don't know about alternatives preserve them.
+                alternatives = rec.get("alternatives")
+
                 # UPSERT vocabulary
                 vocab_id = await conn.fetchval("""
-                    INSERT INTO vocabulary (language_id, word, reading, part_of_speech, level, frequency_rank, morphology)
-                    VALUES ($1, $2, $3, $4, $5, $6, $7::jsonb)
+                    INSERT INTO vocabulary (language_id, word, reading, part_of_speech, level, frequency_rank, morphology, alternatives)
+                    VALUES ($1, $2, $3, $4, $5, $6, $7::jsonb, COALESCE($8::text[], '{}'))
                     ON CONFLICT (language_id, word) DO UPDATE SET
                         reading = EXCLUDED.reading,
                         part_of_speech = EXCLUDED.part_of_speech,
                         level = EXCLUDED.level,
                         frequency_rank = EXCLUDED.frequency_rank,
-                        morphology = EXCLUDED.morphology
+                        morphology = EXCLUDED.morphology,
+                        alternatives = COALESCE($8::text[], vocabulary.alternatives)
                     RETURNING id
                 """, self.language_id, rec["word"], rec.get("reading"),
                     rec.get("pos"), rec.get("level"), rec.get("frequency_rank"),
-                    morphology)
+                    morphology, alternatives)
 
                 # UPSERT translations
                 for locale, definition in rec.get("translations", {}).items():
