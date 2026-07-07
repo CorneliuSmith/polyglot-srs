@@ -40,6 +40,8 @@ class FakeSettings:
     tutor_summary_model = "claude-sonnet-4-6"
     tutor_free_access = True
     tutor_dev_mock = False
+    tutor_free_monthly_messages = 20
+    tutor_plus_daily_messages = 100
 
 
 def _make_token() -> str:
@@ -273,7 +275,10 @@ class TestTutorChatEndpoint:
         ) as mock_chat:
             resp = client.post("/api/tutor/chat", json=_chat_body(), headers=_auth_headers())
         assert resp.status_code == 200
-        assert resp.json() == {"reply": "Let's drill -da/-de!", "remembered": 0}
+        body = resp.json()
+        assert body["reply"] == "Let's drill -da/-de!"
+        assert body["remembered"] == 0
+        assert body["allowance"]["unlimited"] is True  # operator free-access mode
         assert mock_chat.await_args.args[0] == "tr"
 
     def test_persists_remembered_notes(self, client):
@@ -297,13 +302,60 @@ class TestTutorChatEndpoint:
         )
         assert resp.status_code == 422
 
-    def test_entitlement_enforced(self, client):
+    def test_free_tier_chats_within_monthly_allowance(self, client):
+        """No subscription needed to TRY the tutor — free accounts get a
+        monthly message allowance, and the reply reports the meter."""
+        paid = FakeSettings()
+        paid.tutor_free_access = False
+        p1, p2, p3, p4 = _patch_chat_repos()
+        with p1, p2, p3, p4, \
+             patch("backend.routers.tutor.get_settings", return_value=paid), \
+             patch("backend.routers.tutor.has_tutor_entitlement",
+                   new=AsyncMock(return_value=False)), \
+             patch("backend.routers.tutor.count_tutor_messages",
+                   new=AsyncMock(return_value=5)), \
+             patch("backend.routers.tutor.log_tutor_usage",
+                   new=AsyncMock()) as mock_log, \
+             patch("backend.routers.tutor.tutor_chat",
+                   new=AsyncMock(return_value=("hi", []))):
+            resp = client.post("/api/tutor/chat", json=_chat_body(), headers=_auth_headers())
+        assert resp.status_code == 200
+        allowance = resp.json()["allowance"]
+        assert allowance["tier"] == "free"
+        assert allowance["limit"] == 20
+        assert allowance["used"] == 6          # the 5 before + this one
+        assert allowance["remaining"] == 14
+        mock_log.assert_awaited_once()         # the message was recorded
+
+    def test_free_tier_blocked_at_monthly_limit(self, client):
         paid = FakeSettings()
         paid.tutor_free_access = False
         with patch("backend.routers.tutor.get_settings", return_value=paid), \
-             patch("backend.routers.tutor.has_tutor_entitlement", new=AsyncMock(return_value=False)):
+             patch("backend.routers.tutor.has_tutor_entitlement",
+                   new=AsyncMock(return_value=False)), \
+             patch("backend.routers.tutor.count_tutor_messages",
+                   new=AsyncMock(return_value=20)):
             resp = client.post("/api/tutor/chat", json=_chat_body(), headers=_auth_headers())
         assert resp.status_code == 402
+        detail = resp.json()["detail"]
+        assert detail["code"] == "allowance_exhausted"
+        assert detail["tier"] == "free"
+        assert detail["limit"] == 20
+        assert detail["resets_at"]  # the UI can say exactly when
+
+    def test_plus_tier_blocked_at_daily_fair_use_cap(self, client):
+        paid = FakeSettings()
+        paid.tutor_free_access = False
+        with patch("backend.routers.tutor.get_settings", return_value=paid), \
+             patch("backend.routers.tutor.has_tutor_entitlement",
+                   new=AsyncMock(return_value=True)), \
+             patch("backend.routers.tutor.count_tutor_messages",
+                   new=AsyncMock(return_value=100)):
+            resp = client.post("/api/tutor/chat", json=_chat_body(), headers=_auth_headers())
+        assert resp.status_code == 402
+        detail = resp.json()["detail"]
+        assert detail["code"] == "allowance_exhausted"
+        assert detail["tier"] == "plus"        # not an upsell — resets tomorrow
 
     def test_unconfigured_key_503(self, client):
         unconfigured = FakeSettings()
@@ -353,13 +405,37 @@ class TestSessionEndEndpoint:
 
 
 class TestTutorStatus:
-    def test_reports_availability(self, client):
+    def test_reports_availability_with_allowance(self, client):
         resp = client.get(
             "/api/tutor/status",
             params={"language_id": TEST_LANGUAGE_ID, "language_code": "xh"},
             headers=_auth_headers(),
         )
-        assert resp.json() == {"available": True, "entitled": True}
+        body = resp.json()
+        assert body["available"] is True
+        assert body["entitled"] is True
+        assert body["allowance"]["unlimited"] is True  # operator mode
+
+    def test_free_tier_status_shows_meter(self, client):
+        paid = FakeSettings()
+        paid.tutor_free_access = False
+        with patch("backend.routers.tutor.get_settings", return_value=paid), \
+             patch("backend.routers.tutor.has_tutor_entitlement",
+                   new=AsyncMock(return_value=False)), \
+             patch("backend.routers.tutor.count_tutor_messages",
+                   new=AsyncMock(return_value=7)):
+            resp = client.get(
+                "/api/tutor/status",
+                params={"language_id": TEST_LANGUAGE_ID, "language_code": "xh"},
+                headers=_auth_headers(),
+            )
+        body = resp.json()
+        assert body["entitled"] is False
+        assert body["allowance"] == {
+            "tier": "free", "unlimited": False, "entitled": False,
+            "limit": 20, "used": 7, "remaining": 13,
+            "resets_at": body["allowance"]["resets_at"],
+        }
 
     def test_unknown_language_not_available(self, client):
         resp = client.get(
@@ -367,7 +443,7 @@ class TestTutorStatus:
             params={"language_id": TEST_LANGUAGE_ID, "language_code": "zz"},
             headers=_auth_headers(),
         )
-        assert resp.json() == {"available": False, "entitled": False}
+        assert resp.json() == {"available": False, "entitled": False, "allowance": None}
 
 
 # ---------------------------------------------------------------------------

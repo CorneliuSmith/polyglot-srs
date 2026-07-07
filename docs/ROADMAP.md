@@ -289,11 +289,15 @@ adopted; unit tests for the split.
 ### WP9 — Tutor upgrades
 **Goal:** production-quality tutoring. (a) Model config: chat on
 `claude-opus-4-8` (default; operators may set `TUTOR_MODEL`), summarizer/
-checks on `claude-sonnet-5` (now default). (b) Add per-user token/cost
-tracking (log usage per chat into a `tutor_usage` table; surface in admin).
-(c) Tutor should propose drills from GRAMMAR weak areas (data now flows;
-prompt already tags kind=grammar — verify behavior with real key and tune the
-charter). (d) Streaming responses in the chat UI.
+checks on `claude-sonnet-5` (now default). (b) Per-user usage tracking —
+**message logging + tiered allowances DONE 2026-07** (`tutor_usage` table;
+flat pricing, never per message: free = 20 msgs/month, plus = 100/day fair
+use, both shown as a meter in the tutor UI with structured 402s — see
+docs/accounts-and-roles.md "Account tiers"); remaining: capture
+input/output token counts per call and surface per-user/per-language cost
+in an admin view. (c) Tutor should propose drills from GRAMMAR weak areas
+(data now flows; prompt already tags kind=grammar — verify behavior with
+real key and tune the charter). (d) Streaming responses in the chat UI.
 **Model:** implementation `claude-sonnet-5`; prompt/charter tuning
 `claude-fable-5` or `claude-opus-4-8`.
 **Effort:** M.
