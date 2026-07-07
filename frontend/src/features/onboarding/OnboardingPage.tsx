@@ -11,6 +11,7 @@ import {
 import type { PlacementItem } from '../../api/onboarding'
 import { usePrefsStore } from '../../stores/prefsStore'
 import LanguageWrapper from '../../components/LanguageWrapper'
+import { convertTranslit, finalizeInput, isTranslitEnabled } from '../keyboards/translit'
 import type { Language } from '../../api/types'
 
 type Step = 'language' | 'method' | 'placement' | 'confirm'
@@ -20,6 +21,7 @@ const CEFR_LEVELS = ['A1', 'A2', 'B1', 'B2', 'C1', 'C2'] as const
 export default function OnboardingPage() {
   const navigate = useNavigate()
   const setActiveLanguageId = usePrefsStore((s) => s.setActiveLanguageId)
+  const qwertyTranslit = usePrefsStore((s) => s.qwertyTranslit)
 
   const [step, setStep] = useState<Step>('language')
   const [language, setLanguage] = useState<Language | null>(null)
@@ -52,7 +54,10 @@ export default function OnboardingPage() {
     mutationFn: () =>
       scorePlacement(
         language!.id,
-        items.map((it) => ({ id: it.id, input: responses[it.id] ?? '' })),
+        items.map((it) => ({
+          id: it.id,
+          input: finalizeInput(language!.code, responses[it.id] ?? '', qwertyTranslit),
+        })),
       ),
     onSuccess: (res) => {
       setLevel(res.estimated_level)
@@ -153,9 +158,12 @@ export default function OnboardingPage() {
                   <LanguageWrapper languageCode={language.code}>
                     <input
                       value={responses[item.id] ?? ''}
-                      onChange={(e) =>
-                        setResponses((r) => ({ ...r, [item.id]: e.target.value }))
-                      }
+                      onChange={(e) => {
+                        const v = isTranslitEnabled(language.code, qwertyTranslit)
+                          ? convertTranslit(language.code, e.target.value)
+                          : e.target.value
+                        setResponses((r) => ({ ...r, [item.id]: v }))
+                      }}
                       aria-label={item.prompt}
                       className="mt-1 w-full rounded-lg border border-gray-300 px-3 py-2 text-sm"
                     />

@@ -10,6 +10,7 @@ import ReviewDetail from './ReviewDetail'
 import CardFeedback from './CardFeedback'
 import SessionSummary from './SessionSummary'
 import OnScreenKeyboard from '../keyboards/OnScreenKeyboard'
+import { finalizeInput } from '../keyboards/translit'
 import { hintLayersFor } from './hintLayers'
 import SpeakButton from '../../components/SpeakButton'
 import type { KeyboardLanguage } from '../keyboards/OnScreenKeyboard'
@@ -37,10 +38,12 @@ export default function ReviewSessionPage() {
 
   const session = useReviewSession(cards)
 
+  const qwertyTranslit = usePrefsStore((s) => s.qwertyTranslit)
+
   const validateMutation = useMutation({
     mutationFn: validateAnswer,
-    onSuccess: (result) => {
-      setLastInput(userInput)
+    onSuccess: (result, variables) => {
+      setLastInput(variables.user_input)
       session.setValidationResult(result)
       setUserInput('')
     },
@@ -59,9 +62,16 @@ export default function ReviewSessionPage() {
     const card = session.currentCard
     if (!card || !userInput.trim() || validateMutation.isPending) return
 
+    // Resolve anything the QWERTY transliteration left pending (e.g. an
+    // Arabic trailing vowel) before grading.
+    const finalInput = finalizeInput(
+      card.language_code, userInput.trim(), qwertyTranslit,
+    )
+    if (finalInput !== userInput) setUserInput(finalInput)
+
     validateMutation.mutate({
       language_code: card.language_code,
-      user_input: userInput.trim(),
+      user_input: finalInput,
       correct_answer: card.correct_answer,
       card_context: {
         morphology: card.morphology ?? {},

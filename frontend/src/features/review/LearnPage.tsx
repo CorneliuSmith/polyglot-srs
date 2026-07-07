@@ -7,6 +7,7 @@ import { usePrefsStore } from '../../stores/prefsStore'
 import LanguageWrapper from '../../components/LanguageWrapper'
 import SpeakButton from '../../components/SpeakButton'
 import DrillCard from './DrillCard'
+import { finalizeInput } from '../keyboards/translit'
 import type { Lesson, ValidateAnswerResponse } from '../../api/types'
 
 /**
@@ -23,6 +24,7 @@ export default function LearnPage() {
   // deck (and queues it if it wasn't queued yet).
   const level = searchParams.get('level') ?? undefined
   const activeLanguageId = usePrefsStore((s) => s.activeLanguageId)
+  const qwertyTranslit = usePrefsStore((s) => s.qwertyTranslit)
   const [lessonIndex, setLessonIndex] = useState(0)
 
   const { data: languages = [] } = useQuery({ queryKey: ['languages'], queryFn: getLanguages })
@@ -127,10 +129,12 @@ export default function LearnPage() {
 
   const handleCheck = () => {
     if (!lesson?.quiz || !quizInput.trim() || validateMutation.isPending) return
+    const finalInput = finalizeInput(languageCode, quizInput.trim(), qwertyTranslit)
+    if (finalInput !== quizInput) setQuizInput(finalInput)
     validateMutation.mutate(
       {
         language_code: languageCode,
-        user_input: quizInput.trim(),
+        user_input: finalInput,
         correct_answer: lesson.quiz.answer,
         card_context: {
           morphology: lesson.quiz.morphology ?? {},

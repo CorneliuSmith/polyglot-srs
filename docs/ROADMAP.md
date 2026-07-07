@@ -34,7 +34,12 @@ coach from the learner's actual failure history.
   (ru/ar/el) reveal romanization → word-by-word gloss → translation → recipe;
   syntax-divergent languages (mi/sw/yo/xh/ha) reveal the gloss first; the
   rest reveal translation → recipe; the answer blank colors on grading
-  (green correct / amber sloppy spelling / red wrong); the post-answer item
+  (green correct / amber sloppy spelling / red wrong); non-Latin scripts
+  (ru/ar/el) take QWERTY transliteration input by default — type Latin, the
+  blank converts as you type (translit.ru-style for Russian, chat-alphabet
+  digits + positional short vowels for Arabic, Greeklish with automatic
+  final sigma for Greek), with a per-language toggle and an in-card key
+  guide (features/keyboards/translit.ts); the post-answer item
   page (WP13 a–e) shows a named-stage badge + progress panel, blur-toggled
   example translations, the learner's own note sentences, a Related grid
   with contrastive one-liners, and Online/Offline resources with per-user

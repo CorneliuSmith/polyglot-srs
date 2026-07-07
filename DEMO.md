@@ -164,6 +164,12 @@ Sign up with a fresh account and walk the whole path. Expected behavior — and
    **"Show grammar"** for the explanation + example sentences (also speakable).
 7. **Learn from your own text** — paste a Turkish sentence, tap a word, add a
    card; it enters your reviews.
+7b. **QWERTY input for other scripts** — switch to Russian, Arabic, or Greek
+   and start a review: the answer blank converts Latin typing to the target
+   script as you type (privet → привет, kitaab → كتاب). It's on by default;
+   the pill under the blank toggles it and **Key guide** shows the full
+   mapping (Arabic: capitals = emphatics, 3/7/2 = ع/ح/ء, double a vowel to
+   write it long).
 8. **AI Tutor** — opens and responds (mock or real), or shows the **Subscribe**
    button if you configured the billing demo.
 
