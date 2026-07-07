@@ -33,7 +33,8 @@
           "translation": "I am a student.",
           "hint": "I",
           "display_order": 1,
-          "transliteration": "___ ṭālib"
+          "transliteration": "___ ṭālib",
+          "cell": "أنا"
         },
         {
           "sentence": "{{answer}} معلمة.",
@@ -41,7 +42,8 @@
           "translation": "She is a teacher.",
           "hint": "she",
           "display_order": 2,
-          "transliteration": "___ muʿallima"
+          "transliteration": "___ muʿallima",
+          "cell": "هي"
         },
         {
           "sentence": "{{answer}} من مصر.",
@@ -49,7 +51,8 @@
           "translation": "He is from Egypt.",
           "hint": "he",
           "display_order": 3,
-          "transliteration": "___ min Miṣr"
+          "transliteration": "___ min Miṣr",
+          "cell": "هو"
         },
         {
           "sentence": "{{answer}} طلاب.",
@@ -57,7 +60,8 @@
           "translation": "We are students.",
           "hint": "we",
           "display_order": 4,
-          "transliteration": "___ ṭullāb"
+          "transliteration": "___ ṭullāb",
+          "cell": "نحن"
         },
         {
           "sentence": "هل {{answer}} جوعان؟",
@@ -65,7 +69,8 @@
           "translation": "Are you hungry?",
           "hint": "you",
           "display_order": 5,
-          "transliteration": "hal ___ jawʿān"
+          "transliteration": "hal ___ jawʿān",
+          "cell": "أنتَ"
         },
         {
           "sentence": "{{answer}} أصدقاء.",
@@ -73,8 +78,37 @@
           "translation": "They are friends.",
           "hint": "they",
           "display_order": 6,
-          "transliteration": "___ aṣdiqāʾ"
+          "transliteration": "___ aṣdiqāʾ",
+          "cell": "هم"
+        },
+        {
+          "sentence": "{{answer}} طبيبة.",
+          "answer": "أنتِ",
+          "translation": "You (f.) are a doctor.",
+          "transliteration": "___ ṭabība.",
+          "hint": "you — feminine",
+          "cell": "أنتِ",
+          "display_order": 7
+        },
+        {
+          "sentence": "{{answer}} أصدقائي.",
+          "answer": "أنتم",
+          "translation": "You (all) are my friends.",
+          "transliteration": "___ aṣdiqāʾī.",
+          "hint": "you — plural",
+          "cell": "أنتم",
+          "display_order": 8
         }
+      ],
+      "paradigm": [
+        "أنا",
+        "أنتَ",
+        "أنتِ",
+        "هو",
+        "هي",
+        "نحن",
+        "أنتم",
+        "هم"
       ]
     },
     {
@@ -173,7 +207,8 @@
           "translation": "The house is big.",
           "hint": "house + the article (moon letter: al-bayt)",
           "display_order": 1,
-          "transliteration": "___ kabīr"
+          "transliteration": "___ kabīr",
+          "cell": "moon"
         },
         {
           "sentence": "{{answer}} ساخنة.",
@@ -181,7 +216,8 @@
           "translation": "The coffee is hot.",
           "hint": "coffee + the article (moon letter)",
           "display_order": 2,
-          "transliteration": "___ sākhina"
+          "transliteration": "___ sākhina",
+          "cell": "moon"
         },
         {
           "sentence": "{{answer}} جديد.",
@@ -189,7 +225,8 @@
           "translation": "The book is new.",
           "hint": "book + the article (moon letter)",
           "display_order": 3,
-          "transliteration": "___ jadīd"
+          "transliteration": "___ jadīd",
+          "cell": "moon"
         },
         {
           "sentence": "{{answer}} جميلة.",
@@ -197,7 +234,8 @@
           "translation": "The city is beautiful.",
           "hint": "city + the article (moon letter)",
           "display_order": 4,
-          "transliteration": "___ jamīla"
+          "transliteration": "___ jamīla",
+          "cell": "moon"
         },
         {
           "sentence": "{{answer}} طويل.",
@@ -205,7 +243,8 @@
           "translation": "The street is long.",
           "hint": "street + the article (sun letter: ash-shāriʿ)",
           "display_order": 5,
-          "transliteration": "___ ṭawīl"
+          "transliteration": "___ ṭawīl",
+          "cell": "sun"
         },
         {
           "sentence": "{{answer}} مفتوح.",
@@ -213,8 +252,22 @@
           "translation": "The door is open.",
           "hint": "door + the article (moon letter)",
           "display_order": 6,
-          "transliteration": "___ maftūḥ"
+          "transliteration": "___ maftūḥ",
+          "cell": "moon"
+        },
+        {
+          "sentence": "{{answer}} حارة اليوم.",
+          "answer": "الشمس",
+          "translation": "The sun is hot today.",
+          "transliteration": "___ ḥārra al-yawm.",
+          "hint": "sun + ال (the L assimilates — sun letter)",
+          "cell": "sun",
+          "display_order": 7
         }
+      ],
+      "paradigm": [
+        "sun",
+        "moon"
       ]
     },
     {
@@ -243,7 +296,8 @@
           "translation": "She is a teacher.",
           "hint": "teacher — feminine ة",
           "display_order": 1,
-          "transliteration": "hiya ___"
+          "transliteration": "hiya ___",
+          "cell": "feminine"
         },
         {
           "sentence": "هو {{answer}}.",
@@ -251,7 +305,8 @@
           "translation": "He is a teacher.",
           "hint": "teacher — masculine",
           "display_order": 2,
-          "transliteration": "huwa ___"
+          "transliteration": "huwa ___",
+          "cell": "masculine"
         },
         {
           "sentence": "مريم {{answer}}.",
@@ -259,7 +314,8 @@
           "translation": "Maryam is a student.",
           "hint": "student — feminine ة",
           "display_order": 3,
-          "transliteration": "Maryam ___"
+          "transliteration": "Maryam ___",
+          "cell": "feminine"
         },
         {
           "sentence": "أحمد {{answer}}.",
@@ -267,7 +323,8 @@
           "translation": "Ahmed is a student.",
           "hint": "student — masculine",
           "display_order": 4,
-          "transliteration": "Aḥmad ___"
+          "transliteration": "Aḥmad ___",
+          "cell": "masculine"
         },
         {
           "sentence": "أمي {{answer}}.",
@@ -275,7 +332,8 @@
           "translation": "My mother is a doctor.",
           "hint": "doctor — feminine ة",
           "display_order": 5,
-          "transliteration": "ummī ___"
+          "transliteration": "ummī ___",
+          "cell": "feminine"
         },
         {
           "sentence": "أختي {{answer}}.",
@@ -283,8 +341,13 @@
           "translation": "My sister is an engineer.",
           "hint": "engineer — feminine ة",
           "display_order": 6,
-          "transliteration": "ukhtī ___"
+          "transliteration": "ukhtī ___",
+          "cell": "feminine"
         }
+      ],
+      "paradigm": [
+        "masculine",
+        "feminine"
       ]
     },
     {
@@ -313,7 +376,8 @@
           "translation": "This is a book.",
           "hint": "this — masculine",
           "display_order": 1,
-          "transliteration": "___ kitāb"
+          "transliteration": "___ kitāb",
+          "cell": "هذا"
         },
         {
           "sentence": "{{answer}} سيارة.",
@@ -321,7 +385,8 @@
           "translation": "This is a car.",
           "hint": "this — feminine",
           "display_order": 2,
-          "transliteration": "___ sayyāra"
+          "transliteration": "___ sayyāra",
+          "cell": "هذه"
         },
         {
           "sentence": "{{answer}} بيت كبير.",
@@ -329,7 +394,8 @@
           "translation": "This is a big house.",
           "hint": "this — masculine",
           "display_order": 3,
-          "transliteration": "___ bayt kabīr"
+          "transliteration": "___ bayt kabīr",
+          "cell": "هذا"
         },
         {
           "sentence": "{{answer}} مدينة جميلة.",
@@ -337,7 +403,8 @@
           "translation": "This is a beautiful city.",
           "hint": "this — feminine",
           "display_order": 4,
-          "transliteration": "___ madīna jamīla"
+          "transliteration": "___ madīna jamīla",
+          "cell": "هذه"
         },
         {
           "sentence": "{{answer}} شاي.",
@@ -345,7 +412,8 @@
           "translation": "This is tea.",
           "hint": "this — masculine",
           "display_order": 5,
-          "transliteration": "___ shāy"
+          "transliteration": "___ shāy",
+          "cell": "هذا"
         },
         {
           "sentence": "{{answer}} شجرة.",
@@ -353,8 +421,13 @@
           "translation": "This is a tree.",
           "hint": "this — feminine",
           "display_order": 6,
-          "transliteration": "___ shajara"
+          "transliteration": "___ shajara",
+          "cell": "هذه"
         }
+      ],
+      "paradigm": [
+        "هذا",
+        "هذه"
       ]
     },
     {
@@ -593,7 +666,8 @@
           "translation": "This is my book.",
           "hint": "book + my",
           "display_order": 1,
-          "transliteration": "hādhā ___"
+          "transliteration": "hādhā ___",
+          "cell": "ي"
         },
         {
           "sentence": "أين {{answer}}؟",
@@ -601,7 +675,8 @@
           "translation": "Where is your car?",
           "hint": "car + your (ة becomes ت)",
           "display_order": 2,
-          "transliteration": "ayna ___"
+          "transliteration": "ayna ___",
+          "cell": "كَ"
         },
         {
           "sentence": "{{answer}} كبير جداً.",
@@ -609,7 +684,8 @@
           "translation": "His house is very big.",
           "hint": "house + his",
           "display_order": 3,
-          "transliteration": "___ kabīr jiddan"
+          "transliteration": "___ kabīr jiddan",
+          "cell": "ه"
         },
         {
           "sentence": "هذه {{answer}}.",
@@ -617,7 +693,8 @@
           "translation": "This is my school.",
           "hint": "school + my (ة becomes ت)",
           "display_order": 4,
-          "transliteration": "hādhihi ___"
+          "transliteration": "hādhihi ___",
+          "cell": "ي"
         },
         {
           "sentence": "{{answer}} في مصر.",
@@ -625,7 +702,8 @@
           "translation": "My family is in Egypt.",
           "hint": "family + my (ة becomes ت)",
           "display_order": 5,
-          "transliteration": "___ fī Miṣr"
+          "transliteration": "___ fī Miṣr",
+          "cell": "ي"
         },
         {
           "sentence": "اسم {{answer}} فاطمة.",
@@ -633,8 +711,34 @@
           "translation": "My mother's name is Fatima.",
           "hint": "mother + my",
           "display_order": 6,
-          "transliteration": "ism ___ Fāṭima"
+          "transliteration": "ism ___ Fāṭima",
+          "cell": "ي"
+        },
+        {
+          "sentence": "{{answer}} جديدة.",
+          "answer": "سيارتها",
+          "translation": "Her car is new.",
+          "transliteration": "___ jadīda.",
+          "hint": "car + her",
+          "cell": "ها",
+          "display_order": 7
+        },
+        {
+          "sentence": "{{answer}} كبير.",
+          "answer": "بيتنا",
+          "translation": "Our house is big.",
+          "transliteration": "___ kabīr.",
+          "hint": "house + our",
+          "cell": "نا",
+          "display_order": 8
         }
+      ],
+      "paradigm": [
+        "ي",
+        "كَ",
+        "ه",
+        "ها",
+        "نا"
       ]
     },
     {
@@ -663,7 +767,8 @@
           "translation": "I study Arabic.",
           "hint": "to study — the 'I' prefix",
           "display_order": 1,
-          "transliteration": "ana ___ al-ʿarabiyya"
+          "transliteration": "ana ___ al-ʿarabiyya",
+          "cell": "أنا"
         },
         {
           "sentence": "هو {{answer}} في بنك.",
@@ -671,7 +776,8 @@
           "translation": "He works in a bank.",
           "hint": "to work — the 'he' prefix",
           "display_order": 2,
-          "transliteration": "huwa ___ fī bank"
+          "transliteration": "huwa ___ fī bank",
+          "cell": "هو"
         },
         {
           "sentence": "هي {{answer}} القهوة.",
@@ -679,7 +785,8 @@
           "translation": "She drinks coffee.",
           "hint": "to drink — the 'she' prefix",
           "display_order": 3,
-          "transliteration": "hiya ___ al-qahwa"
+          "transliteration": "hiya ___ al-qahwa",
+          "cell": "هي"
         },
         {
           "sentence": "نحن {{answer}} الكتب.",
@@ -687,7 +794,8 @@
           "translation": "We read books.",
           "hint": "to read — the 'we' prefix",
           "display_order": 4,
-          "transliteration": "naḥnu ___ al-kutub"
+          "transliteration": "naḥnu ___ al-kutub",
+          "cell": "نحن"
         },
         {
           "sentence": "{{answer}} إلى المدرسة كل يوم.",
@@ -695,7 +803,8 @@
           "translation": "I go to school every day.",
           "hint": "to go — the 'I' prefix",
           "display_order": 5,
-          "transliteration": "___ ilā al-madrasa kull yawm"
+          "transliteration": "___ ilā al-madrasa kull yawm",
+          "cell": "أنا"
         },
         {
           "sentence": "هم {{answer}} العربية.",
@@ -703,8 +812,26 @@
           "translation": "They speak Arabic.",
           "hint": "to speak — the 'they' form",
           "display_order": 6,
-          "transliteration": "hum ___ al-ʿarabiyya"
+          "transliteration": "hum ___ al-ʿarabiyya",
+          "cell": "هم"
+        },
+        {
+          "sentence": "أنتَ {{answer}} الشاي؟",
+          "answer": "تشرب",
+          "translation": "Do you (m.) drink tea?",
+          "transliteration": "anta ___ ash-shāy?",
+          "hint": "to drink, you (m.) — same form as 'she'",
+          "cell": "أنتَ",
+          "display_order": 7
         }
+      ],
+      "paradigm": [
+        "أنا",
+        "أنتَ",
+        "هو",
+        "هي",
+        "نحن",
+        "هم"
       ]
     },
     {
@@ -733,7 +860,8 @@
           "translation": "I am not hungry.",
           "hint": "the nominal negator, 'I' form",
           "display_order": 1,
-          "transliteration": "ana ___ jawʿān"
+          "transliteration": "ana ___ jawʿān",
+          "cell": "لست"
         },
         {
           "sentence": "{{answer}} أشرب القهوة.",
@@ -741,7 +869,8 @@
           "translation": "I don't drink coffee.",
           "hint": "the verb negator",
           "display_order": 2,
-          "transliteration": "___ ashrabu al-qahwa"
+          "transliteration": "___ ashrabu al-qahwa",
+          "cell": "لا"
         },
         {
           "sentence": "هو {{answer}} هنا.",
@@ -749,7 +878,8 @@
           "translation": "He is not here.",
           "hint": "the nominal negator, 'he' form",
           "display_order": 3,
-          "transliteration": "huwa ___ hunā"
+          "transliteration": "huwa ___ hunā",
+          "cell": "ليس"
         },
         {
           "sentence": "هي {{answer}} أختي.",
@@ -757,7 +887,8 @@
           "translation": "She is not my sister.",
           "hint": "the nominal negator, 'she' form",
           "display_order": 4,
-          "transliteration": "hiya ___ ukhtī"
+          "transliteration": "hiya ___ ukhtī",
+          "cell": "ليست"
         },
         {
           "sentence": "نحن {{answer}} نعمل اليوم.",
@@ -765,7 +896,8 @@
           "translation": "We are not working today.",
           "hint": "the verb negator",
           "display_order": 5,
-          "transliteration": "naḥnu ___ naʿmalu al-yawm"
+          "transliteration": "naḥnu ___ naʿmalu al-yawm",
+          "cell": "لا"
         },
         {
           "sentence": "{{answer}} أفهم.",
@@ -773,8 +905,15 @@
           "translation": "I don't understand.",
           "hint": "the verb negator",
           "display_order": 6,
-          "transliteration": "___ afhamu"
+          "transliteration": "___ afhamu",
+          "cell": "لا"
         }
+      ],
+      "paradigm": [
+        "لا",
+        "ليس",
+        "ليست",
+        "لست"
       ]
     },
     {

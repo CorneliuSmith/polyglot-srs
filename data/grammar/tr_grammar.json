@@ -61,42 +61,56 @@
           "answer": "öğrenciyim",
           "translation": "I am a student.",
           "hint": "student + 'I am' ending",
-          "display_order": 1
+          "display_order": 1,
+          "cell": "ben"
         },
         {
           "sentence": "Sen {{answer}}.",
           "answer": "öğretmensin",
           "translation": "You are a teacher.",
           "hint": "teacher + 'you are' ending",
-          "display_order": 2
+          "display_order": 2,
+          "cell": "sen"
         },
         {
           "sentence": "Biz {{answer}}.",
           "answer": "öğrenciyiz",
           "translation": "We are students.",
           "hint": "student + 'we are' ending",
-          "display_order": 3
+          "display_order": 3,
+          "cell": "biz"
         },
         {
           "sentence": "Ben çok {{answer}}.",
           "answer": "mutluyum",
           "translation": "I am very happy.",
           "hint": "happy + 'I am' ending",
-          "display_order": 4
+          "display_order": 4,
+          "cell": "ben"
         },
         {
           "sentence": "Siz {{answer}}.",
           "answer": "öğretmensiniz",
           "translation": "You (plural/formal) are teachers.",
           "hint": "teacher + 'you (plural) are' ending",
-          "display_order": 5
+          "display_order": 5,
+          "cell": "siz"
         },
         {
           "sentence": "O {{answer}}.",
           "answer": "doktor",
           "translation": "He/she is a doctor.",
           "hint": "third person takes no ending",
-          "display_order": 6
+          "display_order": 6,
+          "cell": "o"
+        },
+        {
+          "sentence": "Onlar {{answer}}.",
+          "answer": "doktorlar",
+          "translation": "They are doctors.",
+          "hint": "doctor + plural (3rd person 'to be')",
+          "cell": "onlar",
+          "display_order": 7
         }
       ],
       "related": [
@@ -108,6 +122,14 @@
           "title": "Question particle (mı / mi / mu / mü)",
           "contrast": "The personal ending hops onto mı in questions: öğretmen misin?"
         }
+      ],
+      "paradigm": [
+        "ben",
+        "sen",
+        "o",
+        "biz",
+        "siz",
+        "onlar"
       ]
     },
     {
@@ -135,42 +157,48 @@
           "answer": "Bu",
           "translation": "This is a book.",
           "hint": "near the speaker",
-          "display_order": 1
+          "display_order": 1,
+          "cell": "bu"
         },
         {
           "sentence": "{{answer}} bir ev.",
           "answer": "O",
           "translation": "That (over there) is a house.",
           "hint": "far from both speakers",
-          "display_order": 2
+          "display_order": 2,
+          "cell": "o"
         },
         {
           "sentence": "{{answer}} bir araba.",
           "answer": "Şu",
           "translation": "That (over there) is a car.",
           "hint": "pointing at something",
-          "display_order": 3
+          "display_order": 3,
+          "cell": "şu"
         },
         {
           "sentence": "{{answer}} ne?",
           "answer": "Bu",
           "translation": "What is this?",
           "hint": "this — close to you",
-          "display_order": 4
+          "display_order": 4,
+          "cell": "bu"
         },
         {
           "sentence": "{{answer}} kim?",
           "answer": "O",
           "translation": "Who is that?",
           "hint": "far from both speakers",
-          "display_order": 5
+          "display_order": 5,
+          "cell": "o"
         },
         {
           "sentence": "{{answer}} bir okul.",
           "answer": "Şu",
           "translation": "That (over there) is a school.",
           "hint": "pointing at something",
-          "display_order": 6
+          "display_order": 6,
+          "cell": "şu"
         }
       ],
       "related": [
@@ -182,6 +210,11 @@
           "title": "Plural (-ler / -lar)",
           "contrast": "Demonstratives stay singular before plural nouns: bu evler."
         }
+      ],
+      "paradigm": [
+        "bu",
+        "şu",
+        "o"
       ]
     },
     {
@@ -283,42 +316,48 @@
           "answer": "misin",
           "translation": "Are you a student?",
           "hint": "question particle + 'you' ending",
-          "display_order": 1
+          "display_order": 1,
+          "cell": "mi"
         },
         {
           "sentence": "Bu kitap {{answer}}?",
           "answer": "mı",
           "translation": "Is this a book?",
           "hint": "question particle — harmonize with the last vowel",
-          "display_order": 2
+          "display_order": 2,
+          "cell": "mı"
         },
         {
           "sentence": "O doktor {{answer}}?",
           "answer": "mu",
           "translation": "Is he a doctor?",
           "hint": "question particle — harmonize with the last vowel",
-          "display_order": 3
+          "display_order": 3,
+          "cell": "mu"
         },
         {
           "sentence": "Bu süt {{answer}}?",
           "answer": "mü",
           "translation": "Is this milk?",
           "hint": "question particle — harmonize with the last vowel",
-          "display_order": 4
+          "display_order": 4,
+          "cell": "mü"
         },
         {
           "sentence": "Onlar öğrenci {{answer}}?",
           "answer": "mi",
           "translation": "Are they students?",
           "hint": "question particle — harmonize with the last vowel",
-          "display_order": 5
+          "display_order": 5,
+          "cell": "mi"
         },
         {
           "sentence": "Bu okul {{answer}}?",
           "answer": "mu",
           "translation": "Is this a school?",
           "hint": "question particle — harmonize with the last vowel",
-          "display_order": 6
+          "display_order": 6,
+          "cell": "mu"
         }
       ],
       "related": [
@@ -330,6 +369,12 @@
           "title": "Present continuous (-iyor)",
           "contrast": "Geliyor musun? — the particle splits off the -iyor verb."
         }
+      ],
+      "paradigm": [
+        "mı",
+        "mi",
+        "mu",
+        "mü"
       ]
     },
     {
@@ -357,42 +402,64 @@
           "answer": "evdeyim",
           "translation": "I am at home.",
           "hint": "house + locative + 'I am'",
-          "display_order": 1
+          "display_order": 1,
+          "cell": "-de"
         },
         {
           "sentence": "Kitap {{answer}}.",
           "answer": "masada",
           "translation": "The book is on the table.",
           "hint": "table + locative",
-          "display_order": 2
+          "display_order": 2,
+          "cell": "-da"
         },
         {
           "sentence": "Anahtar {{answer}}.",
           "answer": "çantada",
           "translation": "The key is in the bag.",
           "hint": "bag + locative",
-          "display_order": 3
+          "display_order": 3,
+          "cell": "-da"
         },
         {
           "sentence": "Biz {{answer}}.",
           "answer": "okuldayız",
           "translation": "We are at school.",
           "hint": "school + locative + 'we are'",
-          "display_order": 4
+          "display_order": 4,
+          "cell": "-da"
         },
         {
           "sentence": "Çocuklar {{answer}}.",
           "answer": "bahçede",
           "translation": "The children are in the garden.",
           "hint": "garden + locative",
-          "display_order": 5
+          "display_order": 5,
+          "cell": "-de"
         },
         {
           "sentence": "Süt {{answer}}.",
           "answer": "buzdolabında",
           "translation": "The milk is in the fridge.",
           "hint": "fridge + locative (compound noun keeps its -ı)",
-          "display_order": 6
+          "display_order": 6,
+          "cell": "-da"
+        },
+        {
+          "sentence": "Kitaplar {{answer}}.",
+          "answer": "dolapta",
+          "translation": "The books are in the cupboard.",
+          "hint": "cupboard + locative (voiceless consonant)",
+          "cell": "-ta",
+          "display_order": 7
+        },
+        {
+          "sentence": "Yemek {{answer}}.",
+          "answer": "sepette",
+          "translation": "The food is in the basket.",
+          "hint": "basket + locative (voiceless consonant, front vowel)",
+          "cell": "-te",
+          "display_order": 8
         }
       ],
       "related": [
@@ -404,6 +471,12 @@
           "title": "Var / yok — there is, there isn't",
           "contrast": "Locative + var = 'there is X at Y': masada kitap var."
         }
+      ],
+      "paradigm": [
+        "-de",
+        "-da",
+        "-te",
+        "-ta"
       ]
     },
     {
@@ -431,42 +504,48 @@
           "answer": "var",
           "translation": "There is milk at home.",
           "hint": "existence",
-          "display_order": 1
+          "display_order": 1,
+          "cell": "var"
         },
         {
           "sentence": "Parkta kimse {{answer}}.",
           "answer": "yok",
           "translation": "There is no one in the park.",
           "hint": "non-existence",
-          "display_order": 2
+          "display_order": 2,
+          "cell": "yok"
         },
         {
           "sentence": "Çantada para {{answer}}.",
           "answer": "yok",
           "translation": "There is no money in the bag.",
           "hint": "absence",
-          "display_order": 3
+          "display_order": 3,
+          "cell": "yok"
         },
         {
           "sentence": "Bahçede ağaç {{answer}}.",
           "answer": "var",
           "translation": "There is a tree in the garden.",
           "hint": "existence",
-          "display_order": 4
+          "display_order": 4,
+          "cell": "var"
         },
         {
           "sentence": "Evde ekmek {{answer}} mı?",
           "answer": "var",
           "translation": "Is there bread at home?",
           "hint": "existence, question",
-          "display_order": 5
+          "display_order": 5,
+          "cell": "var"
         },
         {
           "sentence": "Bugün ders {{answer}}.",
           "answer": "yok",
           "translation": "There is no class today.",
           "hint": "absence",
-          "display_order": 6
+          "display_order": 6,
+          "cell": "yok"
         }
       ],
       "related": [
@@ -478,6 +557,10 @@
           "title": "Negative present continuous (-miyor)",
           "contrast": "Yok negates existence; -miyor negates actions."
         }
+      ],
+      "paradigm": [
+        "var",
+        "yok"
       ]
     },
     {
@@ -505,42 +588,64 @@
           "answer": "evim",
           "translation": "My house is big.",
           "hint": "house + 'my'",
-          "display_order": 1
+          "display_order": 1,
+          "cell": "1sg"
         },
         {
           "sentence": "Senin {{answer}} nerede?",
           "answer": "araban",
           "translation": "Where is your car?",
           "hint": "car + 'your'",
-          "display_order": 2
+          "display_order": 2,
+          "cell": "2sg"
         },
         {
           "sentence": "Benim {{answer}} Ali.",
           "answer": "adım",
           "translation": "My name is Ali.",
           "hint": "name + 'my'",
-          "display_order": 3
+          "display_order": 3,
+          "cell": "1sg"
         },
         {
           "sentence": "Onun {{answer}} güzel.",
           "answer": "evi",
           "translation": "His/her house is beautiful.",
           "hint": "house + 'his/her'",
-          "display_order": 4
+          "display_order": 4,
+          "cell": "3sg"
         },
         {
           "sentence": "Bizim {{answer}} büyük.",
           "answer": "ailemiz",
           "translation": "Our family is big.",
           "hint": "family + 'our'",
-          "display_order": 5
+          "display_order": 5,
+          "cell": "1pl"
         },
         {
           "sentence": "Senin {{answer}} çok tatlı.",
           "answer": "kedin",
           "translation": "Your cat is very sweet.",
           "hint": "cat + 'your'",
-          "display_order": 6
+          "display_order": 6,
+          "cell": "2sg"
+        },
+        {
+          "sentence": "Sizin {{answer}} çok güzel.",
+          "answer": "eviniz",
+          "translation": "Your (plural) house is very beautiful.",
+          "hint": "house + your (plural)",
+          "cell": "2pl",
+          "display_order": 7
+        },
+        {
+          "sentence": "Onların {{answer}} bahçede.",
+          "answer": "kedileri",
+          "translation": "Their cat is in the garden.",
+          "hint": "cat + their",
+          "cell": "3pl",
+          "display_order": 8
         }
       ],
       "related": [
@@ -552,6 +657,14 @@
           "title": "Accusative case (-ı / -i / -u / -ü)",
           "contrast": "A possessed object still takes accusative: evimi görüyorum."
         }
+      ],
+      "paradigm": [
+        "1sg",
+        "2sg",
+        "3sg",
+        "1pl",
+        "2pl",
+        "3pl"
       ]
     },
     {
@@ -579,42 +692,56 @@
           "answer": "okuyorum",
           "translation": "I am reading a book.",
           "hint": "to read + present continuous, I",
-          "display_order": 1
+          "display_order": 1,
+          "cell": "ben"
         },
         {
           "sentence": "O çay {{answer}}.",
           "answer": "içiyor",
           "translation": "He/she is drinking tea.",
           "hint": "to drink + present continuous, he/she",
-          "display_order": 2
+          "display_order": 2,
+          "cell": "o"
         },
         {
           "sentence": "Biz Türkçe {{answer}}.",
           "answer": "öğreniyoruz",
           "translation": "We are learning Turkish.",
           "hint": "to learn + present continuous, we",
-          "display_order": 3
+          "display_order": 3,
+          "cell": "biz"
         },
         {
           "sentence": "Onlar parkta {{answer}}.",
           "answer": "oynuyorlar",
           "translation": "They are playing in the park.",
           "hint": "to play + present continuous, they",
-          "display_order": 4
+          "display_order": 4,
+          "cell": "onlar"
         },
         {
           "sentence": "Sen ne {{answer}}?",
           "answer": "yapıyorsun",
           "translation": "What are you doing?",
           "hint": "to do + present continuous, you",
-          "display_order": 5
+          "display_order": 5,
+          "cell": "sen"
         },
         {
           "sentence": "Annem yemek {{answer}}.",
           "answer": "pişiriyor",
           "translation": "My mother is cooking food.",
           "hint": "to cook + present continuous, she",
-          "display_order": 6
+          "display_order": 6,
+          "cell": "o"
+        },
+        {
+          "sentence": "Siz ne {{answer}}?",
+          "answer": "yapıyorsunuz",
+          "translation": "What are you (all) doing?",
+          "hint": "to do + -iyor + you (plural)",
+          "cell": "siz",
+          "display_order": 7
         }
       ],
       "related": [
@@ -626,6 +753,14 @@
           "title": "Question particle (mı / mi / mu / mü)",
           "contrast": "Geliyor mu? — questions add the particle after -iyor."
         }
+      ],
+      "paradigm": [
+        "ben",
+        "sen",
+        "o",
+        "biz",
+        "siz",
+        "onlar"
       ]
     },
     {
@@ -653,42 +788,56 @@
           "answer": "içmiyorum",
           "translation": "I am not drinking coffee.",
           "hint": "to drink + negative present continuous, I",
-          "display_order": 1
+          "display_order": 1,
+          "cell": "ben"
         },
         {
           "sentence": "O televizyon {{answer}}.",
           "answer": "izlemiyor",
           "translation": "He is not watching TV.",
           "hint": "to watch + negative present continuous, he/she",
-          "display_order": 2
+          "display_order": 2,
+          "cell": "o"
         },
         {
           "sentence": "Biz et {{answer}}.",
           "answer": "yemiyoruz",
           "translation": "We are not eating meat.",
           "hint": "to eat + negative present continuous, we",
-          "display_order": 3
+          "display_order": 3,
+          "cell": "biz"
         },
         {
           "sentence": "Sen beni {{answer}}.",
           "answer": "dinlemiyorsun",
           "translation": "You are not listening to me.",
           "hint": "to listen + negative present continuous, you",
-          "display_order": 4
+          "display_order": 4,
+          "cell": "sen"
         },
         {
           "sentence": "Onlar bugün {{answer}}.",
           "answer": "çalışmıyorlar",
           "translation": "They are not working today.",
           "hint": "to work + negative present continuous, they",
-          "display_order": 5
+          "display_order": 5,
+          "cell": "onlar"
         },
         {
           "sentence": "Bebek {{answer}}.",
           "answer": "uyumuyor",
           "translation": "The baby is not sleeping.",
           "hint": "to sleep + negative present continuous, he/she",
-          "display_order": 6
+          "display_order": 6,
+          "cell": "o"
+        },
+        {
+          "sentence": "Siz kahve {{answer}}.",
+          "answer": "içmiyorsunuz",
+          "translation": "You (all) are not drinking coffee.",
+          "hint": "to drink + negative -iyor + you (plural)",
+          "cell": "siz",
+          "display_order": 7
         }
       ],
       "related": [
@@ -700,6 +849,14 @@
           "title": "Var / yok — there is, there isn't",
           "contrast": "-miyor is 'isn't doing'; yok is 'there isn't any'."
         }
+      ],
+      "paradigm": [
+        "ben",
+        "sen",
+        "o",
+        "biz",
+        "siz",
+        "onlar"
       ]
     },
     {
@@ -727,42 +884,56 @@
           "answer": "kitabı",
           "translation": "I am reading the book.",
           "hint": "book + accusative (final consonant softens)",
-          "display_order": 1
+          "display_order": 1,
+          "cell": "-ı"
         },
         {
           "sentence": "O {{answer}} seviyor.",
           "answer": "çayı",
           "translation": "He/she loves the tea.",
           "hint": "tea + accusative",
-          "display_order": 2
+          "display_order": 2,
+          "cell": "-ı"
         },
         {
           "sentence": "Ben {{answer}} izliyorum.",
           "answer": "filmi",
           "translation": "I am watching the film.",
           "hint": "film + accusative",
-          "display_order": 3
+          "display_order": 3,
+          "cell": "-i"
         },
         {
           "sentence": "O {{answer}} okuyor.",
           "answer": "gazeteyi",
           "translation": "He is reading the newspaper.",
           "hint": "newspaper + accusative (buffer y)",
-          "display_order": 4
+          "display_order": 4,
+          "cell": "-i"
         },
         {
           "sentence": "Sen {{answer}} görüyor musun?",
           "answer": "arabayı",
           "translation": "Do you see the car?",
           "hint": "car + accusative (buffer y)",
-          "display_order": 5
+          "display_order": 5,
+          "cell": "-ı"
         },
         {
           "sentence": "Çocuk {{answer}} içiyor.",
           "answer": "sütü",
           "translation": "The child is drinking the milk.",
           "hint": "milk + accusative",
-          "display_order": 6
+          "display_order": 6,
+          "cell": "-ü"
+        },
+        {
+          "sentence": "Çocuk {{answer}} içti.",
+          "answer": "suyu",
+          "translation": "The child drank the water.",
+          "hint": "water + accusative",
+          "cell": "-u",
+          "display_order": 7
         }
       ],
       "related": [
@@ -774,6 +945,12 @@
           "title": "Possessive suffixes (-im, -in, -i…)",
           "contrast": "After a possessive the accusative shows as -ni/-nı: arabasını."
         }
+      ],
+      "paradigm": [
+        "-ı",
+        "-i",
+        "-u",
+        "-ü"
       ]
     },
     {

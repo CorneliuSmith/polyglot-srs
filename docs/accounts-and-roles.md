@@ -6,7 +6,10 @@ Everyone self-serves through the login page:
 
 - **Email + password** — Sign Up tab → confirmation email → confirmed account.
   This always works; it needs no configuration beyond the Supabase project
-  itself.
+  itself. **Forgot password?** on the login page emails a recovery link that
+  lands on `/reset-password`; for the link to work, add your app origin's
+  `/reset-password` URL to Supabase → Authentication → URL Configuration →
+  Redirect URLs (e.g. `http://localhost:5173/reset-password`).
 - **Google (and other OAuth providers)** — the button exists in the UI, but a
   provider only works after it's enabled **in the Supabase dashboard**. Until
   then Supabase returns `validation_failed: Unsupported provider: provider is

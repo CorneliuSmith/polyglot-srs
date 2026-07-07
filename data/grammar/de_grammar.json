@@ -32,43 +32,75 @@
           "answer": "Ich",
           "translation": "I live in Berlin.",
           "hint": "I",
-          "display_order": 1
+          "display_order": 1,
+          "cell": "ich"
         },
         {
           "sentence": "{{answer}} bist mein Freund.",
           "answer": "Du",
           "translation": "You are my friend.",
           "hint": "you — informal",
-          "display_order": 2
+          "display_order": 2,
+          "cell": "du"
         },
         {
           "sentence": "{{answer}} ist meine Schwester.",
           "answer": "Sie",
           "translation": "She is my sister.",
           "hint": "she",
-          "display_order": 3
+          "display_order": 3,
+          "cell": "sie"
         },
         {
           "sentence": "{{answer}} sind Studenten.",
           "answer": "Wir",
           "translation": "We are students.",
           "hint": "we",
-          "display_order": 4
+          "display_order": 4,
+          "cell": "wir"
         },
         {
           "sentence": "{{answer}} seid sehr nett.",
           "answer": "Ihr",
           "translation": "You (all) are very nice.",
           "hint": "you — plural informal",
-          "display_order": 5
+          "display_order": 5,
+          "cell": "ihr"
         },
         {
           "sentence": "{{answer}} arbeitet bei einer Bank.",
           "answer": "Er",
           "translation": "He works at a bank.",
           "hint": "he",
-          "display_order": 6
+          "display_order": 6,
+          "cell": "er"
+        },
+        {
+          "sentence": "{{answer}} ist kalt heute.",
+          "answer": "Es",
+          "translation": "It is cold today.",
+          "hint": "it",
+          "cell": "es",
+          "display_order": 7
+        },
+        {
+          "sentence": "{{answer}} sind meine Eltern.",
+          "answer": "Sie",
+          "translation": "They are my parents.",
+          "hint": "they",
+          "cell": "sie (pl)",
+          "display_order": 8
         }
+      ],
+      "paradigm": [
+        "ich",
+        "du",
+        "er",
+        "sie",
+        "es",
+        "wir",
+        "ihr",
+        "sie (pl)"
       ]
     },
     {
@@ -96,43 +128,62 @@
           "answer": "Bücher",
           "translation": "I have two books.",
           "hint": "book, plural (umlaut)",
-          "display_order": 1
+          "display_order": 1,
+          "cell": "neuter"
         },
         {
           "sentence": "Die {{answer}} sind schön.",
           "answer": "Häuser",
           "translation": "The houses are beautiful.",
           "hint": "house, plural (umlaut)",
-          "display_order": 2
+          "display_order": 2,
+          "cell": "neuter"
         },
         {
           "sentence": "Ich habe drei {{answer}}.",
           "answer": "Schwestern",
           "translation": "I have three sisters.",
           "hint": "sister, plural",
-          "display_order": 3
+          "display_order": 3,
+          "cell": "feminine"
         },
         {
           "sentence": "Die {{answer}} spielen im Garten.",
           "answer": "Kinder",
           "translation": "The children are playing in the garden.",
           "hint": "child, plural",
-          "display_order": 4
+          "display_order": 4,
+          "cell": "neuter"
         },
         {
           "sentence": "Ich habe zwei {{answer}} zu Hause.",
           "answer": "Katzen",
           "translation": "I have two cats at home.",
           "hint": "cat, plural",
-          "display_order": 5
+          "display_order": 5,
+          "cell": "feminine"
         },
         {
           "sentence": "Die {{answer}} sind neu.",
           "answer": "Autos",
           "translation": "The cars are new.",
           "hint": "car, plural (-s)",
-          "display_order": 6
+          "display_order": 6,
+          "cell": "neuter"
+        },
+        {
+          "sentence": "Die {{answer}} sind aus Holz.",
+          "answer": "Tische",
+          "translation": "The tables are made of wood.",
+          "hint": "table, plural — masculine",
+          "cell": "masculine",
+          "display_order": 7
         }
+      ],
+      "paradigm": [
+        "masculine",
+        "feminine",
+        "neuter"
       ]
     },
     {
@@ -160,43 +211,54 @@
           "answer": "Das",
           "translation": "The house is big.",
           "hint": "neuter",
-          "display_order": 1
+          "display_order": 1,
+          "cell": "das"
         },
         {
           "sentence": "{{answer}} Mann ist Lehrer.",
           "answer": "Der",
           "translation": "The man is a teacher.",
           "hint": "masculine",
-          "display_order": 2
+          "display_order": 2,
+          "cell": "der"
         },
         {
           "sentence": "{{answer}} Frau ist Ärztin.",
           "answer": "Die",
           "translation": "The woman is a doctor.",
           "hint": "feminine",
-          "display_order": 3
+          "display_order": 3,
+          "cell": "die"
         },
         {
           "sentence": "{{answer}} Kaffee ist heiß.",
           "answer": "Der",
           "translation": "The coffee is hot.",
           "hint": "masculine",
-          "display_order": 4
+          "display_order": 4,
+          "cell": "der"
         },
         {
           "sentence": "{{answer}} Kinder spielen draußen.",
           "answer": "Die",
           "translation": "The children are playing outside.",
           "hint": "plural",
-          "display_order": 5
+          "display_order": 5,
+          "cell": "die"
         },
         {
           "sentence": "{{answer}} Auto ist schnell.",
           "answer": "Das",
           "translation": "The car is fast.",
           "hint": "neuter",
-          "display_order": 6
+          "display_order": 6,
+          "cell": "das"
         }
+      ],
+      "paradigm": [
+        "der",
+        "die",
+        "das"
       ]
     },
     {
@@ -288,43 +350,57 @@
           "answer": "bin",
           "translation": "I am a student.",
           "hint": "to be, I",
-          "display_order": 1
+          "display_order": 1,
+          "cell": "1sg"
         },
         {
           "sentence": "Du {{answer}} sehr groß.",
           "answer": "bist",
           "translation": "You are very tall.",
           "hint": "to be, you (informal)",
-          "display_order": 2
+          "display_order": 2,
+          "cell": "2sg"
         },
         {
           "sentence": "Sie {{answer}} Lehrerin.",
           "answer": "ist",
           "translation": "She is a teacher.",
           "hint": "to be, she",
-          "display_order": 3
+          "display_order": 3,
+          "cell": "3sg"
         },
         {
           "sentence": "Wir {{answer}} Freunde.",
           "answer": "sind",
           "translation": "We are friends.",
           "hint": "to be, we",
-          "display_order": 4
+          "display_order": 4,
+          "cell": "1pl"
         },
         {
           "sentence": "Ihr {{answer}} müde.",
           "answer": "seid",
           "translation": "You (all) are tired.",
           "hint": "to be, you (plural)",
-          "display_order": 5
+          "display_order": 5,
+          "cell": "2pl"
         },
         {
           "sentence": "Die Kinder {{answer}} im Garten.",
           "answer": "sind",
           "translation": "The children are in the garden.",
           "hint": "to be, they",
-          "display_order": 6
+          "display_order": 6,
+          "cell": "3pl"
         }
+      ],
+      "paradigm": [
+        "1sg",
+        "2sg",
+        "3sg",
+        "1pl",
+        "2pl",
+        "3pl"
       ]
     },
     {
@@ -352,43 +428,57 @@
           "answer": "habe",
           "translation": "I am hungry.",
           "hint": "to have, I",
-          "display_order": 1
+          "display_order": 1,
+          "cell": "1sg"
         },
         {
           "sentence": "Du {{answer}} Recht.",
           "answer": "hast",
           "translation": "You are right.",
           "hint": "to have, you (informal)",
-          "display_order": 2
+          "display_order": 2,
+          "cell": "2sg"
         },
         {
           "sentence": "Sie {{answer}} eine Katze.",
           "answer": "hat",
           "translation": "She has a cat.",
           "hint": "to have, she",
-          "display_order": 3
+          "display_order": 3,
+          "cell": "3sg"
         },
         {
           "sentence": "Wir {{answer}} Zeit.",
           "answer": "haben",
           "translation": "We have time.",
           "hint": "to have, we",
-          "display_order": 4
+          "display_order": 4,
+          "cell": "1pl"
         },
         {
           "sentence": "Ihr {{answer}} Glück.",
           "answer": "habt",
           "translation": "You (all) are lucky.",
           "hint": "to have, you (plural)",
-          "display_order": 5
+          "display_order": 5,
+          "cell": "2pl"
         },
         {
           "sentence": "{{answer}} Sie Fragen?",
           "answer": "Haben",
           "translation": "Do you have questions?",
           "hint": "to have, you (formal) — question order",
-          "display_order": 6
+          "display_order": 6,
+          "cell": "3pl"
         }
+      ],
+      "paradigm": [
+        "1sg",
+        "2sg",
+        "3sg",
+        "1pl",
+        "2pl",
+        "3pl"
       ]
     },
     {
@@ -416,43 +506,57 @@
           "answer": "lerne",
           "translation": "I am learning German.",
           "hint": "to learn, I",
-          "display_order": 1
+          "display_order": 1,
+          "cell": "1sg"
         },
         {
           "sentence": "Du {{answer}} gut.",
           "answer": "singst",
           "translation": "You sing well.",
           "hint": "to sing, you (informal)",
-          "display_order": 2
+          "display_order": 2,
+          "cell": "2sg"
         },
         {
           "sentence": "Er {{answer}} in Hamburg.",
           "answer": "wohnt",
           "translation": "He lives in Hamburg.",
           "hint": "to live, he",
-          "display_order": 3
+          "display_order": 3,
+          "cell": "3sg"
         },
         {
           "sentence": "Wir {{answer}} Musik.",
           "answer": "hören",
           "translation": "We are listening to music.",
           "hint": "to listen, we",
-          "display_order": 4
+          "display_order": 4,
+          "cell": "1pl"
         },
         {
           "sentence": "Ihr {{answer}} Fußball.",
           "answer": "spielt",
           "translation": "You (all) play football.",
           "hint": "to play, you (plural)",
-          "display_order": 5
+          "display_order": 5,
+          "cell": "2pl"
         },
         {
           "sentence": "Sie {{answer}} jeden Tag.",
           "answer": "arbeiten",
           "translation": "They work every day.",
           "hint": "to work, they",
-          "display_order": 6
+          "display_order": 6,
+          "cell": "3pl"
         }
+      ],
+      "paradigm": [
+        "1sg",
+        "2sg",
+        "3sg",
+        "1pl",
+        "2pl",
+        "3pl"
       ]
     },
     {
@@ -544,43 +648,54 @@
           "answer": "kein",
           "translation": "I don't have a car.",
           "hint": "noun negator, neuter",
-          "display_order": 1
+          "display_order": 1,
+          "cell": "kein"
         },
         {
           "sentence": "Sie hat {{answer}} Zeit.",
           "answer": "keine",
           "translation": "She has no time.",
           "hint": "noun negator, feminine",
-          "display_order": 2
+          "display_order": 2,
+          "cell": "keine"
         },
         {
           "sentence": "Das ist {{answer}} richtig.",
           "answer": "nicht",
           "translation": "That is not right.",
           "hint": "negates an adjective",
-          "display_order": 3
+          "display_order": 3,
+          "cell": "nicht"
         },
         {
           "sentence": "Wir wohnen {{answer}} in Berlin.",
           "answer": "nicht",
           "translation": "We don't live in Berlin.",
           "hint": "negates the verb phrase",
-          "display_order": 4
+          "display_order": 4,
+          "cell": "nicht"
         },
         {
           "sentence": "Ich habe {{answer}} Geld.",
           "answer": "kein",
           "translation": "I have no money.",
           "hint": "noun negator, neuter",
-          "display_order": 5
+          "display_order": 5,
+          "cell": "kein"
         },
         {
           "sentence": "Er ist {{answer}} müde.",
           "answer": "nicht",
           "translation": "He is not tired.",
           "hint": "negates an adjective",
-          "display_order": 6
+          "display_order": 6,
+          "cell": "nicht"
         }
+      ],
+      "paradigm": [
+        "nicht",
+        "kein",
+        "keine"
       ]
     },
     {
@@ -736,43 +851,54 @@
           "answer": "den",
           "translation": "I see the man.",
           "hint": "definite article — masculine object",
-          "display_order": 1
+          "display_order": 1,
+          "cell": "den"
         },
         {
           "sentence": "Sie liest {{answer}} Buch.",
           "answer": "das",
           "translation": "She is reading the book.",
           "hint": "neuter — unchanged as object",
-          "display_order": 2
+          "display_order": 2,
+          "cell": "das"
         },
         {
           "sentence": "Wir kaufen {{answer}} Tisch.",
           "answer": "einen",
           "translation": "We are buying a table.",
           "hint": "indefinite article — masculine object",
-          "display_order": 3
+          "display_order": 3,
+          "cell": "einen"
         },
         {
           "sentence": "Er trinkt {{answer}} Kaffee.",
           "answer": "einen",
           "translation": "He is drinking a coffee.",
           "hint": "indefinite article — masculine object",
-          "display_order": 4
+          "display_order": 4,
+          "cell": "einen"
         },
         {
           "sentence": "Ich frage {{answer}} Lehrer.",
           "answer": "den",
           "translation": "I ask the teacher.",
           "hint": "definite article — masculine object",
-          "display_order": 5
+          "display_order": 5,
+          "cell": "den"
         },
         {
           "sentence": "Sie hat {{answer}} Hund.",
           "answer": "einen",
           "translation": "She has a dog.",
           "hint": "indefinite article — masculine object",
-          "display_order": 6
+          "display_order": 6,
+          "cell": "einen"
         }
+      ],
+      "paradigm": [
+        "den",
+        "einen",
+        "das"
       ]
     }
   ]

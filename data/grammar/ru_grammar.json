@@ -58,7 +58,8 @@
           "translation": "Where is the book? — It is on the table.",
           "hint": "книга is feminine",
           "display_order": 1,
-          "transliteration": "Gde kniga? — ___ na stole."
+          "transliteration": "Gde kniga? — ___ na stole.",
+          "cell": "она"
         },
         {
           "sentence": "Где дом? — {{answer}} там.",
@@ -66,7 +67,8 @@
           "translation": "Where is the house? — It is there.",
           "hint": "дом is masculine",
           "display_order": 2,
-          "transliteration": "Gde dom? — ___ tam."
+          "transliteration": "Gde dom? — ___ tam.",
+          "cell": "он"
         },
         {
           "sentence": "Где окно? — {{answer}} там.",
@@ -74,7 +76,8 @@
           "translation": "Where is the window? — It is there.",
           "hint": "окно is neuter",
           "display_order": 3,
-          "transliteration": "Gde okno? — ___ tam."
+          "transliteration": "Gde okno? — ___ tam.",
+          "cell": "оно"
         },
         {
           "sentence": "Где мама? — {{answer}} дома.",
@@ -82,7 +85,8 @@
           "translation": "Where is mum? — She is at home.",
           "hint": "мама is feminine",
           "display_order": 4,
-          "transliteration": "Gde mama? — ___ doma."
+          "transliteration": "Gde mama? — ___ doma.",
+          "cell": "она"
         },
         {
           "sentence": "Где журнал? — {{answer}} на столе.",
@@ -90,7 +94,8 @@
           "translation": "Where is the magazine? — It is on the table.",
           "hint": "журнал is masculine",
           "display_order": 5,
-          "transliteration": "Gde zhurnal? — ___ na stole."
+          "transliteration": "Gde zhurnal? — ___ na stole.",
+          "cell": "он"
         },
         {
           "sentence": "Где море? — {{answer}} далеко.",
@@ -98,7 +103,8 @@
           "translation": "Where is the sea? — It is far away.",
           "hint": "море is neuter",
           "display_order": 6,
-          "transliteration": "Gde more? — ___ daleko."
+          "transliteration": "Gde more? — ___ daleko.",
+          "cell": "оно"
         }
       ],
       "related": [
@@ -110,6 +116,11 @@
           "title": "Past tense (-л)",
           "contrast": "The past tense agrees in gender too: он читал, она читала."
         }
+      ],
+      "paradigm": [
+        "он",
+        "она",
+        "оно"
       ]
     },
     {
@@ -218,7 +229,8 @@
           "translation": "I am reading a book.",
           "hint": "читать, я",
           "display_order": 1,
-          "transliteration": "Ya ___ knigu."
+          "transliteration": "Ya ___ knigu.",
+          "cell": "1sg"
         },
         {
           "sentence": "Ты хорошо {{answer}} по-русски.",
@@ -226,7 +238,8 @@
           "translation": "You speak Russian well.",
           "hint": "говорить, ты",
           "display_order": 2,
-          "transliteration": "Ty' horosho ___ po-russki."
+          "transliteration": "Ty' horosho ___ po-russki.",
+          "cell": "2sg"
         },
         {
           "sentence": "Он {{answer}} по-английски.",
@@ -234,7 +247,8 @@
           "translation": "He speaks English.",
           "hint": "to speak, he",
           "display_order": 3,
-          "transliteration": "On ___ po-anglijski."
+          "transliteration": "On ___ po-anglijski.",
+          "cell": "3sg"
         },
         {
           "sentence": "Мы {{answer}} журнал.",
@@ -242,7 +256,8 @@
           "translation": "We are reading a magazine.",
           "hint": "читать, мы",
           "display_order": 4,
-          "transliteration": "My' ___ zhurnal."
+          "transliteration": "My' ___ zhurnal.",
+          "cell": "1pl"
         },
         {
           "sentence": "Они {{answer}} в Москве.",
@@ -250,7 +265,8 @@
           "translation": "They live in Moscow.",
           "hint": "жить, они",
           "display_order": 5,
-          "transliteration": "Oni ___ v Moskve."
+          "transliteration": "Oni ___ v Moskve.",
+          "cell": "3pl"
         },
         {
           "sentence": "Вы {{answer}} по-русски?",
@@ -258,7 +274,8 @@
           "translation": "Do you speak Russian?",
           "hint": "говорить, вы",
           "display_order": 6,
-          "transliteration": "Vy' ___ po-russki?"
+          "transliteration": "Vy' ___ po-russki?",
+          "cell": "2pl"
         }
       ],
       "related": [
@@ -270,6 +287,14 @@
           "title": "Это — this is / it is",
           "contrast": "Identity sentences skip the verb; actions conjugate."
         }
+      ],
+      "paradigm": [
+        "1sg",
+        "2sg",
+        "3sg",
+        "1pl",
+        "2pl",
+        "3pl"
       ]
     },
     {
@@ -382,7 +407,8 @@
           "translation": "I am reading a book.",
           "hint": "book + accusative",
           "display_order": 1,
-          "transliteration": "Ya chitayu ___."
+          "transliteration": "Ya chitayu ___.",
+          "cell": "feminine"
         },
         {
           "sentence": "Она пишет {{answer}}.",
@@ -390,7 +416,8 @@
           "translation": "She is writing a letter.",
           "hint": "neuter — no change",
           "display_order": 2,
-          "transliteration": "Ona pishet ___."
+          "transliteration": "Ona pishet ___.",
+          "cell": "neuter"
         },
         {
           "sentence": "Он читает {{answer}}.",
@@ -398,7 +425,8 @@
           "translation": "He is reading a newspaper.",
           "hint": "newspaper + accusative",
           "display_order": 3,
-          "transliteration": "On chitaet ___."
+          "transliteration": "On chitaet ___.",
+          "cell": "feminine"
         },
         {
           "sentence": "Она любит {{answer}}.",
@@ -406,7 +434,8 @@
           "translation": "She loves music.",
           "hint": "music + accusative",
           "display_order": 4,
-          "transliteration": "Ona lyubit ___."
+          "transliteration": "Ona lyubit ___.",
+          "cell": "feminine"
         },
         {
           "sentence": "Я пью {{answer}}.",
@@ -414,7 +443,8 @@
           "translation": "I am drinking water.",
           "hint": "water + accusative",
           "display_order": 5,
-          "transliteration": "Ya p'yu ___."
+          "transliteration": "Ya p'yu ___.",
+          "cell": "feminine"
         },
         {
           "sentence": "Мы смотрим {{answer}}.",
@@ -422,7 +452,8 @@
           "translation": "We are watching a film.",
           "hint": "masculine inanimate — no change",
           "display_order": 6,
-          "transliteration": "My' smotrim ___."
+          "transliteration": "My' smotrim ___.",
+          "cell": "masculine"
         }
       ],
       "related": [
@@ -434,6 +465,11 @@
           "title": "Genitive of absence (у меня нет …)",
           "contrast": "Negated existence switches to genitive: нет книги, not книгу."
         }
+      ],
+      "paradigm": [
+        "feminine",
+        "masculine",
+        "neuter"
       ]
     },
     {
@@ -462,7 +498,8 @@
           "translation": "This is my book.",
           "hint": "книга is feminine",
           "display_order": 1,
-          "transliteration": "E'to ___ kniga."
+          "transliteration": "E'to ___ kniga.",
+          "cell": "f"
         },
         {
           "sentence": "Это {{answer}} дом.",
@@ -470,7 +507,8 @@
           "translation": "This is my house.",
           "hint": "дом is masculine",
           "display_order": 2,
-          "transliteration": "E'to ___ dom."
+          "transliteration": "E'to ___ dom.",
+          "cell": "m"
         },
         {
           "sentence": "Это {{answer}} окно.",
@@ -478,7 +516,8 @@
           "translation": "This is my window.",
           "hint": "окно is neuter",
           "display_order": 3,
-          "transliteration": "E'to ___ okno."
+          "transliteration": "E'to ___ okno.",
+          "cell": "n"
         },
         {
           "sentence": "Это {{answer}} книги.",
@@ -486,7 +525,8 @@
           "translation": "These are my books.",
           "hint": "plural",
           "display_order": 4,
-          "transliteration": "E'to ___ knigi."
+          "transliteration": "E'to ___ knigi.",
+          "cell": "pl"
         },
         {
           "sentence": "Где {{answer}} брат?",
@@ -494,7 +534,8 @@
           "translation": "Where is your brother?",
           "hint": "your (ты) — брат is masculine",
           "display_order": 5,
-          "transliteration": "Gde ___ brat?"
+          "transliteration": "Gde ___ brat?",
+          "cell": "m"
         },
         {
           "sentence": "Это {{answer}} школа.",
@@ -502,7 +543,8 @@
           "translation": "This is our school.",
           "hint": "our — школа is feminine",
           "display_order": 6,
-          "transliteration": "E'to ___ shkola."
+          "transliteration": "E'to ___ shkola.",
+          "cell": "f"
         }
       ],
       "related": [
@@ -510,6 +552,12 @@
           "title": "Gender of nouns (он, она, оно)",
           "contrast": "The noun's gender picks the form: мой дом, моя книга."
         }
+      ],
+      "paradigm": [
+        "m",
+        "f",
+        "n",
+        "pl"
       ]
     },
     {
@@ -538,7 +586,8 @@
           "translation": "She was in Moscow.",
           "hint": "быть, feminine subject",
           "display_order": 1,
-          "transliteration": "Ona ___ v Moskve."
+          "transliteration": "Ona ___ v Moskve.",
+          "cell": "f"
         },
         {
           "sentence": "Он {{answer}} фильм.",
@@ -546,7 +595,8 @@
           "translation": "He watched a film.",
           "hint": "смотреть, masculine subject",
           "display_order": 2,
-          "transliteration": "On ___ fil'm."
+          "transliteration": "On ___ fil'm.",
+          "cell": "m"
         },
         {
           "sentence": "Я {{answer}} дома вчера.",
@@ -554,7 +604,8 @@
           "translation": "I was at home yesterday (male speaker).",
           "hint": "быть, masculine",
           "display_order": 3,
-          "transliteration": "Ya ___ doma vchera."
+          "transliteration": "Ya ___ doma vchera.",
+          "cell": "m"
         },
         {
           "sentence": "Мы {{answer}} в парке.",
@@ -562,7 +613,8 @@
           "translation": "We were in the park.",
           "hint": "быть, plural",
           "display_order": 4,
-          "transliteration": "My' ___ v parke."
+          "transliteration": "My' ___ v parke.",
+          "cell": "pl"
         },
         {
           "sentence": "Она {{answer}} книгу вечером.",
@@ -570,7 +622,8 @@
           "translation": "She was reading a book in the evening.",
           "hint": "читать, feminine",
           "display_order": 5,
-          "transliteration": "Ona ___ knigu vecherom."
+          "transliteration": "Ona ___ knigu vecherom.",
+          "cell": "f"
         },
         {
           "sentence": "Они {{answer}} телевизор.",
@@ -578,7 +631,17 @@
           "translation": "They were watching TV.",
           "hint": "смотреть, plural",
           "display_order": 6,
-          "transliteration": "Oni ___ televizor."
+          "transliteration": "Oni ___ televizor.",
+          "cell": "pl"
+        },
+        {
+          "sentence": "Это {{answer}} давно.",
+          "answer": "было",
+          "translation": "That was a long time ago.",
+          "transliteration": "Eto ___ davno.",
+          "hint": "to be, past — neuter",
+          "cell": "n",
+          "display_order": 7
         }
       ],
       "related": [
@@ -590,6 +653,12 @@
           "title": "Gender of nouns (он, она, оно)",
           "contrast": "The -л ending takes -а/-о by the subject's gender."
         }
+      ],
+      "paradigm": [
+        "m",
+        "f",
+        "n",
+        "pl"
       ]
     },
     {
@@ -633,12 +702,12 @@
           "transliteration": "U neyo net ___."
         },
         {
-          "sentence": "У меня нет {{answer}}.",
+          "sentence": "Сегодня у меня нет {{answer}}.",
           "answer": "денег",
-          "translation": "I have no money.",
+          "translation": "Today I have no money.",
           "hint": "деньги in the genitive",
           "display_order": 3,
-          "transliteration": "U menya net ___."
+          "transliteration": "Segodnya u menya net ___."
         },
         {
           "sentence": "У него нет {{answer}}.",

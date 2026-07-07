@@ -7,6 +7,7 @@ import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { supabase } from './lib/supabase'
 import { useAuthStore } from './stores/authStore'
 import LoginPage from './features/auth/LoginPage'
+import ResetPasswordPage from './features/auth/ResetPasswordPage'
 import DashboardPage from './features/dashboard/DashboardPage'
 import ReviewSessionPage from './features/review/ReviewSessionPage'
 import LearnPage from './features/review/LearnPage'
@@ -24,6 +25,11 @@ const router = createBrowserRouter([
   {
     path: '/login',
     element: <LoginPage />,
+  },
+  {
+    // Public: the recovery email link lands here with a fresh session.
+    path: '/reset-password',
+    element: <ResetPasswordPage />,
   },
   {
     element: <ProtectedRoute />,

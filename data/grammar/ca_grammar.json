@@ -32,43 +32,75 @@
           "answer": "Jo",
           "translation": "I am from Barcelona.",
           "hint": "I",
-          "display_order": 1
+          "display_order": 1,
+          "cell": "jo"
         },
         {
           "sentence": "{{answer}} ets el meu amic.",
           "answer": "Tu",
           "translation": "You are my friend.",
           "hint": "you — informal",
-          "display_order": 2
+          "display_order": 2,
+          "cell": "tu"
         },
         {
           "sentence": "{{answer}} és la meva germana.",
           "answer": "Ella",
           "translation": "She is my sister.",
           "hint": "she",
-          "display_order": 3
+          "display_order": 3,
+          "cell": "ella"
         },
         {
           "sentence": "{{answer}} som estudiants.",
           "answer": "Nosaltres",
           "translation": "We are students.",
           "hint": "we",
-          "display_order": 4
+          "display_order": 4,
+          "cell": "nosaltres"
         },
         {
           "sentence": "{{answer}} són de Girona.",
           "answer": "Ells",
           "translation": "They are from Girona.",
           "hint": "they (masculine)",
-          "display_order": 5
+          "display_order": 5,
+          "cell": "ells"
         },
         {
           "sentence": "{{answer}} sou molt amables.",
           "answer": "Vosaltres",
           "translation": "You (all) are very kind.",
           "hint": "you — plural",
-          "display_order": 6
+          "display_order": 6,
+          "cell": "vosaltres"
+        },
+        {
+          "sentence": "{{answer}} és el meu germà.",
+          "answer": "Ell",
+          "translation": "He is my brother.",
+          "hint": "he",
+          "cell": "ell",
+          "display_order": 7
+        },
+        {
+          "sentence": "{{answer}} són les meves amigues.",
+          "answer": "Elles",
+          "translation": "They are my friends (all women).",
+          "hint": "they — all female",
+          "cell": "elles",
+          "display_order": 8
         }
+      ],
+      "paradigm": [
+        "jo",
+        "tu",
+        "ell",
+        "ella",
+        "nosaltres",
+        "vosaltres",
+        "ells",
+        "elles"
       ]
     },
     {
@@ -96,43 +128,53 @@
           "answer": "llibres",
           "translation": "I have two books.",
           "hint": "book, plural",
-          "display_order": 1
+          "display_order": 1,
+          "cell": "masculine"
         },
         {
           "sentence": "Les {{answer}} són boniques.",
           "answer": "cases",
           "translation": "The houses are beautiful.",
           "hint": "house, plural (-a → -es)",
-          "display_order": 2
+          "display_order": 2,
+          "cell": "feminine"
         },
         {
           "sentence": "Tinc tres {{answer}}.",
           "answer": "germanes",
           "translation": "I have three sisters.",
           "hint": "sister, plural",
-          "display_order": 3
+          "display_order": 3,
+          "cell": "feminine"
         },
         {
           "sentence": "Els {{answer}} són grans.",
           "answer": "jardins",
           "translation": "The gardens are big.",
           "hint": "garden, plural",
-          "display_order": 4
+          "display_order": 4,
+          "cell": "masculine"
         },
         {
           "sentence": "Tinc dos {{answer}} a casa.",
           "answer": "gats",
           "translation": "I have two cats at home.",
           "hint": "cat, plural",
-          "display_order": 5
+          "display_order": 5,
+          "cell": "masculine"
         },
         {
           "sentence": "Les {{answer}} són noves.",
           "answer": "cadires",
           "translation": "The chairs are new.",
           "hint": "chair, plural",
-          "display_order": 6
+          "display_order": 6,
+          "cell": "feminine"
         }
+      ],
+      "paradigm": [
+        "masculine",
+        "feminine"
       ]
     },
     {
@@ -160,43 +202,55 @@
           "answer": "La",
           "translation": "The house is big.",
           "hint": "feminine singular",
-          "display_order": 1
+          "display_order": 1,
+          "cell": "la"
         },
         {
           "sentence": "{{answer}} llibre és nou.",
           "answer": "El",
           "translation": "The book is new.",
           "hint": "masculine singular",
-          "display_order": 2
+          "display_order": 2,
+          "cell": "el"
         },
         {
           "sentence": "{{answer}} nens juguen fora.",
           "answer": "Els",
           "translation": "The children are playing outside.",
           "hint": "masculine plural",
-          "display_order": 3
+          "display_order": 3,
+          "cell": "els"
         },
         {
           "sentence": "{{answer}} cafè és calent.",
           "answer": "El",
           "translation": "The coffee is hot.",
           "hint": "masculine singular",
-          "display_order": 4
+          "display_order": 4,
+          "cell": "el"
         },
         {
           "sentence": "{{answer}} porta és oberta.",
           "answer": "La",
           "translation": "The door is open.",
           "hint": "feminine singular",
-          "display_order": 5
+          "display_order": 5,
+          "cell": "la"
         },
         {
           "sentence": "{{answer}} noies són simpàtiques.",
           "answer": "Les",
           "translation": "The girls are nice.",
           "hint": "feminine plural",
-          "display_order": 6
+          "display_order": 6,
+          "cell": "les"
         }
+      ],
+      "paradigm": [
+        "el",
+        "la",
+        "els",
+        "les"
       ]
     },
     {
@@ -288,43 +342,57 @@
           "answer": "soc",
           "translation": "I am a student.",
           "hint": "to be, I",
-          "display_order": 1
+          "display_order": 1,
+          "cell": "jo"
         },
         {
           "sentence": "Tu {{answer}} molt alt.",
           "answer": "ets",
           "translation": "You are very tall.",
           "hint": "to be, you (informal)",
-          "display_order": 2
+          "display_order": 2,
+          "cell": "tu"
         },
         {
           "sentence": "Ella {{answer}} professora.",
           "answer": "és",
           "translation": "She is a teacher.",
           "hint": "to be, she — with accent",
-          "display_order": 3
+          "display_order": 3,
+          "cell": "ell"
         },
         {
           "sentence": "Nosaltres {{answer}} amics.",
           "answer": "som",
           "translation": "We are friends.",
           "hint": "to be, we",
-          "display_order": 4
+          "display_order": 4,
+          "cell": "nosaltres"
         },
         {
           "sentence": "Vosaltres {{answer}} catalans?",
           "answer": "sou",
           "translation": "Are you (all) Catalan?",
           "hint": "to be, you (plural)",
-          "display_order": 5
+          "display_order": 5,
+          "cell": "vosaltres"
         },
         {
           "sentence": "Ells {{answer}} a casa.",
           "answer": "són",
           "translation": "They are at home.",
           "hint": "to be, they — with accent",
-          "display_order": 6
+          "display_order": 6,
+          "cell": "ells"
         }
+      ],
+      "paradigm": [
+        "jo",
+        "tu",
+        "ell",
+        "nosaltres",
+        "vosaltres",
+        "ells"
       ]
     },
     {
@@ -352,43 +420,57 @@
           "answer": "tinc",
           "translation": "I am twenty years old.",
           "hint": "to have, I",
-          "display_order": 1
+          "display_order": 1,
+          "cell": "jo"
         },
         {
           "sentence": "Tu {{answer}} gana?",
           "answer": "tens",
           "translation": "Are you hungry?",
           "hint": "to have, you (informal)",
-          "display_order": 2
+          "display_order": 2,
+          "cell": "tu"
         },
         {
           "sentence": "Ella {{answer}} un gat.",
           "answer": "té",
           "translation": "She has a cat.",
           "hint": "to have, she — with accent",
-          "display_order": 3
+          "display_order": 3,
+          "cell": "ell"
         },
         {
           "sentence": "Nosaltres {{answer}} una pregunta.",
           "answer": "tenim",
           "translation": "We have a question.",
           "hint": "to have, we",
-          "display_order": 4
+          "display_order": 4,
+          "cell": "nosaltres"
         },
         {
           "sentence": "Vosaltres {{answer}} raó.",
           "answer": "teniu",
           "translation": "You (all) are right.",
           "hint": "to have, you (plural)",
-          "display_order": 5
+          "display_order": 5,
+          "cell": "vosaltres"
         },
         {
           "sentence": "Ells {{answer}} set.",
           "answer": "tenen",
           "translation": "They are thirsty.",
           "hint": "to have, they",
-          "display_order": 6
+          "display_order": 6,
+          "cell": "ells"
         }
+      ],
+      "paradigm": [
+        "jo",
+        "tu",
+        "ell",
+        "nosaltres",
+        "vosaltres",
+        "ells"
       ]
     },
     {
@@ -416,43 +498,57 @@
           "answer": "parlem",
           "translation": "We speak Catalan.",
           "hint": "to speak, we",
-          "display_order": 1
+          "display_order": 1,
+          "cell": "nosaltres"
         },
         {
           "sentence": "Ella {{answer}} en una oficina.",
           "answer": "treballa",
           "translation": "She works in an office.",
           "hint": "to work, she",
-          "display_order": 2
+          "display_order": 2,
+          "cell": "ell"
         },
         {
           "sentence": "Tu {{answer}} música cada dia?",
           "answer": "escoltes",
           "translation": "Do you listen to music every day?",
           "hint": "to listen, you (informal)",
-          "display_order": 3
+          "display_order": 3,
+          "cell": "tu"
         },
         {
           "sentence": "Ells {{answer}} a futbol.",
           "answer": "juguen",
           "translation": "They play football.",
           "hint": "to play, they",
-          "display_order": 4
+          "display_order": 4,
+          "cell": "ells"
         },
         {
           "sentence": "Vosaltres {{answer}} català?",
           "answer": "estudieu",
           "translation": "Do you (all) study Catalan?",
           "hint": "to study, you (plural)",
-          "display_order": 5
+          "display_order": 5,
+          "cell": "vosaltres"
         },
         {
           "sentence": "Jo {{answer}} el pa.",
           "answer": "compro",
           "translation": "I buy the bread.",
           "hint": "to buy, I",
-          "display_order": 6
+          "display_order": 6,
+          "cell": "jo"
         }
+      ],
+      "paradigm": [
+        "jo",
+        "tu",
+        "ell",
+        "nosaltres",
+        "vosaltres",
+        "ells"
       ]
     },
     {
@@ -480,43 +576,65 @@
           "answer": "dormo",
           "translation": "I sleep a lot.",
           "hint": "to sleep, I",
-          "display_order": 1
+          "display_order": 1,
+          "cell": "jo"
         },
         {
           "sentence": "Nosaltres {{answer}} una carta.",
           "answer": "escrivim",
           "translation": "We are writing a letter.",
           "hint": "to write, we",
-          "display_order": 2
+          "display_order": 2,
+          "cell": "nosaltres"
         },
         {
           "sentence": "Ella {{answer}} el diari.",
           "answer": "llegeix",
           "translation": "She reads the newspaper.",
           "hint": "to read, she (-eix- type)",
-          "display_order": 3
+          "display_order": 3,
+          "cell": "ell"
         },
         {
           "sentence": "Tu {{answer}} la música?",
           "answer": "sents",
           "translation": "Do you hear the music?",
           "hint": "to hear, you (informal)",
-          "display_order": 4
+          "display_order": 4,
+          "cell": "tu"
         },
         {
           "sentence": "Vosaltres {{answer}} un pastís?",
           "answer": "preferiu",
           "translation": "Do you (all) prefer a cake?",
           "hint": "to prefer, you (plural)",
-          "display_order": 5
+          "display_order": 5,
+          "cell": "vosaltres"
         },
         {
           "sentence": "Jo {{answer}} cafè cada matí.",
           "answer": "prenc",
           "translation": "I have coffee every morning.",
           "hint": "to take, I (irregular)",
-          "display_order": 6
+          "display_order": 6,
+          "cell": "jo"
+        },
+        {
+          "sentence": "Ells {{answer}} el tren.",
+          "answer": "perden",
+          "translation": "They miss the train.",
+          "hint": "to lose/miss, they",
+          "cell": "ells",
+          "display_order": 7
         }
+      ],
+      "paradigm": [
+        "jo",
+        "tu",
+        "ell",
+        "nosaltres",
+        "vosaltres",
+        "ells"
       ]
     },
     {
@@ -736,14 +854,16 @@
           "answer": "blanca",
           "translation": "The house is white.",
           "hint": "white — feminine",
-          "display_order": 1
+          "display_order": 1,
+          "cell": "f.sg"
         },
         {
           "sentence": "Els llibres són {{answer}}.",
           "answer": "nous",
           "translation": "The books are new.",
           "hint": "new — masculine plural",
-          "display_order": 2
+          "display_order": 2,
+          "cell": "m.pl"
         },
         {
           "sentence": "La meva germana és molt {{answer}}.",
@@ -757,14 +877,16 @@
           "answer": "calent",
           "translation": "The coffee is hot.",
           "hint": "hot — masculine",
-          "display_order": 4
+          "display_order": 4,
+          "cell": "m.sg"
         },
         {
           "sentence": "Les flors són {{answer}}.",
           "answer": "boniques",
           "translation": "The flowers are pretty.",
           "hint": "pretty — feminine plural",
-          "display_order": 5
+          "display_order": 5,
+          "cell": "f.pl"
         },
         {
           "sentence": "El film és {{answer}}.",
@@ -773,6 +895,12 @@
           "hint": "interesting — masculine",
           "display_order": 6
         }
+      ],
+      "paradigm": [
+        "m.sg",
+        "f.sg",
+        "m.pl",
+        "f.pl"
       ]
     }
   ]

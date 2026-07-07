@@ -32,43 +32,75 @@
           "answer": "Eu",
           "translation": "I am from Bucharest.",
           "hint": "I",
-          "display_order": 1
+          "display_order": 1,
+          "cell": "eu"
         },
         {
           "sentence": "{{answer}} ești prietenul meu.",
           "answer": "Tu",
           "translation": "You are my friend.",
           "hint": "you — informal",
-          "display_order": 2
+          "display_order": 2,
+          "cell": "tu"
         },
         {
           "sentence": "{{answer}} este sora mea.",
           "answer": "Ea",
           "translation": "She is my sister.",
           "hint": "she",
-          "display_order": 3
+          "display_order": 3,
+          "cell": "ea"
         },
         {
           "sentence": "{{answer}} suntem studenți.",
           "answer": "Noi",
           "translation": "We are students.",
           "hint": "we",
-          "display_order": 4
+          "display_order": 4,
+          "cell": "noi"
         },
         {
           "sentence": "{{answer}} sunt din Spania.",
           "answer": "Ei",
           "translation": "They are from Spain.",
           "hint": "they (masculine)",
-          "display_order": 5
+          "display_order": 5,
+          "cell": "ei"
         },
         {
           "sentence": "{{answer}} sunteți foarte amabili.",
           "answer": "Voi",
           "translation": "You (all) are very kind.",
           "hint": "you — plural",
-          "display_order": 6
+          "display_order": 6,
+          "cell": "voi"
+        },
+        {
+          "sentence": "{{answer}} este fratele meu.",
+          "answer": "El",
+          "translation": "He is my brother.",
+          "hint": "he",
+          "cell": "el",
+          "display_order": 7
+        },
+        {
+          "sentence": "{{answer}} sunt prietenele mele.",
+          "answer": "Ele",
+          "translation": "They are my friends (all women).",
+          "hint": "they — all female",
+          "cell": "ele",
+          "display_order": 8
         }
+      ],
+      "paradigm": [
+        "eu",
+        "tu",
+        "el",
+        "ea",
+        "noi",
+        "voi",
+        "ei",
+        "ele"
       ]
     },
     {
@@ -96,43 +128,54 @@
           "answer": "cărți",
           "translation": "I have two books.",
           "hint": "book, plural",
-          "display_order": 1
+          "display_order": 1,
+          "cell": "feminine"
         },
         {
           "sentence": "Am trei {{answer}}.",
           "answer": "surori",
           "translation": "I have three sisters.",
           "hint": "sister, plural",
-          "display_order": 2
+          "display_order": 2,
+          "cell": "feminine"
         },
         {
           "sentence": "Am două {{answer}} în casă.",
           "answer": "pisici",
           "translation": "I have two cats in the house.",
           "hint": "cat, plural",
-          "display_order": 3
+          "display_order": 3,
+          "cell": "feminine"
         },
         {
           "sentence": "Am două {{answer}} noi.",
           "answer": "scaune",
           "translation": "I have two new chairs.",
           "hint": "chair — neuter: două, not doi",
-          "display_order": 4
+          "display_order": 4,
+          "cell": "neuter"
         },
         {
           "sentence": "Am doi {{answer}}.",
           "answer": "frați",
           "translation": "I have two brothers.",
           "hint": "brother, plural — doi for masculine",
-          "display_order": 5
+          "display_order": 5,
+          "cell": "masculine"
         },
         {
           "sentence": "Cumpăr două {{answer}}.",
           "answer": "mere",
           "translation": "I am buying two apples.",
           "hint": "apple, plural — neuter",
-          "display_order": 6
+          "display_order": 6,
+          "cell": "neuter"
         }
+      ],
+      "paradigm": [
+        "masculine",
+        "feminine",
+        "neuter"
       ]
     },
     {
@@ -224,43 +267,53 @@
           "answer": "Casa",
           "translation": "The house is big.",
           "hint": "house + the suffixed article",
-          "display_order": 1
+          "display_order": 1,
+          "cell": "-a"
         },
         {
           "sentence": "{{answer}} este nou.",
           "answer": "Scaunul",
           "translation": "The chair is new.",
           "hint": "chair + the suffixed article",
-          "display_order": 2
+          "display_order": 2,
+          "cell": "-ul"
         },
         {
           "sentence": "{{answer}} este interesantă.",
           "answer": "Cartea",
           "translation": "The book is interesting.",
           "hint": "book + the suffixed article",
-          "display_order": 3
+          "display_order": 3,
+          "cell": "-a"
         },
         {
           "sentence": "{{answer}} este caldă.",
           "answer": "Cafeaua",
           "translation": "The coffee is hot.",
           "hint": "coffee + the suffixed article",
-          "display_order": 4
+          "display_order": 4,
+          "cell": "-a"
         },
         {
           "sentence": "{{answer}} lucrează aici.",
           "answer": "Profesorul",
           "translation": "The teacher works here.",
           "hint": "teacher + the suffixed article",
-          "display_order": 5
+          "display_order": 5,
+          "cell": "-ul"
         },
         {
           "sentence": "{{answer}} este deschisă.",
           "answer": "Ușa",
           "translation": "The door is open.",
           "hint": "door + the suffixed article",
-          "display_order": 6
+          "display_order": 6,
+          "cell": "-a"
         }
+      ],
+      "paradigm": [
+        "-ul",
+        "-a"
       ]
     },
     {
@@ -288,43 +341,57 @@
           "answer": "sunt",
           "translation": "I am a student.",
           "hint": "to be, I",
-          "display_order": 1
+          "display_order": 1,
+          "cell": "eu"
         },
         {
           "sentence": "Tu {{answer}} foarte înalt.",
           "answer": "ești",
           "translation": "You are very tall.",
           "hint": "to be, you (informal)",
-          "display_order": 2
+          "display_order": 2,
+          "cell": "tu"
         },
         {
           "sentence": "Ea {{answer}} profesoară.",
           "answer": "este",
           "translation": "She is a teacher.",
           "hint": "to be, she",
-          "display_order": 3
+          "display_order": 3,
+          "cell": "el/ea"
         },
         {
           "sentence": "Noi {{answer}} prieteni.",
           "answer": "suntem",
           "translation": "We are friends.",
           "hint": "to be, we",
-          "display_order": 4
+          "display_order": 4,
+          "cell": "noi"
         },
         {
           "sentence": "Voi {{answer}} români?",
           "answer": "sunteți",
           "translation": "Are you (all) Romanian?",
           "hint": "to be, you (plural)",
-          "display_order": 5
+          "display_order": 5,
+          "cell": "voi"
         },
         {
           "sentence": "Ei {{answer}} acasă.",
           "answer": "sunt",
           "translation": "They are at home.",
           "hint": "to be, they",
-          "display_order": 6
+          "display_order": 6,
+          "cell": "ei"
         }
+      ],
+      "paradigm": [
+        "eu",
+        "tu",
+        "el/ea",
+        "noi",
+        "voi",
+        "ei"
       ]
     },
     {
@@ -352,43 +419,57 @@
           "answer": "am",
           "translation": "I am twenty years old.",
           "hint": "to have, I",
-          "display_order": 1
+          "display_order": 1,
+          "cell": "eu"
         },
         {
           "sentence": "Tu {{answer}} o pisică?",
           "answer": "ai",
           "translation": "Do you have a cat?",
           "hint": "to have, you (informal)",
-          "display_order": 2
+          "display_order": 2,
+          "cell": "tu"
         },
         {
           "sentence": "Ea {{answer}} o întrebare.",
           "answer": "are",
           "translation": "She has a question.",
           "hint": "to have, she",
-          "display_order": 3
+          "display_order": 3,
+          "cell": "el/ea"
         },
         {
           "sentence": "Noi {{answer}} timp.",
           "answer": "avem",
           "translation": "We have time.",
           "hint": "to have, we",
-          "display_order": 4
+          "display_order": 4,
+          "cell": "noi"
         },
         {
           "sentence": "Voi {{answer}} dreptate.",
           "answer": "aveți",
           "translation": "You (all) are right.",
           "hint": "to have, you (plural)",
-          "display_order": 5
+          "display_order": 5,
+          "cell": "voi"
         },
         {
           "sentence": "Ei {{answer}} o casă la munte.",
           "answer": "au",
           "translation": "They have a house in the mountains.",
           "hint": "to have, they",
-          "display_order": 6
+          "display_order": 6,
+          "cell": "ei"
         }
+      ],
+      "paradigm": [
+        "eu",
+        "tu",
+        "el/ea",
+        "noi",
+        "voi",
+        "ei"
       ]
     },
     {
@@ -416,43 +497,65 @@
           "answer": "lucrez",
           "translation": "I work in an office.",
           "hint": "to work, I (-ez type)",
-          "display_order": 1
+          "display_order": 1,
+          "cell": "eu"
         },
         {
           "sentence": "Tu {{answer}} muzică în fiecare zi?",
           "answer": "asculți",
           "translation": "Do you listen to music every day?",
           "hint": "to listen, you (informal)",
-          "display_order": 2
+          "display_order": 2,
+          "cell": "tu"
         },
         {
           "sentence": "Ea {{answer}} frumos.",
           "answer": "cântă",
           "translation": "She sings beautifully.",
           "hint": "to sing, she",
-          "display_order": 3
+          "display_order": 3,
+          "cell": "el/ea"
         },
         {
           "sentence": "Ei {{answer}} fotbal.",
           "answer": "joacă",
           "translation": "They play football.",
           "hint": "to play, they",
-          "display_order": 4
+          "display_order": 4,
+          "cell": "ei"
         },
         {
           "sentence": "Voi {{answer}} în casă.",
           "answer": "intrați",
           "translation": "You (all) are entering the house.",
           "hint": "to enter, you (plural)",
-          "display_order": 5
+          "display_order": 5,
+          "cell": "voi"
         },
         {
           "sentence": "Eu {{answer}} pâine.",
           "answer": "cumpăr",
           "translation": "I am buying bread.",
           "hint": "to buy, I",
-          "display_order": 6
+          "display_order": 6,
+          "cell": "eu"
+        },
+        {
+          "sentence": "Noi {{answer}} împreună.",
+          "answer": "lucrăm",
+          "translation": "We work together.",
+          "hint": "to work, we",
+          "cell": "noi",
+          "display_order": 7
         }
+      ],
+      "paradigm": [
+        "eu",
+        "tu",
+        "el/ea",
+        "noi",
+        "voi",
+        "ei"
       ]
     },
     {
@@ -480,43 +583,57 @@
           "answer": "merg",
           "translation": "I go to school.",
           "hint": "to go, I",
-          "display_order": 1
+          "display_order": 1,
+          "cell": "eu"
         },
         {
           "sentence": "Noi {{answer}} o scrisoare.",
           "answer": "scriem",
           "translation": "We are writing a letter.",
           "hint": "to write, we",
-          "display_order": 2
+          "display_order": 2,
+          "cell": "noi"
         },
         {
           "sentence": "Ei {{answer}} mult.",
           "answer": "dorm",
           "translation": "They sleep a lot.",
           "hint": "to sleep, they",
-          "display_order": 3
+          "display_order": 3,
+          "cell": "ei"
         },
         {
           "sentence": "Ea {{answer}} o carte.",
           "answer": "citește",
           "translation": "She is reading a book.",
           "hint": "to read, she (-esc type)",
-          "display_order": 4
+          "display_order": 4,
+          "cell": "el/ea"
         },
         {
           "sentence": "Tu {{answer}} muzica?",
           "answer": "auzi",
           "translation": "Do you hear the music?",
           "hint": "to hear, you (informal)",
-          "display_order": 5
+          "display_order": 5,
+          "cell": "tu"
         },
         {
           "sentence": "Voi {{answer}} marea de aici?",
           "answer": "vedeți",
           "translation": "Do you (all) see the sea from here?",
           "hint": "to see, you (plural)",
-          "display_order": 6
+          "display_order": 6,
+          "cell": "voi"
         }
+      ],
+      "paradigm": [
+        "eu",
+        "tu",
+        "el/ea",
+        "noi",
+        "voi",
+        "ei"
       ]
     },
     {
@@ -736,43 +853,55 @@
           "answer": "albă",
           "translation": "The house is white.",
           "hint": "white — feminine",
-          "display_order": 1
+          "display_order": 1,
+          "cell": "f.sg"
         },
         {
           "sentence": "Cărțile sunt {{answer}}.",
           "answer": "noi",
           "translation": "The books are new.",
           "hint": "new — feminine plural",
-          "display_order": 2
+          "display_order": 2,
+          "cell": "m.pl"
         },
         {
           "sentence": "Sora mea este foarte {{answer}}.",
           "answer": "amabilă",
           "translation": "My sister is very kind.",
           "hint": "kind — feminine",
-          "display_order": 3
+          "display_order": 3,
+          "cell": "f.sg"
         },
         {
           "sentence": "Filmul este {{answer}}.",
           "answer": "interesant",
           "translation": "The film is interesting.",
           "hint": "interesting — masculine/neuter",
-          "display_order": 4
+          "display_order": 4,
+          "cell": "m.sg"
         },
         {
           "sentence": "Florile sunt {{answer}}.",
           "answer": "frumoase",
           "translation": "The flowers are beautiful.",
           "hint": "beautiful — feminine plural",
-          "display_order": 5
+          "display_order": 5,
+          "cell": "f.pl"
         },
         {
           "sentence": "Băiatul este {{answer}}.",
           "answer": "înalt",
           "translation": "The boy is tall.",
           "hint": "tall — masculine",
-          "display_order": 6
+          "display_order": 6,
+          "cell": "m.sg"
         }
+      ],
+      "paradigm": [
+        "m.sg",
+        "f.sg",
+        "m.pl",
+        "f.pl"
       ]
     }
   ]

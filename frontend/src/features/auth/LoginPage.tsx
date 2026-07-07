@@ -10,6 +10,29 @@ export default function LoginPage() {
   const [error, setError] = useState<string | null>(null)
   const [message, setMessage] = useState<string | null>(null)
   const [loading, setLoading] = useState(false)
+  // Forgot-password mode: same email field, no password — sends the
+  // recovery link that lands on /reset-password.
+  const [resetMode, setResetMode] = useState(false)
+
+  async function handleResetRequest(e: React.FormEvent) {
+    e.preventDefault()
+    setError(null)
+    setMessage(null)
+    setLoading(true)
+    try {
+      const { error } = await supabase.auth.resetPasswordForEmail(email, {
+        redirectTo: `${window.location.origin}/reset-password`,
+      })
+      if (error) setError(error.message)
+      else {
+        setMessage(
+          'If an account exists for that email, a password-reset link is on its way.',
+        )
+      }
+    } finally {
+      setLoading(false)
+    }
+  }
 
   async function handleEmailAuth(e: React.FormEvent) {
     e.preventDefault()
@@ -57,6 +80,7 @@ export default function LoginPage() {
         </h1>
 
         {/* Tabs */}
+        {!resetMode && (
         <div className="flex rounded-lg overflow-hidden border border-gray-200 mb-6">
           <button
             type="button"
@@ -83,9 +107,20 @@ export default function LoginPage() {
             Sign Up
           </button>
         </div>
+        )}
+
+        {resetMode && (
+          <p className="text-sm text-gray-600 mb-4">
+            Enter your account email and we’ll send you a link to choose a new
+            password.
+          </p>
+        )}
 
         {/* Email/Password form */}
-        <form onSubmit={handleEmailAuth} className="space-y-4">
+        <form
+          onSubmit={resetMode ? handleResetRequest : handleEmailAuth}
+          className="space-y-4"
+        >
           <div>
             <label className="block text-sm font-medium text-gray-700 mb-1" htmlFor="email">
               Email
@@ -103,6 +138,7 @@ export default function LoginPage() {
             />
           </div>
 
+          {!resetMode && (
           <div>
             <label className="block text-sm font-medium text-gray-700 mb-1" htmlFor="password">
               Password
@@ -119,6 +155,7 @@ export default function LoginPage() {
               autoComplete={tab === 'signin' ? 'current-password' : 'new-password'}
             />
           </div>
+          )}
 
           {error && (
             <p className="text-sm text-red-600 bg-red-50 rounded-lg px-3 py-2">{error}</p>
@@ -134,10 +171,40 @@ export default function LoginPage() {
             className="w-full bg-indigo-600 hover:bg-indigo-700 disabled:opacity-60 text-white font-medium rounded-lg px-4 py-2.5 text-sm transition-colors"
             style={{ minHeight: '44px' }}
           >
-            {loading ? 'Loading…' : tab === 'signin' ? 'Sign In' : 'Create Account'}
+            {loading
+              ? 'Loading…'
+              : resetMode
+                ? 'Send reset link'
+                : tab === 'signin'
+                  ? 'Sign In'
+                  : 'Create Account'}
           </button>
         </form>
 
+        <div className="mt-3 text-center">
+          {resetMode ? (
+            <button
+              type="button"
+              onClick={() => { setResetMode(false); setError(null); setMessage(null) }}
+              className="text-sm text-indigo-600 hover:underline"
+            >
+              ← Back to sign in
+            </button>
+          ) : (
+            tab === 'signin' && (
+              <button
+                type="button"
+                onClick={() => { setResetMode(true); setError(null); setMessage(null) }}
+                className="text-sm text-indigo-600 hover:underline"
+              >
+                Forgot password?
+              </button>
+            )
+          )}
+        </div>
+
+        {!resetMode && (
+        <>
         <div className="relative my-5">
           <div className="absolute inset-0 flex items-center">
             <div className="w-full border-t border-gray-200" />
@@ -162,6 +229,8 @@ export default function LoginPage() {
           </svg>
           Sign in with Google
         </button>
+        </>
+        )}
       </div>
     </div>
   )
