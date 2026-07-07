@@ -10,6 +10,7 @@ import ReviewDetail from './ReviewDetail'
 import CardFeedback from './CardFeedback'
 import SessionSummary from './SessionSummary'
 import OnScreenKeyboard from '../keyboards/OnScreenKeyboard'
+import { hintLayersFor } from './hintLayers'
 import SpeakButton from '../../components/SpeakButton'
 import type { KeyboardLanguage } from '../keyboards/OnScreenKeyboard'
 
@@ -183,12 +184,16 @@ export default function ReviewSessionPage() {
   const card = session.currentCard
   if (!card) return null
 
-  // Hint layers for this card. The translation comes FIRST (a lexical cue —
-  // it says what to express without saying how); the gloss/hint comes LAST,
-  // because morphology-recipe hints like "masa + -da" essentially spell out
-  // the answer and must stay behind the final disclosure level.
-  const maxHint = (card.hint ? 1 : 0) + (card.translation ? 1 : 0)
-  const glossHintAt = card.translation ? 2 : 1
+  // Language-aware hint layers (see hintLayers.ts): romanization first for
+  // non-Latin scripts, word-by-word gloss first for unfamiliar-syntax
+  // languages, translation before the morphology recipe everywhere — the
+  // recipe stays last because it all but spells out the answer.
+  const layers = hintLayersFor(card.language_code, card)
+  const maxHint = layers.length
+  const revealedLayers =
+    session.phase !== 'answering' ? layers : layers.slice(0, Math.min(hintLevel, maxHint))
+  const topHint = revealedLayers.find((l) => l.field === 'hint')
+  const belowLayers = revealedLayers.filter((l) => l.field !== 'hint')
   const result = session.validationResult?.answer_result
   const resultStyles =
     result === 'correct'
@@ -260,24 +265,40 @@ export default function ReviewSessionPage() {
 
         {/* Card area */}
         <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-6 md:p-8">
-          {card.hint && (session.phase !== 'answering' || hintLevel >= glossHintAt) && (
-            <p className="text-sm text-gray-400 text-center mb-4">{card.hint}</p>
+          {topHint && (
+            <p className="text-sm text-gray-400 text-center mb-4">{topHint.text}</p>
           )}
 
           <DrillCard
             sentence={card.sentence}
-            value={userInput}
+            value={session.phase === 'answering' ? userInput : lastInput}
             onChange={setUserInput}
             onSubmit={handleSubmitAnswer}
             disabled={session.phase !== 'answering' || validateMutation.isPending}
             languageCode={card.language_code}
             inputRef={inputRef}
+            result={session.phase !== 'answering' ? result : null}
           />
 
-          {card.translation &&
-            (session.phase !== 'answering' || hintLevel >= 1) && (
-              <p className="text-xs text-gray-400 text-center mt-4">{card.translation}</p>
-            )}
+          {belowLayers.length > 0 && (
+            <div className="mt-4 space-y-1 text-center">
+              {belowLayers.map((l) => (
+                <p
+                  key={l.field}
+                  className={
+                    l.field === 'transliteration'
+                      ? 'text-sm italic text-gray-500'
+                      : 'text-xs text-gray-400'
+                  }
+                >
+                  <span className="text-[10px] uppercase tracking-wide text-gray-300 mr-2">
+                    {l.label}
+                  </span>
+                  {l.text}
+                </p>
+              ))}
+            </div>
+          )}
         </div>
 
         {/* Answer bar (answering phase): just the arrow, Bunpro-style */}

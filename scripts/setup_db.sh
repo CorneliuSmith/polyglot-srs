@@ -95,7 +95,7 @@ if ! $PYTHON -c "import spacy; spacy.load('en_core_web_sm')" >/dev/null 2>&1; th
 fi
 
 echo "==> Seeding vocabulary"
-for L in sw tr ar en es fr de it ca mi yo ha xh; do
+for L in sw tr ar en es fr de it ca mi yo ha xh ro el; do
   $PYTHON -m backend.services.seeder.run --language "$L" \
     || echo "    WARN: $L vocab seeding failed (continuing)"
 done
@@ -106,7 +106,7 @@ echo "==> Seeding grammar paths"
 $PYTHON -m backend.services.seeder.seed_grammar --language all
 
 echo "==> Seeding example sentences"
-for L in es fr de it ca mi yo ha xh tr ru sw; do
+for L in es fr de it ca mi yo ha xh tr ru sw ro el; do
   $PYTHON -m backend.services.seeder.seed_sentences --language "$L" \
     || echo "    WARN: $L sentences failed (continuing)"
 done

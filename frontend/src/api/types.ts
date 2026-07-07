@@ -13,6 +13,9 @@ export interface DueCard {
   correct_answer: string
   hint?: string | null
   translation?: string | null
+  // language-aware hint layers (present when authored for this sentence)
+  gloss?: string | null
+  transliteration?: string | null
   // null for grammar cards — the backend only populates these for vocabulary
   morphology: Record<string, unknown> | null
   alternatives: string[] | null
@@ -88,6 +91,8 @@ export interface LessonQuiz {
   sentence: string
   answer: string
   translation: string | null
+  gloss?: string | null
+  transliteration?: string | null
   hint: string | null
   morphology: Record<string, unknown> | null
   alternatives: string[]

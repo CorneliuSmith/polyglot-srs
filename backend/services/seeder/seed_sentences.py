@@ -52,13 +52,15 @@ async def _seed_file(conn, lang_id, path, source: str, license_: str) -> int:
                 """
                 INSERT INTO example_sentences
                     (language_id, vocabulary_id, sentence, translation,
-                     difficulty_rank, source, license)
-                VALUES ($1, $2, $3, $4, $5, $6, $7)
+                     difficulty_rank, source, license, gloss, transliteration)
+                VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9)
                 ON CONFLICT (vocabulary_id, sentence) DO NOTHING
                 """,
                 lang_id, vocab_id, sentence,
                 (row.get("translation") or "").strip() or None,
                 rank, source, license_,
+                (row.get("gloss") or "").strip() or None,
+                (row.get("transliteration") or "").strip() or None,
             )
             if result.endswith(" 1"):
                 count += 1

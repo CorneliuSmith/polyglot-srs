@@ -67,7 +67,7 @@ python -m backend.services.seeder.run --language ar   # Arabic (curated)
 python -m backend.services.seeder.run --language en   # English (WordNet glosses)
 
 # Curated A1/A2 starter vocab (~30 words each):
-for L in es fr de it ca mi yo ha xh; do
+for L in es fr de it ca mi yo ha xh ro el; do
   python -m backend.services.seeder.run --language $L
 done
 
@@ -76,13 +76,14 @@ done
 python -m backend.services.seeder.run --file data/ru_starter.tsv --language ru
 
 # Grammar (reviewed points + cloze drills; also feeds placement) — seeds ALL
-# 14 languages: es 43 · tr 40 · ru 51 · sw 32 · yo 24 · xh 24 · ha 22, plus
-# 12-point A1 paths for fr/de/it/ca/mi/ar/en
+# 16 languages: es 43 · tr 40 · ru 51 · sw 32 · yo 24 · xh 24 · ha 22, plus
+# 12-point A1 paths for fr/de/it/ca/mi/ar/en/ro/el (Greek drills carry inline
+# transliterations; Māori carries word-by-word glosses)
 python -m backend.services.seeder.seed_grammar --language all
 
 # Example sentences — vocab is taught IN A SENTENCE (word blanked) when these
 # exist, not as a bare flashcard. Curated starters ship for every curated lang:
-for L in es fr de it ca mi yo ha xh tr ru sw; do
+for L in es fr de it ca mi yo ha xh tr ru sw ro el; do
   python -m backend.services.seeder.seed_sentences --language $L
 done
 ```
@@ -97,10 +98,11 @@ will be empty — re-run the seeders.
 
 > **Which languages have content?**
 > - **Full** (vocab + grammar + placement): **Turkish, Spanish, Russian**
->   (Russian A2–C2 grammar ships as drafts pending verification; A1 is live).
+>   (all three A1→C2 live).
 > - **Every other language** now has a grammar tab too (12-point A1 path)
 >   on top of its vocabulary: Swahili, Arabic, English corpora and curated
->   starters for French, German, Italian, Catalan, Maori, Yoruba, Hausa, Xhosa.
+>   starters for French, German, Italian, Catalan, Maori, Yoruba, Hausa,
+>   Xhosa, Romanian, and Greek.
 >
 > The curated starters (~30 words) are enough to demo onboarding → placement →
 > learn → review per language, but they're small.
@@ -220,10 +222,10 @@ A screenshot + the language + what you clicked is enough for me to chase it down
 
 ## Known limitations (not bugs — don't be surprised)
 
-- Content coverage today — grammar paths: **Spanish 43 (6 drills/point) and
-  Turkish 40 (full A1→C2)**; **Russian 51 (full A1→C2, 6 drills/point — A2+
-  are drafts pending verification, hidden until approved)**; Swahili 32,
-  Yoruba 24, Xhosa 24, Hausa 22 (A1→C1-equivalent). Vocab:
+- Content coverage today — grammar paths: **Spanish 43, Turkish 40, and
+  Russian 51 (all full A1→C2, 6 drills/point)**; Swahili 32,
+  Yoruba 24, Xhosa 24, Hausa 22 (A1→C1-equivalent); 12-point A1 paths for
+  the rest incl. Romanian and Greek. Vocab:
   Swahili/Turkish/Arabic/English corpora + curated starters elsewhere
   (~30 words; Russian ~58 with aspect-pair cards). See docs/ROADMAP.md for
   the build-out plan.

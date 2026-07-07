@@ -10,6 +10,17 @@ interface DrillCardProps {
   /** @deprecated use languageCode instead; kept for backward compat */
   dir?: 'ltr' | 'rtl'
   inputRef?: React.RefObject<HTMLInputElement | null>
+  /** After grading: colors the blank green/amber/red in place. */
+  result?: string | null
+}
+
+// The graded answer stays visible IN the blank: green = right,
+// amber = right but sloppy (diacritics/spelling), red = wrong.
+const RESULT_INPUT_STYLES: Record<string, string> = {
+  correct: 'border-green-500 text-green-700',
+  correct_sloppy: 'border-amber-400 text-amber-600',
+  wrong_form: 'border-red-400 text-red-600',
+  wrong: 'border-red-400 text-red-600',
 }
 
 export default function DrillCard({
@@ -21,8 +32,12 @@ export default function DrillCard({
   languageCode = 'en',
   dir,
   inputRef,
+  result,
 }: DrillCardProps) {
   const hasMarker = sentence.includes('{{answer}}')
+  const inputTone = (result && RESULT_INPUT_STYLES[result]) ||
+    'border-indigo-400 focus:border-indigo-600'
+
 
   // Resolve direction: languageCode takes precedence, fall back to legacy dir prop
   const resolvedDir = languageCode === 'ar' ? 'rtl' : dir ?? 'ltr'
@@ -51,7 +66,7 @@ export default function DrillCard({
           onKeyDown={handleKeyDown}
           disabled={disabled}
           placeholder="Type the word…"
-          className="min-w-[200px] border-b-2 border-indigo-400 focus:border-indigo-600 outline-none text-xl text-center py-1 bg-transparent text-base touch-manipulation"
+          className={`min-w-[200px] border-b-2 ${inputTone} outline-none text-xl text-center py-1 bg-transparent text-base touch-manipulation`}
           style={{ minHeight: '44px' }}
           dir={resolvedDir}
         />
@@ -76,7 +91,7 @@ export default function DrillCard({
           onChange={(e) => onChange(e.target.value)}
           onKeyDown={handleKeyDown}
           disabled={disabled}
-          className="inline-block min-w-[120px] border-b-2 border-indigo-400 focus:border-indigo-600 outline-none text-xl text-center mx-1 py-0 bg-transparent text-base touch-manipulation"
+          className={`inline-block min-w-[120px] border-b-2 ${inputTone} outline-none text-xl text-center mx-1 py-0 bg-transparent text-base touch-manipulation`}
           style={{ minHeight: '44px' }}
           dir={resolvedDir}
         />

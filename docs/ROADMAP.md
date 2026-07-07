@@ -18,18 +18,24 @@ coach from the learner's actual failure history.
 
 ## 2. Current state (verified)
 
-- **Engine (done, tested)**: FSRS-5 scheduling + per-language weight fitting;
-  6-layer NLP answer grading for all 14 languages (diacritics coach, don't
-  fail); teach-before-quiz lessons; sentence rotation with per-sentence
-  logging (`review_log.prompt_sentence`); in-session re-drill of misses;
+- **Engine (done, tested)**: FSRS-5 scheduling + per-language weight fitting
+  with a held-out validation gate (WP8); 6-layer NLP answer grading for all
+  16 languages (diacritics coach, don't fail); teach-before-quiz lessons;
+  deterministic sentence rotation (stable across reloads, rotates per
+  recorded review) with per-sentence logging
+  (`review_log.prompt_sentence`); in-session re-drill of misses;
   teach-before-quiz is a hard gate: learn batches are created suspended, each
   lesson ends with a first-check drill (the lesson payload's `quiz`), and only
   a correct answer confirms THAT card into reviews
   (POST /api/review/learn/confirm); abandoned or failed walkthroughs re-teach;
   Bunpro-style learn decks (per-level lists with progress,
   GET /api/review/decks, level-scoped batches that auto-queue the deck);
-  graduated hints disclose the translation first and the morphology recipe
-  last; browsable grammar path (`/grammar`) with per-point learning; onboarding +
+  graduated hints are language-aware (hintLayers.ts): non-Latin scripts
+  (ru/ar/el) reveal romanization → word-by-word gloss → translation → recipe;
+  syntax-divergent languages (mi/sw/yo/xh/ha) reveal the gloss first; the
+  rest reveal translation → recipe; the answer blank colors on grading
+  (green correct / amber sloppy spelling / red wrong);
+  browsable grammar path (`/grammar`) with per-point learning; onboarding +
   mixed placement; personal notes → cloze cards; AI tutor with memory,
   weak-area grounding (vocab + grammar), entitlements, Stripe billing;
   contributor + AI-check + linguist-approval workflow; RLS multi-tenancy
@@ -39,23 +45,28 @@ coach from the learner's actual failure history.
   correct-but-lucky offers "I actually got it wrong", the grammar point is
   viewable on demand after any answer ("Show grammar"), and misses re-drill
   before the session ends.
-- **Grammar paths seeded — ALL 14 languages**: es 43 (full A1→C2, Plan
+- **Grammar paths seeded — ALL 16 languages**: es 43 (full A1→C2, Plan
   Curricular order), tr 40 (full A1→C2, cross-model verified), ru 51 (full
-  A1→C2 per TORFL — A2+ are `reviewed: false` drafts awaiting verification),
-  sw 32 · yo 24 · xh 24 · ha 22 (A1→C1-equivalent), and 12-point A1 paths
-  for fr · de · it · ca · mi · ar · en (WP3). **WP1 drill bar met everywhere:
-  6 drills/point (1,920 drills total)**, validated for single-word answers,
-  no answer leakage, no duplicate frames, English-functional hints. Every
-  point: can-do function, explanation, references.
+  A1→C2 per TORFL — A2+ promoted live 2026-07; native-speaker review still
+  wanted, WP4), sw 32 · yo 24 · xh 24 · ha 22 (A1→C1-equivalent), and
+  12-point A1 paths for fr · de · it · ca · mi · ar · en · ro · el.
+  **WP1 drill bar met everywhere: 6 drills/point (2,064 drills total)**,
+  validated for single-word answers, no answer leakage, no duplicate frames,
+  English-functional hints. Hint-layer content is seeded where the language
+  needs it: ru drills carry transliterations (cyrtranslit), el drills carry
+  hand-written transliterations, ar drills carry lexicon transliterations,
+  mi drills carry word-by-word glosses. Every point: can-do function,
+  explanation, references.
 - **Vocabulary**: sw ~1200, tr ~770, ar/en corpora; ~30-word curated starters
-  for es/fr/de/it/ca/mi/yo/ha/xh, each with cloze example sentences; ru 58
+  for es/fr/de/it/ca/mi/yo/ha/xh/ro/el, each with 6 cloze example sentences
+  per word (el sentences carry a transliteration column); ru 58
   curated starters implementing the language-shaped card design (aspect/motion
   pairs as single cards via alternatives + morphology.aspect_partner, noun
   declension samples in morphology) with 6 example sentences per word.
 - **Ops**: `scripts/setup_db.sh` rebuilds or repairs any database end-to-end
   (tracked migrations that self-baseline on pre-migrated DBs, offline seed,
   verification; `--local` targets a local Postgres via the auth shim).
-- **Suites**: `backend/tests` (602) and `frontend` vitest (108) green.
+- **Suites**: `backend/tests` (612) and `frontend` vitest (114) green.
 
 ## 3. Non-negotiable invariants (every agent, every package)
 

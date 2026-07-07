@@ -77,6 +77,8 @@ class GrammarSeeder:
                     "answer": answer,
                     "translation": (d.get("translation") or "").strip() or None,
                     "hint": (d.get("hint") or "").strip() or None,
+                    "gloss": (d.get("gloss") or "").strip() or None,
+                    "transliteration": (d.get("transliteration") or "").strip() or None,
                     "display_order": int(d.get("display_order") or 0),
                 })
             points.append({
@@ -147,11 +149,13 @@ class GrammarSeeder:
                     await conn.execute(
                         """
                         INSERT INTO drill_sentences
-                            (grammar_point_id, sentence, answer, translation, hint, display_order)
-                        VALUES ($1, $2, $3, $4, $5, $6)
+                            (grammar_point_id, sentence, answer, translation, hint,
+                             gloss, transliteration, display_order)
+                        VALUES ($1, $2, $3, $4, $5, $6, $7, $8)
                         """,
                         gp_id, d["sentence"], d["answer"], d["translation"],
-                        d["hint"], d["display_order"],
+                        d["hint"], d.get("gloss"), d.get("transliteration"),
+                        d["display_order"],
                     )
                 count += 1
 

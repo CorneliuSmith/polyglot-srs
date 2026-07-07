@@ -32,42 +32,48 @@
           "answer": "au",
           "translation": "I am a student.",
           "hint": "I",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "a · student · ___"
         },
         {
           "sentence": "Kei te pēhea {{answer}}?",
           "answer": "koe",
           "translation": "How are you?",
           "hint": "you — one person",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "PRESENT · how · ___"
         },
         {
           "sentence": "He kaiako {{answer}}.",
           "answer": "ia",
           "translation": "She is a teacher.",
           "hint": "he or she — no gender",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "a · teacher · ___"
         },
         {
           "sentence": "Kei te ako {{answer}} i te reo.",
           "answer": "mātou",
           "translation": "We are learning the language.",
           "hint": "we — not including you",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "PRESENT · learn · ___ · PAST/OBJ · the · language"
         },
         {
           "sentence": "Kei te haere {{answer}} ki te kura.",
           "answer": "rātou",
           "translation": "They are going to school.",
           "hint": "they — three or more",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "PRESENT · go · ___ · to · the · school"
         },
         {
           "sentence": "E noho ana {{answer}} ki Pōneke.",
           "answer": "koutou",
           "translation": "You (all) live in Wellington.",
           "hint": "you — three or more",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "living · CONT · ___ · to · Wellington"
         }
       ]
     },
@@ -96,42 +102,48 @@
           "answer": "te",
           "translation": "The house is big.",
           "hint": "one thing",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "a · big · ___ · house"
         },
         {
           "sentence": "He pai {{answer}} kai.",
           "answer": "te",
           "translation": "The food is good.",
           "hint": "one thing",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "a · good · ___ · eat/food"
         },
         {
           "sentence": "Kei te tākaro {{answer}} tamariki.",
           "answer": "ngā",
           "translation": "The children are playing.",
           "hint": "more than one",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "PRESENT · play · ___ · children"
         },
         {
           "sentence": "He reka {{answer}} āporo.",
           "answer": "ngā",
           "translation": "The apples are sweet.",
           "hint": "more than one",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "a · delicious · ___ · apple"
         },
         {
           "sentence": "Kei konei {{answer}} pukapuka.",
           "answer": "te",
           "translation": "The book is here.",
           "hint": "one thing",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "at · here · ___ · book"
         },
         {
           "sentence": "He hou {{answer}} waka.",
           "answer": "te",
           "translation": "The car is new.",
           "hint": "one thing",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "a · new · ___ · car"
         }
       ]
     },
@@ -160,42 +172,48 @@
           "answer": "He",
           "translation": "She is a teacher.",
           "hint": "the classifying particle",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "___ · teacher · he/she"
         },
         {
           "sentence": "{{answer}} tauira au.",
           "answer": "He",
           "translation": "I am a student.",
           "hint": "the classifying particle",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "___ · student · I"
         },
         {
           "sentence": "{{answer}} whare nui tēnā.",
           "answer": "He",
           "translation": "That is a big house.",
           "hint": "the classifying particle",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "___ · house · big · that(near-you)"
         },
         {
           "sentence": "{{answer}} rā ātaahua tēnei.",
           "answer": "He",
           "translation": "This is a beautiful day.",
           "hint": "the classifying particle",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "___ · day/sun · beautiful · this"
         },
         {
           "sentence": "{{answer}} kurī tērā.",
           "answer": "He",
           "translation": "That is a dog.",
           "hint": "the classifying particle",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "___ · dog · that(yonder)"
         },
         {
           "sentence": "{{answer}} hoa pai koe.",
           "answer": "He",
           "translation": "You are a good friend.",
           "hint": "the classifying particle",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "___ · friend · good · you"
         }
       ]
     },
@@ -224,42 +242,48 @@
           "answer": "Ko",
           "translation": "This is Mere.",
           "hint": "the identifying particle",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "___ · Mere · this"
         },
         {
           "sentence": "{{answer}} wai tō ingoa?",
           "answer": "Ko",
           "translation": "What is your name?",
           "hint": "the identifying particle",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "___ · who · your(o) · name"
         },
         {
           "sentence": "{{answer}} Tāmaki Makaurau tēnei tāone.",
           "answer": "Ko",
           "translation": "This city is Auckland.",
           "hint": "the identifying particle",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "___ · Tāmaki · Makaurau · this · city"
         },
         {
           "sentence": "{{answer}} ia te kaiako.",
           "answer": "Ko",
           "translation": "She is the teacher.",
           "hint": "the identifying particle",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "___ · he/she · the · teacher"
         },
         {
           "sentence": "{{answer}} Hemi au.",
           "answer": "Ko",
           "translation": "I am Hemi.",
           "hint": "the identifying particle",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "___ · Hemi · I"
         },
         {
           "sentence": "{{answer}} tērā te kura.",
           "answer": "Ko",
           "translation": "That is the school.",
           "hint": "the identifying particle",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "___ · that(yonder) · the · school"
         }
       ]
     },
@@ -288,42 +312,48 @@
           "answer": "Kei",
           "translation": "I am eating.",
           "hint": "the first half of the present marker",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "___ · the · eat/food · I"
         },
         {
           "sentence": "Kei {{answer}} moe ia.",
           "answer": "te",
           "translation": "She is sleeping.",
           "hint": "the second half of the present marker",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "at · ___ · sleep · he/she"
         },
         {
           "sentence": "Kei te {{answer}} mātou i te reo Māori.",
           "answer": "ako",
           "translation": "We are learning the Māori language.",
           "hint": "to learn",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "PRESENT · ___ · we(excl) · PAST/OBJ · the · language · Māori"
         },
         {
           "sentence": "Kei te {{answer}} koe?",
           "answer": "pēhea",
           "translation": "How are you?",
           "hint": "the 'how' word of the greeting",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "PRESENT · ___ · you"
         },
         {
           "sentence": "Kei te {{answer}} ngā tamariki.",
           "answer": "tākaro",
           "translation": "The children are playing.",
           "hint": "to play",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "PRESENT · ___ · the(pl) · children"
         },
         {
           "sentence": "Kei te {{answer}} au ki te toa.",
           "answer": "haere",
           "translation": "I am going to the shop.",
           "hint": "to go",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "PRESENT · ___ · I · to · the · shop"
         }
       ]
     },
@@ -352,42 +382,48 @@
           "answer": "I",
           "translation": "I went to school yesterday.",
           "hint": "the past marker",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "___ · go · I · to · the · school · yesterday"
         },
         {
           "sentence": "I {{answer}} ia ki te toa.",
           "answer": "haere",
           "translation": "He went to the shop.",
           "hint": "to go",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "PAST/OBJ · ___ · he/she · to · the · shop"
         },
         {
           "sentence": "I {{answer}} au i a ia inanahi.",
           "answer": "kite",
           "translation": "I saw her yesterday.",
           "hint": "to see",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "PAST/OBJ · ___ · I · PAST/OBJ · PERS · he/she · yesterday"
         },
         {
           "sentence": "I {{answer}} rātou i te kai.",
           "answer": "tunu",
           "translation": "They cooked the food.",
           "hint": "to cook",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "PAST/OBJ · ___ · they · PAST/OBJ · the · eat/food"
         },
         {
           "sentence": "{{answer}} tae mai ia inanahi.",
           "answer": "I",
           "translation": "She arrived yesterday.",
           "hint": "the past marker",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "___ · arrive · he/she · yesterday"
         },
         {
           "sentence": "I {{answer}} mātou i te parakuihi.",
           "answer": "kai",
           "translation": "We ate breakfast.",
           "hint": "to eat",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "PAST/OBJ · ___ · we(excl) · PAST/OBJ · the · breakfast"
         }
       ]
     },
@@ -416,42 +452,48 @@
           "answer": "Ka",
           "translation": "I will go tomorrow.",
           "hint": "the forward-looking marker",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "___ · go · I · tomorrow"
         },
         {
           "sentence": "Ka {{answer}} mātou ki te moana.",
           "answer": "haere",
           "translation": "We will go to the sea.",
           "hint": "to go",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "FUTURE · ___ · we(excl) · to · the · sea"
         },
         {
           "sentence": "{{answer}} kite anō tāua.",
           "answer": "Ka",
           "translation": "See you again (you and I).",
           "hint": "the forward-looking marker",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "___ · see · again · we-two"
         },
         {
           "sentence": "Ka {{answer}} ia i te kai.",
           "answer": "tunu",
           "translation": "She will cook the food.",
           "hint": "to cook",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "FUTURE · ___ · he/she · PAST/OBJ · the · eat/food"
         },
         {
           "sentence": "{{answer}} ako rātou i te reo.",
           "answer": "Ka",
           "translation": "They will learn the language.",
           "hint": "the forward-looking marker",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "___ · learn · they · PAST/OBJ · the · language"
         },
         {
           "sentence": "Ka {{answer}} āpōpō.",
           "answer": "ua",
           "translation": "It will rain tomorrow.",
           "hint": "to rain",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "FUTURE · ___ · tomorrow"
         }
       ]
     },
@@ -480,42 +522,48 @@
           "answer": "Kei",
           "translation": "She is at the house.",
           "hint": "the location marker",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "___ · the · house · he/she"
         },
         {
           "sentence": "Kei {{answer}} koe?",
           "answer": "hea",
           "translation": "Where are you?",
           "hint": "the 'where' word",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "at · ___ · you"
         },
         {
           "sentence": "{{answer}} Ākarana rātou.",
           "answer": "Kei",
           "translation": "They are in Auckland.",
           "hint": "the location marker",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "___ · Auckland · they"
         },
         {
           "sentence": "Kei te {{answer}} ngā pukapuka.",
           "answer": "tēpu",
           "translation": "The books are on the table.",
           "hint": "table",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "PRESENT · ___ · the(pl) · book"
         },
         {
           "sentence": "Kei te {{answer}} ia.",
           "answer": "kura",
           "translation": "She is at school.",
           "hint": "school",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "PRESENT · ___ · he/she"
         },
         {
           "sentence": "{{answer}} raro te ngeru i te tēpu.",
           "answer": "Kei",
           "translation": "The cat is under the table.",
           "hint": "the location marker",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "___ · under · the · cat · PAST/OBJ · the · table"
         }
       ]
     },
@@ -544,42 +592,48 @@
           "answer": "Kāore",
           "translation": "I don't know.",
           "hint": "the negator",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "___ · I · PAST/OBJ · the · know"
         },
         {
           "sentence": "Kāore {{answer}} i te hiakai.",
           "answer": "ia",
           "translation": "He is not hungry.",
           "hint": "he/she — moves forward in negatives",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "NOT · ___ · PAST/OBJ · the · hungry"
         },
         {
           "sentence": "{{answer}} mātou e haere āpōpō.",
           "answer": "Kāore",
           "translation": "We are not going tomorrow.",
           "hint": "the negator",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "___ · we(excl) · PART · go · tomorrow"
         },
         {
           "sentence": "Kāore au {{answer}} te mārama.",
           "answer": "i",
           "translation": "I don't understand.",
           "hint": "the little particle before 'te'",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "NOT · I · ___ · the · understand"
         },
         {
           "sentence": "{{answer}} he kai i te whare.",
           "answer": "Kāore",
           "translation": "There is no food in the house.",
           "hint": "the negator",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "___ · a · eat/food · PAST/OBJ · the · house"
         },
         {
           "sentence": "Kāore ia {{answer}} haere mai inanahi.",
           "answer": "i",
           "translation": "She didn't come yesterday.",
           "hint": "the past particle in negatives",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "NOT · he/she · ___ · come-here · yesterday"
         }
       ]
     },
@@ -608,42 +662,48 @@
           "answer": "aha",
           "translation": "What is this?",
           "hint": "what",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "a · ___ · this"
         },
         {
           "sentence": "Ko {{answer}} tō ingoa?",
           "answer": "wai",
           "translation": "What is your name?",
           "hint": "who — names ask 'who'",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "IDENT · ___ · your(o) · name"
         },
         {
           "sentence": "Kei {{answer}} te wharepaku?",
           "answer": "hea",
           "translation": "Where is the bathroom?",
           "hint": "where",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "at · ___ · the · bathroom"
         },
         {
           "sentence": "{{answer}} te aha koe?",
           "answer": "Kei",
           "translation": "What are you doing?",
           "hint": "the present marker starts it",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "___ · the · what · you"
         },
         {
           "sentence": "E {{answer}} te utu?",
           "answer": "hia",
           "translation": "How much does it cost?",
           "hint": "how many/much",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "PART · ___ · the · price"
         },
         {
           "sentence": "Nō {{answer}} koe?",
           "answer": "hea",
           "translation": "Where are you from?",
           "hint": "where",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "from · ___ · you"
         }
       ]
     },
@@ -672,42 +732,48 @@
           "answer": "tōku",
           "translation": "This is my house.",
           "hint": "my — o category (not controlled)",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "IDENT · ___ · house · this"
         },
         {
           "sentence": "Ko {{answer}} pukapuka tēnā.",
           "answer": "tāku",
           "translation": "That is my book.",
           "hint": "my — a category (controlled)",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "IDENT · ___ · book · that(near-you)"
         },
         {
           "sentence": "Kei hea {{answer}} waka?",
           "answer": "tō",
           "translation": "Where is your car?",
           "hint": "your — o category",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "at · where · ___ · car"
         },
         {
           "sentence": "He pai {{answer}} mahi.",
           "answer": "tāu",
           "translation": "Your work is good.",
           "hint": "your — a category",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "a · good · ___ · work"
         },
         {
           "sentence": "Ko ia {{answer}} hoa.",
           "answer": "tōku",
           "translation": "He is my friend.",
           "hint": "my — friends are o category",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "IDENT · he/she · ___ · friend"
         },
         {
           "sentence": "He reka {{answer}} kai.",
           "answer": "tāku",
           "translation": "My food is delicious.",
           "hint": "my — a category",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "a · delicious · ___ · eat/food"
         }
       ]
     },
@@ -736,42 +802,48 @@
           "answer": "nui",
           "translation": "The house is big.",
           "hint": "big",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "a · ___ · the · house"
         },
         {
           "sentence": "He {{answer}} tēnei pukapuka.",
           "answer": "pai",
           "translation": "This book is good.",
           "hint": "good",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "a · ___ · this · book"
         },
         {
           "sentence": "He {{answer}} te wai.",
           "answer": "mātao",
           "translation": "The water is cold.",
           "hint": "cold",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "a · ___ · the · who"
         },
         {
           "sentence": "He {{answer}} te rā.",
           "answer": "wera",
           "translation": "The sun is hot.",
           "hint": "hot",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "a · ___ · the · day/sun"
         },
         {
           "sentence": "He {{answer}} ngā putiputi.",
           "answer": "ātaahua",
           "translation": "The flowers are beautiful.",
           "hint": "beautiful",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "a · ___ · the(pl) · flower"
         },
         {
           "sentence": "He {{answer}} te kai nei.",
           "answer": "reka",
           "translation": "This food is delicious.",
           "hint": "delicious",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "a · ___ · the · eat/food · this/near"
         }
       ]
     }

@@ -1,0 +1,779 @@
+{
+  "lists": [
+    {
+      "level": "A1",
+      "title": "Romanian A1 Grammar Path",
+      "description": "A1 grammar in communicative order: pronouns, three genders (including the neuter), the indefinite article, the suffixed definite article, a fi and a avea, the conjugation families, negation, existence, questions, and adjective agreement."
+    }
+  ],
+  "points": [
+    {
+      "title": "Subject pronouns (eu, tu, el…)",
+      "level": "A1",
+      "function": "Say who you are talking about — when it needs saying",
+      "source": "contributor",
+      "reviewed": true,
+      "display_order": 1,
+      "explanation": "Eu (I), tu (you, informal), el/ea (he/she), noi (we), voi (you all), ei/ele (they m/f), plus polite dumneavoastră. The verb ending names the person, so Romanian usually drops the pronoun — vorbesc românește — and uses it for emphasis.",
+      "culture_note": "Politeness has tiers: dumneata (semi-formal) and dumneavoastră (formal, takes plural verbs). Start formal with strangers.",
+      "references": [
+        {
+          "title": "Wikipedia: Romanian grammar",
+          "url": "https://en.wikipedia.org/wiki/Romanian_grammar"
+        },
+        {
+          "title": "Wikipedia: Pro-drop language",
+          "url": "https://en.wikipedia.org/wiki/Pro-drop_language"
+        }
+      ],
+      "drills": [
+        {
+          "sentence": "{{answer}} sunt din București.",
+          "answer": "Eu",
+          "translation": "I am from Bucharest.",
+          "hint": "I",
+          "display_order": 1
+        },
+        {
+          "sentence": "{{answer}} ești prietenul meu.",
+          "answer": "Tu",
+          "translation": "You are my friend.",
+          "hint": "you — informal",
+          "display_order": 2
+        },
+        {
+          "sentence": "{{answer}} este sora mea.",
+          "answer": "Ea",
+          "translation": "She is my sister.",
+          "hint": "she",
+          "display_order": 3
+        },
+        {
+          "sentence": "{{answer}} suntem studenți.",
+          "answer": "Noi",
+          "translation": "We are students.",
+          "hint": "we",
+          "display_order": 4
+        },
+        {
+          "sentence": "{{answer}} sunt din Spania.",
+          "answer": "Ei",
+          "translation": "They are from Spain.",
+          "hint": "they (masculine)",
+          "display_order": 5
+        },
+        {
+          "sentence": "{{answer}} sunteți foarte amabili.",
+          "answer": "Voi",
+          "translation": "You (all) are very kind.",
+          "hint": "you — plural",
+          "display_order": 6
+        }
+      ]
+    },
+    {
+      "title": "Gender and number — including the neuter",
+      "level": "A1",
+      "function": "Name people and things, one or many",
+      "source": "contributor",
+      "reviewed": true,
+      "display_order": 2,
+      "explanation": "Romanian kept Latin's THREE genders. The neuter is a shape-shifter: masculine in the singular, feminine in the plural (un scaun → două scaune). Plurals vary: -i (băiat → băieți), -e (casă → case), -uri (tren → trenuri) — learn each noun with its plural.",
+      "culture_note": "The neuter covers most objects — a huge slice of everyday vocabulary follows the un…/două… pattern.",
+      "references": [
+        {
+          "title": "Wikipedia: Romanian nouns",
+          "url": "https://en.wikipedia.org/wiki/Romanian_nouns"
+        },
+        {
+          "title": "Wikipedia: Grammatical gender",
+          "url": "https://en.wikipedia.org/wiki/Grammatical_gender"
+        }
+      ],
+      "drills": [
+        {
+          "sentence": "Am două {{answer}}.",
+          "answer": "cărți",
+          "translation": "I have two books.",
+          "hint": "book, plural",
+          "display_order": 1
+        },
+        {
+          "sentence": "Am trei {{answer}}.",
+          "answer": "surori",
+          "translation": "I have three sisters.",
+          "hint": "sister, plural",
+          "display_order": 2
+        },
+        {
+          "sentence": "Am două {{answer}} în casă.",
+          "answer": "pisici",
+          "translation": "I have two cats in the house.",
+          "hint": "cat, plural",
+          "display_order": 3
+        },
+        {
+          "sentence": "Am două {{answer}} noi.",
+          "answer": "scaune",
+          "translation": "I have two new chairs.",
+          "hint": "chair — neuter: două, not doi",
+          "display_order": 4
+        },
+        {
+          "sentence": "Am doi {{answer}}.",
+          "answer": "frați",
+          "translation": "I have two brothers.",
+          "hint": "brother, plural — doi for masculine",
+          "display_order": 5
+        },
+        {
+          "sentence": "Cumpăr două {{answer}}.",
+          "answer": "mere",
+          "translation": "I am buying two apples.",
+          "hint": "apple, plural — neuter",
+          "display_order": 6
+        }
+      ]
+    },
+    {
+      "title": "Indefinite articles (un / o)",
+      "level": "A1",
+      "function": "Mention something for the first time",
+      "source": "contributor",
+      "reviewed": true,
+      "display_order": 3,
+      "explanation": "Un before masculine AND neuter singulars (un câine, un scaun), o before feminine (o casă). The gender shows again in 'two': doi câini but două scaune, două case.",
+      "culture_note": "",
+      "references": [
+        {
+          "title": "Wikipedia: Romanian grammar — articles",
+          "url": "https://en.wikipedia.org/wiki/Romanian_grammar"
+        },
+        {
+          "title": "Wiktionary: un (Romanian)",
+          "url": "https://en.wiktionary.org/wiki/un#Romanian"
+        }
+      ],
+      "drills": [
+        {
+          "sentence": "Am {{answer}} câine.",
+          "answer": "un",
+          "translation": "I have a dog.",
+          "hint": "masculine",
+          "display_order": 1
+        },
+        {
+          "sentence": "Este {{answer}} casă mare.",
+          "answer": "o",
+          "translation": "It is a big house.",
+          "hint": "feminine",
+          "display_order": 2
+        },
+        {
+          "sentence": "Am {{answer}} idee.",
+          "answer": "o",
+          "translation": "I have an idea.",
+          "hint": "feminine",
+          "display_order": 3
+        },
+        {
+          "sentence": "Este {{answer}} carte bună.",
+          "answer": "o",
+          "translation": "It is a good book.",
+          "hint": "feminine",
+          "display_order": 4
+        },
+        {
+          "sentence": "Am {{answer}} scaun nou.",
+          "answer": "un",
+          "translation": "I have a new chair.",
+          "hint": "neuter takes the masculine article in the singular",
+          "display_order": 5
+        },
+        {
+          "sentence": "Este {{answer}} zi frumoasă.",
+          "answer": "o",
+          "translation": "It is a beautiful day.",
+          "hint": "feminine",
+          "display_order": 6
+        }
+      ]
+    },
+    {
+      "title": "The definite article is a suffix (-ul / -a)",
+      "level": "A1",
+      "function": "Point to a specific thing — the Romanian way",
+      "source": "contributor",
+      "reviewed": true,
+      "display_order": 4,
+      "explanation": "Romanian is the only Romance language that GLUES 'the' onto the end of the noun: scaun (chair) → scaunul (THE chair), casă → casa, carte → cartea. Masculine/neuter take -ul or -le, feminines swap -ă for -a. One word, article included.",
+      "culture_note": "This suffixed article is a Balkan areal feature Romanian shares with Bulgarian and Albanian — not something it inherited from Latin.",
+      "references": [
+        {
+          "title": "Wikipedia: Romanian nouns — definite article",
+          "url": "https://en.wikipedia.org/wiki/Romanian_nouns"
+        },
+        {
+          "title": "Wikipedia: Balkan sprachbund",
+          "url": "https://en.wikipedia.org/wiki/Balkan_sprachbund"
+        }
+      ],
+      "drills": [
+        {
+          "sentence": "{{answer}} este mare.",
+          "answer": "Casa",
+          "translation": "The house is big.",
+          "hint": "house + the suffixed article",
+          "display_order": 1
+        },
+        {
+          "sentence": "{{answer}} este nou.",
+          "answer": "Scaunul",
+          "translation": "The chair is new.",
+          "hint": "chair + the suffixed article",
+          "display_order": 2
+        },
+        {
+          "sentence": "{{answer}} este interesantă.",
+          "answer": "Cartea",
+          "translation": "The book is interesting.",
+          "hint": "book + the suffixed article",
+          "display_order": 3
+        },
+        {
+          "sentence": "{{answer}} este caldă.",
+          "answer": "Cafeaua",
+          "translation": "The coffee is hot.",
+          "hint": "coffee + the suffixed article",
+          "display_order": 4
+        },
+        {
+          "sentence": "{{answer}} lucrează aici.",
+          "answer": "Profesorul",
+          "translation": "The teacher works here.",
+          "hint": "teacher + the suffixed article",
+          "display_order": 5
+        },
+        {
+          "sentence": "{{answer}} este deschisă.",
+          "answer": "Ușa",
+          "translation": "The door is open.",
+          "hint": "door + the suffixed article",
+          "display_order": 6
+        }
+      ]
+    },
+    {
+      "title": "A fi — present (sunt, ești, este…)",
+      "level": "A1",
+      "function": "Say who or what someone is",
+      "source": "contributor",
+      "reviewed": true,
+      "display_order": 5,
+      "explanation": "A fi (to be): sunt, ești, este (e in speech), suntem, sunteți, sunt. Sunt doubles for 'I am' and 'they are' — the pronoun or context disambiguates. Professions take no article: ea este profesoară.",
+      "culture_note": "",
+      "references": [
+        {
+          "title": "Wiktionary: fi (Romanian)",
+          "url": "https://en.wiktionary.org/wiki/fi#Romanian"
+        },
+        {
+          "title": "Wikipedia: Romanian verbs",
+          "url": "https://en.wikipedia.org/wiki/Romanian_verbs"
+        }
+      ],
+      "drills": [
+        {
+          "sentence": "Eu {{answer}} student.",
+          "answer": "sunt",
+          "translation": "I am a student.",
+          "hint": "to be, I",
+          "display_order": 1
+        },
+        {
+          "sentence": "Tu {{answer}} foarte înalt.",
+          "answer": "ești",
+          "translation": "You are very tall.",
+          "hint": "to be, you (informal)",
+          "display_order": 2
+        },
+        {
+          "sentence": "Ea {{answer}} profesoară.",
+          "answer": "este",
+          "translation": "She is a teacher.",
+          "hint": "to be, she",
+          "display_order": 3
+        },
+        {
+          "sentence": "Noi {{answer}} prieteni.",
+          "answer": "suntem",
+          "translation": "We are friends.",
+          "hint": "to be, we",
+          "display_order": 4
+        },
+        {
+          "sentence": "Voi {{answer}} români?",
+          "answer": "sunteți",
+          "translation": "Are you (all) Romanian?",
+          "hint": "to be, you (plural)",
+          "display_order": 5
+        },
+        {
+          "sentence": "Ei {{answer}} acasă.",
+          "answer": "sunt",
+          "translation": "They are at home.",
+          "hint": "to be, they",
+          "display_order": 6
+        }
+      ]
+    },
+    {
+      "title": "A avea — present (am, ai, are…)",
+      "level": "A1",
+      "function": "Say what you have — and how old you are",
+      "source": "contributor",
+      "reviewed": true,
+      "display_order": 6,
+      "explanation": "A avea (to have): am, ai, are, avem, aveți, au. Age is HAD: am douăzeci de ani (I am twenty). So is being right: ai dreptate (you're right).",
+      "culture_note": "",
+      "references": [
+        {
+          "title": "Wiktionary: avea (Romanian)",
+          "url": "https://en.wiktionary.org/wiki/avea#Romanian"
+        },
+        {
+          "title": "Wikipedia: Romanian verbs",
+          "url": "https://en.wikipedia.org/wiki/Romanian_verbs"
+        }
+      ],
+      "drills": [
+        {
+          "sentence": "Eu {{answer}} douăzeci de ani.",
+          "answer": "am",
+          "translation": "I am twenty years old.",
+          "hint": "to have, I",
+          "display_order": 1
+        },
+        {
+          "sentence": "Tu {{answer}} o pisică?",
+          "answer": "ai",
+          "translation": "Do you have a cat?",
+          "hint": "to have, you (informal)",
+          "display_order": 2
+        },
+        {
+          "sentence": "Ea {{answer}} o întrebare.",
+          "answer": "are",
+          "translation": "She has a question.",
+          "hint": "to have, she",
+          "display_order": 3
+        },
+        {
+          "sentence": "Noi {{answer}} timp.",
+          "answer": "avem",
+          "translation": "We have time.",
+          "hint": "to have, we",
+          "display_order": 4
+        },
+        {
+          "sentence": "Voi {{answer}} dreptate.",
+          "answer": "aveți",
+          "translation": "You (all) are right.",
+          "hint": "to have, you (plural)",
+          "display_order": 5
+        },
+        {
+          "sentence": "Ei {{answer}} o casă la munte.",
+          "answer": "au",
+          "translation": "They have a house in the mountains.",
+          "hint": "to have, they",
+          "display_order": 6
+        }
+      ]
+    },
+    {
+      "title": "Present tense of -a verbs",
+      "level": "A1",
+      "function": "Talk about what people do",
+      "source": "contributor",
+      "reviewed": true,
+      "display_order": 7,
+      "explanation": "First-conjugation verbs end in -a. Plain type: a intra → intru, intri, intră, intrăm, intrați, intră. Many take -ez: a lucra → lucrez, lucrezi, lucrează. Both are everywhere — learn each verb's type with the verb.",
+      "culture_note": "",
+      "references": [
+        {
+          "title": "Wikipedia: Romanian verbs — first conjugation",
+          "url": "https://en.wikipedia.org/wiki/Romanian_verbs"
+        },
+        {
+          "title": "Wiktionary: lucra (Romanian)",
+          "url": "https://en.wiktionary.org/wiki/lucra#Romanian"
+        }
+      ],
+      "drills": [
+        {
+          "sentence": "Eu {{answer}} într-un birou.",
+          "answer": "lucrez",
+          "translation": "I work in an office.",
+          "hint": "to work, I (-ez type)",
+          "display_order": 1
+        },
+        {
+          "sentence": "Tu {{answer}} muzică în fiecare zi?",
+          "answer": "asculți",
+          "translation": "Do you listen to music every day?",
+          "hint": "to listen, you (informal)",
+          "display_order": 2
+        },
+        {
+          "sentence": "Ea {{answer}} frumos.",
+          "answer": "cântă",
+          "translation": "She sings beautifully.",
+          "hint": "to sing, she",
+          "display_order": 3
+        },
+        {
+          "sentence": "Ei {{answer}} fotbal.",
+          "answer": "joacă",
+          "translation": "They play football.",
+          "hint": "to play, they",
+          "display_order": 4
+        },
+        {
+          "sentence": "Voi {{answer}} în casă.",
+          "answer": "intrați",
+          "translation": "You (all) are entering the house.",
+          "hint": "to enter, you (plural)",
+          "display_order": 5
+        },
+        {
+          "sentence": "Eu {{answer}} pâine.",
+          "answer": "cumpăr",
+          "translation": "I am buying bread.",
+          "hint": "to buy, I",
+          "display_order": 6
+        }
+      ]
+    },
+    {
+      "title": "-ea, -e and -i verbs (a vedea, a merge, a dormi)",
+      "level": "A1",
+      "function": "See, go, sleep, read — the other families",
+      "source": "contributor",
+      "reviewed": true,
+      "display_order": 8,
+      "explanation": "A merge (to go): merg, mergi, merge, mergem, mergeți, merg. A dormi: dorm, dormi, doarme. A vedea: văd, vezi, vede. Some -i verbs take -esc: a citi → citesc, citești, citește — the Romanian cousin of Italian's -isc-.",
+      "culture_note": "",
+      "references": [
+        {
+          "title": "Wikipedia: Romanian verbs",
+          "url": "https://en.wikipedia.org/wiki/Romanian_verbs"
+        },
+        {
+          "title": "Wiktionary: citi (Romanian)",
+          "url": "https://en.wiktionary.org/wiki/citi#Romanian"
+        }
+      ],
+      "drills": [
+        {
+          "sentence": "Eu {{answer}} la școală.",
+          "answer": "merg",
+          "translation": "I go to school.",
+          "hint": "to go, I",
+          "display_order": 1
+        },
+        {
+          "sentence": "Noi {{answer}} o scrisoare.",
+          "answer": "scriem",
+          "translation": "We are writing a letter.",
+          "hint": "to write, we",
+          "display_order": 2
+        },
+        {
+          "sentence": "Ei {{answer}} mult.",
+          "answer": "dorm",
+          "translation": "They sleep a lot.",
+          "hint": "to sleep, they",
+          "display_order": 3
+        },
+        {
+          "sentence": "Ea {{answer}} o carte.",
+          "answer": "citește",
+          "translation": "She is reading a book.",
+          "hint": "to read, she (-esc type)",
+          "display_order": 4
+        },
+        {
+          "sentence": "Tu {{answer}} muzica?",
+          "answer": "auzi",
+          "translation": "Do you hear the music?",
+          "hint": "to hear, you (informal)",
+          "display_order": 5
+        },
+        {
+          "sentence": "Voi {{answer}} marea de aici?",
+          "answer": "vedeți",
+          "translation": "Do you (all) see the sea from here?",
+          "hint": "to see, you (plural)",
+          "display_order": 6
+        }
+      ]
+    },
+    {
+      "title": "Negation with nu",
+      "level": "A1",
+      "function": "Say what is not so",
+      "source": "contributor",
+      "reviewed": true,
+      "display_order": 9,
+      "explanation": "Nu goes directly before the verb: nu vorbesc engleză, nu am timp. It's also the word for 'no' — one negator for everything.",
+      "culture_note": "",
+      "references": [
+        {
+          "title": "Wikipedia: Romanian grammar — negation",
+          "url": "https://en.wikipedia.org/wiki/Romanian_grammar"
+        },
+        {
+          "title": "Wiktionary: nu (Romanian)",
+          "url": "https://en.wiktionary.org/wiki/nu#Romanian"
+        }
+      ],
+      "drills": [
+        {
+          "sentence": "Eu {{answer}} vorbesc engleză.",
+          "answer": "nu",
+          "translation": "I don't speak English.",
+          "hint": "before the verb",
+          "display_order": 1
+        },
+        {
+          "sentence": "El {{answer}} lucrează duminica.",
+          "answer": "nu",
+          "translation": "He doesn't work on Sundays.",
+          "hint": "before the verb",
+          "display_order": 2
+        },
+        {
+          "sentence": "Noi {{answer}} suntem obosiți.",
+          "answer": "nu",
+          "translation": "We are not tired.",
+          "hint": "before the verb",
+          "display_order": 3
+        },
+        {
+          "sentence": "Ea {{answer}} mănâncă carne.",
+          "answer": "nu",
+          "translation": "She doesn't eat meat.",
+          "hint": "before the verb",
+          "display_order": 4
+        },
+        {
+          "sentence": "Tu {{answer}} mănânci?",
+          "answer": "nu",
+          "translation": "Aren't you eating?",
+          "hint": "before the verb",
+          "display_order": 5
+        },
+        {
+          "sentence": "Voi {{answer}} dansați?",
+          "answer": "nu",
+          "translation": "You (all) don't dance?",
+          "hint": "before the verb",
+          "display_order": 6
+        }
+      ]
+    },
+    {
+      "title": "Este / sunt — there is, there are",
+      "level": "A1",
+      "function": "Say what exists or is available",
+      "source": "contributor",
+      "reviewed": true,
+      "display_order": 10,
+      "explanation": "Romanian just uses 'to be': Pe masă este o carte (On the table there is a book), În stradă sunt două cafenele. Singular este, plural sunt — no special phrase to memorize.",
+      "culture_note": "",
+      "references": [
+        {
+          "title": "Wikipedia: Existential clause",
+          "url": "https://en.wikipedia.org/wiki/Existential_clause"
+        },
+        {
+          "title": "Wikipedia: Romanian grammar",
+          "url": "https://en.wikipedia.org/wiki/Romanian_grammar"
+        }
+      ],
+      "drills": [
+        {
+          "sentence": "Pe masă {{answer}} o carte.",
+          "answer": "este",
+          "translation": "There is a book on the table.",
+          "hint": "singular",
+          "display_order": 1
+        },
+        {
+          "sentence": "În stradă {{answer}} două cafenele.",
+          "answer": "sunt",
+          "translation": "There are two cafés in the street.",
+          "hint": "plural",
+          "display_order": 2
+        },
+        {
+          "sentence": "{{answer}} o pisică în grădină.",
+          "answer": "Este",
+          "translation": "There is a cat in the garden.",
+          "hint": "singular",
+          "display_order": 3
+        },
+        {
+          "sentence": "Nu {{answer}} lapte.",
+          "answer": "este",
+          "translation": "There is no milk.",
+          "hint": "singular",
+          "display_order": 4
+        },
+        {
+          "sentence": "{{answer}} multe probleme?",
+          "answer": "Sunt",
+          "translation": "Are there many problems?",
+          "hint": "plural",
+          "display_order": 5
+        },
+        {
+          "sentence": "În oraș {{answer}} un parc frumos.",
+          "answer": "este",
+          "translation": "There is a beautiful park in the city.",
+          "hint": "singular",
+          "display_order": 6
+        }
+      ]
+    },
+    {
+      "title": "Question words (unde, ce, când…)",
+      "level": "A1",
+      "function": "Ask about places, people, time, and reasons",
+      "source": "contributor",
+      "reviewed": true,
+      "display_order": 11,
+      "explanation": "Unde (where), ce (what), când (when), cine (who), cum (how), de ce (why), cât/câți (how much/many). Question word first, verb next: Unde locuiești?",
+      "culture_note": "",
+      "references": [
+        {
+          "title": "Wikipedia: Romanian grammar — interrogatives",
+          "url": "https://en.wikipedia.org/wiki/Romanian_grammar"
+        },
+        {
+          "title": "Wiktionary: unde (Romanian)",
+          "url": "https://en.wiktionary.org/wiki/unde#Romanian"
+        }
+      ],
+      "drills": [
+        {
+          "sentence": "{{answer}} locuiești?",
+          "answer": "Unde",
+          "translation": "Where do you live?",
+          "hint": "where",
+          "display_order": 1
+        },
+        {
+          "sentence": "{{answer}} te cheamă?",
+          "answer": "Cum",
+          "translation": "What is your name?",
+          "hint": "how — names ask 'how' in Romanian",
+          "display_order": 2
+        },
+        {
+          "sentence": "{{answer}} este ziua ta?",
+          "answer": "Când",
+          "translation": "When is your birthday?",
+          "hint": "when",
+          "display_order": 3
+        },
+        {
+          "sentence": "{{answer}} este asta?",
+          "answer": "Ce",
+          "translation": "What is this?",
+          "hint": "what",
+          "display_order": 4
+        },
+        {
+          "sentence": "{{answer}} frați ai?",
+          "answer": "Câți",
+          "translation": "How many brothers do you have?",
+          "hint": "how many",
+          "display_order": 5
+        },
+        {
+          "sentence": "{{answer}} este profesorul tău?",
+          "answer": "Cine",
+          "translation": "Who is your teacher?",
+          "hint": "who",
+          "display_order": 6
+        }
+      ]
+    },
+    {
+      "title": "Adjective agreement",
+      "level": "A1",
+      "function": "Describe people and things correctly",
+      "source": "contributor",
+      "reviewed": true,
+      "display_order": 12,
+      "explanation": "Most adjectives have four forms: frumos, frumoasă, frumoși, frumoase. They agree with the noun and usually FOLLOW it: o casă albă. Neuter nouns take masculine adjectives in the singular, feminine in the plural — the shape-shifting again.",
+      "culture_note": "",
+      "references": [
+        {
+          "title": "Wikipedia: Romanian grammar — adjectives",
+          "url": "https://en.wikipedia.org/wiki/Romanian_grammar"
+        },
+        {
+          "title": "Wiktionary: frumos (Romanian)",
+          "url": "https://en.wiktionary.org/wiki/frumos#Romanian"
+        }
+      ],
+      "drills": [
+        {
+          "sentence": "Casa este {{answer}}.",
+          "answer": "albă",
+          "translation": "The house is white.",
+          "hint": "white — feminine",
+          "display_order": 1
+        },
+        {
+          "sentence": "Cărțile sunt {{answer}}.",
+          "answer": "noi",
+          "translation": "The books are new.",
+          "hint": "new — feminine plural",
+          "display_order": 2
+        },
+        {
+          "sentence": "Sora mea este foarte {{answer}}.",
+          "answer": "amabilă",
+          "translation": "My sister is very kind.",
+          "hint": "kind — feminine",
+          "display_order": 3
+        },
+        {
+          "sentence": "Filmul este {{answer}}.",
+          "answer": "interesant",
+          "translation": "The film is interesting.",
+          "hint": "interesting — masculine/neuter",
+          "display_order": 4
+        },
+        {
+          "sentence": "Florile sunt {{answer}}.",
+          "answer": "frumoase",
+          "translation": "The flowers are beautiful.",
+          "hint": "beautiful — feminine plural",
+          "display_order": 5
+        },
+        {
+          "sentence": "Băiatul este {{answer}}.",
+          "answer": "înalt",
+          "translation": "The boy is tall.",
+          "hint": "tall — masculine",
+          "display_order": 6
+        }
+      ]
+    }
+  ]
+}

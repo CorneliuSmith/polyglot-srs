@@ -280,9 +280,20 @@ export default function LearnPage() {
                   onSubmit={handleCheck}
                   disabled={currentPassed || validateMutation.isPending}
                   languageCode={languageCode}
+                  result={currentPassed ? 'correct' : quizResult?.answer_result ?? null}
                 />
+                {lesson.quiz.transliteration && (
+                  <p className="text-sm italic text-gray-500 text-center mt-3">
+                    {lesson.quiz.transliteration}
+                  </p>
+                )}
+                {lesson.quiz.gloss && (
+                  <p className="text-xs text-gray-400 text-center mt-1">
+                    {lesson.quiz.gloss}
+                  </p>
+                )}
                 {lesson.quiz.translation && (
-                  <p className="text-xs text-gray-400 text-center mt-3">
+                  <p className="text-xs text-gray-400 text-center mt-1">
                     {lesson.quiz.translation}
                   </p>
                 )}

@@ -2,8 +2,8 @@
 
 from __future__ import annotations
 
+import hashlib
 import json
-import random
 
 import asyncpg
 
@@ -47,6 +47,8 @@ async def get_due_cards(
             t.definition                    AS definition,
             ex.sentences                    AS example_sentences,
             ex.translations                 AS example_translations,
+            ex.glosses                      AS example_glosses,
+            ex.transliterations             AS example_transliterations,
             lp.prompt_sentence              AS last_prompt,
             v.morphology                    AS morphology,
             v.alternatives                  AS alternatives,
@@ -67,7 +69,11 @@ async def get_due_cards(
                 array_agg(es.sentence
                           ORDER BY es.difficulty_rank ASC NULLS LAST, es.id) AS sentences,
                 array_agg(es.translation
-                          ORDER BY es.difficulty_rank ASC NULLS LAST, es.id) AS translations
+                          ORDER BY es.difficulty_rank ASC NULLS LAST, es.id) AS translations,
+                array_agg(es.gloss
+                          ORDER BY es.difficulty_rank ASC NULLS LAST, es.id) AS glosses,
+                array_agg(es.transliteration
+                          ORDER BY es.difficulty_rank ASC NULLS LAST, es.id) AS transliterations
             FROM example_sentences es
             WHERE es.vocabulary_id = v.id
         ) ex ON true
@@ -105,6 +111,8 @@ async def get_due_cards(
             d.answers                       AS drill_answers,
             d.hints                         AS drill_hints,
             d.translations                  AS drill_translations,
+            d.glosses                       AS drill_glosses,
+            d.transliterations              AS drill_transliterations,
             lp.prompt_sentence              AS last_prompt,
             l.code                          AS language_code,
             uc.ease_factor,
@@ -121,7 +129,9 @@ async def get_due_cards(
                 array_agg(ds.sentence    ORDER BY ds.display_order, ds.id) AS sentences,
                 array_agg(ds.answer      ORDER BY ds.display_order, ds.id) AS answers,
                 array_agg(ds.hint        ORDER BY ds.display_order, ds.id) AS hints,
-                array_agg(ds.translation ORDER BY ds.display_order, ds.id) AS translations
+                array_agg(ds.translation ORDER BY ds.display_order, ds.id) AS translations,
+                array_agg(ds.gloss       ORDER BY ds.display_order, ds.id) AS glosses,
+                array_agg(ds.transliteration ORDER BY ds.display_order, ds.id) AS transliterations
             FROM drill_sentences ds
             WHERE ds.grammar_point_id = gp.id
         ) d ON true
@@ -206,27 +216,53 @@ def _srs_fields(r: asyncpg.Record) -> dict:
     }
 
 
+def _stable_pick(n: int, key: str) -> int:
+    """Deterministic index in [0, n): same card state -> same pick.
+
+    Sentences rotate per APPEARANCE, not per page load: the key folds in the
+    card's review counters and the last-shown prompt, so a reload mid-review
+    shows the same sentence, while an actual recorded review advances the
+    rotation (counters and last_prompt change).
+    """
+    return int(hashlib.md5(key.encode()).hexdigest(), 16) % n
+
+
+def _rotation_key(r: asyncpg.Record) -> str:
+    return f"{r['id']}:{r['repetitions']}:{r['lapses']}:{r['last_prompt'] or ''}"
+
+
 def _vocab_card(r: asyncpg.Record) -> dict:
     """Shape a vocabulary row into a card, preferring a cloze example sentence.
 
-    The sentence changes on EVERY appearance of the card (Bunpro-style): pick
-    randomly among the word's sentences, never repeating the one shown last
-    time (review_log.prompt_sentence). Sentences where the word is inflected
+    The sentence changes on every APPEARANCE of the card (Bunpro-style): a
+    deterministic pick among the word's sentences — stable across page
+    reloads — that never repeats the one shown last time
+    (review_log.prompt_sentence). Sentences where the word is inflected
     beyond a whole-word match are skipped by make_cloze. Falls back to the
     definition -> type-the-word prompt when nothing clozes.
     """
     word = r["word"]
     sentences = r["example_sentences"] or []
     translations = r["example_translations"] or []
+    glosses = r["example_glosses"] or []
+    translits = r["example_transliterations"] or []
     candidates = []
     for i, raw in enumerate(sentences):
         cloze = make_cloze(raw, word)
         if cloze:
-            candidates.append((cloze, translations[i] if i < len(translations) else None))
+            candidates.append((
+                cloze,
+                translations[i] if i < len(translations) else None,
+                glosses[i] if i < len(glosses) else None,
+                translits[i] if i < len(translits) else None,
+            ))
     sentence, translation, hint = (r["definition"] or word), None, None
+    gloss, transliteration = None, None
     if candidates:
         pool = [c for c in candidates if c[0] != r["last_prompt"]] or candidates
-        sentence, translation = random.choice(pool)
+        sentence, translation, gloss, transliteration = pool[
+            _stable_pick(len(pool), _rotation_key(r))
+        ]
         hint = r["definition"]
     return {
         **_srs_fields(r),
@@ -234,6 +270,8 @@ def _vocab_card(r: asyncpg.Record) -> dict:
         "correct_answer": word,
         "hint": hint,
         "translation": translation,
+        "gloss": gloss,
+        "transliteration": transliteration,
         "morphology": r["morphology"],
         "alternatives": r["alternatives"],
     }
@@ -242,20 +280,24 @@ def _vocab_card(r: asyncpg.Record) -> dict:
 def _grammar_card(r: asyncpg.Record) -> dict:
     """Shape a grammar row into a fill-in-the-blank card, rotating drills.
 
-    The drill changes on every appearance (random, never the last-shown). Points without drills fall back to
-    a type-the-title card for legacy rows only — new learns are gated on having
+    The drill changes on every APPEARANCE (deterministic, stable across page
+    reloads, never the last-shown). Points without drills fall back to a
+    type-the-title card for legacy rows only — new learns are gated on having
     drills, so this shouldn't be reachable for fresh content.
     """
     drills = r["drill_sentences"] or []
+    gloss, transliteration = None, None
     if drills:
         pool = [i for i, d in enumerate(drills) if d != r["last_prompt"]] or list(
             range(len(drills))
         )
-        idx = random.choice(pool)
+        idx = pool[_stable_pick(len(pool), _rotation_key(r))]
         sentence = drills[idx]
         answer = (r["drill_answers"] or [None])[idx]
         hint = (r["drill_hints"] or [None] * len(drills))[idx]
         translation = (r["drill_translations"] or [None] * len(drills))[idx]
+        gloss = (r["drill_glosses"] or [None] * len(drills))[idx]
+        transliteration = (r["drill_transliterations"] or [None] * len(drills))[idx]
     else:
         sentence, answer, hint, translation = r["title"], r["title"], None, None
     return {
@@ -264,6 +306,8 @@ def _grammar_card(r: asyncpg.Record) -> dict:
         "correct_answer": answer,
         "hint": hint,
         "translation": translation,
+        "gloss": gloss,
+        "transliteration": transliteration,
         "morphology": None,
         "alternatives": None,
     }
@@ -614,7 +658,7 @@ async def get_card_details_bulk(
             vocab_by_id[v["id"]] = v
         for e in await conn.fetch(
             """
-            SELECT vocabulary_id, sentence, translation
+            SELECT vocabulary_id, sentence, translation, gloss, transliteration
             FROM example_sentences
             WHERE vocabulary_id = ANY($1::uuid[])
             ORDER BY difficulty_rank ASC NULLS LAST
@@ -634,6 +678,8 @@ async def get_card_details_bulk(
                     vocab_quiz[e["vocabulary_id"]] = {
                         "sentence": cloze,
                         "translation": e["translation"],
+                        "gloss": e["gloss"],
+                        "transliteration": e["transliteration"],
                         "hint": v["definition"],
                     }
 
@@ -652,7 +698,8 @@ async def get_card_details_bulk(
             grammar_by_id[gp["id"]] = gp
         for e in await conn.fetch(
             """
-            SELECT grammar_point_id, sentence, answer, translation, hint
+            SELECT grammar_point_id, sentence, answer, translation, hint,
+                   gloss, transliteration
             FROM drill_sentences
             WHERE grammar_point_id = ANY($1::uuid[])
             ORDER BY display_order ASC
@@ -673,6 +720,8 @@ async def get_card_details_bulk(
                     "sentence": e["sentence"],
                     "answer": e["answer"],
                     "translation": e["translation"],
+                    "gloss": e["gloss"],
+                    "transliteration": e["transliteration"],
                     "hint": e["hint"],
                 }
 
@@ -688,6 +737,8 @@ async def get_card_details_bulk(
             quiz = vocab_quiz.get(c["card_id"]) or {
                 "sentence": v["definition"] or v["word"],
                 "translation": None,
+                "gloss": None,
+                "transliteration": None,
                 "hint": v["definition"],
             }
             details[str(c["id"])] = {

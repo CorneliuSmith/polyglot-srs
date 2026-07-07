@@ -1,0 +1,851 @@
+{
+  "lists": [
+    {
+      "level": "A1",
+      "title": "Greek A1 Grammar Path",
+      "description": "A1 Modern Greek in communicative order: pronouns, the three genders with their articles, είμαι and έχω, the present tense, the accusative object articles, negation with δεν, υπάρχει, questions, and adjective agreement."
+    }
+  ],
+  "points": [
+    {
+      "title": "Subject pronouns (εγώ, εσύ, αυτός…)",
+      "level": "A1",
+      "function": "Say who you are talking about — when it needs saying",
+      "source": "contributor",
+      "reviewed": true,
+      "display_order": 1,
+      "explanation": "Εγώ (I), εσύ (you), αυτός/αυτή/αυτό (he/she/it), εμείς (we), εσείς (you all — also the polite singular), αυτοί/αυτές/αυτά (they). The verb ending names the person, so Greek drops the pronoun except for emphasis: μιλάω ελληνικά.",
+      "culture_note": "Εσείς is both plural and polite — like French vous. Greeks switch to εσύ quickly among peers.",
+      "references": [
+        {
+          "title": "Wikipedia: Modern Greek grammar",
+          "url": "https://en.wikipedia.org/wiki/Modern_Greek_grammar"
+        },
+        {
+          "title": "Wikipedia: Pro-drop language",
+          "url": "https://en.wikipedia.org/wiki/Pro-drop_language"
+        }
+      ],
+      "drills": [
+        {
+          "sentence": "{{answer}} είμαι από την Αθήνα.",
+          "answer": "Εγώ",
+          "translation": "I am from Athens.",
+          "transliteration": "___ íme apó tin Athína.",
+          "hint": "I",
+          "display_order": 1
+        },
+        {
+          "sentence": "{{answer}} είσαι φίλος μου.",
+          "answer": "Εσύ",
+          "translation": "You are my friend.",
+          "transliteration": "___ íse fílos mu.",
+          "hint": "you — informal",
+          "display_order": 2
+        },
+        {
+          "sentence": "{{answer}} είναι η αδελφή μου.",
+          "answer": "Αυτή",
+          "translation": "She is my sister.",
+          "transliteration": "___ íne i adelfí mu.",
+          "hint": "she",
+          "display_order": 3
+        },
+        {
+          "sentence": "{{answer}} είμαστε φοιτητές.",
+          "answer": "Εμείς",
+          "translation": "We are students.",
+          "transliteration": "___ ímaste fitités.",
+          "hint": "we",
+          "display_order": 4
+        },
+        {
+          "sentence": "{{answer}} είναι από την Ισπανία.",
+          "answer": "Αυτοί",
+          "translation": "They are from Spain.",
+          "transliteration": "___ íne apó tin Ispanía.",
+          "hint": "they (masculine)",
+          "display_order": 5
+        },
+        {
+          "sentence": "{{answer}} είστε πολύ ευγενικοί.",
+          "answer": "Εσείς",
+          "translation": "You (all) are very kind.",
+          "transliteration": "___ íste polí evyenikí.",
+          "hint": "you — plural/formal",
+          "display_order": 6
+        }
+      ]
+    },
+    {
+      "title": "Gender and number of nouns",
+      "level": "A1",
+      "function": "Name people and things, one or many",
+      "source": "contributor",
+      "reviewed": true,
+      "display_order": 2,
+      "explanation": "Three genders, visible in the endings: masculine -ος (ο δρόμος), feminine -α/-η (η μέρα, η αγάπη), neuter -ο/-ι (το βιβλίο, το παιδί). Plurals: -ος → -οι, -α/-η → -ες, -ο → -α, -ι → -ιά (βιβλίο → βιβλία, παιδί → παιδιά).",
+      "culture_note": "",
+      "references": [
+        {
+          "title": "Wikipedia: Modern Greek grammar — nouns",
+          "url": "https://en.wikipedia.org/wiki/Modern_Greek_grammar"
+        },
+        {
+          "title": "Wikipedia: Grammatical gender",
+          "url": "https://en.wikipedia.org/wiki/Grammatical_gender"
+        }
+      ],
+      "drills": [
+        {
+          "sentence": "Έχω δύο {{answer}}.",
+          "answer": "βιβλία",
+          "translation": "I have two books.",
+          "transliteration": "Ého dío ___.",
+          "hint": "book, plural — neuter",
+          "display_order": 1
+        },
+        {
+          "sentence": "Τα {{answer}} παίζουν έξω.",
+          "answer": "παιδιά",
+          "translation": "The children are playing outside.",
+          "transliteration": "Ta ___ pézun éxo.",
+          "hint": "child, plural — neuter",
+          "display_order": 2
+        },
+        {
+          "sentence": "Έχω τρεις {{answer}}.",
+          "answer": "αδελφές",
+          "translation": "I have three sisters.",
+          "transliteration": "Ého tris ___.",
+          "hint": "sister, plural — feminine",
+          "display_order": 3
+        },
+        {
+          "sentence": "Οι {{answer}} είναι ωραίοι.",
+          "answer": "δρόμοι",
+          "translation": "The streets are nice.",
+          "transliteration": "I ___ íne oréi.",
+          "hint": "street, plural — masculine",
+          "display_order": 4
+        },
+        {
+          "sentence": "Έχω δύο {{answer}} στο σπίτι.",
+          "answer": "γάτες",
+          "translation": "I have two cats at home.",
+          "transliteration": "Ého dío ___ sto spíti.",
+          "hint": "cat, plural — feminine",
+          "display_order": 5
+        },
+        {
+          "sentence": "Τα {{answer}} είναι καινούργια.",
+          "answer": "αυτοκίνητα",
+          "translation": "The cars are new.",
+          "transliteration": "Ta ___ íne kenúrya.",
+          "hint": "car, plural — neuter",
+          "display_order": 6
+        }
+      ]
+    },
+    {
+      "title": "Definite articles (ο / η / το)",
+      "level": "A1",
+      "function": "Point to a specific thing",
+      "source": "contributor",
+      "reviewed": true,
+      "display_order": 3,
+      "explanation": "Ο for masculine (ο δρόμος), η for feminine (η μέρα), το for neuter (το βιβλίο); plurals οι, οι, τα. Greek uses the article even before names: η Μαρία, ο Γιώργος.",
+      "culture_note": "",
+      "references": [
+        {
+          "title": "Wikipedia: Modern Greek grammar — articles",
+          "url": "https://en.wikipedia.org/wiki/Modern_Greek_grammar"
+        },
+        {
+          "title": "Wiktionary: ο (Greek)",
+          "url": "https://en.wiktionary.org/wiki/%CE%BF#Greek"
+        }
+      ],
+      "drills": [
+        {
+          "sentence": "{{answer}} δρόμος είναι μεγάλος.",
+          "answer": "Ο",
+          "translation": "The street is big.",
+          "transliteration": "___ drómos íne megálos.",
+          "hint": "masculine",
+          "display_order": 1
+        },
+        {
+          "sentence": "{{answer}} μέρα είναι ωραία.",
+          "answer": "Η",
+          "translation": "The day is beautiful.",
+          "transliteration": "___ méra íne oréa.",
+          "hint": "feminine",
+          "display_order": 2
+        },
+        {
+          "sentence": "{{answer}} βιβλίο είναι καινούργιο.",
+          "answer": "Το",
+          "translation": "The book is new.",
+          "transliteration": "___ vivlío íne kenúryo.",
+          "hint": "neuter",
+          "display_order": 3
+        },
+        {
+          "sentence": "{{answer}} καφές είναι ζεστός.",
+          "answer": "Ο",
+          "translation": "The coffee is hot.",
+          "transliteration": "___ kafés íne zestós.",
+          "hint": "masculine",
+          "display_order": 4
+        },
+        {
+          "sentence": "{{answer}} πόρτα είναι ανοιχτή.",
+          "answer": "Η",
+          "translation": "The door is open.",
+          "transliteration": "___ pórta íne anichtí.",
+          "hint": "feminine",
+          "display_order": 5
+        },
+        {
+          "sentence": "{{answer}} παιδί κοιμάται.",
+          "answer": "Το",
+          "translation": "The child is sleeping.",
+          "transliteration": "___ pedí kimáte.",
+          "hint": "neuter",
+          "display_order": 6
+        }
+      ]
+    },
+    {
+      "title": "Indefinite articles (ένας / μία / ένα)",
+      "level": "A1",
+      "function": "Mention something for the first time",
+      "source": "contributor",
+      "reviewed": true,
+      "display_order": 4,
+      "explanation": "Ένας for masculine (ένας κήπος), μία/μια for feminine (μία μέρα), ένα for neuter (ένα σπίτι). They double as the number 'one' — no plural form exists.",
+      "culture_note": "",
+      "references": [
+        {
+          "title": "Wikipedia: Modern Greek grammar — articles",
+          "url": "https://en.wikipedia.org/wiki/Modern_Greek_grammar"
+        },
+        {
+          "title": "Wiktionary: ένας (Greek)",
+          "url": "https://en.wiktionary.org/wiki/%CE%AD%CE%BD%CE%B1%CF%82#Greek"
+        }
+      ],
+      "drills": [
+        {
+          "sentence": "Είναι {{answer}} ωραία μέρα.",
+          "answer": "μία",
+          "translation": "It is a beautiful day.",
+          "transliteration": "Íne ___ oréa méra.",
+          "hint": "feminine",
+          "display_order": 1
+        },
+        {
+          "sentence": "Αυτός είναι {{answer}} καλός φίλος.",
+          "answer": "ένας",
+          "translation": "He is a good friend.",
+          "transliteration": "Aftós íne ___ kalós fílos.",
+          "hint": "masculine",
+          "display_order": 2
+        },
+        {
+          "sentence": "Είναι {{answer}} μεγάλο σπίτι.",
+          "answer": "ένα",
+          "translation": "It is a big house.",
+          "transliteration": "Íne ___ megálo spíti.",
+          "hint": "neuter",
+          "display_order": 3
+        },
+        {
+          "sentence": "Έχω {{answer}} ιδέα.",
+          "answer": "μία",
+          "translation": "I have an idea.",
+          "transliteration": "Ého ___ idéa.",
+          "hint": "feminine",
+          "display_order": 4
+        },
+        {
+          "sentence": "Είναι {{answer}} καλό βιβλίο.",
+          "answer": "ένα",
+          "translation": "It is a good book.",
+          "transliteration": "Íne ___ kaló vivlío.",
+          "hint": "neuter",
+          "display_order": 5
+        },
+        {
+          "sentence": "Είναι {{answer}} όμορφος κήπος.",
+          "answer": "ένας",
+          "translation": "It is a beautiful garden.",
+          "transliteration": "Íne ___ ómorfos kípos.",
+          "hint": "masculine",
+          "display_order": 6
+        }
+      ]
+    },
+    {
+      "title": "Είμαι — present (είμαι, είσαι, είναι…)",
+      "level": "A1",
+      "function": "Say who or what someone is",
+      "source": "contributor",
+      "reviewed": true,
+      "display_order": 5,
+      "explanation": "Είμαι (I am), είσαι, είναι, είμαστε, είστε, είναι — note είναι serves he/she/it AND they. Professions take no article: είναι δασκάλα.",
+      "culture_note": "",
+      "references": [
+        {
+          "title": "Wiktionary: είμαι (Greek)",
+          "url": "https://en.wiktionary.org/wiki/%CE%B5%CE%AF%CE%BC%CE%B1%CE%B9#Greek"
+        },
+        {
+          "title": "Wikipedia: Modern Greek grammar — verbs",
+          "url": "https://en.wikipedia.org/wiki/Modern_Greek_grammar"
+        }
+      ],
+      "drills": [
+        {
+          "sentence": "Εγώ {{answer}} φοιτητής.",
+          "answer": "είμαι",
+          "translation": "I am a student.",
+          "transliteration": "Egó ___ fititís.",
+          "hint": "to be, I",
+          "display_order": 1
+        },
+        {
+          "sentence": "Εσύ {{answer}} πολύ ψηλός.",
+          "answer": "είσαι",
+          "translation": "You are very tall.",
+          "transliteration": "Esí ___ polí psilós.",
+          "hint": "to be, you (informal)",
+          "display_order": 2
+        },
+        {
+          "sentence": "Αυτή {{answer}} δασκάλα.",
+          "answer": "είναι",
+          "translation": "She is a teacher.",
+          "transliteration": "Aftí ___ daskála.",
+          "hint": "to be, she",
+          "display_order": 3
+        },
+        {
+          "sentence": "Εμείς {{answer}} φίλοι.",
+          "answer": "είμαστε",
+          "translation": "We are friends.",
+          "transliteration": "Emís ___ fíli.",
+          "hint": "to be, we",
+          "display_order": 4
+        },
+        {
+          "sentence": "Εσείς {{answer}} Έλληνες;",
+          "answer": "είστε",
+          "translation": "Are you (all) Greek?",
+          "transliteration": "Esís ___ Élines?",
+          "hint": "to be, you (plural)",
+          "display_order": 5
+        },
+        {
+          "sentence": "Αυτοί {{answer}} στο σπίτι.",
+          "answer": "είναι",
+          "translation": "They are at home.",
+          "transliteration": "Aftí ___ sto spíti.",
+          "hint": "to be, they",
+          "display_order": 6
+        }
+      ]
+    },
+    {
+      "title": "Έχω — present (έχω, έχεις, έχει…)",
+      "level": "A1",
+      "function": "Say what you have — and who's right",
+      "source": "contributor",
+      "reviewed": true,
+      "display_order": 6,
+      "explanation": "Έχω (to have): έχω, έχεις, έχει, έχουμε, έχετε, έχουν. Being right is HAD: έχεις δίκιο. But age uses 'to be': είμαι είκοσι χρονών — Greek sides with English there.",
+      "culture_note": "",
+      "references": [
+        {
+          "title": "Wiktionary: έχω (Greek)",
+          "url": "https://en.wiktionary.org/wiki/%CE%AD%CF%87%CF%89#Greek"
+        },
+        {
+          "title": "Wikipedia: Modern Greek grammar — verbs",
+          "url": "https://en.wikipedia.org/wiki/Modern_Greek_grammar"
+        }
+      ],
+      "drills": [
+        {
+          "sentence": "Εγώ {{answer}} μια ερώτηση.",
+          "answer": "έχω",
+          "translation": "I have a question.",
+          "transliteration": "Egó ___ mia erótisi.",
+          "hint": "to have, I",
+          "display_order": 1
+        },
+        {
+          "sentence": "Εσύ {{answer}} μια γάτα;",
+          "answer": "έχεις",
+          "translation": "Do you have a cat?",
+          "transliteration": "Esí ___ mia gáta?",
+          "hint": "to have, you (informal)",
+          "display_order": 2
+        },
+        {
+          "sentence": "Αυτή {{answer}} ένα ποδήλατο.",
+          "answer": "έχει",
+          "translation": "She has a bicycle.",
+          "transliteration": "Aftí ___ éna podílato.",
+          "hint": "to have, she",
+          "display_order": 3
+        },
+        {
+          "sentence": "Εμείς {{answer}} χρόνο.",
+          "answer": "έχουμε",
+          "translation": "We have time.",
+          "transliteration": "Emís ___ chróno.",
+          "hint": "to have, we",
+          "display_order": 4
+        },
+        {
+          "sentence": "Εσείς {{answer}} δίκιο.",
+          "answer": "έχετε",
+          "translation": "You (all) are right.",
+          "transliteration": "Esís ___ díkio.",
+          "hint": "to have, you (plural)",
+          "display_order": 5
+        },
+        {
+          "sentence": "Αυτοί {{answer}} ένα σπίτι στη θάλασσα.",
+          "answer": "έχουν",
+          "translation": "They have a house by the sea.",
+          "transliteration": "Aftí ___ éna spíti sti thálasa.",
+          "hint": "to have, they",
+          "display_order": 6
+        }
+      ]
+    },
+    {
+      "title": "Present tense of -ω verbs",
+      "level": "A1",
+      "function": "Talk about what people do",
+      "source": "contributor",
+      "reviewed": true,
+      "display_order": 7,
+      "explanation": "The core pattern: μένω, μένεις, μένει, μένουμε, μένετε, μένουν (to live/stay). The Greek present covers both English presents: μένω = I live AND I am living.",
+      "culture_note": "",
+      "references": [
+        {
+          "title": "Wikipedia: Modern Greek grammar — verbs",
+          "url": "https://en.wikipedia.org/wiki/Modern_Greek_grammar"
+        },
+        {
+          "title": "Wiktionary: μένω (Greek)",
+          "url": "https://en.wiktionary.org/wiki/%CE%BC%CE%AD%CE%BD%CF%89#Greek"
+        }
+      ],
+      "drills": [
+        {
+          "sentence": "Εγώ {{answer}} στην Αθήνα.",
+          "answer": "μένω",
+          "translation": "I live in Athens.",
+          "transliteration": "Egó ___ stin Athína.",
+          "hint": "to live, I",
+          "display_order": 1
+        },
+        {
+          "sentence": "Αυτή {{answer}} σε ένα γραφείο.",
+          "answer": "δουλεύει",
+          "translation": "She works in an office.",
+          "transliteration": "Aftí ___ se éna grafío.",
+          "hint": "to work, she",
+          "display_order": 2
+        },
+        {
+          "sentence": "Εμείς {{answer}} ελληνικά.",
+          "answer": "μαθαίνουμε",
+          "translation": "We are learning Greek.",
+          "transliteration": "Emís ___ eliniká.",
+          "hint": "to learn, we",
+          "display_order": 3
+        },
+        {
+          "sentence": "Αυτοί {{answer}} ποδόσφαιρο.",
+          "answer": "παίζουν",
+          "translation": "They play football.",
+          "transliteration": "Aftí ___ podósfero.",
+          "hint": "to play, they",
+          "display_order": 4
+        },
+        {
+          "sentence": "Εσύ {{answer}} μουσική;",
+          "answer": "ακούς",
+          "translation": "Do you listen to music?",
+          "transliteration": "Esí ___ musikí?",
+          "hint": "to listen, you (informal)",
+          "display_order": 5
+        },
+        {
+          "sentence": "Εγώ {{answer}} ένα βιβλίο.",
+          "answer": "διαβάζω",
+          "translation": "I am reading a book.",
+          "transliteration": "Egó ___ éna vivlío.",
+          "hint": "to read, I",
+          "display_order": 6
+        }
+      ]
+    },
+    {
+      "title": "The accusative object (τον / την / το)",
+      "level": "A1",
+      "function": "Mark what the action lands on",
+      "source": "contributor",
+      "reviewed": true,
+      "display_order": 8,
+      "explanation": "Objects take the accusative — mostly visible in the article: ο → τον, η → την, το stays το. Masculine nouns also drop the final -ς: ο δρόμος → βλέπω τον δρόμο. Keep the ν on τον for masculine so it never sounds neuter; feminine την keeps ν only before vowels and hard stops.",
+      "culture_note": "",
+      "references": [
+        {
+          "title": "Wikipedia: Modern Greek grammar — cases",
+          "url": "https://en.wikipedia.org/wiki/Modern_Greek_grammar"
+        },
+        {
+          "title": "Wikipedia: Accusative case",
+          "url": "https://en.wikipedia.org/wiki/Accusative_case"
+        }
+      ],
+      "drills": [
+        {
+          "sentence": "Βλέπω {{answer}} δρόμο.",
+          "answer": "τον",
+          "translation": "I see the street.",
+          "transliteration": "Vlépo ___ drómo.",
+          "hint": "masculine object — keeps its ν",
+          "display_order": 1
+        },
+        {
+          "sentence": "Βλέπω {{answer}} πόρτα.",
+          "answer": "την",
+          "translation": "I see the door.",
+          "transliteration": "Vlépo ___ pórta.",
+          "hint": "feminine object — ν stays before π",
+          "display_order": 2
+        },
+        {
+          "sentence": "Ακούω {{answer}} παιδί.",
+          "answer": "το",
+          "translation": "I hear the child.",
+          "transliteration": "Akúo ___ pedí.",
+          "hint": "neuter — unchanged as object",
+          "display_order": 3
+        },
+        {
+          "sentence": "Αγαπώ {{answer}} θάλασσα.",
+          "answer": "τη",
+          "translation": "I love the sea.",
+          "transliteration": "Agapó ___ thálasa.",
+          "hint": "feminine — the ν drops before θ",
+          "display_order": 4
+        },
+        {
+          "sentence": "Διαβάζω {{answer}} βιβλίο.",
+          "answer": "το",
+          "translation": "I am reading the book.",
+          "transliteration": "Diavázo ___ vivlío.",
+          "hint": "neuter — unchanged as object",
+          "display_order": 5
+        },
+        {
+          "sentence": "Ρωτάω {{answer}} δάσκαλο.",
+          "answer": "τον",
+          "translation": "I ask the teacher.",
+          "transliteration": "Rotáo ___ dáskalo.",
+          "hint": "masculine object — keeps its ν",
+          "display_order": 6
+        }
+      ]
+    },
+    {
+      "title": "Negation with δεν",
+      "level": "A1",
+      "function": "Say what is not so",
+      "source": "contributor",
+      "reviewed": true,
+      "display_order": 9,
+      "explanation": "Δεν goes directly before the verb: δεν μιλάω αγγλικά, δεν έχω χρόνο. (Commands use μην instead — that comes later.)",
+      "culture_note": "",
+      "references": [
+        {
+          "title": "Wiktionary: δεν (Greek)",
+          "url": "https://en.wiktionary.org/wiki/%CE%B4%CE%B5%CE%BD#Greek"
+        },
+        {
+          "title": "Wikipedia: Modern Greek grammar",
+          "url": "https://en.wikipedia.org/wiki/Modern_Greek_grammar"
+        }
+      ],
+      "drills": [
+        {
+          "sentence": "Εγώ {{answer}} μιλάω αγγλικά.",
+          "answer": "δεν",
+          "translation": "I don't speak English.",
+          "transliteration": "Egó ___ miláo angliká.",
+          "hint": "before the verb",
+          "display_order": 1
+        },
+        {
+          "sentence": "Αυτός {{answer}} δουλεύει την Κυριακή.",
+          "answer": "δεν",
+          "translation": "He doesn't work on Sundays.",
+          "transliteration": "Aftós ___ dulévi tin Kiriakí.",
+          "hint": "before the verb",
+          "display_order": 2
+        },
+        {
+          "sentence": "Εμείς {{answer}} είμαστε κουρασμένοι.",
+          "answer": "δεν",
+          "translation": "We are not tired.",
+          "transliteration": "Emís ___ ímaste kurasméni.",
+          "hint": "before the verb",
+          "display_order": 3
+        },
+        {
+          "sentence": "Αυτή {{answer}} τρώει κρέας.",
+          "answer": "δεν",
+          "translation": "She doesn't eat meat.",
+          "transliteration": "Aftí ___ trói kréas.",
+          "hint": "before the verb",
+          "display_order": 4
+        },
+        {
+          "sentence": "Εσύ {{answer}} τρως;",
+          "answer": "δεν",
+          "translation": "Aren't you eating?",
+          "transliteration": "Esí ___ tros?",
+          "hint": "before the verb",
+          "display_order": 5
+        },
+        {
+          "sentence": "Εσείς {{answer}} χορεύετε;",
+          "answer": "δεν",
+          "translation": "You (all) don't dance?",
+          "transliteration": "Esís ___ chorévete?",
+          "hint": "before the verb",
+          "display_order": 6
+        }
+      ]
+    },
+    {
+      "title": "Υπάρχει / υπάρχουν — there is, there are",
+      "level": "A1",
+      "function": "Say what exists or is available",
+      "source": "contributor",
+      "reviewed": true,
+      "display_order": 10,
+      "explanation": "Υπάρχει for one thing (υπάρχει ένα βιβλίο), υπάρχουν for several (υπάρχουν δύο καφετέριες). Negative: δεν υπάρχει γάλα.",
+      "culture_note": "",
+      "references": [
+        {
+          "title": "Wiktionary: υπάρχω (Greek)",
+          "url": "https://en.wiktionary.org/wiki/%CF%85%CF%80%CE%AC%CF%81%CF%87%CF%89#Greek"
+        },
+        {
+          "title": "Wikipedia: Existential clause",
+          "url": "https://en.wikipedia.org/wiki/Existential_clause"
+        }
+      ],
+      "drills": [
+        {
+          "sentence": "{{answer}} ένα βιβλίο στο τραπέζι.",
+          "answer": "Υπάρχει",
+          "translation": "There is a book on the table.",
+          "transliteration": "___ éna vivlío sto trapézi.",
+          "hint": "singular",
+          "display_order": 1
+        },
+        {
+          "sentence": "{{answer}} δύο καφετέριες στον δρόμο.",
+          "answer": "Υπάρχουν",
+          "translation": "There are two cafés on the street.",
+          "transliteration": "___ dío kafetéries ston drómo.",
+          "hint": "plural",
+          "display_order": 2
+        },
+        {
+          "sentence": "Δεν {{answer}} γάλα.",
+          "answer": "υπάρχει",
+          "translation": "There is no milk.",
+          "transliteration": "Den ___ gála.",
+          "hint": "singular",
+          "display_order": 3
+        },
+        {
+          "sentence": "{{answer}} πολλοί άνθρωποι εδώ.",
+          "answer": "Υπάρχουν",
+          "translation": "There are many people here.",
+          "transliteration": "___ polí ánthropi edó.",
+          "hint": "plural",
+          "display_order": 4
+        },
+        {
+          "sentence": "{{answer}} ένα πάρκο κοντά;",
+          "answer": "Υπάρχει",
+          "translation": "Is there a park nearby?",
+          "transliteration": "___ éna párko kondá?",
+          "hint": "singular",
+          "display_order": 5
+        },
+        {
+          "sentence": "Δεν {{answer}} προβλήματα.",
+          "answer": "υπάρχουν",
+          "translation": "There are no problems.",
+          "transliteration": "Den ___ provlímata.",
+          "hint": "plural",
+          "display_order": 6
+        }
+      ]
+    },
+    {
+      "title": "Question words (πού, τι, πότε…)",
+      "level": "A1",
+      "function": "Ask about places, people, time, and reasons",
+      "source": "contributor",
+      "reviewed": true,
+      "display_order": 11,
+      "explanation": "Πού (where), τι (what), πότε (when), ποιος (who), πώς (how), γιατί (why). Greek's question mark is the semicolon: Πού μένεις;",
+      "culture_note": "The Greek question mark ; trips up every learner once. The Greek semicolon, for the record, is a raised dot (·).",
+      "references": [
+        {
+          "title": "Wikipedia: Modern Greek grammar — interrogatives",
+          "url": "https://en.wikipedia.org/wiki/Modern_Greek_grammar"
+        },
+        {
+          "title": "Wikipedia: Question mark — Greek",
+          "url": "https://en.wikipedia.org/wiki/Question_mark"
+        }
+      ],
+      "drills": [
+        {
+          "sentence": "{{answer}} μένεις;",
+          "answer": "Πού",
+          "translation": "Where do you live?",
+          "transliteration": "___ ménis?",
+          "hint": "where",
+          "display_order": 1
+        },
+        {
+          "sentence": "{{answer}} σε λένε;",
+          "answer": "Πώς",
+          "translation": "What is your name?",
+          "transliteration": "___ se léne?",
+          "hint": "how — names ask 'how' in Greek",
+          "display_order": 2
+        },
+        {
+          "sentence": "{{answer}} είναι τα γενέθλιά σου;",
+          "answer": "Πότε",
+          "translation": "When is your birthday?",
+          "transliteration": "___ íne ta yenéthliá su?",
+          "hint": "when",
+          "display_order": 3
+        },
+        {
+          "sentence": "{{answer}} είναι αυτό;",
+          "answer": "Τι",
+          "translation": "What is this?",
+          "transliteration": "___ íne aftó?",
+          "hint": "what",
+          "display_order": 4
+        },
+        {
+          "sentence": "{{answer}} είναι ο δάσκαλός σου;",
+          "answer": "Ποιος",
+          "translation": "Who is your teacher?",
+          "transliteration": "___ íne o dáskalós su?",
+          "hint": "who",
+          "display_order": 5
+        },
+        {
+          "sentence": "{{answer}} κλαις;",
+          "answer": "Γιατί",
+          "translation": "Why are you crying?",
+          "transliteration": "___ kles?",
+          "hint": "why",
+          "display_order": 6
+        }
+      ]
+    },
+    {
+      "title": "Adjective agreement (καλός / καλή / καλό)",
+      "level": "A1",
+      "function": "Describe people and things correctly",
+      "source": "contributor",
+      "reviewed": true,
+      "display_order": 12,
+      "explanation": "Adjectives take the noun's gender, number, and case: καλός, καλή, καλό (good m/f/n), plurals καλοί, καλές, καλά. They usually come BEFORE the noun, article first: ο καλός φίλος.",
+      "culture_note": "",
+      "references": [
+        {
+          "title": "Wikipedia: Modern Greek grammar — adjectives",
+          "url": "https://en.wikipedia.org/wiki/Modern_Greek_grammar"
+        },
+        {
+          "title": "Wiktionary: καλός (Greek)",
+          "url": "https://en.wiktionary.org/wiki/%CE%BA%CE%B1%CE%BB%CF%8C%CF%82#Greek"
+        }
+      ],
+      "drills": [
+        {
+          "sentence": "Το σπίτι είναι {{answer}}.",
+          "answer": "μεγάλο",
+          "translation": "The house is big.",
+          "transliteration": "To spíti íne ___.",
+          "hint": "big — neuter",
+          "display_order": 1
+        },
+        {
+          "sentence": "Τα βιβλία είναι {{answer}}.",
+          "answer": "καινούργια",
+          "translation": "The books are new.",
+          "transliteration": "Ta vivlía íne ___.",
+          "hint": "new — neuter plural",
+          "display_order": 2
+        },
+        {
+          "sentence": "Η αδελφή μου είναι πολύ {{answer}}.",
+          "answer": "ευγενική",
+          "translation": "My sister is very kind.",
+          "transliteration": "I adelfí mu íne polí ___.",
+          "hint": "kind — feminine",
+          "display_order": 3
+        },
+        {
+          "sentence": "Ο καφές είναι {{answer}}.",
+          "answer": "ζεστός",
+          "translation": "The coffee is hot.",
+          "transliteration": "O kafés íne ___.",
+          "hint": "hot — masculine",
+          "display_order": 4
+        },
+        {
+          "sentence": "Τα λουλούδια είναι {{answer}}.",
+          "answer": "όμορφα",
+          "translation": "The flowers are beautiful.",
+          "transliteration": "Ta lulúdia íne ___.",
+          "hint": "beautiful — neuter plural",
+          "display_order": 5
+        },
+        {
+          "sentence": "Η ταινία είναι {{answer}}.",
+          "answer": "ενδιαφέρουσα",
+          "translation": "The film is interesting.",
+          "transliteration": "I tenía íne ___.",
+          "hint": "interesting — feminine",
+          "display_order": 6
+        }
+      ]
+    }
+  ]
+}
