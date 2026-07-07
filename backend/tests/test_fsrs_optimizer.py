@@ -12,7 +12,9 @@ from backend.services.fsrs import (
 from backend.services.fsrs_optimizer import (
     PARAM_BOUNDS,
     fit_weights,
+    fit_weights_validated,
     log_loss,
+    split_holdout,
 )
 
 
@@ -91,3 +93,87 @@ class TestFit:
         b = fit_weights(seqs)
         assert a is not None and b is not None
         assert a.params == b.params
+
+
+class TestSplitHoldout:
+    def test_holds_out_the_last_fifth(self):
+        seqs = [[(0.0, 3)] * 10]
+        train, starts = split_holdout(seqs, 0.2)
+        assert len(train[0]) == 8
+        assert starts == [8]
+
+    def test_short_sequences_keep_at_least_one_training_review(self):
+        seqs = [[(0.0, 3)], [(0.0, 3), (1.0, 3)]]
+        train, starts = split_holdout(seqs, 0.2)
+        assert len(train[0]) == 1 and starts[0] == 1  # nothing to hold out
+        assert len(train[1]) == 1 and starts[1] == 1  # last review held out
+
+    def test_score_from_scores_only_the_tail(self):
+        # A sequence whose tail is all failures: scoring only the tail must
+        # differ from scoring the whole sequence.
+        seq = [(0.0, 3), (1.0, 3), (1.0, 3), (1.0, 1), (1.0, 1)]
+        full = log_loss(DEFAULT_PARAMS, [seq])
+        tail = log_loss(DEFAULT_PARAMS, [seq], score_from=[3])
+        assert tail != full
+        assert tail > 0
+
+
+class TestValidatedFit:
+    def test_adopts_when_the_fit_beats_defaults_out_of_sample(self):
+        # Data truly drawn from a fast-forgetting learner, reviewed at
+        # multi-day gaps where the defaults are systematically overconfident
+        # (they predict recall, the learner mostly forgets). The fitted
+        # params must win on the held-out tails and be adopted.
+        rng = random.Random(7)
+        seqs = []
+        for _ in range(80):
+            seq = [(0.0, int(Rating.GOOD))]
+            stability, difficulty = next_state(
+                _FAST_FORGET, None, None, Rating.GOOD, 0.0
+            )
+            for _ in range(9):
+                elapsed = rng.uniform(2.0, 10.0)
+                r = retrievability(elapsed, stability)
+                grade = Rating.GOOD if rng.random() < r else Rating.AGAIN
+                seq.append((elapsed, int(grade)))
+                stability, difficulty = next_state(
+                    _FAST_FORGET, stability, difficulty, grade, elapsed
+                )
+            seqs.append(seq)
+        result = fit_weights_validated(seqs, seed=7)
+        assert result is not None
+        assert result.n_holdout_reviews > 0
+        assert result.holdout_log_loss < result.defaults_holdout_log_loss
+        assert result.adopted
+        for value, (lo, hi) in zip(result.params, PARAM_BOUNDS):
+            assert lo <= value <= hi
+
+    def test_rejects_a_fit_that_only_memorized_its_training_data(self):
+        # Train prefix says "always forgotten", held-out tail says "always
+        # recalled after long gaps": whatever the optimizer learns from the
+        # prefix must do WORSE than the defaults on the tail -> rejected.
+        seq = [(0.0, 3)] + [(1.0, 1)] * 7 + [(20.0, 3)] * 2
+        seqs = [list(seq) for _ in range(40)]
+        result = fit_weights_validated(seqs)
+        assert result is not None
+        assert result.holdout_log_loss >= result.defaults_holdout_log_loss
+        assert not result.adopted
+
+    def test_returns_none_without_a_holdout(self):
+        # Single-review cards leave nothing to validate on.
+        seqs = [[(0.0, 3)] for _ in range(10)]
+        assert fit_weights_validated(seqs) is None
+
+    def test_shrinks_toward_defaults_on_small_data(self):
+        # A tiny dataset must produce params close to the defaults even if
+        # the raw fit would wander: shrinkage is n / (n + K).
+        rng = random.Random(3)
+        seqs = _simulate(_FAST_FORGET, n_cards=4, n_reviews=6, rng=rng)
+        result = fit_weights_validated(seqs, seed=3)
+        assert result is not None
+        # ~16 training reviews vs K=300 -> at most ~5% of the way to the fit.
+        for value, default, (lo, hi) in zip(
+            result.params, DEFAULT_PARAMS, PARAM_BOUNDS
+        ):
+            span = hi - lo
+            assert abs(value - default) <= 0.1 * span + 1e-9

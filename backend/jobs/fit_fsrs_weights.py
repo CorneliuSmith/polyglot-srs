@@ -26,13 +26,16 @@ from backend.repositories.fsrs_weights import (
     upsert_language_weights,
     upsert_user_weights,
 )
-from backend.services.fsrs_optimizer import fit_weights
+from backend.services.fsrs_optimizer import fit_weights_validated
 
 logger = logging.getLogger("fsrs.fit")
 
 # Minimum scorable reviews before a fit is trusted over the tier above it.
-LANGUAGE_MIN_REVIEWS = 1000
-USER_MIN_REVIEWS = 1000
+# The held-out gate (fits are adopted only when they beat the defaults on
+# data they never saw) carries the safety, so the floor can sit much lower
+# than the pre-gate 1000.
+LANGUAGE_MIN_REVIEWS = 300
+USER_MIN_REVIEWS = 300
 
 
 async def fit_languages(
@@ -45,16 +48,31 @@ async def fit_languages(
     fitted = 0
     for language_id in language_ids:
         sequences = await fetch_review_sequences(conn, language_id)
-        result = fit_weights(sequences)
+        result = fit_weights_validated(sequences)
         if result is None or result.n_reviews < min_reviews:
             continue
+        if not result.adopted:
+            # The quality gate: a fit that can't beat the defaults on data it
+            # never saw is discarded, loudly.
+            logger.info(
+                "language %s fit REJECTED: holdout %.4f vs defaults %.4f "
+                "(%d train / %d holdout reviews)",
+                language_id, result.holdout_log_loss,
+                result.defaults_holdout_log_loss,
+                result.n_reviews, result.n_holdout_reviews,
+            )
+            continue
         await upsert_language_weights(
-            conn, language_id, result.params, result.n_reviews, result.log_loss
+            conn, language_id, result.params, result.n_reviews,
+            result.train_log_loss, result.holdout_log_loss,
+            result.defaults_holdout_log_loss,
         )
         fitted += 1
         logger.info(
-            "language %s fit on %d reviews (log_loss=%.4f)",
-            language_id, result.n_reviews, result.log_loss,
+            "language %s fit ADOPTED on %d reviews "
+            "(holdout %.4f beats defaults %.4f)",
+            language_id, result.n_reviews,
+            result.holdout_log_loss, result.defaults_holdout_log_loss,
         )
     return fitted
 
@@ -78,16 +96,28 @@ async def fit_users(
     for pair in pairs:
         user_id, language_id = str(pair["user_id"]), str(pair["language_id"])
         sequences = await fetch_review_sequences(conn, language_id, user_id)
-        result = fit_weights(sequences)
+        result = fit_weights_validated(sequences)
         if result is None or result.n_reviews < min_reviews:
             continue
+        if not result.adopted:
+            logger.info(
+                "user %s / language %s fit REJECTED: holdout %.4f vs "
+                "defaults %.4f",
+                user_id, language_id, result.holdout_log_loss,
+                result.defaults_holdout_log_loss,
+            )
+            continue
         await upsert_user_weights(
-            conn, user_id, language_id, result.params, result.n_reviews, result.log_loss
+            conn, user_id, language_id, result.params, result.n_reviews,
+            result.train_log_loss, result.holdout_log_loss,
+            result.defaults_holdout_log_loss,
         )
         fitted += 1
         logger.info(
-            "user %s / language %s fit on %d reviews (log_loss=%.4f)",
-            user_id, language_id, result.n_reviews, result.log_loss,
+            "user %s / language %s fit ADOPTED on %d reviews "
+            "(holdout %.4f beats defaults %.4f)",
+            user_id, language_id, result.n_reviews,
+            result.holdout_log_loss, result.defaults_holdout_log_loss,
         )
     return fitted
 

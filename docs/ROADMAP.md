@@ -243,6 +243,15 @@ recordings** through the contributor workflow instead (upload per sentence).
 **Effort:** M (pipeline) + external (recordings).
 
 ### WP8 — FSRS held-out quality gate
+**Status:** DONE — `fit_weights_validated` holds out the last 20% of each
+card's history, fits on the rest, shrinks toward the defaults by data volume
+(n/(n+300)), and adopts only when the candidate's held-out log-loss strictly
+beats the defaults'. Both losses are stored in fsrs_weights
+(holdout_log_loss, defaults_holdout_log_loss); rejections are logged loudly.
+LANGUAGE_MIN_REVIEWS/USER_MIN_REVIEWS dropped 1000 → 300. Unit-tested:
+split boundaries, tail-only scoring, adoption on genuinely divergent data,
+deterministic rejection of a fit that memorized its training prefix,
+shrinkage on small data.
 **Goal:** adopt fitted per-language weights only when they beat the defaults
 out-of-sample, then drop `LANGUAGE_MIN_REVIEWS` 1000 → ~300.
 **Steps** (design already agreed): in `fit_fsrs_weights`, hold out the last
