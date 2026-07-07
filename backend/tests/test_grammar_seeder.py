@@ -102,6 +102,63 @@ class TestGrammarTransform:
             mod.GRAMMAR_DIR = original
         assert data["points"][0]["source"] == "pending"
 
+    def _transform(self, tmp_path, points):
+        import backend.services.seeder.seed_grammar as mod
+
+        (tmp_path / "zz_grammar.json").write_text(
+            json.dumps({"points": points}), encoding="utf-8"
+        )
+        original = mod.GRAMMAR_DIR
+        mod.GRAMMAR_DIR = tmp_path
+        try:
+            return GrammarSeeder("fake://db", "zz").transform()
+        finally:
+            mod.GRAMMAR_DIR = original
+
+    def test_paradigm_full_coverage_passes(self, tmp_path):
+        data = self._transform(tmp_path, [{
+            "title": "Pronouns",
+            "paradigm": ["yo", "tú"],
+            "drills": [
+                {"sentence": "{{answer}} soy.", "answer": "Yo", "cell": "yo"},
+                {"sentence": "{{answer}} eres.", "answer": "Tú", "cell": "tú"},
+            ],
+        }])
+        assert [d["cell"] for d in data["points"][0]["drills"]] == ["yo", "tú"]
+
+    def test_paradigm_uncovered_cell_fails_loudly(self, tmp_path):
+        # A paradigm member with no drill is a member the learner never
+        # learns — the seed must fail, not ship the gap silently.
+        with pytest.raises(ValueError, match="no drill.*vosotros|vosotros"):
+            self._transform(tmp_path, [{
+                "title": "Pronouns",
+                "paradigm": ["yo", "vosotros"],
+                "drills": [
+                    {"sentence": "{{answer}} soy.", "answer": "Yo", "cell": "yo"},
+                ],
+            }])
+
+    def test_paradigm_unknown_cell_fails(self, tmp_path):
+        with pytest.raises(ValueError, match="not in the paradigm"):
+            self._transform(tmp_path, [{
+                "title": "Pronouns",
+                "paradigm": ["yo"],
+                "drills": [
+                    {"sentence": "{{answer}} soy.", "answer": "Yo", "cell": "typo"},
+                ],
+            }])
+
+    def test_real_spanish_pronoun_paradigm_fully_covered(self):
+        # The motivating case: 9 persons = 9 questions wearing one card.
+        data = GrammarSeeder("fake://db", "es").transform()
+        pron = next(
+            p for p in data["points"] if p["title"].startswith("Subject pronouns")
+        )
+        cells = {d["cell"] for d in pron["drills"]}
+        assert {"yo", "tú", "él", "ella", "usted",
+                "nosotros", "vosotros", "ellos", "ustedes"} <= cells
+        assert len(pron["drills"]) >= 9
+
 
 # ---------------------------------------------------------------------------
 # Grammar learn endpoint

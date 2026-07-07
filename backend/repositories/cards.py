@@ -191,10 +191,16 @@ async def get_due_cards(
         limit,
     )
 
+    # Per-sentence history for the gap-hunting rotation (one query for the
+    # whole batch).
+    stats = await _sentence_stats(
+        conn, [str(r["id"]) for r in [*vocab_rows, *grammar_rows]]
+    )
+
     # Merge and sort by next_review
     combined = (
-        [_vocab_card(r) for r in vocab_rows]
-        + [_grammar_card(r) for r in grammar_rows]
+        [_vocab_card(r, stats.get(str(r["id"]), {})) for r in vocab_rows]
+        + [_grammar_card(r, stats.get(str(r["id"]), {})) for r in grammar_rows]
         + [dict(r) for r in personal_rows]
     )
     combined.sort(key=lambda r: r["next_review"])
@@ -233,12 +239,76 @@ def _rotation_key(r: asyncpg.Record) -> str:
     return f"{r['id']}:{r['repetitions']}:{r['lapses']}:{r['last_prompt'] or ''}"
 
 
-def _vocab_card(r: asyncpg.Record) -> dict:
+async def _sentence_stats(
+    conn: asyncpg.Connection, card_ids: list[str]
+) -> dict[str, dict[str, tuple[int, int]]]:
+    """Per-sentence (times shown, times missed) for each card, from the log.
+
+    This is what makes a paradigm point behave like N questions instead of
+    one: the rotation below uses it to hunt the sentences — and therefore the
+    paradigm cells — the learner hasn't seen or keeps missing.
+    """
+    if not card_ids:
+        return {}
+    rows = await conn.fetch(
+        """
+        SELECT card_id, prompt_sentence,
+               count(*) AS seen,
+               count(*) FILTER (WHERE answer_result IN ('wrong', 'wrong_form'))
+                   AS misses
+        FROM review_log
+        WHERE card_id = ANY($1::uuid[]) AND prompt_sentence IS NOT NULL
+        GROUP BY card_id, prompt_sentence
+        """,
+        card_ids,
+    )
+    out: dict[str, dict[str, tuple[int, int]]] = {}
+    for r in rows:
+        out.setdefault(str(r["card_id"]), {})[r["prompt_sentence"]] = (
+            int(r["seen"]), int(r["misses"]),
+        )
+    return out
+
+
+def _pick_index(
+    prompts: list[str],
+    last_prompt: str | None,
+    stats: dict[str, tuple[int, int]],
+    key: str,
+) -> int:
+    """Gap-hunting rotation: unseen first, then most-missed, else uniform.
+
+    Never repeats the last-shown prompt (when there's a choice), and every
+    branch resolves via the same deterministic hash, so reloads mid-review
+    stay stable and the pick only advances when a review is recorded.
+    """
+    idxs = [i for i, p in enumerate(prompts) if p != last_prompt] or list(
+        range(len(prompts))
+    )
+    unseen = [i for i in idxs if prompts[i] not in stats]
+    if unseen:
+        pool = unseen
+    else:
+        missed = [i for i in idxs if stats[prompts[i]][1] > 0]
+        if missed:
+            def miss_rate(i: int) -> float:
+                seen, misses = stats[prompts[i]]
+                return misses / seen
+
+            worst = max(miss_rate(i) for i in missed)
+            pool = [i for i in missed if miss_rate(i) == worst]
+        else:
+            pool = idxs
+    return pool[_stable_pick(len(pool), key)]
+
+
+def _vocab_card(r: asyncpg.Record, stats: dict[str, tuple[int, int]]) -> dict:
     """Shape a vocabulary row into a card, preferring a cloze example sentence.
 
     The sentence changes on every APPEARANCE of the card (Bunpro-style): a
-    deterministic pick among the word's sentences — stable across page
-    reloads — that never repeats the one shown last time
+    deterministic, gap-hunting pick among the word's sentences — stable
+    across page reloads — that prefers sentences never shown, then the ones
+    the learner keeps missing, and never repeats the one shown last time
     (review_log.prompt_sentence). Sentences where the word is inflected
     beyond a whole-word match are skipped by make_cloze. Falls back to the
     definition -> type-the-word prompt when nothing clozes.
@@ -261,10 +331,10 @@ def _vocab_card(r: asyncpg.Record) -> dict:
     sentence, translation, hint = (r["definition"] or word), None, None
     gloss, transliteration = None, None
     if candidates:
-        pool = [c for c in candidates if c[0] != r["last_prompt"]] or candidates
-        sentence, translation, gloss, transliteration = pool[
-            _stable_pick(len(pool), _rotation_key(r))
-        ]
+        idx = _pick_index(
+            [c[0] for c in candidates], r["last_prompt"], stats, _rotation_key(r)
+        )
+        sentence, translation, gloss, transliteration = candidates[idx]
         hint = r["definition"]
     return {
         **_srs_fields(r),
@@ -279,21 +349,21 @@ def _vocab_card(r: asyncpg.Record) -> dict:
     }
 
 
-def _grammar_card(r: asyncpg.Record) -> dict:
+def _grammar_card(r: asyncpg.Record, stats: dict[str, tuple[int, int]]) -> dict:
     """Shape a grammar row into a fill-in-the-blank card, rotating drills.
 
     The drill changes on every APPEARANCE (deterministic, stable across page
-    reloads, never the last-shown). Points without drills fall back to a
+    reloads, never the last-shown), gap-hunting across the point's drills:
+    a paradigm point (subject pronouns, a conjugation table) is really N
+    questions wearing one card, so unseen cells come first and missed cells
+    come back until they stick. Points without drills fall back to a
     type-the-title card for legacy rows only — new learns are gated on having
     drills, so this shouldn't be reachable for fresh content.
     """
     drills = r["drill_sentences"] or []
     gloss, transliteration = None, None
     if drills:
-        pool = [i for i, d in enumerate(drills) if d != r["last_prompt"]] or list(
-            range(len(drills))
-        )
-        idx = pool[_stable_pick(len(pool), _rotation_key(r))]
+        idx = _pick_index(list(drills), r["last_prompt"], stats, _rotation_key(r))
         sentence = drills[idx]
         answer = (r["drill_answers"] or [None])[idx]
         hint = (r["drill_hints"] or [None] * len(drills))[idx]

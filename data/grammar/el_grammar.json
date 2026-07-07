@@ -33,7 +33,8 @@
           "translation": "I am from Athens.",
           "transliteration": "___ íme apó tin Athína.",
           "hint": "I",
-          "display_order": 1
+          "display_order": 1,
+          "cell": "εγώ"
         },
         {
           "sentence": "{{answer}} είσαι φίλος μου.",
@@ -41,7 +42,8 @@
           "translation": "You are my friend.",
           "transliteration": "___ íse fílos mu.",
           "hint": "you — informal",
-          "display_order": 2
+          "display_order": 2,
+          "cell": "εσύ"
         },
         {
           "sentence": "{{answer}} είναι η αδελφή μου.",
@@ -49,7 +51,8 @@
           "translation": "She is my sister.",
           "transliteration": "___ íne i adelfí mu.",
           "hint": "she",
-          "display_order": 3
+          "display_order": 3,
+          "cell": "αυτή"
         },
         {
           "sentence": "{{answer}} είμαστε φοιτητές.",
@@ -57,7 +60,8 @@
           "translation": "We are students.",
           "transliteration": "___ ímaste fitités.",
           "hint": "we",
-          "display_order": 4
+          "display_order": 4,
+          "cell": "εμείς"
         },
         {
           "sentence": "{{answer}} είναι από την Ισπανία.",
@@ -65,7 +69,8 @@
           "translation": "They are from Spain.",
           "transliteration": "___ íne apó tin Ispanía.",
           "hint": "they (masculine)",
-          "display_order": 5
+          "display_order": 5,
+          "cell": "αυτοί"
         },
         {
           "sentence": "{{answer}} είστε πολύ ευγενικοί.",
@@ -73,8 +78,37 @@
           "translation": "You (all) are very kind.",
           "transliteration": "___ íste polí evyenikí.",
           "hint": "you — plural/formal",
-          "display_order": 6
+          "display_order": 6,
+          "cell": "εσείς"
+        },
+        {
+          "sentence": "{{answer}} είναι ο δάσκαλός μας.",
+          "answer": "Αυτός",
+          "translation": "He is our teacher.",
+          "transliteration": "___ íne o dáskalós mas.",
+          "hint": "he",
+          "cell": "αυτός",
+          "display_order": 7
+        },
+        {
+          "sentence": "{{answer}} είναι δύσκολο.",
+          "answer": "Αυτό",
+          "translation": "It is difficult.",
+          "transliteration": "___ íne dískolo.",
+          "hint": "it",
+          "cell": "αυτό",
+          "display_order": 8
         }
+      ],
+      "paradigm": [
+        "εγώ",
+        "εσύ",
+        "αυτός",
+        "αυτή",
+        "αυτό",
+        "εμείς",
+        "εσείς",
+        "αυτοί"
       ]
     },
     {
@@ -103,7 +137,8 @@
           "translation": "I have two books.",
           "transliteration": "Ého dío ___.",
           "hint": "book, plural — neuter",
-          "display_order": 1
+          "display_order": 1,
+          "cell": "neuter"
         },
         {
           "sentence": "Τα {{answer}} παίζουν έξω.",
@@ -111,7 +146,8 @@
           "translation": "The children are playing outside.",
           "transliteration": "Ta ___ pézun éxo.",
           "hint": "child, plural — neuter",
-          "display_order": 2
+          "display_order": 2,
+          "cell": "neuter"
         },
         {
           "sentence": "Έχω τρεις {{answer}}.",
@@ -119,7 +155,8 @@
           "translation": "I have three sisters.",
           "transliteration": "Ého tris ___.",
           "hint": "sister, plural — feminine",
-          "display_order": 3
+          "display_order": 3,
+          "cell": "feminine"
         },
         {
           "sentence": "Οι {{answer}} είναι ωραίοι.",
@@ -127,7 +164,8 @@
           "translation": "The streets are nice.",
           "transliteration": "I ___ íne oréi.",
           "hint": "street, plural — masculine",
-          "display_order": 4
+          "display_order": 4,
+          "cell": "masculine"
         },
         {
           "sentence": "Έχω δύο {{answer}} στο σπίτι.",
@@ -135,7 +173,8 @@
           "translation": "I have two cats at home.",
           "transliteration": "Ého dío ___ sto spíti.",
           "hint": "cat, plural — feminine",
-          "display_order": 5
+          "display_order": 5,
+          "cell": "feminine"
         },
         {
           "sentence": "Τα {{answer}} είναι καινούργια.",
@@ -143,8 +182,14 @@
           "translation": "The cars are new.",
           "transliteration": "Ta ___ íne kenúrya.",
           "hint": "car, plural — neuter",
-          "display_order": 6
+          "display_order": 6,
+          "cell": "neuter"
         }
+      ],
+      "paradigm": [
+        "masculine",
+        "feminine",
+        "neuter"
       ]
     },
     {
@@ -173,7 +218,8 @@
           "translation": "The street is big.",
           "transliteration": "___ drómos íne megálos.",
           "hint": "masculine",
-          "display_order": 1
+          "display_order": 1,
+          "cell": "ο"
         },
         {
           "sentence": "{{answer}} μέρα είναι ωραία.",
@@ -181,7 +227,8 @@
           "translation": "The day is beautiful.",
           "transliteration": "___ méra íne oréa.",
           "hint": "feminine",
-          "display_order": 2
+          "display_order": 2,
+          "cell": "η"
         },
         {
           "sentence": "{{answer}} βιβλίο είναι καινούργιο.",
@@ -189,7 +236,8 @@
           "translation": "The book is new.",
           "transliteration": "___ vivlío íne kenúryo.",
           "hint": "neuter",
-          "display_order": 3
+          "display_order": 3,
+          "cell": "το"
         },
         {
           "sentence": "{{answer}} καφές είναι ζεστός.",
@@ -197,7 +245,8 @@
           "translation": "The coffee is hot.",
           "transliteration": "___ kafés íne zestós.",
           "hint": "masculine",
-          "display_order": 4
+          "display_order": 4,
+          "cell": "ο"
         },
         {
           "sentence": "{{answer}} πόρτα είναι ανοιχτή.",
@@ -205,7 +254,8 @@
           "translation": "The door is open.",
           "transliteration": "___ pórta íne anichtí.",
           "hint": "feminine",
-          "display_order": 5
+          "display_order": 5,
+          "cell": "η"
         },
         {
           "sentence": "{{answer}} παιδί κοιμάται.",
@@ -213,8 +263,14 @@
           "translation": "The child is sleeping.",
           "transliteration": "___ pedí kimáte.",
           "hint": "neuter",
-          "display_order": 6
+          "display_order": 6,
+          "cell": "το"
         }
+      ],
+      "paradigm": [
+        "ο",
+        "η",
+        "το"
       ]
     },
     {
@@ -243,7 +299,8 @@
           "translation": "It is a beautiful day.",
           "transliteration": "Íne ___ oréa méra.",
           "hint": "feminine",
-          "display_order": 1
+          "display_order": 1,
+          "cell": "μία"
         },
         {
           "sentence": "Αυτός είναι {{answer}} καλός φίλος.",
@@ -251,7 +308,8 @@
           "translation": "He is a good friend.",
           "transliteration": "Aftós íne ___ kalós fílos.",
           "hint": "masculine",
-          "display_order": 2
+          "display_order": 2,
+          "cell": "ένας"
         },
         {
           "sentence": "Είναι {{answer}} μεγάλο σπίτι.",
@@ -259,7 +317,8 @@
           "translation": "It is a big house.",
           "transliteration": "Íne ___ megálo spíti.",
           "hint": "neuter",
-          "display_order": 3
+          "display_order": 3,
+          "cell": "ένα"
         },
         {
           "sentence": "Έχω {{answer}} ιδέα.",
@@ -267,7 +326,8 @@
           "translation": "I have an idea.",
           "transliteration": "Ého ___ idéa.",
           "hint": "feminine",
-          "display_order": 4
+          "display_order": 4,
+          "cell": "μία"
         },
         {
           "sentence": "Είναι {{answer}} καλό βιβλίο.",
@@ -275,7 +335,8 @@
           "translation": "It is a good book.",
           "transliteration": "Íne ___ kaló vivlío.",
           "hint": "neuter",
-          "display_order": 5
+          "display_order": 5,
+          "cell": "ένα"
         },
         {
           "sentence": "Είναι {{answer}} όμορφος κήπος.",
@@ -283,8 +344,14 @@
           "translation": "It is a beautiful garden.",
           "transliteration": "Íne ___ ómorfos kípos.",
           "hint": "masculine",
-          "display_order": 6
+          "display_order": 6,
+          "cell": "ένας"
         }
+      ],
+      "paradigm": [
+        "ένας",
+        "μία",
+        "ένα"
       ]
     },
     {
@@ -313,7 +380,8 @@
           "translation": "I am a student.",
           "transliteration": "Egó ___ fititís.",
           "hint": "to be, I",
-          "display_order": 1
+          "display_order": 1,
+          "cell": "1sg"
         },
         {
           "sentence": "Εσύ {{answer}} πολύ ψηλός.",
@@ -321,7 +389,8 @@
           "translation": "You are very tall.",
           "transliteration": "Esí ___ polí psilós.",
           "hint": "to be, you (informal)",
-          "display_order": 2
+          "display_order": 2,
+          "cell": "2sg"
         },
         {
           "sentence": "Αυτή {{answer}} δασκάλα.",
@@ -329,7 +398,8 @@
           "translation": "She is a teacher.",
           "transliteration": "Aftí ___ daskála.",
           "hint": "to be, she",
-          "display_order": 3
+          "display_order": 3,
+          "cell": "3sg"
         },
         {
           "sentence": "Εμείς {{answer}} φίλοι.",
@@ -337,7 +407,8 @@
           "translation": "We are friends.",
           "transliteration": "Emís ___ fíli.",
           "hint": "to be, we",
-          "display_order": 4
+          "display_order": 4,
+          "cell": "1pl"
         },
         {
           "sentence": "Εσείς {{answer}} Έλληνες;",
@@ -345,7 +416,8 @@
           "translation": "Are you (all) Greek?",
           "transliteration": "Esís ___ Élines?",
           "hint": "to be, you (plural)",
-          "display_order": 5
+          "display_order": 5,
+          "cell": "2pl"
         },
         {
           "sentence": "Αυτοί {{answer}} στο σπίτι.",
@@ -353,8 +425,17 @@
           "translation": "They are at home.",
           "transliteration": "Aftí ___ sto spíti.",
           "hint": "to be, they",
-          "display_order": 6
+          "display_order": 6,
+          "cell": "3pl"
         }
+      ],
+      "paradigm": [
+        "1sg",
+        "2sg",
+        "3sg",
+        "1pl",
+        "2pl",
+        "3pl"
       ]
     },
     {
@@ -383,7 +464,8 @@
           "translation": "I have a question.",
           "transliteration": "Egó ___ mia erótisi.",
           "hint": "to have, I",
-          "display_order": 1
+          "display_order": 1,
+          "cell": "1sg"
         },
         {
           "sentence": "Εσύ {{answer}} μια γάτα;",
@@ -391,7 +473,8 @@
           "translation": "Do you have a cat?",
           "transliteration": "Esí ___ mia gáta?",
           "hint": "to have, you (informal)",
-          "display_order": 2
+          "display_order": 2,
+          "cell": "2sg"
         },
         {
           "sentence": "Αυτή {{answer}} ένα ποδήλατο.",
@@ -399,7 +482,8 @@
           "translation": "She has a bicycle.",
           "transliteration": "Aftí ___ éna podílato.",
           "hint": "to have, she",
-          "display_order": 3
+          "display_order": 3,
+          "cell": "3sg"
         },
         {
           "sentence": "Εμείς {{answer}} χρόνο.",
@@ -407,7 +491,8 @@
           "translation": "We have time.",
           "transliteration": "Emís ___ chróno.",
           "hint": "to have, we",
-          "display_order": 4
+          "display_order": 4,
+          "cell": "1pl"
         },
         {
           "sentence": "Εσείς {{answer}} δίκιο.",
@@ -415,7 +500,8 @@
           "translation": "You (all) are right.",
           "transliteration": "Esís ___ díkio.",
           "hint": "to have, you (plural)",
-          "display_order": 5
+          "display_order": 5,
+          "cell": "2pl"
         },
         {
           "sentence": "Αυτοί {{answer}} ένα σπίτι στη θάλασσα.",
@@ -423,8 +509,17 @@
           "translation": "They have a house by the sea.",
           "transliteration": "Aftí ___ éna spíti sti thálasa.",
           "hint": "to have, they",
-          "display_order": 6
+          "display_order": 6,
+          "cell": "3pl"
         }
+      ],
+      "paradigm": [
+        "1sg",
+        "2sg",
+        "3sg",
+        "1pl",
+        "2pl",
+        "3pl"
       ]
     },
     {
@@ -453,7 +548,8 @@
           "translation": "I live in Athens.",
           "transliteration": "Egó ___ stin Athína.",
           "hint": "to live, I",
-          "display_order": 1
+          "display_order": 1,
+          "cell": "1sg"
         },
         {
           "sentence": "Αυτή {{answer}} σε ένα γραφείο.",
@@ -461,7 +557,8 @@
           "translation": "She works in an office.",
           "transliteration": "Aftí ___ se éna grafío.",
           "hint": "to work, she",
-          "display_order": 2
+          "display_order": 2,
+          "cell": "3sg"
         },
         {
           "sentence": "Εμείς {{answer}} ελληνικά.",
@@ -469,7 +566,8 @@
           "translation": "We are learning Greek.",
           "transliteration": "Emís ___ eliniká.",
           "hint": "to learn, we",
-          "display_order": 3
+          "display_order": 3,
+          "cell": "1pl"
         },
         {
           "sentence": "Αυτοί {{answer}} ποδόσφαιρο.",
@@ -477,7 +575,8 @@
           "translation": "They play football.",
           "transliteration": "Aftí ___ podósfero.",
           "hint": "to play, they",
-          "display_order": 4
+          "display_order": 4,
+          "cell": "3pl"
         },
         {
           "sentence": "Εσύ {{answer}} μουσική;",
@@ -485,7 +584,8 @@
           "translation": "Do you listen to music?",
           "transliteration": "Esí ___ musikí?",
           "hint": "to listen, you (informal)",
-          "display_order": 5
+          "display_order": 5,
+          "cell": "2sg"
         },
         {
           "sentence": "Εγώ {{answer}} ένα βιβλίο.",
@@ -493,8 +593,26 @@
           "translation": "I am reading a book.",
           "transliteration": "Egó ___ éna vivlío.",
           "hint": "to read, I",
-          "display_order": 6
+          "display_order": 6,
+          "cell": "1sg"
+        },
+        {
+          "sentence": "Εσείς {{answer}} στην Αθήνα;",
+          "answer": "μένετε",
+          "translation": "Do you (all) live in Athens?",
+          "transliteration": "Esís ___ stin Athína?",
+          "hint": "to live, you (plural)",
+          "cell": "2pl",
+          "display_order": 7
         }
+      ],
+      "paradigm": [
+        "1sg",
+        "2sg",
+        "3sg",
+        "1pl",
+        "2pl",
+        "3pl"
       ]
     },
     {
@@ -523,7 +641,8 @@
           "translation": "I see the street.",
           "transliteration": "Vlépo ___ drómo.",
           "hint": "masculine object — keeps its ν",
-          "display_order": 1
+          "display_order": 1,
+          "cell": "τον"
         },
         {
           "sentence": "Βλέπω {{answer}} πόρτα.",
@@ -531,7 +650,8 @@
           "translation": "I see the door.",
           "transliteration": "Vlépo ___ pórta.",
           "hint": "feminine object — ν stays before π",
-          "display_order": 2
+          "display_order": 2,
+          "cell": "την"
         },
         {
           "sentence": "Ακούω {{answer}} παιδί.",
@@ -539,7 +659,8 @@
           "translation": "I hear the child.",
           "transliteration": "Akúo ___ pedí.",
           "hint": "neuter — unchanged as object",
-          "display_order": 3
+          "display_order": 3,
+          "cell": "το"
         },
         {
           "sentence": "Αγαπώ {{answer}} θάλασσα.",
@@ -547,7 +668,8 @@
           "translation": "I love the sea.",
           "transliteration": "Agapó ___ thálasa.",
           "hint": "feminine — the ν drops before θ",
-          "display_order": 4
+          "display_order": 4,
+          "cell": "την"
         },
         {
           "sentence": "Διαβάζω {{answer}} βιβλίο.",
@@ -555,7 +677,8 @@
           "translation": "I am reading the book.",
           "transliteration": "Diavázo ___ vivlío.",
           "hint": "neuter — unchanged as object",
-          "display_order": 5
+          "display_order": 5,
+          "cell": "το"
         },
         {
           "sentence": "Ρωτάω {{answer}} δάσκαλο.",
@@ -563,8 +686,14 @@
           "translation": "I ask the teacher.",
           "transliteration": "Rotáo ___ dáskalo.",
           "hint": "masculine object — keeps its ν",
-          "display_order": 6
+          "display_order": 6,
+          "cell": "τον"
         }
+      ],
+      "paradigm": [
+        "τον",
+        "την",
+        "το"
       ]
     },
     {
@@ -803,7 +932,8 @@
           "translation": "The house is big.",
           "transliteration": "To spíti íne ___.",
           "hint": "big — neuter",
-          "display_order": 1
+          "display_order": 1,
+          "cell": "n.sg"
         },
         {
           "sentence": "Τα βιβλία είναι {{answer}}.",
@@ -811,7 +941,8 @@
           "translation": "The books are new.",
           "transliteration": "Ta vivlía íne ___.",
           "hint": "new — neuter plural",
-          "display_order": 2
+          "display_order": 2,
+          "cell": "n.pl"
         },
         {
           "sentence": "Η αδελφή μου είναι πολύ {{answer}}.",
@@ -819,7 +950,8 @@
           "translation": "My sister is very kind.",
           "transliteration": "I adelfí mu íne polí ___.",
           "hint": "kind — feminine",
-          "display_order": 3
+          "display_order": 3,
+          "cell": "f.sg"
         },
         {
           "sentence": "Ο καφές είναι {{answer}}.",
@@ -827,7 +959,8 @@
           "translation": "The coffee is hot.",
           "transliteration": "O kafés íne ___.",
           "hint": "hot — masculine",
-          "display_order": 4
+          "display_order": 4,
+          "cell": "m.sg"
         },
         {
           "sentence": "Τα λουλούδια είναι {{answer}}.",
@@ -835,7 +968,8 @@
           "translation": "The flowers are beautiful.",
           "transliteration": "Ta lulúdia íne ___.",
           "hint": "beautiful — neuter plural",
-          "display_order": 5
+          "display_order": 5,
+          "cell": "n.pl"
         },
         {
           "sentence": "Η ταινία είναι {{answer}}.",
@@ -843,8 +977,35 @@
           "translation": "The film is interesting.",
           "transliteration": "I tenía íne ___.",
           "hint": "interesting — feminine",
-          "display_order": 6
+          "display_order": 6,
+          "cell": "f.sg"
+        },
+        {
+          "sentence": "Οι κήποι είναι {{answer}}.",
+          "answer": "όμορφοι",
+          "translation": "The gardens are beautiful.",
+          "transliteration": "I kípi íne ___.",
+          "hint": "beautiful — masculine plural",
+          "cell": "m.pl",
+          "display_order": 7
+        },
+        {
+          "sentence": "Οι μέρες είναι {{answer}}.",
+          "answer": "μεγάλες",
+          "translation": "The days are long.",
+          "transliteration": "I méres íne ___.",
+          "hint": "big/long — feminine plural",
+          "cell": "f.pl",
+          "display_order": 8
         }
+      ],
+      "paradigm": [
+        "m.sg",
+        "f.sg",
+        "n.sg",
+        "m.pl",
+        "f.pl",
+        "n.pl"
       ]
     }
   ]

@@ -56,6 +56,21 @@ and `POST /api/curriculum/learn`.
 per vocabulary word** (minimum 4; vocab ≥ grammar). A card shows a different
 sentence on every appearance — never the one shown last time.
 
+**Paradigm points scale past the floor.** A point whose answer space is a
+morphological paradigm — subject pronouns (Spanish has NINE: yo, tú, él,
+ella, usted, nosotros, vosotros, ellos, ustedes), a conjugation table, case
+or gender agreement — is really N questions wearing one card. Such points
+declare `"paradigm": [cells…]` and each drill carries `"cell"`; the seeder
+**fails** if any cell has no drill, so the drill count is
+max(6, paradigm size). Rotation is **gap-hunting**, not uniform: unseen
+sentences come first (full paradigm exposure before any repeats), then the
+sentences the learner keeps missing (highest miss rate from
+`review_log.prompt_sentence`), then uniform — always deterministic and
+reload-stable, never the last-shown. One card, one FSRS schedule (FSRS's
+per-card difficulty already absorbs aggregate hardness; splitting the
+paradigm into N cards would flood reviews), but the card *behaves* like N
+questions because it hunts the learner's gaps.
+
 ## Language-shaped cards (typology principle)
 
 **Point counts SHOULD differ across languages — do not equalize them.**

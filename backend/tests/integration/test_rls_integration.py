@@ -589,6 +589,68 @@ async def test_sentences_change_every_appearance(pool):
     assert len(seen_v) == 2 and len(seen_g) == 2  # both contexts get exposure
 
 
+async def test_rotation_hunts_unseen_then_missed_cells(pool):
+    """A paradigm point is really N questions in one card: every drill gets
+    shown before any repeats, and once all are seen the rotation keeps
+    returning to the one the learner misses until it sticks."""
+    lang = await _language(pool, "hunt1")
+    user = await _new_user(pool, "hunt@learn")
+    async with pool.privileged_connection() as conn:
+        gp = await conn.fetchval(
+            "INSERT INTO grammar_points (language_id, title, level, reviewed, display_order) "
+            "VALUES ($1, 'Pronoun paradigm', 'A1', true, 1) RETURNING id", lang,
+        )
+        drills = [
+            ("{{answer}} soy yo-cell.", "Yo"),
+            ("{{answer}} eres tú-cell.", "Tú"),
+            ("{{answer}} es usted-cell.", "Usted"),
+        ]
+        for i, (s, a) in enumerate(drills):
+            await conn.execute(
+                "INSERT INTO drill_sentences (grammar_point_id, sentence, answer, display_order) "
+                "VALUES ($1, $2, $3, $4)", gp, s, a, i + 1,
+            )
+        card = await conn.fetchval(
+            "INSERT INTO user_cards (user_id, language_id, card_type, card_id) "
+            "VALUES ($1, $2, 'grammar', $3) RETURNING id", user, lang, gp,
+        )
+
+    async def _log(prompt, result):
+        async with pool.privileged_connection() as conn:
+            await conn.execute(
+                "INSERT INTO review_log (user_id, card_id, quality, answer_result, "
+                " interval_before, interval_after, prompt_sentence) "
+                "VALUES ($1, $2, 3, $3, 0, 1, $4)", user, card, result, prompt,
+            )
+
+    async def _shown():
+        async with pool.rls_connection(user) as conn:
+            due = {c["id"]: c for c in await get_due_cards(conn, lang)}
+        return due[card]["sentence"]
+
+    # Phase 1 — full coverage: all three cells appear before any repeat.
+    # The usted drill gets answered WRONG; the others right.
+    shown = []
+    for _ in range(3):
+        s = await _shown()
+        shown.append(s)
+        await _log(s, "wrong" if "usted-cell" in s else "correct")
+    assert sorted(shown) == sorted(d[0] for d in drills)
+
+    # Phase 2 — gap-hunting: everything's been seen, usted was missed, and
+    # (unless it was just shown) the card goes straight back to it.
+    if "usted-cell" not in shown[-1]:
+        s = await _shown()
+        assert "usted-cell" in s
+        await _log(s, "correct")
+    # After the miss is answered (and is now last-shown), rotation moves on…
+    s = await _shown()
+    assert "usted-cell" not in s
+    await _log(s, "correct")
+    # …and the miss STILL comes back next, until its record cleans up.
+    assert "usted-cell" in await _shown()
+
+
 async def test_review_log_records_prompt_sentence(pool):
     """The exact sentence shown is logged per review (per-sentence analysis)."""
     lang = await _language(pool, "plog")

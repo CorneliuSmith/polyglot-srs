@@ -21,9 +21,13 @@ coach from the learner's actual failure history.
 - **Engine (done, tested)**: FSRS-5 scheduling + per-language weight fitting
   with a held-out validation gate (WP8); 6-layer NLP answer grading for all
   16 languages (diacritics coach, don't fail); teach-before-quiz lessons;
-  deterministic sentence rotation (stable across reloads, rotates per
+  deterministic **gap-hunting** sentence rotation (unseen drills first, then
+  the most-missed, else uniform — stable across reloads, rotates per
   recorded review) with per-sentence logging
-  (`review_log.prompt_sentence`); in-session re-drill of misses;
+  (`review_log.prompt_sentence`); paradigm points declare their cells and
+  the seeder fails on uncovered cells (es + el A1 tagged; rollout to
+  tr/ru/ar/fr/de/it/ca/ro + African languages pending — see
+  curriculum-design.md "Paradigm points"); in-session re-drill of misses;
   teach-before-quiz is a hard gate: learn batches are created suspended, each
   lesson ends with a first-check drill (the lesson payload's `quiz`), and only
   a correct answer confirms THAT card into reviews

@@ -79,8 +79,29 @@ class GrammarSeeder:
                     "hint": (d.get("hint") or "").strip() or None,
                     "gloss": (d.get("gloss") or "").strip() or None,
                     "transliteration": (d.get("transliteration") or "").strip() or None,
+                    "cell": (d.get("cell") or "").strip() or None,
                     "display_order": int(d.get("display_order") or 0),
                 })
+            # Paradigm coverage: a point tagged with paradigm cells (subject
+            # pronouns, a conjugation table…) is really N questions in one
+            # card, so EVERY cell must have a drill — a member the drills
+            # never test is a member the learner never learns. Fails the
+            # seed loudly rather than shipping silent gaps.
+            paradigm = [
+                str(c).strip() for c in (p.get("paradigm") or []) if str(c).strip()
+            ]
+            if paradigm:
+                covered = {d["cell"] for d in drills if d["cell"]}
+                unknown = covered - set(paradigm)
+                missing = set(paradigm) - covered
+                if unknown:
+                    raise ValueError(
+                        f"{title}: drill cells not in the paradigm: {sorted(unknown)}"
+                    )
+                if missing:
+                    raise ValueError(
+                        f"{title}: paradigm cells with no drill: {sorted(missing)}"
+                    )
             points.append({
                 "title": title,
                 "level": p.get("level"),

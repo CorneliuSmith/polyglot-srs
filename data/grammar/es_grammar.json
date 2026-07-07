@@ -57,42 +57,72 @@
           "answer": "Yo",
           "translation": "I am from Mexico.",
           "hint": "the 'I' pronoun, said for emphasis",
-          "display_order": 1
+          "display_order": 1,
+          "cell": "yo"
         },
         {
           "sentence": "{{answer}} eres mi amigo.",
           "answer": "Tú",
           "translation": "You are my friend.",
           "hint": "informal singular 'you'",
-          "display_order": 2
+          "display_order": 2,
+          "cell": "tú"
         },
         {
           "sentence": "{{answer}} es mi hermana.",
           "answer": "Ella",
           "translation": "She is my sister.",
           "hint": "she",
-          "display_order": 3
+          "display_order": 3,
+          "cell": "ella"
         },
         {
           "sentence": "{{answer}} somos estudiantes.",
           "answer": "Nosotros",
           "translation": "We are students.",
           "hint": "we",
-          "display_order": 4
+          "display_order": 4,
+          "cell": "nosotros"
         },
         {
           "sentence": "{{answer}} son de España.",
           "answer": "Ellos",
           "translation": "They are from Spain.",
           "hint": "they (masculine)",
-          "display_order": 5
+          "display_order": 5,
+          "cell": "ellos"
         },
         {
           "sentence": "{{answer}} es mi padre.",
           "answer": "Él",
           "translation": "He is my father.",
           "hint": "he — with accent",
-          "display_order": 6
+          "display_order": 6,
+          "cell": "él"
+        },
+        {
+          "sentence": "¿{{answer}} es el doctor Ruiz?",
+          "answer": "Usted",
+          "translation": "Are you Dr. Ruiz?",
+          "hint": "you — formal singular",
+          "cell": "usted",
+          "display_order": 7
+        },
+        {
+          "sentence": "{{answer}} sois de Valencia.",
+          "answer": "Vosotros",
+          "translation": "You all are from Valencia.",
+          "hint": "you all — informal (Spain)",
+          "cell": "vosotros",
+          "display_order": 8
+        },
+        {
+          "sentence": "{{answer}} son bienvenidos.",
+          "answer": "Ustedes",
+          "translation": "You (all) are welcome.",
+          "hint": "you all — formal / Latin America",
+          "cell": "ustedes",
+          "display_order": 9
         }
       ],
       "related": [
@@ -104,6 +134,17 @@
           "title": "Present tense of -ar verbs",
           "contrast": "Hablo means 'I speak' — no pronoun needed."
         }
+      ],
+      "paradigm": [
+        "yo",
+        "tú",
+        "él",
+        "ella",
+        "usted",
+        "nosotros",
+        "vosotros",
+        "ellos",
+        "ustedes"
       ]
     },
     {
@@ -205,42 +246,48 @@
           "answer": "la",
           "translation": "The house is big.",
           "hint": "feminine singular",
-          "display_order": 1
+          "display_order": 1,
+          "cell": "la"
         },
         {
           "sentence": "{{answer}} libro es nuevo.",
           "answer": "el",
           "translation": "The book is new.",
           "hint": "masculine singular",
-          "display_order": 2
+          "display_order": 2,
+          "cell": "el"
         },
         {
           "sentence": "{{answer}} casas son blancas.",
           "answer": "Las",
           "translation": "The houses are white.",
           "hint": "feminine plural",
-          "display_order": 3
+          "display_order": 3,
+          "cell": "las"
         },
         {
           "sentence": "{{answer}} profesor es simpático.",
           "answer": "El",
           "translation": "The teacher is nice.",
           "hint": "masculine singular",
-          "display_order": 4
+          "display_order": 4,
+          "cell": "el"
         },
         {
           "sentence": "{{answer}} coches son rápidos.",
           "answer": "Los",
           "translation": "The cars are fast.",
           "hint": "masculine plural",
-          "display_order": 5
+          "display_order": 5,
+          "cell": "los"
         },
         {
           "sentence": "{{answer}} escuela es grande.",
           "answer": "La",
           "translation": "The school is big.",
           "hint": "feminine singular",
-          "display_order": 6
+          "display_order": 6,
+          "cell": "la"
         }
       ],
       "related": [
@@ -252,6 +299,12 @@
           "title": "Gender and number of nouns",
           "contrast": "The article is your best clue to a noun's gender."
         }
+      ],
+      "paradigm": [
+        "el",
+        "la",
+        "los",
+        "las"
       ]
     },
     {
@@ -279,42 +332,48 @@
           "answer": "un",
           "translation": "I have a dog.",
           "hint": "masculine singular",
-          "display_order": 1
+          "display_order": 1,
+          "cell": "un"
         },
         {
           "sentence": "Es {{answer}} casa grande.",
           "answer": "una",
           "translation": "It is a big house.",
           "hint": "feminine singular",
-          "display_order": 2
+          "display_order": 2,
+          "cell": "una"
         },
         {
           "sentence": "Compro {{answer}} mesa nueva.",
           "answer": "una",
           "translation": "I am buying a new table.",
           "hint": "mesa is feminine",
-          "display_order": 3
+          "display_order": 3,
+          "cell": "una"
         },
         {
           "sentence": "Hay {{answer}} problema con el coche.",
           "answer": "un",
           "translation": "There is a problem with the car.",
           "hint": "problema is masculine!",
-          "display_order": 4
+          "display_order": 4,
+          "cell": "un"
         },
         {
           "sentence": "Tengo {{answer}} idea.",
           "answer": "una",
           "translation": "I have an idea.",
           "hint": "idea is feminine",
-          "display_order": 5
+          "display_order": 5,
+          "cell": "una"
         },
         {
           "sentence": "Es {{answer}} día bonito.",
           "answer": "un",
           "translation": "It is a beautiful day.",
           "hint": "día is masculine!",
-          "display_order": 6
+          "display_order": 6,
+          "cell": "un"
         }
       ],
       "related": [
@@ -326,6 +385,10 @@
           "title": "Hay — there is / there are",
           "contrast": "Hay pairs with un/una, never with el/la: hay una mesa."
         }
+      ],
+      "paradigm": [
+        "un",
+        "una"
       ]
     },
     {
@@ -361,42 +424,48 @@
           "answer": "soy",
           "translation": "I am a student.",
           "hint": "yo form of ser",
-          "display_order": 1
+          "display_order": 1,
+          "cell": "yo"
         },
         {
           "sentence": "Nosotros {{answer}} amigos.",
           "answer": "somos",
           "translation": "We are friends.",
           "hint": "nosotros form of ser",
-          "display_order": 2
+          "display_order": 2,
+          "cell": "nosotros"
         },
         {
           "sentence": "Ella {{answer}} profesora.",
           "answer": "es",
           "translation": "She is a teacher.",
           "hint": "ser, ella",
-          "display_order": 3
+          "display_order": 3,
+          "cell": "él/ella"
         },
         {
           "sentence": "Ellos {{answer}} de Argentina.",
           "answer": "son",
           "translation": "They are from Argentina.",
           "hint": "ser, ellos",
-          "display_order": 4
+          "display_order": 4,
+          "cell": "ellos"
         },
         {
           "sentence": "Tú {{answer}} muy alto.",
           "answer": "eres",
           "translation": "You are very tall.",
           "hint": "ser, tú",
-          "display_order": 5
+          "display_order": 5,
+          "cell": "tú"
         },
         {
           "sentence": "Vosotros {{answer}} mis amigos.",
           "answer": "sois",
           "translation": "You (all) are my friends.",
           "hint": "ser, vosotros",
-          "display_order": 6
+          "display_order": 6,
+          "cell": "vosotros"
         }
       ],
       "related": [
@@ -408,6 +477,14 @@
           "title": "Adjective agreement",
           "contrast": "Description with ser: la casa es blanca — the adjective still agrees."
         }
+      ],
+      "paradigm": [
+        "yo",
+        "tú",
+        "él/ella",
+        "nosotros",
+        "vosotros",
+        "ellos"
       ]
     },
     {
@@ -439,42 +516,56 @@
           "answer": "estoy",
           "translation": "I am at home.",
           "hint": "yo form of estar",
-          "display_order": 1
+          "display_order": 1,
+          "cell": "yo"
         },
         {
           "sentence": "La comida {{answer}} fría.",
           "answer": "está",
           "translation": "The food is cold.",
           "hint": "él/ella form of estar",
-          "display_order": 2
+          "display_order": 2,
+          "cell": "él/ella"
         },
         {
           "sentence": "Nosotros {{answer}} en el parque.",
           "answer": "estamos",
           "translation": "We are in the park.",
           "hint": "estar, nosotros",
-          "display_order": 3
+          "display_order": 3,
+          "cell": "nosotros"
         },
         {
           "sentence": "¿Dónde {{answer}} mis llaves?",
           "answer": "están",
           "translation": "Where are my keys?",
           "hint": "estar, ellas",
-          "display_order": 4
+          "display_order": 4,
+          "cell": "ellos"
         },
         {
           "sentence": "Tú {{answer}} cansado hoy.",
           "answer": "estás",
           "translation": "You are tired today.",
           "hint": "estar, tú",
-          "display_order": 5
+          "display_order": 5,
+          "cell": "tú"
         },
         {
           "sentence": "El café {{answer}} caliente.",
           "answer": "está",
           "translation": "The coffee is hot.",
           "hint": "estar, él — temporary state",
-          "display_order": 6
+          "display_order": 6,
+          "cell": "él/ella"
+        },
+        {
+          "sentence": "Vosotros {{answer}} en clase.",
+          "answer": "estáis",
+          "translation": "You all are in class.",
+          "hint": "to be (state/place), you all",
+          "cell": "vosotros",
+          "display_order": 7
         }
       ],
       "related": [
@@ -486,6 +577,14 @@
           "title": "Hay — there is / there are",
           "contrast": "Hay says something exists; está says where a KNOWN thing is."
         }
+      ],
+      "paradigm": [
+        "yo",
+        "tú",
+        "él/ella",
+        "nosotros",
+        "vosotros",
+        "ellos"
       ]
     },
     {
@@ -517,42 +616,56 @@
           "answer": "hablamos",
           "translation": "We speak Spanish.",
           "hint": "hablar, nosotros",
-          "display_order": 1
+          "display_order": 1,
+          "cell": "nosotros"
         },
         {
           "sentence": "Ella {{answer}} en una oficina.",
           "answer": "trabaja",
           "translation": "She works in an office.",
           "hint": "to work, she",
-          "display_order": 2
+          "display_order": 2,
+          "cell": "él/ella"
         },
         {
           "sentence": "Yo {{answer}} música por la noche.",
           "answer": "escucho",
           "translation": "I listen to music at night.",
           "hint": "escuchar, yo",
-          "display_order": 3
+          "display_order": 3,
+          "cell": "yo"
         },
         {
           "sentence": "Ellos {{answer}} mucho en verano.",
           "answer": "viajan",
           "translation": "They travel a lot in summer.",
           "hint": "viajar, ellos",
-          "display_order": 4
+          "display_order": 4,
+          "cell": "ellos"
         },
         {
           "sentence": "¿Tú {{answer}} inglés?",
           "answer": "estudias",
           "translation": "Do you study English?",
           "hint": "estudiar, tú",
-          "display_order": 5
+          "display_order": 5,
+          "cell": "tú"
         },
         {
           "sentence": "Mi madre {{answer}} la cena.",
           "answer": "prepara",
           "translation": "My mother prepares dinner.",
           "hint": "to prepare, she",
-          "display_order": 6
+          "display_order": 6,
+          "cell": "él/ella"
+        },
+        {
+          "sentence": "¿Vosotros {{answer}} español?",
+          "answer": "habláis",
+          "translation": "Do you all speak Spanish?",
+          "hint": "to speak, you all",
+          "cell": "vosotros",
+          "display_order": 7
         }
       ],
       "related": [
@@ -564,6 +677,14 @@
           "title": "Negation with no",
           "contrast": "No sits right before the conjugated verb: no hablo."
         }
+      ],
+      "paradigm": [
+        "yo",
+        "tú",
+        "él/ella",
+        "nosotros",
+        "vosotros",
+        "ellos"
       ]
     },
     {
@@ -595,42 +716,64 @@
           "answer": "bebo",
           "translation": "I drink water.",
           "hint": "beber, yo",
-          "display_order": 1
+          "display_order": 1,
+          "cell": "yo"
         },
         {
           "sentence": "Nosotros {{answer}} en Madrid.",
           "answer": "vivimos",
           "translation": "We live in Madrid.",
           "hint": "vivir, nosotros",
-          "display_order": 2
+          "display_order": 2,
+          "cell": "nosotros"
         },
         {
           "sentence": "Ella {{answer}} muchos libros.",
           "answer": "lee",
           "translation": "She reads many books.",
           "hint": "to read, she",
-          "display_order": 3
+          "display_order": 3,
+          "cell": "él/ella"
         },
         {
           "sentence": "Ellos {{answer}} en Barcelona.",
           "answer": "viven",
           "translation": "They live in Barcelona.",
           "hint": "vivir, ellos",
-          "display_order": 4
+          "display_order": 4,
+          "cell": "ellos"
         },
         {
           "sentence": "Yo {{answer}} cartas a mi abuela.",
           "answer": "escribo",
           "translation": "I write letters to my grandmother.",
           "hint": "escribir, yo",
-          "display_order": 5
+          "display_order": 5,
+          "cell": "yo"
         },
         {
           "sentence": "Nosotros {{answer}} pan por la mañana.",
           "answer": "comemos",
           "translation": "We eat bread in the morning.",
           "hint": "comer, nosotros",
-          "display_order": 6
+          "display_order": 6,
+          "cell": "nosotros"
+        },
+        {
+          "sentence": "¿Tú {{answer}} carne?",
+          "answer": "comes",
+          "translation": "Do you eat meat?",
+          "hint": "to eat, you",
+          "cell": "tú",
+          "display_order": 7
+        },
+        {
+          "sentence": "Vosotros {{answer}} cerca de la playa.",
+          "answer": "vivís",
+          "translation": "You all live near the beach.",
+          "hint": "to live, you all",
+          "cell": "vosotros",
+          "display_order": 8
         }
       ],
       "related": [
@@ -642,6 +785,14 @@
           "title": "Subject pronouns (yo, tú, él…)",
           "contrast": "Comes = 'you eat' — the ending carries the person."
         }
+      ],
+      "paradigm": [
+        "yo",
+        "tú",
+        "él/ella",
+        "nosotros",
+        "vosotros",
+        "ellos"
       ]
     },
     {
@@ -891,42 +1042,48 @@
           "answer": "blanca",
           "translation": "The house is white.",
           "hint": "blanco, feminine singular",
-          "display_order": 1
+          "display_order": 1,
+          "cell": "f.sg"
         },
         {
           "sentence": "Los libros son {{answer}}.",
           "answer": "nuevos",
           "translation": "The books are new.",
           "hint": "nuevo, masculine plural",
-          "display_order": 2
+          "display_order": 2,
+          "cell": "m.pl"
         },
         {
           "sentence": "El coche es {{answer}}.",
           "answer": "rojo",
           "translation": "The car is red.",
           "hint": "red — masculine singular",
-          "display_order": 3
+          "display_order": 3,
+          "cell": "m.sg"
         },
         {
           "sentence": "Las mesas son {{answer}}.",
           "answer": "pequeñas",
           "translation": "The tables are small.",
           "hint": "pequeño — feminine plural",
-          "display_order": 4
+          "display_order": 4,
+          "cell": "f.pl"
         },
         {
           "sentence": "Mi hermana es muy {{answer}}.",
           "answer": "simpática",
           "translation": "My sister is very nice.",
           "hint": "simpático — feminine",
-          "display_order": 5
+          "display_order": 5,
+          "cell": "f.sg"
         },
         {
           "sentence": "Los niños están {{answer}}.",
           "answer": "cansados",
           "translation": "The children are tired.",
           "hint": "cansado — masculine plural",
-          "display_order": 6
+          "display_order": 6,
+          "cell": "m.pl"
         }
       ],
       "related": [
@@ -938,6 +1095,12 @@
           "title": "The verb ser (to be) — present",
           "contrast": "After ser the adjective still agrees with the subject."
         }
+      ],
+      "paradigm": [
+        "m.sg",
+        "f.sg",
+        "m.pl",
+        "f.pl"
       ]
     },
     {
