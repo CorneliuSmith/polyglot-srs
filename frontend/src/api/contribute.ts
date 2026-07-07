@@ -32,11 +32,48 @@ export async function getMyRoles(): Promise<{ roles: ContributorRole[]; is_admin
 
 export async function getGrammarForLanguage(
   languageId: string,
-): Promise<{ points: GrammarPointEdit[]; is_admin: boolean; review_policy: string }> {
+): Promise<{
+  points: GrammarPointEdit[]
+  is_admin: boolean
+  can_review: boolean
+  review_policy: string
+}> {
   const response = await apiClient.get('/api/contribute/grammar', {
     params: { language_id: languageId },
   })
   return response.data
+}
+
+export type GrantableRole = 'contributor' | 'reviewer' | 'admin'
+
+export interface RoleGrantRow {
+  user_id: string
+  email: string
+  language_id: string | null
+  language_code: string | null
+  role: GrantableRole
+  created_at: string | null
+}
+
+export async function listAllRoles(): Promise<RoleGrantRow[]> {
+  const response = await apiClient.get('/api/contribute/roles/all')
+  return response.data.grants
+}
+
+export async function grantRole(input: {
+  email: string
+  role: GrantableRole
+  language_id?: string | null
+}): Promise<void> {
+  await apiClient.post('/api/contribute/roles', input)
+}
+
+export async function revokeRole(input: {
+  user_id: string
+  role: GrantableRole
+  language_id?: string | null
+}): Promise<void> {
+  await apiClient.post('/api/contribute/roles/revoke', input)
 }
 
 export async function setLanguagePolicy(

@@ -130,6 +130,20 @@ for L in tr sw yo xh ha; do
 done
 ```
 
+### f. Make yourself admin (once)
+
+Sign up in the app with your email (confirm it), then:
+
+```bash
+./scripts/grant_admin.sh you@example.com
+```
+
+Everything after that happens in the app: the Contribute page grows a
+**Roles** panel where you grant `contributor` / `reviewer` / `admin` by
+email, per language or globally, and a review-policy toggle per language.
+Full role model + the Google sign-in setup steps (the "provider is not
+enabled" error): `docs/accounts-and-roles.md`.
+
 ---
 
 ## 2. Run it

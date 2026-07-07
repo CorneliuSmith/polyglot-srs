@@ -15,8 +15,10 @@ from backend.repositories.contributor import (
     add_drill,
     approve_explanation,
     can_contribute,
+    can_review,
     create_grammar_point,
     delete_drill,
+    find_user_by_email,
     get_feedback_language,
     get_language_policy,
     get_point_for_check,
@@ -25,10 +27,12 @@ from backend.repositories.contributor import (
     get_roles,
     grant_role,
     is_admin,
+    list_all_roles,
     list_drills,
     list_feedback,
     list_grammar_points,
     resolve_feedback,
+    revoke_role,
     save_ai_check,
     save_explanation,
     set_language_policy,
@@ -69,9 +73,13 @@ class NewDrill(BaseModel):
 
 
 class RoleGrant(BaseModel):
-    user_id: str
+    # identify the account either way; email is what an admin actually knows
+    user_id: str | None = None
+    email: str | None = None
     language_id: str | None = None
     role: str
+
+VALID_ROLES = ("contributor", "reviewer", "admin")
 
 
 @router.get("/roles")
@@ -97,7 +105,12 @@ async def grammar_for_language(
             )
         points = await list_grammar_points(conn, language_id)
         policy = await get_language_policy(conn, language_id)
-    return {"points": points, "is_admin": is_admin(roles), "review_policy": policy}
+    return {
+        "points": points,
+        "is_admin": is_admin(roles),
+        "can_review": can_review(roles, language_id),
+        "review_policy": policy,
+    }
 
 
 class PolicyUpdate(BaseModel):
@@ -297,13 +310,19 @@ async def approve_grammar(
     point_id: str,
     user: dict = Depends(get_current_user),
 ):
-    """Record the human linguist sign-off (admin-only). Gates learner exposure."""
+    """Record the human sign-off that makes content visible to learners.
+
+    Admins approve anywhere; reviewers approve for their language.
+    """
     async with rls_connection(user["id"]) as conn:
         roles = await get_roles(conn, user["id"])
-    if not is_admin(roles):
+        language_id = await get_point_language(conn, point_id)
+    if language_id is None:
+        raise HTTPException(status_code=404, detail="Grammar point not found")
+    if not can_review(roles, language_id):
         raise HTTPException(
             status_code=status.HTTP_403_FORBIDDEN,
-            detail="Only an admin can approve content",
+            detail="Only an admin or a reviewer for this language can approve content",
         )
     async with privileged_connection() as conn:
         ok = await approve_explanation(conn, point_id, user["id"])
@@ -351,24 +370,70 @@ async def resolve_card_feedback(
     return {"resolved": True}
 
 
+async def _require_admin(user_id: str) -> None:
+    async with rls_connection(user_id) as conn:
+        roles = await get_roles(conn, user_id)
+    if not is_admin(roles):
+        raise HTTPException(
+            status_code=status.HTTP_403_FORBIDDEN,
+            detail="Only an admin can manage roles",
+        )
+
+
+async def _resolve_role_target(body: RoleGrant) -> str:
+    """The target user id from either an explicit id or an account email."""
+    if body.role not in VALID_ROLES:
+        raise HTTPException(
+            status_code=status.HTTP_422_UNPROCESSABLE_ENTITY,
+            detail="role must be 'contributor', 'reviewer', or 'admin'",
+        )
+    if body.user_id:
+        return body.user_id
+    if not body.email:
+        raise HTTPException(
+            status_code=status.HTTP_422_UNPROCESSABLE_ENTITY,
+            detail="Provide user_id or email",
+        )
+    async with privileged_connection() as conn:
+        target = await find_user_by_email(conn, body.email)
+    if target is None:
+        raise HTTPException(
+            status_code=status.HTTP_404_NOT_FOUND,
+            detail=f"No account with email {body.email}",
+        )
+    return target
+
+
+@router.get("/roles/all")
+async def all_roles(user: dict = Depends(get_current_user)):
+    """Every role grant with the holder's email (admin-only)."""
+    await _require_admin(user["id"])
+    async with privileged_connection() as conn:
+        grants = await list_all_roles(conn)
+    return {"grants": grants}
+
+
 @router.post("/roles")
 async def grant_contributor_role(
     body: RoleGrant,
     user: dict = Depends(get_current_user),
 ):
-    """Grant a contributor/admin role to a user (admin-only)."""
-    if body.role not in ("contributor", "admin"):
-        raise HTTPException(
-            status_code=status.HTTP_422_UNPROCESSABLE_ENTITY,
-            detail="role must be 'contributor' or 'admin'",
-        )
-    async with rls_connection(user["id"]) as conn:
-        roles = await get_roles(conn, user["id"])
-    if not is_admin(roles):
-        raise HTTPException(
-            status_code=status.HTTP_403_FORBIDDEN,
-            detail="Only an admin can grant roles",
-        )
+    """Grant a contributor/reviewer/admin role (admin-only; by id or email)."""
+    await _require_admin(user["id"])
+    target = await _resolve_role_target(body)
     async with privileged_connection() as conn:
-        await grant_role(conn, body.user_id, body.language_id, body.role)
-    return {"granted": True}
+        await grant_role(conn, target, body.language_id, body.role)
+    return {"granted": True, "user_id": target}
+
+
+@router.post("/roles/revoke")
+async def revoke_contributor_role(
+    body: RoleGrant,
+    user: dict = Depends(get_current_user),
+):
+    """Remove one role grant (admin-only; by id or email)."""
+    await _require_admin(user["id"])
+    target = await _resolve_role_target(body)
+    async with privileged_connection() as conn:
+        removed = await revoke_role(conn, target, body.language_id, body.role)
+    return {"revoked": removed, "user_id": target}

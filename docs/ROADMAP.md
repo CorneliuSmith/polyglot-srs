@@ -47,7 +47,9 @@ coach from the learner's actual failure history.
   browsable grammar path (`/grammar`) with per-point learning; onboarding +
   mixed placement; personal notes → cloze cards; AI tutor with memory,
   weak-area grounding (vocab + grammar), entitlements, Stripe billing;
-  contributor + AI-check + linguist-approval workflow; RLS multi-tenancy
+  a full role model — learner / contributor / reviewer / admin, per-language
+  or global, admin Roles panel + `scripts/grant_admin.sh` bootstrap, AI-check
+  + human-approval workflow (docs/accounts-and-roles.md); RLS multi-tenancy
   proven by integration tests; CI (Python 3.11 & 3.12). Review-session UX is
   Bunpro-style: the typed answer is auto-graded by the NLP layer (no manual
   rating), a miss offers "Typo? Re-enter your answer" (nothing recorded),
@@ -358,6 +360,42 @@ grammar+vocab like Bunpro's JLPT bars — ours per CEFR level, days studied,
 last-session accuracy, items studied). Community section deferred until
 there's a community. **Model:** `claude-sonnet-5`, design pass one tier up.
 **Effort:** M–L.
+
+### WP15 — Admin console: tutor model control + role management
+**Goal:** operators run the product without touching env vars or SQL.
+Role management shipped 2026-07 (see `docs/accounts-and-roles.md`): learner /
+contributor / reviewer / admin, per-language or global, granted by email in
+the Contribute page's Roles panel, bootstrapped once via
+`scripts/grant_admin.sh`. Remaining, in order:
+(a) **Per-language tutor model selection (admin UI)** — today the tutor model
+is a global env var (`TUTOR_MODEL`, default `claude-opus-4-8`; summarizer on
+`claude-sonnet-5`). Move to a `tutor_model` column on `languages` (NULL =
+global default) + an admin panel listing each language with a model picker
+(Claude model IDs: `claude-fable-5`, `claude-opus-4-8`, `claude-sonnet-5`,
+`claude-haiku-4-5-20251001`) and per-language token/cost columns once WP9(b)
+usage tracking lands. High-resource languages can ride a cheaper model;
+low-resource languages (the differentiator) stay on the strongest.
+(b) **Custom / local endpoints** — accept an OpenAI-compatible base URL +
+model name per language (Ollama, vLLM, LM Studio, llama.cpp server), stored
+alongside `tutor_model`, with a health-check button and automatic fallback
+to the Claude default when the endpoint is down. This is the cheap path to
+"local LLM" before any training happens.
+(c) **Pooled per-language community models** — the ambitious arm: pool each
+language's curated content (grammar + drills + sentences, already licensed)
+WITH consenting learners' production (review answers, tutor conversations,
+self-study sentences) into per-language fine-tuning sets for a small open
+model (e.g. a 7–8B base), one adapter per language. Requirements, in order:
+an explicit **opt-in consent flag** on user_profiles (off by default; tutor
+data NEVER pooled without it), a PII-scrub + dedup export pipeline
+(`review_log.prompt_sentence`, card answers, tutor transcripts), an eval
+harness that scores the tuned model against the Claude baseline on held-out
+drill grading + explanation quality per language, and the same adoption
+gate philosophy as WP8: **the local model serves a language only when it
+beats or matches the baseline on that language's eval; otherwise the admin
+panel shows the gap and keeps Claude.** Ship (a) and (b) first — they're
+days; (c) is a program.
+**Model:** (a)/(b) `claude-sonnet-5`; (c) design + eval harness
+`claude-opus-4-8` or `claude-fable-5`. **Effort:** (a) S, (b) M, (c) L.
 
 ## 6. Model selection guide
 

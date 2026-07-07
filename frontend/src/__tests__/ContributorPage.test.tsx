@@ -14,6 +14,9 @@ vi.mock('../api/contribute', () => ({
   getFeedback: vi.fn(() => Promise.resolve([])),
   resolveFeedback: vi.fn(),
   setLanguagePolicy: vi.fn(),
+  listAllRoles: vi.fn(() => Promise.resolve([])),
+  grantRole: vi.fn(),
+  revokeRole: vi.fn(),
 }))
 // DrillsEditor is its own tested unit; stub it here to keep this test focused.
 vi.mock('../features/contribute/DrillsEditor', () => ({ default: () => null }))

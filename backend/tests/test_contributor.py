@@ -159,8 +159,32 @@ class TestContributeEndpoints:
             )
         assert resp.status_code == 404
 
-    def test_approve_requires_admin(self, client):
-        with _roles([{"language_id": LANG, "role": "contributor"}]):
+    def test_approve_denied_to_contributor(self, client):
+        # contributors draft; they don't hold the human approval gate
+        with _roles([{"language_id": LANG, "role": "contributor"}]), \
+             patch("backend.routers.contribute.get_point_language",
+                   new=AsyncMock(return_value=LANG)):
+            resp = client.post(
+                f"/api/contribute/grammar/{POINT}/approve", headers=_auth_headers()
+            )
+        assert resp.status_code == 403
+
+    def test_approve_as_reviewer_for_language(self, client):
+        with _roles([{"language_id": LANG, "role": "reviewer"}]), \
+             patch("backend.routers.contribute.get_point_language",
+                   new=AsyncMock(return_value=LANG)), \
+             patch("backend.routers.contribute.approve_explanation",
+                   new=AsyncMock(return_value=True)):
+            resp = client.post(
+                f"/api/contribute/grammar/{POINT}/approve", headers=_auth_headers()
+            )
+        assert resp.status_code == 200
+        assert resp.json() == {"approved": True}
+
+    def test_approve_denied_to_reviewer_of_other_language(self, client):
+        with _roles([{"language_id": OTHER_LANG, "role": "reviewer"}]), \
+             patch("backend.routers.contribute.get_point_language",
+                   new=AsyncMock(return_value=LANG)):
             resp = client.post(
                 f"/api/contribute/grammar/{POINT}/approve", headers=_auth_headers()
             )
@@ -168,6 +192,8 @@ class TestContributeEndpoints:
 
     def test_approve_as_admin_records_reviewer(self, client):
         with _roles([{"language_id": None, "role": "admin"}]), \
+             patch("backend.routers.contribute.get_point_language",
+                   new=AsyncMock(return_value=LANG)), \
              patch("backend.routers.contribute.approve_explanation",
                    new=AsyncMock(return_value=True)) as mock_approve:
             resp = client.post(
@@ -242,11 +268,73 @@ class TestAiCheck:
              patch("backend.routers.contribute.grant_role", new=AsyncMock()) as mock_grant:
             resp = client.post(
                 "/api/contribute/roles",
-                json={"user_id": "u", "language_id": LANG, "role": "contributor"},
+                json={"user_id": "u", "language_id": LANG, "role": "reviewer"},
                 headers=_auth_headers(),
             )
         assert resp.status_code == 200
         mock_grant.assert_awaited_once()
+
+    def test_grant_role_by_email(self, client):
+        with _roles([{"language_id": None, "role": "admin"}]), \
+             patch("backend.routers.contribute.find_user_by_email",
+                   new=AsyncMock(return_value="resolved-id")), \
+             patch("backend.routers.contribute.grant_role", new=AsyncMock()) as mock_grant:
+            resp = client.post(
+                "/api/contribute/roles",
+                json={"email": "linguist@example.com", "role": "reviewer"},
+                headers=_auth_headers(),
+            )
+        assert resp.status_code == 200
+        assert resp.json()["user_id"] == "resolved-id"
+        assert mock_grant.await_args.args[1] == "resolved-id"
+
+    def test_grant_role_unknown_email_404(self, client):
+        with _roles([{"language_id": None, "role": "admin"}]), \
+             patch("backend.routers.contribute.find_user_by_email",
+                   new=AsyncMock(return_value=None)):
+            resp = client.post(
+                "/api/contribute/roles",
+                json={"email": "ghost@example.com", "role": "contributor"},
+                headers=_auth_headers(),
+            )
+        assert resp.status_code == 404
+
+    def test_grant_invalid_role_422(self, client):
+        with _roles([{"language_id": None, "role": "admin"}]):
+            resp = client.post(
+                "/api/contribute/roles",
+                json={"user_id": "u", "role": "superuser"},
+                headers=_auth_headers(),
+            )
+        assert resp.status_code == 422
+
+    def test_revoke_role(self, client):
+        with _roles([{"language_id": None, "role": "admin"}]), \
+             patch("backend.routers.contribute.revoke_role",
+                   new=AsyncMock(return_value=True)) as mock_revoke:
+            resp = client.post(
+                "/api/contribute/roles/revoke",
+                json={"user_id": "u", "language_id": LANG, "role": "contributor"},
+                headers=_auth_headers(),
+            )
+        assert resp.status_code == 200
+        assert resp.json()["revoked"] is True
+        mock_revoke.assert_awaited_once()
+
+    def test_list_all_roles_admin_only(self, client):
+        with _roles([{"language_id": LANG, "role": "reviewer"}]):
+            resp = client.get("/api/contribute/roles/all", headers=_auth_headers())
+        assert resp.status_code == 403
+
+    def test_list_all_roles(self, client):
+        grants = [{"user_id": "u", "email": "a@b.c", "language_id": None,
+                   "language_code": None, "role": "admin", "created_at": None}]
+        with _roles([{"language_id": None, "role": "admin"}]), \
+             patch("backend.routers.contribute.list_all_roles",
+                   new=AsyncMock(return_value=grants)):
+            resp = client.get("/api/contribute/roles/all", headers=_auth_headers())
+        assert resp.status_code == 200
+        assert resp.json()["grants"][0]["email"] == "a@b.c"
 
 
 class TestReviewPolicy:

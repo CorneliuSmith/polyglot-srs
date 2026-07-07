@@ -36,7 +36,17 @@ export default function LoginPage() {
 
   async function handleGoogleAuth() {
     setError(null)
-    await supabase.auth.signInWithOAuth({ provider: 'google' })
+    const { error } = await supabase.auth.signInWithOAuth({ provider: 'google' })
+    if (error) {
+      // The most common failure is server-side configuration, not user error.
+      setError(
+        /not enabled/i.test(error.message)
+          ? 'Google sign-in isn’t configured on this server yet — an admin ' +
+            'needs to enable the Google provider in Supabase (Authentication ' +
+            '→ Providers). Use email + password in the meantime.'
+          : error.message,
+      )
+    }
   }
 
   return (
