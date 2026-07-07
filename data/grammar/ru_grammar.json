@@ -100,6 +100,16 @@
           "display_order": 6,
           "transliteration": "Gde more? — ___ daleko."
         }
+      ],
+      "related": [
+        {
+          "title": "Possessive pronouns (мой, моя, моё)",
+          "contrast": "Мой/моя/моё copies the noun's gender."
+        },
+        {
+          "title": "Past tense (-л)",
+          "contrast": "The past tense agrees in gender too: он читал, она читала."
+        }
       ]
     },
     {
@@ -169,6 +179,16 @@
           "hint": "negating with не",
           "display_order": 6,
           "transliteration": "___ ne voda."
+        }
+      ],
+      "related": [
+        {
+          "title": "Present tense (читать, говорить)",
+          "contrast": "Russian drops 'to be' in the present: это дом — no verb at all."
+        },
+        {
+          "title": "Gender of nouns (он, она, оно)",
+          "contrast": "Это never changes — the noun keeps its own gender."
         }
       ]
     },
@@ -240,6 +260,16 @@
           "display_order": 6,
           "transliteration": "Vy' ___ po-russki?"
         }
+      ],
+      "related": [
+        {
+          "title": "Past tense (-л)",
+          "contrast": "Present marks person (я читаю); past marks gender (читал/читала)."
+        },
+        {
+          "title": "Это — this is / it is",
+          "contrast": "Identity sentences skip the verb; actions conjugate."
+        }
       ]
     },
     {
@@ -309,6 +339,16 @@
           "hint": "о + prepositional — film",
           "display_order": 6,
           "transliteration": "My' govorim o ___."
+        }
+      ],
+      "related": [
+        {
+          "title": "Accusative case (direct object)",
+          "contrast": "В + prepositional = location; в + accusative = motion into."
+        },
+        {
+          "title": "Genitive of absence (у меня нет …)",
+          "contrast": "Where something IS takes prepositional; that it ISN'T takes genitive."
         }
       ]
     },
@@ -384,6 +424,16 @@
           "display_order": 6,
           "transliteration": "My' smotrim ___."
         }
+      ],
+      "related": [
+        {
+          "title": "Prepositional case (location: в / на)",
+          "contrast": "Accusative for the thing acted on; prepositional for where."
+        },
+        {
+          "title": "Genitive of absence (у меня нет …)",
+          "contrast": "Negated existence switches to genitive: нет книги, not книгу."
+        }
       ]
     },
     {
@@ -454,6 +504,12 @@
           "display_order": 6,
           "transliteration": "E'to ___ shkola."
         }
+      ],
+      "related": [
+        {
+          "title": "Gender of nouns (он, она, оно)",
+          "contrast": "The noun's gender picks the form: мой дом, моя книга."
+        }
       ]
     },
     {
@@ -523,6 +579,16 @@
           "hint": "смотреть, plural",
           "display_order": 6,
           "transliteration": "Oni ___ televizor."
+        }
+      ],
+      "related": [
+        {
+          "title": "Present tense (читать, говорить)",
+          "contrast": "Past agrees with WHO's gender; present with WHO's person."
+        },
+        {
+          "title": "Gender of nouns (он, она, оно)",
+          "contrast": "The -л ending takes -а/-о by the subject's gender."
         }
       ]
     },
@@ -597,6 +663,16 @@
           "hint": "indeclinable loanword — no ending",
           "display_order": 6,
           "transliteration": "V gorode net ___."
+        }
+      ],
+      "related": [
+        {
+          "title": "Accusative case (direct object)",
+          "contrast": "Having acts on accusative; lacking demands genitive."
+        },
+        {
+          "title": "Prepositional case (location: в / на)",
+          "contrast": "Нет says it isn't there; prepositional says where 'there' is."
         }
       ]
     },

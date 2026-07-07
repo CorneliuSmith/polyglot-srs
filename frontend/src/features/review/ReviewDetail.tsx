@@ -1,8 +1,13 @@
 import { useState } from 'react'
 import { useQuery } from '@tanstack/react-query'
 import { getCardDetail } from '../../api/review'
+import type { CardProgress } from '../../api/types'
 import LanguageWrapper from '../../components/LanguageWrapper'
 import SpeakButton from '../../components/SpeakButton'
+import BlurReveal from '../../components/BlurReveal'
+import StageBadge from '../../components/StageBadge'
+import ResourceList from '../../components/ResourceList'
+import RelatedGrid from '../../components/RelatedGrid'
 
 export interface ReviewCardStats {
   repetitions: number
@@ -18,15 +23,56 @@ interface ReviewDetailProps {
   stats?: ReviewCardStats
 }
 
+function ProgressPanel({ progress }: { progress: CardProgress }) {
+  const cells: { value: string; label: string }[] = [
+    { value: String(progress.times_studied), label: 'Times studied' },
+    {
+      value:
+        progress.accuracy != null ? `${Math.round(progress.accuracy * 100)}%` : '—',
+      label: 'Accuracy',
+    },
+    { value: String(progress.streak), label: 'Streak' },
+    { value: String(progress.misses), label: 'Misses' },
+    {
+      value: progress.first_studied
+        ? new Date(progress.first_studied).toLocaleDateString()
+        : '—',
+      label: 'First studied',
+    },
+    {
+      value: progress.next_review
+        ? new Date(progress.next_review).toLocaleDateString()
+        : '—',
+      label: 'Next review',
+    },
+  ]
+  return (
+    <div className="grid grid-cols-3 gap-2 text-center bg-gray-50 rounded-xl p-3">
+      {cells.map((c) => (
+        <div key={c.label}>
+          <span className="block text-base font-semibold text-gray-800 tabular-nums">
+            {c.value}
+          </span>
+          <span className="block text-[10px] uppercase tracking-wide text-gray-400">
+            {c.label}
+          </span>
+        </div>
+      ))}
+    </div>
+  )
+}
+
 /**
  * Optional, lazy-loaded "Show info" panel shown after answering — the full
- * item page, Bunpro-style: title + can-do line, explanation, examples,
- * culture note, resources, and the learner's own progress on this card.
+ * item page, Bunpro-style: title + can-do line + SRS stage, progress panel,
+ * explanation, blur-until-toggled examples (incl. the learner's own
+ * sentences), culture note, Related grid, and read-tracked resources.
  * Collapsed by default — a learner who's satisfied with the quick feedback
  * just continues.
  */
 export default function ReviewDetail({ cardId, languageCode, stats }: ReviewDetailProps) {
   const [open, setOpen] = useState(false)
+  const [showTranslations, setShowTranslations] = useState(false)
 
   const { data, isLoading, isError } = useQuery({
     queryKey: ['card-detail', cardId],
@@ -34,6 +80,8 @@ export default function ReviewDetail({ cardId, languageCode, stats }: ReviewDeta
     enabled: open,
     staleTime: 5 * 60 * 1000,
   })
+
+  const ownSentences = data?.your_sentences ?? []
 
   return (
     <div className="border-t border-gray-100 pt-3">
@@ -54,7 +102,7 @@ export default function ReviewDetail({ cardId, languageCode, stats }: ReviewDeta
 
           {data && (
             <>
-              {/* Item header: what this card IS */}
+              {/* Item header: what this card IS + how deep it sits in memory */}
               <div className="text-center py-2">
                 <LanguageWrapper languageCode={languageCode}>
                   <p className="text-2xl font-bold text-gray-900">{data.title}</p>
@@ -64,46 +112,55 @@ export default function ReviewDetail({ cardId, languageCode, stats }: ReviewDeta
                     {data.function_note ?? data.definition}
                   </p>
                 )}
+                {data.progress && (
+                  <div className="mt-2">
+                    <StageBadge stage={data.progress.stage} />
+                  </div>
+                )}
               </div>
 
               {/* The learner's history with this card */}
-              {stats && (
-                <div className="grid grid-cols-4 gap-2 text-center bg-gray-50 rounded-xl p-3">
-                  <div>
-                    <span className="block text-base font-semibold text-gray-800 tabular-nums">
-                      {stats.repetitions}
-                    </span>
-                    <span className="block text-[10px] uppercase tracking-wide text-gray-400">
-                      Times studied
-                    </span>
+              {data.progress ? (
+                <ProgressPanel progress={data.progress} />
+              ) : (
+                stats && (
+                  <div className="grid grid-cols-4 gap-2 text-center bg-gray-50 rounded-xl p-3">
+                    <div>
+                      <span className="block text-base font-semibold text-gray-800 tabular-nums">
+                        {stats.repetitions}
+                      </span>
+                      <span className="block text-[10px] uppercase tracking-wide text-gray-400">
+                        Times studied
+                      </span>
+                    </div>
+                    <div>
+                      <span className="block text-base font-semibold text-gray-800 tabular-nums">
+                        {stats.streak}
+                      </span>
+                      <span className="block text-[10px] uppercase tracking-wide text-gray-400">
+                        Streak
+                      </span>
+                    </div>
+                    <div>
+                      <span className="block text-base font-semibold text-gray-800 tabular-nums">
+                        {stats.lapses}
+                      </span>
+                      <span className="block text-[10px] uppercase tracking-wide text-gray-400">
+                        Misses
+                      </span>
+                    </div>
+                    <div>
+                      <span className="block text-base font-semibold text-gray-800">
+                        {stats.next_review
+                          ? new Date(stats.next_review).toLocaleDateString()
+                          : '—'}
+                      </span>
+                      <span className="block text-[10px] uppercase tracking-wide text-gray-400">
+                        Next review
+                      </span>
+                    </div>
                   </div>
-                  <div>
-                    <span className="block text-base font-semibold text-gray-800 tabular-nums">
-                      {stats.streak}
-                    </span>
-                    <span className="block text-[10px] uppercase tracking-wide text-gray-400">
-                      Streak
-                    </span>
-                  </div>
-                  <div>
-                    <span className="block text-base font-semibold text-gray-800 tabular-nums">
-                      {stats.lapses}
-                    </span>
-                    <span className="block text-[10px] uppercase tracking-wide text-gray-400">
-                      Misses
-                    </span>
-                  </div>
-                  <div>
-                    <span className="block text-base font-semibold text-gray-800">
-                      {stats.next_review
-                        ? new Date(stats.next_review).toLocaleDateString()
-                        : '—'}
-                    </span>
-                    <span className="block text-[10px] uppercase tracking-wide text-gray-400">
-                      Next review
-                    </span>
-                  </div>
-                </div>
+                )
               )}
               {data.card_type === 'grammar' && data.reviewed === false && (
                 <p className="inline-block text-xs rounded-full px-2 py-0.5 bg-gray-100 text-gray-500">
@@ -134,7 +191,17 @@ export default function ReviewDetail({ cardId, languageCode, stats }: ReviewDeta
 
               {data.examples.length > 0 && (
                 <div>
-                  <h3 className="font-semibold text-gray-700 mb-1">Examples</h3>
+                  <div className="flex items-center justify-between mb-1">
+                    <h3 className="font-semibold text-gray-700">Examples</h3>
+                    <button
+                      type="button"
+                      onClick={() => setShowTranslations((v) => !v)}
+                      aria-pressed={showTranslations}
+                      className="text-xs text-indigo-600 hover:underline"
+                    >
+                      {showTranslations ? 'Hide translations' : 'Show translations'}
+                    </button>
+                  </div>
                   <ul className="space-y-2">
                     {data.examples.map((ex, i) => (
                       <li key={i}>
@@ -145,7 +212,38 @@ export default function ReviewDetail({ cardId, languageCode, stats }: ReviewDeta
                           <SpeakButton text={ex.sentence} languageCode={languageCode} />
                         </span>
                         {ex.translation && (
-                          <span className="block text-gray-500">{ex.translation}</span>
+                          <BlurReveal
+                            forceRevealed={showTranslations}
+                            className="block text-gray-500"
+                          >
+                            {ex.translation}
+                          </BlurReveal>
+                        )}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+
+              {ownSentences.length > 0 && (
+                <div>
+                  <h3 className="font-semibold text-gray-700 mb-1">Your sentences</h3>
+                  <ul className="space-y-2">
+                    {ownSentences.map((ex, i) => (
+                      <li key={i}>
+                        <span className="flex items-start gap-1">
+                          <LanguageWrapper languageCode={languageCode}>
+                            <span className="text-gray-800">{ex.sentence}</span>
+                          </LanguageWrapper>
+                          <SpeakButton text={ex.sentence} languageCode={languageCode} />
+                        </span>
+                        {ex.translation && (
+                          <BlurReveal
+                            forceRevealed={showTranslations}
+                            className="block text-gray-500"
+                          >
+                            {ex.translation}
+                          </BlurReveal>
                         )}
                       </li>
                     ))}
@@ -160,24 +258,17 @@ export default function ReviewDetail({ cardId, languageCode, stats }: ReviewDeta
                 </div>
               )}
 
+              {data.related && data.related.length > 0 && (
+                <RelatedGrid related={data.related} />
+              )}
+
               {data.references && data.references.length > 0 && (
-                <div>
-                  <h3 className="font-semibold text-gray-700 mb-1">Resources</h3>
-                  <ul className="space-y-1">
-                    {data.references.map((ref, i) => (
-                      <li key={i}>
-                        <a
-                          href={ref.url}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="text-indigo-600 hover:underline"
-                        >
-                          {ref.title}
-                        </a>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
+                <ResourceList
+                  key={data.point_id ?? cardId}
+                  pointId={data.point_id}
+                  references={data.references}
+                  readRefs={data.read_refs}
+                />
               )}
 
               {!data.explanation &&

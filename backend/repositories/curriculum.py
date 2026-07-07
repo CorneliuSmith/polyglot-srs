@@ -14,6 +14,98 @@ import asyncpg
 
 from backend.services.extract import ANSWER_MARKER
 from backend.services.references import clean_references
+from backend.services.srs_stages import stage_for
+
+
+async def resolve_related(
+    conn: asyncpg.Connection, language_id: str, raw_related
+) -> list[dict]:
+    """Resolve authored Related entries ({title, contrast?}) to live points.
+
+    Titles resolve within the same language; each resolved entry carries the
+    learner's named stage for that point (None if not yet studied). Entries
+    whose title doesn't match a point are skipped silently — an authoring
+    rename shows up as a missing tile, never an error.
+    """
+    if isinstance(raw_related, str):
+        try:
+            raw_related = json.loads(raw_related)
+        except (json.JSONDecodeError, TypeError):
+            raw_related = []
+    entries = [
+        e for e in (raw_related or []) if isinstance(e, dict) and e.get("title")
+    ]
+    if not entries:
+        return []
+    rows = await conn.fetch(
+        """
+        SELECT gp.id, gp.title, gp.level, gp.function_note,
+               uc.id AS user_card_id, uc.state, uc.stability
+        FROM grammar_points gp
+        LEFT JOIN user_cards uc
+               ON uc.card_type = 'grammar' AND uc.card_id = gp.id
+              AND NOT (uc.is_suspended AND uc.repetitions = 0)
+        WHERE gp.language_id = $1 AND gp.title = ANY($2::text[])
+        """,
+        language_id,
+        [e["title"] for e in entries],
+    )
+    by_title = {r["title"]: r for r in rows}
+    out = []
+    for e in entries:
+        r = by_title.get(e["title"])
+        if r is None:
+            continue
+        out.append({
+            "id": str(r["id"]),
+            "title": r["title"],
+            "level": r["level"],
+            "function_note": r["function_note"],
+            "contrast": e.get("contrast"),
+            "stage": (
+                stage_for("grammar", r["state"], r["stability"])
+                if r["user_card_id"] else None
+            ),
+        })
+    return out
+
+
+async def get_read_ref_keys(
+    conn: asyncpg.Connection, grammar_point_id: str
+) -> list[str]:
+    """Reference keys (url, or title for offline books) the user marked read."""
+    rows = await conn.fetch(
+        "SELECT ref_key FROM user_reference_reads WHERE grammar_point_id = $1",
+        grammar_point_id,
+    )
+    return [r["ref_key"] for r in rows]
+
+
+async def set_reference_read(
+    conn: asyncpg.Connection,
+    user_id: str,
+    grammar_point_id: str,
+    ref_key: str,
+    read: bool,
+) -> None:
+    """Mark one resource read (or unread) for this user. Idempotent."""
+    if read:
+        await conn.execute(
+            """
+            INSERT INTO user_reference_reads (user_id, grammar_point_id, ref_key)
+            VALUES ($1, $2, $3)
+            ON CONFLICT DO NOTHING
+            """,
+            user_id, grammar_point_id, ref_key,
+        )
+    else:
+        await conn.execute(
+            """
+            DELETE FROM user_reference_reads
+            WHERE user_id = $1 AND grammar_point_id = $2 AND ref_key = $3
+            """,
+            user_id, grammar_point_id, ref_key,
+        )
 
 
 async def get_curriculum(
@@ -66,8 +158,9 @@ async def get_curriculum_point(
     """Full read view of one grammar point (lesson-page shape)."""
     gp = await conn.fetchrow(
         """
-        SELECT gp.id, gp.title, gp.level, gp.function_note, gp.explanation,
-               gp.culture_note, gp.reference_links, gp.reviewed,
+        SELECT gp.id, gp.language_id, gp.title, gp.level, gp.function_note,
+               gp.explanation, gp.culture_note, gp.reference_links, gp.related,
+               gp.reviewed,
                EXISTS (
                    SELECT 1 FROM user_cards uc
                    WHERE uc.user_id = $1 AND uc.card_type = 'grammar'
@@ -84,6 +177,8 @@ async def get_curriculum_point(
     )
     if gp is None:
         return None
+    related = await resolve_related(conn, gp["language_id"], gp["related"])
+    read_refs = await get_read_ref_keys(conn, grammar_point_id)
     drills = await conn.fetch(
         "SELECT sentence, answer, translation, hint FROM drill_sentences "
         "WHERE grammar_point_id = $1 ORDER BY display_order ASC",
@@ -109,6 +204,8 @@ async def get_curriculum_point(
         "learned": gp["learned"],
         "learnable": len(drills) > 0,
         "references": references,
+        "read_refs": read_refs,
+        "related": related,
         "examples": [
             {
                 "sentence": d["sentence"].replace(ANSWER_MARKER, d["answer"]),

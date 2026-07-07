@@ -7,8 +7,10 @@ import json
 
 import asyncpg
 
+from backend.repositories.curriculum import get_read_ref_keys, resolve_related
 from backend.services.extract import ANSWER_MARKER, make_cloze
 from backend.services.references import clean_references
+from backend.services.srs_stages import stage_for
 
 
 async def get_due_cards(
@@ -816,10 +818,37 @@ async def get_card_detail(
     authenticated user, so a card the user doesn't own returns None.
     """
     card = await conn.fetchrow(
-        "SELECT card_type, card_id FROM user_cards WHERE id = $1", card_id
+        """
+        SELECT card_type, card_id, language_id, repetitions, streak, lapses,
+               next_review, created_at, stability, state
+        FROM user_cards WHERE id = $1
+        """,
+        card_id,
     )
     if card is None:
         return None
+
+    # The learner's history with this card: named stage + accuracy from the
+    # actual review log (RLS scopes the log to this user).
+    log = await conn.fetchrow(
+        """
+        SELECT count(*) AS n,
+               count(*) FILTER (WHERE answer_result IN ('correct', 'correct_sloppy')) AS ok,
+               min(created_at) AS first_studied
+        FROM review_log WHERE card_id = $1
+        """,
+        card_id,
+    )
+    first = (log["first_studied"] if log else None) or card["created_at"]
+    progress = {
+        "stage": stage_for(card["card_type"], card["state"], card["stability"]),
+        "first_studied": first.isoformat() if first else None,
+        "times_studied": int(log["n"]) if log else 0,
+        "accuracy": (int(log["ok"]) / int(log["n"])) if log and log["n"] else None,
+        "streak": card["streak"],
+        "misses": card["lapses"],
+        "next_review": card["next_review"].isoformat() if card["next_review"] else None,
+    }
 
     if card["card_type"] == "personal":
         cc = await conn.fetchrow(
@@ -858,6 +887,7 @@ async def get_card_detail(
             "reviewed": True,
             "references": [],
             "examples": examples,
+            "progress": progress,
         }
 
     if card["card_type"] == "vocabulary":
@@ -882,6 +912,21 @@ async def get_card_detail(
             """,
             card["card_id"],
         )
+        # The learner's OWN sentences with this word (from notes → cloze
+        # cards), shown under Examples — RLS scopes them to this user.
+        own = []
+        if v and v["word"]:
+            own = await conn.fetch(
+                """
+                SELECT sentence, answer, translation
+                FROM user_cloze_cards
+                WHERE language_id = $1 AND lower(answer) = lower($2)
+                ORDER BY created_at ASC
+                LIMIT 5
+                """,
+                card["language_id"],
+                v["word"],
+            )
         return {
             "card_type": "vocabulary",
             "title": v["word"] if v else None,
@@ -898,17 +943,29 @@ async def get_card_detail(
                 {"sentence": e["sentence"], "translation": e["translation"], "hint": None}
                 for e in examples
             ],
+            "your_sentences": [
+                {
+                    "sentence": o["sentence"].replace(ANSWER_MARKER, o["answer"] or ""),
+                    "translation": o["translation"],
+                }
+                for o in own
+            ],
+            "progress": progress,
         }
 
     # grammar
     gp = await conn.fetchrow(
         """
         SELECT title, function_note, explanation, culture_note,
-               explanation_source, reference_links, reviewed
+               explanation_source, reference_links, related, reviewed
         FROM grammar_points WHERE id = $1
         """,
         card["card_id"],
     )
+    related = (
+        await resolve_related(conn, card["language_id"], gp["related"]) if gp else []
+    )
+    read_refs = await get_read_ref_keys(conn, str(card["card_id"]))
     examples = await conn.fetch(
         """
         SELECT sentence, answer, translation, hint
@@ -930,6 +987,7 @@ async def get_card_detail(
         references = clean_references(raw)
     return {
         "card_type": "grammar",
+        "point_id": str(card["card_id"]),
         "title": gp["title"] if gp else None,
         "function_note": gp["function_note"] if gp else None,
         "reading": None,
@@ -941,6 +999,9 @@ async def get_card_detail(
         "culture_note": gp["culture_note"] if gp else None,
         "reviewed": gp["reviewed"] if gp else True,
         "references": references,
+        "read_refs": read_refs,
+        "related": related,
+        "progress": progress,
         "examples": [
             {
                 # Detail/lesson views show the COMPLETED sentence, not the blank

@@ -36,12 +36,38 @@ export interface CardDetailExample {
 
 export interface ReferenceLink {
   title: string
-  url: string
+  /** online resources link out; offline ones cite a book instead */
+  url?: string
+  book?: string
+  page?: string
+}
+
+/** Named SRS stage — same bands as the dashboard tiles. */
+export interface CardProgress {
+  stage: StageName
+  first_studied: string | null
+  times_studied: number
+  accuracy: number | null
+  streak: number
+  misses: number
+  next_review: string | null
+}
+
+/** An authored Related entry, resolved to a live point + the learner's stage. */
+export interface RelatedPoint {
+  id: string
+  title: string
+  level: string | null
+  function_note: string | null
+  contrast: string | null
+  stage: StageName | null
 }
 
 export interface CardDetail {
   card_type: 'grammar' | 'vocabulary' | 'personal'
   title: string | null
+  // the grammar point id (grammar only) — read-tracking keys on it
+  point_id?: string
   // the can-do line shown under the title (grammar only)
   function_note?: string | null
   // pronunciation aid: transliteration, vowelled form, etc. (vocabulary only)
@@ -54,7 +80,13 @@ export interface CardDetail {
   culture_note: string | null
   reviewed: boolean | null
   references: ReferenceLink[]
+  // reference keys (url, or title for books) this user marked read (grammar only)
+  read_refs?: string[]
+  related?: RelatedPoint[]
   examples: CardDetailExample[]
+  // the learner's own sentences using this word (vocabulary only)
+  your_sentences?: { sentence: string; translation: string | null }[]
+  progress?: CardProgress
 }
 
 export interface ValidateAnswerRequest {

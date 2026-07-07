@@ -1,5 +1,5 @@
 import apiClient from './client'
-import type { ReferenceLink } from './types'
+import type { ReferenceLink, RelatedPoint } from './types'
 
 export interface CurriculumPoint {
   id: string
@@ -22,6 +22,8 @@ export interface CurriculumPointDetail {
   learned: boolean
   learnable: boolean
   references: ReferenceLink[]
+  read_refs?: string[]
+  related?: RelatedPoint[]
   examples: { sentence: string; translation: string | null; hint: string | null }[]
 }
 
@@ -37,6 +39,18 @@ export async function getCurriculumPoint(
 ): Promise<CurriculumPointDetail> {
   const response = await apiClient.get<CurriculumPointDetail>(
     `/api/curriculum/point/${grammarPointId}`,
+  )
+  return response.data
+}
+
+export async function setReferenceRead(
+  grammarPointId: string,
+  refKey: string,
+  read: boolean,
+): Promise<{ ref_key: string; read: boolean }> {
+  const response = await apiClient.post(
+    `/api/curriculum/point/${grammarPointId}/reference-read`,
+    { ref_key: refKey, read },
   )
   return response.data
 }

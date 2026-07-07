@@ -49,6 +49,10 @@
         {
           "title": "Wikipedia: Turkish copula",
           "url": "https://en.wikipedia.org/wiki/Turkish_copula"
+        },
+        {
+          "title": "Personal endings and 'to be'",
+          "book": "Göksel & Kerslake, Turkish: A Comprehensive Grammar (Routledge)"
         }
       ],
       "drills": [
@@ -93,6 +97,16 @@
           "translation": "He/she is a doctor.",
           "hint": "third person takes no ending",
           "display_order": 6
+        }
+      ],
+      "related": [
+        {
+          "title": "Var / yok — there is, there isn't",
+          "contrast": "Var says something EXISTS; the -im endings say what something IS."
+        },
+        {
+          "title": "Question particle (mı / mi / mu / mü)",
+          "contrast": "The personal ending hops onto mı in questions: öğretmen misin?"
         }
       ]
     },
@@ -158,6 +172,16 @@
           "hint": "pointing at something",
           "display_order": 6
         }
+      ],
+      "related": [
+        {
+          "title": "Personal pronouns and 'to be' (-(y)im, -sin…)",
+          "contrast": "O is both 'that' and 'he/she/it' — context decides."
+        },
+        {
+          "title": "Plural (-ler / -lar)",
+          "contrast": "Demonstratives stay singular before plural nouns: bu evler."
+        }
       ]
     },
     {
@@ -221,6 +245,16 @@
           "translation": "The cats are in the park.",
           "hint": "cat + plural",
           "display_order": 6
+        }
+      ],
+      "related": [
+        {
+          "title": "Possessive suffixes (-im, -in, -i…)",
+          "contrast": "Plural comes BEFORE possession: ev-ler-im, my houses."
+        },
+        {
+          "title": "Demonstratives (bu, şu, o)",
+          "contrast": "Bu evler, not bunlar evler — the noun carries the plural."
         }
       ]
     },
@@ -286,6 +320,16 @@
           "hint": "question particle — harmonize with the last vowel",
           "display_order": 6
         }
+      ],
+      "related": [
+        {
+          "title": "Negative present continuous (-miyor)",
+          "contrast": "-miyor negates, mı asks — and they stack: gelmiyor mu?"
+        },
+        {
+          "title": "Present continuous (-iyor)",
+          "contrast": "Geliyor musun? — the particle splits off the -iyor verb."
+        }
       ]
     },
     {
@@ -349,6 +393,16 @@
           "translation": "The milk is in the fridge.",
           "hint": "fridge + locative (compound noun keeps its -ı)",
           "display_order": 6
+        }
+      ],
+      "related": [
+        {
+          "title": "Accusative case (-ı / -i / -u / -ü)",
+          "contrast": "Locative marks WHERE; accusative marks WHAT the action lands on."
+        },
+        {
+          "title": "Var / yok — there is, there isn't",
+          "contrast": "Locative + var = 'there is X at Y': masada kitap var."
         }
       ]
     },
@@ -414,6 +468,16 @@
           "hint": "absence",
           "display_order": 6
         }
+      ],
+      "related": [
+        {
+          "title": "Locative case (-de / -da)",
+          "contrast": "Existence statements usually open with a locative: evde kimse yok."
+        },
+        {
+          "title": "Negative present continuous (-miyor)",
+          "contrast": "Yok negates existence; -miyor negates actions."
+        }
       ]
     },
     {
@@ -477,6 +541,16 @@
           "translation": "Your cat is very sweet.",
           "hint": "cat + 'your'",
           "display_order": 6
+        }
+      ],
+      "related": [
+        {
+          "title": "Plural (-ler / -lar)",
+          "contrast": "Order is fixed: plural, then possessive — evlerim."
+        },
+        {
+          "title": "Accusative case (-ı / -i / -u / -ü)",
+          "contrast": "A possessed object still takes accusative: evimi görüyorum."
         }
       ]
     },
@@ -542,6 +616,16 @@
           "hint": "to cook + present continuous, she",
           "display_order": 6
         }
+      ],
+      "related": [
+        {
+          "title": "Negative present continuous (-miyor)",
+          "contrast": "Same tense, negated: -m(a/e) squeezes in before -yor."
+        },
+        {
+          "title": "Question particle (mı / mi / mu / mü)",
+          "contrast": "Geliyor mu? — questions add the particle after -iyor."
+        }
       ]
     },
     {
@@ -606,6 +690,16 @@
           "hint": "to sleep + negative present continuous, he/she",
           "display_order": 6
         }
+      ],
+      "related": [
+        {
+          "title": "Present continuous (-iyor)",
+          "contrast": "The affirmative twin — drop the -m- and it happens again."
+        },
+        {
+          "title": "Var / yok — there is, there isn't",
+          "contrast": "-miyor is 'isn't doing'; yok is 'there isn't any'."
+        }
       ]
     },
     {
@@ -669,6 +763,16 @@
           "translation": "The child is drinking the milk.",
           "hint": "milk + accusative",
           "display_order": 6
+        }
+      ],
+      "related": [
+        {
+          "title": "Locative case (-de / -da)",
+          "contrast": "Accusative = what you act on; locative = where it happens."
+        },
+        {
+          "title": "Possessive suffixes (-im, -in, -i…)",
+          "contrast": "After a possessive the accusative shows as -ni/-nı: arabasını."
         }
       ]
     },

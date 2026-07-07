@@ -32,7 +32,7 @@ import logging
 
 import asyncpg
 
-from backend.services.references import clean_references
+from backend.services.references import clean_references, clean_related
 
 from .base import DATA_DIR
 
@@ -91,6 +91,7 @@ class GrammarSeeder:
                 "reviewed": bool(p.get("reviewed", False)),
                 "display_order": int(p.get("display_order") or 0),
                 "references": clean_references(p.get("references")),
+                "related": clean_related(p.get("related")),
                 "drills": drills,
             })
         return {"lists": data.get("lists", []), "points": points}
@@ -123,8 +124,9 @@ class GrammarSeeder:
                     """
                     INSERT INTO grammar_points
                         (language_id, title, function_note, explanation, culture_note,
-                         level, display_order, explanation_source, reviewed, reference_links)
-                    VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10::jsonb)
+                         level, display_order, explanation_source, reviewed, reference_links,
+                         related)
+                    VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10::jsonb, $11::jsonb)
                     ON CONFLICT (language_id, title) DO UPDATE SET
                         function_note = EXCLUDED.function_note,
                         explanation = EXCLUDED.explanation,
@@ -133,13 +135,15 @@ class GrammarSeeder:
                         display_order = EXCLUDED.display_order,
                         explanation_source = EXCLUDED.explanation_source,
                         reviewed = EXCLUDED.reviewed,
-                        reference_links = EXCLUDED.reference_links
+                        reference_links = EXCLUDED.reference_links,
+                        related = EXCLUDED.related
                     RETURNING id
                     """,
                     language_id, point["title"], point.get("function"),
                     point["explanation"], point["culture_note"], point["level"],
                     point["display_order"], point["source"], point["reviewed"],
                     json.dumps(point.get("references") or [], ensure_ascii=False),
+                    json.dumps(point.get("related") or [], ensure_ascii=False),
                 )
                 # Replace drills so re-seeding is idempotent.
                 await conn.execute(

@@ -94,6 +94,16 @@
           "hint": "he — with accent",
           "display_order": 6
         }
+      ],
+      "related": [
+        {
+          "title": "The verb ser (to be) — present",
+          "contrast": "The verb ending already names the person, so yo/tú usually drop."
+        },
+        {
+          "title": "Present tense of -ar verbs",
+          "contrast": "Hablo means 'I speak' — no pronoun needed."
+        }
       ]
     },
     {
@@ -157,6 +167,16 @@
           "translation": "I have two cats at home.",
           "hint": "gato, plural",
           "display_order": 6
+        }
+      ],
+      "related": [
+        {
+          "title": "Definite articles (el / la)",
+          "contrast": "El/la must match the noun's gender: el día, la mano."
+        },
+        {
+          "title": "Adjective agreement",
+          "contrast": "Adjectives copy the noun's gender AND number: casas blancas."
         }
       ]
     },
@@ -222,6 +242,16 @@
           "hint": "feminine singular",
           "display_order": 6
         }
+      ],
+      "related": [
+        {
+          "title": "Indefinite articles (un / una)",
+          "contrast": "El points at a known thing; un introduces a new one."
+        },
+        {
+          "title": "Gender and number of nouns",
+          "contrast": "The article is your best clue to a noun's gender."
+        }
       ]
     },
     {
@@ -286,6 +316,16 @@
           "hint": "día is masculine!",
           "display_order": 6
         }
+      ],
+      "related": [
+        {
+          "title": "Definite articles (el / la)",
+          "contrast": "Un for first mention, el once it's known."
+        },
+        {
+          "title": "Hay — there is / there are",
+          "contrast": "Hay pairs with un/una, never with el/la: hay una mesa."
+        }
       ]
     },
     {
@@ -309,6 +349,10 @@
         {
           "title": "Wiktionary: ser (Spanish)",
           "url": "https://en.wiktionary.org/wiki/ser#Spanish"
+        },
+        {
+          "title": "Ser and estar",
+          "book": "Butt & Benjamin, A New Reference Grammar of Modern Spanish"
         }
       ],
       "drills": [
@@ -354,6 +398,16 @@
           "hint": "ser, vosotros",
           "display_order": 6
         }
+      ],
+      "related": [
+        {
+          "title": "The verb estar — location and states",
+          "contrast": "Ser = what something IS; estar = how or where it is right now."
+        },
+        {
+          "title": "Adjective agreement",
+          "contrast": "Description with ser: la casa es blanca — the adjective still agrees."
+        }
       ]
     },
     {
@@ -373,6 +427,10 @@
         {
           "title": "Wiktionary: estar (Spanish)",
           "url": "https://en.wiktionary.org/wiki/estar#Spanish"
+        },
+        {
+          "title": "Ser and estar",
+          "book": "Butt & Benjamin, A New Reference Grammar of Modern Spanish"
         }
       ],
       "drills": [
@@ -417,6 +475,16 @@
           "translation": "The coffee is hot.",
           "hint": "estar, él — temporary state",
           "display_order": 6
+        }
+      ],
+      "related": [
+        {
+          "title": "The verb ser (to be) — present",
+          "contrast": "Estar for states and places; ser for identity and origin."
+        },
+        {
+          "title": "Hay — there is / there are",
+          "contrast": "Hay says something exists; está says where a KNOWN thing is."
         }
       ]
     },
@@ -486,6 +554,16 @@
           "hint": "to prepare, she",
           "display_order": 6
         }
+      ],
+      "related": [
+        {
+          "title": "Present tense of -er and -ir verbs",
+          "contrast": "Same person endings, different theme vowel: hablas vs comes."
+        },
+        {
+          "title": "Negation with no",
+          "contrast": "No sits right before the conjugated verb: no hablo."
+        }
       ]
     },
     {
@@ -554,6 +632,16 @@
           "hint": "comer, nosotros",
           "display_order": 6
         }
+      ],
+      "related": [
+        {
+          "title": "Present tense of -ar verbs",
+          "contrast": "-er and -ir share endings except nosotros/vosotros."
+        },
+        {
+          "title": "Subject pronouns (yo, tú, él…)",
+          "contrast": "Comes = 'you eat' — the ending carries the person."
+        }
       ]
     },
     {
@@ -617,6 +705,16 @@
           "translation": "She is not at home.",
           "hint": "before the verb",
           "display_order": 6
+        }
+      ],
+      "related": [
+        {
+          "title": "Present tense of -ar verbs",
+          "contrast": "Negation never splits verb and ending: no trabajo."
+        },
+        {
+          "title": "Hay — there is / there are",
+          "contrast": "No hay = there isn't any."
         }
       ]
     },
@@ -682,6 +780,16 @@
           "hint": "same form for plural",
           "display_order": 6
         }
+      ],
+      "related": [
+        {
+          "title": "The verb estar — location and states",
+          "contrast": "Hay introduces; está locates what's already introduced."
+        },
+        {
+          "title": "Indefinite articles (un / una)",
+          "contrast": "Hay un problema — indefinite, because it's new information."
+        }
       ]
     },
     {
@@ -746,6 +854,16 @@
           "hint": "how many (masculine)",
           "display_order": 6
         }
+      ],
+      "related": [
+        {
+          "title": "The verb ser (to be) — present",
+          "contrast": "¿Qué es esto? — identity questions use ser."
+        },
+        {
+          "title": "The verb estar — location and states",
+          "contrast": "¿Dónde está…? — location questions use estar."
+        }
       ]
     },
     {
@@ -809,6 +927,16 @@
           "translation": "The children are tired.",
           "hint": "cansado — masculine plural",
           "display_order": 6
+        }
+      ],
+      "related": [
+        {
+          "title": "Gender and number of nouns",
+          "contrast": "The noun sets gender and number; the adjective follows."
+        },
+        {
+          "title": "The verb ser (to be) — present",
+          "contrast": "After ser the adjective still agrees with the subject."
         }
       ]
     },

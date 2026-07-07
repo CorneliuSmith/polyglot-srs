@@ -34,7 +34,11 @@ coach from the learner's actual failure history.
   (ru/ar/el) reveal romanization → word-by-word gloss → translation → recipe;
   syntax-divergent languages (mi/sw/yo/xh/ha) reveal the gloss first; the
   rest reveal translation → recipe; the answer blank colors on grading
-  (green correct / amber sloppy spelling / red wrong);
+  (green correct / amber sloppy spelling / red wrong); the post-answer item
+  page (WP13 a–e) shows a named-stage badge + progress panel, blur-toggled
+  example translations, the learner's own note sentences, a Related grid
+  with contrastive one-liners, and Online/Offline resources with per-user
+  read-tracking;
   browsable grammar path (`/grammar`) with per-point learning; onboarding +
   mixed placement; personal notes → cloze cards; AI tutor with memory,
   weak-area grounding (vocab + grammar), entitlements, Stripe billing;
@@ -66,7 +70,8 @@ coach from the learner's actual failure history.
 - **Ops**: `scripts/setup_db.sh` rebuilds or repairs any database end-to-end
   (tracked migrations that self-baseline on pre-migrated DBs, offline seed,
   verification; `--local` targets a local Postgres via the auth shim).
-- **Suites**: `backend/tests` (612) and `frontend` vitest (114) green.
+- **Suites**: `backend/tests` (624 unit + 24 integration against a local
+  Postgres via INTEGRATION_DATABASE_URL) and `frontend` vitest (116) green.
 
 ## 3. Non-negotiable invariants (every agent, every package)
 
@@ -311,16 +316,20 @@ string extraction). **Effort:** M each.
 ### WP13 — Session & item-page parity (Bunpro reference shots)
 Already adopted: arrow-only submit/continue pill, Undo (nothing recorded),
 graduated Hint dots, per-appearance sentence change, "Show examples" for
-vocab, session utility bar (exit/path/tutor/settings). Remaining, in order:
-(a) blur-until-toggled Sentence/Translation visibility in example lists;
-(b) Resources = references split Online (links) / Offline (book + page) with
-per-user read-tracking; (c) Related grid on grammar points (authorable
-`related` titles + contrastive one-liners + the learner's stage badge on each);
-(d) attach personal (self-study) sentences to vocabulary items and show them
-under Examples; (e) named SRS stages (Beginner/Adept/…) mapped from FSRS
-state + a progress panel (first studied, times studied, accuracy, ghost
-count); (f) Quick-Cram of a related set; (g) in-app search; (h) theme
-switcher. **Model:** `claude-sonnet-5` implementation with a design-consistency
+vocab, session utility bar (exit/path/tutor/settings). **(a)–(e) DONE
+2026-07:** (a) blur-until-toggled translations in example lists (BlurReveal +
+per-list "Show translations"); (b) Resources split Online / Offline
+(book + page) with per-user read-tracking (user_reference_reads table,
+POST /api/curriculum/point/{id}/reference-read); (c) Related grid —
+authorable `related` [{title, contrast}] on grammar_points, resolved at read
+time to live points + the learner's stage badge (authored for the tr/es/ru A1
+tiers); (d) the learner's own note sentences under vocab Examples ("Your
+sentences"); (e) named SRS stages on the item page (shared
+services/srs_stages.py bands) + progress panel (first studied, times studied,
+accuracy, streak, misses, next review). Remaining: (f) Quick-Cram of a
+related set; (g) in-app search; (h) theme switcher; authoring `related` +
+offline refs beyond the tr/es/ru A1 tiers.
+**Model:** `claude-sonnet-5` implementation with a design-consistency
 verify pass one tier up. **Effort:** M–L.
 
 ### WP14 — Dashboard parity (owner's Bunpro dashboard screenshots)

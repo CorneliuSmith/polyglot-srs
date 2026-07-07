@@ -7,6 +7,9 @@ import type { CurriculumPoint } from '../../api/curriculum'
 import { usePrefsStore } from '../../stores/prefsStore'
 import LanguageWrapper from '../../components/LanguageWrapper'
 import SpeakButton from '../../components/SpeakButton'
+import BlurReveal from '../../components/BlurReveal'
+import ResourceList from '../../components/ResourceList'
+import RelatedGrid from '../../components/RelatedGrid'
 
 const LEVEL_ORDER = ['A1', 'A2', 'B1', 'B2', 'C1', 'C2']
 
@@ -152,7 +155,9 @@ export default function GrammarPathPage() {
                                 <SpeakButton text={ex.sentence} languageCode={languageCode} />
                               </span>
                               {ex.translation && (
-                                <span className="block text-gray-500">{ex.translation}</span>
+                                <BlurReveal className="block text-gray-500">
+                                  {ex.translation}
+                                </BlurReveal>
                               )}
                             </li>
                           ))}
@@ -165,26 +170,19 @@ export default function GrammarPathPage() {
                           </p>
                         </div>
                       )}
+                      {!!detail.related?.length && (
+                        <RelatedGrid
+                          related={detail.related}
+                          onOpen={(id) => setOpenPointId(id)}
+                        />
+                      )}
                       {detail.references.length > 0 && (
-                        <div>
-                          <span className="text-xs uppercase tracking-wide text-gray-400 block mb-1">
-                            Sources
-                          </span>
-                          <ul className="space-y-1">
-                            {detail.references.map((ref, j) => (
-                              <li key={j}>
-                                <a
-                                  href={ref.url}
-                                  target="_blank"
-                                  rel="noopener noreferrer"
-                                  className="text-indigo-600 hover:underline"
-                                >
-                                  {ref.title}
-                                </a>
-                              </li>
-                            ))}
-                          </ul>
-                        </div>
+                        <ResourceList
+                          key={detail.id}
+                          pointId={detail.id}
+                          references={detail.references}
+                          readRefs={detail.read_refs}
+                        />
                       )}
                       {detail.learnable && !detail.learned && (
                         <button
