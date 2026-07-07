@@ -1,30 +1,1470 @@
 rank	word	pos	en
-1	mo	pron	I
-2	ìwọ	pron	you
-3	ó	pron	he/she
-4	àwa	pron	we
-6	ní	verb	to have
-7	lọ	verb	to go
-8	jẹ	verb	to eat
-9	mu	verb	to drink
-10	fẹ́	verb	to want
-11	rí	verb	to see
-12	sọ	verb	to say
-13	omi	noun	water
-14	oúnjẹ	noun	food
-15	ilé	noun	house
-16	ènìyàn	noun	person
-17	ọjọ́	noun	day
-18	bẹ́ẹ̀ni	adv	yes
-19	bẹ́ẹ̀kọ́	adv	no
-20	ẹ ṣé	interjection	thank you
-600	kọ́	verb	to learn
-700	sọ̀rọ̀	verb	to speak
-800	yé	verb	to understand
-900	mọ̀	verb	to know
-1000	kọ	verb	to write
-1100	ka	verb	to read
-1200	ìwé	noun	book
-1250	èdè	noun	language
-1300	ńlá	adj	big
-1350	dáa	adj	good
+1	ti	noun	The name of the Latin script letter T/t.
+2	ni	noun	The name of the Latin script letter N/n.
+3	o	character	The sixteenth letter of the Yoruba alphabet, called ó and written in the Latin script.
+4	a	character	The first letter of the Yoruba alphabet, called á and written in the Latin script.
+5	ọ	character	The seventeenth letter of the Yoruba alphabet, called ọ́ and written in the Latin script.
+6	ẹ	character	The fifth letter of the Yoruba alphabet, called ẹ́ and written in the Latin script.
+7	ko	particle	not (placed before a verb to negate it)
+8	ki	noun	The name of the Latin script letter K/k.
+9	si	noun	The name of the Latin script letter S/s.
+10	awọn	noun	tongue
+11	n	character	The fifteenth letter of the Yoruba alphabet, called ní and written in the Latin script.
+12	bi	noun	The name of the Latin script letter B/b.
+13	wọn	pron	they (third-person plural or honorific personal pronoun)
+14	ati	noun	intent; intention; purpose
+15	ṣe	particle	Placed before a sentence to make it a yes-no question.
+16	fun	verb	give; choke, squeeze, strangle, throttle; scatter, strew
+17	ba	verb	to ferment; to carry out the process of fermentation on seeds or plants
+18	lati	prep	from (some location)
+19	rẹ	det	your (second-person singular possessive pronoun)
+20	fi	noun	The name of the Latin script letter F/f.
+21	lọ	verb	to go
+22	jẹ	verb	to be
+23	pe	verb	to call, to pronounce, to summon, to invoke (an orisha); to tag someone or something
+24	le	verb	to be able, can, to be possible
+25	to	verb	to arrange, to line up; to order, to put things in order; to become ordered, to become arranged
+26	wọ	verb	to become strained under a heavy weight
+27	ilu	noun	city state; kingdom; town; city; country
+28	ọmọ	noun	child; offspring; The smallest entity in a pair or group, the smaller tool in a set.
+29	ohun	noun	thing
+30	ile	noun	home, house, abode; household; place, area
+31	mọ	verb	to know
+32	wa	det	our (first-person plural possessive pronoun)
+33	yoruba	name	Yoruba (people or ethnicity); Yoruba (language); Ọ̀yọ́ subethnic group
+34	ẹni	noun	person, one
+35	kọ	verb	to refuse, reject
+36	nitori	prep	on account of; because of
+37	bẹ	verb	to beg; to plead; to implore; to send someone on an errand
+38	kan	adj	one
+39	pọ	verb	to be much; to be plenty; to be cheap
+40	i	character	The tenth letter of the Yoruba alphabet, called í and written in the Latin script.
+41	rọ	verb	to paralyse, to immobilise; to be paralyzed
+42	lo	verb	to use; to engage; to exploit
+43	ara	noun	body
+44	tabi	conj	alternative form of àbí (“or”)
+45	yi	noun	The name of the Latin script letter Y/y.
+46	ri	noun	The name of the Latin script letter R/r.
+47	ọdun	noun	The plant Discoglypremna caloneura
+48	iṣẹ	noun	work
+49	owo	noun	money, cash; cowrie
+50	sọ	verb	to say, to speak
+51	gba	verb	to rescue, to save, to deliver
+52	ninu	prep	inside, within; among
+53	fẹ	verb	to want, to desire; to be on the verge of; to like
+54	lẹ	verb	to glue, gum, paste
+55	ọjọ	noun	day
+56	gbogbo	noun	all, everything, everyone
+57	na	verb	to beat; to hit; to smack; to defeat
+58	ju	verb	to throw
+59	gbe	verb	to carry; to lift; to exalt
+60	pẹ	verb	to be late or delayed; to become a long time; to live long; to last
+61	di	noun	The name of the Latin script letter D/d.
+62	mu	verb	to drink; to suck; to lick (juicy fruits such as oranges, or deserts such as ice cream)
+63	eyi	pron	this thing/person
+64	da	verb	to pour (down or into); to overturn, to capsize; to draw out some quantity of something all round or to put round an entity
+65	ede	noun	language; corpus, data; speech, utterance
+66	aye	noun	world; life
+67	e	character	The fourth letter of the Yoruba alphabet, called é and written in the Latin script.
+68	naa	det	of a particular or previously mentioned entity; that, the
+69	ijọba	noun	government, kingdom
+70	gẹ	verb	to barb or trim (hair)
+71	ka	verb	to count; to read
+72	ilẹ	noun	land, earth, soil; country, homeland; trash, garbage
+73	la	verb	to dream
+74	iwe	noun	paper; document, letter; book, publication
+75	ọkọ	noun	hoe
+76	tẹ	verb	to be flat; to be level
+77	igba	noun	calabash (Lagenaria siceraria)
+78	ku	verb	to die
+79	wo	det	which; what
+80	gbọ	verb	to hear; to obey, listen, to respond; to become responsive
+81	de	verb	to tie down, to constrain; to embroider
+82	iyawo	noun	junior wife; (the other wives in a polygamous marriage not the senior wife); wife
+83	obinrin	noun	woman, female; wife
+84	pa	verb	to kill; to murder
+85	baba	noun	father, dad; A term of respect or endearment for an older man, male relative, or a higher ranking man.; A title for a man of a specific occupation (ex. bàbá-alágbẹ̀dẹ (“blacksmith”)).
+86	oju	noun	eye; face, surface
+87	iwa	noun	character, behavior
+88	ẹbi	noun	family; relative, next of kin
+89	iya	noun	mother, mom; A term of respect for an elder or a woman of higher rank or importance.; The biggest entity in a group, the larger tool in a set. For example, in a group of drums, the largest and central drum is the ìyá (known as the ìyáàlú).
+90	eniyan	noun	person, people, human being
+91	tọ	verb	to urinate
+92	agba	noun	adult, elder; senior institution or entity
+93	maa	particle	Marks the anticipative aspect (see table below) with reference to a future, anticipated event.; Used to express the durative tense in commands.
+94	oṣelu	noun	politics; politician
+95	ibi	noun	pushing, rolling, swaying of something
+96	pataki	noun	importance
+97	bọ	verb	to return, to come here, to arrive
+98	oun	pron	he/she/it (emphatic third-person singular personal pronoun)
+99	yio	verb	alternative form of yóò (“will”)
+100	ọba	noun	king, queen, monarch; father
+101	wi	noun	The name of the Latin script letter W/w.
+102	ta	verb	to sell something
+103	oke	noun	mountain, hill; north; topmost, top
+104	ori	noun	head; top, leader; the metaphysical concept of one's spiritual intuition, destiny, and consciousness, deified as a divinity, Orí.
+105	mi	noun	The name of the Latin script letter M/m.
+106	fa	verb	to pull; to suck; to subside, to reduce
+107	okun	name	An overarching term for a group of related Yoruba subethnic groups in Kogi State, consisting of the Ọ̀wọ́rọ́ọ̀, Ìyàgbà, Ìjùmú, Ìbùnú, Owé, and Gbẹdẹ.; A dialectal cluster of the dialects spoken by the Okun peoples
+108	jọ	verb	to sieve; to filter
+109	iru	noun	type, kind, sort; breed
+110	aṣa	noun	A general name for the hawk or kite, but (in particular) the Black-winged kite
+111	run	verb	to smell; to stink
+112	ọkunrin	noun	man, male; manliness, bravery
+113	inu	noun	stomach, abdomen; inside, interior; mind, heart
+114	ọlọ	noun	grinding stone; (in particular) large grinding stone
+115	ounjẹ	noun	food
+116	olori	noun	the official designated wife of a monarch; usually the most senior wife of a king; queen consort
+117	dun	verb	to be sweet, to be pleasant
+118	ra	det	our, ours, us
+119	ja	verb	to fight, to wrestle, to struggle; to occur, to take place, to break out (as in a war or disease)
+120	owe	noun	proverb, adage, saying
+121	lori	adv	atop; on top of; on the head
+122	ogun	name	Ogun (orisha of war, iron, metallurgy, and technology), patron of warriors, hunters, blacksmiths, and ironworkers.; August, the third month of the traditional Yoruba calendar, the Kọ́jọ́dá; named in honor of Ògún. Many Ògún festivals are held during this month.
+123	omi	noun	water; river
+124	oṣu	noun	moon; (in particular) new moon; month
+125	dudu	adj	black; dark; deep green; deep blue; dark-skinned
+126	oni	noun	today
+127	jade	verb	to go out
+128	ya	verb	to borrow; to lend
+129	sun	verb	to sleep
+130	eko	name	Lagos (a city in Nigeria); Lagos State (a state of Nigeria); A Yoruba subethnic group
+131	orukọ	noun	name
+132	naijiria	name	Nigeria (a country in West Africa)
+133	orilẹ	noun	clan, lineage group; sociopolitical or linguistic entity; country
+134	yii	det	this
+135	titi	adv	for a long time; until
+136	un	pron	him, her, it (third-person singular non-honorific object pronoun following a monosyllabic verb with a high-tone /ũ/)
+137	lẹhin	verb	archaic spelling of lẹ́yìn (“to last for a long time; to have a legacy”); to have a legacy
+138	dẹ	verb	to be soft or tender in texture; to be stupid or foolish; (literally) to have a soft head (indicating that one has no brain); to become reduced or weakened in degree or intensity
+139	ina	noun	fire, light
+140	aṣọ	noun	any cloth, fabric, textile; clothes, dress, garment
+141	ẹgbẹ	noun	dehydration, dryness; that which is dry or dried
+142	ro	verb	to think
+143	epo	noun	oil, palm oil, grease; sweetness
+144	ode	noun	outside; town; public
+145	dọ	verb	to cut a piece from a whole
+146	yin	det	your (second-person plural or honorific possessive pronoun)
+147	oko	noun	farm, field
+148	itan	noun	history, story; family history, genealogy, lineage
+149	ọwọ	name	Owo (a city in Nigeria); Owo (a historical kingdom in Nigeria); The Ọwọ dialect of the Yoruba language
+150	akọ	noun	sheath, scabbard
+151	ẹru	noun	fear
+152	igbeyawo	noun	the act of being married; wedding;; marriage
+153	njẹ	particle	Placed before a sentence to make it a yes-no question.
+154	pada	verb	to return to turn back; to transform; to be transformed
+155	fọ	verb	to say
+156	enia	noun	archaic spelling of ènìyàn (“human being”)
+157	iku	noun	death
+158	sin	verb	to worship a deity; to revere; to serve
+159	nla	adj	big, large
+160	asiko	noun	time, occasion, season
+161	obi	noun	parent
+162	ọmọde	noun	child; childhood
+163	idi	noun	eagle, usually referring to African species of the genera Aquila and Haliaeetus, (in particular) the African crowned eagle
+164	kuro	verb	to leave; to go away
+165	han	verb	to appear, show; to be visible
+166	mo	pron	I (first-person singular personal pronoun)
+167	ṣẹ	verb	to break; to snap; to sprain; to fold
+168	duro	verb	to wait; to stay; to stand
+169	ofin	noun	law; rule; legislation
+170	yo	verb	to become saturated with food or drinks; to become full (after eating); to become drunk
+171	iroyin	noun	news, news report, storytelling
+172	gbẹ	verb	to plant; to sow
+173	ji	noun	The name of the Latin script letter J/j.
+174	pupọ	noun	large quantity; numerous ones
+175	abẹ	noun	under; vagina
+176	sẹ	verb	to condense
+177	dara	verb	to be good, fine, fair
+178	ọja	noun	village, town, homestead; market; market commodities, merchandise; products
+179	wọnyi	det	these
+180	ẹkun	noun	leopard; big cat; tiger
+181	ifẹ	name	Ifẹ (a city in Nigeria); Ife Kingdom; mythological origin place of the Yoruba people
+182	ole	noun	thief
+183	agbaye	noun	international, worldwide
+184	meji	adj	two
+185	keji	adj	second
+186	san	verb	to pay
+187	erin	noun	elephant; a nickname for a mighty person, in comparison to an elephant
+188	ọbẹ	noun	knife, blade
+189	ologun	noun	warrior, soldier
+190	yọ	verb	to rejoice, to become elated
+191	ija	noun	the act of fighting; fight, quarrel
+192	atijọ	noun	ancient times; ancient, prehistorical
+193	ẹranko	noun	wild animal
+194	ọrọ	noun	word, phrase, uttering; matter, affair
+195	orin	noun	song; music
+196	iwọ	noun	poison
+197	ero	name	Ero (an Ekiti Yoruba town in Ifedore, Ondo, Nigeria)
+198	tuntun	noun	someone or something that is new
+199	apẹrẹ	noun	basket
+200	u	character	The twenty-third letter of the Yoruba alphabet, called ú and written in the Latin script.
+201	rin	verb	to walk; to associate with
+202	ṣi	noun	The name of the Latin script letter Ṣ/ṣ.
+203	an	pron	him, her, it (third-person singular non-honorific object pronoun following a monosyllabic verb with a high-tone /ã/)
+204	ẹran	noun	meat; animal
+205	agbẹ	noun	farmer
+206	gun	verb	to be long (usually along a horizontal axis)
+207	ipinlẹ	noun	state
+208	alejo	noun	visitor; guest; stranger; menstruation
+209	ojo	noun	rain
+210	din	verb	to fry in oil
+211	yoo	verb	will, shall; marks the intentional aspect (see table below), representing an intention to do something. Sometimes described as a marker of future tense or volition.
+212	idile	noun	family, clan
+213	diẹ	noun	a little bit, few
+214	se	verb	to cook; to boil
+215	ibilẹ	noun	native, local, indigenous; traditional system, often referring to precolonial structures
+216	ominira	noun	freedom, independence, liberty
+217	ga	verb	to set up a collapsible device; to open out; to spread out; to gape open
+218	ẹnu	noun	mouth
+219	ijapa	noun	tortoise, turtle; Beetle
+220	aja	noun	dog
+221	agbara	noun	wooden fence
+222	ere	noun	advantage, reward; profit, reward
+223	wẹ	verb	to bathe, to shower; to swim; to wash something
+224	iṣu	noun	any of the various species of wild and cultivated yam in the family Dioscorea; tuber; (especially) yam tuber; bulb; (especially) onion or garlic bulb
+225	ẹyẹ	noun	bird
+226	pin	verb	to terminate; to come to an end
+227	odo	num	zero
+228	oṣiṣẹ	noun	worker; employee
+229	ayelujara	noun	colonial era perforated coin, the British West Africa Penny; The Internet; internet
+230	nikan	verb	to be alone in something
+231	ayẹyẹ	noun	celebration, festival, party, ceremony
+232	imọ	noun	knowledge
+233	oye	noun	honor, respect, a title given to a chieftain or chief
+234	re	verb	to go
+235	igi	noun	tree; stick, wood, cane; plant stem
+236	kekere	noun	small entity or quantity; minor; young age, adolescence
+237	ikan	noun	termite
+238	olu	noun	leader, head, chief; prominent one, hero; A common prefix for Yoruba given names and surnames, see Olú
+239	adiẹ	noun	chicken
+240	funfun	verb	to be white
+241	oloye	noun	Yoruba traditional chief; someone who is honorable; officeholder
+242	kọja	verb	to go or pass beyond time, place, or people; to cross; to exceed some degree, quantity, time, distance
+243	awo	noun	mystery, secret; occult, cult, sect; Ifá, oracle
+244	eeyan	noun	person, people, human being; chiefs (in their position as representatives of the people of the town)
+245	alaye	noun	explanation
+246	agbegbe	noun	region, area; vicinity, locale
+247	wọle	verb	to enter into a location; to pass
+248	ọdẹ	noun	stupid person, idiot
+249	ewe	noun	leaf, foliage; The leaves of the plants Thaumatococcus daniellii and Megaphrynium macrostachyum, which are used in wrapping foods.
+250	were	noun	insanity, madness, imbecile; mad person
+251	oyinbo	noun	white person, European; A black person who has adopted a European lifestyle or traits
+252	olowo	noun	rich person; a person with money
+253	aworan	noun	the act of observing or watching to ponder; being observed or watched to ponder on; picture, image, diagram, drawing
+254	ajọ	noun	sieve, strainer
+255	gomina	noun	governor
+256	igbo	noun	headbutt
+257	sa	noun	Sir
+258	s	character	The twentieth letter of the Yoruba alphabet, called sí and written in the Latin script.
+259	wu	verb	to please; to attract, appeal, desire; to be attractive; to be appealing to someone's taste
+260	ọpọlọpọ	noun	several or numerous in quantity
+261	miiran	det	another, other
+262	apa	noun	wastefulness, prodigality, a wasteful person, prodigal; spendthrift, squanderer
+263	akara	noun	a deep-fried ball made of beans
+264	in	pron	him, her, it (third-person singular non-honorific object pronoun following a monosyllabic verb with a high-tone /ĩ/)
+265	gbi	noun	The name of the Latin script letter Gb/gb.
+266	oorun	noun	smell, odor, scent
+267	iyan	noun	pounded yam
+268	dani	verb	alternative form of dá ní (“to own or possess something completely by oneself”); to own something in ones own right; alternative form of dá ní (“to take hold of something”)
+269	ẹjọ	num	eight
+270	nnkan	noun	object, thing, something; serious consequence
+271	koko	noun	alternative form of ìkòkò
+272	ibo	noun	vote, ballot, election; a device used in a form of cleromancy done in divination. This device consists of cowries, bones, and other objects as a way to get the solution to a specific problem.
+273	gbin	verb	to moan; to groan
+274	oku	noun	corpse, deceased
+275	labẹ	prep	under
+276	ijọ	noun	church; congregation
+277	igun	noun	vulture; (specifically) the Hooded vulture
+278	ajo	noun	turmeric
+279	pi	noun	The name of the Latin script letter P/p.
+280	ẹsẹ	noun	foot, leg; foot (measurement)
+281	iba	noun	fever; malaria, malarial fever
+282	amọ	conj	but
+283	ọlọrun	name	Olorun, a nickname for the supreme divinity of the Yoruba religion, Olódùmarè; God (the monotheistic deity of the Abrahamic religions)
+284	irọ	noun	lie, falsehood
+285	ọkan	num	one
+286	aṣẹ	noun	offender
+287	nkọ	particle	"Used after a noun to signify ""What about...?""; Used after a noun to signify ""Where is...?"""
+288	aje	noun	wealth, money; economic success
+289	awọ	noun	skin; hide, leather; drum head
+290	oriṣa	noun	orisha (deity in Yoruba religion); god
+291	omiran	noun	giant
+292	do	noun	The syllable used to represent the low-tone and its diacritic (`)
+293	ranti	verb	to remember
+294	mẹta	adj	three
+295	eegun	noun	bone; strength; a thing that is incompatible or undesirable
+296	ṣẹlẹ	verb	to happen; to occur
+297	onile	noun	landlord
+298	ewu	noun	gray hair
+299	iwaju	noun	front
+300	ire	noun	good fortune, good luck; goodness, kindness; A prefix used in unisex given names (ex. Irégbèmí)
+301	oogun	noun	medicine, herbal medicine, drug; ritual medicine, supernatural charms or spells, juju; sometimes used to inflict harm or death; cure, remedy
+302	waye	verb	to come into existence; to come about; to occur
+303	jo	verb	to dance
+304	ana	noun	yesterday; deceased, late
+305	aisan	noun	sickness, disease
+306	l	character	The thirteenth letter of the Yoruba alphabet, called lí and written in the Latin script.
+307	igbẹ	noun	bush, forest; game hunting; wrong direction
+308	agbalagba	noun	adult; elderly person, elder, senior citizen
+309	ṣiṣẹ	verb	to work, to do work
+310	kiniun	noun	lion
+311	ibọn	noun	gun, pistol, rifle
+312	ikun	noun	murmur, grumble, grumbling, growl; voice
+313	dagba	verb	to age; to grow
+314	alẹ	noun	evening, night (7pm to 10pm); one's deathbed, the end of one's life
+315	adura	noun	prayer
+316	itọ	noun	urine
+317	ikoko	noun	pot, multipurpose pot traditionally made of clay.
+318	arugbo	noun	old age, elderliness; elder, old person
+319	gbo	verb	to bark (like a dog)
+320	iṣe	noun	action; practice, tradition
+321	ke	verb	to cry; to shout; to scream
+322	ikọ	noun	cough
+323	ata	noun	pepper, spice
+324	igbagbọ	noun	belief, faith
+325	ye	noun	mother; a term of endearment or respect for an older woman or female relative
+326	sinu	adv	into; in
+327	bun	verb	to dash, to donate, to give away; to gift, bless, or endow someone; to be gifted, endowed, or blessed with something
+328	ajẹ	noun	In the Yoruba religion, the concept of the biological, spiritual, and creative powers (or àṣẹ) of all women and mothers; A female figure with supernatural powers.; witch, sorceress
+329	ẹlomiran	noun	another person
+330	igbe	name	April, the eleventh month in the Yoruba calendar, the Kọ́jọ́dá
+331	ida	noun	sword
+332	jẹun	verb	to eat food; to make a living
+333	ibadan	name	Ibadan (a city, the state capital of Oyo State, Nigeria); A Yoruba subethnic group; A dialect of Yoruba spoken by the people of Ìbàdàn
+334	igbin	noun	upright open-ended log drums with single leather heads fastened and tuned by wooden pegs, sacred to the orisha Ọbàtálá, it is a subfamily of the gbẹ̀du family of drums.
+335	gbagbe	verb	to forget
+336	gbiyanju	verb	to persevere, to try, to make a serious effort
+337	nile	prep_phrase	at home
+338	ariwo	noun	noise
+339	ọti	noun	alcohol, liquor
+340	iranti	noun	memory; remembrance
+341	keresimesi	noun	Christmas
+342	iṣoro	noun	difficulty; problem
+343	ojukokoro	noun	greed, covetousness
+344	ijo	noun	the act of dancing; a dance
+345	igbese	noun	alternative form of gbèsè (“debt”)
+346	aya	noun	wife
+347	ẹmu	noun	palm wine
+348	po	verb	to mix, to stir; to beat, to whisk; to knead
+349	gan	verb	to disparage, criticize, belittle
+350	ṣoṣo	noun	only
+351	yara	noun	room
+352	ekeji	adj	second; other
+353	hun	verb	to sleep
+354	adugbo	noun	neighbourhood; locality
+355	akin	noun	bravery, valor, courage; brave person; warrior; A prefix used in male Yoruba given names, (ex. Akíndélé).
+356	gbọdọ	verb	must, ought to
+357	akẹ	noun	nanny goat, a large matured goat
+358	agbado	noun	maize, corn
+359	isinku	noun	burial ceremony, funeral
+360	gele	noun	a woman's headwrap
+361	eku	noun	rat, bush rat
+362	ika	noun	finger, toe
+363	pari	verb	to finish, to end
+364	ifọ	noun	speech
+365	alaini	noun	a person lacking something; pauper, beggar
+366	akoko	name	The Akoko sub-group of Yoruba; The Akoko dialects of Yoruba, comprising of the western and eastern Akoko dialects and the Ào dialect.
+367	ṣiṣe	noun	doing, making
+368	laaarin	prep	in between, in the middle of, midway
+369	ọla	noun	honor, prestige, wealth
+370	keje	adj	seventh
+371	ade	noun	crown; royalty; A common prefix in Yoruba given names and surnames for those born in royalty
+372	ọya	noun	cane rat, grasscutter
+373	ge	verb	to cut something; especially using a tool; to segment into parts; to become cut, snapped, or broken
+374	ila	noun	okra plant; A mucilaginous stew or soup made from okra; A term for plants similar to okra in terms of mucilaginous characteristics, especially when cooked
+375	oro	noun	venom, poison, sting; agony, pain; wickedness
+376	imu	noun	nose
+377	agogo	noun	bell, gong; clock, timepiece
+378	olukọ	noun	teacher, professor, instructor
+379	li	noun	The name of the Latin script letter L/l.
+380	eewọ	noun	taboo, cultural or religious prohibition.; abomination
+381	amala	noun	amala (thick paste made from yam or cassava flour)
+382	titun	verb	alternative form of tuntun (“to be new”)
+383	pade	verb	to meet
+384	dibo	verb	to do divination with yes-or-no responses with questions posed by a client; to vote
+385	akoba	noun	ill effect
+386	apo	noun	quiver
+387	sita	adv	outside; out
+388	ajoji	noun	stranger, foreigner
+389	aarin	noun	center, middle
+390	kini	verb	to greet someone
+391	ejo	noun	snake
+392	arun	noun	disease, illness; defect, inadequacy, problem
+393	kẹta	adj	third
+394	soke	adv	up
+395	aburo	noun	younger sibling
+396	gbangba	adv	outside, an open space; clearly, openly
+397	irẹsi	noun	rice
+398	kẹrin	adj	fourth
+399	otitọ	noun	truth, honesty
+400	aṣiri	noun	secret
+401	ṣere	verb	to do a game, to play
+402	onigbagbọ	noun	believer, Christian
+403	ipolongo	noun	proclamation, declaration
+404	ọna	noun	art, craft, artistry, craftsmanship; A prefix used in Yoruba given names and surnames.
+405	ekiti	name	a state of Nigeria in the South West geopolitical zone; a historical country in Yorubaland in West Africa; Ekiti people, a subgroup of the Yoruba people
+406	ewurẹ	noun	goat
+407	gọ	verb	to be stupid; to be foolish
+408	esi	noun	warthog, hog; (in particular) red river hog
+409	okunkun	noun	darkness; evil; secret
+410	wura	noun	gold, (chemical element, Au, atomical number 79)
+411	ewura	noun	purple yam; Dioscorea alata or Dioscorea smilacifolia
+412	jijẹ	noun	eating; the act of eating; food
+413	gbigba	noun	accepting
+414	ayọ	name	a unisex given name meaning “joy”, it is a shortened form or nickname for much longer names, ex. Ayọ̀ọ́délé
+415	ṣoro	verb	to be difficult
+416	eti	noun	ear; edge, side
+417	tobi	verb	to be big, to be large; to enlarge; to be great; to be mighty
+418	abule	noun	village, hut, cottage
+419	kaka	prep	rather than, instead of
+420	ifa	noun	function
+421	gbagbọ	verb	to believe, to have faith
+422	boya	adv	perhaps, maybe
+423	eṣu	name	The orisha and primordial divinity (irúnmọlẹ̀) of judgement, trickery, crossroads, and the messenger of Olódùmarè in the Yoruba religion. He is believed to epitomize the duality of goodness and malevolence, and is the intermediary between humanity and the evil forces, the Ajogun.; Satan, the Devil
+424	ike	noun	ivory; plastic, bioplastic, plasticine; plastic container
+425	ọpọ	noun	plentifulness, abundance; cheapness; plurality, plural
+426	balẹ	verb	to feel reassured; to be calm; to hold oneself together; to land
+427	mejeeji	adj	both, all two
+428	irin	noun	metal (in particular) iron; iron (chemical element, Fe, atomic number 26)
+429	ita	noun	outside; crossroad
+430	oyin	noun	bee; honey; sweetness (in comparison to honey)
+431	dan	verb	to counteract or neutralize someone's charm or spell
+432	alọ	noun	riddle, quiz; folktale, fable
+433	ologbo	noun	cat
+434	ẹja	noun	fish; marijuana
+435	ẹiyẹ	noun	archaic spelling of ẹyẹ (“bird”)
+436	naira	noun	naira (currency of Nigeria)
+437	ibanujẹ	noun	sadness, depression
+438	awa	pron	we (emphatic first-person plural personal pronoun)
+439	onikaluku	noun	each person, individual
+440	aro	noun	cymbal
+441	ẹṣin	noun	horse
+442	ibinu	noun	anger, rage, fury
+443	iroko	noun	iroko, African teak, Nigerian teak, rock elm (Milicia excelsa syn. Chlorophora excelsa); regarded as a sacred tree by the Yoruba people.
+444	ẹyin	noun	egg; crust
+445	oniṣowo	noun	business owner, business person
+446	agbe	noun	great blue turaco (Corythaeola cristata)
+447	sare	verb	to run
+448	nle	prep_phrase	at home
+449	ojiji	noun	shadow, shade
+450	fo	verb	to jump, or leap in an upwards direction; to fly; to miss, to escape one's attention, to forget
+451	abiku	noun	In Yoruba tradition, a malevolent spirit that causes the premature death of a child, often successive children. It is often addressed through several rituals. (Compare with ogbanje).; the act of giving birth to a child who dies prematurely; infant mortality
+452	meje	adj	seven
+453	kere	verb	to be small
+454	fila	noun	hat, cap (in particular) the traditional Yoruba caps worn by males.
+455	ajọyọ	noun	celebration
+456	owu	noun	anvil
+457	fọn	verb	to take a piece of something (usually in the context of red coal)
+458	pọn	verb	to flatter, to compliment, to praise; to make flat
+459	iye	noun	mother, a title of respect for an older woman
+460	agbo	noun	ram
+461	oo	noun	business, trade
+462	ọmọniyan	noun	humanity
+463	iyọ	noun	salt
+464	irẹ	noun	cricket
+465	ondo	name	Ondo (a city in Ondo State, Nigeria); Ondo (a state of Nigeria); Ondo Kingdom (a historical kingdom in Nigeria)
+466	ewedu	noun	Jute mallow, the Corchorus olitorius plant; A soup made from the cooked leaves of the ewédú plant. When mixed with gbẹ̀gìrì soup it is known as àbùlà
+467	ogoji	num	forty
+468	abo	noun	younger sibling
+469	ipade	noun	meeting, get-together
+470	agọ	noun	tent, shed, encampment
+471	ọpẹ	noun	gratitude; thanks
+472	atọ	noun	sperm, semen
+473	okeere	noun	far away distance
+474	ng	pron	archaic spelling of n̄ (“I”)
+475	bata	noun	shoe
+476	iwo	noun	horn
+477	igberaga	noun	pride, arrogance
+478	kokoro	noun	insect, bug; penis; pathogen, virus, bacteria
+479	du	verb	to scramble for, to compete
+480	kọrin	verb	to sing
+481	iyẹ	noun	feather; wing
+482	ariwa	noun	north
+483	tutu	verb	to be cold or cool; to be moist; to be wet
+484	ale	noun	concubine, side chick
+485	nta	adv	alternative form of níta (“outside; out”)
+486	suuru	noun	patience
+487	ahun	noun	itching; something or someone that itches
+488	ọwa	name	The official titles of several traditional rulers of some Eastern Yoruba speaking peoples including the Ìjẹ̀ṣà, Èkìtì, Ìgbómìnà, and Oǹdó, including
+489	ileeṣẹ	noun	company; firm; factory; workshop
+490	mẹfa	adj	six
+491	kẹfa	adj	sixth
+492	iho	noun	hole
+493	okete	noun	Gambian pouched rat; an untrustworthy or dishonest person
+494	onimọ	noun	philosopher, knowledgeable person
+495	ileṣa	name	Ilesa (a city in Nigeria), the capital city of the Ijesha people.
+496	oriki	noun	A form of Yoruba oral praise poetry, (ewì), it is characterized by long epithets praising and acknowledging the traits, accomplishments, and or attributes a specific person, family or lineage, town, animal, òrìṣà, subethnic group etc.; A class of Yoruba names, this form of oriki known as oríkì ṣókí, it consists of short single Yoruba praise names or nicknames.; definition
+497	bayii	adv	like this, like so; right now
+498	kẹjọ	adj	eighth
+499	osi	noun	left; the third-in-command of the king in some towns, the third-in-rank in any group or collective
+500	ọka	noun	millet, sorghum; corn, maize, grain
+501	rara	noun	A type of traditional Yoruba oral poetry and chants, or ewì
+502	padanu	verb	to lose (especially when it is an irretrievable loss); to forfeit
+503	oru	noun	night (10pm to 12am)
+504	oniṣegun	noun	medical doctor, physician; A traditional healer or herbal doctor
+505	bara	name	the royal burial site of the Aláàfin of the Ọ̀yọ́ empire in the capital city of Ọ̀yọ́-Ilé; the current royal burial site of the Aláàfin of Ọ̀yọ́, established after the destruction of Ọ̀yọ́-Ilé in present-day Ọ̀yọ́ town.
+506	ado	name	Benin City (a city in Nigeria)
+507	adebayọ	name	a male given name; a surname, from the given name Adébáyọ̀
+508	apẹẹrẹ	name	example, illustration, sign, model
+509	waa	contraction	contraction of ìwọ + á, literally “you'll”
+510	bẹrẹ	verb	to start, to commence, to begin
+511	ṣugbọn	conj	but, however
+512	ṣubu	verb	to fall, to fall down
+513	ọdọ	noun	young child or animal; adolescent, teenager, youth
+514	mẹrin	adj	four
+515	iro	noun	a cloth wrapped around a woman's lower body, usually made with six yards of fabric
+516	owurọ	noun	alternative form of àwúrọ̀ (“morning, origin, beginning”)
+517	gbadun	verb	to enjoy
+518	bawo	adv	how
+519	alakara	noun	akara seller
+520	ilọsiwaju	noun	progression, progress
+521	pariwo	verb	to make noise
+522	gbona	noun	to be hot or heated (in temperature); to become hot; to become intense
+523	t	character	The twenty-second letter of the Yoruba alphabet, called tí and written in the Latin script.
+524	oore	noun	alternative form of òòrẹ̀ (“porcupine”)
+525	iyẹn	pron	that thing/person
+526	alatagba	noun	African hobby (Falco cuvierii)
+527	angola	name	Angola (a country in Southern Africa)
+528	tẹlẹ	adv	before
+529	aadọta	num	fifty
+530	sunkun	verb	to weep, to cry
+531	ọgba	noun	fence; a fenced enclosure, garden, park
+532	aanu	noun	mercy, compassion, pity; regret
+533	ijinlẹ	noun	considerable depth (of a hole or burrow)
+534	ileri	noun	promise
+535	ṣokoto	noun	pants, trousers
+536	ofurufu	noun	alternative form of òfuurufú (“sky, atmosphere”)
+537	ala	noun	purity, white cloth, a symbol of the god Ọbàtálá
+538	pupa	noun	red; that which is red
+539	ayanfẹ	name	"A unisex oríkì name, meaning ""One that we specifically chose to love""."
+540	wakati	noun	hour
+541	itage	noun	platform, stage
+542	beere	verb	to ask a question, to make an inquiry
+543	ọn	pron	him, her, it (third-person singular non-honorific object pronoun following a monosyllabic verb with a high-tone /ɔ̃/)
+544	tete	noun	running fast
+545	ọrẹ	noun	friend; friendship; concubine, lover, significant other
+546	aguntan	noun	alternative form of àgùtàn
+547	dide	verb	to stand, get up, rise
+548	apejẹ	noun	feast; banquet; party (with food)
+549	akurẹ	name	Akure (a city in Nigeria); the Àkúrẹ́ kingdom; A subgroup of the Èkìtì people
+550	ṣango	name	Shango, (orisha of thunder, vitality, lighting, justice, energy, force, explosions in Yoruba religion), he is also believed to have been the fourth Aláàfin of Ọ̀yọ́, and the husband of Ọ̀ṣun, Ọya, and Ọbà
+551	eke	noun	lie, falsehood; liar
+552	ẹbọ	noun	ritual sacrifice or offering to a deity or divinity; free food
+553	adan	noun	bat, usually (in particular) the straw-colored fruit bat
+554	oluwa	name	the Lord, God
+555	laipẹ	adv	soon
+556	ireti	noun	hope, expectation
+557	abuja	name	Abuja (the capital city of Nigeria)
+558	aiye	noun	archaic spelling of ayé (“life, world”)
+559	ẹwa	num	ten
+560	asin	noun	shrew; (in particular) Nigerian shrew
+561	guusu	noun	south
+562	ajanaku	noun	elephant
+563	jokoo	verb	to sit (down)
+564	meloo	det	how many
+565	sori	adv	atop; to the top
+566	gbongbo	noun	to be protruding, large, and heavy
+567	jin	verb	to be far
+568	buburu	adj	bad, evil, wicked
+569	panti	noun	refuse, trash, garbage
+570	igbadun	noun	enjoyment
+571	bora	verb	to bleach one's skin; to lighten one's skin; to peel one's body
+572	okuta	noun	rock, stone; grinding stone
+573	ọrun	noun	the place of origin for all humans where souls (orí) are created, humans return to their individual ọ̀run after death. It does not represent a specific entity or location, every human has their own origin place.; sky; heaven
+574	idagbasoke	noun	growth, development
+575	jiya	verb	to suffer
+576	orisun	noun	spring (a natural source of water); origin, source
+577	pẹlu	conj	with; and
+578	ẹfọ	noun	leaf vegetable; edible leaves
+579	igbesẹ	noun	the act of taking steps; stride; order of operation, process, step
+580	ẹrọ	noun	machine, technology, device
+581	yangan	noun	maize, corn
+582	ẹgbaa	num	two thousand
+583	ipari	noun	end; finish
+584	polongo	verb	to announce; to proclaim; to declare
+585	apoti	noun	stool; box; chest
+586	paṣẹ	verb	to command
+587	wara	noun	milk; a kind of Fulani cheese, similar to cottage cheese
+588	ẹmi	noun	spirit
+589	aarọ	noun	morning; origin, beginning, sunrise
+590	arọ	noun	catfish
+591	ewo	pron	which; what
+592	afojudi	noun	the act of behaving contemptuously or defiantly to someone; being behaved contemptuously or defiantly to someone; contemptuous, defiantly
+593	ẹyẹle	noun	pigeon
+594	elubọ	noun	a parboiled and dried crop processed into flour; (in particular) such flour used to make dishes like àmàlà; flour made from dried crops, usually yam, plantain, or cassava
+595	ododo	noun	flower
+596	igo	noun	bottle
+597	m	character	The fourteenth letter of the Yoruba alphabet, called mí and written in the Latin script.
+598	darandaran	noun	shepherd, herder
+599	akisa	noun	rags, ragged
+600	ha	intj	what a pity; an interjection used to denote displeasure or disappointment
+601	burundi	name	Burundi (a country in East Africa)
+602	ṣ	character	The twenty-first letter of the Yoruba alphabet, called ṣí and written in the Latin script.
+603	ṣun	verb	to save; to conserve; to manage (money; energy)
+604	ete	noun	lip
+605	gẹẹsi	name	English people, British people
+606	orogun	noun	co-wife, the other wives of one's husband in a polygamous marriage
+607	ohunkohun	noun	anything, whatever thing
+608	babalawo	noun	babalawo (priest of Ifa)
+609	kii	noun	key
+610	gbera	verb	to take off; to depart; to leave; to set sail; to lift off
+611	egungun	noun	A Yoruba masked or costumed figure (consisting of a human wearing an ẹ̀kú), representing the physical manifestation of the spirit of an ancestor and regarded as a Yoruba orisha. Often mistranslated as masquerade.; A performer who wears a costume to entertain. (See aláàrìnjó.)
+612	ikede	noun	announcement, declaration
+613	baale	noun	husband, head of household
+614	dede	noun	all, everything, everyone
+615	gbese	noun	debt
+616	jesu	name	Jesus; a common prefix in names used by Christians
+617	ofi	noun	A traditional loom
+618	odi	noun	opposite or converse of something; negative; antonym; antithesis
+619	daju	verb	to be heartless, to be mean
+620	ololufẹ	noun	lover, loved one; fan
+621	ilera	noun	health
+622	eso	noun	fruit; banana
+623	ajayi	name	"a unisex given name meaning “One we fight to turn”, an orúkọ àmútọ̀runwá given to a child born sideways or facing downwards; A unisex oríkì name, meaning ""One we fight to turn""., given to a child born facing downwards.; a surname, from the given name Àjàyí"
+624	isọ	noun	the act of putting down a load (that was previously carried); market stall
+625	ada	noun	machete, cutlass
+626	ojoojumọ	noun	every day
+627	joko	verb	alternative form of jókòó (“to sit (down)”)
+628	ipinnu	noun	decision, resolution, conclusion
+629	họ	verb	alternative form of wọ̀ (“to gouge or scoop out of something”)
+630	tii	noun	tea
+631	ayo	noun	Any of a variety of plants including Guilandina bonduc and Corchorus olitorius (ewédú); The seeds of the ayò plant; The strategy game ayo, a variety of the mancala or oware game played by the Yoruba, of which the seeds of the ayò plant are used in the game
+632	awodi	noun	the Yellow-billed kite
+633	opin	noun	end; finish
+634	oṣe	noun	The double-headed axe of the orisha Ṣàngó, often represented in statues and figurines of Ṣàngó, similar to a labrys.
+635	kari	particle	Used to make an interrogative question regarding place or time.
+636	yanju	verb	to resolve, to settle, to sort out something; to become resolved, to become sorted out
+637	eni	noun	bonus after a purchase
+638	ranṣẹ	verb	to send or dispatch a message or errand
+639	idaji	noun	one half
+640	osun	noun	mushroom, fungi
+641	india	name	India (a country in South Asia)
+642	agbọn	noun	wasp; petulant person
+643	orogbo	noun	Garcinia kola, The bitter kola nut, it plays an important role in the worship of the òrìṣà, especially that of Ṣàngó
+644	iṣile	noun	house warming ceremony
+645	oyun	noun	pregnancy
+646	musulumi	noun	Muslim
+647	aba	noun	idea, suggestion
+648	apata	noun	rock
+649	baalẹ	noun	In pre-colonial Yoruba society, the head or ruler of a small village or a town. In modern day Nigeria, most baálẹ̀ have been recognized as a king of their own respective village.
+650	afirika	name	Africa (the continent south of Europe and between the Atlantic and Indian Oceans)
+651	imo	name	a state of Nigeria in the South East geopolitical zone; capital and largest city: Owerri
+652	k	character	The twelfth letter of the Yoruba alphabet, called kí and written in the Latin script.
+653	gboju	noun	to be brave, to be fierce
+654	ibeere	noun	question, query, demand; quiz
+655	isalẹ	noun	bottom; lower part
+656	jinna	verb	to be far
+657	yẹn	det	that
+658	ẹtu	noun	Any duiker; Maxwell's duiker (Philantomba maxwellii)
+659	oduduwa	name	The legendary ruler (Ọọ̀ni) of Ifẹ̀, he waged a war with Ọbàtálá and gained control of Ifẹ̀, where he became Ọọ̀ni. Because of this and his many descendants who founded modern Yoruba settlements, he is regarded as the father of the Yorùbá people; an ancestral deity associated with creation
+660	gbọn	verb	to shake; to shiver, to tremble, to shake out; to vibrate
+661	nwọn	pron	dated spelling of wọn (“they”)
+662	ibeji	noun	twins
+663	papa	noun	field, plain
+664	ọṣẹ	noun	soap
+665	aloku	noun	a secondhand good or item; leftover waste
+666	ataare	noun	Guinea pepper, alligator pepper (Aframomum spp.)
+667	ẹsin	noun	religion, organized religion
+668	eebu	noun	insult, verbal abuse
+669	imale	noun	Muslim
+670	aluko	noun	any of a species of red winged turacos, such as the Yellow-billed turaco (Tauraco macrorhynchus
+671	alantakun	noun	spider
+672	amunisin	noun	exploiter, taskmaster; colonialism, imperialism; colonizer, imperialist
+673	gbajumọ	noun	popularity, fame; famous or popular person, celebrity
+674	aago	noun	clock, watch; o'clock
+675	idowu	name	a unisex given name, an orúkọ àmútọ̀runwá given to a child born directly after a set of twins; a surname, from the given name Ìdòwú
+676	abiyamọ	noun	mother, motherhood
+677	gbolohun	noun	simple statement; sentence, phrase; legal clause
+678	aṣakẹ	name	"A female oríkì name, meaning ""One chosen to be cared for""."
+679	aparo	noun	partridge; (in particular) double-spurred spurfowl (Pternistis bicalcaratus)
+680	wahala	noun	trouble, problem, difficulty
+681	saa	noun	period, season, era, semester
+682	f	character	The sixth letter of the Yoruba alphabet, called fí and written in the Latin script.
+683	erele	name	February, the ninth month in the traditional Yoruba calendar, the Kọ́jọ́dá
+684	iṣelu	noun	politics
+685	ọgbọn	num	thirty
+686	agbagba	noun	plantain
+687	muti	verb	to drink alcohol
+688	ọfa	noun	arrow
+689	kuru	verb	to be short
+690	fura	verb	to be suspicious, to suspect
+691	orule	noun	roof (of a house); house
+692	ẹhin	noun	archaic spelling of ẹ̀yìn (“back”)
+693	ikẹja	name	a city, the state capital of Lagos State, Nigeria; one of Lagos State's 20 local government areas
+694	toro	verb	to be settled, to be at peace
+695	tọrọ	noun	threepence; in modern usage, three kobo; pittance
+696	too	intj	okay, well
+697	ọmọge	noun	young woman, chick
+698	dodo	noun	being deeply or richly red
+699	oloyin	noun	A beekeeper, someone who sells honey; Something that is characterized by being sweet
+700	ojola	noun	python; (in particular) African rock python (Python sebae) and the Ball python
+701	maluu	noun	cow, ox, cattle; (in particular) zebu cow
+702	opo	noun	pillar; column; pole; orbit
+703	kede	verb	to announce; to proclaim; to declare
+704	b	character	The second letter of the Yoruba alphabet, called bí and written in the Latin script.
+705	ogiri	noun	wall, barrier
+706	emi	pron	I (emphatic first-person singular personal pronoun)
+707	rii	pron	which, who, that
+708	alaafia	noun	good health, peace (often used in salutations)
+709	idanimọ	noun	recognition; identification
+710	oloṣelu	noun	politician
+711	adiyẹ	noun	alternative form of adìẹ (“chicken”)
+712	kilọ	verb	to warn
+713	jibiti	noun	fraud, fraudulence
+714	laisi	adv	without
+715	okiki	noun	fame, popularity, charisma
+716	kori	name	A female orisha of fertility and childbirth, she is regarded as a protector and orisha of specifically young children, and is mainly worshipped by the people of Ọ̀yọ́
+717	adiro	noun	traditional Yoruba oven or stove and stand
+718	kanga	noun	water well, a shallow well
+719	abi	conj	or
+720	yala	conj	either, whether
+721	ira	noun	native, indigene; member of a society, group, club, or family; family, relative, friend, acquaintance
+722	daji	noun	jungle
+723	itosi	noun	a nearby or close location
+724	ogongo	noun	ostrich
+725	lojiji	adv	suddenly
+726	etutu	noun	propitiation, atonement; sacrifice
+727	ilara	name	an ancient town is believed to be the ancestral origin of towns named Ilara; the name for several Yoruba towns. Unique suffixes are commonly attached to the town's name as a means of differentiating them (ex. Ìlárá-Mọ̀kín); Ilara-Mokin (an Ekiti Yoruba town in Ondo, Nigeria)
+728	anfaani	noun	advantage, privilege, benefit
+729	isa	noun	burrow; grave
+730	rogbodiyan	noun	unrest, chaos, instability, conflict
+731	imado	noun	warthog, wild boar (Giant forest hog)
+732	dinku	verb	to reduce the quantity or scale of something, to decrease; to become decreased or reduced; to abate
+733	igboya	noun	courage, bravery
+734	ojumọ	noun	day, dawn
+735	egun	name	Ogu people, an ethnic group from Benin, Lagos, and Ogun State.; The Gungbe language spoken by the Ogu people.
+736	eṣinṣin	noun	housefly, fly (insect)
+737	ọgọ	noun	wild boar, Giant forest hog
+738	adunni	name	"A unisex oríkì name, meaning ""One that is pleasant to have""."
+739	koro	noun	corona (disease)
+740	gi	noun	The name of the Latin script letter G/g.
+741	epe	noun	swear; curse
+742	ofuurufu	noun	sky, atmosphere
+743	ami	noun	sign, mark, symbol
+744	pata	noun	underwear, pants, briefs
+745	fidio	noun	video
+746	ojulumọ	noun	friend, acquaintance, someone who is well-known to a person
+747	iranlọwọ	noun	help, assistance
+748	ariyanjiyan	noun	controversy, debate, argument
+749	yẹra	verb	to turn the body sideways; to give way, to move out of the way for someone, to allow someone to be excused
+750	gudugudu	noun	The smallest type of Yoruba drum belonging to the dùndún class of Yoruba drums. It is believed to be the oldest type of drum in Yorubaland; and is thus regarded as the ancestor of all other drums.
+751	ferese	noun	window
+752	alangba	noun	lizard
+753	gaari	noun	saddle
+754	ṣeto	verb	to organise; to arrange, to make arrangements
+755	oṣo	noun	sorcerer, magician; the male equivalent of àjẹ́; a spiritual symbol of the deity Òrìṣàoko
+756	ọyẹ	noun	harmattan, harmattan season, cold dry weather; air conditioner
+757	lekeleke	noun	cattle egret (Bubulcus ibis)
+758	ehoro	noun	rabbit, hare; (in particular) African savanna hare
+759	kuna	verb	to miss (the way or mark), to go in the wrong direction; to fail (in one's attempt)
+760	itakun	noun	climber, creeper; vine; the highly-toxic plant Dichapetalum toxicarium
+761	ẹnikẹni	noun	anyone
+762	adaba	noun	dove; (in particular) red-eyed dove
+763	ajọṣepọ	noun	the act of doing things together as a group; collaboration, association
+764	iwuri	noun	motivation, encouragement
+765	aran	noun	velvet
+766	fulani	noun	Fula (person); Fula (language)
+767	tunba	verb	alternative form of túḿbá (“to surrender, to apologize”)
+768	pere	noun	being luxuriant or lush; being only some amount or quantity
+769	daadaa	adv	well; gladly
+770	ogboni	name	In precolonial Yorubaland, a male secret society of chiefs that performed religious, judicial, and legislative functions, including the advising and checking of a monarch. They were also the main worshippers of the orisha Ẹdan, and in some towns, they were also the cult of the orisha Orò.
+771	niwaju	prep_phrase	in front
+772	idije	noun	tournament, contest, competition
+773	ṣigun	noun	papaya
+774	roro	verb	to be bitter
+775	koo	verb	to leave; to go away
+776	tuka	verb	to disperse, to dissolve; to scatter; to be cheerful, to cheer up
+777	ṣibi	noun	spoon
+778	pẹpẹ	noun	shelf; altar
+779	kaabọ	intj	welcome
+780	koriko	noun	spotted hyena; in modern usage, wolf
+781	kaa	noun	inner courtyard; cavity
+782	mẹjọ	adj	eight
+783	igberiko	noun	suburbs; outskirts; countryside; rural area
+784	apari	noun	bald person
+785	aake	noun	axe
+786	akata	noun	serval, panther; A term for African-Americans. It was coined by Nigerian students in the U.S. during the 60s-70s in honor of the Black Panther Party; but now perceived as having derogatory connotations.
+787	afinju	noun	someone or something that is neat, clean, fashionable
+788	oṣogbo	name	Osogbo (a city in Nigeria)
+789	ọmọluwabi	noun	one born of the best ideals; person of good ìwà; The Yoruba concept of the ideal human that one must strive to attain.
+790	irinṣẹ	noun	tool
+791	yẹpẹrẹ	noun	insignificant, ordinary
+792	waja	verb	to pass on, to die
+793	akan	noun	crab
+794	hi	noun	The name of the Latin script letter H/h.
+795	araye	noun	humanity, humankind, the world of people
+796	arokọ	noun	essay
+797	ogo	noun	collateral, security, mortgage, debt
+798	kiini	adj	first
+799	ootọ	noun	truth
+800	kijipa	noun	a type of thick locally woven fabric often dyed and used to make the innermost layers of clothes like aso oke or the ẹ̀kú of an Egungun
+801	belu	name	November, the sixth month of the traditional Yoruba calendar, the Kọ́jọ́dá
+802	nipasẹ	verb	to have or possess a personal or direct connection or link
+803	afikun	noun	an addition
+804	iyara	noun	alternative form of yàrá (“room, bedroom”)
+805	nibo	pron	where
+806	ẹmọ	noun	alternative form of ẹmu (“palm wine”)
+807	ekute	noun	rat, specifically the black rat; A general name for rodents found in the house as opposed to the wild, including the asín and ọ̀fọ́n-ọ̀n
+808	jaye	verb	to enjoy life; to vibe
+809	difa	verb	to practice or engage in Ifa divination
+810	ase	noun	banquet; feast; party
+811	ipalara	noun	injury; negative side effect; harm
+812	dada	noun	alternative letter-case form of Dàda (“a child born with matted, curly hair”); dreadlocks
+813	kuti	name	"a male given name, meaning ""Death is of no avail.""; a surname, from the given name Kútì"
+814	ijabẹ	noun	A traditional Yoruba cooking broom used as a whisk to mash leaves when making stew. It is mainly used in the preparation of ewédú stew.
+815	gbọmọgbọmọ	noun	kidnapper, child abductor
+816	ẹkọ	noun	lesson; education
+817	gbeja	verb	to defend; to stand up for
+818	polowo	verb	to advertise
+819	ẹfun	noun	chalk
+820	ejigbo	name	Ejigbo (a town in Nigeria)
+821	gbadura	verb	to pray
+822	ororo	noun	vegetable oil; (in particular) peanut oil; spirit; liquor
+823	aboyun	noun	pregnant woman
+824	imi	noun	strength, power
+825	yun	verb	to go
+826	adun	noun	sweetness, pleasure; Something that is sweet or pleasurable
+827	kete	noun	all, every, everyone, everything
+828	ọsin	noun	Palm-nut vulture
+829	obukọ	noun	he-goat, billy goat
+830	obo	noun	vagina
+831	mooru	verb	to be hot or humid ((in terms of weather)
+832	gb	character	alternative letter-case form of Gb (“The eighth letter of the Yoruba alphabet”)
+833	jagunjagun	noun	warrior, soldier
+834	kita	noun	dog
+835	laakaye	noun	common sense, understanding, mental faculty
+836	kakiri	verb	to go or wonder all over some place or everywhere; to be everywhere
+837	ekolo	noun	earthworm
+838	aa	contraction	contraction of àwa + á, literally “We'll”
+839	akoso	noun	the act of coordinating or organizing activities; activities being coordinated or organized; coordination, administration, management, control
+840	gbalẹ	verb	to sweep, to sweep the ground.
+841	erongba	noun	idea, objective, goal
+842	aayan	noun	cockroach
+843	d	character	The third letter of the Yoruba alphabet, called dí and written in the Latin script.
+844	idẹ	noun	brass; handcuffs
+845	ife	noun	cup
+846	ogundele	name	a male given name meaning “Ògún has arrived home”; a surname, from the given name Ògúndélé
+847	lonii	adv	today
+848	ogbo	noun	a name for several species of small wild cat, similar to the civet
+849	ifun	noun	intestine, guts
+850	alamọ	noun	A form of Èkìtì Yoruba oral poetry
+851	eera	noun	ant
+852	aaya	noun	the (Olive colobus) or Western red colobus
+853	iyalẹnu	noun	surprise
+854	okunfa	noun	factor; cause
+855	agbajọ	noun	the act of raking or sweeping of things together; that which is raked or swept together; community; collective
+856	ireke	noun	sugarcane
+857	aaye	noun	the act of being alive, living; space
+858	iju	noun	wilderness, uninhabited land
+859	ipolowo	noun	advertisement; hawking, street cries
+860	majele	noun	poison
+861	fere	noun	flute; small type of whistle; whistle; balloon
+862	awolọwọ	name	"a male given name, meaning ""The oracle of Ifa has honor"" or ""the babalawo has honor.""; a surname, from the given name Awólọ́wọ̀"
+863	fẹran	verb	to like; to love or be fond of someone or something
+864	ofofo	noun	gossip
+865	ijakadi	noun	traditional Yoruba sport of wrestling
+866	ijanu	noun	bridle; harness (rope for tying down animals); brake
+867	dakun	intj	excuse me, please; hold on, stop; accept my apology, sorry
+868	patapata	adv	completely
+869	ifura	noun	suspicion
+870	oti	noun	forehead
+871	aworo	noun	A male priest of the orisha, whom often leads the traditional rituals and sacrifices to a specific orisha.; An executioner, whom specifically serves the orisha Orò as one who kills the live animals brought as sacrifices
+872	igala	name	Igala (people or ethnicity)
+873	ẹgba	noun	the Egba people, a subgroup of the Yoruba people, historically consisting of three sections, the Gbágùrá or Ẹ̀gbá-Àgùrá, the Ẹ̀gbá Òkè-Ọ̀nà, and the Ẹ̀gbá Aké (also known as, and after 1840, the Òwú and Ìbarà have also been regarded as a subgroup within the Ẹ̀gbá capital of Abeokuta).; The dialect of Yoruba spoken by the Ẹ̀gbá people
+874	eefin	noun	smoke
+875	talaka	noun	poor person, pauper
+876	go	verb	to cover or put something in a coop; usually referring to birds
+877	kutukutu	adj	early
+878	ajao	noun	rodents known as anomalures, (specifically) two species of rodent in genus Anomalurus that occur in Nigeria, Beecroft's flying squirrel (Anomalurus beecrofti) and Lord Derby's scaly-tailed squirrel (Anomalurus derbianus), not closely related to the better-known group of flying squirrels of the Sciuridae (squirrel) family
+879	ọọni	name	monarch of the Ifẹ kingdom; the title of the traditional monarch of the town of Ifẹ (Ifẹ̀) and the Ifẹ̀ people, they are regarded as one the highest ranking Yoruba monarchs, and is the chief priest of the worship of Odùduwà; Oduduwa as a divine supernatural deity
+880	are	noun	vindication, justification; justice; excuse, pardon
+881	ewi	noun	poetry, poem; The Yoruba art of oral poetry and chanting for religious or entertainment purposes
+882	abuda	noun	characteristic, trait, genetics
+883	akojọ	noun	collective, collection; mass
+884	ẹyọ	noun	one item, one unit; single, singular, singularity
+885	idahun	noun	answer; response
+886	jiyan	verb	to argue
+887	gangan	noun	A common type of talking drum and a subfamily of drums in the dùndún family of drums
+888	riran	verb	to see; to have sight; to have vision
+889	ipẹ	noun	scale
+890	ṣọdẹ	verb	to hunt
+891	roju	verb	to be impatient
+892	oṣupa	noun	moon
+893	ibomiran	noun	another place, somewhere else
+894	ẹgbẹẹgbẹ	noun	either side; all sides
+895	asia	noun	flag, banner
+896	ojojo	noun	fever; minor ailment, not as severe as a sickness (àrùn and àìsàn).
+897	olugbe	noun	inhabitant; resident
+898	agẹmọ	noun	chameleon
+899	akala	noun	A general term for the various species of hornbill or the marabou stork; vulture
+900	odidẹrẹ	noun	parrot; (in particular) African grey parrot (Psittacus erithacus)
+901	akeekee	noun	scorpion
+902	ese	noun	hippopotamus
+903	rọra	verb	to be careful, to pay attention; to do something with care; to become comfortable
+904	abuke	noun	person with a hunchback
+905	ipakọ	noun	occiput
+906	laba	noun	A Yoruba traditional leather attire similar to a kilt that is worn by priests of the orisha, like the Mọgbà or chiefs, such as the Ààrẹ ọ̀nà Kakaǹfò.
+907	oniṣango	noun	A devotee or worshipper of the orisha Shango
+908	araba	noun	the kapok tree, Ceiba pentandra
+909	ẹjẹ	noun	blood
+910	ao	noun	Ekiti form of awó (“guinea fowl; (in particular) Western crested guineafowl”)
+911	lafun	noun	a type of flour made from cassava; a type of àmàlà made from láfún flour, it is known for being unique to the Ẹ̀gbá Yoruba people
+912	ọyọ	name	A Yoruba subethnic group who speaks the Ọ̀yọ́ dialect; a dialect of the Yoruba language spoken by the Ọ̀yọ́ people, it serves as the basis for the modern Standard Yoruba koine (Yorùbá Àjùmọ̀lò); Oyo (a city in Nigeria), the modern city of Ọ̀yọ́ founded after the destruction of Ọ̀yọ́-Ilé
+913	iṣẹlẹ	noun	event; happening; occurrence
+914	oromọdiyẹ	noun	chick
+915	atan	name	a female river deity worshipped by several mainly Eastern Yorùbá speaking towns, including Ọ̀wọ̀, Ìjàrẹ́ and Ijù. Atan in southern Èkìtì traditions is often regarded as the senior wife (ìyáálé) of the supreme sky deity, Àbarị̀ṣà.; Atan (a river in Nigeria)
+916	aibikita	noun	carelessness; negligence; indifference; neglect
+917	ẹku	noun	The sacred regalia or costume worn by Egúngún
+918	igbalẹ	noun	broom
+919	isẹ	noun	a species of small antelope; (in particular) Water chevrotain
+920	aajo	noun	concern, pity, solicitude; solicitation of a priest or authority figure for help or advice regarding supernatural affairs.
+921	iwuye	noun	coronation ceremony for a chief or a king.
+922	ahere	noun	farmhouse, hut, barn
+923	adeṣina	name	a male given name meaning “Royalty has opened the way or One who comes and opens the way”; a surname, from the given name Adéṣínà
+924	ofu	noun	pelican, specifically the Great white pelican and Pink-backed pelican
+925	ọta	noun	enemy
+926	ibikibi	noun	anywhere; wherever; any place
+927	owiwi	noun	owl, specifically the Western barn owl
+928	agan	noun	childlessness; A barren woman, a childless woman
+929	kura	noun	An irredeemable person, unrepentant, hopeless, rogue
+930	dọla	noun	dollar
+931	oṣomaalo	name	an Ìjẹ̀ṣà person (in particular) a trader
+932	agbanrere	noun	a species of large antelope (in particular) roan antelope; rhinoceros (traditionally, rhinoceros did not live in the range of Yorubaland); nickname for a unicorn-like creature
+933	erekuṣu	noun	island, islet
+934	bukata	noun	personal business, obligation
+935	lapalapa	noun	ringworm
+936	ojubọ	noun	shrine
+937	bura	verb	to swear, to take an oath, to forswear
+938	bakare	name	a male given name from Hausa, equivalent to English Abubakar; a surname from Arabic
+939	iṣo	noun	metal nail
+940	ọbakan	noun	paternal half sibling (sibling of the same father but a different mother)
+941	aṣiwaju	name	A traditional chieftaincy title
+942	eeru	noun	ash; gray
+943	atupa	noun	lamp, lantern
+944	ikarahun	noun	snailshell
+945	aha	noun	drinking calabash; a small cup carved out of a calabash used to drink palm wine and feed babies.
+946	orirun	noun	alternative form of òórùn (“smell”)
+947	akewi	noun	poet, bard
+948	nini	noun	a beautiful snake, noted to be non-venomous; the Red-black striped snake
+949	loke	prep	at the top; above
+950	yooku	noun	remainder, rest, others
+951	alapa	noun	something armed, with arms
+952	okobo	noun	eunuch (castrated human male)
+953	atari	noun	crown of the head; max, climax; basis
+954	wuwo	verb	to be heavy
+955	pinnu	verb	to decide, to resolve, to conclude
+956	egbe	noun	chorus or refrain of a song or chant; partiality, strong support
+957	okudu	name	June, the first month of the traditional Yoruba calendar, the Kọ́jọ́dá
+958	ṣalaye	verb	to explain
+959	awuyewuye	noun	controversy, crisis
+960	opopona	noun	streetway
+961	kedere	noun	clear
+962	eṣi	noun	last year, the past year
+963	figagbaga	verb	to engage in a physical confrontation (usually in a test); to compete
+964	yee	intj	ouch; An expression of pain.; ouch; An expression in sympathy at another's pain.
+965	apaadi	noun	potsherd, broken pieces of pottery
+966	igbelarugẹ	noun	promotion; publicity; advertisement
+967	pajawiri	noun	emergency
+968	aladuugbo	noun	neighbour
+969	oṣere	noun	actor; performer
+970	mii	det	another, other
+971	dana	verb	to cook; to start a fire
+972	aditi	noun	deaf person
+973	iṣin	noun	ackee fruit
+974	asinwin	noun	lunatic, demented person, insane person
+975	odu	noun	cauldron, large clay pot, usually used for rituals or sacrifices; womb; source, origin, (in particular) source of creation
+976	alara	name	an ancient title of a legendary king mentioned in the Odù Ifá and closely associated with 2 other rulers, Ajerò and Ọ̀ràngún.; title of the traditional monarch of the town of Ìlárá-Mọ̀kín and other towns named Ìlárá; title of the traditional monarch of the town of Ará-Èkìtì
+977	iwoyi	noun	the present time or period; nowadays; current, contemporary
+978	tapa	name	Nupe people
+979	agada	noun	A normal situation
+980	ijimere	noun	patas monkey (Erythrocebus patas)
+981	labalaba	noun	being distinctly light and floppy
+982	dubulẹ	verb	to lie down
+983	oge	noun	fashion, style, beautification, ostentation; fashionista, fashion-conscious
+984	afomọ	noun	epiphyte; air plant; mistletoe
+985	parọ	verb	to tell a lie
+986	ṣuga	noun	sugar
+987	agbako	noun	that which is swayed to encounter another; accident, misfortune, mishap
+988	ṣeleri	verb	to promise, to make a committment, to commit to
+989	kolẹ	verb	to pack dirt, to collect rubbish, to pick up trash
+990	iwẹ	noun	bathing; swimming
+991	awada	noun	fun, joke, jest; comedy
+992	bayọ	name	a diminutive of the male given name Adébáyọ̀
+993	aṣaro	noun	A yam or potato porridge
+994	iwin	noun	forest sprite; magical creatures whom are believed to reside in the forest and aid in the preparation of ritual medicine (òògùn); person with weird attributes (in comparison to the supernatural creature)
+995	ijẹbu	noun	A drum played during funerals and weddings by the Èkìtì people
+996	deji	noun	the title of the traditional ruler of the town of Àkúrẹ́.
+997	afara	noun	afara, limba (Terminalia superba)
+998	yemọja	name	A powerful river orisha of creation, water, fertility, motherhood, sometimes regarded as the adoptive mother of all the orisha. She is believed to be the spirit of the Ògùn river.
+999	adagun	noun	pond, lake, pool, any stagnant body of water
+1000	akalamagbo	noun	a large beaked, scavenging-bird with a goitre, usually associated with the ground hornbill or marabou stork
+1001	jere	verb	to earn, to receive a reward
+1002	iboji	noun	alternative form of ibòòji (“shade”)
+1003	ogbe	name	The first principal sign of the Ifa divination system.; The first of the àpólà or sixteen categories in the Odù Ifá, consisting of the first principal chapter, (Èjì Ogbè) and the other fifteen chapters of Ogbè.; The first and most important chapter of the Odù Ifá
+1004	agidi	noun	stubbornness
+1005	gogoro	noun	tall; towering
+1006	gbaradi	verb	to prepare
+1007	kololo	verb	alternative form of kálòlò (“to stutter”)
+1008	agabagebe	noun	hypocrisy
+1009	ọra	noun	body
+1010	ramuramu	noun	roar
+1011	okiti	noun	hill; termite mound
+1012	sanyan	noun	silk cloth; highly valued woven silk cloth usually brown in color
+1013	ọsẹ	name	The fifteenth principal sign of the Ifa divination system; The fifteenth of the àpólà or sixteen categories in the Odù Ifá, consisting of the fifteenth principal chapter, (Ọ̀sẹ́ méjì) and the other fifteen chapters of Ọ̀sẹ́.; The fifteenth chapter of the Odù Ifá corpus, and one of the major ojú odù
+1014	ọbọ	noun	a plant used to ritually catch a witch, Erythrophleum suaveolens or Erythrophleum Ivoriensis
+1015	pagọ	verb	to camp, to set up an impermanent settlement
+1016	alase	noun	cook; caterer; chef
+1017	ẹda	noun	a small species of bush rat; (in particular) Natal multimammate mouse
+1018	ọgọta	num	sixty
+1019	ọlẹ	noun	embryo, fetus
+1020	aṣeyọri	noun	the act doing of something successfully to the end; fulfillment, achievement, success
+1021	kẹkẹ	noun	mongoose, genet
+1022	etitu	noun	alternative form of èétú (“pus”)
+1023	uṣu	noun	yam
+1024	kare	verb	to deserve or earn appreciation for satisfactory performance
+1025	igunpa	noun	elbow
+1026	lọla	adv	tomorrow
+1027	rago	noun	a species of brown goat or ram native to Hausaland
+1028	magun	noun	a supernatural charm placed on a woman by her husband (or for a young girl, by her parents), to prevent her from being raped and dissuade adultery.
+1029	kabiyesi	noun	A term of address for royalty and kings, equivalent to the term His Majesty or Her Majesty.
+1030	ikunlẹ	noun	kneeling
+1031	w	character	The twenty-fourth letter of the Yoruba alphabet, called wí and written in the Latin script.
+1032	iṣasun	noun	stockpot, soup pot
+1033	agbada	noun	agbada (robe worn by men in West Africa)
+1034	ọpọlọ	noun	toad, frog, known for being inedible
+1035	iyanda	name	a unisex given name meaning “One who was specially chosen to be made”; a surname, from the given name Ìyàndá
+1036	ago	intj	excuse me, hello, an interjection used to get the attention of the addressee
+1037	r	character	The nineteenth letter of the Yoruba alphabet, called rí and written in the Latin script.
+1038	koda	adv	actually, in fact, even
+1039	ayeraye	noun	eternity
+1040	afin	noun	albinism; an albino person
+1041	elu	noun	alternative form of ìlú (“town, community”); alternative form of ìlú (“chief, elder”)
+1042	kaakiri	verb	alternative form of kákiri (“to go or wonder all over some place or everywhere”); alternative form of kákiri (“to be everywhere”)
+1043	isinmi	noun	rest, relaxation
+1044	olugbeja	noun	ally; defender
+1045	ho	verb	to boil; to become gaseous, to become boiled; to form bubbles or lather
+1046	aleefa	noun	throne; position of power
+1047	adua	noun	alternative form of àdúrà (“prayer”)
+1048	saba	adv	usually, often
+1049	ipenija	noun	challenge, struggle
+1050	ojule	noun	household; door entrance, room
+1051	imisi	noun	inspiration
+1052	ọdọọdun	noun	every year, annual
+1053	irawọ	noun	star, celestial object, celestial body; asterisk (*)
+1054	eekan	noun	alternative form of èékánná (“nail, claws”); alternative form of èékánná (“a name for several plants of which their leaves are sharp like nails or claws”)
+1055	ogunlende	noun	refugee of war
+1056	akasọ	noun	ladder
+1057	kilomita	noun	kilometer, kilometre (unit of measurement, 1000 m)
+1058	horo	noun	being in small quantity
+1059	ayafi	prep	except, unless
+1060	oi	noun	A type of Yoruba food made from cornflour typically eaten with mọ́ínmọ́ín or àkàrà.
+1061	loṣoo	verb	to squat; to crouch
+1062	ọsan	noun	orange (fruit)
+1063	ṣigidi	noun	being solid, roundish, hard, and lightweight
+1064	gbọgbẹ	verb	to receive an injury; to become injured; to be wounded
+1065	olofoofo	noun	gossiper, a gossip
+1066	ajẹku	noun	leftovers; scraps
+1067	ologinni	noun	cat
+1068	orofo	noun	African green pigeon
+1069	akukọ	noun	rooster; A hairstyle inspired by roosters' combs, worn by priestesses
+1070	pete	verb	to scheme, to plot; to intend
+1071	digbolugi	noun	rabies
+1072	ookan	num	one (used when counting)
+1073	bẹẹrẹ	noun	eldest child; (especially) eldest daughter
+1074	agbigbo	noun	The african grey hornbill, Lophoceros nasutus
+1075	saraa	noun	alms, almsgiving, charity; zakat; ritual sacrifice
+1076	awusa	noun	Hausa (language); Hausa people
+1077	he	verb	to come across, to come by
+1078	mariwo	noun	palm frond (in particular) young unwilted palm fronds tied around the body at festivals, such as the Ọlọ́jọ́ festival, by Ògún worshippers.; raffia, (in particular) the dried fronds of the raffia palm
+1079	ọpa	noun	staff, shaft, rod, stick; baton; staff of authority; (used by monarchs or deities); scepter
+1080	kunlẹ	verb	to kneel
+1081	ayinrin	noun	light blue color
+1082	ore	noun	the plants Cyperus articulatus and Cyperus esculentus, commonly used in making straw sleeping mats; a straw sleeping mat, made from the òré plant
+1083	otolo	noun	waterbuck
+1084	eyin	noun	tooth; teeth
+1085	burẹdi	noun	bread
+1086	ẹba	noun	a swallow made with cassava flour (gàrí); food, sustenance
+1087	ogunna	noun	ember, hot charcoal
+1088	ibomii	noun	another place, somewhere else
+1089	aina	name	a female given name, an orúkọ àmútọ̀runwá (“predestined name”), given to girls born with a nuchal cord
+1090	taiwo	name	a unisex given name, an orúkọ àmútọ̀runwá given to the first child in a set of twins or triplet; a surname, from the given name Táíwò
+1091	kẹhinde	name	a unisex given name, an orúkọ àmútọ̀runwá given to the second child in a set of twins or triplet; a surname, from the given name Kẹ́hìndé
+1092	gana	name	Ghana (a country in West Africa)
+1093	atimọle	noun	prison, detention centre, solitary confinement
+1094	ifọwọsowọpọ	noun	cooperation; teamwork
+1095	bẹẹ	adv	like that
+1096	amofin	noun	lawyer, barrister
+1097	bikita	verb	to care for, to have concern for
+1098	jiroro	verb	to discuss, to debate, to deliberate; to consider; to converse
+1099	adogan	noun	A traditional Yoruba stove or stand often used in outside cooking
+1100	waka	noun	a genre of Yoruba music with heavy Islamic influences coming from the Hausa
+1101	eedu	noun	charcoal, coal
+1102	io	noun	money, cowry
+1103	odindi	noun	alternative form of odidi (“whole, entire; a complete entity”)
+1104	ikarawun	noun	alternative form of ìkarahun (“snail shell”)
+1105	fadaka	noun	silver, (chemical element, Ag, atomical number 47)
+1106	ọsanyin	name	Ọsanyìn (god of plants, herbs, healing, medicine, and magic). He is closely associated with divination and the orisha Ọ̀rúnmìlà.
+1107	alagba	noun	elder, respected person
+1108	gbẹrun	verb	to argue
+1109	abajọ	intj	no wonder
+1110	olokun	name	A primordial imọlẹ̀ of the Yoruba religion, they are an androgynous divinity of the ocean and the seas, and said to embody the Atlantic Ocean. They are the parent of the deities, Ọlọ́sà and Ajé, and is also a deified orisha of the same name, as a human, she said to be the wife of Odùduwà
+1111	ajilẹ	noun	fertilizer, compost
+1112	alufaa	noun	imam; priest, pastor
+1113	adisa	name	"A male oríkì name, meaning ""One who is bound and displayed"".; a surname, from the given name Àdìsá"
+1114	imọran	noun	understanding of facts; counsel, advice; suggestion
+1115	agege	name	one of Lagos State's 20 local government areas
+1116	ijẹṣu	name	traditional new yam harvest festival celebrated by many Yoruba towns, consisting of honoring ancestors and fertility deities.
+1117	ẹwọn	noun	prison; chains; shackles; handcuffs
+1118	telọ	noun	tailor
+1119	sinima	noun	movie; film; cinema; cinematography
+1120	ijẹṣa	name	Ijesha people, a subgroup of the Yoruba people, who speak the Ìjẹ̀ṣà dialect and whose capital city is the town Iléṣà; A dialect of the Yoruba language
+1121	ihoho	noun	nudity, nakedness
+1122	omidan	noun	maiden, virgin
+1123	gbẹgiri	noun	A type of stew or soup made from grounded and cooked beans. When combined with ewédú soup, it forms a stew known as àbùlà
+1124	tọju	verb	to care for, to protect
+1125	janjan	noun	torrid; fierce; fiery
+1126	kẹrindinlogun	adj	sixteenth
+1127	ibukun	noun	to act of drawing out of some substance and adding it onto another; blessing
+1128	eji	num	two
+1129	ẹfunṣetan	name	a female given name meaning “the òrìṣà Ọbàtálá has accomplished a task”
+1130	lamidi	name	a male given name from Arabic, equivalent to English Abdul Hamid
+1131	adeyẹmi	name	a unisex given name meaning “Royalty befits me”; a surname, from the given name Adéyẹmí
+1132	taka	verb	to snap one's fingers, to click
+1133	alaamu	noun	alarm clock
+1134	ṣiyemeji	verb	to doubt
+1135	togo	name	Togo (a country in West Africa)
+1136	saro	name	The Saro people; formerly enslaved returnees from Sierra Leone or Liberia predominantly of Yoruba decent; Sierra Leonean; Sierra Leone (a country in Africa)
+1137	ayọka	name	"A female oríkì name, meaning ""One for whom everyone around them rejoices""."
+1138	ọmọba	noun	prince, princess
+1139	irinwo	num	four hundred; four hundredth, number four
+1140	bia	noun	beer
+1141	irun	noun	hair
+1142	popo	noun	street, alleyway, junction
+1143	ajewọle	name	a male given name, meaning The deity Ajé has entered the household.; a surname, from the given name Ajéwọlé
+1144	iwarẹ	name	the highest class of chiefs in a Yoruba town, the first six makeup a council known as the Ìwàrẹ̀fà
+1145	ijokoo	noun	seat, chair
+1146	inaki	noun	A large ape or monkey of any species, including a gorilla, baboon, or chimpanzee
+1147	erinmi	noun	hippopotamus; obese person
+1148	buba	noun	blouse or outer garment worn by women; top or outer garment worn by men; inner garment worn by men typically under an agbada
+1149	j	character	The eleventh letter of the Yoruba alphabet, called jí and written in the Latin script.
+1150	balogun	name	A traditional chieftaincy and military title in many Yoruba towns, who historically was the commander of the troops; a surname, from the title Balógun
+1151	yeye	noun	mother, a title of respect for an older woman or a priestess of the orisha
+1152	alade	noun	onion
+1153	aladelusi	name	a male given name meaning “The king has honor”; a surname, from the given name Aládélúsì
+1154	faaji	noun	enjoyment, pleasure
+1155	idalẹ	noun	a foreign land; a place far from one's hometown
+1156	aṣalẹ	noun	early evening (5pm to 7pm)
+1157	sinmi	verb	to rest, to relax; to cease from doing work, to take a break
+1158	atilẹyin	noun	support
+1159	ifasiti	noun	alternative form of yunifásítì (“university”)
+1160	gongo	noun	objective; goal; peak
+1161	afonifoji	noun	valley
+1162	gege	noun	pen, pencil
+1163	geere	noun	advancing unhindered
+1164	apẹja	noun	fisherman
+1165	eweko	noun	vegetable, farm crop, plant
+1166	ariya	noun	joy, merriment, party, festival
+1167	gaga	noun	eyeglasses, goggles, sunshade
+1168	dokita	noun	doctor
+1169	ẹbọra	noun	god, deity, divinity; earth spirit; mythological monster or troll believed to live in forests
+1170	fu	verb	to suspect, to have a second thought on a person, to be vigilant
+1171	kọsẹ	verb	to honor, pay homage, venerate
+1172	mita	noun	meter, metre (unit of measurement, 100 cm)
+1173	gẹdu	noun	the tree Baillonella; the African mahogany trees - Khaya grandifoliola and Khaya ivorensis; timber; (as the species of tree identified as gẹdú are often used as timber)
+1174	ajeji	noun	stranger, foreigner
+1175	poo	noun	A bucket serving as a traditional toilet, chamber pot
+1176	apọn	noun	bachelor
+1177	okotorobo	noun	a species of bird, noted for its lack of feathers
+1178	oloriṣa	noun	A devotee or worshipper of the orisha
+1179	ọdan	noun	grassland, open fields
+1180	gborin	verb	to be big; to be great
+1181	ipenpeju	noun	eyebrow
+1182	taba	noun	tobacco, tobacco plant
+1183	bọbọ	noun	young man; bros; brother (term of affection for a young man)
+1184	ṣọkọ	verb	to be a husband, to be someone's husband; to rule over or dominate a group of people or territory
+1185	ṣojo	verb	to cower
+1186	furọ	noun	anus
+1187	tolotolo	noun	turkey
+1188	dandogo	noun	A type of large garment normally reserved for the wealthy and aristocrats, it denotes high status and power.
+1189	iṣana	noun	match (device for starting fire)
+1190	oyo	noun	Mona monkey, often mistaken with the monkey known as ìjímèrè
+1191	ọgbọọgba	noun	equal parts
+1192	onigbajamọ	noun	barber
+1193	oorẹ	noun	porcupine, specifically African brush-tailed porcupine (Atherurus africanus) or crested porcupine (Hystrix cristata)
+1194	lanaa	adv	yesterday
+1195	akurọ	noun	fertile, swampy, irrigated river bank, fadama, paddy
+1196	dundun	noun	dun dun drum; a type of talking drum (pitch-bending drum that mimics the tonal speech of Yorùbá); the talking drum family of drums, one of the 4 families of drums among the Yoruba.
+1197	ewuro	noun	bitterleaf (Vernonia amygdalina)
+1198	poṣe	verb	to kiss one's teeth, to hiss
+1199	ojugun	noun	shin
+1200	agutan	noun	sheep
+1201	ntori	prep	alternative form of nítorí (“on account of; because”)
+1202	ige	name	a male given name, an orúkọ àmútọ̀runwá given to a child who is born via a breech birth
+1203	adubi	name	"A female oríkì name, meaning ""One we struggled to give birth to"".; A unisex oríkì name., given to children named Ìgè"
+1204	ilọrin	name	Ilorin (a city in Nigeria); A Yoruba subethnic group; A Yoruba dialect spoken by the Ìlọrin people
+1205	oji	noun	a fine paid by a man who has an affair with a married woman
+1206	yẹri	noun	skirt (in particular) one worn under an ìró (“wrapper”); undergarment
+1207	alapata	noun	butcher
+1208	fitila	noun	lamp
+1209	olongo	noun	orange-cheeked waxbill (Estrilda melpoda); red-billed firefinch (Lagonosticta senegala); robin
+1210	orita	noun	The tree Lannea welwitschii
+1211	awoko	noun	The nightingale bird, known in Yoruba proverbs for its beautiful singing
+1212	abata	noun	marshy or swampy area; swamp; mud
+1213	eree	noun	black-eyed pea (cowpea); lima bean; the cowpea plant
+1214	afinihan	noun	betrayer, traitor
+1215	ijaye	name	an Ọ̀yọ́ military and trade town founded by a grandson of Aláàfin Abíọdún, Òrìṣàbíyìí. Most of its inhabitants were of the Ẹ̀gbá-Àgùrá subethnic group. It was destroyed by Ìbàdàn during the Ìjàyè war; the short-lived Ijaiye kingdom founded in the town of Ìjàyè, which fell at the end of the Ìjàyè war.; a district in modern-day city of Abẹ́òkúta; founded by refugees of the original town of Ìjàyè
+1216	ayaba	noun	queen
+1217	rikiṣi	noun	intrigue, conspiracy, plot
+1218	ẹdun	noun	colobus monkey (Colobus vellerosus), known for its deep cultural association with twins
+1219	ule	noun	home, house, household
+1220	isansa	noun	fugitive
+1221	ejika	noun	shoulder
+1222	ladugbo	noun	clay pitcher (terracotta vessel for fetching water)
+1223	oruka	noun	ring
+1224	ibantẹ	noun	loincloth, underwear
+1225	ibale	noun	virginity; hymen; hymeneal blood
+1226	elegede	noun	pumpkin, melon
+1227	aganran	noun	Senegal parrot
+1228	afopina	noun	moth
+1229	edo	noun	wooden pole or stake, especially when erect
+1230	agbalaaye	noun	universe
+1231	waasu	verb	to preach, to give a sermon; to give a speech, to harangue
+1232	tata	noun	grasshopper
+1233	aroko	noun	In traditional Yoruba society, a symbolic message sent as a form of communication between two entities. The purpose of the àrokò was to send a secret message in which only the two entities communicating would understand what the contents of the àrokò meant.; symbol, sign
+1234	g	character	The seventh letter of the Yoruba alphabet, called gí and written in the Latin script.
+1235	yunifasiti	noun	university
+1236	ooya	noun	comb
+1237	ogogoro	noun	highest stage, apex; a very strong traditional gin made from the raffia palm tree
+1238	kaadi	noun	card
+1239	rọbi	verb	to labour; to be in the pains of childbirth
+1240	abikẹ	name	"A female oríkì name, meaning ""One who is born to be cared for""."
+1241	sibi	noun	a traditional dance performed by men, (especially) the Aérégbé festival in honor of several deities such as Ọlụ́a. Men often dress in only skirts while they sing derogatory songs used to meant to criticize authoritative chiefs and evildoers.
+1242	alaaye	name	The title of the traditional monarch of the town of Ẹfọ̀n-Alààyè in Èkìtì State of Nigeria
+1243	eekanna	noun	nail (may refer to nails of either the toe or finger), claw; A term used to identify a diverse variety of plants and trees with typically thorny features.
+1244	irinkerindo	noun	journey, adventure
+1245	parọwa	verb	to entreat; to urge; to request
+1246	ajaṣẹ	name	a name for several towns in Yorubaland. The towns are often suffixed by a unique identifying term as a way of differentiating them.; Porto-Novo (a city in Benin); Àjàṣẹ́ people, a subgroup of the Yoruba people who live in the town of Porto-Novo and who speak the Àjàṣẹ́ dialect of Yoruba
+1247	ominu	noun	reservation, doubt; regret, remorse
+1248	aafin	noun	palace
+1249	akọni	noun	hero, brave person
+1250	ijẹlu	name	"Ijelu-Ekiti (a Yoruba town in Ekiti, Nigeria); known for being closely associated to the deity of Èṣù, including where Èṣù is believed to have ""entered the ground"" (wọlẹ̀)"
+1251	ọbaala	name	A senior chieftaincy title in the royal council of many Eaatern Yoruba kingdoms
+1252	raye	verb	to buy a particular amount of something
+1253	kaaarọ	intj	good morning! (used before noon)
+1254	gedegede	noun	stark; striking
+1255	kọfi	noun	coffee
+1256	sokoto	name	the Sokoto Caliphate; a state of Nigeria in the North West geopolitical zone; capital and largest city: Sokoto
+1257	laini	adv	without having
+1258	pokunso	verb	to commit suicide by hanging
+1259	oyi	noun	gas
+1260	irọlẹ	noun	afternoon, evening (4pm to 7pm)
+1261	eledumare	name	alternative form of Olódùmarè (“the Supreme being in the Yoruba religion”); alternative form of Olódùmarè (“God”)
+1262	ọọ	noun	alternative form of ọwọ́ (“hand”)
+1263	ugba	noun	time, occasion; season
+1264	ulu	noun	alternative form of ìlù (“drum, percussion”)
+1265	fuyẹ	verb	to be light (in weight); to be relieved from a sickness
+1266	fada	noun	A public display or performance, normally performed for a king in his court or palace
+1267	aika	noun	the plant Lecaniodiscus cupanioides
+1268	aniyan	noun	aspiration, anxiety, concern, desire, hope
+1269	afojusun	noun	fixed gaze; target, goal, objective, aim
+1270	awijare	noun	the act of arguing in defence of some position; argument in defence of some position; argumentation
+1271	balaga	verb	to reach the age of puberty; to become sexually mature
+1272	adanida	noun	someone who abandons a person; someone who leaves a person to their fate
+1273	aala	noun	physical boundary; limit, boundary, dichotomy
+1274	ifo	noun	eczema
+1275	nẹ	verb	to have
+1276	aguala	name	Venus; the second planet in the solar system. Symbol: ♀.
+1277	obirikiti	noun	circle, circular object, cycle, sphere
+1278	bode	noun	city gate; a point of entry; entrance
+1279	ojukoju	noun	face-to-face
+1280	alatilẹyin	noun	supporter
+1281	laasigbo	noun	anguish; ordeal; adversity
+1282	panda	noun	counterfeit
+1283	yanpọnyanrin	noun	crisis
+1284	igbekun	noun	captivity, bondage
+1285	iri	noun	dew
+1286	kumọ	noun	club, bludgeon
+1287	ajọsọ	noun	group discussion
+1288	larubawa	noun	Arab person; Arabic language
+1289	idọ	noun	clitoris
+1290	faranse	name	French
+1291	bojuboju	noun	hide and seek
+1292	ipọn	noun	wooden spoon or ladle
+1293	akoto	noun	a type of deep calabash; snail shell; a very active vagina
+1294	origun	name	a high-ranking primordial spirit (imọlẹ̀) of creation in the Yoruba religion mentioned in the Odù Ọ̀sá Ògúndá. It is believed Orígun coordinates gases and dew and creates the stars.
+1295	taye	name	a unisex given name, an orúkọ àmútọ̀runwá given to the first child in a set of twins
+1296	ilakaka	noun	effort, struggle
+1297	orooro	noun	bile, gallbladder
+1298	wee	det	this
+1299	atamatase	noun	a skilled archer; a skilled striker
+1300	baluu	noun	alternative form of bààlúù (“airplane”)
+1301	maria	name	Mary; a female given name from English
+1302	sanma	noun	sky, heavens
+1303	sao	name	a high-ranking warrior chief in several Yoruba towns. The Sàò is usually the highest ranking chief in the warrior class of a kingdom (in Akure, this class is known as Ùkómọ). Sàò is also a chief priest of the deity Ògún.
+1304	gbingbin	noun	soaked; saturated; drenched; soggy
+1305	eroja	noun	ingredients, required items for specific use
+1306	igbaradi	noun	preparation
+1307	aayo	noun	favorite, chosen; A person who is beloved or cherished by someone; (especially) the favorite wife of a man
+1308	aapọn	noun	the fruit of the tree Irvingia gabonensis; A mucilaginous soup similar to ewedu, made from ogbono, the seeds of the ààpọ̀n fruit
+1309	nita	adv	outside; out
+1310	loorekoore	adv	often; periodically; regularly
+1311	lafikun	adv	in addition
+1312	ibọsẹ	noun	sock
+1313	inagijẹ	noun	nickname, alias, a class of Yoruba names normally acquired later in life.
+1314	karakata	noun	subsistence trading; commerce
+1315	iṣura	noun	treasure
+1316	tatapupu	noun	motorcycle
+1317	alarabara	adj	colorful, multicolored
+1318	ayederu	noun	fake entity, forgery; fraud, counterfeit
+1319	pu	verb	to kill; to murder
+1320	segesege	noun	wavering; disorderly; irregular
+1321	amodi	noun	sickness
+1322	ogungun	noun	alternative form of egungun (“bone”)
+1323	atileyin	noun	alternative form of àtílẹ́yìn (“support”)
+1324	etido	noun	riverside
+1325	ria	pron	our, ours, us
+1326	kẹsẹ	noun	spur
+1327	alagbeeka	noun	something that is characterized by being mobile or carried everywhere
+1328	yekeyeke	noun	clear; lucid
+1329	jẹjẹrẹ	noun	weevil, aphid; tuberculosis; In modern usage; cancer, tumor
+1330	kindinrin	noun	kidney
+1331	p	character	The eighteenth letter of the Yoruba alphabet, called pí and written in the Latin script.
+1332	ongbẹ	noun	thirst
+1333	airi	noun	unseen
+1334	iforiti	noun	perseverance
+1335	yinyin	noun	hail; snow
+1336	ibusun	noun	bed
+1337	ikaniyan	noun	census
+1338	pẹlẹbẹ	noun	flat
+1339	igbafẹ	noun	enjoyment
+1340	gbede	verb	to understand a language
+1341	iloro	noun	porch, front of a house
+1342	egbodo	noun	freshly harvested yam
+1343	ọyan	name	Oyan (a river in Nigeria); Oyan (a city in Nigeria)
+1344	nipọn	verb	to be thick
+1345	ẹna	noun	code; Yoruba language game or wordplay
+1346	yangi	noun	gravel, sandstone
+1347	iṣapa	noun	the roselle plants Hibiscus sabdariffa and Hibiscus asper; both the leaves and flowers of these plants are widely used in soups and stews.; any plant in the genus Hibiscus
+1348	kakaki	noun	trumpet; (in particular) the kakaki
+1349	aikaragba	noun	broken calabash
+1350	adamu	name	Adam; a male given name, equivalent to English Adam
+1351	igbio	noun	alternative form of igbiwó
+1352	garawa	noun	A large metal or tin bucket
+1353	leṣii	adv	last year
+1354	adiitu	noun	mystery; secret
+1355	ọni	noun	crocodile, specifically the Nile crocodile.
+1356	kuuṣẹ	intj	well done! (used when greeting someone either while working or after completing work)
+1357	ọsa	name	The tenth principal sign of the Ifa divination system; The tenth of the àpólà or sixteen categories in the odù Ifá, consisting of the tenth principal chapter, (Ọ̀sá méjì) and the other fifteen chapters of Ọ̀sá; The tenth chapter of the Odù Ifá corpus, and one of the major ojú odù
+1358	ideregbe	noun	goat
+1359	okunrun	noun	sickliness, poor health
+1360	parada	verb	to transform, to disguise
+1361	etu	noun	hat, cap
+1362	alawada	noun	comedian
+1363	ojude	noun	porch, plaza, town square
+1364	orunkun	noun	knee
+1365	ekuru	noun	ekuru (a food made from beans)
+1366	tin	verb	to be thin; to be skinny
+1367	oje	noun	lead (chemical element, Pb, atomical number 82); solder, alloy
+1368	opipi	noun	a state of featherlessness
+1369	logbo	noun	alternative form of ológbò (“cat”)
+1370	ajaja	name	"A male oríkì name, meaning ""One who fights and breaks free""."
+1371	juba	verb	to venerate, honor, revere, pay homage
+1372	itadogun	noun	seventeenth day, seventeen days from now
+1373	agbebọ	noun	hen
+1374	nnu	prep	inside
+1375	eeji	num	two (used when counting)
+1376	iyanrin	noun	sand
+1377	onisuuru	noun	patient person
+1378	pitan	verb	to tell a story or historical account
+1379	igbiwo	noun	two-hundred cowries; one halfpenny in colonial usage; in modern usage, half a kobo
+1380	igara	noun	robber
+1381	aguda	name	Afro-Brazilian Yoruba people who were sold into slavery and upon being freed returned to Nigeria, often characterized by the maintaning of Portuguese names; Catholic (many Afro-Brazilian returnees were Catholic); Portuguese people
+1382	akere	noun	A small, swift frog, known for being edible
+1383	akanni	name	"A male oríkì name, meaning ""One who is special to have""."
+1384	arifin	noun	the act of disregarding or showing contempt; disregard, disrespect, contempt, rudeness
+1385	sanra	verb	to be fat, to be overweight; to become fat; to gain weight
+1386	ikorodu	name	one of Lagos State's 20 local government areas
+1387	ẹkẹ	noun	roof frame, rafter
+1388	abiya	noun	armpit; angle
+1389	saari	noun	suhur, a pre-dawn breakfast during the Ramadan fasting
+1390	luku	verb	to be bitter
+1391	adin	noun	oil; usually in reference to palm kernel oil
+1392	salubata	noun	slippers (leather), sandals
+1393	win	verb	to aim at a target with a projectile
+1394	iganna	noun	wall
+1395	abidi	noun	alphabet; letter
+1396	akiti	noun	a species of monkey; perhaps the Chlorocebus tantalus
+1397	ogurọ	noun	any raffia palm tree, including the Raphia vinifera, Raphia farinifera, Raphia hookeri, and Raphia sudanica.; a specific type of palm wine (ẹmu) made from the raffia palm
+1398	aawẹ	noun	religious fast
+1399	ogbogbo	noun	mucus; snot
+1400	ajako	noun	jackal, wild dog
+1401	eewo	noun	boil, blister
+1402	oṣibata	noun	Nymphaea lotus
+1403	saree	noun	grave, burial site
+1404	posi	noun	coffin, casket
+1405	niran	verb	to have a mental or supernatural vision; to remember; to remind someone
+1406	iyùn	noun	coral
+1407	ọmu	noun	breast; breast milk
+1408	aṣamu	name	"A unisex oríkì name, meaning ""The one we specially chose""."
+1409	jiga	noun	chigoe; a small tropical flea
+1410	werepe	noun	a name for several plants of the genus Mucuna that cause severe itching and rashes upon contact, but usually refers to the plants Mucuna pruriens and Mucuna sloanei.
+1411	ajala	name	"A male oríkì name, meaning ""One who fights to survive"". or ""one who fights to lick.""; an orisha identified as a potter who molds the heads (orí) and forms the consciousness and soul of a human being before birth; he works closely with Ọbàtálá"
+1412	ipin	noun	the act of dividing something into parts; portion, division, section; act
+1413	dukia	noun	property, riches
+1414	ibidun	name	a female given name meaning “Birth is sweet”, often a shortening of several longer names (ex. Ìbídùnmóyè)
+1415	ẹgẹ	noun	cassava, manioc
+1416	ilari	noun	royal guard or servant; wooden comb
+1417	gbaawẹ	verb	to fast
+1418	tiro	verb	to limp (walk lamely) on one leg
+1419	dafa	verb	to practice or engage in Ifa divination
+1420	uta	noun	alternative form of ata (“pepper”)
+1421	abọriṣa	noun	An aborisha; a devotee of the orishas.
+1422	guguru	noun	roasted or dry corn; popcorn
+1423	ọmọlangidi	noun	alternative form of ọmọláńgi (“wooden doll”); alternative form of ọmọláńgi (“worthless person”)
+1424	ṣaanu	verb	to have mercy
+1425	ejirẹ	noun	twins; A praise or oríkì name for twins
+1426	esuru	noun	aerial yam (Dioscorea bulbifera)
+1427	ewuju	noun	grasscutter
+1428	ijakumọ	noun	civet cat; (in particular) African civet
+1429	ijalọ	noun	army ant or driver ant, such as those in the genus Dorylus
+1430	enini	noun	early morning dew found on leaves and plants
+1431	oloo	noun	a rich man, a person with money
+1432	timutimu	noun	mattress; pillow, cushion
+1433	iga	noun	a courtyard, particularly one of a palace or royal compound.
+1434	onidiri	noun	hairdresser
+1435	popondo	noun	A type of clay waterpot
+1436	orokun	noun	knee
+1437	ojugba	noun	peer, agemate
+1438	olomele	noun	omele drummer
+1439	onibata	noun	someone who sells bata drums; a bata drum player
+1440	kunle	name	a male given name meaning “(One that) fills the house”, it is a shortened form or nickname for much longer names, ex. Adékúnlé and Ọlákúnlé, see below for more longer names
+1441	ṣago	noun	a large glass bottle; (in particular) a demijohn; alternative form of ságo (“glass or plastic bottle”)
+1442	ṣaki	noun	tripe
+1443	tira	noun	book
+1444	agaga	adv	especially
+1445	sọrọ	verb	to talk; to insult
+1446	warapa	noun	epilepsy
+1447	agadagodo	noun	lock, padlock
+1448	ibadi	noun	hip, waist
+1449	aaro	noun	alternative form of àdìrò (“traditional Yoruba oven or stove and stand”)
+1450	egbin	noun	kob (Kobus kob)
+1451	iti	noun	large log; tree trunk
+1452	barika	intj	congratulations!, congrats!; blessings!, bless you!, used after someone sneezes
+1453	bantẹ	noun	alternative form of ìbàǹtẹ́
+1454	yanyan	noun	Milk shark (Rhizoprionodon acutus)
+1455	atipo	noun	sojourner, settler, foreigner
+1456	ekulu	noun	common duiker
+1457	mumi	verb	to drink water
+1458	ayan	name	The Yoruba orisha of drumming and drums.; The title of a talking drum player
+1459	ẹrin	num	four
+1460	olufẹ	noun	lover, loved one
+1461	danwo	verb	to test someone or oneself; to try to do something; to tempt someone
+1462	ogidigbo	noun	A Yoruba drum belonging to the gbẹ̀du class of drums, it is used to make coded messages or send long-distance messages. It was mainly played in the royal court of the Aláàfin.
+1463	sobiya	noun	Guinea worm disease, dracunculiasis
+1464	tulasi	noun	compulsion, force
+1465	aka	noun	arm, branch
+1466	pana	verb	to extinguish a fire; to turn off the lights
+1467	suya	noun	suya
+1468	obeje	noun	dolphin
+1469	aṣipa	name	A senior traditional chieftaincy title in Ọ̀yọ́, a member of the Ọ̀yọ́mèsì; a male given name, meaning one who leads the way charging
