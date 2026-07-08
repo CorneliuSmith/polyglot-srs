@@ -40,6 +40,83 @@ def estimate_level(per_level: dict[str, tuple[int, int]], *, threshold: float = 
     return best
 
 
+# ── Adaptive placement (WP11) ────────────────────────────────────────────────
+# A deterministic level staircase: probe at a level, step up on a correct
+# answer and down on a miss, and stop as soon as the estimate is stable —
+# most learners finish in 5–8 items instead of a fixed batch.
+
+MAX_ADAPTIVE_ITEMS = 12
+_START_PROBE = 1          # A2 — assumes a little knowledge, falls fast if not
+_STOP_REVERSALS = 4       # direction changes = oscillating around the level
+_STOP_BOUNDARY = 2        # consecutive misses at A1 / passes at C2
+_GRAMMAR_WEIGHT = 0.6     # grammar levels are the better-calibrated signal
+
+
+def adaptive_next(
+    pool: list[dict], history: list[tuple[dict, bool]]
+) -> dict | None:
+    """Pick the next placement item, or None when the estimate is stable.
+
+    *pool* holds sampled items ({id, kind, level}); *history* is the graded
+    answers so far in order ((item, correct)). Pure and deterministic: the
+    same inputs always walk the same staircase, so the endpoint can stay
+    stateless (the client replays its answer history each round).
+    """
+    probe = _START_PROBE
+    reversals = 0
+    last_dir: int | None = None
+    floor_misses = ceiling_passes = 0
+
+    for item, correct in history:
+        direction = 1 if correct else -1
+        if last_dir is not None and direction != last_dir:
+            reversals += 1
+        last_dir = direction
+        if probe == 0 and not correct:
+            floor_misses += 1
+        elif probe == len(CEFR_ORDER) - 1 and correct:
+            ceiling_passes += 1
+        else:
+            floor_misses = ceiling_passes = 0
+        probe = max(0, min(len(CEFR_ORDER) - 1, probe + direction))
+
+    if (
+        len(history) >= MAX_ADAPTIVE_ITEMS
+        or reversals >= _STOP_REVERSALS
+        or floor_misses >= _STOP_BOUNDARY
+        or ceiling_passes >= _STOP_BOUNDARY
+    ):
+        return None
+
+    used = {item["id"] for item, _ in history}
+    unused = [it for it in pool if it["id"] not in used]
+    if not unused:
+        return None
+
+    # Grammar/vocab weighting: keep grammar at ~60% of what's been asked.
+    asked = len(history)
+    grammar_asked = sum(1 for item, _ in history if item["kind"] == "grammar")
+    want = (
+        "grammar"
+        if grammar_asked < _GRAMMAR_WEIGHT * (asked + 1)
+        else "vocabulary"
+    )
+
+    def rank(it: dict) -> tuple:
+        lvl = (
+            CEFR_ORDER.index(it["level"])
+            if it["level"] in CEFR_ORDER else len(CEFR_ORDER)
+        )
+        return (
+            abs(lvl - probe),   # closest to the probe level first
+            lvl,                # tie → easier level
+            it["kind"] != want, # preferred kind first
+            it["id"],           # deterministic tiebreak
+        )
+
+    return min(unused, key=rank)
+
+
 async def get_status(conn: asyncpg.Connection, user_id: str) -> dict:
     """Return the user's onboarding status for routing decisions."""
     row = await conn.fetchrow(

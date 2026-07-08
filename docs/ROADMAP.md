@@ -50,8 +50,9 @@ coach from the learner's actual failure history.
   example translations, the learner's own note sentences, a Related grid
   with contrastive one-liners, and Online/Offline resources with per-user
   read-tracking;
-  browsable grammar path (`/grammar`) with per-point learning; onboarding +
-  mixed placement; personal notes → cloze cards; AI tutor with memory,
+  browsable grammar path (`/grammar`) with per-point learning; onboarding
+  with ADAPTIVE placement (WP11 — level staircase, one item at a time,
+  early stop, 12-item cap); personal notes → cloze cards; AI tutor with memory,
   weak-area grounding (vocab + grammar), entitlements, Stripe billing;
   a full role model — learner / contributor / reviewer / admin, per-language
   or global, admin Roles panel + `scripts/grant_admin.sh` bootstrap, AI-check
@@ -351,9 +352,18 @@ backups; a smoke-test script hitting the golden path against staging.
 **Effort:** M.
 
 ### WP11 — Placement adaptivity
-**Goal:** placement picks the next item based on answers so far (stop early on
-stable estimate), weights grammar vs vocab, and caps at ~12 items. Backend
-`sample_placement_items`/scoring refactor + tests.
+**Status: DONE 2026-07.** Placement is a deterministic level staircase
+(`adaptive_next` in repositories/onboarding.py): probe starts at A2, steps
+up on a correct answer and down on a miss, choice weighted 60% grammar,
+and it stops early once the estimate is stable — 2 consecutive misses at
+the A1 floor (beginners exit in 3 items), 2 consecutive passes at the C2
+ceiling (experts in ~6), 4 direction reversals (boundary oscillators in
+5–8), hard cap 12. Stateless endpoint
+`POST /api/onboarding/placement/{id}/next` re-grades the replayed answer
+history each round (same NLP validator as scoring); the final estimate
+reuses `estimate_level`. Onboarding UI asks one item at a time with a
+Skip button and a progress line; the old batch endpoints remain as
+fallback. 10 unit tests drive the walk end to end.
 **Model:** `claude-sonnet-5`. **Effort:** M.
 
 ### WP12 — Learner UX
