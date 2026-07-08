@@ -6,7 +6,7 @@ All tests mock the repository layer — no DATABASE_URL required.
 from __future__ import annotations
 
 import time
-from datetime import date, timedelta
+from datetime import UTC, datetime, timedelta
 from unittest.mock import AsyncMock, patch
 
 import jwt as pyjwt
@@ -160,14 +160,14 @@ def test_compute_streak_empty():
 def test_compute_streak_today_only():
     from backend.repositories.dashboard import _compute_streak
 
-    today = date.today()
+    today = datetime.now(UTC).date()
     assert _compute_streak({today}) == 1
 
 
 def test_compute_streak_consecutive_days():
     from backend.repositories.dashboard import _compute_streak
 
-    today = date.today()
+    today = datetime.now(UTC).date()
     dates = {today - timedelta(days=i) for i in range(5)}
     assert _compute_streak(dates) == 5
 
@@ -175,7 +175,7 @@ def test_compute_streak_consecutive_days():
 def test_compute_streak_gap_breaks_streak():
     from backend.repositories.dashboard import _compute_streak
 
-    today = date.today()
+    today = datetime.now(UTC).date()
     # today and 2 days ago — gap at yesterday breaks streak
     dates = {today, today - timedelta(days=2)}
     assert _compute_streak(dates) == 1
@@ -184,6 +184,6 @@ def test_compute_streak_gap_breaks_streak():
 def test_compute_streak_yesterday_only():
     from backend.repositories.dashboard import _compute_streak
 
-    yesterday = date.today() - timedelta(days=1)
+    yesterday = datetime.now(UTC).date() - timedelta(days=1)
     # Grace period: if no review today, streak counts from yesterday
     assert _compute_streak({yesterday}) == 1

@@ -4,11 +4,19 @@ import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query'
 import { getLanguages } from '../../api/profile'
 import { createCheckout } from '../../api/billing'
 import { endTutorSession, getTutorStatus, sendTutorMessage } from '../../api/tutor'
-import type { TutorMessage } from '../../api/tutor'
+import type { TutorAllowance, TutorMessage } from '../../api/tutor'
 import { usePrefsStore } from '../../stores/prefsStore'
 
 // Summarize into memory after this long without activity.
 const IDLE_MS = 3 * 60 * 1000
+
+function resetDay(resetsAt: string | null): string {
+  if (!resetsAt) return 'soon'
+  return new Date(resetsAt).toLocaleDateString(undefined, {
+    month: 'long',
+    day: 'numeric',
+  })
+}
 
 export default function TutorPage() {
   const navigate = useNavigate()
@@ -17,6 +25,10 @@ export default function TutorPage() {
   const [messages, setMessages] = useState<TutorMessage[]>([])
   const [input, setInput] = useState('')
   const [sendError, setSendError] = useState<string | null>(null)
+  // The live meter: seeded by /status, updated from each reply, zeroed by a
+  // structured 402 — always the freshest number the server has given us.
+  const [liveAllowance, setLiveAllowance] = useState<TutorAllowance | null>(null)
+  const allowanceRef = useRef<TutorAllowance | null>(null)
   const bottomRef = useRef<HTMLDivElement>(null)
 
   // Refs so the session-end flush reads live values without re-subscribing.
@@ -67,12 +79,23 @@ export default function TutorPage() {
   const sendMutation = useMutation({
     mutationFn: (history: TutorMessage[]) =>
       sendTutorMessage(activeLanguageId!, language!.code, history),
-    onSuccess: (reply) => {
+    onSuccess: ({ reply, allowance: fresh }) => {
       setMessages((prev) => [...prev, { role: 'assistant', content: reply }])
       setSendError(null)
+      if (fresh) setLiveAllowance(fresh)
     },
-    onError: () => {
-      setSendError('The tutor could not respond. Check your connection and try again.')
+    onError: (err) => {
+      const detail = (err as {
+        response?: { status?: number; data?: { detail?: { code?: string } } }
+      })?.response
+      if (detail?.status === 402 && detail.data?.detail?.code === 'allowance_exhausted') {
+        // Zero the meter — the exhausted panel takes over the input area.
+        const base = allowanceRef.current
+        if (base) setLiveAllowance({ ...base, remaining: 0, used: base.limit })
+        setSendError(null)
+      } else {
+        setSendError('The tutor could not respond. Check your connection and try again.')
+      }
     },
   })
 
@@ -135,38 +158,13 @@ export default function TutorPage() {
     )
   }
 
-  if (!status.entitled) {
-    return (
-      <div className="min-h-screen bg-gray-50 flex items-center justify-center px-4">
-        <div className="text-center space-y-4 max-w-md">
-          <h1 className="text-2xl font-bold text-gray-900">AI Tutor</h1>
-          <p className="text-gray-600">
-            The {language.name} tutor is a paid add-on. It coaches you on the
-            exact words you keep missing in reviews — subscribe to unlock it.
-          </p>
-          <button
-            type="button"
-            onClick={() => subscribeMutation.mutate()}
-            disabled={subscribeMutation.isPending}
-            className="bg-indigo-600 hover:bg-indigo-700 disabled:opacity-50 text-white font-semibold rounded-xl px-6 py-3 text-sm"
-            style={{ minHeight: '44px' }}
-          >
-            {subscribeMutation.isPending ? 'Starting…' : `Subscribe to the ${language.name} tutor`}
-          </button>
-          {subscribeMutation.isError && (
-            <p className="text-sm text-red-500">Couldn’t start checkout — try again.</p>
-          )}
-          <button
-            type="button"
-            onClick={() => navigate('/')}
-            className="block mx-auto text-indigo-600 hover:underline text-sm"
-          >
-            Back to Dashboard
-          </button>
-        </div>
-      </div>
-    )
-  }
+  // The freshest meter we have: live (from replies/402s) beats the status
+  // snapshot. `allowance` is null only in operator free-access mode… which
+  // the API reports as unlimited, so a missing meter also means unlimited.
+  const allowance = liveAllowance ?? status.allowance
+  allowanceRef.current = allowance
+  const exhausted =
+    !!allowance && !allowance.unlimited && (allowance.remaining ?? 0) <= 0
 
   return (
     <div className="min-h-screen bg-gray-50 flex flex-col">
@@ -189,6 +187,32 @@ export default function TutorPage() {
             End session
           </button>
         </div>
+
+        {/* Allowance meter — flat pricing, so the cap is always visible */}
+        {allowance && !allowance.unlimited && !exhausted && (
+          <p className="text-xs text-gray-400 mb-3" data-testid="tutor-allowance">
+            {allowance.tier === 'free' ? (
+              <>
+                {allowance.remaining} of {allowance.limit} free messages left this
+                month.{' '}
+                <button
+                  type="button"
+                  onClick={() => subscribeMutation.mutate()}
+                  className="text-indigo-500 hover:underline"
+                >
+                  Plus
+                </button>{' '}
+                is a flat price — never per message — with a daily fair-use cap
+                instead.
+              </>
+            ) : (
+              <>
+                Plus · {allowance.remaining} of {allowance.limit} messages left
+                today (fair use — resets daily, your price never changes).
+              </>
+            )}
+          </p>
+        )}
 
         {/* Messages */}
         <div
@@ -232,30 +256,73 @@ export default function TutorPage() {
           </div>
         )}
 
-        {/* Input */}
-        <div className="flex gap-2">
-          <input
-            type="text"
-            value={input}
-            onChange={(e) => setInput(e.target.value)}
-            onKeyDown={(e) => {
-              if (e.key === 'Enter') handleSend()
-            }}
-            placeholder="Message your tutor…"
-            dir={language.rtl ? 'auto' : 'ltr'}
-            className="flex-1 rounded-xl border border-gray-300 px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 bg-white"
-            style={{ minHeight: '44px' }}
-          />
-          <button
-            type="button"
-            onClick={handleSend}
-            disabled={!input.trim() || sendMutation.isPending}
-            className="bg-indigo-600 hover:bg-indigo-700 disabled:opacity-50 text-white font-semibold rounded-xl px-5 text-sm transition-colors"
-            style={{ minHeight: '44px' }}
+        {/* Input — or the exhausted panel when the allowance is spent */}
+        {exhausted && allowance ? (
+          <div
+            className="bg-white border border-gray-200 rounded-2xl p-4 text-sm text-gray-700 space-y-2"
+            data-testid="tutor-exhausted"
           >
-            Send
-          </button>
-        </div>
+            {allowance.tier === 'free' ? (
+              <>
+                <p>
+                  You’ve used this month’s {allowance.limit} free tutor
+                  messages — they come back on {resetDay(allowance.resets_at)}.
+                </p>
+                <p className="text-gray-500">
+                  Plus is a <strong>flat price</strong>: you’re never charged
+                  per message. It swaps the monthly trial for a generous daily
+                  fair-use cap that resets every day.
+                </p>
+                <button
+                  type="button"
+                  onClick={() => subscribeMutation.mutate()}
+                  disabled={subscribeMutation.isPending}
+                  className="bg-indigo-600 hover:bg-indigo-700 disabled:opacity-50 text-white font-semibold rounded-xl px-5 py-2.5 text-sm"
+                  style={{ minHeight: '44px' }}
+                >
+                  {subscribeMutation.isPending
+                    ? 'Starting…'
+                    : `Get Plus for ${language.name}`}
+                </button>
+                {subscribeMutation.isError && (
+                  <p className="text-xs text-red-500">
+                    Couldn’t start checkout — try again.
+                  </p>
+                )}
+              </>
+            ) : (
+              <p>
+                You’ve reached today’s fair-use cap of {allowance.limit}{' '}
+                messages. It resets tomorrow — nothing extra to pay, your
+                price never changes with usage.
+              </p>
+            )}
+          </div>
+        ) : (
+          <div className="flex gap-2">
+            <input
+              type="text"
+              value={input}
+              onChange={(e) => setInput(e.target.value)}
+              onKeyDown={(e) => {
+                if (e.key === 'Enter') handleSend()
+              }}
+              placeholder="Message your tutor…"
+              dir={language.rtl ? 'auto' : 'ltr'}
+              className="flex-1 rounded-xl border border-gray-300 px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 bg-white"
+              style={{ minHeight: '44px' }}
+            />
+            <button
+              type="button"
+              onClick={handleSend}
+              disabled={!input.trim() || sendMutation.isPending}
+              className="bg-indigo-600 hover:bg-indigo-700 disabled:opacity-50 text-white font-semibold rounded-xl px-5 text-sm transition-colors"
+              style={{ minHeight: '44px' }}
+            >
+              Send
+            </button>
+          </div>
+        )}
       </div>
     </div>
   )

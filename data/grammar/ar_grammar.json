@@ -1,0 +1,990 @@
+{
+  "lists": [
+    {
+      "level": "A1",
+      "title": "Arabic A1 Grammar Path",
+      "description": "A1 Modern Standard Arabic in communicative order: pronouns, verbless nominal sentences, the definite article with sun and moon letters, gender and ة, demonstratives, adjective agreement, the root-and-pattern system, iḍāfa possession, attached pronouns, the present tense, negation, and questions."
+    }
+  ],
+  "points": [
+    {
+      "title": "Personal pronouns (أنا، أنتَ، هو…)",
+      "level": "A1",
+      "function": "Say who you are talking about",
+      "source": "contributor",
+      "reviewed": true,
+      "display_order": 1,
+      "explanation": "أنا (I), أنت (you — masculine anta, feminine anti), هو (he), هي (she), نحن (we), هم (they). Arabic distinguishes masculine and feminine 'you' by the final vowel — same letters, different sound.",
+      "culture_note": "",
+      "references": [
+        {
+          "title": "Wikipedia: Arabic grammar — pronouns",
+          "url": "https://en.wikipedia.org/wiki/Arabic_grammar"
+        },
+        {
+          "title": "Wiktionary: أنا (Arabic)",
+          "url": "https://en.wiktionary.org/wiki/%D8%A3%D9%86%D8%A7#Arabic"
+        }
+      ],
+      "drills": [
+        {
+          "sentence": "{{answer}} طالب.",
+          "answer": "أنا",
+          "translation": "I am a student.",
+          "hint": "I",
+          "display_order": 1,
+          "transliteration": "___ ṭālib",
+          "cell": "أنا"
+        },
+        {
+          "sentence": "{{answer}} معلمة.",
+          "answer": "هي",
+          "translation": "She is a teacher.",
+          "hint": "she",
+          "display_order": 2,
+          "transliteration": "___ muʿallima",
+          "cell": "هي"
+        },
+        {
+          "sentence": "{{answer}} من مصر.",
+          "answer": "هو",
+          "translation": "He is from Egypt.",
+          "hint": "he",
+          "display_order": 3,
+          "transliteration": "___ min Miṣr",
+          "cell": "هو"
+        },
+        {
+          "sentence": "{{answer}} طلاب.",
+          "answer": "نحن",
+          "translation": "We are students.",
+          "hint": "we",
+          "display_order": 4,
+          "transliteration": "___ ṭullāb",
+          "cell": "نحن"
+        },
+        {
+          "sentence": "هل {{answer}} جوعان؟",
+          "answer": "أنت",
+          "translation": "Are you hungry?",
+          "hint": "you",
+          "display_order": 5,
+          "transliteration": "hal ___ jawʿān",
+          "cell": "أنتَ"
+        },
+        {
+          "sentence": "{{answer}} أصدقاء.",
+          "answer": "هم",
+          "translation": "They are friends.",
+          "hint": "they",
+          "display_order": 6,
+          "transliteration": "___ aṣdiqāʾ",
+          "cell": "هم"
+        },
+        {
+          "sentence": "{{answer}} طبيبة.",
+          "answer": "أنتِ",
+          "translation": "You (f.) are a doctor.",
+          "transliteration": "___ ṭabība.",
+          "hint": "you — feminine",
+          "cell": "أنتِ",
+          "display_order": 7
+        },
+        {
+          "sentence": "{{answer}} أصدقائي.",
+          "answer": "أنتم",
+          "translation": "You (all) are my friends.",
+          "transliteration": "___ aṣdiqāʾī.",
+          "hint": "you — plural",
+          "cell": "أنتم",
+          "display_order": 8
+        }
+      ],
+      "paradigm": [
+        "أنا",
+        "أنتَ",
+        "أنتِ",
+        "هو",
+        "هي",
+        "نحن",
+        "أنتم",
+        "هم"
+      ]
+    },
+    {
+      "title": "Nominal sentences — no 'to be'",
+      "level": "A1",
+      "function": "Describe and identify without a verb",
+      "source": "contributor",
+      "reviewed": true,
+      "display_order": 2,
+      "explanation": "Arabic drops 'to be' in the present: البيت كبير (the house [is] big), أنا سعيد (I [am] happy). Subject + predicate, nothing in between — a complete, correct sentence.",
+      "culture_note": "",
+      "references": [
+        {
+          "title": "Wikipedia: Arabic grammar — nominal sentences",
+          "url": "https://en.wikipedia.org/wiki/Arabic_grammar"
+        },
+        {
+          "title": "Wikipedia: Zero copula",
+          "url": "https://en.wikipedia.org/wiki/Zero_copula"
+        }
+      ],
+      "drills": [
+        {
+          "sentence": "الطالب {{answer}}.",
+          "answer": "مجتهد",
+          "translation": "The student is hardworking.",
+          "hint": "hardworking — no 'is' needed",
+          "display_order": 1,
+          "transliteration": "aṭ-ṭālib ___"
+        },
+        {
+          "sentence": "البيت {{answer}}.",
+          "answer": "كبير",
+          "translation": "The house is big.",
+          "hint": "big",
+          "display_order": 2,
+          "transliteration": "al-bayt ___"
+        },
+        {
+          "sentence": "القهوة {{answer}}.",
+          "answer": "ساخنة",
+          "translation": "The coffee is hot.",
+          "hint": "hot — feminine form",
+          "display_order": 3,
+          "transliteration": "al-qahwa ___"
+        },
+        {
+          "sentence": "أنا {{answer}}.",
+          "answer": "سعيد",
+          "translation": "I am happy.",
+          "hint": "happy",
+          "display_order": 4,
+          "transliteration": "ana ___"
+        },
+        {
+          "sentence": "الكتاب {{answer}}.",
+          "answer": "جديد",
+          "translation": "The book is new.",
+          "hint": "new",
+          "display_order": 5,
+          "transliteration": "al-kitāb ___"
+        },
+        {
+          "sentence": "الطقس {{answer}} اليوم.",
+          "answer": "جميل",
+          "translation": "The weather is beautiful today.",
+          "hint": "beautiful",
+          "display_order": 6,
+          "transliteration": "aṭ-ṭaqs ___ al-yawm"
+        }
+      ]
+    },
+    {
+      "title": "The definite article ال — sun and moon letters",
+      "level": "A1",
+      "function": "Point to a specific thing",
+      "source": "contributor",
+      "reviewed": true,
+      "display_order": 3,
+      "explanation": "ال attaches to the noun: بيت (a house) → البيت (the house). Before 'sun letters' (ت، د، س، ش، ص، ن…) the ل assimilates in speech: الشارع sounds ash-shāriʿ, not al-shāriʿ. Before 'moon letters' (ب، ك، م، ق…) the ل is pronounced: القمر = al-qamar. Writing never changes — only the sound.",
+      "culture_note": "The names come from الشمس (the sun — assimilating) and القمر (the moon — not). The alphabet splits exactly in half: 14 sun, 14 moon.",
+      "references": [
+        {
+          "title": "Wikipedia: Sun and moon letters",
+          "url": "https://en.wikipedia.org/wiki/Sun_and_moon_letters"
+        },
+        {
+          "title": "Wikipedia: Arabic definite article",
+          "url": "https://en.wikipedia.org/wiki/Arabic_definite_article"
+        }
+      ],
+      "drills": [
+        {
+          "sentence": "{{answer}} كبير.",
+          "answer": "البيت",
+          "translation": "The house is big.",
+          "hint": "house + the article (moon letter: al-bayt)",
+          "display_order": 1,
+          "transliteration": "___ kabīr",
+          "cell": "moon"
+        },
+        {
+          "sentence": "{{answer}} ساخنة.",
+          "answer": "القهوة",
+          "translation": "The coffee is hot.",
+          "hint": "coffee + the article (moon letter)",
+          "display_order": 2,
+          "transliteration": "___ sākhina",
+          "cell": "moon"
+        },
+        {
+          "sentence": "{{answer}} جديد.",
+          "answer": "الكتاب",
+          "translation": "The book is new.",
+          "hint": "book + the article (moon letter)",
+          "display_order": 3,
+          "transliteration": "___ jadīd",
+          "cell": "moon"
+        },
+        {
+          "sentence": "{{answer}} جميلة.",
+          "answer": "المدينة",
+          "translation": "The city is beautiful.",
+          "hint": "city + the article (moon letter)",
+          "display_order": 4,
+          "transliteration": "___ jamīla",
+          "cell": "moon"
+        },
+        {
+          "sentence": "{{answer}} طويل.",
+          "answer": "الشارع",
+          "translation": "The street is long.",
+          "hint": "street + the article (sun letter: ash-shāriʿ)",
+          "display_order": 5,
+          "transliteration": "___ ṭawīl",
+          "cell": "sun"
+        },
+        {
+          "sentence": "{{answer}} مفتوح.",
+          "answer": "الباب",
+          "translation": "The door is open.",
+          "hint": "door + the article (moon letter)",
+          "display_order": 6,
+          "transliteration": "___ maftūḥ",
+          "cell": "moon"
+        },
+        {
+          "sentence": "{{answer}} حارة اليوم.",
+          "answer": "الشمس",
+          "translation": "The sun is hot today.",
+          "transliteration": "___ ḥārra al-yawm.",
+          "hint": "sun + ال (the L assimilates — sun letter)",
+          "cell": "sun",
+          "display_order": 7
+        }
+      ],
+      "paradigm": [
+        "sun",
+        "moon"
+      ]
+    },
+    {
+      "title": "Gender and ة (tāʾ marbūṭa)",
+      "level": "A1",
+      "function": "Name people by who they are",
+      "source": "contributor",
+      "reviewed": true,
+      "display_order": 4,
+      "explanation": "Nouns are masculine or feminine; the letter ة at the end usually marks feminine: معلم (male teacher) → معلمة (female teacher), طالب → طالبة. Most profession and role words come in this pair.",
+      "culture_note": "",
+      "references": [
+        {
+          "title": "Wikipedia: Tāʾ marbūṭa",
+          "url": "https://en.wikipedia.org/wiki/Taa_marbuta"
+        },
+        {
+          "title": "Wikipedia: Arabic grammar — gender",
+          "url": "https://en.wikipedia.org/wiki/Arabic_grammar"
+        }
+      ],
+      "drills": [
+        {
+          "sentence": "هي {{answer}}.",
+          "answer": "معلمة",
+          "translation": "She is a teacher.",
+          "hint": "teacher — feminine ة",
+          "display_order": 1,
+          "transliteration": "hiya ___",
+          "cell": "feminine"
+        },
+        {
+          "sentence": "هو {{answer}}.",
+          "answer": "معلم",
+          "translation": "He is a teacher.",
+          "hint": "teacher — masculine",
+          "display_order": 2,
+          "transliteration": "huwa ___",
+          "cell": "masculine"
+        },
+        {
+          "sentence": "مريم {{answer}}.",
+          "answer": "طالبة",
+          "translation": "Maryam is a student.",
+          "hint": "student — feminine ة",
+          "display_order": 3,
+          "transliteration": "Maryam ___",
+          "cell": "feminine"
+        },
+        {
+          "sentence": "أحمد {{answer}}.",
+          "answer": "طالب",
+          "translation": "Ahmed is a student.",
+          "hint": "student — masculine",
+          "display_order": 4,
+          "transliteration": "Aḥmad ___",
+          "cell": "masculine"
+        },
+        {
+          "sentence": "أمي {{answer}}.",
+          "answer": "طبيبة",
+          "translation": "My mother is a doctor.",
+          "hint": "doctor — feminine ة",
+          "display_order": 5,
+          "transliteration": "ummī ___",
+          "cell": "feminine"
+        },
+        {
+          "sentence": "أختي {{answer}}.",
+          "answer": "مهندسة",
+          "translation": "My sister is an engineer.",
+          "hint": "engineer — feminine ة",
+          "display_order": 6,
+          "transliteration": "ukhtī ___",
+          "cell": "feminine"
+        }
+      ],
+      "paradigm": [
+        "masculine",
+        "feminine"
+      ]
+    },
+    {
+      "title": "Demonstratives (هذا / هذه)",
+      "level": "A1",
+      "function": "Introduce and point at things",
+      "source": "contributor",
+      "reviewed": true,
+      "display_order": 5,
+      "explanation": "هذا (this — masculine), هذه (this — feminine, and for the ة words). With an indefinite noun it makes a sentence: هذا كتاب (this is a book); with a definite noun it points: هذا الكتاب (this book…).",
+      "culture_note": "",
+      "references": [
+        {
+          "title": "Wikipedia: Arabic grammar — demonstratives",
+          "url": "https://en.wikipedia.org/wiki/Arabic_grammar"
+        },
+        {
+          "title": "Wiktionary: هذا (Arabic)",
+          "url": "https://en.wiktionary.org/wiki/%D9%87%D8%B0%D8%A7#Arabic"
+        }
+      ],
+      "drills": [
+        {
+          "sentence": "{{answer}} كتاب.",
+          "answer": "هذا",
+          "translation": "This is a book.",
+          "hint": "this — masculine",
+          "display_order": 1,
+          "transliteration": "___ kitāb",
+          "cell": "هذا"
+        },
+        {
+          "sentence": "{{answer}} سيارة.",
+          "answer": "هذه",
+          "translation": "This is a car.",
+          "hint": "this — feminine",
+          "display_order": 2,
+          "transliteration": "___ sayyāra",
+          "cell": "هذه"
+        },
+        {
+          "sentence": "{{answer}} بيت كبير.",
+          "answer": "هذا",
+          "translation": "This is a big house.",
+          "hint": "this — masculine",
+          "display_order": 3,
+          "transliteration": "___ bayt kabīr",
+          "cell": "هذا"
+        },
+        {
+          "sentence": "{{answer}} مدينة جميلة.",
+          "answer": "هذه",
+          "translation": "This is a beautiful city.",
+          "hint": "this — feminine",
+          "display_order": 4,
+          "transliteration": "___ madīna jamīla",
+          "cell": "هذه"
+        },
+        {
+          "sentence": "{{answer}} شاي.",
+          "answer": "هذا",
+          "translation": "This is tea.",
+          "hint": "this — masculine",
+          "display_order": 5,
+          "transliteration": "___ shāy",
+          "cell": "هذا"
+        },
+        {
+          "sentence": "{{answer}} شجرة.",
+          "answer": "هذه",
+          "translation": "This is a tree.",
+          "hint": "this — feminine",
+          "display_order": 6,
+          "transliteration": "___ shajara",
+          "cell": "هذه"
+        }
+      ],
+      "paradigm": [
+        "هذا",
+        "هذه"
+      ]
+    },
+    {
+      "title": "Adjective agreement",
+      "level": "A1",
+      "function": "Describe things correctly",
+      "source": "contributor",
+      "reviewed": true,
+      "display_order": 6,
+      "explanation": "The adjective FOLLOWS the noun and copies it in gender AND definiteness: بيت كبير (a big house), البيت الكبير (the big house), سيارة جديدة (a new car — feminine ة on both). Two words, matching uniforms.",
+      "culture_note": "",
+      "references": [
+        {
+          "title": "Wikipedia: Arabic grammar — adjectives",
+          "url": "https://en.wikipedia.org/wiki/Arabic_grammar"
+        },
+        {
+          "title": "Wikipedia: Arabic definite article",
+          "url": "https://en.wikipedia.org/wiki/Arabic_definite_article"
+        }
+      ],
+      "drills": [
+        {
+          "sentence": "البيت {{answer}} قريب.",
+          "answer": "الكبير",
+          "translation": "The big house is nearby.",
+          "hint": "big — definite, matching the noun",
+          "display_order": 1,
+          "transliteration": "al-bayt ___ qarīb"
+        },
+        {
+          "sentence": "عندي سيارة {{answer}}.",
+          "answer": "جديدة",
+          "translation": "I have a new car.",
+          "hint": "new — feminine indefinite",
+          "display_order": 2,
+          "transliteration": "ʿindī sayyāra ___"
+        },
+        {
+          "sentence": "المدينة {{answer}} بعيدة.",
+          "answer": "الجميلة",
+          "translation": "The beautiful city is far away.",
+          "hint": "beautiful — definite feminine",
+          "display_order": 3,
+          "transliteration": "al-madīna ___ baʿīda"
+        },
+        {
+          "sentence": "أقرأ كتاباً {{answer}}.",
+          "answer": "جديداً",
+          "translation": "I am reading a new book.",
+          "hint": "new — masculine indefinite (object form)",
+          "display_order": 4,
+          "transliteration": "aqraʾu kitāban ___"
+        },
+        {
+          "sentence": "القهوة {{answer}} لذيذة.",
+          "answer": "الساخنة",
+          "translation": "The hot coffee is delicious.",
+          "hint": "hot — definite feminine",
+          "display_order": 5,
+          "transliteration": "al-qahwa ___ ladhīdha"
+        },
+        {
+          "sentence": "هو رجل {{answer}}.",
+          "answer": "طويل",
+          "translation": "He is a tall man.",
+          "hint": "tall — masculine indefinite",
+          "display_order": 6,
+          "transliteration": "huwa rajul ___"
+        }
+      ]
+    },
+    {
+      "title": "Roots and patterns (ك ت ب)",
+      "level": "A1",
+      "function": "See how Arabic words are built",
+      "source": "contributor",
+      "reviewed": true,
+      "display_order": 7,
+      "explanation": "Most Arabic words grow from a three-consonant root poured into patterns. From ك-ت-ب (writing): كتاب (book), كاتب (writer — the 'doer' pattern), مكتب (office/desk — the 'place' pattern), مكتبة (library). Learn to spot the root and unknown words start explaining themselves.",
+      "culture_note": "Arabic dictionaries are organized by root, not by spelling — to look up مكتبة you go to ك-ت-ب.",
+      "references": [
+        {
+          "title": "Wikipedia: Semitic root",
+          "url": "https://en.wikipedia.org/wiki/Semitic_root"
+        },
+        {
+          "title": "Wikipedia: Arabic grammar — derivation",
+          "url": "https://en.wikipedia.org/wiki/Arabic_grammar"
+        }
+      ],
+      "drills": [
+        {
+          "sentence": "هذا {{answer}}.",
+          "answer": "كتاب",
+          "translation": "This is a book.",
+          "hint": "the thing you read — root k-t-b",
+          "display_order": 1,
+          "transliteration": "hādhā ___"
+        },
+        {
+          "sentence": "هو {{answer}}.",
+          "answer": "كاتب",
+          "translation": "He is a writer.",
+          "hint": "the doer pattern of k-t-b",
+          "display_order": 2,
+          "transliteration": "huwa ___"
+        },
+        {
+          "sentence": "{{answer}} قريب من البيت.",
+          "answer": "المكتب",
+          "translation": "The office is near the house.",
+          "hint": "the place pattern of k-t-b + the article",
+          "display_order": 3,
+          "transliteration": "___ qarīb man al-bayt"
+        },
+        {
+          "sentence": "{{answer}} مفتوحة اليوم.",
+          "answer": "المكتبة",
+          "translation": "The library is open today.",
+          "hint": "the book-place — feminine ة + the article",
+          "display_order": 4,
+          "transliteration": "___ maftūḥa al-yawm"
+        },
+        {
+          "sentence": "هي {{answer}}.",
+          "answer": "كاتبة",
+          "translation": "She is a writer.",
+          "hint": "the doer pattern, feminine ة",
+          "display_order": 5,
+          "transliteration": "hiya ___"
+        },
+        {
+          "sentence": "هذا {{answer}} جميل.",
+          "answer": "مكتب",
+          "translation": "This is a beautiful office.",
+          "hint": "the place pattern of k-t-b",
+          "display_order": 6,
+          "transliteration": "hādhā ___ jamīl"
+        }
+      ]
+    },
+    {
+      "title": "Iḍāfa — possession by pairing",
+      "level": "A1",
+      "function": "Say whose or of what something is",
+      "source": "contributor",
+      "reviewed": true,
+      "display_order": 8,
+      "explanation": "Two nouns side by side make 'the X of Y': كتاب الطالب (the student's book), باب البيت (the door of the house). The FIRST noun never takes ال — definiteness comes from the second. No word for 'of' at all.",
+      "culture_note": "",
+      "references": [
+        {
+          "title": "Wikipedia: Iḍāfa",
+          "url": "https://en.wikipedia.org/wiki/I%E1%B8%8D%C4%81fah"
+        },
+        {
+          "title": "Wikipedia: Arabic grammar",
+          "url": "https://en.wikipedia.org/wiki/Arabic_grammar"
+        }
+      ],
+      "drills": [
+        {
+          "sentence": "هذا كتاب {{answer}}.",
+          "answer": "الطالب",
+          "translation": "This is the student's book.",
+          "hint": "student + the article — the owner comes second",
+          "display_order": 1,
+          "transliteration": "hādhā kitāb ___"
+        },
+        {
+          "sentence": "باب {{answer}} مفتوح.",
+          "answer": "البيت",
+          "translation": "The door of the house is open.",
+          "hint": "house + the article",
+          "display_order": 2,
+          "transliteration": "bāb ___ maftūḥ"
+        },
+        {
+          "sentence": "سيارة {{answer}} جديدة.",
+          "answer": "المعلم",
+          "translation": "The teacher's car is new.",
+          "hint": "teacher + the article",
+          "display_order": 3,
+          "transliteration": "sayyāra ___ jadīda"
+        },
+        {
+          "sentence": "اسم {{answer}} أحمد.",
+          "answer": "الولد",
+          "translation": "The boy's name is Ahmed.",
+          "hint": "boy + the article",
+          "display_order": 4,
+          "transliteration": "ism ___ Aḥmad"
+        },
+        {
+          "sentence": "مفتاح {{answer}} هنا.",
+          "answer": "السيارة",
+          "translation": "The car key is here.",
+          "hint": "car + the article",
+          "display_order": 5,
+          "transliteration": "miftāḥ ___ hunā"
+        },
+        {
+          "sentence": "بيت {{answer}} كبير.",
+          "answer": "العائلة",
+          "translation": "The family's house is big.",
+          "hint": "family + the article",
+          "display_order": 6,
+          "transliteration": "bayt ___ kabīr"
+        }
+      ]
+    },
+    {
+      "title": "Attached pronouns (كتابي، كتابك…)",
+      "level": "A1",
+      "function": "Say my, your, his — in one word",
+      "source": "contributor",
+      "reviewed": true,
+      "display_order": 9,
+      "explanation": "Possessives attach to the noun: كتابي (my book), كتابك (your book), كتابه (his), كتابها (her). Feminine ة opens into ت before the suffix: سيارة → سيارتي (my car). The pattern is iḍāfa again — with a pronoun as the owner.",
+      "culture_note": "",
+      "references": [
+        {
+          "title": "Wikipedia: Arabic grammar — enclitic pronouns",
+          "url": "https://en.wikipedia.org/wiki/Arabic_grammar"
+        },
+        {
+          "title": "Wiktionary: ـي (Arabic)",
+          "url": "https://en.wiktionary.org/wiki/%D9%80%D9%8A#Arabic"
+        }
+      ],
+      "drills": [
+        {
+          "sentence": "هذا {{answer}}.",
+          "answer": "كتابي",
+          "translation": "This is my book.",
+          "hint": "book + my",
+          "display_order": 1,
+          "transliteration": "hādhā ___",
+          "cell": "ي"
+        },
+        {
+          "sentence": "أين {{answer}}؟",
+          "answer": "سيارتك",
+          "translation": "Where is your car?",
+          "hint": "car + your (ة becomes ت)",
+          "display_order": 2,
+          "transliteration": "ayna ___",
+          "cell": "كَ"
+        },
+        {
+          "sentence": "{{answer}} كبير جداً.",
+          "answer": "بيته",
+          "translation": "His house is very big.",
+          "hint": "house + his",
+          "display_order": 3,
+          "transliteration": "___ kabīr jiddan",
+          "cell": "ه"
+        },
+        {
+          "sentence": "هذه {{answer}}.",
+          "answer": "مدرستي",
+          "translation": "This is my school.",
+          "hint": "school + my (ة becomes ت)",
+          "display_order": 4,
+          "transliteration": "hādhihi ___",
+          "cell": "ي"
+        },
+        {
+          "sentence": "{{answer}} في مصر.",
+          "answer": "عائلتي",
+          "translation": "My family is in Egypt.",
+          "hint": "family + my (ة becomes ت)",
+          "display_order": 5,
+          "transliteration": "___ fī Miṣr",
+          "cell": "ي"
+        },
+        {
+          "sentence": "اسم {{answer}} فاطمة.",
+          "answer": "أمي",
+          "translation": "My mother's name is Fatima.",
+          "hint": "mother + my",
+          "display_order": 6,
+          "transliteration": "ism ___ Fāṭima",
+          "cell": "ي"
+        },
+        {
+          "sentence": "{{answer}} جديدة.",
+          "answer": "سيارتها",
+          "translation": "Her car is new.",
+          "transliteration": "___ jadīda.",
+          "hint": "car + her",
+          "cell": "ها",
+          "display_order": 7
+        },
+        {
+          "sentence": "{{answer}} كبير.",
+          "answer": "بيتنا",
+          "translation": "Our house is big.",
+          "transliteration": "___ kabīr.",
+          "hint": "house + our",
+          "cell": "نا",
+          "display_order": 8
+        }
+      ],
+      "paradigm": [
+        "ي",
+        "كَ",
+        "ه",
+        "ها",
+        "نا"
+      ]
+    },
+    {
+      "title": "Present tense (أدرس، يعمل…)",
+      "level": "A1",
+      "function": "Talk about what people do",
+      "source": "contributor",
+      "reviewed": true,
+      "display_order": 10,
+      "explanation": "The present conjugates with prefixes: أ (I) — أدرس (I study), ت (you/she) — تدرس, ي (he) — يدرس, ن (we) — ندرس. 'They' adds an ending too: يدرسون. Prefix first, root inside.",
+      "culture_note": "",
+      "references": [
+        {
+          "title": "Wikipedia: Arabic verbs — present",
+          "url": "https://en.wikipedia.org/wiki/Arabic_verbs"
+        },
+        {
+          "title": "Wiktionary: درس (Arabic)",
+          "url": "https://en.wiktionary.org/wiki/%D8%AF%D8%B1%D8%B3#Arabic"
+        }
+      ],
+      "drills": [
+        {
+          "sentence": "أنا {{answer}} العربية.",
+          "answer": "أدرس",
+          "translation": "I study Arabic.",
+          "hint": "to study — the 'I' prefix",
+          "display_order": 1,
+          "transliteration": "ana ___ al-ʿarabiyya",
+          "cell": "أنا"
+        },
+        {
+          "sentence": "هو {{answer}} في بنك.",
+          "answer": "يعمل",
+          "translation": "He works in a bank.",
+          "hint": "to work — the 'he' prefix",
+          "display_order": 2,
+          "transliteration": "huwa ___ fī bank",
+          "cell": "هو"
+        },
+        {
+          "sentence": "هي {{answer}} القهوة.",
+          "answer": "تشرب",
+          "translation": "She drinks coffee.",
+          "hint": "to drink — the 'she' prefix",
+          "display_order": 3,
+          "transliteration": "hiya ___ al-qahwa",
+          "cell": "هي"
+        },
+        {
+          "sentence": "نحن {{answer}} الكتب.",
+          "answer": "نقرأ",
+          "translation": "We read books.",
+          "hint": "to read — the 'we' prefix",
+          "display_order": 4,
+          "transliteration": "naḥnu ___ al-kutub",
+          "cell": "نحن"
+        },
+        {
+          "sentence": "{{answer}} إلى المدرسة كل يوم.",
+          "answer": "أذهب",
+          "translation": "I go to school every day.",
+          "hint": "to go — the 'I' prefix",
+          "display_order": 5,
+          "transliteration": "___ ilā al-madrasa kull yawm",
+          "cell": "أنا"
+        },
+        {
+          "sentence": "هم {{answer}} العربية.",
+          "answer": "يتكلمون",
+          "translation": "They speak Arabic.",
+          "hint": "to speak — the 'they' form",
+          "display_order": 6,
+          "transliteration": "hum ___ al-ʿarabiyya",
+          "cell": "هم"
+        },
+        {
+          "sentence": "أنتَ {{answer}} الشاي؟",
+          "answer": "تشرب",
+          "translation": "Do you (m.) drink tea?",
+          "transliteration": "anta ___ ash-shāy?",
+          "hint": "to drink, you (m.) — same form as 'she'",
+          "cell": "أنتَ",
+          "display_order": 7
+        }
+      ],
+      "paradigm": [
+        "أنا",
+        "أنتَ",
+        "هو",
+        "هي",
+        "نحن",
+        "هم"
+      ]
+    },
+    {
+      "title": "Negation (لا / ليس)",
+      "level": "A1",
+      "function": "Say what is not so",
+      "source": "contributor",
+      "reviewed": true,
+      "display_order": 11,
+      "explanation": "Two negators, two jobs: لا before a present verb (لا أفهم — I don't understand), and ليس for nominal sentences (هو ليس هنا — he is not here). ليس conjugates: لستُ (I'm not), ليست (she's not).",
+      "culture_note": "",
+      "references": [
+        {
+          "title": "Wikipedia: Arabic grammar — negation",
+          "url": "https://en.wikipedia.org/wiki/Arabic_grammar"
+        },
+        {
+          "title": "Wiktionary: ليس (Arabic)",
+          "url": "https://en.wiktionary.org/wiki/%D9%84%D9%8A%D8%B3#Arabic"
+        }
+      ],
+      "drills": [
+        {
+          "sentence": "أنا {{answer}} جوعان.",
+          "answer": "لست",
+          "translation": "I am not hungry.",
+          "hint": "the nominal negator, 'I' form",
+          "display_order": 1,
+          "transliteration": "ana ___ jawʿān",
+          "cell": "لست"
+        },
+        {
+          "sentence": "{{answer}} أشرب القهوة.",
+          "answer": "لا",
+          "translation": "I don't drink coffee.",
+          "hint": "the verb negator",
+          "display_order": 2,
+          "transliteration": "___ ashrabu al-qahwa",
+          "cell": "لا"
+        },
+        {
+          "sentence": "هو {{answer}} هنا.",
+          "answer": "ليس",
+          "translation": "He is not here.",
+          "hint": "the nominal negator, 'he' form",
+          "display_order": 3,
+          "transliteration": "huwa ___ hunā",
+          "cell": "ليس"
+        },
+        {
+          "sentence": "هي {{answer}} أختي.",
+          "answer": "ليست",
+          "translation": "She is not my sister.",
+          "hint": "the nominal negator, 'she' form",
+          "display_order": 4,
+          "transliteration": "hiya ___ ukhtī",
+          "cell": "ليست"
+        },
+        {
+          "sentence": "نحن {{answer}} نعمل اليوم.",
+          "answer": "لا",
+          "translation": "We are not working today.",
+          "hint": "the verb negator",
+          "display_order": 5,
+          "transliteration": "naḥnu ___ naʿmalu al-yawm",
+          "cell": "لا"
+        },
+        {
+          "sentence": "{{answer}} أفهم.",
+          "answer": "لا",
+          "translation": "I don't understand.",
+          "hint": "the verb negator",
+          "display_order": 6,
+          "transliteration": "___ afhamu",
+          "cell": "لا"
+        }
+      ],
+      "paradigm": [
+        "لا",
+        "ليس",
+        "ليست",
+        "لست"
+      ]
+    },
+    {
+      "title": "Questions (هل، ما، من، أين)",
+      "level": "A1",
+      "function": "Ask about things, people, places, and time",
+      "source": "contributor",
+      "reviewed": true,
+      "display_order": 12,
+      "explanation": "ما (what), من (who), أين (where), متى (when), كيف (how) — and هل, which turns any statement into a yes/no question: هل تدرس العربية؟ (Do you study Arabic?). Question word first, sentence unchanged after it.",
+      "culture_note": "",
+      "references": [
+        {
+          "title": "Wikipedia: Arabic grammar — interrogatives",
+          "url": "https://en.wikipedia.org/wiki/Arabic_grammar"
+        },
+        {
+          "title": "Wiktionary: هل (Arabic)",
+          "url": "https://en.wiktionary.org/wiki/%D9%87%D9%84#Arabic"
+        }
+      ],
+      "drills": [
+        {
+          "sentence": "{{answer}} اسمك؟",
+          "answer": "ما",
+          "translation": "What is your name?",
+          "hint": "what",
+          "display_order": 1,
+          "transliteration": "___ ismuka"
+        },
+        {
+          "sentence": "{{answer}} أنت الآن؟",
+          "answer": "أين",
+          "translation": "Where are you now?",
+          "hint": "where",
+          "display_order": 2,
+          "transliteration": "___ anta al-ān"
+        },
+        {
+          "sentence": "{{answer}} هذا؟",
+          "answer": "من",
+          "translation": "Who is this?",
+          "hint": "who",
+          "display_order": 3,
+          "transliteration": "___ hādhā"
+        },
+        {
+          "sentence": "{{answer}} تدرس العربية؟",
+          "answer": "هل",
+          "translation": "Do you study Arabic?",
+          "hint": "the yes/no question word",
+          "display_order": 4,
+          "transliteration": "___ tadrusu al-ʿarabiyya"
+        },
+        {
+          "sentence": "{{answer}} يبدأ الدرس؟",
+          "answer": "متى",
+          "translation": "When does the lesson start?",
+          "hint": "when",
+          "display_order": 5,
+          "transliteration": "___ yabdaʾu ad-dars"
+        },
+        {
+          "sentence": "{{answer}} حالك؟",
+          "answer": "كيف",
+          "translation": "How are you?",
+          "hint": "how",
+          "display_order": 6,
+          "transliteration": "___ ḥāluka"
+        }
+      ]
+    }
+  ]
+}

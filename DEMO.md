@@ -67,17 +67,23 @@ python -m backend.services.seeder.run --language ar   # Arabic (curated)
 python -m backend.services.seeder.run --language en   # English (WordNet glosses)
 
 # Curated A1/A2 starter vocab (~30 words each):
-for L in es fr de it ca mi yo ha xh; do
+for L in es fr de it ca mi yo ha xh ro el; do
   python -m backend.services.seeder.run --language $L
 done
 
-# Grammar (reviewed points + cloze drills; also feeds placement) — seeds every
-# language with a path: es 43 · tr 40 · sw 32 · yo 24 · xh 24 · ha 22 · ru 8
+# Russian starter vocab (~58 words, offline — aspect-pair cards with
+# declension samples; the full OpenRussian corpus in §1e still applies):
+python -m backend.services.seeder.run --file data/ru_starter.tsv --language ru
+
+# Grammar (reviewed points + cloze drills; also feeds placement) — seeds ALL
+# 16 languages: es 43 · tr 40 · ru 51 · sw 32 · yo 24 · xh 24 · ha 22, plus
+# 12-point A1 paths for fr/de/it/ca/mi/ar/en/ro/el (Greek drills carry inline
+# transliterations; Māori carries word-by-word glosses)
 python -m backend.services.seeder.seed_grammar --language all
 
 # Example sentences — vocab is taught IN A SENTENCE (word blanked) when these
 # exist, not as a bare flashcard. Curated starters ship for every curated lang:
-for L in es fr de it ca mi yo ha xh tr; do
+for L in es fr de it ca mi yo ha xh tr ru sw ro el; do
   python -m backend.services.seeder.seed_sentences --language $L
 done
 ```
@@ -91,10 +97,12 @@ If `content_lists` is 0, onboarding can't subscribe you to anything and "Learn"
 will be empty — re-run the seeders.
 
 > **Which languages have content?**
-> - **Full** (vocab + grammar + placement): **Turkish, Spanish**.
-> - **Vocab** (placement is vocab-only): Swahili, Arabic, English, and curated
->   starters for French, German, Italian, Catalan, Maori, Yoruba, Hausa, Xhosa.
-> - **Grammar only**: Russian (its vocab needs an internet download).
+> - **Full** (vocab + grammar + placement): **Turkish, Spanish, Russian**
+>   (all three A1→C2 live).
+> - **Every other language** now has a grammar tab too (12-point A1 path)
+>   on top of its vocabulary: Swahili, Arabic, English corpora and curated
+>   starters for French, German, Italian, Catalan, Maori, Yoruba, Hausa,
+>   Xhosa, Romanian, and Greek.
 >
 > The curated starters (~30 words) are enough to demo onboarding → placement →
 > learn → review per language, but they're small.
@@ -121,6 +129,20 @@ for L in tr sw yo xh ha; do
   python -m backend.services.seeder.seed_sentences --language $L
 done
 ```
+
+### f. Make yourself admin (once)
+
+Sign up in the app with your email (confirm it), then:
+
+```bash
+./scripts/grant_admin.sh you@example.com
+```
+
+Everything after that happens in the app: the Contribute page grows a
+**Roles** panel where you grant `contributor` / `reviewer` / `admin` by
+email, per language or globally, and a review-policy toggle per language.
+Full role model + the Google sign-in setup steps (the "provider is not
+enabled" error): `docs/accounts-and-roles.md`.
 
 ---
 
@@ -156,6 +178,12 @@ Sign up with a fresh account and walk the whole path. Expected behavior — and
    **"Show grammar"** for the explanation + example sentences (also speakable).
 7. **Learn from your own text** — paste a Turkish sentence, tap a word, add a
    card; it enters your reviews.
+7b. **QWERTY input for other scripts** — switch to Russian, Arabic, or Greek
+   and start a review: the answer blank converts Latin typing to the target
+   script as you type (privet → привет, kitaab → كتاب). It's on by default;
+   the pill under the blank toggles it and **Key guide** shows the full
+   mapping (Arabic: capitals = emphatics, 3/7/2 = ع/ح/ء, double a vowel to
+   write it long).
 8. **AI Tutor** — opens and responds (mock or real), or shows the **Subscribe**
    button if you configured the billing demo.
 
@@ -184,6 +212,13 @@ A screenshot + the language + what you clicked is enough for me to chase it down
 
 ## Troubleshooting — errors we've actually seen
 
+- **500 on the grammar path (`UndefinedColumnError: column gp.function_note
+  does not exist`)** → the database is behind on migrations. Re-run §1c (the
+  migration loop is safe to repeat — every migration is idempotent), then
+  restart uvicorn.
+- **500 on tutor chat (`KeyError`/`avg_ease` in `repositories/tutor.py`)** →
+  fixed in code. Pull the latest and restart uvicorn — a `--reload` server
+  usually picks it up, but a plain `uvicorn` won't.
 - **`pip install -e ".[dev]"` fails building camel-tools / spaCy** → you're on
   Python 3.13/3.14. Use a 3.11/3.12 venv, or the lean install in §1.0.
 - **500 on "Learn" (`UniqueViolationError … user_cards_user_id_card_type_card_id_key`)**
@@ -207,10 +242,12 @@ A screenshot + the language + what you clicked is enough for me to chase it down
 
 ## Known limitations (not bugs — don't be surprised)
 
-- Content coverage today — grammar paths: **Spanish 43 and Turkish 40 (full
-  A1→C2)**; Swahili 32, Yoruba 24, Xhosa 24, Hausa 22 (A1→C1-equivalent);
-  Russian 8 (A1 — next to deepen). Vocab: Swahili/Turkish/Arabic/English
-  corpora + curated starters elsewhere (~30 words). See docs/ROADMAP.md for
+- Content coverage today — grammar paths: **Spanish 43, Turkish 40, and
+  Russian 51 (all full A1→C2, 6 drills/point)**; Swahili 32,
+  Yoruba 24, Xhosa 24, Hausa 22 (A1→C1-equivalent); 12-point A1 paths for
+  the rest incl. Romanian and Greek. Vocab:
+  Swahili/Turkish/Arabic/English corpora + curated starters elsewhere
+  (~30 words; Russian ~58 with aspect-pair cards). See docs/ROADMAP.md for
   the build-out plan.
 - **FSRS personalization** (per-language weight tuning) does nothing until real
   review history accumulates — everyone starts on solid defaults. Correct.

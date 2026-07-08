@@ -11,8 +11,11 @@ from backend.dependencies import get_current_user
 from backend.repositories.cards import (
     add_grammar_learn_batch,
     add_learn_batch,
+    confirm_learn_batch,
     get_card_detail,
+    get_card_details_bulk,
     get_due_cards,
+    get_learn_decks,
     update_card_srs,
 )
 from backend.repositories.fsrs_weights import get_effective_params
@@ -56,10 +59,17 @@ class ValidateAnswerRequest(BaseModel):
 class LearnRequest(BaseModel):
     language_id: str
     card_type: str = "vocabulary"
+    # Learn from one specific deck (CEFR level) instead of everything
+    # subscribed — the deck rows on the dashboard pass this.
+    level: str | None = None
 
 
 class CardFeedbackRequest(BaseModel):
     message: str = Field(min_length=1, max_length=1000)
+
+
+class ConfirmLearnRequest(BaseModel):
+    card_ids: list[str] = Field(min_length=1, max_length=100)
 
 
 @router.get("/due")
@@ -224,6 +234,20 @@ async def validate_answer(
     }
 
 
+@router.get("/decks")
+async def decks(
+    language_id: str,
+    user: dict = Depends(get_current_user),
+):
+    """Return the language's learn decks (per-level lists) with progress.
+
+    Bunpro-style deck rows: each content list with its learnable total, the
+    user's started count, and whether it's in their learn queue (subscribed).
+    """
+    async with rls_connection(user["id"]) as conn:
+        return {"decks": await get_learn_decks(conn, user["id"], language_id)}
+
+
 @router.post("/learn")
 async def learn(
     body: LearnRequest,
@@ -250,19 +274,57 @@ async def learn(
         )
         batch_size = int(profile_row["batch_size"]) if profile_row else 5
 
+        # Learning from a specific deck is a deliberate act — subscribe the
+        # user to that list if they weren't already (otherwise the batch
+        # query, which draws from subscriptions, would return nothing).
+        if body.level:
+            await conn.execute(
+                """
+                INSERT INTO user_content_subscriptions (user_id, content_list_id)
+                SELECT $1, id FROM content_lists
+                WHERE language_id = $2 AND list_type = $3 AND level = $4
+                ON CONFLICT (user_id, content_list_id) DO NOTHING
+                """,
+                user["id"],
+                body.language_id,
+                body.card_type,
+                body.level,
+            )
+
         if body.card_type == "grammar":
             result = await add_grammar_learn_batch(
-                conn, user["id"], body.language_id, batch_size
+                conn, user["id"], body.language_id, batch_size, body.level
             )
         else:
             result = await add_learn_batch(
-                conn, user["id"], body.language_id, batch_size
+                conn, user["id"], body.language_id, batch_size, body.level
             )
 
-        lessons = []
-        for card_id in result["items"]:
-            detail = await get_card_detail(conn, card_id)
-            if detail:
-                lessons.append({"card_id": card_id, **detail})
+        # Bulk-fetch the lesson payloads: per-card fetching is an N+1 that
+        # makes "Preparing your new items…" hang for seconds on a pooled
+        # (high-latency) database connection.
+        details = await get_card_details_bulk(conn, result["items"])
+        lessons = [
+            {"card_id": card_id, **details[card_id]}
+            for card_id in result["items"]
+            if card_id in details
+        ]
 
     return {**result, "lessons": lessons}
+
+
+@router.post("/learn/confirm")
+async def confirm_learn(
+    body: ConfirmLearnRequest,
+    user: dict = Depends(get_current_user),
+):
+    """Activate cards after the lesson walkthrough (teach-before-quiz gate).
+
+    The learn batch creates cards suspended; nothing reaches the review queue
+    until the learner has actually paged through the lessons and the client
+    confirms. Abandoned walkthroughs stay suspended and are re-taught by the
+    next learn batch.
+    """
+    async with rls_connection(user["id"]) as conn:
+        confirmed = await confirm_learn_batch(conn, user["id"], body.card_ids)
+    return {"confirmed": confirmed}

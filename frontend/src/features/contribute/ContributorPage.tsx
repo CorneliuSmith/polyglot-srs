@@ -14,6 +14,7 @@ import type { GrammarPointEdit } from '../../api/contribute'
 import { usePrefsStore } from '../../stores/prefsStore'
 import DrillsEditor from './DrillsEditor'
 import FeedbackPanel from './FeedbackPanel'
+import RolesPanel from './RolesPanel'
 
 function NewPointForm({
   languageId,
@@ -72,11 +73,11 @@ function NewPointForm({
 
 function PointEditor({
   point,
-  isAdmin,
+  canReview,
   onSaved,
 }: {
   point: GrammarPointEdit
-  isAdmin: boolean
+  canReview: boolean
   onSaved: () => void
 }) {
   const [explanation, setExplanation] = useState(point.explanation ?? '')
@@ -204,7 +205,7 @@ function PointEditor({
         >
           {saveMutation.isPending ? 'Saving…' : 'Save (pending review)'}
         </button>
-        {isAdmin && !point.reviewed && point.explanation && (
+        {canReview && !point.reviewed && point.explanation && (
           <button
             type="button"
             onClick={() => approveMutation.mutate()}
@@ -316,11 +317,14 @@ export default function ContributorPage() {
         {data && activeLanguageId && (
           <>
             {data.is_admin && (
-              <ReviewPolicyControl
-                languageId={activeLanguageId}
-                policy={data.review_policy}
-                onChanged={refresh}
-              />
+              <>
+                <RolesPanel languages={languages} />
+                <ReviewPolicyControl
+                  languageId={activeLanguageId}
+                  policy={data.review_policy}
+                  onChanged={refresh}
+                />
+              </>
             )}
             <FeedbackPanel languageId={activeLanguageId} />
             <NewPointForm languageId={activeLanguageId} onCreated={refresh} />
@@ -336,7 +340,7 @@ export default function ContributorPage() {
             <PointEditor
               key={point.id}
               point={point}
-              isAdmin={data.is_admin}
+              canReview={data.can_review ?? data.is_admin}
               onSaved={refresh}
             />
           ))}

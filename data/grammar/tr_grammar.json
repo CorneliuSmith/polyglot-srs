@@ -49,6 +49,10 @@
         {
           "title": "Wikipedia: Turkish copula",
           "url": "https://en.wikipedia.org/wiki/Turkish_copula"
+        },
+        {
+          "title": "Personal endings and 'to be'",
+          "book": "Göksel & Kerslake, Turkish: A Comprehensive Grammar (Routledge)"
         }
       ],
       "drills": [
@@ -56,16 +60,76 @@
           "sentence": "Ben {{answer}}.",
           "answer": "öğrenciyim",
           "translation": "I am a student.",
-          "hint": "öğrenci + -(y)im",
-          "display_order": 1
+          "hint": "student + 'I am' ending",
+          "display_order": 1,
+          "cell": "ben"
         },
         {
           "sentence": "Sen {{answer}}.",
           "answer": "öğretmensin",
           "translation": "You are a teacher.",
-          "hint": "öğretmen + -sin",
-          "display_order": 2
+          "hint": "teacher + 'you are' ending",
+          "display_order": 2,
+          "cell": "sen"
+        },
+        {
+          "sentence": "Biz {{answer}}.",
+          "answer": "öğrenciyiz",
+          "translation": "We are students.",
+          "hint": "student + 'we are' ending",
+          "display_order": 3,
+          "cell": "biz"
+        },
+        {
+          "sentence": "Ben çok {{answer}}.",
+          "answer": "mutluyum",
+          "translation": "I am very happy.",
+          "hint": "happy + 'I am' ending",
+          "display_order": 4,
+          "cell": "ben"
+        },
+        {
+          "sentence": "Siz {{answer}}.",
+          "answer": "öğretmensiniz",
+          "translation": "You (plural/formal) are teachers.",
+          "hint": "teacher + 'you (plural) are' ending",
+          "display_order": 5,
+          "cell": "siz"
+        },
+        {
+          "sentence": "O {{answer}}.",
+          "answer": "doktor",
+          "translation": "He/she is a doctor.",
+          "hint": "third person takes no ending",
+          "display_order": 6,
+          "cell": "o"
+        },
+        {
+          "sentence": "Onlar {{answer}}.",
+          "answer": "doktorlar",
+          "translation": "They are doctors.",
+          "hint": "doctor + plural (3rd person 'to be')",
+          "cell": "onlar",
+          "display_order": 7
         }
+      ],
+      "related": [
+        {
+          "title": "Var / yok — there is, there isn't",
+          "contrast": "Var says something EXISTS; the -im endings say what something IS."
+        },
+        {
+          "title": "Question particle (mı / mi / mu / mü)",
+          "contrast": "The personal ending hops onto mı in questions: öğretmen misin?"
+        }
+      ],
+      "paradigm": [
+        "ben",
+        "sen",
+        "o",
+        "biz",
+        "siz",
+        "onlar"
       ]
     },
     {
@@ -93,15 +157,64 @@
           "answer": "Bu",
           "translation": "This is a book.",
           "hint": "near the speaker",
-          "display_order": 1
+          "display_order": 1,
+          "cell": "bu"
         },
         {
           "sentence": "{{answer}} bir ev.",
           "answer": "O",
           "translation": "That (over there) is a house.",
           "hint": "far from both speakers",
-          "display_order": 2
+          "display_order": 2,
+          "cell": "o"
+        },
+        {
+          "sentence": "{{answer}} bir araba.",
+          "answer": "Şu",
+          "translation": "That (over there) is a car.",
+          "hint": "pointing at something",
+          "display_order": 3,
+          "cell": "şu"
+        },
+        {
+          "sentence": "{{answer}} ne?",
+          "answer": "Bu",
+          "translation": "What is this?",
+          "hint": "this — close to you",
+          "display_order": 4,
+          "cell": "bu"
+        },
+        {
+          "sentence": "{{answer}} kim?",
+          "answer": "O",
+          "translation": "Who is that?",
+          "hint": "far from both speakers",
+          "display_order": 5,
+          "cell": "o"
+        },
+        {
+          "sentence": "{{answer}} bir okul.",
+          "answer": "Şu",
+          "translation": "That (over there) is a school.",
+          "hint": "pointing at something",
+          "display_order": 6,
+          "cell": "şu"
         }
+      ],
+      "related": [
+        {
+          "title": "Personal pronouns and 'to be' (-(y)im, -sin…)",
+          "contrast": "O is both 'that' and 'he/she/it' — context decides."
+        },
+        {
+          "title": "Plural (-ler / -lar)",
+          "contrast": "Demonstratives stay singular before plural nouns: bu evler."
+        }
+      ],
+      "paradigm": [
+        "bu",
+        "şu",
+        "o"
       ]
     },
     {
@@ -137,6 +250,44 @@
           "translation": "The children are in the garden.",
           "hint": "çocuk + back-vowel plural",
           "display_order": 2
+        },
+        {
+          "sentence": "{{answer}} masada.",
+          "answer": "Kitaplar",
+          "translation": "The books are on the table.",
+          "hint": "book + plural",
+          "display_order": 3
+        },
+        {
+          "sentence": "Bahçede üç {{answer}} var.",
+          "answer": "ağaç",
+          "translation": "There are three trees in the garden.",
+          "hint": "singular after numbers!",
+          "display_order": 4
+        },
+        {
+          "sentence": "{{answer}} nerede?",
+          "answer": "Öğretmenler",
+          "translation": "Where are the teachers?",
+          "hint": "teacher + plural",
+          "display_order": 5
+        },
+        {
+          "sentence": "{{answer}} parkta.",
+          "answer": "Kediler",
+          "translation": "The cats are in the park.",
+          "hint": "cat + plural",
+          "display_order": 6
+        }
+      ],
+      "related": [
+        {
+          "title": "Possessive suffixes (-im, -in, -i…)",
+          "contrast": "Plural comes BEFORE possession: ev-ler-im, my houses."
+        },
+        {
+          "title": "Demonstratives (bu, şu, o)",
+          "contrast": "Bu evler, not bunlar evler — the noun carries the plural."
         }
       ]
     },
@@ -164,16 +315,66 @@
           "sentence": "Sen öğrenci {{answer}}?",
           "answer": "misin",
           "translation": "Are you a student?",
-          "hint": "mi + -sin",
-          "display_order": 1
+          "hint": "question particle + 'you' ending",
+          "display_order": 1,
+          "cell": "mi"
         },
         {
           "sentence": "Bu kitap {{answer}}?",
           "answer": "mı",
           "translation": "Is this a book?",
-          "hint": "harmonizes with 'kitap'",
-          "display_order": 2
+          "hint": "question particle — harmonize with the last vowel",
+          "display_order": 2,
+          "cell": "mı"
+        },
+        {
+          "sentence": "O doktor {{answer}}?",
+          "answer": "mu",
+          "translation": "Is he a doctor?",
+          "hint": "question particle — harmonize with the last vowel",
+          "display_order": 3,
+          "cell": "mu"
+        },
+        {
+          "sentence": "Bu süt {{answer}}?",
+          "answer": "mü",
+          "translation": "Is this milk?",
+          "hint": "question particle — harmonize with the last vowel",
+          "display_order": 4,
+          "cell": "mü"
+        },
+        {
+          "sentence": "Onlar öğrenci {{answer}}?",
+          "answer": "mi",
+          "translation": "Are they students?",
+          "hint": "question particle — harmonize with the last vowel",
+          "display_order": 5,
+          "cell": "mi"
+        },
+        {
+          "sentence": "Bu okul {{answer}}?",
+          "answer": "mu",
+          "translation": "Is this a school?",
+          "hint": "question particle — harmonize with the last vowel",
+          "display_order": 6,
+          "cell": "mu"
         }
+      ],
+      "related": [
+        {
+          "title": "Negative present continuous (-miyor)",
+          "contrast": "-miyor negates, mı asks — and they stack: gelmiyor mu?"
+        },
+        {
+          "title": "Present continuous (-iyor)",
+          "contrast": "Geliyor musun? — the particle splits off the -iyor verb."
+        }
+      ],
+      "paradigm": [
+        "mı",
+        "mi",
+        "mu",
+        "mü"
       ]
     },
     {
@@ -200,16 +401,82 @@
           "sentence": "Ben {{answer}}.",
           "answer": "evdeyim",
           "translation": "I am at home.",
-          "hint": "ev + -de + -(y)im",
-          "display_order": 1
+          "hint": "house + locative + 'I am'",
+          "display_order": 1,
+          "cell": "-de"
         },
         {
           "sentence": "Kitap {{answer}}.",
           "answer": "masada",
           "translation": "The book is on the table.",
-          "hint": "masa + -da",
-          "display_order": 2
+          "hint": "table + locative",
+          "display_order": 2,
+          "cell": "-da"
+        },
+        {
+          "sentence": "Anahtar {{answer}}.",
+          "answer": "çantada",
+          "translation": "The key is in the bag.",
+          "hint": "bag + locative",
+          "display_order": 3,
+          "cell": "-da"
+        },
+        {
+          "sentence": "Biz {{answer}}.",
+          "answer": "okuldayız",
+          "translation": "We are at school.",
+          "hint": "school + locative + 'we are'",
+          "display_order": 4,
+          "cell": "-da"
+        },
+        {
+          "sentence": "Çocuklar {{answer}}.",
+          "answer": "bahçede",
+          "translation": "The children are in the garden.",
+          "hint": "garden + locative",
+          "display_order": 5,
+          "cell": "-de"
+        },
+        {
+          "sentence": "Süt {{answer}}.",
+          "answer": "buzdolabında",
+          "translation": "The milk is in the fridge.",
+          "hint": "fridge + locative (compound noun keeps its -ı)",
+          "display_order": 6,
+          "cell": "-da"
+        },
+        {
+          "sentence": "Kitaplar {{answer}}.",
+          "answer": "dolapta",
+          "translation": "The books are in the cupboard.",
+          "hint": "cupboard + locative (voiceless consonant)",
+          "cell": "-ta",
+          "display_order": 7
+        },
+        {
+          "sentence": "Yemek {{answer}}.",
+          "answer": "sepette",
+          "translation": "The food is in the basket.",
+          "hint": "basket + locative (voiceless consonant, front vowel)",
+          "cell": "-te",
+          "display_order": 8
         }
+      ],
+      "related": [
+        {
+          "title": "Accusative case (-ı / -i / -u / -ü)",
+          "contrast": "Locative marks WHERE; accusative marks WHAT the action lands on."
+        },
+        {
+          "title": "Var / yok — there is, there isn't",
+          "contrast": "Locative + var = 'there is X at Y': masada kitap var."
+        }
+      ],
+      "paradigm": [
+        "-de",
+        "-da",
+        "-te",
+        "-ta"
       ]
     },
     {
@@ -237,15 +504,63 @@
           "answer": "var",
           "translation": "There is milk at home.",
           "hint": "existence",
-          "display_order": 1
+          "display_order": 1,
+          "cell": "var"
         },
         {
           "sentence": "Parkta kimse {{answer}}.",
           "answer": "yok",
           "translation": "There is no one in the park.",
           "hint": "non-existence",
-          "display_order": 2
+          "display_order": 2,
+          "cell": "yok"
+        },
+        {
+          "sentence": "Çantada para {{answer}}.",
+          "answer": "yok",
+          "translation": "There is no money in the bag.",
+          "hint": "absence",
+          "display_order": 3,
+          "cell": "yok"
+        },
+        {
+          "sentence": "Bahçede ağaç {{answer}}.",
+          "answer": "var",
+          "translation": "There is a tree in the garden.",
+          "hint": "existence",
+          "display_order": 4,
+          "cell": "var"
+        },
+        {
+          "sentence": "Evde ekmek {{answer}} mı?",
+          "answer": "var",
+          "translation": "Is there bread at home?",
+          "hint": "existence, question",
+          "display_order": 5,
+          "cell": "var"
+        },
+        {
+          "sentence": "Bugün ders {{answer}}.",
+          "answer": "yok",
+          "translation": "There is no class today.",
+          "hint": "absence",
+          "display_order": 6,
+          "cell": "yok"
         }
+      ],
+      "related": [
+        {
+          "title": "Locative case (-de / -da)",
+          "contrast": "Existence statements usually open with a locative: evde kimse yok."
+        },
+        {
+          "title": "Negative present continuous (-miyor)",
+          "contrast": "Yok negates existence; -miyor negates actions."
+        }
+      ],
+      "paradigm": [
+        "var",
+        "yok"
       ]
     },
     {
@@ -272,16 +587,84 @@
           "sentence": "Benim {{answer}} büyük.",
           "answer": "evim",
           "translation": "My house is big.",
-          "hint": "ev + -im",
-          "display_order": 1
+          "hint": "house + 'my'",
+          "display_order": 1,
+          "cell": "1sg"
         },
         {
           "sentence": "Senin {{answer}} nerede?",
           "answer": "araban",
           "translation": "Where is your car?",
-          "hint": "araba + -n",
-          "display_order": 2
+          "hint": "car + 'your'",
+          "display_order": 2,
+          "cell": "2sg"
+        },
+        {
+          "sentence": "Benim {{answer}} Ali.",
+          "answer": "adım",
+          "translation": "My name is Ali.",
+          "hint": "name + 'my'",
+          "display_order": 3,
+          "cell": "1sg"
+        },
+        {
+          "sentence": "Onun {{answer}} güzel.",
+          "answer": "evi",
+          "translation": "His/her house is beautiful.",
+          "hint": "house + 'his/her'",
+          "display_order": 4,
+          "cell": "3sg"
+        },
+        {
+          "sentence": "Bizim {{answer}} büyük.",
+          "answer": "ailemiz",
+          "translation": "Our family is big.",
+          "hint": "family + 'our'",
+          "display_order": 5,
+          "cell": "1pl"
+        },
+        {
+          "sentence": "Senin {{answer}} çok tatlı.",
+          "answer": "kedin",
+          "translation": "Your cat is very sweet.",
+          "hint": "cat + 'your'",
+          "display_order": 6,
+          "cell": "2sg"
+        },
+        {
+          "sentence": "Sizin {{answer}} çok güzel.",
+          "answer": "eviniz",
+          "translation": "Your (plural) house is very beautiful.",
+          "hint": "house + your (plural)",
+          "cell": "2pl",
+          "display_order": 7
+        },
+        {
+          "sentence": "Onların {{answer}} bahçede.",
+          "answer": "kedileri",
+          "translation": "Their cat is in the garden.",
+          "hint": "cat + their",
+          "cell": "3pl",
+          "display_order": 8
         }
+      ],
+      "related": [
+        {
+          "title": "Plural (-ler / -lar)",
+          "contrast": "Order is fixed: plural, then possessive — evlerim."
+        },
+        {
+          "title": "Accusative case (-ı / -i / -u / -ü)",
+          "contrast": "A possessed object still takes accusative: evimi görüyorum."
+        }
+      ],
+      "paradigm": [
+        "1sg",
+        "2sg",
+        "3sg",
+        "1pl",
+        "2pl",
+        "3pl"
       ]
     },
     {
@@ -308,16 +691,76 @@
           "sentence": "Ben kitap {{answer}}.",
           "answer": "okuyorum",
           "translation": "I am reading a book.",
-          "hint": "oku + -yor + -um",
-          "display_order": 1
+          "hint": "to read + present continuous, I",
+          "display_order": 1,
+          "cell": "ben"
         },
         {
           "sentence": "O çay {{answer}}.",
           "answer": "içiyor",
           "translation": "He/she is drinking tea.",
-          "hint": "iç + -iyor",
-          "display_order": 2
+          "hint": "to drink + present continuous, he/she",
+          "display_order": 2,
+          "cell": "o"
+        },
+        {
+          "sentence": "Biz Türkçe {{answer}}.",
+          "answer": "öğreniyoruz",
+          "translation": "We are learning Turkish.",
+          "hint": "to learn + present continuous, we",
+          "display_order": 3,
+          "cell": "biz"
+        },
+        {
+          "sentence": "Onlar parkta {{answer}}.",
+          "answer": "oynuyorlar",
+          "translation": "They are playing in the park.",
+          "hint": "to play + present continuous, they",
+          "display_order": 4,
+          "cell": "onlar"
+        },
+        {
+          "sentence": "Sen ne {{answer}}?",
+          "answer": "yapıyorsun",
+          "translation": "What are you doing?",
+          "hint": "to do + present continuous, you",
+          "display_order": 5,
+          "cell": "sen"
+        },
+        {
+          "sentence": "Annem yemek {{answer}}.",
+          "answer": "pişiriyor",
+          "translation": "My mother is cooking food.",
+          "hint": "to cook + present continuous, she",
+          "display_order": 6,
+          "cell": "o"
+        },
+        {
+          "sentence": "Siz ne {{answer}}?",
+          "answer": "yapıyorsunuz",
+          "translation": "What are you (all) doing?",
+          "hint": "to do + -iyor + you (plural)",
+          "cell": "siz",
+          "display_order": 7
         }
+      ],
+      "related": [
+        {
+          "title": "Negative present continuous (-miyor)",
+          "contrast": "Same tense, negated: -m(a/e) squeezes in before -yor."
+        },
+        {
+          "title": "Question particle (mı / mi / mu / mü)",
+          "contrast": "Geliyor mu? — questions add the particle after -iyor."
+        }
+      ],
+      "paradigm": [
+        "ben",
+        "sen",
+        "o",
+        "biz",
+        "siz",
+        "onlar"
       ]
     },
     {
@@ -344,16 +787,76 @@
           "sentence": "Ben kahve {{answer}}.",
           "answer": "içmiyorum",
           "translation": "I am not drinking coffee.",
-          "hint": "iç + -m + -iyor + -um",
-          "display_order": 1
+          "hint": "to drink + negative present continuous, I",
+          "display_order": 1,
+          "cell": "ben"
         },
         {
           "sentence": "O televizyon {{answer}}.",
           "answer": "izlemiyor",
           "translation": "He is not watching TV.",
-          "hint": "izle + -m + -iyor",
-          "display_order": 2
+          "hint": "to watch + negative present continuous, he/she",
+          "display_order": 2,
+          "cell": "o"
+        },
+        {
+          "sentence": "Biz et {{answer}}.",
+          "answer": "yemiyoruz",
+          "translation": "We are not eating meat.",
+          "hint": "to eat + negative present continuous, we",
+          "display_order": 3,
+          "cell": "biz"
+        },
+        {
+          "sentence": "Sen beni {{answer}}.",
+          "answer": "dinlemiyorsun",
+          "translation": "You are not listening to me.",
+          "hint": "to listen + negative present continuous, you",
+          "display_order": 4,
+          "cell": "sen"
+        },
+        {
+          "sentence": "Onlar bugün {{answer}}.",
+          "answer": "çalışmıyorlar",
+          "translation": "They are not working today.",
+          "hint": "to work + negative present continuous, they",
+          "display_order": 5,
+          "cell": "onlar"
+        },
+        {
+          "sentence": "Bebek {{answer}}.",
+          "answer": "uyumuyor",
+          "translation": "The baby is not sleeping.",
+          "hint": "to sleep + negative present continuous, he/she",
+          "display_order": 6,
+          "cell": "o"
+        },
+        {
+          "sentence": "Siz kahve {{answer}}.",
+          "answer": "içmiyorsunuz",
+          "translation": "You (all) are not drinking coffee.",
+          "hint": "to drink + negative -iyor + you (plural)",
+          "cell": "siz",
+          "display_order": 7
         }
+      ],
+      "related": [
+        {
+          "title": "Present continuous (-iyor)",
+          "contrast": "The affirmative twin — drop the -m- and it happens again."
+        },
+        {
+          "title": "Var / yok — there is, there isn't",
+          "contrast": "-miyor is 'isn't doing'; yok is 'there isn't any'."
+        }
+      ],
+      "paradigm": [
+        "ben",
+        "sen",
+        "o",
+        "biz",
+        "siz",
+        "onlar"
       ]
     },
     {
@@ -380,16 +883,74 @@
           "sentence": "Ben {{answer}} okuyorum.",
           "answer": "kitabı",
           "translation": "I am reading the book.",
-          "hint": "kitap → kitabı (definite object)",
-          "display_order": 1
+          "hint": "book + accusative (final consonant softens)",
+          "display_order": 1,
+          "cell": "-ı"
         },
         {
           "sentence": "O {{answer}} seviyor.",
           "answer": "çayı",
           "translation": "He/she loves the tea.",
-          "hint": "çay + -ı",
-          "display_order": 2
+          "hint": "tea + accusative",
+          "display_order": 2,
+          "cell": "-ı"
+        },
+        {
+          "sentence": "Ben {{answer}} izliyorum.",
+          "answer": "filmi",
+          "translation": "I am watching the film.",
+          "hint": "film + accusative",
+          "display_order": 3,
+          "cell": "-i"
+        },
+        {
+          "sentence": "O {{answer}} okuyor.",
+          "answer": "gazeteyi",
+          "translation": "He is reading the newspaper.",
+          "hint": "newspaper + accusative (buffer y)",
+          "display_order": 4,
+          "cell": "-i"
+        },
+        {
+          "sentence": "Sen {{answer}} görüyor musun?",
+          "answer": "arabayı",
+          "translation": "Do you see the car?",
+          "hint": "car + accusative (buffer y)",
+          "display_order": 5,
+          "cell": "-ı"
+        },
+        {
+          "sentence": "Çocuk {{answer}} içiyor.",
+          "answer": "sütü",
+          "translation": "The child is drinking the milk.",
+          "hint": "milk + accusative",
+          "display_order": 6,
+          "cell": "-ü"
+        },
+        {
+          "sentence": "Çocuk {{answer}} içti.",
+          "answer": "suyu",
+          "translation": "The child drank the water.",
+          "hint": "water + accusative",
+          "cell": "-u",
+          "display_order": 7
         }
+      ],
+      "related": [
+        {
+          "title": "Locative case (-de / -da)",
+          "contrast": "Accusative = what you act on; locative = where it happens."
+        },
+        {
+          "title": "Possessive suffixes (-im, -in, -i…)",
+          "contrast": "After a possessive the accusative shows as -ni/-nı: arabasını."
+        }
+      ],
+      "paradigm": [
+        "-ı",
+        "-i",
+        "-u",
+        "-ü"
       ]
     },
     {
@@ -416,15 +977,43 @@
           "sentence": "Dün okula {{answer}}.",
           "answer": "gittim",
           "translation": "Yesterday I went to school.",
-          "hint": "git + -ti + -m",
+          "hint": "to go + past, I",
           "display_order": 1
         },
         {
           "sentence": "O eve {{answer}}.",
           "answer": "geldi",
           "translation": "He/she came home.",
-          "hint": "gel + -di",
+          "hint": "to come + past, he/she",
           "display_order": 2
+        },
+        {
+          "sentence": "Biz dün sinemaya {{answer}}.",
+          "answer": "gittik",
+          "translation": "Yesterday we went to the cinema.",
+          "hint": "to go + past, we",
+          "display_order": 3
+        },
+        {
+          "sentence": "Ben sabah kahve {{answer}}.",
+          "answer": "içtim",
+          "translation": "I drank coffee in the morning.",
+          "hint": "to drink + past, I (suffix devoices)",
+          "display_order": 4
+        },
+        {
+          "sentence": "Onlar dün geç {{answer}}.",
+          "answer": "kaldılar",
+          "translation": "They were late yesterday.",
+          "hint": "geç kalmak — past plural",
+          "display_order": 5
+        },
+        {
+          "sentence": "Sen filmi {{answer}} mi?",
+          "answer": "izledin",
+          "translation": "Did you watch the film?",
+          "hint": "to watch + past, you",
+          "display_order": 6
         }
       ]
     },
@@ -459,8 +1048,36 @@
           "sentence": "Onlar yarın {{answer}}.",
           "answer": "gelecekler",
           "translation": "They will come tomorrow.",
-          "hint": "gel + -ecek + -ler",
+          "hint": "to come + future, they",
           "display_order": 2
+        },
+        {
+          "sentence": "Ben yarın çok {{answer}}.",
+          "answer": "çalışacağım",
+          "translation": "Tomorrow I will work a lot.",
+          "hint": "to work + future, I (k softens)",
+          "display_order": 3
+        },
+        {
+          "sentence": "Biz haftaya İstanbul'a {{answer}}.",
+          "answer": "gideceğiz",
+          "translation": "Next week we will go to Istanbul.",
+          "hint": "git + -eceğiz (t → d)",
+          "display_order": 4
+        },
+        {
+          "sentence": "O akşam yemek {{answer}}.",
+          "answer": "yapacak",
+          "translation": "She will make dinner.",
+          "hint": "to do + future, she",
+          "display_order": 5
+        },
+        {
+          "sentence": "Sen de {{answer}} misin?",
+          "answer": "gelecek",
+          "translation": "Will you come too?",
+          "hint": "to come + future; the question particle stays separate",
+          "display_order": 6
         }
       ]
     },
@@ -488,15 +1105,43 @@
           "sentence": "Akşam {{answer}} dönüyorum.",
           "answer": "eve",
           "translation": "In the evening I return home.",
-          "hint": "ev + -e",
+          "hint": "house + dative",
           "display_order": 1
         },
         {
           "sentence": "Ben {{answer}} gidiyorum.",
           "answer": "okula",
           "translation": "I am going to school.",
-          "hint": "okul + -a",
+          "hint": "school + dative",
           "display_order": 2
+        },
+        {
+          "sentence": "Yarın {{answer}} gidiyoruz.",
+          "answer": "İstanbul'a",
+          "translation": "Tomorrow we are going to Istanbul.",
+          "hint": "proper noun + apostrophe + -a",
+          "display_order": 3
+        },
+        {
+          "sentence": "Çocuk {{answer}} koşuyor.",
+          "answer": "parka",
+          "translation": "The child is running to the park.",
+          "hint": "park + dative",
+          "display_order": 4
+        },
+        {
+          "sentence": "Bu hediyeyi {{answer}} aldım.",
+          "answer": "sana",
+          "translation": "I bought this present for you.",
+          "hint": "'you' + dative (irregular vowel)",
+          "display_order": 5
+        },
+        {
+          "sentence": "Kitabı {{answer}} verdim.",
+          "answer": "arkadaşıma",
+          "translation": "I gave the book to my friend.",
+          "hint": "friend + 'my' + dative",
+          "display_order": 6
         }
       ]
     },
@@ -520,15 +1165,43 @@
           "sentence": "Babam {{answer}} geldi.",
           "answer": "işten",
           "translation": "My father came from work.",
-          "hint": "iş + -ten",
+          "hint": "work + ablative (suffix devoices)",
           "display_order": 1
         },
         {
           "sentence": "{{answer}} geliyorum.",
           "answer": "Okuldan",
           "translation": "I am coming from school.",
-          "hint": "okul + -dan",
+          "hint": "school + ablative",
           "display_order": 2
+        },
+        {
+          "sentence": "Tren {{answer}} kalkıyor.",
+          "answer": "İstanbul'dan",
+          "translation": "The train departs from Istanbul.",
+          "hint": "proper noun + apostrophe + -dan",
+          "display_order": 3
+        },
+        {
+          "sentence": "{{answer}} korkuyorum.",
+          "answer": "Köpekten",
+          "translation": "I am afraid of dogs.",
+          "hint": "korkmak takes the ablative",
+          "display_order": 4
+        },
+        {
+          "sentence": "Kardeşim {{answer}} döndü.",
+          "answer": "tatilden",
+          "translation": "My brother returned from holiday.",
+          "hint": "holiday + ablative",
+          "display_order": 5
+        },
+        {
+          "sentence": "Ben {{answer}} çıktım.",
+          "answer": "evden",
+          "translation": "I left the house.",
+          "hint": "house + ablative",
+          "display_order": 6
         }
       ]
     },
@@ -552,15 +1225,43 @@
           "sentence": "{{answer}} evi büyük.",
           "answer": "Öğretmenin",
           "translation": "The teacher's house is big.",
-          "hint": "öğretmen + -in",
+          "hint": "teacher + genitive",
           "display_order": 1
         },
         {
           "sentence": "Arabanın {{answer}} kırık.",
           "answer": "kapısı",
           "translation": "The car's door is broken.",
-          "hint": "kapı + -s- + -ı",
+          "hint": "door + possessed ending (buffer s)",
           "display_order": 2
+        },
+        {
+          "sentence": "{{answer}} kapısı açık.",
+          "answer": "Evin",
+          "translation": "The door of the house is open.",
+          "hint": "house + genitive",
+          "display_order": 3
+        },
+        {
+          "sentence": "Annemin {{answer}} çok güzel.",
+          "answer": "yemeği",
+          "translation": "My mother's cooking is very good.",
+          "hint": "food + possessed ending (final consonant softens)",
+          "display_order": 4
+        },
+        {
+          "sentence": "{{answer}} rengi mavi.",
+          "answer": "Denizin",
+          "translation": "The colour of the sea is blue.",
+          "hint": "sea + genitive",
+          "display_order": 5
+        },
+        {
+          "sentence": "Türkçenin {{answer}} zor değil.",
+          "answer": "grameri",
+          "translation": "Turkish grammar is not hard.",
+          "hint": "grammar + possessed ending",
+          "display_order": 6
         }
       ]
     },
@@ -588,15 +1289,43 @@
           "sentence": "Her sabah kahve {{answer}}.",
           "answer": "içerim",
           "translation": "Every morning I drink coffee.",
-          "hint": "iç + -er + -im",
+          "hint": "to drink + aorist, I",
           "display_order": 1
         },
         {
           "sentence": "O erken {{answer}}.",
           "answer": "kalkar",
           "translation": "He gets up early.",
-          "hint": "kalk + -ar",
+          "hint": "to get up + aorist, he/she",
           "display_order": 2
+        },
+        {
+          "sentence": "O her akşam kitap {{answer}}.",
+          "answer": "okur",
+          "translation": "He reads a book every evening.",
+          "hint": "to read + aorist, he",
+          "display_order": 3
+        },
+        {
+          "sentence": "Biz pazar günleri geç {{answer}}.",
+          "answer": "kalkarız",
+          "translation": "On Sundays we get up late.",
+          "hint": "to get up + aorist, we",
+          "display_order": 4
+        },
+        {
+          "sentence": "Ben her gün Türkçe {{answer}}.",
+          "answer": "çalışırım",
+          "translation": "I study Turkish every day.",
+          "hint": "to study + aorist, I",
+          "display_order": 5
+        },
+        {
+          "sentence": "Kuşlar {{answer}}.",
+          "answer": "uçar",
+          "translation": "Birds fly.",
+          "hint": "to fly + aorist — general truth",
+          "display_order": 6
         }
       ]
     },
@@ -624,15 +1353,43 @@
           "sentence": "Türkçe {{answer}}.",
           "answer": "konuşabilirim",
           "translation": "I can speak Turkish.",
-          "hint": "konuş + -abil + -ir + -im",
+          "hint": "to speak + ability, I",
           "display_order": 1
         },
         {
           "sentence": "Yarın {{answer}} misin?",
           "answer": "gelebilir",
           "translation": "Can you come tomorrow?",
-          "hint": "gel + -ebil + -ir (+ question)",
+          "hint": "to come + ability (+ separate question particle)",
           "display_order": 2
+        },
+        {
+          "sentence": "Ben çok hızlı {{answer}}.",
+          "answer": "koşabilirim",
+          "translation": "I can run very fast.",
+          "hint": "to run + ability, I",
+          "display_order": 3
+        },
+        {
+          "sentence": "O üç dil {{answer}}.",
+          "answer": "konuşabilir",
+          "translation": "She can speak three languages.",
+          "hint": "to speak + ability, she",
+          "display_order": 4
+        },
+        {
+          "sentence": "Bana yardım {{answer}} misin?",
+          "answer": "edebilir",
+          "translation": "Can you help me?",
+          "hint": "et + -ebilir (t → d)",
+          "display_order": 5
+        },
+        {
+          "sentence": "Biz yarın {{answer}}.",
+          "answer": "gelebiliriz",
+          "translation": "We can come tomorrow.",
+          "hint": "to come + ability, we",
+          "display_order": 6
         }
       ]
     },
@@ -665,6 +1422,34 @@
           "translation": "He is the best student in the class.",
           "hint": "'most'",
           "display_order": 2
+        },
+        {
+          "sentence": "Bu kitap {{answer}} ilginç.",
+          "answer": "daha",
+          "translation": "This book is more interesting.",
+          "hint": "more",
+          "display_order": 3
+        },
+        {
+          "sentence": "İstanbul Türkiye'nin {{answer}} büyük şehri.",
+          "answer": "en",
+          "translation": "Istanbul is Turkey's biggest city.",
+          "hint": "the most",
+          "display_order": 4
+        },
+        {
+          "sentence": "Kahve çaydan {{answer}} pahalı.",
+          "answer": "daha",
+          "translation": "Coffee is more expensive than tea.",
+          "hint": "-den … more",
+          "display_order": 5
+        },
+        {
+          "sentence": "Bu, yılın {{answer}} soğuk günü.",
+          "answer": "en",
+          "translation": "This is the coldest day of the year.",
+          "hint": "the most",
+          "display_order": 6
         }
       ]
     },
@@ -697,6 +1482,34 @@
           "translation": "This gift is for you.",
           "hint": "'for'",
           "display_order": 2
+        },
+        {
+          "sentence": "Otobüs {{answer}} geliyorum.",
+          "answer": "ile",
+          "translation": "I am coming by bus.",
+          "hint": "with / by",
+          "display_order": 3
+        },
+        {
+          "sentence": "Sağlık {{answer}} spor yap.",
+          "answer": "için",
+          "translation": "Do sport for your health.",
+          "hint": "for",
+          "display_order": 4
+        },
+        {
+          "sentence": "Annem {{answer}} konuştum.",
+          "answer": "ile",
+          "translation": "I spoke with my mother.",
+          "hint": "with",
+          "display_order": 5
+        },
+        {
+          "sentence": "Senin {{answer}} her şeyi yaparım.",
+          "answer": "için",
+          "translation": "I would do anything for you.",
+          "hint": "for",
+          "display_order": 6
         }
       ]
     },
@@ -729,6 +1542,34 @@
           "translation": "Before sleeping I read a book.",
           "hint": "'before'",
           "display_order": 2
+        },
+        {
+          "sentence": "Yemekten {{answer}} ellerini yıka.",
+          "answer": "önce",
+          "translation": "Wash your hands before the meal.",
+          "hint": "before",
+          "display_order": 3
+        },
+        {
+          "sentence": "Dersten {{answer}} eve gittim.",
+          "answer": "sonra",
+          "translation": "After the lesson I went home.",
+          "hint": "after",
+          "display_order": 4
+        },
+        {
+          "sentence": "İşten {{answer}} spor yaparım.",
+          "answer": "sonra",
+          "translation": "After work I do sport.",
+          "hint": "after",
+          "display_order": 5
+        },
+        {
+          "sentence": "Sınavdan {{answer}} çok çalıştım.",
+          "answer": "önce",
+          "translation": "Before the exam I studied a lot.",
+          "hint": "before",
+          "display_order": 6
         }
       ]
     },
@@ -759,8 +1600,36 @@
           "sentence": "O yalan {{answer}}.",
           "answer": "söylemez",
           "translation": "He does not lie.",
-          "hint": "söyle + -mez",
+          "hint": "to say + aorist negative, he",
           "display_order": 2
+        },
+        {
+          "sentence": "O asla geç {{answer}}.",
+          "answer": "kalmaz",
+          "translation": "He is never late.",
+          "hint": "to stay + aorist negative, he",
+          "display_order": 3
+        },
+        {
+          "sentence": "Ben sabahları kahve {{answer}}.",
+          "answer": "içmem",
+          "translation": "I don't drink coffee in the mornings.",
+          "hint": "to drink + aorist negative, I",
+          "display_order": 4
+        },
+        {
+          "sentence": "Biz yalan {{answer}}.",
+          "answer": "söylemeyiz",
+          "translation": "We don't tell lies.",
+          "hint": "to say + aorist negative, we",
+          "display_order": 5
+        },
+        {
+          "sentence": "O balık {{answer}}.",
+          "answer": "sevmez",
+          "translation": "He doesn't like fish.",
+          "hint": "to like + aorist negative, he",
+          "display_order": 6
         }
       ]
     },
@@ -788,15 +1657,43 @@
           "sentence": "Dün yağmur {{answer}}.",
           "answer": "yağmış",
           "translation": "It apparently rained yesterday.",
-          "hint": "yağ + -mış (hearsay)",
+          "hint": "to rain + evidential past (hearsay)",
           "display_order": 1
         },
         {
           "sentence": "Çok {{answer}}.",
           "answer": "yorulmuşsun",
           "translation": "You must be really tired.",
-          "hint": "yorul + -muş + -sun (inference)",
+          "hint": "to get tired + evidential past, you (inference)",
           "display_order": 2
+        },
+        {
+          "sentence": "Sen dün çok {{answer}}.",
+          "answer": "çalışmışsın",
+          "translation": "Apparently you worked a lot yesterday.",
+          "hint": "to work + evidential past, you",
+          "display_order": 3
+        },
+        {
+          "sentence": "Komşular {{answer}}.",
+          "answer": "taşınmış",
+          "translation": "The neighbours have apparently moved away.",
+          "hint": "to move away + evidential past",
+          "display_order": 4
+        },
+        {
+          "sentence": "Bebek {{answer}}.",
+          "answer": "uyumuş",
+          "translation": "The baby has apparently fallen asleep.",
+          "hint": "to fall asleep + evidential past",
+          "display_order": 5
+        },
+        {
+          "sentence": "Yemek çok güzel {{answer}}.",
+          "answer": "olmuş",
+          "translation": "The food has turned out great (they say).",
+          "hint": "to turn out + evidential past",
+          "display_order": 6
         }
       ]
     },
@@ -820,15 +1717,43 @@
           "sentence": "Erken {{answer}}.",
           "answer": "kalkmalıyım",
           "translation": "I must get up early.",
-          "hint": "kalk + -malı + -yım",
+          "hint": "to get up + necessity, I",
           "display_order": 1
         },
         {
           "sentence": "Daha çok {{answer}}.",
           "answer": "çalışmalısın",
           "translation": "You should study more.",
-          "hint": "çalış + -malı + -sın",
+          "hint": "to study + necessity, you",
           "display_order": 2
+        },
+        {
+          "sentence": "Biz daha erken {{answer}}.",
+          "answer": "yatmalıyız",
+          "translation": "We should go to bed earlier.",
+          "hint": "to go to bed + necessity, we",
+          "display_order": 3
+        },
+        {
+          "sentence": "O doktora {{answer}}.",
+          "answer": "gitmeli",
+          "translation": "She should go to the doctor.",
+          "hint": "to go + necessity, she",
+          "display_order": 4
+        },
+        {
+          "sentence": "Ben sigarayı {{answer}}.",
+          "answer": "bırakmalıyım",
+          "translation": "I must quit smoking.",
+          "hint": "to quit + necessity, I",
+          "display_order": 5
+        },
+        {
+          "sentence": "Siz Türkçe pratik {{answer}}.",
+          "answer": "yapmalısınız",
+          "translation": "You should practise Turkish.",
+          "hint": "to do + necessity, you (plural)",
+          "display_order": 6
         }
       ]
     },
@@ -852,15 +1777,43 @@
           "sentence": "Zamanın {{answer}}, gel.",
           "answer": "varsa",
           "translation": "If you have time, come.",
-          "hint": "var + -sa",
+          "hint": "'there is' + conditional",
           "display_order": 1
         },
         {
           "sentence": "Yağmur {{answer}}, evde kalırız.",
           "answer": "yağarsa",
           "translation": "If it rains, we will stay at home.",
-          "hint": "yağar + -sa",
+          "hint": "to rain + aorist + conditional",
           "display_order": 2
+        },
+        {
+          "sentence": "Param {{answer}}, araba alırım.",
+          "answer": "olursa",
+          "translation": "If I have money, I'll buy a car.",
+          "hint": "to be + aorist + conditional",
+          "display_order": 3
+        },
+        {
+          "sentence": "Erken {{answer}}, kahvaltı yaparız.",
+          "answer": "kalkarsak",
+          "translation": "If we get up early, we'll have breakfast.",
+          "hint": "to get up + aorist + conditional, we",
+          "display_order": 4
+        },
+        {
+          "sentence": "{{answer}}, birlikte çalışırız.",
+          "answer": "İstersen",
+          "translation": "If you want, we'll work together.",
+          "hint": "iste + -r + -sen",
+          "display_order": 5
+        },
+        {
+          "sentence": "Geç {{answer}}, beni bekleme.",
+          "answer": "kalırsam",
+          "translation": "If I'm late, don't wait for me.",
+          "hint": "to be (late) + aorist + conditional, I",
+          "display_order": 6
         }
       ]
     },
@@ -884,7 +1837,7 @@
           "sentence": "{{answer}} seviyorum.",
           "answer": "Yüzmeyi",
           "translation": "I love swimming.",
-          "hint": "yüzme + -yi (accusative)",
+          "hint": "swimming as a noun + accusative",
           "display_order": 1
         },
         {
@@ -893,6 +1846,34 @@
           "translation": "Reading books is nice.",
           "hint": "bare infinitive as subject",
           "display_order": 2
+        },
+        {
+          "sentence": "{{answer}} sağlığa iyi gelir.",
+          "answer": "Yüzmek",
+          "translation": "Swimming is good for your health.",
+          "hint": "to swim as a noun (infinitive)",
+          "display_order": 3
+        },
+        {
+          "sentence": "Türkçe {{answer}} zor değil.",
+          "answer": "öğrenmek",
+          "translation": "Learning Turkish is not hard.",
+          "hint": "to learn as a noun (infinitive)",
+          "display_order": 4
+        },
+        {
+          "sentence": "{{answer}} istemiyorum.",
+          "answer": "Gitmek",
+          "translation": "I don't want to go.",
+          "hint": "to go as a noun (infinitive)",
+          "display_order": 5
+        },
+        {
+          "sentence": "O, kitap {{answer}} sever.",
+          "answer": "okumayı",
+          "translation": "He loves reading books.",
+          "hint": "reading as a noun + accusative",
+          "display_order": 6
         }
       ]
     },
@@ -925,6 +1906,34 @@
           "translation": "I am not as fast as you.",
           "hint": "'as much as'",
           "display_order": 2
+        },
+        {
+          "sentence": "Buz {{answer}} soğuk.",
+          "answer": "gibi",
+          "translation": "Cold as ice.",
+          "hint": "like",
+          "display_order": 3
+        },
+        {
+          "sentence": "Kardeşim benim {{answer}} uzun değil.",
+          "answer": "kadar",
+          "translation": "My brother is not as tall as me.",
+          "hint": "as … as",
+          "display_order": 4
+        },
+        {
+          "sentence": "O, babası {{answer}} çalışkan.",
+          "answer": "kadar",
+          "translation": "He is as hardworking as his father.",
+          "hint": "as … as",
+          "display_order": 5
+        },
+        {
+          "sentence": "Melek {{answer}} bir insan.",
+          "answer": "gibi",
+          "translation": "A person like an angel.",
+          "hint": "like",
+          "display_order": 6
         }
       ]
     },
@@ -948,15 +1957,43 @@
           "sentence": "{{answer}} müzik dinlerim.",
           "answer": "Çalışırken",
           "translation": "While working, I listen to music.",
-          "hint": "çalışır + -ken",
+          "hint": "to work + aorist + 'while'",
           "display_order": 1
         },
         {
           "sentence": "Yemek {{answer}} konuşma.",
           "answer": "yerken",
           "translation": "Don't talk while eating.",
-          "hint": "yer + -ken",
+          "hint": "to eat + aorist + 'while'",
           "display_order": 2
+        },
+        {
+          "sentence": "{{answer}} telefon çaldı.",
+          "answer": "Uyurken",
+          "translation": "The phone rang while I was sleeping.",
+          "hint": "to sleep + aorist + 'while'",
+          "display_order": 3
+        },
+        {
+          "sentence": "Kitap {{answer}} uyuyakaldım.",
+          "answer": "okurken",
+          "translation": "I fell asleep while reading a book.",
+          "hint": "to read + aorist + 'while'",
+          "display_order": 4
+        },
+        {
+          "sentence": "Araba {{answer}} dikkatli ol.",
+          "answer": "kullanırken",
+          "translation": "Be careful while driving.",
+          "hint": "to use + aorist + 'while'",
+          "display_order": 5
+        },
+        {
+          "sentence": "Ders {{answer}} telefonuna bakma.",
+          "answer": "çalışırken",
+          "translation": "Don't look at your phone while studying.",
+          "hint": "to study + aorist + 'while'",
+          "display_order": 6
         }
       ]
     },
@@ -984,15 +2021,43 @@
           "sentence": "{{answer}} adam babamdır.",
           "answer": "Gelen",
           "translation": "The man who is coming is my father.",
-          "hint": "gel + -en",
+          "hint": "to come + subject participle",
           "display_order": 1
         },
         {
           "sentence": "Kitap {{answer}} kız kardeşimdir.",
           "answer": "okuyan",
           "translation": "The girl who is reading a book is my sister.",
-          "hint": "oku + -y- + -an",
+          "hint": "to read + subject participle (buffer y)",
           "display_order": 2
+        },
+        {
+          "sentence": "{{answer}} kadın annemdir.",
+          "answer": "Konuşan",
+          "translation": "The woman who is speaking is my mother.",
+          "hint": "to speak + subject participle",
+          "display_order": 3
+        },
+        {
+          "sentence": "Bahçede {{answer}} çocuklar mutlu.",
+          "answer": "oynayan",
+          "translation": "The children playing in the garden are happy.",
+          "hint": "to play + subject participle (buffer y)",
+          "display_order": 4
+        },
+        {
+          "sentence": "{{answer}} öğrenciler sınavı geçti.",
+          "answer": "Çalışan",
+          "translation": "The students who studied passed the exam.",
+          "hint": "to study + subject participle",
+          "display_order": 5
+        },
+        {
+          "sentence": "Sokakta {{answer}} adamı gördüm.",
+          "answer": "koşan",
+          "translation": "I saw the man running in the street.",
+          "hint": "to run + subject participle",
+          "display_order": 6
         }
       ]
     },
@@ -1020,15 +2085,43 @@
           "sentence": "{{answer}} kitap çok güzel.",
           "answer": "Okuduğum",
           "translation": "The book that I read is very good.",
-          "hint": "oku + -duk + -um",
+          "hint": "to read + object participle, my",
           "display_order": 1
         },
         {
           "sentence": "Senin {{answer}} yemek lezzetliydi.",
           "answer": "yaptığın",
           "translation": "The food that you made was delicious.",
-          "hint": "yap + -tık + -ın",
+          "hint": "to make + object participle, your",
           "display_order": 2
+        },
+        {
+          "sentence": "{{answer}} film çok uzundu.",
+          "answer": "İzlediğimiz",
+          "translation": "The film we watched was very long.",
+          "hint": "izle + -diğimiz",
+          "display_order": 3
+        },
+        {
+          "sentence": "Onun {{answer}} her şey doğru.",
+          "answer": "söylediği",
+          "translation": "Everything he said is true.",
+          "hint": "to say + object participle, his",
+          "display_order": 4
+        },
+        {
+          "sentence": "{{answer}} şehir çok güzelmiş.",
+          "answer": "Yaşadığın",
+          "translation": "The city you live in is apparently very beautiful.",
+          "hint": "to live + object participle, your",
+          "display_order": 5
+        },
+        {
+          "sentence": "Benim {{answer}} kitap masada.",
+          "answer": "okuduğum",
+          "translation": "The book I am reading is on the table.",
+          "hint": "to read + object participle, my",
+          "display_order": 6
         }
       ]
     },
@@ -1052,15 +2145,43 @@
           "sentence": "Bu ev 1950'de {{answer}}.",
           "answer": "yapıldı",
           "translation": "This house was built in 1950.",
-          "hint": "yap + -ıl + -dı",
+          "hint": "to build + passive + past",
           "display_order": 1
         },
         {
           "sentence": "Türkiye'de çok çay {{answer}}.",
           "answer": "içilir",
           "translation": "A lot of tea is drunk in Turkey.",
-          "hint": "iç + -il + -ir",
+          "hint": "to drink + passive + aorist",
           "display_order": 2
+        },
+        {
+          "sentence": "Bu okul geçen yıl {{answer}}.",
+          "answer": "açıldı",
+          "translation": "This school was opened last year.",
+          "hint": "to open + passive + past",
+          "display_order": 3
+        },
+        {
+          "sentence": "Mektup dün {{answer}}.",
+          "answer": "gönderildi",
+          "translation": "The letter was sent yesterday.",
+          "hint": "to send + passive + past",
+          "display_order": 4
+        },
+        {
+          "sentence": "Bu evde Türkçe {{answer}}.",
+          "answer": "konuşulur",
+          "translation": "Turkish is spoken in this house.",
+          "hint": "to speak + passive + aorist",
+          "display_order": 5
+        },
+        {
+          "sentence": "Kapılar akşam dokuzda {{answer}}.",
+          "answer": "kapatılır",
+          "translation": "The doors are closed at nine in the evening.",
+          "hint": "to close + passive + aorist",
+          "display_order": 6
         }
       ]
     },
@@ -1084,15 +2205,43 @@
           "sentence": "Saçımı {{answer}}.",
           "answer": "kestirdim",
           "translation": "I had my hair cut.",
-          "hint": "kes + -tir + -di + -m",
+          "hint": "to cut + causative + past, I",
           "display_order": 1
         },
         {
           "sentence": "Annesi çocuğa yemek {{answer}}.",
           "answer": "yedirdi",
           "translation": "His mother fed the child.",
-          "hint": "ye + -dir + -di",
+          "hint": "to eat + causative + past, she",
           "display_order": 2
+        },
+        {
+          "sentence": "Arabamı {{answer}}.",
+          "answer": "yıkattım",
+          "translation": "I had my car washed.",
+          "hint": "to wash + causative + past, I",
+          "display_order": 3
+        },
+        {
+          "sentence": "Öğretmen öğrencilere kitap {{answer}}.",
+          "answer": "okuttu",
+          "translation": "The teacher had the students read a book.",
+          "hint": "to read + causative + past, he",
+          "display_order": 4
+        },
+        {
+          "sentence": "Bebeği {{answer}}.",
+          "answer": "uyuttum",
+          "translation": "I put the baby to sleep.",
+          "hint": "to sleep + causative + past, I",
+          "display_order": 5
+        },
+        {
+          "sentence": "Evi {{answer}}.",
+          "answer": "boyattım",
+          "translation": "I had the house painted.",
+          "hint": "to paint + causative + past, I",
+          "display_order": 6
         }
       ]
     },
@@ -1123,8 +2272,36 @@
           "sentence": "Hasta {{answer}} duydum.",
           "answer": "olduğunu",
           "translation": "I heard that he was sick.",
-          "hint": "ol + -duğ + -u + -nu",
+          "hint": "to be + object participle + accusative",
           "display_order": 2
+        },
+        {
+          "sentence": "Onun hasta {{answer}} bilmiyordum.",
+          "answer": "olduğunu",
+          "translation": "I didn't know that he was ill.",
+          "hint": "to be + object participle + accusative",
+          "display_order": 3
+        },
+        {
+          "sentence": "Nerede {{answer}} sordu.",
+          "answer": "oturduğumu",
+          "translation": "He asked where I live.",
+          "hint": "to live + object participle, my + accusative",
+          "display_order": 4
+        },
+        {
+          "sentence": "Beni {{answer}} söyledi.",
+          "answer": "sevdiğini",
+          "translation": "She said that she loves me.",
+          "hint": "to love + object participle, her + accusative",
+          "display_order": 5
+        },
+        {
+          "sentence": "Geç {{answer}} fark ettim.",
+          "answer": "kaldığımı",
+          "translation": "I realised that I was late.",
+          "hint": "to be (late) + object participle, my + accusative",
+          "display_order": 6
         }
       ]
     },
@@ -1152,15 +2329,43 @@
           "sentence": "Kahvaltı {{answer}} evden çıktım.",
           "answer": "yapıp",
           "translation": "I had breakfast and left the house.",
-          "hint": "yap + -ıp",
+          "hint": "to make + 'and then' converb",
           "display_order": 1
         },
         {
           "sentence": "{{answer}} geldi.",
           "answer": "Koşarak",
           "translation": "He came running.",
-          "hint": "koş + -arak",
+          "hint": "to run + 'by …ing' converb",
           "display_order": 2
+        },
+        {
+          "sentence": "Eve {{answer}} yemek yaptım.",
+          "answer": "gelip",
+          "translation": "I came home and cooked.",
+          "hint": "to come + 'and then' converb",
+          "display_order": 3
+        },
+        {
+          "sentence": "{{answer}} konuşuyordu.",
+          "answer": "Gülerek",
+          "translation": "She was talking while laughing.",
+          "hint": "to laugh + 'by …ing' converb",
+          "display_order": 4
+        },
+        {
+          "sentence": "Kapıyı {{answer}} çıktı.",
+          "answer": "kapatıp",
+          "translation": "He closed the door and left.",
+          "hint": "to close + 'and then' converb",
+          "display_order": 5
+        },
+        {
+          "sentence": "Müzik {{answer}} ders çalışırım.",
+          "answer": "dinleyerek",
+          "translation": "I study while listening to music.",
+          "hint": "to listen + 'by …ing' converb (buffer y)",
+          "display_order": 6
         }
       ]
     },
@@ -1184,15 +2389,43 @@
           "sentence": "{{answer}} öğreniyorum.",
           "answer": "Okudukça",
           "translation": "The more I read, the more I learn.",
-          "hint": "oku + -dukça",
+          "hint": "to read + 'the more' converb",
           "display_order": 1
         },
         {
           "sentence": "Sen {{answer}}, ben mutlu oluyorum.",
           "answer": "güldükçe",
           "translation": "As you laugh, I become happy.",
-          "hint": "gül + -dükçe",
+          "hint": "to laugh + 'the more' converb",
           "display_order": 2
+        },
+        {
+          "sentence": "Para {{answer}} harcıyor.",
+          "answer": "kazandıkça",
+          "translation": "The more he earns, the more he spends.",
+          "hint": "to earn + 'the more' converb",
+          "display_order": 3
+        },
+        {
+          "sentence": "{{answer}} güzelleşiyorsun.",
+          "answer": "Büyüdükçe",
+          "translation": "You get more beautiful as you grow.",
+          "hint": "to grow + 'the more' converb",
+          "display_order": 4
+        },
+        {
+          "sentence": "Türkçe {{answer}} kolaylaşıyor.",
+          "answer": "öğrendikçe",
+          "translation": "The more you learn Turkish, the easier it gets.",
+          "hint": "to learn + 'the more' converb",
+          "display_order": 5
+        },
+        {
+          "sentence": "Zaman {{answer}} her şey değişiyor.",
+          "answer": "geçtikçe",
+          "translation": "As time passes, everything changes.",
+          "hint": "to pass + 'the more' converb (suffix devoices)",
+          "display_order": 6
         }
       ]
     },
@@ -1216,15 +2449,43 @@
           "sentence": "Veda {{answer}} gitti.",
           "answer": "etmeden",
           "translation": "He left without saying goodbye.",
-          "hint": "et + -meden",
+          "hint": "to do + 'without …ing'",
           "display_order": 1
         },
         {
           "sentence": "Hiç {{answer}} sınavı geçti.",
           "answer": "çalışmadan",
           "translation": "He passed the exam without studying at all.",
-          "hint": "çalış + -madan",
+          "hint": "to study + 'without …ing'",
           "display_order": 2
+        },
+        {
+          "sentence": "Kahvaltı {{answer}} okula gitti.",
+          "answer": "yapmadan",
+          "translation": "He went to school without having breakfast.",
+          "hint": "to have (breakfast) + 'without …ing'",
+          "display_order": 3
+        },
+        {
+          "sentence": "{{answer}} konuşma.",
+          "answer": "Düşünmeden",
+          "translation": "Don't speak without thinking.",
+          "hint": "to think + 'without …ing'",
+          "display_order": 4
+        },
+        {
+          "sentence": "İzin {{answer}} girme.",
+          "answer": "almadan",
+          "translation": "Don't enter without permission.",
+          "hint": "to take + 'without …ing'",
+          "display_order": 5
+        },
+        {
+          "sentence": "Etrafına {{answer}} yürüyordu.",
+          "answer": "bakmadan",
+          "translation": "He was walking without looking around.",
+          "hint": "to look + 'without …ing'",
+          "display_order": 6
         }
       ]
     },
@@ -1248,15 +2509,43 @@
           "sentence": "Biz üniversitede {{answer}}.",
           "answer": "tanıştık",
           "translation": "We met (each other) at university.",
-          "hint": "tanı + -ış + -tı + -k",
+          "hint": "to know + reciprocal + past, we",
           "display_order": 1
         },
         {
           "sentence": "Kedi {{answer}}.",
           "answer": "yıkanıyor",
           "translation": "The cat is washing itself.",
-          "hint": "yıka + -n + -ıyor",
+          "hint": "to wash + reflexive + present continuous",
           "display_order": 2
+        },
+        {
+          "sentence": "Onlar her gün {{answer}}.",
+          "answer": "görüşüyorlar",
+          "translation": "They see each other every day.",
+          "hint": "gör + -üş — reciprocal",
+          "display_order": 3
+        },
+        {
+          "sentence": "Arkadaşlar yıllar sonra {{answer}}.",
+          "answer": "buluştular",
+          "translation": "The friends met up after years.",
+          "hint": "bul + -uş — reciprocal",
+          "display_order": 4
+        },
+        {
+          "sentence": "Her sabah {{answer}}.",
+          "answer": "taranırım",
+          "translation": "I comb my hair every morning.",
+          "hint": "tara + -n — reflexive",
+          "display_order": 5
+        },
+        {
+          "sentence": "İki kardeş sürekli {{answer}}.",
+          "answer": "dövüşüyor",
+          "translation": "The two brothers are constantly fighting each other.",
+          "hint": "döv + -üş — reciprocal",
+          "display_order": 6
         }
       ]
     },
@@ -1280,15 +2569,43 @@
           "sentence": "Hasta {{answer}} için gelmedi.",
           "answer": "olduğu",
           "translation": "He didn't come because he was sick.",
-          "hint": "ol + -duğ + -u (+ için)",
+          "hint": "to be + object participle (+ 'because')",
           "display_order": 1
         },
         {
           "sentence": "Geç {{answer}} için özür diledi.",
           "answer": "kaldığı",
           "translation": "He apologized for being late.",
-          "hint": "kal + -dığ + -ı (+ için)",
+          "hint": "to be (late) + object participle (+ 'because')",
           "display_order": 2
+        },
+        {
+          "sentence": "Yağmur {{answer}} için maç iptal oldu.",
+          "answer": "yağdığı",
+          "translation": "Because it rained, the match was cancelled.",
+          "hint": "to rain + object participle (+ 'because')",
+          "display_order": 3
+        },
+        {
+          "sentence": "Çok {{answer}} için başardı.",
+          "answer": "çalıştığı",
+          "translation": "He succeeded because he worked hard.",
+          "hint": "to work + object participle (+ 'because')",
+          "display_order": 4
+        },
+        {
+          "sentence": "Erken {{answer}} için yorgunum.",
+          "answer": "kalktığım",
+          "translation": "I am tired because I got up early.",
+          "hint": "to get up + object participle, my (+ 'because')",
+          "display_order": 5
+        },
+        {
+          "sentence": "Bilet {{answer}} için giremedik.",
+          "answer": "almadığımız",
+          "translation": "Because we didn't buy tickets, we couldn't get in.",
+          "hint": "to buy + negative + object participle, our (+ 'because')",
+          "display_order": 6
         }
       ]
     },
@@ -1312,15 +2629,43 @@
           "sentence": "Toplantı devam {{answer}}.",
           "answer": "etmektedir",
           "translation": "The meeting is (formally) in progress.",
-          "hint": "et + -mekte + -dir",
+          "hint": "to continue + formal progressive",
           "display_order": 1
         },
         {
           "sentence": "Fiyatlar {{answer}}.",
           "answer": "artmaktadır",
           "translation": "Prices are rising (formal).",
-          "hint": "art + -makta + -dır",
+          "hint": "to increase + formal progressive",
           "display_order": 2
+        },
+        {
+          "sentence": "Şirket hızla {{answer}}.",
+          "answer": "büyümektedir",
+          "translation": "The company is growing rapidly.",
+          "hint": "to grow + formal progressive",
+          "display_order": 3
+        },
+        {
+          "sentence": "İşsizlik oranı {{answer}}.",
+          "answer": "azalmaktadır",
+          "translation": "The unemployment rate is decreasing.",
+          "hint": "to decrease + formal progressive",
+          "display_order": 4
+        },
+        {
+          "sentence": "Proje üzerinde {{answer}}.",
+          "answer": "çalışılmaktadır",
+          "translation": "Work is ongoing on the project.",
+          "hint": "passive + -maktadır",
+          "display_order": 5
+        },
+        {
+          "sentence": "Sonuçlar {{answer}}.",
+          "answer": "beklenmektedir",
+          "translation": "The results are awaited.",
+          "hint": "passive + -mektedir",
+          "display_order": 6
         }
       ]
     },
@@ -1353,6 +2698,34 @@
           "translation": "He acted as if nothing had happened.",
           "hint": "'as if' after -mış",
           "display_order": 2
+        },
+        {
+          "sentence": "Hiç {{answer}} gibi konuşuyor.",
+          "answer": "bilmiyormuş",
+          "translation": "He talks as if he doesn't know anything.",
+          "hint": "to not know + evidential (before 'gibi')",
+          "display_order": 3
+        },
+        {
+          "sentence": "{{answer}} gibi yaptı.",
+          "answer": "Anlamamış",
+          "translation": "She pretended not to understand.",
+          "hint": "to understand + negative + evidential participle",
+          "display_order": 4
+        },
+        {
+          "sentence": "Her şeyi {{answer}} gibi anlatıyor.",
+          "answer": "görmüş",
+          "translation": "He recounts it as if he had seen everything.",
+          "hint": "to see + evidential participle",
+          "display_order": 5
+        },
+        {
+          "sentence": "Beni {{answer}} gibi davrandı.",
+          "answer": "tanımıyormuş",
+          "translation": "She acted as if she didn't know me.",
+          "hint": "to not know (someone) + evidential (before 'gibi')",
+          "display_order": 6
         }
       ]
     },
@@ -1376,7 +2749,7 @@
           "sentence": "Televizyon {{answer}} kitap oku.",
           "answer": "izleyeceğine",
           "translation": "Instead of watching TV, read a book.",
-          "hint": "izle + -yeceğ + -ine",
+          "hint": "to watch + 'instead of …ing'",
           "display_order": 1
         },
         {
@@ -1385,6 +2758,34 @@
           "translation": "Instead of complaining, find a solution.",
           "hint": "et + -eceğ + -ine",
           "display_order": 2
+        },
+        {
+          "sentence": "{{answer}} harekete geç.",
+          "answer": "Bekleyeceğine",
+          "translation": "Instead of waiting, take action.",
+          "hint": "to wait + 'instead of …ing'",
+          "display_order": 3
+        },
+        {
+          "sentence": "{{answer}} gül.",
+          "answer": "Ağlayacağına",
+          "translation": "Instead of crying, laugh.",
+          "hint": "to cry + 'instead of …ing'",
+          "display_order": 4
+        },
+        {
+          "sentence": "Evde {{answer}} dışarı çık.",
+          "answer": "oturacağına",
+          "translation": "Instead of sitting at home, go outside.",
+          "hint": "to sit + 'instead of …ing'",
+          "display_order": 5
+        },
+        {
+          "sentence": "Parayı oyuna {{answer}} kitap al.",
+          "answer": "harcayacağına",
+          "translation": "Instead of spending the money on games, buy books.",
+          "hint": "to spend + 'instead of …ing'",
+          "display_order": 6
         }
       ]
     }

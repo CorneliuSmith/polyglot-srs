@@ -6,6 +6,7 @@ import type {
   ValidateAnswerResponse,
   SubmitReviewRequest,
   SubmitReviewResponse,
+  LearnDeck,
   LearnResponse,
 } from './types'
 
@@ -53,10 +54,30 @@ export async function submitCardFeedback(
 export async function startLearnSession(
   languageId: string,
   cardType: 'vocabulary' | 'grammar' = 'vocabulary',
+  level?: string,
 ): Promise<LearnResponse> {
   const response = await apiClient.post<LearnResponse>('/api/review/learn', {
     language_id: languageId,
     card_type: cardType,
+    ...(level ? { level } : {}),
   })
   return response.data
+}
+
+export async function confirmLearnSession(
+  cardIds: string[],
+): Promise<{ confirmed: number }> {
+  const response = await apiClient.post<{ confirmed: number }>(
+    '/api/review/learn/confirm',
+    { card_ids: cardIds },
+  )
+  return response.data
+}
+
+export async function getLearnDecks(languageId: string): Promise<LearnDeck[]> {
+  const response = await apiClient.get<{ decks: LearnDeck[] }>(
+    '/api/review/decks',
+    { params: { language_id: languageId } },
+  )
+  return response.data.decks
 }

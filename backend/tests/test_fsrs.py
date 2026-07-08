@@ -94,7 +94,10 @@ class TestFirstReview:
         r = review(CardState(), Rating.AGAIN)
         assert r.state == RELEARNING
         assert r.lapses == 1 and r.streak == 0 and r.repetitions == 0
-        assert r.interval >= 1  # never schedules in the past
+        # Ghost semantics: a failed card STAYS DUE until answered correctly —
+        # closing the window after a miss must not hide the review.
+        assert r.interval == 0
+        assert r.next_review == NOW
 
 
 # ── subsequent reviews ───────────────────────────────────────────────────────

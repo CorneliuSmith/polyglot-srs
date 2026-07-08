@@ -56,3 +56,6 @@ ignore = ["E501"]
 # Tests: allow constant-style locals, acronym import aliases, and unused
 # fixture vars in TODO-stubbed RLS tests.
 "backend/tests/*" = ["N806", "N817", "F841"]
+
+[tool.hatch.build.targets.wheel]
+packages = ["backend"]

@@ -100,22 +100,29 @@ async def upsert_language_weights(
     params: list[float],
     review_count: int,
     log_loss: float,
+    holdout_log_loss: float | None = None,
+    defaults_holdout_log_loss: float | None = None,
 ) -> None:
     """Store (or refresh) the per-language weights."""
     await conn.execute(
         """
-        INSERT INTO fsrs_weights (scope, language_id, user_id, params, review_count, log_loss, fit_at)
-        VALUES ('language', $1, NULL, $2, $3, $4, now())
+        INSERT INTO fsrs_weights (scope, language_id, user_id, params, review_count,
+                                  log_loss, holdout_log_loss, defaults_holdout_log_loss, fit_at)
+        VALUES ('language', $1, NULL, $2, $3, $4, $5, $6, now())
         ON CONFLICT (language_id) WHERE scope = 'language'
         DO UPDATE SET params = EXCLUDED.params,
                       review_count = EXCLUDED.review_count,
                       log_loss = EXCLUDED.log_loss,
+                      holdout_log_loss = EXCLUDED.holdout_log_loss,
+                      defaults_holdout_log_loss = EXCLUDED.defaults_holdout_log_loss,
                       fit_at = now()
         """,
         language_id,
         params,
         review_count,
         log_loss,
+        holdout_log_loss,
+        defaults_holdout_log_loss,
     )
 
 
@@ -126,16 +133,21 @@ async def upsert_user_weights(
     params: list[float],
     review_count: int,
     log_loss: float,
+    holdout_log_loss: float | None = None,
+    defaults_holdout_log_loss: float | None = None,
 ) -> None:
     """Store (or refresh) one user's per-language weights."""
     await conn.execute(
         """
-        INSERT INTO fsrs_weights (scope, language_id, user_id, params, review_count, log_loss, fit_at)
-        VALUES ('user_language', $1, $2, $3, $4, $5, now())
+        INSERT INTO fsrs_weights (scope, language_id, user_id, params, review_count,
+                                  log_loss, holdout_log_loss, defaults_holdout_log_loss, fit_at)
+        VALUES ('user_language', $1, $2, $3, $4, $5, $6, $7, now())
         ON CONFLICT (user_id, language_id) WHERE scope = 'user_language'
         DO UPDATE SET params = EXCLUDED.params,
                       review_count = EXCLUDED.review_count,
                       log_loss = EXCLUDED.log_loss,
+                      holdout_log_loss = EXCLUDED.holdout_log_loss,
+                      defaults_holdout_log_loss = EXCLUDED.defaults_holdout_log_loss,
                       fit_at = now()
         """,
         language_id,
@@ -143,4 +155,6 @@ async def upsert_user_weights(
         params,
         review_count,
         log_loss,
+        holdout_log_loss,
+        defaults_holdout_log_loss,
     )

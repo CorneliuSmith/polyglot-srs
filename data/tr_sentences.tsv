@@ -1,0 +1,707 @@
+word	sentence	translation	difficulty_rank
+bir	O onlardan biri.	That's one of them.	5
+on	O onlardan biri.	That's one of them.	5
+o	O onlardan biri.	That's one of them.	5
+on	O onun.	It's hers.	5
+o	O onun.	It's hers.	5
+on	O bir oni.	This is an oni.	5
+bir	O bir oni.	This is an oni.	5
+o	O bir oni.	This is an oni.	5
+şey	Şey...	Er...	6
+evet	Evet.	It's true.	7
+evet	Evet!	Yes!	7
+evet	Evet?	Yes?	7
+iş	O iştir.	It's work.	9
+iş	Onlar işteler.	They are at work.	9
+iş	O onun işi.	That's his business.	9
+yok	O yok.	It doesn't exist.	10
+şey	Bir şey yok.	There is nothing.	10
+yok	Bir şey yok.	There is nothing.	10
+bir	Bir şey yok.	There is nothing.	10
+yok	Onların işi yok.	They don't have jobs.	10
+şey	Bir şey yok!	Nothing!	10
+de	Sadece evet de.	Just say yes.	12
+sadece	Sadece evet de.	Just say yes.	12
+ve	Ve sonra?	And afterward?	13
+sonra	Ve sonra?	And afterward?	13
+sonra	Sonra.	Later.	13
+ve	Ve şimdi?	And now?	14
+şimdi	Ve şimdi?	And now?	14
+şimdi	Şimdi!	Now!	14
+adam	O sadece bir iş adamıdır.	He is nothing but a businessman.	15
+sadece	O sadece bir iş adamıdır.	He is nothing but a businessman.	15
+adam	O sadece bir adam.	He is only a man.	15
+sadece	O sadece bir adam.	He is only a man.	15
+adam	Adamın biri.	Some man.	15
+pek	Peki.	Alright.	16
+teşekkür	Teşekkürler!	Thanks!	17
+teşekkür	Onlara teşekkürler de.	Tell them thanks.	17
+de	Onlara teşekkürler de.	Tell them thanks.	17
+teşekkür	Ona teşekkürler de.	Tell him thanks.	17
+de	Ona teşekkürler de.	Tell him thanks.	17
+güzel	Onlar güzel.	They are pretty.	18
+güzel	O, güzel bir iştir.	It's a beautiful job.	18
+güzel	O güzel.	She's nice.	18
+gün	Güzel bir gün.	It's a beautiful day.	19
+gün	Güzel bir gün!	It's a beautiful day!	19
+gün	Güzel gün.	Beautiful day.	19
+kız	O güzel bir kız.	She is a pretty girl.	20
+kız	O, onun kızı.	She's her daughter.	20
+kız	O, güzel bir kızdır.	She is a beautiful girl.	20
+başka	Başka biri yok.	There isn't anybody else.	23
+başka	Başka bir şey yok.	There's nothing else.	23
+başka	O başka bir şey.	That's another thing.	23
+doğru	Doğru!	That's right!	25
+doğru	Evet, o doğru.	Yes. That's right.	25
+doğru	Evet, doğru!	You said it!	25
+da	O da doğru.	That's true, too.	25
+büyük	Onlar büyük.	They are big.	26
+büyük	O büyük bir iş adamı.	He's a tycoon.	26
+büyük	O büyük bir iş.	That's a big job.	26
+yüz	On, yüzün yüzde onudur.	Ten is ten percent of one hundred.	27
+yüz	Sadece yüz.	Just swim.	27
+yüz	Yüz.	Swim.	27
+yeni	O yeni.	It's new.	29
+yeni	Yeni bir gün.	It's a new day.	29
+kötü	O kötü bir adam.	He is an evil man.	31
+kötü	O kötü.	It's evil.	31
+kötü	Onlar kötü.	They're evil.	31
+ad	Onun bir adı yok.	It doesn't have a name.	34
+saat	Saat 3:30.	It's 3:30.	35
+saat	Saat 8:50.	It's ten to nine.	35
+saat	Saat 14:00.	It's 2:00 p.m.	35
+tam	Saat tam on.	It's ten o'clock sharp.	35
+iki	Saat iki.	It's two o'clock.	35
+şimdi	Saat şimdi 2.30.	It's 2:30 now.	35
+iki	Saat on iki.	It's twelve o'clock.	35
+dün	O, başka bir dünyadan.	He is from another world.	36
+anne	Teşekkürler anne.	Thanks, Mom.	37
+arkadaş	O, onun arkadaşıdır.	He is her friend.	40
+arkadaş	O bir arkadaşın arkadaşıdır.	He's a friend of a friend.	40
+arkadaş	O bir arkadaşın arkadaşının arkadaşıdır.	She's a friend of a friend of a friend.	40
+da	Arkadaşın arkadaşı da bir arkadaştır.	The friend of a friend is also a friend.	40
+tekrar	Tekrar teşekkürler.	Thanks again.	41
+tekrar	Tekrar!	Again!	41
+söz	Söz sözdür.	A promise is a promise.	44
+söz	O, sözünün adamıdır.	He is a man of his word.	44
+söz	O bir söz.	That's a promise.	44
+üç	Saat sadece üç.	It's only three o'clock.	45
+üç	Saat üç.	It's three o'clock.	45
+anne	O üç kızın annesidir.	She is the mother of three daughters.	45
+üç	O üç kızın annesidir.	She is the mother of three daughters.	45
+yine	Yine de teşekkürler.	Thank you just the same.	46
+para	O sadece para.	It's only money.	47
+para	Sadece para.	It's just money.	47
+para	Onların paraları yok.	They have no money.	47
+bugün	Bugün güzel bir gün.	It's a lovely day today.	48
+bugün	Bugün bir iş günüdür.	Today is a working day.	48
+bugün	Bugün büyük gün.	Today's the big day.	48
+polis	Onlar polis.	They're cops.	50
+polis	O adam bir polistir.	The man is a policeman.	50
+polis	Polis!	Police!	50
+ay	Ayı büyüktür.	The bear is big.	51
+ay	Ay!	Ouch!	51
+ay	Ay güzeldir.	The moon is beautiful.	51
+tam	Tam bir erkek.	You are quite a man.	52
+erkek	Tam bir erkek.	You are quite a man.	52
+erkek	O erkek bir adam.	He's a real man.	52
+erkek	O bir erkek işi.	That's a man's job.	52
+yapmak	Olmak yapmaktır.	To be is to do.	54
+olmak	Olmak yapmaktır.	To be is to do.	54
+yapmak	Onu yapmak güzel.	It's good to do that.	54
+su	Su yok.	There's no water.	55
+su	Su güzel.	The water is beautiful.	55
+su	Su!	Water!	55
+silah	Silahlara!	To arms!	56
+silah	Onun bir silahı yok.	He doesn't have a gun.	56
+hoş	Bugün hoş bir gün.	It is a pleasant day today.	59
+hoş	Hoş bir gün!	It is a nice day!	59
+fark	Büyük bir fark yok.	There's not a big difference.	60
+hoş	Hoş bir akşam.	It's a pleasant evening.	61
+akşam	Hoş bir akşam.	It's a pleasant evening.	61
+sabah	Sabah 7:50.	It's 7:50 in the morning.	64
+sabah	Sabah 08:00.	It's eight o'clock in the morning.	64
+sabah	Saat sabahın onu.	It's 10 a.m.	64
+yalan	O tam bir yalan.	That's a total lie.	67
+tam	O tam bir yalan.	That's a total lie.	67
+yalan	O bir yalan.	That's a lie.	67
+yalan	O büyük bir yalan.	That's a big lie.	67
+sonra	"""Sonra"" bir yalan."	"""Later"" is a lie."	67
+özel	Onlar özel.	They're special.	68
+özel	O özel.	That's private.	68
+özel	O özel bir şey.	That's something special.	68
+yalnız	O yalnızdır.	He is alone.	69
+yalnız	Kız yalnız.	The girl is lonely.	69
+yalnız	Onlar şimdi yalnız.	They're now alone.	69
+olmak	Yalnız olmak güzel.	It's nice to be alone.	69
+aç	Onu açın.	Turn it on.	71
+aç	Adam aç.	The man is hungry.	71
+aç	Onlar aç.	They are hungry.	71
+ateş	Ateşin yok.	You don't have a temperature.	72
+ateş	Ateş!	Fire!	72
+yaş	“Yaş?” “16.”	"""Age?"" ""16."""	73
+yaş	O on bir yaşında.	She's eleven years old.	73
+yaş	O 100 yaşında.	It is 100 years old.	73
+beş	O beş yaşında.	She is five years old.	74
+beş	Saat tam beş.	It is just five o'clock.	74
+beş	O sadece on beş yaşında.	She's only fifteen.	74
+kan	O sadece kan.	It's only blood.	75
+kan	Sadece kan.	It's just blood.	75
+boş	Onlar boş sözler.	Those are empty words.	76
+boş	O boş.	It's empty.	76
+boş	Onu boşa.	Divorce her.	76
+açık	O açık.	It's open.	78
+açık	Günde 24 saat açıklar.	They are open 24 hours a day.	78
+dünya	Dünya büyük.	The world is big.	79
+dünya	Bugün Dünya günü.	Today is Earth day.	79
+dünya	Dünya güzeldir!	The world is beautiful!	79
+tamamen	Tamamen bir yalan.	It's a complete sham.	80
+yeni	Tamamen yeni bir dünya.	It's a whole new world.	80
+tamamen	Tamamen yeni bir dünya.	It's a whole new world.	80
+cevap	O, doğru cevaptır.	That's the right answer.	81
+cevap	Cevap 42.	The answer is 42.	81
+cevap	Cevap evettir.	The answer is yes.	81
+açık	Cevap açık.	The answer is clear.	81
+dört	Saat dört.	It's four o'clock.	82
+ateş	Ateşe atın!	Kill it with fire!	91
+at	Ateşe atın!	Kill it with fire!	91
+at	Onları at.	Throw them away.	91
+at	Atın güzel.	Your horse is beautiful.	91
+silah	At silahını!	Throw your weapon down!	91
+fikir	O kötü bir fikir.	That's a horrible idea.	93
+da	O da kötü bir fikir.	That's also a bad idea.	93
+fikir	O da kötü bir fikir.	That's also a bad idea.	93
+fikir	O sadece bir fikir.	That's just the idea.	93
+bebek	O bir bebek.	She's a babe.	94
+bebek	Onlar bebek.	They're babies.	94
+bebek	Onlar bebekler.	They're babies.	94
+asker	O adam bir asker.	That man is a soldier.	95
+tamamen	O tamamen normal.	It's totally normal.	96
+normal	O tamamen normal.	It's totally normal.	96
+normal	Evet, o normal.	Yes, that's normal.	96
+normal	Ateşi normal.	His temperature is normal.	96
+güç	Para güçtür.	Money is power.	98
+kesin	O kesin bir şey.	It's a sure thing.	99
+kesin	O kesin bir yalandır.	That is an absolute lie.	99
+kesin	Ateşi kesin!	Stop shooting!	99
+altı	Saat altı.	It's six o'clock.	101
+hava	Bugün hava kötü.	The weather is bad today.	102
+hava	Bugün hava güzel.	It is fine today.	102
+hava	Ayda hava yoktur.	There is no air on the moon.	102
+fotoğraf	O güzel bir fotoğraf.	That's a beautiful photo.	104
+şehir	O, şehirde yeni.	He's new in town.	105
+şehir	Şehir güzel.	The town is beautiful.	105
+uygun	O uygun.	That's convenient.	106
+dört	Saat dört uygun.	Four o'clock is fine.	106
+uygun	Saat dört uygun.	Four o'clock is fine.	106
+köpek	O köpek büyük.	That dog is big.	107
+köpek	O köpek büyüktür.	That dog is big.	107
+köpek	Köpek onundur.	The dog is his.	107
+çek	Onu açık çekin.	Pull it open.	108
+çek	Çek!	Pull!	108
+çek	Onu çek.	Pull it.	108
+kral	Kralın bütün adamları.	All the king's men.	111
+bütün	Kralın bütün adamları.	All the king's men.	111
+kral	Para kraldır.	Money is king.	111
+biz	Acı bize!	Have pity on us!	112
+acı	Acı bize!	Have pity on us!	112
+bilmek	Bilmek başka şey, yapmak başka şey.	To know is one thing, and to do is another.	113
+yapmak	Bilmek başka şey, yapmak başka şey.	To know is one thing, and to do is another.	113
+yıldız	Yıldızlar güzeldir.	Stars are beautiful.	115
+yıldız	Yıldızlar güzel.	The stars are beautiful.	115
+ölü	O adam ölü.	That man is dead.	117
+hayvan	Atlar hayvandır.	Horses are animals.	119
+hayvan	At bir hayvandır.	A horse is an animal.	119
+hayvan	O bir hayvan.	He's an animal.	119
+kitap	Kitap büyük.	The book is big.	120
+kitap	O bir kitaptır.	It is a book.	120
+kitap	O bir kitap.	That's a book.	120
+dolar	Kitap dört dolar.	The book costs 4 dollars.	120
+dört	Kitap dört dolar.	The book costs 4 dollars.	120
+isim	O güzel bir isim.	That's a beautiful name.	121
+tatlı	O tatlı.	That's sweet.	122
+tatlı	O, tatlı bir kız.	She's a sweet girl.	122
+nefes	Bir nefes çek.	Take a whiff.	123
+anahtar	Anahtar açık.	The switch is on.	125
+noel	Noel yakında.	Christmas is soon.	126
+yakında	Noel yakında.	Christmas is soon.	126
+hafta	Noel sadece üç hafta sonra.	Christmas is just three weeks from now.	126
+noel	Noel sadece üç hafta sonra.	Christmas is just three weeks from now.	126
+uzak	Noel sadece üç hafta uzakta.	Christmas is just three weeks away.	126
+hafta	Noel sadece üç hafta uzakta.	Christmas is just three weeks away.	126
+noel	Noel sadece üç hafta uzakta.	Christmas is just three weeks away.	126
+uzak	Noel sadece bir hafta uzakta.	Christmas is just a week away.	126
+hafta	Noel sadece bir hafta uzakta.	Christmas is just a week away.	126
+top	Topu at.	Pitch the ball.	127
+top	Topu ona at.	Toss him the ball.	127
+top	Topu onlara at.	Toss the ball to them.	127
+şarkı	O bir şarkı.	It is a song.	128
+şarkı	O sadece bir şarkı.	It's just a song.	128
+şarkı	O güzel bir şarkı.	That's a beautiful song.	128
+söylemek	Şarkı söylemek onun işi.	Singing is his thing.	128
+söylemek	Şarkı söylemek onların işi.	Singing is their thing.	128
+sınıf	Onlar sınıfta.	They are in class.	129
+sınıf	Sınıf boş.	The classroom is empty.	129
+sıcak	Hava bugün sıcak.	It's hot today.	131
+sıcak	Bugün hava sıcak.	It's hot today.	131
+sıcak	Bugün hava güzel ve sıcak.	It is nice and warm today.	131
+ve	Bugün hava güzel ve sıcak.	It is nice and warm today.	131
+gece	Gece sıcaktır.	The night is hot.	131
+baba	Baba, işte kahve.	Dad, here's the coffee.	132
+kahve	Baba, işte kahve.	Dad, here's the coffee.	132
+kahve	Sadece kahve.	It's just coffee.	132
+kahve	Kahve?	Coffee?	132
+otel	O şimdi oteldedir.	She's at the hotel now.	136
+otel	O şimdi otelinde.	She is in her hotel now.	136
+otel	O bir oteldir.	That is a hotel.	136
+kapı	Kapı şimdi açık.	The door is open now.	137
+kapı	Kapı şimdi açıktır.	The gate is open now.	137
+kapı	Kapı açıktır.	The door is open.	137
+tehlikeli	O tehlikeli.	It's dangerous.	138
+tehlikeli	Dünya tehlikeli.	The world is dangerous.	138
+tehlikeli	Atlar tehlikeli hayvanlardır.	Horses are dangerous animals.	138
+amerika	Amerika güzel.	America is beautiful.	139
+sınıf	Sınıfta konuşma.	Don't talk in the classroom.	140
+konuşma	Sınıfta konuşma.	Don't talk in the classroom.	140
+konuşma	Konuşma!	Don't talk!	140
+konuşma	Boş konuşma.	Don't talk nonsense!	140
+acil	O acil.	It's urgent.	141
+yedi	Saat yedi.	It's seven o'clock.	145
+yedi	O on yedi yaşında.	She's seventeen years old.	145
+yine	Sokak yine boş.	The street is empty again.	146
+sokak	Sokak yine boş.	The street is empty again.	146
+sokak	Sokak boş.	The street is empty.	146
+soğuk	Hava soğuk.	It is cold.	147
+soğuk	Kahve soğuk.	The coffee is cold.	147
+soğuk	Hava şimdi soğuk.	The weather is cold now.	147
+gece	Gece soğuk.	The night is cold.	147
+yatak	Güzel kız yataktadır.	The beautiful girl is in bed.	148
+yatak	O, yatakta kötü.	He's bad in bed.	148
+siyah	Onun yeni erkek arkadaşı siyahtır.	Her new boyfriend is black.	150
+siyah	Siyah güzeldir.	Black is beautiful.	150
+siyah	Kitap siyahtır.	The book is black.	150
+kuş	O sadece bir kuş.	It's just a bird.	151
+gece	O bir gece kuşu.	She's a night owl.	151
+kuş	O bir gece kuşu.	She's a night owl.	151
+kuş	O bir kuştur.	It is a bird.	151
+eş	Onun eşi bir Alman.	His spouse is a German.	152
+alman	Onun eşi bir Alman.	His spouse is a German.	152
+saçma	Saçma!	That's ridiculous!	153
+saçma	Saçma.	Nonsense.	153
+saçma	O sadece saçma.	That's just absurd.	153
+biz	Şimdi sıra bizde.	Now it's our turn.	157
+sıra	Şimdi sıra bizde.	Now it's our turn.	157
+sıra	Şimdi sıra onda.	Now it is his turn.	157
+grup	Grup hala birlikte.	The band is still together.	158
+hala	Grup hala birlikte.	The band is still together.	158
+birlik	Grup hala birlikte.	The band is still together.	158
+balık	O bir balık.	It's a fish.	159
+balık	Onlar balık.	They're fish.	159
+suçlu	O suçlu.	She is in the wrong.	160
+suçlu	Onlar suçlu.	They're criminals.	160
+sekiz	O sekiz yaşında.	He is eight.	164
+sekiz	Saat sekiz.	It's eight o'clock.	164
+sekiz	Şimdi sabah saat sekiz.	It is now eight in the morning.	164
+dağ	Dağlar güzel.	The mountains are beautiful.	166
+bira	Bira güzeldir.	Beer's good.	167
+bira	Bira biradır.	Beer is beer.	167
+orospu	O bir orospu.	She's a slut.	168
+asker	Yaşamak bir asker olmaktır.	To live is to be a soldier.	169
+yaşamak	Yaşamak bir asker olmaktır.	To live is to be a soldier.	169
+olmak	Yaşamak bir asker olmaktır.	To live is to be a soldier.	169
+tren	O, trende.	He's on the train.	170
+kas	Kasayı açın.	Open the safe.	171
+mart	Bugün 5 Mart.	Today is March 5th.	173
+mart	Bugün beş mart.	Today is the fifth of March.	173
+mart	Bugün 27 Mart.	Today's March 27th.	173
+gemi	Onlar şimdi gemideler.	They are now aboard the ship.	175
+gemi	O bir gemi.	That is a ship.	175
+şeref	Şerefe!	Cheers!	176
+şeref	Şerefe.	Toast!	176
+buz	Buz soğuktur.	Ice is cool.	177
+mavi	Biri mavi.	One is blue.	178
+mavi	Onlar mavi.	They're blue.	178
+mesele	O başka bir mesele.	That is another matter.	179
+mesele	Mesele yok!	It's not an issue.	179
+piç	Piç!	Bastard!	181
+bütün	Bütün polisler piçtir.	All cops are bastards.	181
+piç	Bütün polisler piçtir.	All cops are bastards.	181
+piç	Piçler!	Bastards!	181
+zeki	O zeki bir iş adamıdır.	He's an acute businessman.	182
+zeki	O güzel ve zeki.	She's beautiful and intelligent.	182
+zeki	O zeki bir adamdır.	He is an intelligent man.	182
+domuz	Erkekler domuzdur.	Men are pigs.	185
+domuz	Domuzlar zeki hayvanlardır.	Pigs are intelligent animals.	185
+çay	Çay sıcak.	The tea is hot.	186
+çay	Çay saati.	It's tea time.	186
+çay	Çay soğuk.	The tea is cold.	186
+bilet	Onun bir bileti yok.	He doesn't have a ticket.	189
+dolar	Uçak bileti 727 dolar.	The plane ticket costs 727 dollars.	189
+bilet	Uçak bileti 727 dolar.	The plane ticket costs 727 dollars.	189
+uçak	Uçak bileti 727 dolar.	The plane ticket costs 727 dollars.	189
+şarap	Onların başka şarapları yok.	They have no more wine.	190
+yarar	Yararı yok.	It's no use.	191
+yarar	O işe yarar.	That comes in handy.	191
+bomba	O bomba.	He's the bomb.	194
+banyo	O, banyoda.	She is in the bathroom.	195
+banyo	O, banyodadır.	She's in the bath.	195
+banyo	O banyoda.	She's in the bathroom.	195
+tedavi	Tedavi yok.	There's no cure.	196
+şeytan	O bir şeytan.	He's a demon.	197
+şeytan	Şeytan!	Devil!	197
+pazar	Bugün pazar.	Today is Sunday.	199
+pazar	Olay pazar günü.	The event is on Sunday.	199
+olay	Olay pazar günü.	The event is on Sunday.	199
+dağ	Dağ yeşildir.	The mountain is green.	202
+yeşil	Dağ yeşildir.	The mountain is green.	202
+yeşil	Onlar yeşil.	They're green.	202
+yeşil	Köpek yeşil ve güzeldir.	The dog is green and beautiful.	202
+motor	Motor!	Action!	203
+kurt	O bir kurt adam.	He's a werewolf.	204
+kurt	O yalnız bir kurt.	He's a lone wolf.	204
+daima	Daima.	Always.	205
+iki	Bir, iki, üç, dört, beş, altı, yedi, sekiz, dokuz, on.	One, two, three, four, five, six, seven, eight, nine, ten.	209
+yedi	Bir, iki, üç, dört, beş, altı, yedi, sekiz, dokuz, on.	One, two, three, four, five, six, seven, eight, nine, ten.	209
+dokuz	Bir, iki, üç, dört, beş, altı, yedi, sekiz, dokuz, on.	One, two, three, four, five, six, seven, eight, nine, ten.	209
+altı	Bir, iki, üç, dört, beş, altı, yedi, sekiz, dokuz, on.	One, two, three, four, five, six, seven, eight, nine, ten.	209
+dokuz	Saat dokuz.	It's nine o'clock.	209
+dokuz	Dokuzun üçte biri üçtür.	One third of nine is three.	209
+kızgın	Evet, o kızgın.	Yes, he is angry.	210
+kızgın	Onlar kızgın.	They're angry.	210
+kızgın	Aç bir adam, kızgın bir adamdır.	A hungry man is an angry man.	210
+dün	O, dünyaya kızgın.	She's angry at the world.	210
+yat	Yat.	Go to bed.	211
+rus	Onlar Rus.	They are Russian.	214
+girmek	Bir işe girmek!	Get a job!	215
+bütün	Bütün umutlar boşuna.	All hope is in vain.	216
+umut	Bütün umutlar boşuna.	All hope is in vain.	216
+fransız	O, Fransızdır.	He is French.	218
+fransız	O Fransız.	She is French.	218
+fransız	O bir Fransız.	He's a Frenchman.	218
+elbise	Elbise yeşildir.	The dress is green.	220
+elbise	O güzel bir elbise.	That's a beautiful dress.	220
+elbise	Güzel elbise.	Nice dress.	220
+tekrar	Onu tekrar oku.	Read it again.	223
+ok	Onu tekrar oku.	Read it again.	223
+ok	Kitap oku!	Read a book!	223
+ok	Onu tekrar tekrar oku.	Read it again and again.	223
+yaşamak	Yaşamak mücadele etmektir.	To live is to fight.	226
+etmek	Yaşamak mücadele etmektir.	To live is to fight.	226
+mücadele	Yaşamak mücadele etmektir.	To live is to fight.	226
+cuma	Evet, bugün cuma.	Yes, today is Friday.	227
+cuma	Bugün Cuma.	It's Friday today.	227
+cuma	Olay cuma günü.	The event is on Friday.	227
+olay	Olay cuma günü.	The event is on Friday.	227
+yazar	O bir yazar.	He's an author.	228
+yazar	O kitaplar yazar.	He writes books.	228
+yazar	O yazardır.	He is a man of letters.	228
+hesap	Bir hesap açın.	Open an account.	229
+rüzgar	Bugün rüzgar yok.	There's no wind today.	231
+rüzgar	Rüzgar bugün soğuk.	The wind is cold today.	231
+düşünmek	Düşünmek bir şey, yapmak başka bir şeydir.	Thinking is one thing, doing is another.	233
+kilo	O kilo almaktadır.	He has been gaining weight.	234
+almak	O kilo almaktadır.	He has been gaining weight.	234
+kilo	O 80 kilo.	He weighs 80 kilos.	234
+banka	Banka açık.	The bank is open.	235
+mavi	Sınıfların renkleri mavi ve yeşildir.	The colors of the classrooms are blue and green.	238
+renk	Sınıfların renkleri mavi ve yeşildir.	The colors of the classrooms are blue and green.	238
+kutu	Kutu boş.	The box is empty.	239
+oğlan	Kız, oğlandan büyük.	She's older than him.	240
+oğlan	O bir oğlan.	It's a boy.	240
+oğlan	Kızlar kızlardır ve oğlanlar oğlandırlar.	Girls are girls and boys are boys.	240
+kuvvet	Birlik kuvvettir.	In unity is strength.	244
+birlik	Birlik kuvvettir.	In unity is strength.	244
+dahi	Tam bir dahi.	She is what is called a genius.	245
+dahi	O bir dahi.	She is a genius.	245
+dahi	O tam bir dahi!	He's a total genius!	245
+cumartesi	Bugün cumartesi.	Today is Saturday.	247
+cumartesi	Olay cumartesi günü.	The event is on Saturday.	247
+olay	Olay cumartesi günü.	The event is on Saturday.	247
+melek	O bir melek!	She's an angel.	248
+melek	O tam bir melektir.	She's an absolute angel.	248
+yumurta	Onlar yumurta.	They're eggs.	252
+mutlaka	Mutlaka!	Absolutely!	258
+yaşamak	Yaşamak, acı çekmektir.	To live is to suffer.	259
+çekmek	Yaşamak, acı çekmektir.	To live is to suffer.	259
+acı	Yaşamak, acı çekmektir.	To live is to suffer.	259
+şişe	Şişe boş.	The bottle is empty.	261
+mutfak	O, bir mutfakta.	It is in a kitchen.	263
+mutfak	Onlar mutfaktalar.	They are in the kitchen.	263
+mutfak	O, mutfaktadır.	He's in the kitchen.	263
+hala	O hala mutfakta.	She is still in the kitchen.	263
+açıkça	Açıkça!	Clearly!	266
+misafir	Onlar misafirler.	They're guests.	269
+misafir	Misafirler mutfakta.	The guests are in the kitchen.	269
+amerikalı	O bir Amerikalı.	He is an American.	276
+amerikalı	O Amerikalı bir Yahudi.	He's a Jewish American.	276
+yahudi	O Amerikalı bir Yahudi.	He's a Jewish American.	276
+amerikalı	O tam bir Amerikalı.	It's as American as apple pie.	276
+yahudi	O Yahudi bir Amerikalı.	She's a Jewish American.	276
+tehlike	Tehlike yok.	There's no danger.	279
+tehlike	Tehlike, tehlike!	Danger, danger!	279
+müşteri	Onların işi müşterileri aramak.	Their job is to call clients.	280
+aramak	Onların işi müşterileri aramak.	Their job is to call clients.	280
+yetişkin	O yetişkin bir adam.	He's a grown man.	281
+açıklama	Başka açıklama yok.	There is no other explanation.	283
+açıklama	Açıklama yok.	There's no explanation.	283
+açıklama	O bir açıklama.	That's one explanation.	283
+ekmek	Adam ekmek yedi.	The man ate bread.	284
+ekmek	Bugün ekmek yok.	There is no bread today.	284
+nehir	O nehir tehlikeli.	That river is dangerous.	287
+sıfır	Sıfır, bir, iki, üç, dört, beş, altı, yedi, sekiz, dokuz, on.	Zero, one, two, three, four, five, six, seven, eight, nine, ten.	292
+altı	Sıfır, bir, iki, üç, dört, beş, altı, yedi, sekiz, dokuz, on.	Zero, one, two, three, four, five, six, seven, eight, nine, ten.	292
+kuzey	Kuzeyde, Kışın hava soğuktur.	In the north, it's cold in the winter.	293
+kış	Kuzeyde, Kışın hava soğuktur.	In the north, it's cold in the winter.	293
+kış	Alman kışları soğuktur.	German winters are cold.	293
+alman	Alman kışları soğuktur.	German winters are cold.	293
+kış	Hava soğuk ve kış güzel.	It’s cold and winter is beautiful.	293
+sandviç	O büyük bir sandviç.	That's a big sandwich.	295
+kirli	Yüzün kirli.	Your face is dirty.	296
+kirli	Banyo kirli.	The bathroom is dirty.	296
+kirli	Sokaklar kirli.	The streets are dirty.	296
+sokak	Sokaklar kirli.	The streets are dirty.	296
+pazartesi	Bugün pazartesi.	It's Monday today.	302
+pazartesi	Bugün Pazartesi.	It's Monday.	302
+pazartesi	Sadece pazartesi.	It's only Monday.	302
+akşam	Pazartesi akşamları saat 9'da.	It's on Monday evenings at nine.	302
+inanmak	Görmek inanmaktır.	To see is to believe.	304
+görmek	Görmek inanmaktır.	To see is to believe.	304
+fare	Fare!	Mouse!	308
+üniversite	O, üniversitededir.	He is in college.	312
+peynir	Peynir!	Cheese!	314
+rahibe	O bir rahibe.	She's a nun.	320
+kum	O kum.	It's sand.	321
+kum	Kum sıcak.	The sand is warm.	321
+kum	Kum sıcaktır.	Sand is hot.	321
+inek	Kutsal inek!	Holy cow!	322
+kutsal	Kutsal inek!	Holy cow!	322
+inek	O bir inektir.	He's a nerd.	322
+hindistan	Hindistan'da inekler kutsal hayvanlardır.	In India, cows are sacred animals.	322
+inek	Hindistan'da inekler kutsal hayvanlardır.	In India, cows are sacred animals.	322
+kutsal	Hindistan'da inekler kutsal hayvanlardır.	In India, cows are sacred animals.	322
+tiyatro	Tiyatro boştur.	The theater is empty.	325
+tiyatro	Tiyatro boş.	The theater is empty.	325
+ter	Tam tersi doğru.	The exact opposite is true.	328
+ter	Tersi de doğru.	The opposite is also true.	328
+sandal	O bir sandalyedir.	It is a chair.	330
+kemik	O bir deri bir kemik.	She is all skin and bone.	331
+deri	O bir deri bir kemik.	She is all skin and bone.	331
+çikolata	O bir kutu çikolata yedi.	He ate a box of chocolates.	333
+kutu	O bir kutu çikolata yedi.	He ate a box of chocolates.	333
+maaş	Bugün maaş günü.	It is a payday today.	334
+maaş	Maaş günüdür.	It's payday.	334
+modern	O modern bir kızdır.	She's a modern girl.	337
+modern	O modern bir oğlan.	He is a modern boy.	337
+salı	Bugün Salı.	Today is Tuesday.	338
+salı	Bugün salı.	Today is Tuesday.	338
+salı	Olay salı günü.	The event is on Tuesday.	338
+madde	O madde zehirdir.	That stuff is poison.	339
+zehir	O madde zehirdir.	That stuff is poison.	339
+zehir	Savaş dünyanın zehiridir.	War is the poison of the world.	339
+dün	Savaş dünyanın zehiridir.	War is the poison of the world.	339
+savaş	Savaş dünyanın zehiridir.	War is the poison of the world.	339
+zehir	O da zehir.	That is poison as well.	339
+barbar	Onun adı Barbara.	Her name is Barbara.	341
+ad	Onun adı Barbara.	Her name is Barbara.	341
+perşembe	Bugün perşembe.	Today is Thursday.	345
+perşembe	Olay perşembe günü.	The event is on Thursday.	345
+rusya	Rusya büyüktür.	Russia is big.	346
+rusya	Rusya büyük.	Russia is big.	346
+bisiklet	Onun bisikleti mavi.	His bicycle is blue.	347
+bisiklet	Onun bir bisikleti yok.	He hasn't got a bicycle.	347
+bisiklet	Onun bisikleti yok.	He has no bicycle.	347
+şoför	O bir otobüs şoförü.	He is a bus driver.	348
+otobüs	O bir otobüs şoförü.	He is a bus driver.	348
+şoför	O bir taksi şoförü.	She is a taxi driver.	348
+taksi	O bir taksi şoförü.	She is a taxi driver.	348
+şoför	O kötü bir şofördür.	She's a terrible driver.	348
+biz	Bizi suçlama.	Don't blame us.	354
+suçlama	Bizi suçlama.	Don't blame us.	354
+suçlama	Onları suçlama.	Don't blame them.	354
+suçlama	Onu suçlama.	Don't blame him.	354
+sayfa	Sayfa dokuzu açın.	Open at page nine.	358
+oksijen	Ayda oksijen yok.	There's no oxygen on the moon.	361
+dar	O, dardır.	It's narrow.	363
+sarışın	O, sarışın bir kız.	She is a blonde girl.	368
+sarışın	O sarışın bir kız.	She's a blonde girl.	368
+sarışın	O sarışın.	He's blond.	368
+elma	Bir elma yedi.	She ate one apple.	371
+elma	O elma büyük.	That apple is big.	371
+elma	Ayı bir elma yedi.	The bear ate an apple.	371
+eylül	Bugün 1 Eylül.	Today is September first.	375
+cumartesi	Bugün 28 Eylül Cumartesi.	Today is Saturday, September 28.	375
+eylül	Bugün 28 Eylül Cumartesi.	Today is Saturday, September 28.	375
+eylül	Eylülde hava hala sıcak.	It's still hot in September.	375
+hala	Eylülde hava hala sıcak.	It's still hot in September.	375
+kanada	Kanada'da kışlar soğuktur.	The winters are cold in Canada.	376
+çarşamba	Bugün çarşamba.	It's Wednesday.	380
+çarşamba	Olay çarşamba günü.	The event is on Wednesday.	380
+perşembe	Pazar, Pazartesi, Salı, Çarşamba, Perşembe, Cuma ve Cumartesi.	Sunday, Monday, Tuesday, Wednesday, Thursday, Friday, and Saturday.	380
+çarşamba	Pazar, Pazartesi, Salı, Çarşamba, Perşembe, Cuma ve Cumartesi.	Sunday, Monday, Tuesday, Wednesday, Thursday, Friday, and Saturday.	380
+pazar	Pazar, Pazartesi, Salı, Çarşamba, Perşembe, Cuma ve Cumartesi.	Sunday, Monday, Tuesday, Wednesday, Thursday, Friday, and Saturday.	380
+fil	Bugün Dünya Fil Günü.	Today is World Elephant Day.	381
+durmak	Ona durmak yoktur.	There's no stopping her.	385
+sandalye	Bir sandalye çek.	Pull up a chair.	386
+şiddetli	Rüzgar şiddetli.	The wind is raging.	390
+rüzgar	Rüzgar şiddetli.	The wind is raging.	390
+şiddetli	Soğuk şiddetli.	The cold is intense.	390
+kahverengi	Kahverengi şapka eski.	The brown hat is old.	392
+eski	Kahverengi şapka eski.	The brown hat is old.	392
+şapka	Kahverengi şapka eski.	The brown hat is old.	392
+kahverengi	O kahverengi şapka eski.	That brown hat is old.	392
+eski	O kahverengi şapka eski.	That brown hat is old.	392
+şapka	O kahverengi şapka eski.	That brown hat is old.	392
+kahverengi	Onlar kahverengi.	They're brown.	392
+tavşan	Kahverengi köpek tavşanı yedi.	The brown dog ate the rabbit.	392
+bagaj	Bagaj açık.	The trunk is open.	393
+kafes	Kafes açık.	The cage is open.	397
+kafes	Kafes boş.	The cage is empty.	397
+şehir	Şehir bir kafestir.	The city is a cage.	397
+kafes	Şehir bir kafestir.	The city is a cage.	397
+maymun	Maymun kafeste.	The monkey is in the cage.	397
+eşek	Güzel eşek!	Nice ass!	399
+tuz	Tuz yok.	There's no salt.	400
+çorba	Çorba soğuk.	The soup is cold.	405
+çorba	Çorba sıcak.	The soup is hot.	405
+haydut	O bir haydut.	He's an outlaw.	406
+haydut	O adam bir haydut.	That guy is a bandit.	406
+haydut	Onlar haydut.	They're thugs.	406
+sirk	O bir sirk!	That is a circus!	412
+bulut	Bulut gri.	The cloud is grey.	413
+gri	Bulut gri.	The cloud is grey.	413
+eşek	Bir eşek gridir.	A donkey is gray.	413
+gri	Bir eşek gridir.	A donkey is gray.	413
+eşek	Eşekler gridir.	The donkeys are gray.	413
+gri	Eşekler gridir.	The donkeys are gray.	413
+aktör	O bir aktör.	He is an actor.	425
+aktör	Onlar aktördür.	They are actors.	425
+ördek	Ördek!	Duck!	429
+kral	Kartal kuşların kralıdır.	The eagle is king of birds.	430
+kartal	Kartal kuşların kralıdır.	The eagle is king of birds.	430
+nisan	Bugün bir Nisan.	It's April first.	431
+nisan	1 Nisan!	April fools!	431
+nisan	Nisan 1!	April fools!	431
+mayıs	Günlerden 28 Mayıs.	It's the 28th of May.	432
+mayıs	Bugün 18 Mayıs Cuma.	Today is Friday, May 18.	432
+mayıs	Onun doğum günü 5 Mayıs.	Her birthday is May 5th.	432
+doğum	Onun doğum günü 5 Mayıs.	Her birthday is May 5th.	432
+yürümek	Yürümek güzeldir.	Walking is nice.	433
+öfkeli	O öfkeli.	He's outraged.	437
+öfkeli	O hala öfkeli.	She's still mad.	437
+öfkeli	O, dünyaya öfkeli.	He's angry at the world.	437
+aralık	Noel günü 25 Aralıktır.	Christmas Day is December 25th.	438
+aralık	Noel 25 Aralıktadır.	Christmas is December 25th.	438
+aralık	Kapı aralık.	The door is ajar.	438
+avustralya	Avustralya'da kış.	It's winter in Australia.	443
+avustralya	O, Avustralya'da.	He's in Australia.	443
+palyaço	Palyaço!	Clown!	444
+palyaço	Palyaçolar!	Clowns!	444
+perde	Perdeleri açın.	Open the drapes.	445
+ekim	Bugün üç Ekim.	It's the third of October.	448
+ekim	Bugün on bir Ekim.	Today is October 11th.	448
+ekim	Bugün 16 Ekim pazartesi.	Today is Monday, the sixteenth of October.	448
+anlamak	Birini anlamak birini sevmektir.	To understand someone is to love someone.	451
+sevmek	Birini anlamak birini sevmektir.	To understand someone is to love someone.	451
+acı	Sevmek acı çekmektir.	To love is to suffer.	451
+sevmek	Sevmek acı çekmektir.	To love is to suffer.	451
+çekmek	Sevmek acı çekmektir.	To love is to suffer.	451
+sevmek	Yaşamak, şarkı söylemek ve sevmek demektir.	Living means singing and loving.	451
+söylemek	Yaşamak, şarkı söylemek ve sevmek demektir.	Living means singing and loving.	451
+demek	Yaşamak, şarkı söylemek ve sevmek demektir.	Living means singing and loving.	451
+plaj	Plaj boş.	The beach is empty.	453
+sigar	Kahve ve sigaralar.	Coffee and cigarettes.	455
+gazeteci	O bir gazeteci.	He's a journalist.	456
+ağustos	Onun doğum günü 21 Ağustostur.	His birthday is August 21st.	458
+doğum	Onun doğum günü 21 Ağustostur.	His birthday is August 21st.	458
+portakal	Bir portakal yedi.	She ate an orange.	459
+zarif	Adam zariftir.	The man is elegant.	467
+millet	Bir bayrak, milletin bir sembolüdür.	A flag is a symbol of the nation.	469
+sembol	Bir bayrak, milletin bir sembolüdür.	A flag is a symbol of the nation.	469
+bayrak	Bir bayrak, milletin bir sembolüdür.	A flag is a symbol of the nation.	469
+ulusal	Bayrak ulusal bir semboldür.	The flag is a national symbol.	469
+sembol	Bayrak ulusal bir semboldür.	The flag is a national symbol.	469
+bayrak	Bayrak ulusal bir semboldür.	The flag is a national symbol.	469
+bayrak	O güzel bir bayrak.	It's a beautiful flag.	469
+doğu	Japonya Doğu Asya'dadır.	Japan is in eastern Asia.	471
+asya	Japonya Doğu Asya'dadır.	Japan is in eastern Asia.	471
+japonya	Japonya Doğu Asya'dadır.	Japan is in eastern Asia.	471
+asya	Japonya Asya'dadır.	Japan is in Asia.	471
+japonya	Japonya Asya'dadır.	Japan is in Asia.	471
+hindistan	Hindistan Asya'dadır.	India is in Asia.	471
+asya	Hindistan Asya'dadır.	India is in Asia.	471
+yararlı	O yararlı.	That's helpful.	472
+yararlı	At yararlı bir hayvan.	The horse is a useful animal.	472
+kelebek	Kelebekler güzeldir.	Butterflies are beautiful.	474
+kelebek	Bir kelebek!	A butterfly!	474
+kelebek	Kelebek!	A butterfly!	474
+sembol	Bir bayrak, ulusun bir sembolüdür.	A flag is a symbol of the people.	478
+ulus	Bir bayrak, ulusun bir sembolüdür.	A flag is a symbol of the people.	478
+sözcük	Onlar sadece sözcükler.	They're only words.	481
+brezilya	Brezilya'da normal.	It's normal in Brazil.	483
+brezilya	Brezilya'da saat 5.	It's 5:00 a.m. here in Brazil.	483
+amatör	O sadece bir amatör.	He is just an amateur.	485
+amatör	Onlar amatörler.	They're amateurs.	485
+amatör	Onlar amatör.	They are amateurs.	485
+nefis	Nefis	Yummy!	486
+kuzey	7 Şubat, Kuzey Toprakları günüdür.	February seventh is Northern Territories Day.	490
+toprak	7 Şubat, Kuzey Toprakları günüdür.	February seventh is Northern Territories Day.	490
+şubat	7 Şubat, Kuzey Toprakları günüdür.	February seventh is Northern Territories Day.	490
+sonbahar	Şimdi sonbahar.	It's fall now.	491
+sonbahar	Sonbahar.	It is autumn.	491
+acemi	O bir acemi.	She is a beginner.	499
+ad	Britanya da bir adadır.	Britain is also an island.	500
+britanya	Britanya da bir adadır.	Britain is also an island.	500
+britanya	Britanya bir adadır.	Britain is an island.	500
+timsah	Timsah bir köpek yedi.	A crocodile ate a dog.	502
+hücum	Hücum!	Attack!	514
+mimar	O bir mimarın mimarıdır.	He's an architect's architect.	519
+hıristiyan	Onlar Hıristiyanlar.	They are Christians.	526
+kumaş	Güzel bir kumaş.	It's a beautiful fabric.	528
+sincap	O bir sincap.	It's a squirrel.	531
+balıkçı	O bir balıkçı.	He is a fishmonger.	533
+balıkçı	Onlar balıkçı.	They're fishermen.	533
+ressam	O bir ressam.	He is a painter.	536
+kasap	O bir kasap.	He's a butcher.	537
+astronot	O bir astronot.	He's an astronaut.	547
+havuç	Havuç üç dolar.	Carrots cost three dollars.	560
+dolar	Havuç üç dolar.	Carrots cost three dollars.	560
+hırslı	Onlar zeki ve hırslı.	They're intelligent and voracious.	565
+limonata	Limonata soğuk.	The lemonade is cold.	573
+çalışkan	O çalışkan bir adamdır.	He is an industrious man.	577
+çalışkan	O, zeki ve çalışkan.	She's smart and hardworking.	577
+otomobil	O, onun otomobili.	That is his car.	593
+köprü	Otomobil köprüdedir.	The car is on the bridge.	593
+otomobil	Otomobil köprüdedir.	The car is on the bridge.	593
+astım	Birini astım.	I hung one.	596
+politikacı	O sadece bir politikacı.	He's just a politician.	598
+politikacı	O da sadece bir politikacı.	He's also just a politician.	598
+fındık	Sincap fındık yedi.	The squirrel ate the hazelnuts.	603
+sincap	Sincap fındık yedi.	The squirrel ate the hazelnuts.	603
+fındık	Sincap, fındıkları yedi.	The squirrel ate the hazelnuts.	603
+sincap	Sincap, fındıkları yedi.	The squirrel ate the hazelnuts.	603
+afrikalı	O bir Afrikalı Amerikalı.	She's an African American.	604
+ılık	Kahve sadece ılık.	The coffee is only lukewarm.	619
+ılık	Su ılık.	The water is lukewarm.	619
+ılık	Bugün hava ılık.	It's warm today.	619
+japonca	Japonca konuşma.	Don't speak in Japanese.	624
+polonyalı	Onlar Polonyalıdırlar.	They're Polish.	625
+cezayir	Cezayir güzel bir şehirdir.	Algiers is a beautiful city.	630
+cezayir	Cezayir güzel bir şehir.	Algiers is a beautiful city.	630
+bilezik	O güzel bir bilezik.	That's a beautiful bracelet.	646
+yün	Yün sıcaktır.	Wool is warm.	647
+kanadalı	O Kanadalı.	She's Canadian.	656
+kanadalı	Onlar Kanadalı.	They're Canadians.	656
+havyar	Onlar havyar yedi.	They have eaten caviar.	663
+fizikçi	O bir fizikçi.	He is a physicist.	678
+avustralyalı	O Avustralyalı.	He is Australian.	685
+avustralyalı	Avustralyalı.	He is Australian.	685
+yamyam	Onlar yamyam.	They're cannibals.	688
+yamyam	Yamyam!	Cannibal!	688
+diktatör	O bir diktatördür.	He's a dictator.	690
+komünizm	☭ bir komünizm sembolüdür.	The ☭ is a symbol of communism.	732
+brezilyalı	O Brezilyalı.	He is Brazilian.	735
+brezilyalı	Yazar Brezilyalı.	The author is Brazilian.	735
+tırtıl	Bir tırtıl kelebek olmaktadır.	A caterpillar becomes a butterfly.	736
+kıbrıs	Kıbrıs bir adadır.	Cyprus is an island.	751
+avusturyalı	O Avusturyalı.	He's Austrian.	762
+avusturyalı	O bir Avusturyalı.	She is an Austrian.	762

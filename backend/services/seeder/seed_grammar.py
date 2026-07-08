@@ -32,7 +32,7 @@ import logging
 
 import asyncpg
 
-from backend.services.references import clean_references
+from backend.services.references import clean_references, clean_related
 
 from .base import DATA_DIR
 
@@ -77,8 +77,31 @@ class GrammarSeeder:
                     "answer": answer,
                     "translation": (d.get("translation") or "").strip() or None,
                     "hint": (d.get("hint") or "").strip() or None,
+                    "gloss": (d.get("gloss") or "").strip() or None,
+                    "transliteration": (d.get("transliteration") or "").strip() or None,
+                    "cell": (d.get("cell") or "").strip() or None,
                     "display_order": int(d.get("display_order") or 0),
                 })
+            # Paradigm coverage: a point tagged with paradigm cells (subject
+            # pronouns, a conjugation table…) is really N questions in one
+            # card, so EVERY cell must have a drill — a member the drills
+            # never test is a member the learner never learns. Fails the
+            # seed loudly rather than shipping silent gaps.
+            paradigm = [
+                str(c).strip() for c in (p.get("paradigm") or []) if str(c).strip()
+            ]
+            if paradigm:
+                covered = {d["cell"] for d in drills if d["cell"]}
+                unknown = covered - set(paradigm)
+                missing = set(paradigm) - covered
+                if unknown:
+                    raise ValueError(
+                        f"{title}: drill cells not in the paradigm: {sorted(unknown)}"
+                    )
+                if missing:
+                    raise ValueError(
+                        f"{title}: paradigm cells with no drill: {sorted(missing)}"
+                    )
             points.append({
                 "title": title,
                 "level": p.get("level"),
@@ -89,6 +112,7 @@ class GrammarSeeder:
                 "reviewed": bool(p.get("reviewed", False)),
                 "display_order": int(p.get("display_order") or 0),
                 "references": clean_references(p.get("references")),
+                "related": clean_related(p.get("related")),
                 "drills": drills,
             })
         return {"lists": data.get("lists", []), "points": points}
@@ -121,8 +145,9 @@ class GrammarSeeder:
                     """
                     INSERT INTO grammar_points
                         (language_id, title, function_note, explanation, culture_note,
-                         level, display_order, explanation_source, reviewed, reference_links)
-                    VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10::jsonb)
+                         level, display_order, explanation_source, reviewed, reference_links,
+                         related)
+                    VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10::jsonb, $11::jsonb)
                     ON CONFLICT (language_id, title) DO UPDATE SET
                         function_note = EXCLUDED.function_note,
                         explanation = EXCLUDED.explanation,
@@ -131,13 +156,15 @@ class GrammarSeeder:
                         display_order = EXCLUDED.display_order,
                         explanation_source = EXCLUDED.explanation_source,
                         reviewed = EXCLUDED.reviewed,
-                        reference_links = EXCLUDED.reference_links
+                        reference_links = EXCLUDED.reference_links,
+                        related = EXCLUDED.related
                     RETURNING id
                     """,
                     language_id, point["title"], point.get("function"),
                     point["explanation"], point["culture_note"], point["level"],
                     point["display_order"], point["source"], point["reviewed"],
                     json.dumps(point.get("references") or [], ensure_ascii=False),
+                    json.dumps(point.get("related") or [], ensure_ascii=False),
                 )
                 # Replace drills so re-seeding is idempotent.
                 await conn.execute(
@@ -147,11 +174,13 @@ class GrammarSeeder:
                     await conn.execute(
                         """
                         INSERT INTO drill_sentences
-                            (grammar_point_id, sentence, answer, translation, hint, display_order)
-                        VALUES ($1, $2, $3, $4, $5, $6)
+                            (grammar_point_id, sentence, answer, translation, hint,
+                             gloss, transliteration, display_order)
+                        VALUES ($1, $2, $3, $4, $5, $6, $7, $8)
                         """,
                         gp_id, d["sentence"], d["answer"], d["translation"],
-                        d["hint"], d["display_order"],
+                        d["hint"], d.get("gloss"), d.get("transliteration"),
+                        d["display_order"],
                     )
                 count += 1
 

@@ -5,12 +5,12 @@ import { getLanguages } from '../../api/profile'
 import {
   completeOnboarding,
   getOnboardingStatus,
-  getPlacement,
-  scorePlacement,
+  placementNext,
 } from '../../api/onboarding'
 import type { PlacementItem } from '../../api/onboarding'
 import { usePrefsStore } from '../../stores/prefsStore'
 import LanguageWrapper from '../../components/LanguageWrapper'
+import { convertTranslit, finalizeInput, isTranslitEnabled } from '../keyboards/translit'
 import type { Language } from '../../api/types'
 
 type Step = 'language' | 'method' | 'placement' | 'confirm'
@@ -20,11 +20,16 @@ const CEFR_LEVELS = ['A1', 'A2', 'B1', 'B2', 'C1', 'C2'] as const
 export default function OnboardingPage() {
   const navigate = useNavigate()
   const setActiveLanguageId = usePrefsStore((s) => s.setActiveLanguageId)
+  const qwertyTranslit = usePrefsStore((s) => s.qwertyTranslit)
 
   const [step, setStep] = useState<Step>('language')
   const [language, setLanguage] = useState<Language | null>(null)
-  const [items, setItems] = useState<PlacementItem[]>([])
-  const [responses, setResponses] = useState<Record<string, string>>({})
+  // Adaptive placement: the answered history so far, the item on screen,
+  // and the input being typed. The server re-walks the history each round.
+  const [history, setHistory] = useState<{ id: string; input: string }[]>([])
+  const [currentItem, setCurrentItem] = useState<PlacementItem | null>(null)
+  const [curInput, setCurInput] = useState('')
+  const [maxItems, setMaxItems] = useState(12)
   const [level, setLevel] = useState('A1')
 
   const { data: languages = [] } = useQuery({ queryKey: ['languages'], queryFn: getLanguages })
@@ -35,30 +40,34 @@ export default function OnboardingPage() {
     navigate('/', { replace: true })
   }
 
-  const placementMutation = useMutation({
-    mutationFn: () => getPlacement(language!.id),
+  const nextMutation = useMutation({
+    mutationFn: (h: { id: string; input: string }[]) =>
+      placementNext(language!.id, h),
     onSuccess: (res) => {
-      if (res.available) {
-        setItems(res.items)
-        setStep('placement')
-      } else {
+      if (!res.available) {
         // Not enough graded content to test — let the learner self-report.
         setStep('confirm')
+        return
       }
+      if (res.done) {
+        setLevel(res.estimated_level ?? 'A1')
+        setStep('confirm')
+        return
+      }
+      setCurrentItem(res.item ?? null)
+      setCurInput('')
+      if (res.max_items) setMaxItems(res.max_items)
+      setStep('placement')
     },
   })
 
-  const scoreMutation = useMutation({
-    mutationFn: () =>
-      scorePlacement(
-        language!.id,
-        items.map((it) => ({ id: it.id, input: responses[it.id] ?? '' })),
-      ),
-    onSuccess: (res) => {
-      setLevel(res.estimated_level)
-      setStep('confirm')
-    },
-  })
+  const submitAnswer = (input: string) => {
+    if (!currentItem || !language || nextMutation.isPending) return
+    const finalized = finalizeInput(language.code, input.trim(), qwertyTranslit)
+    const newHistory = [...history, { id: currentItem.id, input: finalized }]
+    setHistory(newHistory)
+    nextMutation.mutate(newHistory)
+  }
 
   const finishMutation = useMutation({
     mutationFn: () => completeOnboarding({ languageId: language!.id, level }),
@@ -118,59 +127,82 @@ export default function OnboardingPage() {
             </button>
             <button
               type="button"
-              onClick={() => placementMutation.mutate()}
-              disabled={placementMutation.isPending}
+              onClick={() => {
+                setHistory([])
+                nextMutation.mutate([])
+              }}
+              disabled={nextMutation.isPending}
               className="w-full rounded-xl border border-gray-200 bg-white px-4 py-3 text-left hover:border-indigo-400 hover:bg-indigo-50 disabled:opacity-50"
             >
               <span className="block text-sm font-semibold text-gray-800">
-                {placementMutation.isPending ? 'Loading…' : 'Take a quick placement check'}
+                {nextMutation.isPending ? 'Loading…' : 'Take a quick placement check'}
               </span>
               <span className="block text-xs text-gray-500">
-                Answer a few words so we start you at the right level
+                A few questions that adapt to your answers — most people finish in 5–8
               </span>
             </button>
           </section>
         )}
 
-        {step === 'placement' && language && (
+        {step === 'placement' && language && currentItem && (
           <section className="space-y-4">
-            <h2 className="font-semibold text-gray-800">
-              Fill in each answer in {language.name}. Skip any you don't know.
-            </h2>
-            <div className="space-y-3">
-              {items.map((item) => (
-                <div key={item.id} className="rounded-xl border border-gray-100 bg-white p-3">
-                  {item.kind === 'grammar' ? (
-                    <LanguageWrapper languageCode={language.code}>
-                      <p className="text-sm text-gray-800">{item.prompt}</p>
-                    </LanguageWrapper>
-                  ) : (
-                    <p className="text-sm text-gray-700">{item.prompt}</p>
-                  )}
-                  {item.translation && (
-                    <p className="text-xs text-gray-400">{item.translation}</p>
-                  )}
-                  <LanguageWrapper languageCode={language.code}>
-                    <input
-                      value={responses[item.id] ?? ''}
-                      onChange={(e) =>
-                        setResponses((r) => ({ ...r, [item.id]: e.target.value }))
-                      }
-                      aria-label={item.prompt}
-                      className="mt-1 w-full rounded-lg border border-gray-300 px-3 py-2 text-sm"
-                    />
-                  </LanguageWrapper>
-                </div>
-              ))}
+            <div className="flex items-center justify-between">
+              <h2 className="font-semibold text-gray-800">
+                Answer in {language.name} — or skip
+              </h2>
+              <span className="text-xs text-gray-400">
+                Question {history.length + 1} · adapts to your answers (max {maxItems})
+              </span>
             </div>
-            <button
-              type="button"
-              onClick={() => scoreMutation.mutate()}
-              disabled={scoreMutation.isPending}
-              className="bg-indigo-600 hover:bg-indigo-700 disabled:opacity-50 text-white font-semibold rounded-xl px-5 py-2.5 text-sm"
-            >
-              {scoreMutation.isPending ? 'Scoring…' : 'See my level'}
-            </button>
+            <div className="rounded-xl border border-gray-100 bg-white p-4 space-y-2">
+              {currentItem.kind === 'grammar' ? (
+                <LanguageWrapper languageCode={language.code}>
+                  <p className="text-base text-gray-800">{currentItem.prompt}</p>
+                </LanguageWrapper>
+              ) : (
+                <p className="text-base text-gray-700">{currentItem.prompt}</p>
+              )}
+              {currentItem.translation && (
+                <p className="text-xs text-gray-400">{currentItem.translation}</p>
+              )}
+              <LanguageWrapper languageCode={language.code}>
+                <input
+                  autoFocus
+                  value={curInput}
+                  onChange={(e) => {
+                    const v = isTranslitEnabled(language.code, qwertyTranslit)
+                      ? convertTranslit(language.code, e.target.value)
+                      : e.target.value
+                    setCurInput(v)
+                  }}
+                  onKeyDown={(e) => {
+                    if (e.key === 'Enter' && curInput.trim()) submitAnswer(curInput)
+                  }}
+                  aria-label={currentItem.prompt}
+                  className="mt-1 w-full rounded-lg border border-gray-300 px-3 py-2 text-sm"
+                />
+              </LanguageWrapper>
+            </div>
+            <div className="flex gap-2">
+              <button
+                type="button"
+                onClick={() => submitAnswer(curInput)}
+                disabled={!curInput.trim() || nextMutation.isPending}
+                className="bg-indigo-600 hover:bg-indigo-700 disabled:opacity-50 text-white font-semibold rounded-xl px-5 py-2.5 text-sm"
+                style={{ minHeight: '44px' }}
+              >
+                {nextMutation.isPending ? 'Checking…' : 'Next'}
+              </button>
+              <button
+                type="button"
+                onClick={() => submitAnswer('')}
+                disabled={nextMutation.isPending}
+                className="rounded-xl border border-gray-300 px-5 py-2.5 text-sm text-gray-600 hover:bg-gray-50 disabled:opacity-50"
+                style={{ minHeight: '44px' }}
+              >
+                Skip
+              </button>
+            </div>
           </section>
         )}
 

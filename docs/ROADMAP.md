@@ -18,29 +18,76 @@ coach from the learner's actual failure history.
 
 ## 2. Current state (verified)
 
-- **Engine (done, tested)**: FSRS-5 scheduling + per-language weight fitting;
-  6-layer NLP answer grading for all 14 languages (diacritics coach, don't
-  fail); teach-before-quiz lessons; sentence rotation with per-sentence
-  logging (`review_log.prompt_sentence`); in-session re-drill of misses;
-  browsable grammar path (`/grammar`) with per-point learning; onboarding +
-  mixed placement; personal notes → cloze cards; AI tutor with memory,
+- **Engine (done, tested)**: FSRS-5 scheduling + per-language weight fitting
+  with a held-out validation gate (WP8); 6-layer NLP answer grading for all
+  16 languages (diacritics coach, don't fail); teach-before-quiz lessons;
+  deterministic **gap-hunting** sentence rotation (unseen drills first, then
+  the most-missed, else uniform — stable across reloads, rotates per
+  recorded review) with per-sentence logging
+  (`review_log.prompt_sentence`); paradigm points declare their cells and
+  the seeder fails on uncovered cells (tagged across
+  es/el/tr/ru/fr/de/it/ca/ro/ar A1 tiers — 87 points, ~35 gap drills
+  authored; remaining: sw/yo/ha/xh noun-class concords fold into WP4's
+  native review, mi/en have no strict morph paradigms — see
+  curriculum-design.md "Paradigm points"); in-session re-drill of misses;
+  teach-before-quiz is a hard gate: learn batches are created suspended, each
+  lesson ends with a first-check drill (the lesson payload's `quiz`), and only
+  a correct answer confirms THAT card into reviews
+  (POST /api/review/learn/confirm); abandoned or failed walkthroughs re-teach;
+  Bunpro-style learn decks (per-level lists with progress,
+  GET /api/review/decks, level-scoped batches that auto-queue the deck);
+  graduated hints are language-aware (hintLayers.ts): non-Latin scripts
+  (ru/ar/el) reveal romanization → word-by-word gloss → translation → recipe;
+  syntax-divergent languages (mi/sw/yo/xh/ha) reveal the gloss first; the
+  rest reveal translation → recipe; the answer blank colors on grading
+  (green correct / amber sloppy spelling / red wrong); non-Latin scripts
+  (ru/ar/el) take QWERTY transliteration input by default — type Latin, the
+  blank converts as you type (translit.ru-style for Russian, chat-alphabet
+  digits + positional short vowels for Arabic, Greeklish with automatic
+  final sigma for Greek), with a per-language toggle and an in-card key
+  guide (features/keyboards/translit.ts); the post-answer item
+  page (WP13 a–e) shows a named-stage badge + progress panel, blur-toggled
+  example translations, the learner's own note sentences, a Related grid
+  with contrastive one-liners, and Online/Offline resources with per-user
+  read-tracking;
+  browsable grammar path (`/grammar`) with per-point learning; onboarding
+  with ADAPTIVE placement (WP11 — level staircase, one item at a time,
+  early stop, 12-item cap); personal notes → cloze cards; AI tutor with memory,
   weak-area grounding (vocab + grammar), entitlements, Stripe billing;
-  contributor + AI-check + linguist-approval workflow; RLS multi-tenancy
+  a full role model — learner / contributor / reviewer / admin, per-language
+  or global, admin Roles panel + `scripts/grant_admin.sh` bootstrap, AI-check
+  + human-approval workflow (docs/accounts-and-roles.md); RLS multi-tenancy
   proven by integration tests; CI (Python 3.11 & 3.12). Review-session UX is
   Bunpro-style: the typed answer is auto-graded by the NLP layer (no manual
   rating), a miss offers "Typo? Re-enter your answer" (nothing recorded),
   correct-but-lucky offers "I actually got it wrong", the grammar point is
   viewable on demand after any answer ("Show grammar"), and misses re-drill
   before the session ends.
-- **Grammar paths seeded**: es 43 (full A1→C2, Plan Curricular order),
-  tr 40 (full A1→C2, cross-model verified), sw 32 · yo 24 · xh 24 ·
-  ha 22 (A1→C1-equivalent), ru 8 (A1 — next in WP2).
-  Every point: can-do function, explanation, references, ≥2 validated
-  drills. Volume target = Bunpro-level depth: WP1 (6 drills/pt, 6–10
-  sentences/word) and WP2/WP3/WP4 grow every language toward 45–55 points.
+- **Grammar paths seeded — ALL 16 languages**: es 43 (full A1→C2, Plan
+  Curricular order), tr 40 (full A1→C2, cross-model verified), ru 51 (full
+  A1→C2 per TORFL — A2+ promoted live 2026-07; native-speaker review still
+  wanted, WP4), sw 50 · yo 40 · ha 40 · xh 40 (A1→C2-equivalent; the
+  2026-07 deepening points are `reviewed: false` drafts awaiting WP4
+  native review), and
+  12-point A1 paths for fr · de · it · ca · mi · ar · en · ro · el.
+  **WP1 drill bar met everywhere: 6 drills/point (2,064 drills total)**,
+  validated for single-word answers, no answer leakage, no duplicate frames,
+  English-functional hints. Hint-layer content is seeded where the language
+  needs it: ru drills carry transliterations (cyrtranslit), el drills carry
+  hand-written transliterations, ar drills carry lexicon transliterations,
+  mi drills carry word-by-word glosses. Every point: can-do function,
+  explanation, references.
 - **Vocabulary**: sw ~1200, tr ~770, ar/en corpora; ~30-word curated starters
-  for es/fr/de/it/ca/mi/yo/ha/xh, each with cloze example sentences.
-- **Suites**: `backend/tests` (578) and `frontend` vitest (106) green.
+  for es/fr/de/it/ca/mi/yo/ha/xh/ro/el, each with 6 cloze example sentences
+  per word (el sentences carry a transliteration column); ru 58
+  curated starters implementing the language-shaped card design (aspect/motion
+  pairs as single cards via alternatives + morphology.aspect_partner, noun
+  declension samples in morphology) with 6 example sentences per word.
+- **Ops**: `scripts/setup_db.sh` rebuilds or repairs any database end-to-end
+  (tracked migrations that self-baseline on pre-migrated DBs, offline seed,
+  verification; `--local` targets a local Postgres via the auth shim).
+- **Suites**: `backend/tests` (624 unit + 24 integration against a local
+  Postgres via INTEGRATION_DATABASE_URL) and `frontend` vitest (116) green.
 
 ## 3. Non-negotiable invariants (every agent, every package)
 
@@ -89,6 +136,14 @@ Effort ≈ S (<half day), M (a day), L (multi-day). "Model" = recommended Claude
 model for the agent doing it (see §6 for reasoning).
 
 ### WP1 — Variation sentences everywhere  ⭐ next
+**Status:** grammar half DONE — 6 drills/point for all seven seeded paths
+(1,416 drills), hints rewritten to English gloss+function recipes that never
+assemble the answer (422 rewritten). Sentence half DONE for every curated
+starter set (~6/word: es/fr/de/it/ca/mi/yo/ha/xh/tr/ru — ~2,100 curated
+sentences) and seed_sentences now also consumes the sourcing pipeline's
+Tatoeba TSVs (data/{code}_sentences.tsv, graded difficulty_rank). Remaining:
+corpora-scale words (sw/tr/en/ar/yo full frequency lists) need WP5 sourcing
+or WP6 generation.
 **Targets (owner-decided):** every grammar point gets **6 drills** (hard
 minimum 4) varying person, tense, vocabulary, and register; every vocabulary
 word gets **6–10 graded example sentences** (hard minimum 4) — vocab carries
@@ -112,6 +167,11 @@ de/it/tr/ru/en/ca: draft with `claude-sonnet-5`, verify with `claude-opus-4-8`.
 **Effort:** L (content), S (no code changes needed).
 
 ### WP2 — Deepen Spanish/Turkish/Russian to C2
+**Status:** DONE — es 43 · tr 40 · ru 51, all A1→C2. Russian A2–C2 (43
+points) are drafts pending a cross-model verification pass before
+promotion to `reviewed: true`; the aspect-pair/motion-pair vocab card
+design is implemented (data/ru_starter.tsv + csv_importer declension
+columns + alternatives persisted in BaseSeeder).
 **Goal:** ~45–55 points each, per official inventories, ALL THE WAY TO C2
 (C2 adds discourse-level items: es — cleft/inversion, subtle subjunctive
 concordance, register; tr — complex converb chains, formal registers; ru —
@@ -142,6 +202,13 @@ inventory, 2+ drills each — 4+ if WP1 has landed); seed + suites green.
 **Effort:** L per language.
 
 ### WP3 — A1 paths for fr, de, it, ca, mi, ar, en
+**Status:** DONE — every language now has a grammar tab. 12 points × 6 drills
+per language (504 drills), mirroring the Spanish A1 template with the
+per-language adaptations below (de: V2 + accusative; ar: root-and-pattern,
+sun/moon letters, nominal sentences, iḍāfa; mi: TAM particles kei te/i/ka +
+a/o possession; en: articles, third-person -s, do-support, continuous for
+learners from other languages). Landed reviewed:true (A1-core precedent);
+a cross-model verification pass is still recommended, ar and mi first.
 **Goal:** ~12-point A1 paths so every language has a grammar tab.
 Mirror the Spanish A1 template (pronouns → nouns/gender → articles → copula →
 present verbs → negation → existence → questions → agreement), adapted per
@@ -155,12 +222,42 @@ straight to `claude-fable-5`/`claude-opus-4-8`.
 
 ### WP4 — African content: native review + deepening
 **Goal:** the differentiator held to the highest bar. (a) Recruit native
-speakers/linguists as contributors (roles exist; ContributorPage supports
+speakers/linguists as contributors (roles exist — grant `reviewer` per
+language from the Contribute page's Roles panel; ContributorPage supports
 review + approval + AI checks); have them audit tone marks (yo), concords
 (xh), aspect glosses (ha), and approve or fix each point. (b) Extend sw to
-~50 points and yo/ha/xh to ~40, through C2-equivalent (sw: -po-/-vyo-
-relatives, -japo- concessives, comparatives, remaining classes, register;
-similar discourse-level closers for yo/ha/xh). (c) WP1 variation drills for all four.
+~50 points and yo/ha/xh to ~40, through C2-equivalent. **Swahili DONE
+2026-07 (32 → 50):** +18 B1–C2 drafts (`reviewed: false`, awaiting the
+human gate) — U-class and Ku-class nouns, place classes 16–18,
+demonstratives across classes (paradigm-tagged), comparatives, -po- time
+and -vyo- manner relatives, reported speech (kwamba/kuwa/eti), compound
+tenses, reversive -ua, concessives, ndi- emphatics, -sipo- 'unless',
+ili + subjunctive, participial -ki-, kupiga idioms, methali, respect
+register. **Yoruba DONE 2026-07 (24 → 40):** +16 drafts — ní/sí, the full
+question-word paradigm (tagged), modals fẹ́/lè/gbọ́dọ̀, láti purpose,
+kí-clauses and blessings, post-nominal numerals + mélòó, olù-/oní-/ì-
+nominalization, fi/fún serial idioms, nígbà tí time clauses, sì chaining,
+reduplication (jíjẹ/kíákíá), ideophonic intensifiers (láúláú/roro —
+regional spellings flagged for the native reviewer), bí…ṣe how-clauses,
+òwe, the ẹ/ẹ̀yin respect register, discourse particles (o/ná/ṣebí).
+**Hausa DONE 2026-07 (22 → 40):** +18 drafts — demonstratives (tagged),
+da-possession, mai/masu adjectives, the relative completive
+(suka/muka/aka — tagged), post-nominal numerals + nawa, sai, verbal nouns
+in the continuous, don/domin/saboda, kafin/bayan, connectors
+kuma/har/ma/amma, ideophonic intensifiers (fat/ƙirin/wur), verb grades
+(saya/sayar, dafa/dafu), indirect objects mini/maka/masa (tagged),
+ɗan-compounds, karin magana, greeting protocol (Ranka ya daɗe),
+discourse particles (fa/dai/mana/ashe), ko.
+**Xhosa DONE 2026-07 (24 → 40):** +16 drafts — classes 11/14/15, absolute
+pronouns (tagged), persistive -sa- (still / no longer), counting with
+concords + -ngaphi, instrumental nga-, xa + participial when-clauses,
+potential -nga- (can/may + andinako), statives -eka/-akala (kufuneka),
+past continuous bendi-/ebe- (tagged), ukuze purpose, kuba/ngoba/kutheni,
+ukuthi ideophones (cwaka/gqi/tu), amaqhalo (umntu ngumntu ngabantu),
+hlonipha register, discourse particles (ke/nje/phofu/kaloku), full
+greeting protocol. **All of (b) is now authored — sw 50 · yo 40 · ha 40 ·
+xh 40; every deepening point is a Draft awaiting (a)'s named reviewers.**
+(c) WP1 variation drills for all four.
 **Acceptance:** every African point re-approved by a named human reviewer
 (`reviewed_by` set), or explicitly flagged Draft.
 **Model:** `claude-fable-5` for authoring/triage; humans are the gate.
@@ -208,6 +305,15 @@ recordings** through the contributor workflow instead (upload per sentence).
 **Effort:** M (pipeline) + external (recordings).
 
 ### WP8 — FSRS held-out quality gate
+**Status:** DONE — `fit_weights_validated` holds out the last 20% of each
+card's history, fits on the rest, shrinks toward the defaults by data volume
+(n/(n+300)), and adopts only when the candidate's held-out log-loss strictly
+beats the defaults'. Both losses are stored in fsrs_weights
+(holdout_log_loss, defaults_holdout_log_loss); rejections are logged loudly.
+LANGUAGE_MIN_REVIEWS/USER_MIN_REVIEWS dropped 1000 → 300. Unit-tested:
+split boundaries, tail-only scoring, adoption on genuinely divergent data,
+deterministic rejection of a fit that memorized its training prefix,
+shrinkage on small data.
 **Goal:** adopt fitted per-language weights only when they beat the defaults
 out-of-sample, then drop `LANGUAGE_MIN_REVIEWS` 1000 → ~300.
 **Steps** (design already agreed): in `fit_fsrs_weights`, hold out the last
@@ -222,11 +328,15 @@ adopted; unit tests for the split.
 ### WP9 — Tutor upgrades
 **Goal:** production-quality tutoring. (a) Model config: chat on
 `claude-opus-4-8` (default; operators may set `TUTOR_MODEL`), summarizer/
-checks on `claude-sonnet-5` (now default). (b) Add per-user token/cost
-tracking (log usage per chat into a `tutor_usage` table; surface in admin).
-(c) Tutor should propose drills from GRAMMAR weak areas (data now flows;
-prompt already tags kind=grammar — verify behavior with real key and tune the
-charter). (d) Streaming responses in the chat UI.
+checks on `claude-sonnet-5` (now default). (b) Per-user usage tracking —
+**message logging + tiered allowances DONE 2026-07** (`tutor_usage` table;
+flat pricing, never per message: free = 20 msgs/month, plus = 100/day fair
+use, both shown as a meter in the tutor UI with structured 402s — see
+docs/accounts-and-roles.md "Account tiers"); remaining: capture
+input/output token counts per call and surface per-user/per-language cost
+in an admin view. (c) Tutor should propose drills from GRAMMAR weak areas
+(data now flows; prompt already tags kind=grammar — verify behavior with
+real key and tune the charter). (d) Streaming responses in the chat UI.
 **Model:** implementation `claude-sonnet-5`; prompt/charter tuning
 `claude-fable-5` or `claude-opus-4-8`.
 **Effort:** M.
@@ -242,9 +352,18 @@ backups; a smoke-test script hitting the golden path against staging.
 **Effort:** M.
 
 ### WP11 — Placement adaptivity
-**Goal:** placement picks the next item based on answers so far (stop early on
-stable estimate), weights grammar vs vocab, and caps at ~12 items. Backend
-`sample_placement_items`/scoring refactor + tests.
+**Status: DONE 2026-07.** Placement is a deterministic level staircase
+(`adaptive_next` in repositories/onboarding.py): probe starts at A2, steps
+up on a correct answer and down on a miss, choice weighted 60% grammar,
+and it stops early once the estimate is stable — 2 consecutive misses at
+the A1 floor (beginners exit in 3 items), 2 consecutive passes at the C2
+ceiling (experts in ~6), 4 direction reversals (boundary oscillators in
+5–8), hard cap 12. Stateless endpoint
+`POST /api/onboarding/placement/{id}/next` re-grades the replayed answer
+history each round (same NLP validator as scoring); the final estimate
+reuses `estimate_level`. Onboarding UI asks one item at a time with a
+Skip button and a progress line; the old batch endpoints remain as
+fallback. 10 unit tests drive the walk end to end.
 **Model:** `claude-sonnet-5`. **Effort:** M.
 
 ### WP12 — Learner UX
@@ -256,19 +375,31 @@ string extraction). **Effort:** M each.
 ### WP13 — Session & item-page parity (Bunpro reference shots)
 Already adopted: arrow-only submit/continue pill, Undo (nothing recorded),
 graduated Hint dots, per-appearance sentence change, "Show examples" for
-vocab, session utility bar (exit/path/tutor/settings). Remaining, in order:
-(a) blur-until-toggled Sentence/Translation visibility in example lists;
-(b) Resources = references split Online (links) / Offline (book + page) with
-per-user read-tracking; (c) Related grid on grammar points (authorable
-`related` titles + contrastive one-liners + the learner's stage badge on each);
-(d) attach personal (self-study) sentences to vocabulary items and show them
-under Examples; (e) named SRS stages (Beginner/Adept/…) mapped from FSRS
-state + a progress panel (first studied, times studied, accuracy, ghost
-count); (f) Quick-Cram of a related set; (g) in-app search; (h) theme
-switcher. **Model:** `claude-sonnet-5` implementation with a design-consistency
+vocab, session utility bar (exit/path/tutor/settings). **(a)–(e) DONE
+2026-07:** (a) blur-until-toggled translations in example lists (BlurReveal +
+per-list "Show translations"); (b) Resources split Online / Offline
+(book + page) with per-user read-tracking (user_reference_reads table,
+POST /api/curriculum/point/{id}/reference-read); (c) Related grid —
+authorable `related` [{title, contrast}] on grammar_points, resolved at read
+time to live points + the learner's stage badge (authored for the tr/es/ru A1
+tiers); (d) the learner's own note sentences under vocab Examples ("Your
+sentences"); (e) named SRS stages on the item page (shared
+services/srs_stages.py bands) + progress panel (first studied, times studied,
+accuracy, streak, misses, next review). Remaining: (f) Quick-Cram of a
+related set; (g) in-app search; (h) theme switcher; authoring `related` +
+offline refs beyond the tr/es/ru A1 tiers.
+**Model:** `claude-sonnet-5` implementation with a design-consistency
 verify pass one tier up. **Effort:** M–L.
 
 ### WP14 — Dashboard parity (owner's Bunpro dashboard screenshots)
+**Status:** core DONE — Learn/Review command-center cards with live counts,
+Bunpro-style learn-deck dropdown (per-level progress rows), 7-day review
+forecast, 14-day activity chart (vocab vs grammar), named-stage tiles
+(Beginner/Adept/Seasoned/Expert/Master from FSRS stability bands + Self-Study
++ Ghosts) with Grammar/Vocab toggle, and the profile card (streak flame week,
+days studied, last-session accuracy, items studied). Remaining: hourly
+forecast granularity, per-level grammar+vocab combined bars, community
+section (deferred).
 Home page becomes the command center, our style: top bar keeps OUR
 differentiators — the **language switcher** and a **Tutor** link — alongside
 Learn/Review; big **Learn N/day** and **Review N** buttons with live counts;
@@ -281,6 +412,42 @@ grammar+vocab like Bunpro's JLPT bars — ours per CEFR level, days studied,
 last-session accuracy, items studied). Community section deferred until
 there's a community. **Model:** `claude-sonnet-5`, design pass one tier up.
 **Effort:** M–L.
+
+### WP15 — Admin console: tutor model control + role management
+**Goal:** operators run the product without touching env vars or SQL.
+Role management shipped 2026-07 (see `docs/accounts-and-roles.md`): learner /
+contributor / reviewer / admin, per-language or global, granted by email in
+the Contribute page's Roles panel, bootstrapped once via
+`scripts/grant_admin.sh`. Remaining, in order:
+(a) **Per-language tutor model selection (admin UI)** — today the tutor model
+is a global env var (`TUTOR_MODEL`, default `claude-opus-4-8`; summarizer on
+`claude-sonnet-5`). Move to a `tutor_model` column on `languages` (NULL =
+global default) + an admin panel listing each language with a model picker
+(Claude model IDs: `claude-fable-5`, `claude-opus-4-8`, `claude-sonnet-5`,
+`claude-haiku-4-5-20251001`) and per-language token/cost columns once WP9(b)
+usage tracking lands. High-resource languages can ride a cheaper model;
+low-resource languages (the differentiator) stay on the strongest.
+(b) **Custom / local endpoints** — accept an OpenAI-compatible base URL +
+model name per language (Ollama, vLLM, LM Studio, llama.cpp server), stored
+alongside `tutor_model`, with a health-check button and automatic fallback
+to the Claude default when the endpoint is down. This is the cheap path to
+"local LLM" before any training happens.
+(c) **Pooled per-language community models** — the ambitious arm: pool each
+language's curated content (grammar + drills + sentences, already licensed)
+WITH consenting learners' production (review answers, tutor conversations,
+self-study sentences) into per-language fine-tuning sets for a small open
+model (e.g. a 7–8B base), one adapter per language. Requirements, in order:
+an explicit **opt-in consent flag** on user_profiles (off by default; tutor
+data NEVER pooled without it), a PII-scrub + dedup export pipeline
+(`review_log.prompt_sentence`, card answers, tutor transcripts), an eval
+harness that scores the tuned model against the Claude baseline on held-out
+drill grading + explanation quality per language, and the same adoption
+gate philosophy as WP8: **the local model serves a language only when it
+beats or matches the baseline on that language's eval; otherwise the admin
+panel shows the gap and keeps Claude.** Ship (a) and (b) first — they're
+days; (c) is a program.
+**Model:** (a)/(b) `claude-sonnet-5`; (c) design + eval harness
+`claude-opus-4-8` or `claude-fable-5`. **Effort:** (a) S, (b) M, (c) L.
 
 ## 6. Model selection guide
 

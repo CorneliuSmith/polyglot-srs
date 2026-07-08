@@ -16,6 +16,7 @@ import pytest
 from backend.repositories.cards import (
     add_grammar_learn_batch,
     add_learn_batch,
+    confirm_learn_batch,
     get_card_detail,
     get_due_cards,
     update_card_srs,
@@ -201,6 +202,10 @@ async def test_vocab_learn_and_due_flow(pool):
     async with pool.rls_connection(user) as conn:
         result = await add_learn_batch(conn, user, lang, 5)
         assert result["added"] == 1
+        # Teach-before-quiz gate: the batch is created suspended and stays out
+        # of the review queue until the lesson's first check is passed.
+        assert await get_due_cards(conn, lang) == []
+        await confirm_learn_batch(conn, user, result["items"])
         due = await get_due_cards(conn, lang)
         assert any(c["correct_answer"] == "casa" for c in due)
         detail = await get_card_detail(conn, due[0]["id"])
@@ -246,7 +251,12 @@ async def test_concurrent_learn_calls_are_idempotent(pool):
 
     r1, r2 = await asyncio.gather(first(), second())
     assert r1["added"] == 1
-    assert r2["added"] == 0  # lost the race quietly — no UniqueViolationError
+    # The loser of the race re-offers the SAME still-unconfirmed card for
+    # teaching (abandoned-walkthrough semantics) — never a UniqueViolation,
+    # never a duplicate.
+    assert r2["added"] <= 1
+    if r2["added"]:
+        assert r2["items"] == r1["items"]
 
     async with pool.privileged_connection() as conn:
         n = await conn.fetchval(
@@ -283,7 +293,8 @@ async def test_vocab_card_is_cloze_when_example_sentence_exists(pool):
             "VALUES ($1, $2)", user, list_id,
         )
     async with pool.rls_connection(user) as conn:
-        await add_learn_batch(conn, user, lang, 5)
+        batch = await add_learn_batch(conn, user, lang, 5)
+        await confirm_learn_batch(conn, user, batch["items"])
         due = await get_due_cards(conn, lang)
     card = next(c for c in due if c["correct_answer"] == "gato")
     assert card["sentence"] == "El {{answer}} duerme."   # word blanked in context
@@ -326,6 +337,8 @@ async def test_grammar_learn_respects_review_policy(pool):
     # strict (default): only the reviewed point is learnable
     async with pool.rls_connection(user) as conn:
         res = await add_grammar_learn_batch(conn, user, lang, 10)
+        # confirm the walkthrough so the next batch doesn't re-offer this card
+        await confirm_learn_batch(conn, user, res["items"])
         learned = {r async for r in _card_ids(conn, user)}
     assert res["added"] == 1
     assert str(reviewed) in learned
@@ -436,6 +449,80 @@ async def test_grammar_curriculum_path(pool):
     assert any(c["correct_answer"] == "estoy" for c in due)
 
 
+async def test_item_page_related_reads_and_progress(pool):
+    """WP13 item page: authored Related resolves to points + the learner's
+    stage, resource read-marks are per-user, and the detail payload carries
+    the progress panel."""
+    from backend.repositories.cards import get_card_detail
+    from backend.repositories.curriculum import (
+        get_curriculum_point,
+        get_read_ref_keys,
+        learn_point,
+        set_reference_read,
+    )
+
+    lang = await _language(pool, "wp13")
+    user = await _new_user(pool, "wp13@item")
+    other = await _new_user(pool, "wp13@other")
+    async with pool.privileged_connection() as conn:
+        main = await conn.fetchval(
+            "INSERT INTO grammar_points "
+            " (language_id, title, level, reviewed, display_order, reference_links, related) "
+            "VALUES ($1, 'Locative', 'A1', true, 1, "
+            " '[{\"title\": \"Online src\", \"url\": \"https://example.org/loc\"}, "
+            "   {\"title\": \"Chapter 3\", \"book\": \"A Grammar\", \"page\": \"42\"}]'::jsonb, "
+            " '[{\"title\": \"Accusative\", \"contrast\": \"WHERE vs WHAT\"}, "
+            "   {\"title\": \"Missing point\", \"contrast\": \"never resolves\"}]'::jsonb) "
+            "RETURNING id",
+            lang,
+        )
+        await conn.execute(
+            "INSERT INTO drill_sentences (grammar_point_id, sentence, answer, display_order) "
+            "VALUES ($1, 'Ev{{answer}} kal.', 'de', 1)", main,
+        )
+        acc = await conn.fetchval(
+            "INSERT INTO grammar_points (language_id, title, level, reviewed, display_order) "
+            "VALUES ($1, 'Accusative', 'A1', true, 2) RETURNING id", lang,
+        )
+
+    async with pool.rls_connection(user) as conn:
+        # Related resolves the live title (with stage None — not studied) and
+        # silently drops the one that doesn't exist.
+        page = await get_curriculum_point(conn, user, str(main))
+        assert [r["title"] for r in page["related"]] == ["Accusative"]
+        assert page["related"][0]["contrast"] == "WHERE vs WHAT"
+        assert page["related"][0]["id"] == str(acc)
+        assert page["related"][0]["stage"] is None
+        # Offline reference survives with book + page.
+        assert {"title": "Chapter 3", "book": "A Grammar", "page": "42"} in page["references"]
+
+        # Read-tracking: mark the online source read, toggle it back off.
+        await set_reference_read(conn, user, str(main), "https://example.org/loc", True)
+        assert await get_read_ref_keys(conn, str(main)) == ["https://example.org/loc"]
+        assert (await get_curriculum_point(conn, user, str(main)))["read_refs"] == [
+            "https://example.org/loc"
+        ]
+        await set_reference_read(conn, user, str(main), "https://example.org/loc", False)
+        assert await get_read_ref_keys(conn, str(main)) == []
+        await set_reference_read(conn, user, str(main), "https://example.org/loc", True)
+
+        # Learn the point; the card detail now carries progress + related.
+        card_id = (await learn_point(conn, user, str(main)))["card_id"]
+        detail = await get_card_detail(conn, card_id)
+        assert detail["point_id"] == str(main)
+        assert detail["progress"]["stage"] == "beginner"
+        assert detail["progress"]["times_studied"] == 0
+        assert detail["progress"]["accuracy"] is None
+        assert detail["read_refs"] == ["https://example.org/loc"]
+        assert detail["related"][0]["title"] == "Accusative"
+
+    # Another user sees their own empty read state — reads are per-user.
+    async with pool.rls_connection(other) as conn:
+        assert await get_read_ref_keys(conn, str(main)) == []
+        page = await get_curriculum_point(conn, other, str(main))
+        assert page["read_refs"] == []
+
+
 async def test_sentences_change_every_appearance(pool):
     """Each appearance of a card shows a sentence at random but NEVER the one
     shown immediately before (tracked via review_log.prompt_sentence) — the
@@ -500,6 +587,68 @@ async def test_sentences_change_every_appearance(pool):
         seen_v.add(v_shown)
         seen_g.add(g_shown)
     assert len(seen_v) == 2 and len(seen_g) == 2  # both contexts get exposure
+
+
+async def test_rotation_hunts_unseen_then_missed_cells(pool):
+    """A paradigm point is really N questions in one card: every drill gets
+    shown before any repeats, and once all are seen the rotation keeps
+    returning to the one the learner misses until it sticks."""
+    lang = await _language(pool, "hunt1")
+    user = await _new_user(pool, "hunt@learn")
+    async with pool.privileged_connection() as conn:
+        gp = await conn.fetchval(
+            "INSERT INTO grammar_points (language_id, title, level, reviewed, display_order) "
+            "VALUES ($1, 'Pronoun paradigm', 'A1', true, 1) RETURNING id", lang,
+        )
+        drills = [
+            ("{{answer}} soy yo-cell.", "Yo"),
+            ("{{answer}} eres tú-cell.", "Tú"),
+            ("{{answer}} es usted-cell.", "Usted"),
+        ]
+        for i, (s, a) in enumerate(drills):
+            await conn.execute(
+                "INSERT INTO drill_sentences (grammar_point_id, sentence, answer, display_order) "
+                "VALUES ($1, $2, $3, $4)", gp, s, a, i + 1,
+            )
+        card = await conn.fetchval(
+            "INSERT INTO user_cards (user_id, language_id, card_type, card_id) "
+            "VALUES ($1, $2, 'grammar', $3) RETURNING id", user, lang, gp,
+        )
+
+    async def _log(prompt, result):
+        async with pool.privileged_connection() as conn:
+            await conn.execute(
+                "INSERT INTO review_log (user_id, card_id, quality, answer_result, "
+                " interval_before, interval_after, prompt_sentence) "
+                "VALUES ($1, $2, 3, $3, 0, 1, $4)", user, card, result, prompt,
+            )
+
+    async def _shown():
+        async with pool.rls_connection(user) as conn:
+            due = {c["id"]: c for c in await get_due_cards(conn, lang)}
+        return due[card]["sentence"]
+
+    # Phase 1 — full coverage: all three cells appear before any repeat.
+    # The usted drill gets answered WRONG; the others right.
+    shown = []
+    for _ in range(3):
+        s = await _shown()
+        shown.append(s)
+        await _log(s, "wrong" if "usted-cell" in s else "correct")
+    assert sorted(shown) == sorted(d[0] for d in drills)
+
+    # Phase 2 — gap-hunting: everything's been seen, usted was missed, and
+    # (unless it was just shown) the card goes straight back to it.
+    if "usted-cell" not in shown[-1]:
+        s = await _shown()
+        assert "usted-cell" in s
+        await _log(s, "correct")
+    # After the miss is answered (and is now last-shown), rotation moves on…
+    s = await _shown()
+    assert "usted-cell" not in s
+    await _log(s, "correct")
+    # …and the miss STILL comes back next, until its record cleans up.
+    assert "usted-cell" in await _shown()
 
 
 async def test_review_log_records_prompt_sentence(pool):
@@ -634,11 +783,19 @@ async def test_fsrs_weight_fit_resolve_and_isolation(pool):
                 a, card, quality, answer, i, i + 1,
                 base + timedelta(days=i * 2),
             )
-        # Fit per-language weights with a low threshold for the test. Other
-        # tests may have logged reviews for their own languages, so assert
-        # inclusively rather than on the exact count.
-        fitted = await fit_languages(conn, min_reviews=2)
-        assert fitted >= 1
+        # The fit job runs the WP8 held-out gate: a 4-review toy history is
+        # (rightly) rejected rather than adopted, and rejection stores
+        # nothing. Adoption mechanics are unit-tested; here we only need the
+        # job to run cleanly, then seed a language row the way an ADOPTED
+        # fit would be stored, to exercise resolution + RLS.
+        await fit_languages(conn, min_reviews=2)
+        from backend.repositories.fsrs_weights import upsert_language_weights
+
+        fitted_params = [round(0.1 + i * 0.01, 2) for i in range(19)]
+        await upsert_language_weights(
+            conn, lang, fitted_params, review_count=4,
+            log_loss=0.5, holdout_log_loss=0.45, defaults_holdout_log_loss=0.5,
+        )
         stored = await conn.fetchval(
             "SELECT params FROM fsrs_weights WHERE language_id = $1 AND scope = 'language'",
             lang,

@@ -34,11 +34,28 @@ def is_admin(roles: list[dict]) -> bool:
 
 
 def can_contribute(roles: list[dict], language_id: str) -> bool:
-    """True if the user may edit grammar for *language_id* (admin or matching contributor)."""
+    """True if the user may edit grammar for *language_id*.
+
+    Admins everywhere; contributors and reviewers for their language (a
+    reviewer who can approve content can obviously also draft fixes to it).
+    """
     if is_admin(roles):
         return True
     return any(
-        r["role"] == "contributor"
+        r["role"] in ("contributor", "reviewer")
+        and (r["language_id"] is None or r["language_id"] == language_id)
+        for r in roles
+    )
+
+
+def can_review(roles: list[dict], language_id: str) -> bool:
+    """True if the user may APPROVE content for *language_id* — the human
+    gate that flips reviewed = true. Admins everywhere; reviewers for their
+    language (language_id None = all languages)."""
+    if is_admin(roles):
+        return True
+    return any(
+        r["role"] == "reviewer"
         and (r["language_id"] is None or r["language_id"] == language_id)
         for r in roles
     )
@@ -371,7 +388,7 @@ async def grant_role(
     language_id: str | None,
     role: str,
 ) -> None:
-    """Grant a contributor/admin role (privileged, admin-only)."""
+    """Grant a contributor/reviewer/admin role (privileged, admin-only)."""
     await conn.execute(
         """
         INSERT INTO contributor_roles (user_id, language_id, role)
@@ -380,3 +397,55 @@ async def grant_role(
         """,
         user_id, language_id, role,
     )
+
+
+async def revoke_role(
+    conn: asyncpg.Connection,
+    user_id: str,
+    language_id: str | None,
+    role: str,
+) -> bool:
+    """Remove one role row (privileged, admin-only). True if a row existed."""
+    result = await conn.execute(
+        """
+        DELETE FROM contributor_roles
+        WHERE user_id = $1 AND language_id IS NOT DISTINCT FROM $2 AND role = $3
+        """,
+        user_id, language_id, role,
+    )
+    return result.endswith("1")
+
+
+async def list_all_roles(conn: asyncpg.Connection) -> list[dict]:
+    """Every role grant with the holder's email (privileged, admin-only)."""
+    rows = await conn.fetch(
+        """
+        SELECT cr.user_id, u.email, cr.language_id, l.code AS language_code,
+               cr.role, cr.created_at
+        FROM contributor_roles cr
+        JOIN auth.users u ON u.id = cr.user_id
+        LEFT JOIN languages l ON l.id = cr.language_id
+        ORDER BY u.email, cr.role
+        """
+    )
+    return [
+        {
+            "user_id": str(r["user_id"]),
+            "email": r["email"],
+            "language_id": str(r["language_id"]) if r["language_id"] else None,
+            "language_code": r["language_code"],
+            "role": r["role"],
+            "created_at": r["created_at"].isoformat() if r["created_at"] else None,
+        }
+        for r in rows
+    ]
+
+
+async def find_user_by_email(
+    conn: asyncpg.Connection, email: str
+) -> str | None:
+    """Resolve an account email to its user id (privileged, admin-only)."""
+    row = await conn.fetchval(
+        "SELECT id FROM auth.users WHERE lower(email) = lower($1)", email.strip()
+    )
+    return str(row) if row else None

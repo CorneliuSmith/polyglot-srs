@@ -57,6 +57,10 @@ data/ru_*.tsv
 data/ar_*.tsv
 data/en_*.tsv
 data/*_sentences.tsv
+!data/ru_starter.tsv
+# Tatoeba sentence packs (CC-BY, small) — setup_db.sh seeds from these
+!data/sw_sentences.tsv
+!data/tr_sentences.tsv
 !data/ar_seed.json
 !data/en_frequency.tsv
 # Merged outputs of backend/services/seeder/source_data.py (small, reviewed)

@@ -133,9 +133,14 @@ class CSVImporter(BaseSeeder):
 
         records = []
         for row in valid_rows:
-            # Morphology JSONB from optional columns
+            # Morphology JSONB from optional columns. The case columns
+            # (acc/gen/prep/dat/inst) carry the mini declension sample that
+            # case-language noun cards show on the item page — the learner
+            # meets the forms where the word lives ("Language-shaped cards",
+            # docs/curriculum-design.md).
             morphology: dict[str, str] = {}
-            for key in ("root", "form", "gender", "aspect", "aspect_partner"):
+            for key in ("root", "form", "gender", "aspect", "aspect_partner",
+                        "acc", "gen", "prep", "dat", "inst"):
                 val = (row.get(key) or "").strip()
                 if val:
                     morphology[key] = val

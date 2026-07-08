@@ -57,15 +57,94 @@
           "answer": "Yo",
           "translation": "I am from Mexico.",
           "hint": "the 'I' pronoun, said for emphasis",
-          "display_order": 1
+          "display_order": 1,
+          "cell": "yo"
         },
         {
           "sentence": "{{answer}} eres mi amigo.",
           "answer": "Tú",
           "translation": "You are my friend.",
           "hint": "informal singular 'you'",
-          "display_order": 2
+          "display_order": 2,
+          "cell": "tú"
+        },
+        {
+          "sentence": "{{answer}} es mi hermana.",
+          "answer": "Ella",
+          "translation": "She is my sister.",
+          "hint": "she",
+          "display_order": 3,
+          "cell": "ella"
+        },
+        {
+          "sentence": "{{answer}} somos estudiantes.",
+          "answer": "Nosotros",
+          "translation": "We are students.",
+          "hint": "we",
+          "display_order": 4,
+          "cell": "nosotros"
+        },
+        {
+          "sentence": "{{answer}} son de España.",
+          "answer": "Ellos",
+          "translation": "They are from Spain.",
+          "hint": "they (masculine)",
+          "display_order": 5,
+          "cell": "ellos"
+        },
+        {
+          "sentence": "{{answer}} es mi padre.",
+          "answer": "Él",
+          "translation": "He is my father.",
+          "hint": "he — with accent",
+          "display_order": 6,
+          "cell": "él"
+        },
+        {
+          "sentence": "¿{{answer}} es el doctor Ruiz?",
+          "answer": "Usted",
+          "translation": "Are you Dr. Ruiz?",
+          "hint": "you — formal singular",
+          "cell": "usted",
+          "display_order": 7
+        },
+        {
+          "sentence": "{{answer}} sois de Valencia.",
+          "answer": "Vosotros",
+          "translation": "You all are from Valencia.",
+          "hint": "you all — informal (Spain)",
+          "cell": "vosotros",
+          "display_order": 8
+        },
+        {
+          "sentence": "{{answer}} son bienvenidos.",
+          "answer": "Ustedes",
+          "translation": "You (all) are welcome.",
+          "hint": "you all — formal / Latin America",
+          "cell": "ustedes",
+          "display_order": 9
         }
+      ],
+      "related": [
+        {
+          "title": "The verb ser (to be) — present",
+          "contrast": "The verb ending already names the person, so yo/tú usually drop."
+        },
+        {
+          "title": "Present tense of -ar verbs",
+          "contrast": "Hablo means 'I speak' — no pronoun needed."
+        }
+      ],
+      "paradigm": [
+        "yo",
+        "tú",
+        "él",
+        "ella",
+        "usted",
+        "nosotros",
+        "vosotros",
+        "ellos",
+        "ustedes"
       ]
     },
     {
@@ -101,6 +180,44 @@
           "translation": "The houses are pretty.",
           "hint": "plural of casa",
           "display_order": 2
+        },
+        {
+          "sentence": "Tengo tres {{answer}}.",
+          "answer": "hermanas",
+          "translation": "I have three sisters.",
+          "hint": "hermana, plural",
+          "display_order": 3
+        },
+        {
+          "sentence": "Los {{answer}} son nuevos.",
+          "answer": "coches",
+          "translation": "The cars are new.",
+          "hint": "coche, plural",
+          "display_order": 4
+        },
+        {
+          "sentence": "Las {{answer}} son pequeñas.",
+          "answer": "mesas",
+          "translation": "The tables are small.",
+          "hint": "mesa, plural",
+          "display_order": 5
+        },
+        {
+          "sentence": "Tengo dos {{answer}} en casa.",
+          "answer": "gatos",
+          "translation": "I have two cats at home.",
+          "hint": "gato, plural",
+          "display_order": 6
+        }
+      ],
+      "related": [
+        {
+          "title": "Definite articles (el / la)",
+          "contrast": "El/la must match the noun's gender: el día, la mano."
+        },
+        {
+          "title": "Adjective agreement",
+          "contrast": "Adjectives copy the noun's gender AND number: casas blancas."
         }
       ]
     },
@@ -129,15 +246,65 @@
           "answer": "la",
           "translation": "The house is big.",
           "hint": "feminine singular",
-          "display_order": 1
+          "display_order": 1,
+          "cell": "la"
         },
         {
           "sentence": "{{answer}} libro es nuevo.",
           "answer": "el",
           "translation": "The book is new.",
           "hint": "masculine singular",
-          "display_order": 2
+          "display_order": 2,
+          "cell": "el"
+        },
+        {
+          "sentence": "{{answer}} casas son blancas.",
+          "answer": "Las",
+          "translation": "The houses are white.",
+          "hint": "feminine plural",
+          "display_order": 3,
+          "cell": "las"
+        },
+        {
+          "sentence": "{{answer}} profesor es simpático.",
+          "answer": "El",
+          "translation": "The teacher is nice.",
+          "hint": "masculine singular",
+          "display_order": 4,
+          "cell": "el"
+        },
+        {
+          "sentence": "{{answer}} coches son rápidos.",
+          "answer": "Los",
+          "translation": "The cars are fast.",
+          "hint": "masculine plural",
+          "display_order": 5,
+          "cell": "los"
+        },
+        {
+          "sentence": "{{answer}} escuela es grande.",
+          "answer": "La",
+          "translation": "The school is big.",
+          "hint": "feminine singular",
+          "display_order": 6,
+          "cell": "la"
         }
+      ],
+      "related": [
+        {
+          "title": "Indefinite articles (un / una)",
+          "contrast": "El points at a known thing; un introduces a new one."
+        },
+        {
+          "title": "Gender and number of nouns",
+          "contrast": "The article is your best clue to a noun's gender."
+        }
+      ],
+      "paradigm": [
+        "el",
+        "la",
+        "los",
+        "las"
       ]
     },
     {
@@ -165,15 +332,63 @@
           "answer": "un",
           "translation": "I have a dog.",
           "hint": "masculine singular",
-          "display_order": 1
+          "display_order": 1,
+          "cell": "un"
         },
         {
           "sentence": "Es {{answer}} casa grande.",
           "answer": "una",
           "translation": "It is a big house.",
           "hint": "feminine singular",
-          "display_order": 2
+          "display_order": 2,
+          "cell": "una"
+        },
+        {
+          "sentence": "Compro {{answer}} mesa nueva.",
+          "answer": "una",
+          "translation": "I am buying a new table.",
+          "hint": "mesa is feminine",
+          "display_order": 3,
+          "cell": "una"
+        },
+        {
+          "sentence": "Hay {{answer}} problema con el coche.",
+          "answer": "un",
+          "translation": "There is a problem with the car.",
+          "hint": "problema is masculine!",
+          "display_order": 4,
+          "cell": "un"
+        },
+        {
+          "sentence": "Tengo {{answer}} idea.",
+          "answer": "una",
+          "translation": "I have an idea.",
+          "hint": "idea is feminine",
+          "display_order": 5,
+          "cell": "una"
+        },
+        {
+          "sentence": "Es {{answer}} día bonito.",
+          "answer": "un",
+          "translation": "It is a beautiful day.",
+          "hint": "día is masculine!",
+          "display_order": 6,
+          "cell": "un"
         }
+      ],
+      "related": [
+        {
+          "title": "Definite articles (el / la)",
+          "contrast": "Un for first mention, el once it's known."
+        },
+        {
+          "title": "Hay — there is / there are",
+          "contrast": "Hay pairs with un/una, never with el/la: hay una mesa."
+        }
+      ],
+      "paradigm": [
+        "un",
+        "una"
       ]
     },
     {
@@ -197,6 +412,10 @@
         {
           "title": "Wiktionary: ser (Spanish)",
           "url": "https://en.wiktionary.org/wiki/ser#Spanish"
+        },
+        {
+          "title": "Ser and estar",
+          "book": "Butt & Benjamin, A New Reference Grammar of Modern Spanish"
         }
       ],
       "drills": [
@@ -205,15 +424,67 @@
           "answer": "soy",
           "translation": "I am a student.",
           "hint": "yo form of ser",
-          "display_order": 1
+          "display_order": 1,
+          "cell": "yo"
         },
         {
           "sentence": "Nosotros {{answer}} amigos.",
           "answer": "somos",
           "translation": "We are friends.",
           "hint": "nosotros form of ser",
-          "display_order": 2
+          "display_order": 2,
+          "cell": "nosotros"
+        },
+        {
+          "sentence": "Ella {{answer}} profesora.",
+          "answer": "es",
+          "translation": "She is a teacher.",
+          "hint": "ser, ella",
+          "display_order": 3,
+          "cell": "él/ella"
+        },
+        {
+          "sentence": "Ellos {{answer}} de Argentina.",
+          "answer": "son",
+          "translation": "They are from Argentina.",
+          "hint": "ser, ellos",
+          "display_order": 4,
+          "cell": "ellos"
+        },
+        {
+          "sentence": "Tú {{answer}} muy alto.",
+          "answer": "eres",
+          "translation": "You are very tall.",
+          "hint": "ser, tú",
+          "display_order": 5,
+          "cell": "tú"
+        },
+        {
+          "sentence": "Vosotros {{answer}} mis amigos.",
+          "answer": "sois",
+          "translation": "You (all) are my friends.",
+          "hint": "ser, vosotros",
+          "display_order": 6,
+          "cell": "vosotros"
         }
+      ],
+      "related": [
+        {
+          "title": "The verb estar — location and states",
+          "contrast": "Ser = what something IS; estar = how or where it is right now."
+        },
+        {
+          "title": "Adjective agreement",
+          "contrast": "Description with ser: la casa es blanca — the adjective still agrees."
+        }
+      ],
+      "paradigm": [
+        "yo",
+        "tú",
+        "él/ella",
+        "nosotros",
+        "vosotros",
+        "ellos"
       ]
     },
     {
@@ -233,6 +504,10 @@
         {
           "title": "Wiktionary: estar (Spanish)",
           "url": "https://en.wiktionary.org/wiki/estar#Spanish"
+        },
+        {
+          "title": "Ser and estar",
+          "book": "Butt & Benjamin, A New Reference Grammar of Modern Spanish"
         }
       ],
       "drills": [
@@ -241,15 +516,75 @@
           "answer": "estoy",
           "translation": "I am at home.",
           "hint": "yo form of estar",
-          "display_order": 1
+          "display_order": 1,
+          "cell": "yo"
         },
         {
           "sentence": "La comida {{answer}} fría.",
           "answer": "está",
           "translation": "The food is cold.",
           "hint": "él/ella form of estar",
-          "display_order": 2
+          "display_order": 2,
+          "cell": "él/ella"
+        },
+        {
+          "sentence": "Nosotros {{answer}} en el parque.",
+          "answer": "estamos",
+          "translation": "We are in the park.",
+          "hint": "estar, nosotros",
+          "display_order": 3,
+          "cell": "nosotros"
+        },
+        {
+          "sentence": "¿Dónde {{answer}} mis llaves?",
+          "answer": "están",
+          "translation": "Where are my keys?",
+          "hint": "estar, ellas",
+          "display_order": 4,
+          "cell": "ellos"
+        },
+        {
+          "sentence": "Tú {{answer}} cansado hoy.",
+          "answer": "estás",
+          "translation": "You are tired today.",
+          "hint": "estar, tú",
+          "display_order": 5,
+          "cell": "tú"
+        },
+        {
+          "sentence": "El café {{answer}} caliente.",
+          "answer": "está",
+          "translation": "The coffee is hot.",
+          "hint": "estar, él — temporary state",
+          "display_order": 6,
+          "cell": "él/ella"
+        },
+        {
+          "sentence": "Vosotros {{answer}} en clase.",
+          "answer": "estáis",
+          "translation": "You all are in class.",
+          "hint": "to be (state/place), you all",
+          "cell": "vosotros",
+          "display_order": 7
         }
+      ],
+      "related": [
+        {
+          "title": "The verb ser (to be) — present",
+          "contrast": "Estar for states and places; ser for identity and origin."
+        },
+        {
+          "title": "Hay — there is / there are",
+          "contrast": "Hay says something exists; está says where a KNOWN thing is."
+        }
+      ],
+      "paradigm": [
+        "yo",
+        "tú",
+        "él/ella",
+        "nosotros",
+        "vosotros",
+        "ellos"
       ]
     },
     {
@@ -281,15 +616,75 @@
           "answer": "hablamos",
           "translation": "We speak Spanish.",
           "hint": "hablar, nosotros",
-          "display_order": 1
+          "display_order": 1,
+          "cell": "nosotros"
         },
         {
           "sentence": "Ella {{answer}} en una oficina.",
           "answer": "trabaja",
           "translation": "She works in an office.",
-          "hint": "trabajar, ella",
-          "display_order": 2
+          "hint": "to work, she",
+          "display_order": 2,
+          "cell": "él/ella"
+        },
+        {
+          "sentence": "Yo {{answer}} música por la noche.",
+          "answer": "escucho",
+          "translation": "I listen to music at night.",
+          "hint": "escuchar, yo",
+          "display_order": 3,
+          "cell": "yo"
+        },
+        {
+          "sentence": "Ellos {{answer}} mucho en verano.",
+          "answer": "viajan",
+          "translation": "They travel a lot in summer.",
+          "hint": "viajar, ellos",
+          "display_order": 4,
+          "cell": "ellos"
+        },
+        {
+          "sentence": "¿Tú {{answer}} inglés?",
+          "answer": "estudias",
+          "translation": "Do you study English?",
+          "hint": "estudiar, tú",
+          "display_order": 5,
+          "cell": "tú"
+        },
+        {
+          "sentence": "Mi madre {{answer}} la cena.",
+          "answer": "prepara",
+          "translation": "My mother prepares dinner.",
+          "hint": "to prepare, she",
+          "display_order": 6,
+          "cell": "él/ella"
+        },
+        {
+          "sentence": "¿Vosotros {{answer}} español?",
+          "answer": "habláis",
+          "translation": "Do you all speak Spanish?",
+          "hint": "to speak, you all",
+          "cell": "vosotros",
+          "display_order": 7
         }
+      ],
+      "related": [
+        {
+          "title": "Present tense of -er and -ir verbs",
+          "contrast": "Same person endings, different theme vowel: hablas vs comes."
+        },
+        {
+          "title": "Negation with no",
+          "contrast": "No sits right before the conjugated verb: no hablo."
+        }
+      ],
+      "paradigm": [
+        "yo",
+        "tú",
+        "él/ella",
+        "nosotros",
+        "vosotros",
+        "ellos"
       ]
     },
     {
@@ -321,15 +716,83 @@
           "answer": "bebo",
           "translation": "I drink water.",
           "hint": "beber, yo",
-          "display_order": 1
+          "display_order": 1,
+          "cell": "yo"
         },
         {
           "sentence": "Nosotros {{answer}} en Madrid.",
           "answer": "vivimos",
           "translation": "We live in Madrid.",
           "hint": "vivir, nosotros",
-          "display_order": 2
+          "display_order": 2,
+          "cell": "nosotros"
+        },
+        {
+          "sentence": "Ella {{answer}} muchos libros.",
+          "answer": "lee",
+          "translation": "She reads many books.",
+          "hint": "to read, she",
+          "display_order": 3,
+          "cell": "él/ella"
+        },
+        {
+          "sentence": "Ellos {{answer}} en Barcelona.",
+          "answer": "viven",
+          "translation": "They live in Barcelona.",
+          "hint": "vivir, ellos",
+          "display_order": 4,
+          "cell": "ellos"
+        },
+        {
+          "sentence": "Yo {{answer}} cartas a mi abuela.",
+          "answer": "escribo",
+          "translation": "I write letters to my grandmother.",
+          "hint": "escribir, yo",
+          "display_order": 5,
+          "cell": "yo"
+        },
+        {
+          "sentence": "Nosotros {{answer}} pan por la mañana.",
+          "answer": "comemos",
+          "translation": "We eat bread in the morning.",
+          "hint": "comer, nosotros",
+          "display_order": 6,
+          "cell": "nosotros"
+        },
+        {
+          "sentence": "¿Tú {{answer}} carne?",
+          "answer": "comes",
+          "translation": "Do you eat meat?",
+          "hint": "to eat, you",
+          "cell": "tú",
+          "display_order": 7
+        },
+        {
+          "sentence": "Vosotros {{answer}} cerca de la playa.",
+          "answer": "vivís",
+          "translation": "You all live near the beach.",
+          "hint": "to live, you all",
+          "cell": "vosotros",
+          "display_order": 8
         }
+      ],
+      "related": [
+        {
+          "title": "Present tense of -ar verbs",
+          "contrast": "-er and -ir share endings except nosotros/vosotros."
+        },
+        {
+          "title": "Subject pronouns (yo, tú, él…)",
+          "contrast": "Comes = 'you eat' — the ending carries the person."
+        }
+      ],
+      "paradigm": [
+        "yo",
+        "tú",
+        "él/ella",
+        "nosotros",
+        "vosotros",
+        "ellos"
       ]
     },
     {
@@ -365,6 +828,44 @@
           "translation": "She doesn't speak English.",
           "hint": "negation before the verb",
           "display_order": 2
+        },
+        {
+          "sentence": "Yo {{answer}} bebo café.",
+          "answer": "no",
+          "translation": "I don't drink coffee.",
+          "hint": "before the verb",
+          "display_order": 3
+        },
+        {
+          "sentence": "Ellos {{answer}} viven aquí.",
+          "answer": "no",
+          "translation": "They don't live here.",
+          "hint": "before the verb",
+          "display_order": 4
+        },
+        {
+          "sentence": "{{answer}} somos de Madrid.",
+          "answer": "No",
+          "translation": "We are not from Madrid.",
+          "hint": "sentence start",
+          "display_order": 5
+        },
+        {
+          "sentence": "Ella {{answer}} está en casa.",
+          "answer": "no",
+          "translation": "She is not at home.",
+          "hint": "before the verb",
+          "display_order": 6
+        }
+      ],
+      "related": [
+        {
+          "title": "Present tense of -ar verbs",
+          "contrast": "Negation never splits verb and ending: no trabajo."
+        },
+        {
+          "title": "Hay — there is / there are",
+          "contrast": "No hay = there isn't any."
         }
       ]
     },
@@ -401,6 +902,44 @@
           "translation": "There is no milk.",
           "hint": "there is (negated)",
           "display_order": 2
+        },
+        {
+          "sentence": "{{answer}} muchas personas en la calle.",
+          "answer": "Hay",
+          "translation": "There are many people in the street.",
+          "hint": "same form for plural",
+          "display_order": 3
+        },
+        {
+          "sentence": "¿{{answer}} un banco cerca?",
+          "answer": "Hay",
+          "translation": "Is there a bank nearby?",
+          "hint": "question — same form",
+          "display_order": 4
+        },
+        {
+          "sentence": "No {{answer}} agua caliente.",
+          "answer": "hay",
+          "translation": "There is no hot water.",
+          "hint": "after no",
+          "display_order": 5
+        },
+        {
+          "sentence": "{{answer}} dos ventanas en mi cuarto.",
+          "answer": "Hay",
+          "translation": "There are two windows in my room.",
+          "hint": "same form for plural",
+          "display_order": 6
+        }
+      ],
+      "related": [
+        {
+          "title": "The verb estar — location and states",
+          "contrast": "Hay introduces; está locates what's already introduced."
+        },
+        {
+          "title": "Indefinite articles (un / una)",
+          "contrast": "Hay un problema — indefinite, because it's new information."
         }
       ]
     },
@@ -437,6 +976,44 @@
           "translation": "What is your name? (lit. how do you call yourself)",
           "hint": "asking 'how'",
           "display_order": 2
+        },
+        {
+          "sentence": "¿{{answer}} es esto?",
+          "answer": "Qué",
+          "translation": "What is this?",
+          "hint": "what",
+          "display_order": 3
+        },
+        {
+          "sentence": "¿{{answer}} vives?",
+          "answer": "Dónde",
+          "translation": "Where do you live?",
+          "hint": "where",
+          "display_order": 4
+        },
+        {
+          "sentence": "¿{{answer}} es tu cumpleaños?",
+          "answer": "Cuándo",
+          "translation": "When is your birthday?",
+          "hint": "when",
+          "display_order": 5
+        },
+        {
+          "sentence": "¿{{answer}} años tienes?",
+          "answer": "Cuántos",
+          "translation": "How old are you?",
+          "hint": "how many (masculine)",
+          "display_order": 6
+        }
+      ],
+      "related": [
+        {
+          "title": "The verb ser (to be) — present",
+          "contrast": "¿Qué es esto? — identity questions use ser."
+        },
+        {
+          "title": "The verb estar — location and states",
+          "contrast": "¿Dónde está…? — location questions use estar."
         }
       ]
     },
@@ -465,15 +1042,65 @@
           "answer": "blanca",
           "translation": "The house is white.",
           "hint": "blanco, feminine singular",
-          "display_order": 1
+          "display_order": 1,
+          "cell": "f.sg"
         },
         {
           "sentence": "Los libros son {{answer}}.",
           "answer": "nuevos",
           "translation": "The books are new.",
           "hint": "nuevo, masculine plural",
-          "display_order": 2
+          "display_order": 2,
+          "cell": "m.pl"
+        },
+        {
+          "sentence": "El coche es {{answer}}.",
+          "answer": "rojo",
+          "translation": "The car is red.",
+          "hint": "red — masculine singular",
+          "display_order": 3,
+          "cell": "m.sg"
+        },
+        {
+          "sentence": "Las mesas son {{answer}}.",
+          "answer": "pequeñas",
+          "translation": "The tables are small.",
+          "hint": "pequeño — feminine plural",
+          "display_order": 4,
+          "cell": "f.pl"
+        },
+        {
+          "sentence": "Mi hermana es muy {{answer}}.",
+          "answer": "simpática",
+          "translation": "My sister is very nice.",
+          "hint": "simpático — feminine",
+          "display_order": 5,
+          "cell": "f.sg"
+        },
+        {
+          "sentence": "Los niños están {{answer}}.",
+          "answer": "cansados",
+          "translation": "The children are tired.",
+          "hint": "cansado — masculine plural",
+          "display_order": 6,
+          "cell": "m.pl"
         }
+      ],
+      "related": [
+        {
+          "title": "Gender and number of nouns",
+          "contrast": "The noun sets gender and number; the adjective follows."
+        },
+        {
+          "title": "The verb ser (to be) — present",
+          "contrast": "After ser the adjective still agrees with the subject."
+        }
+      ],
+      "paradigm": [
+        "m.sg",
+        "f.sg",
+        "m.pl",
+        "f.pl"
       ]
     },
     {
@@ -509,6 +1136,34 @@
           "translation": "She goes to bed early.",
           "hint": "acostarse, ella",
           "display_order": 2
+        },
+        {
+          "sentence": "Nosotros nos {{answer}} tarde los domingos.",
+          "answer": "levantamos",
+          "translation": "We get up late on Sundays.",
+          "hint": "levantarse, nosotros",
+          "display_order": 3
+        },
+        {
+          "sentence": "¿A qué hora te {{answer}}?",
+          "answer": "duchas",
+          "translation": "What time do you shower?",
+          "hint": "ducharse, tú",
+          "display_order": 4
+        },
+        {
+          "sentence": "Él se {{answer}} los dientes después de comer.",
+          "answer": "lava",
+          "translation": "He brushes his teeth after eating.",
+          "hint": "to wash (reflexive), he",
+          "display_order": 5
+        },
+        {
+          "sentence": "Yo me {{answer}} Carmen.",
+          "answer": "llamo",
+          "translation": "My name is Carmen.",
+          "hint": "llamarse, yo",
+          "display_order": 6
         }
       ]
     },
@@ -545,6 +1200,34 @@
           "translation": "I like books.",
           "hint": "plural things liked",
           "display_order": 2
+        },
+        {
+          "sentence": "Nos {{answer}} viajar en tren.",
+          "answer": "gusta",
+          "translation": "We like travelling by train.",
+          "hint": "infinitive subject — singular",
+          "display_order": 3
+        },
+        {
+          "sentence": "¿Te {{answer}} las películas de terror?",
+          "answer": "gustan",
+          "translation": "Do you like horror films?",
+          "hint": "plural subject",
+          "display_order": 4
+        },
+        {
+          "sentence": "Me {{answer}} la cabeza.",
+          "answer": "duele",
+          "translation": "My head hurts.",
+          "hint": "doler — same pattern",
+          "display_order": 5
+        },
+        {
+          "sentence": "Le {{answer}} mucho el chocolate.",
+          "answer": "gusta",
+          "translation": "He/she likes chocolate a lot.",
+          "hint": "singular subject",
+          "display_order": 6
         }
       ]
     },
@@ -581,6 +1264,34 @@
           "translation": "She opened the door.",
           "hint": "abrir, ella",
           "display_order": 2
+        },
+        {
+          "sentence": "Anoche {{answer}} una carta.",
+          "answer": "escribí",
+          "translation": "Last night I wrote a letter.",
+          "hint": "escribir, yo",
+          "display_order": 3
+        },
+        {
+          "sentence": "Ellos {{answer}} la casa en 2010.",
+          "answer": "compraron",
+          "translation": "They bought the house in 2010.",
+          "hint": "comprar, ellos",
+          "display_order": 4
+        },
+        {
+          "sentence": "¿{{answer}} tú con el profesor ayer?",
+          "answer": "Hablaste",
+          "translation": "Did you speak with the teacher yesterday?",
+          "hint": "hablar, tú",
+          "display_order": 5
+        },
+        {
+          "sentence": "Nosotros {{answer}} en un restaurante el sábado.",
+          "answer": "comimos",
+          "translation": "We ate at a restaurant on Saturday.",
+          "hint": "comer, nosotros",
+          "display_order": 6
         }
       ]
     },
@@ -617,6 +1328,34 @@
           "translation": "He had a lot of work.",
           "hint": "tener, él",
           "display_order": 2
+        },
+        {
+          "sentence": "Ayer {{answer}} mucho frío.",
+          "answer": "hizo",
+          "translation": "Yesterday it was very cold.",
+          "hint": "hacer — weather",
+          "display_order": 3
+        },
+        {
+          "sentence": "Ella {{answer}} profesora muchos años.",
+          "answer": "fue",
+          "translation": "She was a teacher for many years.",
+          "hint": "ser, ella",
+          "display_order": 4
+        },
+        {
+          "sentence": "Nosotros no {{answer}} tiempo.",
+          "answer": "tuvimos",
+          "translation": "We didn't have time.",
+          "hint": "tener, nosotros",
+          "display_order": 5
+        },
+        {
+          "sentence": "¿Qué {{answer}} el fin de semana?",
+          "answer": "hiciste",
+          "translation": "What did you do at the weekend?",
+          "hint": "hacer, tú",
+          "display_order": 6
         }
       ]
     },
@@ -653,6 +1392,34 @@
           "translation": "We used to live in Madrid.",
           "hint": "vivir, nosotros",
           "display_order": 2
+        },
+        {
+          "sentence": "Mi abuela {{answer}} historias maravillosas.",
+          "answer": "contaba",
+          "translation": "My grandmother used to tell wonderful stories.",
+          "hint": "contar, ella",
+          "display_order": 3
+        },
+        {
+          "sentence": "De niños, {{answer}} al fútbol cada tarde.",
+          "answer": "jugábamos",
+          "translation": "As children, we played football every afternoon.",
+          "hint": "jugar, nosotros",
+          "display_order": 4
+        },
+        {
+          "sentence": "Cuando llegaste, yo {{answer}} la televisión.",
+          "answer": "veía",
+          "translation": "When you arrived, I was watching television.",
+          "hint": "ver, yo",
+          "display_order": 5
+        },
+        {
+          "sentence": "Antes la ciudad {{answer}} más tranquila.",
+          "answer": "era",
+          "translation": "The city used to be quieter.",
+          "hint": "ser — description in the past",
+          "display_order": 6
         }
       ]
     },
@@ -689,6 +1456,34 @@
           "translation": "They are going to eat.",
           "hint": "ir, ellos",
           "display_order": 2
+        },
+        {
+          "sentence": "Ella va a {{answer}} una fiesta.",
+          "answer": "organizar",
+          "translation": "She is going to organise a party.",
+          "hint": "infinitive after ir a",
+          "display_order": 3
+        },
+        {
+          "sentence": "Nosotros {{answer}} a estudiar esta noche.",
+          "answer": "vamos",
+          "translation": "We are going to study tonight.",
+          "hint": "ir, nosotros",
+          "display_order": 4
+        },
+        {
+          "sentence": "¿Tú {{answer}} a venir mañana?",
+          "answer": "vas",
+          "translation": "Are you going to come tomorrow?",
+          "hint": "ir, tú",
+          "display_order": 5
+        },
+        {
+          "sentence": "Voy a {{answer}} pescado para la cena.",
+          "answer": "comprar",
+          "translation": "I am going to buy fish for dinner.",
+          "hint": "infinitive after ir a",
+          "display_order": 6
         }
       ]
     },
@@ -725,6 +1520,34 @@
           "translation": "She is sleeping.",
           "hint": "dormir, gerund",
           "display_order": 2
+        },
+        {
+          "sentence": "Los niños están {{answer}} en el jardín.",
+          "answer": "jugando",
+          "translation": "The children are playing in the garden.",
+          "hint": "to play + gerund",
+          "display_order": 3
+        },
+        {
+          "sentence": "¿Qué estás {{answer}}?",
+          "answer": "haciendo",
+          "translation": "What are you doing?",
+          "hint": "to do + gerund (-er/-ir type)",
+          "display_order": 4
+        },
+        {
+          "sentence": "Estamos {{answer}} la cena ahora.",
+          "answer": "preparando",
+          "translation": "We are preparing dinner now.",
+          "hint": "to prepare + gerund",
+          "display_order": 5
+        },
+        {
+          "sentence": "Ella está {{answer}} con su madre por teléfono.",
+          "answer": "hablando",
+          "translation": "She is talking with her mother on the phone.",
+          "hint": "to talk + gerund",
+          "display_order": 6
         }
       ]
     },
@@ -761,6 +1584,34 @@
           "translation": "The keys? I don't see them.",
           "hint": "feminine plural object",
           "display_order": 2
+        },
+        {
+          "sentence": "¿La película? {{answer}} vimos anoche.",
+          "answer": "La",
+          "translation": "The film? We saw it last night.",
+          "hint": "feminine singular",
+          "display_order": 3
+        },
+        {
+          "sentence": "¿Los libros? {{answer}} compré ayer.",
+          "answer": "Los",
+          "translation": "The books? I bought them yesterday.",
+          "hint": "masculine plural",
+          "display_order": 4
+        },
+        {
+          "sentence": "¿El pan? No {{answer}} encuentro.",
+          "answer": "lo",
+          "translation": "The bread? I can't find it.",
+          "hint": "masculine singular",
+          "display_order": 5
+        },
+        {
+          "sentence": "¿Las fotos? {{answer}} tengo en el móvil.",
+          "answer": "las",
+          "translation": "The photos? I have them on my phone.",
+          "hint": "feminine plural",
+          "display_order": 6
         }
       ]
     },
@@ -797,6 +1648,34 @@
           "translation": "I wrote to my parents.",
           "hint": "to them",
           "display_order": 2
+        },
+        {
+          "sentence": "{{answer}} compré flores a mi madre.",
+          "answer": "Le",
+          "translation": "I bought flowers for my mother.",
+          "hint": "singular receiver",
+          "display_order": 3
+        },
+        {
+          "sentence": "{{answer}} conté la historia a los niños.",
+          "answer": "Les",
+          "translation": "I told the story to the children.",
+          "hint": "plural receivers",
+          "display_order": 4
+        },
+        {
+          "sentence": "¿{{answer}} diste las llaves a Ana?",
+          "answer": "Le",
+          "translation": "Did you give the keys to Ana?",
+          "hint": "singular receiver",
+          "display_order": 5
+        },
+        {
+          "sentence": "El profesor {{answer}} explica la lección a los alumnos.",
+          "answer": "les",
+          "translation": "The teacher explains the lesson to the students.",
+          "hint": "plural receivers",
+          "display_order": 6
         }
       ]
     },
@@ -833,6 +1712,34 @@
           "translation": "He is as tall as his father.",
           "hint": "equality 'as'",
           "display_order": 2
+        },
+        {
+          "sentence": "El tren es {{answer}} rápido que el autobús.",
+          "answer": "más",
+          "translation": "The train is faster than the bus.",
+          "hint": "more … than",
+          "display_order": 3
+        },
+        {
+          "sentence": "Mi casa es {{answer}} grande que la tuya.",
+          "answer": "menos",
+          "translation": "My house is smaller (less big) than yours.",
+          "hint": "less … than",
+          "display_order": 4
+        },
+        {
+          "sentence": "Ella canta tan bien {{answer}} su hermana.",
+          "answer": "como",
+          "translation": "She sings as well as her sister.",
+          "hint": "as … as",
+          "display_order": 5
+        },
+        {
+          "sentence": "Este libro es {{answer}} que el otro.",
+          "answer": "mejor",
+          "translation": "This book is better than the other one.",
+          "hint": "irregular — bueno",
+          "display_order": 6
         }
       ]
     },
@@ -869,6 +1776,34 @@
           "translation": "Have you seen that film?",
           "hint": "ver, irregular participle",
           "display_order": 2
+        },
+        {
+          "sentence": "Nunca {{answer}} estado en México.",
+          "answer": "he",
+          "translation": "I have never been to Mexico.",
+          "hint": "haber, yo",
+          "display_order": 3
+        },
+        {
+          "sentence": "¿Habéis {{answer}} ya?",
+          "answer": "comido",
+          "translation": "Have you (all) eaten already?",
+          "hint": "comer → participle",
+          "display_order": 4
+        },
+        {
+          "sentence": "Ella ha {{answer}} una carta muy larga.",
+          "answer": "escrito",
+          "translation": "She has written a very long letter.",
+          "hint": "escribir → irregular participle",
+          "display_order": 5
+        },
+        {
+          "sentence": "Este año {{answer}} viajado mucho.",
+          "answer": "hemos",
+          "translation": "This year we have travelled a lot.",
+          "hint": "haber, nosotros",
+          "display_order": 6
         }
       ]
     },
@@ -905,6 +1840,34 @@
           "translation": "They will arrive late.",
           "hint": "llegar, ellos",
           "display_order": 2
+        },
+        {
+          "sentence": "El año que viene {{answer}} a España.",
+          "answer": "iré",
+          "translation": "Next year I will go to Spain.",
+          "hint": "ir, yo",
+          "display_order": 3
+        },
+        {
+          "sentence": "¿Qué {{answer}} el tiempo mañana?",
+          "answer": "hará",
+          "translation": "What will the weather be like tomorrow?",
+          "hint": "hacer — irregular stem",
+          "display_order": 4
+        },
+        {
+          "sentence": "Nosotros {{answer}} la verdad.",
+          "answer": "sabremos",
+          "translation": "We will know the truth.",
+          "hint": "saber — irregular stem",
+          "display_order": 5
+        },
+        {
+          "sentence": "Ella {{answer}} una casa junto al mar.",
+          "answer": "tendrá",
+          "translation": "She will have a house by the sea.",
+          "hint": "tener — irregular stem",
+          "display_order": 6
         }
       ]
     },
@@ -941,6 +1904,34 @@
           "translation": "What would you do in my place?",
           "hint": "hacer, tú",
           "display_order": 2
+        },
+        {
+          "sentence": "Yo en tu lugar no {{answer}} eso.",
+          "answer": "diría",
+          "translation": "In your place I wouldn't say that.",
+          "hint": "decir — irregular stem",
+          "display_order": 3
+        },
+        {
+          "sentence": "¿{{answer}} ayudarme con esto, por favor?",
+          "answer": "Podrías",
+          "translation": "Could you help me with this, please?",
+          "hint": "poder, tú — polite request",
+          "display_order": 4
+        },
+        {
+          "sentence": "Nosotros {{answer}} más tiempo con la familia.",
+          "answer": "pasaríamos",
+          "translation": "We would spend more time with family.",
+          "hint": "pasar, nosotros",
+          "display_order": 5
+        },
+        {
+          "sentence": "Él dijo que {{answer}} a las ocho.",
+          "answer": "llegaría",
+          "translation": "He said he would arrive at eight.",
+          "hint": "llegar, él",
+          "display_order": 6
         }
       ]
     },
@@ -977,6 +1968,34 @@
           "translation": "It's important that you drink water.",
           "hint": "beber, subjunctive tú",
           "display_order": 2
+        },
+        {
+          "sentence": "Espero que {{answer}} buen viaje.",
+          "answer": "tengas",
+          "translation": "I hope you have a good trip.",
+          "hint": "tener, tú",
+          "display_order": 3
+        },
+        {
+          "sentence": "Quieren que nosotros {{answer}} más despacio.",
+          "answer": "hablemos",
+          "translation": "They want us to speak more slowly.",
+          "hint": "hablar, nosotros",
+          "display_order": 4
+        },
+        {
+          "sentence": "Es necesario que ella {{answer}} al médico.",
+          "answer": "vaya",
+          "translation": "It is necessary that she go to the doctor.",
+          "hint": "ir — irregular subjunctive",
+          "display_order": 5
+        },
+        {
+          "sentence": "No quiero que lo {{answer}} ellos.",
+          "answer": "sepan",
+          "translation": "I don't want them to know it.",
+          "hint": "saber — irregular subjunctive",
+          "display_order": 6
         }
       ]
     },
@@ -1013,6 +2032,34 @@
           "translation": "Don't do that!",
           "hint": "hacer, negative command = subjunctive",
           "display_order": 2
+        },
+        {
+          "sentence": "¡{{answer}} más despacio, por favor!",
+          "answer": "Habla",
+          "translation": "Speak more slowly, please!",
+          "hint": "to speak — affirmative tú",
+          "display_order": 3
+        },
+        {
+          "sentence": "¡No {{answer}} la ventana!",
+          "answer": "abras",
+          "translation": "Don't open the window!",
+          "hint": "abrir — negative uses subjunctive",
+          "display_order": 4
+        },
+        {
+          "sentence": "¡{{answer}} aquí ahora mismo!",
+          "answer": "Ven",
+          "translation": "Come here right now!",
+          "hint": "to come — irregular tú",
+          "display_order": 5
+        },
+        {
+          "sentence": "¡No me {{answer}} mentiras!",
+          "answer": "digas",
+          "translation": "Don't tell me lies!",
+          "hint": "decir — negative uses subjunctive",
+          "display_order": 6
         }
       ]
     },
@@ -1049,6 +2096,34 @@
           "translation": "Thanks for your help.",
           "hint": "cause",
           "display_order": 2
+        },
+        {
+          "sentence": "Estudio español {{answer}} trabajar en Chile.",
+          "answer": "para",
+          "translation": "I study Spanish in order to work in Chile.",
+          "hint": "purpose",
+          "display_order": 3
+        },
+        {
+          "sentence": "Caminamos {{answer}} el parque.",
+          "answer": "por",
+          "translation": "We walked through the park.",
+          "hint": "movement through",
+          "display_order": 4
+        },
+        {
+          "sentence": "El regalo es {{answer}} mi madre.",
+          "answer": "para",
+          "translation": "The present is for my mother.",
+          "hint": "recipient",
+          "display_order": 5
+        },
+        {
+          "sentence": "Lo compré {{answer}} diez euros.",
+          "answer": "por",
+          "translation": "I bought it for ten euros.",
+          "hint": "price / exchange",
+          "display_order": 6
         }
       ]
     },
@@ -1085,6 +2160,34 @@
           "translation": "Fruit is sold here.",
           "hint": "agrees with plural 'frutas'",
           "display_order": 2
+        },
+        {
+          "sentence": "{{answer}} come muy bien en este restaurante.",
+          "answer": "Se",
+          "translation": "One eats very well at this restaurant.",
+          "hint": "impersonal",
+          "display_order": 3
+        },
+        {
+          "sentence": "Se {{answer}} casas en este barrio.",
+          "answer": "alquilan",
+          "translation": "Houses are rented in this neighbourhood.",
+          "hint": "alquilar — plural subject",
+          "display_order": 4
+        },
+        {
+          "sentence": "¿Cómo {{answer}} dice esto en español?",
+          "answer": "se",
+          "translation": "How do you say this in Spanish?",
+          "hint": "impersonal question",
+          "display_order": 5
+        },
+        {
+          "sentence": "Se {{answer}} español en veinte países.",
+          "answer": "habla",
+          "translation": "Spanish is spoken in twenty countries.",
+          "hint": "to speak — singular subject",
+          "display_order": 6
         }
       ]
     },
@@ -1112,7 +2215,7 @@
           "sentence": "¿El libro? {{answer}} lo di ayer a Juan.",
           "answer": "Se",
           "translation": "The book? I gave it to Juan yesterday.",
-          "hint": "le + lo → se lo",
+          "hint": "the indirect pronoun changes shape before lo/la",
           "display_order": 1
         },
         {
@@ -1121,6 +2224,34 @@
           "translation": "The gift — I gave it to María.",
           "hint": "direct object after se",
           "display_order": 2
+        },
+        {
+          "sentence": "¿Las llaves? Se {{answer}} di al portero.",
+          "answer": "las",
+          "translation": "The keys? I gave them to the doorman.",
+          "hint": "feminine plural thing",
+          "display_order": 3
+        },
+        {
+          "sentence": "El coche, {{answer}} lo vendí a mi vecino.",
+          "answer": "se",
+          "translation": "The car, I sold it to my neighbour.",
+          "hint": "the indirect pronoun changes shape before lo/la",
+          "display_order": 4
+        },
+        {
+          "sentence": "¿Me prestas el libro? — Sí, te {{answer}} presto.",
+          "answer": "lo",
+          "translation": "Will you lend me the book? — Yes, I'll lend it to you.",
+          "hint": "masculine singular thing",
+          "display_order": 5
+        },
+        {
+          "sentence": "¿El regalo? {{answer}} lo daremos mañana a la abuela.",
+          "answer": "Se",
+          "translation": "The present? We'll give it to grandma tomorrow.",
+          "hint": "the indirect pronoun changes shape before lo/la",
+          "display_order": 6
         }
       ]
     },
@@ -1157,6 +2288,34 @@
           "translation": "I wanted you to come with me.",
           "hint": "venir, past subjunctive tú",
           "display_order": 2
+        },
+        {
+          "sentence": "Si {{answer}} más tiempo, aprendería francés.",
+          "answer": "tuviera",
+          "translation": "If I had more time, I would learn French.",
+          "hint": "tener — -ra form",
+          "display_order": 3
+        },
+        {
+          "sentence": "Me pidió que le {{answer}} con la mudanza.",
+          "answer": "ayudara",
+          "translation": "He asked me to help him with the move.",
+          "hint": "to help — past subjunctive",
+          "display_order": 4
+        },
+        {
+          "sentence": "Ojalá {{answer}} aquí mi hermano.",
+          "answer": "estuviera",
+          "translation": "I wish my brother were here.",
+          "hint": "to be (estar) — past subjunctive",
+          "display_order": 5
+        },
+        {
+          "sentence": "Buscaban a alguien que {{answer}} ruso.",
+          "answer": "hablara",
+          "translation": "They were looking for someone who spoke Russian.",
+          "hint": "to speak — past subjunctive",
+          "display_order": 6
         }
       ]
     },
@@ -1193,6 +2352,34 @@
           "translation": "Had I known, I would not have come.",
           "hint": "conditional perfect",
           "display_order": 2
+        },
+        {
+          "sentence": "Si llueve mañana, no {{answer}}.",
+          "answer": "saldremos",
+          "translation": "If it rains tomorrow, we won't go out.",
+          "hint": "real condition → future",
+          "display_order": 3
+        },
+        {
+          "sentence": "Si fuera rico, {{answer}} una isla.",
+          "answer": "compraría",
+          "translation": "If I were rich, I would buy an island.",
+          "hint": "unreal → conditional",
+          "display_order": 4
+        },
+        {
+          "sentence": "Si {{answer}} frío, cierra la ventana.",
+          "answer": "hace",
+          "translation": "If it's cold, close the window.",
+          "hint": "real condition → present",
+          "display_order": 5
+        },
+        {
+          "sentence": "Si me hubieras llamado, habría {{answer}}.",
+          "answer": "venido",
+          "translation": "If you had called me, I would have come.",
+          "hint": "venir → participle",
+          "display_order": 6
         }
       ]
     },
@@ -1229,6 +2416,34 @@
           "translation": "We had never seen the sea.",
           "hint": "haber, nosotros",
           "display_order": 2
+        },
+        {
+          "sentence": "Ya {{answer}} comido cuando llegaron.",
+          "answer": "habíamos",
+          "translation": "We had already eaten when they arrived.",
+          "hint": "haber, nosotros — imperfect",
+          "display_order": 3
+        },
+        {
+          "sentence": "Ella nunca {{answer}} viajado en avión antes.",
+          "answer": "había",
+          "translation": "She had never travelled by plane before.",
+          "hint": "haber, ella — imperfect",
+          "display_order": 4
+        },
+        {
+          "sentence": "Cuando volví, ya habían {{answer}} la puerta.",
+          "answer": "cerrado",
+          "translation": "When I returned, they had already closed the door.",
+          "hint": "cerrar → participle",
+          "display_order": 5
+        },
+        {
+          "sentence": "Me di cuenta de que {{answer}} perdido las llaves.",
+          "answer": "había",
+          "translation": "I realised that I had lost the keys.",
+          "hint": "haber, yo — imperfect",
+          "display_order": 6
         }
       ]
     },
@@ -1265,6 +2480,34 @@
           "translation": "She told me she would come tomorrow.",
           "hint": "future → conditional",
           "display_order": 2
+        },
+        {
+          "sentence": "Dijo que no {{answer}} venir hoy.",
+          "answer": "podía",
+          "translation": "He said he couldn't come today.",
+          "hint": "present → imperfect",
+          "display_order": 3
+        },
+        {
+          "sentence": "Me contó que {{answer}} vivido en Perú.",
+          "answer": "había",
+          "translation": "She told me she had lived in Peru.",
+          "hint": "preterite → pluperfect",
+          "display_order": 4
+        },
+        {
+          "sentence": "Dijeron que {{answer}} el lunes.",
+          "answer": "llegarían",
+          "translation": "They said they would arrive on Monday.",
+          "hint": "future → conditional",
+          "display_order": 5
+        },
+        {
+          "sentence": "Preguntó {{answer}} estaba el hospital.",
+          "answer": "dónde",
+          "translation": "He asked where the hospital was.",
+          "hint": "the question word stays",
+          "display_order": 6
         }
       ]
     },
@@ -1301,6 +2544,34 @@
           "translation": "The author, whose book I read, is Chilean.",
           "hint": "'whose', agrees with libro",
           "display_order": 2
+        },
+        {
+          "sentence": "El médico a {{answer}} llamamos llegó rápido.",
+          "answer": "quien",
+          "translation": "The doctor whom we called arrived quickly.",
+          "hint": "person, after a",
+          "display_order": 3
+        },
+        {
+          "sentence": "La casa, {{answer}} puertas son rojas, es antigua.",
+          "answer": "cuyas",
+          "translation": "The house, whose doors are red, is old.",
+          "hint": "cuyo agrees with puertas",
+          "display_order": 4
+        },
+        {
+          "sentence": "Los estudiantes, {{answer}} trabajos leí, son brillantes.",
+          "answer": "cuyos",
+          "translation": "The students, whose papers I read, are brilliant.",
+          "hint": "cuyo agrees with trabajos",
+          "display_order": 5
+        },
+        {
+          "sentence": "Fue ella {{answer}} resolvió el problema.",
+          "answer": "quien",
+          "translation": "It was she who solved the problem.",
+          "hint": "person, cleft",
+          "display_order": 6
         }
       ]
     },
@@ -1337,6 +2608,34 @@
           "translation": "Even if it rains, we will go.",
           "hint": "llover, subjunctive",
           "display_order": 2
+        },
+        {
+          "sentence": "Habla despacio para que todos te {{answer}}.",
+          "answer": "entiendan",
+          "translation": "Speak slowly so that everyone understands you.",
+          "hint": "entender — subjunctive",
+          "display_order": 3
+        },
+        {
+          "sentence": "Aunque {{answer}} tarde, terminaré el trabajo.",
+          "answer": "sea",
+          "translation": "Even if it's late, I will finish the work.",
+          "hint": "ser — subjunctive",
+          "display_order": 4
+        },
+        {
+          "sentence": "Te dejo la llave para que {{answer}} entrar.",
+          "answer": "puedas",
+          "translation": "I'm leaving you the key so that you can get in.",
+          "hint": "poder — subjunctive",
+          "display_order": 5
+        },
+        {
+          "sentence": "No saldremos hasta que {{answer}} de llover.",
+          "answer": "deje",
+          "translation": "We won't go out until it stops raining.",
+          "hint": "dejar — subjunctive",
+          "display_order": 6
         }
       ]
     },
@@ -1373,6 +2672,34 @@
           "translation": "I don't think he has done it.",
           "hint": "haber, subjunctive él",
           "display_order": 2
+        },
+        {
+          "sentence": "Me alegro de que {{answer}} venido.",
+          "answer": "hayas",
+          "translation": "I'm glad you have come.",
+          "hint": "haber, tú — subjunctive",
+          "display_order": 3
+        },
+        {
+          "sentence": "Es posible que ya {{answer}} salido.",
+          "answer": "hayan",
+          "translation": "It's possible they have already left.",
+          "hint": "haber, ellos — subjunctive",
+          "display_order": 4
+        },
+        {
+          "sentence": "No creo que ella haya {{answer}} eso.",
+          "answer": "dicho",
+          "translation": "I don't think she has said that.",
+          "hint": "decir → participle",
+          "display_order": 5
+        },
+        {
+          "sentence": "Dudo que lo {{answer}} terminado a tiempo.",
+          "answer": "hayamos",
+          "translation": "I doubt we have finished it on time.",
+          "hint": "haber, nosotros — subjunctive",
+          "display_order": 6
         }
       ]
     },
@@ -1405,6 +2732,34 @@
           "translation": "If you had told me, I would have helped you.",
           "hint": "conditional perfect",
           "display_order": 2
+        },
+        {
+          "sentence": "Si lo {{answer}} sabido, no habría venido.",
+          "answer": "hubiera",
+          "translation": "If I had known, I wouldn't have come.",
+          "hint": "haber — pluperfect subjunctive",
+          "display_order": 3
+        },
+        {
+          "sentence": "Si hubieras salido antes, no {{answer}} perdido el tren.",
+          "answer": "habrías",
+          "translation": "If you had left earlier, you wouldn't have missed the train.",
+          "hint": "haber — conditional perfect",
+          "display_order": 4
+        },
+        {
+          "sentence": "Ojalá me lo {{answer}} dicho antes.",
+          "answer": "hubieras",
+          "translation": "I wish you had told me earlier.",
+          "hint": "haber — pluperfect subjunctive",
+          "display_order": 5
+        },
+        {
+          "sentence": "Sin tu ayuda, no lo {{answer}} conseguido.",
+          "answer": "habríamos",
+          "translation": "Without your help, we wouldn't have managed it.",
+          "hint": "haber — conditional perfect",
+          "display_order": 6
         }
       ]
     },
@@ -1441,6 +2796,34 @@
           "translation": "The bridges were built by the Romans.",
           "hint": "agrees with puentes",
           "display_order": 2
+        },
+        {
+          "sentence": "El puente fue {{answer}} en el siglo XIX.",
+          "answer": "construido",
+          "translation": "The bridge was built in the 19th century.",
+          "hint": "construir → participle",
+          "display_order": 3
+        },
+        {
+          "sentence": "Las cartas fueron {{answer}} por la secretaria.",
+          "answer": "enviadas",
+          "translation": "The letters were sent by the secretary.",
+          "hint": "enviar — feminine plural",
+          "display_order": 4
+        },
+        {
+          "sentence": "La ley {{answer}} aprobada por el parlamento.",
+          "answer": "fue",
+          "translation": "The law was passed by parliament.",
+          "hint": "ser — preterite",
+          "display_order": 5
+        },
+        {
+          "sentence": "El ladrón fue {{answer}} por la policía.",
+          "answer": "detenido",
+          "translation": "The thief was arrested by the police.",
+          "hint": "detener → participle",
+          "display_order": 6
         }
       ]
     },
@@ -1475,8 +2858,36 @@
           "sentence": "Es eso lo {{answer}} me preocupa.",
           "answer": "que",
           "translation": "That is what worries me.",
-          "hint": "idea focus, lo que",
+          "hint": "neuter cleft — 'lo' + relative",
           "display_order": 2
+        },
+        {
+          "sentence": "Fue en Sevilla {{answer}} nos conocimos.",
+          "answer": "donde",
+          "translation": "It was in Seville that we met.",
+          "hint": "place cleft",
+          "display_order": 3
+        },
+        {
+          "sentence": "Es el dinero lo {{answer}} le importa.",
+          "answer": "que",
+          "translation": "It's money that matters to him.",
+          "hint": "neuter cleft — 'lo' + relative",
+          "display_order": 4
+        },
+        {
+          "sentence": "{{answer}} mi hermana quien encontró las llaves.",
+          "answer": "Fue",
+          "translation": "It was my sister who found the keys.",
+          "hint": "ser — preterite",
+          "display_order": 5
+        },
+        {
+          "sentence": "Fue ayer {{answer}} me enteré de la noticia.",
+          "answer": "cuando",
+          "translation": "It was yesterday that I heard the news.",
+          "hint": "time cleft",
+          "display_order": 6
         }
       ]
     },
@@ -1509,6 +2920,34 @@
           "translation": "Whatever they say, I will carry on.",
           "hint": "reduplicated subjunctive",
           "display_order": 2
+        },
+        {
+          "sentence": "Por mucho que {{answer}}, no cambiará nada.",
+          "answer": "llores",
+          "translation": "However much you cry, nothing will change.",
+          "hint": "llorar — subjunctive",
+          "display_order": 3
+        },
+        {
+          "sentence": "Pase lo que {{answer}}, estaré contigo.",
+          "answer": "pase",
+          "translation": "Whatever happens, I'll be with you.",
+          "hint": "echo the verb — subjunctive",
+          "display_order": 4
+        },
+        {
+          "sentence": "Haga el tiempo que {{answer}}, saldremos.",
+          "answer": "haga",
+          "translation": "Whatever the weather, we'll go out.",
+          "hint": "echo the verb — subjunctive",
+          "display_order": 5
+        },
+        {
+          "sentence": "Por más que lo {{answer}}, no lo entiendo.",
+          "answer": "intento",
+          "translation": "However much I try, I don't understand it.",
+          "hint": "indicative — real repeated effort",
+          "display_order": 6
         }
       ]
     },
@@ -1545,6 +2984,34 @@
           "translation": "If only he could come.",
           "hint": "poder, -se form",
           "display_order": 2
+        },
+        {
+          "sentence": "Si me lo {{answer}}, te ayudaría.",
+          "answer": "pidieses",
+          "translation": "If you asked me, I would help you.",
+          "hint": "pedir — -se form",
+          "display_order": 3
+        },
+        {
+          "sentence": "Ojalá {{answer}} más tiempo para leer.",
+          "answer": "tuviese",
+          "translation": "If only I had more time to read.",
+          "hint": "tener — -se form",
+          "display_order": 4
+        },
+        {
+          "sentence": "Quisiera que todo {{answer}} como antes.",
+          "answer": "fuese",
+          "translation": "I wish everything were as before.",
+          "hint": "ser — -se form",
+          "display_order": 5
+        },
+        {
+          "sentence": "Si él {{answer}} aquí, todo sería distinto.",
+          "answer": "estuviese",
+          "translation": "If he were here, everything would be different.",
+          "hint": "to be (estar) — literary subjunctive",
+          "display_order": 6
         }
       ]
     },
@@ -1577,6 +3044,34 @@
           "translation": "It's not that I dislike him — I just don't know him.",
           "hint": "caer(se) bien/mal, subjunctive",
           "display_order": 2
+        },
+        {
+          "sentence": "No es que no te {{answer}}, es que estoy ocupado.",
+          "answer": "crea",
+          "translation": "It's not that I don't believe you, it's that I'm busy.",
+          "hint": "creer — subjunctive",
+          "display_order": 3
+        },
+        {
+          "sentence": "No es que {{answer}} tarde, es que hay tráfico.",
+          "answer": "sea",
+          "translation": "It's not that it's late, it's that there's traffic.",
+          "hint": "ser — subjunctive",
+          "display_order": 4
+        },
+        {
+          "sentence": "No es que no me {{answer}} la fiesta, es que estoy cansado.",
+          "answer": "guste",
+          "translation": "It's not that I don't like the party, it's that I'm tired.",
+          "hint": "gustar — subjunctive",
+          "display_order": 5
+        },
+        {
+          "sentence": "No es que {{answer}} miedo, es que soy prudente.",
+          "answer": "tenga",
+          "translation": "It's not that I'm afraid, it's that I'm careful.",
+          "hint": "tener — subjunctive",
+          "display_order": 6
         }
       ]
     }

@@ -185,8 +185,11 @@ async def test_learn_adds_batch_of_cards(client):
     with patch("backend.routers.review.rls_connection") as mock_rls, patch(
         "backend.routers.review.add_learn_batch", new=AsyncMock(return_value=fake_result)
     ), patch(
-        "backend.routers.review.get_card_detail",
-        new=AsyncMock(return_value={"card_type": "vocabulary", "title": "casa"}),
+        "backend.routers.review.get_card_details_bulk",
+        new=AsyncMock(return_value={
+            i: {"card_type": "vocabulary", "title": "casa"}
+            for i in ["id-1", "id-2", "id-3"]
+        }),
     ):
         conn = _make_fake_conn(batch_size=3)
         mock_rls.return_value.__aenter__ = AsyncMock(return_value=conn)
@@ -221,8 +224,8 @@ async def test_learn_reads_batch_size_from_profile(client):
     with patch("backend.routers.review.rls_connection") as mock_rls, patch(
         "backend.routers.review.add_learn_batch", new=capture_batch
     ), patch(
-        "backend.routers.review.get_card_detail",
-        new=AsyncMock(return_value={"card_type": "vocabulary", "title": "casa"}),
+        "backend.routers.review.get_card_details_bulk",
+        new=AsyncMock(return_value={}),
     ):
         conn = _make_fake_conn(batch_size=10)
         mock_rls.return_value.__aenter__ = AsyncMock(return_value=conn)
@@ -252,8 +255,8 @@ async def test_learn_defaults_batch_size_to_5_when_no_profile(client):
     with patch("backend.routers.review.rls_connection") as mock_rls, patch(
         "backend.routers.review.add_learn_batch", new=capture_batch
     ), patch(
-        "backend.routers.review.get_card_detail",
-        new=AsyncMock(return_value={"card_type": "vocabulary", "title": "casa"}),
+        "backend.routers.review.get_card_details_bulk",
+        new=AsyncMock(return_value={}),
     ):
         conn = _make_fake_conn(profile_exists=False)
         mock_rls.return_value.__aenter__ = AsyncMock(return_value=conn)
@@ -275,5 +278,85 @@ async def test_learn_requires_auth(client):
     resp = client.post(
         "/api/review/learn",
         json={"language_id": TEST_LANGUAGE_ID},
+    )
+    assert resp.status_code in (401, 403)
+
+
+@pytest.mark.asyncio
+async def test_learn_level_scopes_batch_and_subscribes(client):
+    """A deck-scoped learn passes the level through and queues the deck."""
+    fake_result = {"added": 2, "items": ["id-1", "id-2"]}
+    captured = {}
+
+    async def capture_batch(conn, user_id, language_id, batch_size, level=None):
+        captured["level"] = level
+        return fake_result
+
+    with patch("backend.routers.review.rls_connection") as mock_rls, patch(
+        "backend.routers.review.add_grammar_learn_batch", new=capture_batch
+    ), patch(
+        "backend.routers.review.get_card_details_bulk",
+        new=AsyncMock(return_value={}),
+    ):
+        conn = _make_fake_conn(batch_size=5)
+        mock_rls.return_value.__aenter__ = AsyncMock(return_value=conn)
+        mock_rls.return_value.__aexit__ = AsyncMock(return_value=False)
+
+        resp = client.post(
+            "/api/review/learn",
+            json={
+                "language_id": TEST_LANGUAGE_ID,
+                "card_type": "grammar",
+                "level": "A1",
+            },
+            headers=_auth_headers(),
+        )
+
+    assert resp.status_code == 200
+    assert captured["level"] == "A1"
+    # The deliberate deck choice auto-subscribes (INSERT … ON CONFLICT)
+    subscribe_calls = [
+        c for c in conn.execute.await_args_list
+        if "user_content_subscriptions" in str(c.args[0])
+    ]
+    assert len(subscribe_calls) == 1
+
+
+@pytest.mark.asyncio
+async def test_decks_returns_deck_rows(client):
+    """GET /decks returns the per-level deck rows with progress."""
+    fake_decks = [
+        {
+            "id": "deck-1",
+            "list_type": "grammar",
+            "level": "A1",
+            "title": "A1 Grammar",
+            "subscribed": True,
+            "total": 10,
+            "learned": 3,
+        }
+    ]
+    with patch("backend.routers.review.rls_connection") as mock_rls, patch(
+        "backend.routers.review.get_learn_decks",
+        new=AsyncMock(return_value=fake_decks),
+    ):
+        conn = AsyncMock()
+        mock_rls.return_value.__aenter__ = AsyncMock(return_value=conn)
+        mock_rls.return_value.__aexit__ = AsyncMock(return_value=False)
+
+        resp = client.get(
+            "/api/review/decks",
+            params={"language_id": TEST_LANGUAGE_ID},
+            headers=_auth_headers(),
+        )
+
+    assert resp.status_code == 200
+    assert resp.json()["decks"] == fake_decks
+
+
+@pytest.mark.asyncio
+async def test_decks_requires_auth(client):
+    resp = client.get(
+        "/api/review/decks", params={"language_id": TEST_LANGUAGE_ID}
     )
     assert resp.status_code in (401, 403)

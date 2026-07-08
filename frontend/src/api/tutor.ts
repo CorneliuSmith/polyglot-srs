@@ -5,9 +5,24 @@ export interface TutorMessage {
   content: string
 }
 
+/**
+ * The message allowance for the caller's tier. Pricing is flat — the cap is
+ * fair-use cost protection, shown openly, never a billing meter.
+ */
+export interface TutorAllowance {
+  tier: 'free' | 'plus' | 'unlimited'
+  unlimited: boolean
+  entitled: boolean
+  limit: number | null
+  used: number | null
+  remaining: number | null
+  resets_at: string | null
+}
+
 export interface TutorStatus {
   available: boolean
   entitled: boolean
+  allowance: TutorAllowance | null
 }
 
 export async function getTutorStatus(
@@ -24,13 +39,16 @@ export async function sendTutorMessage(
   languageId: string,
   languageCode: string,
   messages: TutorMessage[],
-): Promise<string> {
-  const response = await apiClient.post<{ reply: string }>('/api/tutor/chat', {
+): Promise<{ reply: string; allowance: TutorAllowance | null }> {
+  const response = await apiClient.post<{
+    reply: string
+    allowance?: TutorAllowance
+  }>('/api/tutor/chat', {
     language_id: languageId,
     language_code: languageCode,
     messages,
   })
-  return response.data.reply
+  return { reply: response.data.reply, allowance: response.data.allowance ?? null }
 }
 
 /**

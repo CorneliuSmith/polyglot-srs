@@ -12,6 +12,33 @@ import json
 import asyncpg
 
 
+async def count_tutor_messages(
+    conn: asyncpg.Connection, user_id: str, since
+) -> int:
+    """Answered tutor messages this user has used since *since* (allowances)."""
+    n = await conn.fetchval(
+        "SELECT count(*) FROM tutor_usage WHERE user_id = $1 AND created_at >= $2",
+        user_id, since,
+    )
+    return int(n or 0)
+
+
+async def log_tutor_usage(
+    conn: asyncpg.Connection,
+    user_id: str,
+    language_id: str | None,
+    model: str | None,
+) -> None:
+    """Record one answered tutor message (the allowance + cost-tracking unit)."""
+    await conn.execute(
+        """
+        INSERT INTO tutor_usage (user_id, language_id, model)
+        VALUES ($1, $2, $3)
+        """,
+        user_id, language_id, model,
+    )
+
+
 async def has_tutor_entitlement(
     conn: asyncpg.Connection, user_id: str, language_id: str
 ) -> bool:
@@ -196,7 +223,9 @@ async def get_study_stats(
         "total_cards": int(cards["total_cards"]) if cards else 0,
         "learned_cards": int(cards["learned_cards"]) if cards else 0,
         "due_now": int(cards["due_now"]) if cards else 0,
-        "avg_ease": float(cards["avg_ease"]) if cards and cards["avg_ease"] else None,
+        "avg_difficulty": (
+            float(cards["avg_difficulty"]) if cards and cards["avg_difficulty"] else None
+        ),
         "reviews_last_30d": reviews_30d,
         "accuracy_last_30d": accuracy,
         "highest_level_reached": level,

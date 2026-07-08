@@ -88,7 +88,18 @@ class MaoriSeeder(_FrequencyTsvSeeder):
     freq_filename = "mi_frequency.tsv"
 
 
+class RomanianSeeder(_FrequencyTsvSeeder):
+    language_code = "ro"
+    freq_filename = "ro_frequency.tsv"
+
+
+class GreekSeeder(_FrequencyTsvSeeder):
+    language_code = "el"
+    freq_filename = "el_frequency.tsv"
+
+
 SEEDERS = {
     "es": SpanishSeeder, "it": ItalianSeeder, "fr": FrenchSeeder,
     "de": GermanSeeder, "ca": CatalanSeeder, "mi": MaoriSeeder,
+    "ro": RomanianSeeder, "el": GreekSeeder,
 }

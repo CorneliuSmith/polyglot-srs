@@ -42,6 +42,32 @@ export async function getPlacement(languageId: string): Promise<PlacementRespons
   return response.data
 }
 
+export interface PlacementNextResponse {
+  available: boolean
+  done: boolean
+  item?: PlacementItem
+  asked: number
+  max_items?: number
+  estimated_level?: string | null
+  per_level?: Record<string, { correct: number; total: number }>
+}
+
+/**
+ * Adaptive placement: send the full answer history each round; the server
+ * grades it, walks its level staircase, and returns the next item or the
+ * final estimate. Stateless on both ends beyond the history array.
+ */
+export async function placementNext(
+  languageId: string,
+  history: { id: string; input: string }[],
+): Promise<PlacementNextResponse> {
+  const response = await apiClient.post<PlacementNextResponse>(
+    `/api/onboarding/placement/${languageId}/next`,
+    { history },
+  )
+  return response.data
+}
+
 export async function scorePlacement(
   languageId: string,
   answers: { id: string; input: string }[],

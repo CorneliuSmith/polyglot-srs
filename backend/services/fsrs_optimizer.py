@@ -65,19 +65,46 @@ class FitResult:
     n_reviews: int  # number of scorable reviews (those with a prior)
 
 
+@dataclass
+class ValidatedFit:
+    """A fit judged on data it never saw (WP8 quality gate).
+
+    `adopted` is the verdict: the (shrunk) fitted params beat the defaults on
+    the held-out tail of each card's history. Store-and-use only when True.
+    """
+    params: list[float]
+    train_log_loss: float
+    holdout_log_loss: float
+    defaults_holdout_log_loss: float
+    n_reviews: int          # scorable reviews in the training split
+    n_holdout_reviews: int  # scorable reviews in the held-out tails
+    adopted: bool
+
+
 def _scorable_reviews(sequences: list[ReviewSequence]) -> int:
     return sum(max(len(s) - 1, 0) for s in sequences)
 
 
-def log_loss(params: tuple[float, ...], sequences: list[ReviewSequence]) -> float:
-    """Mean binary cross-entropy of predicted recall over all scorable reviews."""
+def log_loss(
+    params: tuple[float, ...],
+    sequences: list[ReviewSequence],
+    score_from: list[int] | None = None,
+) -> float:
+    """Mean binary cross-entropy of predicted recall over scorable reviews.
+
+    *score_from*, when given, holds one index per sequence: the memory state
+    is simulated from the start, but only reviews at that index or later
+    contribute to the loss — this is how the held-out tail of a card's
+    history is scored without leaking it into the fit.
+    """
     total = 0.0
     n = 0
-    for seq in sequences:
+    for si, seq in enumerate(sequences):
+        start = score_from[si] if score_from is not None else 1
         stability: float | None = None
         difficulty: float | None = None
         for i, (elapsed, grade) in enumerate(seq):
-            if i > 0:
+            if i >= max(start, 1):
                 r = retrievability(max(0.0, elapsed), stability)
                 recalled = 0.0 if grade == Rating.AGAIN else 1.0
                 p = min(max(r, _EPS), 1.0 - _EPS)
@@ -85,6 +112,24 @@ def log_loss(params: tuple[float, ...], sequences: list[ReviewSequence]) -> floa
                 n += 1
             stability, difficulty = next_state(params, stability, difficulty, grade, elapsed)
     return total / n if n else 0.0
+
+
+def split_holdout(
+    sequences: list[ReviewSequence], fraction: float = 0.2
+) -> tuple[list[ReviewSequence], list[int]]:
+    """Split each card's history in time: first (1-fraction) train, rest held out.
+
+    Returns (train_sequences, holdout_start_indices). The start index refers
+    to the FULL sequence — cards too short to donate a tail get a start index
+    past their end and contribute nothing to the held-out loss.
+    """
+    train: list[ReviewSequence] = []
+    starts: list[int] = []
+    for seq in sequences:
+        split_idx = max(1, math.floor(len(seq) * (1.0 - fraction)))
+        train.append(seq[:split_idx])
+        starts.append(split_idx)
+    return train, starts
 
 
 def fit_weights(
@@ -116,3 +161,60 @@ def fit_weights(
     )
     params = [float(x) for x in result.x]
     return FitResult(params=params, log_loss=float(result.fun), n_reviews=n_reviews)
+
+
+# Shrinkage constant: with n training reviews, the fit moves
+# n / (n + SHRINK_K) of the way from the defaults toward the raw fit —
+# small datasets stay close to the defaults, big ones trust the data.
+SHRINK_K = 300
+
+
+def fit_weights_validated(
+    sequences: list[ReviewSequence],
+    *,
+    x0: tuple[float, ...] = DEFAULT_PARAMS,
+    holdout_fraction: float = 0.2,
+    shrink_k: int = SHRINK_K,
+    max_sequences: int = MAX_SEQUENCES,
+    seed: int = 0,
+) -> ValidatedFit | None:
+    """Fit on the first 80% of each card's history, judge on the last 20%.
+
+    The candidate (fitted params shrunk toward the defaults by data volume)
+    is adopted only when its held-out log-loss strictly beats the defaults'
+    held-out log-loss — a fit that merely memorized its training data never
+    replaces the defaults. Returns None when there's nothing to fit or
+    nothing to validate on.
+    """
+    if len(sequences) > max_sequences:
+        sequences = random.Random(seed).sample(sequences, max_sequences)
+
+    train, starts = split_holdout(sequences, holdout_fraction)
+    n_holdout = sum(
+        max(len(seq) - max(start, 1), 0) for seq, start in zip(sequences, starts)
+    )
+    if n_holdout == 0:
+        return None
+
+    fit = fit_weights(train, x0=x0, max_sequences=max_sequences, seed=seed)
+    if fit is None:
+        return None
+
+    shrink = fit.n_reviews / (fit.n_reviews + shrink_k)
+    candidate = [
+        max(lo, min(hi, d + (f - d) * shrink))
+        for f, d, (lo, hi) in zip(fit.params, x0, PARAM_BOUNDS)
+    ]
+
+    holdout_loss = log_loss(tuple(candidate), sequences, score_from=starts)
+    defaults_loss = log_loss(tuple(x0), sequences, score_from=starts)
+
+    return ValidatedFit(
+        params=candidate,
+        train_log_loss=fit.log_loss,
+        holdout_log_loss=holdout_loss,
+        defaults_holdout_log_loss=defaults_loss,
+        n_reviews=fit.n_reviews,
+        n_holdout_reviews=n_holdout,
+        adopted=holdout_loss < defaults_loss,
+    )

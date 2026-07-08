@@ -61,6 +61,16 @@ class SpanishNLP(AccentFoldingNLP):
     leading_articles = ("el ", "la ", "los ", "las ", "un ", "una ", "unos ", "unas ")
 
 
+class RomanianNLP(AccentFoldingNLP):
+    # Romanian's definite article is a suffix (casa, omul) — nothing to strip.
+    leading_articles = ()
+
+
+class GreekNLP(AccentFoldingNLP):
+    # Accent folding is script-agnostic (NFD strips the Greek tonos too).
+    leading_articles = ("ο ", "η ", "το ", "οι ", "τα ", "ένας ", "μια ", "ένα ")
+
+
 class ItalianNLP(AccentFoldingNLP):
     leading_articles = ("il ", "lo ", "la ", "i ", "gli ", "le ", "un ", "uno ", "una ", "l'")
 

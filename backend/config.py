@@ -30,6 +30,13 @@ class Settings(BaseSettings):
     # billing pipeline (Stripe) writes tutor_entitlements rows. Set False in
     # production so entitlements actually govern access.
     tutor_free_access: bool = True
+    # Tutor allowances — counted in MESSAGES (the unit learners understand),
+    # never billed per message. Pricing is flat per tier; these caps are
+    # cost protection and are shown openly in the UI.
+    #   free accounts: per calendar month (a real taste of the tutor)
+    #   plus accounts: per day (fair use on a flat subscription)
+    tutor_free_monthly_messages: int = 20
+    tutor_plus_daily_messages: int = 100
 
     # Stripe billing for the tutor add-on. Empty secret disables checkout.
     stripe_secret_key: str = ""

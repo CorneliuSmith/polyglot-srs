@@ -1,0 +1,909 @@
+{
+  "lists": [
+    {
+      "level": "A1",
+      "title": "French A1 Grammar Path",
+      "description": "A1 grammar in communicative order: subject pronouns, noun gender and number, both article families, être and avoir, the three verb groups in the present, negation, il y a, questions, and adjective agreement."
+    }
+  ],
+  "points": [
+    {
+      "title": "Subject pronouns (je, tu, il…)",
+      "level": "A1",
+      "function": "Say who you are talking about",
+      "source": "contributor",
+      "reviewed": true,
+      "display_order": 1,
+      "explanation": "The subject pronouns are je (I), tu (you, informal), il/elle (he/she), on (one/we, informal), nous (we), vous (you, formal or plural), ils/elles (they). Vous doubles as the polite singular — use it with strangers. On is how spoken French usually says 'we': on mange à midi.",
+      "culture_note": "Choosing tu or vous is a real social decision. When unsure, start with vous and wait to be invited to tutoyer.",
+      "references": [
+        {
+          "title": "Wikipedia: French personal pronouns",
+          "url": "https://en.wikipedia.org/wiki/French_personal_pronouns"
+        },
+        {
+          "title": "Wikipedia: French grammar",
+          "url": "https://en.wikipedia.org/wiki/French_grammar"
+        }
+      ],
+      "drills": [
+        {
+          "sentence": "{{answer}} suis de Paris.",
+          "answer": "Je",
+          "translation": "I am from Paris.",
+          "hint": "I",
+          "display_order": 1,
+          "cell": "je"
+        },
+        {
+          "sentence": "{{answer}} es mon ami.",
+          "answer": "Tu",
+          "translation": "You are my friend.",
+          "hint": "you — informal",
+          "display_order": 2,
+          "cell": "tu"
+        },
+        {
+          "sentence": "{{answer}} est ma sœur.",
+          "answer": "Elle",
+          "translation": "She is my sister.",
+          "hint": "she",
+          "display_order": 3,
+          "cell": "elle"
+        },
+        {
+          "sentence": "{{answer}} sommes étudiants.",
+          "answer": "Nous",
+          "translation": "We are students.",
+          "hint": "we",
+          "display_order": 4,
+          "cell": "nous"
+        },
+        {
+          "sentence": "{{answer}} sont d'Espagne.",
+          "answer": "Ils",
+          "translation": "They are from Spain.",
+          "hint": "they (masculine)",
+          "display_order": 5,
+          "cell": "ils"
+        },
+        {
+          "sentence": "{{answer}} êtes très gentil.",
+          "answer": "Vous",
+          "translation": "You are very kind.",
+          "hint": "you — formal",
+          "display_order": 6,
+          "cell": "vous"
+        },
+        {
+          "sentence": "{{answer}} travaille à Paris.",
+          "answer": "Il",
+          "translation": "He works in Paris.",
+          "hint": "he",
+          "cell": "il",
+          "display_order": 7
+        },
+        {
+          "sentence": "{{answer}} sont mes amies.",
+          "answer": "Elles",
+          "translation": "They are my friends (all women).",
+          "hint": "they — all female",
+          "cell": "elles",
+          "display_order": 8
+        }
+      ],
+      "paradigm": [
+        "je",
+        "tu",
+        "il",
+        "elle",
+        "nous",
+        "vous",
+        "ils",
+        "elles"
+      ]
+    },
+    {
+      "title": "Gender and number of nouns",
+      "level": "A1",
+      "function": "Name people and things, one or many",
+      "source": "contributor",
+      "reviewed": true,
+      "display_order": 2,
+      "explanation": "Every noun is masculine or feminine — learn each noun with its gender, because little about the word itself tells you. The plural usually adds a silent -s (livre → livres); since it isn't pronounced, the article carries the plural out loud. Endings give clues: -tion and -té are usually feminine, -age and -eau usually masculine.",
+      "culture_note": "",
+      "references": [
+        {
+          "title": "Wikipedia: French grammar — nouns",
+          "url": "https://en.wikipedia.org/wiki/French_grammar"
+        },
+        {
+          "title": "Wikipedia: Grammatical gender",
+          "url": "https://en.wikipedia.org/wiki/Grammatical_gender"
+        }
+      ],
+      "drills": [
+        {
+          "sentence": "J'ai deux {{answer}}.",
+          "answer": "livres",
+          "translation": "I have two books.",
+          "hint": "book, plural",
+          "display_order": 1
+        },
+        {
+          "sentence": "Les {{answer}} sont belles.",
+          "answer": "maisons",
+          "translation": "The houses are beautiful.",
+          "hint": "house, plural",
+          "display_order": 2
+        },
+        {
+          "sentence": "J'ai trois {{answer}}.",
+          "answer": "sœurs",
+          "translation": "I have three sisters.",
+          "hint": "sister, plural",
+          "display_order": 3
+        },
+        {
+          "sentence": "Les {{answer}} sont grands.",
+          "answer": "jardins",
+          "translation": "The gardens are big.",
+          "hint": "garden, plural",
+          "display_order": 4
+        },
+        {
+          "sentence": "J'ai deux {{answer}} à la maison.",
+          "answer": "chats",
+          "translation": "I have two cats at home.",
+          "hint": "cat, plural",
+          "display_order": 5
+        },
+        {
+          "sentence": "Les {{answer}} sont nouvelles.",
+          "answer": "voitures",
+          "translation": "The cars are new.",
+          "hint": "car, plural",
+          "display_order": 6
+        }
+      ]
+    },
+    {
+      "title": "Definite articles (le / la / les)",
+      "level": "A1",
+      "function": "Point to a specific thing",
+      "source": "contributor",
+      "reviewed": true,
+      "display_order": 3,
+      "explanation": "Le before masculine nouns (le livre), la before feminine (la maison), les for any plural (les livres). Before a vowel or silent h, le and la both shrink to l' (l'école). French uses the definite article far more than English — also for general statements: j'aime le café (I like coffee).",
+      "culture_note": "",
+      "references": [
+        {
+          "title": "Wikipedia: French articles and determiners",
+          "url": "https://en.wikipedia.org/wiki/French_articles_and_determiners"
+        },
+        {
+          "title": "Wikipedia: French grammar",
+          "url": "https://en.wikipedia.org/wiki/French_grammar"
+        }
+      ],
+      "drills": [
+        {
+          "sentence": "{{answer}} maison est grande.",
+          "answer": "La",
+          "translation": "The house is big.",
+          "hint": "feminine singular",
+          "display_order": 1,
+          "cell": "la"
+        },
+        {
+          "sentence": "{{answer}} livre est nouveau.",
+          "answer": "Le",
+          "translation": "The book is new.",
+          "hint": "masculine singular",
+          "display_order": 2,
+          "cell": "le"
+        },
+        {
+          "sentence": "{{answer}} enfants jouent dehors.",
+          "answer": "Les",
+          "translation": "The children are playing outside.",
+          "hint": "plural",
+          "display_order": 3,
+          "cell": "les"
+        },
+        {
+          "sentence": "{{answer}} café est chaud.",
+          "answer": "Le",
+          "translation": "The coffee is hot.",
+          "hint": "masculine singular",
+          "display_order": 4,
+          "cell": "le"
+        },
+        {
+          "sentence": "{{answer}} porte est ouverte.",
+          "answer": "La",
+          "translation": "The door is open.",
+          "hint": "feminine singular",
+          "display_order": 5,
+          "cell": "la"
+        },
+        {
+          "sentence": "{{answer}} chiens sont dans le jardin.",
+          "answer": "Les",
+          "translation": "The dogs are in the garden.",
+          "hint": "plural",
+          "display_order": 6,
+          "cell": "les"
+        }
+      ],
+      "paradigm": [
+        "le",
+        "la",
+        "les"
+      ]
+    },
+    {
+      "title": "Indefinite articles (un / une / des)",
+      "level": "A1",
+      "function": "Mention something for the first time",
+      "source": "contributor",
+      "reviewed": true,
+      "display_order": 4,
+      "explanation": "Un before masculine nouns (un chien), une before feminine (une maison), and — unlike English — a plural indefinite des (des amis, 'some friends'). Des is required where English just drops the article: j'ai des questions.",
+      "culture_note": "",
+      "references": [
+        {
+          "title": "Wikipedia: French articles and determiners",
+          "url": "https://en.wikipedia.org/wiki/French_articles_and_determiners"
+        },
+        {
+          "title": "Wiktionary: un (French)",
+          "url": "https://en.wiktionary.org/wiki/un#French"
+        }
+      ],
+      "drills": [
+        {
+          "sentence": "J'ai {{answer}} chien.",
+          "answer": "un",
+          "translation": "I have a dog.",
+          "hint": "masculine",
+          "display_order": 1,
+          "cell": "un"
+        },
+        {
+          "sentence": "C'est {{answer}} grande maison.",
+          "answer": "une",
+          "translation": "It is a big house.",
+          "hint": "feminine",
+          "display_order": 2,
+          "cell": "une"
+        },
+        {
+          "sentence": "Il a {{answer}} idée.",
+          "answer": "une",
+          "translation": "He has an idea.",
+          "hint": "idée is feminine",
+          "display_order": 3,
+          "cell": "une"
+        },
+        {
+          "sentence": "Nous avons {{answer}} amis à Lyon.",
+          "answer": "des",
+          "translation": "We have (some) friends in Lyon.",
+          "hint": "plural indefinite",
+          "display_order": 4,
+          "cell": "des"
+        },
+        {
+          "sentence": "C'est {{answer}} bon livre.",
+          "answer": "un",
+          "translation": "It is a good book.",
+          "hint": "masculine",
+          "display_order": 5,
+          "cell": "un"
+        },
+        {
+          "sentence": "Elle achète {{answer}} pommes.",
+          "answer": "des",
+          "translation": "She is buying (some) apples.",
+          "hint": "plural indefinite",
+          "display_order": 6,
+          "cell": "des"
+        }
+      ],
+      "paradigm": [
+        "un",
+        "une",
+        "des"
+      ]
+    },
+    {
+      "title": "Être — present (je suis, tu es…)",
+      "level": "A1",
+      "function": "Say who or what someone is",
+      "source": "contributor",
+      "reviewed": true,
+      "display_order": 5,
+      "explanation": "Être (to be) is wildly irregular and everywhere: je suis, tu es, il/elle est, nous sommes, vous êtes, ils/elles sont. Professions take no article after être: elle est professeur.",
+      "culture_note": "",
+      "references": [
+        {
+          "title": "Wiktionary: être (French)",
+          "url": "https://en.wiktionary.org/wiki/%C3%AAtre#French"
+        },
+        {
+          "title": "Wikipedia: French conjugation",
+          "url": "https://en.wikipedia.org/wiki/French_conjugation"
+        }
+      ],
+      "drills": [
+        {
+          "sentence": "Je {{answer}} étudiant.",
+          "answer": "suis",
+          "translation": "I am a student.",
+          "hint": "to be, I",
+          "display_order": 1,
+          "cell": "je"
+        },
+        {
+          "sentence": "Tu {{answer}} très grand.",
+          "answer": "es",
+          "translation": "You are very tall.",
+          "hint": "to be, you (informal)",
+          "display_order": 2,
+          "cell": "tu"
+        },
+        {
+          "sentence": "Elle {{answer}} professeur.",
+          "answer": "est",
+          "translation": "She is a teacher.",
+          "hint": "to be, she",
+          "display_order": 3,
+          "cell": "il"
+        },
+        {
+          "sentence": "Nous {{answer}} amis.",
+          "answer": "sommes",
+          "translation": "We are friends.",
+          "hint": "to be, we",
+          "display_order": 4,
+          "cell": "nous"
+        },
+        {
+          "sentence": "Vous {{answer}} français ?",
+          "answer": "êtes",
+          "translation": "Are you French?",
+          "hint": "to be, you (formal)",
+          "display_order": 5,
+          "cell": "vous"
+        },
+        {
+          "sentence": "Ils {{answer}} à la maison.",
+          "answer": "sont",
+          "translation": "They are at home.",
+          "hint": "to be, they",
+          "display_order": 6,
+          "cell": "ils"
+        }
+      ],
+      "paradigm": [
+        "je",
+        "tu",
+        "il",
+        "nous",
+        "vous",
+        "ils"
+      ]
+    },
+    {
+      "title": "Avoir — present (j'ai faim)",
+      "level": "A1",
+      "function": "Say what you have — and how you feel",
+      "source": "contributor",
+      "reviewed": true,
+      "display_order": 6,
+      "explanation": "Avoir (to have): j'ai, tu as, il/elle a, nous avons, vous avez, ils/elles ont. French uses avoir where English uses 'to be' for states: avoir faim (be hungry), avoir soif (be thirsty), avoir vingt ans (be twenty), avoir raison (be right).",
+      "culture_note": "Never say 'je suis vingt ans' — age is something you HAVE in French.",
+      "references": [
+        {
+          "title": "Wiktionary: avoir (French)",
+          "url": "https://en.wiktionary.org/wiki/avoir#French"
+        },
+        {
+          "title": "Wikipedia: French conjugation",
+          "url": "https://en.wikipedia.org/wiki/French_conjugation"
+        }
+      ],
+      "drills": [
+        {
+          "sentence": "J'{{answer}} vingt ans.",
+          "answer": "ai",
+          "translation": "I am twenty years old.",
+          "hint": "to have, I",
+          "display_order": 1,
+          "cell": "je"
+        },
+        {
+          "sentence": "Tu {{answer}} faim ?",
+          "answer": "as",
+          "translation": "Are you hungry?",
+          "hint": "to have, you (informal)",
+          "display_order": 2,
+          "cell": "tu"
+        },
+        {
+          "sentence": "Elle {{answer}} un chat.",
+          "answer": "a",
+          "translation": "She has a cat.",
+          "hint": "to have, she",
+          "display_order": 3,
+          "cell": "il"
+        },
+        {
+          "sentence": "Nous {{answer}} une question.",
+          "answer": "avons",
+          "translation": "We have a question.",
+          "hint": "to have, we",
+          "display_order": 4,
+          "cell": "nous"
+        },
+        {
+          "sentence": "Vous {{answer}} raison.",
+          "answer": "avez",
+          "translation": "You are right.",
+          "hint": "to have, you (formal)",
+          "display_order": 5,
+          "cell": "vous"
+        },
+        {
+          "sentence": "Ils {{answer}} soif.",
+          "answer": "ont",
+          "translation": "They are thirsty.",
+          "hint": "to have, they",
+          "display_order": 6,
+          "cell": "ils"
+        }
+      ],
+      "paradigm": [
+        "je",
+        "tu",
+        "il",
+        "nous",
+        "vous",
+        "ils"
+      ]
+    },
+    {
+      "title": "Present tense of -er verbs",
+      "level": "A1",
+      "function": "Talk about what people do",
+      "source": "contributor",
+      "reviewed": true,
+      "display_order": 7,
+      "explanation": "Ninety percent of French verbs end in -er and share one pattern. Drop -er, add: -e, -es, -e, -ons, -ez, -ent (parler → je parle, tu parles, il parle, nous parlons, vous parlez, ils parlent). Four of those six forms sound identical — the pronoun does the work in speech.",
+      "culture_note": "",
+      "references": [
+        {
+          "title": "Wikipedia: French conjugation — first group",
+          "url": "https://en.wikipedia.org/wiki/French_conjugation"
+        },
+        {
+          "title": "Wiktionary: parler (French)",
+          "url": "https://en.wiktionary.org/wiki/parler#French"
+        }
+      ],
+      "drills": [
+        {
+          "sentence": "Nous {{answer}} français.",
+          "answer": "parlons",
+          "translation": "We speak French.",
+          "hint": "to speak, we",
+          "display_order": 1,
+          "cell": "nous"
+        },
+        {
+          "sentence": "Elle {{answer}} dans un bureau.",
+          "answer": "travaille",
+          "translation": "She works in an office.",
+          "hint": "to work, she",
+          "display_order": 2,
+          "cell": "il"
+        },
+        {
+          "sentence": "Tu {{answer}} le chocolat ?",
+          "answer": "aimes",
+          "translation": "Do you like chocolate?",
+          "hint": "to like, you (informal)",
+          "display_order": 3,
+          "cell": "tu"
+        },
+        {
+          "sentence": "Ils {{answer}} au football.",
+          "answer": "jouent",
+          "translation": "They play football.",
+          "hint": "to play, they",
+          "display_order": 4,
+          "cell": "ils"
+        },
+        {
+          "sentence": "Vous {{answer}} à Paris ?",
+          "answer": "habitez",
+          "translation": "Do you live in Paris?",
+          "hint": "to live, you (formal)",
+          "display_order": 5,
+          "cell": "vous"
+        },
+        {
+          "sentence": "Je {{answer}} la porte.",
+          "answer": "ferme",
+          "translation": "I close the door.",
+          "hint": "to close, I",
+          "display_order": 6,
+          "cell": "il"
+        },
+        {
+          "sentence": "Je {{answer}} un peu français.",
+          "answer": "parle",
+          "translation": "I speak a little French.",
+          "hint": "to speak, I",
+          "cell": "je",
+          "display_order": 7
+        }
+      ],
+      "paradigm": [
+        "je",
+        "tu",
+        "il",
+        "nous",
+        "vous",
+        "ils"
+      ]
+    },
+    {
+      "title": "-ir and -re verbs (finir, vendre)",
+      "level": "A1",
+      "function": "Finish, choose, wait, sell — the other two families",
+      "source": "contributor",
+      "reviewed": true,
+      "display_order": 8,
+      "explanation": "-ir verbs like finir: je finis, tu finis, il finit, nous finissons (note the -iss- in the plural), vous finissez, ils finissent. -re verbs like vendre: je vends, tu vends, il vend, nous vendons, vous vendez, ils vendent. Attendre (wait), entendre (hear), and choisir (choose) follow these patterns.",
+      "culture_note": "",
+      "references": [
+        {
+          "title": "Wikipedia: French conjugation — second and third groups",
+          "url": "https://en.wikipedia.org/wiki/French_conjugation"
+        },
+        {
+          "title": "Wiktionary: finir (French)",
+          "url": "https://en.wiktionary.org/wiki/finir#French"
+        }
+      ],
+      "drills": [
+        {
+          "sentence": "Je {{answer}} mon travail à six heures.",
+          "answer": "finis",
+          "translation": "I finish my work at six o'clock.",
+          "hint": "to finish, I",
+          "display_order": 1,
+          "cell": "je"
+        },
+        {
+          "sentence": "Nous {{answer}} le train.",
+          "answer": "attendons",
+          "translation": "We are waiting for the train.",
+          "hint": "to wait, we",
+          "display_order": 2,
+          "cell": "nous"
+        },
+        {
+          "sentence": "Ils {{answer}} leurs devoirs.",
+          "answer": "finissent",
+          "translation": "They finish their homework.",
+          "hint": "to finish, they",
+          "display_order": 3,
+          "cell": "ils"
+        },
+        {
+          "sentence": "Elle {{answer}} des fleurs au marché.",
+          "answer": "vend",
+          "translation": "She sells flowers at the market.",
+          "hint": "to sell, she",
+          "display_order": 4,
+          "cell": "il"
+        },
+        {
+          "sentence": "Tu {{answer}} la musique ?",
+          "answer": "entends",
+          "translation": "Do you hear the music?",
+          "hint": "to hear, you (informal)",
+          "display_order": 5,
+          "cell": "tu"
+        },
+        {
+          "sentence": "Vous {{answer}} un dessert ?",
+          "answer": "choisissez",
+          "translation": "Are you choosing a dessert?",
+          "hint": "to choose, you (formal)",
+          "display_order": 6,
+          "cell": "vous"
+        }
+      ],
+      "paradigm": [
+        "je",
+        "tu",
+        "il",
+        "nous",
+        "vous",
+        "ils"
+      ]
+    },
+    {
+      "title": "Negation with ne … pas",
+      "level": "A1",
+      "function": "Say what is not so",
+      "source": "contributor",
+      "reviewed": true,
+      "display_order": 9,
+      "explanation": "Negation wraps the verb in a frame: ne + verb + pas. Je ne parle pas anglais. Before a vowel, ne becomes n': je n'aime pas. After a negation, un/une/des become de: je n'ai pas de chien.",
+      "culture_note": "In casual speech the ne often disappears — je parle pas. Learn the full frame first; drop it later like the locals.",
+      "references": [
+        {
+          "title": "Wikipedia: French grammar — negation",
+          "url": "https://en.wikipedia.org/wiki/French_grammar"
+        },
+        {
+          "title": "Wiktionary: ne … pas (French)",
+          "url": "https://en.wiktionary.org/wiki/ne_..._pas#French"
+        }
+      ],
+      "drills": [
+        {
+          "sentence": "Je {{answer}} parle pas anglais.",
+          "answer": "ne",
+          "translation": "I don't speak English.",
+          "hint": "the opening half of the frame",
+          "display_order": 1
+        },
+        {
+          "sentence": "Il ne travaille {{answer}} le dimanche.",
+          "answer": "pas",
+          "translation": "He doesn't work on Sundays.",
+          "hint": "the closing half of the frame",
+          "display_order": 2
+        },
+        {
+          "sentence": "Nous {{answer}} sommes pas fatigués.",
+          "answer": "ne",
+          "translation": "We are not tired.",
+          "hint": "the opening half of the frame",
+          "display_order": 3
+        },
+        {
+          "sentence": "Elle ne mange {{answer}} de viande.",
+          "answer": "pas",
+          "translation": "She doesn't eat meat.",
+          "hint": "the closing half of the frame",
+          "display_order": 4
+        },
+        {
+          "sentence": "Tu {{answer}} manges pas ?",
+          "answer": "ne",
+          "translation": "Aren't you eating?",
+          "hint": "the opening half of the frame",
+          "display_order": 5
+        },
+        {
+          "sentence": "Vous ne dansez {{answer}} ?",
+          "answer": "pas",
+          "translation": "You don't dance?",
+          "hint": "the closing half of the frame",
+          "display_order": 6
+        }
+      ]
+    },
+    {
+      "title": "Il y a — there is / there are",
+      "level": "A1",
+      "function": "Say what exists or is available",
+      "source": "contributor",
+      "reviewed": true,
+      "display_order": 10,
+      "explanation": "Il y a covers both 'there is' and 'there are' — it never changes for plural: il y a un livre, il y a deux livres. Negative: il n'y a pas de… (no article, just de). Question: est-ce qu'il y a… ?",
+      "culture_note": "",
+      "references": [
+        {
+          "title": "Wiktionary: il y a (French)",
+          "url": "https://en.wiktionary.org/wiki/il_y_a#French"
+        },
+        {
+          "title": "Wikipedia: French grammar",
+          "url": "https://en.wikipedia.org/wiki/French_grammar"
+        }
+      ],
+      "drills": [
+        {
+          "sentence": "Il y {{answer}} un livre sur la table.",
+          "answer": "a",
+          "translation": "There is a book on the table.",
+          "hint": "the verb of the fixed phrase",
+          "display_order": 1
+        },
+        {
+          "sentence": "{{answer}} y a deux cafés dans la rue.",
+          "answer": "Il",
+          "translation": "There are two cafés in the street.",
+          "hint": "the dummy subject",
+          "display_order": 2
+        },
+        {
+          "sentence": "Il {{answer}} a beaucoup de monde ici.",
+          "answer": "y",
+          "translation": "There are a lot of people here.",
+          "hint": "the little word in the middle",
+          "display_order": 3
+        },
+        {
+          "sentence": "Il y a {{answer}} chat dans le jardin.",
+          "answer": "un",
+          "translation": "There is a cat in the garden.",
+          "hint": "indefinite article, masculine",
+          "display_order": 4
+        },
+        {
+          "sentence": "Est-ce qu'il y {{answer}} du pain ?",
+          "answer": "a",
+          "translation": "Is there any bread?",
+          "hint": "the verb of the fixed phrase",
+          "display_order": 5
+        },
+        {
+          "sentence": "Il n'y a pas {{answer}} lait.",
+          "answer": "de",
+          "translation": "There is no milk.",
+          "hint": "after a negation, articles become this",
+          "display_order": 6
+        }
+      ]
+    },
+    {
+      "title": "Question words (où, comment, quand…)",
+      "level": "A1",
+      "function": "Ask about places, people, time, and reasons",
+      "source": "contributor",
+      "reviewed": true,
+      "display_order": 11,
+      "explanation": "Où (where), comment (how), quand (when), que/qu' (what), pourquoi (why), combien (how much/many), qui (who). Three ways to build a question: intonation (tu viens ?), est-ce que (est-ce que tu viens ?), or inversion (viens-tu ?) — est-ce que is the everyday workhorse.",
+      "culture_note": "",
+      "references": [
+        {
+          "title": "Wikipedia: French grammar — interrogatives",
+          "url": "https://en.wikipedia.org/wiki/French_grammar"
+        },
+        {
+          "title": "Wiktionary: est-ce que (French)",
+          "url": "https://en.wiktionary.org/wiki/est-ce_que#French"
+        }
+      ],
+      "drills": [
+        {
+          "sentence": "{{answer}} habites-tu ?",
+          "answer": "Où",
+          "translation": "Where do you live?",
+          "hint": "where",
+          "display_order": 1
+        },
+        {
+          "sentence": "{{answer}} t'appelles-tu ?",
+          "answer": "Comment",
+          "translation": "What is your name?",
+          "hint": "how — names ask 'how' in French",
+          "display_order": 2
+        },
+        {
+          "sentence": "{{answer}} est ton anniversaire ?",
+          "answer": "Quand",
+          "translation": "When is your birthday?",
+          "hint": "when",
+          "display_order": 3
+        },
+        {
+          "sentence": "{{answer}} regardes-tu ?",
+          "answer": "Que",
+          "translation": "What are you watching?",
+          "hint": "what",
+          "display_order": 4
+        },
+        {
+          "sentence": "{{answer}} de frères as-tu ?",
+          "answer": "Combien",
+          "translation": "How many brothers do you have?",
+          "hint": "how many",
+          "display_order": 5
+        },
+        {
+          "sentence": "{{answer}} est-ce que tu pleures ?",
+          "answer": "Pourquoi",
+          "translation": "Why are you crying?",
+          "hint": "why",
+          "display_order": 6
+        }
+      ]
+    },
+    {
+      "title": "Adjective agreement",
+      "level": "A1",
+      "function": "Describe people and things correctly",
+      "source": "contributor",
+      "reviewed": true,
+      "display_order": 12,
+      "explanation": "Adjectives agree with their noun: add -e for feminine (grand → grande), -s for plural (grands, grandes). Some change more: blanc → blanche, nouveau → nouvelle, gentil → gentille. Most adjectives FOLLOW the noun (une maison blanche), but a small frequent set precedes it (grand, petit, bon, nouveau, joli).",
+      "culture_note": "",
+      "references": [
+        {
+          "title": "Wikipedia: French adjectives",
+          "url": "https://en.wikipedia.org/wiki/French_grammar"
+        },
+        {
+          "title": "Wiktionary: grand (French)",
+          "url": "https://en.wiktionary.org/wiki/grand#French"
+        }
+      ],
+      "drills": [
+        {
+          "sentence": "La maison est {{answer}}.",
+          "answer": "blanche",
+          "translation": "The house is white.",
+          "hint": "white — feminine",
+          "display_order": 1,
+          "cell": "f.sg"
+        },
+        {
+          "sentence": "Les livres sont {{answer}}.",
+          "answer": "nouveaux",
+          "translation": "The books are new.",
+          "hint": "new — masculine plural",
+          "display_order": 2,
+          "cell": "m.pl"
+        },
+        {
+          "sentence": "Ma sœur est très {{answer}}.",
+          "answer": "gentille",
+          "translation": "My sister is very kind.",
+          "hint": "kind — feminine",
+          "display_order": 3,
+          "cell": "f.sg"
+        },
+        {
+          "sentence": "Le café est {{answer}}.",
+          "answer": "chaud",
+          "translation": "The coffee is hot.",
+          "hint": "hot — masculine",
+          "display_order": 4,
+          "cell": "m.sg"
+        },
+        {
+          "sentence": "Les fleurs sont {{answer}}.",
+          "answer": "jolies",
+          "translation": "The flowers are pretty.",
+          "hint": "pretty — feminine plural",
+          "display_order": 5,
+          "cell": "f.pl"
+        },
+        {
+          "sentence": "Le film est {{answer}}.",
+          "answer": "intéressant",
+          "translation": "The film is interesting.",
+          "hint": "interesting — masculine",
+          "display_order": 6,
+          "cell": "m.sg"
+        }
+      ],
+      "paradigm": [
+        "m.sg",
+        "f.sg",
+        "m.pl",
+        "f.pl"
+      ]
+    }
+  ]
+}
