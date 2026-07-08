@@ -65,9 +65,9 @@ coach from the learner's actual failure history.
 - **Grammar paths seeded — ALL 16 languages**: es 43 (full A1→C2, Plan
   Curricular order), tr 40 (full A1→C2, cross-model verified), ru 51 (full
   A1→C2 per TORFL — A2+ promoted live 2026-07; native-speaker review still
-  wanted, WP4), sw 50 · yo 40 · ha 40 (A1→C2-equivalent; the 2026-07
-  deepening points are `reviewed: false` drafts awaiting WP4 native
-  review) · xh 24 (A1→C1-equivalent), and
+  wanted, WP4), sw 50 · yo 40 · ha 40 · xh 40 (A1→C2-equivalent; the
+  2026-07 deepening points are `reviewed: false` drafts awaiting WP4
+  native review), and
   12-point A1 paths for fr · de · it · ca · mi · ar · en · ro · el.
   **WP1 drill bar met everywhere: 6 drills/point (2,064 drills total)**,
   validated for single-word answers, no answer leakage, no duplicate frames,
@@ -246,8 +246,16 @@ in the continuous, don/domin/saboda, kafin/bayan, connectors
 kuma/har/ma/amma, ideophonic intensifiers (fat/ƙirin/wur), verb grades
 (saya/sayar, dafa/dafu), indirect objects mini/maka/masa (tagged),
 ɗan-compounds, karin magana, greeting protocol (Ranka ya daɗe),
-discourse particles (fa/dai/mana/ashe), ko. Remaining: xh discourse-level
-closers to ~40.
+discourse particles (fa/dai/mana/ashe), ko.
+**Xhosa DONE 2026-07 (24 → 40):** +16 drafts — classes 11/14/15, absolute
+pronouns (tagged), persistive -sa- (still / no longer), counting with
+concords + -ngaphi, instrumental nga-, xa + participial when-clauses,
+potential -nga- (can/may + andinako), statives -eka/-akala (kufuneka),
+past continuous bendi-/ebe- (tagged), ukuze purpose, kuba/ngoba/kutheni,
+ukuthi ideophones (cwaka/gqi/tu), amaqhalo (umntu ngumntu ngabantu),
+hlonipha register, discourse particles (ke/nje/phofu/kaloku), full
+greeting protocol. **All of (b) is now authored — sw 50 · yo 40 · ha 40 ·
+xh 40; every deepening point is a Draft awaiting (a)'s named reviewers.**
 (c) WP1 variation drills for all four.
 **Acceptance:** every African point re-approved by a named human reviewer
 (`reviewed_by` set), or explicitly flagged Draft.

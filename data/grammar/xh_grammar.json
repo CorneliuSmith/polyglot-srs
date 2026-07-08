@@ -24,6 +24,11 @@
       "level": "C1",
       "title": "Xhosa C1 Grammar",
       "description": "Reciprocal and ukuba/xa clause linking."
+    },
+    {
+      "level": "C2",
+      "title": "Xhosa C2 Grammar",
+      "description": "Mastery: amaqhalo, hlonipha, and the particles and greetings of real conversation."
     }
   ],
   "points": [
@@ -1475,6 +1480,1055 @@
           "answer": "ukuba",
           "translation": "I am glad that you have arrived.",
           "hint": "that",
+          "display_order": 6
+        }
+      ]
+    },
+    {
+      "title": "Noun classes 11, 14, 15 (ulu-, ubu-, uku-)",
+      "level": "B1",
+      "display_order": 5,
+      "function": "Handle tongues, abstracts, and actions-as-nouns",
+      "explanation": "Class 11 ulu- covers long/thin things and some mass nouns (ulwimi language, ubisi milk) with lu- concords; class 14 ubu- carries abstracts (ubomi life, ubuhle beauty) with bu- concords; class 15 uku- is the infinitive as a noun (ukutya food/eating) with ku- concords.",
+      "culture_note": "",
+      "source": "contributor",
+      "reviewed": false,
+      "references": [
+        {
+          "title": "Wikipedia: Xhosa language",
+          "url": "https://en.wikipedia.org/wiki/Xhosa_language"
+        },
+        {
+          "title": "Wikipedia: Noun class",
+          "url": "https://en.wikipedia.org/wiki/Noun_class"
+        }
+      ],
+      "drills": [
+        {
+          "sentence": "{{answer}} lwesiXhosa luhle.",
+          "answer": "Ulwimi",
+          "translation": "The Xhosa language is beautiful.",
+          "hint": "language/tongue — class 11",
+          "display_order": 1
+        },
+        {
+          "sentence": "Ndithanda {{answer}} olutsha.",
+          "answer": "ubisi",
+          "translation": "I like fresh milk.",
+          "hint": "milk — class 11",
+          "display_order": 2
+        },
+        {
+          "sentence": "{{answer}} bam buhle.",
+          "answer": "Ubomi",
+          "translation": "My life is good.",
+          "hint": "life — class 14 abstract",
+          "display_order": 3
+        },
+        {
+          "sentence": "{{answer}} kumnandi.",
+          "answer": "Ukutya",
+          "translation": "The food is delicious.",
+          "hint": "food/eating — class 15 action-noun",
+          "display_order": 4
+        },
+        {
+          "sentence": "Sithanda {{answer}} beli lizwe.",
+          "answer": "ubuhle",
+          "translation": "We love the beauty of this country.",
+          "hint": "beauty — class 14 abstract",
+          "display_order": 5
+        },
+        {
+          "sentence": "Uluvo {{answer}} lubalulekile.",
+          "answer": "lwakho",
+          "translation": "Your opinion is important.",
+          "hint": "your — class 11 possessive concord",
+          "display_order": 6
+        }
+      ]
+    },
+    {
+      "title": "Absolute pronouns (mna, wena, yena…)",
+      "level": "B1",
+      "display_order": 6,
+      "function": "Add weight: ME, YOU, HIM",
+      "explanation": "The concords carry the grammar, so the absolute pronouns exist for emphasis and contrast: mna (me), wena (you), yena (he/she), thina (we), nina (you all), bona (they). After na- they fuse: nam (with me), nawe (with you), naye (with him/her).",
+      "culture_note": "",
+      "source": "contributor",
+      "reviewed": false,
+      "references": [
+        {
+          "title": "Wikipedia: Xhosa language",
+          "url": "https://en.wikipedia.org/wiki/Xhosa_language"
+        },
+        {
+          "title": "Wikipedia: Noun class",
+          "url": "https://en.wikipedia.org/wiki/Noun_class"
+        }
+      ],
+      "drills": [
+        {
+          "sentence": "{{answer}} ndiyasebenza namhlanje.",
+          "answer": "Mna",
+          "translation": "As for ME, I am working today.",
+          "hint": "the emphatic I/me",
+          "cell": "1sg",
+          "display_order": 1
+        },
+        {
+          "sentence": "{{answer}} uthanda ntoni?",
+          "answer": "Wena",
+          "translation": "And YOU, what do you like?",
+          "hint": "the emphatic you (sg.)",
+          "cell": "2sg",
+          "display_order": 2
+        },
+        {
+          "sentence": "{{answer}} ngumfundisi.",
+          "answer": "Yena",
+          "translation": "HE is a teacher.",
+          "hint": "the emphatic he/she",
+          "cell": "3sg",
+          "display_order": 3
+        },
+        {
+          "sentence": "{{answer}} sihlala eKapa.",
+          "answer": "Thina",
+          "translation": "WE live in Cape Town.",
+          "hint": "the emphatic we",
+          "cell": "1pl",
+          "display_order": 4
+        },
+        {
+          "sentence": "{{answer}} bafika izolo.",
+          "answer": "Bona",
+          "translation": "THEY arrived yesterday.",
+          "hint": "the emphatic they",
+          "cell": "3pl",
+          "display_order": 5
+        },
+        {
+          "sentence": "Ndiza kuhamba {{answer}}.",
+          "answer": "nawe",
+          "translation": "I will go with you.",
+          "hint": "with + the emphatic you, fused",
+          "display_order": 6
+        }
+      ],
+      "paradigm": [
+        "1sg",
+        "2sg",
+        "3sg",
+        "1pl",
+        "3pl"
+      ]
+    },
+    {
+      "title": "Persistive -sa- (still / no longer)",
+      "level": "B1",
+      "display_order": 7,
+      "function": "Say what's still going on — and what stopped",
+      "explanation": "-sa- after the subject concord means 'still': ndisafunda (I am still studying), usalele (she is still asleep). The negative flips it to 'no longer': andisahlali apha (I no longer live here), akasaseli (he no longer drinks).",
+      "culture_note": "",
+      "source": "contributor",
+      "reviewed": false,
+      "references": [
+        {
+          "title": "Wikipedia: Xhosa language",
+          "url": "https://en.wikipedia.org/wiki/Xhosa_language"
+        },
+        {
+          "title": "Wikipedia: Noun class",
+          "url": "https://en.wikipedia.org/wiki/Noun_class"
+        }
+      ],
+      "drills": [
+        {
+          "sentence": "{{answer}} isiXhosa.",
+          "answer": "Ndisafunda",
+          "translation": "I am still learning Xhosa.",
+          "hint": "to learn + the still-marker, I",
+          "display_order": 1
+        },
+        {
+          "sentence": "Umama {{answer}}.",
+          "answer": "usalele",
+          "translation": "Mother is still asleep.",
+          "hint": "to sleep (stative) + the still-marker, she",
+          "display_order": 2
+        },
+        {
+          "sentence": "Abantwana {{answer}} phandle.",
+          "answer": "basadlala",
+          "translation": "The children are still playing outside.",
+          "hint": "to play + the still-marker, they",
+          "display_order": 3
+        },
+        {
+          "sentence": "{{answer}} eKapa?",
+          "answer": "Usahlala",
+          "translation": "Do you still live in Cape Town?",
+          "hint": "to live + the still-marker, you",
+          "display_order": 4
+        },
+        {
+          "sentence": "{{answer}} apha.",
+          "answer": "Andisahlali",
+          "translation": "I no longer live here.",
+          "hint": "to live + negative still = no longer, I",
+          "display_order": 5
+        },
+        {
+          "sentence": "{{answer}} utywala.",
+          "answer": "Akasaseli",
+          "translation": "He no longer drinks alcohol.",
+          "hint": "to drink + negative still = no longer, he",
+          "display_order": 6
+        }
+      ]
+    },
+    {
+      "title": "Counting with concords (ezimbini, bangaphi)",
+      "level": "B1",
+      "display_order": 8,
+      "function": "Count things — and make the number agree",
+      "explanation": "Number stems -nye, -bini, -thathu, -ne, -hlanu take the noun's concord: abantu ababini (two people), iincwadi ezimbini (two books), iminyaka emihlanu (five years). -ngaphi asks how many with the same agreement: bangaphi abantu?",
+      "culture_note": "",
+      "source": "contributor",
+      "reviewed": false,
+      "references": [
+        {
+          "title": "Wikipedia: Xhosa language",
+          "url": "https://en.wikipedia.org/wiki/Xhosa_language"
+        },
+        {
+          "title": "Wikipedia: Noun class",
+          "url": "https://en.wikipedia.org/wiki/Noun_class"
+        }
+      ],
+      "drills": [
+        {
+          "sentence": "Ndineencwadi {{answer}}.",
+          "answer": "ezimbini",
+          "translation": "I have two books.",
+          "hint": "two + class 10 concord",
+          "display_order": 1
+        },
+        {
+          "sentence": "Abantwana {{answer}} bayafunda.",
+          "answer": "ababini",
+          "translation": "The two children are studying.",
+          "hint": "two + class 2 (people) concord",
+          "display_order": 2
+        },
+        {
+          "sentence": "Sineekati {{answer}}.",
+          "answer": "ezintathu",
+          "translation": "We have three cats.",
+          "hint": "three + class 10 concord",
+          "display_order": 3
+        },
+        {
+          "sentence": "{{answer}} abantu apha?",
+          "answer": "Bangaphi",
+          "translation": "How many people are here?",
+          "hint": "how many + class 2 (people) concord",
+          "display_order": 4
+        },
+        {
+          "sentence": "Uneminyaka {{answer}}.",
+          "answer": "emihlanu",
+          "translation": "He is five years old.",
+          "hint": "five + class 4 concord",
+          "display_order": 5
+        },
+        {
+          "sentence": "Ndifuna iiveki {{answer}}.",
+          "answer": "ezine",
+          "translation": "I need four weeks.",
+          "hint": "four + class 10 concord",
+          "display_order": 6
+        }
+      ]
+    },
+    {
+      "title": "Instrumental nga- (ngemoto, ngesiXhosa)",
+      "level": "B2",
+      "display_order": 4,
+      "function": "Say by, with, in, and on-a-day with one prefix",
+      "explanation": "Nga- + noun makes by/with/in adverbs, coalescing with the noun's vowel: ngemoto (by car), ngesiXhosa (in Xhosa), ngesandla (by hand), ngoMvulo (on Monday), ngovuyo (with joy).",
+      "culture_note": "",
+      "source": "contributor",
+      "reviewed": false,
+      "references": [
+        {
+          "title": "Wikipedia: Xhosa language",
+          "url": "https://en.wikipedia.org/wiki/Xhosa_language"
+        },
+        {
+          "title": "Wikipedia: Noun class",
+          "url": "https://en.wikipedia.org/wiki/Noun_class"
+        }
+      ],
+      "drills": [
+        {
+          "sentence": "Siza kuhamba {{answer}}.",
+          "answer": "ngemoto",
+          "translation": "We will travel by car.",
+          "hint": "car + the by/with prefix",
+          "display_order": 1
+        },
+        {
+          "sentence": "Thetha {{answer}}, nceda.",
+          "answer": "ngesiXhosa",
+          "translation": "Please speak in Xhosa.",
+          "hint": "Xhosa + the by/with prefix",
+          "display_order": 2
+        },
+        {
+          "sentence": "Baya emsebenzini {{answer}}.",
+          "answer": "ngololiwe",
+          "translation": "They go to work by train.",
+          "hint": "train + the by/with prefix",
+          "display_order": 3
+        },
+        {
+          "sentence": "Sifika {{answer}}.",
+          "answer": "ngoMvulo",
+          "translation": "We arrive on Monday.",
+          "hint": "Monday + the by/with prefix",
+          "display_order": 4
+        },
+        {
+          "sentence": "Uyibhale {{answer}}.",
+          "answer": "ngesandla",
+          "translation": "You wrote it by hand.",
+          "hint": "hand + the by/with prefix",
+          "display_order": 5
+        },
+        {
+          "sentence": "Bacula {{answer}}.",
+          "answer": "ngovuyo",
+          "translation": "They sing with joy.",
+          "hint": "joy + the by/with prefix",
+          "display_order": 6
+        }
+      ]
+    },
+    {
+      "title": "When-clauses: xa + participial",
+      "level": "B2",
+      "display_order": 5,
+      "function": "Anchor one event on another",
+      "explanation": "Xa opens a when/while-clause and the verb goes participial — no -ya-, and class 1 subjects shift u- → e-, class 2 ba- → be-: xa ndifunda (when I study), xa utitshala ethetha (when the teacher speaks), xa abantwana bedlala (when the children are playing).",
+      "culture_note": "",
+      "source": "contributor",
+      "reviewed": false,
+      "references": [
+        {
+          "title": "Wikipedia: Xhosa language",
+          "url": "https://en.wikipedia.org/wiki/Xhosa_language"
+        },
+        {
+          "title": "Wikipedia: Noun class",
+          "url": "https://en.wikipedia.org/wiki/Noun_class"
+        }
+      ],
+      "drills": [
+        {
+          "sentence": "{{answer}} ndifunda, ndimamela umculo.",
+          "answer": "Xa",
+          "translation": "When I study, I listen to music.",
+          "hint": "the when/while opener",
+          "display_order": 1
+        },
+        {
+          "sentence": "Xa {{answer}}, sihlala endlwini.",
+          "answer": "kunetha",
+          "translation": "When it rains, we stay in the house.",
+          "hint": "to rain + the it-subject",
+          "display_order": 2
+        },
+        {
+          "sentence": "Ndiya kuvuya xa {{answer}}.",
+          "answer": "ufika",
+          "translation": "I will be glad when you arrive.",
+          "hint": "to arrive, you — participial (no -ya-)",
+          "display_order": 3
+        },
+        {
+          "sentence": "Xa {{answer}}, sitya kunye.",
+          "answer": "sinexesha",
+          "translation": "When we have time, we eat together.",
+          "hint": "we + have + time, fused",
+          "display_order": 4
+        },
+        {
+          "sentence": "Uyaphulaphula xa utitshala {{answer}}.",
+          "answer": "ethetha",
+          "translation": "He listens when the teacher speaks.",
+          "hint": "to speak — participial class 1 (u- becomes e-)",
+          "display_order": 5
+        },
+        {
+          "sentence": "Xa abantwana {{answer}}, sonwabile.",
+          "answer": "bedlala",
+          "translation": "When the children are playing, we are happy.",
+          "hint": "to play — participial class 2 (ba- becomes be-)",
+          "display_order": 6
+        }
+      ]
+    },
+    {
+      "title": "Potential -nga- (ndingakunceda — may I?)",
+      "level": "B2",
+      "display_order": 6,
+      "function": "Say can, may, and can't",
+      "explanation": "-nga- after the subject concord makes ability or permission: ndingakunceda? (may I help you?), ungahamba (you may go), ungafunda (you can learn). The negative uses -nako + infinitive: andinako ukuza (I can't come).",
+      "culture_note": "",
+      "source": "contributor",
+      "reviewed": false,
+      "references": [
+        {
+          "title": "Wikipedia: Xhosa language",
+          "url": "https://en.wikipedia.org/wiki/Xhosa_language"
+        },
+        {
+          "title": "Wikipedia: Noun class",
+          "url": "https://en.wikipedia.org/wiki/Noun_class"
+        }
+      ],
+      "drills": [
+        {
+          "sentence": "'{{answer}}?' wabuza unovenkile.",
+          "answer": "Ndingakunceda",
+          "translation": "'May I help you?' asked the shopkeeper.",
+          "hint": "to help + potential + you-object, I",
+          "display_order": 1
+        },
+        {
+          "sentence": "{{answer}} ngoku.",
+          "answer": "Ungahamba",
+          "translation": "You may go now.",
+          "hint": "to go + potential, you",
+          "display_order": 2
+        },
+        {
+          "sentence": "{{answer}} isiXhosa ngonyaka omnye.",
+          "answer": "Ungafunda",
+          "translation": "You can learn Xhosa in one year.",
+          "hint": "to learn + potential, you",
+          "display_order": 3
+        },
+        {
+          "sentence": "{{answer}} ukuza ngomso.",
+          "answer": "Andinako",
+          "translation": "I cannot come tomorrow.",
+          "hint": "the negative can't (+ infinitive)",
+          "display_order": 4
+        },
+        {
+          "sentence": "Sonke {{answer}} ukunceda.",
+          "answer": "singakwazi",
+          "translation": "We can all manage to help.",
+          "hint": "to be-able + potential, we",
+          "display_order": 5
+        },
+        {
+          "sentence": "{{answer}} umbuzo?",
+          "answer": "Ndingambuza",
+          "translation": "May I ask him a question?",
+          "hint": "to ask + potential + him-object, I",
+          "display_order": 6
+        }
+      ]
+    },
+    {
+      "title": "Stative -eka / -akala (kufuneka, iyabonakala)",
+      "level": "B2",
+      "display_order": 7,
+      "function": "Say what's visible, audible, necessary, available",
+      "explanation": "The stative extensions turn doing into being-able-to-be-done: bonakala (be visible/evident), vakala (be heard/felt), fumaneka (be available), lahleka (get lost) — and the everyday kufuneka (it is necessary).",
+      "culture_note": "",
+      "source": "contributor",
+      "reviewed": false,
+      "references": [
+        {
+          "title": "Wikipedia: Xhosa language",
+          "url": "https://en.wikipedia.org/wiki/Xhosa_language"
+        },
+        {
+          "title": "Wikipedia: Noun class",
+          "url": "https://en.wikipedia.org/wiki/Noun_class"
+        }
+      ],
+      "drills": [
+        {
+          "sentence": "Intaba {{answer}} kude.",
+          "answer": "iyabonakala",
+          "translation": "The mountain is visible from afar.",
+          "hint": "to see flipped stative + present, class 9",
+          "display_order": 1
+        },
+        {
+          "sentence": "Ilizwi lakhe {{answer}} kamnandi.",
+          "answer": "livakala",
+          "translation": "His voice sounds pleasant.",
+          "hint": "to hear flipped stative, class 5",
+          "display_order": 2
+        },
+        {
+          "sentence": "{{answer}} ukuba sifunde.",
+          "answer": "Kufuneka",
+          "translation": "It is necessary that we study.",
+          "hint": "to want flipped stative = be necessary",
+          "display_order": 3
+        },
+        {
+          "sentence": "Ezi ncwadi {{answer}} evenkileni.",
+          "answer": "ziyafumaneka",
+          "translation": "These books are available at the shop.",
+          "hint": "to get flipped stative + present, class 10",
+          "display_order": 4
+        },
+        {
+          "sentence": "Isitshixo sam {{answer}}.",
+          "answer": "silahlekile",
+          "translation": "My key is lost.",
+          "hint": "to throw-away flipped stative + perfect, class 7",
+          "display_order": 5
+        },
+        {
+          "sentence": "{{answer}} ukuba udiniwe.",
+          "answer": "Kuyabonakala",
+          "translation": "It is evident that you are tired.",
+          "hint": "to see flipped stative + present, it-subject",
+          "display_order": 6
+        }
+      ]
+    },
+    {
+      "title": "Past continuous (bendifunda, ebetya)",
+      "level": "C1",
+      "display_order": 3,
+      "function": "Say what WAS happening",
+      "explanation": "The be- auxiliary fuses with the concord for past-in-progress: bendifunda (I was studying), ubufunda (you were), ebetya (he was eating), besimamela (we were listening), bebedlala (they were playing). Ubuphi? — where were you?",
+      "culture_note": "",
+      "source": "contributor",
+      "reviewed": false,
+      "references": [
+        {
+          "title": "Wikipedia: Xhosa language",
+          "url": "https://en.wikipedia.org/wiki/Xhosa_language"
+        },
+        {
+          "title": "Wikipedia: Noun class",
+          "url": "https://en.wikipedia.org/wiki/Noun_class"
+        }
+      ],
+      "drills": [
+        {
+          "sentence": "{{answer}} incwadi izolo.",
+          "answer": "Bendifunda",
+          "translation": "I was reading a book yesterday.",
+          "hint": "to read + past continuous, I",
+          "cell": "1sg",
+          "display_order": 1
+        },
+        {
+          "sentence": "{{answer}} xa ndifika.",
+          "answer": "Ebetya",
+          "translation": "He was eating when I arrived.",
+          "hint": "to eat + past continuous, he",
+          "cell": "3sg",
+          "display_order": 2
+        },
+        {
+          "sentence": "{{answer}} umculo ebusuku.",
+          "answer": "Besimamela",
+          "translation": "We were listening to music at night.",
+          "hint": "to listen + past continuous, we",
+          "cell": "1pl",
+          "display_order": 3
+        },
+        {
+          "sentence": "{{answer}} izolo?",
+          "answer": "Ubuphi",
+          "translation": "Where were you yesterday?",
+          "hint": "where + past continuous, you",
+          "cell": "2sg",
+          "display_order": 4
+        },
+        {
+          "sentence": "Abantwana {{answer}} phandle.",
+          "answer": "bebedlala",
+          "translation": "The children were playing outside.",
+          "hint": "to play + past continuous, they",
+          "cell": "3pl",
+          "display_order": 5
+        },
+        {
+          "sentence": "{{answer}} xa ufowuna.",
+          "answer": "Bendilele",
+          "translation": "I was asleep when you phoned.",
+          "hint": "to sleep (stative) + past continuous, I",
+          "cell": "1sg",
+          "display_order": 6
+        }
+      ],
+      "paradigm": [
+        "1sg",
+        "2sg",
+        "3sg",
+        "1pl",
+        "3pl"
+      ]
+    },
+    {
+      "title": "Purpose: ukuze + subjunctive",
+      "level": "C1",
+      "display_order": 4,
+      "function": "Say what something is FOR",
+      "explanation": "Ukuze opens a purpose clause and the verb ends subjunctive -e: funda ukuze uphumelele (study so that you pass). Negative purpose slips in -nga-: ukuze kungangeni umoya (so that the wind doesn't come in).",
+      "culture_note": "",
+      "source": "contributor",
+      "reviewed": false,
+      "references": [
+        {
+          "title": "Wikipedia: Xhosa language",
+          "url": "https://en.wikipedia.org/wiki/Xhosa_language"
+        },
+        {
+          "title": "Wikipedia: Noun class",
+          "url": "https://en.wikipedia.org/wiki/Noun_class"
+        }
+      ],
+      "drills": [
+        {
+          "sentence": "Funda kakhulu {{answer}} uphumelele.",
+          "answer": "ukuze",
+          "translation": "Study hard so that you pass.",
+          "hint": "the so-that opener",
+          "display_order": 1
+        },
+        {
+          "sentence": "Funda kakuhle ukuze {{answer}} iimviwo.",
+          "answer": "uphumelele",
+          "translation": "Study well so that you pass the exams.",
+          "hint": "to pass/succeed + subjunctive, you",
+          "display_order": 2
+        },
+        {
+          "sentence": "Sivuka kusasa ukuze {{answer}} kwangethuba.",
+          "answer": "sifike",
+          "translation": "We wake early so that we arrive on time.",
+          "hint": "to arrive + subjunctive, we",
+          "display_order": 3
+        },
+        {
+          "sentence": "Ndikubiza ukuze {{answer}}.",
+          "answer": "undincede",
+          "translation": "I call you so that you help me.",
+          "hint": "to help + subjunctive, you…me",
+          "display_order": 4
+        },
+        {
+          "sentence": "Vala ucango ukuze {{answer}} umoya.",
+          "answer": "kungangeni",
+          "translation": "Close the door so that the wind doesn't come in.",
+          "hint": "to enter + negative subjunctive, it-subject",
+          "display_order": 5
+        },
+        {
+          "sentence": "Basebenza nzima {{answer}} abantwana bafunde.",
+          "answer": "ukuze",
+          "translation": "They work hard so that the children can study.",
+          "hint": "the so-that opener",
+          "display_order": 6
+        }
+      ]
+    },
+    {
+      "title": "Because: kuba, ngoba — and kutheni (why)",
+      "level": "C1",
+      "display_order": 5,
+      "function": "Give reasons and demand them",
+      "explanation": "Kuba and ngoba both open because-clauses; kutheni … nje asks why. Andiyi esikolweni kuba ndiyagula (I'm not going to school because I'm ill); kutheni ulate nje? (why are you late?).",
+      "culture_note": "",
+      "source": "contributor",
+      "reviewed": false,
+      "references": [
+        {
+          "title": "Wikipedia: Xhosa language",
+          "url": "https://en.wikipedia.org/wiki/Xhosa_language"
+        },
+        {
+          "title": "Wikipedia: Noun class",
+          "url": "https://en.wikipedia.org/wiki/Noun_class"
+        }
+      ],
+      "drills": [
+        {
+          "sentence": "Andiyi esikolweni {{answer}} ndiyagula.",
+          "answer": "kuba",
+          "translation": "I am not going to school because I am ill.",
+          "hint": "the because word",
+          "display_order": 1
+        },
+        {
+          "sentence": "Sihleli endlwini {{answer}} kuyanetha.",
+          "answer": "ngoba",
+          "translation": "We stayed in the house because it is raining.",
+          "hint": "the because word (variant)",
+          "display_order": 2
+        },
+        {
+          "sentence": "{{answer}} ulate nje?",
+          "answer": "Kutheni",
+          "translation": "Why are you late?",
+          "hint": "the why word (pairs with nje)",
+          "display_order": 3
+        },
+        {
+          "sentence": "Uyathandwa {{answer}} unobubele.",
+          "answer": "kuba",
+          "translation": "She is loved because she is kind.",
+          "hint": "the because word",
+          "display_order": 4
+        },
+        {
+          "sentence": "Ndonwabile {{answer}} ufikile.",
+          "answer": "ngoba",
+          "translation": "I am happy because you have arrived.",
+          "hint": "the because word (variant)",
+          "display_order": 5
+        },
+        {
+          "sentence": "{{answer}} le nto yenzekile nje?",
+          "answer": "Kutheni",
+          "translation": "Why did this thing happen?",
+          "hint": "the why word (pairs with nje)",
+          "display_order": 6
+        }
+      ]
+    },
+    {
+      "title": "Ideophones with ukuthi (wathi cwaka)",
+      "level": "C1",
+      "display_order": 6,
+      "function": "Paint sound, silence, and suddenness",
+      "explanation": "Xhosa ideophones ride the verb -thi (say/do): wathi cwaka (went dead silent), wathi gqi (appeared suddenly), wathi tu (said nothing at all), zathi saa (scattered), lathi qatha (popped into mind). The ideophone carries the image; -thi carries the grammar.",
+      "culture_note": "Ideophones are performed — pitch, length, and a gesture are part of the word. Native reviewers should confirm regional forms.",
+      "source": "contributor",
+      "reviewed": false,
+      "references": [
+        {
+          "title": "Wikipedia: Xhosa language",
+          "url": "https://en.wikipedia.org/wiki/Xhosa_language"
+        },
+        {
+          "title": "Wikipedia: Noun class",
+          "url": "https://en.wikipedia.org/wiki/Noun_class"
+        }
+      ],
+      "drills": [
+        {
+          "sentence": "Indlu yathi {{answer}}.",
+          "answer": "cwaka",
+          "translation": "The house went dead silent.",
+          "hint": "the dead-silence ideophone",
+          "display_order": 1
+        },
+        {
+          "sentence": "Wathi {{answer}} emnyango.",
+          "answer": "gqi",
+          "translation": "He appeared suddenly at the door.",
+          "hint": "the sudden-appearance ideophone",
+          "display_order": 2
+        },
+        {
+          "sentence": "Ndambuza; wathi {{answer}}.",
+          "answer": "tu",
+          "translation": "I asked him; he said nothing at all.",
+          "hint": "the utter-nothing ideophone",
+          "display_order": 3
+        },
+        {
+          "sentence": "Iinkuku zathi {{answer}} eyadini.",
+          "answer": "saa",
+          "translation": "The chickens scattered across the yard.",
+          "hint": "the scattering ideophone",
+          "display_order": 4
+        },
+        {
+          "sentence": "Igama lakhe lathi {{answer}} engqondweni yam.",
+          "answer": "qatha",
+          "translation": "His name popped into my mind.",
+          "hint": "the popping-up ideophone",
+          "display_order": 5
+        },
+        {
+          "sentence": "Bathi {{answer}} bakuyibona inyoka.",
+          "answer": "nqa",
+          "translation": "They were astonished when they saw the snake.",
+          "hint": "the astonishment ideophone",
+          "display_order": 6
+        }
+      ]
+    },
+    {
+      "title": "Amaqhalo — proverbs and ubuntu",
+      "level": "C2",
+      "display_order": 1,
+      "function": "Speak with the weight of the elders",
+      "explanation": "Amaqhalo compress the concord grammar you know into fixed wisdom, starting with the most famous sentence in the language: umntu ngumntu ngabantu — a person is a person through people. Quoting the right one grants instant standing.",
+      "culture_note": "Ukwanda kwaliwa ngumthakathi is said to thank someone: may your generosity keep increasing — only a witch would oppose it.",
+      "source": "contributor",
+      "reviewed": false,
+      "references": [
+        {
+          "title": "Wikipedia: Xhosa language",
+          "url": "https://en.wikipedia.org/wiki/Xhosa_language"
+        },
+        {
+          "title": "Wikipedia: Ubuntu philosophy",
+          "url": "https://en.wikipedia.org/wiki/Ubuntu_philosophy"
+        }
+      ],
+      "drills": [
+        {
+          "sentence": "Umntu ngumntu {{answer}}.",
+          "answer": "ngabantu",
+          "translation": "A person is a person through people.",
+          "hint": "through-people — the ubuntu closer",
+          "display_order": 1
+        },
+        {
+          "sentence": "Isandla sihlamba {{answer}}.",
+          "answer": "esinye",
+          "translation": "One hand washes the other.",
+          "hint": "the-other (hand) — class 7 concord",
+          "display_order": 2
+        },
+        {
+          "sentence": "Intaka yakha ngoboya {{answer}}.",
+          "answer": "benye",
+          "translation": "A bird builds with another bird's feathers.",
+          "hint": "of-another — class 14 possessive concord",
+          "display_order": 3
+        },
+        {
+          "sentence": "Ubuhle bendoda {{answer}} zayo.",
+          "answer": "ziinkomo",
+          "translation": "A man's beauty is his cattle.",
+          "hint": "the cattle — class 10 copulative",
+          "display_order": 4
+        },
+        {
+          "sentence": "Inyathi ibuzwa {{answer}}.",
+          "answer": "kwabaphambili",
+          "translation": "The buffalo is asked about from those who are ahead.",
+          "hint": "from-those-ahead — ask the experienced",
+          "display_order": 5
+        },
+        {
+          "sentence": "Ukwanda kwaliwa {{answer}}.",
+          "answer": "ngumthakathi",
+          "translation": "Increase is begrudged only by the witch.",
+          "hint": "by-the-witch — the gracious thank-you proverb",
+          "display_order": 6
+        }
+      ]
+    },
+    {
+      "title": "Hlonipha — the respect register",
+      "level": "C2",
+      "display_order": 2,
+      "function": "Show respect the isiXhosa way",
+      "explanation": "Respect is grammatical: elders are greeted in the plural (molweni), addressed as tata/mama rather than by name, and treated ngembeko (with respect). Traditional hlonipha goes further — a makoti avoids her in-laws' names entirely, and camagu answers in ritual settings.",
+      "culture_note": "Hlonipha is a living system, strongest in rural areas and ritual life — a native reviewer should tune these to the community the app serves.",
+      "source": "contributor",
+      "reviewed": false,
+      "references": [
+        {
+          "title": "Wikipedia: Xhosa language",
+          "url": "https://en.wikipedia.org/wiki/Xhosa_language"
+        },
+        {
+          "title": "Wikipedia: Noun class",
+          "url": "https://en.wikipedia.org/wiki/Noun_class"
+        }
+      ],
+      "drills": [
+        {
+          "sentence": "'{{answer}}, tata.' watsho umfana ehlonipha.",
+          "answer": "Molweni",
+          "translation": "'Greetings (respectful plural), father,' said the young man politely.",
+          "hint": "the plural greeting used to one elder",
+          "display_order": 1
+        },
+        {
+          "sentence": "Mphathe {{answer}} umntu omdala.",
+          "answer": "ngembeko",
+          "translation": "Treat an elder with respect.",
+          "hint": "respect + the with-prefix",
+          "display_order": 2
+        },
+        {
+          "sentence": "Umakoti {{answer}} amagama abazali bomyeni.",
+          "answer": "uyawahlonipha",
+          "translation": "The bride respects (avoids) the names of her husband's parents.",
+          "hint": "to respect + them-object (class 6), she",
+          "display_order": 3
+        },
+        {
+          "sentence": "Sithi '{{answer}}' xa sibiza indoda endala.",
+          "answer": "tata",
+          "translation": "We say 'father' when addressing an old man.",
+          "hint": "the respectful address for a man",
+          "display_order": 4
+        },
+        {
+          "sentence": "Xa sibulela emzini, sithi '{{answer}}!'",
+          "answer": "Camagu",
+          "translation": "When giving ritual thanks in a homestead, we say 'Camagu!'",
+          "hint": "the ritual salute/acknowledgement",
+          "display_order": 5
+        },
+        {
+          "sentence": "Akuvumelekanga ukubiza umntu omdala {{answer}}.",
+          "answer": "ngegama",
+          "translation": "It is not acceptable to call an elder by name.",
+          "hint": "name + the by-prefix",
+          "display_order": 6
+        }
+      ]
+    },
+    {
+      "title": "Discourse particles (ke, nje, phofu, kaloku)",
+      "level": "C2",
+      "display_order": 3,
+      "function": "Carry the tone of a real conversation",
+      "explanation": "Ke moves things along ('then/so'), nje softens ('just'), phofu adds an aside ('mind you'), kaloku appeals to shared sense ('you see / after all'), andithi tags for agreement ('isn't it?'), mhlawumbi hedges ('perhaps').",
+      "culture_note": "",
+      "source": "contributor",
+      "reviewed": false,
+      "references": [
+        {
+          "title": "Wikipedia: Xhosa language",
+          "url": "https://en.wikipedia.org/wiki/Xhosa_language"
+        },
+        {
+          "title": "Wikipedia: Noun class",
+          "url": "https://en.wikipedia.org/wiki/Noun_class"
+        }
+      ],
+      "drills": [
+        {
+          "sentence": "Masihambe {{answer}}.",
+          "answer": "ke",
+          "translation": "Let's go, then.",
+          "hint": "the then/so particle",
+          "display_order": 1
+        },
+        {
+          "sentence": "Ndicela amanzi {{answer}}.",
+          "answer": "nje",
+          "translation": "I'm just asking for water.",
+          "hint": "the just/softener particle",
+          "display_order": 2
+        },
+        {
+          "sentence": "{{answer}}, akazi nto ngale nto.",
+          "answer": "Phofu",
+          "translation": "Mind you, he knows nothing about this.",
+          "hint": "the aside particle",
+          "display_order": 3
+        },
+        {
+          "sentence": "{{answer}}, sonke siyafunda.",
+          "answer": "Kaloku",
+          "translation": "You see, we are all still learning.",
+          "hint": "the you-see particle",
+          "display_order": 4
+        },
+        {
+          "sentence": "Uyeza ngomso, {{answer}}?",
+          "answer": "andithi",
+          "translation": "He's coming tomorrow, isn't he?",
+          "hint": "the agreement tag",
+          "display_order": 5
+        },
+        {
+          "sentence": "{{answer}} uzofika ngomso.",
+          "answer": "Mhlawumbi",
+          "translation": "Perhaps he will arrive tomorrow.",
+          "hint": "the perhaps hedge",
+          "display_order": 6
+        }
+      ]
+    },
+    {
+      "title": "Greetings in full (molo, hamba kakuhle)",
+      "level": "C2",
+      "display_order": 4,
+      "function": "Open and close encounters like a local",
+      "explanation": "Molo one-to-one, molweni to many or to an elder; unjani? — ndiphilile, enkosi. Partings split by who moves: hamba kakuhle (go well) to the one leaving, sala kakuhle (stay well) to the one staying. Uxolo excuses, enkosi kakhulu thanks warmly.",
+      "culture_note": "",
+      "source": "contributor",
+      "reviewed": false,
+      "references": [
+        {
+          "title": "Wikipedia: Xhosa language",
+          "url": "https://en.wikipedia.org/wiki/Xhosa_language"
+        },
+        {
+          "title": "Wikipedia: Noun class",
+          "url": "https://en.wikipedia.org/wiki/Noun_class"
+        }
+      ],
+      "drills": [
+        {
+          "sentence": "'Molo!' 'Molo, {{answer}}?'",
+          "answer": "unjani",
+          "translation": "'Hello!' 'Hello, how are you?'",
+          "hint": "the how-are-you question",
+          "display_order": 1
+        },
+        {
+          "sentence": "'Unjani?' '{{answer}}, enkosi.'",
+          "answer": "Ndiphilile",
+          "translation": "'How are you?' 'I am well, thank you.'",
+          "hint": "to be-well + perfect, I",
+          "display_order": 2
+        },
+        {
+          "sentence": "Uyahamba? {{answer}} kakuhle!",
+          "answer": "Hamba",
+          "translation": "You're leaving? Go well!",
+          "hint": "the farewell to the one LEAVING",
+          "display_order": 3
+        },
+        {
+          "sentence": "Ndiyahamba; {{answer}} kakuhle.",
+          "answer": "sala",
+          "translation": "I'm off; stay well.",
+          "hint": "the farewell to the one STAYING",
+          "display_order": 4
+        },
+        {
+          "sentence": "{{answer}}, ndingadlula?",
+          "answer": "Uxolo",
+          "translation": "Excuse me, may I pass?",
+          "hint": "the pardon/sorry word",
+          "display_order": 5
+        },
+        {
+          "sentence": "{{answer}} kakhulu ngoncedo lwakho.",
+          "answer": "Enkosi",
+          "translation": "Thank you very much for your help.",
+          "hint": "the thanks word",
           "display_order": 6
         }
       ]
