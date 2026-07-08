@@ -59,7 +59,8 @@ psql "$DATABASE_URL" -q -v ON_ERROR_STOP=1 -c \
   "CREATE TABLE IF NOT EXISTS _setup_migrations (
      filename   TEXT PRIMARY KEY,
      applied_at TIMESTAMPTZ NOT NULL DEFAULT now()
-   )"
+   );
+   ALTER TABLE _setup_migrations ENABLE ROW LEVEL SECURITY"
 
 for f in supabase/migrations/*.sql; do
   base=$(basename "$f")
