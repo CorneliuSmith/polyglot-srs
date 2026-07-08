@@ -337,6 +337,89 @@ class TestAiCheck:
         assert resp.json()["grants"][0]["email"] == "a@b.c"
 
 
+class TestReviewNotes:
+    def test_flag_issue_requires_role(self, client):
+        with _roles([]), \
+             patch("backend.routers.contribute.get_point_language",
+                   new=AsyncMock(return_value=LANG)):
+            resp = client.post(
+                f"/api/contribute/grammar/{POINT}/notes",
+                json={"note": "tone marks look off"},
+                headers=_auth_headers(),
+            )
+        assert resp.status_code == 403
+
+    def test_flag_issue_as_contributor(self, client):
+        with _roles([{"language_id": LANG, "role": "contributor"}]), \
+             patch("backend.routers.contribute.get_point_language",
+                   new=AsyncMock(return_value=LANG)), \
+             patch("backend.routers.contribute.add_review_note",
+                   new=AsyncMock(return_value="note-1")) as mock_add:
+            resp = client.post(
+                f"/api/contribute/grammar/{POINT}/notes",
+                json={"note": "drill 4 uses the Ibadan form"},
+                headers=_auth_headers(),
+            )
+        assert resp.status_code == 200
+        assert resp.json() == {"id": "note-1"}
+        assert mock_add.await_args.args[3] == "drill 4 uses the Ibadan form"
+
+    def test_flag_issue_missing_point_404(self, client):
+        with _roles([{"language_id": LANG, "role": "reviewer"}]), \
+             patch("backend.routers.contribute.get_point_language",
+                   new=AsyncMock(return_value=None)):
+            resp = client.post(
+                f"/api/contribute/grammar/{POINT}/notes",
+                json={"note": "hello there"},
+                headers=_auth_headers(),
+            )
+        assert resp.status_code == 404
+
+    def test_list_notes_role_gated(self, client):
+        with _roles([]):
+            resp = client.get(
+                "/api/contribute/notes", params={"language_id": LANG},
+                headers=_auth_headers(),
+            )
+        assert resp.status_code == 403
+
+    def test_list_notes(self, client):
+        notes = [{"id": "n1", "grammar_point_id": POINT,
+                  "point_title": "Locative", "level": "A1",
+                  "note": "check the -ta variants", "status": "open",
+                  "author_email": "linguist@x.com", "created_at": None}]
+        with _roles([{"language_id": LANG, "role": "reviewer"}]), \
+             patch("backend.routers.contribute.list_review_notes",
+                   new=AsyncMock(return_value=notes)):
+            resp = client.get(
+                "/api/contribute/notes", params={"language_id": LANG},
+                headers=_auth_headers(),
+            )
+        assert resp.status_code == 200
+        assert resp.json()["notes"][0]["point_title"] == "Locative"
+
+    def test_resolve_requires_reviewer_for_language(self, client):
+        with _roles([{"language_id": OTHER_LANG, "role": "reviewer"}]), \
+             patch("backend.routers.contribute.get_note_language",
+                   new=AsyncMock(return_value=LANG)):
+            resp = client.post(
+                "/api/contribute/notes/n1/resolve", headers=_auth_headers()
+            )
+        assert resp.status_code == 403
+
+    def test_resolve_as_reviewer(self, client):
+        with _roles([{"language_id": LANG, "role": "reviewer"}]), \
+             patch("backend.routers.contribute.get_note_language",
+                   new=AsyncMock(return_value=LANG)), \
+             patch("backend.routers.contribute.resolve_review_note",
+                   new=AsyncMock(return_value=True)):
+            resp = client.post(
+                "/api/contribute/notes/n1/resolve", headers=_auth_headers()
+            )
+        assert resp.status_code == 200
+        assert resp.json() == {"resolved": True}
+
+
 class TestReviewPolicy:
     def test_set_requires_admin(self, client):
         with _roles([{"language_id": LANG, "role": "contributor"}]):

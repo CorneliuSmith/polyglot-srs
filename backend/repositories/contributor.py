@@ -382,6 +382,90 @@ async def resolve_feedback(conn: asyncpg.Connection, feedback_id: str) -> bool:
     return result.endswith("1")
 
 
+async def add_review_note(
+    conn: asyncpg.Connection,
+    grammar_point_id: str,
+    author_id: str,
+    note: str,
+) -> str:
+    """File a reviewer note against a point (privileged, after role check)."""
+    return str(await conn.fetchval(
+        """
+        INSERT INTO point_review_notes (grammar_point_id, author_id, note)
+        VALUES ($1, $2, $3)
+        RETURNING id
+        """,
+        grammar_point_id, author_id, note,
+    ))
+
+
+async def list_review_notes(
+    conn: asyncpg.Connection,
+    language_id: str,
+    *,
+    include_resolved: bool = False,
+) -> list[dict]:
+    """Reviewer notes for a language's points, newest first (privileged)."""
+    rows = await conn.fetch(
+        """
+        SELECT n.id, n.grammar_point_id, gp.title AS point_title, gp.level,
+               n.note, n.status, n.created_at, u.email AS author_email
+        FROM point_review_notes n
+        JOIN grammar_points gp ON gp.id = n.grammar_point_id
+        JOIN auth.users u ON u.id = n.author_id
+        WHERE gp.language_id = $1
+          AND ($2 OR n.status = 'open')
+        ORDER BY n.created_at DESC
+        LIMIT 200
+        """,
+        language_id, include_resolved,
+    )
+    return [
+        {
+            "id": str(r["id"]),
+            "grammar_point_id": str(r["grammar_point_id"]),
+            "point_title": r["point_title"],
+            "level": r["level"],
+            "note": r["note"],
+            "status": r["status"],
+            "author_email": r["author_email"],
+            "created_at": r["created_at"].isoformat() if r["created_at"] else None,
+        }
+        for r in rows
+    ]
+
+
+async def get_note_language(
+    conn: asyncpg.Connection, note_id: str
+) -> str | None:
+    """The language a note belongs to (for the resolve role check)."""
+    row = await conn.fetchval(
+        """
+        SELECT gp.language_id
+        FROM point_review_notes n
+        JOIN grammar_points gp ON gp.id = n.grammar_point_id
+        WHERE n.id = $1
+        """,
+        note_id,
+    )
+    return str(row) if row else None
+
+
+async def resolve_review_note(
+    conn: asyncpg.Connection, note_id: str, resolver_id: str
+) -> bool:
+    """Mark a note resolved (privileged, after role check)."""
+    result = await conn.execute(
+        """
+        UPDATE point_review_notes
+        SET status = 'resolved', resolved_at = now(), resolved_by = $2
+        WHERE id = $1 AND status = 'open'
+        """,
+        note_id, resolver_id,
+    )
+    return result.endswith("1")
+
+
 async def grant_role(
     conn: asyncpg.Connection,
     user_id: str,

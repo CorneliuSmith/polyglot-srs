@@ -123,6 +123,78 @@
           "hint": "you all — formal / Latin America",
           "cell": "ustedes",
           "display_order": 9
+        },
+        {
+          "sentence": "{{answer}} hablo un poco de español.",
+          "answer": "Yo",
+          "translation": "I speak a little Spanish.",
+          "hint": "I",
+          "cell": "yo",
+          "display_order": 10
+        },
+        {
+          "sentence": "¿{{answer}} vives aquí?",
+          "answer": "Tú",
+          "translation": "Do you live here?",
+          "hint": "you — informal",
+          "cell": "tú",
+          "display_order": 11
+        },
+        {
+          "sentence": "{{answer}} trabaja en un banco.",
+          "answer": "Él",
+          "translation": "He works in a bank.",
+          "hint": "he",
+          "cell": "él",
+          "display_order": 12
+        },
+        {
+          "sentence": "{{answer}} canta muy bien.",
+          "answer": "Ella",
+          "translation": "She sings very well.",
+          "hint": "she",
+          "cell": "ella",
+          "display_order": 13
+        },
+        {
+          "sentence": "¿{{answer}} habla inglés?",
+          "answer": "Usted",
+          "translation": "Do you (formal) speak English?",
+          "hint": "you — formal singular",
+          "cell": "usted",
+          "display_order": 14
+        },
+        {
+          "sentence": "{{answer}} vivimos en Madrid.",
+          "answer": "Nosotros",
+          "translation": "We live in Madrid.",
+          "hint": "we",
+          "cell": "nosotros",
+          "display_order": 15
+        },
+        {
+          "sentence": "¿{{answer}} tenéis hambre?",
+          "answer": "Vosotros",
+          "translation": "Are you all hungry?",
+          "hint": "you all — informal (Spain)",
+          "cell": "vosotros",
+          "display_order": 16
+        },
+        {
+          "sentence": "{{answer}} juegan al fútbol.",
+          "answer": "Ellos",
+          "translation": "They play football.",
+          "hint": "they (masculine)",
+          "cell": "ellos",
+          "display_order": 17
+        },
+        {
+          "sentence": "¿{{answer}} necesitan ayuda?",
+          "answer": "Ustedes",
+          "translation": "Do you (all, formal) need help?",
+          "hint": "you all — formal / Latin America",
+          "cell": "ustedes",
+          "display_order": 18
         }
       ],
       "related": [
@@ -288,6 +360,22 @@
           "hint": "feminine singular",
           "display_order": 6,
           "cell": "la"
+        },
+        {
+          "sentence": "{{answer}} niños juegan en el parque.",
+          "answer": "Los",
+          "translation": "The children play in the park.",
+          "hint": "the — masculine plural",
+          "cell": "los",
+          "display_order": 7
+        },
+        {
+          "sentence": "{{answer}} flores son bonitas.",
+          "answer": "Las",
+          "translation": "The flowers are beautiful.",
+          "hint": "the — feminine plural",
+          "cell": "las",
+          "display_order": 8
         }
       ],
       "related": [
@@ -466,6 +554,54 @@
           "hint": "ser, vosotros",
           "display_order": 6,
           "cell": "vosotros"
+        },
+        {
+          "sentence": "Yo {{answer}} de Colombia.",
+          "answer": "soy",
+          "translation": "I am from Colombia.",
+          "hint": "to be (identity), I",
+          "cell": "yo",
+          "display_order": 7
+        },
+        {
+          "sentence": "¿Tú {{answer}} médico?",
+          "answer": "eres",
+          "translation": "Are you a doctor?",
+          "hint": "to be (identity), you",
+          "cell": "tú",
+          "display_order": 8
+        },
+        {
+          "sentence": "Mi madre {{answer}} profesora.",
+          "answer": "es",
+          "translation": "My mother is a teacher.",
+          "hint": "to be (identity), she",
+          "cell": "él/ella",
+          "display_order": 9
+        },
+        {
+          "sentence": "Nosotros {{answer}} hermanos.",
+          "answer": "somos",
+          "translation": "We are brothers.",
+          "hint": "to be (identity), we",
+          "cell": "nosotros",
+          "display_order": 10
+        },
+        {
+          "sentence": "Vosotros {{answer}} muy simpáticos.",
+          "answer": "sois",
+          "translation": "You all are very nice.",
+          "hint": "to be (identity), you all",
+          "cell": "vosotros",
+          "display_order": 11
+        },
+        {
+          "sentence": "Mis padres {{answer}} de Sevilla.",
+          "answer": "son",
+          "translation": "My parents are from Seville.",
+          "hint": "to be (identity), they",
+          "cell": "ellos",
+          "display_order": 12
         }
       ],
       "related": [
@@ -566,6 +702,46 @@
           "hint": "to be (state/place), you all",
           "cell": "vosotros",
           "display_order": 7
+        },
+        {
+          "sentence": "Yo {{answer}} muy cansado hoy.",
+          "answer": "estoy",
+          "translation": "I am very tired today.",
+          "hint": "to be (state), I",
+          "cell": "yo",
+          "display_order": 8
+        },
+        {
+          "sentence": "¿Dónde {{answer}} ahora?",
+          "answer": "estás",
+          "translation": "Where are you now?",
+          "hint": "to be (place), you",
+          "cell": "tú",
+          "display_order": 9
+        },
+        {
+          "sentence": "Nosotros {{answer}} listos.",
+          "answer": "estamos",
+          "translation": "We are ready.",
+          "hint": "to be (state), we",
+          "cell": "nosotros",
+          "display_order": 10
+        },
+        {
+          "sentence": "¿Vosotros {{answer}} bien?",
+          "answer": "estáis",
+          "translation": "Are you all well?",
+          "hint": "to be (state), you all",
+          "cell": "vosotros",
+          "display_order": 11
+        },
+        {
+          "sentence": "Los platos {{answer}} en la mesa.",
+          "answer": "están",
+          "translation": "The plates are on the table.",
+          "hint": "to be (place), they",
+          "cell": "ellos",
+          "display_order": 12
         }
       ],
       "related": [
@@ -666,6 +842,46 @@
           "hint": "to speak, you all",
           "cell": "vosotros",
           "display_order": 7
+        },
+        {
+          "sentence": "Yo {{answer}} en un hospital.",
+          "answer": "trabajo",
+          "translation": "I work in a hospital.",
+          "hint": "to work, I",
+          "cell": "yo",
+          "display_order": 8
+        },
+        {
+          "sentence": "¿Qué música {{answer}}?",
+          "answer": "escuchas",
+          "translation": "What music do you listen to?",
+          "hint": "to listen, you",
+          "cell": "tú",
+          "display_order": 9
+        },
+        {
+          "sentence": "Nosotros {{answer}} la comida juntos.",
+          "answer": "preparamos",
+          "translation": "We prepare the food together.",
+          "hint": "to prepare, we",
+          "cell": "nosotros",
+          "display_order": 10
+        },
+        {
+          "sentence": "¿Dónde {{answer}} vosotros?",
+          "answer": "trabajáis",
+          "translation": "Where do you all work?",
+          "hint": "to work, you all",
+          "cell": "vosotros",
+          "display_order": 11
+        },
+        {
+          "sentence": "Mis amigos {{answer}} francés.",
+          "answer": "estudian",
+          "translation": "My friends study French.",
+          "hint": "to study, they",
+          "cell": "ellos",
+          "display_order": 12
         }
       ],
       "related": [
@@ -774,6 +990,38 @@
           "hint": "to live, you all",
           "cell": "vosotros",
           "display_order": 8
+        },
+        {
+          "sentence": "¿Qué {{answer}} normalmente?",
+          "answer": "bebes",
+          "translation": "What do you usually drink?",
+          "hint": "to drink, you",
+          "cell": "tú",
+          "display_order": 9
+        },
+        {
+          "sentence": "Mi hermano {{answer}} en Valencia.",
+          "answer": "vive",
+          "translation": "My brother lives in Valencia.",
+          "hint": "to live, he",
+          "cell": "él/ella",
+          "display_order": 10
+        },
+        {
+          "sentence": "¿Qué {{answer}} vosotros?",
+          "answer": "leéis",
+          "translation": "What are you all reading?",
+          "hint": "to read, you all",
+          "cell": "vosotros",
+          "display_order": 11
+        },
+        {
+          "sentence": "Los niños {{answer}} mucho pan.",
+          "answer": "comen",
+          "translation": "The children eat a lot of bread.",
+          "hint": "to eat, they",
+          "cell": "ellos",
+          "display_order": 12
         }
       ],
       "related": [
@@ -1084,6 +1332,22 @@
           "hint": "cansado — masculine plural",
           "display_order": 6,
           "cell": "m.pl"
+        },
+        {
+          "sentence": "El perro es {{answer}}.",
+          "answer": "pequeño",
+          "translation": "The dog is small.",
+          "hint": "small — masculine singular",
+          "cell": "m.sg",
+          "display_order": 7
+        },
+        {
+          "sentence": "Las ventanas están {{answer}}.",
+          "answer": "abiertas",
+          "translation": "The windows are open.",
+          "hint": "open — feminine plural",
+          "cell": "f.pl",
+          "display_order": 8
         }
       ],
       "related": [

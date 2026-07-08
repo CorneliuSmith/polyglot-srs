@@ -111,6 +111,46 @@
           "hint": "doctor + plural (3rd person 'to be')",
           "cell": "onlar",
           "display_order": 7
+        },
+        {
+          "sentence": "Sen çok {{answer}}.",
+          "answer": "yorgunsun",
+          "translation": "You are very tired.",
+          "hint": "tired + the 'you' ending",
+          "cell": "sen",
+          "display_order": 8
+        },
+        {
+          "sentence": "O bugün çok {{answer}}.",
+          "answer": "mutlu",
+          "translation": "She is very happy today.",
+          "hint": "happy — 3rd person takes no ending",
+          "cell": "o",
+          "display_order": 9
+        },
+        {
+          "sentence": "Biz iyi {{answer}}.",
+          "answer": "arkadaşız",
+          "translation": "We are good friends.",
+          "hint": "friend + the 'we' ending",
+          "cell": "biz",
+          "display_order": 10
+        },
+        {
+          "sentence": "Siz çok {{answer}}.",
+          "answer": "naziksiniz",
+          "translation": "You (all) are very kind.",
+          "hint": "kind + the 'you all' ending",
+          "cell": "siz",
+          "display_order": 11
+        },
+        {
+          "sentence": "Onlar çok {{answer}}.",
+          "answer": "çalışkanlar",
+          "translation": "They are very hardworking.",
+          "hint": "hardworking + optional plural",
+          "cell": "onlar",
+          "display_order": 12
         }
       ],
       "related": [
@@ -358,6 +398,22 @@
           "hint": "question particle — harmonize with the last vowel",
           "display_order": 6,
           "cell": "mu"
+        },
+        {
+          "sentence": "Yol uzak {{answer}}?",
+          "answer": "mı",
+          "translation": "Is the road far?",
+          "hint": "harmony after 'a/ı'",
+          "cell": "mı",
+          "display_order": 7
+        },
+        {
+          "sentence": "O üzgün {{answer}}?",
+          "answer": "mü",
+          "translation": "Is he sad?",
+          "hint": "harmony after 'ö/ü'",
+          "cell": "mü",
+          "display_order": 8
         }
       ],
       "related": [
@@ -460,6 +516,22 @@
           "hint": "basket + locative (voiceless consonant, front vowel)",
           "cell": "-te",
           "display_order": 8
+        },
+        {
+          "sentence": "Babam şimdi {{answer}}.",
+          "answer": "işte",
+          "translation": "My father is at work now.",
+          "hint": "work + at (voiceless, front)",
+          "cell": "-te",
+          "display_order": 9
+        },
+        {
+          "sentence": "Yolcular {{answer}}.",
+          "answer": "uçakta",
+          "translation": "The passengers are on the plane.",
+          "hint": "plane + at (voiceless, back)",
+          "cell": "-ta",
+          "display_order": 10
         }
       ],
       "related": [
@@ -646,6 +718,38 @@
           "hint": "cat + their",
           "cell": "3pl",
           "display_order": 8
+        },
+        {
+          "sentence": "Onun {{answer}} yeni.",
+          "answer": "arabası",
+          "translation": "His car is new.",
+          "hint": "car + his/her",
+          "cell": "3sg",
+          "display_order": 9
+        },
+        {
+          "sentence": "Bizim {{answer}} bahçeli.",
+          "answer": "evimiz",
+          "translation": "Our house has a garden.",
+          "hint": "house + our",
+          "cell": "1pl",
+          "display_order": 10
+        },
+        {
+          "sentence": "Sizin {{answer}} nerede?",
+          "answer": "okulunuz",
+          "translation": "Where is your (pl.) school?",
+          "hint": "school + your (plural)",
+          "cell": "2pl",
+          "display_order": 11
+        },
+        {
+          "sentence": "Onların {{answer}} yeni.",
+          "answer": "evleri",
+          "translation": "Their house is new.",
+          "hint": "house + their",
+          "cell": "3pl",
+          "display_order": 12
         }
       ],
       "related": [
@@ -742,6 +846,46 @@
           "hint": "to do + -iyor + you (plural)",
           "cell": "siz",
           "display_order": 7
+        },
+        {
+          "sentence": "Ben şimdi eve {{answer}}.",
+          "answer": "gidiyorum",
+          "translation": "I am going home now.",
+          "hint": "to go + -iyor, I",
+          "cell": "ben",
+          "display_order": 8
+        },
+        {
+          "sentence": "Sen çok hızlı {{answer}}.",
+          "answer": "konuşuyorsun",
+          "translation": "You are speaking very fast.",
+          "hint": "to speak + -iyor, you",
+          "cell": "sen",
+          "display_order": 9
+        },
+        {
+          "sentence": "Biz akşam yemeği {{answer}}.",
+          "answer": "yiyoruz",
+          "translation": "We are eating dinner.",
+          "hint": "to eat + -iyor, we",
+          "cell": "biz",
+          "display_order": 10
+        },
+        {
+          "sentence": "Siz nerede {{answer}}?",
+          "answer": "oturuyorsunuz",
+          "translation": "Where do you (all) live?",
+          "hint": "to live/sit + -iyor, you all",
+          "cell": "siz",
+          "display_order": 11
+        },
+        {
+          "sentence": "Onlar müzik {{answer}}.",
+          "answer": "dinliyorlar",
+          "translation": "They are listening to music.",
+          "hint": "to listen + -iyor, they",
+          "cell": "onlar",
+          "display_order": 12
         }
       ],
       "related": [
@@ -838,6 +982,46 @@
           "hint": "to drink + negative -iyor + you (plural)",
           "cell": "siz",
           "display_order": 7
+        },
+        {
+          "sentence": "Ben bugün {{answer}}.",
+          "answer": "çalışmıyorum",
+          "translation": "I am not working today.",
+          "hint": "to work + negative -iyor, I",
+          "cell": "ben",
+          "display_order": 8
+        },
+        {
+          "sentence": "Sen hiç {{answer}}.",
+          "answer": "gülmüyorsun",
+          "translation": "You never smile.",
+          "hint": "to smile + negative -iyor, you",
+          "cell": "sen",
+          "display_order": 9
+        },
+        {
+          "sentence": "Biz artık orada {{answer}}.",
+          "answer": "oturmuyoruz",
+          "translation": "We don't live there anymore.",
+          "hint": "to live + negative -iyor, we",
+          "cell": "biz",
+          "display_order": 10
+        },
+        {
+          "sentence": "Siz neden {{answer}}?",
+          "answer": "gelmiyorsunuz",
+          "translation": "Why aren't you (all) coming?",
+          "hint": "to come + negative -iyor, you all",
+          "cell": "siz",
+          "display_order": 11
+        },
+        {
+          "sentence": "Onlar bizi {{answer}}.",
+          "answer": "duymuyorlar",
+          "translation": "They don't hear us.",
+          "hint": "to hear + negative -iyor, they",
+          "cell": "onlar",
+          "display_order": 12
         }
       ],
       "related": [
@@ -934,6 +1118,22 @@
           "hint": "water + accusative",
           "cell": "-u",
           "display_order": 7
+        },
+        {
+          "sentence": "Çocuklar {{answer}} seviyor.",
+          "answer": "okulu",
+          "translation": "The children love the school.",
+          "hint": "school + accusative (back, rounded)",
+          "cell": "-u",
+          "display_order": 8
+        },
+        {
+          "sentence": "Biz {{answer}} çok seviyoruz.",
+          "answer": "gölü",
+          "translation": "We love the lake very much.",
+          "hint": "lake + accusative (front, rounded)",
+          "cell": "-ü",
+          "display_order": 9
         }
       ],
       "related": [

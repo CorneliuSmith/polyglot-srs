@@ -98,6 +98,78 @@
           "hint": "it",
           "cell": "αυτό",
           "display_order": 8
+        },
+        {
+          "sentence": "{{answer}} μένω στη Θεσσαλονίκη.",
+          "answer": "Εγώ",
+          "translation": "I live in Thessaloniki.",
+          "hint": "I",
+          "cell": "εγώ",
+          "display_order": 9,
+          "transliteration": "___ méno sti Thessaloníki."
+        },
+        {
+          "sentence": "{{answer}} μιλάς πολύ γρήγορα.",
+          "answer": "Εσύ",
+          "translation": "You speak very fast.",
+          "hint": "you — informal",
+          "cell": "εσύ",
+          "display_order": 10,
+          "transliteration": "___ milás polí grígora."
+        },
+        {
+          "sentence": "{{answer}} δουλεύει στην τράπεζα.",
+          "answer": "Αυτός",
+          "translation": "He works at the bank.",
+          "hint": "he",
+          "cell": "αυτός",
+          "display_order": 11,
+          "transliteration": "___ dulévi stin trápeza."
+        },
+        {
+          "sentence": "{{answer}} μένει στο κέντρο.",
+          "answer": "Αυτή",
+          "translation": "She lives in the centre.",
+          "hint": "she",
+          "cell": "αυτή",
+          "display_order": 12,
+          "transliteration": "___ méni sto kéndro."
+        },
+        {
+          "sentence": "{{answer}} είναι πολύ ακριβό.",
+          "answer": "Αυτό",
+          "translation": "It is very expensive.",
+          "hint": "it",
+          "cell": "αυτό",
+          "display_order": 13,
+          "transliteration": "___ íne polí akrivó."
+        },
+        {
+          "sentence": "{{answer}} έχουμε ένα σπίτι στο χωριό.",
+          "answer": "Εμείς",
+          "translation": "We have a house in the village.",
+          "hint": "we",
+          "cell": "εμείς",
+          "display_order": 14,
+          "transliteration": "___ échume éna spíti sto chorió."
+        },
+        {
+          "sentence": "{{answer}} μιλάτε αγγλικά;",
+          "answer": "Εσείς",
+          "translation": "Do you (all) speak English?",
+          "hint": "you — plural/formal",
+          "cell": "εσείς",
+          "display_order": 15,
+          "transliteration": "___ miláte angliká?"
+        },
+        {
+          "sentence": "{{answer}} παίζουν στον κήπο.",
+          "answer": "Αυτοί",
+          "translation": "They are playing in the garden.",
+          "hint": "they (masculine)",
+          "cell": "αυτοί",
+          "display_order": 16,
+          "transliteration": "___ pézun ston kípo."
         }
       ],
       "paradigm": [
@@ -184,6 +256,15 @@
           "hint": "car, plural — neuter",
           "display_order": 6,
           "cell": "neuter"
+        },
+        {
+          "sentence": "Οι {{answer}} είναι ζεστοί.",
+          "answer": "καφέδες",
+          "translation": "The coffees are hot.",
+          "hint": "coffee, plural — masculine",
+          "cell": "masculine",
+          "display_order": 7,
+          "transliteration": "I ___ íne zestí."
         }
       ],
       "paradigm": [
@@ -427,6 +508,60 @@
           "hint": "to be, they",
           "display_order": 6,
           "cell": "3pl"
+        },
+        {
+          "sentence": "Εγώ {{answer}} από την Κρήτη.",
+          "answer": "είμαι",
+          "translation": "I am from Crete.",
+          "hint": "to be, I",
+          "cell": "1sg",
+          "display_order": 7,
+          "transliteration": "Egó ___ apó tin Kríti."
+        },
+        {
+          "sentence": "Εσύ {{answer}} καλός φίλος.",
+          "answer": "είσαι",
+          "translation": "You are a good friend.",
+          "hint": "to be, you (informal)",
+          "cell": "2sg",
+          "display_order": 8,
+          "transliteration": "Esí ___ kalós fílos."
+        },
+        {
+          "sentence": "Ο πατέρας μου {{answer}} γιατρός.",
+          "answer": "είναι",
+          "translation": "My father is a doctor.",
+          "hint": "to be, he",
+          "cell": "3sg",
+          "display_order": 9,
+          "transliteration": "O patéras mu ___ yiatrós."
+        },
+        {
+          "sentence": "Εμείς {{answer}} έτοιμοι.",
+          "answer": "είμαστε",
+          "translation": "We are ready.",
+          "hint": "to be, we",
+          "cell": "1pl",
+          "display_order": 10,
+          "transliteration": "Emís ___ étimi."
+        },
+        {
+          "sentence": "Εσείς {{answer}} από την Κύπρο;",
+          "answer": "είστε",
+          "translation": "Are you (all) from Cyprus?",
+          "hint": "to be, you (plural)",
+          "cell": "2pl",
+          "display_order": 11,
+          "transliteration": "Esís ___ apó tin Kípro?"
+        },
+        {
+          "sentence": "Τα παιδιά {{answer}} στον κήπο.",
+          "answer": "είναι",
+          "translation": "The children are in the garden.",
+          "hint": "to be, they",
+          "cell": "3pl",
+          "display_order": 12,
+          "transliteration": "Ta pediá ___ ston kípo."
         }
       ],
       "paradigm": [
@@ -511,6 +646,60 @@
           "hint": "to have, they",
           "display_order": 6,
           "cell": "3pl"
+        },
+        {
+          "sentence": "Εγώ {{answer}} δύο αδελφές.",
+          "answer": "έχω",
+          "translation": "I have two sisters.",
+          "hint": "to have, I",
+          "cell": "1sg",
+          "display_order": 7,
+          "transliteration": "Egó ___ dío adelfés."
+        },
+        {
+          "sentence": "Εσύ {{answer}} χρόνο σήμερα;",
+          "answer": "έχεις",
+          "translation": "Do you have time today?",
+          "hint": "to have, you (informal)",
+          "cell": "2sg",
+          "display_order": 8,
+          "transliteration": "Esí ___ chróno símera?"
+        },
+        {
+          "sentence": "Αυτός {{answer}} πολλά βιβλία.",
+          "answer": "έχει",
+          "translation": "He has many books.",
+          "hint": "to have, he",
+          "cell": "3sg",
+          "display_order": 9,
+          "transliteration": "Aftós ___ pollá vivlía."
+        },
+        {
+          "sentence": "Εμείς {{answer}} ένα μεγάλο τραπέζι.",
+          "answer": "έχουμε",
+          "translation": "We have a big table.",
+          "hint": "to have, we",
+          "cell": "1pl",
+          "display_order": 10,
+          "transliteration": "Emís ___ éna megálo trapézi."
+        },
+        {
+          "sentence": "Εσείς {{answer}} παιδιά;",
+          "answer": "έχετε",
+          "translation": "Do you (all) have children?",
+          "hint": "to have, you (plural)",
+          "cell": "2pl",
+          "display_order": 11,
+          "transliteration": "Esís ___ pediá?"
+        },
+        {
+          "sentence": "Αυτοί {{answer}} δύο γάτες.",
+          "answer": "έχουν",
+          "translation": "They have two cats.",
+          "hint": "to have, they",
+          "cell": "3pl",
+          "display_order": 12,
+          "transliteration": "Aftí ___ dío gátes."
         }
       ],
       "paradigm": [
@@ -604,6 +793,51 @@
           "hint": "to live, you (plural)",
           "cell": "2pl",
           "display_order": 7
+        },
+        {
+          "sentence": "Εσύ {{answer}} ένα γράμμα;",
+          "answer": "γράφεις",
+          "translation": "Are you writing a letter?",
+          "hint": "to write, you (informal)",
+          "cell": "2sg",
+          "display_order": 8,
+          "transliteration": "Esí ___ éna grámma?"
+        },
+        {
+          "sentence": "Αυτός {{answer}} εφημερίδα.",
+          "answer": "διαβάζει",
+          "translation": "He reads a newspaper.",
+          "hint": "to read, he",
+          "cell": "3sg",
+          "display_order": 9,
+          "transliteration": "Aftós ___ efimerída."
+        },
+        {
+          "sentence": "Εμείς {{answer}} έναν καφέ.",
+          "answer": "πίνουμε",
+          "translation": "We are drinking a coffee.",
+          "hint": "to drink, we",
+          "cell": "1pl",
+          "display_order": 10,
+          "transliteration": "Emís ___ énan kafé."
+        },
+        {
+          "sentence": "Εσείς {{answer}} ελληνική μουσική;",
+          "answer": "ακούτε",
+          "translation": "Do you (all) listen to Greek music?",
+          "hint": "to listen, you (plural)",
+          "cell": "2pl",
+          "display_order": 11,
+          "transliteration": "Esís ___ ellinikí musikí?"
+        },
+        {
+          "sentence": "Αυτοί {{answer}} στο πάρκο.",
+          "answer": "τρέχουν",
+          "translation": "They run in the park.",
+          "hint": "to run, they",
+          "cell": "3pl",
+          "display_order": 12,
+          "transliteration": "Aftí ___ sto párko."
         }
       ],
       "paradigm": [
@@ -997,6 +1231,42 @@
           "hint": "big/long — feminine plural",
           "cell": "f.pl",
           "display_order": 8
+        },
+        {
+          "sentence": "Ο ουρανός είναι {{answer}}.",
+          "answer": "καθαρός",
+          "translation": "The sky is clear.",
+          "hint": "clear — masculine",
+          "cell": "m.sg",
+          "display_order": 9,
+          "transliteration": "O uranós íne ___."
+        },
+        {
+          "sentence": "Το φαγητό είναι {{answer}}.",
+          "answer": "νόστιμο",
+          "translation": "The food is delicious.",
+          "hint": "delicious — neuter",
+          "cell": "n.sg",
+          "display_order": 10,
+          "transliteration": "To fayitó íne ___."
+        },
+        {
+          "sentence": "Οι δρόμοι είναι {{answer}}.",
+          "answer": "άδειοι",
+          "translation": "The streets are empty.",
+          "hint": "empty — masculine plural",
+          "cell": "m.pl",
+          "display_order": 11,
+          "transliteration": "I drómi íne ___."
+        },
+        {
+          "sentence": "Οι πόρτες είναι {{answer}}.",
+          "answer": "κλειστές",
+          "translation": "The doors are closed.",
+          "hint": "closed — feminine plural",
+          "cell": "f.pl",
+          "display_order": 12,
+          "transliteration": "I pórtes íne ___."
         }
       ],
       "paradigm": [

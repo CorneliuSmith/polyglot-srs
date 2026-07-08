@@ -102,6 +102,18 @@ class GrammarSeeder:
                     raise ValueError(
                         f"{title}: paradigm cells with no drill: {sorted(missing)}"
                     )
+                # Density target: 2 drills per cell, so the rotation can vary
+                # the frame within a cell (one frame per form invites string
+                # memorization). Warning until every path is topped up, then
+                # this becomes a hard gate like coverage above.
+                thin = sorted(
+                    c for c in paradigm
+                    if sum(1 for d in drills if d["cell"] == c) < 2
+                )
+                if thin:
+                    logger.warning(
+                        "%s: paradigm cells below 2 drills: %s", title, thin
+                    )
             points.append({
                 "title": title,
                 "level": p.get("level"),

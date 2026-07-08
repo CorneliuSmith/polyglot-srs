@@ -66,3 +66,4 @@ data/*_sentences.tsv
 # Merged outputs of backend/services/seeder/source_data.py (small, reviewed)
 !data/sw_frequency.tsv
 !data/tr_frequency.tsv
+node_modules/

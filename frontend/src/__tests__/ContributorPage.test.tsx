@@ -17,6 +17,9 @@ vi.mock('../api/contribute', () => ({
   listAllRoles: vi.fn(() => Promise.resolve([])),
   grantRole: vi.fn(),
   revokeRole: vi.fn(),
+  flagPointIssue: vi.fn(() => Promise.resolve()),
+  getReviewNotes: vi.fn(() => Promise.resolve([])),
+  resolveReviewNote: vi.fn(() => Promise.resolve()),
 }))
 // DrillsEditor is its own tested unit; stub it here to keep this test focused.
 vi.mock('../features/contribute/DrillsEditor', () => ({ default: () => null }))
@@ -29,12 +32,18 @@ import {
   getGrammarForLanguage,
   saveGrammarExplanation,
   runAiCheck,
+  flagPointIssue,
+  getReviewNotes,
+  resolveReviewNote,
 } from '../api/contribute'
 
 const mockGetLanguages = getLanguages as ReturnType<typeof vi.fn>
 const mockGetGrammar = getGrammarForLanguage as ReturnType<typeof vi.fn>
 const mockSave = saveGrammarExplanation as ReturnType<typeof vi.fn>
 const mockAiCheck = runAiCheck as ReturnType<typeof vi.fn>
+const mockFlag = flagPointIssue as ReturnType<typeof vi.fn>
+const mockGetNotes = getReviewNotes as ReturnType<typeof vi.fn>
+const mockResolveNote = resolveReviewNote as ReturnType<typeof vi.fn>
 
 const basePoint = {
   id: 'p1', title: 'Locative case', level: 'A1',
@@ -107,5 +116,41 @@ describe('ContributorPage', () => {
     await waitFor(() => {
       expect(mockAiCheck).toHaveBeenCalledWith('p1')
     })
+  })
+
+  it('files a reviewer issue against a point', async () => {
+    mockGetGrammar.mockResolvedValue({ is_admin: false, points: [basePoint], review_policy: 'strict' })
+    mockFlag.mockResolvedValue(undefined)
+    renderPage()
+
+    fireEvent.click(await screen.findByRole('button', { name: /flag an issue/i }))
+    fireEvent.change(screen.getByLabelText(/issue description/i), {
+      target: { value: 'Drill 3 uses the Ibadan form' },
+    })
+    fireEvent.click(screen.getByRole('button', { name: /file issue/i }))
+
+    await waitFor(() => {
+      expect(mockFlag).toHaveBeenCalledWith('p1', 'Drill 3 uses the Ibadan form')
+    })
+  })
+
+  it('shows open issues and lets a reviewer resolve them', async () => {
+    mockGetGrammar.mockResolvedValue({
+      is_admin: false, can_review: true, points: [basePoint], review_policy: 'strict',
+    })
+    mockGetNotes.mockResolvedValue([{
+      id: 'n1', grammar_point_id: 'p1', point_title: 'Locative case',
+      level: 'A1', note: 'tone marks look off', status: 'open',
+      author_email: 'linguist@x.com', created_at: null,
+    }])
+    mockResolveNote.mockResolvedValue(undefined)
+    renderPage()
+
+    const panel = await screen.findByTestId('issues-panel')
+    expect(panel.textContent).toContain('tone marks look off')
+    expect(panel.textContent).toContain('linguist@x.com')
+
+    fireEvent.click(screen.getByRole('button', { name: /resolve/i }))
+    await waitFor(() => expect(mockResolveNote).toHaveBeenCalledWith('n1'))
   })
 })

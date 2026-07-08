@@ -44,6 +44,35 @@ export async function getGrammarForLanguage(
   return response.data
 }
 
+export interface ReviewNote {
+  id: string
+  grammar_point_id: string
+  point_title: string
+  level: string | null
+  note: string
+  status: 'open' | 'resolved'
+  author_email: string
+  created_at: string | null
+}
+
+export async function flagPointIssue(pointId: string, note: string): Promise<void> {
+  await apiClient.post(`/api/contribute/grammar/${pointId}/notes`, { note })
+}
+
+export async function getReviewNotes(
+  languageId: string,
+  includeResolved = false,
+): Promise<ReviewNote[]> {
+  const response = await apiClient.get('/api/contribute/notes', {
+    params: { language_id: languageId, include_resolved: includeResolved },
+  })
+  return response.data.notes
+}
+
+export async function resolveReviewNote(noteId: string): Promise<void> {
+  await apiClient.post(`/api/contribute/notes/${noteId}/resolve`)
+}
+
 export type GrantableRole = 'contributor' | 'reviewer' | 'admin'
 
 export interface RoleGrantRow {

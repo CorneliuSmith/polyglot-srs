@@ -13,6 +13,7 @@ from pydantic import BaseModel, Field
 from backend.dependencies import get_current_user
 from backend.repositories.contributor import (
     add_drill,
+    add_review_note,
     approve_explanation,
     can_contribute,
     can_review,
@@ -21,6 +22,7 @@ from backend.repositories.contributor import (
     find_user_by_email,
     get_feedback_language,
     get_language_policy,
+    get_note_language,
     get_point_for_check,
     get_point_language,
     get_point_language_and_code,
@@ -31,7 +33,9 @@ from backend.repositories.contributor import (
     list_drills,
     list_feedback,
     list_grammar_points,
+    list_review_notes,
     resolve_feedback,
+    resolve_review_note,
     revoke_role,
     save_ai_check,
     save_explanation,
@@ -70,6 +74,10 @@ class NewDrill(BaseModel):
     answer: str = Field(min_length=1, max_length=200)
     translation: str = ""
     hint: str = ""
+
+
+class NewReviewNote(BaseModel):
+    note: str = Field(min_length=3, max_length=2000)
 
 
 class RoleGrant(BaseModel):
@@ -303,6 +311,71 @@ async def ai_check(
     async with privileged_connection() as conn:
         await save_ai_check(conn, point_id, result["status"], result["notes"])
     return result
+
+
+@router.post("/grammar/{point_id}/notes")
+async def flag_point_issue(
+    point_id: str,
+    body: NewReviewNote,
+    user: dict = Depends(get_current_user),
+):
+    """File a reviewer note against a point — the middle ground between
+    fixing it yourself and silently not approving."""
+    async with rls_connection(user["id"]) as conn:
+        roles = await get_roles(conn, user["id"])
+        language_id = await get_point_language(conn, point_id)
+    if language_id is None:
+        raise HTTPException(status_code=404, detail="Grammar point not found")
+    if not can_contribute(roles, language_id):
+        raise HTTPException(
+            status_code=status.HTTP_403_FORBIDDEN,
+            detail="You don't have a contributor role for this language",
+        )
+    async with privileged_connection() as conn:
+        note_id = await add_review_note(conn, point_id, user["id"], body.note.strip())
+    return {"id": note_id}
+
+
+@router.get("/notes")
+async def review_notes(
+    language_id: str,
+    include_resolved: bool = False,
+    user: dict = Depends(get_current_user),
+):
+    """List reviewer notes for a language (role-gated)."""
+    async with rls_connection(user["id"]) as conn:
+        roles = await get_roles(conn, user["id"])
+    if not can_contribute(roles, language_id):
+        raise HTTPException(
+            status_code=status.HTTP_403_FORBIDDEN,
+            detail="You don't have a contributor role for this language",
+        )
+    async with privileged_connection() as conn:
+        notes = await list_review_notes(
+            conn, language_id, include_resolved=include_resolved
+        )
+    return {"notes": notes}
+
+
+@router.post("/notes/{note_id}/resolve")
+async def resolve_note(
+    note_id: str,
+    user: dict = Depends(get_current_user),
+):
+    """Mark a reviewer note resolved (reviewer for the language, or admin)."""
+    async with rls_connection(user["id"]) as conn:
+        roles = await get_roles(conn, user["id"])
+    async with privileged_connection() as conn:
+        language_id = await get_note_language(conn, note_id)
+        if language_id is None:
+            raise HTTPException(status_code=404, detail="Note not found")
+        if not can_review(roles, language_id):
+            raise HTTPException(
+                status_code=status.HTTP_403_FORBIDDEN,
+                detail="Only a reviewer for this language or an admin can resolve notes",
+            )
+        ok = await resolve_review_note(conn, note_id, user["id"])
+    return {"resolved": ok}
 
 
 @router.post("/grammar/{point_id}/approve")

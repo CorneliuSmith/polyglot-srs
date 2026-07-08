@@ -61,8 +61,12 @@ morphological paradigm — subject pronouns (Spanish has NINE: yo, tú, él,
 ella, usted, nosotros, vosotros, ellos, ustedes), a conjugation table, case
 or gender agreement — is really N questions wearing one card. Such points
 declare `"paradigm": [cells…]` and each drill carries `"cell"`; the seeder
-**fails** if any cell has no drill, so the drill count is
-max(6, paradigm size). Rotation is **gap-hunting**, not uniform: unseen
+**fails** if any cell has no drill, and warns below the density target of
+**2 drills per cell** (one frame per form invites memorizing the sentence
+instead of the form; two lets the rotation vary the frame within a cell).
+So the drill count is max(6, 2 × paradigm size) once topped up
+(es/tr/ru/el done 2026-07; fr/de/it/ca/ro/ar + African tiers in progress).
+Rotation is **gap-hunting**, not uniform: unseen
 sentences come first (full paradigm exposure before any repeats), then the
 sentences the learner keeps missing (highest miss rate from
 `review_log.prompt_sentence`), then uniform — always deterministic and

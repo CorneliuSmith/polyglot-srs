@@ -14,7 +14,68 @@ import type { GrammarPointEdit } from '../../api/contribute'
 import { usePrefsStore } from '../../stores/prefsStore'
 import DrillsEditor from './DrillsEditor'
 import FeedbackPanel from './FeedbackPanel'
+import IssuesPanel from './IssuesPanel'
 import RolesPanel from './RolesPanel'
+import { flagPointIssue } from '../../api/contribute'
+
+/** "Flag an issue" — a reviewer note for problems you can't (or shouldn't)
+ * fix on the spot: regional-form doubts, tone-mark questions, and the like. */
+function FlagIssueBox({ pointId }: { pointId: string }) {
+  const queryClient = useQueryClient()
+  const [open, setOpen] = useState(false)
+  const [note, setNote] = useState('')
+  const flagMutation = useMutation({
+    mutationFn: () => flagPointIssue(pointId, note.trim()),
+    onSuccess: () => {
+      setNote('')
+      setOpen(false)
+      queryClient.invalidateQueries({ queryKey: ['review-notes'] })
+    },
+  })
+  if (!open) {
+    return (
+      <button
+        type="button"
+        onClick={() => setOpen(true)}
+        className="text-xs text-amber-700 hover:underline"
+      >
+        Flag an issue
+      </button>
+    )
+  }
+  return (
+    <div className="w-full space-y-2">
+      <textarea
+        value={note}
+        onChange={(e) => setNote(e.target.value)}
+        rows={2}
+        placeholder="What's wrong or doubtful about this point? (visible to reviewers and the admin)"
+        aria-label="Issue description"
+        className="w-full rounded-lg border border-amber-300 px-3 py-2 text-sm"
+      />
+      <div className="flex gap-2">
+        <button
+          type="button"
+          onClick={() => flagMutation.mutate()}
+          disabled={note.trim().length < 3 || flagMutation.isPending}
+          className="bg-amber-600 hover:bg-amber-700 disabled:opacity-50 text-white font-semibold rounded-lg px-3 py-1.5 text-xs"
+        >
+          {flagMutation.isPending ? 'Flagging…' : 'File issue'}
+        </button>
+        <button
+          type="button"
+          onClick={() => setOpen(false)}
+          className="text-xs text-gray-500 hover:underline"
+        >
+          Cancel
+        </button>
+      </div>
+      {flagMutation.isError && (
+        <p className="text-xs text-red-500">Couldn’t file the issue — try again.</p>
+      )}
+    </div>
+  )
+}
 
 function NewPointForm({
   languageId,
@@ -218,6 +279,7 @@ function PointEditor({
         {saveMutation.isError && (
           <span className="text-xs text-red-500">Save failed.</span>
         )}
+        <FlagIssueBox pointId={point.id} />
       </div>
 
       <DrillsEditor pointId={point.id} />
@@ -326,6 +388,10 @@ export default function ContributorPage() {
                 />
               </>
             )}
+            <IssuesPanel
+              languageId={activeLanguageId}
+              canResolve={data.can_review ?? data.is_admin}
+            />
             <FeedbackPanel languageId={activeLanguageId} />
             <NewPointForm languageId={activeLanguageId} onCreated={refresh} />
           </>
