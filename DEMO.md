@@ -130,6 +130,10 @@ for L in tr sw yo xh ha; do
 done
 ```
 
+> Deploying for remote testers instead of running locally? See
+> **[docs/DEPLOY.md](docs/DEPLOY.md)** — DigitalOcean App Platform
+> step-by-step (~$12/mo), with a Render alternative.
+
 ### f. Make yourself admin (once)
 
 Sign up in the app with your email (confirm it), then:
