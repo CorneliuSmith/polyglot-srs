@@ -65,7 +65,9 @@ coach from the learner's actual failure history.
 - **Grammar paths seeded — ALL 16 languages**: es 43 (full A1→C2, Plan
   Curricular order), tr 40 (full A1→C2, cross-model verified), ru 51 (full
   A1→C2 per TORFL — A2+ promoted live 2026-07; native-speaker review still
-  wanted, WP4), sw 32 · yo 24 · xh 24 · ha 22 (A1→C1-equivalent), and
+  wanted, WP4), sw 50 (A1→C2-equivalent; the 18 B1–C2 additions of 2026-07
+  are `reviewed: false` drafts awaiting WP4 native review) ·
+  yo 24 · xh 24 · ha 22 (A1→C1-equivalent), and
   12-point A1 paths for fr · de · it · ca · mi · ar · en · ro · el.
   **WP1 drill bar met everywhere: 6 drills/point (2,064 drills total)**,
   validated for single-word answers, no answer leakage, no duplicate frames,
@@ -219,12 +221,19 @@ straight to `claude-fable-5`/`claude-opus-4-8`.
 
 ### WP4 — African content: native review + deepening
 **Goal:** the differentiator held to the highest bar. (a) Recruit native
-speakers/linguists as contributors (roles exist; ContributorPage supports
+speakers/linguists as contributors (roles exist — grant `reviewer` per
+language from the Contribute page's Roles panel; ContributorPage supports
 review + approval + AI checks); have them audit tone marks (yo), concords
 (xh), aspect glosses (ha), and approve or fix each point. (b) Extend sw to
-~50 points and yo/ha/xh to ~40, through C2-equivalent (sw: -po-/-vyo-
-relatives, -japo- concessives, comparatives, remaining classes, register;
-similar discourse-level closers for yo/ha/xh). (c) WP1 variation drills for all four.
+~50 points and yo/ha/xh to ~40, through C2-equivalent. **Swahili DONE
+2026-07 (32 → 50):** +18 B1–C2 drafts (`reviewed: false`, awaiting the
+human gate) — U-class and Ku-class nouns, place classes 16–18,
+demonstratives across classes (paradigm-tagged), comparatives, -po- time
+and -vyo- manner relatives, reported speech (kwamba/kuwa/eti), compound
+tenses, reversive -ua, concessives, ndi- emphatics, -sipo- 'unless',
+ili + subjunctive, participial -ki-, kupiga idioms, methali, respect
+register. Remaining: yo/ha/xh discourse-level closers to ~40 each.
+(c) WP1 variation drills for all four.
 **Acceptance:** every African point re-approved by a named human reviewer
 (`reviewed_by` set), or explicitly flagged Draft.
 **Model:** `claude-fable-5` for authoring/triage; humans are the gate.
