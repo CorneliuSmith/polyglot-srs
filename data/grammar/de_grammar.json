@@ -90,6 +90,70 @@
           "hint": "they",
           "cell": "sie (pl)",
           "display_order": 8
+        },
+        {
+          "sentence": "{{answer}} trinke gern Kaffee.",
+          "answer": "Ich",
+          "translation": "I like drinking coffee.",
+          "hint": "I",
+          "cell": "ich",
+          "display_order": 9
+        },
+        {
+          "sentence": "{{answer}} sprichst sehr schnell.",
+          "answer": "Du",
+          "translation": "You speak very fast.",
+          "hint": "you — informal",
+          "cell": "du",
+          "display_order": 10
+        },
+        {
+          "sentence": "{{answer}} arbeitet in München.",
+          "answer": "Er",
+          "translation": "He works in Munich.",
+          "hint": "he",
+          "cell": "er",
+          "display_order": 11
+        },
+        {
+          "sentence": "{{answer}} singt sehr gut.",
+          "answer": "Sie",
+          "translation": "She sings very well.",
+          "hint": "she",
+          "cell": "sie",
+          "display_order": 12
+        },
+        {
+          "sentence": "{{answer}} regnet heute.",
+          "answer": "Es",
+          "translation": "It is raining today.",
+          "hint": "it",
+          "cell": "es",
+          "display_order": 13
+        },
+        {
+          "sentence": "{{answer}} lernen zusammen.",
+          "answer": "Wir",
+          "translation": "We study together.",
+          "hint": "we",
+          "cell": "wir",
+          "display_order": 14
+        },
+        {
+          "sentence": "{{answer}} kommt aus Wien?",
+          "answer": "Ihr",
+          "translation": "You (all) come from Vienna?",
+          "hint": "you all — informal",
+          "cell": "ihr",
+          "display_order": 15
+        },
+        {
+          "sentence": "{{answer}} wohnen in Köln.",
+          "answer": "Sie",
+          "translation": "They live in Cologne.",
+          "hint": "they",
+          "cell": "sie (pl)",
+          "display_order": 16
         }
       ],
       "paradigm": [
@@ -178,6 +242,14 @@
           "hint": "table, plural — masculine",
           "cell": "masculine",
           "display_order": 7
+        },
+        {
+          "sentence": "Die {{answer}} bellen laut.",
+          "answer": "Hunde",
+          "translation": "The dogs bark loudly.",
+          "hint": "dog, plural — masculine",
+          "cell": "masculine",
+          "display_order": 8
         }
       ],
       "paradigm": [
@@ -392,6 +464,54 @@
           "hint": "to be, they",
           "display_order": 6,
           "cell": "3pl"
+        },
+        {
+          "sentence": "Ich {{answer}} müde.",
+          "answer": "bin",
+          "translation": "I am tired.",
+          "hint": "to be, I",
+          "cell": "1sg",
+          "display_order": 7
+        },
+        {
+          "sentence": "Du {{answer}} mein bester Freund.",
+          "answer": "bist",
+          "translation": "You are my best friend.",
+          "hint": "to be, you",
+          "cell": "2sg",
+          "display_order": 8
+        },
+        {
+          "sentence": "Mein Vater {{answer}} Arzt.",
+          "answer": "ist",
+          "translation": "My father is a doctor.",
+          "hint": "to be, he",
+          "cell": "3sg",
+          "display_order": 9
+        },
+        {
+          "sentence": "Wir {{answer}} bereit.",
+          "answer": "sind",
+          "translation": "We are ready.",
+          "hint": "to be, we",
+          "cell": "1pl",
+          "display_order": 10
+        },
+        {
+          "sentence": "Ihr {{answer}} sehr nett.",
+          "answer": "seid",
+          "translation": "You (all) are very nice.",
+          "hint": "to be, you all",
+          "cell": "2pl",
+          "display_order": 11
+        },
+        {
+          "sentence": "Meine Eltern {{answer}} aus Bonn.",
+          "answer": "sind",
+          "translation": "My parents are from Bonn.",
+          "hint": "to be, they",
+          "cell": "3pl",
+          "display_order": 12
         }
       ],
       "paradigm": [
@@ -470,6 +590,54 @@
           "hint": "to have, you (formal) — question order",
           "display_order": 6,
           "cell": "3pl"
+        },
+        {
+          "sentence": "Ich {{answer}} eine Frage.",
+          "answer": "habe",
+          "translation": "I have a question.",
+          "hint": "to have, I",
+          "cell": "1sg",
+          "display_order": 7
+        },
+        {
+          "sentence": "Du {{answer}} einen Hund?",
+          "answer": "hast",
+          "translation": "Do you have a dog?",
+          "hint": "to have, you",
+          "cell": "2sg",
+          "display_order": 8
+        },
+        {
+          "sentence": "Er {{answer}} heute Geburtstag.",
+          "answer": "hat",
+          "translation": "It's his birthday today.",
+          "hint": "to have, he",
+          "cell": "3sg",
+          "display_order": 9
+        },
+        {
+          "sentence": "Wir {{answer}} zwei Autos.",
+          "answer": "haben",
+          "translation": "We have two cars.",
+          "hint": "to have, we",
+          "cell": "1pl",
+          "display_order": 10
+        },
+        {
+          "sentence": "Ihr {{answer}} viel Arbeit.",
+          "answer": "habt",
+          "translation": "You (all) have a lot of work.",
+          "hint": "to have, you all",
+          "cell": "2pl",
+          "display_order": 11
+        },
+        {
+          "sentence": "Die Kinder {{answer}} Hunger.",
+          "answer": "haben",
+          "translation": "The children are hungry.",
+          "hint": "to have, they",
+          "cell": "3pl",
+          "display_order": 12
         }
       ],
       "paradigm": [
@@ -548,6 +716,54 @@
           "hint": "to work, they",
           "display_order": 6,
           "cell": "3pl"
+        },
+        {
+          "sentence": "Ich {{answer}} bei einer Firma.",
+          "answer": "arbeite",
+          "translation": "I work at a company.",
+          "hint": "to work, I",
+          "cell": "1sg",
+          "display_order": 7
+        },
+        {
+          "sentence": "Du {{answer}} Deutsch?",
+          "answer": "lernst",
+          "translation": "Are you learning German?",
+          "hint": "to learn, you",
+          "cell": "2sg",
+          "display_order": 8
+        },
+        {
+          "sentence": "Meine Schwester {{answer}} im Chor.",
+          "answer": "singt",
+          "translation": "My sister sings in a choir.",
+          "hint": "to sing, she",
+          "cell": "3sg",
+          "display_order": 9
+        },
+        {
+          "sentence": "Wir {{answer}} heute Abend.",
+          "answer": "kochen",
+          "translation": "We are cooking tonight.",
+          "hint": "to cook, we",
+          "cell": "1pl",
+          "display_order": 10
+        },
+        {
+          "sentence": "Ihr {{answer}} laut Musik.",
+          "answer": "hört",
+          "translation": "You (all) are playing music loudly.",
+          "hint": "to hear/listen, you all",
+          "cell": "2pl",
+          "display_order": 11
+        },
+        {
+          "sentence": "Die Kinder {{answer}} im Park.",
+          "answer": "spielen",
+          "translation": "The children are playing in the park.",
+          "hint": "to play, they",
+          "cell": "3pl",
+          "display_order": 12
         }
       ],
       "paradigm": [
@@ -690,6 +906,14 @@
           "hint": "negates an adjective",
           "display_order": 6,
           "cell": "nicht"
+        },
+        {
+          "sentence": "Wir haben {{answer}} Fragen.",
+          "answer": "keine",
+          "translation": "We have no questions.",
+          "hint": "no/none — before a plural noun",
+          "cell": "keine",
+          "display_order": 7
         }
       ],
       "paradigm": [
@@ -893,6 +1117,14 @@
           "hint": "indefinite article — masculine object",
           "display_order": 6,
           "cell": "einen"
+        },
+        {
+          "sentence": "Ich öffne {{answer}} Fenster.",
+          "answer": "das",
+          "translation": "I open the window.",
+          "hint": "the — neuter object (unchanged)",
+          "cell": "das",
+          "display_order": 7
         }
       ],
       "paradigm": [

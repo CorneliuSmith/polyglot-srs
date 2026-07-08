@@ -2227,6 +2227,54 @@
           "hint": "these — Vi- class",
           "cell": "cl.8",
           "display_order": 6
+        },
+        {
+          "sentence": "Mwalimu {{answer}} anafundisha Kiswahili.",
+          "answer": "huyu",
+          "translation": "This teacher teaches Swahili.",
+          "hint": "this — person class",
+          "cell": "cl.1",
+          "display_order": 7
+        },
+        {
+          "sentence": "Wageni {{answer}} wanatoka Tanzania.",
+          "answer": "wale",
+          "translation": "Those guests come from Tanzania.",
+          "hint": "those — people class plural",
+          "cell": "cl.2",
+          "display_order": 8
+        },
+        {
+          "sentence": "Yai {{answer}} ni bichi.",
+          "answer": "hili",
+          "translation": "This egg is raw.",
+          "hint": "this — Ma- class (5)",
+          "cell": "cl.5",
+          "display_order": 9
+        },
+        {
+          "sentence": "Chumba {{answer}} ni kidogo.",
+          "answer": "hiki",
+          "translation": "This room is small.",
+          "hint": "this — Ki- class",
+          "cell": "cl.7",
+          "display_order": 10
+        },
+        {
+          "sentence": "Vitabu {{answer}} ni vipya.",
+          "answer": "hivi",
+          "translation": "These books are new.",
+          "hint": "these — Vi- class",
+          "cell": "cl.8",
+          "display_order": 11
+        },
+        {
+          "sentence": "Kalamu {{answer}} ni yangu.",
+          "answer": "hii",
+          "translation": "This pen is mine.",
+          "hint": "this — N- class",
+          "cell": "cl.9",
+          "display_order": 12
         }
       ],
       "paradigm": [

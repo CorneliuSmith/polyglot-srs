@@ -1614,6 +1614,46 @@
           "translation": "I will go with you.",
           "hint": "with + the emphatic you, fused",
           "display_order": 6
+        },
+        {
+          "sentence": "{{answer}} ndithanda ikofu.",
+          "answer": "Mna",
+          "translation": "As for ME, I like coffee.",
+          "hint": "the emphatic I/me",
+          "cell": "1sg",
+          "display_order": 7
+        },
+        {
+          "sentence": "{{answer}} uhlala phi?",
+          "answer": "Wena",
+          "translation": "And YOU, where do you live?",
+          "hint": "the emphatic you (sg.)",
+          "cell": "2sg",
+          "display_order": 8
+        },
+        {
+          "sentence": "{{answer}} uthanda umculo.",
+          "answer": "Yena",
+          "translation": "HE likes music.",
+          "hint": "the emphatic he/she",
+          "cell": "3sg",
+          "display_order": 9
+        },
+        {
+          "sentence": "{{answer}} sifunda isiXhosa.",
+          "answer": "Thina",
+          "translation": "WE are learning Xhosa.",
+          "hint": "the emphatic we",
+          "cell": "1pl",
+          "display_order": 10
+        },
+        {
+          "sentence": "{{answer}} bahlala eMonti.",
+          "answer": "Bona",
+          "translation": "THEY live in East London.",
+          "hint": "the emphatic they",
+          "cell": "3pl",
+          "display_order": 11
         }
       ],
       "paradigm": [
@@ -2075,6 +2115,38 @@
           "hint": "to sleep (stative) + past continuous, I",
           "cell": "1sg",
           "display_order": 6
+        },
+        {
+          "sentence": "{{answer}} ntoni izolo?",
+          "answer": "Ubusenza",
+          "translation": "What were you doing yesterday?",
+          "hint": "to do + past continuous, you",
+          "cell": "2sg",
+          "display_order": 7
+        },
+        {
+          "sentence": "{{answer}} incwadi.",
+          "answer": "Ebefunda",
+          "translation": "He was reading a book.",
+          "hint": "to read + past continuous, he",
+          "cell": "3sg",
+          "display_order": 8
+        },
+        {
+          "sentence": "{{answer}} kakhulu izolo.",
+          "answer": "Besisebenza",
+          "translation": "We were working hard yesterday.",
+          "hint": "to work + past continuous, we",
+          "cell": "1pl",
+          "display_order": 9
+        },
+        {
+          "sentence": "Oomama {{answer}} emarikeni.",
+          "answer": "bebethenga",
+          "translation": "The mothers were shopping at the market.",
+          "hint": "to buy + past continuous, they",
+          "cell": "3pl",
+          "display_order": 10
         }
       ],
       "paradigm": [

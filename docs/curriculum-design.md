@@ -64,8 +64,8 @@ declare `"paradigm": [cells…]` and each drill carries `"cell"`; the seeder
 **fails** if any cell has no drill, and warns below the density target of
 **2 drills per cell** (one frame per form invites memorizing the sentence
 instead of the form; two lets the rotation vary the frame within a cell).
-So the drill count is max(6, 2 × paradigm size) once topped up
-(es/tr/ru/el done 2026-07; fr/de/it/ca/ro/ar + African tiers in progress).
+So the drill count is max(6, 2 × paradigm size) — every tagged path meets
+it as of 2026-07, and the seeder enforces it as a hard gate.
 Rotation is **gap-hunting**, not uniform: unseen
 sentences come first (full paradigm exposure before any repeats), then the
 sentences the learner keeps missing (highest miss rate from

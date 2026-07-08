@@ -98,6 +98,78 @@
           "hint": "you — plural",
           "cell": "أنتم",
           "display_order": 8
+        },
+        {
+          "sentence": "{{answer}} من لبنان.",
+          "answer": "أنا",
+          "translation": "I am from Lebanon.",
+          "hint": "I",
+          "cell": "أنا",
+          "display_order": 9,
+          "transliteration": "___ min Lubnān."
+        },
+        {
+          "sentence": "{{answer}} طالب جديد.",
+          "answer": "أنت",
+          "translation": "You (m.) are a new student.",
+          "hint": "you — masculine",
+          "cell": "أنتَ",
+          "display_order": 10,
+          "transliteration": "___ ṭālib jadīd."
+        },
+        {
+          "sentence": "{{answer}} صديقتي.",
+          "answer": "أنتِ",
+          "translation": "You (f.) are my friend.",
+          "hint": "you — feminine",
+          "cell": "أنتِ",
+          "display_order": 11,
+          "transliteration": "___ ṣadīqatī."
+        },
+        {
+          "sentence": "{{answer}} مهندس.",
+          "answer": "هو",
+          "translation": "He is an engineer.",
+          "hint": "he",
+          "cell": "هو",
+          "display_order": 12,
+          "transliteration": "___ muhandis."
+        },
+        {
+          "sentence": "{{answer}} في البيت.",
+          "answer": "هي",
+          "translation": "She is at home.",
+          "hint": "she",
+          "cell": "هي",
+          "display_order": 13,
+          "transliteration": "___ fī al-bayt."
+        },
+        {
+          "sentence": "{{answer}} من المدينة.",
+          "answer": "نحن",
+          "translation": "We are from the city.",
+          "hint": "we",
+          "cell": "نحن",
+          "display_order": 14,
+          "transliteration": "___ min al-madīna."
+        },
+        {
+          "sentence": "هل {{answer}} طلاب؟",
+          "answer": "أنتم",
+          "translation": "Are you (pl.) students?",
+          "hint": "you — plural",
+          "cell": "أنتم",
+          "display_order": 15,
+          "transliteration": "hal ___ ṭullāb?"
+        },
+        {
+          "sentence": "{{answer}} في المدرسة.",
+          "answer": "هم",
+          "translation": "They are at school.",
+          "hint": "they",
+          "cell": "هم",
+          "display_order": 16,
+          "transliteration": "___ fī al-madrasa."
         }
       ],
       "paradigm": [
@@ -731,6 +803,42 @@
           "hint": "house + our",
           "cell": "نا",
           "display_order": 8
+        },
+        {
+          "sentence": "هل هذا {{answer}}؟",
+          "answer": "قلمك",
+          "translation": "Is this your (m.) pen?",
+          "hint": "pen + your (m.)",
+          "cell": "كَ",
+          "display_order": 9,
+          "transliteration": "hal hādhā ___?"
+        },
+        {
+          "sentence": "{{answer}} جميلة.",
+          "answer": "سيارته",
+          "translation": "His car is beautiful.",
+          "hint": "car + his",
+          "cell": "ه",
+          "display_order": 10,
+          "transliteration": "___ jamīla."
+        },
+        {
+          "sentence": "{{answer}} قريب من هنا.",
+          "answer": "بيتها",
+          "translation": "Her house is near here.",
+          "hint": "house + her",
+          "cell": "ها",
+          "display_order": 11,
+          "transliteration": "___ qarīb min hunā."
+        },
+        {
+          "sentence": "{{answer}} أمام البيت.",
+          "answer": "سيارتنا",
+          "translation": "Our car is in front of the house.",
+          "hint": "car + our",
+          "cell": "نا",
+          "display_order": 12,
+          "transliteration": "___ amāma al-bayt."
         }
       ],
       "paradigm": [
@@ -823,6 +931,51 @@
           "hint": "to drink, you (m.) — same form as 'she'",
           "cell": "أنتَ",
           "display_order": 7
+        },
+        {
+          "sentence": "أنتَ {{answer}} بسرعة.",
+          "answer": "تتكلم",
+          "translation": "You (m.) speak fast.",
+          "hint": "to speak + present, you (m.)",
+          "cell": "أنتَ",
+          "display_order": 8,
+          "transliteration": "anta ___ bi-surʿa."
+        },
+        {
+          "sentence": "هو {{answer}} القهوة في الصباح.",
+          "answer": "يشرب",
+          "translation": "He drinks coffee in the morning.",
+          "hint": "to drink + present, he",
+          "cell": "هو",
+          "display_order": 9,
+          "transliteration": "huwa ___ al-qahwa fī aṣ-ṣabāḥ."
+        },
+        {
+          "sentence": "هي {{answer}} في مستشفى.",
+          "answer": "تعمل",
+          "translation": "She works in a hospital.",
+          "hint": "to work + present, she",
+          "cell": "هي",
+          "display_order": 10,
+          "transliteration": "hiya ___ fī mustashfā."
+        },
+        {
+          "sentence": "نحن {{answer}} العربية.",
+          "answer": "نتعلم",
+          "translation": "We are learning Arabic.",
+          "hint": "to learn + present, we",
+          "cell": "نحن",
+          "display_order": 11,
+          "transliteration": "naḥnu ___ al-ʿarabiyya."
+        },
+        {
+          "sentence": "هم {{answer}} في السوق.",
+          "answer": "يعملون",
+          "translation": "They work at the market.",
+          "hint": "to work + present, they",
+          "cell": "هم",
+          "display_order": 12,
+          "transliteration": "hum ___ fī as-sūq."
         }
       ],
       "paradigm": [
@@ -907,6 +1060,33 @@
           "display_order": 6,
           "transliteration": "___ afhamu",
           "cell": "لا"
+        },
+        {
+          "sentence": "البيت {{answer}} كبيراً.",
+          "answer": "ليس",
+          "translation": "The house is not big.",
+          "hint": "negates a nominal sentence — masculine",
+          "cell": "ليس",
+          "display_order": 7,
+          "transliteration": "al-bayt ___ kabīran."
+        },
+        {
+          "sentence": "القهوة {{answer}} ساخنة.",
+          "answer": "ليست",
+          "translation": "The coffee is not hot.",
+          "hint": "negates a nominal sentence — feminine",
+          "cell": "ليست",
+          "display_order": 8,
+          "transliteration": "al-qahwa ___ sākhina."
+        },
+        {
+          "sentence": "{{answer}} متعباً اليوم.",
+          "answer": "لست",
+          "translation": "I am not tired today.",
+          "hint": "negates 'I am'",
+          "cell": "لست",
+          "display_order": 9,
+          "transliteration": "___ mutʿaban al-yawm."
         }
       ],
       "paradigm": [

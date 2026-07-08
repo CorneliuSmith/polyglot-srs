@@ -90,6 +90,70 @@
           "hint": "they — all female",
           "cell": "elles",
           "display_order": 8
+        },
+        {
+          "sentence": "{{answer}} parlo una mica de català.",
+          "answer": "Jo",
+          "translation": "I speak a little Catalan.",
+          "hint": "I",
+          "cell": "jo",
+          "display_order": 9
+        },
+        {
+          "sentence": "{{answer}} vius aquí a prop?",
+          "answer": "Tu",
+          "translation": "Do you live near here?",
+          "hint": "you — informal",
+          "cell": "tu",
+          "display_order": 10
+        },
+        {
+          "sentence": "{{answer}} treballa en un banc.",
+          "answer": "Ell",
+          "translation": "He works in a bank.",
+          "hint": "he",
+          "cell": "ell",
+          "display_order": 11
+        },
+        {
+          "sentence": "{{answer}} canta molt bé.",
+          "answer": "Ella",
+          "translation": "She sings very well.",
+          "hint": "she",
+          "cell": "ella",
+          "display_order": 12
+        },
+        {
+          "sentence": "{{answer}} vivim a Girona.",
+          "answer": "Nosaltres",
+          "translation": "We live in Girona.",
+          "hint": "we",
+          "cell": "nosaltres",
+          "display_order": 13
+        },
+        {
+          "sentence": "{{answer}} parleu anglès?",
+          "answer": "Vosaltres",
+          "translation": "Do you (all) speak English?",
+          "hint": "you all",
+          "cell": "vosaltres",
+          "display_order": 14
+        },
+        {
+          "sentence": "{{answer}} juguen a bàsquet.",
+          "answer": "Ells",
+          "translation": "They play basketball.",
+          "hint": "they (masculine)",
+          "cell": "ells",
+          "display_order": 15
+        },
+        {
+          "sentence": "{{answer}} arriben demà.",
+          "answer": "Elles",
+          "translation": "They (f.) arrive tomorrow.",
+          "hint": "they (feminine)",
+          "cell": "elles",
+          "display_order": 16
         }
       ],
       "paradigm": [
@@ -244,6 +308,22 @@
           "hint": "feminine plural",
           "display_order": 6,
           "cell": "les"
+        },
+        {
+          "sentence": "{{answer}} gats dormen al sofà.",
+          "answer": "Els",
+          "translation": "The cats sleep on the sofa.",
+          "hint": "the — masculine plural",
+          "cell": "els",
+          "display_order": 7
+        },
+        {
+          "sentence": "{{answer}} finestres són obertes.",
+          "answer": "Les",
+          "translation": "The windows are open.",
+          "hint": "the — feminine plural",
+          "cell": "les",
+          "display_order": 8
         }
       ],
       "paradigm": [
@@ -384,6 +464,54 @@
           "hint": "to be, they — with accent",
           "display_order": 6,
           "cell": "ells"
+        },
+        {
+          "sentence": "Jo {{answer}} de Tarragona.",
+          "answer": "soc",
+          "translation": "I am from Tarragona.",
+          "hint": "to be, I",
+          "cell": "jo",
+          "display_order": 7
+        },
+        {
+          "sentence": "Tu {{answer}} metge?",
+          "answer": "ets",
+          "translation": "Are you a doctor?",
+          "hint": "to be, you",
+          "cell": "tu",
+          "display_order": 8
+        },
+        {
+          "sentence": "El meu pare {{answer}} mestre.",
+          "answer": "és",
+          "translation": "My father is a teacher.",
+          "hint": "to be, he",
+          "cell": "ell",
+          "display_order": 9
+        },
+        {
+          "sentence": "Nosaltres {{answer}} germans.",
+          "answer": "som",
+          "translation": "We are brothers.",
+          "hint": "to be, we",
+          "cell": "nosaltres",
+          "display_order": 10
+        },
+        {
+          "sentence": "Vosaltres {{answer}} de Lleida?",
+          "answer": "sou",
+          "translation": "Are you (all) from Lleida?",
+          "hint": "to be, you all",
+          "cell": "vosaltres",
+          "display_order": 11
+        },
+        {
+          "sentence": "Els meus pares {{answer}} de València.",
+          "answer": "són",
+          "translation": "My parents are from Valencia.",
+          "hint": "to be, they",
+          "cell": "ells",
+          "display_order": 12
         }
       ],
       "paradigm": [
@@ -462,6 +590,54 @@
           "hint": "to have, they",
           "display_order": 6,
           "cell": "ells"
+        },
+        {
+          "sentence": "Jo {{answer}} dues germanes.",
+          "answer": "tinc",
+          "translation": "I have two sisters.",
+          "hint": "to have, I",
+          "cell": "jo",
+          "display_order": 7
+        },
+        {
+          "sentence": "Tu {{answer}} un bolígraf?",
+          "answer": "tens",
+          "translation": "Do you have a pen?",
+          "hint": "to have, you",
+          "cell": "tu",
+          "display_order": 8
+        },
+        {
+          "sentence": "El meu germà {{answer}} un gos.",
+          "answer": "té",
+          "translation": "My brother has a dog.",
+          "hint": "to have, he",
+          "cell": "ell",
+          "display_order": 9
+        },
+        {
+          "sentence": "Nosaltres {{answer}} temps avui.",
+          "answer": "tenim",
+          "translation": "We have time today.",
+          "hint": "to have, we",
+          "cell": "nosaltres",
+          "display_order": 10
+        },
+        {
+          "sentence": "Vosaltres {{answer}} fills?",
+          "answer": "teniu",
+          "translation": "Do you (all) have children?",
+          "hint": "to have, you all",
+          "cell": "vosaltres",
+          "display_order": 11
+        },
+        {
+          "sentence": "Ells {{answer}} una casa gran.",
+          "answer": "tenen",
+          "translation": "They have a big house.",
+          "hint": "to have, they",
+          "cell": "ells",
+          "display_order": 12
         }
       ],
       "paradigm": [
@@ -540,6 +716,54 @@
           "hint": "to buy, I",
           "display_order": 6,
           "cell": "jo"
+        },
+        {
+          "sentence": "Jo {{answer}} en un hospital.",
+          "answer": "treballo",
+          "translation": "I work in a hospital.",
+          "hint": "to work, I",
+          "cell": "jo",
+          "display_order": 7
+        },
+        {
+          "sentence": "Tu {{answer}} a quina hora?",
+          "answer": "arribes",
+          "translation": "What time do you arrive?",
+          "hint": "to arrive, you",
+          "cell": "tu",
+          "display_order": 8
+        },
+        {
+          "sentence": "Ell {{answer}} el sopar.",
+          "answer": "prepara",
+          "translation": "He prepares dinner.",
+          "hint": "to prepare, he",
+          "cell": "ell",
+          "display_order": 9
+        },
+        {
+          "sentence": "Nosaltres {{answer}} la ràdio.",
+          "answer": "escoltem",
+          "translation": "We listen to the radio.",
+          "hint": "to listen, we",
+          "cell": "nosaltres",
+          "display_order": 10
+        },
+        {
+          "sentence": "Vosaltres {{answer}} francès a l'escola?",
+          "answer": "estudieu",
+          "translation": "Do you (all) study French at school?",
+          "hint": "to study, you all",
+          "cell": "vosaltres",
+          "display_order": 11
+        },
+        {
+          "sentence": "Els nens {{answer}} al parc.",
+          "answer": "juguen",
+          "translation": "The children play in the park.",
+          "hint": "to play, they",
+          "cell": "ells",
+          "display_order": 12
         }
       ],
       "paradigm": [
@@ -626,6 +850,46 @@
           "hint": "to lose/miss, they",
           "cell": "ells",
           "display_order": 7
+        },
+        {
+          "sentence": "Tu {{answer}} el cafè?",
+          "answer": "prens",
+          "translation": "Are you having coffee?",
+          "hint": "to take, you",
+          "cell": "tu",
+          "display_order": 8
+        },
+        {
+          "sentence": "Ell {{answer}} fins tard.",
+          "answer": "dorm",
+          "translation": "He sleeps until late.",
+          "hint": "to sleep, he",
+          "cell": "ell",
+          "display_order": 9
+        },
+        {
+          "sentence": "Nosaltres {{answer}} el tren.",
+          "answer": "perdem",
+          "translation": "We are missing the train.",
+          "hint": "to lose/miss, we",
+          "cell": "nosaltres",
+          "display_order": 10
+        },
+        {
+          "sentence": "Vosaltres {{answer}} el diari?",
+          "answer": "llegiu",
+          "translation": "Do you (all) read the newspaper?",
+          "hint": "to read, you all",
+          "cell": "vosaltres",
+          "display_order": 11
+        },
+        {
+          "sentence": "Ells {{answer}} moltes cartes.",
+          "answer": "escriuen",
+          "translation": "They write many letters.",
+          "hint": "to write, they",
+          "cell": "ells",
+          "display_order": 12
         }
       ],
       "paradigm": [
@@ -894,6 +1158,38 @@
           "translation": "The film is interesting.",
           "hint": "interesting — masculine",
           "display_order": 6
+        },
+        {
+          "sentence": "El cel és {{answer}}.",
+          "answer": "blau",
+          "translation": "The sky is blue.",
+          "hint": "blue — masculine singular",
+          "cell": "m.sg",
+          "display_order": 7
+        },
+        {
+          "sentence": "La porta és {{answer}}.",
+          "answer": "oberta",
+          "translation": "The door is open.",
+          "hint": "open — feminine singular",
+          "cell": "f.sg",
+          "display_order": 8
+        },
+        {
+          "sentence": "Els plats són {{answer}}.",
+          "answer": "nets",
+          "translation": "The plates are clean.",
+          "hint": "clean — masculine plural",
+          "cell": "m.pl",
+          "display_order": 9
+        },
+        {
+          "sentence": "Les cases són {{answer}}.",
+          "answer": "petites",
+          "translation": "The houses are small.",
+          "hint": "small — feminine plural",
+          "cell": "f.pl",
+          "display_order": 10
         }
       ],
       "paradigm": [

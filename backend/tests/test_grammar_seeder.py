@@ -121,10 +121,27 @@ class TestGrammarTransform:
             "paradigm": ["yo", "tú"],
             "drills": [
                 {"sentence": "{{answer}} soy.", "answer": "Yo", "cell": "yo"},
+                {"sentence": "{{answer}} soy alto.", "answer": "Yo", "cell": "yo"},
                 {"sentence": "{{answer}} eres.", "answer": "Tú", "cell": "tú"},
+                {"sentence": "{{answer}} eres alto.", "answer": "Tú", "cell": "tú"},
             ],
         }])
-        assert [d["cell"] for d in data["points"][0]["drills"]] == ["yo", "tú"]
+        assert [d["cell"] for d in data["points"][0]["drills"]] == \
+            ["yo", "yo", "tú", "tú"]
+
+    def test_paradigm_thin_cell_fails_density_gate(self, tmp_path):
+        # One frame per form invites memorizing the sentence — 2 per cell
+        # is the floor.
+        with pytest.raises(ValueError, match="below 2 drills"):
+            self._transform(tmp_path, [{
+                "title": "Pronouns",
+                "paradigm": ["yo", "tú"],
+                "drills": [
+                    {"sentence": "{{answer}} soy.", "answer": "Yo", "cell": "yo"},
+                    {"sentence": "{{answer}} soy alto.", "answer": "Yo", "cell": "yo"},
+                    {"sentence": "{{answer}} eres.", "answer": "Tú", "cell": "tú"},
+                ],
+            }])
 
     def test_paradigm_uncovered_cell_fails_loudly(self, tmp_path):
         # A paradigm member with no drill is a member the learner never

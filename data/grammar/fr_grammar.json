@@ -90,6 +90,70 @@
           "hint": "they — all female",
           "cell": "elles",
           "display_order": 8
+        },
+        {
+          "sentence": "{{answer}} parle un peu français.",
+          "answer": "Je",
+          "translation": "I speak a little French.",
+          "hint": "I",
+          "cell": "je",
+          "display_order": 9
+        },
+        {
+          "sentence": "{{answer}} habites où ?",
+          "answer": "Tu",
+          "translation": "Where do you live?",
+          "hint": "you — informal",
+          "cell": "tu",
+          "display_order": 10
+        },
+        {
+          "sentence": "{{answer}} travaille dans une banque.",
+          "answer": "Il",
+          "translation": "He works in a bank.",
+          "hint": "he",
+          "cell": "il",
+          "display_order": 11
+        },
+        {
+          "sentence": "{{answer}} chante très bien.",
+          "answer": "Elle",
+          "translation": "She sings very well.",
+          "hint": "she",
+          "cell": "elle",
+          "display_order": 12
+        },
+        {
+          "sentence": "{{answer}} habitons à Lyon.",
+          "answer": "Nous",
+          "translation": "We live in Lyon.",
+          "hint": "we",
+          "cell": "nous",
+          "display_order": 13
+        },
+        {
+          "sentence": "{{answer}} parlez anglais ?",
+          "answer": "Vous",
+          "translation": "Do you speak English?",
+          "hint": "you — plural/formal",
+          "cell": "vous",
+          "display_order": 14
+        },
+        {
+          "sentence": "{{answer}} jouent au football.",
+          "answer": "Ils",
+          "translation": "They play football.",
+          "hint": "they (masculine)",
+          "cell": "ils",
+          "display_order": 15
+        },
+        {
+          "sentence": "{{answer}} arrivent demain.",
+          "answer": "Elles",
+          "translation": "They (f.) arrive tomorrow.",
+          "hint": "they (feminine)",
+          "cell": "elles",
+          "display_order": 16
         }
       ],
       "paradigm": [
@@ -384,6 +448,54 @@
           "hint": "to be, they",
           "display_order": 6,
           "cell": "ils"
+        },
+        {
+          "sentence": "Je {{answer}} de Marseille.",
+          "answer": "suis",
+          "translation": "I am from Marseille.",
+          "hint": "to be, I",
+          "cell": "je",
+          "display_order": 7
+        },
+        {
+          "sentence": "Tu {{answer}} médecin ?",
+          "answer": "es",
+          "translation": "Are you a doctor?",
+          "hint": "to be, you",
+          "cell": "tu",
+          "display_order": 8
+        },
+        {
+          "sentence": "Mon père {{answer}} professeur.",
+          "answer": "est",
+          "translation": "My father is a teacher.",
+          "hint": "to be, he",
+          "cell": "il",
+          "display_order": 9
+        },
+        {
+          "sentence": "Nous {{answer}} prêts.",
+          "answer": "sommes",
+          "translation": "We are ready.",
+          "hint": "to be, we",
+          "cell": "nous",
+          "display_order": 10
+        },
+        {
+          "sentence": "Vous {{answer}} très aimables.",
+          "answer": "êtes",
+          "translation": "You are very kind.",
+          "hint": "to be, you (plural)",
+          "cell": "vous",
+          "display_order": 11
+        },
+        {
+          "sentence": "Mes parents {{answer}} de Nice.",
+          "answer": "sont",
+          "translation": "My parents are from Nice.",
+          "hint": "to be, they",
+          "cell": "ils",
+          "display_order": 12
         }
       ],
       "paradigm": [
@@ -462,6 +574,54 @@
           "hint": "to have, they",
           "display_order": 6,
           "cell": "ils"
+        },
+        {
+          "sentence": "J'{{answer}} une petite question.",
+          "answer": "ai",
+          "translation": "I have a small question.",
+          "hint": "to have, I",
+          "cell": "je",
+          "display_order": 7
+        },
+        {
+          "sentence": "Tu {{answer}} un stylo ?",
+          "answer": "as",
+          "translation": "Do you have a pen?",
+          "hint": "to have, you",
+          "cell": "tu",
+          "display_order": 8
+        },
+        {
+          "sentence": "Mon frère {{answer}} un chien.",
+          "answer": "a",
+          "translation": "My brother has a dog.",
+          "hint": "to have, he",
+          "cell": "il",
+          "display_order": 9
+        },
+        {
+          "sentence": "Nous {{answer}} le temps.",
+          "answer": "avons",
+          "translation": "We have time.",
+          "hint": "to have, we",
+          "cell": "nous",
+          "display_order": 10
+        },
+        {
+          "sentence": "Vous {{answer}} des enfants ?",
+          "answer": "avez",
+          "translation": "Do you have children?",
+          "hint": "to have, you (plural)",
+          "cell": "vous",
+          "display_order": 11
+        },
+        {
+          "sentence": "Ils {{answer}} une grande maison.",
+          "answer": "ont",
+          "translation": "They have a big house.",
+          "hint": "to have, they",
+          "cell": "ils",
+          "display_order": 12
         }
       ],
       "paradigm": [
@@ -548,6 +708,46 @@
           "hint": "to speak, I",
           "cell": "je",
           "display_order": 7
+        },
+        {
+          "sentence": "Je {{answer}} dans un hôpital.",
+          "answer": "travaille",
+          "translation": "I work in a hospital.",
+          "hint": "to work, I",
+          "cell": "je",
+          "display_order": 8
+        },
+        {
+          "sentence": "Tu {{answer}} à quelle heure ?",
+          "answer": "arrives",
+          "translation": "What time do you arrive?",
+          "hint": "to arrive, you",
+          "cell": "tu",
+          "display_order": 9
+        },
+        {
+          "sentence": "Nous {{answer}} le dîner ensemble.",
+          "answer": "préparons",
+          "translation": "We prepare dinner together.",
+          "hint": "to prepare, we",
+          "cell": "nous",
+          "display_order": 10
+        },
+        {
+          "sentence": "Vous {{answer}} la radio ?",
+          "answer": "écoutez",
+          "translation": "Do you listen to the radio?",
+          "hint": "to listen, you (plural)",
+          "cell": "vous",
+          "display_order": 11
+        },
+        {
+          "sentence": "Mes amis {{answer}} l'espagnol.",
+          "answer": "étudient",
+          "translation": "My friends study Spanish.",
+          "hint": "to study, they",
+          "cell": "ils",
+          "display_order": 12
         }
       ],
       "paradigm": [
@@ -626,6 +826,54 @@
           "hint": "to choose, you (formal)",
           "display_order": 6,
           "cell": "vous"
+        },
+        {
+          "sentence": "Je {{answer}} le bus.",
+          "answer": "attends",
+          "translation": "I am waiting for the bus.",
+          "hint": "to wait, I",
+          "cell": "je",
+          "display_order": 7
+        },
+        {
+          "sentence": "Tu {{answer}} tes devoirs ?",
+          "answer": "finis",
+          "translation": "Are you finishing your homework?",
+          "hint": "to finish, you",
+          "cell": "tu",
+          "display_order": 8
+        },
+        {
+          "sentence": "Il {{answer}} sa voiture.",
+          "answer": "vend",
+          "translation": "He is selling his car.",
+          "hint": "to sell, he",
+          "cell": "il",
+          "display_order": 9
+        },
+        {
+          "sentence": "Nous {{answer}} nos légumes au marché.",
+          "answer": "vendons",
+          "translation": "We sell our vegetables at the market.",
+          "hint": "to sell, we",
+          "cell": "nous",
+          "display_order": 10
+        },
+        {
+          "sentence": "Vous {{answer}} le train ici ?",
+          "answer": "attendez",
+          "translation": "Are you waiting for the train here?",
+          "hint": "to wait, you (plural)",
+          "cell": "vous",
+          "display_order": 11
+        },
+        {
+          "sentence": "Ils {{answer}} un cadeau.",
+          "answer": "choisissent",
+          "translation": "They are choosing a gift.",
+          "hint": "to choose, they",
+          "cell": "ils",
+          "display_order": 12
         }
       ],
       "paradigm": [
@@ -896,6 +1144,22 @@
           "hint": "interesting — masculine",
           "display_order": 6,
           "cell": "m.sg"
+        },
+        {
+          "sentence": "Les murs sont {{answer}}.",
+          "answer": "blancs",
+          "translation": "The walls are white.",
+          "hint": "white — masculine plural",
+          "cell": "m.pl",
+          "display_order": 7
+        },
+        {
+          "sentence": "Les portes sont {{answer}}.",
+          "answer": "ouvertes",
+          "translation": "The doors are open.",
+          "hint": "open — feminine plural",
+          "cell": "f.pl",
+          "display_order": 8
         }
       ],
       "paradigm": [

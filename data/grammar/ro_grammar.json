@@ -90,6 +90,70 @@
           "hint": "they — all female",
           "cell": "ele",
           "display_order": 8
+        },
+        {
+          "sentence": "{{answer}} vorbesc puțină română.",
+          "answer": "Eu",
+          "translation": "I speak a little Romanian.",
+          "hint": "I",
+          "cell": "eu",
+          "display_order": 9
+        },
+        {
+          "sentence": "{{answer}} locuiești aici?",
+          "answer": "Tu",
+          "translation": "Do you live here?",
+          "hint": "you — informal",
+          "cell": "tu",
+          "display_order": 10
+        },
+        {
+          "sentence": "{{answer}} lucrează la o bancă.",
+          "answer": "El",
+          "translation": "He works at a bank.",
+          "hint": "he",
+          "cell": "el",
+          "display_order": 11
+        },
+        {
+          "sentence": "{{answer}} cântă foarte frumos.",
+          "answer": "Ea",
+          "translation": "She sings very beautifully.",
+          "hint": "she",
+          "cell": "ea",
+          "display_order": 12
+        },
+        {
+          "sentence": "{{answer}} locuim în Cluj.",
+          "answer": "Noi",
+          "translation": "We live in Cluj.",
+          "hint": "we",
+          "cell": "noi",
+          "display_order": 13
+        },
+        {
+          "sentence": "{{answer}} vorbiți engleză?",
+          "answer": "Voi",
+          "translation": "Do you (all) speak English?",
+          "hint": "you all",
+          "cell": "voi",
+          "display_order": 14
+        },
+        {
+          "sentence": "{{answer}} joacă fotbal.",
+          "answer": "Ei",
+          "translation": "They play football.",
+          "hint": "they (masculine)",
+          "cell": "ei",
+          "display_order": 15
+        },
+        {
+          "sentence": "{{answer}} sosesc mâine.",
+          "answer": "Ele",
+          "translation": "They (f.) arrive tomorrow.",
+          "hint": "they (feminine)",
+          "cell": "ele",
+          "display_order": 16
         }
       ],
       "paradigm": [
@@ -170,6 +234,14 @@
           "hint": "apple, plural — neuter",
           "display_order": 6,
           "cell": "neuter"
+        },
+        {
+          "sentence": "Doi {{answer}} cântă în parc.",
+          "answer": "copii",
+          "translation": "Two children are singing in the park.",
+          "hint": "child, plural — masculine",
+          "cell": "masculine",
+          "display_order": 7
         }
       ],
       "paradigm": [
@@ -383,6 +455,54 @@
           "hint": "to be, they",
           "display_order": 6,
           "cell": "ei"
+        },
+        {
+          "sentence": "Eu {{answer}} din Iași.",
+          "answer": "sunt",
+          "translation": "I am from Iași.",
+          "hint": "to be, I",
+          "cell": "eu",
+          "display_order": 7
+        },
+        {
+          "sentence": "Tu {{answer}} medic?",
+          "answer": "ești",
+          "translation": "Are you a doctor?",
+          "hint": "to be, you",
+          "cell": "tu",
+          "display_order": 8
+        },
+        {
+          "sentence": "Tatăl meu {{answer}} inginer.",
+          "answer": "este",
+          "translation": "My father is an engineer.",
+          "hint": "to be, he",
+          "cell": "el/ea",
+          "display_order": 9
+        },
+        {
+          "sentence": "Noi {{answer}} gata.",
+          "answer": "suntem",
+          "translation": "We are ready.",
+          "hint": "to be, we",
+          "cell": "noi",
+          "display_order": 10
+        },
+        {
+          "sentence": "Voi {{answer}} obosiți?",
+          "answer": "sunteți",
+          "translation": "Are you (all) tired?",
+          "hint": "to be, you all",
+          "cell": "voi",
+          "display_order": 11
+        },
+        {
+          "sentence": "Părinții mei {{answer}} din Brașov.",
+          "answer": "sunt",
+          "translation": "My parents are from Brașov.",
+          "hint": "to be, they",
+          "cell": "ei",
+          "display_order": 12
         }
       ],
       "paradigm": [
@@ -461,6 +581,54 @@
           "hint": "to have, they",
           "display_order": 6,
           "cell": "ei"
+        },
+        {
+          "sentence": "Eu {{answer}} două surori.",
+          "answer": "am",
+          "translation": "I have two sisters.",
+          "hint": "to have, I",
+          "cell": "eu",
+          "display_order": 7
+        },
+        {
+          "sentence": "Tu {{answer}} un stilou?",
+          "answer": "ai",
+          "translation": "Do you have a pen?",
+          "hint": "to have, you",
+          "cell": "tu",
+          "display_order": 8
+        },
+        {
+          "sentence": "Fratele meu {{answer}} un câine.",
+          "answer": "are",
+          "translation": "My brother has a dog.",
+          "hint": "to have, he",
+          "cell": "el/ea",
+          "display_order": 9
+        },
+        {
+          "sentence": "Noi {{answer}} o casă mică.",
+          "answer": "avem",
+          "translation": "We have a small house.",
+          "hint": "to have, we",
+          "cell": "noi",
+          "display_order": 10
+        },
+        {
+          "sentence": "Voi {{answer}} copii?",
+          "answer": "aveți",
+          "translation": "Do you (all) have children?",
+          "hint": "to have, you all",
+          "cell": "voi",
+          "display_order": 11
+        },
+        {
+          "sentence": "Ei {{answer}} mulți prieteni.",
+          "answer": "au",
+          "translation": "They have many friends.",
+          "hint": "to have, they",
+          "cell": "ei",
+          "display_order": 12
         }
       ],
       "paradigm": [
@@ -547,6 +715,46 @@
           "hint": "to work, we",
           "cell": "noi",
           "display_order": 7
+        },
+        {
+          "sentence": "Tu {{answer}} prea repede!",
+          "answer": "lucrezi",
+          "translation": "You work too fast!",
+          "hint": "to work, you",
+          "cell": "tu",
+          "display_order": 8
+        },
+        {
+          "sentence": "El {{answer}} muzică veche.",
+          "answer": "ascultă",
+          "translation": "He listens to old music.",
+          "hint": "to listen, he",
+          "cell": "el/ea",
+          "display_order": 9
+        },
+        {
+          "sentence": "Noi {{answer}} seara.",
+          "answer": "lucrăm",
+          "translation": "We work in the evening.",
+          "hint": "to work, we",
+          "cell": "noi",
+          "display_order": 10
+        },
+        {
+          "sentence": "Voi {{answer}} des aici?",
+          "answer": "intrați",
+          "translation": "Do you (all) come in here often?",
+          "hint": "to enter, you all",
+          "cell": "voi",
+          "display_order": 11
+        },
+        {
+          "sentence": "Ei {{answer}} tenis.",
+          "answer": "joacă",
+          "translation": "They play tennis.",
+          "hint": "to play, they",
+          "cell": "ei",
+          "display_order": 12
         }
       ],
       "paradigm": [
@@ -625,6 +833,54 @@
           "hint": "to see, you (plural)",
           "display_order": 6,
           "cell": "voi"
+        },
+        {
+          "sentence": "Eu {{answer}} un email.",
+          "answer": "scriu",
+          "translation": "I am writing an email.",
+          "hint": "to write, I",
+          "cell": "eu",
+          "display_order": 7
+        },
+        {
+          "sentence": "Tu {{answer}} cafea dimineața?",
+          "answer": "bei",
+          "translation": "Do you drink coffee in the morning?",
+          "hint": "to drink, you",
+          "cell": "tu",
+          "display_order": 8
+        },
+        {
+          "sentence": "Ea {{answer}} bine de aici.",
+          "answer": "vede",
+          "translation": "She sees well from here.",
+          "hint": "to see, she",
+          "cell": "el/ea",
+          "display_order": 9
+        },
+        {
+          "sentence": "Noi {{answer}} la piață.",
+          "answer": "mergem",
+          "translation": "We are going to the market.",
+          "hint": "to go, we",
+          "cell": "noi",
+          "display_order": 10
+        },
+        {
+          "sentence": "Voi {{answer}} până târziu?",
+          "answer": "dormiți",
+          "translation": "Do you (all) sleep late?",
+          "hint": "to sleep, you all",
+          "cell": "voi",
+          "display_order": 11
+        },
+        {
+          "sentence": "Ei {{answer}} ziarul.",
+          "answer": "citesc",
+          "translation": "They read the newspaper.",
+          "hint": "to read, they",
+          "cell": "ei",
+          "display_order": 12
         }
       ],
       "paradigm": [
@@ -895,6 +1151,22 @@
           "hint": "tall — masculine",
           "display_order": 6,
           "cell": "m.sg"
+        },
+        {
+          "sentence": "Pantofii sunt {{answer}}.",
+          "answer": "negri",
+          "translation": "The shoes are black.",
+          "hint": "black — masculine plural",
+          "cell": "m.pl",
+          "display_order": 7
+        },
+        {
+          "sentence": "Ferestrele sunt {{answer}}.",
+          "answer": "deschise",
+          "translation": "The windows are open.",
+          "hint": "open — feminine plural",
+          "cell": "f.pl",
+          "display_order": 8
         }
       ],
       "paradigm": [

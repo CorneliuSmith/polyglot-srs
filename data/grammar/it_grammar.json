@@ -82,6 +82,62 @@
           "hint": "you all",
           "cell": "voi",
           "display_order": 7
+        },
+        {
+          "sentence": "{{answer}} parlo un po' di italiano.",
+          "answer": "Io",
+          "translation": "I speak a little Italian.",
+          "hint": "I",
+          "cell": "io",
+          "display_order": 8
+        },
+        {
+          "sentence": "{{answer}} abiti qui vicino?",
+          "answer": "Tu",
+          "translation": "Do you live near here?",
+          "hint": "you — informal",
+          "cell": "tu",
+          "display_order": 9
+        },
+        {
+          "sentence": "{{answer}} lavora in banca.",
+          "answer": "Lui",
+          "translation": "He works in a bank.",
+          "hint": "he",
+          "cell": "lui",
+          "display_order": 10
+        },
+        {
+          "sentence": "{{answer}} canta molto bene.",
+          "answer": "Lei",
+          "translation": "She sings very well.",
+          "hint": "she",
+          "cell": "lei",
+          "display_order": 11
+        },
+        {
+          "sentence": "{{answer}} abitiamo a Milano.",
+          "answer": "Noi",
+          "translation": "We live in Milan.",
+          "hint": "we",
+          "cell": "noi",
+          "display_order": 12
+        },
+        {
+          "sentence": "{{answer}} parlate inglese?",
+          "answer": "Voi",
+          "translation": "Do you (all) speak English?",
+          "hint": "you all",
+          "cell": "voi",
+          "display_order": 13
+        },
+        {
+          "sentence": "{{answer}} giocano a tennis.",
+          "answer": "Loro",
+          "translation": "They play tennis.",
+          "hint": "they",
+          "cell": "loro",
+          "display_order": 14
         }
       ],
       "paradigm": [
@@ -243,6 +299,46 @@
           "hint": "masculine plural, before a vowel",
           "cell": "gli",
           "display_order": 7
+        },
+        {
+          "sentence": "{{answer}} studente è bravo.",
+          "answer": "Lo",
+          "translation": "The student is good.",
+          "hint": "the — before s+consonant/z",
+          "cell": "lo",
+          "display_order": 8
+        },
+        {
+          "sentence": "{{answer}} finestra è aperta.",
+          "answer": "La",
+          "translation": "The window is open.",
+          "hint": "the — feminine singular",
+          "cell": "la",
+          "display_order": 9
+        },
+        {
+          "sentence": "{{answer}} gatti dormono.",
+          "answer": "I",
+          "translation": "The cats are sleeping.",
+          "hint": "the — masculine plural",
+          "cell": "i",
+          "display_order": 10
+        },
+        {
+          "sentence": "{{answer}} studenti arrivano oggi.",
+          "answer": "Gli",
+          "translation": "The students arrive today.",
+          "hint": "the — masc. plural before vowel/s+cons",
+          "cell": "gli",
+          "display_order": 11
+        },
+        {
+          "sentence": "{{answer}} scarpe sono nuove.",
+          "answer": "Le",
+          "translation": "The shoes are new.",
+          "hint": "the — feminine plural",
+          "cell": "le",
+          "display_order": 12
         }
       ],
       "paradigm": [
@@ -385,6 +481,54 @@
           "hint": "to be, they",
           "display_order": 6,
           "cell": "loro"
+        },
+        {
+          "sentence": "Io {{answer}} di Napoli.",
+          "answer": "sono",
+          "translation": "I am from Naples.",
+          "hint": "to be, I",
+          "cell": "io",
+          "display_order": 7
+        },
+        {
+          "sentence": "Tu {{answer}} medico?",
+          "answer": "sei",
+          "translation": "Are you a doctor?",
+          "hint": "to be, you",
+          "cell": "tu",
+          "display_order": 8
+        },
+        {
+          "sentence": "Mio padre {{answer}} ingegnere.",
+          "answer": "è",
+          "translation": "My father is an engineer.",
+          "hint": "to be, he",
+          "cell": "lui/lei",
+          "display_order": 9
+        },
+        {
+          "sentence": "Noi {{answer}} pronti.",
+          "answer": "siamo",
+          "translation": "We are ready.",
+          "hint": "to be, we",
+          "cell": "noi",
+          "display_order": 10
+        },
+        {
+          "sentence": "Voi {{answer}} molto gentili.",
+          "answer": "siete",
+          "translation": "You (all) are very kind.",
+          "hint": "to be, you all",
+          "cell": "voi",
+          "display_order": 11
+        },
+        {
+          "sentence": "I miei genitori {{answer}} di Torino.",
+          "answer": "sono",
+          "translation": "My parents are from Turin.",
+          "hint": "to be, they",
+          "cell": "loro",
+          "display_order": 12
         }
       ],
       "paradigm": [
@@ -463,6 +607,54 @@
           "hint": "to have, they",
           "display_order": 6,
           "cell": "loro"
+        },
+        {
+          "sentence": "Io {{answer}} due sorelle.",
+          "answer": "ho",
+          "translation": "I have two sisters.",
+          "hint": "to have, I",
+          "cell": "io",
+          "display_order": 7
+        },
+        {
+          "sentence": "Tu {{answer}} una penna?",
+          "answer": "hai",
+          "translation": "Do you have a pen?",
+          "hint": "to have, you",
+          "cell": "tu",
+          "display_order": 8
+        },
+        {
+          "sentence": "Mio fratello {{answer}} un cane.",
+          "answer": "ha",
+          "translation": "My brother has a dog.",
+          "hint": "to have, he",
+          "cell": "lui/lei",
+          "display_order": 9
+        },
+        {
+          "sentence": "Noi {{answer}} tempo oggi.",
+          "answer": "abbiamo",
+          "translation": "We have time today.",
+          "hint": "to have, we",
+          "cell": "noi",
+          "display_order": 10
+        },
+        {
+          "sentence": "Voi {{answer}} figli?",
+          "answer": "avete",
+          "translation": "Do you (all) have children?",
+          "hint": "to have, you all",
+          "cell": "voi",
+          "display_order": 11
+        },
+        {
+          "sentence": "Loro {{answer}} una casa grande.",
+          "answer": "hanno",
+          "translation": "They have a big house.",
+          "hint": "to have, they",
+          "cell": "loro",
+          "display_order": 12
         }
       ],
       "paradigm": [
@@ -541,6 +733,54 @@
           "hint": "to buy, I",
           "display_order": 6,
           "cell": "io"
+        },
+        {
+          "sentence": "Io {{answer}} in ospedale.",
+          "answer": "lavoro",
+          "translation": "I work in a hospital.",
+          "hint": "to work, I",
+          "cell": "io",
+          "display_order": 7
+        },
+        {
+          "sentence": "Tu {{answer}} a che ora?",
+          "answer": "arrivi",
+          "translation": "What time do you arrive?",
+          "hint": "to arrive, you",
+          "cell": "tu",
+          "display_order": 8
+        },
+        {
+          "sentence": "Lui {{answer}} la cena.",
+          "answer": "prepara",
+          "translation": "He prepares dinner.",
+          "hint": "to prepare, he",
+          "cell": "lui/lei",
+          "display_order": 9
+        },
+        {
+          "sentence": "Noi {{answer}} la radio.",
+          "answer": "ascoltiamo",
+          "translation": "We listen to the radio.",
+          "hint": "to listen, we",
+          "cell": "noi",
+          "display_order": 10
+        },
+        {
+          "sentence": "Voi {{answer}} lo spagnolo?",
+          "answer": "studiate",
+          "translation": "Do you (all) study Spanish?",
+          "hint": "to study, you all",
+          "cell": "voi",
+          "display_order": 11
+        },
+        {
+          "sentence": "I bambini {{answer}} in giardino.",
+          "answer": "giocano",
+          "translation": "The children play in the garden.",
+          "hint": "to play, they",
+          "cell": "loro",
+          "display_order": 12
         }
       ],
       "paradigm": [
@@ -619,6 +859,54 @@
           "hint": "to prefer, you (plural)",
           "display_order": 6,
           "cell": "voi"
+        },
+        {
+          "sentence": "Io {{answer}} molte lettere.",
+          "answer": "scrivo",
+          "translation": "I write many letters.",
+          "hint": "to write, I",
+          "cell": "io",
+          "display_order": 7
+        },
+        {
+          "sentence": "Tu {{answer}} il caffè?",
+          "answer": "prendi",
+          "translation": "Are you having coffee?",
+          "hint": "to take, you",
+          "cell": "tu",
+          "display_order": 8
+        },
+        {
+          "sentence": "Lei {{answer}} fino a tardi.",
+          "answer": "dorme",
+          "translation": "She sleeps until late.",
+          "hint": "to sleep, she",
+          "cell": "lui/lei",
+          "display_order": 9
+        },
+        {
+          "sentence": "Noi {{answer}} il lavoro alle cinque.",
+          "answer": "finiamo",
+          "translation": "We finish work at five.",
+          "hint": "to finish, we",
+          "cell": "noi",
+          "display_order": 10
+        },
+        {
+          "sentence": "Voi {{answer}} il rumore?",
+          "answer": "sentite",
+          "translation": "Do you (all) hear the noise?",
+          "hint": "to hear, you all",
+          "cell": "voi",
+          "display_order": 11
+        },
+        {
+          "sentence": "Loro {{answer}} il giornale.",
+          "answer": "leggono",
+          "translation": "They read the newspaper.",
+          "hint": "to read, they",
+          "cell": "loro",
+          "display_order": 12
         }
       ],
       "paradigm": [
@@ -887,6 +1175,38 @@
           "translation": "The film is interesting.",
           "hint": "interesting — -e type",
           "display_order": 6
+        },
+        {
+          "sentence": "Il vino è {{answer}}.",
+          "answer": "rosso",
+          "translation": "The wine is red.",
+          "hint": "red — masculine singular",
+          "cell": "m.sg",
+          "display_order": 7
+        },
+        {
+          "sentence": "La porta è {{answer}}.",
+          "answer": "aperta",
+          "translation": "The door is open.",
+          "hint": "open — feminine singular",
+          "cell": "f.sg",
+          "display_order": 8
+        },
+        {
+          "sentence": "I fiori sono {{answer}}.",
+          "answer": "gialli",
+          "translation": "The flowers are yellow.",
+          "hint": "yellow — masculine plural",
+          "cell": "m.pl",
+          "display_order": 9
+        },
+        {
+          "sentence": "Le case sono {{answer}}.",
+          "answer": "piccole",
+          "translation": "The houses are small.",
+          "hint": "small — feminine plural",
+          "cell": "f.pl",
+          "display_order": 10
         }
       ],
       "paradigm": [

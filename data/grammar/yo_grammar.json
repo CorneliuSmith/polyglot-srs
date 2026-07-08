@@ -1607,6 +1607,54 @@
           "hint": "why (pairs with tí)",
           "cell": "èéṣe",
           "display_order": 6
+        },
+        {
+          "sentence": "{{answer}} ni olùkọ́ yín?",
+          "answer": "Ta",
+          "translation": "Who is your (pl.) teacher?",
+          "hint": "who — pairs with focus ni",
+          "cell": "ta",
+          "display_order": 7
+        },
+        {
+          "sentence": "{{answer}} ni wọ́n ti ń ṣiṣẹ́?",
+          "answer": "Níbo",
+          "translation": "Where do they work?",
+          "hint": "where",
+          "cell": "níbo",
+          "display_order": 8
+        },
+        {
+          "sentence": "{{answer}} ni iṣẹ́ ń lọ?",
+          "answer": "Báwo",
+          "translation": "How is work going?",
+          "hint": "how",
+          "cell": "báwo",
+          "display_order": 9
+        },
+        {
+          "sentence": "{{answer}} ni bàtà yìí?",
+          "answer": "Èló",
+          "translation": "How much are these shoes?",
+          "hint": "how much (price)",
+          "cell": "èló",
+          "display_order": 10
+        },
+        {
+          "sentence": "Nígbà {{answer}} ni ẹ máa dé?",
+          "answer": "wo",
+          "translation": "When will you (pl.) arrive?",
+          "hint": "completes 'when' (which time)",
+          "cell": "nígbà wo",
+          "display_order": 11
+        },
+        {
+          "sentence": "{{answer}} tí kò fi wá?",
+          "answer": "Èéṣe",
+          "translation": "Why didn't he come?",
+          "hint": "why (pairs with tí)",
+          "cell": "èéṣe",
+          "display_order": 12
         }
       ],
       "paradigm": [

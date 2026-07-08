@@ -1419,6 +1419,38 @@
           "hint": "here",
           "cell": "nan",
           "display_order": 6
+        },
+        {
+          "sentence": "{{answer}} gida na malam ne.",
+          "answer": "Wancan",
+          "translation": "That house belongs to the teacher.",
+          "hint": "that — masculine",
+          "cell": "wancan",
+          "display_order": 7
+        },
+        {
+          "sentence": "{{answer}} riga sabuwa ce.",
+          "answer": "Waccan",
+          "translation": "That gown is new.",
+          "hint": "that — feminine",
+          "cell": "waccan",
+          "display_order": 8
+        },
+        {
+          "sentence": "{{answer}} yara suna wasa.",
+          "answer": "Waɗannan",
+          "translation": "These children are playing.",
+          "hint": "these",
+          "cell": "waɗannan",
+          "display_order": 9
+        },
+        {
+          "sentence": "Ka zauna {{answer}}.",
+          "answer": "nan",
+          "translation": "Sit here.",
+          "hint": "here",
+          "cell": "nan",
+          "display_order": 10
         }
       ],
       "paradigm": [
@@ -1624,6 +1656,54 @@
           "hint": "she + relative completive",
           "cell": "3sg.f",
           "display_order": 6
+        },
+        {
+          "sentence": "Aikin da {{answer}} yi yana da kyau.",
+          "answer": "muka",
+          "translation": "The work we did is good.",
+          "hint": "we + relative completive",
+          "cell": "1pl",
+          "display_order": 7
+        },
+        {
+          "sentence": "Kayan da {{answer}} kawo suna nan.",
+          "answer": "kuka",
+          "translation": "The goods you (pl.) brought are here.",
+          "hint": "you (plural) + relative completive",
+          "cell": "2pl",
+          "display_order": 8
+        },
+        {
+          "sentence": "Yaran da {{answer}} zo suna wasa.",
+          "answer": "suka",
+          "translation": "The children who came are playing.",
+          "hint": "they + relative completive",
+          "cell": "3pl",
+          "display_order": 9
+        },
+        {
+          "sentence": "Waƙar da {{answer}} rera jiya ta shahara.",
+          "answer": "aka",
+          "translation": "The song that was sung yesterday became famous.",
+          "hint": "impersonal + relative completive",
+          "cell": "impersonal",
+          "display_order": 10
+        },
+        {
+          "sentence": "Littafin da {{answer}} rubuta yana da kyau.",
+          "answer": "ya",
+          "translation": "The book he wrote is good.",
+          "hint": "he + relative completive",
+          "cell": "3sg.m",
+          "display_order": 11
+        },
+        {
+          "sentence": "Rigar da {{answer}} saya sabuwa ce.",
+          "answer": "ta",
+          "translation": "The gown she bought is new.",
+          "hint": "she + relative completive",
+          "cell": "3sg.f",
+          "display_order": 12
         }
       ],
       "paradigm": [
@@ -2214,6 +2294,38 @@
           "hint": "to/for them",
           "cell": "3pl",
           "display_order": 6
+        },
+        {
+          "sentence": "Zan aika {{answer}} hoto.",
+          "answer": "maka",
+          "translation": "I will send you a photo.",
+          "hint": "to/for you (m.)",
+          "cell": "2sg",
+          "display_order": 7
+        },
+        {
+          "sentence": "Mun kawo {{answer}} littafi.",
+          "answer": "masa",
+          "translation": "We brought him a book.",
+          "hint": "to/for him",
+          "cell": "3sg.m",
+          "display_order": 8
+        },
+        {
+          "sentence": "Ya saya {{answer}} riga.",
+          "answer": "mata",
+          "translation": "He bought her a gown.",
+          "hint": "to/for her",
+          "cell": "3sg.f",
+          "display_order": 9
+        },
+        {
+          "sentence": "Na rubuta {{answer}} wasiƙa.",
+          "answer": "musu",
+          "translation": "I wrote them a letter.",
+          "hint": "to/for them",
+          "cell": "3pl",
+          "display_order": 10
         }
       ],
       "paradigm": [
