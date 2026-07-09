@@ -1,6 +1,7 @@
 import { describe, it, expect, vi, beforeEach } from 'vitest'
 import { render, screen, fireEvent, waitFor } from '@testing-library/react'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
+import { MemoryRouter } from 'react-router-dom'
 import ReviewDetail from '../features/review/ReviewDetail'
 
 vi.mock('../api/review', () => ({
@@ -22,7 +23,9 @@ function renderDetail(props: { cardType: 'grammar' | 'vocabulary' }) {
   })
   return render(
     <QueryClientProvider client={queryClient}>
-      <ReviewDetail cardId="card-1" cardType={props.cardType} languageCode="tr" />
+      <MemoryRouter>
+        <ReviewDetail cardId="card-1" cardType={props.cardType} languageCode="tr" />
+      </MemoryRouter>
     </QueryClientProvider>,
   )
 }

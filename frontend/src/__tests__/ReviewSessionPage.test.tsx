@@ -8,6 +8,7 @@ import type { DueCard, ValidateAnswerResponse, SubmitReviewResponse } from '../a
 // Mock the API modules
 vi.mock('../api/review', () => ({
   getDueCards: vi.fn(),
+  getCramCards: vi.fn(),
   validateAnswer: vi.fn(),
   submitReview: vi.fn(),
 }))
@@ -17,10 +18,11 @@ vi.mock('../stores/prefsStore', () => ({
   usePrefsStore: vi.fn(() => 'lang-123'),
 }))
 
-import { getDueCards, validateAnswer, submitReview } from '../api/review'
+import { getCramCards, getDueCards, validateAnswer, submitReview } from '../api/review'
 import { usePrefsStore } from '../stores/prefsStore'
 
 const mockGetDueCards = getDueCards as ReturnType<typeof vi.fn>
+const mockGetCramCards = getCramCards as ReturnType<typeof vi.fn>
 const mockValidateAnswer = validateAnswer as ReturnType<typeof vi.fn>
 const mockSubmitReview = submitReview as ReturnType<typeof vi.fn>
 const mockUsePrefsStore = usePrefsStore as unknown as ReturnType<typeof vi.fn>
@@ -239,6 +241,66 @@ describe('ReviewSessionPage', () => {
     await waitFor(() => {
       expect(screen.getByTestId('accuracy')).toBeDefined()
       expect(screen.getByTestId('cards-reviewed')).toBeDefined()
+    })
+  })
+})
+
+describe('ReviewSessionPage — Quick Cram (WP13f)', () => {
+  const cramCard: DueCard = {
+    ...testCard,
+    id: 'cram-grammar-abc-0',
+  }
+
+  function renderCram() {
+    const queryClient = new QueryClient({
+      defaultOptions: { queries: { retry: false }, mutations: { retry: false } },
+    })
+    return render(
+      <QueryClientProvider client={queryClient}>
+        <MemoryRouter initialEntries={['/cram?points=p1,p2']}>
+          <ReviewSessionPage cram />
+        </MemoryRouter>
+      </QueryClientProvider>,
+    )
+  }
+
+  beforeEach(() => {
+    vi.clearAllMocks()
+    mockUsePrefsStore.mockImplementation(
+      (selector: (s: { activeLanguageId: string }) => unknown) =>
+        selector({ activeLanguageId: 'lang-123' }),
+    )
+    mockGetCramCards.mockResolvedValue([cramCard])
+    mockValidateAnswer.mockResolvedValue(mockValidateResponse)
+    mockSubmitReview.mockResolvedValue(mockSubmitResponse)
+  })
+
+  it('drills the requested points and NEVER submits a review', async () => {
+    renderCram()
+    await waitFor(() => screen.getByRole('textbox'))
+    expect(mockGetCramCards).toHaveBeenCalledWith(['p1', 'p2'])
+    expect(mockGetDueCards).not.toHaveBeenCalled()
+    expect(screen.getByText(/quick cram · not recorded/i)).toBeDefined()
+
+    const input = screen.getByRole('textbox')
+    fireEvent.change(input, { target: { value: 'goes' } })
+    fireEvent.keyDown(input, { key: 'Enter' })
+    await waitFor(() => screen.getByTestId('feedback-panel'))
+    fireEvent.click(screen.getByRole('button', { name: /continue/i }))
+
+    // Summary reached, and the whole session stayed off the books.
+    await waitFor(() => {
+      expect(screen.getByText('Session Complete')).toBeDefined()
+    })
+    expect(screen.getByText(/nothing was recorded/i)).toBeDefined()
+    expect(mockSubmitReview).not.toHaveBeenCalled()
+  })
+
+  it('shows the cram-specific empty state when the points have no drills', async () => {
+    mockGetCramCards.mockResolvedValue([])
+    renderCram()
+    await waitFor(() => {
+      expect(screen.getByText(/nothing to cram/i)).toBeDefined()
     })
   })
 })

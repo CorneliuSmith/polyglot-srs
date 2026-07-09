@@ -118,14 +118,24 @@ export default function DashboardPage() {
         {/* Header */}
         <div className="flex items-center justify-between">
           <h1 className="text-2xl font-bold text-gray-900">Dashboard</h1>
-          <button
-            type="button"
-            onClick={() => navigate('/settings')}
-            aria-label="Settings"
-            className="text-sm text-gray-500 hover:text-indigo-600"
-          >
-            Settings
-          </button>
+          <div className="flex items-center gap-4">
+            <button
+              type="button"
+              onClick={() => navigate('/search')}
+              aria-label="Search"
+              className="text-sm text-gray-500 hover:text-indigo-600"
+            >
+              Search
+            </button>
+            <button
+              type="button"
+              onClick={() => navigate('/settings')}
+              aria-label="Settings"
+              className="text-sm text-gray-500 hover:text-indigo-600"
+            >
+              Settings
+            </button>
+          </div>
         </div>
 
         {/* Language picker */}

@@ -1,2 +1,44 @@
 @import url("https://fonts.googleapis.com/css2?family=Noto+Naskh+Arabic:wght@400;500;600;700&display=swap");
 @import "tailwindcss";
+
+/* ── Dark theme (WP13h) ────────────────────────────────────────────────────
+   Tailwind v4 utilities read their colors from CSS variables, so remapping
+   the gray ramp under `.dark` flips every gray background, text, and border
+   utility in the app at once — no per-component dark: variants. The ramp is
+   inverted (gray-50 = page background = darkest; gray-900 = strongest text =
+   lightest). Colored accent tints (indigo-50 chips, amber badges, …) are
+   deliberately left light: they read as highlighted callouts on dark.
+
+   NOTE: never write a utility glob with a star-slash inside this comment —
+   it terminates the comment early and the parser silently eats the next
+   rule (that exact bug shipped once).
+
+   --color-white is NOT remapped — buttons rely on text-white — so the card
+   surface gets an explicit .bg-white override instead. */
+.dark {
+  color-scheme: dark;
+  --color-gray-50: #111623;
+  --color-gray-100: #232b3b;
+  --color-gray-200: #2f3a4e;
+  --color-gray-300: #46526b;
+  --color-gray-400: #7f8ba3;
+  --color-gray-500: #97a3ba;
+  --color-gray-600: #b4bfd3;
+  --color-gray-700: #cbd4e4;
+  --color-gray-800: #dde4f0;
+  --color-gray-900: #eef2f9;
+}
+
+.dark .bg-white {
+  background-color: #1a2130;
+}
+
+/* Indigo TEXT (links, inline actions) needs a lighter shade on dark for
+   contrast — scoped to the text utilities so bg-indigo-600 buttons keep
+   their brand color. */
+.dark .text-indigo-600 {
+  color: #97a1f8;
+}
+.dark .hover\:text-indigo-600:hover {
+  color: #b3bafa;
+}

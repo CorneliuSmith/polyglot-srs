@@ -1,5 +1,5 @@
-import { useState } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { useEffect, useState } from 'react'
+import { useNavigate, useSearchParams } from 'react-router-dom'
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query'
 import { getLanguages } from '../../api/profile'
 import { getCurriculum, getCurriculumPoint, learnPoint } from '../../api/curriculum'
@@ -21,8 +21,20 @@ const LEVEL_ORDER = ['A1', 'A2', 'B1', 'B2', 'C1', 'C2']
 export default function GrammarPathPage() {
   const navigate = useNavigate()
   const queryClient = useQueryClient()
+  const [searchParams] = useSearchParams()
   const activeLanguageId = usePrefsStore((s) => s.activeLanguageId)
-  const [openPointId, setOpenPointId] = useState<string | null>(null)
+  // Deep link from search (WP13g): /grammar?point=<id> opens that point.
+  const [openPointId, setOpenPointId] = useState<string | null>(
+    searchParams.get('point'),
+  )
+
+  useEffect(() => {
+    if (!openPointId) return
+    // Scroll the deep-linked (or Related-grid-opened) point into view once
+    // the list has rendered it.
+    const el = document.getElementById(`point-${openPointId}`)
+    el?.scrollIntoView?.({ block: 'center' })
+  }, [openPointId])
 
   const { data: languages = [] } = useQuery({ queryKey: ['languages'], queryFn: getLanguages })
   const language = languages.find((l) => l.id === activeLanguageId)
@@ -102,7 +114,11 @@ export default function GrammarPathPage() {
             </h2>
             <ol className="space-y-2">
               {byLevel.get(level)!.map((point, i) => (
-                <li key={point.id} className="bg-white rounded-xl shadow-sm border border-gray-100">
+                <li
+                  key={point.id}
+                  id={`point-${point.id}`}
+                  className="bg-white rounded-xl shadow-sm border border-gray-100"
+                >
                   <button
                     type="button"
                     onClick={() =>
@@ -171,10 +187,26 @@ export default function GrammarPathPage() {
                         </div>
                       )}
                       {!!detail.related?.length && (
-                        <RelatedGrid
-                          related={detail.related}
-                          onOpen={(id) => setOpenPointId(id)}
-                        />
+                        <>
+                          <RelatedGrid
+                            related={detail.related}
+                            onOpen={(id) => setOpenPointId(id)}
+                          />
+                          <button
+                            type="button"
+                            onClick={() =>
+                              navigate(
+                                `/cram?points=${[
+                                  detail.id,
+                                  ...detail.related!.map((r) => r.id),
+                                ].join(',')}`,
+                              )
+                            }
+                            className="text-sm text-indigo-600 hover:underline"
+                          >
+                            ⚡ Quick cram this + related (nothing recorded)
+                          </button>
+                        </>
                       )}
                       {detail.references.length > 0 && (
                         <ResourceList

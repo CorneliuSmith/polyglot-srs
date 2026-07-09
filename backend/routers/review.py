@@ -14,6 +14,7 @@ from backend.repositories.cards import (
     confirm_learn_batch,
     get_card_detail,
     get_card_details_bulk,
+    get_cram_cards,
     get_due_cards,
     get_learn_decks,
     update_card_srs,
@@ -81,6 +82,40 @@ async def get_due(
     async with rls_connection(user["id"]) as conn:
         cards = await get_due_cards(conn, language_id)
     return cards
+
+
+MAX_CRAM_POINTS = 12
+
+
+@router.get("/cram")
+async def cram(
+    point_ids: str,
+    user: dict = Depends(get_current_user),
+):
+    """Quick-Cram (WP13f): ungraded practice cards for a set of grammar points.
+
+    *point_ids* is a comma-separated list (an item plus its Related set).
+    Nothing here touches SRS state — the cards carry synthetic ids the
+    submit endpoint would reject, and the client never calls it in cram mode.
+    """
+    import uuid as _uuid
+
+    ids = [p.strip() for p in point_ids.split(",") if p.strip()]
+    if not ids or len(ids) > MAX_CRAM_POINTS:
+        raise HTTPException(
+            status_code=status.HTTP_422_UNPROCESSABLE_ENTITY,
+            detail=f"point_ids must list 1–{MAX_CRAM_POINTS} grammar points",
+        )
+    try:
+        for p in ids:
+            _uuid.UUID(p)
+    except ValueError:
+        raise HTTPException(
+            status_code=status.HTTP_422_UNPROCESSABLE_ENTITY,
+            detail="point_ids must be UUIDs",
+        ) from None
+    async with rls_connection(user["id"]) as conn:
+        return await get_cram_cards(conn, ids)
 
 
 @router.get("/card/{card_id}/detail")

@@ -1,9 +1,15 @@
 import { create } from 'zustand'
 import { persist } from 'zustand/middleware'
 
+export type Theme = 'system' | 'light' | 'dark'
+
 interface PrefsState {
   activeLanguageId: string | null
   setActiveLanguageId: (id: string) => void
+  // Theme switcher (WP13h): 'system' follows the OS. Applied by ThemeApplier
+  // (and pre-applied by the inline script in index.html to avoid a flash).
+  theme: Theme
+  setTheme: (theme: Theme) => void
   // Hint disclosure level during reviews (0 = nothing revealed). Persisted:
   // the level the learner chose last time carries over to the next card and
   // the next session, instead of resetting to hidden every card.
@@ -21,6 +27,8 @@ export const usePrefsStore = create<PrefsState>()(
     (set) => ({
       activeLanguageId: null,
       setActiveLanguageId: (id) => set({ activeLanguageId: id }),
+      theme: 'system' as Theme,
+      setTheme: (theme) => set({ theme }),
       hintLevel: 0,
       setHintLevel: (level) => set({ hintLevel: level }),
       qwertyTranslit: {},

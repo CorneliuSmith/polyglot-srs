@@ -17,7 +17,9 @@ import OnboardingPage from './features/onboarding/OnboardingPage'
 import SettingsPage from './features/settings/SettingsPage'
 import GrammarPathPage from './features/curriculum/GrammarPathPage'
 import ContributorPage from './features/contribute/ContributorPage'
+import SearchPage from './features/search/SearchPage'
 import ProtectedRoute from './components/ProtectedRoute'
+import ThemeApplier from './components/ThemeApplier'
 
 const queryClient = new QueryClient()
 
@@ -39,6 +41,8 @@ const router = createBrowserRouter([
       { path: '/settings', element: <SettingsPage /> },
       { path: '/grammar', element: <GrammarPathPage /> },
       { path: '/review', element: <ReviewSessionPage /> },
+      { path: '/cram', element: <ReviewSessionPage cram /> },
+      { path: '/search', element: <SearchPage /> },
       { path: '/learn', element: <LearnPage /> },
       { path: '/tutor', element: <TutorPage /> },
       { path: '/notes', element: <NotesPage /> },
@@ -70,7 +74,12 @@ function AppInner() {
     }
   }, [setSession, setLoading])
 
-  return <RouterProvider router={router} />
+  return (
+    <>
+      <ThemeApplier />
+      <RouterProvider router={router} />
+    </>
+  )
 }
 
 export default function App() {

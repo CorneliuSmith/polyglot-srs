@@ -1057,3 +1057,69 @@ async def test_tutor_usage_kinds_and_cost_aggregation(pool):
     summary = rollup[("claude-sonnet-4-6", "summary")]
     assert summary["messages"] == 1
     assert summary["cache_read_tokens"] == 0  # NULL columns sum to 0
+
+
+async def test_cram_and_search_respect_review_policy(pool):
+    """WP13(f,g): cram cards and search hits only surface visible grammar
+    (reviewed, or AI-passed under an 'ai_ok' policy), and search marks
+    what's already in the caller's reviews."""
+    from backend.repositories.cards import get_cram_cards
+    from backend.repositories.curriculum import search_content
+
+    lang = await _language(pool, "wp13fg")
+    user = await _new_user(pool, "crammer@wp13")
+
+    async with pool.privileged_connection() as conn:
+        approved = str(await conn.fetchval(
+            "INSERT INTO grammar_points (language_id, title, reviewed, level) "
+            "VALUES ($1, 'Locative case', true, 'A1') RETURNING id", lang,
+        ))
+        draft = str(await conn.fetchval(
+            "INSERT INTO grammar_points (language_id, title, reviewed, level) "
+            "VALUES ($1, 'Locative draft', false, 'A1') RETURNING id", lang,
+        ))
+        for i in range(5):
+            await conn.execute(
+                "INSERT INTO drill_sentences (grammar_point_id, sentence, answer, "
+                "translation, display_order) VALUES ($1, $2, 'de', 'at home', $3)",
+                approved, f"Ev{{{{answer}}}} kal {i}.", i,
+            )
+        await conn.execute(
+            "INSERT INTO drill_sentences (grammar_point_id, sentence, answer, display_order) "
+            "VALUES ($1, 'Draft {{answer}}.', 'x', 0)", draft,
+        )
+        word = str(await conn.fetchval(
+            "INSERT INTO vocabulary (language_id, word, level) "
+            "VALUES ($1, 'evde', 'A1') RETURNING id", lang,
+        ))
+        await conn.execute(
+            "INSERT INTO translations (vocabulary_id, locale, definition) "
+            "VALUES ($1, 'en', 'at home')", word,
+        )
+
+    async with pool.rls_connection(user) as conn:
+        # Cram: the draft point contributes nothing under the default
+        # 'strict' policy; the approved point is capped at 3 drills.
+        cards = await get_cram_cards(conn, [approved, draft])
+        assert {c["card_id"] for c in cards} == {approved}
+        assert len(cards) == 3
+
+        results = await search_content(conn, user, lang, "locative")
+        assert [g["title"] for g in results["grammar"]] == ["Locative case"]
+        assert results["grammar"][0]["learned"] is False
+
+        # ILIKE wildcards from user input match literally, not as wildcards.
+        assert (await search_content(conn, user, lang, "%"))["grammar"] == []
+
+        vocab_hits = await search_content(conn, user, lang, "at home")
+        assert [v["word"] for v in vocab_hits["vocabulary"]] == ["evde"]
+
+    # Once the point is in the user's reviews, search says so.
+    async with pool.privileged_connection() as conn:
+        await conn.execute(
+            "INSERT INTO user_cards (user_id, language_id, card_type, card_id) "
+            "VALUES ($1, $2, 'grammar', $3)", user, lang, approved,
+        )
+    async with pool.rls_connection(user) as conn:
+        results = await search_content(conn, user, lang, "locative")
+        assert results["grammar"][0]["learned"] is True

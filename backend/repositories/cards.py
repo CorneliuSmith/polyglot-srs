@@ -4,6 +4,8 @@ from __future__ import annotations
 
 import hashlib
 import json
+import random
+from datetime import UTC, datetime
 
 import asyncpg
 
@@ -1082,3 +1084,79 @@ async def get_card_detail(
             for e in examples
         ],
     }
+
+
+async def get_cram_cards(
+    conn: asyncpg.Connection, point_ids: list[str], per_point: int = 3
+) -> list[dict]:
+    """Ungraded practice cards for a set of grammar points (WP13f Quick-Cram).
+
+    Built straight from the content tables — no user_cards row is read or
+    written, card ids are synthetic, and nothing here is submittable to
+    /review/submit. Visibility follows the same review policy as the
+    curriculum. Drill choice is seeded per (point, day): a reload mid-cram
+    keeps the same set, tomorrow's cram varies.
+    """
+    rows = await conn.fetch(
+        """
+        SELECT
+            gp.id    AS point_id,
+            gp.title AS title,
+            l.code   AS language_code,
+            d.sentences, d.answers, d.hints, d.translations,
+            d.glosses, d.transliterations
+        FROM grammar_points gp
+        JOIN languages l ON gp.language_id = l.id
+        LEFT JOIN LATERAL (
+            SELECT
+                array_agg(ds.sentence    ORDER BY ds.display_order, ds.id) AS sentences,
+                array_agg(ds.answer      ORDER BY ds.display_order, ds.id) AS answers,
+                array_agg(ds.hint        ORDER BY ds.display_order, ds.id) AS hints,
+                array_agg(ds.translation ORDER BY ds.display_order, ds.id) AS translations,
+                array_agg(ds.gloss       ORDER BY ds.display_order, ds.id) AS glosses,
+                array_agg(ds.transliteration ORDER BY ds.display_order, ds.id) AS transliterations
+            FROM drill_sentences ds
+            WHERE ds.grammar_point_id = gp.id
+        ) d ON true
+        WHERE gp.id = ANY($1::uuid[])
+          AND (gp.reviewed = true
+               OR (l.grammar_review_policy = 'ai_ok' AND gp.ai_check_status = 'pass'))
+        """,
+        point_ids,
+    )
+    today = datetime.now(UTC).date().isoformat()
+    now = datetime.now(UTC)
+    cards: list[dict] = []
+    for r in rows:
+        sentences = r["sentences"] or []
+        if not sentences:
+            continue
+        rng = random.Random(f"{r['point_id']}:{today}")
+        picks = rng.sample(range(len(sentences)), min(per_point, len(sentences)))
+        for i in sorted(picks):
+            cards.append({
+                "id": f"cram-{r['point_id']}-{i}",
+                "card_type": "grammar",
+                "card_id": str(r["point_id"]),
+                "title": r["title"],
+                "sentence": sentences[i],
+                "correct_answer": r["answers"][i],
+                "hint": r["hints"][i],
+                "translation": r["translations"][i],
+                "gloss": r["glosses"][i],
+                "transliteration": r["transliterations"][i],
+                "morphology": None,
+                "alternatives": None,
+                "language_code": r["language_code"],
+                # Neutral SRS fields so the payload matches the DueCard shape
+                # the session UI consumes; none of this is ever persisted.
+                "ease_factor": 2.5,
+                "interval": 0,
+                "repetitions": 0,
+                "streak": 0,
+                "lapses": 0,
+                "next_review": now,
+            })
+    # Interleave points instead of drilling one point three times in a row.
+    random.Random(today).shuffle(cards)
+    return cards

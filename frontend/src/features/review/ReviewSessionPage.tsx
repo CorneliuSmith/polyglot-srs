@@ -1,7 +1,7 @@
 import { useState, useRef, useEffect } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, useSearchParams } from 'react-router-dom'
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query'
-import { getDueCards, validateAnswer, submitReview } from '../../api/review'
+import { getCramCards, getDueCards, validateAnswer, submitReview } from '../../api/review'
 import { usePrefsStore } from '../../stores/prefsStore'
 import { useReviewSession } from './useReviewSession'
 import DrillCard from './DrillCard'
@@ -15,9 +15,17 @@ import { hintLayersFor } from './hintLayers'
 import SpeakButton from '../../components/SpeakButton'
 import type { KeyboardLanguage } from '../keyboards/OnScreenKeyboard'
 
-export default function ReviewSessionPage() {
+/**
+ * The review session — and, with `cram`, its ungraded twin (WP13f):
+ * Quick-Cram drills a chosen set of grammar points (an item + its Related
+ * set, `?points=id,id`) with the exact same answering flow, but nothing is
+ * ever submitted — no FSRS update, no review log, no ghosts.
+ */
+export default function ReviewSessionPage({ cram = false }: { cram?: boolean }) {
   const navigate = useNavigate()
   const queryClient = useQueryClient()
+  const [searchParams] = useSearchParams()
+  const cramPoints = cram ? (searchParams.get('points') ?? '') : ''
   const activeLanguageId = usePrefsStore((s) => s.activeLanguageId)
   const [userInput, setUserInput] = useState('')
   const [lastInput, setLastInput] = useState('')
@@ -30,11 +38,20 @@ export default function ReviewSessionPage() {
   const setHintLevel = usePrefsStore((s) => s.setHintLevel)
   const inputRef = useRef<HTMLInputElement>(null)
 
-  const { data: cards = [], isLoading } = useQuery({
-    queryKey: ['due-cards', activeLanguageId],
-    queryFn: () => getDueCards(activeLanguageId!),
-    enabled: !!activeLanguageId,
-  })
+  const { data: cards = [], isLoading } = useQuery(
+    cram
+      ? {
+          queryKey: ['cram-cards', cramPoints],
+          queryFn: () => getCramCards(cramPoints.split(',')),
+          enabled: cramPoints.length > 0,
+          staleTime: Infinity, // one fetch per cram session — no mid-session reshuffle
+        }
+      : {
+          queryKey: ['due-cards', activeLanguageId],
+          queryFn: () => getDueCards(activeLanguageId!),
+          enabled: !!activeLanguageId,
+        },
+  )
 
   const session = useReviewSession(cards)
 
@@ -84,13 +101,17 @@ export default function ReviewSessionPage() {
     const card = session.currentCard
     if (!card || submitMutation.isPending) return
 
-    submitMutation.mutate({
-      card_id: card.id,
-      answer_result: answerResult,
-      time_taken_ms: session.elapsedMs(),
-      // sentences change per appearance — log which one was actually shown
-      prompt_sentence: card.sentence,
-    })
+    // Cram is practice, not review: nothing is submitted, so the FSRS
+    // schedule and review log stay exactly as they were.
+    if (!cram) {
+      submitMutation.mutate({
+        card_id: card.id,
+        answer_result: answerResult,
+        time_taken_ms: session.elapsedMs(),
+        // sentences change per appearance — log which one was actually shown
+        prompt_sentence: card.sentence,
+      })
+    }
 
     // The hint level intentionally carries over to the next card (persisted
     // preference) — no reset here.
@@ -147,7 +168,11 @@ export default function ReviewSessionPage() {
     return (
       <div className="min-h-screen bg-gray-50 flex items-center justify-center px-4">
         <div className="text-center space-y-4">
-          <p className="text-xl text-gray-700">No cards due! Come back later.</p>
+          <p className="text-xl text-gray-700">
+            {cram
+              ? 'Nothing to cram here yet — these points have no drills.'
+              : 'No cards due! Come back later.'}
+          </p>
           <button
             type="button"
             onClick={() => navigate('/')}
@@ -177,13 +202,16 @@ export default function ReviewSessionPage() {
           accuracy={session.accuracy}
           totalTimeMs={session.totalTimeMs}
           cardsReviewed={session.cardsReviewed}
+          note={cram ? 'Practice only — nothing was recorded.' : undefined}
           onFinish={() => {
-            // The session changed due counts and deck progress — drop the
-            // cached dashboard state so it's fresh on arrival, not after a
-            // manual reload.
-            queryClient.invalidateQueries({ queryKey: ['dashboard'] })
-            queryClient.invalidateQueries({ queryKey: ['due-cards'] })
-            queryClient.invalidateQueries({ queryKey: ['learn-decks'] })
+            if (!cram) {
+              // The session changed due counts and deck progress — drop the
+              // cached dashboard state so it's fresh on arrival, not after a
+              // manual reload.
+              queryClient.invalidateQueries({ queryKey: ['dashboard'] })
+              queryClient.invalidateQueries({ queryKey: ['due-cards'] })
+              queryClient.invalidateQueries({ queryKey: ['learn-decks'] })
+            }
             navigate('/')
           }}
         />
@@ -262,7 +290,13 @@ export default function ReviewSessionPage() {
           <span>
             Card {session.currentIndex + 1} of {cards.length}
           </span>
-          <span className="capitalize">{card.card_type}</span>
+          {cram ? (
+            <span className="text-xs rounded-full px-2 py-0.5 bg-indigo-50 text-indigo-600 font-semibold">
+              Quick Cram · not recorded
+            </span>
+          ) : (
+            <span className="capitalize">{card.card_type}</span>
+          )}
         </div>
 
         {/* Progress bar */}
@@ -379,17 +413,21 @@ export default function ReviewSessionPage() {
                 userInput={lastInput}
                 languageCode={card.language_code}
               />
-              <ReviewDetail
-                cardId={card.id}
-                cardType={card.card_type}
-                languageCode={card.language_code}
-                stats={{
-                  repetitions: card.repetitions,
-                  streak: card.streak,
-                  lapses: card.lapses,
-                  next_review: card.next_review,
-                }}
-              />
+              {/* Cram cards have no user_card behind them — no detail page,
+                  no per-card feedback, nothing to record. */}
+              {!cram && (
+                <ReviewDetail
+                  cardId={card.id}
+                  cardType={card.card_type}
+                  languageCode={card.language_code}
+                  stats={{
+                    repetitions: card.repetitions,
+                    streak: card.streak,
+                    lapses: card.lapses,
+                    next_review: card.next_review,
+                  }}
+                />
+              )}
               {/* The answer was already graded by the NLP check; auto-record
                   that grade (it drives FSRS scheduling + the tutor's weak-area
                   analysis) and just let the learner continue, with a manual
@@ -440,9 +478,11 @@ export default function ReviewSessionPage() {
                   )}
                 </div>
               </div>
-              <div className="text-center">
-                <CardFeedback cardId={card.id} />
-              </div>
+              {!cram && (
+                <div className="text-center">
+                  <CardFeedback cardId={card.id} />
+                </div>
+              )}
             </div>
           )}
       </div>

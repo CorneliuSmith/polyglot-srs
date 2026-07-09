@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import { useQuery } from '@tanstack/react-query'
 import { getCardDetail } from '../../api/review'
 import type { CardProgress } from '../../api/types'
@@ -71,6 +72,7 @@ function ProgressPanel({ progress }: { progress: CardProgress }) {
  * just continues.
  */
 export default function ReviewDetail({ cardId, languageCode, stats }: ReviewDetailProps) {
+  const navigate = useNavigate()
   const [open, setOpen] = useState(false)
   const [showTranslations, setShowTranslations] = useState(false)
 
@@ -259,7 +261,25 @@ export default function ReviewDetail({ cardId, languageCode, stats }: ReviewDeta
               )}
 
               {data.related && data.related.length > 0 && (
-                <RelatedGrid related={data.related} />
+                <>
+                  <RelatedGrid related={data.related} />
+                  {data.point_id && (
+                    <button
+                      type="button"
+                      onClick={() =>
+                        navigate(
+                          `/cram?points=${[
+                            data.point_id,
+                            ...data.related!.map((r) => r.id),
+                          ].join(',')}`,
+                        )
+                      }
+                      className="text-sm text-indigo-600 hover:underline"
+                    >
+                      ⚡ Quick cram this + related (nothing recorded)
+                    </button>
+                  )}
+                </>
               )}
 
               {data.references && data.references.length > 0 && (

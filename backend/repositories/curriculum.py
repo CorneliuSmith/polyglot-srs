@@ -261,3 +261,66 @@ async def learn_point(
     if card_id is None:
         return {"added": False, "reason": "already_learned"}
     return {"added": True, "card_id": str(card_id)}
+
+
+def _like_escape(q: str) -> str:
+    """Escape ILIKE wildcards so user input matches literally."""
+    return q.replace("\\", "\\\\").replace("%", "\\%").replace("_", "\\_")
+
+
+async def search_content(
+    conn: asyncpg.Connection,
+    user_id: str,
+    language_id: str,
+    q: str,
+    limit: int = 20,
+) -> dict:
+    """In-app search (WP13g): grammar + vocabulary for one language.
+
+    Substring match on titles/function notes and words/definitions. Grammar
+    visibility follows the review policy (same rule as the path). Each hit
+    carries `learned` — whether it's already in the caller's reviews (the
+    user_cards join is RLS-scoped to the caller).
+    """
+    pattern = f"%{_like_escape(q)}%"
+    grammar = await conn.fetch(
+        """
+        SELECT gp.id, gp.title, gp.level, gp.function_note,
+               (uc.id IS NOT NULL) AS learned
+        FROM grammar_points gp
+        JOIN languages l ON gp.language_id = l.id
+        LEFT JOIN user_cards uc
+               ON uc.card_id = gp.id
+              AND uc.card_type = 'grammar'
+              AND uc.user_id = $3
+        WHERE gp.language_id = $1
+          AND (gp.reviewed = true
+               OR (l.grammar_review_policy = 'ai_ok' AND gp.ai_check_status = 'pass'))
+          AND (gp.title ILIKE $2 OR gp.function_note ILIKE $2)
+        ORDER BY gp.level NULLS LAST, gp.title
+        LIMIT $4
+        """,
+        language_id, pattern, user_id, limit,
+    )
+    vocabulary = await conn.fetch(
+        """
+        SELECT v.id, v.word, v.level, v.part_of_speech, t.definition,
+               (uc.id IS NOT NULL) AS learned
+        FROM vocabulary v
+        LEFT JOIN translations t
+               ON t.vocabulary_id = v.id AND t.locale = 'en'
+        LEFT JOIN user_cards uc
+               ON uc.card_id = v.id
+              AND uc.card_type = 'vocabulary'
+              AND uc.user_id = $3
+        WHERE v.language_id = $1
+          AND (v.word ILIKE $2 OR t.definition ILIKE $2)
+        ORDER BY char_length(v.word) ASC, v.word
+        LIMIT $4
+        """,
+        language_id, pattern, user_id, limit,
+    )
+    return {
+        "grammar": [dict(r) for r in grammar],
+        "vocabulary": [dict(r) for r in vocabulary],
+    }

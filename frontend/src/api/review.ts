@@ -24,6 +24,15 @@ export async function getDueCards(languageId: string): Promise<DueCard[]> {
   return response.data
 }
 
+/** Quick-Cram (WP13f): ungraded practice cards for a set of grammar points.
+ * Nothing here touches SRS state — cram sessions never call submitReview. */
+export async function getCramCards(pointIds: string[]): Promise<DueCard[]> {
+  const response = await apiClient.get<DueCard[]>('/api/review/cram', {
+    params: { point_ids: pointIds.join(',') },
+  })
+  return response.data
+}
+
 export async function validateAnswer(
   req: ValidateAnswerRequest,
 ): Promise<ValidateAnswerResponse> {

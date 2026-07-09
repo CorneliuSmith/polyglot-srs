@@ -396,9 +396,19 @@ time to live points + the learner's stage badge (authored for the tr/es/ru A1
 tiers); (d) the learner's own note sentences under vocab Examples ("Your
 sentences"); (e) named SRS stages on the item page (shared
 services/srs_stages.py bands) + progress panel (first studied, times studied,
-accuracy, streak, misses, next review). Remaining: (f) Quick-Cram of a
-related set; (g) in-app search; (h) theme switcher; authoring `related` +
-offline refs beyond the tr/es/ru A1 tiers.
+accuracy, streak, misses, next review). **(f)–(h) DONE 2026-07:**
+(f) Quick-Cram — "⚡ Quick cram this + related" on item pages and the path
+launches /cram?points=…, an ungraded twin of the review session (GET
+/api/review/cram builds cards straight from content tables, 3 drills/point
+seeded per day; nothing is ever submitted — no FSRS, no log, no ghosts);
+(g) in-app search — /search (Dashboard → Search) over the active language's
+grammar + vocabulary (GET /api/curriculum/search, review-policy-aware,
+ILIKE-escaped), grammar hits deep-link into the path (?point= opens +
+scrolls); (h) theme switcher — System/Light/Dark in Settings, persisted in
+prefs, `.dark` on <html> (no-flash inline script in index.html); the dark
+palette remaps the Tailwind v4 gray-ramp CSS variables in index.css so no
+component needed dark: variants. Remaining: authoring `related` + offline
+refs beyond the tr/es/ru A1 tiers.
 **Model:** `claude-sonnet-5` implementation with a design-consistency
 verify pass one tier up. **Effort:** M–L.
 

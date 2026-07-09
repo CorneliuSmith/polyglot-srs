@@ -15,9 +15,20 @@ vi.mock('../api/profile', () => ({
   getLanguages: vi.fn(() => Promise.resolve([])),
 }))
 vi.mock('../api/dashboard', () => ({ getDashboardStats: vi.fn() }))
-vi.mock('../stores/prefsStore', () => ({ usePrefsStore: vi.fn(() => 'lang-es') }))
-const { signOut } = vi.hoisted(() => ({
+const { signOut, mockSetTheme } = vi.hoisted(() => ({
   signOut: vi.fn(() => Promise.resolve({ error: null })),
+  mockSetTheme: vi.fn(),
+}))
+vi.mock('../stores/prefsStore', () => ({
+  usePrefsStore: vi.fn(
+    (selector: (s: Record<string, unknown>) => unknown) =>
+      selector({
+        activeLanguageId: 'lang-es',
+        setActiveLanguageId: vi.fn(),
+        theme: 'system',
+        setTheme: mockSetTheme,
+      }),
+  ),
 }))
 vi.mock('../lib/supabase', () => ({ supabase: { auth: { signOut } } }))
 
@@ -63,6 +74,17 @@ describe('SettingsPage', () => {
     renderPage()
     fireEvent.click(await screen.findByRole('button', { name: '10' }))
     await waitFor(() => expect(mockUpdate).toHaveBeenCalledWith({ batch_size: 10 }))
+  })
+
+  it('switches the theme (WP13h)', async () => {
+    renderPage()
+    const dark = await screen.findByRole('button', { name: 'Dark' })
+    // 'system' is the current pref (mock state), shown as pressed
+    expect(
+      screen.getByRole('button', { name: 'System' }).getAttribute('aria-pressed'),
+    ).toBe('true')
+    fireEvent.click(dark)
+    expect(mockSetTheme).toHaveBeenCalledWith('dark')
   })
 
   it('signs out', async () => {

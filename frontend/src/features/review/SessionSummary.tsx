@@ -2,6 +2,8 @@ interface SessionSummaryProps {
   accuracy: number
   totalTimeMs: number
   cardsReviewed: number
+  /** shown under the title — e.g. cram's "nothing was recorded" notice */
+  note?: string
   onFinish: () => void
 }
 
@@ -16,6 +18,7 @@ export default function SessionSummary({
   accuracy,
   totalTimeMs,
   cardsReviewed,
+  note,
   onFinish,
 }: SessionSummaryProps) {
   const percent = Math.round(accuracy * 100)
@@ -31,6 +34,7 @@ export default function SessionSummary({
     <div className="min-h-screen bg-gray-50 flex items-center justify-center px-4">
       <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-8 max-w-sm w-full text-center space-y-6">
         <h1 className="text-2xl font-bold text-gray-900">Session Complete</h1>
+        {note && <p className="text-xs text-gray-500">{note}</p>}
 
         <div className="space-y-4">
           <div>

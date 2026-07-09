@@ -13,6 +13,19 @@
     />
   </head>
   <body>
+    <script>
+      // Pre-apply the persisted theme before React mounts so a dark-mode
+      // user never sees a white flash. Mirrors ThemeApplier's logic.
+      try {
+        var prefs = JSON.parse(localStorage.getItem('polyglot-prefs') || '{}')
+        var theme = (prefs.state && prefs.state.theme) || 'system'
+        var dark =
+          theme === 'dark' ||
+          (theme === 'system' &&
+            window.matchMedia('(prefers-color-scheme: dark)').matches)
+        if (dark) document.documentElement.classList.add('dark')
+      } catch (e) {}
+    </script>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>
