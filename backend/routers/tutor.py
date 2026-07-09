@@ -174,7 +174,7 @@ async def chat(
         )
 
     try:
-        reply, remembered = await tutor_chat(
+        reply, remembered, usage = await tutor_chat(
             body.language_code,
             [m.model_dump() for m in body.messages],
             weak_areas,
@@ -200,7 +200,8 @@ async def chat(
     settings = get_settings()
     async with rls_connection(user["id"]) as conn:
         await log_tutor_usage(
-            conn, user["id"], body.language_id, model or settings.tutor_model
+            conn, user["id"], body.language_id,
+            model or settings.tutor_model, usage=usage,
         )
         if remembered:
             new_user, new_lang = merge_remembered(
@@ -285,12 +286,14 @@ async def chat_stream(
             ):
                 if event["type"] == "done":
                     # Persist BEFORE the client sees "done" so a reload
-                    # right after can't observe a half-recorded turn.
+                    # right after can't observe a half-recorded turn. The
+                    # usage block is operator data — logged, not forwarded.
                     remembered = event.get("remembered") or []
+                    usage = event.pop("usage", None)
                     async with rls_connection(user["id"]) as conn:
                         await log_tutor_usage(
                             conn, user["id"], body.language_id,
-                            model or settings.tutor_model,
+                            model or settings.tutor_model, usage=usage,
                         )
                         if remembered:
                             new_user, new_lang = merge_remembered(
@@ -391,7 +394,9 @@ async def end_session(
     new_user = {**user_profile, **(result.get("user_profile_updates") or {})}
     new_lang = {**lang["profile"], **(result.get("language_profile_updates") or {})}
     summary = result.get("session_summary") or lang["session_summary"]
+    usage = result.get("usage")
 
+    settings = get_settings()
     async with rls_connection(user["id"]) as conn:
         await upsert_user_profile(conn, user["id"], new_user)
         await upsert_language_profile(
@@ -402,5 +407,12 @@ async def end_session(
             session_summary=summary,
             touch_session=True,
         )
+        if usage is not None:
+            # Summarizer cost row (WP9b). kind='summary' rows are excluded
+            # from allowance counting — this spend belongs to the operator.
+            await log_tutor_usage(
+                conn, user["id"], body.language_id,
+                settings.tutor_summary_model, usage=usage, kind="summary",
+            )
 
     return {"summarized": True}

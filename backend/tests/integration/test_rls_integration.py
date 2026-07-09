@@ -1004,3 +1004,56 @@ async def _card_ids(conn, user_id):
     )
     for r in rows:
         yield str(r["card_id"])
+
+
+async def test_tutor_usage_kinds_and_cost_aggregation(pool):
+    """WP9b: summary rows never count against allowances, token sums roll up
+    per (language, model, kind), and one user can't read another's usage."""
+    from datetime import UTC, datetime
+
+    from backend.repositories.tutor import (
+        aggregate_tutor_usage,
+        count_tutor_messages,
+        log_tutor_usage,
+    )
+
+    lang = await _language(pool, "cost")
+    user = await _new_user(pool, "learner@cost")
+    other = await _new_user(pool, "other@cost")
+    epoch = datetime(2000, 1, 1, tzinfo=UTC)
+
+    chat_usage = {"input_tokens": 100, "output_tokens": 40,
+                  "cache_write_tokens": 10, "cache_read_tokens": 500}
+    async with pool.rls_connection(user) as conn:
+        await log_tutor_usage(conn, user, lang, "claude-sonnet-5",
+                              usage=chat_usage)
+        await log_tutor_usage(conn, user, lang, "claude-sonnet-5",
+                              usage=chat_usage)
+        await log_tutor_usage(conn, user, lang, "claude-sonnet-4-6",
+                              usage={"input_tokens": 300, "output_tokens": 50},
+                              kind="summary")
+
+    async with pool.rls_connection(user) as conn:
+        # The summarizer row is operator cost, not a spent message.
+        assert await count_tutor_messages(conn, user, epoch) == 2
+        # RLS: another user's window is untouched by these rows.
+    async with pool.rls_connection(other) as conn:
+        assert await count_tutor_messages(conn, other, epoch) == 0
+        rows = await conn.fetch("SELECT 1 FROM tutor_usage")
+        assert rows == []  # select-own policy holds
+
+    async with pool.privileged_connection() as conn:
+        rollup = {
+            (r["model"], r["kind"]): r
+            for r in await aggregate_tutor_usage(conn, epoch)
+            if str(r["language_id"]) == lang
+        }
+    chat = rollup[("claude-sonnet-5", "chat")]
+    assert chat["messages"] == 2
+    assert chat["input_tokens"] == 200
+    assert chat["output_tokens"] == 80
+    assert chat["cache_write_tokens"] == 20
+    assert chat["cache_read_tokens"] == 1000
+    summary = rollup[("claude-sonnet-4-6", "summary")]
+    assert summary["messages"] == 1
+    assert summary["cache_read_tokens"] == 0  # NULL columns sum to 0

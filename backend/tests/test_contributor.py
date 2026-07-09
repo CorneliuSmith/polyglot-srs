@@ -514,6 +514,64 @@ class TestTutorModelPicker:
         assert resp.status_code == 422
 
 
+class TestTutorUsageOverview:
+    """WP9b: the admin cost view — token rollups priced at list rates."""
+
+    def test_requires_admin(self, client):
+        with _roles([{"language_id": LANG, "role": "reviewer"}]):
+            resp = client.get(
+                "/api/contribute/tutor-usage", headers=_auth_headers()
+            )
+        assert resp.status_code == 403
+
+    def test_admin_gets_priced_rollup(self, client):
+        rows = [
+            {
+                "language_id": LANG, "language_name": "Turkish",
+                "model": "claude-sonnet-5", "kind": "chat", "messages": 40,
+                "input_tokens": 1_000_000, "output_tokens": 100_000,
+                "cache_write_tokens": 100_000, "cache_read_tokens": 1_000_000,
+            },
+            {
+                "language_id": LANG, "language_name": "Turkish",
+                "model": "claude-sonnet-4-6", "kind": "summary", "messages": 5,
+                "input_tokens": 200_000, "output_tokens": 10_000,
+                "cache_write_tokens": 0, "cache_read_tokens": 0,
+            },
+        ]
+        with _roles([{"language_id": None, "role": "admin"}]), \
+             patch("backend.routers.contribute.aggregate_tutor_usage",
+                   new=AsyncMock(return_value=rows)) as mock_agg:
+            resp = client.get(
+                "/api/contribute/tutor-usage",
+                params={"days": 30},
+                headers=_auth_headers(),
+            )
+        assert resp.status_code == 200
+        body = resp.json()
+        assert body["days"] == 30
+        # sonnet-5 at $3/$15 per Mtok: 3.0 input + 1.5 output
+        #   + 0.375 cache write (1.25x) + 0.3 cache read (0.1x) = 5.175
+        assert body["rows"][0]["est_cost_usd"] == pytest.approx(5.175)
+        # summarizer: 0.2 * 3 + 0.01 * 15 = 0.75
+        assert body["rows"][1]["est_cost_usd"] == pytest.approx(0.75)
+        assert body["total_est_cost_usd"] == pytest.approx(5.925)
+        # only chat rows are messages a learner spent
+        assert body["total_messages"] == 40
+        mock_agg.assert_awaited_once()
+
+    def test_days_window_clamped(self, client):
+        with _roles([{"language_id": None, "role": "admin"}]), \
+             patch("backend.routers.contribute.aggregate_tutor_usage",
+                   new=AsyncMock(return_value=[])):
+            resp = client.get(
+                "/api/contribute/tutor-usage",
+                params={"days": 9999},
+                headers=_auth_headers(),
+            )
+        assert resp.json()["days"] == 365
+
+
 class TestCreatePoint:
     def test_create_requires_role(self, client):
         with _roles([]):

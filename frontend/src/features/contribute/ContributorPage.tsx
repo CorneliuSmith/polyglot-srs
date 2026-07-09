@@ -18,6 +18,7 @@ import IssuesPanel from './IssuesPanel'
 import RolesPanel from './RolesPanel'
 import {
   flagPointIssue,
+  getTutorUsage,
   setLanguageTutorModel,
   TUTOR_MODELS,
 } from '../../api/contribute'
@@ -58,6 +59,73 @@ function TutorModelControl({
       </select>
       {modelMutation.isError && (
         <p className="text-xs text-red-500 mt-1">Couldn’t save — try again.</p>
+      )}
+    </div>
+  )
+}
+
+/** Admin-only tutor cost monitor (WP9b): token rollups across ALL languages,
+ * priced at list rates — the data behind per-language model choices. */
+function TutorCostsPanel() {
+  const { data } = useQuery({
+    queryKey: ['tutor-usage'],
+    queryFn: () => getTutorUsage(30),
+    retry: false,
+  })
+  if (!data) return null
+  const fmtTokens = (n: number) =>
+    n >= 1_000_000 ? `${(n / 1_000_000).toFixed(1)}M` : n.toLocaleString()
+  return (
+    <div
+      className="bg-white rounded-2xl border border-gray-100 p-4 text-sm"
+      data-testid="tutor-costs"
+    >
+      <div className="flex items-baseline justify-between">
+        <h2 className="text-sm font-semibold text-gray-800">
+          Tutor costs · last {data.days} days
+        </h2>
+        <span className="text-xs text-gray-500">
+          {data.total_messages} messages · ~${data.total_est_cost_usd.toFixed(2)}
+        </span>
+      </div>
+      <p className="text-xs text-gray-500 mb-2">
+        Estimates at Anthropic list pricing (cache reads discounted). All
+        languages, all users — learners always pay flat tiers.
+      </p>
+      {data.rows.length === 0 ? (
+        <p className="text-xs text-gray-400">No tutor usage recorded yet.</p>
+      ) : (
+        <table className="w-full text-xs">
+          <thead>
+            <tr className="text-left text-gray-500">
+              <th className="py-1 font-medium">Language</th>
+              <th className="py-1 font-medium">Model</th>
+              <th className="py-1 font-medium text-right">Msgs</th>
+              <th className="py-1 font-medium text-right">Tokens in/out</th>
+              <th className="py-1 font-medium text-right">Est. cost</th>
+            </tr>
+          </thead>
+          <tbody>
+            {data.rows.map((row, i) => (
+              <tr key={i} className="border-t border-gray-50 text-gray-700">
+                <td className="py-1">
+                  {row.language_name ?? '—'}
+                  {row.kind === 'summary' && (
+                    <span className="text-gray-400"> (summaries)</span>
+                  )}
+                </td>
+                <td className="py-1 font-mono text-[11px]">{row.model ?? '—'}</td>
+                <td className="py-1 text-right">{row.messages}</td>
+                <td className="py-1 text-right">
+                  {fmtTokens(row.input_tokens + row.cache_write_tokens + row.cache_read_tokens)}
+                  {' / '}
+                  {fmtTokens(row.output_tokens)}
+                </td>
+                <td className="py-1 text-right">${row.est_cost_usd.toFixed(2)}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
       )}
     </div>
   )
@@ -436,6 +504,7 @@ export default function ContributorPage() {
                   current={data.tutor_model ?? null}
                   onChanged={refresh}
                 />
+                <TutorCostsPanel />
               </>
             )}
             <IssuesPanel

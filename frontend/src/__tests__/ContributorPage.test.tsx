@@ -22,6 +22,9 @@ vi.mock('../api/contribute', () => ({
   resolveReviewNote: vi.fn(() => Promise.resolve()),
   setLanguageTutorModel: vi.fn(() => Promise.resolve()),
   TUTOR_MODELS: ['claude-opus-4-8', 'claude-sonnet-5'],
+  getTutorUsage: vi.fn(() =>
+    Promise.resolve({ days: 30, rows: [], total_messages: 0, total_est_cost_usd: 0 }),
+  ),
 }))
 // DrillsEditor is its own tested unit; stub it here to keep this test focused.
 vi.mock('../features/contribute/DrillsEditor', () => ({ default: () => null }))
@@ -150,6 +153,43 @@ describe('ContributorPage', () => {
     await waitFor(() => {
       expect(mockSetModel).toHaveBeenCalledWith('lang-tr', 'claude-sonnet-5')
     })
+  })
+
+  it('admin sees the tutor cost monitor with priced rows', async () => {
+    const { getTutorUsage } = await import('../api/contribute')
+    const mockUsage = getTutorUsage as ReturnType<typeof vi.fn>
+    mockUsage.mockResolvedValue({
+      days: 30,
+      rows: [{
+        language_id: 'lang-tr', language_name: 'Turkish',
+        model: 'claude-sonnet-5', kind: 'chat', messages: 42,
+        input_tokens: 120_000, output_tokens: 30_000,
+        cache_write_tokens: 4_000, cache_read_tokens: 2_000_000,
+        est_cost_usd: 1.42,
+      }],
+      total_messages: 42,
+      total_est_cost_usd: 1.42,
+    })
+    mockGetGrammar.mockResolvedValue({
+      is_admin: true, points: [], review_policy: 'strict', tutor_model: null,
+    })
+    renderPage()
+
+    const panel = await screen.findByTestId('tutor-costs')
+    expect(panel.textContent).toContain('Turkish')
+    expect(panel.textContent).toContain('claude-sonnet-5')
+    expect(panel.textContent).toContain('42 messages')
+    expect(panel.textContent).toContain('$1.42')
+    expect(panel.textContent).toContain('2.1M / 30,000') // cache reads included in "in"
+  })
+
+  it('non-admins never see the cost monitor', async () => {
+    mockGetGrammar.mockResolvedValue({
+      is_admin: false, points: [basePoint], review_policy: 'strict',
+    })
+    renderPage()
+    await screen.findByText('Locative case')
+    expect(screen.queryByTestId('tutor-costs')).toBeNull()
   })
 
   it('shows open issues and lets a reviewer resolve them', async () => {

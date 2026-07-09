@@ -92,6 +92,34 @@ export async function setLanguageTutorModel(
   })
 }
 
+export interface TutorUsageRow {
+  language_id: string | null
+  language_name: string | null
+  model: string | null
+  kind: 'chat' | 'summary'
+  messages: number
+  input_tokens: number
+  output_tokens: number
+  cache_write_tokens: number
+  cache_read_tokens: number
+  est_cost_usd: number
+}
+
+export interface TutorUsageSummary {
+  days: number
+  rows: TutorUsageRow[]
+  total_messages: number
+  total_est_cost_usd: number
+}
+
+/** Admin-only rollup of tutor token usage priced at list rates (WP9b). */
+export async function getTutorUsage(days = 30): Promise<TutorUsageSummary> {
+  const response = await apiClient.get('/api/contribute/tutor-usage', {
+    params: { days },
+  })
+  return response.data
+}
+
 export type GrantableRole = 'contributor' | 'reviewer' | 'admin'
 
 export interface RoleGrantRow {

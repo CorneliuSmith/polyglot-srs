@@ -332,9 +332,16 @@ checks on `claude-sonnet-5` (now default). (b) Per-user usage tracking —
 **message logging + tiered allowances DONE 2026-07** (`tutor_usage` table;
 flat pricing, never per message: free = 20 msgs/month, plus = 100/day fair
 use, both shown as a meter in the tutor UI with structured 402s — see
-docs/accounts-and-roles.md "Account tiers"); remaining: capture
-input/output token counts per call and surface per-user/per-language cost
-in an admin view. (c) Tutor should propose drills from GRAMMAR weak areas
+docs/accounts-and-roles.md "Account tiers"); **token/cost capture DONE
+2026-07**: every chat turn logs input/output + cache read/write tokens
+(summed across tool-loop calls; dev-mock produces deterministic
+pseudo-counts), the post-session summarizer logs a kind='summary' row
+that never counts against allowances, and GET /api/contribute/tutor-usage
+(admin-only) rolls usage up per (language, model, kind) priced at list
+rates — shown as the "Tutor costs" panel on the Contribute page
+(pricing table: backend/services/tutor_costs.py; update when Anthropic
+list prices change). Remaining: per-user drill-down if ever needed.
+(c) Tutor should propose drills from GRAMMAR weak areas
 (data now flows; prompt already tags kind=grammar — verify behavior with
 real key and tune the charter). (d) **Streaming DONE 2026-07**: POST
 /api/tutor/chat/stream emits SSE delta/reset/done events (same
@@ -427,8 +434,8 @@ the Contribute page's Roles panel, bootstrapped once via
 `languages.tutor_model` (NULL = the `TUTOR_MODEL` global default), admin
 picker on the Contribute page (allowed ids: `claude-fable-5`,
 `claude-opus-4-8`, `claude-sonnet-5`, `claude-haiku-4-5-20251001`), and
-both chat endpoints + the usage log resolve the override. Remaining
-polish: per-language token/cost columns once WP9(b) capture lands.
+both chat endpoints + the usage log resolve the override, and the WP9(b)
+"Tutor costs" panel shows per-language spend to inform the choice.
 (b) **Custom / local endpoints** — accept an OpenAI-compatible base URL +
 model name per language (Ollama, vLLM, LM Studio, llama.cpp server), stored
 alongside `tutor_model`, with a health-check button and automatic fallback

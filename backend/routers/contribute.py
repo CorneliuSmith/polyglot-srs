@@ -7,6 +7,8 @@ caller's role is verified for the target language.
 
 from __future__ import annotations
 
+from datetime import UTC, datetime, timedelta
+
 from fastapi import APIRouter, Depends, HTTPException, status
 from pydantic import BaseModel, Field
 
@@ -44,9 +46,11 @@ from backend.repositories.contributor import (
     set_language_tutor_model,
 )
 from backend.repositories.pool import privileged_connection, rls_connection
+from backend.repositories.tutor import aggregate_tutor_usage
 from backend.services.drills import validate_drill
 from backend.services.rate_limit import ai_review_limiter
 from backend.services.semantic_check import ai_available, semantic_check_point
+from backend.services.tutor_costs import estimate_cost_usd
 
 router = APIRouter()
 
@@ -189,6 +193,44 @@ async def update_language_tutor_model(
     async with privileged_connection() as conn:
         await set_language_tutor_model(conn, body.language_id, body.model)
     return {"tutor_model": body.model}
+
+
+@router.get("/tutor-usage")
+async def tutor_usage_overview(
+    days: int = 30,
+    user: dict = Depends(get_current_user),
+):
+    """Aggregated tutor token usage + estimated cost (admin-only, WP9b).
+
+    Rolls up tutor_usage by (language, model, kind) over the window and
+    prices each row at list pricing — the data behind per-language model
+    choices (WP15a). Estimates only; learners are billed flat tiers.
+    """
+    await _require_admin(user["id"])
+    days = max(1, min(days, 365))
+    since = datetime.now(UTC) - timedelta(days=days)
+    async with privileged_connection() as conn:
+        rows = await aggregate_tutor_usage(conn, since)
+    priced = [
+        {
+            **row,
+            "est_cost_usd": estimate_cost_usd(
+                row["model"], row["input_tokens"], row["output_tokens"],
+                row["cache_write_tokens"], row["cache_read_tokens"],
+            ),
+        }
+        for row in rows
+    ]
+    return {
+        "days": days,
+        "rows": priced,
+        "total_messages": sum(
+            r["messages"] for r in priced if r["kind"] == "chat"
+        ),
+        "total_est_cost_usd": round(
+            sum(r["est_cost_usd"] for r in priced), 4
+        ),
+    }
 
 
 @router.put("/grammar/{point_id}")

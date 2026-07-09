@@ -80,9 +80,26 @@ class _ToolUseBlock:
         self.input = input
 
 
+class _Usage:
+    def __init__(self, input_tokens=0, output_tokens=0,
+                 cache_creation_input_tokens=0, cache_read_input_tokens=0):
+        self.input_tokens = input_tokens
+        self.output_tokens = output_tokens
+        self.cache_creation_input_tokens = cache_creation_input_tokens
+        self.cache_read_input_tokens = cache_read_input_tokens
+
+
 class _Resp:
-    def __init__(self, content):
+    def __init__(self, content, usage=None):
         self.content = content
+        self.usage = usage
+
+
+# A plausible per-call usage for tests that just need SOME token counts.
+_SOME_USAGE = {
+    "input_tokens": 120, "output_tokens": 45,
+    "cache_write_tokens": 0, "cache_read_tokens": 900,
+}
 
 
 @pytest.fixture()
@@ -271,7 +288,7 @@ class TestTutorChatEndpoint:
         p1, p2, p3, p4 = _patch_chat_repos()
         with p1, p2, p3, p4, patch(
             "backend.routers.tutor.tutor_chat",
-            new=AsyncMock(return_value=("Let's drill -da/-de!", [])),
+            new=AsyncMock(return_value=("Let's drill -da/-de!", [], _SOME_USAGE)),
         ) as mock_chat:
             resp = client.post("/api/tutor/chat", json=_chat_body(), headers=_auth_headers())
         assert resp.status_code == 200
@@ -286,7 +303,7 @@ class TestTutorChatEndpoint:
         remembered = [{"scope": "global", "key": "native_language", "value": "English"}]
         with p1, p2, p3, p4, patch(
             "backend.routers.tutor.tutor_chat",
-            new=AsyncMock(return_value=("ok", remembered)),
+            new=AsyncMock(return_value=("ok", remembered, _SOME_USAGE)),
         ), patch(
             "backend.routers.tutor.upsert_user_profile", new=AsyncMock(),
         ) as mock_user, patch(
@@ -317,7 +334,7 @@ class TestTutorChatEndpoint:
              patch("backend.routers.tutor.log_tutor_usage",
                    new=AsyncMock()) as mock_log, \
              patch("backend.routers.tutor.tutor_chat",
-                   new=AsyncMock(return_value=("hi", []))):
+                   new=AsyncMock(return_value=("hi", [], _SOME_USAGE))):
             resp = client.post("/api/tutor/chat", json=_chat_body(), headers=_auth_headers())
         assert resp.status_code == 200
         allowance = resp.json()["allowance"]
@@ -326,6 +343,8 @@ class TestTutorChatEndpoint:
         assert allowance["used"] == 6          # the 5 before + this one
         assert allowance["remaining"] == 14
         mock_log.assert_awaited_once()         # the message was recorded
+        # WP9b: the turn's token counts reached the usage log
+        assert mock_log.await_args.kwargs["usage"] == _SOME_USAGE
 
     def test_free_tier_blocked_at_monthly_limit(self, client):
         paid = FakeSettings()
@@ -402,7 +421,12 @@ class TestTutorChatStream:
         assert len(done) == 1
         assert "".join(d["text"] for d in deltas) == done[0]["reply"]
         assert done[0]["allowance"]["unlimited"] is True
+        assert "usage" not in done[0]    # operator data never reaches clients
         mock_log.assert_awaited_once()   # the message was recorded
+        # WP9b: dev-mock produces deterministic non-zero token counts
+        logged_usage = mock_log.await_args.kwargs["usage"]
+        assert logged_usage["input_tokens"] > 0
+        assert logged_usage["output_tokens"] > 0
 
     def test_stream_blocked_when_allowance_exhausted(self, client):
         paid = FakeSettings()
@@ -450,6 +474,39 @@ class TestSessionEndEndpoint:
 
     def test_requires_auth(self, client):
         assert client.post("/api/tutor/session/end", json=_chat_body()).status_code == 401
+
+    def test_summarizer_cost_logged_as_summary_kind(self, client):
+        """WP9b: the summarizer's tokens land in tutor_usage as kind='summary'
+        (cost-only — the allowance counter filters those rows out)."""
+        result = {
+            "user_profile_updates": {},
+            "language_profile_updates": {},
+            "session_summary": "Practiced locative.",
+            "usage": _SOME_USAGE,
+        }
+        with patch(
+            "backend.routers.tutor.get_user_profile", new=AsyncMock(return_value={}),
+        ), patch(
+            "backend.routers.tutor.get_language_profile",
+            new=AsyncMock(return_value={"profile": {}, "session_summary": ""}),
+        ), patch(
+            "backend.routers.tutor.summarize_session", new=AsyncMock(return_value=result),
+        ), patch(
+            "backend.routers.tutor.upsert_user_profile", new=AsyncMock(),
+        ), patch(
+            "backend.routers.tutor.upsert_language_profile", new=AsyncMock(),
+        ), patch(
+            "backend.routers.tutor.log_tutor_usage", new=AsyncMock(),
+        ) as mock_log:
+            resp = client.post(
+                "/api/tutor/session/end", json=_chat_body(), headers=_auth_headers()
+            )
+        assert resp.status_code == 200
+        mock_log.assert_awaited_once()
+        assert mock_log.await_args.kwargs["kind"] == "summary"
+        assert mock_log.await_args.kwargs["usage"] == _SOME_USAGE
+        # billed to the summarizer model, not the chat model
+        assert mock_log.await_args.args[3] == "claude-sonnet-4-6"
 
 
 class TestTutorStatus:
@@ -506,15 +563,23 @@ class TestTutorChatService:
 
         fake_client = AsyncMock()
         fake_client.messages.create = AsyncMock(
-            return_value=_Resp([_TextBlock("Merhaba!")])
+            return_value=_Resp(
+                [_TextBlock("Merhaba!")],
+                usage=_Usage(input_tokens=100, output_tokens=20,
+                             cache_read_input_tokens=800),
+            )
         )
         with patch.object(tutor_mod, "AsyncAnthropic", return_value=fake_client), \
              patch.object(tutor_mod, "get_settings", return_value=FakeSettings()):
-            reply, remembered = await tutor_mod.tutor_chat(
+            reply, remembered, usage = await tutor_mod.tutor_chat(
                 "tr", [{"role": "user", "content": "hi"}], []
             )
         assert reply == "Merhaba!"
         assert remembered == []
+        assert usage == {
+            "input_tokens": 100, "output_tokens": 20,
+            "cache_write_tokens": 0, "cache_read_tokens": 800,
+        }
         kwargs = fake_client.messages.create.await_args.kwargs
         assert kwargs["model"] == "claude-opus-4-8"
         assert kwargs["thinking"] == {"type": "adaptive"}
@@ -527,14 +592,17 @@ class TestTutorChatService:
         first = _Resp([
             _ToolUseBlock("t1", "remember",
                           {"scope": "global", "key": "native_language", "value": "English"}),
-        ])
-        second = _Resp([_TextBlock("Got it — let's practice.")])
+        ], usage=_Usage(input_tokens=100, output_tokens=30))
+        second = _Resp(
+            [_TextBlock("Got it — let's practice.")],
+            usage=_Usage(input_tokens=150, output_tokens=40),
+        )
         fake_client = AsyncMock()
         fake_client.messages.create = AsyncMock(side_effect=[first, second])
 
         with patch.object(tutor_mod, "AsyncAnthropic", return_value=fake_client), \
              patch.object(tutor_mod, "get_settings", return_value=FakeSettings()):
-            reply, remembered = await tutor_mod.tutor_chat(
+            reply, remembered, usage = await tutor_mod.tutor_chat(
                 "tr", [{"role": "user", "content": "I'm a native English speaker"}], []
             )
         assert reply == "Got it — let's practice."
@@ -542,6 +610,9 @@ class TestTutorChatService:
             {"scope": "global", "key": "native_language", "value": "English"}
         ]
         assert fake_client.messages.create.await_count == 2
+        # WP9b: the turn total sums BOTH tool-loop calls
+        assert usage["input_tokens"] == 250
+        assert usage["output_tokens"] == 70
 
     @pytest.mark.asyncio
     async def test_empty_history_raises(self):
@@ -573,6 +644,9 @@ class TestSummarizeSession:
                 [{"role": "user", "content": "teach me noun classes"},
                  {"role": "assistant", "content": "ki-/vi-..."}],
             )
+        usage = result.pop("usage")  # WP9b: summarizer cost rides along
+        assert set(usage) == {"input_tokens", "output_tokens",
+                              "cache_write_tokens", "cache_read_tokens"}
         assert result == payload
         assert fake_client.messages.create.await_args.kwargs["model"] == "claude-sonnet-4-6"
 
@@ -585,6 +659,7 @@ class TestSummarizeSession:
                 "sw", [], prior_summary="earlier summary"
             )
         assert result["session_summary"] == "earlier summary"
+        assert "usage" not in result  # no model call happened — nothing to bill
 
     @pytest.mark.asyncio
     async def test_bad_json_falls_back(self):
@@ -623,7 +698,7 @@ class TestDevMock:
 
         with patch.object(tutor_mod, "get_settings", return_value=_MockSettings()), \
              patch.object(tutor_mod, "AsyncAnthropic", side_effect=boom):
-            reply, remembered = await tutor_mod.tutor_chat(
+            reply, remembered, usage = await tutor_mod.tutor_chat(
                 "tr",
                 [{"role": "user", "content": "hello"}],
                 [{"word": "ev", "definition": "house"}],
@@ -631,6 +706,7 @@ class TestDevMock:
         assert "dev mock" in reply.lower()
         assert "ev" in reply  # drills the weak item
         assert remembered == []
+        assert usage["output_tokens"] > 0  # deterministic pseudo-usage
 
     @pytest.mark.asyncio
     async def test_remember_command_parsed(self):
@@ -638,7 +714,7 @@ class TestDevMock:
 
         with patch.object(tutor_mod, "get_settings", return_value=_MockSettings()), \
              patch.object(tutor_mod, "AsyncAnthropic", side_effect=AssertionError):
-            _, remembered = await tutor_mod.tutor_chat(
+            _, remembered, _ = await tutor_mod.tutor_chat(
                 "tr",
                 [{"role": "user", "content": "/remember global native_language English"}],
                 [],
