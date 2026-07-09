@@ -201,6 +201,25 @@ inventory, 2+ drills each — 4+ if WP1 has landed); seed + suites green.
 **Model:** `claude-opus-4-8` or `claude-fable-5` (morphology accuracy).
 **Effort:** L per language.
 
+### WP3b — Deepen the A1-only tier to C2 (ar, el, ro, mi, then fr/de/it/ca)
+**Goal:** the nine languages WP3/WP7 left at a 12-point A1 tab need the full
+A1→C2 grammar ladder, like WP2 did for es/tr/ru. **Arabic DONE 2026-07 (12
+→ 40, full A1→C2):** +28 MSA points — A2: past tense, future سـ/سوف, sound &
+broken plurals, the dual, prepositions, comparative أفعل, kāna, object
+pronouns, numbers 3–10 polarity; B1: subjunctive المنصوب, jussive & لم,
+inna's sisters, imperative, the maṣdar, participles, relative clauses; B2:
+passive المبني للمجهول, derived forms II–IV and V–X, conditionals إذا/إن/لو,
+the ḥāl, the tamyīz; C1: weak verbs, the exception إلّا/غير/سوى, vocative &
+energetic nūn; C2: fronting/restriction (إنّما/القصر), literary discourse
+(أمّا…فـ، قد، لقد). Every drill transliterated (SCRIPT_FIRST hint layer),
+paradigm points meet the 2/cell gate, landed reviewed:true per the es/tr/ru +
+ar-A1 precedent — a native-speaker verification pass is still welcome (the
+Contribute Roles panel + issue tracker are ready for it). **Remaining:** el,
+ro, mi (in progress), then fr/de/it/ca; en stays A1 (targets learners *from*
+other languages, deepened on demand).
+**Model:** authoring `claude-opus-4-8`; native review is the human gate.
+**Effort:** M per language.
+
 ### WP3 — A1 paths for fr, de, it, ca, mi, ar, en
 **Status:** DONE — every language now has a grammar tab. 12 points × 6 drills
 per language (504 drills), mirroring the Spanish A1 template with the

@@ -52,6 +52,18 @@ class TestGrammarTransform:
         assert all(p["source"] == "contributor" for p in data["points"])
         assert any(p["reviewed"] for p in data["points"])
 
+    def test_arabic_curriculum_reaches_c2(self):
+        # Regression guard for the A1->C2 Arabic deepening: full CEFR ladder,
+        # every drill transliterated (the SCRIPT_FIRST hint layer depends on
+        # it), and the paradigm density gate satisfied by transform().
+        data = GrammarSeeder("fake://db", "ar").transform()
+        levels = {p["level"] for p in data["points"]}
+        assert {"A1", "A2", "B1", "B2", "C1", "C2"} <= levels
+        assert len(data["points"]) >= 40
+        for p in data["points"]:
+            for d in p["drills"]:
+                assert d["transliteration"], f"{p['title']}: drill missing translit"
+
     def test_invalid_drills_and_points_skipped(self, tmp_path):
         import backend.services.seeder.seed_grammar as mod
 
