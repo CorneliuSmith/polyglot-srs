@@ -37,6 +37,7 @@ export async function getGrammarForLanguage(
   is_admin: boolean
   can_review: boolean
   review_policy: string
+  tutor_model?: string | null
 }> {
   const response = await apiClient.get('/api/contribute/grammar', {
     params: { language_id: languageId },
@@ -71,6 +72,24 @@ export async function getReviewNotes(
 
 export async function resolveReviewNote(noteId: string): Promise<void> {
   await apiClient.post(`/api/contribute/notes/${noteId}/resolve`)
+}
+
+/** Models an admin may assign per language; null = the global default. */
+export const TUTOR_MODELS = [
+  'claude-fable-5',
+  'claude-opus-4-8',
+  'claude-sonnet-5',
+  'claude-haiku-4-5-20251001',
+] as const
+
+export async function setLanguageTutorModel(
+  languageId: string,
+  model: string | null,
+): Promise<void> {
+  await apiClient.post('/api/contribute/language-tutor-model', {
+    language_id: languageId,
+    model,
+  })
 }
 
 export type GrantableRole = 'contributor' | 'reviewer' | 'admin'

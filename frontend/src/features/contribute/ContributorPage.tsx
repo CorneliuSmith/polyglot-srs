@@ -16,7 +16,52 @@ import DrillsEditor from './DrillsEditor'
 import FeedbackPanel from './FeedbackPanel'
 import IssuesPanel from './IssuesPanel'
 import RolesPanel from './RolesPanel'
-import { flagPointIssue } from '../../api/contribute'
+import {
+  flagPointIssue,
+  setLanguageTutorModel,
+  TUTOR_MODELS,
+} from '../../api/contribute'
+
+/** Admin-only per-language tutor model override (WP15a). */
+function TutorModelControl({
+  languageId,
+  current,
+  onChanged,
+}: {
+  languageId: string
+  current: string | null
+  onChanged: () => void
+}) {
+  const modelMutation = useMutation({
+    mutationFn: (model: string | null) => setLanguageTutorModel(languageId, model),
+    onSuccess: onChanged,
+  })
+  return (
+    <div className="bg-white rounded-2xl border border-gray-100 p-4">
+      <h2 className="text-sm font-semibold text-gray-800">Tutor model</h2>
+      <p className="text-xs text-gray-500 mb-2">
+        Which Claude model powers this language's tutor. Default follows the
+        server setting; pick a cheaper model for high-resource languages,
+        the strongest for the low-resource ones.
+      </p>
+      <select
+        value={current ?? ''}
+        onChange={(e) => modelMutation.mutate(e.target.value || null)}
+        disabled={modelMutation.isPending}
+        aria-label="Tutor model"
+        className="rounded-lg border border-gray-300 px-2 py-1.5 text-sm bg-white"
+      >
+        <option value="">Default (server setting)</option>
+        {TUTOR_MODELS.map((m) => (
+          <option key={m} value={m}>{m}</option>
+        ))}
+      </select>
+      {modelMutation.isError && (
+        <p className="text-xs text-red-500 mt-1">Couldn’t save — try again.</p>
+      )}
+    </div>
+  )
+}
 
 /** "Flag an issue" — a reviewer note for problems you can't (or shouldn't)
  * fix on the spot: regional-form doubts, tone-mark questions, and the like. */
@@ -384,6 +429,11 @@ export default function ContributorPage() {
                 <ReviewPolicyControl
                   languageId={activeLanguageId}
                   policy={data.review_policy}
+                  onChanged={refresh}
+                />
+                <TutorModelControl
+                  languageId={activeLanguageId}
+                  current={data.tutor_model ?? null}
                   onChanged={refresh}
                 />
               </>

@@ -20,6 +20,8 @@ vi.mock('../api/contribute', () => ({
   flagPointIssue: vi.fn(() => Promise.resolve()),
   getReviewNotes: vi.fn(() => Promise.resolve([])),
   resolveReviewNote: vi.fn(() => Promise.resolve()),
+  setLanguageTutorModel: vi.fn(() => Promise.resolve()),
+  TUTOR_MODELS: ['claude-opus-4-8', 'claude-sonnet-5'],
 }))
 // DrillsEditor is its own tested unit; stub it here to keep this test focused.
 vi.mock('../features/contribute/DrillsEditor', () => ({ default: () => null }))
@@ -131,6 +133,22 @@ describe('ContributorPage', () => {
 
     await waitFor(() => {
       expect(mockFlag).toHaveBeenCalledWith('p1', 'Drill 3 uses the Ibadan form')
+    })
+  })
+
+  it('admin sets a per-language tutor model', async () => {
+    const { setLanguageTutorModel } = await import('../api/contribute')
+    const mockSetModel = setLanguageTutorModel as ReturnType<typeof vi.fn>
+    mockGetGrammar.mockResolvedValue({
+      is_admin: true, points: [], review_policy: 'strict', tutor_model: null,
+    })
+    renderPage()
+
+    const select = (await screen.findByLabelText('Tutor model')) as HTMLSelectElement
+    expect(select.value).toBe('') // default (server setting)
+    fireEvent.change(select, { target: { value: 'claude-sonnet-5' } })
+    await waitFor(() => {
+      expect(mockSetModel).toHaveBeenCalledWith('lang-tr', 'claude-sonnet-5')
     })
   })
 

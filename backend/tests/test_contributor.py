@@ -110,7 +110,9 @@ class TestContributeEndpoints:
              patch("backend.routers.contribute.list_grammar_points",
                    new=AsyncMock(return_value=[{"id": POINT, "title": "Locative"}])), \
              patch("backend.routers.contribute.get_language_policy",
-                   new=AsyncMock(return_value="strict")):
+                   new=AsyncMock(return_value="strict")), \
+             patch("backend.routers.contribute.get_language_tutor_model",
+                   new=AsyncMock(return_value=None)):
             resp = client.get(
                 "/api/contribute/grammar", params={"language_id": LANG},
                 headers=_auth_headers(),
@@ -456,12 +458,60 @@ class TestReviewPolicy:
              patch("backend.routers.contribute.list_grammar_points",
                    new=AsyncMock(return_value=[])), \
              patch("backend.routers.contribute.get_language_policy",
-                   new=AsyncMock(return_value="ai_ok")):
+                   new=AsyncMock(return_value="ai_ok")), \
+             patch("backend.routers.contribute.get_language_tutor_model",
+                   new=AsyncMock(return_value="claude-sonnet-5")):
             resp = client.get(
                 "/api/contribute/grammar", params={"language_id": LANG},
                 headers=_auth_headers(),
             )
         assert resp.json()["review_policy"] == "ai_ok"
+        assert resp.json()["tutor_model"] == "claude-sonnet-5"
+
+
+class TestTutorModelPicker:
+    def test_set_requires_admin(self, client):
+        with _roles([{"language_id": LANG, "role": "reviewer"}]):
+            resp = client.post(
+                "/api/contribute/language-tutor-model",
+                json={"language_id": LANG, "model": "claude-sonnet-5"},
+                headers=_auth_headers(),
+            )
+        assert resp.status_code == 403
+
+    def test_set_as_admin(self, client):
+        with _roles([{"language_id": None, "role": "admin"}]), \
+             patch("backend.routers.contribute.set_language_tutor_model",
+                   new=AsyncMock()) as mock_set:
+            resp = client.post(
+                "/api/contribute/language-tutor-model",
+                json={"language_id": LANG, "model": "claude-haiku-4-5-20251001"},
+                headers=_auth_headers(),
+            )
+        assert resp.status_code == 200
+        assert resp.json() == {"tutor_model": "claude-haiku-4-5-20251001"}
+        mock_set.assert_awaited_once()
+
+    def test_reset_to_default_with_null(self, client):
+        with _roles([{"language_id": None, "role": "admin"}]), \
+             patch("backend.routers.contribute.set_language_tutor_model",
+                   new=AsyncMock()) as mock_set:
+            resp = client.post(
+                "/api/contribute/language-tutor-model",
+                json={"language_id": LANG, "model": None},
+                headers=_auth_headers(),
+            )
+        assert resp.status_code == 200
+        assert mock_set.await_args.args[2] is None
+
+    def test_unknown_model_422(self, client):
+        with _roles([{"language_id": None, "role": "admin"}]):
+            resp = client.post(
+                "/api/contribute/language-tutor-model",
+                json={"language_id": LANG, "model": "gpt-9000"},
+                headers=_auth_headers(),
+            )
+        assert resp.status_code == 422
 
 
 class TestCreatePoint:

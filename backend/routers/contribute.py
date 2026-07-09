@@ -22,6 +22,7 @@ from backend.repositories.contributor import (
     find_user_by_email,
     get_feedback_language,
     get_language_policy,
+    get_language_tutor_model,
     get_note_language,
     get_point_for_check,
     get_point_language,
@@ -40,6 +41,7 @@ from backend.repositories.contributor import (
     save_ai_check,
     save_explanation,
     set_language_policy,
+    set_language_tutor_model,
 )
 from backend.repositories.pool import privileged_connection, rls_connection
 from backend.services.drills import validate_drill
@@ -113,11 +115,13 @@ async def grammar_for_language(
             )
         points = await list_grammar_points(conn, language_id)
         policy = await get_language_policy(conn, language_id)
+        tutor_model = await get_language_tutor_model(conn, language_id)
     return {
         "points": points,
         "is_admin": is_admin(roles),
         "can_review": can_review(roles, language_id),
         "review_policy": policy,
+        "tutor_model": tutor_model,
     }
 
 
@@ -147,6 +151,44 @@ async def update_language_policy(
     async with privileged_connection() as conn:
         await set_language_policy(conn, body.language_id, body.policy)
     return {"policy": body.policy}
+
+
+class TutorModelUpdate(BaseModel):
+    language_id: str
+    model: str | None = None  # None resets to the global default
+
+
+# The models an admin may assign per language (WP15a). Order = strongest
+# first; None (the global default) is always allowed.
+ALLOWED_TUTOR_MODELS = (
+    "claude-fable-5",
+    "claude-opus-4-8",
+    "claude-sonnet-5",
+    "claude-haiku-4-5-20251001",
+)
+
+
+@router.post("/language-tutor-model")
+async def update_language_tutor_model(
+    body: TutorModelUpdate,
+    user: dict = Depends(get_current_user),
+):
+    """Set a language's tutor model override (admin-only; None = default)."""
+    if body.model is not None and body.model not in ALLOWED_TUTOR_MODELS:
+        raise HTTPException(
+            status_code=status.HTTP_422_UNPROCESSABLE_ENTITY,
+            detail=f"model must be one of {list(ALLOWED_TUTOR_MODELS)} or null",
+        )
+    async with rls_connection(user["id"]) as conn:
+        roles = await get_roles(conn, user["id"])
+    if not is_admin(roles):
+        raise HTTPException(
+            status_code=status.HTTP_403_FORBIDDEN,
+            detail="Only an admin can change the tutor model",
+        )
+    async with privileged_connection() as conn:
+        await set_language_tutor_model(conn, body.language_id, body.model)
+    return {"tutor_model": body.model}
 
 
 @router.put("/grammar/{point_id}")

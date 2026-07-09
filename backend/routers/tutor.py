@@ -35,6 +35,7 @@ from backend.services.tutor import (
     merge_remembered,
     summarize_session,
     tutor_chat,
+    tutor_chat_stream,
 )
 
 router = APIRouter()
@@ -167,6 +168,10 @@ async def chat(
         study_stats = await get_study_stats(conn, user["id"], body.language_id)
         user_profile = await get_user_profile(conn, user["id"])
         lang = await get_language_profile(conn, user["id"], body.language_id)
+        # WP15a: per-language model override (NULL = global default).
+        model = await conn.fetchval(
+            "SELECT tutor_model FROM languages WHERE id = $1", body.language_id
+        )
 
     try:
         reply, remembered = await tutor_chat(
@@ -177,6 +182,7 @@ async def chat(
             language_profile=lang["profile"],
             session_summary=lang["session_summary"],
             study_stats=study_stats,
+            model=model,
         )
     except ValueError as exc:
         raise HTTPException(status_code=422, detail=str(exc)) from exc
@@ -194,7 +200,7 @@ async def chat(
     settings = get_settings()
     async with rls_connection(user["id"]) as conn:
         await log_tutor_usage(
-            conn, user["id"], body.language_id, settings.tutor_model
+            conn, user["id"], body.language_id, model or settings.tutor_model
         )
         if remembered:
             new_user, new_lang = merge_remembered(
@@ -220,6 +226,128 @@ async def chat(
             ),
         },
     }
+
+
+@router.post("/chat/stream")
+async def chat_stream(
+    body: TutorChatRequest,
+    user: dict = Depends(get_current_user),
+):
+    """Streaming tutor turn (WP9d): Server-Sent Events.
+
+    Emits `data: {json}` lines — {"type":"delta","text"} chunks as the
+    model writes, a rare {"type":"reset"} when streamed text belonged to a
+    tool-use turn, and a final {"type":"done","reply","remembered",
+    "allowance"} after persistence. Gating (allowance, rate limit) is
+    identical to /chat.
+    """
+    _require_configured(body.language_code)
+    allowance = await _get_allowance(user["id"], body.language_id)
+    if not allowance["unlimited"] and allowance["remaining"] <= 0:
+        raise HTTPException(
+            status_code=status.HTTP_402_PAYMENT_REQUIRED,
+            detail={
+                "code": "allowance_exhausted",
+                "tier": allowance["tier"],
+                "limit": allowance["limit"],
+                "resets_at": allowance["resets_at"],
+            },
+        )
+    if not await tutor_chat_limiter.allow(user["id"]):
+        raise HTTPException(
+            status_code=status.HTTP_429_TOO_MANY_REQUESTS,
+            detail="You're sending messages too fast — slow down a moment.",
+        )
+
+    async with rls_connection(user["id"]) as conn:
+        weak_areas = await get_weak_areas(conn, user["id"], body.language_id)
+        study_stats = await get_study_stats(conn, user["id"], body.language_id)
+        user_profile = await get_user_profile(conn, user["id"])
+        lang = await get_language_profile(conn, user["id"], body.language_id)
+        model = await conn.fetchval(
+            "SELECT tutor_model FROM languages WHERE id = $1", body.language_id
+        )
+
+    async def event_source():
+        import json as _json
+
+        settings = get_settings()
+        try:
+            async for event in tutor_chat_stream(
+                body.language_code,
+                [m.model_dump() for m in body.messages],
+                weak_areas,
+                user_profile=user_profile,
+                language_profile=lang["profile"],
+                session_summary=lang["session_summary"],
+                study_stats=study_stats,
+                model=model,
+            ):
+                if event["type"] == "done":
+                    # Persist BEFORE the client sees "done" so a reload
+                    # right after can't observe a half-recorded turn.
+                    remembered = event.get("remembered") or []
+                    async with rls_connection(user["id"]) as conn:
+                        await log_tutor_usage(
+                            conn, user["id"], body.language_id,
+                            model or settings.tutor_model,
+                        )
+                        if remembered:
+                            new_user, new_lang = merge_remembered(
+                                user_profile, lang["profile"], remembered
+                            )
+                            if new_user != user_profile:
+                                await upsert_user_profile(
+                                    conn, user["id"], new_user
+                                )
+                            if new_lang != lang["profile"]:
+                                await upsert_language_profile(
+                                    conn, user["id"], body.language_id, new_lang
+                                )
+                    used_after = (
+                        None if allowance["unlimited"] else allowance["used"] + 1
+                    )
+                    event = {
+                        **event,
+                        "remembered": len(remembered),
+                        "allowance": {
+                            **allowance,
+                            "used": used_after,
+                            "remaining": (
+                                None if allowance["unlimited"]
+                                else max(0, allowance["limit"] - used_after)
+                            ),
+                        },
+                    }
+                yield f"data: {_json.dumps(event)}\n\n"
+        except ValueError as exc:
+            yield f"data: {_json.dumps({'type': 'error', 'message': str(exc)})}\n\n"
+        except anthropic.RateLimitError:
+            yield (
+                "data: "
+                + _json.dumps({
+                    "type": "error",
+                    "message": "Tutor is busy — try again in a moment",
+                })
+                + "\n\n"
+            )
+        except anthropic.APIError:
+            yield (
+                "data: "
+                + _json.dumps({
+                    "type": "error",
+                    "message": "Tutor is temporarily unavailable",
+                })
+                + "\n\n"
+            )
+
+    from fastapi.responses import StreamingResponse
+
+    return StreamingResponse(
+        event_source(),
+        media_type="text/event-stream",
+        headers={"Cache-Control": "no-cache", "X-Accel-Buffering": "no"},
+    )
 
 
 @router.post("/session/end")

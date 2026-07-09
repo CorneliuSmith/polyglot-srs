@@ -371,6 +371,54 @@ class TestTutorChatEndpoint:
         assert resp.status_code == 429
 
 
+class TestTutorChatStream:
+    def test_streams_deltas_then_done_with_allowance(self, client):
+        """Dev-mock mode drives the REAL streaming generator end to end:
+        SSE delta chunks reassemble into the reply, and the final done
+        event carries the updated allowance after persistence."""
+        import json as _json
+
+        mock_settings = FakeSettings()
+        mock_settings.tutor_dev_mock = True
+        p1, p2, p3, p4 = _patch_chat_repos()
+        with p1, p2, p3, p4, \
+             patch("backend.routers.tutor.get_settings", return_value=mock_settings), \
+             patch("backend.services.tutor.get_settings", return_value=mock_settings), \
+             patch("backend.routers.tutor.log_tutor_usage", new=AsyncMock()) as mock_log:
+            resp = client.post(
+                "/api/tutor/chat/stream", json=_chat_body(), headers=_auth_headers()
+            )
+        assert resp.status_code == 200
+        assert resp.headers["content-type"].startswith("text/event-stream")
+
+        events = [
+            _json.loads(line[len("data: "):])
+            for line in resp.text.splitlines()
+            if line.startswith("data: ")
+        ]
+        deltas = [e for e in events if e["type"] == "delta"]
+        done = [e for e in events if e["type"] == "done"]
+        assert len(deltas) >= 2          # the reply arrived in chunks
+        assert len(done) == 1
+        assert "".join(d["text"] for d in deltas) == done[0]["reply"]
+        assert done[0]["allowance"]["unlimited"] is True
+        mock_log.assert_awaited_once()   # the message was recorded
+
+    def test_stream_blocked_when_allowance_exhausted(self, client):
+        paid = FakeSettings()
+        paid.tutor_free_access = False
+        with patch("backend.routers.tutor.get_settings", return_value=paid), \
+             patch("backend.routers.tutor.has_tutor_entitlement",
+                   new=AsyncMock(return_value=False)), \
+             patch("backend.routers.tutor.count_tutor_messages",
+                   new=AsyncMock(return_value=20)):
+            resp = client.post(
+                "/api/tutor/chat/stream", json=_chat_body(), headers=_auth_headers()
+            )
+        assert resp.status_code == 402
+        assert resp.json()["detail"]["code"] == "allowance_exhausted"
+
+
 class TestSessionEndEndpoint:
     def test_summarizes_and_persists(self, client):
         result = {

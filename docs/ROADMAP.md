@@ -336,7 +336,11 @@ docs/accounts-and-roles.md "Account tiers"); remaining: capture
 input/output token counts per call and surface per-user/per-language cost
 in an admin view. (c) Tutor should propose drills from GRAMMAR weak areas
 (data now flows; prompt already tags kind=grammar — verify behavior with
-real key and tune the charter). (d) Streaming responses in the chat UI.
+real key and tune the charter). (d) **Streaming DONE 2026-07**: POST
+/api/tutor/chat/stream emits SSE delta/reset/done events (same
+allowance + rate gating as /chat; persistence lands before the done
+event); the chat UI renders the reply as it streams with a cursor, and
+falls back to the plain endpoint if the transport fails.
 **Model:** implementation `claude-sonnet-5`; prompt/charter tuning
 `claude-fable-5` or `claude-opus-4-8`.
 **Effort:** M.
@@ -419,14 +423,12 @@ Role management shipped 2026-07 (see `docs/accounts-and-roles.md`): learner /
 contributor / reviewer / admin, per-language or global, granted by email in
 the Contribute page's Roles panel, bootstrapped once via
 `scripts/grant_admin.sh`. Remaining, in order:
-(a) **Per-language tutor model selection (admin UI)** — today the tutor model
-is a global env var (`TUTOR_MODEL`, default `claude-opus-4-8`; summarizer on
-`claude-sonnet-5`). Move to a `tutor_model` column on `languages` (NULL =
-global default) + an admin panel listing each language with a model picker
-(Claude model IDs: `claude-fable-5`, `claude-opus-4-8`, `claude-sonnet-5`,
-`claude-haiku-4-5-20251001`) and per-language token/cost columns once WP9(b)
-usage tracking lands. High-resource languages can ride a cheaper model;
-low-resource languages (the differentiator) stay on the strongest.
+(a) **Per-language tutor model selection — DONE 2026-07**:
+`languages.tutor_model` (NULL = the `TUTOR_MODEL` global default), admin
+picker on the Contribute page (allowed ids: `claude-fable-5`,
+`claude-opus-4-8`, `claude-sonnet-5`, `claude-haiku-4-5-20251001`), and
+both chat endpoints + the usage log resolve the override. Remaining
+polish: per-language token/cost columns once WP9(b) capture lands.
 (b) **Custom / local endpoints** — accept an OpenAI-compatible base URL +
 model name per language (Ollama, vLLM, LM Studio, llama.cpp server), stored
 alongside `tutor_model`, with a health-check button and automatic fallback

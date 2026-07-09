@@ -446,14 +446,17 @@ async def tutor_chat(
     language_profile: dict | None = None,
     session_summary: str | None = None,
     study_stats: dict | None = None,
+    model: str | None = None,
 ) -> tuple[str, list[dict]]:
     """Run one tutor turn.
 
     Returns (reply_text, remembered) where `remembered` is the list of
     `remember` tool payloads ({"scope", "key", "value"}) the tutor emitted
-    this turn, for the caller to persist.
+    this turn, for the caller to persist. *model* overrides the global
+    default (WP15a: per-language tutor models).
     """
     settings = get_settings()
+    model = model or settings.tutor_model
     history = sanitize_history(messages)
     if not history:
         raise ValueError("Conversation must contain at least one user message")
@@ -471,7 +474,7 @@ async def tutor_chat(
 
     for _ in range(MAX_TOOL_ITERATIONS):
         response = await client.messages.create(
-            model=settings.tutor_model,
+            model=model,
             max_tokens=2048,
             thinking={"type": "adaptive"},
             system=system,
@@ -506,7 +509,7 @@ async def tutor_chat(
 
     # Tool loop exhausted — make one final non-tool call for the reply.
     response = await client.messages.create(
-        model=settings.tutor_model,
+        model=model,
         max_tokens=2048,
         thinking={"type": "adaptive"},
         system=system,
@@ -514,6 +517,90 @@ async def tutor_chat(
     )
     reply = next((b.text for b in response.content if b.type == "text"), "")
     return reply, remembered
+
+
+async def tutor_chat_stream(
+    language_code: str,
+    messages: list[dict],
+    weak_areas: list[dict],
+    user_profile: dict | None = None,
+    language_profile: dict | None = None,
+    session_summary: str | None = None,
+    study_stats: dict | None = None,
+    model: str | None = None,
+):
+    """Streaming twin of tutor_chat (WP9d). Yields event dicts:
+
+      {"type": "delta", "text": ...}   — a chunk of assistant text
+      {"type": "reset"}                — the streamed text belonged to a
+                                         tool-use turn; drop it and expect
+                                         fresh deltas (rare: remember calls)
+      {"type": "done", "reply": ..., "remembered": [...]}
+
+    The caller owns persistence (usage log, remembered facts) after "done".
+    """
+    settings = get_settings()
+    model = model or settings.tutor_model
+    history = sanitize_history(messages)
+    if not history:
+        raise ValueError("Conversation must contain at least one user message")
+
+    if getattr(settings, "tutor_dev_mock", False):
+        reply, remembered = _mock_chat(language_code, history, weak_areas)
+        # Chunk the canned reply so the streaming UI path is exercised.
+        for i in range(0, len(reply), 24):
+            yield {"type": "delta", "text": reply[i:i + 24]}
+        yield {"type": "done", "reply": reply, "remembered": remembered}
+        return
+
+    client = AsyncAnthropic(api_key=settings.anthropic_api_key)
+    system = build_system_blocks(
+        language_code, weak_areas, user_profile, language_profile,
+        session_summary, study_stats,
+    )
+    convo: list[dict[str, Any]] = list(history)
+    remembered: list[dict] = []
+
+    for iteration in range(MAX_TOOL_ITERATIONS + 1):
+        tools = [REMEMBER_TOOL] if iteration < MAX_TOOL_ITERATIONS else []
+        async with client.messages.stream(
+            model=model,
+            max_tokens=2048,
+            thinking={"type": "adaptive"},
+            system=system,
+            messages=convo,
+            tools=tools,
+        ) as stream:
+            async for text in stream.text_stream:
+                yield {"type": "delta", "text": text}
+            response = await stream.get_final_message()
+
+        tool_uses = [b for b in response.content if b.type == "tool_use"]
+        if not tool_uses:
+            reply = next(
+                (b.text for b in response.content if b.type == "text"), ""
+            )
+            yield {"type": "done", "reply": reply, "remembered": remembered}
+            return
+
+        # The turn ended in tool calls; whatever text streamed belonged to
+        # it. Tell the client to drop the buffer, then continue the loop.
+        yield {"type": "reset"}
+        convo.append({"role": "assistant", "content": response.content})
+        results = []
+        for tu in tool_uses:
+            if tu.name == "remember" and isinstance(tu.input, dict):
+                remembered.append({
+                    "scope": tu.input.get("scope"),
+                    "key": tu.input.get("key"),
+                    "value": tu.input.get("value"),
+                })
+            results.append({
+                "type": "tool_result",
+                "tool_use_id": tu.id,
+                "content": "Saved.",
+            })
+        convo.append({"role": "user", "content": results})
 
 
 _SUMMARY_SCHEMA = {

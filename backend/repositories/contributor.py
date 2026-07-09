@@ -157,6 +157,25 @@ async def get_language_policy(conn: asyncpg.Connection, language_id: str) -> str
     return policy or "strict"
 
 
+async def get_language_tutor_model(
+    conn: asyncpg.Connection, language_id: str
+) -> str | None:
+    """The language's tutor model override (None = global default)."""
+    return await conn.fetchval(
+        "SELECT tutor_model FROM languages WHERE id = $1", language_id
+    )
+
+
+async def set_language_tutor_model(
+    conn: asyncpg.Connection, language_id: str, model: str | None
+) -> None:
+    """Set (or clear) a language's tutor model (privileged, admin-only)."""
+    await conn.execute(
+        "UPDATE languages SET tutor_model = $2 WHERE id = $1",
+        language_id, model,
+    )
+
+
 async def set_language_policy(
     conn: asyncpg.Connection, language_id: str, policy: str
 ) -> bool:
