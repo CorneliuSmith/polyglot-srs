@@ -31,6 +31,14 @@ friends' browsers ──▶ static frontend (free)  ──▶ backend API ($5–
    anything is public. Supabase dashboard → Settings → API → *Reset
    service_role key*; Settings → Database → *Reset database password*.
    Update your local `.env` with the new values (the deploy uses them too).
+   - *New API-key model (optional):* Supabase is replacing the legacy
+     `anon`/`service_role` keys with **publishable** (`sb_publishable_…`) and
+     **secret** (`sb_secret_…`) keys; both coexist until you disable the old
+     ones. This backend uses **neither** — it connects to Postgres directly
+     and verifies tokens via the JWT secret / JWKS — so `SUPABASE_ANON_KEY`
+     and `SUPABASE_SERVICE_ROLE_KEY` are optional and may be left blank. The
+     only place a key matters is the **frontend** `VITE_SUPABASE_ANON_KEY`,
+     where the publishable key is a drop-in for the anon key.
 2. **Get the pooler connection string.** Supabase dashboard → Connect →
    **Session pooler** URI (looks like
    `postgresql://postgres.<ref>:<password>@aws-0-<region>.pooler.supabase.com:5432/postgres`).
@@ -79,9 +87,9 @@ Variables; mark the secrets as *encrypted*):
 |---|---|
 | `DATABASE_URL` | the **session-pooler** URI from pre-flight step 2 |
 | `SUPABASE_URL` | `https://<your-ref>.supabase.co` |
-| `SUPABASE_ANON_KEY` | Settings → API → anon key |
-| `SUPABASE_SERVICE_ROLE_KEY` | the **rotated** service-role key |
-| `SUPABASE_JWT_SECRET` | Settings → API → JWT secret |
+| `SUPABASE_ANON_KEY` | optional — unused by the backend; leave blank |
+| `SUPABASE_SERVICE_ROLE_KEY` | optional — unused by the backend; leave blank |
+| `SUPABASE_JWT_SECRET` | Settings → API → JWT keys (the HS256 secret) |
 | `ENVIRONMENT` | `production` |
 | `CORS_ORIGINS` | `["https://<your-frontend-url>"]` — JSON array, exact origin, no trailing slash. You'll fill the real value in after step 2 creates the frontend. |
 | `TUTOR_FREE_ACCESS` | `false` (see pre-flight step 3) |
@@ -110,7 +118,7 @@ change one and you must trigger a rebuild):
 | Variable | Value |
 |---|---|
 | `VITE_SUPABASE_URL` | `https://<your-ref>.supabase.co` |
-| `VITE_SUPABASE_ANON_KEY` | the anon key (public by design — safe in a static build) |
+| `VITE_SUPABASE_ANON_KEY` | the anon key **or** the new publishable key (`sb_publishable_…`) — public by design, safe in a static build |
 | `VITE_API_BASE_URL` | the backend URL from step 1, e.g. `https://polyglot-api-xxxxx.ondigitalocean.app` — no trailing slash |
 
 Static sites are free on App Platform (up to 3). When it deploys, copy its
