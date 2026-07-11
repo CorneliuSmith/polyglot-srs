@@ -1,29 +1,1156 @@
 rank	word	pos	en
-1	mna	pron	I
-2	wena	pron	you
-3	yena	pron	he/she
-4	thina	pron	we
-7	ukuhamba	verb	to go
-8	ukutya	verb	to eat
-9	ukusela	verb	to drink
-10	ukufuna	verb	to want
-11	ukubona	verb	to see
-12	ukuthi	verb	to say
-13	amanzi	noun	water
-14	ukudla	noun	food
-15	indlu	noun	house
-16	umntu	noun	person
-17	usuku	noun	day
-18	ewe	adv	yes
-19	hayi	adv	no
-20	enkosi	interjection	thank you
-600	ukufunda	verb	to learn
-700	ukuthetha	verb	to speak
-800	ukuqonda	verb	to understand
-900	ukwazi	verb	to know
-1000	ukubhala	verb	to write
-1100	ukufunda	verb	to read
-1200	incwadi	noun	book
-1250	ulwimi	noun	language
-1300	nkulu	adj	big
-1350	lungile	adj	good
+1	na	particle	Interrogative particle; indicates a yes-no question. Placed at the end of the sentence.
+2	uthixo	name	God
+3	unyana	noun	son
+4	phakathi	adv	inside; among
+5	abantu	noun	plural of umntu (“person”).
+6	yena	pron	he, she, him, her, it; class 1 absolute pronoun.
+7	phezu	adv	above
+8	mna	pron	I, me; first-person singular absolute pronoun.
+9	wena	pron	you, thou, thee; second-person singular absolute pronoun.
+10	lowo	pron	that; class 1 distal demonstrative.
+11	kaloku	conj	because
+12	oko	pron	that; class 15 distal demonstrative.
+13	abo	pron	those; class 2 distal demonstrative.
+14	xa	conj	when, if
+15	uyesu	name	Jesus
+16	bona	pron	they, them; class 2 absolute pronoun.
+17	ngoko	adv	then
+18	ilizwi	noun	voice; word
+19	inkosi	noun	chief, king
+20	into	noun	thing
+21	le	pron	these; class 4 proximal demonstrative.
+22	lo	pron	this; class 1 proximal demonstrative.
+23	igama	noun	name
+24	nina	pron	you, you all; second-person plural absolute pronoun.
+25	umthetho	noun	law
+26	amadoda	noun	plural of indoda
+27	apho	adv	there; distal demonstrative adverb.
+28	umntu	noun	person, human
+29	nje	adv	so, in this manner; now
+30	phantsi	adv	down; below, beneath
+31	indlu	noun	house
+32	leyo	pron	those; class 4 distal demonstrative.
+33	ilizwe	noun	land; country
+34	loo	pron	alternative form of lowo
+35	umphefumlo	noun	breath
+36	ezo	pron	those; class 8 distal demonstrative.
+37	indoda	noun	man (male)
+38	isandla	noun	hand
+39	intliziyo	noun	heart
+40	aba	verb	to share; to distribute
+41	umoya	noun	air; wind; spirit
+42	elo	pron	that; class 5 distal demonstrative.
+43	uyise	noun	his or her father
+44	musa	intj	don't
+45	amehlo	noun	plural of iliso
+46	emva	adv	locative singular of umva; behind, at the back
+47	amanzi	noun	water
+48	yona	pron	they, them; class 4 absolute pronoun.
+49	thina	pron	we, us; first-person plural absolute pronoun.
+50	kakhulu	adv	a lot, very much
+51	ezi	pron	those; class 8 proximal demonstrative.
+52	apha	adv	here; proximal demonstrative adverb.
+53	umkhonzi	noun	servant
+54	ngoku	adv	now, at present
+55	inene	noun	truth
+56	umzi	noun	homestead; village
+57	ubuso	noun	face
+58	musani	intj	don't
+59	ububi	noun	badness, evil; ugliness
+60	nye	adj	one; another
+61	eli	pron	this; class 5 proximal demonstrative.
+62	lawo	pron	these; class 6 distal demonstrative.
+63	intombi	noun	girl
+64	la	pron	these; class 6 proximal demonstrative.
+65	wona	pron	he, she, him, her, it; class 3 absolute pronoun.
+66	oku	pron	this; class 15 proximal demonstrative.
+67	inceba	noun	mercy
+68	umsebenzi	noun	worker, labourer
+69	indlela	noun	road, path
+70	ilifa	noun	inheritance
+71	izandla	noun	plural of ísándla
+72	ntoni	adv	what
+73	igazi	noun	blood
+74	umfazi	noun	woman
+75	hayi	intj	no
+76	ubukumkani	noun	kingdom
+77	umlomo	noun	mouth
+78	ngaphandle	adv	outside, without, except
+79	hleze	conj	lest
+80	inyama	noun	meat, flesh
+81	umsindo	noun	wrath, anger
+82	imini	noun	daytime
+83	nguthixo	noun	God
+84	ikrele	noun	sword
+85	isithunywa	noun	messenger
+86	amandla	noun	strength, power
+87	lona	pron	he, she, him, her, it; class 5 absolute pronoun.
+88	ubawo	noun	my/our father
+89	isonka	noun	bread
+90	umkhosi	noun	army
+91	kanye	adv	once
+92	inkunzi	noun	animal (male)
+93	ibandla	noun	parish; assembly; congregation
+94	eso	pron	that; class 7 distal demonstrative.
+95	umlilo	noun	fire
+96	umhlaba	noun	earth, ground, world
+97	ubulungisa	noun	justice
+98	inyaniso	noun	truth
+99	uhlanga	noun	race
+100	intloko	noun	head (part of the body)
+101	impahla	noun	goods; clothing
+102	indawo	noun	place; area
+103	iindaba	noun	plural of indaba
+104	imbewu	noun	seed
+105	hamba	verb	to go, to walk, to move; to travel
+106	indlebe	noun	ear
+107	ukuthetha	noun	infinitive of -thetha; speech
+108	njalo	adv	so, in that manner
+109	ngexesha	adv	in time
+110	ubulumko	noun	caution; wisdom
+111	phezulu	adv	high
+112	abafazi	noun	plural of umfazi
+113	ewe	adv	yes
+114	zona	pron	they, them; class 8 absolute pronoun.
+115	isono	noun	sin
+116	izulu	noun	sky, heaven
+117	ixesha	noun	time
+118	abantwana	noun	plural of umntwana
+119	idini	noun	sacrifice
+120	thetha	verb	to speak
+121	umyalelo	noun	instruction
+122	uyihlo	noun	your father
+123	ityala	noun	debt
+124	ingubo	noun	blanket
+125	umda	noun	line, border
+126	incwadi	noun	book
+127	ukufa	noun	infinitive of -fa; death
+128	uxolo	noun	peace; pardon
+129	ilanga	noun	sun
+130	umphathi	noun	manager
+131	ne	adj	four
+132	imali	noun	money
+133	umntwana	noun	child
+134	umzimba	noun	body
+135	iwayini	noun	wine
+136	ubude	noun	height
+137	ulwandle	noun	sea, ocean
+138	esi	pron	this; class 7 proximal demonstrative.
+139	mhlawumbi	adv	possibly, perhaps
+140	ilitye	noun	stone; rock
+141	ubuqaqawuli	noun	brightness
+142	izindlu	noun	plural of indlu
+143	ubani	noun	who is (it)?
+144	abaya	pron	those over there, yonder; class 2 remote demonstrative.
+145	usindiso	noun	salvation
+146	ukholo	noun	faith, belief
+147	umfo	noun	fellow
+148	sona	pron	he, she, him, her, it; class 7 absolute pronoun.
+149	buya	verb	to return
+150	izono	noun	plural of ísôno
+151	unina	noun	his/her mother
+152	ze	conj	naked
+153	isilivere	noun	silver
+154	phandle	adv	outside; outdoors
+155	iliso	noun	eye
+156	inkulu	noun	first-born son
+157	ubunzima	noun	mass
+158	ummelwane	noun	neighbour
+159	lishumi	conj	ten
+160	imithi	noun	plural of umthi
+161	cwaka	noun	Signifies silence.
+162	umhla	noun	day; date
+163	umvuzo	noun	reward
+164	ubushushu	noun	heat
+165	isiqhamo	noun	fruit
+166	uthando	noun	love
+167	intonga	noun	stick
+168	ingoma	noun	song
+169	igolide	noun	gold
+170	umninawa	noun	younger brother
+171	vuka	verb	to wake up
+172	izonka	noun	plural of ísónka
+173	umhobe	noun	anthem
+174	imfazwe	noun	war; warfare
+175	icala	noun	side
+176	amathambo	noun	plural of ithambo
+177	icebo	noun	advice
+178	ngomso	adv	tomorrow
+179	intetho	noun	speech
+180	esiya	pron	that over there, yonder; class 7 remote demonstrative.
+181	ithole	noun	calf
+182	obo	pron	that; class 14 distal demonstrative.
+183	ulwimi	noun	tongue, language; figuratively a person who reveals a truth they had no right or permission to disclose or one who speaks out of turn.; Used to describe someone who tells the truth, but without authorization to do so, it's distinct from ixoki a (liar), since the statement itself is true.
+184	izenzo	noun	plural of ísénzo
+185	iziqhamo	noun	plural of ísíqhamo
+186	zoba	verb	to draw
+187	udonga	noun	wall
+188	amagama	noun	plural of igama
+189	umqondiso	noun	symbol
+190	intaba	noun	mountain; mountains
+191	ingqolowa	noun	wheat
+192	impi	noun	army, regiment
+193	izihlwele	noun	plural of isihlwele
+194	ubusuku	noun	night
+195	olu	pron	this; class 11 proximal demonstrative.
+196	umthandazo	noun	prayer
+197	intente	noun	tent
+198	umfana	noun	boy; young man
+199	naba	verb	to stretch out
+200	utshaba	noun	enemy
+201	ngcwele	conj	sacred, holy
+202	udade	noun	sister
+203	olo	pron	that; class 11 distal demonstrative.
+204	thabatha	verb	to deduct
+205	ishumi	noun	ten; the tenth one; tenth
+206	isigxina	noun	permanent
+207	umkhuluwa	noun	elder brother
+208	iphela	noun	cockroach
+209	umhlambi	noun	washer
+210	igunya	noun	authority
+211	umthi	noun	tree
+212	suka	verb	to be lost
+213	umbhali	noun	author, writer
+214	ithemba	noun	hope
+215	buhlungu	conj	sore, aching, painful
+216	namhlanje	adv	today
+217	nyuka	verb	to go up
+218	phesheya	adv	beyond
+219	ukulwa	noun	infinitive of -lwa; fight, struggle; battle, combat
+220	umkhonzazana	noun	handmaid
+221	isango	noun	gate
+222	ilifu	noun	cloud
+223	inkomo	noun	cow
+224	umbono	noun	view
+225	hlala	verb	to live
+226	khangela	verb	to check; to inspect
+227	indebe	noun	trophy
+228	phetha	verb	to conclude
+229	emlanjeni	noun	locative singular of umlambo
+230	ubuxoki	noun	untruth
+231	umlambo	noun	river
+232	imvula	noun	rain
+233	manzi	conj	wet
+234	obu	pron	this; class 14 proximal demonstrative.
+235	indlala	noun	famine
+236	lukhuni	conj	tough, stiff; stupid, dumb
+237	ikhulu	noun	hundred
+238	isizwe	noun	tribe; nation
+239	khe	pron	Combining stem of yena used with possessive concords.
+240	msulwa	conj	innocent, pure
+241	isithsaba	noun	crown
+242	ilixa	noun	time period
+243	isizukulwana	noun	generation
+244	azi	verb	to know
+245	idyokhwe	noun	yoke
+246	ubungqina	noun	evidence
+247	umrhumo	noun	fee
+248	iqashiso	noun	office
+249	loba	verb	to fish
+250	intsikelelo	noun	blessing
+251	unyawo	noun	foot
+252	mnyama	conj	black
+253	sixhenxe	conj	seven
+254	umfanekiso	noun	image, picture
+255	isihlwele	noun	crowd
+256	phuma	verb	to come out, to exit
+257	uluhlu	noun	row; line
+258	intsimi	noun	farm
+259	irhamncwa	noun	predator
+260	ngakumbi	adv	especially
+261	uthuli	noun	dust
+262	umkhombe	noun	rhinoceros
+263	inyanga	noun	moon; month
+264	saza	verb	to meet
+265	kona	pron	it; class 15 absolute pronoun.
+266	khulu	adj	big, large
+267	isiqingatha	noun	half
+268	inzala	noun	progeny
+269	isitya	noun	dish
+270	amaphiko	noun	plural of iphiko
+271	umnyaka	noun	year
+272	usomandla	noun	the Almighty
+273	isidlo	noun	feast
+274	imfuyo	noun	domestic animal
+275	izilumko	noun	plural of isilumko
+276	khumbula	verb	to miss; to remember
+277	ihlazo	noun	disgrace
+278	izibonda	noun	plural of isibonda
+279	mhlophe	conj	white
+280	uvuyo	noun	joy
+281	isidumbu	noun	corpse
+282	ingonyama	noun	lion
+283	imilambo	noun	plural of umlambo
+284	sika	verb	to cut
+285	ivumba	noun	smell
+286	ekuqaleni	noun	locative singular of ukuqala
+287	iliwa	noun	cliff
+288	umbulali	noun	killer, murderer
+289	ingqondo	noun	mind
+290	umzekeliso	noun	proverb
+291	khawuleza	verb	to hurry; to make haste
+292	isipho	noun	talent
+293	seza	verb	to dose
+294	ummiselo	noun	ordinance
+295	isibane	noun	lamp; light
+296	ukuphela	noun	infinitive of -phela; ending
+297	ingqumbo	noun	anger
+298	kholwa	verb	to believe
+299	ubuthongo	noun	sleep
+300	inyoka	noun	snake
+301	nzima	conj	heavy; difficult
+302	ngaphaya	adv	beyond, the other side
+303	ihlwempu	noun	pauper
+304	ithuba	noun	occasion, opportunity
+305	uphondo	noun	horn
+306	indumiso	noun	psalm
+307	isiphelo	noun	end
+308	isihlalo	noun	any seat
+309	izibane	noun	plural of ísíbane
+310	izidumbu	noun	plural of isidumbu
+311	vuya	verb	to be glad
+312	umnyango	noun	door
+313	phaya	adv	yonder, over there; remote demonstrative adverb.
+314	inkitha	noun	collection
+315	amagazi	noun	plural of igazi
+316	izibhambathiso	noun	plural of isibhambathiso
+317	isiko	noun	custom
+318	umnatha	noun	mesh
+319	kho	pron	Combining stem of wena used with possessive concords.; Combining stem of khona.
+320	ucango	noun	door
+321	uhambo	noun	trip
+322	okuya	pron	that over there, yonder; class 15 remote demonstrative.
+323	usuku	noun	day (period of time)
+324	inzuzo	noun	advantage; profit
+325	inkululeko	noun	freedom, liberty
+326	enza	verb	to do; to make
+327	ingqina	noun	witness
+328	intlanganiso	noun	meeting
+329	inqaba	noun	rare and precious thing
+330	ingalo	noun	arm
+331	nyulu	conj	clean
+332	ikratshi	noun	pride
+333	imbandezelo	noun	adversity
+334	idinga	noun	appointment
+335	igorha	noun	hero, brave person
+336	umsi	noun	smoke
+337	beka	verb	to put, place
+338	isisu	noun	stomach
+339	imfundiso	noun	lecture
+340	umyeni	noun	husband
+341	sela	verb	to drink
+342	izipho	noun	plural of isipho
+343	umbhinqo	noun	skirt
+344	inxalenye	noun	time period
+345	izigidimi	noun	plural of ísígidimí
+346	iyeza	noun	medicine
+347	inkohlakalo	noun	cruelty
+348	isilumko	noun	wise person; sage
+349	eziya	pron	those over there, yonder; class 8 remote demonstrative.
+350	ukuqala	noun	infinitive of -qala; beginning
+351	ikhaya	noun	home; household
+352	isililo	noun	lamentation
+353	isicaka	noun	servant
+354	izikhwebu	noun	plural of isikhwebu
+355	indyebo	noun	abundance; wealth
+356	inqwelo	noun	wagon
+357	buka	verb	to admire
+358	eliya	pron	that over there, yonder; class 5 remote demonstrative.
+359	iqhinga	noun	idea
+360	lowa	pron	that over there, yonder; class 1 remote demonstrative.
+361	amafu	noun	plural of ilifu
+362	umzuzwana	noun	moment
+363	thanda	verb	to love, to like
+364	umnqamlezo	noun	cross (crucifix)
+365	ngena	verb	to enter, to go into
+366	inkonzo	noun	service
+367	mandla	conj	outstanding
+368	isebe	noun	department
+369	isiqhumiso	noun	incense
+370	ityuwa	noun	salt
+371	isibhambathiso	noun	agreement
+372	iqela	noun	group
+373	unyoko	noun	your mother
+374	isinyithi	noun	metal
+375	ukhuko	noun	sleeping mat
+376	isenzo	noun	act
+377	bulela	verb	to thank
+378	umfundi	noun	student; pupil
+379	umbulo	noun	vision
+380	dla	verb	to corrode; to enjoy
+381	isidenge	noun	fool
+382	uthuthu	noun	ash
+383	nyanga	verb	to cure
+384	intlango	noun	desert (barren area)
+385	ihashe	noun	horse
+386	isifo	noun	sickness, disease
+387	tyala	verb	to plant
+388	ukungcola	noun	infinitive of -ngcola; dirtiness
+389	leya	pron	those over there, yonder; class 4 remote demonstrative.
+390	ubugqwetha	noun	law
+391	awu	intj	oh!
+392	iphiko	noun	wing (for flying)
+393	amazinyo	noun	plural of izinyo
+394	umnqweno	noun	wish, desire
+395	isigqubuthelo	noun	cover
+396	inyamakazi	noun	buck
+397	lungisa	verb	to fix, to repair
+398	mnandi	conj	nice
+399	ulusu	noun	skin
+400	matye	conj	stony
+401	mbalwa	conj	few
+402	izifo	noun	plural of ísifó
+403	ingcambu	noun	root
+404	ingcwaba	noun	grave
+405	akha	verb	to build
+406	utolo	noun	spear; arrow
+407	ibamba	noun	deputy
+408	igumbi	noun	room
+409	uncedo	noun	help
+410	ingqiqo	noun	prudence
+411	ummandla	noun	region
+412	buyela	verb	to return to
+413	inkwenkwe	noun	boy
+414	iqula	noun	fountain
+415	vuma	verb	to agree
+416	isiza	noun	building site
+417	ubudenge	noun	foolishness
+418	abafana	noun	plural of umfana
+419	lwa	verb	to fight, to struggle
+420	ubulawu	noun	African dream root
+421	banzi	conj	wide
+422	uboya	noun	animal hair, fur; wool
+423	phela	verb	to end, to terminate, to finish, to come to an end
+424	bala	verb	to count
+425	iziphelo	noun	plural of ísíphêlo
+426	ihlathi	noun	forest
+427	intsika	noun	pillar
+428	amadolo	noun	plural of idolo
+429	tshotsho	intj	serves you right!
+430	ingxabano	noun	quarrel, dispute
+431	inkuku	noun	fowl
+432	isibhakabhaka	noun	sky
+433	umphanda	noun	barrel
+434	gqi	noun	Signifies sudden appearance.
+435	umququ	noun	chaff; husk
+436	itakane	noun	lamb
+437	izazi	noun	plural of isazi
+438	isela	noun	thief
+439	inxeba	noun	cut, wound
+440	yeka	verb	to stop
+441	sondela	verb	to approach, to come closer
+442	umthwalo	noun	burden, load
+443	qonda	verb	to understand
+444	buza	verb	to ask; to interrogate, to question
+445	ubungangamsha	noun	glory
+446	ihenyukazi	noun	prostitute
+447	umzalwane	noun	relative
+448	ingweletshetshe	noun	shield
+449	ikampu	noun	camp
+450	themba	verb	to hope, to trust
+451	irhafu	noun	tax
+452	ububele	noun	kindness
+453	ibango	noun	claim
+454	ubugorha	noun	bravery; heroism
+455	umfundisi	noun	teacher
+456	zela	verb	to represent
+457	ithokazi	noun	heifer
+458	misa	verb	to stop
+459	ukubulala	noun	infinitive of -bulala; murder, killing
+460	isichotho	noun	hailstorm
+461	ukutya	noun	infinitive of -tya; food
+462	masikizi	conj	loathsome
+463	ixabiso	noun	price, value
+464	gcina	verb	to keep; to save
+465	eba	verb	to steal
+466	udumo	noun	fame
+467	lala	verb	to rest (by lying down); to sleep
+468	kamnandi	adv	sweetly, pleasantly
+469	izinja	noun	plural of inja
+470	khala	verb	to wail, to cry; to ring (of a phone); to bleat (of a goat)
+471	ncwina	verb	to groan
+472	mncinane	conj	small
+473	thumela	verb	to send to
+474	itafile	noun	table
+475	unwele	noun	a hair
+476	inkwenkwezi	noun	star
+477	funa	verb	to want, to desire
+478	umhlobo	noun	friend
+479	vula	verb	to open
+480	ubuhle	noun	beauty
+481	umbandezeli	noun	oppressor
+482	umfanekiselo	noun	image
+483	isiqu	noun	body
+484	isithuba	noun	point
+485	iyelenqe	noun	conspiracy
+486	zala	verb	to beget
+487	mgama	conj	far away
+488	intlama	noun	dough
+489	lula	conj	light (weighing little)
+490	ingqalo	noun	commencement
+491	umqala	noun	throat
+492	inqatha	noun	fat
+493	umthombo	noun	fountain
+494	umhlolokazi	noun	widow
+495	azisa	verb	to announce
+496	intsimbi	noun	iron; bell
+497	ubuhlungu	noun	pain
+498	iqhina	noun	knot, necktie
+499	jika	verb	to turn
+500	obuya	pron	that over there, yonder; class 14 remote demonstrative.
+501	cela	verb	to request
+502	izicaka	noun	plural of ísícâka
+503	udidi	noun	type
+504	imilomo	noun	plural of umlomo
+505	intombazana	noun	daughter
+506	umqadi	noun	beam
+507	ingca	noun	grass
+508	ulawulo	noun	management
+509	ingxolo	noun	noise
+510	isihogo	noun	hell
+511	ivila	noun	lazy person
+512	umzamo	noun	struggle
+513	ilothe	noun	lead
+514	lusali	conj	sparse
+515	imbeko	noun	respect
+516	ihlobo	noun	summer
+517	iqhekeza	noun	small piece
+518	umzuzu	noun	second
+519	ingxowa	noun	bag, sack
+520	izolo	noun	yesterday
+521	phakamisa	verb	to raise, to lift
+522	umtya	noun	cord; spancel
+523	umnwe	noun	finger
+524	umlenze	noun	leg
+525	intaka	noun	bird
+526	kha	verb	to pick
+527	ingobozi	noun	basket
+528	biza	verb	to call
+529	ubusi	noun	honey
+530	krakra	conj	bitter
+531	sindisa	verb	to rescue
+532	bhinqa	verb	to wear clothing around the waist
+533	thoba	verb	to reduce
+534	mela	verb	to stand for
+535	lila	verb	to cry, to weep
+536	isingqala	noun	sorrow, sigh
+537	bheka	verb	to look at
+538	lumka	verb	to take care
+539	gcoba	verb	to be happy
+540	phakama	verb	to stand up
+541	ishishini	noun	factory
+542	geza	verb	to be mad, to be crazy
+543	umdali	noun	creator
+544	umlimi	noun	farmer
+545	phila	verb	to be well, to be healthy
+546	umyezo	noun	garden
+547	ihobe	noun	dove
+548	intili	noun	valley
+549	iziko	noun	fireplace
+550	oyika	verb	to be afraid
+551	kama	verb	to brush hair
+552	amakhwenkwe	noun	plural of ínkwenkwé
+553	isiziba	noun	pool, pond
+554	ninzi	adj	many
+555	banda	verb	to be cold
+556	igxalaba	noun	shoulder
+557	umqulu	noun	file
+558	impilo	noun	health
+559	inkamela	noun	camel
+560	mandundu	conj	worsening
+561	udaka	noun	mud
+562	umgubo	noun	flour; meal
+563	umkhonto	noun	spear, assegai
+564	inkedama	noun	orphan
+565	vela	verb	to come, to originate
+566	susa	verb	to remove
+567	nqaba	verb	to be scarce
+568	inja	noun	dog; A person behaving like a dog
+569	sebenza	verb	to work
+570	isicelo	noun	request
+571	singa	verb	to head for
+572	isixeko	noun	village
+573	lawula	verb	to rule
+574	ingqukuva	noun	circle
+575	landela	verb	to follow
+576	iingoma	noun	plural of ingoma
+577	isiseko	noun	generosity
+578	tshabalala	verb	to perish; to be annihilated
+579	uluntu	noun	humanity
+580	lindela	verb	to await
+581	isiphango	noun	heavy rain
+582	amaqanda	noun	plural of iqanda
+583	umhlana	noun	back
+584	umzekelo	noun	example
+585	amacebo	noun	plural of icebo
+586	isigidimi	noun	messenger
+587	imbambano	noun	feud
+588	ivili	noun	wheel
+589	umbumbi	noun	potter
+590	ummangaliso	noun	marvel; miracle
+591	oluya	pron	that over there, yonder; class 11 remote demonstrative.
+592	umbanjwa	noun	prisoner
+593	indalo	noun	nature
+594	igosa	noun	officer
+595	umfuno	noun	vegetable
+596	umnyama	noun	rainbow
+597	inkosikazi	noun	lady, madam, married woman
+598	umgama	noun	distance
+599	imvu	noun	sheep
+600	umqolomba	noun	cave
+601	uhlobo	noun	kind
+602	umsesane	noun	ring
+603	izidlo	noun	plural of isidlo
+604	amafutha	noun	fat; oil; grease
+605	ubungcwele	noun	holiness
+606	ingqongqo	noun	dry oxhide
+607	indleko	noun	expense
+608	izinyo	noun	tooth
+609	uthango	noun	fence; hedge
+610	umsila	noun	tail (of an animal)
+611	ixhalanga	noun	wool
+612	isimilo	noun	character
+613	umthunzi	noun	shade
+614	usapho	noun	family
+615	ithambo	noun	bone
+616	oma	verb	to become dry
+617	bulala	verb	to kill
+618	ufele	noun	skin; leather
+619	isizathu	noun	reason
+620	ma	verb	to halt; to stop
+621	isitshixo	noun	key
+622	isikhonkwane	noun	nail
+623	rhola	verb	to drag
+624	lawa	pron	those over there, yonder; class 6 remote demonstrative.
+625	wa	verb	to fall
+626	cinga	verb	to think
+627	ubumnandi	noun	goodness
+628	isikrweqe	noun	weapon; armour
+629	umhambi	noun	traveller
+630	isithunzi	noun	shadow
+631	bamba	verb	to touch; to catch
+632	ingcinga	noun	thought
+633	inyongo	noun	bile
+634	umphambili	noun	front
+635	thuma	verb	to send
+636	igwiba	noun	refuge
+637	hlutha	verb	to be full
+638	uswazi	noun	switch
+639	ubulali	noun	gentleness
+640	ubusika	noun	winter
+641	ingcuka	noun	hyena
+642	ingcongolo	noun	reed
+643	usana	noun	baby
+644	isiduli	noun	anthill
+645	uphawu	noun	sign
+646	isakhiwo	noun	building
+647	bhala	verb	to write
+648	icesina	noun	fever
+649	ulwaluko	noun	circumcision
+650	izinambuzane	noun	plural of isinambuzane
+651	isithende	noun	heel
+652	thengisa	verb	to sell
+653	baleka	verb	to run away, to flee
+654	njani	adv	how, in what manner
+655	imazi	noun	cow (female)
+656	irhasi	noun	barley
+657	fumana	verb	to get, to obtain; to discover
+658	izagwityi	noun	plural of isagwityi
+659	nuka	verb	to smell, to stink
+660	nyusa	verb	to raise
+661	iinyama	noun	plural of inyama
+662	isikhumba	noun	skin, hide (of a human or animal)
+663	isithulu	noun	deaf person
+664	thandaza	verb	to pray
+665	izembe	noun	axe
+666	xela	verb	to confess; to say
+667	umfula	noun	river, stream; valley
+668	khonza	verb	to serve
+669	khupha	verb	to take out
+670	ibhunga	noun	council
+671	zisa	verb	to bring
+672	umcimbi	noun	matter
+673	jikela	verb	to go round
+674	qubuda	verb	to worship; to turn upside-down
+675	umbane	noun	electricity; lightning
+676	umgangatho	noun	floor
+677	bonakala	verb	to appear
+678	imbangi	noun	reason
+679	isinqe	noun	hip
+680	nika	verb	to give
+681	xoka	verb	to lie
+682	ingqungquthela	noun	congress
+683	ibhotwe	noun	palace
+684	ubukhwele	noun	envy
+685	lima	verb	to farm, cultivate; to plough
+686	impendulo	noun	answer
+687	inkxwaleko	noun	hardship; accident
+688	bo	pron	Combining stem of bona.
+689	inkqantosi	noun	wasteland
+690	impumlo	noun	nose
+691	intambo	noun	rope, cord
+692	buyisa	verb	to return, to give back
+693	izilimo	noun	plural of ísílimo
+694	emilanjeni	noun	locative plural of umlambo
+695	impatho	noun	treatment
+696	izidenge	noun	plural of isidenge
+697	urhwebo	noun	trade
+698	ubuhlwempu	noun	poverty
+699	isikali	noun	scale
+700	dakumba	verb	to be sad
+701	intsingiselo	noun	definition
+702	umtshakazi	noun	bride
+703	imfundo	noun	education
+704	udongwe	noun	clay
+705	umhlonyane	noun	African wormwood
+706	banga	verb	to cause
+707	ukhozo	noun	kernel
+708	umhlwa	noun	rust
+709	izinqe	noun	plural of ísinqé
+710	ingqibo	noun	end
+711	ibala	noun	spot; open space, yard
+712	phinda	verb	to repeat
+713	isithethe	noun	norm
+714	umbuliso	noun	greeting
+715	bulisa	verb	to greet
+716	ubizo	noun	calling
+717	nyamezela	verb	to endure; to bare patiently
+718	isangqa	noun	ring
+719	ikroba	noun	hole
+720	igqabi	noun	leaf
+721	phezolo	adv	last night
+722	ngcwaba	verb	to bury
+723	iveki	noun	week
+724	usikrobana	noun	socket
+725	izihloko	noun	plural of ísíhlôko
+726	ixhego	noun	old man
+727	ncamisa	verb	to kiss
+728	khulula	verb	to unbind
+729	umvalo	noun	barrier
+730	izikhonkwane	noun	plural of isikhonkwane
+731	ibhokhwe	noun	goat
+732	isivuno	noun	crop
+733	nkqo	conj	upright
+734	ithanga	noun	thigh
+735	qala	verb	to begin, to start
+736	isibindi	noun	liver; courage
+737	ibhadi	noun	springbuck
+738	qina	verb	to become firm, to become hard
+739	umqeshwa	noun	employee
+740	ingxelo	noun	report, statement
+741	umhluzi	noun	gravy
+742	incam	noun	apex
+743	incasa	noun	taste
+744	nkwenkwe	noun	simple singular of ínkwenkwé
+745	umphandle	noun	homepage
+746	lusa	verb	to herd
+747	uluthi	noun	stick
+748	ngxama	verb	to hurry
+749	ilahle	noun	untrustworthy guy
+750	wela	verb	to cross
+751	ubuhlobo	noun	friendship
+752	lunga	verb	to be right
+753	bopha	verb	to fasten
+754	imbiza	noun	cooking pot
+755	phatha	verb	to carry
+756	ikhonkco	noun	link
+757	izimpi	noun	plural of impi
+758	izigxina	noun	plural of isigxina
+759	inkunkuma	noun	trash, garbage
+760	guqa	verb	to kneel
+761	phumla	verb	to rest
+762	ikhephu	noun	snow
+763	isihange	noun	thug
+764	umzantsi	noun	south
+765	umkhenkce	noun	ice
+766	inqu	noun	gnu
+767	ingwenya	noun	crocodile
+768	izidlele	noun	plural of isidlele
+769	vutha	verb	to be ablaze, to flare up
+770	kamsinyane	adv	soon, quickly
+771	cima	verb	to extinguish
+772	igwebu	noun	foam, froth
+773	qinisa	verb	to tighten
+774	goso	conj	crooked
+775	iminwe	noun	plural of umnwe
+776	londoloza	verb	protect
+777	rhweba	verb	to barter, to trade
+778	lamba	verb	to become hungry
+779	ukukhetha	noun	infinitive of -khetha; election
+780	thenga	verb	to buy, to purchase
+781	intlabathi	noun	sand
+782	ukuhleka	noun	infinitive of -hleka; laughter
+783	umnandi	noun	something nice
+784	gqabhuka	verb	to burst
+785	betha	verb	to hit, to strike
+786	ummi	noun	inhabitant
+787	imifula	noun	plural of umfula
+788	nxiba	verb	to be dressed
+789	indlalifa	noun	heir
+790	ngumlambo	noun	copulative singular of umlambo
+791	intolongo	noun	prison
+792	ibunzi	noun	forehead
+793	izibophelelo	noun	plural of isibophelelo
+794	injoli	noun	divider of food shares
+795	intlanzi	noun	fish
+796	khubeka	verb	to stumble
+797	iimbewu	noun	plural of imbewu class 9
+798	izilima	noun	plural of ísílîma
+799	isibini	noun	the second one
+800	guquka	verb	to turn
+801	ndiyakuthanda	verb	I love you
+802	isibabalo	noun	gift
+803	vuselela	verb	to renew
+804	isiqalo	noun	beginning, start
+805	ifestile	noun	window
+806	mka	verb	to go away, to leave
+807	phupha	verb	to dream
+808	irhamba	noun	puff adder
+809	izifuba	noun	plural of ísífûba
+810	ityholo	noun	bush, thicket
+811	sukela	verb	to chase
+812	igqirha	noun	witch doctor
+813	ingqesho	noun	hire
+814	umphezulu	noun	top
+815	isiphako	noun	blemish
+816	iziphango	noun	plural of ísíphango
+817	umkhupha	noun	steamed bread
+818	amendu	noun	speed
+819	induna	noun	headman
+820	sibhozo	conj	eight
+821	nyula	verb	to choose
+822	sikelela	verb	to bless
+823	zamisa	verb	to stir
+824	hlaba	verb	to stab
+825	intlekele	noun	disaster; calamity
+826	ibubu	noun	cluster
+827	umlingane	noun	peer
+828	gqitha	verb	to do in excess, to surpass
+829	ulutsha	noun	youth
+830	nxila	verb	to be drunk
+831	ngwevu	conj	grey
+832	igusha	noun	sheep
+833	umkhozi	noun	in-law
+834	intakumba	noun	flea
+835	icandelo	noun	section
+836	izidanga	noun	plural of isidanga
+837	imbabala	noun	bushbuck
+838	nqwenela	verb	to wish for
+839	iqhiya	noun	handkerchief
+840	dlula	verb	to pass
+841	ahluka	verb	to separate; to differ
+842	mvila	conj	not quite dry
+843	ichibi	noun	lake, pond, pool
+844	zama	verb	to try
+845	hle	adj	beautiful, handsome
+846	ukulima	noun	infinitive of -lima; cultivation
+847	ibali	noun	story
+848	thwala	verb	to carry
+849	ambatha	verb	to put on a blanket
+850	uthambo	noun	exercise
+851	amathe	noun	saliva
+852	khula	verb	to grow, to increase
+853	hluma	verb	to grow
+854	umbuzo	noun	question
+855	tsha	verb	to catch fire, to burn
+856	luhlaza	conj	green, blue
+857	usizi	noun	sadness; sorrow; sympathy
+858	iziqendu	noun	plural of isiqendu
+859	dloba	verb	to frolic
+860	umngxuma	noun	hole
+861	ilungelo	noun	right, privilege
+862	umthamo	noun	content(s)
+863	ilishwa	noun	misfortune
+864	fika	verb	to arrive; to come to
+865	usiba	noun	plume, long feather
+866	shukuma	verb	to move, to stir
+867	phalala	verb	to spill over, to flow
+868	dlamka	verb	to be energetic
+869	penapena	verb	to writhe in pain
+870	undwendwe	noun	guest
+871	imihlaba	noun	plural of umhlaba
+872	phapha	verb	to escape
+873	phalaza	verb	to cough up
+874	bengezela	verb	to sparkle
+875	gweba	verb	to judge; to sentence
+876	isisa	noun	kindheartedness
+877	shenxisa	verb	to move
+878	umlisela	noun	young man
+879	isithili	noun	district
+880	isifuba	noun	chest (of the body)
+881	ibanga	noun	class
+882	ubume	noun	overview
+883	gcuma	verb	writhe
+884	aphuka	verb	to break, to become broken
+885	impumelelo	noun	success
+886	umsonto	noun	thread
+887	buthuntu	conj	blunt
+888	hlwayela	verb	to sow seed
+889	isele	noun	frog
+890	ngamendu	adv	fast
+891	ingwe	noun	leopard
+892	yimilambo	noun	copulative plural of umlambo
+893	dana	verb	to disappoint
+894	canda	verb	to chop
+895	uxande	noun	rectangle; rectangular European styled house
+896	isiqhwala	noun	person with a limp
+897	buna	verb	to shed; to wither
+898	ukhozi	noun	eagle
+899	ibele	noun	breast
+900	isityalo	noun	plant
+901	idlelo	noun	pasture
+902	isivatho	noun	fancy clothing
+903	ubukho	noun	presence
+904	gqobhoza	verb	to pierce
+905	tshiseka	verb	to be impatient
+906	xelela	verb	to tell
+907	imbombo	noun	corner
+908	bukhali	conj	sharp, pointy
+909	shushu	conj	hot
+910	umnini	noun	owner, master
+911	inqanawa	noun	vessel
+912	yala	verb	to advise; to warn, to admonish
+913	ingqeqesho	noun	discipline
+914	luzizi	conj	hazy, faint
+915	umhendi	noun	devil
+916	zuza	verb	to earn
+917	bomvu	conj	red
+918	lahleka	verb	to get lost
+919	isikhukukazi	noun	hen
+920	izihange	noun	plural of isihange
+921	isimo	noun	state, condition, status
+922	bafana	noun	simple plural of umfana
+923	libala	verb	to forget
+924	krokra	verb	to suspect; to complain
+925	umsa	noun	kindness
+926	isicakazana	noun	servant
+927	xhela	verb	to slaughter
+928	impambano	noun	madness
+929	ihlelo	noun	noun class
+930	luza	verb	to lose
+931	isilo	noun	wild animal
+932	izibabalo	noun	plural of isibabalo
+933	intlekisa	noun	laughing stock
+934	thingaza	verb	to waver
+935	phuthuma	verb	to fetch
+936	isidima	noun	dignity
+937	uloyiko	noun	fear
+938	inkungu	noun	fog, mist; ignorance
+939	ubambo	noun	rib
+940	ithafa	noun	stool
+941	khawulela	verb	to meet
+942	abayeni	noun	plural of umyeni
+943	fanisa	verb	to compare
+944	qhama	verb	to bear fruit
+945	khathalela	verb	to take care of
+946	funga	verb	to swear
+947	intsalela	noun	remnant
+948	intlawulo	noun	payment
+949	isiqholo	noun	perfume
+950	chiza	verb	ooze
+951	izikhumba	noun	plural of ísíkhumba
+952	ubugqwirha	noun	witchcraft
+953	ala	verb	to refuse
+954	bhubha	verb	to die
+955	izibaya	noun	plural of ísibâya
+956	imbuzi	noun	goat, ram
+957	intengiso	noun	auction
+958	ubudoda	noun	manhood, mankind
+959	idiliya	noun	grape
+960	uvimba	noun	storeroom
+961	yo	pron	Combining stem of yona.
+962	ukuzibulala	noun	suicide
+963	enzeka	verb	to occur
+964	chola	verb	to pick up
+965	onakalisa	verb	to spoil
+966	phambuka	verb	to go off a road
+967	isando	noun	hammer
+968	thimba	verb	to confiscate
+969	nyathela	verb	to stamp
+970	amakhosazana	noun	plural of inkosazana
+971	iqunube	noun	wild berry, especially those in the genus Rubus.
+972	ihleza	noun	bone
+973	umhlathi	noun	jaw
+974	phendula	verb	to answer
+975	ithamsanqa	noun	luck
+976	twabulula	verb	to spread out
+977	hlwempuza	verb	to make poor, to impoverish
+978	idabi	noun	battle
+979	vuna	verb	to pick, to reap, to harvest
+980	velisa	verb	to produce
+981	othuka	verb	to get a fright; to be surprised
+982	iqhalo	noun	proverb
+983	umnyanya	noun	ancestor
+984	cebisa	verb	to suggest
+985	xhasa	verb	to support
+986	wisa	verb	to drop
+987	izando	noun	plural of ísándo
+988	phelela	verb	to use up
+989	umsele	noun	ditch
+990	qhuba	verb	to drive
+991	hlamba	verb	to wash
+992	ukoluka	noun	The Xhosa rites of passage from boyhood to manhood.
+993	imvumi	noun	singer
+994	nokuzola	name	a female given name
+995	itheko	noun	ceremony; party
+996	naka	verb	to accuse falsely
+997	phumelela	verb	to win
+998	basa	verb	to light, to kindle
+999	impungutye	noun	fox
+1000	lingana	verb	to be equal
+1001	ingcobo	noun	joy
+1002	izigqibo	noun	plural of isigqibo
+1003	milambo	noun	simple plural of umlambo
+1004	jinga	verb	hang
+1005	umpha	noun	mealie-cob without grains
+1006	intsasa	noun	morning
+1007	bhadula	verb	to wander
+1008	imvubu	noun	hippopotamus
+1009	hleka	verb	laugh; laugh at
+1010	izigidi	noun	plural of ísígidi
+1011	qhayisa	verb	to boast
+1012	izicelo	noun	plural of isicelo
+1013	nyibilikisa	verb	to dissolve
+1014	amahlathi	noun	plural of ihlathi
+1015	itarhu	noun	pity, shame
+1016	qubula	verb	to raise
+1017	lahla	verb	to throw away, to discard; to abandon; to lose
+1018	boleka	verb	to lend
+1019	iphaphu	noun	lung
+1020	chitha	verb	to waste, to spill; to destroy
+1021	isikhululo	noun	station
+1022	khazimla	verb	to shine
+1023	dala	adj	old
+1024	gqiba	verb	to complete; to decide
+1025	umgcobo	noun	festival, celebration
+1026	uxinzelelo	noun	pressure
+1027	isithembiso	noun	promise
+1028	vusa	verb	to wake up
+1029	ingulube	noun	warthog
+1030	igqugula	noun	caucus
+1031	isigidi	noun	million
+1032	isityhakala	noun	reckless person
+1033	umnenga	noun	whale
+1034	inyhweba	noun	happiness; good fortune
+1035	qalekisa	verb	to curse
+1036	isitulo	noun	chair
+1037	izihogo	noun	plural of isihogo
+1038	ingqushu	noun	well trodden place
+1039	umakhi	noun	builder
+1040	msi	conj	subdued
+1041	sinda	verb	to escape
+1042	inzwakazi	noun	dear one
+1043	isithukuthezi	noun	loneliness
+1044	nqwena	verb	to wish
+1045	izicwangciso	noun	plural of isicwangciso
+1046	umba	noun	topic
+1047	gxotha	verb	to chase away
+1048	hlangula	verb	to rescue
+1049	damba	verb	to go down
+1050	opha	verb	to bleed
+1051	ubisi	noun	milk
+1052	ubugeza	noun	insanity
+1053	andisa	verb	to increase
+1054	isigqibo	noun	decision
+1055	sabela	verb	to answer
+1056	inkaba	noun	navel
+1057	goba	verb	to bend
+1058	impukane	noun	fly
+1059	icwecwe	noun	CD, tablet
+1060	tywina	verb	to seal
+1061	izihlangu	noun	plural of ísíhlangú
+1062	uxhamlo	noun	consumption
+1063	isarha	noun	saw
+1064	layisha	verb	to load
+1065	ihlahla	noun	bush
+1066	umqhubi	noun	driver
+1067	fihla	verb	to hide, to conceal
+1068	idade	noun	sister
+1069	gqwetha	verb	to invert
+1070	hla	verb	to descend, to go down
+1071	izichotho	noun	plural of ísíchotho
+1072	dubula	verb	to flower
+1073	rhoqo	adv	frequently, often; regularly
+1074	bhula	verb	to smother
+1075	iziganeko	noun	plural of isiganeko
+1076	izilo	noun	plural of ísílo
+1077	tyhila	verb	to page; to uncover
+1078	iziqholo	noun	plural of isiqholo
+1079	danduluka	verb	to speak loudly
+1080	inyushu	noun	tree snake
+1081	thi	verb	to say
+1082	isepha	noun	soap
+1083	phosa	verb	to throw
+1084	nqumla	verb	to sever
+1085	iinkozi	noun	plural of ukhozi
+1086	izalathiso	noun	plural of isalathiso
+1087	isintu	noun	tradition
+1088	tywa	noun	Signifies lying flat, face-down.
+1089	shiya	verb	to leave
+1090	ikhala	noun	aloe
+1091	isidlele	noun	cheek
+1092	hlaziya	verb	to refresh; to update
+1093	isitena	noun	brick
+1094	jikeleza	verb	rotate
+1095	thsu	noun	Signifies complete darkness.
+1096	lalisa	verb	to put to sleep
+1097	phanga	verb	to rob
+1098	fumba	verb	accumulate
+1099	khwezela	verb	to start a file
+1100	izihlalo	noun	plural of isihlalo
+1101	iziphumo	noun	plural of isiphumo
+1102	ucamba	noun	stratum
+1103	umyalezo	noun	message
+1104	umzali	noun	parent
+1105	nzulu	conj	deep
+1106	qwenga	verb	to tear into pieces
+1107	umoji	noun	baker
+1108	incopho	noun	summit, pinnacle
+1109	ukunene	noun	right side
+1110	isiciko	noun	lid; cover
+1111	krazula	verb	rip
+1112	funeka	verb	to be needed
+1113	iqhosha	noun	button
+1114	hlambulula	verb	to rinse
+1115	izakhiwo	noun	plural of isakhiwo
+1116	aluka	verb	to be circumcised
+1117	linda	verb	to wait; to wait for, await
+1118	ingqiniseko	noun	certain thing
+1119	umso	noun	tomorrow
+1120	umfi	noun	dead person
+1121	iqanda	noun	egg; zero
+1122	unomadudwane	noun	scorpion
+1123	khululeka	verb	to free
+1124	izilonda	noun	plural of ísílonda
+1125	bethelela	verb	to hammer
+1126	umbona	noun	maize
+1127	nqula	verb	to worship, to adore
+1128	itawuli	noun	towel
+1129	imbali	noun	history
+1130	hlekisa	verb	to be funny
+1131	isitrato	noun	street
+1132	umthengisi	noun	salesperson
+1133	impepho	noun	helichrysum; light breeze, fresh air
+1134	ukudada	noun	infinitive of -dada; swimming
+1135	umfuziselo	noun	model
+1136	n	character	The fourteenth letter of the Xhosa alphabet, written in the Latin script.
+1137	ubunzulu	noun	depth
+1138	anda	verb	to increase
+1139	oyisa	verb	to overcome
+1140	bonisa	verb	to make see, to show
+1141	incoko	noun	conversation
+1142	izimilo	noun	plural of isimilo
+1143	ncedisa	verb	to assist
+1144	isiganeko	noun	event
+1145	kholisa	verb	to please
+1146	inkolo	noun	head
+1147	umtshana	noun	nephew, niece
+1148	onga	verb	to heal
+1149	ubuncinane	noun	youth
+1150	impikiswano	noun	conflict
+1151	umtshato	noun	marriage, matrimony; wedding
+1152	khanuka	verb	to crave
+1153	ibhekile	noun	billycan
+1154	isilonda	noun	wound
+1155	inxila	noun	drunkard

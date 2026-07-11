@@ -2,6 +2,7 @@
 import json
 
 from .base import DATA_DIR, BaseSeeder
+from .seed_latin import _FrequencyTsvSeeder
 
 
 class ArabicSeeder(BaseSeeder):
@@ -70,3 +71,15 @@ class ArabicSeeder(BaseSeeder):
 
         self.logger.info(f"Transformed {len(records)} Arabic words")
         return records
+
+
+class ArabicFrequencySeeder(_FrequencyTsvSeeder):
+    """Corpus-scale Arabic vocabulary from data/ar_frequency.tsv (kaikki).
+
+    Runs BEFORE ArabicSeeder in run.py so the curated ar_seed.json entries
+    (hand transliterations, richer glosses) overwrite the generic rows for
+    the words they share.
+    """
+
+    language_code = "ar"
+    freq_filename = "ar_frequency.tsv"

@@ -57,27 +57,41 @@ from pathlib import Path
 
 import httpx
 
+from backend.services.nlp.arabic import ArabicNLP
 from backend.services.nlp.hausa import HausaNLP, normalize_hausa
 from backend.services.nlp.latin_base import (
     CatalanNLP,
     FrenchNLP,
     GermanNLP,
+    GreekNLP,
     ItalianNLP,
     MaoriNLP,
+    RomanianNLP,
     SpanishNLP,
 )
+from backend.services.nlp.russian import RussianNLP
 from backend.services.nlp.swahili import SwahiliNLP
 from backend.services.nlp.turkish import TurkishNLP, turkish_lower
 from backend.services.nlp.xhosa import XhosaNLP
 from backend.services.nlp.yoruba import YorubaNLP, strip_tones
 from backend.services.seeder.base import DATA_DIR
 
-# Latin-script languages sourced generically from a HermitDave frequency list
-# (OpenSubtitles) + a kaikki Wiktionary dictionary.
-FREQUENCYWORDS_LANGS = {"es", "it", "fr", "de", "ca"}
+# Languages sourced generically from a HermitDave frequency list
+# (OpenSubtitles) + a kaikki Wiktionary dictionary. The path is
+# script-agnostic — ro/el/ar ride the same rails as the Latin five; it just
+# needs a frequency list, a kaikki extract, and a lemmatizer.
+FREQUENCYWORDS_LANGS = {"es", "it", "fr", "de", "ca", "ro", "el", "ar", "ru"}
 LATIN_NLP = {
     "es": SpanishNLP, "it": ItalianNLP, "fr": FrenchNLP,
     "de": GermanNLP, "ca": CatalanNLP, "mi": MaoriNLP,
+}
+# Lemmatizers for the generic path (superset of LATIN_NLP). Russian's
+# pymorphy3 normal_form folds OpenSubtitles inflections onto kaikki
+# headwords — the OpenRussian download host no longer resolves, so Russian
+# rides these rails too.
+FREQ_NLP = {
+    **LATIN_NLP,
+    "ro": RomanianNLP, "el": GreekNLP, "ar": ArabicNLP, "ru": RussianNLP,
 }
 
 logger = logging.getLogger("source_data")
@@ -112,6 +126,10 @@ SOURCES = {
     "de_kaikki": "https://kaikki.org/dictionary/German/kaikki.org-dictionary-German.jsonl",
     "ca_kaikki": "https://kaikki.org/dictionary/Catalan/kaikki.org-dictionary-Catalan.jsonl",
     "mi_kaikki": "https://kaikki.org/dictionary/Maori/kaikki.org-dictionary-Maori.jsonl",
+    "ro_kaikki": "https://kaikki.org/dictionary/Romanian/kaikki.org-dictionary-Romanian.jsonl",
+    "el_kaikki": "https://kaikki.org/dictionary/Greek/kaikki.org-dictionary-Greek.jsonl",
+    "ar_kaikki": "https://kaikki.org/dictionary/Arabic/kaikki.org-dictionary-Arabic.jsonl",
+    "ru_kaikki": "https://kaikki.org/dictionary/Russian/kaikki.org-dictionary-Russian.jsonl",
     # HermitDave FrequencyWords (OpenSubtitles 2018), per ISO code.
     "frequencywords": (
         "https://raw.githubusercontent.com/hermitdave/FrequencyWords/"
@@ -129,9 +147,30 @@ SOURCES = {
     "tatoeba_sentences": "https://downloads.tatoeba.org/exports/per_language/{iso3}/{iso3}_sentences.tsv.bz2",
     "tatoeba_links": "https://downloads.tatoeba.org/exports/per_language/{iso3}/{iso3}-eng_links.tsv.bz2",
     "tatoeba_eng": "https://downloads.tatoeba.org/exports/per_language/eng/eng_sentences.tsv.bz2",
+    # English Wiktionary extract (gzipped, ~475MB): the only kaikki file whose
+    # entries carry per-language TRANSLATION arrays — one download localizes
+    # English vocabulary into every support language at once.
+    "en_kaikki_gz": (
+        "https://kaikki.org/dictionary/English/kaikki.org-dictionary-English.jsonl.gz"
+    ),
 }
 
-TATOEBA_ISO3 = {"tr": "tur", "sw": "swh", "yo": "yor", "ha": "hau", "xh": "xho"}
+# Support locales for English-as-target study ("I'm learning English from
+# Spanish"): locale code -> Tatoeba ISO-639-3, for building English example
+# sentences whose translations are in the LEARNER's language. These reuse
+# the same cached Tatoeba files the per-language sentence builds download.
+ENGLISH_SUPPORT_ISO3 = {
+    "es": "spa", "fr": "fra", "de": "deu", "it": "ita", "ru": "rus",
+    "tr": "tur", "ar": "ara", "el": "ell", "ro": "ron", "ca": "cat",
+    "sw": "swh",
+}
+
+TATOEBA_ISO3 = {
+    "tr": "tur", "sw": "swh", "yo": "yor", "ha": "hau", "xh": "xho",
+    # European tier + ru/ar (well-covered on Tatoeba)
+    "es": "spa", "fr": "fra", "de": "deu", "it": "ita", "ca": "cat",
+    "ro": "ron", "el": "ell", "ru": "rus", "ar": "ara",
+}
 
 # Hausa has no reachable public-domain corpus in this pipeline; the user drops
 # commercially-usable plain-text (Hausa Wikipedia CC-BY-SA, Leipzig CC-BY, or
@@ -596,16 +635,20 @@ def build_sentence_rows(
     return rows
 
 
-def write_sentences_tsv(rows: list[dict], out_path: Path) -> int:
+def write_sentences_tsv(rows: list[dict], out_path: Path, locale_column: bool = False) -> int:
     out_path.parent.mkdir(parents=True, exist_ok=True)
     with open(out_path, "w", encoding="utf-8", newline="") as f:
         writer = csv.writer(f, delimiter="\t")
-        writer.writerow(["word", "sentence", "translation", "difficulty_rank"])
+        header = ["word", "sentence", "translation", "difficulty_rank"]
+        if locale_column:
+            header.append("translation_locale")
+        writer.writerow(header)
         for row in rows:
-            writer.writerow([
-                row["word"], row["sentence"], row["translation"],
-                row["difficulty_rank"],
-            ])
+            out = [row["word"], row["sentence"], row["translation"],
+                   row["difficulty_rank"]]
+            if locale_column:
+                out.append(row.get("translation_locale") or "en")
+            writer.writerow(out)
     return len(rows)
 
 
@@ -621,28 +664,41 @@ async def load_example_sentences(db_url: str, language_code: str, tsv_path: Path
         if not language_id:
             raise ValueError(f"Language '{language_code}' not found in DB")
 
-        count = 0
         with open(tsv_path, encoding="utf-8") as f:
-            reader = csv.DictReader(f, delimiter="\t")
-            for row in reader:
-                inserted = await conn.fetchval(
-                    """
-                    INSERT INTO example_sentences
-                        (language_id, vocabulary_id, sentence, translation, difficulty_rank)
-                    SELECT $1, v.id, $3, $4, $5
-                    FROM vocabulary v
-                    WHERE v.language_id = $1 AND v.word = $2
-                    ON CONFLICT (vocabulary_id, sentence) DO NOTHING
-                    RETURNING id
-                    """,
-                    language_id,
-                    row["word"],
-                    row["sentence"],
-                    row["translation"] or None,
-                    int(row["difficulty_rank"]),
-                )
-                if inserted:
-                    count += 1
+            rows = list(csv.DictReader(f, delimiter="\t"))
+
+        # Chunked UNNEST inserts: sentence TSVs run to six figures of rows,
+        # and one round trip per row over a pooled connection is hours.
+        chunk_size = 5000
+        count = 0
+        for start in range(0, len(rows), chunk_size):
+            chunk = rows[start:start + chunk_size]
+            inserted_rows = await conn.fetch(
+                """
+                INSERT INTO example_sentences
+                    (language_id, vocabulary_id, sentence, translation,
+                     difficulty_rank, translation_locale)
+                SELECT $1, v.id, u.sentence, u.translation, u.rank, u.locale
+                FROM UNNEST($2::text[], $3::text[], $4::text[], $5::int[],
+                            $6::text[])
+                     AS u(word, sentence, translation, rank, locale)
+                JOIN vocabulary v
+                     ON v.language_id = $1 AND v.word = u.word
+                ON CONFLICT (vocabulary_id, sentence, translation_locale)
+                    DO NOTHING
+                RETURNING id
+                """,
+                language_id,
+                [r["word"] for r in chunk],
+                [r["sentence"] for r in chunk],
+                [(r["translation"] or None) for r in chunk],
+                [int(r["difficulty_rank"]) for r in chunk],
+                [
+                    (r.get("translation_locale") or "en").strip() or "en"
+                    for r in chunk
+                ],
+            )
+            count += len(inserted_rows)
         return count
     finally:
         await conn.close()
@@ -716,6 +772,10 @@ def build_language(language: str, source: str, max_words: int, cache_dir: Path) 
             )
         dictionary = _build_dictionary("ha", source, cache_dir, None)
         rows = build_hausa_rows(counts, dictionary, max_words)
+    elif language == "en":
+        # English keeps its bundled frequency list; what it needs from the
+        # internet is per-locale word translations (see ENGLISH_SUPPORT_ISO3).
+        return build_english_translations(cache_dir)
     elif language in FREQUENCYWORDS_LANGS:
         if source != "kaikki":
             raise ValueError(
@@ -728,7 +788,7 @@ def build_language(language: str, source: str, max_words: int, cache_dir: Path) 
         freq = parse_hermitdave(freq_path)
         dictionary = _build_dictionary(language, source, cache_dir, None)
         rows = build_frequency_rows(
-            freq, dictionary, LATIN_NLP[language]().lemmatize, max_words
+            freq, dictionary, FREQ_NLP[language]().lemmatize, max_words
         )
     else:
         raise ValueError(f"Unsupported language: {language}")
@@ -739,8 +799,139 @@ def build_language(language: str, source: str, max_words: int, cache_dir: Path) 
     return out_path
 
 
+def _read_rank_by_word(freq_tsv: Path) -> dict[str, int]:
+    rank_by_word: dict[str, int] = {}
+    with open(freq_tsv, encoding="utf-8") as f:
+        for row in csv.DictReader(f, delimiter="\t"):
+            rank_by_word[row["word"]] = int(row["rank"])
+    return rank_by_word
+
+
+def build_english_sentences(cache_dir: Path, per_word: int = 3) -> Path:
+    """Build data/en_sentences.tsv: English sentences with per-locale translations.
+
+    English is the reverse of every other language here: the sentence is
+    English and the TRANSLATION is in the learner's support language. Each
+    Tatoeba {locale}-eng link is simply read backwards, reusing the exact
+    files the per-language sentence builds already cache. One row per
+    (word, sentence, locale); per_word applies per locale so every support
+    language gets its own rotation.
+    """
+    from backend.services.nlp.english import EnglishNLP
+
+    freq_tsv = DATA_DIR / "en_frequency.tsv"
+    if not freq_tsv.exists():
+        raise FileNotFoundError(f"Missing {freq_tsv} — bundle the English frequency list first")
+    rank_by_word = _read_rank_by_word(freq_tsv)
+    lemmatize = EnglishNLP().lemmatize
+
+    eng = parse_tatoeba_sentences(
+        download(SOURCES["tatoeba_eng"], cache_dir / "eng_sentences.tsv.bz2")
+    )
+
+    all_rows: list[dict] = []
+    for locale, iso3 in ENGLISH_SUPPORT_ISO3.items():
+        try:
+            tgt = download(
+                SOURCES["tatoeba_sentences"].format(iso3=iso3),
+                cache_dir / f"{iso3}_sentences.tsv.bz2",
+            )
+            links_path = download(
+                SOURCES["tatoeba_links"].format(iso3=iso3),
+                cache_dir / f"{iso3}-eng_links.tsv.bz2",
+            )
+        except Exception as exc:  # 404 / network — skip the locale, keep going
+            logger.warning("en sentences: skipping locale %s (%s)", locale, exc)
+            continue
+        # {iso3}-eng links are (locale_id, eng_id); English-as-target wants
+        # (eng_id, locale_id) so the English side is the sentence.
+        reversed_links = [(e, s) for (s, e) in parse_tatoeba_links(links_path)]
+        rows = build_sentence_rows(
+            eng,
+            parse_tatoeba_sentences(tgt),
+            reversed_links,
+            rank_by_word,
+            lemmatize,
+            per_word=per_word,
+        )
+        for r in rows:
+            r["translation_locale"] = locale
+        logger.info("en sentences: %d rows for locale %s", len(rows), locale)
+        all_rows.extend(rows)
+
+    out_path = DATA_DIR / "en_sentences.tsv"
+    n = write_sentences_tsv(all_rows, out_path, locale_column=True)
+    logger.info("Wrote %d example sentences to %s", n, out_path)
+    return out_path
+
+
+def parse_english_kaikki_translations(
+    path: Path, wanted: set[str], locales: set[str]
+) -> dict[str, dict[str, str]]:
+    """word -> {locale: translation} from the English Wiktionary extract.
+
+    Streams the (gzipped) JSONL; collects each entry's translation arrays
+    (top-level and per-sense). First translation per (word, locale) wins —
+    senses are ordered by prominence in Wiktionary.
+    """
+    import gzip
+
+    out: dict[str, dict[str, str]] = {}
+    opener = gzip.open if path.suffix == ".gz" else open
+    with opener(path, "rt", encoding="utf-8") as f:
+        for line in f:
+            try:
+                entry = json.loads(line)
+            except json.JSONDecodeError:
+                continue
+            word = (entry.get("word") or "").strip().lower()
+            if word not in wanted:
+                continue
+            translations = list(entry.get("translations") or [])
+            for sense in entry.get("senses") or []:
+                translations.extend(sense.get("translations") or [])
+            if not translations:
+                continue
+            slot = out.setdefault(word, {})
+            for t in translations:
+                code = t.get("code") or t.get("lang_code")
+                tw = (t.get("word") or "").strip()
+                if code in locales and tw and code not in slot:
+                    slot[code] = tw
+    return out
+
+
+def build_english_translations(cache_dir: Path) -> Path:
+    """Build data/en_translations.tsv (word/locale/translation) from kaikki."""
+    freq_tsv = DATA_DIR / "en_frequency.tsv"
+    if not freq_tsv.exists():
+        raise FileNotFoundError(f"Missing {freq_tsv}")
+    wanted = set(_read_rank_by_word(freq_tsv))
+
+    path = download(SOURCES["en_kaikki_gz"], cache_dir / "en_kaikki.jsonl.gz")
+    by_word = parse_english_kaikki_translations(
+        path, wanted, set(ENGLISH_SUPPORT_ISO3)
+    )
+
+    out_path = DATA_DIR / "en_translations.tsv"
+    n = 0
+    with open(out_path, "w", encoding="utf-8", newline="") as f:
+        writer = csv.writer(f, delimiter="\t")
+        writer.writerow(["word", "locale", "translation"])
+        for word in sorted(by_word):
+            for locale in sorted(by_word[word]):
+                writer.writerow([word, locale, by_word[word][locale]])
+                n += 1
+    logger.info(
+        "Wrote %d translations (%d words) to %s", n, len(by_word), out_path
+    )
+    return out_path
+
+
 def build_sentences(language: str, cache_dir: Path, per_word: int = 3) -> Path:
     """Build data/{language}_sentences.tsv from Tatoeba (needs tatoeba.org access)."""
+    if language == "en":
+        return build_english_sentences(cache_dir, per_word=per_word)
     if language not in TATOEBA_ISO3:
         raise ValueError(
             f"No Tatoeba sentence pipeline for '{language}' yet "
@@ -767,7 +958,8 @@ def build_sentences(language: str, cache_dir: Path, per_word: int = 3) -> Path:
 
     nlp_by_lang = {
         "tr": TurkishNLP, "sw": SwahiliNLP, "yo": YorubaNLP,
-        "xh": XhosaNLP, "ha": HausaNLP,
+        "xh": XhosaNLP, "ha": HausaNLP, "ru": RussianNLP,
+        **FREQ_NLP,
     }
     lemmatize = nlp_by_lang[language]().lemmatize
     rows = build_sentence_rows(
@@ -788,7 +980,8 @@ def main() -> None:
     parser = argparse.ArgumentParser(description="Build seed data from open datasets")
     parser.add_argument(
         "--language", "-l",
-        choices=["tr", "sw", "yo", "ha", "xh", "es", "it", "fr", "de", "ca"],
+        choices=["tr", "sw", "yo", "ha", "xh", "es", "it", "fr", "de", "ca",
+                 "ro", "el", "ar", "ru", "en"],
         required=True
     )
     parser.add_argument(

@@ -89,5 +89,26 @@ class EnglishSeeder(BaseSeeder):
                 "translations": {"en": definition},
             })
 
+        # Per-locale word translations (built by source_data --language en
+        # from the kaikki English extract): lets "learning English from X"
+        # learners see the word in THEIR language, not a WordNet definition.
+        trans_path = data_dir / "en_translations.tsv"
+        if trans_path.exists():
+            extra: dict[str, dict[str, str]] = {}
+            with open(trans_path, encoding="utf-8") as f:
+                for row in csv.DictReader(f, delimiter="\t"):
+                    word = row["word"].strip().lower()
+                    if row.get("locale") and row.get("translation"):
+                        extra.setdefault(word, {})[row["locale"]] = row["translation"]
+            enriched = 0
+            for rec in records:
+                locales = extra.get(rec["word"])
+                if locales:
+                    rec["translations"].update(locales)
+                    enriched += 1
+            self.logger.info(
+                f"Merged support-locale translations for {enriched} words"
+            )
+
         self.logger.info(f"Transformed {len(records)} English words")
         return records
