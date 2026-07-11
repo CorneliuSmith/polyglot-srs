@@ -1,6 +1,6 @@
 import { useNavigate } from 'react-router-dom'
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query'
-import { getProfile, updateProfile } from '../../api/profile'
+import { getLanguages, getProfile, updateProfile } from '../../api/profile'
 import { getDashboardStats } from '../../api/dashboard'
 import { usePrefsStore } from '../../stores/prefsStore'
 import type { Theme } from '../../stores/prefsStore'
@@ -8,6 +8,7 @@ import { supabase } from '../../lib/supabase'
 import LanguagePicker from '../../components/LanguagePicker'
 
 const BATCH_SIZES = [3, 5, 10, 15, 20]
+const SESSION_SIZES = [10, 20, 50, 100]
 
 const THEMES: { value: Theme; label: string }[] = [
   { value: 'system', label: 'System' },
@@ -21,8 +22,11 @@ export default function SettingsPage() {
   const activeLanguageId = usePrefsStore((s) => s.activeLanguageId)
   const theme = usePrefsStore((s) => s.theme)
   const setTheme = usePrefsStore((s) => s.setTheme)
+  const sessionSize = usePrefsStore((s) => s.sessionSize)
+  const setSessionSize = usePrefsStore((s) => s.setSessionSize)
 
   const { data: profile } = useQuery({ queryKey: ['profile'], queryFn: getProfile })
+  const { data: languages = [] } = useQuery({ queryKey: ['languages'], queryFn: getLanguages })
   const { data: stats } = useQuery({
     queryKey: ['dashboard', activeLanguageId],
     queryFn: () => getDashboardStats(activeLanguageId!),
@@ -32,6 +36,15 @@ export default function SettingsPage() {
   const batchMutation = useMutation({
     mutationFn: (batch_size: number) => updateProfile({ batch_size }),
     onSuccess: () => queryClient.invalidateQueries({ queryKey: ['profile'] }),
+  })
+
+  const supportMutation = useMutation({
+    mutationFn: (support_locale: string) => updateProfile({ support_locale }),
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ['profile'] })
+      // English card content is localized server-side — refetch it.
+      queryClient.invalidateQueries({ queryKey: ['due-cards'] })
+    },
   })
 
   // How many cards across all CEFR levels the learner has started.
@@ -87,6 +100,59 @@ export default function SettingsPage() {
               </button>
             ))}
           </div>
+        </section>
+
+        <section className="bg-white rounded-2xl shadow-sm border border-gray-100 p-5 space-y-3">
+          <h2 className="font-semibold text-gray-800">Cards per review session</h2>
+          <p className="text-xs text-gray-500">
+            How many due cards each review session pulls. Anything left over
+            stays due for the next session.
+          </p>
+          <div className="flex gap-2">
+            {SESSION_SIZES.map((n) => (
+              <button
+                key={n}
+                type="button"
+                onClick={() => setSessionSize(n)}
+                aria-pressed={sessionSize === n}
+                className={
+                  'rounded-lg px-4 py-2 text-sm font-medium border ' +
+                  (sessionSize === n
+                    ? 'bg-indigo-600 text-white border-indigo-600'
+                    : 'bg-white text-gray-700 border-gray-300 hover:bg-gray-50')
+                }
+                style={{ minHeight: '44px' }}
+              >
+                {n}
+              </button>
+            ))}
+          </div>
+        </section>
+
+        <section className="bg-white rounded-2xl shadow-sm border border-gray-100 p-5 space-y-3">
+          <h2 className="font-semibold text-gray-800">Learning English from</h2>
+          <p className="text-xs text-gray-500">
+            When you study <span className="font-medium">English</span>, hints,
+            definitions, and example-sentence translations appear in this
+            language instead of English.
+          </p>
+          <select
+            value={profile?.support_locale ?? 'en'}
+            onChange={(e) => supportMutation.mutate(e.target.value)}
+            disabled={supportMutation.isPending}
+            aria-label="Learning English from"
+            className="rounded-lg border border-gray-300 px-3 py-2 text-sm bg-white"
+          >
+            <option value="en">English (definitions)</option>
+            {languages
+              .filter((l) => l.code !== 'en')
+              .map((l) => (
+                <option key={l.code} value={l.code}>{l.name}</option>
+              ))}
+          </select>
+          {supportMutation.isError && (
+            <p className="text-xs text-red-500">Couldn’t save — try again.</p>
+          )}
         </section>
 
         <section className="bg-white rounded-2xl shadow-sm border border-gray-100 p-5 space-y-3">

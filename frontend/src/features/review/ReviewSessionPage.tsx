@@ -2,6 +2,7 @@ import { useState, useRef, useEffect } from 'react'
 import { useNavigate, useSearchParams } from 'react-router-dom'
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query'
 import { getCramCards, getDueCards, validateAnswer, submitReview } from '../../api/review'
+import type { DueCard } from '../../api/types'
 import { usePrefsStore } from '../../stores/prefsStore'
 import { useReviewSession } from './useReviewSession'
 import DrillCard from './DrillCard'
@@ -38,22 +39,38 @@ export default function ReviewSessionPage({ cram = false }: { cram?: boolean }) 
   const setHintLevel = usePrefsStore((s) => s.setHintLevel)
   const inputRef = useRef<HTMLInputElement>(null)
 
-  const { data: cards = [], isLoading } = useQuery(
+  const sessionSize = usePrefsStore((s) => s.sessionSize)
+  const { data: fetched, isLoading } = useQuery(
     cram
       ? {
           queryKey: ['cram-cards', cramPoints],
           queryFn: () => getCramCards(cramPoints.split(',')),
           enabled: cramPoints.length > 0,
           staleTime: Infinity, // one fetch per cram session — no mid-session reshuffle
+          gcTime: 0,
+          refetchOnWindowFocus: false,
         }
       : {
-          queryKey: ['due-cards', activeLanguageId],
-          queryFn: () => getDueCards(activeLanguageId!),
+          queryKey: ['due-cards', activeLanguageId, sessionSize],
+          queryFn: () => getDueCards(activeLanguageId!, sessionSize),
           enabled: !!activeLanguageId,
+          // A live session must never see its deck change under it, and a
+          // NEW session must never flash the previous one's cached cards:
+          // fetch fresh on mount, then freeze.
+          gcTime: 0,
+          staleTime: Infinity,
+          refetchOnWindowFocus: false,
         },
   )
 
-  const session = useReviewSession(cards)
+  // Snapshot the deck at session start — refetches and cache invalidations
+  // (tab focus, summary cleanup) can't make cards appear/disappear mid-run.
+  const [cards, setCards] = useState<DueCard[] | null>(null)
+  useEffect(() => {
+    if (fetched && cards === null) setCards(fetched)
+  }, [fetched, cards])
+
+  const session = useReviewSession(cards ?? [])
 
   const qwertyTranslit = usePrefsStore((s) => s.qwertyTranslit)
 
@@ -156,7 +173,7 @@ export default function ReviewSessionPage({ cram = false }: { cram?: boolean }) 
     })
   }
 
-  if (isLoading) {
+  if (isLoading || cards === null) {
     return (
       <div className="min-h-screen bg-gray-50 flex items-center justify-center">
         <p className="text-gray-500">Loading cards…</p>
@@ -164,7 +181,7 @@ export default function ReviewSessionPage({ cram = false }: { cram?: boolean }) 
     )
   }
 
-  if (!isLoading && cards.length === 0) {
+  if (cards.length === 0) {
     return (
       <div className="min-h-screen bg-gray-50 flex items-center justify-center px-4">
         <div className="text-center space-y-4">

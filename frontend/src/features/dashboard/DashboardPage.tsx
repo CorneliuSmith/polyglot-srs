@@ -1,8 +1,12 @@
 import { useState } from 'react'
 import { Navigate, useNavigate } from 'react-router-dom'
-import { useQuery } from '@tanstack/react-query'
+import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
 import { getDashboardStats } from '../../api/dashboard'
-import { getLearnDecks } from '../../api/review'
+import {
+  getDeckPreview,
+  getLearnDecks,
+  setDeckSubscription,
+} from '../../api/review'
 import { getMyRoles } from '../../api/contribute'
 import { getOnboardingStatus } from '../../api/onboarding'
 import { usePrefsStore } from '../../stores/prefsStore'
@@ -14,38 +18,111 @@ import StageTiles from './StageTiles'
 import ProfileCard from './ProfileCard'
 import type { LearnDeck } from '../../api/types'
 
-/** One Bunpro-style deck row: level + type, progress bar, learned/total. */
+/** One Bunpro-style deck row: level + type, progress bar, learned/total,
+ * queue add/remove, and an expandable peek at the deck's first items. */
 function DeckRow({ deck, onLearn }: { deck: LearnDeck; onLearn: (d: LearnDeck) => void }) {
+  const queryClient = useQueryClient()
+  const [previewOpen, setPreviewOpen] = useState(false)
   const pct = deck.total > 0 ? Math.round((deck.learned / deck.total) * 100) : 0
   const label = `${deck.level ?? 'All'} · ${deck.list_type === 'grammar' ? 'Grammar' : 'Vocab'}`
   const done = deck.total > 0 && deck.learned >= deck.total
+
+  const subMutation = useMutation({
+    mutationFn: (subscribed: boolean) => setDeckSubscription(deck.id, subscribed),
+    onSuccess: () =>
+      queryClient.invalidateQueries({ queryKey: ['learn-decks'] }),
+  })
+
+  const { data: preview, isLoading: previewLoading } = useQuery({
+    queryKey: ['deck-preview', deck.id],
+    queryFn: () => getDeckPreview(deck.id),
+    enabled: previewOpen,
+    staleTime: 5 * 60 * 1000,
+  })
+
   return (
-    <button
-      type="button"
-      onClick={() => onLearn(deck)}
-      disabled={done}
-      className="w-full text-left px-4 py-3 hover:bg-gray-50 disabled:opacity-60 border-t border-gray-100 first:border-t-0"
-    >
-      <div className="flex items-center justify-between gap-3">
-        <span className="text-sm font-medium text-gray-800">{label}</span>
-        <span className="flex items-center gap-2">
+    <div className="border-t border-gray-100 first:border-t-0">
+      <div className="w-full text-left px-4 py-3">
+        <div className="flex items-center justify-between gap-3">
+          <button
+            type="button"
+            onClick={() => onLearn(deck)}
+            disabled={done || !deck.subscribed}
+            title={
+              deck.subscribed
+                ? 'Learn from this deck'
+                : 'Add the deck to your queue first'
+            }
+            className="text-sm font-medium text-gray-800 hover:text-indigo-600 disabled:opacity-60 disabled:hover:text-gray-800 text-left"
+          >
+            {label}
+          </button>
+          <span className="flex items-center gap-2">
+            <span className="text-xs tabular-nums text-gray-500">
+              {deck.learned} / {deck.total}
+            </span>
+          </span>
+        </div>
+        <div className="mt-2 w-full bg-gray-100 rounded-full h-1.5">
+          <div
+            className={`h-1.5 rounded-full ${done ? 'bg-green-400' : 'bg-indigo-500'}`}
+            style={{ width: `${pct}%` }}
+          />
+        </div>
+        <div className="mt-2 flex items-center gap-4 text-xs">
+          <button
+            type="button"
+            onClick={() => setPreviewOpen((v) => !v)}
+            aria-expanded={previewOpen}
+            className="text-gray-500 hover:text-indigo-600"
+          >
+            {previewOpen ? 'Hide contents' : 'Peek inside'}
+          </button>
+          {deck.subscribed ? (
+            <button
+              type="button"
+              onClick={() => subMutation.mutate(false)}
+              disabled={subMutation.isPending}
+              className="text-gray-500 hover:text-red-600"
+              title="Stops new cards from this deck. Cards you already learned keep their schedule."
+            >
+              Remove from queue
+            </button>
+          ) : (
+            <button
+              type="button"
+              onClick={() => subMutation.mutate(true)}
+              disabled={subMutation.isPending}
+              className="text-indigo-600 hover:underline font-medium"
+            >
+              Add to queue
+            </button>
+          )}
           {deck.subscribed && !done && (
             <span className="text-[10px] uppercase tracking-wide bg-indigo-50 text-indigo-500 rounded px-1.5 py-0.5">
               In queue
             </span>
           )}
-          <span className="text-xs tabular-nums text-gray-500">
-            {deck.learned} / {deck.total}
-          </span>
-        </span>
+        </div>
+        {previewOpen && (
+          <div
+            className="mt-2 rounded-lg bg-gray-50 border border-gray-100 p-3 text-xs space-y-1"
+            data-testid="deck-preview"
+          >
+            {previewLoading && <p className="text-gray-400">Loading…</p>}
+            {preview?.items.map((it, i) => (
+              <p key={i} className="text-gray-700">
+                <span className="font-medium">{it.item}</span>
+                {it.detail && <span className="text-gray-500"> — {it.detail}</span>}
+              </p>
+            ))}
+            {preview && preview.items.length === 0 && (
+              <p className="text-gray-400">This deck is empty.</p>
+            )}
+          </div>
+        )}
       </div>
-      <div className="mt-2 w-full bg-gray-100 rounded-full h-1.5">
-        <div
-          className={`h-1.5 rounded-full ${done ? 'bg-green-400' : 'bg-indigo-500'}`}
-          style={{ width: `${pct}%` }}
-        />
-      </div>
-    </button>
+    </div>
   )
 }
 
@@ -82,10 +159,11 @@ export default function DashboardPage() {
     enabled: !!activeLanguageId,
   })
   const visibleDecks = decks.filter((d) => d.total > 0)
-  const newAvailable = visibleDecks.reduce(
-    (sum, d) => sum + Math.max(d.total - d.learned, 0),
-    0,
-  )
+  // Learn only counts what the learner actually QUEUED — a deck they haven't
+  // added shouldn't inflate "new items available".
+  const newAvailable = visibleDecks
+    .filter((d) => d.subscribed)
+    .reduce((sum, d) => sum + Math.max(d.total - d.learned, 0), 0)
 
   // Surfaces the Contribute link only to users who hold a contributor role.
   const { data: roleInfo } = useQuery({

@@ -15,8 +15,10 @@ from backend.repositories.cards import (
     get_card_detail,
     get_card_details_bulk,
     get_cram_cards,
+    get_deck_preview,
     get_due_cards,
     get_learn_decks,
+    set_deck_subscription,
     update_card_srs,
 )
 from backend.repositories.fsrs_weights import get_effective_params
@@ -73,14 +75,29 @@ class ConfirmLearnRequest(BaseModel):
     card_ids: list[str] = Field(min_length=1, max_length=100)
 
 
+async def _support_locale(conn, user_id: str) -> str | None:
+    """The learner's chosen support language (localizes English cards)."""
+    return await conn.fetchval(
+        "SELECT support_locale FROM user_profiles WHERE id = $1", user_id
+    )
+
+
 @router.get("/due")
 async def get_due(
     language_id: str,
+    limit: int = 20,
     user: dict = Depends(get_current_user),
 ):
-    """Return due cards for the user's active language, sorted by next_review ASC."""
+    """Return due cards for the user's active language, sorted by next_review ASC.
+
+    *limit* is the learner's chosen session size (clamped 1–100).
+    """
+    limit = max(1, min(limit, 100))
     async with rls_connection(user["id"]) as conn:
-        cards = await get_due_cards(conn, language_id)
+        support = await _support_locale(conn, user["id"])
+        cards = await get_due_cards(
+            conn, language_id, limit=limit, support_locale=support
+        )
     return cards
 
 
@@ -129,7 +146,8 @@ async def card_detail(
     costs a query when the learner chooses to dig in rather than just continue.
     """
     async with rls_connection(user["id"]) as conn:
-        detail = await get_card_detail(conn, card_id)
+        support = await _support_locale(conn, user["id"])
+        detail = await get_card_detail(conn, card_id, support_locale=support)
     if detail is None:
         raise HTTPException(
             status_code=status.HTTP_404_NOT_FOUND,
@@ -283,6 +301,41 @@ async def decks(
         return {"decks": await get_learn_decks(conn, user["id"], language_id)}
 
 
+@router.get("/decks/{list_id}/preview")
+async def deck_preview(
+    list_id: str,
+    user: dict = Depends(get_current_user),
+):
+    """Peek inside a deck (its first items) before adding it to the queue."""
+    async with rls_connection(user["id"]) as conn:
+        preview = await get_deck_preview(conn, list_id)
+    if preview is None:
+        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Deck not found")
+    return preview
+
+
+class DeckSubscription(BaseModel):
+    subscribed: bool
+
+
+@router.post("/decks/{list_id}/subscription")
+async def deck_subscription(
+    list_id: str,
+    body: DeckSubscription,
+    user: dict = Depends(get_current_user),
+):
+    """Add or remove a deck from the learn queue.
+
+    Removing a deck only stops NEW cards — already-learned cards keep their
+    review schedule, so no progress is ever lost.
+    """
+    async with rls_connection(user["id"]) as conn:
+        ok = await set_deck_subscription(conn, user["id"], list_id, body.subscribed)
+    if not ok:
+        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Deck not found")
+    return {"subscribed": body.subscribed}
+
+
 @router.post("/learn")
 async def learn(
     body: LearnRequest,
@@ -338,7 +391,10 @@ async def learn(
         # Bulk-fetch the lesson payloads: per-card fetching is an N+1 that
         # makes "Preparing your new items…" hang for seconds on a pooled
         # (high-latency) database connection.
-        details = await get_card_details_bulk(conn, result["items"])
+        support = await _support_locale(conn, user["id"])
+        details = await get_card_details_bulk(
+            conn, result["items"], support_locale=support
+        )
         lessons = [
             {"card_id": card_id, **details[card_id]}
             for card_id in result["items"]

@@ -1,9 +1,13 @@
 import { useState } from 'react'
+import { Navigate } from 'react-router-dom'
 import { supabase } from '../../lib/supabase'
+import { useAuthStore } from '../../stores/authStore'
 
 type Tab = 'signin' | 'signup'
 
 export default function LoginPage() {
+  const isAuthenticated = useAuthStore((s) => s.isAuthenticated)()
+  const authLoading = useAuthStore((s) => s.loading)
   const [tab, setTab] = useState<Tab>('signin')
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
@@ -70,6 +74,13 @@ export default function LoginPage() {
           : error.message,
       )
     }
+  }
+
+  // Successful sign-in updates the auth store (onAuthStateChange) — leave
+  // the login page the moment a session exists. Without this, signing in
+  // "worked" but the user stayed here until a manual refresh.
+  if (!authLoading && isAuthenticated) {
+    return <Navigate to="/" replace />
   }
 
   return (

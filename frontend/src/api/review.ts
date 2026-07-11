@@ -17,11 +17,38 @@ export async function getCardDetail(cardId: string): Promise<CardDetail> {
   return response.data
 }
 
-export async function getDueCards(languageId: string): Promise<DueCard[]> {
+export async function getDueCards(
+  languageId: string,
+  limit?: number,
+): Promise<DueCard[]> {
   const response = await apiClient.get<DueCard[]>('/api/review/due', {
-    params: { language_id: languageId },
+    params: { language_id: languageId, ...(limit ? { limit } : {}) },
   })
   return response.data
+}
+
+export interface DeckPreview {
+  id: string
+  title: string
+  list_type: 'vocabulary' | 'grammar'
+  level: string | null
+  items: { item: string; detail: string | null }[]
+}
+
+/** Peek inside a deck (its first items) before adding it to the queue. */
+export async function getDeckPreview(listId: string): Promise<DeckPreview> {
+  const response = await apiClient.get<DeckPreview>(
+    `/api/review/decks/${listId}/preview`,
+  )
+  return response.data
+}
+
+/** Add or remove a deck from the learn queue (removal never loses progress). */
+export async function setDeckSubscription(
+  listId: string,
+  subscribed: boolean,
+): Promise<void> {
+  await apiClient.post(`/api/review/decks/${listId}/subscription`, { subscribed })
 }
 
 /** Quick-Cram (WP13f): ungraded practice cards for a set of grammar points.

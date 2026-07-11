@@ -1,5 +1,5 @@
 import { describe, it, expect, vi, beforeEach } from 'vitest'
-import { render, screen, fireEvent, waitFor } from '@testing-library/react'
+import { render, screen, fireEvent, waitFor, within } from '@testing-library/react'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { MemoryRouter } from 'react-router-dom'
 import SettingsPage from '../features/settings/SettingsPage'
@@ -12,12 +12,18 @@ vi.mock('react-router-dom', async (orig) => ({
 vi.mock('../api/profile', () => ({
   getProfile: vi.fn(),
   updateProfile: vi.fn(),
-  getLanguages: vi.fn(() => Promise.resolve([])),
+  getLanguages: vi.fn(() =>
+    Promise.resolve([
+      { id: 'lang-es', code: 'es', name: 'Spanish', rtl: false },
+      { id: 'lang-en', code: 'en', name: 'English', rtl: false },
+    ]),
+  ),
 }))
 vi.mock('../api/dashboard', () => ({ getDashboardStats: vi.fn() }))
-const { signOut, mockSetTheme } = vi.hoisted(() => ({
+const { signOut, mockSetTheme, mockSetSessionSize } = vi.hoisted(() => ({
   signOut: vi.fn(() => Promise.resolve({ error: null })),
   mockSetTheme: vi.fn(),
+  mockSetSessionSize: vi.fn(),
 }))
 vi.mock('../stores/prefsStore', () => ({
   usePrefsStore: vi.fn(
@@ -27,6 +33,8 @@ vi.mock('../stores/prefsStore', () => ({
         setActiveLanguageId: vi.fn(),
         theme: 'system',
         setTheme: mockSetTheme,
+        sessionSize: 20,
+        setSessionSize: mockSetSessionSize,
       }),
   ),
 }))
@@ -55,7 +63,7 @@ describe('SettingsPage', () => {
     vi.clearAllMocks()
     mockGetProfile.mockResolvedValue({
       id: 'u1', batch_size: 5, ui_language: 'en', active_language_id: 'lang-es',
-      created_at: '', updated_at: '',
+      support_locale: null, created_at: '', updated_at: '',
     })
     mockStats.mockResolvedValue({
       due_count: 4, streak_days: 3, cefr_progress: { A1: { learned: 12, total: 30 } },
@@ -72,8 +80,20 @@ describe('SettingsPage', () => {
 
   it('changes the new-cards-per-session batch size', async () => {
     renderPage()
-    fireEvent.click(await screen.findByRole('button', { name: '10' }))
+    const section = (
+      await screen.findByText('New cards per session')
+    ).closest('section') as HTMLElement
+    fireEvent.click(within(section).getByRole('button', { name: '10' }))
     await waitFor(() => expect(mockUpdate).toHaveBeenCalledWith({ batch_size: 10 }))
+  })
+
+  it('changes the cards-per-review-session size', async () => {
+    renderPage()
+    const section = (
+      await screen.findByText('Cards per review session')
+    ).closest('section') as HTMLElement
+    fireEvent.click(within(section).getByRole('button', { name: '50' }))
+    expect(mockSetSessionSize).toHaveBeenCalledWith(50)
   })
 
   it('switches the theme (WP13h)', async () => {
@@ -85,6 +105,27 @@ describe('SettingsPage', () => {
     ).toBe('true')
     fireEvent.click(dark)
     expect(mockSetTheme).toHaveBeenCalledWith('dark')
+  })
+
+  it("sets the 'learning English from' support locale", async () => {
+    renderPage()
+    const select = (await screen.findByLabelText(
+      'Learning English from',
+    )) as HTMLSelectElement
+    // options load async from getLanguages — wait for THIS select's Spanish
+    await waitFor(() =>
+      expect(
+        Array.from(select.options).some((o) => o.value === 'es'),
+      ).toBe(true),
+    )
+    expect(select.value).toBe('en') // default: English definitions
+    fireEvent.change(select, { target: { value: 'es' } })
+    await waitFor(() =>
+      expect(mockUpdate).toHaveBeenCalledWith({ support_locale: 'es' }),
+    )
+    // English itself is not offered as a "from" language (it's the reset row)
+    const labels = Array.from(select.options).map((o) => o.text)
+    expect(labels.filter((l) => l.includes('English'))).toHaveLength(1)
   })
 
   it('signs out', async () => {

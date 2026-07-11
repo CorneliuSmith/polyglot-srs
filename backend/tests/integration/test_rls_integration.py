@@ -1123,3 +1123,67 @@ async def test_cram_and_search_respect_review_policy(pool):
     async with pool.rls_connection(user) as conn:
         results = await search_content(conn, user, lang, "locative")
         assert results["grammar"][0]["learned"] is True
+
+
+async def test_english_support_locale_localizes_cards(pool):
+    """'Learning English from Spanish': definitions prefer the support locale
+    (falling back to the English definition) and example sentences are the
+    ones whose translation is in that locale."""
+    from backend.repositories.cards import get_card_detail, get_due_cards
+
+    async with pool.privileged_connection() as conn:
+        lang = str(await conn.fetchval(
+            "INSERT INTO languages (code, name, rtl) VALUES ('en', 'English', false) "
+            "ON CONFLICT (code) DO UPDATE SET name = EXCLUDED.name RETURNING id",
+        ))
+        word = str(await conn.fetchval(
+            "INSERT INTO vocabulary (language_id, word, level, frequency_rank) "
+            "VALUES ($1, 'water', 'A1', 3) RETURNING id", lang,
+        ))
+        for locale, definition in (("en", "a clear liquid"), ("es", "agua")):
+            await conn.execute(
+                "INSERT INTO translations (vocabulary_id, locale, definition) "
+                "VALUES ($1, $2, $3) ON CONFLICT (vocabulary_id, locale) "
+                "DO UPDATE SET definition = EXCLUDED.definition", word, locale, definition,
+            )
+        for locale, translation in (("es", "Bebo agua."), ("de", "Ich trinke Wasser.")):
+            await conn.execute(
+                "INSERT INTO example_sentences (language_id, vocabulary_id, sentence, "
+                "translation, difficulty_rank, translation_locale) "
+                "VALUES ($1, $2, 'I drink water.', $3, 3, $4) "
+                "ON CONFLICT (vocabulary_id, sentence, translation_locale) DO NOTHING",
+                lang, word, translation, locale,
+            )
+
+    user = await _new_user(pool, "learner@supploc")
+    async with pool.privileged_connection() as conn:
+        card = str(await conn.fetchval(
+            "INSERT INTO user_cards (user_id, language_id, card_type, card_id, "
+            "next_review) VALUES ($1, $2, 'vocabulary', $3, now() - interval '1h') "
+            "RETURNING id", user, lang, word,
+        ))
+
+    async with pool.rls_connection(user) as conn:
+        # Spanish support: the card clozes the Spanish-translated sentence,
+        # the hint is the Spanish definition.
+        cards = await get_due_cards(conn, lang, support_locale="es")
+        c = next(x for x in cards if str(x["id"]) == card)
+        assert "{{answer}}" in c["sentence"]
+        assert c["translation"] == "Bebo agua."
+        assert c["hint"] == "agua"
+
+        detail = await get_card_detail(conn, card, support_locale="es")
+        assert detail["definition"] == "agua"
+        assert [e["translation"] for e in detail["examples"]] == ["Bebo agua."]
+
+        # A locale with no content of its own: no sentences in that locale,
+        # and the definition falls back to English.
+        cards = await get_due_cards(conn, lang, support_locale="sw")
+        c = next(x for x in cards if str(x["id"]) == card)
+        assert c["sentence"] == "a clear liquid"  # definition-mode prompt
+        assert c["translation"] is None
+
+        # No support locale = today's behavior (English definitions).
+        cards = await get_due_cards(conn, lang)
+        c = next(x for x in cards if str(x["id"]) == card)
+        assert c["sentence"] == "a clear liquid"

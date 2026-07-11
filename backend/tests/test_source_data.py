@@ -166,3 +166,72 @@ class TestSentencePipeline:
         out = tmp_path / "out.tsv"
         assert write_frequency_tsv(rows, out) == 1
         assert out.read_text(encoding="utf-8").splitlines()[1] == "1\tev\tn\thouse"
+
+
+class TestEnglishPipeline:
+    """English-as-target: reversed Tatoeba links + kaikki translation arrays."""
+
+    def test_reversed_links_make_english_the_sentence(self):
+        from backend.services.seeder.source_data import build_sentence_rows
+
+        eng = {10: "I drink water.", 11: "The cat sleeps."}
+        spa = {20: "Bebo agua.", 21: "El gato duerme."}
+        # Tatoeba spa-eng links are (spa_id, eng_id); the English build
+        # reverses them so the English side is the card's sentence.
+        links = [(20, 10), (21, 11)]
+        reversed_links = [(e, s) for (s, e) in links]
+        rows = build_sentence_rows(
+            eng, spa, reversed_links,
+            {"water": 3, "cat": 5, "the": 1, "i": 2, "drink": 4, "sleeps": 6},
+            lemmatize=lambda w: w,
+            per_word=3,
+        )
+        by_word = {r["word"]: r for r in rows}
+        assert by_word["water"]["sentence"] == "I drink water."
+        assert by_word["water"]["translation"] == "Bebo agua."
+
+    def test_parse_english_kaikki_translations(self, tmp_path):
+        import json as _json
+
+        from backend.services.seeder.source_data import (
+            parse_english_kaikki_translations,
+        )
+
+        entries = [
+            {"word": "time", "translations": [
+                {"code": "es", "word": "tiempo"},
+                {"code": "fr", "word": "temps"},
+                {"code": "xx", "word": "ignored"},
+            ]},
+            {"word": "time", "senses": [
+                {"translations": [{"code": "de", "word": "Zeit"}]},
+            ]},
+            {"word": "obscureword", "translations": [
+                {"code": "es", "word": "nunca"},
+            ]},
+        ]
+        path = tmp_path / "en_kaikki.jsonl"
+        path.write_text(
+            "\n".join(_json.dumps(e) for e in entries), encoding="utf-8"
+        )
+        out = parse_english_kaikki_translations(
+            path, wanted={"time"}, locales={"es", "fr", "de"}
+        )
+        assert out == {"time": {"es": "tiempo", "fr": "temps", "de": "Zeit"}}
+
+    def test_sentences_tsv_locale_column_roundtrip(self, tmp_path):
+        import csv as _csv
+
+        from backend.services.seeder.source_data import write_sentences_tsv
+
+        rows = [{
+            "word": "water", "sentence": "I drink water.",
+            "translation": "Bebo agua.", "difficulty_rank": 4,
+            "translation_locale": "es",
+        }]
+        out = tmp_path / "en_sentences.tsv"
+        assert write_sentences_tsv(rows, out, locale_column=True) == 1
+        with open(out, encoding="utf-8") as f:
+            row = next(_csv.DictReader(f, delimiter="\t"))
+        assert row["translation_locale"] == "es"
+        assert row["translation"] == "Bebo agua."

@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useQuery } from '@tanstack/react-query'
 import { getCardDetail } from '../../api/review'
+import { getLanguages } from '../../api/profile'
 import type { CardProgress } from '../../api/types'
 import LanguageWrapper from '../../components/LanguageWrapper'
 import SpeakButton from '../../components/SpeakButton'
@@ -82,8 +83,20 @@ export default function ReviewDetail({ cardId, languageCode, stats }: ReviewDeta
     enabled: open,
     staleTime: 5 * 60 * 1000,
   })
+  const { data: languages = [] } = useQuery({
+    queryKey: ['languages'],
+    queryFn: getLanguages,
+    enabled: open,
+    staleTime: 5 * 60 * 1000,
+  })
 
   const ownSentences = data?.your_sentences ?? []
+  // "Learning English from X": say which language the hints are in.
+  const hintLanguage =
+    data?.hint_locale && data.hint_locale !== 'en'
+      ? languages.find((l) => l.code === data.hint_locale)?.name ??
+        data.hint_locale.toUpperCase()
+      : null
 
   return (
     <div className="border-t border-gray-100 pt-3">
@@ -118,6 +131,11 @@ export default function ReviewDetail({ cardId, languageCode, stats }: ReviewDeta
                   <div className="mt-2">
                     <StageBadge stage={data.progress.stage} />
                   </div>
+                )}
+                {hintLanguage && (
+                  <p className="mt-1 inline-block text-[11px] rounded-full px-2 py-0.5 bg-indigo-50 text-indigo-600">
+                    Hints in {hintLanguage}
+                  </p>
                 )}
               </div>
 
