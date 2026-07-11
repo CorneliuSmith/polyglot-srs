@@ -234,9 +234,18 @@ actor-emphatic nā/mā, kia, ki te/mehemea, directional particles), each with a
 word-by-word gloss (GLOSS_FIRST layer). Māori is held to the WP4 differentiator
 bar — unlike the major documented world languages ar/el/ro (reviewed:true),
 its deepening waits for a fluent speaker, and advanced oratory register (C1–C2
-whaikōrero) is deliberately NOT machine-drafted. **Remaining:** fr/de/it/ca
-deepening; mi B2–C2 (needs a fluent-speaker author); en stays A1 (targets
-learners *from* other languages, deepened on demand).
+whaikōrero) is deliberately NOT machine-drafted. **French, German, Italian,
+Catalan DONE 2026-07 (each 12 → 40, full A1→C2, reviewed:true):** the European
+tier now matches es/tr/ru — fr (passé composé/subjonctif/conditionnel/passé
+simple), de (cases, Konjunktiv I/II, Nominalstil, modal particles), it
+(passato prossimo/congiuntivo/passato remoto/dislocation), ca (perfet + passat
+perifràstic, pronoms febles combinats, passat simple). **With this, every
+Latin- and non-Latin-script language except Māori reaches a full, live A1→C2
+grammar path.** Remaining: mi B2–C2 (needs a fluent-speaker author); en stays
+A1 (targets learners *from* other languages, deepened on demand). A native-
+speaker verification pass is welcome on all machine-authored deepening (the
+Contribute Roles panel + issue tracker are ready) — no gate checks *linguistic*
+correctness, only structure.
 **Model:** authoring `claude-opus-4-8`; native review is the human gate.
 **Effort:** M per language.
 

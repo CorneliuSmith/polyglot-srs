@@ -66,6 +66,19 @@ class TestGrammarTransform:
                 for d in p["drills"]:
                     assert d["transliteration"], f"{code}/{p['title']}: no translit"
 
+    def test_full_c2_ladder_languages(self):
+        # WP2 + WP3b: every language authored all the way to C2 keeps the full
+        # CEFR ladder and its reviewed-live status. Guards against a partial
+        # re-seed silently dropping the advanced tiers.
+        for code in ("es", "tr", "ru", "ar", "el", "ro", "fr", "de", "it", "ca"):
+            data = GrammarSeeder("fake://db", code).transform()
+            levels = {p["level"] for p in data["points"]}
+            assert {"A1", "A2", "B1", "B2", "C1", "C2"} <= levels, code
+            assert len(data["points"]) >= 40, code
+            assert all(p["source"] == "contributor" for p in data["points"]), code
+            # these paths are human-reviewed and live (not draft-gated)
+            assert any(p["reviewed"] for p in data["points"]), code
+
     def test_invalid_drills_and_points_skipped(self, tmp_path):
         import backend.services.seeder.seed_grammar as mod
 
