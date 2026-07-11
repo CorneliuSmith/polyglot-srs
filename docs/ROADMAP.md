@@ -115,6 +115,115 @@ coach from the learner's actual failure history.
 5. **Git**: work on the designated `claude/…` branch; commit with heredoc
    (`git commit -F -`) to avoid backtick expansion; never force-push.
 
+## 3b. Content Standards — the bar for every language (2026-07)
+
+This section is the durable quality contract. It was calibrated against a
+private library of professional courses (Glossika grammar guides, the Teach
+Yourself series, Michel Thomas, BrazilianPodClass, and similar) — **those
+materials are NEVER cited, quoted, or copied in the app**; they set the bar,
+public sources provide the content. The library is indexed per-language in
+`docs/resource-library.md` — consult it before authoring or auditing any
+language's content. Any model authoring or reviewing content follows this
+checklist verbatim — it encodes judgment so quality survives model changes.
+
+### Grammar points (per language)
+- **Full A1→C2 ladder, 40+ points.** Major documented languages
+  (es/fr/de/it/ca/ro/el/ru/tr/ar/en/pt) land `reviewed: true` on the curated
+  precedent; African + indigenous languages (sw/yo/ha/xh/mi) land
+  `reviewed: false` behind the named-native-reviewer gate — no exceptions,
+  and advanced oratory/cultural registers (whaikōrero, karin magana, òwe,
+  amaqhalo) are drafted only up to the level a non-native can verify from
+  descriptive grammars; beyond that a fluent speaker AUTHORS, not reviews.
+- **Anatomy of a point**: `title` (native term + English, e.g. "The passive
+  (المبني للمجهول)"), `function` (a can-do: "Say an action was done without
+  naming the doer"), `explanation` ≤120 words that teaches the FORM and the
+  *ingredients* that trigger it (see Drills below), `culture_note` whenever
+  social register is at stake, `references` (see Sources), `related`
+  [{title, contrast}] for confusable neighbours, `paradigm` cells whenever
+  the point is really a table (pronouns, conjugations, concords).
+- **Sequencing follows a canonical course order** for the language (official
+  CEFR inventories where they exist: Plan Curricular, TORFL, Goethe,
+  DELF/DALF, CELI, ΚΠΓ; otherwise the established reference-course sequence
+  for that language). A drill may only use structures earlier in the path.
+
+### Drills (per point)
+- ≥6 drills; paradigm points cover EVERY declared cell with ≥2 drills each
+  (seeder hard-fails otherwise — do not weaken the gate, fix the content).
+- **Complete, natural, communicative sentences** — something a native
+  speaker would actually say ("Enjoy your vacation", "It depends on you"),
+  never grammar showcases ("The man who the dog that barked bit ran").
+  Vary person, tense, vocabulary, and register across the drills.
+- **Ingredients rule** (aspect/tense points especially): the sentence must
+  contain the co-occurring cue that *forces* the target form — 'yesterday'
+  with perfective/preterite, 'every summer' with imperfect/habitual, 'by
+  tomorrow' with future perfect. A learner should be able to infer WHY this
+  form from the sentence alone.
+- Single-token answers (hyphenated/apostrophized clitics count as one);
+  the answer never appears in the visible frame (echo-frames where the
+  construction repeats the word are the only exemption); hints are English
+  recipes that never contain the answer string.
+- Every drill carries a natural English translation; every translation
+  reads like English, not gloss-ese.
+
+### Script & hint layers
+- Non-Latin scripts (ru/ar/el): **transliteration on every drill and
+  example sentence**, reflecting SURFACE pronunciation, not letter-mapping —
+  Russian marks stress (and ideally vowel reduction), Arabic uses scholarly
+  romanization (ḥ/ṣ/ā), Greek follows the shared el romanizer. Letter-by-
+  letter transliteration that a reader can't pronounce from is a defect.
+- Gloss-first languages (mi/sw/yo/xh/ha): word-by-word gloss on every
+  drill (`·`-separated, `___` for the blank).
+- Tone & length: Yoruba is always fully diacritized (grading stays
+  lenient); Hausa tone/vowel length are real but unwritten — teach them in
+  explanations ("teach by ear"), never mark a learner wrong for them.
+
+### Vocabulary & example sentences
+- Corpus languages: ≥10,000 frequency-ranked words (HermitDave/OpenSubtitles
+  frequency merged with kaikki/Wiktionary glosses; inflections folded onto
+  headwords via the language's NLP), rank→CEFR banding, POS + morphology.
+  Curated starter entries upsert AFTER the corpus so hand-authored quality
+  wins on shared words.
+- Example sentences: Tatoeba-graded (difficulty = frequency rank of the
+  rarest word — the i+1 principle), ≥3 per word where the corpus allows;
+  sentences rotate per appearance and never repeat the last-shown.
+- English (reverse direction): word translations + example-sentence
+  translations in every support locale (`support_locale`), so "learning
+  English from X" is first-class.
+
+### Sources & references (in-app)
+- References on points must be **public and authoritative**. Prefer the
+  language's academy/standard reference over Wikipedia where one exists:
+  RAE (es), Larousse/TLFi (fr), Duden (de), Treccani (it), IEC/DIEC (ca),
+  DEX (ro), Triantafyllides online (el), Gramota/ГРАМОТА (ru), Te Aka (mi),
+  Bunpro-style course sites never. Wikipedia/Wiktionary remain acceptable
+  baselines; upgrading references is standing polish work.
+- The private course library is calibration only. Never cite it, never
+  copy a sentence from it.
+
+### Verification (who checks what)
+- Structural gates are automated (validator + seeder: markers, leaks,
+  density, coverage, display_order). They CANNOT check linguistic truth.
+- Machine-authored content is provisional by definition. The named-human
+  gate (Contribute → Roles, point_review_notes) is the only thing that
+  makes it trustworthy; recruiting those reviewers is WP4(a) and applies
+  to EVERY language, not just the African tier.
+- When authoring at Opus/Sonnet class: follow this section as a checklist,
+  self-audit each point against "Drills" line by line, and run
+  `scratchpad validators + GrammarSeeder.transform()` before seeding. If a
+  form's correctness is uncertain, mark the point `reviewed: false` rather
+  than guessing confidently.
+
+### Resource-informed improvement backlog (calibration notes, 2026-07)
+- ru: transliterations are letter-mapped today — regenerate with stress
+  marks (minimum) or surface pronunciation (goal). Aspect drills: audit
+  that every perfective/imperfective drill carries its time-expression cue.
+- ha: audit path order against the canonical Teach Yourself sequence —
+  confirmed gaps to add as drafts: the genitival link (-n/-r) as its own
+  point, the habitual aspect (-kan), a "choosing between aspects" contrast
+  point, reduplication patterns beyond ideophones.
+- All languages: sentence-naturalness pass — replace any drill that reads
+  like a textbook example with an everyday communicative sentence.
+
 ## 4. Runbook (local sandbox)
 
 - Local Postgres for integration tests: port 5433, data in `/tmp/pgdata`,
@@ -533,6 +642,16 @@ days; (c) is a program.
 Two standing rules: **generated content is never self-certified** (a different,
 stronger model or a human verifies), and **African-language content always gets
 the strongest available model plus a human gate**.
+
+**Fable sunset note (2026-07):** `claude-fable-5` access is ending. Everything
+judgment-heavy that Fable was reserved for has been front-loaded: the full
+A1→C2 grammar ladders for all twelve documented languages, the African +
+Māori deepening drafts, and §3b (which encodes the authoring judgment as an
+executable checklist). After the sunset, Opus-class models author against
+§3b line-by-line — the checklist IS the quality bar, so treat any §3b
+deviation as a bug, not a style choice. Remaining content work that needs no
+Fable: WP1 sentence-naturalness passes, reference upgrades, §3b backlog
+items, and Portuguese-tier maintenance.
 
 **Fallback chain when a model is retired or unavailable** (e.g. when
 `claude-fable-5` goes away): substitute the next tier down and keep the
