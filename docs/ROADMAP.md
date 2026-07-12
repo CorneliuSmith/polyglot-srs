@@ -88,7 +88,17 @@ coach from the learner's actual failure history.
   language is active — LanguageThemeApplier writes `--lang-*` CSS vars and
   the Tailwind `lang` tokens (bg-lang, text-lang, bg-lang-dark,
   bg-lang-soft, text-lang-on) recolor buttons, progress bars, chips, and
-  links on every page (signed out = original indigo). Studies can be reset
+  links on every page (signed out = original indigo). The five SRS stage
+  tiles + badges walk THROUGH the flag palette (stageRamp: grey → accent →
+  primary → darkened → near-black; Māori hits the owner's sample exactly)
+  and the activity chart's Vocab/Grammar series use primary/accent — so
+  multi-color flags get genuinely multi-color dashboards. Reviewers/admins
+  can edit live cards in Contribute (drill sentence/answer/hint/
+  translation) behind friction guards: NLP answerability gate, no
+  answer-leak, no hint-reveal, single-token answer, REQUIRED change_note
+  (≥10 chars, filed to point_review_notes), the edit de-certifies the
+  point (reviewed=false), and the editor cannot approve their own change
+  (self-approval 403). Studies can be reset
   per deck (dashboard row), per language, or account-wide (Settings danger
   zone) — deletes cards AND review history (FK cascade), never
   notes/personal sentences/subscriptions. Signups choose a plan: Single
