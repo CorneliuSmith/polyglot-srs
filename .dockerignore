@@ -1,0 +1,16 @@
+# The image serves the API only — content data lives in Supabase already
+# (seeding runs from a dev machine), and the frontend deploys separately
+# as a static site.
+.git
+.venv
+node_modules
+frontend
+data
+docs
+scripts
+supabase
+scratchpad
+**/__pycache__
+**/*.pyc
+.env
+.env.*
