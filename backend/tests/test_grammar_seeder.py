@@ -70,7 +70,7 @@ class TestGrammarTransform:
         # WP2 + WP3b: every language authored all the way to C2 keeps the full
         # CEFR ladder and its reviewed-live status. Guards against a partial
         # re-seed silently dropping the advanced tiers.
-        for code in ("es", "tr", "ru", "ar", "el", "ro", "fr", "de", "it", "ca", "pt"):
+        for code in ("es", "tr", "ru", "ar", "el", "ro", "fr", "de", "it", "ca", "pt", "en", "mi"):
             data = GrammarSeeder("fake://db", code).transform()
             levels = {p["level"] for p in data["points"]}
             assert {"A1", "A2", "B1", "B2", "C1", "C2"} <= levels, code

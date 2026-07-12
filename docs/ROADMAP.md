@@ -103,6 +103,20 @@ coach from the learner's actual failure history.
   zone) — deletes cards AND review history (FK cascade), never
   notes/personal sentences/subscriptions. Signups choose a plan: Single
   language vs All languages (WP16; scope enforced, billing pending).
+  Coverage is EVEN across all 17 languages (2026-07-12): the grammar
+  seeder synthesizes a deck for every level that has points (eight
+  languages once showed only their A1 deck); vocab banding includes C2
+  and goes proportional for corpora under 10k words (floor 500), so
+  mi (781 words, bible-corpus + kaikki), ha (1,143, Leipzig CC-BY +
+  kaikki), and xh/yo/sw all span A1→C2; mi grammar authored to 40
+  points and en grammar authored A2→C2 (40 points, ESL-focused:
+  perfect-vs-past, conditionals, inversion, clefts, mandative
+  subjunctive, ellipsis, formal connectors); mi/sw/yo/ha/xh run the
+  ai_ok review policy with all 96 draft points AI-checked 'pass', so
+  full paths are VISIBLE as labeled drafts (named-native gate intact).
+  Invite-only beta: VITE_INVITE_ONLY hides self-serve signup + Google
+  (Supabase-side disable is the enforcement — DEPLOY.md), and admins
+  mint accounts from the Accounts panel.
   Grammar explanations are short-paragraph formatted (see §3b layout
   standard) AND typeset by ExplanationView: term-(gloss) enumerations
   render as two-column tables, arrow derivations as from→to tables,
