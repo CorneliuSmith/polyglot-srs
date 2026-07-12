@@ -296,6 +296,34 @@ async def add_drill(
     return str(drill_id)
 
 
+async def update_drill(
+    conn: asyncpg.Connection,
+    drill_id: str,
+    point_id: str,
+    sentence: str,
+    answer: str,
+    translation: str | None,
+    hint: str | None,
+) -> bool:
+    """Edit a live drill (privileged). The edit de-certifies the point —
+    reviewed flips false so a SECOND reviewer must re-approve before
+    learners see the change (nobody self-certifies an edit)."""
+    result = await conn.execute(
+        """
+        UPDATE drill_sentences
+        SET sentence = $3, answer = $4, translation = $5, hint = $6
+        WHERE id = $1 AND grammar_point_id = $2
+        """,
+        drill_id, point_id, sentence, answer, translation or None, hint or None,
+    )
+    if not result.endswith("1"):
+        return False
+    await conn.execute(
+        "UPDATE grammar_points SET reviewed = false WHERE id = $1", point_id
+    )
+    return True
+
+
 async def delete_drill(conn: asyncpg.Connection, drill_id: str) -> bool:
     """Delete a drill sentence (privileged)."""
     result = await conn.execute(

@@ -65,6 +65,50 @@ export function languageTheme(code: string | undefined | null): LanguageTheme {
   return (code && THEMES[code]) || FALLBACK
 }
 
+// ── Stage ramp ──────────────────────────────────────────────────────────
+// The five SRS stages walk THROUGH the flag palette (the Māori sample:
+// grey → fern green → red → dark red → black): beginner is a neutral grey
+// everywhere ("not yet colored in"), adept takes the accent (the flag's
+// second color), seasoned the primary, and expert/master darken toward
+// black. Languages with multi-color flags get genuinely multi-color tiles.
+
+function hexToRgb(hex: string): [number, number, number] {
+  const n = parseInt(hex.slice(1), 16)
+  return [(n >> 16) & 255, (n >> 8) & 255, n & 255]
+}
+
+function mix(hex: string, withHex: string, pct: number): string {
+  const a = hexToRgb(hex)
+  const b = hexToRgb(withHex)
+  const c = a.map((v, i) => Math.round(v * pct + b[i] * (1 - pct)))
+  return '#' + c.map((v) => v.toString(16).padStart(2, '0')).join('')
+}
+
+/** Dark or white text for readability on the given background. */
+function onColor(hex: string): string {
+  const [r, g, b] = hexToRgb(hex)
+  return (r * 299 + g * 587 + b * 114) / 1000 > 150 ? '#1F2937' : '#FFFFFF'
+}
+
+export interface StageColor {
+  bg: string
+  text: string
+}
+
+const BEGINNER_GREY = '#BCBCBC'
+
+export function stageRamp(code: string | undefined | null): StageColor[] {
+  const t = languageTheme(code)
+  const bgs = [
+    BEGINNER_GREY,
+    t.accent,
+    t.primary,
+    mix(t.primary, '#000000', 0.55),
+    mix(t.dark, '#000000', 0.45),
+  ]
+  return bgs.map((bg) => ({ bg, text: onColor(bg) }))
+}
+
 /** Writes the active language's palette into the `--lang-*` CSS variables
  * that the Tailwind `lang` color tokens read. */
 export function applyLanguageTheme(code: string | undefined | null): void {
@@ -75,4 +119,8 @@ export function applyLanguageTheme(code: string | undefined | null): void {
   root.setProperty('--lang-accent', t.accent)
   root.setProperty('--lang-soft', t.soft)
   root.setProperty('--lang-on-primary', t.on)
+  stageRamp(code).forEach((s, i) => {
+    root.setProperty(`--lang-stage-${i + 1}`, s.bg)
+    root.setProperty(`--lang-stage-${i + 1}-on`, s.text)
+  })
 }

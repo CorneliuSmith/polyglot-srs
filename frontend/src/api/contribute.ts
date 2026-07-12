@@ -224,6 +224,25 @@ export async function addDrill(
   return response.data
 }
 
+export async function updateDrill(
+  pointId: string,
+  drillId: string,
+  input: {
+    sentence: string
+    answer: string
+    translation?: string
+    hint?: string
+    /** required rationale — lands in the point's review notes */
+    change_note: string
+  },
+): Promise<{ saved: boolean; reviewed: boolean }> {
+  const response = await apiClient.put(
+    `/api/contribute/grammar/${pointId}/drills/${drillId}`,
+    input,
+  )
+  return response.data
+}
+
 export async function deleteDrill(pointId: string, drillId: string): Promise<void> {
   await apiClient.delete(`/api/contribute/grammar/${pointId}/drills/${drillId}`)
 }

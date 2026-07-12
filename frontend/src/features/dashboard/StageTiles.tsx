@@ -1,12 +1,14 @@
 import { useState } from 'react'
 import type { StageName } from '../../api/types'
 
+// The five tiles walk through the active language's flag palette
+// (stage tokens are set by LanguageThemeApplier — see stageRamp).
 const MAIN_STAGES: { key: StageName; label: string; tone: string }[] = [
-  { key: 'beginner', label: 'Beginner', tone: 'bg-slate-900 text-white' },
-  { key: 'adept', label: 'Adept', tone: 'bg-indigo-800 text-white' },
-  { key: 'seasoned', label: 'Seasoned', tone: 'bg-lang text-white' },
-  { key: 'expert', label: 'Expert', tone: 'bg-lang/70 text-white' },
-  { key: 'master', label: 'Master', tone: 'bg-lang/25 text-lang-dark' },
+  { key: 'beginner', label: 'Beginner', tone: 'bg-stage-1 text-stage-1-on' },
+  { key: 'adept', label: 'Adept', tone: 'bg-stage-2 text-stage-2-on' },
+  { key: 'seasoned', label: 'Seasoned', tone: 'bg-stage-3 text-stage-3-on' },
+  { key: 'expert', label: 'Expert', tone: 'bg-stage-4 text-stage-4-on' },
+  { key: 'master', label: 'Master', tone: 'bg-stage-5 text-stage-5-on' },
 ]
 
 const EXTRA_STAGES: { key: StageName; label: string }[] = [

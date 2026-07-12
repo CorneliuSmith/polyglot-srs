@@ -395,7 +395,7 @@ function PointEditor({
         <FlagIssueBox pointId={point.id} />
       </div>
 
-      <DrillsEditor pointId={point.id} />
+      <DrillsEditor pointId={point.id} canEdit={canReview} />
     </div>
   )
 }

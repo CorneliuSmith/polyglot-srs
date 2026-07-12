@@ -13,6 +13,17 @@
   --lang-accent: #818cf8;
   --lang-soft: #eef2ff;
   --lang-on-primary: #ffffff;
+  /* five-stage ramp through the flag palette (see stageRamp) */
+  --lang-stage-1: #bcbcbc;
+  --lang-stage-1-on: #1f2937;
+  --lang-stage-2: #818cf8;
+  --lang-stage-2-on: #ffffff;
+  --lang-stage-3: #4f46e5;
+  --lang-stage-3-on: #ffffff;
+  --lang-stage-4: #322d94;
+  --lang-stage-4-on: #ffffff;
+  --lang-stage-5: #1e1b52;
+  --lang-stage-5-on: #ffffff;
 }
 
 @theme inline {
@@ -21,6 +32,16 @@
   --color-lang-accent: var(--lang-accent);
   --color-lang-soft: var(--lang-soft);
   --color-lang-on: var(--lang-on-primary);
+  --color-stage-1: var(--lang-stage-1);
+  --color-stage-1-on: var(--lang-stage-1-on);
+  --color-stage-2: var(--lang-stage-2);
+  --color-stage-2-on: var(--lang-stage-2-on);
+  --color-stage-3: var(--lang-stage-3);
+  --color-stage-3-on: var(--lang-stage-3-on);
+  --color-stage-4: var(--lang-stage-4);
+  --color-stage-4-on: var(--lang-stage-4-on);
+  --color-stage-5: var(--lang-stage-5);
+  --color-stage-5-on: var(--lang-stage-5-on);
 }
 
 /* ── Dark theme (WP13h) ────────────────────────────────────────────────────

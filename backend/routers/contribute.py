@@ -7,6 +7,7 @@ caller's role is verified for the target language.
 
 from __future__ import annotations
 
+import re
 from datetime import UTC, datetime, timedelta
 
 from fastapi import APIRouter, Depends, HTTPException, status
@@ -43,6 +44,7 @@ from backend.repositories.contributor import (
     save_ai_check,
     save_explanation,
     set_language_policy,
+    update_drill,
     set_language_tutor_model,
 )
 from backend.repositories.pool import privileged_connection, rls_connection
@@ -80,6 +82,17 @@ class NewDrill(BaseModel):
     answer: str = Field(min_length=1, max_length=200)
     translation: str = ""
     hint: str = ""
+
+
+class EditDrill(BaseModel):
+    sentence: str = Field(min_length=1, max_length=500)
+    answer: str = Field(min_length=1, max_length=200)
+    translation: str = ""
+    hint: str = ""
+    # Friction: no silent edits. Every change to a live card carries a
+    # rationale that lands in the point's review notes for a second
+    # reviewer to verify.
+    change_note: str = Field(min_length=10, max_length=2000)
 
 
 class NewReviewNote(BaseModel):
@@ -339,6 +352,72 @@ async def create_drill(
     return {"id": drill_id}
 
 
+@router.put("/grammar/{point_id}/drills/{drill_id}")
+async def edit_drill(
+    point_id: str,
+    drill_id: str,
+    body: EditDrill,
+    user: dict = Depends(get_current_user),
+):
+    """Edit a live drill — reviewer/admin only, with guard rails.
+
+    Friction by design: the sentence must still pass the NLP answerability
+    gate, the answer must be a single token that doesn't leak into the
+    visible frame, the hint must not reveal the answer, and a change_note
+    (≥10 chars) is required. The edit de-certifies the point (reviewed →
+    false) and files the note in the point's review queue so a DIFFERENT
+    reviewer re-approves before learners see it.
+    """
+    async with rls_connection(user["id"]) as conn:
+        roles = await get_roles(conn, user["id"])
+        info = await get_point_language_and_code(conn, point_id)
+    if info is None:
+        raise HTTPException(status_code=404, detail="Grammar point not found")
+    language_id, language_code = info
+    if not can_review(roles, language_id):
+        raise HTTPException(
+            status_code=status.HTTP_403_FORBIDDEN,
+            detail="Only an admin or a reviewer for this language can edit live cards",
+        )
+    answer = body.answer.strip()
+    if " " in answer:
+        raise HTTPException(
+            status_code=status.HTTP_422_UNPROCESSABLE_ENTITY,
+            detail="The answer must be a single token (one blank, one word)",
+        )
+    visible = body.sentence.replace("{{answer}}", " ")
+    if re.search(rf"(?<![^\W\d_]){re.escape(answer)}(?![^\W\d_])", visible, re.IGNORECASE):
+        raise HTTPException(
+            status_code=status.HTTP_422_UNPROCESSABLE_ENTITY,
+            detail="The answer appears in the visible sentence — it would give itself away",
+        )
+    if body.hint and answer.lower() in body.hint.lower():
+        raise HTTPException(
+            status_code=status.HTTP_422_UNPROCESSABLE_ENTITY,
+            detail="The hint contains the answer — it would give itself away",
+        )
+    if not await validate_drill(language_code, body.sentence, answer):
+        raise HTTPException(
+            status_code=status.HTTP_422_UNPROCESSABLE_ENTITY,
+            detail=(
+                "The sentence must contain the {{answer}} blank and the answer "
+                "must validate in this language."
+            ),
+        )
+    async with privileged_connection() as conn:
+        ok = await update_drill(
+            conn, drill_id, point_id, body.sentence, answer,
+            body.translation, body.hint,
+        )
+        if not ok:
+            raise HTTPException(status_code=404, detail="Drill not found")
+        await add_review_note(
+            conn, point_id, user["id"],
+            f"[card edit] {body.change_note}",
+        )
+    return {"saved": True, "reviewed": False}
+
+
 @router.delete("/grammar/{point_id}/drills/{drill_id}")
 async def remove_drill(
     point_id: str,
@@ -482,6 +561,17 @@ async def approve_grammar(
             detail="Only an admin or a reviewer for this language can approve content",
         )
     async with privileged_connection() as conn:
+        # Nobody certifies their own change (§3b: content is never
+        # self-certified) — the last editor can't be the approver.
+        submitted_by = await conn.fetchval(
+            "SELECT explanation_submitted_by FROM grammar_points WHERE id = $1",
+            point_id,
+        )
+        if submitted_by is not None and str(submitted_by) == user["id"]:
+            raise HTTPException(
+                status_code=status.HTTP_403_FORBIDDEN,
+                detail="You edited this point — a different reviewer must approve it",
+            )
         ok = await approve_explanation(conn, point_id, user["id"])
     if not ok:
         raise HTTPException(status_code=404, detail="Grammar point not found")

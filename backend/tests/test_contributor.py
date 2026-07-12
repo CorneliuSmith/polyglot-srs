@@ -673,3 +673,106 @@ class TestDrills:
             )
         assert resp.status_code == 200
         mock_del.assert_awaited_once()
+
+
+class TestEditDrill:
+    """PUT drill edits: reviewer/admin only, guard-railed, change_note required."""
+
+    def _put(self, client, body, roles=None):
+        with _roles(roles or [{"language_id": LANG, "role": "reviewer"}]), \
+             patch("backend.routers.contribute.get_point_language_and_code",
+                   new=AsyncMock(return_value=(LANG, "tr"))), \
+             patch("backend.routers.contribute.validate_drill",
+                   new=AsyncMock(return_value=True)), \
+             patch("backend.routers.contribute.update_drill",
+                   new=AsyncMock(return_value=True)) as mock_update, \
+             patch("backend.routers.contribute.add_review_note",
+                   new=AsyncMock(return_value="note-1")) as mock_note:
+            resp = client.put(
+                f"/api/contribute/grammar/{POINT}/drills/drill-1",
+                json=body,
+                headers=_auth_headers(),
+            )
+        return resp, mock_update, mock_note
+
+    def test_contributor_cannot_edit(self, client):
+        resp, mock_update, _ = self._put(
+            client,
+            {"sentence": "Kitap {{answer}}.", "answer": "masada",
+             "change_note": "fix a wrong case ending"},
+            roles=[{"language_id": LANG, "role": "contributor"}],
+        )
+        assert resp.status_code == 403
+        mock_update.assert_not_awaited()
+
+    def test_change_note_required(self, client):
+        resp, mock_update, _ = self._put(
+            client,
+            {"sentence": "Kitap {{answer}}.", "answer": "masada",
+             "change_note": "short"},
+        )
+        assert resp.status_code == 422  # min_length=10 friction
+        mock_update.assert_not_awaited()
+
+    def test_answer_leak_rejected(self, client):
+        resp, mock_update, _ = self._put(
+            client,
+            {"sentence": "Masada kitap {{answer}}.", "answer": "masada",
+             "change_note": "attempting a leaky frame"},
+        )
+        assert resp.status_code == 422
+        mock_update.assert_not_awaited()
+
+    def test_hint_reveal_rejected(self, client):
+        resp, mock_update, _ = self._put(
+            client,
+            {"sentence": "Kitap {{answer}}.", "answer": "masada",
+             "hint": "the word is masada",
+             "change_note": "attempting a revealing hint"},
+        )
+        assert resp.status_code == 422
+        mock_update.assert_not_awaited()
+
+    def test_multiword_answer_rejected(self, client):
+        resp, mock_update, _ = self._put(
+            client,
+            {"sentence": "Kitap {{answer}}.", "answer": "iki kelime",
+             "change_note": "two-word answers break grading"},
+        )
+        assert resp.status_code == 422
+        mock_update.assert_not_awaited()
+
+    def test_reviewer_edit_saves_and_files_note(self, client):
+        resp, mock_update, mock_note = self._put(
+            client,
+            {"sentence": "Kitap {{answer}} duruyor.", "answer": "masada",
+             "translation": "The book is on the table.",
+             "change_note": "clarified the frame with a verb"},
+        )
+        assert resp.status_code == 200
+        assert resp.json() == {"saved": True, "reviewed": False}
+        mock_update.assert_awaited_once()
+        mock_note.assert_awaited_once()
+        note_text = mock_note.await_args.args[3]
+        assert note_text.startswith("[card edit]")
+
+
+class TestSelfApprovalGuard:
+    def test_editor_cannot_approve_own_change(self, client):
+        conn = AsyncMock()
+        conn.fetchval = AsyncMock(return_value=TEST_USER_ID)  # last editor = caller
+
+        @asynccontextmanager
+        async def _priv():
+            yield conn
+
+        with _roles([{"language_id": LANG, "role": "reviewer"}]), \
+             patch("backend.routers.contribute.get_point_language",
+                   new=AsyncMock(return_value=LANG)), \
+             patch("backend.routers.contribute.privileged_connection", _priv):
+            resp = client.post(
+                f"/api/contribute/grammar/{POINT}/approve",
+                headers=_auth_headers(),
+            )
+        assert resp.status_code == 403
+        assert "different reviewer" in resp.json()["detail"]
