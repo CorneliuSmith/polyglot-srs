@@ -1281,6 +1281,126 @@ async def get_deck_preview(
     }
 
 
+async def get_deck_items(
+    conn: asyncpg.Connection, list_id: str, limit: int = 2500
+) -> dict | None:
+    """The deck browser's full item listing (Bunpro's deck page): every item
+    in path order with its id, so each row can expand into a detail view.
+    Unlike get_deck_preview this is the whole deck, id included, and grammar
+    rows carry their review state so reviewers can spot drafts.
+    """
+    cl = await conn.fetchrow(
+        "SELECT id, language_id, list_type, level, title FROM content_lists WHERE id = $1",
+        list_id,
+    )
+    if cl is None:
+        return None
+    if cl["list_type"] == "grammar":
+        rows = await conn.fetch(
+            """
+            SELECT gp.id, gp.title AS item, gp.function_note AS detail,
+                   gp.level, gp.reviewed
+            FROM grammar_points gp
+            JOIN languages l ON gp.language_id = l.id
+            WHERE gp.language_id = $1
+              AND ($2::text IS NULL OR gp.level = $2)
+              AND (gp.reviewed = true
+                   OR (l.grammar_review_policy = 'ai_ok'
+                       AND gp.ai_check_status = 'pass'))
+            ORDER BY gp.display_order ASC, gp.title
+            LIMIT $3
+            """,
+            cl["language_id"], cl["level"], limit,
+        )
+        items = [
+            {"id": str(r["id"]), "kind": "grammar", "item": r["item"],
+             "detail": r["detail"], "level": r["level"],
+             "reviewed": r["reviewed"]}
+            for r in rows
+        ]
+    else:
+        rows = await conn.fetch(
+            """
+            SELECT v.id, v.word AS item, t.definition AS detail, v.level
+            FROM vocabulary v
+            LEFT JOIN translations t
+                   ON v.id = t.vocabulary_id AND t.locale = 'en'
+            WHERE v.language_id = $1
+              AND ($2::text IS NULL OR v.level = $2)
+            ORDER BY v.frequency_rank ASC NULLS LAST, v.word
+            LIMIT $3
+            """,
+            cl["language_id"], cl["level"], limit,
+        )
+        items = [
+            {"id": str(r["id"]), "kind": "vocabulary", "item": r["item"],
+             "detail": r["detail"], "level": r["level"], "reviewed": True}
+            for r in rows
+        ]
+    return {
+        "id": str(cl["id"]),
+        "title": cl["title"],
+        "list_type": cl["list_type"],
+        "level": cl["level"],
+        "items": items,
+    }
+
+
+async def get_vocab_item(
+    conn: asyncpg.Connection, vocab_id: str, support_locale: str | None = None
+) -> dict | None:
+    """A vocabulary item's read-only detail for the deck browser: word,
+    definition, morphology (the Forms panel), and a few example sentences.
+    Works without the item being in the caller's reviews.
+    """
+    row = await conn.fetchrow(
+        """
+        SELECT v.id, v.word, v.reading, v.part_of_speech, v.usage_note,
+               v.morphology, v.level, l.code AS language_code,
+               COALESCE(t.definition, t_en.definition) AS definition
+        FROM vocabulary v
+        JOIN languages l ON v.language_id = l.id
+        LEFT JOIN translations t
+               ON v.id = t.vocabulary_id AND t.locale = $2
+        LEFT JOIN translations t_en
+               ON v.id = t_en.vocabulary_id AND t_en.locale = 'en'
+        WHERE v.id = $1
+        """,
+        vocab_id, support_locale or "en",
+    )
+    if row is None:
+        return None
+    # Support locale only applies to English content (same rule as
+    # _effective_locale) — a Spanish word's sentences are translated to 'en'.
+    eff = (support_locale if row["language_code"] == "en" and support_locale
+           else "en")
+    examples = await conn.fetch(
+        """
+        SELECT sentence, translation
+        FROM example_sentences
+        WHERE vocabulary_id = $1 AND translation_locale = $2
+        ORDER BY difficulty_rank ASC NULLS LAST
+        LIMIT 5
+        """,
+        vocab_id, eff,
+    )
+    return {
+        "id": str(row["id"]),
+        "word": row["word"],
+        "reading": row["reading"],
+        "part_of_speech": row["part_of_speech"],
+        "usage_note": row["usage_note"],
+        "definition": row["definition"],
+        "level": row["level"],
+        "language_code": row["language_code"],
+        "morphology": row["morphology"],
+        "examples": [
+            {"sentence": e["sentence"], "translation": e["translation"]}
+            for e in examples
+        ],
+    }
+
+
 async def reset_deck_progress(
     conn: asyncpg.Connection, user_id: str, list_id: str
 ) -> dict | None:

@@ -104,7 +104,19 @@ coach from the learner's actual failure history.
   notes/personal sentences/subscriptions. Signups choose a plan: Single
   language vs All languages (WP16; scope enforced, billing pending).
   Grammar explanations are short-paragraph formatted (see §3b layout
-  standard). English vocabulary carries definitions in 12 support locales
+  standard) AND typeset by ExplanationView: term-(gloss) enumerations
+  render as two-column tables, arrow derivations as from→to tables,
+  form runs as label chips, quoted glosses dimmed — content stays plain
+  text, the renderer does the typography. A Bunpro-style deck browser
+  (/decks → deck page with search + every item expandable to its real
+  content; grammar rows deep-link to the grammar path and, for
+  role-holders, to Contribute with issue flagging) makes every card
+  visible outside reviews. Definitions are human-cleaned at the source
+  (letter-name/cross-reference senses filtered, inflection senses kept
+  as informative fallbacks — я = "I (first-person singular subject
+  pronoun)", είναι = "third-person singular present of είμαι"). Speech
+  synthesis matches an installed voice explicitly (ro/el/pt locales were
+  missing entirely) and dodges Chrome's cancel-then-speak race. English vocabulary carries definitions in 12 support locales
   (kaikki translations, merged 2026-07-11); English example sentences are
   the tail of the WP5 corpus build.
 - **Ops**: `scripts/setup_db.sh` rebuilds or repairs any database end-to-end

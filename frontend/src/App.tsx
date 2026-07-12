@@ -18,6 +18,8 @@ import SettingsPage from './features/settings/SettingsPage'
 import GrammarPathPage from './features/curriculum/GrammarPathPage'
 import ContributorPage from './features/contribute/ContributorPage'
 import SearchPage from './features/search/SearchPage'
+import DecksPage from './features/decks/DecksPage'
+import DeckDetailPage from './features/decks/DeckDetailPage'
 import ProtectedRoute from './components/ProtectedRoute'
 import ThemeApplier from './components/ThemeApplier'
 import LanguageThemeApplier from './components/LanguageThemeApplier'
@@ -56,6 +58,8 @@ const router = createBrowserRouter([
       { path: '/review', element: <ReviewSessionPage /> },
       { path: '/cram', element: <ReviewSessionPage cram /> },
       { path: '/search', element: <SearchPage /> },
+      { path: '/decks', element: <DecksPage /> },
+      { path: '/decks/:deckId', element: <DeckDetailPage /> },
       { path: '/learn', element: <LearnPage /> },
       { path: '/tutor', element: <TutorPage /> },
       { path: '/notes', element: <NotesPage /> },

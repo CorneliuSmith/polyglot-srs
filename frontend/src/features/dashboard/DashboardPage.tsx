@@ -10,8 +10,6 @@ import {
 } from '../../api/review'
 import { getMyRoles } from '../../api/contribute'
 import { getOnboardingStatus } from '../../api/onboarding'
-import { getLanguages } from '../../api/profile'
-import { languageTheme, type LanguageTheme } from '../../lib/languageColors'
 import { usePrefsStore } from '../../stores/prefsStore'
 import LanguagePicker from '../../components/LanguagePicker'
 import CEFRProgress from './CEFRProgress'
@@ -23,15 +21,7 @@ import type { LearnDeck } from '../../api/types'
 
 /** One Bunpro-style deck row: level + type, progress bar, learned/total,
  * queue add/remove, and an expandable peek at the deck's first items. */
-function DeckRow({
-  deck,
-  theme,
-  onLearn,
-}: {
-  deck: LearnDeck
-  theme: LanguageTheme
-  onLearn: (d: LearnDeck) => void
-}) {
+function DeckRow({ deck, onLearn }: { deck: LearnDeck; onLearn: (d: LearnDeck) => void }) {
   const queryClient = useQueryClient()
   const [previewOpen, setPreviewOpen] = useState(false)
   const pct = deck.total > 0 ? Math.round((deck.learned / deck.total) * 100) : 0
@@ -180,13 +170,6 @@ export default function DashboardPage() {
   const activeLanguageId = usePrefsStore((s) => s.activeLanguageId)
   const [learnOpen, setLearnOpen] = useState(false)
 
-  const { data: allLanguages = [] } = useQuery({
-    queryKey: ['languages'],
-    queryFn: getLanguages,
-  })
-  const activeLanguage = allLanguages.find((l) => l.id === activeLanguageId)
-  const theme = languageTheme(activeLanguage?.code)
-
   // First-run users are routed into onboarding before they can study.
   const { data: onboarding, isLoading: onboardingLoading } = useQuery({
     queryKey: ['onboarding-status'],
@@ -244,6 +227,14 @@ export default function DashboardPage() {
         <div className="flex items-center justify-between">
           <h1 className="text-2xl font-bold text-gray-900">Dashboard</h1>
           <div className="flex items-center gap-4">
+            <button
+              type="button"
+              onClick={() => navigate('/decks')}
+              aria-label="Decks"
+              className="text-sm text-gray-500 hover:text-lang"
+            >
+              Decks
+            </button>
             <button
               type="button"
               onClick={() => navigate('/search')}
@@ -321,12 +312,7 @@ export default function DashboardPage() {
                   </p>
                 ) : (
                   visibleDecks.map((deck) => (
-                    <DeckRow
-                      key={deck.id}
-                      deck={deck}
-                      theme={theme}
-                      onLearn={handleLearnDeck}
-                    />
+                    <DeckRow key={deck.id} deck={deck} onLearn={handleLearnDeck} />
                   ))
                 )}
               </div>

@@ -136,3 +136,47 @@ export async function resetProgress(
   )
   return response.data
 }
+
+export interface DeckItem {
+  id: string
+  kind: 'grammar' | 'vocabulary'
+  item: string
+  detail: string | null
+  level: string | null
+  reviewed: boolean
+}
+
+export interface DeckListing {
+  id: string
+  title: string
+  list_type: 'grammar' | 'vocabulary'
+  level: string | null
+  items: DeckItem[]
+}
+
+export async function getDeckItems(listId: string): Promise<DeckListing> {
+  const response = await apiClient.get<DeckListing>(
+    `/api/review/decks/${listId}/items`,
+  )
+  return response.data
+}
+
+export interface VocabItemDetail {
+  id: string
+  word: string
+  reading: string | null
+  part_of_speech: string | null
+  usage_note: string | null
+  definition: string | null
+  level: string | null
+  language_code: string
+  morphology: Record<string, unknown> | string | null
+  examples: { sentence: string; translation: string | null }[]
+}
+
+export async function getVocabItem(vocabId: string): Promise<VocabItemDetail> {
+  const response = await apiClient.get<VocabItemDetail>(
+    `/api/review/vocab/${vocabId}`,
+  )
+  return response.data
+}

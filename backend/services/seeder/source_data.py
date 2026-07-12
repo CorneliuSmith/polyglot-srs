@@ -280,16 +280,46 @@ def parse_kaikki_jsonl(path: Path, wanted: set[str] | None = None) -> dict[str, 
                 continue
             if wanted is not None and word not in wanted:
                 continue
-            glosses = [
-                g
-                for sense in obj.get("senses") or []
-                for g in sense.get("glosses") or []
-            ]
+            # A definition a HUMAN can read. Three tiers of sense:
+            #  - junk, never shown: case/spelling cross-references
+            #    ("alternative letter-case form of я"), letter-name senses
+            #    ("The name of the Cyrillic script letter Я"), misspellings
+            #  - fallback: inflection senses — "third-person singular
+            #    present of είμαι" IS the right gloss for a surface form
+            #    the lemmatizer didn't fold
+            #  - content: real meanings, preferred whenever one exists.
+            # The first entry with a usable definition wins, not merely the
+            # first entry (я the pronoun beats я the letter).
+            content: list[str] = []
+            fallback: list[str] = []
+            for sense in obj.get("senses") or []:
+                tags = set(sense.get("tags") or [])
+                if "alt_of" in sense or tags & {"alt-of", "obsolete",
+                                                "misspelling"}:
+                    continue
+                is_form = "form_of" in sense or "form-of" in tags
+                for g in sense.get("glosses") or []:
+                    g = g.strip()
+                    if not g or len(g) > 90:
+                        continue
+                    low = g.lower()
+                    if low.startswith(("alternative ", "romanization of",
+                                       "misspelling", "obsolete ",
+                                       "archaic ", "the name of the")):
+                        continue
+                    if "script letter" in low or "letter of the" in low:
+                        continue
+                    (fallback if is_form else content).append(g)
+            glosses = list(dict.fromkeys(content or fallback))
             if not glosses:
                 continue
+            # one clear sense; a second only when the first is terse
+            gloss = glosses[0]
+            if len(gloss) < 15 and len(glosses) > 1:
+                gloss = "; ".join(glosses[:2])
             entries[word] = {
                 "pos": obj.get("pos"),
-                "gloss": "; ".join(dict.fromkeys(glosses[:3])),
+                "gloss": gloss,
                 "plural": None,
             }
     return entries

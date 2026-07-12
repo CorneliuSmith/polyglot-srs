@@ -44,8 +44,8 @@ from backend.repositories.contributor import (
     save_ai_check,
     save_explanation,
     set_language_policy,
-    update_drill,
     set_language_tutor_model,
+    update_drill,
 )
 from backend.repositories.pool import privileged_connection, rls_connection
 from backend.repositories.tutor import aggregate_tutor_usage

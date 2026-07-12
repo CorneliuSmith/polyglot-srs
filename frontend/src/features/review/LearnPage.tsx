@@ -6,6 +6,7 @@ import { getLanguages } from '../../api/profile'
 import { usePrefsStore } from '../../stores/prefsStore'
 import LanguageWrapper from '../../components/LanguageWrapper'
 import FormsPanel from '../../components/FormsPanel'
+import ExplanationView from '../../components/ExplanationView'
 import SpeakButton from '../../components/SpeakButton'
 import DrillCard from './DrillCard'
 import { finalizeInput } from '../keyboards/translit'
@@ -208,7 +209,7 @@ export default function LearnPage() {
                 <span className="text-xs uppercase tracking-wide text-gray-400 block mb-1">
                   How it works
                 </span>
-                <p className="text-gray-800 whitespace-pre-wrap">{lesson.explanation}</p>
+                <ExplanationView text={lesson.explanation} />
               </div>
             )}
 

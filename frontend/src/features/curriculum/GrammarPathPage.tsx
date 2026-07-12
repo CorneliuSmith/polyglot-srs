@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import ExplanationView from '../../components/ExplanationView'
 import { useNavigate, useSearchParams } from 'react-router-dom'
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query'
 import { getLanguages } from '../../api/profile'
@@ -158,7 +159,7 @@ export default function GrammarPathPage() {
                   {openPointId === point.id && detail && detail.id === point.id && (
                     <div className="border-t border-gray-100 px-4 py-4 space-y-3 text-sm">
                       {detail.explanation && (
-                        <p className="text-gray-800 whitespace-pre-wrap">{detail.explanation}</p>
+                        <ExplanationView text={detail.explanation} />
                       )}
                       {detail.examples.length > 0 && (
                         <ul className="space-y-2">

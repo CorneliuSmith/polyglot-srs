@@ -1267,3 +1267,54 @@ async def test_reset_progress_deck_and_language(pool):
             "SELECT count(*) FROM review_log WHERE user_id = $1", user) == 0
         assert await conn.fetchval(
             "SELECT count(*) FROM user_cards WHERE user_id = $1", other) == 2
+
+
+async def test_deck_browser_items_and_vocab_detail(pool):
+    """The deck browser lists every item with ids, and the vocab detail
+    endpoint returns definition + morphology + sentences without needing
+    the word in the caller's reviews."""
+    from backend.repositories.cards import get_deck_items, get_vocab_item
+
+    lang = await _language(pool, "dkb")
+    user = await _new_user(pool, "browser@dkb")
+
+    async with pool.privileged_connection() as conn:
+        deck = str(await conn.fetchval(
+            "INSERT INTO content_lists (language_id, list_type, level, title) "
+            "VALUES ($1, 'vocabulary', 'A1', 'DKB A1 Vocab') RETURNING id", lang,
+        ))
+        word = str(await conn.fetchval(
+            "INSERT INTO vocabulary (language_id, word, level, frequency_rank, "
+            "morphology) VALUES ($1, 'domo', 'A1', 1, "
+            "'{\"chips\": [{\"label\": \"Gender\", \"value\": \"feminine\"}]}'::jsonb) "
+            "RETURNING id", lang,
+        ))
+        await conn.execute(
+            "INSERT INTO translations (vocabulary_id, locale, definition) "
+            "VALUES ($1, 'en', 'house')", word,
+        )
+        await conn.execute(
+            "INSERT INTO example_sentences (language_id, vocabulary_id, sentence, "
+            "translation, translation_locale) VALUES ($1, $2, "
+            "'La domo estas granda.', 'The house is big.', 'en')", lang, word,
+        )
+
+    async with pool.rls_connection(user) as conn:
+        listing = await get_deck_items(conn, deck)
+        assert listing["title"] == "DKB A1 Vocab"
+        assert [i["item"] for i in listing["items"]] == ["domo"]
+        assert listing["items"][0]["kind"] == "vocabulary"
+        assert listing["items"][0]["detail"] == "house"
+
+        detail = await get_vocab_item(conn, word)
+        assert detail["word"] == "domo"
+        assert detail["definition"] == "house"
+        assert detail["examples"][0]["translation"] == "The house is big."
+        morph = detail["morphology"]
+        if isinstance(morph, str):
+            import json as _json
+            morph = _json.loads(morph)
+        assert morph["chips"][0]["value"] == "feminine"
+
+        assert await get_deck_items(conn, str(uuid.uuid4())) is None
+        assert await get_vocab_item(conn, str(uuid.uuid4())) is None

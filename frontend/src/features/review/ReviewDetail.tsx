@@ -6,6 +6,7 @@ import { getLanguages } from '../../api/profile'
 import type { CardProgress } from '../../api/types'
 import LanguageWrapper from '../../components/LanguageWrapper'
 import FormsPanel from '../../components/FormsPanel'
+import ExplanationView from '../../components/ExplanationView'
 import SpeakButton from '../../components/SpeakButton'
 import BlurReveal from '../../components/BlurReveal'
 import StageBadge from '../../components/StageBadge'
@@ -192,7 +193,7 @@ export default function ReviewDetail({ cardId, languageCode, stats }: ReviewDeta
               {data.explanation && (
                 <div>
                   <h3 className="font-semibold text-gray-700 mb-1">About</h3>
-                  <p className="text-gray-700 whitespace-pre-wrap">{data.explanation}</p>
+                  <ExplanationView text={data.explanation} className="text-gray-700" />
                 </div>
               )}
 

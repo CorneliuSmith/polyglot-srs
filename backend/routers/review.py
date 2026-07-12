@@ -15,9 +15,11 @@ from backend.repositories.cards import (
     get_card_detail,
     get_card_details_bulk,
     get_cram_cards,
+    get_deck_items,
     get_deck_preview,
     get_due_cards,
     get_learn_decks,
+    get_vocab_item,
     reset_deck_progress,
     reset_language_progress,
     set_deck_subscription,
@@ -318,6 +320,35 @@ async def deck_preview(
 
 class DeckSubscription(BaseModel):
     subscribed: bool
+
+
+@router.get("/decks/{list_id}/items")
+async def deck_items(
+    list_id: str,
+    user: dict = Depends(get_current_user),
+):
+    """The deck browser: every item in the deck, in path order, with ids
+    so each row can open its detail view."""
+    async with rls_connection(user["id"]) as conn:
+        listing = await get_deck_items(conn, list_id)
+    if listing is None:
+        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Deck not found")
+    return listing
+
+
+@router.get("/vocab/{vocab_id}")
+async def vocab_item(
+    vocab_id: str,
+    user: dict = Depends(get_current_user),
+):
+    """Read-only vocabulary detail for the deck browser (word, definition,
+    Forms panel, sample sentences) — no review card required."""
+    async with rls_connection(user["id"]) as conn:
+        locale = await _support_locale(conn, user["id"])
+        item = await get_vocab_item(conn, vocab_id, locale)
+    if item is None:
+        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Word not found")
+    return item
 
 
 @router.post("/decks/{list_id}/subscription")

@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, useSearchParams } from 'react-router-dom'
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query'
 import { getLanguages } from '../../api/profile'
 import {
@@ -442,7 +442,21 @@ function ReviewPolicyControl({
   )
 }
 
+/** Deep link support (/contribute?point=<id>): float the linked point to
+ * the top so a reviewer lands directly on the card they came to fix. */
+function orderedPoints<T extends { id: string }>(
+  points: T[],
+  focusId: string | null,
+): T[] {
+  if (!focusId) return points
+  const hit = points.find((p) => p.id === focusId)
+  if (!hit) return points
+  return [hit, ...points.filter((p) => p.id !== focusId)]
+}
+
 export default function ContributorPage() {
+  const [searchParams] = useSearchParams()
+  const focusPointId = searchParams.get('point')
   const navigate = useNavigate()
   const queryClient = useQueryClient()
   const activeLanguageId = usePrefsStore((s) => s.activeLanguageId)
@@ -521,13 +535,22 @@ export default function ContributorPage() {
         )}
 
         {data &&
-          data.points.map((point) => (
-            <PointEditor
+          orderedPoints(data.points, focusPointId).map((point) => (
+            <div
               key={point.id}
-              point={point}
-              canReview={data.can_review ?? data.is_admin}
-              onSaved={refresh}
-            />
+              id={`edit-point-${point.id}`}
+              className={
+                point.id === focusPointId
+                  ? 'ring-2 ring-lang rounded-2xl'
+                  : undefined
+              }
+            >
+              <PointEditor
+                point={point}
+                canReview={data.can_review ?? data.is_admin}
+                onSaved={refresh}
+              />
+            </div>
           ))}
       </div>
     </div>
