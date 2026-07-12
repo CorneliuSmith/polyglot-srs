@@ -130,14 +130,24 @@ coach from the learner's actual failure history.
   as informative fallbacks — я = "I (first-person singular subject
   pronoun)", είναι = "third-person singular present of είμαι"). Speech
   synthesis matches an installed voice explicitly (ro/el/pt locales were
-  missing entirely) and dodges Chrome's cancel-then-speak race. English vocabulary carries definitions in 12 support locales
-  (kaikki translations, merged 2026-07-11); English example sentences are
-  the tail of the WP5 corpus build.
+  missing entirely) and dodges Chrome's cancel-then-speak race. English vocabulary carries
+  definitions in 12 support locales and ~187k example sentences with
+  per-locale translations (rebuilt 2026-07-12 at 10k-word scale — the
+  8-hour build was a spaCy-per-token pathology, now cached and ~20 min).
+  Translation extraction is POS-keyed with the LARGEST translation table
+  as the primary sense, letter/symbol entries excluded, core subject
+  pronouns hand-curated, and articles pinned to NO translation: when a
+  language has no equivalent, the card shows the English grammar gloss —
+  never a wrong-sense extraction (the a→"т" bug class). Reseeding en
+  translations REQUIRES the purge first (upserts cannot remove stale
+  locale rows): DELETE non-'en' locales for en vocab, then
+  run.py --language en.
 - **Ops**: `scripts/setup_db.sh` rebuilds or repairs any database end-to-end
   (tracked migrations that self-baseline on pre-migrated DBs, offline seed,
   verification; `--local` targets a local Postgres via the auth shim).
-- **Suites**: `backend/tests` (624 unit + 24 integration against a local
-  Postgres via INTEGRATION_DATABASE_URL) and `frontend` vitest (116) green.
+- **Suites**: `backend/tests` (724 unit + 32 integration against a local
+  Postgres via INTEGRATION_DATABASE_URL) and `frontend` vitest (183) green,
+  plus ruff and strict tsc (CI-enforced).
 
 ## 3. Non-negotiable invariants (every agent, every package)
 
