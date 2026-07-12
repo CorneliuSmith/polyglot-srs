@@ -21,6 +21,7 @@ from backend.repositories.contributor import (
     can_contribute,
     can_review,
     create_grammar_point,
+    delete_account,
     delete_drill,
     find_user_by_email,
     get_feedback_language,
@@ -33,6 +34,7 @@ from backend.repositories.contributor import (
     get_roles,
     grant_role,
     is_admin,
+    list_accounts,
     list_all_roles,
     list_drills,
     list_feedback,
@@ -43,6 +45,7 @@ from backend.repositories.contributor import (
     revoke_role,
     save_ai_check,
     save_explanation,
+    set_account_plan,
     set_language_policy,
     set_language_tutor_model,
     update_drill,
@@ -615,6 +618,66 @@ async def resolve_card_feedback(
             )
         await resolve_feedback(conn, feedback_id)
     return {"resolved": True}
+
+
+class PlanOverride(BaseModel):
+    plan_scope: str = Field(pattern="^(single|all)$")
+    plan_language_id: str | None = None
+
+
+@router.get("/users")
+async def accounts(user: dict = Depends(get_current_user)):
+    """Every account at a glance (admin-only): email, joined, plan, roles,
+    study volume. The demo/deploy admin console."""
+    await _require_admin(user["id"])
+    async with privileged_connection() as conn:
+        return {"users": await list_accounts(conn)}
+
+
+@router.delete("/users/{user_id}")
+async def remove_account(
+    user_id: str,
+    user: dict = Depends(get_current_user),
+):
+    """Permanently delete an account and everything it owns (admin-only).
+
+    Cascades through auth AND app tables. Admins cannot delete themselves
+    — a second admin (or the Supabase dashboard) must do it, so a slip
+    can't lock the project out of its only admin.
+    """
+    await _require_admin(user["id"])
+    if user_id == user["id"]:
+        raise HTTPException(
+            status_code=status.HTTP_403_FORBIDDEN,
+            detail="You can't delete your own account from the admin panel",
+        )
+    async with privileged_connection() as conn:
+        ok = await delete_account(conn, user_id)
+    if not ok:
+        raise HTTPException(status_code=404, detail="Account not found")
+    return {"deleted": True}
+
+
+@router.put("/users/{user_id}/plan")
+async def override_plan(
+    user_id: str,
+    body: PlanOverride,
+    user: dict = Depends(get_current_user),
+):
+    """Switch an account between Single-language and All-languages (admin)."""
+    await _require_admin(user["id"])
+    if body.plan_scope == "single" and not body.plan_language_id:
+        raise HTTPException(
+            status_code=status.HTTP_422_UNPROCESSABLE_ENTITY,
+            detail="A single-language plan needs plan_language_id",
+        )
+    async with privileged_connection() as conn:
+        ok = await set_account_plan(
+            conn, user_id, body.plan_scope, body.plan_language_id
+        )
+    if not ok:
+        raise HTTPException(status_code=404, detail="Account not found")
+    return {"plan_scope": body.plan_scope}
 
 
 async def _require_admin(user_id: str) -> None:

@@ -16,6 +16,8 @@ import DrillsEditor from './DrillsEditor'
 import FeedbackPanel from './FeedbackPanel'
 import IssuesPanel from './IssuesPanel'
 import RolesPanel from './RolesPanel'
+import AccountsPanel from './AccountsPanel'
+import { useAuthStore } from '../../stores/authStore'
 import {
   flagPointIssue,
   getTutorUsage,
@@ -457,6 +459,7 @@ function orderedPoints<T extends { id: string }>(
 export default function ContributorPage() {
   const [searchParams] = useSearchParams()
   const focusPointId = searchParams.get('point')
+  const selfId = useAuthStore((s) => s.session?.user?.id ?? null)
   const navigate = useNavigate()
   const queryClient = useQueryClient()
   const activeLanguageId = usePrefsStore((s) => s.activeLanguageId)
@@ -507,6 +510,7 @@ export default function ContributorPage() {
           <>
             {data.is_admin && (
               <>
+                <AccountsPanel languages={languages} selfId={selfId} />
                 <RolesPanel languages={languages} />
                 <ReviewPolicyControl
                   languageId={activeLanguageId}

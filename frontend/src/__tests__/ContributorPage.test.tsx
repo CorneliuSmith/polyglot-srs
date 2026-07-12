@@ -6,6 +6,9 @@ import ContributorPage from '../features/contribute/ContributorPage'
 
 vi.mock('../api/profile', () => ({ getLanguages: vi.fn() }))
 vi.mock('../api/contribute', () => ({
+  listAccounts: vi.fn(() => Promise.resolve([])),
+  deleteAccount: vi.fn(),
+  overridePlan: vi.fn(),
   getGrammarForLanguage: vi.fn(),
   saveGrammarExplanation: vi.fn(),
   approveGrammar: vi.fn(),

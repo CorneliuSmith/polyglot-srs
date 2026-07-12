@@ -1318,3 +1318,48 @@ async def test_deck_browser_items_and_vocab_detail(pool):
 
         assert await get_deck_items(conn, str(uuid.uuid4())) is None
         assert await get_vocab_item(conn, str(uuid.uuid4())) is None
+
+
+async def test_delete_account_cascades_everything(pool):
+    """Admin account deletion: removing the auth row takes the profile,
+    cards, review history, and subscriptions with it — and only for the
+    deleted user."""
+    from backend.repositories.contributor import delete_account, list_accounts
+
+    lang = await _language(pool, "adm")
+    doomed = await _new_user(pool, "doomed@adm")
+    keeper = await _new_user(pool, "keeper@adm")
+
+    async with pool.privileged_connection() as conn:
+        point = str(await conn.fetchval(
+            "INSERT INTO grammar_points (language_id, title, reviewed, level) "
+            "VALUES ($1, 'Cascade point', true, 'A1') RETURNING id", lang,
+        ))
+        for owner in (doomed, keeper):
+            card = str(await conn.fetchval(
+                "INSERT INTO user_cards (user_id, language_id, card_type, card_id) "
+                "VALUES ($1, $2, 'grammar', $3) RETURNING id", owner, lang, point,
+            ))
+            await conn.execute(
+                "INSERT INTO review_log (user_id, card_id, quality, "
+                "ease_factor_before, ease_factor_after, interval_before, "
+                "interval_after) VALUES ($1, $2, 4, 2.5, 2.6, 1, 3)", owner, card,
+            )
+
+    async with pool.privileged_connection() as conn:
+        emails = {a["email"] for a in await list_accounts(conn)}
+        assert {"doomed@adm", "keeper@adm"} <= emails
+
+        assert await delete_account(conn, doomed) is True
+        assert await delete_account(conn, doomed) is False  # already gone
+
+        assert await conn.fetchval(
+            "SELECT count(*) FROM user_cards WHERE user_id = $1", doomed) == 0
+        assert await conn.fetchval(
+            "SELECT count(*) FROM review_log WHERE user_id = $1", doomed) == 0
+        # the bystander is intact
+        assert await conn.fetchval(
+            "SELECT count(*) FROM user_cards WHERE user_id = $1", keeper) == 1
+        emails = {a["email"] for a in await list_accounts(conn)}
+        assert "doomed@adm" not in emails
+        assert "keeper@adm" in emails
