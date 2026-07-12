@@ -1,31 +1,1144 @@
 rank	word	pos	en
-1	ni	pron	I
-2	kai	pron	you
-3	shi	pron	he/she
-4	mu	pron	we
-5	zama	verb	to be
-6	yi	verb	to have
-7	tafi	verb	to go
-8	ci	verb	to eat
-9	sha	verb	to drink
-10	so	verb	to want
-11	gani	verb	to see
-12	ce	verb	to say
-13	ruwa	noun	water
-14	abinci	noun	food
-15	gida	noun	house
-16	mutum	noun	person
-17	rana	noun	day
-18	ee	adv	yes
-19	a'a	adv	no
-20	na gode	interjection	thank you
-600	koya	verb	to learn
-700	magana	verb	to speak
-800	gane	verb	to understand
-900	sani	verb	to know
-1000	rubuta	verb	to write
-1100	karanta	verb	to read
-1200	littafi	noun	book
-1250	harshe	noun	language
-1300	babba	adj	big
-1350	kyau	adj	good
+1	su	pron	they (third person plural independent subject pronoun)
+2	wannan	pron	this, this one
+3	shi	pron	he (3rd person singular pronoun)
+4	daga	noun	bangle-charm (worn on the upper arm or wrist)
+5	ka	adv	in or on
+6	wani	pron	someone; some, a certain, another
+7	mai	noun	oil, fat, grease
+8	domin	conj	because of, for the sake of, on behalf of
+9	amma	conj	but
+10	mu	pron	we (1st person plural pronoun)
+11	suna	noun	name; naming ceremony
+12	kai	pron	you (2nd person singular subject pronoun)
+13	allah	name	Allah, God
+14	idan	conj	if, when (in the future)
+15	har	prep	until, up to; even, including
+16	yadda	conj	how; in that way
+17	sa	noun	bull, ox, cattle
+18	zuwa	noun	arrival
+19	yanzu	adv	now, at present
+20	bayan	prep	behind, after
+21	saboda	prep	because, because of
+22	wata	noun	moon; month
+23	ci	verb	to eat, to eat soft things
+24	zama	noun	sitting, dwelling, existence
+25	ita	pron	she (3rd person singular pronoun)
+26	aiki	noun	work, job; act, activity
+27	ni	pron	I (1st person singular pronoun)
+28	duniya	noun	world, Earth
+29	biyu	num	two
+30	sin	name	China (a country in Asia)
+31	mata	noun	woman; wife
+32	mutum	noun	person; man, male
+33	fara	noun	locust, grasshopper
+34	nuna	verb	to show, point out, indicate
+35	baya	noun	back; outside surface
+36	shiga	noun	entry; outfit, appearance
+37	ji	verb	to hear; to understand
+38	ciki	noun	stomach, belly; pregnancy
+39	tana	noun	earthworm; membrane covering a body part
+40	musamman	adv	especially, expressly
+41	sha	verb	to drink
+42	tun	prep	since, ever since
+43	abu	noun	thing, object; matter, affair, situation
+44	farko	noun	beginning
+45	dama	noun	chance, opportunity, possibility
+46	lafiya	noun	health
+47	gwamnati	noun	government
+48	shekara	noun	year; age (how old something or someone is)
+49	amfani	noun	usefulness, advantage
+50	yawa	noun	quantity
+51	ar	intj	damn it
+52	nijeriya	name	Nigeria (a country in West Africa, south of the country of Niger)
+53	bisa	noun	pack animal
+54	jarida	noun	newspaper
+55	malam	noun	mister, Mr.
+56	kafin	conj	before
+57	lokaci	noun	time; period of time
+58	gaskiya	noun	truth; fact
+59	kowa	pron	everybody, everyone
+60	uku	num	three
+61	hausa	name	Hausa language
+62	kano	name	Kano (a state of Nigeria in the North West geopolitical zone)
+63	siyasa	noun	politics; giving a concession or accommodation
+64	kafa	noun	leg
+65	sani	verb	know (have knowledge)
+66	baki	noun	mouth, beak; mouth of a vessel, opening, entrance
+67	magana	noun	speech, talk; broadcasting
+68	alhaji	noun	hajji (one who has been a pilgrim to Mecca, usually used as a title)
+69	sake	noun	slackness
+70	rubuta	verb	to write
+71	sama	noun	sky, heavens; top
+72	hankali	noun	good sense
+73	gida	noun	home; compound
+74	koma	noun	fishing net
+75	arewa	noun	north
+76	mace	noun	woman; female
+77	gwamna	noun	governor
+78	mulki	noun	dominion, rule; government
+79	musulmi	noun	Muslim
+80	ruwa	noun	water; liquid, juice
+81	kaduna	name	Kaduna (a state of Nigeria in the North West geopolitical zone)
+82	boko	noun	fraud, deceit, trick
+83	kyau	noun	goodness, beauty
+84	aure	noun	marriage
+85	kare	noun	dog
+86	rana	noun	sun; heat of the sun
+87	haram	noun	any haram act; a sin or forbidden deed in Islam
+88	tsaro	noun	defense, protection, security
+89	nasara	noun	victory, success
+90	kada	noun	crocodile
+91	tarihi	noun	history; biography
+92	dubu	num	thousand
+93	maka	name	Mecca (a city in Saudi Arabia)
+94	sarki	noun	emir, king, chief
+95	biyar	num	five
+96	misali	noun	example, instance
+97	dari	noun	korrigum (a kind of antelope)
+98	kullum	adv	always; every (followed by a unit of time)
+99	gari	noun	town, village
+100	karatu	noun	reading; education, study, learning
+101	ibrahim	name	Abraham (biblical character)
+102	bayani	noun	explanation
+103	hannu	noun	hand; arm
+104	arziki	noun	wealth, riches
+105	addini	noun	religion
+106	girma	noun	bigness, size; importance, prestige
+107	bincike	noun	investigation, research
+108	tafiya	noun	journey, trip
+109	zamani	noun	age, epoch, period, times
+110	cigaba	noun	promotion; progress, civilization
+111	isa	name	Jesus (a prophet in Islam, regarded as the son of God in Christianity)
+112	goma	num	ten
+113	zauna	verb	to sit; to settle (down), live, remain (in a place)
+114	maza	adv	quickly, as quickly as possible
+115	kwana	noun	sleep, lying down
+116	biya	verb	to pay; to fulfill
+117	abubakar	name	a male given name
+118	kanta	noun	callus
+119	ilimi	noun	knowledge; science
+120	uwa	noun	mother; largest or chief part
+121	kudu	adv	south, southwards
+122	annabi	noun	prophet
+123	sanda	noun	stick, baton, staff, pole
+124	mutu	verb	to die
+125	janar	noun	general (military rank)
+126	sau	noun	foot; footprint, trace
+127	matsala	noun	problem, affair, obstacle
+128	kasuwa	noun	market
+129	kusa	adv	near, nearby
+130	adam	name	Adam (biblical character)
+131	muhammadu	name	Muhammad (prophet)
+132	hanya	noun	road, path; way, means, method, opportunity
+133	zuciya	noun	heart
+134	hali	noun	condition, situation
+135	jiki	noun	body
+136	mamaki	noun	astonishment, surprise
+137	alheri	noun	kindness, good deed
+138	fita	noun	graduation
+139	sabo	adj	new
+140	shida	num	six
+141	makaranta	noun	school
+142	soja	noun	soldier; army
+143	afirka	name	Africa (the continent south of Europe and between the Atlantic and Indian Oceans)
+144	majalisa	noun	legislature, congress
+145	ido	noun	eye
+146	riga	noun	a robe; an agbada or similar, the standard garb of men
+147	inganta	verb	to strengthen, make durable
+148	amsa	noun	answer, response
+149	tara	num	nine
+150	jawo	verb	to pull (this way)
+151	karanta	verb	to read
+152	malamai	noun	plural of malami and malam
+153	laifi	noun	crime, fault; blemish
+154	wuta	noun	fire; electricity
+155	abdullahi	name	a male given name, equivalent to English Abdullah
+156	daina	verb	to quit doing, to cease
+157	katsina	name	Katsina (a city in Nigeria)
+158	ali	name	Ali (son-in-law of Muhammad)
+159	wasa	noun	sport, game
+160	bello	name	a surname
+161	baiwa	name	a female given name
+162	rai	noun	life; spirit, mind
+163	tambaya	noun	question
+164	ahmad	name	a male given name
+165	kasuwanci	noun	marketing, trading, commerce
+166	hanci	noun	nose; bribe
+167	awa	noun	hour
+168	imani	noun	faith, belief (especially in Islam)
+169	hau	noun	misfortune, being bewitched
+170	tsakiya	noun	middle, center; prime, height
+171	labari	noun	news, information
+172	hukuma	noun	authority, governing board
+173	hijira	noun	hijra (event from which the Islamic calendar counts)
+174	jini	noun	blood; menstruation
+175	hajji	noun	hajj (pilgrimage to Mecca)
+176	jiha	noun	region, state; direction
+177	tuni	adv	long ago
+178	ja	adj	red
+179	musa	name	Moses (biblical character)
+180	illa	prep	except
+181	naira	noun	naira (currency of Nigeria)
+182	dalili	noun	cause, reason
+183	shehu	noun	A great scholar, especially in religious matters.
+184	bakwai	num	seven
+185	amin	intj	amen; so be it; A polite response to salamu alaikum.
+186	borno	name	Borno (a state of Nigeria in the North East geopolitical zone)
+187	haihuwa	noun	birth; one's biological child
+188	tsari	noun	arrangement, plan, system
+189	tasiri	noun	influence, power
+190	adawa	noun	hatred; opposition
+191	takwas	num	eight
+192	hikima	noun	wisdom
+193	gabas	noun	east
+194	magani	noun	medicine, cure; means against, protection against
+195	mutuwa	noun	death
+196	mako	noun	week
+197	sanata	noun	senator
+198	fili	noun	open field, plot of land, square
+199	adu	noun	smallpox
+200	bana	adv	this year
+201	sako	noun	A small pod of pumpkins or gourds.
+202	ajiye	verb	to put down, put away
+203	mota	noun	automobile, car
+204	albashi	noun	salary, wages
+205	damuwa	noun	trouble, nuisance, bother, worry
+206	shafa	verb	to rub, wipe, smear on
+207	littafi	noun	book
+208	yaro	noun	boy, child; A follower of a chief or similar person.
+209	alfahari	noun	pride
+210	adamu	name	Adam (biblical character)
+211	turai	name	Europe (a continent located west of Asia and north of Africa)
+212	kotu	noun	court
+213	rashawa	noun	bribe
+214	kamaru	name	Cameroon (a country in Central Africa)
+215	tattaunawa	noun	discussion, negotiations
+216	wuya	noun	neck; neck (narrow part of a bottle)
+217	neja	name	Niger (a state of Nigeria)
+218	yamma	noun	west
+219	hatta	prep	even, including
+220	gwiwa	noun	knee
+221	daraja	noun	worth, value; rank, class
+222	bara	noun	servant; A young person who out of respect volunteers to work for someone from time to time.
+223	rubutu	noun	writing
+224	taimako	noun	aid, help
+225	shugabanci	noun	leadership
+226	sakkwato	name	Sokoto (a city in Nigeria)
+227	kowanne	pron	everyone, each one, whichever one
+228	yanki	noun	part, section; district
+229	maiduguri	name	Maiduguri (a city, the state capital of Borno State, Nigeria)
+230	salla	noun	prayer, salat (principally in Islam)
+231	azumi	name	a female given name given to a girl born during Ramadan
+232	wahala	noun	trouble, problem, difficulty
+233	albarka	noun	blessing; abundance, prosperity
+234	firamare	noun	primary school
+235	asibiti	noun	hospital; clinic
+236	dogara	verb	entrust, rely on, trust in
+237	sada	verb	to cause to meet, to introduce
+238	kaza	noun	chicken, hen
+239	baba	noun	father
+240	dabino	noun	date (fruit); date palm
+241	hula	noun	cap, hat - especially, the traditional embroidered cap worn by Hausa men
+242	miji	noun	husband
+243	ibada	noun	worship, service to God
+244	soyayya	noun	love, affection, romance
+245	teku	noun	ocean, sea
+246	jawabi	noun	answer, reply; message
+247	alhali	conj	of course, certainly, whereas
+248	gado	noun	bed
+249	lalle	noun	henna
+250	tilas	noun	necessity
+251	iko	noun	power, control; authority, jurisdiction
+252	tasa	noun	metal bowl or basin
+253	gona	noun	farm
+254	jagoranci	noun	leadership
+255	daura	name	Daura (a city in Katsina State, Nigeria)
+256	japan	name	Japan (a country in East Asia)
+257	indiya	name	India (a country in South Asia)
+258	kallo	noun	looking, watching
+259	mustapha	name	a male given name
+260	asali	noun	origin, beginning
+261	talaka	noun	poor person, pauper
+262	zariya	name	Zaria (a city in Nigeria)
+263	tsoro	noun	fear
+264	bahaushe	noun	Hausa person
+265	sauka	verb	to descend, come down
+266	nazari	noun	investigation, research
+267	wallahi	intj	by God!
+268	tsarki	noun	cleanliness, purity, holiness
+269	iska	noun	air; wind, breeze
+270	shanu	noun	plural of sa; plural of saniya
+271	fassara	noun	translation
+272	kunya	noun	shame, embarrassment
+273	iyali	noun	family
+274	mutunci	noun	decency, humaneness
+275	komi	noun	canoe, a small boat for one person
+276	jamus	name	Germany (a country in Central Europe)
+277	talata	name	Tuesday
+278	dala	noun	Any of various currencies known as dollars or thalers.
+279	zafi	noun	heat
+280	hamsin	num	fifty
+281	harshe	noun	tongue; tip or tongue of something
+282	likita	noun	physician, (medical) doctor
+283	bindiga	noun	gun, firearm
+284	masallaci	noun	mosque (place of worship for Muslims)
+285	asabar	name	Saturday
+286	malami	noun	teacher; scholar
+287	birni	noun	town, city
+288	uba	noun	father; head, leader, patron
+289	wallafa	verb	to compose, write
+290	legas	name	Lagos (a city in Nigeria)
+291	faransa	name	France (a country located primarily in Western Europe)
+292	baka	noun	bow; hacksaw
+293	kaiwa	noun	A gift requiring a return gift at a later date.
+294	sakamako	noun	result, outcome, consequence
+295	amana	noun	trust, mutual respect
+296	nisa	noun	distance
+297	edita	noun	editor (person who edits)
+298	turanci	name	English language
+299	umaru	name	a male given name
+300	jos	name	Jos (a city, the state capital of Plateau State, Nigeria)
+301	ingilishi	noun	English language
+302	dutse	name	Dutse (the largest city and state capital of Jigawa State, Nigeria)
+303	muddin	conj	as long as, provided that
+304	tarbiyya	noun	upbringing, training
+305	dage	noun	honey badger
+306	ware	verb	to separate things, to set things aside
+307	disamba	name	December
+308	safe	adv	in the morning
+309	shinkafa	noun	rice
+310	asiri	noun	secret; charm, magic spell
+311	babba	adj	big, large; great, important
+312	ashirin	num	twenty
+313	nesa	adv	faraway
+314	hukunci	noun	verdict, condemnation, sentence
+315	yarinya	noun	female equivalent of yārṑ: girl, young woman
+316	saudiyya	name	Saudi Arabia (a country in West Asia in the Middle East)
+317	kam	noun	firmly, tightly
+318	alkawari	noun	promise; reliability
+319	satar	noun	possessed form of sātā̀
+320	manjo	noun	major (military rank)
+321	wanka	noun	bathing
+322	minista	noun	governmental minister
+323	kaso	noun	prison
+324	mamaye	noun	military occupation
+325	haruna	name	Aaron (biblical character)
+326	oktoba	name	October
+327	adabi	noun	literature
+328	garkuwa	noun	shield
+329	kura	noun	hyena
+330	litinin	name	Monday
+331	dubban	noun	wine
+332	banda	noun	meat or fish dried over a fire
+333	sannu	intj	hello; sorry (expression of sympathy)
+334	lu	noun	swinging motion
+335	shiru	noun	silence
+336	alhamis	name	Thursday
+337	minti	noun	minute (unit of time)
+338	bil	noun	bill, invoice
+339	maris	name	March
+340	albasa	noun	onion
+341	sata	noun	theft, robbery
+342	zaki	noun	lion
+343	saye	noun	A purchase; buying
+344	lahadi	name	Sunday
+345	alhamdulillahi	intj	alhamdulillah (praise be to God)
+346	ciwo	noun	pain, ache, disease
+347	laraba	name	Wednesday
+348	bawa	noun	slave
+349	manzo	noun	messenger
+350	lahira	noun	afterlife, akhirah
+351	kogi	noun	river
+352	kaka	noun	grandfather, grandmother
+353	alama	noun	mark (indication for reference or measurement)
+354	aljanna	noun	Paradise, Jannah
+355	maraba	intj	welcome!
+356	sharhi	noun	commentary
+357	malama	noun	feminine of mālàm: Ms./Mrs.
+358	nuhu	name	Noah (biblical character)
+359	itace	noun	tree; wood, stick
+360	gada	noun	bridge
+361	kalma	noun	word
+362	karuwa	noun	prostitute, whore
+363	mohammed	name	a male given name: alternative form of Muhammadu
+364	biyayya	noun	obedience, loyalty, allegiance
+365	rahama	noun	mercy
+366	miki	noun	vulture
+367	tallafa	verb	to support, carry (in the palm of the hand)
+368	fari	adj	white
+369	barka	intj	A general greeting.
+370	sati	noun	week
+371	talatin	num	thirty
+372	gana	name	Ghana (a country in West Africa)
+373	aya	noun	verse (usually of the Qur'an)
+374	yari	noun	earring
+375	zahiri	noun	clearness, obviousness
+376	hakki	noun	right, one's due
+377	gefen	prep	beside, next to
+378	goge	noun	goje (traditional one-stringed fiddle)
+379	satumba	name	September
+380	hoto	noun	photograph
+381	mayu	name	May
+382	ganuwa	noun	town wall, rampart
+383	takarda	noun	paper
+384	kabari	noun	grave, tomb
+385	darasi	noun	lesson
+386	rasha	name	Russia (a transcontinental country in Eastern Europe and North Asia)
+387	halaka	verb	destroy
+388	tsawo	noun	height, altitude
+389	ƙasa	noun	soil, earth; ground
+390	tabo	noun	scar
+391	ofis	noun	office
+392	titi	noun	street
+393	bauta	noun	slavery; worship
+394	jirgi	noun	Used in compounds for vehicles other than automobiles.
+395	makiyaya	noun	pasture, grazing land
+396	yuli	name	July
+397	ladan	noun	muezzin
+398	nama	noun	meat; wild animal
+399	dukiya	noun	wealth, assets
+400	ingila	name	England (a constituent country of the United Kingdom)
+401	ɗan	noun	Used to indicate a person's origin, profession, or activity.
+402	haihu	verb	to give birth, have a child
+403	fanni	noun	genre, type; branch of knowledge
+404	asiya	name	Asia (the largest continent, located between Europe and the Pacific Ocean)
+405	yuni	name	June
+406	hasan	name	a male given name, Hasan, traditionally given to a first-born twin
+407	ainun	adv	very much, extremely
+408	hamada	noun	desert
+409	lauya	noun	lawyer
+410	saliyo	name	Sierra Leone (a country in West Africa)
+411	hidima	noun	service
+412	filato	name	Plateau State (a state of Nigeria)
+413	kore	adj	green
+414	lissafi	noun	mathematics, arithmetic
+415	budurwa	noun	marriageable girl
+416	gusau	name	Gusau (a city, the state capital of Zamfara State, Nigeria)
+417	zalunci	noun	oppression, tyranny
+418	bature	noun	European
+419	hadisi	noun	hadith (saying of the prophet Muhammad)
+420	dau	noun	deep
+421	nasaba	noun	familial relationship
+422	hutu	noun	rest, holiday; passing wind
+423	fitina	noun	trouble, quarrelling
+424	sulhu	noun	reconciliation, arbitration
+425	husaini	name	a male given name, Husayn or Hussein, traditionally given to a second-born twin
+426	lada	noun	wages; reward
+427	salo	noun	style, fashion, pattern
+428	waziri	noun	a traditional title for a ruling official
+429	tsakani	noun	interval between two points
+430	kwabo	noun	kobo (subdivision of the naira)
+431	lamba	noun	sign, distinguishing mark, trademark
+432	amina	name	a female given name
+433	rinjaye	noun	victory, success
+434	gasa	noun	competition, contest
+435	kwatsam	noun	suddenly
+436	kori	noun	curry
+437	sharri	noun	evil, wickedness
+438	amarya	noun	bride
+439	dauda	name	David (biblical character)
+440	giya	noun	native beer; any alcoholic beverage
+441	hamayya	noun	rivalry; political opposition
+442	zuma	noun	honey; honeybee
+443	janairu	name	January
+444	riba	noun	bank interest, usury
+445	taru	noun	large fishing net
+446	birtaniya	name	United Kingdom (a kingdom and country in Northern Europe)
+447	tsaka	noun	a kind of gecko
+448	ciroma	noun	a traditional title held by the son of an emir
+449	haraji	noun	tax
+450	karama	noun	generosity; something amazing or wonderful
+451	yawanci	noun	majority, most
+452	kunne	noun	ear; leaf (of a plant)
+453	nuwamba	name	November
+454	shata	verb	to mark the outline of a plan or pattern
+455	lumana	noun	friendship, goodwill, harmony
+456	agusta	name	August
+457	tsada	noun	red-billed firefinch, Lagonosticta senegala
+458	doki	noun	horse
+459	maye	noun	intoxication, drunkenness
+460	jika	adv	on the body
+461	guba	noun	poison, toxin
+462	halilu	name	a male given name, Khalil, from Arabic
+463	galibi	noun	majority
+464	ti	noun	tea
+465	cibiya	noun	navel; umbilical cord
+466	kwara	name	Niger (a major river in West Africa that flows into the Gulf of Guinea in Nigeria)
+467	kanar	noun	colonel
+468	zazzau	name	Zaria (a city in Nigeria) (traditional name, especially in reference to the emirate)
+469	inna	noun	mother; maternal aunt
+470	nasiha	noun	good advice
+471	pakistan	name	Pakistan (a country in South Asia)
+472	kujera	noun	chair
+473	shuka	noun	plants, crops
+474	talla	noun	Hawking goods for sale.
+475	balarabe	noun	Arab
+476	tsai	noun	still, pensive
+477	giwa	noun	elephant
+478	zina	noun	adultery, fornication, zina
+479	tamanin	num	eighty
+480	wando	noun	trousers, pants
+481	shawwal	name	Shawwal
+482	ladabi	noun	politeness, good manners
+483	shekarau	name	a male given name
+484	babi	noun	chapter (section of a book)
+485	rogo	noun	cassava, Manihot esculenta
+486	amirka	name	United States of America (a country in North America)
+487	abada	adv	always
+488	wakili	noun	representative, agent
+489	zunubi	noun	sin
+490	alkama	noun	wheat
+491	koka	verb	to cry
+492	yarima	noun	prince (son or younger brother of an emir)
+493	gafara	noun	forgiveness, pardon
+494	madina	name	Medina (a city in Saudi Arabia)
+495	mashi	noun	spear
+496	dina	noun	dinner party
+497	shayi	noun	tea
+498	tsaf	noun	neatly, completely
+499	kunkuru	noun	tortoise
+500	miya	noun	a kind of sauce or stew made with various meats and vegetables, eaten alongside tuwo
+501	kunci	noun	cheek
+502	idi	noun	any Muslim holiday
+503	kanki	noun	western hartebeest
+504	daula	noun	wealth, abundance
+505	jarrabawa	noun	test, exam
+506	siriya	name	Syria (a country in West Asia in the Middle East)
+507	sadaka	noun	alms, charity
+508	tsere	noun	race, contest
+509	kiyama	noun	resurrection (event that will occur on judgement day)
+510	rama	noun	hemp, jute
+511	bas	noun	bus
+512	launi	noun	color
+513	sittin	num	sixty
+514	tofa	noun	elephant grass, Napier grass
+515	magaji	name	a male given name
+516	dabba	noun	animal
+517	shahada	noun	shahada; martyrdom, death in a holy war
+518	wada	noun	wealth
+519	aboki	noun	friend
+520	masarauta	noun	seat of government, administrative domain, town where the chief lives
+521	liman	noun	imam; The equivalent of an imam in other religions; in Christianity, a pastor or priest.
+522	jummai	name	a female given name given to a girl born on a Friday
+523	sardauna	noun	a title for a traditional leader in Sokoto, most famously borne by Ahmadu Bello
+524	gara	name	Igala people; Igala language
+525	gawa	noun	corpse, carcass
+526	kifi	noun	fish
+527	kurkuku	noun	prison
+528	babur	noun	motorcycle
+529	wariya	noun	secession, separation, segregation
+530	jega	name	Jega (a town in Nigeria)
+531	ɗaya	num	one
+532	raƙumi	noun	camel
+533	cokali	noun	spoon
+534	jihadi	noun	jihad (holy war)
+535	rijiya	noun	well
+536	masara	noun	maize
+537	nono	noun	milk; a woman's breast
+538	rami	noun	hole, pit; den
+539	hijabi	noun	hijab (custom of wearing a veil)
+540	rimi	noun	silk-cotton tree, kapok tree
+541	dabo	noun	magic trick, sleight of hand
+542	goro	noun	kola nuts; A small gift or reward.
+543	bagadaza	name	Baghdad (the capital city of Iraq)
+544	kasu	verb	to subdivide into
+545	afrilu	name	April
+546	zara	noun	vacillation (moving from side to side)
+547	fashe	noun	A children's game involving hitting eggs together to try to break the other person's egg
+548	mishi	noun	a small stick used for applying mascara
+549	walau	noun	showing open palms
+550	adadi	noun	number, numeral
+551	tsamiya	noun	The tree Dialium guineense (velvet tamarind)
+552	tsoho	adj	old (of a person or a thing)
+553	masar	name	Egypt (a country in North Africa and West Asia)
+554	kakaki	noun	a long metal trumpet, the kakaki
+555	tilo	noun	single one; singular
+556	faransanci	noun	French language
+557	landan	name	London (the capital city of the United Kingdom; the capital city of England)
+558	laba	noun	pound (unit of weight)
+559	ganye	noun	leaf; cannabis
+560	lami	name	a female given name given to a girl born on a Thursday
+561	cif	noun	chief (as a title)
+562	hawainiya	noun	chameleon
+563	dattijo	noun	an older, respected person; gentleman
+564	hasara	noun	loss (especially a serious one)
+565	hassada	noun	envy
+566	falsafa	noun	philosophy
+567	rano	name	Rano (a town in Nigeria)
+568	bango	noun	wall (of a room)
+569	salati	noun	an invocation to God, like the shahada
+570	komo	noun	misshapen calabash
+571	zakka	noun	religious tithe, zakat
+572	masaniya	noun	knowledge
+573	izini	noun	permission
+574	maraya	noun	city, urban area
+575	aibu	noun	fault, blame
+576	takobi	noun	sword
+577	dawa	noun	sorghum
+578	tsauni	noun	hill
+579	kofi	noun	cup
+580	dubbai	num	plural of dubu
+581	tagomashi	noun	popularity
+582	coci	noun	church
+583	annoba	noun	epidemic, plague
+584	girka	noun	initiation of a new practitioner into Hausa animistic religion
+585	dogo	adj	long, tall
+586	zare	noun	thread, string
+587	jaki	noun	donkey
+588	makama	noun	handle; reason, excuse
+589	fusata	verb	to anger, vex
+590	turare	noun	perfume, incense, scent
+591	ango	name	a male given name
+592	italiya	name	Italy (a country in Southern Europe)
+593	awaki	noun	plural of akuya
+594	tuhuma	noun	suspicion; interrogation
+595	sansani	noun	camp, barracks
+596	hauwa	name	Eve (biblical character)
+597	sunna	noun	sunnah
+598	wala	noun	turtledove
+599	tsoka	noun	muscle; piece of (lean) meat (other than entrails)
+600	fom	noun	form
+601	tabbatarwa	noun	confirmation, certification
+602	lambu	noun	garden; irrigated farm
+603	gero	noun	pearl millet (Pennisetum glaucum)
+604	kaita	name	Kaita (a town in Nigeria)
+605	ikko	name	Lagos (a city in Nigeria)
+606	maina	noun	prince
+607	halima	name	a female given name from Arabic
+608	waɗannan	pron	these, these ones; plural of wannàn
+609	kamala	noun	decency, dignity
+610	yusufu	name	Joseph (biblical character)
+611	tela	noun	tailor
+612	zuriya	noun	progeny, descendant
+613	rake	noun	sugarcane
+614	tafarnuwa	noun	garlic
+615	saniya	noun	cow
+616	sarauniya	noun	queen, wife of an emir
+617	sashi	noun	district; section
+618	keke	noun	bicycle; machine
+619	alwala	noun	ablution; wudu
+620	basasa	noun	a civil war; (more generally) any destructive war
+621	allura	noun	needle; injection
+622	almasihu	name	Jesus, the Messiah
+623	zaitun	noun	olive; olive tree
+624	kwano	noun	metal or enamel bowl or pan
+625	albishir	noun	good news, good tidings
+626	ajami	noun	Ajami (script)
+627	azurfa	noun	silver
+628	azaba	noun	torture, terrible pain
+629	uzuri	noun	excuse
+630	ishe	verb	to overtake
+631	mama	noun	mother
+632	lugga	noun	an arcane or obscure word or expression
+633	baiti	noun	stanza
+634	haila	noun	menstruation
+635	akuya	noun	goat
+636	jinsi	noun	sex; gender
+637	mafaka	noun	haven, shelter, sanctuary
+638	sauti	noun	voice; sound
+639	limamai	noun	plural of liman
+640	rajab	name	Rajab
+641	toka	noun	ashes
+642	kaf	noun	stealing everything
+643	fatakwal	name	Port Harcourt (a city in Nigeria)
+644	citta	noun	ginger root (generic term)
+645	fabrairu	name	February
+646	hisabi	noun	the reckoning of good and bad deeds on Judgement Day
+647	tafarki	noun	road, highway; path, way
+648	safa	noun	large, intercity bus
+649	goyo	noun	something or someone carried on the back
+650	mujalla	noun	magazine, journal
+651	hanta	noun	liver
+652	koko	noun	a porridge made from soaked durra flour
+653	habasha	name	Ethiopia (a country in East Africa)
+654	fitsari	noun	urine
+655	fasali	noun	arrangement, symmetry
+656	tuta	noun	flag, banner
+657	kazaure	name	Kazaure (a city in Nigeria)
+658	nahiya	noun	region, district
+659	tafsiri	noun	interpretation or commentary on the Qur'an
+660	lale	verb	to shuffle cards
+661	nafila	noun	nafl prayer (extra, non-compulsory prayer)
+662	idda	noun	iddah (waiting period until a woman can remarry)
+663	wali	noun	vizier (a traditional title)
+664	zubairu	name	a male given name
+665	mugu	adj	bad, evil
+666	tsibiri	noun	island
+667	kolo	noun	A fixed-pitch drum, similar to the jauje.
+668	jimla	noun	sum, total; amount
+669	ridda	noun	apostasy
+670	bishiya	noun	tree
+671	lardi	noun	province, district
+672	makabarta	noun	cemetery
+673	tsuntsu	noun	bird
+674	zi	noun	diamonds
+675	hamdala	noun	gratitude to God
+676	kishiya	noun	co-wife; opposite
+677	paris	name	Paris (a city in France)
+678	huɗu	num	four
+679	kankana	noun	melon, watermelon
+680	sukari	noun	sugar
+681	jamhuriya	noun	republic
+682	mumini	noun	believer in Islam
+683	alhaki	noun	guilt, offence; responsibility
+684	takum	name	Takum (a town in Nigeria)
+685	hafsatu	name	a female given name
+686	shinge	noun	fence
+687	yalwa	name	a female or male given name
+688	banga	noun	A small, bowl-shaped drum, played with fingers.
+689	hani	noun	prohibition
+690	magariba	noun	maghrib, the sunset prayer
+691	kuɗi	noun	money, currency
+692	mashin	noun	machine; motorcycle
+693	maciji	noun	snake, serpent
+694	sakan	noun	second (unit of time)
+695	datti	noun	dirt, filth, waste
+696	yamai	name	Niamey (a city in Niger)
+697	ankara	name	Accra (the capital city of Ghana)
+698	takunkumi	noun	muzzle; embargo, economic blockade
+699	janaba	noun	ritual impurity
+700	kalami	noun	speech (that which is said)
+701	muhimmi	adj	important
+702	hikaya	noun	story, tale (especially one with a moral)
+703	rumfa	noun	shed, shelter, lean-to, market stall
+704	jahili	noun	ignoramus, illiterate
+705	ramalan	name	Ramadan
+706	gaira	noun	minus, lack(ing)
+707	auduga	noun	cotton, cotton plant
+708	rige	noun	competition, race
+709	tanimu	name	a male given name
+710	salama	noun	safety, ease
+711	gimbiya	noun	princess, daughter of an emir
+712	yatsa	noun	finger
+713	lafazi	noun	speech, pronunciation
+714	fasinja	noun	passenger
+715	bori	noun	animistic spirit possession religion
+716	halal	noun	any halal act; any act permissible in Islam
+717	binta	name	a female given name
+718	tambari	noun	royal hemispherical drum
+719	kirsimati	name	Christmas
+720	huhu	noun	lung
+721	agogo	noun	clock, watch
+722	diyya	noun	diyya, blood money
+723	larura	noun	necessity
+724	damagaram	name	synonym of Zàndâr̃: Zinder (a city in Niger)
+725	kati	noun	card; playing card
+726	kafur	noun	camphor
+727	igiya	noun	rope, string; cable
+728	alfijir	noun	dawn
+729	kafe	verb	to fasten something onto
+730	galadima	noun	a councillor or principal minister to an emir, who traditionally sits to his right
+731	tsintsiya	noun	broom
+732	tauhidi	noun	monotheism, tawhid
+733	gaskata	verb	to believe; to verify
+734	sujjada	noun	prostration (in prayer)
+735	bahasi	noun	investigation; inquiry
+736	tubali	noun	brick
+737	farce	noun	fingernail
+738	wasiyya	noun	will, bequest
+739	turba	noun	path, track, lane
+740	gobir	name	Gobir (a kingdom in Nigeria)
+741	raki	noun	fear, cowardice
+742	kabewa	noun	pumpkin
+743	muharram	name	Muharram
+744	rahusa	noun	cheapness, inexpensiveness
+745	harsashi	noun	bullet; foundation (of a building)
+746	maru	name	Maru (a town in Nigeria)
+747	mahawara	noun	debate, discussion
+748	batta	noun	leather pouch (e.g., for tobacco)
+749	ton	noun	ton (unit of weight)
+750	siga	noun	form, structure
+751	sura	noun	sura
+752	kufai	noun	ruin; (site of an) abandoned town
+753	ragama	noun	halter
+754	hura	verb	to blow on something, to inflate
+755	dokta	noun	doctor (used as a title for someone with a doctorate)
+756	safar	name	Safar
+757	makero	noun	ringworm
+758	barau	name	a male given name given to a boy born after many older siblings who died in infancy
+759	ungulu	noun	vulture
+760	almajiri	noun	student (especially an itinerant student at an Islamic school)
+761	gemu	noun	beard
+762	ganau	name	a male given name given to a boy born at the new moon
+763	jamusanci	noun	German language
+764	attajiri	noun	wealthy person
+765	asubahi	noun	fajr, the dawn prayer
+766	binuwai	name	Benue River; Benue (a state of Nigeria)
+767	rairayi	noun	fine sand or silt
+768	arabiyya	noun	Arabic language
+769	madubi	noun	mirror; eyeglasses
+770	fure	noun	flower, blossom
+771	birgediya	noun	brigadier (military rank)
+772	hakimi	noun	any leader of a district or holder of a traditional title
+773	dambe	noun	a traditional form of boxing
+774	tauraro	noun	star; star (a person)
+775	makara	noun	bier (usually made of raphia)
+776	kwal	noun	coal
+777	tsundum	noun	something not too big falling into water
+778	muradi	noun	desire, wish
+779	mujaddadi	noun	religious reformer
+780	ƙarni	noun	century
+781	funtuwa	name	Funtua (a town in Nigeria)
+782	alatu	noun	luxury item
+783	murhu	noun	the cooking stones in a traditional hearth
+784	asabe	name	a female given name given to a girl born on a Saturday
+785	barno	name	Borno (a state of Nigeria)
+786	kurma	noun	deaf person
+787	oga	noun	boss, someone in charge
+788	linzami	noun	bridle; triangular embroidery of the neck of a gown
+789	baffa	noun	paternal uncle
+790	yaƙi	noun	war; combat
+791	tasi	noun	taxi
+792	kumallo	noun	fasting, going hungry; vomiting from hunger
+793	ambaliya	noun	overflowing, flooding
+794	sham	name	Syria (a country in West Asia in the Middle East)
+795	kawu	noun	maternal uncle
+796	sadau	name	a male or female given name
+797	lalo	noun	jute
+798	sahur	noun	suhur (a pre-dawn breakfast during the Ramadan fasting)
+799	diflomasiyya	noun	diplomacy
+800	abdulhamid	name	a male given name
+801	lemo	noun	orange (fruit); soft drink
+802	akawu	noun	clerk
+803	taliki	noun	creature, being
+804	tulu	noun	A water pot with a narrow neck that is shaped like a bottle gourd.
+805	safara	noun	itinerant trading
+806	samame	noun	surprise attack
+807	takalmi	noun	sandal, shoe
+808	gwandu	name	Gwandu (a town in Nigeria)
+809	romo	noun	broth, soup
+810	ca	noun	splattering of boiling fat
+811	aske	verb	to shave (usually the head)
+812	munafuki	noun	hypocrite
+813	abarba	noun	pineapple
+814	wutsiya	noun	tail
+815	hadda	noun	memorization
+816	barkono	noun	chili pepper
+817	fat	noun	bright white
+818	wofi	noun	useless person; emptiness
+819	hoda	noun	powder, face powder
+820	danga	noun	cornstalk fence
+821	tama	noun	iron ore
+822	damisa	noun	leopard
+823	jibiya	name	Jibia (a town in Nigeria)
+824	sara	noun	habit, practice, way, custom
+825	birjik	noun	plentiful, abundant, scattered everywhere
+826	aduwa	noun	desert date palm (Balanites aegyptiaca)
+827	kibiya	noun	arrow
+828	maitama	name	a male given name
+829	molo	noun	A three-stringed lute, sintir
+830	shirka	noun	partnership; polytheism, idolatry, shirk
+831	ri	noun	people or animals moving as a group
+832	dankali	noun	a potato, especially a sweet potato
+833	zikiri	noun	dhikr
+834	kwamanda	noun	commander
+835	kanti	noun	shop, store
+836	mazauni	noun	seat, dwelling-place
+837	ice	noun	wood; tree
+838	tabarma	noun	mat (for sitting or sleeping)
+839	lacca	noun	lecture
+840	duma	noun	calabash, gourd (Lagenaria siceraria)
+841	zinari	noun	gold
+842	fes	noun	very clean
+843	nas	noun	nurse
+844	kafiri	noun	unbeliever, infidel, kafir
+845	bici	name	Bichi (a town in Nigeria)
+846	farilla	noun	fard (religious duty)
+847	maigari	name	a male given name
+848	danda	noun	piebald horse
+849	maiwada	name	a male given name
+850	ƙaddara	noun	fate, destiny
+851	harafi	noun	letter (of the alphabet)
+852	talle	noun	A small soup pot.
+853	musawa	name	Musawa (a town in Nigeria)
+854	azahar	noun	dhuhr, the noon prayer
+855	wal	noun	sudden flash of light
+856	amo	noun	sound; noise
+857	jatau	name	a male given name given to a boy with light skin
+858	wudil	name	Wudil (a town in Nigeria)
+859	jaka	noun	bag; 1000 francs.
+860	hama	noun	hammer
+861	alade	noun	pig
+862	fura	noun	Balls of cooked millet in cultured milk.
+863	duna	noun	very black person or thing
+864	sanka	noun	bunch of tobacco leaves
+865	ishara	noun	sign, signal
+866	baƙi	adj	black, dark
+867	murza	noun	massage
+868	yis	noun	yeast
+869	gwangwani	noun	small tin
+870	akwati	noun	box, crate
+871	randa	noun	A large pot for water storage.
+872	alaramma	noun	hafiz (someone who has memorized the entire Quran)
+873	buta	noun	jug or ewer for holding water
+874	zamba	noun	fraud, deceit
+875	bahar	noun	sea
+876	tsit	noun	hushed, in silence
+877	mujiya	noun	owl
+878	sansan	noun	census
+879	kilishi	noun	kilishi
+880	ƙanƙara	noun	ice, snow, hail
+881	fasfo	noun	passport
+882	bora	noun	less-favored wife, wife who is not her husband's favorite
+883	suya	noun	suya (kebab)
+884	kanumfari	noun	cloves
+885	tebur	noun	table, desk
+886	shadda	noun	cotton brocade
+887	garki	name	Garki (a town in Nigeria)
+888	siket	noun	skirt
+889	tausa	noun	massage
+890	lula	verb	to flee, to go far away
+891	ɗari	num	hundred
+892	kango	noun	A deserted or dilapidated building.
+893	tsutsa	noun	worm
+894	talatu	name	a female given name given to a girl born on a Tuesday
+895	tusa	noun	fart
+896	tantabara	noun	pigeon, turtle dove
+897	ayaba	noun	banana
+898	abeokuta	name	Abeokuta (the largest city and state capital of Ogun State, Nigeria)
+899	iblis	noun	Satan
+900	tafki	noun	lake, pond
+901	tsokana	noun	provocation
+902	tim	noun	sports team
+903	hamidu	name	a male given name
+904	gum	noun	smelling bad
+905	gadara	noun	haughtiness brought on by wealth
+906	barewa	noun	dorcas gazelle
+907	zomo	noun	hare
+908	basakkwace	noun	someone from Sokoto
+909	yunan	name	Greece (a country in Southeastern Europe)
+910	mizani	noun	scales, balance
+911	ungozoma	noun	midwife
+912	amini	noun	faithful friend
+913	alkyabba	noun	a kind of burnoose which signifies authority
+914	anini	noun	button; stars or ribbons worn by a military officer
+915	ladi	name	a female given name given to a girl born on a Sunday
+916	fitila	noun	lamp, light (electronic device)
+917	ringim	name	Ringim (a town in Nigeria)
+918	dauro	noun	a long-season, photoperiod sensitive variety of pearl millet
+919	waliyyi	noun	saint, holy man
+920	cibi	noun	spoon
+921	gatari	noun	ax(e)
+922	tattasai	noun	large red peppers; (in particular, Capsicum annuum)
+923	taga	noun	window
+924	balaraba	name	a female given name given to a girl born on a Wednesday
+925	farisa	name	Persia
+926	kyaftin	noun	captain (military rank)
+927	kissa	noun	intrigue, underhand dealing, any deceitful means to accomplishing something
+928	yalo	adj	yellow
+929	gandu	noun	large farm, usually worked by a single family
+930	saratu	name	Sarah (biblical character)
+931	shaci	noun	mark, trace, zone
+932	bal	noun	ball
+933	sakarai	noun	a useless person
+934	giginya	noun	deleb palm (Borassus aethiopum)
+935	daddawa	noun	sumbala, a condiment made from the seeds of Parkia biglobosa (African locust bean)
+936	basukur	noun	bicycle
+937	ruhu	noun	spirit, soul
+938	balas	noun	balance; payment due for work done
+939	sumul	noun	very healthy
+940	azzakari	noun	penis
+941	dinya	noun	Knob-billed duck
+942	katagum	name	Katagum (a town in Nigeria)
+943	omo	noun	detergent, soap powder
+944	umra	noun	umrah (a minor hajj, a lesser pilgrimage to Mecca, other than at the time of the hajj)
+945	shirwa	noun	hawk, specifically the black kite
+946	akala	noun	rope used to lead a camel
+947	mowa	noun	favorite wife
+948	laya	noun	a charm or talisman made of verses from the Qur'an
+949	rimaye	noun	plural of rimi
+950	funkaso	noun	a dish composed of wheat flour that is soaked and then fried
+951	aƙalla	adv	at least
+952	inabi	noun	grape
+953	gwal	noun	gold
+954	masauki	noun	place for lodging, overnight quarters
+955	kunama	noun	scorpion
+956	igwa	noun	canon, artillery
+957	algaita	noun	a double reed wind instrument, the algaita
+958	kuge	noun	A pair of metal bells joined together and beaten with a small horn.
+959	badun	name	Ibadan (a city in Nigeria)
+960	sista	noun	nurse; nun
+961	rawaya	noun	Cochlospermum tinctorium, a medicinal plant from which a yellow dye is extracted
+962	ƙaura	noun	migration
+963	isiyaku	name	Isaac (biblical character)
+964	kindirmo	noun	a kind of sour yogurt
+965	alif	num	thousand (principally used in dates)
+966	zau	noun	very hot; very sweet
+967	taswira	noun	map
+968	nakiya	noun	explosives
+969	kaca	noun	bicycle chain
+970	zulhajji	name	Dhu al-Hijjah
+971	kwala	noun	collar
+972	alli	noun	calcium; chalk
+973	samanja	noun	sergeant major (military rank)
+974	gitta	noun	small axe/ax
+975	gunki	noun	idol, statue, fetish
+976	boka	noun	herbalist, traditional healer
+977	hazo	noun	haze, mist; poor vision
+978	akure	name	Akure (the largest city and state capital of Ondo State, Nigeria)
+979	maiwa	noun	a long-season, photoperiod sensitive variety of pearl millet
+980	shifta	noun	dictation
+981	ganima	noun	booty, loot
+982	gam	noun	glue, paste
+983	almajiranci	noun	A system of Islamic education practiced in northern Nigeria by the almajiris.
+984	miskini	noun	pauper, poor person
+985	jadawali	noun	multiplication table
+986	sadaki	noun	bride price
+987	mumbari	noun	minbar, pulpit
+988	sarara	noun	walking aimlessly
+989	maroko	name	Morocco (a country in North Africa)
+990	kofur	noun	corporal (military rank)
+991	kurmi	noun	forest, jungle
+992	kukuma	noun	A type of one-stringed fiddle.
+993	ɗa	noun	son; free person
+994	manhaja	noun	syllabus
+995	sito	noun	storeroom
+996	fanke	noun	a type of fried wheat cake
+997	hasafi	noun	small gift
+998	rawani	noun	turban
+999	makiyayi	noun	herder, shepherd
+1000	istihara	noun	istikhara (prayer seeking guidance from God)
+1001	alfadari	noun	mule
+1002	tasku	noun	cruelty, oppression
+1003	guna	noun	tsamma (a bitter melon, Citrullus lanatus)
+1004	attaura	name	Torah, Pentateuch
+1005	kos	noun	trump card
+1006	sila	noun	cause
+1007	akushi	noun	a type of blackened wooden bowl
+1008	kifa	verb	to turn upside down
+1009	nim	noun	neem tree
+1010	hutsu	adj	cranky, cantankerous
+1011	buƙata	verb	to need, require
+1012	albarushi	noun	gunpowder
+1013	zarto	noun	saw (tool); energetic person
+1014	laima	noun	tent; umbrella
+1015	kurwa	noun	soul
+1016	tunku	noun	mongoose
+1017	cali	noun	mesh bag; a person full of excuses
+1018	alawa	noun	halva or similar candy
+1019	ajali	noun	deadline, span of time
+1020	ayari	noun	caravan; a group of people going in the same direction
+1021	haɗari	noun	danger; accident, disaster
+1022	haddi	noun	limit; A fixed punishment for violating Islamic law.
+1023	altine	name	a female given name given to a girl born on a Monday
+1024	mushe	noun	mister, Mr.
+1025	muhammadiyya	noun	Islamic studies, the teachings of Muhammad
+1026	gusa	verb	to move aside
+1027	ƙafa	noun	foot, leg; foot (unit of length)
+1028	dogarai	name	a quarter in Kano, Nigeria
+1029	ƙauye	noun	village
+1030	tatul	noun	full with drink
+1031	kaidi	noun	limit, restriction
+1032	bado	noun	water lily
+1033	taska	noun	personal room of the head of the household
+1034	lakwaja	name	Lokoja (a city in Nigeria)
+1035	ƙashi	noun	bone; plot (of a story)
+1036	bosniya	name	Bosnia (a country in southeastern Europe; in full, Bosnia and Herzegovina)
+1037	akara	noun	a deep-fried bean cake
+1038	soso	noun	loofah, sponge
+1039	kyanwa	noun	cat
+1040	mariri	noun	scimitar-horned oryx
+1041	daftari	noun	notebook, ledger
+1042	tire	noun	tray
+1043	maigado	name	a female given name
+1044	soba	name	Soba (a local government area of Nigeria)
+1045	tauna	verb	to chew
+1046	acca	noun	acha, fonio (Digitaria exilis)
+1047	gajere	name	a male given name
+1048	tutu	noun	poop
+1049	nahawu	noun	grammar
+1050	dogari	noun	bodyguard of an emir
+1051	katifa	noun	mattress
+1052	jimina	noun	ostrich
+1053	aidin	noun	iodine
+1054	kanne	verb	to close one eye, to wink
+1055	adabo	intj	goodbye
+1056	alabo	noun	yam; cassava flour
+1057	silin	noun	ceiling
+1058	gagarau	name	a male given name
+1059	mashahuri	adj	famous
+1060	gulbi	noun	river, stream
+1061	fam	noun	pound (currency used in the UK, obsolete in Nigeria)
+1062	maya	noun	weevil
+1063	taguwa	noun	a kind of gown worn by men
+1064	saiwa	noun	root
+1065	eka	noun	acre
+1066	garwashi	noun	embers
+1067	ƙabila	noun	tribe, ethnolinguistic group
+1068	gula	noun	a kind of drumstick with a large head (for beating drums)
+1069	sage	verb	to become stiff or paralyzed
+1070	tuntu	noun	A tassel or knob on top of a cap or gown.
+1071	tanti	noun	tent, small tarpaulin
+1072	gwanda	noun	papaya
+1073	reza	noun	razorblade
+1074	santi	noun	gauche or socially inappropriate behavior, especially at a meal
+1075	gurasa	noun	A kind of bread, similar to pita.
+1076	darma	noun	lead, tin
+1077	tsigi	noun	various birds called warblers or larks
+1078	mafari	noun	origin, beginning
+1079	tozali	noun	antimony
+1080	bafilatani	noun	Fula (person)
+1081	cadi	name	Chad (a country in Central Africa)
+1082	amalanke	noun	two-wheeled pushcart
+1083	alkarya	noun	unwalled town
+1084	haɓe	noun	Hausa people, as opposed to the Fulani
+1085	aradu	noun	thunder; thunderclap or lightning bolt
+1086	jahun	name	Jahun (a town in Nigeria)
+1087	latsa	verb	to squeeze, to squash
+1088	shuri	noun	termite mound
+1089	kasko	noun	small, earthenware bowl
+1090	fis	noun	fuse
+1091	yayyafi	noun	drizzle, light rain
+1092	diga	noun	pickaxe
+1093	ashana	noun	match (device to make fire)
+1094	kaciya	noun	circumcision
+1095	maryamu	name	Miriam (biblical character)
+1096	bargo	noun	blanket
+1097	garu	noun	wall around a settlement or compound
+1098	sakiya	noun	amendment, alteration
+1099	mahalli	noun	context, place (where something belongs)
+1100	caka	noun	clubs
+1101	gunda	noun	young fruit, especially pumpkin
+1102	kurna	noun	thorn tree
+1103	jidali	noun	struggle, trouble, dispute
+1104	kife	verb	to turn something over
+1105	rumbu	noun	granary; storage facility
+1106	bisimilla	intj	Used to invite someone to eat or do something.
+1107	kadari	noun	value, price
+1108	biza	noun	visa
+1109	ayu	noun	manatee, (in particular) the African manatee
+1110	matuƙa	noun	limit, utmost extreme
+1111	ƙanana	adj	plural of ƙànƙanḕ and ƙàramī
+1112	magini	noun	builder; mason
+1113	bel	noun	belt; seatbelt
+1114	dahir	noun	reality, truth
+1115	ciyawa	noun	grass
+1116	faɗa	verb	to tell, say
+1117	tabarau	noun	eyeglasses
+1118	ƴan	noun	Niger standard spelling of 'yan
+1119	guru	noun	A large leather belt, usually containing charms.
+1120	addaba	noun	harassment, annoyance
+1121	tunau	name	a male given name
+1122	zik	noun	zipper, zip fastener
+1123	hole	verb	to relax, to enjoy oneself
+1124	sahihi	adj	real, authentic
+1125	bajau	noun	A cloth which card players play on.
+1126	tsatsa	noun	rust
+1127	shaihi	noun	A great scholar or erudite person, especially in a Sufi order.
+1128	asham	noun	tarawih (extra prayers at night during Ramadan)
+1129	wasali	noun	vowel
+1130	sharifi	noun	Someone of noble descent, who can theoretically trace their ancestry back to Muhammad.
+1131	makwanci	noun	sleeping place; graveyards, cemeteries
+1132	husufi	noun	eclipse (solar or lunar)
+1133	duri	noun	vagina
+1134	sallau	name	a male given name
+1135	makari	noun	antidote
+1136	gwaza	noun	taro, old cocoyam (Colocasia esculenta)
+1137	tubarkalla	intj	bravo, praise God!
+1138	tozo	noun	hump (of an animal)
+1139	hakkan	adv	truly, surely
+1140	ulu	noun	wool; wool thread
+1141	mulukiya	noun	monarchy
+1142	tukuf	noun	very old
+1143	alhudahuda	noun	hoopoe

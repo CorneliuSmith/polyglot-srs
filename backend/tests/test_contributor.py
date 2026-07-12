@@ -847,3 +847,21 @@ class TestAccountAdmin:
             )
         assert resp.status_code == 200
         mock_set.assert_awaited_once()
+
+    def test_create_account_requires_admin(self, client):
+        with _roles([{"language_id": LANG, "role": "reviewer"}]):
+            resp = client.post(
+                "/api/contribute/users",
+                json={"email": "friend@beta.test", "password": "kea-tui-1234"},
+                headers=_auth_headers(),
+            )
+        assert resp.status_code == 403
+
+    def test_create_account_rejects_short_password(self, client):
+        with _roles([{"language_id": None, "role": "admin"}]):
+            resp = client.post(
+                "/api/contribute/users",
+                json={"email": "friend@beta.test", "password": "short"},
+                headers=_auth_headers(),
+            )
+        assert resp.status_code == 422

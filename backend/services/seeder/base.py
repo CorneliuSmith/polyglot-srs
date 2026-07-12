@@ -198,16 +198,30 @@ class BaseSeeder(ABC):
         return await self.load(records)
 
     @staticmethod
-    def rank_to_level(rank: int | None) -> str | None:
-        """Map frequency rank to CEFR level."""
+    def rank_to_level(rank: int | None, total_words: int | None = None) -> str | None:
+        """Map frequency rank to CEFR level.
+
+        The absolute thresholds (500/1500/3000/5000/8000) are the 10k-corpus
+        proportions 5/15/30/50/80%. Low-resource corpora (Māori ~800 words,
+        Hausa ~1.1k) pass *total_words* so the SAME proportions band their
+        list — otherwise everything lands in A1/A2 and the ladder never
+        reaches C1/C2.
+        """
         if rank is None:
             return None
-        if rank <= 500:
+        # Proportional banding only for REAL corpora: a 30-word curated
+        # starter (or a tiny test fixture) is all beginner vocabulary, not
+        # a ladder — those keep the absolute thresholds.
+        base = (min(total_words, 10000)
+                if total_words and total_words >= 500 else 10000)
+        if rank <= 0.05 * base:
             return "A1"
-        if rank <= 1500:
+        if rank <= 0.15 * base:
             return "A2"
-        if rank <= 3000:
+        if rank <= 0.30 * base:
             return "B1"
-        if rank <= 5000:
+        if rank <= 0.50 * base:
             return "B2"
-        return "C1"
+        if rank <= 0.80 * base:
+            return "C1"
+        return "C2"

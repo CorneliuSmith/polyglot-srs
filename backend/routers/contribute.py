@@ -620,6 +620,11 @@ async def resolve_card_feedback(
     return {"resolved": True}
 
 
+class NewAccount(BaseModel):
+    email: str = Field(min_length=5, max_length=200, pattern=r"^[^@\s]+@[^@\s]+\.[^@\s]+$")
+    password: str = Field(min_length=10, max_length=100)
+
+
 class PlanOverride(BaseModel):
     plan_scope: str = Field(pattern="^(single|all)$")
     plan_language_id: str | None = None
@@ -632,6 +637,47 @@ async def accounts(user: dict = Depends(get_current_user)):
     await _require_admin(user["id"])
     async with privileged_connection() as conn:
         return {"users": await list_accounts(conn)}
+
+
+@router.post("/users")
+async def create_account(
+    body: NewAccount,
+    user: dict = Depends(get_current_user),
+):
+    """Create an account directly (admin-only) — the invite-only beta path:
+    public signup is disabled, so the admin mints email+password accounts
+    for friends via the Supabase admin API."""
+    await _require_admin(user["id"])
+    from backend.dependencies import get_settings
+    settings = get_settings()
+    if not settings.supabase_service_role_key:
+        raise HTTPException(
+            status_code=status.HTTP_503_SERVICE_UNAVAILABLE,
+            detail="SUPABASE_SERVICE_ROLE_KEY is not configured on the server",
+        )
+    import httpx
+    async with httpx.AsyncClient(timeout=15) as client:
+        resp = await client.post(
+            f"{settings.supabase_url}/auth/v1/admin/users",
+            headers={
+                "apikey": settings.supabase_service_role_key,
+                "Authorization": f"Bearer {settings.supabase_service_role_key}",
+            },
+            json={"email": body.email, "password": body.password,
+                  "email_confirm": True},
+        )
+    if resp.status_code == 422 and "already" in resp.text.lower():
+        raise HTTPException(
+            status_code=status.HTTP_409_CONFLICT,
+            detail="An account with that email already exists",
+        )
+    if resp.status_code >= 400:
+        raise HTTPException(
+            status_code=status.HTTP_502_BAD_GATEWAY,
+            detail=f"Supabase rejected the account: {resp.text[:200]}",
+        )
+    created = resp.json()
+    return {"id": created.get("id"), "email": created.get("email")}
 
 
 @router.delete("/users/{user_id}")

@@ -127,7 +127,7 @@ SOURCES = {
     "fr_kaikki": "https://kaikki.org/dictionary/French/kaikki.org-dictionary-French.jsonl",
     "de_kaikki": "https://kaikki.org/dictionary/German/kaikki.org-dictionary-German.jsonl",
     "ca_kaikki": "https://kaikki.org/dictionary/Catalan/kaikki.org-dictionary-Catalan.jsonl",
-    "mi_kaikki": "https://kaikki.org/dictionary/Maori/kaikki.org-dictionary-Maori.jsonl",
+    "mi_kaikki": "https://kaikki.org/dictionary/M%C4%81ori/kaikki.org-dictionary-M%C4%81ori.jsonl",
     "ro_kaikki": "https://kaikki.org/dictionary/Romanian/kaikki.org-dictionary-Romanian.jsonl",
     "el_kaikki": "https://kaikki.org/dictionary/Greek/kaikki.org-dictionary-Greek.jsonl",
     "ar_kaikki": "https://kaikki.org/dictionary/Arabic/kaikki.org-dictionary-Arabic.jsonl",
@@ -145,6 +145,19 @@ SOURCES = {
     "xh_corpus": (
         "https://raw.githubusercontent.com/christos-c/bible-corpus/"
         "master/bibles/Xhosa.xml"
+    ),
+    # Māori: same public-domain bible-corpus bootstrap as Xhosa (no
+    # OpenSubtitles list exists; the Māori Broadcast Corpus is not
+    # redistributable). Kaikki supplies the glosses.
+    "mi_corpus": (
+        "https://raw.githubusercontent.com/christos-c/bible-corpus/"
+        "master/bibles/Maori.xml"
+    ),
+    # Hausa: Leipzig Corpora community corpus (CC-BY) — sentences file
+    # doubles as the frequency corpus. Verified reachable 2026-07-12.
+    "ha_leipzig": (
+        "https://downloads.wortschatz-leipzig.de/corpora/"
+        "hau_community_2017.tar.gz"
     ),
     # Tatoeba ISO-639-3 codes: tur = Turkish, swh = coastal Swahili
     "tatoeba_sentences": "https://downloads.tatoeba.org/exports/per_language/{iso3}/{iso3}_sentences.tsv.bz2",
@@ -790,6 +803,17 @@ def build_language(language: str, source: str, max_words: int, cache_dir: Path) 
         counts = corpus_word_counts(corpus_path)
         dictionary = _build_dictionary("xh", source, cache_dir, None)
         rows = build_xhosa_rows(counts, dictionary, max_words)
+    elif language == "mi":
+        if source != "kaikki":
+            raise ValueError(
+                "Māori has no FreeDict dictionary — run with --source kaikki"
+            )
+        corpus_path = download(SOURCES["mi_corpus"], cache_dir / "mi_bible.xml")
+        counts = corpus_word_counts(corpus_path)
+        dictionary = _build_dictionary("mi", source, cache_dir, None)
+        rows = _rows_from_counts(
+            counts, dictionary, MaoriNLP().lemmatize, max_words
+        )
     elif language == "ha":
         if source != "kaikki":
             raise ValueError(
@@ -798,10 +822,27 @@ def build_language(language: str, source: str, max_words: int, cache_dir: Path) 
         corpus_dir = cache_dir / HAUSA_CORPUS_DIRNAME
         counts = plaintext_dir_counts(corpus_dir)
         if not counts:
+            # Bootstrap from the Leipzig community corpus (CC-BY): the
+            # sentences file (id<TAB>sentence) becomes plain corpus text.
+            import tarfile
+            tar_path = download(SOURCES["ha_leipzig"], cache_dir / "ha_leipzig.tar.gz")
+            corpus_dir.mkdir(parents=True, exist_ok=True)
+            with tarfile.open(tar_path, "r:gz") as tf:
+                for member in tf.getmembers():
+                    if member.name.endswith("-sentences.txt"):
+                        raw = tf.extractfile(member).read().decode("utf-8")
+                        lines = [
+                            line.split("\t", 1)[1]
+                            for line in raw.splitlines()
+                            if "\t" in line
+                        ]
+                        (corpus_dir / "leipzig_community_2017.txt").write_text(
+                            "\n".join(lines), encoding="utf-8"
+                        )
+            counts = plaintext_dir_counts(corpus_dir)
+        if not counts:
             raise FileNotFoundError(
-                f"No Hausa corpus text found under {corpus_dir}. Drop "
-                "commercially-usable plain-text there (Hausa Wikipedia "
-                "CC-BY-SA, Leipzig CC-BY, or OPUS news) — see data/README.md."
+                f"No Hausa corpus text found under {corpus_dir}."
             )
         dictionary = _build_dictionary("ha", source, cache_dir, None)
         rows = build_hausa_rows(counts, dictionary, max_words)
@@ -1013,7 +1054,7 @@ def main() -> None:
     parser = argparse.ArgumentParser(description="Build seed data from open datasets")
     parser.add_argument(
         "--language", "-l",
-        choices=["tr", "sw", "yo", "ha", "xh", "es", "it", "fr", "de", "ca",
+        choices=["tr", "sw", "yo", "ha", "xh", "mi", "es", "it", "fr", "de", "ca",
                  "ro", "el", "ar", "ru", "en", "pt"],
         required=True
     )

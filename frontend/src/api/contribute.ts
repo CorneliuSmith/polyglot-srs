@@ -288,6 +288,17 @@ export async function listAccounts(): Promise<AdminAccount[]> {
   return response.data.users
 }
 
+export async function createAccount(
+  email: string,
+  password: string,
+): Promise<{ id: string; email: string }> {
+  const response = await apiClient.post('/api/contribute/users', {
+    email,
+    password,
+  })
+  return response.data
+}
+
 export async function deleteAccount(userId: string): Promise<void> {
   await apiClient.delete(`/api/contribute/users/${userId}`)
 }

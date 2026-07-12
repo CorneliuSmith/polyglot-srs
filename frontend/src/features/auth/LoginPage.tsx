@@ -5,6 +5,11 @@ import { useAuthStore } from '../../stores/authStore'
 
 type Tab = 'signin' | 'signup'
 
+// Invite-only beta: VITE_INVITE_ONLY=true hides self-serve signup and the
+// Google button. Enforcement lives in Supabase (Auth → disable signups +
+// Google provider) — this flag only keeps the UI honest about it.
+const INVITE_ONLY = import.meta.env.VITE_INVITE_ONLY === 'true'
+
 export default function LoginPage() {
   const isAuthenticated = useAuthStore((s) => s.isAuthenticated)()
   const authLoading = useAuthStore((s) => s.loading)
@@ -89,9 +94,16 @@ export default function LoginPage() {
         <h1 className="text-2xl font-bold text-center mb-6 text-gray-900">
           Polyglot SRS
         </h1>
+        {INVITE_ONLY && !resetMode && (
+          <p className="text-sm text-gray-500 mb-4">
+            Private beta — sign in with the account your admin created for
+            you.
+          </p>
+        )}
 
-        {/* Tabs */}
-        {!resetMode && (
+        {/* Tabs — hidden entirely in invite-only beta (accounts are
+            created by the admin; Supabase-side signup is disabled too) */}
+        {!resetMode && !INVITE_ONLY && (
         <div className="flex rounded-lg overflow-hidden border border-gray-200 mb-6">
           <button
             type="button"
@@ -214,7 +226,7 @@ export default function LoginPage() {
           )}
         </div>
 
-        {!resetMode && (
+        {!resetMode && !INVITE_ONLY && (
         <>
         <div className="relative my-5">
           <div className="absolute inset-0 flex items-center">

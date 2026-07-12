@@ -303,3 +303,25 @@ class TestGrammarLearnEndpoint:
             headers=_auth_headers(),
         )
         assert resp.status_code == 422
+
+
+def test_every_pointed_level_gets_a_deck(tmp_path):
+    # A level with points but no declared list gets one synthesized —
+    # eight languages once showed only their A1 deck because the
+    # deepening waves appended points without lists.
+    import backend.services.seeder.seed_grammar as mod
+
+    (tmp_path / "zz_grammar.json").write_text(json.dumps({"points": [
+        {"title": "P1", "level": "A1", "drills": [
+            {"sentence": "a {{answer}}", "answer": "x"}]},
+        {"title": "P2", "level": "B2", "drills": [
+            {"sentence": "b {{answer}}", "answer": "y"}]},
+    ]}), encoding="utf-8")
+    original = mod.GRAMMAR_DIR
+    mod.GRAMMAR_DIR = tmp_path
+    try:
+        data = GrammarSeeder("fake://db", "zz").transform()
+    finally:
+        mod.GRAMMAR_DIR = original
+    levels = {lst["level"] for lst in data["lists"]}
+    assert levels == {"A1", "B2"}

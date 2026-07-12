@@ -90,6 +90,11 @@ async def main():
         from .seed_yoruba import YorubaSeeder
         seeders.append(YorubaSeeder(args.db_url))
     if args.language in ("ha", "all"):
+        # Corpus TSV first (Leipzig CC-BY + kaikki), curated second — the
+        # upsert lets hand-authored entries win on shared words.
+        if (DATA_DIR / "ha_frequency.tsv").exists():
+            from .seed_latin import HausaFrequencySeeder
+            seeders.append(HausaFrequencySeeder(args.db_url))
         from .seed_hausa import HausaSeeder
         seeders.append(HausaSeeder(args.db_url))
     if args.language in ("xh", "all"):

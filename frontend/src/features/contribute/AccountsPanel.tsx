@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
 import {
+  createAccount,
   deleteAccount,
   listAccounts,
   overridePlan,
@@ -108,6 +109,78 @@ function AccountRow({
   )
 }
 
+/** Mint a beta account (invite-only signup is disabled — the admin
+ * creates email+password logins and hands them to friends). */
+function InviteForm() {
+  const queryClient = useQueryClient()
+  const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
+  const mutation = useMutation({
+    mutationFn: () => createAccount(email.trim(), password),
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ['admin-accounts'] })
+      setEmail('')
+    },
+  })
+  const generate = () => {
+    const words = ['kea', 'tui', 'moa', 'ruru', 'kiwi', 'weka', 'huia', 'kaka']
+    const pick = () => words[Math.floor(Math.random() * words.length)]
+    setPassword(`${pick()}-${pick()}-${Math.floor(1000 + Math.random() * 9000)}`)
+  }
+  return (
+    <div className="rounded-lg border border-gray-200 bg-gray-50 p-3 space-y-2">
+      <p className="text-xs text-gray-500">
+        Create a beta account and share the password with your friend — they
+        can change it later via “Forgot password?”.
+      </p>
+      <div className="flex flex-wrap gap-2">
+        <input
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          placeholder="friend@email.com"
+          aria-label="New account email"
+          className="flex-1 min-w-40 rounded border border-gray-300 bg-white px-2 py-1.5 text-sm"
+        />
+        <input
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+          placeholder="Password (min 10 chars)"
+          aria-label="New account password"
+          className="flex-1 min-w-40 rounded border border-gray-300 bg-white px-2 py-1.5 text-sm font-mono"
+        />
+        <button
+          type="button"
+          onClick={generate}
+          className="text-xs text-lang hover:underline"
+        >
+          Generate
+        </button>
+        <button
+          type="button"
+          onClick={() => mutation.mutate()}
+          disabled={
+            !email.includes('@') || password.length < 10 || mutation.isPending
+          }
+          className="rounded bg-lang hover:bg-lang-dark text-lang-on px-3 py-1.5 text-sm font-semibold disabled:opacity-50"
+        >
+          {mutation.isPending ? 'Creating…' : 'Create account'}
+        </button>
+      </div>
+      {mutation.isSuccess && (
+        <p className="text-xs text-green-700">
+          Account created — password stays visible above until you clear it.
+        </p>
+      )}
+      {mutation.isError && (
+        <p className="text-xs text-red-600">
+          {(mutation.error as { response?: { data?: { detail?: string } } })
+            ?.response?.data?.detail ?? 'Could not create the account.'}
+        </p>
+      )}
+    </div>
+  )
+}
+
 /**
  * Admin account management: every user with plan, roles, and study volume;
  * plan override; permanent deletion (typed-email confirm, never yourself).
@@ -138,6 +211,7 @@ export default function AccountsPanel({
           {open ? 'Hide' : 'Manage accounts'}
         </button>
       </div>
+      {open && <InviteForm />}
       {open && (
         <div className="overflow-x-auto">
           {isLoading && <p className="text-xs text-gray-400">Loading…</p>}

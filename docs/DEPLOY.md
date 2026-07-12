@@ -224,3 +224,19 @@ list lives in ROADMAP WP10.
   rate-limited; disable "Confirm email" for the test (pre-flight 4).
 - **Reset-password emails link somewhere broken** — the frontend URL (and
   `/reset-password`) must be in Supabase's redirect allow-list (step 3).
+
+## Invite-only beta (friends-and-family)
+
+Locking signup to admin-created accounts takes BOTH halves:
+
+1. **Supabase (the enforcement)** — dashboard → Authentication →
+   Sign In / Up: turn OFF "Allow new users to sign up"; under Providers,
+   disable Google (and any other OAuth). Existing sessions keep working.
+2. **Frontend (the honest UI)** — set `VITE_INVITE_ONLY=true` in the
+   frontend build env. The login page then hides the Sign Up tab and the
+   Google button and shows a "private beta" note.
+
+Create accounts from Contribute → Accounts → "Manage accounts": enter an
+email, Generate a password, Create — then hand the password to your
+friend (they can change it via "Forgot password?"). The same panel edits
+plans and deletes accounts.

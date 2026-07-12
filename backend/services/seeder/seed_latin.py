@@ -54,6 +54,14 @@ class _FrequencyTsvSeeder(BaseSeeder):
                     "translations": {"en": translation},
                 })
 
+        # Re-band with the corpus size known: small corpora (mi ~800,
+        # ha ~1.1k) use the same PROPORTIONS as a 10k corpus, so every
+        # language's ladder reaches C1/C2.
+        total = len(records)
+        for rec in records:
+            if rec.get("frequency_rank") is not None:
+                rec["level"] = self.rank_to_level(rec["frequency_rank"], total)
+
         self.logger.info(f"Transformed {len(records)} {self.language_code} words")
         return records
 
@@ -86,6 +94,13 @@ class CatalanSeeder(_FrequencyTsvSeeder):
 class MaoriSeeder(_FrequencyTsvSeeder):
     language_code = "mi"
     freq_filename = "mi_frequency.tsv"
+
+
+class HausaFrequencySeeder(_FrequencyTsvSeeder):
+    # Hausa boko is Latin script; registered in run.py (not SEEDERS) so the
+    # curated HausaSeeder still runs after it.
+    language_code = "ha"
+    freq_filename = "ha_frequency.tsv"
 
 
 class PortugueseSeeder(_FrequencyTsvSeeder):
