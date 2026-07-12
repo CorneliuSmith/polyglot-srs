@@ -661,6 +661,13 @@ def build_sentence_rows(
         if words:
             scored.append((difficulty, sentence, translation, words))
 
+    return _select_example_rows(scored, per_word)
+
+
+def _select_example_rows(
+    scored: list[tuple[int, str, str, set[str]]], per_word: int
+) -> list[dict]:
+    """Easiest-first selection: each word collects up to *per_word* examples."""
     scored.sort(key=lambda t: t[0])
     rows: list[dict] = []
     taken: dict[str, int] = {}
@@ -897,11 +904,47 @@ def build_english_sentences(cache_dir: Path, per_word: int = 3) -> Path:
     if not freq_tsv.exists():
         raise FileNotFoundError(f"Missing {freq_tsv} — bundle the English frequency list first")
     rank_by_word = _read_rank_by_word(freq_tsv)
-    lemmatize = EnglishNLP().lemmatize
+
+    # spaCy lemmatization runs a full pipeline per CALL — uncached, the
+    # twelve-locale build made tens of millions of one-word spaCy runs and
+    # took 8+ hours. The token vocabulary is only a few hundred thousand
+    # strings, so a dict cache turns it into minutes.
+    _raw_lemmatize = EnglishNLP().lemmatize
+    _lemma_cache: dict[str, str] = {}
+
+    def lemmatize(token: str) -> str:
+        lemma = _lemma_cache.get(token)
+        if lemma is None:
+            lemma = _raw_lemmatize(token)
+            _lemma_cache[token] = lemma
+        return lemma
 
     eng = parse_tatoeba_sentences(
         download(SOURCES["tatoeba_eng"], cache_dir / "eng_sentences.tsv.bz2")
     )
+
+    # The SAME English sentence appears in many locales' links — score it
+    # once, not twelve times. None = too hard / no known words.
+    score_cache: dict[int, tuple[int, set[str]] | None] = {}
+
+    def score(eng_id: int, sentence: str) -> tuple[int, set[str]] | None:
+        if eng_id in score_cache:
+            return score_cache[eng_id]
+        difficulty = sentence_difficulty(sentence, rank_by_word, lemmatize)
+        result = None
+        if difficulty <= 20000:
+            words = set()
+            for token in _WORD_RE.findall(sentence.lower()):
+                if token in rank_by_word:
+                    words.add(token)
+                else:
+                    lemma = lemmatize(token)
+                    if lemma in rank_by_word:
+                        words.add(lemma)
+            if words:
+                result = (difficulty, words)
+        score_cache[eng_id] = result
+        return result
 
     all_rows: list[dict] = []
     for locale, iso3 in ENGLISH_SUPPORT_ISO3.items():
@@ -917,17 +960,22 @@ def build_english_sentences(cache_dir: Path, per_word: int = 3) -> Path:
         except Exception as exc:  # 404 / network — skip the locale, keep going
             logger.warning("en sentences: skipping locale %s (%s)", locale, exc)
             continue
+        translations = parse_tatoeba_sentences(tgt)
+        scored: list[tuple[int, str, str, set[str]]] = []
         # {iso3}-eng links are (locale_id, eng_id); English-as-target wants
-        # (eng_id, locale_id) so the English side is the sentence.
-        reversed_links = [(e, s) for (s, e) in parse_tatoeba_links(links_path)]
-        rows = build_sentence_rows(
-            eng,
-            parse_tatoeba_sentences(tgt),
-            reversed_links,
-            rank_by_word,
-            lemmatize,
-            per_word=per_word,
-        )
+        # the English side as the sentence and the locale side as its
+        # translation.
+        for loc_id, eng_id in parse_tatoeba_links(links_path):
+            sentence = eng.get(eng_id)
+            translation = translations.get(loc_id)
+            if not sentence or not translation:
+                continue
+            hit = score(eng_id, sentence)
+            if hit is None:
+                continue
+            difficulty, words = hit
+            scored.append((difficulty, sentence, translation, words))
+        rows = _select_example_rows(scored, per_word)
         for r in rows:
             r["translation_locale"] = locale
         logger.info("en sentences: %d rows for locale %s", len(rows), locale)
@@ -950,7 +998,19 @@ def parse_english_kaikki_translations(
     """
     import gzip
 
-    out: dict[str, dict[str, str]] = {}
+    # Letter/symbol homographs poison function words ("I" the pronoun vs
+    # "i" the letter — whose Spanish "translation" is the letter i), so
+    # only content-word entries contribute.
+    # Entries vote per part of speech, and a POS priority resolves which
+    # entry defines the word: pronoun/grammar entries first (so "I" the
+    # pronoun beats "i" the letter-name noun), then noun before verb (so
+    # "water" is agua, not the verb aguar). Within the winning POS the
+    # MODAL translation across senses wins — Wiktionary's first sense is
+    # often an oblique one ("you" → object clitic "lo").
+    pos_priority = ("pron", "det", "article", "conj", "prep", "adp",
+                    "particle", "num", "noun", "verb", "adj", "adv", "intj")
+    priority_set = set(pos_priority)
+    votes: dict[str, dict[str, dict[str, Counter]]] = {}
     opener = gzip.open if path.suffix == ".gz" else open
     with opener(path, "rt", encoding="utf-8") as f:
         for line in f:
@@ -961,26 +1021,124 @@ def parse_english_kaikki_translations(
             word = (entry.get("word") or "").strip().lower()
             if word not in wanted:
                 continue
-            translations = list(entry.get("translations") or [])
-            for sense in entry.get("senses") or []:
-                translations.extend(sense.get("translations") or [])
-            if not translations:
+            pos = entry.get("pos") or ""
+            if pos not in priority_set:
                 continue
-            slot = out.setdefault(word, {})
+            # THE DICTIONARY'S PRIMARY SENSE decides: take the first sense
+            # that carries translations (Wiktionary orders senses by
+            # primacy), never a vote across all senses — voting let "go"'s
+            # say-sense flood out the motion verbs, whose votes split over
+            # идти/ехать/ходить. Top-level translation tables are grouped
+            # by a "sense" caption in table order, NOT sense order, so they
+            # are only used when no sense-level translations exist.
+            # The PRIMARY sense is the one with the LARGEST translation
+            # table — core meanings are translated into dozens of
+            # languages, marginal ones ("a serving of water", "go: to
+            # say") into a handful. First-listed order lied both ways.
+            candidates: list[list] = [
+                s2["translations"] for s2 in entry.get("senses") or []
+                if s2.get("translations")
+            ]
+            top = entry.get("translations") or []
+            if top:
+                groups: dict[str, list] = {}
+                for t in top:
+                    groups.setdefault(t.get("sense") or "", []).append(t)
+                candidates.extend(groups.values())
+            if not candidates:
+                continue
+            translations = max(candidates, key=len)
+            slot = votes.setdefault(word, {}).setdefault(pos, {})
             for t in translations:
                 code = t.get("code") or t.get("lang_code")
                 tw = (t.get("word") or "").strip()
-                if code in locales and tw and code not in slot:
-                    slot[code] = tw
+                if code in locales and tw:
+                    slot.setdefault(code, Counter())[tw] += 1
+    # Keep votes PER part of speech — the seeder knows each word's own POS
+    # (spaCy) and picks the matching entry, so "go" the verb gets ir/идти
+    # while "water" the noun gets agua/вода. Never merge across entries:
+    # Russian has no articles, so "a"'s article entry has no ru row, and
+    # cross-entry back-fill once produced letter-name and abbreviation junk.
+    # No equivalent in a language means NO translation — the UI falls back
+    # to the English gloss.
+    def _sane(word: str, tw: str) -> bool:
+        if not tw or len(tw) > 40:
+            return False
+        if any(ch.isdigit() for ch in tw):
+            return False
+        if tw.lower() == word:  # "I" -> "i" is a letter echo, not a translation
+            return False
+        if "[" in tw or "]" in tw or "(" in tw:
+            return False  # editorial brackets are not translations
+        return True
+
+    out: dict[str, dict[str, dict[str, str]]] = {}
+    for word, per_pos in votes.items():
+        for pos, counters in per_pos.items():
+            resolved = {
+                code: counter.most_common(1)[0][0]
+                for code, counter in counters.items()
+                if _sane(word, counter.most_common(1)[0][0])
+            }
+            if resolved:
+                out.setdefault(word, {})[pos] = resolved
     return out
+
+
+def build_english_frequency(cache_dir: Path, max_words: int = 10000) -> Path:
+    """Build data/en_frequency.tsv from HermitDave (OpenSubtitles) at the
+    same 10k scale as every other corpus language.
+
+    The original bundled list had 3,001 words — which quietly capped the
+    whole English pipeline: WordNet-backed vocab stopped at 1.7k and the
+    i+1 sentence grader rejected almost every Tatoeba sentence (any word
+    outside the list scores as unknown). Inflections fold onto lemmas via
+    cached spaCy lemmatization.
+    """
+    from backend.services.nlp.english import EnglishNLP
+
+    raw = download(
+        SOURCES["frequencywords"].format(code="en"), cache_dir / "en_50k.txt"
+    )
+    _raw_lemmatize = EnglishNLP().lemmatize
+    _cache: dict[str, str] = {}
+
+    def lem(token: str) -> str:
+        v = _cache.get(token)
+        if v is None:
+            v = _raw_lemmatize(token)
+            _cache[token] = v
+        return v
+
+    counts: Counter = Counter()
+    with open(raw, encoding="utf-8") as f:
+        for line in f:
+            parts = line.split()
+            if len(parts) != 2 or not parts[1].isdigit():
+                continue
+            token = parts[0].lower()
+            if not token.isalpha() or (len(token) == 1 and token not in ("a", "i")):
+                continue
+            counts[lem(token)] += int(parts[1])
+
+    out_path = DATA_DIR / "en_frequency.tsv"
+    with open(out_path, "w", encoding="utf-8", newline="") as f:
+        writer = csv.writer(f, delimiter="\t")
+        writer.writerow(["rank", "word"])
+        for rank, (word, _n) in enumerate(counts.most_common(max_words), 1):
+            writer.writerow([rank, word])
+    logger.info("Wrote %d words to %s", min(max_words, len(counts)), out_path)
+    return out_path
 
 
 def build_english_translations(cache_dir: Path) -> Path:
     """Build data/en_translations.tsv (word/locale/translation) from kaikki."""
+    build_english_frequency(cache_dir)
     freq_tsv = DATA_DIR / "en_frequency.tsv"
-    if not freq_tsv.exists():
-        raise FileNotFoundError(f"Missing {freq_tsv}")
-    wanted = set(_read_rank_by_word(freq_tsv))
+    # kaikki lookups are lowercase; the frequency list keeps spaCy's
+    # capitalized lemmas ("I") — compare case-insensitively or the most
+    # frequent word in English gets no translations at all.
+    wanted = {w.lower() for w in _read_rank_by_word(freq_tsv)}
 
     path = download(SOURCES["en_kaikki_gz"], cache_dir / "en_kaikki.jsonl.gz")
     by_word = parse_english_kaikki_translations(
@@ -991,11 +1149,12 @@ def build_english_translations(cache_dir: Path) -> Path:
     n = 0
     with open(out_path, "w", encoding="utf-8", newline="") as f:
         writer = csv.writer(f, delimiter="\t")
-        writer.writerow(["word", "locale", "translation"])
+        writer.writerow(["word", "pos", "locale", "translation"])
         for word in sorted(by_word):
-            for locale in sorted(by_word[word]):
-                writer.writerow([word, locale, by_word[word][locale]])
-                n += 1
+            for pos in sorted(by_word[word]):
+                for locale in sorted(by_word[word][pos]):
+                    writer.writerow([word, pos, locale, by_word[word][pos][locale]])
+                    n += 1
     logger.info(
         "Wrote %d translations (%d words) to %s", n, len(by_word), out_path
     )

@@ -53,15 +53,18 @@ class TestEnglishSeederTransform:
         assert "water" in words
         assert "music" in words
 
-    async def test_function_words_without_synsets_skipped(self, seeder):
-        """Words like 'the', 'of', 'and' have no WordNet synsets — they should be skipped."""
+    async def test_function_words_get_grammar_glosses(self, seeder):
+        """'the', 'of', 'and' have no useful WordNet synsets — they carry
+        hand-written grammar glosses instead of being skipped (or worse,
+        wearing WordNet's iodine-for-'i' style junk)."""
         with fixture_patch():
             records = await seeder.transform()
-        words = {r["word"] for r in records}
-        # These are pure function words that WordNet doesn't cover
-        assert "the" not in words
-        assert "of" not in words
-        assert "and" not in words
+        by_word = {r["word"]: r for r in records}
+        assert "article" in by_word["the"]["translations"]["en"]
+        assert by_word["of"]["translations"]["en"]  # a real gloss, present
+        assert by_word["and"]["translations"]["en"]
+        # pinned POS survives (spaCy mislabels bare tokens)
+        assert by_word["the"]["pos"] == "article"
 
     async def test_morphology_includes_lemma(self, seeder):
         """Every record's morphology JSON must contain a 'lemma' key."""

@@ -330,7 +330,8 @@ async def deck_items(
     """The deck browser: every item in the deck, in path order, with ids
     so each row can open its detail view."""
     async with rls_connection(user["id"]) as conn:
-        listing = await get_deck_items(conn, list_id)
+        locale = await _support_locale(conn, user["id"])
+        listing = await get_deck_items(conn, list_id, support_locale=locale)
     if listing is None:
         raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Deck not found")
     return listing

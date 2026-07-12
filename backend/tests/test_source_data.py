@@ -198,15 +198,25 @@ class TestEnglishPipeline:
         )
 
         entries = [
-            {"word": "time", "translations": [
-                {"code": "es", "word": "tiempo"},
-                {"code": "fr", "word": "temps"},
-                {"code": "xx", "word": "ignored"},
+            # noun entry: primary sense = the LARGEST translation table
+            {"word": "time", "pos": "noun", "senses": [
+                {"translations": [{"code": "de", "word": "Mal"}]},  # marginal
+                {"translations": [
+                    {"code": "es", "word": "tiempo"},
+                    {"code": "fr", "word": "temps"},
+                    {"code": "de", "word": "Zeit"},
+                    {"code": "xx", "word": "ignored"},
+                ]},
             ]},
-            {"word": "time", "senses": [
-                {"translations": [{"code": "de", "word": "Zeit"}]},
+            # verb entry: kept separately, POS-keyed
+            {"word": "time", "pos": "verb", "senses": [
+                {"translations": [{"code": "es", "word": "cronometrar"}]},
             ]},
-            {"word": "obscureword", "translations": [
+            # letter/symbol entries never contribute
+            {"word": "time", "pos": "character", "translations": [
+                {"code": "es", "word": "junk"},
+            ]},
+            {"word": "obscureword", "pos": "noun", "translations": [
                 {"code": "es", "word": "nunca"},
             ]},
         ]
@@ -217,7 +227,10 @@ class TestEnglishPipeline:
         out = parse_english_kaikki_translations(
             path, wanted={"time"}, locales={"es", "fr", "de"}
         )
-        assert out == {"time": {"es": "tiempo", "fr": "temps", "de": "Zeit"}}
+        assert out == {"time": {
+            "noun": {"es": "tiempo", "fr": "temps", "de": "Zeit"},
+            "verb": {"es": "cronometrar"},
+        }}
 
     def test_sentences_tsv_locale_column_roundtrip(self, tmp_path):
         import csv as _csv

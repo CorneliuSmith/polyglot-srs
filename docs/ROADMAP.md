@@ -760,6 +760,21 @@ billing (backend/routers/billing.py), entitlement rows on invoice events.
 language) — a pricing decision for the owner, not a model.
 **Model:** `claude-opus-4-8` (billing = security-sensitive). **Effort:** M.
 
+### WP17 — English drill hints in the learner's language
+**State:** English VOCAB content is fully localized ("from Spanish" gets
+Spanish definitions on cards, lessons, detail pages, and the deck
+browser, plus Spanish sentence translations once en_sentences is
+loaded). English GRAMMAR drill hints/translations are authored in
+English only — a from-es A2 learner hitting "the flipped tag auxiliary"
+reads scaffolding in the language they're weakest in.
+**Plan:** (a) `drill_hint_translations (drill_id, locale, hint,
+translation)` + eff_locale COALESCE in the drill queries; (b) generate
+per-locale hints machine-assisted (Sonnet, batch) for the 12 support
+locales × 240 en drills, then a reviewer pass per locale before
+promoting (never self-certified — §3b); (c) UI unchanged (the payload
+already carries hint/translation). **Model:** draft `claude-sonnet-5`,
+verify per-locale reviewer. **Effort:** M.
+
 ## 6. Model selection guide
 
 | Task type | Model | Why |

@@ -1363,3 +1363,45 @@ async def test_delete_account_cascades_everything(pool):
         emails = {a["email"] for a in await list_accounts(conn)}
         assert "doomed@adm" not in emails
         assert "keeper@adm" in emails
+
+
+async def test_english_deck_browser_localizes_definitions(pool):
+    """Browsing an ENGLISH deck as a "from Spanish" learner lists Spanish
+    definitions (falling back to English), while non-English decks are
+    untouched by the support locale."""
+    from backend.repositories.cards import get_deck_items
+
+    async with pool.privileged_connection() as conn:
+        lang = str(await conn.fetchval(
+            "INSERT INTO languages (code, name, rtl) VALUES ('en', 'English', false) "
+            "ON CONFLICT (code) DO UPDATE SET name = EXCLUDED.name RETURNING id",
+        ))
+        deck = str(await conn.fetchval(
+            "INSERT INTO content_lists (language_id, list_type, level, title) "
+            "VALUES ($1, 'vocabulary', 'C2', 'EN C2 Vocab') "
+            "ON CONFLICT (language_id, list_type, level) DO UPDATE SET title = EXCLUDED.title "
+            "RETURNING id", lang,
+        ))
+        word = str(await conn.fetchval(
+            "INSERT INTO vocabulary (language_id, word, level, frequency_rank) "
+            "VALUES ($1, 'notwithstanding', 'C2', 9990) "
+            "ON CONFLICT (language_id, word) DO UPDATE SET level = 'C2' RETURNING id",
+            lang,
+        ))
+        for locale, definition in (("en", "despite"), ("es", "a pesar de")):
+            await conn.execute(
+                "INSERT INTO translations (vocabulary_id, locale, definition) "
+                "VALUES ($1, $2, $3) ON CONFLICT (vocabulary_id, locale) "
+                "DO UPDATE SET definition = EXCLUDED.definition", word, locale, definition,
+            )
+
+    user = await _new_user(pool, "browser@enloc")
+    async with pool.rls_connection(user) as conn:
+        # from-Spanish learner sees Spanish
+        listing = await get_deck_items(conn, deck, support_locale="es")
+        hit = next(i for i in listing["items"] if i["item"] == "notwithstanding")
+        assert hit["detail"] == "a pesar de"
+        # no support locale -> English
+        listing = await get_deck_items(conn, deck)
+        hit = next(i for i in listing["items"] if i["item"] == "notwithstanding")
+        assert hit["detail"] == "despite"
