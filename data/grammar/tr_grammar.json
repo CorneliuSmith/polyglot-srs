@@ -1,2993 +1,3153 @@
 {
-  "lists": [
+ "lists": [
+  {
+   "level": "A1",
+   "title": "Turkish A1 Grammar Path",
+   "description": "A1 grammar in the order of the standard CEFR-aligned Turkish curricula (Yedi İklim / İstanbul): 'to be' suffixes and demonstratives first, then plural, questions, existence, possession, cases, and the present continuous."
+  },
+  {
+   "level": "A2",
+   "title": "Turkish A2 Grammar Path",
+   "description": "The core suffix machine: witnessed past, future, dative/ablative/genitive, the aorist, ability, comparison, postpositions."
+  },
+  {
+   "level": "B1",
+   "title": "Turkish B1 Grammar Path",
+   "description": "Nuance and combination: evidential -miş, necessity, conditionals, verbal nouns, gibi/kadar, -ken."
+  },
+  {
+   "level": "B2",
+   "title": "Turkish B2 Grammar Path",
+   "description": "Complex sentences the Turkish way: -en/-dik participles, passive, causative, reported speech, converbs."
+  },
+  {
+   "level": "C1",
+   "title": "Turkish C1 Grammar Path",
+   "description": "Advanced clause-linking: -dikçe, -meden, reflexive/reciprocal voice, -diği için."
+  },
+  {
+   "level": "C2",
+   "title": "Turkish C2 Grammar Path",
+   "description": "Register and rhetoric: formal -mekte, -mış gibi, -eceğine."
+  }
+ ],
+ "points": [
+  {
+   "title": "Personal pronouns and 'to be' (-(y)im, -sin…)",
+   "level": "A1",
+   "function": "Introduce yourself and others",
+   "source": "contributor",
+   "reviewed": true,
+   "display_order": 1,
+   "explanation": "Turkish has no separate verb 'to be' in the present — a personal suffix attaches straight to the noun or adjective: öğrenci-yim (I am a student), öğretmen-sin (you are a teacher), o doktor (he/she is a doctor — third person takes no suffix).\n\nThe suffix vowel follows vowel harmony, and -y- is inserted after a vowel: iyi-yim (I'm fine).",
+   "culture_note": "Dropping the pronoun is normal — 'Öğrenciyim' alone is a complete, natural sentence. The pronoun is added for contrast or emphasis.",
+   "references": [
     {
-      "level": "A1",
-      "title": "Turkish A1 Grammar Path",
-      "description": "A1 grammar in the order of the standard CEFR-aligned Turkish curricula (Yedi İklim / İstanbul): 'to be' suffixes and demonstratives first, then plural, questions, existence, possession, cases, and the present continuous."
+     "title": "Türk Dil Kurumu — Sözlükleri",
+     "url": "https://sozluk.gov.tr/"
     },
     {
-      "level": "A2",
-      "title": "Turkish A2 Grammar Path",
-      "description": "The core suffix machine: witnessed past, future, dative/ablative/genitive, the aorist, ability, comparison, postpositions."
+     "title": "Wikipedia: Turkish grammar",
+     "url": "https://en.wikipedia.org/wiki/Turkish_grammar"
     },
     {
-      "level": "B1",
-      "title": "Turkish B1 Grammar Path",
-      "description": "Nuance and combination: evidential -miş, necessity, conditionals, verbal nouns, gibi/kadar, -ken."
+     "title": "Wikipedia: Turkish copula",
+     "url": "https://en.wikipedia.org/wiki/Turkish_copula"
     },
     {
-      "level": "B2",
-      "title": "Turkish B2 Grammar Path",
-      "description": "Complex sentences the Turkish way: -en/-dik participles, passive, causative, reported speech, converbs."
-    },
-    {
-      "level": "C1",
-      "title": "Turkish C1 Grammar Path",
-      "description": "Advanced clause-linking: -dikçe, -meden, reflexive/reciprocal voice, -diği için."
-    },
-    {
-      "level": "C2",
-      "title": "Turkish C2 Grammar Path",
-      "description": "Register and rhetoric: formal -mekte, -mış gibi, -eceğine."
+     "title": "Personal endings and 'to be'",
+     "book": "Göksel & Kerslake, Turkish: A Comprehensive Grammar (Routledge)"
     }
-  ],
-  "points": [
+   ],
+   "drills": [
     {
-      "title": "Personal pronouns and 'to be' (-(y)im, -sin…)",
-      "level": "A1",
-      "function": "Introduce yourself and others",
-      "source": "contributor",
-      "reviewed": true,
-      "display_order": 1,
-      "explanation": "Turkish has no separate verb 'to be' in the present — a personal suffix attaches straight to the noun or adjective: öğrenci-yim (I am a student), öğretmen-sin (you are a teacher), o doktor (he/she is a doctor — third person takes no suffix). The suffix vowel follows vowel harmony, and -y- is inserted after a vowel: iyi-yim (I'm fine).",
-      "culture_note": "Dropping the pronoun is normal — 'Öğrenciyim' alone is a complete, natural sentence. The pronoun is added for contrast or emphasis.",
-      "references": [
-        {
-          "title": "Wikipedia: Turkish grammar",
-          "url": "https://en.wikipedia.org/wiki/Turkish_grammar"
-        },
-        {
-          "title": "Wikipedia: Turkish copula",
-          "url": "https://en.wikipedia.org/wiki/Turkish_copula"
-        },
-        {
-          "title": "Personal endings and 'to be'",
-          "book": "Göksel & Kerslake, Turkish: A Comprehensive Grammar (Routledge)"
-        }
-      ],
-      "drills": [
-        {
-          "sentence": "Ben {{answer}}.",
-          "answer": "öğrenciyim",
-          "translation": "I am a student.",
-          "hint": "student + 'I am' ending",
-          "display_order": 1,
-          "cell": "ben"
-        },
-        {
-          "sentence": "Sen {{answer}}.",
-          "answer": "öğretmensin",
-          "translation": "You are a teacher.",
-          "hint": "teacher + 'you are' ending",
-          "display_order": 2,
-          "cell": "sen"
-        },
-        {
-          "sentence": "Biz {{answer}}.",
-          "answer": "öğrenciyiz",
-          "translation": "We are students.",
-          "hint": "student + 'we are' ending",
-          "display_order": 3,
-          "cell": "biz"
-        },
-        {
-          "sentence": "Ben çok {{answer}}.",
-          "answer": "mutluyum",
-          "translation": "I am very happy.",
-          "hint": "happy + 'I am' ending",
-          "display_order": 4,
-          "cell": "ben"
-        },
-        {
-          "sentence": "Siz {{answer}}.",
-          "answer": "öğretmensiniz",
-          "translation": "You (plural/formal) are teachers.",
-          "hint": "teacher + 'you (plural) are' ending",
-          "display_order": 5,
-          "cell": "siz"
-        },
-        {
-          "sentence": "O {{answer}}.",
-          "answer": "doktor",
-          "translation": "He/she is a doctor.",
-          "hint": "third person takes no ending",
-          "display_order": 6,
-          "cell": "o"
-        },
-        {
-          "sentence": "Onlar {{answer}}.",
-          "answer": "doktorlar",
-          "translation": "They are doctors.",
-          "hint": "doctor + plural (3rd person 'to be')",
-          "cell": "onlar",
-          "display_order": 7
-        },
-        {
-          "sentence": "Sen çok {{answer}}.",
-          "answer": "yorgunsun",
-          "translation": "You are very tired.",
-          "hint": "tired + the 'you' ending",
-          "cell": "sen",
-          "display_order": 8
-        },
-        {
-          "sentence": "O bugün çok {{answer}}.",
-          "answer": "mutlu",
-          "translation": "She is very happy today.",
-          "hint": "happy — 3rd person takes no ending",
-          "cell": "o",
-          "display_order": 9
-        },
-        {
-          "sentence": "Biz iyi {{answer}}.",
-          "answer": "arkadaşız",
-          "translation": "We are good friends.",
-          "hint": "friend + the 'we' ending",
-          "cell": "biz",
-          "display_order": 10
-        },
-        {
-          "sentence": "Siz çok {{answer}}.",
-          "answer": "naziksiniz",
-          "translation": "You (all) are very kind.",
-          "hint": "kind + the 'you all' ending",
-          "cell": "siz",
-          "display_order": 11
-        },
-        {
-          "sentence": "Onlar çok {{answer}}.",
-          "answer": "çalışkanlar",
-          "translation": "They are very hardworking.",
-          "hint": "hardworking + optional plural",
-          "cell": "onlar",
-          "display_order": 12
-        }
-      ],
-      "related": [
-        {
-          "title": "Var / yok — there is, there isn't",
-          "contrast": "Var says something EXISTS; the -im endings say what something IS."
-        },
-        {
-          "title": "Question particle (mı / mi / mu / mü)",
-          "contrast": "The personal ending hops onto mı in questions: öğretmen misin?"
-        }
-      ],
-      "paradigm": [
-        "ben",
-        "sen",
-        "o",
-        "biz",
-        "siz",
-        "onlar"
-      ]
+     "sentence": "Ben {{answer}}.",
+     "answer": "öğrenciyim",
+     "translation": "I am a student.",
+     "hint": "student + 'I am' ending",
+     "display_order": 1,
+     "cell": "ben"
     },
     {
-      "title": "Demonstratives (bu, şu, o)",
-      "level": "A1",
-      "function": "Point things out",
-      "source": "contributor",
-      "reviewed": true,
-      "display_order": 2,
-      "explanation": "Three distances: bu (this, near me), şu (that, a bit away / something I'm pointing at), o (that, over there — also 'he/she/it'). With a noun they work like English: bu kitap (this book), o ev (that house).",
-      "culture_note": "",
-      "references": [
-        {
-          "title": "Wikipedia: Turkish grammar",
-          "url": "https://en.wikipedia.org/wiki/Turkish_grammar"
-        },
-        {
-          "title": "Wiktionary: bu (Turkish)",
-          "url": "https://en.wiktionary.org/wiki/bu#Turkish"
-        }
-      ],
-      "drills": [
-        {
-          "sentence": "{{answer}} bir kitap.",
-          "answer": "Bu",
-          "translation": "This is a book.",
-          "hint": "near the speaker",
-          "display_order": 1,
-          "cell": "bu"
-        },
-        {
-          "sentence": "{{answer}} bir ev.",
-          "answer": "O",
-          "translation": "That (over there) is a house.",
-          "hint": "far from both speakers",
-          "display_order": 2,
-          "cell": "o"
-        },
-        {
-          "sentence": "{{answer}} bir araba.",
-          "answer": "Şu",
-          "translation": "That (over there) is a car.",
-          "hint": "pointing at something",
-          "display_order": 3,
-          "cell": "şu"
-        },
-        {
-          "sentence": "{{answer}} ne?",
-          "answer": "Bu",
-          "translation": "What is this?",
-          "hint": "this — close to you",
-          "display_order": 4,
-          "cell": "bu"
-        },
-        {
-          "sentence": "{{answer}} kim?",
-          "answer": "O",
-          "translation": "Who is that?",
-          "hint": "far from both speakers",
-          "display_order": 5,
-          "cell": "o"
-        },
-        {
-          "sentence": "{{answer}} bir okul.",
-          "answer": "Şu",
-          "translation": "That (over there) is a school.",
-          "hint": "pointing at something",
-          "display_order": 6,
-          "cell": "şu"
-        }
-      ],
-      "related": [
-        {
-          "title": "Personal pronouns and 'to be' (-(y)im, -sin…)",
-          "contrast": "O is both 'that' and 'he/she/it' — context decides."
-        },
-        {
-          "title": "Plural (-ler / -lar)",
-          "contrast": "Demonstratives stay singular before plural nouns: bu evler."
-        }
-      ],
-      "paradigm": [
-        "bu",
-        "şu",
-        "o"
-      ]
+     "sentence": "Sen {{answer}}.",
+     "answer": "öğretmensin",
+     "translation": "You are a teacher.",
+     "hint": "teacher + 'you are' ending",
+     "display_order": 2,
+     "cell": "sen"
     },
     {
-      "title": "Plural (-ler / -lar)",
-      "level": "A1",
-      "function": "Talk about more than one",
-      "source": "contributor",
-      "reviewed": true,
-      "display_order": 3,
-      "explanation": "Form the plural by adding -ler after front vowels and -lar after back vowels. Important exception: after a number, the noun stays singular — üç kitap ('three books'), never üç kitaplar.",
-      "culture_note": "",
-      "references": [
-        {
-          "title": "Wikipedia: Turkish grammar",
-          "url": "https://en.wikipedia.org/wiki/Turkish_grammar"
-        },
-        {
-          "title": "Wiktionary: -ler (Turkish)",
-          "url": "https://en.wiktionary.org/wiki/-ler#Turkish"
-        }
-      ],
-      "drills": [
-        {
-          "sentence": "Evde iki {{answer}} var.",
-          "answer": "kedi",
-          "translation": "There are two cats in the house.",
-          "hint": "noun stays SINGULAR after a number",
-          "display_order": 1
-        },
-        {
-          "sentence": "{{answer}} bahçede.",
-          "answer": "Çocuklar",
-          "translation": "The children are in the garden.",
-          "hint": "çocuk + back-vowel plural",
-          "display_order": 2
-        },
-        {
-          "sentence": "{{answer}} masada.",
-          "answer": "Kitaplar",
-          "translation": "The books are on the table.",
-          "hint": "book + plural",
-          "display_order": 3
-        },
-        {
-          "sentence": "Bahçede üç {{answer}} var.",
-          "answer": "ağaç",
-          "translation": "There are three trees in the garden.",
-          "hint": "singular after numbers!",
-          "display_order": 4
-        },
-        {
-          "sentence": "{{answer}} nerede?",
-          "answer": "Öğretmenler",
-          "translation": "Where are the teachers?",
-          "hint": "teacher + plural",
-          "display_order": 5
-        },
-        {
-          "sentence": "{{answer}} parkta.",
-          "answer": "Kediler",
-          "translation": "The cats are in the park.",
-          "hint": "cat + plural",
-          "display_order": 6
-        }
-      ],
-      "related": [
-        {
-          "title": "Possessive suffixes (-im, -in, -i…)",
-          "contrast": "Plural comes BEFORE possession: ev-ler-im, my houses."
-        },
-        {
-          "title": "Demonstratives (bu, şu, o)",
-          "contrast": "Bu evler, not bunlar evler — the noun carries the plural."
-        }
-      ]
+     "sentence": "Biz {{answer}}.",
+     "answer": "öğrenciyiz",
+     "translation": "We are students.",
+     "hint": "student + 'we are' ending",
+     "display_order": 3,
+     "cell": "biz"
     },
     {
-      "title": "Question particle (mı / mi / mu / mü)",
-      "level": "A1",
-      "function": "Turn any statement into a yes/no question",
-      "source": "contributor",
-      "reviewed": true,
-      "display_order": 4,
-      "explanation": "Add the particle after the word you are asking about; it is written separately and harmonizes with the last vowel: kitap mı?, öğrenci mi?, doktor mu?, Türk mü? Personal endings attach to the particle: Öğrenci misin? (Are you a student?).",
-      "culture_note": "",
-      "references": [
-        {
-          "title": "Wikipedia: Turkish grammar",
-          "url": "https://en.wikipedia.org/wiki/Turkish_grammar"
-        },
-        {
-          "title": "Wiktionary: mı (Turkish)",
-          "url": "https://en.wiktionary.org/wiki/m%C4%B1#Turkish"
-        }
-      ],
-      "drills": [
-        {
-          "sentence": "Sen öğrenci {{answer}}?",
-          "answer": "misin",
-          "translation": "Are you a student?",
-          "hint": "question particle + 'you' ending",
-          "display_order": 1,
-          "cell": "mi"
-        },
-        {
-          "sentence": "Bu kitap {{answer}}?",
-          "answer": "mı",
-          "translation": "Is this a book?",
-          "hint": "question particle — harmonize with the last vowel",
-          "display_order": 2,
-          "cell": "mı"
-        },
-        {
-          "sentence": "O doktor {{answer}}?",
-          "answer": "mu",
-          "translation": "Is he a doctor?",
-          "hint": "question particle — harmonize with the last vowel",
-          "display_order": 3,
-          "cell": "mu"
-        },
-        {
-          "sentence": "Bu süt {{answer}}?",
-          "answer": "mü",
-          "translation": "Is this milk?",
-          "hint": "question particle — harmonize with the last vowel",
-          "display_order": 4,
-          "cell": "mü"
-        },
-        {
-          "sentence": "Onlar öğrenci {{answer}}?",
-          "answer": "mi",
-          "translation": "Are they students?",
-          "hint": "question particle — harmonize with the last vowel",
-          "display_order": 5,
-          "cell": "mi"
-        },
-        {
-          "sentence": "Bu okul {{answer}}?",
-          "answer": "mu",
-          "translation": "Is this a school?",
-          "hint": "question particle — harmonize with the last vowel",
-          "display_order": 6,
-          "cell": "mu"
-        },
-        {
-          "sentence": "Yol uzak {{answer}}?",
-          "answer": "mı",
-          "translation": "Is the road far?",
-          "hint": "harmony after 'a/ı'",
-          "cell": "mı",
-          "display_order": 7
-        },
-        {
-          "sentence": "O üzgün {{answer}}?",
-          "answer": "mü",
-          "translation": "Is he sad?",
-          "hint": "harmony after 'ö/ü'",
-          "cell": "mü",
-          "display_order": 8
-        }
-      ],
-      "related": [
-        {
-          "title": "Negative present continuous (-miyor)",
-          "contrast": "-miyor negates, mı asks — and they stack: gelmiyor mu?"
-        },
-        {
-          "title": "Present continuous (-iyor)",
-          "contrast": "Geliyor musun? — the particle splits off the -iyor verb."
-        }
-      ],
-      "paradigm": [
-        "mı",
-        "mi",
-        "mu",
-        "mü"
-      ]
+     "sentence": "Ben çok {{answer}}.",
+     "answer": "mutluyum",
+     "translation": "I am very happy.",
+     "hint": "happy + 'I am' ending",
+     "display_order": 4,
+     "cell": "ben"
     },
     {
-      "title": "Locative case (-de / -da)",
-      "level": "A1",
-      "function": "Say where something is",
-      "source": "contributor",
-      "reviewed": true,
-      "display_order": 5,
-      "explanation": "The locative suffix means 'in/on/at'. It harmonizes with the last vowel of the word: -de after front vowels (e, i, ö, ü) and -da after back vowels (a, ı, o, u). After a voiceless consonant it hardens to -te/-ta.",
-      "culture_note": "Vowel harmony runs through almost all Turkish suffixes — learning to hear front vs back vowels pays off everywhere.",
-      "references": [
-        {
-          "title": "Wiktionary: Turkish locative case",
-          "url": "https://en.wiktionary.org/wiki/-de"
-        },
-        {
-          "title": "Wikipedia: Turkish vowel harmony",
-          "url": "https://en.wikipedia.org/wiki/Vowel_harmony#Turkish"
-        }
-      ],
-      "drills": [
-        {
-          "sentence": "Ben {{answer}}.",
-          "answer": "evdeyim",
-          "translation": "I am at home.",
-          "hint": "house + locative + 'I am'",
-          "display_order": 1,
-          "cell": "-de"
-        },
-        {
-          "sentence": "Kitap {{answer}}.",
-          "answer": "masada",
-          "translation": "The book is on the table.",
-          "hint": "table + locative",
-          "display_order": 2,
-          "cell": "-da"
-        },
-        {
-          "sentence": "Anahtar {{answer}}.",
-          "answer": "çantada",
-          "translation": "The key is in the bag.",
-          "hint": "bag + locative",
-          "display_order": 3,
-          "cell": "-da"
-        },
-        {
-          "sentence": "Biz {{answer}}.",
-          "answer": "okuldayız",
-          "translation": "We are at school.",
-          "hint": "school + locative + 'we are'",
-          "display_order": 4,
-          "cell": "-da"
-        },
-        {
-          "sentence": "Çocuklar {{answer}}.",
-          "answer": "bahçede",
-          "translation": "The children are in the garden.",
-          "hint": "garden + locative",
-          "display_order": 5,
-          "cell": "-de"
-        },
-        {
-          "sentence": "Süt {{answer}}.",
-          "answer": "buzdolabında",
-          "translation": "The milk is in the fridge.",
-          "hint": "fridge + locative (compound noun keeps its -ı)",
-          "display_order": 6,
-          "cell": "-da"
-        },
-        {
-          "sentence": "Kitaplar {{answer}}.",
-          "answer": "dolapta",
-          "translation": "The books are in the cupboard.",
-          "hint": "cupboard + locative (voiceless consonant)",
-          "cell": "-ta",
-          "display_order": 7
-        },
-        {
-          "sentence": "Yemek {{answer}}.",
-          "answer": "sepette",
-          "translation": "The food is in the basket.",
-          "hint": "basket + locative (voiceless consonant, front vowel)",
-          "cell": "-te",
-          "display_order": 8
-        },
-        {
-          "sentence": "Babam şimdi {{answer}}.",
-          "answer": "işte",
-          "translation": "My father is at work now.",
-          "hint": "work + at (voiceless, front)",
-          "cell": "-te",
-          "display_order": 9
-        },
-        {
-          "sentence": "Yolcular {{answer}}.",
-          "answer": "uçakta",
-          "translation": "The passengers are on the plane.",
-          "hint": "plane + at (voiceless, back)",
-          "cell": "-ta",
-          "display_order": 10
-        }
-      ],
-      "related": [
-        {
-          "title": "Accusative case (-ı / -i / -u / -ü)",
-          "contrast": "Locative marks WHERE; accusative marks WHAT the action lands on."
-        },
-        {
-          "title": "Var / yok — there is, there isn't",
-          "contrast": "Locative + var = 'there is X at Y': masada kitap var."
-        }
-      ],
-      "paradigm": [
-        "-de",
-        "-da",
-        "-te",
-        "-ta"
-      ]
+     "sentence": "Siz {{answer}}.",
+     "answer": "öğretmensiniz",
+     "translation": "You (plural/formal) are teachers.",
+     "hint": "teacher + 'you (plural) are' ending",
+     "display_order": 5,
+     "cell": "siz"
     },
     {
-      "title": "Var / yok — there is, there isn't",
-      "level": "A1",
-      "function": "Say what exists and what doesn't",
-      "source": "contributor",
-      "reviewed": true,
-      "display_order": 6,
-      "explanation": "'Var' asserts existence and 'yok' denies it; both come at the end: Evde süt var (There is milk at home), Parkta kimse yok (There is nobody in the park). With the locative this is also how Turkish says 'have': Bende para var (I have money, lit. 'at me money exists').",
-      "culture_note": "",
-      "references": [
-        {
-          "title": "Wikipedia: Turkish grammar",
-          "url": "https://en.wikipedia.org/wiki/Turkish_grammar"
-        },
-        {
-          "title": "Wiktionary: var (Turkish)",
-          "url": "https://en.wiktionary.org/wiki/var#Turkish"
-        }
-      ],
-      "drills": [
-        {
-          "sentence": "Evde süt {{answer}}.",
-          "answer": "var",
-          "translation": "There is milk at home.",
-          "hint": "existence",
-          "display_order": 1,
-          "cell": "var"
-        },
-        {
-          "sentence": "Parkta kimse {{answer}}.",
-          "answer": "yok",
-          "translation": "There is no one in the park.",
-          "hint": "non-existence",
-          "display_order": 2,
-          "cell": "yok"
-        },
-        {
-          "sentence": "Çantada para {{answer}}.",
-          "answer": "yok",
-          "translation": "There is no money in the bag.",
-          "hint": "absence",
-          "display_order": 3,
-          "cell": "yok"
-        },
-        {
-          "sentence": "Bahçede ağaç {{answer}}.",
-          "answer": "var",
-          "translation": "There is a tree in the garden.",
-          "hint": "existence",
-          "display_order": 4,
-          "cell": "var"
-        },
-        {
-          "sentence": "Evde ekmek {{answer}} mı?",
-          "answer": "var",
-          "translation": "Is there bread at home?",
-          "hint": "existence, question",
-          "display_order": 5,
-          "cell": "var"
-        },
-        {
-          "sentence": "Bugün ders {{answer}}.",
-          "answer": "yok",
-          "translation": "There is no class today.",
-          "hint": "absence",
-          "display_order": 6,
-          "cell": "yok"
-        }
-      ],
-      "related": [
-        {
-          "title": "Locative case (-de / -da)",
-          "contrast": "Existence statements usually open with a locative: evde kimse yok."
-        },
-        {
-          "title": "Negative present continuous (-miyor)",
-          "contrast": "Yok negates existence; -miyor negates actions."
-        }
-      ],
-      "paradigm": [
-        "var",
-        "yok"
-      ]
+     "sentence": "O {{answer}}.",
+     "answer": "doktor",
+     "translation": "He/she is a doctor.",
+     "hint": "third person takes no ending",
+     "display_order": 6,
+     "cell": "o"
     },
     {
-      "title": "Possessive suffixes (-im, -in, -i…)",
-      "level": "A1",
-      "function": "Say whose something is",
-      "source": "contributor",
-      "reviewed": true,
-      "display_order": 7,
-      "explanation": "Possession is marked ON the possessed noun: ev-im (my house), ev-in (your house), ev-i (his/her house). The optional genitive pronoun adds emphasis: benim evim. Vowels harmonize: araba-m (my car), araban (your car).",
-      "culture_note": "",
-      "references": [
-        {
-          "title": "Wikipedia: Turkish grammar",
-          "url": "https://en.wikipedia.org/wiki/Turkish_grammar"
-        },
-        {
-          "title": "Wikipedia: Turkish grammar — possession",
-          "url": "https://en.wikipedia.org/wiki/Turkish_grammar#Possessive_suffixes"
-        }
-      ],
-      "drills": [
-        {
-          "sentence": "Benim {{answer}} büyük.",
-          "answer": "evim",
-          "translation": "My house is big.",
-          "hint": "house + 'my'",
-          "display_order": 1,
-          "cell": "1sg"
-        },
-        {
-          "sentence": "Senin {{answer}} nerede?",
-          "answer": "araban",
-          "translation": "Where is your car?",
-          "hint": "car + 'your'",
-          "display_order": 2,
-          "cell": "2sg"
-        },
-        {
-          "sentence": "Benim {{answer}} Ali.",
-          "answer": "adım",
-          "translation": "My name is Ali.",
-          "hint": "name + 'my'",
-          "display_order": 3,
-          "cell": "1sg"
-        },
-        {
-          "sentence": "Onun {{answer}} güzel.",
-          "answer": "evi",
-          "translation": "His/her house is beautiful.",
-          "hint": "house + 'his/her'",
-          "display_order": 4,
-          "cell": "3sg"
-        },
-        {
-          "sentence": "Bizim {{answer}} büyük.",
-          "answer": "ailemiz",
-          "translation": "Our family is big.",
-          "hint": "family + 'our'",
-          "display_order": 5,
-          "cell": "1pl"
-        },
-        {
-          "sentence": "Senin {{answer}} çok tatlı.",
-          "answer": "kedin",
-          "translation": "Your cat is very sweet.",
-          "hint": "cat + 'your'",
-          "display_order": 6,
-          "cell": "2sg"
-        },
-        {
-          "sentence": "Sizin {{answer}} çok güzel.",
-          "answer": "eviniz",
-          "translation": "Your (plural) house is very beautiful.",
-          "hint": "house + your (plural)",
-          "cell": "2pl",
-          "display_order": 7
-        },
-        {
-          "sentence": "Onların {{answer}} bahçede.",
-          "answer": "kedileri",
-          "translation": "Their cat is in the garden.",
-          "hint": "cat + their",
-          "cell": "3pl",
-          "display_order": 8
-        },
-        {
-          "sentence": "Onun {{answer}} yeni.",
-          "answer": "arabası",
-          "translation": "His car is new.",
-          "hint": "car + his/her",
-          "cell": "3sg",
-          "display_order": 9
-        },
-        {
-          "sentence": "Bizim {{answer}} bahçeli.",
-          "answer": "evimiz",
-          "translation": "Our house has a garden.",
-          "hint": "house + our",
-          "cell": "1pl",
-          "display_order": 10
-        },
-        {
-          "sentence": "Sizin {{answer}} nerede?",
-          "answer": "okulunuz",
-          "translation": "Where is your (pl.) school?",
-          "hint": "school + your (plural)",
-          "cell": "2pl",
-          "display_order": 11
-        },
-        {
-          "sentence": "Onların {{answer}} yeni.",
-          "answer": "evleri",
-          "translation": "Their house is new.",
-          "hint": "house + their",
-          "cell": "3pl",
-          "display_order": 12
-        }
-      ],
-      "related": [
-        {
-          "title": "Plural (-ler / -lar)",
-          "contrast": "Order is fixed: plural, then possessive — evlerim."
-        },
-        {
-          "title": "Accusative case (-ı / -i / -u / -ü)",
-          "contrast": "A possessed object still takes accusative: evimi görüyorum."
-        }
-      ],
-      "paradigm": [
-        "1sg",
-        "2sg",
-        "3sg",
-        "1pl",
-        "2pl",
-        "3pl"
-      ]
+     "sentence": "Onlar {{answer}}.",
+     "answer": "doktorlar",
+     "translation": "They are doctors.",
+     "hint": "doctor + plural (3rd person 'to be')",
+     "cell": "onlar",
+     "display_order": 7
     },
     {
-      "title": "Present continuous (-iyor)",
-      "level": "A1",
-      "function": "Talk about what is happening now",
-      "source": "contributor",
-      "reviewed": true,
-      "display_order": 8,
-      "explanation": "The -iyor suffix marks an ongoing action ('am/is/are doing'). Its buffer vowel harmonizes (ı/i/u/ü) and a personal ending follows. For 'I', add -um: oku → okuyorum, iç → içiyorum.",
-      "culture_note": "",
-      "references": [
-        {
-          "title": "Wikipedia: Turkish grammar — present continuous",
-          "url": "https://en.wikipedia.org/wiki/Turkish_grammar#Present_tense"
-        },
-        {
-          "title": "Wiktionary: -iyor (Turkish)",
-          "url": "https://en.wiktionary.org/wiki/-iyor#Turkish"
-        }
-      ],
-      "drills": [
-        {
-          "sentence": "Ben kitap {{answer}}.",
-          "answer": "okuyorum",
-          "translation": "I am reading a book.",
-          "hint": "to read + present continuous, I",
-          "display_order": 1,
-          "cell": "ben"
-        },
-        {
-          "sentence": "O çay {{answer}}.",
-          "answer": "içiyor",
-          "translation": "He/she is drinking tea.",
-          "hint": "to drink + present continuous, he/she",
-          "display_order": 2,
-          "cell": "o"
-        },
-        {
-          "sentence": "Biz Türkçe {{answer}}.",
-          "answer": "öğreniyoruz",
-          "translation": "We are learning Turkish.",
-          "hint": "to learn + present continuous, we",
-          "display_order": 3,
-          "cell": "biz"
-        },
-        {
-          "sentence": "Onlar parkta {{answer}}.",
-          "answer": "oynuyorlar",
-          "translation": "They are playing in the park.",
-          "hint": "to play + present continuous, they",
-          "display_order": 4,
-          "cell": "onlar"
-        },
-        {
-          "sentence": "Sen ne {{answer}}?",
-          "answer": "yapıyorsun",
-          "translation": "What are you doing?",
-          "hint": "to do + present continuous, you",
-          "display_order": 5,
-          "cell": "sen"
-        },
-        {
-          "sentence": "Annem yemek {{answer}}.",
-          "answer": "pişiriyor",
-          "translation": "My mother is cooking food.",
-          "hint": "to cook + present continuous, she",
-          "display_order": 6,
-          "cell": "o"
-        },
-        {
-          "sentence": "Siz ne {{answer}}?",
-          "answer": "yapıyorsunuz",
-          "translation": "What are you (all) doing?",
-          "hint": "to do + -iyor + you (plural)",
-          "cell": "siz",
-          "display_order": 7
-        },
-        {
-          "sentence": "Ben şimdi eve {{answer}}.",
-          "answer": "gidiyorum",
-          "translation": "I am going home now.",
-          "hint": "to go + -iyor, I",
-          "cell": "ben",
-          "display_order": 8
-        },
-        {
-          "sentence": "Sen çok hızlı {{answer}}.",
-          "answer": "konuşuyorsun",
-          "translation": "You are speaking very fast.",
-          "hint": "to speak + -iyor, you",
-          "cell": "sen",
-          "display_order": 9
-        },
-        {
-          "sentence": "Biz akşam yemeği {{answer}}.",
-          "answer": "yiyoruz",
-          "translation": "We are eating dinner.",
-          "hint": "to eat + -iyor, we",
-          "cell": "biz",
-          "display_order": 10
-        },
-        {
-          "sentence": "Siz nerede {{answer}}?",
-          "answer": "oturuyorsunuz",
-          "translation": "Where do you (all) live?",
-          "hint": "to live/sit + -iyor, you all",
-          "cell": "siz",
-          "display_order": 11
-        },
-        {
-          "sentence": "Onlar müzik {{answer}}.",
-          "answer": "dinliyorlar",
-          "translation": "They are listening to music.",
-          "hint": "to listen + -iyor, they",
-          "cell": "onlar",
-          "display_order": 12
-        }
-      ],
-      "related": [
-        {
-          "title": "Negative present continuous (-miyor)",
-          "contrast": "Same tense, negated: -m(a/e) squeezes in before -yor."
-        },
-        {
-          "title": "Question particle (mı / mi / mu / mü)",
-          "contrast": "Geliyor mu? — questions add the particle after -iyor."
-        }
-      ],
-      "paradigm": [
-        "ben",
-        "sen",
-        "o",
-        "biz",
-        "siz",
-        "onlar"
-      ]
+     "sentence": "Sen çok {{answer}}.",
+     "answer": "yorgunsun",
+     "translation": "You are very tired.",
+     "hint": "tired + the 'you' ending",
+     "cell": "sen",
+     "display_order": 8
     },
     {
-      "title": "Negative present continuous (-miyor)",
-      "level": "A1",
-      "function": "Say what is not happening",
-      "source": "contributor",
-      "reviewed": true,
-      "display_order": 9,
-      "explanation": "Insert the negative -m(a/e)- before -iyor; the vowel harmonizes and shrinks: iç-m-iyor-um → içmiyorum (I am not drinking), izle-m-iyor → izlemiyor (he isn't watching). The stress falls just before the negative.",
-      "culture_note": "",
-      "references": [
-        {
-          "title": "Wikipedia: Turkish grammar",
-          "url": "https://en.wikipedia.org/wiki/Turkish_grammar"
-        },
-        {
-          "title": "Wiktionary: -me (Turkish negative)",
-          "url": "https://en.wiktionary.org/wiki/-me#Turkish"
-        }
-      ],
-      "drills": [
-        {
-          "sentence": "Ben kahve {{answer}}.",
-          "answer": "içmiyorum",
-          "translation": "I am not drinking coffee.",
-          "hint": "to drink + negative present continuous, I",
-          "display_order": 1,
-          "cell": "ben"
-        },
-        {
-          "sentence": "O televizyon {{answer}}.",
-          "answer": "izlemiyor",
-          "translation": "He is not watching TV.",
-          "hint": "to watch + negative present continuous, he/she",
-          "display_order": 2,
-          "cell": "o"
-        },
-        {
-          "sentence": "Biz et {{answer}}.",
-          "answer": "yemiyoruz",
-          "translation": "We are not eating meat.",
-          "hint": "to eat + negative present continuous, we",
-          "display_order": 3,
-          "cell": "biz"
-        },
-        {
-          "sentence": "Sen beni {{answer}}.",
-          "answer": "dinlemiyorsun",
-          "translation": "You are not listening to me.",
-          "hint": "to listen + negative present continuous, you",
-          "display_order": 4,
-          "cell": "sen"
-        },
-        {
-          "sentence": "Onlar bugün {{answer}}.",
-          "answer": "çalışmıyorlar",
-          "translation": "They are not working today.",
-          "hint": "to work + negative present continuous, they",
-          "display_order": 5,
-          "cell": "onlar"
-        },
-        {
-          "sentence": "Bebek {{answer}}.",
-          "answer": "uyumuyor",
-          "translation": "The baby is not sleeping.",
-          "hint": "to sleep + negative present continuous, he/she",
-          "display_order": 6,
-          "cell": "o"
-        },
-        {
-          "sentence": "Siz kahve {{answer}}.",
-          "answer": "içmiyorsunuz",
-          "translation": "You (all) are not drinking coffee.",
-          "hint": "to drink + negative -iyor + you (plural)",
-          "cell": "siz",
-          "display_order": 7
-        },
-        {
-          "sentence": "Ben bugün {{answer}}.",
-          "answer": "çalışmıyorum",
-          "translation": "I am not working today.",
-          "hint": "to work + negative -iyor, I",
-          "cell": "ben",
-          "display_order": 8
-        },
-        {
-          "sentence": "Sen hiç {{answer}}.",
-          "answer": "gülmüyorsun",
-          "translation": "You never smile.",
-          "hint": "to smile + negative -iyor, you",
-          "cell": "sen",
-          "display_order": 9
-        },
-        {
-          "sentence": "Biz artık orada {{answer}}.",
-          "answer": "oturmuyoruz",
-          "translation": "We don't live there anymore.",
-          "hint": "to live + negative -iyor, we",
-          "cell": "biz",
-          "display_order": 10
-        },
-        {
-          "sentence": "Siz neden {{answer}}?",
-          "answer": "gelmiyorsunuz",
-          "translation": "Why aren't you (all) coming?",
-          "hint": "to come + negative -iyor, you all",
-          "cell": "siz",
-          "display_order": 11
-        },
-        {
-          "sentence": "Onlar bizi {{answer}}.",
-          "answer": "duymuyorlar",
-          "translation": "They don't hear us.",
-          "hint": "to hear + negative -iyor, they",
-          "cell": "onlar",
-          "display_order": 12
-        }
-      ],
-      "related": [
-        {
-          "title": "Present continuous (-iyor)",
-          "contrast": "The affirmative twin — drop the -m- and it happens again."
-        },
-        {
-          "title": "Var / yok — there is, there isn't",
-          "contrast": "-miyor is 'isn't doing'; yok is 'there isn't any'."
-        }
-      ],
-      "paradigm": [
-        "ben",
-        "sen",
-        "o",
-        "biz",
-        "siz",
-        "onlar"
-      ]
+     "sentence": "O bugün çok {{answer}}.",
+     "answer": "mutlu",
+     "translation": "She is very happy today.",
+     "hint": "happy — 3rd person takes no ending",
+     "cell": "o",
+     "display_order": 9
     },
     {
-      "title": "Accusative case (-ı / -i / -u / -ü)",
-      "level": "A1",
-      "function": "Mark a specific, definite object",
-      "source": "contributor",
-      "reviewed": true,
-      "display_order": 10,
-      "explanation": "A DEFINITE direct object takes the accusative: Kitabı okuyorum (I am reading THE book) vs Kitap okuyorum (I read books / a book, indefinite — no suffix). The vowel harmonizes four ways, and final p/ç/t/k soften: kitap → kitabı.",
-      "culture_note": "Whether the object is 'definite' decides the suffix — a meaning-driven case system rather than a mechanical one.",
-      "references": [
-        {
-          "title": "Wikipedia: Turkish grammar",
-          "url": "https://en.wikipedia.org/wiki/Turkish_grammar"
-        },
-        {
-          "title": "Wikipedia: Turkish grammar — cases",
-          "url": "https://en.wikipedia.org/wiki/Turkish_grammar#Cases"
-        }
-      ],
-      "drills": [
-        {
-          "sentence": "Ben {{answer}} okuyorum.",
-          "answer": "kitabı",
-          "translation": "I am reading the book.",
-          "hint": "book + accusative (final consonant softens)",
-          "display_order": 1,
-          "cell": "-ı"
-        },
-        {
-          "sentence": "O {{answer}} seviyor.",
-          "answer": "çayı",
-          "translation": "He/she loves the tea.",
-          "hint": "tea + accusative",
-          "display_order": 2,
-          "cell": "-ı"
-        },
-        {
-          "sentence": "Ben {{answer}} izliyorum.",
-          "answer": "filmi",
-          "translation": "I am watching the film.",
-          "hint": "film + accusative",
-          "display_order": 3,
-          "cell": "-i"
-        },
-        {
-          "sentence": "O {{answer}} okuyor.",
-          "answer": "gazeteyi",
-          "translation": "He is reading the newspaper.",
-          "hint": "newspaper + accusative (buffer y)",
-          "display_order": 4,
-          "cell": "-i"
-        },
-        {
-          "sentence": "Sen {{answer}} görüyor musun?",
-          "answer": "arabayı",
-          "translation": "Do you see the car?",
-          "hint": "car + accusative (buffer y)",
-          "display_order": 5,
-          "cell": "-ı"
-        },
-        {
-          "sentence": "Çocuk {{answer}} içiyor.",
-          "answer": "sütü",
-          "translation": "The child is drinking the milk.",
-          "hint": "milk + accusative",
-          "display_order": 6,
-          "cell": "-ü"
-        },
-        {
-          "sentence": "Çocuk {{answer}} içti.",
-          "answer": "suyu",
-          "translation": "The child drank the water.",
-          "hint": "water + accusative",
-          "cell": "-u",
-          "display_order": 7
-        },
-        {
-          "sentence": "Çocuklar {{answer}} seviyor.",
-          "answer": "okulu",
-          "translation": "The children love the school.",
-          "hint": "school + accusative (back, rounded)",
-          "cell": "-u",
-          "display_order": 8
-        },
-        {
-          "sentence": "Biz {{answer}} çok seviyoruz.",
-          "answer": "gölü",
-          "translation": "We love the lake very much.",
-          "hint": "lake + accusative (front, rounded)",
-          "cell": "-ü",
-          "display_order": 9
-        }
-      ],
-      "related": [
-        {
-          "title": "Locative case (-de / -da)",
-          "contrast": "Accusative = what you act on; locative = where it happens."
-        },
-        {
-          "title": "Possessive suffixes (-im, -in, -i…)",
-          "contrast": "After a possessive the accusative shows as -ni/-nı: arabasını."
-        }
-      ],
-      "paradigm": [
-        "-ı",
-        "-i",
-        "-u",
-        "-ü"
-      ]
+     "sentence": "Biz iyi {{answer}}.",
+     "answer": "arkadaşız",
+     "translation": "We are good friends.",
+     "hint": "friend + the 'we' ending",
+     "cell": "biz",
+     "display_order": 10
     },
     {
-      "title": "Past tense (-di)",
-      "level": "A2",
-      "function": "Say what happened",
-      "source": "contributor",
-      "reviewed": true,
-      "display_order": 1,
-      "explanation": "The seen/witnessed past adds -di with four-way vowel harmony and consonant hardening after voiceless sounds (-ti): gitmek → gittim (I went), gelmek → geldi (she came), yapmak → yaptık (we did). Person endings follow: -m, -n, —, -k, -niz, -ler.",
-      "culture_note": "",
-      "references": [
-        {
-          "title": "Wikipedia: Turkish grammar",
-          "url": "https://en.wikipedia.org/wiki/Turkish_grammar"
-        },
-        {
-          "title": "Wiktionary: -di (Turkish)",
-          "url": "https://en.wiktionary.org/wiki/-di#Turkish"
-        }
-      ],
-      "drills": [
-        {
-          "sentence": "Dün okula {{answer}}.",
-          "answer": "gittim",
-          "translation": "Yesterday I went to school.",
-          "hint": "to go + past, I",
-          "display_order": 1
-        },
-        {
-          "sentence": "O eve {{answer}}.",
-          "answer": "geldi",
-          "translation": "He/she came home.",
-          "hint": "to come + past, he/she",
-          "display_order": 2
-        },
-        {
-          "sentence": "Biz dün sinemaya {{answer}}.",
-          "answer": "gittik",
-          "translation": "Yesterday we went to the cinema.",
-          "hint": "to go + past, we",
-          "display_order": 3
-        },
-        {
-          "sentence": "Ben sabah kahve {{answer}}.",
-          "answer": "içtim",
-          "translation": "I drank coffee in the morning.",
-          "hint": "to drink + past, I (suffix devoices)",
-          "display_order": 4
-        },
-        {
-          "sentence": "Onlar dün geç {{answer}}.",
-          "answer": "kaldılar",
-          "translation": "They were late yesterday.",
-          "hint": "geç kalmak — past plural",
-          "display_order": 5
-        },
-        {
-          "sentence": "Sen filmi {{answer}} mi?",
-          "answer": "izledin",
-          "translation": "Did you watch the film?",
-          "hint": "to watch + past, you",
-          "display_order": 6
-        }
-      ]
+     "sentence": "Siz çok {{answer}}.",
+     "answer": "naziksiniz",
+     "translation": "You (all) are very kind.",
+     "hint": "kind + the 'you all' ending",
+     "cell": "siz",
+     "display_order": 11
     },
     {
-      "title": "Future tense (-ecek)",
-      "level": "A2",
-      "function": "Say what will happen",
-      "source": "contributor",
-      "reviewed": true,
-      "display_order": 2,
-      "explanation": "-ecek/-acak marks the future; before a vowel ending the k softens to ğ: aramak → arayacağım (I will call), gelmek → gelecekler (they will come). The buffer -y- appears after vowel stems.",
-      "culture_note": "",
-      "references": [
-        {
-          "title": "Wikipedia: Turkish grammar",
-          "url": "https://en.wikipedia.org/wiki/Turkish_grammar"
-        },
-        {
-          "title": "Wiktionary: -ecek (Turkish)",
-          "url": "https://en.wiktionary.org/wiki/-ecek#Turkish"
-        }
-      ],
-      "drills": [
-        {
-          "sentence": "Yarın seni {{answer}}.",
-          "answer": "arayacağım",
-          "translation": "Tomorrow I will call you.",
-          "hint": "ara + -y- + -acak + -ım",
-          "display_order": 1
-        },
-        {
-          "sentence": "Onlar yarın {{answer}}.",
-          "answer": "gelecekler",
-          "translation": "They will come tomorrow.",
-          "hint": "to come + future, they",
-          "display_order": 2
-        },
-        {
-          "sentence": "Ben yarın çok {{answer}}.",
-          "answer": "çalışacağım",
-          "translation": "Tomorrow I will work a lot.",
-          "hint": "to work + future, I (k softens)",
-          "display_order": 3
-        },
-        {
-          "sentence": "Biz haftaya İstanbul'a {{answer}}.",
-          "answer": "gideceğiz",
-          "translation": "Next week we will go to Istanbul.",
-          "hint": "git + -eceğiz (t → d)",
-          "display_order": 4
-        },
-        {
-          "sentence": "O akşam yemek {{answer}}.",
-          "answer": "yapacak",
-          "translation": "She will make dinner.",
-          "hint": "to do + future, she",
-          "display_order": 5
-        },
-        {
-          "sentence": "Sen de {{answer}} misin?",
-          "answer": "gelecek",
-          "translation": "Will you come too?",
-          "hint": "to come + future; the question particle stays separate",
-          "display_order": 6
-        }
-      ]
-    },
-    {
-      "title": "Dative case (-e / -a)",
-      "level": "A2",
-      "function": "Say where something is headed",
-      "source": "contributor",
-      "reviewed": true,
-      "display_order": 3,
-      "explanation": "The dative marks direction ('to'): ev → eve (to home), okul → okula (to school). A buffer -y- appears after vowels: araba → arabaya. Verbs of motion and giving take it: Okula gidiyorum, Anneme verdim.",
-      "culture_note": "",
-      "references": [
-        {
-          "title": "Wikipedia: Turkish grammar",
-          "url": "https://en.wikipedia.org/wiki/Turkish_grammar"
-        },
-        {
-          "title": "Wikipedia: Turkish grammar — cases",
-          "url": "https://en.wikipedia.org/wiki/Turkish_grammar#Cases"
-        }
-      ],
-      "drills": [
-        {
-          "sentence": "Akşam {{answer}} dönüyorum.",
-          "answer": "eve",
-          "translation": "In the evening I return home.",
-          "hint": "house + dative",
-          "display_order": 1
-        },
-        {
-          "sentence": "Ben {{answer}} gidiyorum.",
-          "answer": "okula",
-          "translation": "I am going to school.",
-          "hint": "school + dative",
-          "display_order": 2
-        },
-        {
-          "sentence": "Yarın {{answer}} gidiyoruz.",
-          "answer": "İstanbul'a",
-          "translation": "Tomorrow we are going to Istanbul.",
-          "hint": "proper noun + apostrophe + -a",
-          "display_order": 3
-        },
-        {
-          "sentence": "Çocuk {{answer}} koşuyor.",
-          "answer": "parka",
-          "translation": "The child is running to the park.",
-          "hint": "park + dative",
-          "display_order": 4
-        },
-        {
-          "sentence": "Bu hediyeyi {{answer}} aldım.",
-          "answer": "sana",
-          "translation": "I bought this present for you.",
-          "hint": "'you' + dative (irregular vowel)",
-          "display_order": 5
-        },
-        {
-          "sentence": "Kitabı {{answer}} verdim.",
-          "answer": "arkadaşıma",
-          "translation": "I gave the book to my friend.",
-          "hint": "friend + 'my' + dative",
-          "display_order": 6
-        }
-      ]
-    },
-    {
-      "title": "Ablative case (-den / -dan)",
-      "level": "A2",
-      "function": "Say where something comes from",
-      "source": "contributor",
-      "reviewed": true,
-      "display_order": 4,
-      "explanation": "The ablative marks source ('from'): iş → işten (from work; voiceless ş hardens d→t), okul → okuldan (from school). It also builds comparisons and material: taştan (of stone).",
-      "culture_note": "",
-      "references": [
-        {
-          "title": "Wikipedia: Turkish grammar",
-          "url": "https://en.wikipedia.org/wiki/Turkish_grammar"
-        }
-      ],
-      "drills": [
-        {
-          "sentence": "Babam {{answer}} geldi.",
-          "answer": "işten",
-          "translation": "My father came from work.",
-          "hint": "work + ablative (suffix devoices)",
-          "display_order": 1
-        },
-        {
-          "sentence": "{{answer}} geliyorum.",
-          "answer": "Okuldan",
-          "translation": "I am coming from school.",
-          "hint": "school + ablative",
-          "display_order": 2
-        },
-        {
-          "sentence": "Tren {{answer}} kalkıyor.",
-          "answer": "İstanbul'dan",
-          "translation": "The train departs from Istanbul.",
-          "hint": "proper noun + apostrophe + -dan",
-          "display_order": 3
-        },
-        {
-          "sentence": "{{answer}} korkuyorum.",
-          "answer": "Köpekten",
-          "translation": "I am afraid of dogs.",
-          "hint": "korkmak takes the ablative",
-          "display_order": 4
-        },
-        {
-          "sentence": "Kardeşim {{answer}} döndü.",
-          "answer": "tatilden",
-          "translation": "My brother returned from holiday.",
-          "hint": "holiday + ablative",
-          "display_order": 5
-        },
-        {
-          "sentence": "Ben {{answer}} çıktım.",
-          "answer": "evden",
-          "translation": "I left the house.",
-          "hint": "house + ablative",
-          "display_order": 6
-        }
-      ]
-    },
-    {
-      "title": "Genitive + possessed (-in … -i)",
-      "level": "A2",
-      "function": "Link owner and owned",
-      "source": "contributor",
-      "reviewed": true,
-      "display_order": 5,
-      "explanation": "Ownership marks BOTH nouns: the owner takes genitive -(n)in, the owned takes the possessive: öğretmenin evi (the teacher's house), arabanın kapısı (the car's door, with buffer -s- after a vowel).",
-      "culture_note": "",
-      "references": [
-        {
-          "title": "Wikipedia: Turkish grammar",
-          "url": "https://en.wikipedia.org/wiki/Turkish_grammar"
-        }
-      ],
-      "drills": [
-        {
-          "sentence": "{{answer}} evi büyük.",
-          "answer": "Öğretmenin",
-          "translation": "The teacher's house is big.",
-          "hint": "teacher + genitive",
-          "display_order": 1
-        },
-        {
-          "sentence": "Arabanın {{answer}} kırık.",
-          "answer": "kapısı",
-          "translation": "The car's door is broken.",
-          "hint": "door + possessed ending (buffer s)",
-          "display_order": 2
-        },
-        {
-          "sentence": "{{answer}} kapısı açık.",
-          "answer": "Evin",
-          "translation": "The door of the house is open.",
-          "hint": "house + genitive",
-          "display_order": 3
-        },
-        {
-          "sentence": "Annemin {{answer}} çok güzel.",
-          "answer": "yemeği",
-          "translation": "My mother's cooking is very good.",
-          "hint": "food + possessed ending (final consonant softens)",
-          "display_order": 4
-        },
-        {
-          "sentence": "{{answer}} rengi mavi.",
-          "answer": "Denizin",
-          "translation": "The colour of the sea is blue.",
-          "hint": "sea + genitive",
-          "display_order": 5
-        },
-        {
-          "sentence": "Türkçenin {{answer}} zor değil.",
-          "answer": "grameri",
-          "translation": "Turkish grammar is not hard.",
-          "hint": "grammar + possessed ending",
-          "display_order": 6
-        }
-      ]
-    },
-    {
-      "title": "Aorist / geniş zaman (-ir)",
-      "level": "A2",
-      "function": "State habits and general truths",
-      "source": "contributor",
-      "reviewed": true,
-      "display_order": 6,
-      "explanation": "The aorist covers habits, general truths, and offers: içmek → içerim (I drink [habitually]), kalkmak → kalkar (he gets up). Single-syllable stems mostly take -ar/-er; longer stems take -ir/-ır/-ur/-ür.",
-      "culture_note": "The aorist is also the politeness tense: 'Bir çay alır mısınız?' (Would you take a tea?).",
-      "references": [
-        {
-          "title": "Wikipedia: Turkish grammar",
-          "url": "https://en.wikipedia.org/wiki/Turkish_grammar"
-        },
-        {
-          "title": "Wiktionary: -ir (Turkish)",
-          "url": "https://en.wiktionary.org/wiki/-ir#Turkish"
-        }
-      ],
-      "drills": [
-        {
-          "sentence": "Her sabah kahve {{answer}}.",
-          "answer": "içerim",
-          "translation": "Every morning I drink coffee.",
-          "hint": "to drink + aorist, I",
-          "display_order": 1
-        },
-        {
-          "sentence": "O erken {{answer}}.",
-          "answer": "kalkar",
-          "translation": "He gets up early.",
-          "hint": "to get up + aorist, he/she",
-          "display_order": 2
-        },
-        {
-          "sentence": "O her akşam kitap {{answer}}.",
-          "answer": "okur",
-          "translation": "He reads a book every evening.",
-          "hint": "to read + aorist, he",
-          "display_order": 3
-        },
-        {
-          "sentence": "Biz pazar günleri geç {{answer}}.",
-          "answer": "kalkarız",
-          "translation": "On Sundays we get up late.",
-          "hint": "to get up + aorist, we",
-          "display_order": 4
-        },
-        {
-          "sentence": "Ben her gün Türkçe {{answer}}.",
-          "answer": "çalışırım",
-          "translation": "I study Turkish every day.",
-          "hint": "to study + aorist, I",
-          "display_order": 5
-        },
-        {
-          "sentence": "Kuşlar {{answer}}.",
-          "answer": "uçar",
-          "translation": "Birds fly.",
-          "hint": "to fly + aorist — general truth",
-          "display_order": 6
-        }
-      ]
-    },
-    {
-      "title": "Ability (-ebil)",
-      "level": "A2",
-      "function": "Say what you can do",
-      "source": "contributor",
-      "reviewed": true,
-      "display_order": 7,
-      "explanation": "-(y)ebil/-(y)abil expresses ability and permission: konuşmak → konuşabilirim (I can speak), gelmek → gelebilir (he can come). It conjugates like an aorist afterward.",
-      "culture_note": "",
-      "references": [
-        {
-          "title": "Wikipedia: Turkish grammar",
-          "url": "https://en.wikipedia.org/wiki/Turkish_grammar"
-        },
-        {
-          "title": "Wiktionary: -ebil (Turkish)",
-          "url": "https://en.wiktionary.org/wiki/-ebil#Turkish"
-        }
-      ],
-      "drills": [
-        {
-          "sentence": "Türkçe {{answer}}.",
-          "answer": "konuşabilirim",
-          "translation": "I can speak Turkish.",
-          "hint": "to speak + ability, I",
-          "display_order": 1
-        },
-        {
-          "sentence": "Yarın {{answer}} misin?",
-          "answer": "gelebilir",
-          "translation": "Can you come tomorrow?",
-          "hint": "to come + ability (+ separate question particle)",
-          "display_order": 2
-        },
-        {
-          "sentence": "Ben çok hızlı {{answer}}.",
-          "answer": "koşabilirim",
-          "translation": "I can run very fast.",
-          "hint": "to run + ability, I",
-          "display_order": 3
-        },
-        {
-          "sentence": "O üç dil {{answer}}.",
-          "answer": "konuşabilir",
-          "translation": "She can speak three languages.",
-          "hint": "to speak + ability, she",
-          "display_order": 4
-        },
-        {
-          "sentence": "Bana yardım {{answer}} misin?",
-          "answer": "edebilir",
-          "translation": "Can you help me?",
-          "hint": "et + -ebilir (t → d)",
-          "display_order": 5
-        },
-        {
-          "sentence": "Biz yarın {{answer}}.",
-          "answer": "gelebiliriz",
-          "translation": "We can come tomorrow.",
-          "hint": "to come + ability, we",
-          "display_order": 6
-        }
-      ]
-    },
-    {
-      "title": "Comparatives (daha / en)",
-      "level": "A2",
-      "function": "Compare and rank",
-      "source": "contributor",
-      "reviewed": true,
-      "display_order": 8,
-      "explanation": "Comparison is analytic: daha + adjective = more (Bu ev daha büyük), en + adjective = most (en iyi öğrenci). 'Than' is the ablative: senden daha uzun (taller than you).",
-      "culture_note": "",
-      "references": [
-        {
-          "title": "Wikipedia: Turkish grammar",
-          "url": "https://en.wikipedia.org/wiki/Turkish_grammar"
-        }
-      ],
-      "drills": [
-        {
-          "sentence": "Bu ev {{answer}} büyük.",
-          "answer": "daha",
-          "translation": "This house is bigger.",
-          "hint": "'more'",
-          "display_order": 1
-        },
-        {
-          "sentence": "O, sınıfın {{answer}} iyi öğrencisi.",
-          "answer": "en",
-          "translation": "He is the best student in the class.",
-          "hint": "'most'",
-          "display_order": 2
-        },
-        {
-          "sentence": "Bu kitap {{answer}} ilginç.",
-          "answer": "daha",
-          "translation": "This book is more interesting.",
-          "hint": "more",
-          "display_order": 3
-        },
-        {
-          "sentence": "İstanbul Türkiye'nin {{answer}} büyük şehri.",
-          "answer": "en",
-          "translation": "Istanbul is Turkey's biggest city.",
-          "hint": "the most",
-          "display_order": 4
-        },
-        {
-          "sentence": "Kahve çaydan {{answer}} pahalı.",
-          "answer": "daha",
-          "translation": "Coffee is more expensive than tea.",
-          "hint": "-den … more",
-          "display_order": 5
-        },
-        {
-          "sentence": "Bu, yılın {{answer}} soğuk günü.",
-          "answer": "en",
-          "translation": "This is the coldest day of the year.",
-          "hint": "the most",
-          "display_order": 6
-        }
-      ]
-    },
-    {
-      "title": "Postpositions ile and için",
-      "level": "A2",
-      "function": "Say with what and for whom",
-      "source": "contributor",
-      "reviewed": true,
-      "display_order": 9,
-      "explanation": "ile = with/by (arkadaşım ile / arkadaşımla — it often fuses as -le/-la); için = for (senin için, bu iş için). Pronouns take genitive before için: benim için (for me).",
-      "culture_note": "",
-      "references": [
-        {
-          "title": "Wikipedia: Turkish grammar",
-          "url": "https://en.wikipedia.org/wiki/Turkish_grammar"
-        }
-      ],
-      "drills": [
-        {
-          "sentence": "Arkadaşım {{answer}} sinemaya gittim.",
-          "answer": "ile",
-          "translation": "I went to the cinema with my friend.",
-          "hint": "'with'",
-          "display_order": 1
-        },
-        {
-          "sentence": "Bu hediye senin {{answer}}.",
-          "answer": "için",
-          "translation": "This gift is for you.",
-          "hint": "'for'",
-          "display_order": 2
-        },
-        {
-          "sentence": "Otobüs {{answer}} geliyorum.",
-          "answer": "ile",
-          "translation": "I am coming by bus.",
-          "hint": "with / by",
-          "display_order": 3
-        },
-        {
-          "sentence": "Sağlık {{answer}} spor yap.",
-          "answer": "için",
-          "translation": "Do sport for your health.",
-          "hint": "for",
-          "display_order": 4
-        },
-        {
-          "sentence": "Annem {{answer}} konuştum.",
-          "answer": "ile",
-          "translation": "I spoke with my mother.",
-          "hint": "with",
-          "display_order": 5
-        },
-        {
-          "sentence": "Senin {{answer}} her şeyi yaparım.",
-          "answer": "için",
-          "translation": "I would do anything for you.",
-          "hint": "for",
-          "display_order": 6
-        }
-      ]
-    },
-    {
-      "title": "Before and after (-den önce / sonra)",
-      "level": "A2",
-      "function": "Order events in time",
-      "source": "contributor",
-      "reviewed": true,
-      "display_order": 10,
-      "explanation": "önce (before) and sonra (after) follow an ablative noun: kahvaltıdan sonra (after breakfast), dersten önce (before class). With verbs: -meden önce (before doing), -dikten sonra (after doing).",
-      "culture_note": "",
-      "references": [
-        {
-          "title": "Wikipedia: Turkish grammar",
-          "url": "https://en.wikipedia.org/wiki/Turkish_grammar"
-        }
-      ],
-      "drills": [
-        {
-          "sentence": "Kahvaltıdan {{answer}} yürüyüş yaparım.",
-          "answer": "sonra",
-          "translation": "After breakfast I take a walk.",
-          "hint": "'after'",
-          "display_order": 1
-        },
-        {
-          "sentence": "Uyumadan {{answer}} kitap okurum.",
-          "answer": "önce",
-          "translation": "Before sleeping I read a book.",
-          "hint": "'before'",
-          "display_order": 2
-        },
-        {
-          "sentence": "Yemekten {{answer}} ellerini yıka.",
-          "answer": "önce",
-          "translation": "Wash your hands before the meal.",
-          "hint": "before",
-          "display_order": 3
-        },
-        {
-          "sentence": "Dersten {{answer}} eve gittim.",
-          "answer": "sonra",
-          "translation": "After the lesson I went home.",
-          "hint": "after",
-          "display_order": 4
-        },
-        {
-          "sentence": "İşten {{answer}} spor yaparım.",
-          "answer": "sonra",
-          "translation": "After work I do sport.",
-          "hint": "after",
-          "display_order": 5
-        },
-        {
-          "sentence": "Sınavdan {{answer}} çok çalıştım.",
-          "answer": "önce",
-          "translation": "Before the exam I studied a lot.",
-          "hint": "before",
-          "display_order": 6
-        }
-      ]
-    },
-    {
-      "title": "Aorist negative (-mez / -mem)",
-      "level": "B1",
-      "function": "Deny habits politely and firmly",
-      "source": "contributor",
-      "reviewed": true,
-      "display_order": 1,
-      "explanation": "The aorist negates irregularly: -mem (I), -mezsin, -mez, -meyiz, -mezsiniz, -mezler: et yemem (I don't eat meat), yalan söylemez (he doesn't lie).",
-      "culture_note": "",
-      "references": [
-        {
-          "title": "Wikipedia: Turkish grammar",
-          "url": "https://en.wikipedia.org/wiki/Turkish_grammar"
-        }
-      ],
-      "drills": [
-        {
-          "sentence": "Ben et {{answer}}.",
-          "answer": "yemem",
-          "translation": "I don't eat meat.",
-          "hint": "ye + aorist negative, 1sg",
-          "display_order": 1
-        },
-        {
-          "sentence": "O yalan {{answer}}.",
-          "answer": "söylemez",
-          "translation": "He does not lie.",
-          "hint": "to say + aorist negative, he",
-          "display_order": 2
-        },
-        {
-          "sentence": "O asla geç {{answer}}.",
-          "answer": "kalmaz",
-          "translation": "He is never late.",
-          "hint": "to stay + aorist negative, he",
-          "display_order": 3
-        },
-        {
-          "sentence": "Ben sabahları kahve {{answer}}.",
-          "answer": "içmem",
-          "translation": "I don't drink coffee in the mornings.",
-          "hint": "to drink + aorist negative, I",
-          "display_order": 4
-        },
-        {
-          "sentence": "Biz yalan {{answer}}.",
-          "answer": "söylemeyiz",
-          "translation": "We don't tell lies.",
-          "hint": "to say + aorist negative, we",
-          "display_order": 5
-        },
-        {
-          "sentence": "O balık {{answer}}.",
-          "answer": "sevmez",
-          "translation": "He doesn't like fish.",
-          "hint": "to like + aorist negative, he",
-          "display_order": 6
-        }
-      ]
-    },
-    {
-      "title": "Evidential past (-miş)",
-      "level": "B1",
-      "function": "Report what you didn't witness",
-      "source": "contributor",
-      "reviewed": true,
-      "display_order": 2,
-      "explanation": "-miş marks hearsay, inference, and surprise — the un-witnessed past: Dün yağmur yağmış (It apparently rained yesterday), Çok yorulmuşsun (You must be really tired). Turkish forces you to say HOW you know.",
-      "culture_note": "This -di/-miş split is one of Turkish's signatures: saying 'geldi' claims you saw it; 'gelmiş' says you found out.",
-      "references": [
-        {
-          "title": "Wikipedia: Turkish grammar",
-          "url": "https://en.wikipedia.org/wiki/Turkish_grammar"
-        },
-        {
-          "title": "Wikipedia: Evidentiality",
-          "url": "https://en.wikipedia.org/wiki/Evidentiality"
-        }
-      ],
-      "drills": [
-        {
-          "sentence": "Dün yağmur {{answer}}.",
-          "answer": "yağmış",
-          "translation": "It apparently rained yesterday.",
-          "hint": "to rain + evidential past (hearsay)",
-          "display_order": 1
-        },
-        {
-          "sentence": "Çok {{answer}}.",
-          "answer": "yorulmuşsun",
-          "translation": "You must be really tired.",
-          "hint": "to get tired + evidential past, you (inference)",
-          "display_order": 2
-        },
-        {
-          "sentence": "Sen dün çok {{answer}}.",
-          "answer": "çalışmışsın",
-          "translation": "Apparently you worked a lot yesterday.",
-          "hint": "to work + evidential past, you",
-          "display_order": 3
-        },
-        {
-          "sentence": "Komşular {{answer}}.",
-          "answer": "taşınmış",
-          "translation": "The neighbours have apparently moved away.",
-          "hint": "to move away + evidential past",
-          "display_order": 4
-        },
-        {
-          "sentence": "Bebek {{answer}}.",
-          "answer": "uyumuş",
-          "translation": "The baby has apparently fallen asleep.",
-          "hint": "to fall asleep + evidential past",
-          "display_order": 5
-        },
-        {
-          "sentence": "Yemek çok güzel {{answer}}.",
-          "answer": "olmuş",
-          "translation": "The food has turned out great (they say).",
-          "hint": "to turn out + evidential past",
-          "display_order": 6
-        }
-      ]
-    },
-    {
-      "title": "Necessity (-meli)",
-      "level": "B1",
-      "function": "Say what must be done",
-      "source": "contributor",
-      "reviewed": true,
-      "display_order": 3,
-      "explanation": "-meli/-malı expresses obligation: kalkmalıyım (I must get up), çalışmalısın (you should study), gitmeliyiz (we must go).",
-      "culture_note": "",
-      "references": [
-        {
-          "title": "Wikipedia: Turkish grammar",
-          "url": "https://en.wikipedia.org/wiki/Turkish_grammar"
-        }
-      ],
-      "drills": [
-        {
-          "sentence": "Erken {{answer}}.",
-          "answer": "kalkmalıyım",
-          "translation": "I must get up early.",
-          "hint": "to get up + necessity, I",
-          "display_order": 1
-        },
-        {
-          "sentence": "Daha çok {{answer}}.",
-          "answer": "çalışmalısın",
-          "translation": "You should study more.",
-          "hint": "to study + necessity, you",
-          "display_order": 2
-        },
-        {
-          "sentence": "Biz daha erken {{answer}}.",
-          "answer": "yatmalıyız",
-          "translation": "We should go to bed earlier.",
-          "hint": "to go to bed + necessity, we",
-          "display_order": 3
-        },
-        {
-          "sentence": "O doktora {{answer}}.",
-          "answer": "gitmeli",
-          "translation": "She should go to the doctor.",
-          "hint": "to go + necessity, she",
-          "display_order": 4
-        },
-        {
-          "sentence": "Ben sigarayı {{answer}}.",
-          "answer": "bırakmalıyım",
-          "translation": "I must quit smoking.",
-          "hint": "to quit + necessity, I",
-          "display_order": 5
-        },
-        {
-          "sentence": "Siz Türkçe pratik {{answer}}.",
-          "answer": "yapmalısınız",
-          "translation": "You should practise Turkish.",
-          "hint": "to do + necessity, you (plural)",
-          "display_order": 6
-        }
-      ]
-    },
-    {
-      "title": "Conditional (-se)",
-      "level": "B1",
-      "function": "Make if-sentences",
-      "source": "contributor",
-      "reviewed": true,
-      "display_order": 4,
-      "explanation": "-se/-sa on the verb (or var/yok) builds real conditions: Zamanın varsa, gel (If you have time, come), Yağmur yağarsa evde kalırız (If it rains we stay home — aorist + -sa).",
-      "culture_note": "",
-      "references": [
-        {
-          "title": "Wikipedia: Turkish grammar",
-          "url": "https://en.wikipedia.org/wiki/Turkish_grammar"
-        }
-      ],
-      "drills": [
-        {
-          "sentence": "Zamanın {{answer}}, gel.",
-          "answer": "varsa",
-          "translation": "If you have time, come.",
-          "hint": "'there is' + conditional",
-          "display_order": 1
-        },
-        {
-          "sentence": "Yağmur {{answer}}, evde kalırız.",
-          "answer": "yağarsa",
-          "translation": "If it rains, we will stay at home.",
-          "hint": "to rain + aorist + conditional",
-          "display_order": 2
-        },
-        {
-          "sentence": "Param {{answer}}, araba alırım.",
-          "answer": "olursa",
-          "translation": "If I have money, I'll buy a car.",
-          "hint": "to be + aorist + conditional",
-          "display_order": 3
-        },
-        {
-          "sentence": "Erken {{answer}}, kahvaltı yaparız.",
-          "answer": "kalkarsak",
-          "translation": "If we get up early, we'll have breakfast.",
-          "hint": "to get up + aorist + conditional, we",
-          "display_order": 4
-        },
-        {
-          "sentence": "{{answer}}, birlikte çalışırız.",
-          "answer": "İstersen",
-          "translation": "If you want, we'll work together.",
-          "hint": "iste + -r + -sen",
-          "display_order": 5
-        },
-        {
-          "sentence": "Geç {{answer}}, beni bekleme.",
-          "answer": "kalırsam",
-          "translation": "If I'm late, don't wait for me.",
-          "hint": "to be (late) + aorist + conditional, I",
-          "display_order": 6
-        }
-      ]
-    },
-    {
-      "title": "Verbal nouns (-mek / -me)",
-      "level": "B1",
-      "function": "Use actions as things",
-      "source": "contributor",
-      "reviewed": true,
-      "display_order": 5,
-      "explanation": "Infinitives act as nouns: Kitap okumak güzeldir (Reading books is nice). As an object the -me form takes case: Yüzmeyi seviyorum (I love swimming — yüzme + accusative).",
-      "culture_note": "",
-      "references": [
-        {
-          "title": "Wikipedia: Turkish grammar",
-          "url": "https://en.wikipedia.org/wiki/Turkish_grammar"
-        }
-      ],
-      "drills": [
-        {
-          "sentence": "{{answer}} seviyorum.",
-          "answer": "Yüzmeyi",
-          "translation": "I love swimming.",
-          "hint": "swimming as a noun + accusative",
-          "display_order": 1
-        },
-        {
-          "sentence": "Kitap {{answer}} güzeldir.",
-          "answer": "okumak",
-          "translation": "Reading books is nice.",
-          "hint": "bare infinitive as subject",
-          "display_order": 2
-        },
-        {
-          "sentence": "{{answer}} sağlığa iyi gelir.",
-          "answer": "Yüzmek",
-          "translation": "Swimming is good for your health.",
-          "hint": "to swim as a noun (infinitive)",
-          "display_order": 3
-        },
-        {
-          "sentence": "Türkçe {{answer}} zor değil.",
-          "answer": "öğrenmek",
-          "translation": "Learning Turkish is not hard.",
-          "hint": "to learn as a noun (infinitive)",
-          "display_order": 4
-        },
-        {
-          "sentence": "{{answer}} istemiyorum.",
-          "answer": "Gitmek",
-          "translation": "I don't want to go.",
-          "hint": "to go as a noun (infinitive)",
-          "display_order": 5
-        },
-        {
-          "sentence": "O, kitap {{answer}} sever.",
-          "answer": "okumayı",
-          "translation": "He loves reading books.",
-          "hint": "reading as a noun + accusative",
-          "display_order": 6
-        }
-      ]
-    },
-    {
-      "title": "gibi and kadar",
-      "level": "B1",
-      "function": "Say 'like' and 'as much as'",
-      "source": "contributor",
-      "reviewed": true,
-      "display_order": 6,
-      "explanation": "gibi = like (Aslan gibi güçlü — strong like a lion); kadar = as much as (Senin kadar hızlı değilim — I'm not as fast as you; pronouns take genitive before kadar).",
-      "culture_note": "",
-      "references": [
-        {
-          "title": "Wikipedia: Turkish grammar",
-          "url": "https://en.wikipedia.org/wiki/Turkish_grammar"
-        }
-      ],
-      "drills": [
-        {
-          "sentence": "Aslan {{answer}} güçlü.",
-          "answer": "gibi",
-          "translation": "Strong as a lion.",
-          "hint": "'like'",
-          "display_order": 1
-        },
-        {
-          "sentence": "Senin {{answer}} hızlı değilim.",
-          "answer": "kadar",
-          "translation": "I am not as fast as you.",
-          "hint": "'as much as'",
-          "display_order": 2
-        },
-        {
-          "sentence": "Buz {{answer}} soğuk.",
-          "answer": "gibi",
-          "translation": "Cold as ice.",
-          "hint": "like",
-          "display_order": 3
-        },
-        {
-          "sentence": "Kardeşim benim {{answer}} uzun değil.",
-          "answer": "kadar",
-          "translation": "My brother is not as tall as me.",
-          "hint": "as … as",
-          "display_order": 4
-        },
-        {
-          "sentence": "O, babası {{answer}} çalışkan.",
-          "answer": "kadar",
-          "translation": "He is as hardworking as his father.",
-          "hint": "as … as",
-          "display_order": 5
-        },
-        {
-          "sentence": "Melek {{answer}} bir insan.",
-          "answer": "gibi",
-          "translation": "A person like an angel.",
-          "hint": "like",
-          "display_order": 6
-        }
-      ]
-    },
-    {
-      "title": "While (-ken)",
-      "level": "B1",
-      "function": "Do two things at once",
-      "source": "contributor",
-      "reviewed": true,
-      "display_order": 7,
-      "explanation": "-ken attaches to the aorist (or nouns) for 'while': Çalışırken müzik dinlerim (While working I listen to music), Yemek yerken konuşma (Don't talk while eating). It ignores vowel harmony — always -ken.",
-      "culture_note": "",
-      "references": [
-        {
-          "title": "Wikipedia: Turkish grammar",
-          "url": "https://en.wikipedia.org/wiki/Turkish_grammar"
-        }
-      ],
-      "drills": [
-        {
-          "sentence": "{{answer}} müzik dinlerim.",
-          "answer": "Çalışırken",
-          "translation": "While working, I listen to music.",
-          "hint": "to work + aorist + 'while'",
-          "display_order": 1
-        },
-        {
-          "sentence": "Yemek {{answer}} konuşma.",
-          "answer": "yerken",
-          "translation": "Don't talk while eating.",
-          "hint": "to eat + aorist + 'while'",
-          "display_order": 2
-        },
-        {
-          "sentence": "{{answer}} telefon çaldı.",
-          "answer": "Uyurken",
-          "translation": "The phone rang while I was sleeping.",
-          "hint": "to sleep + aorist + 'while'",
-          "display_order": 3
-        },
-        {
-          "sentence": "Kitap {{answer}} uyuyakaldım.",
-          "answer": "okurken",
-          "translation": "I fell asleep while reading a book.",
-          "hint": "to read + aorist + 'while'",
-          "display_order": 4
-        },
-        {
-          "sentence": "Araba {{answer}} dikkatli ol.",
-          "answer": "kullanırken",
-          "translation": "Be careful while driving.",
-          "hint": "to use + aorist + 'while'",
-          "display_order": 5
-        },
-        {
-          "sentence": "Ders {{answer}} telefonuna bakma.",
-          "answer": "çalışırken",
-          "translation": "Don't look at your phone while studying.",
-          "hint": "to study + aorist + 'while'",
-          "display_order": 6
-        }
-      ]
-    },
-    {
-      "title": "Subject participle (-en)",
-      "level": "B2",
-      "function": "Describe the one who does",
-      "source": "contributor",
-      "reviewed": true,
-      "display_order": 1,
-      "explanation": "-en/-an turns a verb into 'the one who…': gelen adam (the man who is coming), kitap okuyan kız (the girl reading a book). It replaces English 'who/that' clauses where the head noun is the subject.",
-      "culture_note": "",
-      "references": [
-        {
-          "title": "Wikipedia: Turkish grammar",
-          "url": "https://en.wikipedia.org/wiki/Turkish_grammar"
-        },
-        {
-          "title": "Wiktionary: -en (Turkish)",
-          "url": "https://en.wiktionary.org/wiki/-en#Turkish"
-        }
-      ],
-      "drills": [
-        {
-          "sentence": "{{answer}} adam babamdır.",
-          "answer": "Gelen",
-          "translation": "The man who is coming is my father.",
-          "hint": "to come + subject participle",
-          "display_order": 1
-        },
-        {
-          "sentence": "Kitap {{answer}} kız kardeşimdir.",
-          "answer": "okuyan",
-          "translation": "The girl who is reading a book is my sister.",
-          "hint": "to read + subject participle (buffer y)",
-          "display_order": 2
-        },
-        {
-          "sentence": "{{answer}} kadın annemdir.",
-          "answer": "Konuşan",
-          "translation": "The woman who is speaking is my mother.",
-          "hint": "to speak + subject participle",
-          "display_order": 3
-        },
-        {
-          "sentence": "Bahçede {{answer}} çocuklar mutlu.",
-          "answer": "oynayan",
-          "translation": "The children playing in the garden are happy.",
-          "hint": "to play + subject participle (buffer y)",
-          "display_order": 4
-        },
-        {
-          "sentence": "{{answer}} öğrenciler sınavı geçti.",
-          "answer": "Çalışan",
-          "translation": "The students who studied passed the exam.",
-          "hint": "to study + subject participle",
-          "display_order": 5
-        },
-        {
-          "sentence": "Sokakta {{answer}} adamı gördüm.",
-          "answer": "koşan",
-          "translation": "I saw the man running in the street.",
-          "hint": "to run + subject participle",
-          "display_order": 6
-        }
-      ]
-    },
-    {
-      "title": "Object participle (-dik)",
-      "level": "B2",
-      "function": "Describe the thing that is done",
-      "source": "contributor",
-      "reviewed": true,
-      "display_order": 2,
-      "explanation": "When the head noun is the OBJECT, use -dik + possessive: okuduğum kitap (the book that I read), senin yaptığın yemek (the food you made). The possessive shows who did it; k softens to ğ before vowels.",
-      "culture_note": "",
-      "references": [
-        {
-          "title": "Wikipedia: Turkish grammar",
-          "url": "https://en.wikipedia.org/wiki/Turkish_grammar"
-        },
-        {
-          "title": "Wiktionary: -dik (Turkish)",
-          "url": "https://en.wiktionary.org/wiki/-dik#Turkish"
-        }
-      ],
-      "drills": [
-        {
-          "sentence": "{{answer}} kitap çok güzel.",
-          "answer": "Okuduğum",
-          "translation": "The book that I read is very good.",
-          "hint": "to read + object participle, my",
-          "display_order": 1
-        },
-        {
-          "sentence": "Senin {{answer}} yemek lezzetliydi.",
-          "answer": "yaptığın",
-          "translation": "The food that you made was delicious.",
-          "hint": "to make + object participle, your",
-          "display_order": 2
-        },
-        {
-          "sentence": "{{answer}} film çok uzundu.",
-          "answer": "İzlediğimiz",
-          "translation": "The film we watched was very long.",
-          "hint": "izle + -diğimiz",
-          "display_order": 3
-        },
-        {
-          "sentence": "Onun {{answer}} her şey doğru.",
-          "answer": "söylediği",
-          "translation": "Everything he said is true.",
-          "hint": "to say + object participle, his",
-          "display_order": 4
-        },
-        {
-          "sentence": "{{answer}} şehir çok güzelmiş.",
-          "answer": "Yaşadığın",
-          "translation": "The city you live in is apparently very beautiful.",
-          "hint": "to live + object participle, your",
-          "display_order": 5
-        },
-        {
-          "sentence": "Benim {{answer}} kitap masada.",
-          "answer": "okuduğum",
-          "translation": "The book I am reading is on the table.",
-          "hint": "to read + object participle, my",
-          "display_order": 6
-        }
-      ]
-    },
-    {
-      "title": "Passive voice (-il / -in)",
-      "level": "B2",
-      "function": "Say what is done without the doer",
-      "source": "contributor",
-      "reviewed": true,
-      "display_order": 3,
-      "explanation": "The passive inserts -il (after consonants), -in (after l), or -n (after vowels): yapmak → yapıldı (it was built), içmek → içilir (it is drunk): Bu ev 1950'de yapıldı.",
-      "culture_note": "",
-      "references": [
-        {
-          "title": "Wikipedia: Turkish grammar",
-          "url": "https://en.wikipedia.org/wiki/Turkish_grammar"
-        }
-      ],
-      "drills": [
-        {
-          "sentence": "Bu ev 1950'de {{answer}}.",
-          "answer": "yapıldı",
-          "translation": "This house was built in 1950.",
-          "hint": "to build + passive + past",
-          "display_order": 1
-        },
-        {
-          "sentence": "Türkiye'de çok çay {{answer}}.",
-          "answer": "içilir",
-          "translation": "A lot of tea is drunk in Turkey.",
-          "hint": "to drink + passive + aorist",
-          "display_order": 2
-        },
-        {
-          "sentence": "Bu okul geçen yıl {{answer}}.",
-          "answer": "açıldı",
-          "translation": "This school was opened last year.",
-          "hint": "to open + passive + past",
-          "display_order": 3
-        },
-        {
-          "sentence": "Mektup dün {{answer}}.",
-          "answer": "gönderildi",
-          "translation": "The letter was sent yesterday.",
-          "hint": "to send + passive + past",
-          "display_order": 4
-        },
-        {
-          "sentence": "Bu evde Türkçe {{answer}}.",
-          "answer": "konuşulur",
-          "translation": "Turkish is spoken in this house.",
-          "hint": "to speak + passive + aorist",
-          "display_order": 5
-        },
-        {
-          "sentence": "Kapılar akşam dokuzda {{answer}}.",
-          "answer": "kapatılır",
-          "translation": "The doors are closed at nine in the evening.",
-          "hint": "to close + passive + aorist",
-          "display_order": 6
-        }
-      ]
-    },
-    {
-      "title": "Causative (-dir / -t)",
-      "level": "B2",
-      "function": "Have something done",
-      "source": "contributor",
-      "reviewed": true,
-      "display_order": 4,
-      "explanation": "The causative makes someone do or have done: kesmek → kestirmek (have cut) — Saçımı kestirdim (I had my hair cut); yemek → yedirmek (feed): Annesi çocuğa yemek yedirdi.",
-      "culture_note": "",
-      "references": [
-        {
-          "title": "Wikipedia: Turkish grammar",
-          "url": "https://en.wikipedia.org/wiki/Turkish_grammar"
-        }
-      ],
-      "drills": [
-        {
-          "sentence": "Saçımı {{answer}}.",
-          "answer": "kestirdim",
-          "translation": "I had my hair cut.",
-          "hint": "to cut + causative + past, I",
-          "display_order": 1
-        },
-        {
-          "sentence": "Annesi çocuğa yemek {{answer}}.",
-          "answer": "yedirdi",
-          "translation": "His mother fed the child.",
-          "hint": "to eat + causative + past, she",
-          "display_order": 2
-        },
-        {
-          "sentence": "Arabamı {{answer}}.",
-          "answer": "yıkattım",
-          "translation": "I had my car washed.",
-          "hint": "to wash + causative + past, I",
-          "display_order": 3
-        },
-        {
-          "sentence": "Öğretmen öğrencilere kitap {{answer}}.",
-          "answer": "okuttu",
-          "translation": "The teacher had the students read a book.",
-          "hint": "to read + causative + past, he",
-          "display_order": 4
-        },
-        {
-          "sentence": "Bebeği {{answer}}.",
-          "answer": "uyuttum",
-          "translation": "I put the baby to sleep.",
-          "hint": "to sleep + causative + past, I",
-          "display_order": 5
-        },
-        {
-          "sentence": "Evi {{answer}}.",
-          "answer": "boyattım",
-          "translation": "I had the house painted.",
-          "hint": "to paint + causative + past, I",
-          "display_order": 6
-        }
-      ]
-    },
-    {
-      "title": "Reported speech (-diğini söylemek)",
-      "level": "B2",
-      "function": "Report what people said and know",
-      "source": "contributor",
-      "reviewed": true,
-      "display_order": 5,
-      "explanation": "Reported clauses nominalize with -dik/-ecek + possessive + case: Geleceğini söyledi (He said he would come — gelecek+i+ni), Hasta olduğunu duydum (I heard that he was sick).",
-      "culture_note": "",
-      "references": [
-        {
-          "title": "Wikipedia: Turkish grammar",
-          "url": "https://en.wikipedia.org/wiki/Turkish_grammar"
-        }
-      ],
-      "drills": [
-        {
-          "sentence": "Geleceğini {{answer}}.",
-          "answer": "söyledi",
-          "translation": "He said that he would come.",
-          "hint": "the saying verb",
-          "display_order": 1
-        },
-        {
-          "sentence": "Hasta {{answer}} duydum.",
-          "answer": "olduğunu",
-          "translation": "I heard that he was sick.",
-          "hint": "to be + object participle + accusative",
-          "display_order": 2
-        },
-        {
-          "sentence": "Onun hasta {{answer}} bilmiyordum.",
-          "answer": "olduğunu",
-          "translation": "I didn't know that he was ill.",
-          "hint": "to be + object participle + accusative",
-          "display_order": 3
-        },
-        {
-          "sentence": "Nerede {{answer}} sordu.",
-          "answer": "oturduğumu",
-          "translation": "He asked where I live.",
-          "hint": "to live + object participle, my + accusative",
-          "display_order": 4
-        },
-        {
-          "sentence": "Beni {{answer}} söyledi.",
-          "answer": "sevdiğini",
-          "translation": "She said that she loves me.",
-          "hint": "to love + object participle, her + accusative",
-          "display_order": 5
-        },
-        {
-          "sentence": "Geç {{answer}} fark ettim.",
-          "answer": "kaldığımı",
-          "translation": "I realised that I was late.",
-          "hint": "to be (late) + object participle, my + accusative",
-          "display_order": 6
-        }
-      ]
-    },
-    {
-      "title": "Converbs (-ip and -erek)",
-      "level": "B2",
-      "function": "Chain actions in one sentence",
-      "source": "contributor",
-      "reviewed": true,
-      "display_order": 6,
-      "explanation": "-ip links same-subject actions ('and then'): Kahvaltı yapıp evden çıktım (I had breakfast and left). -erek expresses manner ('by/while doing'): Koşarak geldi (He came running).",
-      "culture_note": "",
-      "references": [
-        {
-          "title": "Wikipedia: Turkish grammar",
-          "url": "https://en.wikipedia.org/wiki/Turkish_grammar"
-        },
-        {
-          "title": "Wiktionary: -ip (Turkish)",
-          "url": "https://en.wiktionary.org/wiki/-ip#Turkish"
-        }
-      ],
-      "drills": [
-        {
-          "sentence": "Kahvaltı {{answer}} evden çıktım.",
-          "answer": "yapıp",
-          "translation": "I had breakfast and left the house.",
-          "hint": "to make + 'and then' converb",
-          "display_order": 1
-        },
-        {
-          "sentence": "{{answer}} geldi.",
-          "answer": "Koşarak",
-          "translation": "He came running.",
-          "hint": "to run + 'by …ing' converb",
-          "display_order": 2
-        },
-        {
-          "sentence": "Eve {{answer}} yemek yaptım.",
-          "answer": "gelip",
-          "translation": "I came home and cooked.",
-          "hint": "to come + 'and then' converb",
-          "display_order": 3
-        },
-        {
-          "sentence": "{{answer}} konuşuyordu.",
-          "answer": "Gülerek",
-          "translation": "She was talking while laughing.",
-          "hint": "to laugh + 'by …ing' converb",
-          "display_order": 4
-        },
-        {
-          "sentence": "Kapıyı {{answer}} çıktı.",
-          "answer": "kapatıp",
-          "translation": "He closed the door and left.",
-          "hint": "to close + 'and then' converb",
-          "display_order": 5
-        },
-        {
-          "sentence": "Müzik {{answer}} ders çalışırım.",
-          "answer": "dinleyerek",
-          "translation": "I study while listening to music.",
-          "hint": "to listen + 'by …ing' converb (buffer y)",
-          "display_order": 6
-        }
-      ]
-    },
-    {
-      "title": "The more… (-dikçe)",
-      "level": "C1",
-      "function": "Say 'the more X, the more Y'",
-      "source": "contributor",
-      "reviewed": true,
-      "display_order": 1,
-      "explanation": "-dikçe means 'as / the more / as long as': Okudukça öğreniyorum (The more I read, the more I learn), Sen güldükçe ben mutlu oluyorum (As you laugh, I become happy).",
-      "culture_note": "",
-      "references": [
-        {
-          "title": "Wikipedia: Turkish grammar",
-          "url": "https://en.wikipedia.org/wiki/Turkish_grammar"
-        }
-      ],
-      "drills": [
-        {
-          "sentence": "{{answer}} öğreniyorum.",
-          "answer": "Okudukça",
-          "translation": "The more I read, the more I learn.",
-          "hint": "to read + 'the more' converb",
-          "display_order": 1
-        },
-        {
-          "sentence": "Sen {{answer}}, ben mutlu oluyorum.",
-          "answer": "güldükçe",
-          "translation": "As you laugh, I become happy.",
-          "hint": "to laugh + 'the more' converb",
-          "display_order": 2
-        },
-        {
-          "sentence": "Para {{answer}} harcıyor.",
-          "answer": "kazandıkça",
-          "translation": "The more he earns, the more he spends.",
-          "hint": "to earn + 'the more' converb",
-          "display_order": 3
-        },
-        {
-          "sentence": "{{answer}} güzelleşiyorsun.",
-          "answer": "Büyüdükçe",
-          "translation": "You get more beautiful as you grow.",
-          "hint": "to grow + 'the more' converb",
-          "display_order": 4
-        },
-        {
-          "sentence": "Türkçe {{answer}} kolaylaşıyor.",
-          "answer": "öğrendikçe",
-          "translation": "The more you learn Turkish, the easier it gets.",
-          "hint": "to learn + 'the more' converb",
-          "display_order": 5
-        },
-        {
-          "sentence": "Zaman {{answer}} her şey değişiyor.",
-          "answer": "geçtikçe",
-          "translation": "As time passes, everything changes.",
-          "hint": "to pass + 'the more' converb (suffix devoices)",
-          "display_order": 6
-        }
-      ]
-    },
-    {
-      "title": "Without doing (-meden)",
-      "level": "C1",
-      "function": "Say what happened without something",
-      "source": "contributor",
-      "reviewed": true,
-      "display_order": 2,
-      "explanation": "-meden = without doing: Veda etmeden gitti (He left without saying goodbye), Hiç çalışmadan sınavı geçti (He passed the exam without studying at all).",
-      "culture_note": "",
-      "references": [
-        {
-          "title": "Wikipedia: Turkish grammar",
-          "url": "https://en.wikipedia.org/wiki/Turkish_grammar"
-        }
-      ],
-      "drills": [
-        {
-          "sentence": "Veda {{answer}} gitti.",
-          "answer": "etmeden",
-          "translation": "He left without saying goodbye.",
-          "hint": "to do + 'without …ing'",
-          "display_order": 1
-        },
-        {
-          "sentence": "Hiç {{answer}} sınavı geçti.",
-          "answer": "çalışmadan",
-          "translation": "He passed the exam without studying at all.",
-          "hint": "to study + 'without …ing'",
-          "display_order": 2
-        },
-        {
-          "sentence": "Kahvaltı {{answer}} okula gitti.",
-          "answer": "yapmadan",
-          "translation": "He went to school without having breakfast.",
-          "hint": "to have (breakfast) + 'without …ing'",
-          "display_order": 3
-        },
-        {
-          "sentence": "{{answer}} konuşma.",
-          "answer": "Düşünmeden",
-          "translation": "Don't speak without thinking.",
-          "hint": "to think + 'without …ing'",
-          "display_order": 4
-        },
-        {
-          "sentence": "İzin {{answer}} girme.",
-          "answer": "almadan",
-          "translation": "Don't enter without permission.",
-          "hint": "to take + 'without …ing'",
-          "display_order": 5
-        },
-        {
-          "sentence": "Etrafına {{answer}} yürüyordu.",
-          "answer": "bakmadan",
-          "translation": "He was walking without looking around.",
-          "hint": "to look + 'without …ing'",
-          "display_order": 6
-        }
-      ]
-    },
-    {
-      "title": "Reflexive and reciprocal voice (-in / -iş)",
-      "level": "C1",
-      "function": "Actions on oneself and each other",
-      "source": "contributor",
-      "reviewed": true,
-      "display_order": 3,
-      "explanation": "-in makes reflexives: yıkanmak (wash oneself) — Kedi yıkanıyor. -iş makes reciprocals: tanışmak (meet each other) — Biz üniversitede tanıştık (We met at university).",
-      "culture_note": "",
-      "references": [
-        {
-          "title": "Wikipedia: Turkish grammar",
-          "url": "https://en.wikipedia.org/wiki/Turkish_grammar"
-        }
-      ],
-      "drills": [
-        {
-          "sentence": "Biz üniversitede {{answer}}.",
-          "answer": "tanıştık",
-          "translation": "We met (each other) at university.",
-          "hint": "to know + reciprocal + past, we",
-          "display_order": 1
-        },
-        {
-          "sentence": "Kedi {{answer}}.",
-          "answer": "yıkanıyor",
-          "translation": "The cat is washing itself.",
-          "hint": "to wash + reflexive + present continuous",
-          "display_order": 2
-        },
-        {
-          "sentence": "Onlar her gün {{answer}}.",
-          "answer": "görüşüyorlar",
-          "translation": "They see each other every day.",
-          "hint": "gör + -üş — reciprocal",
-          "display_order": 3
-        },
-        {
-          "sentence": "Arkadaşlar yıllar sonra {{answer}}.",
-          "answer": "buluştular",
-          "translation": "The friends met up after years.",
-          "hint": "bul + -uş — reciprocal",
-          "display_order": 4
-        },
-        {
-          "sentence": "Her sabah {{answer}}.",
-          "answer": "taranırım",
-          "translation": "I comb my hair every morning.",
-          "hint": "tara + -n — reflexive",
-          "display_order": 5
-        },
-        {
-          "sentence": "İki kardeş sürekli {{answer}}.",
-          "answer": "dövüşüyor",
-          "translation": "The two brothers are constantly fighting each other.",
-          "hint": "döv + -üş — reciprocal",
-          "display_order": 6
-        }
-      ]
-    },
-    {
-      "title": "Because (-diği için)",
-      "level": "C1",
-      "function": "Give reasons formally",
-      "source": "contributor",
-      "reviewed": true,
-      "display_order": 4,
-      "explanation": "-dik + possessive + için = because: Hasta olduğu için gelmedi (He didn't come because he was sick), Geç kaldığı için özür diledi (He apologized because he was late).",
-      "culture_note": "",
-      "references": [
-        {
-          "title": "Wikipedia: Turkish grammar",
-          "url": "https://en.wikipedia.org/wiki/Turkish_grammar"
-        }
-      ],
-      "drills": [
-        {
-          "sentence": "Hasta {{answer}} için gelmedi.",
-          "answer": "olduğu",
-          "translation": "He didn't come because he was sick.",
-          "hint": "to be + object participle (+ 'because')",
-          "display_order": 1
-        },
-        {
-          "sentence": "Geç {{answer}} için özür diledi.",
-          "answer": "kaldığı",
-          "translation": "He apologized for being late.",
-          "hint": "to be (late) + object participle (+ 'because')",
-          "display_order": 2
-        },
-        {
-          "sentence": "Yağmur {{answer}} için maç iptal oldu.",
-          "answer": "yağdığı",
-          "translation": "Because it rained, the match was cancelled.",
-          "hint": "to rain + object participle (+ 'because')",
-          "display_order": 3
-        },
-        {
-          "sentence": "Çok {{answer}} için başardı.",
-          "answer": "çalıştığı",
-          "translation": "He succeeded because he worked hard.",
-          "hint": "to work + object participle (+ 'because')",
-          "display_order": 4
-        },
-        {
-          "sentence": "Erken {{answer}} için yorgunum.",
-          "answer": "kalktığım",
-          "translation": "I am tired because I got up early.",
-          "hint": "to get up + object participle, my (+ 'because')",
-          "display_order": 5
-        },
-        {
-          "sentence": "Bilet {{answer}} için giremedik.",
-          "answer": "almadığımız",
-          "translation": "Because we didn't buy tickets, we couldn't get in.",
-          "hint": "to buy + negative + object participle, our (+ 'because')",
-          "display_order": 6
-        }
-      ]
-    },
-    {
-      "title": "Formal progressive (-mekte)",
-      "level": "C2",
-      "function": "Write and speak officially",
-      "source": "contributor",
-      "reviewed": true,
-      "display_order": 1,
-      "explanation": "-mekte(dir) is the formal register's progressive, standard in news and reports: Toplantı devam etmektedir (The meeting is in progress), Fiyatlar artmaktadır (Prices are rising).",
-      "culture_note": "",
-      "references": [
-        {
-          "title": "Wikipedia: Turkish grammar",
-          "url": "https://en.wikipedia.org/wiki/Turkish_grammar"
-        }
-      ],
-      "drills": [
-        {
-          "sentence": "Toplantı devam {{answer}}.",
-          "answer": "etmektedir",
-          "translation": "The meeting is (formally) in progress.",
-          "hint": "to continue + formal progressive",
-          "display_order": 1
-        },
-        {
-          "sentence": "Fiyatlar {{answer}}.",
-          "answer": "artmaktadır",
-          "translation": "Prices are rising (formal).",
-          "hint": "to increase + formal progressive",
-          "display_order": 2
-        },
-        {
-          "sentence": "Şirket hızla {{answer}}.",
-          "answer": "büyümektedir",
-          "translation": "The company is growing rapidly.",
-          "hint": "to grow + formal progressive",
-          "display_order": 3
-        },
-        {
-          "sentence": "İşsizlik oranı {{answer}}.",
-          "answer": "azalmaktadır",
-          "translation": "The unemployment rate is decreasing.",
-          "hint": "to decrease + formal progressive",
-          "display_order": 4
-        },
-        {
-          "sentence": "Proje üzerinde {{answer}}.",
-          "answer": "çalışılmaktadır",
-          "translation": "Work is ongoing on the project.",
-          "hint": "passive + -maktadır",
-          "display_order": 5
-        },
-        {
-          "sentence": "Sonuçlar {{answer}}.",
-          "answer": "beklenmektedir",
-          "translation": "The results are awaited.",
-          "hint": "passive + -mektedir",
-          "display_order": 6
-        }
-      ]
-    },
-    {
-      "title": "Pretending (-mış gibi)",
-      "level": "C2",
-      "function": "Describe feigned states",
-      "source": "contributor",
-      "reviewed": true,
-      "display_order": 2,
-      "explanation": "Perfective participle + gibi = as if / pretending: Duymamış gibi yaptı (He pretended not to have heard), Hiçbir şey olmamış gibi davrandı (He acted as if nothing had happened).",
-      "culture_note": "",
-      "references": [
-        {
-          "title": "Wikipedia: Turkish grammar",
-          "url": "https://en.wikipedia.org/wiki/Turkish_grammar"
-        }
-      ],
-      "drills": [
-        {
-          "sentence": "Duymamış {{answer}} yaptı.",
-          "answer": "gibi",
-          "translation": "He pretended not to have heard.",
-          "hint": "'as if' after -mış",
-          "display_order": 1
-        },
-        {
-          "sentence": "Hiçbir şey olmamış {{answer}} davrandı.",
-          "answer": "gibi",
-          "translation": "He acted as if nothing had happened.",
-          "hint": "'as if' after -mış",
-          "display_order": 2
-        },
-        {
-          "sentence": "Hiç {{answer}} gibi konuşuyor.",
-          "answer": "bilmiyormuş",
-          "translation": "He talks as if he doesn't know anything.",
-          "hint": "to not know + evidential (before 'gibi')",
-          "display_order": 3
-        },
-        {
-          "sentence": "{{answer}} gibi yaptı.",
-          "answer": "Anlamamış",
-          "translation": "She pretended not to understand.",
-          "hint": "to understand + negative + evidential participle",
-          "display_order": 4
-        },
-        {
-          "sentence": "Her şeyi {{answer}} gibi anlatıyor.",
-          "answer": "görmüş",
-          "translation": "He recounts it as if he had seen everything.",
-          "hint": "to see + evidential participle",
-          "display_order": 5
-        },
-        {
-          "sentence": "Beni {{answer}} gibi davrandı.",
-          "answer": "tanımıyormuş",
-          "translation": "She acted as if she didn't know me.",
-          "hint": "to not know (someone) + evidential (before 'gibi')",
-          "display_order": 6
-        }
-      ]
-    },
-    {
-      "title": "Instead of (-eceğine)",
-      "level": "C2",
-      "function": "Recommend alternatives",
-      "source": "contributor",
-      "reviewed": true,
-      "display_order": 3,
-      "explanation": "-eceğine = instead of (doing): Televizyon izleyeceğine kitap oku (Instead of watching TV, read a book), Şikayet edeceğine çözüm bul (Instead of complaining, find a solution).",
-      "culture_note": "",
-      "references": [
-        {
-          "title": "Wikipedia: Turkish grammar",
-          "url": "https://en.wikipedia.org/wiki/Turkish_grammar"
-        }
-      ],
-      "drills": [
-        {
-          "sentence": "Televizyon {{answer}} kitap oku.",
-          "answer": "izleyeceğine",
-          "translation": "Instead of watching TV, read a book.",
-          "hint": "to watch + 'instead of …ing'",
-          "display_order": 1
-        },
-        {
-          "sentence": "Şikayet {{answer}} çözüm bul.",
-          "answer": "edeceğine",
-          "translation": "Instead of complaining, find a solution.",
-          "hint": "et + -eceğ + -ine",
-          "display_order": 2
-        },
-        {
-          "sentence": "{{answer}} harekete geç.",
-          "answer": "Bekleyeceğine",
-          "translation": "Instead of waiting, take action.",
-          "hint": "to wait + 'instead of …ing'",
-          "display_order": 3
-        },
-        {
-          "sentence": "{{answer}} gül.",
-          "answer": "Ağlayacağına",
-          "translation": "Instead of crying, laugh.",
-          "hint": "to cry + 'instead of …ing'",
-          "display_order": 4
-        },
-        {
-          "sentence": "Evde {{answer}} dışarı çık.",
-          "answer": "oturacağına",
-          "translation": "Instead of sitting at home, go outside.",
-          "hint": "to sit + 'instead of …ing'",
-          "display_order": 5
-        },
-        {
-          "sentence": "Parayı oyuna {{answer}} kitap al.",
-          "answer": "harcayacağına",
-          "translation": "Instead of spending the money on games, buy books.",
-          "hint": "to spend + 'instead of …ing'",
-          "display_order": 6
-        }
-      ]
+     "sentence": "Onlar çok {{answer}}.",
+     "answer": "çalışkanlar",
+     "translation": "They are very hardworking.",
+     "hint": "hardworking + optional plural",
+     "cell": "onlar",
+     "display_order": 12
     }
-  ]
+   ],
+   "related": [
+    {
+     "title": "Var / yok — there is, there isn't",
+     "contrast": "Var says something EXISTS; the -im endings say what something IS."
+    },
+    {
+     "title": "Question particle (mı / mi / mu / mü)",
+     "contrast": "The personal ending hops onto mı in questions: öğretmen misin?"
+    }
+   ],
+   "paradigm": [
+    "ben",
+    "sen",
+    "o",
+    "biz",
+    "siz",
+    "onlar"
+   ]
+  },
+  {
+   "title": "Demonstratives (bu, şu, o)",
+   "level": "A1",
+   "function": "Point things out",
+   "source": "contributor",
+   "reviewed": true,
+   "display_order": 2,
+   "explanation": "Three distances: bu (this, near me), şu (that, a bit away / something I'm pointing at), o (that, over there — also 'he/she/it').\n\nWith a noun they work like English: bu kitap (this book), o ev (that house).",
+   "culture_note": "",
+   "references": [
+    {
+     "title": "Türk Dil Kurumu — Sözlükleri",
+     "url": "https://sozluk.gov.tr/"
+    },
+    {
+     "title": "Wikipedia: Turkish grammar",
+     "url": "https://en.wikipedia.org/wiki/Turkish_grammar"
+    },
+    {
+     "title": "Wiktionary: bu (Turkish)",
+     "url": "https://en.wiktionary.org/wiki/bu#Turkish"
+    }
+   ],
+   "drills": [
+    {
+     "sentence": "{{answer}} bir kitap.",
+     "answer": "Bu",
+     "translation": "This is a book.",
+     "hint": "near the speaker",
+     "display_order": 1,
+     "cell": "bu"
+    },
+    {
+     "sentence": "{{answer}} bir ev.",
+     "answer": "O",
+     "translation": "That (over there) is a house.",
+     "hint": "far from both speakers",
+     "display_order": 2,
+     "cell": "o"
+    },
+    {
+     "sentence": "{{answer}} bir araba.",
+     "answer": "Şu",
+     "translation": "That (over there) is a car.",
+     "hint": "pointing at something",
+     "display_order": 3,
+     "cell": "şu"
+    },
+    {
+     "sentence": "{{answer}} ne?",
+     "answer": "Bu",
+     "translation": "What is this?",
+     "hint": "this — close to you",
+     "display_order": 4,
+     "cell": "bu"
+    },
+    {
+     "sentence": "{{answer}} kim?",
+     "answer": "O",
+     "translation": "Who is that?",
+     "hint": "far from both speakers",
+     "display_order": 5,
+     "cell": "o"
+    },
+    {
+     "sentence": "{{answer}} bir okul.",
+     "answer": "Şu",
+     "translation": "That (over there) is a school.",
+     "hint": "pointing at something",
+     "display_order": 6,
+     "cell": "şu"
+    }
+   ],
+   "related": [
+    {
+     "title": "Personal pronouns and 'to be' (-(y)im, -sin…)",
+     "contrast": "O is both 'that' and 'he/she/it' — context decides."
+    },
+    {
+     "title": "Plural (-ler / -lar)",
+     "contrast": "Demonstratives stay singular before plural nouns: bu evler."
+    }
+   ],
+   "paradigm": [
+    "bu",
+    "şu",
+    "o"
+   ]
+  },
+  {
+   "title": "Plural (-ler / -lar)",
+   "level": "A1",
+   "function": "Talk about more than one",
+   "source": "contributor",
+   "reviewed": true,
+   "display_order": 3,
+   "explanation": "Form the plural by adding -ler after front vowels and -lar after back vowels.\n\nImportant exception: after a number, the noun stays singular — üç kitap ('three books'), never üç kitaplar.",
+   "culture_note": "",
+   "references": [
+    {
+     "title": "Türk Dil Kurumu — Sözlükleri",
+     "url": "https://sozluk.gov.tr/"
+    },
+    {
+     "title": "Wikipedia: Turkish grammar",
+     "url": "https://en.wikipedia.org/wiki/Turkish_grammar"
+    },
+    {
+     "title": "Wiktionary: -ler (Turkish)",
+     "url": "https://en.wiktionary.org/wiki/-ler#Turkish"
+    }
+   ],
+   "drills": [
+    {
+     "sentence": "Evde iki {{answer}} var.",
+     "answer": "kedi",
+     "translation": "There are two cats in the house.",
+     "hint": "noun stays SINGULAR after a number",
+     "display_order": 1
+    },
+    {
+     "sentence": "{{answer}} bahçede.",
+     "answer": "Çocuklar",
+     "translation": "The children are in the garden.",
+     "hint": "çocuk + back-vowel plural",
+     "display_order": 2
+    },
+    {
+     "sentence": "{{answer}} masada.",
+     "answer": "Kitaplar",
+     "translation": "The books are on the table.",
+     "hint": "book + plural",
+     "display_order": 3
+    },
+    {
+     "sentence": "Bahçede üç {{answer}} var.",
+     "answer": "ağaç",
+     "translation": "There are three trees in the garden.",
+     "hint": "singular after numbers!",
+     "display_order": 4
+    },
+    {
+     "sentence": "{{answer}} nerede?",
+     "answer": "Öğretmenler",
+     "translation": "Where are the teachers?",
+     "hint": "teacher + plural",
+     "display_order": 5
+    },
+    {
+     "sentence": "{{answer}} parkta.",
+     "answer": "Kediler",
+     "translation": "The cats are in the park.",
+     "hint": "cat + plural",
+     "display_order": 6
+    }
+   ],
+   "related": [
+    {
+     "title": "Possessive suffixes (-im, -in, -i…)",
+     "contrast": "Plural comes BEFORE possession: ev-ler-im, my houses."
+    },
+    {
+     "title": "Demonstratives (bu, şu, o)",
+     "contrast": "Bu evler, not bunlar evler — the noun carries the plural."
+    }
+   ]
+  },
+  {
+   "title": "Question particle (mı / mi / mu / mü)",
+   "level": "A1",
+   "function": "Turn any statement into a yes/no question",
+   "source": "contributor",
+   "reviewed": true,
+   "display_order": 4,
+   "explanation": "Add the particle after the word you are asking about; it is written separately and harmonizes with the last vowel: kitap mı?, öğrenci mi?, doktor mu?, Türk mü?\n\nPersonal endings attach to the particle: Öğrenci misin? (Are you a student?).",
+   "culture_note": "",
+   "references": [
+    {
+     "title": "Türk Dil Kurumu — Sözlükleri",
+     "url": "https://sozluk.gov.tr/"
+    },
+    {
+     "title": "Wikipedia: Turkish grammar",
+     "url": "https://en.wikipedia.org/wiki/Turkish_grammar"
+    },
+    {
+     "title": "Wiktionary: mı (Turkish)",
+     "url": "https://en.wiktionary.org/wiki/m%C4%B1#Turkish"
+    }
+   ],
+   "drills": [
+    {
+     "sentence": "Sen öğrenci {{answer}}?",
+     "answer": "misin",
+     "translation": "Are you a student?",
+     "hint": "question particle + 'you' ending",
+     "display_order": 1,
+     "cell": "mi"
+    },
+    {
+     "sentence": "Bu kitap {{answer}}?",
+     "answer": "mı",
+     "translation": "Is this a book?",
+     "hint": "question particle — harmonize with the last vowel",
+     "display_order": 2,
+     "cell": "mı"
+    },
+    {
+     "sentence": "O doktor {{answer}}?",
+     "answer": "mu",
+     "translation": "Is he a doctor?",
+     "hint": "question particle — harmonize with the last vowel",
+     "display_order": 3,
+     "cell": "mu"
+    },
+    {
+     "sentence": "Bu süt {{answer}}?",
+     "answer": "mü",
+     "translation": "Is this milk?",
+     "hint": "question particle — harmonize with the last vowel",
+     "display_order": 4,
+     "cell": "mü"
+    },
+    {
+     "sentence": "Onlar öğrenci {{answer}}?",
+     "answer": "mi",
+     "translation": "Are they students?",
+     "hint": "question particle — harmonize with the last vowel",
+     "display_order": 5,
+     "cell": "mi"
+    },
+    {
+     "sentence": "Bu okul {{answer}}?",
+     "answer": "mu",
+     "translation": "Is this a school?",
+     "hint": "question particle — harmonize with the last vowel",
+     "display_order": 6,
+     "cell": "mu"
+    },
+    {
+     "sentence": "Yol uzak {{answer}}?",
+     "answer": "mı",
+     "translation": "Is the road far?",
+     "hint": "harmony after 'a/ı'",
+     "cell": "mı",
+     "display_order": 7
+    },
+    {
+     "sentence": "O üzgün {{answer}}?",
+     "answer": "mü",
+     "translation": "Is he sad?",
+     "hint": "harmony after 'ö/ü'",
+     "cell": "mü",
+     "display_order": 8
+    }
+   ],
+   "related": [
+    {
+     "title": "Negative present continuous (-miyor)",
+     "contrast": "-miyor negates, mı asks — and they stack: gelmiyor mu?"
+    },
+    {
+     "title": "Present continuous (-iyor)",
+     "contrast": "Geliyor musun? — the particle splits off the -iyor verb."
+    }
+   ],
+   "paradigm": [
+    "mı",
+    "mi",
+    "mu",
+    "mü"
+   ]
+  },
+  {
+   "title": "Locative case (-de / -da)",
+   "level": "A1",
+   "function": "Say where something is",
+   "source": "contributor",
+   "reviewed": true,
+   "display_order": 5,
+   "explanation": "The locative suffix means 'in/on/at'.\n\nIt harmonizes with the last vowel of the word: -de after front vowels (e, i, ö, ü) and -da after back vowels (a, ı, o, u).\n\nAfter a voiceless consonant it hardens to -te/-ta.",
+   "culture_note": "Vowel harmony runs through almost all Turkish suffixes — learning to hear front vs back vowels pays off everywhere.",
+   "references": [
+    {
+     "title": "Türk Dil Kurumu — Sözlükleri",
+     "url": "https://sozluk.gov.tr/"
+    },
+    {
+     "title": "Wiktionary: Turkish locative case",
+     "url": "https://en.wiktionary.org/wiki/-de"
+    },
+    {
+     "title": "Wikipedia: Turkish vowel harmony",
+     "url": "https://en.wikipedia.org/wiki/Vowel_harmony#Turkish"
+    }
+   ],
+   "drills": [
+    {
+     "sentence": "Ben {{answer}}.",
+     "answer": "evdeyim",
+     "translation": "I am at home.",
+     "hint": "house + locative + 'I am'",
+     "display_order": 1,
+     "cell": "-de"
+    },
+    {
+     "sentence": "Kitap {{answer}}.",
+     "answer": "masada",
+     "translation": "The book is on the table.",
+     "hint": "table + locative",
+     "display_order": 2,
+     "cell": "-da"
+    },
+    {
+     "sentence": "Anahtar {{answer}}.",
+     "answer": "çantada",
+     "translation": "The key is in the bag.",
+     "hint": "bag + locative",
+     "display_order": 3,
+     "cell": "-da"
+    },
+    {
+     "sentence": "Biz {{answer}}.",
+     "answer": "okuldayız",
+     "translation": "We are at school.",
+     "hint": "school + locative + 'we are'",
+     "display_order": 4,
+     "cell": "-da"
+    },
+    {
+     "sentence": "Çocuklar {{answer}}.",
+     "answer": "bahçede",
+     "translation": "The children are in the garden.",
+     "hint": "garden + locative",
+     "display_order": 5,
+     "cell": "-de"
+    },
+    {
+     "sentence": "Süt {{answer}}.",
+     "answer": "buzdolabında",
+     "translation": "The milk is in the fridge.",
+     "hint": "fridge + locative (compound noun keeps its -ı)",
+     "display_order": 6,
+     "cell": "-da"
+    },
+    {
+     "sentence": "Kitaplar {{answer}}.",
+     "answer": "dolapta",
+     "translation": "The books are in the cupboard.",
+     "hint": "cupboard + locative (voiceless consonant)",
+     "cell": "-ta",
+     "display_order": 7
+    },
+    {
+     "sentence": "Yemek {{answer}}.",
+     "answer": "sepette",
+     "translation": "The food is in the basket.",
+     "hint": "basket + locative (voiceless consonant, front vowel)",
+     "cell": "-te",
+     "display_order": 8
+    },
+    {
+     "sentence": "Babam şimdi {{answer}}.",
+     "answer": "işte",
+     "translation": "My father is at work now.",
+     "hint": "work + at (voiceless, front)",
+     "cell": "-te",
+     "display_order": 9
+    },
+    {
+     "sentence": "Yolcular {{answer}}.",
+     "answer": "uçakta",
+     "translation": "The passengers are on the plane.",
+     "hint": "plane + at (voiceless, back)",
+     "cell": "-ta",
+     "display_order": 10
+    }
+   ],
+   "related": [
+    {
+     "title": "Accusative case (-ı / -i / -u / -ü)",
+     "contrast": "Locative marks WHERE; accusative marks WHAT the action lands on."
+    },
+    {
+     "title": "Var / yok — there is, there isn't",
+     "contrast": "Locative + var = 'there is X at Y': masada kitap var."
+    }
+   ],
+   "paradigm": [
+    "-de",
+    "-da",
+    "-te",
+    "-ta"
+   ]
+  },
+  {
+   "title": "Var / yok — there is, there isn't",
+   "level": "A1",
+   "function": "Say what exists and what doesn't",
+   "source": "contributor",
+   "reviewed": true,
+   "display_order": 6,
+   "explanation": "'Var' asserts existence and 'yok' denies it; both come at the end: Evde süt var (There is milk at home), Parkta kimse yok (There is nobody in the park). With the locative this is also how Turkish says 'have': Bende para var (I have money, lit. 'at me money exists').",
+   "culture_note": "",
+   "references": [
+    {
+     "title": "Türk Dil Kurumu — Sözlükleri",
+     "url": "https://sozluk.gov.tr/"
+    },
+    {
+     "title": "Wikipedia: Turkish grammar",
+     "url": "https://en.wikipedia.org/wiki/Turkish_grammar"
+    },
+    {
+     "title": "Wiktionary: var (Turkish)",
+     "url": "https://en.wiktionary.org/wiki/var#Turkish"
+    }
+   ],
+   "drills": [
+    {
+     "sentence": "Evde süt {{answer}}.",
+     "answer": "var",
+     "translation": "There is milk at home.",
+     "hint": "existence",
+     "display_order": 1,
+     "cell": "var"
+    },
+    {
+     "sentence": "Parkta kimse {{answer}}.",
+     "answer": "yok",
+     "translation": "There is no one in the park.",
+     "hint": "non-existence",
+     "display_order": 2,
+     "cell": "yok"
+    },
+    {
+     "sentence": "Çantada para {{answer}}.",
+     "answer": "yok",
+     "translation": "There is no money in the bag.",
+     "hint": "absence",
+     "display_order": 3,
+     "cell": "yok"
+    },
+    {
+     "sentence": "Bahçede ağaç {{answer}}.",
+     "answer": "var",
+     "translation": "There is a tree in the garden.",
+     "hint": "existence",
+     "display_order": 4,
+     "cell": "var"
+    },
+    {
+     "sentence": "Evde ekmek {{answer}} mı?",
+     "answer": "var",
+     "translation": "Is there bread at home?",
+     "hint": "existence, question",
+     "display_order": 5,
+     "cell": "var"
+    },
+    {
+     "sentence": "Bugün ders {{answer}}.",
+     "answer": "yok",
+     "translation": "There is no class today.",
+     "hint": "absence",
+     "display_order": 6,
+     "cell": "yok"
+    }
+   ],
+   "related": [
+    {
+     "title": "Locative case (-de / -da)",
+     "contrast": "Existence statements usually open with a locative: evde kimse yok."
+    },
+    {
+     "title": "Negative present continuous (-miyor)",
+     "contrast": "Yok negates existence; -miyor negates actions."
+    }
+   ],
+   "paradigm": [
+    "var",
+    "yok"
+   ]
+  },
+  {
+   "title": "Possessive suffixes (-im, -in, -i…)",
+   "level": "A1",
+   "function": "Say whose something is",
+   "source": "contributor",
+   "reviewed": true,
+   "display_order": 7,
+   "explanation": "Possession is marked ON the possessed noun: ev-im (my house), ev-in (your house), ev-i (his/her house).\n\nThe optional genitive pronoun adds emphasis: benim evim. Vowels harmonize: araba-m (my car), araban (your car).",
+   "culture_note": "",
+   "references": [
+    {
+     "title": "Türk Dil Kurumu — Sözlükleri",
+     "url": "https://sozluk.gov.tr/"
+    },
+    {
+     "title": "Wikipedia: Turkish grammar",
+     "url": "https://en.wikipedia.org/wiki/Turkish_grammar"
+    },
+    {
+     "title": "Wikipedia: Turkish grammar — possession",
+     "url": "https://en.wikipedia.org/wiki/Turkish_grammar#Possessive_suffixes"
+    }
+   ],
+   "drills": [
+    {
+     "sentence": "Benim {{answer}} büyük.",
+     "answer": "evim",
+     "translation": "My house is big.",
+     "hint": "house + 'my'",
+     "display_order": 1,
+     "cell": "1sg"
+    },
+    {
+     "sentence": "Senin {{answer}} nerede?",
+     "answer": "araban",
+     "translation": "Where is your car?",
+     "hint": "car + 'your'",
+     "display_order": 2,
+     "cell": "2sg"
+    },
+    {
+     "sentence": "Benim {{answer}} Ali.",
+     "answer": "adım",
+     "translation": "My name is Ali.",
+     "hint": "name + 'my'",
+     "display_order": 3,
+     "cell": "1sg"
+    },
+    {
+     "sentence": "Onun {{answer}} güzel.",
+     "answer": "evi",
+     "translation": "His/her house is beautiful.",
+     "hint": "house + 'his/her'",
+     "display_order": 4,
+     "cell": "3sg"
+    },
+    {
+     "sentence": "Bizim {{answer}} büyük.",
+     "answer": "ailemiz",
+     "translation": "Our family is big.",
+     "hint": "family + 'our'",
+     "display_order": 5,
+     "cell": "1pl"
+    },
+    {
+     "sentence": "Senin {{answer}} çok tatlı.",
+     "answer": "kedin",
+     "translation": "Your cat is very sweet.",
+     "hint": "cat + 'your'",
+     "display_order": 6,
+     "cell": "2sg"
+    },
+    {
+     "sentence": "Sizin {{answer}} çok güzel.",
+     "answer": "eviniz",
+     "translation": "Your (plural) house is very beautiful.",
+     "hint": "house + your (plural)",
+     "cell": "2pl",
+     "display_order": 7
+    },
+    {
+     "sentence": "Onların {{answer}} bahçede.",
+     "answer": "kedileri",
+     "translation": "Their cat is in the garden.",
+     "hint": "cat + their",
+     "cell": "3pl",
+     "display_order": 8
+    },
+    {
+     "sentence": "Onun {{answer}} yeni.",
+     "answer": "arabası",
+     "translation": "His car is new.",
+     "hint": "car + his/her",
+     "cell": "3sg",
+     "display_order": 9
+    },
+    {
+     "sentence": "Bizim {{answer}} bahçeli.",
+     "answer": "evimiz",
+     "translation": "Our house has a garden.",
+     "hint": "house + our",
+     "cell": "1pl",
+     "display_order": 10
+    },
+    {
+     "sentence": "Sizin {{answer}} nerede?",
+     "answer": "okulunuz",
+     "translation": "Where is your (pl.) school?",
+     "hint": "school + your (plural)",
+     "cell": "2pl",
+     "display_order": 11
+    },
+    {
+     "sentence": "Onların {{answer}} yeni.",
+     "answer": "evleri",
+     "translation": "Their house is new.",
+     "hint": "house + their",
+     "cell": "3pl",
+     "display_order": 12
+    }
+   ],
+   "related": [
+    {
+     "title": "Plural (-ler / -lar)",
+     "contrast": "Order is fixed: plural, then possessive — evlerim."
+    },
+    {
+     "title": "Accusative case (-ı / -i / -u / -ü)",
+     "contrast": "A possessed object still takes accusative: evimi görüyorum."
+    }
+   ],
+   "paradigm": [
+    "1sg",
+    "2sg",
+    "3sg",
+    "1pl",
+    "2pl",
+    "3pl"
+   ]
+  },
+  {
+   "title": "Present continuous (-iyor)",
+   "level": "A1",
+   "function": "Talk about what is happening now",
+   "source": "contributor",
+   "reviewed": true,
+   "display_order": 8,
+   "explanation": "The -iyor suffix marks an ongoing action ('am/is/are doing'). Its buffer vowel harmonizes (ı/i/u/ü) and a personal ending follows.\n\nFor 'I', add -um: oku → okuyorum, iç → içiyorum.",
+   "culture_note": "",
+   "references": [
+    {
+     "title": "Türk Dil Kurumu — Sözlükleri",
+     "url": "https://sozluk.gov.tr/"
+    },
+    {
+     "title": "Wikipedia: Turkish grammar — present continuous",
+     "url": "https://en.wikipedia.org/wiki/Turkish_grammar#Present_tense"
+    },
+    {
+     "title": "Wiktionary: -iyor (Turkish)",
+     "url": "https://en.wiktionary.org/wiki/-iyor#Turkish"
+    }
+   ],
+   "drills": [
+    {
+     "sentence": "Ben kitap {{answer}}.",
+     "answer": "okuyorum",
+     "translation": "I am reading a book.",
+     "hint": "to read + present continuous, I",
+     "display_order": 1,
+     "cell": "ben"
+    },
+    {
+     "sentence": "O çay {{answer}}.",
+     "answer": "içiyor",
+     "translation": "He/she is drinking tea.",
+     "hint": "to drink + present continuous, he/she",
+     "display_order": 2,
+     "cell": "o"
+    },
+    {
+     "sentence": "Biz Türkçe {{answer}}.",
+     "answer": "öğreniyoruz",
+     "translation": "We are learning Turkish.",
+     "hint": "to learn + present continuous, we",
+     "display_order": 3,
+     "cell": "biz"
+    },
+    {
+     "sentence": "Onlar parkta {{answer}}.",
+     "answer": "oynuyorlar",
+     "translation": "They are playing in the park.",
+     "hint": "to play + present continuous, they",
+     "display_order": 4,
+     "cell": "onlar"
+    },
+    {
+     "sentence": "Sen ne {{answer}}?",
+     "answer": "yapıyorsun",
+     "translation": "What are you doing?",
+     "hint": "to do + present continuous, you",
+     "display_order": 5,
+     "cell": "sen"
+    },
+    {
+     "sentence": "Annem yemek {{answer}}.",
+     "answer": "pişiriyor",
+     "translation": "My mother is cooking food.",
+     "hint": "to cook + present continuous, she",
+     "display_order": 6,
+     "cell": "o"
+    },
+    {
+     "sentence": "Siz ne {{answer}}?",
+     "answer": "yapıyorsunuz",
+     "translation": "What are you (all) doing?",
+     "hint": "to do + -iyor + you (plural)",
+     "cell": "siz",
+     "display_order": 7
+    },
+    {
+     "sentence": "Ben şimdi eve {{answer}}.",
+     "answer": "gidiyorum",
+     "translation": "I am going home now.",
+     "hint": "to go + -iyor, I",
+     "cell": "ben",
+     "display_order": 8
+    },
+    {
+     "sentence": "Sen çok hızlı {{answer}}.",
+     "answer": "konuşuyorsun",
+     "translation": "You are speaking very fast.",
+     "hint": "to speak + -iyor, you",
+     "cell": "sen",
+     "display_order": 9
+    },
+    {
+     "sentence": "Biz akşam yemeği {{answer}}.",
+     "answer": "yiyoruz",
+     "translation": "We are eating dinner.",
+     "hint": "to eat + -iyor, we",
+     "cell": "biz",
+     "display_order": 10
+    },
+    {
+     "sentence": "Siz nerede {{answer}}?",
+     "answer": "oturuyorsunuz",
+     "translation": "Where do you (all) live?",
+     "hint": "to live/sit + -iyor, you all",
+     "cell": "siz",
+     "display_order": 11
+    },
+    {
+     "sentence": "Onlar müzik {{answer}}.",
+     "answer": "dinliyorlar",
+     "translation": "They are listening to music.",
+     "hint": "to listen + -iyor, they",
+     "cell": "onlar",
+     "display_order": 12
+    }
+   ],
+   "related": [
+    {
+     "title": "Negative present continuous (-miyor)",
+     "contrast": "Same tense, negated: -m(a/e) squeezes in before -yor."
+    },
+    {
+     "title": "Question particle (mı / mi / mu / mü)",
+     "contrast": "Geliyor mu? — questions add the particle after -iyor."
+    }
+   ],
+   "paradigm": [
+    "ben",
+    "sen",
+    "o",
+    "biz",
+    "siz",
+    "onlar"
+   ]
+  },
+  {
+   "title": "Negative present continuous (-miyor)",
+   "level": "A1",
+   "function": "Say what is not happening",
+   "source": "contributor",
+   "reviewed": true,
+   "display_order": 9,
+   "explanation": "Insert the negative -m(a/e)- before -iyor; the vowel harmonizes and shrinks: iç-m-iyor-um → içmiyorum (I am not drinking), izle-m-iyor → izlemiyor (he isn't watching).\n\nThe stress falls just before the negative.",
+   "culture_note": "",
+   "references": [
+    {
+     "title": "Türk Dil Kurumu — Sözlükleri",
+     "url": "https://sozluk.gov.tr/"
+    },
+    {
+     "title": "Wikipedia: Turkish grammar",
+     "url": "https://en.wikipedia.org/wiki/Turkish_grammar"
+    },
+    {
+     "title": "Wiktionary: -me (Turkish negative)",
+     "url": "https://en.wiktionary.org/wiki/-me#Turkish"
+    }
+   ],
+   "drills": [
+    {
+     "sentence": "Ben kahve {{answer}}.",
+     "answer": "içmiyorum",
+     "translation": "I am not drinking coffee.",
+     "hint": "to drink + negative present continuous, I",
+     "display_order": 1,
+     "cell": "ben"
+    },
+    {
+     "sentence": "O televizyon {{answer}}.",
+     "answer": "izlemiyor",
+     "translation": "He is not watching TV.",
+     "hint": "to watch + negative present continuous, he/she",
+     "display_order": 2,
+     "cell": "o"
+    },
+    {
+     "sentence": "Biz et {{answer}}.",
+     "answer": "yemiyoruz",
+     "translation": "We are not eating meat.",
+     "hint": "to eat + negative present continuous, we",
+     "display_order": 3,
+     "cell": "biz"
+    },
+    {
+     "sentence": "Sen beni {{answer}}.",
+     "answer": "dinlemiyorsun",
+     "translation": "You are not listening to me.",
+     "hint": "to listen + negative present continuous, you",
+     "display_order": 4,
+     "cell": "sen"
+    },
+    {
+     "sentence": "Onlar bugün {{answer}}.",
+     "answer": "çalışmıyorlar",
+     "translation": "They are not working today.",
+     "hint": "to work + negative present continuous, they",
+     "display_order": 5,
+     "cell": "onlar"
+    },
+    {
+     "sentence": "Bebek {{answer}}.",
+     "answer": "uyumuyor",
+     "translation": "The baby is not sleeping.",
+     "hint": "to sleep + negative present continuous, he/she",
+     "display_order": 6,
+     "cell": "o"
+    },
+    {
+     "sentence": "Siz kahve {{answer}}.",
+     "answer": "içmiyorsunuz",
+     "translation": "You (all) are not drinking coffee.",
+     "hint": "to drink + negative -iyor + you (plural)",
+     "cell": "siz",
+     "display_order": 7
+    },
+    {
+     "sentence": "Ben bugün {{answer}}.",
+     "answer": "çalışmıyorum",
+     "translation": "I am not working today.",
+     "hint": "to work + negative -iyor, I",
+     "cell": "ben",
+     "display_order": 8
+    },
+    {
+     "sentence": "Sen hiç {{answer}}.",
+     "answer": "gülmüyorsun",
+     "translation": "You never smile.",
+     "hint": "to smile + negative -iyor, you",
+     "cell": "sen",
+     "display_order": 9
+    },
+    {
+     "sentence": "Biz artık orada {{answer}}.",
+     "answer": "oturmuyoruz",
+     "translation": "We don't live there anymore.",
+     "hint": "to live + negative -iyor, we",
+     "cell": "biz",
+     "display_order": 10
+    },
+    {
+     "sentence": "Siz neden {{answer}}?",
+     "answer": "gelmiyorsunuz",
+     "translation": "Why aren't you (all) coming?",
+     "hint": "to come + negative -iyor, you all",
+     "cell": "siz",
+     "display_order": 11
+    },
+    {
+     "sentence": "Onlar bizi {{answer}}.",
+     "answer": "duymuyorlar",
+     "translation": "They don't hear us.",
+     "hint": "to hear + negative -iyor, they",
+     "cell": "onlar",
+     "display_order": 12
+    }
+   ],
+   "related": [
+    {
+     "title": "Present continuous (-iyor)",
+     "contrast": "The affirmative twin — drop the -m- and it happens again."
+    },
+    {
+     "title": "Var / yok — there is, there isn't",
+     "contrast": "-miyor is 'isn't doing'; yok is 'there isn't any'."
+    }
+   ],
+   "paradigm": [
+    "ben",
+    "sen",
+    "o",
+    "biz",
+    "siz",
+    "onlar"
+   ]
+  },
+  {
+   "title": "Accusative case (-ı / -i / -u / -ü)",
+   "level": "A1",
+   "function": "Mark a specific, definite object",
+   "source": "contributor",
+   "reviewed": true,
+   "display_order": 10,
+   "explanation": "A DEFINITE direct object takes the accusative: Kitabı okuyorum (I am reading THE book) vs Kitap okuyorum (I read books / a book, indefinite — no suffix).\n\nThe vowel harmonizes four ways, and final p/ç/t/k soften: kitap → kitabı.",
+   "culture_note": "Whether the object is 'definite' decides the suffix — a meaning-driven case system rather than a mechanical one.",
+   "references": [
+    {
+     "title": "Türk Dil Kurumu — Sözlükleri",
+     "url": "https://sozluk.gov.tr/"
+    },
+    {
+     "title": "Wikipedia: Turkish grammar",
+     "url": "https://en.wikipedia.org/wiki/Turkish_grammar"
+    },
+    {
+     "title": "Wikipedia: Turkish grammar — cases",
+     "url": "https://en.wikipedia.org/wiki/Turkish_grammar#Cases"
+    }
+   ],
+   "drills": [
+    {
+     "sentence": "Ben {{answer}} okuyorum.",
+     "answer": "kitabı",
+     "translation": "I am reading the book.",
+     "hint": "book + accusative (final consonant softens)",
+     "display_order": 1,
+     "cell": "-ı"
+    },
+    {
+     "sentence": "O {{answer}} seviyor.",
+     "answer": "çayı",
+     "translation": "He/she loves the tea.",
+     "hint": "tea + accusative",
+     "display_order": 2,
+     "cell": "-ı"
+    },
+    {
+     "sentence": "Ben {{answer}} izliyorum.",
+     "answer": "filmi",
+     "translation": "I am watching the film.",
+     "hint": "film + accusative",
+     "display_order": 3,
+     "cell": "-i"
+    },
+    {
+     "sentence": "O {{answer}} okuyor.",
+     "answer": "gazeteyi",
+     "translation": "He is reading the newspaper.",
+     "hint": "newspaper + accusative (buffer y)",
+     "display_order": 4,
+     "cell": "-i"
+    },
+    {
+     "sentence": "Sen {{answer}} görüyor musun?",
+     "answer": "arabayı",
+     "translation": "Do you see the car?",
+     "hint": "car + accusative (buffer y)",
+     "display_order": 5,
+     "cell": "-ı"
+    },
+    {
+     "sentence": "Çocuk {{answer}} içiyor.",
+     "answer": "sütü",
+     "translation": "The child is drinking the milk.",
+     "hint": "milk + accusative",
+     "display_order": 6,
+     "cell": "-ü"
+    },
+    {
+     "sentence": "Çocuk {{answer}} içti.",
+     "answer": "suyu",
+     "translation": "The child drank the water.",
+     "hint": "water + accusative",
+     "cell": "-u",
+     "display_order": 7
+    },
+    {
+     "sentence": "Çocuklar {{answer}} seviyor.",
+     "answer": "okulu",
+     "translation": "The children love the school.",
+     "hint": "school + accusative (back, rounded)",
+     "cell": "-u",
+     "display_order": 8
+    },
+    {
+     "sentence": "Biz {{answer}} çok seviyoruz.",
+     "answer": "gölü",
+     "translation": "We love the lake very much.",
+     "hint": "lake + accusative (front, rounded)",
+     "cell": "-ü",
+     "display_order": 9
+    }
+   ],
+   "related": [
+    {
+     "title": "Locative case (-de / -da)",
+     "contrast": "Accusative = what you act on; locative = where it happens."
+    },
+    {
+     "title": "Possessive suffixes (-im, -in, -i…)",
+     "contrast": "After a possessive the accusative shows as -ni/-nı: arabasını."
+    }
+   ],
+   "paradigm": [
+    "-ı",
+    "-i",
+    "-u",
+    "-ü"
+   ]
+  },
+  {
+   "title": "Past tense (-di)",
+   "level": "A2",
+   "function": "Say what happened",
+   "source": "contributor",
+   "reviewed": true,
+   "display_order": 1,
+   "explanation": "The seen/witnessed past adds -di with four-way vowel harmony and consonant hardening after voiceless sounds (-ti): gitmek → gittim (I went), gelmek → geldi (she came), yapmak → yaptık (we did).\n\nPerson endings follow: -m, -n, —, -k, -niz, -ler.",
+   "culture_note": "",
+   "references": [
+    {
+     "title": "Türk Dil Kurumu — Sözlükleri",
+     "url": "https://sozluk.gov.tr/"
+    },
+    {
+     "title": "Wikipedia: Turkish grammar",
+     "url": "https://en.wikipedia.org/wiki/Turkish_grammar"
+    },
+    {
+     "title": "Wiktionary: -di (Turkish)",
+     "url": "https://en.wiktionary.org/wiki/-di#Turkish"
+    }
+   ],
+   "drills": [
+    {
+     "sentence": "Dün okula {{answer}}.",
+     "answer": "gittim",
+     "translation": "Yesterday I went to school.",
+     "hint": "to go + past, I",
+     "display_order": 1
+    },
+    {
+     "sentence": "O eve {{answer}}.",
+     "answer": "geldi",
+     "translation": "He/she came home.",
+     "hint": "to come + past, he/she",
+     "display_order": 2
+    },
+    {
+     "sentence": "Biz dün sinemaya {{answer}}.",
+     "answer": "gittik",
+     "translation": "Yesterday we went to the cinema.",
+     "hint": "to go + past, we",
+     "display_order": 3
+    },
+    {
+     "sentence": "Ben sabah kahve {{answer}}.",
+     "answer": "içtim",
+     "translation": "I drank coffee in the morning.",
+     "hint": "to drink + past, I (suffix devoices)",
+     "display_order": 4
+    },
+    {
+     "sentence": "Onlar dün geç {{answer}}.",
+     "answer": "kaldılar",
+     "translation": "They were late yesterday.",
+     "hint": "geç kalmak — past plural",
+     "display_order": 5
+    },
+    {
+     "sentence": "Sen filmi {{answer}} mi?",
+     "answer": "izledin",
+     "translation": "Did you watch the film?",
+     "hint": "to watch + past, you",
+     "display_order": 6
+    }
+   ]
+  },
+  {
+   "title": "Future tense (-ecek)",
+   "level": "A2",
+   "function": "Say what will happen",
+   "source": "contributor",
+   "reviewed": true,
+   "display_order": 2,
+   "explanation": "-ecek/-acak marks the future; before a vowel ending the k softens to ğ: aramak → arayacağım (I will call), gelmek → gelecekler (they will come).\n\nThe buffer -y- appears after vowel stems.",
+   "culture_note": "",
+   "references": [
+    {
+     "title": "Türk Dil Kurumu — Sözlükleri",
+     "url": "https://sozluk.gov.tr/"
+    },
+    {
+     "title": "Wikipedia: Turkish grammar",
+     "url": "https://en.wikipedia.org/wiki/Turkish_grammar"
+    },
+    {
+     "title": "Wiktionary: -ecek (Turkish)",
+     "url": "https://en.wiktionary.org/wiki/-ecek#Turkish"
+    }
+   ],
+   "drills": [
+    {
+     "sentence": "Yarın seni {{answer}}.",
+     "answer": "arayacağım",
+     "translation": "Tomorrow I will call you.",
+     "hint": "ara + -y- + -acak + -ım",
+     "display_order": 1
+    },
+    {
+     "sentence": "Onlar yarın {{answer}}.",
+     "answer": "gelecekler",
+     "translation": "They will come tomorrow.",
+     "hint": "to come + future, they",
+     "display_order": 2
+    },
+    {
+     "sentence": "Ben yarın çok {{answer}}.",
+     "answer": "çalışacağım",
+     "translation": "Tomorrow I will work a lot.",
+     "hint": "to work + future, I (k softens)",
+     "display_order": 3
+    },
+    {
+     "sentence": "Biz haftaya İstanbul'a {{answer}}.",
+     "answer": "gideceğiz",
+     "translation": "Next week we will go to Istanbul.",
+     "hint": "git + -eceğiz (t → d)",
+     "display_order": 4
+    },
+    {
+     "sentence": "O akşam yemek {{answer}}.",
+     "answer": "yapacak",
+     "translation": "She will make dinner.",
+     "hint": "to do + future, she",
+     "display_order": 5
+    },
+    {
+     "sentence": "Sen de {{answer}} misin?",
+     "answer": "gelecek",
+     "translation": "Will you come too?",
+     "hint": "to come + future; the question particle stays separate",
+     "display_order": 6
+    }
+   ]
+  },
+  {
+   "title": "Dative case (-e / -a)",
+   "level": "A2",
+   "function": "Say where something is headed",
+   "source": "contributor",
+   "reviewed": true,
+   "display_order": 3,
+   "explanation": "The dative marks direction ('to'): ev → eve (to home), okul → okula (to school).\n\nA buffer -y- appears after vowels: araba → arabaya.\n\nVerbs of motion and giving take it: Okula gidiyorum, Anneme verdim.",
+   "culture_note": "",
+   "references": [
+    {
+     "title": "Türk Dil Kurumu — Sözlükleri",
+     "url": "https://sozluk.gov.tr/"
+    },
+    {
+     "title": "Wikipedia: Turkish grammar",
+     "url": "https://en.wikipedia.org/wiki/Turkish_grammar"
+    },
+    {
+     "title": "Wikipedia: Turkish grammar — cases",
+     "url": "https://en.wikipedia.org/wiki/Turkish_grammar#Cases"
+    }
+   ],
+   "drills": [
+    {
+     "sentence": "Akşam {{answer}} dönüyorum.",
+     "answer": "eve",
+     "translation": "In the evening I return home.",
+     "hint": "house + dative",
+     "display_order": 1
+    },
+    {
+     "sentence": "Ben {{answer}} gidiyorum.",
+     "answer": "okula",
+     "translation": "I am going to school.",
+     "hint": "school + dative",
+     "display_order": 2
+    },
+    {
+     "sentence": "Yarın {{answer}} gidiyoruz.",
+     "answer": "İstanbul'a",
+     "translation": "Tomorrow we are going to Istanbul.",
+     "hint": "proper noun + apostrophe + -a",
+     "display_order": 3
+    },
+    {
+     "sentence": "Çocuk {{answer}} koşuyor.",
+     "answer": "parka",
+     "translation": "The child is running to the park.",
+     "hint": "park + dative",
+     "display_order": 4
+    },
+    {
+     "sentence": "Bu hediyeyi {{answer}} aldım.",
+     "answer": "sana",
+     "translation": "I bought this present for you.",
+     "hint": "'you' + dative (irregular vowel)",
+     "display_order": 5
+    },
+    {
+     "sentence": "Kitabı {{answer}} verdim.",
+     "answer": "arkadaşıma",
+     "translation": "I gave the book to my friend.",
+     "hint": "friend + 'my' + dative",
+     "display_order": 6
+    }
+   ]
+  },
+  {
+   "title": "Ablative case (-den / -dan)",
+   "level": "A2",
+   "function": "Say where something comes from",
+   "source": "contributor",
+   "reviewed": true,
+   "display_order": 4,
+   "explanation": "The ablative marks source ('from'): iş → işten (from work; voiceless ş hardens d→t), okul → okuldan (from school).\n\nIt also builds comparisons and material: taştan (of stone).",
+   "culture_note": "",
+   "references": [
+    {
+     "title": "Türk Dil Kurumu — Sözlükleri",
+     "url": "https://sozluk.gov.tr/"
+    },
+    {
+     "title": "Wikipedia: Turkish grammar",
+     "url": "https://en.wikipedia.org/wiki/Turkish_grammar"
+    }
+   ],
+   "drills": [
+    {
+     "sentence": "Babam {{answer}} geldi.",
+     "answer": "işten",
+     "translation": "My father came from work.",
+     "hint": "work + ablative (suffix devoices)",
+     "display_order": 1
+    },
+    {
+     "sentence": "{{answer}} geliyorum.",
+     "answer": "Okuldan",
+     "translation": "I am coming from school.",
+     "hint": "school + ablative",
+     "display_order": 2
+    },
+    {
+     "sentence": "Tren {{answer}} kalkıyor.",
+     "answer": "İstanbul'dan",
+     "translation": "The train departs from Istanbul.",
+     "hint": "proper noun + apostrophe + -dan",
+     "display_order": 3
+    },
+    {
+     "sentence": "{{answer}} korkuyorum.",
+     "answer": "Köpekten",
+     "translation": "I am afraid of dogs.",
+     "hint": "korkmak takes the ablative",
+     "display_order": 4
+    },
+    {
+     "sentence": "Kardeşim {{answer}} döndü.",
+     "answer": "tatilden",
+     "translation": "My brother returned from holiday.",
+     "hint": "holiday + ablative",
+     "display_order": 5
+    },
+    {
+     "sentence": "Ben {{answer}} çıktım.",
+     "answer": "evden",
+     "translation": "I left the house.",
+     "hint": "house + ablative",
+     "display_order": 6
+    }
+   ]
+  },
+  {
+   "title": "Genitive + possessed (-in … -i)",
+   "level": "A2",
+   "function": "Link owner and owned",
+   "source": "contributor",
+   "reviewed": true,
+   "display_order": 5,
+   "explanation": "Ownership marks BOTH nouns: the owner takes genitive -(n)in, the owned takes the possessive: öğretmenin evi (the teacher's house), arabanın kapısı (the car's door, with buffer -s- after a vowel).",
+   "culture_note": "",
+   "references": [
+    {
+     "title": "Türk Dil Kurumu — Sözlükleri",
+     "url": "https://sozluk.gov.tr/"
+    },
+    {
+     "title": "Wikipedia: Turkish grammar",
+     "url": "https://en.wikipedia.org/wiki/Turkish_grammar"
+    }
+   ],
+   "drills": [
+    {
+     "sentence": "{{answer}} evi büyük.",
+     "answer": "Öğretmenin",
+     "translation": "The teacher's house is big.",
+     "hint": "teacher + genitive",
+     "display_order": 1
+    },
+    {
+     "sentence": "Arabanın {{answer}} kırık.",
+     "answer": "kapısı",
+     "translation": "The car's door is broken.",
+     "hint": "door + possessed ending (buffer s)",
+     "display_order": 2
+    },
+    {
+     "sentence": "{{answer}} kapısı açık.",
+     "answer": "Evin",
+     "translation": "The door of the house is open.",
+     "hint": "house + genitive",
+     "display_order": 3
+    },
+    {
+     "sentence": "Annemin {{answer}} çok güzel.",
+     "answer": "yemeği",
+     "translation": "My mother's cooking is very good.",
+     "hint": "food + possessed ending (final consonant softens)",
+     "display_order": 4
+    },
+    {
+     "sentence": "{{answer}} rengi mavi.",
+     "answer": "Denizin",
+     "translation": "The colour of the sea is blue.",
+     "hint": "sea + genitive",
+     "display_order": 5
+    },
+    {
+     "sentence": "Türkçenin {{answer}} zor değil.",
+     "answer": "grameri",
+     "translation": "Turkish grammar is not hard.",
+     "hint": "grammar + possessed ending",
+     "display_order": 6
+    }
+   ]
+  },
+  {
+   "title": "Aorist / geniş zaman (-ir)",
+   "level": "A2",
+   "function": "State habits and general truths",
+   "source": "contributor",
+   "reviewed": true,
+   "display_order": 6,
+   "explanation": "The aorist covers habits, general truths, and offers: içmek → içerim (I drink [habitually]), kalkmak → kalkar (he gets up).\n\nSingle-syllable stems mostly take -ar/-er; longer stems take -ir/-ır/-ur/-ür.",
+   "culture_note": "The aorist is also the politeness tense: 'Bir çay alır mısınız?' (Would you take a tea?).",
+   "references": [
+    {
+     "title": "Türk Dil Kurumu — Sözlükleri",
+     "url": "https://sozluk.gov.tr/"
+    },
+    {
+     "title": "Wikipedia: Turkish grammar",
+     "url": "https://en.wikipedia.org/wiki/Turkish_grammar"
+    },
+    {
+     "title": "Wiktionary: -ir (Turkish)",
+     "url": "https://en.wiktionary.org/wiki/-ir#Turkish"
+    }
+   ],
+   "drills": [
+    {
+     "sentence": "Her sabah kahve {{answer}}.",
+     "answer": "içerim",
+     "translation": "Every morning I drink coffee.",
+     "hint": "to drink + aorist, I",
+     "display_order": 1
+    },
+    {
+     "sentence": "O erken {{answer}}.",
+     "answer": "kalkar",
+     "translation": "He gets up early.",
+     "hint": "to get up + aorist, he/she",
+     "display_order": 2
+    },
+    {
+     "sentence": "O her akşam kitap {{answer}}.",
+     "answer": "okur",
+     "translation": "He reads a book every evening.",
+     "hint": "to read + aorist, he",
+     "display_order": 3
+    },
+    {
+     "sentence": "Biz pazar günleri geç {{answer}}.",
+     "answer": "kalkarız",
+     "translation": "On Sundays we get up late.",
+     "hint": "to get up + aorist, we",
+     "display_order": 4
+    },
+    {
+     "sentence": "Ben her gün Türkçe {{answer}}.",
+     "answer": "çalışırım",
+     "translation": "I study Turkish every day.",
+     "hint": "to study + aorist, I",
+     "display_order": 5
+    },
+    {
+     "sentence": "Kuşlar {{answer}}.",
+     "answer": "uçar",
+     "translation": "Birds fly.",
+     "hint": "to fly + aorist — general truth",
+     "display_order": 6
+    }
+   ]
+  },
+  {
+   "title": "Ability (-ebil)",
+   "level": "A2",
+   "function": "Say what you can do",
+   "source": "contributor",
+   "reviewed": true,
+   "display_order": 7,
+   "explanation": "-(y)ebil/-(y)abil expresses ability and permission: konuşmak → konuşabilirim (I can speak), gelmek → gelebilir (he can come).\n\nIt conjugates like an aorist afterward.",
+   "culture_note": "",
+   "references": [
+    {
+     "title": "Türk Dil Kurumu — Sözlükleri",
+     "url": "https://sozluk.gov.tr/"
+    },
+    {
+     "title": "Wikipedia: Turkish grammar",
+     "url": "https://en.wikipedia.org/wiki/Turkish_grammar"
+    },
+    {
+     "title": "Wiktionary: -ebil (Turkish)",
+     "url": "https://en.wiktionary.org/wiki/-ebil#Turkish"
+    }
+   ],
+   "drills": [
+    {
+     "sentence": "Türkçe {{answer}}.",
+     "answer": "konuşabilirim",
+     "translation": "I can speak Turkish.",
+     "hint": "to speak + ability, I",
+     "display_order": 1
+    },
+    {
+     "sentence": "Yarın {{answer}} misin?",
+     "answer": "gelebilir",
+     "translation": "Can you come tomorrow?",
+     "hint": "to come + ability (+ separate question particle)",
+     "display_order": 2
+    },
+    {
+     "sentence": "Ben çok hızlı {{answer}}.",
+     "answer": "koşabilirim",
+     "translation": "I can run very fast.",
+     "hint": "to run + ability, I",
+     "display_order": 3
+    },
+    {
+     "sentence": "O üç dil {{answer}}.",
+     "answer": "konuşabilir",
+     "translation": "She can speak three languages.",
+     "hint": "to speak + ability, she",
+     "display_order": 4
+    },
+    {
+     "sentence": "Bana yardım {{answer}} misin?",
+     "answer": "edebilir",
+     "translation": "Can you help me?",
+     "hint": "et + -ebilir (t → d)",
+     "display_order": 5
+    },
+    {
+     "sentence": "Biz yarın {{answer}}.",
+     "answer": "gelebiliriz",
+     "translation": "We can come tomorrow.",
+     "hint": "to come + ability, we",
+     "display_order": 6
+    }
+   ]
+  },
+  {
+   "title": "Comparatives (daha / en)",
+   "level": "A2",
+   "function": "Compare and rank",
+   "source": "contributor",
+   "reviewed": true,
+   "display_order": 8,
+   "explanation": "Comparison is analytic: daha + adjective = more (Bu ev daha büyük), en + adjective = most (en iyi öğrenci). 'Than' is the ablative: senden daha uzun (taller than you).",
+   "culture_note": "",
+   "references": [
+    {
+     "title": "Türk Dil Kurumu — Sözlükleri",
+     "url": "https://sozluk.gov.tr/"
+    },
+    {
+     "title": "Wikipedia: Turkish grammar",
+     "url": "https://en.wikipedia.org/wiki/Turkish_grammar"
+    }
+   ],
+   "drills": [
+    {
+     "sentence": "Bu ev {{answer}} büyük.",
+     "answer": "daha",
+     "translation": "This house is bigger.",
+     "hint": "'more'",
+     "display_order": 1
+    },
+    {
+     "sentence": "O, sınıfın {{answer}} iyi öğrencisi.",
+     "answer": "en",
+     "translation": "He is the best student in the class.",
+     "hint": "'most'",
+     "display_order": 2
+    },
+    {
+     "sentence": "Bu kitap {{answer}} ilginç.",
+     "answer": "daha",
+     "translation": "This book is more interesting.",
+     "hint": "more",
+     "display_order": 3
+    },
+    {
+     "sentence": "İstanbul Türkiye'nin {{answer}} büyük şehri.",
+     "answer": "en",
+     "translation": "Istanbul is Turkey's biggest city.",
+     "hint": "the most",
+     "display_order": 4
+    },
+    {
+     "sentence": "Kahve çaydan {{answer}} pahalı.",
+     "answer": "daha",
+     "translation": "Coffee is more expensive than tea.",
+     "hint": "-den … more",
+     "display_order": 5
+    },
+    {
+     "sentence": "Bu, yılın {{answer}} soğuk günü.",
+     "answer": "en",
+     "translation": "This is the coldest day of the year.",
+     "hint": "the most",
+     "display_order": 6
+    }
+   ]
+  },
+  {
+   "title": "Postpositions ile and için",
+   "level": "A2",
+   "function": "Say with what and for whom",
+   "source": "contributor",
+   "reviewed": true,
+   "display_order": 9,
+   "explanation": "ile = with/by (arkadaşım ile / arkadaşımla — it often fuses as -le/-la); için = for (senin için, bu iş için). Pronouns take genitive before için: benim için (for me).",
+   "culture_note": "",
+   "references": [
+    {
+     "title": "Türk Dil Kurumu — Sözlükleri",
+     "url": "https://sozluk.gov.tr/"
+    },
+    {
+     "title": "Wikipedia: Turkish grammar",
+     "url": "https://en.wikipedia.org/wiki/Turkish_grammar"
+    }
+   ],
+   "drills": [
+    {
+     "sentence": "Arkadaşım {{answer}} sinemaya gittim.",
+     "answer": "ile",
+     "translation": "I went to the cinema with my friend.",
+     "hint": "'with'",
+     "display_order": 1
+    },
+    {
+     "sentence": "Bu hediye senin {{answer}}.",
+     "answer": "için",
+     "translation": "This gift is for you.",
+     "hint": "'for'",
+     "display_order": 2
+    },
+    {
+     "sentence": "Otobüs {{answer}} geliyorum.",
+     "answer": "ile",
+     "translation": "I am coming by bus.",
+     "hint": "with / by",
+     "display_order": 3
+    },
+    {
+     "sentence": "Sağlık {{answer}} spor yap.",
+     "answer": "için",
+     "translation": "Do sport for your health.",
+     "hint": "for",
+     "display_order": 4
+    },
+    {
+     "sentence": "Annem {{answer}} konuştum.",
+     "answer": "ile",
+     "translation": "I spoke with my mother.",
+     "hint": "with",
+     "display_order": 5
+    },
+    {
+     "sentence": "Senin {{answer}} her şeyi yaparım.",
+     "answer": "için",
+     "translation": "I would do anything for you.",
+     "hint": "for",
+     "display_order": 6
+    }
+   ]
+  },
+  {
+   "title": "Before and after (-den önce / sonra)",
+   "level": "A2",
+   "function": "Order events in time",
+   "source": "contributor",
+   "reviewed": true,
+   "display_order": 10,
+   "explanation": "önce (before) and sonra (after) follow an ablative noun: kahvaltıdan sonra (after breakfast), dersten önce (before class). With verbs: -meden önce (before doing), -dikten sonra (after doing).",
+   "culture_note": "",
+   "references": [
+    {
+     "title": "Türk Dil Kurumu — Sözlükleri",
+     "url": "https://sozluk.gov.tr/"
+    },
+    {
+     "title": "Wikipedia: Turkish grammar",
+     "url": "https://en.wikipedia.org/wiki/Turkish_grammar"
+    }
+   ],
+   "drills": [
+    {
+     "sentence": "Kahvaltıdan {{answer}} yürüyüş yaparım.",
+     "answer": "sonra",
+     "translation": "After breakfast I take a walk.",
+     "hint": "'after'",
+     "display_order": 1
+    },
+    {
+     "sentence": "Uyumadan {{answer}} kitap okurum.",
+     "answer": "önce",
+     "translation": "Before sleeping I read a book.",
+     "hint": "'before'",
+     "display_order": 2
+    },
+    {
+     "sentence": "Yemekten {{answer}} ellerini yıka.",
+     "answer": "önce",
+     "translation": "Wash your hands before the meal.",
+     "hint": "before",
+     "display_order": 3
+    },
+    {
+     "sentence": "Dersten {{answer}} eve gittim.",
+     "answer": "sonra",
+     "translation": "After the lesson I went home.",
+     "hint": "after",
+     "display_order": 4
+    },
+    {
+     "sentence": "İşten {{answer}} spor yaparım.",
+     "answer": "sonra",
+     "translation": "After work I do sport.",
+     "hint": "after",
+     "display_order": 5
+    },
+    {
+     "sentence": "Sınavdan {{answer}} çok çalıştım.",
+     "answer": "önce",
+     "translation": "Before the exam I studied a lot.",
+     "hint": "before",
+     "display_order": 6
+    }
+   ]
+  },
+  {
+   "title": "Aorist negative (-mez / -mem)",
+   "level": "B1",
+   "function": "Deny habits politely and firmly",
+   "source": "contributor",
+   "reviewed": true,
+   "display_order": 1,
+   "explanation": "The aorist negates irregularly: -mem (I), -mezsin, -mez, -meyiz, -mezsiniz, -mezler: et yemem (I don't eat meat), yalan söylemez (he doesn't lie).",
+   "culture_note": "",
+   "references": [
+    {
+     "title": "Türk Dil Kurumu — Sözlükleri",
+     "url": "https://sozluk.gov.tr/"
+    },
+    {
+     "title": "Wikipedia: Turkish grammar",
+     "url": "https://en.wikipedia.org/wiki/Turkish_grammar"
+    }
+   ],
+   "drills": [
+    {
+     "sentence": "Ben et {{answer}}.",
+     "answer": "yemem",
+     "translation": "I don't eat meat.",
+     "hint": "ye + aorist negative, 1sg",
+     "display_order": 1
+    },
+    {
+     "sentence": "O yalan {{answer}}.",
+     "answer": "söylemez",
+     "translation": "He does not lie.",
+     "hint": "to say + aorist negative, he",
+     "display_order": 2
+    },
+    {
+     "sentence": "O asla geç {{answer}}.",
+     "answer": "kalmaz",
+     "translation": "He is never late.",
+     "hint": "to stay + aorist negative, he",
+     "display_order": 3
+    },
+    {
+     "sentence": "Ben sabahları kahve {{answer}}.",
+     "answer": "içmem",
+     "translation": "I don't drink coffee in the mornings.",
+     "hint": "to drink + aorist negative, I",
+     "display_order": 4
+    },
+    {
+     "sentence": "Biz yalan {{answer}}.",
+     "answer": "söylemeyiz",
+     "translation": "We don't tell lies.",
+     "hint": "to say + aorist negative, we",
+     "display_order": 5
+    },
+    {
+     "sentence": "O balık {{answer}}.",
+     "answer": "sevmez",
+     "translation": "He doesn't like fish.",
+     "hint": "to like + aorist negative, he",
+     "display_order": 6
+    }
+   ]
+  },
+  {
+   "title": "Evidential past (-miş)",
+   "level": "B1",
+   "function": "Report what you didn't witness",
+   "source": "contributor",
+   "reviewed": true,
+   "display_order": 2,
+   "explanation": "-miş marks hearsay, inference, and surprise — the un-witnessed past: Dün yağmur yağmış (It apparently rained yesterday), Çok yorulmuşsun (You must be really tired). Turkish forces you to say HOW you know.",
+   "culture_note": "This -di/-miş split is one of Turkish's signatures: saying 'geldi' claims you saw it; 'gelmiş' says you found out.",
+   "references": [
+    {
+     "title": "Türk Dil Kurumu — Sözlükleri",
+     "url": "https://sozluk.gov.tr/"
+    },
+    {
+     "title": "Wikipedia: Turkish grammar",
+     "url": "https://en.wikipedia.org/wiki/Turkish_grammar"
+    },
+    {
+     "title": "Wikipedia: Evidentiality",
+     "url": "https://en.wikipedia.org/wiki/Evidentiality"
+    }
+   ],
+   "drills": [
+    {
+     "sentence": "Dün yağmur {{answer}}.",
+     "answer": "yağmış",
+     "translation": "It apparently rained yesterday.",
+     "hint": "to rain + evidential past (hearsay)",
+     "display_order": 1
+    },
+    {
+     "sentence": "Çok {{answer}}.",
+     "answer": "yorulmuşsun",
+     "translation": "You must be really tired.",
+     "hint": "to get tired + evidential past, you (inference)",
+     "display_order": 2
+    },
+    {
+     "sentence": "Sen dün çok {{answer}}.",
+     "answer": "çalışmışsın",
+     "translation": "Apparently you worked a lot yesterday.",
+     "hint": "to work + evidential past, you",
+     "display_order": 3
+    },
+    {
+     "sentence": "Komşular {{answer}}.",
+     "answer": "taşınmış",
+     "translation": "The neighbours have apparently moved away.",
+     "hint": "to move away + evidential past",
+     "display_order": 4
+    },
+    {
+     "sentence": "Bebek {{answer}}.",
+     "answer": "uyumuş",
+     "translation": "The baby has apparently fallen asleep.",
+     "hint": "to fall asleep + evidential past",
+     "display_order": 5
+    },
+    {
+     "sentence": "Yemek çok güzel {{answer}}.",
+     "answer": "olmuş",
+     "translation": "The food has turned out great (they say).",
+     "hint": "to turn out + evidential past",
+     "display_order": 6
+    }
+   ]
+  },
+  {
+   "title": "Necessity (-meli)",
+   "level": "B1",
+   "function": "Say what must be done",
+   "source": "contributor",
+   "reviewed": true,
+   "display_order": 3,
+   "explanation": "-meli/-malı expresses obligation: kalkmalıyım (I must get up), çalışmalısın (you should study), gitmeliyiz (we must go).",
+   "culture_note": "",
+   "references": [
+    {
+     "title": "Türk Dil Kurumu — Sözlükleri",
+     "url": "https://sozluk.gov.tr/"
+    },
+    {
+     "title": "Wikipedia: Turkish grammar",
+     "url": "https://en.wikipedia.org/wiki/Turkish_grammar"
+    }
+   ],
+   "drills": [
+    {
+     "sentence": "Erken {{answer}}.",
+     "answer": "kalkmalıyım",
+     "translation": "I must get up early.",
+     "hint": "to get up + necessity, I",
+     "display_order": 1
+    },
+    {
+     "sentence": "Daha çok {{answer}}.",
+     "answer": "çalışmalısın",
+     "translation": "You should study more.",
+     "hint": "to study + necessity, you",
+     "display_order": 2
+    },
+    {
+     "sentence": "Biz daha erken {{answer}}.",
+     "answer": "yatmalıyız",
+     "translation": "We should go to bed earlier.",
+     "hint": "to go to bed + necessity, we",
+     "display_order": 3
+    },
+    {
+     "sentence": "O doktora {{answer}}.",
+     "answer": "gitmeli",
+     "translation": "She should go to the doctor.",
+     "hint": "to go + necessity, she",
+     "display_order": 4
+    },
+    {
+     "sentence": "Ben sigarayı {{answer}}.",
+     "answer": "bırakmalıyım",
+     "translation": "I must quit smoking.",
+     "hint": "to quit + necessity, I",
+     "display_order": 5
+    },
+    {
+     "sentence": "Siz Türkçe pratik {{answer}}.",
+     "answer": "yapmalısınız",
+     "translation": "You should practise Turkish.",
+     "hint": "to do + necessity, you (plural)",
+     "display_order": 6
+    }
+   ]
+  },
+  {
+   "title": "Conditional (-se)",
+   "level": "B1",
+   "function": "Make if-sentences",
+   "source": "contributor",
+   "reviewed": true,
+   "display_order": 4,
+   "explanation": "-se/-sa on the verb (or var/yok) builds real conditions: Zamanın varsa, gel (If you have time, come), Yağmur yağarsa evde kalırız (If it rains we stay home — aorist + -sa).",
+   "culture_note": "",
+   "references": [
+    {
+     "title": "Türk Dil Kurumu — Sözlükleri",
+     "url": "https://sozluk.gov.tr/"
+    },
+    {
+     "title": "Wikipedia: Turkish grammar",
+     "url": "https://en.wikipedia.org/wiki/Turkish_grammar"
+    }
+   ],
+   "drills": [
+    {
+     "sentence": "Zamanın {{answer}}, gel.",
+     "answer": "varsa",
+     "translation": "If you have time, come.",
+     "hint": "'there is' + conditional",
+     "display_order": 1
+    },
+    {
+     "sentence": "Yağmur {{answer}}, evde kalırız.",
+     "answer": "yağarsa",
+     "translation": "If it rains, we will stay at home.",
+     "hint": "to rain + aorist + conditional",
+     "display_order": 2
+    },
+    {
+     "sentence": "Param {{answer}}, araba alırım.",
+     "answer": "olursa",
+     "translation": "If I have money, I'll buy a car.",
+     "hint": "to be + aorist + conditional",
+     "display_order": 3
+    },
+    {
+     "sentence": "Erken {{answer}}, kahvaltı yaparız.",
+     "answer": "kalkarsak",
+     "translation": "If we get up early, we'll have breakfast.",
+     "hint": "to get up + aorist + conditional, we",
+     "display_order": 4
+    },
+    {
+     "sentence": "{{answer}}, birlikte çalışırız.",
+     "answer": "İstersen",
+     "translation": "If you want, we'll work together.",
+     "hint": "iste + -r + -sen",
+     "display_order": 5
+    },
+    {
+     "sentence": "Geç {{answer}}, beni bekleme.",
+     "answer": "kalırsam",
+     "translation": "If I'm late, don't wait for me.",
+     "hint": "to be (late) + aorist + conditional, I",
+     "display_order": 6
+    }
+   ]
+  },
+  {
+   "title": "Verbal nouns (-mek / -me)",
+   "level": "B1",
+   "function": "Use actions as things",
+   "source": "contributor",
+   "reviewed": true,
+   "display_order": 5,
+   "explanation": "Infinitives act as nouns: Kitap okumak güzeldir (Reading books is nice). As an object the -me form takes case: Yüzmeyi seviyorum (I love swimming — yüzme + accusative).",
+   "culture_note": "",
+   "references": [
+    {
+     "title": "Türk Dil Kurumu — Sözlükleri",
+     "url": "https://sozluk.gov.tr/"
+    },
+    {
+     "title": "Wikipedia: Turkish grammar",
+     "url": "https://en.wikipedia.org/wiki/Turkish_grammar"
+    }
+   ],
+   "drills": [
+    {
+     "sentence": "{{answer}} seviyorum.",
+     "answer": "Yüzmeyi",
+     "translation": "I love swimming.",
+     "hint": "swimming as a noun + accusative",
+     "display_order": 1
+    },
+    {
+     "sentence": "Kitap {{answer}} güzeldir.",
+     "answer": "okumak",
+     "translation": "Reading books is nice.",
+     "hint": "bare infinitive as subject",
+     "display_order": 2
+    },
+    {
+     "sentence": "{{answer}} sağlığa iyi gelir.",
+     "answer": "Yüzmek",
+     "translation": "Swimming is good for your health.",
+     "hint": "to swim as a noun (infinitive)",
+     "display_order": 3
+    },
+    {
+     "sentence": "Türkçe {{answer}} zor değil.",
+     "answer": "öğrenmek",
+     "translation": "Learning Turkish is not hard.",
+     "hint": "to learn as a noun (infinitive)",
+     "display_order": 4
+    },
+    {
+     "sentence": "{{answer}} istemiyorum.",
+     "answer": "Gitmek",
+     "translation": "I don't want to go.",
+     "hint": "to go as a noun (infinitive)",
+     "display_order": 5
+    },
+    {
+     "sentence": "O, kitap {{answer}} sever.",
+     "answer": "okumayı",
+     "translation": "He loves reading books.",
+     "hint": "reading as a noun + accusative",
+     "display_order": 6
+    }
+   ]
+  },
+  {
+   "title": "gibi and kadar",
+   "level": "B1",
+   "function": "Say 'like' and 'as much as'",
+   "source": "contributor",
+   "reviewed": true,
+   "display_order": 6,
+   "explanation": "gibi = like (Aslan gibi güçlü — strong like a lion); kadar = as much as (Senin kadar hızlı değilim — I'm not as fast as you; pronouns take genitive before kadar).",
+   "culture_note": "",
+   "references": [
+    {
+     "title": "Türk Dil Kurumu — Sözlükleri",
+     "url": "https://sozluk.gov.tr/"
+    },
+    {
+     "title": "Wikipedia: Turkish grammar",
+     "url": "https://en.wikipedia.org/wiki/Turkish_grammar"
+    }
+   ],
+   "drills": [
+    {
+     "sentence": "Aslan {{answer}} güçlü.",
+     "answer": "gibi",
+     "translation": "Strong as a lion.",
+     "hint": "'like'",
+     "display_order": 1
+    },
+    {
+     "sentence": "Senin {{answer}} hızlı değilim.",
+     "answer": "kadar",
+     "translation": "I am not as fast as you.",
+     "hint": "'as much as'",
+     "display_order": 2
+    },
+    {
+     "sentence": "Buz {{answer}} soğuk.",
+     "answer": "gibi",
+     "translation": "Cold as ice.",
+     "hint": "like",
+     "display_order": 3
+    },
+    {
+     "sentence": "Kardeşim benim {{answer}} uzun değil.",
+     "answer": "kadar",
+     "translation": "My brother is not as tall as me.",
+     "hint": "as … as",
+     "display_order": 4
+    },
+    {
+     "sentence": "O, babası {{answer}} çalışkan.",
+     "answer": "kadar",
+     "translation": "He is as hardworking as his father.",
+     "hint": "as … as",
+     "display_order": 5
+    },
+    {
+     "sentence": "Melek {{answer}} bir insan.",
+     "answer": "gibi",
+     "translation": "A person like an angel.",
+     "hint": "like",
+     "display_order": 6
+    }
+   ]
+  },
+  {
+   "title": "While (-ken)",
+   "level": "B1",
+   "function": "Do two things at once",
+   "source": "contributor",
+   "reviewed": true,
+   "display_order": 7,
+   "explanation": "-ken attaches to the aorist (or nouns) for 'while': Çalışırken müzik dinlerim (While working I listen to music), Yemek yerken konuşma (Don't talk while eating). It ignores vowel harmony — always -ken.",
+   "culture_note": "",
+   "references": [
+    {
+     "title": "Türk Dil Kurumu — Sözlükleri",
+     "url": "https://sozluk.gov.tr/"
+    },
+    {
+     "title": "Wikipedia: Turkish grammar",
+     "url": "https://en.wikipedia.org/wiki/Turkish_grammar"
+    }
+   ],
+   "drills": [
+    {
+     "sentence": "{{answer}} müzik dinlerim.",
+     "answer": "Çalışırken",
+     "translation": "While working, I listen to music.",
+     "hint": "to work + aorist + 'while'",
+     "display_order": 1
+    },
+    {
+     "sentence": "Yemek {{answer}} konuşma.",
+     "answer": "yerken",
+     "translation": "Don't talk while eating.",
+     "hint": "to eat + aorist + 'while'",
+     "display_order": 2
+    },
+    {
+     "sentence": "{{answer}} telefon çaldı.",
+     "answer": "Uyurken",
+     "translation": "The phone rang while I was sleeping.",
+     "hint": "to sleep + aorist + 'while'",
+     "display_order": 3
+    },
+    {
+     "sentence": "Kitap {{answer}} uyuyakaldım.",
+     "answer": "okurken",
+     "translation": "I fell asleep while reading a book.",
+     "hint": "to read + aorist + 'while'",
+     "display_order": 4
+    },
+    {
+     "sentence": "Araba {{answer}} dikkatli ol.",
+     "answer": "kullanırken",
+     "translation": "Be careful while driving.",
+     "hint": "to use + aorist + 'while'",
+     "display_order": 5
+    },
+    {
+     "sentence": "Ders {{answer}} telefonuna bakma.",
+     "answer": "çalışırken",
+     "translation": "Don't look at your phone while studying.",
+     "hint": "to study + aorist + 'while'",
+     "display_order": 6
+    }
+   ]
+  },
+  {
+   "title": "Subject participle (-en)",
+   "level": "B2",
+   "function": "Describe the one who does",
+   "source": "contributor",
+   "reviewed": true,
+   "display_order": 1,
+   "explanation": "-en/-an turns a verb into 'the one who…': gelen adam (the man who is coming), kitap okuyan kız (the girl reading a book). It replaces English 'who/that' clauses where the head noun is the subject.",
+   "culture_note": "",
+   "references": [
+    {
+     "title": "Türk Dil Kurumu — Sözlükleri",
+     "url": "https://sozluk.gov.tr/"
+    },
+    {
+     "title": "Wikipedia: Turkish grammar",
+     "url": "https://en.wikipedia.org/wiki/Turkish_grammar"
+    },
+    {
+     "title": "Wiktionary: -en (Turkish)",
+     "url": "https://en.wiktionary.org/wiki/-en#Turkish"
+    }
+   ],
+   "drills": [
+    {
+     "sentence": "{{answer}} adam babamdır.",
+     "answer": "Gelen",
+     "translation": "The man who is coming is my father.",
+     "hint": "to come + subject participle",
+     "display_order": 1
+    },
+    {
+     "sentence": "Kitap {{answer}} kız kardeşimdir.",
+     "answer": "okuyan",
+     "translation": "The girl who is reading a book is my sister.",
+     "hint": "to read + subject participle (buffer y)",
+     "display_order": 2
+    },
+    {
+     "sentence": "{{answer}} kadın annemdir.",
+     "answer": "Konuşan",
+     "translation": "The woman who is speaking is my mother.",
+     "hint": "to speak + subject participle",
+     "display_order": 3
+    },
+    {
+     "sentence": "Bahçede {{answer}} çocuklar mutlu.",
+     "answer": "oynayan",
+     "translation": "The children playing in the garden are happy.",
+     "hint": "to play + subject participle (buffer y)",
+     "display_order": 4
+    },
+    {
+     "sentence": "{{answer}} öğrenciler sınavı geçti.",
+     "answer": "Çalışan",
+     "translation": "The students who studied passed the exam.",
+     "hint": "to study + subject participle",
+     "display_order": 5
+    },
+    {
+     "sentence": "Sokakta {{answer}} adamı gördüm.",
+     "answer": "koşan",
+     "translation": "I saw the man running in the street.",
+     "hint": "to run + subject participle",
+     "display_order": 6
+    }
+   ]
+  },
+  {
+   "title": "Object participle (-dik)",
+   "level": "B2",
+   "function": "Describe the thing that is done",
+   "source": "contributor",
+   "reviewed": true,
+   "display_order": 2,
+   "explanation": "When the head noun is the OBJECT, use -dik + possessive: okuduğum kitap (the book that I read), senin yaptığın yemek (the food you made). The possessive shows who did it; k softens to ğ before vowels.",
+   "culture_note": "",
+   "references": [
+    {
+     "title": "Türk Dil Kurumu — Sözlükleri",
+     "url": "https://sozluk.gov.tr/"
+    },
+    {
+     "title": "Wikipedia: Turkish grammar",
+     "url": "https://en.wikipedia.org/wiki/Turkish_grammar"
+    },
+    {
+     "title": "Wiktionary: -dik (Turkish)",
+     "url": "https://en.wiktionary.org/wiki/-dik#Turkish"
+    }
+   ],
+   "drills": [
+    {
+     "sentence": "{{answer}} kitap çok güzel.",
+     "answer": "Okuduğum",
+     "translation": "The book that I read is very good.",
+     "hint": "to read + object participle, my",
+     "display_order": 1
+    },
+    {
+     "sentence": "Senin {{answer}} yemek lezzetliydi.",
+     "answer": "yaptığın",
+     "translation": "The food that you made was delicious.",
+     "hint": "to make + object participle, your",
+     "display_order": 2
+    },
+    {
+     "sentence": "{{answer}} film çok uzundu.",
+     "answer": "İzlediğimiz",
+     "translation": "The film we watched was very long.",
+     "hint": "izle + -diğimiz",
+     "display_order": 3
+    },
+    {
+     "sentence": "Onun {{answer}} her şey doğru.",
+     "answer": "söylediği",
+     "translation": "Everything he said is true.",
+     "hint": "to say + object participle, his",
+     "display_order": 4
+    },
+    {
+     "sentence": "{{answer}} şehir çok güzelmiş.",
+     "answer": "Yaşadığın",
+     "translation": "The city you live in is apparently very beautiful.",
+     "hint": "to live + object participle, your",
+     "display_order": 5
+    },
+    {
+     "sentence": "Benim {{answer}} kitap masada.",
+     "answer": "okuduğum",
+     "translation": "The book I am reading is on the table.",
+     "hint": "to read + object participle, my",
+     "display_order": 6
+    }
+   ]
+  },
+  {
+   "title": "Passive voice (-il / -in)",
+   "level": "B2",
+   "function": "Say what is done without the doer",
+   "source": "contributor",
+   "reviewed": true,
+   "display_order": 3,
+   "explanation": "The passive inserts -il (after consonants), -in (after l), or -n (after vowels): yapmak → yapıldı (it was built), içmek → içilir (it is drunk): Bu ev 1950'de yapıldı.",
+   "culture_note": "",
+   "references": [
+    {
+     "title": "Türk Dil Kurumu — Sözlükleri",
+     "url": "https://sozluk.gov.tr/"
+    },
+    {
+     "title": "Wikipedia: Turkish grammar",
+     "url": "https://en.wikipedia.org/wiki/Turkish_grammar"
+    }
+   ],
+   "drills": [
+    {
+     "sentence": "Bu ev 1950'de {{answer}}.",
+     "answer": "yapıldı",
+     "translation": "This house was built in 1950.",
+     "hint": "to build + passive + past",
+     "display_order": 1
+    },
+    {
+     "sentence": "Türkiye'de çok çay {{answer}}.",
+     "answer": "içilir",
+     "translation": "A lot of tea is drunk in Turkey.",
+     "hint": "to drink + passive + aorist",
+     "display_order": 2
+    },
+    {
+     "sentence": "Bu okul geçen yıl {{answer}}.",
+     "answer": "açıldı",
+     "translation": "This school was opened last year.",
+     "hint": "to open + passive + past",
+     "display_order": 3
+    },
+    {
+     "sentence": "Mektup dün {{answer}}.",
+     "answer": "gönderildi",
+     "translation": "The letter was sent yesterday.",
+     "hint": "to send + passive + past",
+     "display_order": 4
+    },
+    {
+     "sentence": "Bu evde Türkçe {{answer}}.",
+     "answer": "konuşulur",
+     "translation": "Turkish is spoken in this house.",
+     "hint": "to speak + passive + aorist",
+     "display_order": 5
+    },
+    {
+     "sentence": "Kapılar akşam dokuzda {{answer}}.",
+     "answer": "kapatılır",
+     "translation": "The doors are closed at nine in the evening.",
+     "hint": "to close + passive + aorist",
+     "display_order": 6
+    }
+   ]
+  },
+  {
+   "title": "Causative (-dir / -t)",
+   "level": "B2",
+   "function": "Have something done",
+   "source": "contributor",
+   "reviewed": true,
+   "display_order": 4,
+   "explanation": "The causative makes someone do or have done: kesmek → kestirmek (have cut) — Saçımı kestirdim (I had my hair cut); yemek → yedirmek (feed): Annesi çocuğa yemek yedirdi.",
+   "culture_note": "",
+   "references": [
+    {
+     "title": "Türk Dil Kurumu — Sözlükleri",
+     "url": "https://sozluk.gov.tr/"
+    },
+    {
+     "title": "Wikipedia: Turkish grammar",
+     "url": "https://en.wikipedia.org/wiki/Turkish_grammar"
+    }
+   ],
+   "drills": [
+    {
+     "sentence": "Saçımı {{answer}}.",
+     "answer": "kestirdim",
+     "translation": "I had my hair cut.",
+     "hint": "to cut + causative + past, I",
+     "display_order": 1
+    },
+    {
+     "sentence": "Annesi çocuğa yemek {{answer}}.",
+     "answer": "yedirdi",
+     "translation": "His mother fed the child.",
+     "hint": "to eat + causative + past, she",
+     "display_order": 2
+    },
+    {
+     "sentence": "Arabamı {{answer}}.",
+     "answer": "yıkattım",
+     "translation": "I had my car washed.",
+     "hint": "to wash + causative + past, I",
+     "display_order": 3
+    },
+    {
+     "sentence": "Öğretmen öğrencilere kitap {{answer}}.",
+     "answer": "okuttu",
+     "translation": "The teacher had the students read a book.",
+     "hint": "to read + causative + past, he",
+     "display_order": 4
+    },
+    {
+     "sentence": "Bebeği {{answer}}.",
+     "answer": "uyuttum",
+     "translation": "I put the baby to sleep.",
+     "hint": "to sleep + causative + past, I",
+     "display_order": 5
+    },
+    {
+     "sentence": "Evi {{answer}}.",
+     "answer": "boyattım",
+     "translation": "I had the house painted.",
+     "hint": "to paint + causative + past, I",
+     "display_order": 6
+    }
+   ]
+  },
+  {
+   "title": "Reported speech (-diğini söylemek)",
+   "level": "B2",
+   "function": "Report what people said and know",
+   "source": "contributor",
+   "reviewed": true,
+   "display_order": 5,
+   "explanation": "Reported clauses nominalize with -dik/-ecek + possessive + case: Geleceğini söyledi (He said he would come — gelecek+i+ni), Hasta olduğunu duydum (I heard that he was sick).",
+   "culture_note": "",
+   "references": [
+    {
+     "title": "Türk Dil Kurumu — Sözlükleri",
+     "url": "https://sozluk.gov.tr/"
+    },
+    {
+     "title": "Wikipedia: Turkish grammar",
+     "url": "https://en.wikipedia.org/wiki/Turkish_grammar"
+    }
+   ],
+   "drills": [
+    {
+     "sentence": "Geleceğini {{answer}}.",
+     "answer": "söyledi",
+     "translation": "He said that he would come.",
+     "hint": "the saying verb",
+     "display_order": 1
+    },
+    {
+     "sentence": "Hasta {{answer}} duydum.",
+     "answer": "olduğunu",
+     "translation": "I heard that he was sick.",
+     "hint": "to be + object participle + accusative",
+     "display_order": 2
+    },
+    {
+     "sentence": "Onun hasta {{answer}} bilmiyordum.",
+     "answer": "olduğunu",
+     "translation": "I didn't know that he was ill.",
+     "hint": "to be + object participle + accusative",
+     "display_order": 3
+    },
+    {
+     "sentence": "Nerede {{answer}} sordu.",
+     "answer": "oturduğumu",
+     "translation": "He asked where I live.",
+     "hint": "to live + object participle, my + accusative",
+     "display_order": 4
+    },
+    {
+     "sentence": "Beni {{answer}} söyledi.",
+     "answer": "sevdiğini",
+     "translation": "She said that she loves me.",
+     "hint": "to love + object participle, her + accusative",
+     "display_order": 5
+    },
+    {
+     "sentence": "Geç {{answer}} fark ettim.",
+     "answer": "kaldığımı",
+     "translation": "I realised that I was late.",
+     "hint": "to be (late) + object participle, my + accusative",
+     "display_order": 6
+    }
+   ]
+  },
+  {
+   "title": "Converbs (-ip and -erek)",
+   "level": "B2",
+   "function": "Chain actions in one sentence",
+   "source": "contributor",
+   "reviewed": true,
+   "display_order": 6,
+   "explanation": "-ip links same-subject actions ('and then'): Kahvaltı yapıp evden çıktım (I had breakfast and left). -erek expresses manner ('by/while doing'): Koşarak geldi (He came running).",
+   "culture_note": "",
+   "references": [
+    {
+     "title": "Türk Dil Kurumu — Sözlükleri",
+     "url": "https://sozluk.gov.tr/"
+    },
+    {
+     "title": "Wikipedia: Turkish grammar",
+     "url": "https://en.wikipedia.org/wiki/Turkish_grammar"
+    },
+    {
+     "title": "Wiktionary: -ip (Turkish)",
+     "url": "https://en.wiktionary.org/wiki/-ip#Turkish"
+    }
+   ],
+   "drills": [
+    {
+     "sentence": "Kahvaltı {{answer}} evden çıktım.",
+     "answer": "yapıp",
+     "translation": "I had breakfast and left the house.",
+     "hint": "to make + 'and then' converb",
+     "display_order": 1
+    },
+    {
+     "sentence": "{{answer}} geldi.",
+     "answer": "Koşarak",
+     "translation": "He came running.",
+     "hint": "to run + 'by …ing' converb",
+     "display_order": 2
+    },
+    {
+     "sentence": "Eve {{answer}} yemek yaptım.",
+     "answer": "gelip",
+     "translation": "I came home and cooked.",
+     "hint": "to come + 'and then' converb",
+     "display_order": 3
+    },
+    {
+     "sentence": "{{answer}} konuşuyordu.",
+     "answer": "Gülerek",
+     "translation": "She was talking while laughing.",
+     "hint": "to laugh + 'by …ing' converb",
+     "display_order": 4
+    },
+    {
+     "sentence": "Kapıyı {{answer}} çıktı.",
+     "answer": "kapatıp",
+     "translation": "He closed the door and left.",
+     "hint": "to close + 'and then' converb",
+     "display_order": 5
+    },
+    {
+     "sentence": "Müzik {{answer}} ders çalışırım.",
+     "answer": "dinleyerek",
+     "translation": "I study while listening to music.",
+     "hint": "to listen + 'by …ing' converb (buffer y)",
+     "display_order": 6
+    }
+   ]
+  },
+  {
+   "title": "The more… (-dikçe)",
+   "level": "C1",
+   "function": "Say 'the more X, the more Y'",
+   "source": "contributor",
+   "reviewed": true,
+   "display_order": 1,
+   "explanation": "-dikçe means 'as / the more / as long as': Okudukça öğreniyorum (The more I read, the more I learn), Sen güldükçe ben mutlu oluyorum (As you laugh, I become happy).",
+   "culture_note": "",
+   "references": [
+    {
+     "title": "Türk Dil Kurumu — Sözlükleri",
+     "url": "https://sozluk.gov.tr/"
+    },
+    {
+     "title": "Wikipedia: Turkish grammar",
+     "url": "https://en.wikipedia.org/wiki/Turkish_grammar"
+    }
+   ],
+   "drills": [
+    {
+     "sentence": "{{answer}} öğreniyorum.",
+     "answer": "Okudukça",
+     "translation": "The more I read, the more I learn.",
+     "hint": "to read + 'the more' converb",
+     "display_order": 1
+    },
+    {
+     "sentence": "Sen {{answer}}, ben mutlu oluyorum.",
+     "answer": "güldükçe",
+     "translation": "As you laugh, I become happy.",
+     "hint": "to laugh + 'the more' converb",
+     "display_order": 2
+    },
+    {
+     "sentence": "Para {{answer}} harcıyor.",
+     "answer": "kazandıkça",
+     "translation": "The more he earns, the more he spends.",
+     "hint": "to earn + 'the more' converb",
+     "display_order": 3
+    },
+    {
+     "sentence": "{{answer}} güzelleşiyorsun.",
+     "answer": "Büyüdükçe",
+     "translation": "You get more beautiful as you grow.",
+     "hint": "to grow + 'the more' converb",
+     "display_order": 4
+    },
+    {
+     "sentence": "Türkçe {{answer}} kolaylaşıyor.",
+     "answer": "öğrendikçe",
+     "translation": "The more you learn Turkish, the easier it gets.",
+     "hint": "to learn + 'the more' converb",
+     "display_order": 5
+    },
+    {
+     "sentence": "Zaman {{answer}} her şey değişiyor.",
+     "answer": "geçtikçe",
+     "translation": "As time passes, everything changes.",
+     "hint": "to pass + 'the more' converb (suffix devoices)",
+     "display_order": 6
+    }
+   ]
+  },
+  {
+   "title": "Without doing (-meden)",
+   "level": "C1",
+   "function": "Say what happened without something",
+   "source": "contributor",
+   "reviewed": true,
+   "display_order": 2,
+   "explanation": "-meden = without doing: Veda etmeden gitti (He left without saying goodbye), Hiç çalışmadan sınavı geçti (He passed the exam without studying at all).",
+   "culture_note": "",
+   "references": [
+    {
+     "title": "Türk Dil Kurumu — Sözlükleri",
+     "url": "https://sozluk.gov.tr/"
+    },
+    {
+     "title": "Wikipedia: Turkish grammar",
+     "url": "https://en.wikipedia.org/wiki/Turkish_grammar"
+    }
+   ],
+   "drills": [
+    {
+     "sentence": "Veda {{answer}} gitti.",
+     "answer": "etmeden",
+     "translation": "He left without saying goodbye.",
+     "hint": "to do + 'without …ing'",
+     "display_order": 1
+    },
+    {
+     "sentence": "Hiç {{answer}} sınavı geçti.",
+     "answer": "çalışmadan",
+     "translation": "He passed the exam without studying at all.",
+     "hint": "to study + 'without …ing'",
+     "display_order": 2
+    },
+    {
+     "sentence": "Kahvaltı {{answer}} okula gitti.",
+     "answer": "yapmadan",
+     "translation": "He went to school without having breakfast.",
+     "hint": "to have (breakfast) + 'without …ing'",
+     "display_order": 3
+    },
+    {
+     "sentence": "{{answer}} konuşma.",
+     "answer": "Düşünmeden",
+     "translation": "Don't speak without thinking.",
+     "hint": "to think + 'without …ing'",
+     "display_order": 4
+    },
+    {
+     "sentence": "İzin {{answer}} girme.",
+     "answer": "almadan",
+     "translation": "Don't enter without permission.",
+     "hint": "to take + 'without …ing'",
+     "display_order": 5
+    },
+    {
+     "sentence": "Etrafına {{answer}} yürüyordu.",
+     "answer": "bakmadan",
+     "translation": "He was walking without looking around.",
+     "hint": "to look + 'without …ing'",
+     "display_order": 6
+    }
+   ]
+  },
+  {
+   "title": "Reflexive and reciprocal voice (-in / -iş)",
+   "level": "C1",
+   "function": "Actions on oneself and each other",
+   "source": "contributor",
+   "reviewed": true,
+   "display_order": 3,
+   "explanation": "-in makes reflexives: yıkanmak (wash oneself) — Kedi yıkanıyor. -iş makes reciprocals: tanışmak (meet each other) — Biz üniversitede tanıştık (We met at university).",
+   "culture_note": "",
+   "references": [
+    {
+     "title": "Türk Dil Kurumu — Sözlükleri",
+     "url": "https://sozluk.gov.tr/"
+    },
+    {
+     "title": "Wikipedia: Turkish grammar",
+     "url": "https://en.wikipedia.org/wiki/Turkish_grammar"
+    }
+   ],
+   "drills": [
+    {
+     "sentence": "Biz üniversitede {{answer}}.",
+     "answer": "tanıştık",
+     "translation": "We met (each other) at university.",
+     "hint": "to know + reciprocal + past, we",
+     "display_order": 1
+    },
+    {
+     "sentence": "Kedi {{answer}}.",
+     "answer": "yıkanıyor",
+     "translation": "The cat is washing itself.",
+     "hint": "to wash + reflexive + present continuous",
+     "display_order": 2
+    },
+    {
+     "sentence": "Onlar her gün {{answer}}.",
+     "answer": "görüşüyorlar",
+     "translation": "They see each other every day.",
+     "hint": "gör + -üş — reciprocal",
+     "display_order": 3
+    },
+    {
+     "sentence": "Arkadaşlar yıllar sonra {{answer}}.",
+     "answer": "buluştular",
+     "translation": "The friends met up after years.",
+     "hint": "bul + -uş — reciprocal",
+     "display_order": 4
+    },
+    {
+     "sentence": "Her sabah {{answer}}.",
+     "answer": "taranırım",
+     "translation": "I comb my hair every morning.",
+     "hint": "tara + -n — reflexive",
+     "display_order": 5
+    },
+    {
+     "sentence": "İki kardeş sürekli {{answer}}.",
+     "answer": "dövüşüyor",
+     "translation": "The two brothers are constantly fighting each other.",
+     "hint": "döv + -üş — reciprocal",
+     "display_order": 6
+    }
+   ]
+  },
+  {
+   "title": "Because (-diği için)",
+   "level": "C1",
+   "function": "Give reasons formally",
+   "source": "contributor",
+   "reviewed": true,
+   "display_order": 4,
+   "explanation": "-dik + possessive + için = because: Hasta olduğu için gelmedi (He didn't come because he was sick), Geç kaldığı için özür diledi (He apologized because he was late).",
+   "culture_note": "",
+   "references": [
+    {
+     "title": "Türk Dil Kurumu — Sözlükleri",
+     "url": "https://sozluk.gov.tr/"
+    },
+    {
+     "title": "Wikipedia: Turkish grammar",
+     "url": "https://en.wikipedia.org/wiki/Turkish_grammar"
+    }
+   ],
+   "drills": [
+    {
+     "sentence": "Hasta {{answer}} için gelmedi.",
+     "answer": "olduğu",
+     "translation": "He didn't come because he was sick.",
+     "hint": "to be + object participle (+ 'because')",
+     "display_order": 1
+    },
+    {
+     "sentence": "Geç {{answer}} için özür diledi.",
+     "answer": "kaldığı",
+     "translation": "He apologized for being late.",
+     "hint": "to be (late) + object participle (+ 'because')",
+     "display_order": 2
+    },
+    {
+     "sentence": "Yağmur {{answer}} için maç iptal oldu.",
+     "answer": "yağdığı",
+     "translation": "Because it rained, the match was cancelled.",
+     "hint": "to rain + object participle (+ 'because')",
+     "display_order": 3
+    },
+    {
+     "sentence": "Çok {{answer}} için başardı.",
+     "answer": "çalıştığı",
+     "translation": "He succeeded because he worked hard.",
+     "hint": "to work + object participle (+ 'because')",
+     "display_order": 4
+    },
+    {
+     "sentence": "Erken {{answer}} için yorgunum.",
+     "answer": "kalktığım",
+     "translation": "I am tired because I got up early.",
+     "hint": "to get up + object participle, my (+ 'because')",
+     "display_order": 5
+    },
+    {
+     "sentence": "Bilet {{answer}} için giremedik.",
+     "answer": "almadığımız",
+     "translation": "Because we didn't buy tickets, we couldn't get in.",
+     "hint": "to buy + negative + object participle, our (+ 'because')",
+     "display_order": 6
+    }
+   ]
+  },
+  {
+   "title": "Formal progressive (-mekte)",
+   "level": "C2",
+   "function": "Write and speak officially",
+   "source": "contributor",
+   "reviewed": true,
+   "display_order": 1,
+   "explanation": "-mekte(dir) is the formal register's progressive, standard in news and reports: Toplantı devam etmektedir (The meeting is in progress), Fiyatlar artmaktadır (Prices are rising).",
+   "culture_note": "",
+   "references": [
+    {
+     "title": "Türk Dil Kurumu — Sözlükleri",
+     "url": "https://sozluk.gov.tr/"
+    },
+    {
+     "title": "Wikipedia: Turkish grammar",
+     "url": "https://en.wikipedia.org/wiki/Turkish_grammar"
+    }
+   ],
+   "drills": [
+    {
+     "sentence": "Toplantı devam {{answer}}.",
+     "answer": "etmektedir",
+     "translation": "The meeting is (formally) in progress.",
+     "hint": "to continue + formal progressive",
+     "display_order": 1
+    },
+    {
+     "sentence": "Fiyatlar {{answer}}.",
+     "answer": "artmaktadır",
+     "translation": "Prices are rising (formal).",
+     "hint": "to increase + formal progressive",
+     "display_order": 2
+    },
+    {
+     "sentence": "Şirket hızla {{answer}}.",
+     "answer": "büyümektedir",
+     "translation": "The company is growing rapidly.",
+     "hint": "to grow + formal progressive",
+     "display_order": 3
+    },
+    {
+     "sentence": "İşsizlik oranı {{answer}}.",
+     "answer": "azalmaktadır",
+     "translation": "The unemployment rate is decreasing.",
+     "hint": "to decrease + formal progressive",
+     "display_order": 4
+    },
+    {
+     "sentence": "Proje üzerinde {{answer}}.",
+     "answer": "çalışılmaktadır",
+     "translation": "Work is ongoing on the project.",
+     "hint": "passive + -maktadır",
+     "display_order": 5
+    },
+    {
+     "sentence": "Sonuçlar {{answer}}.",
+     "answer": "beklenmektedir",
+     "translation": "The results are awaited.",
+     "hint": "passive + -mektedir",
+     "display_order": 6
+    }
+   ]
+  },
+  {
+   "title": "Pretending (-mış gibi)",
+   "level": "C2",
+   "function": "Describe feigned states",
+   "source": "contributor",
+   "reviewed": true,
+   "display_order": 2,
+   "explanation": "Perfective participle + gibi = as if / pretending: Duymamış gibi yaptı (He pretended not to have heard), Hiçbir şey olmamış gibi davrandı (He acted as if nothing had happened).",
+   "culture_note": "",
+   "references": [
+    {
+     "title": "Türk Dil Kurumu — Sözlükleri",
+     "url": "https://sozluk.gov.tr/"
+    },
+    {
+     "title": "Wikipedia: Turkish grammar",
+     "url": "https://en.wikipedia.org/wiki/Turkish_grammar"
+    }
+   ],
+   "drills": [
+    {
+     "sentence": "Duymamış {{answer}} yaptı.",
+     "answer": "gibi",
+     "translation": "He pretended not to have heard.",
+     "hint": "'as if' after -mış",
+     "display_order": 1
+    },
+    {
+     "sentence": "Hiçbir şey olmamış {{answer}} davrandı.",
+     "answer": "gibi",
+     "translation": "He acted as if nothing had happened.",
+     "hint": "'as if' after -mış",
+     "display_order": 2
+    },
+    {
+     "sentence": "Hiç {{answer}} gibi konuşuyor.",
+     "answer": "bilmiyormuş",
+     "translation": "He talks as if he doesn't know anything.",
+     "hint": "to not know + evidential (before 'gibi')",
+     "display_order": 3
+    },
+    {
+     "sentence": "{{answer}} gibi yaptı.",
+     "answer": "Anlamamış",
+     "translation": "She pretended not to understand.",
+     "hint": "to understand + negative + evidential participle",
+     "display_order": 4
+    },
+    {
+     "sentence": "Her şeyi {{answer}} gibi anlatıyor.",
+     "answer": "görmüş",
+     "translation": "He recounts it as if he had seen everything.",
+     "hint": "to see + evidential participle",
+     "display_order": 5
+    },
+    {
+     "sentence": "Beni {{answer}} gibi davrandı.",
+     "answer": "tanımıyormuş",
+     "translation": "She acted as if she didn't know me.",
+     "hint": "to not know (someone) + evidential (before 'gibi')",
+     "display_order": 6
+    }
+   ]
+  },
+  {
+   "title": "Instead of (-eceğine)",
+   "level": "C2",
+   "function": "Recommend alternatives",
+   "source": "contributor",
+   "reviewed": true,
+   "display_order": 3,
+   "explanation": "-eceğine = instead of (doing): Televizyon izleyeceğine kitap oku (Instead of watching TV, read a book), Şikayet edeceğine çözüm bul (Instead of complaining, find a solution).",
+   "culture_note": "",
+   "references": [
+    {
+     "title": "Türk Dil Kurumu — Sözlükleri",
+     "url": "https://sozluk.gov.tr/"
+    },
+    {
+     "title": "Wikipedia: Turkish grammar",
+     "url": "https://en.wikipedia.org/wiki/Turkish_grammar"
+    }
+   ],
+   "drills": [
+    {
+     "sentence": "Televizyon {{answer}} kitap oku.",
+     "answer": "izleyeceğine",
+     "translation": "Instead of watching TV, read a book.",
+     "hint": "to watch + 'instead of …ing'",
+     "display_order": 1
+    },
+    {
+     "sentence": "Şikayet {{answer}} çözüm bul.",
+     "answer": "edeceğine",
+     "translation": "Instead of complaining, find a solution.",
+     "hint": "et + -eceğ + -ine",
+     "display_order": 2
+    },
+    {
+     "sentence": "{{answer}} harekete geç.",
+     "answer": "Bekleyeceğine",
+     "translation": "Instead of waiting, take action.",
+     "hint": "to wait + 'instead of …ing'",
+     "display_order": 3
+    },
+    {
+     "sentence": "{{answer}} gül.",
+     "answer": "Ağlayacağına",
+     "translation": "Instead of crying, laugh.",
+     "hint": "to cry + 'instead of …ing'",
+     "display_order": 4
+    },
+    {
+     "sentence": "Evde {{answer}} dışarı çık.",
+     "answer": "oturacağına",
+     "translation": "Instead of sitting at home, go outside.",
+     "hint": "to sit + 'instead of …ing'",
+     "display_order": 5
+    },
+    {
+     "sentence": "Parayı oyuna {{answer}} kitap al.",
+     "answer": "harcayacağına",
+     "translation": "Instead of spending the money on games, buy books.",
+     "hint": "to spend + 'instead of …ing'",
+     "display_order": 6
+    }
+   ]
+  }
+ ]
 }

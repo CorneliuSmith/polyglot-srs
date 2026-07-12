@@ -98,7 +98,7 @@ export default function LoginPage() {
             onClick={() => { setTab('signin'); setError(null); setMessage(null) }}
             className={`flex-1 py-2.5 text-sm font-medium transition-colors ${
               tab === 'signin'
-                ? 'bg-indigo-600 text-white'
+                ? 'bg-lang text-white'
                 : 'bg-white text-gray-600 hover:bg-gray-50'
             }`}
             style={{ minHeight: '44px' }}
@@ -110,7 +110,7 @@ export default function LoginPage() {
             onClick={() => { setTab('signup'); setError(null); setMessage(null) }}
             className={`flex-1 py-2.5 text-sm font-medium transition-colors ${
               tab === 'signup'
-                ? 'bg-indigo-600 text-white'
+                ? 'bg-lang text-white'
                 : 'bg-white text-gray-600 hover:bg-gray-50'
             }`}
             style={{ minHeight: '44px' }}
@@ -142,7 +142,7 @@ export default function LoginPage() {
               required
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              className="w-full rounded-lg border border-gray-300 px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
+              className="w-full rounded-lg border border-gray-300 px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-lang focus:border-transparent"
               style={{ minHeight: '44px' }}
               placeholder="you@example.com"
               autoComplete="email"
@@ -160,7 +160,7 @@ export default function LoginPage() {
               required
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              className="w-full rounded-lg border border-gray-300 px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
+              className="w-full rounded-lg border border-gray-300 px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-lang focus:border-transparent"
               style={{ minHeight: '44px' }}
               placeholder={tab === 'signup' ? 'At least 6 characters' : '••••••••'}
               autoComplete={tab === 'signin' ? 'current-password' : 'new-password'}
@@ -179,7 +179,7 @@ export default function LoginPage() {
           <button
             type="submit"
             disabled={loading}
-            className="w-full bg-indigo-600 hover:bg-indigo-700 disabled:opacity-60 text-white font-medium rounded-lg px-4 py-2.5 text-sm transition-colors"
+            className="w-full bg-lang hover:bg-lang-dark disabled:opacity-60 text-lang-on font-medium rounded-lg px-4 py-2.5 text-sm transition-colors"
             style={{ minHeight: '44px' }}
           >
             {loading
@@ -197,7 +197,7 @@ export default function LoginPage() {
             <button
               type="button"
               onClick={() => { setResetMode(false); setError(null); setMessage(null) }}
-              className="text-sm text-indigo-600 hover:underline"
+              className="text-sm text-lang hover:underline"
             >
               ← Back to sign in
             </button>
@@ -206,7 +206,7 @@ export default function LoginPage() {
               <button
                 type="button"
                 onClick={() => { setResetMode(true); setError(null); setMessage(null) }}
-                className="text-sm text-indigo-600 hover:underline"
+                className="text-sm text-lang hover:underline"
               >
                 Forgot password?
               </button>

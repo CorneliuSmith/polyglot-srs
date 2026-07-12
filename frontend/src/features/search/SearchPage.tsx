@@ -47,7 +47,7 @@ export default function SearchPage() {
           <button
             type="button"
             onClick={() => navigate('/')}
-            className="text-sm text-indigo-600 hover:underline"
+            className="text-sm text-lang hover:underline"
           >
             ← Dashboard
           </button>
@@ -59,7 +59,7 @@ export default function SearchPage() {
           onChange={(e) => setInput(e.target.value)}
           placeholder="Search grammar and vocabulary…"
           aria-label="Search"
-          className="w-full rounded-2xl border border-gray-300 bg-white px-4 py-3 text-base shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500"
+          className="w-full rounded-2xl border border-gray-300 bg-white px-4 py-3 text-base shadow-sm focus:outline-none focus:ring-2 focus:ring-lang"
         />
 
         {query.length > 0 && query.length < 2 && (
@@ -83,7 +83,7 @@ export default function SearchPage() {
                   <button
                     type="button"
                     onClick={() => navigate(`/grammar?point=${hit.id}`)}
-                    className="w-full text-left bg-white rounded-xl shadow-sm border border-gray-100 px-4 py-3 flex items-center gap-3 hover:border-indigo-300 transition"
+                    className="w-full text-left bg-white rounded-xl shadow-sm border border-gray-100 px-4 py-3 flex items-center gap-3 hover:border-lang/40 transition"
                     style={{ minHeight: '44px' }}
                   >
                     <span className="flex-1">

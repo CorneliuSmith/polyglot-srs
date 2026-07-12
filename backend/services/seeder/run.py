@@ -17,7 +17,7 @@ async def main():
     parser.add_argument(
         "--language", "-l",
         choices=["ru", "ar", "en", "sw", "tr", "yo", "ha", "xh",
-                 "es", "it", "fr", "de", "ca", "mi", "ro", "el", "all"],
+                 "es", "it", "fr", "de", "ca", "mi", "ro", "el", "pt", "all"],
         default="all",
         help="Language to seed (default: all)",
     )

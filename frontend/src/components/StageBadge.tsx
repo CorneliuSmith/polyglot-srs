@@ -5,9 +5,9 @@ import type { StageName } from '../api/types'
 const STAGE_STYLES: Record<StageName, { label: string; tone: string }> = {
   beginner: { label: 'Beginner', tone: 'bg-slate-900 text-white' },
   adept: { label: 'Adept', tone: 'bg-indigo-800 text-white' },
-  seasoned: { label: 'Seasoned', tone: 'bg-indigo-600 text-white' },
-  expert: { label: 'Expert', tone: 'bg-indigo-400 text-white' },
-  master: { label: 'Master', tone: 'bg-indigo-200 text-indigo-900' },
+  seasoned: { label: 'Seasoned', tone: 'bg-lang text-white' },
+  expert: { label: 'Expert', tone: 'bg-lang/70 text-white' },
+  master: { label: 'Master', tone: 'bg-lang/25 text-lang-dark' },
   self_study: { label: 'Self-Study', tone: 'bg-gray-200 text-gray-700' },
   ghost: { label: 'Ghost', tone: 'bg-purple-100 text-purple-700' },
 }

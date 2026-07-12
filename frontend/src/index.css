@@ -1,6 +1,28 @@
 @import url("https://fonts.googleapis.com/css2?family=Noto+Naskh+Arabic:wght@400;500;600;700&display=swap");
 @import "tailwindcss";
 
+/* ── Language identity palette ─────────────────────────────────────────────
+   The active language recolors the whole app: LanguageThemeApplier writes
+   these variables from the flag palettes in lib/languageColors.ts, and the
+   `lang` color tokens below turn them into utilities (bg-lang, text-lang,
+   bg-lang-dark, bg-lang-soft, bg-lang-accent, text-lang-on). Signed out or
+   before a language loads, they default to the app's original indigo. */
+:root {
+  --lang-primary: #4f46e5;
+  --lang-primary-dark: #4338ca;
+  --lang-accent: #818cf8;
+  --lang-soft: #eef2ff;
+  --lang-on-primary: #ffffff;
+}
+
+@theme inline {
+  --color-lang: var(--lang-primary);
+  --color-lang-dark: var(--lang-primary-dark);
+  --color-lang-accent: var(--lang-accent);
+  --color-lang-soft: var(--lang-soft);
+  --color-lang-on: var(--lang-on-primary);
+}
+
 /* ── Dark theme (WP13h) ────────────────────────────────────────────────────
    Tailwind v4 utilities read their colors from CSS variables, so remapping
    the gray ramp under `.dark` flips every gray background, text, and border
@@ -41,4 +63,16 @@
 }
 .dark .hover\:text-indigo-600:hover {
   color: #b3bafa;
+}
+
+/* Language-colored TEXT gets the same treatment on dark: lighten toward
+   white so deep flag blues/greens stay readable on the dark surface. */
+.dark .text-lang {
+  color: color-mix(in srgb, var(--lang-primary) 45%, white);
+}
+.dark .hover\:text-lang:hover {
+  color: color-mix(in srgb, var(--lang-primary) 30%, white);
+}
+.dark .text-lang-dark {
+  color: color-mix(in srgb, var(--lang-primary-dark) 40%, white);
 }

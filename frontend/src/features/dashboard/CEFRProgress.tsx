@@ -28,7 +28,7 @@ export default function CEFRProgress({ progress }: CEFRProgressProps) {
                 aria-label={`${level} progress`}
               >
                 <div
-                  className="h-full bg-indigo-500 rounded-full transition-all duration-500"
+                  className="h-full bg-lang rounded-full transition-all duration-500"
                   style={{ width: `${pct}%` }}
                 />
               </div>

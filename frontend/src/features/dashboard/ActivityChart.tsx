@@ -9,7 +9,7 @@ export default function ActivityChart({ activity }: { activity: ActivityDay[] })
         <h2 className="text-xs uppercase tracking-wide text-gray-400">Activity</h2>
         <div className="flex items-center gap-3 text-[10px] text-gray-500">
           <span className="flex items-center gap-1">
-            <span className="inline-block w-2 h-2 rounded-sm bg-indigo-500" /> Vocab
+            <span className="inline-block w-2 h-2 rounded-sm bg-lang" /> Vocab
           </span>
           <span className="flex items-center gap-1">
             <span className="inline-block w-2 h-2 rounded-sm bg-emerald-400" /> Grammar
@@ -32,7 +32,7 @@ export default function ActivityChart({ activity }: { activity: ActivityDay[] })
                   style={{ height: total ? `${(d.grammar / total) * 100}%` : 0 }}
                 />
                 <div
-                  className={`w-full flex-1 ${total > 0 ? 'bg-indigo-500' : 'bg-gray-100'}`}
+                  className={`w-full flex-1 ${total > 0 ? 'bg-lang' : 'bg-gray-100'}`}
                 />
               </div>
             </div>

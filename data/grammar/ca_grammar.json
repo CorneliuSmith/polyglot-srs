@@ -18,6 +18,10 @@
    "culture_note": "Vostè takes third-person verb forms, like Spanish usted — but Catalans reach for it less often than Spaniards do.",
    "references": [
     {
+     "title": "GIEC — Gramàtica de la llengua catalana (IEC)",
+     "url": "https://giec.iec.cat/"
+    },
+    {
      "title": "Wikipedia: Catalan grammar",
      "url": "https://en.wikipedia.org/wiki/Catalan_grammar"
     },
@@ -174,9 +178,13 @@
    "source": "contributor",
    "reviewed": true,
    "display_order": 2,
-   "explanation": "Nouns are masculine or feminine; feminines often end in -a (casa), masculines in a consonant or -e (llibre, gat). Plural adds -s, with -a becoming -es (casa → cases). Watch the spelling shifts that keep pronunciation: plaça → places.",
+   "explanation": "Nouns are masculine or feminine; feminines often end in -a (casa), masculines in a consonant or -e (llibre, gat).\n\nPlural adds -s, with -a becoming -es (casa → cases).\n\nWatch the spelling shifts that keep pronunciation: plaça → places.",
    "culture_note": "",
    "references": [
+    {
+     "title": "GIEC — Gramàtica de la llengua catalana (IEC)",
+     "url": "https://giec.iec.cat/"
+    },
     {
      "title": "Wikipedia: Catalan grammar — nouns",
      "url": "https://en.wikipedia.org/wiki/Catalan_grammar"
@@ -248,9 +256,13 @@
    "source": "contributor",
    "reviewed": true,
    "display_order": 3,
-   "explanation": "El (masculine), la (feminine), els and les in the plural. Before a vowel both singulars become l' (l'amic, l'escola). Catalan even puts an article before people's names in speech: la Maria, en Joan.",
+   "explanation": "El (masculine), la (feminine), els and les in the plural. Before a vowel both singulars become l' (l'amic, l'escola).\n\nCatalan even puts an article before people's names in speech: la Maria, en Joan.",
    "culture_note": "The 'personal article' (en/na or el/la before names) is a very Catalan touch — la Núria arriba demà.",
    "references": [
+    {
+     "title": "GIEC — Gramàtica de la llengua catalana (IEC)",
+     "url": "https://giec.iec.cat/"
+    },
     {
      "title": "Wikipedia: Catalan grammar — articles",
      "url": "https://en.wikipedia.org/wiki/Catalan_grammar"
@@ -340,9 +352,13 @@
    "source": "contributor",
    "reviewed": true,
    "display_order": 4,
-   "explanation": "Un for masculine (un gos), una for feminine (una casa). The plurals uns/unes mean 'some': uns amics. No elision here — una idea keeps its article whole.",
+   "explanation": "Un for masculine (un gos), una for feminine (una casa). The plurals uns/unes mean 'some': uns amics.\n\nNo elision here — una idea keeps its article whole.",
    "culture_note": "",
    "references": [
+    {
+     "title": "GIEC — Gramàtica de la llengua catalana (IEC)",
+     "url": "https://giec.iec.cat/"
+    },
     {
      "title": "Wikipedia: Catalan grammar — articles",
      "url": "https://en.wikipedia.org/wiki/Catalan_grammar"
@@ -404,9 +420,13 @@
    "source": "contributor",
    "reviewed": true,
    "display_order": 5,
-   "explanation": "Ser (to be): soc, ets, és, som, sou, són. Since the 2016 spelling reform, soc has no accent — but és and són keep theirs to stay distinct from other words. Professions take no article: ella és professora.",
+   "explanation": "Ser (to be): soc, ets, és, som, sou, són.\n\nSince the 2016 spelling reform, soc has no accent — but és and són keep theirs to stay distinct from other words. Professions take no article: ella és professora.",
    "culture_note": "",
    "references": [
+    {
+     "title": "GIEC — Gramàtica de la llengua catalana (IEC)",
+     "url": "https://giec.iec.cat/"
+    },
     {
      "title": "Wiktionary: ser (Catalan)",
      "url": "https://en.wiktionary.org/wiki/ser#Catalan"
@@ -530,9 +550,13 @@
    "source": "contributor",
    "reviewed": true,
    "display_order": 6,
-   "explanation": "Tenir (to have): tinc, tens, té, tenim, teniu, tenen. Catalan HAS its states: tenir gana (be hungry), tenir set (thirsty), tenir raó (be right), tenir vint anys (be twenty).",
+   "explanation": "Tenir (to have): tinc, tens, té, tenim, teniu, tenen.\n\nCatalan HAS its states: tenir gana (be hungry), tenir set (thirsty), tenir raó (be right), tenir vint anys (be twenty).",
    "culture_note": "",
    "references": [
+    {
+     "title": "GIEC — Gramàtica de la llengua catalana (IEC)",
+     "url": "https://giec.iec.cat/"
+    },
     {
      "title": "Wiktionary: tenir (Catalan)",
      "url": "https://en.wiktionary.org/wiki/tenir#Catalan"
@@ -656,9 +680,13 @@
    "source": "contributor",
    "reviewed": true,
    "display_order": 7,
-   "explanation": "The biggest family. Drop -ar, add: -o, -es, -a, -em, -eu, -en (parlar → parlo, parles, parla, parlem, parleu, parlen). The ending names the person, so the pronoun usually stays home.",
+   "explanation": "The biggest family.\n\nDrop -ar, add: -o, -es, -a, -em, -eu, -en (parlar → parlo, parles, parla, parlem, parleu, parlen).\n\nThe ending names the person, so the pronoun usually stays home.",
    "culture_note": "",
    "references": [
+    {
+     "title": "GIEC — Gramàtica de la llengua catalana (IEC)",
+     "url": "https://giec.iec.cat/"
+    },
     {
      "title": "Wikipedia: Catalan grammar — verbs",
      "url": "https://en.wikipedia.org/wiki/Catalan_grammar"
@@ -782,9 +810,13 @@
    "source": "contributor",
    "reviewed": true,
    "display_order": 8,
-   "explanation": "-re verbs: perdre → perdo, perds, perd, perdem, perdeu, perden. -ir verbs come plain (dormir → dormo) or with -eix- in the singular and third plural (llegir → llegeixo, llegeixes, llegeix… but llegim, llegiu). Preferir takes -eix- too.",
+   "explanation": "-re verbs: perdre → perdo, perds, perd, perdem, perdeu, perden.\n\n-ir verbs come plain (dormir → dormo) or with -eix- in the singular and third plural (llegir → llegeixo, llegeixes, llegeix… but llegim, llegiu).\n\nPreferir takes -eix- too.",
    "culture_note": "",
    "references": [
+    {
+     "title": "GIEC — Gramàtica de la llengua catalana (IEC)",
+     "url": "https://giec.iec.cat/"
+    },
     {
      "title": "Wikipedia: Catalan grammar — verbs",
      "url": "https://en.wikipedia.org/wiki/Catalan_grammar"
@@ -912,6 +944,10 @@
    "culture_note": "",
    "references": [
     {
+     "title": "GIEC — Gramàtica de la llengua catalana (IEC)",
+     "url": "https://giec.iec.cat/"
+    },
+    {
      "title": "Wikipedia: Catalan grammar — negation",
      "url": "https://en.wikipedia.org/wiki/Catalan_grammar"
     },
@@ -972,9 +1008,13 @@
    "source": "contributor",
    "reviewed": true,
    "display_order": 10,
-   "explanation": "Hi ha covers 'there is' and 'there are' — invariable: hi ha un llibre, hi ha dos cafès. Negative: no hi ha pa. The little hi is the same locative pronoun that makes Catalan Catalan.",
+   "explanation": "Hi ha covers 'there is' and 'there are' — invariable: hi ha un llibre, hi ha dos cafès. Negative: no hi ha pa.\n\nThe little hi is the same locative pronoun that makes Catalan Catalan.",
    "culture_note": "",
    "references": [
+    {
+     "title": "GIEC — Gramàtica de la llengua catalana (IEC)",
+     "url": "https://giec.iec.cat/"
+    },
     {
      "title": "Wiktionary: hi ha (Catalan)",
      "url": "https://en.wiktionary.org/wiki/hi_ha#Catalan"
@@ -1040,6 +1080,10 @@
    "culture_note": "",
    "references": [
     {
+     "title": "GIEC — Gramàtica de la llengua catalana (IEC)",
+     "url": "https://giec.iec.cat/"
+    },
+    {
      "title": "Wikipedia: Catalan grammar — interrogatives",
      "url": "https://en.wikipedia.org/wiki/Catalan_grammar"
     },
@@ -1100,9 +1144,13 @@
    "source": "contributor",
    "reviewed": true,
    "display_order": 12,
-   "explanation": "Four-form adjectives follow the noun pattern: nou, nova, nous, noves. Some have one singular form for both genders (amable, gran). Adjectives usually FOLLOW the noun: una casa blanca.",
+   "explanation": "Four-form adjectives follow the noun pattern: nou, nova, nous, noves.\n\nSome have one singular form for both genders (amable, gran). Adjectives usually FOLLOW the noun: una casa blanca.",
    "culture_note": "",
    "references": [
+    {
+     "title": "GIEC — Gramàtica de la llengua catalana (IEC)",
+     "url": "https://giec.iec.cat/"
+    },
     {
      "title": "Wikipedia: Catalan grammar — adjectives",
      "url": "https://en.wikipedia.org/wiki/Catalan_grammar"
@@ -1206,9 +1254,13 @@
    "source": "contributor",
    "reviewed": true,
    "display_order": 1,
-   "explanation": "The perfet = the present of haver + the past participle: he menjat 'I have eaten'. Participles: -ar → -at, -re/-er → -ut, -ir → -it. haver is conjugated (he, has, ha, hem, heu, han). Catalan uses the perfet for a recent or today's action, and the periphrastic past for earlier ones.",
+   "explanation": "The perfet = the present of haver + the past participle: he menjat 'I have eaten'.\n\nParticiples: -ar → -at, -re/-er → -ut, -ir → -it. haver is conjugated (he, has, ha, hem, heu, han).\n\nCatalan uses the perfet for a recent or today's action, and the periphrastic past for earlier ones.",
    "culture_note": "",
    "references": [
+    {
+     "title": "GIEC — Gramàtica de la llengua catalana (IEC)",
+     "url": "https://giec.iec.cat/"
+    },
     {
      "title": "Wikipedia: Catalan grammar",
      "url": "https://en.wikipedia.org/wiki/Catalan_grammar"
@@ -1328,9 +1380,13 @@
    "source": "contributor",
    "reviewed": true,
    "display_order": 2,
-   "explanation": "Catalan's most characteristic tense: the past is built with the auxiliary 'vaig, vas, va, vam, vau, van' + the INFINITIVE, not a participle — vaig menjar 'I ate', va anar 'he went'. It's the normal past for earlier actions, unlike Spanish or French.",
+   "explanation": "Catalan's most characteristic tense: the past is built with the auxiliary 'vaig, vas, va, vam, vau, van' + the INFINITIVE, not a participle — vaig menjar 'I ate', va anar 'he went'.\n\nIt's the normal past for earlier actions, unlike Spanish or French.",
    "culture_note": "",
    "references": [
+    {
+     "title": "GIEC — Gramàtica de la llengua catalana (IEC)",
+     "url": "https://giec.iec.cat/"
+    },
     {
      "title": "Wikipedia: Catalan grammar",
      "url": "https://en.wikipedia.org/wiki/Catalan_grammar"
@@ -1450,9 +1506,13 @@
    "source": "contributor",
    "reviewed": true,
    "display_order": 3,
-   "explanation": "The imperfet describes a past that was ongoing, repeated, or a background — English 'was …-ing' / 'used to'. Endings: -ava/-ia (menjava 'I was eating', dormia 'he used to sleep'). ser is irregular (era). Contrast with the periphrastic past, which reports one completed act.",
+   "explanation": "The imperfet describes a past that was ongoing, repeated, or a background — English 'was …-ing' / 'used to'. Endings: -ava/-ia (menjava 'I was eating', dormia 'he used to sleep'). ser is irregular (era).\n\nContrast with the periphrastic past, which reports one completed act.",
    "culture_note": "",
    "references": [
+    {
+     "title": "GIEC — Gramàtica de la llengua catalana (IEC)",
+     "url": "https://giec.iec.cat/"
+    },
     {
      "title": "Wikipedia: Catalan grammar",
      "url": "https://en.wikipedia.org/wiki/Catalan_grammar"
@@ -1510,9 +1570,13 @@
    "source": "contributor",
    "reviewed": true,
    "display_order": 4,
-   "explanation": "The future adds -é, -às, -à, -em, -eu, -an to the infinitive: menjaré 'I will eat', dormirà 'he will sleep'. Irregular stems: ser → ser-, tenir → tindr-, anar → anir-/anar-, fer → far-, venir → vindr-.",
+   "explanation": "The future adds -é, -às, -à, -em, -eu, -an to the infinitive: menjaré 'I will eat', dormirà 'he will sleep'.\n\nIrregular stems: ser → ser-, tenir → tindr-, anar → anir-/anar-, fer → far-, venir → vindr-.",
    "culture_note": "",
    "references": [
+    {
+     "title": "GIEC — Gramàtica de la llengua catalana (IEC)",
+     "url": "https://giec.iec.cat/"
+    },
     {
      "title": "Wikipedia: Catalan grammar",
      "url": "https://en.wikipedia.org/wiki/Catalan_grammar"
@@ -1570,9 +1634,13 @@
    "source": "contributor",
    "reviewed": true,
    "display_order": 5,
-   "explanation": "A known direct object becomes a weak pronoun before the verb: el (him/it m.), la (her/it f.), els (them m.), les (them f.), em, et, ens, us. El veig 'I see him'. Before a vowel el/la elide to l': l'he vist. After a verb they attach with a hyphen: mira'l 'look at him'.",
+   "explanation": "A known direct object becomes a weak pronoun before the verb: el (him/it m.), la (her/it f.), els (them m.), les (them f.), em, et, ens, us.\n\nEl veig 'I see him'. Before a vowel el/la elide to l': l'he vist.\n\nAfter a verb they attach with a hyphen: mira'l 'look at him'.",
    "culture_note": "",
    "references": [
+    {
+     "title": "GIEC — Gramàtica de la llengua catalana (IEC)",
+     "url": "https://giec.iec.cat/"
+    },
     {
      "title": "Wikipedia: Catalan grammar",
      "url": "https://en.wikipedia.org/wiki/Catalan_grammar"
@@ -1630,9 +1698,13 @@
    "source": "contributor",
    "reviewed": true,
    "display_order": 6,
-   "explanation": "en replaces de + something or a quantity: en vull 'I want some', en tinc tres 'I have three of them'. hi replaces a place or a + a thing: hi vaig 'I go there', no hi penso 'I don't think about it'. Both are very common and often untranslated in English.",
+   "explanation": "en replaces de + something or a quantity: en vull 'I want some', en tinc tres 'I have three of them'. hi replaces a place or a + a thing: hi vaig 'I go there', no hi penso 'I don't think about it'.\n\nBoth are very common and often untranslated in English.",
    "culture_note": "",
    "references": [
+    {
+     "title": "GIEC — Gramàtica de la llengua catalana (IEC)",
+     "url": "https://giec.iec.cat/"
+    },
     {
      "title": "Wikipedia: Catalan grammar",
      "url": "https://en.wikipedia.org/wiki/Catalan_grammar"
@@ -1690,9 +1762,13 @@
    "source": "contributor",
    "reviewed": true,
    "display_order": 7,
-   "explanation": "The comparative uses més / menys + adjective + que 'than': més gran que 'bigger than'. The superlative adds the article: el més gran 'the biggest'. Irregulars: bo → millor 'better', dolent → pitjor 'worse'.",
+   "explanation": "The comparative uses més / menys + adjective + que 'than': més gran que 'bigger than'. The superlative adds the article: el més gran 'the biggest'.\n\nIrregulars: bo → millor 'better', dolent → pitjor 'worse'.",
    "culture_note": "",
    "references": [
+    {
+     "title": "GIEC — Gramàtica de la llengua catalana (IEC)",
+     "url": "https://giec.iec.cat/"
+    },
     {
      "title": "Wikipedia: Catalan grammar",
      "url": "https://en.wikipedia.org/wiki/Catalan_grammar"
@@ -1750,9 +1826,13 @@
    "source": "contributor",
    "reviewed": true,
    "display_order": 8,
-   "explanation": "Reflexive verbs carry a weak pronoun matching the subject: em, et, es, ens, us, es, before the verb. Em rento 'I wash (myself)', es lleva 'he gets up', ens quedem 'we stay'. Before a vowel em/et/es elide (m'aixeco). Many daily-routine verbs are reflexive.",
+   "explanation": "Reflexive verbs carry a weak pronoun matching the subject: em, et, es, ens, us, es, before the verb.\n\nEm rento 'I wash (myself)', es lleva 'he gets up', ens quedem 'we stay'. Before a vowel em/et/es elide (m'aixeco).\n\nMany daily-routine verbs are reflexive.",
    "culture_note": "",
    "references": [
+    {
+     "title": "GIEC — Gramàtica de la llengua catalana (IEC)",
+     "url": "https://giec.iec.cat/"
+    },
     {
      "title": "Wikipedia: Catalan grammar",
      "url": "https://en.wikipedia.org/wiki/Catalan_grammar"
@@ -1816,9 +1896,13 @@
    "source": "contributor",
    "reviewed": true,
    "display_order": 9,
-   "explanation": "The prepositions a, de, per contract with the masculine articles el/els: a + el = al, a + els = als, de + el = del, de + els = dels, per + el = pel, per + els = pels. Vaig al cinema 'I go to the cinema'; la casa dels avis 'the grandparents' house'. They never contract with la/les or l'.",
+   "explanation": "The prepositions a, de, per contract with the masculine articles el/els: a + el = al, a + els = als, de + el = del, de + els = dels, per + el = pel, per + els = pels.\n\nVaig al cinema 'I go to the cinema'; la casa dels avis 'the grandparents' house'. They never contract with la/les or l'.",
    "culture_note": "",
    "references": [
+    {
+     "title": "GIEC — Gramàtica de la llengua catalana (IEC)",
+     "url": "https://giec.iec.cat/"
+    },
     {
      "title": "Wikipedia: Catalan grammar",
      "url": "https://en.wikipedia.org/wiki/Catalan_grammar"
@@ -1876,9 +1960,13 @@
    "source": "contributor",
    "reviewed": true,
    "display_order": 10,
-   "explanation": "Possessives take the article and agree with the thing owned: el meu llibre, la meva casa, els meus amics, les meves germanes. Demonstratives: aquest/aquesta 'this', aquell/aquella 'that', agreeing in gender and number.",
+   "explanation": "Possessives take the article and agree with the thing owned: el meu llibre, la meva casa, els meus amics, les meves germanes.\n\nDemonstratives: aquest/aquesta 'this', aquell/aquella 'that', agreeing in gender and number.",
    "culture_note": "",
    "references": [
+    {
+     "title": "GIEC — Gramàtica de la llengua catalana (IEC)",
+     "url": "https://giec.iec.cat/"
+    },
     {
      "title": "Wikipedia: Catalan grammar",
      "url": "https://en.wikipedia.org/wiki/Catalan_grammar"
@@ -1936,9 +2024,13 @@
    "source": "contributor",
    "reviewed": true,
    "display_order": 1,
-   "explanation": "After verbs of wish, doubt, emotion, or need — vull que, dubto que, m'alegro que, cal que, encara que — Catalan uses the subjunctive. Present forms: -ar → -i (que jo parli), -re/-er/-ir → -i (que jo perdi, que jo dormi). Key irregulars: ser (sigui), haver (hagi), fer (faci), anar (vagi).",
+   "explanation": "After verbs of wish, doubt, emotion, or need — vull que, dubto que, m'alegro que, cal que, encara que — Catalan uses the subjunctive.\n\nPresent forms: -ar → -i (que jo parli), -re/-er/-ir → -i (que jo perdi, que jo dormi).\n\nKey irregulars: ser (sigui), haver (hagi), fer (faci), anar (vagi).",
    "culture_note": "",
    "references": [
+    {
+     "title": "GIEC — Gramàtica de la llengua catalana (IEC)",
+     "url": "https://giec.iec.cat/"
+    },
     {
      "title": "Wikipedia: Catalan grammar",
      "url": "https://en.wikipedia.org/wiki/Catalan_grammar"
@@ -2000,6 +2092,10 @@
    "culture_note": "",
    "references": [
     {
+     "title": "GIEC — Gramàtica de la llengua catalana (IEC)",
+     "url": "https://giec.iec.cat/"
+    },
+    {
      "title": "Wikipedia: Catalan grammar",
      "url": "https://en.wikipedia.org/wiki/Catalan_grammar"
     }
@@ -2056,9 +2152,13 @@
    "source": "contributor",
    "reviewed": true,
    "display_order": 3,
-   "explanation": "Catalan is famous for stacking weak pronouns. Indirect + direct: me'l dones 'you give it to me', te'l porto 'I bring it to you'. The pair li + el becomes l'hi: l'hi dono 'I give it to him'. en combines too: se'n va 'he goes away', me'n dones 'you give me some'.",
+   "explanation": "Catalan is famous for stacking weak pronouns. Indirect + direct: me'l dones 'you give it to me', te'l porto 'I bring it to you'.\n\nThe pair li + el becomes l'hi: l'hi dono 'I give it to him'. en combines too: se'n va 'he goes away', me'n dones 'you give me some'.",
    "culture_note": "",
    "references": [
+    {
+     "title": "GIEC — Gramàtica de la llengua catalana (IEC)",
+     "url": "https://giec.iec.cat/"
+    },
     {
      "title": "Wikipedia: Catalan grammar",
      "url": "https://en.wikipedia.org/wiki/Catalan_grammar"
@@ -2120,6 +2220,10 @@
    "culture_note": "",
    "references": [
     {
+     "title": "GIEC — Gramàtica de la llengua catalana (IEC)",
+     "url": "https://giec.iec.cat/"
+    },
+    {
      "title": "Wikipedia: Catalan grammar",
      "url": "https://en.wikipedia.org/wiki/Catalan_grammar"
     }
@@ -2176,9 +2280,13 @@
    "source": "contributor",
    "reviewed": true,
    "display_order": 5,
-   "explanation": "The informal command (tu) has its own form (parla! 'speak!', obre! 'open!'). The polite command (vostè) uses the subjunctive (parli!, obri!). Negative commands ALWAYS use the subjunctive: no parlis! 'don't speak!', no ho facis! 'don't do it!'.",
+   "explanation": "The informal command (tu) has its own form (parla! 'speak!', obre!\n\n'open!'). The polite command (vostè) uses the subjunctive (parli!, obri!).\n\nNegative commands ALWAYS use the subjunctive: no parlis! 'don't speak!', no ho facis!\n\n'don't do it!'.",
    "culture_note": "",
    "references": [
+    {
+     "title": "GIEC — Gramàtica de la llengua catalana (IEC)",
+     "url": "https://giec.iec.cat/"
+    },
     {
      "title": "Wikipedia: Catalan grammar",
      "url": "https://en.wikipedia.org/wiki/Catalan_grammar"
@@ -2247,9 +2355,13 @@
    "source": "contributor",
    "reviewed": true,
    "display_order": 6,
-   "explanation": "The plusquamperfet ('had done') = the imperfet of haver + the past participle: havia menjat 'I had eaten', havien marxat 'they had left'. It marks an action completed before another past moment. Unlike the perfet, it always uses haver (never ser).",
+   "explanation": "The plusquamperfet ('had done') = the imperfet of haver + the past participle: havia menjat 'I had eaten', havien marxat 'they had left'. It marks an action completed before another past moment.\n\nUnlike the perfet, it always uses haver (never ser).",
    "culture_note": "",
    "references": [
+    {
+     "title": "GIEC — Gramàtica de la llengua catalana (IEC)",
+     "url": "https://giec.iec.cat/"
+    },
     {
      "title": "Wikipedia: Catalan grammar",
      "url": "https://en.wikipedia.org/wiki/Catalan_grammar"
@@ -2307,9 +2419,13 @@
    "source": "contributor",
    "reviewed": true,
    "display_order": 7,
-   "explanation": "Report a statement with que: diu que ve 'he says he's coming'. Report a yes/no question with si 'whether': pregunta si véns. When the reporting verb is past, tenses shift back (present → imperfet, futur → condicional): va dir que vindria.",
+   "explanation": "Report a statement with que: diu que ve 'he says he's coming'. Report a yes/no question with si 'whether': pregunta si véns.\n\nWhen the reporting verb is past, tenses shift back (present → imperfet, futur → condicional): va dir que vindria.",
    "culture_note": "",
    "references": [
+    {
+     "title": "GIEC — Gramàtica de la llengua catalana (IEC)",
+     "url": "https://giec.iec.cat/"
+    },
     {
      "title": "Wikipedia: Catalan grammar",
      "url": "https://en.wikipedia.org/wiki/Catalan_grammar"
@@ -2367,9 +2483,13 @@
    "source": "contributor",
    "reviewed": true,
    "display_order": 1,
-   "explanation": "The passive = ser + past participle, which AGREES with the subject: la carta és escrita, les cases són construïdes. The agent follows per: pintat per Miró. Everyday Catalan prefers the reflexive passive with es: aquí es ven pa 'bread is sold here', es diu que… 'it is said that…'.",
+   "explanation": "The passive = ser + past participle, which AGREES with the subject: la carta és escrita, les cases són construïdes. The agent follows per: pintat per Miró.\n\nEveryday Catalan prefers the reflexive passive with es: aquí es ven pa 'bread is sold here', es diu que… 'it is said that…'.",
    "culture_note": "",
    "references": [
+    {
+     "title": "GIEC — Gramàtica de la llengua catalana (IEC)",
+     "url": "https://giec.iec.cat/"
+    },
     {
      "title": "Wikipedia: Catalan grammar",
      "url": "https://en.wikipedia.org/wiki/Catalan_grammar"
@@ -2431,6 +2551,10 @@
    "culture_note": "",
    "references": [
     {
+     "title": "GIEC — Gramàtica de la llengua catalana (IEC)",
+     "url": "https://giec.iec.cat/"
+    },
+    {
      "title": "Wikipedia: Catalan grammar",
      "url": "https://en.wikipedia.org/wiki/Catalan_grammar"
     }
@@ -2487,9 +2611,13 @@
    "source": "contributor",
    "reviewed": true,
    "display_order": 3,
-   "explanation": "The gerund ends in -ant (-ar) or -ent (-re/-er/-ir): menjant 'eating', llegint 'reading'. Alone it means 'while / by …-ing': s'aprèn viatjant 'you learn by travelling'. With estar it makes the progressive: estic menjant 'I'm eating'. (Avoid the gerund of consequence — it's an error.)",
+   "explanation": "The gerund ends in -ant (-ar) or -ent (-re/-er/-ir): menjant 'eating', llegint 'reading'. Alone it means 'while / by …-ing': s'aprèn viatjant 'you learn by travelling'.\n\nWith estar it makes the progressive: estic menjant 'I'm eating'. (Avoid the gerund of consequence — it's an error.)",
    "culture_note": "",
    "references": [
+    {
+     "title": "GIEC — Gramàtica de la llengua catalana (IEC)",
+     "url": "https://giec.iec.cat/"
+    },
     {
      "title": "Wikipedia: Catalan grammar",
      "url": "https://en.wikipedia.org/wiki/Catalan_grammar"
@@ -2547,9 +2675,13 @@
    "source": "contributor",
    "reviewed": true,
    "display_order": 4,
-   "explanation": "Certain conjunctions always take the subjunctive: encara que / per bé que 'although', perquè (purpose) / a fi que 'so that', abans que 'before', a condició que 'provided that', sense que 'without'. Encara que plogui, sortim 'although it's raining, we go out'.",
+   "explanation": "Certain conjunctions always take the subjunctive: encara que / per bé que 'although', perquè (purpose) / a fi que 'so that', abans que 'before', a condició que 'provided that', sense que 'without'.\n\nEncara que plogui, sortim 'although it's raining, we go out'.",
    "culture_note": "",
    "references": [
+    {
+     "title": "GIEC — Gramàtica de la llengua catalana (IEC)",
+     "url": "https://giec.iec.cat/"
+    },
     {
      "title": "Wikipedia: Catalan grammar",
      "url": "https://en.wikipedia.org/wiki/Catalan_grammar"
@@ -2607,9 +2739,13 @@
    "source": "contributor",
    "reviewed": true,
    "display_order": 5,
-   "explanation": "The adjective bo → millor 'better' (agrees: millors); dolent → pitjor 'worse'. The adverb bé → millor 'better'; malament → pitjor 'worse'. Aquest pastís és millor; ella canta millor que jo.",
+   "explanation": "The adjective bo → millor 'better' (agrees: millors); dolent → pitjor 'worse'.\n\nThe adverb bé → millor 'better'; malament → pitjor 'worse'.\n\nAquest pastís és millor; ella canta millor que jo.",
    "culture_note": "",
    "references": [
+    {
+     "title": "GIEC — Gramàtica de la llengua catalana (IEC)",
+     "url": "https://giec.iec.cat/"
+    },
     {
      "title": "Wikipedia: Catalan grammar",
      "url": "https://en.wikipedia.org/wiki/Catalan_grammar"
@@ -2667,9 +2803,13 @@
    "source": "contributor",
    "reviewed": true,
    "display_order": 6,
-   "explanation": "Formal Catalan links ideas with connectors: per tant / doncs 'so/therefore', tanmateix / però 'however', ja que / atès que 'because/since', a més 'moreover', en canvi 'on the other hand'. They structure an argument.",
+   "explanation": "Formal Catalan links ideas with connectors: per tant / doncs 'so/therefore', tanmateix / però 'however', ja que / atès que 'because/since', a més 'moreover', en canvi 'on the other hand'.\n\nThey structure an argument.",
    "culture_note": "",
    "references": [
+    {
+     "title": "GIEC — Gramàtica de la llengua catalana (IEC)",
+     "url": "https://giec.iec.cat/"
+    },
     {
      "title": "Wikipedia: Catalan grammar",
      "url": "https://en.wikipedia.org/wiki/Catalan_grammar"
@@ -2727,9 +2867,13 @@
    "source": "contributor",
    "reviewed": true,
    "display_order": 1,
-   "explanation": "For an unreal PAST condition, si + pluperfect subjunctive pairs with the past conditional: si ho hagués sabut, hauria vingut 'if I had known, I would have come'. The past conditional = the conditional of haver + the participle: hauria fet, haurien vingut.",
+   "explanation": "For an unreal PAST condition, si + pluperfect subjunctive pairs with the past conditional: si ho hagués sabut, hauria vingut 'if I had known, I would have come'.\n\nThe past conditional = the conditional of haver + the participle: hauria fet, haurien vingut.",
    "culture_note": "",
    "references": [
+    {
+     "title": "GIEC — Gramàtica de la llengua catalana (IEC)",
+     "url": "https://giec.iec.cat/"
+    },
     {
      "title": "Wikipedia: Catalan grammar",
      "url": "https://en.wikipedia.org/wiki/Catalan_grammar"
@@ -2787,9 +2931,13 @@
    "source": "contributor",
    "reviewed": true,
    "display_order": 2,
-   "explanation": "The subjunctive has past forms. The perfect subjunctive (que hagi fet) follows a present main verb about an earlier action: crec que ja hagi menjat. After a PAST main verb, use the imperfect or pluperfect subjunctive: pensava que vingués / hagués vingut. This is the concordança dels temps.",
+   "explanation": "The subjunctive has past forms. The perfect subjunctive (que hagi fet) follows a present main verb about an earlier action: crec que ja hagi menjat.\n\nAfter a PAST main verb, use the imperfect or pluperfect subjunctive: pensava que vingués / hagués vingut. This is the concordança dels temps.",
    "culture_note": "",
    "references": [
+    {
+     "title": "GIEC — Gramàtica de la llengua catalana (IEC)",
+     "url": "https://giec.iec.cat/"
+    },
     {
      "title": "Wikipedia: Catalan grammar",
      "url": "https://en.wikipedia.org/wiki/Catalan_grammar"
@@ -2847,9 +2995,13 @@
    "source": "contributor",
    "reviewed": true,
    "display_order": 3,
-   "explanation": "Beside the everyday periphrastic past, Catalan has a synthetic simple past (passat simple), now mostly literary: -ar → cantà, cantaren; irregulars: ser → fou, fer → féu, dir → digué, venir → vingué. You mainly need to read it (in older texts and formal prose).",
+   "explanation": "Beside the everyday periphrastic past, Catalan has a synthetic simple past (passat simple), now mostly literary: -ar → cantà, cantaren; irregulars: ser → fou, fer → féu, dir → digué, venir → vingué.\n\nYou mainly need to read it (in older texts and formal prose).",
    "culture_note": "",
    "references": [
+    {
+     "title": "GIEC — Gramàtica de la llengua catalana (IEC)",
+     "url": "https://giec.iec.cat/"
+    },
     {
      "title": "Wikipedia: Catalan grammar",
      "url": "https://en.wikipedia.org/wiki/Catalan_grammar"
@@ -2911,6 +3063,10 @@
    "culture_note": "",
    "references": [
     {
+     "title": "GIEC — Gramàtica de la llengua catalana (IEC)",
+     "url": "https://giec.iec.cat/"
+    },
+    {
      "title": "Wikipedia: Catalan grammar",
      "url": "https://en.wikipedia.org/wiki/Catalan_grammar"
     }
@@ -2970,6 +3126,10 @@
    "explanation": "Formal Catalan prefers connectors like tanmateix, per consegüent 'consequently', no obstant això 'nevertheless', sempre que 'as long as' (+ subjunctive), and the polite vostè with the subjunctive imperative. Fixed phrases (al meu parer 'in my opinion', en tot cas 'in any case') mark tone.",
    "culture_note": "",
    "references": [
+    {
+     "title": "GIEC — Gramàtica de la llengua catalana (IEC)",
+     "url": "https://giec.iec.cat/"
+    },
     {
      "title": "Wikipedia: Catalan grammar",
      "url": "https://en.wikipedia.org/wiki/Catalan_grammar"

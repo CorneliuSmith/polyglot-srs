@@ -13,7 +13,7 @@ import LanguageWrapper from '../../components/LanguageWrapper'
 import { convertTranslit, finalizeInput, isTranslitEnabled } from '../keyboards/translit'
 import type { Language } from '../../api/types'
 
-type Step = 'language' | 'method' | 'placement' | 'confirm'
+type Step = 'language' | 'method' | 'placement' | 'confirm' | 'plan'
 
 const CEFR_LEVELS = ['A1', 'A2', 'B1', 'B2', 'C1', 'C2'] as const
 
@@ -31,6 +31,7 @@ export default function OnboardingPage() {
   const [curInput, setCurInput] = useState('')
   const [maxItems, setMaxItems] = useState(12)
   const [level, setLevel] = useState('A1')
+  const [planScope, setPlanScope] = useState<'single' | 'all'>('single')
 
   const { data: languages = [] } = useQuery({ queryKey: ['languages'], queryFn: getLanguages })
 
@@ -70,7 +71,8 @@ export default function OnboardingPage() {
   }
 
   const finishMutation = useMutation({
-    mutationFn: () => completeOnboarding({ languageId: language!.id, level }),
+    mutationFn: () =>
+      completeOnboarding({ languageId: language!.id, level, planScope }),
     onSuccess: () => {
       setActiveLanguageId(language!.id)
       navigate('/', { replace: true })
@@ -99,7 +101,7 @@ export default function OnboardingPage() {
                   key={lang.id}
                   type="button"
                   onClick={() => pickLanguage(lang)}
-                  className="rounded-xl border border-gray-200 bg-white px-4 py-3 text-left text-sm font-medium text-gray-800 hover:border-indigo-400 hover:bg-indigo-50"
+                  className="rounded-xl border border-gray-200 bg-white px-4 py-3 text-left text-sm font-medium text-gray-800 hover:border-lang/50 hover:bg-lang-soft"
                   style={{ minHeight: '44px' }}
                 >
                   {lang.name}
@@ -120,7 +122,7 @@ export default function OnboardingPage() {
                 setLevel('A1')
                 setStep('confirm')
               }}
-              className="w-full rounded-xl border border-gray-200 bg-white px-4 py-3 text-left hover:border-indigo-400 hover:bg-indigo-50"
+              className="w-full rounded-xl border border-gray-200 bg-white px-4 py-3 text-left hover:border-lang/50 hover:bg-lang-soft"
             >
               <span className="block text-sm font-semibold text-gray-800">I'm new to it</span>
               <span className="block text-xs text-gray-500">Start from the beginning (A1)</span>
@@ -132,7 +134,7 @@ export default function OnboardingPage() {
                 nextMutation.mutate([])
               }}
               disabled={nextMutation.isPending}
-              className="w-full rounded-xl border border-gray-200 bg-white px-4 py-3 text-left hover:border-indigo-400 hover:bg-indigo-50 disabled:opacity-50"
+              className="w-full rounded-xl border border-gray-200 bg-white px-4 py-3 text-left hover:border-lang/50 hover:bg-lang-soft disabled:opacity-50"
             >
               <span className="block text-sm font-semibold text-gray-800">
                 {nextMutation.isPending ? 'Loading…' : 'Take a quick placement check'}
@@ -188,7 +190,7 @@ export default function OnboardingPage() {
                 type="button"
                 onClick={() => submitAnswer(curInput)}
                 disabled={!curInput.trim() || nextMutation.isPending}
-                className="bg-indigo-600 hover:bg-indigo-700 disabled:opacity-50 text-white font-semibold rounded-xl px-5 py-2.5 text-sm"
+                className="bg-lang hover:bg-lang-dark disabled:opacity-50 text-lang-on font-semibold rounded-xl px-5 py-2.5 text-sm"
                 style={{ minHeight: '44px' }}
               >
                 {nextMutation.isPending ? 'Checking…' : 'Next'}
@@ -224,9 +226,67 @@ export default function OnboardingPage() {
             </select>
             <button
               type="button"
+              onClick={() => setStep('plan')}
+              className="w-full bg-lang hover:bg-lang-dark disabled:opacity-50 text-lang-on font-semibold rounded-xl px-6 py-3 text-sm"
+              style={{ minHeight: '44px' }}
+            >
+              Continue
+            </button>
+          </section>
+        )}
+
+        {step === 'plan' && language && (
+          <section className="space-y-4">
+            <h2 className="font-semibold text-gray-800">Choose your plan</h2>
+            <p className="text-sm text-gray-500">
+              Study just {language.name}, or unlock every language. You can
+              upgrade any time in Settings.
+            </p>
+            <button
+              type="button"
+              onClick={() => setPlanScope('single')}
+              aria-pressed={planScope === 'single'}
+              className={
+                'w-full rounded-xl border px-4 py-3 text-left ' +
+                (planScope === 'single'
+                  ? 'border-lang bg-lang-soft'
+                  : 'border-gray-200 bg-white hover:border-lang/50')
+              }
+            >
+              <span className="block text-sm font-semibold text-gray-800">
+                {language.name} only
+              </span>
+              <span className="block text-xs text-gray-500">
+                One language at the lower price
+              </span>
+            </button>
+            <button
+              type="button"
+              onClick={() => setPlanScope('all')}
+              aria-pressed={planScope === 'all'}
+              className={
+                'w-full rounded-xl border px-4 py-3 text-left ' +
+                (planScope === 'all'
+                  ? 'border-lang bg-lang-soft'
+                  : 'border-gray-200 bg-white hover:border-lang/50')
+              }
+            >
+              <span className="block text-sm font-semibold text-gray-800">
+                All languages
+              </span>
+              <span className="block text-xs text-gray-500">
+                Every language we offer, one price
+              </span>
+            </button>
+            <p className="text-xs text-gray-400">
+              Billing hasn't launched yet — early accounts keep full access to
+              their choice for free, and keep their price when plans go live.
+            </p>
+            <button
+              type="button"
               onClick={() => finishMutation.mutate()}
               disabled={finishMutation.isPending}
-              className="w-full bg-indigo-600 hover:bg-indigo-700 disabled:opacity-50 text-white font-semibold rounded-xl px-6 py-3 text-sm"
+              className="w-full bg-lang hover:bg-lang-dark disabled:opacity-50 text-lang-on font-semibold rounded-xl px-6 py-3 text-sm"
               style={{ minHeight: '44px' }}
             >
               {finishMutation.isPending ? 'Setting up…' : 'Start learning'}

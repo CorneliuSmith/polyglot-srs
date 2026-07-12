@@ -47,6 +47,10 @@ class CompleteOnboarding(BaseModel):
     level: str
     batch_size: int | None = Field(default=None, ge=1, le=50)
     native_language: str | None = None
+    # Signup plan: 'single' studies only this language (lower price),
+    # 'all' unlocks every language. Payment wiring is WP16; the choice is
+    # captured from day one.
+    plan_scope: str | None = Field(default=None, pattern="^(single|all)$")
 
 
 async def _language_code(conn, language_id: str) -> str | None:
@@ -204,6 +208,17 @@ async def complete(
         result = await complete_onboarding(
             conn, user["id"], body.language_id, body.level, batch_size=body.batch_size
         )
+        if body.plan_scope:
+            await conn.execute(
+                """
+                UPDATE user_profiles
+                SET plan_scope = $2,
+                    plan_language_id = CASE WHEN $2 = 'single'
+                                            THEN $3::uuid ELSE NULL END
+                WHERE id = $1
+                """,
+                user["id"], body.plan_scope, body.language_id,
+            )
         if body.native_language:
             # Seed the tutor's memory with the learner's native language.
             from backend.repositories.tutor import (

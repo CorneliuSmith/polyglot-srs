@@ -81,7 +81,7 @@ export default function NotesPage() {
               Paste {language.name} text, then tap a word to turn its sentence into a card.
             </p>
           </div>
-          <button type="button" onClick={() => navigate('/')} className="text-sm text-indigo-600 hover:underline">
+          <button type="button" onClick={() => navigate('/')} className="text-sm text-lang hover:underline">
             Dashboard
           </button>
         </div>
@@ -91,13 +91,13 @@ export default function NotesPage() {
           onChange={(e) => setText(e.target.value)}
           rows={5}
           placeholder={`Paste ${language.name} text here…`}
-          className="w-full rounded-xl border border-gray-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500"
+          className="w-full rounded-xl border border-gray-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-lang"
         />
         <button
           type="button"
           onClick={() => extractMutation.mutate()}
           disabled={!text.trim() || extractMutation.isPending}
-          className="bg-indigo-600 hover:bg-indigo-700 disabled:opacity-50 text-white font-semibold rounded-xl px-5 py-2.5 text-sm"
+          className="bg-lang hover:bg-lang-dark disabled:opacity-50 text-lang-on font-semibold rounded-xl px-5 py-2.5 text-sm"
         >
           {extractMutation.isPending ? 'Analyzing…' : 'Analyze'}
         </button>
@@ -146,7 +146,7 @@ export default function NotesPage() {
         )}
 
         {selection && (
-          <div className="bg-white rounded-2xl shadow-sm border border-indigo-200 p-4 space-y-2">
+          <div className="bg-white rounded-2xl shadow-sm border border-lang/30 p-4 space-y-2">
             <p className="text-sm text-gray-700">
               Card: <span className="font-mono">{selection.sentence}</span>
             </p>
@@ -164,7 +164,7 @@ export default function NotesPage() {
                 type="button"
                 onClick={() => cardMutation.mutate()}
                 disabled={cardMutation.isPending}
-                className="bg-indigo-600 hover:bg-indigo-700 disabled:opacity-50 text-white rounded-lg px-4 py-2 text-sm"
+                className="bg-lang hover:bg-lang-dark disabled:opacity-50 text-lang-on rounded-lg px-4 py-2 text-sm"
               >
                 {cardMutation.isPending ? 'Adding…' : 'Add card'}
               </button>

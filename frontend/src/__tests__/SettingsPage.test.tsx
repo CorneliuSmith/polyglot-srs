@@ -39,13 +39,16 @@ vi.mock('../stores/prefsStore', () => ({
   ),
 }))
 vi.mock('../lib/supabase', () => ({ supabase: { auth: { signOut } } }))
+vi.mock('../api/review', () => ({ resetProgress: vi.fn() }))
 
 import { getProfile, updateProfile } from '../api/profile'
 import { getDashboardStats } from '../api/dashboard'
+import { resetProgress } from '../api/review'
 
 const mockGetProfile = getProfile as ReturnType<typeof vi.fn>
 const mockUpdate = updateProfile as ReturnType<typeof vi.fn>
 const mockStats = getDashboardStats as ReturnType<typeof vi.fn>
+const mockReset = resetProgress as ReturnType<typeof vi.fn>
 
 function renderPage() {
   const queryClient = new QueryClient({ defaultOptions: { queries: { retry: false } } })
@@ -135,5 +138,38 @@ describe('SettingsPage', () => {
       expect(signOut).toHaveBeenCalled()
       expect(mockNavigate).toHaveBeenCalledWith('/login', { replace: true })
     })
+  })
+})
+
+describe('SettingsPage danger zone', () => {
+  it('resets the active language only after the user confirms', async () => {
+    mockReset.mockResolvedValue({ cards_deleted: 7 })
+    const confirmSpy = vi.spyOn(window, 'confirm').mockReturnValue(false)
+    renderPage()
+
+    const button = await screen.findByRole('button', {
+      name: /reset spanish studies/i,
+    })
+    fireEvent.click(button)
+    expect(confirmSpy).toHaveBeenCalledOnce()
+    expect(mockReset).not.toHaveBeenCalled()
+
+    confirmSpy.mockReturnValue(true)
+    fireEvent.click(button)
+    await waitFor(() => expect(mockReset).toHaveBeenCalledWith('lang-es'))
+    expect(await screen.findByText(/7 cards removed/)).toBeDefined()
+    confirmSpy.mockRestore()
+  })
+
+  it('resets every language when the account-wide button is confirmed', async () => {
+    mockReset.mockResolvedValue({ cards_deleted: 42 })
+    const confirmSpy = vi.spyOn(window, 'confirm').mockReturnValue(true)
+    renderPage()
+
+    fireEvent.click(
+      await screen.findByRole('button', { name: /reset all studies/i }),
+    )
+    await waitFor(() => expect(mockReset).toHaveBeenCalledWith(undefined))
+    confirmSpy.mockRestore()
   })
 })

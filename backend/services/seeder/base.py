@@ -40,6 +40,22 @@ class BaseSeeder(ABC):
 
     async def load(self, records: list[dict]) -> int:
         """UPSERT records into vocabulary + translations tables. Returns count."""
+        # Sources can repeat a word (case variants, merged sense rows); a
+        # duplicate inside one UNNEST statement makes ON CONFLICT DO UPDATE
+        # fail with "cannot affect row a second time". Merge duplicates
+        # first: later fields win, translation dicts accumulate.
+        merged: dict[str, dict] = {}
+        for rec in records:
+            prev = merged.get(rec["word"])
+            if prev is None:
+                merged[rec["word"]] = rec
+            else:
+                translations = {**prev.get("translations", {}),
+                                **rec.get("translations", {})}
+                prev.update({k: v for k, v in rec.items() if v is not None})
+                prev["translations"] = translations
+        records = list(merged.values())
+
         conn = await asyncpg.connect(self.db_url)
         try:
             # Look up language_id

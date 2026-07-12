@@ -4,9 +4,9 @@ import type { StageName } from '../../api/types'
 const MAIN_STAGES: { key: StageName; label: string; tone: string }[] = [
   { key: 'beginner', label: 'Beginner', tone: 'bg-slate-900 text-white' },
   { key: 'adept', label: 'Adept', tone: 'bg-indigo-800 text-white' },
-  { key: 'seasoned', label: 'Seasoned', tone: 'bg-indigo-600 text-white' },
-  { key: 'expert', label: 'Expert', tone: 'bg-indigo-400 text-white' },
-  { key: 'master', label: 'Master', tone: 'bg-indigo-200 text-indigo-900' },
+  { key: 'seasoned', label: 'Seasoned', tone: 'bg-lang text-white' },
+  { key: 'expert', label: 'Expert', tone: 'bg-lang/70 text-white' },
+  { key: 'master', label: 'Master', tone: 'bg-lang/25 text-lang-dark' },
 ]
 
 const EXTRA_STAGES: { key: StageName; label: string }[] = [
@@ -36,7 +36,7 @@ export default function StageTiles({
               type="button"
               onClick={() => setKind(k)}
               className={`px-3 py-1 capitalize ${
-                kind === k ? 'bg-indigo-600 text-white' : 'bg-white text-gray-500 hover:bg-gray-50'
+                kind === k ? 'bg-lang text-white' : 'bg-white text-gray-500 hover:bg-gray-50'
               }`}
             >
               {k}

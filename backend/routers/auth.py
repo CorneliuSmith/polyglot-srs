@@ -33,7 +33,8 @@ async def get_profile(user: dict = Depends(get_current_user)):
     async with rls_connection(user["id"]) as conn:
         row = await conn.fetchrow(
             "SELECT id, batch_size, ui_language, active_language_id, "
-            "support_locale, created_at, updated_at "
+            "support_locale, plan_scope, plan_language_id, "
+            "created_at, updated_at "
             "FROM user_profiles WHERE id = $1",
             user["id"],
         )
@@ -62,6 +63,25 @@ async def upsert_profile(
                 status_code=status.HTTP_422_UNPROCESSABLE_ENTITY,
                 detail=f"Unknown support locale: {body.support_locale}",
             )
+    if body.active_language_id is not None:
+        # A Single-language plan studies exactly its licensed language.
+        async with rls_connection(user["id"]) as conn:
+            plan = await conn.fetchrow(
+                "SELECT plan_scope, plan_language_id FROM user_profiles "
+                "WHERE id = $1",
+                user["id"],
+            )
+        if (
+            plan is not None
+            and plan["plan_scope"] == "single"
+            and plan["plan_language_id"] is not None
+            and str(plan["plan_language_id"]) != body.active_language_id
+        ):
+            raise HTTPException(
+                status_code=status.HTTP_403_FORBIDDEN,
+                detail="Your plan covers one language. Upgrade to All "
+                       "Languages to switch.",
+            )
     async with rls_connection(user["id"]) as conn:
         row = await conn.fetchrow(
             """
@@ -80,7 +100,8 @@ async def upsert_profile(
                 END,
                 updated_at = now()
             RETURNING id, batch_size, ui_language, active_language_id,
-                      support_locale, created_at, updated_at
+                      support_locale, plan_scope, plan_language_id,
+                      created_at, updated_at
             """,
             user["id"],
             body.batch_size,

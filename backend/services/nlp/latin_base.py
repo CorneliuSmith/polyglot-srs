@@ -71,6 +71,10 @@ class GreekNLP(AccentFoldingNLP):
     leading_articles = ("ο ", "η ", "το ", "οι ", "τα ", "ένας ", "μια ", "ένα ")
 
 
+class PortugueseNLP(AccentFoldingNLP):
+    leading_articles = ("o ", "a ", "os ", "as ", "um ", "uma ", "uns ", "umas ")
+
+
 class ItalianNLP(AccentFoldingNLP):
     leading_articles = ("il ", "lo ", "la ", "i ", "gli ", "le ", "un ", "uno ", "una ", "l'")
 

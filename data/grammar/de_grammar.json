@@ -18,6 +18,10 @@
    "culture_note": "Germans switch from Sie to du more slowly than you might expect — wait for the offer ('Wir können uns duzen').",
    "references": [
     {
+     "title": "grammis — Leibniz-Institut für Deutsche Sprache",
+     "url": "https://grammis.ids-mannheim.de/"
+    },
+    {
      "title": "Wikipedia: German pronouns",
      "url": "https://en.wikipedia.org/wiki/German_pronouns"
     },
@@ -174,9 +178,13 @@
    "source": "contributor",
    "reviewed": true,
    "display_order": 2,
-   "explanation": "German nouns have THREE genders — masculine (der Mann), feminine (die Frau), neuter (das Kind) — and are always capitalized. Plurals form several ways (-e, -er, -en, -s, umlaut: Buch → Bücher, Haus → Häuser), so learn each noun with its gender AND its plural.",
+   "explanation": "German nouns have THREE genders — masculine (der Mann), feminine (die Frau), neuter (das Kind) — and are always capitalized.\n\nPlurals form several ways (-e, -er, -en, -s, umlaut: Buch → Bücher, Haus → Häuser), so learn each noun with its gender AND its plural.",
    "culture_note": "",
    "references": [
+    {
+     "title": "grammis — Leibniz-Institut für Deutsche Sprache",
+     "url": "https://grammis.ids-mannheim.de/"
+    },
     {
      "title": "Wikipedia: German nouns",
      "url": "https://en.wikipedia.org/wiki/German_nouns"
@@ -269,6 +277,10 @@
    "culture_note": "",
    "references": [
     {
+     "title": "grammis — Leibniz-Institut für Deutsche Sprache",
+     "url": "https://grammis.ids-mannheim.de/"
+    },
+    {
      "title": "Wikipedia: German articles",
      "url": "https://en.wikipedia.org/wiki/German_articles"
     },
@@ -340,9 +352,13 @@
    "source": "contributor",
    "reviewed": true,
    "display_order": 4,
-   "explanation": "Ein for masculine and neuter (ein Mann, ein Haus), eine for feminine (eine Frau). There is no plural indefinite article — plural just drops it: Das sind Bücher. The endings change with case; that story starts with the accusative later in this path.",
+   "explanation": "Ein for masculine and neuter (ein Mann, ein Haus), eine for feminine (eine Frau). There is no plural indefinite article — plural just drops it: Das sind Bücher.\n\nThe endings change with case; that story starts with the accusative later in this path.",
    "culture_note": "",
    "references": [
+    {
+     "title": "grammis — Leibniz-Institut für Deutsche Sprache",
+     "url": "https://grammis.ids-mannheim.de/"
+    },
     {
      "title": "Wikipedia: German articles",
      "url": "https://en.wikipedia.org/wiki/German_articles"
@@ -404,9 +420,13 @@
    "source": "contributor",
    "reviewed": true,
    "display_order": 5,
-   "explanation": "Sein (to be) is completely irregular: ich bin, du bist, er/sie/es ist, wir sind, ihr seid, sie/Sie sind. Professions and nationalities take no article: sie ist Lehrerin, ich bin Deutscher.",
+   "explanation": "Sein (to be) is completely irregular: ich bin, du bist, er/sie/es ist, wir sind, ihr seid, sie/Sie sind.\n\nProfessions and nationalities take no article: sie ist Lehrerin, ich bin Deutscher.",
    "culture_note": "",
    "references": [
+    {
+     "title": "grammis — Leibniz-Institut für Deutsche Sprache",
+     "url": "https://grammis.ids-mannheim.de/"
+    },
     {
      "title": "Wiktionary: sein (German)",
      "url": "https://en.wiktionary.org/wiki/sein#German"
@@ -530,9 +550,13 @@
    "source": "contributor",
    "reviewed": true,
    "display_order": 6,
-   "explanation": "Haben (to have): ich habe, du hast, er/sie hat, wir haben, ihr habt, sie/Sie haben. Like French, German HAS its states: Hunger haben (be hungry), Durst haben (be thirsty), Recht haben (be right), Glück haben (be lucky).",
+   "explanation": "Haben (to have): ich habe, du hast, er/sie hat, wir haben, ihr habt, sie/Sie haben.\n\nLike French, German HAS its states: Hunger haben (be hungry), Durst haben (be thirsty), Recht haben (be right), Glück haben (be lucky).",
    "culture_note": "",
    "references": [
+    {
+     "title": "grammis — Leibniz-Institut für Deutsche Sprache",
+     "url": "https://grammis.ids-mannheim.de/"
+    },
     {
      "title": "Wiktionary: haben (German)",
      "url": "https://en.wiktionary.org/wiki/haben#German"
@@ -656,9 +680,13 @@
    "source": "contributor",
    "reviewed": true,
    "display_order": 7,
-   "explanation": "Drop -en from the infinitive, add: -e, -st, -t, -en, -t, -en (lernen → ich lerne, du lernst, er lernt, wir lernen, ihr lernt, sie lernen). German present covers English 'do' and 'am doing' both: ich lerne = I learn AND I am learning.",
+   "explanation": "Drop -en from the infinitive, add: -e, -st, -t, -en, -t, -en (lernen → ich lerne, du lernst, er lernt, wir lernen, ihr lernt, sie lernen).\n\nGerman present covers English 'do' and 'am doing' both: ich lerne = I learn AND I am learning.",
    "culture_note": "",
    "references": [
+    {
+     "title": "grammis — Leibniz-Institut für Deutsche Sprache",
+     "url": "https://grammis.ids-mannheim.de/"
+    },
     {
      "title": "Wikipedia: German conjugation",
      "url": "https://en.wikipedia.org/wiki/German_conjugation"
@@ -782,9 +810,13 @@
    "source": "contributor",
    "reviewed": true,
    "display_order": 8,
-   "explanation": "The conjugated verb is ALWAYS the second element of a statement. Start with anything else — time, place — and the subject slides behind the verb: Ich lerne heute Deutsch → Heute lerne ich Deutsch. The verb stays put; everything else dances around it.",
+   "explanation": "The conjugated verb is ALWAYS the second element of a statement.\n\nStart with anything else — time, place — and the subject slides behind the verb: Ich lerne heute Deutsch → Heute lerne ich Deutsch.\n\nThe verb stays put; everything else dances around it.",
    "culture_note": "V2 is the single most German thing about German — internalize it at A1 and everything later gets easier.",
    "references": [
+    {
+     "title": "grammis — Leibniz-Institut für Deutsche Sprache",
+     "url": "https://grammis.ids-mannheim.de/"
+    },
     {
      "title": "Wikipedia: V2 word order",
      "url": "https://en.wikipedia.org/wiki/V2_word_order"
@@ -846,9 +878,13 @@
    "source": "contributor",
    "reviewed": true,
    "display_order": 9,
-   "explanation": "Two negators with a clean split: kein negates nouns with ein or no article (ich habe kein Auto, keine Zeit); nicht negates everything else — verbs, adjectives, definite nouns (das ist nicht richtig, ich wohne nicht hier). Kein agrees like ein: kein/keine.",
+   "explanation": "Two negators with a clean split: kein negates nouns with ein or no article (ich habe kein Auto, keine Zeit); nicht negates everything else — verbs, adjectives, definite nouns (das ist nicht richtig, ich wohne nicht hier).\n\nKein agrees like ein: kein/keine.",
    "culture_note": "",
    "references": [
+    {
+     "title": "grammis — Leibniz-Institut für Deutsche Sprache",
+     "url": "https://grammis.ids-mannheim.de/"
+    },
     {
      "title": "Wikipedia: German grammar — negation",
      "url": "https://en.wikipedia.org/wiki/German_grammar"
@@ -929,9 +965,13 @@
    "source": "contributor",
    "reviewed": true,
    "display_order": 10,
-   "explanation": "Es gibt covers 'there is' AND 'there are' — always singular gibt: es gibt einen Park, es gibt viele Cafés. What exists goes in the accusative (einen Park). Negative: es gibt kein/keine…",
+   "explanation": "Es gibt covers 'there is' AND 'there are' — always singular gibt: es gibt einen Park, es gibt viele Cafés. What exists goes in the accusative (einen Park).\n\nNegative: es gibt kein/keine…",
    "culture_note": "",
    "references": [
+    {
+     "title": "grammis — Leibniz-Institut für Deutsche Sprache",
+     "url": "https://grammis.ids-mannheim.de/"
+    },
     {
      "title": "Wiktionary: es gibt (German)",
      "url": "https://en.wiktionary.org/wiki/es_gibt#German"
@@ -997,6 +1037,10 @@
    "culture_note": "",
    "references": [
     {
+     "title": "grammis — Leibniz-Institut für Deutsche Sprache",
+     "url": "https://grammis.ids-mannheim.de/"
+    },
+    {
      "title": "Wikipedia: German grammar — interrogatives",
      "url": "https://en.wikipedia.org/wiki/German_grammar"
     },
@@ -1057,9 +1101,13 @@
    "source": "contributor",
    "reviewed": true,
    "display_order": 12,
-   "explanation": "The direct object takes the accusative — and only MASCULINE articles change: der → den, ein → einen (ich sehe den Mann, ich habe einen Hund). Feminine, neuter, and plural look identical to the nominative: ich lese das Buch, ich sehe die Frau.",
+   "explanation": "The direct object takes the accusative — and only MASCULINE articles change: der → den, ein → einen (ich sehe den Mann, ich habe einen Hund).\n\nFeminine, neuter, and plural look identical to the nominative: ich lese das Buch, ich sehe die Frau.",
    "culture_note": "One changing gender is a gentle introduction — dative and genitive wait politely at A2.",
    "references": [
+    {
+     "title": "grammis — Leibniz-Institut für Deutsche Sprache",
+     "url": "https://grammis.ids-mannheim.de/"
+    },
     {
      "title": "Wikipedia: German declension — accusative",
      "url": "https://en.wikipedia.org/wiki/German_declension"
@@ -1140,9 +1188,13 @@
    "source": "contributor",
    "reviewed": true,
    "display_order": 1,
-   "explanation": "Spoken German uses the perfect: a present form of haben + the past participle at the END of the clause. The participle is usually ge-…-t (gemacht, gespielt) or ge-…-en (gesehen, gelesen): ich habe Fußball gespielt. haben is conjugated (habe, hast, hat, haben, habt, haben); the participle never changes.",
+   "explanation": "Spoken German uses the perfect: a present form of haben + the past participle at the END of the clause.\n\nThe participle is usually ge-…-t (gemacht, gespielt) or ge-…-en (gesehen, gelesen): ich habe Fußball gespielt. haben is conjugated (habe, hast, hat, haben, habt, haben); the participle never changes.",
    "culture_note": "",
    "references": [
+    {
+     "title": "grammis — Leibniz-Institut für Deutsche Sprache",
+     "url": "https://grammis.ids-mannheim.de/"
+    },
     {
      "title": "Wikipedia: German grammar",
      "url": "https://en.wikipedia.org/wiki/German_grammar"
@@ -1266,6 +1318,10 @@
    "culture_note": "",
    "references": [
     {
+     "title": "grammis — Leibniz-Institut für Deutsche Sprache",
+     "url": "https://grammis.ids-mannheim.de/"
+    },
+    {
      "title": "Wikipedia: German grammar",
      "url": "https://en.wikipedia.org/wiki/German_grammar"
     }
@@ -1384,9 +1440,13 @@
    "source": "contributor",
    "reviewed": true,
    "display_order": 3,
-   "explanation": "The dative marks the indirect object (the receiver). The articles change: der→dem, die→der, das→dem, and plural die→den (+ -n on the noun): ich gebe dem Mann das Buch 'I give the man the book'. Dative verbs (helfen, danken, gefallen) and prepositions (mit, nach, bei, von, zu, aus) also trigger it.",
+   "explanation": "The dative marks the indirect object (the receiver).\n\nThe articles change: der→dem, die→der, das→dem, and plural die→den (+ -n on the noun): ich gebe dem Mann das Buch 'I give the man the book'.\n\nDative verbs (helfen, danken, gefallen) and prepositions (mit, nach, bei, von, zu, aus) also trigger it.",
    "culture_note": "",
    "references": [
+    {
+     "title": "grammis — Leibniz-Institut für Deutsche Sprache",
+     "url": "https://grammis.ids-mannheim.de/"
+    },
     {
      "title": "Wikipedia: German grammar",
      "url": "https://en.wikipedia.org/wiki/German_grammar"
@@ -1448,6 +1508,10 @@
    "culture_note": "",
    "references": [
     {
+     "title": "grammis — Leibniz-Institut für Deutsche Sprache",
+     "url": "https://grammis.ids-mannheim.de/"
+    },
+    {
      "title": "Wikipedia: German grammar",
      "url": "https://en.wikipedia.org/wiki/German_grammar"
     }
@@ -1504,9 +1568,13 @@
    "source": "contributor",
    "reviewed": true,
    "display_order": 5,
-   "explanation": "Even in speech, sein and haben usually use the simple past (Präteritum) rather than the perfect. sein: war, warst, war, waren, wart, waren. haben: hatte, hattest, hatte, hatten, hattet, hatten. Ich war müde 'I was tired', wir hatten keine Zeit 'we had no time'.",
+   "explanation": "Even in speech, sein and haben usually use the simple past (Präteritum) rather than the perfect. sein: war, warst, war, waren, wart, waren. haben: hatte, hattest, hatte, hatten, hattet, hatten.\n\nIch war müde 'I was tired', wir hatten keine Zeit 'we had no time'.",
    "culture_note": "",
    "references": [
+    {
+     "title": "grammis — Leibniz-Institut für Deutsche Sprache",
+     "url": "https://grammis.ids-mannheim.de/"
+    },
     {
      "title": "Wikipedia: German grammar",
      "url": "https://en.wikipedia.org/wiki/German_grammar"
@@ -1568,6 +1636,10 @@
    "culture_note": "",
    "references": [
     {
+     "title": "grammis — Leibniz-Institut für Deutsche Sprache",
+     "url": "https://grammis.ids-mannheim.de/"
+    },
+    {
      "title": "Wikipedia: German grammar",
      "url": "https://en.wikipedia.org/wiki/German_grammar"
     }
@@ -1624,9 +1696,13 @@
    "source": "contributor",
    "reviewed": true,
    "display_order": 7,
-   "explanation": "Many verbs have a separable prefix (auf-, ein-, an-, mit-, zurück-…) that splits off and goes to the END in a main clause: aufstehen → ich stehe um sieben auf 'I get up at seven'; einkaufen → wir kaufen im Supermarkt ein. The prefix carries the stress and often changes the meaning.",
+   "explanation": "Many verbs have a separable prefix (auf-, ein-, an-, mit-, zurück-…) that splits off and goes to the END in a main clause: aufstehen → ich stehe um sieben auf 'I get up at seven'; einkaufen → wir kaufen im Supermarkt ein.\n\nThe prefix carries the stress and often changes the meaning.",
    "culture_note": "",
    "references": [
+    {
+     "title": "grammis — Leibniz-Institut für Deutsche Sprache",
+     "url": "https://grammis.ids-mannheim.de/"
+    },
     {
      "title": "Wikipedia: German grammar",
      "url": "https://en.wikipedia.org/wiki/German_grammar"
@@ -1684,9 +1760,13 @@
    "source": "contributor",
    "reviewed": true,
    "display_order": 8,
-   "explanation": "The comparative adds -er and uses als 'than' (often with an umlaut): groß → größer als 'bigger than'. The superlative is am …-sten: am größten 'the biggest'. Irregulars: gut → besser → am besten, viel → mehr → am meisten, gern → lieber → am liebsten.",
+   "explanation": "The comparative adds -er and uses als 'than' (often with an umlaut): groß → größer als 'bigger than'.\n\nThe superlative is am …-sten: am größten 'the biggest'.\n\nIrregulars: gut → besser → am besten, viel → mehr → am meisten, gern → lieber → am liebsten.",
    "culture_note": "",
    "references": [
+    {
+     "title": "grammis — Leibniz-Institut für Deutsche Sprache",
+     "url": "https://grammis.ids-mannheim.de/"
+    },
     {
      "title": "Wikipedia: German grammar",
      "url": "https://en.wikipedia.org/wiki/German_grammar"
@@ -1744,9 +1824,13 @@
    "source": "contributor",
    "reviewed": true,
    "display_order": 9,
-   "explanation": "Possessives (mein, dein, sein, ihr, unser, euer, ihr/Ihr) take the same endings as ein/kein: mein Vater (nom. m.), meine Mutter (nom. f.), meinen Bruder (acc. m.), meinem Freund (dat. m.). The stem shows the owner; the ending agrees with the noun.",
+   "explanation": "Possessives (mein, dein, sein, ihr, unser, euer, ihr/Ihr) take the same endings as ein/kein: mein Vater (nom. m.), meine Mutter (nom. f.), meinen Bruder (acc. m.), meinem Freund (dat. m.).\n\nThe stem shows the owner; the ending agrees with the noun.",
    "culture_note": "",
    "references": [
+    {
+     "title": "grammis — Leibniz-Institut für Deutsche Sprache",
+     "url": "https://grammis.ids-mannheim.de/"
+    },
     {
      "title": "Wikipedia: German grammar",
      "url": "https://en.wikipedia.org/wiki/German_grammar"
@@ -1808,6 +1892,10 @@
    "culture_note": "",
    "references": [
     {
+     "title": "grammis — Leibniz-Institut für Deutsche Sprache",
+     "url": "https://grammis.ids-mannheim.de/"
+    },
+    {
      "title": "Wikipedia: German grammar",
      "url": "https://en.wikipedia.org/wiki/German_grammar"
     }
@@ -1864,9 +1952,13 @@
    "source": "contributor",
    "reviewed": true,
    "display_order": 1,
-   "explanation": "The genitive marks possession ('of'). Masculine and neuter articles become des and the noun adds -(e)s: das Auto des Mannes 'the man's car', das Dach des Hauses. Feminine and plural become der (no noun ending): die Farbe der Blume. Genitive prepositions: wegen, während, trotz, statt.",
+   "explanation": "The genitive marks possession ('of'). Masculine and neuter articles become des and the noun adds -(e)s: das Auto des Mannes 'the man's car', das Dach des Hauses.\n\nFeminine and plural become der (no noun ending): die Farbe der Blume.\n\nGenitive prepositions: wegen, während, trotz, statt.",
    "culture_note": "",
    "references": [
+    {
+     "title": "grammis — Leibniz-Institut für Deutsche Sprache",
+     "url": "https://grammis.ids-mannheim.de/"
+    },
     {
      "title": "Wikipedia: German grammar",
      "url": "https://en.wikipedia.org/wiki/German_grammar"
@@ -1924,9 +2016,13 @@
    "source": "contributor",
    "reviewed": true,
    "display_order": 2,
-   "explanation": "Written German (stories, reports) uses the Präteritum. Weak verbs add -te: machen → machte, spielen → spielte. Strong verbs change the stem: gehen → ging, kommen → kam, sehen → sah, fahren → fuhr. Endings: -,-st,-, -en,-t,-en (ich ging, du gingst, wir gingen).",
+   "explanation": "Written German (stories, reports) uses the Präteritum.\n\nWeak verbs add -te: machen → machte, spielen → spielte.\n\nStrong verbs change the stem: gehen → ging, kommen → kam, sehen → sah, fahren → fuhr.\n\nEndings: -,-st,-, -en,-t,-en (ich ging, du gingst, wir gingen).",
    "culture_note": "",
    "references": [
+    {
+     "title": "grammis — Leibniz-Institut für Deutsche Sprache",
+     "url": "https://grammis.ids-mannheim.de/"
+    },
     {
      "title": "Wikipedia: German grammar",
      "url": "https://en.wikipedia.org/wiki/German_grammar"
@@ -1984,9 +2080,13 @@
    "source": "contributor",
    "reviewed": true,
    "display_order": 3,
-   "explanation": "An adjective before a noun takes an ending. After a definite article (der/die/das) it's mostly -e or -en (der alte Mann, die alten Männer). After an indefinite/possessive (ein/mein) it shows the gender: ein alter Mann, eine alte Frau, ein altes Haus. With no article, the adjective carries the full article ending (kalter Kaffee).",
+   "explanation": "An adjective before a noun takes an ending. After a definite article (der/die/das) it's mostly -e or -en (der alte Mann, die alten Männer).\n\nAfter an indefinite/possessive (ein/mein) it shows the gender: ein alter Mann, eine alte Frau, ein altes Haus.\n\nWith no article, the adjective carries the full article ending (kalter Kaffee).",
    "culture_note": "",
    "references": [
+    {
+     "title": "grammis — Leibniz-Institut für Deutsche Sprache",
+     "url": "https://grammis.ids-mannheim.de/"
+    },
     {
      "title": "Wikipedia: German grammar",
      "url": "https://en.wikipedia.org/wiki/German_grammar"
@@ -2044,9 +2144,13 @@
    "source": "contributor",
    "reviewed": true,
    "display_order": 4,
-   "explanation": "Reflexive verbs use a reflexive pronoun matching the subject: mich, dich, sich, uns, euch, sich (accusative). Ich freue mich 'I'm happy', er erinnert sich 'he remembers'. Some are dative-reflexive when there's also a direct object: ich wasche mir die Hände 'I wash my hands'.",
+   "explanation": "Reflexive verbs use a reflexive pronoun matching the subject: mich, dich, sich, uns, euch, sich (accusative).\n\nIch freue mich 'I'm happy', er erinnert sich 'he remembers'. Some are dative-reflexive when there's also a direct object: ich wasche mir die Hände 'I wash my hands'.",
    "culture_note": "",
    "references": [
+    {
+     "title": "grammis — Leibniz-Institut für Deutsche Sprache",
+     "url": "https://grammis.ids-mannheim.de/"
+    },
     {
      "title": "Wikipedia: German grammar",
      "url": "https://en.wikipedia.org/wiki/German_grammar"
@@ -2114,6 +2218,10 @@
    "culture_note": "",
    "references": [
     {
+     "title": "grammis — Leibniz-Institut für Deutsche Sprache",
+     "url": "https://grammis.ids-mannheim.de/"
+    },
+    {
      "title": "Wikipedia: German grammar",
      "url": "https://en.wikipedia.org/wiki/German_grammar"
     }
@@ -2170,9 +2278,13 @@
    "source": "contributor",
    "reviewed": true,
    "display_order": 6,
-   "explanation": "Konjunktiv II expresses politeness, wishes, and unreal situations. Most verbs use würde + infinitive: ich würde gern kommen 'I would like to come'. But sein, haben, and the modals use their own forms: wäre, hätte, könnte, müsste, wollte. Ich hätte gern einen Kaffee 'I'd like a coffee'.",
+   "explanation": "Konjunktiv II expresses politeness, wishes, and unreal situations. Most verbs use würde + infinitive: ich würde gern kommen 'I would like to come'.\n\nBut sein, haben, and the modals use their own forms: wäre, hätte, könnte, müsste, wollte.\n\nIch hätte gern einen Kaffee 'I'd like a coffee'.",
    "culture_note": "",
    "references": [
+    {
+     "title": "grammis — Leibniz-Institut für Deutsche Sprache",
+     "url": "https://grammis.ids-mannheim.de/"
+    },
     {
      "title": "Wikipedia: German grammar",
      "url": "https://en.wikipedia.org/wiki/German_grammar"
@@ -2230,9 +2342,13 @@
    "source": "contributor",
    "reviewed": true,
    "display_order": 7,
-   "explanation": "After many verbs and expressions, a second verb takes zu + infinitive at the end: ich versuche zu schlafen 'I try to sleep', es ist wichtig, pünktlich zu sein. To express purpose ('in order to'), use um … zu: ich lerne, um die Prüfung zu bestehen. Separable verbs insert zu: aufzustehen.",
+   "explanation": "After many verbs and expressions, a second verb takes zu + infinitive at the end: ich versuche zu schlafen 'I try to sleep', es ist wichtig, pünktlich zu sein.\n\nTo express purpose ('in order to'), use um … zu: ich lerne, um die Prüfung zu bestehen. Separable verbs insert zu: aufzustehen.",
    "culture_note": "",
    "references": [
+    {
+     "title": "grammis — Leibniz-Institut für Deutsche Sprache",
+     "url": "https://grammis.ids-mannheim.de/"
+    },
     {
      "title": "Wikipedia: German grammar",
      "url": "https://en.wikipedia.org/wiki/German_grammar"
@@ -2290,9 +2406,13 @@
    "source": "contributor",
    "reviewed": true,
    "display_order": 1,
-   "explanation": "The passive = werden (conjugated) + the past participle at the end: das Haus wird gebaut 'the house is being built'. Any tense works via werden: wurde gebaut (past), ist gebaut worden (perfect — note worden, not geworden). The agent, if named, follows von: … von einem Architekten.",
+   "explanation": "The passive = werden (conjugated) + the past participle at the end: das Haus wird gebaut 'the house is being built'.\n\nAny tense works via werden: wurde gebaut (past), ist gebaut worden (perfect — note worden, not geworden).\n\nThe agent, if named, follows von: … von einem Architekten.",
    "culture_note": "",
    "references": [
+    {
+     "title": "grammis — Leibniz-Institut für Deutsche Sprache",
+     "url": "https://grammis.ids-mannheim.de/"
+    },
     {
      "title": "Wikipedia: German grammar",
      "url": "https://en.wikipedia.org/wiki/German_grammar"
@@ -2354,6 +2474,10 @@
    "culture_note": "",
    "references": [
     {
+     "title": "grammis — Leibniz-Institut für Deutsche Sprache",
+     "url": "https://grammis.ids-mannheim.de/"
+    },
+    {
      "title": "Wikipedia: German grammar",
      "url": "https://en.wikipedia.org/wiki/German_grammar"
     }
@@ -2414,6 +2538,10 @@
    "culture_note": "",
    "references": [
     {
+     "title": "grammis — Leibniz-Institut für Deutsche Sprache",
+     "url": "https://grammis.ids-mannheim.de/"
+    },
+    {
      "title": "Wikipedia: German grammar",
      "url": "https://en.wikipedia.org/wiki/German_grammar"
     }
@@ -2470,9 +2598,13 @@
    "source": "contributor",
    "reviewed": true,
    "display_order": 4,
-   "explanation": "Connectors set word order. Coordinating (und, aber, oder, denn) keep normal order. Adverbial ones (deshalb 'therefore', trotzdem 'nevertheless', dann) push the subject after the verb: es regnet, deshalb bleiben wir. Subordinating (weil, obwohl, damit, wenn) send the verb to the END.",
+   "explanation": "Connectors set word order. Coordinating (und, aber, oder, denn) keep normal order.\n\nAdverbial ones (deshalb 'therefore', trotzdem 'nevertheless', dann) push the subject after the verb: es regnet, deshalb bleiben wir. Subordinating (weil, obwohl, damit, wenn) send the verb to the END.",
    "culture_note": "",
    "references": [
+    {
+     "title": "grammis — Leibniz-Institut für Deutsche Sprache",
+     "url": "https://grammis.ids-mannheim.de/"
+    },
     {
      "title": "Wikipedia: German grammar",
      "url": "https://en.wikipedia.org/wiki/German_grammar"
@@ -2530,9 +2662,13 @@
    "source": "contributor",
    "reviewed": true,
    "display_order": 5,
-   "explanation": "Many verbs pair with a fixed preposition and case: warten auf + acc. 'wait for', sich freuen auf 'look forward to', denken an 'think of'. When the object is a thing, replace it with a da-compound: darauf, daran; in a question, use a wo-compound: worauf wartest du? 'what are you waiting for?'",
+   "explanation": "Many verbs pair with a fixed preposition and case: warten auf + acc. 'wait for', sich freuen auf 'look forward to', denken an 'think of'.\n\nWhen the object is a thing, replace it with a da-compound: darauf, daran; in a question, use a wo-compound: worauf wartest du?\n\n'what are you waiting for?'",
    "culture_note": "",
    "references": [
+    {
+     "title": "grammis — Leibniz-Institut für Deutsche Sprache",
+     "url": "https://grammis.ids-mannheim.de/"
+    },
     {
      "title": "Wikipedia: German grammar",
      "url": "https://en.wikipedia.org/wiki/German_grammar"
@@ -2590,9 +2726,13 @@
    "source": "contributor",
    "reviewed": true,
    "display_order": 6,
-   "explanation": "Adjectives and participles can become nouns, capitalized but still taking adjective endings: der Alte 'the old man', das Gute 'the good (thing)', ein Deutscher 'a German (man)', der Reisende 'the traveller' (from the present participle reisend). The ending still depends on gender, case, and the preceding article.",
+   "explanation": "Adjectives and participles can become nouns, capitalized but still taking adjective endings: der Alte 'the old man', das Gute 'the good (thing)', ein Deutscher 'a German (man)', der Reisende 'the traveller' (from the present participle reisend).\n\nThe ending still depends on gender, case, and the preceding article.",
    "culture_note": "",
    "references": [
+    {
+     "title": "grammis — Leibniz-Institut für Deutsche Sprache",
+     "url": "https://grammis.ids-mannheim.de/"
+    },
     {
      "title": "Wikipedia: German grammar",
      "url": "https://en.wikipedia.org/wiki/German_grammar"
@@ -2650,9 +2790,13 @@
    "source": "contributor",
    "reviewed": true,
    "display_order": 1,
-   "explanation": "Formal German (news, reports) reports speech with Konjunktiv I: er sagt, er sei krank 'he says he is ill', sie meint, sie habe keine Zeit. Forms come from the infinitive stem + -e/-est/-e/-en…: sei, habe, komme, gehe. When Konjunktiv I equals the indicative, German switches to Konjunktiv II (er sagt, sie hätten…).",
+   "explanation": "Formal German (news, reports) reports speech with Konjunktiv I: er sagt, er sei krank 'he says he is ill', sie meint, sie habe keine Zeit.\n\nForms come from the infinitive stem + -e/-est/-e/-en…: sei, habe, komme, gehe.\n\nWhen Konjunktiv I equals the indicative, German switches to Konjunktiv II (er sagt, sie hätten…).",
    "culture_note": "",
    "references": [
+    {
+     "title": "grammis — Leibniz-Institut für Deutsche Sprache",
+     "url": "https://grammis.ids-mannheim.de/"
+    },
     {
      "title": "Wikipedia: German grammar",
      "url": "https://en.wikipedia.org/wiki/German_grammar"
@@ -2714,6 +2858,10 @@
    "culture_note": "",
    "references": [
     {
+     "title": "grammis — Leibniz-Institut für Deutsche Sprache",
+     "url": "https://grammis.ids-mannheim.de/"
+    },
+    {
      "title": "Wikipedia: German grammar",
      "url": "https://en.wikipedia.org/wiki/German_grammar"
     }
@@ -2773,6 +2921,10 @@
    "explanation": "Higher-register connectors: indem 'by …-ing' (er lernt, indem er liest 'he learns by reading'); je … desto/umso 'the more … the more' (je mehr, desto besser); sofern / falls 'provided that / in case'; anstatt … zu 'instead of'; ohne … zu 'without …-ing'.",
    "culture_note": "",
    "references": [
+    {
+     "title": "grammis — Leibniz-Institut für Deutsche Sprache",
+     "url": "https://grammis.ids-mannheim.de/"
+    },
     {
      "title": "Wikipedia: German grammar",
      "url": "https://en.wikipedia.org/wiki/German_grammar"
@@ -2834,6 +2986,10 @@
    "culture_note": "",
    "references": [
     {
+     "title": "grammis — Leibniz-Institut für Deutsche Sprache",
+     "url": "https://grammis.ids-mannheim.de/"
+    },
+    {
      "title": "Wikipedia: German grammar",
      "url": "https://en.wikipedia.org/wiki/German_grammar"
     }
@@ -2890,9 +3046,13 @@
    "source": "contributor",
    "reviewed": true,
    "display_order": 2,
-   "explanation": "Modal particles carry tone, not literal meaning. doch 'contradiction / encouragement' (komm doch mit! 'do come along!'); mal 'softening' (warte mal 'hold on'); ja 'as you know / surprise' (das ist ja toll!); eben/halt 'resignation' (das ist eben so 'that's just how it is'); wohl 'probably'. Mastering them is the last step to sounding native.",
+   "explanation": "Modal particles carry tone, not literal meaning. doch 'contradiction / encouragement' (komm doch mit! 'do come along!'); mal 'softening' (warte mal 'hold on'); ja 'as you know / surprise' (das ist ja toll!); eben/halt 'resignation' (das ist eben so 'that's just how it is'); wohl 'probably'.\n\nMastering them is the last step to sounding native.",
    "culture_note": "",
    "references": [
+    {
+     "title": "grammis — Leibniz-Institut für Deutsche Sprache",
+     "url": "https://grammis.ids-mannheim.de/"
+    },
     {
      "title": "Wikipedia: German grammar",
      "url": "https://en.wikipedia.org/wiki/German_grammar"

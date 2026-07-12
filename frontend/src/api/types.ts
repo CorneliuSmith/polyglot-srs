@@ -205,6 +205,10 @@ export interface UserProfile {
   active_language_id: string | null
   /** "learning English from X" — locale English hints render in (null = English) */
   support_locale: string | null
+  /** 'single' = one licensed language (lower price), 'all' = every language */
+  plan_scope: 'single' | 'all'
+  /** the licensed language when plan_scope is 'single' */
+  plan_language_id: string | null
   created_at: string
   updated_at: string
 }

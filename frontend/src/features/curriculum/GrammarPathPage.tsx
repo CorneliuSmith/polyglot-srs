@@ -90,7 +90,7 @@ export default function GrammarPathPage() {
           <button
             type="button"
             onClick={() => navigate('/')}
-            className="text-sm text-indigo-600 hover:underline"
+            className="text-sm text-lang hover:underline"
           >
             ← Dashboard
           </button>
@@ -180,8 +180,8 @@ export default function GrammarPathPage() {
                         </ul>
                       )}
                       {detail.culture_note && (
-                        <div className="bg-indigo-50 border border-indigo-100 rounded-lg p-3">
-                          <p className="text-indigo-900/80 whitespace-pre-wrap">
+                        <div className="bg-lang-soft border border-lang/20 rounded-lg p-3">
+                          <p className="text-lang-dark/80 whitespace-pre-wrap">
                             {detail.culture_note}
                           </p>
                         </div>
@@ -202,7 +202,7 @@ export default function GrammarPathPage() {
                                 ].join(',')}`,
                               )
                             }
-                            className="text-sm text-indigo-600 hover:underline"
+                            className="text-sm text-lang hover:underline"
                           >
                             ⚡ Quick cram this + related (nothing recorded)
                           </button>
@@ -221,7 +221,7 @@ export default function GrammarPathPage() {
                           type="button"
                           onClick={() => learnMutation.mutate(point.id)}
                           disabled={learnMutation.isPending}
-                          className="bg-indigo-600 hover:bg-indigo-700 disabled:opacity-50 text-white font-semibold rounded-xl px-5 py-2.5 text-sm"
+                          className="bg-lang hover:bg-lang-dark disabled:opacity-50 text-lang-on font-semibold rounded-xl px-5 py-2.5 text-sm"
                           style={{ minHeight: '44px' }}
                         >
                           {learnMutation.isPending ? 'Adding…' : 'Add to my reviews'}

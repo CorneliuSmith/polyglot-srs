@@ -193,7 +193,7 @@ export default function ReviewSessionPage({ cram = false }: { cram?: boolean }) 
           <button
             type="button"
             onClick={() => navigate('/')}
-            className="text-indigo-600 hover:underline text-sm touch-manipulation"
+            className="text-lang hover:underline text-sm touch-manipulation"
           >
             Back to Dashboard
           </button>
@@ -285,18 +285,18 @@ export default function ReviewSessionPage({ cram = false }: { cram?: boolean }) 
             type="button"
             onClick={() => navigate('/')}
             aria-label="Exit session"
-            className="text-xl leading-none text-gray-400 hover:text-indigo-600"
+            className="text-xl leading-none text-gray-400 hover:text-lang"
           >
             ←
           </button>
           <div className="flex items-center gap-4 text-sm text-gray-400">
-            <button type="button" onClick={() => navigate('/grammar')} className="hover:text-indigo-600">
+            <button type="button" onClick={() => navigate('/grammar')} className="hover:text-lang">
               Path
             </button>
-            <button type="button" onClick={() => navigate('/tutor')} className="hover:text-indigo-600">
+            <button type="button" onClick={() => navigate('/tutor')} className="hover:text-lang">
               Tutor
             </button>
-            <button type="button" onClick={() => navigate('/settings')} aria-label="Settings" className="hover:text-indigo-600">
+            <button type="button" onClick={() => navigate('/settings')} aria-label="Settings" className="hover:text-lang">
               ⚙
             </button>
           </div>
@@ -308,7 +308,7 @@ export default function ReviewSessionPage({ cram = false }: { cram?: boolean }) 
             Card {session.currentIndex + 1} of {cards.length}
           </span>
           {cram ? (
-            <span className="text-xs rounded-full px-2 py-0.5 bg-indigo-50 text-indigo-600 font-semibold">
+            <span className="text-xs rounded-full px-2 py-0.5 bg-lang-soft text-lang font-semibold">
               Quick Cram · not recorded
             </span>
           ) : (
@@ -319,7 +319,7 @@ export default function ReviewSessionPage({ cram = false }: { cram?: boolean }) 
         {/* Progress bar */}
         <div className="w-full bg-gray-200 rounded-full h-1.5">
           <div
-            className="bg-indigo-500 h-1.5 rounded-full transition-all"
+            className="bg-lang h-1.5 rounded-full transition-all"
             style={{ width: `${((session.currentIndex) / cards.length) * 100}%` }}
           />
         </div>
@@ -370,7 +370,7 @@ export default function ReviewSessionPage({ cram = false }: { cram?: boolean }) 
               aria-label="Submit answer"
               onClick={handleSubmitAnswer}
               disabled={!userInput.trim() || validateMutation.isPending}
-              className="w-full bg-white hover:bg-gray-50 disabled:opacity-40 text-gray-500 hover:text-indigo-600 rounded-2xl border-2 border-gray-300 px-6 py-2 text-2xl leading-none transition-colors touch-manipulation"
+              className="w-full bg-white hover:bg-gray-50 disabled:opacity-40 text-gray-500 hover:text-lang rounded-2xl border-2 border-gray-300 px-6 py-2 text-2xl leading-none transition-colors touch-manipulation"
               style={{ minHeight: '44px' }}
             >
               {validateMutation.isPending ? '…' : '→'}
@@ -380,14 +380,14 @@ export default function ReviewSessionPage({ cram = false }: { cram?: boolean }) 
                 type="button"
                 aria-label="Show a hint"
                 onClick={() => setHintLevel(hintLevel >= maxHint ? 0 : hintLevel + 1)}
-                className="flex items-center gap-2 text-sm text-gray-400 hover:text-indigo-600"
+                className="flex items-center gap-2 text-sm text-gray-400 hover:text-lang"
               >
                 Hint
                 {Array.from({ length: maxHint }).map((_, i) => (
                   <span
                     key={i}
                     className={`inline-block w-2 h-2 rounded-full ${
-                      i < hintLevel ? 'bg-indigo-500' : 'bg-gray-300'
+                      i < hintLevel ? 'bg-lang' : 'bg-gray-300'
                     }`}
                   />
                 ))}
@@ -464,7 +464,7 @@ export default function ReviewSessionPage({ cram = false }: { cram?: boolean }) 
                     aria-label="Continue"
                     onClick={() => handleRate(session.validationResult!.answer_result)}
                     disabled={submitMutation.isPending}
-                    className="text-2xl leading-none px-2 text-gray-500 hover:text-indigo-600 disabled:opacity-50"
+                    className="text-2xl leading-none px-2 text-gray-500 hover:text-lang disabled:opacity-50"
                     style={{ minHeight: '44px' }}
                   >
                     →
@@ -478,7 +478,7 @@ export default function ReviewSessionPage({ cram = false }: { cram?: boolean }) 
                       setUserInput(lastInput)
                       session.retry()
                     }}
-                    className="text-xs text-gray-400 hover:text-indigo-600"
+                    className="text-xs text-gray-400 hover:text-lang"
                   >
                     ↺ Undo
                   </button>

@@ -70,7 +70,7 @@ class TestGrammarTransform:
         # WP2 + WP3b: every language authored all the way to C2 keeps the full
         # CEFR ladder and its reviewed-live status. Guards against a partial
         # re-seed silently dropping the advanced tiers.
-        for code in ("es", "tr", "ru", "ar", "el", "ro", "fr", "de", "it", "ca"):
+        for code in ("es", "tr", "ru", "ar", "el", "ro", "fr", "de", "it", "ca", "pt"):
             data = GrammarSeeder("fake://db", code).transform()
             levels = {p["level"] for p in data["points"]}
             assert {"A1", "A2", "B1", "B2", "C1", "C2"} <= levels, code
@@ -78,6 +78,20 @@ class TestGrammarTransform:
             assert all(p["source"] == "contributor" for p in data["points"]), code
             # these paths are human-reviewed and live (not draft-gated)
             assert any(p["reviewed"] for p in data["points"]), code
+
+    def test_every_point_leads_with_authoritative_reference(self):
+        # Content standard (§3b, 2026-07): Wikipedia is fine but never alone.
+        # Every point's references open with a verified authoritative source
+        # (academy grammar, national-corpus portal, or public-domain course).
+        for code in ("es", "fr", "de", "it", "ca", "pt", "ro", "el", "ru",
+                     "ar", "en", "tr", "mi", "sw", "yo", "ha", "xh"):
+            data = GrammarSeeder("fake://db", code).transform()
+            for point in data["points"]:
+                refs = point.get("references") or []
+                assert refs, f"{code}/{point['title']}: no references"
+                assert "wikipedia.org" not in refs[0]["url"], (
+                    f"{code}/{point['title']}: leads with Wikipedia"
+                )
 
     def test_invalid_drills_and_points_skipped(self, tmp_path):
         import backend.services.seeder.seed_grammar as mod

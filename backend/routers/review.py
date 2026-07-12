@@ -18,6 +18,8 @@ from backend.repositories.cards import (
     get_deck_preview,
     get_due_cards,
     get_learn_decks,
+    reset_deck_progress,
+    reset_language_progress,
     set_deck_subscription,
     update_card_srs,
 )
@@ -334,6 +336,37 @@ async def deck_subscription(
     if not ok:
         raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Deck not found")
     return {"subscribed": body.subscribed}
+
+
+@router.delete("/decks/{list_id}/progress")
+async def reset_deck(
+    list_id: str,
+    user: dict = Depends(get_current_user),
+):
+    """Reset the learner's progress for one deck, review history included.
+
+    Destructive and permanent: the frontend confirms before calling. Deck
+    subscriptions and user-authored content are untouched.
+    """
+    async with rls_connection(user["id"]) as conn:
+        result = await reset_deck_progress(conn, user["id"], list_id)
+    if result is None:
+        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Deck not found")
+    return result
+
+
+@router.delete("/progress")
+async def reset_progress(
+    language_id: str | None = None,
+    user: dict = Depends(get_current_user),
+):
+    """Reset ALL of the learner's studies — one language, or everything.
+
+    Destructive and permanent (cards + review history). Notes, personal
+    sentences, and deck subscriptions survive.
+    """
+    async with rls_connection(user["id"]) as conn:
+        return await reset_language_progress(conn, user["id"], language_id)
 
 
 @router.post("/learn")

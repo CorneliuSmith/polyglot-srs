@@ -38,7 +38,7 @@ export default function FeedbackPanel({ languageId }: { languageId: string }) {
             type="button"
             onClick={() => resolveMutation.mutate(f.id)}
             disabled={resolveMutation.isPending}
-            className="text-xs text-indigo-600 hover:underline shrink-0"
+            className="text-xs text-lang hover:underline shrink-0"
           >
             Resolve
           </button>

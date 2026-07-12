@@ -75,7 +75,7 @@ export default function LearnPage() {
           <button
             type="button"
             onClick={() => navigate('/')}
-            className="text-indigo-600 hover:underline text-sm"
+            className="text-lang hover:underline text-sm"
           >
             ← Back to Dashboard
           </button>
@@ -106,7 +106,7 @@ export default function LearnPage() {
           <button
             type="button"
             onClick={() => navigate('/')}
-            className="text-indigo-600 hover:underline text-sm"
+            className="text-lang hover:underline text-sm"
           >
             ← Back to Dashboard
           </button>
@@ -168,7 +168,7 @@ export default function LearnPage() {
           <button
             type="button"
             onClick={() => navigate('/')}
-            className="text-sm text-indigo-600 hover:underline"
+            className="text-sm text-lang hover:underline"
           >
             ← Dashboard
           </button>
@@ -239,11 +239,11 @@ export default function LearnPage() {
             )}
 
             {lesson.culture_note && (
-              <div className="bg-indigo-50 border border-indigo-100 rounded-lg p-3">
-                <span className="text-xs uppercase tracking-wide text-indigo-400 block mb-1">
+              <div className="bg-lang-soft border border-lang/20 rounded-lg p-3">
+                <span className="text-xs uppercase tracking-wide text-lang/70 block mb-1">
                   Culture note
                 </span>
-                <p className="text-sm text-indigo-900/80 whitespace-pre-wrap">
+                <p className="text-sm text-lang-dark/80 whitespace-pre-wrap">
                   {lesson.culture_note}
                 </p>
               </div>
@@ -261,7 +261,7 @@ export default function LearnPage() {
                         href={ref.url}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="text-sm text-indigo-600 hover:underline"
+                        className="text-sm text-lang hover:underline"
                       >
                         {ref.title}
                       </a>
@@ -306,7 +306,7 @@ export default function LearnPage() {
                     type="button"
                     onClick={handleCheck}
                     disabled={!quizInput.trim() || validateMutation.isPending}
-                    className="mt-3 w-full bg-white hover:bg-gray-50 disabled:opacity-40 text-gray-500 hover:text-indigo-600 rounded-2xl border-2 border-gray-300 px-6 py-2 text-2xl leading-none transition-colors"
+                    className="mt-3 w-full bg-white hover:bg-gray-50 disabled:opacity-40 text-gray-500 hover:text-lang rounded-2xl border-2 border-gray-300 px-6 py-2 text-2xl leading-none transition-colors"
                     aria-label="Check answer"
                     style={{ minHeight: '44px' }}
                   >
@@ -349,7 +349,7 @@ export default function LearnPage() {
               onClick={() => navigate('/review')}
               disabled={!currentPassed}
               title={currentPassed ? undefined : 'Answer the sentence above first'}
-              className="flex-1 bg-indigo-600 hover:bg-indigo-700 disabled:opacity-50 text-white font-semibold rounded-xl px-6 py-3 text-sm"
+              className="flex-1 bg-lang hover:bg-lang-dark disabled:opacity-50 text-lang-on font-semibold rounded-xl px-6 py-3 text-sm"
               style={{ minHeight: '44px' }}
             >
               Start Reviewing
@@ -360,7 +360,7 @@ export default function LearnPage() {
               onClick={() => goToLesson(lessonIndex + 1)}
               disabled={!currentPassed}
               title={currentPassed ? undefined : 'Answer the sentence above first'}
-              className="flex-1 bg-indigo-600 hover:bg-indigo-700 disabled:opacity-50 text-white font-semibold rounded-xl px-6 py-3 text-sm"
+              className="flex-1 bg-lang hover:bg-lang-dark disabled:opacity-50 text-lang-on font-semibold rounded-xl px-6 py-3 text-sm"
               style={{ minHeight: '44px' }}
             >
               Next →

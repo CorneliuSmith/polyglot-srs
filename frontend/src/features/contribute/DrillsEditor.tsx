@@ -49,7 +49,7 @@ export default function DrillsEditor({ pointId }: { pointId: string }) {
       <button
         type="button"
         onClick={() => setOpen((v) => !v)}
-        className="text-xs text-indigo-600 hover:underline"
+        className="text-xs text-lang hover:underline"
       >
         {open ? 'Hide sentences' : 'Edit sentences'}
       </button>
@@ -101,7 +101,7 @@ export default function DrillsEditor({ pointId }: { pointId: string }) {
                 type="button"
                 onClick={() => addMutation.mutate()}
                 disabled={!sentence.trim() || !answer.trim() || addMutation.isPending}
-                className="bg-indigo-600 hover:bg-indigo-700 disabled:opacity-50 text-white rounded px-3 py-1 text-sm"
+                className="bg-lang hover:bg-lang-dark disabled:opacity-50 text-lang-on rounded px-3 py-1 text-sm"
               >
                 Add
               </button>

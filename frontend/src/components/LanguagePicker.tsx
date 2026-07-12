@@ -1,7 +1,8 @@
 import { useEffect } from 'react'
 import { useQuery } from '@tanstack/react-query'
-import { getLanguages, updateProfile } from '../api/profile'
+import { getLanguages, getProfile, updateProfile } from '../api/profile'
 import { usePrefsStore } from '../stores/prefsStore'
+import { languageTheme } from '../lib/languageColors'
 
 export default function LanguagePicker() {
   const activeLanguageId = usePrefsStore((s) => s.activeLanguageId)
@@ -11,6 +12,10 @@ export default function LanguagePicker() {
     queryKey: ['languages'],
     queryFn: getLanguages,
   })
+  const { data: profile } = useQuery({ queryKey: ['profile'], queryFn: getProfile })
+  // A Single-language plan is locked to its licensed language.
+  const lockedTo =
+    profile?.plan_scope === 'single' ? profile.plan_language_id : null
 
   // Auto-select first language when none is stored
   useEffect(() => {
@@ -41,17 +46,25 @@ export default function LanguagePicker() {
     )
   }
 
+  const active = languages.find((l) => l.id === activeLanguageId)
+  const theme = languageTheme(active?.code)
+
   return (
     <select
       value={activeLanguageId ?? ''}
       onChange={handleChange}
-      className="w-full rounded-lg border border-gray-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 bg-white"
-      style={{ minHeight: '44px' }}
+      className="w-full rounded-lg border border-gray-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-lang bg-white"
+      style={{ minHeight: '44px', borderLeft: `6px solid ${theme.primary}` }}
       aria-label="Select active language"
     >
       {languages.map((lang) => (
-        <option key={lang.id} value={lang.id}>
-          {lang.name}
+        <option
+          key={lang.id}
+          value={lang.id}
+          disabled={!!lockedTo && lang.id !== lockedTo}
+        >
+          {languageTheme(lang.code).emoji} {lang.name}
+          {lockedTo && lang.id !== lockedTo ? ' — All-Languages plan' : ''}
         </option>
       ))}
     </select>

@@ -1281,6 +1281,73 @@ async def get_deck_preview(
     }
 
 
+async def reset_deck_progress(
+    conn: asyncpg.Connection, user_id: str, list_id: str
+) -> dict | None:
+    """Wipe the learner's progress for one deck, review history included.
+
+    Deletes the user_cards rows for items belonging to the deck (membership
+    is level-based, mirroring the learn queries); review_log rows go with
+    them via ON DELETE CASCADE. Content and deck subscriptions are untouched
+    — the learner can start the deck over immediately. Returns None when the
+    deck doesn't exist.
+    """
+    cl = await conn.fetchrow(
+        "SELECT language_id, list_type, level FROM content_lists WHERE id = $1",
+        list_id,
+    )
+    if cl is None:
+        return None
+    if cl["list_type"] == "grammar":
+        result = await conn.execute(
+            """
+            DELETE FROM user_cards uc
+            USING grammar_points gp
+            WHERE uc.user_id = $1
+              AND uc.card_type = 'grammar'
+              AND uc.card_id = gp.id
+              AND gp.language_id = $2
+              AND ($3::text IS NULL OR gp.level = $3)
+            """,
+            user_id, cl["language_id"], cl["level"],
+        )
+    else:
+        result = await conn.execute(
+            """
+            DELETE FROM user_cards uc
+            USING vocabulary v
+            WHERE uc.user_id = $1
+              AND uc.card_type = 'vocabulary'
+              AND uc.card_id = v.id
+              AND v.language_id = $2
+              AND ($3::text IS NULL OR v.level = $3)
+            """,
+            user_id, cl["language_id"], cl["level"],
+        )
+    return {"cards_deleted": int(result.split()[-1])}
+
+
+async def reset_language_progress(
+    conn: asyncpg.Connection, user_id: str, language_id: str | None = None
+) -> dict:
+    """Wipe the learner's studies — one language, or everything when None.
+
+    Deletes every user_cards row in scope (grammar, vocabulary, AND personal
+    cards' schedules); review_log cascades. User-authored content survives:
+    notes, personal cloze sentences, and deck subscriptions stay, so a fresh
+    start doesn't destroy anything the learner wrote themselves.
+    """
+    result = await conn.execute(
+        """
+        DELETE FROM user_cards
+        WHERE user_id = $1
+          AND ($2::uuid IS NULL OR language_id = $2)
+        """,
+        user_id, language_id,
+    )
+    return {"cards_deleted": int(result.split()[-1])}
+
+
 async def set_deck_subscription(
     conn: asyncpg.Connection, user_id: str, list_id: str, subscribed: bool
 ) -> bool:

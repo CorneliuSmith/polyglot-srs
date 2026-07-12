@@ -117,3 +117,22 @@ export async function getLearnDecks(languageId: string): Promise<LearnDeck[]> {
   )
   return response.data.decks
 }
+
+export async function resetDeckProgress(
+  listId: string,
+): Promise<{ cards_deleted: number }> {
+  const response = await apiClient.delete<{ cards_deleted: number }>(
+    `/api/review/decks/${listId}/progress`,
+  )
+  return response.data
+}
+
+export async function resetProgress(
+  languageId?: string,
+): Promise<{ cards_deleted: number }> {
+  const response = await apiClient.delete<{ cards_deleted: number }>(
+    '/api/review/progress',
+    { params: languageId ? { language_id: languageId } : {} },
+  )
+  return response.data
+}

@@ -47,7 +47,7 @@ function TranslitControls({
           title="Type Latin letters and they convert to the target script"
           className={`rounded-full px-2 py-0.5 border transition ${
             enabled
-              ? 'border-indigo-200 bg-indigo-50 text-indigo-600'
+              ? 'border-lang/30 bg-lang-soft text-lang'
               : 'border-gray-200 text-gray-400 hover:text-gray-600'
           }`}
         >
@@ -58,7 +58,7 @@ function TranslitControls({
             type="button"
             onClick={() => setShowGuide((v) => !v)}
             aria-expanded={showGuide}
-            className="text-indigo-500 hover:underline"
+            className="text-lang hover:underline"
           >
             {showGuide ? 'Hide key guide' : 'Key guide'}
           </button>
@@ -102,7 +102,7 @@ export default function DrillCard({
   const translit = useTranslit(languageCode)
   const hasMarker = sentence.includes('{{answer}}')
   const inputTone = (result && RESULT_INPUT_STYLES[result]) ||
-    'border-indigo-400 focus:border-indigo-600'
+    'border-lang/50 focus:border-lang'
 
 
   // Resolve direction: languageCode takes precedence, fall back to legacy dir prop

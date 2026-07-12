@@ -232,7 +232,7 @@ function NewPointForm({
         type="button"
         onClick={() => createMutation.mutate()}
         disabled={!title.trim() || createMutation.isPending}
-        className="bg-indigo-600 hover:bg-indigo-700 disabled:opacity-50 text-white font-semibold rounded-lg px-4 py-2 text-sm"
+        className="bg-lang hover:bg-lang-dark disabled:opacity-50 text-lang-on font-semibold rounded-lg px-4 py-2 text-sm"
       >
         Create
       </button>
@@ -320,7 +320,7 @@ function PointEditor({
             type="button"
             onClick={() => aiCheckMutation.mutate()}
             disabled={aiCheckMutation.isPending}
-            className="text-indigo-600 hover:underline disabled:opacity-50"
+            className="text-lang hover:underline disabled:opacity-50"
           >
             {aiCheckMutation.isPending ? 'Checking…' : 'Run AI check'}
           </button>
@@ -348,7 +348,7 @@ function PointEditor({
         value={explanation}
         onChange={(e) => setExplanation(e.target.value)}
         rows={4}
-        className="w-full rounded-lg border border-gray-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500"
+        className="w-full rounded-lg border border-gray-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-lang"
       />
 
       <label className="block text-xs font-medium text-gray-500">Culture note (optional)</label>
@@ -356,7 +356,7 @@ function PointEditor({
         value={cultureNote}
         onChange={(e) => setCultureNote(e.target.value)}
         rows={2}
-        className="w-full rounded-lg border border-gray-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500"
+        className="w-full rounded-lg border border-gray-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-lang"
       />
 
       <label className="block text-xs font-medium text-gray-500">
@@ -367,7 +367,7 @@ function PointEditor({
         onChange={(e) => setRefsText(e.target.value)}
         rows={2}
         placeholder="Wiktionary: locative case | https://en.wiktionary.org/..."
-        className="w-full rounded-lg border border-gray-300 px-3 py-2 text-sm font-mono focus:outline-none focus:ring-2 focus:ring-indigo-500"
+        className="w-full rounded-lg border border-gray-300 px-3 py-2 text-sm font-mono focus:outline-none focus:ring-2 focus:ring-lang"
       />
 
       <div className="flex items-center gap-2">
@@ -375,7 +375,7 @@ function PointEditor({
           type="button"
           onClick={() => saveMutation.mutate()}
           disabled={!explanation.trim() || saveMutation.isPending}
-          className="bg-indigo-600 hover:bg-indigo-700 disabled:opacity-50 text-white font-semibold rounded-lg px-4 py-2 text-sm"
+          className="bg-lang hover:bg-lang-dark disabled:opacity-50 text-lang-on font-semibold rounded-lg px-4 py-2 text-sm"
         >
           {saveMutation.isPending ? 'Saving…' : 'Save (pending review)'}
         </button>
@@ -430,7 +430,7 @@ function ReviewPolicyControl({
             disabled={mutation.isPending || policy === p}
             className={
               policy === p
-                ? 'rounded-lg px-3 py-1.5 text-xs bg-indigo-600 text-white'
+                ? 'rounded-lg px-3 py-1.5 text-xs bg-lang text-white'
                 : 'rounded-lg px-3 py-1.5 text-xs border border-gray-300 text-gray-600 hover:bg-gray-50'
             }
           >
@@ -474,7 +474,7 @@ export default function ContributorPage() {
           <button
             type="button"
             onClick={() => navigate('/')}
-            className="text-sm text-indigo-600 hover:underline"
+            className="text-sm text-lang hover:underline"
           >
             Dashboard
           </button>

@@ -18,6 +18,10 @@
    "culture_note": "Choosing tātou over mātou is an act of inclusion — 'Tēnā koutou, tēnā tātou katoa' welcomes everyone into the 'we'.",
    "references": [
     {
+     "title": "Te Whanake — Māori language resources",
+     "url": "https://www.tewhanake.maori.nz/"
+    },
+    {
      "title": "Wikipedia: Māori language — grammar",
      "url": "https://en.wikipedia.org/wiki/M%C4%81ori_language"
     },
@@ -84,9 +88,17 @@
    "source": "contributor",
    "reviewed": true,
    "display_order": 2,
-   "explanation": "Nouns don't change for plural — the article does the work: te whare (the house), ngā whare (the houses). This one contrast carries all of Māori number. He (a/some) is the indefinite and gets its own point next.",
+   "explanation": "Nouns don't change for plural — the article does the work: te whare (the house), ngā whare (the houses). This one contrast carries all of Māori number.\n\nHe (a/some) is the indefinite and gets its own point next.",
    "culture_note": "",
    "references": [
+    {
+     "title": "Te Aka Māori Dictionary",
+     "url": "https://maoridictionary.co.nz/"
+    },
+    {
+     "title": "Te Whanake — Māori language resources",
+     "url": "https://www.tewhanake.maori.nz/"
+    },
     {
      "title": "Wikipedia: Māori language — grammar",
      "url": "https://en.wikipedia.org/wiki/M%C4%81ori_language"
@@ -158,6 +170,14 @@
    "culture_note": "",
    "references": [
     {
+     "title": "Te Aka Māori Dictionary",
+     "url": "https://maoridictionary.co.nz/"
+    },
+    {
+     "title": "Te Whanake — Māori language resources",
+     "url": "https://www.tewhanake.maori.nz/"
+    },
+    {
      "title": "Wikipedia: Māori language — grammar",
      "url": "https://en.wikipedia.org/wiki/M%C4%81ori_language"
     },
@@ -224,9 +244,17 @@
    "source": "contributor",
    "reviewed": true,
    "display_order": 4,
-   "explanation": "Ko identifies a SPECIFIC one: Ko Mere tēnei (This is Mere), Ko wai tō ingoa? (What is your name?). Use ko with names and definite nouns; use he to classify. Compare: He kaiako ia (she's a teacher — one of many) vs Ko ia te kaiako (she is THE teacher).",
+   "explanation": "Ko identifies a SPECIFIC one: Ko Mere tēnei (This is Mere), Ko wai tō ingoa? (What is your name?). Use ko with names and definite nouns; use he to classify.\n\nCompare: He kaiako ia (she's a teacher — one of many) vs Ko ia te kaiako (she is THE teacher).",
    "culture_note": "Ko opens the mihi (introduction): Ko Aoraki te maunga, ko Waitaki te awa… — naming your mountain and river before yourself.",
    "references": [
+    {
+     "title": "Te Aka Māori Dictionary",
+     "url": "https://maoridictionary.co.nz/"
+    },
+    {
+     "title": "Te Whanake — Māori language resources",
+     "url": "https://www.tewhanake.maori.nz/"
+    },
     {
      "title": "Wikipedia: Māori language — grammar",
      "url": "https://en.wikipedia.org/wiki/M%C4%81ori_language"
@@ -298,6 +326,14 @@
    "culture_note": "",
    "references": [
     {
+     "title": "Te Aka Māori Dictionary",
+     "url": "https://maoridictionary.co.nz/"
+    },
+    {
+     "title": "Te Whanake — Māori language resources",
+     "url": "https://www.tewhanake.maori.nz/"
+    },
+    {
      "title": "Wikipedia: Māori language — grammar",
      "url": "https://en.wikipedia.org/wiki/M%C4%81ori_language"
     },
@@ -367,6 +403,14 @@
    "explanation": "I + verb marks the past: I haere au (I went), I kai mātou (we ate). The same little i also marks objects (kei te ako au i te reo) — position tells you which job it's doing.",
    "culture_note": "",
    "references": [
+    {
+     "title": "Te Aka Māori Dictionary",
+     "url": "https://maoridictionary.co.nz/"
+    },
+    {
+     "title": "Te Whanake — Māori language resources",
+     "url": "https://www.tewhanake.maori.nz/"
+    },
     {
      "title": "Wikipedia: Māori language — grammar",
      "url": "https://en.wikipedia.org/wiki/M%C4%81ori_language"
@@ -438,6 +482,14 @@
    "culture_note": "Ka kite anō — 'see you again' — is the everyday goodbye.",
    "references": [
     {
+     "title": "Te Aka Māori Dictionary",
+     "url": "https://maoridictionary.co.nz/"
+    },
+    {
+     "title": "Te Whanake — Māori language resources",
+     "url": "https://www.tewhanake.maori.nz/"
+    },
+    {
      "title": "Wikipedia: Māori language — grammar",
      "url": "https://en.wikipedia.org/wiki/M%C4%81ori_language"
     },
@@ -504,9 +556,17 @@
    "source": "contributor",
    "reviewed": true,
    "display_order": 8,
-   "explanation": "Kei + place says where something is NOW: Kei te whare ia (she is at the house), Kei Ākarana rātou (they are in Auckland). Ask with kei hea: Kei hea koe? (Where are you?). Position words follow kei: kei runga (on), kei raro (under).",
+   "explanation": "Kei + place says where something is NOW: Kei te whare ia (she is at the house), Kei Ākarana rātou (they are in Auckland). Ask with kei hea: Kei hea koe? (Where are you?).\n\nPosition words follow kei: kei runga (on), kei raro (under).",
    "culture_note": "",
    "references": [
+    {
+     "title": "Te Aka Māori Dictionary",
+     "url": "https://maoridictionary.co.nz/"
+    },
+    {
+     "title": "Te Whanake — Māori language resources",
+     "url": "https://www.tewhanake.maori.nz/"
+    },
     {
      "title": "Wikipedia: Māori language — grammar",
      "url": "https://en.wikipedia.org/wiki/M%C4%81ori_language"
@@ -574,9 +634,17 @@
    "source": "contributor",
    "reviewed": true,
    "display_order": 9,
-   "explanation": "Kāore starts the negative and the subject moves forward: Kei te mōhio au → Kāore au i te mōhio (I don't know). Past uses i: Kāore ia i haere mai (she didn't come). 'There is no…' is kāore he…: Kāore he kai (there's no food).",
+   "explanation": "Kāore starts the negative and the subject moves forward: Kei te mōhio au → Kāore au i te mōhio (I don't know).\n\nPast uses i: Kāore ia i haere mai (she didn't come). 'There is no…' is kāore he…: Kāore he kai (there's no food).",
    "culture_note": "",
    "references": [
+    {
+     "title": "Te Aka Māori Dictionary",
+     "url": "https://maoridictionary.co.nz/"
+    },
+    {
+     "title": "Te Whanake — Māori language resources",
+     "url": "https://www.tewhanake.maori.nz/"
+    },
     {
      "title": "Wikipedia: Māori language — grammar",
      "url": "https://en.wikipedia.org/wiki/M%C4%81ori_language"
@@ -648,6 +716,14 @@
    "culture_note": "Nō hea koe? — where are you from — is often the first real question in a Māori conversation; whakapapa (origins) matter.",
    "references": [
     {
+     "title": "Te Aka Māori Dictionary",
+     "url": "https://maoridictionary.co.nz/"
+    },
+    {
+     "title": "Te Whanake — Māori language resources",
+     "url": "https://www.tewhanake.maori.nz/"
+    },
+    {
      "title": "Wikipedia: Māori language — grammar",
      "url": "https://en.wikipedia.org/wiki/M%C4%81ori_language"
     },
@@ -714,9 +790,17 @@
    "source": "contributor",
    "reviewed": true,
    "display_order": 11,
-   "explanation": "Māori splits possession in two: Ā-category for things you control or made (tāku pukapuka — my book, tāu mahi — your work) and Ō-category for things you don't control — houses, vehicles, friends, body parts (tōku whare, tō waka, tōku hoa). Same owner, different vowel.",
+   "explanation": "Māori splits possession in two: Ā-category for things you control or made (tāku pukapuka — my book, tāu mahi — your work) and Ō-category for things you don't control — houses, vehicles, friends, body parts (tōku whare, tō waka, tōku hoa).\n\nSame owner, different vowel.",
    "culture_note": "The a/o split encodes a worldview: your ancestors, your land, and your friends are ō — they are not possessions you command.",
    "references": [
+    {
+     "title": "Te Aka Māori Dictionary",
+     "url": "https://maoridictionary.co.nz/"
+    },
+    {
+     "title": "Te Whanake — Māori language resources",
+     "url": "https://www.tewhanake.maori.nz/"
+    },
     {
      "title": "Wikipedia: Māori language — grammar",
      "url": "https://en.wikipedia.org/wiki/M%C4%81ori_language"
@@ -788,6 +872,14 @@
    "culture_note": "",
    "references": [
     {
+     "title": "Te Aka Māori Dictionary",
+     "url": "https://maoridictionary.co.nz/"
+    },
+    {
+     "title": "Te Whanake — Māori language resources",
+     "url": "https://www.tewhanake.maori.nz/"
+    },
+    {
      "title": "Wikipedia: Māori language — grammar",
      "url": "https://en.wikipedia.org/wiki/M%C4%81ori_language"
     },
@@ -854,9 +946,17 @@
    "source": "contributor",
    "reviewed": false,
    "display_order": 1,
-   "explanation": "The particle kua marks a change of state or a completed action with present relevance — English 'has/have …': kua oti 'it's finished', kua tae mai ia 'she has arrived'. It contrasts with i (a plain past) and kei te (happening now). Kua often pairs with kē 'already'.",
+   "explanation": "The particle kua marks a change of state or a completed action with present relevance — English 'has/have …': kua oti 'it's finished', kua tae mai ia 'she has arrived'. It contrasts with i (a plain past) and kei te (happening now).\n\nKua often pairs with kē 'already'.",
    "culture_note": "",
    "references": [
+    {
+     "title": "Te Aka Māori Dictionary",
+     "url": "https://maoridictionary.co.nz/"
+    },
+    {
+     "title": "Te Whanake — Māori language resources",
+     "url": "https://www.tewhanake.maori.nz/"
+    },
     {
      "title": "Wikipedia: Māori language",
      "url": "https://en.wikipedia.org/wiki/M%C4%81ori_language"
@@ -924,6 +1024,14 @@
    "culture_note": "",
    "references": [
     {
+     "title": "Te Aka Māori Dictionary",
+     "url": "https://maoridictionary.co.nz/"
+    },
+    {
+     "title": "Te Whanake — Māori language resources",
+     "url": "https://www.tewhanake.maori.nz/"
+    },
+    {
      "title": "Wikipedia: Māori language",
      "url": "https://en.wikipedia.org/wiki/M%C4%81ori_language"
     }
@@ -986,9 +1094,17 @@
    "source": "contributor",
    "reviewed": false,
    "display_order": 3,
-   "explanation": "Māori pronouns distinguish singular, dual (two), and plural (three+), and for 'we' they mark whether the listener is included. Dual: tāua (you-and-I), māua (she/he-and-I), kōrua (you two), rāua (those two). Plural: tātou (all of us, incl. you), mātou (us, not you), koutou (you all), rātou (them).",
+   "explanation": "Māori pronouns distinguish singular, dual (two), and plural (three+), and for 'we' they mark whether the listener is included.\n\nDual: tāua (you-and-I), māua (she/he-and-I), kōrua (you two), rāua (those two).\n\nPlural: tātou (all of us, incl. you), mātou (us, not you), koutou (you all), rātou (them).",
    "culture_note": "",
    "references": [
+    {
+     "title": "Te Aka Māori Dictionary",
+     "url": "https://maoridictionary.co.nz/"
+    },
+    {
+     "title": "Te Whanake — Māori language resources",
+     "url": "https://www.tewhanake.maori.nz/"
+    },
     {
      "title": "Wikipedia: Māori language",
      "url": "https://en.wikipedia.org/wiki/M%C4%81ori_language"
@@ -1052,9 +1168,17 @@
    "source": "contributor",
    "reviewed": false,
    "display_order": 4,
-   "explanation": "A possessive determiner chooses a or o by the relationship, not the owner: o-category for things you don't control (parents, body, feelings, clothes, transport you ride) and a-category for things you do (children, food, tools, spouse). Singular forms: tāku/tōku 'my', tāu/tōu 'your', tāna/tōna 'his/her'. Plural drops the t-: āku/ōku, etc.",
+   "explanation": "A possessive determiner chooses a or o by the relationship, not the owner: o-category for things you don't control (parents, body, feelings, clothes, transport you ride) and a-category for things you do (children, food, tools, spouse).\n\nSingular forms: tāku/tōku 'my', tāu/tōu 'your', tāna/tōna 'his/her'.\n\nPlural drops the t-: āku/ōku, etc.",
    "culture_note": "",
    "references": [
+    {
+     "title": "Te Aka Māori Dictionary",
+     "url": "https://maoridictionary.co.nz/"
+    },
+    {
+     "title": "Te Whanake — Māori language resources",
+     "url": "https://www.tewhanake.maori.nz/"
+    },
     {
      "title": "Wikipedia: Māori language",
      "url": "https://en.wikipedia.org/wiki/M%C4%81ori_language"
@@ -1118,9 +1242,17 @@
    "source": "contributor",
    "reviewed": false,
    "display_order": 5,
-   "explanation": "Māori uses the passive far more than English. The verb takes a suffix — -a, -hia, -ngia, -tia, -mia and others (you learn it per verb): kai → kainga 'eaten', hanga → hangaia 'built', kite → kitea 'seen'. The thing acted on becomes the subject, and the doer, if named, follows e: kua kainga te kai e ia 'the food has been eaten by him'.",
+   "explanation": "Māori uses the passive far more than English.\n\nThe verb takes a suffix — -a, -hia, -ngia, -tia, -mia and others (you learn it per verb): kai → kainga 'eaten', hanga → hangaia 'built', kite → kitea 'seen'.\n\nThe thing acted on becomes the subject, and the doer, if named, follows e: kua kainga te kai e ia 'the food has been eaten by him'.",
    "culture_note": "",
    "references": [
+    {
+     "title": "Te Aka Māori Dictionary",
+     "url": "https://maoridictionary.co.nz/"
+    },
+    {
+     "title": "Te Whanake — Māori language resources",
+     "url": "https://www.tewhanake.maori.nz/"
+    },
     {
      "title": "Wikipedia: Māori language",
      "url": "https://en.wikipedia.org/wiki/M%C4%81ori_language"
@@ -1188,6 +1320,14 @@
    "culture_note": "",
    "references": [
     {
+     "title": "Te Aka Māori Dictionary",
+     "url": "https://maoridictionary.co.nz/"
+    },
+    {
+     "title": "Te Whanake — Māori language resources",
+     "url": "https://www.tewhanake.maori.nz/"
+    },
+    {
      "title": "Wikipedia: Māori language",
      "url": "https://en.wikipedia.org/wiki/M%C4%81ori_language"
     }
@@ -1250,9 +1390,17 @@
    "source": "contributor",
    "reviewed": false,
    "display_order": 7,
-   "explanation": "Add -nga (with linking consonants: -tanga, -hanga, -ranga) to a verb to name the action or its occasion: haere → haerenga 'trip/departure', waiata → waiatanga 'the singing', ako → akoranga 'lesson'. The result is an ordinary noun and takes te/ngā and possessives.",
+   "explanation": "Add -nga (with linking consonants: -tanga, -hanga, -ranga) to a verb to name the action or its occasion: haere → haerenga 'trip/departure', waiata → waiatanga 'the singing', ako → akoranga 'lesson'.\n\nThe result is an ordinary noun and takes te/ngā and possessives.",
    "culture_note": "",
    "references": [
+    {
+     "title": "Te Aka Māori Dictionary",
+     "url": "https://maoridictionary.co.nz/"
+    },
+    {
+     "title": "Te Whanake — Māori language resources",
+     "url": "https://www.tewhanake.maori.nz/"
+    },
     {
      "title": "Wikipedia: Māori language",
      "url": "https://en.wikipedia.org/wiki/M%C4%81ori_language"
@@ -1316,9 +1464,17 @@
    "source": "contributor",
    "reviewed": false,
    "display_order": 8,
-   "explanation": "nō marks origin or past belonging 'of/from' and mō marks a benefactive or future belonging 'for/about': nō wai tēnei? 'whose is this?', mō koe tēnei 'this is for you'. Both choose their vowel by the a/o rule, giving nā/mā (a-category) beside nō/mō (o-category).",
+   "explanation": "nō marks origin or past belonging 'of/from' and mō marks a benefactive or future belonging 'for/about': nō wai tēnei? 'whose is this?', mō koe tēnei 'this is for you'.\n\nBoth choose their vowel by the a/o rule, giving nā/mā (a-category) beside nō/mō (o-category).",
    "culture_note": "",
    "references": [
+    {
+     "title": "Te Aka Māori Dictionary",
+     "url": "https://maoridictionary.co.nz/"
+    },
+    {
+     "title": "Te Whanake — Māori language resources",
+     "url": "https://www.tewhanake.maori.nz/"
+    },
     {
      "title": "Wikipedia: Māori language",
      "url": "https://en.wikipedia.org/wiki/M%C4%81ori_language"
@@ -1382,9 +1538,17 @@
    "source": "contributor",
    "reviewed": false,
    "display_order": 9,
-   "explanation": "For plain counting, e precedes numbers two to nine: e rua ngā whare 'two houses', e whā ngā rā 'four days' (kotahi 'one' and tekau 'ten' don't take e). For people you use the toko- prefix: tokorua 'two people', tokotoru 'three people', but tokomaha 'many'.",
+   "explanation": "For plain counting, e precedes numbers two to nine: e rua ngā whare 'two houses', e whā ngā rā 'four days' (kotahi 'one' and tekau 'ten' don't take e).\n\nFor people you use the toko- prefix: tokorua 'two people', tokotoru 'three people', but tokomaha 'many'.",
    "culture_note": "",
    "references": [
+    {
+     "title": "Te Aka Māori Dictionary",
+     "url": "https://maoridictionary.co.nz/"
+    },
+    {
+     "title": "Te Whanake — Māori language resources",
+     "url": "https://www.tewhanake.maori.nz/"
+    },
     {
      "title": "Wikipedia: Māori language",
      "url": "https://en.wikipedia.org/wiki/M%C4%81ori_language"
@@ -1452,6 +1616,14 @@
    "culture_note": "",
    "references": [
     {
+     "title": "Te Aka Māori Dictionary",
+     "url": "https://maoridictionary.co.nz/"
+    },
+    {
+     "title": "Te Whanake — Māori language resources",
+     "url": "https://www.tewhanake.maori.nz/"
+    },
+    {
      "title": "Wikipedia: Māori language",
      "url": "https://en.wikipedia.org/wiki/M%C4%81ori_language"
     }
@@ -1514,9 +1686,17 @@
    "source": "contributor",
    "reviewed": false,
    "display_order": 1,
-   "explanation": "kia frames a state as wished-for or aimed-at rather than actual. Before a stative it gives encouragement: kia kaha 'be strong', kia tere 'be quick'. Before a verb it marks purpose 'so that / until': tatari kia oti 'wait until it's done', ka haere au kia kite i a ia 'I'll go so as to see her'.",
+   "explanation": "kia frames a state as wished-for or aimed-at rather than actual. Before a stative it gives encouragement: kia kaha 'be strong', kia tere 'be quick'.\n\nBefore a verb it marks purpose 'so that / until': tatari kia oti 'wait until it's done', ka haere au kia kite i a ia 'I'll go so as to see her'.",
    "culture_note": "",
    "references": [
+    {
+     "title": "Te Aka Māori Dictionary",
+     "url": "https://maoridictionary.co.nz/"
+    },
+    {
+     "title": "Te Whanake — Māori language resources",
+     "url": "https://www.tewhanake.maori.nz/"
+    },
     {
      "title": "Wikipedia: Māori language",
      "url": "https://en.wikipedia.org/wiki/M%C4%81ori_language"
@@ -1580,9 +1760,17 @@
    "source": "contributor",
    "reviewed": false,
    "display_order": 2,
-   "explanation": "Each tense negates in its own way. Present kei te → kāore … i te: kāore au i te mōhio 'I don't know'. Perfect kua → kāore anō … kia / kāore … i: kāore anō kia oti 'not yet finished'. Past i → kāore … i: kāore ia i haere / kīhai ia i haere 'he didn't go'. The verb keeps its base form.",
+   "explanation": "Each tense negates in its own way.\n\nPresent kei te → kāore … i te: kāore au i te mōhio 'I don't know'.\n\nPerfect kua → kāore anō … kia / kāore … i: kāore anō kia oti 'not yet finished'.\n\nPast i → kāore … i: kāore ia i haere / kīhai ia i haere 'he didn't go'.\n\nThe verb keeps its base form.",
    "culture_note": "",
    "references": [
+    {
+     "title": "Te Aka Māori Dictionary",
+     "url": "https://maoridictionary.co.nz/"
+    },
+    {
+     "title": "Te Whanake — Māori language resources",
+     "url": "https://www.tewhanake.maori.nz/"
+    },
     {
      "title": "Wikipedia: Māori language",
      "url": "https://en.wikipedia.org/wiki/M%C4%81ori_language"
@@ -1646,9 +1834,17 @@
    "source": "contributor",
    "reviewed": false,
    "display_order": 3,
-   "explanation": "To foreground the doer, Māori fronts the agent with nā (past) or mā (future) and marks the verb with i or e: nā Hōne i hanga te waka 'it was Hōne who built the canoe', mā wai e mahi tēnei? 'who will do this?'. This actor-emphatic pattern is extremely common.",
+   "explanation": "To foreground the doer, Māori fronts the agent with nā (past) or mā (future) and marks the verb with i or e: nā Hōne i hanga te waka 'it was Hōne who built the canoe', mā wai e mahi tēnei? 'who will do this?'.\n\nThis actor-emphatic pattern is extremely common.",
    "culture_note": "",
    "references": [
+    {
+     "title": "Te Aka Māori Dictionary",
+     "url": "https://maoridictionary.co.nz/"
+    },
+    {
+     "title": "Te Whanake — Māori language resources",
+     "url": "https://www.tewhanake.maori.nz/"
+    },
     {
      "title": "Wikipedia: Māori language",
      "url": "https://en.wikipedia.org/wiki/M%C4%81ori_language"
@@ -1712,9 +1908,17 @@
    "source": "contributor",
    "reviewed": false,
    "display_order": 4,
-   "explanation": "The prefix whaka- makes a verb causative — 'cause to be / make happen': ako 'learn' → whakaako 'teach (make learn)', kī 'full' → whakakī 'fill', mōhio 'know' → whakamōhio 'inform', ora 'well' → whakaora 'save/heal'. It's one of the most productive word-builders in the language.",
+   "explanation": "The prefix whaka- makes a verb causative — 'cause to be / make happen': ako 'learn' → whakaako 'teach (make learn)', kī 'full' → whakakī 'fill', mōhio 'know' → whakamōhio 'inform', ora 'well' → whakaora 'save/heal'.\n\nIt's one of the most productive word-builders in the language.",
    "culture_note": "",
    "references": [
+    {
+     "title": "Te Aka Māori Dictionary",
+     "url": "https://maoridictionary.co.nz/"
+    },
+    {
+     "title": "Te Whanake — Māori language resources",
+     "url": "https://www.tewhanake.maori.nz/"
+    },
     {
      "title": "Wikipedia: Māori language",
      "url": "https://en.wikipedia.org/wiki/M%C4%81ori_language"
@@ -1778,9 +1982,17 @@
    "source": "contributor",
    "reviewed": false,
    "display_order": 5,
-   "explanation": "Māori has no relative pronoun like 'who'. It simply attaches a clause to the noun, usually with a resumptive or an aspect frame: te tangata e mōhio ana au 'the person (whom) I know', te pukapuka i tuhia e ia 'the book that was written by her', ngā tamariki e tākaro ana 'the children who are playing'.",
+   "explanation": "Māori has no relative pronoun like 'who'.\n\nIt simply attaches a clause to the noun, usually with a resumptive or an aspect frame: te tangata e mōhio ana au 'the person (whom) I know', te pukapuka i tuhia e ia 'the book that was written by her', ngā tamariki e tākaro ana 'the children who are playing'.",
    "culture_note": "",
    "references": [
+    {
+     "title": "Te Aka Māori Dictionary",
+     "url": "https://maoridictionary.co.nz/"
+    },
+    {
+     "title": "Te Whanake — Māori language resources",
+     "url": "https://www.tewhanake.maori.nz/"
+    },
     {
      "title": "Wikipedia: Māori language",
      "url": "https://en.wikipedia.org/wiki/M%C4%81ori_language"
@@ -1844,9 +2056,17 @@
    "source": "contributor",
    "reviewed": false,
    "display_order": 6,
-   "explanation": "ki te + verb expresses a real condition or a purpose 'if / in order to': ki te ua, ka noho tātou 'if it rains, we'll stay', haere ki te tiki 'go in order to fetch'. For a more hypothetical 'if', use mehemea (or ki te mea mehemea): mehemea he moni āku… 'if I had money…'.",
+   "explanation": "ki te + verb expresses a real condition or a purpose 'if / in order to': ki te ua, ka noho tātou 'if it rains, we'll stay', haere ki te tiki 'go in order to fetch'.\n\nFor a more hypothetical 'if', use mehemea (or ki te mea mehemea): mehemea he moni āku… 'if I had money…'.",
    "culture_note": "",
    "references": [
+    {
+     "title": "Te Aka Māori Dictionary",
+     "url": "https://maoridictionary.co.nz/"
+    },
+    {
+     "title": "Te Whanake — Māori language resources",
+     "url": "https://www.tewhanake.maori.nz/"
+    },
     {
      "title": "Wikipedia: Māori language",
      "url": "https://en.wikipedia.org/wiki/M%C4%81ori_language"
@@ -1910,9 +2130,17 @@
    "source": "contributor",
    "reviewed": false,
    "display_order": 7,
-   "explanation": "Small particles after a verb show direction relative to the speaker: mai 'towards me/us' (haere mai 'come here'), atu 'away' (haere atu 'go away'), ake 'upward / on one's own', iho 'downward'. They also colour meaning: titiro mai 'look this way', hoatu 'give (away to them)', hōmai 'give (to me)'.",
+   "explanation": "Small particles after a verb show direction relative to the speaker: mai 'towards me/us' (haere mai 'come here'), atu 'away' (haere atu 'go away'), ake 'upward / on one's own', iho 'downward'.\n\nThey also colour meaning: titiro mai 'look this way', hoatu 'give (away to them)', hōmai 'give (to me)'.",
    "culture_note": "",
    "references": [
+    {
+     "title": "Te Aka Māori Dictionary",
+     "url": "https://maoridictionary.co.nz/"
+    },
+    {
+     "title": "Te Whanake — Māori language resources",
+     "url": "https://www.tewhanake.maori.nz/"
+    },
     {
      "title": "Wikipedia: Māori language",
      "url": "https://en.wikipedia.org/wiki/M%C4%81ori_language"

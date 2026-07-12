@@ -63,26 +63,40 @@ coach from the learner's actual failure history.
   correct-but-lucky offers "I actually got it wrong", the grammar point is
   viewable on demand after any answer ("Show grammar"), and misses re-drill
   before the session ends.
-- **Grammar paths seeded — ALL 16 languages**: es 43 (full A1→C2, Plan
-  Curricular order), tr 40 (full A1→C2, cross-model verified), ru 51 (full
-  A1→C2 per TORFL — A2+ promoted live 2026-07; native-speaker review still
-  wanted, WP4), sw 50 · yo 40 · ha 40 · xh 40 (A1→C2-equivalent; the
-  2026-07 deepening points are `reviewed: false` drafts awaiting WP4
-  native review), and
-  12-point A1 paths for fr · de · it · ca · mi · ar · en · ro · el.
-  **WP1 drill bar met everywhere: 6 drills/point (2,064 drills total)**,
-  validated for single-word answers, no answer leakage, no duplicate frames,
-  English-functional hints. Hint-layer content is seeded where the language
-  needs it: ru drills carry transliterations (cyrtranslit), el drills carry
-  hand-written transliterations, ar drills carry lexicon transliterations,
-  mi drills carry word-by-word glosses. Every point: can-do function,
-  explanation, references.
-- **Vocabulary**: sw ~1200, tr ~770, ar/en corpora; ~30-word curated starters
-  for es/fr/de/it/ca/mi/yo/ha/xh/ro/el, each with 6 cloze example sentences
-  per word (el sentences carry a transliteration column); ru 58
-  curated starters implementing the language-shaped card design (aspect/motion
-  pairs as single cards via alternatives + morphology.aspect_partner, noun
-  declension samples in morphology) with 6 example sentences per word.
+- **Grammar paths seeded — ALL 17 languages, full A1→C2 for every
+  documented one** (2026-07): es 43 · ru 51 · tr/fr/de/it/ca/ro/el/ar/pt 40
+  each (pt authored 2026-07-11: Brazilian register, futuro do subjuntivo /
+  infinitivo pessoal / tenho-falado trap / crase / mesóclise), en 12,
+  mi 29 (A2/B1 drafts), sw 50 · yo 40 · ha 40 · xh 40 (deepening points are
+  `reviewed: false` drafts awaiting WP4 native review). ~4,600 drills total,
+  ≥6 per point, ≥2 per paradigm cell, validated (markers, leaks, hints,
+  display_order). Hint layers seeded where needed (ru/el/ar transliterations,
+  mi glosses). **Every point leads with its verified authoritative reference
+  (§3b registry) — regression-guarded in test_grammar_seeder.py.**
+- **Vocabulary + sentences at corpus scale (WP5, 2026-07)**:
+  10k-word frequency decks (HermitDave + kaikki Wiktionary enrichment) for
+  es/fr/de/it/ca/ro/el/ru/tr/pt (ar 8.9k), i+1-graded Tatoeba example
+  sentences for all of them (~220k rows; pt 24k), en word-translations in
+  12 support locales + per-locale example sentences (support_locale
+  feature). Legacy curated starters remain beneath the corpus upserts
+  (curated wins). Thin: sw 3.5k/1.8k, yo 1.5k/81, xh 1.2k/9, ha words
+  pending a rights-clean corpus, mi curated-only.
+- **Learner identity & control (2026-07)**: every language carries a full
+  flag-derived palette (primary/dark/accent/soft/on + flag emoji,
+  frontend/src/lib/languageColors.ts; Māori palette owner-specified:
+  #CC0000/#000000/#FFFFFF/#BCBCBC/#778E46) applied APP-WIDE while that
+  language is active — LanguageThemeApplier writes `--lang-*` CSS vars and
+  the Tailwind `lang` tokens (bg-lang, text-lang, bg-lang-dark,
+  bg-lang-soft, text-lang-on) recolor buttons, progress bars, chips, and
+  links on every page (signed out = original indigo). Studies can be reset
+  per deck (dashboard row), per language, or account-wide (Settings danger
+  zone) — deletes cards AND review history (FK cascade), never
+  notes/personal sentences/subscriptions. Signups choose a plan: Single
+  language vs All languages (WP16; scope enforced, billing pending).
+  Grammar explanations are short-paragraph formatted (see §3b layout
+  standard). English vocabulary carries definitions in 12 support locales
+  (kaikki translations, merged 2026-07-11); English example sentences are
+  the tail of the WP5 corpus build.
 - **Ops**: `scripts/setup_db.sh` rebuilds or repairs any database end-to-end
   (tracked migrations that self-baseline on pre-migrated DBs, offline seed,
   verification; `--local` targets a local Postgres via the auth shim).
@@ -141,6 +155,15 @@ checklist verbatim — it encodes judgment so quality survives model changes.
   social register is at stake, `references` (see Sources), `related`
   [{title, contrast}] for confusable neighbours, `paradigm` cells whenever
   the point is really a table (pronouns, conjugations, concords).
+- **Explanation LAYOUT is part of the standard (2026-07)**: no dense
+  paragraph walls. Short paragraphs of 1–2 sentences separated by blank
+  lines; every form run / paradigm row / pattern list (`-ar: falei, falou,
+  …`, `falaram → falar`) on its OWN line; one full example with translation
+  set off on its own line where the point needs it. The UI renders
+  explanations `whitespace-pre-wrap`, so the newlines in the JSON are the
+  formatting. `scripts`: a reflow pass exists (sentence-split, ≤2 sentences
+  per paragraph, form-lines isolated) — new content should be BORN in this
+  shape, not reflowed after.
 - **Sequencing follows a canonical course order** for the language (official
   CEFR inventories where they exist: Plan Curricular, TORFL, Goethe,
   DELF/DALF, CELI, ΚΠΓ; otherwise the established reference-course sequence
@@ -191,12 +214,38 @@ checklist verbatim — it encodes judgment so quality survives model changes.
   English from X" is first-class.
 
 ### Sources & references (in-app)
-- References on points must be **public and authoritative**. Prefer the
-  language's academy/standard reference over Wikipedia where one exists:
-  RAE (es), Larousse/TLFi (fr), Duden (de), Treccani (it), IEC/DIEC (ca),
-  DEX (ro), Triantafyllides online (el), Gramota/ГРАМОТА (ru), Te Aka (mi),
-  Bunpro-style course sites never. Wikipedia/Wiktionary remain acceptable
-  baselines; upgrading references is standing polish work.
+- References on points must be **public and authoritative**. Wikipedia is
+  fine as a supplement but never the lead reference. Every grammar point's
+  `references` list OPENS with its language's registry entry below
+  (enforced by `test_every_point_leads_with_authoritative_reference`).
+- **Verified reference registry** (every URL fetch-checked 2026-07-11; when
+  adding a language, verify the URL actually resolves before shipping it —
+  never cite a source you haven't loaded):
+
+  | Lang | Lead reference | URL |
+  |---|---|---|
+  | es | RAE — Diccionario de la lengua española | https://dle.rae.es/ (renders in browsers; blocks curl — that's fine) |
+  | fr | Vitrine linguistique / BDL (OQLF) | https://vitrinelinguistique.oqlf.gouv.qc.ca/ |
+  | de | grammis (Leibniz-IDS) | https://grammis.ids-mannheim.de/ |
+  | it | Treccani — La grammatica italiana | https://www.treccani.it/enciclopedia/elenco-opere/La_grammatica_italiana |
+  | ca | GIEC (Institut d'Estudis Catalans) | https://giec.iec.cat/ |
+  | pt | Ciberdúvidas da Língua Portuguesa | https://ciberduvidas.iscte-iul.pt/ |
+  | ro | dexonline | https://dexonline.ro/ |
+  | el | Portal for the Greek Language | https://www.greek-language.gr/greekLang/index.html |
+  | ru | Russian National Corpus | https://ruscorpora.ru/en (gramota.ru geo-blocks scripted checks; RNC verified) |
+  | ar | Al Jazeera Learning Arabic (MSA) | https://learning.aljazeera.net/en |
+  | en | Cambridge Dictionary — English Grammar | https://dictionary.cambridge.org/grammar/british-grammar/ |
+  | tr | Türk Dil Kurumu sözlükleri | https://sozluk.gov.tr/ |
+  | mi | Te Aka + Te Whanake | https://maoridictionary.co.nz/ + https://www.tewhanake.maori.nz/ |
+  | sw | Kamusi Project + Live Lingua (FSI/PC) | https://kamusi.org/ + https://www.livelingua.com/courses/swahili |
+  | ha | Live Lingua (FSI/PC Hausa) | https://www.livelingua.com/courses/hausa |
+  | yo | Live Lingua (FSI/PC Yoruba) | https://www.livelingua.com/courses/yoruba |
+  | xh | Live Lingua (PC Xhosa) + IsiXhosa.click | https://www.livelingua.com/project/peace-corps/xhosa + https://isixhosa.click/ |
+
+  Es also carries CVC Cervantes on many points; keep both. Public-domain
+  FSI/Peace Corps courses (Live Lingua) are the "prime tools" for languages
+  without an academy portal — quotable AND linkable, unlike the private
+  library.
 - The private course library is calibration only. Never cite it, never
   copy a sentence from it.
 
@@ -625,6 +674,27 @@ days; (c) is a program.
 **Model:** (a)/(b) `claude-sonnet-5`; (c) design + eval harness
 `claude-opus-4-8` or `claude-fable-5`. **Effort:** (a) S, (b) M, (c) L.
 
+### WP16 — Language plans: Single vs All, different prices
+**Shipped (2026-07-11, model + UI):** signups choose a plan at the end of
+onboarding — "{Language} only" (lower price) or "All languages".
+`user_profiles.plan_scope` ('single'|'all', migration
+20260718000000) + `plan_language_id`; existing accounts grandfathered as
+'all'. Enforcement: the profile upsert 403s a single-plan account switching
+`active_language_id` away from its licensed language, and the language
+picker disables (labels) the locked options. Early accounts keep free
+access to their choice; the onboarding copy promises they keep their
+price when billing goes live — honor that.
+**Remaining (Stripe wiring):**
+(a) Two subscription products/prices (envs `STRIPE_PRICE_SINGLE`,
+`STRIPE_PRICE_ALL`), checkout + webhook paths mirroring the existing tutor
+billing (backend/routers/billing.py), entitlement rows on invoice events.
+(b) Upgrade flow in Settings (single → all; prorate via Stripe portal).
+(c) Router test for the single-plan 403 (none yet — add with the wiring).
+(d) Pricing display in onboarding pulled from Stripe (never hardcode).
+(e) Decide the free tier's shape before launch (e.g. A1 free in one
+language) — a pricing decision for the owner, not a model.
+**Model:** `claude-opus-4-8` (billing = security-sensitive). **Effort:** M.
+
 ## 6. Model selection guide
 
 | Task type | Model | Why |
@@ -643,15 +713,20 @@ Two standing rules: **generated content is never self-certified** (a different,
 stronger model or a human verifies), and **African-language content always gets
 the strongest available model plus a human gate**.
 
-**Fable sunset note (2026-07):** `claude-fable-5` access is ending. Everything
-judgment-heavy that Fable was reserved for has been front-loaded: the full
-A1→C2 grammar ladders for all twelve documented languages, the African +
-Māori deepening drafts, and §3b (which encodes the authoring judgment as an
-executable checklist). After the sunset, Opus-class models author against
-§3b line-by-line — the checklist IS the quality bar, so treat any §3b
-deviation as a bug, not a style choice. Remaining content work that needs no
-Fable: WP1 sentence-naturalness passes, reference upgrades, §3b backlog
-items, and Portuguese-tier maintenance.
+**Fable sunset note (2026-07, updated 07-11):** `claude-fable-5` access is
+ending. Everything judgment-heavy that Fable was reserved for has been
+front-loaded and is DONE: the full A1→C2 grammar ladders for all thirteen
+documented languages (Portuguese included, 40 points/260 drills, Brazilian
+register per the library calibration), the African + Māori deepening drafts,
+the verified authoritative-reference registry (§3b table — every point now
+leads with its academy/corpus/public-domain source, regression-guarded),
+and §3b itself (which encodes the authoring judgment as an executable
+checklist). After the sunset, Opus-class models author against §3b
+line-by-line — the checklist IS the quality bar, so treat any §3b deviation
+as a bug, not a style choice. Remaining content work needs no Fable: WP1
+sentence-naturalness passes, §3b backlog items (ru stress-marked
+transliterations, ha canonical-sequence gaps), Hausa corpus sourcing, and
+thin-corpus growth for yo/xh.
 
 **Fallback chain when a model is retired or unavailable** (e.g. when
 `claude-fable-5` goes away): substitute the next tier down and keep the

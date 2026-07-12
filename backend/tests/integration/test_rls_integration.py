@@ -1187,3 +1187,83 @@ async def test_english_support_locale_localizes_cards(pool):
         cards = await get_due_cards(conn, lang)
         c = next(x for x in cards if str(x["id"]) == card)
         assert c["sentence"] == "a clear liquid"
+
+
+async def test_reset_progress_deck_and_language(pool):
+    """Reset studies: per-deck and per-language wipes delete the caller's
+    cards AND their review history (FK cascade), never touch another user,
+    and leave deck subscriptions and content intact."""
+    from backend.repositories.cards import (
+        reset_deck_progress,
+        reset_language_progress,
+    )
+
+    lang = await _language(pool, "rst")
+    user = await _new_user(pool, "resetter@rst")
+    other = await _new_user(pool, "bystander@rst")
+
+    async with pool.privileged_connection() as conn:
+        deck = str(await conn.fetchval(
+            "INSERT INTO content_lists (language_id, list_type, level, title) "
+            "VALUES ($1, 'grammar', 'A1', 'RST A1 Grammar') RETURNING id", lang,
+        ))
+        point_a1 = str(await conn.fetchval(
+            "INSERT INTO grammar_points (language_id, title, reviewed, level) "
+            "VALUES ($1, 'Reset point', true, 'A1') RETURNING id", lang,
+        ))
+        point_b1 = str(await conn.fetchval(
+            "INSERT INTO grammar_points (language_id, title, reviewed, level) "
+            "VALUES ($1, 'Survivor point', true, 'B1') RETURNING id", lang,
+        ))
+        cards = {}
+        for owner in (user, other):
+            for point in (point_a1, point_b1):
+                cards[(owner, point)] = str(await conn.fetchval(
+                    "INSERT INTO user_cards (user_id, language_id, card_type, card_id) "
+                    "VALUES ($1, $2, 'grammar', $3) RETURNING id", owner, lang, point,
+                ))
+                await conn.execute(
+                    "INSERT INTO review_log (user_id, card_id, quality, "
+                    "ease_factor_before, ease_factor_after, interval_before, "
+                    "interval_after) VALUES ($1, $2, 4, 2.5, 2.6, 1, 3)",
+                    owner, cards[(owner, point)],
+                )
+        await conn.execute(
+            "INSERT INTO user_content_subscriptions (user_id, content_list_id) "
+            "VALUES ($1, $2)", user, deck,
+        )
+
+    # Per-deck: only the caller's A1 card goes; B1 card and history survive.
+    async with pool.rls_connection(user) as conn:
+        result = await reset_deck_progress(conn, user, deck)
+        assert result == {"cards_deleted": 1}
+        assert await reset_deck_progress(conn, user, str(uuid.uuid4())) is None
+
+    async with pool.privileged_connection() as conn:
+        remaining = {
+            str(r["card_id"]) for r in await conn.fetch(
+                "SELECT card_id FROM user_cards WHERE user_id = $1", user)
+        }
+        assert remaining == {point_b1}
+        # review_log cascade removed exactly the deleted card's history
+        assert await conn.fetchval(
+            "SELECT count(*) FROM review_log WHERE user_id = $1", user) == 1
+        # the bystander is untouched, subscription survives
+        assert await conn.fetchval(
+            "SELECT count(*) FROM user_cards WHERE user_id = $1", other) == 2
+        assert await conn.fetchval(
+            "SELECT count(*) FROM user_content_subscriptions "
+            "WHERE user_id = $1 AND content_list_id = $2", user, deck) == 1
+
+    # Per-language: everything of the caller's in that language goes.
+    async with pool.rls_connection(user) as conn:
+        result = await reset_language_progress(conn, user, lang)
+        assert result == {"cards_deleted": 1}
+
+    async with pool.privileged_connection() as conn:
+        assert await conn.fetchval(
+            "SELECT count(*) FROM user_cards WHERE user_id = $1", user) == 0
+        assert await conn.fetchval(
+            "SELECT count(*) FROM review_log WHERE user_id = $1", user) == 0
+        assert await conn.fetchval(
+            "SELECT count(*) FROM user_cards WHERE user_id = $1", other) == 2

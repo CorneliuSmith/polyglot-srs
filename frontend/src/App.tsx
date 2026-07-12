@@ -20,6 +20,7 @@ import ContributorPage from './features/contribute/ContributorPage'
 import SearchPage from './features/search/SearchPage'
 import ProtectedRoute from './components/ProtectedRoute'
 import ThemeApplier from './components/ThemeApplier'
+import LanguageThemeApplier from './components/LanguageThemeApplier'
 
 const queryClient = new QueryClient()
 
@@ -77,6 +78,7 @@ function AppInner() {
   return (
     <>
       <ThemeApplier />
+      <LanguageThemeApplier />
       <RouterProvider router={router} />
     </>
   )

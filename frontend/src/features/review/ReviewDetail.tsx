@@ -104,7 +104,7 @@ export default function ReviewDetail({ cardId, languageCode, stats }: ReviewDeta
         type="button"
         onClick={() => setOpen((v) => !v)}
         aria-expanded={open}
-        className="text-sm text-indigo-600 hover:underline touch-manipulation"
+        className="text-sm text-lang hover:underline touch-manipulation"
         style={{ minHeight: '44px' }}
       >
         {open ? 'Hide info' : 'Show info'}
@@ -133,7 +133,7 @@ export default function ReviewDetail({ cardId, languageCode, stats }: ReviewDeta
                   </div>
                 )}
                 {hintLanguage && (
-                  <p className="mt-1 inline-block text-[11px] rounded-full px-2 py-0.5 bg-indigo-50 text-indigo-600">
+                  <p className="mt-1 inline-block text-[11px] rounded-full px-2 py-0.5 bg-lang-soft text-lang">
                     Hints in {hintLanguage}
                   </p>
                 )}
@@ -217,7 +217,7 @@ export default function ReviewDetail({ cardId, languageCode, stats }: ReviewDeta
                       type="button"
                       onClick={() => setShowTranslations((v) => !v)}
                       aria-pressed={showTranslations}
-                      className="text-xs text-indigo-600 hover:underline"
+                      className="text-xs text-lang hover:underline"
                     >
                       {showTranslations ? 'Hide translations' : 'Show translations'}
                     </button>
@@ -272,9 +272,9 @@ export default function ReviewDetail({ cardId, languageCode, stats }: ReviewDeta
               )}
 
               {data.culture_note && (
-                <div className="bg-indigo-50 border border-indigo-100 rounded-lg p-3">
-                  <h3 className="font-semibold text-indigo-700 mb-1">Culture note</h3>
-                  <p className="text-indigo-900/80 whitespace-pre-wrap">{data.culture_note}</p>
+                <div className="bg-lang-soft border border-lang/20 rounded-lg p-3">
+                  <h3 className="font-semibold text-lang-dark mb-1">Culture note</h3>
+                  <p className="text-lang-dark/80 whitespace-pre-wrap">{data.culture_note}</p>
                 </div>
               )}
 
@@ -292,7 +292,7 @@ export default function ReviewDetail({ cardId, languageCode, stats }: ReviewDeta
                           ].join(',')}`,
                         )
                       }
-                      className="text-sm text-indigo-600 hover:underline"
+                      className="text-sm text-lang hover:underline"
                     >
                       ⚡ Quick cram this + related (nothing recorded)
                     </button>

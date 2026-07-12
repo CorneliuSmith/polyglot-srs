@@ -66,6 +66,7 @@ from backend.services.nlp.latin_base import (
     GreekNLP,
     ItalianNLP,
     MaoriNLP,
+    PortugueseNLP,
     RomanianNLP,
     SpanishNLP,
 )
@@ -80,10 +81,11 @@ from backend.services.seeder.base import DATA_DIR
 # (OpenSubtitles) + a kaikki Wiktionary dictionary. The path is
 # script-agnostic — ro/el/ar ride the same rails as the Latin five; it just
 # needs a frequency list, a kaikki extract, and a lemmatizer.
-FREQUENCYWORDS_LANGS = {"es", "it", "fr", "de", "ca", "ro", "el", "ar", "ru"}
+FREQUENCYWORDS_LANGS = {"es", "it", "fr", "de", "ca", "ro", "el", "ar", "ru", "pt"}
 LATIN_NLP = {
     "es": SpanishNLP, "it": ItalianNLP, "fr": FrenchNLP,
     "de": GermanNLP, "ca": CatalanNLP, "mi": MaoriNLP,
+    "pt": PortugueseNLP,
 }
 # Lemmatizers for the generic path (superset of LATIN_NLP). Russian's
 # pymorphy3 normal_form folds OpenSubtitles inflections onto kaikki
@@ -130,6 +132,7 @@ SOURCES = {
     "el_kaikki": "https://kaikki.org/dictionary/Greek/kaikki.org-dictionary-Greek.jsonl",
     "ar_kaikki": "https://kaikki.org/dictionary/Arabic/kaikki.org-dictionary-Arabic.jsonl",
     "ru_kaikki": "https://kaikki.org/dictionary/Russian/kaikki.org-dictionary-Russian.jsonl",
+    "pt_kaikki": "https://kaikki.org/dictionary/Portuguese/kaikki.org-dictionary-Portuguese.jsonl",
     # HermitDave FrequencyWords (OpenSubtitles 2018), per ISO code.
     "frequencywords": (
         "https://raw.githubusercontent.com/hermitdave/FrequencyWords/"
@@ -162,14 +165,14 @@ SOURCES = {
 ENGLISH_SUPPORT_ISO3 = {
     "es": "spa", "fr": "fra", "de": "deu", "it": "ita", "ru": "rus",
     "tr": "tur", "ar": "ara", "el": "ell", "ro": "ron", "ca": "cat",
-    "sw": "swh",
+    "sw": "swh", "pt": "por",
 }
 
 TATOEBA_ISO3 = {
     "tr": "tur", "sw": "swh", "yo": "yor", "ha": "hau", "xh": "xho",
     # European tier + ru/ar (well-covered on Tatoeba)
     "es": "spa", "fr": "fra", "de": "deu", "it": "ita", "ca": "cat",
-    "ro": "ron", "el": "ell", "ru": "rus", "ar": "ara",
+    "ro": "ron", "el": "ell", "ru": "rus", "ar": "ara", "pt": "por",
 }
 
 # Hausa has no reachable public-domain corpus in this pipeline; the user drops
@@ -981,7 +984,7 @@ def main() -> None:
     parser.add_argument(
         "--language", "-l",
         choices=["tr", "sw", "yo", "ha", "xh", "es", "it", "fr", "de", "ca",
-                 "ro", "el", "ar", "ru", "en"],
+                 "ro", "el", "ar", "ru", "en", "pt"],
         required=True
     )
     parser.add_argument(

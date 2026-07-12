@@ -62,7 +62,7 @@ export default function SessionSummary({
         <button
           type="button"
           onClick={onFinish}
-          className="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-semibold rounded-xl px-6 py-3 text-sm transition-colors"
+          className="w-full bg-lang hover:bg-lang-dark text-lang-on font-semibold rounded-xl px-6 py-3 text-sm transition-colors"
           style={{ minHeight: '44px' }}
         >
           Back to Dashboard

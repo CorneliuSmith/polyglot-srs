@@ -1,2514 +1,2674 @@
 {
-  "lists": [
+ "lists": [
+  {
+   "level": "A1",
+   "title": "Yoruba A1 Grammar",
+   "description": "Foundations: pronouns, tone, the copulas, location, negation, and the progressive."
+  },
+  {
+   "level": "A2",
+   "title": "Yoruba A2 Grammar",
+   "description": "Aspect (perfect, future), objects, quality verbs, demonstratives, commands."
+  },
+  {
+   "level": "B1",
+   "title": "Yoruba B1 Grammar",
+   "description": "Relatives, ni-focus, serial verbs, conditionals, comparison."
+  },
+  {
+   "level": "B2",
+   "title": "Yoruba B2 Grammar",
+   "description": "Habituals and reported speech."
+  },
+  {
+   "level": "C1",
+   "title": "Yoruba C1 Grammar",
+   "description": "Impersonal (passive-like) wọ́n and concession."
+  },
+  {
+   "level": "C2",
+   "title": "Yoruba C2 Grammar",
+   "description": "Mastery: proverbs, the respect register, and the discourse particles that carry tone of voice."
+  }
+ ],
+ "points": [
+  {
+   "title": "Subject pronouns (mo, o, ó…)",
+   "level": "A1",
+   "function": "Say who does what",
+   "source": "contributor",
+   "reviewed": true,
+   "display_order": 1,
+   "explanation": "The short subject pronouns are mo (I), o (you), ó (he/she/it), a (we), ẹ (you all/polite), wọ́n (they). They sit right before the verb: Mo lọ (I went/go), Ó wá (He came).\n\nYoruba verbs never change form — the pronoun and small particles do all the work.",
+   "culture_note": "Ẹ and wọ́n double as respectful singulars — using the plural for an elder is basic politeness.",
+   "references": [
     {
-      "level": "A1",
-      "title": "Yoruba A1 Grammar",
-      "description": "Foundations: pronouns, tone, the copulas, location, negation, and the progressive."
+     "title": "Live Lingua — free Yoruba courses (FSI/Peace Corps)",
+     "url": "https://www.livelingua.com/courses/yoruba"
     },
     {
-      "level": "A2",
-      "title": "Yoruba A2 Grammar",
-      "description": "Aspect (perfect, future), objects, quality verbs, demonstratives, commands."
-    },
-    {
-      "level": "B1",
-      "title": "Yoruba B1 Grammar",
-      "description": "Relatives, ni-focus, serial verbs, conditionals, comparison."
-    },
-    {
-      "level": "B2",
-      "title": "Yoruba B2 Grammar",
-      "description": "Habituals and reported speech."
-    },
-    {
-      "level": "C1",
-      "title": "Yoruba C1 Grammar",
-      "description": "Impersonal (passive-like) wọ́n and concession."
-    },
-    {
-      "level": "C2",
-      "title": "Yoruba C2 Grammar",
-      "description": "Mastery: proverbs, the respect register, and the discourse particles that carry tone of voice."
+     "title": "Wikipedia: Yoruba language — grammar",
+     "url": "https://en.wikipedia.org/wiki/Yoruba_language#Grammar"
     }
-  ],
-  "points": [
+   ],
+   "drills": [
     {
-      "title": "Subject pronouns (mo, o, ó…)",
-      "level": "A1",
-      "function": "Say who does what",
-      "source": "contributor",
-      "reviewed": true,
-      "display_order": 1,
-      "explanation": "The short subject pronouns are mo (I), o (you), ó (he/she/it), a (we), ẹ (you all/polite), wọ́n (they). They sit right before the verb: Mo lọ (I went/go), Ó wá (He came). Yoruba verbs never change form — the pronoun and small particles do all the work.",
-      "culture_note": "Ẹ and wọ́n double as respectful singulars — using the plural for an elder is basic politeness.",
-      "references": [
-        {
-          "title": "Wikipedia: Yoruba language — grammar",
-          "url": "https://en.wikipedia.org/wiki/Yoruba_language#Grammar"
-        }
-      ],
-      "drills": [
-        {
-          "sentence": "{{answer}} fẹ́ omi.",
-          "answer": "Mo",
-          "translation": "I want water.",
-          "hint": "the 'I' pronoun",
-          "display_order": 1
-        },
-        {
-          "sentence": "{{answer}} lọ sí ilé.",
-          "answer": "Wọ́n",
-          "translation": "They went home.",
-          "hint": "the 'they' pronoun",
-          "display_order": 2
-        },
-        {
-          "sentence": "{{answer}} fẹ́ ìwé.",
-          "answer": "O",
-          "translation": "You want a book.",
-          "hint": "you (singular)",
-          "display_order": 3
-        },
-        {
-          "sentence": "{{answer}} lọ sí oko.",
-          "answer": "Ó",
-          "translation": "He went to the farm.",
-          "hint": "he/she — with tone",
-          "display_order": 4
-        },
-        {
-          "sentence": "{{answer}} fẹ́ omi tútù.",
-          "answer": "A",
-          "translation": "We want cold water.",
-          "hint": "we",
-          "display_order": 5
-        },
-        {
-          "sentence": "{{answer}} lọ sí ọjà.",
-          "answer": "Ẹ",
-          "translation": "You (plural) went to the market.",
-          "hint": "you (plural)",
-          "display_order": 6
-        }
-      ]
+     "sentence": "{{answer}} fẹ́ omi.",
+     "answer": "Mo",
+     "translation": "I want water.",
+     "hint": "the 'I' pronoun",
+     "display_order": 1
     },
     {
-      "title": "Tones change meaning",
-      "level": "A1",
-      "function": "Hear and write the three tones",
-      "source": "contributor",
-      "reviewed": true,
-      "display_order": 2,
-      "explanation": "Yoruba has three tones: high (á), mid (a, unmarked), low (à) — and they distinguish words: ọkọ́ (hoe), ọkọ (husband), ọkọ̀ (vehicle). Every syllable carries a tone; writing the marks is part of spelling, not decoration.",
-      "culture_note": "Talking drums imitate tone patterns — a drummer can 'speak' a proverb because tone carries that much meaning.",
-      "references": [
-        {
-          "title": "Wikipedia: Yoruba language — grammar",
-          "url": "https://en.wikipedia.org/wiki/Yoruba_language#Grammar"
-        },
-        {
-          "title": "Wikipedia: Tone (linguistics)",
-          "url": "https://en.wikipedia.org/wiki/Tone_(linguistics)"
-        }
-      ],
-      "drills": [
-        {
-          "sentence": "Mo ní {{answer}} kan.",
-          "answer": "ọkọ̀",
-          "translation": "I have a vehicle.",
-          "hint": "vehicle — the low-tone twin",
-          "display_order": 1
-        },
-        {
-          "sentence": "{{answer}} mi wà ní ilé.",
-          "answer": "Ọkọ",
-          "translation": "My husband is at home.",
-          "hint": "husband — the mid-tone twin",
-          "display_order": 2
-        },
-        {
-          "sentence": "Mo fi {{answer}} ra oúnjẹ.",
-          "answer": "owó",
-          "translation": "I bought food with money.",
-          "hint": "money — mid-high tones",
-          "display_order": 3
-        },
-        {
-          "sentence": "Fọ {{answer}} rẹ kí o tó jẹun.",
-          "answer": "ọwọ́",
-          "translation": "Wash your hands before you eat.",
-          "hint": "hand — with subdot and high tone",
-          "display_order": 4
-        },
-        {
-          "sentence": "{{answer}} ọmọdé dùn.",
-          "answer": "Ìgbà",
-          "translation": "Childhood days are sweet.",
-          "hint": "time/season — low-low tones",
-          "display_order": 5
-        },
-        {
-          "sentence": "Mo ra {{answer}} tuntun lánàá.",
-          "answer": "ọkọ̀",
-          "translation": "I bought a new vehicle yesterday.",
-          "hint": "vehicle — the low-tone twin",
-          "display_order": 6
-        }
-      ]
+     "sentence": "{{answer}} lọ sí ilé.",
+     "answer": "Wọ́n",
+     "translation": "They went home.",
+     "hint": "the 'they' pronoun",
+     "display_order": 2
     },
     {
-      "title": "The copulas ni and jẹ́",
-      "level": "A1",
-      "function": "Say what something is",
-      "source": "contributor",
-      "reviewed": true,
-      "display_order": 3,
-      "explanation": "Identity uses ni after the noun phrase: Olùkọ́ ni mí (I am a teacher — lit. teacher is me), Ta ni é? (Who are you?). Jẹ́ states category or profession before the noun: Mo jẹ́ olùkọ́ (I am a teacher). Both are A1 essentials; ni also powers focus later.",
-      "culture_note": "",
-      "references": [
-        {
-          "title": "Wikipedia: Yoruba language — grammar",
-          "url": "https://en.wikipedia.org/wiki/Yoruba_language#Grammar"
-        },
-        {
-          "title": "Wiktionary: jẹ́ (Yoruba)",
-          "url": "https://en.wiktionary.org/wiki/j%E1%BA%B9%CC%81#Yoruba"
-        }
-      ],
-      "drills": [
-        {
-          "sentence": "Mo {{answer}} olùkọ́.",
-          "answer": "jẹ́",
-          "translation": "I am a teacher.",
-          "hint": "the copula for professions and qualities",
-          "display_order": 1
-        },
-        {
-          "sentence": "Olùkọ́ {{answer}} mí.",
-          "answer": "ni",
-          "translation": "I am a teacher (it is a teacher that I am).",
-          "hint": "the copula for identifying",
-          "display_order": 2
-        },
-        {
-          "sentence": "Ó {{answer}} dókítà.",
-          "answer": "jẹ́",
-          "translation": "She is a doctor.",
-          "hint": "the copula for professions and qualities",
-          "display_order": 3
-        },
-        {
-          "sentence": "Èmi {{answer}} Adé.",
-          "answer": "ni",
-          "translation": "I am Ade.",
-          "hint": "the copula for identifying",
-          "display_order": 4
-        },
-        {
-          "sentence": "Wọ́n {{answer}} àgbẹ̀.",
-          "answer": "jẹ́",
-          "translation": "They are farmers.",
-          "hint": "the copula for professions and qualities",
-          "display_order": 5
-        },
-        {
-          "sentence": "Ta {{answer}} ìwọ?",
-          "answer": "ni",
-          "translation": "Who are you?",
-          "hint": "the copula for identifying",
-          "display_order": 6
-        }
-      ]
+     "sentence": "{{answer}} fẹ́ ìwé.",
+     "answer": "O",
+     "translation": "You want a book.",
+     "hint": "you (singular)",
+     "display_order": 3
     },
     {
-      "title": "Location with wà and ní",
-      "level": "A1",
-      "function": "Say where people and things are",
-      "source": "contributor",
-      "reviewed": true,
-      "display_order": 4,
-      "explanation": "'Be located' is wà, and places take the preposition ní (sí for motion): Ó wà ní ilé (He is at home), Mo wà ní ọjà (I am at the market). With motion verbs: Mo lọ sí ilé-ìwé (I went to school).",
-      "culture_note": "",
-      "references": [
-        {
-          "title": "Wikipedia: Yoruba language — grammar",
-          "url": "https://en.wikipedia.org/wiki/Yoruba_language#Grammar"
-        }
-      ],
-      "drills": [
-        {
-          "sentence": "Bàbá {{answer}} ní oko.",
-          "answer": "wà",
-          "translation": "Father is at the farm.",
-          "hint": "locational 'to be'",
-          "display_order": 1
-        },
-        {
-          "sentence": "Mo lọ {{answer}} ọjà.",
-          "answer": "sí",
-          "translation": "I went to the market.",
-          "hint": "direction preposition",
-          "display_order": 2
-        },
-        {
-          "sentence": "Màmá {{answer}} ní ilé.",
-          "answer": "wà",
-          "translation": "Mother is at home.",
-          "hint": "to be located",
-          "display_order": 3
-        },
-        {
-          "sentence": "Ìwé náà wà {{answer}} orí tábìlì.",
-          "answer": "ní",
-          "translation": "The book is on the table.",
-          "hint": "at/on",
-          "display_order": 4
-        },
-        {
-          "sentence": "A lọ {{answer}} ilé ìwé.",
-          "answer": "sí",
-          "translation": "We went to school.",
-          "hint": "motion towards",
-          "display_order": 5
-        },
-        {
-          "sentence": "Ọmọ náà {{answer}} ní ọjà.",
-          "answer": "wà",
-          "translation": "The child is at the market.",
-          "hint": "to be located",
-          "display_order": 6
-        }
-      ]
+     "sentence": "{{answer}} lọ sí oko.",
+     "answer": "Ó",
+     "translation": "He went to the farm.",
+     "hint": "he/she — with tone",
+     "display_order": 4
     },
     {
-      "title": "Negation with kò",
-      "level": "A1",
-      "function": "Say what is not so",
-      "source": "contributor",
-      "reviewed": true,
-      "display_order": 5,
-      "explanation": "Kò before the verb negates it: Kò lọ (He didn't go), Mi ò fẹ́ (I don't want — mo becomes mi and kò often shortens to ò after it). Negating wà uses sí: Kò sí ni ilé (He is not at home); 'there isn't' is kò sí.",
-      "culture_note": "",
-      "references": [
-        {
-          "title": "Wikipedia: Yoruba language — grammar",
-          "url": "https://en.wikipedia.org/wiki/Yoruba_language#Grammar"
-        }
-      ],
-      "drills": [
-        {
-          "sentence": "Ó {{answer}} fẹ́ oúnjẹ.",
-          "answer": "kò",
-          "translation": "He does not want food.",
-          "hint": "negator before the verb",
-          "display_order": 1
-        },
-        {
-          "sentence": "{{answer}} sí omi.",
-          "answer": "Kò",
-          "translation": "There is no water.",
-          "hint": "'there is no' — negator + existence verb",
-          "display_order": 2
-        },
-        {
-          "sentence": "Wọ́n {{answer}} dé.",
-          "answer": "kò",
-          "translation": "They have not arrived.",
-          "hint": "negator before the verb",
-          "display_order": 3
-        },
-        {
-          "sentence": "Ọmọ náà {{answer}} sùn.",
-          "answer": "kò",
-          "translation": "The child did not sleep.",
-          "hint": "negator before the verb",
-          "display_order": 4
-        },
-        {
-          "sentence": "{{answer}} sí oúnjẹ ní ilé.",
-          "answer": "Kò",
-          "translation": "There is no food at home.",
-          "hint": "'there is no' — negator + existence verb",
-          "display_order": 5
-        },
-        {
-          "sentence": "Ó {{answer}} dára.",
-          "answer": "kò",
-          "translation": "It is not good.",
-          "hint": "negator before the verb",
-          "display_order": 6
-        }
-      ]
+     "sentence": "{{answer}} fẹ́ omi tútù.",
+     "answer": "A",
+     "translation": "We want cold water.",
+     "hint": "we",
+     "display_order": 5
     },
     {
-      "title": "Progressive ń",
-      "level": "A1",
-      "function": "Say what is happening right now",
-      "source": "contributor",
-      "reviewed": true,
-      "display_order": 6,
-      "explanation": "The preverb ń (high tone, written with its own letter) makes the progressive: Mo ń lọ (I am going), Ó ń jẹun (She is eating), Wọ́n ń ṣiṣẹ́ (They are working).",
-      "culture_note": "",
-      "references": [
-        {
-          "title": "Wikipedia: Yoruba language — grammar",
-          "url": "https://en.wikipedia.org/wiki/Yoruba_language#Grammar"
-        }
-      ],
-      "drills": [
-        {
-          "sentence": "Mo {{answer}} kàwé.",
-          "answer": "ń",
-          "translation": "I am reading.",
-          "hint": "progressive marker",
-          "display_order": 1
-        },
-        {
-          "sentence": "Ó ń {{answer}}.",
-          "answer": "jẹun",
-          "translation": "She is eating.",
-          "hint": "'eat (food)' after ń",
-          "display_order": 2
-        },
-        {
-          "sentence": "Wọ́n {{answer}} ṣiṣẹ́.",
-          "answer": "ń",
-          "translation": "They are working.",
-          "hint": "progressive marker",
-          "display_order": 3
-        },
-        {
-          "sentence": "Ọmọ náà ń {{answer}}.",
-          "answer": "sùn",
-          "translation": "The child is sleeping.",
-          "hint": "to sleep",
-          "display_order": 4
-        },
-        {
-          "sentence": "Mo ń {{answer}} oúnjẹ.",
-          "answer": "sè",
-          "translation": "I am cooking food.",
-          "hint": "to cook",
-          "display_order": 5
-        },
-        {
-          "sentence": "Bàbá {{answer}} ka ìwé.",
-          "answer": "ń",
-          "translation": "Father is reading a book.",
-          "hint": "progressive marker",
-          "display_order": 6
-        }
-      ]
-    },
-    {
-      "title": "Plural with àwọn",
-      "level": "A1",
-      "function": "Talk about more than one",
-      "source": "contributor",
-      "reviewed": true,
-      "display_order": 7,
-      "explanation": "Nouns don't change for number; put àwọn before the noun when plurality matters: ọmọ (child/children) → àwọn ọmọ (the children), àwọn olùkọ́ (the teachers). Numbers make àwọn unnecessary: ọmọ méjì (two children).",
-      "culture_note": "",
-      "references": [
-        {
-          "title": "Wikipedia: Yoruba language — grammar",
-          "url": "https://en.wikipedia.org/wiki/Yoruba_language#Grammar"
-        }
-      ],
-      "drills": [
-        {
-          "sentence": "{{answer}} ọmọ ń ṣeré.",
-          "answer": "Àwọn",
-          "translation": "The children are playing.",
-          "hint": "plural marker",
-          "display_order": 1
-        },
-        {
-          "sentence": "Mo rí ọmọ {{answer}}.",
-          "answer": "méjì",
-          "translation": "I saw two children.",
-          "hint": "'two' after the noun",
-          "display_order": 2
-        },
-        {
-          "sentence": "Mo rí {{answer}} ọmọ ní ọjà.",
-          "answer": "àwọn",
-          "translation": "I saw the children at the market.",
-          "hint": "plural marker",
-          "display_order": 3
-        },
-        {
-          "sentence": "Ilé {{answer}} tóbi.",
-          "answer": "mẹ́ta",
-          "translation": "Three houses are big.",
-          "hint": "number follows the noun — three",
-          "display_order": 4
-        },
-        {
-          "sentence": "{{answer}} obìnrin ń ṣiṣẹ́.",
-          "answer": "Àwọn",
-          "translation": "The women are working.",
-          "hint": "plural marker",
-          "display_order": 5
-        },
-        {
-          "sentence": "Mo ní ìwé {{answer}}.",
-          "answer": "mẹ́rin",
-          "translation": "I have four books.",
-          "hint": "number follows the noun — four",
-          "display_order": 6
-        }
-      ]
-    },
-    {
-      "title": "Questions with ṣé and kí ni",
-      "level": "A1",
-      "function": "Ask yes/no and 'what' questions",
-      "source": "contributor",
-      "reviewed": true,
-      "display_order": 8,
-      "explanation": "Ṣé in front of a statement makes a yes/no question: Ṣé o fẹ́ omi? (Do you want water?). Content questions use kí ni (what), ta ni (who), níbo (where): Kí ni orúkọ rẹ? (What is your name?), Níbo lo ń lọ? (Where are you going?).",
-      "culture_note": "",
-      "references": [
-        {
-          "title": "Wikipedia: Yoruba language — grammar",
-          "url": "https://en.wikipedia.org/wiki/Yoruba_language#Grammar"
-        }
-      ],
-      "drills": [
-        {
-          "sentence": "{{answer}} o fẹ́ omi?",
-          "answer": "Ṣé",
-          "translation": "Do you want water?",
-          "hint": "yes/no question opener",
-          "display_order": 1
-        },
-        {
-          "sentence": "{{answer}} ni orúkọ rẹ?",
-          "answer": "Kí",
-          "translation": "What is your name?",
-          "hint": "'what' — the first half",
-          "display_order": 2
-        },
-        {
-          "sentence": "{{answer}} o ti jẹun?",
-          "answer": "Ṣé",
-          "translation": "Have you eaten?",
-          "hint": "yes/no question",
-          "display_order": 3
-        },
-        {
-          "sentence": "{{answer}} ni èyí?",
-          "answer": "Kí",
-          "translation": "What is this?",
-          "hint": "'what' — the first half",
-          "display_order": 4
-        },
-        {
-          "sentence": "Níbo {{answer}} o ń lọ?",
-          "answer": "ni",
-          "translation": "Where are you going?",
-          "hint": "the copula that follows a question word",
-          "display_order": 5
-        },
-        {
-          "sentence": "{{answer}} ni ọmọ yẹn?",
-          "answer": "Ta",
-          "translation": "Who is that child?",
-          "hint": "who",
-          "display_order": 6
-        }
-      ]
-    },
-    {
-      "title": "Possession (mi, rẹ, rẹ̀ / ti)",
-      "level": "A1",
-      "function": "Say whose something is",
-      "source": "contributor",
-      "reviewed": true,
-      "display_order": 9,
-      "explanation": "Possessive pronouns follow the noun: ìwé mi (my book), ilé rẹ (your house), ọkọ̀ rẹ̀ (his/her vehicle), ilé wa (our house). Between two nouns, possession is just order (or ti): ilé bàbá (father's house).",
-      "culture_note": "",
-      "references": [
-        {
-          "title": "Wikipedia: Yoruba language — grammar",
-          "url": "https://en.wikipedia.org/wiki/Yoruba_language#Grammar"
-        }
-      ],
-      "drills": [
-        {
-          "sentence": "Ìwé {{answer}} wà níbí.",
-          "answer": "mi",
-          "translation": "My book is here.",
-          "hint": "'my' after the noun",
-          "display_order": 1
-        },
-        {
-          "sentence": "Ilé {{answer}} tóbi.",
-          "answer": "rẹ̀",
-          "translation": "His/her house is big.",
-          "hint": "'his/her' after the noun",
-          "display_order": 2
-        },
-        {
-          "sentence": "Ilé {{answer}} wà ní Èkó.",
-          "answer": "wa",
-          "translation": "Our house is in Lagos.",
-          "hint": "our",
-          "display_order": 3
-        },
-        {
-          "sentence": "Ìwé {{answer}} dà?",
-          "answer": "rẹ",
-          "translation": "Where is your book?",
-          "hint": "your (singular)",
-          "display_order": 4
-        },
-        {
-          "sentence": "Aṣọ {{answer}} dára.",
-          "answer": "wọn",
-          "translation": "Their clothes are nice.",
-          "hint": "their",
-          "display_order": 5
-        },
-        {
-          "sentence": "Ti {{answer}} ni ìwé yìí.",
-          "answer": "èmi",
-          "translation": "This book is mine.",
-          "hint": "emphatic possession — ti + pronoun",
-          "display_order": 6
-        }
-      ]
-    },
-    {
-      "title": "Perfect ti",
-      "level": "A2",
-      "function": "Say what has already happened",
-      "source": "contributor",
-      "reviewed": true,
-      "display_order": 1,
-      "explanation": "Ti before the verb marks completion: Mo ti jẹun (I have eaten), Ó ti lọ (She has already left), Wọ́n ti dé (They have arrived). With kò it means 'not yet': Kò tíì dé (He hasn't arrived yet).",
-      "culture_note": "",
-      "references": [
-        {
-          "title": "Wikipedia: Yoruba language — grammar",
-          "url": "https://en.wikipedia.org/wiki/Yoruba_language#Grammar"
-        }
-      ],
-      "drills": [
-        {
-          "sentence": "Mo {{answer}} jẹun.",
-          "answer": "ti",
-          "translation": "I have (already) eaten.",
-          "hint": "perfect marker",
-          "display_order": 1
-        },
-        {
-          "sentence": "Wọ́n {{answer}} dé.",
-          "answer": "ti",
-          "translation": "They have arrived.",
-          "hint": "perfect marker",
-          "display_order": 2
-        },
-        {
-          "sentence": "A {{answer}} parí iṣẹ́ náà.",
-          "answer": "ti",
-          "translation": "We have finished the work.",
-          "hint": "perfect marker",
-          "display_order": 3
-        },
-        {
-          "sentence": "Ọmọ náà {{answer}} jí.",
-          "answer": "ti",
-          "translation": "The child has woken up.",
-          "hint": "perfect marker",
-          "display_order": 4
-        },
-        {
-          "sentence": "Mo {{answer}} rí i.",
-          "answer": "ti",
-          "translation": "I have seen him.",
-          "hint": "perfect marker",
-          "display_order": 5
-        },
-        {
-          "sentence": "Bàbá {{answer}} dé láti oko.",
-          "answer": "ti",
-          "translation": "Father has arrived from the farm.",
-          "hint": "perfect marker",
-          "display_order": 6
-        }
-      ]
-    },
-    {
-      "title": "Future yóò / máa",
-      "level": "A2",
-      "function": "Say what will happen",
-      "source": "contributor",
-      "reviewed": true,
-      "display_order": 2,
-      "explanation": "Two future markers: yóò (with full pronouns: Ó yóò lọ → usually yó lọ) and máa, the everyday one: Mo máa lọ (I will go), A máa rìn (We will walk). Negative future uses kò ní í: Kò ní í lọ (He won't go).",
-      "culture_note": "",
-      "references": [
-        {
-          "title": "Wikipedia: Yoruba language — grammar",
-          "url": "https://en.wikipedia.org/wiki/Yoruba_language#Grammar"
-        }
-      ],
-      "drills": [
-        {
-          "sentence": "Mo {{answer}} lọ ní ọ̀la.",
-          "answer": "máa",
-          "translation": "I will go tomorrow.",
-          "hint": "future — the everyday form",
-          "display_order": 1
-        },
-        {
-          "sentence": "Wọ́n {{answer}} wá.",
-          "answer": "máa",
-          "translation": "They will come.",
-          "hint": "future — the everyday form",
-          "display_order": 2
-        },
-        {
-          "sentence": "A {{answer}} jẹun ní ilé.",
-          "answer": "máa",
-          "translation": "We will eat at home.",
-          "hint": "future — the everyday form",
-          "display_order": 3
-        },
-        {
-          "sentence": "Ó {{answer}} wá ní ọ̀la.",
-          "answer": "yóò",
-          "translation": "He will come tomorrow.",
-          "hint": "future — the formal form",
-          "display_order": 4
-        },
-        {
-          "sentence": "Wọ́n {{answer}} kọ́ ilé tuntun.",
-          "answer": "yóò",
-          "translation": "They will build a new house.",
-          "hint": "future — the formal form",
-          "display_order": 5
-        },
-        {
-          "sentence": "Mo {{answer}} ra ọkọ̀ tuntun.",
-          "answer": "máa",
-          "translation": "I will buy a new vehicle.",
-          "hint": "future — the everyday form",
-          "display_order": 6
-        }
-      ]
-    },
-    {
-      "title": "Object pronouns",
-      "level": "A2",
-      "function": "Say who receives the action",
-      "source": "contributor",
-      "reviewed": true,
-      "display_order": 3,
-      "explanation": "Object pronouns follow the verb and copy its final vowel's tone pattern: rí mi (see me), rí ẹ (see you), rí i (see him/her/it — vowel echo), rí wa (see us), rí yín (see you all), rí wọn (see them). Mo rí i (I saw him).",
-      "culture_note": "",
-      "references": [
-        {
-          "title": "Wikipedia: Yoruba language — grammar",
-          "url": "https://en.wikipedia.org/wiki/Yoruba_language#Grammar"
-        }
-      ],
-      "drills": [
-        {
-          "sentence": "Mo rí {{answer}} ní ọjà.",
-          "answer": "i",
-          "translation": "I saw him/her at the market.",
-          "hint": "3rd person object (vowel echo)",
-          "display_order": 1
-        },
-        {
-          "sentence": "Wọ́n fẹ́ràn {{answer}}.",
-          "answer": "mi",
-          "translation": "They like me.",
-          "hint": "'me' after the verb",
-          "display_order": 2
-        },
-        {
-          "sentence": "Wọ́n rí {{answer}} ní ọjà.",
-          "answer": "wa",
-          "translation": "They saw us at the market.",
-          "hint": "us",
-          "display_order": 3
-        },
-        {
-          "sentence": "Mo pè {{answer}} lánàá.",
-          "answer": "ọ́",
-          "translation": "I called you yesterday.",
-          "hint": "you (singular) — high tone",
-          "display_order": 4
-        },
-        {
-          "sentence": "A fẹ́ràn {{answer}}.",
-          "answer": "yín",
-          "translation": "We love you (plural).",
-          "hint": "you (plural)",
-          "display_order": 5
-        },
-        {
-          "sentence": "Bàbá pè {{answer}}.",
-          "answer": "wọ́n",
-          "translation": "Father called them.",
-          "hint": "them",
-          "display_order": 6
-        }
-      ]
-    },
-    {
-      "title": "Adjectives are verbs (dára, tóbi)",
-      "level": "A2",
-      "function": "Describe qualities the Yoruba way",
-      "source": "contributor",
-      "reviewed": true,
-      "display_order": 4,
-      "explanation": "Most quality words are stative VERBS: Ó dára (It is good), Ilé tóbi (The house is big), Ó gùn (It is long) — no copula needed. Before a noun they become participles or use relative tí: ilé ńlá (a big house), ilé tí ó dára (a house that is good).",
-      "culture_note": "",
-      "references": [
-        {
-          "title": "Wikipedia: Yoruba language — grammar",
-          "url": "https://en.wikipedia.org/wiki/Yoruba_language#Grammar"
-        }
-      ],
-      "drills": [
-        {
-          "sentence": "Oúnjẹ yìí {{answer}}.",
-          "answer": "dára",
-          "translation": "This food is good.",
-          "hint": "quality word used as a verb",
-          "display_order": 1
-        },
-        {
-          "sentence": "Ilé náà {{answer}}.",
-          "answer": "tóbi",
-          "translation": "The house is big.",
-          "hint": "quality word used as a verb",
-          "display_order": 2
-        },
-        {
-          "sentence": "Omi náà {{answer}}.",
-          "answer": "tutù",
-          "translation": "The water is cold.",
-          "hint": "to be cold",
-          "display_order": 3
-        },
-        {
-          "sentence": "Ọmọ yìí {{answer}}.",
-          "answer": "ga",
-          "translation": "This child is tall.",
-          "hint": "to be tall",
-          "display_order": 4
-        },
-        {
-          "sentence": "Aṣọ rẹ {{answer}}.",
-          "answer": "mọ́",
-          "translation": "Your clothes are clean.",
-          "hint": "to be clean",
-          "display_order": 5
-        },
-        {
-          "sentence": "Ilé wa {{answer}}.",
-          "answer": "kéré",
-          "translation": "Our house is small.",
-          "hint": "to be small",
-          "display_order": 6
-        }
-      ]
-    },
-    {
-      "title": "Demonstratives yìí and yẹn",
-      "level": "A2",
-      "function": "Point out this one and that one",
-      "source": "contributor",
-      "reviewed": true,
-      "display_order": 5,
-      "explanation": "Yìí (this) and yẹn (that) follow the noun: ìwé yìí (this book), ọkùnrin yẹn (that man). Plural combines with àwọn: àwọn ìwé yìí (these books). Náà after a noun means 'the (aforementioned)': ilé náà (the house in question).",
-      "culture_note": "",
-      "references": [
-        {
-          "title": "Wikipedia: Yoruba language — grammar",
-          "url": "https://en.wikipedia.org/wiki/Yoruba_language#Grammar"
-        }
-      ],
-      "drills": [
-        {
-          "sentence": "Ìwé {{answer}} dára.",
-          "answer": "yìí",
-          "translation": "This book is good.",
-          "hint": "'this' after the noun",
-          "display_order": 1
-        },
-        {
-          "sentence": "Ọkùnrin {{answer}} ga.",
-          "answer": "yẹn",
-          "translation": "That man is tall.",
-          "hint": "'that' after the noun",
-          "display_order": 2
-        },
-        {
-          "sentence": "Ọjà {{answer}} jìnnà.",
-          "answer": "yẹn",
-          "translation": "That market is far away.",
-          "hint": "that",
-          "display_order": 3
-        },
-        {
-          "sentence": "Aṣọ {{answer}} mọ́.",
-          "answer": "yìí",
-          "translation": "This cloth is clean.",
-          "hint": "this",
-          "display_order": 4
-        },
-        {
-          "sentence": "Ilé {{answer}} ga.",
-          "answer": "yẹn",
-          "translation": "That house is tall.",
-          "hint": "that",
-          "display_order": 5
-        },
-        {
-          "sentence": "Oúnjẹ {{answer}} dùn.",
-          "answer": "yìí",
-          "translation": "This food is delicious.",
-          "hint": "this",
-          "display_order": 6
-        }
-      ]
-    },
-    {
-      "title": "Imperatives and má (don't)",
-      "level": "A2",
-      "function": "Tell people to do and not to do",
-      "source": "contributor",
-      "reviewed": true,
-      "display_order": 6,
-      "explanation": "Commands are the bare verb: Wá! (Come!), Jókòó! (Sit down!). Politeness adds jọ̀wọ́ (please) or the plural ẹ: Ẹ jọ̀wọ́, ẹ wá (Please come). The negative command is má (or má ṣe): Má lọ! (Don't go!).",
-      "culture_note": "",
-      "references": [
-        {
-          "title": "Wikipedia: Yoruba language — grammar",
-          "url": "https://en.wikipedia.org/wiki/Yoruba_language#Grammar"
-        }
-      ],
-      "drills": [
-        {
-          "sentence": "{{answer}} síbí!",
-          "answer": "Wá",
-          "translation": "Come here!",
-          "hint": "bare-verb command",
-          "display_order": 1
-        },
-        {
-          "sentence": "{{answer}} lọ!",
-          "answer": "Má",
-          "translation": "Don't go!",
-          "hint": "negative command marker",
-          "display_order": 2
-        },
-        {
-          "sentence": "{{answer}} jẹun níbí!",
-          "answer": "Má",
-          "translation": "Don't eat here!",
-          "hint": "negative command",
-          "display_order": 3
-        },
-        {
-          "sentence": "{{answer}} oúnjẹ náà!",
-          "answer": "Jẹ",
-          "translation": "Eat the food!",
-          "hint": "to eat — bare verb",
-          "display_order": 4
-        },
-        {
-          "sentence": "{{answer}} ìwé rẹ!",
-          "answer": "Kà",
-          "translation": "Read your book!",
-          "hint": "to read — bare verb",
-          "display_order": 5
-        },
-        {
-          "sentence": "Má {{answer}}!",
-          "answer": "pariwo",
-          "translation": "Don't shout!",
-          "hint": "to make noise",
-          "display_order": 6
-        }
-      ]
-    },
-    {
-      "title": "Relative clauses with tí",
-      "level": "B1",
-      "function": "Describe things with 'who/that/which'",
-      "source": "contributor",
-      "reviewed": true,
-      "display_order": 1,
-      "explanation": "Tí introduces relative clauses: ọkùnrin tí ó wá (the man who came), ìwé tí mo rà (the book that I bought), oúnjẹ tí wọ́n sè (the food they cooked). Inside the clause the normal pronouns stay.",
-      "culture_note": "",
-      "references": [
-        {
-          "title": "Wikipedia: Yoruba language — grammar",
-          "url": "https://en.wikipedia.org/wiki/Yoruba_language#Grammar"
-        }
-      ],
-      "drills": [
-        {
-          "sentence": "Ọkùnrin {{answer}} ó wá jẹ́ olùkọ́.",
-          "answer": "tí",
-          "translation": "The man who came is a teacher.",
-          "hint": "relativizer",
-          "display_order": 1
-        },
-        {
-          "sentence": "Ìwé {{answer}} mo rà dára.",
-          "answer": "tí",
-          "translation": "The book that I bought is good.",
-          "hint": "relativizer",
-          "display_order": 2
-        },
-        {
-          "sentence": "Obìnrin {{answer}} ó ń ṣiṣẹ́ níbí dára.",
-          "answer": "tí",
-          "translation": "The woman who works here is good.",
-          "hint": "relative marker",
-          "display_order": 3
-        },
-        {
-          "sentence": "Oúnjẹ {{answer}} o sè dùn.",
-          "answer": "tí",
-          "translation": "The food that you cooked is delicious.",
-          "hint": "relative marker",
-          "display_order": 4
-        },
-        {
-          "sentence": "Ilé {{answer}} wọ́n kọ́ tóbi.",
-          "answer": "tí",
-          "translation": "The house that they built is big.",
-          "hint": "relative marker",
-          "display_order": 5
-        },
-        {
-          "sentence": "Ọmọ {{answer}} ó sùn ti jí.",
-          "answer": "tí",
-          "translation": "The child who was sleeping has woken up.",
-          "hint": "relative marker — high tone",
-          "display_order": 6
-        }
-      ]
-    },
-    {
-      "title": "Focus with ni",
-      "level": "B1",
-      "function": "Emphasize one part of the sentence",
-      "source": "contributor",
-      "reviewed": true,
-      "display_order": 2,
-      "explanation": "Moving a phrase to the front and adding ni focuses it: Adé ni ó lọ (It was Adé who went), Ọjà ni mo lọ (It's the market I went to), Àná ni wọ́n dé (It was yesterday they arrived). Question words use the same frame: Ta ni ó wá? (Who came?).",
-      "culture_note": "This ni-focus is everywhere in real speech — answers to questions almost always use it.",
-      "references": [
-        {
-          "title": "Wikipedia: Yoruba language — grammar",
-          "url": "https://en.wikipedia.org/wiki/Yoruba_language#Grammar"
-        }
-      ],
-      "drills": [
-        {
-          "sentence": "Adé {{answer}} ó lọ.",
-          "answer": "ni",
-          "translation": "It was Adé who went.",
-          "hint": "focus marker after the fronted word",
-          "display_order": 1
-        },
-        {
-          "sentence": "Ọjà {{answer}} mo lọ.",
-          "answer": "ni",
-          "translation": "It is the market that I went to.",
-          "hint": "focus marker",
-          "display_order": 2
-        },
-        {
-          "sentence": "Èmi {{answer}} mo sè oúnjẹ.",
-          "answer": "ni",
-          "translation": "It was I who cooked the food.",
-          "hint": "focus marker",
-          "display_order": 3
-        },
-        {
-          "sentence": "Lánàá {{answer}} wọ́n dé.",
-          "answer": "ni",
-          "translation": "It was yesterday that they arrived.",
-          "hint": "focus marker",
-          "display_order": 4
-        },
-        {
-          "sentence": "Ìwé {{answer}} mo rà.",
-          "answer": "ni",
-          "translation": "It was a book that I bought.",
-          "hint": "focus marker",
-          "display_order": 5
-        },
-        {
-          "sentence": "Níbí {{answer}} a ń gbé.",
-          "answer": "ni",
-          "translation": "It is here that we live.",
-          "hint": "focus marker",
-          "display_order": 6
-        }
-      ]
-    },
-    {
-      "title": "Serial verbs",
-      "level": "B1",
-      "function": "Chain verbs to express one complex action",
-      "source": "contributor",
-      "reviewed": true,
-      "display_order": 3,
-      "explanation": "Yoruba stacks verbs without 'and': mú ìwé wá (take book come = bring the book), gbé e lọ (carry it go = take it away), ra oúnjẹ fún mi (buy food give me = buy food for me). Each verb keeps its own meaning; together they map one event.",
-      "culture_note": "",
-      "references": [
-        {
-          "title": "Wikipedia: Yoruba language — grammar",
-          "url": "https://en.wikipedia.org/wiki/Yoruba_language#Grammar"
-        },
-        {
-          "title": "Wikipedia: Serial verb construction",
-          "url": "https://en.wikipedia.org/wiki/Serial_verb_construction"
-        }
-      ],
-      "drills": [
-        {
-          "sentence": "Mú ìwé {{answer}} fún mi.",
-          "answer": "wá",
-          "translation": "Bring me the book (take-book-come).",
-          "hint": "'come' completing 'bring'",
-          "display_order": 1
-        },
-        {
-          "sentence": "Ó gbé ẹrù {{answer}}.",
-          "answer": "lọ",
-          "translation": "He carried the load away (carry-go).",
-          "hint": "'go' completing 'take away'",
-          "display_order": 2
-        },
-        {
-          "sentence": "Gbé ìwé náà {{answer}} fún mi.",
-          "answer": "wá",
-          "translation": "Bring the book to me.",
-          "hint": "carry + come",
-          "display_order": 3
-        },
-        {
-          "sentence": "Ó sáré {{answer}} ilé.",
-          "answer": "lọ",
-          "translation": "He ran off home.",
-          "hint": "run + go",
-          "display_order": 4
-        },
-        {
-          "sentence": "Mo mú owó {{answer}} ọjà.",
-          "answer": "lọ",
-          "translation": "I took money to the market.",
-          "hint": "take + go",
-          "display_order": 5
-        },
-        {
-          "sentence": "Ó bù omi {{answer}} mi.",
-          "answer": "fún",
-          "translation": "She poured water for me.",
-          "hint": "pour + give",
-          "display_order": 6
-        }
-      ]
-    },
-    {
-      "title": "Conditionals with bí … bá",
-      "level": "B1",
-      "function": "Make 'if' sentences",
-      "source": "contributor",
-      "reviewed": true,
-      "display_order": 4,
-      "explanation": "Real conditions use bí (or tí) … bá: Bí o bá kàwé, wàá yege (If you study, you will pass), Bí òjò bá rọ̀, a ó dúró ní ilé (If it rains, we will stay home). Bá sits right before the verb of the if-clause.",
-      "culture_note": "",
-      "references": [
-        {
-          "title": "Wikipedia: Yoruba language — grammar",
-          "url": "https://en.wikipedia.org/wiki/Yoruba_language#Grammar"
-        }
-      ],
-      "drills": [
-        {
-          "sentence": "Bí o {{answer}} kàwé, wàá yege.",
-          "answer": "bá",
-          "translation": "If you study, you will pass.",
-          "hint": "the second half of the frame",
-          "display_order": 1
-        },
-        {
-          "sentence": "Bí òjò {{answer}} rọ̀, a ó dúró.",
-          "answer": "bá",
-          "translation": "If it rains, we will stay.",
-          "hint": "the second half of the frame",
-          "display_order": 2
-        },
-        {
-          "sentence": "Bí a {{answer}} ṣiṣẹ́, a ó rí owó.",
-          "answer": "bá",
-          "translation": "If we work, we will get money.",
-          "hint": "the second half of the frame",
-          "display_order": 3
-        },
-        {
-          "sentence": "{{answer}} o bá dé, pè mí.",
-          "answer": "Bí",
-          "translation": "When you arrive, call me.",
-          "hint": "the first half of the frame",
-          "display_order": 4
-        },
-        {
-          "sentence": "Bí ó bá {{answer}}, a ó lọ.",
-          "answer": "dé",
-          "translation": "If he arrives, we will go.",
-          "hint": "to arrive",
-          "display_order": 5
-        },
-        {
-          "sentence": "Bí wọ́n {{answer}} sùn, má pariwo.",
-          "answer": "bá",
-          "translation": "If they are asleep, don't make noise.",
-          "hint": "the second half of the frame",
-          "display_order": 6
-        }
-      ]
-    },
-    {
-      "title": "Comparatives with ju … lọ",
-      "level": "B1",
-      "function": "Compare people and things",
-      "source": "contributor",
-      "reviewed": true,
-      "display_order": 5,
-      "explanation": "Comparison wraps ju … lọ around the standard: Ó ga ju mí lọ (He is taller than me), Ilé yìí tóbi ju ilé yẹn lọ (This house is bigger than that one). The quality word itself never changes.",
-      "culture_note": "",
-      "references": [
-        {
-          "title": "Wikipedia: Yoruba language — grammar",
-          "url": "https://en.wikipedia.org/wiki/Yoruba_language#Grammar"
-        }
-      ],
-      "drills": [
-        {
-          "sentence": "Ó ga {{answer}} mí lọ.",
-          "answer": "ju",
-          "translation": "He is taller than me.",
-          "hint": "'exceed' marker",
-          "display_order": 1
-        },
-        {
-          "sentence": "Ilé yìí tóbi ju ilé yẹn {{answer}}.",
-          "answer": "lọ",
-          "translation": "This house is bigger than that house.",
-          "hint": "the closing word of the comparison frame",
-          "display_order": 2
-        },
-        {
-          "sentence": "Adé ga ju Olú {{answer}}.",
-          "answer": "lọ",
-          "translation": "Ade is taller than Olu.",
-          "hint": "the closing word of the comparison frame",
-          "display_order": 3
-        },
-        {
-          "sentence": "Oúnjẹ yìí dùn {{answer}} tiwa lọ.",
-          "answer": "ju",
-          "translation": "This food is tastier than ours.",
-          "hint": "exceed",
-          "display_order": 4
-        },
-        {
-          "sentence": "Mo fẹ́ràn tii {{answer}} kọfí lọ.",
-          "answer": "ju",
-          "translation": "I like tea more than coffee.",
-          "hint": "exceed",
-          "display_order": 5
-        },
-        {
-          "sentence": "Ọkọ̀ yìí yára ju ti mi {{answer}}.",
-          "answer": "lọ",
-          "translation": "This vehicle is faster than mine.",
-          "hint": "the closing word of the comparison frame",
-          "display_order": 6
-        }
-      ]
-    },
-    {
-      "title": "Habitual máa ń",
-      "level": "B2",
-      "function": "Talk about routines",
-      "source": "contributor",
-      "reviewed": true,
-      "display_order": 1,
-      "explanation": "Máa ń (often written maa n) marks habits: Mo máa ń jí ní aago mẹ́fà (I usually wake at six), Wọ́n máa ń lọ sí ṣọ́ọ̀ṣì (They usually go to church). Negative habitual is kì í: Kì í mu ọtí (He doesn't (habitually) drink).",
-      "culture_note": "",
-      "references": [
-        {
-          "title": "Wikipedia: Yoruba language — grammar",
-          "url": "https://en.wikipedia.org/wiki/Yoruba_language#Grammar"
-        }
-      ],
-      "drills": [
-        {
-          "sentence": "Mo {{answer}} ń jí ní aago mẹ́fà.",
-          "answer": "máa",
-          "translation": "I usually wake up at six o'clock.",
-          "hint": "habitual (with ń)",
-          "display_order": 1
-        },
-        {
-          "sentence": "Ó {{answer}} í mu ọtí.",
-          "answer": "kì",
-          "translation": "He does not (habitually) drink alcohol.",
-          "hint": "the negative habitual opener",
-          "display_order": 2
-        },
-        {
-          "sentence": "Wọ́n {{answer}} ń ṣiṣẹ́ ní ọjọ́ Sátidé.",
-          "answer": "máa",
-          "translation": "They usually work on Saturdays.",
-          "hint": "habitual — first part",
-          "display_order": 3
-        },
-        {
-          "sentence": "A máa {{answer}} jẹun ní aago méje.",
-          "answer": "ń",
-          "translation": "We usually eat at seven o'clock.",
-          "hint": "habitual — second part",
-          "display_order": 4
-        },
-        {
-          "sentence": "Ó {{answer}} í jí ní kùtùkùtù.",
-          "answer": "kì",
-          "translation": "He doesn't usually wake up early.",
-          "hint": "the negative habitual opener",
-          "display_order": 5
-        },
-        {
-          "sentence": "Màmá {{answer}} ń sè oúnjẹ ní alẹ́.",
-          "answer": "máa",
-          "translation": "Mother usually cooks in the evening.",
-          "hint": "habitual — first part",
-          "display_order": 6
-        }
-      ]
-    },
-    {
-      "title": "Reported speech with pé",
-      "level": "B2",
-      "function": "Report what people said and think",
-      "source": "contributor",
-      "reviewed": true,
-      "display_order": 2,
-      "explanation": "Pé introduces reported clauses after saying/thinking verbs: Ó sọ pé òun máa wá (He said that he would come), Mo mọ̀ pé o ti dé (I know that you have arrived). Note òun — the special third-person pronoun used inside reports to refer back to the speaker.",
-      "culture_note": "",
-      "references": [
-        {
-          "title": "Wikipedia: Yoruba language — grammar",
-          "url": "https://en.wikipedia.org/wiki/Yoruba_language#Grammar"
-        }
-      ],
-      "drills": [
-        {
-          "sentence": "Ó sọ {{answer}} òun máa wá.",
-          "answer": "pé",
-          "translation": "He said that he would come.",
-          "hint": "'that' complementizer",
-          "display_order": 1
-        },
-        {
-          "sentence": "Mo mọ̀ {{answer}} o ti dé.",
-          "answer": "pé",
-          "translation": "I know that you have arrived.",
-          "hint": "'that' complementizer",
-          "display_order": 2
-        },
-        {
-          "sentence": "Ó rò {{answer}} mo ti lọ.",
-          "answer": "pé",
-          "translation": "He thought that I had gone.",
-          "hint": "that",
-          "display_order": 3
-        },
-        {
-          "sentence": "Wọ́n gbàgbọ́ {{answer}} òjò yóò rọ̀.",
-          "answer": "pé",
-          "translation": "They believe that it will rain.",
-          "hint": "that",
-          "display_order": 4
-        },
-        {
-          "sentence": "Mo gbọ́ {{answer}} o ṣàìsàn.",
-          "answer": "pé",
-          "translation": "I heard that you were ill.",
-          "hint": "that",
-          "display_order": 5
-        },
-        {
-          "sentence": "Ó sọ fún mi {{answer}} kí n dúró.",
-          "answer": "pé",
-          "translation": "He told me that I should wait.",
-          "hint": "that",
-          "display_order": 6
-        }
-      ]
-    },
-    {
-      "title": "Impersonal wọ́n (passive meaning)",
-      "level": "C1",
-      "function": "Say what 'is done' without a doer",
-      "source": "contributor",
-      "reviewed": true,
-      "display_order": 1,
-      "explanation": "Yoruba has no passive; impersonal wọ́n (they) covers it: Wọ́n ti kọ́ ilé náà (The house has been built — lit. they have built it), Wọ́n ń pè ọ́ (You are being called). Context, not form, signals the passive reading.",
-      "culture_note": "",
-      "references": [
-        {
-          "title": "Wikipedia: Yoruba language — grammar",
-          "url": "https://en.wikipedia.org/wiki/Yoruba_language#Grammar"
-        }
-      ],
-      "drills": [
-        {
-          "sentence": "{{answer}} ti kọ́ ilé náà.",
-          "answer": "Wọ́n",
-          "translation": "The house has been built (lit. they have built it).",
-          "hint": "impersonal 'they'",
-          "display_order": 1
-        },
-        {
-          "sentence": "{{answer}} ń pè ọ́.",
-          "answer": "Wọ́n",
-          "translation": "You are being called (lit. they are calling you).",
-          "hint": "impersonal 'they'",
-          "display_order": 2
-        },
-        {
-          "sentence": "{{answer}} ta ilé náà.",
-          "answer": "Wọ́n",
-          "translation": "The house has been sold.",
-          "hint": "impersonal 'they'",
-          "display_order": 3
-        },
-        {
-          "sentence": "{{answer}} yóò ṣí ilé ìwé tuntun.",
-          "answer": "Wọ́n",
-          "translation": "A new school will be opened.",
-          "hint": "impersonal 'they'",
-          "display_order": 4
-        },
-        {
-          "sentence": "{{answer}} mú ọlọ́ṣà náà lánàá.",
-          "answer": "Wọ́n",
-          "translation": "The thief was caught yesterday.",
-          "hint": "impersonal 'they'",
-          "display_order": 5
-        },
-        {
-          "sentence": "{{answer}} ń kọ́ ọ̀nà tuntun.",
-          "answer": "Wọ́n",
-          "translation": "A new road is being built.",
-          "hint": "impersonal 'they'",
-          "display_order": 6
-        }
-      ]
-    },
-    {
-      "title": "Although: bí ó tilẹ̀ jẹ́ pé",
-      "level": "C1",
-      "function": "Concede a point and continue",
-      "source": "contributor",
-      "reviewed": true,
-      "display_order": 2,
-      "explanation": "The concessive frame bí ó tilẹ̀ jẹ́ pé … (even though …) sets up contrast: Bí ó tilẹ̀ jẹ́ pé òjò rọ̀, a lọ (Even though it rained, we went). A shorter alternative is síbẹ̀ (nevertheless) linking two clauses.",
-      "culture_note": "",
-      "references": [
-        {
-          "title": "Wikipedia: Yoruba language — grammar",
-          "url": "https://en.wikipedia.org/wiki/Yoruba_language#Grammar"
-        }
-      ],
-      "drills": [
-        {
-          "sentence": "Bí ó {{answer}} jẹ́ pé òjò rọ̀, a lọ.",
-          "answer": "tilẹ̀",
-          "translation": "Even though it rained, we went.",
-          "hint": "the concessive particle",
-          "display_order": 1
-        },
-        {
-          "sentence": "Òjò rọ̀; {{answer}}, a lọ.",
-          "answer": "síbẹ̀",
-          "translation": "It rained; nevertheless, we went.",
-          "hint": "'nevertheless'",
-          "display_order": 2
-        },
-        {
-          "sentence": "Bí ó tilẹ̀ jẹ́ {{answer}} ó rẹ̀ mí, mo parí iṣẹ́.",
-          "answer": "pé",
-          "translation": "Although I was tired, I finished the work.",
-          "hint": "the closing word of the frame",
-          "display_order": 3
-        },
-        {
-          "sentence": "Bí ó {{answer}} jẹ́ pé kò sí owó, a rí oúnjẹ.",
-          "answer": "tilẹ̀",
-          "translation": "Although there was no money, we found food.",
-          "hint": "middle of the frame",
-          "display_order": 4
-        },
-        {
-          "sentence": "Ó ṣàìsàn; {{answer}}, ó lọ síbi iṣẹ́.",
-          "answer": "síbẹ̀",
-          "translation": "He was ill; nevertheless, he went to work.",
-          "hint": "nevertheless",
-          "display_order": 5
-        },
-        {
-          "sentence": "Bí ó tilẹ̀ {{answer}} pé ilé jìnnà, a rìn.",
-          "answer": "jẹ́",
-          "translation": "Although the house is far, we walked.",
-          "hint": "the copula inside the frame",
-          "display_order": 6
-        }
-      ]
-    },
-    {
-      "title": "Ní vs sí — at a place vs towards it",
-      "level": "B1",
-      "display_order": 6,
-      "function": "Say where something is vs where it's heading",
-      "explanation": "Ní marks a static location (ó wà ní ilé — he is at home); sí marks direction or a goal (ó lọ sí ọjà — he went to the market). Verbs of rest take ní, verbs of motion take sí — mixing them is the classic learner giveaway.",
-      "culture_note": "",
-      "source": "contributor",
-      "reviewed": false,
-      "references": [
-        {
-          "title": "Wikipedia: Yoruba language",
-          "url": "https://en.wikipedia.org/wiki/Yoruba_language"
-        }
-      ],
-      "drills": [
-        {
-          "sentence": "Bàbá wà {{answer}} oko.",
-          "answer": "ní",
-          "translation": "Father is at the farm.",
-          "hint": "the at-rest place marker",
-          "display_order": 1
-        },
-        {
-          "sentence": "A ń lọ {{answer}} ọjà.",
-          "answer": "sí",
-          "translation": "We are going to the market.",
-          "hint": "the towards/motion marker",
-          "display_order": 2
-        },
-        {
-          "sentence": "Ó ń gbé {{answer}} Èkó.",
-          "answer": "ní",
-          "translation": "He lives in Lagos.",
-          "hint": "the at-rest place marker",
-          "display_order": 3
-        },
-        {
-          "sentence": "Wọ́n padà {{answer}} ilé.",
-          "answer": "sí",
-          "translation": "They returned home.",
-          "hint": "the towards/motion marker",
-          "display_order": 4
-        },
-        {
-          "sentence": "Ìwé náà wà {{answer}} orí tábìlì.",
-          "answer": "ní",
-          "translation": "The book is on the table.",
-          "hint": "the at-rest place marker",
-          "display_order": 5
-        },
-        {
-          "sentence": "Ó sáré {{answer}} ilé ìwé.",
-          "answer": "sí",
-          "translation": "He ran to school.",
-          "hint": "the towards/motion marker",
-          "display_order": 6
-        }
-      ]
-    },
-    {
-      "title": "Question words (ta ni, níbo, báwo, èló)",
-      "level": "B1",
-      "display_order": 7,
-      "function": "Ask about people, places, manner, price, time, and reasons",
-      "explanation": "Ta ni (who), níbo (where), báwo (how), èló (how much), nígbà wo (when), èéṣe/kí nìdí (why) — most pair with the focus ni you already know: Níbo ni o ń lọ? (where are you going?).",
-      "culture_note": "",
-      "source": "contributor",
-      "reviewed": false,
-      "references": [
-        {
-          "title": "Wikipedia: Yoruba language",
-          "url": "https://en.wikipedia.org/wiki/Yoruba_language"
-        }
-      ],
-      "drills": [
-        {
-          "sentence": "{{answer}} ni ó kọ ìwé yìí?",
-          "answer": "Ta",
-          "translation": "Who wrote this book?",
-          "hint": "who — pairs with focus ni",
-          "cell": "ta",
-          "display_order": 1
-        },
-        {
-          "sentence": "{{answer}} ni o ń gbé?",
-          "answer": "Níbo",
-          "translation": "Where do you live?",
-          "hint": "where",
-          "cell": "níbo",
-          "display_order": 2
-        },
-        {
-          "sentence": "{{answer}} ni ẹja yìí?",
-          "answer": "Èló",
-          "translation": "How much is this fish?",
-          "hint": "how much (price)",
-          "cell": "èló",
-          "display_order": 3
-        },
-        {
-          "sentence": "{{answer}} ni ohun gbogbo?",
-          "answer": "Báwo",
-          "translation": "How is everything?",
-          "hint": "how",
-          "cell": "báwo",
-          "display_order": 4
-        },
-        {
-          "sentence": "Nígbà {{answer}} ni wọ́n dé?",
-          "answer": "wo",
-          "translation": "When did they arrive?",
-          "hint": "completes 'when' (which time)",
-          "cell": "nígbà wo",
-          "display_order": 5
-        },
-        {
-          "sentence": "{{answer}} tí o fi pẹ́?",
-          "answer": "Èéṣe",
-          "translation": "Why are you late?",
-          "hint": "why (pairs with tí)",
-          "cell": "èéṣe",
-          "display_order": 6
-        },
-        {
-          "sentence": "{{answer}} ni olùkọ́ yín?",
-          "answer": "Ta",
-          "translation": "Who is your (pl.) teacher?",
-          "hint": "who — pairs with focus ni",
-          "cell": "ta",
-          "display_order": 7
-        },
-        {
-          "sentence": "{{answer}} ni wọ́n ti ń ṣiṣẹ́?",
-          "answer": "Níbo",
-          "translation": "Where do they work?",
-          "hint": "where",
-          "cell": "níbo",
-          "display_order": 8
-        },
-        {
-          "sentence": "{{answer}} ni iṣẹ́ ń lọ?",
-          "answer": "Báwo",
-          "translation": "How is work going?",
-          "hint": "how",
-          "cell": "báwo",
-          "display_order": 9
-        },
-        {
-          "sentence": "{{answer}} ni bàtà yìí?",
-          "answer": "Èló",
-          "translation": "How much are these shoes?",
-          "hint": "how much (price)",
-          "cell": "èló",
-          "display_order": 10
-        },
-        {
-          "sentence": "Nígbà {{answer}} ni ẹ máa dé?",
-          "answer": "wo",
-          "translation": "When will you (pl.) arrive?",
-          "hint": "completes 'when' (which time)",
-          "cell": "nígbà wo",
-          "display_order": 11
-        },
-        {
-          "sentence": "{{answer}} tí kò fi wá?",
-          "answer": "Èéṣe",
-          "translation": "Why didn't he come?",
-          "hint": "why (pairs with tí)",
-          "cell": "èéṣe",
-          "display_order": 12
-        }
-      ],
-      "paradigm": [
-        "ta",
-        "níbo",
-        "báwo",
-        "èló",
-        "nígbà wo",
-        "èéṣe"
-      ]
-    },
-    {
-      "title": "Modals fẹ́, lè, gbọ́dọ̀ (want / can / must)",
-      "level": "B1",
-      "display_order": 8,
-      "function": "Add want-to, can, and must to any verb",
-      "explanation": "Fẹ́, lè, and gbọ́dọ̀ sit between the subject and the verb: mo fẹ́ jẹun (I want to eat), ó lè wẹ̀ (she can swim), o gbọ́dọ̀ lọ (you must go). Negation wraps around them: kò lè wá (he can't come).",
-      "culture_note": "",
-      "source": "contributor",
-      "reviewed": false,
-      "references": [
-        {
-          "title": "Wikipedia: Yoruba language",
-          "url": "https://en.wikipedia.org/wiki/Yoruba_language"
-        }
-      ],
-      "drills": [
-        {
-          "sentence": "Mo {{answer}} jẹun báyìí.",
-          "answer": "fẹ́",
-          "translation": "I want to eat now.",
-          "hint": "want (to)",
-          "display_order": 1
-        },
-        {
-          "sentence": "Ó {{answer}} wẹ̀ dáadáa.",
-          "answer": "lè",
-          "translation": "She can swim well.",
-          "hint": "can / be able to",
-          "display_order": 2
-        },
-        {
-          "sentence": "O {{answer}} lọ sí ilé ìwé lónìí.",
-          "answer": "gbọ́dọ̀",
-          "translation": "You must go to school today.",
-          "hint": "must",
-          "display_order": 3
-        },
-        {
-          "sentence": "Kò {{answer}} wá lónìí.",
-          "answer": "lè",
-          "translation": "He cannot come today.",
-          "hint": "can — here under negation",
-          "display_order": 4
-        },
-        {
-          "sentence": "Wọ́n {{answer}} sùn ní kùtùkùtù.",
-          "answer": "fẹ́",
-          "translation": "They want to sleep early.",
-          "hint": "want (to)",
-          "display_order": 5
-        },
-        {
-          "sentence": "A {{answer}} ṣiṣẹ́ kára.",
-          "answer": "gbọ́dọ̀",
-          "translation": "We must work hard.",
-          "hint": "must",
-          "display_order": 6
-        }
-      ]
-    },
-    {
-      "title": "Láti + verb (to / in order to)",
-      "level": "B1",
-      "display_order": 9,
-      "function": "Chain a purpose or an infinitive onto a verb",
-      "explanation": "Láti turns a verb into 'to do X': mo wá láti kọ́ èdè Yorùbá (I came to learn Yoruba); ó ṣòro láti jí (it's hard to wake up). After fẹ́ it's optional — both mo fẹ́ lọ and mo fẹ́ láti lọ occur.",
-      "culture_note": "",
-      "source": "contributor",
-      "reviewed": false,
-      "references": [
-        {
-          "title": "Wikipedia: Yoruba language",
-          "url": "https://en.wikipedia.org/wiki/Yoruba_language"
-        }
-      ],
-      "drills": [
-        {
-          "sentence": "Mo wá {{answer}} kọ́ èdè Yorùbá.",
-          "answer": "láti",
-          "translation": "I came to learn Yoruba.",
-          "hint": "the to/in-order-to linker",
-          "display_order": 1
-        },
-        {
-          "sentence": "Ó fẹ́ {{answer}} ra ilé tuntun.",
-          "answer": "láti",
-          "translation": "He wants to buy a new house.",
-          "hint": "the to/in-order-to linker",
-          "display_order": 2
-        },
-        {
-          "sentence": "Ó ṣòro {{answer}} jí ní kùtùkùtù.",
-          "answer": "láti",
-          "translation": "It is hard to wake up early.",
-          "hint": "the to/in-order-to linker",
-          "display_order": 3
-        },
-        {
-          "sentence": "Wọ́n dúró {{answer}} ràn wá lọ́wọ́.",
-          "answer": "láti",
-          "translation": "They stayed to help us.",
-          "hint": "the to/in-order-to linker",
-          "display_order": 4
-        },
-        {
-          "sentence": "Kò rọrùn {{answer}} kọ orin.",
-          "answer": "láti",
-          "translation": "It is not easy to write a song.",
-          "hint": "the to/in-order-to linker",
-          "display_order": 5
-        },
-        {
-          "sentence": "A jáde {{answer}} ra oúnjẹ.",
-          "answer": "láti",
-          "translation": "We went out to buy food.",
-          "hint": "the to/in-order-to linker",
-          "display_order": 6
-        }
-      ]
-    },
-    {
-      "title": "Kí clauses — wishes and indirect commands",
-      "level": "B2",
-      "display_order": 3,
-      "function": "Wish, bless, and tell people what should happen",
-      "explanation": "Kí opens a clause about what SHOULD happen: mo fẹ́ kí o wá (I want you to come), bàbá ní kí wọ́n jẹun (father said they should eat), kí ọjọ́ rẹ ó dára (may your day be good). It's the engine of Yoruba blessings.",
-      "culture_note": "Yoruba life runs on kí-blessings: kí ọjọ́ ó dára, kí ọlọ́run ó ṣọ́ ẹ (may God guard you) — expect them at every parting.",
-      "source": "contributor",
-      "reviewed": false,
-      "references": [
-        {
-          "title": "Wikipedia: Yoruba language",
-          "url": "https://en.wikipedia.org/wiki/Yoruba_language"
-        }
-      ],
-      "drills": [
-        {
-          "sentence": "Mo fẹ́ {{answer}} o wá ní àárọ̀.",
-          "answer": "kí",
-          "translation": "I want you to come in the morning.",
-          "hint": "the should/that opener",
-          "display_order": 1
-        },
-        {
-          "sentence": "Ó sọ pé {{answer}} a dúró.",
-          "answer": "kí",
-          "translation": "He said that we should wait.",
-          "hint": "the should/that opener",
-          "display_order": 2
-        },
-        {
-          "sentence": "{{answer}} ọjọ́ rẹ ó dára!",
-          "answer": "Kí",
-          "translation": "May your day be good!",
-          "hint": "the should/that opener — a blessing",
-          "display_order": 3
-        },
-        {
-          "sentence": "Bàbá ní kí wọ́n {{answer}} oúnjẹ.",
-          "answer": "jẹ",
-          "translation": "Father said they should eat.",
-          "hint": "to eat — bare verb inside the kí clause",
-          "display_order": 4
-        },
-        {
-          "sentence": "Mo gbàdúrà {{answer}} ó rí iṣẹ́.",
-          "answer": "kí",
-          "translation": "I pray that he finds work.",
-          "hint": "the should/that opener",
-          "display_order": 5
-        },
-        {
-          "sentence": "Sọ fún un {{answer}} ó pè mí.",
-          "answer": "kí",
-          "translation": "Tell him to call me.",
-          "hint": "the should/that opener",
-          "display_order": 6
-        }
-      ]
-    },
-    {
-      "title": "Numbers after the noun (ìwé méjì, mélòó)",
-      "level": "B2",
-      "display_order": 4,
-      "function": "Count things and ask how many",
-      "explanation": "Numerals follow the noun: ìwé kan (one book), ọmọ méjì (two children), ọjọ́ méje (seven days). Mélòó asks 'how many' from the same slot: ìwé mélòó? Standalone counting uses the ọ̀kan, èjì, ẹ̀ta series instead.",
-      "culture_note": "",
-      "source": "contributor",
-      "reviewed": false,
-      "references": [
-        {
-          "title": "Wikipedia: Yoruba language",
-          "url": "https://en.wikipedia.org/wiki/Yoruba_language"
-        }
-      ],
-      "drills": [
-        {
-          "sentence": "Mo ra ìwé {{answer}}.",
-          "answer": "méjì",
-          "translation": "I bought two books.",
-          "hint": "two (after the noun)",
-          "display_order": 1
-        },
-        {
-          "sentence": "Ọmọ {{answer}} ni ó wà ní ilé?",
-          "answer": "mélòó",
-          "translation": "How many children are at home?",
-          "hint": "how many (after the noun)",
-          "display_order": 2
-        },
-        {
-          "sentence": "Ó ní ọkọ̀ {{answer}}.",
-          "answer": "kan",
-          "translation": "He has one car.",
-          "hint": "one (after the noun)",
-          "display_order": 3
-        },
-        {
-          "sentence": "Ọjọ́ {{answer}} ni ọ̀sẹ̀ kan.",
-          "answer": "méje",
-          "translation": "One week is seven days.",
-          "hint": "seven (after the noun)",
-          "display_order": 4
-        },
-        {
-          "sentence": "A rí ẹyẹ {{answer}} lórí igi.",
-          "answer": "mẹ́ta",
-          "translation": "We saw three birds on the tree.",
-          "hint": "three (after the noun)",
-          "display_order": 5
-        },
-        {
-          "sentence": "Ó gbé ibẹ̀ fún ọdún {{answer}}.",
-          "answer": "márùn-ún",
-          "translation": "He lived there for five years.",
-          "hint": "five (after the noun)",
-          "display_order": 6
-        }
-      ]
-    },
-    {
-      "title": "Making nouns: olù-, oní-/alá-, ì-",
-      "level": "B2",
-      "display_order": 5,
-      "function": "Build people-words and idea-words from verbs and nouns",
-      "explanation": "Olù- makes agents (olùkọ́ teacher ← kọ́ teach); oní- makes owners/sellers and assimilates hard (oní + ata → aláta pepper seller, oní + aṣọ → aláṣọ cloth seller); ì- makes action nouns (ìdùnnú joy ← dùn, ìbéèrè question ← béèrè); a- makes doers (akọrin singer).",
-      "culture_note": "",
-      "source": "contributor",
-      "reviewed": false,
-      "references": [
-        {
-          "title": "Wikipedia: Yoruba language",
-          "url": "https://en.wikipedia.org/wiki/Yoruba_language"
-        }
-      ],
-      "drills": [
-        {
-          "sentence": "{{answer}} wa kọ́ wa ní èdè Gẹ̀ẹ́sì.",
-          "answer": "Olùkọ́",
-          "translation": "Our teacher teaches us English.",
-          "hint": "teach + the agent prefix",
-          "display_order": 1
-        },
-        {
-          "sentence": "Mo ra ata lọ́wọ́ {{answer}}.",
-          "answer": "aláta",
-          "translation": "I bought pepper from the pepper seller.",
-          "hint": "pepper + the owner/seller prefix (assimilated)",
-          "display_order": 2
-        },
-        {
-          "sentence": "{{answer}} ta aṣọ tuntun.",
-          "answer": "Aláṣọ",
-          "translation": "The cloth seller sells new cloth.",
-          "hint": "cloth + the owner/seller prefix (assimilated)",
-          "display_order": 3
-        },
-        {
-          "sentence": "Inú mi dùn; {{answer}} mi pọ̀.",
-          "answer": "ìdùnnú",
-          "translation": "I am happy; my joy is great.",
-          "hint": "be-sweet + the action-noun prefix",
-          "display_order": 4
-        },
-        {
-          "sentence": "Ó bi mí ní {{answer}} kan.",
-          "answer": "ìbéèrè",
-          "translation": "He asked me a question.",
-          "hint": "to ask + the action-noun prefix",
-          "display_order": 5
-        },
-        {
-          "sentence": "{{answer}} náà ní ohùn tó dára.",
-          "answer": "Akọrin",
-          "translation": "The singer has a good voice.",
-          "hint": "sing-song + the doer prefix",
-          "display_order": 6
-        }
-      ]
-    },
-    {
-      "title": "Serial verbs with fi and fún",
-      "level": "B2",
-      "display_order": 6,
-      "function": "Say with-what and for-whom inside the verb chain",
-      "explanation": "Fi (take) smuggles an instrument into the chain: ó fi ọ̀bẹ gé ẹran (he took-knife cut meat = cut it with a knife). Fún (give) marks the beneficiary: ra ìwé fún mi (buy a book for me); fi X fún Y hands X over to Y.",
-      "culture_note": "",
-      "source": "contributor",
-      "reviewed": false,
-      "references": [
-        {
-          "title": "Wikipedia: Yoruba language",
-          "url": "https://en.wikipedia.org/wiki/Yoruba_language"
-        }
-      ],
-      "drills": [
-        {
-          "sentence": "Ó {{answer}} ọ̀bẹ gé ẹran.",
-          "answer": "fi",
-          "translation": "He cut the meat with a knife.",
-          "hint": "the take/with serial verb",
-          "display_order": 1
-        },
-        {
-          "sentence": "Ra oúnjẹ {{answer}} mi.",
-          "answer": "fún",
-          "translation": "Buy food for me.",
-          "hint": "the give/for serial verb",
-          "display_order": 2
-        },
-        {
-          "sentence": "Ó fi owó {{answer}} ọmọ náà.",
-          "answer": "fún",
-          "translation": "He gave the child money.",
-          "hint": "the give/for serial verb",
-          "display_order": 3
-        },
-        {
-          "sentence": "Mo {{answer}} gèlè wé orí.",
-          "answer": "fi",
-          "translation": "I tied a headscarf on my head.",
-          "hint": "the take/with serial verb",
-          "display_order": 4
-        },
-        {
-          "sentence": "Wọ́n {{answer}} ayọ̀ gba ìròyìn náà.",
-          "answer": "fi",
-          "translation": "They received the news with joy.",
-          "hint": "the take/with serial verb",
-          "display_order": 5
-        },
-        {
-          "sentence": "Ṣe iṣẹ́ yìí {{answer}} bàbá rẹ.",
-          "answer": "fún",
-          "translation": "Do this work for your father.",
-          "hint": "the give/for serial verb",
-          "display_order": 6
-        }
-      ]
-    },
-    {
-      "title": "Time clauses: nígbà tí, lẹ́yìn tí, kí … tó",
-      "level": "B2",
-      "display_order": 7,
-      "function": "Anchor events before, after, and when",
-      "explanation": "Nígbà tí opens 'when'-clauses (nígbà tí mo dé — when I arrived), lẹ́yìn tí 'after', and kí … tó 'before' (kí o tó lọ — before you go). All lean on the tí you know from relative clauses.",
-      "culture_note": "",
-      "source": "contributor",
-      "reviewed": false,
-      "references": [
-        {
-          "title": "Wikipedia: Yoruba language",
-          "url": "https://en.wikipedia.org/wiki/Yoruba_language"
-        }
-      ],
-      "drills": [
-        {
-          "sentence": "{{answer}} tí mo dé, òjò ń rọ̀.",
-          "answer": "Nígbà",
-          "translation": "When I arrived, it was raining.",
-          "hint": "opens the when-clause",
-          "display_order": 1
-        },
-        {
-          "sentence": "Nígbà {{answer}} ó jí, oòrùn ti yọ.",
-          "answer": "tí",
-          "translation": "When he woke, the sun had already risen.",
-          "hint": "the clause linker after nígbà",
-          "display_order": 2
-        },
-        {
-          "sentence": "A jẹun {{answer}} tí a parí iṣẹ́.",
-          "answer": "lẹ́yìn",
-          "translation": "We ate after we finished the work.",
-          "hint": "opens the after-clause",
-          "display_order": 3
-        },
-        {
-          "sentence": "{{answer}} o tó lọ, pa iná.",
-          "answer": "Kí",
-          "translation": "Before you go, turn off the light.",
-          "hint": "opens the before-frame (pairs with tó)",
-          "display_order": 4
-        },
-        {
-          "sentence": "Ó sùn {{answer}} tí ó jẹun tán.",
-          "answer": "lẹ́yìn",
-          "translation": "He slept after he finished eating.",
-          "hint": "opens the after-clause",
-          "display_order": 5
-        },
-        {
-          "sentence": "Kí ilẹ̀ {{answer}} ṣú, ẹ padà sílé.",
-          "answer": "tó",
-          "translation": "Before it gets dark, come back home.",
-          "hint": "closes the before-frame (pairs with kí)",
-          "display_order": 6
-        }
-      ]
-    },
-    {
-      "title": "Chaining clauses with sì (and then)",
-      "level": "C1",
-      "display_order": 3,
-      "function": "String actions into a flowing narrative",
-      "explanation": "Sì links same-subject clauses, sitting AFTER the subject of the second clause: ó dé ilé, ó sì jókòó (he got home and sat down). In commands it rides inside the kí clause: jókòó, kí o sì gbọ́.",
-      "culture_note": "",
-      "source": "contributor",
-      "reviewed": false,
-      "references": [
-        {
-          "title": "Wikipedia: Yoruba language",
-          "url": "https://en.wikipedia.org/wiki/Yoruba_language"
-        }
-      ],
-      "drills": [
-        {
-          "sentence": "Ó dé ilé, ó {{answer}} jókòó.",
-          "answer": "sì",
-          "translation": "He arrived home and sat down.",
-          "hint": "the and-then linker (after the subject)",
-          "display_order": 1
-        },
-        {
-          "sentence": "Mo ra ìwé, mo {{answer}} kà á.",
-          "answer": "sì",
-          "translation": "I bought a book and read it.",
-          "hint": "the and-then linker (after the subject)",
-          "display_order": 2
-        },
-        {
-          "sentence": "Wọ́n jẹun, wọ́n {{answer}} sùn.",
-          "answer": "sì",
-          "translation": "They ate and went to sleep.",
-          "hint": "the and-then linker (after the subject)",
-          "display_order": 3
-        },
-        {
-          "sentence": "Ó ṣí ilẹ̀kùn, ó {{answer}} wọlé.",
-          "answer": "sì",
-          "translation": "She opened the door and entered.",
-          "hint": "the and-then linker (after the subject)",
-          "display_order": 4
-        },
-        {
-          "sentence": "Jókòó, kí o {{answer}} gbọ́ mi.",
-          "answer": "sì",
-          "translation": "Sit down and listen to me.",
-          "hint": "the and-then linker (after the subject)",
-          "display_order": 5
-        },
-        {
-          "sentence": "Ó kàwé dáadáa, ó {{answer}} yege.",
-          "answer": "sì",
-          "translation": "She studied well and passed.",
-          "hint": "the and-then linker (after the subject)",
-          "display_order": 6
-        }
-      ]
-    },
-    {
-      "title": "Reduplication: jíjẹ, kíkà, kíákíá",
-      "level": "C1",
-      "display_order": 4,
-      "function": "Turn verbs into gerunds and dial up adverbs",
-      "explanation": "Doubling the verb's first consonant + í makes a gerund: jẹ eat → jíjẹ eating, kà read → kíkà reading, rà buy → rírà buying. Whole-word doubling intensifies adverbs: kíákíá quickly, díẹ̀díẹ̀ little by little, pẹ̀lẹ́pẹ̀lẹ́ gently.",
-      "culture_note": "",
-      "source": "contributor",
-      "reviewed": false,
-      "references": [
-        {
-          "title": "Wikipedia: Yoruba language",
-          "url": "https://en.wikipedia.org/wiki/Yoruba_language"
-        }
-      ],
-      "drills": [
-        {
-          "sentence": "{{answer}} oúnjẹ tó dára ṣe pàtàkì.",
-          "answer": "Jíjẹ",
-          "translation": "Eating good food is important.",
-          "hint": "to eat + the gerund doubling",
-          "display_order": 1
-        },
-        {
-          "sentence": "{{answer}} ìwé dára fún ọmọdé.",
-          "answer": "Kíkà",
-          "translation": "Reading books is good for children.",
-          "hint": "to read + the gerund doubling",
-          "display_order": 2
-        },
-        {
-          "sentence": "Wá {{answer}}!",
-          "answer": "kíákíá",
-          "translation": "Come quickly!",
-          "hint": "quickly — doubled for urgency",
-          "display_order": 3
-        },
-        {
-          "sentence": "Ó ń rìn {{answer}}.",
-          "answer": "pẹ̀lẹ́pẹ̀lẹ́",
-          "translation": "She walks gently.",
-          "hint": "gently — doubled softness",
-          "display_order": 4
-        },
-        {
-          "sentence": "Owó ń wọlé {{answer}}.",
-          "answer": "díẹ̀díẹ̀",
-          "translation": "Money comes in little by little.",
-          "hint": "little by little — doubled 'small'",
-          "display_order": 5
-        },
-        {
-          "sentence": "{{answer}} ilé ń ná owó púpọ̀.",
-          "answer": "Rírà",
-          "translation": "Buying a house costs a lot of money.",
-          "hint": "to buy + the gerund doubling",
-          "display_order": 6
-        }
-      ]
-    },
-    {
-      "title": "Ideophonic intensifiers (láúláú, roro)",
-      "level": "C1",
-      "display_order": 5,
-      "function": "Intensify like a native — each word has its own superlative",
-      "explanation": "Yoruba doesn't say 'very white'; each quality owns a dedicated ideophone: funfun láúláú (spotlessly white), dúdú kirikiri (jet black), pupa roro (glowing red), tutù nini (ice-cold), kún fọ́fọ́ (full to the brim), gbóná janjan (piping hot). The pairs are fixed — swapping them sounds absurd.",
-      "culture_note": "Ideophones are where Yoruba paints: the sound IS the meaning. Regional spellings vary — a native reviewer should confirm local forms.",
-      "source": "contributor",
-      "reviewed": false,
-      "references": [
-        {
-          "title": "Wikipedia: Yoruba language",
-          "url": "https://en.wikipedia.org/wiki/Yoruba_language"
-        }
-      ],
-      "drills": [
-        {
-          "sentence": "Aṣọ náà funfun {{answer}}.",
-          "answer": "láúláú",
-          "translation": "The cloth is spotlessly white.",
-          "hint": "the whiteness ideophone",
-          "display_order": 1
-        },
-        {
-          "sentence": "Irun rẹ̀ dúdú {{answer}}.",
-          "answer": "kirikiri",
-          "translation": "Her hair is jet black.",
-          "hint": "the blackness ideophone",
-          "display_order": 2
-        },
-        {
-          "sentence": "Aṣọ ìyàwó náà pupa {{answer}}.",
-          "answer": "roro",
-          "translation": "The bride's outfit is a glowing red.",
-          "hint": "the redness ideophone",
-          "display_order": 3
-        },
-        {
-          "sentence": "Omi náà tutù {{answer}}.",
-          "answer": "nini",
-          "translation": "The water is ice-cold.",
-          "hint": "the coldness ideophone",
-          "display_order": 4
-        },
-        {
-          "sentence": "Àpò náà kún {{answer}}.",
-          "answer": "fọ́fọ́",
-          "translation": "The bag is full to the brim.",
-          "hint": "the fullness ideophone",
-          "display_order": 5
-        },
-        {
-          "sentence": "Ọbẹ̀ náà gbóná {{answer}}.",
-          "answer": "janjan",
-          "translation": "The soup is piping hot.",
-          "hint": "the hotness ideophone",
-          "display_order": 6
-        }
-      ]
-    },
-    {
-      "title": "How-clauses with bí … ṣe",
-      "level": "C1",
-      "display_order": 6,
-      "function": "Talk about the way something happens",
-      "explanation": "Bí + subject + ṣe + verb = 'how/the way that': bí mo ṣe rí i (how I saw it), ṣàlàyé bí ẹ̀rọ náà ṣe ń ṣiṣẹ́ (explain how the machine works). Mind the tones: ṣe (do) is the frame; sè (cook) just sounds close.",
-      "culture_note": "",
-      "source": "contributor",
-      "reviewed": false,
-      "references": [
-        {
-          "title": "Wikipedia: Yoruba language",
-          "url": "https://en.wikipedia.org/wiki/Yoruba_language"
-        }
-      ],
-      "drills": [
-        {
-          "sentence": "Èyí ni bí mo {{answer}} rí i.",
-          "answer": "ṣe",
-          "translation": "This is how I saw it.",
-          "hint": "the manner-frame verb after the subject",
-          "display_order": 1
-        },
-        {
-          "sentence": "Èyí ni {{answer}} mo ṣe rí i.",
-          "answer": "bí",
-          "translation": "This is how I saw it.",
-          "hint": "opens the how-frame",
-          "display_order": 2
-        },
-        {
-          "sentence": "Ṣàlàyé bí ẹ̀rọ náà {{answer}} ń ṣiṣẹ́.",
-          "answer": "ṣe",
-          "translation": "Explain how the machine works.",
-          "hint": "the manner-frame verb after the subject",
-          "display_order": 3
-        },
-        {
-          "sentence": "Mo fẹ́ mọ bí o ṣe {{answer}} oúnjẹ yìí.",
-          "answer": "sè",
-          "translation": "I want to know how you cooked this food.",
-          "hint": "to cook — low tone, not the frame verb",
-          "display_order": 4
-        },
-        {
-          "sentence": "Wo bí ọmọ náà {{answer}} ń sáré!",
-          "answer": "ṣe",
-          "translation": "Look how the child runs!",
-          "hint": "the manner-frame verb after the subject",
-          "display_order": 5
-        },
-        {
-          "sentence": "Mo gbàgbé bí wọ́n {{answer}} pè é.",
-          "answer": "ṣe",
-          "translation": "I forget how they pronounce it.",
-          "hint": "the manner-frame verb after the subject",
-          "display_order": 6
-        }
-      ]
-    },
-    {
-      "title": "Òwe — proverbs, the horses of speech",
-      "level": "C2",
-      "display_order": 1,
-      "function": "Cap an argument the way elders do",
-      "explanation": "Òwe ni ẹṣin ọ̀rọ̀ — proverbs are the horses of speech: when talk gets lost, a proverb carries it home. They compress the grammar you know (habituals, focus, parallel clauses) into fixed wisdom, and quoting the right one grants instant authority.",
-      "culture_note": "Introducing one with 'àwọn àgbà á máa sọ pé…' (the elders say…) is the polite frame for quoting òwe.",
-      "source": "contributor",
-      "reviewed": false,
-      "references": [
-        {
-          "title": "Wikipedia: Yoruba language",
-          "url": "https://en.wikipedia.org/wiki/Yoruba_language"
-        },
-        {
-          "title": "Wikiquote: Yoruba proverbs",
-          "url": "https://en.wikiquote.org/wiki/Yoruba_proverbs"
-        }
-      ],
-      "drills": [
-        {
-          "sentence": "Òwe ni ẹṣin {{answer}}.",
-          "answer": "ọ̀rọ̀",
-          "translation": "Proverbs are the horses of speech.",
-          "hint": "speech/words — what the horses carry",
-          "display_order": 1
-        },
-        {
-          "sentence": "Bí ọmọdé bá ṣubú, á wo iwájú; bí àgbà bá ṣubú, á wo {{answer}}.",
-          "answer": "ẹ̀yìn",
-          "translation": "When a child falls he looks ahead; when an elder falls he looks back.",
-          "hint": "the back/behind — what elders check",
-          "display_order": 2
-        },
-        {
-          "sentence": "Ọwọ́ ọmọdé kò tó pẹpẹ, ti àgbàlagbà kò wọ {{answer}}.",
-          "answer": "akèrègbè",
-          "translation": "A child's hand can't reach the shelf; an elder's can't enter the gourd.",
-          "hint": "the narrow-necked gourd",
-          "display_order": 3
-        },
-        {
-          "sentence": "Ẹnu àgbà ni obì ti ń {{answer}}.",
-          "answer": "gbó",
-          "translation": "It is in the elder's mouth that the kola nut ripens.",
-          "hint": "to ripen — wisdom matures with age",
-          "display_order": 4
-        },
-        {
-          "sentence": "Ọjọ́ gbogbo ni ti olè, ọjọ́ kan ni ti {{answer}}.",
-          "answer": "olóhun",
-          "translation": "Every day belongs to the thief, one day belongs to the owner.",
-          "hint": "the owner (of the thing) — oní- word",
-          "display_order": 5
-        },
-        {
-          "sentence": "Àgbà kì í wà lọ́jà kí orí ọmọ tuntun {{answer}}.",
-          "answer": "wọ́",
-          "translation": "An elder cannot be in the market and let the newborn's head hang askew.",
-          "hint": "to tilt/hang crooked",
-          "display_order": 6
-        }
-      ]
-    },
-    {
-      "title": "Respect register: ẹ and ẹ̀yin",
-      "level": "C2",
-      "display_order": 2,
-      "function": "Address elders the way Yoruba demands",
-      "explanation": "Elders and superiors take the plural: the pronoun ẹ̀yin/ẹ replaces o even for ONE person — Ẹ káàárọ̀ (good morning, ma/sir), Ẹ jọ̀wọ́ (please), Ẹ ṣeun (thank you). Greetings are an art: Ẹ kú iṣẹ́ salutes someone at work, Ẹ káàbọ̀ welcomes an arrival.",
-      "culture_note": "Using bare 'o' with an elder is not casual, it's insolent. Greeting protocol (kú + situation: ẹ kú ìjókòó, ẹ kú àtijọ́…) is a register of its own.",
-      "source": "contributor",
-      "reviewed": false,
-      "references": [
-        {
-          "title": "Wikipedia: Yoruba language",
-          "url": "https://en.wikipedia.org/wiki/Yoruba_language"
-        }
-      ],
-      "drills": [
-        {
-          "sentence": "'Ẹ {{answer}}, mà!' ọmọ náà kí ìyá àgbà.",
-          "answer": "káàárọ̀",
-          "translation": "'Good morning, ma!' the child greeted the old woman.",
-          "hint": "the morning greeting (with respectful ẹ)",
-          "display_order": 1
-        },
-        {
-          "sentence": "{{answer}} fẹ́ omi, bàbá?",
-          "answer": "Ẹ",
-          "translation": "Would you (respectfully) like water, father?",
-          "hint": "the respectful you-plural marker",
-          "display_order": 2
-        },
-        {
-          "sentence": "Ẹ kú {{answer}}, bàbá.",
-          "answer": "iṣẹ́",
-          "translation": "Well done with your work, father.",
-          "hint": "work — the thing being saluted",
-          "display_order": 3
-        },
-        {
-          "sentence": "{{answer}} ṣeun gan-an, mà.",
-          "answer": "Ẹ",
-          "translation": "Thank you very much, ma.",
-          "hint": "the respectful you-plural marker",
-          "display_order": 4
-        },
-        {
-          "sentence": "{{answer}} ni yóò kọ́ wa lẹ́kọ̀ọ́ lónìí.",
-          "answer": "Ẹ̀yin",
-          "translation": "YOU (respected one) will teach us today.",
-          "hint": "the full respectful you-pronoun, focused",
-          "display_order": 5
-        },
-        {
-          "sentence": "Ẹ {{answer}} sí ilé wa, sà.",
-          "answer": "káàbọ̀",
-          "translation": "Welcome to our home, sir.",
-          "hint": "the arrival greeting (with respectful ẹ)",
-          "display_order": 6
-        }
-      ]
-    },
-    {
-      "title": "Discourse particles (o, ná, ṣebí, gan-an)",
-      "level": "C2",
-      "display_order": 3,
-      "function": "Add the warmth and edge writing can't show",
-      "explanation": "Sentence-final o adds warmth or urgency (ó dàbọ̀ o!); ná means 'first / for now' (dúró ná); ṣebí opens a 'surely…?' check; gan-an intensifies ('really'); tilẹ̀ adds 'even'. These particles carry the tone of voice — leave them out and you sound like a textbook.",
-      "culture_note": "",
-      "source": "contributor",
-      "reviewed": false,
-      "references": [
-        {
-          "title": "Wikipedia: Yoruba language",
-          "url": "https://en.wikipedia.org/wiki/Yoruba_language"
-        }
-      ],
-      "drills": [
-        {
-          "sentence": "Ó dàbọ̀ {{answer}}!",
-          "answer": "o",
-          "translation": "Goodbye o! (warm)",
-          "hint": "the warm sentence-final particle",
-          "display_order": 1
-        },
-        {
-          "sentence": "Dúró {{answer}}, mo ń bọ̀.",
-          "answer": "ná",
-          "translation": "Wait a moment, I'm coming.",
-          "hint": "the 'first / for now' particle",
-          "display_order": 2
-        },
-        {
-          "sentence": "{{answer}} o ti parí iṣẹ́ náà?",
-          "answer": "Ṣebí",
-          "translation": "Surely you've finished the work?",
-          "hint": "the 'isn't it that…?' opener",
-          "display_order": 3
-        },
-        {
-          "sentence": "Oúnjẹ náà dùn {{answer}}.",
-          "answer": "gan-an",
-          "translation": "The food is really delicious.",
-          "hint": "the 'really/very' intensifier",
-          "display_order": 4
-        },
-        {
-          "sentence": "Kò wá; kò {{answer}} ránṣẹ́.",
-          "answer": "tilẹ̀",
-          "translation": "He didn't come; he didn't even send word.",
-          "hint": "the 'even' particle",
-          "display_order": 5
-        },
-        {
-          "sentence": "Jókòó {{answer}}, kò sí wàhálà.",
-          "answer": "ṣáá",
-          "translation": "Just sit, there's no trouble.",
-          "hint": "the 'just / anyway' particle",
-          "display_order": 6
-        }
-      ]
+     "sentence": "{{answer}} lọ sí ọjà.",
+     "answer": "Ẹ",
+     "translation": "You (plural) went to the market.",
+     "hint": "you (plural)",
+     "display_order": 6
     }
-  ]
+   ]
+  },
+  {
+   "title": "Tones change meaning",
+   "level": "A1",
+   "function": "Hear and write the three tones",
+   "source": "contributor",
+   "reviewed": true,
+   "display_order": 2,
+   "explanation": "Yoruba has three tones: high (á), mid (a, unmarked), low (à) — and they distinguish words: ọkọ́ (hoe), ọkọ (husband), ọkọ̀ (vehicle).\n\nEvery syllable carries a tone; writing the marks is part of spelling, not decoration.",
+   "culture_note": "Talking drums imitate tone patterns — a drummer can 'speak' a proverb because tone carries that much meaning.",
+   "references": [
+    {
+     "title": "Live Lingua — free Yoruba courses (FSI/Peace Corps)",
+     "url": "https://www.livelingua.com/courses/yoruba"
+    },
+    {
+     "title": "Wikipedia: Yoruba language — grammar",
+     "url": "https://en.wikipedia.org/wiki/Yoruba_language#Grammar"
+    },
+    {
+     "title": "Wikipedia: Tone (linguistics)",
+     "url": "https://en.wikipedia.org/wiki/Tone_(linguistics)"
+    }
+   ],
+   "drills": [
+    {
+     "sentence": "Mo ní {{answer}} kan.",
+     "answer": "ọkọ̀",
+     "translation": "I have a vehicle.",
+     "hint": "vehicle — the low-tone twin",
+     "display_order": 1
+    },
+    {
+     "sentence": "{{answer}} mi wà ní ilé.",
+     "answer": "Ọkọ",
+     "translation": "My husband is at home.",
+     "hint": "husband — the mid-tone twin",
+     "display_order": 2
+    },
+    {
+     "sentence": "Mo fi {{answer}} ra oúnjẹ.",
+     "answer": "owó",
+     "translation": "I bought food with money.",
+     "hint": "money — mid-high tones",
+     "display_order": 3
+    },
+    {
+     "sentence": "Fọ {{answer}} rẹ kí o tó jẹun.",
+     "answer": "ọwọ́",
+     "translation": "Wash your hands before you eat.",
+     "hint": "hand — with subdot and high tone",
+     "display_order": 4
+    },
+    {
+     "sentence": "{{answer}} ọmọdé dùn.",
+     "answer": "Ìgbà",
+     "translation": "Childhood days are sweet.",
+     "hint": "time/season — low-low tones",
+     "display_order": 5
+    },
+    {
+     "sentence": "Mo ra {{answer}} tuntun lánàá.",
+     "answer": "ọkọ̀",
+     "translation": "I bought a new vehicle yesterday.",
+     "hint": "vehicle — the low-tone twin",
+     "display_order": 6
+    }
+   ]
+  },
+  {
+   "title": "The copulas ni and jẹ́",
+   "level": "A1",
+   "function": "Say what something is",
+   "source": "contributor",
+   "reviewed": true,
+   "display_order": 3,
+   "explanation": "Identity uses ni after the noun phrase: Olùkọ́ ni mí (I am a teacher — lit. teacher is me), Ta ni é? (Who are you?). Jẹ́ states category or profession before the noun: Mo jẹ́ olùkọ́ (I am a teacher).\n\nBoth are A1 essentials; ni also powers focus later.",
+   "culture_note": "",
+   "references": [
+    {
+     "title": "Live Lingua — free Yoruba courses (FSI/Peace Corps)",
+     "url": "https://www.livelingua.com/courses/yoruba"
+    },
+    {
+     "title": "Wikipedia: Yoruba language — grammar",
+     "url": "https://en.wikipedia.org/wiki/Yoruba_language#Grammar"
+    },
+    {
+     "title": "Wiktionary: jẹ́ (Yoruba)",
+     "url": "https://en.wiktionary.org/wiki/j%E1%BA%B9%CC%81#Yoruba"
+    }
+   ],
+   "drills": [
+    {
+     "sentence": "Mo {{answer}} olùkọ́.",
+     "answer": "jẹ́",
+     "translation": "I am a teacher.",
+     "hint": "the copula for professions and qualities",
+     "display_order": 1
+    },
+    {
+     "sentence": "Olùkọ́ {{answer}} mí.",
+     "answer": "ni",
+     "translation": "I am a teacher (it is a teacher that I am).",
+     "hint": "the copula for identifying",
+     "display_order": 2
+    },
+    {
+     "sentence": "Ó {{answer}} dókítà.",
+     "answer": "jẹ́",
+     "translation": "She is a doctor.",
+     "hint": "the copula for professions and qualities",
+     "display_order": 3
+    },
+    {
+     "sentence": "Èmi {{answer}} Adé.",
+     "answer": "ni",
+     "translation": "I am Ade.",
+     "hint": "the copula for identifying",
+     "display_order": 4
+    },
+    {
+     "sentence": "Wọ́n {{answer}} àgbẹ̀.",
+     "answer": "jẹ́",
+     "translation": "They are farmers.",
+     "hint": "the copula for professions and qualities",
+     "display_order": 5
+    },
+    {
+     "sentence": "Ta {{answer}} ìwọ?",
+     "answer": "ni",
+     "translation": "Who are you?",
+     "hint": "the copula for identifying",
+     "display_order": 6
+    }
+   ]
+  },
+  {
+   "title": "Location with wà and ní",
+   "level": "A1",
+   "function": "Say where people and things are",
+   "source": "contributor",
+   "reviewed": true,
+   "display_order": 4,
+   "explanation": "'Be located' is wà, and places take the preposition ní (sí for motion): Ó wà ní ilé (He is at home), Mo wà ní ọjà (I am at the market). With motion verbs: Mo lọ sí ilé-ìwé (I went to school).",
+   "culture_note": "",
+   "references": [
+    {
+     "title": "Live Lingua — free Yoruba courses (FSI/Peace Corps)",
+     "url": "https://www.livelingua.com/courses/yoruba"
+    },
+    {
+     "title": "Wikipedia: Yoruba language — grammar",
+     "url": "https://en.wikipedia.org/wiki/Yoruba_language#Grammar"
+    }
+   ],
+   "drills": [
+    {
+     "sentence": "Bàbá {{answer}} ní oko.",
+     "answer": "wà",
+     "translation": "Father is at the farm.",
+     "hint": "locational 'to be'",
+     "display_order": 1
+    },
+    {
+     "sentence": "Mo lọ {{answer}} ọjà.",
+     "answer": "sí",
+     "translation": "I went to the market.",
+     "hint": "direction preposition",
+     "display_order": 2
+    },
+    {
+     "sentence": "Màmá {{answer}} ní ilé.",
+     "answer": "wà",
+     "translation": "Mother is at home.",
+     "hint": "to be located",
+     "display_order": 3
+    },
+    {
+     "sentence": "Ìwé náà wà {{answer}} orí tábìlì.",
+     "answer": "ní",
+     "translation": "The book is on the table.",
+     "hint": "at/on",
+     "display_order": 4
+    },
+    {
+     "sentence": "A lọ {{answer}} ilé ìwé.",
+     "answer": "sí",
+     "translation": "We went to school.",
+     "hint": "motion towards",
+     "display_order": 5
+    },
+    {
+     "sentence": "Ọmọ náà {{answer}} ní ọjà.",
+     "answer": "wà",
+     "translation": "The child is at the market.",
+     "hint": "to be located",
+     "display_order": 6
+    }
+   ]
+  },
+  {
+   "title": "Negation with kò",
+   "level": "A1",
+   "function": "Say what is not so",
+   "source": "contributor",
+   "reviewed": true,
+   "display_order": 5,
+   "explanation": "Kò before the verb negates it: Kò lọ (He didn't go), Mi ò fẹ́ (I don't want — mo becomes mi and kò often shortens to ò after it). Negating wà uses sí: Kò sí ni ilé (He is not at home); 'there isn't' is kò sí.",
+   "culture_note": "",
+   "references": [
+    {
+     "title": "Live Lingua — free Yoruba courses (FSI/Peace Corps)",
+     "url": "https://www.livelingua.com/courses/yoruba"
+    },
+    {
+     "title": "Wikipedia: Yoruba language — grammar",
+     "url": "https://en.wikipedia.org/wiki/Yoruba_language#Grammar"
+    }
+   ],
+   "drills": [
+    {
+     "sentence": "Ó {{answer}} fẹ́ oúnjẹ.",
+     "answer": "kò",
+     "translation": "He does not want food.",
+     "hint": "negator before the verb",
+     "display_order": 1
+    },
+    {
+     "sentence": "{{answer}} sí omi.",
+     "answer": "Kò",
+     "translation": "There is no water.",
+     "hint": "'there is no' — negator + existence verb",
+     "display_order": 2
+    },
+    {
+     "sentence": "Wọ́n {{answer}} dé.",
+     "answer": "kò",
+     "translation": "They have not arrived.",
+     "hint": "negator before the verb",
+     "display_order": 3
+    },
+    {
+     "sentence": "Ọmọ náà {{answer}} sùn.",
+     "answer": "kò",
+     "translation": "The child did not sleep.",
+     "hint": "negator before the verb",
+     "display_order": 4
+    },
+    {
+     "sentence": "{{answer}} sí oúnjẹ ní ilé.",
+     "answer": "Kò",
+     "translation": "There is no food at home.",
+     "hint": "'there is no' — negator + existence verb",
+     "display_order": 5
+    },
+    {
+     "sentence": "Ó {{answer}} dára.",
+     "answer": "kò",
+     "translation": "It is not good.",
+     "hint": "negator before the verb",
+     "display_order": 6
+    }
+   ]
+  },
+  {
+   "title": "Progressive ń",
+   "level": "A1",
+   "function": "Say what is happening right now",
+   "source": "contributor",
+   "reviewed": true,
+   "display_order": 6,
+   "explanation": "The preverb ń (high tone, written with its own letter) makes the progressive: Mo ń lọ (I am going), Ó ń jẹun (She is eating), Wọ́n ń ṣiṣẹ́ (They are working).",
+   "culture_note": "",
+   "references": [
+    {
+     "title": "Live Lingua — free Yoruba courses (FSI/Peace Corps)",
+     "url": "https://www.livelingua.com/courses/yoruba"
+    },
+    {
+     "title": "Wikipedia: Yoruba language — grammar",
+     "url": "https://en.wikipedia.org/wiki/Yoruba_language#Grammar"
+    }
+   ],
+   "drills": [
+    {
+     "sentence": "Mo {{answer}} kàwé.",
+     "answer": "ń",
+     "translation": "I am reading.",
+     "hint": "progressive marker",
+     "display_order": 1
+    },
+    {
+     "sentence": "Ó ń {{answer}}.",
+     "answer": "jẹun",
+     "translation": "She is eating.",
+     "hint": "'eat (food)' after ń",
+     "display_order": 2
+    },
+    {
+     "sentence": "Wọ́n {{answer}} ṣiṣẹ́.",
+     "answer": "ń",
+     "translation": "They are working.",
+     "hint": "progressive marker",
+     "display_order": 3
+    },
+    {
+     "sentence": "Ọmọ náà ń {{answer}}.",
+     "answer": "sùn",
+     "translation": "The child is sleeping.",
+     "hint": "to sleep",
+     "display_order": 4
+    },
+    {
+     "sentence": "Mo ń {{answer}} oúnjẹ.",
+     "answer": "sè",
+     "translation": "I am cooking food.",
+     "hint": "to cook",
+     "display_order": 5
+    },
+    {
+     "sentence": "Bàbá {{answer}} ka ìwé.",
+     "answer": "ń",
+     "translation": "Father is reading a book.",
+     "hint": "progressive marker",
+     "display_order": 6
+    }
+   ]
+  },
+  {
+   "title": "Plural with àwọn",
+   "level": "A1",
+   "function": "Talk about more than one",
+   "source": "contributor",
+   "reviewed": true,
+   "display_order": 7,
+   "explanation": "Nouns don't change for number; put àwọn before the noun when plurality matters: ọmọ (child/children) → àwọn ọmọ (the children), àwọn olùkọ́ (the teachers).\n\nNumbers make àwọn unnecessary: ọmọ méjì (two children).",
+   "culture_note": "",
+   "references": [
+    {
+     "title": "Live Lingua — free Yoruba courses (FSI/Peace Corps)",
+     "url": "https://www.livelingua.com/courses/yoruba"
+    },
+    {
+     "title": "Wikipedia: Yoruba language — grammar",
+     "url": "https://en.wikipedia.org/wiki/Yoruba_language#Grammar"
+    }
+   ],
+   "drills": [
+    {
+     "sentence": "{{answer}} ọmọ ń ṣeré.",
+     "answer": "Àwọn",
+     "translation": "The children are playing.",
+     "hint": "plural marker",
+     "display_order": 1
+    },
+    {
+     "sentence": "Mo rí ọmọ {{answer}}.",
+     "answer": "méjì",
+     "translation": "I saw two children.",
+     "hint": "'two' after the noun",
+     "display_order": 2
+    },
+    {
+     "sentence": "Mo rí {{answer}} ọmọ ní ọjà.",
+     "answer": "àwọn",
+     "translation": "I saw the children at the market.",
+     "hint": "plural marker",
+     "display_order": 3
+    },
+    {
+     "sentence": "Ilé {{answer}} tóbi.",
+     "answer": "mẹ́ta",
+     "translation": "Three houses are big.",
+     "hint": "number follows the noun — three",
+     "display_order": 4
+    },
+    {
+     "sentence": "{{answer}} obìnrin ń ṣiṣẹ́.",
+     "answer": "Àwọn",
+     "translation": "The women are working.",
+     "hint": "plural marker",
+     "display_order": 5
+    },
+    {
+     "sentence": "Mo ní ìwé {{answer}}.",
+     "answer": "mẹ́rin",
+     "translation": "I have four books.",
+     "hint": "number follows the noun — four",
+     "display_order": 6
+    }
+   ]
+  },
+  {
+   "title": "Questions with ṣé and kí ni",
+   "level": "A1",
+   "function": "Ask yes/no and 'what' questions",
+   "source": "contributor",
+   "reviewed": true,
+   "display_order": 8,
+   "explanation": "Ṣé in front of a statement makes a yes/no question: Ṣé o fẹ́ omi? (Do you want water?). Content questions use kí ni (what), ta ni (who), níbo (where): Kí ni orúkọ rẹ? (What is your name?), Níbo lo ń lọ? (Where are you going?).",
+   "culture_note": "",
+   "references": [
+    {
+     "title": "Live Lingua — free Yoruba courses (FSI/Peace Corps)",
+     "url": "https://www.livelingua.com/courses/yoruba"
+    },
+    {
+     "title": "Wikipedia: Yoruba language — grammar",
+     "url": "https://en.wikipedia.org/wiki/Yoruba_language#Grammar"
+    }
+   ],
+   "drills": [
+    {
+     "sentence": "{{answer}} o fẹ́ omi?",
+     "answer": "Ṣé",
+     "translation": "Do you want water?",
+     "hint": "yes/no question opener",
+     "display_order": 1
+    },
+    {
+     "sentence": "{{answer}} ni orúkọ rẹ?",
+     "answer": "Kí",
+     "translation": "What is your name?",
+     "hint": "'what' — the first half",
+     "display_order": 2
+    },
+    {
+     "sentence": "{{answer}} o ti jẹun?",
+     "answer": "Ṣé",
+     "translation": "Have you eaten?",
+     "hint": "yes/no question",
+     "display_order": 3
+    },
+    {
+     "sentence": "{{answer}} ni èyí?",
+     "answer": "Kí",
+     "translation": "What is this?",
+     "hint": "'what' — the first half",
+     "display_order": 4
+    },
+    {
+     "sentence": "Níbo {{answer}} o ń lọ?",
+     "answer": "ni",
+     "translation": "Where are you going?",
+     "hint": "the copula that follows a question word",
+     "display_order": 5
+    },
+    {
+     "sentence": "{{answer}} ni ọmọ yẹn?",
+     "answer": "Ta",
+     "translation": "Who is that child?",
+     "hint": "who",
+     "display_order": 6
+    }
+   ]
+  },
+  {
+   "title": "Possession (mi, rẹ, rẹ̀ / ti)",
+   "level": "A1",
+   "function": "Say whose something is",
+   "source": "contributor",
+   "reviewed": true,
+   "display_order": 9,
+   "explanation": "Possessive pronouns follow the noun: ìwé mi (my book), ilé rẹ (your house), ọkọ̀ rẹ̀ (his/her vehicle), ilé wa (our house).\n\nBetween two nouns, possession is just order (or ti): ilé bàbá (father's house).",
+   "culture_note": "",
+   "references": [
+    {
+     "title": "Live Lingua — free Yoruba courses (FSI/Peace Corps)",
+     "url": "https://www.livelingua.com/courses/yoruba"
+    },
+    {
+     "title": "Wikipedia: Yoruba language — grammar",
+     "url": "https://en.wikipedia.org/wiki/Yoruba_language#Grammar"
+    }
+   ],
+   "drills": [
+    {
+     "sentence": "Ìwé {{answer}} wà níbí.",
+     "answer": "mi",
+     "translation": "My book is here.",
+     "hint": "'my' after the noun",
+     "display_order": 1
+    },
+    {
+     "sentence": "Ilé {{answer}} tóbi.",
+     "answer": "rẹ̀",
+     "translation": "His/her house is big.",
+     "hint": "'his/her' after the noun",
+     "display_order": 2
+    },
+    {
+     "sentence": "Ilé {{answer}} wà ní Èkó.",
+     "answer": "wa",
+     "translation": "Our house is in Lagos.",
+     "hint": "our",
+     "display_order": 3
+    },
+    {
+     "sentence": "Ìwé {{answer}} dà?",
+     "answer": "rẹ",
+     "translation": "Where is your book?",
+     "hint": "your (singular)",
+     "display_order": 4
+    },
+    {
+     "sentence": "Aṣọ {{answer}} dára.",
+     "answer": "wọn",
+     "translation": "Their clothes are nice.",
+     "hint": "their",
+     "display_order": 5
+    },
+    {
+     "sentence": "Ti {{answer}} ni ìwé yìí.",
+     "answer": "èmi",
+     "translation": "This book is mine.",
+     "hint": "emphatic possession — ti + pronoun",
+     "display_order": 6
+    }
+   ]
+  },
+  {
+   "title": "Perfect ti",
+   "level": "A2",
+   "function": "Say what has already happened",
+   "source": "contributor",
+   "reviewed": true,
+   "display_order": 1,
+   "explanation": "Ti before the verb marks completion: Mo ti jẹun (I have eaten), Ó ti lọ (She has already left), Wọ́n ti dé (They have arrived).\n\nWith kò it means 'not yet': Kò tíì dé (He hasn't arrived yet).",
+   "culture_note": "",
+   "references": [
+    {
+     "title": "Live Lingua — free Yoruba courses (FSI/Peace Corps)",
+     "url": "https://www.livelingua.com/courses/yoruba"
+    },
+    {
+     "title": "Wikipedia: Yoruba language — grammar",
+     "url": "https://en.wikipedia.org/wiki/Yoruba_language#Grammar"
+    }
+   ],
+   "drills": [
+    {
+     "sentence": "Mo {{answer}} jẹun.",
+     "answer": "ti",
+     "translation": "I have (already) eaten.",
+     "hint": "perfect marker",
+     "display_order": 1
+    },
+    {
+     "sentence": "Wọ́n {{answer}} dé.",
+     "answer": "ti",
+     "translation": "They have arrived.",
+     "hint": "perfect marker",
+     "display_order": 2
+    },
+    {
+     "sentence": "A {{answer}} parí iṣẹ́ náà.",
+     "answer": "ti",
+     "translation": "We have finished the work.",
+     "hint": "perfect marker",
+     "display_order": 3
+    },
+    {
+     "sentence": "Ọmọ náà {{answer}} jí.",
+     "answer": "ti",
+     "translation": "The child has woken up.",
+     "hint": "perfect marker",
+     "display_order": 4
+    },
+    {
+     "sentence": "Mo {{answer}} rí i.",
+     "answer": "ti",
+     "translation": "I have seen him.",
+     "hint": "perfect marker",
+     "display_order": 5
+    },
+    {
+     "sentence": "Bàbá {{answer}} dé láti oko.",
+     "answer": "ti",
+     "translation": "Father has arrived from the farm.",
+     "hint": "perfect marker",
+     "display_order": 6
+    }
+   ]
+  },
+  {
+   "title": "Future yóò / máa",
+   "level": "A2",
+   "function": "Say what will happen",
+   "source": "contributor",
+   "reviewed": true,
+   "display_order": 2,
+   "explanation": "Two future markers: yóò (with full pronouns: Ó yóò lọ → usually yó lọ) and máa, the everyday one: Mo máa lọ (I will go), A máa rìn (We will walk).\n\nNegative future uses kò ní í: Kò ní í lọ (He won't go).",
+   "culture_note": "",
+   "references": [
+    {
+     "title": "Live Lingua — free Yoruba courses (FSI/Peace Corps)",
+     "url": "https://www.livelingua.com/courses/yoruba"
+    },
+    {
+     "title": "Wikipedia: Yoruba language — grammar",
+     "url": "https://en.wikipedia.org/wiki/Yoruba_language#Grammar"
+    }
+   ],
+   "drills": [
+    {
+     "sentence": "Mo {{answer}} lọ ní ọ̀la.",
+     "answer": "máa",
+     "translation": "I will go tomorrow.",
+     "hint": "future — the everyday form",
+     "display_order": 1
+    },
+    {
+     "sentence": "Wọ́n {{answer}} wá.",
+     "answer": "máa",
+     "translation": "They will come.",
+     "hint": "future — the everyday form",
+     "display_order": 2
+    },
+    {
+     "sentence": "A {{answer}} jẹun ní ilé.",
+     "answer": "máa",
+     "translation": "We will eat at home.",
+     "hint": "future — the everyday form",
+     "display_order": 3
+    },
+    {
+     "sentence": "Ó {{answer}} wá ní ọ̀la.",
+     "answer": "yóò",
+     "translation": "He will come tomorrow.",
+     "hint": "future — the formal form",
+     "display_order": 4
+    },
+    {
+     "sentence": "Wọ́n {{answer}} kọ́ ilé tuntun.",
+     "answer": "yóò",
+     "translation": "They will build a new house.",
+     "hint": "future — the formal form",
+     "display_order": 5
+    },
+    {
+     "sentence": "Mo {{answer}} ra ọkọ̀ tuntun.",
+     "answer": "máa",
+     "translation": "I will buy a new vehicle.",
+     "hint": "future — the everyday form",
+     "display_order": 6
+    }
+   ]
+  },
+  {
+   "title": "Object pronouns",
+   "level": "A2",
+   "function": "Say who receives the action",
+   "source": "contributor",
+   "reviewed": true,
+   "display_order": 3,
+   "explanation": "Object pronouns follow the verb and copy its final vowel's tone pattern: rí mi (see me), rí ẹ (see you), rí i (see him/her/it — vowel echo), rí wa (see us), rí yín (see you all), rí wọn (see them).\n\nMo rí i (I saw him).",
+   "culture_note": "",
+   "references": [
+    {
+     "title": "Live Lingua — free Yoruba courses (FSI/Peace Corps)",
+     "url": "https://www.livelingua.com/courses/yoruba"
+    },
+    {
+     "title": "Wikipedia: Yoruba language — grammar",
+     "url": "https://en.wikipedia.org/wiki/Yoruba_language#Grammar"
+    }
+   ],
+   "drills": [
+    {
+     "sentence": "Mo rí {{answer}} ní ọjà.",
+     "answer": "i",
+     "translation": "I saw him/her at the market.",
+     "hint": "3rd person object (vowel echo)",
+     "display_order": 1
+    },
+    {
+     "sentence": "Wọ́n fẹ́ràn {{answer}}.",
+     "answer": "mi",
+     "translation": "They like me.",
+     "hint": "'me' after the verb",
+     "display_order": 2
+    },
+    {
+     "sentence": "Wọ́n rí {{answer}} ní ọjà.",
+     "answer": "wa",
+     "translation": "They saw us at the market.",
+     "hint": "us",
+     "display_order": 3
+    },
+    {
+     "sentence": "Mo pè {{answer}} lánàá.",
+     "answer": "ọ́",
+     "translation": "I called you yesterday.",
+     "hint": "you (singular) — high tone",
+     "display_order": 4
+    },
+    {
+     "sentence": "A fẹ́ràn {{answer}}.",
+     "answer": "yín",
+     "translation": "We love you (plural).",
+     "hint": "you (plural)",
+     "display_order": 5
+    },
+    {
+     "sentence": "Bàbá pè {{answer}}.",
+     "answer": "wọ́n",
+     "translation": "Father called them.",
+     "hint": "them",
+     "display_order": 6
+    }
+   ]
+  },
+  {
+   "title": "Adjectives are verbs (dára, tóbi)",
+   "level": "A2",
+   "function": "Describe qualities the Yoruba way",
+   "source": "contributor",
+   "reviewed": true,
+   "display_order": 4,
+   "explanation": "Most quality words are stative VERBS: Ó dára (It is good), Ilé tóbi (The house is big), Ó gùn (It is long) — no copula needed.\n\nBefore a noun they become participles or use relative tí: ilé ńlá (a big house), ilé tí ó dára (a house that is good).",
+   "culture_note": "",
+   "references": [
+    {
+     "title": "Live Lingua — free Yoruba courses (FSI/Peace Corps)",
+     "url": "https://www.livelingua.com/courses/yoruba"
+    },
+    {
+     "title": "Wikipedia: Yoruba language — grammar",
+     "url": "https://en.wikipedia.org/wiki/Yoruba_language#Grammar"
+    }
+   ],
+   "drills": [
+    {
+     "sentence": "Oúnjẹ yìí {{answer}}.",
+     "answer": "dára",
+     "translation": "This food is good.",
+     "hint": "quality word used as a verb",
+     "display_order": 1
+    },
+    {
+     "sentence": "Ilé náà {{answer}}.",
+     "answer": "tóbi",
+     "translation": "The house is big.",
+     "hint": "quality word used as a verb",
+     "display_order": 2
+    },
+    {
+     "sentence": "Omi náà {{answer}}.",
+     "answer": "tutù",
+     "translation": "The water is cold.",
+     "hint": "to be cold",
+     "display_order": 3
+    },
+    {
+     "sentence": "Ọmọ yìí {{answer}}.",
+     "answer": "ga",
+     "translation": "This child is tall.",
+     "hint": "to be tall",
+     "display_order": 4
+    },
+    {
+     "sentence": "Aṣọ rẹ {{answer}}.",
+     "answer": "mọ́",
+     "translation": "Your clothes are clean.",
+     "hint": "to be clean",
+     "display_order": 5
+    },
+    {
+     "sentence": "Ilé wa {{answer}}.",
+     "answer": "kéré",
+     "translation": "Our house is small.",
+     "hint": "to be small",
+     "display_order": 6
+    }
+   ]
+  },
+  {
+   "title": "Demonstratives yìí and yẹn",
+   "level": "A2",
+   "function": "Point out this one and that one",
+   "source": "contributor",
+   "reviewed": true,
+   "display_order": 5,
+   "explanation": "Yìí (this) and yẹn (that) follow the noun: ìwé yìí (this book), ọkùnrin yẹn (that man). Plural combines with àwọn: àwọn ìwé yìí (these books).\n\nNáà after a noun means 'the (aforementioned)': ilé náà (the house in question).",
+   "culture_note": "",
+   "references": [
+    {
+     "title": "Live Lingua — free Yoruba courses (FSI/Peace Corps)",
+     "url": "https://www.livelingua.com/courses/yoruba"
+    },
+    {
+     "title": "Wikipedia: Yoruba language — grammar",
+     "url": "https://en.wikipedia.org/wiki/Yoruba_language#Grammar"
+    }
+   ],
+   "drills": [
+    {
+     "sentence": "Ìwé {{answer}} dára.",
+     "answer": "yìí",
+     "translation": "This book is good.",
+     "hint": "'this' after the noun",
+     "display_order": 1
+    },
+    {
+     "sentence": "Ọkùnrin {{answer}} ga.",
+     "answer": "yẹn",
+     "translation": "That man is tall.",
+     "hint": "'that' after the noun",
+     "display_order": 2
+    },
+    {
+     "sentence": "Ọjà {{answer}} jìnnà.",
+     "answer": "yẹn",
+     "translation": "That market is far away.",
+     "hint": "that",
+     "display_order": 3
+    },
+    {
+     "sentence": "Aṣọ {{answer}} mọ́.",
+     "answer": "yìí",
+     "translation": "This cloth is clean.",
+     "hint": "this",
+     "display_order": 4
+    },
+    {
+     "sentence": "Ilé {{answer}} ga.",
+     "answer": "yẹn",
+     "translation": "That house is tall.",
+     "hint": "that",
+     "display_order": 5
+    },
+    {
+     "sentence": "Oúnjẹ {{answer}} dùn.",
+     "answer": "yìí",
+     "translation": "This food is delicious.",
+     "hint": "this",
+     "display_order": 6
+    }
+   ]
+  },
+  {
+   "title": "Imperatives and má (don't)",
+   "level": "A2",
+   "function": "Tell people to do and not to do",
+   "source": "contributor",
+   "reviewed": true,
+   "display_order": 6,
+   "explanation": "Commands are the bare verb: Wá! (Come!), Jókòó! (Sit down!). Politeness adds jọ̀wọ́ (please) or the plural ẹ: Ẹ jọ̀wọ́, ẹ wá (Please come).\n\nThe negative command is má (or má ṣe): Má lọ! (Don't go!).",
+   "culture_note": "",
+   "references": [
+    {
+     "title": "Live Lingua — free Yoruba courses (FSI/Peace Corps)",
+     "url": "https://www.livelingua.com/courses/yoruba"
+    },
+    {
+     "title": "Wikipedia: Yoruba language — grammar",
+     "url": "https://en.wikipedia.org/wiki/Yoruba_language#Grammar"
+    }
+   ],
+   "drills": [
+    {
+     "sentence": "{{answer}} síbí!",
+     "answer": "Wá",
+     "translation": "Come here!",
+     "hint": "bare-verb command",
+     "display_order": 1
+    },
+    {
+     "sentence": "{{answer}} lọ!",
+     "answer": "Má",
+     "translation": "Don't go!",
+     "hint": "negative command marker",
+     "display_order": 2
+    },
+    {
+     "sentence": "{{answer}} jẹun níbí!",
+     "answer": "Má",
+     "translation": "Don't eat here!",
+     "hint": "negative command",
+     "display_order": 3
+    },
+    {
+     "sentence": "{{answer}} oúnjẹ náà!",
+     "answer": "Jẹ",
+     "translation": "Eat the food!",
+     "hint": "to eat — bare verb",
+     "display_order": 4
+    },
+    {
+     "sentence": "{{answer}} ìwé rẹ!",
+     "answer": "Kà",
+     "translation": "Read your book!",
+     "hint": "to read — bare verb",
+     "display_order": 5
+    },
+    {
+     "sentence": "Má {{answer}}!",
+     "answer": "pariwo",
+     "translation": "Don't shout!",
+     "hint": "to make noise",
+     "display_order": 6
+    }
+   ]
+  },
+  {
+   "title": "Relative clauses with tí",
+   "level": "B1",
+   "function": "Describe things with 'who/that/which'",
+   "source": "contributor",
+   "reviewed": true,
+   "display_order": 1,
+   "explanation": "Tí introduces relative clauses: ọkùnrin tí ó wá (the man who came), ìwé tí mo rà (the book that I bought), oúnjẹ tí wọ́n sè (the food they cooked).\n\nInside the clause the normal pronouns stay.",
+   "culture_note": "",
+   "references": [
+    {
+     "title": "Live Lingua — free Yoruba courses (FSI/Peace Corps)",
+     "url": "https://www.livelingua.com/courses/yoruba"
+    },
+    {
+     "title": "Wikipedia: Yoruba language — grammar",
+     "url": "https://en.wikipedia.org/wiki/Yoruba_language#Grammar"
+    }
+   ],
+   "drills": [
+    {
+     "sentence": "Ọkùnrin {{answer}} ó wá jẹ́ olùkọ́.",
+     "answer": "tí",
+     "translation": "The man who came is a teacher.",
+     "hint": "relativizer",
+     "display_order": 1
+    },
+    {
+     "sentence": "Ìwé {{answer}} mo rà dára.",
+     "answer": "tí",
+     "translation": "The book that I bought is good.",
+     "hint": "relativizer",
+     "display_order": 2
+    },
+    {
+     "sentence": "Obìnrin {{answer}} ó ń ṣiṣẹ́ níbí dára.",
+     "answer": "tí",
+     "translation": "The woman who works here is good.",
+     "hint": "relative marker",
+     "display_order": 3
+    },
+    {
+     "sentence": "Oúnjẹ {{answer}} o sè dùn.",
+     "answer": "tí",
+     "translation": "The food that you cooked is delicious.",
+     "hint": "relative marker",
+     "display_order": 4
+    },
+    {
+     "sentence": "Ilé {{answer}} wọ́n kọ́ tóbi.",
+     "answer": "tí",
+     "translation": "The house that they built is big.",
+     "hint": "relative marker",
+     "display_order": 5
+    },
+    {
+     "sentence": "Ọmọ {{answer}} ó sùn ti jí.",
+     "answer": "tí",
+     "translation": "The child who was sleeping has woken up.",
+     "hint": "relative marker — high tone",
+     "display_order": 6
+    }
+   ]
+  },
+  {
+   "title": "Focus with ni",
+   "level": "B1",
+   "function": "Emphasize one part of the sentence",
+   "source": "contributor",
+   "reviewed": true,
+   "display_order": 2,
+   "explanation": "Moving a phrase to the front and adding ni focuses it: Adé ni ó lọ (It was Adé who went), Ọjà ni mo lọ (It's the market I went to), Àná ni wọ́n dé (It was yesterday they arrived).\n\nQuestion words use the same frame: Ta ni ó wá? (Who came?).",
+   "culture_note": "This ni-focus is everywhere in real speech — answers to questions almost always use it.",
+   "references": [
+    {
+     "title": "Live Lingua — free Yoruba courses (FSI/Peace Corps)",
+     "url": "https://www.livelingua.com/courses/yoruba"
+    },
+    {
+     "title": "Wikipedia: Yoruba language — grammar",
+     "url": "https://en.wikipedia.org/wiki/Yoruba_language#Grammar"
+    }
+   ],
+   "drills": [
+    {
+     "sentence": "Adé {{answer}} ó lọ.",
+     "answer": "ni",
+     "translation": "It was Adé who went.",
+     "hint": "focus marker after the fronted word",
+     "display_order": 1
+    },
+    {
+     "sentence": "Ọjà {{answer}} mo lọ.",
+     "answer": "ni",
+     "translation": "It is the market that I went to.",
+     "hint": "focus marker",
+     "display_order": 2
+    },
+    {
+     "sentence": "Èmi {{answer}} mo sè oúnjẹ.",
+     "answer": "ni",
+     "translation": "It was I who cooked the food.",
+     "hint": "focus marker",
+     "display_order": 3
+    },
+    {
+     "sentence": "Lánàá {{answer}} wọ́n dé.",
+     "answer": "ni",
+     "translation": "It was yesterday that they arrived.",
+     "hint": "focus marker",
+     "display_order": 4
+    },
+    {
+     "sentence": "Ìwé {{answer}} mo rà.",
+     "answer": "ni",
+     "translation": "It was a book that I bought.",
+     "hint": "focus marker",
+     "display_order": 5
+    },
+    {
+     "sentence": "Níbí {{answer}} a ń gbé.",
+     "answer": "ni",
+     "translation": "It is here that we live.",
+     "hint": "focus marker",
+     "display_order": 6
+    }
+   ]
+  },
+  {
+   "title": "Serial verbs",
+   "level": "B1",
+   "function": "Chain verbs to express one complex action",
+   "source": "contributor",
+   "reviewed": true,
+   "display_order": 3,
+   "explanation": "Yoruba stacks verbs without 'and': mú ìwé wá (take book come = bring the book), gbé e lọ (carry it go = take it away), ra oúnjẹ fún mi (buy food give me = buy food for me).\n\nEach verb keeps its own meaning; together they map one event.",
+   "culture_note": "",
+   "references": [
+    {
+     "title": "Live Lingua — free Yoruba courses (FSI/Peace Corps)",
+     "url": "https://www.livelingua.com/courses/yoruba"
+    },
+    {
+     "title": "Wikipedia: Yoruba language — grammar",
+     "url": "https://en.wikipedia.org/wiki/Yoruba_language#Grammar"
+    },
+    {
+     "title": "Wikipedia: Serial verb construction",
+     "url": "https://en.wikipedia.org/wiki/Serial_verb_construction"
+    }
+   ],
+   "drills": [
+    {
+     "sentence": "Mú ìwé {{answer}} fún mi.",
+     "answer": "wá",
+     "translation": "Bring me the book (take-book-come).",
+     "hint": "'come' completing 'bring'",
+     "display_order": 1
+    },
+    {
+     "sentence": "Ó gbé ẹrù {{answer}}.",
+     "answer": "lọ",
+     "translation": "He carried the load away (carry-go).",
+     "hint": "'go' completing 'take away'",
+     "display_order": 2
+    },
+    {
+     "sentence": "Gbé ìwé náà {{answer}} fún mi.",
+     "answer": "wá",
+     "translation": "Bring the book to me.",
+     "hint": "carry + come",
+     "display_order": 3
+    },
+    {
+     "sentence": "Ó sáré {{answer}} ilé.",
+     "answer": "lọ",
+     "translation": "He ran off home.",
+     "hint": "run + go",
+     "display_order": 4
+    },
+    {
+     "sentence": "Mo mú owó {{answer}} ọjà.",
+     "answer": "lọ",
+     "translation": "I took money to the market.",
+     "hint": "take + go",
+     "display_order": 5
+    },
+    {
+     "sentence": "Ó bù omi {{answer}} mi.",
+     "answer": "fún",
+     "translation": "She poured water for me.",
+     "hint": "pour + give",
+     "display_order": 6
+    }
+   ]
+  },
+  {
+   "title": "Conditionals with bí … bá",
+   "level": "B1",
+   "function": "Make 'if' sentences",
+   "source": "contributor",
+   "reviewed": true,
+   "display_order": 4,
+   "explanation": "Real conditions use bí (or tí) … bá: Bí o bá kàwé, wàá yege (If you study, you will pass), Bí òjò bá rọ̀, a ó dúró ní ilé (If it rains, we will stay home).\n\nBá sits right before the verb of the if-clause.",
+   "culture_note": "",
+   "references": [
+    {
+     "title": "Live Lingua — free Yoruba courses (FSI/Peace Corps)",
+     "url": "https://www.livelingua.com/courses/yoruba"
+    },
+    {
+     "title": "Wikipedia: Yoruba language — grammar",
+     "url": "https://en.wikipedia.org/wiki/Yoruba_language#Grammar"
+    }
+   ],
+   "drills": [
+    {
+     "sentence": "Bí o {{answer}} kàwé, wàá yege.",
+     "answer": "bá",
+     "translation": "If you study, you will pass.",
+     "hint": "the second half of the frame",
+     "display_order": 1
+    },
+    {
+     "sentence": "Bí òjò {{answer}} rọ̀, a ó dúró.",
+     "answer": "bá",
+     "translation": "If it rains, we will stay.",
+     "hint": "the second half of the frame",
+     "display_order": 2
+    },
+    {
+     "sentence": "Bí a {{answer}} ṣiṣẹ́, a ó rí owó.",
+     "answer": "bá",
+     "translation": "If we work, we will get money.",
+     "hint": "the second half of the frame",
+     "display_order": 3
+    },
+    {
+     "sentence": "{{answer}} o bá dé, pè mí.",
+     "answer": "Bí",
+     "translation": "When you arrive, call me.",
+     "hint": "the first half of the frame",
+     "display_order": 4
+    },
+    {
+     "sentence": "Bí ó bá {{answer}}, a ó lọ.",
+     "answer": "dé",
+     "translation": "If he arrives, we will go.",
+     "hint": "to arrive",
+     "display_order": 5
+    },
+    {
+     "sentence": "Bí wọ́n {{answer}} sùn, má pariwo.",
+     "answer": "bá",
+     "translation": "If they are asleep, don't make noise.",
+     "hint": "the second half of the frame",
+     "display_order": 6
+    }
+   ]
+  },
+  {
+   "title": "Comparatives with ju … lọ",
+   "level": "B1",
+   "function": "Compare people and things",
+   "source": "contributor",
+   "reviewed": true,
+   "display_order": 5,
+   "explanation": "Comparison wraps ju … lọ around the standard: Ó ga ju mí lọ (He is taller than me), Ilé yìí tóbi ju ilé yẹn lọ (This house is bigger than that one). The quality word itself never changes.",
+   "culture_note": "",
+   "references": [
+    {
+     "title": "Live Lingua — free Yoruba courses (FSI/Peace Corps)",
+     "url": "https://www.livelingua.com/courses/yoruba"
+    },
+    {
+     "title": "Wikipedia: Yoruba language — grammar",
+     "url": "https://en.wikipedia.org/wiki/Yoruba_language#Grammar"
+    }
+   ],
+   "drills": [
+    {
+     "sentence": "Ó ga {{answer}} mí lọ.",
+     "answer": "ju",
+     "translation": "He is taller than me.",
+     "hint": "'exceed' marker",
+     "display_order": 1
+    },
+    {
+     "sentence": "Ilé yìí tóbi ju ilé yẹn {{answer}}.",
+     "answer": "lọ",
+     "translation": "This house is bigger than that house.",
+     "hint": "the closing word of the comparison frame",
+     "display_order": 2
+    },
+    {
+     "sentence": "Adé ga ju Olú {{answer}}.",
+     "answer": "lọ",
+     "translation": "Ade is taller than Olu.",
+     "hint": "the closing word of the comparison frame",
+     "display_order": 3
+    },
+    {
+     "sentence": "Oúnjẹ yìí dùn {{answer}} tiwa lọ.",
+     "answer": "ju",
+     "translation": "This food is tastier than ours.",
+     "hint": "exceed",
+     "display_order": 4
+    },
+    {
+     "sentence": "Mo fẹ́ràn tii {{answer}} kọfí lọ.",
+     "answer": "ju",
+     "translation": "I like tea more than coffee.",
+     "hint": "exceed",
+     "display_order": 5
+    },
+    {
+     "sentence": "Ọkọ̀ yìí yára ju ti mi {{answer}}.",
+     "answer": "lọ",
+     "translation": "This vehicle is faster than mine.",
+     "hint": "the closing word of the comparison frame",
+     "display_order": 6
+    }
+   ]
+  },
+  {
+   "title": "Habitual máa ń",
+   "level": "B2",
+   "function": "Talk about routines",
+   "source": "contributor",
+   "reviewed": true,
+   "display_order": 1,
+   "explanation": "Máa ń (often written maa n) marks habits: Mo máa ń jí ní aago mẹ́fà (I usually wake at six), Wọ́n máa ń lọ sí ṣọ́ọ̀ṣì (They usually go to church). Negative habitual is kì í: Kì í mu ọtí (He doesn't (habitually) drink).",
+   "culture_note": "",
+   "references": [
+    {
+     "title": "Live Lingua — free Yoruba courses (FSI/Peace Corps)",
+     "url": "https://www.livelingua.com/courses/yoruba"
+    },
+    {
+     "title": "Wikipedia: Yoruba language — grammar",
+     "url": "https://en.wikipedia.org/wiki/Yoruba_language#Grammar"
+    }
+   ],
+   "drills": [
+    {
+     "sentence": "Mo {{answer}} ń jí ní aago mẹ́fà.",
+     "answer": "máa",
+     "translation": "I usually wake up at six o'clock.",
+     "hint": "habitual (with ń)",
+     "display_order": 1
+    },
+    {
+     "sentence": "Ó {{answer}} í mu ọtí.",
+     "answer": "kì",
+     "translation": "He does not (habitually) drink alcohol.",
+     "hint": "the negative habitual opener",
+     "display_order": 2
+    },
+    {
+     "sentence": "Wọ́n {{answer}} ń ṣiṣẹ́ ní ọjọ́ Sátidé.",
+     "answer": "máa",
+     "translation": "They usually work on Saturdays.",
+     "hint": "habitual — first part",
+     "display_order": 3
+    },
+    {
+     "sentence": "A máa {{answer}} jẹun ní aago méje.",
+     "answer": "ń",
+     "translation": "We usually eat at seven o'clock.",
+     "hint": "habitual — second part",
+     "display_order": 4
+    },
+    {
+     "sentence": "Ó {{answer}} í jí ní kùtùkùtù.",
+     "answer": "kì",
+     "translation": "He doesn't usually wake up early.",
+     "hint": "the negative habitual opener",
+     "display_order": 5
+    },
+    {
+     "sentence": "Màmá {{answer}} ń sè oúnjẹ ní alẹ́.",
+     "answer": "máa",
+     "translation": "Mother usually cooks in the evening.",
+     "hint": "habitual — first part",
+     "display_order": 6
+    }
+   ]
+  },
+  {
+   "title": "Reported speech with pé",
+   "level": "B2",
+   "function": "Report what people said and think",
+   "source": "contributor",
+   "reviewed": true,
+   "display_order": 2,
+   "explanation": "Pé introduces reported clauses after saying/thinking verbs: Ó sọ pé òun máa wá (He said that he would come), Mo mọ̀ pé o ti dé (I know that you have arrived). Note òun — the special third-person pronoun used inside reports to refer back to the speaker.",
+   "culture_note": "",
+   "references": [
+    {
+     "title": "Live Lingua — free Yoruba courses (FSI/Peace Corps)",
+     "url": "https://www.livelingua.com/courses/yoruba"
+    },
+    {
+     "title": "Wikipedia: Yoruba language — grammar",
+     "url": "https://en.wikipedia.org/wiki/Yoruba_language#Grammar"
+    }
+   ],
+   "drills": [
+    {
+     "sentence": "Ó sọ {{answer}} òun máa wá.",
+     "answer": "pé",
+     "translation": "He said that he would come.",
+     "hint": "'that' complementizer",
+     "display_order": 1
+    },
+    {
+     "sentence": "Mo mọ̀ {{answer}} o ti dé.",
+     "answer": "pé",
+     "translation": "I know that you have arrived.",
+     "hint": "'that' complementizer",
+     "display_order": 2
+    },
+    {
+     "sentence": "Ó rò {{answer}} mo ti lọ.",
+     "answer": "pé",
+     "translation": "He thought that I had gone.",
+     "hint": "that",
+     "display_order": 3
+    },
+    {
+     "sentence": "Wọ́n gbàgbọ́ {{answer}} òjò yóò rọ̀.",
+     "answer": "pé",
+     "translation": "They believe that it will rain.",
+     "hint": "that",
+     "display_order": 4
+    },
+    {
+     "sentence": "Mo gbọ́ {{answer}} o ṣàìsàn.",
+     "answer": "pé",
+     "translation": "I heard that you were ill.",
+     "hint": "that",
+     "display_order": 5
+    },
+    {
+     "sentence": "Ó sọ fún mi {{answer}} kí n dúró.",
+     "answer": "pé",
+     "translation": "He told me that I should wait.",
+     "hint": "that",
+     "display_order": 6
+    }
+   ]
+  },
+  {
+   "title": "Impersonal wọ́n (passive meaning)",
+   "level": "C1",
+   "function": "Say what 'is done' without a doer",
+   "source": "contributor",
+   "reviewed": true,
+   "display_order": 1,
+   "explanation": "Yoruba has no passive; impersonal wọ́n (they) covers it: Wọ́n ti kọ́ ilé náà (The house has been built — lit. they have built it), Wọ́n ń pè ọ́ (You are being called). Context, not form, signals the passive reading.",
+   "culture_note": "",
+   "references": [
+    {
+     "title": "Live Lingua — free Yoruba courses (FSI/Peace Corps)",
+     "url": "https://www.livelingua.com/courses/yoruba"
+    },
+    {
+     "title": "Wikipedia: Yoruba language — grammar",
+     "url": "https://en.wikipedia.org/wiki/Yoruba_language#Grammar"
+    }
+   ],
+   "drills": [
+    {
+     "sentence": "{{answer}} ti kọ́ ilé náà.",
+     "answer": "Wọ́n",
+     "translation": "The house has been built (lit. they have built it).",
+     "hint": "impersonal 'they'",
+     "display_order": 1
+    },
+    {
+     "sentence": "{{answer}} ń pè ọ́.",
+     "answer": "Wọ́n",
+     "translation": "You are being called (lit. they are calling you).",
+     "hint": "impersonal 'they'",
+     "display_order": 2
+    },
+    {
+     "sentence": "{{answer}} ta ilé náà.",
+     "answer": "Wọ́n",
+     "translation": "The house has been sold.",
+     "hint": "impersonal 'they'",
+     "display_order": 3
+    },
+    {
+     "sentence": "{{answer}} yóò ṣí ilé ìwé tuntun.",
+     "answer": "Wọ́n",
+     "translation": "A new school will be opened.",
+     "hint": "impersonal 'they'",
+     "display_order": 4
+    },
+    {
+     "sentence": "{{answer}} mú ọlọ́ṣà náà lánàá.",
+     "answer": "Wọ́n",
+     "translation": "The thief was caught yesterday.",
+     "hint": "impersonal 'they'",
+     "display_order": 5
+    },
+    {
+     "sentence": "{{answer}} ń kọ́ ọ̀nà tuntun.",
+     "answer": "Wọ́n",
+     "translation": "A new road is being built.",
+     "hint": "impersonal 'they'",
+     "display_order": 6
+    }
+   ]
+  },
+  {
+   "title": "Although: bí ó tilẹ̀ jẹ́ pé",
+   "level": "C1",
+   "function": "Concede a point and continue",
+   "source": "contributor",
+   "reviewed": true,
+   "display_order": 2,
+   "explanation": "The concessive frame bí ó tilẹ̀ jẹ́ pé … (even though …) sets up contrast: Bí ó tilẹ̀ jẹ́ pé òjò rọ̀, a lọ (Even though it rained, we went).\n\nA shorter alternative is síbẹ̀ (nevertheless) linking two clauses.",
+   "culture_note": "",
+   "references": [
+    {
+     "title": "Live Lingua — free Yoruba courses (FSI/Peace Corps)",
+     "url": "https://www.livelingua.com/courses/yoruba"
+    },
+    {
+     "title": "Wikipedia: Yoruba language — grammar",
+     "url": "https://en.wikipedia.org/wiki/Yoruba_language#Grammar"
+    }
+   ],
+   "drills": [
+    {
+     "sentence": "Bí ó {{answer}} jẹ́ pé òjò rọ̀, a lọ.",
+     "answer": "tilẹ̀",
+     "translation": "Even though it rained, we went.",
+     "hint": "the concessive particle",
+     "display_order": 1
+    },
+    {
+     "sentence": "Òjò rọ̀; {{answer}}, a lọ.",
+     "answer": "síbẹ̀",
+     "translation": "It rained; nevertheless, we went.",
+     "hint": "'nevertheless'",
+     "display_order": 2
+    },
+    {
+     "sentence": "Bí ó tilẹ̀ jẹ́ {{answer}} ó rẹ̀ mí, mo parí iṣẹ́.",
+     "answer": "pé",
+     "translation": "Although I was tired, I finished the work.",
+     "hint": "the closing word of the frame",
+     "display_order": 3
+    },
+    {
+     "sentence": "Bí ó {{answer}} jẹ́ pé kò sí owó, a rí oúnjẹ.",
+     "answer": "tilẹ̀",
+     "translation": "Although there was no money, we found food.",
+     "hint": "middle of the frame",
+     "display_order": 4
+    },
+    {
+     "sentence": "Ó ṣàìsàn; {{answer}}, ó lọ síbi iṣẹ́.",
+     "answer": "síbẹ̀",
+     "translation": "He was ill; nevertheless, he went to work.",
+     "hint": "nevertheless",
+     "display_order": 5
+    },
+    {
+     "sentence": "Bí ó tilẹ̀ {{answer}} pé ilé jìnnà, a rìn.",
+     "answer": "jẹ́",
+     "translation": "Although the house is far, we walked.",
+     "hint": "the copula inside the frame",
+     "display_order": 6
+    }
+   ]
+  },
+  {
+   "title": "Ní vs sí — at a place vs towards it",
+   "level": "B1",
+   "display_order": 6,
+   "function": "Say where something is vs where it's heading",
+   "explanation": "Ní marks a static location (ó wà ní ilé — he is at home); sí marks direction or a goal (ó lọ sí ọjà — he went to the market). Verbs of rest take ní, verbs of motion take sí — mixing them is the classic learner giveaway.",
+   "culture_note": "",
+   "source": "contributor",
+   "reviewed": false,
+   "references": [
+    {
+     "title": "Live Lingua — free Yoruba courses (FSI/Peace Corps)",
+     "url": "https://www.livelingua.com/courses/yoruba"
+    },
+    {
+     "title": "Wikipedia: Yoruba language",
+     "url": "https://en.wikipedia.org/wiki/Yoruba_language"
+    }
+   ],
+   "drills": [
+    {
+     "sentence": "Bàbá wà {{answer}} oko.",
+     "answer": "ní",
+     "translation": "Father is at the farm.",
+     "hint": "the at-rest place marker",
+     "display_order": 1
+    },
+    {
+     "sentence": "A ń lọ {{answer}} ọjà.",
+     "answer": "sí",
+     "translation": "We are going to the market.",
+     "hint": "the towards/motion marker",
+     "display_order": 2
+    },
+    {
+     "sentence": "Ó ń gbé {{answer}} Èkó.",
+     "answer": "ní",
+     "translation": "He lives in Lagos.",
+     "hint": "the at-rest place marker",
+     "display_order": 3
+    },
+    {
+     "sentence": "Wọ́n padà {{answer}} ilé.",
+     "answer": "sí",
+     "translation": "They returned home.",
+     "hint": "the towards/motion marker",
+     "display_order": 4
+    },
+    {
+     "sentence": "Ìwé náà wà {{answer}} orí tábìlì.",
+     "answer": "ní",
+     "translation": "The book is on the table.",
+     "hint": "the at-rest place marker",
+     "display_order": 5
+    },
+    {
+     "sentence": "Ó sáré {{answer}} ilé ìwé.",
+     "answer": "sí",
+     "translation": "He ran to school.",
+     "hint": "the towards/motion marker",
+     "display_order": 6
+    }
+   ]
+  },
+  {
+   "title": "Question words (ta ni, níbo, báwo, èló)",
+   "level": "B1",
+   "display_order": 7,
+   "function": "Ask about people, places, manner, price, time, and reasons",
+   "explanation": "Ta ni (who), níbo (where), báwo (how), èló (how much), nígbà wo (when), èéṣe/kí nìdí (why) — most pair with the focus ni you already know: Níbo ni o ń lọ? (where are you going?).",
+   "culture_note": "",
+   "source": "contributor",
+   "reviewed": false,
+   "references": [
+    {
+     "title": "Live Lingua — free Yoruba courses (FSI/Peace Corps)",
+     "url": "https://www.livelingua.com/courses/yoruba"
+    },
+    {
+     "title": "Wikipedia: Yoruba language",
+     "url": "https://en.wikipedia.org/wiki/Yoruba_language"
+    }
+   ],
+   "drills": [
+    {
+     "sentence": "{{answer}} ni ó kọ ìwé yìí?",
+     "answer": "Ta",
+     "translation": "Who wrote this book?",
+     "hint": "who — pairs with focus ni",
+     "cell": "ta",
+     "display_order": 1
+    },
+    {
+     "sentence": "{{answer}} ni o ń gbé?",
+     "answer": "Níbo",
+     "translation": "Where do you live?",
+     "hint": "where",
+     "cell": "níbo",
+     "display_order": 2
+    },
+    {
+     "sentence": "{{answer}} ni ẹja yìí?",
+     "answer": "Èló",
+     "translation": "How much is this fish?",
+     "hint": "how much (price)",
+     "cell": "èló",
+     "display_order": 3
+    },
+    {
+     "sentence": "{{answer}} ni ohun gbogbo?",
+     "answer": "Báwo",
+     "translation": "How is everything?",
+     "hint": "how",
+     "cell": "báwo",
+     "display_order": 4
+    },
+    {
+     "sentence": "Nígbà {{answer}} ni wọ́n dé?",
+     "answer": "wo",
+     "translation": "When did they arrive?",
+     "hint": "completes 'when' (which time)",
+     "cell": "nígbà wo",
+     "display_order": 5
+    },
+    {
+     "sentence": "{{answer}} tí o fi pẹ́?",
+     "answer": "Èéṣe",
+     "translation": "Why are you late?",
+     "hint": "why (pairs with tí)",
+     "cell": "èéṣe",
+     "display_order": 6
+    },
+    {
+     "sentence": "{{answer}} ni olùkọ́ yín?",
+     "answer": "Ta",
+     "translation": "Who is your (pl.) teacher?",
+     "hint": "who — pairs with focus ni",
+     "cell": "ta",
+     "display_order": 7
+    },
+    {
+     "sentence": "{{answer}} ni wọ́n ti ń ṣiṣẹ́?",
+     "answer": "Níbo",
+     "translation": "Where do they work?",
+     "hint": "where",
+     "cell": "níbo",
+     "display_order": 8
+    },
+    {
+     "sentence": "{{answer}} ni iṣẹ́ ń lọ?",
+     "answer": "Báwo",
+     "translation": "How is work going?",
+     "hint": "how",
+     "cell": "báwo",
+     "display_order": 9
+    },
+    {
+     "sentence": "{{answer}} ni bàtà yìí?",
+     "answer": "Èló",
+     "translation": "How much are these shoes?",
+     "hint": "how much (price)",
+     "cell": "èló",
+     "display_order": 10
+    },
+    {
+     "sentence": "Nígbà {{answer}} ni ẹ máa dé?",
+     "answer": "wo",
+     "translation": "When will you (pl.) arrive?",
+     "hint": "completes 'when' (which time)",
+     "cell": "nígbà wo",
+     "display_order": 11
+    },
+    {
+     "sentence": "{{answer}} tí kò fi wá?",
+     "answer": "Èéṣe",
+     "translation": "Why didn't he come?",
+     "hint": "why (pairs with tí)",
+     "cell": "èéṣe",
+     "display_order": 12
+    }
+   ],
+   "paradigm": [
+    "ta",
+    "níbo",
+    "báwo",
+    "èló",
+    "nígbà wo",
+    "èéṣe"
+   ]
+  },
+  {
+   "title": "Modals fẹ́, lè, gbọ́dọ̀ (want / can / must)",
+   "level": "B1",
+   "display_order": 8,
+   "function": "Add want-to, can, and must to any verb",
+   "explanation": "Fẹ́, lè, and gbọ́dọ̀ sit between the subject and the verb: mo fẹ́ jẹun (I want to eat), ó lè wẹ̀ (she can swim), o gbọ́dọ̀ lọ (you must go).\n\nNegation wraps around them: kò lè wá (he can't come).",
+   "culture_note": "",
+   "source": "contributor",
+   "reviewed": false,
+   "references": [
+    {
+     "title": "Live Lingua — free Yoruba courses (FSI/Peace Corps)",
+     "url": "https://www.livelingua.com/courses/yoruba"
+    },
+    {
+     "title": "Wikipedia: Yoruba language",
+     "url": "https://en.wikipedia.org/wiki/Yoruba_language"
+    }
+   ],
+   "drills": [
+    {
+     "sentence": "Mo {{answer}} jẹun báyìí.",
+     "answer": "fẹ́",
+     "translation": "I want to eat now.",
+     "hint": "want (to)",
+     "display_order": 1
+    },
+    {
+     "sentence": "Ó {{answer}} wẹ̀ dáadáa.",
+     "answer": "lè",
+     "translation": "She can swim well.",
+     "hint": "can / be able to",
+     "display_order": 2
+    },
+    {
+     "sentence": "O {{answer}} lọ sí ilé ìwé lónìí.",
+     "answer": "gbọ́dọ̀",
+     "translation": "You must go to school today.",
+     "hint": "must",
+     "display_order": 3
+    },
+    {
+     "sentence": "Kò {{answer}} wá lónìí.",
+     "answer": "lè",
+     "translation": "He cannot come today.",
+     "hint": "can — here under negation",
+     "display_order": 4
+    },
+    {
+     "sentence": "Wọ́n {{answer}} sùn ní kùtùkùtù.",
+     "answer": "fẹ́",
+     "translation": "They want to sleep early.",
+     "hint": "want (to)",
+     "display_order": 5
+    },
+    {
+     "sentence": "A {{answer}} ṣiṣẹ́ kára.",
+     "answer": "gbọ́dọ̀",
+     "translation": "We must work hard.",
+     "hint": "must",
+     "display_order": 6
+    }
+   ]
+  },
+  {
+   "title": "Láti + verb (to / in order to)",
+   "level": "B1",
+   "display_order": 9,
+   "function": "Chain a purpose or an infinitive onto a verb",
+   "explanation": "Láti turns a verb into 'to do X': mo wá láti kọ́ èdè Yorùbá (I came to learn Yoruba); ó ṣòro láti jí (it's hard to wake up). After fẹ́ it's optional — both mo fẹ́ lọ and mo fẹ́ láti lọ occur.",
+   "culture_note": "",
+   "source": "contributor",
+   "reviewed": false,
+   "references": [
+    {
+     "title": "Live Lingua — free Yoruba courses (FSI/Peace Corps)",
+     "url": "https://www.livelingua.com/courses/yoruba"
+    },
+    {
+     "title": "Wikipedia: Yoruba language",
+     "url": "https://en.wikipedia.org/wiki/Yoruba_language"
+    }
+   ],
+   "drills": [
+    {
+     "sentence": "Mo wá {{answer}} kọ́ èdè Yorùbá.",
+     "answer": "láti",
+     "translation": "I came to learn Yoruba.",
+     "hint": "the to/in-order-to linker",
+     "display_order": 1
+    },
+    {
+     "sentence": "Ó fẹ́ {{answer}} ra ilé tuntun.",
+     "answer": "láti",
+     "translation": "He wants to buy a new house.",
+     "hint": "the to/in-order-to linker",
+     "display_order": 2
+    },
+    {
+     "sentence": "Ó ṣòro {{answer}} jí ní kùtùkùtù.",
+     "answer": "láti",
+     "translation": "It is hard to wake up early.",
+     "hint": "the to/in-order-to linker",
+     "display_order": 3
+    },
+    {
+     "sentence": "Wọ́n dúró {{answer}} ràn wá lọ́wọ́.",
+     "answer": "láti",
+     "translation": "They stayed to help us.",
+     "hint": "the to/in-order-to linker",
+     "display_order": 4
+    },
+    {
+     "sentence": "Kò rọrùn {{answer}} kọ orin.",
+     "answer": "láti",
+     "translation": "It is not easy to write a song.",
+     "hint": "the to/in-order-to linker",
+     "display_order": 5
+    },
+    {
+     "sentence": "A jáde {{answer}} ra oúnjẹ.",
+     "answer": "láti",
+     "translation": "We went out to buy food.",
+     "hint": "the to/in-order-to linker",
+     "display_order": 6
+    }
+   ]
+  },
+  {
+   "title": "Kí clauses — wishes and indirect commands",
+   "level": "B2",
+   "display_order": 3,
+   "function": "Wish, bless, and tell people what should happen",
+   "explanation": "Kí opens a clause about what SHOULD happen: mo fẹ́ kí o wá (I want you to come), bàbá ní kí wọ́n jẹun (father said they should eat), kí ọjọ́ rẹ ó dára (may your day be good).\n\nIt's the engine of Yoruba blessings.",
+   "culture_note": "Yoruba life runs on kí-blessings: kí ọjọ́ ó dára, kí ọlọ́run ó ṣọ́ ẹ (may God guard you) — expect them at every parting.",
+   "source": "contributor",
+   "reviewed": false,
+   "references": [
+    {
+     "title": "Live Lingua — free Yoruba courses (FSI/Peace Corps)",
+     "url": "https://www.livelingua.com/courses/yoruba"
+    },
+    {
+     "title": "Wikipedia: Yoruba language",
+     "url": "https://en.wikipedia.org/wiki/Yoruba_language"
+    }
+   ],
+   "drills": [
+    {
+     "sentence": "Mo fẹ́ {{answer}} o wá ní àárọ̀.",
+     "answer": "kí",
+     "translation": "I want you to come in the morning.",
+     "hint": "the should/that opener",
+     "display_order": 1
+    },
+    {
+     "sentence": "Ó sọ pé {{answer}} a dúró.",
+     "answer": "kí",
+     "translation": "He said that we should wait.",
+     "hint": "the should/that opener",
+     "display_order": 2
+    },
+    {
+     "sentence": "{{answer}} ọjọ́ rẹ ó dára!",
+     "answer": "Kí",
+     "translation": "May your day be good!",
+     "hint": "the should/that opener — a blessing",
+     "display_order": 3
+    },
+    {
+     "sentence": "Bàbá ní kí wọ́n {{answer}} oúnjẹ.",
+     "answer": "jẹ",
+     "translation": "Father said they should eat.",
+     "hint": "to eat — bare verb inside the kí clause",
+     "display_order": 4
+    },
+    {
+     "sentence": "Mo gbàdúrà {{answer}} ó rí iṣẹ́.",
+     "answer": "kí",
+     "translation": "I pray that he finds work.",
+     "hint": "the should/that opener",
+     "display_order": 5
+    },
+    {
+     "sentence": "Sọ fún un {{answer}} ó pè mí.",
+     "answer": "kí",
+     "translation": "Tell him to call me.",
+     "hint": "the should/that opener",
+     "display_order": 6
+    }
+   ]
+  },
+  {
+   "title": "Numbers after the noun (ìwé méjì, mélòó)",
+   "level": "B2",
+   "display_order": 4,
+   "function": "Count things and ask how many",
+   "explanation": "Numerals follow the noun: ìwé kan (one book), ọmọ méjì (two children), ọjọ́ méje (seven days).\n\nMélòó asks 'how many' from the same slot: ìwé mélòó? Standalone counting uses the ọ̀kan, èjì, ẹ̀ta series instead.",
+   "culture_note": "",
+   "source": "contributor",
+   "reviewed": false,
+   "references": [
+    {
+     "title": "Live Lingua — free Yoruba courses (FSI/Peace Corps)",
+     "url": "https://www.livelingua.com/courses/yoruba"
+    },
+    {
+     "title": "Wikipedia: Yoruba language",
+     "url": "https://en.wikipedia.org/wiki/Yoruba_language"
+    }
+   ],
+   "drills": [
+    {
+     "sentence": "Mo ra ìwé {{answer}}.",
+     "answer": "méjì",
+     "translation": "I bought two books.",
+     "hint": "two (after the noun)",
+     "display_order": 1
+    },
+    {
+     "sentence": "Ọmọ {{answer}} ni ó wà ní ilé?",
+     "answer": "mélòó",
+     "translation": "How many children are at home?",
+     "hint": "how many (after the noun)",
+     "display_order": 2
+    },
+    {
+     "sentence": "Ó ní ọkọ̀ {{answer}}.",
+     "answer": "kan",
+     "translation": "He has one car.",
+     "hint": "one (after the noun)",
+     "display_order": 3
+    },
+    {
+     "sentence": "Ọjọ́ {{answer}} ni ọ̀sẹ̀ kan.",
+     "answer": "méje",
+     "translation": "One week is seven days.",
+     "hint": "seven (after the noun)",
+     "display_order": 4
+    },
+    {
+     "sentence": "A rí ẹyẹ {{answer}} lórí igi.",
+     "answer": "mẹ́ta",
+     "translation": "We saw three birds on the tree.",
+     "hint": "three (after the noun)",
+     "display_order": 5
+    },
+    {
+     "sentence": "Ó gbé ibẹ̀ fún ọdún {{answer}}.",
+     "answer": "márùn-ún",
+     "translation": "He lived there for five years.",
+     "hint": "five (after the noun)",
+     "display_order": 6
+    }
+   ]
+  },
+  {
+   "title": "Making nouns: olù-, oní-/alá-, ì-",
+   "level": "B2",
+   "display_order": 5,
+   "function": "Build people-words and idea-words from verbs and nouns",
+   "explanation": "Olù- makes agents (olùkọ́ teacher ← kọ́ teach); oní- makes owners/sellers and assimilates hard (oní + ata → aláta pepper seller, oní + aṣọ → aláṣọ cloth seller); ì- makes action nouns (ìdùnnú joy ← dùn, ìbéèrè question ← béèrè); a- makes doers (akọrin singer).",
+   "culture_note": "",
+   "source": "contributor",
+   "reviewed": false,
+   "references": [
+    {
+     "title": "Live Lingua — free Yoruba courses (FSI/Peace Corps)",
+     "url": "https://www.livelingua.com/courses/yoruba"
+    },
+    {
+     "title": "Wikipedia: Yoruba language",
+     "url": "https://en.wikipedia.org/wiki/Yoruba_language"
+    }
+   ],
+   "drills": [
+    {
+     "sentence": "{{answer}} wa kọ́ wa ní èdè Gẹ̀ẹ́sì.",
+     "answer": "Olùkọ́",
+     "translation": "Our teacher teaches us English.",
+     "hint": "teach + the agent prefix",
+     "display_order": 1
+    },
+    {
+     "sentence": "Mo ra ata lọ́wọ́ {{answer}}.",
+     "answer": "aláta",
+     "translation": "I bought pepper from the pepper seller.",
+     "hint": "pepper + the owner/seller prefix (assimilated)",
+     "display_order": 2
+    },
+    {
+     "sentence": "{{answer}} ta aṣọ tuntun.",
+     "answer": "Aláṣọ",
+     "translation": "The cloth seller sells new cloth.",
+     "hint": "cloth + the owner/seller prefix (assimilated)",
+     "display_order": 3
+    },
+    {
+     "sentence": "Inú mi dùn; {{answer}} mi pọ̀.",
+     "answer": "ìdùnnú",
+     "translation": "I am happy; my joy is great.",
+     "hint": "be-sweet + the action-noun prefix",
+     "display_order": 4
+    },
+    {
+     "sentence": "Ó bi mí ní {{answer}} kan.",
+     "answer": "ìbéèrè",
+     "translation": "He asked me a question.",
+     "hint": "to ask + the action-noun prefix",
+     "display_order": 5
+    },
+    {
+     "sentence": "{{answer}} náà ní ohùn tó dára.",
+     "answer": "Akọrin",
+     "translation": "The singer has a good voice.",
+     "hint": "sing-song + the doer prefix",
+     "display_order": 6
+    }
+   ]
+  },
+  {
+   "title": "Serial verbs with fi and fún",
+   "level": "B2",
+   "display_order": 6,
+   "function": "Say with-what and for-whom inside the verb chain",
+   "explanation": "Fi (take) smuggles an instrument into the chain: ó fi ọ̀bẹ gé ẹran (he took-knife cut meat = cut it with a knife). Fún (give) marks the beneficiary: ra ìwé fún mi (buy a book for me); fi X fún Y hands X over to Y.",
+   "culture_note": "",
+   "source": "contributor",
+   "reviewed": false,
+   "references": [
+    {
+     "title": "Live Lingua — free Yoruba courses (FSI/Peace Corps)",
+     "url": "https://www.livelingua.com/courses/yoruba"
+    },
+    {
+     "title": "Wikipedia: Yoruba language",
+     "url": "https://en.wikipedia.org/wiki/Yoruba_language"
+    }
+   ],
+   "drills": [
+    {
+     "sentence": "Ó {{answer}} ọ̀bẹ gé ẹran.",
+     "answer": "fi",
+     "translation": "He cut the meat with a knife.",
+     "hint": "the take/with serial verb",
+     "display_order": 1
+    },
+    {
+     "sentence": "Ra oúnjẹ {{answer}} mi.",
+     "answer": "fún",
+     "translation": "Buy food for me.",
+     "hint": "the give/for serial verb",
+     "display_order": 2
+    },
+    {
+     "sentence": "Ó fi owó {{answer}} ọmọ náà.",
+     "answer": "fún",
+     "translation": "He gave the child money.",
+     "hint": "the give/for serial verb",
+     "display_order": 3
+    },
+    {
+     "sentence": "Mo {{answer}} gèlè wé orí.",
+     "answer": "fi",
+     "translation": "I tied a headscarf on my head.",
+     "hint": "the take/with serial verb",
+     "display_order": 4
+    },
+    {
+     "sentence": "Wọ́n {{answer}} ayọ̀ gba ìròyìn náà.",
+     "answer": "fi",
+     "translation": "They received the news with joy.",
+     "hint": "the take/with serial verb",
+     "display_order": 5
+    },
+    {
+     "sentence": "Ṣe iṣẹ́ yìí {{answer}} bàbá rẹ.",
+     "answer": "fún",
+     "translation": "Do this work for your father.",
+     "hint": "the give/for serial verb",
+     "display_order": 6
+    }
+   ]
+  },
+  {
+   "title": "Time clauses: nígbà tí, lẹ́yìn tí, kí … tó",
+   "level": "B2",
+   "display_order": 7,
+   "function": "Anchor events before, after, and when",
+   "explanation": "Nígbà tí opens 'when'-clauses (nígbà tí mo dé — when I arrived), lẹ́yìn tí 'after', and kí … tó 'before' (kí o tó lọ — before you go). All lean on the tí you know from relative clauses.",
+   "culture_note": "",
+   "source": "contributor",
+   "reviewed": false,
+   "references": [
+    {
+     "title": "Live Lingua — free Yoruba courses (FSI/Peace Corps)",
+     "url": "https://www.livelingua.com/courses/yoruba"
+    },
+    {
+     "title": "Wikipedia: Yoruba language",
+     "url": "https://en.wikipedia.org/wiki/Yoruba_language"
+    }
+   ],
+   "drills": [
+    {
+     "sentence": "{{answer}} tí mo dé, òjò ń rọ̀.",
+     "answer": "Nígbà",
+     "translation": "When I arrived, it was raining.",
+     "hint": "opens the when-clause",
+     "display_order": 1
+    },
+    {
+     "sentence": "Nígbà {{answer}} ó jí, oòrùn ti yọ.",
+     "answer": "tí",
+     "translation": "When he woke, the sun had already risen.",
+     "hint": "the clause linker after nígbà",
+     "display_order": 2
+    },
+    {
+     "sentence": "A jẹun {{answer}} tí a parí iṣẹ́.",
+     "answer": "lẹ́yìn",
+     "translation": "We ate after we finished the work.",
+     "hint": "opens the after-clause",
+     "display_order": 3
+    },
+    {
+     "sentence": "{{answer}} o tó lọ, pa iná.",
+     "answer": "Kí",
+     "translation": "Before you go, turn off the light.",
+     "hint": "opens the before-frame (pairs with tó)",
+     "display_order": 4
+    },
+    {
+     "sentence": "Ó sùn {{answer}} tí ó jẹun tán.",
+     "answer": "lẹ́yìn",
+     "translation": "He slept after he finished eating.",
+     "hint": "opens the after-clause",
+     "display_order": 5
+    },
+    {
+     "sentence": "Kí ilẹ̀ {{answer}} ṣú, ẹ padà sílé.",
+     "answer": "tó",
+     "translation": "Before it gets dark, come back home.",
+     "hint": "closes the before-frame (pairs with kí)",
+     "display_order": 6
+    }
+   ]
+  },
+  {
+   "title": "Chaining clauses with sì (and then)",
+   "level": "C1",
+   "display_order": 3,
+   "function": "String actions into a flowing narrative",
+   "explanation": "Sì links same-subject clauses, sitting AFTER the subject of the second clause: ó dé ilé, ó sì jókòó (he got home and sat down). In commands it rides inside the kí clause: jókòó, kí o sì gbọ́.",
+   "culture_note": "",
+   "source": "contributor",
+   "reviewed": false,
+   "references": [
+    {
+     "title": "Live Lingua — free Yoruba courses (FSI/Peace Corps)",
+     "url": "https://www.livelingua.com/courses/yoruba"
+    },
+    {
+     "title": "Wikipedia: Yoruba language",
+     "url": "https://en.wikipedia.org/wiki/Yoruba_language"
+    }
+   ],
+   "drills": [
+    {
+     "sentence": "Ó dé ilé, ó {{answer}} jókòó.",
+     "answer": "sì",
+     "translation": "He arrived home and sat down.",
+     "hint": "the and-then linker (after the subject)",
+     "display_order": 1
+    },
+    {
+     "sentence": "Mo ra ìwé, mo {{answer}} kà á.",
+     "answer": "sì",
+     "translation": "I bought a book and read it.",
+     "hint": "the and-then linker (after the subject)",
+     "display_order": 2
+    },
+    {
+     "sentence": "Wọ́n jẹun, wọ́n {{answer}} sùn.",
+     "answer": "sì",
+     "translation": "They ate and went to sleep.",
+     "hint": "the and-then linker (after the subject)",
+     "display_order": 3
+    },
+    {
+     "sentence": "Ó ṣí ilẹ̀kùn, ó {{answer}} wọlé.",
+     "answer": "sì",
+     "translation": "She opened the door and entered.",
+     "hint": "the and-then linker (after the subject)",
+     "display_order": 4
+    },
+    {
+     "sentence": "Jókòó, kí o {{answer}} gbọ́ mi.",
+     "answer": "sì",
+     "translation": "Sit down and listen to me.",
+     "hint": "the and-then linker (after the subject)",
+     "display_order": 5
+    },
+    {
+     "sentence": "Ó kàwé dáadáa, ó {{answer}} yege.",
+     "answer": "sì",
+     "translation": "She studied well and passed.",
+     "hint": "the and-then linker (after the subject)",
+     "display_order": 6
+    }
+   ]
+  },
+  {
+   "title": "Reduplication: jíjẹ, kíkà, kíákíá",
+   "level": "C1",
+   "display_order": 4,
+   "function": "Turn verbs into gerunds and dial up adverbs",
+   "explanation": "Doubling the verb's first consonant + í makes a gerund: jẹ eat → jíjẹ eating, kà read → kíkà reading, rà buy → rírà buying.\n\nWhole-word doubling intensifies adverbs: kíákíá quickly, díẹ̀díẹ̀ little by little, pẹ̀lẹ́pẹ̀lẹ́ gently.",
+   "culture_note": "",
+   "source": "contributor",
+   "reviewed": false,
+   "references": [
+    {
+     "title": "Live Lingua — free Yoruba courses (FSI/Peace Corps)",
+     "url": "https://www.livelingua.com/courses/yoruba"
+    },
+    {
+     "title": "Wikipedia: Yoruba language",
+     "url": "https://en.wikipedia.org/wiki/Yoruba_language"
+    }
+   ],
+   "drills": [
+    {
+     "sentence": "{{answer}} oúnjẹ tó dára ṣe pàtàkì.",
+     "answer": "Jíjẹ",
+     "translation": "Eating good food is important.",
+     "hint": "to eat + the gerund doubling",
+     "display_order": 1
+    },
+    {
+     "sentence": "{{answer}} ìwé dára fún ọmọdé.",
+     "answer": "Kíkà",
+     "translation": "Reading books is good for children.",
+     "hint": "to read + the gerund doubling",
+     "display_order": 2
+    },
+    {
+     "sentence": "Wá {{answer}}!",
+     "answer": "kíákíá",
+     "translation": "Come quickly!",
+     "hint": "quickly — doubled for urgency",
+     "display_order": 3
+    },
+    {
+     "sentence": "Ó ń rìn {{answer}}.",
+     "answer": "pẹ̀lẹ́pẹ̀lẹ́",
+     "translation": "She walks gently.",
+     "hint": "gently — doubled softness",
+     "display_order": 4
+    },
+    {
+     "sentence": "Owó ń wọlé {{answer}}.",
+     "answer": "díẹ̀díẹ̀",
+     "translation": "Money comes in little by little.",
+     "hint": "little by little — doubled 'small'",
+     "display_order": 5
+    },
+    {
+     "sentence": "{{answer}} ilé ń ná owó púpọ̀.",
+     "answer": "Rírà",
+     "translation": "Buying a house costs a lot of money.",
+     "hint": "to buy + the gerund doubling",
+     "display_order": 6
+    }
+   ]
+  },
+  {
+   "title": "Ideophonic intensifiers (láúláú, roro)",
+   "level": "C1",
+   "display_order": 5,
+   "function": "Intensify like a native — each word has its own superlative",
+   "explanation": "Yoruba doesn't say 'very white'; each quality owns a dedicated ideophone: funfun láúláú (spotlessly white), dúdú kirikiri (jet black), pupa roro (glowing red), tutù nini (ice-cold), kún fọ́fọ́ (full to the brim), gbóná janjan (piping hot).\n\nThe pairs are fixed — swapping them sounds absurd.",
+   "culture_note": "Ideophones are where Yoruba paints: the sound IS the meaning. Regional spellings vary — a native reviewer should confirm local forms.",
+   "source": "contributor",
+   "reviewed": false,
+   "references": [
+    {
+     "title": "Live Lingua — free Yoruba courses (FSI/Peace Corps)",
+     "url": "https://www.livelingua.com/courses/yoruba"
+    },
+    {
+     "title": "Wikipedia: Yoruba language",
+     "url": "https://en.wikipedia.org/wiki/Yoruba_language"
+    }
+   ],
+   "drills": [
+    {
+     "sentence": "Aṣọ náà funfun {{answer}}.",
+     "answer": "láúláú",
+     "translation": "The cloth is spotlessly white.",
+     "hint": "the whiteness ideophone",
+     "display_order": 1
+    },
+    {
+     "sentence": "Irun rẹ̀ dúdú {{answer}}.",
+     "answer": "kirikiri",
+     "translation": "Her hair is jet black.",
+     "hint": "the blackness ideophone",
+     "display_order": 2
+    },
+    {
+     "sentence": "Aṣọ ìyàwó náà pupa {{answer}}.",
+     "answer": "roro",
+     "translation": "The bride's outfit is a glowing red.",
+     "hint": "the redness ideophone",
+     "display_order": 3
+    },
+    {
+     "sentence": "Omi náà tutù {{answer}}.",
+     "answer": "nini",
+     "translation": "The water is ice-cold.",
+     "hint": "the coldness ideophone",
+     "display_order": 4
+    },
+    {
+     "sentence": "Àpò náà kún {{answer}}.",
+     "answer": "fọ́fọ́",
+     "translation": "The bag is full to the brim.",
+     "hint": "the fullness ideophone",
+     "display_order": 5
+    },
+    {
+     "sentence": "Ọbẹ̀ náà gbóná {{answer}}.",
+     "answer": "janjan",
+     "translation": "The soup is piping hot.",
+     "hint": "the hotness ideophone",
+     "display_order": 6
+    }
+   ]
+  },
+  {
+   "title": "How-clauses with bí … ṣe",
+   "level": "C1",
+   "display_order": 6,
+   "function": "Talk about the way something happens",
+   "explanation": "Bí + subject + ṣe + verb = 'how/the way that': bí mo ṣe rí i (how I saw it), ṣàlàyé bí ẹ̀rọ náà ṣe ń ṣiṣẹ́ (explain how the machine works). Mind the tones: ṣe (do) is the frame; sè (cook) just sounds close.",
+   "culture_note": "",
+   "source": "contributor",
+   "reviewed": false,
+   "references": [
+    {
+     "title": "Live Lingua — free Yoruba courses (FSI/Peace Corps)",
+     "url": "https://www.livelingua.com/courses/yoruba"
+    },
+    {
+     "title": "Wikipedia: Yoruba language",
+     "url": "https://en.wikipedia.org/wiki/Yoruba_language"
+    }
+   ],
+   "drills": [
+    {
+     "sentence": "Èyí ni bí mo {{answer}} rí i.",
+     "answer": "ṣe",
+     "translation": "This is how I saw it.",
+     "hint": "the manner-frame verb after the subject",
+     "display_order": 1
+    },
+    {
+     "sentence": "Èyí ni {{answer}} mo ṣe rí i.",
+     "answer": "bí",
+     "translation": "This is how I saw it.",
+     "hint": "opens the how-frame",
+     "display_order": 2
+    },
+    {
+     "sentence": "Ṣàlàyé bí ẹ̀rọ náà {{answer}} ń ṣiṣẹ́.",
+     "answer": "ṣe",
+     "translation": "Explain how the machine works.",
+     "hint": "the manner-frame verb after the subject",
+     "display_order": 3
+    },
+    {
+     "sentence": "Mo fẹ́ mọ bí o ṣe {{answer}} oúnjẹ yìí.",
+     "answer": "sè",
+     "translation": "I want to know how you cooked this food.",
+     "hint": "to cook — low tone, not the frame verb",
+     "display_order": 4
+    },
+    {
+     "sentence": "Wo bí ọmọ náà {{answer}} ń sáré!",
+     "answer": "ṣe",
+     "translation": "Look how the child runs!",
+     "hint": "the manner-frame verb after the subject",
+     "display_order": 5
+    },
+    {
+     "sentence": "Mo gbàgbé bí wọ́n {{answer}} pè é.",
+     "answer": "ṣe",
+     "translation": "I forget how they pronounce it.",
+     "hint": "the manner-frame verb after the subject",
+     "display_order": 6
+    }
+   ]
+  },
+  {
+   "title": "Òwe — proverbs, the horses of speech",
+   "level": "C2",
+   "display_order": 1,
+   "function": "Cap an argument the way elders do",
+   "explanation": "Òwe ni ẹṣin ọ̀rọ̀ — proverbs are the horses of speech: when talk gets lost, a proverb carries it home. They compress the grammar you know (habituals, focus, parallel clauses) into fixed wisdom, and quoting the right one grants instant authority.",
+   "culture_note": "Introducing one with 'àwọn àgbà á máa sọ pé…' (the elders say…) is the polite frame for quoting òwe.",
+   "source": "contributor",
+   "reviewed": false,
+   "references": [
+    {
+     "title": "Live Lingua — free Yoruba courses (FSI/Peace Corps)",
+     "url": "https://www.livelingua.com/courses/yoruba"
+    },
+    {
+     "title": "Wikipedia: Yoruba language",
+     "url": "https://en.wikipedia.org/wiki/Yoruba_language"
+    },
+    {
+     "title": "Wikiquote: Yoruba proverbs",
+     "url": "https://en.wikiquote.org/wiki/Yoruba_proverbs"
+    }
+   ],
+   "drills": [
+    {
+     "sentence": "Òwe ni ẹṣin {{answer}}.",
+     "answer": "ọ̀rọ̀",
+     "translation": "Proverbs are the horses of speech.",
+     "hint": "speech/words — what the horses carry",
+     "display_order": 1
+    },
+    {
+     "sentence": "Bí ọmọdé bá ṣubú, á wo iwájú; bí àgbà bá ṣubú, á wo {{answer}}.",
+     "answer": "ẹ̀yìn",
+     "translation": "When a child falls he looks ahead; when an elder falls he looks back.",
+     "hint": "the back/behind — what elders check",
+     "display_order": 2
+    },
+    {
+     "sentence": "Ọwọ́ ọmọdé kò tó pẹpẹ, ti àgbàlagbà kò wọ {{answer}}.",
+     "answer": "akèrègbè",
+     "translation": "A child's hand can't reach the shelf; an elder's can't enter the gourd.",
+     "hint": "the narrow-necked gourd",
+     "display_order": 3
+    },
+    {
+     "sentence": "Ẹnu àgbà ni obì ti ń {{answer}}.",
+     "answer": "gbó",
+     "translation": "It is in the elder's mouth that the kola nut ripens.",
+     "hint": "to ripen — wisdom matures with age",
+     "display_order": 4
+    },
+    {
+     "sentence": "Ọjọ́ gbogbo ni ti olè, ọjọ́ kan ni ti {{answer}}.",
+     "answer": "olóhun",
+     "translation": "Every day belongs to the thief, one day belongs to the owner.",
+     "hint": "the owner (of the thing) — oní- word",
+     "display_order": 5
+    },
+    {
+     "sentence": "Àgbà kì í wà lọ́jà kí orí ọmọ tuntun {{answer}}.",
+     "answer": "wọ́",
+     "translation": "An elder cannot be in the market and let the newborn's head hang askew.",
+     "hint": "to tilt/hang crooked",
+     "display_order": 6
+    }
+   ]
+  },
+  {
+   "title": "Respect register: ẹ and ẹ̀yin",
+   "level": "C2",
+   "display_order": 2,
+   "function": "Address elders the way Yoruba demands",
+   "explanation": "Elders and superiors take the plural: the pronoun ẹ̀yin/ẹ replaces o even for ONE person — Ẹ káàárọ̀ (good morning, ma/sir), Ẹ jọ̀wọ́ (please), Ẹ ṣeun (thank you).\n\nGreetings are an art: Ẹ kú iṣẹ́ salutes someone at work, Ẹ káàbọ̀ welcomes an arrival.",
+   "culture_note": "Using bare 'o' with an elder is not casual, it's insolent. Greeting protocol (kú + situation: ẹ kú ìjókòó, ẹ kú àtijọ́…) is a register of its own.",
+   "source": "contributor",
+   "reviewed": false,
+   "references": [
+    {
+     "title": "Live Lingua — free Yoruba courses (FSI/Peace Corps)",
+     "url": "https://www.livelingua.com/courses/yoruba"
+    },
+    {
+     "title": "Wikipedia: Yoruba language",
+     "url": "https://en.wikipedia.org/wiki/Yoruba_language"
+    }
+   ],
+   "drills": [
+    {
+     "sentence": "'Ẹ {{answer}}, mà!' ọmọ náà kí ìyá àgbà.",
+     "answer": "káàárọ̀",
+     "translation": "'Good morning, ma!' the child greeted the old woman.",
+     "hint": "the morning greeting (with respectful ẹ)",
+     "display_order": 1
+    },
+    {
+     "sentence": "{{answer}} fẹ́ omi, bàbá?",
+     "answer": "Ẹ",
+     "translation": "Would you (respectfully) like water, father?",
+     "hint": "the respectful you-plural marker",
+     "display_order": 2
+    },
+    {
+     "sentence": "Ẹ kú {{answer}}, bàbá.",
+     "answer": "iṣẹ́",
+     "translation": "Well done with your work, father.",
+     "hint": "work — the thing being saluted",
+     "display_order": 3
+    },
+    {
+     "sentence": "{{answer}} ṣeun gan-an, mà.",
+     "answer": "Ẹ",
+     "translation": "Thank you very much, ma.",
+     "hint": "the respectful you-plural marker",
+     "display_order": 4
+    },
+    {
+     "sentence": "{{answer}} ni yóò kọ́ wa lẹ́kọ̀ọ́ lónìí.",
+     "answer": "Ẹ̀yin",
+     "translation": "YOU (respected one) will teach us today.",
+     "hint": "the full respectful you-pronoun, focused",
+     "display_order": 5
+    },
+    {
+     "sentence": "Ẹ {{answer}} sí ilé wa, sà.",
+     "answer": "káàbọ̀",
+     "translation": "Welcome to our home, sir.",
+     "hint": "the arrival greeting (with respectful ẹ)",
+     "display_order": 6
+    }
+   ]
+  },
+  {
+   "title": "Discourse particles (o, ná, ṣebí, gan-an)",
+   "level": "C2",
+   "display_order": 3,
+   "function": "Add the warmth and edge writing can't show",
+   "explanation": "Sentence-final o adds warmth or urgency (ó dàbọ̀ o!); ná means 'first / for now' (dúró ná); ṣebí opens a 'surely…?' check; gan-an intensifies ('really'); tilẹ̀ adds 'even'. These particles carry the tone of voice — leave them out and you sound like a textbook.",
+   "culture_note": "",
+   "source": "contributor",
+   "reviewed": false,
+   "references": [
+    {
+     "title": "Live Lingua — free Yoruba courses (FSI/Peace Corps)",
+     "url": "https://www.livelingua.com/courses/yoruba"
+    },
+    {
+     "title": "Wikipedia: Yoruba language",
+     "url": "https://en.wikipedia.org/wiki/Yoruba_language"
+    }
+   ],
+   "drills": [
+    {
+     "sentence": "Ó dàbọ̀ {{answer}}!",
+     "answer": "o",
+     "translation": "Goodbye o! (warm)",
+     "hint": "the warm sentence-final particle",
+     "display_order": 1
+    },
+    {
+     "sentence": "Dúró {{answer}}, mo ń bọ̀.",
+     "answer": "ná",
+     "translation": "Wait a moment, I'm coming.",
+     "hint": "the 'first / for now' particle",
+     "display_order": 2
+    },
+    {
+     "sentence": "{{answer}} o ti parí iṣẹ́ náà?",
+     "answer": "Ṣebí",
+     "translation": "Surely you've finished the work?",
+     "hint": "the 'isn't it that…?' opener",
+     "display_order": 3
+    },
+    {
+     "sentence": "Oúnjẹ náà dùn {{answer}}.",
+     "answer": "gan-an",
+     "translation": "The food is really delicious.",
+     "hint": "the 'really/very' intensifier",
+     "display_order": 4
+    },
+    {
+     "sentence": "Kò wá; kò {{answer}} ránṣẹ́.",
+     "answer": "tilẹ̀",
+     "translation": "He didn't come; he didn't even send word.",
+     "hint": "the 'even' particle",
+     "display_order": 5
+    },
+    {
+     "sentence": "Jókòó {{answer}}, kò sí wàhálà.",
+     "answer": "ṣáá",
+     "translation": "Just sit, there's no trouble.",
+     "hint": "the 'just / anyway' particle",
+     "display_order": 6
+    }
+   ]
+  }
+ ]
 }

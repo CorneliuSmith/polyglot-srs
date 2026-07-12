@@ -1,0 +1,2840 @@
+{
+ "lists": [
+  {
+   "level": "A1",
+   "title": "Portuguese A1 Grammar Path",
+   "description": "A1 Brazilian Portuguese in communicative order: pronouns (você-based), noun gender, articles, ser/estar/ter, the three verb families, negation, tem/há, questions, and adjective agreement."
+  }
+ ],
+ "points": [
+  {
+   "title": "Subject pronouns (eu, você, ele…)",
+   "level": "A1",
+   "function": "Say who you are talking about",
+   "source": "contributor",
+   "reviewed": true,
+   "display_order": 1,
+   "explanation": "eu (I), você (you — conjugated like he/she), ele/ela (he/she), nós (we), vocês (you all), eles/elas (they). Brazilian Portuguese uses você for 'you' in almost all situations; spoken Brazilian also loves a gente (literally 'the people') for 'we', conjugated in the singular.",
+   "culture_note": "In Brazil, você is the everyday 'you'; tu survives in the South and parts of the Northeast (often with você's verb forms). In Portugal, tu is informal and você can sound distant — o senhor / a senhora is the polite form everywhere.",
+   "references": [
+    {
+     "title": "Ciberdúvidas da Língua Portuguesa",
+     "url": "https://ciberduvidas.iscte-iul.pt/"
+    },
+    {
+     "title": "Wikipedia: Portuguese grammar",
+     "url": "https://en.wikipedia.org/wiki/Portuguese_grammar"
+    }
+   ],
+   "drills": [
+    {
+     "sentence": "{{answer}} sou do Brasil.",
+     "answer": "Eu",
+     "translation": "I am from Brazil.",
+     "hint": "I",
+     "cell": "eu",
+     "display_order": 1
+    },
+    {
+     "sentence": "{{answer}} moro no Rio de Janeiro.",
+     "answer": "Eu",
+     "translation": "I live in Rio de Janeiro.",
+     "hint": "I",
+     "cell": "eu",
+     "display_order": 2
+    },
+    {
+     "sentence": "{{answer}} fala inglês?",
+     "answer": "Você",
+     "translation": "Do you speak English?",
+     "hint": "you",
+     "cell": "você",
+     "display_order": 3
+    },
+    {
+     "sentence": "{{answer}} trabalha aqui?",
+     "answer": "Você",
+     "translation": "Do you work here?",
+     "hint": "you",
+     "cell": "você",
+     "display_order": 4
+    },
+    {
+     "sentence": "{{answer}} é meu irmão.",
+     "answer": "Ele",
+     "translation": "He is my brother.",
+     "hint": "he",
+     "cell": "ele",
+     "display_order": 5
+    },
+    {
+     "sentence": "{{answer}} chega amanhã de manhã.",
+     "answer": "Ele",
+     "translation": "He arrives tomorrow morning.",
+     "hint": "he",
+     "cell": "ele",
+     "display_order": 6
+    },
+    {
+     "sentence": "{{answer}} somos amigos.",
+     "answer": "Nós",
+     "translation": "We are friends.",
+     "hint": "we",
+     "cell": "nós",
+     "display_order": 7
+    },
+    {
+     "sentence": "{{answer}} moramos perto da praia.",
+     "answer": "Nós",
+     "translation": "We live near the beach.",
+     "hint": "we",
+     "cell": "nós",
+     "display_order": 8
+    },
+    {
+     "sentence": "{{answer}} estudam português?",
+     "answer": "Vocês",
+     "translation": "Do you (all) study Portuguese?",
+     "hint": "you (plural)",
+     "cell": "vocês",
+     "display_order": 9
+    },
+    {
+     "sentence": "{{answer}} querem um café?",
+     "answer": "Vocês",
+     "translation": "Do you (all) want a coffee?",
+     "hint": "you (plural)",
+     "cell": "vocês",
+     "display_order": 10
+    },
+    {
+     "sentence": "{{answer}} são da Bahia.",
+     "answer": "Eles",
+     "translation": "They are from Bahia.",
+     "hint": "they",
+     "cell": "eles",
+     "display_order": 11
+    },
+    {
+     "sentence": "{{answer}} jogam futebol no domingo.",
+     "answer": "Eles",
+     "translation": "They play football on Sundays.",
+     "hint": "they",
+     "cell": "eles",
+     "display_order": 12
+    }
+   ],
+   "paradigm": [
+    "eu",
+    "você",
+    "ele",
+    "nós",
+    "vocês",
+    "eles"
+   ]
+  },
+  {
+   "title": "Gender and number of nouns",
+   "level": "A1",
+   "function": "Use masculine and feminine, singular and plural",
+   "source": "contributor",
+   "reviewed": true,
+   "display_order": 2,
+   "explanation": "Every noun is masculine or feminine: -o is usually masculine (o livro), -a usually feminine (a casa); -ão is often masculine, -ção feminine.\n\nPlurals normally add -s (livro → livros); words in -ão vary (pão → pães, mão → mãos, coração → corações) and are learned per word.",
+   "culture_note": "",
+   "references": [
+    {
+     "title": "Ciberdúvidas da Língua Portuguesa",
+     "url": "https://ciberduvidas.iscte-iul.pt/"
+    },
+    {
+     "title": "Wikipedia: Portuguese grammar",
+     "url": "https://en.wikipedia.org/wiki/Portuguese_grammar"
+    }
+   ],
+   "drills": [
+    {
+     "sentence": "O {{answer}} está na mesa.",
+     "answer": "livro",
+     "translation": "The book is on the table.",
+     "hint": "book (masculine)",
+     "display_order": 1
+    },
+    {
+     "sentence": "A {{answer}} é grande e clara.",
+     "answer": "casa",
+     "translation": "The house is big and bright.",
+     "hint": "house (feminine)",
+     "display_order": 2
+    },
+    {
+     "sentence": "Comprei dois {{answer}} na padaria.",
+     "answer": "pães",
+     "translation": "I bought two loaves at the bakery.",
+     "hint": "breads (pão → plural)",
+     "display_order": 3
+    },
+    {
+     "sentence": "As {{answer}} chegam às oito.",
+     "answer": "meninas",
+     "translation": "The girls arrive at eight.",
+     "hint": "girls (feminine plural)",
+     "display_order": 4
+    },
+    {
+     "sentence": "Os {{answer}} estão no estacionamento.",
+     "answer": "carros",
+     "translation": "The cars are in the parking lot.",
+     "hint": "cars (masculine plural)",
+     "display_order": 5
+    },
+    {
+     "sentence": "Ela lavou as {{answer}} antes do almoço.",
+     "answer": "mãos",
+     "translation": "She washed her hands before lunch.",
+     "hint": "hands (mão → plural)",
+     "display_order": 6
+    }
+   ]
+  },
+  {
+   "title": "Articles (o, a, um, uma)",
+   "level": "A1",
+   "function": "Say 'the' and 'a' with the right gender",
+   "source": "contributor",
+   "reviewed": true,
+   "display_order": 3,
+   "explanation": "Definite: o (m.), a (f.), os, as — Portuguese loves the article, even before names in Brazil (o João, a Maria).\n\nIndefinite: um (m.), uma (f.), uns, umas for 'some'.",
+   "culture_note": "",
+   "references": [
+    {
+     "title": "Ciberdúvidas da Língua Portuguesa",
+     "url": "https://ciberduvidas.iscte-iul.pt/"
+    },
+    {
+     "title": "Wikipedia: Portuguese grammar",
+     "url": "https://en.wikipedia.org/wiki/Portuguese_grammar"
+    }
+   ],
+   "drills": [
+    {
+     "sentence": "{{answer}} sol está forte hoje.",
+     "answer": "O",
+     "translation": "The sun is strong today.",
+     "hint": "the (masculine)",
+     "display_order": 1
+    },
+    {
+     "sentence": "{{answer}} praia fica perto daqui.",
+     "answer": "A",
+     "translation": "The beach is near here.",
+     "hint": "the (feminine)",
+     "display_order": 2
+    },
+    {
+     "sentence": "Quero {{answer}} café, por favor.",
+     "answer": "um",
+     "translation": "I want a coffee, please.",
+     "hint": "a (masculine)",
+     "display_order": 3
+    },
+    {
+     "sentence": "Ela comprou {{answer}} bicicleta nova.",
+     "answer": "uma",
+     "translation": "She bought a new bicycle.",
+     "hint": "a (feminine)",
+     "display_order": 4
+    },
+    {
+     "sentence": "{{answer}} meninos estão na escola.",
+     "answer": "Os",
+     "translation": "The boys are at school.",
+     "hint": "the (masculine plural)",
+     "display_order": 5
+    },
+    {
+     "sentence": "Convidei {{answer}} amigas para jantar.",
+     "answer": "umas",
+     "translation": "I invited some friends over for dinner.",
+     "hint": "some (feminine plural)",
+     "display_order": 6
+    }
+   ]
+  },
+  {
+   "title": "Ser — present (sou, é, somos…)",
+   "level": "A1",
+   "function": "Say who or what something IS (identity, origin)",
+   "source": "contributor",
+   "reviewed": true,
+   "display_order": 4,
+   "explanation": "ser = permanent identity: profession, origin, character, time. eu sou, você/ele é, nós somos, vocês/eles são.\n\nSou professor 'I'm a teacher', ela é de São Paulo 'she's from São Paulo', são duas horas 'it's two o'clock'.",
+   "culture_note": "",
+   "references": [
+    {
+     "title": "Ciberdúvidas da Língua Portuguesa",
+     "url": "https://ciberduvidas.iscte-iul.pt/"
+    },
+    {
+     "title": "Wikipedia: Portuguese grammar",
+     "url": "https://en.wikipedia.org/wiki/Portuguese_grammar"
+    }
+   ],
+   "drills": [
+    {
+     "sentence": "Eu {{answer}} engenheira.",
+     "answer": "sou",
+     "translation": "I am an engineer.",
+     "hint": "am — I",
+     "cell": "eu",
+     "display_order": 1
+    },
+    {
+     "sentence": "Eu {{answer}} do Recife.",
+     "answer": "sou",
+     "translation": "I am from Recife.",
+     "hint": "am — I",
+     "cell": "eu",
+     "display_order": 2
+    },
+    {
+     "sentence": "Ela {{answer}} muito engraçada.",
+     "answer": "é",
+     "translation": "She is very funny.",
+     "hint": "is — she",
+     "cell": "ele",
+     "display_order": 3
+    },
+    {
+     "sentence": "Hoje {{answer}} sexta-feira.",
+     "answer": "é",
+     "translation": "Today is Friday.",
+     "hint": "is — it",
+     "cell": "ele",
+     "display_order": 4
+    },
+    {
+     "sentence": "Nós {{answer}} vizinhos.",
+     "answer": "somos",
+     "translation": "We are neighbours.",
+     "hint": "are — we",
+     "cell": "nós",
+     "display_order": 5
+    },
+    {
+     "sentence": "Nós {{answer}} de Minas Gerais.",
+     "answer": "somos",
+     "translation": "We are from Minas Gerais.",
+     "hint": "are — we",
+     "cell": "nós",
+     "display_order": 6
+    },
+    {
+     "sentence": "Eles {{answer}} médicos no hospital.",
+     "answer": "são",
+     "translation": "They are doctors at the hospital.",
+     "hint": "are — they",
+     "cell": "eles",
+     "display_order": 7
+    },
+    {
+     "sentence": "As malas {{answer}} pesadas.",
+     "answer": "são",
+     "translation": "The suitcases are heavy.",
+     "hint": "are — they",
+     "cell": "eles",
+     "display_order": 8
+    }
+   ],
+   "paradigm": [
+    "eu",
+    "ele",
+    "nós",
+    "eles"
+   ]
+  },
+  {
+   "title": "Estar — present (estou, está…)",
+   "level": "A1",
+   "function": "Say how or where something is right now",
+   "source": "contributor",
+   "reviewed": true,
+   "display_order": 5,
+   "explanation": "estar = temporary states and location: estou cansado 'I'm tired (now)', ela está em casa 'she's at home'. eu estou, você/ele está, nós estamos, vocês/eles estão.\n\nContrast with ser: ele é alegre (cheerful person) vs ele está alegre (happy right now).",
+   "culture_note": "",
+   "references": [
+    {
+     "title": "Ciberdúvidas da Língua Portuguesa",
+     "url": "https://ciberduvidas.iscte-iul.pt/"
+    },
+    {
+     "title": "Wikipedia: Portuguese grammar",
+     "url": "https://en.wikipedia.org/wiki/Portuguese_grammar"
+    }
+   ],
+   "drills": [
+    {
+     "sentence": "Eu {{answer}} com fome.",
+     "answer": "estou",
+     "translation": "I am hungry.",
+     "hint": "am — I (state)",
+     "cell": "eu",
+     "display_order": 1
+    },
+    {
+     "sentence": "Eu {{answer}} no trabalho agora.",
+     "answer": "estou",
+     "translation": "I am at work right now.",
+     "hint": "am — I (location)",
+     "cell": "eu",
+     "display_order": 2
+    },
+    {
+     "sentence": "O café {{answer}} quente.",
+     "answer": "está",
+     "translation": "The coffee is hot.",
+     "hint": "is — it (state)",
+     "cell": "ele",
+     "display_order": 3
+    },
+    {
+     "sentence": "Ela {{answer}} em casa hoje.",
+     "answer": "está",
+     "translation": "She is at home today.",
+     "hint": "is — she (location)",
+     "cell": "ele",
+     "display_order": 4
+    },
+    {
+     "sentence": "Nós {{answer}} atrasados!",
+     "answer": "estamos",
+     "translation": "We are late!",
+     "hint": "are — we (state)",
+     "cell": "nós",
+     "display_order": 5
+    },
+    {
+     "sentence": "Nós {{answer}} no ponto de ônibus.",
+     "answer": "estamos",
+     "translation": "We are at the bus stop.",
+     "hint": "are — we (location)",
+     "cell": "nós",
+     "display_order": 6
+    },
+    {
+     "sentence": "As crianças {{answer}} felizes.",
+     "answer": "estão",
+     "translation": "The children are happy.",
+     "hint": "are — they (state)",
+     "cell": "eles",
+     "display_order": 7
+    },
+    {
+     "sentence": "Os documentos {{answer}} na gaveta.",
+     "answer": "estão",
+     "translation": "The documents are in the drawer.",
+     "hint": "are — they (location)",
+     "cell": "eles",
+     "display_order": 8
+    }
+   ],
+   "paradigm": [
+    "eu",
+    "ele",
+    "nós",
+    "eles"
+   ]
+  },
+  {
+   "title": "Ter — present (tenho, tem…)",
+   "level": "A1",
+   "function": "Say what you have — and how old you are",
+   "source": "contributor",
+   "reviewed": true,
+   "display_order": 6,
+   "explanation": "ter = to have: eu tenho, você/ele tem, nós temos, vocês/eles têm.\n\nPortuguese uses ter for age (tenho trinta anos 'I'm thirty') and for sensations (tenho sede 'I'm thirsty'). In spoken Brazil, tem also means 'there is' (see the Tem/Há point).",
+   "culture_note": "",
+   "references": [
+    {
+     "title": "Ciberdúvidas da Língua Portuguesa",
+     "url": "https://ciberduvidas.iscte-iul.pt/"
+    },
+    {
+     "title": "Wikipedia: Portuguese grammar",
+     "url": "https://en.wikipedia.org/wiki/Portuguese_grammar"
+    }
+   ],
+   "drills": [
+    {
+     "sentence": "Eu {{answer}} duas irmãs.",
+     "answer": "tenho",
+     "translation": "I have two sisters.",
+     "hint": "have — I",
+     "cell": "eu",
+     "display_order": 1
+    },
+    {
+     "sentence": "Eu {{answer}} muita sede.",
+     "answer": "tenho",
+     "translation": "I am very thirsty. (lit. have thirst)",
+     "hint": "have — I",
+     "cell": "eu",
+     "display_order": 2
+    },
+    {
+     "sentence": "Ele {{answer}} um carro azul.",
+     "answer": "tem",
+     "translation": "He has a blue car.",
+     "hint": "has — he",
+     "cell": "ele",
+     "display_order": 3
+    },
+    {
+     "sentence": "Ela {{answer}} vinte e cinco anos.",
+     "answer": "tem",
+     "translation": "She is twenty-five years old.",
+     "hint": "has — she (age)",
+     "cell": "ele",
+     "display_order": 4
+    },
+    {
+     "sentence": "Nós {{answer}} uma reunião às dez.",
+     "answer": "temos",
+     "translation": "We have a meeting at ten.",
+     "hint": "have — we",
+     "cell": "nós",
+     "display_order": 5
+    },
+    {
+     "sentence": "Nós {{answer}} tempo para um café.",
+     "answer": "temos",
+     "translation": "We have time for a coffee.",
+     "hint": "have — we",
+     "cell": "nós",
+     "display_order": 6
+    },
+    {
+     "sentence": "Eles {{answer}} três filhos.",
+     "answer": "têm",
+     "translation": "They have three children.",
+     "hint": "have — they",
+     "cell": "eles",
+     "display_order": 7
+    },
+    {
+     "sentence": "As casas daqui {{answer}} quintal.",
+     "answer": "têm",
+     "translation": "The houses here have backyards.",
+     "hint": "have — they",
+     "cell": "eles",
+     "display_order": 8
+    }
+   ],
+   "paradigm": [
+    "eu",
+    "ele",
+    "nós",
+    "eles"
+   ]
+  },
+  {
+   "title": "Present tense of -ar verbs",
+   "level": "A1",
+   "function": "Talk about habits and current facts",
+   "source": "contributor",
+   "reviewed": true,
+   "display_order": 7,
+   "explanation": "Drop -ar, add -o, -a, -amos, -am: falar → falo, fala, falamos, falam.\n\nThe present covers habits (trabalho de segunda a sexta 'I work Monday to Friday') and near-future plans with a time word (viajo amanhã).",
+   "culture_note": "",
+   "references": [
+    {
+     "title": "Ciberdúvidas da Língua Portuguesa",
+     "url": "https://ciberduvidas.iscte-iul.pt/"
+    },
+    {
+     "title": "Wikipedia: Portuguese grammar",
+     "url": "https://en.wikipedia.org/wiki/Portuguese_grammar"
+    }
+   ],
+   "drills": [
+    {
+     "sentence": "Eu {{answer}} português todos os dias.",
+     "answer": "estudo",
+     "translation": "I study Portuguese every day.",
+     "hint": "study — I (estudar)",
+     "cell": "eu",
+     "display_order": 1
+    },
+    {
+     "sentence": "Eu {{answer}} em um banco.",
+     "answer": "trabalho",
+     "translation": "I work at a bank.",
+     "hint": "work — I (trabalhar)",
+     "cell": "eu",
+     "display_order": 2
+    },
+    {
+     "sentence": "Ela {{answer}} três línguas.",
+     "answer": "fala",
+     "translation": "She speaks three languages.",
+     "hint": "speaks — she (falar)",
+     "cell": "ele",
+     "display_order": 3
+    },
+    {
+     "sentence": "Ele {{answer}} violão muito bem.",
+     "answer": "toca",
+     "translation": "He plays the guitar very well.",
+     "hint": "plays — he (tocar)",
+     "cell": "ele",
+     "display_order": 4
+    },
+    {
+     "sentence": "Nós {{answer}} samba na festa.",
+     "answer": "dançamos",
+     "translation": "We dance samba at the party.",
+     "hint": "dance — we (dançar)",
+     "cell": "nós",
+     "display_order": 5
+    },
+    {
+     "sentence": "Nós {{answer}} os avós no domingo.",
+     "answer": "visitamos",
+     "translation": "We visit our grandparents on Sundays.",
+     "hint": "visit — we (visitar)",
+     "cell": "nós",
+     "display_order": 6
+    },
+    {
+     "sentence": "Eles {{answer}} cedo durante a semana.",
+     "answer": "acordam",
+     "translation": "They wake up early during the week.",
+     "hint": "wake up — they (acordar)",
+     "cell": "eles",
+     "display_order": 7
+    },
+    {
+     "sentence": "Elas {{answer}} no mercado do bairro.",
+     "answer": "compram",
+     "translation": "They shop at the neighbourhood market.",
+     "hint": "buy — they (comprar)",
+     "cell": "eles",
+     "display_order": 8
+    }
+   ],
+   "paradigm": [
+    "eu",
+    "ele",
+    "nós",
+    "eles"
+   ]
+  },
+  {
+   "title": "-er and -ir verbs (comer, abrir)",
+   "level": "A1",
+   "function": "Use the other two verb families",
+   "source": "contributor",
+   "reviewed": true,
+   "display_order": 8,
+   "explanation": "-er verbs: como, come, comemos, comem (comer).\n\n-ir verbs: abro, abre, abrimos, abrem (abrir) — identical to -er except nós -imos.\n\nCommon irregulars worth spotting early: fazer (faço), ir (vou), poder (posso), querer (quero).",
+   "culture_note": "",
+   "references": [
+    {
+     "title": "Ciberdúvidas da Língua Portuguesa",
+     "url": "https://ciberduvidas.iscte-iul.pt/"
+    },
+    {
+     "title": "Wikipedia: Portuguese grammar",
+     "url": "https://en.wikipedia.org/wiki/Portuguese_grammar"
+    }
+   ],
+   "drills": [
+    {
+     "sentence": "Eu {{answer}} pão com manteiga de manhã.",
+     "answer": "como",
+     "translation": "I eat bread and butter in the morning.",
+     "hint": "eat — I (comer)",
+     "display_order": 1
+    },
+    {
+     "sentence": "Ela {{answer}} muitos livros.",
+     "answer": "lê",
+     "translation": "She reads a lot of books.",
+     "hint": "reads — she (ler)",
+     "display_order": 2
+    },
+    {
+     "sentence": "Nós {{answer}} suco de laranja.",
+     "answer": "bebemos",
+     "translation": "We drink orange juice.",
+     "hint": "drink — we (beber)",
+     "display_order": 3
+    },
+    {
+     "sentence": "A loja {{answer}} às nove.",
+     "answer": "abre",
+     "translation": "The shop opens at nine.",
+     "hint": "opens — it (abrir)",
+     "display_order": 4
+    },
+    {
+     "sentence": "Eu {{answer}} no centro da cidade.",
+     "answer": "vivo",
+     "translation": "I live in the city centre.",
+     "hint": "live — I (viver)",
+     "display_order": 5
+    },
+    {
+     "sentence": "Eles {{answer}} a conta no fim do mês.",
+     "answer": "dividem",
+     "translation": "They split the bill at the end of the month.",
+     "hint": "divide — they (dividir)",
+     "display_order": 6
+    }
+   ]
+  },
+  {
+   "title": "Negation with não",
+   "level": "A1",
+   "function": "Say what is not so",
+   "source": "contributor",
+   "reviewed": true,
+   "display_order": 9,
+   "explanation": "Put não before the verb: não falo japonês 'I don't speak Japanese'. Spoken Brazilian often doubles it for emphasis at the end: não sei não 'I really don't know'.\n\nAnswering a question, Portuguese repeats the verb: — Você fala inglês? — Falo. / Não falo.",
+   "culture_note": "",
+   "references": [
+    {
+     "title": "Ciberdúvidas da Língua Portuguesa",
+     "url": "https://ciberduvidas.iscte-iul.pt/"
+    },
+    {
+     "title": "Wikipedia: Portuguese grammar",
+     "url": "https://en.wikipedia.org/wiki/Portuguese_grammar"
+    }
+   ],
+   "drills": [
+    {
+     "sentence": "Eu {{answer}} como carne.",
+     "answer": "não",
+     "translation": "I don't eat meat.",
+     "hint": "not",
+     "display_order": 1
+    },
+    {
+     "sentence": "Ela {{answer}} mora mais aqui.",
+     "answer": "não",
+     "translation": "She doesn't live here anymore.",
+     "hint": "not",
+     "display_order": 2
+    },
+    {
+     "sentence": "Nós {{answer}} temos aula hoje.",
+     "answer": "não",
+     "translation": "We don't have class today.",
+     "hint": "not",
+     "display_order": 3
+    },
+    {
+     "sentence": "Eles {{answer}} gostam de acordar cedo.",
+     "answer": "não",
+     "translation": "They don't like waking up early.",
+     "hint": "not",
+     "display_order": 4
+    },
+    {
+     "sentence": "O ônibus {{answer}} passa aos domingos.",
+     "answer": "não",
+     "translation": "The bus doesn't run on Sundays.",
+     "hint": "not",
+     "display_order": 5
+    },
+    {
+     "sentence": "Desculpa, {{answer}} entendi.",
+     "answer": "não",
+     "translation": "Sorry, I didn't understand.",
+     "hint": "not",
+     "display_order": 6
+    }
+   ]
+  },
+  {
+   "title": "Tem / Há — there is, there are",
+   "level": "A1",
+   "function": "Say what exists",
+   "source": "contributor",
+   "reviewed": true,
+   "display_order": 10,
+   "explanation": "In spoken Brazil, tem does the job of 'there is/are': tem um mercado aqui perto 'there's a market nearby'. há is the formal/written equivalent (há muitas opções) and also means 'ago' with time: há dois anos 'two years ago'. Both are invariable — never 'têm' for existence.",
+   "culture_note": "",
+   "references": [
+    {
+     "title": "Ciberdúvidas da Língua Portuguesa",
+     "url": "https://ciberduvidas.iscte-iul.pt/"
+    },
+    {
+     "title": "Wikipedia: Portuguese grammar",
+     "url": "https://en.wikipedia.org/wiki/Portuguese_grammar"
+    }
+   ],
+   "drills": [
+    {
+     "sentence": "{{answer}} um banco nesta rua?",
+     "answer": "Tem",
+     "translation": "Is there a bank on this street?",
+     "hint": "there is (spoken)",
+     "display_order": 1
+    },
+    {
+     "sentence": "{{answer}} muita gente na praia hoje.",
+     "answer": "Tem",
+     "translation": "There are a lot of people at the beach today.",
+     "hint": "there are (spoken)",
+     "display_order": 2
+    },
+    {
+     "sentence": "{{answer}} vagas para o curso da manhã.",
+     "answer": "Há",
+     "translation": "There are places available in the morning course.",
+     "hint": "there are (formal)",
+     "display_order": 3
+    },
+    {
+     "sentence": "Não {{answer}} problema nenhum.",
+     "answer": "tem",
+     "translation": "There's no problem at all.",
+     "hint": "there is (spoken)",
+     "display_order": 4
+    },
+    {
+     "sentence": "{{answer}} dois anos que moro aqui.",
+     "answer": "Há",
+     "translation": "I've lived here for two years. (lit. there are two years)",
+     "hint": "for/ago (time)",
+     "display_order": 5
+    },
+    {
+     "sentence": "{{answer}} um restaurante ótimo na esquina.",
+     "answer": "Tem",
+     "translation": "There's a great restaurant on the corner.",
+     "hint": "there is (spoken)",
+     "display_order": 6
+    }
+   ]
+  },
+  {
+   "title": "Question words (onde, o que, quando…)",
+   "level": "A1",
+   "function": "Ask for information",
+   "source": "contributor",
+   "reviewed": true,
+   "display_order": 11,
+   "explanation": "onde (where), o que (what), quando (when), quem (who), como (how), por que (why), quanto (how much). Spoken Brazilian keeps statement word order (Você mora onde?) or fronts the question word, often with é que: Onde é que você mora?",
+   "culture_note": "",
+   "references": [
+    {
+     "title": "Ciberdúvidas da Língua Portuguesa",
+     "url": "https://ciberduvidas.iscte-iul.pt/"
+    },
+    {
+     "title": "Wikipedia: Portuguese grammar",
+     "url": "https://en.wikipedia.org/wiki/Portuguese_grammar"
+    }
+   ],
+   "drills": [
+    {
+     "sentence": "{{answer}} fica a estação de metrô?",
+     "answer": "Onde",
+     "translation": "Where is the metro station?",
+     "hint": "where",
+     "display_order": 1
+    },
+    {
+     "sentence": "{{answer}} é o seu nome?",
+     "answer": "Qual",
+     "translation": "What is your name?",
+     "hint": "which/what (before é)",
+     "display_order": 2
+    },
+    {
+     "sentence": "{{answer}} começa o filme?",
+     "answer": "Quando",
+     "translation": "When does the film start?",
+     "hint": "when",
+     "display_order": 3
+    },
+    {
+     "sentence": "{{answer}} é aquela moça?",
+     "answer": "Quem",
+     "translation": "Who is that young woman?",
+     "hint": "who",
+     "display_order": 4
+    },
+    {
+     "sentence": "{{answer}} se diz isso em português?",
+     "answer": "Como",
+     "translation": "How do you say that in Portuguese?",
+     "hint": "how",
+     "display_order": 5
+    },
+    {
+     "sentence": "{{answer}} custa a passagem?",
+     "answer": "Quanto",
+     "translation": "How much does the ticket cost?",
+     "hint": "how much",
+     "display_order": 6
+    }
+   ]
+  },
+  {
+   "title": "Adjective agreement",
+   "level": "A1",
+   "function": "Match adjectives to their noun",
+   "source": "contributor",
+   "reviewed": true,
+   "display_order": 12,
+   "explanation": "Adjectives agree in gender and number and usually FOLLOW the noun: um carro novo, uma casa nova, carros novos, casas novas.\n\nAdjectives in -e or a consonant have one form for both genders (um filme interessante, uma aula interessante).",
+   "culture_note": "",
+   "references": [
+    {
+     "title": "Ciberdúvidas da Língua Portuguesa",
+     "url": "https://ciberduvidas.iscte-iul.pt/"
+    },
+    {
+     "title": "Wikipedia: Portuguese grammar",
+     "url": "https://en.wikipedia.org/wiki/Portuguese_grammar"
+    }
+   ],
+   "drills": [
+    {
+     "sentence": "A comida daqui é muito {{answer}}.",
+     "answer": "boa",
+     "translation": "The food here is very good.",
+     "hint": "good (feminine)",
+     "display_order": 1
+    },
+    {
+     "sentence": "O apartamento é {{answer}} e claro.",
+     "answer": "novo",
+     "translation": "The apartment is new and bright.",
+     "hint": "new (masculine)",
+     "display_order": 2
+    },
+    {
+     "sentence": "As ruas do centro são {{answer}}.",
+     "answer": "movimentadas",
+     "translation": "The streets downtown are busy.",
+     "hint": "busy (feminine plural)",
+     "display_order": 3
+    },
+    {
+     "sentence": "Os ingressos estão {{answer}} este ano.",
+     "answer": "caros",
+     "translation": "The tickets are expensive this year.",
+     "hint": "expensive (masculine plural)",
+     "display_order": 4
+    },
+    {
+     "sentence": "Ela é uma pessoa {{answer}}.",
+     "answer": "inteligente",
+     "translation": "She is an intelligent person.",
+     "hint": "intelligent (one form)",
+     "display_order": 5
+    },
+    {
+     "sentence": "O português é uma língua {{answer}}.",
+     "answer": "bonita",
+     "translation": "Portuguese is a beautiful language.",
+     "hint": "beautiful (feminine)",
+     "display_order": 6
+    }
+   ]
+  },
+  {
+   "title": "The past — pretérito perfeito (falei, comeu)",
+   "level": "A2",
+   "function": "Say what happened (completed actions)",
+   "source": "contributor",
+   "reviewed": true,
+   "display_order": 1,
+   "explanation": "The perfeito reports one completed event: falei 'I spoke', comeu 'he ate'.\n\n-ar: falei, falou, falamos, falaram.\n\n-er: comi, comeu, comemos, comeram.\n\n-ir: abri, abriu, abrimos, abriram.\n\nTime cues like ontem (yesterday), na semana passada, anteontem call for the perfeito. você shares the ele form (você falou).",
+   "culture_note": "",
+   "references": [
+    {
+     "title": "Ciberdúvidas da Língua Portuguesa",
+     "url": "https://ciberduvidas.iscte-iul.pt/"
+    },
+    {
+     "title": "Wikipedia: Portuguese grammar",
+     "url": "https://en.wikipedia.org/wiki/Portuguese_grammar"
+    }
+   ],
+   "drills": [
+    {
+     "sentence": "Ontem eu {{answer}} com a minha mãe.",
+     "answer": "falei",
+     "translation": "Yesterday I spoke with my mother.",
+     "hint": "spoke — I (falar)",
+     "cell": "eu",
+     "display_order": 1
+    },
+    {
+     "sentence": "Anteontem eu {{answer}} um filme ótimo.",
+     "answer": "assisti",
+     "translation": "The day before yesterday I watched a great film.",
+     "hint": "watched — I (assistir)",
+     "cell": "eu",
+     "display_order": 2
+    },
+    {
+     "sentence": "Ela {{answer}} tarde no sábado.",
+     "answer": "acordou",
+     "translation": "She woke up late on Saturday.",
+     "hint": "woke up — she (acordar)",
+     "cell": "ele",
+     "display_order": 3
+    },
+    {
+     "sentence": "Você {{answer}} o recado ontem à noite?",
+     "answer": "recebeu",
+     "translation": "Did you get the message last night?",
+     "hint": "received — you (receber)",
+     "cell": "ele",
+     "display_order": 4
+    },
+    {
+     "sentence": "Na semana passada nós {{answer}} para a praia.",
+     "answer": "viajamos",
+     "translation": "Last week we travelled to the beach.",
+     "hint": "travelled — we (viajar)",
+     "cell": "nós",
+     "display_order": 5
+    },
+    {
+     "sentence": "Nós {{answer}} feijoada no domingo.",
+     "answer": "comemos",
+     "translation": "We ate feijoada on Sunday.",
+     "hint": "ate — we (comer)",
+     "cell": "nós",
+     "display_order": 6
+    },
+    {
+     "sentence": "Eles {{answer}} a casa em dezembro.",
+     "answer": "venderam",
+     "translation": "They sold the house in December.",
+     "hint": "sold — they (vender)",
+     "cell": "eles",
+     "display_order": 7
+    },
+    {
+     "sentence": "As meninas {{answer}} cedo da festa ontem.",
+     "answer": "saíram",
+     "translation": "The girls left the party early yesterday.",
+     "hint": "left — they (sair)",
+     "cell": "eles",
+     "display_order": 8
+    }
+   ],
+   "paradigm": [
+    "eu",
+    "ele",
+    "nós",
+    "eles"
+   ]
+  },
+  {
+   "title": "The imperfect (falava, comia)",
+   "level": "A2",
+   "function": "Describe how things used to be",
+   "source": "contributor",
+   "reviewed": true,
+   "display_order": 2,
+   "explanation": "The imperfeito paints background and habit: quando era criança, eu morava no interior 'when I was a child, I lived in the countryside'.\n\n-ar → -ava (falava, falávamos); -er/-ir → -ia (comia, abríamos).\n\nIrregulars: ser (era), ter (tinha), vir (vinha), pôr (punha).\n\nCues: antigamente, sempre, todo dia, quando era criança.",
+   "culture_note": "",
+   "references": [
+    {
+     "title": "Ciberdúvidas da Língua Portuguesa",
+     "url": "https://ciberduvidas.iscte-iul.pt/"
+    },
+    {
+     "title": "Wikipedia: Portuguese grammar",
+     "url": "https://en.wikipedia.org/wiki/Portuguese_grammar"
+    }
+   ],
+   "drills": [
+    {
+     "sentence": "Antigamente eu {{answer}} de bicicleta para a escola.",
+     "answer": "ia",
+     "translation": "I used to go to school by bike.",
+     "hint": "used to go — I (ir)",
+     "display_order": 1
+    },
+    {
+     "sentence": "Quando era criança, eu {{answer}} no quintal.",
+     "answer": "brincava",
+     "translation": "When I was a child, I used to play in the backyard.",
+     "hint": "used to play — I (brincar)",
+     "display_order": 2
+    },
+    {
+     "sentence": "Minha avó {{answer}} bolo todo domingo.",
+     "answer": "fazia",
+     "translation": "My grandmother used to make cake every Sunday.",
+     "hint": "used to make — she (fazer)",
+     "display_order": 3
+    },
+    {
+     "sentence": "Nós {{answer}} numa casa pequena.",
+     "answer": "morávamos",
+     "translation": "We used to live in a small house.",
+     "hint": "used to live — we (morar)",
+     "display_order": 4
+    },
+    {
+     "sentence": "Naquela época, tudo {{answer}} mais barato.",
+     "answer": "era",
+     "translation": "Back then, everything was cheaper.",
+     "hint": "was — it (ser, imperfect)",
+     "display_order": 5
+    },
+    {
+     "sentence": "Eles sempre {{answer}} futebol na rua.",
+     "answer": "jogavam",
+     "translation": "They always used to play football in the street.",
+     "hint": "used to play — they (jogar)",
+     "display_order": 6
+    }
+   ]
+  },
+  {
+   "title": "The future with ir (vou falar)",
+   "level": "A2",
+   "function": "Say what is going to happen",
+   "source": "contributor",
+   "reviewed": true,
+   "display_order": 3,
+   "explanation": "Brazil's everyday future is ir (present) + infinitive: vou viajar amanhã 'I'm going to travel tomorrow', vamos jantar fora 'we're going to eat out'. vou, vai, vamos, vão.\n\nThe one-word future (falarei) is formal/written — you'll read it, but conversation uses ir.",
+   "culture_note": "",
+   "references": [
+    {
+     "title": "Ciberdúvidas da Língua Portuguesa",
+     "url": "https://ciberduvidas.iscte-iul.pt/"
+    },
+    {
+     "title": "Wikipedia: Portuguese grammar",
+     "url": "https://en.wikipedia.org/wiki/Portuguese_grammar"
+    }
+   ],
+   "drills": [
+    {
+     "sentence": "Amanhã eu {{answer}} acordar cedo.",
+     "answer": "vou",
+     "translation": "Tomorrow I'm going to wake up early.",
+     "hint": "am going — I (ir)",
+     "cell": "eu",
+     "display_order": 1
+    },
+    {
+     "sentence": "Eu {{answer}} ligar para você à noite.",
+     "answer": "vou",
+     "translation": "I'm going to call you tonight.",
+     "hint": "am going — I (ir)",
+     "cell": "eu",
+     "display_order": 2
+    },
+    {
+     "sentence": "Ela {{answer}} chegar depois do almoço.",
+     "answer": "vai",
+     "translation": "She's going to arrive after lunch.",
+     "hint": "is going — she (ir)",
+     "cell": "ele",
+     "display_order": 3
+    },
+    {
+     "sentence": "O jogo {{answer}} começar às oito.",
+     "answer": "vai",
+     "translation": "The game is going to start at eight.",
+     "hint": "is going — it (ir)",
+     "cell": "ele",
+     "display_order": 4
+    },
+    {
+     "sentence": "No sábado nós {{answer}} fazer um churrasco.",
+     "answer": "vamos",
+     "translation": "On Saturday we're going to have a barbecue.",
+     "hint": "are going — we (ir)",
+     "cell": "nós",
+     "display_order": 5
+    },
+    {
+     "sentence": "Nós {{answer}} visitar vocês nas férias.",
+     "answer": "vamos",
+     "translation": "We're going to visit you on vacation.",
+     "hint": "are going — we (ir)",
+     "cell": "nós",
+     "display_order": 6
+    },
+    {
+     "sentence": "Eles {{answer}} morar em Curitiba ano que vem.",
+     "answer": "vão",
+     "translation": "They're going to live in Curitiba next year.",
+     "hint": "are going — they (ir)",
+     "cell": "eles",
+     "display_order": 7
+    },
+    {
+     "sentence": "As lojas {{answer}} abrir mais tarde amanhã.",
+     "answer": "vão",
+     "translation": "The shops are going to open later tomorrow.",
+     "hint": "are going — they (ir)",
+     "cell": "eles",
+     "display_order": 8
+    }
+   ],
+   "paradigm": [
+    "eu",
+    "ele",
+    "nós",
+    "eles"
+   ]
+  },
+  {
+   "title": "Contractions (no, da, dele, pelo…)",
+   "level": "A2",
+   "function": "Merge prepositions with articles and pronouns",
+   "source": "contributor",
+   "reviewed": true,
+   "display_order": 4,
+   "explanation": "Portuguese fuses prepositions with what follows: em + o = no, em + a = na, de + o = do, de + a = da, a + a = à, por + o = pelo, de + ele = dele, em + este = neste.\n\nMoro no Rio, venho da Bahia, gosto dele.",
+   "culture_note": "",
+   "references": [
+    {
+     "title": "Ciberdúvidas da Língua Portuguesa",
+     "url": "https://ciberduvidas.iscte-iul.pt/"
+    },
+    {
+     "title": "Wikipedia: Portuguese grammar",
+     "url": "https://en.wikipedia.org/wiki/Portuguese_grammar"
+    }
+   ],
+   "drills": [
+    {
+     "sentence": "Eu moro {{answer}} Brasil.",
+     "answer": "no",
+     "translation": "I live in Brazil.",
+     "hint": "in the (em + o)",
+     "display_order": 1
+    },
+    {
+     "sentence": "Ela trabalha {{answer}} padaria da esquina.",
+     "answer": "na",
+     "translation": "She works at the bakery on the corner.",
+     "hint": "in the (em + a)",
+     "display_order": 2
+    },
+    {
+     "sentence": "Este presente veio {{answer}} minha tia.",
+     "answer": "da",
+     "translation": "This gift came from my aunt.",
+     "hint": "from the (de + a)",
+     "display_order": 3
+    },
+    {
+     "sentence": "O ônibus passa {{answer}} centro.",
+     "answer": "pelo",
+     "translation": "The bus goes through downtown.",
+     "hint": "through the (por + o)",
+     "display_order": 4
+    },
+    {
+     "sentence": "Gosto muito {{answer}} — ele é gente boa.",
+     "answer": "dele",
+     "translation": "I really like him — he's a good person.",
+     "hint": "of him (de + ele)",
+     "display_order": 5
+    },
+    {
+     "sentence": "Voltamos {{answer}} supermercado agora.",
+     "answer": "do",
+     "translation": "We just got back from the supermarket.",
+     "hint": "from the (de + o)",
+     "display_order": 6
+    }
+   ]
+  },
+  {
+   "title": "Object pronouns (me, te, o, a, nos)",
+   "level": "A2",
+   "function": "Replace the object with a short pronoun",
+   "source": "contributor",
+   "reviewed": true,
+   "display_order": 5,
+   "explanation": "me, te, o/a (him/her/it), nos, os/as. Brazilian Portuguese places them BEFORE the verb (ela me viu 'she saw me') and, in speech, often uses ele/ela instead of o/a (eu vi ele).\n\nLearn the standard forms — you'll need them in writing.",
+   "culture_note": "",
+   "references": [
+    {
+     "title": "Ciberdúvidas da Língua Portuguesa",
+     "url": "https://ciberduvidas.iscte-iul.pt/"
+    },
+    {
+     "title": "Wikipedia: Portuguese grammar",
+     "url": "https://en.wikipedia.org/wiki/Portuguese_grammar"
+    }
+   ],
+   "drills": [
+    {
+     "sentence": "Ela {{answer}} viu no shopping ontem.",
+     "answer": "me",
+     "translation": "She saw me at the mall yesterday.",
+     "hint": "me",
+     "display_order": 1
+    },
+    {
+     "sentence": "Eu {{answer}} amo.",
+     "answer": "te",
+     "translation": "I love you.",
+     "hint": "you (informal object)",
+     "display_order": 2
+    },
+    {
+     "sentence": "Conhece meu chefe? Eu {{answer}} respeito muito.",
+     "answer": "o",
+     "translation": "Do you know my boss? I respect him a lot.",
+     "hint": "him",
+     "display_order": 3
+    },
+    {
+     "sentence": "A Maria? Eu {{answer}} encontrei na feira.",
+     "answer": "a",
+     "translation": "Maria? I met her at the street market.",
+     "hint": "her",
+     "display_order": 4
+    },
+    {
+     "sentence": "Nossos amigos {{answer}} convidaram para jantar.",
+     "answer": "nos",
+     "translation": "Our friends invited us to dinner.",
+     "hint": "us",
+     "display_order": 5
+    },
+    {
+     "sentence": "Esses livros? Eu {{answer}} li nas férias.",
+     "answer": "os",
+     "translation": "Those books? I read them on vacation.",
+     "hint": "them (masculine)",
+     "display_order": 6
+    }
+   ]
+  },
+  {
+   "title": "Comparatives (mais… do que, o mais)",
+   "level": "A2",
+   "function": "Compare things",
+   "source": "contributor",
+   "reviewed": true,
+   "display_order": 6,
+   "explanation": "mais + adjective + (do) que: mais quente do que 'hotter than'; menos for 'less'; tão … quanto 'as … as'. Superlative adds the article: o mais alto 'the tallest'.\n\nIrregulars: bom → melhor, ruim → pior, grande → maior, pequeno → menor.",
+   "culture_note": "",
+   "references": [
+    {
+     "title": "Ciberdúvidas da Língua Portuguesa",
+     "url": "https://ciberduvidas.iscte-iul.pt/"
+    },
+    {
+     "title": "Wikipedia: Portuguese grammar",
+     "url": "https://en.wikipedia.org/wiki/Portuguese_grammar"
+    }
+   ],
+   "drills": [
+    {
+     "sentence": "São Paulo é {{answer}} do que Curitiba.",
+     "answer": "maior",
+     "translation": "São Paulo is bigger than Curitiba.",
+     "hint": "bigger (irregular)",
+     "display_order": 1
+    },
+    {
+     "sentence": "O açaí daqui é {{answer}} do que o do mercado.",
+     "answer": "melhor",
+     "translation": "The açaí here is better than the market's.",
+     "hint": "better (irregular)",
+     "display_order": 2
+    },
+    {
+     "sentence": "Hoje está {{answer}} quente do que ontem.",
+     "answer": "mais",
+     "translation": "Today it's hotter than yesterday.",
+     "hint": "more (comparative)",
+     "display_order": 3
+    },
+    {
+     "sentence": "Este é o {{answer}} restaurante do bairro.",
+     "answer": "melhor",
+     "translation": "This is the best restaurant in the neighbourhood.",
+     "hint": "best (irregular)",
+     "display_order": 4
+    },
+    {
+     "sentence": "O trânsito está {{answer}} do que de costume.",
+     "answer": "pior",
+     "translation": "The traffic is worse than usual.",
+     "hint": "worse (irregular)",
+     "display_order": 5
+    },
+    {
+     "sentence": "Ela é tão simpática {{answer}} a irmã.",
+     "answer": "quanto",
+     "translation": "She is as nice as her sister.",
+     "hint": "as (equality comparison)",
+     "display_order": 6
+    }
+   ]
+  },
+  {
+   "title": "Reflexive verbs (me levanto, se chama)",
+   "level": "A2",
+   "function": "Say the subject acts on itself",
+   "source": "contributor",
+   "reviewed": true,
+   "display_order": 7,
+   "explanation": "me, te, se, nos, se before the verb (Brazilian order): eu me levanto cedo 'I get up early', ela se chama Ana 'her name is Ana', nós nos falamos todo dia 'we talk every day'.\n\nSpoken Brazil drops some reflexives (eu levanto cedo) — both are heard.",
+   "culture_note": "",
+   "references": [
+    {
+     "title": "Ciberdúvidas da Língua Portuguesa",
+     "url": "https://ciberduvidas.iscte-iul.pt/"
+    },
+    {
+     "title": "Wikipedia: Portuguese grammar",
+     "url": "https://en.wikipedia.org/wiki/Portuguese_grammar"
+    }
+   ],
+   "drills": [
+    {
+     "sentence": "Eu {{answer}} levanto às seis da manhã.",
+     "answer": "me",
+     "translation": "I get up at six in the morning.",
+     "hint": "myself — I",
+     "cell": "eu",
+     "display_order": 1
+    },
+    {
+     "sentence": "Eu {{answer}} esqueci do aniversário dela!",
+     "answer": "me",
+     "translation": "I forgot her birthday!",
+     "hint": "myself — I",
+     "cell": "eu",
+     "display_order": 2
+    },
+    {
+     "sentence": "Como você {{answer}} chama?",
+     "answer": "se",
+     "translation": "What's your name? (how do you call yourself)",
+     "hint": "yourself — você",
+     "cell": "ele",
+     "display_order": 3
+    },
+    {
+     "sentence": "Ele {{answer}} machucou no jogo.",
+     "answer": "se",
+     "translation": "He hurt himself in the game.",
+     "hint": "himself — he",
+     "cell": "ele",
+     "display_order": 4
+    },
+    {
+     "sentence": "Nós {{answer}} conhecemos na faculdade.",
+     "answer": "nos",
+     "translation": "We met (each other) at university.",
+     "hint": "ourselves — we",
+     "cell": "nós",
+     "display_order": 5
+    },
+    {
+     "sentence": "Nós {{answer}} falamos pelo telefone.",
+     "answer": "nos",
+     "translation": "We talk to each other on the phone.",
+     "hint": "ourselves — we",
+     "cell": "nós",
+     "display_order": 6
+    },
+    {
+     "sentence": "Eles {{answer}} casaram no ano passado.",
+     "answer": "se",
+     "translation": "They got married last year.",
+     "hint": "themselves — they",
+     "cell": "eles",
+     "display_order": 7
+    },
+    {
+     "sentence": "As crianças {{answer}} divertiram na festa.",
+     "answer": "se",
+     "translation": "The children had fun at the party.",
+     "hint": "themselves — they",
+     "cell": "eles",
+     "display_order": 8
+    }
+   ],
+   "paradigm": [
+    "eu",
+    "ele",
+    "nós",
+    "eles"
+   ]
+  },
+  {
+   "title": "Possessives (meu, sua, dele…)",
+   "level": "A2",
+   "function": "Say whose something is — without ambiguity",
+   "source": "contributor",
+   "reviewed": true,
+   "display_order": 8,
+   "explanation": "meu/minha, teu/tua, seu/sua, nosso/nossa agree with the THING owned: meu carro, minha casa.\n\nHere's the Brazilian twist: seu/sua usually means YOUR (de você); for his/her, Brazil says dele/dela after the noun — o carro dele 'his car', a bolsa dela 'her bag'.\n\nThat kills the ambiguity of seu.",
+   "culture_note": "",
+   "references": [
+    {
+     "title": "Ciberdúvidas da Língua Portuguesa",
+     "url": "https://ciberduvidas.iscte-iul.pt/"
+    },
+    {
+     "title": "Wikipedia: Portuguese grammar",
+     "url": "https://en.wikipedia.org/wiki/Portuguese_grammar"
+    }
+   ],
+   "drills": [
+    {
+     "sentence": "{{answer}} celular está tocando.",
+     "answer": "Meu",
+     "translation": "My phone is ringing.",
+     "hint": "my (masculine)",
+     "display_order": 1
+    },
+    {
+     "sentence": "{{answer}} casa fica perto do metrô?",
+     "answer": "Sua",
+     "translation": "Is your house near the metro?",
+     "hint": "your (feminine)",
+     "display_order": 2
+    },
+    {
+     "sentence": "O carro {{answer}} está na oficina.",
+     "answer": "dele",
+     "translation": "His car is at the garage.",
+     "hint": "his (after the noun)",
+     "display_order": 3
+    },
+    {
+     "sentence": "A mãe {{answer}} é professora.",
+     "answer": "dela",
+     "translation": "Her mother is a teacher.",
+     "hint": "her (after the noun)",
+     "display_order": 4
+    },
+    {
+     "sentence": "{{answer}} filhos estudam na mesma escola.",
+     "answer": "Nossos",
+     "translation": "Our children study at the same school.",
+     "hint": "our (masculine plural)",
+     "display_order": 5
+    },
+    {
+     "sentence": "As chaves {{answer}} ficaram na mesa.",
+     "answer": "deles",
+     "translation": "Their keys were left on the table.",
+     "hint": "their (after the noun)",
+     "display_order": 6
+    }
+   ]
+  },
+  {
+   "title": "Demonstratives (este, esse, aquele)",
+   "level": "A2",
+   "function": "Point at things near me, near you, and far away",
+   "source": "contributor",
+   "reviewed": true,
+   "display_order": 9,
+   "explanation": "Three distances: este/esta 'this (near me)', esse/essa 'that (near you)', aquele/aquela 'that over there'.\n\nNeuters isto/isso/aquilo for unnamed things. In spoken Brazil este and esse blur together — but aquele is always the far one.\n\nThey also contract: neste, nesse, naquele; disto, disso, daquilo.",
+   "culture_note": "",
+   "references": [
+    {
+     "title": "Ciberdúvidas da Língua Portuguesa",
+     "url": "https://ciberduvidas.iscte-iul.pt/"
+    },
+    {
+     "title": "Wikipedia: Portuguese grammar",
+     "url": "https://en.wikipedia.org/wiki/Portuguese_grammar"
+    }
+   ],
+   "drills": [
+    {
+     "sentence": "{{answer}} celular aqui é meu.",
+     "answer": "Este",
+     "translation": "This phone here is mine.",
+     "hint": "this (near me)",
+     "display_order": 1
+    },
+    {
+     "sentence": "{{answer}} livro aí é bom?",
+     "answer": "Esse",
+     "translation": "Is that book (near you) good?",
+     "hint": "that (near you)",
+     "display_order": 2
+    },
+    {
+     "sentence": "{{answer}} prédio ali é o teatro.",
+     "answer": "Aquele",
+     "translation": "That building over there is the theatre.",
+     "hint": "that (far)",
+     "display_order": 3
+    },
+    {
+     "sentence": "O que é {{answer}} na sua mão?",
+     "answer": "isso",
+     "translation": "What is that in your hand?",
+     "hint": "that (neuter, near you)",
+     "display_order": 4
+    },
+    {
+     "sentence": "{{answer}} loja daqui vende de tudo.",
+     "answer": "Esta",
+     "translation": "This shop here sells everything.",
+     "hint": "this (feminine, near me)",
+     "display_order": 5
+    },
+    {
+     "sentence": "Você lembra {{answer}} viagem que fizemos?",
+     "answer": "daquela",
+     "translation": "Do you remember that trip we took?",
+     "hint": "of that (de + aquela)",
+     "display_order": 6
+    }
+   ]
+  },
+  {
+   "title": "Right now: estar + -ndo (estou falando)",
+   "level": "A2",
+   "function": "Say what is happening at this moment",
+   "source": "contributor",
+   "reviewed": true,
+   "display_order": 10,
+   "explanation": "Brazil's progressive is estar + gerúndio: estou falando 'I'm speaking', ela está trabalhando 'she's working'.\n\nGerúndio: -ar → -ando, -er → -endo, -ir → -indo.\n\nCues: agora, neste momento, ainda.",
+   "culture_note": "European Portuguese says estar a + infinitive instead: estou a falar. Both mean exactly the same; the app teaches the Brazilian form and flags the European one here.",
+   "references": [
+    {
+     "title": "Ciberdúvidas da Língua Portuguesa",
+     "url": "https://ciberduvidas.iscte-iul.pt/"
+    },
+    {
+     "title": "Wikipedia: Portuguese grammar",
+     "url": "https://en.wikipedia.org/wiki/Portuguese_grammar"
+    }
+   ],
+   "drills": [
+    {
+     "sentence": "Espera, eu estou {{answer}} no telefone.",
+     "answer": "falando",
+     "translation": "Hold on, I'm talking on the phone.",
+     "hint": "talking (falar → gerúndio)",
+     "display_order": 1
+    },
+    {
+     "sentence": "Ela está {{answer}} agora, liga depois.",
+     "answer": "trabalhando",
+     "translation": "She's working right now, call later.",
+     "hint": "working (trabalhar → gerúndio)",
+     "display_order": 2
+    },
+    {
+     "sentence": "Nós estamos {{answer}} o jogo.",
+     "answer": "assistindo",
+     "translation": "We're watching the game.",
+     "hint": "watching (assistir → gerúndio)",
+     "display_order": 3
+    },
+    {
+     "sentence": "As crianças estão {{answer}} no quarto.",
+     "answer": "dormindo",
+     "translation": "The children are sleeping in the bedroom.",
+     "hint": "sleeping (dormir → gerúndio)",
+     "display_order": 4
+    },
+    {
+     "sentence": "Está {{answer}} muito lá fora.",
+     "answer": "chovendo",
+     "translation": "It's raining hard outside.",
+     "hint": "raining (chover → gerúndio)",
+     "display_order": 5
+    },
+    {
+     "sentence": "Eu ainda estou {{answer}} o relatório.",
+     "answer": "escrevendo",
+     "translation": "I'm still writing the report.",
+     "hint": "writing (escrever → gerúndio)",
+     "display_order": 6
+    }
+   ]
+  },
+  {
+   "title": "Presente do subjuntivo (que eu fale)",
+   "level": "B1",
+   "function": "Express wish, doubt, and emotion",
+   "source": "contributor",
+   "reviewed": true,
+   "display_order": 1,
+   "explanation": "After wishes, doubts, and feelings — quero que, duvido que, espero que, é importante que, talvez — the verb goes to the subjunctive.\n\nBuild it from the eu-present: falo → fale, como → coma, abro → abra.\n\nKey irregulars: ser (seja), estar (esteja), ir (vá), saber (saiba), haver (haja).",
+   "culture_note": "",
+   "references": [
+    {
+     "title": "Ciberdúvidas da Língua Portuguesa",
+     "url": "https://ciberduvidas.iscte-iul.pt/"
+    },
+    {
+     "title": "Wikipedia: Portuguese grammar",
+     "url": "https://en.wikipedia.org/wiki/Portuguese_grammar"
+    }
+   ],
+   "drills": [
+    {
+     "sentence": "Quero que você {{answer}} na festa.",
+     "answer": "esteja",
+     "translation": "I want you to be at the party.",
+     "hint": "be — you (subjunctive of estar)",
+     "display_order": 1
+    },
+    {
+     "sentence": "Espero que tudo {{answer}} bem.",
+     "answer": "esteja",
+     "translation": "I hope everything is OK.",
+     "hint": "is — it (subjunctive of estar)",
+     "display_order": 2
+    },
+    {
+     "sentence": "Duvido que ele {{answer}} a verdade.",
+     "answer": "saiba",
+     "translation": "I doubt he knows the truth.",
+     "hint": "knows — he (subjunctive of saber)",
+     "display_order": 3
+    },
+    {
+     "sentence": "É importante que nós {{answer}} cedo.",
+     "answer": "cheguemos",
+     "translation": "It's important that we arrive early.",
+     "hint": "arrive — we (subjunctive of chegar)",
+     "display_order": 4
+    },
+    {
+     "sentence": "Talvez eles {{answer}} amanhã.",
+     "answer": "venham",
+     "translation": "Maybe they'll come tomorrow.",
+     "hint": "come — they (subjunctive of vir)",
+     "display_order": 5
+    },
+    {
+     "sentence": "Tomara que não {{answer}} no feriado.",
+     "answer": "chova",
+     "translation": "Let's hope it doesn't rain on the holiday.",
+     "hint": "rains — it (subjunctive of chover)",
+     "display_order": 6
+    }
+   ]
+  },
+  {
+   "title": "The imperative (fala! / fale!)",
+   "level": "B1",
+   "function": "Give instructions and advice",
+   "source": "contributor",
+   "reviewed": true,
+   "display_order": 2,
+   "explanation": "The standard imperative for você takes the subjunctive form: fale mais devagar 'speak more slowly', abra a janela. Spoken Brazil freely mixes in the tu form without -s (fala!, abre!, vem cá!) — both are heard everywhere.\n\nNegative commands always use the subjunctive: não fale.",
+   "culture_note": "",
+   "references": [
+    {
+     "title": "Ciberdúvidas da Língua Portuguesa",
+     "url": "https://ciberduvidas.iscte-iul.pt/"
+    },
+    {
+     "title": "Wikipedia: Portuguese grammar",
+     "url": "https://en.wikipedia.org/wiki/Portuguese_grammar"
+    }
+   ],
+   "drills": [
+    {
+     "sentence": "{{answer}} mais devagar, por favor.",
+     "answer": "Fale",
+     "translation": "Speak more slowly, please.",
+     "hint": "speak! (você form)",
+     "cell": "você",
+     "display_order": 1
+    },
+    {
+     "sentence": "{{answer}} a porta, está calor.",
+     "answer": "Abra",
+     "translation": "Open the door, it's hot.",
+     "hint": "open! (você form)",
+     "cell": "você",
+     "display_order": 2
+    },
+    {
+     "sentence": "{{answer}} cá, quero te mostrar uma coisa!",
+     "answer": "Vem",
+     "translation": "Come here, I want to show you something!",
+     "hint": "come! (spoken tu form)",
+     "cell": "tu",
+     "display_order": 3
+    },
+    {
+     "sentence": "{{answer}} aí, já estou chegando!",
+     "answer": "Espera",
+     "translation": "Hold on, I'm almost there!",
+     "hint": "wait! (spoken tu form)",
+     "cell": "tu",
+     "display_order": 4
+    },
+    {
+     "sentence": "Não {{answer}} isso para ninguém.",
+     "answer": "conte",
+     "translation": "Don't tell that to anyone.",
+     "hint": "tell! (negative = subjunctive)",
+     "cell": "neg",
+     "display_order": 5
+    },
+    {
+     "sentence": "Não se {{answer}}, vai dar tudo certo.",
+     "answer": "preocupe",
+     "translation": "Don't worry, it'll all work out.",
+     "hint": "worry! (negative = subjunctive)",
+     "cell": "neg",
+     "display_order": 6
+    }
+   ],
+   "paradigm": [
+    "você",
+    "tu",
+    "neg"
+   ]
+  },
+  {
+   "title": "Tenho falado — the iterative perfect",
+   "level": "B1",
+   "function": "Say what you've been doing lately",
+   "source": "contributor",
+   "reviewed": true,
+   "display_order": 3,
+   "explanation": "A famous trap: ter + participle (tenho falado) is NOT English 'I have spoken'. It means repetition or continuity up to now — 'I've been speaking (lately)'.\n\nTenho trabalhado muito 'I've been working a lot (these days)'. For a single completed past event, Portuguese uses the simple perfeito: já falei com ele 'I've (already) spoken with him'.",
+   "culture_note": "",
+   "references": [
+    {
+     "title": "Ciberdúvidas da Língua Portuguesa",
+     "url": "https://ciberduvidas.iscte-iul.pt/"
+    },
+    {
+     "title": "Wikipedia: Portuguese grammar",
+     "url": "https://en.wikipedia.org/wiki/Portuguese_grammar"
+    }
+   ],
+   "drills": [
+    {
+     "sentence": "Ultimamente eu {{answer}} trabalhado demais.",
+     "answer": "tenho",
+     "translation": "Lately I've been working too much.",
+     "hint": "have — I (iterative)",
+     "display_order": 1
+    },
+    {
+     "sentence": "Ela {{answer}} estudado todas as noites.",
+     "answer": "tem",
+     "translation": "She's been studying every night.",
+     "hint": "has — she (iterative)",
+     "display_order": 2
+    },
+    {
+     "sentence": "Nós {{answer}} conversado bastante esta semana.",
+     "answer": "temos",
+     "translation": "We've been talking a lot this week.",
+     "hint": "have — we (iterative)",
+     "display_order": 3
+    },
+    {
+     "sentence": "Eles {{answer}} viajado muito este ano.",
+     "answer": "têm",
+     "translation": "They've been travelling a lot this year.",
+     "hint": "have — they (iterative)",
+     "display_order": 4
+    },
+    {
+     "sentence": "Você tem {{answer}} bem?",
+     "answer": "dormido",
+     "translation": "Have you been sleeping well?",
+     "hint": "slept (participle of dormir)",
+     "display_order": 5
+    },
+    {
+     "sentence": "Tem {{answer}} muito frio ultimamente.",
+     "answer": "feito",
+     "translation": "It's been very cold lately.",
+     "hint": "made/been (participle of fazer)",
+     "display_order": 6
+    }
+   ]
+  },
+  {
+   "title": "Relative pronouns (que, quem, onde, cujo)",
+   "level": "B1",
+   "function": "Join two ideas into one sentence",
+   "source": "contributor",
+   "reviewed": true,
+   "display_order": 4,
+   "explanation": "que is the all-purpose relative: o filme que eu vi 'the film I saw'. After a preposition use quem for people (a moça com quem falei) and que/o qual for things. onde = 'where'. cujo/cuja 'whose' agrees with the thing possessed and is formal — speech usually rephrases it.",
+   "culture_note": "",
+   "references": [
+    {
+     "title": "Ciberdúvidas da Língua Portuguesa",
+     "url": "https://ciberduvidas.iscte-iul.pt/"
+    },
+    {
+     "title": "Wikipedia: Portuguese grammar",
+     "url": "https://en.wikipedia.org/wiki/Portuguese_grammar"
+    }
+   ],
+   "drills": [
+    {
+     "sentence": "O bolo {{answer}} você fez estava ótimo.",
+     "answer": "que",
+     "translation": "The cake you made was great.",
+     "hint": "that/which",
+     "display_order": 1
+    },
+    {
+     "sentence": "A cidade {{answer}} eu nasci fica no interior.",
+     "answer": "onde",
+     "translation": "The town where I was born is in the countryside.",
+     "hint": "where",
+     "display_order": 2
+    },
+    {
+     "sentence": "O amigo com {{answer}} eu moro é do Ceará.",
+     "answer": "quem",
+     "translation": "The friend I live with is from Ceará.",
+     "hint": "whom (person, after preposition)",
+     "display_order": 3
+    },
+    {
+     "sentence": "As pessoas {{answer}} chegaram cedo pegaram lugar.",
+     "answer": "que",
+     "translation": "The people who arrived early got seats.",
+     "hint": "who",
+     "display_order": 4
+    },
+    {
+     "sentence": "O autor {{answer}} livro ganhou o prêmio é baiano.",
+     "answer": "cujo",
+     "translation": "The author whose book won the prize is from Bahia.",
+     "hint": "whose (formal)",
+     "display_order": 5
+    },
+    {
+     "sentence": "Não gostei do jeito {{answer}} ele falou comigo.",
+     "answer": "que",
+     "translation": "I didn't like the way he spoke to me.",
+     "hint": "that/in which",
+     "display_order": 6
+    }
+   ]
+  },
+  {
+   "title": "The conditional (falaria, gostaria)",
+   "level": "B1",
+   "function": "Be polite and talk about hypotheticals",
+   "source": "contributor",
+   "reviewed": true,
+   "display_order": 5,
+   "explanation": "Add -ia to the infinitive: falaria 'would speak', comeria, abriria.\n\nIrregulars: fazer → faria, dizer → diria, trazer → traria. gostaria de 'I would like' is the polite request; spoken Brazil often uses the imperfeito instead (eu queria um café = eu gostaria de um café).",
+   "culture_note": "",
+   "references": [
+    {
+     "title": "Ciberdúvidas da Língua Portuguesa",
+     "url": "https://ciberduvidas.iscte-iul.pt/"
+    },
+    {
+     "title": "Wikipedia: Portuguese grammar",
+     "url": "https://en.wikipedia.org/wiki/Portuguese_grammar"
+    }
+   ],
+   "drills": [
+    {
+     "sentence": "Eu {{answer}} de um suco de maracujá.",
+     "answer": "gostaria",
+     "translation": "I would like a passion-fruit juice.",
+     "hint": "would like — I (gostar)",
+     "display_order": 1
+    },
+    {
+     "sentence": "Você {{answer}} me ajudar com a mudança?",
+     "answer": "poderia",
+     "translation": "Could you help me with the move?",
+     "hint": "could — you (poder)",
+     "display_order": 2
+    },
+    {
+     "sentence": "Nós {{answer}} mais tempo com as crianças.",
+     "answer": "passaríamos",
+     "translation": "We would spend more time with the kids.",
+     "hint": "would spend — we (passar)",
+     "display_order": 3
+    },
+    {
+     "sentence": "Ele disse que {{answer}} o trabalho hoje.",
+     "answer": "faria",
+     "translation": "He said he would do the work today.",
+     "hint": "would do — he (fazer)",
+     "display_order": 4
+    },
+    {
+     "sentence": "No seu lugar, eu {{answer}} a proposta.",
+     "answer": "aceitaria",
+     "translation": "In your place, I would accept the offer.",
+     "hint": "would accept — I (aceitar)",
+     "display_order": 5
+    },
+    {
+     "sentence": "Elas {{answer}} morar perto do mar.",
+     "answer": "adorariam",
+     "translation": "They would love to live near the sea.",
+     "hint": "would love — they (adorar)",
+     "display_order": 6
+    }
+   ]
+  },
+  {
+   "title": "Pronoun placement (me diga / diga-me)",
+   "level": "B1",
+   "function": "Put the pronoun where Brazilians put it",
+   "source": "contributor",
+   "reviewed": true,
+   "display_order": 6,
+   "explanation": "Brazilian Portuguese prefers the pronoun BEFORE the verb (próclise): ele me viu, eu te ligo. After the verb (ênclise: diga-me) is formal writing and sentence-initial commands in careful style.\n\nOne firm rule everywhere: certain words attract the pronoun forward — não, que, quem, já, sempre, talvez: não ME diga, quero que SE sente.",
+   "culture_note": "",
+   "references": [
+    {
+     "title": "Ciberdúvidas da Língua Portuguesa",
+     "url": "https://ciberduvidas.iscte-iul.pt/"
+    },
+    {
+     "title": "Wikipedia: Portuguese grammar",
+     "url": "https://en.wikipedia.org/wiki/Portuguese_grammar"
+    }
+   ],
+   "drills": [
+    {
+     "sentence": "Ela {{answer}} ligou ontem à noite.",
+     "answer": "me",
+     "translation": "She called me last night.",
+     "hint": "me (before the verb)",
+     "display_order": 1
+    },
+    {
+     "sentence": "Não {{answer}} esqueça de trazer o documento.",
+     "answer": "se",
+     "translation": "Don't forget to bring the document.",
+     "hint": "yourself (attracted by não)",
+     "display_order": 2
+    },
+    {
+     "sentence": "Eu {{answer}} aviso quando chegar.",
+     "answer": "te",
+     "translation": "I'll let you know when I arrive.",
+     "hint": "you (before the verb)",
+     "display_order": 3
+    },
+    {
+     "sentence": "Quero que você {{answer}} sinta em casa.",
+     "answer": "se",
+     "translation": "I want you to feel at home.",
+     "hint": "yourself (attracted by que)",
+     "display_order": 4
+    },
+    {
+     "sentence": "Sempre {{answer}} lembro daquele verão.",
+     "answer": "me",
+     "translation": "I always remember that summer.",
+     "hint": "myself (attracted by sempre)",
+     "display_order": 5
+    },
+    {
+     "sentence": "Sente-{{answer}}, por favor. (formal)",
+     "answer": "se",
+     "translation": "Have a seat, please. (formal)",
+     "hint": "yourself (after the verb, formal)",
+     "display_order": 6
+    }
+   ]
+  },
+  {
+   "title": "Reported speech (disse que, perguntou se)",
+   "level": "B1",
+   "function": "Report what someone said or asked",
+   "source": "contributor",
+   "reviewed": true,
+   "display_order": 7,
+   "explanation": "Statements: disse que + shifted tense (presente → imperfeito, perfeito → mais-que-perfeito composto, futuro → condicional): 'vou sair' → disse que ia sair.\n\nYes/no questions: perguntou se. Requests: pediu que + subjuntivo (pediu que eu esperasse).",
+   "culture_note": "",
+   "references": [
+    {
+     "title": "Ciberdúvidas da Língua Portuguesa",
+     "url": "https://ciberduvidas.iscte-iul.pt/"
+    },
+    {
+     "title": "Wikipedia: Portuguese grammar",
+     "url": "https://en.wikipedia.org/wiki/Portuguese_grammar"
+    }
+   ],
+   "drills": [
+    {
+     "sentence": "Ele disse {{answer}} estava cansado.",
+     "answer": "que",
+     "translation": "He said (that) he was tired.",
+     "hint": "that (statement)",
+     "display_order": 1
+    },
+    {
+     "sentence": "Ela perguntou {{answer}} eu queria carona.",
+     "answer": "se",
+     "translation": "She asked whether I wanted a ride.",
+     "hint": "whether (question)",
+     "display_order": 2
+    },
+    {
+     "sentence": "Ele falou que {{answer}} chegar mais tarde.",
+     "answer": "ia",
+     "translation": "He said he was going to arrive later.",
+     "hint": "was going (shifted ir)",
+     "display_order": 3
+    },
+    {
+     "sentence": "A médica disse que eu {{answer}} descansar.",
+     "answer": "devia",
+     "translation": "The doctor said I should rest.",
+     "hint": "should (shifted dever)",
+     "display_order": 4
+    },
+    {
+     "sentence": "Meu chefe pediu que eu {{answer}} o relatório.",
+     "answer": "terminasse",
+     "translation": "My boss asked me to finish the report.",
+     "hint": "finished — I (past subjunctive)",
+     "display_order": 5
+    },
+    {
+     "sentence": "Avisaram que a reunião {{answer}} ser adiada.",
+     "answer": "poderia",
+     "translation": "They warned the meeting might be postponed.",
+     "hint": "might (shifted poder)",
+     "display_order": 6
+    }
+   ]
+  },
+  {
+   "title": "Futuro do subjuntivo (quando eu falar, se eu quiser)",
+   "level": "B2",
+   "function": "Talk about future conditions — Portuguese's signature tense",
+   "source": "contributor",
+   "reviewed": true,
+   "display_order": 1,
+   "explanation": "Portuguese alone among the Romance languages has a FUTURE subjunctive, and it's everywhere: after quando, se, enquanto, assim que, depois que pointing at the future.\n\nBuild it from the eles-perfeito minus -am: falaram → falar, quiseram → quiser, fizeram → fizer, forem (ir/ser).\n\nQuando eu CHEGAR, te ligo 'when I arrive, I'll call you'.",
+   "culture_note": "",
+   "references": [
+    {
+     "title": "Ciberdúvidas da Língua Portuguesa",
+     "url": "https://ciberduvidas.iscte-iul.pt/"
+    },
+    {
+     "title": "Wikipedia: Portuguese grammar",
+     "url": "https://en.wikipedia.org/wiki/Portuguese_grammar"
+    }
+   ],
+   "drills": [
+    {
+     "sentence": "Quando eu {{answer}} em casa, te ligo.",
+     "answer": "chegar",
+     "translation": "When I get home, I'll call you.",
+     "hint": "arrive — I (future subjunctive)",
+     "display_order": 1
+    },
+    {
+     "sentence": "Se você {{answer}}, a gente vai junto.",
+     "answer": "quiser",
+     "translation": "If you want, we'll go together.",
+     "hint": "want — you (future subjunctive of querer)",
+     "display_order": 2
+    },
+    {
+     "sentence": "Assim que ela {{answer}} o e-mail, me avisa.",
+     "answer": "mandar",
+     "translation": "As soon as she sends the email, let me know.",
+     "hint": "sends — she (future subjunctive)",
+     "display_order": 3
+    },
+    {
+     "sentence": "Enquanto nós {{answer}} aqui, tudo bem.",
+     "answer": "estivermos",
+     "translation": "As long as we're here, it's fine.",
+     "hint": "are — we (future subjunctive of estar)",
+     "display_order": 4
+    },
+    {
+     "sentence": "Se eles {{answer}} tempo, passam aqui depois.",
+     "answer": "tiverem",
+     "translation": "If they have time, they'll stop by later.",
+     "hint": "have — they (future subjunctive of ter)",
+     "display_order": 5
+    },
+    {
+     "sentence": "Quando vocês {{answer}} ao Brasil, me visitem!",
+     "answer": "vierem",
+     "translation": "When you come to Brazil, visit me!",
+     "hint": "come — you all (future subjunctive of vir)",
+     "display_order": 6
+    }
+   ]
+  },
+  {
+   "title": "Imperfeito do subjuntivo (se eu falasse)",
+   "level": "B2",
+   "function": "Imagine unreal situations",
+   "source": "contributor",
+   "reviewed": true,
+   "display_order": 2,
+   "explanation": "For unreal or hypothetical conditions: se + imperfeito do subjuntivo pairs with the conditional (or, in speech, the imperfeito): se eu TIVESSE dinheiro, viajaria/viajava 'if I had money, I'd travel'.\n\nBuild from the eles-perfeito minus -ram + -sse: falaram → falasse, tiveram → tivesse, fossem (ser/ir).",
+   "culture_note": "",
+   "references": [
+    {
+     "title": "Ciberdúvidas da Língua Portuguesa",
+     "url": "https://ciberduvidas.iscte-iul.pt/"
+    },
+    {
+     "title": "Wikipedia: Portuguese grammar",
+     "url": "https://en.wikipedia.org/wiki/Portuguese_grammar"
+    }
+   ],
+   "drills": [
+    {
+     "sentence": "Se eu {{answer}} rico, morava na praia.",
+     "answer": "fosse",
+     "translation": "If I were rich, I'd live at the beach.",
+     "hint": "were — I (imperfect subjunctive of ser)",
+     "display_order": 1
+    },
+    {
+     "sentence": "Se ela {{answer}} mais cedo, pegava o voo.",
+     "answer": "saísse",
+     "translation": "If she left earlier, she'd catch the flight.",
+     "hint": "left — she (imperfect subjunctive)",
+     "display_order": 2
+    },
+    {
+     "sentence": "Se nós {{answer}} um carro, seria mais fácil.",
+     "answer": "tivéssemos",
+     "translation": "If we had a car, it would be easier.",
+     "hint": "had — we (imperfect subjunctive of ter)",
+     "display_order": 3
+    },
+    {
+     "sentence": "Queria que você {{answer}} aqui.",
+     "answer": "estivesse",
+     "translation": "I wish you were here.",
+     "hint": "were — you (imperfect subjunctive of estar)",
+     "display_order": 4
+    },
+    {
+     "sentence": "Se eles {{answer}} a verdade, ficariam bravos.",
+     "answer": "soubessem",
+     "translation": "If they knew the truth, they'd be angry.",
+     "hint": "knew — they (imperfect subjunctive of saber)",
+     "display_order": 5
+    },
+    {
+     "sentence": "Era como se o tempo {{answer}}.",
+     "answer": "parasse",
+     "translation": "It was as if time stopped.",
+     "hint": "stopped — it (imperfect subjunctive)",
+     "display_order": 6
+    }
+   ]
+  },
+  {
+   "title": "Infinitivo pessoal (para fazermos)",
+   "level": "B2",
+   "function": "Conjugate the infinitive — another Portuguese exclusive",
+   "source": "contributor",
+   "reviewed": true,
+   "display_order": 3,
+   "explanation": "The personal infinitive gives the infinitive endings so each doer is clear: para eu fazer, para você fazer, para nós fazermos, para eles fazerem.\n\nÉ melhor VOCÊS irem agora 'it's better for you all to go now'. Used after para, antes de, depois de, sem, até and impersonal expressions.\n\nUnique to Portuguese (and Galician).",
+   "culture_note": "",
+   "references": [
+    {
+     "title": "Ciberdúvidas da Língua Portuguesa",
+     "url": "https://ciberduvidas.iscte-iul.pt/"
+    },
+    {
+     "title": "Wikipedia: Portuguese grammar",
+     "url": "https://en.wikipedia.org/wiki/Portuguese_grammar"
+    }
+   ],
+   "drills": [
+    {
+     "sentence": "Trouxe o mapa para nós {{answer}} o caminho.",
+     "answer": "acharmos",
+     "translation": "I brought the map so we could find the way.",
+     "hint": "find — we (personal infinitive)",
+     "display_order": 1
+    },
+    {
+     "sentence": "É melhor vocês {{answer}} antes do trânsito.",
+     "answer": "saírem",
+     "translation": "It's better for you all to leave before the traffic.",
+     "hint": "leave — you all (personal infinitive)",
+     "display_order": 2
+    },
+    {
+     "sentence": "Antes de eles {{answer}}, vamos arrumar a casa.",
+     "answer": "chegarem",
+     "translation": "Before they arrive, let's tidy the house.",
+     "hint": "arrive — they (personal infinitive)",
+     "display_order": 3
+    },
+    {
+     "sentence": "Depois de nós {{answer}}, conversamos com calma.",
+     "answer": "jantarmos",
+     "translation": "After we have dinner, we'll talk calmly.",
+     "hint": "dine — we (personal infinitive)",
+     "display_order": 4
+    },
+    {
+     "sentence": "Ela saiu sem os filhos {{answer}}.",
+     "answer": "perceberem",
+     "translation": "She left without her children noticing.",
+     "hint": "notice — they (personal infinitive)",
+     "display_order": 5
+    },
+    {
+     "sentence": "O ideal é vocês {{answer}} cedo para o show.",
+     "answer": "chegarem",
+     "translation": "The ideal is for you all to arrive early for the show.",
+     "hint": "arrive — you all (personal infinitive)",
+     "display_order": 6
+    }
+   ]
+  },
+  {
+   "title": "The passive (foi construído; vende-se)",
+   "level": "B2",
+   "function": "Say something is done without naming the doer",
+   "source": "contributor",
+   "reviewed": true,
+   "display_order": 4,
+   "explanation": "Formal passive: ser + participle agreeing with the subject — a casa foi construída 'the house was built'; the agent takes por. Everyday Portuguese prefers the se-passive: vende-se casa 'house for sale', fala-se português aqui — or just an impersonal eles/a gente.",
+   "culture_note": "",
+   "references": [
+    {
+     "title": "Ciberdúvidas da Língua Portuguesa",
+     "url": "https://ciberduvidas.iscte-iul.pt/"
+    },
+    {
+     "title": "Wikipedia: Portuguese grammar",
+     "url": "https://en.wikipedia.org/wiki/Portuguese_grammar"
+    }
+   ],
+   "drills": [
+    {
+     "sentence": "O museu {{answer}} inaugurado em 1950.",
+     "answer": "foi",
+     "translation": "The museum was opened in 1950.",
+     "hint": "was (passive, ser)",
+     "display_order": 1
+    },
+    {
+     "sentence": "As ruas {{answer}} fechadas para o desfile.",
+     "answer": "foram",
+     "translation": "The streets were closed for the parade.",
+     "hint": "were (passive, plural)",
+     "display_order": 2
+    },
+    {
+     "sentence": "{{answer}}-se apartamento no centro.",
+     "answer": "Aluga",
+     "translation": "Apartment for rent downtown.",
+     "hint": "rents (se-passive sign)",
+     "display_order": 3
+    },
+    {
+     "sentence": "Aqui {{answer}}-se muito peixe fresco.",
+     "answer": "vende",
+     "translation": "A lot of fresh fish is sold here.",
+     "hint": "sells (se-passive)",
+     "display_order": 4
+    },
+    {
+     "sentence": "O quadro foi pintado {{answer}} uma artista mineira.",
+     "answer": "por",
+     "translation": "The painting was painted by an artist from Minas.",
+     "hint": "by (the agent)",
+     "display_order": 5
+    },
+    {
+     "sentence": "A decisão será {{answer}} amanhã.",
+     "answer": "anunciada",
+     "translation": "The decision will be announced tomorrow.",
+     "hint": "announced (participle agrees, fem.)",
+     "display_order": 6
+    }
+   ]
+  },
+  {
+   "title": "Ficar — become, stay, be located, keep on",
+   "level": "B2",
+   "function": "Master Portuguese's most versatile verb",
+   "source": "contributor",
+   "reviewed": true,
+   "display_order": 5,
+   "explanation": "ficar covers what several English verbs do: location (o hotel fica na praia 'the hotel is on the beach'), staying (fiquei em casa), becoming (fiquei feliz 'I got happy'), and ficar + gerúndio 'to keep doing' (fica reclamando 'keeps complaining'). ficar com = to keep/take.",
+   "culture_note": "",
+   "references": [
+    {
+     "title": "Ciberdúvidas da Língua Portuguesa",
+     "url": "https://ciberduvidas.iscte-iul.pt/"
+    },
+    {
+     "title": "Wikipedia: Portuguese grammar",
+     "url": "https://en.wikipedia.org/wiki/Portuguese_grammar"
+    }
+   ],
+   "drills": [
+    {
+     "sentence": "A farmácia {{answer}} ao lado do banco.",
+     "answer": "fica",
+     "translation": "The pharmacy is next to the bank.",
+     "hint": "is located (ficar)",
+     "display_order": 1
+    },
+    {
+     "sentence": "Ontem eu {{answer}} em casa descansando.",
+     "answer": "fiquei",
+     "translation": "Yesterday I stayed home resting.",
+     "hint": "stayed — I (ficar)",
+     "display_order": 2
+    },
+    {
+     "sentence": "Ela {{answer}} muito feliz com a notícia.",
+     "answer": "ficou",
+     "translation": "She got very happy with the news.",
+     "hint": "became — she (ficar)",
+     "display_order": 3
+    },
+    {
+     "sentence": "Não {{answer}} bravo comigo, foi sem querer.",
+     "answer": "fica",
+     "translation": "Don't get mad at me, it was an accident.",
+     "hint": "get/become (ficar)",
+     "display_order": 4
+    },
+    {
+     "sentence": "Ele {{answer}} reclamando o dia inteiro.",
+     "answer": "fica",
+     "translation": "He keeps complaining all day long.",
+     "hint": "keeps (ficar + gerúndio)",
+     "display_order": 5
+    },
+    {
+     "sentence": "Pode {{answer}} com o troco.",
+     "answer": "ficar",
+     "translation": "You can keep the change.",
+     "hint": "keep (infinitive after pode)",
+     "display_order": 6
+    }
+   ]
+  },
+  {
+   "title": "Connectors (porém, portanto, embora)",
+   "level": "B2",
+   "function": "Link ideas: contrast, consequence, concession",
+   "source": "contributor",
+   "reviewed": true,
+   "display_order": 6,
+   "explanation": "porém/no entanto 'however', portanto/por isso 'therefore', além disso 'besides', embora + SUBJUNTIVO 'although' (embora seja caro 'although it's expensive'), mesmo que + subjuntivo 'even if', já que 'since'.",
+   "culture_note": "",
+   "references": [
+    {
+     "title": "Ciberdúvidas da Língua Portuguesa",
+     "url": "https://ciberduvidas.iscte-iul.pt/"
+    },
+    {
+     "title": "Wikipedia: Portuguese grammar",
+     "url": "https://en.wikipedia.org/wiki/Portuguese_grammar"
+    }
+   ],
+   "drills": [
+    {
+     "sentence": "Está chovendo, {{answer}} isso vamos de carro.",
+     "answer": "por",
+     "translation": "It's raining, so we'll go by car.",
+     "hint": "for (por isso = therefore)",
+     "display_order": 1
+    },
+    {
+     "sentence": "O hotel é caro; {{answer}}, vale a pena.",
+     "answer": "porém",
+     "translation": "The hotel is expensive; however, it's worth it.",
+     "hint": "however",
+     "display_order": 2
+    },
+    {
+     "sentence": "{{answer}} seja tarde, ainda dá tempo.",
+     "answer": "Embora",
+     "translation": "Although it's late, there's still time.",
+     "hint": "although (+ subjunctive)",
+     "display_order": 3
+    },
+    {
+     "sentence": "{{answer}} que chova, o show vai acontecer.",
+     "answer": "Mesmo",
+     "translation": "Even if it rains, the show will go on.",
+     "hint": "even (concession, pairs with que)",
+     "display_order": 4
+    },
+    {
+     "sentence": "{{answer}} que você está aqui, me ajuda?",
+     "answer": "Já",
+     "translation": "Since you're here, can you help me?",
+     "hint": "since (já que)",
+     "display_order": 5
+    },
+    {
+     "sentence": "Estudou muito; {{answer}}, passou fácil.",
+     "answer": "portanto",
+     "translation": "He studied hard; therefore, he passed easily.",
+     "hint": "therefore",
+     "display_order": 6
+    }
+   ]
+  },
+  {
+   "title": "Compound subjunctives (tenha falado, tivesse ido)",
+   "level": "C1",
+   "function": "Handle completed actions inside subjunctive contexts",
+   "source": "contributor",
+   "reviewed": true,
+   "display_order": 1,
+   "explanation": "Perfect subjunctive: tenha + participle for a completed action after a present trigger — espero que tenha dado tudo certo 'I hope it all went well'.\n\nPluperfect subjunctive: tivesse + participle for past unreals — se eu tivesse sabido, teria vindo 'if I had known, I would have come' (result: teria + participle).",
+   "culture_note": "",
+   "references": [
+    {
+     "title": "Ciberdúvidas da Língua Portuguesa",
+     "url": "https://ciberduvidas.iscte-iul.pt/"
+    },
+    {
+     "title": "Wikipedia: Portuguese grammar",
+     "url": "https://en.wikipedia.org/wiki/Portuguese_grammar"
+    }
+   ],
+   "drills": [
+    {
+     "sentence": "Espero que você {{answer}} gostado do presente.",
+     "answer": "tenha",
+     "translation": "I hope you liked the gift.",
+     "hint": "have (perfect subjunctive)",
+     "display_order": 1
+    },
+    {
+     "sentence": "Duvido que eles {{answer}} chegado a tempo.",
+     "answer": "tenham",
+     "translation": "I doubt they arrived in time.",
+     "hint": "have (perfect subjunctive, they)",
+     "display_order": 2
+    },
+    {
+     "sentence": "Se eu {{answer}} sabido, teria avisado.",
+     "answer": "tivesse",
+     "translation": "If I had known, I would have warned you.",
+     "hint": "had (pluperfect subjunctive)",
+     "display_order": 3
+    },
+    {
+     "sentence": "Se nós {{answer}} saído antes, não perdíamos o voo.",
+     "answer": "tivéssemos",
+     "translation": "If we had left earlier, we wouldn't have missed the flight.",
+     "hint": "had (pluperfect subjunctive, we)",
+     "display_order": 4
+    },
+    {
+     "sentence": "Ela {{answer}} vindo, mas o carro quebrou.",
+     "answer": "teria",
+     "translation": "She would have come, but the car broke down.",
+     "hint": "would have (conditional perfect)",
+     "display_order": 5
+    },
+    {
+     "sentence": "O que você {{answer}} feito no meu lugar?",
+     "answer": "teria",
+     "translation": "What would you have done in my place?",
+     "hint": "would have (conditional perfect)",
+     "display_order": 6
+    }
+   ]
+  },
+  {
+   "title": "Crase and regência (vou à praia)",
+   "level": "C1",
+   "function": "Get à right — and the prepositions verbs demand",
+   "source": "contributor",
+   "reviewed": true,
+   "display_order": 2,
+   "explanation": "Crase (à) marks a + a colliding: vou à praia (a + a praia) but vou a São Paulo (no article). Never before verbs, masculine nouns, or most pronouns.\n\nRegência is which preposition a verb demands: assistir A um filme, gostar DE, precisar DE, depender DE, chegar A — spoken Brazil bends some of these, but writing expects them.",
+   "culture_note": "",
+   "references": [
+    {
+     "title": "Ciberdúvidas da Língua Portuguesa",
+     "url": "https://ciberduvidas.iscte-iul.pt/"
+    },
+    {
+     "title": "Wikipedia: Portuguese grammar",
+     "url": "https://en.wikipedia.org/wiki/Portuguese_grammar"
+    }
+   ],
+   "drills": [
+    {
+     "sentence": "Amanhã vou {{answer}} praia com as crianças.",
+     "answer": "à",
+     "translation": "Tomorrow I'm going to the beach with the kids.",
+     "hint": "to the (a + a = crase)",
+     "display_order": 1
+    },
+    {
+     "sentence": "Chegamos {{answer}} conclusão de que valia a pena.",
+     "answer": "à",
+     "translation": "We reached the conclusion that it was worth it.",
+     "hint": "to the (crase)",
+     "display_order": 2
+    },
+    {
+     "sentence": "Você assistiu {{answer}} entrevista ontem?",
+     "answer": "à",
+     "translation": "Did you watch the interview yesterday?",
+     "hint": "to the (assistir a + a)",
+     "display_order": 3
+    },
+    {
+     "sentence": "Preciso {{answer}} sua ajuda no sábado.",
+     "answer": "de",
+     "translation": "I need your help on Saturday.",
+     "hint": "of (precisar de)",
+     "display_order": 4
+    },
+    {
+     "sentence": "Isso depende {{answer}} clima na sexta.",
+     "answer": "do",
+     "translation": "That depends on the weather on Friday.",
+     "hint": "on the (depender de + o)",
+     "display_order": 5
+    },
+    {
+     "sentence": "Ela respondeu {{answer}} todas as mensagens.",
+     "answer": "a",
+     "translation": "She replied to all the messages.",
+     "hint": "to (responder a — no article, no crase)",
+     "display_order": 6
+    }
+   ]
+  },
+  {
+   "title": "Formal pronoun placement (mesóclise and ênclise)",
+   "level": "C1",
+   "function": "Read and produce the formal written norms",
+   "source": "contributor",
+   "reviewed": true,
+   "display_order": 3,
+   "explanation": "Formal writing starts no sentence with a pronoun: Diga-me (ênclise), never Me diga. In the future and conditional, the formal norm is mesóclise — the pronoun INSIDE the verb: dir-te-ei 'I shall tell you', far-se-á 'it shall be done'.\n\nYou'll meet it in literature, law, and speeches; nobody says it on the street, but educated readers expect you to parse it.",
+   "culture_note": "",
+   "references": [
+    {
+     "title": "Ciberdúvidas da Língua Portuguesa",
+     "url": "https://ciberduvidas.iscte-iul.pt/"
+    },
+    {
+     "title": "Wikipedia: Portuguese grammar",
+     "url": "https://en.wikipedia.org/wiki/Portuguese_grammar"
+    }
+   ],
+   "drills": [
+    {
+     "sentence": "{{answer}}-me a verdade, por favor. (formal)",
+     "answer": "Diga",
+     "translation": "Tell me the truth, please. (formal)",
+     "hint": "tell (ênclise: verb first)",
+     "display_order": 1
+    },
+    {
+     "sentence": "Entregue{{answer}} o documento amanhã. (formal)",
+     "answer": "-me",
+     "translation": "Hand me the document tomorrow. (formal)",
+     "hint": "me (attached after the verb)",
+     "display_order": 2
+    },
+    {
+     "sentence": "Dir-{{answer}}-ei quando chegar a hora. (literary)",
+     "answer": "te",
+     "translation": "I shall tell you when the time comes.",
+     "hint": "you (mesóclise: inside the future)",
+     "display_order": 3
+    },
+    {
+     "sentence": "Far-{{answer}}-á justiça. (literary)",
+     "answer": "se",
+     "translation": "Justice shall be done.",
+     "hint": "itself (mesóclise)",
+     "display_order": 4
+    },
+    {
+     "sentence": "Convidaram-{{answer}} para a cerimônia. (formal)",
+     "answer": "nos",
+     "translation": "They invited us to the ceremony. (formal)",
+     "hint": "us (ênclise after the verb)",
+     "display_order": 5
+    },
+    {
+     "sentence": "Tratando-{{answer}} de emergência, ligue 192. (formal)",
+     "answer": "se",
+     "translation": "In case of emergency, call 192.",
+     "hint": "itself (ênclise in gerund clause)",
+     "display_order": 6
+    }
+   ]
+  },
+  {
+   "title": "Focus & clefts (foi ele que…, é que)",
+   "level": "C2",
+   "function": "Foreground exactly the word you mean",
+   "source": "contributor",
+   "reviewed": true,
+   "display_order": 1,
+   "explanation": "Portuguese clefts with ser + que: foi ELE que quebrou o copo 'HE's the one who broke the glass', é HOJE que decide 'TODAY is when it's decided'. Question softener é que: onde é que você mora?\n\nSpoken Brazil also doubles the subject for topic ('o João, ele trabalha aqui') and uses 'que nem' for 'just like'.",
+   "culture_note": "",
+   "references": [
+    {
+     "title": "Ciberdúvidas da Língua Portuguesa",
+     "url": "https://ciberduvidas.iscte-iul.pt/"
+    },
+    {
+     "title": "Wikipedia: Portuguese grammar",
+     "url": "https://en.wikipedia.org/wiki/Portuguese_grammar"
+    }
+   ],
+   "drills": [
+    {
+     "sentence": "Foi ele {{answer}} quebrou o copo, não eu.",
+     "answer": "que",
+     "translation": "It was he who broke the glass, not me.",
+     "hint": "that/who (cleft)",
+     "display_order": 1
+    },
+    {
+     "sentence": "É amanhã {{answer}} o resultado sai.",
+     "answer": "que",
+     "translation": "It's tomorrow that the result comes out.",
+     "hint": "that (cleft on time)",
+     "display_order": 2
+    },
+    {
+     "sentence": "Onde é {{answer}} você deixou as chaves?",
+     "answer": "que",
+     "translation": "Where (is it that) you left the keys?",
+     "hint": "that (é que question)",
+     "display_order": 3
+    },
+    {
+     "sentence": "{{answer}} eu que pago desta vez!",
+     "answer": "Sou",
+     "translation": "I'm the one paying this time!",
+     "hint": "am (cleft agrees with eu)",
+     "display_order": 4
+    },
+    {
+     "sentence": "Não foi aqui {{answer}} a gente se conheceu?",
+     "answer": "que",
+     "translation": "Wasn't it here that we met?",
+     "hint": "that (cleft on place)",
+     "display_order": 5
+    },
+    {
+     "sentence": "O que é {{answer}} está acontecendo ali?",
+     "answer": "que",
+     "translation": "What (is it that) is going on over there?",
+     "hint": "that (é que question)",
+     "display_order": 6
+    }
+   ]
+  },
+  {
+   "title": "Register: Brazil, Portugal, and the written norm",
+   "level": "C2",
+   "function": "Move between spoken Brazilian, European, and formal writing",
+   "source": "contributor",
+   "reviewed": true,
+   "display_order": 2,
+   "explanation": "Three registers to command: spoken Brazilian (você + proclitic pronouns, estar + -ndo, 'a gente' for we), European Portuguese (tu informal, estar a + infinitive, ênclise: dá-me), and the shared formal written norm (full relative cujo, mesóclise, connectors like todavia, não obstante, outrossim in legal prose).\n\nThe educated reader switches without blinking; know which room you're in.",
+   "culture_note": "",
+   "references": [
+    {
+     "title": "Ciberdúvidas da Língua Portuguesa",
+     "url": "https://ciberduvidas.iscte-iul.pt/"
+    },
+    {
+     "title": "Wikipedia: Portuguese grammar",
+     "url": "https://en.wikipedia.org/wiki/Portuguese_grammar"
+    }
+   ],
+   "drills": [
+    {
+     "sentence": "{{answer}} gente se vê no sábado! (spoken BR)",
+     "answer": "A",
+     "translation": "See you Saturday! (lit. the people see each other)",
+     "hint": "the (a gente = we)",
+     "display_order": 1
+    },
+    {
+     "sentence": "Estou {{answer}} trabalhar agora. (European)",
+     "answer": "a",
+     "translation": "I'm working right now. (European progressive)",
+     "hint": "at (estar a + infinitive)",
+     "display_order": 2
+    },
+    {
+     "sentence": "O projeto é caro; {{answer}}, é necessário. (formal)",
+     "answer": "todavia",
+     "translation": "The project is expensive; nevertheless, it is necessary.",
+     "hint": "nevertheless (formal)",
+     "display_order": 3
+    },
+    {
+     "sentence": "Não {{answer}} isso, decidiu prosseguir. (formal)",
+     "answer": "obstante",
+     "translation": "Notwithstanding that, he decided to proceed.",
+     "hint": "withstanding (formal concessive)",
+     "display_order": 4
+    },
+    {
+     "sentence": "Ele fala {{answer}} nem o pai. (spoken BR)",
+     "answer": "que",
+     "translation": "He talks just like his father.",
+     "hint": "that (que nem = just like)",
+     "display_order": 5
+    },
+    {
+     "sentence": "Peço {{answer}} me enviem o contrato. (formal)",
+     "answer": "que",
+     "translation": "I ask that you send me the contract.",
+     "hint": "that (formal request + subjunctive)",
+     "display_order": 6
+    }
+   ]
+  }
+ ]
+}

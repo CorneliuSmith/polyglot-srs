@@ -14,9 +14,13 @@
    "source": "contributor",
    "reviewed": true,
    "display_order": 1,
-   "explanation": "The subject pronouns are je (I), tu (you, informal), il/elle (he/she), on (one/we, informal), nous (we), vous (you, formal or plural), ils/elles (they). Vous doubles as the polite singular — use it with strangers. On is how spoken French usually says 'we': on mange à midi.",
+   "explanation": "The subject pronouns are je (I), tu (you, informal), il/elle (he/she), on (one/we, informal), nous (we), vous (you, formal or plural), ils/elles (they). Vous doubles as the polite singular — use it with strangers.\n\nOn is how spoken French usually says 'we': on mange à midi.",
    "culture_note": "Choosing tu or vous is a real social decision. When unsure, start with vous and wait to be invited to tutoyer.",
    "references": [
+    {
+     "title": "Vitrine linguistique (BDL) — Office québécois de la langue française",
+     "url": "https://vitrinelinguistique.oqlf.gouv.qc.ca/"
+    },
     {
      "title": "Wikipedia: French personal pronouns",
      "url": "https://en.wikipedia.org/wiki/French_personal_pronouns"
@@ -174,9 +178,13 @@
    "source": "contributor",
    "reviewed": true,
    "display_order": 2,
-   "explanation": "Every noun is masculine or feminine — learn each noun with its gender, because little about the word itself tells you. The plural usually adds a silent -s (livre → livres); since it isn't pronounced, the article carries the plural out loud. Endings give clues: -tion and -té are usually feminine, -age and -eau usually masculine.",
+   "explanation": "Every noun is masculine or feminine — learn each noun with its gender, because little about the word itself tells you.\n\nThe plural usually adds a silent -s (livre → livres); since it isn't pronounced, the article carries the plural out loud.\n\nEndings give clues: -tion and -té are usually feminine, -age and -eau usually masculine.",
    "culture_note": "",
    "references": [
+    {
+     "title": "Vitrine linguistique (BDL) — Office québécois de la langue française",
+     "url": "https://vitrinelinguistique.oqlf.gouv.qc.ca/"
+    },
     {
      "title": "Wikipedia: French grammar — nouns",
      "url": "https://en.wikipedia.org/wiki/French_grammar"
@@ -238,9 +246,13 @@
    "source": "contributor",
    "reviewed": true,
    "display_order": 3,
-   "explanation": "Le before masculine nouns (le livre), la before feminine (la maison), les for any plural (les livres). Before a vowel or silent h, le and la both shrink to l' (l'école). French uses the definite article far more than English — also for general statements: j'aime le café (I like coffee).",
+   "explanation": "Le before masculine nouns (le livre), la before feminine (la maison), les for any plural (les livres). Before a vowel or silent h, le and la both shrink to l' (l'école).\n\nFrench uses the definite article far more than English — also for general statements: j'aime le café (I like coffee).",
    "culture_note": "",
    "references": [
+    {
+     "title": "Vitrine linguistique (BDL) — Office québécois de la langue française",
+     "url": "https://vitrinelinguistique.oqlf.gouv.qc.ca/"
+    },
     {
      "title": "Wikipedia: French articles and determiners",
      "url": "https://en.wikipedia.org/wiki/French_articles_and_determiners"
@@ -317,6 +329,10 @@
    "culture_note": "",
    "references": [
     {
+     "title": "Vitrine linguistique (BDL) — Office québécois de la langue française",
+     "url": "https://vitrinelinguistique.oqlf.gouv.qc.ca/"
+    },
+    {
      "title": "Wikipedia: French articles and determiners",
      "url": "https://en.wikipedia.org/wiki/French_articles_and_determiners"
     },
@@ -388,9 +404,13 @@
    "source": "contributor",
    "reviewed": true,
    "display_order": 5,
-   "explanation": "Être (to be) is wildly irregular and everywhere: je suis, tu es, il/elle est, nous sommes, vous êtes, ils/elles sont. Professions take no article after être: elle est professeur.",
+   "explanation": "Être (to be) is wildly irregular and everywhere: je suis, tu es, il/elle est, nous sommes, vous êtes, ils/elles sont.\n\nProfessions take no article after être: elle est professeur.",
    "culture_note": "",
    "references": [
+    {
+     "title": "Vitrine linguistique (BDL) — Office québécois de la langue française",
+     "url": "https://vitrinelinguistique.oqlf.gouv.qc.ca/"
+    },
     {
      "title": "Wiktionary: être (French)",
      "url": "https://en.wiktionary.org/wiki/%C3%AAtre#French"
@@ -514,9 +534,13 @@
    "source": "contributor",
    "reviewed": true,
    "display_order": 6,
-   "explanation": "Avoir (to have): j'ai, tu as, il/elle a, nous avons, vous avez, ils/elles ont. French uses avoir where English uses 'to be' for states: avoir faim (be hungry), avoir soif (be thirsty), avoir vingt ans (be twenty), avoir raison (be right).",
+   "explanation": "Avoir (to have): j'ai, tu as, il/elle a, nous avons, vous avez, ils/elles ont.\n\nFrench uses avoir where English uses 'to be' for states: avoir faim (be hungry), avoir soif (be thirsty), avoir vingt ans (be twenty), avoir raison (be right).",
    "culture_note": "Never say 'je suis vingt ans' — age is something you HAVE in French.",
    "references": [
+    {
+     "title": "Vitrine linguistique (BDL) — Office québécois de la langue française",
+     "url": "https://vitrinelinguistique.oqlf.gouv.qc.ca/"
+    },
     {
      "title": "Wiktionary: avoir (French)",
      "url": "https://en.wiktionary.org/wiki/avoir#French"
@@ -640,9 +664,13 @@
    "source": "contributor",
    "reviewed": true,
    "display_order": 7,
-   "explanation": "Ninety percent of French verbs end in -er and share one pattern. Drop -er, add: -e, -es, -e, -ons, -ez, -ent (parler → je parle, tu parles, il parle, nous parlons, vous parlez, ils parlent). Four of those six forms sound identical — the pronoun does the work in speech.",
+   "explanation": "Ninety percent of French verbs end in -er and share one pattern.\n\nDrop -er, add: -e, -es, -e, -ons, -ez, -ent (parler → je parle, tu parles, il parle, nous parlons, vous parlez, ils parlent).\n\nFour of those six forms sound identical — the pronoun does the work in speech.",
    "culture_note": "",
    "references": [
+    {
+     "title": "Vitrine linguistique (BDL) — Office québécois de la langue française",
+     "url": "https://vitrinelinguistique.oqlf.gouv.qc.ca/"
+    },
     {
      "title": "Wikipedia: French conjugation — first group",
      "url": "https://en.wikipedia.org/wiki/French_conjugation"
@@ -766,9 +794,13 @@
    "source": "contributor",
    "reviewed": true,
    "display_order": 8,
-   "explanation": "-ir verbs like finir: je finis, tu finis, il finit, nous finissons (note the -iss- in the plural), vous finissez, ils finissent. -re verbs like vendre: je vends, tu vends, il vend, nous vendons, vous vendez, ils vendent. Attendre (wait), entendre (hear), and choisir (choose) follow these patterns.",
+   "explanation": "-ir verbs like finir: je finis, tu finis, il finit, nous finissons (note the -iss- in the plural), vous finissez, ils finissent.\n\n-re verbs like vendre: je vends, tu vends, il vend, nous vendons, vous vendez, ils vendent.\n\nAttendre (wait), entendre (hear), and choisir (choose) follow these patterns.",
    "culture_note": "",
    "references": [
+    {
+     "title": "Vitrine linguistique (BDL) — Office québécois de la langue française",
+     "url": "https://vitrinelinguistique.oqlf.gouv.qc.ca/"
+    },
     {
      "title": "Wikipedia: French conjugation — second and third groups",
      "url": "https://en.wikipedia.org/wiki/French_conjugation"
@@ -892,9 +924,13 @@
    "source": "contributor",
    "reviewed": true,
    "display_order": 9,
-   "explanation": "Negation wraps the verb in a frame: ne + verb + pas. Je ne parle pas anglais. Before a vowel, ne becomes n': je n'aime pas. After a negation, un/une/des become de: je n'ai pas de chien.",
+   "explanation": "Negation wraps the verb in a frame: ne + verb + pas. Je ne parle pas anglais.\n\nBefore a vowel, ne becomes n': je n'aime pas. After a negation, un/une/des become de: je n'ai pas de chien.",
    "culture_note": "In casual speech the ne often disappears — je parle pas. Learn the full frame first; drop it later like the locals.",
    "references": [
+    {
+     "title": "Vitrine linguistique (BDL) — Office québécois de la langue française",
+     "url": "https://vitrinelinguistique.oqlf.gouv.qc.ca/"
+    },
     {
      "title": "Wikipedia: French grammar — negation",
      "url": "https://en.wikipedia.org/wiki/French_grammar"
@@ -956,9 +992,13 @@
    "source": "contributor",
    "reviewed": true,
    "display_order": 10,
-   "explanation": "Il y a covers both 'there is' and 'there are' — it never changes for plural: il y a un livre, il y a deux livres. Negative: il n'y a pas de… (no article, just de). Question: est-ce qu'il y a… ?",
+   "explanation": "Il y a covers both 'there is' and 'there are' — it never changes for plural: il y a un livre, il y a deux livres. Negative: il n'y a pas de… (no article, just de).\n\nQuestion: est-ce qu'il y a… ?",
    "culture_note": "",
    "references": [
+    {
+     "title": "Vitrine linguistique (BDL) — Office québécois de la langue française",
+     "url": "https://vitrinelinguistique.oqlf.gouv.qc.ca/"
+    },
     {
      "title": "Wiktionary: il y a (French)",
      "url": "https://en.wiktionary.org/wiki/il_y_a#French"
@@ -1020,9 +1060,13 @@
    "source": "contributor",
    "reviewed": true,
    "display_order": 11,
-   "explanation": "Où (where), comment (how), quand (when), que/qu' (what), pourquoi (why), combien (how much/many), qui (who). Three ways to build a question: intonation (tu viens ?), est-ce que (est-ce que tu viens ?), or inversion (viens-tu ?) — est-ce que is the everyday workhorse.",
+   "explanation": "Où (where), comment (how), quand (when), que/qu' (what), pourquoi (why), combien (how much/many), qui (who).\n\nThree ways to build a question: intonation (tu viens ?), est-ce que (est-ce que tu viens ?), or inversion (viens-tu ?) — est-ce que is the everyday workhorse.",
    "culture_note": "",
    "references": [
+    {
+     "title": "Vitrine linguistique (BDL) — Office québécois de la langue française",
+     "url": "https://vitrinelinguistique.oqlf.gouv.qc.ca/"
+    },
     {
      "title": "Wikipedia: French grammar — interrogatives",
      "url": "https://en.wikipedia.org/wiki/French_grammar"
@@ -1084,9 +1128,13 @@
    "source": "contributor",
    "reviewed": true,
    "display_order": 12,
-   "explanation": "Adjectives agree with their noun: add -e for feminine (grand → grande), -s for plural (grands, grandes). Some change more: blanc → blanche, nouveau → nouvelle, gentil → gentille. Most adjectives FOLLOW the noun (une maison blanche), but a small frequent set precedes it (grand, petit, bon, nouveau, joli).",
+   "explanation": "Adjectives agree with their noun: add -e for feminine (grand → grande), -s for plural (grands, grandes).\n\nSome change more: blanc → blanche, nouveau → nouvelle, gentil → gentille.\n\nMost adjectives FOLLOW the noun (une maison blanche), but a small frequent set precedes it (grand, petit, bon, nouveau, joli).",
    "culture_note": "",
    "references": [
+    {
+     "title": "Vitrine linguistique (BDL) — Office québécois de la langue française",
+     "url": "https://vitrinelinguistique.oqlf.gouv.qc.ca/"
+    },
     {
      "title": "Wikipedia: French adjectives",
      "url": "https://en.wikipedia.org/wiki/French_grammar"
@@ -1176,9 +1224,13 @@
    "source": "contributor",
    "reviewed": true,
    "display_order": 1,
-   "explanation": "The everyday past = a present-tense form of avoir + the past participle: j'ai mangé 'I ate / have eaten'. Regular participles: -er → -é (mangé), -ir → -i (fini), -re → -u (vendu). The auxiliary is conjugated (ai, as, a, avons, avez, ont); the participle stays the same (no agreement with the subject when the auxiliary is avoir).",
+   "explanation": "The everyday past = a present-tense form of avoir + the past participle: j'ai mangé 'I ate / have eaten'.\n\nRegular participles: -er → -é (mangé), -ir → -i (fini), -re → -u (vendu).\n\nThe auxiliary is conjugated (ai, as, a, avons, avez, ont); the participle stays the same (no agreement with the subject when the auxiliary is avoir).",
    "culture_note": "",
    "references": [
+    {
+     "title": "Vitrine linguistique (BDL) — Office québécois de la langue française",
+     "url": "https://vitrinelinguistique.oqlf.gouv.qc.ca/"
+    },
     {
      "title": "Wikipedia: French grammar",
      "url": "https://en.wikipedia.org/wiki/French_grammar"
@@ -1298,9 +1350,13 @@
    "source": "contributor",
    "reviewed": true,
    "display_order": 2,
-   "explanation": "A set of verbs of movement/change (aller, venir, partir, arriver, monter, descendre, naître, mourir, rester, tomber…) and all reflexive verbs form the past with être, not avoir: je suis allé 'I went'. With être the participle AGREES with the subject in gender and number: elle est allée, ils sont partis, elles sont venues.",
+   "explanation": "A set of verbs of movement/change (aller, venir, partir, arriver, monter, descendre, naître, mourir, rester, tomber…) and all reflexive verbs form the past with être, not avoir: je suis allé 'I went'.\n\nWith être the participle AGREES with the subject in gender and number: elle est allée, ils sont partis, elles sont venues.",
    "culture_note": "",
    "references": [
+    {
+     "title": "Vitrine linguistique (BDL) — Office québécois de la langue française",
+     "url": "https://vitrinelinguistique.oqlf.gouv.qc.ca/"
+    },
     {
      "title": "Wikipedia: French grammar",
      "url": "https://en.wikipedia.org/wiki/French_grammar"
@@ -1420,9 +1476,13 @@
    "source": "contributor",
    "reviewed": true,
    "display_order": 3,
-   "explanation": "The imperfect describes a past that was ongoing, repeated, or a background state — English 'was …-ing' / 'used to'. Take the nous form of the present, drop -ons, add -ais, -ais, -ait, -ions, -iez, -aient: mangeais 'I was eating', finissait 'he used to finish'. être is irregular (j'étais). Contrast with the passé composé (one completed act).",
+   "explanation": "The imperfect describes a past that was ongoing, repeated, or a background state — English 'was …-ing' / 'used to'. Take the nous form of the present, drop -ons, add -ais, -ais, -ait, -ions, -iez, -aient: mangeais 'I was eating', finissait 'he used to finish'. être is irregular (j'étais).\n\nContrast with the passé composé (one completed act).",
    "culture_note": "",
    "references": [
+    {
+     "title": "Vitrine linguistique (BDL) — Office québécois de la langue française",
+     "url": "https://vitrinelinguistique.oqlf.gouv.qc.ca/"
+    },
     {
      "title": "Wikipedia: French grammar",
      "url": "https://en.wikipedia.org/wiki/French_grammar"
@@ -1480,9 +1540,13 @@
    "source": "contributor",
    "reviewed": true,
    "display_order": 4,
-   "explanation": "The simple future adds -ai, -as, -a, -ons, -ez, -ont to the infinitive (dropping a final -e of -re verbs): je mangerai 'I will eat', il finira 'he will finish'. Some stems are irregular: être → ser-, avoir → aur-, aller → ir-, faire → fer-, venir → viendr-.",
+   "explanation": "The simple future adds -ai, -as, -a, -ons, -ez, -ont to the infinitive (dropping a final -e of -re verbs): je mangerai 'I will eat', il finira 'he will finish'.\n\nSome stems are irregular: être → ser-, avoir → aur-, aller → ir-, faire → fer-, venir → viendr-.",
    "culture_note": "",
    "references": [
+    {
+     "title": "Vitrine linguistique (BDL) — Office québécois de la langue française",
+     "url": "https://vitrinelinguistique.oqlf.gouv.qc.ca/"
+    },
     {
      "title": "Wikipedia: French grammar",
      "url": "https://en.wikipedia.org/wiki/French_grammar"
@@ -1540,9 +1604,13 @@
    "source": "contributor",
    "reviewed": true,
    "display_order": 5,
-   "explanation": "A known direct object becomes a pronoun placed before the verb: le (him/it m.), la (her/it f.), les (them), me, te, nous, vous. Je le vois 'I see him', je les achète 'I'm buying them'. Before a vowel, me/te/le/la elide: je t'aime, je l'ai vu.",
+   "explanation": "A known direct object becomes a pronoun placed before the verb: le (him/it m.), la (her/it f.), les (them), me, te, nous, vous.\n\nJe le vois 'I see him', je les achète 'I'm buying them'. Before a vowel, me/te/le/la elide: je t'aime, je l'ai vu.",
    "culture_note": "",
    "references": [
+    {
+     "title": "Vitrine linguistique (BDL) — Office québécois de la langue française",
+     "url": "https://vitrinelinguistique.oqlf.gouv.qc.ca/"
+    },
     {
      "title": "Wikipedia: French grammar",
      "url": "https://en.wikipedia.org/wiki/French_grammar"
@@ -1604,6 +1672,10 @@
    "culture_note": "",
    "references": [
     {
+     "title": "Vitrine linguistique (BDL) — Office québécois de la langue française",
+     "url": "https://vitrinelinguistique.oqlf.gouv.qc.ca/"
+    },
+    {
      "title": "Wikipedia: French grammar",
      "url": "https://en.wikipedia.org/wiki/French_grammar"
     }
@@ -1660,9 +1732,13 @@
    "source": "contributor",
    "reviewed": true,
    "display_order": 7,
-   "explanation": "The comparative uses plus / moins / aussi + adjective + que 'than/as': plus grand que 'bigger than', aussi cher que 'as expensive as'. The superlative adds the definite article: le plus grand 'the biggest'. Irregular: bon → meilleur 'better', bien → mieux 'better (adv.)'.",
+   "explanation": "The comparative uses plus / moins / aussi + adjective + que 'than/as': plus grand que 'bigger than', aussi cher que 'as expensive as'. The superlative adds the definite article: le plus grand 'the biggest'.\n\nIrregular: bon → meilleur 'better', bien → mieux 'better (adv.)'.",
    "culture_note": "",
    "references": [
+    {
+     "title": "Vitrine linguistique (BDL) — Office québécois de la langue française",
+     "url": "https://vitrinelinguistique.oqlf.gouv.qc.ca/"
+    },
     {
      "title": "Wikipedia: French grammar",
      "url": "https://en.wikipedia.org/wiki/French_grammar"
@@ -1720,9 +1796,13 @@
    "source": "contributor",
    "reviewed": true,
    "display_order": 8,
-   "explanation": "Reflexive verbs carry a pronoun matching the subject: me, te, se, nous, vous, se, before the verb. Je me lave 'I wash (myself)', il se lève 'he gets up', nous nous reposons 'we rest'. Many daily-routine verbs are reflexive. In the passé composé they take être.",
+   "explanation": "Reflexive verbs carry a pronoun matching the subject: me, te, se, nous, vous, se, before the verb.\n\nJe me lave 'I wash (myself)', il se lève 'he gets up', nous nous reposons 'we rest'. Many daily-routine verbs are reflexive.\n\nIn the passé composé they take être.",
    "culture_note": "",
    "references": [
+    {
+     "title": "Vitrine linguistique (BDL) — Office québécois de la langue française",
+     "url": "https://vitrinelinguistique.oqlf.gouv.qc.ca/"
+    },
     {
      "title": "Wikipedia: French grammar",
      "url": "https://en.wikipedia.org/wiki/French_grammar"
@@ -1786,9 +1866,13 @@
    "source": "contributor",
    "reviewed": true,
    "display_order": 9,
-   "explanation": "To talk about an unspecified quantity ('some'), French uses du (m.), de la (f.), de l' (before a vowel), des (pl.): je bois du café, je mange de la salade. After a negation, all become de/d': je ne bois pas de café. After an expression of quantity too: beaucoup de café.",
+   "explanation": "To talk about an unspecified quantity ('some'), French uses du (m.), de la (f.), de l' (before a vowel), des (pl.): je bois du café, je mange de la salade. After a negation, all become de/d': je ne bois pas de café.\n\nAfter an expression of quantity too: beaucoup de café.",
    "culture_note": "",
    "references": [
+    {
+     "title": "Vitrine linguistique (BDL) — Office québécois de la langue française",
+     "url": "https://vitrinelinguistique.oqlf.gouv.qc.ca/"
+    },
     {
      "title": "Wikipedia: French grammar",
      "url": "https://en.wikipedia.org/wiki/French_grammar"
@@ -1846,9 +1930,13 @@
    "source": "contributor",
    "reviewed": true,
    "display_order": 10,
-   "explanation": "Possessives agree with the thing owned, not the owner: mon/ma/mes 'my', ton/ta/tes 'your', son/sa/ses 'his/her', notre/nos, votre/vos, leur/leurs. Before a feminine noun starting with a vowel, use mon/ton/son (mon amie). Demonstratives: ce/cet (m.), cette (f.), ces (pl.) 'this/these'.",
+   "explanation": "Possessives agree with the thing owned, not the owner: mon/ma/mes 'my', ton/ta/tes 'your', son/sa/ses 'his/her', notre/nos, votre/vos, leur/leurs.\n\nBefore a feminine noun starting with a vowel, use mon/ton/son (mon amie).\n\nDemonstratives: ce/cet (m.), cette (f.), ces (pl.) 'this/these'.",
    "culture_note": "",
    "references": [
+    {
+     "title": "Vitrine linguistique (BDL) — Office québécois de la langue française",
+     "url": "https://vitrinelinguistique.oqlf.gouv.qc.ca/"
+    },
     {
      "title": "Wikipedia: French grammar",
      "url": "https://en.wikipedia.org/wiki/French_grammar"
@@ -1906,9 +1994,13 @@
    "source": "contributor",
    "reviewed": true,
    "display_order": 1,
-   "explanation": "After expressions of necessity, wish, emotion, or doubt — il faut que, je veux que, je suis content que, bien que — the verb goes into the subjunctive. For most verbs, take the ils form of the present, drop -ent, add -e, -es, -e, -ions, -iez, -ent: que je parle, que nous finissions. Key irregulars: être (sois), avoir (aie), faire (fasse), aller (aille).",
+   "explanation": "After expressions of necessity, wish, emotion, or doubt — il faut que, je veux que, je suis content que, bien que — the verb goes into the subjunctive. For most verbs, take the ils form of the present, drop -ent, add -e, -es, -e, -ions, -iez, -ent: que je parle, que nous finissions.\n\nKey irregulars: être (sois), avoir (aie), faire (fasse), aller (aille).",
    "culture_note": "",
    "references": [
+    {
+     "title": "Vitrine linguistique (BDL) — Office québécois de la langue française",
+     "url": "https://vitrinelinguistique.oqlf.gouv.qc.ca/"
+    },
     {
      "title": "Wikipedia: French grammar",
      "url": "https://en.wikipedia.org/wiki/French_grammar"
@@ -1970,6 +2062,10 @@
    "culture_note": "",
    "references": [
     {
+     "title": "Vitrine linguistique (BDL) — Office québécois de la langue française",
+     "url": "https://vitrinelinguistique.oqlf.gouv.qc.ca/"
+    },
+    {
      "title": "Wikipedia: French grammar",
      "url": "https://en.wikipedia.org/wiki/French_grammar"
     }
@@ -2029,6 +2125,10 @@
    "explanation": "When a verb has two pronouns, they follow a fixed order before the verb: me/te/nous/vous come before le/la/les, which come before lui/leur, then y, then en: je te le donne 'I give it to you', je le lui donne 'I give it to him', il y en a 'there is some'.",
    "culture_note": "",
    "references": [
+    {
+     "title": "Vitrine linguistique (BDL) — Office québécois de la langue française",
+     "url": "https://vitrinelinguistique.oqlf.gouv.qc.ca/"
+    },
     {
      "title": "Wikipedia: French grammar",
      "url": "https://en.wikipedia.org/wiki/French_grammar"
@@ -2090,6 +2190,10 @@
    "culture_note": "",
    "references": [
     {
+     "title": "Vitrine linguistique (BDL) — Office québécois de la langue française",
+     "url": "https://vitrinelinguistique.oqlf.gouv.qc.ca/"
+    },
+    {
      "title": "Wikipedia: French grammar",
      "url": "https://en.wikipedia.org/wiki/French_grammar"
     }
@@ -2146,9 +2250,13 @@
    "source": "contributor",
    "reviewed": true,
    "display_order": 5,
-   "explanation": "The near future is aller (present) + infinitive: je vais partir 'I'm going to leave'. The recent past is venir de + infinitive: je viens d'arriver 'I've just arrived'. Both are extremely common in speech.",
+   "explanation": "The near future is aller (present) + infinitive: je vais partir 'I'm going to leave'. The recent past is venir de + infinitive: je viens d'arriver 'I've just arrived'.\n\nBoth are extremely common in speech.",
    "culture_note": "",
    "references": [
+    {
+     "title": "Vitrine linguistique (BDL) — Office québécois de la langue française",
+     "url": "https://vitrinelinguistique.oqlf.gouv.qc.ca/"
+    },
     {
      "title": "Wikipedia: French grammar",
      "url": "https://en.wikipedia.org/wiki/French_grammar"
@@ -2206,9 +2314,13 @@
    "source": "contributor",
    "reviewed": true,
    "display_order": 6,
-   "explanation": "The pluperfect ('had done') = the imperfect of avoir/être + the past participle: j'avais mangé 'I had eaten', elle était partie 'she had left'. It marks an action completed before another past moment. The être/avoir and agreement rules are the same as the passé composé.",
+   "explanation": "The pluperfect ('had done') = the imperfect of avoir/être + the past participle: j'avais mangé 'I had eaten', elle était partie 'she had left'. It marks an action completed before another past moment.\n\nThe être/avoir and agreement rules are the same as the passé composé.",
    "culture_note": "",
    "references": [
+    {
+     "title": "Vitrine linguistique (BDL) — Office québécois de la langue française",
+     "url": "https://vitrinelinguistique.oqlf.gouv.qc.ca/"
+    },
     {
      "title": "Wikipedia: French grammar",
      "url": "https://en.wikipedia.org/wiki/French_grammar"
@@ -2266,9 +2378,13 @@
    "source": "contributor",
    "reviewed": true,
    "display_order": 7,
-   "explanation": "Report a statement with que: il dit qu'il vient 'he says he's coming'. Report a yes/no question with si 'whether': il demande si tu viens. Report what/who with ce que / ce qui: je ne sais pas ce qu'il veut. When the main verb is past, tenses shift back (présent → imparfait, etc.).",
+   "explanation": "Report a statement with que: il dit qu'il vient 'he says he's coming'. Report a yes/no question with si 'whether': il demande si tu viens.\n\nReport what/who with ce que / ce qui: je ne sais pas ce qu'il veut.\n\nWhen the main verb is past, tenses shift back (présent → imparfait, etc.).",
    "culture_note": "",
    "references": [
+    {
+     "title": "Vitrine linguistique (BDL) — Office québécois de la langue française",
+     "url": "https://vitrinelinguistique.oqlf.gouv.qc.ca/"
+    },
     {
      "title": "Wikipedia: French grammar",
      "url": "https://en.wikipedia.org/wiki/French_grammar"
@@ -2330,6 +2446,10 @@
    "culture_note": "",
    "references": [
     {
+     "title": "Vitrine linguistique (BDL) — Office québécois de la langue française",
+     "url": "https://vitrinelinguistique.oqlf.gouv.qc.ca/"
+    },
+    {
      "title": "Wikipedia: French grammar",
      "url": "https://en.wikipedia.org/wiki/French_grammar"
     }
@@ -2389,6 +2509,10 @@
    "explanation": "For an unreal or hypothetical present, si + imparfait pairs with the conditional: si j'avais le temps, je viendrais 'if I had time, I would come'. (For a real future condition it's si + présent → futur: si tu études, tu réussiras.) Never put the conditional directly after si.",
    "culture_note": "",
    "references": [
+    {
+     "title": "Vitrine linguistique (BDL) — Office québécois de la langue française",
+     "url": "https://vitrinelinguistique.oqlf.gouv.qc.ca/"
+    },
     {
      "title": "Wikipedia: French grammar",
      "url": "https://en.wikipedia.org/wiki/French_grammar"
@@ -2450,6 +2574,10 @@
    "culture_note": "",
    "references": [
     {
+     "title": "Vitrine linguistique (BDL) — Office québécois de la langue française",
+     "url": "https://vitrinelinguistique.oqlf.gouv.qc.ca/"
+    },
+    {
      "title": "Wikipedia: French grammar",
      "url": "https://en.wikipedia.org/wiki/French_grammar"
     }
@@ -2506,9 +2634,13 @@
    "source": "contributor",
    "reviewed": true,
    "display_order": 4,
-   "explanation": "Certain conjunctions always take the subjunctive: bien que / quoique 'although', pour que / afin que 'so that', avant que 'before', à condition que 'provided that', jusqu'à ce que 'until', sans que 'without'. Bien qu'il pleuve, nous sortons 'although it's raining, we go out'.",
+   "explanation": "Certain conjunctions always take the subjunctive: bien que / quoique 'although', pour que / afin que 'so that', avant que 'before', à condition que 'provided that', jusqu'à ce que 'until', sans que 'without'.\n\nBien qu'il pleuve, nous sortons 'although it's raining, we go out'.",
    "culture_note": "",
    "references": [
+    {
+     "title": "Vitrine linguistique (BDL) — Office québécois de la langue française",
+     "url": "https://vitrinelinguistique.oqlf.gouv.qc.ca/"
+    },
     {
      "title": "Wikipedia: French grammar",
      "url": "https://en.wikipedia.org/wiki/French_grammar"
@@ -2566,9 +2698,13 @@
    "source": "contributor",
    "reviewed": true,
    "display_order": 5,
-   "explanation": "A few comparatives are irregular. The adjective bon → meilleur 'better' (agrees: meilleure, meilleurs). The adverb bien → mieux 'better' (never agrees). mauvais → plus mauvais or pire 'worse'; mal → plus mal or pis. Ce gâteau est meilleur; il chante mieux.",
+   "explanation": "A few comparatives are irregular.\n\nThe adjective bon → meilleur 'better' (agrees: meilleure, meilleurs).\n\nThe adverb bien → mieux 'better' (never agrees). mauvais → plus mauvais or pire 'worse'; mal → plus mal or pis.\n\nCe gâteau est meilleur; il chante mieux.",
    "culture_note": "",
    "references": [
+    {
+     "title": "Vitrine linguistique (BDL) — Office québécois de la langue française",
+     "url": "https://vitrinelinguistique.oqlf.gouv.qc.ca/"
+    },
     {
      "title": "Wikipedia: French grammar",
      "url": "https://en.wikipedia.org/wiki/French_grammar"
@@ -2626,9 +2762,13 @@
    "source": "contributor",
    "reviewed": true,
    "display_order": 6,
-   "explanation": "Written and spoken French links ideas with connectors: donc / alors 'so/therefore', pourtant / cependant / néanmoins 'however/yet', car / puisque 'because/since', d'ailleurs 'besides', en revanche 'on the other hand'. They organize an argument and are worth deploying deliberately.",
+   "explanation": "Written and spoken French links ideas with connectors: donc / alors 'so/therefore', pourtant / cependant / néanmoins 'however/yet', car / puisque 'because/since', d'ailleurs 'besides', en revanche 'on the other hand'.\n\nThey organize an argument and are worth deploying deliberately.",
    "culture_note": "",
    "references": [
+    {
+     "title": "Vitrine linguistique (BDL) — Office québécois de la langue française",
+     "url": "https://vitrinelinguistique.oqlf.gouv.qc.ca/"
+    },
     {
      "title": "Wikipedia: French grammar",
      "url": "https://en.wikipedia.org/wiki/French_grammar"
@@ -2686,9 +2826,13 @@
    "source": "contributor",
    "reviewed": true,
    "display_order": 1,
-   "explanation": "The past conditional = the conditional of avoir/être + the participle: j'aurais fait 'I would have done', elle serait venue 'she would have come'. It pairs with si + plus-que-parfait for past-unreal conditions: si j'avais su, je serais venu 'if I had known, I would have come'.",
+   "explanation": "The past conditional = the conditional of avoir/être + the participle: j'aurais fait 'I would have done', elle serait venue 'she would have come'.\n\nIt pairs with si + plus-que-parfait for past-unreal conditions: si j'avais su, je serais venu 'if I had known, I would have come'.",
    "culture_note": "",
    "references": [
+    {
+     "title": "Vitrine linguistique (BDL) — Office québécois de la langue française",
+     "url": "https://vitrinelinguistique.oqlf.gouv.qc.ca/"
+    },
     {
      "title": "Wikipedia: French grammar",
      "url": "https://en.wikipedia.org/wiki/French_grammar"
@@ -2750,6 +2894,10 @@
    "culture_note": "",
    "references": [
     {
+     "title": "Vitrine linguistique (BDL) — Office québécois de la langue française",
+     "url": "https://vitrinelinguistique.oqlf.gouv.qc.ca/"
+    },
+    {
      "title": "Wikipedia: French grammar",
      "url": "https://en.wikipedia.org/wiki/French_grammar"
     }
@@ -2806,9 +2954,13 @@
    "source": "contributor",
    "reviewed": true,
    "display_order": 3,
-   "explanation": "The passé simple is the written narrative past, replacing the passé composé in literature, history, and formal storytelling. -er verbs: il parla, ils parlèrent; -ir/-re: il finit, il vendit; key irregulars: être → il fut, avoir → il eut, faire → il fit, venir → il vint. You rarely produce it, but you must read it.",
+   "explanation": "The passé simple is the written narrative past, replacing the passé composé in literature, history, and formal storytelling.\n\n-er verbs: il parla, ils parlèrent; -ir/-re: il finit, il vendit; key irregulars: être → il fut, avoir → il eut, faire → il fit, venir → il vint.\n\nYou rarely produce it, but you must read it.",
    "culture_note": "",
    "references": [
+    {
+     "title": "Vitrine linguistique (BDL) — Office québécois de la langue française",
+     "url": "https://vitrinelinguistique.oqlf.gouv.qc.ca/"
+    },
     {
      "title": "Wikipedia: French grammar",
      "url": "https://en.wikipedia.org/wiki/French_grammar"
@@ -2870,6 +3022,10 @@
    "culture_note": "",
    "references": [
     {
+     "title": "Vitrine linguistique (BDL) — Office québécois de la langue française",
+     "url": "https://vitrinelinguistique.oqlf.gouv.qc.ca/"
+    },
+    {
      "title": "Wikipedia: French grammar",
      "url": "https://en.wikipedia.org/wiki/French_grammar"
     }
@@ -2926,9 +3082,13 @@
    "source": "contributor",
    "reviewed": true,
    "display_order": 2,
-   "explanation": "Formal/literary French keeps forms speech has dropped. The 'ne explétif' adds a meaningless ne after avant que, de peur que, and comparisons: je crains qu'il ne vienne 'I fear he will come'. Elevated register also prefers connectors like néanmoins, toutefois, quoique, en dépit de, and the inverted question (viendrez-vous?).",
+   "explanation": "Formal/literary French keeps forms speech has dropped. The 'ne explétif' adds a meaningless ne after avant que, de peur que, and comparisons: je crains qu'il ne vienne 'I fear he will come'.\n\nElevated register also prefers connectors like néanmoins, toutefois, quoique, en dépit de, and the inverted question (viendrez-vous?).",
    "culture_note": "",
    "references": [
+    {
+     "title": "Vitrine linguistique (BDL) — Office québécois de la langue française",
+     "url": "https://vitrinelinguistique.oqlf.gouv.qc.ca/"
+    },
     {
      "title": "Wikipedia: French grammar",
      "url": "https://en.wikipedia.org/wiki/French_grammar"
