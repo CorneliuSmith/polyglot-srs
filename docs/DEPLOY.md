@@ -68,17 +68,21 @@ friends' browsers ──▶ static frontend (free)  ──▶ backend API ($5–
 DigitalOcean → Create → **App Platform** → connect the GitHub repo,
 branch `main`, autodeploy on.
 
-**Component 1 — Web Service** (detected from the repo root):
+**Component 1 — Web Service, built from the repo's `Dockerfile`.**
+App Platform detects the Dockerfile automatically ("no components
+detected" means it isn't on the selected branch yet — the buildpack
+does NOT recognize a pyproject-only Python repo, which is exactly why
+the Dockerfile exists). Everything heavy (spaCy model, WordNet,
+camel-tools data) is baked into the image.
 
 | Setting | Value |
 |---|---|
 | Source directory | `/` (repo root) |
-| Build command | `pip install . && python -m spacy download en_core_web_sm && python -m nltk.downloader wordnet omw-1.4` |
-| Run command | `uvicorn backend.main:create_app --factory --host 0.0.0.0 --port $PORT` |
-| HTTP port | `$PORT` (App Platform sets it) |
+| Build command | *(leave empty — the Dockerfile does it)* |
+| Run command | *(leave empty — the image CMD runs uvicorn)* |
+| HTTP port | `8080` |
 | Health check | HTTP path `/api/health` |
 | Instance size | **1 GB RAM** ($12/mo). You can try the $5 512 MB tier, but the NLP stack (spaCy + camel-tools + pymorphy3) will likely OOM under it — if the service restarts under load, this is why. |
-| Python version | 3.12 (set `PYTHON_VERSION=3.12` env var, or the `.python-version` file in the repo handles it) |
 
 **Backend environment variables** (App → Settings → Environment
 Variables; mark the secrets as *encrypted*):
@@ -180,8 +184,8 @@ Send them the frontend URL — that's it, sign-up is self-serve. Optional:
 
 ## Alternative: Render (equally good)
 
-Same shape, near-identical settings: a **Web Service** (same build/run
-commands, health check `/api/health`; Starter $7/mo is 512 MB — watch for
+Same shape, near-identical settings: a **Web Service** (Docker runtime
+from the same Dockerfile, health check `/api/health`; Starter $7/mo is 512 MB — watch for
 OOM; the free tier spins down and cold-starts ~1 min, fine for very casual
 testing) plus a **Static Site** (free; add a rewrite rule `/*` →
 `/index.html` for SPA routing). Env vars identical. Pick whichever
@@ -207,15 +211,14 @@ list lives in ROADMAP WP10.
 - **Backend can't connect to the database** (`Network is unreachable` /
   timeouts) — you used the direct Supabase URL, which is IPv6-only. Switch
   `DATABASE_URL` to the session-pooler URI (pre-flight 2).
-- **Build fails on `camel-tools`** — the Arabic NLP dep is the heaviest
-  install; recent versions ship prebuilt Linux wheels and usually install
-  cleanly, but if the build errors on it you have two outs: (a) switch the
-  component to a **Dockerfile deploy** (App Platform and Render both
-  support one; a python:3.12-slim image with `apt-get install -y cmake
-  build-essential` before `pip install .` always works), or (b) remove
-  `camel-tools` from `pyproject.toml` for the deploy — Arabic answers then
-  grade via the diacritic-folding fallback instead of full morphology,
-  which is acceptable for a friends test.
+- **"No components detected" when adding the repo** — the deploy branch
+  doesn't have the `Dockerfile` yet (buildpacks don't recognize a
+  pyproject-only repo). Merge/push it to `main` and re-run detection.
+- **Build fails on `camel-tools`** — the Dockerfile already installs
+  cmake/build-essential so source builds succeed; if it still fails,
+  remove `camel-tools` from `pyproject.toml` for the deploy — Arabic
+  answers then grade via the diacritic-folding fallback, acceptable for
+  a friends test.
 - **Service restarts / OOM under review load** — bump to the 1 GB
   instance; the NLP models are the memory hog.
 - **Refreshing any page but `/` gives 404** — the static site is missing
