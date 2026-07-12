@@ -52,7 +52,8 @@ interface Parsed {
 
 /** First sentence + the rest ("…dumneavoastră. The verb ending…"). */
 function splitFirstSentence(p: string): [string, string] {
-  const m = p.match(/^(.+?[.!?])\s+(?=[A-ZÀ-ÞΑ-ΩА-Я])/su)
+  // the next sentence may open with a quoted term ('Ni' is …)
+  const m = p.match(/^(.+?[.!?])\s+(?=['‘"“]?[A-ZÀ-ÞΑ-ΩА-Я])/su)
   if (!m) return [p, '']
   return [m[1], p.slice(m[0].length)]
 }
@@ -92,8 +93,18 @@ function parseParagraph(p: string): Parsed {
     }
     // strictly enumeration-shaped: it must LEAD with pairs and be mostly pairs
     if (rows.length >= 3 && segs[0].match(TERM_GLOSS) && leftovers.length <= 1) {
+      // "The independent pronouns are mimi (I), …" — the first pair often
+      // carries the sentence's intro; peel it off so the table starts at
+      // the actual term and the intro renders as text above it.
+      let intro: string | undefined
+      const firstTermWords = rows[0][0].split(/\s+/)
+      if (firstTermWords.length >= 3) {
+        intro = firstTermWords.slice(0, -1).join(' ')
+        rows[0] = [firstTermWords[firstTermWords.length - 1], rows[0][1]]
+      }
       return {
         kind: 'terms',
+        intro,
         rows,
         note: leftovers.join(', ') || undefined,
         tail: tail || undefined,

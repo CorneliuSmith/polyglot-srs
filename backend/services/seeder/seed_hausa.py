@@ -71,5 +71,13 @@ class HausaSeeder(BaseSeeder):
                 record["morphology"] = json.dumps(morphology, ensure_ascii=False)
                 records.append(record)
 
+        # Re-band with the corpus size known: small corpora (mi ~800,
+        # ha ~1.1k) use the same PROPORTIONS as a 10k corpus, so every
+        # language's ladder reaches C1/C2.
+        total = len(records)
+        for rec in records:
+            if rec.get("frequency_rank") is not None:
+                rec["level"] = self.rank_to_level(rec["frequency_rank"], total)
+
         self.logger.info(f"Transformed {len(records)} Hausa words")
         return records

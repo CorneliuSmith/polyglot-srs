@@ -268,3 +268,48 @@ export async function getFeedback(languageId: string): Promise<CardFeedbackItem[
 export async function resolveFeedback(feedbackId: string): Promise<void> {
   await apiClient.post(`/api/contribute/feedback/${feedbackId}/resolve`)
 }
+
+export interface AdminAccount {
+  id: string
+  email: string
+  created_at: string | null
+  last_sign_in_at: string | null
+  plan_scope: 'single' | 'all' | null
+  plan_language: string | null
+  roles: string[]
+  cards: number
+  languages_studied: number
+}
+
+export async function listAccounts(): Promise<AdminAccount[]> {
+  const response = await apiClient.get<{ users: AdminAccount[] }>(
+    '/api/contribute/users',
+  )
+  return response.data.users
+}
+
+export async function createAccount(
+  email: string,
+  password: string,
+): Promise<{ id: string; email: string }> {
+  const response = await apiClient.post('/api/contribute/users', {
+    email,
+    password,
+  })
+  return response.data
+}
+
+export async function deleteAccount(userId: string): Promise<void> {
+  await apiClient.delete(`/api/contribute/users/${userId}`)
+}
+
+export async function overridePlan(
+  userId: string,
+  planScope: 'single' | 'all',
+  planLanguageId?: string,
+): Promise<void> {
+  await apiClient.put(`/api/contribute/users/${userId}/plan`, {
+    plan_scope: planScope,
+    plan_language_id: planLanguageId ?? null,
+  })
+}

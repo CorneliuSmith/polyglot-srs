@@ -1282,7 +1282,10 @@ async def get_deck_preview(
 
 
 async def get_deck_items(
-    conn: asyncpg.Connection, list_id: str, limit: int = 2500
+    conn: asyncpg.Connection,
+    list_id: str,
+    limit: int = 2500,
+    support_locale: str | None = None,
 ) -> dict | None:
     """The deck browser's full item listing (Bunpro's deck page): every item
     in path order with its id, so each row can expand into a detail view.
@@ -1319,18 +1322,24 @@ async def get_deck_items(
             for r in rows
         ]
     else:
+        # English decks browsed by a "from X" learner list definitions in X
+        # (same rule as cards: the support locale only applies to English).
+        eff = await _effective_locale(conn, str(cl["language_id"]), support_locale)
         rows = await conn.fetch(
             """
-            SELECT v.id, v.word AS item, t.definition AS detail, v.level
+            SELECT v.id, v.word AS item,
+                   COALESCE(t.definition, t_en.definition) AS detail, v.level
             FROM vocabulary v
             LEFT JOIN translations t
-                   ON v.id = t.vocabulary_id AND t.locale = 'en'
+                   ON v.id = t.vocabulary_id AND t.locale = $4
+            LEFT JOIN translations t_en
+                   ON v.id = t_en.vocabulary_id AND t_en.locale = 'en'
             WHERE v.language_id = $1
               AND ($2::text IS NULL OR v.level = $2)
             ORDER BY v.frequency_rank ASC NULLS LAST, v.word
             LIMIT $3
             """,
-            cl["language_id"], cl["level"], limit,
+            cl["language_id"], cl["level"], limit, eff,
         )
         items = [
             {"id": str(r["id"]), "kind": "vocabulary", "item": r["item"],

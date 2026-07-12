@@ -822,6 +822,1686 @@
      "display_order": 6
     }
    ]
+  },
+  {
+   "title": "Past simple — irregular verbs",
+   "level": "A2",
+   "function": "Say what happened, with the verbs that break the rules",
+   "source": "contributor",
+   "reviewed": true,
+   "display_order": 1,
+   "explanation": "The most common English verbs have irregular pasts you must simply know.\n\ngo → went, see → saw, buy → bought, take → took, come → came, eat → ate.\n\nYesterday, last week, in 2020 — a finished-time cue calls for the past simple, never the perfect.",
+   "culture_note": "",
+   "references": [
+    {
+     "title": "Cambridge Dictionary — English Grammar",
+     "url": "https://dictionary.cambridge.org/grammar/british-grammar/"
+    }
+   ],
+   "drills": [
+    {
+     "sentence": "Yesterday I {{answer}} to the market.",
+     "answer": "went",
+     "translation": "The past of 'go'.",
+     "hint": "go — past",
+     "display_order": 1
+    },
+    {
+     "sentence": "She {{answer}} a great film last night.",
+     "answer": "saw",
+     "translation": "The past of 'see'.",
+     "hint": "see — past",
+     "display_order": 2
+    },
+    {
+     "sentence": "We {{answer}} a new car in March.",
+     "answer": "bought",
+     "translation": "The past of 'buy'.",
+     "hint": "buy — past",
+     "display_order": 3
+    },
+    {
+     "sentence": "He {{answer}} the early train this morning.",
+     "answer": "took",
+     "translation": "The past of 'take'.",
+     "hint": "take — past",
+     "display_order": 4
+    },
+    {
+     "sentence": "They {{answer}} home very late.",
+     "answer": "came",
+     "translation": "The past of 'come'.",
+     "hint": "come — past",
+     "display_order": 5
+    },
+    {
+     "sentence": "I {{answer}} breakfast at seven.",
+     "answer": "ate",
+     "translation": "The past of 'eat'.",
+     "hint": "eat — past",
+     "display_order": 6
+    }
+   ]
+  },
+  {
+   "title": "Present continuous vs present simple",
+   "level": "A2",
+   "function": "Right now vs in general",
+   "source": "contributor",
+   "reviewed": true,
+   "display_order": 2,
+   "explanation": "The continuous (am/is/are + -ing) is for NOW or around now: I'm reading. The simple is for habits and facts: I read every night.\n\nCues: at the moment, right now → continuous; always, every day, usually → simple.",
+   "culture_note": "",
+   "references": [
+    {
+     "title": "Cambridge Dictionary — English Grammar",
+     "url": "https://dictionary.cambridge.org/grammar/british-grammar/"
+    }
+   ],
+   "drills": [
+    {
+     "sentence": "Quiet, please — the baby {{answer}} sleeping.",
+     "answer": "is",
+     "translation": "Right now → continuous.",
+     "hint": "be — 3rd person",
+     "display_order": 1
+    },
+    {
+     "sentence": "She {{answer}} to work by bike every day.",
+     "answer": "goes",
+     "translation": "A habit → simple.",
+     "hint": "go — habit, she",
+     "display_order": 2
+    },
+    {
+     "sentence": "I'm {{answer}} for my keys at the moment.",
+     "answer": "looking",
+     "translation": "Right now → -ing form.",
+     "hint": "look — continuous",
+     "display_order": 3
+    },
+    {
+     "sentence": "Water {{answer}} at 100 degrees.",
+     "answer": "boils",
+     "translation": "A fact → simple.",
+     "hint": "boil — fact, it",
+     "display_order": 4
+    },
+    {
+     "sentence": "They {{answer}} watching TV right now.",
+     "answer": "are",
+     "translation": "Right now → continuous.",
+     "hint": "be — they",
+     "display_order": 5
+    },
+    {
+     "sentence": "He usually {{answer}} coffee, not tea.",
+     "answer": "drinks",
+     "translation": "usually → simple.",
+     "hint": "drink — habit, he",
+     "display_order": 6
+    }
+   ]
+  },
+  {
+   "title": "Comparatives and superlatives",
+   "level": "A2",
+   "function": "Compare two things — or crown the winner",
+   "source": "contributor",
+   "reviewed": true,
+   "display_order": 3,
+   "explanation": "Short adjectives: -er / the -est (older, the oldest). Long adjectives: more / the most (more expensive, the most expensive).\n\nIrregulars: good → better → the best; bad → worse → the worst; far → further.",
+   "culture_note": "",
+   "references": [
+    {
+     "title": "Cambridge Dictionary — English Grammar",
+     "url": "https://dictionary.cambridge.org/grammar/british-grammar/"
+    }
+   ],
+   "drills": [
+    {
+     "sentence": "This bag is {{answer}} than that one.",
+     "answer": "cheaper",
+     "translation": "cheap — comparing two.",
+     "hint": "cheap — comparative",
+     "display_order": 1
+    },
+    {
+     "sentence": "It's the {{answer}} building in the city.",
+     "answer": "tallest",
+     "translation": "tall — the number one.",
+     "hint": "tall — superlative",
+     "display_order": 2
+    },
+    {
+     "sentence": "Her English is {{answer}} than mine.",
+     "answer": "better",
+     "translation": "good — irregular comparative.",
+     "hint": "good — comparative",
+     "display_order": 3
+    },
+    {
+     "sentence": "That was the {{answer}} meal I've ever had.",
+     "answer": "worst",
+     "translation": "bad — irregular superlative.",
+     "hint": "bad — superlative",
+     "display_order": 4
+    },
+    {
+     "sentence": "This exercise is {{answer}} difficult than the last.",
+     "answer": "more",
+     "translation": "Long adjective — add a word.",
+     "hint": "the word before long adjectives",
+     "display_order": 5
+    },
+    {
+     "sentence": "The station is {{answer}} than I thought.",
+     "answer": "further",
+     "translation": "far — irregular comparative.",
+     "hint": "far — comparative",
+     "display_order": 6
+    }
+   ]
+  },
+  {
+   "title": "Going to and will",
+   "level": "A2",
+   "function": "Two futures: plans vs promises and predictions",
+   "source": "contributor",
+   "reviewed": true,
+   "display_order": 4,
+   "explanation": "be going to = a plan or something you can already see coming: I'm going to study tonight. Look — it's going to rain.\n\nwill = a decision made now, a promise, or an opinion about the future: I'll help you. It will be fine.",
+   "culture_note": "",
+   "references": [
+    {
+     "title": "Cambridge Dictionary — English Grammar",
+     "url": "https://dictionary.cambridge.org/grammar/british-grammar/"
+    }
+   ],
+   "drills": [
+    {
+     "sentence": "We're {{answer}} to visit Rome in May.",
+     "answer": "going",
+     "translation": "A plan made earlier.",
+     "hint": "the planned future",
+     "display_order": 1
+    },
+    {
+     "sentence": "Don't worry — I {{answer}} help you.",
+     "answer": "will",
+     "translation": "A promise, decided now.",
+     "hint": "instant decision",
+     "display_order": 2
+    },
+    {
+     "sentence": "Look at those clouds! It's going to {{answer}}.",
+     "answer": "rain",
+     "translation": "You can see it coming.",
+     "hint": "wet weather",
+     "display_order": 3
+    },
+    {
+     "sentence": "I think she {{answer}} pass the exam.",
+     "answer": "will",
+     "translation": "An opinion about the future.",
+     "hint": "prediction word",
+     "display_order": 4
+    },
+    {
+     "sentence": "They're going {{answer}} move house next year.",
+     "answer": "to",
+     "translation": "The little word in 'going …'.",
+     "hint": "the particle after going",
+     "display_order": 5
+    },
+    {
+     "sentence": "I'm tired — I {{answer}} go to bed.",
+     "answer": "'ll",
+     "translation": "A decision made this second.",
+     "hint": "short form of the instant future",
+     "display_order": 6
+    }
+   ]
+  },
+  {
+   "title": "Some, any, much, many",
+   "level": "A2",
+   "function": "Talk about amounts without counting",
+   "source": "contributor",
+   "reviewed": true,
+   "display_order": 5,
+   "explanation": "some in positives and offers: some water, some friends. any in negatives and questions: not any milk, any questions?\n\nmuch with uncountables (much time), many with countables (many people) — mostly in negatives and questions.",
+   "culture_note": "",
+   "references": [
+    {
+     "title": "Cambridge Dictionary — English Grammar",
+     "url": "https://dictionary.cambridge.org/grammar/british-grammar/"
+    }
+   ],
+   "drills": [
+    {
+     "sentence": "There's {{answer}} milk in the fridge.",
+     "answer": "some",
+     "translation": "Positive sentence.",
+     "hint": "positive amount word",
+     "display_order": 1
+    },
+    {
+     "sentence": "We don't have {{answer}} eggs left.",
+     "answer": "any",
+     "translation": "Negative sentence.",
+     "hint": "negative amount word",
+     "display_order": 2
+    },
+    {
+     "sentence": "Do you have {{answer}} questions?",
+     "answer": "any",
+     "translation": "A question.",
+     "hint": "question amount word",
+     "display_order": 3
+    },
+    {
+     "sentence": "How {{answer}} money do you need?",
+     "answer": "much",
+     "translation": "Uncountable amount.",
+     "hint": "with uncountables",
+     "display_order": 4
+    },
+    {
+     "sentence": "How {{answer}} people are coming?",
+     "answer": "many",
+     "translation": "Countable amount.",
+     "hint": "with countables",
+     "display_order": 5
+    },
+    {
+     "sentence": "Would you like {{answer}} tea?",
+     "answer": "some",
+     "translation": "Offers use the positive word.",
+     "hint": "offer amount word",
+     "display_order": 6
+    }
+   ]
+  },
+  {
+   "title": "Adverbs of frequency",
+   "level": "A2",
+   "function": "Say how often — and put the word in the right place",
+   "source": "contributor",
+   "reviewed": true,
+   "display_order": 6,
+   "explanation": "always, usually, often, sometimes, rarely, never.\n\nThey sit BEFORE a main verb (I always walk) but AFTER be (she is always late).",
+   "culture_note": "",
+   "references": [
+    {
+     "title": "Cambridge Dictionary — English Grammar",
+     "url": "https://dictionary.cambridge.org/grammar/british-grammar/"
+    }
+   ],
+   "drills": [
+    {
+     "sentence": "I {{answer}} drink coffee in the morning — every single day.",
+     "answer": "always",
+     "translation": "100% of the time.",
+     "hint": "the every-time word",
+     "display_order": 1
+    },
+    {
+     "sentence": "He is {{answer}} late — it drives me crazy.",
+     "answer": "always",
+     "translation": "After 'be'.",
+     "hint": "the every-time word",
+     "display_order": 2
+    },
+    {
+     "sentence": "We {{answer}} go out on Fridays — maybe once a month.",
+     "answer": "sometimes",
+     "translation": "Not often, not never.",
+     "hint": "the now-and-then word",
+     "display_order": 3
+    },
+    {
+     "sentence": "She {{answer}} eats meat — she's almost vegetarian.",
+     "answer": "rarely",
+     "translation": "Nearly never.",
+     "hint": "the almost-never word",
+     "display_order": 4
+    },
+    {
+     "sentence": "I have {{answer}} been to Japan, but I'd love to go.",
+     "answer": "never",
+     "translation": "Zero times.",
+     "hint": "the zero-times word",
+     "display_order": 5
+    },
+    {
+     "sentence": "They {{answer}} visit us at Christmas — most years.",
+     "answer": "usually",
+     "translation": "Most of the time.",
+     "hint": "the most-of-the-time word",
+     "display_order": 6
+    }
+   ]
+  },
+  {
+   "title": "Can, could, have to",
+   "level": "A2",
+   "function": "Ability, polite requests, and obligation",
+   "source": "contributor",
+   "reviewed": true,
+   "display_order": 7,
+   "explanation": "can = ability or permission now: I can swim. could = past ability or a polite request: Could you help me?\n\nhave to = obligation from outside: I have to work tomorrow. Negative don't have to = no obligation (different from mustn't!).",
+   "culture_note": "",
+   "references": [
+    {
+     "title": "Cambridge Dictionary — English Grammar",
+     "url": "https://dictionary.cambridge.org/grammar/british-grammar/"
+    }
+   ],
+   "drills": [
+    {
+     "sentence": "She {{answer}} speak three languages.",
+     "answer": "can",
+     "translation": "Ability now.",
+     "hint": "ability word",
+     "display_order": 1
+    },
+    {
+     "sentence": "{{answer}} you open the window, please?",
+     "answer": "Could",
+     "translation": "A polite request.",
+     "hint": "polite request word",
+     "display_order": 2
+    },
+    {
+     "sentence": "I {{answer}} to wear a uniform at work.",
+     "answer": "have",
+     "translation": "Outside obligation.",
+     "hint": "obligation verb",
+     "display_order": 3
+    },
+    {
+     "sentence": "When I was five, I {{answer}} already read.",
+     "answer": "could",
+     "translation": "Past ability.",
+     "hint": "ability word — past",
+     "display_order": 4
+    },
+    {
+     "sentence": "You don't {{answer}} to come if you're busy.",
+     "answer": "have",
+     "translation": "No obligation.",
+     "hint": "obligation verb",
+     "display_order": 5
+    },
+    {
+     "sentence": "{{answer}} I sit here? — Of course.",
+     "answer": "Can",
+     "translation": "Asking permission.",
+     "hint": "permission word",
+     "display_order": 6
+    }
+   ]
+  },
+  {
+   "title": "Prepositions of time: in, on, at",
+   "level": "A2",
+   "function": "Put events on the calendar correctly",
+   "source": "contributor",
+   "reviewed": true,
+   "display_order": 8,
+   "explanation": "at + clock times and points: at six, at night, at the weekend (BrE).\n\non + days and dates: on Monday, on 4 July.\n\nin + longer periods: in May, in 2020, in the morning.",
+   "culture_note": "",
+   "references": [
+    {
+     "title": "Cambridge Dictionary — English Grammar",
+     "url": "https://dictionary.cambridge.org/grammar/british-grammar/"
+    }
+   ],
+   "drills": [
+    {
+     "sentence": "The meeting starts {{answer}} nine o'clock.",
+     "answer": "at",
+     "translation": "Clock time.",
+     "hint": "clock-time preposition",
+     "display_order": 1
+    },
+    {
+     "sentence": "I was born {{answer}} 1998.",
+     "answer": "in",
+     "translation": "A year.",
+     "hint": "long-period preposition",
+     "display_order": 2
+    },
+    {
+     "sentence": "We're leaving {{answer}} Friday.",
+     "answer": "on",
+     "translation": "A day.",
+     "hint": "day preposition",
+     "display_order": 3
+    },
+    {
+     "sentence": "She works best {{answer}} the morning.",
+     "answer": "in",
+     "translation": "Part of the day.",
+     "hint": "long-period preposition",
+     "display_order": 4
+    },
+    {
+     "sentence": "My birthday is {{answer}} 12 March.",
+     "answer": "on",
+     "translation": "A date.",
+     "hint": "date preposition",
+     "display_order": 5
+    },
+    {
+     "sentence": "He often studies {{answer}} night.",
+     "answer": "at",
+     "translation": "The fixed phrase with 'night'.",
+     "hint": "the night preposition",
+     "display_order": 6
+    }
+   ]
+  },
+  {
+   "title": "Present perfect vs past simple",
+   "level": "B1",
+   "function": "The past that touches now vs the finished past",
+   "source": "contributor",
+   "reviewed": true,
+   "display_order": 1,
+   "explanation": "Present perfect (have + past participle) links past to now: I've lost my keys (they're still lost). Experience: I've been to Peru. Cues: ever, never, just, already, yet, since, for.\n\nA finished time (yesterday, in 2019, last week) forces the past simple: I lost them yesterday.",
+   "culture_note": "",
+   "references": [
+    {
+     "title": "Cambridge Dictionary — English Grammar",
+     "url": "https://dictionary.cambridge.org/grammar/british-grammar/"
+    }
+   ],
+   "drills": [
+    {
+     "sentence": "I've {{answer}} my wallet — can you help me look?",
+     "answer": "lost",
+     "translation": "Still lost now → perfect.",
+     "hint": "lose — participle",
+     "display_order": 1
+    },
+    {
+     "sentence": "She {{answer}} in Berlin in 2019.",
+     "answer": "lived",
+     "translation": "Finished time → past simple.",
+     "hint": "live — past",
+     "display_order": 2
+    },
+    {
+     "sentence": "Have you {{answer}} been to Japan?",
+     "answer": "ever",
+     "translation": "The experience question word.",
+     "hint": "the any-time-in-your-life word",
+     "display_order": 3
+    },
+    {
+     "sentence": "We've known each other {{answer}} ten years.",
+     "answer": "for",
+     "translation": "A length of time.",
+     "hint": "duration word",
+     "display_order": 4
+    },
+    {
+     "sentence": "He's worked here {{answer}} 2020.",
+     "answer": "since",
+     "translation": "A starting point.",
+     "hint": "starting-point word",
+     "display_order": 5
+    },
+    {
+     "sentence": "They haven't finished {{answer}}.",
+     "answer": "yet",
+     "translation": "Expected but not done.",
+     "hint": "the still-waiting word",
+     "display_order": 6
+    }
+   ]
+  },
+  {
+   "title": "First and second conditionals",
+   "level": "B1",
+   "function": "Real futures and imagined presents",
+   "source": "contributor",
+   "reviewed": true,
+   "display_order": 2,
+   "explanation": "First (real): If it rains, we'll stay in — if + present, will + verb.\n\nSecond (imagined): If I had more time, I would travel — if + past, would + verb. The past form doesn't mean past time; it means 'not real'.",
+   "culture_note": "",
+   "references": [
+    {
+     "title": "Cambridge Dictionary — English Grammar",
+     "url": "https://dictionary.cambridge.org/grammar/british-grammar/"
+    }
+   ],
+   "drills": [
+    {
+     "sentence": "If it {{answer}} tomorrow, we'll cancel the picnic.",
+     "answer": "rains",
+     "translation": "Real condition → present.",
+     "hint": "rain — present, it",
+     "display_order": 1
+    },
+    {
+     "sentence": "If you study, you {{answer}} pass.",
+     "answer": "will",
+     "translation": "Real result.",
+     "hint": "the real-future word",
+     "display_order": 2
+    },
+    {
+     "sentence": "If I {{answer}} rich, I would buy an island.",
+     "answer": "were",
+     "translation": "Imagined → past form of be.",
+     "hint": "be — unreal form",
+     "display_order": 3
+    },
+    {
+     "sentence": "She {{answer}} travel more if she had time.",
+     "answer": "would",
+     "translation": "Imagined result.",
+     "hint": "the unreal-result word",
+     "display_order": 4
+    },
+    {
+     "sentence": "If we {{answer}} now, we'll catch the train.",
+     "answer": "leave",
+     "translation": "Real condition → present.",
+     "hint": "set off — present form",
+     "display_order": 5
+    },
+    {
+     "sentence": "What {{answer}} you do if you won the lottery?",
+     "answer": "would",
+     "translation": "Imagined question.",
+     "hint": "the unreal-result word",
+     "display_order": 6
+    }
+   ]
+  },
+  {
+   "title": "The passive (is made, was built)",
+   "level": "B1",
+   "function": "Focus on what happens, not who does it",
+   "source": "contributor",
+   "reviewed": true,
+   "display_order": 3,
+   "explanation": "be + past participle: This cheese is made in France. The bridge was built in 1932.\n\nUse it when the doer is unknown, obvious, or unimportant. Name the doer with by only when it matters.",
+   "culture_note": "",
+   "references": [
+    {
+     "title": "Cambridge Dictionary — English Grammar",
+     "url": "https://dictionary.cambridge.org/grammar/british-grammar/"
+    }
+   ],
+   "drills": [
+    {
+     "sentence": "This wine {{answer}} produced in Chile.",
+     "answer": "is",
+     "translation": "Present passive.",
+     "hint": "be — present, it",
+     "display_order": 1
+    },
+    {
+     "sentence": "The castle was {{answer}} in the twelfth century.",
+     "answer": "built",
+     "translation": "build — the participle.",
+     "hint": "build — participle",
+     "display_order": 2
+    },
+    {
+     "sentence": "These photos {{answer}} taken by my grandmother.",
+     "answer": "were",
+     "translation": "Past passive, plural.",
+     "hint": "be — past, they",
+     "display_order": 3
+    },
+    {
+     "sentence": "English {{answer}} spoken all over the world.",
+     "answer": "is",
+     "translation": "Present passive.",
+     "hint": "be — present, it",
+     "display_order": 4
+    },
+    {
+     "sentence": "The thief was caught {{answer}} the police.",
+     "answer": "by",
+     "translation": "Naming the doer.",
+     "hint": "the doer preposition",
+     "display_order": 5
+    },
+    {
+     "sentence": "My phone was {{answer}} at the festival.",
+     "answer": "stolen",
+     "translation": "steal — the participle.",
+     "hint": "steal — participle",
+     "display_order": 6
+    }
+   ]
+  },
+  {
+   "title": "Relative clauses (who, which, that, where)",
+   "level": "B1",
+   "function": "Glue two ideas into one sentence",
+   "source": "contributor",
+   "reviewed": true,
+   "display_order": 4,
+   "explanation": "who for people, which for things, that for either (defining only), where for places, whose for possession.\n\nThe woman who lives next door. The book that changed my life. You can drop the pronoun when it's the object: the film (that) we saw.",
+   "culture_note": "",
+   "references": [
+    {
+     "title": "Cambridge Dictionary — English Grammar",
+     "url": "https://dictionary.cambridge.org/grammar/british-grammar/"
+    }
+   ],
+   "drills": [
+    {
+     "sentence": "She's the doctor {{answer}} treated my father.",
+     "answer": "who",
+     "translation": "A person.",
+     "hint": "person link word",
+     "display_order": 1
+    },
+    {
+     "sentence": "That's the restaurant {{answer}} we first met.",
+     "answer": "where",
+     "translation": "A place.",
+     "hint": "place link word",
+     "display_order": 2
+    },
+    {
+     "sentence": "The laptop {{answer}} I bought last week is broken.",
+     "answer": "that",
+     "translation": "A thing (defining).",
+     "hint": "all-purpose link word",
+     "display_order": 3
+    },
+    {
+     "sentence": "He's the author {{answer}} books sell millions.",
+     "answer": "whose",
+     "translation": "Possession.",
+     "hint": "possession link word",
+     "display_order": 4
+    },
+    {
+     "sentence": "The train, {{answer}} was already late, then broke down.",
+     "answer": "which",
+     "translation": "A thing (non-defining, after a comma).",
+     "hint": "thing link word",
+     "display_order": 5
+    },
+    {
+     "sentence": "People {{answer}} exercise regularly live longer.",
+     "answer": "who",
+     "translation": "People in general.",
+     "hint": "person link word",
+     "display_order": 6
+    }
+   ]
+  },
+  {
+   "title": "Used to — past habits and states",
+   "level": "B1",
+   "function": "Talk about how things were, but aren't anymore",
+   "source": "contributor",
+   "reviewed": true,
+   "display_order": 5,
+   "explanation": "used to + verb: I used to smoke (I don't now). There used to be a cinema here.\n\nNegative and question drop the d: didn't use to, Did you use to…? Don't confuse with be used to (= be accustomed to).",
+   "culture_note": "",
+   "references": [
+    {
+     "title": "Cambridge Dictionary — English Grammar",
+     "url": "https://dictionary.cambridge.org/grammar/british-grammar/"
+    }
+   ],
+   "drills": [
+    {
+     "sentence": "I {{answer}} to play football every weekend.",
+     "answer": "used",
+     "translation": "A past habit, now finished.",
+     "hint": "the past-habit verb",
+     "display_order": 1
+    },
+    {
+     "sentence": "She didn't {{answer}} to like coffee, but now she loves it.",
+     "answer": "use",
+     "translation": "After didn't — no d.",
+     "hint": "the past-habit verb, bare",
+     "display_order": 2
+    },
+    {
+     "sentence": "There {{answer}} to be a bakery on this corner.",
+     "answer": "used",
+     "translation": "A past state.",
+     "hint": "the past-habit verb",
+     "display_order": 3
+    },
+    {
+     "sentence": "Did you {{answer}} to live in London?",
+     "answer": "use",
+     "translation": "In questions — no d.",
+     "hint": "the past-habit verb, bare",
+     "display_order": 4
+    },
+    {
+     "sentence": "He used {{answer}} have long hair.",
+     "answer": "to",
+     "translation": "The little word after 'used'.",
+     "hint": "the particle",
+     "display_order": 5
+    },
+    {
+     "sentence": "We {{answer}} to go camping every summer as kids.",
+     "answer": "used",
+     "translation": "A childhood habit.",
+     "hint": "the past-habit verb",
+     "display_order": 6
+    }
+   ]
+  },
+  {
+   "title": "Reported speech",
+   "level": "B1",
+   "function": "Pass on what someone said",
+   "source": "contributor",
+   "reviewed": true,
+   "display_order": 6,
+   "explanation": "Statements step one tense back: 'I'm tired' → she said she was tired. 'I'll come' → he said he would come.\n\nQuestions use if/whether or the question word, with normal word order: she asked if I was ready; he asked where I lived.",
+   "culture_note": "",
+   "references": [
+    {
+     "title": "Cambridge Dictionary — English Grammar",
+     "url": "https://dictionary.cambridge.org/grammar/british-grammar/"
+    }
+   ],
+   "drills": [
+    {
+     "sentence": "'I'm busy.' → She said she {{answer}} busy.",
+     "answer": "was",
+     "translation": "Present steps back to past.",
+     "hint": "be — stepped back",
+     "display_order": 1
+    },
+    {
+     "sentence": "'I'll call you.' → He said he {{answer}} call me.",
+     "answer": "would",
+     "translation": "will steps back.",
+     "hint": "will — stepped back",
+     "display_order": 2
+    },
+    {
+     "sentence": "'Are you ready?' → She asked {{answer}} I was ready.",
+     "answer": "if",
+     "translation": "Yes/no question link.",
+     "hint": "the yes/no link word",
+     "display_order": 3
+    },
+    {
+     "sentence": "'Where do you live?' → He asked where I {{answer}}.",
+     "answer": "lived",
+     "translation": "Question word + normal order.",
+     "hint": "live — stepped back",
+     "display_order": 4
+    },
+    {
+     "sentence": "'I can swim.' → She said she {{answer}} swim.",
+     "answer": "could",
+     "translation": "can steps back.",
+     "hint": "can — stepped back",
+     "display_order": 5
+    },
+    {
+     "sentence": "'We bought a house.' → They said they {{answer}} bought a house.",
+     "answer": "had",
+     "translation": "Past steps back to perfect.",
+     "hint": "the step-back auxiliary",
+     "display_order": 6
+    }
+   ]
+  },
+  {
+   "title": "Gerund or infinitive?",
+   "level": "B1",
+   "function": "Know which verb pattern follows which verb",
+   "source": "contributor",
+   "reviewed": true,
+   "display_order": 7,
+   "explanation": "Gerund (-ing) after enjoy, finish, avoid, mind, suggest: I enjoy cooking.\n\nInfinitive (to + verb) after want, decide, hope, plan, promise: I decided to leave.\n\nSome verbs take both with a meaning change: stop smoking (quit) vs stop to smoke (pause in order to).",
+   "culture_note": "",
+   "references": [
+    {
+     "title": "Cambridge Dictionary — English Grammar",
+     "url": "https://dictionary.cambridge.org/grammar/british-grammar/"
+    }
+   ],
+   "drills": [
+    {
+     "sentence": "I really enjoy {{answer}} in the sea.",
+     "answer": "swimming",
+     "translation": "enjoy + -ing.",
+     "hint": "swim — which form?",
+     "display_order": 1
+    },
+    {
+     "sentence": "She decided {{answer}} accept the job.",
+     "answer": "to",
+     "translation": "decide + infinitive.",
+     "hint": "the infinitive particle",
+     "display_order": 2
+    },
+    {
+     "sentence": "Would you mind {{answer}} the door?",
+     "answer": "closing",
+     "translation": "mind + -ing.",
+     "hint": "close — which form?",
+     "display_order": 3
+    },
+    {
+     "sentence": "We hope {{answer}} see you soon.",
+     "answer": "to",
+     "translation": "hope + infinitive.",
+     "hint": "the infinitive particle",
+     "display_order": 4
+    },
+    {
+     "sentence": "He avoided {{answer}} my question.",
+     "answer": "answering",
+     "translation": "avoid + -ing.",
+     "hint": "answer — which form?",
+     "display_order": 5
+    },
+    {
+     "sentence": "They promised {{answer}} write every week.",
+     "answer": "to",
+     "translation": "promise + infinitive.",
+     "hint": "the infinitive particle",
+     "display_order": 6
+    }
+   ]
+  },
+  {
+   "title": "Third and mixed conditionals",
+   "level": "B2",
+   "function": "Regret and rewrite the past",
+   "source": "contributor",
+   "reviewed": true,
+   "display_order": 1,
+   "explanation": "Third (unreal past): If I had known, I would have come — if + past perfect, would have + participle.\n\nMixed (past cause, present result): If I had saved money, I would be rich now.",
+   "culture_note": "",
+   "references": [
+    {
+     "title": "Cambridge Dictionary — English Grammar",
+     "url": "https://dictionary.cambridge.org/grammar/british-grammar/"
+    }
+   ],
+   "drills": [
+    {
+     "sentence": "If you {{answer}} told me, I would have helped.",
+     "answer": "had",
+     "translation": "Unreal past condition.",
+     "hint": "the past-perfect auxiliary",
+     "display_order": 1
+    },
+    {
+     "sentence": "If she had left earlier, she would {{answer}} caught the flight.",
+     "answer": "have",
+     "translation": "Unreal past result.",
+     "hint": "the perfect auxiliary after would",
+     "display_order": 2
+    },
+    {
+     "sentence": "I wouldn't {{answer}} met her if I hadn't gone to that party.",
+     "answer": "have",
+     "translation": "Unreal past result.",
+     "hint": "the perfect auxiliary",
+     "display_order": 3
+    },
+    {
+     "sentence": "If he had studied medicine, he {{answer}} be a doctor now.",
+     "answer": "would",
+     "translation": "Past cause, present result.",
+     "hint": "the unreal-result word",
+     "display_order": 4
+    },
+    {
+     "sentence": "If we {{answer}} taken the map, we wouldn't have got lost.",
+     "answer": "had",
+     "translation": "Unreal past condition.",
+     "hint": "the past-perfect auxiliary",
+     "display_order": 5
+    },
+    {
+     "sentence": "What would you have {{answer}} in my position?",
+     "answer": "done",
+     "translation": "do — the participle.",
+     "hint": "do — participle",
+     "display_order": 6
+    }
+   ]
+  },
+  {
+   "title": "Modals of deduction (must, might, can't)",
+   "level": "B2",
+   "function": "Say how sure you are",
+   "source": "contributor",
+   "reviewed": true,
+   "display_order": 2,
+   "explanation": "must = almost certain it's true: she must be home, the lights are on. can't = almost certain it's false: that can't be right.\n\nmight/may/could = possible. For the past add have: he must have missed the train.",
+   "culture_note": "",
+   "references": [
+    {
+     "title": "Cambridge Dictionary — English Grammar",
+     "url": "https://dictionary.cambridge.org/grammar/british-grammar/"
+    }
+   ],
+   "drills": [
+    {
+     "sentence": "The lights are on — someone {{answer}} be home.",
+     "answer": "must",
+     "translation": "Almost certainly true.",
+     "hint": "the near-certainty word",
+     "display_order": 1
+    },
+    {
+     "sentence": "That {{answer}} be Maria — she's in Brazil this week!",
+     "answer": "can't",
+     "translation": "Almost certainly false.",
+     "hint": "the impossibility word",
+     "display_order": 2
+    },
+    {
+     "sentence": "He {{answer}} be stuck in traffic — it happens.",
+     "answer": "might",
+     "translation": "Just possible.",
+     "hint": "a possibility word",
+     "display_order": 3
+    },
+    {
+     "sentence": "She must {{answer}} forgotten our meeting.",
+     "answer": "have",
+     "translation": "Deduction about the past.",
+     "hint": "the past-deduction auxiliary",
+     "display_order": 4
+    },
+    {
+     "sentence": "They can't {{answer}} left already — the car's still here.",
+     "answer": "have",
+     "translation": "Past impossibility.",
+     "hint": "the past-deduction auxiliary",
+     "display_order": 5
+    },
+    {
+     "sentence": "It {{answer}} rain later, so take an umbrella.",
+     "answer": "could",
+     "translation": "Open possibility.",
+     "hint": "a possibility word",
+     "display_order": 6
+    }
+   ]
+  },
+  {
+   "title": "Advanced passives (has been done, being done)",
+   "level": "B2",
+   "function": "Passives across every tense",
+   "source": "contributor",
+   "reviewed": true,
+   "display_order": 3,
+   "explanation": "Perfect: the road has been closed. Continuous: the house is being painted. Modal: the form must be signed. Reporting: he is said to be rich.",
+   "culture_note": "",
+   "references": [
+    {
+     "title": "Cambridge Dictionary — English Grammar",
+     "url": "https://dictionary.cambridge.org/grammar/british-grammar/"
+    }
+   ],
+   "drills": [
+    {
+     "sentence": "The road has {{answer}} closed since Monday.",
+     "answer": "been",
+     "translation": "Perfect passive.",
+     "hint": "the participle of be",
+     "display_order": 1
+    },
+    {
+     "sentence": "Our office is {{answer}} renovated at the moment.",
+     "answer": "being",
+     "translation": "Continuous passive.",
+     "hint": "the -ing of be",
+     "display_order": 2
+    },
+    {
+     "sentence": "All answers must be {{answer}} in ink.",
+     "answer": "written",
+     "translation": "Modal passive — write.",
+     "hint": "write — participle",
+     "display_order": 3
+    },
+    {
+     "sentence": "She is {{answer}} to be the richest woman in the country.",
+     "answer": "said",
+     "translation": "Reporting passive — say.",
+     "hint": "say — participle",
+     "display_order": 4
+    },
+    {
+     "sentence": "The results will {{answer}} announced on Friday.",
+     "answer": "be",
+     "translation": "Future passive.",
+     "hint": "the bare infinitive of the passive",
+     "display_order": 5
+    },
+    {
+     "sentence": "By 1990, the bridge {{answer}} been rebuilt twice.",
+     "answer": "had",
+     "translation": "Past perfect passive.",
+     "hint": "the past-perfect auxiliary",
+     "display_order": 6
+    }
+   ]
+  },
+  {
+   "title": "Wish and if only",
+   "level": "B2",
+   "function": "Regret the present and the past",
+   "source": "contributor",
+   "reviewed": true,
+   "display_order": 4,
+   "explanation": "wish + past = a present regret: I wish I knew. wish + past perfect = a past regret: I wish I had gone.\n\nwish + would = complaining about others: I wish you would listen.",
+   "culture_note": "",
+   "references": [
+    {
+     "title": "Cambridge Dictionary — English Grammar",
+     "url": "https://dictionary.cambridge.org/grammar/british-grammar/"
+    }
+   ],
+   "drills": [
+    {
+     "sentence": "I wish I {{answer}} how to drive.",
+     "answer": "knew",
+     "translation": "Present regret → past form.",
+     "hint": "know — regret form",
+     "display_order": 1
+    },
+    {
+     "sentence": "She wishes she {{answer}} accepted the offer.",
+     "answer": "had",
+     "translation": "Past regret → past perfect.",
+     "hint": "the past-regret auxiliary",
+     "display_order": 2
+    },
+    {
+     "sentence": "I wish you {{answer}} stop interrupting me!",
+     "answer": "would",
+     "translation": "Complaint about someone.",
+     "hint": "the complaint word",
+     "display_order": 3
+    },
+    {
+     "sentence": "If {{answer}} I had listened to your advice!",
+     "answer": "only",
+     "translation": "The stronger version of wish.",
+     "hint": "the word after if",
+     "display_order": 4
+    },
+    {
+     "sentence": "He wishes he {{answer}} taller.",
+     "answer": "were",
+     "translation": "Present regret with be.",
+     "hint": "be — regret form",
+     "display_order": 5
+    },
+    {
+     "sentence": "We wish we {{answer}} bought tickets earlier.",
+     "answer": "had",
+     "translation": "Past regret.",
+     "hint": "the past-regret auxiliary",
+     "display_order": 6
+    }
+   ]
+  },
+  {
+   "title": "Phrasal verbs — separable or not?",
+   "level": "B2",
+   "function": "Put the object in the right place",
+   "source": "contributor",
+   "reviewed": true,
+   "display_order": 5,
+   "explanation": "Separable: turn the light off / turn off the light — but a pronoun must split: turn it off (never turn off it).\n\nInseparable: look after the kids → look after them. You have to learn which is which.",
+   "culture_note": "",
+   "references": [
+    {
+     "title": "Cambridge Dictionary — English Grammar",
+     "url": "https://dictionary.cambridge.org/grammar/british-grammar/"
+    }
+   ],
+   "drills": [
+    {
+     "sentence": "Could you turn {{answer}} off? The music's too loud.",
+     "answer": "it",
+     "translation": "Pronouns split separable verbs.",
+     "hint": "the object pronoun",
+     "display_order": 1
+    },
+    {
+     "sentence": "She's looking {{answer}} her elderly mother.",
+     "answer": "after",
+     "translation": "The caring phrasal verb.",
+     "hint": "the caring particle",
+     "display_order": 2
+    },
+    {
+     "sentence": "Please fill {{answer}} this form.",
+     "answer": "in",
+     "translation": "Complete a document.",
+     "hint": "the form particle",
+     "display_order": 3
+    },
+    {
+     "sentence": "I'll pick you {{answer}} at eight.",
+     "answer": "up",
+     "translation": "Collect someone.",
+     "hint": "the collecting particle",
+     "display_order": 4
+    },
+    {
+     "sentence": "We've put {{answer}} the meeting until Friday.",
+     "answer": "off",
+     "translation": "Postpone.",
+     "hint": "the postponing particle",
+     "display_order": 5
+    },
+    {
+     "sentence": "He takes {{answer}} his father — same smile, same laugh.",
+     "answer": "after",
+     "translation": "Resemble a parent.",
+     "hint": "the resembling particle",
+     "display_order": 6
+    }
+   ]
+  },
+  {
+   "title": "Question tags and indirect questions",
+   "level": "B2",
+   "function": "Soften questions and check what you believe",
+   "source": "contributor",
+   "reviewed": true,
+   "display_order": 6,
+   "explanation": "Tags flip the polarity: You're coming, aren't you? She doesn't drive, does she?\n\nIndirect questions use statement order: Could you tell me where the station is? (not 'where is the station').",
+   "culture_note": "",
+   "references": [
+    {
+     "title": "Cambridge Dictionary — English Grammar",
+     "url": "https://dictionary.cambridge.org/grammar/british-grammar/"
+    }
+   ],
+   "drills": [
+    {
+     "sentence": "You've met before, {{answer}} you?",
+     "answer": "haven't",
+     "translation": "Positive → negative tag.",
+     "hint": "the flipped tag auxiliary",
+     "display_order": 1
+    },
+    {
+     "sentence": "She doesn't eat fish, {{answer}} she?",
+     "answer": "does",
+     "translation": "Negative → positive tag.",
+     "hint": "the flipped tag auxiliary",
+     "display_order": 2
+    },
+    {
+     "sentence": "Could you tell me where the bank {{answer}}?",
+     "answer": "is",
+     "translation": "Statement order inside.",
+     "hint": "be — at the END",
+     "display_order": 3
+    },
+    {
+     "sentence": "Do you know if the shop {{answer}} at six?",
+     "answer": "closes",
+     "translation": "Indirect yes/no question.",
+     "hint": "close — statement order",
+     "display_order": 4
+    },
+    {
+     "sentence": "It's cold today, {{answer}} it?",
+     "answer": "isn't",
+     "translation": "Positive → negative tag.",
+     "hint": "the flipped tag auxiliary",
+     "display_order": 5
+    },
+    {
+     "sentence": "I wonder {{answer}} they got home safely.",
+     "answer": "whether",
+     "translation": "Indirect yes/no link.",
+     "hint": "the if-alternative",
+     "display_order": 6
+    }
+   ]
+  },
+  {
+   "title": "Inversion (Never have I…, Not only…)",
+   "level": "C1",
+   "function": "Flip the word order for emphasis",
+   "source": "contributor",
+   "reviewed": true,
+   "display_order": 1,
+   "explanation": "After negative openers the auxiliary comes before the subject: Never have I seen such a mess. Not only did he lie, he stole.\n\nOpeners: never, rarely, seldom, not only, no sooner … than, under no circumstances, only then.",
+   "culture_note": "",
+   "references": [
+    {
+     "title": "Cambridge Dictionary — English Grammar",
+     "url": "https://dictionary.cambridge.org/grammar/british-grammar/"
+    }
+   ],
+   "drills": [
+    {
+     "sentence": "Never {{answer}} I heard such nonsense.",
+     "answer": "have",
+     "translation": "Auxiliary before subject.",
+     "hint": "the perfect auxiliary",
+     "display_order": 1
+    },
+    {
+     "sentence": "Not only {{answer}} she sing, she writes her own songs.",
+     "answer": "does",
+     "translation": "Present emphasis.",
+     "hint": "the present auxiliary",
+     "display_order": 2
+    },
+    {
+     "sentence": "No sooner had we sat down {{answer}} the phone rang.",
+     "answer": "than",
+     "translation": "The no-sooner pair.",
+     "hint": "the pairing word",
+     "display_order": 3
+    },
+    {
+     "sentence": "Under no circumstances {{answer}} you open that door.",
+     "answer": "should",
+     "translation": "A stern warning.",
+     "hint": "the advice modal",
+     "display_order": 4
+    },
+    {
+     "sentence": "Rarely {{answer}} we see such talent.",
+     "answer": "do",
+     "translation": "Present emphasis.",
+     "hint": "the present auxiliary",
+     "display_order": 5
+    },
+    {
+     "sentence": "Only then {{answer}} I understand what she meant.",
+     "answer": "did",
+     "translation": "Past emphasis.",
+     "hint": "the past auxiliary",
+     "display_order": 6
+    }
+   ]
+  },
+  {
+   "title": "Cleft sentences (What I need is…, It was… that)",
+   "level": "C1",
+   "function": "Point the spotlight at one part of the sentence",
+   "source": "contributor",
+   "reviewed": true,
+   "display_order": 2,
+   "explanation": "What-cleft: What I need is a holiday. It-cleft: It was Anna who broke the news.\n\nThe cleft turns one flat sentence into a focus and a background — essential for natural emphasis in writing.",
+   "culture_note": "",
+   "references": [
+    {
+     "title": "Cambridge Dictionary — English Grammar",
+     "url": "https://dictionary.cambridge.org/grammar/british-grammar/"
+    }
+   ],
+   "drills": [
+    {
+     "sentence": "{{answer}} I need is a good night's sleep.",
+     "answer": "What",
+     "translation": "The what-cleft opener.",
+     "hint": "the cleft opener",
+     "display_order": 1
+    },
+    {
+     "sentence": "It was Marco {{answer}} suggested the idea.",
+     "answer": "who",
+     "translation": "Focusing on a person.",
+     "hint": "the person link",
+     "display_order": 2
+    },
+    {
+     "sentence": "What annoys me {{answer}} his constant lateness.",
+     "answer": "is",
+     "translation": "The cleft pivot.",
+     "hint": "be — the pivot",
+     "display_order": 3
+    },
+    {
+     "sentence": "It {{answer}} in Paris that they first met.",
+     "answer": "was",
+     "translation": "Focusing on a place.",
+     "hint": "be — past",
+     "display_order": 4
+    },
+    {
+     "sentence": "{{answer}} she wants is a little respect.",
+     "answer": "All",
+     "translation": "The everything-cleft.",
+     "hint": "the only-thing opener",
+     "display_order": 5
+    },
+    {
+     "sentence": "It wasn't until midnight {{answer}} he finally called.",
+     "answer": "that",
+     "translation": "Focusing on a time.",
+     "hint": "the cleft link",
+     "display_order": 6
+    }
+   ]
+  },
+  {
+   "title": "Hedging and distancing (would seem, tend to)",
+   "level": "C1",
+   "function": "Sound measured, academic, and deniable",
+   "source": "contributor",
+   "reviewed": true,
+   "display_order": 3,
+   "explanation": "English softens claims: it would seem that, this suggests, there appears to be, X tends to.\n\nThe passive distances further: it is believed that, it has been argued that. Essential for academic and professional register.",
+   "culture_note": "",
+   "references": [
+    {
+     "title": "Cambridge Dictionary — English Grammar",
+     "url": "https://dictionary.cambridge.org/grammar/british-grammar/"
+    }
+   ],
+   "drills": [
+    {
+     "sentence": "It would {{answer}} that the figures are wrong.",
+     "answer": "seem",
+     "translation": "The classic hedge.",
+     "hint": "the appearing verb",
+     "display_order": 1
+    },
+    {
+     "sentence": "House prices {{answer}} to rise in spring.",
+     "answer": "tend",
+     "translation": "A general tendency.",
+     "hint": "the tendency verb",
+     "display_order": 2
+    },
+    {
+     "sentence": "There {{answer}} to be a problem with the data.",
+     "answer": "appears",
+     "translation": "A visible hedge.",
+     "hint": "the appearing verb, 3rd person",
+     "display_order": 3
+    },
+    {
+     "sentence": "It is widely {{answer}} that the climate is changing.",
+     "answer": "believed",
+     "translation": "Distanced reporting — believe.",
+     "hint": "believe — participle",
+     "display_order": 4
+    },
+    {
+     "sentence": "The results {{answer}} that more research is needed.",
+     "answer": "suggest",
+     "translation": "Letting data speak.",
+     "hint": "the hinting verb",
+     "display_order": 5
+    },
+    {
+     "sentence": "It could be {{answer}} that the policy failed.",
+     "answer": "argued",
+     "translation": "Distanced debate — argue.",
+     "hint": "argue — participle",
+     "display_order": 6
+    }
+   ]
+  },
+  {
+   "title": "Participle clauses (Having finished, …)",
+   "level": "C1",
+   "function": "Tighten two sentences into one",
+   "source": "contributor",
+   "reviewed": true,
+   "display_order": 4,
+   "explanation": "Present participle for same-time actions: Walking home, I saw Ana. Perfect participle for earlier actions: Having finished the report, she left.\n\nThe implied subject must match the main clause — or you've written a dangling modifier.",
+   "culture_note": "",
+   "references": [
+    {
+     "title": "Cambridge Dictionary — English Grammar",
+     "url": "https://dictionary.cambridge.org/grammar/british-grammar/"
+    }
+   ],
+   "drills": [
+    {
+     "sentence": "{{answer}} finished dinner, we went for a walk.",
+     "answer": "Having",
+     "translation": "The earlier action.",
+     "hint": "the perfect participle opener",
+     "display_order": 1
+    },
+    {
+     "sentence": "{{answer}} through the window, she saw the storm coming.",
+     "answer": "Looking",
+     "translation": "Same-time action — look.",
+     "hint": "look — participle",
+     "display_order": 2
+    },
+    {
+     "sentence": "{{answer}} in 1889, the tower still draws millions.",
+     "answer": "Built",
+     "translation": "A passive participle — build.",
+     "hint": "build — participle",
+     "display_order": 3
+    },
+    {
+     "sentence": "Not {{answer}} what to say, he stayed silent.",
+     "answer": "knowing",
+     "translation": "Negative participle — know.",
+     "hint": "know — participle",
+     "display_order": 4
+    },
+    {
+     "sentence": "Having {{answer}} in Rome for years, she speaks fluent Italian.",
+     "answer": "lived",
+     "translation": "live — the participle.",
+     "hint": "live — participle",
+     "display_order": 5
+    },
+    {
+     "sentence": "{{answer}} by the news, they cancelled the trip.",
+     "answer": "Shocked",
+     "translation": "A passive participle — shock.",
+     "hint": "shock — participle",
+     "display_order": 6
+    }
+   ]
+  },
+  {
+   "title": "The mandative subjunctive (insist that he be)",
+   "level": "C2",
+   "function": "The formal demand pattern",
+   "source": "contributor",
+   "reviewed": true,
+   "display_order": 1,
+   "explanation": "After demand, insist, recommend, suggest, essential, vital — formal English uses the bare form for all persons: they insisted that he BE present; it is vital that she ARRIVE on time.\n\nBritish English often uses should instead: insisted that he should be present.",
+   "culture_note": "",
+   "references": [
+    {
+     "title": "Cambridge Dictionary — English Grammar",
+     "url": "https://dictionary.cambridge.org/grammar/british-grammar/"
+    }
+   ],
+   "drills": [
+    {
+     "sentence": "The board insisted that he {{answer}} removed from the project.",
+     "answer": "be",
+     "translation": "Bare form of be, all persons.",
+     "hint": "be — bare",
+     "display_order": 1
+    },
+    {
+     "sentence": "It is essential that every member {{answer}} the code of conduct.",
+     "answer": "follow",
+     "translation": "Bare form — no -s.",
+     "hint": "obey — bare form",
+     "display_order": 2
+    },
+    {
+     "sentence": "She recommended that the report {{answer}} rewritten.",
+     "answer": "be",
+     "translation": "Passive subjunctive.",
+     "hint": "be — bare",
+     "display_order": 3
+    },
+    {
+     "sentence": "They demanded that the minister {{answer}}.",
+     "answer": "resign",
+     "translation": "Bare form — no -s.",
+     "hint": "step down — bare form",
+     "display_order": 4
+    },
+    {
+     "sentence": "It's vital that she {{answer}} informed at once.",
+     "answer": "be",
+     "translation": "Passive subjunctive.",
+     "hint": "be — bare",
+     "display_order": 5
+    },
+    {
+     "sentence": "We suggest that he {{answer}} a lawyer before signing.",
+     "answer": "consult",
+     "translation": "Bare form — no -s.",
+     "hint": "seek advice from — bare form",
+     "display_order": 6
+    }
+   ]
+  },
+  {
+   "title": "Ellipsis and substitution (so, neither, do so)",
+   "level": "C2",
+   "function": "Leave out what the listener already knows",
+   "source": "contributor",
+   "reviewed": true,
+   "display_order": 2,
+   "explanation": "so/neither echo: I love jazz — So do I. He can't swim — Neither can I.\n\ndo so replaces a whole verb phrase in formal prose: asked to leave, he did so at once. if so / if not compress conditions.",
+   "culture_note": "",
+   "references": [
+    {
+     "title": "Cambridge Dictionary — English Grammar",
+     "url": "https://dictionary.cambridge.org/grammar/british-grammar/"
+    }
+   ],
+   "drills": [
+    {
+     "sentence": "I loved the film. — {{answer}} did I!",
+     "answer": "So",
+     "translation": "Positive echo.",
+     "hint": "the me-too opener",
+     "display_order": 1
+    },
+    {
+     "sentence": "She can't make it tonight. — {{answer}} can I.",
+     "answer": "Neither",
+     "translation": "Negative echo.",
+     "hint": "the negative me-too opener",
+     "display_order": 2
+    },
+    {
+     "sentence": "He was asked to apologise, and he did {{answer}} immediately.",
+     "answer": "so",
+     "translation": "Formal verb-phrase substitute.",
+     "hint": "the substitute after did",
+     "display_order": 3
+    },
+    {
+     "sentence": "You may be tired; if {{answer}}, rest.",
+     "answer": "so",
+     "translation": "Compressed condition.",
+     "hint": "the substitute after if",
+     "display_order": 4
+    },
+    {
+     "sentence": "They promised to help, but failed to {{answer}} so.",
+     "answer": "do",
+     "translation": "The formal substitute verb.",
+     "hint": "the substitute verb",
+     "display_order": 5
+    },
+    {
+     "sentence": "I've never been to Oslo. — Nor {{answer}} I.",
+     "answer": "have",
+     "translation": "Negative echo, perfect.",
+     "hint": "the perfect auxiliary",
+     "display_order": 6
+    }
+   ]
+  },
+  {
+   "title": "Formal connectors (notwithstanding, albeit)",
+   "level": "C2",
+   "function": "The registers of written argument",
+   "source": "contributor",
+   "reviewed": true,
+   "display_order": 3,
+   "explanation": "notwithstanding = despite (can follow its noun: objections notwithstanding). albeit = although + reduced phrase: a success, albeit a costly one.\n\nhence/thus = therefore; whereby = by which; hitherto = until now. Legal and academic prose expects them.",
+   "culture_note": "",
+   "references": [
+    {
+     "title": "Cambridge Dictionary — English Grammar",
+     "url": "https://dictionary.cambridge.org/grammar/british-grammar/"
+    }
+   ],
+   "drills": [
+    {
+     "sentence": "The plan went ahead, {{answer}} the objections.",
+     "answer": "notwithstanding",
+     "translation": "Formal 'despite'.",
+     "hint": "the heaviest despite",
+     "display_order": 1
+    },
+    {
+     "sentence": "It was a victory, {{answer}} a narrow one.",
+     "answer": "albeit",
+     "translation": "although + phrase.",
+     "hint": "the compressed although",
+     "display_order": 2
+    },
+    {
+     "sentence": "The costs rose sharply; {{answer}} the project was cancelled.",
+     "answer": "hence",
+     "translation": "Formal 'therefore'.",
+     "hint": "a formal therefore",
+     "display_order": 3
+    },
+    {
+     "sentence": "A scheme {{answer}} employees share the profits.",
+     "answer": "whereby",
+     "translation": "by which.",
+     "hint": "the by-which word",
+     "display_order": 4
+    },
+    {
+     "sentence": "A {{answer}} unknown author won the prize.",
+     "answer": "hitherto",
+     "translation": "until now.",
+     "hint": "the until-now word",
+     "display_order": 5
+    },
+    {
+     "sentence": "The evidence, {{answer}} incomplete, points one way.",
+     "answer": "though",
+     "translation": "Reduced concession.",
+     "hint": "the reduced although",
+     "display_order": 6
+    }
+   ]
   }
  ]
 }

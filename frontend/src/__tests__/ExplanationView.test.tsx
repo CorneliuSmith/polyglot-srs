@@ -52,3 +52,21 @@ describe('ExplanationView', () => {
     expect(screen.getByText('Another sentence.')).toBeDefined()
   })
 })
+
+describe('ExplanationView — Swahili shapes', () => {
+  it('typesets an enumeration with a sentence intro and quoted follow-up', () => {
+    // the exact Swahili paragraph the owner flagged
+    render(
+      <ExplanationView text={
+        "The independent pronouns are mimi (I), wewe (you), yeye (he/she), sisi (we), ninyi (you all), wao (they). 'Ni' is the all-purpose present 'to be' and never changes: Mimi ni mwalimu (I am a teacher), Yeye ni daktari."
+      } />,
+    )
+    const rows = screen.getAllByRole('row')
+    expect(rows.length).toBe(6)
+    expect(screen.getByText('mimi')).toBeDefined() // intro peeled off
+    expect(screen.getByText(/The independent pronouns are/)).toBeDefined()
+    expect(screen.getByText('wao')).toBeDefined()
+    // the follow-up sentence survives as prose
+    expect(screen.getByText(/all-purpose present/)).toBeDefined()
+  })
+})

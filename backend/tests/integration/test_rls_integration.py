@@ -1318,3 +1318,90 @@ async def test_deck_browser_items_and_vocab_detail(pool):
 
         assert await get_deck_items(conn, str(uuid.uuid4())) is None
         assert await get_vocab_item(conn, str(uuid.uuid4())) is None
+
+
+async def test_delete_account_cascades_everything(pool):
+    """Admin account deletion: removing the auth row takes the profile,
+    cards, review history, and subscriptions with it — and only for the
+    deleted user."""
+    from backend.repositories.contributor import delete_account, list_accounts
+
+    lang = await _language(pool, "adm")
+    doomed = await _new_user(pool, "doomed@adm")
+    keeper = await _new_user(pool, "keeper@adm")
+
+    async with pool.privileged_connection() as conn:
+        point = str(await conn.fetchval(
+            "INSERT INTO grammar_points (language_id, title, reviewed, level) "
+            "VALUES ($1, 'Cascade point', true, 'A1') RETURNING id", lang,
+        ))
+        for owner in (doomed, keeper):
+            card = str(await conn.fetchval(
+                "INSERT INTO user_cards (user_id, language_id, card_type, card_id) "
+                "VALUES ($1, $2, 'grammar', $3) RETURNING id", owner, lang, point,
+            ))
+            await conn.execute(
+                "INSERT INTO review_log (user_id, card_id, quality, "
+                "ease_factor_before, ease_factor_after, interval_before, "
+                "interval_after) VALUES ($1, $2, 4, 2.5, 2.6, 1, 3)", owner, card,
+            )
+
+    async with pool.privileged_connection() as conn:
+        emails = {a["email"] for a in await list_accounts(conn)}
+        assert {"doomed@adm", "keeper@adm"} <= emails
+
+        assert await delete_account(conn, doomed) is True
+        assert await delete_account(conn, doomed) is False  # already gone
+
+        assert await conn.fetchval(
+            "SELECT count(*) FROM user_cards WHERE user_id = $1", doomed) == 0
+        assert await conn.fetchval(
+            "SELECT count(*) FROM review_log WHERE user_id = $1", doomed) == 0
+        # the bystander is intact
+        assert await conn.fetchval(
+            "SELECT count(*) FROM user_cards WHERE user_id = $1", keeper) == 1
+        emails = {a["email"] for a in await list_accounts(conn)}
+        assert "doomed@adm" not in emails
+        assert "keeper@adm" in emails
+
+
+async def test_english_deck_browser_localizes_definitions(pool):
+    """Browsing an ENGLISH deck as a "from Spanish" learner lists Spanish
+    definitions (falling back to English), while non-English decks are
+    untouched by the support locale."""
+    from backend.repositories.cards import get_deck_items
+
+    async with pool.privileged_connection() as conn:
+        lang = str(await conn.fetchval(
+            "INSERT INTO languages (code, name, rtl) VALUES ('en', 'English', false) "
+            "ON CONFLICT (code) DO UPDATE SET name = EXCLUDED.name RETURNING id",
+        ))
+        deck = str(await conn.fetchval(
+            "INSERT INTO content_lists (language_id, list_type, level, title) "
+            "VALUES ($1, 'vocabulary', 'C2', 'EN C2 Vocab') "
+            "ON CONFLICT (language_id, list_type, level) DO UPDATE SET title = EXCLUDED.title "
+            "RETURNING id", lang,
+        ))
+        word = str(await conn.fetchval(
+            "INSERT INTO vocabulary (language_id, word, level, frequency_rank) "
+            "VALUES ($1, 'notwithstanding', 'C2', 9990) "
+            "ON CONFLICT (language_id, word) DO UPDATE SET level = 'C2' RETURNING id",
+            lang,
+        ))
+        for locale, definition in (("en", "despite"), ("es", "a pesar de")):
+            await conn.execute(
+                "INSERT INTO translations (vocabulary_id, locale, definition) "
+                "VALUES ($1, $2, $3) ON CONFLICT (vocabulary_id, locale) "
+                "DO UPDATE SET definition = EXCLUDED.definition", word, locale, definition,
+            )
+
+    user = await _new_user(pool, "browser@enloc")
+    async with pool.rls_connection(user) as conn:
+        # from-Spanish learner sees Spanish
+        listing = await get_deck_items(conn, deck, support_locale="es")
+        hit = next(i for i in listing["items"] if i["item"] == "notwithstanding")
+        assert hit["detail"] == "a pesar de"
+        # no support locale -> English
+        listing = await get_deck_items(conn, deck)
+        hit = next(i for i in listing["items"] if i["item"] == "notwithstanding")
+        assert hit["detail"] == "despite"

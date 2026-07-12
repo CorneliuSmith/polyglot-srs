@@ -12,8 +12,14 @@ CREATE SCHEMA IF NOT EXISTS auth;
 
 CREATE TABLE IF NOT EXISTS auth.users (
     id    UUID PRIMARY KEY DEFAULT gen_random_uuid(),
-    email TEXT
+    email TEXT,
+    -- mirror the real Supabase columns the admin console reads
+    created_at      TIMESTAMPTZ DEFAULT now(),
+    last_sign_in_at TIMESTAMPTZ
 );
+-- pre-shim databases created the two-column shape; upgrade in place
+ALTER TABLE auth.users ADD COLUMN IF NOT EXISTS created_at TIMESTAMPTZ DEFAULT now();
+ALTER TABLE auth.users ADD COLUMN IF NOT EXISTS last_sign_in_at TIMESTAMPTZ;
 
 CREATE OR REPLACE FUNCTION auth.uid() RETURNS UUID
 LANGUAGE sql STABLE AS $$

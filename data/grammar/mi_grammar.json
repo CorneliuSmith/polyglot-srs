@@ -2196,6 +2196,776 @@
      "display_order": 6
     }
    ]
+  },
+  {
+   "title": "Taea — 'can' (ka taea e au)",
+   "level": "B2",
+   "function": "Say what can and can't be done",
+   "source": "contributor",
+   "reviewed": false,
+   "display_order": 1,
+   "explanation": "Ability uses the passive verb taea with an e-agent: ka taea e au te haere 'I can go' (literally 'it will be managed by me, the going').\n\nThe thing that can be done follows as te + verb. Negate with kāore e taea: kāore e taea e ia 'she can't'.",
+   "culture_note": "",
+   "references": [
+    {
+     "title": "Te Whanake — Māori language resources",
+     "url": "https://www.tewhanake.maori.nz/"
+    },
+    {
+     "title": "Te Aka Māori Dictionary",
+     "url": "https://maoridictionary.co.nz/"
+    }
+   ],
+   "drills": [
+    {
+     "sentence": "Ka {{answer}} e au te haere āpōpō.",
+     "answer": "taea",
+     "translation": "I can go tomorrow.",
+     "hint": "can (ability, passive verb)",
+     "gloss": "T/A · ___ · by · me · the · go · tomorrow",
+     "display_order": 1
+    },
+    {
+     "sentence": "Ka taea {{answer}} koe te waiata?",
+     "answer": "e",
+     "translation": "Can you sing?",
+     "hint": "by (agent marker)",
+     "gloss": "T/A · can · ___ · you · the · sing",
+     "display_order": 2
+    },
+    {
+     "sentence": "Kāore e {{answer}} e ia te oma.",
+     "answer": "taea",
+     "translation": "He can't run.",
+     "hint": "can (after kāore e)",
+     "gloss": "not · T/A · ___ · by · him · the · run",
+     "display_order": 3
+    },
+    {
+     "sentence": "Ka taea e {{answer}} te āwhina i a koe.",
+     "answer": "au",
+     "translation": "I can help you.",
+     "hint": "me (the agent)",
+     "gloss": "T/A · can · by · ___ · the · help · obj · pers · you",
+     "display_order": 4
+    },
+    {
+     "sentence": "Ka taea e rātou te {{answer}} i te waka.",
+     "answer": "whakatika",
+     "translation": "They can fix the car.",
+     "hint": "fix / repair",
+     "gloss": "T/A · can · by · them · the · ___ · obj · the · car",
+     "display_order": 5
+    },
+    {
+     "sentence": "{{answer}} taea e au te kōrero Pākehā.",
+     "answer": "Ka",
+     "translation": "I can speak English.",
+     "hint": "tense particle (neutral)",
+     "gloss": "___ · can · by · me · the · speak · English",
+     "display_order": 6
+    }
+   ]
+  },
+  {
+   "title": "Kāore anō … kia — not yet",
+   "level": "B2",
+   "function": "Say something hasn't happened yet",
+   "source": "contributor",
+   "reviewed": false,
+   "display_order": 2,
+   "explanation": "The 'not yet' perfect wraps the verb in kāore anō … kia: kāore anō au kia kai 'I haven't eaten yet'.\n\nThe subject sits between anō and kia. Answering 'not yet' alone is kāore anō.",
+   "culture_note": "",
+   "references": [
+    {
+     "title": "Te Whanake — Māori language resources",
+     "url": "https://www.tewhanake.maori.nz/"
+    },
+    {
+     "title": "Te Aka Māori Dictionary",
+     "url": "https://maoridictionary.co.nz/"
+    }
+   ],
+   "drills": [
+    {
+     "sentence": "Kāore {{answer}} au kia kai.",
+     "answer": "anō",
+     "translation": "I haven't eaten yet.",
+     "hint": "yet",
+     "gloss": "not · ___ · I · subj · eat",
+     "display_order": 1
+    },
+    {
+     "sentence": "Kāore anō ia {{answer}} tae mai.",
+     "answer": "kia",
+     "translation": "She hasn't arrived yet.",
+     "hint": "subjunctive particle",
+     "gloss": "not · yet · she · ___ · arrive · hither",
+     "display_order": 2
+    },
+    {
+     "sentence": "Kāore anō te hui kia {{answer}}.",
+     "answer": "mutu",
+     "translation": "The meeting hasn't finished yet.",
+     "hint": "finished / ended",
+     "gloss": "not · yet · the · meeting · subj · ___",
+     "display_order": 3
+    },
+    {
+     "sentence": "Kāore anō mātou kia {{answer}} i te kai.",
+     "answer": "tunu",
+     "translation": "We haven't cooked the food yet.",
+     "hint": "cook",
+     "gloss": "not · yet · we-excl · subj · ___ · obj · the · food",
+     "display_order": 4
+    },
+    {
+     "sentence": "Kāore {{answer}} rātou kia hoki mai.",
+     "answer": "anō",
+     "translation": "They haven't come back yet.",
+     "hint": "yet",
+     "gloss": "not · ___ · they · subj · return · hither",
+     "display_order": 5
+    },
+    {
+     "sentence": "Kāore anō koe {{answer}} horoi i ngā rīhi?",
+     "answer": "kia",
+     "translation": "Haven't you washed the dishes yet?",
+     "hint": "subjunctive particle",
+     "gloss": "not · yet · you · ___ · wash · obj · the-pl · dishes",
+     "display_order": 6
+    }
+   ]
+  },
+  {
+   "title": "I te — the past progressive",
+   "level": "B2",
+   "function": "Describe what was happening",
+   "source": "contributor",
+   "reviewed": false,
+   "display_order": 3,
+   "explanation": "Kei te (happening now) shifts to i te for the past: i te moe ia 'she was sleeping'.\n\nIt paints an ongoing background — pair it with a point-in-time event to say what was going on when something happened.",
+   "culture_note": "",
+   "references": [
+    {
+     "title": "Te Whanake — Māori language resources",
+     "url": "https://www.tewhanake.maori.nz/"
+    },
+    {
+     "title": "Te Aka Māori Dictionary",
+     "url": "https://maoridictionary.co.nz/"
+    }
+   ],
+   "drills": [
+    {
+     "sentence": "{{answer}} te moe ia inapō.",
+     "answer": "I",
+     "translation": "She was sleeping last night.",
+     "hint": "past-progressive particle",
+     "gloss": "___ · prog · sleep · she · last-night",
+     "display_order": 1
+    },
+    {
+     "sentence": "I {{answer}} mahi rātou inanahi.",
+     "answer": "te",
+     "translation": "They were working yesterday.",
+     "hint": "progressive particle",
+     "gloss": "past · ___ · work · they · yesterday",
+     "display_order": 2
+    },
+    {
+     "sentence": "I te {{answer}} ngā tamariki i waho.",
+     "answer": "tākaro",
+     "translation": "The children were playing outside.",
+     "hint": "play",
+     "gloss": "past · prog · ___ · the-pl · children · at · outside",
+     "display_order": 3
+    },
+    {
+     "sentence": "I te aha koe i te {{answer}}?",
+     "answer": "pō",
+     "translation": "What were you doing at night?",
+     "hint": "night",
+     "gloss": "past · prog · what · you · at · the · ___",
+     "display_order": 4
+    },
+    {
+     "sentence": "I te {{answer}} au i taku pukapuka.",
+     "answer": "pānui",
+     "translation": "I was reading my book.",
+     "hint": "read",
+     "gloss": "past · prog · ___ · I · obj · my · book",
+     "display_order": 5
+    },
+    {
+     "sentence": "I te {{answer}} a Mere i te kai.",
+     "answer": "tunu",
+     "translation": "Mere was cooking the food.",
+     "hint": "cook",
+     "gloss": "past · prog · ___ · pers · Mere · obj · the · food",
+     "display_order": 6
+    }
+   ]
+  },
+  {
+   "title": "Hei — purpose and 'as a'",
+   "level": "B2",
+   "function": "Say what something is for",
+   "source": "contributor",
+   "reviewed": false,
+   "display_order": 4,
+   "explanation": "hei marks purpose or future role. Before a verb: hei tapahi 'for cutting'. Before a noun: hei kaiako 'as a teacher'.\n\nWith mā-possessives it assigns the doer: he mahi hei mahi māu 'a job for YOU to do'.",
+   "culture_note": "",
+   "references": [
+    {
+     "title": "Te Whanake — Māori language resources",
+     "url": "https://www.tewhanake.maori.nz/"
+    },
+    {
+     "title": "Te Aka Māori Dictionary",
+     "url": "https://maoridictionary.co.nz/"
+    }
+   ],
+   "drills": [
+    {
+     "sentence": "He aha tēnei? {{answer}} tapahi i te mīti.",
+     "answer": "Hei",
+     "translation": "What's this? For cutting the meat.",
+     "hint": "for (purpose)",
+     "gloss": "a · what · this · ___ · cut · obj · the · meat",
+     "display_order": 1
+    },
+    {
+     "sentence": "Kua tae mai ia {{answer}} āwhina i a mātou.",
+     "answer": "hei",
+     "translation": "She has come to help us.",
+     "hint": "for (purpose)",
+     "gloss": "perf · arrive · hither · she · ___ · help · obj · pers · us-excl",
+     "display_order": 2
+    },
+    {
+     "sentence": "Ka noho ia {{answer}} kaiako mō te kura.",
+     "answer": "hei",
+     "translation": "She will serve as a teacher for the school.",
+     "hint": "as a (role)",
+     "gloss": "T/A · stay · she · ___ · teacher · for · the · school",
+     "display_order": 3
+    },
+    {
+     "sentence": "He kai tēnei {{answer}} kawe māu.",
+     "answer": "hei",
+     "translation": "This is food for you to carry.",
+     "hint": "for (purpose, with māu)",
+     "gloss": "a · food · this · ___ · carry · for-you",
+     "display_order": 4
+    },
+    {
+     "sentence": "{{answer}} aha te waka nei?",
+     "answer": "Hei",
+     "translation": "What is this vehicle for?",
+     "hint": "for (purpose question)",
+     "gloss": "___ · what · the · vehicle · this",
+     "display_order": 5
+    },
+    {
+     "sentence": "Homai he naihi {{answer}} tapahi i te parāoa.",
+     "answer": "hei",
+     "translation": "Give me a knife to cut the bread.",
+     "hint": "for (purpose)",
+     "gloss": "give-me · a · knife · ___ · cut · obj · the · bread",
+     "display_order": 6
+    }
+   ]
+  },
+  {
+   "title": "Imperatives and kaua — do and don't",
+   "level": "B2",
+   "function": "Command, invite, and prohibit",
+   "source": "contributor",
+   "reviewed": false,
+   "display_order": 5,
+   "explanation": "Short verbs take e: e tū! 'stand!', e noho! 'sit!'. Longer verbs drop it: haere mai! 'come here!'.\n\nProhibition is kaua e: kaua e haere! 'don't go!'. Transitive commands often use the passive: katia te kūaha! 'close the door!'.",
+   "culture_note": "Passive imperatives (katia!, kainga!) are the polite norm for transitive commands — the bare active can sound abrupt.",
+   "references": [
+    {
+     "title": "Te Whanake — Māori language resources",
+     "url": "https://www.tewhanake.maori.nz/"
+    },
+    {
+     "title": "Te Aka Māori Dictionary",
+     "url": "https://maoridictionary.co.nz/"
+    }
+   ],
+   "drills": [
+    {
+     "sentence": "{{answer}} tū, tamariki mā!",
+     "answer": "E",
+     "translation": "Stand up, children!",
+     "hint": "imperative particle (short verb)",
+     "gloss": "___ · stand · children · voc-pl",
+     "display_order": 1
+    },
+    {
+     "sentence": "{{answer}} e haere ki reira!",
+     "answer": "Kaua",
+     "translation": "Don't go there!",
+     "hint": "don't (prohibitive)",
+     "gloss": "___ · imp · go · to · there",
+     "display_order": 2
+    },
+    {
+     "sentence": "Kaua {{answer}} oma i roto i te whare!",
+     "answer": "e",
+     "translation": "Don't run inside the house!",
+     "hint": "particle after kaua",
+     "gloss": "don't · ___ · run · at · inside · at · the · house",
+     "display_order": 3
+    },
+    {
+     "sentence": "E {{answer}} ki raro!",
+     "answer": "noho",
+     "translation": "Sit down!",
+     "hint": "sit",
+     "gloss": "imp · ___ · to · down",
+     "display_order": 4
+    },
+    {
+     "sentence": "{{answer}} te kūaha!",
+     "answer": "Katia",
+     "translation": "Close the door!",
+     "hint": "close! (passive imperative)",
+     "gloss": "___ · the · door",
+     "display_order": 5
+    },
+    {
+     "sentence": "Kaua e {{answer}} i ngā mea o ētahi atu!",
+     "answer": "tango",
+     "translation": "Don't take other people's things!",
+     "hint": "take",
+     "gloss": "don't · imp · ___ · obj · the-pl · things · of · others",
+     "display_order": 6
+    }
+   ]
+  },
+  {
+   "title": "Ai — habitual and consequent clauses",
+   "level": "B2",
+   "function": "Link habits, reasons, and 'that's when/where/why'",
+   "source": "contributor",
+   "reviewed": false,
+   "display_order": 6,
+   "explanation": "The particle ai has no direct English equivalent: it marks a clause as habitual, consequent, or anchored to a fronted time/place/reason.\n\nKa oti te mahi, ka hoki ai mātou 'when the work is done, THEN we go home'. He aha koe i riri ai? 'why were you angry?'.",
+   "culture_note": "",
+   "references": [
+    {
+     "title": "Te Whanake — Māori language resources",
+     "url": "https://www.tewhanake.maori.nz/"
+    },
+    {
+     "title": "Te Aka Māori Dictionary",
+     "url": "https://maoridictionary.co.nz/"
+    }
+   ],
+   "drills": [
+    {
+     "sentence": "Ka oti te mahi, ka hoki {{answer}} mātou.",
+     "answer": "ai",
+     "translation": "When the work is done, then we go home.",
+     "hint": "consequent particle",
+     "gloss": "T/A · finish · the · work · T/A · return · ___ · we-excl",
+     "display_order": 1
+    },
+    {
+     "sentence": "I haere mai koe ki te aha? Ki te ako {{answer}}.",
+     "answer": "ai",
+     "translation": "Why did you come? To learn.",
+     "hint": "purpose particle",
+     "gloss": "past · go · hither · you · to · the · what — to · the · learn · ___",
+     "display_order": 2
+    },
+    {
+     "sentence": "Ko konei rātou noho {{answer}}.",
+     "answer": "ai",
+     "translation": "This is where they live.",
+     "hint": "habitual-place particle",
+     "gloss": "foc · here · they · live · ___",
+     "display_order": 3
+    },
+    {
+     "sentence": "He aha koe i riri {{answer}}?",
+     "answer": "ai",
+     "translation": "Why were you angry?",
+     "hint": "reason particle",
+     "gloss": "a · what · you · past · angry · ___",
+     "display_order": 4
+    },
+    {
+     "sentence": "Ka ua, ka mau {{answer}} au i te marara.",
+     "answer": "ai",
+     "translation": "When it rains, I take an umbrella.",
+     "hint": "habitual particle",
+     "gloss": "T/A · rain · T/A · take · ___ · I · obj · the · umbrella",
+     "display_order": 5
+    },
+    {
+     "sentence": "Nō reira mātou i wehe {{answer}}.",
+     "answer": "ai",
+     "translation": "That is why we left.",
+     "hint": "reason particle",
+     "gloss": "from · there · we-excl · past · leave · ___",
+     "display_order": 6
+    }
+   ]
+  },
+  {
+   "title": "Nā and Mā — ownership and agency predicates",
+   "level": "C1",
+   "function": "Say whose something is and who will do what",
+   "source": "contributor",
+   "reviewed": false,
+   "display_order": 1,
+   "explanation": "Fronted nā states realized ownership or past agency: nā Mere tēnei pukapuka 'this book is Mere's'; nā rātou i hanga 'THEY built it'.\n\nFronted mā is its future twin: mā wai e tunu? 'who will cook?', mā tō māmā koe e tiki 'your mum will pick you up'.",
+   "culture_note": "",
+   "references": [
+    {
+     "title": "Te Whanake — Māori language resources",
+     "url": "https://www.tewhanake.maori.nz/"
+    },
+    {
+     "title": "Te Aka Māori Dictionary",
+     "url": "https://maoridictionary.co.nz/"
+    }
+   ],
+   "drills": [
+    {
+     "sentence": "{{answer}} Mere tēnei pukapuka.",
+     "answer": "Nā",
+     "translation": "This book is Mere's.",
+     "hint": "belonging to (realized)",
+     "gloss": "___ · Mere · this · book",
+     "display_order": 1
+    },
+    {
+     "sentence": "{{answer}} wai tēnā pōtae?",
+     "answer": "Nā",
+     "translation": "Whose hat is that?",
+     "hint": "belonging to (question)",
+     "gloss": "___ · who · that · hat",
+     "display_order": 2
+    },
+    {
+     "sentence": "{{answer}} māua tēnei mahi e whakaoti.",
+     "answer": "Mā",
+     "translation": "We two will complete this work.",
+     "hint": "for/by (future agent)",
+     "gloss": "___ · we-two-excl · this · work · T/A · complete",
+     "display_order": 3
+    },
+    {
+     "sentence": "Mā {{answer}} te kai e tunu?",
+     "answer": "wai",
+     "translation": "Who will cook the food?",
+     "hint": "who",
+     "gloss": "by · ___ · the · food · T/A · cook",
+     "display_order": 4
+    },
+    {
+     "sentence": "Nā {{answer}} tēnei whare i hanga.",
+     "answer": "rātou",
+     "translation": "They built this house.",
+     "hint": "them (past agent)",
+     "gloss": "by · ___ · this · house · past · build",
+     "display_order": 5
+    },
+    {
+     "sentence": "Mā tō māmā koe {{answer}} tiki.",
+     "answer": "e",
+     "translation": "Your mum will pick you up.",
+     "hint": "verbal particle (after mā-agent)",
+     "gloss": "by · your · mum · you · ___ · fetch",
+     "display_order": 6
+    }
+   ]
+  },
+  {
+   "title": "Ahakoa, nō te mea, engari — weaving clauses",
+   "level": "C1",
+   "function": "Concede, explain, and contrast",
+   "source": "contributor",
+   "reviewed": false,
+   "display_order": 2,
+   "explanation": "ahakoa 'although / despite': ahakoa te ua 'despite the rain'; ahakoa te aha 'no matter what'.\n\nnō te mea / i te mea 'because'; engari 'but'. These let one sentence carry a concession, a reason, and a counterpoint.",
+   "culture_note": "",
+   "references": [
+    {
+     "title": "Te Whanake — Māori language resources",
+     "url": "https://www.tewhanake.maori.nz/"
+    },
+    {
+     "title": "Te Aka Māori Dictionary",
+     "url": "https://maoridictionary.co.nz/"
+    }
+   ],
+   "drills": [
+    {
+     "sentence": "{{answer}} te ua, i haere tonu mātou.",
+     "answer": "Ahakoa",
+     "translation": "Despite the rain, we still went.",
+     "hint": "although / despite",
+     "gloss": "___ · the · rain · past · go · still · we-excl",
+     "display_order": 1
+    },
+    {
+     "sentence": "Kāore ia i kai, {{answer}} te mea kāore ia i hiakai.",
+     "answer": "nō",
+     "translation": "She didn't eat, because she wasn't hungry.",
+     "hint": "because (nō te mea)",
+     "gloss": "not · she · past · eat · ___ · the · thing · not · she · past · hungry",
+     "display_order": 2
+    },
+    {
+     "sentence": "I noho au ki te kāinga, {{answer}} i haere ia.",
+     "answer": "engari",
+     "translation": "I stayed home, but she went.",
+     "hint": "but",
+     "gloss": "past · stay · I · at · the · home · ___ · past · go · she",
+     "display_order": 3
+    },
+    {
+     "sentence": "Ahakoa he {{answer}} ia, he kaha tonu.",
+     "answer": "iti",
+     "translation": "Although she is small, she is still strong.",
+     "hint": "small",
+     "gloss": "although · a · ___ · she · a · strong · still",
+     "display_order": 4
+    },
+    {
+     "sentence": "E kore au e wareware, {{answer}} te aha.",
+     "answer": "ahakoa",
+     "translation": "I will never forget, no matter what.",
+     "hint": "no matter (what)",
+     "gloss": "T/A · never · I · T/A · forget · ___ · the · what",
+     "display_order": 5
+    },
+    {
+     "sentence": "{{answer}} te mea i ua, i noho mātou ki roto.",
+     "answer": "Nō",
+     "translation": "Because it rained, we stayed inside.",
+     "hint": "because (nō te mea)",
+     "gloss": "___ · the · thing · past · rain · past · stay · we-excl · at · inside",
+     "display_order": 6
+    }
+   ]
+  },
+  {
+   "title": "Ko-fronting — focus and identity",
+   "level": "C1",
+   "function": "Put the important thing first",
+   "source": "contributor",
+   "reviewed": false,
+   "display_order": 3,
+   "explanation": "Ko lifts a phrase to the front for identity or focus: ko Mere i haere 'it was MERE who went'.\n\nIdentity sentences pair two noun phrases: ko tēnei taku whare 'this is my house'. The fronted phrase is the answer to the question in the listener's mind.",
+   "culture_note": "",
+   "references": [
+    {
+     "title": "Te Whanake — Māori language resources",
+     "url": "https://www.tewhanake.maori.nz/"
+    },
+    {
+     "title": "Te Aka Māori Dictionary",
+     "url": "https://maoridictionary.co.nz/"
+    }
+   ],
+   "drills": [
+    {
+     "sentence": "{{answer}} Mere i haere ki te hui.",
+     "answer": "Ko",
+     "translation": "It was Mere who went to the meeting.",
+     "hint": "focus particle",
+     "gloss": "___ · Mere · past · go · to · the · meeting",
+     "display_order": 1
+    },
+    {
+     "sentence": "Ko tēnei {{answer}} pukapuka pai rawa.",
+     "answer": "te",
+     "translation": "This is the very best book.",
+     "hint": "the",
+     "gloss": "foc · this · ___ · book · good · very",
+     "display_order": 2
+    },
+    {
+     "sentence": "{{answer}} Aotearoa te whenua ātaahua.",
+     "answer": "Ko",
+     "translation": "New Zealand is the beautiful land.",
+     "hint": "focus particle",
+     "gloss": "___ · NZ · the · land · beautiful",
+     "display_order": 3
+    },
+    {
+     "sentence": "Ko rātou {{answer}} tae tuatahi mai.",
+     "answer": "i",
+     "translation": "They were the first to arrive.",
+     "hint": "past particle",
+     "gloss": "foc · they · ___ · arrive · first · hither",
+     "display_order": 4
+    },
+    {
+     "sentence": "Ko Hine i {{answer}} i te waiata.",
+     "answer": "tito",
+     "translation": "It was Hine who composed the song.",
+     "hint": "compose",
+     "gloss": "foc · Hine · past · ___ · obj · the · song",
+     "display_order": 5
+    },
+    {
+     "sentence": "{{answer}} tēnei taku whare.",
+     "answer": "Ko",
+     "translation": "This is my house.",
+     "hint": "identity particle",
+     "gloss": "___ · this · my · house",
+     "display_order": 6
+    }
+   ]
+  },
+  {
+   "title": "Mihi — the shape of formal greeting",
+   "level": "C2",
+   "function": "Open an encounter the Māori way",
+   "source": "contributor",
+   "reviewed": false,
+   "display_order": 1,
+   "explanation": "Formal greeting scales with the audience: tēnā koe (one person), tēnā kōrua (two), tēnā koutou (three or more), tēnā koutou katoa (everyone, all-embracing).\n\nWelcomes pair nau mai with haere mai. Thanks reuse the greeting: tēnā koe i tō āwhina 'thank you for your help'.",
+   "culture_note": "Mihi are not small talk — order and address matter, and a mihi acknowledges the dead, the living, and the house before business begins. These drills cover only the fixed formulae; whaikōrero (formal oratory) is a taonga to learn from kaumātua, not from an app.",
+   "references": [
+    {
+     "title": "Te Whanake — Māori language resources",
+     "url": "https://www.tewhanake.maori.nz/"
+    },
+    {
+     "title": "Te Aka Māori Dictionary",
+     "url": "https://maoridictionary.co.nz/"
+    }
+   ],
+   "drills": [
+    {
+     "sentence": "{{answer}} koutou katoa.",
+     "answer": "Tēnā",
+     "translation": "Greetings to you all.",
+     "hint": "formal greeting particle",
+     "gloss": "___ · you-pl · all",
+     "display_order": 1
+    },
+    {
+     "sentence": "Tēnā {{answer}}, e te rangatira.",
+     "answer": "koe",
+     "translation": "Greetings to you, chief.",
+     "hint": "you (one person)",
+     "gloss": "greet · ___ · voc · the · chief",
+     "display_order": 2
+    },
+    {
+     "sentence": "Nau {{answer}} ki tō mātou kāinga.",
+     "answer": "mai",
+     "translation": "Welcome to our home.",
+     "hint": "hither (welcome pair)",
+     "gloss": "welcome · ___ · to · our-excl · home",
+     "display_order": 3
+    },
+    {
+     "sentence": "Tēnā {{answer}} i tō āwhina.",
+     "answer": "koe",
+     "translation": "Thank you for your help.",
+     "hint": "you (thanking one person)",
+     "gloss": "greet · ___ · for · your · help",
+     "display_order": 4
+    },
+    {
+     "sentence": "{{answer}} mai ki te hui!",
+     "answer": "Haere",
+     "translation": "Come, welcome to the gathering!",
+     "hint": "come (welcome)",
+     "gloss": "___ · hither · to · the · gathering",
+     "display_order": 5
+    },
+    {
+     "sentence": "Tēnā {{answer}}, e ngā rangatira e rua.",
+     "answer": "kōrua",
+     "translation": "Greetings to you two chiefs.",
+     "hint": "you two",
+     "gloss": "greet · ___ · voc · the-pl · chiefs · two",
+     "display_order": 6
+    }
+   ]
+  },
+  {
+   "title": "Whakataukī — proverb patterns",
+   "level": "C2",
+   "function": "Recognize and deploy the classic sayings",
+   "source": "contributor",
+   "reviewed": false,
+   "display_order": 2,
+   "explanation": "Whakataukī compress values into fixed shapes. The most famous is a rhetorical question answered three times: he aha te mea nui o te ao? He tangata, he tangata, he tangata 'What is the greatest thing? It is people, people, people.'\n\nOthers are single images: he waka eke noa 'a canoe we are all in together'.",
+   "culture_note": "Quoting a whakataukī at the right moment carries real weight — and quoting one wrongly is noticed. Sources and tribal variants matter; these six are pan-tribal classics.",
+   "references": [
+    {
+     "title": "Te Whanake — Māori language resources",
+     "url": "https://www.tewhanake.maori.nz/"
+    },
+    {
+     "title": "Te Aka Māori Dictionary",
+     "url": "https://maoridictionary.co.nz/"
+    }
+   ],
+   "drills": [
+    {
+     "sentence": "He aha te mea nui o te ao? He {{answer}}!",
+     "answer": "tangata",
+     "translation": "What is the greatest thing in the world? It is people!",
+     "hint": "person / people",
+     "gloss": "a · what · the · thing · big · of · the · world — a · ___",
+     "display_order": 1
+    },
+    {
+     "sentence": "He aha te kai a te rangatira? He {{answer}}.",
+     "answer": "kōrero",
+     "translation": "What is the food of chiefs? Talk.",
+     "hint": "talk / speech",
+     "gloss": "a · what · the · food · of · the · chief — a · ___",
+     "display_order": 2
+    },
+    {
+     "sentence": "Whāia te iti {{answer}}.",
+     "answer": "kahurangi",
+     "translation": "Pursue the treasured excellence.",
+     "hint": "treasure / precious",
+     "gloss": "pursue · the · small · ___",
+     "display_order": 3
+    },
+    {
+     "sentence": "He waka eke {{answer}}.",
+     "answer": "noa",
+     "translation": "A canoe we are all in together.",
+     "hint": "freely / without restriction",
+     "gloss": "a · canoe · board · ___",
+     "display_order": 4
+    },
+    {
+     "sentence": "Mā te huruhuru ka rere te {{answer}}.",
+     "answer": "manu",
+     "translation": "Feathers enable the bird to fly.",
+     "hint": "bird",
+     "gloss": "by · the · feather · T/A · fly · the · ___",
+     "display_order": 5
+    },
+    {
+     "sentence": "Kia mau koe ki ngā kupu o ōu {{answer}}.",
+     "answer": "tūpuna",
+     "translation": "Hold fast to the words of your ancestors.",
+     "hint": "ancestors",
+     "gloss": "subj · hold · you · to · the-pl · words · of · your-pl · ___",
+     "display_order": 6
+    }
+   ]
   }
  ]
 }

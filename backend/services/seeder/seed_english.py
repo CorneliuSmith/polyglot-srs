@@ -52,23 +52,109 @@ class EnglishSeeder(BaseSeeder):
 
         pos_map = {"n": "noun", "v": "verb", "a": "adj", "r": "adv", "s": "adj"}
 
+        # WordNet's first synset for function words is often absurd — "i"
+        # resolves to iodine, "a" to a blood type. Grammar words get honest
+        # grammar glosses instead.
+        function_glosses = {
+            "i": "first-person singular pronoun ('I am here')",
+            "you": "second-person pronoun",
+            "he": "third-person masculine pronoun",
+            "she": "third-person feminine pronoun",
+            "it": "third-person pronoun for things",
+            "we": "first-person plural pronoun",
+            "they": "third-person plural pronoun",
+            "me": "object form of 'I'",
+            "him": "object form of 'he'",
+            "her": "object form of 'she'; also 'belonging to she'",
+            "us": "object form of 'we'",
+            "them": "object form of 'they'",
+            "my": "belonging to me",
+            "your": "belonging to you",
+            "his": "belonging to him",
+            "its": "belonging to it",
+            "our": "belonging to us",
+            "their": "belonging to them",
+            "the": "definite article — a specific one",
+            "a": "indefinite article — one of many",
+            "an": "indefinite article before a vowel sound",
+            "this": "the one here",
+            "that": "the one there; also a linking word",
+            "these": "the ones here (plural)",
+            "those": "the ones there (plural)",
+            "and": "joins two things",
+            "but": "introduces a contrast",
+            "or": "offers an alternative",
+            "if": "introduces a condition",
+            "of": "belonging to / part of",
+            "to": "toward; also marks the infinitive",
+            "in": "inside; within a period",
+            "on": "on top of; on a day",
+            "at": "at a point or time",
+            "for": "intended for; in exchange for",
+            "with": "together with; using",
+            "from": "starting point or origin",
+            "by": "next to; done by someone",
+            "about": "concerning; approximately",
+            "as": "in the role of; while",
+            "not": "makes a sentence negative",
+            "no": "the opposite of yes; not any",
+            "so": "therefore; to such a degree",
+            "do": "to perform; also the question/negative helper",
+            "will": "marks the future; also a promise",
+            "would": "unreal or polite version of will",
+            "can": "to be able to",
+            "could": "past of can; polite request",
+            "should": "it is right or advisable to",
+            "must": "it is necessary to",
+            "may": "it is possible or permitted",
+            "might": "it is possible (weaker than may)",
+        }
+
+        # spaCy on a bare one-word doc mislabels function words ("a" comes
+        # back PRON) — pin their real POS so the translation merge finds
+        # the right Wiktionary entry (articles simply have no Russian row,
+        # which is correct: no equivalent means no translation).
+        function_pos = {
+            "a": "article", "an": "article", "the": "article",
+            "i": "pron", "you": "pron", "he": "pron", "she": "pron",
+            "it": "pron", "we": "pron", "they": "pron", "me": "pron",
+            "him": "pron", "her": "pron", "us": "pron", "them": "pron",
+            "this": "det", "that": "det", "these": "det", "those": "det",
+            "my": "det", "your": "det", "his": "det", "its": "det",
+            "our": "det", "their": "det",
+            "and": "conj", "but": "conj", "or": "conj", "if": "conj",
+            "of": "prep", "to": "prep", "in": "prep", "on": "prep",
+            "at": "prep", "for": "prep", "with": "prep", "from": "prep",
+            "by": "prep", "about": "prep", "as": "prep",
+            "not": "adv", "no": "adv", "so": "adv",
+            "do": "verb", "will": "verb", "would": "verb", "can": "verb",
+            "could": "verb", "should": "verb", "must": "verb",
+            "may": "verb", "might": "verb",
+        }
+
         records = []
         for rank, word in freq_words:
-            # Look up WordNet synsets for definition
-            synsets = wn.synsets(word)
-            if not synsets:
-                # Skip words with no synsets (function words, unknown terms)
-                continue
+            lower = word.lower()
+            if lower in function_glosses:
+                definition = function_glosses[lower]
+                wn_pos = function_pos.get(lower)
+                synsets = []
+            else:
+                # Look up WordNet synsets for definition
+                synsets = wn.synsets(word)
+                if not synsets:
+                    # Skip words with no synsets (unknown terms)
+                    continue
+                # Use first synset for primary definition
+                primary = synsets[0]
+                definition = primary.definition()
+                wn_pos = pos_map.get(primary.pos(), None)
 
-            # Use first synset for primary definition
-            primary = synsets[0]
-            definition = primary.definition()
-            wn_pos = pos_map.get(primary.pos(), None)
-
-            # spaCy POS and lemma if available
+            # spaCy POS and lemma if available (never override a pinned
+            # function-word POS — spaCy mislabels bare tokens)
             pos = wn_pos
             morphology = {"lemma": word}
-            if nlp:
+            if nlp and lower not in function_pos:
                 try:
                     doc = nlp(word)
                     if doc:
@@ -94,15 +180,73 @@ class EnglishSeeder(BaseSeeder):
         # learners see the word in THEIR language, not a WordNet definition.
         trans_path = data_dir / "en_translations.tsv"
         if trans_path.exists():
-            extra: dict[str, dict[str, str]] = {}
+            # word -> kaikki-pos -> locale -> translation. The record's own
+            # POS picks the entry, so "go" (verb) never wears its noun
+            # sense's translations. A word whose matching entry lacks a
+            # locale simply has no translation there — the UI falls back to
+            # the English gloss (never a wrong-sense one).
+            extra: dict[str, dict[str, dict[str, str]]] = {}
             with open(trans_path, encoding="utf-8") as f:
                 for row in csv.DictReader(f, delimiter="\t"):
                     word = row["word"].strip().lower()
                     if row.get("locale") and row.get("translation"):
-                        extra.setdefault(word, {})[row["locale"]] = row["translation"]
+                        pos = (row.get("pos") or "").strip()
+                        extra.setdefault(word, {}).setdefault(pos, {})[
+                            row["locale"]] = row["translation"]
+            spacy_to_kaikki = {
+                "adp": "prep", "cconj": "conj", "sconj": "conj",
+                "aux": "verb", "propn": "noun", "part": "particle",
+            }
+            # Core subject pronouns are certain, universal knowledge — a
+            # hand table beats any extraction. Articles are pinned EMPTY:
+            # most languages have no equivalent, and per the content rule,
+            # no equivalent means NO translation (the English gloss shows).
+            curated = {
+                "i":   {"es": "yo", "fr": "je", "de": "ich", "it": "io",
+                        "pt": "eu", "ca": "jo", "ro": "eu", "ru": "я",
+                        "el": "εγώ", "tr": "ben", "ar": "أنا", "sw": "mimi"},
+                "you": {"es": "tú", "fr": "tu", "de": "du", "it": "tu",
+                        "pt": "você", "ca": "tu", "ro": "tu", "ru": "ты",
+                        "el": "εσύ", "tr": "sen", "ar": "أنتَ", "sw": "wewe"},
+                "he":  {"es": "él", "fr": "il", "de": "er", "it": "lui",
+                        "pt": "ele", "ca": "ell", "ro": "el", "ru": "он",
+                        "el": "αυτός", "tr": "o", "ar": "هو", "sw": "yeye"},
+                "she": {"es": "ella", "fr": "elle", "de": "sie", "it": "lei",
+                        "pt": "ela", "ca": "ella", "ro": "ea", "ru": "она",
+                        "el": "αυτή", "tr": "o", "ar": "هي", "sw": "yeye"},
+                "we":  {"es": "nosotros", "fr": "nous", "de": "wir",
+                        "it": "noi", "pt": "nós", "ca": "nosaltres",
+                        "ro": "noi", "ru": "мы", "el": "εμείς", "tr": "biz",
+                        "ar": "نحن", "sw": "sisi"},
+                "they": {"es": "ellos", "fr": "ils", "de": "sie",
+                         "it": "loro", "pt": "eles", "ca": "ells",
+                         "ro": "ei", "ru": "они", "el": "αυτοί",
+                         "tr": "onlar", "ar": "هم", "sw": "wao"},
+                "a": {}, "an": {}, "the": {},
+            }
+            fallback_order = ("pron", "det", "article", "conj", "prep",
+                              "particle", "num", "noun", "verb", "adj",
+                              "adv", "intj")
             enriched = 0
             for rec in records:
-                locales = extra.get(rec["word"])
+                lower = rec["word"].lower()
+                if lower in curated:
+                    rec["translations"].update(curated[lower])
+                    enriched += 1
+                    continue
+                per_pos = extra.get(lower)
+                if not per_pos:
+                    continue
+                pos = (rec.get("pos") or "").lower()
+                pos = spacy_to_kaikki.get(pos, pos)
+                locales = per_pos.get(pos)
+                if locales is None and lower not in function_pos:
+                    # content words may fall back across entries; pinned
+                    # grammar words must never wear another entry's senses
+                    for candidate in fallback_order:
+                        if candidate in per_pos:
+                            locales = per_pos[candidate]
+                            break
                 if locales:
                     rec["translations"].update(locales)
                     enriched += 1

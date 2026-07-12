@@ -776,3 +776,92 @@ class TestSelfApprovalGuard:
             )
         assert resp.status_code == 403
         assert "different reviewer" in resp.json()["detail"]
+
+
+class TestAccountAdmin:
+    """Admin account management: list, plan override, deletion guards."""
+
+    def test_accounts_list_requires_admin(self, client):
+        with _roles([{"language_id": LANG, "role": "reviewer"}]):
+            resp = client.get("/api/contribute/users", headers=_auth_headers())
+        assert resp.status_code == 403
+
+    def test_accounts_list_as_admin(self, client):
+        with _roles([{"language_id": None, "role": "admin"}]), \
+             patch("backend.routers.contribute.list_accounts",
+                   new=AsyncMock(return_value=[{"id": "u2", "email": "a@b.c"}])):
+            resp = client.get("/api/contribute/users", headers=_auth_headers())
+        assert resp.status_code == 200
+        assert resp.json() == {"users": [{"id": "u2", "email": "a@b.c"}]}
+
+    def test_admin_cannot_delete_self(self, client):
+        with _roles([{"language_id": None, "role": "admin"}]), \
+             patch("backend.routers.contribute.delete_account",
+                   new=AsyncMock()) as mock_del:
+            resp = client.delete(
+                f"/api/contribute/users/{TEST_USER_ID}", headers=_auth_headers()
+            )
+        assert resp.status_code == 403
+        mock_del.assert_not_awaited()
+
+    def test_admin_deletes_other_account(self, client):
+        with _roles([{"language_id": None, "role": "admin"}]), \
+             patch("backend.routers.contribute.delete_account",
+                   new=AsyncMock(return_value=True)) as mock_del:
+            resp = client.delete(
+                "/api/contribute/users/99999999-aaaa-bbbb-cccc-000000000001",
+                headers=_auth_headers(),
+            )
+        assert resp.status_code == 200
+        assert resp.json() == {"deleted": True}
+        mock_del.assert_awaited_once()
+
+    def test_delete_requires_admin(self, client):
+        with _roles([{"language_id": LANG, "role": "reviewer"}]), \
+             patch("backend.routers.contribute.delete_account",
+                   new=AsyncMock()) as mock_del:
+            resp = client.delete(
+                "/api/contribute/users/99999999-aaaa-bbbb-cccc-000000000001",
+                headers=_auth_headers(),
+            )
+        assert resp.status_code == 403
+        mock_del.assert_not_awaited()
+
+    def test_plan_override_single_needs_language(self, client):
+        with _roles([{"language_id": None, "role": "admin"}]):
+            resp = client.put(
+                "/api/contribute/users/99999999-aaaa-bbbb-cccc-000000000001/plan",
+                json={"plan_scope": "single"},
+                headers=_auth_headers(),
+            )
+        assert resp.status_code == 422
+
+    def test_plan_override_saves(self, client):
+        with _roles([{"language_id": None, "role": "admin"}]), \
+             patch("backend.routers.contribute.set_account_plan",
+                   new=AsyncMock(return_value=True)) as mock_set:
+            resp = client.put(
+                "/api/contribute/users/99999999-aaaa-bbbb-cccc-000000000001/plan",
+                json={"plan_scope": "all"},
+                headers=_auth_headers(),
+            )
+        assert resp.status_code == 200
+        mock_set.assert_awaited_once()
+
+    def test_create_account_requires_admin(self, client):
+        with _roles([{"language_id": LANG, "role": "reviewer"}]):
+            resp = client.post(
+                "/api/contribute/users",
+                json={"email": "friend@beta.test", "password": "kea-tui-1234"},
+                headers=_auth_headers(),
+            )
+        assert resp.status_code == 403
+
+    def test_create_account_rejects_short_password(self, client):
+        with _roles([{"language_id": None, "role": "admin"}]):
+            resp = client.post(
+                "/api/contribute/users",
+                json={"email": "friend@beta.test", "password": "short"},
+                headers=_auth_headers(),
+            )
+        assert resp.status_code == 422

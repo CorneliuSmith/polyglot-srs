@@ -580,3 +580,75 @@ async def find_user_by_email(
         "SELECT id FROM auth.users WHERE lower(email) = lower($1)", email.strip()
     )
     return str(row) if row else None
+
+
+async def list_accounts(conn: asyncpg.Connection) -> list[dict]:
+    """Every account with what an admin needs at a glance (privileged;
+    router verifies the admin role first): email, joined, plan, roles,
+    and how much they've studied."""
+    rows = await conn.fetch(
+        """
+        SELECT u.id, u.email, u.created_at, u.last_sign_in_at,
+               up.plan_scope, pl.code AS plan_language,
+               COALESCE(r.roles, '{}') AS roles,
+               COALESCE(c.cards, 0) AS cards,
+               COALESCE(c.langs, 0) AS languages_studied
+        FROM auth.users u
+        LEFT JOIN user_profiles up ON up.id = u.id
+        LEFT JOIN languages pl ON pl.id = up.plan_language_id
+        LEFT JOIN LATERAL (
+            SELECT array_agg(DISTINCT cr.role) AS roles
+            FROM contributor_roles cr WHERE cr.user_id = u.id
+        ) r ON true
+        LEFT JOIN LATERAL (
+            SELECT count(*) AS cards, count(DISTINCT uc.language_id) AS langs
+            FROM user_cards uc WHERE uc.user_id = u.id
+        ) c ON true
+        ORDER BY u.created_at DESC
+        """
+    )
+    return [
+        {
+            "id": str(r["id"]),
+            "email": r["email"],
+            "created_at": r["created_at"].isoformat() if r["created_at"] else None,
+            "last_sign_in_at": (
+                r["last_sign_in_at"].isoformat() if r["last_sign_in_at"] else None
+            ),
+            "plan_scope": r["plan_scope"],
+            "plan_language": r["plan_language"],
+            "roles": list(r["roles"] or []),
+            "cards": r["cards"],
+            "languages_studied": r["languages_studied"],
+        }
+        for r in rows
+    ]
+
+
+async def delete_account(conn: asyncpg.Connection, user_id: str) -> bool:
+    """Permanently delete an account (privileged; router verifies admin +
+    not-self). Deleting the auth.users row cascades through the auth
+    schema AND every app table (all carry ON DELETE CASCADE on user_id):
+    profile, cards, review history, notes, subscriptions, roles."""
+    result = await conn.execute("DELETE FROM auth.users WHERE id = $1", user_id)
+    return result.endswith("1")
+
+
+async def set_account_plan(
+    conn: asyncpg.Connection,
+    user_id: str,
+    plan_scope: str,
+    plan_language_id: str | None,
+) -> bool:
+    """Admin plan override: switch an account between Single and All."""
+    result = await conn.execute(
+        """
+        UPDATE user_profiles
+        SET plan_scope = $2,
+            plan_language_id = CASE WHEN $2 = 'single'
+                                    THEN $3::uuid ELSE NULL END
+        WHERE id = $1
+        """,
+        user_id, plan_scope, plan_language_id,
+    )
+    return result.endswith("1")

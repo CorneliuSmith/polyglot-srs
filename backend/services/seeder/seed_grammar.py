@@ -127,7 +127,22 @@ class GrammarSeeder:
                 "related": clean_related(p.get("related")),
                 "drills": drills,
             })
-        return {"lists": data.get("lists", []), "points": points}
+        # Every level that has points must have a deck (content_list) —
+        # otherwise the level is invisible in Learn and the deck browser.
+        # The A2–C2 deepening waves appended points without lists, which
+        # left eight languages showing only their A1 deck.
+        lists = list(data.get("lists", []))
+        covered = {lst.get("level") for lst in lists}
+        for level in ("A1", "A2", "B1", "B2", "C1", "C2"):
+            if level in covered:
+                continue
+            if any(p.get("level") == level for p in points):
+                lists.append({
+                    "level": level,
+                    "title": f"{level} Grammar Path",
+                    "description": f"Grammar points at {level}, in path order.",
+                })
+        return {"lists": lists, "points": points}
 
     async def load(self, data: dict) -> int:
         """Write lists, points, and drills. Returns the number of points loaded."""

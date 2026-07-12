@@ -48,8 +48,15 @@ class TestRankToLevel:
     def test_rank_5001_is_c1(self):
         assert BaseSeeder.rank_to_level(5001) == "C1"
 
-    def test_rank_99999_is_c1(self):
-        assert BaseSeeder.rank_to_level(99999) == "C1"
+    def test_rank_99999_is_c2(self):
+        assert BaseSeeder.rank_to_level(99999) == "C2"
+
+    def test_small_corpus_bands_proportionally(self):
+        # Māori's ~800-word corpus still spans the full ladder…
+        assert BaseSeeder.rank_to_level(20, total_words=800) == "A1"
+        assert BaseSeeder.rank_to_level(700, total_words=800) == "C2"
+        # …but a 30-word curated starter stays beginner vocabulary.
+        assert BaseSeeder.rank_to_level(25, total_words=30) == "A1"
 
     def test_rank_zero_is_a1(self):
         assert BaseSeeder.rank_to_level(0) == "A1"
