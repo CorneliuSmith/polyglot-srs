@@ -15,6 +15,7 @@ export default function LanguageThemeApplier() {
   const { data: languages } = useQuery({
     queryKey: ['languages'],
     queryFn: getLanguages,
+    staleTime: Infinity, // the language list never changes mid-session
     enabled: !!activeLanguageId,
     retry: false,
   })

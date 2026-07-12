@@ -5,6 +5,7 @@ import { confirmLearnSession, startLearnSession, validateAnswer } from '../../ap
 import { getLanguages } from '../../api/profile'
 import { usePrefsStore } from '../../stores/prefsStore'
 import LanguageWrapper from '../../components/LanguageWrapper'
+import FormsPanel from '../../components/FormsPanel'
 import SpeakButton from '../../components/SpeakButton'
 import DrillCard from './DrillCard'
 import { finalizeInput } from '../keyboards/translit'
@@ -214,6 +215,8 @@ export default function LearnPage() {
             {lesson.usage_note && (
               <p className="text-sm text-gray-600 whitespace-pre-wrap">{lesson.usage_note}</p>
             )}
+
+            <FormsPanel morphology={lesson.morphology} languageCode={languageCode} />
 
             {lesson.examples.length > 0 && (
               <div>

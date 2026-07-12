@@ -22,7 +22,19 @@ import ProtectedRoute from './components/ProtectedRoute'
 import ThemeApplier from './components/ThemeApplier'
 import LanguageThemeApplier from './components/LanguageThemeApplier'
 
-const queryClient = new QueryClient()
+// Cached data renders INSTANTLY on navigation; anything stale refreshes in
+// the background instead of blanking the page behind a spinner. Writes
+// (finishing a review, learning a batch, deck changes, resets) invalidate
+// their queries explicitly, so nothing user-visible waits on the staleTime.
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      staleTime: 60_000,
+      gcTime: 30 * 60_000,
+      refetchOnWindowFocus: false,
+    },
+  },
+})
 
 const router = createBrowserRouter([
   {

@@ -38,8 +38,36 @@ class BaseSeeder(ABC):
     async def transform(self) -> list[dict]:
         """Parse raw files into list of vocabulary dicts."""
 
+    def _merge_morphology_charts(self, records: list[dict]) -> None:
+        """Fold data/{code}_morphology.json (chips + charts built by
+        morphology_charts.py from the language's Wiktionary extract) into
+        each record's morphology dict. The card page renders these as the
+        language-shaped Forms panel (§3b): conjugations, declensions,
+        aspect pairs, gender/plural, noun classes — per language, per POS.
+        """
+        path = DATA_DIR / f"{self.language_code}_morphology.json"
+        if not path.exists():
+            return
+        with open(path, encoding="utf-8") as f:
+            by_word = json.load(f)
+        merged = 0
+        for rec in records:
+            extra = by_word.get(rec["word"])
+            if not extra:
+                continue
+            base = rec.get("morphology") or {}
+            if isinstance(base, str):
+                base = json.loads(base) if base.strip() else {}
+            rec["morphology"] = {**base, **extra}
+            merged += 1
+        if merged:
+            self.logger.info(
+                f"Merged morphology charts for {merged} of {len(records)} words"
+            )
+
     async def load(self, records: list[dict]) -> int:
         """UPSERT records into vocabulary + translations tables. Returns count."""
+        self._merge_morphology_charts(records)
         # Sources can repeat a word (case variants, merged sense rows); a
         # duplicate inside one UNNEST statement makes ON CONFLICT DO UPDATE
         # fail with "cannot affect row a second time". Merge duplicates

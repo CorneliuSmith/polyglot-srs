@@ -11,6 +11,7 @@ export default function LanguagePicker() {
   const { data: languages = [] } = useQuery({
     queryKey: ['languages'],
     queryFn: getLanguages,
+    staleTime: Infinity, // the language list never changes mid-session
   })
   const { data: profile } = useQuery({ queryKey: ['profile'], queryFn: getProfile })
   // A Single-language plan is locked to its licensed language.

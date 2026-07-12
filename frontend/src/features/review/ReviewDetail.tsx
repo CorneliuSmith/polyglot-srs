@@ -5,6 +5,7 @@ import { getCardDetail } from '../../api/review'
 import { getLanguages } from '../../api/profile'
 import type { CardProgress } from '../../api/types'
 import LanguageWrapper from '../../components/LanguageWrapper'
+import FormsPanel from '../../components/FormsPanel'
 import SpeakButton from '../../components/SpeakButton'
 import BlurReveal from '../../components/BlurReveal'
 import StageBadge from '../../components/StageBadge'
@@ -207,6 +208,10 @@ export default function ReviewDetail({ cardId, languageCode, stats }: ReviewDeta
                   <h3 className="font-semibold text-gray-700 mb-1">Usage</h3>
                   <p className="text-gray-700 whitespace-pre-wrap">{data.usage_note}</p>
                 </div>
+              )}
+
+              {data.card_type === 'vocabulary' && (
+                <FormsPanel morphology={data.morphology} languageCode={languageCode} />
               )}
 
               {data.examples.length > 0 && (
