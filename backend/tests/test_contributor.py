@@ -110,7 +110,9 @@ class TestContributeEndpoints:
              patch("backend.routers.contribute.list_grammar_points",
                    new=AsyncMock(return_value=[{"id": POINT, "title": "Locative"}])), \
              patch("backend.routers.contribute.get_language_policy",
-                   new=AsyncMock(return_value="strict")):
+                   new=AsyncMock(return_value="strict")), \
+             patch("backend.routers.contribute.get_language_tutor_model",
+                   new=AsyncMock(return_value=None)):
             resp = client.get(
                 "/api/contribute/grammar", params={"language_id": LANG},
                 headers=_auth_headers(),
@@ -337,6 +339,89 @@ class TestAiCheck:
         assert resp.json()["grants"][0]["email"] == "a@b.c"
 
 
+class TestReviewNotes:
+    def test_flag_issue_requires_role(self, client):
+        with _roles([]), \
+             patch("backend.routers.contribute.get_point_language",
+                   new=AsyncMock(return_value=LANG)):
+            resp = client.post(
+                f"/api/contribute/grammar/{POINT}/notes",
+                json={"note": "tone marks look off"},
+                headers=_auth_headers(),
+            )
+        assert resp.status_code == 403
+
+    def test_flag_issue_as_contributor(self, client):
+        with _roles([{"language_id": LANG, "role": "contributor"}]), \
+             patch("backend.routers.contribute.get_point_language",
+                   new=AsyncMock(return_value=LANG)), \
+             patch("backend.routers.contribute.add_review_note",
+                   new=AsyncMock(return_value="note-1")) as mock_add:
+            resp = client.post(
+                f"/api/contribute/grammar/{POINT}/notes",
+                json={"note": "drill 4 uses the Ibadan form"},
+                headers=_auth_headers(),
+            )
+        assert resp.status_code == 200
+        assert resp.json() == {"id": "note-1"}
+        assert mock_add.await_args.args[3] == "drill 4 uses the Ibadan form"
+
+    def test_flag_issue_missing_point_404(self, client):
+        with _roles([{"language_id": LANG, "role": "reviewer"}]), \
+             patch("backend.routers.contribute.get_point_language",
+                   new=AsyncMock(return_value=None)):
+            resp = client.post(
+                f"/api/contribute/grammar/{POINT}/notes",
+                json={"note": "hello there"},
+                headers=_auth_headers(),
+            )
+        assert resp.status_code == 404
+
+    def test_list_notes_role_gated(self, client):
+        with _roles([]):
+            resp = client.get(
+                "/api/contribute/notes", params={"language_id": LANG},
+                headers=_auth_headers(),
+            )
+        assert resp.status_code == 403
+
+    def test_list_notes(self, client):
+        notes = [{"id": "n1", "grammar_point_id": POINT,
+                  "point_title": "Locative", "level": "A1",
+                  "note": "check the -ta variants", "status": "open",
+                  "author_email": "linguist@x.com", "created_at": None}]
+        with _roles([{"language_id": LANG, "role": "reviewer"}]), \
+             patch("backend.routers.contribute.list_review_notes",
+                   new=AsyncMock(return_value=notes)):
+            resp = client.get(
+                "/api/contribute/notes", params={"language_id": LANG},
+                headers=_auth_headers(),
+            )
+        assert resp.status_code == 200
+        assert resp.json()["notes"][0]["point_title"] == "Locative"
+
+    def test_resolve_requires_reviewer_for_language(self, client):
+        with _roles([{"language_id": OTHER_LANG, "role": "reviewer"}]), \
+             patch("backend.routers.contribute.get_note_language",
+                   new=AsyncMock(return_value=LANG)):
+            resp = client.post(
+                "/api/contribute/notes/n1/resolve", headers=_auth_headers()
+            )
+        assert resp.status_code == 403
+
+    def test_resolve_as_reviewer(self, client):
+        with _roles([{"language_id": LANG, "role": "reviewer"}]), \
+             patch("backend.routers.contribute.get_note_language",
+                   new=AsyncMock(return_value=LANG)), \
+             patch("backend.routers.contribute.resolve_review_note",
+                   new=AsyncMock(return_value=True)):
+            resp = client.post(
+                "/api/contribute/notes/n1/resolve", headers=_auth_headers()
+            )
+        assert resp.status_code == 200
+        assert resp.json() == {"resolved": True}
+
+
 class TestReviewPolicy:
     def test_set_requires_admin(self, client):
         with _roles([{"language_id": LANG, "role": "contributor"}]):
@@ -373,12 +458,118 @@ class TestReviewPolicy:
              patch("backend.routers.contribute.list_grammar_points",
                    new=AsyncMock(return_value=[])), \
              patch("backend.routers.contribute.get_language_policy",
-                   new=AsyncMock(return_value="ai_ok")):
+                   new=AsyncMock(return_value="ai_ok")), \
+             patch("backend.routers.contribute.get_language_tutor_model",
+                   new=AsyncMock(return_value="claude-sonnet-5")):
             resp = client.get(
                 "/api/contribute/grammar", params={"language_id": LANG},
                 headers=_auth_headers(),
             )
         assert resp.json()["review_policy"] == "ai_ok"
+        assert resp.json()["tutor_model"] == "claude-sonnet-5"
+
+
+class TestTutorModelPicker:
+    def test_set_requires_admin(self, client):
+        with _roles([{"language_id": LANG, "role": "reviewer"}]):
+            resp = client.post(
+                "/api/contribute/language-tutor-model",
+                json={"language_id": LANG, "model": "claude-sonnet-5"},
+                headers=_auth_headers(),
+            )
+        assert resp.status_code == 403
+
+    def test_set_as_admin(self, client):
+        with _roles([{"language_id": None, "role": "admin"}]), \
+             patch("backend.routers.contribute.set_language_tutor_model",
+                   new=AsyncMock()) as mock_set:
+            resp = client.post(
+                "/api/contribute/language-tutor-model",
+                json={"language_id": LANG, "model": "claude-haiku-4-5-20251001"},
+                headers=_auth_headers(),
+            )
+        assert resp.status_code == 200
+        assert resp.json() == {"tutor_model": "claude-haiku-4-5-20251001"}
+        mock_set.assert_awaited_once()
+
+    def test_reset_to_default_with_null(self, client):
+        with _roles([{"language_id": None, "role": "admin"}]), \
+             patch("backend.routers.contribute.set_language_tutor_model",
+                   new=AsyncMock()) as mock_set:
+            resp = client.post(
+                "/api/contribute/language-tutor-model",
+                json={"language_id": LANG, "model": None},
+                headers=_auth_headers(),
+            )
+        assert resp.status_code == 200
+        assert mock_set.await_args.args[2] is None
+
+    def test_unknown_model_422(self, client):
+        with _roles([{"language_id": None, "role": "admin"}]):
+            resp = client.post(
+                "/api/contribute/language-tutor-model",
+                json={"language_id": LANG, "model": "gpt-9000"},
+                headers=_auth_headers(),
+            )
+        assert resp.status_code == 422
+
+
+class TestTutorUsageOverview:
+    """WP9b: the admin cost view — token rollups priced at list rates."""
+
+    def test_requires_admin(self, client):
+        with _roles([{"language_id": LANG, "role": "reviewer"}]):
+            resp = client.get(
+                "/api/contribute/tutor-usage", headers=_auth_headers()
+            )
+        assert resp.status_code == 403
+
+    def test_admin_gets_priced_rollup(self, client):
+        rows = [
+            {
+                "language_id": LANG, "language_name": "Turkish",
+                "model": "claude-sonnet-5", "kind": "chat", "messages": 40,
+                "input_tokens": 1_000_000, "output_tokens": 100_000,
+                "cache_write_tokens": 100_000, "cache_read_tokens": 1_000_000,
+            },
+            {
+                "language_id": LANG, "language_name": "Turkish",
+                "model": "claude-sonnet-4-6", "kind": "summary", "messages": 5,
+                "input_tokens": 200_000, "output_tokens": 10_000,
+                "cache_write_tokens": 0, "cache_read_tokens": 0,
+            },
+        ]
+        with _roles([{"language_id": None, "role": "admin"}]), \
+             patch("backend.routers.contribute.aggregate_tutor_usage",
+                   new=AsyncMock(return_value=rows)) as mock_agg:
+            resp = client.get(
+                "/api/contribute/tutor-usage",
+                params={"days": 30},
+                headers=_auth_headers(),
+            )
+        assert resp.status_code == 200
+        body = resp.json()
+        assert body["days"] == 30
+        # sonnet-5 at $3/$15 per Mtok: 3.0 input + 1.5 output
+        #   + 0.375 cache write (1.25x) + 0.3 cache read (0.1x) = 5.175
+        assert body["rows"][0]["est_cost_usd"] == pytest.approx(5.175)
+        # summarizer: 0.2 * 3 + 0.01 * 15 = 0.75
+        assert body["rows"][1]["est_cost_usd"] == pytest.approx(0.75)
+        assert body["total_est_cost_usd"] == pytest.approx(5.925)
+        # only chat rows are messages a learner spent
+        assert body["total_messages"] == 40
+        mock_agg.assert_awaited_once()
+
+    def test_days_window_clamped(self, client):
+        with _roles([{"language_id": None, "role": "admin"}]), \
+             patch("backend.routers.contribute.aggregate_tutor_usage",
+                   new=AsyncMock(return_value=[])):
+            resp = client.get(
+                "/api/contribute/tutor-usage",
+                params={"days": 9999},
+                headers=_auth_headers(),
+            )
+        assert resp.json()["days"] == 365
 
 
 class TestCreatePoint:
@@ -482,3 +673,106 @@ class TestDrills:
             )
         assert resp.status_code == 200
         mock_del.assert_awaited_once()
+
+
+class TestEditDrill:
+    """PUT drill edits: reviewer/admin only, guard-railed, change_note required."""
+
+    def _put(self, client, body, roles=None):
+        with _roles(roles or [{"language_id": LANG, "role": "reviewer"}]), \
+             patch("backend.routers.contribute.get_point_language_and_code",
+                   new=AsyncMock(return_value=(LANG, "tr"))), \
+             patch("backend.routers.contribute.validate_drill",
+                   new=AsyncMock(return_value=True)), \
+             patch("backend.routers.contribute.update_drill",
+                   new=AsyncMock(return_value=True)) as mock_update, \
+             patch("backend.routers.contribute.add_review_note",
+                   new=AsyncMock(return_value="note-1")) as mock_note:
+            resp = client.put(
+                f"/api/contribute/grammar/{POINT}/drills/drill-1",
+                json=body,
+                headers=_auth_headers(),
+            )
+        return resp, mock_update, mock_note
+
+    def test_contributor_cannot_edit(self, client):
+        resp, mock_update, _ = self._put(
+            client,
+            {"sentence": "Kitap {{answer}}.", "answer": "masada",
+             "change_note": "fix a wrong case ending"},
+            roles=[{"language_id": LANG, "role": "contributor"}],
+        )
+        assert resp.status_code == 403
+        mock_update.assert_not_awaited()
+
+    def test_change_note_required(self, client):
+        resp, mock_update, _ = self._put(
+            client,
+            {"sentence": "Kitap {{answer}}.", "answer": "masada",
+             "change_note": "short"},
+        )
+        assert resp.status_code == 422  # min_length=10 friction
+        mock_update.assert_not_awaited()
+
+    def test_answer_leak_rejected(self, client):
+        resp, mock_update, _ = self._put(
+            client,
+            {"sentence": "Masada kitap {{answer}}.", "answer": "masada",
+             "change_note": "attempting a leaky frame"},
+        )
+        assert resp.status_code == 422
+        mock_update.assert_not_awaited()
+
+    def test_hint_reveal_rejected(self, client):
+        resp, mock_update, _ = self._put(
+            client,
+            {"sentence": "Kitap {{answer}}.", "answer": "masada",
+             "hint": "the word is masada",
+             "change_note": "attempting a revealing hint"},
+        )
+        assert resp.status_code == 422
+        mock_update.assert_not_awaited()
+
+    def test_multiword_answer_rejected(self, client):
+        resp, mock_update, _ = self._put(
+            client,
+            {"sentence": "Kitap {{answer}}.", "answer": "iki kelime",
+             "change_note": "two-word answers break grading"},
+        )
+        assert resp.status_code == 422
+        mock_update.assert_not_awaited()
+
+    def test_reviewer_edit_saves_and_files_note(self, client):
+        resp, mock_update, mock_note = self._put(
+            client,
+            {"sentence": "Kitap {{answer}} duruyor.", "answer": "masada",
+             "translation": "The book is on the table.",
+             "change_note": "clarified the frame with a verb"},
+        )
+        assert resp.status_code == 200
+        assert resp.json() == {"saved": True, "reviewed": False}
+        mock_update.assert_awaited_once()
+        mock_note.assert_awaited_once()
+        note_text = mock_note.await_args.args[3]
+        assert note_text.startswith("[card edit]")
+
+
+class TestSelfApprovalGuard:
+    def test_editor_cannot_approve_own_change(self, client):
+        conn = AsyncMock()
+        conn.fetchval = AsyncMock(return_value=TEST_USER_ID)  # last editor = caller
+
+        @asynccontextmanager
+        async def _priv():
+            yield conn
+
+        with _roles([{"language_id": LANG, "role": "reviewer"}]), \
+             patch("backend.routers.contribute.get_point_language",
+                   new=AsyncMock(return_value=LANG)), \
+             patch("backend.routers.contribute.privileged_connection", _priv):
+            resp = client.post(
+                f"/api/contribute/grammar/{POINT}/approve",
+                headers=_auth_headers(),
+            )
+        assert resp.status_code == 403
+        assert "different reviewer" in resp.json()["detail"]

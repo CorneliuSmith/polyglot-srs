@@ -14,8 +14,15 @@ from backend.repositories.cards import (
     confirm_learn_batch,
     get_card_detail,
     get_card_details_bulk,
+    get_cram_cards,
+    get_deck_items,
+    get_deck_preview,
     get_due_cards,
     get_learn_decks,
+    get_vocab_item,
+    reset_deck_progress,
+    reset_language_progress,
+    set_deck_subscription,
     update_card_srs,
 )
 from backend.repositories.fsrs_weights import get_effective_params
@@ -72,15 +79,64 @@ class ConfirmLearnRequest(BaseModel):
     card_ids: list[str] = Field(min_length=1, max_length=100)
 
 
+async def _support_locale(conn, user_id: str) -> str | None:
+    """The learner's chosen support language (localizes English cards)."""
+    return await conn.fetchval(
+        "SELECT support_locale FROM user_profiles WHERE id = $1", user_id
+    )
+
+
 @router.get("/due")
 async def get_due(
     language_id: str,
+    limit: int = 20,
     user: dict = Depends(get_current_user),
 ):
-    """Return due cards for the user's active language, sorted by next_review ASC."""
+    """Return due cards for the user's active language, sorted by next_review ASC.
+
+    *limit* is the learner's chosen session size (clamped 1–100).
+    """
+    limit = max(1, min(limit, 100))
     async with rls_connection(user["id"]) as conn:
-        cards = await get_due_cards(conn, language_id)
+        support = await _support_locale(conn, user["id"])
+        cards = await get_due_cards(
+            conn, language_id, limit=limit, support_locale=support
+        )
     return cards
+
+
+MAX_CRAM_POINTS = 12
+
+
+@router.get("/cram")
+async def cram(
+    point_ids: str,
+    user: dict = Depends(get_current_user),
+):
+    """Quick-Cram (WP13f): ungraded practice cards for a set of grammar points.
+
+    *point_ids* is a comma-separated list (an item plus its Related set).
+    Nothing here touches SRS state — the cards carry synthetic ids the
+    submit endpoint would reject, and the client never calls it in cram mode.
+    """
+    import uuid as _uuid
+
+    ids = [p.strip() for p in point_ids.split(",") if p.strip()]
+    if not ids or len(ids) > MAX_CRAM_POINTS:
+        raise HTTPException(
+            status_code=status.HTTP_422_UNPROCESSABLE_ENTITY,
+            detail=f"point_ids must list 1–{MAX_CRAM_POINTS} grammar points",
+        )
+    try:
+        for p in ids:
+            _uuid.UUID(p)
+    except ValueError:
+        raise HTTPException(
+            status_code=status.HTTP_422_UNPROCESSABLE_ENTITY,
+            detail="point_ids must be UUIDs",
+        ) from None
+    async with rls_connection(user["id"]) as conn:
+        return await get_cram_cards(conn, ids)
 
 
 @router.get("/card/{card_id}/detail")
@@ -94,7 +150,8 @@ async def card_detail(
     costs a query when the learner chooses to dig in rather than just continue.
     """
     async with rls_connection(user["id"]) as conn:
-        detail = await get_card_detail(conn, card_id)
+        support = await _support_locale(conn, user["id"])
+        detail = await get_card_detail(conn, card_id, support_locale=support)
     if detail is None:
         raise HTTPException(
             status_code=status.HTTP_404_NOT_FOUND,
@@ -248,6 +305,101 @@ async def decks(
         return {"decks": await get_learn_decks(conn, user["id"], language_id)}
 
 
+@router.get("/decks/{list_id}/preview")
+async def deck_preview(
+    list_id: str,
+    user: dict = Depends(get_current_user),
+):
+    """Peek inside a deck (its first items) before adding it to the queue."""
+    async with rls_connection(user["id"]) as conn:
+        preview = await get_deck_preview(conn, list_id)
+    if preview is None:
+        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Deck not found")
+    return preview
+
+
+class DeckSubscription(BaseModel):
+    subscribed: bool
+
+
+@router.get("/decks/{list_id}/items")
+async def deck_items(
+    list_id: str,
+    user: dict = Depends(get_current_user),
+):
+    """The deck browser: every item in the deck, in path order, with ids
+    so each row can open its detail view."""
+    async with rls_connection(user["id"]) as conn:
+        listing = await get_deck_items(conn, list_id)
+    if listing is None:
+        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Deck not found")
+    return listing
+
+
+@router.get("/vocab/{vocab_id}")
+async def vocab_item(
+    vocab_id: str,
+    user: dict = Depends(get_current_user),
+):
+    """Read-only vocabulary detail for the deck browser (word, definition,
+    Forms panel, sample sentences) — no review card required."""
+    async with rls_connection(user["id"]) as conn:
+        locale = await _support_locale(conn, user["id"])
+        item = await get_vocab_item(conn, vocab_id, locale)
+    if item is None:
+        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Word not found")
+    return item
+
+
+@router.post("/decks/{list_id}/subscription")
+async def deck_subscription(
+    list_id: str,
+    body: DeckSubscription,
+    user: dict = Depends(get_current_user),
+):
+    """Add or remove a deck from the learn queue.
+
+    Removing a deck only stops NEW cards — already-learned cards keep their
+    review schedule, so no progress is ever lost.
+    """
+    async with rls_connection(user["id"]) as conn:
+        ok = await set_deck_subscription(conn, user["id"], list_id, body.subscribed)
+    if not ok:
+        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Deck not found")
+    return {"subscribed": body.subscribed}
+
+
+@router.delete("/decks/{list_id}/progress")
+async def reset_deck(
+    list_id: str,
+    user: dict = Depends(get_current_user),
+):
+    """Reset the learner's progress for one deck, review history included.
+
+    Destructive and permanent: the frontend confirms before calling. Deck
+    subscriptions and user-authored content are untouched.
+    """
+    async with rls_connection(user["id"]) as conn:
+        result = await reset_deck_progress(conn, user["id"], list_id)
+    if result is None:
+        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Deck not found")
+    return result
+
+
+@router.delete("/progress")
+async def reset_progress(
+    language_id: str | None = None,
+    user: dict = Depends(get_current_user),
+):
+    """Reset ALL of the learner's studies — one language, or everything.
+
+    Destructive and permanent (cards + review history). Notes, personal
+    sentences, and deck subscriptions survive.
+    """
+    async with rls_connection(user["id"]) as conn:
+        return await reset_language_progress(conn, user["id"], language_id)
+
+
 @router.post("/learn")
 async def learn(
     body: LearnRequest,
@@ -303,7 +455,10 @@ async def learn(
         # Bulk-fetch the lesson payloads: per-card fetching is an N+1 that
         # makes "Preparing your new items…" hang for seconds on a pooled
         # (high-latency) database connection.
-        details = await get_card_details_bulk(conn, result["items"])
+        support = await _support_locale(conn, user["id"])
+        details = await get_card_details_bulk(
+            conn, result["items"], support_locale=support
+        )
         lessons = [
             {"card_id": card_id, **details[card_id]}
             for card_id in result["items"]

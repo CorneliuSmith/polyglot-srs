@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useState } from 'react'
-import { speechSupported, toBcp47 } from '../lib/speech'
+import { speechSupported, toBcp47, voiceFor } from '../lib/speech'
 
 /**
  * Browser speech synthesis for the target language. Free and offline (uses the
@@ -22,10 +22,16 @@ export function useSpeech() {
       window.speechSynthesis.cancel()
       const utterance = new SpeechSynthesisUtterance(text)
       utterance.lang = toBcp47(languageCode)
+      // Setting the voice explicitly is far more reliable than lang-only
+      // matching; without a match some engines speak in the UI language or
+      // drop the utterance silently.
+      const voice = voiceFor(languageCode)
+      if (voice) utterance.voice = voice
       utterance.onend = () => setSpeaking(false)
       utterance.onerror = () => setSpeaking(false)
       setSpeaking(true)
-      window.speechSynthesis.speak(utterance)
+      // Chrome swallows an utterance queued in the same tick as cancel().
+      window.setTimeout(() => window.speechSynthesis.speak(utterance), 0)
     },
     [supported],
   )

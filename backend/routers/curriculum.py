@@ -11,6 +11,7 @@ from backend.repositories.curriculum import (
     get_curriculum,
     get_curriculum_point,
     learn_point,
+    search_content,
     set_reference_read,
 )
 from backend.repositories.pool import rls_connection
@@ -25,6 +26,25 @@ class LearnPointRequest(BaseModel):
 class ReferenceReadRequest(BaseModel):
     ref_key: str
     read: bool = True
+
+
+# NOTE: declared before /{language_id} — FastAPI matches routes in order,
+# and the path-param route would otherwise swallow "search".
+@router.get("/search")
+async def search(
+    language_id: str,
+    q: str,
+    user: dict = Depends(get_current_user),
+):
+    """In-app search (WP13g) across a language's grammar and vocabulary."""
+    q = q.strip()
+    if not q or len(q) > 100:
+        raise HTTPException(
+            status_code=status.HTTP_422_UNPROCESSABLE_ENTITY,
+            detail="q must be 1–100 characters",
+        )
+    async with rls_connection(user["id"]) as conn:
+        return await search_content(conn, user["id"], language_id, q)
 
 
 @router.get("/{language_id}")

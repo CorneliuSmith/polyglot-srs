@@ -84,12 +84,14 @@ export async function completeOnboarding(input: {
   level: string
   batchSize?: number
   nativeLanguage?: string
+  planScope?: 'single' | 'all'
 }): Promise<CompleteResponse> {
   const response = await apiClient.post<CompleteResponse>('/api/onboarding/complete', {
     language_id: input.languageId,
     level: input.level,
     batch_size: input.batchSize ?? null,
     native_language: input.nativeLanguage ?? null,
+    plan_scope: input.planScope ?? null,
   })
   return response.data
 }

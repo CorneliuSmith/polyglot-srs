@@ -72,6 +72,9 @@ export interface CardDetail {
   function_note?: string | null
   // pronunciation aid: transliteration, vowelled form, etc. (vocabulary only)
   reading?: string | null
+  /** which locale the hints/definitions are rendered in ('en' unless
+   * studying English with a support language set) */
+  hint_locale?: string
   part_of_speech: string | null
   definition: string | null
   usage_note: string | null
@@ -200,6 +203,12 @@ export interface UserProfile {
   batch_size: number
   ui_language: string
   active_language_id: string | null
+  /** "learning English from X" — locale English hints render in (null = English) */
+  support_locale: string | null
+  /** 'single' = one licensed language (lower price), 'all' = every language */
+  plan_scope: 'single' | 'all'
+  /** the licensed language when plan_scope is 'single' */
+  plan_language_id: string | null
   created_at: string
   updated_at: string
 }
@@ -208,4 +217,6 @@ export interface ProfileUpdate {
   batch_size?: number
   ui_language?: string
   active_language_id?: string
+  /** send 'en' to reset to English definitions */
+  support_locale?: string
 }

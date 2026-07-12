@@ -7,12 +7,16 @@ caller's role is verified for the target language.
 
 from __future__ import annotations
 
+import re
+from datetime import UTC, datetime, timedelta
+
 from fastapi import APIRouter, Depends, HTTPException, status
 from pydantic import BaseModel, Field
 
 from backend.dependencies import get_current_user
 from backend.repositories.contributor import (
     add_drill,
+    add_review_note,
     approve_explanation,
     can_contribute,
     can_review,
@@ -21,6 +25,8 @@ from backend.repositories.contributor import (
     find_user_by_email,
     get_feedback_language,
     get_language_policy,
+    get_language_tutor_model,
+    get_note_language,
     get_point_for_check,
     get_point_language,
     get_point_language_and_code,
@@ -31,16 +37,22 @@ from backend.repositories.contributor import (
     list_drills,
     list_feedback,
     list_grammar_points,
+    list_review_notes,
     resolve_feedback,
+    resolve_review_note,
     revoke_role,
     save_ai_check,
     save_explanation,
     set_language_policy,
+    set_language_tutor_model,
+    update_drill,
 )
 from backend.repositories.pool import privileged_connection, rls_connection
+from backend.repositories.tutor import aggregate_tutor_usage
 from backend.services.drills import validate_drill
 from backend.services.rate_limit import ai_review_limiter
 from backend.services.semantic_check import ai_available, semantic_check_point
+from backend.services.tutor_costs import estimate_cost_usd
 
 router = APIRouter()
 
@@ -70,6 +82,21 @@ class NewDrill(BaseModel):
     answer: str = Field(min_length=1, max_length=200)
     translation: str = ""
     hint: str = ""
+
+
+class EditDrill(BaseModel):
+    sentence: str = Field(min_length=1, max_length=500)
+    answer: str = Field(min_length=1, max_length=200)
+    translation: str = ""
+    hint: str = ""
+    # Friction: no silent edits. Every change to a live card carries a
+    # rationale that lands in the point's review notes for a second
+    # reviewer to verify.
+    change_note: str = Field(min_length=10, max_length=2000)
+
+
+class NewReviewNote(BaseModel):
+    note: str = Field(min_length=3, max_length=2000)
 
 
 class RoleGrant(BaseModel):
@@ -105,11 +132,13 @@ async def grammar_for_language(
             )
         points = await list_grammar_points(conn, language_id)
         policy = await get_language_policy(conn, language_id)
+        tutor_model = await get_language_tutor_model(conn, language_id)
     return {
         "points": points,
         "is_admin": is_admin(roles),
         "can_review": can_review(roles, language_id),
         "review_policy": policy,
+        "tutor_model": tutor_model,
     }
 
 
@@ -139,6 +168,82 @@ async def update_language_policy(
     async with privileged_connection() as conn:
         await set_language_policy(conn, body.language_id, body.policy)
     return {"policy": body.policy}
+
+
+class TutorModelUpdate(BaseModel):
+    language_id: str
+    model: str | None = None  # None resets to the global default
+
+
+# The models an admin may assign per language (WP15a). Order = strongest
+# first; None (the global default) is always allowed.
+ALLOWED_TUTOR_MODELS = (
+    "claude-fable-5",
+    "claude-opus-4-8",
+    "claude-sonnet-5",
+    "claude-haiku-4-5-20251001",
+)
+
+
+@router.post("/language-tutor-model")
+async def update_language_tutor_model(
+    body: TutorModelUpdate,
+    user: dict = Depends(get_current_user),
+):
+    """Set a language's tutor model override (admin-only; None = default)."""
+    if body.model is not None and body.model not in ALLOWED_TUTOR_MODELS:
+        raise HTTPException(
+            status_code=status.HTTP_422_UNPROCESSABLE_ENTITY,
+            detail=f"model must be one of {list(ALLOWED_TUTOR_MODELS)} or null",
+        )
+    async with rls_connection(user["id"]) as conn:
+        roles = await get_roles(conn, user["id"])
+    if not is_admin(roles):
+        raise HTTPException(
+            status_code=status.HTTP_403_FORBIDDEN,
+            detail="Only an admin can change the tutor model",
+        )
+    async with privileged_connection() as conn:
+        await set_language_tutor_model(conn, body.language_id, body.model)
+    return {"tutor_model": body.model}
+
+
+@router.get("/tutor-usage")
+async def tutor_usage_overview(
+    days: int = 30,
+    user: dict = Depends(get_current_user),
+):
+    """Aggregated tutor token usage + estimated cost (admin-only, WP9b).
+
+    Rolls up tutor_usage by (language, model, kind) over the window and
+    prices each row at list pricing — the data behind per-language model
+    choices (WP15a). Estimates only; learners are billed flat tiers.
+    """
+    await _require_admin(user["id"])
+    days = max(1, min(days, 365))
+    since = datetime.now(UTC) - timedelta(days=days)
+    async with privileged_connection() as conn:
+        rows = await aggregate_tutor_usage(conn, since)
+    priced = [
+        {
+            **row,
+            "est_cost_usd": estimate_cost_usd(
+                row["model"], row["input_tokens"], row["output_tokens"],
+                row["cache_write_tokens"], row["cache_read_tokens"],
+            ),
+        }
+        for row in rows
+    ]
+    return {
+        "days": days,
+        "rows": priced,
+        "total_messages": sum(
+            r["messages"] for r in priced if r["kind"] == "chat"
+        ),
+        "total_est_cost_usd": round(
+            sum(r["est_cost_usd"] for r in priced), 4
+        ),
+    }
 
 
 @router.put("/grammar/{point_id}")
@@ -247,6 +352,72 @@ async def create_drill(
     return {"id": drill_id}
 
 
+@router.put("/grammar/{point_id}/drills/{drill_id}")
+async def edit_drill(
+    point_id: str,
+    drill_id: str,
+    body: EditDrill,
+    user: dict = Depends(get_current_user),
+):
+    """Edit a live drill — reviewer/admin only, with guard rails.
+
+    Friction by design: the sentence must still pass the NLP answerability
+    gate, the answer must be a single token that doesn't leak into the
+    visible frame, the hint must not reveal the answer, and a change_note
+    (≥10 chars) is required. The edit de-certifies the point (reviewed →
+    false) and files the note in the point's review queue so a DIFFERENT
+    reviewer re-approves before learners see it.
+    """
+    async with rls_connection(user["id"]) as conn:
+        roles = await get_roles(conn, user["id"])
+        info = await get_point_language_and_code(conn, point_id)
+    if info is None:
+        raise HTTPException(status_code=404, detail="Grammar point not found")
+    language_id, language_code = info
+    if not can_review(roles, language_id):
+        raise HTTPException(
+            status_code=status.HTTP_403_FORBIDDEN,
+            detail="Only an admin or a reviewer for this language can edit live cards",
+        )
+    answer = body.answer.strip()
+    if " " in answer:
+        raise HTTPException(
+            status_code=status.HTTP_422_UNPROCESSABLE_ENTITY,
+            detail="The answer must be a single token (one blank, one word)",
+        )
+    visible = body.sentence.replace("{{answer}}", " ")
+    if re.search(rf"(?<![^\W\d_]){re.escape(answer)}(?![^\W\d_])", visible, re.IGNORECASE):
+        raise HTTPException(
+            status_code=status.HTTP_422_UNPROCESSABLE_ENTITY,
+            detail="The answer appears in the visible sentence — it would give itself away",
+        )
+    if body.hint and answer.lower() in body.hint.lower():
+        raise HTTPException(
+            status_code=status.HTTP_422_UNPROCESSABLE_ENTITY,
+            detail="The hint contains the answer — it would give itself away",
+        )
+    if not await validate_drill(language_code, body.sentence, answer):
+        raise HTTPException(
+            status_code=status.HTTP_422_UNPROCESSABLE_ENTITY,
+            detail=(
+                "The sentence must contain the {{answer}} blank and the answer "
+                "must validate in this language."
+            ),
+        )
+    async with privileged_connection() as conn:
+        ok = await update_drill(
+            conn, drill_id, point_id, body.sentence, answer,
+            body.translation, body.hint,
+        )
+        if not ok:
+            raise HTTPException(status_code=404, detail="Drill not found")
+        await add_review_note(
+            conn, point_id, user["id"],
+            f"[card edit] {body.change_note}",
+        )
+    return {"saved": True, "reviewed": False}
+
+
 @router.delete("/grammar/{point_id}/drills/{drill_id}")
 async def remove_drill(
     point_id: str,
@@ -305,6 +476,71 @@ async def ai_check(
     return result
 
 
+@router.post("/grammar/{point_id}/notes")
+async def flag_point_issue(
+    point_id: str,
+    body: NewReviewNote,
+    user: dict = Depends(get_current_user),
+):
+    """File a reviewer note against a point — the middle ground between
+    fixing it yourself and silently not approving."""
+    async with rls_connection(user["id"]) as conn:
+        roles = await get_roles(conn, user["id"])
+        language_id = await get_point_language(conn, point_id)
+    if language_id is None:
+        raise HTTPException(status_code=404, detail="Grammar point not found")
+    if not can_contribute(roles, language_id):
+        raise HTTPException(
+            status_code=status.HTTP_403_FORBIDDEN,
+            detail="You don't have a contributor role for this language",
+        )
+    async with privileged_connection() as conn:
+        note_id = await add_review_note(conn, point_id, user["id"], body.note.strip())
+    return {"id": note_id}
+
+
+@router.get("/notes")
+async def review_notes(
+    language_id: str,
+    include_resolved: bool = False,
+    user: dict = Depends(get_current_user),
+):
+    """List reviewer notes for a language (role-gated)."""
+    async with rls_connection(user["id"]) as conn:
+        roles = await get_roles(conn, user["id"])
+    if not can_contribute(roles, language_id):
+        raise HTTPException(
+            status_code=status.HTTP_403_FORBIDDEN,
+            detail="You don't have a contributor role for this language",
+        )
+    async with privileged_connection() as conn:
+        notes = await list_review_notes(
+            conn, language_id, include_resolved=include_resolved
+        )
+    return {"notes": notes}
+
+
+@router.post("/notes/{note_id}/resolve")
+async def resolve_note(
+    note_id: str,
+    user: dict = Depends(get_current_user),
+):
+    """Mark a reviewer note resolved (reviewer for the language, or admin)."""
+    async with rls_connection(user["id"]) as conn:
+        roles = await get_roles(conn, user["id"])
+    async with privileged_connection() as conn:
+        language_id = await get_note_language(conn, note_id)
+        if language_id is None:
+            raise HTTPException(status_code=404, detail="Note not found")
+        if not can_review(roles, language_id):
+            raise HTTPException(
+                status_code=status.HTTP_403_FORBIDDEN,
+                detail="Only a reviewer for this language or an admin can resolve notes",
+            )
+        ok = await resolve_review_note(conn, note_id, user["id"])
+    return {"resolved": ok}
+
+
 @router.post("/grammar/{point_id}/approve")
 async def approve_grammar(
     point_id: str,
@@ -325,6 +561,17 @@ async def approve_grammar(
             detail="Only an admin or a reviewer for this language can approve content",
         )
     async with privileged_connection() as conn:
+        # Nobody certifies their own change (§3b: content is never
+        # self-certified) — the last editor can't be the approver.
+        submitted_by = await conn.fetchval(
+            "SELECT explanation_submitted_by FROM grammar_points WHERE id = $1",
+            point_id,
+        )
+        if submitted_by is not None and str(submitted_by) == user["id"]:
+            raise HTTPException(
+                status_code=status.HTTP_403_FORBIDDEN,
+                detail="You edited this point — a different reviewer must approve it",
+            )
         ok = await approve_explanation(conn, point_id, user["id"])
     if not ok:
         raise HTTPException(status_code=404, detail="Grammar point not found")

@@ -3,11 +3,11 @@ import type { StageName } from '../api/types'
 // Same palette as the dashboard's stage tiles so a card wears one color
 // everywhere.
 const STAGE_STYLES: Record<StageName, { label: string; tone: string }> = {
-  beginner: { label: 'Beginner', tone: 'bg-slate-900 text-white' },
-  adept: { label: 'Adept', tone: 'bg-indigo-800 text-white' },
-  seasoned: { label: 'Seasoned', tone: 'bg-indigo-600 text-white' },
-  expert: { label: 'Expert', tone: 'bg-indigo-400 text-white' },
-  master: { label: 'Master', tone: 'bg-indigo-200 text-indigo-900' },
+  beginner: { label: 'Beginner', tone: 'bg-stage-1 text-stage-1-on' },
+  adept: { label: 'Adept', tone: 'bg-stage-2 text-stage-2-on' },
+  seasoned: { label: 'Seasoned', tone: 'bg-stage-3 text-stage-3-on' },
+  expert: { label: 'Expert', tone: 'bg-stage-4 text-stage-4-on' },
+  master: { label: 'Master', tone: 'bg-stage-5 text-stage-5-on' },
   self_study: { label: 'Self-Study', tone: 'bg-gray-200 text-gray-700' },
   ghost: { label: 'Ghost', tone: 'bg-purple-100 text-purple-700' },
 }

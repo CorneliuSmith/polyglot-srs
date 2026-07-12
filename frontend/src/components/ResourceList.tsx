@@ -84,7 +84,7 @@ export default function ResourceList({
                     target="_blank"
                     rel="noopener noreferrer"
                     className={`hover:underline ${
-                      isRead ? 'text-gray-400' : 'text-indigo-600'
+                      isRead ? 'text-gray-400' : 'text-lang'
                     }`}
                   >
                     {ref.title}

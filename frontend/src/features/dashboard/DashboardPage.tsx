@@ -1,8 +1,13 @@
 import { useState } from 'react'
 import { Navigate, useNavigate } from 'react-router-dom'
-import { useQuery } from '@tanstack/react-query'
+import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
 import { getDashboardStats } from '../../api/dashboard'
-import { getLearnDecks } from '../../api/review'
+import {
+  getDeckPreview,
+  getLearnDecks,
+  resetDeckProgress,
+  setDeckSubscription,
+} from '../../api/review'
 import { getMyRoles } from '../../api/contribute'
 import { getOnboardingStatus } from '../../api/onboarding'
 import { usePrefsStore } from '../../stores/prefsStore'
@@ -14,38 +19,140 @@ import StageTiles from './StageTiles'
 import ProfileCard from './ProfileCard'
 import type { LearnDeck } from '../../api/types'
 
-/** One Bunpro-style deck row: level + type, progress bar, learned/total. */
+/** One Bunpro-style deck row: level + type, progress bar, learned/total,
+ * queue add/remove, and an expandable peek at the deck's first items. */
 function DeckRow({ deck, onLearn }: { deck: LearnDeck; onLearn: (d: LearnDeck) => void }) {
+  const queryClient = useQueryClient()
+  const [previewOpen, setPreviewOpen] = useState(false)
   const pct = deck.total > 0 ? Math.round((deck.learned / deck.total) * 100) : 0
   const label = `${deck.level ?? 'All'} · ${deck.list_type === 'grammar' ? 'Grammar' : 'Vocab'}`
   const done = deck.total > 0 && deck.learned >= deck.total
+
+  const subMutation = useMutation({
+    mutationFn: (subscribed: boolean) => setDeckSubscription(deck.id, subscribed),
+    onSuccess: () =>
+      queryClient.invalidateQueries({ queryKey: ['learn-decks'] }),
+  })
+
+  const resetMutation = useMutation({
+    mutationFn: () => resetDeckProgress(deck.id),
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ['learn-decks'] })
+      queryClient.invalidateQueries({ queryKey: ['dashboard'] })
+    },
+  })
+
+  const handleReset = () => {
+    if (
+      window.confirm(
+        `Reset "${label}"? This permanently deletes your progress AND review history for the ${deck.total} items in this deck.`,
+      )
+    ) {
+      resetMutation.mutate()
+    }
+  }
+
+  const { data: preview, isLoading: previewLoading } = useQuery({
+    queryKey: ['deck-preview', deck.id],
+    queryFn: () => getDeckPreview(deck.id),
+    enabled: previewOpen,
+    staleTime: 5 * 60 * 1000,
+  })
+
   return (
-    <button
-      type="button"
-      onClick={() => onLearn(deck)}
-      disabled={done}
-      className="w-full text-left px-4 py-3 hover:bg-gray-50 disabled:opacity-60 border-t border-gray-100 first:border-t-0"
-    >
-      <div className="flex items-center justify-between gap-3">
-        <span className="text-sm font-medium text-gray-800">{label}</span>
-        <span className="flex items-center gap-2">
+    <div className="border-t border-gray-100 first:border-t-0">
+      <div className="w-full text-left px-4 py-3">
+        <div className="flex items-center justify-between gap-3">
+          <button
+            type="button"
+            onClick={() => onLearn(deck)}
+            disabled={done || !deck.subscribed}
+            title={
+              deck.subscribed
+                ? 'Learn from this deck'
+                : 'Add the deck to your queue first'
+            }
+            className="text-sm font-medium text-gray-800 hover:text-lang disabled:opacity-60 disabled:hover:text-gray-800 text-left"
+          >
+            {label}
+          </button>
+          <span className="flex items-center gap-2">
+            <span className="text-xs tabular-nums text-gray-500">
+              {deck.learned} / {deck.total}
+            </span>
+          </span>
+        </div>
+        <div className="mt-2 w-full bg-gray-100 rounded-full h-1.5">
+          <div
+            className={`h-1.5 rounded-full ${done ? 'bg-green-400' : 'bg-lang'}`}
+            style={{ width: `${pct}%` }}
+          />
+        </div>
+        <div className="mt-2 flex items-center gap-4 text-xs">
+          <button
+            type="button"
+            onClick={() => setPreviewOpen((v) => !v)}
+            aria-expanded={previewOpen}
+            className="text-gray-500 hover:text-lang"
+          >
+            {previewOpen ? 'Hide contents' : 'Peek inside'}
+          </button>
+          {deck.subscribed ? (
+            <button
+              type="button"
+              onClick={() => subMutation.mutate(false)}
+              disabled={subMutation.isPending}
+              className="text-gray-500 hover:text-red-600"
+              title="Stops new cards from this deck. Cards you already learned keep their schedule."
+            >
+              Remove from queue
+            </button>
+          ) : (
+            <button
+              type="button"
+              onClick={() => subMutation.mutate(true)}
+              disabled={subMutation.isPending}
+              className="text-lang hover:underline font-medium"
+            >
+              Add to queue
+            </button>
+          )}
+          {deck.learned > 0 && (
+            <button
+              type="button"
+              onClick={handleReset}
+              disabled={resetMutation.isPending}
+              className="text-gray-400 hover:text-red-600"
+              title="Permanently deletes this deck's cards and their review history."
+            >
+              Reset progress
+            </button>
+          )}
           {deck.subscribed && !done && (
-            <span className="text-[10px] uppercase tracking-wide bg-indigo-50 text-indigo-500 rounded px-1.5 py-0.5">
+            <span className="text-[10px] uppercase tracking-wide bg-lang-soft text-lang rounded px-1.5 py-0.5">
               In queue
             </span>
           )}
-          <span className="text-xs tabular-nums text-gray-500">
-            {deck.learned} / {deck.total}
-          </span>
-        </span>
+        </div>
+        {previewOpen && (
+          <div
+            className="mt-2 rounded-lg bg-gray-50 border border-gray-100 p-3 text-xs space-y-1"
+            data-testid="deck-preview"
+          >
+            {previewLoading && <p className="text-gray-400">Loading…</p>}
+            {preview?.items.map((it, i) => (
+              <p key={i} className="text-gray-700">
+                <span className="font-medium">{it.item}</span>
+                {it.detail && <span className="text-gray-500"> — {it.detail}</span>}
+              </p>
+            ))}
+            {preview && preview.items.length === 0 && (
+              <p className="text-gray-400">This deck is empty.</p>
+            )}
+          </div>
+        )}
       </div>
-      <div className="mt-2 w-full bg-gray-100 rounded-full h-1.5">
-        <div
-          className={`h-1.5 rounded-full ${done ? 'bg-green-400' : 'bg-indigo-500'}`}
-          style={{ width: `${pct}%` }}
-        />
-      </div>
-    </button>
+    </div>
   )
 }
 
@@ -82,10 +189,11 @@ export default function DashboardPage() {
     enabled: !!activeLanguageId,
   })
   const visibleDecks = decks.filter((d) => d.total > 0)
-  const newAvailable = visibleDecks.reduce(
-    (sum, d) => sum + Math.max(d.total - d.learned, 0),
-    0,
-  )
+  // Learn only counts what the learner actually QUEUED — a deck they haven't
+  // added shouldn't inflate "new items available".
+  const newAvailable = visibleDecks
+    .filter((d) => d.subscribed)
+    .reduce((sum, d) => sum + Math.max(d.total - d.learned, 0), 0)
 
   // Surfaces the Contribute link only to users who hold a contributor role.
   const { data: roleInfo } = useQuery({
@@ -118,14 +226,32 @@ export default function DashboardPage() {
         {/* Header */}
         <div className="flex items-center justify-between">
           <h1 className="text-2xl font-bold text-gray-900">Dashboard</h1>
-          <button
-            type="button"
-            onClick={() => navigate('/settings')}
-            aria-label="Settings"
-            className="text-sm text-gray-500 hover:text-indigo-600"
-          >
-            Settings
-          </button>
+          <div className="flex items-center gap-4">
+            <button
+              type="button"
+              onClick={() => navigate('/decks')}
+              aria-label="Decks"
+              className="text-sm text-gray-500 hover:text-lang"
+            >
+              Decks
+            </button>
+            <button
+              type="button"
+              onClick={() => navigate('/search')}
+              aria-label="Search"
+              className="text-sm text-gray-500 hover:text-lang"
+            >
+              Search
+            </button>
+            <button
+              type="button"
+              onClick={() => navigate('/settings')}
+              aria-label="Settings"
+              className="text-sm text-gray-500 hover:text-lang"
+            >
+              Settings
+            </button>
+          </div>
         </div>
 
         {/* Language picker */}
@@ -149,16 +275,16 @@ export default function DashboardPage() {
                 type="button"
                 onClick={() => setLearnOpen((v) => !v)}
                 disabled={!activeLanguageId}
-                className="rounded-2xl bg-slate-900 hover:bg-slate-800 disabled:opacity-50 text-white p-5 text-left transition-colors"
+                className="rounded-2xl bg-lang-dark hover:opacity-90 disabled:opacity-50 text-white p-5 text-left transition-opacity"
                 style={{ minHeight: '44px' }}
               >
-                <span className="block text-sm font-semibold uppercase tracking-wide text-slate-300">
+                <span className="block text-sm font-semibold uppercase tracking-wide text-white/70">
                   Learn
                 </span>
                 <span className="block text-3xl font-bold mt-1">
                   {newAvailable}
                 </span>
-                <span className="block text-xs text-slate-400 mt-1">
+                <span className="block text-xs text-white/60 mt-1">
                   new items available {learnOpen ? '▴' : '▾'}
                 </span>
               </button>
@@ -166,14 +292,14 @@ export default function DashboardPage() {
                 type="button"
                 onClick={handleReview}
                 disabled={stats.due_count === 0}
-                className="rounded-2xl bg-indigo-600 hover:bg-indigo-700 disabled:opacity-50 text-white p-5 text-left transition-colors"
+                className="rounded-2xl bg-lang hover:bg-lang-dark disabled:opacity-50 text-lang-on p-5 text-left transition-colors"
                 style={{ minHeight: '44px' }}
               >
-                <span className="block text-sm font-semibold uppercase tracking-wide text-indigo-200">
+                <span className="block text-sm font-semibold uppercase tracking-wide text-lang-on/70">
                   Review
                 </span>
                 <span className="block text-3xl font-bold mt-1">{stats.due_count}</span>
-                <span className="block text-xs text-indigo-200 mt-1">cards due now</span>
+                <span className="block text-xs text-lang-on/70 mt-1">cards due now</span>
               </button>
             </div>
 
@@ -231,7 +357,7 @@ export default function DashboardPage() {
               Browse and read every grammar point in order
             </span>
           </span>
-          <span aria-hidden className="text-indigo-500">→</span>
+          <span aria-hidden className="text-lang">→</span>
         </button>
 
         {/* AI Tutor */}
@@ -248,7 +374,7 @@ export default function DashboardPage() {
               Coaching on the words you keep missing
             </span>
           </span>
-          <span aria-hidden className="text-indigo-500">→</span>
+          <span aria-hidden className="text-lang">→</span>
         </button>
 
         {/* Learn from your own text */}
@@ -265,7 +391,7 @@ export default function DashboardPage() {
               Turn anything you read into review cards
             </span>
           </span>
-          <span aria-hidden className="text-indigo-500">→</span>
+          <span aria-hidden className="text-lang">→</span>
         </button>
 
         {/* Contributor link — only for users with a role */}
@@ -273,7 +399,7 @@ export default function DashboardPage() {
           <button
             type="button"
             onClick={() => navigate('/contribute')}
-            className="w-full text-sm text-gray-500 hover:text-indigo-600 hover:underline text-left"
+            className="w-full text-sm text-gray-500 hover:text-lang hover:underline text-left"
           >
             Contribute grammar notes →
           </button>

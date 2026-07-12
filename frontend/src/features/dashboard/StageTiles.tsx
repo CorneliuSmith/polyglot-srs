@@ -1,12 +1,14 @@
 import { useState } from 'react'
 import type { StageName } from '../../api/types'
 
+// The five tiles walk through the active language's flag palette
+// (stage tokens are set by LanguageThemeApplier — see stageRamp).
 const MAIN_STAGES: { key: StageName; label: string; tone: string }[] = [
-  { key: 'beginner', label: 'Beginner', tone: 'bg-slate-900 text-white' },
-  { key: 'adept', label: 'Adept', tone: 'bg-indigo-800 text-white' },
-  { key: 'seasoned', label: 'Seasoned', tone: 'bg-indigo-600 text-white' },
-  { key: 'expert', label: 'Expert', tone: 'bg-indigo-400 text-white' },
-  { key: 'master', label: 'Master', tone: 'bg-indigo-200 text-indigo-900' },
+  { key: 'beginner', label: 'Beginner', tone: 'bg-stage-1 text-stage-1-on' },
+  { key: 'adept', label: 'Adept', tone: 'bg-stage-2 text-stage-2-on' },
+  { key: 'seasoned', label: 'Seasoned', tone: 'bg-stage-3 text-stage-3-on' },
+  { key: 'expert', label: 'Expert', tone: 'bg-stage-4 text-stage-4-on' },
+  { key: 'master', label: 'Master', tone: 'bg-stage-5 text-stage-5-on' },
 ]
 
 const EXTRA_STAGES: { key: StageName; label: string }[] = [
@@ -36,7 +38,7 @@ export default function StageTiles({
               type="button"
               onClick={() => setKind(k)}
               className={`px-3 py-1 capitalize ${
-                kind === k ? 'bg-indigo-600 text-white' : 'bg-white text-gray-500 hover:bg-gray-50'
+                kind === k ? 'bg-lang text-white' : 'bg-white text-gray-500 hover:bg-gray-50'
               }`}
             >
               {k}

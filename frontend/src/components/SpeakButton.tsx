@@ -55,8 +55,8 @@ export default function SpeakButton({
       aria-label={label ?? 'Play pronunciation'}
       className={
         className ??
-        `inline-flex items-center justify-center rounded p-1 hover:text-indigo-600 ${
-          active ? 'text-indigo-600' : 'text-gray-400'
+        `inline-flex items-center justify-center rounded p-1 hover:text-lang ${
+          active ? 'text-lang' : 'text-gray-400'
         }`
       }
     >

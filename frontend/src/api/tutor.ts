@@ -1,4 +1,5 @@
 import apiClient from './client'
+import { supabase } from '../lib/supabase'
 
 export interface TutorMessage {
   role: 'user' | 'assistant'
@@ -49,6 +50,97 @@ export async function sendTutorMessage(
     messages,
   })
   return { reply: response.data.reply, allowance: response.data.allowance ?? null }
+}
+
+export type TutorStreamEvent =
+  | { type: 'delta'; text: string }
+  | { type: 'reset' }
+  | { type: 'done'; reply: string; remembered: number; allowance: TutorAllowance | null }
+  | { type: 'error'; message: string }
+
+/** Parse complete `data: {json}` SSE lines out of a buffer; returns the
+ * events found and the unconsumed remainder. Exported for tests. */
+export function parseSSE(buffer: string): { events: TutorStreamEvent[]; rest: string } {
+  const events: TutorStreamEvent[] = []
+  const parts = buffer.split('\n\n')
+  const rest = parts.pop() ?? ''
+  for (const part of parts) {
+    for (const line of part.split('\n')) {
+      if (line.startsWith('data: ')) {
+        try {
+          events.push(JSON.parse(line.slice(6)))
+        } catch {
+          // tolerate a malformed frame rather than killing the stream
+        }
+      }
+    }
+  }
+  return { events, rest }
+}
+
+/**
+ * Streaming tutor turn (SSE over fetch — axios can't stream). Calls
+ * onDelta with the text so far as chunks arrive; resolves with the final
+ * reply + allowance. Non-OK responses reject with an axios-shaped error
+ * ({response: {status, data}}) so callers reuse their /chat handling.
+ */
+export async function streamTutorMessage(
+  languageId: string,
+  languageCode: string,
+  messages: TutorMessage[],
+  onDelta: (textSoFar: string) => void,
+): Promise<{ reply: string; allowance: TutorAllowance | null }> {
+  const { data: sessionData } = await supabase.auth.getSession()
+  const token = sessionData.session?.access_token
+  const base = (import.meta.env.VITE_API_BASE_URL as string | undefined) ?? ''
+  const resp = await fetch(`${base}/api/tutor/chat/stream`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      ...(token ? { Authorization: `Bearer ${token}` } : {}),
+    },
+    body: JSON.stringify({
+      language_id: languageId,
+      language_code: languageCode,
+      messages,
+    }),
+  })
+  if (!resp.ok) {
+    let data: unknown = null
+    try {
+      data = await resp.json()
+    } catch {
+      /* no body */
+    }
+    throw { response: { status: resp.status, data } }
+  }
+  if (!resp.body) throw new Error('Streaming not supported')
+
+  const reader = resp.body.getReader()
+  const decoder = new TextDecoder()
+  let buffer = ''
+  let text = ''
+  for (;;) {
+    const { done, value } = await reader.read()
+    if (done) break
+    buffer += decoder.decode(value, { stream: true })
+    const { events, rest } = parseSSE(buffer)
+    buffer = rest
+    for (const event of events) {
+      if (event.type === 'delta') {
+        text += event.text
+        onDelta(text)
+      } else if (event.type === 'reset') {
+        text = ''
+        onDelta(text)
+      } else if (event.type === 'done') {
+        return { reply: event.reply, allowance: event.allowance ?? null }
+      } else if (event.type === 'error') {
+        throw new Error(event.message)
+      }
+    }
+  }
+  throw new Error('Stream ended without a done event')
 }
 
 /**

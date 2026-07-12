@@ -1,779 +1,827 @@
 {
-  "lists": [
+ "lists": [
+  {
+   "level": "A1",
+   "title": "English A1 Grammar Path",
+   "description": "A1 grammar for learners coming from other languages, in Core Inventory order: pronouns, be, a/an and the, plurals, the present simple, third-person -s, do-support, the present continuous, there is/are, questions, and possessives."
+  }
+ ],
+ "points": [
+  {
+   "title": "Subject pronouns (I, you, he…)",
+   "level": "A1",
+   "function": "Say who you are talking about",
+   "source": "contributor",
+   "reviewed": true,
+   "display_order": 1,
+   "explanation": "I, you, he, she, it, we, they. English never drops the pronoun — every sentence needs its subject.\n\n'I' is always capitalized, 'you' covers one person or many, and things and animals are usually 'it'.",
+   "culture_note": "There is no formal 'you' in modern English — politeness lives in phrasing ('Could you…?'), not pronouns.",
+   "references": [
     {
-      "level": "A1",
-      "title": "English A1 Grammar Path",
-      "description": "A1 grammar for learners coming from other languages, in Core Inventory order: pronouns, be, a/an and the, plurals, the present simple, third-person -s, do-support, the present continuous, there is/are, questions, and possessives."
+     "title": "Cambridge Dictionary — English Grammar",
+     "url": "https://dictionary.cambridge.org/grammar/british-grammar/"
+    },
+    {
+     "title": "British Council–EAQUALS Core Inventory for General English",
+     "url": "https://www.eaquals.org/wp-content/uploads/EAQUALS_British_Council_Core_Curriculum_April2011.pdf"
+    },
+    {
+     "title": "Wikipedia: English personal pronouns",
+     "url": "https://en.wikipedia.org/wiki/English_personal_pronouns"
     }
-  ],
-  "points": [
+   ],
+   "drills": [
     {
-      "title": "Subject pronouns (I, you, he…)",
-      "level": "A1",
-      "function": "Say who you are talking about",
-      "source": "contributor",
-      "reviewed": true,
-      "display_order": 1,
-      "explanation": "I, you, he, she, it, we, they. English never drops the pronoun — every sentence needs its subject. 'I' is always capitalized, 'you' covers one person or many, and things and animals are usually 'it'.",
-      "culture_note": "There is no formal 'you' in modern English — politeness lives in phrasing ('Could you…?'), not pronouns.",
-      "references": [
-        {
-          "title": "British Council–EAQUALS Core Inventory for General English",
-          "url": "https://www.eaquals.org/wp-content/uploads/EAQUALS_British_Council_Core_Curriculum_April2011.pdf"
-        },
-        {
-          "title": "Wikipedia: English personal pronouns",
-          "url": "https://en.wikipedia.org/wiki/English_personal_pronouns"
-        }
-      ],
-      "drills": [
-        {
-          "sentence": "{{answer}} am from Brazil.",
-          "answer": "I",
-          "translation": "Introducing yourself.",
-          "hint": "the speaker — always capitalized",
-          "display_order": 1
-        },
-        {
-          "sentence": "{{answer}} is my sister.",
-          "answer": "She",
-          "translation": "Introducing a woman in your family.",
-          "hint": "a woman",
-          "display_order": 2
-        },
-        {
-          "sentence": "{{answer}} are students.",
-          "answer": "We",
-          "translation": "Talking about yourself and your classmates.",
-          "hint": "the speaker + others",
-          "display_order": 3
-        },
-        {
-          "sentence": "{{answer}} is my father.",
-          "answer": "He",
-          "translation": "Introducing a man in your family.",
-          "hint": "a man",
-          "display_order": 4
-        },
-        {
-          "sentence": "{{answer}} is on the table.",
-          "answer": "It",
-          "translation": "Talking about a thing.",
-          "hint": "a thing",
-          "display_order": 5
-        },
-        {
-          "sentence": "{{answer}} are very kind.",
-          "answer": "You",
-          "translation": "Complimenting the person you are talking to.",
-          "hint": "the person you are talking to",
-          "display_order": 6
-        }
-      ]
+     "sentence": "{{answer}} am from Brazil.",
+     "answer": "I",
+     "translation": "Introducing yourself.",
+     "hint": "the speaker — always capitalized",
+     "display_order": 1
     },
     {
-      "title": "To be — am / is / are",
-      "level": "A1",
-      "function": "Say who or what someone is",
-      "source": "contributor",
-      "reviewed": true,
-      "display_order": 2,
-      "explanation": "Three forms in the present: I am, he/she/it is, you/we/they are. Contractions rule everyday English: I'm, he's, they're. Unlike many languages, the verb can never be dropped: she IS a doctor.",
-      "culture_note": "",
-      "references": [
-        {
-          "title": "British Council–EAQUALS Core Inventory for General English",
-          "url": "https://www.eaquals.org/wp-content/uploads/EAQUALS_British_Council_Core_Curriculum_April2011.pdf"
-        },
-        {
-          "title": "Wiktionary: be (English)",
-          "url": "https://en.wiktionary.org/wiki/be#English"
-        }
-      ],
-      "drills": [
-        {
-          "sentence": "I {{answer}} a student.",
-          "answer": "am",
-          "translation": "Talking about yourself.",
-          "hint": "be — with I",
-          "display_order": 1
-        },
-        {
-          "sentence": "You {{answer}} my friend.",
-          "answer": "are",
-          "translation": "Talking to one person.",
-          "hint": "be — with you",
-          "display_order": 2
-        },
-        {
-          "sentence": "She {{answer}} a doctor.",
-          "answer": "is",
-          "translation": "Talking about her job.",
-          "hint": "be — with she",
-          "display_order": 3
-        },
-        {
-          "sentence": "We {{answer}} at home.",
-          "answer": "are",
-          "translation": "Saying where you and your family are.",
-          "hint": "be — with we",
-          "display_order": 4
-        },
-        {
-          "sentence": "The coffee {{answer}} hot.",
-          "answer": "is",
-          "translation": "Describing a drink.",
-          "hint": "be — with it/a thing",
-          "display_order": 5
-        },
-        {
-          "sentence": "They {{answer}} from Japan.",
-          "answer": "are",
-          "translation": "Saying where some people come from.",
-          "hint": "be — with they",
-          "display_order": 6
-        }
-      ]
+     "sentence": "{{answer}} is my sister.",
+     "answer": "She",
+     "translation": "Introducing a woman in your family.",
+     "hint": "a woman",
+     "display_order": 2
     },
     {
-      "title": "Articles: a / an",
-      "level": "A1",
-      "function": "Mention something for the first time",
-      "source": "contributor",
-      "reviewed": true,
-      "display_order": 3,
-      "explanation": "A before a consonant SOUND (a dog, a university), an before a vowel SOUND (an apple, an hour). It's about sound, not spelling. Singular countable nouns almost always need one: she is A doctor — never 'she is doctor'.",
-      "culture_note": "Learners whose languages have no articles: this is the single most common giveaway. When in doubt with a singular noun, add a/an.",
-      "references": [
-        {
-          "title": "British Council–EAQUALS Core Inventory for General English",
-          "url": "https://www.eaquals.org/wp-content/uploads/EAQUALS_British_Council_Core_Curriculum_April2011.pdf"
-        },
-        {
-          "title": "Wikipedia: English articles",
-          "url": "https://en.wikipedia.org/wiki/English_articles"
-        }
-      ],
-      "drills": [
-        {
-          "sentence": "I have {{answer}} dog.",
-          "answer": "a",
-          "translation": "Talking about your pet.",
-          "hint": "before a consonant sound",
-          "display_order": 1
-        },
-        {
-          "sentence": "She is {{answer}} engineer.",
-          "answer": "an",
-          "translation": "Talking about her job.",
-          "hint": "before a vowel sound",
-          "display_order": 2
-        },
-        {
-          "sentence": "It is {{answer}} big house.",
-          "answer": "a",
-          "translation": "Describing a home.",
-          "hint": "before a consonant sound",
-          "display_order": 3
-        },
-        {
-          "sentence": "He eats {{answer}} apple every day.",
-          "answer": "an",
-          "translation": "Describing a daily habit.",
-          "hint": "before a vowel sound",
-          "display_order": 4
-        },
-        {
-          "sentence": "I read {{answer}} book every week.",
-          "answer": "a",
-          "translation": "Describing a weekly habit.",
-          "hint": "before a consonant sound",
-          "display_order": 5
-        },
-        {
-          "sentence": "I need {{answer}} umbrella.",
-          "answer": "an",
-          "translation": "It looks like rain.",
-          "hint": "before a vowel sound",
-          "display_order": 6
-        }
-      ]
+     "sentence": "{{answer}} are students.",
+     "answer": "We",
+     "translation": "Talking about yourself and your classmates.",
+     "hint": "the speaker + others",
+     "display_order": 3
     },
     {
-      "title": "The — pointing at a specific thing",
-      "level": "A1",
-      "function": "Talk about something both of you can identify",
-      "source": "contributor",
-      "reviewed": true,
-      "display_order": 4,
-      "explanation": "Use the when both speaker and listener know WHICH one: the door (of this room), the sun (there's only one), the book on the table (identified). First mention gets a/an, second mention gets the: I saw a dog. The dog was black.",
-      "culture_note": "",
-      "references": [
-        {
-          "title": "British Council–EAQUALS Core Inventory for General English",
-          "url": "https://www.eaquals.org/wp-content/uploads/EAQUALS_British_Council_Core_Curriculum_April2011.pdf"
-        },
-        {
-          "title": "Wikipedia: English articles — definite article",
-          "url": "https://en.wikipedia.org/wiki/English_articles"
-        }
-      ],
-      "drills": [
-        {
-          "sentence": "{{answer}} sun is hot today.",
-          "answer": "The",
-          "translation": "There is only one of it.",
-          "hint": "unique things take this article",
-          "display_order": 1
-        },
-        {
-          "sentence": "Please close {{answer}} door.",
-          "answer": "the",
-          "translation": "You both know which door.",
-          "hint": "both of you can identify it",
-          "display_order": 2
-        },
-        {
-          "sentence": "{{answer}} keys in my hand are mine.",
-          "answer": "The",
-          "translation": "Specific, identified keys.",
-          "hint": "identified by the phrase after it",
-          "display_order": 3
-        },
-        {
-          "sentence": "We live near {{answer}} station.",
-          "answer": "the",
-          "translation": "The station of this town.",
-          "hint": "both of you can identify it",
-          "display_order": 4
-        },
-        {
-          "sentence": "{{answer}} moon is bright tonight.",
-          "answer": "The",
-          "translation": "There is only one of it.",
-          "hint": "unique things take this article",
-          "display_order": 5
-        },
-        {
-          "sentence": "Where is {{answer}} bathroom?",
-          "answer": "the",
-          "translation": "Asking in a café or a home.",
-          "hint": "both of you can identify it",
-          "display_order": 6
-        }
-      ]
+     "sentence": "{{answer}} is my father.",
+     "answer": "He",
+     "translation": "Introducing a man in your family.",
+     "hint": "a man",
+     "display_order": 4
     },
     {
-      "title": "Plural nouns (-s, -es, irregular)",
-      "level": "A1",
-      "function": "Name more than one of something",
-      "source": "contributor",
-      "reviewed": true,
-      "display_order": 5,
-      "explanation": "Most nouns add -s (books); nouns ending in -s, -sh, -ch, -x add -es (buses, watches); consonant + y becomes -ies (family → families). A few are irregular and unavoidable: child → children, man → men, woman → women, foot → feet, person → people.",
-      "culture_note": "",
-      "references": [
-        {
-          "title": "British Council–EAQUALS Core Inventory for General English",
-          "url": "https://www.eaquals.org/wp-content/uploads/EAQUALS_British_Council_Core_Curriculum_April2011.pdf"
-        },
-        {
-          "title": "Wikipedia: English plurals",
-          "url": "https://en.wikipedia.org/wiki/English_plurals"
-        }
-      ],
-      "drills": [
-        {
-          "sentence": "I have two {{answer}}.",
-          "answer": "books",
-          "translation": "Things you read.",
-          "hint": "book, plural",
-          "display_order": 1
-        },
-        {
-          "sentence": "The {{answer}} are playing outside.",
-          "answer": "children",
-          "translation": "Young people.",
-          "hint": "child — irregular plural",
-          "display_order": 2
-        },
-        {
-          "sentence": "She has three {{answer}}.",
-          "answer": "watches",
-          "translation": "Things that tell the time.",
-          "hint": "watch — add -es",
-          "display_order": 3
-        },
-        {
-          "sentence": "The {{answer}} are late today.",
-          "answer": "buses",
-          "translation": "Public transport.",
-          "hint": "bus — add -es",
-          "display_order": 4
-        },
-        {
-          "sentence": "Two {{answer}} live in our street.",
-          "answer": "families",
-          "translation": "Parents and children.",
-          "hint": "family — y becomes -ies",
-          "display_order": 5
-        },
-        {
-          "sentence": "My {{answer}} are cold.",
-          "answer": "feet",
-          "translation": "The body parts you stand on.",
-          "hint": "foot — irregular plural",
-          "display_order": 6
-        }
-      ]
+     "sentence": "{{answer}} is on the table.",
+     "answer": "It",
+     "translation": "Talking about a thing.",
+     "hint": "a thing",
+     "display_order": 5
     },
     {
-      "title": "Present simple (I work)",
-      "level": "A1",
-      "function": "Talk about habits and facts",
-      "source": "contributor",
-      "reviewed": true,
-      "display_order": 6,
-      "explanation": "For habits, routines, and facts, the verb stays in its base form with I, you, we, they: I work in a bank, they live in London. Time words love this tense: every day, usually, always, never.",
-      "culture_note": "",
-      "references": [
-        {
-          "title": "British Council–EAQUALS Core Inventory for General English",
-          "url": "https://www.eaquals.org/wp-content/uploads/EAQUALS_British_Council_Core_Curriculum_April2011.pdf"
-        },
-        {
-          "title": "Wikipedia: Simple present",
-          "url": "https://en.wikipedia.org/wiki/Simple_present"
-        }
-      ],
-      "drills": [
-        {
-          "sentence": "I {{answer}} in a bank.",
-          "answer": "work",
-          "translation": "Talking about your job.",
-          "hint": "what you do at your job",
-          "display_order": 1
-        },
-        {
-          "sentence": "We {{answer}} breakfast at seven.",
-          "answer": "have",
-          "translation": "Describing your morning routine.",
-          "hint": "eat or take (a meal)",
-          "display_order": 2
-        },
-        {
-          "sentence": "They {{answer}} in London.",
-          "answer": "live",
-          "translation": "Saying where some people are at home.",
-          "hint": "reside somewhere",
-          "display_order": 3
-        },
-        {
-          "sentence": "You {{answer}} English very well.",
-          "answer": "speak",
-          "translation": "Complimenting someone's language skills.",
-          "hint": "use a language",
-          "display_order": 4
-        },
-        {
-          "sentence": "I {{answer}} coffee every morning.",
-          "answer": "drink",
-          "translation": "Describing a daily habit.",
-          "hint": "consume a liquid",
-          "display_order": 5
-        },
-        {
-          "sentence": "We {{answer}} TV in the evening.",
-          "answer": "watch",
-          "translation": "Describing an evening habit.",
-          "hint": "look at a screen or show",
-          "display_order": 6
-        }
-      ]
-    },
-    {
-      "title": "Third-person -s (she works)",
-      "level": "A1",
-      "function": "Talk about what he, she, or it does",
-      "source": "contributor",
-      "reviewed": true,
-      "display_order": 7,
-      "explanation": "With he, she, and it, the present simple adds -s: she works, he plays. Spelling follows the plural rules: go → goes, watch → watches, study → studies. One tiny letter — and the most forgotten one in all of English.",
-      "culture_note": "Native listeners barely notice a missing article, but a missing third-person -s ('she work') registers instantly. Worth drilling.",
-      "references": [
-        {
-          "title": "British Council–EAQUALS Core Inventory for General English",
-          "url": "https://www.eaquals.org/wp-content/uploads/EAQUALS_British_Council_Core_Curriculum_April2011.pdf"
-        },
-        {
-          "title": "Wikipedia: Simple present — third person",
-          "url": "https://en.wikipedia.org/wiki/Simple_present"
-        }
-      ],
-      "drills": [
-        {
-          "sentence": "She {{answer}} in a hospital.",
-          "answer": "works",
-          "translation": "Talking about her job.",
-          "hint": "to work — with she",
-          "display_order": 1
-        },
-        {
-          "sentence": "He {{answer}} to school every day.",
-          "answer": "goes",
-          "translation": "Describing his daily routine.",
-          "hint": "to go — add -es",
-          "display_order": 2
-        },
-        {
-          "sentence": "My brother {{answer}} English.",
-          "answer": "studies",
-          "translation": "Talking about his classes.",
-          "hint": "to study — y becomes -ies",
-          "display_order": 3
-        },
-        {
-          "sentence": "The shop {{answer}} at nine.",
-          "answer": "opens",
-          "translation": "Talking about business hours.",
-          "hint": "to open — with it",
-          "display_order": 4
-        },
-        {
-          "sentence": "She {{answer}} TV after dinner.",
-          "answer": "watches",
-          "translation": "Describing her evening habit.",
-          "hint": "to watch — add -es",
-          "display_order": 5
-        },
-        {
-          "sentence": "It {{answer}} a lot in April.",
-          "answer": "rains",
-          "translation": "Talking about the weather.",
-          "hint": "to rain — with it",
-          "display_order": 6
-        }
-      ]
-    },
-    {
-      "title": "Do-support: questions and negation",
-      "level": "A1",
-      "function": "Ask and deny in the present simple",
-      "source": "contributor",
-      "reviewed": true,
-      "display_order": 8,
-      "explanation": "English borrows 'do' to build questions and negatives: Do you speak English? She does not (doesn't) work here. With he/she/it use does — and then the main verb LOSES its -s: does she work (not 'does she works').",
-      "culture_note": "",
-      "references": [
-        {
-          "title": "British Council–EAQUALS Core Inventory for General English",
-          "url": "https://www.eaquals.org/wp-content/uploads/EAQUALS_British_Council_Core_Curriculum_April2011.pdf"
-        },
-        {
-          "title": "Wikipedia: Do-support",
-          "url": "https://en.wikipedia.org/wiki/Do-support"
-        }
-      ],
-      "drills": [
-        {
-          "sentence": "{{answer}} you speak English?",
-          "answer": "Do",
-          "translation": "Asking about someone's languages.",
-          "hint": "the helper — with you",
-          "display_order": 1
-        },
-        {
-          "sentence": "{{answer}} she work here?",
-          "answer": "Does",
-          "translation": "Asking about her job.",
-          "hint": "the helper — with she",
-          "display_order": 2
-        },
-        {
-          "sentence": "I {{answer}} not eat meat.",
-          "answer": "do",
-          "translation": "Talking about your diet.",
-          "hint": "the helper — with I",
-          "display_order": 3
-        },
-        {
-          "sentence": "He {{answer}} not like coffee.",
-          "answer": "does",
-          "translation": "Talking about his tastes.",
-          "hint": "the helper — with he",
-          "display_order": 4
-        },
-        {
-          "sentence": "{{answer}} they live in Rome?",
-          "answer": "Do",
-          "translation": "Asking where some people live.",
-          "hint": "the helper — with they",
-          "display_order": 5
-        },
-        {
-          "sentence": "We {{answer}} not have time.",
-          "answer": "do",
-          "translation": "You are in a hurry.",
-          "hint": "the helper — with we",
-          "display_order": 6
-        }
-      ]
-    },
-    {
-      "title": "Present continuous (I am working)",
-      "level": "A1",
-      "function": "Say what is happening right now",
-      "source": "contributor",
-      "reviewed": true,
-      "display_order": 9,
-      "explanation": "Be + verb-ing for actions in progress: I am reading, she is cooking. Contrast with the present simple: I drink coffee every day (habit) vs I am drinking coffee (right now). Spelling: make → making, run → running.",
-      "culture_note": "",
-      "references": [
-        {
-          "title": "British Council–EAQUALS Core Inventory for General English",
-          "url": "https://www.eaquals.org/wp-content/uploads/EAQUALS_British_Council_Core_Curriculum_April2011.pdf"
-        },
-        {
-          "title": "Wikipedia: Present continuous",
-          "url": "https://en.wikipedia.org/wiki/Present_continuous"
-        }
-      ],
-      "drills": [
-        {
-          "sentence": "I am {{answer}} a book right now.",
-          "answer": "reading",
-          "translation": "What you are doing at this moment.",
-          "hint": "to read + -ing",
-          "display_order": 1
-        },
-        {
-          "sentence": "She is {{answer}} dinner now.",
-          "answer": "cooking",
-          "translation": "She is in the kitchen.",
-          "hint": "to cook + -ing",
-          "display_order": 2
-        },
-        {
-          "sentence": "They are {{answer}} football.",
-          "answer": "playing",
-          "translation": "A game is happening.",
-          "hint": "to play + -ing",
-          "display_order": 3
-        },
-        {
-          "sentence": "Look! It is {{answer}}.",
-          "answer": "raining",
-          "translation": "Weather, right now.",
-          "hint": "to rain + -ing",
-          "display_order": 4
-        },
-        {
-          "sentence": "We are {{answer}} for the bus.",
-          "answer": "waiting",
-          "translation": "Standing at the bus stop.",
-          "hint": "to wait + -ing",
-          "display_order": 5
-        },
-        {
-          "sentence": "He is {{answer}} at the moment.",
-          "answer": "sleeping",
-          "translation": "Please be quiet.",
-          "hint": "to sleep + -ing",
-          "display_order": 6
-        }
-      ]
-    },
-    {
-      "title": "There is / there are",
-      "level": "A1",
-      "function": "Say what exists or is available",
-      "source": "contributor",
-      "reviewed": true,
-      "display_order": 10,
-      "explanation": "There is + singular (there is a book), there are + plural (there are two cafés). Questions flip: Is there a bank near here? Negatives: there is no milk / there aren't any questions.",
-      "culture_note": "",
-      "references": [
-        {
-          "title": "British Council–EAQUALS Core Inventory for General English",
-          "url": "https://www.eaquals.org/wp-content/uploads/EAQUALS_British_Council_Core_Curriculum_April2011.pdf"
-        },
-        {
-          "title": "Wikipedia: Existential clause",
-          "url": "https://en.wikipedia.org/wiki/Existential_clause"
-        }
-      ],
-      "drills": [
-        {
-          "sentence": "There {{answer}} a book on the table.",
-          "answer": "is",
-          "translation": "One thing exists.",
-          "hint": "singular",
-          "display_order": 1
-        },
-        {
-          "sentence": "There {{answer}} two cafés in this street.",
-          "answer": "are",
-          "translation": "More than one thing exists.",
-          "hint": "plural",
-          "display_order": 2
-        },
-        {
-          "sentence": "{{answer}} there a bank near here?",
-          "answer": "Is",
-          "translation": "Asking about one place.",
-          "hint": "singular, question order",
-          "display_order": 3
-        },
-        {
-          "sentence": "There {{answer}} no milk.",
-          "answer": "is",
-          "translation": "The fridge is empty.",
-          "hint": "singular",
-          "display_order": 4
-        },
-        {
-          "sentence": "{{answer}} there any questions?",
-          "answer": "Are",
-          "translation": "Asking a group at the end of a talk.",
-          "hint": "plural, question order",
-          "display_order": 5
-        },
-        {
-          "sentence": "There {{answer}} many people here today.",
-          "answer": "are",
-          "translation": "The place is crowded.",
-          "hint": "plural",
-          "display_order": 6
-        }
-      ]
-    },
-    {
-      "title": "Question words (what, where, when…)",
-      "level": "A1",
-      "function": "Ask about things, places, people, and time",
-      "source": "contributor",
-      "reviewed": true,
-      "display_order": 11,
-      "explanation": "What, where, when, who, why, how — question word first, then the helper: Where do you live? What is your name? How old are you? (age uses how + old, never 'how many years have you').",
-      "culture_note": "",
-      "references": [
-        {
-          "title": "British Council–EAQUALS Core Inventory for General English",
-          "url": "https://www.eaquals.org/wp-content/uploads/EAQUALS_British_Council_Core_Curriculum_April2011.pdf"
-        },
-        {
-          "title": "Wikipedia: Interrogative word",
-          "url": "https://en.wikipedia.org/wiki/Interrogative_word"
-        }
-      ],
-      "drills": [
-        {
-          "sentence": "{{answer}} do you live?",
-          "answer": "Where",
-          "translation": "Asking about someone's home.",
-          "hint": "asking about a place",
-          "display_order": 1
-        },
-        {
-          "sentence": "{{answer}} is your name?",
-          "answer": "What",
-          "translation": "Meeting someone new.",
-          "hint": "asking about a thing",
-          "display_order": 2
-        },
-        {
-          "sentence": "{{answer}} is your birthday?",
-          "answer": "When",
-          "translation": "Asking about a date.",
-          "hint": "asking about time",
-          "display_order": 3
-        },
-        {
-          "sentence": "{{answer}} old are you?",
-          "answer": "How",
-          "translation": "Asking someone's age.",
-          "hint": "age asks this way",
-          "display_order": 4
-        },
-        {
-          "sentence": "{{answer}} is your teacher?",
-          "answer": "Who",
-          "translation": "Asking about a person.",
-          "hint": "asking about a person",
-          "display_order": 5
-        },
-        {
-          "sentence": "{{answer}} are you crying?",
-          "answer": "Why",
-          "translation": "Asking for a reason.",
-          "hint": "asking for a reason",
-          "display_order": 6
-        }
-      ]
-    },
-    {
-      "title": "Possessives (my, your, 's)",
-      "level": "A1",
-      "function": "Say whose something is",
-      "source": "contributor",
-      "reviewed": true,
-      "display_order": 12,
-      "explanation": "My, your, his, her, its, our, their — they never change for the thing owned: my book, my books. People take 's: my brother's car. Watch its (possessive) vs it's (= it is) — natives get this wrong too.",
-      "culture_note": "",
-      "references": [
-        {
-          "title": "British Council–EAQUALS Core Inventory for General English",
-          "url": "https://www.eaquals.org/wp-content/uploads/EAQUALS_British_Council_Core_Curriculum_April2011.pdf"
-        },
-        {
-          "title": "Wikipedia: English possessive",
-          "url": "https://en.wikipedia.org/wiki/English_possessive"
-        }
-      ],
-      "drills": [
-        {
-          "sentence": "This is {{answer}} book.",
-          "answer": "my",
-          "translation": "It belongs to the speaker.",
-          "hint": "belonging to me",
-          "display_order": 1
-        },
-        {
-          "sentence": "Is this {{answer}} car?",
-          "answer": "your",
-          "translation": "Asking the person you are talking to.",
-          "hint": "belonging to you",
-          "display_order": 2
-        },
-        {
-          "sentence": "{{answer}} name is Anna.",
-          "answer": "Her",
-          "translation": "Introducing a woman.",
-          "hint": "belonging to her",
-          "display_order": 3
-        },
-        {
-          "sentence": "That is my {{answer}} car.",
-          "answer": "brother's",
-          "translation": "It belongs to a family member.",
-          "hint": "brother + the ownership ending",
-          "display_order": 4
-        },
-        {
-          "sentence": "{{answer}} house is big.",
-          "answer": "Their",
-          "translation": "It belongs to some people.",
-          "hint": "belonging to them",
-          "display_order": 5
-        },
-        {
-          "sentence": "The dog wags {{answer}} tail.",
-          "answer": "its",
-          "translation": "The tail belongs to the dog.",
-          "hint": "belonging to a thing — no apostrophe",
-          "display_order": 6
-        }
-      ]
+     "sentence": "{{answer}} are very kind.",
+     "answer": "You",
+     "translation": "Complimenting the person you are talking to.",
+     "hint": "the person you are talking to",
+     "display_order": 6
     }
-  ]
+   ]
+  },
+  {
+   "title": "To be — am / is / are",
+   "level": "A1",
+   "function": "Say who or what someone is",
+   "source": "contributor",
+   "reviewed": true,
+   "display_order": 2,
+   "explanation": "Three forms in the present: I am, he/she/it is, you/we/they are.\n\nContractions rule everyday English: I'm, he's, they're.\n\nUnlike many languages, the verb can never be dropped: she IS a doctor.",
+   "culture_note": "",
+   "references": [
+    {
+     "title": "Cambridge Dictionary — English Grammar",
+     "url": "https://dictionary.cambridge.org/grammar/british-grammar/"
+    },
+    {
+     "title": "British Council–EAQUALS Core Inventory for General English",
+     "url": "https://www.eaquals.org/wp-content/uploads/EAQUALS_British_Council_Core_Curriculum_April2011.pdf"
+    },
+    {
+     "title": "Wiktionary: be (English)",
+     "url": "https://en.wiktionary.org/wiki/be#English"
+    }
+   ],
+   "drills": [
+    {
+     "sentence": "I {{answer}} a student.",
+     "answer": "am",
+     "translation": "Talking about yourself.",
+     "hint": "be — with I",
+     "display_order": 1
+    },
+    {
+     "sentence": "You {{answer}} my friend.",
+     "answer": "are",
+     "translation": "Talking to one person.",
+     "hint": "be — with you",
+     "display_order": 2
+    },
+    {
+     "sentence": "She {{answer}} a doctor.",
+     "answer": "is",
+     "translation": "Talking about her job.",
+     "hint": "be — with she",
+     "display_order": 3
+    },
+    {
+     "sentence": "We {{answer}} at home.",
+     "answer": "are",
+     "translation": "Saying where you and your family are.",
+     "hint": "be — with we",
+     "display_order": 4
+    },
+    {
+     "sentence": "The coffee {{answer}} hot.",
+     "answer": "is",
+     "translation": "Describing a drink.",
+     "hint": "be — with it/a thing",
+     "display_order": 5
+    },
+    {
+     "sentence": "They {{answer}} from Japan.",
+     "answer": "are",
+     "translation": "Saying where some people come from.",
+     "hint": "be — with they",
+     "display_order": 6
+    }
+   ]
+  },
+  {
+   "title": "Articles: a / an",
+   "level": "A1",
+   "function": "Mention something for the first time",
+   "source": "contributor",
+   "reviewed": true,
+   "display_order": 3,
+   "explanation": "A before a consonant SOUND (a dog, a university), an before a vowel SOUND (an apple, an hour). It's about sound, not spelling.\n\nSingular countable nouns almost always need one: she is A doctor — never 'she is doctor'.",
+   "culture_note": "Learners whose languages have no articles: this is the single most common giveaway. When in doubt with a singular noun, add a/an.",
+   "references": [
+    {
+     "title": "Cambridge Dictionary — English Grammar",
+     "url": "https://dictionary.cambridge.org/grammar/british-grammar/"
+    },
+    {
+     "title": "British Council–EAQUALS Core Inventory for General English",
+     "url": "https://www.eaquals.org/wp-content/uploads/EAQUALS_British_Council_Core_Curriculum_April2011.pdf"
+    },
+    {
+     "title": "Wikipedia: English articles",
+     "url": "https://en.wikipedia.org/wiki/English_articles"
+    }
+   ],
+   "drills": [
+    {
+     "sentence": "I have {{answer}} dog.",
+     "answer": "a",
+     "translation": "Talking about your pet.",
+     "hint": "before a consonant sound",
+     "display_order": 1
+    },
+    {
+     "sentence": "She is {{answer}} engineer.",
+     "answer": "an",
+     "translation": "Talking about her job.",
+     "hint": "before a vowel sound",
+     "display_order": 2
+    },
+    {
+     "sentence": "It is {{answer}} big house.",
+     "answer": "a",
+     "translation": "Describing a home.",
+     "hint": "before a consonant sound",
+     "display_order": 3
+    },
+    {
+     "sentence": "He eats {{answer}} apple every day.",
+     "answer": "an",
+     "translation": "Describing a daily habit.",
+     "hint": "before a vowel sound",
+     "display_order": 4
+    },
+    {
+     "sentence": "I read {{answer}} book every week.",
+     "answer": "a",
+     "translation": "Describing a weekly habit.",
+     "hint": "before a consonant sound",
+     "display_order": 5
+    },
+    {
+     "sentence": "I need {{answer}} umbrella.",
+     "answer": "an",
+     "translation": "It looks like rain.",
+     "hint": "before a vowel sound",
+     "display_order": 6
+    }
+   ]
+  },
+  {
+   "title": "The — pointing at a specific thing",
+   "level": "A1",
+   "function": "Talk about something both of you can identify",
+   "source": "contributor",
+   "reviewed": true,
+   "display_order": 4,
+   "explanation": "Use the when both speaker and listener know WHICH one: the door (of this room), the sun (there's only one), the book on the table (identified).\n\nFirst mention gets a/an, second mention gets the: I saw a dog. The dog was black.",
+   "culture_note": "",
+   "references": [
+    {
+     "title": "Cambridge Dictionary — English Grammar",
+     "url": "https://dictionary.cambridge.org/grammar/british-grammar/"
+    },
+    {
+     "title": "British Council–EAQUALS Core Inventory for General English",
+     "url": "https://www.eaquals.org/wp-content/uploads/EAQUALS_British_Council_Core_Curriculum_April2011.pdf"
+    },
+    {
+     "title": "Wikipedia: English articles — definite article",
+     "url": "https://en.wikipedia.org/wiki/English_articles"
+    }
+   ],
+   "drills": [
+    {
+     "sentence": "{{answer}} sun is hot today.",
+     "answer": "The",
+     "translation": "There is only one of it.",
+     "hint": "unique things take this article",
+     "display_order": 1
+    },
+    {
+     "sentence": "Please close {{answer}} door.",
+     "answer": "the",
+     "translation": "You both know which door.",
+     "hint": "both of you can identify it",
+     "display_order": 2
+    },
+    {
+     "sentence": "{{answer}} keys in my hand are mine.",
+     "answer": "The",
+     "translation": "Specific, identified keys.",
+     "hint": "identified by the phrase after it",
+     "display_order": 3
+    },
+    {
+     "sentence": "We live near {{answer}} station.",
+     "answer": "the",
+     "translation": "The station of this town.",
+     "hint": "both of you can identify it",
+     "display_order": 4
+    },
+    {
+     "sentence": "{{answer}} moon is bright tonight.",
+     "answer": "The",
+     "translation": "There is only one of it.",
+     "hint": "unique things take this article",
+     "display_order": 5
+    },
+    {
+     "sentence": "Where is {{answer}} bathroom?",
+     "answer": "the",
+     "translation": "Asking in a café or a home.",
+     "hint": "both of you can identify it",
+     "display_order": 6
+    }
+   ]
+  },
+  {
+   "title": "Plural nouns (-s, -es, irregular)",
+   "level": "A1",
+   "function": "Name more than one of something",
+   "source": "contributor",
+   "reviewed": true,
+   "display_order": 5,
+   "explanation": "Most nouns add -s (books); nouns ending in -s, -sh, -ch, -x add -es (buses, watches); consonant + y becomes -ies (family → families).\n\nA few are irregular and unavoidable: child → children, man → men, woman → women, foot → feet, person → people.",
+   "culture_note": "",
+   "references": [
+    {
+     "title": "Cambridge Dictionary — English Grammar",
+     "url": "https://dictionary.cambridge.org/grammar/british-grammar/"
+    },
+    {
+     "title": "British Council–EAQUALS Core Inventory for General English",
+     "url": "https://www.eaquals.org/wp-content/uploads/EAQUALS_British_Council_Core_Curriculum_April2011.pdf"
+    },
+    {
+     "title": "Wikipedia: English plurals",
+     "url": "https://en.wikipedia.org/wiki/English_plurals"
+    }
+   ],
+   "drills": [
+    {
+     "sentence": "I have two {{answer}}.",
+     "answer": "books",
+     "translation": "Things you read.",
+     "hint": "book, plural",
+     "display_order": 1
+    },
+    {
+     "sentence": "The {{answer}} are playing outside.",
+     "answer": "children",
+     "translation": "Young people.",
+     "hint": "child — irregular plural",
+     "display_order": 2
+    },
+    {
+     "sentence": "She has three {{answer}}.",
+     "answer": "watches",
+     "translation": "Things that tell the time.",
+     "hint": "watch — add -es",
+     "display_order": 3
+    },
+    {
+     "sentence": "The {{answer}} are late today.",
+     "answer": "buses",
+     "translation": "Public transport.",
+     "hint": "bus — add -es",
+     "display_order": 4
+    },
+    {
+     "sentence": "Two {{answer}} live in our street.",
+     "answer": "families",
+     "translation": "Parents and children.",
+     "hint": "family — y becomes -ies",
+     "display_order": 5
+    },
+    {
+     "sentence": "My {{answer}} are cold.",
+     "answer": "feet",
+     "translation": "The body parts you stand on.",
+     "hint": "foot — irregular plural",
+     "display_order": 6
+    }
+   ]
+  },
+  {
+   "title": "Present simple (I work)",
+   "level": "A1",
+   "function": "Talk about habits and facts",
+   "source": "contributor",
+   "reviewed": true,
+   "display_order": 6,
+   "explanation": "For habits, routines, and facts, the verb stays in its base form with I, you, we, they: I work in a bank, they live in London.\n\nTime words love this tense: every day, usually, always, never.",
+   "culture_note": "",
+   "references": [
+    {
+     "title": "Cambridge Dictionary — English Grammar",
+     "url": "https://dictionary.cambridge.org/grammar/british-grammar/"
+    },
+    {
+     "title": "British Council–EAQUALS Core Inventory for General English",
+     "url": "https://www.eaquals.org/wp-content/uploads/EAQUALS_British_Council_Core_Curriculum_April2011.pdf"
+    },
+    {
+     "title": "Wikipedia: Simple present",
+     "url": "https://en.wikipedia.org/wiki/Simple_present"
+    }
+   ],
+   "drills": [
+    {
+     "sentence": "I {{answer}} in a bank.",
+     "answer": "work",
+     "translation": "Talking about your job.",
+     "hint": "what you do at your job",
+     "display_order": 1
+    },
+    {
+     "sentence": "We {{answer}} breakfast at seven.",
+     "answer": "have",
+     "translation": "Describing your morning routine.",
+     "hint": "eat or take (a meal)",
+     "display_order": 2
+    },
+    {
+     "sentence": "They {{answer}} in London.",
+     "answer": "live",
+     "translation": "Saying where some people are at home.",
+     "hint": "reside somewhere",
+     "display_order": 3
+    },
+    {
+     "sentence": "You {{answer}} English very well.",
+     "answer": "speak",
+     "translation": "Complimenting someone's language skills.",
+     "hint": "use a language",
+     "display_order": 4
+    },
+    {
+     "sentence": "I {{answer}} coffee every morning.",
+     "answer": "drink",
+     "translation": "Describing a daily habit.",
+     "hint": "consume a liquid",
+     "display_order": 5
+    },
+    {
+     "sentence": "We {{answer}} TV in the evening.",
+     "answer": "watch",
+     "translation": "Describing an evening habit.",
+     "hint": "look at a screen or show",
+     "display_order": 6
+    }
+   ]
+  },
+  {
+   "title": "Third-person -s (she works)",
+   "level": "A1",
+   "function": "Talk about what he, she, or it does",
+   "source": "contributor",
+   "reviewed": true,
+   "display_order": 7,
+   "explanation": "With he, she, and it, the present simple adds -s: she works, he plays.\n\nSpelling follows the plural rules: go → goes, watch → watches, study → studies.\n\nOne tiny letter — and the most forgotten one in all of English.",
+   "culture_note": "Native listeners barely notice a missing article, but a missing third-person -s ('she work') registers instantly. Worth drilling.",
+   "references": [
+    {
+     "title": "Cambridge Dictionary — English Grammar",
+     "url": "https://dictionary.cambridge.org/grammar/british-grammar/"
+    },
+    {
+     "title": "British Council–EAQUALS Core Inventory for General English",
+     "url": "https://www.eaquals.org/wp-content/uploads/EAQUALS_British_Council_Core_Curriculum_April2011.pdf"
+    },
+    {
+     "title": "Wikipedia: Simple present — third person",
+     "url": "https://en.wikipedia.org/wiki/Simple_present"
+    }
+   ],
+   "drills": [
+    {
+     "sentence": "She {{answer}} in a hospital.",
+     "answer": "works",
+     "translation": "Talking about her job.",
+     "hint": "to work — with she",
+     "display_order": 1
+    },
+    {
+     "sentence": "He {{answer}} to school every day.",
+     "answer": "goes",
+     "translation": "Describing his daily routine.",
+     "hint": "to go — add -es",
+     "display_order": 2
+    },
+    {
+     "sentence": "My brother {{answer}} English.",
+     "answer": "studies",
+     "translation": "Talking about his classes.",
+     "hint": "to study — y becomes -ies",
+     "display_order": 3
+    },
+    {
+     "sentence": "The shop {{answer}} at nine.",
+     "answer": "opens",
+     "translation": "Talking about business hours.",
+     "hint": "to open — with it",
+     "display_order": 4
+    },
+    {
+     "sentence": "She {{answer}} TV after dinner.",
+     "answer": "watches",
+     "translation": "Describing her evening habit.",
+     "hint": "to watch — add -es",
+     "display_order": 5
+    },
+    {
+     "sentence": "It {{answer}} a lot in April.",
+     "answer": "rains",
+     "translation": "Talking about the weather.",
+     "hint": "to rain — with it",
+     "display_order": 6
+    }
+   ]
+  },
+  {
+   "title": "Do-support: questions and negation",
+   "level": "A1",
+   "function": "Ask and deny in the present simple",
+   "source": "contributor",
+   "reviewed": true,
+   "display_order": 8,
+   "explanation": "English borrows 'do' to build questions and negatives: Do you speak English? She does not (doesn't) work here.\n\nWith he/she/it use does — and then the main verb LOSES its -s: does she work (not 'does she works').",
+   "culture_note": "",
+   "references": [
+    {
+     "title": "Cambridge Dictionary — English Grammar",
+     "url": "https://dictionary.cambridge.org/grammar/british-grammar/"
+    },
+    {
+     "title": "British Council–EAQUALS Core Inventory for General English",
+     "url": "https://www.eaquals.org/wp-content/uploads/EAQUALS_British_Council_Core_Curriculum_April2011.pdf"
+    },
+    {
+     "title": "Wikipedia: Do-support",
+     "url": "https://en.wikipedia.org/wiki/Do-support"
+    }
+   ],
+   "drills": [
+    {
+     "sentence": "{{answer}} you speak English?",
+     "answer": "Do",
+     "translation": "Asking about someone's languages.",
+     "hint": "the helper — with you",
+     "display_order": 1
+    },
+    {
+     "sentence": "{{answer}} she work here?",
+     "answer": "Does",
+     "translation": "Asking about her job.",
+     "hint": "the helper — with she",
+     "display_order": 2
+    },
+    {
+     "sentence": "I {{answer}} not eat meat.",
+     "answer": "do",
+     "translation": "Talking about your diet.",
+     "hint": "the helper — with I",
+     "display_order": 3
+    },
+    {
+     "sentence": "He {{answer}} not like coffee.",
+     "answer": "does",
+     "translation": "Talking about his tastes.",
+     "hint": "the helper — with he",
+     "display_order": 4
+    },
+    {
+     "sentence": "{{answer}} they live in Rome?",
+     "answer": "Do",
+     "translation": "Asking where some people live.",
+     "hint": "the helper — with they",
+     "display_order": 5
+    },
+    {
+     "sentence": "We {{answer}} not have time.",
+     "answer": "do",
+     "translation": "You are in a hurry.",
+     "hint": "the helper — with we",
+     "display_order": 6
+    }
+   ]
+  },
+  {
+   "title": "Present continuous (I am working)",
+   "level": "A1",
+   "function": "Say what is happening right now",
+   "source": "contributor",
+   "reviewed": true,
+   "display_order": 9,
+   "explanation": "Be + verb-ing for actions in progress: I am reading, she is cooking. Contrast with the present simple: I drink coffee every day (habit) vs I am drinking coffee (right now).\n\nSpelling: make → making, run → running.",
+   "culture_note": "",
+   "references": [
+    {
+     "title": "Cambridge Dictionary — English Grammar",
+     "url": "https://dictionary.cambridge.org/grammar/british-grammar/"
+    },
+    {
+     "title": "British Council–EAQUALS Core Inventory for General English",
+     "url": "https://www.eaquals.org/wp-content/uploads/EAQUALS_British_Council_Core_Curriculum_April2011.pdf"
+    },
+    {
+     "title": "Wikipedia: Present continuous",
+     "url": "https://en.wikipedia.org/wiki/Present_continuous"
+    }
+   ],
+   "drills": [
+    {
+     "sentence": "I am {{answer}} a book right now.",
+     "answer": "reading",
+     "translation": "What you are doing at this moment.",
+     "hint": "to read + -ing",
+     "display_order": 1
+    },
+    {
+     "sentence": "She is {{answer}} dinner now.",
+     "answer": "cooking",
+     "translation": "She is in the kitchen.",
+     "hint": "to cook + -ing",
+     "display_order": 2
+    },
+    {
+     "sentence": "They are {{answer}} football.",
+     "answer": "playing",
+     "translation": "A game is happening.",
+     "hint": "to play + -ing",
+     "display_order": 3
+    },
+    {
+     "sentence": "Look! It is {{answer}}.",
+     "answer": "raining",
+     "translation": "Weather, right now.",
+     "hint": "to rain + -ing",
+     "display_order": 4
+    },
+    {
+     "sentence": "We are {{answer}} for the bus.",
+     "answer": "waiting",
+     "translation": "Standing at the bus stop.",
+     "hint": "to wait + -ing",
+     "display_order": 5
+    },
+    {
+     "sentence": "He is {{answer}} at the moment.",
+     "answer": "sleeping",
+     "translation": "Please be quiet.",
+     "hint": "to sleep + -ing",
+     "display_order": 6
+    }
+   ]
+  },
+  {
+   "title": "There is / there are",
+   "level": "A1",
+   "function": "Say what exists or is available",
+   "source": "contributor",
+   "reviewed": true,
+   "display_order": 10,
+   "explanation": "There is + singular (there is a book), there are + plural (there are two cafés). Questions flip: Is there a bank near here?\n\nNegatives: there is no milk / there aren't any questions.",
+   "culture_note": "",
+   "references": [
+    {
+     "title": "Cambridge Dictionary — English Grammar",
+     "url": "https://dictionary.cambridge.org/grammar/british-grammar/"
+    },
+    {
+     "title": "British Council–EAQUALS Core Inventory for General English",
+     "url": "https://www.eaquals.org/wp-content/uploads/EAQUALS_British_Council_Core_Curriculum_April2011.pdf"
+    },
+    {
+     "title": "Wikipedia: Existential clause",
+     "url": "https://en.wikipedia.org/wiki/Existential_clause"
+    }
+   ],
+   "drills": [
+    {
+     "sentence": "There {{answer}} a book on the table.",
+     "answer": "is",
+     "translation": "One thing exists.",
+     "hint": "singular",
+     "display_order": 1
+    },
+    {
+     "sentence": "There {{answer}} two cafés in this street.",
+     "answer": "are",
+     "translation": "More than one thing exists.",
+     "hint": "plural",
+     "display_order": 2
+    },
+    {
+     "sentence": "{{answer}} there a bank near here?",
+     "answer": "Is",
+     "translation": "Asking about one place.",
+     "hint": "singular, question order",
+     "display_order": 3
+    },
+    {
+     "sentence": "There {{answer}} no milk.",
+     "answer": "is",
+     "translation": "The fridge is empty.",
+     "hint": "singular",
+     "display_order": 4
+    },
+    {
+     "sentence": "{{answer}} there any questions?",
+     "answer": "Are",
+     "translation": "Asking a group at the end of a talk.",
+     "hint": "plural, question order",
+     "display_order": 5
+    },
+    {
+     "sentence": "There {{answer}} many people here today.",
+     "answer": "are",
+     "translation": "The place is crowded.",
+     "hint": "plural",
+     "display_order": 6
+    }
+   ]
+  },
+  {
+   "title": "Question words (what, where, when…)",
+   "level": "A1",
+   "function": "Ask about things, places, people, and time",
+   "source": "contributor",
+   "reviewed": true,
+   "display_order": 11,
+   "explanation": "What, where, when, who, why, how — question word first, then the helper: Where do you live? What is your name?\n\nHow old are you? (age uses how + old, never 'how many years have you').",
+   "culture_note": "",
+   "references": [
+    {
+     "title": "Cambridge Dictionary — English Grammar",
+     "url": "https://dictionary.cambridge.org/grammar/british-grammar/"
+    },
+    {
+     "title": "British Council–EAQUALS Core Inventory for General English",
+     "url": "https://www.eaquals.org/wp-content/uploads/EAQUALS_British_Council_Core_Curriculum_April2011.pdf"
+    },
+    {
+     "title": "Wikipedia: Interrogative word",
+     "url": "https://en.wikipedia.org/wiki/Interrogative_word"
+    }
+   ],
+   "drills": [
+    {
+     "sentence": "{{answer}} do you live?",
+     "answer": "Where",
+     "translation": "Asking about someone's home.",
+     "hint": "asking about a place",
+     "display_order": 1
+    },
+    {
+     "sentence": "{{answer}} is your name?",
+     "answer": "What",
+     "translation": "Meeting someone new.",
+     "hint": "asking about a thing",
+     "display_order": 2
+    },
+    {
+     "sentence": "{{answer}} is your birthday?",
+     "answer": "When",
+     "translation": "Asking about a date.",
+     "hint": "asking about time",
+     "display_order": 3
+    },
+    {
+     "sentence": "{{answer}} old are you?",
+     "answer": "How",
+     "translation": "Asking someone's age.",
+     "hint": "age asks this way",
+     "display_order": 4
+    },
+    {
+     "sentence": "{{answer}} is your teacher?",
+     "answer": "Who",
+     "translation": "Asking about a person.",
+     "hint": "asking about a person",
+     "display_order": 5
+    },
+    {
+     "sentence": "{{answer}} are you crying?",
+     "answer": "Why",
+     "translation": "Asking for a reason.",
+     "hint": "asking for a reason",
+     "display_order": 6
+    }
+   ]
+  },
+  {
+   "title": "Possessives (my, your, 's)",
+   "level": "A1",
+   "function": "Say whose something is",
+   "source": "contributor",
+   "reviewed": true,
+   "display_order": 12,
+   "explanation": "My, your, his, her, its, our, their — they never change for the thing owned: my book, my books. People take 's: my brother's car.\n\nWatch its (possessive) vs it's (= it is) — natives get this wrong too.",
+   "culture_note": "",
+   "references": [
+    {
+     "title": "Cambridge Dictionary — English Grammar",
+     "url": "https://dictionary.cambridge.org/grammar/british-grammar/"
+    },
+    {
+     "title": "British Council–EAQUALS Core Inventory for General English",
+     "url": "https://www.eaquals.org/wp-content/uploads/EAQUALS_British_Council_Core_Curriculum_April2011.pdf"
+    },
+    {
+     "title": "Wikipedia: English possessive",
+     "url": "https://en.wikipedia.org/wiki/English_possessive"
+    }
+   ],
+   "drills": [
+    {
+     "sentence": "This is {{answer}} book.",
+     "answer": "my",
+     "translation": "It belongs to the speaker.",
+     "hint": "belonging to me",
+     "display_order": 1
+    },
+    {
+     "sentence": "Is this {{answer}} car?",
+     "answer": "your",
+     "translation": "Asking the person you are talking to.",
+     "hint": "belonging to you",
+     "display_order": 2
+    },
+    {
+     "sentence": "{{answer}} name is Anna.",
+     "answer": "Her",
+     "translation": "Introducing a woman.",
+     "hint": "belonging to her",
+     "display_order": 3
+    },
+    {
+     "sentence": "That is my {{answer}} car.",
+     "answer": "brother's",
+     "translation": "It belongs to a family member.",
+     "hint": "brother + the ownership ending",
+     "display_order": 4
+    },
+    {
+     "sentence": "{{answer}} house is big.",
+     "answer": "Their",
+     "translation": "It belongs to some people.",
+     "hint": "belonging to them",
+     "display_order": 5
+    },
+    {
+     "sentence": "The dog wags {{answer}} tail.",
+     "answer": "its",
+     "translation": "The tail belongs to the dog.",
+     "hint": "belonging to a thing — no apostrophe",
+     "display_order": 6
+    }
+   ]
+  }
+ ]
 }

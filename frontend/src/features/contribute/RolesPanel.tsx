@@ -67,7 +67,7 @@ export default function RolesPanel({ languages }: { languages: Language[] }) {
               className="py-1.5 flex items-center gap-2"
             >
               <span className="flex-1 truncate text-gray-800">{g.email}</span>
-              <span className="text-xs rounded-full px-2 py-0.5 bg-indigo-50 text-indigo-700 capitalize">
+              <span className="text-xs rounded-full px-2 py-0.5 bg-lang-soft text-lang-dark capitalize">
                 {g.role}
               </span>
               <span className="text-xs text-gray-400">
@@ -137,7 +137,7 @@ export default function RolesPanel({ languages }: { languages: Language[] }) {
         <button
           type="submit"
           disabled={grantMutation.isPending || !email.trim()}
-          className="bg-indigo-600 hover:bg-indigo-700 disabled:opacity-50 text-white font-semibold rounded-lg px-4 py-1.5 text-sm"
+          className="bg-lang hover:bg-lang-dark disabled:opacity-50 text-lang-on font-semibold rounded-lg px-4 py-1.5 text-sm"
         >
           Grant
         </button>

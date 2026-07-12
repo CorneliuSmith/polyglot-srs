@@ -30,12 +30,17 @@ describe('SpeakButton', () => {
   })
 
   it('speaks the text in the mapped locale when clicked', () => {
+    // the utterance is queued a tick after cancel() (Chrome swallows
+    // same-tick speak-after-cancel)
+    vi.useFakeTimers()
     render(<SpeakButton text="hola" languageCode="es" />)
     fireEvent.click(screen.getByRole('button'))
+    vi.runAllTimers()
     expect(speak).toHaveBeenCalledTimes(1)
     const utterance = speak.mock.calls[0][0] as FakeUtterance
     expect(utterance.text).toBe('hola')
     expect(utterance.lang).toBe('es-ES') // es → es-ES
+    vi.useRealTimers()
   })
 
   it('renders nothing when speech is unsupported and no audio file is given', () => {

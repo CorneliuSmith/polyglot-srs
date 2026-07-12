@@ -407,6 +407,43 @@ def merge_remembered(
     return user, lang
 
 
+def _empty_usage() -> dict[str, int]:
+    return {
+        "input_tokens": 0,
+        "output_tokens": 0,
+        "cache_write_tokens": 0,
+        "cache_read_tokens": 0,
+    }
+
+
+def _add_usage(total: dict[str, int], usage: Any) -> None:
+    """Accumulate an Anthropic usage block into *total*.
+
+    A tool-loop turn makes several API calls; the operator's cost unit is
+    the whole turn, so counts are summed across calls.
+    """
+    if usage is None:
+        return
+    total["input_tokens"] += getattr(usage, "input_tokens", 0) or 0
+    total["output_tokens"] += getattr(usage, "output_tokens", 0) or 0
+    total["cache_write_tokens"] += (
+        getattr(usage, "cache_creation_input_tokens", 0) or 0
+    )
+    total["cache_read_tokens"] += getattr(usage, "cache_read_input_tokens", 0) or 0
+
+
+def _mock_usage(history: list[dict], reply: str) -> dict[str, int]:
+    """Deterministic pseudo-usage for dev mock (~4 chars/token) so the admin
+    cost view has data to render without an API key."""
+    prompt_chars = sum(len(m["content"]) for m in history)
+    return {
+        "input_tokens": prompt_chars // 4 + 1,
+        "output_tokens": len(reply) // 4 + 1,
+        "cache_write_tokens": 0,
+        "cache_read_tokens": 0,
+    }
+
+
 def _mock_chat(language_code: str, history: list[dict], weak_areas: list[dict]) -> tuple[str, list[dict]]:
     """Canned tutor turn for dev mock mode — no Claude API call.
 
@@ -446,20 +483,25 @@ async def tutor_chat(
     language_profile: dict | None = None,
     session_summary: str | None = None,
     study_stats: dict | None = None,
-) -> tuple[str, list[dict]]:
+    model: str | None = None,
+) -> tuple[str, list[dict], dict[str, int]]:
     """Run one tutor turn.
 
-    Returns (reply_text, remembered) where `remembered` is the list of
+    Returns (reply_text, remembered, usage): `remembered` is the list of
     `remember` tool payloads ({"scope", "key", "value"}) the tutor emitted
-    this turn, for the caller to persist.
+    this turn, for the caller to persist; `usage` is the turn's token counts
+    summed across tool-loop calls (WP9b cost capture). *model* overrides the
+    global default (WP15a: per-language tutor models).
     """
     settings = get_settings()
+    model = model or settings.tutor_model
     history = sanitize_history(messages)
     if not history:
         raise ValueError("Conversation must contain at least one user message")
 
     if getattr(settings, "tutor_dev_mock", False):
-        return _mock_chat(language_code, history, weak_areas)
+        reply, remembered = _mock_chat(language_code, history, weak_areas)
+        return reply, remembered, _mock_usage(history, reply)
 
     client = AsyncAnthropic(api_key=settings.anthropic_api_key)
     system = build_system_blocks(
@@ -468,23 +510,25 @@ async def tutor_chat(
     )
     convo: list[dict[str, Any]] = list(history)
     remembered: list[dict] = []
+    usage = _empty_usage()
 
     for _ in range(MAX_TOOL_ITERATIONS):
         response = await client.messages.create(
-            model=settings.tutor_model,
+            model=model,
             max_tokens=2048,
             thinking={"type": "adaptive"},
             system=system,
             messages=convo,
             tools=[REMEMBER_TOOL],
         )
+        _add_usage(usage, getattr(response, "usage", None))
 
         tool_uses = [b for b in response.content if b.type == "tool_use"]
         if not tool_uses:
             reply = next(
                 (b.text for b in response.content if b.type == "text"), ""
             )
-            return reply, remembered
+            return reply, remembered, usage
 
         # Echo the assistant turn back verbatim (preserves thinking blocks),
         # then answer each remember call so the model can continue.
@@ -506,14 +550,108 @@ async def tutor_chat(
 
     # Tool loop exhausted — make one final non-tool call for the reply.
     response = await client.messages.create(
-        model=settings.tutor_model,
+        model=model,
         max_tokens=2048,
         thinking={"type": "adaptive"},
         system=system,
         messages=convo,
     )
+    _add_usage(usage, getattr(response, "usage", None))
     reply = next((b.text for b in response.content if b.type == "text"), "")
-    return reply, remembered
+    return reply, remembered, usage
+
+
+async def tutor_chat_stream(
+    language_code: str,
+    messages: list[dict],
+    weak_areas: list[dict],
+    user_profile: dict | None = None,
+    language_profile: dict | None = None,
+    session_summary: str | None = None,
+    study_stats: dict | None = None,
+    model: str | None = None,
+):
+    """Streaming twin of tutor_chat (WP9d). Yields event dicts:
+
+      {"type": "delta", "text": ...}   — a chunk of assistant text
+      {"type": "reset"}                — the streamed text belonged to a
+                                         tool-use turn; drop it and expect
+                                         fresh deltas (rare: remember calls)
+      {"type": "done", "reply": ..., "remembered": [...], "usage": {...}}
+
+    The caller owns persistence (usage log, remembered facts) after "done" —
+    and must strip "usage" before forwarding the event to the client.
+    """
+    settings = get_settings()
+    model = model or settings.tutor_model
+    history = sanitize_history(messages)
+    if not history:
+        raise ValueError("Conversation must contain at least one user message")
+
+    if getattr(settings, "tutor_dev_mock", False):
+        reply, remembered = _mock_chat(language_code, history, weak_areas)
+        # Chunk the canned reply so the streaming UI path is exercised.
+        for i in range(0, len(reply), 24):
+            yield {"type": "delta", "text": reply[i:i + 24]}
+        yield {
+            "type": "done", "reply": reply, "remembered": remembered,
+            "usage": _mock_usage(history, reply),
+        }
+        return
+
+    client = AsyncAnthropic(api_key=settings.anthropic_api_key)
+    system = build_system_blocks(
+        language_code, weak_areas, user_profile, language_profile,
+        session_summary, study_stats,
+    )
+    convo: list[dict[str, Any]] = list(history)
+    remembered: list[dict] = []
+    usage = _empty_usage()
+
+    for iteration in range(MAX_TOOL_ITERATIONS + 1):
+        tools = [REMEMBER_TOOL] if iteration < MAX_TOOL_ITERATIONS else []
+        async with client.messages.stream(
+            model=model,
+            max_tokens=2048,
+            thinking={"type": "adaptive"},
+            system=system,
+            messages=convo,
+            tools=tools,
+        ) as stream:
+            async for text in stream.text_stream:
+                yield {"type": "delta", "text": text}
+            response = await stream.get_final_message()
+        _add_usage(usage, getattr(response, "usage", None))
+
+        tool_uses = [b for b in response.content if b.type == "tool_use"]
+        if not tool_uses:
+            reply = next(
+                (b.text for b in response.content if b.type == "text"), ""
+            )
+            yield {
+                "type": "done", "reply": reply, "remembered": remembered,
+                "usage": usage,
+            }
+            return
+
+        # The turn ended in tool calls; whatever text streamed belonged to
+        # it. Tell the client to drop the buffer, then continue the loop.
+        yield {"type": "reset"}
+        convo.append({"role": "assistant", "content": response.content})
+        results = []
+        for tu in tool_uses:
+            if tu.name == "remember" and isinstance(tu.input, dict):
+                remembered.append({
+                    "scope": tu.input.get("scope"),
+                    "key": tu.input.get("key"),
+                    "value": tu.input.get("value"),
+                })
+            results.append({
+                "type": "tool_result",
+                "tool_use_id": tu.id,
+                "content": "Saved.",
+            })
+        convo.append({"role": "user", "content": results})
 
 
 _SUMMARY_SCHEMA = {
@@ -566,7 +704,10 @@ async def summarize_session(
     Reads the transcript plus current memory and returns structured updates:
         {"user_profile_updates": {...},
          "language_profile_updates": {...},
-         "session_summary": "..."}
+         "session_summary": "...",
+         "usage": {...}}
+    The "usage" key is present only when a model call actually ran (WP9b);
+    the caller logs it as a kind='summary' cost row.
     """
     settings = get_settings()
     history = sanitize_history(messages)
@@ -580,15 +721,17 @@ async def summarize_session(
     if getattr(settings, "tutor_dev_mock", False):
         user_turns = [m["content"] for m in history if m["role"] == "user"]
         topics = ", ".join(t[:30] for t in user_turns[:3])
+        summary = (
+            f"[dev mock] {len(user_turns)} learner turns. "
+            f"Topics touched: {topics}."
+        )
         return {
             "user_profile_updates": {},
             "language_profile_updates": (
                 {"last_session_topics": topics} if topics else {}
             ),
-            "session_summary": (
-                f"[dev mock] {len(user_turns)} learner turns. "
-                f"Topics touched: {topics}."
-            ),
+            "session_summary": summary,
+            "usage": _mock_usage(history, summary),
         }
 
     transcript = "\n".join(f"{m['role']}: {m['content']}" for m in history)
@@ -620,6 +763,8 @@ async def summarize_session(
         }],
         output_config={"format": {"type": "json_schema", "schema": _SUMMARY_SCHEMA}},
     )
+    usage = _empty_usage()
+    _add_usage(usage, getattr(response, "usage", None))
     text = next((b.text for b in response.content if b.type == "text"), "{}")
     try:
         data = json.loads(text)
@@ -628,9 +773,11 @@ async def summarize_session(
             "user_profile_updates": {},
             "language_profile_updates": {},
             "session_summary": prior_summary or "",
+            "usage": usage,
         }
     return {
         "user_profile_updates": data.get("user_profile_updates") or {},
         "language_profile_updates": data.get("language_profile_updates") or {},
         "session_summary": data.get("session_summary") or (prior_summary or ""),
+        "usage": usage,
     }

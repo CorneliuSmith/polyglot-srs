@@ -5,8 +5,16 @@ from pydantic_settings import BaseSettings, SettingsConfigDict
 
 class Settings(BaseSettings):
     supabase_url: str
-    supabase_anon_key: str
-    supabase_service_role_key: str
+    # The anon / service_role keys (and their successors, the publishable /
+    # secret API keys) are NOT used by the backend: it reaches Postgres
+    # directly via database_url and authenticates requests with the JWT secret
+    # / JWKS. Optional so migrating to the new API-key model — and dropping the
+    # legacy keys — doesn't crash startup over values nothing reads.
+    supabase_anon_key: str = ""
+    supabase_service_role_key: str = ""
+    # Shared HS256 secret for legacy Supabase access tokens. Still required
+    # while any HS256 tokens are issued; asymmetric (ES256/RS256) tokens are
+    # verified against the project JWKS and need no secret here.
     supabase_jwt_secret: str
     database_url: str
     environment: str = "development"

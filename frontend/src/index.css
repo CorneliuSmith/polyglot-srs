@@ -1,2 +1,99 @@
 @import url("https://fonts.googleapis.com/css2?family=Noto+Naskh+Arabic:wght@400;500;600;700&display=swap");
 @import "tailwindcss";
+
+/* ── Language identity palette ─────────────────────────────────────────────
+   The active language recolors the whole app: LanguageThemeApplier writes
+   these variables from the flag palettes in lib/languageColors.ts, and the
+   `lang` color tokens below turn them into utilities (bg-lang, text-lang,
+   bg-lang-dark, bg-lang-soft, bg-lang-accent, text-lang-on). Signed out or
+   before a language loads, they default to the app's original indigo. */
+:root {
+  --lang-primary: #4f46e5;
+  --lang-primary-dark: #4338ca;
+  --lang-accent: #818cf8;
+  --lang-soft: #eef2ff;
+  --lang-on-primary: #ffffff;
+  /* five-stage ramp through the flag palette (see stageRamp) */
+  --lang-stage-1: #bcbcbc;
+  --lang-stage-1-on: #1f2937;
+  --lang-stage-2: #818cf8;
+  --lang-stage-2-on: #ffffff;
+  --lang-stage-3: #4f46e5;
+  --lang-stage-3-on: #ffffff;
+  --lang-stage-4: #322d94;
+  --lang-stage-4-on: #ffffff;
+  --lang-stage-5: #1e1b52;
+  --lang-stage-5-on: #ffffff;
+}
+
+@theme inline {
+  --color-lang: var(--lang-primary);
+  --color-lang-dark: var(--lang-primary-dark);
+  --color-lang-accent: var(--lang-accent);
+  --color-lang-soft: var(--lang-soft);
+  --color-lang-on: var(--lang-on-primary);
+  --color-stage-1: var(--lang-stage-1);
+  --color-stage-1-on: var(--lang-stage-1-on);
+  --color-stage-2: var(--lang-stage-2);
+  --color-stage-2-on: var(--lang-stage-2-on);
+  --color-stage-3: var(--lang-stage-3);
+  --color-stage-3-on: var(--lang-stage-3-on);
+  --color-stage-4: var(--lang-stage-4);
+  --color-stage-4-on: var(--lang-stage-4-on);
+  --color-stage-5: var(--lang-stage-5);
+  --color-stage-5-on: var(--lang-stage-5-on);
+}
+
+/* ── Dark theme (WP13h) ────────────────────────────────────────────────────
+   Tailwind v4 utilities read their colors from CSS variables, so remapping
+   the gray ramp under `.dark` flips every gray background, text, and border
+   utility in the app at once — no per-component dark: variants. The ramp is
+   inverted (gray-50 = page background = darkest; gray-900 = strongest text =
+   lightest). Colored accent tints (indigo-50 chips, amber badges, …) are
+   deliberately left light: they read as highlighted callouts on dark.
+
+   NOTE: never write a utility glob with a star-slash inside this comment —
+   it terminates the comment early and the parser silently eats the next
+   rule (that exact bug shipped once).
+
+   --color-white is NOT remapped — buttons rely on text-white — so the card
+   surface gets an explicit .bg-white override instead. */
+.dark {
+  color-scheme: dark;
+  --color-gray-50: #111623;
+  --color-gray-100: #232b3b;
+  --color-gray-200: #2f3a4e;
+  --color-gray-300: #46526b;
+  --color-gray-400: #7f8ba3;
+  --color-gray-500: #97a3ba;
+  --color-gray-600: #b4bfd3;
+  --color-gray-700: #cbd4e4;
+  --color-gray-800: #dde4f0;
+  --color-gray-900: #eef2f9;
+}
+
+.dark .bg-white {
+  background-color: #1a2130;
+}
+
+/* Indigo TEXT (links, inline actions) needs a lighter shade on dark for
+   contrast — scoped to the text utilities so bg-indigo-600 buttons keep
+   their brand color. */
+.dark .text-indigo-600 {
+  color: #97a1f8;
+}
+.dark .hover\:text-indigo-600:hover {
+  color: #b3bafa;
+}
+
+/* Language-colored TEXT gets the same treatment on dark: lighten toward
+   white so deep flag blues/greens stay readable on the dark surface. */
+.dark .text-lang {
+  color: color-mix(in srgb, var(--lang-primary) 45%, white);
+}
+.dark .hover\:text-lang:hover {
+  color: color-mix(in srgb, var(--lang-primary) 30%, white);
+}
+.dark .text-lang-dark {
+  color: color-mix(in srgb, var(--lang-primary-dark) 40%, white);
+}

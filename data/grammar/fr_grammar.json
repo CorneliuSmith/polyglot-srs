@@ -1,909 +1,3143 @@
 {
-  "lists": [
+ "lists": [
+  {
+   "level": "A1",
+   "title": "French A1 Grammar Path",
+   "description": "A1 grammar in communicative order: subject pronouns, noun gender and number, both article families, être and avoir, the three verb groups in the present, negation, il y a, questions, and adjective agreement."
+  }
+ ],
+ "points": [
+  {
+   "title": "Subject pronouns (je, tu, il…)",
+   "level": "A1",
+   "function": "Say who you are talking about",
+   "source": "contributor",
+   "reviewed": true,
+   "display_order": 1,
+   "explanation": "The subject pronouns are je (I), tu (you, informal), il/elle (he/she), on (one/we, informal), nous (we), vous (you, formal or plural), ils/elles (they). Vous doubles as the polite singular — use it with strangers.\n\nOn is how spoken French usually says 'we': on mange à midi.",
+   "culture_note": "Choosing tu or vous is a real social decision. When unsure, start with vous and wait to be invited to tutoyer.",
+   "references": [
     {
-      "level": "A1",
-      "title": "French A1 Grammar Path",
-      "description": "A1 grammar in communicative order: subject pronouns, noun gender and number, both article families, être and avoir, the three verb groups in the present, negation, il y a, questions, and adjective agreement."
+     "title": "Vitrine linguistique (BDL) — Office québécois de la langue française",
+     "url": "https://vitrinelinguistique.oqlf.gouv.qc.ca/"
+    },
+    {
+     "title": "Wikipedia: French personal pronouns",
+     "url": "https://en.wikipedia.org/wiki/French_personal_pronouns"
+    },
+    {
+     "title": "Wikipedia: French grammar",
+     "url": "https://en.wikipedia.org/wiki/French_grammar"
     }
-  ],
-  "points": [
+   ],
+   "drills": [
     {
-      "title": "Subject pronouns (je, tu, il…)",
-      "level": "A1",
-      "function": "Say who you are talking about",
-      "source": "contributor",
-      "reviewed": true,
-      "display_order": 1,
-      "explanation": "The subject pronouns are je (I), tu (you, informal), il/elle (he/she), on (one/we, informal), nous (we), vous (you, formal or plural), ils/elles (they). Vous doubles as the polite singular — use it with strangers. On is how spoken French usually says 'we': on mange à midi.",
-      "culture_note": "Choosing tu or vous is a real social decision. When unsure, start with vous and wait to be invited to tutoyer.",
-      "references": [
-        {
-          "title": "Wikipedia: French personal pronouns",
-          "url": "https://en.wikipedia.org/wiki/French_personal_pronouns"
-        },
-        {
-          "title": "Wikipedia: French grammar",
-          "url": "https://en.wikipedia.org/wiki/French_grammar"
-        }
-      ],
-      "drills": [
-        {
-          "sentence": "{{answer}} suis de Paris.",
-          "answer": "Je",
-          "translation": "I am from Paris.",
-          "hint": "I",
-          "display_order": 1,
-          "cell": "je"
-        },
-        {
-          "sentence": "{{answer}} es mon ami.",
-          "answer": "Tu",
-          "translation": "You are my friend.",
-          "hint": "you — informal",
-          "display_order": 2,
-          "cell": "tu"
-        },
-        {
-          "sentence": "{{answer}} est ma sœur.",
-          "answer": "Elle",
-          "translation": "She is my sister.",
-          "hint": "she",
-          "display_order": 3,
-          "cell": "elle"
-        },
-        {
-          "sentence": "{{answer}} sommes étudiants.",
-          "answer": "Nous",
-          "translation": "We are students.",
-          "hint": "we",
-          "display_order": 4,
-          "cell": "nous"
-        },
-        {
-          "sentence": "{{answer}} sont d'Espagne.",
-          "answer": "Ils",
-          "translation": "They are from Spain.",
-          "hint": "they (masculine)",
-          "display_order": 5,
-          "cell": "ils"
-        },
-        {
-          "sentence": "{{answer}} êtes très gentil.",
-          "answer": "Vous",
-          "translation": "You are very kind.",
-          "hint": "you — formal",
-          "display_order": 6,
-          "cell": "vous"
-        },
-        {
-          "sentence": "{{answer}} travaille à Paris.",
-          "answer": "Il",
-          "translation": "He works in Paris.",
-          "hint": "he",
-          "cell": "il",
-          "display_order": 7
-        },
-        {
-          "sentence": "{{answer}} sont mes amies.",
-          "answer": "Elles",
-          "translation": "They are my friends (all women).",
-          "hint": "they — all female",
-          "cell": "elles",
-          "display_order": 8
-        }
-      ],
-      "paradigm": [
-        "je",
-        "tu",
-        "il",
-        "elle",
-        "nous",
-        "vous",
-        "ils",
-        "elles"
-      ]
+     "sentence": "{{answer}} suis de Paris.",
+     "answer": "Je",
+     "translation": "I am from Paris.",
+     "hint": "I",
+     "display_order": 1,
+     "cell": "je"
     },
     {
-      "title": "Gender and number of nouns",
-      "level": "A1",
-      "function": "Name people and things, one or many",
-      "source": "contributor",
-      "reviewed": true,
-      "display_order": 2,
-      "explanation": "Every noun is masculine or feminine — learn each noun with its gender, because little about the word itself tells you. The plural usually adds a silent -s (livre → livres); since it isn't pronounced, the article carries the plural out loud. Endings give clues: -tion and -té are usually feminine, -age and -eau usually masculine.",
-      "culture_note": "",
-      "references": [
-        {
-          "title": "Wikipedia: French grammar — nouns",
-          "url": "https://en.wikipedia.org/wiki/French_grammar"
-        },
-        {
-          "title": "Wikipedia: Grammatical gender",
-          "url": "https://en.wikipedia.org/wiki/Grammatical_gender"
-        }
-      ],
-      "drills": [
-        {
-          "sentence": "J'ai deux {{answer}}.",
-          "answer": "livres",
-          "translation": "I have two books.",
-          "hint": "book, plural",
-          "display_order": 1
-        },
-        {
-          "sentence": "Les {{answer}} sont belles.",
-          "answer": "maisons",
-          "translation": "The houses are beautiful.",
-          "hint": "house, plural",
-          "display_order": 2
-        },
-        {
-          "sentence": "J'ai trois {{answer}}.",
-          "answer": "sœurs",
-          "translation": "I have three sisters.",
-          "hint": "sister, plural",
-          "display_order": 3
-        },
-        {
-          "sentence": "Les {{answer}} sont grands.",
-          "answer": "jardins",
-          "translation": "The gardens are big.",
-          "hint": "garden, plural",
-          "display_order": 4
-        },
-        {
-          "sentence": "J'ai deux {{answer}} à la maison.",
-          "answer": "chats",
-          "translation": "I have two cats at home.",
-          "hint": "cat, plural",
-          "display_order": 5
-        },
-        {
-          "sentence": "Les {{answer}} sont nouvelles.",
-          "answer": "voitures",
-          "translation": "The cars are new.",
-          "hint": "car, plural",
-          "display_order": 6
-        }
-      ]
+     "sentence": "{{answer}} es mon ami.",
+     "answer": "Tu",
+     "translation": "You are my friend.",
+     "hint": "you — informal",
+     "display_order": 2,
+     "cell": "tu"
     },
     {
-      "title": "Definite articles (le / la / les)",
-      "level": "A1",
-      "function": "Point to a specific thing",
-      "source": "contributor",
-      "reviewed": true,
-      "display_order": 3,
-      "explanation": "Le before masculine nouns (le livre), la before feminine (la maison), les for any plural (les livres). Before a vowel or silent h, le and la both shrink to l' (l'école). French uses the definite article far more than English — also for general statements: j'aime le café (I like coffee).",
-      "culture_note": "",
-      "references": [
-        {
-          "title": "Wikipedia: French articles and determiners",
-          "url": "https://en.wikipedia.org/wiki/French_articles_and_determiners"
-        },
-        {
-          "title": "Wikipedia: French grammar",
-          "url": "https://en.wikipedia.org/wiki/French_grammar"
-        }
-      ],
-      "drills": [
-        {
-          "sentence": "{{answer}} maison est grande.",
-          "answer": "La",
-          "translation": "The house is big.",
-          "hint": "feminine singular",
-          "display_order": 1,
-          "cell": "la"
-        },
-        {
-          "sentence": "{{answer}} livre est nouveau.",
-          "answer": "Le",
-          "translation": "The book is new.",
-          "hint": "masculine singular",
-          "display_order": 2,
-          "cell": "le"
-        },
-        {
-          "sentence": "{{answer}} enfants jouent dehors.",
-          "answer": "Les",
-          "translation": "The children are playing outside.",
-          "hint": "plural",
-          "display_order": 3,
-          "cell": "les"
-        },
-        {
-          "sentence": "{{answer}} café est chaud.",
-          "answer": "Le",
-          "translation": "The coffee is hot.",
-          "hint": "masculine singular",
-          "display_order": 4,
-          "cell": "le"
-        },
-        {
-          "sentence": "{{answer}} porte est ouverte.",
-          "answer": "La",
-          "translation": "The door is open.",
-          "hint": "feminine singular",
-          "display_order": 5,
-          "cell": "la"
-        },
-        {
-          "sentence": "{{answer}} chiens sont dans le jardin.",
-          "answer": "Les",
-          "translation": "The dogs are in the garden.",
-          "hint": "plural",
-          "display_order": 6,
-          "cell": "les"
-        }
-      ],
-      "paradigm": [
-        "le",
-        "la",
-        "les"
-      ]
+     "sentence": "{{answer}} est ma sœur.",
+     "answer": "Elle",
+     "translation": "She is my sister.",
+     "hint": "she",
+     "display_order": 3,
+     "cell": "elle"
     },
     {
-      "title": "Indefinite articles (un / une / des)",
-      "level": "A1",
-      "function": "Mention something for the first time",
-      "source": "contributor",
-      "reviewed": true,
-      "display_order": 4,
-      "explanation": "Un before masculine nouns (un chien), une before feminine (une maison), and — unlike English — a plural indefinite des (des amis, 'some friends'). Des is required where English just drops the article: j'ai des questions.",
-      "culture_note": "",
-      "references": [
-        {
-          "title": "Wikipedia: French articles and determiners",
-          "url": "https://en.wikipedia.org/wiki/French_articles_and_determiners"
-        },
-        {
-          "title": "Wiktionary: un (French)",
-          "url": "https://en.wiktionary.org/wiki/un#French"
-        }
-      ],
-      "drills": [
-        {
-          "sentence": "J'ai {{answer}} chien.",
-          "answer": "un",
-          "translation": "I have a dog.",
-          "hint": "masculine",
-          "display_order": 1,
-          "cell": "un"
-        },
-        {
-          "sentence": "C'est {{answer}} grande maison.",
-          "answer": "une",
-          "translation": "It is a big house.",
-          "hint": "feminine",
-          "display_order": 2,
-          "cell": "une"
-        },
-        {
-          "sentence": "Il a {{answer}} idée.",
-          "answer": "une",
-          "translation": "He has an idea.",
-          "hint": "idée is feminine",
-          "display_order": 3,
-          "cell": "une"
-        },
-        {
-          "sentence": "Nous avons {{answer}} amis à Lyon.",
-          "answer": "des",
-          "translation": "We have (some) friends in Lyon.",
-          "hint": "plural indefinite",
-          "display_order": 4,
-          "cell": "des"
-        },
-        {
-          "sentence": "C'est {{answer}} bon livre.",
-          "answer": "un",
-          "translation": "It is a good book.",
-          "hint": "masculine",
-          "display_order": 5,
-          "cell": "un"
-        },
-        {
-          "sentence": "Elle achète {{answer}} pommes.",
-          "answer": "des",
-          "translation": "She is buying (some) apples.",
-          "hint": "plural indefinite",
-          "display_order": 6,
-          "cell": "des"
-        }
-      ],
-      "paradigm": [
-        "un",
-        "une",
-        "des"
-      ]
+     "sentence": "{{answer}} sommes étudiants.",
+     "answer": "Nous",
+     "translation": "We are students.",
+     "hint": "we",
+     "display_order": 4,
+     "cell": "nous"
     },
     {
-      "title": "Être — present (je suis, tu es…)",
-      "level": "A1",
-      "function": "Say who or what someone is",
-      "source": "contributor",
-      "reviewed": true,
-      "display_order": 5,
-      "explanation": "Être (to be) is wildly irregular and everywhere: je suis, tu es, il/elle est, nous sommes, vous êtes, ils/elles sont. Professions take no article after être: elle est professeur.",
-      "culture_note": "",
-      "references": [
-        {
-          "title": "Wiktionary: être (French)",
-          "url": "https://en.wiktionary.org/wiki/%C3%AAtre#French"
-        },
-        {
-          "title": "Wikipedia: French conjugation",
-          "url": "https://en.wikipedia.org/wiki/French_conjugation"
-        }
-      ],
-      "drills": [
-        {
-          "sentence": "Je {{answer}} étudiant.",
-          "answer": "suis",
-          "translation": "I am a student.",
-          "hint": "to be, I",
-          "display_order": 1,
-          "cell": "je"
-        },
-        {
-          "sentence": "Tu {{answer}} très grand.",
-          "answer": "es",
-          "translation": "You are very tall.",
-          "hint": "to be, you (informal)",
-          "display_order": 2,
-          "cell": "tu"
-        },
-        {
-          "sentence": "Elle {{answer}} professeur.",
-          "answer": "est",
-          "translation": "She is a teacher.",
-          "hint": "to be, she",
-          "display_order": 3,
-          "cell": "il"
-        },
-        {
-          "sentence": "Nous {{answer}} amis.",
-          "answer": "sommes",
-          "translation": "We are friends.",
-          "hint": "to be, we",
-          "display_order": 4,
-          "cell": "nous"
-        },
-        {
-          "sentence": "Vous {{answer}} français ?",
-          "answer": "êtes",
-          "translation": "Are you French?",
-          "hint": "to be, you (formal)",
-          "display_order": 5,
-          "cell": "vous"
-        },
-        {
-          "sentence": "Ils {{answer}} à la maison.",
-          "answer": "sont",
-          "translation": "They are at home.",
-          "hint": "to be, they",
-          "display_order": 6,
-          "cell": "ils"
-        }
-      ],
-      "paradigm": [
-        "je",
-        "tu",
-        "il",
-        "nous",
-        "vous",
-        "ils"
-      ]
+     "sentence": "{{answer}} sont d'Espagne.",
+     "answer": "Ils",
+     "translation": "They are from Spain.",
+     "hint": "they (masculine)",
+     "display_order": 5,
+     "cell": "ils"
     },
     {
-      "title": "Avoir — present (j'ai faim)",
-      "level": "A1",
-      "function": "Say what you have — and how you feel",
-      "source": "contributor",
-      "reviewed": true,
-      "display_order": 6,
-      "explanation": "Avoir (to have): j'ai, tu as, il/elle a, nous avons, vous avez, ils/elles ont. French uses avoir where English uses 'to be' for states: avoir faim (be hungry), avoir soif (be thirsty), avoir vingt ans (be twenty), avoir raison (be right).",
-      "culture_note": "Never say 'je suis vingt ans' — age is something you HAVE in French.",
-      "references": [
-        {
-          "title": "Wiktionary: avoir (French)",
-          "url": "https://en.wiktionary.org/wiki/avoir#French"
-        },
-        {
-          "title": "Wikipedia: French conjugation",
-          "url": "https://en.wikipedia.org/wiki/French_conjugation"
-        }
-      ],
-      "drills": [
-        {
-          "sentence": "J'{{answer}} vingt ans.",
-          "answer": "ai",
-          "translation": "I am twenty years old.",
-          "hint": "to have, I",
-          "display_order": 1,
-          "cell": "je"
-        },
-        {
-          "sentence": "Tu {{answer}} faim ?",
-          "answer": "as",
-          "translation": "Are you hungry?",
-          "hint": "to have, you (informal)",
-          "display_order": 2,
-          "cell": "tu"
-        },
-        {
-          "sentence": "Elle {{answer}} un chat.",
-          "answer": "a",
-          "translation": "She has a cat.",
-          "hint": "to have, she",
-          "display_order": 3,
-          "cell": "il"
-        },
-        {
-          "sentence": "Nous {{answer}} une question.",
-          "answer": "avons",
-          "translation": "We have a question.",
-          "hint": "to have, we",
-          "display_order": 4,
-          "cell": "nous"
-        },
-        {
-          "sentence": "Vous {{answer}} raison.",
-          "answer": "avez",
-          "translation": "You are right.",
-          "hint": "to have, you (formal)",
-          "display_order": 5,
-          "cell": "vous"
-        },
-        {
-          "sentence": "Ils {{answer}} soif.",
-          "answer": "ont",
-          "translation": "They are thirsty.",
-          "hint": "to have, they",
-          "display_order": 6,
-          "cell": "ils"
-        }
-      ],
-      "paradigm": [
-        "je",
-        "tu",
-        "il",
-        "nous",
-        "vous",
-        "ils"
-      ]
+     "sentence": "{{answer}} êtes très gentil.",
+     "answer": "Vous",
+     "translation": "You are very kind.",
+     "hint": "you — formal",
+     "display_order": 6,
+     "cell": "vous"
     },
     {
-      "title": "Present tense of -er verbs",
-      "level": "A1",
-      "function": "Talk about what people do",
-      "source": "contributor",
-      "reviewed": true,
-      "display_order": 7,
-      "explanation": "Ninety percent of French verbs end in -er and share one pattern. Drop -er, add: -e, -es, -e, -ons, -ez, -ent (parler → je parle, tu parles, il parle, nous parlons, vous parlez, ils parlent). Four of those six forms sound identical — the pronoun does the work in speech.",
-      "culture_note": "",
-      "references": [
-        {
-          "title": "Wikipedia: French conjugation — first group",
-          "url": "https://en.wikipedia.org/wiki/French_conjugation"
-        },
-        {
-          "title": "Wiktionary: parler (French)",
-          "url": "https://en.wiktionary.org/wiki/parler#French"
-        }
-      ],
-      "drills": [
-        {
-          "sentence": "Nous {{answer}} français.",
-          "answer": "parlons",
-          "translation": "We speak French.",
-          "hint": "to speak, we",
-          "display_order": 1,
-          "cell": "nous"
-        },
-        {
-          "sentence": "Elle {{answer}} dans un bureau.",
-          "answer": "travaille",
-          "translation": "She works in an office.",
-          "hint": "to work, she",
-          "display_order": 2,
-          "cell": "il"
-        },
-        {
-          "sentence": "Tu {{answer}} le chocolat ?",
-          "answer": "aimes",
-          "translation": "Do you like chocolate?",
-          "hint": "to like, you (informal)",
-          "display_order": 3,
-          "cell": "tu"
-        },
-        {
-          "sentence": "Ils {{answer}} au football.",
-          "answer": "jouent",
-          "translation": "They play football.",
-          "hint": "to play, they",
-          "display_order": 4,
-          "cell": "ils"
-        },
-        {
-          "sentence": "Vous {{answer}} à Paris ?",
-          "answer": "habitez",
-          "translation": "Do you live in Paris?",
-          "hint": "to live, you (formal)",
-          "display_order": 5,
-          "cell": "vous"
-        },
-        {
-          "sentence": "Je {{answer}} la porte.",
-          "answer": "ferme",
-          "translation": "I close the door.",
-          "hint": "to close, I",
-          "display_order": 6,
-          "cell": "il"
-        },
-        {
-          "sentence": "Je {{answer}} un peu français.",
-          "answer": "parle",
-          "translation": "I speak a little French.",
-          "hint": "to speak, I",
-          "cell": "je",
-          "display_order": 7
-        }
-      ],
-      "paradigm": [
-        "je",
-        "tu",
-        "il",
-        "nous",
-        "vous",
-        "ils"
-      ]
+     "sentence": "{{answer}} travaille à Paris.",
+     "answer": "Il",
+     "translation": "He works in Paris.",
+     "hint": "he",
+     "cell": "il",
+     "display_order": 7
     },
     {
-      "title": "-ir and -re verbs (finir, vendre)",
-      "level": "A1",
-      "function": "Finish, choose, wait, sell — the other two families",
-      "source": "contributor",
-      "reviewed": true,
-      "display_order": 8,
-      "explanation": "-ir verbs like finir: je finis, tu finis, il finit, nous finissons (note the -iss- in the plural), vous finissez, ils finissent. -re verbs like vendre: je vends, tu vends, il vend, nous vendons, vous vendez, ils vendent. Attendre (wait), entendre (hear), and choisir (choose) follow these patterns.",
-      "culture_note": "",
-      "references": [
-        {
-          "title": "Wikipedia: French conjugation — second and third groups",
-          "url": "https://en.wikipedia.org/wiki/French_conjugation"
-        },
-        {
-          "title": "Wiktionary: finir (French)",
-          "url": "https://en.wiktionary.org/wiki/finir#French"
-        }
-      ],
-      "drills": [
-        {
-          "sentence": "Je {{answer}} mon travail à six heures.",
-          "answer": "finis",
-          "translation": "I finish my work at six o'clock.",
-          "hint": "to finish, I",
-          "display_order": 1,
-          "cell": "je"
-        },
-        {
-          "sentence": "Nous {{answer}} le train.",
-          "answer": "attendons",
-          "translation": "We are waiting for the train.",
-          "hint": "to wait, we",
-          "display_order": 2,
-          "cell": "nous"
-        },
-        {
-          "sentence": "Ils {{answer}} leurs devoirs.",
-          "answer": "finissent",
-          "translation": "They finish their homework.",
-          "hint": "to finish, they",
-          "display_order": 3,
-          "cell": "ils"
-        },
-        {
-          "sentence": "Elle {{answer}} des fleurs au marché.",
-          "answer": "vend",
-          "translation": "She sells flowers at the market.",
-          "hint": "to sell, she",
-          "display_order": 4,
-          "cell": "il"
-        },
-        {
-          "sentence": "Tu {{answer}} la musique ?",
-          "answer": "entends",
-          "translation": "Do you hear the music?",
-          "hint": "to hear, you (informal)",
-          "display_order": 5,
-          "cell": "tu"
-        },
-        {
-          "sentence": "Vous {{answer}} un dessert ?",
-          "answer": "choisissez",
-          "translation": "Are you choosing a dessert?",
-          "hint": "to choose, you (formal)",
-          "display_order": 6,
-          "cell": "vous"
-        }
-      ],
-      "paradigm": [
-        "je",
-        "tu",
-        "il",
-        "nous",
-        "vous",
-        "ils"
-      ]
+     "sentence": "{{answer}} sont mes amies.",
+     "answer": "Elles",
+     "translation": "They are my friends (all women).",
+     "hint": "they — all female",
+     "cell": "elles",
+     "display_order": 8
     },
     {
-      "title": "Negation with ne … pas",
-      "level": "A1",
-      "function": "Say what is not so",
-      "source": "contributor",
-      "reviewed": true,
-      "display_order": 9,
-      "explanation": "Negation wraps the verb in a frame: ne + verb + pas. Je ne parle pas anglais. Before a vowel, ne becomes n': je n'aime pas. After a negation, un/une/des become de: je n'ai pas de chien.",
-      "culture_note": "In casual speech the ne often disappears — je parle pas. Learn the full frame first; drop it later like the locals.",
-      "references": [
-        {
-          "title": "Wikipedia: French grammar — negation",
-          "url": "https://en.wikipedia.org/wiki/French_grammar"
-        },
-        {
-          "title": "Wiktionary: ne … pas (French)",
-          "url": "https://en.wiktionary.org/wiki/ne_..._pas#French"
-        }
-      ],
-      "drills": [
-        {
-          "sentence": "Je {{answer}} parle pas anglais.",
-          "answer": "ne",
-          "translation": "I don't speak English.",
-          "hint": "the opening half of the frame",
-          "display_order": 1
-        },
-        {
-          "sentence": "Il ne travaille {{answer}} le dimanche.",
-          "answer": "pas",
-          "translation": "He doesn't work on Sundays.",
-          "hint": "the closing half of the frame",
-          "display_order": 2
-        },
-        {
-          "sentence": "Nous {{answer}} sommes pas fatigués.",
-          "answer": "ne",
-          "translation": "We are not tired.",
-          "hint": "the opening half of the frame",
-          "display_order": 3
-        },
-        {
-          "sentence": "Elle ne mange {{answer}} de viande.",
-          "answer": "pas",
-          "translation": "She doesn't eat meat.",
-          "hint": "the closing half of the frame",
-          "display_order": 4
-        },
-        {
-          "sentence": "Tu {{answer}} manges pas ?",
-          "answer": "ne",
-          "translation": "Aren't you eating?",
-          "hint": "the opening half of the frame",
-          "display_order": 5
-        },
-        {
-          "sentence": "Vous ne dansez {{answer}} ?",
-          "answer": "pas",
-          "translation": "You don't dance?",
-          "hint": "the closing half of the frame",
-          "display_order": 6
-        }
-      ]
+     "sentence": "{{answer}} parle un peu français.",
+     "answer": "Je",
+     "translation": "I speak a little French.",
+     "hint": "I",
+     "cell": "je",
+     "display_order": 9
     },
     {
-      "title": "Il y a — there is / there are",
-      "level": "A1",
-      "function": "Say what exists or is available",
-      "source": "contributor",
-      "reviewed": true,
-      "display_order": 10,
-      "explanation": "Il y a covers both 'there is' and 'there are' — it never changes for plural: il y a un livre, il y a deux livres. Negative: il n'y a pas de… (no article, just de). Question: est-ce qu'il y a… ?",
-      "culture_note": "",
-      "references": [
-        {
-          "title": "Wiktionary: il y a (French)",
-          "url": "https://en.wiktionary.org/wiki/il_y_a#French"
-        },
-        {
-          "title": "Wikipedia: French grammar",
-          "url": "https://en.wikipedia.org/wiki/French_grammar"
-        }
-      ],
-      "drills": [
-        {
-          "sentence": "Il y {{answer}} un livre sur la table.",
-          "answer": "a",
-          "translation": "There is a book on the table.",
-          "hint": "the verb of the fixed phrase",
-          "display_order": 1
-        },
-        {
-          "sentence": "{{answer}} y a deux cafés dans la rue.",
-          "answer": "Il",
-          "translation": "There are two cafés in the street.",
-          "hint": "the dummy subject",
-          "display_order": 2
-        },
-        {
-          "sentence": "Il {{answer}} a beaucoup de monde ici.",
-          "answer": "y",
-          "translation": "There are a lot of people here.",
-          "hint": "the little word in the middle",
-          "display_order": 3
-        },
-        {
-          "sentence": "Il y a {{answer}} chat dans le jardin.",
-          "answer": "un",
-          "translation": "There is a cat in the garden.",
-          "hint": "indefinite article, masculine",
-          "display_order": 4
-        },
-        {
-          "sentence": "Est-ce qu'il y {{answer}} du pain ?",
-          "answer": "a",
-          "translation": "Is there any bread?",
-          "hint": "the verb of the fixed phrase",
-          "display_order": 5
-        },
-        {
-          "sentence": "Il n'y a pas {{answer}} lait.",
-          "answer": "de",
-          "translation": "There is no milk.",
-          "hint": "after a negation, articles become this",
-          "display_order": 6
-        }
-      ]
+     "sentence": "{{answer}} habites où ?",
+     "answer": "Tu",
+     "translation": "Where do you live?",
+     "hint": "you — informal",
+     "cell": "tu",
+     "display_order": 10
     },
     {
-      "title": "Question words (où, comment, quand…)",
-      "level": "A1",
-      "function": "Ask about places, people, time, and reasons",
-      "source": "contributor",
-      "reviewed": true,
-      "display_order": 11,
-      "explanation": "Où (where), comment (how), quand (when), que/qu' (what), pourquoi (why), combien (how much/many), qui (who). Three ways to build a question: intonation (tu viens ?), est-ce que (est-ce que tu viens ?), or inversion (viens-tu ?) — est-ce que is the everyday workhorse.",
-      "culture_note": "",
-      "references": [
-        {
-          "title": "Wikipedia: French grammar — interrogatives",
-          "url": "https://en.wikipedia.org/wiki/French_grammar"
-        },
-        {
-          "title": "Wiktionary: est-ce que (French)",
-          "url": "https://en.wiktionary.org/wiki/est-ce_que#French"
-        }
-      ],
-      "drills": [
-        {
-          "sentence": "{{answer}} habites-tu ?",
-          "answer": "Où",
-          "translation": "Where do you live?",
-          "hint": "where",
-          "display_order": 1
-        },
-        {
-          "sentence": "{{answer}} t'appelles-tu ?",
-          "answer": "Comment",
-          "translation": "What is your name?",
-          "hint": "how — names ask 'how' in French",
-          "display_order": 2
-        },
-        {
-          "sentence": "{{answer}} est ton anniversaire ?",
-          "answer": "Quand",
-          "translation": "When is your birthday?",
-          "hint": "when",
-          "display_order": 3
-        },
-        {
-          "sentence": "{{answer}} regardes-tu ?",
-          "answer": "Que",
-          "translation": "What are you watching?",
-          "hint": "what",
-          "display_order": 4
-        },
-        {
-          "sentence": "{{answer}} de frères as-tu ?",
-          "answer": "Combien",
-          "translation": "How many brothers do you have?",
-          "hint": "how many",
-          "display_order": 5
-        },
-        {
-          "sentence": "{{answer}} est-ce que tu pleures ?",
-          "answer": "Pourquoi",
-          "translation": "Why are you crying?",
-          "hint": "why",
-          "display_order": 6
-        }
-      ]
+     "sentence": "{{answer}} travaille dans une banque.",
+     "answer": "Il",
+     "translation": "He works in a bank.",
+     "hint": "he",
+     "cell": "il",
+     "display_order": 11
     },
     {
-      "title": "Adjective agreement",
-      "level": "A1",
-      "function": "Describe people and things correctly",
-      "source": "contributor",
-      "reviewed": true,
-      "display_order": 12,
-      "explanation": "Adjectives agree with their noun: add -e for feminine (grand → grande), -s for plural (grands, grandes). Some change more: blanc → blanche, nouveau → nouvelle, gentil → gentille. Most adjectives FOLLOW the noun (une maison blanche), but a small frequent set precedes it (grand, petit, bon, nouveau, joli).",
-      "culture_note": "",
-      "references": [
-        {
-          "title": "Wikipedia: French adjectives",
-          "url": "https://en.wikipedia.org/wiki/French_grammar"
-        },
-        {
-          "title": "Wiktionary: grand (French)",
-          "url": "https://en.wiktionary.org/wiki/grand#French"
-        }
-      ],
-      "drills": [
-        {
-          "sentence": "La maison est {{answer}}.",
-          "answer": "blanche",
-          "translation": "The house is white.",
-          "hint": "white — feminine",
-          "display_order": 1,
-          "cell": "f.sg"
-        },
-        {
-          "sentence": "Les livres sont {{answer}}.",
-          "answer": "nouveaux",
-          "translation": "The books are new.",
-          "hint": "new — masculine plural",
-          "display_order": 2,
-          "cell": "m.pl"
-        },
-        {
-          "sentence": "Ma sœur est très {{answer}}.",
-          "answer": "gentille",
-          "translation": "My sister is very kind.",
-          "hint": "kind — feminine",
-          "display_order": 3,
-          "cell": "f.sg"
-        },
-        {
-          "sentence": "Le café est {{answer}}.",
-          "answer": "chaud",
-          "translation": "The coffee is hot.",
-          "hint": "hot — masculine",
-          "display_order": 4,
-          "cell": "m.sg"
-        },
-        {
-          "sentence": "Les fleurs sont {{answer}}.",
-          "answer": "jolies",
-          "translation": "The flowers are pretty.",
-          "hint": "pretty — feminine plural",
-          "display_order": 5,
-          "cell": "f.pl"
-        },
-        {
-          "sentence": "Le film est {{answer}}.",
-          "answer": "intéressant",
-          "translation": "The film is interesting.",
-          "hint": "interesting — masculine",
-          "display_order": 6,
-          "cell": "m.sg"
-        }
-      ],
-      "paradigm": [
-        "m.sg",
-        "f.sg",
-        "m.pl",
-        "f.pl"
-      ]
+     "sentence": "{{answer}} chante très bien.",
+     "answer": "Elle",
+     "translation": "She sings very well.",
+     "hint": "she",
+     "cell": "elle",
+     "display_order": 12
+    },
+    {
+     "sentence": "{{answer}} habitons à Lyon.",
+     "answer": "Nous",
+     "translation": "We live in Lyon.",
+     "hint": "we",
+     "cell": "nous",
+     "display_order": 13
+    },
+    {
+     "sentence": "{{answer}} parlez anglais ?",
+     "answer": "Vous",
+     "translation": "Do you speak English?",
+     "hint": "you — plural/formal",
+     "cell": "vous",
+     "display_order": 14
+    },
+    {
+     "sentence": "{{answer}} jouent au football.",
+     "answer": "Ils",
+     "translation": "They play football.",
+     "hint": "they (masculine)",
+     "cell": "ils",
+     "display_order": 15
+    },
+    {
+     "sentence": "{{answer}} arrivent demain.",
+     "answer": "Elles",
+     "translation": "They (f.) arrive tomorrow.",
+     "hint": "they (feminine)",
+     "cell": "elles",
+     "display_order": 16
     }
-  ]
+   ],
+   "paradigm": [
+    "je",
+    "tu",
+    "il",
+    "elle",
+    "nous",
+    "vous",
+    "ils",
+    "elles"
+   ]
+  },
+  {
+   "title": "Gender and number of nouns",
+   "level": "A1",
+   "function": "Name people and things, one or many",
+   "source": "contributor",
+   "reviewed": true,
+   "display_order": 2,
+   "explanation": "Every noun is masculine or feminine — learn each noun with its gender, because little about the word itself tells you.\n\nThe plural usually adds a silent -s (livre → livres); since it isn't pronounced, the article carries the plural out loud.\n\nEndings give clues: -tion and -té are usually feminine, -age and -eau usually masculine.",
+   "culture_note": "",
+   "references": [
+    {
+     "title": "Vitrine linguistique (BDL) — Office québécois de la langue française",
+     "url": "https://vitrinelinguistique.oqlf.gouv.qc.ca/"
+    },
+    {
+     "title": "Wikipedia: French grammar — nouns",
+     "url": "https://en.wikipedia.org/wiki/French_grammar"
+    },
+    {
+     "title": "Wikipedia: Grammatical gender",
+     "url": "https://en.wikipedia.org/wiki/Grammatical_gender"
+    }
+   ],
+   "drills": [
+    {
+     "sentence": "J'ai deux {{answer}}.",
+     "answer": "livres",
+     "translation": "I have two books.",
+     "hint": "book, plural",
+     "display_order": 1
+    },
+    {
+     "sentence": "Les {{answer}} sont belles.",
+     "answer": "maisons",
+     "translation": "The houses are beautiful.",
+     "hint": "house, plural",
+     "display_order": 2
+    },
+    {
+     "sentence": "J'ai trois {{answer}}.",
+     "answer": "sœurs",
+     "translation": "I have three sisters.",
+     "hint": "sister, plural",
+     "display_order": 3
+    },
+    {
+     "sentence": "Les {{answer}} sont grands.",
+     "answer": "jardins",
+     "translation": "The gardens are big.",
+     "hint": "garden, plural",
+     "display_order": 4
+    },
+    {
+     "sentence": "J'ai deux {{answer}} à la maison.",
+     "answer": "chats",
+     "translation": "I have two cats at home.",
+     "hint": "cat, plural",
+     "display_order": 5
+    },
+    {
+     "sentence": "Les {{answer}} sont nouvelles.",
+     "answer": "voitures",
+     "translation": "The cars are new.",
+     "hint": "car, plural",
+     "display_order": 6
+    }
+   ]
+  },
+  {
+   "title": "Definite articles (le / la / les)",
+   "level": "A1",
+   "function": "Point to a specific thing",
+   "source": "contributor",
+   "reviewed": true,
+   "display_order": 3,
+   "explanation": "Le before masculine nouns (le livre), la before feminine (la maison), les for any plural (les livres). Before a vowel or silent h, le and la both shrink to l' (l'école).\n\nFrench uses the definite article far more than English — also for general statements: j'aime le café (I like coffee).",
+   "culture_note": "",
+   "references": [
+    {
+     "title": "Vitrine linguistique (BDL) — Office québécois de la langue française",
+     "url": "https://vitrinelinguistique.oqlf.gouv.qc.ca/"
+    },
+    {
+     "title": "Wikipedia: French articles and determiners",
+     "url": "https://en.wikipedia.org/wiki/French_articles_and_determiners"
+    },
+    {
+     "title": "Wikipedia: French grammar",
+     "url": "https://en.wikipedia.org/wiki/French_grammar"
+    }
+   ],
+   "drills": [
+    {
+     "sentence": "{{answer}} maison est grande.",
+     "answer": "La",
+     "translation": "The house is big.",
+     "hint": "feminine singular",
+     "display_order": 1,
+     "cell": "la"
+    },
+    {
+     "sentence": "{{answer}} livre est nouveau.",
+     "answer": "Le",
+     "translation": "The book is new.",
+     "hint": "masculine singular",
+     "display_order": 2,
+     "cell": "le"
+    },
+    {
+     "sentence": "{{answer}} enfants jouent dehors.",
+     "answer": "Les",
+     "translation": "The children are playing outside.",
+     "hint": "plural",
+     "display_order": 3,
+     "cell": "les"
+    },
+    {
+     "sentence": "{{answer}} café est chaud.",
+     "answer": "Le",
+     "translation": "The coffee is hot.",
+     "hint": "masculine singular",
+     "display_order": 4,
+     "cell": "le"
+    },
+    {
+     "sentence": "{{answer}} porte est ouverte.",
+     "answer": "La",
+     "translation": "The door is open.",
+     "hint": "feminine singular",
+     "display_order": 5,
+     "cell": "la"
+    },
+    {
+     "sentence": "{{answer}} chiens sont dans le jardin.",
+     "answer": "Les",
+     "translation": "The dogs are in the garden.",
+     "hint": "plural",
+     "display_order": 6,
+     "cell": "les"
+    }
+   ],
+   "paradigm": [
+    "le",
+    "la",
+    "les"
+   ]
+  },
+  {
+   "title": "Indefinite articles (un / une / des)",
+   "level": "A1",
+   "function": "Mention something for the first time",
+   "source": "contributor",
+   "reviewed": true,
+   "display_order": 4,
+   "explanation": "Un before masculine nouns (un chien), une before feminine (une maison), and — unlike English — a plural indefinite des (des amis, 'some friends'). Des is required where English just drops the article: j'ai des questions.",
+   "culture_note": "",
+   "references": [
+    {
+     "title": "Vitrine linguistique (BDL) — Office québécois de la langue française",
+     "url": "https://vitrinelinguistique.oqlf.gouv.qc.ca/"
+    },
+    {
+     "title": "Wikipedia: French articles and determiners",
+     "url": "https://en.wikipedia.org/wiki/French_articles_and_determiners"
+    },
+    {
+     "title": "Wiktionary: un (French)",
+     "url": "https://en.wiktionary.org/wiki/un#French"
+    }
+   ],
+   "drills": [
+    {
+     "sentence": "J'ai {{answer}} chien.",
+     "answer": "un",
+     "translation": "I have a dog.",
+     "hint": "masculine",
+     "display_order": 1,
+     "cell": "un"
+    },
+    {
+     "sentence": "C'est {{answer}} grande maison.",
+     "answer": "une",
+     "translation": "It is a big house.",
+     "hint": "feminine",
+     "display_order": 2,
+     "cell": "une"
+    },
+    {
+     "sentence": "Il a {{answer}} idée.",
+     "answer": "une",
+     "translation": "He has an idea.",
+     "hint": "idée is feminine",
+     "display_order": 3,
+     "cell": "une"
+    },
+    {
+     "sentence": "Nous avons {{answer}} amis à Lyon.",
+     "answer": "des",
+     "translation": "We have (some) friends in Lyon.",
+     "hint": "plural indefinite",
+     "display_order": 4,
+     "cell": "des"
+    },
+    {
+     "sentence": "C'est {{answer}} bon livre.",
+     "answer": "un",
+     "translation": "It is a good book.",
+     "hint": "masculine",
+     "display_order": 5,
+     "cell": "un"
+    },
+    {
+     "sentence": "Elle achète {{answer}} pommes.",
+     "answer": "des",
+     "translation": "She is buying (some) apples.",
+     "hint": "plural indefinite",
+     "display_order": 6,
+     "cell": "des"
+    }
+   ],
+   "paradigm": [
+    "un",
+    "une",
+    "des"
+   ]
+  },
+  {
+   "title": "Être — present (je suis, tu es…)",
+   "level": "A1",
+   "function": "Say who or what someone is",
+   "source": "contributor",
+   "reviewed": true,
+   "display_order": 5,
+   "explanation": "Être (to be) is wildly irregular and everywhere: je suis, tu es, il/elle est, nous sommes, vous êtes, ils/elles sont.\n\nProfessions take no article after être: elle est professeur.",
+   "culture_note": "",
+   "references": [
+    {
+     "title": "Vitrine linguistique (BDL) — Office québécois de la langue française",
+     "url": "https://vitrinelinguistique.oqlf.gouv.qc.ca/"
+    },
+    {
+     "title": "Wiktionary: être (French)",
+     "url": "https://en.wiktionary.org/wiki/%C3%AAtre#French"
+    },
+    {
+     "title": "Wikipedia: French conjugation",
+     "url": "https://en.wikipedia.org/wiki/French_conjugation"
+    }
+   ],
+   "drills": [
+    {
+     "sentence": "Je {{answer}} étudiant.",
+     "answer": "suis",
+     "translation": "I am a student.",
+     "hint": "to be, I",
+     "display_order": 1,
+     "cell": "je"
+    },
+    {
+     "sentence": "Tu {{answer}} très grand.",
+     "answer": "es",
+     "translation": "You are very tall.",
+     "hint": "to be, you (informal)",
+     "display_order": 2,
+     "cell": "tu"
+    },
+    {
+     "sentence": "Elle {{answer}} professeur.",
+     "answer": "est",
+     "translation": "She is a teacher.",
+     "hint": "to be, she",
+     "display_order": 3,
+     "cell": "il"
+    },
+    {
+     "sentence": "Nous {{answer}} amis.",
+     "answer": "sommes",
+     "translation": "We are friends.",
+     "hint": "to be, we",
+     "display_order": 4,
+     "cell": "nous"
+    },
+    {
+     "sentence": "Vous {{answer}} français ?",
+     "answer": "êtes",
+     "translation": "Are you French?",
+     "hint": "to be, you (formal)",
+     "display_order": 5,
+     "cell": "vous"
+    },
+    {
+     "sentence": "Ils {{answer}} à la maison.",
+     "answer": "sont",
+     "translation": "They are at home.",
+     "hint": "to be, they",
+     "display_order": 6,
+     "cell": "ils"
+    },
+    {
+     "sentence": "Je {{answer}} de Marseille.",
+     "answer": "suis",
+     "translation": "I am from Marseille.",
+     "hint": "to be, I",
+     "cell": "je",
+     "display_order": 7
+    },
+    {
+     "sentence": "Tu {{answer}} médecin ?",
+     "answer": "es",
+     "translation": "Are you a doctor?",
+     "hint": "to be, you",
+     "cell": "tu",
+     "display_order": 8
+    },
+    {
+     "sentence": "Mon père {{answer}} professeur.",
+     "answer": "est",
+     "translation": "My father is a teacher.",
+     "hint": "to be, he",
+     "cell": "il",
+     "display_order": 9
+    },
+    {
+     "sentence": "Nous {{answer}} prêts.",
+     "answer": "sommes",
+     "translation": "We are ready.",
+     "hint": "to be, we",
+     "cell": "nous",
+     "display_order": 10
+    },
+    {
+     "sentence": "Vous {{answer}} très aimables.",
+     "answer": "êtes",
+     "translation": "You are very kind.",
+     "hint": "to be, you (plural)",
+     "cell": "vous",
+     "display_order": 11
+    },
+    {
+     "sentence": "Mes parents {{answer}} de Nice.",
+     "answer": "sont",
+     "translation": "My parents are from Nice.",
+     "hint": "to be, they",
+     "cell": "ils",
+     "display_order": 12
+    }
+   ],
+   "paradigm": [
+    "je",
+    "tu",
+    "il",
+    "nous",
+    "vous",
+    "ils"
+   ]
+  },
+  {
+   "title": "Avoir — present (j'ai faim)",
+   "level": "A1",
+   "function": "Say what you have — and how you feel",
+   "source": "contributor",
+   "reviewed": true,
+   "display_order": 6,
+   "explanation": "Avoir (to have): j'ai, tu as, il/elle a, nous avons, vous avez, ils/elles ont.\n\nFrench uses avoir where English uses 'to be' for states: avoir faim (be hungry), avoir soif (be thirsty), avoir vingt ans (be twenty), avoir raison (be right).",
+   "culture_note": "Never say 'je suis vingt ans' — age is something you HAVE in French.",
+   "references": [
+    {
+     "title": "Vitrine linguistique (BDL) — Office québécois de la langue française",
+     "url": "https://vitrinelinguistique.oqlf.gouv.qc.ca/"
+    },
+    {
+     "title": "Wiktionary: avoir (French)",
+     "url": "https://en.wiktionary.org/wiki/avoir#French"
+    },
+    {
+     "title": "Wikipedia: French conjugation",
+     "url": "https://en.wikipedia.org/wiki/French_conjugation"
+    }
+   ],
+   "drills": [
+    {
+     "sentence": "J'{{answer}} vingt ans.",
+     "answer": "ai",
+     "translation": "I am twenty years old.",
+     "hint": "to have, I",
+     "display_order": 1,
+     "cell": "je"
+    },
+    {
+     "sentence": "Tu {{answer}} faim ?",
+     "answer": "as",
+     "translation": "Are you hungry?",
+     "hint": "to have, you (informal)",
+     "display_order": 2,
+     "cell": "tu"
+    },
+    {
+     "sentence": "Elle {{answer}} un chat.",
+     "answer": "a",
+     "translation": "She has a cat.",
+     "hint": "to have, she",
+     "display_order": 3,
+     "cell": "il"
+    },
+    {
+     "sentence": "Nous {{answer}} une question.",
+     "answer": "avons",
+     "translation": "We have a question.",
+     "hint": "to have, we",
+     "display_order": 4,
+     "cell": "nous"
+    },
+    {
+     "sentence": "Vous {{answer}} raison.",
+     "answer": "avez",
+     "translation": "You are right.",
+     "hint": "to have, you (formal)",
+     "display_order": 5,
+     "cell": "vous"
+    },
+    {
+     "sentence": "Ils {{answer}} soif.",
+     "answer": "ont",
+     "translation": "They are thirsty.",
+     "hint": "to have, they",
+     "display_order": 6,
+     "cell": "ils"
+    },
+    {
+     "sentence": "J'{{answer}} une petite question.",
+     "answer": "ai",
+     "translation": "I have a small question.",
+     "hint": "to have, I",
+     "cell": "je",
+     "display_order": 7
+    },
+    {
+     "sentence": "Tu {{answer}} un stylo ?",
+     "answer": "as",
+     "translation": "Do you have a pen?",
+     "hint": "to have, you",
+     "cell": "tu",
+     "display_order": 8
+    },
+    {
+     "sentence": "Mon frère {{answer}} un chien.",
+     "answer": "a",
+     "translation": "My brother has a dog.",
+     "hint": "to have, he",
+     "cell": "il",
+     "display_order": 9
+    },
+    {
+     "sentence": "Nous {{answer}} le temps.",
+     "answer": "avons",
+     "translation": "We have time.",
+     "hint": "to have, we",
+     "cell": "nous",
+     "display_order": 10
+    },
+    {
+     "sentence": "Vous {{answer}} des enfants ?",
+     "answer": "avez",
+     "translation": "Do you have children?",
+     "hint": "to have, you (plural)",
+     "cell": "vous",
+     "display_order": 11
+    },
+    {
+     "sentence": "Ils {{answer}} une grande maison.",
+     "answer": "ont",
+     "translation": "They have a big house.",
+     "hint": "to have, they",
+     "cell": "ils",
+     "display_order": 12
+    }
+   ],
+   "paradigm": [
+    "je",
+    "tu",
+    "il",
+    "nous",
+    "vous",
+    "ils"
+   ]
+  },
+  {
+   "title": "Present tense of -er verbs",
+   "level": "A1",
+   "function": "Talk about what people do",
+   "source": "contributor",
+   "reviewed": true,
+   "display_order": 7,
+   "explanation": "Ninety percent of French verbs end in -er and share one pattern.\n\nDrop -er, add: -e, -es, -e, -ons, -ez, -ent (parler → je parle, tu parles, il parle, nous parlons, vous parlez, ils parlent).\n\nFour of those six forms sound identical — the pronoun does the work in speech.",
+   "culture_note": "",
+   "references": [
+    {
+     "title": "Vitrine linguistique (BDL) — Office québécois de la langue française",
+     "url": "https://vitrinelinguistique.oqlf.gouv.qc.ca/"
+    },
+    {
+     "title": "Wikipedia: French conjugation — first group",
+     "url": "https://en.wikipedia.org/wiki/French_conjugation"
+    },
+    {
+     "title": "Wiktionary: parler (French)",
+     "url": "https://en.wiktionary.org/wiki/parler#French"
+    }
+   ],
+   "drills": [
+    {
+     "sentence": "Nous {{answer}} français.",
+     "answer": "parlons",
+     "translation": "We speak French.",
+     "hint": "to speak, we",
+     "display_order": 1,
+     "cell": "nous"
+    },
+    {
+     "sentence": "Elle {{answer}} dans un bureau.",
+     "answer": "travaille",
+     "translation": "She works in an office.",
+     "hint": "to work, she",
+     "display_order": 2,
+     "cell": "il"
+    },
+    {
+     "sentence": "Tu {{answer}} le chocolat ?",
+     "answer": "aimes",
+     "translation": "Do you like chocolate?",
+     "hint": "to like, you (informal)",
+     "display_order": 3,
+     "cell": "tu"
+    },
+    {
+     "sentence": "Ils {{answer}} au football.",
+     "answer": "jouent",
+     "translation": "They play football.",
+     "hint": "to play, they",
+     "display_order": 4,
+     "cell": "ils"
+    },
+    {
+     "sentence": "Vous {{answer}} à Paris ?",
+     "answer": "habitez",
+     "translation": "Do you live in Paris?",
+     "hint": "to live, you (formal)",
+     "display_order": 5,
+     "cell": "vous"
+    },
+    {
+     "sentence": "Je {{answer}} la porte.",
+     "answer": "ferme",
+     "translation": "I close the door.",
+     "hint": "to close, I",
+     "display_order": 6,
+     "cell": "il"
+    },
+    {
+     "sentence": "Je {{answer}} un peu français.",
+     "answer": "parle",
+     "translation": "I speak a little French.",
+     "hint": "to speak, I",
+     "cell": "je",
+     "display_order": 7
+    },
+    {
+     "sentence": "Je {{answer}} dans un hôpital.",
+     "answer": "travaille",
+     "translation": "I work in a hospital.",
+     "hint": "to work, I",
+     "cell": "je",
+     "display_order": 8
+    },
+    {
+     "sentence": "Tu {{answer}} à quelle heure ?",
+     "answer": "arrives",
+     "translation": "What time do you arrive?",
+     "hint": "to arrive, you",
+     "cell": "tu",
+     "display_order": 9
+    },
+    {
+     "sentence": "Nous {{answer}} le dîner ensemble.",
+     "answer": "préparons",
+     "translation": "We prepare dinner together.",
+     "hint": "to prepare, we",
+     "cell": "nous",
+     "display_order": 10
+    },
+    {
+     "sentence": "Vous {{answer}} la radio ?",
+     "answer": "écoutez",
+     "translation": "Do you listen to the radio?",
+     "hint": "to listen, you (plural)",
+     "cell": "vous",
+     "display_order": 11
+    },
+    {
+     "sentence": "Mes amis {{answer}} l'espagnol.",
+     "answer": "étudient",
+     "translation": "My friends study Spanish.",
+     "hint": "to study, they",
+     "cell": "ils",
+     "display_order": 12
+    }
+   ],
+   "paradigm": [
+    "je",
+    "tu",
+    "il",
+    "nous",
+    "vous",
+    "ils"
+   ]
+  },
+  {
+   "title": "-ir and -re verbs (finir, vendre)",
+   "level": "A1",
+   "function": "Finish, choose, wait, sell — the other two families",
+   "source": "contributor",
+   "reviewed": true,
+   "display_order": 8,
+   "explanation": "-ir verbs like finir: je finis, tu finis, il finit, nous finissons (note the -iss- in the plural), vous finissez, ils finissent.\n\n-re verbs like vendre: je vends, tu vends, il vend, nous vendons, vous vendez, ils vendent.\n\nAttendre (wait), entendre (hear), and choisir (choose) follow these patterns.",
+   "culture_note": "",
+   "references": [
+    {
+     "title": "Vitrine linguistique (BDL) — Office québécois de la langue française",
+     "url": "https://vitrinelinguistique.oqlf.gouv.qc.ca/"
+    },
+    {
+     "title": "Wikipedia: French conjugation — second and third groups",
+     "url": "https://en.wikipedia.org/wiki/French_conjugation"
+    },
+    {
+     "title": "Wiktionary: finir (French)",
+     "url": "https://en.wiktionary.org/wiki/finir#French"
+    }
+   ],
+   "drills": [
+    {
+     "sentence": "Je {{answer}} mon travail à six heures.",
+     "answer": "finis",
+     "translation": "I finish my work at six o'clock.",
+     "hint": "to finish, I",
+     "display_order": 1,
+     "cell": "je"
+    },
+    {
+     "sentence": "Nous {{answer}} le train.",
+     "answer": "attendons",
+     "translation": "We are waiting for the train.",
+     "hint": "to wait, we",
+     "display_order": 2,
+     "cell": "nous"
+    },
+    {
+     "sentence": "Ils {{answer}} leurs devoirs.",
+     "answer": "finissent",
+     "translation": "They finish their homework.",
+     "hint": "to finish, they",
+     "display_order": 3,
+     "cell": "ils"
+    },
+    {
+     "sentence": "Elle {{answer}} des fleurs au marché.",
+     "answer": "vend",
+     "translation": "She sells flowers at the market.",
+     "hint": "to sell, she",
+     "display_order": 4,
+     "cell": "il"
+    },
+    {
+     "sentence": "Tu {{answer}} la musique ?",
+     "answer": "entends",
+     "translation": "Do you hear the music?",
+     "hint": "to hear, you (informal)",
+     "display_order": 5,
+     "cell": "tu"
+    },
+    {
+     "sentence": "Vous {{answer}} un dessert ?",
+     "answer": "choisissez",
+     "translation": "Are you choosing a dessert?",
+     "hint": "to choose, you (formal)",
+     "display_order": 6,
+     "cell": "vous"
+    },
+    {
+     "sentence": "Je {{answer}} le bus.",
+     "answer": "attends",
+     "translation": "I am waiting for the bus.",
+     "hint": "to wait, I",
+     "cell": "je",
+     "display_order": 7
+    },
+    {
+     "sentence": "Tu {{answer}} tes devoirs ?",
+     "answer": "finis",
+     "translation": "Are you finishing your homework?",
+     "hint": "to finish, you",
+     "cell": "tu",
+     "display_order": 8
+    },
+    {
+     "sentence": "Il {{answer}} sa voiture.",
+     "answer": "vend",
+     "translation": "He is selling his car.",
+     "hint": "to sell, he",
+     "cell": "il",
+     "display_order": 9
+    },
+    {
+     "sentence": "Nous {{answer}} nos légumes au marché.",
+     "answer": "vendons",
+     "translation": "We sell our vegetables at the market.",
+     "hint": "to sell, we",
+     "cell": "nous",
+     "display_order": 10
+    },
+    {
+     "sentence": "Vous {{answer}} le train ici ?",
+     "answer": "attendez",
+     "translation": "Are you waiting for the train here?",
+     "hint": "to wait, you (plural)",
+     "cell": "vous",
+     "display_order": 11
+    },
+    {
+     "sentence": "Ils {{answer}} un cadeau.",
+     "answer": "choisissent",
+     "translation": "They are choosing a gift.",
+     "hint": "to choose, they",
+     "cell": "ils",
+     "display_order": 12
+    }
+   ],
+   "paradigm": [
+    "je",
+    "tu",
+    "il",
+    "nous",
+    "vous",
+    "ils"
+   ]
+  },
+  {
+   "title": "Negation with ne … pas",
+   "level": "A1",
+   "function": "Say what is not so",
+   "source": "contributor",
+   "reviewed": true,
+   "display_order": 9,
+   "explanation": "Negation wraps the verb in a frame: ne + verb + pas. Je ne parle pas anglais.\n\nBefore a vowel, ne becomes n': je n'aime pas. After a negation, un/une/des become de: je n'ai pas de chien.",
+   "culture_note": "In casual speech the ne often disappears — je parle pas. Learn the full frame first; drop it later like the locals.",
+   "references": [
+    {
+     "title": "Vitrine linguistique (BDL) — Office québécois de la langue française",
+     "url": "https://vitrinelinguistique.oqlf.gouv.qc.ca/"
+    },
+    {
+     "title": "Wikipedia: French grammar — negation",
+     "url": "https://en.wikipedia.org/wiki/French_grammar"
+    },
+    {
+     "title": "Wiktionary: ne … pas (French)",
+     "url": "https://en.wiktionary.org/wiki/ne_..._pas#French"
+    }
+   ],
+   "drills": [
+    {
+     "sentence": "Je {{answer}} parle pas anglais.",
+     "answer": "ne",
+     "translation": "I don't speak English.",
+     "hint": "the opening half of the frame",
+     "display_order": 1
+    },
+    {
+     "sentence": "Il ne travaille {{answer}} le dimanche.",
+     "answer": "pas",
+     "translation": "He doesn't work on Sundays.",
+     "hint": "the closing half of the frame",
+     "display_order": 2
+    },
+    {
+     "sentence": "Nous {{answer}} sommes pas fatigués.",
+     "answer": "ne",
+     "translation": "We are not tired.",
+     "hint": "the opening half of the frame",
+     "display_order": 3
+    },
+    {
+     "sentence": "Elle ne mange {{answer}} de viande.",
+     "answer": "pas",
+     "translation": "She doesn't eat meat.",
+     "hint": "the closing half of the frame",
+     "display_order": 4
+    },
+    {
+     "sentence": "Tu {{answer}} manges pas ?",
+     "answer": "ne",
+     "translation": "Aren't you eating?",
+     "hint": "the opening half of the frame",
+     "display_order": 5
+    },
+    {
+     "sentence": "Vous ne dansez {{answer}} ?",
+     "answer": "pas",
+     "translation": "You don't dance?",
+     "hint": "the closing half of the frame",
+     "display_order": 6
+    }
+   ]
+  },
+  {
+   "title": "Il y a — there is / there are",
+   "level": "A1",
+   "function": "Say what exists or is available",
+   "source": "contributor",
+   "reviewed": true,
+   "display_order": 10,
+   "explanation": "Il y a covers both 'there is' and 'there are' — it never changes for plural: il y a un livre, il y a deux livres. Negative: il n'y a pas de… (no article, just de).\n\nQuestion: est-ce qu'il y a… ?",
+   "culture_note": "",
+   "references": [
+    {
+     "title": "Vitrine linguistique (BDL) — Office québécois de la langue française",
+     "url": "https://vitrinelinguistique.oqlf.gouv.qc.ca/"
+    },
+    {
+     "title": "Wiktionary: il y a (French)",
+     "url": "https://en.wiktionary.org/wiki/il_y_a#French"
+    },
+    {
+     "title": "Wikipedia: French grammar",
+     "url": "https://en.wikipedia.org/wiki/French_grammar"
+    }
+   ],
+   "drills": [
+    {
+     "sentence": "Il y {{answer}} un livre sur la table.",
+     "answer": "a",
+     "translation": "There is a book on the table.",
+     "hint": "the verb of the fixed phrase",
+     "display_order": 1
+    },
+    {
+     "sentence": "{{answer}} y a deux cafés dans la rue.",
+     "answer": "Il",
+     "translation": "There are two cafés in the street.",
+     "hint": "the dummy subject",
+     "display_order": 2
+    },
+    {
+     "sentence": "Il {{answer}} a beaucoup de monde ici.",
+     "answer": "y",
+     "translation": "There are a lot of people here.",
+     "hint": "the little word in the middle",
+     "display_order": 3
+    },
+    {
+     "sentence": "Il y a {{answer}} chat dans le jardin.",
+     "answer": "un",
+     "translation": "There is a cat in the garden.",
+     "hint": "indefinite article, masculine",
+     "display_order": 4
+    },
+    {
+     "sentence": "Est-ce qu'il y {{answer}} du pain ?",
+     "answer": "a",
+     "translation": "Is there any bread?",
+     "hint": "the verb of the fixed phrase",
+     "display_order": 5
+    },
+    {
+     "sentence": "Il n'y a pas {{answer}} lait.",
+     "answer": "de",
+     "translation": "There is no milk.",
+     "hint": "after a negation, articles become this",
+     "display_order": 6
+    }
+   ]
+  },
+  {
+   "title": "Question words (où, comment, quand…)",
+   "level": "A1",
+   "function": "Ask about places, people, time, and reasons",
+   "source": "contributor",
+   "reviewed": true,
+   "display_order": 11,
+   "explanation": "Où (where), comment (how), quand (when), que/qu' (what), pourquoi (why), combien (how much/many), qui (who).\n\nThree ways to build a question: intonation (tu viens ?), est-ce que (est-ce que tu viens ?), or inversion (viens-tu ?) — est-ce que is the everyday workhorse.",
+   "culture_note": "",
+   "references": [
+    {
+     "title": "Vitrine linguistique (BDL) — Office québécois de la langue française",
+     "url": "https://vitrinelinguistique.oqlf.gouv.qc.ca/"
+    },
+    {
+     "title": "Wikipedia: French grammar — interrogatives",
+     "url": "https://en.wikipedia.org/wiki/French_grammar"
+    },
+    {
+     "title": "Wiktionary: est-ce que (French)",
+     "url": "https://en.wiktionary.org/wiki/est-ce_que#French"
+    }
+   ],
+   "drills": [
+    {
+     "sentence": "{{answer}} habites-tu ?",
+     "answer": "Où",
+     "translation": "Where do you live?",
+     "hint": "where",
+     "display_order": 1
+    },
+    {
+     "sentence": "{{answer}} t'appelles-tu ?",
+     "answer": "Comment",
+     "translation": "What is your name?",
+     "hint": "how — names ask 'how' in French",
+     "display_order": 2
+    },
+    {
+     "sentence": "{{answer}} est ton anniversaire ?",
+     "answer": "Quand",
+     "translation": "When is your birthday?",
+     "hint": "when",
+     "display_order": 3
+    },
+    {
+     "sentence": "{{answer}} regardes-tu ?",
+     "answer": "Que",
+     "translation": "What are you watching?",
+     "hint": "what",
+     "display_order": 4
+    },
+    {
+     "sentence": "{{answer}} de frères as-tu ?",
+     "answer": "Combien",
+     "translation": "How many brothers do you have?",
+     "hint": "how many",
+     "display_order": 5
+    },
+    {
+     "sentence": "{{answer}} est-ce que tu pleures ?",
+     "answer": "Pourquoi",
+     "translation": "Why are you crying?",
+     "hint": "why",
+     "display_order": 6
+    }
+   ]
+  },
+  {
+   "title": "Adjective agreement",
+   "level": "A1",
+   "function": "Describe people and things correctly",
+   "source": "contributor",
+   "reviewed": true,
+   "display_order": 12,
+   "explanation": "Adjectives agree with their noun: add -e for feminine (grand → grande), -s for plural (grands, grandes).\n\nSome change more: blanc → blanche, nouveau → nouvelle, gentil → gentille.\n\nMost adjectives FOLLOW the noun (une maison blanche), but a small frequent set precedes it (grand, petit, bon, nouveau, joli).",
+   "culture_note": "",
+   "references": [
+    {
+     "title": "Vitrine linguistique (BDL) — Office québécois de la langue française",
+     "url": "https://vitrinelinguistique.oqlf.gouv.qc.ca/"
+    },
+    {
+     "title": "Wikipedia: French adjectives",
+     "url": "https://en.wikipedia.org/wiki/French_grammar"
+    },
+    {
+     "title": "Wiktionary: grand (French)",
+     "url": "https://en.wiktionary.org/wiki/grand#French"
+    }
+   ],
+   "drills": [
+    {
+     "sentence": "La maison est {{answer}}.",
+     "answer": "blanche",
+     "translation": "The house is white.",
+     "hint": "white — feminine",
+     "display_order": 1,
+     "cell": "f.sg"
+    },
+    {
+     "sentence": "Les livres sont {{answer}}.",
+     "answer": "nouveaux",
+     "translation": "The books are new.",
+     "hint": "new — masculine plural",
+     "display_order": 2,
+     "cell": "m.pl"
+    },
+    {
+     "sentence": "Ma sœur est très {{answer}}.",
+     "answer": "gentille",
+     "translation": "My sister is very kind.",
+     "hint": "kind — feminine",
+     "display_order": 3,
+     "cell": "f.sg"
+    },
+    {
+     "sentence": "Le café est {{answer}}.",
+     "answer": "chaud",
+     "translation": "The coffee is hot.",
+     "hint": "hot — masculine",
+     "display_order": 4,
+     "cell": "m.sg"
+    },
+    {
+     "sentence": "Les fleurs sont {{answer}}.",
+     "answer": "jolies",
+     "translation": "The flowers are pretty.",
+     "hint": "pretty — feminine plural",
+     "display_order": 5,
+     "cell": "f.pl"
+    },
+    {
+     "sentence": "Le film est {{answer}}.",
+     "answer": "intéressant",
+     "translation": "The film is interesting.",
+     "hint": "interesting — masculine",
+     "display_order": 6,
+     "cell": "m.sg"
+    },
+    {
+     "sentence": "Les murs sont {{answer}}.",
+     "answer": "blancs",
+     "translation": "The walls are white.",
+     "hint": "white — masculine plural",
+     "cell": "m.pl",
+     "display_order": 7
+    },
+    {
+     "sentence": "Les portes sont {{answer}}.",
+     "answer": "ouvertes",
+     "translation": "The doors are open.",
+     "hint": "open — feminine plural",
+     "cell": "f.pl",
+     "display_order": 8
+    }
+   ],
+   "paradigm": [
+    "m.sg",
+    "f.sg",
+    "m.pl",
+    "f.pl"
+   ]
+  },
+  {
+   "title": "Passé composé with avoir",
+   "level": "A2",
+   "function": "Talk about completed past actions",
+   "source": "contributor",
+   "reviewed": true,
+   "display_order": 1,
+   "explanation": "The everyday past = a present-tense form of avoir + the past participle: j'ai mangé 'I ate / have eaten'.\n\nRegular participles: -er → -é (mangé), -ir → -i (fini), -re → -u (vendu).\n\nThe auxiliary is conjugated (ai, as, a, avons, avez, ont); the participle stays the same (no agreement with the subject when the auxiliary is avoir).",
+   "culture_note": "",
+   "references": [
+    {
+     "title": "Vitrine linguistique (BDL) — Office québécois de la langue française",
+     "url": "https://vitrinelinguistique.oqlf.gouv.qc.ca/"
+    },
+    {
+     "title": "Wikipedia: French grammar",
+     "url": "https://en.wikipedia.org/wiki/French_grammar"
+    }
+   ],
+   "drills": [
+    {
+     "sentence": "Hier, j'{{answer}} mangé au restaurant.",
+     "answer": "ai",
+     "translation": "Yesterday I ate at the restaurant.",
+     "hint": "have — I (auxiliary)",
+     "cell": "je",
+     "display_order": 1
+    },
+    {
+     "sentence": "Ce matin, j'{{answer}} bu un café.",
+     "answer": "ai",
+     "translation": "This morning I drank a coffee.",
+     "hint": "have — I (auxiliary)",
+     "cell": "je",
+     "display_order": 2
+    },
+    {
+     "sentence": "Tu {{answer}} fini tes devoirs?",
+     "answer": "as",
+     "translation": "Have you finished your homework?",
+     "hint": "have — you sg. (auxiliary)",
+     "cell": "tu",
+     "display_order": 3
+    },
+    {
+     "sentence": "Quand est-ce que tu {{answer}} vu ce film?",
+     "answer": "as",
+     "translation": "When did you see this film?",
+     "hint": "have — you sg. (auxiliary)",
+     "cell": "tu",
+     "display_order": 4
+    },
+    {
+     "sentence": "Il {{answer}} perdu ses clés.",
+     "answer": "a",
+     "translation": "He lost his keys.",
+     "hint": "has — he (auxiliary)",
+     "cell": "il",
+     "display_order": 5
+    },
+    {
+     "sentence": "Elle {{answer}} chanté une belle chanson.",
+     "answer": "a",
+     "translation": "She sang a beautiful song.",
+     "hint": "has — she (auxiliary)",
+     "cell": "il",
+     "display_order": 6
+    },
+    {
+     "sentence": "Nous {{answer}} visité le musée.",
+     "answer": "avons",
+     "translation": "We visited the museum.",
+     "hint": "have — we (auxiliary)",
+     "cell": "nous",
+     "display_order": 7
+    },
+    {
+     "sentence": "Ce week-end, nous {{answer}} beaucoup dansé.",
+     "answer": "avons",
+     "translation": "This weekend we danced a lot.",
+     "hint": "have — we (auxiliary)",
+     "cell": "nous",
+     "display_order": 8
+    },
+    {
+     "sentence": "Vous {{answer}} déjà réservé la table?",
+     "answer": "avez",
+     "translation": "Have you already booked the table?",
+     "hint": "have — you pl. (auxiliary)",
+     "cell": "vous",
+     "display_order": 9
+    },
+    {
+     "sentence": "À quelle heure {{answer}}-vous dîné?",
+     "answer": "avez",
+     "translation": "What time did you have dinner?",
+     "hint": "have — you pl. (auxiliary)",
+     "cell": "vous",
+     "display_order": 10
+    },
+    {
+     "sentence": "Les enfants {{answer}} joué dans le jardin.",
+     "answer": "ont",
+     "translation": "The children played in the garden.",
+     "hint": "have — they (auxiliary)",
+     "cell": "ils",
+     "display_order": 11
+    },
+    {
+     "sentence": "Mes amis {{answer}} travaillé tout le week-end.",
+     "answer": "ont",
+     "translation": "My friends worked all weekend.",
+     "hint": "have — they (auxiliary)",
+     "cell": "ils",
+     "display_order": 12
+    }
+   ],
+   "paradigm": [
+    "je",
+    "tu",
+    "il",
+    "nous",
+    "vous",
+    "ils"
+   ]
+  },
+  {
+   "title": "Passé composé with être",
+   "level": "A2",
+   "function": "Use être for movement and reflexive verbs in the past",
+   "source": "contributor",
+   "reviewed": true,
+   "display_order": 2,
+   "explanation": "A set of verbs of movement/change (aller, venir, partir, arriver, monter, descendre, naître, mourir, rester, tomber…) and all reflexive verbs form the past with être, not avoir: je suis allé 'I went'.\n\nWith être the participle AGREES with the subject in gender and number: elle est allée, ils sont partis, elles sont venues.",
+   "culture_note": "",
+   "references": [
+    {
+     "title": "Vitrine linguistique (BDL) — Office québécois de la langue française",
+     "url": "https://vitrinelinguistique.oqlf.gouv.qc.ca/"
+    },
+    {
+     "title": "Wikipedia: French grammar",
+     "url": "https://en.wikipedia.org/wiki/French_grammar"
+    }
+   ],
+   "drills": [
+    {
+     "sentence": "Hier soir, je {{answer}} allé au cinéma.",
+     "answer": "suis",
+     "translation": "Last night I went to the cinema.",
+     "hint": "am — I (auxiliary être)",
+     "cell": "je",
+     "display_order": 1
+    },
+    {
+     "sentence": "Ce matin, je {{answer}} arrivé en retard.",
+     "answer": "suis",
+     "translation": "This morning I arrived late.",
+     "hint": "am — I (auxiliary être)",
+     "cell": "je",
+     "display_order": 2
+    },
+    {
+     "sentence": "Tu {{answer}} venu à la fête?",
+     "answer": "es",
+     "translation": "Did you come to the party?",
+     "hint": "are — you sg. (auxiliary être)",
+     "cell": "tu",
+     "display_order": 3
+    },
+    {
+     "sentence": "À quelle heure tu {{answer}} parti?",
+     "answer": "es",
+     "translation": "What time did you leave?",
+     "hint": "are — you sg. (auxiliary être)",
+     "cell": "tu",
+     "display_order": 4
+    },
+    {
+     "sentence": "Elle {{answer}} restée à la maison.",
+     "answer": "est",
+     "translation": "She stayed home.",
+     "hint": "is — she (auxiliary être)",
+     "cell": "il",
+     "display_order": 5
+    },
+    {
+     "sentence": "Le train {{answer}} déjà parti.",
+     "answer": "est",
+     "translation": "The train has already left.",
+     "hint": "is — it (auxiliary être)",
+     "cell": "il",
+     "display_order": 6
+    },
+    {
+     "sentence": "Nous {{answer}} rentrés très tard.",
+     "answer": "sommes",
+     "translation": "We got home very late.",
+     "hint": "are — we (auxiliary être)",
+     "cell": "nous",
+     "display_order": 7
+    },
+    {
+     "sentence": "Ce week-end, nous {{answer}} sortis en ville.",
+     "answer": "sommes",
+     "translation": "This weekend we went out in town.",
+     "hint": "are — we (auxiliary être)",
+     "cell": "nous",
+     "display_order": 8
+    },
+    {
+     "sentence": "Vous {{answer}} descendus par l'escalier?",
+     "answer": "êtes",
+     "translation": "Did you come down by the stairs?",
+     "hint": "are — you pl. (auxiliary être)",
+     "cell": "vous",
+     "display_order": 9
+    },
+    {
+     "sentence": "Quand est-ce que vous {{answer}} nés?",
+     "answer": "êtes",
+     "translation": "When were you born?",
+     "hint": "are — you pl. (auxiliary être)",
+     "cell": "vous",
+     "display_order": 10
+    },
+    {
+     "sentence": "Les invités {{answer}} arrivés à midi.",
+     "answer": "sont",
+     "translation": "The guests arrived at noon.",
+     "hint": "are — they (auxiliary être)",
+     "cell": "ils",
+     "display_order": 11
+    },
+    {
+     "sentence": "Mes sœurs {{answer}} montées dans le bus.",
+     "answer": "sont",
+     "translation": "My sisters got on the bus.",
+     "hint": "are — they (auxiliary être)",
+     "cell": "ils",
+     "display_order": 12
+    }
+   ],
+   "paradigm": [
+    "je",
+    "tu",
+    "il",
+    "nous",
+    "vous",
+    "ils"
+   ]
+  },
+  {
+   "title": "The imperfect (l'imparfait)",
+   "level": "A2",
+   "function": "Describe ongoing or habitual past actions",
+   "source": "contributor",
+   "reviewed": true,
+   "display_order": 3,
+   "explanation": "The imperfect describes a past that was ongoing, repeated, or a background state — English 'was …-ing' / 'used to'. Take the nous form of the present, drop -ons, add -ais, -ais, -ait, -ions, -iez, -aient: mangeais 'I was eating', finissait 'he used to finish'. être is irregular (j'étais).\n\nContrast with the passé composé (one completed act).",
+   "culture_note": "",
+   "references": [
+    {
+     "title": "Vitrine linguistique (BDL) — Office québécois de la langue française",
+     "url": "https://vitrinelinguistique.oqlf.gouv.qc.ca/"
+    },
+    {
+     "title": "Wikipedia: French grammar",
+     "url": "https://en.wikipedia.org/wiki/French_grammar"
+    }
+   ],
+   "drills": [
+    {
+     "sentence": "Chaque été, nous {{answer}} à la mer.",
+     "answer": "allions",
+     "translation": "Every summer we used to go to the seaside.",
+     "hint": "used to go — we",
+     "display_order": 1
+    },
+    {
+     "sentence": "Quand j'étais petit, je {{answer}} beaucoup.",
+     "answer": "lisais",
+     "translation": "When I was little, I used to read a lot.",
+     "hint": "used to read — I",
+     "display_order": 2
+    },
+    {
+     "sentence": "Qu'est-ce que tu {{answer}} quand je t'ai appelé?",
+     "answer": "faisais",
+     "translation": "What were you doing when I called you?",
+     "hint": "were doing — you (sg.)",
+     "display_order": 3
+    },
+    {
+     "sentence": "Mon grand-père {{answer}} des histoires chaque soir.",
+     "answer": "racontait",
+     "translation": "My grandfather used to tell stories every evening.",
+     "hint": "used to tell — he",
+     "display_order": 4
+    },
+    {
+     "sentence": "Les enfants {{answer}} dans le parc.",
+     "answer": "jouaient",
+     "translation": "The children were playing in the park.",
+     "hint": "were playing — they",
+     "display_order": 5
+    },
+    {
+     "sentence": "Avant, nous {{answer}} dans un petit appartement.",
+     "answer": "habitions",
+     "translation": "We used to live in a small apartment.",
+     "hint": "used to live — we",
+     "display_order": 6
+    }
+   ]
+  },
+  {
+   "title": "The future (le futur simple)",
+   "level": "A2",
+   "function": "Talk about what will happen",
+   "source": "contributor",
+   "reviewed": true,
+   "display_order": 4,
+   "explanation": "The simple future adds -ai, -as, -a, -ons, -ez, -ont to the infinitive (dropping a final -e of -re verbs): je mangerai 'I will eat', il finira 'he will finish'.\n\nSome stems are irregular: être → ser-, avoir → aur-, aller → ir-, faire → fer-, venir → viendr-.",
+   "culture_note": "",
+   "references": [
+    {
+     "title": "Vitrine linguistique (BDL) — Office québécois de la langue française",
+     "url": "https://vitrinelinguistique.oqlf.gouv.qc.ca/"
+    },
+    {
+     "title": "Wikipedia: French grammar",
+     "url": "https://en.wikipedia.org/wiki/French_grammar"
+    }
+   ],
+   "drills": [
+    {
+     "sentence": "Demain, je {{answer}} au travail tôt.",
+     "answer": "irai",
+     "translation": "Tomorrow I will go to work early.",
+     "hint": "will go — I",
+     "display_order": 1
+    },
+    {
+     "sentence": "Ce soir, nous {{answer}} un film ensemble.",
+     "answer": "regarderons",
+     "translation": "Tonight we will watch a film together.",
+     "hint": "will watch — we",
+     "display_order": 2
+    },
+    {
+     "sentence": "Est-ce que tu {{answer}} avec nous en voyage?",
+     "answer": "viendras",
+     "translation": "Will you come with us on the trip?",
+     "hint": "will come — you (sg.)",
+     "display_order": 3
+    },
+    {
+     "sentence": "Anna {{answer}} le cadeau demain.",
+     "answer": "achètera",
+     "translation": "Anna will buy the gift tomorrow.",
+     "hint": "will buy — she",
+     "display_order": 4
+    },
+    {
+     "sentence": "L'année prochaine, je {{answer}} du français chaque jour.",
+     "answer": "ferai",
+     "translation": "Next year I will do French every day.",
+     "hint": "will do — I",
+     "display_order": 5
+    },
+    {
+     "sentence": "Mes amis {{answer}} à la fête.",
+     "answer": "seront",
+     "translation": "My friends will be at the party.",
+     "hint": "will be — they",
+     "display_order": 6
+    }
+   ]
+  },
+  {
+   "title": "Direct object pronouns (le, la, les…)",
+   "level": "A2",
+   "function": "Replace the object with a short pronoun",
+   "source": "contributor",
+   "reviewed": true,
+   "display_order": 5,
+   "explanation": "A known direct object becomes a pronoun placed before the verb: le (him/it m.), la (her/it f.), les (them), me, te, nous, vous.\n\nJe le vois 'I see him', je les achète 'I'm buying them'. Before a vowel, me/te/le/la elide: je t'aime, je l'ai vu.",
+   "culture_note": "",
+   "references": [
+    {
+     "title": "Vitrine linguistique (BDL) — Office québécois de la langue française",
+     "url": "https://vitrinelinguistique.oqlf.gouv.qc.ca/"
+    },
+    {
+     "title": "Wikipedia: French grammar",
+     "url": "https://en.wikipedia.org/wiki/French_grammar"
+    }
+   ],
+   "drills": [
+    {
+     "sentence": "Tu connais Marc? Oui, je {{answer}} connais bien.",
+     "answer": "le",
+     "translation": "Do you know Marc? Yes, I know him well.",
+     "hint": "him",
+     "display_order": 1
+    },
+    {
+     "sentence": "Où est Marie? Je ne {{answer}} vois pas.",
+     "answer": "la",
+     "translation": "Where is Marie? I don't see her.",
+     "hint": "her",
+     "display_order": 2
+    },
+    {
+     "sentence": "Ces livres sont bien; je {{answer}} lis maintenant.",
+     "answer": "les",
+     "translation": "These books are good; I'm reading them now.",
+     "hint": "them",
+     "display_order": 3
+    },
+    {
+     "sentence": "Si tu viens, je {{answer}} attends à la gare.",
+     "answer": "t'",
+     "translation": "If you come, I'll wait for you at the station.",
+     "hint": "you (sg., elided)",
+     "display_order": 4
+    },
+    {
+     "sentence": "Nous sommes là; tu {{answer}} entends?",
+     "answer": "nous",
+     "translation": "We're here; can you hear us?",
+     "hint": "us",
+     "display_order": 5
+    },
+    {
+     "sentence": "J'aime cette chanson; je {{answer}} écoute souvent.",
+     "answer": "l'",
+     "translation": "I love this song; I listen to it often.",
+     "hint": "it (elided before a vowel)",
+     "display_order": 6
+    }
+   ]
+  },
+  {
+   "title": "Indirect pronouns, y and en (lui, leur, y, en)",
+   "level": "A2",
+   "function": "Replace 'to someone', a place, or a quantity",
+   "source": "contributor",
+   "reviewed": true,
+   "display_order": 6,
+   "explanation": "lui 'to him/her' and leur 'to them' replace à + a person: je lui parle 'I talk to him'. y replaces à + a thing or a place: j'y vais 'I go there'. en replaces de + something or a quantity: j'en veux 'I want some', j'en ai trois 'I have three of them'.",
+   "culture_note": "",
+   "references": [
+    {
+     "title": "Vitrine linguistique (BDL) — Office québécois de la langue française",
+     "url": "https://vitrinelinguistique.oqlf.gouv.qc.ca/"
+    },
+    {
+     "title": "Wikipedia: French grammar",
+     "url": "https://en.wikipedia.org/wiki/French_grammar"
+    }
+   ],
+   "drills": [
+    {
+     "sentence": "Je téléphone à Paul; je {{answer}} téléphone ce soir.",
+     "answer": "lui",
+     "translation": "I'm calling Paul; I'll call him tonight.",
+     "hint": "to him",
+     "display_order": 1
+    },
+    {
+     "sentence": "Tu écris à tes parents? Oui, je {{answer}} écris souvent.",
+     "answer": "leur",
+     "translation": "Do you write to your parents? Yes, I write to them often.",
+     "hint": "to them",
+     "display_order": 2
+    },
+    {
+     "sentence": "Tu vas à Paris? Oui, j'{{answer}} vais demain.",
+     "answer": "y",
+     "translation": "Are you going to Paris? Yes, I'm going there tomorrow.",
+     "hint": "there (à + place)",
+     "display_order": 3
+    },
+    {
+     "sentence": "Tu veux du café? Oui, j'{{answer}} veux bien.",
+     "answer": "en",
+     "translation": "Do you want some coffee? Yes, I'd like some.",
+     "hint": "some (de + thing)",
+     "display_order": 4
+    },
+    {
+     "sentence": "Des pommes? J'{{answer}} ai acheté un kilo.",
+     "answer": "en",
+     "translation": "Apples? I bought a kilo of them.",
+     "hint": "of them (quantity)",
+     "display_order": 5
+    },
+    {
+     "sentence": "Tu penses à ton examen? Oui, j'{{answer}} pense.",
+     "answer": "y",
+     "translation": "Are you thinking about your exam? Yes, I'm thinking about it.",
+     "hint": "about it (à + thing)",
+     "display_order": 6
+    }
+   ]
+  },
+  {
+   "title": "Comparative & superlative (plus… que, le plus)",
+   "level": "A2",
+   "function": "Compare things",
+   "source": "contributor",
+   "reviewed": true,
+   "display_order": 7,
+   "explanation": "The comparative uses plus / moins / aussi + adjective + que 'than/as': plus grand que 'bigger than', aussi cher que 'as expensive as'. The superlative adds the definite article: le plus grand 'the biggest'.\n\nIrregular: bon → meilleur 'better', bien → mieux 'better (adv.)'.",
+   "culture_note": "",
+   "references": [
+    {
+     "title": "Vitrine linguistique (BDL) — Office québécois de la langue française",
+     "url": "https://vitrinelinguistique.oqlf.gouv.qc.ca/"
+    },
+    {
+     "title": "Wikipedia: French grammar",
+     "url": "https://en.wikipedia.org/wiki/French_grammar"
+    }
+   ],
+   "drills": [
+    {
+     "sentence": "Paris est {{answer}} grand que Lyon.",
+     "answer": "plus",
+     "translation": "Paris is bigger than Lyon.",
+     "hint": "more (comparative)",
+     "display_order": 1
+    },
+    {
+     "sentence": "C'est le {{answer}} beau café de la ville.",
+     "answer": "plus",
+     "translation": "It's the most beautiful café in town.",
+     "hint": "most (superlative)",
+     "display_order": 2
+    },
+    {
+     "sentence": "Le français est {{answer}} difficile que l'espagnol pour moi.",
+     "answer": "plus",
+     "translation": "French is harder than Spanish for me.",
+     "hint": "more (comparative)",
+     "display_order": 3
+    },
+    {
+     "sentence": "Ce gâteau est {{answer}} que l'autre.",
+     "answer": "meilleur",
+     "translation": "This cake is better than the other one.",
+     "hint": "better (irregular)",
+     "display_order": 4
+    },
+    {
+     "sentence": "En été, les jours sont {{answer}} longs.",
+     "answer": "plus",
+     "translation": "In summer the days are longer.",
+     "hint": "more (comparative)",
+     "display_order": 5
+    },
+    {
+     "sentence": "La santé est {{answer}} importante que l'argent.",
+     "answer": "plus",
+     "translation": "Health is more important than money.",
+     "hint": "more (comparative)",
+     "display_order": 6
+    }
+   ]
+  },
+  {
+   "title": "Reflexive verbs (se laver)",
+   "level": "A2",
+   "function": "Say the subject acts on itself",
+   "source": "contributor",
+   "reviewed": true,
+   "display_order": 8,
+   "explanation": "Reflexive verbs carry a pronoun matching the subject: me, te, se, nous, vous, se, before the verb.\n\nJe me lave 'I wash (myself)', il se lève 'he gets up', nous nous reposons 'we rest'. Many daily-routine verbs are reflexive.\n\nIn the passé composé they take être.",
+   "culture_note": "",
+   "references": [
+    {
+     "title": "Vitrine linguistique (BDL) — Office québécois de la langue française",
+     "url": "https://vitrinelinguistique.oqlf.gouv.qc.ca/"
+    },
+    {
+     "title": "Wikipedia: French grammar",
+     "url": "https://en.wikipedia.org/wiki/French_grammar"
+    }
+   ],
+   "drills": [
+    {
+     "sentence": "Chaque matin, je {{answer}} lève à sept heures.",
+     "answer": "me",
+     "translation": "Every morning I get up at seven.",
+     "hint": "myself — I",
+     "cell": "je",
+     "display_order": 1
+    },
+    {
+     "sentence": "À quelle heure est-ce que tu {{answer}} couches?",
+     "answer": "te",
+     "translation": "What time do you go to bed?",
+     "hint": "yourself — you (sg.)",
+     "cell": "tu",
+     "display_order": 2
+    },
+    {
+     "sentence": "Elle {{answer}} sent beaucoup mieux aujourd'hui.",
+     "answer": "se",
+     "translation": "She feels much better today.",
+     "hint": "herself — she",
+     "cell": "il",
+     "display_order": 3
+    },
+    {
+     "sentence": "Nous {{answer}} reposons le dimanche à la maison.",
+     "answer": "nous",
+     "translation": "We rest at home on Sundays.",
+     "hint": "ourselves — we",
+     "cell": "nous",
+     "display_order": 4
+    },
+    {
+     "sentence": "Vous {{answer}} amusez à la fête?",
+     "answer": "vous",
+     "translation": "Are you having fun at the party?",
+     "hint": "yourselves — you (pl.)",
+     "cell": "vous",
+     "display_order": 5
+    },
+    {
+     "sentence": "Les enfants {{answer}} lavent les mains avant le repas.",
+     "answer": "se",
+     "translation": "The children wash their hands before the meal.",
+     "hint": "themselves — they",
+     "cell": "ils",
+     "display_order": 6
+    }
+   ]
+  },
+  {
+   "title": "Partitive articles (du, de la, des)",
+   "level": "A2",
+   "function": "Say 'some' of an uncountable thing",
+   "source": "contributor",
+   "reviewed": true,
+   "display_order": 9,
+   "explanation": "To talk about an unspecified quantity ('some'), French uses du (m.), de la (f.), de l' (before a vowel), des (pl.): je bois du café, je mange de la salade. After a negation, all become de/d': je ne bois pas de café.\n\nAfter an expression of quantity too: beaucoup de café.",
+   "culture_note": "",
+   "references": [
+    {
+     "title": "Vitrine linguistique (BDL) — Office québécois de la langue française",
+     "url": "https://vitrinelinguistique.oqlf.gouv.qc.ca/"
+    },
+    {
+     "title": "Wikipedia: French grammar",
+     "url": "https://en.wikipedia.org/wiki/French_grammar"
+    }
+   ],
+   "drills": [
+    {
+     "sentence": "Le matin, je bois {{answer}} café.",
+     "answer": "du",
+     "translation": "In the morning I drink coffee.",
+     "hint": "some (masc.)",
+     "display_order": 1
+    },
+    {
+     "sentence": "Nous achetons {{answer}} fruits au marché.",
+     "answer": "des",
+     "translation": "We buy fruit at the market.",
+     "hint": "some (plural)",
+     "display_order": 2
+    },
+    {
+     "sentence": "Je ne bois pas {{answer}} vin.",
+     "answer": "de",
+     "translation": "I don't drink wine.",
+     "hint": "any (after negation)",
+     "display_order": 3
+    },
+    {
+     "sentence": "Il y a beaucoup {{answer}} monde ici.",
+     "answer": "de",
+     "translation": "There are a lot of people here.",
+     "hint": "of (after a quantity word)",
+     "display_order": 4
+    },
+    {
+     "sentence": "Elle achète {{answer}} légumes au marché.",
+     "answer": "des",
+     "translation": "She buys vegetables at the market.",
+     "hint": "some (plural)",
+     "display_order": 5
+    },
+    {
+     "sentence": "Tu prends {{answer}} sucre dans ton thé?",
+     "answer": "du",
+     "translation": "Do you take sugar in your tea?",
+     "hint": "some (masc.)",
+     "display_order": 6
+    }
+   ]
+  },
+  {
+   "title": "Possessive & demonstrative adjectives (mon, ce…)",
+   "level": "A2",
+   "function": "Say 'my / this' and agree with the noun",
+   "source": "contributor",
+   "reviewed": true,
+   "display_order": 10,
+   "explanation": "Possessives agree with the thing owned, not the owner: mon/ma/mes 'my', ton/ta/tes 'your', son/sa/ses 'his/her', notre/nos, votre/vos, leur/leurs.\n\nBefore a feminine noun starting with a vowel, use mon/ton/son (mon amie).\n\nDemonstratives: ce/cet (m.), cette (f.), ces (pl.) 'this/these'.",
+   "culture_note": "",
+   "references": [
+    {
+     "title": "Vitrine linguistique (BDL) — Office québécois de la langue française",
+     "url": "https://vitrinelinguistique.oqlf.gouv.qc.ca/"
+    },
+    {
+     "title": "Wikipedia: French grammar",
+     "url": "https://en.wikipedia.org/wiki/French_grammar"
+    }
+   ],
+   "drills": [
+    {
+     "sentence": "{{answer}} voiture est neuve.",
+     "answer": "Ma",
+     "translation": "My car is new.",
+     "hint": "my (fem. noun)",
+     "display_order": 1
+    },
+    {
+     "sentence": "Où est {{answer}} téléphone?",
+     "answer": "ton",
+     "translation": "Where is your phone?",
+     "hint": "your (masc. noun)",
+     "display_order": 2
+    },
+    {
+     "sentence": "{{answer}} sœur habite à Lyon.",
+     "answer": "Sa",
+     "translation": "His/her sister lives in Lyon.",
+     "hint": "his/her (fem. noun)",
+     "display_order": 3
+    },
+    {
+     "sentence": "{{answer}} livre est très intéressant.",
+     "answer": "Ce",
+     "translation": "This book is very interesting.",
+     "hint": "this (masc. noun)",
+     "display_order": 4
+    },
+    {
+     "sentence": "{{answer}} maison est près de la mer.",
+     "answer": "Cette",
+     "translation": "This house is near the sea.",
+     "hint": "this (fem. noun)",
+     "display_order": 5
+    },
+    {
+     "sentence": "{{answer}} enfants jouent dans le jardin.",
+     "answer": "Ces",
+     "translation": "These children are playing in the garden.",
+     "hint": "these (plural)",
+     "display_order": 6
+    }
+   ]
+  },
+  {
+   "title": "The subjunctive (le subjonctif)",
+   "level": "B1",
+   "function": "Express necessity, wish, emotion, and doubt",
+   "source": "contributor",
+   "reviewed": true,
+   "display_order": 1,
+   "explanation": "After expressions of necessity, wish, emotion, or doubt — il faut que, je veux que, je suis content que, bien que — the verb goes into the subjunctive. For most verbs, take the ils form of the present, drop -ent, add -e, -es, -e, -ions, -iez, -ent: que je parle, que nous finissions.\n\nKey irregulars: être (sois), avoir (aie), faire (fasse), aller (aille).",
+   "culture_note": "",
+   "references": [
+    {
+     "title": "Vitrine linguistique (BDL) — Office québécois de la langue française",
+     "url": "https://vitrinelinguistique.oqlf.gouv.qc.ca/"
+    },
+    {
+     "title": "Wikipedia: French grammar",
+     "url": "https://en.wikipedia.org/wiki/French_grammar"
+    }
+   ],
+   "drills": [
+    {
+     "sentence": "Il faut que je {{answer}} mes devoirs ce soir.",
+     "answer": "fasse",
+     "translation": "I have to do my homework tonight.",
+     "hint": "do — I (subjunctive)",
+     "display_order": 1
+    },
+    {
+     "sentence": "Je veux que tu {{answer}} à l'heure.",
+     "answer": "sois",
+     "translation": "I want you to be on time.",
+     "hint": "be — you (subjunctive of être)",
+     "display_order": 2
+    },
+    {
+     "sentence": "Il est important que nous {{answer}} attention.",
+     "answer": "fassions",
+     "translation": "It's important that we pay attention.",
+     "hint": "do/make — we (subjunctive)",
+     "display_order": 3
+    },
+    {
+     "sentence": "Bien qu'il {{answer}} malade, il travaille.",
+     "answer": "soit",
+     "translation": "Although he is ill, he works.",
+     "hint": "is — he (subjunctive of être)",
+     "display_order": 4
+    },
+    {
+     "sentence": "Je suis content que vous {{answer}} venir.",
+     "answer": "puissiez",
+     "translation": "I'm glad you can come.",
+     "hint": "can — you (subjunctive of pouvoir)",
+     "display_order": 5
+    },
+    {
+     "sentence": "Il faut qu'elle {{answer}} chez le médecin.",
+     "answer": "aille",
+     "translation": "She has to go to the doctor.",
+     "hint": "go — she (subjunctive of aller)",
+     "display_order": 6
+    }
+   ]
+  },
+  {
+   "title": "The conditional (le conditionnel)",
+   "level": "B1",
+   "function": "Say what you would do; be polite",
+   "source": "contributor",
+   "reviewed": true,
+   "display_order": 2,
+   "explanation": "The conditional = the future stem + the imperfect endings (-ais, -ais, -ait, -ions, -iez, -aient): je mangerais 'I would eat', il viendrait 'he would come'. It softens requests (je voudrais 'I would like', pourriez-vous 'could you') and states hypotheticals.",
+   "culture_note": "",
+   "references": [
+    {
+     "title": "Vitrine linguistique (BDL) — Office québécois de la langue française",
+     "url": "https://vitrinelinguistique.oqlf.gouv.qc.ca/"
+    },
+    {
+     "title": "Wikipedia: French grammar",
+     "url": "https://en.wikipedia.org/wiki/French_grammar"
+    }
+   ],
+   "drills": [
+    {
+     "sentence": "Je {{answer}} un café, s'il vous plaît.",
+     "answer": "voudrais",
+     "translation": "I would like a coffee, please.",
+     "hint": "would like — I (conditional)",
+     "display_order": 1
+    },
+    {
+     "sentence": "{{answer}}-vous m'aider un instant?",
+     "answer": "Pourriez",
+     "translation": "Could you help me for a moment?",
+     "hint": "could — you (conditional of pouvoir)",
+     "display_order": 2
+    },
+    {
+     "sentence": "Il {{answer}} volontiers, mais il est occupé.",
+     "answer": "viendrait",
+     "translation": "He would gladly come, but he's busy.",
+     "hint": "would come — he (conditional)",
+     "display_order": 3
+    },
+    {
+     "sentence": "À ta place, je {{answer}} l'offre.",
+     "answer": "accepterais",
+     "translation": "In your place, I would accept the offer.",
+     "hint": "would accept — I (conditional)",
+     "display_order": 4
+    },
+    {
+     "sentence": "Nous {{answer}} bien vivre au bord de la mer.",
+     "answer": "aimerions",
+     "translation": "We would love to live by the sea.",
+     "hint": "would love — we (conditional)",
+     "display_order": 5
+    },
+    {
+     "sentence": "Ils {{answer}} contents de te voir.",
+     "answer": "seraient",
+     "translation": "They would be happy to see you.",
+     "hint": "would be — they (conditional of être)",
+     "display_order": 6
+    }
+   ]
+  },
+  {
+   "title": "Two object pronouns (je le lui donne)",
+   "level": "B1",
+   "function": "Combine 'it' and 'to him' before the verb",
+   "source": "contributor",
+   "reviewed": true,
+   "display_order": 3,
+   "explanation": "When a verb has two pronouns, they follow a fixed order before the verb: me/te/nous/vous come before le/la/les, which come before lui/leur, then y, then en: je te le donne 'I give it to you', je le lui donne 'I give it to him', il y en a 'there is some'.",
+   "culture_note": "",
+   "references": [
+    {
+     "title": "Vitrine linguistique (BDL) — Office québécois de la langue française",
+     "url": "https://vitrinelinguistique.oqlf.gouv.qc.ca/"
+    },
+    {
+     "title": "Wikipedia: French grammar",
+     "url": "https://en.wikipedia.org/wiki/French_grammar"
+    }
+   ],
+   "drills": [
+    {
+     "sentence": "Ce livre? Je {{answer}} le prête volontiers.",
+     "answer": "te",
+     "translation": "This book? I'll gladly lend it to you.",
+     "hint": "to you (before le)",
+     "display_order": 1
+    },
+    {
+     "sentence": "La lettre, je {{answer}} lui ai déjà envoyée.",
+     "answer": "la",
+     "translation": "The letter, I already sent it to him.",
+     "hint": "it (fem., before lui)",
+     "display_order": 2
+    },
+    {
+     "sentence": "Les clés? Il {{answer}} les a rendues hier.",
+     "answer": "nous",
+     "translation": "The keys? He gave them back to us yesterday.",
+     "hint": "to us (before les)",
+     "display_order": 3
+    },
+    {
+     "sentence": "Du gâteau? Il y {{answer}} a encore.",
+     "answer": "en",
+     "translation": "Some cake? There's still some.",
+     "hint": "some (y + en)",
+     "display_order": 4
+    },
+    {
+     "sentence": "Ton adresse, donne-la-{{answer}}, s'il te plaît.",
+     "answer": "moi",
+     "translation": "Your address, give it to me, please.",
+     "hint": "to me (after the verb, imperative)",
+     "display_order": 5
+    },
+    {
+     "sentence": "Cette histoire, je {{answer}} la raconterai demain.",
+     "answer": "vous",
+     "translation": "This story, I'll tell it to you tomorrow.",
+     "hint": "to you (pl., before la)",
+     "display_order": 6
+    }
+   ]
+  },
+  {
+   "title": "Relative pronouns (qui, que, où, dont)",
+   "level": "B1",
+   "function": "Join two clauses into one",
+   "source": "contributor",
+   "reviewed": true,
+   "display_order": 4,
+   "explanation": "qui is the subject of the relative clause ('who/which' + verb): l'homme qui parle. que is the object ('whom/which/that' + subject): le livre que je lis. où means 'where/when': la ville où j'habite. dont replaces de + something ('whose/of which/about which'): le film dont je parle.",
+   "culture_note": "",
+   "references": [
+    {
+     "title": "Vitrine linguistique (BDL) — Office québécois de la langue française",
+     "url": "https://vitrinelinguistique.oqlf.gouv.qc.ca/"
+    },
+    {
+     "title": "Wikipedia: French grammar",
+     "url": "https://en.wikipedia.org/wiki/French_grammar"
+    }
+   ],
+   "drills": [
+    {
+     "sentence": "C'est l'homme {{answer}} habite à côté.",
+     "answer": "qui",
+     "translation": "That's the man who lives next door.",
+     "hint": "who (subject)",
+     "display_order": 1
+    },
+    {
+     "sentence": "Le livre {{answer}} je lis est passionnant.",
+     "answer": "que",
+     "translation": "The book that I'm reading is gripping.",
+     "hint": "that (object)",
+     "display_order": 2
+    },
+    {
+     "sentence": "Voici la ville {{answer}} je suis né.",
+     "answer": "où",
+     "translation": "Here is the town where I was born.",
+     "hint": "where",
+     "display_order": 3
+    },
+    {
+     "sentence": "C'est le film {{answer}} tout le monde parle.",
+     "answer": "dont",
+     "translation": "That's the film everyone is talking about.",
+     "hint": "of/about which (de + …)",
+     "display_order": 4
+    },
+    {
+     "sentence": "Les amis {{answer}} viennent ce soir sont sympas.",
+     "answer": "qui",
+     "translation": "The friends who are coming tonight are nice.",
+     "hint": "who (subject, plural)",
+     "display_order": 5
+    },
+    {
+     "sentence": "La voiture {{answer}} il a achetée est rouge.",
+     "answer": "qu'",
+     "translation": "The car that he bought is red.",
+     "hint": "that (object, elided before il)",
+     "display_order": 6
+    }
+   ]
+  },
+  {
+   "title": "Near future & recent past (aller / venir de)",
+   "level": "B1",
+   "function": "Say what's about to happen or just happened",
+   "source": "contributor",
+   "reviewed": true,
+   "display_order": 5,
+   "explanation": "The near future is aller (present) + infinitive: je vais partir 'I'm going to leave'. The recent past is venir de + infinitive: je viens d'arriver 'I've just arrived'.\n\nBoth are extremely common in speech.",
+   "culture_note": "",
+   "references": [
+    {
+     "title": "Vitrine linguistique (BDL) — Office québécois de la langue française",
+     "url": "https://vitrinelinguistique.oqlf.gouv.qc.ca/"
+    },
+    {
+     "title": "Wikipedia: French grammar",
+     "url": "https://en.wikipedia.org/wiki/French_grammar"
+    }
+   ],
+   "drills": [
+    {
+     "sentence": "Attends, je {{answer}} arriver dans cinq minutes.",
+     "answer": "vais",
+     "translation": "Wait, I'm going to arrive in five minutes.",
+     "hint": "going to — I (aller)",
+     "display_order": 1
+    },
+    {
+     "sentence": "Nous {{answer}} partir en vacances demain.",
+     "answer": "allons",
+     "translation": "We're going to leave on holiday tomorrow.",
+     "hint": "going to — we (aller)",
+     "display_order": 2
+    },
+    {
+     "sentence": "Il {{answer}} de finir son travail.",
+     "answer": "vient",
+     "translation": "He has just finished his work.",
+     "hint": "just (venir de) — he",
+     "display_order": 3
+    },
+    {
+     "sentence": "Je {{answer}} de recevoir ton message.",
+     "answer": "viens",
+     "translation": "I've just received your message.",
+     "hint": "just (venir de) — I",
+     "display_order": 4
+    },
+    {
+     "sentence": "Tu {{answer}} adorer ce restaurant!",
+     "answer": "vas",
+     "translation": "You're going to love this restaurant!",
+     "hint": "going to — you (aller)",
+     "display_order": 5
+    },
+    {
+     "sentence": "Les enfants {{answer}} de se réveiller.",
+     "answer": "viennent",
+     "translation": "The children have just woken up.",
+     "hint": "just (venir de) — they",
+     "display_order": 6
+    }
+   ]
+  },
+  {
+   "title": "The pluperfect (le plus-que-parfait)",
+   "level": "B1",
+   "function": "Set one past action before another",
+   "source": "contributor",
+   "reviewed": true,
+   "display_order": 6,
+   "explanation": "The pluperfect ('had done') = the imperfect of avoir/être + the past participle: j'avais mangé 'I had eaten', elle était partie 'she had left'. It marks an action completed before another past moment.\n\nThe être/avoir and agreement rules are the same as the passé composé.",
+   "culture_note": "",
+   "references": [
+    {
+     "title": "Vitrine linguistique (BDL) — Office québécois de la langue française",
+     "url": "https://vitrinelinguistique.oqlf.gouv.qc.ca/"
+    },
+    {
+     "title": "Wikipedia: French grammar",
+     "url": "https://en.wikipedia.org/wiki/French_grammar"
+    }
+   ],
+   "drills": [
+    {
+     "sentence": "Quand tu es arrivé, j'{{answer}} déjà mangé.",
+     "answer": "avais",
+     "translation": "When you arrived, I had already eaten.",
+     "hint": "had — I (pluperfect, avoir)",
+     "display_order": 1
+    },
+    {
+     "sentence": "Le train {{answer}} déjà parti quand nous sommes arrivés.",
+     "answer": "était",
+     "translation": "The train had already left when we arrived.",
+     "hint": "had — it (pluperfect, être)",
+     "display_order": 2
+    },
+    {
+     "sentence": "Je n'ai pas reconnu la maison; elle {{answer}} beaucoup changé.",
+     "answer": "avait",
+     "translation": "I didn't recognize the house; it had changed a lot.",
+     "hint": "had — it (pluperfect)",
+     "display_order": 3
+    },
+    {
+     "sentence": "Ils {{answer}} partis avant la pluie.",
+     "answer": "étaient",
+     "translation": "They had left before the rain.",
+     "hint": "had — they (pluperfect, être)",
+     "display_order": 4
+    },
+    {
+     "sentence": "Nous {{answer}} déjà fini quand il a appelé.",
+     "answer": "avions",
+     "translation": "We had already finished when he called.",
+     "hint": "had — we (pluperfect, avoir)",
+     "display_order": 5
+    },
+    {
+     "sentence": "Elle m'a dit qu'elle {{answer}} oublié son rendez-vous.",
+     "answer": "avait",
+     "translation": "She told me she had forgotten her appointment.",
+     "hint": "had — she (pluperfect)",
+     "display_order": 6
+    }
+   ]
+  },
+  {
+   "title": "Reported speech (le discours indirect)",
+   "level": "B1",
+   "function": "Report what someone said or asked",
+   "source": "contributor",
+   "reviewed": true,
+   "display_order": 7,
+   "explanation": "Report a statement with que: il dit qu'il vient 'he says he's coming'. Report a yes/no question with si 'whether': il demande si tu viens.\n\nReport what/who with ce que / ce qui: je ne sais pas ce qu'il veut.\n\nWhen the main verb is past, tenses shift back (présent → imparfait, etc.).",
+   "culture_note": "",
+   "references": [
+    {
+     "title": "Vitrine linguistique (BDL) — Office québécois de la langue française",
+     "url": "https://vitrinelinguistique.oqlf.gouv.qc.ca/"
+    },
+    {
+     "title": "Wikipedia: French grammar",
+     "url": "https://en.wikipedia.org/wiki/French_grammar"
+    }
+   ],
+   "drills": [
+    {
+     "sentence": "Il dit {{answer}}'il est fatigué.",
+     "answer": "qu",
+     "translation": "He says (that) he is tired.",
+     "hint": "that (elided before il)",
+     "display_order": 1
+    },
+    {
+     "sentence": "Elle demande {{answer}} tu veux un café.",
+     "answer": "si",
+     "translation": "She asks whether you want a coffee.",
+     "hint": "whether",
+     "display_order": 2
+    },
+    {
+     "sentence": "Je ne sais pas ce {{answer}}'il veut.",
+     "answer": "qu",
+     "translation": "I don't know what he wants.",
+     "hint": "what (ce que, elided)",
+     "display_order": 3
+    },
+    {
+     "sentence": "Il a dit qu'il {{answer}} le lendemain.",
+     "answer": "viendrait",
+     "translation": "He said he would come the next day.",
+     "hint": "would come (shifted to conditional)",
+     "display_order": 4
+    },
+    {
+     "sentence": "Dis-moi ce {{answer}} s'est passé.",
+     "answer": "qui",
+     "translation": "Tell me what happened.",
+     "hint": "what (ce qui, subject)",
+     "display_order": 5
+    },
+    {
+     "sentence": "Elle m'a demandé {{answer}} j'avais fini.",
+     "answer": "si",
+     "translation": "She asked me whether I had finished.",
+     "hint": "whether",
+     "display_order": 6
+    }
+   ]
+  },
+  {
+   "title": "The passive voice (la voix passive)",
+   "level": "B2",
+   "function": "Say an action is done, and by whom",
+   "source": "contributor",
+   "reviewed": true,
+   "display_order": 1,
+   "explanation": "The passive = être (in any tense) + past participle, which AGREES with the subject: la lettre est écrite 'the letter is written', les maisons ont été construites 'the houses were built'. The agent, if named, follows par: le tableau a été peint par Monet.",
+   "culture_note": "",
+   "references": [
+    {
+     "title": "Vitrine linguistique (BDL) — Office québécois de la langue française",
+     "url": "https://vitrinelinguistique.oqlf.gouv.qc.ca/"
+    },
+    {
+     "title": "Wikipedia: French grammar",
+     "url": "https://en.wikipedia.org/wiki/French_grammar"
+    }
+   ],
+   "drills": [
+    {
+     "sentence": "La lettre {{answer}} écrite en français.",
+     "answer": "est",
+     "translation": "The letter is written in French.",
+     "hint": "is (passive, être)",
+     "display_order": 1
+    },
+    {
+     "sentence": "Ce roman a {{answer}} traduit en dix langues.",
+     "answer": "été",
+     "translation": "This novel has been translated into ten languages.",
+     "hint": "been (passive)",
+     "display_order": 2
+    },
+    {
+     "sentence": "Les portes {{answer}} fermées à neuf heures.",
+     "answer": "sont",
+     "translation": "The doors are closed at nine.",
+     "hint": "are (passive, plural)",
+     "display_order": 3
+    },
+    {
+     "sentence": "Le tableau a été peint {{answer}} un artiste célèbre.",
+     "answer": "par",
+     "translation": "The painting was painted by a famous artist.",
+     "hint": "by (the agent)",
+     "display_order": 4
+    },
+    {
+     "sentence": "La maison {{answer}} construite il y a cent ans.",
+     "answer": "fut",
+     "translation": "The house was built a hundred years ago.",
+     "hint": "was (passive, past)",
+     "display_order": 5
+    },
+    {
+     "sentence": "Ces décisions seront {{answer}} demain.",
+     "answer": "prises",
+     "translation": "These decisions will be made tomorrow.",
+     "hint": "made (participle agrees, fem. pl.)",
+     "display_order": 6
+    }
+   ]
+  },
+  {
+   "title": "Hypotheticals with si (si + imparfait)",
+   "level": "B2",
+   "function": "Say what would happen if…",
+   "source": "contributor",
+   "reviewed": true,
+   "display_order": 2,
+   "explanation": "For an unreal or hypothetical present, si + imparfait pairs with the conditional: si j'avais le temps, je viendrais 'if I had time, I would come'. (For a real future condition it's si + présent → futur: si tu études, tu réussiras.) Never put the conditional directly after si.",
+   "culture_note": "",
+   "references": [
+    {
+     "title": "Vitrine linguistique (BDL) — Office québécois de la langue française",
+     "url": "https://vitrinelinguistique.oqlf.gouv.qc.ca/"
+    },
+    {
+     "title": "Wikipedia: French grammar",
+     "url": "https://en.wikipedia.org/wiki/French_grammar"
+    }
+   ],
+   "drills": [
+    {
+     "sentence": "Si j'avais le temps, je {{answer}} au cinéma.",
+     "answer": "irais",
+     "translation": "If I had time, I would go to the cinema.",
+     "hint": "would go — I (conditional)",
+     "display_order": 1
+    },
+    {
+     "sentence": "{{answer}} j'étais riche, je voyagerais partout.",
+     "answer": "Si",
+     "translation": "If I were rich, I would travel everywhere.",
+     "hint": "if (+ imperfect)",
+     "display_order": 2
+    },
+    {
+     "sentence": "Si nous {{answer}} plus tôt, nous verrions le lever du soleil.",
+     "answer": "partions",
+     "translation": "If we left earlier, we would see the sunrise.",
+     "hint": "left — we (imperfect after si)",
+     "display_order": 3
+    },
+    {
+     "sentence": "Tu réussirais si tu {{answer}} davantage.",
+     "answer": "travaillais",
+     "translation": "You would succeed if you worked more.",
+     "hint": "worked — you (imperfect after si)",
+     "display_order": 4
+    },
+    {
+     "sentence": "S'il {{answer}} beau, nous ferions une promenade.",
+     "answer": "faisait",
+     "translation": "If the weather were nice, we would take a walk.",
+     "hint": "made/were — it (imperfect)",
+     "display_order": 5
+    },
+    {
+     "sentence": "Si on me le demandait, je {{answer}} oui.",
+     "answer": "dirais",
+     "translation": "If they asked me, I would say yes.",
+     "hint": "would say — I (conditional)",
+     "display_order": 6
+    }
+   ]
+  },
+  {
+   "title": "The gerund (le gérondif: en faisant)",
+   "level": "B2",
+   "function": "Say 'while / by doing' something",
+   "source": "contributor",
+   "reviewed": true,
+   "display_order": 3,
+   "explanation": "The gérondif is en + the present participle (-ant): en marchant 'while walking', en travaillant 'by working'. It expresses simultaneity ('while') or means ('by'), and its subject is always the same as the main verb's: il chante en cuisinant 'he sings while cooking'.",
+   "culture_note": "",
+   "references": [
+    {
+     "title": "Vitrine linguistique (BDL) — Office québécois de la langue française",
+     "url": "https://vitrinelinguistique.oqlf.gouv.qc.ca/"
+    },
+    {
+     "title": "Wikipedia: French grammar",
+     "url": "https://en.wikipedia.org/wiki/French_grammar"
+    }
+   ],
+   "drills": [
+    {
+     "sentence": "Il est tombé {{answer}} courant après le bus.",
+     "answer": "en",
+     "translation": "He fell while running for the bus.",
+     "hint": "while (en + participle)",
+     "display_order": 1
+    },
+    {
+     "sentence": "On apprend beaucoup {{answer}} voyageant.",
+     "answer": "en",
+     "translation": "You learn a lot by travelling.",
+     "hint": "by (en + participle)",
+     "display_order": 2
+    },
+    {
+     "sentence": "Elle écoute de la musique en {{answer}}.",
+     "answer": "cuisinant",
+     "translation": "She listens to music while cooking.",
+     "hint": "cooking (present participle)",
+     "display_order": 3
+    },
+    {
+     "sentence": "{{answer}} lisant tous les jours, tu progresseras.",
+     "answer": "En",
+     "translation": "By reading every day, you'll improve.",
+     "hint": "by (en + participle)",
+     "display_order": 4
+    },
+    {
+     "sentence": "Il s'est blessé en {{answer}}.",
+     "answer": "tombant",
+     "translation": "He hurt himself while falling.",
+     "hint": "falling (present participle)",
+     "display_order": 5
+    },
+    {
+     "sentence": "Ne parle pas en {{answer}}!",
+     "answer": "mangeant",
+     "translation": "Don't talk while eating!",
+     "hint": "eating (present participle)",
+     "display_order": 6
+    }
+   ]
+  },
+  {
+   "title": "Subjunctive after conjunctions",
+   "level": "B2",
+   "function": "Use the subjunctive after 'although, so that, before…'",
+   "source": "contributor",
+   "reviewed": true,
+   "display_order": 4,
+   "explanation": "Certain conjunctions always take the subjunctive: bien que / quoique 'although', pour que / afin que 'so that', avant que 'before', à condition que 'provided that', jusqu'à ce que 'until', sans que 'without'.\n\nBien qu'il pleuve, nous sortons 'although it's raining, we go out'.",
+   "culture_note": "",
+   "references": [
+    {
+     "title": "Vitrine linguistique (BDL) — Office québécois de la langue française",
+     "url": "https://vitrinelinguistique.oqlf.gouv.qc.ca/"
+    },
+    {
+     "title": "Wikipedia: French grammar",
+     "url": "https://en.wikipedia.org/wiki/French_grammar"
+    }
+   ],
+   "drills": [
+    {
+     "sentence": "Bien qu'il {{answer}} froid, ils se baignent.",
+     "answer": "fasse",
+     "translation": "Although it's cold, they swim.",
+     "hint": "makes/is — it (subjunctive)",
+     "display_order": 1
+    },
+    {
+     "sentence": "Je t'explique pour que tu {{answer}} comprendre.",
+     "answer": "puisses",
+     "translation": "I'm explaining so that you can understand.",
+     "hint": "can — you (subjunctive)",
+     "display_order": 2
+    },
+    {
+     "sentence": "Partons avant qu'il ne {{answer}}.",
+     "answer": "pleuve",
+     "translation": "Let's leave before it rains.",
+     "hint": "rains — it (subjunctive)",
+     "display_order": 3
+    },
+    {
+     "sentence": "Je viendrai à condition que tu {{answer}} là.",
+     "answer": "sois",
+     "translation": "I'll come provided that you're there.",
+     "hint": "are — you (subjunctive of être)",
+     "display_order": 4
+    },
+    {
+     "sentence": "Attends jusqu'à ce que je {{answer}} prêt.",
+     "answer": "sois",
+     "translation": "Wait until I'm ready.",
+     "hint": "am — I (subjunctive of être)",
+     "display_order": 5
+    },
+    {
+     "sentence": "Il est parti sans que je le {{answer}}.",
+     "answer": "sache",
+     "translation": "He left without my knowing it.",
+     "hint": "know — I (subjunctive of savoir)",
+     "display_order": 6
+    }
+   ]
+  },
+  {
+   "title": "Irregular comparatives (meilleur, mieux, pire)",
+   "level": "B2",
+   "function": "Compare with 'better' and 'worse'",
+   "source": "contributor",
+   "reviewed": true,
+   "display_order": 5,
+   "explanation": "A few comparatives are irregular.\n\nThe adjective bon → meilleur 'better' (agrees: meilleure, meilleurs).\n\nThe adverb bien → mieux 'better' (never agrees). mauvais → plus mauvais or pire 'worse'; mal → plus mal or pis.\n\nCe gâteau est meilleur; il chante mieux.",
+   "culture_note": "",
+   "references": [
+    {
+     "title": "Vitrine linguistique (BDL) — Office québécois de la langue française",
+     "url": "https://vitrinelinguistique.oqlf.gouv.qc.ca/"
+    },
+    {
+     "title": "Wikipedia: French grammar",
+     "url": "https://en.wikipedia.org/wiki/French_grammar"
+    }
+   ],
+   "drills": [
+    {
+     "sentence": "Ce restaurant est {{answer}} que l'autre.",
+     "answer": "meilleur",
+     "translation": "This restaurant is better than the other.",
+     "hint": "better (adjective, bon)",
+     "display_order": 1
+    },
+    {
+     "sentence": "Elle chante {{answer}} que moi.",
+     "answer": "mieux",
+     "translation": "She sings better than me.",
+     "hint": "better (adverb, bien)",
+     "display_order": 2
+    },
+    {
+     "sentence": "La situation est {{answer}} qu'avant.",
+     "answer": "pire",
+     "translation": "The situation is worse than before.",
+     "hint": "worse (mauvais)",
+     "display_order": 3
+    },
+    {
+     "sentence": "C'est la {{answer}} boulangerie du quartier.",
+     "answer": "meilleure",
+     "translation": "It's the best bakery in the neighbourhood.",
+     "hint": "best (fem., bon)",
+     "display_order": 4
+    },
+    {
+     "sentence": "Aujourd'hui je vais {{answer}} qu'hier.",
+     "answer": "mieux",
+     "translation": "Today I feel better than yesterday.",
+     "hint": "better (adverb, bien)",
+     "display_order": 5
+    },
+    {
+     "sentence": "Ses résultats sont {{answer}} que prévu.",
+     "answer": "pires",
+     "translation": "His results are worse than expected.",
+     "hint": "worse (plural, mauvais)",
+     "display_order": 6
+    }
+   ]
+  },
+  {
+   "title": "Logical connectors (pourtant, donc, cependant)",
+   "level": "B2",
+   "function": "Link ideas: contrast, cause, and consequence",
+   "source": "contributor",
+   "reviewed": true,
+   "display_order": 6,
+   "explanation": "Written and spoken French links ideas with connectors: donc / alors 'so/therefore', pourtant / cependant / néanmoins 'however/yet', car / puisque 'because/since', d'ailleurs 'besides', en revanche 'on the other hand'.\n\nThey organize an argument and are worth deploying deliberately.",
+   "culture_note": "",
+   "references": [
+    {
+     "title": "Vitrine linguistique (BDL) — Office québécois de la langue française",
+     "url": "https://vitrinelinguistique.oqlf.gouv.qc.ca/"
+    },
+    {
+     "title": "Wikipedia: French grammar",
+     "url": "https://en.wikipedia.org/wiki/French_grammar"
+    }
+   ],
+   "drills": [
+    {
+     "sentence": "Il pleut, {{answer}} nous restons à la maison.",
+     "answer": "donc",
+     "translation": "It's raining, so we're staying home.",
+     "hint": "so / therefore",
+     "display_order": 1
+    },
+    {
+     "sentence": "Elle est fatiguée; {{answer}}, elle continue.",
+     "answer": "pourtant",
+     "translation": "She is tired; however, she carries on.",
+     "hint": "however / yet",
+     "display_order": 2
+    },
+    {
+     "sentence": "Je reste ici {{answer}} j'attends un ami.",
+     "answer": "car",
+     "translation": "I'm staying here because I'm waiting for a friend.",
+     "hint": "because (car)",
+     "display_order": 3
+    },
+    {
+     "sentence": "Il n'aime pas Paris; {{answer}}, il y travaille.",
+     "answer": "cependant",
+     "translation": "He doesn't like Paris; however, he works there.",
+     "hint": "however",
+     "display_order": 4
+    },
+    {
+     "sentence": "{{answer}} tu es prêt, partons.",
+     "answer": "Puisque",
+     "translation": "Since you're ready, let's go.",
+     "hint": "since (given that)",
+     "display_order": 5
+    },
+    {
+     "sentence": "Le café est cher; {{answer}}, le thé est bon marché.",
+     "answer": "cependant",
+     "translation": "Coffee is expensive; however, tea is cheap.",
+     "hint": "however",
+     "display_order": 6
+    }
+   ]
+  },
+  {
+   "title": "The past conditional (le conditionnel passé)",
+   "level": "C1",
+   "function": "Say what would have happened",
+   "source": "contributor",
+   "reviewed": true,
+   "display_order": 1,
+   "explanation": "The past conditional = the conditional of avoir/être + the participle: j'aurais fait 'I would have done', elle serait venue 'she would have come'.\n\nIt pairs with si + plus-que-parfait for past-unreal conditions: si j'avais su, je serais venu 'if I had known, I would have come'.",
+   "culture_note": "",
+   "references": [
+    {
+     "title": "Vitrine linguistique (BDL) — Office québécois de la langue française",
+     "url": "https://vitrinelinguistique.oqlf.gouv.qc.ca/"
+    },
+    {
+     "title": "Wikipedia: French grammar",
+     "url": "https://en.wikipedia.org/wiki/French_grammar"
+    }
+   ],
+   "drills": [
+    {
+     "sentence": "Si j'avais su, je {{answer}} venu plus tôt.",
+     "answer": "serais",
+     "translation": "If I had known, I would have come earlier.",
+     "hint": "would have — I (être)",
+     "display_order": 1
+    },
+    {
+     "sentence": "Il {{answer}} réussi s'il avait travaillé.",
+     "answer": "aurait",
+     "translation": "He would have succeeded if he had worked.",
+     "hint": "would have — he (avoir)",
+     "display_order": 2
+    },
+    {
+     "sentence": "Nous {{answer}} aimé rester plus longtemps.",
+     "answer": "aurions",
+     "translation": "We would have liked to stay longer.",
+     "hint": "would have — we (avoir)",
+     "display_order": 3
+    },
+    {
+     "sentence": "Sans ton aide, je n'{{answer}} jamais fini.",
+     "answer": "aurais",
+     "translation": "Without your help, I would never have finished.",
+     "hint": "would have — I (avoir)",
+     "display_order": 4
+    },
+    {
+     "sentence": "Elles {{answer}} venues, mais il était trop tard.",
+     "answer": "seraient",
+     "translation": "They would have come, but it was too late.",
+     "hint": "would have — they (être)",
+     "display_order": 5
+    },
+    {
+     "sentence": "Qu'est-ce que tu {{answer}} fait à ma place?",
+     "answer": "aurais",
+     "translation": "What would you have done in my place?",
+     "hint": "would have — you (avoir)",
+     "display_order": 6
+    }
+   ]
+  },
+  {
+   "title": "The past subjunctive & sequence of tenses",
+   "level": "C1",
+   "function": "Use the subjunctive for a completed action",
+   "source": "contributor",
+   "reviewed": true,
+   "display_order": 2,
+   "explanation": "The past subjunctive = the subjunctive of avoir/être + the participle, for an action seen as completed within a subjunctive context: je suis content que tu sois venu 'I'm glad you came', bien qu'il ait fait des erreurs 'although he made mistakes'. It replaces the present subjunctive when the action is already over.",
+   "culture_note": "",
+   "references": [
+    {
+     "title": "Vitrine linguistique (BDL) — Office québécois de la langue française",
+     "url": "https://vitrinelinguistique.oqlf.gouv.qc.ca/"
+    },
+    {
+     "title": "Wikipedia: French grammar",
+     "url": "https://en.wikipedia.org/wiki/French_grammar"
+    }
+   ],
+   "drills": [
+    {
+     "sentence": "Je suis ravi que tu {{answer}} venu.",
+     "answer": "sois",
+     "translation": "I'm delighted that you came.",
+     "hint": "have (past subjunctive of être)",
+     "display_order": 1
+    },
+    {
+     "sentence": "Bien qu'il {{answer}} fait de son mieux, il a échoué.",
+     "answer": "ait",
+     "translation": "Although he did his best, he failed.",
+     "hint": "has (past subjunctive of avoir)",
+     "display_order": 2
+    },
+    {
+     "sentence": "C'est dommage qu'elle {{answer}} partie si tôt.",
+     "answer": "soit",
+     "translation": "It's a shame she left so early.",
+     "hint": "has (past subjunctive of être)",
+     "display_order": 3
+    },
+    {
+     "sentence": "Je doute qu'ils {{answer}} déjà terminé.",
+     "answer": "aient",
+     "translation": "I doubt they have already finished.",
+     "hint": "have (past subjunctive of avoir)",
+     "display_order": 4
+    },
+    {
+     "sentence": "Nous sommes contents que vous {{answer}} pu venir.",
+     "answer": "ayez",
+     "translation": "We're glad you were able to come.",
+     "hint": "have (past subjunctive of avoir)",
+     "display_order": 5
+    },
+    {
+     "sentence": "Il est possible qu'elle l'{{answer}} oublié.",
+     "answer": "ait",
+     "translation": "It's possible she forgot it.",
+     "hint": "has (past subjunctive of avoir)",
+     "display_order": 6
+    }
+   ]
+  },
+  {
+   "title": "The literary past (le passé simple)",
+   "level": "C1",
+   "function": "Recognize the tense of novels and history",
+   "source": "contributor",
+   "reviewed": true,
+   "display_order": 3,
+   "explanation": "The passé simple is the written narrative past, replacing the passé composé in literature, history, and formal storytelling.\n\n-er verbs: il parla, ils parlèrent; -ir/-re: il finit, il vendit; key irregulars: être → il fut, avoir → il eut, faire → il fit, venir → il vint.\n\nYou rarely produce it, but you must read it.",
+   "culture_note": "",
+   "references": [
+    {
+     "title": "Vitrine linguistique (BDL) — Office québécois de la langue française",
+     "url": "https://vitrinelinguistique.oqlf.gouv.qc.ca/"
+    },
+    {
+     "title": "Wikipedia: French grammar",
+     "url": "https://en.wikipedia.org/wiki/French_grammar"
+    }
+   ],
+   "drills": [
+    {
+     "sentence": "Le roi {{answer}} un grand palais. (récit)",
+     "answer": "construisit",
+     "translation": "The king built a great palace. (narrative)",
+     "hint": "built — he (passé simple)",
+     "display_order": 1
+    },
+    {
+     "sentence": "Ils {{answer}} dans la forêt sombre. (récit)",
+     "answer": "entrèrent",
+     "translation": "They entered the dark forest. (narrative)",
+     "hint": "entered — they (passé simple)",
+     "display_order": 2
+    },
+    {
+     "sentence": "Elle {{answer}} très surprise en le voyant. (récit)",
+     "answer": "fut",
+     "translation": "She was very surprised on seeing him. (narrative)",
+     "hint": "was — she (passé simple of être)",
+     "display_order": 3
+    },
+    {
+     "sentence": "Le héros {{answer}} son épée et partit. (récit)",
+     "answer": "prit",
+     "translation": "The hero took his sword and left. (narrative)",
+     "hint": "took — he (passé simple of prendre)",
+     "display_order": 4
+    },
+    {
+     "sentence": "Soudain, un étranger {{answer}} à la porte. (récit)",
+     "answer": "frappa",
+     "translation": "Suddenly, a stranger knocked at the door. (narrative)",
+     "hint": "knocked — he (passé simple)",
+     "display_order": 5
+    },
+    {
+     "sentence": "Ils {{answer}} un festin ce soir-là. (récit)",
+     "answer": "eurent",
+     "translation": "They had a feast that evening. (narrative)",
+     "hint": "had — they (passé simple of avoir)",
+     "display_order": 6
+    }
+   ]
+  },
+  {
+   "title": "Emphasis (c'est… qui / que, ce qui… c'est)",
+   "level": "C2",
+   "function": "Foreground a word with a cleft construction",
+   "source": "contributor",
+   "reviewed": true,
+   "display_order": 1,
+   "explanation": "French emphasizes a word by 'clefting' it. c'est … qui highlights a subject: c'est moi qui l'ai fait 'it's I who did it'. c'est … que highlights anything else: c'est à Paris que je vis 'it's in Paris that I live'. ce qui/ce que … c'est frames a whole idea: ce que je veux, c'est réussir 'what I want is to succeed'.",
+   "culture_note": "",
+   "references": [
+    {
+     "title": "Vitrine linguistique (BDL) — Office québécois de la langue française",
+     "url": "https://vitrinelinguistique.oqlf.gouv.qc.ca/"
+    },
+    {
+     "title": "Wikipedia: French grammar",
+     "url": "https://en.wikipedia.org/wiki/French_grammar"
+    }
+   ],
+   "drills": [
+    {
+     "sentence": "C'est moi {{answer}} ai préparé le dîner.",
+     "answer": "qui",
+     "translation": "It's I who prepared the dinner.",
+     "hint": "who (cleft on the subject)",
+     "display_order": 1
+    },
+    {
+     "sentence": "C'est à Lyon {{answer}} je suis né.",
+     "answer": "que",
+     "translation": "It's in Lyon that I was born.",
+     "hint": "that (cleft on a phrase)",
+     "display_order": 2
+    },
+    {
+     "sentence": "Ce {{answer}} je veux, c'est un peu de calme.",
+     "answer": "que",
+     "translation": "What I want is a bit of quiet.",
+     "hint": "what (ce que … c'est)",
+     "display_order": 3
+    },
+    {
+     "sentence": "Ce {{answer}} me plaît, c'est sa sincérité.",
+     "answer": "qui",
+     "translation": "What pleases me is his sincerity.",
+     "hint": "what (ce qui … c'est, subject)",
+     "display_order": 4
+    },
+    {
+     "sentence": "C'est toi {{answer}} je cherchais.",
+     "answer": "que",
+     "translation": "It's you (whom) I was looking for.",
+     "hint": "whom (cleft on the object)",
+     "display_order": 5
+    },
+    {
+     "sentence": "C'est ce livre-là {{answer}} il faut lire.",
+     "answer": "qu'",
+     "translation": "It's that book you must read.",
+     "hint": "that (cleft, elided before il)",
+     "display_order": 6
+    }
+   ]
+  },
+  {
+   "title": "Elevated register (subjonctif littéraire, ne explétif)",
+   "level": "C2",
+   "function": "Recognize and use the formal written layer",
+   "source": "contributor",
+   "reviewed": true,
+   "display_order": 2,
+   "explanation": "Formal/literary French keeps forms speech has dropped. The 'ne explétif' adds a meaningless ne after avant que, de peur que, and comparisons: je crains qu'il ne vienne 'I fear he will come'.\n\nElevated register also prefers connectors like néanmoins, toutefois, quoique, en dépit de, and the inverted question (viendrez-vous?).",
+   "culture_note": "",
+   "references": [
+    {
+     "title": "Vitrine linguistique (BDL) — Office québécois de la langue française",
+     "url": "https://vitrinelinguistique.oqlf.gouv.qc.ca/"
+    },
+    {
+     "title": "Wikipedia: French grammar",
+     "url": "https://en.wikipedia.org/wiki/French_grammar"
+    }
+   ],
+   "drills": [
+    {
+     "sentence": "Je crains qu'il {{answer}} vienne trop tard.",
+     "answer": "ne",
+     "translation": "I fear he will come too late. (ne explétif)",
+     "hint": "(expletive ne, no negation)",
+     "display_order": 1
+    },
+    {
+     "sentence": "Partez avant qu'il {{answer}} soit trop tard.",
+     "answer": "ne",
+     "translation": "Leave before it's too late. (ne explétif)",
+     "hint": "(expletive ne after avant que)",
+     "display_order": 2
+    },
+    {
+     "sentence": "Il a échoué; {{answer}}, il ne se décourage pas.",
+     "answer": "néanmoins",
+     "translation": "He failed; nevertheless, he isn't discouraged.",
+     "hint": "nevertheless (formal)",
+     "display_order": 3
+    },
+    {
+     "sentence": "{{answer}} il soit tard, poursuivons la discussion.",
+     "answer": "Quoique",
+     "translation": "Although it's late, let's continue the discussion.",
+     "hint": "although (formal, + subjunctive)",
+     "display_order": 4
+    },
+    {
+     "sentence": "En {{answer}} de la pluie, la fête a eu lieu.",
+     "answer": "dépit",
+     "translation": "In spite of the rain, the party took place.",
+     "hint": "in spite of (fixed phrase)",
+     "display_order": 5
+    },
+    {
+     "sentence": "{{answer}}-vous à la conférence de demain?",
+     "answer": "Assisterez",
+     "translation": "Will you attend tomorrow's conference?",
+     "hint": "will attend — you (formal inversion)",
+     "display_order": 6
+    }
+   ]
+  }
+ ]
 }

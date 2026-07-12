@@ -63,3 +63,36 @@ export async function learnPoint(
   })
   return response.data
 }
+
+export interface GrammarSearchHit {
+  id: string
+  title: string
+  level: string | null
+  function_note: string | null
+  learned: boolean
+}
+
+export interface VocabSearchHit {
+  id: string
+  word: string
+  level: string | null
+  part_of_speech: string | null
+  definition: string | null
+  learned: boolean
+}
+
+export interface SearchResults {
+  grammar: GrammarSearchHit[]
+  vocabulary: VocabSearchHit[]
+}
+
+/** In-app search (WP13g) across the active language's grammar + vocabulary. */
+export async function searchContent(
+  languageId: string,
+  q: string,
+): Promise<SearchResults> {
+  const response = await apiClient.get<SearchResults>('/api/curriculum/search', {
+    params: { language_id: languageId, q },
+  })
+  return response.data
+}

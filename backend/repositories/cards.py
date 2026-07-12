@@ -4,6 +4,8 @@ from __future__ import annotations
 
 import hashlib
 import json
+import random
+from datetime import UTC, datetime
 
 import asyncpg
 
@@ -13,8 +15,30 @@ from backend.services.references import clean_references
 from backend.services.srs_stages import stage_for
 
 
+async def _effective_locale(
+    conn: asyncpg.Connection, language_id: str, support_locale: str | None
+) -> str:
+    """The locale card content should render in.
+
+    English is the only language where the support locale applies — a
+    learner 'learning English FROM Spanish' wants Spanish definitions and
+    Spanish sentence translations. Every other target language keeps English
+    support (that's what its content carries).
+    """
+    if support_locale and support_locale != "en":
+        code = await conn.fetchval(
+            "SELECT code FROM languages WHERE id = $1", language_id
+        )
+        if code == "en":
+            return support_locale
+    return "en"
+
+
 async def get_due_cards(
-    conn: asyncpg.Connection, language_id: str, limit: int = 20
+    conn: asyncpg.Connection,
+    language_id: str,
+    limit: int = 20,
+    support_locale: str | None = None,
 ) -> list[dict]:
     """Return due cards for the authenticated user with full card content.
 
@@ -29,7 +53,12 @@ async def get_due_cards(
     Grammar cards — fill-in-the-blank mode:
       sentence = drill sentence with {{answer}} marker
       correct_answer = grammar_points.title (placeholder for Phase 4)
+
+    *support_locale* localizes ENGLISH cards ("learning English from X"):
+    definitions prefer that locale (falling back to the English definition)
+    and example sentences are the ones whose translation is in that locale.
     """
+    eff_locale = await _effective_locale(conn, language_id, support_locale)
     # -- Vocabulary cards ---------------------------------------------------
     # Teach the word in context: a real example sentence with the word blanked
     # out (cloze), with its translation as a hint. All of the word's sentences
@@ -46,7 +75,7 @@ async def get_due_cards(
             uc.card_type,
             uc.card_id,
             v.word                          AS word,
-            t.definition                    AS definition,
+            COALESCE(t.definition, t_en.definition) AS definition,
             ex.sentences                    AS example_sentences,
             ex.translations                 AS example_translations,
             ex.glosses                      AS example_glosses,
@@ -65,7 +94,9 @@ async def get_due_cards(
         JOIN vocabulary v       ON uc.card_id = v.id
         JOIN languages l        ON uc.language_id = l.id
         LEFT JOIN translations t
-               ON v.id = t.vocabulary_id AND t.locale = 'en'
+               ON v.id = t.vocabulary_id AND t.locale = $3
+        LEFT JOIN translations t_en
+               ON v.id = t_en.vocabulary_id AND t_en.locale = 'en'
         LEFT JOIN LATERAL (
             SELECT
                 array_agg(es.sentence
@@ -78,6 +109,7 @@ async def get_due_cards(
                           ORDER BY es.difficulty_rank ASC NULLS LAST, es.id) AS transliterations
             FROM example_sentences es
             WHERE es.vocabulary_id = v.id
+              AND es.translation_locale = $3
         ) ex ON true
         LEFT JOIN LATERAL (
             SELECT rl.prompt_sentence
@@ -95,6 +127,7 @@ async def get_due_cards(
         """,
         language_id,
         limit,
+        eff_locale,
     )
 
     # -- Grammar cards -------------------------------------------------------
@@ -693,7 +726,7 @@ async def update_card_srs(
 
 
 async def get_card_details_bulk(
-    conn: asyncpg.Connection, card_ids: list[str]
+    conn: asyncpg.Connection, card_ids: list[str], support_locale: str | None = None
 ) -> dict[str, dict]:
     """Return {user_card_id: detail} for many cards in a few bulk queries.
 
@@ -701,7 +734,7 @@ async def get_card_details_bulk(
     builds a lesson per new card, and doing that one card at a time is an
     N+1 that hurts badly over a pooled (high-latency) database connection.
     Personal cards fall back to the single-card path (never produced by the
-    learn flow).
+    learn flow). *support_locale* localizes English cards (see get_due_cards).
     """
     if not card_ids:
         return {}
@@ -712,6 +745,22 @@ async def get_card_details_bulk(
     vocab_ids = [c["card_id"] for c in cards if c["card_type"] == "vocabulary"]
     grammar_ids = [c["card_id"] for c in cards if c["card_type"] == "grammar"]
 
+    # English is the only language whose content is localized by the support
+    # locale; resolve it per vocabulary batch (all cards share a language in
+    # practice, but check per-word to stay correct).
+    eff_locale = "en"
+    if support_locale and support_locale != "en" and vocab_ids:
+        en_vocab = await conn.fetchval(
+            """
+            SELECT count(*) FROM vocabulary v
+            JOIN languages l ON v.language_id = l.id AND l.code = 'en'
+            WHERE v.id = ANY($1::uuid[])
+            """,
+            vocab_ids,
+        )
+        if en_vocab:
+            eff_locale = support_locale
+
     vocab_by_id: dict = {}
     vocab_examples: dict = {}
     vocab_quiz: dict = {}
@@ -719,13 +768,17 @@ async def get_card_details_bulk(
         for v in await conn.fetch(
             """
             SELECT v.id, v.word, v.reading, v.part_of_speech, v.usage_note,
-                   v.morphology, v.alternatives, t.definition
+                   v.morphology, v.alternatives,
+                   COALESCE(t.definition, t_en.definition) AS definition
             FROM vocabulary v
             LEFT JOIN translations t
-                   ON v.id = t.vocabulary_id AND t.locale = 'en'
+                   ON v.id = t.vocabulary_id AND t.locale = $2
+            LEFT JOIN translations t_en
+                   ON v.id = t_en.vocabulary_id AND t_en.locale = 'en'
             WHERE v.id = ANY($1::uuid[])
             """,
             vocab_ids,
+            eff_locale,
         ):
             vocab_by_id[v["id"]] = v
         for e in await conn.fetch(
@@ -733,9 +786,11 @@ async def get_card_details_bulk(
             SELECT vocabulary_id, sentence, translation, gloss, transliteration
             FROM example_sentences
             WHERE vocabulary_id = ANY($1::uuid[])
+              AND translation_locale = $2
             ORDER BY difficulty_rank ASC NULLS LAST
             """,
             vocab_ids,
+            eff_locale,
         ):
             bucket = vocab_examples.setdefault(e["vocabulary_id"], [])
             if len(bucket) < 5:
@@ -874,7 +929,7 @@ async def get_card_details_bulk(
 
 
 async def get_card_detail(
-    conn: asyncpg.Connection, card_id: str
+    conn: asyncpg.Connection, card_id: str, support_locale: str | None = None
 ) -> dict | None:
     """Return the rich "review this card" content for the optional panel.
 
@@ -886,6 +941,7 @@ async def get_card_detail(
 
     *card_id* is a user_cards id; RLS on the connection scopes it to the
     authenticated user, so a card the user doesn't own returns None.
+    *support_locale* localizes English cards (see get_due_cards).
     """
     card = await conn.fetchrow(
         """
@@ -961,26 +1017,34 @@ async def get_card_detail(
         }
 
     if card["card_type"] == "vocabulary":
+        eff_locale = await _effective_locale(
+            conn, card["language_id"], support_locale
+        )
         v = await conn.fetchrow(
             """
             SELECT v.word, v.reading, v.part_of_speech, v.usage_note, v.morphology,
-                   t.definition
+                   COALESCE(t.definition, t_en.definition) AS definition
             FROM vocabulary v
             LEFT JOIN translations t
-                   ON v.id = t.vocabulary_id AND t.locale = 'en'
+                   ON v.id = t.vocabulary_id AND t.locale = $2
+            LEFT JOIN translations t_en
+                   ON v.id = t_en.vocabulary_id AND t_en.locale = 'en'
             WHERE v.id = $1
             """,
             card["card_id"],
+            eff_locale,
         )
         examples = await conn.fetch(
             """
             SELECT sentence, translation
             FROM example_sentences
             WHERE vocabulary_id = $1
+              AND translation_locale = $2
             ORDER BY difficulty_rank ASC NULLS LAST
             LIMIT 5
             """,
             card["card_id"],
+            eff_locale,
         )
         # The learner's OWN sentences with this word (from notes → cloze
         # cards), shown under Examples — RLS scopes them to this user.
@@ -1005,6 +1069,9 @@ async def get_card_detail(
             "definition": v["definition"] if v else None,
             "usage_note": v["usage_note"] if v else None,
             "morphology": v["morphology"] if v else None,
+            # Which language the hints/definitions are rendered in — 'en'
+            # unless this is an English card and a support locale is set.
+            "hint_locale": eff_locale,
             "explanation": None,
             "culture_note": None,
             "reviewed": True,  # vocabulary has no review gate
@@ -1082,3 +1149,351 @@ async def get_card_detail(
             for e in examples
         ],
     }
+
+
+async def get_cram_cards(
+    conn: asyncpg.Connection, point_ids: list[str], per_point: int = 3
+) -> list[dict]:
+    """Ungraded practice cards for a set of grammar points (WP13f Quick-Cram).
+
+    Built straight from the content tables — no user_cards row is read or
+    written, card ids are synthetic, and nothing here is submittable to
+    /review/submit. Visibility follows the same review policy as the
+    curriculum. Drill choice is seeded per (point, day): a reload mid-cram
+    keeps the same set, tomorrow's cram varies.
+    """
+    rows = await conn.fetch(
+        """
+        SELECT
+            gp.id    AS point_id,
+            gp.title AS title,
+            l.code   AS language_code,
+            d.sentences, d.answers, d.hints, d.translations,
+            d.glosses, d.transliterations
+        FROM grammar_points gp
+        JOIN languages l ON gp.language_id = l.id
+        LEFT JOIN LATERAL (
+            SELECT
+                array_agg(ds.sentence    ORDER BY ds.display_order, ds.id) AS sentences,
+                array_agg(ds.answer      ORDER BY ds.display_order, ds.id) AS answers,
+                array_agg(ds.hint        ORDER BY ds.display_order, ds.id) AS hints,
+                array_agg(ds.translation ORDER BY ds.display_order, ds.id) AS translations,
+                array_agg(ds.gloss       ORDER BY ds.display_order, ds.id) AS glosses,
+                array_agg(ds.transliteration ORDER BY ds.display_order, ds.id) AS transliterations
+            FROM drill_sentences ds
+            WHERE ds.grammar_point_id = gp.id
+        ) d ON true
+        WHERE gp.id = ANY($1::uuid[])
+          AND (gp.reviewed = true
+               OR (l.grammar_review_policy = 'ai_ok' AND gp.ai_check_status = 'pass'))
+        """,
+        point_ids,
+    )
+    today = datetime.now(UTC).date().isoformat()
+    now = datetime.now(UTC)
+    cards: list[dict] = []
+    for r in rows:
+        sentences = r["sentences"] or []
+        if not sentences:
+            continue
+        rng = random.Random(f"{r['point_id']}:{today}")
+        picks = rng.sample(range(len(sentences)), min(per_point, len(sentences)))
+        for i in sorted(picks):
+            cards.append({
+                "id": f"cram-{r['point_id']}-{i}",
+                "card_type": "grammar",
+                "card_id": str(r["point_id"]),
+                "title": r["title"],
+                "sentence": sentences[i],
+                "correct_answer": r["answers"][i],
+                "hint": r["hints"][i],
+                "translation": r["translations"][i],
+                "gloss": r["glosses"][i],
+                "transliteration": r["transliterations"][i],
+                "morphology": None,
+                "alternatives": None,
+                "language_code": r["language_code"],
+                # Neutral SRS fields so the payload matches the DueCard shape
+                # the session UI consumes; none of this is ever persisted.
+                "ease_factor": 2.5,
+                "interval": 0,
+                "repetitions": 0,
+                "streak": 0,
+                "lapses": 0,
+                "next_review": now,
+            })
+    # Interleave points instead of drilling one point three times in a row.
+    random.Random(today).shuffle(cards)
+    return cards
+
+
+async def get_deck_preview(
+    conn: asyncpg.Connection, list_id: str, limit: int = 20
+) -> dict | None:
+    """A peek inside a deck before subscribing: its first items in order.
+
+    Vocabulary decks list the first words by frequency with their English
+    definition; grammar decks list the first points in path order with the
+    can-do line. Enough to judge "do I want this deck?" at a glance.
+    """
+    cl = await conn.fetchrow(
+        "SELECT id, language_id, list_type, level, title FROM content_lists WHERE id = $1",
+        list_id,
+    )
+    if cl is None:
+        return None
+    if cl["list_type"] == "grammar":
+        rows = await conn.fetch(
+            """
+            SELECT gp.title AS item, gp.function_note AS detail
+            FROM grammar_points gp
+            JOIN languages l ON gp.language_id = l.id
+            WHERE gp.language_id = $1
+              AND ($2::text IS NULL OR gp.level = $2)
+              AND (gp.reviewed = true
+                   OR (l.grammar_review_policy = 'ai_ok'
+                       AND gp.ai_check_status = 'pass'))
+            ORDER BY gp.display_order ASC, gp.title
+            LIMIT $3
+            """,
+            cl["language_id"], cl["level"], limit,
+        )
+    else:
+        rows = await conn.fetch(
+            """
+            SELECT v.word AS item, t.definition AS detail
+            FROM vocabulary v
+            LEFT JOIN translations t
+                   ON v.id = t.vocabulary_id AND t.locale = 'en'
+            WHERE v.language_id = $1
+              AND ($2::text IS NULL OR v.level = $2)
+            ORDER BY v.frequency_rank ASC NULLS LAST, v.word
+            LIMIT $3
+            """,
+            cl["language_id"], cl["level"], limit,
+        )
+    return {
+        "id": str(cl["id"]),
+        "title": cl["title"],
+        "list_type": cl["list_type"],
+        "level": cl["level"],
+        "items": [{"item": r["item"], "detail": r["detail"]} for r in rows],
+    }
+
+
+async def get_deck_items(
+    conn: asyncpg.Connection, list_id: str, limit: int = 2500
+) -> dict | None:
+    """The deck browser's full item listing (Bunpro's deck page): every item
+    in path order with its id, so each row can expand into a detail view.
+    Unlike get_deck_preview this is the whole deck, id included, and grammar
+    rows carry their review state so reviewers can spot drafts.
+    """
+    cl = await conn.fetchrow(
+        "SELECT id, language_id, list_type, level, title FROM content_lists WHERE id = $1",
+        list_id,
+    )
+    if cl is None:
+        return None
+    if cl["list_type"] == "grammar":
+        rows = await conn.fetch(
+            """
+            SELECT gp.id, gp.title AS item, gp.function_note AS detail,
+                   gp.level, gp.reviewed
+            FROM grammar_points gp
+            JOIN languages l ON gp.language_id = l.id
+            WHERE gp.language_id = $1
+              AND ($2::text IS NULL OR gp.level = $2)
+              AND (gp.reviewed = true
+                   OR (l.grammar_review_policy = 'ai_ok'
+                       AND gp.ai_check_status = 'pass'))
+            ORDER BY gp.display_order ASC, gp.title
+            LIMIT $3
+            """,
+            cl["language_id"], cl["level"], limit,
+        )
+        items = [
+            {"id": str(r["id"]), "kind": "grammar", "item": r["item"],
+             "detail": r["detail"], "level": r["level"],
+             "reviewed": r["reviewed"]}
+            for r in rows
+        ]
+    else:
+        rows = await conn.fetch(
+            """
+            SELECT v.id, v.word AS item, t.definition AS detail, v.level
+            FROM vocabulary v
+            LEFT JOIN translations t
+                   ON v.id = t.vocabulary_id AND t.locale = 'en'
+            WHERE v.language_id = $1
+              AND ($2::text IS NULL OR v.level = $2)
+            ORDER BY v.frequency_rank ASC NULLS LAST, v.word
+            LIMIT $3
+            """,
+            cl["language_id"], cl["level"], limit,
+        )
+        items = [
+            {"id": str(r["id"]), "kind": "vocabulary", "item": r["item"],
+             "detail": r["detail"], "level": r["level"], "reviewed": True}
+            for r in rows
+        ]
+    return {
+        "id": str(cl["id"]),
+        "title": cl["title"],
+        "list_type": cl["list_type"],
+        "level": cl["level"],
+        "items": items,
+    }
+
+
+async def get_vocab_item(
+    conn: asyncpg.Connection, vocab_id: str, support_locale: str | None = None
+) -> dict | None:
+    """A vocabulary item's read-only detail for the deck browser: word,
+    definition, morphology (the Forms panel), and a few example sentences.
+    Works without the item being in the caller's reviews.
+    """
+    row = await conn.fetchrow(
+        """
+        SELECT v.id, v.word, v.reading, v.part_of_speech, v.usage_note,
+               v.morphology, v.level, l.code AS language_code,
+               COALESCE(t.definition, t_en.definition) AS definition
+        FROM vocabulary v
+        JOIN languages l ON v.language_id = l.id
+        LEFT JOIN translations t
+               ON v.id = t.vocabulary_id AND t.locale = $2
+        LEFT JOIN translations t_en
+               ON v.id = t_en.vocabulary_id AND t_en.locale = 'en'
+        WHERE v.id = $1
+        """,
+        vocab_id, support_locale or "en",
+    )
+    if row is None:
+        return None
+    # Support locale only applies to English content (same rule as
+    # _effective_locale) — a Spanish word's sentences are translated to 'en'.
+    eff = (support_locale if row["language_code"] == "en" and support_locale
+           else "en")
+    examples = await conn.fetch(
+        """
+        SELECT sentence, translation
+        FROM example_sentences
+        WHERE vocabulary_id = $1 AND translation_locale = $2
+        ORDER BY difficulty_rank ASC NULLS LAST
+        LIMIT 5
+        """,
+        vocab_id, eff,
+    )
+    return {
+        "id": str(row["id"]),
+        "word": row["word"],
+        "reading": row["reading"],
+        "part_of_speech": row["part_of_speech"],
+        "usage_note": row["usage_note"],
+        "definition": row["definition"],
+        "level": row["level"],
+        "language_code": row["language_code"],
+        "morphology": row["morphology"],
+        "examples": [
+            {"sentence": e["sentence"], "translation": e["translation"]}
+            for e in examples
+        ],
+    }
+
+
+async def reset_deck_progress(
+    conn: asyncpg.Connection, user_id: str, list_id: str
+) -> dict | None:
+    """Wipe the learner's progress for one deck, review history included.
+
+    Deletes the user_cards rows for items belonging to the deck (membership
+    is level-based, mirroring the learn queries); review_log rows go with
+    them via ON DELETE CASCADE. Content and deck subscriptions are untouched
+    — the learner can start the deck over immediately. Returns None when the
+    deck doesn't exist.
+    """
+    cl = await conn.fetchrow(
+        "SELECT language_id, list_type, level FROM content_lists WHERE id = $1",
+        list_id,
+    )
+    if cl is None:
+        return None
+    if cl["list_type"] == "grammar":
+        result = await conn.execute(
+            """
+            DELETE FROM user_cards uc
+            USING grammar_points gp
+            WHERE uc.user_id = $1
+              AND uc.card_type = 'grammar'
+              AND uc.card_id = gp.id
+              AND gp.language_id = $2
+              AND ($3::text IS NULL OR gp.level = $3)
+            """,
+            user_id, cl["language_id"], cl["level"],
+        )
+    else:
+        result = await conn.execute(
+            """
+            DELETE FROM user_cards uc
+            USING vocabulary v
+            WHERE uc.user_id = $1
+              AND uc.card_type = 'vocabulary'
+              AND uc.card_id = v.id
+              AND v.language_id = $2
+              AND ($3::text IS NULL OR v.level = $3)
+            """,
+            user_id, cl["language_id"], cl["level"],
+        )
+    return {"cards_deleted": int(result.split()[-1])}
+
+
+async def reset_language_progress(
+    conn: asyncpg.Connection, user_id: str, language_id: str | None = None
+) -> dict:
+    """Wipe the learner's studies — one language, or everything when None.
+
+    Deletes every user_cards row in scope (grammar, vocabulary, AND personal
+    cards' schedules); review_log cascades. User-authored content survives:
+    notes, personal cloze sentences, and deck subscriptions stay, so a fresh
+    start doesn't destroy anything the learner wrote themselves.
+    """
+    result = await conn.execute(
+        """
+        DELETE FROM user_cards
+        WHERE user_id = $1
+          AND ($2::uuid IS NULL OR language_id = $2)
+        """,
+        user_id, language_id,
+    )
+    return {"cards_deleted": int(result.split()[-1])}
+
+
+async def set_deck_subscription(
+    conn: asyncpg.Connection, user_id: str, list_id: str, subscribed: bool
+) -> bool:
+    """Add or remove a deck from the learner's queue. Returns success.
+
+    Unsubscribing only stops NEW cards from being drawn — cards already
+    learned keep their FSRS schedule (removing a deck never deletes
+    progress).
+    """
+    exists = await conn.fetchval(
+        "SELECT 1 FROM content_lists WHERE id = $1", list_id
+    )
+    if not exists:
+        return False
+    if subscribed:
+        await conn.execute(
+            """
+            INSERT INTO user_content_subscriptions (user_id, content_list_id)
+            VALUES ($1, $2) ON CONFLICT (user_id, content_list_id) DO NOTHING
+            """,
+            user_id, list_id,
+        )
+    else:
+        await conn.execute(
+            "DELETE FROM user_content_subscriptions "
+            "WHERE user_id = $1 AND content_list_id = $2",
+            user_id, list_id,
+        )
+    return True

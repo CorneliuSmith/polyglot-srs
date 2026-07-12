@@ -15,9 +15,17 @@ import asyncpg
 async def count_tutor_messages(
     conn: asyncpg.Connection, user_id: str, since
 ) -> int:
-    """Answered tutor messages this user has used since *since* (allowances)."""
+    """Answered tutor messages this user has used since *since* (allowances).
+
+    Only kind='chat' rows count — 'summary' rows are the operator's cost
+    accounting for the post-session summarizer, part of a message the
+    learner already spent.
+    """
     n = await conn.fetchval(
-        "SELECT count(*) FROM tutor_usage WHERE user_id = $1 AND created_at >= $2",
+        """
+        SELECT count(*) FROM tutor_usage
+        WHERE user_id = $1 AND created_at >= $2 AND kind = 'chat'
+        """,
         user_id, since,
     )
     return int(n or 0)
@@ -28,15 +36,56 @@ async def log_tutor_usage(
     user_id: str,
     language_id: str | None,
     model: str | None,
+    usage: dict | None = None,
+    kind: str = "chat",
 ) -> None:
-    """Record one answered tutor message (the allowance + cost-tracking unit)."""
+    """Record one answered tutor message (the allowance + cost-tracking unit).
+
+    *usage* carries the turn's Anthropic token counts (WP9b); token columns
+    stay NULL when capture wasn't possible. kind='summary' rows track
+    summarizer cost and never count against allowances.
+    """
+    usage = usage or {}
     await conn.execute(
         """
-        INSERT INTO tutor_usage (user_id, language_id, model)
-        VALUES ($1, $2, $3)
+        INSERT INTO tutor_usage
+            (user_id, language_id, model, kind,
+             input_tokens, output_tokens, cache_write_tokens, cache_read_tokens)
+        VALUES ($1, $2, $3, $4, $5, $6, $7, $8)
         """,
-        user_id, language_id, model,
+        user_id, language_id, model, kind,
+        usage.get("input_tokens"), usage.get("output_tokens"),
+        usage.get("cache_write_tokens"), usage.get("cache_read_tokens"),
     )
+
+
+async def aggregate_tutor_usage(conn: asyncpg.Connection, since) -> list[dict]:
+    """Per-(language, model, kind) usage rollup since *since* (admin cost view).
+
+    Must run on a privileged connection: tutor_usage RLS is select-own, and
+    this intentionally spans all users. The caller enforces admin first.
+    """
+    rows = await conn.fetch(
+        """
+        SELECT
+            tu.language_id,
+            l.name                                          AS language_name,
+            tu.model,
+            tu.kind,
+            count(*)::int                                   AS messages,
+            COALESCE(sum(tu.input_tokens), 0)::bigint       AS input_tokens,
+            COALESCE(sum(tu.output_tokens), 0)::bigint      AS output_tokens,
+            COALESCE(sum(tu.cache_write_tokens), 0)::bigint AS cache_write_tokens,
+            COALESCE(sum(tu.cache_read_tokens), 0)::bigint  AS cache_read_tokens
+        FROM tutor_usage tu
+        LEFT JOIN languages l ON l.id = tu.language_id
+        WHERE tu.created_at >= $1
+        GROUP BY tu.language_id, l.name, tu.model, tu.kind
+        ORDER BY l.name NULLS LAST, tu.model, tu.kind
+        """,
+        since,
+    )
+    return [dict(r) for r in rows]
 
 
 async def has_tutor_entitlement(

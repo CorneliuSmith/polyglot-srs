@@ -1,9 +1,13 @@
 import { useState } from 'react'
+import { Navigate } from 'react-router-dom'
 import { supabase } from '../../lib/supabase'
+import { useAuthStore } from '../../stores/authStore'
 
 type Tab = 'signin' | 'signup'
 
 export default function LoginPage() {
+  const isAuthenticated = useAuthStore((s) => s.isAuthenticated)()
+  const authLoading = useAuthStore((s) => s.loading)
   const [tab, setTab] = useState<Tab>('signin')
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
@@ -72,6 +76,13 @@ export default function LoginPage() {
     }
   }
 
+  // Successful sign-in updates the auth store (onAuthStateChange) — leave
+  // the login page the moment a session exists. Without this, signing in
+  // "worked" but the user stayed here until a manual refresh.
+  if (!authLoading && isAuthenticated) {
+    return <Navigate to="/" replace />
+  }
+
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-50 px-4">
       <div className="w-full max-w-sm bg-white rounded-2xl shadow-md p-8">
@@ -87,7 +98,7 @@ export default function LoginPage() {
             onClick={() => { setTab('signin'); setError(null); setMessage(null) }}
             className={`flex-1 py-2.5 text-sm font-medium transition-colors ${
               tab === 'signin'
-                ? 'bg-indigo-600 text-white'
+                ? 'bg-lang text-white'
                 : 'bg-white text-gray-600 hover:bg-gray-50'
             }`}
             style={{ minHeight: '44px' }}
@@ -99,7 +110,7 @@ export default function LoginPage() {
             onClick={() => { setTab('signup'); setError(null); setMessage(null) }}
             className={`flex-1 py-2.5 text-sm font-medium transition-colors ${
               tab === 'signup'
-                ? 'bg-indigo-600 text-white'
+                ? 'bg-lang text-white'
                 : 'bg-white text-gray-600 hover:bg-gray-50'
             }`}
             style={{ minHeight: '44px' }}
@@ -131,7 +142,7 @@ export default function LoginPage() {
               required
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              className="w-full rounded-lg border border-gray-300 px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
+              className="w-full rounded-lg border border-gray-300 px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-lang focus:border-transparent"
               style={{ minHeight: '44px' }}
               placeholder="you@example.com"
               autoComplete="email"
@@ -149,7 +160,7 @@ export default function LoginPage() {
               required
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              className="w-full rounded-lg border border-gray-300 px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
+              className="w-full rounded-lg border border-gray-300 px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-lang focus:border-transparent"
               style={{ minHeight: '44px' }}
               placeholder={tab === 'signup' ? 'At least 6 characters' : '••••••••'}
               autoComplete={tab === 'signin' ? 'current-password' : 'new-password'}
@@ -168,7 +179,7 @@ export default function LoginPage() {
           <button
             type="submit"
             disabled={loading}
-            className="w-full bg-indigo-600 hover:bg-indigo-700 disabled:opacity-60 text-white font-medium rounded-lg px-4 py-2.5 text-sm transition-colors"
+            className="w-full bg-lang hover:bg-lang-dark disabled:opacity-60 text-lang-on font-medium rounded-lg px-4 py-2.5 text-sm transition-colors"
             style={{ minHeight: '44px' }}
           >
             {loading
@@ -186,7 +197,7 @@ export default function LoginPage() {
             <button
               type="button"
               onClick={() => { setResetMode(false); setError(null); setMessage(null) }}
-              className="text-sm text-indigo-600 hover:underline"
+              className="text-sm text-lang hover:underline"
             >
               ← Back to sign in
             </button>
@@ -195,7 +206,7 @@ export default function LoginPage() {
               <button
                 type="button"
                 onClick={() => { setResetMode(true); setError(null); setMessage(null) }}
-                className="text-sm text-indigo-600 hover:underline"
+                className="text-sm text-lang hover:underline"
               >
                 Forgot password?
               </button>

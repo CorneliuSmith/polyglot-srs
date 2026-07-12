@@ -38,29 +38,29 @@ export default function ProfileCard({
         </div>
       </div>
       <div className="grid grid-cols-3 gap-2 text-center">
-        <div className="rounded-xl bg-indigo-50 p-3">
-          <span className="block text-xl font-bold text-indigo-700 tabular-nums">
+        <div className="rounded-xl bg-lang-soft p-3">
+          <span className="block text-xl font-bold text-lang-dark tabular-nums">
             {profile.days_studied}
           </span>
-          <span className="block text-[10px] uppercase tracking-wide text-indigo-400">
+          <span className="block text-[10px] uppercase tracking-wide text-lang/70">
             Days studied
           </span>
         </div>
-        <div className="rounded-xl bg-indigo-50 p-3">
-          <span className="block text-xl font-bold text-indigo-700 tabular-nums">
+        <div className="rounded-xl bg-lang-soft p-3">
+          <span className="block text-xl font-bold text-lang-dark tabular-nums">
             {profile.last_session_accuracy != null
               ? `${Math.round(profile.last_session_accuracy * 100)}%`
               : '—'}
           </span>
-          <span className="block text-[10px] uppercase tracking-wide text-indigo-400">
+          <span className="block text-[10px] uppercase tracking-wide text-lang/70">
             Last session
           </span>
         </div>
-        <div className="rounded-xl bg-indigo-50 p-3">
-          <span className="block text-xl font-bold text-indigo-700 tabular-nums">
+        <div className="rounded-xl bg-lang-soft p-3">
+          <span className="block text-xl font-bold text-lang-dark tabular-nums">
             {profile.items_studied}
           </span>
-          <span className="block text-[10px] uppercase tracking-wide text-indigo-400">
+          <span className="block text-[10px] uppercase tracking-wide text-lang/70">
             Items studied
           </span>
         </div>

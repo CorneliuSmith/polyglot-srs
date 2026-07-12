@@ -50,19 +50,12 @@ supabase/.branches/
 # Logs
 *.log
 
-# Seed data — downloaded files are large and should not be committed
-# Curated/hand-crafted files are explicitly allowed below
+# Seed data: the RAW downloads (kaikki extracts, Tatoeba dumps — hundreds of
+# MB, cached) stay out of git; the MERGED corpus TSVs the seeders consume ARE
+# committed (~25MB total) so setup_db.sh rebuilds the exact same content
+# without internet, per the project's reproducibility bar.
 data/raw/
-data/ru_*.tsv
-data/ar_*.tsv
-data/en_*.tsv
-data/*_sentences.tsv
-!data/ru_starter.tsv
-# Tatoeba sentence packs (CC-BY, small) — setup_db.sh seeds from these
-!data/sw_sentences.tsv
-!data/tr_sentences.tsv
-!data/ar_seed.json
-!data/en_frequency.tsv
-# Merged outputs of backend/services/seeder/source_data.py (small, reviewed)
-!data/sw_frequency.tsv
-!data/tr_frequency.tsv
+# Legacy OpenRussian dumps (host is gone; kept ignored in case of stale copies)
+data/ru_words.tsv
+data/ru_translations.tsv
+node_modules/

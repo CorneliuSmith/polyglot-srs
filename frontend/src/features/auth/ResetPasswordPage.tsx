@@ -56,7 +56,7 @@ export default function ResetPasswordPage() {
             <button
               type="button"
               onClick={() => navigate('/login')}
-              className="text-indigo-600 hover:underline"
+              className="text-lang hover:underline"
             >
               Back to sign in
             </button>
@@ -76,7 +76,7 @@ export default function ResetPasswordPage() {
                 required
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
-                className="w-full rounded-lg border border-gray-300 px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                className="w-full rounded-lg border border-gray-300 px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-lang"
                 style={{ minHeight: '44px' }}
                 placeholder="At least 6 characters"
                 autoComplete="new-password"
@@ -95,7 +95,7 @@ export default function ResetPasswordPage() {
                 required
                 value={confirm}
                 onChange={(e) => setConfirm(e.target.value)}
-                className="w-full rounded-lg border border-gray-300 px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                className="w-full rounded-lg border border-gray-300 px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-lang"
                 style={{ minHeight: '44px' }}
                 autoComplete="new-password"
               />
@@ -110,7 +110,7 @@ export default function ResetPasswordPage() {
             <button
               type="submit"
               disabled={saving}
-              className="w-full bg-indigo-600 hover:bg-indigo-700 disabled:opacity-60 text-white font-medium rounded-lg px-4 py-2.5 text-sm"
+              className="w-full bg-lang hover:bg-lang-dark disabled:opacity-60 text-lang-on font-medium rounded-lg px-4 py-2.5 text-sm"
               style={{ minHeight: '44px' }}
             >
               {saving ? 'Saving…' : 'Set new password'}

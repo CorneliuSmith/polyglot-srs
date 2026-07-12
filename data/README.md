@@ -86,8 +86,8 @@ python -c "import asyncio, os; from pathlib import Path; \
 | Example sentences | [Tatoeba](https://tatoeba.org/en/downloads) per-language exports | CC-BY-2.0-FR | Attribution required; stored per-row in `example_sentences.license`. Yoruba coverage on Tatoeba is thin; the Òwe corpus's parallel en/yo proverbs are a future supplement. |
 | Spanish/Italian/French/German/Catalan | HermitDave FrequencyWords (OpenSubtitles 2018) | CC-BY-SA-4.0 | frequency; merged with kaikki Wiktionary (`--source kaikki`). |
 | Māori (mi) | **you supply** `data/mi_frequency.tsv` | — | No OpenSubtitles list; drop a CC-licensed frequency TSV (e.g. from a Māori corpus) plus kaikki glosses. |
-| Russian | OpenRussian TSV dumps | CC-BY-SA | see `seed_russian.py` |
-| English | NLTK WordNet + bundled frequency list | WordNet License | see `seed_english.py` |
+| Russian | HermitDave FrequencyWords + kaikki Russian extract | CC-BY-SA | The OpenRussian download host (downloads.openrussian.org) no longer resolves (2026-07); Russian now rides the generic pipeline (`--language ru --source kaikki`) with pymorphy3 morphology enrichment in `RussianFrequencySeeder`. |
+| English | NLTK WordNet + bundled frequency list; per-locale word translations from the kaikki ENGLISH extract (`--language en`); per-locale example sentences from reversed Tatoeba links (`--language en --sentences`) | WordNet License / CC-BY-SA / CC-BY | see `seed_english.py`; powers "learning English from <language>" (user_profiles.support_locale) |
 
 **Attribution requirements for production**: a "Data sources" page crediting
 Wiktionary (CC-BY-SA), Tatoeba (CC-BY), OpenSubtitles/FrequencyWords

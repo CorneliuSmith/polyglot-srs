@@ -157,6 +157,25 @@ async def get_language_policy(conn: asyncpg.Connection, language_id: str) -> str
     return policy or "strict"
 
 
+async def get_language_tutor_model(
+    conn: asyncpg.Connection, language_id: str
+) -> str | None:
+    """The language's tutor model override (None = global default)."""
+    return await conn.fetchval(
+        "SELECT tutor_model FROM languages WHERE id = $1", language_id
+    )
+
+
+async def set_language_tutor_model(
+    conn: asyncpg.Connection, language_id: str, model: str | None
+) -> None:
+    """Set (or clear) a language's tutor model (privileged, admin-only)."""
+    await conn.execute(
+        "UPDATE languages SET tutor_model = $2 WHERE id = $1",
+        language_id, model,
+    )
+
+
 async def set_language_policy(
     conn: asyncpg.Connection, language_id: str, policy: str
 ) -> bool:
@@ -277,6 +296,34 @@ async def add_drill(
     return str(drill_id)
 
 
+async def update_drill(
+    conn: asyncpg.Connection,
+    drill_id: str,
+    point_id: str,
+    sentence: str,
+    answer: str,
+    translation: str | None,
+    hint: str | None,
+) -> bool:
+    """Edit a live drill (privileged). The edit de-certifies the point —
+    reviewed flips false so a SECOND reviewer must re-approve before
+    learners see the change (nobody self-certifies an edit)."""
+    result = await conn.execute(
+        """
+        UPDATE drill_sentences
+        SET sentence = $3, answer = $4, translation = $5, hint = $6
+        WHERE id = $1 AND grammar_point_id = $2
+        """,
+        drill_id, point_id, sentence, answer, translation or None, hint or None,
+    )
+    if not result.endswith("1"):
+        return False
+    await conn.execute(
+        "UPDATE grammar_points SET reviewed = false WHERE id = $1", point_id
+    )
+    return True
+
+
 async def delete_drill(conn: asyncpg.Connection, drill_id: str) -> bool:
     """Delete a drill sentence (privileged)."""
     result = await conn.execute(
@@ -378,6 +425,90 @@ async def resolve_feedback(conn: asyncpg.Connection, feedback_id: str) -> bool:
     """Mark a feedback item resolved (privileged)."""
     result = await conn.execute(
         "UPDATE card_feedback SET status = 'resolved' WHERE id = $1", feedback_id
+    )
+    return result.endswith("1")
+
+
+async def add_review_note(
+    conn: asyncpg.Connection,
+    grammar_point_id: str,
+    author_id: str,
+    note: str,
+) -> str:
+    """File a reviewer note against a point (privileged, after role check)."""
+    return str(await conn.fetchval(
+        """
+        INSERT INTO point_review_notes (grammar_point_id, author_id, note)
+        VALUES ($1, $2, $3)
+        RETURNING id
+        """,
+        grammar_point_id, author_id, note,
+    ))
+
+
+async def list_review_notes(
+    conn: asyncpg.Connection,
+    language_id: str,
+    *,
+    include_resolved: bool = False,
+) -> list[dict]:
+    """Reviewer notes for a language's points, newest first (privileged)."""
+    rows = await conn.fetch(
+        """
+        SELECT n.id, n.grammar_point_id, gp.title AS point_title, gp.level,
+               n.note, n.status, n.created_at, u.email AS author_email
+        FROM point_review_notes n
+        JOIN grammar_points gp ON gp.id = n.grammar_point_id
+        JOIN auth.users u ON u.id = n.author_id
+        WHERE gp.language_id = $1
+          AND ($2 OR n.status = 'open')
+        ORDER BY n.created_at DESC
+        LIMIT 200
+        """,
+        language_id, include_resolved,
+    )
+    return [
+        {
+            "id": str(r["id"]),
+            "grammar_point_id": str(r["grammar_point_id"]),
+            "point_title": r["point_title"],
+            "level": r["level"],
+            "note": r["note"],
+            "status": r["status"],
+            "author_email": r["author_email"],
+            "created_at": r["created_at"].isoformat() if r["created_at"] else None,
+        }
+        for r in rows
+    ]
+
+
+async def get_note_language(
+    conn: asyncpg.Connection, note_id: str
+) -> str | None:
+    """The language a note belongs to (for the resolve role check)."""
+    row = await conn.fetchval(
+        """
+        SELECT gp.language_id
+        FROM point_review_notes n
+        JOIN grammar_points gp ON gp.id = n.grammar_point_id
+        WHERE n.id = $1
+        """,
+        note_id,
+    )
+    return str(row) if row else None
+
+
+async def resolve_review_note(
+    conn: asyncpg.Connection, note_id: str, resolver_id: str
+) -> bool:
+    """Mark a note resolved (privileged, after role check)."""
+    result = await conn.execute(
+        """
+        UPDATE point_review_notes
+        SET status = 'resolved', resolved_at = now(), resolved_by = $2
+        WHERE id = $1 AND status = 'open'
+        """,
+        note_id, resolver_id,
     )
     return result.endswith("1")
 

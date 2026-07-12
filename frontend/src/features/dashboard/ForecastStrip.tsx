@@ -20,7 +20,7 @@ export default function ForecastStrip({ forecast }: { forecast: ForecastDay[] })
                 {d.count > 0 ? d.count : ''}
               </span>
               <div
-                className={`w-full rounded-t ${d.count > 0 ? 'bg-indigo-400' : 'bg-gray-100'}`}
+                className={`w-full rounded-t ${d.count > 0 ? 'bg-lang/70' : 'bg-gray-100'}`}
                 style={{ height: `${Math.max(4, (d.count / max) * 44)}px` }}
               />
               <span className="text-[10px] text-gray-400">{label}</span>

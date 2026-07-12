@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, useSearchParams } from 'react-router-dom'
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query'
 import { getLanguages } from '../../api/profile'
 import {
@@ -14,7 +14,181 @@ import type { GrammarPointEdit } from '../../api/contribute'
 import { usePrefsStore } from '../../stores/prefsStore'
 import DrillsEditor from './DrillsEditor'
 import FeedbackPanel from './FeedbackPanel'
+import IssuesPanel from './IssuesPanel'
 import RolesPanel from './RolesPanel'
+import {
+  flagPointIssue,
+  getTutorUsage,
+  setLanguageTutorModel,
+  TUTOR_MODELS,
+} from '../../api/contribute'
+
+/** Admin-only per-language tutor model override (WP15a). */
+function TutorModelControl({
+  languageId,
+  current,
+  onChanged,
+}: {
+  languageId: string
+  current: string | null
+  onChanged: () => void
+}) {
+  const modelMutation = useMutation({
+    mutationFn: (model: string | null) => setLanguageTutorModel(languageId, model),
+    onSuccess: onChanged,
+  })
+  return (
+    <div className="bg-white rounded-2xl border border-gray-100 p-4">
+      <h2 className="text-sm font-semibold text-gray-800">Tutor model</h2>
+      <p className="text-xs text-gray-500 mb-2">
+        Which Claude model powers this language's tutor. Default follows the
+        server setting; pick a cheaper model for high-resource languages,
+        the strongest for the low-resource ones.
+      </p>
+      <select
+        value={current ?? ''}
+        onChange={(e) => modelMutation.mutate(e.target.value || null)}
+        disabled={modelMutation.isPending}
+        aria-label="Tutor model"
+        className="rounded-lg border border-gray-300 px-2 py-1.5 text-sm bg-white"
+      >
+        <option value="">Default (server setting)</option>
+        {TUTOR_MODELS.map((m) => (
+          <option key={m} value={m}>{m}</option>
+        ))}
+      </select>
+      {modelMutation.isError && (
+        <p className="text-xs text-red-500 mt-1">Couldn’t save — try again.</p>
+      )}
+    </div>
+  )
+}
+
+/** Admin-only tutor cost monitor (WP9b): token rollups across ALL languages,
+ * priced at list rates — the data behind per-language model choices. */
+function TutorCostsPanel() {
+  const { data } = useQuery({
+    queryKey: ['tutor-usage'],
+    queryFn: () => getTutorUsage(30),
+    retry: false,
+  })
+  if (!data) return null
+  const fmtTokens = (n: number) =>
+    n >= 1_000_000 ? `${(n / 1_000_000).toFixed(1)}M` : n.toLocaleString()
+  return (
+    <div
+      className="bg-white rounded-2xl border border-gray-100 p-4 text-sm"
+      data-testid="tutor-costs"
+    >
+      <div className="flex items-baseline justify-between">
+        <h2 className="text-sm font-semibold text-gray-800">
+          Tutor costs · last {data.days} days
+        </h2>
+        <span className="text-xs text-gray-500">
+          {data.total_messages} messages · ~${data.total_est_cost_usd.toFixed(2)}
+        </span>
+      </div>
+      <p className="text-xs text-gray-500 mb-2">
+        Estimates at Anthropic list pricing (cache reads discounted). All
+        languages, all users — learners always pay flat tiers.
+      </p>
+      {data.rows.length === 0 ? (
+        <p className="text-xs text-gray-400">No tutor usage recorded yet.</p>
+      ) : (
+        <table className="w-full text-xs">
+          <thead>
+            <tr className="text-left text-gray-500">
+              <th className="py-1 font-medium">Language</th>
+              <th className="py-1 font-medium">Model</th>
+              <th className="py-1 font-medium text-right">Msgs</th>
+              <th className="py-1 font-medium text-right">Tokens in/out</th>
+              <th className="py-1 font-medium text-right">Est. cost</th>
+            </tr>
+          </thead>
+          <tbody>
+            {data.rows.map((row, i) => (
+              <tr key={i} className="border-t border-gray-50 text-gray-700">
+                <td className="py-1">
+                  {row.language_name ?? '—'}
+                  {row.kind === 'summary' && (
+                    <span className="text-gray-400"> (summaries)</span>
+                  )}
+                </td>
+                <td className="py-1 font-mono text-[11px]">{row.model ?? '—'}</td>
+                <td className="py-1 text-right">{row.messages}</td>
+                <td className="py-1 text-right">
+                  {fmtTokens(row.input_tokens + row.cache_write_tokens + row.cache_read_tokens)}
+                  {' / '}
+                  {fmtTokens(row.output_tokens)}
+                </td>
+                <td className="py-1 text-right">${row.est_cost_usd.toFixed(2)}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      )}
+    </div>
+  )
+}
+
+/** "Flag an issue" — a reviewer note for problems you can't (or shouldn't)
+ * fix on the spot: regional-form doubts, tone-mark questions, and the like. */
+function FlagIssueBox({ pointId }: { pointId: string }) {
+  const queryClient = useQueryClient()
+  const [open, setOpen] = useState(false)
+  const [note, setNote] = useState('')
+  const flagMutation = useMutation({
+    mutationFn: () => flagPointIssue(pointId, note.trim()),
+    onSuccess: () => {
+      setNote('')
+      setOpen(false)
+      queryClient.invalidateQueries({ queryKey: ['review-notes'] })
+    },
+  })
+  if (!open) {
+    return (
+      <button
+        type="button"
+        onClick={() => setOpen(true)}
+        className="text-xs text-amber-700 hover:underline"
+      >
+        Flag an issue
+      </button>
+    )
+  }
+  return (
+    <div className="w-full space-y-2">
+      <textarea
+        value={note}
+        onChange={(e) => setNote(e.target.value)}
+        rows={2}
+        placeholder="What's wrong or doubtful about this point? (visible to reviewers and the admin)"
+        aria-label="Issue description"
+        className="w-full rounded-lg border border-amber-300 px-3 py-2 text-sm"
+      />
+      <div className="flex gap-2">
+        <button
+          type="button"
+          onClick={() => flagMutation.mutate()}
+          disabled={note.trim().length < 3 || flagMutation.isPending}
+          className="bg-amber-600 hover:bg-amber-700 disabled:opacity-50 text-white font-semibold rounded-lg px-3 py-1.5 text-xs"
+        >
+          {flagMutation.isPending ? 'Flagging…' : 'File issue'}
+        </button>
+        <button
+          type="button"
+          onClick={() => setOpen(false)}
+          className="text-xs text-gray-500 hover:underline"
+        >
+          Cancel
+        </button>
+      </div>
+      {flagMutation.isError && (
+        <p className="text-xs text-red-500">Couldn’t file the issue — try again.</p>
+      )}
+    </div>
+  )
+}
 
 function NewPointForm({
   languageId,
@@ -58,7 +232,7 @@ function NewPointForm({
         type="button"
         onClick={() => createMutation.mutate()}
         disabled={!title.trim() || createMutation.isPending}
-        className="bg-indigo-600 hover:bg-indigo-700 disabled:opacity-50 text-white font-semibold rounded-lg px-4 py-2 text-sm"
+        className="bg-lang hover:bg-lang-dark disabled:opacity-50 text-lang-on font-semibold rounded-lg px-4 py-2 text-sm"
       >
         Create
       </button>
@@ -146,7 +320,7 @@ function PointEditor({
             type="button"
             onClick={() => aiCheckMutation.mutate()}
             disabled={aiCheckMutation.isPending}
-            className="text-indigo-600 hover:underline disabled:opacity-50"
+            className="text-lang hover:underline disabled:opacity-50"
           >
             {aiCheckMutation.isPending ? 'Checking…' : 'Run AI check'}
           </button>
@@ -174,7 +348,7 @@ function PointEditor({
         value={explanation}
         onChange={(e) => setExplanation(e.target.value)}
         rows={4}
-        className="w-full rounded-lg border border-gray-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500"
+        className="w-full rounded-lg border border-gray-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-lang"
       />
 
       <label className="block text-xs font-medium text-gray-500">Culture note (optional)</label>
@@ -182,7 +356,7 @@ function PointEditor({
         value={cultureNote}
         onChange={(e) => setCultureNote(e.target.value)}
         rows={2}
-        className="w-full rounded-lg border border-gray-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500"
+        className="w-full rounded-lg border border-gray-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-lang"
       />
 
       <label className="block text-xs font-medium text-gray-500">
@@ -193,7 +367,7 @@ function PointEditor({
         onChange={(e) => setRefsText(e.target.value)}
         rows={2}
         placeholder="Wiktionary: locative case | https://en.wiktionary.org/..."
-        className="w-full rounded-lg border border-gray-300 px-3 py-2 text-sm font-mono focus:outline-none focus:ring-2 focus:ring-indigo-500"
+        className="w-full rounded-lg border border-gray-300 px-3 py-2 text-sm font-mono focus:outline-none focus:ring-2 focus:ring-lang"
       />
 
       <div className="flex items-center gap-2">
@@ -201,7 +375,7 @@ function PointEditor({
           type="button"
           onClick={() => saveMutation.mutate()}
           disabled={!explanation.trim() || saveMutation.isPending}
-          className="bg-indigo-600 hover:bg-indigo-700 disabled:opacity-50 text-white font-semibold rounded-lg px-4 py-2 text-sm"
+          className="bg-lang hover:bg-lang-dark disabled:opacity-50 text-lang-on font-semibold rounded-lg px-4 py-2 text-sm"
         >
           {saveMutation.isPending ? 'Saving…' : 'Save (pending review)'}
         </button>
@@ -218,9 +392,10 @@ function PointEditor({
         {saveMutation.isError && (
           <span className="text-xs text-red-500">Save failed.</span>
         )}
+        <FlagIssueBox pointId={point.id} />
       </div>
 
-      <DrillsEditor pointId={point.id} />
+      <DrillsEditor pointId={point.id} canEdit={canReview} />
     </div>
   )
 }
@@ -255,7 +430,7 @@ function ReviewPolicyControl({
             disabled={mutation.isPending || policy === p}
             className={
               policy === p
-                ? 'rounded-lg px-3 py-1.5 text-xs bg-indigo-600 text-white'
+                ? 'rounded-lg px-3 py-1.5 text-xs bg-lang text-white'
                 : 'rounded-lg px-3 py-1.5 text-xs border border-gray-300 text-gray-600 hover:bg-gray-50'
             }
           >
@@ -267,7 +442,21 @@ function ReviewPolicyControl({
   )
 }
 
+/** Deep link support (/contribute?point=<id>): float the linked point to
+ * the top so a reviewer lands directly on the card they came to fix. */
+function orderedPoints<T extends { id: string }>(
+  points: T[],
+  focusId: string | null,
+): T[] {
+  if (!focusId) return points
+  const hit = points.find((p) => p.id === focusId)
+  if (!hit) return points
+  return [hit, ...points.filter((p) => p.id !== focusId)]
+}
+
 export default function ContributorPage() {
+  const [searchParams] = useSearchParams()
+  const focusPointId = searchParams.get('point')
   const navigate = useNavigate()
   const queryClient = useQueryClient()
   const activeLanguageId = usePrefsStore((s) => s.activeLanguageId)
@@ -299,7 +488,7 @@ export default function ContributorPage() {
           <button
             type="button"
             onClick={() => navigate('/')}
-            className="text-sm text-indigo-600 hover:underline"
+            className="text-sm text-lang hover:underline"
           >
             Dashboard
           </button>
@@ -324,8 +513,18 @@ export default function ContributorPage() {
                   policy={data.review_policy}
                   onChanged={refresh}
                 />
+                <TutorModelControl
+                  languageId={activeLanguageId}
+                  current={data.tutor_model ?? null}
+                  onChanged={refresh}
+                />
+                <TutorCostsPanel />
               </>
             )}
+            <IssuesPanel
+              languageId={activeLanguageId}
+              canResolve={data.can_review ?? data.is_admin}
+            />
             <FeedbackPanel languageId={activeLanguageId} />
             <NewPointForm languageId={activeLanguageId} onCreated={refresh} />
           </>
@@ -336,13 +535,22 @@ export default function ContributorPage() {
         )}
 
         {data &&
-          data.points.map((point) => (
-            <PointEditor
+          orderedPoints(data.points, focusPointId).map((point) => (
+            <div
               key={point.id}
-              point={point}
-              canReview={data.can_review ?? data.is_admin}
-              onSaved={refresh}
-            />
+              id={`edit-point-${point.id}`}
+              className={
+                point.id === focusPointId
+                  ? 'ring-2 ring-lang rounded-2xl'
+                  : undefined
+              }
+            >
+              <PointEditor
+                point={point}
+                canReview={data.can_review ?? data.is_admin}
+                onSaved={refresh}
+              />
+            </div>
           ))}
       </div>
     </div>

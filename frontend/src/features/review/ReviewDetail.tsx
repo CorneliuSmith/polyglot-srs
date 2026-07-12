@@ -1,8 +1,12 @@
 import { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import { useQuery } from '@tanstack/react-query'
 import { getCardDetail } from '../../api/review'
+import { getLanguages } from '../../api/profile'
 import type { CardProgress } from '../../api/types'
 import LanguageWrapper from '../../components/LanguageWrapper'
+import FormsPanel from '../../components/FormsPanel'
+import ExplanationView from '../../components/ExplanationView'
 import SpeakButton from '../../components/SpeakButton'
 import BlurReveal from '../../components/BlurReveal'
 import StageBadge from '../../components/StageBadge'
@@ -71,6 +75,7 @@ function ProgressPanel({ progress }: { progress: CardProgress }) {
  * just continues.
  */
 export default function ReviewDetail({ cardId, languageCode, stats }: ReviewDetailProps) {
+  const navigate = useNavigate()
   const [open, setOpen] = useState(false)
   const [showTranslations, setShowTranslations] = useState(false)
 
@@ -80,8 +85,20 @@ export default function ReviewDetail({ cardId, languageCode, stats }: ReviewDeta
     enabled: open,
     staleTime: 5 * 60 * 1000,
   })
+  const { data: languages = [] } = useQuery({
+    queryKey: ['languages'],
+    queryFn: getLanguages,
+    enabled: open,
+    staleTime: 5 * 60 * 1000,
+  })
 
   const ownSentences = data?.your_sentences ?? []
+  // "Learning English from X": say which language the hints are in.
+  const hintLanguage =
+    data?.hint_locale && data.hint_locale !== 'en'
+      ? languages.find((l) => l.code === data.hint_locale)?.name ??
+        data.hint_locale.toUpperCase()
+      : null
 
   return (
     <div className="border-t border-gray-100 pt-3">
@@ -89,7 +106,7 @@ export default function ReviewDetail({ cardId, languageCode, stats }: ReviewDeta
         type="button"
         onClick={() => setOpen((v) => !v)}
         aria-expanded={open}
-        className="text-sm text-indigo-600 hover:underline touch-manipulation"
+        className="text-sm text-lang hover:underline touch-manipulation"
         style={{ minHeight: '44px' }}
       >
         {open ? 'Hide info' : 'Show info'}
@@ -116,6 +133,11 @@ export default function ReviewDetail({ cardId, languageCode, stats }: ReviewDeta
                   <div className="mt-2">
                     <StageBadge stage={data.progress.stage} />
                   </div>
+                )}
+                {hintLanguage && (
+                  <p className="mt-1 inline-block text-[11px] rounded-full px-2 py-0.5 bg-lang-soft text-lang">
+                    Hints in {hintLanguage}
+                  </p>
                 )}
               </div>
 
@@ -171,7 +193,7 @@ export default function ReviewDetail({ cardId, languageCode, stats }: ReviewDeta
               {data.explanation && (
                 <div>
                   <h3 className="font-semibold text-gray-700 mb-1">About</h3>
-                  <p className="text-gray-700 whitespace-pre-wrap">{data.explanation}</p>
+                  <ExplanationView text={data.explanation} className="text-gray-700" />
                 </div>
               )}
 
@@ -189,6 +211,10 @@ export default function ReviewDetail({ cardId, languageCode, stats }: ReviewDeta
                 </div>
               )}
 
+              {data.card_type === 'vocabulary' && (
+                <FormsPanel morphology={data.morphology} languageCode={languageCode} />
+              )}
+
               {data.examples.length > 0 && (
                 <div>
                   <div className="flex items-center justify-between mb-1">
@@ -197,7 +223,7 @@ export default function ReviewDetail({ cardId, languageCode, stats }: ReviewDeta
                       type="button"
                       onClick={() => setShowTranslations((v) => !v)}
                       aria-pressed={showTranslations}
-                      className="text-xs text-indigo-600 hover:underline"
+                      className="text-xs text-lang hover:underline"
                     >
                       {showTranslations ? 'Hide translations' : 'Show translations'}
                     </button>
@@ -252,14 +278,32 @@ export default function ReviewDetail({ cardId, languageCode, stats }: ReviewDeta
               )}
 
               {data.culture_note && (
-                <div className="bg-indigo-50 border border-indigo-100 rounded-lg p-3">
-                  <h3 className="font-semibold text-indigo-700 mb-1">Culture note</h3>
-                  <p className="text-indigo-900/80 whitespace-pre-wrap">{data.culture_note}</p>
+                <div className="bg-lang-soft border border-lang/20 rounded-lg p-3">
+                  <h3 className="font-semibold text-lang-dark mb-1">Culture note</h3>
+                  <p className="text-lang-dark/80 whitespace-pre-wrap">{data.culture_note}</p>
                 </div>
               )}
 
               {data.related && data.related.length > 0 && (
-                <RelatedGrid related={data.related} />
+                <>
+                  <RelatedGrid related={data.related} />
+                  {data.point_id && (
+                    <button
+                      type="button"
+                      onClick={() =>
+                        navigate(
+                          `/cram?points=${[
+                            data.point_id,
+                            ...data.related!.map((r) => r.id),
+                          ].join(',')}`,
+                        )
+                      }
+                      className="text-sm text-lang hover:underline"
+                    >
+                      ⚡ Quick cram this + related (nothing recorded)
+                    </button>
+                  )}
+                </>
               )}
 
               {data.references && data.references.length > 0 && (

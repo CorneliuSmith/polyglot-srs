@@ -1004,3 +1004,317 @@ async def _card_ids(conn, user_id):
     )
     for r in rows:
         yield str(r["card_id"])
+
+
+async def test_tutor_usage_kinds_and_cost_aggregation(pool):
+    """WP9b: summary rows never count against allowances, token sums roll up
+    per (language, model, kind), and one user can't read another's usage."""
+    from datetime import UTC, datetime
+
+    from backend.repositories.tutor import (
+        aggregate_tutor_usage,
+        count_tutor_messages,
+        log_tutor_usage,
+    )
+
+    lang = await _language(pool, "cost")
+    user = await _new_user(pool, "learner@cost")
+    other = await _new_user(pool, "other@cost")
+    epoch = datetime(2000, 1, 1, tzinfo=UTC)
+
+    chat_usage = {"input_tokens": 100, "output_tokens": 40,
+                  "cache_write_tokens": 10, "cache_read_tokens": 500}
+    async with pool.rls_connection(user) as conn:
+        await log_tutor_usage(conn, user, lang, "claude-sonnet-5",
+                              usage=chat_usage)
+        await log_tutor_usage(conn, user, lang, "claude-sonnet-5",
+                              usage=chat_usage)
+        await log_tutor_usage(conn, user, lang, "claude-sonnet-4-6",
+                              usage={"input_tokens": 300, "output_tokens": 50},
+                              kind="summary")
+
+    async with pool.rls_connection(user) as conn:
+        # The summarizer row is operator cost, not a spent message.
+        assert await count_tutor_messages(conn, user, epoch) == 2
+        # RLS: another user's window is untouched by these rows.
+    async with pool.rls_connection(other) as conn:
+        assert await count_tutor_messages(conn, other, epoch) == 0
+        rows = await conn.fetch("SELECT 1 FROM tutor_usage")
+        assert rows == []  # select-own policy holds
+
+    async with pool.privileged_connection() as conn:
+        rollup = {
+            (r["model"], r["kind"]): r
+            for r in await aggregate_tutor_usage(conn, epoch)
+            if str(r["language_id"]) == lang
+        }
+    chat = rollup[("claude-sonnet-5", "chat")]
+    assert chat["messages"] == 2
+    assert chat["input_tokens"] == 200
+    assert chat["output_tokens"] == 80
+    assert chat["cache_write_tokens"] == 20
+    assert chat["cache_read_tokens"] == 1000
+    summary = rollup[("claude-sonnet-4-6", "summary")]
+    assert summary["messages"] == 1
+    assert summary["cache_read_tokens"] == 0  # NULL columns sum to 0
+
+
+async def test_cram_and_search_respect_review_policy(pool):
+    """WP13(f,g): cram cards and search hits only surface visible grammar
+    (reviewed, or AI-passed under an 'ai_ok' policy), and search marks
+    what's already in the caller's reviews."""
+    from backend.repositories.cards import get_cram_cards
+    from backend.repositories.curriculum import search_content
+
+    lang = await _language(pool, "wp13fg")
+    user = await _new_user(pool, "crammer@wp13")
+
+    async with pool.privileged_connection() as conn:
+        approved = str(await conn.fetchval(
+            "INSERT INTO grammar_points (language_id, title, reviewed, level) "
+            "VALUES ($1, 'Locative case', true, 'A1') RETURNING id", lang,
+        ))
+        draft = str(await conn.fetchval(
+            "INSERT INTO grammar_points (language_id, title, reviewed, level) "
+            "VALUES ($1, 'Locative draft', false, 'A1') RETURNING id", lang,
+        ))
+        for i in range(5):
+            await conn.execute(
+                "INSERT INTO drill_sentences (grammar_point_id, sentence, answer, "
+                "translation, display_order) VALUES ($1, $2, 'de', 'at home', $3)",
+                approved, f"Ev{{{{answer}}}} kal {i}.", i,
+            )
+        await conn.execute(
+            "INSERT INTO drill_sentences (grammar_point_id, sentence, answer, display_order) "
+            "VALUES ($1, 'Draft {{answer}}.', 'x', 0)", draft,
+        )
+        word = str(await conn.fetchval(
+            "INSERT INTO vocabulary (language_id, word, level) "
+            "VALUES ($1, 'evde', 'A1') RETURNING id", lang,
+        ))
+        await conn.execute(
+            "INSERT INTO translations (vocabulary_id, locale, definition) "
+            "VALUES ($1, 'en', 'at home')", word,
+        )
+
+    async with pool.rls_connection(user) as conn:
+        # Cram: the draft point contributes nothing under the default
+        # 'strict' policy; the approved point is capped at 3 drills.
+        cards = await get_cram_cards(conn, [approved, draft])
+        assert {c["card_id"] for c in cards} == {approved}
+        assert len(cards) == 3
+
+        results = await search_content(conn, user, lang, "locative")
+        assert [g["title"] for g in results["grammar"]] == ["Locative case"]
+        assert results["grammar"][0]["learned"] is False
+
+        # ILIKE wildcards from user input match literally, not as wildcards.
+        assert (await search_content(conn, user, lang, "%"))["grammar"] == []
+
+        vocab_hits = await search_content(conn, user, lang, "at home")
+        assert [v["word"] for v in vocab_hits["vocabulary"]] == ["evde"]
+
+    # Once the point is in the user's reviews, search says so.
+    async with pool.privileged_connection() as conn:
+        await conn.execute(
+            "INSERT INTO user_cards (user_id, language_id, card_type, card_id) "
+            "VALUES ($1, $2, 'grammar', $3)", user, lang, approved,
+        )
+    async with pool.rls_connection(user) as conn:
+        results = await search_content(conn, user, lang, "locative")
+        assert results["grammar"][0]["learned"] is True
+
+
+async def test_english_support_locale_localizes_cards(pool):
+    """'Learning English from Spanish': definitions prefer the support locale
+    (falling back to the English definition) and example sentences are the
+    ones whose translation is in that locale."""
+    from backend.repositories.cards import get_card_detail, get_due_cards
+
+    async with pool.privileged_connection() as conn:
+        lang = str(await conn.fetchval(
+            "INSERT INTO languages (code, name, rtl) VALUES ('en', 'English', false) "
+            "ON CONFLICT (code) DO UPDATE SET name = EXCLUDED.name RETURNING id",
+        ))
+        word = str(await conn.fetchval(
+            "INSERT INTO vocabulary (language_id, word, level, frequency_rank) "
+            "VALUES ($1, 'water', 'A1', 3) RETURNING id", lang,
+        ))
+        for locale, definition in (("en", "a clear liquid"), ("es", "agua")):
+            await conn.execute(
+                "INSERT INTO translations (vocabulary_id, locale, definition) "
+                "VALUES ($1, $2, $3) ON CONFLICT (vocabulary_id, locale) "
+                "DO UPDATE SET definition = EXCLUDED.definition", word, locale, definition,
+            )
+        for locale, translation in (("es", "Bebo agua."), ("de", "Ich trinke Wasser.")):
+            await conn.execute(
+                "INSERT INTO example_sentences (language_id, vocabulary_id, sentence, "
+                "translation, difficulty_rank, translation_locale) "
+                "VALUES ($1, $2, 'I drink water.', $3, 3, $4) "
+                "ON CONFLICT (vocabulary_id, sentence, translation_locale) DO NOTHING",
+                lang, word, translation, locale,
+            )
+
+    user = await _new_user(pool, "learner@supploc")
+    async with pool.privileged_connection() as conn:
+        card = str(await conn.fetchval(
+            "INSERT INTO user_cards (user_id, language_id, card_type, card_id, "
+            "next_review) VALUES ($1, $2, 'vocabulary', $3, now() - interval '1h') "
+            "RETURNING id", user, lang, word,
+        ))
+
+    async with pool.rls_connection(user) as conn:
+        # Spanish support: the card clozes the Spanish-translated sentence,
+        # the hint is the Spanish definition.
+        cards = await get_due_cards(conn, lang, support_locale="es")
+        c = next(x for x in cards if str(x["id"]) == card)
+        assert "{{answer}}" in c["sentence"]
+        assert c["translation"] == "Bebo agua."
+        assert c["hint"] == "agua"
+
+        detail = await get_card_detail(conn, card, support_locale="es")
+        assert detail["definition"] == "agua"
+        assert [e["translation"] for e in detail["examples"]] == ["Bebo agua."]
+
+        # A locale with no content of its own: no sentences in that locale,
+        # and the definition falls back to English.
+        cards = await get_due_cards(conn, lang, support_locale="sw")
+        c = next(x for x in cards if str(x["id"]) == card)
+        assert c["sentence"] == "a clear liquid"  # definition-mode prompt
+        assert c["translation"] is None
+
+        # No support locale = today's behavior (English definitions).
+        cards = await get_due_cards(conn, lang)
+        c = next(x for x in cards if str(x["id"]) == card)
+        assert c["sentence"] == "a clear liquid"
+
+
+async def test_reset_progress_deck_and_language(pool):
+    """Reset studies: per-deck and per-language wipes delete the caller's
+    cards AND their review history (FK cascade), never touch another user,
+    and leave deck subscriptions and content intact."""
+    from backend.repositories.cards import (
+        reset_deck_progress,
+        reset_language_progress,
+    )
+
+    lang = await _language(pool, "rst")
+    user = await _new_user(pool, "resetter@rst")
+    other = await _new_user(pool, "bystander@rst")
+
+    async with pool.privileged_connection() as conn:
+        deck = str(await conn.fetchval(
+            "INSERT INTO content_lists (language_id, list_type, level, title) "
+            "VALUES ($1, 'grammar', 'A1', 'RST A1 Grammar') RETURNING id", lang,
+        ))
+        point_a1 = str(await conn.fetchval(
+            "INSERT INTO grammar_points (language_id, title, reviewed, level) "
+            "VALUES ($1, 'Reset point', true, 'A1') RETURNING id", lang,
+        ))
+        point_b1 = str(await conn.fetchval(
+            "INSERT INTO grammar_points (language_id, title, reviewed, level) "
+            "VALUES ($1, 'Survivor point', true, 'B1') RETURNING id", lang,
+        ))
+        cards = {}
+        for owner in (user, other):
+            for point in (point_a1, point_b1):
+                cards[(owner, point)] = str(await conn.fetchval(
+                    "INSERT INTO user_cards (user_id, language_id, card_type, card_id) "
+                    "VALUES ($1, $2, 'grammar', $3) RETURNING id", owner, lang, point,
+                ))
+                await conn.execute(
+                    "INSERT INTO review_log (user_id, card_id, quality, "
+                    "ease_factor_before, ease_factor_after, interval_before, "
+                    "interval_after) VALUES ($1, $2, 4, 2.5, 2.6, 1, 3)",
+                    owner, cards[(owner, point)],
+                )
+        await conn.execute(
+            "INSERT INTO user_content_subscriptions (user_id, content_list_id) "
+            "VALUES ($1, $2)", user, deck,
+        )
+
+    # Per-deck: only the caller's A1 card goes; B1 card and history survive.
+    async with pool.rls_connection(user) as conn:
+        result = await reset_deck_progress(conn, user, deck)
+        assert result == {"cards_deleted": 1}
+        assert await reset_deck_progress(conn, user, str(uuid.uuid4())) is None
+
+    async with pool.privileged_connection() as conn:
+        remaining = {
+            str(r["card_id"]) for r in await conn.fetch(
+                "SELECT card_id FROM user_cards WHERE user_id = $1", user)
+        }
+        assert remaining == {point_b1}
+        # review_log cascade removed exactly the deleted card's history
+        assert await conn.fetchval(
+            "SELECT count(*) FROM review_log WHERE user_id = $1", user) == 1
+        # the bystander is untouched, subscription survives
+        assert await conn.fetchval(
+            "SELECT count(*) FROM user_cards WHERE user_id = $1", other) == 2
+        assert await conn.fetchval(
+            "SELECT count(*) FROM user_content_subscriptions "
+            "WHERE user_id = $1 AND content_list_id = $2", user, deck) == 1
+
+    # Per-language: everything of the caller's in that language goes.
+    async with pool.rls_connection(user) as conn:
+        result = await reset_language_progress(conn, user, lang)
+        assert result == {"cards_deleted": 1}
+
+    async with pool.privileged_connection() as conn:
+        assert await conn.fetchval(
+            "SELECT count(*) FROM user_cards WHERE user_id = $1", user) == 0
+        assert await conn.fetchval(
+            "SELECT count(*) FROM review_log WHERE user_id = $1", user) == 0
+        assert await conn.fetchval(
+            "SELECT count(*) FROM user_cards WHERE user_id = $1", other) == 2
+
+
+async def test_deck_browser_items_and_vocab_detail(pool):
+    """The deck browser lists every item with ids, and the vocab detail
+    endpoint returns definition + morphology + sentences without needing
+    the word in the caller's reviews."""
+    from backend.repositories.cards import get_deck_items, get_vocab_item
+
+    lang = await _language(pool, "dkb")
+    user = await _new_user(pool, "browser@dkb")
+
+    async with pool.privileged_connection() as conn:
+        deck = str(await conn.fetchval(
+            "INSERT INTO content_lists (language_id, list_type, level, title) "
+            "VALUES ($1, 'vocabulary', 'A1', 'DKB A1 Vocab') RETURNING id", lang,
+        ))
+        word = str(await conn.fetchval(
+            "INSERT INTO vocabulary (language_id, word, level, frequency_rank, "
+            "morphology) VALUES ($1, 'domo', 'A1', 1, "
+            "'{\"chips\": [{\"label\": \"Gender\", \"value\": \"feminine\"}]}'::jsonb) "
+            "RETURNING id", lang,
+        ))
+        await conn.execute(
+            "INSERT INTO translations (vocabulary_id, locale, definition) "
+            "VALUES ($1, 'en', 'house')", word,
+        )
+        await conn.execute(
+            "INSERT INTO example_sentences (language_id, vocabulary_id, sentence, "
+            "translation, translation_locale) VALUES ($1, $2, "
+            "'La domo estas granda.', 'The house is big.', 'en')", lang, word,
+        )
+
+    async with pool.rls_connection(user) as conn:
+        listing = await get_deck_items(conn, deck)
+        assert listing["title"] == "DKB A1 Vocab"
+        assert [i["item"] for i in listing["items"]] == ["domo"]
+        assert listing["items"][0]["kind"] == "vocabulary"
+        assert listing["items"][0]["detail"] == "house"
+
+        detail = await get_vocab_item(conn, word)
+        assert detail["word"] == "domo"
+        assert detail["definition"] == "house"
+        assert detail["examples"][0]["translation"] == "The house is big."
+        morph = detail["morphology"]
+        if isinstance(morph, str):
+            import json as _json
+            morph = _json.loads(morph)
+        assert morph["chips"][0]["value"] == "feminine"
+
+        assert await get_deck_items(conn, str(uuid.uuid4())) is None
+        assert await get_vocab_item(conn, str(uuid.uuid4())) is None

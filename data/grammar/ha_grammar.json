@@ -1,2548 +1,2820 @@
 {
-  "lists": [
+ "lists": [
+  {
+   "level": "A1",
+   "title": "Hausa A1 Grammar",
+   "description": "Foundations: pronouns, ne/ce, the aspect system (completive, continuous, future), existence, negation, the genitive linker."
+  },
+  {
+   "level": "A2",
+   "title": "Hausa A2 Grammar",
+   "description": "Plurals, object and possessive pronouns, commands, habituals."
+  },
+  {
+   "level": "B1",
+   "title": "Hausa B1 Grammar",
+   "description": "Subjunctive, relative clauses, the -ke set, conditionals."
+  },
+  {
+   "level": "B2",
+   "title": "Hausa B2 Grammar",
+   "description": "Impersonal an/ana and comparison with fi."
+  },
+  {
+   "level": "C1",
+   "title": "Hausa C1 Grammar",
+   "description": "Reported speech and focus constructions."
+  },
+  {
+   "level": "C2",
+   "title": "Hausa C2 Grammar",
+   "description": "Mastery: karin magana, greeting protocol, and the particles that carry tone of voice."
+  }
+ ],
+ "points": [
+  {
+   "title": "Independent pronouns (ni, kai, ke…)",
+   "level": "A1",
+   "function": "Say who you mean",
+   "source": "contributor",
+   "reviewed": true,
+   "display_order": 1,
+   "explanation": "The free pronouns are ni (I), kai (you, m), ke (you, f), shi (he), ita (she), mu (we), ku (you all), su (they). Hausa marks gender in the second and third person singular — kai to a man, ke to a woman.",
+   "culture_note": "",
+   "references": [
     {
-      "level": "A1",
-      "title": "Hausa A1 Grammar",
-      "description": "Foundations: pronouns, ne/ce, the aspect system (completive, continuous, future), existence, negation, the genitive linker."
+     "title": "Live Lingua — free Hausa courses (FSI/Peace Corps)",
+     "url": "https://www.livelingua.com/courses/hausa"
     },
     {
-      "level": "A2",
-      "title": "Hausa A2 Grammar",
-      "description": "Plurals, object and possessive pronouns, commands, habituals."
-    },
-    {
-      "level": "B1",
-      "title": "Hausa B1 Grammar",
-      "description": "Subjunctive, relative clauses, the -ke set, conditionals."
-    },
-    {
-      "level": "B2",
-      "title": "Hausa B2 Grammar",
-      "description": "Impersonal an/ana and comparison with fi."
-    },
-    {
-      "level": "C1",
-      "title": "Hausa C1 Grammar",
-      "description": "Reported speech and focus constructions."
-    },
-    {
-      "level": "C2",
-      "title": "Hausa C2 Grammar",
-      "description": "Mastery: karin magana, greeting protocol, and the particles that carry tone of voice."
+     "title": "Wikipedia: Hausa language — grammar",
+     "url": "https://en.wikipedia.org/wiki/Hausa_language#Grammar"
     }
-  ],
-  "points": [
+   ],
+   "drills": [
     {
-      "title": "Independent pronouns (ni, kai, ke…)",
-      "level": "A1",
-      "function": "Say who you mean",
-      "source": "contributor",
-      "reviewed": true,
-      "display_order": 1,
-      "explanation": "The free pronouns are ni (I), kai (you, m), ke (you, f), shi (he), ita (she), mu (we), ku (you all), su (they). Hausa marks gender in the second and third person singular — kai to a man, ke to a woman.",
-      "culture_note": "",
-      "references": [
-        {
-          "title": "Wikipedia: Hausa language — grammar",
-          "url": "https://en.wikipedia.org/wiki/Hausa_language#Grammar"
-        }
-      ],
-      "drills": [
-        {
-          "sentence": "{{answer}} malami ne.",
-          "answer": "Ni",
-          "translation": "I am a teacher.",
-          "hint": "the 'I' pronoun",
-          "display_order": 1
-        },
-        {
-          "sentence": "{{answer}} tana nan.",
-          "answer": "Ita",
-          "translation": "She is here.",
-          "hint": "the 'she' pronoun",
-          "display_order": 2
-        },
-        {
-          "sentence": "{{answer}} ɗalibi ne.",
-          "answer": "Shi",
-          "translation": "He is a student.",
-          "hint": "he",
-          "display_order": 3
-        },
-        {
-          "sentence": "{{answer}} muna nan.",
-          "answer": "Mu",
-          "translation": "We are here.",
-          "hint": "we — emphatic",
-          "display_order": 4
-        },
-        {
-          "sentence": "{{answer}} malama ce.",
-          "answer": "Ita",
-          "translation": "She is a teacher.",
-          "hint": "she",
-          "display_order": 5
-        },
-        {
-          "sentence": "{{answer}} kana aiki.",
-          "answer": "Kai",
-          "translation": "You (masculine) are working.",
-          "hint": "you (m) — emphatic",
-          "display_order": 6
-        }
-      ]
+     "sentence": "{{answer}} malami ne.",
+     "answer": "Ni",
+     "translation": "I am a teacher.",
+     "hint": "the 'I' pronoun",
+     "display_order": 1
     },
     {
-      "title": "Identity with ne / ce",
-      "level": "A1",
-      "function": "Say what someone or something is",
-      "source": "contributor",
-      "reviewed": true,
-      "display_order": 2,
-      "explanation": "Identity sentences end in ne (masculine/plural) or ce (feminine): Ni malami ne (I am a teacher), Ita malama ce (She is a teacher), Su ɗalibai ne (They are students). The particle agrees with the SUBJECT noun's gender.",
-      "culture_note": "Hausa has two genders, masculine and feminine — most feminines end in -a, and ne/ce is your first meeting with that system.",
-      "references": [
-        {
-          "title": "Wikipedia: Hausa language — grammar",
-          "url": "https://en.wikipedia.org/wiki/Hausa_language#Grammar"
-        }
-      ],
-      "drills": [
-        {
-          "sentence": "Ni malami {{answer}}.",
-          "answer": "ne",
-          "translation": "I am a (male) teacher.",
-          "hint": "which particle? check gender/number of the noun",
-          "display_order": 1
-        },
-        {
-          "sentence": "Ita malama {{answer}}.",
-          "answer": "ce",
-          "translation": "She is a (female) teacher.",
-          "hint": "which particle? mota is feminine",
-          "display_order": 2
-        },
-        {
-          "sentence": "Su ɗalibai {{answer}}.",
-          "answer": "ne",
-          "translation": "They are students.",
-          "hint": "which particle? check gender/number of the noun",
-          "display_order": 3
-        },
-        {
-          "sentence": "Wannan mota {{answer}}.",
-          "answer": "ce",
-          "translation": "This is a car.",
-          "hint": "which particle? mota is feminine",
-          "display_order": 4
-        },
-        {
-          "sentence": "Audu manomi {{answer}}.",
-          "answer": "ne",
-          "translation": "Audu is a farmer.",
-          "hint": "which particle? check gender/number of the noun",
-          "display_order": 5
-        },
-        {
-          "sentence": "Wannan ruwa {{answer}}.",
-          "answer": "ne",
-          "translation": "This is water.",
-          "hint": "which particle? check gender/number of the noun",
-          "display_order": 6
-        }
-      ]
+     "sentence": "{{answer}} tana nan.",
+     "answer": "Ita",
+     "translation": "She is here.",
+     "hint": "the 'she' pronoun",
+     "display_order": 2
     },
     {
-      "title": "Completive aspect (na, ka, ya, ta…)",
-      "level": "A1",
-      "function": "Say what happened (done and finished)",
-      "source": "contributor",
-      "reviewed": true,
-      "display_order": 3,
-      "explanation": "Hausa conjugates with aspect pronouns before the verb. Completive (did/has done): na (I), ka/kin (you m/f), ya (he), ta (she), mun (we), kun (you all), sun (they): Na ci abinci (I ate food), Sun tafi (They left).",
-      "culture_note": "",
-      "references": [
-        {
-          "title": "Wikipedia: Hausa language — grammar",
-          "url": "https://en.wikipedia.org/wiki/Hausa_language#Grammar"
-        }
-      ],
-      "drills": [
-        {
-          "sentence": "{{answer}} ci abinci.",
-          "answer": "Na",
-          "translation": "I ate food.",
-          "hint": "completive 'I'",
-          "display_order": 1
-        },
-        {
-          "sentence": "{{answer}} tafi kasuwa.",
-          "answer": "Ta",
-          "translation": "She went to the market.",
-          "hint": "completive 'she'",
-          "display_order": 2
-        },
-        {
-          "sentence": "{{answer}} zo gida.",
-          "answer": "Sun",
-          "translation": "They came home.",
-          "hint": "they — completive",
-          "display_order": 3
-        },
-        {
-          "sentence": "{{answer}} sayi shinkafa.",
-          "answer": "Mun",
-          "translation": "We bought rice.",
-          "hint": "we — completive",
-          "display_order": 4
-        },
-        {
-          "sentence": "{{answer}} karanta littafi.",
-          "answer": "Ya",
-          "translation": "He read a book.",
-          "hint": "he — completive",
-          "display_order": 5
-        },
-        {
-          "sentence": "{{answer}} dafa abinci.",
-          "answer": "Kin",
-          "translation": "You (feminine) cooked food.",
-          "hint": "you (f) — completive",
-          "display_order": 6
-        }
-      ]
+     "sentence": "{{answer}} ɗalibi ne.",
+     "answer": "Shi",
+     "translation": "He is a student.",
+     "hint": "he",
+     "display_order": 3
     },
     {
-      "title": "Continuous aspect (ina, kana, yana…)",
-      "level": "A1",
-      "function": "Say what is happening",
-      "source": "contributor",
-      "reviewed": true,
-      "display_order": 4,
-      "explanation": "The continuous uses -na pronouns plus the verbal noun: Ina cin abinci (I am eating), Yana aiki (He is working), Muna zuwa (We are coming). Ina also opens 'where' questions: Ina kake? (Where are you?).",
-      "culture_note": "",
-      "references": [
-        {
-          "title": "Wikipedia: Hausa language — grammar",
-          "url": "https://en.wikipedia.org/wiki/Hausa_language#Grammar"
-        }
-      ],
-      "drills": [
-        {
-          "sentence": "{{answer}} cin abinci.",
-          "answer": "Ina",
-          "translation": "I am eating food.",
-          "hint": "continuous 'I'",
-          "display_order": 1
-        },
-        {
-          "sentence": "{{answer}} aiki yanzu.",
-          "answer": "Yana",
-          "translation": "He is working now.",
-          "hint": "continuous 'he'",
-          "display_order": 2
-        },
-        {
-          "sentence": "{{answer}} karatu.",
-          "answer": "Tana",
-          "translation": "She is studying.",
-          "hint": "she — continuous",
-          "display_order": 3
-        },
-        {
-          "sentence": "Yara {{answer}} wasa.",
-          "answer": "suna",
-          "translation": "The children are playing.",
-          "hint": "they — continuous",
-          "display_order": 4
-        },
-        {
-          "sentence": "{{answer}} aikin gida.",
-          "answer": "Muna",
-          "translation": "We are doing housework.",
-          "hint": "we — continuous",
-          "display_order": 5
-        },
-        {
-          "sentence": "{{answer}} barci?",
-          "answer": "Kana",
-          "translation": "Are you (masculine) sleeping?",
-          "hint": "you (m) — continuous",
-          "display_order": 6
-        }
-      ]
+     "sentence": "{{answer}} muna nan.",
+     "answer": "Mu",
+     "translation": "We are here.",
+     "hint": "we — emphatic",
+     "display_order": 4
     },
     {
-      "title": "Future with zan, za ka…",
-      "level": "A1",
-      "function": "Say what will happen",
-      "source": "contributor",
-      "reviewed": true,
-      "display_order": 5,
-      "explanation": "The future combines za with the person: zan (I will), za ka/za ki, zai (he), za ta, za mu, za ku, za su: Zan tafi gida (I will go home), Za ta dawo gobe (She will return tomorrow).",
-      "culture_note": "",
-      "references": [
-        {
-          "title": "Wikipedia: Hausa language — grammar",
-          "url": "https://en.wikipedia.org/wiki/Hausa_language#Grammar"
-        }
-      ],
-      "drills": [
-        {
-          "sentence": "{{answer}} tafi gida.",
-          "answer": "Zan",
-          "translation": "I will go home.",
-          "hint": "future 'I'",
-          "display_order": 1
-        },
-        {
-          "sentence": "Za {{answer}} dawo gobe.",
-          "answer": "ta",
-          "translation": "She will return tomorrow.",
-          "hint": "future 'she'",
-          "display_order": 2
-        },
-        {
-          "sentence": "{{answer}} zo gobe.",
-          "answer": "Zai",
-          "translation": "He will come tomorrow.",
-          "hint": "he — future, one word",
-          "display_order": 3
-        },
-        {
-          "sentence": "Za {{answer}} tafi kasuwa.",
-          "answer": "mu",
-          "translation": "We will go to the market.",
-          "hint": "we",
-          "display_order": 4
-        },
-        {
-          "sentence": "Za {{answer}} ci abinci?",
-          "answer": "ka",
-          "translation": "Will you (masculine) eat?",
-          "hint": "you (m)",
-          "display_order": 5
-        },
-        {
-          "sentence": "Za {{answer}} dawo da yamma.",
-          "answer": "su",
-          "translation": "They will return in the evening.",
-          "hint": "they",
-          "display_order": 6
-        }
-      ]
+     "sentence": "{{answer}} malama ce.",
+     "answer": "Ita",
+     "translation": "She is a teacher.",
+     "hint": "she",
+     "display_order": 5
     },
     {
-      "title": "Existence: akwai / babu",
-      "level": "A1",
-      "function": "Say what there is and isn't",
-      "source": "contributor",
-      "reviewed": true,
-      "display_order": 6,
-      "explanation": "Akwai asserts existence, babu denies it: Akwai ruwa (There is water), Babu kuɗi (There is no money). With 'have' meaning: Akwai littafi a wurina (I have a book — lit. there's a book at my place); everyday 'have' also uses da: Ina da mota (I have a car).",
-      "culture_note": "",
-      "references": [
-        {
-          "title": "Wikipedia: Hausa language — grammar",
-          "url": "https://en.wikipedia.org/wiki/Hausa_language#Grammar"
-        }
-      ],
-      "drills": [
-        {
-          "sentence": "{{answer}} ruwa a gida.",
-          "answer": "Akwai",
-          "translation": "There is water at home.",
-          "hint": "'there is'",
-          "display_order": 1
-        },
-        {
-          "sentence": "{{answer}} kuɗi.",
-          "answer": "Babu",
-          "translation": "There is no money.",
-          "hint": "'there is not'",
-          "display_order": 2
-        },
-        {
-          "sentence": "{{answer}} mutane da yawa a kasuwa.",
-          "answer": "Akwai",
-          "translation": "There are many people at the market.",
-          "hint": "existence",
-          "display_order": 3
-        },
-        {
-          "sentence": "{{answer}} abinci a gida.",
-          "answer": "Babu",
-          "translation": "There is no food at home.",
-          "hint": "absence",
-          "display_order": 4
-        },
-        {
-          "sentence": "{{answer}} ruwa a rijiya?",
-          "answer": "Akwai",
-          "translation": "Is there water in the well?",
-          "hint": "existence, question",
-          "display_order": 5
-        },
-        {
-          "sentence": "{{answer}} wata matsala.",
-          "answer": "Babu",
-          "translation": "There is no problem.",
-          "hint": "absence",
-          "display_order": 6
-        }
-      ]
-    },
-    {
-      "title": "Negation ba … ba",
-      "level": "A1",
-      "function": "Deny statements",
-      "source": "contributor",
-      "reviewed": true,
-      "display_order": 7,
-      "explanation": "Most negation wraps the clause in ba … ba: Ban ci ba (I didn't eat — ba+na fuses to ban), Ba ta zo ba (She didn't come). The continuous negates with bā (single): Ba na zuwa (I am not coming/going).",
-      "culture_note": "",
-      "references": [
-        {
-          "title": "Wikipedia: Hausa language — grammar",
-          "url": "https://en.wikipedia.org/wiki/Hausa_language#Grammar"
-        }
-      ],
-      "drills": [
-        {
-          "sentence": "{{answer}} ci abinci ba.",
-          "answer": "Ban",
-          "translation": "I did not eat food.",
-          "hint": "negative + 'I' fused — the opening half",
-          "display_order": 1
-        },
-        {
-          "sentence": "Ba ta zo {{answer}}.",
-          "answer": "ba",
-          "translation": "She did not come.",
-          "hint": "the closing half of the frame",
-          "display_order": 2
-        },
-        {
-          "sentence": "{{answer}} zo ba.",
-          "answer": "Bai",
-          "translation": "He didn't come.",
-          "hint": "he + negative completive",
-          "display_order": 3
-        },
-        {
-          "sentence": "Ba su zo {{answer}}.",
-          "answer": "ba",
-          "translation": "They didn't come.",
-          "hint": "the closing half of the frame",
-          "display_order": 4
-        },
-        {
-          "sentence": "{{answer}} ta dafa abinci ba.",
-          "answer": "Ba",
-          "translation": "She didn't cook food.",
-          "hint": "the opening half of the frame",
-          "display_order": 5
-        },
-        {
-          "sentence": "Ba mu gan shi {{answer}}.",
-          "answer": "ba",
-          "translation": "We didn't see him.",
-          "hint": "the closing half of the frame",
-          "display_order": 6
-        }
-      ]
-    },
-    {
-      "title": "The genitive linker -n / -r",
-      "level": "A1",
-      "function": "Link 'X of Y' and possession",
-      "source": "contributor",
-      "reviewed": true,
-      "display_order": 8,
-      "explanation": "Possession links nouns with -n (masculine/plural) or -r (feminine): littafin Audu (Audu's book, littafi+n), motar Audu (Audu's car, mota+r), gidan malami (the teacher's house). The linker matches the FIRST noun's gender.",
-      "culture_note": "",
-      "references": [
-        {
-          "title": "Wikipedia: Hausa language — grammar",
-          "url": "https://en.wikipedia.org/wiki/Hausa_language#Grammar"
-        }
-      ],
-      "drills": [
-        {
-          "sentence": "{{answer}} Audu yana nan.",
-          "answer": "Littafin",
-          "translation": "Audu's book is here.",
-          "hint": "book + masculine linker",
-          "display_order": 1
-        },
-        {
-          "sentence": "{{answer}} Audu sabuwa ce.",
-          "answer": "Motar",
-          "translation": "Audu's car is new.",
-          "hint": "car + feminine linker",
-          "display_order": 2
-        },
-        {
-          "sentence": "{{answer}} Audu ya zo.",
-          "answer": "Ɗan",
-          "translation": "Audu's son came.",
-          "hint": "son + masculine linker",
-          "display_order": 3
-        },
-        {
-          "sentence": "Sunan {{answer}} Audu ne.",
-          "answer": "yaron",
-          "translation": "The boy's name is Audu.",
-          "hint": "boy + masculine linker",
-          "display_order": 4
-        },
-        {
-          "sentence": "{{answer}} nan sabuwa ce.",
-          "answer": "Rigar",
-          "translation": "This gown is new.",
-          "hint": "gown + feminine linker",
-          "display_order": 5
-        },
-        {
-          "sentence": "{{answer}} ya yi kyau.",
-          "answer": "Aikin",
-          "translation": "The work is good.",
-          "hint": "work + masculine linker",
-          "display_order": 6
-        }
-      ]
-    },
-    {
-      "title": "Questions (me, wa, ina)",
-      "level": "A1",
-      "function": "Ask what, who, and where",
-      "source": "contributor",
-      "reviewed": true,
-      "display_order": 9,
-      "explanation": "Me (what), wa (who), ina (where), yaushe (when), nawa (how much): Me ka ci? (What did you eat?), Wa ya zo? (Who came?), Ina kake? (Where are you?). Yes/no questions add ko…? or just rising intonation: Ka ci abinci? / Ko ka ci?",
-      "culture_note": "",
-      "references": [
-        {
-          "title": "Wikipedia: Hausa language — grammar",
-          "url": "https://en.wikipedia.org/wiki/Hausa_language#Grammar"
-        }
-      ],
-      "drills": [
-        {
-          "sentence": "{{answer}} ka ci?",
-          "answer": "Me",
-          "translation": "What did you eat?",
-          "hint": "'what'",
-          "display_order": 1
-        },
-        {
-          "sentence": "{{answer}} ya zo?",
-          "answer": "Wa",
-          "translation": "Who came?",
-          "hint": "'who'",
-          "display_order": 2
-        },
-        {
-          "sentence": "{{answer}} gidanka?",
-          "answer": "Ina",
-          "translation": "Where is your house?",
-          "hint": "where",
-          "display_order": 3
-        },
-        {
-          "sentence": "{{answer}} za ka tafi?",
-          "answer": "Yaushe",
-          "translation": "When will you go?",
-          "hint": "when",
-          "display_order": 4
-        },
-        {
-          "sentence": "{{answer}} ne kuɗin wannan?",
-          "answer": "Nawa",
-          "translation": "How much does this cost?",
-          "hint": "how much",
-          "display_order": 5
-        },
-        {
-          "sentence": "{{answer}} ya dafa abinci?",
-          "answer": "Wa",
-          "translation": "Who cooked the food?",
-          "hint": "who",
-          "display_order": 6
-        }
-      ]
-    },
-    {
-      "title": "Common plurals",
-      "level": "A2",
-      "function": "Name many things",
-      "source": "contributor",
-      "reviewed": true,
-      "display_order": 1,
-      "explanation": "Hausa plurals change the word's shape, often with -oCi or internal -a-: mota → motoci (cars), littafi → littattafai (books), gida → gidaje (houses), yaro → yara (children). Each noun's plural is learned with it — patterns help but don't fully predict.",
-      "culture_note": "",
-      "references": [
-        {
-          "title": "Wikipedia: Hausa language — grammar",
-          "url": "https://en.wikipedia.org/wiki/Hausa_language#Grammar"
-        }
-      ],
-      "drills": [
-        {
-          "sentence": "Ina da {{answer}} biyu.",
-          "answer": "motoci",
-          "translation": "I have two cars.",
-          "hint": "plural of mota",
-          "display_order": 1
-        },
-        {
-          "sentence": "{{answer}} suna wasa.",
-          "answer": "Yara",
-          "translation": "The children are playing.",
-          "hint": "plural of yaro",
-          "display_order": 2
-        },
-        {
-          "sentence": "{{answer}} suna karatu.",
-          "answer": "Ɗalibai",
-          "translation": "The students are studying.",
-          "hint": "ɗalibi → plural",
-          "display_order": 3
-        },
-        {
-          "sentence": "Ina da {{answer}} uku.",
-          "answer": "littattafai",
-          "translation": "I have three books.",
-          "hint": "littafi → plural",
-          "display_order": 4
-        },
-        {
-          "sentence": "{{answer}} suna kasuwa.",
-          "answer": "Mata",
-          "translation": "The women are at the market.",
-          "hint": "mace → plural",
-          "display_order": 5
-        },
-        {
-          "sentence": "{{answer}} sun tafi gona.",
-          "answer": "Manoma",
-          "translation": "The farmers went to the farm.",
-          "hint": "manomi → plural",
-          "display_order": 6
-        }
-      ]
-    },
-    {
-      "title": "Object pronouns",
-      "level": "A2",
-      "function": "Say who receives the action",
-      "source": "contributor",
-      "reviewed": true,
-      "display_order": 2,
-      "explanation": "After the verb: ni (me), ka/ki (you m/f), shi (him), ta (her), mu (us), ku (you all), su (them): Na gan shi (I saw him), Sun ji mu (They heard us). Many verbs shorten before an object: gani → gan (see).",
-      "culture_note": "",
-      "references": [
-        {
-          "title": "Wikipedia: Hausa language — grammar",
-          "url": "https://en.wikipedia.org/wiki/Hausa_language#Grammar"
-        }
-      ],
-      "drills": [
-        {
-          "sentence": "Na gan {{answer}} a kasuwa.",
-          "answer": "shi",
-          "translation": "I saw him at the market.",
-          "hint": "'him' after the verb",
-          "display_order": 1
-        },
-        {
-          "sentence": "Sun ji {{answer}}.",
-          "answer": "mu",
-          "translation": "They heard us.",
-          "hint": "'us' after the verb",
-          "display_order": 2
-        },
-        {
-          "sentence": "Na gan {{answer}} jiya.",
-          "answer": "ta",
-          "translation": "I saw her yesterday.",
-          "hint": "her",
-          "display_order": 3
-        },
-        {
-          "sentence": "Sun kira {{answer}}.",
-          "answer": "ni",
-          "translation": "They called me.",
-          "hint": "me",
-          "display_order": 4
-        },
-        {
-          "sentence": "Ta taimaki {{answer}}.",
-          "answer": "su",
-          "translation": "She helped them.",
-          "hint": "them",
-          "display_order": 5
-        },
-        {
-          "sentence": "Za mu gan {{answer}} gobe.",
-          "answer": "ku",
-          "translation": "We will see you (plural) tomorrow.",
-          "hint": "you (plural)",
-          "display_order": 6
-        }
-      ]
-    },
-    {
-      "title": "Possessive pronouns (-na, -nka…)",
-      "level": "A2",
-      "function": "Say whose things are",
-      "source": "contributor",
-      "reviewed": true,
-      "display_order": 3,
-      "explanation": "Possessives attach through the linker: littafina (my book), littafinka/ki (your, m/f owner), littafinsa (his), littafinta (her); feminine nouns use -r-: motata (my car), motarsa (his car). Gender of the THING picks -n-/-r-; the ending shows the owner.",
-      "culture_note": "",
-      "references": [
-        {
-          "title": "Wikipedia: Hausa language — grammar",
-          "url": "https://en.wikipedia.org/wiki/Hausa_language#Grammar"
-        }
-      ],
-      "drills": [
-        {
-          "sentence": "{{answer}} yana nan.",
-          "answer": "Littafina",
-          "translation": "My book is here.",
-          "hint": "book + 'my'",
-          "display_order": 1
-        },
-        {
-          "sentence": "{{answer}} sabuwa ce.",
-          "answer": "Motata",
-          "translation": "My car is new.",
-          "hint": "car + 'my' (feminine noun)",
-          "display_order": 2
-        },
-        {
-          "sentence": "{{answer}} tana nan.",
-          "answer": "Motarsa",
-          "translation": "His car is here.",
-          "hint": "car + feminine linker + 'his'",
-          "display_order": 3
-        },
-        {
-          "sentence": "{{answer}} ya tafi.",
-          "answer": "Ɗansa",
-          "translation": "His son left.",
-          "hint": "son + masculine linker + 'his'",
-          "display_order": 4
-        },
-        {
-          "sentence": "{{answer}} suna gida.",
-          "answer": "Yaranmu",
-          "translation": "Our children are at home.",
-          "hint": "children + linker + 'our'",
-          "display_order": 5
-        },
-        {
-          "sentence": "{{answer}} tsohuwa ce.",
-          "answer": "Rigarki",
-          "translation": "Your (feminine) gown is old.",
-          "hint": "gown + feminine linker + 'your (f)'",
-          "display_order": 6
-        }
-      ]
-    },
-    {
-      "title": "Imperative and don't (kada)",
-      "level": "A2",
-      "function": "Give commands and warnings",
-      "source": "contributor",
-      "reviewed": true,
-      "display_order": 4,
-      "explanation": "The bare verb commands: Zo! (Come!), Tafi! (Go!), Ci abinci! (Eat!). The negative command uses kada + subjunctive pronoun: Kada ka tafi! (Don't go!), Kada ku manta! (Don't (you all) forget!).",
-      "culture_note": "",
-      "references": [
-        {
-          "title": "Wikipedia: Hausa language — grammar",
-          "url": "https://en.wikipedia.org/wiki/Hausa_language#Grammar"
-        }
-      ],
-      "drills": [
-        {
-          "sentence": "{{answer}} nan!",
-          "answer": "Zo",
-          "translation": "Come here!",
-          "hint": "bare-verb command",
-          "display_order": 1
-        },
-        {
-          "sentence": "{{answer}} ka tafi!",
-          "answer": "Kada",
-          "translation": "Don't go!",
-          "hint": "negative-command word",
-          "display_order": 2
-        },
-        {
-          "sentence": "{{answer}} ruwa!",
-          "answer": "Sha",
-          "translation": "Drink water!",
-          "hint": "to drink — bare verb",
-          "display_order": 3
-        },
-        {
-          "sentence": "Kada {{answer}} manta!",
-          "answer": "ka",
-          "translation": "Don't forget!",
-          "hint": "the subjunctive pronoun after the prohibitive",
-          "display_order": 4
-        },
-        {
-          "sentence": "{{answer}} abinci!",
-          "answer": "Ci",
-          "translation": "Eat!",
-          "hint": "to eat — bare verb",
-          "display_order": 5
-        },
-        {
-          "sentence": "{{answer}} a nan!",
-          "answer": "Zauna",
-          "translation": "Sit here!",
-          "hint": "to sit — bare verb",
-          "display_order": 6
-        }
-      ]
-    },
-    {
-      "title": "Habitual (nakan, yakan…)",
-      "level": "A2",
-      "function": "Talk about what usually happens",
-      "source": "contributor",
-      "reviewed": true,
-      "display_order": 5,
-      "explanation": "The habitual pronoun set adds -kan: nakan (I usually), kakan, yakan, takan, mukan, kukan, sukan: Nakan sha shayi da safe (I usually drink tea in the morning), Yakan zo nan (He usually comes here).",
-      "culture_note": "",
-      "references": [
-        {
-          "title": "Wikipedia: Hausa language — grammar",
-          "url": "https://en.wikipedia.org/wiki/Hausa_language#Grammar"
-        }
-      ],
-      "drills": [
-        {
-          "sentence": "{{answer}} sha shayi da safe.",
-          "answer": "Nakan",
-          "translation": "I usually drink tea in the morning.",
-          "hint": "habitual 'I'",
-          "display_order": 1
-        },
-        {
-          "sentence": "{{answer}} zo nan kowace rana.",
-          "answer": "Yakan",
-          "translation": "He usually comes here every day.",
-          "hint": "habitual 'he'",
-          "display_order": 2
-        },
-        {
-          "sentence": "{{answer}} dafa abinci da yamma.",
-          "answer": "Takan",
-          "translation": "She usually cooks in the evening.",
-          "hint": "she — habitual",
-          "display_order": 3
-        },
-        {
-          "sentence": "{{answer}} je makaranta da ƙafa.",
-          "answer": "Mukan",
-          "translation": "We usually walk to school.",
-          "hint": "we — habitual",
-          "display_order": 4
-        },
-        {
-          "sentence": "{{answer}} yi aiki har dare.",
-          "answer": "Sukan",
-          "translation": "They usually work until night.",
-          "hint": "they — habitual",
-          "display_order": 5
-        },
-        {
-          "sentence": "{{answer}} sha ruwa da yawa?",
-          "answer": "Kakan",
-          "translation": "Do you (masculine) usually drink a lot of water?",
-          "hint": "you (m) — habitual",
-          "display_order": 6
-        }
-      ]
-    },
-    {
-      "title": "Subjunctive (ka tafi, mu je…)",
-      "level": "B1",
-      "function": "Express wishes, purposes, and suggestions",
-      "source": "contributor",
-      "reviewed": true,
-      "display_order": 1,
-      "explanation": "The plain (subjunctive) pronoun set — in, ka/ki, ya, ta, mu, ku, su — follows wanting and purpose: Ina so ka zo (I want you to come), Bari mu je (Let's go), Ya kamata ka yi aiki (You should work).",
-      "culture_note": "",
-      "references": [
-        {
-          "title": "Wikipedia: Hausa language — grammar",
-          "url": "https://en.wikipedia.org/wiki/Hausa_language#Grammar"
-        }
-      ],
-      "drills": [
-        {
-          "sentence": "Ina so {{answer}} zo.",
-          "answer": "ka",
-          "translation": "I want you to come.",
-          "hint": "subjunctive 'you'",
-          "display_order": 1
-        },
-        {
-          "sentence": "Bari {{answer}} je kasuwa.",
-          "answer": "mu",
-          "translation": "Let's go to the market.",
-          "hint": "subjunctive 'we' after bari",
-          "display_order": 2
-        },
-        {
-          "sentence": "Ina so {{answer}} tafi yanzu.",
-          "answer": "su",
-          "translation": "I want them to go now.",
-          "hint": "they — subjunctive pronoun",
-          "display_order": 3
-        },
-        {
-          "sentence": "Bari {{answer}} gani.",
-          "answer": "in",
-          "translation": "Let me see.",
-          "hint": "I — subjunctive",
-          "display_order": 4
-        },
-        {
-          "sentence": "Ya kamata {{answer}} yi aiki.",
-          "answer": "ka",
-          "translation": "You should work.",
-          "hint": "you (m) — subjunctive",
-          "display_order": 5
-        },
-        {
-          "sentence": "Ina so {{answer}} dafa abinci.",
-          "answer": "ta",
-          "translation": "I want her to cook.",
-          "hint": "she — subjunctive",
-          "display_order": 6
-        }
-      ]
-    },
-    {
-      "title": "Relative clauses (wanda, wadda, waɗanda)",
-      "level": "B1",
-      "function": "Describe with 'the one who/that'",
-      "source": "contributor",
-      "reviewed": true,
-      "display_order": 2,
-      "explanation": "Wanda (m), wadda (f), waɗanda (pl) introduce relatives: mutumin da ya zo — or with the full pronoun: wanda ya zo (the one who came), motar da na saya (the car that I bought). In relatives the continuous switches to -ke: wanda yake aiki (who is working).",
-      "culture_note": "",
-      "references": [
-        {
-          "title": "Wikipedia: Hausa language — grammar",
-          "url": "https://en.wikipedia.org/wiki/Hausa_language#Grammar"
-        }
-      ],
-      "drills": [
-        {
-          "sentence": "Mutumin {{answer}} ya zo malami ne.",
-          "answer": "da",
-          "translation": "The man who came is a teacher.",
-          "hint": "the short relative after a noun",
-          "display_order": 1
-        },
-        {
-          "sentence": "{{answer}} ya zo malami ne.",
-          "answer": "Wanda",
-          "translation": "The one who came is a teacher.",
-          "hint": "m. relative pronoun",
-          "display_order": 2
-        },
-        {
-          "sentence": "{{answer}} ta zo malama ce.",
-          "answer": "Wadda",
-          "translation": "The one (feminine) who came is a teacher.",
-          "hint": "feminine relative",
-          "display_order": 3
-        },
-        {
-          "sentence": "{{answer}} suka zo ɗalibai ne.",
-          "answer": "Waɗanda",
-          "translation": "Those who came are students.",
-          "hint": "plural relative",
-          "display_order": 4
-        },
-        {
-          "sentence": "Yarinyar {{answer}} ta zo tana nan.",
-          "answer": "da",
-          "translation": "The girl who came is here.",
-          "hint": "the short relative after a noun",
-          "display_order": 5
-        },
-        {
-          "sentence": "Mutanen {{answer}} suka tafi manoma ne.",
-          "answer": "da",
-          "translation": "The people who left are farmers.",
-          "hint": "the short relative after a noun",
-          "display_order": 6
-        }
-      ]
-    },
-    {
-      "title": "Relative continuous -ke",
-      "level": "B1",
-      "function": "Say 'who is doing' inside descriptions",
-      "source": "contributor",
-      "reviewed": true,
-      "display_order": 3,
-      "explanation": "In relatives, questions with fronting, and focus, continuous -na becomes -ke: Ina kake zaune? (Where do you live?), mace take aiki? no — abin da nake yi (the thing I am doing), wanda yake magana (the one who is speaking).",
-      "culture_note": "",
-      "references": [
-        {
-          "title": "Wikipedia: Hausa language — grammar",
-          "url": "https://en.wikipedia.org/wiki/Hausa_language#Grammar"
-        }
-      ],
-      "drills": [
-        {
-          "sentence": "Ina {{answer}} zaune?",
-          "answer": "kake",
-          "translation": "Where do you live? (you-m)",
-          "hint": "relative continuous 'you'",
-          "display_order": 1
-        },
-        {
-          "sentence": "Abin da {{answer}} yi yana da kyau.",
-          "answer": "nake",
-          "translation": "The thing I am doing is good.",
-          "hint": "relative continuous 'I'",
-          "display_order": 2
-        },
-        {
-          "sentence": "Me {{answer}} yi?",
-          "answer": "kake",
-          "translation": "What are you (masculine) doing?",
-          "hint": "you (m) + -ke",
-          "display_order": 3
-        },
-        {
-          "sentence": "Me {{answer}} so?",
-          "answer": "kike",
-          "translation": "What do you (feminine) want?",
-          "hint": "you (f) + -ke",
-          "display_order": 4
-        },
-        {
-          "sentence": "Inda {{answer}} zaune yana da nisa.",
-          "answer": "muke",
-          "translation": "Where we live is far away.",
-          "hint": "we + -ke",
-          "display_order": 5
-        },
-        {
-          "sentence": "Abin da {{answer}} nema kuɗi ne.",
-          "answer": "suke",
-          "translation": "What they are seeking is money.",
-          "hint": "they + -ke",
-          "display_order": 6
-        }
-      ]
-    },
-    {
-      "title": "Conditionals with idan / in",
-      "level": "B1",
-      "function": "Make 'if' sentences",
-      "source": "contributor",
-      "reviewed": true,
-      "display_order": 4,
-      "explanation": "Idan (or short in) opens real conditions: Idan ka zo, za mu ci abinci (If you come, we will eat), In ta gani, za ta gaya mana (If she sees, she'll tell us). Unreal 'if only' uses dā …: Dā na sani (Had I known).",
-      "culture_note": "",
-      "references": [
-        {
-          "title": "Wikipedia: Hausa language — grammar",
-          "url": "https://en.wikipedia.org/wiki/Hausa_language#Grammar"
-        }
-      ],
-      "drills": [
-        {
-          "sentence": "{{answer}} ka zo, za mu ci abinci.",
-          "answer": "Idan",
-          "translation": "If you come, we will eat.",
-          "hint": "'if'",
-          "display_order": 1
-        },
-        {
-          "sentence": "Dā na {{answer}}.",
-          "answer": "sani",
-          "translation": "Had I known. (a set phrase)",
-          "hint": "'know' in the regret idiom",
-          "display_order": 2
-        },
-        {
-          "sentence": "{{answer}} ruwa ya sauka, ba za mu fita ba.",
-          "answer": "Idan",
-          "translation": "If it rains, we won't go out.",
-          "hint": "if",
-          "display_order": 3
-        },
-        {
-          "sentence": "{{answer}} ka gama, ka zo.",
-          "answer": "In",
-          "translation": "When you finish, come.",
-          "hint": "if/when — short form",
-          "display_order": 4
-        },
-        {
-          "sentence": "Idan ka {{answer}}, za ka ci jarrabawa.",
-          "answer": "karanta",
-          "translation": "If you study, you will pass the exam.",
-          "hint": "to study/read",
-          "display_order": 5
-        },
-        {
-          "sentence": "Da na {{answer}}, da na gaya maka.",
-          "answer": "sani",
-          "translation": "Had I known, I would have told you.",
-          "hint": "counterfactual da … da",
-          "display_order": 6
-        }
-      ]
-    },
-    {
-      "title": "Impersonal an / ana (passive sense)",
-      "level": "B2",
-      "function": "Say what was/is done without naming who",
-      "source": "contributor",
-      "reviewed": true,
-      "display_order": 1,
-      "explanation": "The impersonal pronoun a- makes passive-like sentences: An gina gida (A house was built — 'one built'), Ana maganin sa? no — Ana kiran ka (You are being called), Za a biya ku (You will be paid).",
-      "culture_note": "",
-      "references": [
-        {
-          "title": "Wikipedia: Hausa language — grammar",
-          "url": "https://en.wikipedia.org/wiki/Hausa_language#Grammar"
-        }
-      ],
-      "drills": [
-        {
-          "sentence": "{{answer}} gina sabon gida.",
-          "answer": "An",
-          "translation": "A new house has been built.",
-          "hint": "impersonal completive",
-          "display_order": 1
-        },
-        {
-          "sentence": "{{answer}} kiran ka.",
-          "answer": "Ana",
-          "translation": "You are being called.",
-          "hint": "impersonal continuous",
-          "display_order": 2
-        },
-        {
-          "sentence": "{{answer}} sayar da motar.",
-          "answer": "An",
-          "translation": "The car has been sold.",
-          "hint": "completed — impersonal",
-          "display_order": 3
-        },
-        {
-          "sentence": "{{answer}} jiran ka a ofis.",
-          "answer": "Ana",
-          "translation": "You are being waited for at the office.",
-          "hint": "ongoing — impersonal",
-          "display_order": 4
-        },
-        {
-          "sentence": "{{answer}} kama ɓarawo jiya.",
-          "answer": "An",
-          "translation": "A thief was caught yesterday.",
-          "hint": "completed — impersonal",
-          "display_order": 5
-        },
-        {
-          "sentence": "{{answer}} noman shinkafa a nan.",
-          "answer": "Ana",
-          "translation": "Rice is farmed here.",
-          "hint": "ongoing — impersonal",
-          "display_order": 6
-        }
-      ]
-    },
-    {
-      "title": "Comparison with fi",
-      "level": "B2",
-      "function": "Say something exceeds another",
-      "source": "contributor",
-      "reviewed": true,
-      "display_order": 2,
-      "explanation": "The verb fi (exceed) does comparison: Ya fi ni tsayi (He is taller than me — lit. exceeds me in height), Wannan ya fi kyau (This is better), Ta fi su duka hankali (She is the smartest of them all).",
-      "culture_note": "",
-      "references": [
-        {
-          "title": "Wikipedia: Hausa language — grammar",
-          "url": "https://en.wikipedia.org/wiki/Hausa_language#Grammar"
-        }
-      ],
-      "drills": [
-        {
-          "sentence": "Ya {{answer}} ni tsayi.",
-          "answer": "fi",
-          "translation": "He is taller than me.",
-          "hint": "'exceed'",
-          "display_order": 1
-        },
-        {
-          "sentence": "Wannan ya fi {{answer}}.",
-          "answer": "kyau",
-          "translation": "This one is better (exceeds in goodness).",
-          "hint": "'goodness' after fi",
-          "display_order": 2
-        },
-        {
-          "sentence": "Ta fi ni {{answer}}.",
-          "answer": "hankali",
-          "translation": "She is more sensible than me.",
-          "hint": "quality noun — sense",
-          "display_order": 3
-        },
-        {
-          "sentence": "Audu ya fi Musa {{answer}}.",
-          "answer": "ƙarfi",
-          "translation": "Audu is stronger than Musa.",
-          "hint": "quality noun — strength",
-          "display_order": 4
-        },
-        {
-          "sentence": "Zaki ya {{answer}} kare ƙarfi.",
-          "answer": "fi",
-          "translation": "A lion is stronger than a dog.",
-          "hint": "exceed",
-          "display_order": 5
-        },
-        {
-          "sentence": "Wannan ya fi wancan {{answer}}.",
-          "answer": "tsada",
-          "translation": "This one is more expensive than that one.",
-          "hint": "quality noun — costliness",
-          "display_order": 6
-        }
-      ]
-    },
-    {
-      "title": "Reported speech with cewa",
-      "level": "C1",
-      "function": "Report statements and beliefs",
-      "source": "contributor",
-      "reviewed": true,
-      "display_order": 1,
-      "explanation": "Cewa ('saying/that') introduces reported clauses: Ya ce (cewa) zai zo (He said that he would come), Na ji cewa sun tafi (I heard that they left), Ta tabbata cewa gaskiya ne (She is sure that it is true).",
-      "culture_note": "",
-      "references": [
-        {
-          "title": "Wikipedia: Hausa language — grammar",
-          "url": "https://en.wikipedia.org/wiki/Hausa_language#Grammar"
-        }
-      ],
-      "drills": [
-        {
-          "sentence": "Ya ce {{answer}} zai zo.",
-          "answer": "cewa",
-          "translation": "He said that he would come.",
-          "hint": "'that' complementizer",
-          "display_order": 1
-        },
-        {
-          "sentence": "Na ji {{answer}} sun tafi.",
-          "answer": "cewa",
-          "translation": "I heard that they left.",
-          "hint": "'that' complementizer",
-          "display_order": 2
-        },
-        {
-          "sentence": "Ta ce {{answer}} ba za ta zo ba.",
-          "answer": "cewa",
-          "translation": "She said that she would not come.",
-          "hint": "that",
-          "display_order": 3
-        },
-        {
-          "sentence": "Mun ji {{answer}} an gina sabuwar makaranta.",
-          "answer": "cewa",
-          "translation": "We heard that a new school has been built.",
-          "hint": "that",
-          "display_order": 4
-        },
-        {
-          "sentence": "Ya {{answer}} cewa zai taimake mu.",
-          "answer": "ce",
-          "translation": "He said that he would help us.",
-          "hint": "to say",
-          "display_order": 5
-        },
-        {
-          "sentence": "Na yi imani {{answer}} za su dawo.",
-          "answer": "cewa",
-          "translation": "I believe that they will return.",
-          "hint": "that",
-          "display_order": 6
-        }
-      ]
-    },
-    {
-      "title": "Focus fronting with ne/ce",
-      "level": "C1",
-      "function": "Emphasize one element",
-      "source": "contributor",
-      "reviewed": true,
-      "display_order": 2,
-      "explanation": "Fronting plus ne/ce focuses: Audu ne ya zo (It was AUDU who came), Kasuwa ce ta tafi? no — Jiya ne suka tafi (It was yesterday they left; completive shifts to the relative set suka). Gender/number of the focused word picks ne or ce.",
-      "culture_note": "",
-      "references": [
-        {
-          "title": "Wikipedia: Hausa language — grammar",
-          "url": "https://en.wikipedia.org/wiki/Hausa_language#Grammar"
-        }
-      ],
-      "drills": [
-        {
-          "sentence": "Audu {{answer}} ya zo.",
-          "answer": "ne",
-          "translation": "It was Audu who came.",
-          "hint": "focus particle — masculine/plural or non-feminine focus",
-          "display_order": 1
-        },
-        {
-          "sentence": "Jiya {{answer}} suka tafi.",
-          "answer": "ne",
-          "translation": "It was yesterday that they left.",
-          "hint": "focus particle — masculine/plural or non-feminine focus",
-          "display_order": 2
-        },
-        {
-          "sentence": "Ita {{answer}} ta dafa abinci.",
-          "answer": "ce",
-          "translation": "It was she who cooked the food.",
-          "hint": "feminine focus",
-          "display_order": 3
-        },
-        {
-          "sentence": "A kasuwa {{answer}} na gan shi.",
-          "answer": "ne",
-          "translation": "It was at the market that I saw him.",
-          "hint": "focus particle — masculine/plural or non-feminine focus",
-          "display_order": 4
-        },
-        {
-          "sentence": "Audu {{answer}} ya rubuta wasiƙar.",
-          "answer": "ne",
-          "translation": "It was Audu who wrote the letter.",
-          "hint": "focus particle — masculine/plural or non-feminine focus",
-          "display_order": 5
-        },
-        {
-          "sentence": "Yau {{answer}} za mu tafi.",
-          "answer": "ne",
-          "translation": "It is today that we will go.",
-          "hint": "focus particle — masculine/plural or non-feminine focus",
-          "display_order": 6
-        }
-      ]
-    },
-    {
-      "title": "Demonstratives (wannan, wancan, waɗannan)",
-      "level": "B1",
-      "display_order": 5,
-      "function": "Point at this one, that one, these and those",
-      "explanation": "Wannan (this), wancan (that, m.) / waccan (that, f.), waɗannan (these), waɗancan (those); the bare adverbs nan (here) and can (there) do places. The demonstrative comes BEFORE the noun: wannan littafi.",
-      "culture_note": "",
-      "source": "contributor",
-      "reviewed": false,
-      "references": [
-        {
-          "title": "Wikipedia: Hausa grammar",
-          "url": "https://en.wikipedia.org/wiki/Hausa_grammar"
-        },
-        {
-          "title": "Wikipedia: Hausa language",
-          "url": "https://en.wikipedia.org/wiki/Hausa_language"
-        }
-      ],
-      "drills": [
-        {
-          "sentence": "{{answer}} littafi nawa ne.",
-          "answer": "Wannan",
-          "translation": "This book is mine.",
-          "hint": "this",
-          "cell": "wannan",
-          "display_order": 1
-        },
-        {
-          "sentence": "{{answer}} mota sabuwa ce.",
-          "answer": "Waccan",
-          "translation": "That car (over there) is new.",
-          "hint": "that — feminine",
-          "cell": "waccan",
-          "display_order": 2
-        },
-        {
-          "sentence": "Ina son {{answer}} riga.",
-          "answer": "wannan",
-          "translation": "I like this gown.",
-          "hint": "this",
-          "cell": "wannan",
-          "display_order": 3
-        },
-        {
-          "sentence": "{{answer}} mutane ɗalibai ne.",
-          "answer": "Waɗannan",
-          "translation": "These people are students.",
-          "hint": "these",
-          "cell": "waɗannan",
-          "display_order": 4
-        },
-        {
-          "sentence": "{{answer}} dutse yana nesa.",
-          "answer": "Wancan",
-          "translation": "That mountain is far away.",
-          "hint": "that — masculine",
-          "cell": "wancan",
-          "display_order": 5
-        },
-        {
-          "sentence": "Zo {{answer}}!",
-          "answer": "nan",
-          "translation": "Come here!",
-          "hint": "here",
-          "cell": "nan",
-          "display_order": 6
-        }
-      ],
-      "paradigm": [
-        "wannan",
-        "wancan",
-        "waccan",
-        "waɗannan",
-        "nan"
-      ]
-    },
-    {
-      "title": "To have: da (ina da, ba ni da)",
-      "level": "B1",
-      "display_order": 6,
-      "function": "Say what you have and what you lack",
-      "explanation": "Possession rides the continuous plus da: ina da mota (I have a car), yana da kuɗi (he has money). The negative uses the short pronoun set: ba ni da kuɗi (I don't have money), ba shi da lokaci.",
-      "culture_note": "",
-      "source": "contributor",
-      "reviewed": false,
-      "references": [
-        {
-          "title": "Wikipedia: Hausa grammar",
-          "url": "https://en.wikipedia.org/wiki/Hausa_grammar"
-        },
-        {
-          "title": "Wikipedia: Hausa language",
-          "url": "https://en.wikipedia.org/wiki/Hausa_language"
-        }
-      ],
-      "drills": [
-        {
-          "sentence": "Ina {{answer}} mota.",
-          "answer": "da",
-          "translation": "I have a car.",
-          "hint": "the possession linker after the continuous",
-          "display_order": 1
-        },
-        {
-          "sentence": "Muna {{answer}} lokaci kaɗan.",
-          "answer": "da",
-          "translation": "We have a little time.",
-          "hint": "the possession linker after the continuous",
-          "display_order": 2
-        },
-        {
-          "sentence": "Ba ni {{answer}} kuɗi yanzu.",
-          "answer": "da",
-          "translation": "I don't have money right now.",
-          "hint": "the possession linker — negative pattern",
-          "display_order": 3
-        },
-        {
-          "sentence": "Kana {{answer}} tambaya?",
-          "answer": "da",
-          "translation": "Do you have a question?",
-          "hint": "the possession linker after the continuous",
-          "display_order": 4
-        },
-        {
-          "sentence": "Suna {{answer}} shanu goma.",
-          "answer": "da",
-          "translation": "They have ten cattle.",
-          "hint": "the possession linker after the continuous",
-          "display_order": 5
-        },
-        {
-          "sentence": "Asibitin yana {{answer}} likitoci.",
-          "answer": "da",
-          "translation": "The hospital has doctors.",
-          "hint": "the possession linker after the continuous",
-          "display_order": 6
-        }
-      ]
-    },
-    {
-      "title": "Describing with mai / masu",
-      "level": "B1",
-      "display_order": 7,
-      "function": "Turn any quality into an adjective",
-      "explanation": "Mai (owner of) + a noun describes: gida mai kyau (a house having goodness — a nice house), shayi mai zaƙi (sweet tea). The plural is masu: mutane masu arziki (rich people). It's Hausa's most productive adjective machine.",
-      "culture_note": "",
-      "source": "contributor",
-      "reviewed": false,
-      "references": [
-        {
-          "title": "Wikipedia: Hausa grammar",
-          "url": "https://en.wikipedia.org/wiki/Hausa_grammar"
-        },
-        {
-          "title": "Wikipedia: Hausa language",
-          "url": "https://en.wikipedia.org/wiki/Hausa_language"
-        }
-      ],
-      "drills": [
-        {
-          "sentence": "Wannan gida {{answer}} kyau ne.",
-          "answer": "mai",
-          "translation": "This is a beautiful house.",
-          "hint": "the quality-owner word (singular)",
-          "display_order": 1
-        },
-        {
-          "sentence": "Ita mace ce {{answer}} hankali.",
-          "answer": "mai",
-          "translation": "She is a sensible woman.",
-          "hint": "the quality-owner word (singular)",
-          "display_order": 2
-        },
-        {
-          "sentence": "Mutane {{answer}} arziki suna zaune a nan.",
-          "answer": "masu",
-          "translation": "Rich people live here.",
-          "hint": "the quality-owner word (plural)",
-          "display_order": 3
-        },
-        {
-          "sentence": "Ina son shayi {{answer}} zaƙi.",
-          "answer": "mai",
-          "translation": "I like sweet tea.",
-          "hint": "the quality-owner word (singular)",
-          "display_order": 4
-        },
-        {
-          "sentence": "Manoma {{answer}} aiki tuƙuru sun sami riba.",
-          "answer": "masu",
-          "translation": "Hardworking farmers made a profit.",
-          "hint": "the quality-owner word (plural)",
-          "display_order": 5
-        },
-        {
-          "sentence": "Ya sayi mota {{answer}} tsada.",
-          "answer": "mai",
-          "translation": "He bought an expensive car.",
-          "hint": "the quality-owner word (singular)",
-          "display_order": 6
-        }
-      ]
-    },
-    {
-      "title": "Relative completive (suka, muka, aka)",
-      "level": "B1",
-      "display_order": 8,
-      "function": "Use the past inside 'who/that' clauses",
-      "explanation": "After the relative da (and in focus), the completive switches form: sun zo (they came) but mutanen da SUKA zo (the people who came). Watch sun→suka, mun→muka, kun→kuka, an→aka; ya and ta keep their spelling.",
-      "culture_note": "",
-      "source": "contributor",
-      "reviewed": false,
-      "references": [
-        {
-          "title": "Wikipedia: Hausa grammar",
-          "url": "https://en.wikipedia.org/wiki/Hausa_grammar"
-        },
-        {
-          "title": "Wikipedia: Hausa language",
-          "url": "https://en.wikipedia.org/wiki/Hausa_language"
-        }
-      ],
-      "drills": [
-        {
-          "sentence": "Mutanen da {{answer}} zo jiya sun tafi.",
-          "answer": "suka",
-          "translation": "The people who came yesterday have left.",
-          "hint": "they + relative completive",
-          "cell": "3pl",
-          "display_order": 1
-        },
-        {
-          "sentence": "Abincin da {{answer}} dafa yana da daɗi.",
-          "answer": "muka",
-          "translation": "The food we cooked is delicious.",
-          "hint": "we + relative completive",
-          "cell": "1pl",
-          "display_order": 2
-        },
-        {
-          "sentence": "Ina littafin da {{answer}} saya?",
-          "answer": "kuka",
-          "translation": "Where is the book you (pl.) bought?",
-          "hint": "you (plural) + relative completive",
-          "cell": "2pl",
-          "display_order": 3
-        },
-        {
-          "sentence": "Gidan da {{answer}} gina yana da kyau.",
-          "answer": "aka",
-          "translation": "The house that was built is beautiful.",
-          "hint": "impersonal + relative completive",
-          "cell": "impersonal",
-          "display_order": 4
-        },
-        {
-          "sentence": "Yaron da {{answer}} ci jarrabawa yana murna.",
-          "answer": "ya",
-          "translation": "The boy who passed the exam is rejoicing.",
-          "hint": "he + relative completive",
-          "cell": "3sg.m",
-          "display_order": 5
-        },
-        {
-          "sentence": "Ina son waƙar da {{answer}} rera.",
-          "answer": "ta",
-          "translation": "I like the song that she sang.",
-          "hint": "she + relative completive",
-          "cell": "3sg.f",
-          "display_order": 6
-        }
-      ],
-      "paradigm": [
-        "1pl",
-        "2pl",
-        "3pl",
-        "impersonal",
-        "3sg.m",
-        "3sg.f"
-      ]
-    },
-    {
-      "title": "Numbers after the noun (biyu, goma, nawa)",
-      "level": "B1",
-      "display_order": 9,
-      "function": "Count things and ask how many",
-      "explanation": "Numerals follow the noun: mota biyu (two cars), kwana bakwai (seven days). Nawa asks 'how many/how much' from the same slot — littattafai nawa? (how many books?), nawa ne? (how much is it?).",
-      "culture_note": "",
-      "source": "contributor",
-      "reviewed": false,
-      "references": [
-        {
-          "title": "Wikipedia: Hausa grammar",
-          "url": "https://en.wikipedia.org/wiki/Hausa_grammar"
-        },
-        {
-          "title": "Wikipedia: Hausa language",
-          "url": "https://en.wikipedia.org/wiki/Hausa_language"
-        }
-      ],
-      "drills": [
-        {
-          "sentence": "Ina da yara {{answer}}.",
-          "answer": "biyu",
-          "translation": "I have two children.",
-          "hint": "two (after the noun)",
-          "display_order": 1
-        },
-        {
-          "sentence": "Mota {{answer}} ce kawai a gidan.",
-          "answer": "ɗaya",
-          "translation": "There is only one car at the house.",
-          "hint": "one (after the noun)",
-          "display_order": 2
-        },
-        {
-          "sentence": "Kwana {{answer}} ne a mako.",
-          "answer": "bakwai",
-          "translation": "There are seven days in a week.",
-          "hint": "seven (after the noun)",
-          "display_order": 3
-        },
-        {
-          "sentence": "Littattafai {{answer}} kuke da su?",
-          "answer": "nawa",
-          "translation": "How many books do you have?",
-          "hint": "how many (after the noun)",
-          "display_order": 4
-        },
-        {
-          "sentence": "Ya sayi awaki {{answer}}.",
-          "answer": "uku",
-          "translation": "He bought three goats.",
-          "hint": "three (after the noun)",
-          "display_order": 5
-        },
-        {
-          "sentence": "{{answer}} ne wannan riga?",
-          "answer": "Nawa",
-          "translation": "How much is this gown?",
-          "hint": "how much (price)",
-          "display_order": 6
-        }
-      ]
-    },
-    {
-      "title": "Sai — until, then, only, except",
-      "level": "B2",
-      "display_order": 3,
-      "function": "Master Hausa's most versatile little word",
-      "explanation": "Sai covers a family of meanings: farewell (sai gobe — see you tomorrow), 'not until' (ba za mu fara ba sai ya zo), 'only when/then' (sai ka gama za ka huta), and 'except' (kowa ya tafi sai Audu). Context picks the reading.",
-      "culture_note": "Sai an jima (until later), sai gobe, sai da safe — most Hausa goodbyes are sai-phrases.",
-      "source": "contributor",
-      "reviewed": false,
-      "references": [
-        {
-          "title": "Wikipedia: Hausa grammar",
-          "url": "https://en.wikipedia.org/wiki/Hausa_grammar"
-        },
-        {
-          "title": "Wikipedia: Hausa language",
-          "url": "https://en.wikipedia.org/wiki/Hausa_language"
-        }
-      ],
-      "drills": [
-        {
-          "sentence": "{{answer}} gobe!",
-          "answer": "Sai",
-          "translation": "See you tomorrow!",
-          "hint": "the versatile until/then word — farewell use",
-          "display_order": 1
-        },
-        {
-          "sentence": "Ba za mu fara ba {{answer}} ya zo.",
-          "answer": "sai",
-          "translation": "We won't start until he comes.",
-          "hint": "the until word after a negative",
-          "display_order": 2
-        },
-        {
-          "sentence": "{{answer}} ka gama aiki za ka huta.",
-          "answer": "Sai",
-          "translation": "Only when you finish work will you rest.",
-          "hint": "the only-when word",
-          "display_order": 3
-        },
-        {
-          "sentence": "Kowa ya tafi {{answer}} Audu.",
-          "answer": "sai",
-          "translation": "Everyone left except Audu.",
-          "hint": "the except word",
-          "display_order": 4
-        },
-        {
-          "sentence": "Za mu dakata {{answer}} safe.",
-          "answer": "sai",
-          "translation": "We will wait until morning.",
-          "hint": "the until word",
-          "display_order": 5
-        },
-        {
-          "sentence": "In ba haka ba, {{answer}} wata rana.",
-          "answer": "sai",
-          "translation": "If not, then some other day.",
-          "hint": "the then/until word — deferral",
-          "display_order": 6
-        }
-      ]
-    },
-    {
-      "title": "Verbal nouns in the continuous (cin, shan, zuwa)",
-      "level": "B2",
-      "display_order": 4,
-      "function": "Say what's happening right now, properly",
-      "explanation": "The continuous wants a verbal noun: ina CIN abinci (I'm eating), yana SHAN ruwa (he's drinking), muna ZUWA gida (we're going home). Common verbs have special forms (ci→cin, sha→shan, zo→zuwa, ji→jin); most others keep the plain stem before an object.",
-      "culture_note": "",
-      "source": "contributor",
-      "reviewed": false,
-      "references": [
-        {
-          "title": "Wikipedia: Hausa grammar",
-          "url": "https://en.wikipedia.org/wiki/Hausa_grammar"
-        },
-        {
-          "title": "Wikipedia: Hausa language",
-          "url": "https://en.wikipedia.org/wiki/Hausa_language"
-        }
-      ],
-      "drills": [
-        {
-          "sentence": "Ina {{answer}} abinci.",
-          "answer": "cin",
-          "translation": "I am eating food.",
-          "hint": "to eat + its verbal-noun form",
-          "display_order": 1
-        },
-        {
-          "sentence": "Yana {{answer}} ruwa.",
-          "answer": "shan",
-          "translation": "He is drinking water.",
-          "hint": "to drink + its verbal-noun form",
-          "display_order": 2
-        },
-        {
-          "sentence": "Muna {{answer}} gida.",
-          "answer": "zuwa",
-          "translation": "We are going home.",
-          "hint": "to go/come + its verbal-noun form",
-          "display_order": 3
-        },
-        {
-          "sentence": "Tana {{answer}} wasiƙa.",
-          "answer": "rubuta",
-          "translation": "She is writing a letter.",
-          "hint": "to write — plain stem before an object",
-          "display_order": 4
-        },
-        {
-          "sentence": "Suna {{answer}} a gona.",
-          "answer": "aiki",
-          "translation": "They are working on the farm.",
-          "hint": "work — a plain noun after the continuous",
-          "display_order": 5
-        },
-        {
-          "sentence": "Ina {{answer}} yunwa.",
-          "answer": "jin",
-          "translation": "I am hungry (feeling hunger).",
-          "hint": "to feel + its verbal-noun form",
-          "display_order": 6
-        }
-      ]
-    },
-    {
-      "title": "Because and in order to: don, domin, saboda",
-      "level": "B2",
-      "display_order": 5,
-      "function": "Give reasons and purposes",
-      "explanation": "Don/domin + subjunctive states purpose (na zo don in gan ka — I came to see you); domin + clause and saboda + noun give reasons (saboda ruwan sama — because of the rain). Don me? asks why.",
-      "culture_note": "",
-      "source": "contributor",
-      "reviewed": false,
-      "references": [
-        {
-          "title": "Wikipedia: Hausa grammar",
-          "url": "https://en.wikipedia.org/wiki/Hausa_grammar"
-        },
-        {
-          "title": "Wikipedia: Hausa language",
-          "url": "https://en.wikipedia.org/wiki/Hausa_language"
-        }
-      ],
-      "drills": [
-        {
-          "sentence": "Na zo {{answer}} in gan ka.",
-          "answer": "don",
-          "translation": "I came in order to see you.",
-          "hint": "the purpose word (short form)",
-          "display_order": 1
-        },
-        {
-          "sentence": "Ya yi murna {{answer}} ya ci jarrabawa.",
-          "answer": "domin",
-          "translation": "He rejoiced because he passed the exam.",
-          "hint": "the because word (full form)",
-          "display_order": 2
-        },
-        {
-          "sentence": "{{answer}} ruwan sama, ba mu fita ba.",
-          "answer": "Saboda",
-          "translation": "Because of the rain, we didn't go out.",
-          "hint": "the because-of word (+ noun)",
-          "display_order": 3
-        },
-        {
-          "sentence": "Muna aiki tuƙuru {{answer}} mu sami kuɗi.",
-          "answer": "domin",
-          "translation": "We work hard in order to earn money.",
-          "hint": "the purpose word (full form)",
-          "display_order": 4
-        },
-        {
-          "sentence": "Ta sayi kyauta {{answer}} ɗanta.",
-          "answer": "don",
-          "translation": "She bought a gift for her son.",
-          "hint": "the for word (+ noun)",
-          "display_order": 5
-        },
-        {
-          "sentence": "{{answer}} me ka yi haka?",
-          "answer": "Don",
-          "translation": "Why (for what) did you do that?",
-          "hint": "the for word — asks why with 'me'",
-          "display_order": 6
-        }
-      ]
-    },
-    {
-      "title": "Before and after: kafin, bayan",
-      "level": "B2",
-      "display_order": 6,
-      "function": "Order events in time",
-      "explanation": "Kafin (before) takes the subjunctive — kafin ka tafi (before you go); bayan (after) takes the completive — bayan ya gama (after he finished). Bayan haka: after that.",
-      "culture_note": "",
-      "source": "contributor",
-      "reviewed": false,
-      "references": [
-        {
-          "title": "Wikipedia: Hausa grammar",
-          "url": "https://en.wikipedia.org/wiki/Hausa_grammar"
-        },
-        {
-          "title": "Wikipedia: Hausa language",
-          "url": "https://en.wikipedia.org/wiki/Hausa_language"
-        }
-      ],
-      "drills": [
-        {
-          "sentence": "{{answer}} ka tafi, kashe wuta.",
-          "answer": "Kafin",
-          "translation": "Before you go, turn off the light.",
-          "hint": "before (+ subjunctive)",
-          "display_order": 1
-        },
-        {
-          "sentence": "{{answer}} ya gama aiki, ya koma gida.",
-          "answer": "Bayan",
-          "translation": "After he finished work, he went home.",
-          "hint": "after (+ completive)",
-          "display_order": 2
-        },
-        {
-          "sentence": "Za mu ci abinci {{answer}} mu yi barci.",
-          "answer": "kafin",
-          "translation": "We will eat before we sleep.",
-          "hint": "before (+ subjunctive)",
-          "display_order": 3
-        },
-        {
-          "sentence": "{{answer}} sun tashi, sun yi addu'a.",
-          "answer": "Bayan",
-          "translation": "After they got up, they prayed.",
-          "hint": "after (+ completive)",
-          "display_order": 4
-        },
-        {
-          "sentence": "Ka wanke hannu {{answer}} ka ci abinci.",
-          "answer": "kafin",
-          "translation": "Wash your hands before you eat.",
-          "hint": "before (+ subjunctive)",
-          "display_order": 5
-        },
-        {
-          "sentence": "{{answer}} haka, komai ya canja.",
-          "answer": "Bayan",
-          "translation": "After that, everything changed.",
-          "hint": "after (+ 'that')",
-          "display_order": 6
-        }
-      ]
-    },
-    {
-      "title": "Connectors kuma, har, ma, amma",
-      "level": "B2",
-      "display_order": 7,
-      "function": "Link ideas like a storyteller",
-      "explanation": "Kuma adds ('and also'), har stretches ('until / as far as / even'), ma tags along ('too/even'), amma turns ('but'). They're small, but Hausa narrative runs on them.",
-      "culture_note": "",
-      "source": "contributor",
-      "reviewed": false,
-      "references": [
-        {
-          "title": "Wikipedia: Hausa grammar",
-          "url": "https://en.wikipedia.org/wiki/Hausa_grammar"
-        },
-        {
-          "title": "Wikipedia: Hausa language",
-          "url": "https://en.wikipedia.org/wiki/Hausa_language"
-        }
-      ],
-      "drills": [
-        {
-          "sentence": "Ya sayi gurasa {{answer}} ya sayi madara.",
-          "answer": "kuma",
-          "translation": "He bought bread and also bought milk.",
-          "hint": "and-also",
-          "display_order": 1
-        },
-        {
-          "sentence": "Ta yi aiki {{answer}} dare ya yi.",
-          "answer": "har",
-          "translation": "She worked until night fell.",
-          "hint": "until / as far as",
-          "display_order": 2
-        },
-        {
-          "sentence": "Ni {{answer}} ina son shayi.",
-          "answer": "ma",
-          "translation": "I too like tea.",
-          "hint": "too / as well",
-          "display_order": 3
-        },
-        {
-          "sentence": "Yana so ya zo, {{answer}} ba shi da lokaci.",
-          "answer": "amma",
-          "translation": "He wants to come, but he has no time.",
-          "hint": "but",
-          "display_order": 4
-        },
-        {
-          "sentence": "Sun yi tafiya {{answer}} Kano.",
-          "answer": "har",
-          "translation": "They travelled as far as Kano.",
-          "hint": "until / as far as",
-          "display_order": 5
-        },
-        {
-          "sentence": "Yaro {{answer}} ya iya karatu.",
-          "answer": "ma",
-          "translation": "Even the child can read.",
-          "hint": "even / too",
-          "display_order": 6
-        }
-      ]
-    },
-    {
-      "title": "Ideophonic intensifiers (fari fat, ja wur)",
-      "level": "C1",
-      "display_order": 3,
-      "function": "Intensify with the word each quality owns",
-      "explanation": "Each quality has its dedicated intensifier: fari FAT (snow-white), baƙi ƘIRIN (jet-black), ja WUR (blazing red), sabo FUL (brand-new), cika FAL (full to the brim), shiru TSIT (dead silent). The pairs are fixed — swapping them sounds absurd.",
-      "culture_note": "Ideophones are performance: said with stretched vowels and a gesture. Regional variants exist — native reviewers should confirm local forms.",
-      "source": "contributor",
-      "reviewed": false,
-      "references": [
-        {
-          "title": "Wikipedia: Hausa grammar",
-          "url": "https://en.wikipedia.org/wiki/Hausa_grammar"
-        },
-        {
-          "title": "Wikipedia: Hausa language",
-          "url": "https://en.wikipedia.org/wiki/Hausa_language"
-        }
-      ],
-      "drills": [
-        {
-          "sentence": "Rigarsa fara ce {{answer}}.",
-          "answer": "fat",
-          "translation": "His gown is snow-white.",
-          "hint": "the whiteness intensifier",
-          "display_order": 1
-        },
-        {
-          "sentence": "Gashinta baƙi ne {{answer}}.",
-          "answer": "ƙirin",
-          "translation": "Her hair is jet-black.",
-          "hint": "the blackness intensifier",
-          "display_order": 2
-        },
-        {
-          "sentence": "Fuskarsa ta yi ja {{answer}}.",
-          "answer": "wur",
-          "translation": "His face turned blazing red.",
-          "hint": "the redness intensifier",
-          "display_order": 3
-        },
-        {
-          "sentence": "Motar sabuwa ce {{answer}}.",
-          "answer": "ful",
-          "translation": "The car is brand-new.",
-          "hint": "the newness intensifier",
-          "display_order": 4
-        },
-        {
-          "sentence": "Ɗakin ya cika {{answer}}.",
-          "answer": "fal",
-          "translation": "The room is completely full.",
-          "hint": "the fullness intensifier",
-          "display_order": 5
-        },
-        {
-          "sentence": "Ko'ina ya yi shiru {{answer}}.",
-          "answer": "tsit",
-          "translation": "Everywhere went dead silent.",
-          "hint": "the silence intensifier",
-          "display_order": 6
-        }
-      ]
-    },
-    {
-      "title": "Verb pairs: saya/sayar, koya/koyar, dafa/dafu",
-      "level": "C1",
-      "display_order": 4,
-      "function": "Flip a verb's direction with its grade",
-      "explanation": "Hausa verbs come in grades: -ar (usually + da) points the action outward — saya buy → sayar da sell, koya learn → koyar da teach; -u turns it inward/resultative — dafa cook → dafu be cooked, gina build → ginu get built.",
-      "culture_note": "",
-      "source": "contributor",
-      "reviewed": false,
-      "references": [
-        {
-          "title": "Wikipedia: Hausa grammar",
-          "url": "https://en.wikipedia.org/wiki/Hausa_grammar"
-        },
-        {
-          "title": "Wikipedia: Hausa language",
-          "url": "https://en.wikipedia.org/wiki/Hausa_language"
-        }
-      ],
-      "drills": [
-        {
-          "sentence": "Ya {{answer}} da tsohuwar motarsa.",
-          "answer": "sayar",
-          "translation": "He sold his old car.",
-          "hint": "to buy flipped outward (+ da) = sell",
-          "display_order": 1
-        },
-        {
-          "sentence": "Malam yana {{answer}} da lissafi.",
-          "answer": "koyar",
-          "translation": "The teacher is teaching mathematics.",
-          "hint": "to learn flipped outward (+ da) = teach",
-          "display_order": 2
-        },
-        {
-          "sentence": "Shinkafar ta {{answer}}.",
-          "answer": "dafu",
-          "translation": "The rice is cooked (done).",
-          "hint": "to cook flipped inward = be cooked",
-          "display_order": 3
-        },
-        {
-          "sentence": "Gidan ya {{answer}} da sauri.",
-          "answer": "ginu",
-          "translation": "The house got built quickly.",
-          "hint": "to build flipped inward = get built",
-          "display_order": 4
-        },
-        {
-          "sentence": "Na {{answer}} sabon waya jiya.",
-          "answer": "saya",
-          "translation": "I bought a new phone yesterday.",
-          "hint": "to buy — the plain grade",
-          "display_order": 5
-        },
-        {
-          "sentence": "Yara suna {{answer}} Turanci.",
-          "answer": "koyon",
-          "translation": "The children are learning English.",
-          "hint": "to learn + its verbal-noun form",
-          "display_order": 6
-        }
-      ]
-    },
-    {
-      "title": "Indirect objects (mini, maka, masa)",
-      "level": "C1",
-      "display_order": 5,
-      "function": "Do things TO and FOR people in one word",
-      "explanation": "The wa/ma- set fuses 'to/for' with a pronoun: rubuta MINI (write to me), dafa MAKA (cook for you), aika MASA (send to him), MATA (to her), MUSU (to them). It slots right after the verb, before the direct object.",
-      "culture_note": "",
-      "source": "contributor",
-      "reviewed": false,
-      "references": [
-        {
-          "title": "Wikipedia: Hausa grammar",
-          "url": "https://en.wikipedia.org/wiki/Hausa_grammar"
-        },
-        {
-          "title": "Wikipedia: Hausa language",
-          "url": "https://en.wikipedia.org/wiki/Hausa_language"
-        }
-      ],
-      "drills": [
-        {
-          "sentence": "Ya rubuta {{answer}} wasiƙa.",
-          "answer": "mini",
-          "translation": "He wrote me a letter.",
-          "hint": "to/for me",
-          "cell": "1sg",
-          "display_order": 1
-        },
-        {
-          "sentence": "Za ta dafa {{answer}} abinci.",
-          "answer": "maka",
-          "translation": "She will cook food for you.",
-          "hint": "to/for you (m.)",
-          "cell": "2sg",
-          "display_order": 2
-        },
-        {
-          "sentence": "Na aika {{answer}} kuɗi.",
-          "answer": "masa",
-          "translation": "I sent him money.",
-          "hint": "to/for him",
-          "cell": "3sg.m",
-          "display_order": 3
-        },
-        {
-          "sentence": "Ka kawo {{answer}} ruwa, don Allah.",
-          "answer": "mini",
-          "translation": "Bring me water, please.",
-          "hint": "to/for me",
-          "cell": "1sg",
-          "display_order": 4
-        },
-        {
-          "sentence": "Sun gina {{answer}} gida.",
-          "answer": "mata",
-          "translation": "They built a house for her.",
-          "hint": "to/for her",
-          "cell": "3sg.f",
-          "display_order": 5
-        },
-        {
-          "sentence": "Mun saya {{answer}} kyauta.",
-          "answer": "musu",
-          "translation": "We bought them a gift.",
-          "hint": "to/for them",
-          "cell": "3pl",
-          "display_order": 6
-        }
-      ],
-      "paradigm": [
-        "1sg",
-        "2sg",
-        "3sg.m",
-        "3sg.f",
-        "3pl"
-      ]
-    },
-    {
-      "title": "Ɗan-compounds (ɗan kasuwa, ʼyan sanda)",
-      "level": "C1",
-      "display_order": 6,
-      "function": "Build person-words with 'son of'",
-      "explanation": "Ɗan (son of) + noun names belonging or profession: ɗan Nijeriya (a Nigerian), ɗan kasuwa (trader), ɗan makaranta (pupil). Feminine ʼyar, plural ʼyan — ʼyan sanda (police, 'children of the stick'). Before a size word it shrinks things: ɗan ƙaramin gida (a smallish house).",
-      "culture_note": "",
-      "source": "contributor",
-      "reviewed": false,
-      "references": [
-        {
-          "title": "Wikipedia: Hausa grammar",
-          "url": "https://en.wikipedia.org/wiki/Hausa_grammar"
-        },
-        {
-          "title": "Wikipedia: Hausa language",
-          "url": "https://en.wikipedia.org/wiki/Hausa_language"
-        }
-      ],
-      "drills": [
-        {
-          "sentence": "Shi {{answer}} Nijeriya ne.",
-          "answer": "ɗan",
-          "translation": "He is a Nigerian.",
-          "hint": "son-of — the belonging prefix (m.)",
-          "display_order": 1
-        },
-        {
-          "sentence": "Audu {{answer}} kasuwa ne a Kano.",
-          "answer": "ɗan",
-          "translation": "Audu is a trader in Kano.",
-          "hint": "son-of — the profession prefix (m.)",
-          "display_order": 2
-        },
-        {
-          "sentence": "{{answer}} sanda sun kama ɓarawo.",
-          "answer": "ʼYan",
-          "translation": "The police caught the thief.",
-          "hint": "children-of — the plural prefix",
-          "display_order": 3
-        },
-        {
-          "sentence": "Ita {{answer}} makaranta ce.",
-          "answer": "ʼyar",
-          "translation": "She is a schoolgirl.",
-          "hint": "daughter-of — the feminine prefix",
-          "display_order": 4
-        },
-        {
-          "sentence": "{{answer}} wasa suna filin ƙwallo.",
-          "answer": "ʼYan",
-          "translation": "The players are on the football field.",
-          "hint": "children-of — the plural prefix",
-          "display_order": 5
-        },
-        {
-          "sentence": "Ya sayi {{answer}} ƙaramin gida.",
-          "answer": "ɗan",
-          "translation": "He bought a smallish house.",
-          "hint": "the diminutive use before a size word",
-          "display_order": 6
-        }
-      ]
-    },
-    {
-      "title": "Karin magana — proverbs",
-      "level": "C2",
-      "display_order": 1,
-      "function": "Season your speech the Hausa way",
-      "explanation": "Karin magana (folded speech) compresses the grammar you know into fixed wisdom: Sannu ba ta hana zuwa (going slowly doesn't prevent arriving); Haƙuri maganin duniya (patience is the world's medicine). Dropping the right one at the right moment carries real authority.",
-      "culture_note": "Karin magana literally means 'folded speech' — meaning tucked inside meaning, unfolded by the listener.",
-      "source": "contributor",
-      "reviewed": false,
-      "references": [
-        {
-          "title": "Wikipedia: Hausa language",
-          "url": "https://en.wikipedia.org/wiki/Hausa_language"
-        },
-        {
-          "title": "Wikiquote: Hausa proverbs",
-          "url": "https://en.wikiquote.org/wiki/Hausa_proverbs"
-        }
-      ],
-      "drills": [
-        {
-          "sentence": "Sannu ba ta hana {{answer}}.",
-          "answer": "zuwa",
-          "translation": "Going slowly does not prevent arriving.",
-          "hint": "arriving — the verbal noun of going/coming",
-          "display_order": 1
-        },
-        {
-          "sentence": "Haƙuri maganin {{answer}}.",
-          "answer": "duniya",
-          "translation": "Patience is the medicine of the world.",
-          "hint": "the world",
-          "display_order": 2
-        },
-        {
-          "sentence": "Komai nisan jifa, {{answer}} zai faɗo.",
-          "answer": "ƙasa",
-          "translation": "However far the throw, it will fall to earth.",
-          "hint": "the ground/earth",
-          "display_order": 3
-        },
-        {
-          "sentence": "Ruwa ba ya tsami {{answer}}.",
-          "answer": "banza",
-          "translation": "Water doesn't turn sour for nothing.",
-          "hint": "for-nothing / without cause",
-          "display_order": 4
-        },
-        {
-          "sentence": "Gani ya fi {{answer}}.",
-          "answer": "ji",
-          "translation": "Seeing surpasses hearing.",
-          "hint": "hearing — the shortest verb",
-          "display_order": 5
-        },
-        {
-          "sentence": "Rigakafi ya fi {{answer}}.",
-          "answer": "magani",
-          "translation": "Prevention is better than cure.",
-          "hint": "medicine/cure",
-          "display_order": 6
-        }
-      ]
-    },
-    {
-      "title": "Greetings and respect (Ranka ya daɗe)",
-      "level": "C2",
-      "display_order": 2,
-      "function": "Greet like a person of manners",
-      "explanation": "Hausa greeting is protocol: Ranka ya daɗe (may your life be long) to emirs and elders, barka da safiya/yamma by time of day, gafara dai to announce yourself, na gode to thank, madalla to approve, maraba da zuwa to welcome.",
-      "culture_note": "Greetings are unskippable: rushing past sannu into business marks you as graceless. The emir's greeting Ranka ya daɗe survives in offices for any big boss.",
-      "source": "contributor",
-      "reviewed": false,
-      "references": [
-        {
-          "title": "Wikipedia: Hausa grammar",
-          "url": "https://en.wikipedia.org/wiki/Hausa_grammar"
-        },
-        {
-          "title": "Wikipedia: Hausa language",
-          "url": "https://en.wikipedia.org/wiki/Hausa_language"
-        }
-      ],
-      "drills": [
-        {
-          "sentence": "'{{answer}} ya daɗe!' ya gaishe sarki.",
-          "answer": "Ranka",
-          "translation": "'May your life be long!' he greeted the emir.",
-          "hint": "your-life — opens the royal greeting",
-          "display_order": 1
-        },
-        {
-          "sentence": "{{answer}} da safiya, malam.",
-          "answer": "Barka",
-          "translation": "Good morning, teacher.",
-          "hint": "the blessing-greeting word",
-          "display_order": 2
-        },
-        {
-          "sentence": "{{answer}} dai! Ina son shiga.",
-          "answer": "Gafara",
-          "translation": "Excuse me! I would like to come in.",
-          "hint": "the pardon/announcing word",
-          "display_order": 3
-        },
-        {
-          "sentence": "Na {{answer}} sosai, yaya.",
-          "answer": "gode",
-          "translation": "Thank you very much, elder sibling.",
-          "hint": "to thank",
-          "display_order": 4
-        },
-        {
-          "sentence": "{{answer}} da zuwa, baƙonmu.",
-          "answer": "Maraba",
-          "translation": "Welcome, our guest.",
-          "hint": "the welcome word",
-          "display_order": 5
-        },
-        {
-          "sentence": "'Aikinka ya yi kyau.' '{{answer}}!'",
-          "answer": "Madalla",
-          "translation": "'Your work is good.' 'Splendid!'",
-          "hint": "the approval word",
-          "display_order": 6
-        }
-      ]
-    },
-    {
-      "title": "Discourse particles (fa, dai, mana, ashe)",
-      "level": "C2",
-      "display_order": 3,
-      "function": "Carry the tone writing can't show",
-      "explanation": "Fa bounces the topic back (kai fa? — and you?), dai hedges ('as for / just'), mana urges (zo mana! — do come!), ashe marks a realization ('so it turns out!'), kuwa underlines ('indeed'). Without them you sound like a textbook.",
-      "culture_note": "",
-      "source": "contributor",
-      "reviewed": false,
-      "references": [
-        {
-          "title": "Wikipedia: Hausa grammar",
-          "url": "https://en.wikipedia.org/wiki/Hausa_grammar"
-        },
-        {
-          "title": "Wikipedia: Hausa language",
-          "url": "https://en.wikipedia.org/wiki/Hausa_language"
-        }
-      ],
-      "drills": [
-        {
-          "sentence": "Kai {{answer}}, yaya aikinka?",
-          "answer": "fa",
-          "translation": "And you, how is your work?",
-          "hint": "the topic-bouncing particle",
-          "display_order": 1
-        },
-        {
-          "sentence": "Zo {{answer}}!",
-          "answer": "mana",
-          "translation": "Do come! (insistent)",
-          "hint": "the urging particle",
-          "display_order": 2
-        },
-        {
-          "sentence": "{{answer}} kai ne ka yi haka!",
-          "answer": "Ashe",
-          "translation": "So it was YOU who did this!",
-          "hint": "the realization particle",
-          "display_order": 3
-        },
-        {
-          "sentence": "Ni {{answer}}, ban yarda ba.",
-          "answer": "dai",
-          "translation": "As for me, I don't agree.",
-          "hint": "the hedging/just particle",
-          "display_order": 4
-        },
-        {
-          "sentence": "Gaskiya ne {{answer}}.",
-          "answer": "kuwa",
-          "translation": "It is indeed true.",
-          "hint": "the indeed particle",
-          "display_order": 5
-        },
-        {
-          "sentence": "Ku zauna {{answer}}.",
-          "answer": "dai",
-          "translation": "Just sit down, though.",
-          "hint": "the hedging/just particle",
-          "display_order": 6
-        }
-      ]
-    },
-    {
-      "title": "Ko — or, whether, any-, right?",
-      "level": "C2",
-      "display_order": 4,
-      "function": "One little word, a whole toolkit",
-      "explanation": "Ko joins alternatives (shayi ko kofi), embeds doubt (ban sani ba ko zai zo — I don't know whether he'll come), tags questions (ko ba haka ba? — isn't it so?), and builds the any-words: kowa (everyone), komai (everything), ko'ina (everywhere), ko kaɗan (not even a little).",
-      "culture_note": "",
-      "source": "contributor",
-      "reviewed": false,
-      "references": [
-        {
-          "title": "Wikipedia: Hausa grammar",
-          "url": "https://en.wikipedia.org/wiki/Hausa_grammar"
-        },
-        {
-          "title": "Wikipedia: Hausa language",
-          "url": "https://en.wikipedia.org/wiki/Hausa_language"
-        }
-      ],
-      "drills": [
-        {
-          "sentence": "Kana son shayi {{answer}} kofi?",
-          "answer": "ko",
-          "translation": "Do you want tea or coffee?",
-          "hint": "the or word",
-          "display_order": 1
-        },
-        {
-          "sentence": "Ban sani ba {{answer}} zai zo.",
-          "answer": "ko",
-          "translation": "I don't know whether he will come.",
-          "hint": "the whether word",
-          "display_order": 2
-        },
-        {
-          "sentence": "Aikin ya yi kyau, {{answer}} ba haka ba?",
-          "answer": "ko",
-          "translation": "The work is good, isn't it?",
-          "hint": "the tag-question word",
-          "display_order": 3
-        },
-        {
-          "sentence": "{{answer}} ya san haka.",
-          "answer": "Kowa",
-          "translation": "Everyone knows that.",
-          "hint": "the or-word + who = everyone",
-          "display_order": 4
-        },
-        {
-          "sentence": "Ba na son {{answer}} kaɗan.",
-          "answer": "ko",
-          "translation": "I don't want even a little.",
-          "hint": "the even word before 'a little'",
-          "display_order": 5
-        },
-        {
-          "sentence": "{{answer}} akwai wayoyi yanzu.",
-          "answer": "Ko'ina",
-          "translation": "Everywhere there are phones now.",
-          "hint": "the or-word + where = everywhere",
-          "display_order": 6
-        }
-      ]
+     "sentence": "{{answer}} kana aiki.",
+     "answer": "Kai",
+     "translation": "You (masculine) are working.",
+     "hint": "you (m) — emphatic",
+     "display_order": 6
     }
-  ]
+   ]
+  },
+  {
+   "title": "Identity with ne / ce",
+   "level": "A1",
+   "function": "Say what someone or something is",
+   "source": "contributor",
+   "reviewed": true,
+   "display_order": 2,
+   "explanation": "Identity sentences end in ne (masculine/plural) or ce (feminine): Ni malami ne (I am a teacher), Ita malama ce (She is a teacher), Su ɗalibai ne (They are students).\n\nThe particle agrees with the SUBJECT noun's gender.",
+   "culture_note": "Hausa has two genders, masculine and feminine — most feminines end in -a, and ne/ce is your first meeting with that system.",
+   "references": [
+    {
+     "title": "Live Lingua — free Hausa courses (FSI/Peace Corps)",
+     "url": "https://www.livelingua.com/courses/hausa"
+    },
+    {
+     "title": "Wikipedia: Hausa language — grammar",
+     "url": "https://en.wikipedia.org/wiki/Hausa_language#Grammar"
+    }
+   ],
+   "drills": [
+    {
+     "sentence": "Ni malami {{answer}}.",
+     "answer": "ne",
+     "translation": "I am a (male) teacher.",
+     "hint": "which particle? check gender/number of the noun",
+     "display_order": 1
+    },
+    {
+     "sentence": "Ita malama {{answer}}.",
+     "answer": "ce",
+     "translation": "She is a (female) teacher.",
+     "hint": "which particle? mota is feminine",
+     "display_order": 2
+    },
+    {
+     "sentence": "Su ɗalibai {{answer}}.",
+     "answer": "ne",
+     "translation": "They are students.",
+     "hint": "which particle? check gender/number of the noun",
+     "display_order": 3
+    },
+    {
+     "sentence": "Wannan mota {{answer}}.",
+     "answer": "ce",
+     "translation": "This is a car.",
+     "hint": "which particle? mota is feminine",
+     "display_order": 4
+    },
+    {
+     "sentence": "Audu manomi {{answer}}.",
+     "answer": "ne",
+     "translation": "Audu is a farmer.",
+     "hint": "which particle? check gender/number of the noun",
+     "display_order": 5
+    },
+    {
+     "sentence": "Wannan ruwa {{answer}}.",
+     "answer": "ne",
+     "translation": "This is water.",
+     "hint": "which particle? check gender/number of the noun",
+     "display_order": 6
+    }
+   ]
+  },
+  {
+   "title": "Completive aspect (na, ka, ya, ta…)",
+   "level": "A1",
+   "function": "Say what happened (done and finished)",
+   "source": "contributor",
+   "reviewed": true,
+   "display_order": 3,
+   "explanation": "Hausa conjugates with aspect pronouns before the verb.\n\nCompletive (did/has done): na (I), ka/kin (you m/f), ya (he), ta (she), mun (we), kun (you all), sun (they): Na ci abinci (I ate food), Sun tafi (They left).",
+   "culture_note": "",
+   "references": [
+    {
+     "title": "Live Lingua — free Hausa courses (FSI/Peace Corps)",
+     "url": "https://www.livelingua.com/courses/hausa"
+    },
+    {
+     "title": "Wikipedia: Hausa language — grammar",
+     "url": "https://en.wikipedia.org/wiki/Hausa_language#Grammar"
+    }
+   ],
+   "drills": [
+    {
+     "sentence": "{{answer}} ci abinci.",
+     "answer": "Na",
+     "translation": "I ate food.",
+     "hint": "completive 'I'",
+     "display_order": 1
+    },
+    {
+     "sentence": "{{answer}} tafi kasuwa.",
+     "answer": "Ta",
+     "translation": "She went to the market.",
+     "hint": "completive 'she'",
+     "display_order": 2
+    },
+    {
+     "sentence": "{{answer}} zo gida.",
+     "answer": "Sun",
+     "translation": "They came home.",
+     "hint": "they — completive",
+     "display_order": 3
+    },
+    {
+     "sentence": "{{answer}} sayi shinkafa.",
+     "answer": "Mun",
+     "translation": "We bought rice.",
+     "hint": "we — completive",
+     "display_order": 4
+    },
+    {
+     "sentence": "{{answer}} karanta littafi.",
+     "answer": "Ya",
+     "translation": "He read a book.",
+     "hint": "he — completive",
+     "display_order": 5
+    },
+    {
+     "sentence": "{{answer}} dafa abinci.",
+     "answer": "Kin",
+     "translation": "You (feminine) cooked food.",
+     "hint": "you (f) — completive",
+     "display_order": 6
+    }
+   ]
+  },
+  {
+   "title": "Continuous aspect (ina, kana, yana…)",
+   "level": "A1",
+   "function": "Say what is happening",
+   "source": "contributor",
+   "reviewed": true,
+   "display_order": 4,
+   "explanation": "The continuous uses -na pronouns plus the verbal noun: Ina cin abinci (I am eating), Yana aiki (He is working), Muna zuwa (We are coming).\n\nIna also opens 'where' questions: Ina kake? (Where are you?).",
+   "culture_note": "",
+   "references": [
+    {
+     "title": "Live Lingua — free Hausa courses (FSI/Peace Corps)",
+     "url": "https://www.livelingua.com/courses/hausa"
+    },
+    {
+     "title": "Wikipedia: Hausa language — grammar",
+     "url": "https://en.wikipedia.org/wiki/Hausa_language#Grammar"
+    }
+   ],
+   "drills": [
+    {
+     "sentence": "{{answer}} cin abinci.",
+     "answer": "Ina",
+     "translation": "I am eating food.",
+     "hint": "continuous 'I'",
+     "display_order": 1
+    },
+    {
+     "sentence": "{{answer}} aiki yanzu.",
+     "answer": "Yana",
+     "translation": "He is working now.",
+     "hint": "continuous 'he'",
+     "display_order": 2
+    },
+    {
+     "sentence": "{{answer}} karatu.",
+     "answer": "Tana",
+     "translation": "She is studying.",
+     "hint": "she — continuous",
+     "display_order": 3
+    },
+    {
+     "sentence": "Yara {{answer}} wasa.",
+     "answer": "suna",
+     "translation": "The children are playing.",
+     "hint": "they — continuous",
+     "display_order": 4
+    },
+    {
+     "sentence": "{{answer}} aikin gida.",
+     "answer": "Muna",
+     "translation": "We are doing housework.",
+     "hint": "we — continuous",
+     "display_order": 5
+    },
+    {
+     "sentence": "{{answer}} barci?",
+     "answer": "Kana",
+     "translation": "Are you (masculine) sleeping?",
+     "hint": "you (m) — continuous",
+     "display_order": 6
+    }
+   ]
+  },
+  {
+   "title": "Future with zan, za ka…",
+   "level": "A1",
+   "function": "Say what will happen",
+   "source": "contributor",
+   "reviewed": true,
+   "display_order": 5,
+   "explanation": "The future combines za with the person: zan (I will), za ka/za ki, zai (he), za ta, za mu, za ku, za su: Zan tafi gida (I will go home), Za ta dawo gobe (She will return tomorrow).",
+   "culture_note": "",
+   "references": [
+    {
+     "title": "Live Lingua — free Hausa courses (FSI/Peace Corps)",
+     "url": "https://www.livelingua.com/courses/hausa"
+    },
+    {
+     "title": "Wikipedia: Hausa language — grammar",
+     "url": "https://en.wikipedia.org/wiki/Hausa_language#Grammar"
+    }
+   ],
+   "drills": [
+    {
+     "sentence": "{{answer}} tafi gida.",
+     "answer": "Zan",
+     "translation": "I will go home.",
+     "hint": "future 'I'",
+     "display_order": 1
+    },
+    {
+     "sentence": "Za {{answer}} dawo gobe.",
+     "answer": "ta",
+     "translation": "She will return tomorrow.",
+     "hint": "future 'she'",
+     "display_order": 2
+    },
+    {
+     "sentence": "{{answer}} zo gobe.",
+     "answer": "Zai",
+     "translation": "He will come tomorrow.",
+     "hint": "he — future, one word",
+     "display_order": 3
+    },
+    {
+     "sentence": "Za {{answer}} tafi kasuwa.",
+     "answer": "mu",
+     "translation": "We will go to the market.",
+     "hint": "we",
+     "display_order": 4
+    },
+    {
+     "sentence": "Za {{answer}} ci abinci?",
+     "answer": "ka",
+     "translation": "Will you (masculine) eat?",
+     "hint": "you (m)",
+     "display_order": 5
+    },
+    {
+     "sentence": "Za {{answer}} dawo da yamma.",
+     "answer": "su",
+     "translation": "They will return in the evening.",
+     "hint": "they",
+     "display_order": 6
+    }
+   ]
+  },
+  {
+   "title": "Existence: akwai / babu",
+   "level": "A1",
+   "function": "Say what there is and isn't",
+   "source": "contributor",
+   "reviewed": true,
+   "display_order": 6,
+   "explanation": "Akwai asserts existence, babu denies it: Akwai ruwa (There is water), Babu kuɗi (There is no money). With 'have' meaning: Akwai littafi a wurina (I have a book — lit. there's a book at my place); everyday 'have' also uses da: Ina da mota (I have a car).",
+   "culture_note": "",
+   "references": [
+    {
+     "title": "Live Lingua — free Hausa courses (FSI/Peace Corps)",
+     "url": "https://www.livelingua.com/courses/hausa"
+    },
+    {
+     "title": "Wikipedia: Hausa language — grammar",
+     "url": "https://en.wikipedia.org/wiki/Hausa_language#Grammar"
+    }
+   ],
+   "drills": [
+    {
+     "sentence": "{{answer}} ruwa a gida.",
+     "answer": "Akwai",
+     "translation": "There is water at home.",
+     "hint": "'there is'",
+     "display_order": 1
+    },
+    {
+     "sentence": "{{answer}} kuɗi.",
+     "answer": "Babu",
+     "translation": "There is no money.",
+     "hint": "'there is not'",
+     "display_order": 2
+    },
+    {
+     "sentence": "{{answer}} mutane da yawa a kasuwa.",
+     "answer": "Akwai",
+     "translation": "There are many people at the market.",
+     "hint": "existence",
+     "display_order": 3
+    },
+    {
+     "sentence": "{{answer}} abinci a gida.",
+     "answer": "Babu",
+     "translation": "There is no food at home.",
+     "hint": "absence",
+     "display_order": 4
+    },
+    {
+     "sentence": "{{answer}} ruwa a rijiya?",
+     "answer": "Akwai",
+     "translation": "Is there water in the well?",
+     "hint": "existence, question",
+     "display_order": 5
+    },
+    {
+     "sentence": "{{answer}} wata matsala.",
+     "answer": "Babu",
+     "translation": "There is no problem.",
+     "hint": "absence",
+     "display_order": 6
+    }
+   ]
+  },
+  {
+   "title": "Negation ba … ba",
+   "level": "A1",
+   "function": "Deny statements",
+   "source": "contributor",
+   "reviewed": true,
+   "display_order": 7,
+   "explanation": "Most negation wraps the clause in ba … ba: Ban ci ba (I didn't eat — ba+na fuses to ban), Ba ta zo ba (She didn't come). The continuous negates with bā (single): Ba na zuwa (I am not coming/going).",
+   "culture_note": "",
+   "references": [
+    {
+     "title": "Live Lingua — free Hausa courses (FSI/Peace Corps)",
+     "url": "https://www.livelingua.com/courses/hausa"
+    },
+    {
+     "title": "Wikipedia: Hausa language — grammar",
+     "url": "https://en.wikipedia.org/wiki/Hausa_language#Grammar"
+    }
+   ],
+   "drills": [
+    {
+     "sentence": "{{answer}} ci abinci ba.",
+     "answer": "Ban",
+     "translation": "I did not eat food.",
+     "hint": "negative + 'I' fused — the opening half",
+     "display_order": 1
+    },
+    {
+     "sentence": "Ba ta zo {{answer}}.",
+     "answer": "ba",
+     "translation": "She did not come.",
+     "hint": "the closing half of the frame",
+     "display_order": 2
+    },
+    {
+     "sentence": "{{answer}} zo ba.",
+     "answer": "Bai",
+     "translation": "He didn't come.",
+     "hint": "he + negative completive",
+     "display_order": 3
+    },
+    {
+     "sentence": "Ba su zo {{answer}}.",
+     "answer": "ba",
+     "translation": "They didn't come.",
+     "hint": "the closing half of the frame",
+     "display_order": 4
+    },
+    {
+     "sentence": "{{answer}} ta dafa abinci ba.",
+     "answer": "Ba",
+     "translation": "She didn't cook food.",
+     "hint": "the opening half of the frame",
+     "display_order": 5
+    },
+    {
+     "sentence": "Ba mu gan shi {{answer}}.",
+     "answer": "ba",
+     "translation": "We didn't see him.",
+     "hint": "the closing half of the frame",
+     "display_order": 6
+    }
+   ]
+  },
+  {
+   "title": "The genitive linker -n / -r",
+   "level": "A1",
+   "function": "Link 'X of Y' and possession",
+   "source": "contributor",
+   "reviewed": true,
+   "display_order": 8,
+   "explanation": "Possession links nouns with -n (masculine/plural) or -r (feminine): littafin Audu (Audu's book, littafi+n), motar Audu (Audu's car, mota+r), gidan malami (the teacher's house).\n\nThe linker matches the FIRST noun's gender.",
+   "culture_note": "",
+   "references": [
+    {
+     "title": "Live Lingua — free Hausa courses (FSI/Peace Corps)",
+     "url": "https://www.livelingua.com/courses/hausa"
+    },
+    {
+     "title": "Wikipedia: Hausa language — grammar",
+     "url": "https://en.wikipedia.org/wiki/Hausa_language#Grammar"
+    }
+   ],
+   "drills": [
+    {
+     "sentence": "{{answer}} Audu yana nan.",
+     "answer": "Littafin",
+     "translation": "Audu's book is here.",
+     "hint": "book + masculine linker",
+     "display_order": 1
+    },
+    {
+     "sentence": "{{answer}} Audu sabuwa ce.",
+     "answer": "Motar",
+     "translation": "Audu's car is new.",
+     "hint": "car + feminine linker",
+     "display_order": 2
+    },
+    {
+     "sentence": "{{answer}} Audu ya zo.",
+     "answer": "Ɗan",
+     "translation": "Audu's son came.",
+     "hint": "son + masculine linker",
+     "display_order": 3
+    },
+    {
+     "sentence": "Sunan {{answer}} Audu ne.",
+     "answer": "yaron",
+     "translation": "The boy's name is Audu.",
+     "hint": "boy + masculine linker",
+     "display_order": 4
+    },
+    {
+     "sentence": "{{answer}} nan sabuwa ce.",
+     "answer": "Rigar",
+     "translation": "This gown is new.",
+     "hint": "gown + feminine linker",
+     "display_order": 5
+    },
+    {
+     "sentence": "{{answer}} ya yi kyau.",
+     "answer": "Aikin",
+     "translation": "The work is good.",
+     "hint": "work + masculine linker",
+     "display_order": 6
+    }
+   ]
+  },
+  {
+   "title": "Questions (me, wa, ina)",
+   "level": "A1",
+   "function": "Ask what, who, and where",
+   "source": "contributor",
+   "reviewed": true,
+   "display_order": 9,
+   "explanation": "Me (what), wa (who), ina (where), yaushe (when), nawa (how much): Me ka ci? (What did you eat?), Wa ya zo? (Who came?), Ina kake? (Where are you?).\n\nYes/no questions add ko…? or just rising intonation: Ka ci abinci? / Ko ka ci?",
+   "culture_note": "",
+   "references": [
+    {
+     "title": "Live Lingua — free Hausa courses (FSI/Peace Corps)",
+     "url": "https://www.livelingua.com/courses/hausa"
+    },
+    {
+     "title": "Wikipedia: Hausa language — grammar",
+     "url": "https://en.wikipedia.org/wiki/Hausa_language#Grammar"
+    }
+   ],
+   "drills": [
+    {
+     "sentence": "{{answer}} ka ci?",
+     "answer": "Me",
+     "translation": "What did you eat?",
+     "hint": "'what'",
+     "display_order": 1
+    },
+    {
+     "sentence": "{{answer}} ya zo?",
+     "answer": "Wa",
+     "translation": "Who came?",
+     "hint": "'who'",
+     "display_order": 2
+    },
+    {
+     "sentence": "{{answer}} gidanka?",
+     "answer": "Ina",
+     "translation": "Where is your house?",
+     "hint": "where",
+     "display_order": 3
+    },
+    {
+     "sentence": "{{answer}} za ka tafi?",
+     "answer": "Yaushe",
+     "translation": "When will you go?",
+     "hint": "when",
+     "display_order": 4
+    },
+    {
+     "sentence": "{{answer}} ne kuɗin wannan?",
+     "answer": "Nawa",
+     "translation": "How much does this cost?",
+     "hint": "how much",
+     "display_order": 5
+    },
+    {
+     "sentence": "{{answer}} ya dafa abinci?",
+     "answer": "Wa",
+     "translation": "Who cooked the food?",
+     "hint": "who",
+     "display_order": 6
+    }
+   ]
+  },
+  {
+   "title": "Common plurals",
+   "level": "A2",
+   "function": "Name many things",
+   "source": "contributor",
+   "reviewed": true,
+   "display_order": 1,
+   "explanation": "Hausa plurals change the word's shape, often with -oCi or internal -a-: mota → motoci (cars), littafi → littattafai (books), gida → gidaje (houses), yaro → yara (children).\n\nEach noun's plural is learned with it — patterns help but don't fully predict.",
+   "culture_note": "",
+   "references": [
+    {
+     "title": "Live Lingua — free Hausa courses (FSI/Peace Corps)",
+     "url": "https://www.livelingua.com/courses/hausa"
+    },
+    {
+     "title": "Wikipedia: Hausa language — grammar",
+     "url": "https://en.wikipedia.org/wiki/Hausa_language#Grammar"
+    }
+   ],
+   "drills": [
+    {
+     "sentence": "Ina da {{answer}} biyu.",
+     "answer": "motoci",
+     "translation": "I have two cars.",
+     "hint": "plural of mota",
+     "display_order": 1
+    },
+    {
+     "sentence": "{{answer}} suna wasa.",
+     "answer": "Yara",
+     "translation": "The children are playing.",
+     "hint": "plural of yaro",
+     "display_order": 2
+    },
+    {
+     "sentence": "{{answer}} suna karatu.",
+     "answer": "Ɗalibai",
+     "translation": "The students are studying.",
+     "hint": "ɗalibi → plural",
+     "display_order": 3
+    },
+    {
+     "sentence": "Ina da {{answer}} uku.",
+     "answer": "littattafai",
+     "translation": "I have three books.",
+     "hint": "littafi → plural",
+     "display_order": 4
+    },
+    {
+     "sentence": "{{answer}} suna kasuwa.",
+     "answer": "Mata",
+     "translation": "The women are at the market.",
+     "hint": "mace → plural",
+     "display_order": 5
+    },
+    {
+     "sentence": "{{answer}} sun tafi gona.",
+     "answer": "Manoma",
+     "translation": "The farmers went to the farm.",
+     "hint": "manomi → plural",
+     "display_order": 6
+    }
+   ]
+  },
+  {
+   "title": "Object pronouns",
+   "level": "A2",
+   "function": "Say who receives the action",
+   "source": "contributor",
+   "reviewed": true,
+   "display_order": 2,
+   "explanation": "After the verb: ni (me), ka/ki (you m/f), shi (him), ta (her), mu (us), ku (you all), su (them): Na gan shi (I saw him), Sun ji mu (They heard us).\n\nMany verbs shorten before an object: gani → gan (see).",
+   "culture_note": "",
+   "references": [
+    {
+     "title": "Live Lingua — free Hausa courses (FSI/Peace Corps)",
+     "url": "https://www.livelingua.com/courses/hausa"
+    },
+    {
+     "title": "Wikipedia: Hausa language — grammar",
+     "url": "https://en.wikipedia.org/wiki/Hausa_language#Grammar"
+    }
+   ],
+   "drills": [
+    {
+     "sentence": "Na gan {{answer}} a kasuwa.",
+     "answer": "shi",
+     "translation": "I saw him at the market.",
+     "hint": "'him' after the verb",
+     "display_order": 1
+    },
+    {
+     "sentence": "Sun ji {{answer}}.",
+     "answer": "mu",
+     "translation": "They heard us.",
+     "hint": "'us' after the verb",
+     "display_order": 2
+    },
+    {
+     "sentence": "Na gan {{answer}} jiya.",
+     "answer": "ta",
+     "translation": "I saw her yesterday.",
+     "hint": "her",
+     "display_order": 3
+    },
+    {
+     "sentence": "Sun kira {{answer}}.",
+     "answer": "ni",
+     "translation": "They called me.",
+     "hint": "me",
+     "display_order": 4
+    },
+    {
+     "sentence": "Ta taimaki {{answer}}.",
+     "answer": "su",
+     "translation": "She helped them.",
+     "hint": "them",
+     "display_order": 5
+    },
+    {
+     "sentence": "Za mu gan {{answer}} gobe.",
+     "answer": "ku",
+     "translation": "We will see you (plural) tomorrow.",
+     "hint": "you (plural)",
+     "display_order": 6
+    }
+   ]
+  },
+  {
+   "title": "Possessive pronouns (-na, -nka…)",
+   "level": "A2",
+   "function": "Say whose things are",
+   "source": "contributor",
+   "reviewed": true,
+   "display_order": 3,
+   "explanation": "Possessives attach through the linker: littafina (my book), littafinka/ki (your, m/f owner), littafinsa (his), littafinta (her); feminine nouns use -r-: motata (my car), motarsa (his car).\n\nGender of the THING picks -n-/-r-; the ending shows the owner.",
+   "culture_note": "",
+   "references": [
+    {
+     "title": "Live Lingua — free Hausa courses (FSI/Peace Corps)",
+     "url": "https://www.livelingua.com/courses/hausa"
+    },
+    {
+     "title": "Wikipedia: Hausa language — grammar",
+     "url": "https://en.wikipedia.org/wiki/Hausa_language#Grammar"
+    }
+   ],
+   "drills": [
+    {
+     "sentence": "{{answer}} yana nan.",
+     "answer": "Littafina",
+     "translation": "My book is here.",
+     "hint": "book + 'my'",
+     "display_order": 1
+    },
+    {
+     "sentence": "{{answer}} sabuwa ce.",
+     "answer": "Motata",
+     "translation": "My car is new.",
+     "hint": "car + 'my' (feminine noun)",
+     "display_order": 2
+    },
+    {
+     "sentence": "{{answer}} tana nan.",
+     "answer": "Motarsa",
+     "translation": "His car is here.",
+     "hint": "car + feminine linker + 'his'",
+     "display_order": 3
+    },
+    {
+     "sentence": "{{answer}} ya tafi.",
+     "answer": "Ɗansa",
+     "translation": "His son left.",
+     "hint": "son + masculine linker + 'his'",
+     "display_order": 4
+    },
+    {
+     "sentence": "{{answer}} suna gida.",
+     "answer": "Yaranmu",
+     "translation": "Our children are at home.",
+     "hint": "children + linker + 'our'",
+     "display_order": 5
+    },
+    {
+     "sentence": "{{answer}} tsohuwa ce.",
+     "answer": "Rigarki",
+     "translation": "Your (feminine) gown is old.",
+     "hint": "gown + feminine linker + 'your (f)'",
+     "display_order": 6
+    }
+   ]
+  },
+  {
+   "title": "Imperative and don't (kada)",
+   "level": "A2",
+   "function": "Give commands and warnings",
+   "source": "contributor",
+   "reviewed": true,
+   "display_order": 4,
+   "explanation": "The bare verb commands: Zo! (Come!), Tafi! (Go!), Ci abinci! (Eat!).\n\nThe negative command uses kada + subjunctive pronoun: Kada ka tafi! (Don't go!), Kada ku manta! (Don't (you all) forget!).",
+   "culture_note": "",
+   "references": [
+    {
+     "title": "Live Lingua — free Hausa courses (FSI/Peace Corps)",
+     "url": "https://www.livelingua.com/courses/hausa"
+    },
+    {
+     "title": "Wikipedia: Hausa language — grammar",
+     "url": "https://en.wikipedia.org/wiki/Hausa_language#Grammar"
+    }
+   ],
+   "drills": [
+    {
+     "sentence": "{{answer}} nan!",
+     "answer": "Zo",
+     "translation": "Come here!",
+     "hint": "bare-verb command",
+     "display_order": 1
+    },
+    {
+     "sentence": "{{answer}} ka tafi!",
+     "answer": "Kada",
+     "translation": "Don't go!",
+     "hint": "negative-command word",
+     "display_order": 2
+    },
+    {
+     "sentence": "{{answer}} ruwa!",
+     "answer": "Sha",
+     "translation": "Drink water!",
+     "hint": "to drink — bare verb",
+     "display_order": 3
+    },
+    {
+     "sentence": "Kada {{answer}} manta!",
+     "answer": "ka",
+     "translation": "Don't forget!",
+     "hint": "the subjunctive pronoun after the prohibitive",
+     "display_order": 4
+    },
+    {
+     "sentence": "{{answer}} abinci!",
+     "answer": "Ci",
+     "translation": "Eat!",
+     "hint": "to eat — bare verb",
+     "display_order": 5
+    },
+    {
+     "sentence": "{{answer}} a nan!",
+     "answer": "Zauna",
+     "translation": "Sit here!",
+     "hint": "to sit — bare verb",
+     "display_order": 6
+    }
+   ]
+  },
+  {
+   "title": "Habitual (nakan, yakan…)",
+   "level": "A2",
+   "function": "Talk about what usually happens",
+   "source": "contributor",
+   "reviewed": true,
+   "display_order": 5,
+   "explanation": "The habitual pronoun set adds -kan: nakan (I usually), kakan, yakan, takan, mukan, kukan, sukan: Nakan sha shayi da safe (I usually drink tea in the morning), Yakan zo nan (He usually comes here).",
+   "culture_note": "",
+   "references": [
+    {
+     "title": "Live Lingua — free Hausa courses (FSI/Peace Corps)",
+     "url": "https://www.livelingua.com/courses/hausa"
+    },
+    {
+     "title": "Wikipedia: Hausa language — grammar",
+     "url": "https://en.wikipedia.org/wiki/Hausa_language#Grammar"
+    }
+   ],
+   "drills": [
+    {
+     "sentence": "{{answer}} sha shayi da safe.",
+     "answer": "Nakan",
+     "translation": "I usually drink tea in the morning.",
+     "hint": "habitual 'I'",
+     "display_order": 1
+    },
+    {
+     "sentence": "{{answer}} zo nan kowace rana.",
+     "answer": "Yakan",
+     "translation": "He usually comes here every day.",
+     "hint": "habitual 'he'",
+     "display_order": 2
+    },
+    {
+     "sentence": "{{answer}} dafa abinci da yamma.",
+     "answer": "Takan",
+     "translation": "She usually cooks in the evening.",
+     "hint": "she — habitual",
+     "display_order": 3
+    },
+    {
+     "sentence": "{{answer}} je makaranta da ƙafa.",
+     "answer": "Mukan",
+     "translation": "We usually walk to school.",
+     "hint": "we — habitual",
+     "display_order": 4
+    },
+    {
+     "sentence": "{{answer}} yi aiki har dare.",
+     "answer": "Sukan",
+     "translation": "They usually work until night.",
+     "hint": "they — habitual",
+     "display_order": 5
+    },
+    {
+     "sentence": "{{answer}} sha ruwa da yawa?",
+     "answer": "Kakan",
+     "translation": "Do you (masculine) usually drink a lot of water?",
+     "hint": "you (m) — habitual",
+     "display_order": 6
+    }
+   ]
+  },
+  {
+   "title": "Subjunctive (ka tafi, mu je…)",
+   "level": "B1",
+   "function": "Express wishes, purposes, and suggestions",
+   "source": "contributor",
+   "reviewed": true,
+   "display_order": 1,
+   "explanation": "The plain (subjunctive) pronoun set — in, ka/ki, ya, ta, mu, ku, su — follows wanting and purpose: Ina so ka zo (I want you to come), Bari mu je (Let's go), Ya kamata ka yi aiki (You should work).",
+   "culture_note": "",
+   "references": [
+    {
+     "title": "Live Lingua — free Hausa courses (FSI/Peace Corps)",
+     "url": "https://www.livelingua.com/courses/hausa"
+    },
+    {
+     "title": "Wikipedia: Hausa language — grammar",
+     "url": "https://en.wikipedia.org/wiki/Hausa_language#Grammar"
+    }
+   ],
+   "drills": [
+    {
+     "sentence": "Ina so {{answer}} zo.",
+     "answer": "ka",
+     "translation": "I want you to come.",
+     "hint": "subjunctive 'you'",
+     "display_order": 1
+    },
+    {
+     "sentence": "Bari {{answer}} je kasuwa.",
+     "answer": "mu",
+     "translation": "Let's go to the market.",
+     "hint": "subjunctive 'we' after bari",
+     "display_order": 2
+    },
+    {
+     "sentence": "Ina so {{answer}} tafi yanzu.",
+     "answer": "su",
+     "translation": "I want them to go now.",
+     "hint": "they — subjunctive pronoun",
+     "display_order": 3
+    },
+    {
+     "sentence": "Bari {{answer}} gani.",
+     "answer": "in",
+     "translation": "Let me see.",
+     "hint": "I — subjunctive",
+     "display_order": 4
+    },
+    {
+     "sentence": "Ya kamata {{answer}} yi aiki.",
+     "answer": "ka",
+     "translation": "You should work.",
+     "hint": "you (m) — subjunctive",
+     "display_order": 5
+    },
+    {
+     "sentence": "Ina so {{answer}} dafa abinci.",
+     "answer": "ta",
+     "translation": "I want her to cook.",
+     "hint": "she — subjunctive",
+     "display_order": 6
+    }
+   ]
+  },
+  {
+   "title": "Relative clauses (wanda, wadda, waɗanda)",
+   "level": "B1",
+   "function": "Describe with 'the one who/that'",
+   "source": "contributor",
+   "reviewed": true,
+   "display_order": 2,
+   "explanation": "Wanda (m), wadda (f), waɗanda (pl) introduce relatives: mutumin da ya zo — or with the full pronoun: wanda ya zo (the one who came), motar da na saya (the car that I bought). In relatives the continuous switches to -ke: wanda yake aiki (who is working).",
+   "culture_note": "",
+   "references": [
+    {
+     "title": "Live Lingua — free Hausa courses (FSI/Peace Corps)",
+     "url": "https://www.livelingua.com/courses/hausa"
+    },
+    {
+     "title": "Wikipedia: Hausa language — grammar",
+     "url": "https://en.wikipedia.org/wiki/Hausa_language#Grammar"
+    }
+   ],
+   "drills": [
+    {
+     "sentence": "Mutumin {{answer}} ya zo malami ne.",
+     "answer": "da",
+     "translation": "The man who came is a teacher.",
+     "hint": "the short relative after a noun",
+     "display_order": 1
+    },
+    {
+     "sentence": "{{answer}} ya zo malami ne.",
+     "answer": "Wanda",
+     "translation": "The one who came is a teacher.",
+     "hint": "m. relative pronoun",
+     "display_order": 2
+    },
+    {
+     "sentence": "{{answer}} ta zo malama ce.",
+     "answer": "Wadda",
+     "translation": "The one (feminine) who came is a teacher.",
+     "hint": "feminine relative",
+     "display_order": 3
+    },
+    {
+     "sentence": "{{answer}} suka zo ɗalibai ne.",
+     "answer": "Waɗanda",
+     "translation": "Those who came are students.",
+     "hint": "plural relative",
+     "display_order": 4
+    },
+    {
+     "sentence": "Yarinyar {{answer}} ta zo tana nan.",
+     "answer": "da",
+     "translation": "The girl who came is here.",
+     "hint": "the short relative after a noun",
+     "display_order": 5
+    },
+    {
+     "sentence": "Mutanen {{answer}} suka tafi manoma ne.",
+     "answer": "da",
+     "translation": "The people who left are farmers.",
+     "hint": "the short relative after a noun",
+     "display_order": 6
+    }
+   ]
+  },
+  {
+   "title": "Relative continuous -ke",
+   "level": "B1",
+   "function": "Say 'who is doing' inside descriptions",
+   "source": "contributor",
+   "reviewed": true,
+   "display_order": 3,
+   "explanation": "In relatives, questions with fronting, and focus, continuous -na becomes -ke: Ina kake zaune? (Where do you live?), mace take aiki? no — abin da nake yi (the thing I am doing), wanda yake magana (the one who is speaking).",
+   "culture_note": "",
+   "references": [
+    {
+     "title": "Live Lingua — free Hausa courses (FSI/Peace Corps)",
+     "url": "https://www.livelingua.com/courses/hausa"
+    },
+    {
+     "title": "Wikipedia: Hausa language — grammar",
+     "url": "https://en.wikipedia.org/wiki/Hausa_language#Grammar"
+    }
+   ],
+   "drills": [
+    {
+     "sentence": "Ina {{answer}} zaune?",
+     "answer": "kake",
+     "translation": "Where do you live? (you-m)",
+     "hint": "relative continuous 'you'",
+     "display_order": 1
+    },
+    {
+     "sentence": "Abin da {{answer}} yi yana da kyau.",
+     "answer": "nake",
+     "translation": "The thing I am doing is good.",
+     "hint": "relative continuous 'I'",
+     "display_order": 2
+    },
+    {
+     "sentence": "Me {{answer}} yi?",
+     "answer": "kake",
+     "translation": "What are you (masculine) doing?",
+     "hint": "you (m) + -ke",
+     "display_order": 3
+    },
+    {
+     "sentence": "Me {{answer}} so?",
+     "answer": "kike",
+     "translation": "What do you (feminine) want?",
+     "hint": "you (f) + -ke",
+     "display_order": 4
+    },
+    {
+     "sentence": "Inda {{answer}} zaune yana da nisa.",
+     "answer": "muke",
+     "translation": "Where we live is far away.",
+     "hint": "we + -ke",
+     "display_order": 5
+    },
+    {
+     "sentence": "Abin da {{answer}} nema kuɗi ne.",
+     "answer": "suke",
+     "translation": "What they are seeking is money.",
+     "hint": "they + -ke",
+     "display_order": 6
+    }
+   ]
+  },
+  {
+   "title": "Conditionals with idan / in",
+   "level": "B1",
+   "function": "Make 'if' sentences",
+   "source": "contributor",
+   "reviewed": true,
+   "display_order": 4,
+   "explanation": "Idan (or short in) opens real conditions: Idan ka zo, za mu ci abinci (If you come, we will eat), In ta gani, za ta gaya mana (If she sees, she'll tell us).\n\nUnreal 'if only' uses dā …: Dā na sani (Had I known).",
+   "culture_note": "",
+   "references": [
+    {
+     "title": "Live Lingua — free Hausa courses (FSI/Peace Corps)",
+     "url": "https://www.livelingua.com/courses/hausa"
+    },
+    {
+     "title": "Wikipedia: Hausa language — grammar",
+     "url": "https://en.wikipedia.org/wiki/Hausa_language#Grammar"
+    }
+   ],
+   "drills": [
+    {
+     "sentence": "{{answer}} ka zo, za mu ci abinci.",
+     "answer": "Idan",
+     "translation": "If you come, we will eat.",
+     "hint": "'if'",
+     "display_order": 1
+    },
+    {
+     "sentence": "Dā na {{answer}}.",
+     "answer": "sani",
+     "translation": "Had I known. (a set phrase)",
+     "hint": "'know' in the regret idiom",
+     "display_order": 2
+    },
+    {
+     "sentence": "{{answer}} ruwa ya sauka, ba za mu fita ba.",
+     "answer": "Idan",
+     "translation": "If it rains, we won't go out.",
+     "hint": "if",
+     "display_order": 3
+    },
+    {
+     "sentence": "{{answer}} ka gama, ka zo.",
+     "answer": "In",
+     "translation": "When you finish, come.",
+     "hint": "if/when — short form",
+     "display_order": 4
+    },
+    {
+     "sentence": "Idan ka {{answer}}, za ka ci jarrabawa.",
+     "answer": "karanta",
+     "translation": "If you study, you will pass the exam.",
+     "hint": "to study/read",
+     "display_order": 5
+    },
+    {
+     "sentence": "Da na {{answer}}, da na gaya maka.",
+     "answer": "sani",
+     "translation": "Had I known, I would have told you.",
+     "hint": "counterfactual da … da",
+     "display_order": 6
+    }
+   ]
+  },
+  {
+   "title": "Impersonal an / ana (passive sense)",
+   "level": "B2",
+   "function": "Say what was/is done without naming who",
+   "source": "contributor",
+   "reviewed": true,
+   "display_order": 1,
+   "explanation": "The impersonal pronoun a- makes passive-like sentences: An gina gida (A house was built — 'one built'), Ana maganin sa? no — Ana kiran ka (You are being called), Za a biya ku (You will be paid).",
+   "culture_note": "",
+   "references": [
+    {
+     "title": "Live Lingua — free Hausa courses (FSI/Peace Corps)",
+     "url": "https://www.livelingua.com/courses/hausa"
+    },
+    {
+     "title": "Wikipedia: Hausa language — grammar",
+     "url": "https://en.wikipedia.org/wiki/Hausa_language#Grammar"
+    }
+   ],
+   "drills": [
+    {
+     "sentence": "{{answer}} gina sabon gida.",
+     "answer": "An",
+     "translation": "A new house has been built.",
+     "hint": "impersonal completive",
+     "display_order": 1
+    },
+    {
+     "sentence": "{{answer}} kiran ka.",
+     "answer": "Ana",
+     "translation": "You are being called.",
+     "hint": "impersonal continuous",
+     "display_order": 2
+    },
+    {
+     "sentence": "{{answer}} sayar da motar.",
+     "answer": "An",
+     "translation": "The car has been sold.",
+     "hint": "completed — impersonal",
+     "display_order": 3
+    },
+    {
+     "sentence": "{{answer}} jiran ka a ofis.",
+     "answer": "Ana",
+     "translation": "You are being waited for at the office.",
+     "hint": "ongoing — impersonal",
+     "display_order": 4
+    },
+    {
+     "sentence": "{{answer}} kama ɓarawo jiya.",
+     "answer": "An",
+     "translation": "A thief was caught yesterday.",
+     "hint": "completed — impersonal",
+     "display_order": 5
+    },
+    {
+     "sentence": "{{answer}} noman shinkafa a nan.",
+     "answer": "Ana",
+     "translation": "Rice is farmed here.",
+     "hint": "ongoing — impersonal",
+     "display_order": 6
+    }
+   ]
+  },
+  {
+   "title": "Comparison with fi",
+   "level": "B2",
+   "function": "Say something exceeds another",
+   "source": "contributor",
+   "reviewed": true,
+   "display_order": 2,
+   "explanation": "The verb fi (exceed) does comparison: Ya fi ni tsayi (He is taller than me — lit. exceeds me in height), Wannan ya fi kyau (This is better), Ta fi su duka hankali (She is the smartest of them all).",
+   "culture_note": "",
+   "references": [
+    {
+     "title": "Live Lingua — free Hausa courses (FSI/Peace Corps)",
+     "url": "https://www.livelingua.com/courses/hausa"
+    },
+    {
+     "title": "Wikipedia: Hausa language — grammar",
+     "url": "https://en.wikipedia.org/wiki/Hausa_language#Grammar"
+    }
+   ],
+   "drills": [
+    {
+     "sentence": "Ya {{answer}} ni tsayi.",
+     "answer": "fi",
+     "translation": "He is taller than me.",
+     "hint": "'exceed'",
+     "display_order": 1
+    },
+    {
+     "sentence": "Wannan ya fi {{answer}}.",
+     "answer": "kyau",
+     "translation": "This one is better (exceeds in goodness).",
+     "hint": "'goodness' after fi",
+     "display_order": 2
+    },
+    {
+     "sentence": "Ta fi ni {{answer}}.",
+     "answer": "hankali",
+     "translation": "She is more sensible than me.",
+     "hint": "quality noun — sense",
+     "display_order": 3
+    },
+    {
+     "sentence": "Audu ya fi Musa {{answer}}.",
+     "answer": "ƙarfi",
+     "translation": "Audu is stronger than Musa.",
+     "hint": "quality noun — strength",
+     "display_order": 4
+    },
+    {
+     "sentence": "Zaki ya {{answer}} kare ƙarfi.",
+     "answer": "fi",
+     "translation": "A lion is stronger than a dog.",
+     "hint": "exceed",
+     "display_order": 5
+    },
+    {
+     "sentence": "Wannan ya fi wancan {{answer}}.",
+     "answer": "tsada",
+     "translation": "This one is more expensive than that one.",
+     "hint": "quality noun — costliness",
+     "display_order": 6
+    }
+   ]
+  },
+  {
+   "title": "Reported speech with cewa",
+   "level": "C1",
+   "function": "Report statements and beliefs",
+   "source": "contributor",
+   "reviewed": true,
+   "display_order": 1,
+   "explanation": "Cewa ('saying/that') introduces reported clauses: Ya ce (cewa) zai zo (He said that he would come), Na ji cewa sun tafi (I heard that they left), Ta tabbata cewa gaskiya ne (She is sure that it is true).",
+   "culture_note": "",
+   "references": [
+    {
+     "title": "Live Lingua — free Hausa courses (FSI/Peace Corps)",
+     "url": "https://www.livelingua.com/courses/hausa"
+    },
+    {
+     "title": "Wikipedia: Hausa language — grammar",
+     "url": "https://en.wikipedia.org/wiki/Hausa_language#Grammar"
+    }
+   ],
+   "drills": [
+    {
+     "sentence": "Ya ce {{answer}} zai zo.",
+     "answer": "cewa",
+     "translation": "He said that he would come.",
+     "hint": "'that' complementizer",
+     "display_order": 1
+    },
+    {
+     "sentence": "Na ji {{answer}} sun tafi.",
+     "answer": "cewa",
+     "translation": "I heard that they left.",
+     "hint": "'that' complementizer",
+     "display_order": 2
+    },
+    {
+     "sentence": "Ta ce {{answer}} ba za ta zo ba.",
+     "answer": "cewa",
+     "translation": "She said that she would not come.",
+     "hint": "that",
+     "display_order": 3
+    },
+    {
+     "sentence": "Mun ji {{answer}} an gina sabuwar makaranta.",
+     "answer": "cewa",
+     "translation": "We heard that a new school has been built.",
+     "hint": "that",
+     "display_order": 4
+    },
+    {
+     "sentence": "Ya {{answer}} cewa zai taimake mu.",
+     "answer": "ce",
+     "translation": "He said that he would help us.",
+     "hint": "to say",
+     "display_order": 5
+    },
+    {
+     "sentence": "Na yi imani {{answer}} za su dawo.",
+     "answer": "cewa",
+     "translation": "I believe that they will return.",
+     "hint": "that",
+     "display_order": 6
+    }
+   ]
+  },
+  {
+   "title": "Focus fronting with ne/ce",
+   "level": "C1",
+   "function": "Emphasize one element",
+   "source": "contributor",
+   "reviewed": true,
+   "display_order": 2,
+   "explanation": "Fronting plus ne/ce focuses: Audu ne ya zo (It was AUDU who came), Kasuwa ce ta tafi? no — Jiya ne suka tafi (It was yesterday they left; completive shifts to the relative set suka). Gender/number of the focused word picks ne or ce.",
+   "culture_note": "",
+   "references": [
+    {
+     "title": "Live Lingua — free Hausa courses (FSI/Peace Corps)",
+     "url": "https://www.livelingua.com/courses/hausa"
+    },
+    {
+     "title": "Wikipedia: Hausa language — grammar",
+     "url": "https://en.wikipedia.org/wiki/Hausa_language#Grammar"
+    }
+   ],
+   "drills": [
+    {
+     "sentence": "Audu {{answer}} ya zo.",
+     "answer": "ne",
+     "translation": "It was Audu who came.",
+     "hint": "focus particle — masculine/plural or non-feminine focus",
+     "display_order": 1
+    },
+    {
+     "sentence": "Jiya {{answer}} suka tafi.",
+     "answer": "ne",
+     "translation": "It was yesterday that they left.",
+     "hint": "focus particle — masculine/plural or non-feminine focus",
+     "display_order": 2
+    },
+    {
+     "sentence": "Ita {{answer}} ta dafa abinci.",
+     "answer": "ce",
+     "translation": "It was she who cooked the food.",
+     "hint": "feminine focus",
+     "display_order": 3
+    },
+    {
+     "sentence": "A kasuwa {{answer}} na gan shi.",
+     "answer": "ne",
+     "translation": "It was at the market that I saw him.",
+     "hint": "focus particle — masculine/plural or non-feminine focus",
+     "display_order": 4
+    },
+    {
+     "sentence": "Audu {{answer}} ya rubuta wasiƙar.",
+     "answer": "ne",
+     "translation": "It was Audu who wrote the letter.",
+     "hint": "focus particle — masculine/plural or non-feminine focus",
+     "display_order": 5
+    },
+    {
+     "sentence": "Yau {{answer}} za mu tafi.",
+     "answer": "ne",
+     "translation": "It is today that we will go.",
+     "hint": "focus particle — masculine/plural or non-feminine focus",
+     "display_order": 6
+    }
+   ]
+  },
+  {
+   "title": "Demonstratives (wannan, wancan, waɗannan)",
+   "level": "B1",
+   "display_order": 5,
+   "function": "Point at this one, that one, these and those",
+   "explanation": "Wannan (this), wancan (that, m.) / waccan (that, f.), waɗannan (these), waɗancan (those); the bare adverbs nan (here) and can (there) do places. The demonstrative comes BEFORE the noun: wannan littafi.",
+   "culture_note": "",
+   "source": "contributor",
+   "reviewed": false,
+   "references": [
+    {
+     "title": "Live Lingua — free Hausa courses (FSI/Peace Corps)",
+     "url": "https://www.livelingua.com/courses/hausa"
+    },
+    {
+     "title": "Wikipedia: Hausa grammar",
+     "url": "https://en.wikipedia.org/wiki/Hausa_grammar"
+    },
+    {
+     "title": "Wikipedia: Hausa language",
+     "url": "https://en.wikipedia.org/wiki/Hausa_language"
+    }
+   ],
+   "drills": [
+    {
+     "sentence": "{{answer}} littafi nawa ne.",
+     "answer": "Wannan",
+     "translation": "This book is mine.",
+     "hint": "this",
+     "cell": "wannan",
+     "display_order": 1
+    },
+    {
+     "sentence": "{{answer}} mota sabuwa ce.",
+     "answer": "Waccan",
+     "translation": "That car (over there) is new.",
+     "hint": "that — feminine",
+     "cell": "waccan",
+     "display_order": 2
+    },
+    {
+     "sentence": "Ina son {{answer}} riga.",
+     "answer": "wannan",
+     "translation": "I like this gown.",
+     "hint": "this",
+     "cell": "wannan",
+     "display_order": 3
+    },
+    {
+     "sentence": "{{answer}} mutane ɗalibai ne.",
+     "answer": "Waɗannan",
+     "translation": "These people are students.",
+     "hint": "these",
+     "cell": "waɗannan",
+     "display_order": 4
+    },
+    {
+     "sentence": "{{answer}} dutse yana nesa.",
+     "answer": "Wancan",
+     "translation": "That mountain is far away.",
+     "hint": "that — masculine",
+     "cell": "wancan",
+     "display_order": 5
+    },
+    {
+     "sentence": "Zo {{answer}}!",
+     "answer": "nan",
+     "translation": "Come here!",
+     "hint": "here",
+     "cell": "nan",
+     "display_order": 6
+    },
+    {
+     "sentence": "{{answer}} gida na malam ne.",
+     "answer": "Wancan",
+     "translation": "That house belongs to the teacher.",
+     "hint": "that — masculine",
+     "cell": "wancan",
+     "display_order": 7
+    },
+    {
+     "sentence": "{{answer}} riga sabuwa ce.",
+     "answer": "Waccan",
+     "translation": "That gown is new.",
+     "hint": "that — feminine",
+     "cell": "waccan",
+     "display_order": 8
+    },
+    {
+     "sentence": "{{answer}} yara suna wasa.",
+     "answer": "Waɗannan",
+     "translation": "These children are playing.",
+     "hint": "these",
+     "cell": "waɗannan",
+     "display_order": 9
+    },
+    {
+     "sentence": "Ka zauna {{answer}}.",
+     "answer": "nan",
+     "translation": "Sit here.",
+     "hint": "here",
+     "cell": "nan",
+     "display_order": 10
+    }
+   ],
+   "paradigm": [
+    "wannan",
+    "wancan",
+    "waccan",
+    "waɗannan",
+    "nan"
+   ]
+  },
+  {
+   "title": "To have: da (ina da, ba ni da)",
+   "level": "B1",
+   "display_order": 6,
+   "function": "Say what you have and what you lack",
+   "explanation": "Possession rides the continuous plus da: ina da mota (I have a car), yana da kuɗi (he has money). The negative uses the short pronoun set: ba ni da kuɗi (I don't have money), ba shi da lokaci.",
+   "culture_note": "",
+   "source": "contributor",
+   "reviewed": false,
+   "references": [
+    {
+     "title": "Live Lingua — free Hausa courses (FSI/Peace Corps)",
+     "url": "https://www.livelingua.com/courses/hausa"
+    },
+    {
+     "title": "Wikipedia: Hausa grammar",
+     "url": "https://en.wikipedia.org/wiki/Hausa_grammar"
+    },
+    {
+     "title": "Wikipedia: Hausa language",
+     "url": "https://en.wikipedia.org/wiki/Hausa_language"
+    }
+   ],
+   "drills": [
+    {
+     "sentence": "Ina {{answer}} mota.",
+     "answer": "da",
+     "translation": "I have a car.",
+     "hint": "the possession linker after the continuous",
+     "display_order": 1
+    },
+    {
+     "sentence": "Muna {{answer}} lokaci kaɗan.",
+     "answer": "da",
+     "translation": "We have a little time.",
+     "hint": "the possession linker after the continuous",
+     "display_order": 2
+    },
+    {
+     "sentence": "Ba ni {{answer}} kuɗi yanzu.",
+     "answer": "da",
+     "translation": "I don't have money right now.",
+     "hint": "the possession linker — negative pattern",
+     "display_order": 3
+    },
+    {
+     "sentence": "Kana {{answer}} tambaya?",
+     "answer": "da",
+     "translation": "Do you have a question?",
+     "hint": "the possession linker after the continuous",
+     "display_order": 4
+    },
+    {
+     "sentence": "Suna {{answer}} shanu goma.",
+     "answer": "da",
+     "translation": "They have ten cattle.",
+     "hint": "the possession linker after the continuous",
+     "display_order": 5
+    },
+    {
+     "sentence": "Asibitin yana {{answer}} likitoci.",
+     "answer": "da",
+     "translation": "The hospital has doctors.",
+     "hint": "the possession linker after the continuous",
+     "display_order": 6
+    }
+   ]
+  },
+  {
+   "title": "Describing with mai / masu",
+   "level": "B1",
+   "display_order": 7,
+   "function": "Turn any quality into an adjective",
+   "explanation": "Mai (owner of) + a noun describes: gida mai kyau (a house having goodness — a nice house), shayi mai zaƙi (sweet tea). The plural is masu: mutane masu arziki (rich people).\n\nIt's Hausa's most productive adjective machine.",
+   "culture_note": "",
+   "source": "contributor",
+   "reviewed": false,
+   "references": [
+    {
+     "title": "Live Lingua — free Hausa courses (FSI/Peace Corps)",
+     "url": "https://www.livelingua.com/courses/hausa"
+    },
+    {
+     "title": "Wikipedia: Hausa grammar",
+     "url": "https://en.wikipedia.org/wiki/Hausa_grammar"
+    },
+    {
+     "title": "Wikipedia: Hausa language",
+     "url": "https://en.wikipedia.org/wiki/Hausa_language"
+    }
+   ],
+   "drills": [
+    {
+     "sentence": "Wannan gida {{answer}} kyau ne.",
+     "answer": "mai",
+     "translation": "This is a beautiful house.",
+     "hint": "the quality-owner word (singular)",
+     "display_order": 1
+    },
+    {
+     "sentence": "Ita mace ce {{answer}} hankali.",
+     "answer": "mai",
+     "translation": "She is a sensible woman.",
+     "hint": "the quality-owner word (singular)",
+     "display_order": 2
+    },
+    {
+     "sentence": "Mutane {{answer}} arziki suna zaune a nan.",
+     "answer": "masu",
+     "translation": "Rich people live here.",
+     "hint": "the quality-owner word (plural)",
+     "display_order": 3
+    },
+    {
+     "sentence": "Ina son shayi {{answer}} zaƙi.",
+     "answer": "mai",
+     "translation": "I like sweet tea.",
+     "hint": "the quality-owner word (singular)",
+     "display_order": 4
+    },
+    {
+     "sentence": "Manoma {{answer}} aiki tuƙuru sun sami riba.",
+     "answer": "masu",
+     "translation": "Hardworking farmers made a profit.",
+     "hint": "the quality-owner word (plural)",
+     "display_order": 5
+    },
+    {
+     "sentence": "Ya sayi mota {{answer}} tsada.",
+     "answer": "mai",
+     "translation": "He bought an expensive car.",
+     "hint": "the quality-owner word (singular)",
+     "display_order": 6
+    }
+   ]
+  },
+  {
+   "title": "Relative completive (suka, muka, aka)",
+   "level": "B1",
+   "display_order": 8,
+   "function": "Use the past inside 'who/that' clauses",
+   "explanation": "After the relative da (and in focus), the completive switches form: sun zo (they came) but mutanen da SUKA zo (the people who came).\n\nWatch sun→suka, mun→muka, kun→kuka, an→aka; ya and ta keep their spelling.",
+   "culture_note": "",
+   "source": "contributor",
+   "reviewed": false,
+   "references": [
+    {
+     "title": "Live Lingua — free Hausa courses (FSI/Peace Corps)",
+     "url": "https://www.livelingua.com/courses/hausa"
+    },
+    {
+     "title": "Wikipedia: Hausa grammar",
+     "url": "https://en.wikipedia.org/wiki/Hausa_grammar"
+    },
+    {
+     "title": "Wikipedia: Hausa language",
+     "url": "https://en.wikipedia.org/wiki/Hausa_language"
+    }
+   ],
+   "drills": [
+    {
+     "sentence": "Mutanen da {{answer}} zo jiya sun tafi.",
+     "answer": "suka",
+     "translation": "The people who came yesterday have left.",
+     "hint": "they + relative completive",
+     "cell": "3pl",
+     "display_order": 1
+    },
+    {
+     "sentence": "Abincin da {{answer}} dafa yana da daɗi.",
+     "answer": "muka",
+     "translation": "The food we cooked is delicious.",
+     "hint": "we + relative completive",
+     "cell": "1pl",
+     "display_order": 2
+    },
+    {
+     "sentence": "Ina littafin da {{answer}} saya?",
+     "answer": "kuka",
+     "translation": "Where is the book you (pl.) bought?",
+     "hint": "you (plural) + relative completive",
+     "cell": "2pl",
+     "display_order": 3
+    },
+    {
+     "sentence": "Gidan da {{answer}} gina yana da kyau.",
+     "answer": "aka",
+     "translation": "The house that was built is beautiful.",
+     "hint": "impersonal + relative completive",
+     "cell": "impersonal",
+     "display_order": 4
+    },
+    {
+     "sentence": "Yaron da {{answer}} ci jarrabawa yana murna.",
+     "answer": "ya",
+     "translation": "The boy who passed the exam is rejoicing.",
+     "hint": "he + relative completive",
+     "cell": "3sg.m",
+     "display_order": 5
+    },
+    {
+     "sentence": "Ina son waƙar da {{answer}} rera.",
+     "answer": "ta",
+     "translation": "I like the song that she sang.",
+     "hint": "she + relative completive",
+     "cell": "3sg.f",
+     "display_order": 6
+    },
+    {
+     "sentence": "Aikin da {{answer}} yi yana da kyau.",
+     "answer": "muka",
+     "translation": "The work we did is good.",
+     "hint": "we + relative completive",
+     "cell": "1pl",
+     "display_order": 7
+    },
+    {
+     "sentence": "Kayan da {{answer}} kawo suna nan.",
+     "answer": "kuka",
+     "translation": "The goods you (pl.) brought are here.",
+     "hint": "you (plural) + relative completive",
+     "cell": "2pl",
+     "display_order": 8
+    },
+    {
+     "sentence": "Yaran da {{answer}} zo suna wasa.",
+     "answer": "suka",
+     "translation": "The children who came are playing.",
+     "hint": "they + relative completive",
+     "cell": "3pl",
+     "display_order": 9
+    },
+    {
+     "sentence": "Waƙar da {{answer}} rera jiya ta shahara.",
+     "answer": "aka",
+     "translation": "The song that was sung yesterday became famous.",
+     "hint": "impersonal + relative completive",
+     "cell": "impersonal",
+     "display_order": 10
+    },
+    {
+     "sentence": "Littafin da {{answer}} rubuta yana da kyau.",
+     "answer": "ya",
+     "translation": "The book he wrote is good.",
+     "hint": "he + relative completive",
+     "cell": "3sg.m",
+     "display_order": 11
+    },
+    {
+     "sentence": "Rigar da {{answer}} saya sabuwa ce.",
+     "answer": "ta",
+     "translation": "The gown she bought is new.",
+     "hint": "she + relative completive",
+     "cell": "3sg.f",
+     "display_order": 12
+    }
+   ],
+   "paradigm": [
+    "1pl",
+    "2pl",
+    "3pl",
+    "impersonal",
+    "3sg.m",
+    "3sg.f"
+   ]
+  },
+  {
+   "title": "Numbers after the noun (biyu, goma, nawa)",
+   "level": "B1",
+   "display_order": 9,
+   "function": "Count things and ask how many",
+   "explanation": "Numerals follow the noun: mota biyu (two cars), kwana bakwai (seven days). Nawa asks 'how many/how much' from the same slot — littattafai nawa? (how many books?), nawa ne? (how much is it?).",
+   "culture_note": "",
+   "source": "contributor",
+   "reviewed": false,
+   "references": [
+    {
+     "title": "Live Lingua — free Hausa courses (FSI/Peace Corps)",
+     "url": "https://www.livelingua.com/courses/hausa"
+    },
+    {
+     "title": "Wikipedia: Hausa grammar",
+     "url": "https://en.wikipedia.org/wiki/Hausa_grammar"
+    },
+    {
+     "title": "Wikipedia: Hausa language",
+     "url": "https://en.wikipedia.org/wiki/Hausa_language"
+    }
+   ],
+   "drills": [
+    {
+     "sentence": "Ina da yara {{answer}}.",
+     "answer": "biyu",
+     "translation": "I have two children.",
+     "hint": "two (after the noun)",
+     "display_order": 1
+    },
+    {
+     "sentence": "Mota {{answer}} ce kawai a gidan.",
+     "answer": "ɗaya",
+     "translation": "There is only one car at the house.",
+     "hint": "one (after the noun)",
+     "display_order": 2
+    },
+    {
+     "sentence": "Kwana {{answer}} ne a mako.",
+     "answer": "bakwai",
+     "translation": "There are seven days in a week.",
+     "hint": "seven (after the noun)",
+     "display_order": 3
+    },
+    {
+     "sentence": "Littattafai {{answer}} kuke da su?",
+     "answer": "nawa",
+     "translation": "How many books do you have?",
+     "hint": "how many (after the noun)",
+     "display_order": 4
+    },
+    {
+     "sentence": "Ya sayi awaki {{answer}}.",
+     "answer": "uku",
+     "translation": "He bought three goats.",
+     "hint": "three (after the noun)",
+     "display_order": 5
+    },
+    {
+     "sentence": "{{answer}} ne wannan riga?",
+     "answer": "Nawa",
+     "translation": "How much is this gown?",
+     "hint": "how much (price)",
+     "display_order": 6
+    }
+   ]
+  },
+  {
+   "title": "Sai — until, then, only, except",
+   "level": "B2",
+   "display_order": 3,
+   "function": "Master Hausa's most versatile little word",
+   "explanation": "Sai covers a family of meanings: farewell (sai gobe — see you tomorrow), 'not until' (ba za mu fara ba sai ya zo), 'only when/then' (sai ka gama za ka huta), and 'except' (kowa ya tafi sai Audu).\n\nContext picks the reading.",
+   "culture_note": "Sai an jima (until later), sai gobe, sai da safe — most Hausa goodbyes are sai-phrases.",
+   "source": "contributor",
+   "reviewed": false,
+   "references": [
+    {
+     "title": "Live Lingua — free Hausa courses (FSI/Peace Corps)",
+     "url": "https://www.livelingua.com/courses/hausa"
+    },
+    {
+     "title": "Wikipedia: Hausa grammar",
+     "url": "https://en.wikipedia.org/wiki/Hausa_grammar"
+    },
+    {
+     "title": "Wikipedia: Hausa language",
+     "url": "https://en.wikipedia.org/wiki/Hausa_language"
+    }
+   ],
+   "drills": [
+    {
+     "sentence": "{{answer}} gobe!",
+     "answer": "Sai",
+     "translation": "See you tomorrow!",
+     "hint": "the versatile until/then word — farewell use",
+     "display_order": 1
+    },
+    {
+     "sentence": "Ba za mu fara ba {{answer}} ya zo.",
+     "answer": "sai",
+     "translation": "We won't start until he comes.",
+     "hint": "the until word after a negative",
+     "display_order": 2
+    },
+    {
+     "sentence": "{{answer}} ka gama aiki za ka huta.",
+     "answer": "Sai",
+     "translation": "Only when you finish work will you rest.",
+     "hint": "the only-when word",
+     "display_order": 3
+    },
+    {
+     "sentence": "Kowa ya tafi {{answer}} Audu.",
+     "answer": "sai",
+     "translation": "Everyone left except Audu.",
+     "hint": "the except word",
+     "display_order": 4
+    },
+    {
+     "sentence": "Za mu dakata {{answer}} safe.",
+     "answer": "sai",
+     "translation": "We will wait until morning.",
+     "hint": "the until word",
+     "display_order": 5
+    },
+    {
+     "sentence": "In ba haka ba, {{answer}} wata rana.",
+     "answer": "sai",
+     "translation": "If not, then some other day.",
+     "hint": "the then/until word — deferral",
+     "display_order": 6
+    }
+   ]
+  },
+  {
+   "title": "Verbal nouns in the continuous (cin, shan, zuwa)",
+   "level": "B2",
+   "display_order": 4,
+   "function": "Say what's happening right now, properly",
+   "explanation": "The continuous wants a verbal noun: ina CIN abinci (I'm eating), yana SHAN ruwa (he's drinking), muna ZUWA gida (we're going home).\n\nCommon verbs have special forms (ci→cin, sha→shan, zo→zuwa, ji→jin); most others keep the plain stem before an object.",
+   "culture_note": "",
+   "source": "contributor",
+   "reviewed": false,
+   "references": [
+    {
+     "title": "Live Lingua — free Hausa courses (FSI/Peace Corps)",
+     "url": "https://www.livelingua.com/courses/hausa"
+    },
+    {
+     "title": "Wikipedia: Hausa grammar",
+     "url": "https://en.wikipedia.org/wiki/Hausa_grammar"
+    },
+    {
+     "title": "Wikipedia: Hausa language",
+     "url": "https://en.wikipedia.org/wiki/Hausa_language"
+    }
+   ],
+   "drills": [
+    {
+     "sentence": "Ina {{answer}} abinci.",
+     "answer": "cin",
+     "translation": "I am eating food.",
+     "hint": "to eat + its verbal-noun form",
+     "display_order": 1
+    },
+    {
+     "sentence": "Yana {{answer}} ruwa.",
+     "answer": "shan",
+     "translation": "He is drinking water.",
+     "hint": "to drink + its verbal-noun form",
+     "display_order": 2
+    },
+    {
+     "sentence": "Muna {{answer}} gida.",
+     "answer": "zuwa",
+     "translation": "We are going home.",
+     "hint": "to go/come + its verbal-noun form",
+     "display_order": 3
+    },
+    {
+     "sentence": "Tana {{answer}} wasiƙa.",
+     "answer": "rubuta",
+     "translation": "She is writing a letter.",
+     "hint": "to write — plain stem before an object",
+     "display_order": 4
+    },
+    {
+     "sentence": "Suna {{answer}} a gona.",
+     "answer": "aiki",
+     "translation": "They are working on the farm.",
+     "hint": "work — a plain noun after the continuous",
+     "display_order": 5
+    },
+    {
+     "sentence": "Ina {{answer}} yunwa.",
+     "answer": "jin",
+     "translation": "I am hungry (feeling hunger).",
+     "hint": "to feel + its verbal-noun form",
+     "display_order": 6
+    }
+   ]
+  },
+  {
+   "title": "Because and in order to: don, domin, saboda",
+   "level": "B2",
+   "display_order": 5,
+   "function": "Give reasons and purposes",
+   "explanation": "Don/domin + subjunctive states purpose (na zo don in gan ka — I came to see you); domin + clause and saboda + noun give reasons (saboda ruwan sama — because of the rain). Don me? asks why.",
+   "culture_note": "",
+   "source": "contributor",
+   "reviewed": false,
+   "references": [
+    {
+     "title": "Live Lingua — free Hausa courses (FSI/Peace Corps)",
+     "url": "https://www.livelingua.com/courses/hausa"
+    },
+    {
+     "title": "Wikipedia: Hausa grammar",
+     "url": "https://en.wikipedia.org/wiki/Hausa_grammar"
+    },
+    {
+     "title": "Wikipedia: Hausa language",
+     "url": "https://en.wikipedia.org/wiki/Hausa_language"
+    }
+   ],
+   "drills": [
+    {
+     "sentence": "Na zo {{answer}} in gan ka.",
+     "answer": "don",
+     "translation": "I came in order to see you.",
+     "hint": "the purpose word (short form)",
+     "display_order": 1
+    },
+    {
+     "sentence": "Ya yi murna {{answer}} ya ci jarrabawa.",
+     "answer": "domin",
+     "translation": "He rejoiced because he passed the exam.",
+     "hint": "the because word (full form)",
+     "display_order": 2
+    },
+    {
+     "sentence": "{{answer}} ruwan sama, ba mu fita ba.",
+     "answer": "Saboda",
+     "translation": "Because of the rain, we didn't go out.",
+     "hint": "the because-of word (+ noun)",
+     "display_order": 3
+    },
+    {
+     "sentence": "Muna aiki tuƙuru {{answer}} mu sami kuɗi.",
+     "answer": "domin",
+     "translation": "We work hard in order to earn money.",
+     "hint": "the purpose word (full form)",
+     "display_order": 4
+    },
+    {
+     "sentence": "Ta sayi kyauta {{answer}} ɗanta.",
+     "answer": "don",
+     "translation": "She bought a gift for her son.",
+     "hint": "the for word (+ noun)",
+     "display_order": 5
+    },
+    {
+     "sentence": "{{answer}} me ka yi haka?",
+     "answer": "Don",
+     "translation": "Why (for what) did you do that?",
+     "hint": "the for word — asks why with 'me'",
+     "display_order": 6
+    }
+   ]
+  },
+  {
+   "title": "Before and after: kafin, bayan",
+   "level": "B2",
+   "display_order": 6,
+   "function": "Order events in time",
+   "explanation": "Kafin (before) takes the subjunctive — kafin ka tafi (before you go); bayan (after) takes the completive — bayan ya gama (after he finished). Bayan haka: after that.",
+   "culture_note": "",
+   "source": "contributor",
+   "reviewed": false,
+   "references": [
+    {
+     "title": "Live Lingua — free Hausa courses (FSI/Peace Corps)",
+     "url": "https://www.livelingua.com/courses/hausa"
+    },
+    {
+     "title": "Wikipedia: Hausa grammar",
+     "url": "https://en.wikipedia.org/wiki/Hausa_grammar"
+    },
+    {
+     "title": "Wikipedia: Hausa language",
+     "url": "https://en.wikipedia.org/wiki/Hausa_language"
+    }
+   ],
+   "drills": [
+    {
+     "sentence": "{{answer}} ka tafi, kashe wuta.",
+     "answer": "Kafin",
+     "translation": "Before you go, turn off the light.",
+     "hint": "before (+ subjunctive)",
+     "display_order": 1
+    },
+    {
+     "sentence": "{{answer}} ya gama aiki, ya koma gida.",
+     "answer": "Bayan",
+     "translation": "After he finished work, he went home.",
+     "hint": "after (+ completive)",
+     "display_order": 2
+    },
+    {
+     "sentence": "Za mu ci abinci {{answer}} mu yi barci.",
+     "answer": "kafin",
+     "translation": "We will eat before we sleep.",
+     "hint": "before (+ subjunctive)",
+     "display_order": 3
+    },
+    {
+     "sentence": "{{answer}} sun tashi, sun yi addu'a.",
+     "answer": "Bayan",
+     "translation": "After they got up, they prayed.",
+     "hint": "after (+ completive)",
+     "display_order": 4
+    },
+    {
+     "sentence": "Ka wanke hannu {{answer}} ka ci abinci.",
+     "answer": "kafin",
+     "translation": "Wash your hands before you eat.",
+     "hint": "before (+ subjunctive)",
+     "display_order": 5
+    },
+    {
+     "sentence": "{{answer}} haka, komai ya canja.",
+     "answer": "Bayan",
+     "translation": "After that, everything changed.",
+     "hint": "after (+ 'that')",
+     "display_order": 6
+    }
+   ]
+  },
+  {
+   "title": "Connectors kuma, har, ma, amma",
+   "level": "B2",
+   "display_order": 7,
+   "function": "Link ideas like a storyteller",
+   "explanation": "Kuma adds ('and also'), har stretches ('until / as far as / even'), ma tags along ('too/even'), amma turns ('but'). They're small, but Hausa narrative runs on them.",
+   "culture_note": "",
+   "source": "contributor",
+   "reviewed": false,
+   "references": [
+    {
+     "title": "Live Lingua — free Hausa courses (FSI/Peace Corps)",
+     "url": "https://www.livelingua.com/courses/hausa"
+    },
+    {
+     "title": "Wikipedia: Hausa grammar",
+     "url": "https://en.wikipedia.org/wiki/Hausa_grammar"
+    },
+    {
+     "title": "Wikipedia: Hausa language",
+     "url": "https://en.wikipedia.org/wiki/Hausa_language"
+    }
+   ],
+   "drills": [
+    {
+     "sentence": "Ya sayi gurasa {{answer}} ya sayi madara.",
+     "answer": "kuma",
+     "translation": "He bought bread and also bought milk.",
+     "hint": "and-also",
+     "display_order": 1
+    },
+    {
+     "sentence": "Ta yi aiki {{answer}} dare ya yi.",
+     "answer": "har",
+     "translation": "She worked until night fell.",
+     "hint": "until / as far as",
+     "display_order": 2
+    },
+    {
+     "sentence": "Ni {{answer}} ina son shayi.",
+     "answer": "ma",
+     "translation": "I too like tea.",
+     "hint": "too / as well",
+     "display_order": 3
+    },
+    {
+     "sentence": "Yana so ya zo, {{answer}} ba shi da lokaci.",
+     "answer": "amma",
+     "translation": "He wants to come, but he has no time.",
+     "hint": "but",
+     "display_order": 4
+    },
+    {
+     "sentence": "Sun yi tafiya {{answer}} Kano.",
+     "answer": "har",
+     "translation": "They travelled as far as Kano.",
+     "hint": "until / as far as",
+     "display_order": 5
+    },
+    {
+     "sentence": "Yaro {{answer}} ya iya karatu.",
+     "answer": "ma",
+     "translation": "Even the child can read.",
+     "hint": "even / too",
+     "display_order": 6
+    }
+   ]
+  },
+  {
+   "title": "Ideophonic intensifiers (fari fat, ja wur)",
+   "level": "C1",
+   "display_order": 3,
+   "function": "Intensify with the word each quality owns",
+   "explanation": "Each quality has its dedicated intensifier: fari FAT (snow-white), baƙi ƘIRIN (jet-black), ja WUR (blazing red), sabo FUL (brand-new), cika FAL (full to the brim), shiru TSIT (dead silent).\n\nThe pairs are fixed — swapping them sounds absurd.",
+   "culture_note": "Ideophones are performance: said with stretched vowels and a gesture. Regional variants exist — native reviewers should confirm local forms.",
+   "source": "contributor",
+   "reviewed": false,
+   "references": [
+    {
+     "title": "Live Lingua — free Hausa courses (FSI/Peace Corps)",
+     "url": "https://www.livelingua.com/courses/hausa"
+    },
+    {
+     "title": "Wikipedia: Hausa grammar",
+     "url": "https://en.wikipedia.org/wiki/Hausa_grammar"
+    },
+    {
+     "title": "Wikipedia: Hausa language",
+     "url": "https://en.wikipedia.org/wiki/Hausa_language"
+    }
+   ],
+   "drills": [
+    {
+     "sentence": "Rigarsa fara ce {{answer}}.",
+     "answer": "fat",
+     "translation": "His gown is snow-white.",
+     "hint": "the whiteness intensifier",
+     "display_order": 1
+    },
+    {
+     "sentence": "Gashinta baƙi ne {{answer}}.",
+     "answer": "ƙirin",
+     "translation": "Her hair is jet-black.",
+     "hint": "the blackness intensifier",
+     "display_order": 2
+    },
+    {
+     "sentence": "Fuskarsa ta yi ja {{answer}}.",
+     "answer": "wur",
+     "translation": "His face turned blazing red.",
+     "hint": "the redness intensifier",
+     "display_order": 3
+    },
+    {
+     "sentence": "Motar sabuwa ce {{answer}}.",
+     "answer": "ful",
+     "translation": "The car is brand-new.",
+     "hint": "the newness intensifier",
+     "display_order": 4
+    },
+    {
+     "sentence": "Ɗakin ya cika {{answer}}.",
+     "answer": "fal",
+     "translation": "The room is completely full.",
+     "hint": "the fullness intensifier",
+     "display_order": 5
+    },
+    {
+     "sentence": "Ko'ina ya yi shiru {{answer}}.",
+     "answer": "tsit",
+     "translation": "Everywhere went dead silent.",
+     "hint": "the silence intensifier",
+     "display_order": 6
+    }
+   ]
+  },
+  {
+   "title": "Verb pairs: saya/sayar, koya/koyar, dafa/dafu",
+   "level": "C1",
+   "display_order": 4,
+   "function": "Flip a verb's direction with its grade",
+   "explanation": "Hausa verbs come in grades: -ar (usually + da) points the action outward — saya buy → sayar da sell, koya learn → koyar da teach; -u turns it inward/resultative — dafa cook → dafu be cooked, gina build → ginu get built.",
+   "culture_note": "",
+   "source": "contributor",
+   "reviewed": false,
+   "references": [
+    {
+     "title": "Live Lingua — free Hausa courses (FSI/Peace Corps)",
+     "url": "https://www.livelingua.com/courses/hausa"
+    },
+    {
+     "title": "Wikipedia: Hausa grammar",
+     "url": "https://en.wikipedia.org/wiki/Hausa_grammar"
+    },
+    {
+     "title": "Wikipedia: Hausa language",
+     "url": "https://en.wikipedia.org/wiki/Hausa_language"
+    }
+   ],
+   "drills": [
+    {
+     "sentence": "Ya {{answer}} da tsohuwar motarsa.",
+     "answer": "sayar",
+     "translation": "He sold his old car.",
+     "hint": "to buy flipped outward (+ da) = sell",
+     "display_order": 1
+    },
+    {
+     "sentence": "Malam yana {{answer}} da lissafi.",
+     "answer": "koyar",
+     "translation": "The teacher is teaching mathematics.",
+     "hint": "to learn flipped outward (+ da) = teach",
+     "display_order": 2
+    },
+    {
+     "sentence": "Shinkafar ta {{answer}}.",
+     "answer": "dafu",
+     "translation": "The rice is cooked (done).",
+     "hint": "to cook flipped inward = be cooked",
+     "display_order": 3
+    },
+    {
+     "sentence": "Gidan ya {{answer}} da sauri.",
+     "answer": "ginu",
+     "translation": "The house got built quickly.",
+     "hint": "to build flipped inward = get built",
+     "display_order": 4
+    },
+    {
+     "sentence": "Na {{answer}} sabon waya jiya.",
+     "answer": "saya",
+     "translation": "I bought a new phone yesterday.",
+     "hint": "to buy — the plain grade",
+     "display_order": 5
+    },
+    {
+     "sentence": "Yara suna {{answer}} Turanci.",
+     "answer": "koyon",
+     "translation": "The children are learning English.",
+     "hint": "to learn + its verbal-noun form",
+     "display_order": 6
+    }
+   ]
+  },
+  {
+   "title": "Indirect objects (mini, maka, masa)",
+   "level": "C1",
+   "display_order": 5,
+   "function": "Do things TO and FOR people in one word",
+   "explanation": "The wa/ma- set fuses 'to/for' with a pronoun: rubuta MINI (write to me), dafa MAKA (cook for you), aika MASA (send to him), MATA (to her), MUSU (to them).\n\nIt slots right after the verb, before the direct object.",
+   "culture_note": "",
+   "source": "contributor",
+   "reviewed": false,
+   "references": [
+    {
+     "title": "Live Lingua — free Hausa courses (FSI/Peace Corps)",
+     "url": "https://www.livelingua.com/courses/hausa"
+    },
+    {
+     "title": "Wikipedia: Hausa grammar",
+     "url": "https://en.wikipedia.org/wiki/Hausa_grammar"
+    },
+    {
+     "title": "Wikipedia: Hausa language",
+     "url": "https://en.wikipedia.org/wiki/Hausa_language"
+    }
+   ],
+   "drills": [
+    {
+     "sentence": "Ya rubuta {{answer}} wasiƙa.",
+     "answer": "mini",
+     "translation": "He wrote me a letter.",
+     "hint": "to/for me",
+     "cell": "1sg",
+     "display_order": 1
+    },
+    {
+     "sentence": "Za ta dafa {{answer}} abinci.",
+     "answer": "maka",
+     "translation": "She will cook food for you.",
+     "hint": "to/for you (m.)",
+     "cell": "2sg",
+     "display_order": 2
+    },
+    {
+     "sentence": "Na aika {{answer}} kuɗi.",
+     "answer": "masa",
+     "translation": "I sent him money.",
+     "hint": "to/for him",
+     "cell": "3sg.m",
+     "display_order": 3
+    },
+    {
+     "sentence": "Ka kawo {{answer}} ruwa, don Allah.",
+     "answer": "mini",
+     "translation": "Bring me water, please.",
+     "hint": "to/for me",
+     "cell": "1sg",
+     "display_order": 4
+    },
+    {
+     "sentence": "Sun gina {{answer}} gida.",
+     "answer": "mata",
+     "translation": "They built a house for her.",
+     "hint": "to/for her",
+     "cell": "3sg.f",
+     "display_order": 5
+    },
+    {
+     "sentence": "Mun saya {{answer}} kyauta.",
+     "answer": "musu",
+     "translation": "We bought them a gift.",
+     "hint": "to/for them",
+     "cell": "3pl",
+     "display_order": 6
+    },
+    {
+     "sentence": "Zan aika {{answer}} hoto.",
+     "answer": "maka",
+     "translation": "I will send you a photo.",
+     "hint": "to/for you (m.)",
+     "cell": "2sg",
+     "display_order": 7
+    },
+    {
+     "sentence": "Mun kawo {{answer}} littafi.",
+     "answer": "masa",
+     "translation": "We brought him a book.",
+     "hint": "to/for him",
+     "cell": "3sg.m",
+     "display_order": 8
+    },
+    {
+     "sentence": "Ya saya {{answer}} riga.",
+     "answer": "mata",
+     "translation": "He bought her a gown.",
+     "hint": "to/for her",
+     "cell": "3sg.f",
+     "display_order": 9
+    },
+    {
+     "sentence": "Na rubuta {{answer}} wasiƙa.",
+     "answer": "musu",
+     "translation": "I wrote them a letter.",
+     "hint": "to/for them",
+     "cell": "3pl",
+     "display_order": 10
+    }
+   ],
+   "paradigm": [
+    "1sg",
+    "2sg",
+    "3sg.m",
+    "3sg.f",
+    "3pl"
+   ]
+  },
+  {
+   "title": "Ɗan-compounds (ɗan kasuwa, ʼyan sanda)",
+   "level": "C1",
+   "display_order": 6,
+   "function": "Build person-words with 'son of'",
+   "explanation": "Ɗan (son of) + noun names belonging or profession: ɗan Nijeriya (a Nigerian), ɗan kasuwa (trader), ɗan makaranta (pupil).\n\nFeminine ʼyar, plural ʼyan — ʼyan sanda (police, 'children of the stick'). Before a size word it shrinks things: ɗan ƙaramin gida (a smallish house).",
+   "culture_note": "",
+   "source": "contributor",
+   "reviewed": false,
+   "references": [
+    {
+     "title": "Live Lingua — free Hausa courses (FSI/Peace Corps)",
+     "url": "https://www.livelingua.com/courses/hausa"
+    },
+    {
+     "title": "Wikipedia: Hausa grammar",
+     "url": "https://en.wikipedia.org/wiki/Hausa_grammar"
+    },
+    {
+     "title": "Wikipedia: Hausa language",
+     "url": "https://en.wikipedia.org/wiki/Hausa_language"
+    }
+   ],
+   "drills": [
+    {
+     "sentence": "Shi {{answer}} Nijeriya ne.",
+     "answer": "ɗan",
+     "translation": "He is a Nigerian.",
+     "hint": "son-of — the belonging prefix (m.)",
+     "display_order": 1
+    },
+    {
+     "sentence": "Audu {{answer}} kasuwa ne a Kano.",
+     "answer": "ɗan",
+     "translation": "Audu is a trader in Kano.",
+     "hint": "son-of — the profession prefix (m.)",
+     "display_order": 2
+    },
+    {
+     "sentence": "{{answer}} sanda sun kama ɓarawo.",
+     "answer": "ʼYan",
+     "translation": "The police caught the thief.",
+     "hint": "children-of — the plural prefix",
+     "display_order": 3
+    },
+    {
+     "sentence": "Ita {{answer}} makaranta ce.",
+     "answer": "ʼyar",
+     "translation": "She is a schoolgirl.",
+     "hint": "daughter-of — the feminine prefix",
+     "display_order": 4
+    },
+    {
+     "sentence": "{{answer}} wasa suna filin ƙwallo.",
+     "answer": "ʼYan",
+     "translation": "The players are on the football field.",
+     "hint": "children-of — the plural prefix",
+     "display_order": 5
+    },
+    {
+     "sentence": "Ya sayi {{answer}} ƙaramin gida.",
+     "answer": "ɗan",
+     "translation": "He bought a smallish house.",
+     "hint": "the diminutive use before a size word",
+     "display_order": 6
+    }
+   ]
+  },
+  {
+   "title": "Karin magana — proverbs",
+   "level": "C2",
+   "display_order": 1,
+   "function": "Season your speech the Hausa way",
+   "explanation": "Karin magana (folded speech) compresses the grammar you know into fixed wisdom: Sannu ba ta hana zuwa (going slowly doesn't prevent arriving); Haƙuri maganin duniya (patience is the world's medicine). Dropping the right one at the right moment carries real authority.",
+   "culture_note": "Karin magana literally means 'folded speech' — meaning tucked inside meaning, unfolded by the listener.",
+   "source": "contributor",
+   "reviewed": false,
+   "references": [
+    {
+     "title": "Live Lingua — free Hausa courses (FSI/Peace Corps)",
+     "url": "https://www.livelingua.com/courses/hausa"
+    },
+    {
+     "title": "Wikipedia: Hausa language",
+     "url": "https://en.wikipedia.org/wiki/Hausa_language"
+    },
+    {
+     "title": "Wikiquote: Hausa proverbs",
+     "url": "https://en.wikiquote.org/wiki/Hausa_proverbs"
+    }
+   ],
+   "drills": [
+    {
+     "sentence": "Sannu ba ta hana {{answer}}.",
+     "answer": "zuwa",
+     "translation": "Going slowly does not prevent arriving.",
+     "hint": "arriving — the verbal noun of going/coming",
+     "display_order": 1
+    },
+    {
+     "sentence": "Haƙuri maganin {{answer}}.",
+     "answer": "duniya",
+     "translation": "Patience is the medicine of the world.",
+     "hint": "the world",
+     "display_order": 2
+    },
+    {
+     "sentence": "Komai nisan jifa, {{answer}} zai faɗo.",
+     "answer": "ƙasa",
+     "translation": "However far the throw, it will fall to earth.",
+     "hint": "the ground/earth",
+     "display_order": 3
+    },
+    {
+     "sentence": "Ruwa ba ya tsami {{answer}}.",
+     "answer": "banza",
+     "translation": "Water doesn't turn sour for nothing.",
+     "hint": "for-nothing / without cause",
+     "display_order": 4
+    },
+    {
+     "sentence": "Gani ya fi {{answer}}.",
+     "answer": "ji",
+     "translation": "Seeing surpasses hearing.",
+     "hint": "hearing — the shortest verb",
+     "display_order": 5
+    },
+    {
+     "sentence": "Rigakafi ya fi {{answer}}.",
+     "answer": "magani",
+     "translation": "Prevention is better than cure.",
+     "hint": "medicine/cure",
+     "display_order": 6
+    }
+   ]
+  },
+  {
+   "title": "Greetings and respect (Ranka ya daɗe)",
+   "level": "C2",
+   "display_order": 2,
+   "function": "Greet like a person of manners",
+   "explanation": "Hausa greeting is protocol: Ranka ya daɗe (may your life be long) to emirs and elders, barka da safiya/yamma by time of day, gafara dai to announce yourself, na gode to thank, madalla to approve, maraba da zuwa to welcome.",
+   "culture_note": "Greetings are unskippable: rushing past sannu into business marks you as graceless. The emir's greeting Ranka ya daɗe survives in offices for any big boss.",
+   "source": "contributor",
+   "reviewed": false,
+   "references": [
+    {
+     "title": "Live Lingua — free Hausa courses (FSI/Peace Corps)",
+     "url": "https://www.livelingua.com/courses/hausa"
+    },
+    {
+     "title": "Wikipedia: Hausa grammar",
+     "url": "https://en.wikipedia.org/wiki/Hausa_grammar"
+    },
+    {
+     "title": "Wikipedia: Hausa language",
+     "url": "https://en.wikipedia.org/wiki/Hausa_language"
+    }
+   ],
+   "drills": [
+    {
+     "sentence": "'{{answer}} ya daɗe!' ya gaishe sarki.",
+     "answer": "Ranka",
+     "translation": "'May your life be long!' he greeted the emir.",
+     "hint": "your-life — opens the royal greeting",
+     "display_order": 1
+    },
+    {
+     "sentence": "{{answer}} da safiya, malam.",
+     "answer": "Barka",
+     "translation": "Good morning, teacher.",
+     "hint": "the blessing-greeting word",
+     "display_order": 2
+    },
+    {
+     "sentence": "{{answer}} dai! Ina son shiga.",
+     "answer": "Gafara",
+     "translation": "Excuse me! I would like to come in.",
+     "hint": "the pardon/announcing word",
+     "display_order": 3
+    },
+    {
+     "sentence": "Na {{answer}} sosai, yaya.",
+     "answer": "gode",
+     "translation": "Thank you very much, elder sibling.",
+     "hint": "to thank",
+     "display_order": 4
+    },
+    {
+     "sentence": "{{answer}} da zuwa, baƙonmu.",
+     "answer": "Maraba",
+     "translation": "Welcome, our guest.",
+     "hint": "the welcome word",
+     "display_order": 5
+    },
+    {
+     "sentence": "'Aikinka ya yi kyau.' '{{answer}}!'",
+     "answer": "Madalla",
+     "translation": "'Your work is good.' 'Splendid!'",
+     "hint": "the approval word",
+     "display_order": 6
+    }
+   ]
+  },
+  {
+   "title": "Discourse particles (fa, dai, mana, ashe)",
+   "level": "C2",
+   "display_order": 3,
+   "function": "Carry the tone writing can't show",
+   "explanation": "Fa bounces the topic back (kai fa? — and you?), dai hedges ('as for / just'), mana urges (zo mana!\n\n— do come!), ashe marks a realization ('so it turns out!'), kuwa underlines ('indeed'). Without them you sound like a textbook.",
+   "culture_note": "",
+   "source": "contributor",
+   "reviewed": false,
+   "references": [
+    {
+     "title": "Live Lingua — free Hausa courses (FSI/Peace Corps)",
+     "url": "https://www.livelingua.com/courses/hausa"
+    },
+    {
+     "title": "Wikipedia: Hausa grammar",
+     "url": "https://en.wikipedia.org/wiki/Hausa_grammar"
+    },
+    {
+     "title": "Wikipedia: Hausa language",
+     "url": "https://en.wikipedia.org/wiki/Hausa_language"
+    }
+   ],
+   "drills": [
+    {
+     "sentence": "Kai {{answer}}, yaya aikinka?",
+     "answer": "fa",
+     "translation": "And you, how is your work?",
+     "hint": "the topic-bouncing particle",
+     "display_order": 1
+    },
+    {
+     "sentence": "Zo {{answer}}!",
+     "answer": "mana",
+     "translation": "Do come! (insistent)",
+     "hint": "the urging particle",
+     "display_order": 2
+    },
+    {
+     "sentence": "{{answer}} kai ne ka yi haka!",
+     "answer": "Ashe",
+     "translation": "So it was YOU who did this!",
+     "hint": "the realization particle",
+     "display_order": 3
+    },
+    {
+     "sentence": "Ni {{answer}}, ban yarda ba.",
+     "answer": "dai",
+     "translation": "As for me, I don't agree.",
+     "hint": "the hedging/just particle",
+     "display_order": 4
+    },
+    {
+     "sentence": "Gaskiya ne {{answer}}.",
+     "answer": "kuwa",
+     "translation": "It is indeed true.",
+     "hint": "the indeed particle",
+     "display_order": 5
+    },
+    {
+     "sentence": "Ku zauna {{answer}}.",
+     "answer": "dai",
+     "translation": "Just sit down, though.",
+     "hint": "the hedging/just particle",
+     "display_order": 6
+    }
+   ]
+  },
+  {
+   "title": "Ko — or, whether, any-, right?",
+   "level": "C2",
+   "display_order": 4,
+   "function": "One little word, a whole toolkit",
+   "explanation": "Ko joins alternatives (shayi ko kofi), embeds doubt (ban sani ba ko zai zo — I don't know whether he'll come), tags questions (ko ba haka ba?\n\n— isn't it so?), and builds the any-words: kowa (everyone), komai (everything), ko'ina (everywhere), ko kaɗan (not even a little).",
+   "culture_note": "",
+   "source": "contributor",
+   "reviewed": false,
+   "references": [
+    {
+     "title": "Live Lingua — free Hausa courses (FSI/Peace Corps)",
+     "url": "https://www.livelingua.com/courses/hausa"
+    },
+    {
+     "title": "Wikipedia: Hausa grammar",
+     "url": "https://en.wikipedia.org/wiki/Hausa_grammar"
+    },
+    {
+     "title": "Wikipedia: Hausa language",
+     "url": "https://en.wikipedia.org/wiki/Hausa_language"
+    }
+   ],
+   "drills": [
+    {
+     "sentence": "Kana son shayi {{answer}} kofi?",
+     "answer": "ko",
+     "translation": "Do you want tea or coffee?",
+     "hint": "the or word",
+     "display_order": 1
+    },
+    {
+     "sentence": "Ban sani ba {{answer}} zai zo.",
+     "answer": "ko",
+     "translation": "I don't know whether he will come.",
+     "hint": "the whether word",
+     "display_order": 2
+    },
+    {
+     "sentence": "Aikin ya yi kyau, {{answer}} ba haka ba?",
+     "answer": "ko",
+     "translation": "The work is good, isn't it?",
+     "hint": "the tag-question word",
+     "display_order": 3
+    },
+    {
+     "sentence": "{{answer}} ya san haka.",
+     "answer": "Kowa",
+     "translation": "Everyone knows that.",
+     "hint": "the or-word + who = everyone",
+     "display_order": 4
+    },
+    {
+     "sentence": "Ba na son {{answer}} kaɗan.",
+     "answer": "ko",
+     "translation": "I don't want even a little.",
+     "hint": "the even word before 'a little'",
+     "display_order": 5
+    },
+    {
+     "sentence": "{{answer}} akwai wayoyi yanzu.",
+     "answer": "Ko'ina",
+     "translation": "Everywhere there are phones now.",
+     "hint": "the or-word + where = everywhere",
+     "display_order": 6
+    }
+   ]
+  }
+ ]
 }

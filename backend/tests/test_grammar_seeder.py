@@ -52,6 +52,47 @@ class TestGrammarTransform:
         assert all(p["source"] == "contributor" for p in data["points"])
         assert any(p["reviewed"] for p in data["points"])
 
+    def test_non_latin_paths_reach_c2_with_transliteration(self):
+        # Regression guard for the A1->C2 deepening of the non-Latin-script
+        # languages (WP3b): full CEFR ladder, every drill transliterated (the
+        # SCRIPT_FIRST hint layer depends on it), and the paradigm density
+        # gate satisfied by transform().
+        for code in ("ar", "el"):
+            data = GrammarSeeder("fake://db", code).transform()
+            levels = {p["level"] for p in data["points"]}
+            assert {"A1", "A2", "B1", "B2", "C1", "C2"} <= levels, code
+            assert len(data["points"]) >= 40, code
+            for p in data["points"]:
+                for d in p["drills"]:
+                    assert d["transliteration"], f"{code}/{p['title']}: no translit"
+
+    def test_full_c2_ladder_languages(self):
+        # WP2 + WP3b: every language authored all the way to C2 keeps the full
+        # CEFR ladder and its reviewed-live status. Guards against a partial
+        # re-seed silently dropping the advanced tiers.
+        for code in ("es", "tr", "ru", "ar", "el", "ro", "fr", "de", "it", "ca", "pt"):
+            data = GrammarSeeder("fake://db", code).transform()
+            levels = {p["level"] for p in data["points"]}
+            assert {"A1", "A2", "B1", "B2", "C1", "C2"} <= levels, code
+            assert len(data["points"]) >= 40, code
+            assert all(p["source"] == "contributor" for p in data["points"]), code
+            # these paths are human-reviewed and live (not draft-gated)
+            assert any(p["reviewed"] for p in data["points"]), code
+
+    def test_every_point_leads_with_authoritative_reference(self):
+        # Content standard (§3b, 2026-07): Wikipedia is fine but never alone.
+        # Every point's references open with a verified authoritative source
+        # (academy grammar, national-corpus portal, or public-domain course).
+        for code in ("es", "fr", "de", "it", "ca", "pt", "ro", "el", "ru",
+                     "ar", "en", "tr", "mi", "sw", "yo", "ha", "xh"):
+            data = GrammarSeeder("fake://db", code).transform()
+            for point in data["points"]:
+                refs = point.get("references") or []
+                assert refs, f"{code}/{point['title']}: no references"
+                assert "wikipedia.org" not in refs[0]["url"], (
+                    f"{code}/{point['title']}: leads with Wikipedia"
+                )
+
     def test_invalid_drills_and_points_skipped(self, tmp_path):
         import backend.services.seeder.seed_grammar as mod
 
@@ -121,10 +162,27 @@ class TestGrammarTransform:
             "paradigm": ["yo", "tú"],
             "drills": [
                 {"sentence": "{{answer}} soy.", "answer": "Yo", "cell": "yo"},
+                {"sentence": "{{answer}} soy alto.", "answer": "Yo", "cell": "yo"},
                 {"sentence": "{{answer}} eres.", "answer": "Tú", "cell": "tú"},
+                {"sentence": "{{answer}} eres alto.", "answer": "Tú", "cell": "tú"},
             ],
         }])
-        assert [d["cell"] for d in data["points"][0]["drills"]] == ["yo", "tú"]
+        assert [d["cell"] for d in data["points"][0]["drills"]] == \
+            ["yo", "yo", "tú", "tú"]
+
+    def test_paradigm_thin_cell_fails_density_gate(self, tmp_path):
+        # One frame per form invites memorizing the sentence — 2 per cell
+        # is the floor.
+        with pytest.raises(ValueError, match="below 2 drills"):
+            self._transform(tmp_path, [{
+                "title": "Pronouns",
+                "paradigm": ["yo", "tú"],
+                "drills": [
+                    {"sentence": "{{answer}} soy.", "answer": "Yo", "cell": "yo"},
+                    {"sentence": "{{answer}} soy alto.", "answer": "Yo", "cell": "yo"},
+                    {"sentence": "{{answer}} eres.", "answer": "Tú", "cell": "tú"},
+                ],
+            }])
 
     def test_paradigm_uncovered_cell_fails_loudly(self, tmp_path):
         # A paradigm member with no drill is a member the learner never

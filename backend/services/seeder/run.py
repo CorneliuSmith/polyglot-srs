@@ -17,7 +17,7 @@ async def main():
     parser.add_argument(
         "--language", "-l",
         choices=["ru", "ar", "en", "sw", "tr", "yo", "ha", "xh",
-                 "es", "it", "fr", "de", "ca", "mi", "ro", "el", "all"],
+                 "es", "it", "fr", "de", "ca", "mi", "ro", "el", "pt", "all"],
         default="all",
         help="Language to seed (default: all)",
     )
@@ -52,13 +52,25 @@ async def main():
             print(f"FAIL {seeder.language_code}: {e}")
         return
 
+    from .base import DATA_DIR
+
     seeders = []
     if args.language in ("ru", "all"):
-        from .seed_russian import RussianSeeder
-        seeders.append(RussianSeeder(args.db_url))
+        # Corpus-scale TSV (HermitDave + kaikki) when built; the legacy
+        # OpenRussian seeder's download host no longer resolves.
+        if (DATA_DIR / "ru_frequency.tsv").exists():
+            from .seed_russian import RussianFrequencySeeder
+            seeders.append(RussianFrequencySeeder(args.db_url))
+        else:
+            from .seed_russian import RussianSeeder
+            seeders.append(RussianSeeder(args.db_url))
     if args.language in ("ar", "all"):
         try:
-            from .seed_arabic import ArabicSeeder
+            from .seed_arabic import ArabicFrequencySeeder, ArabicSeeder
+            # Corpus TSV first, curated seed second — the upsert lets the
+            # hand-authored entries win for the words both sources carry.
+            if (DATA_DIR / "ar_frequency.tsv").exists():
+                seeders.append(ArabicFrequencySeeder(args.db_url))
             seeders.append(ArabicSeeder(args.db_url))
         except ImportError:
             print("SKIP ar: seed_arabic module not yet implemented")

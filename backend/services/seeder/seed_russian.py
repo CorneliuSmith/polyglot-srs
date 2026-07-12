@@ -5,6 +5,7 @@ import json
 import httpx
 
 from .base import DATA_DIR, BaseSeeder
+from .seed_latin import _FrequencyTsvSeeder
 
 WORDS_URL = "https://downloads.openrussian.org/ru/words.tsv"
 TRANSLATIONS_URL = "https://downloads.openrussian.org/ru/translations.tsv"
@@ -115,4 +116,43 @@ class RussianSeeder(BaseSeeder):
                 })
 
         self.logger.info(f"Transformed {len(records)} Russian words")
+        return records
+
+
+class RussianFrequencySeeder(_FrequencyTsvSeeder):
+    """Corpus-scale Russian vocabulary from data/ru_frequency.tsv.
+
+    The OpenRussian download host (downloads.openrussian.org) no longer
+    resolves, so Russian now sources like every other major language:
+    HermitDave frequency + kaikki Wiktionary glosses (built by
+    source_data --language ru --source kaikki). pymorphy3 enriches each
+    word with gender/aspect/animacy, same as the legacy seeder did.
+    """
+
+    language_code = "ru"
+    freq_filename = "ru_frequency.tsv"
+
+    async def transform(self) -> list[dict]:
+        records = await super().transform()
+        try:
+            import pymorphy3
+            morph = pymorphy3.MorphAnalyzer()
+        except ImportError:
+            self.logger.warning("pymorphy3 not available — morphology stays bare")
+            return records
+        for rec in records:
+            parsed = morph.parse(rec["word"])
+            if not parsed:
+                continue
+            p = parsed[0]
+            morphology = {"lemma": p.normal_form}
+            for key, value in (
+                ("gender", p.tag.gender), ("aspect", p.tag.aspect),
+                ("animacy", p.tag.animacy),
+            ):
+                if value and str(value) != "None":
+                    morphology[key] = str(value)
+            if p.tag.POS:
+                rec["pos"] = rec.get("pos") or str(p.tag.POS)
+            rec["morphology"] = json.dumps(morphology, ensure_ascii=False)
         return records

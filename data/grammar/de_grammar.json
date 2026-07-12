@@ -1,905 +1,3107 @@
 {
-  "lists": [
+ "lists": [
+  {
+   "level": "A1",
+   "title": "German A1 Grammar Path",
+   "description": "A1 grammar in communicative order: pronouns, the three genders, both article families, sein and haben, the present tense, verb-second word order, negation with nicht and kein, es gibt, questions, and the first case (accusative)."
+  }
+ ],
+ "points": [
+  {
+   "title": "Subject pronouns (ich, du, er…)",
+   "level": "A1",
+   "function": "Say who you are talking about",
+   "source": "contributor",
+   "reviewed": true,
+   "display_order": 1,
+   "explanation": "The subject pronouns are ich (I), du (you, informal), er/sie/es (he/she/it), wir (we), ihr (you all, informal), sie (they) and Sie (you, formal — always capitalized). Formal Sie takes the same verb form as 'they'.",
+   "culture_note": "Germans switch from Sie to du more slowly than you might expect — wait for the offer ('Wir können uns duzen').",
+   "references": [
     {
-      "level": "A1",
-      "title": "German A1 Grammar Path",
-      "description": "A1 grammar in communicative order: pronouns, the three genders, both article families, sein and haben, the present tense, verb-second word order, negation with nicht and kein, es gibt, questions, and the first case (accusative)."
+     "title": "grammis — Leibniz-Institut für Deutsche Sprache",
+     "url": "https://grammis.ids-mannheim.de/"
+    },
+    {
+     "title": "Wikipedia: German pronouns",
+     "url": "https://en.wikipedia.org/wiki/German_pronouns"
+    },
+    {
+     "title": "Wikipedia: German grammar",
+     "url": "https://en.wikipedia.org/wiki/German_grammar"
     }
-  ],
-  "points": [
+   ],
+   "drills": [
     {
-      "title": "Subject pronouns (ich, du, er…)",
-      "level": "A1",
-      "function": "Say who you are talking about",
-      "source": "contributor",
-      "reviewed": true,
-      "display_order": 1,
-      "explanation": "The subject pronouns are ich (I), du (you, informal), er/sie/es (he/she/it), wir (we), ihr (you all, informal), sie (they) and Sie (you, formal — always capitalized). Formal Sie takes the same verb form as 'they'.",
-      "culture_note": "Germans switch from Sie to du more slowly than you might expect — wait for the offer ('Wir können uns duzen').",
-      "references": [
-        {
-          "title": "Wikipedia: German pronouns",
-          "url": "https://en.wikipedia.org/wiki/German_pronouns"
-        },
-        {
-          "title": "Wikipedia: German grammar",
-          "url": "https://en.wikipedia.org/wiki/German_grammar"
-        }
-      ],
-      "drills": [
-        {
-          "sentence": "{{answer}} wohne in Berlin.",
-          "answer": "Ich",
-          "translation": "I live in Berlin.",
-          "hint": "I",
-          "display_order": 1,
-          "cell": "ich"
-        },
-        {
-          "sentence": "{{answer}} bist mein Freund.",
-          "answer": "Du",
-          "translation": "You are my friend.",
-          "hint": "you — informal",
-          "display_order": 2,
-          "cell": "du"
-        },
-        {
-          "sentence": "{{answer}} ist meine Schwester.",
-          "answer": "Sie",
-          "translation": "She is my sister.",
-          "hint": "she",
-          "display_order": 3,
-          "cell": "sie"
-        },
-        {
-          "sentence": "{{answer}} sind Studenten.",
-          "answer": "Wir",
-          "translation": "We are students.",
-          "hint": "we",
-          "display_order": 4,
-          "cell": "wir"
-        },
-        {
-          "sentence": "{{answer}} seid sehr nett.",
-          "answer": "Ihr",
-          "translation": "You (all) are very nice.",
-          "hint": "you — plural informal",
-          "display_order": 5,
-          "cell": "ihr"
-        },
-        {
-          "sentence": "{{answer}} arbeitet bei einer Bank.",
-          "answer": "Er",
-          "translation": "He works at a bank.",
-          "hint": "he",
-          "display_order": 6,
-          "cell": "er"
-        },
-        {
-          "sentence": "{{answer}} ist kalt heute.",
-          "answer": "Es",
-          "translation": "It is cold today.",
-          "hint": "it",
-          "cell": "es",
-          "display_order": 7
-        },
-        {
-          "sentence": "{{answer}} sind meine Eltern.",
-          "answer": "Sie",
-          "translation": "They are my parents.",
-          "hint": "they",
-          "cell": "sie (pl)",
-          "display_order": 8
-        }
-      ],
-      "paradigm": [
-        "ich",
-        "du",
-        "er",
-        "sie",
-        "es",
-        "wir",
-        "ihr",
-        "sie (pl)"
-      ]
+     "sentence": "{{answer}} wohne in Berlin.",
+     "answer": "Ich",
+     "translation": "I live in Berlin.",
+     "hint": "I",
+     "display_order": 1,
+     "cell": "ich"
     },
     {
-      "title": "Gender and number of nouns",
-      "level": "A1",
-      "function": "Name people and things, one or many",
-      "source": "contributor",
-      "reviewed": true,
-      "display_order": 2,
-      "explanation": "German nouns have THREE genders — masculine (der Mann), feminine (die Frau), neuter (das Kind) — and are always capitalized. Plurals form several ways (-e, -er, -en, -s, umlaut: Buch → Bücher, Haus → Häuser), so learn each noun with its gender AND its plural.",
-      "culture_note": "",
-      "references": [
-        {
-          "title": "Wikipedia: German nouns",
-          "url": "https://en.wikipedia.org/wiki/German_nouns"
-        },
-        {
-          "title": "Wikipedia: Grammatical gender",
-          "url": "https://en.wikipedia.org/wiki/Grammatical_gender"
-        }
-      ],
-      "drills": [
-        {
-          "sentence": "Ich habe zwei {{answer}}.",
-          "answer": "Bücher",
-          "translation": "I have two books.",
-          "hint": "book, plural (umlaut)",
-          "display_order": 1,
-          "cell": "neuter"
-        },
-        {
-          "sentence": "Die {{answer}} sind schön.",
-          "answer": "Häuser",
-          "translation": "The houses are beautiful.",
-          "hint": "house, plural (umlaut)",
-          "display_order": 2,
-          "cell": "neuter"
-        },
-        {
-          "sentence": "Ich habe drei {{answer}}.",
-          "answer": "Schwestern",
-          "translation": "I have three sisters.",
-          "hint": "sister, plural",
-          "display_order": 3,
-          "cell": "feminine"
-        },
-        {
-          "sentence": "Die {{answer}} spielen im Garten.",
-          "answer": "Kinder",
-          "translation": "The children are playing in the garden.",
-          "hint": "child, plural",
-          "display_order": 4,
-          "cell": "neuter"
-        },
-        {
-          "sentence": "Ich habe zwei {{answer}} zu Hause.",
-          "answer": "Katzen",
-          "translation": "I have two cats at home.",
-          "hint": "cat, plural",
-          "display_order": 5,
-          "cell": "feminine"
-        },
-        {
-          "sentence": "Die {{answer}} sind neu.",
-          "answer": "Autos",
-          "translation": "The cars are new.",
-          "hint": "car, plural (-s)",
-          "display_order": 6,
-          "cell": "neuter"
-        },
-        {
-          "sentence": "Die {{answer}} sind aus Holz.",
-          "answer": "Tische",
-          "translation": "The tables are made of wood.",
-          "hint": "table, plural — masculine",
-          "cell": "masculine",
-          "display_order": 7
-        }
-      ],
-      "paradigm": [
-        "masculine",
-        "feminine",
-        "neuter"
-      ]
+     "sentence": "{{answer}} bist mein Freund.",
+     "answer": "Du",
+     "translation": "You are my friend.",
+     "hint": "you — informal",
+     "display_order": 2,
+     "cell": "du"
     },
     {
-      "title": "Definite articles (der / die / das)",
-      "level": "A1",
-      "function": "Point to a specific thing",
-      "source": "contributor",
-      "reviewed": true,
-      "display_order": 3,
-      "explanation": "Der for masculine (der Mann), die for feminine (die Frau), das for neuter (das Haus) — and die again for every plural (die Kinder). The article is the gender's uniform: memorize noun and article as one word.",
-      "culture_note": "",
-      "references": [
-        {
-          "title": "Wikipedia: German articles",
-          "url": "https://en.wikipedia.org/wiki/German_articles"
-        },
-        {
-          "title": "Wikipedia: German grammar",
-          "url": "https://en.wikipedia.org/wiki/German_grammar"
-        }
-      ],
-      "drills": [
-        {
-          "sentence": "{{answer}} Haus ist groß.",
-          "answer": "Das",
-          "translation": "The house is big.",
-          "hint": "neuter",
-          "display_order": 1,
-          "cell": "das"
-        },
-        {
-          "sentence": "{{answer}} Mann ist Lehrer.",
-          "answer": "Der",
-          "translation": "The man is a teacher.",
-          "hint": "masculine",
-          "display_order": 2,
-          "cell": "der"
-        },
-        {
-          "sentence": "{{answer}} Frau ist Ärztin.",
-          "answer": "Die",
-          "translation": "The woman is a doctor.",
-          "hint": "feminine",
-          "display_order": 3,
-          "cell": "die"
-        },
-        {
-          "sentence": "{{answer}} Kaffee ist heiß.",
-          "answer": "Der",
-          "translation": "The coffee is hot.",
-          "hint": "masculine",
-          "display_order": 4,
-          "cell": "der"
-        },
-        {
-          "sentence": "{{answer}} Kinder spielen draußen.",
-          "answer": "Die",
-          "translation": "The children are playing outside.",
-          "hint": "plural",
-          "display_order": 5,
-          "cell": "die"
-        },
-        {
-          "sentence": "{{answer}} Auto ist schnell.",
-          "answer": "Das",
-          "translation": "The car is fast.",
-          "hint": "neuter",
-          "display_order": 6,
-          "cell": "das"
-        }
-      ],
-      "paradigm": [
-        "der",
-        "die",
-        "das"
-      ]
+     "sentence": "{{answer}} ist meine Schwester.",
+     "answer": "Sie",
+     "translation": "She is my sister.",
+     "hint": "she",
+     "display_order": 3,
+     "cell": "sie"
     },
     {
-      "title": "Indefinite articles (ein / eine)",
-      "level": "A1",
-      "function": "Mention something for the first time",
-      "source": "contributor",
-      "reviewed": true,
-      "display_order": 4,
-      "explanation": "Ein for masculine and neuter (ein Mann, ein Haus), eine for feminine (eine Frau). There is no plural indefinite article — plural just drops it: Das sind Bücher. The endings change with case; that story starts with the accusative later in this path.",
-      "culture_note": "",
-      "references": [
-        {
-          "title": "Wikipedia: German articles",
-          "url": "https://en.wikipedia.org/wiki/German_articles"
-        },
-        {
-          "title": "Wiktionary: ein (German)",
-          "url": "https://en.wiktionary.org/wiki/ein#German"
-        }
-      ],
-      "drills": [
-        {
-          "sentence": "Das ist {{answer}} Haus.",
-          "answer": "ein",
-          "translation": "That is a house.",
-          "hint": "neuter",
-          "display_order": 1
-        },
-        {
-          "sentence": "Das ist {{answer}} gute Idee.",
-          "answer": "eine",
-          "translation": "That is a good idea.",
-          "hint": "feminine",
-          "display_order": 2
-        },
-        {
-          "sentence": "Er ist {{answer}} Freund von mir.",
-          "answer": "ein",
-          "translation": "He is a friend of mine.",
-          "hint": "masculine",
-          "display_order": 3
-        },
-        {
-          "sentence": "Das ist {{answer}} Katze.",
-          "answer": "eine",
-          "translation": "That is a cat.",
-          "hint": "feminine",
-          "display_order": 4
-        },
-        {
-          "sentence": "Hier ist {{answer}} Stuhl.",
-          "answer": "ein",
-          "translation": "Here is a chair.",
-          "hint": "masculine",
-          "display_order": 5
-        },
-        {
-          "sentence": "Das ist {{answer}} schönes Auto.",
-          "answer": "ein",
-          "translation": "That is a beautiful car.",
-          "hint": "neuter",
-          "display_order": 6
-        }
-      ]
+     "sentence": "{{answer}} sind Studenten.",
+     "answer": "Wir",
+     "translation": "We are students.",
+     "hint": "we",
+     "display_order": 4,
+     "cell": "wir"
     },
     {
-      "title": "Sein — present (ich bin, du bist…)",
-      "level": "A1",
-      "function": "Say who or what someone is",
-      "source": "contributor",
-      "reviewed": true,
-      "display_order": 5,
-      "explanation": "Sein (to be) is completely irregular: ich bin, du bist, er/sie/es ist, wir sind, ihr seid, sie/Sie sind. Professions and nationalities take no article: sie ist Lehrerin, ich bin Deutscher.",
-      "culture_note": "",
-      "references": [
-        {
-          "title": "Wiktionary: sein (German)",
-          "url": "https://en.wiktionary.org/wiki/sein#German"
-        },
-        {
-          "title": "Wikipedia: German conjugation",
-          "url": "https://en.wikipedia.org/wiki/German_conjugation"
-        }
-      ],
-      "drills": [
-        {
-          "sentence": "Ich {{answer}} Student.",
-          "answer": "bin",
-          "translation": "I am a student.",
-          "hint": "to be, I",
-          "display_order": 1,
-          "cell": "1sg"
-        },
-        {
-          "sentence": "Du {{answer}} sehr groß.",
-          "answer": "bist",
-          "translation": "You are very tall.",
-          "hint": "to be, you (informal)",
-          "display_order": 2,
-          "cell": "2sg"
-        },
-        {
-          "sentence": "Sie {{answer}} Lehrerin.",
-          "answer": "ist",
-          "translation": "She is a teacher.",
-          "hint": "to be, she",
-          "display_order": 3,
-          "cell": "3sg"
-        },
-        {
-          "sentence": "Wir {{answer}} Freunde.",
-          "answer": "sind",
-          "translation": "We are friends.",
-          "hint": "to be, we",
-          "display_order": 4,
-          "cell": "1pl"
-        },
-        {
-          "sentence": "Ihr {{answer}} müde.",
-          "answer": "seid",
-          "translation": "You (all) are tired.",
-          "hint": "to be, you (plural)",
-          "display_order": 5,
-          "cell": "2pl"
-        },
-        {
-          "sentence": "Die Kinder {{answer}} im Garten.",
-          "answer": "sind",
-          "translation": "The children are in the garden.",
-          "hint": "to be, they",
-          "display_order": 6,
-          "cell": "3pl"
-        }
-      ],
-      "paradigm": [
-        "1sg",
-        "2sg",
-        "3sg",
-        "1pl",
-        "2pl",
-        "3pl"
-      ]
+     "sentence": "{{answer}} seid sehr nett.",
+     "answer": "Ihr",
+     "translation": "You (all) are very nice.",
+     "hint": "you — plural informal",
+     "display_order": 5,
+     "cell": "ihr"
     },
     {
-      "title": "Haben — present (ich habe Hunger)",
-      "level": "A1",
-      "function": "Say what you have — and how you feel",
-      "source": "contributor",
-      "reviewed": true,
-      "display_order": 6,
-      "explanation": "Haben (to have): ich habe, du hast, er/sie hat, wir haben, ihr habt, sie/Sie haben. Like French, German HAS its states: Hunger haben (be hungry), Durst haben (be thirsty), Recht haben (be right), Glück haben (be lucky).",
-      "culture_note": "",
-      "references": [
-        {
-          "title": "Wiktionary: haben (German)",
-          "url": "https://en.wiktionary.org/wiki/haben#German"
-        },
-        {
-          "title": "Wikipedia: German conjugation",
-          "url": "https://en.wikipedia.org/wiki/German_conjugation"
-        }
-      ],
-      "drills": [
-        {
-          "sentence": "Ich {{answer}} Hunger.",
-          "answer": "habe",
-          "translation": "I am hungry.",
-          "hint": "to have, I",
-          "display_order": 1,
-          "cell": "1sg"
-        },
-        {
-          "sentence": "Du {{answer}} Recht.",
-          "answer": "hast",
-          "translation": "You are right.",
-          "hint": "to have, you (informal)",
-          "display_order": 2,
-          "cell": "2sg"
-        },
-        {
-          "sentence": "Sie {{answer}} eine Katze.",
-          "answer": "hat",
-          "translation": "She has a cat.",
-          "hint": "to have, she",
-          "display_order": 3,
-          "cell": "3sg"
-        },
-        {
-          "sentence": "Wir {{answer}} Zeit.",
-          "answer": "haben",
-          "translation": "We have time.",
-          "hint": "to have, we",
-          "display_order": 4,
-          "cell": "1pl"
-        },
-        {
-          "sentence": "Ihr {{answer}} Glück.",
-          "answer": "habt",
-          "translation": "You (all) are lucky.",
-          "hint": "to have, you (plural)",
-          "display_order": 5,
-          "cell": "2pl"
-        },
-        {
-          "sentence": "{{answer}} Sie Fragen?",
-          "answer": "Haben",
-          "translation": "Do you have questions?",
-          "hint": "to have, you (formal) — question order",
-          "display_order": 6,
-          "cell": "3pl"
-        }
-      ],
-      "paradigm": [
-        "1sg",
-        "2sg",
-        "3sg",
-        "1pl",
-        "2pl",
-        "3pl"
-      ]
+     "sentence": "{{answer}} arbeitet bei einer Bank.",
+     "answer": "Er",
+     "translation": "He works at a bank.",
+     "hint": "he",
+     "display_order": 6,
+     "cell": "er"
     },
     {
-      "title": "Present tense of regular verbs",
-      "level": "A1",
-      "function": "Talk about what people do",
-      "source": "contributor",
-      "reviewed": true,
-      "display_order": 7,
-      "explanation": "Drop -en from the infinitive, add: -e, -st, -t, -en, -t, -en (lernen → ich lerne, du lernst, er lernt, wir lernen, ihr lernt, sie lernen). German present covers English 'do' and 'am doing' both: ich lerne = I learn AND I am learning.",
-      "culture_note": "",
-      "references": [
-        {
-          "title": "Wikipedia: German conjugation",
-          "url": "https://en.wikipedia.org/wiki/German_conjugation"
-        },
-        {
-          "title": "Wiktionary: lernen (German)",
-          "url": "https://en.wiktionary.org/wiki/lernen#German"
-        }
-      ],
-      "drills": [
-        {
-          "sentence": "Ich {{answer}} Deutsch.",
-          "answer": "lerne",
-          "translation": "I am learning German.",
-          "hint": "to learn, I",
-          "display_order": 1,
-          "cell": "1sg"
-        },
-        {
-          "sentence": "Du {{answer}} gut.",
-          "answer": "singst",
-          "translation": "You sing well.",
-          "hint": "to sing, you (informal)",
-          "display_order": 2,
-          "cell": "2sg"
-        },
-        {
-          "sentence": "Er {{answer}} in Hamburg.",
-          "answer": "wohnt",
-          "translation": "He lives in Hamburg.",
-          "hint": "to live, he",
-          "display_order": 3,
-          "cell": "3sg"
-        },
-        {
-          "sentence": "Wir {{answer}} Musik.",
-          "answer": "hören",
-          "translation": "We are listening to music.",
-          "hint": "to listen, we",
-          "display_order": 4,
-          "cell": "1pl"
-        },
-        {
-          "sentence": "Ihr {{answer}} Fußball.",
-          "answer": "spielt",
-          "translation": "You (all) play football.",
-          "hint": "to play, you (plural)",
-          "display_order": 5,
-          "cell": "2pl"
-        },
-        {
-          "sentence": "Sie {{answer}} jeden Tag.",
-          "answer": "arbeiten",
-          "translation": "They work every day.",
-          "hint": "to work, they",
-          "display_order": 6,
-          "cell": "3pl"
-        }
-      ],
-      "paradigm": [
-        "1sg",
-        "2sg",
-        "3sg",
-        "1pl",
-        "2pl",
-        "3pl"
-      ]
+     "sentence": "{{answer}} ist kalt heute.",
+     "answer": "Es",
+     "translation": "It is cold today.",
+     "hint": "it",
+     "cell": "es",
+     "display_order": 7
     },
     {
-      "title": "Verb second (V2) word order",
-      "level": "A1",
-      "function": "Build German sentences in the German order",
-      "source": "contributor",
-      "reviewed": true,
-      "display_order": 8,
-      "explanation": "The conjugated verb is ALWAYS the second element of a statement. Start with anything else — time, place — and the subject slides behind the verb: Ich lerne heute Deutsch → Heute lerne ich Deutsch. The verb stays put; everything else dances around it.",
-      "culture_note": "V2 is the single most German thing about German — internalize it at A1 and everything later gets easier.",
-      "references": [
-        {
-          "title": "Wikipedia: V2 word order",
-          "url": "https://en.wikipedia.org/wiki/V2_word_order"
-        },
-        {
-          "title": "Wikipedia: German sentence structure",
-          "url": "https://en.wikipedia.org/wiki/German_sentence_structure"
-        }
-      ],
-      "drills": [
-        {
-          "sentence": "Heute {{answer}} ich Deutsch.",
-          "answer": "lerne",
-          "translation": "Today I am learning German.",
-          "hint": "to learn, I — verb stays second",
-          "display_order": 1
-        },
-        {
-          "sentence": "Morgen {{answer}} wir nach Berlin.",
-          "answer": "fahren",
-          "translation": "Tomorrow we are travelling to Berlin.",
-          "hint": "to travel, we — verb stays second",
-          "display_order": 2
-        },
-        {
-          "sentence": "Am Montag {{answer}} er Fußball.",
-          "answer": "spielt",
-          "translation": "On Monday he plays football.",
-          "hint": "to play, he — verb stays second",
-          "display_order": 3
-        },
-        {
-          "sentence": "Jetzt {{answer}} sie Kaffee.",
-          "answer": "trinkt",
-          "translation": "Now she is drinking coffee.",
-          "hint": "to drink, she — verb stays second",
-          "display_order": 4
-        },
-        {
-          "sentence": "Abends {{answer}} ich Musik.",
-          "answer": "höre",
-          "translation": "In the evenings I listen to music.",
-          "hint": "to listen, I — verb stays second",
-          "display_order": 5
-        },
-        {
-          "sentence": "Hier {{answer}} meine Schwester.",
-          "answer": "wohnt",
-          "translation": "My sister lives here.",
-          "hint": "to live, she — verb stays second",
-          "display_order": 6
-        }
-      ]
+     "sentence": "{{answer}} sind meine Eltern.",
+     "answer": "Sie",
+     "translation": "They are my parents.",
+     "hint": "they",
+     "cell": "sie (pl)",
+     "display_order": 8
     },
     {
-      "title": "Negation with nicht and kein",
-      "level": "A1",
-      "function": "Say what is not so",
-      "source": "contributor",
-      "reviewed": true,
-      "display_order": 9,
-      "explanation": "Two negators with a clean split: kein negates nouns with ein or no article (ich habe kein Auto, keine Zeit); nicht negates everything else — verbs, adjectives, definite nouns (das ist nicht richtig, ich wohne nicht hier). Kein agrees like ein: kein/keine.",
-      "culture_note": "",
-      "references": [
-        {
-          "title": "Wikipedia: German grammar — negation",
-          "url": "https://en.wikipedia.org/wiki/German_grammar"
-        },
-        {
-          "title": "Wiktionary: kein (German)",
-          "url": "https://en.wiktionary.org/wiki/kein#German"
-        }
-      ],
-      "drills": [
-        {
-          "sentence": "Ich habe {{answer}} Auto.",
-          "answer": "kein",
-          "translation": "I don't have a car.",
-          "hint": "noun negator, neuter",
-          "display_order": 1,
-          "cell": "kein"
-        },
-        {
-          "sentence": "Sie hat {{answer}} Zeit.",
-          "answer": "keine",
-          "translation": "She has no time.",
-          "hint": "noun negator, feminine",
-          "display_order": 2,
-          "cell": "keine"
-        },
-        {
-          "sentence": "Das ist {{answer}} richtig.",
-          "answer": "nicht",
-          "translation": "That is not right.",
-          "hint": "negates an adjective",
-          "display_order": 3,
-          "cell": "nicht"
-        },
-        {
-          "sentence": "Wir wohnen {{answer}} in Berlin.",
-          "answer": "nicht",
-          "translation": "We don't live in Berlin.",
-          "hint": "negates the verb phrase",
-          "display_order": 4,
-          "cell": "nicht"
-        },
-        {
-          "sentence": "Ich habe {{answer}} Geld.",
-          "answer": "kein",
-          "translation": "I have no money.",
-          "hint": "noun negator, neuter",
-          "display_order": 5,
-          "cell": "kein"
-        },
-        {
-          "sentence": "Er ist {{answer}} müde.",
-          "answer": "nicht",
-          "translation": "He is not tired.",
-          "hint": "negates an adjective",
-          "display_order": 6,
-          "cell": "nicht"
-        }
-      ],
-      "paradigm": [
-        "nicht",
-        "kein",
-        "keine"
-      ]
+     "sentence": "{{answer}} trinke gern Kaffee.",
+     "answer": "Ich",
+     "translation": "I like drinking coffee.",
+     "hint": "I",
+     "cell": "ich",
+     "display_order": 9
     },
     {
-      "title": "Es gibt — there is / there are",
-      "level": "A1",
-      "function": "Say what exists or is available",
-      "source": "contributor",
-      "reviewed": true,
-      "display_order": 10,
-      "explanation": "Es gibt covers 'there is' AND 'there are' — always singular gibt: es gibt einen Park, es gibt viele Cafés. What exists goes in the accusative (einen Park). Negative: es gibt kein/keine…",
-      "culture_note": "",
-      "references": [
-        {
-          "title": "Wiktionary: es gibt (German)",
-          "url": "https://en.wiktionary.org/wiki/es_gibt#German"
-        },
-        {
-          "title": "Wikipedia: German grammar",
-          "url": "https://en.wikipedia.org/wiki/German_grammar"
-        }
-      ],
-      "drills": [
-        {
-          "sentence": "Es {{answer}} einen Park in der Nähe.",
-          "answer": "gibt",
-          "translation": "There is a park nearby.",
-          "hint": "the verb of the fixed phrase",
-          "display_order": 1
-        },
-        {
-          "sentence": "{{answer}} gibt viele Cafés hier.",
-          "answer": "Es",
-          "translation": "There are many cafés here.",
-          "hint": "the dummy subject",
-          "display_order": 2
-        },
-        {
-          "sentence": "Gibt {{answer}} hier ein Hotel?",
-          "answer": "es",
-          "translation": "Is there a hotel here?",
-          "hint": "the dummy subject, question order",
-          "display_order": 3
-        },
-        {
-          "sentence": "Es gibt {{answer}} Brot.",
-          "answer": "kein",
-          "translation": "There is no bread.",
-          "hint": "noun negator, neuter",
-          "display_order": 4
-        },
-        {
-          "sentence": "Was {{answer}} es zum Essen?",
-          "answer": "gibt",
-          "translation": "What is there to eat?",
-          "hint": "the verb of the fixed phrase",
-          "display_order": 5
-        },
-        {
-          "sentence": "Es gibt {{answer}} Probleme.",
-          "answer": "keine",
-          "translation": "There are no problems.",
-          "hint": "noun negator, plural",
-          "display_order": 6
-        }
-      ]
+     "sentence": "{{answer}} sprichst sehr schnell.",
+     "answer": "Du",
+     "translation": "You speak very fast.",
+     "hint": "you — informal",
+     "cell": "du",
+     "display_order": 10
     },
     {
-      "title": "Question words (wo, wie, was…)",
-      "level": "A1",
-      "function": "Ask about places, people, time, and reasons",
-      "source": "contributor",
-      "reviewed": true,
-      "display_order": 11,
-      "explanation": "Wo (where), wie (how), was (what), wann (when), warum (why), wer (who), woher (where from), wohin (where to). The question word takes first position and the verb follows — V2 again: Wo wohnst du?",
-      "culture_note": "",
-      "references": [
-        {
-          "title": "Wikipedia: German grammar — interrogatives",
-          "url": "https://en.wikipedia.org/wiki/German_grammar"
-        },
-        {
-          "title": "Wiktionary: wer (German)",
-          "url": "https://en.wiktionary.org/wiki/wer#German"
-        }
-      ],
-      "drills": [
-        {
-          "sentence": "{{answer}} wohnst du?",
-          "answer": "Wo",
-          "translation": "Where do you live?",
-          "hint": "where",
-          "display_order": 1
-        },
-        {
-          "sentence": "{{answer}} heißt du?",
-          "answer": "Wie",
-          "translation": "What is your name?",
-          "hint": "how — names ask 'how' in German",
-          "display_order": 2
-        },
-        {
-          "sentence": "{{answer}} ist das?",
-          "answer": "Was",
-          "translation": "What is that?",
-          "hint": "what",
-          "display_order": 3
-        },
-        {
-          "sentence": "{{answer}} kommst du?",
-          "answer": "Woher",
-          "translation": "Where do you come from?",
-          "hint": "where from",
-          "display_order": 4
-        },
-        {
-          "sentence": "{{answer}} beginnt der Kurs?",
-          "answer": "Wann",
-          "translation": "When does the course begin?",
-          "hint": "when",
-          "display_order": 5
-        },
-        {
-          "sentence": "{{answer}} ist dein Lehrer?",
-          "answer": "Wer",
-          "translation": "Who is your teacher?",
-          "hint": "who",
-          "display_order": 6
-        }
-      ]
+     "sentence": "{{answer}} arbeitet in München.",
+     "answer": "Er",
+     "translation": "He works in Munich.",
+     "hint": "he",
+     "cell": "er",
+     "display_order": 11
     },
     {
-      "title": "Accusative case (den / einen)",
-      "level": "A1",
-      "function": "Mark the direct object",
-      "source": "contributor",
-      "reviewed": true,
-      "display_order": 12,
-      "explanation": "The direct object takes the accusative — and only MASCULINE articles change: der → den, ein → einen (ich sehe den Mann, ich habe einen Hund). Feminine, neuter, and plural look identical to the nominative: ich lese das Buch, ich sehe die Frau.",
-      "culture_note": "One changing gender is a gentle introduction — dative and genitive wait politely at A2.",
-      "references": [
-        {
-          "title": "Wikipedia: German declension — accusative",
-          "url": "https://en.wikipedia.org/wiki/German_declension"
-        },
-        {
-          "title": "Wikipedia: Accusative case",
-          "url": "https://en.wikipedia.org/wiki/Accusative_case"
-        }
-      ],
-      "drills": [
-        {
-          "sentence": "Ich sehe {{answer}} Mann.",
-          "answer": "den",
-          "translation": "I see the man.",
-          "hint": "definite article — masculine object",
-          "display_order": 1,
-          "cell": "den"
-        },
-        {
-          "sentence": "Sie liest {{answer}} Buch.",
-          "answer": "das",
-          "translation": "She is reading the book.",
-          "hint": "neuter — unchanged as object",
-          "display_order": 2,
-          "cell": "das"
-        },
-        {
-          "sentence": "Wir kaufen {{answer}} Tisch.",
-          "answer": "einen",
-          "translation": "We are buying a table.",
-          "hint": "indefinite article — masculine object",
-          "display_order": 3,
-          "cell": "einen"
-        },
-        {
-          "sentence": "Er trinkt {{answer}} Kaffee.",
-          "answer": "einen",
-          "translation": "He is drinking a coffee.",
-          "hint": "indefinite article — masculine object",
-          "display_order": 4,
-          "cell": "einen"
-        },
-        {
-          "sentence": "Ich frage {{answer}} Lehrer.",
-          "answer": "den",
-          "translation": "I ask the teacher.",
-          "hint": "definite article — masculine object",
-          "display_order": 5,
-          "cell": "den"
-        },
-        {
-          "sentence": "Sie hat {{answer}} Hund.",
-          "answer": "einen",
-          "translation": "She has a dog.",
-          "hint": "indefinite article — masculine object",
-          "display_order": 6,
-          "cell": "einen"
-        }
-      ],
-      "paradigm": [
-        "den",
-        "einen",
-        "das"
-      ]
+     "sentence": "{{answer}} singt sehr gut.",
+     "answer": "Sie",
+     "translation": "She sings very well.",
+     "hint": "she",
+     "cell": "sie",
+     "display_order": 12
+    },
+    {
+     "sentence": "{{answer}} regnet heute.",
+     "answer": "Es",
+     "translation": "It is raining today.",
+     "hint": "it",
+     "cell": "es",
+     "display_order": 13
+    },
+    {
+     "sentence": "{{answer}} lernen zusammen.",
+     "answer": "Wir",
+     "translation": "We study together.",
+     "hint": "we",
+     "cell": "wir",
+     "display_order": 14
+    },
+    {
+     "sentence": "{{answer}} kommt aus Wien?",
+     "answer": "Ihr",
+     "translation": "You (all) come from Vienna?",
+     "hint": "you all — informal",
+     "cell": "ihr",
+     "display_order": 15
+    },
+    {
+     "sentence": "{{answer}} wohnen in Köln.",
+     "answer": "Sie",
+     "translation": "They live in Cologne.",
+     "hint": "they",
+     "cell": "sie (pl)",
+     "display_order": 16
     }
-  ]
+   ],
+   "paradigm": [
+    "ich",
+    "du",
+    "er",
+    "sie",
+    "es",
+    "wir",
+    "ihr",
+    "sie (pl)"
+   ]
+  },
+  {
+   "title": "Gender and number of nouns",
+   "level": "A1",
+   "function": "Name people and things, one or many",
+   "source": "contributor",
+   "reviewed": true,
+   "display_order": 2,
+   "explanation": "German nouns have THREE genders — masculine (der Mann), feminine (die Frau), neuter (das Kind) — and are always capitalized.\n\nPlurals form several ways (-e, -er, -en, -s, umlaut: Buch → Bücher, Haus → Häuser), so learn each noun with its gender AND its plural.",
+   "culture_note": "",
+   "references": [
+    {
+     "title": "grammis — Leibniz-Institut für Deutsche Sprache",
+     "url": "https://grammis.ids-mannheim.de/"
+    },
+    {
+     "title": "Wikipedia: German nouns",
+     "url": "https://en.wikipedia.org/wiki/German_nouns"
+    },
+    {
+     "title": "Wikipedia: Grammatical gender",
+     "url": "https://en.wikipedia.org/wiki/Grammatical_gender"
+    }
+   ],
+   "drills": [
+    {
+     "sentence": "Ich habe zwei {{answer}}.",
+     "answer": "Bücher",
+     "translation": "I have two books.",
+     "hint": "book, plural (umlaut)",
+     "display_order": 1,
+     "cell": "neuter"
+    },
+    {
+     "sentence": "Die {{answer}} sind schön.",
+     "answer": "Häuser",
+     "translation": "The houses are beautiful.",
+     "hint": "house, plural (umlaut)",
+     "display_order": 2,
+     "cell": "neuter"
+    },
+    {
+     "sentence": "Ich habe drei {{answer}}.",
+     "answer": "Schwestern",
+     "translation": "I have three sisters.",
+     "hint": "sister, plural",
+     "display_order": 3,
+     "cell": "feminine"
+    },
+    {
+     "sentence": "Die {{answer}} spielen im Garten.",
+     "answer": "Kinder",
+     "translation": "The children are playing in the garden.",
+     "hint": "child, plural",
+     "display_order": 4,
+     "cell": "neuter"
+    },
+    {
+     "sentence": "Ich habe zwei {{answer}} zu Hause.",
+     "answer": "Katzen",
+     "translation": "I have two cats at home.",
+     "hint": "cat, plural",
+     "display_order": 5,
+     "cell": "feminine"
+    },
+    {
+     "sentence": "Die {{answer}} sind neu.",
+     "answer": "Autos",
+     "translation": "The cars are new.",
+     "hint": "car, plural (-s)",
+     "display_order": 6,
+     "cell": "neuter"
+    },
+    {
+     "sentence": "Die {{answer}} sind aus Holz.",
+     "answer": "Tische",
+     "translation": "The tables are made of wood.",
+     "hint": "table, plural — masculine",
+     "cell": "masculine",
+     "display_order": 7
+    },
+    {
+     "sentence": "Die {{answer}} bellen laut.",
+     "answer": "Hunde",
+     "translation": "The dogs bark loudly.",
+     "hint": "dog, plural — masculine",
+     "cell": "masculine",
+     "display_order": 8
+    }
+   ],
+   "paradigm": [
+    "masculine",
+    "feminine",
+    "neuter"
+   ]
+  },
+  {
+   "title": "Definite articles (der / die / das)",
+   "level": "A1",
+   "function": "Point to a specific thing",
+   "source": "contributor",
+   "reviewed": true,
+   "display_order": 3,
+   "explanation": "Der for masculine (der Mann), die for feminine (die Frau), das for neuter (das Haus) — and die again for every plural (die Kinder). The article is the gender's uniform: memorize noun and article as one word.",
+   "culture_note": "",
+   "references": [
+    {
+     "title": "grammis — Leibniz-Institut für Deutsche Sprache",
+     "url": "https://grammis.ids-mannheim.de/"
+    },
+    {
+     "title": "Wikipedia: German articles",
+     "url": "https://en.wikipedia.org/wiki/German_articles"
+    },
+    {
+     "title": "Wikipedia: German grammar",
+     "url": "https://en.wikipedia.org/wiki/German_grammar"
+    }
+   ],
+   "drills": [
+    {
+     "sentence": "{{answer}} Haus ist groß.",
+     "answer": "Das",
+     "translation": "The house is big.",
+     "hint": "neuter",
+     "display_order": 1,
+     "cell": "das"
+    },
+    {
+     "sentence": "{{answer}} Mann ist Lehrer.",
+     "answer": "Der",
+     "translation": "The man is a teacher.",
+     "hint": "masculine",
+     "display_order": 2,
+     "cell": "der"
+    },
+    {
+     "sentence": "{{answer}} Frau ist Ärztin.",
+     "answer": "Die",
+     "translation": "The woman is a doctor.",
+     "hint": "feminine",
+     "display_order": 3,
+     "cell": "die"
+    },
+    {
+     "sentence": "{{answer}} Kaffee ist heiß.",
+     "answer": "Der",
+     "translation": "The coffee is hot.",
+     "hint": "masculine",
+     "display_order": 4,
+     "cell": "der"
+    },
+    {
+     "sentence": "{{answer}} Kinder spielen draußen.",
+     "answer": "Die",
+     "translation": "The children are playing outside.",
+     "hint": "plural",
+     "display_order": 5,
+     "cell": "die"
+    },
+    {
+     "sentence": "{{answer}} Auto ist schnell.",
+     "answer": "Das",
+     "translation": "The car is fast.",
+     "hint": "neuter",
+     "display_order": 6,
+     "cell": "das"
+    }
+   ],
+   "paradigm": [
+    "der",
+    "die",
+    "das"
+   ]
+  },
+  {
+   "title": "Indefinite articles (ein / eine)",
+   "level": "A1",
+   "function": "Mention something for the first time",
+   "source": "contributor",
+   "reviewed": true,
+   "display_order": 4,
+   "explanation": "Ein for masculine and neuter (ein Mann, ein Haus), eine for feminine (eine Frau). There is no plural indefinite article — plural just drops it: Das sind Bücher.\n\nThe endings change with case; that story starts with the accusative later in this path.",
+   "culture_note": "",
+   "references": [
+    {
+     "title": "grammis — Leibniz-Institut für Deutsche Sprache",
+     "url": "https://grammis.ids-mannheim.de/"
+    },
+    {
+     "title": "Wikipedia: German articles",
+     "url": "https://en.wikipedia.org/wiki/German_articles"
+    },
+    {
+     "title": "Wiktionary: ein (German)",
+     "url": "https://en.wiktionary.org/wiki/ein#German"
+    }
+   ],
+   "drills": [
+    {
+     "sentence": "Das ist {{answer}} Haus.",
+     "answer": "ein",
+     "translation": "That is a house.",
+     "hint": "neuter",
+     "display_order": 1
+    },
+    {
+     "sentence": "Das ist {{answer}} gute Idee.",
+     "answer": "eine",
+     "translation": "That is a good idea.",
+     "hint": "feminine",
+     "display_order": 2
+    },
+    {
+     "sentence": "Er ist {{answer}} Freund von mir.",
+     "answer": "ein",
+     "translation": "He is a friend of mine.",
+     "hint": "masculine",
+     "display_order": 3
+    },
+    {
+     "sentence": "Das ist {{answer}} Katze.",
+     "answer": "eine",
+     "translation": "That is a cat.",
+     "hint": "feminine",
+     "display_order": 4
+    },
+    {
+     "sentence": "Hier ist {{answer}} Stuhl.",
+     "answer": "ein",
+     "translation": "Here is a chair.",
+     "hint": "masculine",
+     "display_order": 5
+    },
+    {
+     "sentence": "Das ist {{answer}} schönes Auto.",
+     "answer": "ein",
+     "translation": "That is a beautiful car.",
+     "hint": "neuter",
+     "display_order": 6
+    }
+   ]
+  },
+  {
+   "title": "Sein — present (ich bin, du bist…)",
+   "level": "A1",
+   "function": "Say who or what someone is",
+   "source": "contributor",
+   "reviewed": true,
+   "display_order": 5,
+   "explanation": "Sein (to be) is completely irregular: ich bin, du bist, er/sie/es ist, wir sind, ihr seid, sie/Sie sind.\n\nProfessions and nationalities take no article: sie ist Lehrerin, ich bin Deutscher.",
+   "culture_note": "",
+   "references": [
+    {
+     "title": "grammis — Leibniz-Institut für Deutsche Sprache",
+     "url": "https://grammis.ids-mannheim.de/"
+    },
+    {
+     "title": "Wiktionary: sein (German)",
+     "url": "https://en.wiktionary.org/wiki/sein#German"
+    },
+    {
+     "title": "Wikipedia: German conjugation",
+     "url": "https://en.wikipedia.org/wiki/German_conjugation"
+    }
+   ],
+   "drills": [
+    {
+     "sentence": "Ich {{answer}} Student.",
+     "answer": "bin",
+     "translation": "I am a student.",
+     "hint": "to be, I",
+     "display_order": 1,
+     "cell": "1sg"
+    },
+    {
+     "sentence": "Du {{answer}} sehr groß.",
+     "answer": "bist",
+     "translation": "You are very tall.",
+     "hint": "to be, you (informal)",
+     "display_order": 2,
+     "cell": "2sg"
+    },
+    {
+     "sentence": "Sie {{answer}} Lehrerin.",
+     "answer": "ist",
+     "translation": "She is a teacher.",
+     "hint": "to be, she",
+     "display_order": 3,
+     "cell": "3sg"
+    },
+    {
+     "sentence": "Wir {{answer}} Freunde.",
+     "answer": "sind",
+     "translation": "We are friends.",
+     "hint": "to be, we",
+     "display_order": 4,
+     "cell": "1pl"
+    },
+    {
+     "sentence": "Ihr {{answer}} müde.",
+     "answer": "seid",
+     "translation": "You (all) are tired.",
+     "hint": "to be, you (plural)",
+     "display_order": 5,
+     "cell": "2pl"
+    },
+    {
+     "sentence": "Die Kinder {{answer}} im Garten.",
+     "answer": "sind",
+     "translation": "The children are in the garden.",
+     "hint": "to be, they",
+     "display_order": 6,
+     "cell": "3pl"
+    },
+    {
+     "sentence": "Ich {{answer}} müde.",
+     "answer": "bin",
+     "translation": "I am tired.",
+     "hint": "to be, I",
+     "cell": "1sg",
+     "display_order": 7
+    },
+    {
+     "sentence": "Du {{answer}} mein bester Freund.",
+     "answer": "bist",
+     "translation": "You are my best friend.",
+     "hint": "to be, you",
+     "cell": "2sg",
+     "display_order": 8
+    },
+    {
+     "sentence": "Mein Vater {{answer}} Arzt.",
+     "answer": "ist",
+     "translation": "My father is a doctor.",
+     "hint": "to be, he",
+     "cell": "3sg",
+     "display_order": 9
+    },
+    {
+     "sentence": "Wir {{answer}} bereit.",
+     "answer": "sind",
+     "translation": "We are ready.",
+     "hint": "to be, we",
+     "cell": "1pl",
+     "display_order": 10
+    },
+    {
+     "sentence": "Ihr {{answer}} sehr nett.",
+     "answer": "seid",
+     "translation": "You (all) are very nice.",
+     "hint": "to be, you all",
+     "cell": "2pl",
+     "display_order": 11
+    },
+    {
+     "sentence": "Meine Eltern {{answer}} aus Bonn.",
+     "answer": "sind",
+     "translation": "My parents are from Bonn.",
+     "hint": "to be, they",
+     "cell": "3pl",
+     "display_order": 12
+    }
+   ],
+   "paradigm": [
+    "1sg",
+    "2sg",
+    "3sg",
+    "1pl",
+    "2pl",
+    "3pl"
+   ]
+  },
+  {
+   "title": "Haben — present (ich habe Hunger)",
+   "level": "A1",
+   "function": "Say what you have — and how you feel",
+   "source": "contributor",
+   "reviewed": true,
+   "display_order": 6,
+   "explanation": "Haben (to have): ich habe, du hast, er/sie hat, wir haben, ihr habt, sie/Sie haben.\n\nLike French, German HAS its states: Hunger haben (be hungry), Durst haben (be thirsty), Recht haben (be right), Glück haben (be lucky).",
+   "culture_note": "",
+   "references": [
+    {
+     "title": "grammis — Leibniz-Institut für Deutsche Sprache",
+     "url": "https://grammis.ids-mannheim.de/"
+    },
+    {
+     "title": "Wiktionary: haben (German)",
+     "url": "https://en.wiktionary.org/wiki/haben#German"
+    },
+    {
+     "title": "Wikipedia: German conjugation",
+     "url": "https://en.wikipedia.org/wiki/German_conjugation"
+    }
+   ],
+   "drills": [
+    {
+     "sentence": "Ich {{answer}} Hunger.",
+     "answer": "habe",
+     "translation": "I am hungry.",
+     "hint": "to have, I",
+     "display_order": 1,
+     "cell": "1sg"
+    },
+    {
+     "sentence": "Du {{answer}} Recht.",
+     "answer": "hast",
+     "translation": "You are right.",
+     "hint": "to have, you (informal)",
+     "display_order": 2,
+     "cell": "2sg"
+    },
+    {
+     "sentence": "Sie {{answer}} eine Katze.",
+     "answer": "hat",
+     "translation": "She has a cat.",
+     "hint": "to have, she",
+     "display_order": 3,
+     "cell": "3sg"
+    },
+    {
+     "sentence": "Wir {{answer}} Zeit.",
+     "answer": "haben",
+     "translation": "We have time.",
+     "hint": "to have, we",
+     "display_order": 4,
+     "cell": "1pl"
+    },
+    {
+     "sentence": "Ihr {{answer}} Glück.",
+     "answer": "habt",
+     "translation": "You (all) are lucky.",
+     "hint": "to have, you (plural)",
+     "display_order": 5,
+     "cell": "2pl"
+    },
+    {
+     "sentence": "{{answer}} Sie Fragen?",
+     "answer": "Haben",
+     "translation": "Do you have questions?",
+     "hint": "to have, you (formal) — question order",
+     "display_order": 6,
+     "cell": "3pl"
+    },
+    {
+     "sentence": "Ich {{answer}} eine Frage.",
+     "answer": "habe",
+     "translation": "I have a question.",
+     "hint": "to have, I",
+     "cell": "1sg",
+     "display_order": 7
+    },
+    {
+     "sentence": "Du {{answer}} einen Hund?",
+     "answer": "hast",
+     "translation": "Do you have a dog?",
+     "hint": "to have, you",
+     "cell": "2sg",
+     "display_order": 8
+    },
+    {
+     "sentence": "Er {{answer}} heute Geburtstag.",
+     "answer": "hat",
+     "translation": "It's his birthday today.",
+     "hint": "to have, he",
+     "cell": "3sg",
+     "display_order": 9
+    },
+    {
+     "sentence": "Wir {{answer}} zwei Autos.",
+     "answer": "haben",
+     "translation": "We have two cars.",
+     "hint": "to have, we",
+     "cell": "1pl",
+     "display_order": 10
+    },
+    {
+     "sentence": "Ihr {{answer}} viel Arbeit.",
+     "answer": "habt",
+     "translation": "You (all) have a lot of work.",
+     "hint": "to have, you all",
+     "cell": "2pl",
+     "display_order": 11
+    },
+    {
+     "sentence": "Die Kinder {{answer}} Hunger.",
+     "answer": "haben",
+     "translation": "The children are hungry.",
+     "hint": "to have, they",
+     "cell": "3pl",
+     "display_order": 12
+    }
+   ],
+   "paradigm": [
+    "1sg",
+    "2sg",
+    "3sg",
+    "1pl",
+    "2pl",
+    "3pl"
+   ]
+  },
+  {
+   "title": "Present tense of regular verbs",
+   "level": "A1",
+   "function": "Talk about what people do",
+   "source": "contributor",
+   "reviewed": true,
+   "display_order": 7,
+   "explanation": "Drop -en from the infinitive, add: -e, -st, -t, -en, -t, -en (lernen → ich lerne, du lernst, er lernt, wir lernen, ihr lernt, sie lernen).\n\nGerman present covers English 'do' and 'am doing' both: ich lerne = I learn AND I am learning.",
+   "culture_note": "",
+   "references": [
+    {
+     "title": "grammis — Leibniz-Institut für Deutsche Sprache",
+     "url": "https://grammis.ids-mannheim.de/"
+    },
+    {
+     "title": "Wikipedia: German conjugation",
+     "url": "https://en.wikipedia.org/wiki/German_conjugation"
+    },
+    {
+     "title": "Wiktionary: lernen (German)",
+     "url": "https://en.wiktionary.org/wiki/lernen#German"
+    }
+   ],
+   "drills": [
+    {
+     "sentence": "Ich {{answer}} Deutsch.",
+     "answer": "lerne",
+     "translation": "I am learning German.",
+     "hint": "to learn, I",
+     "display_order": 1,
+     "cell": "1sg"
+    },
+    {
+     "sentence": "Du {{answer}} gut.",
+     "answer": "singst",
+     "translation": "You sing well.",
+     "hint": "to sing, you (informal)",
+     "display_order": 2,
+     "cell": "2sg"
+    },
+    {
+     "sentence": "Er {{answer}} in Hamburg.",
+     "answer": "wohnt",
+     "translation": "He lives in Hamburg.",
+     "hint": "to live, he",
+     "display_order": 3,
+     "cell": "3sg"
+    },
+    {
+     "sentence": "Wir {{answer}} Musik.",
+     "answer": "hören",
+     "translation": "We are listening to music.",
+     "hint": "to listen, we",
+     "display_order": 4,
+     "cell": "1pl"
+    },
+    {
+     "sentence": "Ihr {{answer}} Fußball.",
+     "answer": "spielt",
+     "translation": "You (all) play football.",
+     "hint": "to play, you (plural)",
+     "display_order": 5,
+     "cell": "2pl"
+    },
+    {
+     "sentence": "Sie {{answer}} jeden Tag.",
+     "answer": "arbeiten",
+     "translation": "They work every day.",
+     "hint": "to work, they",
+     "display_order": 6,
+     "cell": "3pl"
+    },
+    {
+     "sentence": "Ich {{answer}} bei einer Firma.",
+     "answer": "arbeite",
+     "translation": "I work at a company.",
+     "hint": "to work, I",
+     "cell": "1sg",
+     "display_order": 7
+    },
+    {
+     "sentence": "Du {{answer}} Deutsch?",
+     "answer": "lernst",
+     "translation": "Are you learning German?",
+     "hint": "to learn, you",
+     "cell": "2sg",
+     "display_order": 8
+    },
+    {
+     "sentence": "Meine Schwester {{answer}} im Chor.",
+     "answer": "singt",
+     "translation": "My sister sings in a choir.",
+     "hint": "to sing, she",
+     "cell": "3sg",
+     "display_order": 9
+    },
+    {
+     "sentence": "Wir {{answer}} heute Abend.",
+     "answer": "kochen",
+     "translation": "We are cooking tonight.",
+     "hint": "to cook, we",
+     "cell": "1pl",
+     "display_order": 10
+    },
+    {
+     "sentence": "Ihr {{answer}} laut Musik.",
+     "answer": "hört",
+     "translation": "You (all) are playing music loudly.",
+     "hint": "to hear/listen, you all",
+     "cell": "2pl",
+     "display_order": 11
+    },
+    {
+     "sentence": "Die Kinder {{answer}} im Park.",
+     "answer": "spielen",
+     "translation": "The children are playing in the park.",
+     "hint": "to play, they",
+     "cell": "3pl",
+     "display_order": 12
+    }
+   ],
+   "paradigm": [
+    "1sg",
+    "2sg",
+    "3sg",
+    "1pl",
+    "2pl",
+    "3pl"
+   ]
+  },
+  {
+   "title": "Verb second (V2) word order",
+   "level": "A1",
+   "function": "Build German sentences in the German order",
+   "source": "contributor",
+   "reviewed": true,
+   "display_order": 8,
+   "explanation": "The conjugated verb is ALWAYS the second element of a statement.\n\nStart with anything else — time, place — and the subject slides behind the verb: Ich lerne heute Deutsch → Heute lerne ich Deutsch.\n\nThe verb stays put; everything else dances around it.",
+   "culture_note": "V2 is the single most German thing about German — internalize it at A1 and everything later gets easier.",
+   "references": [
+    {
+     "title": "grammis — Leibniz-Institut für Deutsche Sprache",
+     "url": "https://grammis.ids-mannheim.de/"
+    },
+    {
+     "title": "Wikipedia: V2 word order",
+     "url": "https://en.wikipedia.org/wiki/V2_word_order"
+    },
+    {
+     "title": "Wikipedia: German sentence structure",
+     "url": "https://en.wikipedia.org/wiki/German_sentence_structure"
+    }
+   ],
+   "drills": [
+    {
+     "sentence": "Heute {{answer}} ich Deutsch.",
+     "answer": "lerne",
+     "translation": "Today I am learning German.",
+     "hint": "to learn, I — verb stays second",
+     "display_order": 1
+    },
+    {
+     "sentence": "Morgen {{answer}} wir nach Berlin.",
+     "answer": "fahren",
+     "translation": "Tomorrow we are travelling to Berlin.",
+     "hint": "to travel, we — verb stays second",
+     "display_order": 2
+    },
+    {
+     "sentence": "Am Montag {{answer}} er Fußball.",
+     "answer": "spielt",
+     "translation": "On Monday he plays football.",
+     "hint": "to play, he — verb stays second",
+     "display_order": 3
+    },
+    {
+     "sentence": "Jetzt {{answer}} sie Kaffee.",
+     "answer": "trinkt",
+     "translation": "Now she is drinking coffee.",
+     "hint": "to drink, she — verb stays second",
+     "display_order": 4
+    },
+    {
+     "sentence": "Abends {{answer}} ich Musik.",
+     "answer": "höre",
+     "translation": "In the evenings I listen to music.",
+     "hint": "to listen, I — verb stays second",
+     "display_order": 5
+    },
+    {
+     "sentence": "Hier {{answer}} meine Schwester.",
+     "answer": "wohnt",
+     "translation": "My sister lives here.",
+     "hint": "to live, she — verb stays second",
+     "display_order": 6
+    }
+   ]
+  },
+  {
+   "title": "Negation with nicht and kein",
+   "level": "A1",
+   "function": "Say what is not so",
+   "source": "contributor",
+   "reviewed": true,
+   "display_order": 9,
+   "explanation": "Two negators with a clean split: kein negates nouns with ein or no article (ich habe kein Auto, keine Zeit); nicht negates everything else — verbs, adjectives, definite nouns (das ist nicht richtig, ich wohne nicht hier).\n\nKein agrees like ein: kein/keine.",
+   "culture_note": "",
+   "references": [
+    {
+     "title": "grammis — Leibniz-Institut für Deutsche Sprache",
+     "url": "https://grammis.ids-mannheim.de/"
+    },
+    {
+     "title": "Wikipedia: German grammar — negation",
+     "url": "https://en.wikipedia.org/wiki/German_grammar"
+    },
+    {
+     "title": "Wiktionary: kein (German)",
+     "url": "https://en.wiktionary.org/wiki/kein#German"
+    }
+   ],
+   "drills": [
+    {
+     "sentence": "Ich habe {{answer}} Auto.",
+     "answer": "kein",
+     "translation": "I don't have a car.",
+     "hint": "noun negator, neuter",
+     "display_order": 1,
+     "cell": "kein"
+    },
+    {
+     "sentence": "Sie hat {{answer}} Zeit.",
+     "answer": "keine",
+     "translation": "She has no time.",
+     "hint": "noun negator, feminine",
+     "display_order": 2,
+     "cell": "keine"
+    },
+    {
+     "sentence": "Das ist {{answer}} richtig.",
+     "answer": "nicht",
+     "translation": "That is not right.",
+     "hint": "negates an adjective",
+     "display_order": 3,
+     "cell": "nicht"
+    },
+    {
+     "sentence": "Wir wohnen {{answer}} in Berlin.",
+     "answer": "nicht",
+     "translation": "We don't live in Berlin.",
+     "hint": "negates the verb phrase",
+     "display_order": 4,
+     "cell": "nicht"
+    },
+    {
+     "sentence": "Ich habe {{answer}} Geld.",
+     "answer": "kein",
+     "translation": "I have no money.",
+     "hint": "noun negator, neuter",
+     "display_order": 5,
+     "cell": "kein"
+    },
+    {
+     "sentence": "Er ist {{answer}} müde.",
+     "answer": "nicht",
+     "translation": "He is not tired.",
+     "hint": "negates an adjective",
+     "display_order": 6,
+     "cell": "nicht"
+    },
+    {
+     "sentence": "Wir haben {{answer}} Fragen.",
+     "answer": "keine",
+     "translation": "We have no questions.",
+     "hint": "no/none — before a plural noun",
+     "cell": "keine",
+     "display_order": 7
+    }
+   ],
+   "paradigm": [
+    "nicht",
+    "kein",
+    "keine"
+   ]
+  },
+  {
+   "title": "Es gibt — there is / there are",
+   "level": "A1",
+   "function": "Say what exists or is available",
+   "source": "contributor",
+   "reviewed": true,
+   "display_order": 10,
+   "explanation": "Es gibt covers 'there is' AND 'there are' — always singular gibt: es gibt einen Park, es gibt viele Cafés. What exists goes in the accusative (einen Park).\n\nNegative: es gibt kein/keine…",
+   "culture_note": "",
+   "references": [
+    {
+     "title": "grammis — Leibniz-Institut für Deutsche Sprache",
+     "url": "https://grammis.ids-mannheim.de/"
+    },
+    {
+     "title": "Wiktionary: es gibt (German)",
+     "url": "https://en.wiktionary.org/wiki/es_gibt#German"
+    },
+    {
+     "title": "Wikipedia: German grammar",
+     "url": "https://en.wikipedia.org/wiki/German_grammar"
+    }
+   ],
+   "drills": [
+    {
+     "sentence": "Es {{answer}} einen Park in der Nähe.",
+     "answer": "gibt",
+     "translation": "There is a park nearby.",
+     "hint": "the verb of the fixed phrase",
+     "display_order": 1
+    },
+    {
+     "sentence": "{{answer}} gibt viele Cafés hier.",
+     "answer": "Es",
+     "translation": "There are many cafés here.",
+     "hint": "the dummy subject",
+     "display_order": 2
+    },
+    {
+     "sentence": "Gibt {{answer}} hier ein Hotel?",
+     "answer": "es",
+     "translation": "Is there a hotel here?",
+     "hint": "the dummy subject, question order",
+     "display_order": 3
+    },
+    {
+     "sentence": "Es gibt {{answer}} Brot.",
+     "answer": "kein",
+     "translation": "There is no bread.",
+     "hint": "noun negator, neuter",
+     "display_order": 4
+    },
+    {
+     "sentence": "Was {{answer}} es zum Essen?",
+     "answer": "gibt",
+     "translation": "What is there to eat?",
+     "hint": "the verb of the fixed phrase",
+     "display_order": 5
+    },
+    {
+     "sentence": "Es gibt {{answer}} Probleme.",
+     "answer": "keine",
+     "translation": "There are no problems.",
+     "hint": "noun negator, plural",
+     "display_order": 6
+    }
+   ]
+  },
+  {
+   "title": "Question words (wo, wie, was…)",
+   "level": "A1",
+   "function": "Ask about places, people, time, and reasons",
+   "source": "contributor",
+   "reviewed": true,
+   "display_order": 11,
+   "explanation": "Wo (where), wie (how), was (what), wann (when), warum (why), wer (who), woher (where from), wohin (where to). The question word takes first position and the verb follows — V2 again: Wo wohnst du?",
+   "culture_note": "",
+   "references": [
+    {
+     "title": "grammis — Leibniz-Institut für Deutsche Sprache",
+     "url": "https://grammis.ids-mannheim.de/"
+    },
+    {
+     "title": "Wikipedia: German grammar — interrogatives",
+     "url": "https://en.wikipedia.org/wiki/German_grammar"
+    },
+    {
+     "title": "Wiktionary: wer (German)",
+     "url": "https://en.wiktionary.org/wiki/wer#German"
+    }
+   ],
+   "drills": [
+    {
+     "sentence": "{{answer}} wohnst du?",
+     "answer": "Wo",
+     "translation": "Where do you live?",
+     "hint": "where",
+     "display_order": 1
+    },
+    {
+     "sentence": "{{answer}} heißt du?",
+     "answer": "Wie",
+     "translation": "What is your name?",
+     "hint": "how — names ask 'how' in German",
+     "display_order": 2
+    },
+    {
+     "sentence": "{{answer}} ist das?",
+     "answer": "Was",
+     "translation": "What is that?",
+     "hint": "what",
+     "display_order": 3
+    },
+    {
+     "sentence": "{{answer}} kommst du?",
+     "answer": "Woher",
+     "translation": "Where do you come from?",
+     "hint": "where from",
+     "display_order": 4
+    },
+    {
+     "sentence": "{{answer}} beginnt der Kurs?",
+     "answer": "Wann",
+     "translation": "When does the course begin?",
+     "hint": "when",
+     "display_order": 5
+    },
+    {
+     "sentence": "{{answer}} ist dein Lehrer?",
+     "answer": "Wer",
+     "translation": "Who is your teacher?",
+     "hint": "who",
+     "display_order": 6
+    }
+   ]
+  },
+  {
+   "title": "Accusative case (den / einen)",
+   "level": "A1",
+   "function": "Mark the direct object",
+   "source": "contributor",
+   "reviewed": true,
+   "display_order": 12,
+   "explanation": "The direct object takes the accusative — and only MASCULINE articles change: der → den, ein → einen (ich sehe den Mann, ich habe einen Hund).\n\nFeminine, neuter, and plural look identical to the nominative: ich lese das Buch, ich sehe die Frau.",
+   "culture_note": "One changing gender is a gentle introduction — dative and genitive wait politely at A2.",
+   "references": [
+    {
+     "title": "grammis — Leibniz-Institut für Deutsche Sprache",
+     "url": "https://grammis.ids-mannheim.de/"
+    },
+    {
+     "title": "Wikipedia: German declension — accusative",
+     "url": "https://en.wikipedia.org/wiki/German_declension"
+    },
+    {
+     "title": "Wikipedia: Accusative case",
+     "url": "https://en.wikipedia.org/wiki/Accusative_case"
+    }
+   ],
+   "drills": [
+    {
+     "sentence": "Ich sehe {{answer}} Mann.",
+     "answer": "den",
+     "translation": "I see the man.",
+     "hint": "definite article — masculine object",
+     "display_order": 1,
+     "cell": "den"
+    },
+    {
+     "sentence": "Sie liest {{answer}} Buch.",
+     "answer": "das",
+     "translation": "She is reading the book.",
+     "hint": "neuter — unchanged as object",
+     "display_order": 2,
+     "cell": "das"
+    },
+    {
+     "sentence": "Wir kaufen {{answer}} Tisch.",
+     "answer": "einen",
+     "translation": "We are buying a table.",
+     "hint": "indefinite article — masculine object",
+     "display_order": 3,
+     "cell": "einen"
+    },
+    {
+     "sentence": "Er trinkt {{answer}} Kaffee.",
+     "answer": "einen",
+     "translation": "He is drinking a coffee.",
+     "hint": "indefinite article — masculine object",
+     "display_order": 4,
+     "cell": "einen"
+    },
+    {
+     "sentence": "Ich frage {{answer}} Lehrer.",
+     "answer": "den",
+     "translation": "I ask the teacher.",
+     "hint": "definite article — masculine object",
+     "display_order": 5,
+     "cell": "den"
+    },
+    {
+     "sentence": "Sie hat {{answer}} Hund.",
+     "answer": "einen",
+     "translation": "She has a dog.",
+     "hint": "indefinite article — masculine object",
+     "display_order": 6,
+     "cell": "einen"
+    },
+    {
+     "sentence": "Ich öffne {{answer}} Fenster.",
+     "answer": "das",
+     "translation": "I open the window.",
+     "hint": "the — neuter object (unchanged)",
+     "cell": "das",
+     "display_order": 7
+    }
+   ],
+   "paradigm": [
+    "den",
+    "einen",
+    "das"
+   ]
+  },
+  {
+   "title": "The perfect with haben",
+   "level": "A2",
+   "function": "Talk about the past in speech",
+   "source": "contributor",
+   "reviewed": true,
+   "display_order": 1,
+   "explanation": "Spoken German uses the perfect: a present form of haben + the past participle at the END of the clause.\n\nThe participle is usually ge-…-t (gemacht, gespielt) or ge-…-en (gesehen, gelesen): ich habe Fußball gespielt. haben is conjugated (habe, hast, hat, haben, habt, haben); the participle never changes.",
+   "culture_note": "",
+   "references": [
+    {
+     "title": "grammis — Leibniz-Institut für Deutsche Sprache",
+     "url": "https://grammis.ids-mannheim.de/"
+    },
+    {
+     "title": "Wikipedia: German grammar",
+     "url": "https://en.wikipedia.org/wiki/German_grammar"
+    }
+   ],
+   "drills": [
+    {
+     "sentence": "Gestern {{answer}} ich Fußball gespielt.",
+     "answer": "habe",
+     "translation": "Yesterday I played football.",
+     "hint": "have — I (auxiliary)",
+     "cell": "ich",
+     "display_order": 1
+    },
+    {
+     "sentence": "Heute Morgen {{answer}} ich einen Kaffee getrunken.",
+     "answer": "habe",
+     "translation": "This morning I drank a coffee.",
+     "hint": "have — I (auxiliary)",
+     "cell": "ich",
+     "display_order": 2
+    },
+    {
+     "sentence": "{{answer}} du deine Hausaufgaben gemacht?",
+     "answer": "Hast",
+     "translation": "Have you done your homework?",
+     "hint": "have — you sg. (auxiliary)",
+     "cell": "du",
+     "display_order": 3
+    },
+    {
+     "sentence": "Wann {{answer}} du diesen Film gesehen?",
+     "answer": "hast",
+     "translation": "When did you see this film?",
+     "hint": "have — you sg. (auxiliary)",
+     "cell": "du",
+     "display_order": 4
+    },
+    {
+     "sentence": "Er {{answer}} seinen Schlüssel verloren.",
+     "answer": "hat",
+     "translation": "He lost his key.",
+     "hint": "has — he (auxiliary)",
+     "cell": "er",
+     "display_order": 5
+    },
+    {
+     "sentence": "Sie {{answer}} ein schönes Lied gesungen.",
+     "answer": "hat",
+     "translation": "She sang a beautiful song.",
+     "hint": "has — she (auxiliary)",
+     "cell": "er",
+     "display_order": 6
+    },
+    {
+     "sentence": "Wir {{answer}} das Museum besucht.",
+     "answer": "haben",
+     "translation": "We visited the museum.",
+     "hint": "have — we (auxiliary)",
+     "cell": "wir",
+     "display_order": 7
+    },
+    {
+     "sentence": "Am Wochenende {{answer}} wir viel getanzt.",
+     "answer": "haben",
+     "translation": "At the weekend we danced a lot.",
+     "hint": "have — we (auxiliary)",
+     "cell": "wir",
+     "display_order": 8
+    },
+    {
+     "sentence": "{{answer}} ihr schon gegessen?",
+     "answer": "Habt",
+     "translation": "Have you (pl.) already eaten?",
+     "hint": "have — you pl. (auxiliary)",
+     "cell": "ihr",
+     "display_order": 9
+    },
+    {
+     "sentence": "Warum {{answer}} ihr so lange gewartet?",
+     "answer": "habt",
+     "translation": "Why did you (pl.) wait so long?",
+     "hint": "have — you pl. (auxiliary)",
+     "cell": "ihr",
+     "display_order": 10
+    },
+    {
+     "sentence": "Die Kinder {{answer}} im Garten gespielt.",
+     "answer": "haben",
+     "translation": "The children played in the garden.",
+     "hint": "have — they (auxiliary)",
+     "cell": "sie",
+     "display_order": 11
+    },
+    {
+     "sentence": "Meine Freunde {{answer}} das ganze Wochenende gearbeitet.",
+     "answer": "haben",
+     "translation": "My friends worked the whole weekend.",
+     "hint": "have — they (auxiliary)",
+     "cell": "sie",
+     "display_order": 12
+    }
+   ],
+   "paradigm": [
+    "ich",
+    "du",
+    "er",
+    "wir",
+    "ihr",
+    "sie"
+   ]
+  },
+  {
+   "title": "The perfect with sein",
+   "level": "A2",
+   "function": "Use sein for movement and change of state",
+   "source": "contributor",
+   "reviewed": true,
+   "display_order": 2,
+   "explanation": "Verbs of movement or change of state (gehen, kommen, fahren, fliegen, laufen, bleiben, werden, sterben…) form the perfect with sein, not haben: ich bin nach Berlin gefahren 'I went to Berlin'. sein is conjugated (bin, bist, ist, sind, seid, sind); the participle still goes to the end.",
+   "culture_note": "",
+   "references": [
+    {
+     "title": "grammis — Leibniz-Institut für Deutsche Sprache",
+     "url": "https://grammis.ids-mannheim.de/"
+    },
+    {
+     "title": "Wikipedia: German grammar",
+     "url": "https://en.wikipedia.org/wiki/German_grammar"
+    }
+   ],
+   "drills": [
+    {
+     "sentence": "Gestern {{answer}} ich ins Kino gegangen.",
+     "answer": "bin",
+     "translation": "Yesterday I went to the cinema.",
+     "hint": "am — I (auxiliary sein)",
+     "cell": "ich",
+     "display_order": 1
+    },
+    {
+     "sentence": "Heute {{answer}} ich zu spät gekommen.",
+     "answer": "bin",
+     "translation": "Today I came too late.",
+     "hint": "am — I (auxiliary sein)",
+     "cell": "ich",
+     "display_order": 2
+    },
+    {
+     "sentence": "{{answer}} du mit dem Zug gefahren?",
+     "answer": "Bist",
+     "translation": "Did you go by train?",
+     "hint": "are — you sg. (auxiliary sein)",
+     "cell": "du",
+     "display_order": 3
+    },
+    {
+     "sentence": "Wann {{answer}} du nach Hause gekommen?",
+     "answer": "bist",
+     "translation": "When did you come home?",
+     "hint": "are — you sg. (auxiliary sein)",
+     "cell": "du",
+     "display_order": 4
+    },
+    {
+     "sentence": "Der Zug {{answer}} schon abgefahren.",
+     "answer": "ist",
+     "translation": "The train has already left.",
+     "hint": "is — it (auxiliary sein)",
+     "cell": "er",
+     "display_order": 5
+    },
+    {
+     "sentence": "Sie {{answer}} zu Hause geblieben.",
+     "answer": "ist",
+     "translation": "She stayed home.",
+     "hint": "is — she (auxiliary sein)",
+     "cell": "er",
+     "display_order": 6
+    },
+    {
+     "sentence": "Wir {{answer}} spät nach Hause gekommen.",
+     "answer": "sind",
+     "translation": "We got home late.",
+     "hint": "are — we (auxiliary sein)",
+     "cell": "wir",
+     "display_order": 7
+    },
+    {
+     "sentence": "Am Sonntag {{answer}} wir in die Stadt gefahren.",
+     "answer": "sind",
+     "translation": "On Sunday we went into town.",
+     "hint": "are — we (auxiliary sein)",
+     "cell": "wir",
+     "display_order": 8
+    },
+    {
+     "sentence": "{{answer}} ihr zu Fuß gegangen?",
+     "answer": "Seid",
+     "translation": "Did you (pl.) go on foot?",
+     "hint": "are — you pl. (auxiliary sein)",
+     "cell": "ihr",
+     "display_order": 9
+    },
+    {
+     "sentence": "Wohin {{answer}} ihr gestern gereist?",
+     "answer": "seid",
+     "translation": "Where did you (pl.) travel yesterday?",
+     "hint": "are — you pl. (auxiliary sein)",
+     "cell": "ihr",
+     "display_order": 10
+    },
+    {
+     "sentence": "Die Gäste {{answer}} um zwölf angekommen.",
+     "answer": "sind",
+     "translation": "The guests arrived at twelve.",
+     "hint": "are — they (auxiliary sein)",
+     "cell": "sie",
+     "display_order": 11
+    },
+    {
+     "sentence": "Meine Eltern {{answer}} nach Italien geflogen.",
+     "answer": "sind",
+     "translation": "My parents flew to Italy.",
+     "hint": "are — they (auxiliary sein)",
+     "cell": "sie",
+     "display_order": 12
+    }
+   ],
+   "paradigm": [
+    "ich",
+    "du",
+    "er",
+    "wir",
+    "ihr",
+    "sie"
+   ]
+  },
+  {
+   "title": "The dative case (dem, der, den…)",
+   "level": "A2",
+   "function": "Mark the indirect object — 'to/for whom'",
+   "source": "contributor",
+   "reviewed": true,
+   "display_order": 3,
+   "explanation": "The dative marks the indirect object (the receiver).\n\nThe articles change: der→dem, die→der, das→dem, and plural die→den (+ -n on the noun): ich gebe dem Mann das Buch 'I give the man the book'.\n\nDative verbs (helfen, danken, gefallen) and prepositions (mit, nach, bei, von, zu, aus) also trigger it.",
+   "culture_note": "",
+   "references": [
+    {
+     "title": "grammis — Leibniz-Institut für Deutsche Sprache",
+     "url": "https://grammis.ids-mannheim.de/"
+    },
+    {
+     "title": "Wikipedia: German grammar",
+     "url": "https://en.wikipedia.org/wiki/German_grammar"
+    }
+   ],
+   "drills": [
+    {
+     "sentence": "Ich gebe {{answer}} Mann das Buch.",
+     "answer": "dem",
+     "translation": "I give the man the book.",
+     "hint": "the (dative, masc.)",
+     "display_order": 1
+    },
+    {
+     "sentence": "Sie hilft {{answer}} Frau mit den Taschen.",
+     "answer": "der",
+     "translation": "She helps the woman with the bags.",
+     "hint": "the (dative, fem.)",
+     "display_order": 2
+    },
+    {
+     "sentence": "Das Geschenk gefällt {{answer}} Kind sehr.",
+     "answer": "dem",
+     "translation": "The child likes the gift a lot.",
+     "hint": "the (dative, neut.)",
+     "display_order": 3
+    },
+    {
+     "sentence": "Ich fahre mit {{answer}} Bus zur Arbeit.",
+     "answer": "dem",
+     "translation": "I go to work by bus.",
+     "hint": "the (dative after 'mit')",
+     "display_order": 4
+    },
+    {
+     "sentence": "Wir danken {{answer}} Lehrern für ihre Hilfe.",
+     "answer": "den",
+     "translation": "We thank the teachers for their help.",
+     "hint": "the (dative plural, +n)",
+     "display_order": 5
+    },
+    {
+     "sentence": "Nach {{answer}} Essen trinken wir Kaffee.",
+     "answer": "dem",
+     "translation": "After the meal we drink coffee.",
+     "hint": "the (dative after 'nach')",
+     "display_order": 6
+    }
+   ]
+  },
+  {
+   "title": "Modal verbs (können, müssen, wollen…)",
+   "level": "A2",
+   "function": "Say what you can, must, or want to do",
+   "source": "contributor",
+   "reviewed": true,
+   "display_order": 4,
+   "explanation": "Modal verbs (können 'can', müssen 'must', wollen 'want', dürfen 'may', sollen 'should', mögen/möchte 'like/would like') are conjugated in position 2, and the main verb goes to the END as an infinitive: ich kann gut schwimmen, du musst jetzt gehen. Note the vowel change: ich kann, wir können.",
+   "culture_note": "",
+   "references": [
+    {
+     "title": "grammis — Leibniz-Institut für Deutsche Sprache",
+     "url": "https://grammis.ids-mannheim.de/"
+    },
+    {
+     "title": "Wikipedia: German grammar",
+     "url": "https://en.wikipedia.org/wiki/German_grammar"
+    }
+   ],
+   "drills": [
+    {
+     "sentence": "Ich {{answer}} sehr gut schwimmen.",
+     "answer": "kann",
+     "translation": "I can swim very well.",
+     "hint": "can — I (können)",
+     "display_order": 1
+    },
+    {
+     "sentence": "Du {{answer}} jetzt nach Hause gehen.",
+     "answer": "musst",
+     "translation": "You must go home now.",
+     "hint": "must — you (müssen)",
+     "display_order": 2
+    },
+    {
+     "sentence": "Wir {{answer}} am Wochenende ins Kino gehen.",
+     "answer": "wollen",
+     "translation": "We want to go to the cinema at the weekend.",
+     "hint": "want — we (modal)",
+     "display_order": 3
+    },
+    {
+     "sentence": "{{answer}} ich hier parken?",
+     "answer": "Darf",
+     "translation": "May I park here?",
+     "hint": "may — I (dürfen)",
+     "display_order": 4
+    },
+    {
+     "sentence": "Ihr {{answer}} mehr üben.",
+     "answer": "sollt",
+     "translation": "You (pl.) should practise more.",
+     "hint": "should — you pl. (sollen)",
+     "display_order": 5
+    },
+    {
+     "sentence": "Ich {{answer}} bitte einen Kaffee.",
+     "answer": "möchte",
+     "translation": "I would like a coffee, please.",
+     "hint": "would like — I (möchten)",
+     "display_order": 6
+    }
+   ]
+  },
+  {
+   "title": "Simple past of sein & haben (war, hatte)",
+   "level": "A2",
+   "function": "Say 'was' and 'had' in the past",
+   "source": "contributor",
+   "reviewed": true,
+   "display_order": 5,
+   "explanation": "Even in speech, sein and haben usually use the simple past (Präteritum) rather than the perfect. sein: war, warst, war, waren, wart, waren. haben: hatte, hattest, hatte, hatten, hattet, hatten.\n\nIch war müde 'I was tired', wir hatten keine Zeit 'we had no time'.",
+   "culture_note": "",
+   "references": [
+    {
+     "title": "grammis — Leibniz-Institut für Deutsche Sprache",
+     "url": "https://grammis.ids-mannheim.de/"
+    },
+    {
+     "title": "Wikipedia: German grammar",
+     "url": "https://en.wikipedia.org/wiki/German_grammar"
+    }
+   ],
+   "drills": [
+    {
+     "sentence": "Gestern {{answer}} ich sehr müde.",
+     "answer": "war",
+     "translation": "Yesterday I was very tired.",
+     "hint": "was — I (sein)",
+     "display_order": 1
+    },
+    {
+     "sentence": "{{answer}} du gestern auf der Party?",
+     "answer": "Warst",
+     "translation": "Were you at the party yesterday?",
+     "hint": "were — you sg. (sein)",
+     "display_order": 2
+    },
+    {
+     "sentence": "Wir {{answer}} letztes Jahr in Spanien.",
+     "answer": "waren",
+     "translation": "We were in Spain last year.",
+     "hint": "were — we (sein)",
+     "display_order": 3
+    },
+    {
+     "sentence": "Ich {{answer}} als Kind einen Hund.",
+     "answer": "hatte",
+     "translation": "As a child I had a dog.",
+     "hint": "had — I (haben)",
+     "display_order": 4
+    },
+    {
+     "sentence": "Sie {{answer}} gestern keine Zeit.",
+     "answer": "hatte",
+     "translation": "She had no time yesterday.",
+     "hint": "had — she (haben)",
+     "display_order": 5
+    },
+    {
+     "sentence": "Wir {{answer}} viel Spaß im Urlaub.",
+     "answer": "hatten",
+     "translation": "We had a lot of fun on holiday.",
+     "hint": "had — we (haben)",
+     "display_order": 6
+    }
+   ]
+  },
+  {
+   "title": "Two-way prepositions (in, auf, an…)",
+   "level": "A2",
+   "function": "Choose accusative for motion, dative for location",
+   "source": "contributor",
+   "reviewed": true,
+   "display_order": 6,
+   "explanation": "Nine prepositions (in, an, auf, über, unter, vor, hinter, neben, zwischen) take the ACCUSATIVE for movement toward a place (wohin?) and the DATIVE for a fixed location (wo?): ich gehe in die Küche (acc., motion) vs ich bin in der Küche (dat., location).",
+   "culture_note": "",
+   "references": [
+    {
+     "title": "grammis — Leibniz-Institut für Deutsche Sprache",
+     "url": "https://grammis.ids-mannheim.de/"
+    },
+    {
+     "title": "Wikipedia: German grammar",
+     "url": "https://en.wikipedia.org/wiki/German_grammar"
+    }
+   ],
+   "drills": [
+    {
+     "sentence": "Ich gehe in {{answer}} Küche. (Bewegung)",
+     "answer": "die",
+     "translation": "I'm going into the kitchen. (motion)",
+     "hint": "the (accusative — motion)",
+     "display_order": 1
+    },
+    {
+     "sentence": "Ich bin in {{answer}} Küche. (Ort)",
+     "answer": "der",
+     "translation": "I'm in the kitchen. (location)",
+     "hint": "the (dative — location)",
+     "display_order": 2
+    },
+    {
+     "sentence": "Häng das Bild an {{answer}} Wand! (Bewegung)",
+     "answer": "die",
+     "translation": "Hang the picture on the wall! (motion)",
+     "hint": "the (accusative — motion)",
+     "display_order": 3
+    },
+    {
+     "sentence": "Das Bild hängt an {{answer}} Wand. (Ort)",
+     "answer": "der",
+     "translation": "The picture is hanging on the wall. (location)",
+     "hint": "the (dative — location)",
+     "display_order": 4
+    },
+    {
+     "sentence": "Die Katze springt auf {{answer}} Tisch. (Bewegung)",
+     "answer": "den",
+     "translation": "The cat jumps onto the table. (motion)",
+     "hint": "the (accusative masc. — motion)",
+     "display_order": 5
+    },
+    {
+     "sentence": "Die Katze schläft auf {{answer}} Tisch. (Ort)",
+     "answer": "dem",
+     "translation": "The cat is sleeping on the table. (location)",
+     "hint": "the (dative masc. — location)",
+     "display_order": 6
+    }
+   ]
+  },
+  {
+   "title": "Separable verbs (aufstehen, einkaufen)",
+   "level": "A2",
+   "function": "Split the prefix off to the end of the clause",
+   "source": "contributor",
+   "reviewed": true,
+   "display_order": 7,
+   "explanation": "Many verbs have a separable prefix (auf-, ein-, an-, mit-, zurück-…) that splits off and goes to the END in a main clause: aufstehen → ich stehe um sieben auf 'I get up at seven'; einkaufen → wir kaufen im Supermarkt ein.\n\nThe prefix carries the stress and often changes the meaning.",
+   "culture_note": "",
+   "references": [
+    {
+     "title": "grammis — Leibniz-Institut für Deutsche Sprache",
+     "url": "https://grammis.ids-mannheim.de/"
+    },
+    {
+     "title": "Wikipedia: German grammar",
+     "url": "https://en.wikipedia.org/wiki/German_grammar"
+    }
+   ],
+   "drills": [
+    {
+     "sentence": "Ich stehe jeden Tag um sieben Uhr {{answer}}.",
+     "answer": "auf",
+     "translation": "I get up at seven every day.",
+     "hint": "up (prefix of aufstehen)",
+     "display_order": 1
+    },
+    {
+     "sentence": "Wir kaufen im Supermarkt {{answer}}.",
+     "answer": "ein",
+     "translation": "We shop at the supermarket.",
+     "hint": "in (prefix of einkaufen)",
+     "display_order": 2
+    },
+    {
+     "sentence": "Der Zug kommt um zehn Uhr {{answer}}.",
+     "answer": "an",
+     "translation": "The train arrives at ten.",
+     "hint": "at/to (prefix of ankommen)",
+     "display_order": 3
+    },
+    {
+     "sentence": "Kommst du heute Abend {{answer}}?",
+     "answer": "mit",
+     "translation": "Are you coming along tonight?",
+     "hint": "along (prefix of mitkommen)",
+     "display_order": 4
+    },
+    {
+     "sentence": "Am Freitag rufe ich dich {{answer}}.",
+     "answer": "an",
+     "translation": "On Friday I'll call you.",
+     "hint": "at/to (prefix of anrufen)",
+     "display_order": 5
+    },
+    {
+     "sentence": "Wann kommst du aus dem Urlaub {{answer}}?",
+     "answer": "zurück",
+     "translation": "When are you coming back from holiday?",
+     "hint": "back (prefix of zurückkommen)",
+     "display_order": 6
+    }
+   ]
+  },
+  {
+   "title": "Comparative & superlative (größer als, am größten)",
+   "level": "A2",
+   "function": "Compare things",
+   "source": "contributor",
+   "reviewed": true,
+   "display_order": 8,
+   "explanation": "The comparative adds -er and uses als 'than' (often with an umlaut): groß → größer als 'bigger than'.\n\nThe superlative is am …-sten: am größten 'the biggest'.\n\nIrregulars: gut → besser → am besten, viel → mehr → am meisten, gern → lieber → am liebsten.",
+   "culture_note": "",
+   "references": [
+    {
+     "title": "grammis — Leibniz-Institut für Deutsche Sprache",
+     "url": "https://grammis.ids-mannheim.de/"
+    },
+    {
+     "title": "Wikipedia: German grammar",
+     "url": "https://en.wikipedia.org/wiki/German_grammar"
+    }
+   ],
+   "drills": [
+    {
+     "sentence": "Berlin ist {{answer}} als München.",
+     "answer": "größer",
+     "translation": "Berlin is bigger than Munich.",
+     "hint": "bigger (comparative)",
+     "display_order": 1
+    },
+    {
+     "sentence": "Dieses Café ist am {{answer}} in der Stadt.",
+     "answer": "besten",
+     "translation": "This café is the best in town.",
+     "hint": "best (superlative)",
+     "display_order": 2
+    },
+    {
+     "sentence": "Deutsch ist {{answer}} als Spanisch für mich.",
+     "answer": "schwerer",
+     "translation": "German is harder than Spanish for me.",
+     "hint": "harder (comparative)",
+     "display_order": 3
+    },
+    {
+     "sentence": "Im Sommer sind die Tage {{answer}}.",
+     "answer": "länger",
+     "translation": "In summer the days are longer.",
+     "hint": "longer (comparative)",
+     "display_order": 4
+    },
+    {
+     "sentence": "Er spielt {{answer}} Fußball als ich.",
+     "answer": "besser",
+     "translation": "He plays football better than me.",
+     "hint": "better (irregular, gut)",
+     "display_order": 5
+    },
+    {
+     "sentence": "Gesundheit ist {{answer}} als Geld.",
+     "answer": "wichtiger",
+     "translation": "Health is more important than money.",
+     "hint": "more important (comparative)",
+     "display_order": 6
+    }
+   ]
+  },
+  {
+   "title": "Possessive articles (mein, dein, sein…)",
+   "level": "A2",
+   "function": "Say 'my / your' and match case & gender",
+   "source": "contributor",
+   "reviewed": true,
+   "display_order": 9,
+   "explanation": "Possessives (mein, dein, sein, ihr, unser, euer, ihr/Ihr) take the same endings as ein/kein: mein Vater (nom. m.), meine Mutter (nom. f.), meinen Bruder (acc. m.), meinem Freund (dat. m.).\n\nThe stem shows the owner; the ending agrees with the noun.",
+   "culture_note": "",
+   "references": [
+    {
+     "title": "grammis — Leibniz-Institut für Deutsche Sprache",
+     "url": "https://grammis.ids-mannheim.de/"
+    },
+    {
+     "title": "Wikipedia: German grammar",
+     "url": "https://en.wikipedia.org/wiki/German_grammar"
+    }
+   ],
+   "drills": [
+    {
+     "sentence": "{{answer}} Auto ist neu.",
+     "answer": "Mein",
+     "translation": "My car is new.",
+     "hint": "my (nom. neut.)",
+     "display_order": 1
+    },
+    {
+     "sentence": "Wo ist {{answer}} Handy?",
+     "answer": "dein",
+     "translation": "Where is your phone?",
+     "hint": "your (nom. neut.)",
+     "display_order": 2
+    },
+    {
+     "sentence": "{{answer}} Schwester wohnt in Köln.",
+     "answer": "Seine",
+     "translation": "His sister lives in Cologne.",
+     "hint": "his (nom. fem.)",
+     "display_order": 3
+    },
+    {
+     "sentence": "Ich besuche {{answer}} Bruder am Wochenende.",
+     "answer": "meinen",
+     "translation": "I'm visiting my brother at the weekend.",
+     "hint": "my (acc. masc.)",
+     "display_order": 4
+    },
+    {
+     "sentence": "Wir fahren mit {{answer}} Auto.",
+     "answer": "unserem",
+     "translation": "We're going by our car.",
+     "hint": "our (dat. neut.)",
+     "display_order": 5
+    },
+    {
+     "sentence": "{{answer}} Nachbarn sind sehr nett.",
+     "answer": "Unsere",
+     "translation": "Our neighbours are very nice.",
+     "hint": "our (nom. plural)",
+     "display_order": 6
+    }
+   ]
+  },
+  {
+   "title": "Subordinate clauses (weil, dass)",
+   "level": "A2",
+   "function": "Give reasons and report — verb goes to the end",
+   "source": "contributor",
+   "reviewed": true,
+   "display_order": 10,
+   "explanation": "Subordinating conjunctions (weil 'because', dass 'that', wenn 'if/when', obwohl 'although') send the conjugated verb to the END of their clause: ich bleibe zu Hause, weil ich krank bin (bin at the end). Compare coordinating denn 'because', which keeps normal order.",
+   "culture_note": "",
+   "references": [
+    {
+     "title": "grammis — Leibniz-Institut für Deutsche Sprache",
+     "url": "https://grammis.ids-mannheim.de/"
+    },
+    {
+     "title": "Wikipedia: German grammar",
+     "url": "https://en.wikipedia.org/wiki/German_grammar"
+    }
+   ],
+   "drills": [
+    {
+     "sentence": "Ich bleibe zu Hause, {{answer}} ich krank bin.",
+     "answer": "weil",
+     "translation": "I'm staying home because I'm ill.",
+     "hint": "because (verb to the end)",
+     "display_order": 1
+    },
+    {
+     "sentence": "Ich glaube, {{answer}} er recht hat.",
+     "answer": "dass",
+     "translation": "I think that he is right.",
+     "hint": "that (verb to the end)",
+     "display_order": 2
+    },
+    {
+     "sentence": "Wir gehen spazieren, {{answer}} es schön ist.",
+     "answer": "wenn",
+     "translation": "We go for a walk when the weather is nice.",
+     "hint": "when/if (verb to the end)",
+     "display_order": 3
+    },
+    {
+     "sentence": "{{answer}} es regnet, gehen wir ins Museum.",
+     "answer": "Weil",
+     "translation": "Because it's raining, we're going to the museum.",
+     "hint": "because (fronted clause)",
+     "display_order": 4
+    },
+    {
+     "sentence": "Sie sagt, {{answer}} sie später kommt.",
+     "answer": "dass",
+     "translation": "She says that she'll come later.",
+     "hint": "that (verb to the end)",
+     "display_order": 5
+    },
+    {
+     "sentence": "Ich lerne Deutsch, {{answer}} es mir gefällt.",
+     "answer": "weil",
+     "translation": "I'm learning German because I like it.",
+     "hint": "because (verb to the end)",
+     "display_order": 6
+    }
+   ]
+  },
+  {
+   "title": "The genitive case (des, der)",
+   "level": "B1",
+   "function": "Show possession — 'of the'",
+   "source": "contributor",
+   "reviewed": true,
+   "display_order": 1,
+   "explanation": "The genitive marks possession ('of'). Masculine and neuter articles become des and the noun adds -(e)s: das Auto des Mannes 'the man's car', das Dach des Hauses.\n\nFeminine and plural become der (no noun ending): die Farbe der Blume.\n\nGenitive prepositions: wegen, während, trotz, statt.",
+   "culture_note": "",
+   "references": [
+    {
+     "title": "grammis — Leibniz-Institut für Deutsche Sprache",
+     "url": "https://grammis.ids-mannheim.de/"
+    },
+    {
+     "title": "Wikipedia: German grammar",
+     "url": "https://en.wikipedia.org/wiki/German_grammar"
+    }
+   ],
+   "drills": [
+    {
+     "sentence": "Das Auto {{answer}} Mannes ist neu.",
+     "answer": "des",
+     "translation": "The man's car is new.",
+     "hint": "of the (genitive, masc.)",
+     "display_order": 1
+    },
+    {
+     "sentence": "Die Farbe {{answer}} Blume ist rot.",
+     "answer": "der",
+     "translation": "The colour of the flower is red.",
+     "hint": "of the (genitive, fem.)",
+     "display_order": 2
+    },
+    {
+     "sentence": "Das Dach {{answer}} Hauses ist alt.",
+     "answer": "des",
+     "translation": "The roof of the house is old.",
+     "hint": "of the (genitive, neut.)",
+     "display_order": 3
+    },
+    {
+     "sentence": "Wegen {{answer}} Wetters bleiben wir zu Hause.",
+     "answer": "des",
+     "translation": "Because of the weather we're staying home.",
+     "hint": "of the (after 'wegen')",
+     "display_order": 4
+    },
+    {
+     "sentence": "Die Spielsachen {{answer}} Kinder liegen dort.",
+     "answer": "der",
+     "translation": "The children's toys are lying there.",
+     "hint": "of the (genitive, plural)",
+     "display_order": 5
+    },
+    {
+     "sentence": "Während {{answer}} Reise haben wir viel gesehen.",
+     "answer": "der",
+     "translation": "During the trip we saw a lot.",
+     "hint": "of the (after 'während', fem.)",
+     "display_order": 6
+    }
+   ]
+  },
+  {
+   "title": "The simple past (Präteritum)",
+   "level": "B1",
+   "function": "Narrate the past in writing",
+   "source": "contributor",
+   "reviewed": true,
+   "display_order": 2,
+   "explanation": "Written German (stories, reports) uses the Präteritum.\n\nWeak verbs add -te: machen → machte, spielen → spielte.\n\nStrong verbs change the stem: gehen → ging, kommen → kam, sehen → sah, fahren → fuhr.\n\nEndings: -,-st,-, -en,-t,-en (ich ging, du gingst, wir gingen).",
+   "culture_note": "",
+   "references": [
+    {
+     "title": "grammis — Leibniz-Institut für Deutsche Sprache",
+     "url": "https://grammis.ids-mannheim.de/"
+    },
+    {
+     "title": "Wikipedia: German grammar",
+     "url": "https://en.wikipedia.org/wiki/German_grammar"
+    }
+   ],
+   "drills": [
+    {
+     "sentence": "Er {{answer}} gestern nach Hause.",
+     "answer": "ging",
+     "translation": "He went home yesterday.",
+     "hint": "went — he (gehen, strong)",
+     "display_order": 1
+    },
+    {
+     "sentence": "Ich {{answer}} meine Hausaufgaben am Abend.",
+     "answer": "machte",
+     "translation": "I did my homework in the evening.",
+     "hint": "did — I (machen, weak)",
+     "display_order": 2
+    },
+    {
+     "sentence": "Sie {{answer}} ein interessantes Buch.",
+     "answer": "las",
+     "translation": "She read an interesting book.",
+     "hint": "read — she (lesen, strong)",
+     "display_order": 3
+    },
+    {
+     "sentence": "Wir {{answer}} mit dem Zug nach Berlin.",
+     "answer": "fuhren",
+     "translation": "We went to Berlin by train.",
+     "hint": "went — we (fahren, strong)",
+     "display_order": 4
+    },
+    {
+     "sentence": "Das Kind {{answer}} den ganzen Tag.",
+     "answer": "spielte",
+     "translation": "The child played all day.",
+     "hint": "played — it (spielen, weak)",
+     "display_order": 5
+    },
+    {
+     "sentence": "Plötzlich {{answer}} ein Fremder an die Tür.",
+     "answer": "klopfte",
+     "translation": "Suddenly a stranger knocked at the door.",
+     "hint": "knocked — he (klopfen, weak)",
+     "display_order": 6
+    }
+   ]
+  },
+  {
+   "title": "Adjective endings",
+   "level": "B1",
+   "function": "Give adjectives before a noun the right ending",
+   "source": "contributor",
+   "reviewed": true,
+   "display_order": 3,
+   "explanation": "An adjective before a noun takes an ending. After a definite article (der/die/das) it's mostly -e or -en (der alte Mann, die alten Männer).\n\nAfter an indefinite/possessive (ein/mein) it shows the gender: ein alter Mann, eine alte Frau, ein altes Haus.\n\nWith no article, the adjective carries the full article ending (kalter Kaffee).",
+   "culture_note": "",
+   "references": [
+    {
+     "title": "grammis — Leibniz-Institut für Deutsche Sprache",
+     "url": "https://grammis.ids-mannheim.de/"
+    },
+    {
+     "title": "Wikipedia: German grammar",
+     "url": "https://en.wikipedia.org/wiki/German_grammar"
+    }
+   ],
+   "drills": [
+    {
+     "sentence": "Der {{answer}} Mann sitzt auf der Bank.",
+     "answer": "alte",
+     "translation": "The old man is sitting on the bench.",
+     "hint": "old (after 'der', nom. m.)",
+     "display_order": 1
+    },
+    {
+     "sentence": "Ich habe einen {{answer}} Hund.",
+     "answer": "kleinen",
+     "translation": "I have a small dog.",
+     "hint": "small (after 'einen', acc. m.)",
+     "display_order": 2
+    },
+    {
+     "sentence": "Das ist eine {{answer}} Idee.",
+     "answer": "gute",
+     "translation": "That's a good idea.",
+     "hint": "good (after 'eine', nom. f.)",
+     "display_order": 3
+    },
+    {
+     "sentence": "Sie trägt ein {{answer}} Kleid.",
+     "answer": "rotes",
+     "translation": "She's wearing a red dress.",
+     "hint": "red (after 'ein', nom. n.)",
+     "display_order": 4
+    },
+    {
+     "sentence": "Wir wohnen in einem {{answer}} Haus.",
+     "answer": "großen",
+     "translation": "We live in a big house.",
+     "hint": "big (after 'einem', dat. n.)",
+     "display_order": 5
+    },
+    {
+     "sentence": "Ich trinke gern {{answer}} Kaffee.",
+     "answer": "heißen",
+     "translation": "I like drinking hot coffee.",
+     "hint": "hot (no article, acc. m.)",
+     "display_order": 6
+    }
+   ]
+  },
+  {
+   "title": "Reflexive verbs (sich freuen)",
+   "level": "B1",
+   "function": "Say the subject acts on itself",
+   "source": "contributor",
+   "reviewed": true,
+   "display_order": 4,
+   "explanation": "Reflexive verbs use a reflexive pronoun matching the subject: mich, dich, sich, uns, euch, sich (accusative).\n\nIch freue mich 'I'm happy', er erinnert sich 'he remembers'. Some are dative-reflexive when there's also a direct object: ich wasche mir die Hände 'I wash my hands'.",
+   "culture_note": "",
+   "references": [
+    {
+     "title": "grammis — Leibniz-Institut für Deutsche Sprache",
+     "url": "https://grammis.ids-mannheim.de/"
+    },
+    {
+     "title": "Wikipedia: German grammar",
+     "url": "https://en.wikipedia.org/wiki/German_grammar"
+    }
+   ],
+   "drills": [
+    {
+     "sentence": "Ich freue {{answer}} auf das Wochenende.",
+     "answer": "mich",
+     "translation": "I'm looking forward to the weekend.",
+     "hint": "myself — I (accusative)",
+     "cell": "ich",
+     "display_order": 1
+    },
+    {
+     "sentence": "Setz {{answer}} bitte hin!",
+     "answer": "dich",
+     "translation": "Please sit down!",
+     "hint": "yourself — you (accusative)",
+     "cell": "du",
+     "display_order": 2
+    },
+    {
+     "sentence": "Er interessiert {{answer}} für Musik.",
+     "answer": "sich",
+     "translation": "He is interested in music.",
+     "hint": "himself — he (accusative)",
+     "cell": "er",
+     "display_order": 3
+    },
+    {
+     "sentence": "Wir treffen {{answer}} morgen im Café.",
+     "answer": "uns",
+     "translation": "We're meeting tomorrow at the café.",
+     "hint": "ourselves — we (accusative)",
+     "cell": "wir",
+     "display_order": 4
+    },
+    {
+     "sentence": "Beeilt {{answer}}, der Bus kommt!",
+     "answer": "euch",
+     "translation": "Hurry up (pl.), the bus is coming!",
+     "hint": "yourselves — you pl. (accusative)",
+     "cell": "ihr",
+     "display_order": 5
+    },
+    {
+     "sentence": "Die Gäste fühlen {{answer}} wohl.",
+     "answer": "sich",
+     "translation": "The guests feel comfortable.",
+     "hint": "themselves — they (accusative)",
+     "cell": "sie",
+     "display_order": 6
+    }
+   ]
+  },
+  {
+   "title": "Relative clauses (der, die, das, dem…)",
+   "level": "B1",
+   "function": "Describe a noun with a whole clause",
+   "source": "contributor",
+   "reviewed": true,
+   "display_order": 5,
+   "explanation": "The relative pronoun matches the noun's GENDER and NUMBER but takes its CASE from its role in the relative clause, which is verb-final: der Mann, der dort steht (nom.); der Mann, den ich kenne (acc.); der Mann, dem ich helfe (dat.); der Mann, dessen Auto rot ist (gen.).",
+   "culture_note": "",
+   "references": [
+    {
+     "title": "grammis — Leibniz-Institut für Deutsche Sprache",
+     "url": "https://grammis.ids-mannheim.de/"
+    },
+    {
+     "title": "Wikipedia: German grammar",
+     "url": "https://en.wikipedia.org/wiki/German_grammar"
+    }
+   ],
+   "drills": [
+    {
+     "sentence": "Der Mann, {{answer}} dort steht, ist mein Lehrer.",
+     "answer": "der",
+     "translation": "The man who is standing there is my teacher.",
+     "hint": "who (nom. masc.)",
+     "display_order": 1
+    },
+    {
+     "sentence": "Das Buch, {{answer}} ich lese, ist spannend.",
+     "answer": "das",
+     "translation": "The book that I'm reading is exciting.",
+     "hint": "that (acc. neut.)",
+     "display_order": 2
+    },
+    {
+     "sentence": "Die Frau, {{answer}} ich helfe, ist krank.",
+     "answer": "der",
+     "translation": "The woman I'm helping is ill.",
+     "hint": "whom (dat. fem.)",
+     "display_order": 3
+    },
+    {
+     "sentence": "Der Freund, {{answer}} ich ein Geschenk gebe, hat Geburtstag.",
+     "answer": "dem",
+     "translation": "The friend I'm giving a present to has a birthday.",
+     "hint": "to whom (dat. masc.)",
+     "display_order": 4
+    },
+    {
+     "sentence": "Die Kinder, {{answer}} draußen spielen, sind laut.",
+     "answer": "die",
+     "translation": "The children who are playing outside are loud.",
+     "hint": "who (nom. plural)",
+     "display_order": 5
+    },
+    {
+     "sentence": "Das Auto, {{answer}} er gekauft hat, ist rot.",
+     "answer": "das",
+     "translation": "The car that he bought is red.",
+     "hint": "that (acc. neut.)",
+     "display_order": 6
+    }
+   ]
+  },
+  {
+   "title": "The Konjunktiv II (würde, wäre, hätte)",
+   "level": "B1",
+   "function": "Be polite and talk about hypotheticals",
+   "source": "contributor",
+   "reviewed": true,
+   "display_order": 6,
+   "explanation": "Konjunktiv II expresses politeness, wishes, and unreal situations. Most verbs use würde + infinitive: ich würde gern kommen 'I would like to come'.\n\nBut sein, haben, and the modals use their own forms: wäre, hätte, könnte, müsste, wollte.\n\nIch hätte gern einen Kaffee 'I'd like a coffee'.",
+   "culture_note": "",
+   "references": [
+    {
+     "title": "grammis — Leibniz-Institut für Deutsche Sprache",
+     "url": "https://grammis.ids-mannheim.de/"
+    },
+    {
+     "title": "Wikipedia: German grammar",
+     "url": "https://en.wikipedia.org/wiki/German_grammar"
+    }
+   ],
+   "drills": [
+    {
+     "sentence": "Ich {{answer}} gern einen Kaffee.",
+     "answer": "hätte",
+     "translation": "I would like a coffee.",
+     "hint": "would have — I (haben, Konj. II)",
+     "display_order": 1
+    },
+    {
+     "sentence": "{{answer}} du mir bitte helfen?",
+     "answer": "Würdest",
+     "translation": "Would you help me, please?",
+     "hint": "would — you (würde)",
+     "display_order": 2
+    },
+    {
+     "sentence": "An deiner Stelle {{answer}} ich das nicht tun.",
+     "answer": "würde",
+     "translation": "In your place I wouldn't do that.",
+     "hint": "would — I (Konj. II)",
+     "display_order": 3
+    },
+    {
+     "sentence": "Es {{answer}} schön, wenn du kämst.",
+     "answer": "wäre",
+     "translation": "It would be nice if you came.",
+     "hint": "would be (sein, Konj. II)",
+     "display_order": 4
+    },
+    {
+     "sentence": "{{answer}} du mir kurz zuhören?",
+     "answer": "Könntest",
+     "translation": "Could you listen to me for a moment?",
+     "hint": "could — you (können, Konj. II)",
+     "display_order": 5
+    },
+    {
+     "sentence": "Wir {{answer}} gern mehr Zeit haben.",
+     "answer": "würden",
+     "translation": "We would like to have more time.",
+     "hint": "would — we (würde)",
+     "display_order": 6
+    }
+   ]
+  },
+  {
+   "title": "Infinitive with zu (um … zu)",
+   "level": "B1",
+   "function": "Link two verbs, and express purpose",
+   "source": "contributor",
+   "reviewed": true,
+   "display_order": 7,
+   "explanation": "After many verbs and expressions, a second verb takes zu + infinitive at the end: ich versuche zu schlafen 'I try to sleep', es ist wichtig, pünktlich zu sein.\n\nTo express purpose ('in order to'), use um … zu: ich lerne, um die Prüfung zu bestehen. Separable verbs insert zu: aufzustehen.",
+   "culture_note": "",
+   "references": [
+    {
+     "title": "grammis — Leibniz-Institut für Deutsche Sprache",
+     "url": "https://grammis.ids-mannheim.de/"
+    },
+    {
+     "title": "Wikipedia: German grammar",
+     "url": "https://en.wikipedia.org/wiki/German_grammar"
+    }
+   ],
+   "drills": [
+    {
+     "sentence": "Ich versuche, früh {{answer}} schlafen.",
+     "answer": "zu",
+     "translation": "I try to sleep early.",
+     "hint": "to (+ infinitive)",
+     "display_order": 1
+    },
+    {
+     "sentence": "Es ist wichtig, pünktlich {{answer}} sein.",
+     "answer": "zu",
+     "translation": "It's important to be on time.",
+     "hint": "to (+ infinitive)",
+     "display_order": 2
+    },
+    {
+     "sentence": "Ich lerne, {{answer}} die Prüfung zu bestehen.",
+     "answer": "um",
+     "translation": "I study in order to pass the exam.",
+     "hint": "in order (um … zu)",
+     "display_order": 3
+    },
+    {
+     "sentence": "Er ging in die Stadt, {{answer}} einzukaufen.",
+     "answer": "um",
+     "translation": "He went into town in order to shop.",
+     "hint": "in order (um … zu)",
+     "display_order": 4
+    },
+    {
+     "sentence": "Hast du Lust, ins Kino {{answer}} gehen?",
+     "answer": "zu",
+     "translation": "Do you feel like going to the cinema?",
+     "hint": "to (+ infinitive)",
+     "display_order": 5
+    },
+    {
+     "sentence": "Es ist nicht leicht, eine Sprache {{answer}} lernen.",
+     "answer": "zu",
+     "translation": "It's not easy to learn a language.",
+     "hint": "to (+ infinitive)",
+     "display_order": 6
+    }
+   ]
+  },
+  {
+   "title": "The passive voice (werden + Partizip II)",
+   "level": "B2",
+   "function": "Say an action is done, without the doer",
+   "source": "contributor",
+   "reviewed": true,
+   "display_order": 1,
+   "explanation": "The passive = werden (conjugated) + the past participle at the end: das Haus wird gebaut 'the house is being built'.\n\nAny tense works via werden: wurde gebaut (past), ist gebaut worden (perfect — note worden, not geworden).\n\nThe agent, if named, follows von: … von einem Architekten.",
+   "culture_note": "",
+   "references": [
+    {
+     "title": "grammis — Leibniz-Institut für Deutsche Sprache",
+     "url": "https://grammis.ids-mannheim.de/"
+    },
+    {
+     "title": "Wikipedia: German grammar",
+     "url": "https://en.wikipedia.org/wiki/German_grammar"
+    }
+   ],
+   "drills": [
+    {
+     "sentence": "Das Haus {{answer}} gerade gebaut.",
+     "answer": "wird",
+     "translation": "The house is being built right now.",
+     "hint": "is (passive, present)",
+     "display_order": 1
+    },
+    {
+     "sentence": "Die Briefe {{answer}} gestern geschrieben.",
+     "answer": "wurden",
+     "translation": "The letters were written yesterday.",
+     "hint": "were (passive, past)",
+     "display_order": 2
+    },
+    {
+     "sentence": "Das Museum {{answer}} von vielen Touristen besucht.",
+     "answer": "wird",
+     "translation": "The museum is visited by many tourists.",
+     "hint": "is (passive, present)",
+     "display_order": 3
+    },
+    {
+     "sentence": "Der Kuchen ist schon gegessen {{answer}}.",
+     "answer": "worden",
+     "translation": "The cake has already been eaten.",
+     "hint": "been (passive perfect)",
+     "display_order": 4
+    },
+    {
+     "sentence": "Diese Entscheidung {{answer}} morgen getroffen.",
+     "answer": "wird",
+     "translation": "This decision will be made tomorrow.",
+     "hint": "is/will be (passive)",
+     "display_order": 5
+    },
+    {
+     "sentence": "Das Bild wurde {{answer}} einem berühmten Maler gemalt.",
+     "answer": "von",
+     "translation": "The painting was painted by a famous painter.",
+     "hint": "by (the agent)",
+     "display_order": 6
+    }
+   ]
+  },
+  {
+   "title": "The past perfect (Plusquamperfekt)",
+   "level": "B2",
+   "function": "Set one past event before another",
+   "source": "contributor",
+   "reviewed": true,
+   "display_order": 2,
+   "explanation": "The Plusquamperfekt ('had done') = the Präteritum of haben/sein + the past participle: ich hatte gegessen 'I had eaten', sie war gegangen 'she had left'. It marks an action finished before another past point, often with nachdem 'after': nachdem ich gegessen hatte, ging ich.",
+   "culture_note": "",
+   "references": [
+    {
+     "title": "grammis — Leibniz-Institut für Deutsche Sprache",
+     "url": "https://grammis.ids-mannheim.de/"
+    },
+    {
+     "title": "Wikipedia: German grammar",
+     "url": "https://en.wikipedia.org/wiki/German_grammar"
+    }
+   ],
+   "drills": [
+    {
+     "sentence": "Als du ankamst, {{answer}} ich schon gegessen.",
+     "answer": "hatte",
+     "translation": "When you arrived, I had already eaten.",
+     "hint": "had — I (Plusquamperfekt)",
+     "display_order": 1
+    },
+    {
+     "sentence": "Der Zug {{answer}} schon abgefahren, als wir ankamen.",
+     "answer": "war",
+     "translation": "The train had already left when we arrived.",
+     "hint": "had — it (sein-verb)",
+     "display_order": 2
+    },
+    {
+     "sentence": "Nachdem sie gegangen {{answer}}, wurde es still.",
+     "answer": "war",
+     "translation": "After she had left, it became quiet.",
+     "hint": "had (sein-verb, nachdem)",
+     "display_order": 3
+    },
+    {
+     "sentence": "Wir {{answer}} das Essen schon bestellt, als er kam.",
+     "answer": "hatten",
+     "translation": "We had already ordered the food when he came.",
+     "hint": "had — we (Plusquamperfekt)",
+     "display_order": 4
+    },
+    {
+     "sentence": "Ich erkannte das Haus nicht; es {{answer}} sich verändert.",
+     "answer": "hatte",
+     "translation": "I didn't recognize the house; it had changed.",
+     "hint": "had — it (Plusquamperfekt)",
+     "display_order": 5
+    },
+    {
+     "sentence": "Nachdem er die Prüfung bestanden {{answer}}, feierte er.",
+     "answer": "hatte",
+     "translation": "After he had passed the exam, he celebrated.",
+     "hint": "had — he (Plusquamperfekt)",
+     "display_order": 6
+    }
+   ]
+  },
+  {
+   "title": "Unreal conditions (Konjunktiv II der Vergangenheit)",
+   "level": "B2",
+   "function": "Say what would have happened",
+   "source": "contributor",
+   "reviewed": true,
+   "display_order": 3,
+   "explanation": "For unreal PAST conditions, use hätte/wäre + past participle in both clauses: wenn ich Zeit gehabt hätte, wäre ich gekommen 'if I had had time, I would have come'. wenn introduces the condition (verb-final); the result uses hätte/wäre + participle, or würde + infinitive for the present.",
+   "culture_note": "",
+   "references": [
+    {
+     "title": "grammis — Leibniz-Institut für Deutsche Sprache",
+     "url": "https://grammis.ids-mannheim.de/"
+    },
+    {
+     "title": "Wikipedia: German grammar",
+     "url": "https://en.wikipedia.org/wiki/German_grammar"
+    }
+   ],
+   "drills": [
+    {
+     "sentence": "Wenn ich Zeit gehabt {{answer}}, wäre ich gekommen.",
+     "answer": "hätte",
+     "translation": "If I had had time, I would have come.",
+     "hint": "had — I (Konj. II past, haben)",
+     "display_order": 1
+    },
+    {
+     "sentence": "Wenn du früher gegangen {{answer}}, hättest du den Zug erreicht.",
+     "answer": "wärst",
+     "translation": "If you had left earlier, you'd have caught the train.",
+     "hint": "had — you (sein)",
+     "display_order": 2
+    },
+    {
+     "sentence": "Ich {{answer}} dir geholfen, wenn du gefragt hättest.",
+     "answer": "hätte",
+     "translation": "I would have helped you if you had asked.",
+     "hint": "would have — I (haben)",
+     "display_order": 3
+    },
+    {
+     "sentence": "Wir {{answer}} gern länger geblieben.",
+     "answer": "wären",
+     "translation": "We would have liked to stay longer.",
+     "hint": "would have — we (sein)",
+     "display_order": 4
+    },
+    {
+     "sentence": "Wenn es nicht geregnet {{answer}}, hätten wir gegrillt.",
+     "answer": "hätte",
+     "translation": "If it hadn't rained, we would have had a barbecue.",
+     "hint": "had — it (haben)",
+     "display_order": 5
+    },
+    {
+     "sentence": "Was {{answer}} du an meiner Stelle gemacht?",
+     "answer": "hättest",
+     "translation": "What would you have done in my place?",
+     "hint": "would have — you (haben)",
+     "display_order": 6
+    }
+   ]
+  },
+  {
+   "title": "Connectors & word order (deshalb, trotzdem, damit)",
+   "level": "B2",
+   "function": "Link ideas and get the verb position right",
+   "source": "contributor",
+   "reviewed": true,
+   "display_order": 4,
+   "explanation": "Connectors set word order. Coordinating (und, aber, oder, denn) keep normal order.\n\nAdverbial ones (deshalb 'therefore', trotzdem 'nevertheless', dann) push the subject after the verb: es regnet, deshalb bleiben wir. Subordinating (weil, obwohl, damit, wenn) send the verb to the END.",
+   "culture_note": "",
+   "references": [
+    {
+     "title": "grammis — Leibniz-Institut für Deutsche Sprache",
+     "url": "https://grammis.ids-mannheim.de/"
+    },
+    {
+     "title": "Wikipedia: German grammar",
+     "url": "https://en.wikipedia.org/wiki/German_grammar"
+    }
+   ],
+   "drills": [
+    {
+     "sentence": "Es regnet, {{answer}} bleiben wir zu Hause.",
+     "answer": "deshalb",
+     "translation": "It's raining, so we're staying home.",
+     "hint": "therefore (verb comes next)",
+     "display_order": 1
+    },
+    {
+     "sentence": "Er ist müde; {{answer}} arbeitet er weiter.",
+     "answer": "trotzdem",
+     "translation": "He's tired; nevertheless he keeps working.",
+     "hint": "nevertheless",
+     "display_order": 2
+    },
+    {
+     "sentence": "Ich spreche laut, {{answer}} alle mich hören.",
+     "answer": "damit",
+     "translation": "I speak loudly so that everyone hears me.",
+     "hint": "so that (verb to the end)",
+     "display_order": 3
+    },
+    {
+     "sentence": "{{answer}} es spät war, blieben wir noch.",
+     "answer": "Obwohl",
+     "translation": "Although it was late, we stayed a while.",
+     "hint": "although (verb to the end)",
+     "display_order": 4
+    },
+    {
+     "sentence": "Ich lerne Deutsch, {{answer}} ich in Wien arbeiten will.",
+     "answer": "weil",
+     "translation": "I'm learning German because I want to work in Vienna.",
+     "hint": "because (verb to the end)",
+     "display_order": 5
+    },
+    {
+     "sentence": "Beeil dich, {{answer}} verpassen wir den Bus!",
+     "answer": "sonst",
+     "translation": "Hurry up, otherwise we'll miss the bus!",
+     "hint": "otherwise (verb comes next)",
+     "display_order": 6
+    }
+   ]
+  },
+  {
+   "title": "Verbs with prepositions & da-/wo- words",
+   "level": "B2",
+   "function": "Handle fixed verb+preposition pairs and their pronoun forms",
+   "source": "contributor",
+   "reviewed": true,
+   "display_order": 5,
+   "explanation": "Many verbs pair with a fixed preposition and case: warten auf + acc. 'wait for', sich freuen auf 'look forward to', denken an 'think of'.\n\nWhen the object is a thing, replace it with a da-compound: darauf, daran; in a question, use a wo-compound: worauf wartest du?\n\n'what are you waiting for?'",
+   "culture_note": "",
+   "references": [
+    {
+     "title": "grammis — Leibniz-Institut für Deutsche Sprache",
+     "url": "https://grammis.ids-mannheim.de/"
+    },
+    {
+     "title": "Wikipedia: German grammar",
+     "url": "https://en.wikipedia.org/wiki/German_grammar"
+    }
+   ],
+   "drills": [
+    {
+     "sentence": "Ich warte {{answer}} den Bus.",
+     "answer": "auf",
+     "translation": "I'm waiting for the bus.",
+     "hint": "for (warten auf + acc.)",
+     "display_order": 1
+    },
+    {
+     "sentence": "Wir freuen uns {{answer}} die Ferien.",
+     "answer": "auf",
+     "translation": "We're looking forward to the holidays.",
+     "hint": "to (sich freuen auf)",
+     "display_order": 2
+    },
+    {
+     "sentence": "Denkst du oft {{answer}} deine Familie?",
+     "answer": "an",
+     "translation": "Do you often think of your family?",
+     "hint": "of (denken an)",
+     "display_order": 3
+    },
+    {
+     "sentence": "Der Bus kommt nicht. Ich warte schon lange {{answer}}.",
+     "answer": "darauf",
+     "translation": "The bus isn't coming. I've been waiting for it a while.",
+     "hint": "for it (da-compound)",
+     "display_order": 4
+    },
+    {
+     "sentence": "{{answer}} wartest du? — Auf den Zug.",
+     "answer": "Worauf",
+     "translation": "What are you waiting for? — For the train.",
+     "hint": "what … for (wo-compound)",
+     "display_order": 5
+    },
+    {
+     "sentence": "Sie interessiert sich sehr {{answer}} Kunst.",
+     "answer": "für",
+     "translation": "She's very interested in art.",
+     "hint": "in (sich interessieren für)",
+     "display_order": 6
+    }
+   ]
+  },
+  {
+   "title": "Adjectival nouns (das Gute, ein Reisender)",
+   "level": "B2",
+   "function": "Turn an adjective or participle into a noun",
+   "source": "contributor",
+   "reviewed": true,
+   "display_order": 6,
+   "explanation": "Adjectives and participles can become nouns, capitalized but still taking adjective endings: der Alte 'the old man', das Gute 'the good (thing)', ein Deutscher 'a German (man)', der Reisende 'the traveller' (from the present participle reisend).\n\nThe ending still depends on gender, case, and the preceding article.",
+   "culture_note": "",
+   "references": [
+    {
+     "title": "grammis — Leibniz-Institut für Deutsche Sprache",
+     "url": "https://grammis.ids-mannheim.de/"
+    },
+    {
+     "title": "Wikipedia: German grammar",
+     "url": "https://en.wikipedia.org/wiki/German_grammar"
+    }
+   ],
+   "drills": [
+    {
+     "sentence": "Das {{answer}} an der Sache ist der Preis.",
+     "answer": "Gute",
+     "translation": "The good thing about it is the price.",
+     "hint": "good thing (adjectival noun, neut.)",
+     "display_order": 1
+    },
+    {
+     "sentence": "Der {{answer}} sitzt allein auf der Bank.",
+     "answer": "Alte",
+     "translation": "The old man is sitting alone on the bench.",
+     "hint": "old man (adjectival noun)",
+     "display_order": 2
+    },
+    {
+     "sentence": "Ein {{answer}} fragte mich nach dem Weg.",
+     "answer": "Reisender",
+     "translation": "A traveller asked me for directions.",
+     "hint": "traveller (participle noun, nom. m.)",
+     "display_order": 3
+    },
+    {
+     "sentence": "Die {{answer}} bekommen medizinische Hilfe.",
+     "answer": "Kranken",
+     "translation": "The sick receive medical help.",
+     "hint": "the sick (adjectival noun, plural)",
+     "display_order": 4
+    },
+    {
+     "sentence": "Er ist {{answer}} und lebt in Berlin.",
+     "answer": "Deutscher",
+     "translation": "He is a German and lives in Berlin.",
+     "hint": "a German (adjectival noun, nom. m.)",
+     "display_order": 5
+    },
+    {
+     "sentence": "Ich wünsche dir alles {{answer}}!",
+     "answer": "Gute",
+     "translation": "I wish you all the best!",
+     "hint": "best/good (adjectival noun)",
+     "display_order": 6
+    }
+   ]
+  },
+  {
+   "title": "Reported speech (Konjunktiv I)",
+   "level": "C1",
+   "function": "Report others' words in formal / written German",
+   "source": "contributor",
+   "reviewed": true,
+   "display_order": 1,
+   "explanation": "Formal German (news, reports) reports speech with Konjunktiv I: er sagt, er sei krank 'he says he is ill', sie meint, sie habe keine Zeit.\n\nForms come from the infinitive stem + -e/-est/-e/-en…: sei, habe, komme, gehe.\n\nWhen Konjunktiv I equals the indicative, German switches to Konjunktiv II (er sagt, sie hätten…).",
+   "culture_note": "",
+   "references": [
+    {
+     "title": "grammis — Leibniz-Institut für Deutsche Sprache",
+     "url": "https://grammis.ids-mannheim.de/"
+    },
+    {
+     "title": "Wikipedia: German grammar",
+     "url": "https://en.wikipedia.org/wiki/German_grammar"
+    }
+   ],
+   "drills": [
+    {
+     "sentence": "Er sagt, er {{answer}} krank.",
+     "answer": "sei",
+     "translation": "He says he is ill.",
+     "hint": "is (Konjunktiv I of sein)",
+     "display_order": 1
+    },
+    {
+     "sentence": "Sie meint, sie {{answer}} keine Zeit.",
+     "answer": "habe",
+     "translation": "She says she has no time.",
+     "hint": "has (Konjunktiv I of haben)",
+     "display_order": 2
+    },
+    {
+     "sentence": "Der Minister erklärte, die Lage {{answer}} ernst.",
+     "answer": "sei",
+     "translation": "The minister stated that the situation was serious.",
+     "hint": "is (Konjunktiv I of sein)",
+     "display_order": 3
+    },
+    {
+     "sentence": "Man sagt, er {{answer}} bald zurück.",
+     "answer": "komme",
+     "translation": "They say he'll come back soon.",
+     "hint": "comes (Konjunktiv I of kommen)",
+     "display_order": 4
+    },
+    {
+     "sentence": "Sie behauptet, sie {{answer}} nichts davon gewusst.",
+     "answer": "habe",
+     "translation": "She claims she knew nothing about it.",
+     "hint": "has (Konjunktiv I of haben)",
+     "display_order": 5
+    },
+    {
+     "sentence": "Er betonte, es {{answer}} keine andere Lösung.",
+     "answer": "gebe",
+     "translation": "He stressed that there was no other solution.",
+     "hint": "gives/is (Konj. I of geben)",
+     "display_order": 6
+    }
+   ]
+  },
+  {
+   "title": "Passive alternatives (man, sich lassen, sein + zu)",
+   "level": "C1",
+   "function": "Avoid the werden-passive with lighter constructions",
+   "source": "contributor",
+   "reviewed": true,
+   "display_order": 2,
+   "explanation": "German often replaces the passive: man 'one/you' + active (man baut hier ein Haus 'a house is being built here'); sich lassen 'can be done' (das lässt sich machen 'that can be done'); sein + zu + infinitive 'is to be / can be' (das ist leicht zu verstehen 'that's easy to understand').",
+   "culture_note": "",
+   "references": [
+    {
+     "title": "grammis — Leibniz-Institut für Deutsche Sprache",
+     "url": "https://grammis.ids-mannheim.de/"
+    },
+    {
+     "title": "Wikipedia: German grammar",
+     "url": "https://en.wikipedia.org/wiki/German_grammar"
+    }
+   ],
+   "drills": [
+    {
+     "sentence": "{{answer}} spricht hier Deutsch.",
+     "answer": "Man",
+     "translation": "German is spoken here. (one speaks…)",
+     "hint": "one/you (man-passive)",
+     "display_order": 1
+    },
+    {
+     "sentence": "Das Problem {{answer}} sich leicht lösen.",
+     "answer": "lässt",
+     "translation": "The problem can easily be solved.",
+     "hint": "can be (sich lassen)",
+     "display_order": 2
+    },
+    {
+     "sentence": "Dieser Text ist leicht {{answer}} verstehen.",
+     "answer": "zu",
+     "translation": "This text is easy to understand.",
+     "hint": "to (sein + zu)",
+     "display_order": 3
+    },
+    {
+     "sentence": "{{answer}} muss die Regeln beachten.",
+     "answer": "Man",
+     "translation": "One must observe the rules.",
+     "hint": "one/you (man-passive)",
+     "display_order": 4
+    },
+    {
+     "sentence": "Die Tür {{answer}} sich nicht öffnen.",
+     "answer": "lässt",
+     "translation": "The door can't be opened.",
+     "hint": "can be (sich lassen)",
+     "display_order": 5
+    },
+    {
+     "sentence": "Da ist nichts mehr {{answer}} machen.",
+     "answer": "zu",
+     "translation": "There's nothing more to be done.",
+     "hint": "to (sein + zu)",
+     "display_order": 6
+    }
+   ]
+  },
+  {
+   "title": "Advanced connectors (indem, je … desto, sofern)",
+   "level": "C1",
+   "function": "Express means, proportion, and condition precisely",
+   "source": "contributor",
+   "reviewed": true,
+   "display_order": 3,
+   "explanation": "Higher-register connectors: indem 'by …-ing' (er lernt, indem er liest 'he learns by reading'); je … desto/umso 'the more … the more' (je mehr, desto besser); sofern / falls 'provided that / in case'; anstatt … zu 'instead of'; ohne … zu 'without …-ing'.",
+   "culture_note": "",
+   "references": [
+    {
+     "title": "grammis — Leibniz-Institut für Deutsche Sprache",
+     "url": "https://grammis.ids-mannheim.de/"
+    },
+    {
+     "title": "Wikipedia: German grammar",
+     "url": "https://en.wikipedia.org/wiki/German_grammar"
+    }
+   ],
+   "drills": [
+    {
+     "sentence": "Man lernt eine Sprache, {{answer}} man sie spricht.",
+     "answer": "indem",
+     "translation": "You learn a language by speaking it.",
+     "hint": "by …-ing (means)",
+     "display_order": 1
+    },
+    {
+     "sentence": "{{answer}} mehr man übt, desto besser wird man.",
+     "answer": "Je",
+     "translation": "The more you practise, the better you get.",
+     "hint": "the more (correlative)",
+     "display_order": 2
+    },
+    {
+     "sentence": "Je mehr ich lese, {{answer}} mehr verstehe ich.",
+     "answer": "desto",
+     "translation": "The more I read, the more I understand.",
+     "hint": "the more (correlative)",
+     "display_order": 3
+    },
+    {
+     "sentence": "Ich helfe dir, {{answer}} du mich rechtzeitig fragst.",
+     "answer": "sofern",
+     "translation": "I'll help you, provided you ask me in time.",
+     "hint": "provided that",
+     "display_order": 4
+    },
+    {
+     "sentence": "Er ging, {{answer}} sich zu verabschieden.",
+     "answer": "ohne",
+     "translation": "He left without saying goodbye.",
+     "hint": "without (+ zu-infinitive)",
+     "display_order": 5
+    },
+    {
+     "sentence": "{{answer}} zu arbeiten, schaute er den ganzen Tag fern.",
+     "answer": "Anstatt",
+     "translation": "Instead of working, he watched TV all day.",
+     "hint": "instead of (+ zu-infinitive)",
+     "display_order": 6
+    }
+   ]
+  },
+  {
+   "title": "Extended attributes & nominal style (Nominalstil)",
+   "level": "C2",
+   "function": "Read and build the dense noun phrases of formal German",
+   "source": "contributor",
+   "reviewed": true,
+   "display_order": 1,
+   "explanation": "Formal and academic German packs information into extended attributes — a whole phrase placed between article and noun, often built on a participle: die gestern getroffene Entscheidung 'the decision made yesterday', der in Berlin lebende Künstler 'the artist living in Berlin'. This 'Nominalstil' favours nouns over verbs.",
+   "culture_note": "",
+   "references": [
+    {
+     "title": "grammis — Leibniz-Institut für Deutsche Sprache",
+     "url": "https://grammis.ids-mannheim.de/"
+    },
+    {
+     "title": "Wikipedia: German grammar",
+     "url": "https://en.wikipedia.org/wiki/German_grammar"
+    }
+   ],
+   "drills": [
+    {
+     "sentence": "Die gestern {{answer}} Entscheidung war richtig.",
+     "answer": "getroffene",
+     "translation": "The decision made yesterday was right.",
+     "hint": "made (participial attribute)",
+     "display_order": 1
+    },
+    {
+     "sentence": "Der in Berlin {{answer}} Künstler ist berühmt.",
+     "answer": "lebende",
+     "translation": "The artist living in Berlin is famous.",
+     "hint": "living (present-participle attribute)",
+     "display_order": 2
+    },
+    {
+     "sentence": "Das von allen {{answer}} Buch war ausverkauft.",
+     "answer": "erwartete",
+     "translation": "The book everyone expected was sold out.",
+     "hint": "expected (participial attribute)",
+     "display_order": 3
+    },
+    {
+     "sentence": "Die zu {{answer}} Aufgaben sind schwierig.",
+     "answer": "lösenden",
+     "translation": "The tasks to be solved are difficult.",
+     "hint": "to be solved (zu + participle attribute)",
+     "display_order": 4
+    },
+    {
+     "sentence": "Der seit Jahren {{answer}} Konflikt bleibt ungelöst.",
+     "answer": "andauernde",
+     "translation": "The conflict that has lasted for years remains unresolved.",
+     "hint": "lasting (participle attribute)",
+     "display_order": 5
+    },
+    {
+     "sentence": "Die im Bericht {{answer}} Zahlen sind aktuell.",
+     "answer": "genannten",
+     "translation": "The figures named in the report are current.",
+     "hint": "named (participial attribute)",
+     "display_order": 6
+    }
+   ]
+  },
+  {
+   "title": "Modal particles (doch, mal, ja, eben)",
+   "level": "C2",
+   "function": "Colour a sentence the way native speakers do",
+   "source": "contributor",
+   "reviewed": true,
+   "display_order": 2,
+   "explanation": "Modal particles carry tone, not literal meaning. doch 'contradiction / encouragement' (komm doch mit! 'do come along!'); mal 'softening' (warte mal 'hold on'); ja 'as you know / surprise' (das ist ja toll!); eben/halt 'resignation' (das ist eben so 'that's just how it is'); wohl 'probably'.\n\nMastering them is the last step to sounding native.",
+   "culture_note": "",
+   "references": [
+    {
+     "title": "grammis — Leibniz-Institut für Deutsche Sprache",
+     "url": "https://grammis.ids-mannheim.de/"
+    },
+    {
+     "title": "Wikipedia: German grammar",
+     "url": "https://en.wikipedia.org/wiki/German_grammar"
+    }
+   ],
+   "drills": [
+    {
+     "sentence": "Komm {{answer}} mit, es wird lustig!",
+     "answer": "doch",
+     "translation": "Do come along, it'll be fun!",
+     "hint": "(encouragement particle)",
+     "display_order": 1
+    },
+    {
+     "sentence": "Warte {{answer}}, ich bin gleich fertig.",
+     "answer": "mal",
+     "translation": "Hold on, I'm nearly done.",
+     "hint": "(softening particle)",
+     "display_order": 2
+    },
+    {
+     "sentence": "Das ist {{answer}} toll!",
+     "answer": "ja",
+     "translation": "That's great! (as you can see)",
+     "hint": "(surprise / 'as you see' particle)",
+     "display_order": 3
+    },
+    {
+     "sentence": "Das ist {{answer}} so, da kann man nichts machen.",
+     "answer": "eben",
+     "translation": "That's just how it is, nothing to be done.",
+     "hint": "(resignation particle)",
+     "display_order": 4
+    },
+    {
+     "sentence": "Er ist {{answer}} schon nach Hause gegangen.",
+     "answer": "wohl",
+     "translation": "He's probably already gone home.",
+     "hint": "(probability particle)",
+     "display_order": 5
+    },
+    {
+     "sentence": "Nun mach {{answer}} endlich!",
+     "answer": "schon",
+     "translation": "Come on, get on with it!",
+     "hint": "(impatience particle)",
+     "display_order": 6
+    }
+   ]
+  }
+ ]
 }

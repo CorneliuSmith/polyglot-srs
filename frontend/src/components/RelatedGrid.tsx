@@ -38,7 +38,7 @@ export default function RelatedGrid({
               key={r.id}
               type="button"
               onClick={() => onOpen(r.id)}
-              className="text-left rounded-xl border border-gray-200 bg-white px-3 py-2 hover:border-indigo-300 transition"
+              className="text-left rounded-xl border border-gray-200 bg-white px-3 py-2 hover:border-lang/40 transition"
             >
               {body}
             </button>

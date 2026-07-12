@@ -17,9 +17,26 @@ import OnboardingPage from './features/onboarding/OnboardingPage'
 import SettingsPage from './features/settings/SettingsPage'
 import GrammarPathPage from './features/curriculum/GrammarPathPage'
 import ContributorPage from './features/contribute/ContributorPage'
+import SearchPage from './features/search/SearchPage'
+import DecksPage from './features/decks/DecksPage'
+import DeckDetailPage from './features/decks/DeckDetailPage'
 import ProtectedRoute from './components/ProtectedRoute'
+import ThemeApplier from './components/ThemeApplier'
+import LanguageThemeApplier from './components/LanguageThemeApplier'
 
-const queryClient = new QueryClient()
+// Cached data renders INSTANTLY on navigation; anything stale refreshes in
+// the background instead of blanking the page behind a spinner. Writes
+// (finishing a review, learning a batch, deck changes, resets) invalidate
+// their queries explicitly, so nothing user-visible waits on the staleTime.
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      staleTime: 60_000,
+      gcTime: 30 * 60_000,
+      refetchOnWindowFocus: false,
+    },
+  },
+})
 
 const router = createBrowserRouter([
   {
@@ -39,6 +56,10 @@ const router = createBrowserRouter([
       { path: '/settings', element: <SettingsPage /> },
       { path: '/grammar', element: <GrammarPathPage /> },
       { path: '/review', element: <ReviewSessionPage /> },
+      { path: '/cram', element: <ReviewSessionPage cram /> },
+      { path: '/search', element: <SearchPage /> },
+      { path: '/decks', element: <DecksPage /> },
+      { path: '/decks/:deckId', element: <DeckDetailPage /> },
       { path: '/learn', element: <LearnPage /> },
       { path: '/tutor', element: <TutorPage /> },
       { path: '/notes', element: <NotesPage /> },
@@ -70,7 +91,13 @@ function AppInner() {
     }
   }, [setSession, setLoading])
 
-  return <RouterProvider router={router} />
+  return (
+    <>
+      <ThemeApplier />
+      <LanguageThemeApplier />
+      <RouterProvider router={router} />
+    </>
+  )
 }
 
 export default function App() {

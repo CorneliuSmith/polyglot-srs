@@ -12,6 +12,7 @@ vi.mock('../api/profile', () => ({
 vi.mock('../api/tutor', () => ({
   getTutorStatus: vi.fn(),
   sendTutorMessage: vi.fn(),
+  streamTutorMessage: vi.fn(),
   endTutorSession: vi.fn(),
 }))
 
@@ -24,12 +25,18 @@ vi.mock('../stores/prefsStore', () => ({
 }))
 
 import { getLanguages } from '../api/profile'
-import { getTutorStatus, sendTutorMessage, endTutorSession } from '../api/tutor'
+import {
+  getTutorStatus,
+  sendTutorMessage,
+  streamTutorMessage,
+  endTutorSession,
+} from '../api/tutor'
 import { createCheckout } from '../api/billing'
 
 const mockGetLanguages = getLanguages as ReturnType<typeof vi.fn>
 const mockGetTutorStatus = getTutorStatus as ReturnType<typeof vi.fn>
 const mockSendTutorMessage = sendTutorMessage as ReturnType<typeof vi.fn>
+const mockStreamTutorMessage = streamTutorMessage as ReturnType<typeof vi.fn>
 const mockEndTutorSession = endTutorSession as ReturnType<typeof vi.fn>
 const mockCreateCheckout = createCheckout as ReturnType<typeof vi.fn>
 
@@ -76,6 +83,9 @@ describe('TutorPage', () => {
     vi.clearAllMocks()
     mockGetLanguages.mockResolvedValue([turkish])
     mockEndTutorSession.mockResolvedValue(undefined)
+    // Default: streaming transport unavailable -> the page falls back to
+    // the plain endpoint, which most tests exercise.
+    mockStreamTutorMessage.mockRejectedValue(new Error('no stream in jsdom'))
   })
 
   it('shows the welcome message (operator unlimited mode, no meter)', async () => {
@@ -200,6 +210,25 @@ describe('TutorPage', () => {
         ]),
       )
     })
+  })
+
+  it('renders streamed text incrementally, then the final reply', async () => {
+    mockGetTutorStatus.mockResolvedValue(statusWith(unlimited))
+    mockStreamTutorMessage.mockImplementation(
+      async (_id, _code, _msgs, onDelta: (t: string) => void) => {
+        onDelta('Harika! ')
+        onDelta('Harika! Devam edelim.')
+        return { reply: 'Harika! Devam edelim.', allowance: null }
+      },
+    )
+    renderPage()
+
+    const input = await screen.findByPlaceholderText(/message your tutor/i)
+    fireEvent.change(input, { target: { value: 'Merhaba' } })
+    fireEvent.keyDown(input, { key: 'Enter' })
+
+    expect(await screen.findByText(/Devam edelim\./)).toBeDefined()
+    expect(mockSendTutorMessage).not.toHaveBeenCalled() // no fallback needed
   })
 
   it('shows an error banner when sending fails for other reasons', async () => {

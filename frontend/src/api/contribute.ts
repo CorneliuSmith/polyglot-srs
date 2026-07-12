@@ -37,9 +37,85 @@ export async function getGrammarForLanguage(
   is_admin: boolean
   can_review: boolean
   review_policy: string
+  tutor_model?: string | null
 }> {
   const response = await apiClient.get('/api/contribute/grammar', {
     params: { language_id: languageId },
+  })
+  return response.data
+}
+
+export interface ReviewNote {
+  id: string
+  grammar_point_id: string
+  point_title: string
+  level: string | null
+  note: string
+  status: 'open' | 'resolved'
+  author_email: string
+  created_at: string | null
+}
+
+export async function flagPointIssue(pointId: string, note: string): Promise<void> {
+  await apiClient.post(`/api/contribute/grammar/${pointId}/notes`, { note })
+}
+
+export async function getReviewNotes(
+  languageId: string,
+  includeResolved = false,
+): Promise<ReviewNote[]> {
+  const response = await apiClient.get('/api/contribute/notes', {
+    params: { language_id: languageId, include_resolved: includeResolved },
+  })
+  return response.data.notes
+}
+
+export async function resolveReviewNote(noteId: string): Promise<void> {
+  await apiClient.post(`/api/contribute/notes/${noteId}/resolve`)
+}
+
+/** Models an admin may assign per language; null = the global default. */
+export const TUTOR_MODELS = [
+  'claude-fable-5',
+  'claude-opus-4-8',
+  'claude-sonnet-5',
+  'claude-haiku-4-5-20251001',
+] as const
+
+export async function setLanguageTutorModel(
+  languageId: string,
+  model: string | null,
+): Promise<void> {
+  await apiClient.post('/api/contribute/language-tutor-model', {
+    language_id: languageId,
+    model,
+  })
+}
+
+export interface TutorUsageRow {
+  language_id: string | null
+  language_name: string | null
+  model: string | null
+  kind: 'chat' | 'summary'
+  messages: number
+  input_tokens: number
+  output_tokens: number
+  cache_write_tokens: number
+  cache_read_tokens: number
+  est_cost_usd: number
+}
+
+export interface TutorUsageSummary {
+  days: number
+  rows: TutorUsageRow[]
+  total_messages: number
+  total_est_cost_usd: number
+}
+
+/** Admin-only rollup of tutor token usage priced at list rates (WP9b). */
+export async function getTutorUsage(days = 30): Promise<TutorUsageSummary> {
+  const response = await apiClient.get('/api/contribute/tutor-usage', {
+    params: { days },
   })
   return response.data
 }
@@ -143,6 +219,25 @@ export async function addDrill(
 ): Promise<{ id: string }> {
   const response = await apiClient.post(
     `/api/contribute/grammar/${pointId}/drills`,
+    input,
+  )
+  return response.data
+}
+
+export async function updateDrill(
+  pointId: string,
+  drillId: string,
+  input: {
+    sentence: string
+    answer: string
+    translation?: string
+    hint?: string
+    /** required rationale — lands in the point's review notes */
+    change_note: string
+  },
+): Promise<{ saved: boolean; reviewed: boolean }> {
+  const response = await apiClient.put(
+    `/api/contribute/grammar/${pointId}/drills/${drillId}`,
     input,
   )
   return response.data

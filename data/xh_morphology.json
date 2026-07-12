@@ -1,0 +1,5357 @@
+{
+"banzi": {
+"chips": [
+{
+"label": "Plural",
+"value": "esibanzi"
+}
+],
+"pos": "conj"
+},
+"bomvu": {
+"chips": [
+{
+"label": "Plural",
+"value": "esibomvu"
+}
+],
+"pos": "conj"
+},
+"buhlungu": {
+"chips": [
+{
+"label": "Plural",
+"value": "esibuhlungu"
+}
+],
+"pos": "conj"
+},
+"bukhali": {
+"chips": [
+{
+"label": "Plural",
+"value": "esibukhali"
+}
+],
+"pos": "conj"
+},
+"buthuntu": {
+"chips": [
+{
+"label": "Plural",
+"value": "esibuthuntu"
+}
+],
+"pos": "conj"
+},
+"dala": {
+"chips": [
+{
+"label": "Plural",
+"value": "esibadala"
+}
+],
+"pos": "adj"
+},
+"goso": {
+"chips": [
+{
+"label": "Plural",
+"value": "esigoso"
+}
+],
+"pos": "conj"
+},
+"hle": {
+"chips": [
+{
+"label": "Plural",
+"value": "esibahle"
+}
+],
+"pos": "adj"
+},
+"ibala": {
+"chips": [
+{
+"label": "Plural",
+"value": "ámábâla"
+}
+],
+"pos": "noun"
+},
+"ibali": {
+"chips": [
+{
+"label": "Plural",
+"value": "amabali"
+}
+],
+"pos": "noun"
+},
+"ibamba": {
+"chips": [
+{
+"label": "Plural",
+"value": "amabamba"
+}
+],
+"pos": "noun"
+},
+"ibandla": {
+"chips": [
+{
+"label": "Plural",
+"value": "ámábândla"
+}
+],
+"pos": "noun"
+},
+"ibanga": {
+"chips": [
+{
+"label": "Plural",
+"value": "amabanga"
+}
+],
+"pos": "noun"
+},
+"ibango": {
+"chips": [
+{
+"label": "Plural",
+"value": "amabango"
+}
+],
+"pos": "noun"
+},
+"ibele": {
+"chips": [
+{
+"label": "Plural",
+"value": "ámábéle"
+}
+],
+"pos": "noun"
+},
+"ibhadi": {
+"chips": [
+{
+"label": "Plural",
+"value": "amabhadi"
+}
+],
+"pos": "noun"
+},
+"ibhekile": {
+"chips": [
+{
+"label": "Plural",
+"value": "íibhékîle"
+}
+],
+"pos": "noun"
+},
+"ibhokhwe": {
+"chips": [
+{
+"label": "Plural",
+"value": "íibhókhwe"
+}
+],
+"pos": "noun"
+},
+"ibhotwe": {
+"chips": [
+{
+"label": "Plural",
+"value": "amabhotwe"
+}
+],
+"pos": "noun"
+},
+"ibhunga": {
+"chips": [
+{
+"label": "Plural",
+"value": "iibhunga"
+}
+],
+"pos": "noun"
+},
+"ibubu": {
+"chips": [
+{
+"label": "Plural",
+"value": "iibubu"
+}
+],
+"pos": "noun"
+},
+"ibunzi": {
+"chips": [
+{
+"label": "Plural",
+"value": "amabunzi"
+}
+],
+"pos": "noun"
+},
+"icala": {
+"chips": [
+{
+"label": "Plural",
+"value": "ámácâla"
+}
+],
+"pos": "noun"
+},
+"icandelo": {
+"chips": [
+{
+"label": "Plural",
+"value": "amacandelo"
+}
+],
+"pos": "noun"
+},
+"icebo": {
+"chips": [
+{
+"label": "Plural",
+"value": "ámácêbo"
+}
+],
+"pos": "noun"
+},
+"icesina": {
+"chips": [
+{
+"label": "Plural",
+"value": "íicésina"
+}
+],
+"pos": "noun"
+},
+"ichibi": {
+"chips": [
+{
+"label": "Plural",
+"value": "ámáchibí"
+}
+],
+"pos": "noun"
+},
+"icwecwe": {
+"chips": [
+{
+"label": "Plural",
+"value": "amacwecwe"
+}
+],
+"pos": "noun"
+},
+"idabi": {
+"chips": [
+{
+"label": "Plural",
+"value": "amadabi"
+}
+],
+"pos": "noun"
+},
+"idade": {
+"chips": [
+{
+"label": "Plural",
+"value": "iidade"
+}
+],
+"pos": "noun"
+},
+"idiliya": {
+"chips": [
+{
+"label": "Plural",
+"value": "iidiliya"
+}
+],
+"pos": "noun"
+},
+"idinga": {
+"chips": [
+{
+"label": "Plural",
+"value": "amadinga"
+}
+],
+"pos": "noun"
+},
+"idini": {
+"chips": [
+{
+"label": "Plural",
+"value": "amadini"
+}
+],
+"pos": "noun"
+},
+"idlelo": {
+"chips": [
+{
+"label": "Plural",
+"value": "amadlelo"
+}
+],
+"pos": "noun"
+},
+"idyokhwe": {
+"chips": [
+{
+"label": "Plural",
+"value": "íidyókhwe"
+}
+],
+"pos": "noun"
+},
+"ifestile": {
+"chips": [
+{
+"label": "Plural",
+"value": "íiféstile"
+}
+],
+"pos": "noun"
+},
+"igama": {
+"chips": [
+{
+"label": "Plural",
+"value": "ámágâma"
+}
+],
+"pos": "noun"
+},
+"igazi": {
+"chips": [
+{
+"label": "Plural",
+"value": "ámágazí"
+}
+],
+"pos": "noun"
+},
+"igorha": {
+"chips": [
+{
+"label": "Plural",
+"value": "ámágórha"
+}
+],
+"pos": "noun"
+},
+"igosa": {
+"chips": [
+{
+"label": "Plural",
+"value": "amagosa"
+}
+],
+"pos": "noun"
+},
+"igqabi": {
+"chips": [
+{
+"label": "Plural",
+"value": "ámágqabi"
+}
+],
+"pos": "noun"
+},
+"igqirha": {
+"chips": [
+{
+"label": "Plural",
+"value": "ámágqirha"
+}
+],
+"pos": "noun"
+},
+"igqugula": {
+"chips": [
+{
+"label": "Plural",
+"value": "amagqugula"
+}
+],
+"pos": "noun"
+},
+"igumbi": {
+"chips": [
+{
+"label": "Plural",
+"value": "ámágumbí"
+}
+],
+"pos": "noun"
+},
+"igunya": {
+"chips": [
+{
+"label": "Plural",
+"value": "ámágûnya"
+}
+],
+"pos": "noun"
+},
+"igusha": {
+"chips": [
+{
+"label": "Plural",
+"value": "iígusha"
+}
+],
+"pos": "noun"
+},
+"igwebu": {
+"chips": [
+{
+"label": "Plural",
+"value": "ámágwebu"
+}
+],
+"pos": "noun"
+},
+"igxalaba": {
+"chips": [
+{
+"label": "Plural",
+"value": "ámágxalába"
+}
+],
+"pos": "noun"
+},
+"ihashe": {
+"chips": [
+{
+"label": "Plural",
+"value": "ámáháshe"
+}
+],
+"pos": "noun"
+},
+"ihenyukazi": {
+"chips": [
+{
+"label": "Plural",
+"value": "iihenyukazi"
+}
+],
+"pos": "noun"
+},
+"ihlahla": {
+"chips": [
+{
+"label": "Plural",
+"value": "iihlahla"
+}
+],
+"pos": "noun"
+},
+"ihlathi": {
+"chips": [
+{
+"label": "Plural",
+"value": "ámáhlâthi"
+}
+],
+"pos": "noun"
+},
+"ihlelo": {
+"chips": [
+{
+"label": "Plural",
+"value": "amahlelo"
+}
+],
+"pos": "noun"
+},
+"ihleza": {
+"chips": [
+{
+"label": "Plural",
+"value": "iihleza"
+}
+],
+"pos": "noun"
+},
+"ihlobo": {
+"chips": [
+{
+"label": "Plural",
+"value": "ámáhlobo"
+}
+],
+"pos": "noun"
+},
+"ihlwempu": {
+"chips": [
+{
+"label": "Plural",
+"value": "ámáhlwempú"
+}
+],
+"pos": "noun"
+},
+"ihobe": {
+"chips": [
+{
+"label": "Plural",
+"value": "ámáhobé"
+}
+],
+"pos": "noun"
+},
+"ikampu": {
+"chips": [
+{
+"label": "Plural",
+"value": "íikámpu"
+}
+],
+"pos": "noun"
+},
+"ikhala": {
+"chips": [
+{
+"label": "Plural",
+"value": "iikhala"
+}
+],
+"pos": "noun"
+},
+"ikhaya": {
+"chips": [
+{
+"label": "Plural",
+"value": "ámákhâya"
+}
+],
+"pos": "noun"
+},
+"ikhephu": {
+"chips": [
+{
+"label": "Plural",
+"value": "ámákhéphu"
+}
+],
+"pos": "noun"
+},
+"ikhonkco": {
+"chips": [
+{
+"label": "Plural",
+"value": "amakhonkco"
+}
+],
+"pos": "noun"
+},
+"ikhulu": {
+"chips": [
+{
+"label": "Plural",
+"value": "ámákhûlu"
+}
+],
+"pos": "noun"
+},
+"ikrele": {
+"chips": [
+{
+"label": "Plural",
+"value": "ámákrêle"
+}
+],
+"pos": "noun"
+},
+"ikroba": {
+"chips": [
+{
+"label": "Plural",
+"value": "amakroba"
+}
+],
+"pos": "noun"
+},
+"ilahle": {
+"chips": [
+{
+"label": "Plural",
+"value": "amalahle"
+}
+],
+"pos": "noun"
+},
+"ilanga": {
+"chips": [
+{
+"label": "Plural",
+"value": "ámálanga"
+}
+],
+"pos": "noun"
+},
+"ilifu": {
+"chips": [
+{
+"label": "Plural",
+"value": "ámáfu"
+}
+],
+"pos": "noun"
+},
+"ilishwa": {
+"chips": [
+{
+"label": "Plural",
+"value": "ámáshwa"
+}
+],
+"pos": "noun"
+},
+"iliso": {
+"chips": [
+{
+"label": "Plural",
+"value": "ámêhlo"
+}
+],
+"pos": "noun"
+},
+"ilitye": {
+"chips": [
+{
+"label": "Plural",
+"value": "ámátye"
+}
+],
+"pos": "noun"
+},
+"iliwa": {
+"chips": [
+{
+"label": "Plural",
+"value": "ámawá"
+}
+],
+"pos": "noun"
+},
+"ilixa": {
+"chips": [
+{
+"label": "Plural",
+"value": "ámaxá"
+}
+],
+"pos": "noun"
+},
+"ilizwe": {
+"chips": [
+{
+"label": "Plural",
+"value": "ámázwe"
+}
+],
+"pos": "noun"
+},
+"ilizwi": {
+"chips": [
+{
+"label": "Plural",
+"value": "ámazwí"
+}
+],
+"pos": "noun"
+},
+"ilothe": {
+"chips": [
+{
+"label": "Plural",
+"value": "iilothe"
+}
+],
+"pos": "noun"
+},
+"ilungelo": {
+"chips": [
+{
+"label": "Plural",
+"value": "ámálúngeló"
+}
+],
+"pos": "noun"
+},
+"imali": {
+"chips": [
+{
+"label": "Plural",
+"value": "íimalí"
+}
+],
+"pos": "noun"
+},
+"imazi": {
+"chips": [
+{
+"label": "Plural",
+"value": "íimâzi"
+}
+],
+"pos": "noun"
+},
+"imbabala": {
+"chips": [
+{
+"label": "Plural",
+"value": "íimbabâlá"
+}
+],
+"pos": "noun"
+},
+"imbali": {
+"chips": [
+{
+"label": "Plural",
+"value": "iimbali"
+}
+],
+"pos": "noun"
+},
+"imbambano": {
+"chips": [
+{
+"label": "Plural",
+"value": "iimbambano"
+}
+],
+"pos": "noun"
+},
+"imbandezelo": {
+"chips": [
+{
+"label": "Plural",
+"value": "iimbandezelo"
+}
+],
+"pos": "noun"
+},
+"imbangi": {
+"chips": [
+{
+"label": "Plural",
+"value": "iimbangi"
+}
+],
+"pos": "noun"
+},
+"imbeko": {
+"chips": [
+{
+"label": "Plural",
+"value": "iimbeko"
+}
+],
+"pos": "noun"
+},
+"imbewu": {
+"chips": [
+{
+"label": "Plural",
+"value": "íimbêwu"
+}
+],
+"pos": "noun"
+},
+"imbiza": {
+"chips": [
+{
+"label": "Plural",
+"value": "íimbizá"
+}
+],
+"pos": "noun"
+},
+"imbombo": {
+"chips": [
+{
+"label": "Plural",
+"value": "iimbombo"
+}
+],
+"pos": "noun"
+},
+"imbuzi": {
+"chips": [
+{
+"label": "Plural",
+"value": "íimbuzí"
+}
+],
+"pos": "noun"
+},
+"imfazwe": {
+"chips": [
+{
+"label": "Plural",
+"value": "íimfázwe"
+}
+],
+"pos": "noun"
+},
+"imfundiso": {
+"chips": [
+{
+"label": "Plural",
+"value": "iimfundiso"
+}
+],
+"pos": "noun"
+},
+"imfundo": {
+"chips": [
+{
+"label": "Plural",
+"value": "íimfúndo"
+}
+],
+"pos": "noun"
+},
+"imfuyo": {
+"chips": [
+{
+"label": "Plural",
+"value": "íimfúyo"
+}
+],
+"pos": "noun"
+},
+"imini": {
+"chips": [
+{
+"label": "Plural",
+"value": "íimíni"
+}
+],
+"pos": "noun"
+},
+"impahla": {
+"chips": [
+{
+"label": "Plural",
+"value": "iímpahla"
+}
+],
+"pos": "noun"
+},
+"impambano": {
+"chips": [
+{
+"label": "Plural",
+"value": "iimpambano"
+}
+],
+"pos": "noun"
+},
+"impatho": {
+"chips": [
+{
+"label": "Plural",
+"value": "iimpatho"
+}
+],
+"pos": "noun"
+},
+"impendulo": {
+"chips": [
+{
+"label": "Plural",
+"value": "íimpéndulo"
+}
+],
+"pos": "noun"
+},
+"impepho": {
+"chips": [
+{
+"label": "Plural",
+"value": "iimpepho"
+}
+],
+"pos": "noun"
+},
+"impi": {
+"chips": [
+{
+"label": "Plural",
+"value": "ízimpí"
+}
+],
+"pos": "noun"
+},
+"impikiswano": {
+"chips": [
+{
+"label": "Plural",
+"value": "iimpikiswano"
+}
+],
+"pos": "noun"
+},
+"impilo": {
+"chips": [
+{
+"label": "Plural",
+"value": "iímpilo"
+}
+],
+"pos": "noun"
+},
+"impukane": {
+"chips": [
+{
+"label": "Plural",
+"value": "íimpúkané"
+}
+],
+"pos": "noun"
+},
+"impumelelo": {
+"chips": [
+{
+"label": "Plural",
+"value": "íimpúmélelo"
+}
+],
+"pos": "noun"
+},
+"impumlo": {
+"chips": [
+{
+"label": "Plural",
+"value": "íimpúmlo"
+}
+],
+"pos": "noun"
+},
+"impungutye": {
+"chips": [
+{
+"label": "Plural",
+"value": "íimpúngûtye"
+}
+],
+"pos": "noun"
+},
+"imvu": {
+"chips": [
+{
+"label": "Plural",
+"value": "ízimvú"
+}
+],
+"pos": "noun"
+},
+"imvubu": {
+"chips": [
+{
+"label": "Plural",
+"value": "íimvubú"
+}
+],
+"pos": "noun"
+},
+"imvula": {
+"chips": [
+{
+"label": "Plural",
+"value": "íimvûla"
+}
+],
+"pos": "noun"
+},
+"imvumi": {
+"chips": [
+{
+"label": "Plural",
+"value": "iimvumi"
+}
+],
+"pos": "noun"
+},
+"incam": {
+"chips": [
+{
+"label": "Plural",
+"value": "iincam"
+}
+],
+"pos": "noun"
+},
+"incasa": {
+"chips": [
+{
+"label": "Plural",
+"value": "iincasa"
+}
+],
+"pos": "noun"
+},
+"incoko": {
+"chips": [
+{
+"label": "Plural",
+"value": "íincóko"
+}
+],
+"pos": "noun"
+},
+"incopho": {
+"chips": [
+{
+"label": "Plural",
+"value": "íincophó"
+}
+],
+"pos": "noun"
+},
+"incwadi": {
+"chips": [
+{
+"label": "Plural",
+"value": "íincwadí"
+}
+],
+"pos": "noun"
+},
+"indawo": {
+"chips": [
+{
+"label": "Plural",
+"value": "íindâwo"
+}
+],
+"pos": "noun"
+},
+"indebe": {
+"chips": [
+{
+"label": "Plural",
+"value": "iindebe"
+}
+],
+"pos": "noun"
+},
+"indlala": {
+"chips": [
+{
+"label": "Plural",
+"value": "iíndlala"
+}
+],
+"pos": "noun"
+},
+"indlalifa": {
+"chips": [
+{
+"label": "Plural",
+"value": "iindlalifa"
+}
+],
+"pos": "noun"
+},
+"indlebe": {
+"chips": [
+{
+"label": "Plural",
+"value": "íindlebé"
+}
+],
+"pos": "noun"
+},
+"indleko": {
+"chips": [
+{
+"label": "Plural",
+"value": "iindleko"
+}
+],
+"pos": "noun"
+},
+"indlela": {
+"chips": [
+{
+"label": "Plural",
+"value": "iíndlela"
+}
+],
+"pos": "noun"
+},
+"indlu": {
+"chips": [
+{
+"label": "Plural",
+"value": "ízíndlu"
+}
+],
+"pos": "noun"
+},
+"indoda": {
+"chips": [
+{
+"label": "Plural",
+"value": "ámádoda"
+}
+],
+"pos": "noun"
+},
+"indumiso": {
+"chips": [
+{
+"label": "Plural",
+"value": "iindumiso"
+}
+],
+"pos": "noun"
+},
+"induna": {
+"chips": [
+{
+"label": "Plural",
+"value": "iinduna"
+}
+],
+"pos": "noun"
+},
+"inene": {
+"chips": [
+{
+"label": "Plural",
+"value": "íinêne"
+}
+],
+"pos": "noun"
+},
+"ingalo": {
+"chips": [
+{
+"label": "Plural",
+"value": "iíngalo"
+}
+],
+"pos": "noun"
+},
+"ingca": {
+"chips": [
+{
+"label": "Plural",
+"value": "ízingcá"
+}
+],
+"pos": "noun"
+},
+"ingcambu": {
+"chips": [
+{
+"label": "Plural",
+"value": "íingcâmbu"
+}
+],
+"pos": "noun"
+},
+"ingcinga": {
+"chips": [
+{
+"label": "Plural",
+"value": "iingcinga"
+}
+],
+"pos": "noun"
+},
+"ingcobo": {
+"chips": [
+{
+"label": "Plural",
+"value": "îingcóbo"
+}
+],
+"pos": "noun"
+},
+"ingcongolo": {
+"chips": [
+{
+"label": "Plural",
+"value": "íingcongólo"
+}
+],
+"pos": "noun"
+},
+"ingcuka": {
+"chips": [
+{
+"label": "Plural",
+"value": "iingcuka"
+}
+],
+"pos": "noun"
+},
+"ingcwaba": {
+"chips": [
+{
+"label": "Plural",
+"value": "ámángcwaba"
+}
+],
+"pos": "noun"
+},
+"ingobozi": {
+"chips": [
+{
+"label": "Plural",
+"value": "íingóbôzi"
+}
+],
+"pos": "noun"
+},
+"ingoma": {
+"chips": [
+{
+"label": "Plural",
+"value": "iíngoma"
+}
+],
+"pos": "noun"
+},
+"ingonyama": {
+"chips": [
+{
+"label": "Plural",
+"value": "íingónyâma"
+}
+],
+"pos": "noun"
+},
+"ingqalo": {
+"chips": [
+{
+"label": "Plural",
+"value": "íingqâlo"
+}
+],
+"pos": "noun"
+},
+"ingqeqesho": {
+"chips": [
+{
+"label": "Plural",
+"value": "íingqéqésho"
+}
+],
+"pos": "noun"
+},
+"ingqibo": {
+"chips": [
+{
+"label": "Plural",
+"value": "iíngqibo"
+}
+],
+"pos": "noun"
+},
+"ingqina": {
+"chips": [
+{
+"label": "Plural",
+"value": "iingqina"
+}
+],
+"pos": "noun"
+},
+"ingqiniseko": {
+"chips": [
+{
+"label": "Plural",
+"value": "iingqiniseko"
+}
+],
+"pos": "noun"
+},
+"ingqiqo": {
+"chips": [
+{
+"label": "Plural",
+"value": "iingqiqo"
+}
+],
+"pos": "noun"
+},
+"ingqolowa": {
+"chips": [
+{
+"label": "Plural",
+"value": "íingqolówa"
+}
+],
+"pos": "noun"
+},
+"ingqondo": {
+"chips": [
+{
+"label": "Plural",
+"value": "iíngqondo"
+}
+],
+"pos": "noun"
+},
+"ingqongqo": {
+"chips": [
+{
+"label": "Plural",
+"value": "iingqongqo"
+}
+],
+"pos": "noun"
+},
+"ingqukuva": {
+"chips": [
+{
+"label": "Plural",
+"value": "íingqukúva"
+}
+],
+"pos": "noun"
+},
+"ingqushu": {
+"chips": [
+{
+"label": "Plural",
+"value": "íingqushú"
+}
+],
+"pos": "noun"
+},
+"ingubo": {
+"chips": [
+{
+"label": "Plural",
+"value": "iíngubo"
+}
+],
+"pos": "noun"
+},
+"ingulube": {
+"chips": [
+{
+"label": "Plural",
+"value": "iingulube"
+}
+],
+"pos": "noun"
+},
+"ingwe": {
+"chips": [
+{
+"label": "Plural",
+"value": "ízíngwe"
+}
+],
+"pos": "noun"
+},
+"ingweletshetshe": {
+"chips": [
+{
+"label": "Plural",
+"value": "iingweletshetshe"
+}
+],
+"pos": "noun"
+},
+"ingwenya": {
+"chips": [
+{
+"label": "Plural",
+"value": "iíngwenya"
+}
+],
+"pos": "noun"
+},
+"ingxabano": {
+"chips": [
+{
+"label": "Plural",
+"value": "íingxabáno"
+}
+],
+"pos": "noun"
+},
+"ingxelo": {
+"chips": [
+{
+"label": "Plural",
+"value": "iíngxelo"
+}
+],
+"pos": "noun"
+},
+"ingxolo": {
+"chips": [
+{
+"label": "Plural",
+"value": "íingxôlo"
+}
+],
+"pos": "noun"
+},
+"ingxowa": {
+"chips": [
+{
+"label": "Plural",
+"value": "iíngxowa"
+}
+],
+"pos": "noun"
+},
+"inja": {
+"chips": [
+{
+"label": "Plural",
+"value": "ízinjá"
+}
+],
+"pos": "noun"
+},
+"injoli": {
+"chips": [
+{
+"label": "Plural",
+"value": "iínjoli"
+}
+],
+"pos": "noun"
+},
+"inkaba": {
+"chips": [
+{
+"label": "Plural",
+"value": "iinkaba"
+}
+],
+"pos": "noun"
+},
+"inkamela": {
+"chips": [
+{
+"label": "Plural",
+"value": "iinkamela"
+}
+],
+"pos": "noun"
+},
+"inkedama": {
+"chips": [
+{
+"label": "Plural",
+"value": "íinkédâma"
+}
+],
+"pos": "noun"
+},
+"inkitha": {
+"chips": [
+{
+"label": "Plural",
+"value": "iinkitha"
+}
+],
+"pos": "noun"
+},
+"inkohlakalo": {
+"chips": [
+{
+"label": "Plural",
+"value": "iinkohlakalo"
+}
+],
+"pos": "noun"
+},
+"inkolo": {
+"chips": [
+{
+"label": "Plural",
+"value": "iinkolo"
+}
+],
+"pos": "noun"
+},
+"inkomo": {
+"chips": [
+{
+"label": "Plural",
+"value": "íinkomó"
+}
+],
+"pos": "noun"
+},
+"inkonzo": {
+"chips": [
+{
+"label": "Plural",
+"value": "iinkonzo"
+}
+],
+"pos": "noun"
+},
+"inkosi": {
+"chips": [
+{
+"label": "Plural",
+"value": "ámákhôsi"
+}
+],
+"pos": "noun"
+},
+"inkosikazi": {
+"chips": [
+{
+"label": "Plural",
+"value": "ámákhósíkazi"
+}
+],
+"pos": "noun"
+},
+"inkqantosi": {
+"chips": [
+{
+"label": "Plural",
+"value": "íinkqántósi"
+}
+],
+"pos": "noun"
+},
+"inkuku": {
+"chips": [
+{
+"label": "Plural",
+"value": "íinkûku"
+}
+],
+"pos": "noun"
+},
+"inkulu": {
+"chips": [
+{
+"label": "Plural",
+"value": "iinkulu"
+}
+],
+"pos": "noun"
+},
+"inkululeko": {
+"chips": [
+{
+"label": "Plural",
+"value": "íinkúlúleko"
+}
+],
+"pos": "noun"
+},
+"inkungu": {
+"chips": [
+{
+"label": "Plural",
+"value": "íinkûngu"
+}
+],
+"pos": "noun"
+},
+"inkunkuma": {
+"chips": [
+{
+"label": "Plural",
+"value": "íinkúnkuma"
+}
+],
+"pos": "noun"
+},
+"inkunzi": {
+"chips": [
+{
+"label": "Plural",
+"value": "íinkûnzi"
+}
+],
+"pos": "noun"
+},
+"inkwenkwe": {
+"chips": [
+{
+"label": "Plural",
+"value": "ámákhwenkwé"
+}
+],
+"pos": "noun"
+},
+"inkwenkwezi": {
+"chips": [
+{
+"label": "Plural",
+"value": "íinkwénkwézi"
+}
+],
+"pos": "noun"
+},
+"inkxwaleko": {
+"chips": [
+{
+"label": "Plural",
+"value": "íinkxwáleko"
+}
+],
+"pos": "noun"
+},
+"inqaba": {
+"chips": [
+{
+"label": "Plural",
+"value": "iinqaba"
+}
+],
+"pos": "noun"
+},
+"inqanawa": {
+"chips": [
+{
+"label": "Plural",
+"value": "íinqánáwa"
+}
+],
+"pos": "noun"
+},
+"inqu": {
+"chips": [
+{
+"label": "Plural",
+"value": "iinqu"
+}
+],
+"pos": "noun"
+},
+"inqwelo": {
+"chips": [
+{
+"label": "Plural",
+"value": "íinqwélo"
+}
+],
+"pos": "noun"
+},
+"intaba": {
+"chips": [
+{
+"label": "Plural",
+"value": "iíntaba"
+}
+],
+"pos": "noun"
+},
+"intaka": {
+"chips": [
+{
+"label": "Plural",
+"value": "íintaka"
+}
+],
+"pos": "noun"
+},
+"intakumba": {
+"chips": [
+{
+"label": "Plural",
+"value": "íintákumbá"
+}
+],
+"pos": "noun"
+},
+"intambo": {
+"chips": [
+{
+"label": "Plural",
+"value": "iíntambo"
+}
+],
+"pos": "noun"
+},
+"intengiso": {
+"chips": [
+{
+"label": "Plural",
+"value": "iintengiso"
+}
+],
+"pos": "noun"
+},
+"intente": {
+"chips": [
+{
+"label": "Plural",
+"value": "îinténte"
+}
+],
+"pos": "noun"
+},
+"intetho": {
+"chips": [
+{
+"label": "Plural",
+"value": "íintêtho"
+}
+],
+"pos": "noun"
+},
+"intili": {
+"chips": [
+{
+"label": "Plural",
+"value": "iintili"
+}
+],
+"pos": "noun"
+},
+"intlabathi": {
+"chips": [
+{
+"label": "Plural",
+"value": "íintlabâthí"
+}
+],
+"pos": "noun"
+},
+"intlama": {
+"chips": [
+{
+"label": "Plural",
+"value": "iintlama"
+}
+],
+"pos": "noun"
+},
+"intlanganiso": {
+"chips": [
+{
+"label": "Plural",
+"value": "iintlanganiso"
+}
+],
+"pos": "noun"
+},
+"intlango": {
+"chips": [
+{
+"label": "Plural",
+"value": "iíntlango"
+}
+],
+"pos": "noun"
+},
+"intlanzi": {
+"chips": [
+{
+"label": "Plural",
+"value": "íintlanzi"
+}
+],
+"pos": "noun"
+},
+"intlawulo": {
+"chips": [
+{
+"label": "Plural",
+"value": "iintlawulo"
+}
+],
+"pos": "noun"
+},
+"intlekele": {
+"chips": [
+{
+"label": "Plural",
+"value": "íintlékele"
+}
+],
+"pos": "noun"
+},
+"intlekisa": {
+"chips": [
+{
+"label": "Plural",
+"value": "iintlekisa"
+}
+],
+"pos": "noun"
+},
+"intliziyo": {
+"chips": [
+{
+"label": "Plural",
+"value": "íintlízíyo"
+}
+],
+"pos": "noun"
+},
+"intloko": {
+"chips": [
+{
+"label": "Plural",
+"value": "íintlóko"
+}
+],
+"pos": "noun"
+},
+"into": {
+"chips": [
+{
+"label": "Plural",
+"value": "ízintó"
+}
+],
+"pos": "noun"
+},
+"intolongo": {
+"chips": [
+{
+"label": "Plural",
+"value": "iintolongo"
+}
+],
+"pos": "noun"
+},
+"intombazana": {
+"chips": [
+{
+"label": "Plural",
+"value": "ámántombazâna"
+}
+],
+"pos": "noun"
+},
+"intombi": {
+"chips": [
+{
+"label": "Plural",
+"value": "íintombí"
+}
+],
+"pos": "noun"
+},
+"intonga": {
+"chips": [
+{
+"label": "Plural",
+"value": "íintônga"
+}
+],
+"pos": "noun"
+},
+"intsalela": {
+"chips": [
+{
+"label": "Plural",
+"value": "íintsálela"
+}
+],
+"pos": "noun"
+},
+"intsasa": {
+"chips": [
+{
+"label": "Plural",
+"value": "íintsásá"
+}
+],
+"pos": "noun"
+},
+"intsika": {
+"chips": [
+{
+"label": "Plural",
+"value": "iintsika"
+}
+],
+"pos": "noun"
+},
+"intsikelelo": {
+"chips": [
+{
+"label": "Plural",
+"value": "iintsikelelo"
+}
+],
+"pos": "noun"
+},
+"intsimbi": {
+"chips": [
+{
+"label": "Plural",
+"value": "íintsîmbi"
+}
+],
+"pos": "noun"
+},
+"intsimi": {
+"chips": [
+{
+"label": "Plural",
+"value": "ámásîmi"
+}
+],
+"pos": "noun"
+},
+"intsingiselo": {
+"chips": [
+{
+"label": "Plural",
+"value": "iintsingiselo"
+}
+],
+"pos": "noun"
+},
+"inxalenye": {
+"chips": [
+{
+"label": "Plural",
+"value": "iinxalenye"
+}
+],
+"pos": "noun"
+},
+"inxeba": {
+"chips": [
+{
+"label": "Plural",
+"value": "ámánxeba"
+}
+],
+"pos": "noun"
+},
+"inxila": {
+"chips": [
+{
+"label": "Plural",
+"value": "iinxila"
+}
+],
+"pos": "noun"
+},
+"inyama": {
+"chips": [
+{
+"label": "Plural",
+"value": "íinyama"
+}
+],
+"pos": "noun"
+},
+"inyamakazi": {
+"chips": [
+{
+"label": "Plural",
+"value": "íinyámákazi"
+}
+],
+"pos": "noun"
+},
+"inyanga": {
+"chips": [
+{
+"label": "Plural",
+"value": "íinyangá"
+}
+],
+"pos": "noun"
+},
+"inyaniso": {
+"chips": [
+{
+"label": "Plural",
+"value": "íinyániso"
+}
+],
+"pos": "noun"
+},
+"inyhweba": {
+"chips": [
+{
+"label": "Plural",
+"value": "íinyhwéba"
+}
+],
+"pos": "noun"
+},
+"inyoka": {
+"chips": [
+{
+"label": "Plural",
+"value": "íinyôka"
+}
+],
+"pos": "noun"
+},
+"inyongo": {
+"chips": [
+{
+"label": "Plural",
+"value": "íinyóngo"
+}
+],
+"pos": "noun"
+},
+"inyushu": {
+"chips": [
+{
+"label": "Plural",
+"value": "iinyushu"
+}
+],
+"pos": "noun"
+},
+"inzuzo": {
+"chips": [
+{
+"label": "Plural",
+"value": "iinzuzo"
+}
+],
+"pos": "noun"
+},
+"inzwakazi": {
+"chips": [
+{
+"label": "Plural",
+"value": "iinzwakazi"
+}
+],
+"pos": "noun"
+},
+"iphaphu": {
+"chips": [
+{
+"label": "Plural",
+"value": "amaphaphu"
+}
+],
+"pos": "noun"
+},
+"iphela": {
+"chips": [
+{
+"label": "Plural",
+"value": "amaphela"
+}
+],
+"pos": "noun"
+},
+"iphiko": {
+"chips": [
+{
+"label": "Plural",
+"value": "ámáphiko"
+}
+],
+"pos": "noun"
+},
+"iqanda": {
+"chips": [
+{
+"label": "Plural",
+"value": "ámáqandá"
+}
+],
+"pos": "noun"
+},
+"iqashiso": {
+"chips": [
+{
+"label": "Plural",
+"value": "amaqashiso"
+}
+],
+"pos": "noun"
+},
+"iqela": {
+"chips": [
+{
+"label": "Plural",
+"value": "ámáqéla"
+}
+],
+"pos": "noun"
+},
+"iqhalo": {
+"chips": [
+{
+"label": "Plural",
+"value": "amaqhalo"
+}
+],
+"pos": "noun"
+},
+"iqhekeza": {
+"chips": [
+{
+"label": "Plural",
+"value": "amaqhekeza"
+}
+],
+"pos": "noun"
+},
+"iqhina": {
+"chips": [
+{
+"label": "Plural",
+"value": "ámáqhîna"
+}
+],
+"pos": "noun"
+},
+"iqhinga": {
+"chips": [
+{
+"label": "Plural",
+"value": "iiqhinga"
+}
+],
+"pos": "noun"
+},
+"iqhiya": {
+"chips": [
+{
+"label": "Plural",
+"value": "amaqhiya"
+}
+],
+"pos": "noun"
+},
+"iqhosha": {
+"chips": [
+{
+"label": "Plural",
+"value": "ámáqhosha"
+}
+],
+"pos": "noun"
+},
+"iqula": {
+"chips": [
+{
+"label": "Plural",
+"value": "amaqula"
+}
+],
+"pos": "noun"
+},
+"iqunube": {
+"chips": [
+{
+"label": "Plural",
+"value": "ámáqunúbe"
+}
+],
+"pos": "noun"
+},
+"irhafu": {
+"chips": [
+{
+"label": "Plural",
+"value": "îirháfu"
+}
+],
+"pos": "noun"
+},
+"irhamba": {
+"chips": [
+{
+"label": "Plural",
+"value": "ámárhamba"
+}
+],
+"pos": "noun"
+},
+"irhamncwa": {
+"chips": [
+{
+"label": "Plural",
+"value": "amarhamncwa"
+}
+],
+"pos": "noun"
+},
+"irhasi": {
+"chips": [
+{
+"label": "Plural",
+"value": "íirhási"
+}
+],
+"pos": "noun"
+},
+"isakhiwo": {
+"chips": [
+{
+"label": "Plural",
+"value": "izakhiwo"
+}
+],
+"pos": "noun"
+},
+"isandla": {
+"chips": [
+{
+"label": "Plural",
+"value": "ízándla"
+}
+],
+"pos": "noun"
+},
+"isando": {
+"chips": [
+{
+"label": "Plural",
+"value": "ízándo"
+}
+],
+"pos": "noun"
+},
+"isango": {
+"chips": [
+{
+"label": "Plural",
+"value": "amasango"
+}
+],
+"pos": "noun"
+},
+"isangqa": {
+"chips": [
+{
+"label": "Plural",
+"value": "izangqa"
+}
+],
+"pos": "noun"
+},
+"isarha": {
+"chips": [
+{
+"label": "Plural",
+"value": "íisárha"
+}
+],
+"pos": "noun"
+},
+"isebe": {
+"chips": [
+{
+"label": "Plural",
+"value": "amasebe"
+}
+],
+"pos": "noun"
+},
+"isela": {
+"chips": [
+{
+"label": "Plural",
+"value": "ámáséla"
+}
+],
+"pos": "noun"
+},
+"isele": {
+"chips": [
+{
+"label": "Plural",
+"value": "ámasêle"
+}
+],
+"pos": "noun"
+},
+"isenzo": {
+"chips": [
+{
+"label": "Plural",
+"value": "ízénzo"
+}
+],
+"pos": "noun"
+},
+"isepha": {
+"chips": [
+{
+"label": "Plural",
+"value": "íisépha"
+}
+],
+"pos": "noun"
+},
+"ishishini": {
+"chips": [
+{
+"label": "Plural",
+"value": "ámáshishiní"
+}
+],
+"pos": "noun"
+},
+"ishumi": {
+"chips": [
+{
+"label": "Plural",
+"value": "ámáshûmi"
+}
+],
+"pos": "noun"
+},
+"isibabalo": {
+"chips": [
+{
+"label": "Plural",
+"value": "izibabalo"
+}
+],
+"pos": "noun"
+},
+"isibane": {
+"chips": [
+{
+"label": "Plural",
+"value": "ízíbâne"
+}
+],
+"pos": "noun"
+},
+"isibhakabhaka": {
+"chips": [
+{
+"label": "Plural",
+"value": "ízíbhakabháka"
+}
+],
+"pos": "noun"
+},
+"isibhambathiso": {
+"chips": [
+{
+"label": "Plural",
+"value": "izibhambathiso"
+}
+],
+"pos": "noun"
+},
+"isibindi": {
+"chips": [
+{
+"label": "Plural",
+"value": "ízíbíndi"
+}
+],
+"pos": "noun"
+},
+"isibini": {
+"chips": [
+{
+"label": "Plural",
+"value": "ízíbiní"
+}
+],
+"pos": "noun"
+},
+"isicaka": {
+"chips": [
+{
+"label": "Plural",
+"value": "ízícâka"
+}
+],
+"pos": "noun"
+},
+"isicakazana": {
+"chips": [
+{
+"label": "Plural",
+"value": "izicakazana"
+}
+],
+"pos": "noun"
+},
+"isicelo": {
+"chips": [
+{
+"label": "Plural",
+"value": "izicelo"
+}
+],
+"pos": "noun"
+},
+"isichotho": {
+"chips": [
+{
+"label": "Plural",
+"value": "ízíchôtho"
+}
+],
+"pos": "noun"
+},
+"isiciko": {
+"chips": [
+{
+"label": "Plural",
+"value": "ízícîko"
+}
+],
+"pos": "noun"
+},
+"isidenge": {
+"chips": [
+{
+"label": "Plural",
+"value": "izidenge"
+}
+],
+"pos": "noun"
+},
+"isidlele": {
+"chips": [
+{
+"label": "Plural",
+"value": "izidlele"
+}
+],
+"pos": "noun"
+},
+"isidlo": {
+"chips": [
+{
+"label": "Plural",
+"value": "izidlo"
+}
+],
+"pos": "noun"
+},
+"isiduli": {
+"chips": [
+{
+"label": "Plural",
+"value": "iziduli"
+}
+],
+"pos": "noun"
+},
+"isidumbu": {
+"chips": [
+{
+"label": "Plural",
+"value": "izidumbu"
+}
+],
+"pos": "noun"
+},
+"isifo": {
+"chips": [
+{
+"label": "Plural",
+"value": "ízifó"
+}
+],
+"pos": "noun"
+},
+"isifuba": {
+"chips": [
+{
+"label": "Plural",
+"value": "ízífûba"
+}
+],
+"pos": "noun"
+},
+"isiganeko": {
+"chips": [
+{
+"label": "Plural",
+"value": "iziganeko"
+}
+],
+"pos": "noun"
+},
+"isigidi": {
+"chips": [
+{
+"label": "Plural",
+"value": "ízígidi"
+}
+],
+"pos": "noun"
+},
+"isigidimi": {
+"chips": [
+{
+"label": "Plural",
+"value": "ízígidimí"
+}
+],
+"pos": "noun"
+},
+"isigqibo": {
+"chips": [
+{
+"label": "Plural",
+"value": "izigqibo"
+}
+],
+"pos": "noun"
+},
+"isigqubuthelo": {
+"chips": [
+{
+"label": "Plural",
+"value": "izigqubuthelo"
+}
+],
+"pos": "noun"
+},
+"isigxina": {
+"chips": [
+{
+"label": "Plural",
+"value": "izigxina"
+}
+],
+"pos": "noun"
+},
+"isihange": {
+"chips": [
+{
+"label": "Plural",
+"value": "izihange"
+}
+],
+"pos": "noun"
+},
+"isihlalo": {
+"chips": [
+{
+"label": "Plural",
+"value": "izihlalo"
+}
+],
+"pos": "noun"
+},
+"isihlwele": {
+"chips": [
+{
+"label": "Plural",
+"value": "izihlwele"
+}
+],
+"pos": "noun"
+},
+"isihogo": {
+"chips": [
+{
+"label": "Plural",
+"value": "izihogo"
+}
+],
+"pos": "noun"
+},
+"isikali": {
+"chips": [
+{
+"label": "Plural",
+"value": "izikali"
+}
+],
+"pos": "noun"
+},
+"isikhonkwane": {
+"chips": [
+{
+"label": "Plural",
+"value": "izikhonkwane"
+}
+],
+"pos": "noun"
+},
+"isikhukukazi": {
+"chips": [
+{
+"label": "Plural",
+"value": "ízíkhúkúkazi"
+}
+],
+"pos": "noun"
+},
+"isikhululo": {
+"chips": [
+{
+"label": "Plural",
+"value": "izikhululo"
+}
+],
+"pos": "noun"
+},
+"isikhumba": {
+"chips": [
+{
+"label": "Plural",
+"value": "ízíkhûmba"
+}
+],
+"pos": "noun"
+},
+"isiko": {
+"chips": [
+{
+"label": "Plural",
+"value": "ámásîko"
+}
+],
+"pos": "noun"
+},
+"isikrweqe": {
+"chips": [
+{
+"label": "Plural",
+"value": "izikrweqe"
+}
+],
+"pos": "noun"
+},
+"isililo": {
+"chips": [
+{
+"label": "Plural",
+"value": "izililo"
+}
+],
+"pos": "noun"
+},
+"isilivere": {
+"chips": [
+{
+"label": "Plural",
+"value": "iisilivere"
+}
+],
+"pos": "noun"
+},
+"isilo": {
+"chips": [
+{
+"label": "Plural",
+"value": "ízílo"
+}
+],
+"pos": "noun"
+},
+"isilonda": {
+"chips": [
+{
+"label": "Plural",
+"value": "ízílônda"
+}
+],
+"pos": "noun"
+},
+"isilumko": {
+"chips": [
+{
+"label": "Plural",
+"value": "izilumko"
+}
+],
+"pos": "noun"
+},
+"isimilo": {
+"chips": [
+{
+"label": "Plural",
+"value": "izimilo"
+}
+],
+"pos": "noun"
+},
+"isimo": {
+"chips": [
+{
+"label": "Plural",
+"value": "ízîmo"
+}
+],
+"pos": "noun"
+},
+"isingqala": {
+"chips": [
+{
+"label": "Plural",
+"value": "ízíngqâla"
+}
+],
+"pos": "noun"
+},
+"isinqe": {
+"chips": [
+{
+"label": "Plural",
+"value": "ízinqé"
+}
+],
+"pos": "noun"
+},
+"isintu": {
+"chips": [
+{
+"label": "Plural",
+"value": "izintu"
+}
+],
+"pos": "noun"
+},
+"isinyithi": {
+"chips": [
+{
+"label": "Plural",
+"value": "izinyithi"
+}
+],
+"pos": "noun"
+},
+"isiphako": {
+"chips": [
+{
+"label": "Plural",
+"value": "iziphako"
+}
+],
+"pos": "noun"
+},
+"isiphango": {
+"chips": [
+{
+"label": "Plural",
+"value": "ízíphângo"
+}
+],
+"pos": "noun"
+},
+"isiphelo": {
+"chips": [
+{
+"label": "Plural",
+"value": "ízíphêlo"
+}
+],
+"pos": "noun"
+},
+"isipho": {
+"chips": [
+{
+"label": "Plural",
+"value": "izipho"
+}
+],
+"pos": "noun"
+},
+"isiqalo": {
+"chips": [
+{
+"label": "Plural",
+"value": "ízíqâlo"
+}
+],
+"pos": "noun"
+},
+"isiqhamo": {
+"chips": [
+{
+"label": "Plural",
+"value": "ízíqhâmo"
+}
+],
+"pos": "noun"
+},
+"isiqholo": {
+"chips": [
+{
+"label": "Plural",
+"value": "iziqholo"
+}
+],
+"pos": "noun"
+},
+"isiqhumiso": {
+"chips": [
+{
+"label": "Plural",
+"value": "iziqhumiso"
+}
+],
+"pos": "noun"
+},
+"isiqhwala": {
+"chips": [
+{
+"label": "Plural",
+"value": "íziqhwâlá"
+}
+],
+"pos": "noun"
+},
+"isiqingatha": {
+"chips": [
+{
+"label": "Plural",
+"value": "iziqingatha"
+}
+],
+"pos": "noun"
+},
+"isiqu": {
+"chips": [
+{
+"label": "Plural",
+"value": "iziqu"
+}
+],
+"pos": "noun"
+},
+"isiseko": {
+"chips": [
+{
+"label": "Plural",
+"value": "iziseko"
+}
+],
+"pos": "noun"
+},
+"isisu": {
+"chips": [
+{
+"label": "Plural",
+"value": "ízísu"
+}
+],
+"pos": "noun"
+},
+"isitena": {
+"chips": [
+{
+"label": "Plural",
+"value": "izitena"
+}
+],
+"pos": "noun"
+},
+"isithembiso": {
+"chips": [
+{
+"label": "Plural",
+"value": "izithembiso"
+}
+],
+"pos": "noun"
+},
+"isithende": {
+"chips": [
+{
+"label": "Plural",
+"value": "izithende"
+}
+],
+"pos": "noun"
+},
+"isithethe": {
+"chips": [
+{
+"label": "Plural",
+"value": "izithethe"
+}
+],
+"pos": "noun"
+},
+"isithili": {
+"chips": [
+{
+"label": "Plural",
+"value": "izithili"
+}
+],
+"pos": "noun"
+},
+"isithsaba": {
+"chips": [
+{
+"label": "Plural",
+"value": "ízíthsâba"
+}
+],
+"pos": "noun"
+},
+"isithuba": {
+"chips": [
+{
+"label": "Plural",
+"value": "izithuba"
+}
+],
+"pos": "noun"
+},
+"isithukuthezi": {
+"chips": [
+{
+"label": "Plural",
+"value": "izithukuthezi"
+}
+],
+"pos": "noun"
+},
+"isithulu": {
+"chips": [
+{
+"label": "Plural",
+"value": "izithulu"
+}
+],
+"pos": "noun"
+},
+"isithunywa": {
+"chips": [
+{
+"label": "Plural",
+"value": "ízíthúnywa"
+}
+],
+"pos": "noun"
+},
+"isithunzi": {
+"chips": [
+{
+"label": "Plural",
+"value": "izithunzi"
+}
+],
+"pos": "noun"
+},
+"isitrato": {
+"chips": [
+{
+"label": "Plural",
+"value": "izitrato"
+}
+],
+"pos": "noun"
+},
+"isitshixo": {
+"chips": [
+{
+"label": "Plural",
+"value": "ízítshîxo"
+}
+],
+"pos": "noun"
+},
+"isitulo": {
+"chips": [
+{
+"label": "Plural",
+"value": "ízítúlo"
+}
+],
+"pos": "noun"
+},
+"isitya": {
+"chips": [
+{
+"label": "Plural",
+"value": "ízítya"
+}
+],
+"pos": "noun"
+},
+"isityalo": {
+"chips": [
+{
+"label": "Plural",
+"value": "ízítyálo"
+}
+],
+"pos": "noun"
+},
+"isityhakala": {
+"chips": [
+{
+"label": "Plural",
+"value": "izityhakala"
+}
+],
+"pos": "noun"
+},
+"isivatho": {
+"chips": [
+{
+"label": "Plural",
+"value": "ízívatho"
+}
+],
+"pos": "noun"
+},
+"isivuno": {
+"chips": [
+{
+"label": "Plural",
+"value": "izivuno"
+}
+],
+"pos": "noun"
+},
+"isixeko": {
+"chips": [
+{
+"label": "Plural",
+"value": "ízíxêko"
+}
+],
+"pos": "noun"
+},
+"isiza": {
+"chips": [
+{
+"label": "Plural",
+"value": "ízíza"
+}
+],
+"pos": "noun"
+},
+"isizathu": {
+"chips": [
+{
+"label": "Plural",
+"value": "izizathu"
+}
+],
+"pos": "noun"
+},
+"isiziba": {
+"chips": [
+{
+"label": "Plural",
+"value": "ízíziba"
+}
+],
+"pos": "noun"
+},
+"isizukulwana": {
+"chips": [
+{
+"label": "Plural",
+"value": "izizukulwana"
+}
+],
+"pos": "noun"
+},
+"isizwe": {
+"chips": [
+{
+"label": "Plural",
+"value": "ízízwe"
+}
+],
+"pos": "noun"
+},
+"isonka": {
+"chips": [
+{
+"label": "Plural",
+"value": "ízónka"
+}
+],
+"pos": "noun"
+},
+"isono": {
+"chips": [
+{
+"label": "Plural",
+"value": "ízôno"
+}
+],
+"pos": "noun"
+},
+"itafile": {
+"chips": [
+{
+"label": "Plural",
+"value": "íitáfile"
+}
+],
+"pos": "noun"
+},
+"itakane": {
+"chips": [
+{
+"label": "Plural",
+"value": "ámátakáne"
+}
+],
+"pos": "noun"
+},
+"itawuli": {
+"chips": [
+{
+"label": "Plural",
+"value": "íitáwuli"
+}
+],
+"pos": "noun"
+},
+"ithafa": {
+"chips": [
+{
+"label": "Plural",
+"value": "amathafa"
+}
+],
+"pos": "noun"
+},
+"ithambo": {
+"chips": [
+{
+"label": "Plural",
+"value": "ámáthâmbo"
+}
+],
+"pos": "noun"
+},
+"ithamsanqa": {
+"chips": [
+{
+"label": "Plural",
+"value": "amathamsanqa"
+}
+],
+"pos": "noun"
+},
+"ithanga": {
+"chips": [
+{
+"label": "Plural",
+"value": "ámáthangá"
+}
+],
+"pos": "noun"
+},
+"itheko": {
+"chips": [
+{
+"label": "Plural",
+"value": "ámáthéko"
+}
+],
+"pos": "noun"
+},
+"ithokazi": {
+"chips": [
+{
+"label": "Plural",
+"value": "amathokazi"
+}
+],
+"pos": "noun"
+},
+"ithole": {
+"chips": [
+{
+"label": "Plural",
+"value": "ámáthole"
+}
+],
+"pos": "noun"
+},
+"ithuba": {
+"chips": [
+{
+"label": "Plural",
+"value": "ámáthuba"
+}
+],
+"pos": "noun"
+},
+"ityala": {
+"chips": [
+{
+"label": "Plural",
+"value": "amatyala"
+}
+],
+"pos": "noun"
+},
+"ityholo": {
+"chips": [
+{
+"label": "Plural",
+"value": "ámátyhôlo"
+}
+],
+"pos": "noun"
+},
+"ityuwa": {
+"chips": [
+{
+"label": "Plural",
+"value": "iítyuwa"
+}
+],
+"pos": "noun"
+},
+"iveki": {
+"chips": [
+{
+"label": "Plural",
+"value": "íivéki"
+}
+],
+"pos": "noun"
+},
+"ivila": {
+"chips": [
+{
+"label": "Plural",
+"value": "ámávila"
+}
+],
+"pos": "noun"
+},
+"ivili": {
+"chips": [
+{
+"label": "Plural",
+"value": "ámávíli"
+}
+],
+"pos": "noun"
+},
+"ivumba": {
+"chips": [
+{
+"label": "Plural",
+"value": "ámávumba"
+}
+],
+"pos": "noun"
+},
+"iwayini": {
+"chips": [
+{
+"label": "Plural",
+"value": "íiwáyini"
+}
+],
+"pos": "noun"
+},
+"ixabiso": {
+"chips": [
+{
+"label": "Plural",
+"value": "ámáxábíso"
+}
+],
+"pos": "noun"
+},
+"ixesha": {
+"chips": [
+{
+"label": "Plural",
+"value": "ámáxésha"
+}
+],
+"pos": "noun"
+},
+"ixhalanga": {
+"chips": [
+{
+"label": "Plural",
+"value": "iixhalanga"
+}
+],
+"pos": "noun"
+},
+"ixhego": {
+"chips": [
+{
+"label": "Plural",
+"value": "ámáxhego"
+}
+],
+"pos": "noun"
+},
+"iyelenqe": {
+"chips": [
+{
+"label": "Plural",
+"value": "amayelenqe"
+}
+],
+"pos": "noun"
+},
+"iyeza": {
+"chips": [
+{
+"label": "Plural",
+"value": "ámáyeza"
+}
+],
+"pos": "noun"
+},
+"izembe": {
+"chips": [
+{
+"label": "Plural",
+"value": "ámázembe"
+}
+],
+"pos": "noun"
+},
+"iziko": {
+"chips": [
+{
+"label": "Plural",
+"value": "ámázîko"
+}
+],
+"pos": "noun"
+},
+"izinyo": {
+"chips": [
+{
+"label": "Plural",
+"value": "ámázînyo"
+}
+],
+"pos": "noun"
+},
+"khulu": {
+"chips": [
+{
+"label": "Plural",
+"value": "esibakhulu"
+}
+],
+"pos": "adj"
+},
+"krakra": {
+"chips": [
+{
+"label": "Plural",
+"value": "esikrakra"
+}
+],
+"pos": "conj"
+},
+"lishumi": {
+"chips": [
+{
+"label": "Plural",
+"value": "esilishumi"
+}
+],
+"pos": "conj"
+},
+"luhlaza": {
+"chips": [
+{
+"label": "Plural",
+"value": "esiluhlaza"
+}
+],
+"pos": "conj"
+},
+"lukhuni": {
+"chips": [
+{
+"label": "Plural",
+"value": "esilukhuni"
+}
+],
+"pos": "conj"
+},
+"lula": {
+"chips": [
+{
+"label": "Plural",
+"value": "esilula"
+}
+],
+"pos": "conj"
+},
+"lusali": {
+"chips": [
+{
+"label": "Plural",
+"value": "esilusali"
+}
+],
+"pos": "conj"
+},
+"luzizi": {
+"chips": [
+{
+"label": "Plural",
+"value": "esiluzizi"
+}
+],
+"pos": "conj"
+},
+"mandla": {
+"chips": [
+{
+"label": "Plural",
+"value": "esimandla"
+}
+],
+"pos": "conj"
+},
+"mandundu": {
+"chips": [
+{
+"label": "Plural",
+"value": "esimandundu"
+}
+],
+"pos": "conj"
+},
+"manzi": {
+"chips": [
+{
+"label": "Plural",
+"value": "esimanzi"
+}
+],
+"pos": "conj"
+},
+"masikizi": {
+"chips": [
+{
+"label": "Plural",
+"value": "esimasikizi"
+}
+],
+"pos": "conj"
+},
+"matye": {
+"chips": [
+{
+"label": "Plural",
+"value": "esimatye"
+}
+],
+"pos": "conj"
+},
+"mbalwa": {
+"chips": [
+{
+"label": "Plural",
+"value": "esimbalwa"
+}
+],
+"pos": "conj"
+},
+"mgama": {
+"chips": [
+{
+"label": "Plural",
+"value": "esimgama"
+}
+],
+"pos": "conj"
+},
+"mhlophe": {
+"chips": [
+{
+"label": "Plural",
+"value": "esimhlophe"
+}
+],
+"pos": "conj"
+},
+"mnandi": {
+"chips": [
+{
+"label": "Plural",
+"value": "esimnandi"
+}
+],
+"pos": "conj"
+},
+"mncinane": {
+"chips": [
+{
+"label": "Plural",
+"value": "esimncinane"
+}
+],
+"pos": "conj"
+},
+"mnyama": {
+"chips": [
+{
+"label": "Plural",
+"value": "esimnyama"
+}
+],
+"pos": "conj"
+},
+"msi": {
+"chips": [
+{
+"label": "Plural",
+"value": "esimsi"
+}
+],
+"pos": "conj"
+},
+"msulwa": {
+"chips": [
+{
+"label": "Plural",
+"value": "esimsulwa"
+}
+],
+"pos": "conj"
+},
+"mvila": {
+"chips": [
+{
+"label": "Plural",
+"value": "esimvila"
+}
+],
+"pos": "conj"
+},
+"ne": {
+"chips": [
+{
+"label": "Plural",
+"value": "esibane"
+}
+],
+"pos": "adj"
+},
+"ngcwele": {
+"chips": [
+{
+"label": "Plural",
+"value": "esingcwele"
+}
+],
+"pos": "conj"
+},
+"ngwevu": {
+"chips": [
+{
+"label": "Plural",
+"value": "esingwevu"
+}
+],
+"pos": "conj"
+},
+"ninzi": {
+"chips": [
+{
+"label": "Plural",
+"value": "esibaninzi"
+}
+],
+"pos": "adj"
+},
+"nkqo": {
+"chips": [
+{
+"label": "Plural",
+"value": "esinkqo"
+}
+],
+"pos": "conj"
+},
+"nye": {
+"chips": [
+{
+"label": "Plural",
+"value": "esibanye"
+}
+],
+"pos": "adj"
+},
+"nyulu": {
+"chips": [
+{
+"label": "Plural",
+"value": "esinyulu"
+}
+],
+"pos": "conj"
+},
+"nzima": {
+"chips": [
+{
+"label": "Plural",
+"value": "esinzima"
+}
+],
+"pos": "conj"
+},
+"nzulu": {
+"chips": [
+{
+"label": "Plural",
+"value": "esinzulu"
+}
+],
+"pos": "conj"
+},
+"shushu": {
+"chips": [
+{
+"label": "Plural",
+"value": "esishushu"
+}
+],
+"pos": "conj"
+},
+"sibhozo": {
+"chips": [
+{
+"label": "Plural",
+"value": "esisibhozo"
+}
+],
+"pos": "conj"
+},
+"sixhenxe": {
+"chips": [
+{
+"label": "Plural",
+"value": "esisixhenxe"
+}
+],
+"pos": "conj"
+},
+"tsha": {
+"chips": [
+{
+"label": "Plural",
+"value": "esibatsha"
+}
+],
+"pos": "adj"
+},
+"ubambo": {
+"chips": [
+{
+"label": "Plural",
+"value": "iímbambo"
+}
+],
+"pos": "noun"
+},
+"ubani": {
+"chips": [
+{
+"label": "Plural",
+"value": "óobání"
+}
+],
+"pos": "noun"
+},
+"ubawo": {
+"chips": [
+{
+"label": "Plural",
+"value": "óobawó"
+}
+],
+"pos": "noun"
+},
+"ubizo": {
+"chips": [
+{
+"label": "Plural",
+"value": "iimbizo"
+}
+],
+"pos": "noun"
+},
+"ubuhlobo": {
+"chips": [
+{
+"label": "Plural",
+"value": "amahlobo"
+}
+],
+"pos": "noun"
+},
+"ubulawu": {
+"chips": [
+{
+"label": "Plural",
+"value": "amalawu"
+}
+],
+"pos": "noun"
+},
+"ubulumko": {
+"chips": [
+{
+"label": "Plural",
+"value": "ámálúḿko"
+}
+],
+"pos": "noun"
+},
+"ucamba": {
+"chips": [
+{
+"label": "Plural",
+"value": "íingcâmba"
+}
+],
+"pos": "noun"
+},
+"ucango": {
+"chips": [
+{
+"label": "Plural",
+"value": "iíngcango"
+}
+],
+"pos": "noun"
+},
+"udade": {
+"chips": [
+{
+"label": "Plural",
+"value": "oodade"
+}
+],
+"pos": "noun"
+},
+"udaka": {
+"chips": [
+{
+"label": "Plural",
+"value": "iíndaka"
+}
+],
+"pos": "noun"
+},
+"udidi": {
+"chips": [
+{
+"label": "Plural",
+"value": "iindidi"
+}
+],
+"pos": "noun"
+},
+"udonga": {
+"chips": [
+{
+"label": "Plural",
+"value": "íindongá"
+}
+],
+"pos": "noun"
+},
+"udongwe": {
+"chips": [
+{
+"label": "Plural",
+"value": "iindongwe"
+}
+],
+"pos": "noun"
+},
+"udumo": {
+"chips": [
+{
+"label": "Plural",
+"value": "iindumo"
+}
+],
+"pos": "noun"
+},
+"ufele": {
+"chips": [
+{
+"label": "Plural",
+"value": "íimfêle"
+}
+],
+"pos": "noun"
+},
+"uhambo": {
+"chips": [
+{
+"label": "Plural",
+"value": "íihámbo"
+}
+],
+"pos": "noun"
+},
+"uhlanga": {
+"chips": [
+{
+"label": "Plural",
+"value": "iintlanga"
+}
+],
+"pos": "noun"
+},
+"uhlobo": {
+"chips": [
+{
+"label": "Plural",
+"value": "iintlobo"
+}
+],
+"pos": "noun"
+},
+"ukholo": {
+"chips": [
+{
+"label": "Plural",
+"value": "iinkolo"
+}
+],
+"pos": "noun"
+},
+"ukhozi": {
+"chips": [
+{
+"label": "Plural",
+"value": "íinkôzi"
+}
+],
+"pos": "noun"
+},
+"ukhozo": {
+"chips": [
+{
+"label": "Plural",
+"value": "iinkozo"
+}
+],
+"pos": "noun"
+},
+"ukhuko": {
+"chips": [
+{
+"label": "Plural",
+"value": "íinkûko"
+}
+],
+"pos": "noun"
+},
+"ulawulo": {
+"chips": [
+{
+"label": "Plural",
+"value": "iilawulo"
+}
+],
+"pos": "noun"
+},
+"uloyiko": {
+"chips": [
+{
+"label": "Plural",
+"value": "iiloyiko"
+}
+],
+"pos": "noun"
+},
+"uluhlu": {
+"chips": [
+{
+"label": "Plural",
+"value": "ízíntlu"
+}
+],
+"pos": "noun"
+},
+"uluthi": {
+"chips": [
+{
+"label": "Plural",
+"value": "ízintí"
+}
+],
+"pos": "noun"
+},
+"ulwandle": {
+"chips": [
+{
+"label": "Plural",
+"value": "íilwândle"
+}
+],
+"pos": "noun"
+},
+"ulwimi": {
+"chips": [
+{
+"label": "Plural",
+"value": "íilwîmi"
+}
+],
+"pos": "noun"
+},
+"umakhi": {
+"chips": [
+{
+"label": "Plural",
+"value": "ábâkhi"
+}
+],
+"pos": "noun"
+},
+"umba": {
+"chips": [
+{
+"label": "Plural",
+"value": "imiba"
+}
+],
+"pos": "noun"
+},
+"umbandezeli": {
+"chips": [
+{
+"label": "Plural",
+"value": "ababandezeli"
+}
+],
+"pos": "noun"
+},
+"umbane": {
+"chips": [
+{
+"label": "Plural",
+"value": "ímíbane"
+}
+],
+"pos": "noun"
+},
+"umbanjwa": {
+"chips": [
+{
+"label": "Plural",
+"value": "ábábanjwa"
+}
+],
+"pos": "noun"
+},
+"umbhali": {
+"chips": [
+{
+"label": "Plural",
+"value": "ábábhâli"
+}
+],
+"pos": "noun"
+},
+"umbhinqo": {
+"chips": [
+{
+"label": "Plural",
+"value": "ímíbhînqo"
+}
+],
+"pos": "noun"
+},
+"umbona": {
+"chips": [
+{
+"label": "Plural",
+"value": "óombóna"
+}
+],
+"pos": "noun"
+},
+"umbono": {
+"chips": [
+{
+"label": "Plural",
+"value": "ímíbôno"
+}
+],
+"pos": "noun"
+},
+"umbulali": {
+"chips": [
+{
+"label": "Plural",
+"value": "ábábúláli"
+}
+],
+"pos": "noun"
+},
+"umbuliso": {
+"chips": [
+{
+"label": "Plural",
+"value": "imibuliso"
+}
+],
+"pos": "noun"
+},
+"umbulo": {
+"chips": [
+{
+"label": "Plural",
+"value": "imibulo"
+}
+],
+"pos": "noun"
+},
+"umbumbi": {
+"chips": [
+{
+"label": "Plural",
+"value": "ababumbi"
+}
+],
+"pos": "noun"
+},
+"umbuzo": {
+"chips": [
+{
+"label": "Plural",
+"value": "imibuzo"
+}
+],
+"pos": "noun"
+},
+"umcimbi": {
+"chips": [
+{
+"label": "Plural",
+"value": "ímícîmbi"
+}
+],
+"pos": "noun"
+},
+"umda": {
+"chips": [
+{
+"label": "Plural",
+"value": "ímidá"
+}
+],
+"pos": "noun"
+},
+"umdali": {
+"chips": [
+{
+"label": "Plural",
+"value": "abadali"
+}
+],
+"pos": "noun"
+},
+"umfana": {
+"chips": [
+{
+"label": "Plural",
+"value": "ábáfána"
+}
+],
+"pos": "noun"
+},
+"umfanekiselo": {
+"chips": [
+{
+"label": "Plural",
+"value": "imifanekiselo"
+}
+],
+"pos": "noun"
+},
+"umfanekiso": {
+"chips": [
+{
+"label": "Plural",
+"value": "ímífánékiso"
+}
+],
+"pos": "noun"
+},
+"umfazi": {
+"chips": [
+{
+"label": "Plural",
+"value": "ábáfâzi"
+}
+],
+"pos": "noun"
+},
+"umfi": {
+"chips": [
+{
+"label": "Plural",
+"value": "ábafí"
+}
+],
+"pos": "noun"
+},
+"umfo": {
+"chips": [
+{
+"label": "Plural",
+"value": "ábafó"
+}
+],
+"pos": "noun"
+},
+"umfula": {
+"chips": [
+{
+"label": "Plural",
+"value": "ímífula"
+}
+],
+"pos": "noun"
+},
+"umfundi": {
+"chips": [
+{
+"label": "Plural",
+"value": "ábáfúndi"
+}
+],
+"pos": "noun"
+},
+"umfundisi": {
+"chips": [
+{
+"label": "Plural",
+"value": "ábáfúndisi"
+}
+],
+"pos": "noun"
+},
+"umfuno": {
+"chips": [
+{
+"label": "Plural",
+"value": "ímífûno"
+}
+],
+"pos": "noun"
+},
+"umfuziselo": {
+"chips": [
+{
+"label": "Plural",
+"value": "imifuziselo"
+}
+],
+"pos": "noun"
+},
+"umgama": {
+"chips": [
+{
+"label": "Plural",
+"value": "imigama"
+}
+],
+"pos": "noun"
+},
+"umgangatho": {
+"chips": [
+{
+"label": "Plural",
+"value": "ímígángatho"
+}
+],
+"pos": "noun"
+},
+"umgcobo": {
+"chips": [
+{
+"label": "Plural",
+"value": "ímígcôbo"
+}
+],
+"pos": "noun"
+},
+"umgubo": {
+"chips": [
+{
+"label": "Plural",
+"value": "ímígûbo"
+}
+],
+"pos": "noun"
+},
+"umhambi": {
+"chips": [
+{
+"label": "Plural",
+"value": "ábáhámbi"
+}
+],
+"pos": "noun"
+},
+"umhendi": {
+"chips": [
+{
+"label": "Plural",
+"value": "imihendi"
+}
+],
+"pos": "noun"
+},
+"umhla": {
+"chips": [
+{
+"label": "Plural",
+"value": "ímîhla"
+}
+],
+"pos": "noun"
+},
+"umhlaba": {
+"chips": [
+{
+"label": "Plural",
+"value": "ímíhlâba"
+}
+],
+"pos": "noun"
+},
+"umhlambi": {
+"chips": [
+{
+"label": "Plural",
+"value": "abahlambi"
+}
+],
+"pos": "noun"
+},
+"umhlana": {
+"chips": [
+{
+"label": "Plural",
+"value": "ímíhlaná"
+}
+],
+"pos": "noun"
+},
+"umhlathi": {
+"chips": [
+{
+"label": "Plural",
+"value": "ímíhlâthi"
+}
+],
+"pos": "noun"
+},
+"umhlobo": {
+"chips": [
+{
+"label": "Plural",
+"value": "ábáhlobo"
+}
+],
+"pos": "noun"
+},
+"umhlolokazi": {
+"chips": [
+{
+"label": "Plural",
+"value": "abahlolokazi"
+}
+],
+"pos": "noun"
+},
+"umhlonyane": {
+"chips": [
+{
+"label": "Plural",
+"value": "imihlonyane"
+}
+],
+"pos": "noun"
+},
+"umhluzi": {
+"chips": [
+{
+"label": "Plural",
+"value": "ímíhluzí"
+}
+],
+"pos": "noun"
+},
+"umhlwa": {
+"chips": [
+{
+"label": "Plural",
+"value": "imihlwa"
+}
+],
+"pos": "noun"
+},
+"umhobe": {
+"chips": [
+{
+"label": "Plural",
+"value": "imihobe"
+}
+],
+"pos": "noun"
+},
+"umkhenkce": {
+"chips": [
+{
+"label": "Plural",
+"value": "ímíkhênkce"
+}
+],
+"pos": "noun"
+},
+"umkhombe": {
+"chips": [
+{
+"label": "Plural",
+"value": "imikhombe"
+}
+],
+"pos": "noun"
+},
+"umkhonto": {
+"chips": [
+{
+"label": "Plural",
+"value": "ímíkhónto"
+}
+],
+"pos": "noun"
+},
+"umkhonzazana": {
+"chips": [
+{
+"label": "Plural",
+"value": "imikhonzazana"
+}
+],
+"pos": "noun"
+},
+"umkhonzi": {
+"chips": [
+{
+"label": "Plural",
+"value": "abakhonzi"
+}
+],
+"pos": "noun"
+},
+"umkhosi": {
+"chips": [
+{
+"label": "Plural",
+"value": "ímíkhôsi"
+}
+],
+"pos": "noun"
+},
+"umkhozi": {
+"chips": [
+{
+"label": "Plural",
+"value": "abakhozi"
+}
+],
+"pos": "noun"
+},
+"umkhuluwa": {
+"chips": [
+{
+"label": "Plural",
+"value": "ábákhulúwa"
+}
+],
+"pos": "noun"
+},
+"umkhupha": {
+"chips": [
+{
+"label": "Plural",
+"value": "ímíkhupha"
+}
+],
+"pos": "noun"
+},
+"umlambo": {
+"chips": [
+{
+"label": "Plural",
+"value": "ímílambo"
+}
+],
+"pos": "noun"
+},
+"umlenze": {
+"chips": [
+{
+"label": "Plural",
+"value": "ímílenze"
+}
+],
+"pos": "noun"
+},
+"umlilo": {
+"chips": [
+{
+"label": "Plural",
+"value": "ímílilo"
+}
+],
+"pos": "noun"
+},
+"umlimi": {
+"chips": [
+{
+"label": "Plural",
+"value": "ábálimi"
+}
+],
+"pos": "noun"
+},
+"umlingane": {
+"chips": [
+{
+"label": "Plural",
+"value": "abalingane"
+}
+],
+"pos": "noun"
+},
+"umlisela": {
+"chips": [
+{
+"label": "Plural",
+"value": "abalisela"
+}
+],
+"pos": "noun"
+},
+"umlomo": {
+"chips": [
+{
+"label": "Plural",
+"value": "ímílomo"
+}
+],
+"pos": "noun"
+},
+"ummandla": {
+"chips": [
+{
+"label": "Plural",
+"value": "imimandla"
+}
+],
+"pos": "noun"
+},
+"ummangaliso": {
+"chips": [
+{
+"label": "Plural",
+"value": "imimangaliso"
+}
+],
+"pos": "noun"
+},
+"ummelwane": {
+"chips": [
+{
+"label": "Plural",
+"value": "ábámelwâne"
+}
+],
+"pos": "noun"
+},
+"ummi": {
+"chips": [
+{
+"label": "Plural",
+"value": "ábêmi"
+}
+],
+"pos": "noun"
+},
+"ummiselo": {
+"chips": [
+{
+"label": "Plural",
+"value": "imimiselo"
+}
+],
+"pos": "noun"
+},
+"umnandi": {
+"chips": [
+{
+"label": "Plural",
+"value": "ímínandí"
+}
+],
+"pos": "noun"
+},
+"umnatha": {
+"chips": [
+{
+"label": "Plural",
+"value": "iminatha"
+}
+],
+"pos": "noun"
+},
+"umnenga": {
+"chips": [
+{
+"label": "Plural",
+"value": "iminenga"
+}
+],
+"pos": "noun"
+},
+"umngxuma": {
+"chips": [
+{
+"label": "Plural",
+"value": "ímíngxuma"
+}
+],
+"pos": "noun"
+},
+"umninawa": {
+"chips": [
+{
+"label": "Plural",
+"value": "ábánináwa"
+}
+],
+"pos": "noun"
+},
+"umnini": {
+"chips": [
+{
+"label": "Plural",
+"value": "abanini"
+}
+],
+"pos": "noun"
+},
+"umnqamlezo": {
+"chips": [
+{
+"label": "Plural",
+"value": "ímínqáḿlezo"
+}
+],
+"pos": "noun"
+},
+"umnqweno": {
+"chips": [
+{
+"label": "Plural",
+"value": "ímínqweno"
+}
+],
+"pos": "noun"
+},
+"umntu": {
+"chips": [
+{
+"label": "Plural",
+"value": "ábántu"
+}
+],
+"pos": "noun"
+},
+"umntwana": {
+"chips": [
+{
+"label": "Plural",
+"value": "ábántwana"
+}
+],
+"pos": "noun"
+},
+"umnwe": {
+"chips": [
+{
+"label": "Plural",
+"value": "ímínwe"
+}
+],
+"pos": "noun"
+},
+"umnyaka": {
+"chips": [
+{
+"label": "Plural",
+"value": "ímínyâka"
+}
+],
+"pos": "noun"
+},
+"umnyama": {
+"chips": [
+{
+"label": "Plural",
+"value": "iminyama"
+}
+],
+"pos": "noun"
+},
+"umnyango": {
+"chips": [
+{
+"label": "Plural",
+"value": "ímínyango"
+}
+],
+"pos": "noun"
+},
+"umnyanya": {
+"chips": [
+{
+"label": "Plural",
+"value": "iminyanya"
+}
+],
+"pos": "noun"
+},
+"umoji": {
+"chips": [
+{
+"label": "Plural",
+"value": "ábóji"
+}
+],
+"pos": "noun"
+},
+"umpha": {
+"chips": [
+{
+"label": "Plural",
+"value": "ímípha"
+}
+],
+"pos": "noun"
+},
+"umphambili": {
+"chips": [
+{
+"label": "Plural",
+"value": "imiphambili"
+}
+],
+"pos": "noun"
+},
+"umphanda": {
+"chips": [
+{
+"label": "Plural",
+"value": "ímíphanda"
+}
+],
+"pos": "noun"
+},
+"umphandle": {
+"chips": [
+{
+"label": "Plural",
+"value": "imiphandle"
+}
+],
+"pos": "noun"
+},
+"umphathi": {
+"chips": [
+{
+"label": "Plural",
+"value": "ábápháthi"
+}
+],
+"pos": "noun"
+},
+"umphefumlo": {
+"chips": [
+{
+"label": "Plural",
+"value": "ímíphéfúmlo"
+}
+],
+"pos": "noun"
+},
+"umphezulu": {
+"chips": [
+{
+"label": "Plural",
+"value": "imiphezulu"
+}
+],
+"pos": "noun"
+},
+"umqadi": {
+"chips": [
+{
+"label": "Plural",
+"value": "imiqadi"
+}
+],
+"pos": "noun"
+},
+"umqala": {
+"chips": [
+{
+"label": "Plural",
+"value": "ímíqala"
+}
+],
+"pos": "noun"
+},
+"umqeshwa": {
+"chips": [
+{
+"label": "Plural",
+"value": "ábáqéshwa"
+}
+],
+"pos": "noun"
+},
+"umqhubi": {
+"chips": [
+{
+"label": "Plural",
+"value": "ábáqhubi"
+}
+],
+"pos": "noun"
+},
+"umqolomba": {
+"chips": [
+{
+"label": "Plural",
+"value": "imiqolomba"
+}
+],
+"pos": "noun"
+},
+"umqondiso": {
+"chips": [
+{
+"label": "Plural",
+"value": "imiqondiso"
+}
+],
+"pos": "noun"
+},
+"umqulu": {
+"chips": [
+{
+"label": "Plural",
+"value": "imiqulu"
+}
+],
+"pos": "noun"
+},
+"umququ": {
+"chips": [
+{
+"label": "Plural",
+"value": "ímiqúqú"
+}
+],
+"pos": "noun"
+},
+"umrhumo": {
+"chips": [
+{
+"label": "Plural",
+"value": "imirhumo"
+}
+],
+"pos": "noun"
+},
+"umsebenzi": {
+"chips": [
+{
+"label": "Plural",
+"value": "ábásébénzi"
+}
+],
+"pos": "noun"
+},
+"umsele": {
+"chips": [
+{
+"label": "Plural",
+"value": "imisele"
+}
+],
+"pos": "noun"
+},
+"umsesane": {
+"chips": [
+{
+"label": "Plural",
+"value": "imisesane"
+}
+],
+"pos": "noun"
+},
+"umsila": {
+"chips": [
+{
+"label": "Plural",
+"value": "ímísîla"
+}
+],
+"pos": "noun"
+},
+"umsindo": {
+"chips": [
+{
+"label": "Plural",
+"value": "ímísîndo"
+}
+],
+"pos": "noun"
+},
+"umsonto": {
+"chips": [
+{
+"label": "Plural",
+"value": "ímísonto"
+}
+],
+"pos": "noun"
+},
+"umthamo": {
+"chips": [
+{
+"label": "Plural",
+"value": "ímíthámo"
+}
+],
+"pos": "noun"
+},
+"umthandazo": {
+"chips": [
+{
+"label": "Plural",
+"value": "ímíthándazo"
+}
+],
+"pos": "noun"
+},
+"umthengisi": {
+"chips": [
+{
+"label": "Plural",
+"value": "abathengisi"
+}
+],
+"pos": "noun"
+},
+"umthetho": {
+"chips": [
+{
+"label": "Plural",
+"value": "ímíthêtho"
+}
+],
+"pos": "noun"
+},
+"umthi": {
+"chips": [
+{
+"label": "Plural",
+"value": "ímithí"
+}
+],
+"pos": "noun"
+},
+"umthombo": {
+"chips": [
+{
+"label": "Plural",
+"value": "ímíthômbo"
+}
+],
+"pos": "noun"
+},
+"umthunzi": {
+"chips": [
+{
+"label": "Plural",
+"value": "ímíthûnzi"
+}
+],
+"pos": "noun"
+},
+"umthwalo": {
+"chips": [
+{
+"label": "Plural",
+"value": "ímíthwálo"
+}
+],
+"pos": "noun"
+},
+"umtshakazi": {
+"chips": [
+{
+"label": "Plural",
+"value": "ábátshákazi"
+}
+],
+"pos": "noun"
+},
+"umtshana": {
+"chips": [
+{
+"label": "Plural",
+"value": "ábátshâna"
+}
+],
+"pos": "noun"
+},
+"umtshato": {
+"chips": [
+{
+"label": "Plural",
+"value": "ímítshato"
+}
+],
+"pos": "noun"
+},
+"umtya": {
+"chips": [
+{
+"label": "Plural",
+"value": "ímityá"
+}
+],
+"pos": "noun"
+},
+"umvalo": {
+"chips": [
+{
+"label": "Plural",
+"value": "imivalo"
+}
+],
+"pos": "noun"
+},
+"umvuzo": {
+"chips": [
+{
+"label": "Plural",
+"value": "ímívuzo"
+}
+],
+"pos": "noun"
+},
+"umyalelo": {
+"chips": [
+{
+"label": "Plural",
+"value": "imiyalelo"
+}
+],
+"pos": "noun"
+},
+"umyalezo": {
+"chips": [
+{
+"label": "Plural",
+"value": "imiyalezo"
+}
+],
+"pos": "noun"
+},
+"umyeni": {
+"chips": [
+{
+"label": "Plural",
+"value": "ábáyeni"
+}
+],
+"pos": "noun"
+},
+"umyezo": {
+"chips": [
+{
+"label": "Plural",
+"value": "imiyezo"
+}
+],
+"pos": "noun"
+},
+"umzali": {
+"chips": [
+{
+"label": "Plural",
+"value": "ábázáli"
+}
+],
+"pos": "noun"
+},
+"umzalwane": {
+"chips": [
+{
+"label": "Plural",
+"value": "abazalwane"
+}
+],
+"pos": "noun"
+},
+"umzamo": {
+"chips": [
+{
+"label": "Plural",
+"value": "imizamo"
+}
+],
+"pos": "noun"
+},
+"umzekeliso": {
+"chips": [
+{
+"label": "Plural",
+"value": "imizekeliso"
+}
+],
+"pos": "noun"
+},
+"umzekelo": {
+"chips": [
+{
+"label": "Plural",
+"value": "ímízékêlo"
+}
+],
+"pos": "noun"
+},
+"umzi": {
+"chips": [
+{
+"label": "Plural",
+"value": "ímízi"
+}
+],
+"pos": "noun"
+},
+"umzimba": {
+"chips": [
+{
+"label": "Plural",
+"value": "ímízîmba"
+}
+],
+"pos": "noun"
+},
+"umzuzu": {
+"chips": [
+{
+"label": "Plural",
+"value": "imizuzu"
+}
+],
+"pos": "noun"
+},
+"umzuzwana": {
+"chips": [
+{
+"label": "Plural",
+"value": "imizuzwana"
+}
+],
+"pos": "noun"
+},
+"undwendwe": {
+"chips": [
+{
+"label": "Plural",
+"value": "íindwéndwe"
+}
+],
+"pos": "noun"
+},
+"unina": {
+"chips": [
+{
+"label": "Plural",
+"value": "óonina"
+}
+],
+"pos": "noun"
+},
+"unomadudwane": {
+"chips": [
+{
+"label": "Plural",
+"value": "óonómádudwáne"
+}
+],
+"pos": "noun"
+},
+"unwele": {
+"chips": [
+{
+"label": "Plural",
+"value": "íinwéle"
+}
+],
+"pos": "noun"
+},
+"unyana": {
+"chips": [
+{
+"label": "Plural",
+"value": "óonyâna"
+}
+],
+"pos": "noun"
+},
+"unyawo": {
+"chips": [
+{
+"label": "Plural",
+"value": "íinyawo"
+}
+],
+"pos": "noun"
+},
+"unyoko": {
+"chips": [
+{
+"label": "Plural",
+"value": "óonyoko"
+}
+],
+"pos": "noun"
+},
+"uphawu": {
+"chips": [
+{
+"label": "Plural",
+"value": "iimpawu"
+}
+],
+"pos": "noun"
+},
+"uphondo": {
+"chips": [
+{
+"label": "Plural",
+"value": "iímpondo"
+}
+],
+"pos": "noun"
+},
+"urhwebo": {
+"chips": [
+{
+"label": "Plural",
+"value": "iínkrwebo"
+}
+],
+"pos": "noun"
+},
+"usana": {
+"chips": [
+{
+"label": "Plural",
+"value": "íintsána"
+}
+],
+"pos": "noun"
+},
+"usapho": {
+"chips": [
+{
+"label": "Plural",
+"value": "íintsâpho"
+}
+],
+"pos": "noun"
+},
+"usiba": {
+"chips": [
+{
+"label": "Plural",
+"value": "íintsîba"
+}
+],
+"pos": "noun"
+},
+"usikrobana": {
+"chips": [
+{
+"label": "Plural",
+"value": "iintsikrobana"
+}
+],
+"pos": "noun"
+},
+"usindiso": {
+"chips": [
+{
+"label": "Plural",
+"value": "iintsindiso"
+}
+],
+"pos": "noun"
+},
+"usuku": {
+"chips": [
+{
+"label": "Plural",
+"value": "íintsûku"
+}
+],
+"pos": "noun"
+},
+"uswazi": {
+"chips": [
+{
+"label": "Plural",
+"value": "iíntswazi"
+}
+],
+"pos": "noun"
+},
+"uthango": {
+"chips": [
+{
+"label": "Plural",
+"value": "íintângo"
+}
+],
+"pos": "noun"
+},
+"uthuli": {
+"chips": [
+{
+"label": "Plural",
+"value": "iíntuli"
+}
+],
+"pos": "noun"
+},
+"uthuthu": {
+"chips": [
+{
+"label": "Plural",
+"value": "iintuthu"
+}
+],
+"pos": "noun"
+},
+"utolo": {
+"chips": [
+{
+"label": "Plural",
+"value": "iintolo"
+}
+],
+"pos": "noun"
+},
+"utshaba": {
+"chips": [
+{
+"label": "Plural",
+"value": "iíntshaba"
+}
+],
+"pos": "noun"
+},
+"uvimba": {
+"chips": [
+{
+"label": "Plural",
+"value": "oovimba"
+}
+],
+"pos": "noun"
+},
+"uvuyo": {
+"chips": [
+{
+"label": "Plural",
+"value": "íimvûyo"
+}
+],
+"pos": "noun"
+},
+"uxande": {
+"chips": [
+{
+"label": "Plural",
+"value": "íingxandé"
+}
+],
+"pos": "noun"
+},
+"uyihlo": {
+"chips": [
+{
+"label": "Plural",
+"value": "óoyihló"
+}
+],
+"pos": "noun"
+},
+"uyise": {
+"chips": [
+{
+"label": "Plural",
+"value": "óoyisé"
+}
+],
+"pos": "noun"
+},
+"ze": {
+"chips": [
+{
+"label": "Plural",
+"value": "esize"
+}
+],
+"pos": "conj"
+}
+}

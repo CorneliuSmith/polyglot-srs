@@ -56,10 +56,13 @@ describe('OnboardingPage', () => {
 
     fireEvent.click(await screen.findByRole('button', { name: 'Spanish' }))
     fireEvent.click(await screen.findByRole('button', { name: /i'm new to it/i }))
+    fireEvent.click(await screen.findByRole('button', { name: /continue/i }))
     fireEvent.click(await screen.findByRole('button', { name: /start learning/i }))
 
     await waitFor(() => {
-      expect(mockComplete).toHaveBeenCalledWith({ languageId: 'lang-es', level: 'A1' })
+      expect(mockComplete).toHaveBeenCalledWith({
+        languageId: 'lang-es', level: 'A1', planScope: 'single',
+      })
     })
     expect(mockSetActive).toHaveBeenCalledWith('lang-es')
     expect(mockNavigate).toHaveBeenCalledWith('/', { replace: true })
@@ -100,9 +103,13 @@ describe('OnboardingPage', () => {
       { id: 'i2', input: '' },
     ])
 
+    fireEvent.click(screen.getByRole('button', { name: /continue/i }))
+    fireEvent.click(await screen.findByRole('button', { name: /all languages/i }))
     fireEvent.click(screen.getByRole('button', { name: /start learning/i }))
     await waitFor(() => {
-      expect(mockComplete).toHaveBeenCalledWith({ languageId: 'lang-es', level: 'B1' })
+      expect(mockComplete).toHaveBeenCalledWith({
+        languageId: 'lang-es', level: 'B1', planScope: 'all',
+      })
     })
   })
 

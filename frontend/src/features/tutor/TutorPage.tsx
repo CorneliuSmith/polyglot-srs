@@ -3,7 +3,12 @@ import { useNavigate } from 'react-router-dom'
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query'
 import { getLanguages } from '../../api/profile'
 import { createCheckout } from '../../api/billing'
-import { endTutorSession, getTutorStatus, sendTutorMessage } from '../../api/tutor'
+import {
+  endTutorSession,
+  getTutorStatus,
+  sendTutorMessage,
+  streamTutorMessage,
+} from '../../api/tutor'
 import type { TutorAllowance, TutorMessage } from '../../api/tutor'
 import { usePrefsStore } from '../../stores/prefsStore'
 
@@ -76,10 +81,27 @@ export default function TutorPage() {
     },
   })
 
+  // Partial assistant text while a streamed reply is arriving (WP9d).
+  const [streamingText, setStreamingText] = useState<string | null>(null)
+
   const sendMutation = useMutation({
-    mutationFn: (history: TutorMessage[]) =>
-      sendTutorMessage(activeLanguageId!, language!.code, history),
+    mutationFn: async (history: TutorMessage[]) => {
+      // Stream when the transport allows it; fall back to the plain
+      // endpoint on any transport failure (except allowance 402s, which
+      // both endpoints report identically).
+      try {
+        return await streamTutorMessage(
+          activeLanguageId!, language!.code, history, setStreamingText,
+        )
+      } catch (err) {
+        const status = (err as { response?: { status?: number } })?.response?.status
+        if (status === 402) throw err
+        setStreamingText(null)
+        return sendTutorMessage(activeLanguageId!, language!.code, history)
+      }
+    },
     onSuccess: ({ reply, allowance: fresh }) => {
+      setStreamingText(null)
       setMessages((prev) => [...prev, { role: 'assistant', content: reply }])
       setSendError(null)
       if (fresh) setLiveAllowance(fresh)
@@ -88,6 +110,7 @@ export default function TutorPage() {
       const detail = (err as {
         response?: { status?: number; data?: { detail?: { code?: string } } }
       })?.response
+      setStreamingText(null)
       if (detail?.status === 402 && detail.data?.detail?.code === 'allowance_exhausted') {
         // Zero the meter — the exhausted panel takes over the input area.
         const base = allowanceRef.current
@@ -149,7 +172,7 @@ export default function TutorPage() {
           <button
             type="button"
             onClick={() => navigate('/')}
-            className="text-indigo-600 hover:underline text-sm"
+            className="text-lang hover:underline text-sm"
           >
             Back to Dashboard
           </button>
@@ -182,7 +205,7 @@ export default function TutorPage() {
           <button
             type="button"
             onClick={handleEndSession}
-            className="text-sm text-indigo-600 hover:underline"
+            className="text-sm text-lang hover:underline"
           >
             End session
           </button>
@@ -198,7 +221,7 @@ export default function TutorPage() {
                 <button
                   type="button"
                   onClick={() => subscribeMutation.mutate()}
-                  className="text-indigo-500 hover:underline"
+                  className="text-lang hover:underline"
                 >
                   Plus
                 </button>{' '}
@@ -231,7 +254,7 @@ export default function TutorPage() {
               key={i}
               className={
                 msg.role === 'user'
-                  ? 'ml-8 bg-indigo-600 text-white rounded-2xl rounded-br-sm px-4 py-2.5 text-sm whitespace-pre-wrap'
+                  ? 'ml-8 bg-lang text-white rounded-2xl rounded-br-sm px-4 py-2.5 text-sm whitespace-pre-wrap'
                   : 'mr-8 bg-white border border-gray-100 shadow-sm rounded-2xl rounded-bl-sm px-4 py-2.5 text-sm text-gray-800 whitespace-pre-wrap'
               }
             >
@@ -240,8 +263,15 @@ export default function TutorPage() {
             </div>
           ))}
           {sendMutation.isPending && (
-            <div className="mr-8 bg-white border border-gray-100 shadow-sm rounded-2xl rounded-bl-sm px-4 py-2.5 text-sm text-gray-400">
-              Tutor is thinking…
+            <div className="mr-8 bg-white border border-gray-100 shadow-sm rounded-2xl rounded-bl-sm px-4 py-2.5 text-sm">
+              {streamingText ? (
+                <span dir="auto" className="text-gray-800 whitespace-pre-wrap">
+                  {streamingText}
+                  <span className="text-lang/70">▍</span>
+                </span>
+              ) : (
+                <span className="text-gray-400">Tutor is thinking…</span>
+              )}
             </div>
           )}
           <div ref={bottomRef} />
@@ -277,7 +307,7 @@ export default function TutorPage() {
                   type="button"
                   onClick={() => subscribeMutation.mutate()}
                   disabled={subscribeMutation.isPending}
-                  className="bg-indigo-600 hover:bg-indigo-700 disabled:opacity-50 text-white font-semibold rounded-xl px-5 py-2.5 text-sm"
+                  className="bg-lang hover:bg-lang-dark disabled:opacity-50 text-lang-on font-semibold rounded-xl px-5 py-2.5 text-sm"
                   style={{ minHeight: '44px' }}
                 >
                   {subscribeMutation.isPending
@@ -309,14 +339,14 @@ export default function TutorPage() {
               }}
               placeholder="Message your tutor…"
               dir={language.rtl ? 'auto' : 'ltr'}
-              className="flex-1 rounded-xl border border-gray-300 px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 bg-white"
+              className="flex-1 rounded-xl border border-gray-300 px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-lang bg-white"
               style={{ minHeight: '44px' }}
             />
             <button
               type="button"
               onClick={handleSend}
               disabled={!input.trim() || sendMutation.isPending}
-              className="bg-indigo-600 hover:bg-indigo-700 disabled:opacity-50 text-white font-semibold rounded-xl px-5 text-sm transition-colors"
+              className="bg-lang hover:bg-lang-dark disabled:opacity-50 text-lang-on font-semibold rounded-xl px-5 text-sm transition-colors"
               style={{ minHeight: '44px' }}
             >
               Send

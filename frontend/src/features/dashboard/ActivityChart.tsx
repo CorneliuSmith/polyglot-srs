@@ -9,10 +9,10 @@ export default function ActivityChart({ activity }: { activity: ActivityDay[] })
         <h2 className="text-xs uppercase tracking-wide text-gray-400">Activity</h2>
         <div className="flex items-center gap-3 text-[10px] text-gray-500">
           <span className="flex items-center gap-1">
-            <span className="inline-block w-2 h-2 rounded-sm bg-indigo-500" /> Vocab
+            <span className="inline-block w-2 h-2 rounded-sm bg-lang" /> Vocab
           </span>
           <span className="flex items-center gap-1">
-            <span className="inline-block w-2 h-2 rounded-sm bg-emerald-400" /> Grammar
+            <span className="inline-block w-2 h-2 rounded-sm bg-lang-accent border border-gray-200" /> Grammar
           </span>
         </div>
       </div>
@@ -28,11 +28,11 @@ export default function ActivityChart({ activity }: { activity: ActivityDay[] })
               <div className="w-full flex flex-col justify-end rounded-t overflow-hidden"
                    style={{ height: `${Math.max(total > 0 ? 6 : 2, (total / max) * 72)}px` }}>
                 <div
-                  className="w-full bg-emerald-400"
+                  className="w-full bg-lang-accent"
                   style={{ height: total ? `${(d.grammar / total) * 100}%` : 0 }}
                 />
                 <div
-                  className={`w-full flex-1 ${total > 0 ? 'bg-indigo-500' : 'bg-gray-100'}`}
+                  className={`w-full flex-1 ${total > 0 ? 'bg-lang' : 'bg-gray-100'}`}
                 />
               </div>
             </div>
