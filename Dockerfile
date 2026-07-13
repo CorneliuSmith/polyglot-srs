@@ -30,11 +30,11 @@ RUN pip install --no-cache-dir .
 # Model/data downloads the app expects at runtime:
 #  - spaCy English model (lemmatization, POS)
 #  - WordNet + multilingual WordNet (English definitions)
-#  - camel-tools light data (Arabic morphology; the app degrades to
-#    diacritic-folding if this is absent, hence the tolerant ||)
+# camel-tools (Arabic full morphology) is deliberately NOT installed: it
+# pulls torch + transformers (~4 GB) and exhausted the PaaS build machine.
+# ArabicNLP degrades to diacritic-folding grading without it.
 RUN python -m spacy download en_core_web_sm \
-    && python -m nltk.downloader -d /usr/local/share/nltk_data wordnet omw-1.4 \
-    && (camel_data -i light || echo "camel data skipped — Arabic uses fallback grading")
+    && python -m nltk.downloader -d /usr/local/share/nltk_data wordnet omw-1.4
 
 ENV PYTHONUNBUFFERED=1
 EXPOSE 8080

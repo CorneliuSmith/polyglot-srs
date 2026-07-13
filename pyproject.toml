@@ -25,9 +25,6 @@ dependencies = [
 
     # NLP backends — install before running 02-02 through 02-04
     "pymorphy3>=2.0",          # Russian morphology (community fork of pymorphy2)
-    # camel-tools requires Python <=3.12 and system deps (cmake, boost-devel).
-    # Install separately: pip install camel-tools && camel_data -i light
-    "camel-tools>=1.5.2",      # Arabic NLP (MSA light model)
     "spacy>=3.7",              # English NLP — also run: python -m spacy download en_core_web_sm
     "lemminflect>=0.2.3",      # English inflection for morphological family expansion
     "nltk>=3.8",               # WordNet for English seeder — also run: python -m nltk.downloader wordnet omw-1.4
@@ -35,6 +32,15 @@ dependencies = [
 ]
 
 [project.optional-dependencies]
+# Arabic full morphology. OPTIONAL because camel-tools drags in torch +
+# transformers (~4 GB installed) — enough to blow PaaS build-machine disk
+# (DigitalOcean terminated the image build on it). Without this extra,
+# Arabic answers grade via ArabicNLP's diacritic-folding fallback (the
+# import is try/except-guarded). Dev machines: pip install -e '.[arabic]'
+# then `camel_data -i light`.
+arabic = [
+    "camel-tools>=1.5.2",
+]
 dev = [
     "ruff>=0.4",
     "pytest>=8.0",
