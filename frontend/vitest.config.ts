@@ -13,6 +13,9 @@ export default defineConfig({
     env: {
       VITE_SUPABASE_URL: 'http://localhost:54321',
       VITE_SUPABASE_ANON_KEY: 'test-anon-key',
+      // LoginPage tests assert the open-signup layout (Google button);
+      // a local .env with the beta lock on must not change what CI sees.
+      VITE_INVITE_ONLY: 'false',
     },
   },
 })

@@ -1,5 +1,5 @@
 import { describe, it, expect, vi, beforeEach } from 'vitest'
-import { render, screen, fireEvent, waitFor } from '@testing-library/react'
+import { render, screen, fireEvent, waitFor, within } from '@testing-library/react'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { MemoryRouter } from 'react-router-dom'
 import ContributorPage from '../features/contribute/ContributorPage'
@@ -193,6 +193,97 @@ describe('ContributorPage', () => {
     renderPage()
     await screen.findByText('Locative case')
     expect(screen.queryByTestId('tutor-costs')).toBeNull()
+  })
+
+  it('admin edits roles inline from the accounts table', async () => {
+    const { listAccounts, listAllRoles, grantRole, revokeRole } =
+      await import('../api/contribute')
+    const mockAccounts = listAccounts as ReturnType<typeof vi.fn>
+    const mockAllRoles = listAllRoles as ReturnType<typeof vi.fn>
+    const mockGrant = grantRole as ReturnType<typeof vi.fn>
+    const mockRevoke = revokeRole as ReturnType<typeof vi.fn>
+
+    mockGetGrammar.mockResolvedValue({
+      is_admin: true, points: [], review_policy: 'strict', tutor_model: null,
+    })
+    mockAccounts.mockResolvedValue([{
+      id: 'u-2', email: 'friend@x.com', created_at: '2026-07-01T00:00:00Z',
+      last_sign_in_at: null, plan_scope: 'all', plan_language: null,
+      roles: ['reviewer'], cards: 10, languages_studied: 1,
+    }])
+    mockAllRoles.mockResolvedValue([{
+      user_id: 'u-2', email: 'friend@x.com', language_id: 'lang-tr',
+      language_code: 'tr', role: 'reviewer', created_at: null,
+    }])
+    mockGrant.mockResolvedValue(undefined)
+    mockRevoke.mockResolvedValue(undefined)
+    renderPage()
+
+    fireEvent.click(await screen.findByRole('button', { name: /manage accounts/i }))
+    const table = await screen.findByTestId('accounts-table')
+    expect(table.textContent).toContain('friend@x.com')
+    // (chip text is lowercase; the capital R comes from CSS `capitalize`)
+    expect(table.textContent).toContain('reviewer')
+    expect(table.textContent).toContain('Turkish')
+
+    // Revoke the existing grant from its chip.
+    fireEvent.click(
+      screen.getByRole('button', {
+        name: /revoke reviewer \(turkish\) for friend@x\.com/i,
+      }),
+    )
+    await waitFor(() =>
+      expect(mockRevoke).toHaveBeenCalledWith({
+        user_id: 'u-2', role: 'reviewer', language_id: 'lang-tr',
+      }),
+    )
+
+    // Grant a new role inline (defaults: reviewer scope All languages).
+    // Scope to the table — the Roles panel below has its own Grant button.
+    fireEvent.click(
+      screen.getByRole('button', { name: /add role for friend@x\.com/i }),
+    )
+    fireEvent.change(screen.getByLabelText(/new role for friend@x\.com/i), {
+      target: { value: 'admin' },
+    })
+    fireEvent.click(within(table).getByRole('button', { name: /^grant$/i }))
+    await waitFor(() =>
+      expect(mockGrant).toHaveBeenCalledWith({
+        email: 'friend@x.com', role: 'admin', language_id: null,
+      }),
+    )
+  })
+
+  it("admin can't revoke their own admin role from the accounts table", async () => {
+    const { listAccounts, listAllRoles } = await import('../api/contribute')
+    const { useAuthStore } = await import('../stores/authStore')
+    ;(listAccounts as ReturnType<typeof vi.fn>).mockResolvedValue([{
+      id: 'u-self', email: 'me@x.com', created_at: null, last_sign_in_at: null,
+      plan_scope: 'all', plan_language: null, roles: ['admin'],
+      cards: 0, languages_studied: 0,
+    }])
+    ;(listAllRoles as ReturnType<typeof vi.fn>).mockResolvedValue([{
+      user_id: 'u-self', email: 'me@x.com', language_id: null,
+      language_code: null, role: 'admin', created_at: null,
+    }])
+    mockGetGrammar.mockResolvedValue({
+      is_admin: true, points: [], review_policy: 'strict', tutor_model: null,
+    })
+    useAuthStore.setState({
+      session: { user: { id: 'u-self' } } as never,
+    })
+    try {
+      renderPage()
+      fireEvent.click(
+        await screen.findByRole('button', { name: /manage accounts/i }),
+      )
+      const revoke = await screen.findByRole('button', {
+        name: /revoke admin \(all languages\) for me@x\.com/i,
+      })
+      expect((revoke as HTMLButtonElement).disabled).toBe(true)
+    } finally {
+      useAuthStore.setState({ session: null })
+    }
   })
 
   it('shows open issues and lets a reviewer resolve them', async () => {
