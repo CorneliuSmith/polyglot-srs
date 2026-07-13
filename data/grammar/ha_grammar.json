@@ -1185,262 +1185,6 @@
    ]
   },
   {
-   "title": "Impersonal an / ana (passive sense)",
-   "level": "B2",
-   "function": "Say what was/is done without naming who",
-   "source": "contributor",
-   "reviewed": true,
-   "display_order": 1,
-   "explanation": "The impersonal pronoun a- makes passive-like sentences: An gina gida (A house was built — 'one built'), Ana maganin sa? no — Ana kiran ka (You are being called), Za a biya ku (You will be paid).",
-   "culture_note": "",
-   "references": [
-    {
-     "title": "Live Lingua — free Hausa courses (FSI/Peace Corps)",
-     "url": "https://www.livelingua.com/courses/hausa"
-    },
-    {
-     "title": "Wikipedia: Hausa language — grammar",
-     "url": "https://en.wikipedia.org/wiki/Hausa_language#Grammar"
-    }
-   ],
-   "drills": [
-    {
-     "sentence": "{{answer}} gina sabon gida.",
-     "answer": "An",
-     "translation": "A new house has been built.",
-     "hint": "impersonal completive",
-     "display_order": 1
-    },
-    {
-     "sentence": "{{answer}} kiran ka.",
-     "answer": "Ana",
-     "translation": "You are being called.",
-     "hint": "impersonal continuous",
-     "display_order": 2
-    },
-    {
-     "sentence": "{{answer}} sayar da motar.",
-     "answer": "An",
-     "translation": "The car has been sold.",
-     "hint": "completed — impersonal",
-     "display_order": 3
-    },
-    {
-     "sentence": "{{answer}} jiran ka a ofis.",
-     "answer": "Ana",
-     "translation": "You are being waited for at the office.",
-     "hint": "ongoing — impersonal",
-     "display_order": 4
-    },
-    {
-     "sentence": "{{answer}} kama ɓarawo jiya.",
-     "answer": "An",
-     "translation": "A thief was caught yesterday.",
-     "hint": "completed — impersonal",
-     "display_order": 5
-    },
-    {
-     "sentence": "{{answer}} noman shinkafa a nan.",
-     "answer": "Ana",
-     "translation": "Rice is farmed here.",
-     "hint": "ongoing — impersonal",
-     "display_order": 6
-    }
-   ]
-  },
-  {
-   "title": "Comparison with fi",
-   "level": "B2",
-   "function": "Say something exceeds another",
-   "source": "contributor",
-   "reviewed": true,
-   "display_order": 2,
-   "explanation": "The verb fi (exceed) does comparison: Ya fi ni tsayi (He is taller than me — lit. exceeds me in height), Wannan ya fi kyau (This is better), Ta fi su duka hankali (She is the smartest of them all).",
-   "culture_note": "",
-   "references": [
-    {
-     "title": "Live Lingua — free Hausa courses (FSI/Peace Corps)",
-     "url": "https://www.livelingua.com/courses/hausa"
-    },
-    {
-     "title": "Wikipedia: Hausa language — grammar",
-     "url": "https://en.wikipedia.org/wiki/Hausa_language#Grammar"
-    }
-   ],
-   "drills": [
-    {
-     "sentence": "Ya {{answer}} ni tsayi.",
-     "answer": "fi",
-     "translation": "He is taller than me.",
-     "hint": "'exceed'",
-     "display_order": 1
-    },
-    {
-     "sentence": "Wannan ya fi {{answer}}.",
-     "answer": "kyau",
-     "translation": "This one is better (exceeds in goodness).",
-     "hint": "'goodness' after fi",
-     "display_order": 2
-    },
-    {
-     "sentence": "Ta fi ni {{answer}}.",
-     "answer": "hankali",
-     "translation": "She is more sensible than me.",
-     "hint": "quality noun — sense",
-     "display_order": 3
-    },
-    {
-     "sentence": "Audu ya fi Musa {{answer}}.",
-     "answer": "ƙarfi",
-     "translation": "Audu is stronger than Musa.",
-     "hint": "quality noun — strength",
-     "display_order": 4
-    },
-    {
-     "sentence": "Zaki ya {{answer}} kare ƙarfi.",
-     "answer": "fi",
-     "translation": "A lion is stronger than a dog.",
-     "hint": "exceed",
-     "display_order": 5
-    },
-    {
-     "sentence": "Wannan ya fi wancan {{answer}}.",
-     "answer": "tsada",
-     "translation": "This one is more expensive than that one.",
-     "hint": "quality noun — costliness",
-     "display_order": 6
-    }
-   ]
-  },
-  {
-   "title": "Reported speech with cewa",
-   "level": "C1",
-   "function": "Report statements and beliefs",
-   "source": "contributor",
-   "reviewed": true,
-   "display_order": 1,
-   "explanation": "Cewa ('saying/that') introduces reported clauses: Ya ce (cewa) zai zo (He said that he would come), Na ji cewa sun tafi (I heard that they left), Ta tabbata cewa gaskiya ne (She is sure that it is true).",
-   "culture_note": "",
-   "references": [
-    {
-     "title": "Live Lingua — free Hausa courses (FSI/Peace Corps)",
-     "url": "https://www.livelingua.com/courses/hausa"
-    },
-    {
-     "title": "Wikipedia: Hausa language — grammar",
-     "url": "https://en.wikipedia.org/wiki/Hausa_language#Grammar"
-    }
-   ],
-   "drills": [
-    {
-     "sentence": "Ya ce {{answer}} zai zo.",
-     "answer": "cewa",
-     "translation": "He said that he would come.",
-     "hint": "'that' complementizer",
-     "display_order": 1
-    },
-    {
-     "sentence": "Na ji {{answer}} sun tafi.",
-     "answer": "cewa",
-     "translation": "I heard that they left.",
-     "hint": "'that' complementizer",
-     "display_order": 2
-    },
-    {
-     "sentence": "Ta ce {{answer}} ba za ta zo ba.",
-     "answer": "cewa",
-     "translation": "She said that she would not come.",
-     "hint": "that",
-     "display_order": 3
-    },
-    {
-     "sentence": "Mun ji {{answer}} an gina sabuwar makaranta.",
-     "answer": "cewa",
-     "translation": "We heard that a new school has been built.",
-     "hint": "that",
-     "display_order": 4
-    },
-    {
-     "sentence": "Ya {{answer}} cewa zai taimake mu.",
-     "answer": "ce",
-     "translation": "He said that he would help us.",
-     "hint": "to say",
-     "display_order": 5
-    },
-    {
-     "sentence": "Na yi imani {{answer}} za su dawo.",
-     "answer": "cewa",
-     "translation": "I believe that they will return.",
-     "hint": "that",
-     "display_order": 6
-    }
-   ]
-  },
-  {
-   "title": "Focus fronting with ne/ce",
-   "level": "C1",
-   "function": "Emphasize one element",
-   "source": "contributor",
-   "reviewed": true,
-   "display_order": 2,
-   "explanation": "Fronting plus ne/ce focuses: Audu ne ya zo (It was AUDU who came), Kasuwa ce ta tafi? no — Jiya ne suka tafi (It was yesterday they left; completive shifts to the relative set suka). Gender/number of the focused word picks ne or ce.",
-   "culture_note": "",
-   "references": [
-    {
-     "title": "Live Lingua — free Hausa courses (FSI/Peace Corps)",
-     "url": "https://www.livelingua.com/courses/hausa"
-    },
-    {
-     "title": "Wikipedia: Hausa language — grammar",
-     "url": "https://en.wikipedia.org/wiki/Hausa_language#Grammar"
-    }
-   ],
-   "drills": [
-    {
-     "sentence": "Audu {{answer}} ya zo.",
-     "answer": "ne",
-     "translation": "It was Audu who came.",
-     "hint": "focus particle — masculine/plural or non-feminine focus",
-     "display_order": 1
-    },
-    {
-     "sentence": "Jiya {{answer}} suka tafi.",
-     "answer": "ne",
-     "translation": "It was yesterday that they left.",
-     "hint": "focus particle — masculine/plural or non-feminine focus",
-     "display_order": 2
-    },
-    {
-     "sentence": "Ita {{answer}} ta dafa abinci.",
-     "answer": "ce",
-     "translation": "It was she who cooked the food.",
-     "hint": "feminine focus",
-     "display_order": 3
-    },
-    {
-     "sentence": "A kasuwa {{answer}} na gan shi.",
-     "answer": "ne",
-     "translation": "It was at the market that I saw him.",
-     "hint": "focus particle — masculine/plural or non-feminine focus",
-     "display_order": 4
-    },
-    {
-     "sentence": "Audu {{answer}} ya rubuta wasiƙar.",
-     "answer": "ne",
-     "translation": "It was Audu who wrote the letter.",
-     "hint": "focus particle — masculine/plural or non-feminine focus",
-     "display_order": 5
-    },
-    {
-     "sentence": "Yau {{answer}} za mu tafi.",
-     "answer": "ne",
-     "translation": "It is today that we will go.",
-     "hint": "focus particle — masculine/plural or non-feminine focus",
-     "display_order": 6
-    }
-   ]
-  },
-  {
    "title": "Demonstratives (wannan, wancan, waɗannan)",
    "level": "B1",
    "display_order": 5,
@@ -1888,6 +1632,198 @@
    ]
   },
   {
+   "title": "Choosing the aspect — jiya, yanzu, kowace rana",
+   "level": "B1",
+   "function": "Pick the right aspect from the sentence's time cues",
+   "source": "contributor",
+   "reviewed": false,
+   "display_order": 10,
+   "explanation": "Hausa has no tenses — it has aspects, and the sentence's INGREDIENTS choose between them.\n\njiya (yesterday), shekaranjiya → completive: jiya na tafi kasuwa.\n\nyanzu (now), a halin yanzu → continuous: yanzu ina aiki.\n\nkowace rana (every day), kullum → habitual: nakan sha shayi.\n\ngobe (tomorrow), nan gaba → future: gobe zan dawo.\n\nAfter wanting, asking, and purposes comes the subjunctive: ina so ka zo 'I want you to come'.",
+   "culture_note": "Getting the aspect right matters more than any other single choice in Hausa — a completive where a habitual belongs changes the meaning, not just the style.",
+   "references": [
+    {
+     "title": "Live Lingua — free Hausa courses (FSI/Peace Corps)",
+     "url": "https://www.livelingua.com/courses/hausa"
+    },
+    {
+     "title": "Wikipedia: Hausa language — grammar",
+     "url": "https://en.wikipedia.org/wiki/Hausa_language"
+    }
+   ],
+   "drills": [
+    {
+     "sentence": "Jiya {{answer}} tafi kasuwa.",
+     "answer": "na",
+     "translation": "Yesterday I went to the market.",
+     "hint": "I — completive (jiya decides!)",
+     "display_order": 1
+    },
+    {
+     "sentence": "Yanzu {{answer}} aiki.",
+     "answer": "ina",
+     "translation": "Right now I am working.",
+     "hint": "I — continuous (yanzu decides!)",
+     "display_order": 2
+    },
+    {
+     "sentence": "Kowace rana {{answer}} sha shayi.",
+     "answer": "nakan",
+     "translation": "Every day I drink tea.",
+     "hint": "I — habitual (kowace rana decides!)",
+     "display_order": 3
+    },
+    {
+     "sentence": "Gobe {{answer}} dawo.",
+     "answer": "zan",
+     "translation": "Tomorrow I will return.",
+     "hint": "I will — future (gobe decides!)",
+     "display_order": 4
+    },
+    {
+     "sentence": "Ina so ka {{answer}} nan.",
+     "answer": "zo",
+     "translation": "I want you to come here.",
+     "hint": "come — subjunctive after wanting",
+     "display_order": 5
+    },
+    {
+     "sentence": "Yara {{answer}} wasa a nan kowace Asabar.",
+     "answer": "sukan",
+     "translation": "The children play here every Saturday.",
+     "hint": "they — habitual",
+     "display_order": 6
+    }
+   ]
+  },
+  {
+   "title": "Impersonal an / ana (passive sense)",
+   "level": "B2",
+   "function": "Say what was/is done without naming who",
+   "source": "contributor",
+   "reviewed": true,
+   "display_order": 1,
+   "explanation": "The impersonal pronoun a- makes passive-like sentences: An gina gida (A house was built — 'one built'), Ana maganin sa? no — Ana kiran ka (You are being called), Za a biya ku (You will be paid).",
+   "culture_note": "",
+   "references": [
+    {
+     "title": "Live Lingua — free Hausa courses (FSI/Peace Corps)",
+     "url": "https://www.livelingua.com/courses/hausa"
+    },
+    {
+     "title": "Wikipedia: Hausa language — grammar",
+     "url": "https://en.wikipedia.org/wiki/Hausa_language#Grammar"
+    }
+   ],
+   "drills": [
+    {
+     "sentence": "{{answer}} gina sabon gida.",
+     "answer": "An",
+     "translation": "A new house has been built.",
+     "hint": "impersonal completive",
+     "display_order": 1
+    },
+    {
+     "sentence": "{{answer}} kiran ka.",
+     "answer": "Ana",
+     "translation": "You are being called.",
+     "hint": "impersonal continuous",
+     "display_order": 2
+    },
+    {
+     "sentence": "{{answer}} sayar da motar.",
+     "answer": "An",
+     "translation": "The car has been sold.",
+     "hint": "completed — impersonal",
+     "display_order": 3
+    },
+    {
+     "sentence": "{{answer}} jiran ka a ofis.",
+     "answer": "Ana",
+     "translation": "You are being waited for at the office.",
+     "hint": "ongoing — impersonal",
+     "display_order": 4
+    },
+    {
+     "sentence": "{{answer}} kama ɓarawo jiya.",
+     "answer": "An",
+     "translation": "A thief was caught yesterday.",
+     "hint": "completed — impersonal",
+     "display_order": 5
+    },
+    {
+     "sentence": "{{answer}} noman shinkafa a nan.",
+     "answer": "Ana",
+     "translation": "Rice is farmed here.",
+     "hint": "ongoing — impersonal",
+     "display_order": 6
+    }
+   ]
+  },
+  {
+   "title": "Comparison with fi",
+   "level": "B2",
+   "function": "Say something exceeds another",
+   "source": "contributor",
+   "reviewed": true,
+   "display_order": 2,
+   "explanation": "The verb fi (exceed) does comparison: Ya fi ni tsayi (He is taller than me — lit. exceeds me in height), Wannan ya fi kyau (This is better), Ta fi su duka hankali (She is the smartest of them all).",
+   "culture_note": "",
+   "references": [
+    {
+     "title": "Live Lingua — free Hausa courses (FSI/Peace Corps)",
+     "url": "https://www.livelingua.com/courses/hausa"
+    },
+    {
+     "title": "Wikipedia: Hausa language — grammar",
+     "url": "https://en.wikipedia.org/wiki/Hausa_language#Grammar"
+    }
+   ],
+   "drills": [
+    {
+     "sentence": "Ya {{answer}} ni tsayi.",
+     "answer": "fi",
+     "translation": "He is taller than me.",
+     "hint": "'exceed'",
+     "display_order": 1
+    },
+    {
+     "sentence": "Wannan ya fi {{answer}}.",
+     "answer": "kyau",
+     "translation": "This one is better (exceeds in goodness).",
+     "hint": "'goodness' after fi",
+     "display_order": 2
+    },
+    {
+     "sentence": "Ta fi ni {{answer}}.",
+     "answer": "hankali",
+     "translation": "She is more sensible than me.",
+     "hint": "quality noun — sense",
+     "display_order": 3
+    },
+    {
+     "sentence": "Audu ya fi Musa {{answer}}.",
+     "answer": "ƙarfi",
+     "translation": "Audu is stronger than Musa.",
+     "hint": "quality noun — strength",
+     "display_order": 4
+    },
+    {
+     "sentence": "Zaki ya {{answer}} kare ƙarfi.",
+     "answer": "fi",
+     "translation": "A lion is stronger than a dog.",
+     "hint": "exceed",
+     "display_order": 5
+    },
+    {
+     "sentence": "Wannan ya fi wancan {{answer}}.",
+     "answer": "tsada",
+     "translation": "This one is more expensive than that one.",
+     "hint": "quality noun — costliness",
+     "display_order": 6
+    }
+   ]
+  },
+  {
    "title": "Sai — until, then, only, except",
    "level": "B2",
    "display_order": 3,
@@ -2223,6 +2159,198 @@
      "answer": "ma",
      "translation": "Even the child can read.",
      "hint": "even / too",
+     "display_order": 6
+    }
+   ]
+  },
+  {
+   "title": "Reduplication (biyu-biyu, daban-daban)",
+   "level": "B2",
+   "function": "Double a word to distribute, vary, or soften it",
+   "source": "contributor",
+   "reviewed": false,
+   "display_order": 8,
+   "explanation": "Doubling is a productive tool, far beyond the ideophones.\n\nDistribution: biyu-biyu 'two by two', ɗaya-ɗaya 'one by one', gida-gida 'house to house'.\n\nVariety: daban-daban 'all different kinds'.\n\nThoroughness: daki-daki 'in detail'.\n\nSoftened colours: ja-ja 'reddish', fari-fari 'whitish'.",
+   "culture_note": "Softened colours (ja-ja, fari-fari) are also the polite way to describe people's complexions.",
+   "references": [
+    {
+     "title": "Live Lingua — free Hausa courses (FSI/Peace Corps)",
+     "url": "https://www.livelingua.com/courses/hausa"
+    },
+    {
+     "title": "Wikipedia: Hausa language — grammar",
+     "url": "https://en.wikipedia.org/wiki/Hausa_language"
+    }
+   ],
+   "drills": [
+    {
+     "sentence": "Sun shiga {{answer}}.",
+     "answer": "biyu-biyu",
+     "translation": "They entered two by two.",
+     "hint": "two by two (doubled)",
+     "display_order": 1
+    },
+    {
+     "sentence": "Yaran sun zo {{answer}}.",
+     "answer": "ɗaya-ɗaya",
+     "translation": "The children came one by one.",
+     "hint": "one by one (doubled)",
+     "display_order": 2
+    },
+    {
+     "sentence": "Mun bincika lamarin {{answer}}.",
+     "answer": "daki-daki",
+     "translation": "We examined the matter in detail.",
+     "hint": "thoroughly (doubled)",
+     "display_order": 3
+    },
+    {
+     "sentence": "Riguna suna da launi {{answer}}.",
+     "answer": "daban-daban",
+     "translation": "The gowns come in all different colours.",
+     "hint": "various (doubled)",
+     "display_order": 4
+    },
+    {
+     "sentence": "Launin rigar {{answer}} ne.",
+     "answer": "ja-ja",
+     "translation": "The gown's colour is reddish.",
+     "hint": "reddish (softened colour)",
+     "display_order": 5
+    },
+    {
+     "sentence": "Sun sayar da kaya {{answer}}.",
+     "answer": "gida-gida",
+     "translation": "They sold goods house to house.",
+     "hint": "house to house (doubled)",
+     "display_order": 6
+    }
+   ]
+  },
+  {
+   "title": "Reported speech with cewa",
+   "level": "C1",
+   "function": "Report statements and beliefs",
+   "source": "contributor",
+   "reviewed": true,
+   "display_order": 1,
+   "explanation": "Cewa ('saying/that') introduces reported clauses: Ya ce (cewa) zai zo (He said that he would come), Na ji cewa sun tafi (I heard that they left), Ta tabbata cewa gaskiya ne (She is sure that it is true).",
+   "culture_note": "",
+   "references": [
+    {
+     "title": "Live Lingua — free Hausa courses (FSI/Peace Corps)",
+     "url": "https://www.livelingua.com/courses/hausa"
+    },
+    {
+     "title": "Wikipedia: Hausa language — grammar",
+     "url": "https://en.wikipedia.org/wiki/Hausa_language#Grammar"
+    }
+   ],
+   "drills": [
+    {
+     "sentence": "Ya ce {{answer}} zai zo.",
+     "answer": "cewa",
+     "translation": "He said that he would come.",
+     "hint": "'that' complementizer",
+     "display_order": 1
+    },
+    {
+     "sentence": "Na ji {{answer}} sun tafi.",
+     "answer": "cewa",
+     "translation": "I heard that they left.",
+     "hint": "'that' complementizer",
+     "display_order": 2
+    },
+    {
+     "sentence": "Ta ce {{answer}} ba za ta zo ba.",
+     "answer": "cewa",
+     "translation": "She said that she would not come.",
+     "hint": "that",
+     "display_order": 3
+    },
+    {
+     "sentence": "Mun ji {{answer}} an gina sabuwar makaranta.",
+     "answer": "cewa",
+     "translation": "We heard that a new school has been built.",
+     "hint": "that",
+     "display_order": 4
+    },
+    {
+     "sentence": "Ya {{answer}} cewa zai taimake mu.",
+     "answer": "ce",
+     "translation": "He said that he would help us.",
+     "hint": "to say",
+     "display_order": 5
+    },
+    {
+     "sentence": "Na yi imani {{answer}} za su dawo.",
+     "answer": "cewa",
+     "translation": "I believe that they will return.",
+     "hint": "that",
+     "display_order": 6
+    }
+   ]
+  },
+  {
+   "title": "Focus fronting with ne/ce",
+   "level": "C1",
+   "function": "Emphasize one element",
+   "source": "contributor",
+   "reviewed": true,
+   "display_order": 2,
+   "explanation": "Fronting plus ne/ce focuses: Audu ne ya zo (It was AUDU who came), Kasuwa ce ta tafi? no — Jiya ne suka tafi (It was yesterday they left; completive shifts to the relative set suka). Gender/number of the focused word picks ne or ce.",
+   "culture_note": "",
+   "references": [
+    {
+     "title": "Live Lingua — free Hausa courses (FSI/Peace Corps)",
+     "url": "https://www.livelingua.com/courses/hausa"
+    },
+    {
+     "title": "Wikipedia: Hausa language — grammar",
+     "url": "https://en.wikipedia.org/wiki/Hausa_language#Grammar"
+    }
+   ],
+   "drills": [
+    {
+     "sentence": "Audu {{answer}} ya zo.",
+     "answer": "ne",
+     "translation": "It was Audu who came.",
+     "hint": "focus particle — masculine/plural or non-feminine focus",
+     "display_order": 1
+    },
+    {
+     "sentence": "Jiya {{answer}} suka tafi.",
+     "answer": "ne",
+     "translation": "It was yesterday that they left.",
+     "hint": "focus particle — masculine/plural or non-feminine focus",
+     "display_order": 2
+    },
+    {
+     "sentence": "Ita {{answer}} ta dafa abinci.",
+     "answer": "ce",
+     "translation": "It was she who cooked the food.",
+     "hint": "feminine focus",
+     "display_order": 3
+    },
+    {
+     "sentence": "A kasuwa {{answer}} na gan shi.",
+     "answer": "ne",
+     "translation": "It was at the market that I saw him.",
+     "hint": "focus particle — masculine/plural or non-feminine focus",
+     "display_order": 4
+    },
+    {
+     "sentence": "Audu {{answer}} ya rubuta wasiƙar.",
+     "answer": "ne",
+     "translation": "It was Audu who wrote the letter.",
+     "hint": "focus particle — masculine/plural or non-feminine focus",
+     "display_order": 5
+    },
+    {
+     "sentence": "Yau {{answer}} za mu tafi.",
+     "answer": "ne",
+     "translation": "It is today that we will go.",
+     "hint": "focus particle — masculine/plural or non-feminine focus",
      "display_order": 6
     }
    ]
