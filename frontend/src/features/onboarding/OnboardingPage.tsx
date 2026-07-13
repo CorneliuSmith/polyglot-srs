@@ -170,6 +170,10 @@ export default function OnboardingPage() {
               <LanguageWrapper languageCode={language.code}>
                 <input
                   autoFocus
+                  autoCapitalize="none"
+                  autoCorrect="off"
+                  autoComplete="off"
+                  spellCheck={false}
                   value={curInput}
                   onChange={(e) => {
                     const v = isTranslitEnabled(language.code, qwertyTranslit)

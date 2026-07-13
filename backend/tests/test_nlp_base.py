@@ -261,6 +261,42 @@ class TestNLPRegistry:
             pass
 
 
+class TestKeyboardTypography:
+    """Phone keyboards rewrite the learner's typing (iOS smart punctuation,
+    double-space periods, dictation quotes). A beta tester typed a correct
+    "am" and was marked wrong — these pin the un-doing layer."""
+
+    @pytest.fixture()
+    def nlp(self):
+        return StubNLP()
+
+    def test_trailing_period_from_double_space(self, nlp):
+        result, _ = nlp.check_answer("am.", "am")
+        assert result == AnswerResult.CORRECT
+
+    def test_trailing_comma_and_ellipsis(self, nlp):
+        assert nlp.check_answer("am,", "am")[0] == AnswerResult.CORRECT
+        assert nlp.check_answer("am…", "am")[0] == AnswerResult.CORRECT
+
+    def test_smart_quote_wrapping(self, nlp):
+        assert nlp.check_answer("\u2018am\u2019", "am")[0] == AnswerResult.CORRECT
+        assert nlp.check_answer("\u201cam\u201d", "am")[0] == AnswerResult.CORRECT
+
+    def test_curled_apostrophe_in_contraction_answer(self, nlp):
+        # iOS curls the straight apostrophe the drill answer carries.
+        result, _ = nlp.check_answer("\u2019ll", "'ll")
+        assert result == AnswerResult.CORRECT
+
+    def test_answer_that_ends_in_punctuation_stays_strict(self, nlp):
+        # Guard: if a future answer legitimately ends with punctuation,
+        # the user must type it.
+        assert nlp.check_answer("etc", "etc.")[0] == AnswerResult.WRONG
+
+    def test_wrong_answers_stay_wrong(self, nlp):
+        assert nlp.check_answer("a.", "am")[0] == AnswerResult.WRONG
+        assert nlp.check_answer("\u2018is\u2019", "xyzzy")[0] == AnswerResult.WRONG
+
+
 # ---------------------------------------------------------------------------
 # AnswerResult relocation tests
 # ---------------------------------------------------------------------------

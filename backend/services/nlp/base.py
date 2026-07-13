@@ -29,6 +29,41 @@ class AnswerResult(Enum):
 
 
 # ---------------------------------------------------------------------------
+# Mobile keyboard typography (language-agnostic)
+# ---------------------------------------------------------------------------
+
+# Phone keyboards rewrite what the learner typed: iOS smart punctuation curls
+# apostrophes ('ll -> ’ll), double-space inserts a period (am -> am. ), and
+# dictation wraps or capitalizes. None of that is a language error, so
+# check_answer undoes it SYMMETRICALLY (both sides mapped, so equal answers
+# stay equal) before the grading layers run. A beta tester typed a correct
+# "am" on an iPhone and was marked wrong — that class of failure.
+_TYPOGRAPHY_MAP = str.maketrans({
+    "‘": "'", "’": "'", "‛": "'",  # curly single quotes
+    "“": '"', "”": '"', "„": '"',  # curly double quotes
+})
+_TRAILING_PUNCT = ".,!?;:…。？！"
+_WRAPPING_QUOTES = (("'", "'"), ('"', '"'), ("«", "»"))
+
+
+def _undo_keyboard_typography(user: str, correct: str) -> str:
+    """Strip keyboard-added typography from *user*, guarded by *correct*.
+
+    Only removes what the expected answer itself doesn't carry — an answer
+    that legitimately ends in punctuation or is quoted stays untouched.
+    """
+    cleaned = user
+    if not (correct and correct[-1] in _TRAILING_PUNCT):
+        cleaned = cleaned.rstrip(_TRAILING_PUNCT).rstrip()
+    if len(cleaned) > 2 and (not correct or correct[0] not in "'\"«"):
+        for opener, closer in _WRAPPING_QUOTES:
+            if cleaned.startswith(opener) and cleaned.endswith(closer):
+                cleaned = cleaned[1:-1].strip()
+                break
+    return cleaned
+
+
+# ---------------------------------------------------------------------------
 # BaseNLP ABC
 # ---------------------------------------------------------------------------
 
@@ -130,8 +165,16 @@ class BaseNLP(ABC):
             Tuple of (AnswerResult, optional feedback message).
         """
         # Apply NFC normalization as the very first step (research pitfall #1).
-        user = unicodedata.normalize("NFC", user_input).strip()
-        correct = unicodedata.normalize("NFC", correct_answer).strip()
+        # Then undo phone-keyboard typography: curly quotes map to straight on
+        # BOTH sides (symmetric — equality is preserved), and keyboard-added
+        # trailing punctuation / wrapping quotes come off the user's input.
+        user = unicodedata.normalize("NFC", user_input).translate(
+            _TYPOGRAPHY_MAP
+        ).strip()
+        correct = unicodedata.normalize("NFC", correct_answer).translate(
+            _TYPOGRAPHY_MAP
+        ).strip()
+        user = _undo_keyboard_typography(user, correct)
 
         # Layer 1: Exact match
         if user == correct:

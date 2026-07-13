@@ -284,7 +284,10 @@ export default function LearnPage() {
                 <DrillCard
                   sentence={lesson.quiz.sentence}
                   value={quizInput}
-                  onChange={setQuizInput}
+                  onChange={(v) => {
+                    setQuizInput(v)
+                    if (quizResult) setQuizResult(null)
+                  }}
                   onSubmit={handleCheck}
                   disabled={currentPassed || validateMutation.isPending}
                   languageCode={languageCode}
