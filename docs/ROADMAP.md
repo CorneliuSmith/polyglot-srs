@@ -719,8 +719,28 @@ there's a community. **Model:** `claude-sonnet-5`, design pass one tier up.
 **Goal:** operators run the product without touching env vars or SQL.
 Role management shipped 2026-07 (see `docs/accounts-and-roles.md`): learner /
 contributor / reviewer / admin, per-language or global, granted by email in
-the Contribute page's Roles panel, bootstrapped once via
-`scripts/grant_admin.sh`. Remaining, in order:
+the Contribute page's Roles panel (and inline per account in the Accounts
+table), bootstrapped once via `scripts/grant_admin.sh`.
+(b2) **Tutor skills + per-account access — DONE 2026-07-13 (local, ships
+with next deploy)**: every language with a grammar path has a tutor (17/17;
+pt/el/ro added). Per-language knowledge lives in skill bundles at
+`backend/services/tutor_skills/{code}/` — SKILL.md (core brief, always in
+the prompt, <2.5KB), REFERENCE.md (the app's actual grammar path with the
+learner's card titles, generated from data/grammar — regenerate when paths
+change), ERRORS.md (interference errors + coaching moves). The deep files
+load on demand through the tutor's `consult_reference` tool (progressive
+disclosure — deep knowledge never bloats the per-turn context), and the
+regression suite bounds every file's size. Content is derived expertise:
+NEVER quotes of the private resource library. Learner memory (weak items,
+`remember` facts, session summaries) was already per-turn context and now
+pairs with the skills. Admin per-account tutor override on the Accounts
+table: `user_profiles.tutor_access` default/enabled/blocked +
+`tutor_daily_cap` (migration `20260720000000`, NOT yet applied live —
+beta freeze); blocked wins over everything including TUTOR_FREE_ACCESS
+(403 tutor_blocked), enabled grants a capped daily allowance with no
+billing entitlement (tier "granted") — the bounded-cost way to let a
+friend try the tutors.
+Remaining, in order:
 (a) **Per-language tutor model selection — DONE 2026-07**:
 `languages.tutor_model` (NULL = the `TUTOR_MODEL` global default), admin
 picker on the Contribute page (allowed ids: `claude-fable-5`,

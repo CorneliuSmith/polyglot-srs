@@ -8,9 +8,11 @@ import {
   listAllRoles,
   overridePlan,
   revokeRole,
+  setTutorAccess,
   type AdminAccount,
   type GrantableRole,
   type RoleGrantRow,
+  type TutorAccess,
 } from '../../api/contribute'
 import type { Language } from '../../api/types'
 
@@ -163,6 +165,64 @@ function RolesCell({
   )
 }
 
+/** Per-account tutor override: Default (tiers decide) / Enabled with a
+ * daily message cap (bounded API cost for trials) / Blocked. */
+function TutorCell({ account }: { account: AdminAccount }) {
+  const queryClient = useQueryClient()
+  const [cap, setCap] = useState<string>(
+    account.tutor_daily_cap == null ? '' : String(account.tutor_daily_cap),
+  )
+  const mutation = useMutation({
+    mutationFn: (input: { access: TutorAccess; dailyCap: number | null }) =>
+      setTutorAccess(account.id, input.access, input.dailyCap),
+    onSuccess: () =>
+      queryClient.invalidateQueries({ queryKey: ['admin-accounts'] }),
+  })
+
+  const parsedCap = () => {
+    const n = parseInt(cap, 10)
+    return Number.isFinite(n) && n >= 0 ? n : null
+  }
+
+  return (
+    <div className="space-y-1">
+      <select
+        value={account.tutor_access}
+        onChange={(e) =>
+          mutation.mutate({
+            access: e.target.value as TutorAccess,
+            dailyCap: parsedCap(),
+          })
+        }
+        disabled={mutation.isPending}
+        aria-label={`Tutor access for ${account.email}`}
+        className="rounded border border-gray-300 bg-white px-2 py-1 text-xs"
+      >
+        <option value="default">Default (tier)</option>
+        <option value="enabled">Enabled</option>
+        <option value="blocked">Blocked</option>
+      </select>
+      {account.tutor_access === 'enabled' && (
+        <input
+          value={cap}
+          onChange={(e) => setCap(e.target.value.replace(/\D/g, ''))}
+          onBlur={() =>
+            mutation.mutate({ access: 'enabled', dailyCap: parsedCap() })
+          }
+          placeholder="cap/day"
+          aria-label={`Tutor daily message cap for ${account.email}`}
+          title="Max tutor messages per day (blank = the plus tier's daily number)"
+          className="w-20 rounded border border-gray-300 bg-white px-2 py-1 text-xs"
+          inputMode="numeric"
+        />
+      )}
+      {mutation.isError && (
+        <p className="text-xs text-red-500">Could not save.</p>
+      )}
+    </div>
+  )
+}
+
 function AccountRow({
   account,
   grants,
@@ -252,6 +312,9 @@ function AccountRow({
           languages={languages}
           selfId={selfId}
         />
+      </td>
+      <td className="px-3 py-2">
+        <TutorCell account={account} />
       </td>
       <td className="px-3 py-2 text-right">
         <button
@@ -399,6 +462,7 @@ export default function AccountsPanel({
                   <th className="px-3 py-1 font-normal">Activity</th>
                   <th className="px-3 py-1 font-normal">Plan</th>
                   <th className="px-3 py-1 font-normal">Roles</th>
+                  <th className="px-3 py-1 font-normal">Tutor</th>
                   <th className="px-3 py-1" />
                 </tr>
               </thead>

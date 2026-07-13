@@ -5,6 +5,13 @@ Access model (flat tiers, never billed per message):
   plus accounts  — flat subscription with a generous DAILY fair-use cap
   operator mode  — TUTOR_FREE_ACCESS=true bypasses limits entirely (demos)
 Allowances are shown openly in the UI (/status returns the meter).
+
+On top of the tiers sits the admin's per-account override (WP15b):
+  blocked — tutor off for this account; wins over everything, including
+            the operator bypass (403, code tutor_blocked).
+  enabled — tutor on regardless of billing, with a per-day message cap
+            (tutor_daily_cap, defaulting to the plus tier's daily number)
+            so letting a friend try it has a bounded API cost.
 """
 
 from __future__ import annotations
@@ -22,6 +29,7 @@ from backend.repositories.tutor import (
     count_tutor_messages,
     get_language_profile,
     get_study_stats,
+    get_tutor_access,
     get_user_profile,
     get_weak_areas,
     has_tutor_entitlement,
@@ -31,7 +39,7 @@ from backend.repositories.tutor import (
 )
 from backend.services.rate_limit import tutor_chat_limiter
 from backend.services.tutor import (
-    _LANGUAGE_BRIEFS,
+    available_tutors,
     merge_remembered,
     summarize_session,
     tutor_chat,
@@ -62,35 +70,73 @@ async def _get_allowance(user_id: str, language_id: str) -> dict:
     """The caller's tutor allowance: tier, window usage, and reset time.
 
     Message counts are the only unit exposed — the flat tier price never
-    depends on usage, and the UI shows exactly this payload.
+    depends on usage, and the UI shows exactly this payload. The admin's
+    per-account override is resolved first: 'blocked' zeroes everything
+    (even in operator free-access mode), 'granted' gives a capped daily
+    allowance without a billing entitlement.
     """
     settings = get_settings()
-    if settings.tutor_free_access:
-        return {
-            "tier": "unlimited", "unlimited": True, "entitled": True,
-            "limit": None, "used": 0, "remaining": None, "resets_at": None,
-        }
     now = datetime.now(UTC)
     async with rls_connection(user_id) as conn:
-        entitled = await has_tutor_entitlement(conn, user_id, language_id)
-        if entitled:
+        override = await get_tutor_access(conn, user_id)
+        if override["access"] == "blocked":
+            return {
+                "tier": "blocked", "unlimited": False, "entitled": False,
+                "limit": 0, "used": 0, "remaining": 0, "resets_at": None,
+            }
+        if settings.tutor_free_access and override["access"] != "enabled":
+            return {
+                "tier": "unlimited", "unlimited": True, "entitled": True,
+                "limit": None, "used": 0, "remaining": None, "resets_at": None,
+            }
+        if override["access"] == "enabled":
             window_start = now.replace(hour=0, minute=0, second=0, microsecond=0)
             resets_at = window_start + timedelta(days=1)
-            limit = settings.tutor_plus_daily_messages
-            tier = "plus"
+            limit = override["daily_cap"] or settings.tutor_plus_daily_messages
+            tier = "granted"
         else:
-            window_start = now.replace(
-                day=1, hour=0, minute=0, second=0, microsecond=0
-            )
-            resets_at = (window_start + timedelta(days=32)).replace(day=1)
-            limit = settings.tutor_free_monthly_messages
-            tier = "free"
+            entitled = await has_tutor_entitlement(conn, user_id, language_id)
+            if entitled:
+                window_start = now.replace(
+                    hour=0, minute=0, second=0, microsecond=0
+                )
+                resets_at = window_start + timedelta(days=1)
+                limit = settings.tutor_plus_daily_messages
+                tier = "plus"
+            else:
+                window_start = now.replace(
+                    day=1, hour=0, minute=0, second=0, microsecond=0
+                )
+                resets_at = (window_start + timedelta(days=32)).replace(day=1)
+                limit = settings.tutor_free_monthly_messages
+                tier = "free"
         used = await count_tutor_messages(conn, user_id, window_start)
     return {
-        "tier": tier, "unlimited": False, "entitled": entitled,
+        "tier": tier, "unlimited": False, "entitled": tier in ("plus", "granted"),
         "limit": limit, "used": used, "remaining": max(0, limit - used),
         "resets_at": resets_at.isoformat(),
     }
+
+
+def _reject_if_unavailable(allowance: dict) -> None:
+    """Turn a zeroed allowance into the right HTTP error for chat calls."""
+    if allowance["tier"] == "blocked":
+        raise HTTPException(
+            status_code=status.HTTP_403_FORBIDDEN,
+            detail={"code": "tutor_blocked"},
+        )
+    if not allowance["unlimited"] and allowance["remaining"] <= 0:
+        # Flat pricing: hitting the cap never costs money — free users are
+        # offered the upgrade, others wait for the window to reset.
+        raise HTTPException(
+            status_code=status.HTTP_402_PAYMENT_REQUIRED,
+            detail={
+                "code": "allowance_exhausted",
+                "tier": allowance["tier"],
+                "limit": allowance["limit"],
+                "resets_at": allowance["resets_at"],
+            },
+        )
 
 
 def _tutor_configured() -> bool:
@@ -107,7 +153,7 @@ def _require_configured(language_code: str) -> None:
             status_code=status.HTTP_503_SERVICE_UNAVAILABLE,
             detail="AI tutor is not configured on this server",
         )
-    if language_code not in _LANGUAGE_BRIEFS:
+    if language_code not in available_tutors():
         raise HTTPException(
             status_code=status.HTTP_422_UNPROCESSABLE_ENTITY,
             detail=f"No tutor available for language: {language_code}",
@@ -121,7 +167,7 @@ async def tutor_status(
     user: dict = Depends(get_current_user),
 ):
     """Report tutor availability plus the caller's allowance meter."""
-    available = _tutor_configured() and language_code in _LANGUAGE_BRIEFS
+    available = _tutor_configured() and language_code in available_tutors()
     if not available:
         return {"available": False, "entitled": False, "allowance": None}
     allowance = await _get_allowance(user["id"], language_id)
@@ -145,18 +191,7 @@ async def chat(
     """
     _require_configured(body.language_code)
     allowance = await _get_allowance(user["id"], body.language_id)
-    if not allowance["unlimited"] and allowance["remaining"] <= 0:
-        # Flat pricing: hitting the cap never costs money — free users are
-        # offered the upgrade, plus users just wait for the daily reset.
-        raise HTTPException(
-            status_code=status.HTTP_402_PAYMENT_REQUIRED,
-            detail={
-                "code": "allowance_exhausted",
-                "tier": allowance["tier"],
-                "limit": allowance["limit"],
-                "resets_at": allowance["resets_at"],
-            },
-        )
+    _reject_if_unavailable(allowance)
     if not await tutor_chat_limiter.allow(user["id"]):
         raise HTTPException(
             status_code=status.HTTP_429_TOO_MANY_REQUESTS,
@@ -244,16 +279,7 @@ async def chat_stream(
     """
     _require_configured(body.language_code)
     allowance = await _get_allowance(user["id"], body.language_id)
-    if not allowance["unlimited"] and allowance["remaining"] <= 0:
-        raise HTTPException(
-            status_code=status.HTTP_402_PAYMENT_REQUIRED,
-            detail={
-                "code": "allowance_exhausted",
-                "tier": allowance["tier"],
-                "limit": allowance["limit"],
-                "resets_at": allowance["resets_at"],
-            },
-        )
+    _reject_if_unavailable(allowance)
     if not await tutor_chat_limiter.allow(user["id"]):
         raise HTTPException(
             status_code=status.HTTP_429_TOO_MANY_REQUESTS,
@@ -369,6 +395,11 @@ async def end_session(
     # summarization is part of the message they already spent, not a new
     # spend. Blocks only callers who never talked to the tutor.
     allowance = await _get_allowance(user["id"], body.language_id)
+    if allowance["tier"] == "blocked":
+        raise HTTPException(
+            status_code=status.HTTP_403_FORBIDDEN,
+            detail={"code": "tutor_blocked"},
+        )
     if not allowance["unlimited"] and allowance["used"] == 0:
         raise HTTPException(
             status_code=status.HTTP_402_PAYMENT_REQUIRED,

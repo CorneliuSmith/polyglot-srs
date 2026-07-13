@@ -16,7 +16,7 @@ import json
 from anthropic import AsyncAnthropic
 
 from backend.config import get_settings
-from backend.services.tutor import _LANGUAGE_BRIEFS
+from backend.services.tutor import _load_skill
 
 _SCHEMA = {
     "type": "object",
@@ -59,7 +59,7 @@ async def semantic_check_point(
     if getattr(settings, "tutor_dev_mock", False):
         return _mock_check()
 
-    brief = _LANGUAGE_BRIEFS.get(language_code, f"Language code: {language_code}.")
+    brief = _load_skill(language_code) or f"Language code: {language_code}."
     drills_text = "\n".join(
         f"- sentence: {d.get('sentence')}\n  answer: {d.get('answer')}"
         f"\n  translation: {d.get('translation') or '(none)'}"

@@ -37,7 +37,7 @@ from backend.config import get_settings
 from backend.services.drills import is_answerable
 from backend.services.nlp import init_nlp_backends
 from backend.services.seeder.seed_grammar import GrammarSeeder
-from backend.services.tutor import _LANGUAGE_BRIEFS
+from backend.services.tutor import _load_skill
 
 logger = logging.getLogger("generate_curriculum")
 
@@ -128,7 +128,7 @@ async def generate_curriculum(
     if getattr(settings, "tutor_dev_mock", False):
         return _mock_curriculum(language_code, level)
 
-    brief = _LANGUAGE_BRIEFS.get(language_code, f"Language code: {language_code}.")
+    brief = _load_skill(language_code) or f"Language code: {language_code}."
     client = AsyncAnthropic(api_key=settings.anthropic_api_key)
     response = await client.messages.create(
         model=settings.tutor_model,

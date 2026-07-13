@@ -1272,6 +1272,32 @@ async def test_english_drill_hints_localize(pool):
         assert cram[p_en]["hint"] == "the indefinite article"
 
 
+async def test_tutor_access_override_round_trip(pool):
+    """WP15b: the per-account tutor override persists and normalizes."""
+    from backend.repositories.tutor import get_tutor_access, set_tutor_access
+
+    user = await _new_user(pool, "friend@tutortrial")
+    async with pool.privileged_connection() as conn:
+        # No profile row yet -> default.
+        assert await get_tutor_access(conn, user) == {
+            "access": "default", "daily_cap": None,
+        }
+        # Enable with a cap (creates the profile row), then block.
+        await set_tutor_access(conn, user, "enabled", 10)
+        assert await get_tutor_access(conn, user) == {
+            "access": "enabled", "daily_cap": 10,
+        }
+        await set_tutor_access(conn, user, "blocked", 10)
+        assert (await get_tutor_access(conn, user))["access"] == "blocked"
+        # The CHECK constraint rejects junk states.
+        import asyncpg
+        try:
+            await set_tutor_access(conn, user, "sometimes", None)
+            raise AssertionError("junk access value was accepted")
+        except asyncpg.CheckViolationError:
+            pass
+
+
 async def test_reset_progress_deck_and_language(pool):
     """Reset studies: per-deck and per-language wipes delete the caller's
     cards AND their review history (FK cascade), never touch another user,

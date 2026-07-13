@@ -32,7 +32,7 @@ import logging
 from anthropic import AsyncAnthropic
 
 from backend.config import get_settings
-from backend.services.tutor import _LANGUAGE_BRIEFS
+from backend.services.tutor import _load_skill
 
 logger = logging.getLogger("generate_grammar")
 
@@ -79,7 +79,7 @@ async def generate_grammar_content(
     if getattr(settings, "tutor_dev_mock", False):
         return _mock_content(title)
 
-    brief = _LANGUAGE_BRIEFS.get(language_code, f"Language code: {language_code}.")
+    brief = _load_skill(language_code) or f"Language code: {language_code}."
     ex_text = "\n".join(f"- {e}" for e in (examples or [])) or "(none provided)"
     client = AsyncAnthropic(api_key=settings.anthropic_api_key)
     response = await client.messages.create(

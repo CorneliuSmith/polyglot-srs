@@ -20,6 +20,7 @@ vi.mock('../api/contribute', () => ({
   listAllRoles: vi.fn(() => Promise.resolve([])),
   grantRole: vi.fn(),
   revokeRole: vi.fn(),
+  setTutorAccess: vi.fn(() => Promise.resolve()),
   flagPointIssue: vi.fn(() => Promise.resolve()),
   getReviewNotes: vi.fn(() => Promise.resolve([])),
   resolveReviewNote: vi.fn(() => Promise.resolve()),
@@ -209,6 +210,7 @@ describe('ContributorPage', () => {
     mockAccounts.mockResolvedValue([{
       id: 'u-2', email: 'friend@x.com', created_at: '2026-07-01T00:00:00Z',
       last_sign_in_at: null, plan_scope: 'all', plan_language: null,
+      tutor_access: 'default', tutor_daily_cap: null,
       roles: ['reviewer'], cards: 10, languages_studied: 1,
     }])
     mockAllRoles.mockResolvedValue([{
@@ -254,12 +256,54 @@ describe('ContributorPage', () => {
     )
   })
 
+  it('admin enables the tutor for an account with a daily cap', async () => {
+    const { listAccounts, listAllRoles, setTutorAccess } =
+      await import('../api/contribute')
+    const mockSetTutor = setTutorAccess as ReturnType<typeof vi.fn>
+    ;(listAllRoles as ReturnType<typeof vi.fn>).mockResolvedValue([])
+    ;(listAccounts as ReturnType<typeof vi.fn>).mockResolvedValue([{
+      id: 'u-2', email: 'friend@x.com', created_at: null, last_sign_in_at: null,
+      plan_scope: 'all', plan_language: null,
+      tutor_access: 'enabled', tutor_daily_cap: 10,
+      roles: [], cards: 0, languages_studied: 0,
+    }])
+    mockGetGrammar.mockResolvedValue({
+      is_admin: true, points: [], review_policy: 'strict', tutor_model: null,
+    })
+    renderPage()
+
+    fireEvent.click(await screen.findByRole('button', { name: /manage accounts/i }))
+    // Current state renders: enabled + its cap.
+    const select = (await screen.findByLabelText(
+      /tutor access for friend@x\.com/i,
+    )) as HTMLSelectElement
+    expect(select.value).toBe('enabled')
+    const cap = screen.getByLabelText(
+      /tutor daily message cap for friend@x\.com/i,
+    ) as HTMLInputElement
+    expect(cap.value).toBe('10')
+
+    // Tighten the cap: type + blur persists it.
+    fireEvent.change(cap, { target: { value: '5' } })
+    fireEvent.blur(cap)
+    await waitFor(() =>
+      expect(mockSetTutor).toHaveBeenCalledWith('u-2', 'enabled', 5),
+    )
+
+    // Block the account outright.
+    fireEvent.change(select, { target: { value: 'blocked' } })
+    await waitFor(() =>
+      expect(mockSetTutor).toHaveBeenCalledWith('u-2', 'blocked', 5),
+    )
+  })
+
   it("admin can't revoke their own admin role from the accounts table", async () => {
     const { listAccounts, listAllRoles } = await import('../api/contribute')
     const { useAuthStore } = await import('../stores/authStore')
     ;(listAccounts as ReturnType<typeof vi.fn>).mockResolvedValue([{
       id: 'u-self', email: 'me@x.com', created_at: null, last_sign_in_at: null,
       plan_scope: 'all', plan_language: null, roles: ['admin'],
+      tutor_access: 'default', tutor_daily_cap: null,
       cards: 0, languages_studied: 0,
     }])
     ;(listAllRoles as ReturnType<typeof vi.fn>).mockResolvedValue([{
