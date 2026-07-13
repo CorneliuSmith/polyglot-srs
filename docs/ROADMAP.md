@@ -771,19 +771,24 @@ language) — a pricing decision for the owner, not a model.
 **Model:** `claude-opus-4-8` (billing = security-sensitive). **Effort:** M.
 
 ### WP17 — English drill hints in the learner's language
-**State:** English VOCAB content is fully localized ("from Spanish" gets
-Spanish definitions on cards, lessons, detail pages, and the deck
-browser, plus Spanish sentence translations once en_sentences is
-loaded). English GRAMMAR drill hints/translations are authored in
-English only — a from-es A2 learner hitting "the flipped tag auxiliary"
-reads scaffolding in the language they're weakest in.
-**Plan:** (a) `drill_hint_translations (drill_id, locale, hint,
-translation)` + eff_locale COALESCE in the drill queries; (b) generate
-per-locale hints machine-assisted (Sonnet, batch) for the 12 support
-locales × 240 en drills, then a reviewer pass per locale before
-promoting (never self-certified — §3b); (c) UI unchanged (the payload
-already carries hint/translation). **Model:** draft `claude-sonnet-5`,
-verify per-locale reviewer. **Effort:** M.
+**State (2026-07-12):** vertical slice landed locally, NOT yet deployed
+(beta freeze — migration `20260719000000_drill_hint_translations` is
+committed but unapplied; apply it live together with the code).
+`drill_hint_translations (drill_id, locale, hint, translation,
+reviewed)` + eff_locale COALESCE in all four drill read paths (reviews,
+lesson bulk, card detail, quick-cram). GrammarSeeder merges companion
+files `data/grammar/{code}_drill_hints.{locale}.json` keyed by point
+title + exact drill sentence (drill ids are reborn every reseed, so the
+sentence is the only stable key; a stale key fails the seed loudly).
+Spanish pilot authored for the English A2 tier (8 points × 6 drills),
+`reviewed:false` pending the per-locale reviewer. UI unchanged — the
+payload already carried hint/translation.
+**Remaining:** (a) extend es beyond A2 (A1, B1–C2 tiers); (b) the other
+11 support locales, machine-assisted (Sonnet, batch) then a reviewer
+pass per locale before flipping the file's `reviewed` flag (never
+self-certified — §3b); (c) apply the migration + reseed en when the
+freeze lifts. **Model:** draft `claude-sonnet-5`, verify per-locale
+reviewer. **Effort:** M.
 
 ## 6. Model selection guide
 

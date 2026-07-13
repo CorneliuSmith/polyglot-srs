@@ -1,0 +1,216 @@
+{
+ "language": "en",
+ "locale": "es",
+ "reviewed": false,
+ "_note": "WP17 pilot: Spanish scaffolding for the English A2 tier. Lemma cues stay English on purpose — the learner must produce the English word. Drafted 2026-07; reviewed flips true after the per-locale reviewer pass (never self-certified, §3b).",
+ "points": {
+  "Past simple — irregular verbs": {
+   "Yesterday I {{answer}} to the market.": {
+    "hint": "go — pasado",
+    "translation": "El pasado de 'go'."
+   },
+   "She {{answer}} a great film last night.": {
+    "hint": "see — pasado",
+    "translation": "El pasado de 'see'."
+   },
+   "We {{answer}} a new car in March.": {
+    "hint": "buy — pasado",
+    "translation": "El pasado de 'buy'."
+   },
+   "He {{answer}} the early train this morning.": {
+    "hint": "take — pasado",
+    "translation": "El pasado de 'take'."
+   },
+   "They {{answer}} home very late.": {
+    "hint": "come — pasado",
+    "translation": "El pasado de 'come'."
+   },
+   "I {{answer}} breakfast at seven.": {
+    "hint": "eat — pasado",
+    "translation": "El pasado de 'eat'."
+   }
+  },
+  "Present continuous vs present simple": {
+   "Quiet, please — the baby {{answer}} sleeping.": {
+    "hint": "be — tercera persona",
+    "translation": "Ahora mismo → continuo."
+   },
+   "She {{answer}} to work by bike every day.": {
+    "hint": "go — costumbre, ella",
+    "translation": "Una costumbre → simple."
+   },
+   "I'm {{answer}} for my keys at the moment.": {
+    "hint": "look — continuo",
+    "translation": "Ahora mismo → forma en -ing."
+   },
+   "Water {{answer}} at 100 degrees.": {
+    "hint": "boil — hecho general, it",
+    "translation": "Un hecho → simple."
+   },
+   "They {{answer}} watching TV right now.": {
+    "hint": "be — ellos",
+    "translation": "Ahora mismo → continuo."
+   },
+   "He usually {{answer}} coffee, not tea.": {
+    "hint": "drink — costumbre, él",
+    "translation": "usually → simple."
+   }
+  },
+  "Comparatives and superlatives": {
+   "This bag is {{answer}} than that one.": {
+    "hint": "cheap — comparativo",
+    "translation": "cheap — comparando dos cosas."
+   },
+   "It's the {{answer}} building in the city.": {
+    "hint": "tall — superlativo",
+    "translation": "tall — el número uno."
+   },
+   "Her English is {{answer}} than mine.": {
+    "hint": "good — comparativo",
+    "translation": "good — comparativo irregular."
+   },
+   "That was the {{answer}} meal I've ever had.": {
+    "hint": "bad — superlativo",
+    "translation": "bad — superlativo irregular."
+   },
+   "This exercise is {{answer}} difficult than the last.": {
+    "hint": "la palabra antes de adjetivos largos",
+    "translation": "Adjetivo largo — añade una palabra."
+   },
+   "The station is {{answer}} than I thought.": {
+    "hint": "far — comparativo",
+    "translation": "far — comparativo irregular."
+   }
+  },
+  "Going to and will": {
+   "We're {{answer}} to visit Rome in May.": {
+    "hint": "el futuro planificado",
+    "translation": "Un plan hecho antes."
+   },
+   "Don't worry — I {{answer}} help you.": {
+    "hint": "decisión instantánea",
+    "translation": "Una promesa, decidida ahora."
+   },
+   "Look at those clouds! It's going to {{answer}}.": {
+    "hint": "tiempo lluvioso",
+    "translation": "Lo ves venir."
+   },
+   "I think she {{answer}} pass the exam.": {
+    "hint": "palabra de predicción",
+    "translation": "Una opinión sobre el futuro."
+   },
+   "They're going {{answer}} move house next year.": {
+    "hint": "la palabra pequeña tras going",
+    "translation": "La palabrita de 'going …'."
+   },
+   "I'm tired — I {{answer}} go to bed.": {
+    "hint": "forma corta del futuro inmediato",
+    "translation": "Una decisión tomada en este segundo."
+   }
+  },
+  "Some, any, much, many": {
+   "There's {{answer}} milk in the fridge.": {
+    "hint": "palabra de cantidad afirmativa",
+    "translation": "Frase afirmativa."
+   },
+   "We don't have {{answer}} eggs left.": {
+    "hint": "palabra de cantidad negativa",
+    "translation": "Frase negativa."
+   },
+   "Do you have {{answer}} questions?": {
+    "hint": "palabra de cantidad en preguntas",
+    "translation": "Una pregunta."
+   },
+   "How {{answer}} money do you need?": {
+    "hint": "con incontables",
+    "translation": "Cantidad incontable."
+   },
+   "How {{answer}} people are coming?": {
+    "hint": "con contables",
+    "translation": "Cantidad contable."
+   },
+   "Would you like {{answer}} tea?": {
+    "hint": "palabra de cantidad en ofrecimientos",
+    "translation": "Los ofrecimientos usan la palabra afirmativa."
+   }
+  },
+  "Adverbs of frequency": {
+   "I {{answer}} drink coffee in the morning — every single day.": {
+    "hint": "la palabra de todas las veces",
+    "translation": "El 100 % de las veces."
+   },
+   "He is {{answer}} late — it drives me crazy.": {
+    "hint": "la palabra de todas las veces",
+    "translation": "Después de 'be'."
+   },
+   "We {{answer}} go out on Fridays — maybe once a month.": {
+    "hint": "la palabra de vez en cuando",
+    "translation": "Ni a menudo ni nunca."
+   },
+   "She {{answer}} eats meat — she's almost vegetarian.": {
+    "hint": "la palabra de casi nunca",
+    "translation": "Casi nunca."
+   },
+   "I have {{answer}} been to Japan, but I'd love to go.": {
+    "hint": "la palabra de cero veces",
+    "translation": "Cero veces."
+   },
+   "They {{answer}} visit us at Christmas — most years.": {
+    "hint": "la palabra de la mayoría de las veces",
+    "translation": "La mayoría de las veces."
+   }
+  },
+  "Can, could, have to": {
+   "She {{answer}} speak three languages.": {
+    "hint": "palabra de habilidad",
+    "translation": "Habilidad actual."
+   },
+   "{{answer}} you open the window, please?": {
+    "hint": "palabra de petición cortés",
+    "translation": "Una petición cortés."
+   },
+   "I {{answer}} to wear a uniform at work.": {
+    "hint": "verbo de obligación",
+    "translation": "Obligación externa."
+   },
+   "When I was five, I {{answer}} already read.": {
+    "hint": "palabra de habilidad — pasado",
+    "translation": "Habilidad en el pasado."
+   },
+   "You don't {{answer}} to come if you're busy.": {
+    "hint": "verbo de obligación",
+    "translation": "Sin obligación."
+   },
+   "{{answer}} I sit here? — Of course.": {
+    "hint": "palabra de permiso",
+    "translation": "Pidiendo permiso."
+   }
+  },
+  "Prepositions of time: in, on, at": {
+   "The meeting starts {{answer}} nine o'clock.": {
+    "hint": "preposición de hora exacta",
+    "translation": "Hora del reloj."
+   },
+   "I was born {{answer}} 1998.": {
+    "hint": "preposición de períodos largos",
+    "translation": "Un año."
+   },
+   "We're leaving {{answer}} Friday.": {
+    "hint": "preposición de días",
+    "translation": "Un día."
+   },
+   "She works best {{answer}} the morning.": {
+    "hint": "preposición de períodos largos",
+    "translation": "Parte del día."
+   },
+   "My birthday is {{answer}} 12 March.": {
+    "hint": "preposición de fechas",
+    "translation": "Una fecha."
+   },
+   "He often studies {{answer}} night.": {
+    "hint": "la preposición fija con night",
+    "translation": "La expresión fija con 'night'."
+   }
+  }
+ }
+}

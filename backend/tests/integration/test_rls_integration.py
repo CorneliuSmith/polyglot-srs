@@ -1189,6 +1189,89 @@ async def test_english_support_locale_localizes_cards(pool):
         assert c["sentence"] == "a clear liquid"
 
 
+async def test_english_drill_hints_localize(pool):
+    """WP17: grammar drill hint/translation prefer the learner's support
+    locale via drill_hint_translations, falling back per drill to the
+    authored English — across reviews, lessons, card detail, and cram."""
+    from backend.repositories.cards import (
+        get_card_detail,
+        get_card_details_bulk,
+        get_cram_cards,
+        get_due_cards,
+    )
+
+    lang = await _language(pool, "en")
+    async with pool.privileged_connection() as conn:
+        # Two one-drill points: one carries a Spanish row, one doesn't —
+        # so a single fetch proves the per-drill fallback, not just the
+        # happy path (the rotation makes multi-drill assertions flaky).
+        p_es = str(await conn.fetchval(
+            "INSERT INTO grammar_points (language_id, title, level, reviewed) "
+            "VALUES ($1, 'Past simple', 'A2', true) RETURNING id", lang,
+        ))
+        p_en = str(await conn.fetchval(
+            "INSERT INTO grammar_points (language_id, title, level, reviewed) "
+            "VALUES ($1, 'Articles', 'A2', true) RETURNING id", lang,
+        ))
+        d_es = str(await conn.fetchval(
+            "INSERT INTO drill_sentences (grammar_point_id, sentence, answer, "
+            "translation, hint, display_order) VALUES ($1, "
+            "'Yesterday I {{answer}} home.', 'went', 'The past of go.', "
+            "'go — past', 1) RETURNING id", p_es,
+        ))
+        await conn.execute(
+            "INSERT INTO drill_sentences (grammar_point_id, sentence, answer, "
+            "translation, hint, display_order) VALUES ($1, "
+            "'I saw {{answer}} cat.', 'a', 'Unknown thing.', "
+            "'the indefinite article', 1)", p_en,
+        )
+        await conn.execute(
+            "INSERT INTO drill_hint_translations (drill_id, locale, hint, "
+            "translation) VALUES ($1, 'es', 'go — pasado', 'El pasado de go.')",
+            d_es,
+        )
+
+    user = await _new_user(pool, "learner@drillhints")
+    cards = {}
+    async with pool.privileged_connection() as conn:
+        for name, point in (("es", p_es), ("en", p_en)):
+            cards[name] = str(await conn.fetchval(
+                "INSERT INTO user_cards (user_id, language_id, card_type, "
+                "card_id, next_review) VALUES ($1, $2, 'grammar', $3, "
+                "now() - interval '1h') RETURNING id", user, lang, point,
+            ))
+
+    async with pool.rls_connection(user) as conn:
+        # Reviews: Spanish where a row exists, authored English where not.
+        due = {str(c["id"]): c for c in
+               await get_due_cards(conn, lang, support_locale="es")}
+        assert due[cards["es"]]["hint"] == "go — pasado"
+        assert due[cards["es"]]["translation"] == "El pasado de go."
+        assert due[cards["en"]]["hint"] == "the indefinite article"
+
+        # No support locale = authored English everywhere.
+        due = {str(c["id"]): c for c in await get_due_cards(conn, lang)}
+        assert due[cards["es"]]["hint"] == "go — past"
+
+        # Lessons (grammar-only batch — no vocab to trigger the locale).
+        details = await get_card_details_bulk(
+            conn, list(cards.values()), support_locale="es"
+        )
+        assert details[cards["es"]]["quiz"]["hint"] == "go — pasado"
+        assert details[cards["es"]]["examples"][0]["translation"] == "El pasado de go."
+        assert details[cards["en"]]["quiz"]["hint"] == "the indefinite article"
+
+        # Card detail panel.
+        detail = await get_card_detail(conn, cards["es"], support_locale="es")
+        assert detail["examples"][0]["hint"] == "go — pasado"
+
+        # Quick-cram.
+        cram = {c["card_id"]: c for c in
+                await get_cram_cards(conn, [p_es, p_en], support_locale="es")}
+        assert cram[p_es]["hint"] == "go — pasado"
+        assert cram[p_en]["hint"] == "the indefinite article"
+
+
 async def test_reset_progress_deck_and_language(pool):
     """Reset studies: per-deck and per-language wipes delete the caller's
     cards AND their review history (FK cascade), never touch another user,
