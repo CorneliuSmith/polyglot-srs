@@ -800,13 +800,16 @@ lesson bulk, card detail, quick-cram). GrammarSeeder merges companion
 files `data/grammar/{code}_drill_hints.{locale}.json` keyed by point
 title + exact drill sentence (drill ids are reborn every reseed, so the
 sentence is the only stable key; a stale key fails the seed loudly).
-Spanish pilot authored for the English A2 tier (8 points × 6 drills),
+Spanish, Portuguese, and Russian authored for the FULL English path
+(2026-07-13): 40 points × 6 drills × 3 locales = 720 pairs, all through
+the seeder gate (title/sentence match, no empties, no answer leaks) —
+these three first because they're the active beta testers' languages.
 `reviewed:false` pending the per-locale reviewer. UI unchanged — the
 payload already carried hint/translation.
-**Remaining:** (a) extend es beyond A2 (A1, B1–C2 tiers); (b) the other
-11 support locales, machine-assisted (Sonnet, batch) then a reviewer
-pass per locale before flipping the file's `reviewed` flag (never
-self-certified — §3b); (c) apply the migration + reseed en when the
+**Remaining:** (a) the other 9 support locales (fr, de, it, ca, ro, el,
+tr, ar, sw), machine-assisted (Sonnet, batch) then a reviewer pass per
+locale before flipping the file's `reviewed` flag (never
+self-certified — §3b); (b) apply the migration + reseed en when the
 freeze lifts. **Model:** draft `claude-sonnet-5`, verify per-locale
 reviewer. **Effort:** M.
 
