@@ -153,6 +153,9 @@ class BaseNLP(ABC):
           5. normalize(user) == normalize(aspect_partner)   -> WRONG_FORM
           6. normalize(user) in normalized alternatives     -> CORRECT
           Default                                           -> WRONG
+        With card_context["card_type"] == "grammar", layers 3-4 grade
+        WRONG_FORM instead of CORRECT_SLOPPY — a form drill is testing
+        exactly the inflection, so the right lemma in the wrong cell fails.
 
         Args:
             user_input: The learner's typed answer.
@@ -186,8 +189,21 @@ class BaseNLP(ABC):
         if norm_user == norm_correct:
             return AnswerResult.CORRECT, None
 
+        # Grammar drills test the FORM — "is" where "am" belongs is the very
+        # thing being drilled, so lemma/family matches (layers 3–4) grade
+        # WRONG_FORM instead of passing. Vocabulary keeps the leniency: the
+        # word was recalled, the exact inflection is secondary.
+        strict_form = bool(
+            card_context and card_context.get("card_type") == "grammar"
+        )
+
         # Layer 3: Lemma match
         if self.lemmatize(user) == self.lemmatize(correct):
+            if strict_form:
+                return (
+                    AnswerResult.WRONG_FORM,
+                    f"Right word, wrong form. Expected: {correct_answer}",
+                )
             return (
                 AnswerResult.CORRECT_SLOPPY,
                 f"Correct meaning, but check the exact form. Expected: {correct_answer}",
@@ -199,6 +215,11 @@ class BaseNLP(ABC):
             for f in self.get_morphological_family(correct)
         }
         if norm_user in morph_family_normalized:
+            if strict_form:
+                return (
+                    AnswerResult.WRONG_FORM,
+                    f"Right word, wrong form. Expected: {correct_answer}",
+                )
             return (
                 AnswerResult.CORRECT_SLOPPY,
                 f"Right word family, but the exact form differs. Expected: {correct_answer}",

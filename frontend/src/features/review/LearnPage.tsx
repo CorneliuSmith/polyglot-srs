@@ -139,6 +139,7 @@ export default function LearnPage() {
         user_input: finalInput,
         correct_answer: lesson.quiz.answer,
         card_context: {
+          card_type: cardType,
           morphology: lesson.quiz.morphology ?? {},
           alternatives: lesson.quiz.alternatives ?? [],
         },
