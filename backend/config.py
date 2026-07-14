@@ -50,6 +50,10 @@ class Settings(BaseSettings):
     stripe_secret_key: str = ""
     stripe_webhook_secret: str = ""
     stripe_price_id: str = ""          # the tutor subscription Price id
+    # Language plans (WP16): one Price per plan scope. Empty = plan
+    # checkout unavailable (the app still records the chosen scope free).
+    stripe_price_single: str = ""      # "{Language} only" subscription
+    stripe_price_all: str = ""         # "All languages" subscription
     # Dev-only: "buy" the tutor with no Stripe key — /checkout grants the
     # entitlement directly so the gated → unlocked flow is testable. Never
     # enable in production.

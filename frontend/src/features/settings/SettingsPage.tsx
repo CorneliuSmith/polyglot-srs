@@ -1,7 +1,14 @@
+import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query'
 import { getLanguages, getProfile, updateProfile } from '../../api/profile'
 import { resetProgress } from '../../api/review'
+import {
+  formatPrice,
+  getPlanPrices,
+  openBillingPortal,
+  startPlanCheckout,
+} from '../../api/billing'
 import { getDashboardStats } from '../../api/dashboard'
 import { usePrefsStore } from '../../stores/prefsStore'
 import type { Theme } from '../../stores/prefsStore'
@@ -32,6 +39,34 @@ export default function SettingsPage() {
     queryKey: ['dashboard', activeLanguageId],
     queryFn: () => getDashboardStats(activeLanguageId!),
     enabled: !!activeLanguageId,
+  })
+
+  const { data: planPrices } = useQuery({
+    queryKey: ['plan-prices'],
+    queryFn: getPlanPrices,
+    staleTime: Infinity,
+  })
+  const allPrice = formatPrice(planPrices?.all ?? null)
+  const [billingUnavailable, setBillingUnavailable] = useState(false)
+
+  // Upgrade (single → all): dev-mock grants directly; real mode redirects
+  // to Stripe Checkout. A 503 means billing isn't launched — say so.
+  const upgradeMutation = useMutation({
+    mutationFn: () => startPlanCheckout('all'),
+    onSuccess: (res) => {
+      if (res.granted) {
+        queryClient.invalidateQueries({ queryKey: ['profile'] })
+      } else if (res.url) {
+        window.location.assign(res.url)
+      }
+    },
+    onError: () => setBillingUnavailable(true),
+  })
+
+  const portalMutation = useMutation({
+    mutationFn: openBillingPortal,
+    onSuccess: (url) => window.location.assign(url),
+    onError: () => setBillingUnavailable(true),
   })
 
   const batchMutation = useMutation({
@@ -103,10 +138,46 @@ export default function SettingsPage() {
         <section className="bg-white rounded-2xl shadow-sm border border-gray-100 p-5 space-y-3">
           <h2 className="font-semibold text-gray-800">Active language</h2>
           <LanguagePicker />
+        </section>
+
+        <section className="bg-white rounded-2xl shadow-sm border border-gray-100 p-5 space-y-3">
+          <h2 className="font-semibold text-gray-800">Plan</h2>
+          <p className="text-sm text-gray-600">
+            {profile?.plan_scope === 'single'
+              ? `Single language${
+                  languages.find((l) => l.id === profile?.plan_language_id)
+                    ?.name
+                    ? ` — ${languages.find((l) => l.id === profile?.plan_language_id)!.name}`
+                    : ''
+                }`
+              : 'All languages'}
+          </p>
           {profile?.plan_scope === 'single' && (
-            <p className="text-xs text-gray-500">
-              Your plan covers one language. Upgrading to All Languages will
-              unlock the rest when billing launches.
+            <button
+              type="button"
+              onClick={() => upgradeMutation.mutate()}
+              disabled={upgradeMutation.isPending}
+              className="rounded-lg bg-lang hover:bg-lang-dark text-lang-on px-4 py-2 text-sm font-semibold disabled:opacity-50"
+            >
+              {upgradeMutation.isPending
+                ? 'Opening…'
+                : allPrice
+                  ? `Upgrade to All languages — ${allPrice}`
+                  : 'Upgrade to All languages'}
+            </button>
+          )}
+          <button
+            type="button"
+            onClick={() => portalMutation.mutate()}
+            disabled={portalMutation.isPending}
+            className="block text-xs text-lang hover:underline disabled:opacity-50"
+          >
+            Manage billing
+          </button>
+          {billingUnavailable && (
+            <p className="text-xs text-gray-400">
+              Billing hasn't launched yet — early accounts keep their chosen
+              plan for free, and keep their price when it goes live.
             </p>
           )}
         </section>

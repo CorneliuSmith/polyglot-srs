@@ -33,6 +33,8 @@ class FakeSettings:
     stripe_secret_key = ""
     stripe_webhook_secret = WEBHOOK_SECRET
     stripe_price_id = "price_tutor"
+    stripe_price_single = "price_single"
+    stripe_price_all = "price_all"
     stripe_dev_mock = True
     app_base_url = "https://app.example"
 
@@ -204,3 +206,133 @@ def test_checkout_real_mode_returns_url():
     assert resp.status_code == 200
     assert resp.json() == {"granted": False, "url": "https://checkout.stripe/x"}
     assert mk.call_args.kwargs["customer_id"] == "cus_new"
+
+
+# ── language plans (WP16) ────────────────────────────────────────────────────
+
+class TestExtractPlanChange:
+    def _completed(self, meta):
+        return {"type": "checkout.session.completed", "data": {"object": {
+            "metadata": meta, "subscription": "sub_p1", "customer": "cus_1",
+        }}}
+
+    def test_plan_checkout_grants(self):
+        change = billing.extract_plan_change(self._completed({
+            "kind": "plan", "user_id": TEST_USER_ID,
+            "plan_scope": "single", "plan_language_id": LANG,
+        }))
+        assert change == {
+            "action": "grant", "user_id": TEST_USER_ID, "plan_scope": "single",
+            "plan_language_id": LANG, "subscription_id": "sub_p1",
+            "customer_id": "cus_1",
+        }
+
+    def test_all_plan_needs_no_language(self):
+        change = billing.extract_plan_change(self._completed({
+            "kind": "plan", "user_id": TEST_USER_ID,
+            "plan_scope": "all", "plan_language_id": "",
+        }))
+        assert change["plan_scope"] == "all"
+        assert change["plan_language_id"] is None
+
+    def test_tutor_event_never_sets_a_plan(self):
+        # No kind=plan → the tutor's own checkout can't touch plans.
+        assert billing.extract_plan_change(self._completed({
+            "user_id": TEST_USER_ID, "language_id": LANG,
+        })) is None
+
+    def test_plan_event_never_grants_tutor(self):
+        # The mirror image: plan metadata has no language_id.
+        assert billing.extract_entitlement_change(self._completed({
+            "kind": "plan", "user_id": TEST_USER_ID,
+            "plan_scope": "all", "plan_language_id": "",
+        })) is None
+
+    def test_single_without_language_is_rejected(self):
+        assert billing.extract_plan_change(self._completed({
+            "kind": "plan", "user_id": TEST_USER_ID,
+            "plan_scope": "single", "plan_language_id": "",
+        })) is None
+
+    def test_subscription_deleted_revokes(self):
+        event = {"type": "customer.subscription.deleted",
+                 "data": {"object": {"id": "sub_p1"}}}
+        assert billing.extract_plan_change(event) == {
+            "action": "revoke", "subscription_id": "sub_p1",
+        }
+
+    def test_past_due_revokes(self):
+        event = {"type": "customer.subscription.updated",
+                 "data": {"object": {"id": "sub_p1", "status": "past_due"}}}
+        assert billing.extract_plan_change(event)["action"] == "revoke"
+
+
+class TestPlanEndpoints:
+    def test_plan_checkout_requires_auth(self, client):
+        resp = client.post("/api/billing/plan/checkout",
+                           json={"plan_scope": "all"})
+        assert resp.status_code == 401
+
+    def test_single_needs_language(self, client):
+        resp = client.post(
+            "/api/billing/plan/checkout",
+            json={"plan_scope": "single"},
+            headers=_auth_headers(),
+        )
+        assert resp.status_code == 422
+
+    def test_dev_mock_sets_plan_directly(self, client):
+        with patch("backend.routers.billing.set_plan_subscription",
+                   new=AsyncMock()) as mock_set:
+            resp = client.post(
+                "/api/billing/plan/checkout",
+                json={"plan_scope": "single", "plan_language_id": LANG},
+                headers=_auth_headers(),
+            )
+        assert resp.status_code == 200
+        assert resp.json() == {"granted": True, "url": None}
+        args = mock_set.await_args.args
+        assert args[1:] == (TEST_USER_ID, "single", LANG)
+
+    def test_plan_checkout_503_when_not_configured(self, client):
+        paid = FakeSettings()
+        paid.stripe_dev_mock = False  # no secret key either
+        with patch("backend.routers.billing.get_settings", return_value=paid), \
+             patch("backend.services.billing.get_settings", return_value=paid):
+            resp = client.post(
+                "/api/billing/plan/checkout",
+                json={"plan_scope": "all"},
+                headers=_auth_headers(),
+            )
+        assert resp.status_code == 503
+
+    def test_prices_null_until_configured(self, client):
+        resp = client.get("/api/billing/plan/prices", headers=_auth_headers())
+        assert resp.status_code == 200
+        assert resp.json() == {"single": None, "all": None}
+
+    def test_portal_503_when_not_configured(self, client):
+        resp = client.post("/api/billing/portal", headers=_auth_headers())
+        assert resp.status_code == 503
+
+    def test_webhook_sets_plan_on_event(self, client):
+        payload = json.dumps({
+            "type": "checkout.session.completed",
+            "data": {"object": {
+                "metadata": {"kind": "plan", "user_id": TEST_USER_ID,
+                             "plan_scope": "all", "plan_language_id": ""},
+                "subscription": "sub_p9", "customer": "cus_9",
+            }},
+        }).encode()
+        with patch("backend.services.billing.construct_event",
+                   return_value=json.loads(payload)), \
+             patch("backend.routers.billing.set_plan_subscription",
+                   new=AsyncMock()) as mock_set:
+            resp = client.post(
+                "/api/billing/webhook", content=payload,
+                headers={"Stripe-Signature": "sig"},
+            )
+        assert resp.status_code == 200
+        args = mock_set.await_args
+        assert args.args[1:] == (TEST_USER_ID, "all", None)
+        assert args.kwargs["subscription_id"] == "sub_p9"

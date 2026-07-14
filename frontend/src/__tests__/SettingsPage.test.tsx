@@ -40,6 +40,12 @@ vi.mock('../stores/prefsStore', () => ({
 }))
 vi.mock('../lib/supabase', () => ({ supabase: { auth: { signOut } } }))
 vi.mock('../api/review', () => ({ resetProgress: vi.fn() }))
+vi.mock('../api/billing', async (orig) => ({
+  ...(await orig<typeof import('../api/billing')>()),
+  getPlanPrices: vi.fn(() => Promise.resolve({ single: null, all: null })),
+  startPlanCheckout: vi.fn(() => Promise.resolve({ granted: true, url: null })),
+  openBillingPortal: vi.fn(() => Promise.resolve('https://stripe.example/portal')),
+}))
 
 import { getProfile, updateProfile } from '../api/profile'
 import { getDashboardStats } from '../api/dashboard'
@@ -129,6 +135,39 @@ describe('SettingsPage', () => {
     // English itself is not offered as a "from" language (it's the reset row)
     const labels = Array.from(select.options).map((o) => o.text)
     expect(labels.filter((l) => l.includes('English'))).toHaveLength(1)
+  })
+
+  it('shows the plan and upgrades single → all (WP16)', async () => {
+    const { getPlanPrices, startPlanCheckout } = await import('../api/billing')
+    ;(getPlanPrices as ReturnType<typeof vi.fn>).mockResolvedValue({
+      single: { amount_cents: 500, currency: 'usd', interval: 'month' },
+      all: { amount_cents: 900, currency: 'usd', interval: 'month' },
+    })
+    mockGetProfile.mockResolvedValue({
+      batch_size: 5, ui_language: 'en', active_language_id: 'lang-es',
+      support_locale: null, plan_scope: 'single', plan_language_id: 'lang-es',
+    })
+    renderPage()
+
+    expect(await screen.findByText(/single language — spanish/i)).toBeDefined()
+    // Stripe-sourced price on the button, never hardcoded.
+    const upgrade = await screen.findByRole('button', {
+      name: /upgrade to all languages — \$9\.00\/month/i,
+    })
+    fireEvent.click(upgrade)
+    await waitFor(() =>
+      expect(startPlanCheckout).toHaveBeenCalledWith('all'),
+    )
+  })
+
+  it('all-languages accounts see no upgrade button', async () => {
+    mockGetProfile.mockResolvedValue({
+      batch_size: 5, ui_language: 'en', active_language_id: 'lang-es',
+      support_locale: null, plan_scope: 'all', plan_language_id: null,
+    })
+    renderPage()
+    expect(await screen.findByText('All languages')).toBeDefined()
+    expect(screen.queryByRole('button', { name: /upgrade/i })).toBeNull()
   })
 
   it('signs out', async () => {

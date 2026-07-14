@@ -779,15 +779,26 @@ onboarding — "{Language} only" (lower price) or "All languages".
 picker disables (labels) the locked options. Early accounts keep free
 access to their choice; the onboarding copy promises they keep their
 price when billing goes live — honor that.
-**Remaining (Stripe wiring):**
-(a) Two subscription products/prices (envs `STRIPE_PRICE_SINGLE`,
-`STRIPE_PRICE_ALL`), checkout + webhook paths mirroring the existing tutor
-billing (backend/routers/billing.py), entitlement rows on invoice events.
-(b) Upgrade flow in Settings (single → all; prorate via Stripe portal).
-(c) Router test for the single-plan 403 (none yet — add with the wiring).
-(d) Pricing display in onboarding pulled from Stripe (never hardcode).
+**Stripe wiring shipped locally (2026-07-14, deploys with next push):**
+(a) `STRIPE_PRICE_SINGLE`/`STRIPE_PRICE_ALL` envs; POST
+/api/billing/plan/checkout (dev-mock grants directly) + the shared
+/webhook (metadata.kind='plan' separates plan events from tutor events;
+revokes are subscription-id-scoped so the two products can't cross-fire);
+`plan_subscriptions` table (migration 20260721000000, NOT applied live —
+beta freeze) records the backing subscription while user_profiles stays
+the enforced plan; cancellation deactivates the row but never touches the
+profile — see (e).
+(b) Settings "Plan" card: current plan, single→all upgrade via checkout,
+"Manage billing" via Stripe Billing Portal (proration happens there).
+(c) Router tests for the single-plan 403 in test_auth.py.
+(d) Onboarding + Settings pull prices from GET /api/billing/plan/prices
+(live Stripe Price reads; never hardcoded; null until configured, with
+free-beta copy as fallback).
+**Remaining:**
 (e) Decide the free tier's shape before launch (e.g. A1 free in one
-language) — a pricing decision for the owner, not a model.
+language) AND what a canceled plan downgrades to — pricing decisions for
+the owner, not a model. Then create the two Prices in Stripe, set the
+envs + webhook secret in DO, and flip off dev-mock.
 **Model:** `claude-opus-4-8` (billing = security-sensitive). **Effort:** M.
 
 ### WP17 — English drill hints in the learner's language
