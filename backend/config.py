@@ -22,7 +22,13 @@ class Settings(BaseSettings):
 
     # AI tutor (Claude API). Empty key disables the tutor endpoints.
     anthropic_api_key: str = ""
-    tutor_model: str = "claude-opus-4-8"
+    # Chat default: Sonnet-tier handles scaffolded coaching well at ~40% of
+    # Opus cost (the tutor is the COGS driver). Low-resource languages pin
+    # a stronger model below — accuracy there is the differentiator.
+    tutor_model: str = "claude-sonnet-5"
+    # Model for LOW_RESOURCE_LANGUAGES (services/tutor.py) when the admin
+    # hasn't set a per-language override (languages.tutor_model wins).
+    tutor_model_low_resource: str = "claude-opus-4-8"
     # Cheaper model for the off-the-hot-path session summarizer / memory extractor.
     tutor_summary_model: str = "claude-sonnet-5"
     # Optional Redis for distributed rate limiting across workers. Empty = the
@@ -41,10 +47,16 @@ class Settings(BaseSettings):
     # Tutor allowances — counted in MESSAGES (the unit learners understand),
     # never billed per message. Pricing is flat per tier; these caps are
     # cost protection and are shown openly in the UI.
-    #   free accounts: per calendar month (a real taste of the tutor)
-    #   plus accounts: per day (fair use on a flat subscription)
+    #   free (no plan):   per calendar month (a real taste of the tutor)
+    #   single plan:      per calendar month, included with the plan
+    #   all plan:         per calendar month, included with the plan
+    #   Tutor+ add-on:    per day (fair use on the flat add-on price)
+    # Sized so worst-case Sonnet-5 COGS stays a small share of each price
+    # point (~$0.01–0.02/message: 100/mo ≈ $1.50, 300/mo ≈ $4.50).
     tutor_free_monthly_messages: int = 20
-    tutor_plus_daily_messages: int = 100
+    tutor_single_monthly_messages: int = 100
+    tutor_all_monthly_messages: int = 300
+    tutor_plus_daily_messages: int = 50
 
     # Stripe billing for the tutor add-on. Empty secret disables checkout.
     stripe_secret_key: str = ""

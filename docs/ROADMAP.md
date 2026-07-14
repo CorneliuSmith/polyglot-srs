@@ -799,6 +799,15 @@ free-beta copy as fallback).
 language) AND what a canceled plan downgrades to — pricing decisions for
 the owner, not a model. Then create the two Prices in Stripe, set the
 envs + webhook secret in DO, and flip off dev-mock.
+**Recommended pricing (2026-07-14 analysis, anchored to Bunpro $5 /
+WaniKani $9 / Duolingo Super ~$13 and Sonnet-5 tutor COGS of
+~$0.01–0.02/message):** Single $7/mo or $60/yr; All $14/mo or $120/yr;
+Tutor+ add-on ~$10/mo. Tutor allowances (implemented, env-tunable):
+free 20/mo, single plan 100/mo, all plan 300/mo, Tutor+ 50/day fair
+use. Tutor default model is now `claude-sonnet-5` with low-resource
+languages pinned to Opus — roughly halves projected tutor COGS. Prices
+live in Stripe only (never hardcoded); revise against the WP9b cost
+panel once real usage exists.
 **Model:** `claude-opus-4-8` (billing = security-sensitive). **Effort:** M.
 
 ### WP17 — English drill hints in the learner's language
@@ -834,7 +843,7 @@ reviewer. **Effort:** M.
 | Security/eval-sensitive code (billing, RLS, FSRS gate) | `claude-opus-4-8`+ | Subtle failure modes |
 | Well-specified feature code (UI, endpoints, pipelines) | `claude-sonnet-5` | Fast, reliable on scoped specs |
 | Mechanical ETL, string extraction, bulk edits | `claude-haiku-4-5-20251001` | Cheapest that does the job |
-| Tutor chat runtime (paid) | `claude-opus-4-8` (config default) | Learner-facing quality |
+| Tutor chat runtime (paid) | `claude-sonnet-5` (config default); low-resource languages (mi/sw/yo/ha/xh/ar) pin `claude-opus-4-8` via `TUTOR_MODEL_LOW_RESOURCE` (admin per-language override wins) | Sonnet handles scaffolded coaching at ~40% of Opus cost; accuracy-critical languages keep the stronger model |
 | Tutor summarizer / AI semantic checks | `claude-sonnet-5` (config default) | Off hot path, good judgement per dollar |
 | Adversarial verification of any generated content | one tier above the generator | Never self-certify |
 

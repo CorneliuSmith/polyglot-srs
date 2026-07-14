@@ -41,6 +41,7 @@ from backend.services.rate_limit import tutor_chat_limiter
 from backend.services.tutor import (
     available_tutors,
     merge_remembered,
+    resolve_tutor_model,
     summarize_session,
     tutor_chat,
     tutor_chat_stream,
@@ -104,12 +105,22 @@ async def _get_allowance(user_id: str, language_id: str) -> dict:
                 limit = settings.tutor_plus_daily_messages
                 tier = "plus"
             else:
+                # No add-on: a MONTHLY allowance included with the language
+                # plan (all > single > no plan), sized so tutor COGS stays a
+                # small share of each price point.
                 window_start = now.replace(
                     day=1, hour=0, minute=0, second=0, microsecond=0
                 )
                 resets_at = (window_start + timedelta(days=32)).replace(day=1)
-                limit = settings.tutor_free_monthly_messages
-                tier = "free"
+                if override.get("plan_scope") == "all":
+                    limit = settings.tutor_all_monthly_messages
+                    tier = "all"
+                elif override.get("plan_scope") == "single":
+                    limit = settings.tutor_single_monthly_messages
+                    tier = "single"
+                else:
+                    limit = settings.tutor_free_monthly_messages
+                    tier = "free"
         used = await count_tutor_messages(conn, user_id, window_start)
     return {
         "tier": tier, "unlimited": False, "entitled": tier in ("plus", "granted"),
@@ -203,10 +214,12 @@ async def chat(
         study_stats = await get_study_stats(conn, user["id"], body.language_id)
         user_profile = await get_user_profile(conn, user["id"])
         lang = await get_language_profile(conn, user["id"], body.language_id)
-        # WP15a: per-language model override (NULL = global default).
-        model = await conn.fetchval(
+        # WP15a: admin per-language override; else the language-tier default
+        # (low-resource languages pin the stronger model — §6 model guide).
+        override_model = await conn.fetchval(
             "SELECT tutor_model FROM languages WHERE id = $1", body.language_id
         )
+    model = resolve_tutor_model(body.language_code, override_model)
 
     try:
         reply, remembered, usage = await tutor_chat(
@@ -291,9 +304,10 @@ async def chat_stream(
         study_stats = await get_study_stats(conn, user["id"], body.language_id)
         user_profile = await get_user_profile(conn, user["id"])
         lang = await get_language_profile(conn, user["id"], body.language_id)
-        model = await conn.fetchval(
+        override_model = await conn.fetchval(
             "SELECT tutor_model FROM languages WHERE id = $1", body.language_id
         )
+    model = resolve_tutor_model(body.language_code, override_model)
 
     async def event_source():
         import json as _json

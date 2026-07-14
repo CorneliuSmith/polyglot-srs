@@ -211,26 +211,29 @@ export default function TutorPage() {
           </button>
         </div>
 
-        {/* Allowance meter — flat pricing, so the cap is always visible */}
+        {/* Allowance meter — flat pricing, so the cap is always visible.
+            free/single/all are MONTHLY (included with the plan); plus/granted
+            are the DAILY fair-use tiers (Tutor+ add-on / admin grant). */}
         {allowance && !allowance.unlimited && !exhausted && (
           <p className="text-xs text-gray-400 mb-3" data-testid="tutor-allowance">
-            {allowance.tier === 'free' ? (
+            {['free', 'single', 'all'].includes(allowance.tier) ? (
               <>
-                {allowance.remaining} of {allowance.limit} free messages left this
-                month.{' '}
+                {allowance.remaining} of {allowance.limit}{' '}
+                {allowance.tier === 'free' ? 'free ' : 'included '}messages left
+                this month.{' '}
                 <button
                   type="button"
                   onClick={() => subscribeMutation.mutate()}
                   className="text-lang hover:underline"
                 >
-                  Plus
+                  Tutor+
                 </button>{' '}
                 is a flat price — never per message — with a daily fair-use cap
                 instead.
               </>
             ) : (
               <>
-                Plus · {allowance.remaining} of {allowance.limit} messages left
+                Tutor+ · {allowance.remaining} of {allowance.limit} messages left
                 today (fair use — resets daily, your price never changes).
               </>
             )}
@@ -292,16 +295,17 @@ export default function TutorPage() {
             className="bg-white border border-gray-200 rounded-2xl p-4 text-sm text-gray-700 space-y-2"
             data-testid="tutor-exhausted"
           >
-            {allowance.tier === 'free' ? (
+            {['free', 'single', 'all'].includes(allowance.tier) ? (
               <>
                 <p>
-                  You’ve used this month’s {allowance.limit} free tutor
+                  You’ve used this month’s {allowance.limit}{' '}
+                  {allowance.tier === 'free' ? 'free' : 'included'} tutor
                   messages — they come back on {resetDay(allowance.resets_at)}.
                 </p>
                 <p className="text-gray-500">
-                  Plus is a <strong>flat price</strong>: you’re never charged
-                  per message. It swaps the monthly trial for a generous daily
-                  fair-use cap that resets every day.
+                  Tutor+ is a <strong>flat price</strong>: you’re never charged
+                  per message. It swaps the monthly allowance for a generous
+                  daily fair-use cap that resets every day.
                 </p>
                 <button
                   type="button"

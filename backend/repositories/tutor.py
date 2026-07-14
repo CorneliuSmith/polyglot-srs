@@ -91,20 +91,30 @@ async def aggregate_tutor_usage(conn: asyncpg.Connection, since) -> list[dict]:
 async def get_tutor_access(conn: asyncpg.Connection, user_id: str) -> dict:
     """The admin's per-account tutor override (WP15b).
 
-    Returns {"access": 'default'|'blocked'|'enabled', "daily_cap": int|None}.
+    Returns {"access": 'default'|'blocked'|'enabled', "daily_cap": int|None,
+    "plan_scope": 'single'|'all'|None} (the plan drives the monthly
+    allowance tier).
     Anything unexpected (no profile row yet, unmigrated column) normalizes
     to 'default' so the tier system decides — the override only ever acts
     when an admin explicitly set it.
     """
     row = await conn.fetchrow(
-        "SELECT tutor_access, tutor_daily_cap FROM user_profiles WHERE id = $1",
+        "SELECT tutor_access, tutor_daily_cap, plan_scope "
+        "FROM user_profiles WHERE id = $1",
         user_id,
     )
     access = row["tutor_access"] if row else None
     if access not in ("blocked", "enabled"):
         access = "default"
     cap = row["tutor_daily_cap"] if row else None
-    return {"access": access, "daily_cap": cap if isinstance(cap, int) else None}
+    plan = row["plan_scope"] if row else None
+    if plan not in ("single", "all"):
+        plan = None
+    return {
+        "access": access,
+        "daily_cap": cap if isinstance(cap, int) else None,
+        "plan_scope": plan,
+    }
 
 
 async def set_tutor_access(
