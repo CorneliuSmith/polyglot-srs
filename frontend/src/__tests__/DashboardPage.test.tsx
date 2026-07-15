@@ -1,5 +1,7 @@
-import { describe, it, expect } from 'vitest'
-import { render, screen } from '@testing-library/react'
+import { describe, it, expect, vi, beforeEach } from 'vitest'
+import { render, screen, fireEvent, waitFor } from '@testing-library/react'
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
+import { MemoryRouter } from 'react-router-dom'
 import DueCount from '../features/dashboard/DueCount'
 import StreakBadge from '../features/dashboard/StreakBadge'
 import CEFRProgress from '../features/dashboard/CEFRProgress'
@@ -84,5 +86,72 @@ describe('CEFRProgress', () => {
     render(<CEFRProgress progress={progress} />)
     const bars = screen.getAllByRole('progressbar')
     expect(bars).toHaveLength(6)
+  })
+})
+
+// ── DeckRow: Learn starts, the expansion manages ───────────────────────────
+
+vi.mock('../api/review', () => ({
+  getDeckPreview: vi.fn(() =>
+    Promise.resolve({ items: [{ item: 'ser', detail: 'to be' }] }),
+  ),
+  setDeckSubscription: vi.fn(() => Promise.resolve()),
+  resetDeckProgress: vi.fn(() => Promise.resolve()),
+}))
+
+import { DeckRow } from '../features/dashboard/DashboardPage'
+import { setDeckSubscription } from '../api/review'
+
+const baseDeck = {
+  id: 'deck-1', list_type: 'grammar' as const, level: 'A1',
+  title: 'A1 Grammar Path', total: 20, learned: 5, subscribed: true,
+}
+
+function renderRow(deck = baseDeck, onLearn = vi.fn()) {
+  const qc = new QueryClient({ defaultOptions: { queries: { retry: false } } })
+  render(
+    <QueryClientProvider client={qc}>
+      <MemoryRouter>
+        <DeckRow deck={deck} onLearn={onLearn} />
+      </MemoryRouter>
+    </QueryClientProvider>,
+  )
+  return onLearn
+}
+
+describe('DeckRow', () => {
+  beforeEach(() => vi.clearAllMocks())
+
+  it('Learn starts learning; management stays behind the expansion', async () => {
+    const onLearn = renderRow()
+
+    // The management controls are hidden until the chevron is opened.
+    expect(screen.queryByTestId('deck-options')).toBeNull()
+
+    fireEvent.click(screen.getByRole('button', { name: /^learn$/i }))
+    expect(onLearn).toHaveBeenCalledWith(baseDeck)
+
+    fireEvent.click(screen.getByRole('button', { name: /deck options/i }))
+    const options = await screen.findByTestId('deck-options')
+    expect(options.textContent).toContain('Remove from queue')
+    expect(options.textContent).toContain('Browse all items')
+    expect(options.textContent).toContain('Reset progress')
+    // The contents preview loads inside the expansion.
+    expect(await screen.findByText('ser')).toBeDefined()
+  })
+
+  it('unqueued decks add from the expansion', async () => {
+    renderRow({ ...baseDeck, subscribed: false, learned: 0 })
+    fireEvent.click(screen.getByRole('button', { name: /deck options/i }))
+    fireEvent.click(await screen.findByRole('button', { name: /add to queue/i }))
+    await waitFor(() =>
+      expect(setDeckSubscription).toHaveBeenCalledWith('deck-1', true),
+    )
+  })
+
+  it('disables Learn only when the deck is complete', () => {
+    renderRow({ ...baseDeck, learned: 20 })
+    const learn = screen.getByRole('button', { name: /^learn$/i }) as HTMLButtonElement
+    expect(learn.disabled).toBe(true)
   })
 })
