@@ -332,6 +332,7 @@ export default function ReviewSessionPage({ cram = false }: { cram?: boolean }) 
           )}
 
           <DrillCard
+            key={card.id}
             sentence={card.sentence}
             value={session.phase === 'answering' ? userInput : lastInput}
             onChange={setUserInput}

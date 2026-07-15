@@ -134,6 +134,37 @@ describe('LearnPage (teach-before-quiz)', () => {
     expect(mockLearn).toHaveBeenCalledWith('lang-es', 'grammar', undefined)
   })
 
+  it('Enter advances after a passed check (keyboard-only flow)', async () => {
+    mockLearn.mockResolvedValue({
+      added: 2,
+      items: ['uc-1', 'uc-2'],
+      lessons: [grammarLesson, vocabLesson],
+    })
+    renderPage()
+    expect(await screen.findByText(/1 of 2/)).toBeDefined()
+
+    // Enter does nothing while the check is unanswered.
+    fireEvent.keyDown(document, { key: 'Enter' })
+    expect(screen.getByText(/1 of 2/)).toBeDefined()
+
+    mockValidate.mockResolvedValue({ answer_result: 'correct', feedback: null })
+    mockConfirm.mockResolvedValue({ confirmed: 1 })
+    fireEvent.change(screen.getByRole('textbox'), { target: { value: 'soy' } })
+    fireEvent.click(screen.getByRole('button', { name: /check answer/i }))
+    await screen.findByText(/added to your reviews/i)
+
+    // The input is disabled now — Enter on the document pages forward.
+    fireEvent.keyDown(document, { key: 'Enter' })
+    expect(await screen.findByText(/2 of 2/)).toBeDefined()
+
+    // Pass the last check, then Enter starts reviewing.
+    fireEvent.change(screen.getByRole('textbox'), { target: { value: 'agua' } })
+    fireEvent.click(screen.getByRole('button', { name: /check answer/i }))
+    await waitFor(() => expect(mockConfirm).toHaveBeenCalledWith(['uc-2']))
+    fireEvent.keyDown(document, { key: 'Enter' })
+    await waitFor(() => expect(mockNavigate).toHaveBeenCalledWith('/review'))
+  })
+
   it('keeps the card out of reviews until the check is answered correctly', async () => {
     mockLearn.mockResolvedValue({
       added: 1,

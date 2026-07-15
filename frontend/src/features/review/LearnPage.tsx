@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { useNavigate, useSearchParams } from 'react-router-dom'
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
 import { confirmLearnSession, startLearnSession, validateAnswer } from '../../api/review'
@@ -85,6 +85,33 @@ export default function LearnPage() {
       </div>
     )
   }
+
+  // Enter advances once the lesson's check is passed (or the lesson has no
+  // check): the answer input is disabled at that point, so a document-level
+  // listener keeps the keyboard flow going — answer with Enter, continue
+  // with Enter. Mirrors ReviewSessionPage's post-grading listener. Sits
+  // above the early returns because hooks must run on every render.
+  useEffect(() => {
+    const loadedLessons = learnQuery.data?.lessons ?? []
+    const current = loadedLessons[lessonIndex]
+    if (!current) return
+    if (current.quiz && !passedCards.has(current.card_id)) return
+    const last = lessonIndex >= loadedLessons.length - 1
+    const onKeyDown = (e: KeyboardEvent) => {
+      if (e.key !== 'Enter' || e.isComposing) return
+      e.preventDefault()
+      if (last) {
+        navigate('/review')
+      } else {
+        setLessonIndex(lessonIndex + 1)
+        setQuizInput('')
+        setQuizResult(null)
+      }
+    }
+    document.addEventListener('keydown', onKeyDown)
+    return () => document.removeEventListener('keydown', onKeyDown)
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [learnQuery.data, lessonIndex, passedCards])
 
   if (!learnQuery.isSuccess) {
     return (
@@ -283,6 +310,7 @@ export default function LearnPage() {
                   Your turn
                 </span>
                 <DrillCard
+                  key={lesson.card_id}
                   sentence={lesson.quiz.sentence}
                   value={quizInput}
                   onChange={(v) => {

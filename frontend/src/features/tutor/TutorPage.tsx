@@ -333,29 +333,38 @@ export default function TutorPage() {
             )}
           </div>
         ) : (
-          <div className="flex gap-2">
+          <form
+            className="flex gap-2"
+            onSubmit={(e) => {
+              e.preventDefault()
+              handleSend()
+            }}
+          >
             <input
               type="text"
               value={input}
               onChange={(e) => setInput(e.target.value)}
               onKeyDown={(e) => {
-                if (e.key === 'Enter') handleSend()
+                if (e.key === 'Enter' && !e.nativeEvent.isComposing) {
+                  e.preventDefault()
+                  handleSend()
+                }
               }}
+              enterKeyHint="send"
               placeholder="Message your tutor…"
               dir={language.rtl ? 'auto' : 'ltr'}
               className="flex-1 rounded-xl border border-gray-300 px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-lang bg-white"
               style={{ minHeight: '44px' }}
             />
             <button
-              type="button"
-              onClick={handleSend}
+              type="submit"
               disabled={!input.trim() || sendMutation.isPending}
               className="bg-lang hover:bg-lang-dark disabled:opacity-50 text-lang-on font-semibold rounded-xl px-5 text-sm transition-colors"
               style={{ minHeight: '44px' }}
             >
               Send
             </button>
-          </div>
+          </form>
         )}
       </div>
     </div>

@@ -112,10 +112,21 @@ export default function DrillCard({
     onChange(translit.enabled ? convertTranslit(languageCode, raw) : raw)
   }
 
+  // Two submit paths on purpose. Physical keyboards fire keydown Enter;
+  // some Android IMEs never do (keyCode 229 / "Unidentified"), but the
+  // soft keyboard's action key ALWAYS triggers implicit form submission —
+  // so each mode wraps its input in a <form>. preventDefault in keydown
+  // stops the two paths double-firing on desktop.
   const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
-    if (e.key === 'Enter' && !disabled) {
+    if (e.key === 'Enter' && !e.nativeEvent.isComposing && !disabled) {
+      e.preventDefault()
       onSubmit()
     }
+  }
+
+  const handleFormSubmit = (e: React.FormEvent) => {
+    e.preventDefault()
+    if (!disabled) onSubmit()
   }
 
   const controls = translit.supported ? (
@@ -129,7 +140,10 @@ export default function DrillCard({
   if (!hasMarker) {
     // Type-the-word mode: sentence is the definition/prompt, user types the word
     return (
-      <div className="flex flex-col items-center gap-6">
+      <form
+        onSubmit={handleFormSubmit}
+        className="flex flex-col items-center gap-6"
+      >
         <LanguageWrapper languageCode={languageCode}>
           <p className="text-xl leading-loose text-center text-gray-700">
             {sentence}
@@ -144,6 +158,7 @@ export default function DrillCard({
             autoCorrect="off"
             autoComplete="off"
             spellCheck={false}
+            enterKeyHint="go"
             value={value}
             onChange={(e) => handleChange(e.target.value)}
             onKeyDown={handleKeyDown}
@@ -155,7 +170,7 @@ export default function DrillCard({
           />
           {controls}
         </div>
-      </div>
+      </form>
     )
   }
 
@@ -165,7 +180,7 @@ export default function DrillCard({
   const after = parts.slice(1).join('{{answer}}')
 
   return (
-    <div>
+    <form onSubmit={handleFormSubmit}>
       <LanguageWrapper languageCode={languageCode}>
         <p className="text-xl leading-loose text-center">
           {before}
@@ -177,6 +192,7 @@ export default function DrillCard({
             autoCorrect="off"
             autoComplete="off"
             spellCheck={false}
+            enterKeyHint="go"
             value={value}
             onChange={(e) => handleChange(e.target.value)}
             onKeyDown={handleKeyDown}
@@ -189,6 +205,6 @@ export default function DrillCard({
         </p>
       </LanguageWrapper>
       {controls}
-    </div>
+    </form>
   )
 }
