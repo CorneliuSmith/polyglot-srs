@@ -160,14 +160,21 @@ async def get_due_cards(
         JOIN grammar_points gp  ON uc.card_id = gp.id
         JOIN languages l        ON uc.language_id = l.id
         LEFT JOIN LATERAL (
+            -- WP17: hint + translation prefer the learner's locale row
+            -- (drill_hint_translations) and fall back to the authored
+            -- English — same COALESCE rule as vocabulary definitions.
             SELECT
                 array_agg(ds.sentence    ORDER BY ds.display_order, ds.id) AS sentences,
                 array_agg(ds.answer      ORDER BY ds.display_order, ds.id) AS answers,
-                array_agg(ds.hint        ORDER BY ds.display_order, ds.id) AS hints,
-                array_agg(ds.translation ORDER BY ds.display_order, ds.id) AS translations,
+                array_agg(COALESCE(dht.hint, ds.hint)
+                          ORDER BY ds.display_order, ds.id) AS hints,
+                array_agg(COALESCE(dht.translation, ds.translation)
+                          ORDER BY ds.display_order, ds.id) AS translations,
                 array_agg(ds.gloss       ORDER BY ds.display_order, ds.id) AS glosses,
                 array_agg(ds.transliteration ORDER BY ds.display_order, ds.id) AS transliterations
             FROM drill_sentences ds
+            LEFT JOIN drill_hint_translations dht
+                   ON dht.drill_id = ds.id AND dht.locale = $3
             WHERE ds.grammar_point_id = gp.id
         ) d ON true
         LEFT JOIN LATERAL (
@@ -186,6 +193,7 @@ async def get_due_cards(
         """,
         language_id,
         limit,
+        eff_locale,
     )
 
     # -- Personal cloze cards (learner's own text) --------------------------
@@ -746,19 +754,24 @@ async def get_card_details_bulk(
     grammar_ids = [c["card_id"] for c in cards if c["card_type"] == "grammar"]
 
     # English is the only language whose content is localized by the support
-    # locale; resolve it per vocabulary batch (all cards share a language in
-    # practice, but check per-word to stay correct).
+    # locale; resolve it per batch (all cards share a language in practice,
+    # but check the actual content to stay correct). Grammar counts too:
+    # drill hints/translations localize via drill_hint_translations (WP17).
     eff_locale = "en"
-    if support_locale and support_locale != "en" and vocab_ids:
-        en_vocab = await conn.fetchval(
+    if support_locale and support_locale != "en" and (vocab_ids or grammar_ids):
+        en_content = await conn.fetchval(
             """
-            SELECT count(*) FROM vocabulary v
-            JOIN languages l ON v.language_id = l.id AND l.code = 'en'
-            WHERE v.id = ANY($1::uuid[])
+            SELECT (SELECT count(*) FROM vocabulary v
+                    JOIN languages l ON v.language_id = l.id AND l.code = 'en'
+                    WHERE v.id = ANY($1::uuid[]))
+                 + (SELECT count(*) FROM grammar_points gp
+                    JOIN languages l ON gp.language_id = l.id AND l.code = 'en'
+                    WHERE gp.id = ANY($2::uuid[]))
             """,
             vocab_ids,
+            grammar_ids,
         )
-        if en_vocab:
+        if en_content:
             eff_locale = support_locale
 
     vocab_by_id: dict = {}
@@ -825,13 +838,18 @@ async def get_card_details_bulk(
             grammar_by_id[gp["id"]] = gp
         for e in await conn.fetch(
             """
-            SELECT grammar_point_id, sentence, answer, translation, hint,
-                   gloss, transliteration
-            FROM drill_sentences
-            WHERE grammar_point_id = ANY($1::uuid[])
-            ORDER BY display_order ASC
+            SELECT ds.grammar_point_id, ds.sentence, ds.answer,
+                   COALESCE(dht.translation, ds.translation) AS translation,
+                   COALESCE(dht.hint, ds.hint) AS hint,
+                   ds.gloss, ds.transliteration
+            FROM drill_sentences ds
+            LEFT JOIN drill_hint_translations dht
+                   ON dht.drill_id = ds.id AND dht.locale = $2
+            WHERE ds.grammar_point_id = ANY($1::uuid[])
+            ORDER BY ds.display_order ASC
             """,
             grammar_ids,
+            eff_locale,
         ):
             bucket = grammar_examples.setdefault(e["grammar_point_id"], [])
             if len(bucket) < 5:
@@ -1103,15 +1121,23 @@ async def get_card_detail(
         await resolve_related(conn, card["language_id"], gp["related"]) if gp else []
     )
     read_refs = await get_read_ref_keys(conn, str(card["card_id"]))
+    # WP17: drill hint/translation in the learner's locale when this is an
+    # English card (same COALESCE rule as vocabulary definitions).
+    eff_locale = await _effective_locale(conn, card["language_id"], support_locale)
     examples = await conn.fetch(
         """
-        SELECT sentence, answer, translation, hint
-        FROM drill_sentences
-        WHERE grammar_point_id = $1
-        ORDER BY display_order ASC
+        SELECT ds.sentence, ds.answer,
+               COALESCE(dht.translation, ds.translation) AS translation,
+               COALESCE(dht.hint, ds.hint) AS hint
+        FROM drill_sentences ds
+        LEFT JOIN drill_hint_translations dht
+               ON dht.drill_id = ds.id AND dht.locale = $2
+        WHERE ds.grammar_point_id = $1
+        ORDER BY ds.display_order ASC
         LIMIT 5
         """,
         card["card_id"],
+        eff_locale,
     )
     references = []
     if gp and gp["reference_links"]:
@@ -1152,7 +1178,10 @@ async def get_card_detail(
 
 
 async def get_cram_cards(
-    conn: asyncpg.Connection, point_ids: list[str], per_point: int = 3
+    conn: asyncpg.Connection,
+    point_ids: list[str],
+    per_point: int = 3,
+    support_locale: str | None = None,
 ) -> list[dict]:
     """Ungraded practice cards for a set of grammar points (WP13f Quick-Cram).
 
@@ -1161,6 +1190,10 @@ async def get_cram_cards(
     /review/submit. Visibility follows the same review policy as the
     curriculum. Drill choice is seeded per (point, day): a reload mid-cram
     keeps the same set, tomorrow's cram varies.
+
+    Hints/translations prefer the *support_locale* row when one exists
+    (WP17: only English drills carry them, so the join simply misses and
+    falls back to the authored text everywhere else).
     """
     rows = await conn.fetch(
         """
@@ -1176,11 +1209,15 @@ async def get_cram_cards(
             SELECT
                 array_agg(ds.sentence    ORDER BY ds.display_order, ds.id) AS sentences,
                 array_agg(ds.answer      ORDER BY ds.display_order, ds.id) AS answers,
-                array_agg(ds.hint        ORDER BY ds.display_order, ds.id) AS hints,
-                array_agg(ds.translation ORDER BY ds.display_order, ds.id) AS translations,
+                array_agg(COALESCE(dht.hint, ds.hint)
+                          ORDER BY ds.display_order, ds.id) AS hints,
+                array_agg(COALESCE(dht.translation, ds.translation)
+                          ORDER BY ds.display_order, ds.id) AS translations,
                 array_agg(ds.gloss       ORDER BY ds.display_order, ds.id) AS glosses,
                 array_agg(ds.transliteration ORDER BY ds.display_order, ds.id) AS transliterations
             FROM drill_sentences ds
+            LEFT JOIN drill_hint_translations dht
+                   ON dht.drill_id = ds.id AND dht.locale = $2
             WHERE ds.grammar_point_id = gp.id
         ) d ON true
         WHERE gp.id = ANY($1::uuid[])
@@ -1188,6 +1225,7 @@ async def get_cram_cards(
                OR (l.grammar_review_policy = 'ai_ok' AND gp.ai_check_status = 'pass'))
         """,
         point_ids,
+        support_locale or "en",
     )
     today = datetime.now(UTC).date().isoformat()
     now = datetime.now(UTC)

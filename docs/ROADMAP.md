@@ -719,8 +719,28 @@ there's a community. **Model:** `claude-sonnet-5`, design pass one tier up.
 **Goal:** operators run the product without touching env vars or SQL.
 Role management shipped 2026-07 (see `docs/accounts-and-roles.md`): learner /
 contributor / reviewer / admin, per-language or global, granted by email in
-the Contribute page's Roles panel, bootstrapped once via
-`scripts/grant_admin.sh`. Remaining, in order:
+the Contribute page's Roles panel (and inline per account in the Accounts
+table), bootstrapped once via `scripts/grant_admin.sh`.
+(b2) **Tutor skills + per-account access — DONE 2026-07-13 (local, ships
+with next deploy)**: every language with a grammar path has a tutor (17/17;
+pt/el/ro added). Per-language knowledge lives in skill bundles at
+`backend/services/tutor_skills/{code}/` — SKILL.md (core brief, always in
+the prompt, <2.5KB), REFERENCE.md (the app's actual grammar path with the
+learner's card titles, generated from data/grammar — regenerate when paths
+change), ERRORS.md (interference errors + coaching moves). The deep files
+load on demand through the tutor's `consult_reference` tool (progressive
+disclosure — deep knowledge never bloats the per-turn context), and the
+regression suite bounds every file's size. Content is derived expertise:
+NEVER quotes of the private resource library. Learner memory (weak items,
+`remember` facts, session summaries) was already per-turn context and now
+pairs with the skills. Admin per-account tutor override on the Accounts
+table: `user_profiles.tutor_access` default/enabled/blocked +
+`tutor_daily_cap` (migration `20260720000000`, NOT yet applied live —
+beta freeze); blocked wins over everything including TUTOR_FREE_ACCESS
+(403 tutor_blocked), enabled grants a capped daily allowance with no
+billing entitlement (tier "granted") — the bounded-cost way to let a
+friend try the tutors.
+Remaining, in order:
 (a) **Per-language tutor model selection — DONE 2026-07**:
 `languages.tutor_model` (NULL = the `TUTOR_MODEL` global default), admin
 picker on the Contribute page (allowed ids: `claude-fable-5`,
@@ -759,31 +779,59 @@ onboarding — "{Language} only" (lower price) or "All languages".
 picker disables (labels) the locked options. Early accounts keep free
 access to their choice; the onboarding copy promises they keep their
 price when billing goes live — honor that.
-**Remaining (Stripe wiring):**
-(a) Two subscription products/prices (envs `STRIPE_PRICE_SINGLE`,
-`STRIPE_PRICE_ALL`), checkout + webhook paths mirroring the existing tutor
-billing (backend/routers/billing.py), entitlement rows on invoice events.
-(b) Upgrade flow in Settings (single → all; prorate via Stripe portal).
-(c) Router test for the single-plan 403 (none yet — add with the wiring).
-(d) Pricing display in onboarding pulled from Stripe (never hardcode).
+**Stripe wiring shipped locally (2026-07-14, deploys with next push):**
+(a) `STRIPE_PRICE_SINGLE`/`STRIPE_PRICE_ALL` envs; POST
+/api/billing/plan/checkout (dev-mock grants directly) + the shared
+/webhook (metadata.kind='plan' separates plan events from tutor events;
+revokes are subscription-id-scoped so the two products can't cross-fire);
+`plan_subscriptions` table (migration 20260721000000, NOT applied live —
+beta freeze) records the backing subscription while user_profiles stays
+the enforced plan; cancellation deactivates the row but never touches the
+profile — see (e).
+(b) Settings "Plan" card: current plan, single→all upgrade via checkout,
+"Manage billing" via Stripe Billing Portal (proration happens there).
+(c) Router tests for the single-plan 403 in test_auth.py.
+(d) Onboarding + Settings pull prices from GET /api/billing/plan/prices
+(live Stripe Price reads; never hardcoded; null until configured, with
+free-beta copy as fallback).
+**Remaining:**
 (e) Decide the free tier's shape before launch (e.g. A1 free in one
-language) — a pricing decision for the owner, not a model.
+language) AND what a canceled plan downgrades to — pricing decisions for
+the owner, not a model. Then create the two Prices in Stripe, set the
+envs + webhook secret in DO, and flip off dev-mock.
+**Recommended pricing (2026-07-14 analysis, anchored to Bunpro $5 /
+WaniKani $9 / Duolingo Super ~$13 and Sonnet-5 tutor COGS of
+~$0.01–0.02/message):** Single $7/mo or $60/yr; All $14/mo or $120/yr;
+Tutor+ add-on ~$10/mo. Tutor allowances (implemented, env-tunable):
+free 20/mo, single plan 100/mo, all plan 300/mo, Tutor+ 50/day fair
+use. Tutor default model is now `claude-sonnet-5` with low-resource
+languages pinned to Opus — roughly halves projected tutor COGS. Prices
+live in Stripe only (never hardcoded); revise against the WP9b cost
+panel once real usage exists.
 **Model:** `claude-opus-4-8` (billing = security-sensitive). **Effort:** M.
 
 ### WP17 — English drill hints in the learner's language
-**State:** English VOCAB content is fully localized ("from Spanish" gets
-Spanish definitions on cards, lessons, detail pages, and the deck
-browser, plus Spanish sentence translations once en_sentences is
-loaded). English GRAMMAR drill hints/translations are authored in
-English only — a from-es A2 learner hitting "the flipped tag auxiliary"
-reads scaffolding in the language they're weakest in.
-**Plan:** (a) `drill_hint_translations (drill_id, locale, hint,
-translation)` + eff_locale COALESCE in the drill queries; (b) generate
-per-locale hints machine-assisted (Sonnet, batch) for the 12 support
-locales × 240 en drills, then a reviewer pass per locale before
-promoting (never self-certified — §3b); (c) UI unchanged (the payload
-already carries hint/translation). **Model:** draft `claude-sonnet-5`,
-verify per-locale reviewer. **Effort:** M.
+**State (2026-07-12):** vertical slice landed locally, NOT yet deployed
+(beta freeze — migration `20260719000000_drill_hint_translations` is
+committed but unapplied; apply it live together with the code).
+`drill_hint_translations (drill_id, locale, hint, translation,
+reviewed)` + eff_locale COALESCE in all four drill read paths (reviews,
+lesson bulk, card detail, quick-cram). GrammarSeeder merges companion
+files `data/grammar/{code}_drill_hints.{locale}.json` keyed by point
+title + exact drill sentence (drill ids are reborn every reseed, so the
+sentence is the only stable key; a stale key fails the seed loudly).
+Spanish, Portuguese, and Russian authored for the FULL English path
+(2026-07-13): 40 points × 6 drills × 3 locales = 720 pairs, all through
+the seeder gate (title/sentence match, no empties, no answer leaks) —
+these three first because they're the active beta testers' languages.
+`reviewed:false` pending the per-locale reviewer. UI unchanged — the
+payload already carried hint/translation.
+**Remaining:** (a) the other 9 support locales (fr, de, it, ca, ro, el,
+tr, ar, sw), machine-assisted (Sonnet, batch) then a reviewer pass per
+locale before flipping the file's `reviewed` flag (never
+self-certified — §3b); (b) apply the migration + reseed en when the
+freeze lifts. **Model:** draft `claude-sonnet-5`, verify per-locale
+reviewer. **Effort:** M.
 
 ## 6. Model selection guide
 
@@ -795,7 +843,7 @@ verify per-locale reviewer. **Effort:** M.
 | Security/eval-sensitive code (billing, RLS, FSRS gate) | `claude-opus-4-8`+ | Subtle failure modes |
 | Well-specified feature code (UI, endpoints, pipelines) | `claude-sonnet-5` | Fast, reliable on scoped specs |
 | Mechanical ETL, string extraction, bulk edits | `claude-haiku-4-5-20251001` | Cheapest that does the job |
-| Tutor chat runtime (paid) | `claude-opus-4-8` (config default) | Learner-facing quality |
+| Tutor chat runtime (paid) | `claude-sonnet-5` (config default); low-resource languages (mi/sw/yo/ha/xh/ar) pin `claude-opus-4-8` via `TUTOR_MODEL_LOW_RESOURCE` (admin per-language override wins) | Sonnet handles scaffolded coaching at ~40% of Opus cost; accuracy-critical languages keep the stronger model |
 | Tutor summarizer / AI semantic checks | `claude-sonnet-5` (config default) | Off hot path, good judgement per dollar |
 | Adversarial verification of any generated content | one tier above the generator | Never self-certify |
 

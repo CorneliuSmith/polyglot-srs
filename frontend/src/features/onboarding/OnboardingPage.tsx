@@ -10,6 +10,7 @@ import {
 import type { PlacementItem } from '../../api/onboarding'
 import { usePrefsStore } from '../../stores/prefsStore'
 import LanguageWrapper from '../../components/LanguageWrapper'
+import { formatPrice, getPlanPrices } from '../../api/billing'
 import { convertTranslit, finalizeInput, isTranslitEnabled } from '../keyboards/translit'
 import type { Language } from '../../api/types'
 
@@ -32,6 +33,14 @@ export default function OnboardingPage() {
   const [maxItems, setMaxItems] = useState(12)
   const [level, setLevel] = useState('A1')
   const [planScope, setPlanScope] = useState<'single' | 'all'>('single')
+  // Live Stripe prices (never hardcoded); null until billing is configured.
+  const { data: planPrices } = useQuery({
+    queryKey: ['plan-prices'],
+    queryFn: getPlanPrices,
+    staleTime: Infinity,
+  })
+  const singlePrice = formatPrice(planPrices?.single ?? null)
+  const allPrice = formatPrice(planPrices?.all ?? null)
 
   const { data: languages = [] } = useQuery({ queryKey: ['languages'], queryFn: getLanguages })
 
@@ -170,6 +179,10 @@ export default function OnboardingPage() {
               <LanguageWrapper languageCode={language.code}>
                 <input
                   autoFocus
+                  autoCapitalize="none"
+                  autoCorrect="off"
+                  autoComplete="off"
+                  spellCheck={false}
                   value={curInput}
                   onChange={(e) => {
                     const v = isTranslitEnabled(language.code, qwertyTranslit)
@@ -257,7 +270,9 @@ export default function OnboardingPage() {
                 {language.name} only
               </span>
               <span className="block text-xs text-gray-500">
-                One language at the lower price
+                {singlePrice
+                  ? `One language — ${singlePrice}`
+                  : 'One language at the lower price'}
               </span>
             </button>
             <button
@@ -275,7 +290,9 @@ export default function OnboardingPage() {
                 All languages
               </span>
               <span className="block text-xs text-gray-500">
-                Every language we offer, one price
+                {allPrice
+                  ? `Every language we offer — ${allPrice}`
+                  : 'Every language we offer, one price'}
               </span>
             </button>
             <p className="text-xs text-gray-400">

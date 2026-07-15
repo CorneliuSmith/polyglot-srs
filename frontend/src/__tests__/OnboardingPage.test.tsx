@@ -10,6 +10,10 @@ vi.mock('react-router-dom', async (orig) => ({
   useNavigate: () => mockNavigate,
 }))
 vi.mock('../api/profile', () => ({ getLanguages: vi.fn() }))
+vi.mock('../api/billing', async (orig) => ({
+  ...(await orig<typeof import('../api/billing')>()),
+  getPlanPrices: vi.fn(() => Promise.resolve({ single: null, all: null })),
+}))
 vi.mock('../api/onboarding', () => ({
   getOnboardingStatus: vi.fn(),
   placementNext: vi.fn(),

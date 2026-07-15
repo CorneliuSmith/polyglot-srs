@@ -269,6 +269,8 @@ export async function resolveFeedback(feedbackId: string): Promise<void> {
   await apiClient.post(`/api/contribute/feedback/${feedbackId}/resolve`)
 }
 
+export type TutorAccess = 'default' | 'blocked' | 'enabled'
+
 export interface AdminAccount {
   id: string
   email: string
@@ -276,6 +278,8 @@ export interface AdminAccount {
   last_sign_in_at: string | null
   plan_scope: 'single' | 'all' | null
   plan_language: string | null
+  tutor_access: TutorAccess
+  tutor_daily_cap: number | null
   roles: string[]
   cards: number
   languages_studied: number
@@ -301,6 +305,17 @@ export async function createAccount(
 
 export async function deleteAccount(userId: string): Promise<void> {
   await apiClient.delete(`/api/contribute/users/${userId}`)
+}
+
+export async function setTutorAccess(
+  userId: string,
+  access: TutorAccess,
+  dailyCap: number | null,
+): Promise<void> {
+  await apiClient.put(`/api/contribute/users/${userId}/tutor`, {
+    access,
+    daily_cap: dailyCap,
+  })
 }
 
 export async function overridePlan(

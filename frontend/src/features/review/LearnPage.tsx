@@ -139,6 +139,7 @@ export default function LearnPage() {
         user_input: finalInput,
         correct_answer: lesson.quiz.answer,
         card_context: {
+          card_type: cardType,
           morphology: lesson.quiz.morphology ?? {},
           alternatives: lesson.quiz.alternatives ?? [],
         },
@@ -284,7 +285,10 @@ export default function LearnPage() {
                 <DrillCard
                   sentence={lesson.quiz.sentence}
                   value={quizInput}
-                  onChange={setQuizInput}
+                  onChange={(v) => {
+                    setQuizInput(v)
+                    if (quizResult) setQuizResult(null)
+                  }}
                   onSubmit={handleCheck}
                   disabled={currentPassed || validateMutation.isPending}
                   languageCode={languageCode}

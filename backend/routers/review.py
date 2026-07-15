@@ -136,7 +136,8 @@ async def cram(
             detail="point_ids must be UUIDs",
         ) from None
     async with rls_connection(user["id"]) as conn:
-        return await get_cram_cards(conn, ids)
+        support = await _support_locale(conn, user["id"])
+        return await get_cram_cards(conn, ids, support_locale=support)
 
 
 @router.get("/card/{card_id}/detail")

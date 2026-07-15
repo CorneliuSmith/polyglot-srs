@@ -196,3 +196,26 @@ describe('DrillCard', () => {
     })
   })
 })
+
+describe('DrillCard mobile keyboard', () => {
+  it('disables autocorrect, autocapitalize, and spellcheck on the answer input', () => {
+    // iOS autocorrect/smart punctuation rewrote correct answers ("am" ->
+    // "am." / "'ll" -> curly) and got beta testers marked wrong.
+    render(
+      <DrillCard
+        sentence="I {{answer}} a student."
+        value=""
+        onChange={() => {}}
+        onSubmit={() => {}}
+        disabled={false}
+        languageCode="en"
+        result={null}
+      />,
+    )
+    const input = screen.getByRole('textbox') as HTMLInputElement
+    expect(input.getAttribute('autocapitalize')).toBe('none')
+    expect(input.getAttribute('autocorrect')).toBe('off')
+    expect(input.getAttribute('autocomplete')).toBe('off')
+    expect(input.getAttribute('spellcheck')).toBe('false')
+  })
+})

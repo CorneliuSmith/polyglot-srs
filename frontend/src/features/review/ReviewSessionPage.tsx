@@ -108,6 +108,7 @@ export default function ReviewSessionPage({ cram = false }: { cram?: boolean }) 
       user_input: finalInput,
       correct_answer: card.correct_answer,
       card_context: {
+        card_type: card.card_type,
         morphology: card.morphology ?? {},
         alternatives: card.alternatives ?? [],
       },

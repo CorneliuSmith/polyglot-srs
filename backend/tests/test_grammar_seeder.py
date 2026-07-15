@@ -305,6 +305,92 @@ class TestGrammarLearnEndpoint:
         assert resp.status_code == 422
 
 
+class TestHintTranslations:
+    """WP17: per-locale drill hint/translation files (companion to the
+    grammar JSON, keyed by point title + exact drill sentence)."""
+
+    def _transform(self, tmp_path, grammar, hints=None, locale="es"):
+        import backend.services.seeder.seed_grammar as mod
+
+        (tmp_path / "zz_grammar.json").write_text(
+            json.dumps(grammar), encoding="utf-8"
+        )
+        if hints is not None:
+            (tmp_path / f"zz_drill_hints.{locale}.json").write_text(
+                json.dumps(hints), encoding="utf-8"
+            )
+        original = mod.GRAMMAR_DIR
+        mod.GRAMMAR_DIR = tmp_path
+        try:
+            return GrammarSeeder("fake://db", "zz").transform()
+        finally:
+            mod.GRAMMAR_DIR = original
+
+    GRAMMAR = {"points": [{"title": "P", "drills": [
+        {"sentence": "a {{answer}} b", "answer": "went"},
+        {"sentence": "c {{answer}} d", "answer": "saw"},
+    ]}]}
+
+    def test_hints_attach_to_matching_drills(self, tmp_path):
+        data = self._transform(tmp_path, self.GRAMMAR, {
+            "locale": "es", "reviewed": False,
+            "points": {"P": {"a {{answer}} b": {
+                "hint": "go — pasado", "translation": "El pasado de 'go'."}}},
+        })
+        d1, d2 = data["points"][0]["drills"]
+        assert d1["hint_translations"]["es"]["hint"] == "go — pasado"
+        assert d1["hint_translations"]["es"]["reviewed"] is False
+        # partial coverage is fine — locales roll out tier by tier
+        assert "hint_translations" not in d2
+
+    def test_stale_sentence_fails_loudly(self, tmp_path):
+        # A key that matches no drill means the drill was reworded after
+        # drafting — losing the translation silently would strand the
+        # learner back in English without anyone noticing.
+        with pytest.raises(ValueError, match="reworded"):
+            self._transform(tmp_path, self.GRAMMAR, {
+                "locale": "es",
+                "points": {"P": {"OLD {{answer}} wording": {
+                    "hint": "x", "translation": "y"}}},
+            })
+
+    def test_unknown_point_fails(self, tmp_path):
+        with pytest.raises(ValueError, match="unknown point"):
+            self._transform(tmp_path, self.GRAMMAR, {
+                "locale": "es",
+                "points": {"Nope": {"a {{answer}} b": {
+                    "hint": "x", "translation": "y"}}},
+            })
+
+    def test_translated_hint_leaking_answer_fails(self, tmp_path):
+        with pytest.raises(ValueError, match="reveals answer"):
+            self._transform(tmp_path, self.GRAMMAR, {
+                "locale": "es",
+                "points": {"P": {"a {{answer}} b": {
+                    "hint": "escribe went aquí", "translation": "y"}}},
+            })
+
+    def test_missing_locale_fails(self, tmp_path):
+        with pytest.raises(ValueError, match="locale"):
+            self._transform(tmp_path, self.GRAMMAR, {
+                "points": {"P": {"a {{answer}} b": {
+                    "hint": "x", "translation": "y"}}},
+            })
+
+    def test_real_english_a2_tier_fully_covered_in_spanish(self):
+        # The WP17 pilot: every A2 drill carries Spanish scaffolding, so a
+        # from-es learner never reads hints in the language they're
+        # weakest in. Guards the pilot file against drill rewording.
+        data = GrammarSeeder("fake://db", "en").transform()
+        a2 = [p for p in data["points"] if p["level"] == "A2"]
+        assert a2
+        for p in a2:
+            for d in p["drills"]:
+                ht = (d.get("hint_translations") or {}).get("es")
+                assert ht, f"{p['title']}: {d['sentence'][:40]} has no es hint"
+                assert ht["hint"] and ht["translation"]
+
+
 def test_every_pointed_level_gets_a_deck(tmp_path):
     # A level with points but no declared list gets one synthesized —
     # eight languages once showed only their A1 deck because the

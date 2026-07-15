@@ -24,6 +24,8 @@ Prompt structure (ordered for prompt caching — stable prefix first):
 from __future__ import annotations
 
 import json
+from functools import cache, lru_cache
+from pathlib import Path
 from typing import Any
 
 from anthropic import AsyncAnthropic
@@ -34,151 +36,74 @@ MAX_HISTORY_MESSAGES = 40
 MAX_MESSAGE_CHARS = 4000
 MAX_TOOL_ITERATIONS = 4
 
-_LANGUAGE_BRIEFS: dict[str, str] = {
-    "ru": (
-        "Language: Russian.\n"
-        "You are an expert in Slavic linguistics. Key teaching dimensions: the "
-        "six grammatical cases and their declension patterns; verb aspect pairs "
-        "(imperfective/perfective) and when each is used; gender and animacy; "
-        "verbs of motion. When the learner confuses an aspect partner, contrast "
-        "the pair with minimal-pair example sentences. Always show stress marks "
-        "when introducing new words. Register: flag the ты/вы distinction and "
-        "mark colloquial vs bookish forms."
-    ),
-    "ar": (
-        "Language: Modern Standard Arabic.\n"
-        "You are an expert in Semitic linguistics. Key teaching dimensions: the "
-        "trilateral root system (e.g. ك-ت-ب) and verb forms I–X; broken vs sound "
-        "plurals; dual number; the three cases. Use tashkeel (diacritics) as a "
-        "learning aid when introducing words, but never penalize the learner "
-        "for omitting them. Connect new words to roots the learner already "
-        "knows. Register: distinguish MSA from dialect, and note when a word is "
-        "literary vs everyday; tell the learner when MSA would sound stilted."
-    ),
-    "en": (
-        "Language: English.\n"
-        "You are an expert in English as a second language. Key teaching "
-        "dimensions: the article system (the/a/an — hardest for Russian and "
-        "Arabic speakers), irregular verbs, and phrasal verbs. Accept both "
-        "British and American spellings. Teach articles through contrastive "
-        "examples rather than rules. Register: contrast formal/written English "
-        "with everyday conversational usage and contractions."
-    ),
-    "sw": (
-        "Language: Swahili.\n"
-        "You are an expert in Bantu linguistics. Key teaching dimensions: the "
-        "noun class system (ki-/vi-, m-/wa-, m-/mi-, ji-/ma- and agreement "
-        "across the sentence); verb morphology (subject prefix + tense marker "
-        "+ stem, e.g. ni-na-soma); and how adjectives and verbs agree with "
-        "noun classes. Decompose conjugated verbs into their morphemes so the "
-        "learner sees the system, not memorized strings. Register: distinguish "
-        "Standard (Coastal) Swahili from colloquial urban speech and note "
-        "Arabic-derived formal vocabulary."
-    ),
-    "yo": (
-        "Language: Yoruba.\n"
-        "You are an expert in Niger-Congo linguistics, specializing in Yoruba. "
-        "Key teaching dimensions: the three-tone system (high ́, mid "
-        "unmarked, low ̀) and how tone alone distinguishes words (ọkọ "
-        "husband / ọkọ̀ vehicle / oko farm); the underdotted vowels ẹ and ọ "
-        "and consonant ṣ as distinct phonemes; vowel harmony; serial verb "
-        "constructions; and subject pronouns + the rich aspect particles "
-        "(ti, ń, máa, yóò). Always write fully diacritized Yoruba. When the "
-        "learner omits or mistakes tone marks, contrast the minimal pair "
-        "they accidentally typed so they hear why tone matters. Register: note "
-        "proverb/idiom usage (highly valued in Yoruba) and honorific pronouns."
-    ),
-    "tr": (
-        "Language: Turkish.\n"
-        "You are an expert in Turkic linguistics. Key teaching dimensions: "
-        "agglutination and suffix ordering; two- and four-way vowel harmony "
-        "(and how it selects suffix variants like -lar/-ler, -da/-de); the six "
-        "cases; and the dotted/dotless i distinction. When the learner gets a "
-        "suffix wrong, walk through the harmony rule that selects the correct "
-        "variant rather than just giving the answer. Register: flag the formal "
-        "-iyor/-makta written style vs spoken forms and polite siz address."
-    ),
-    "ha": (
-        "Language: Hausa.\n"
-        "You are an expert in Chadic (Afro-Asiatic) linguistics. Key teaching "
-        "dimensions: grammatical gender (masculine/feminine) and how it drives "
-        "agreement; the many irregular/broken plural patterns; the hooked "
-        "consonants ɓ, ɗ, ƙ and glottalized ʼy as distinct letters; and the "
-        "tense-aspect-mood pronoun sets (completive, continuous, future) that "
-        "carry most of the grammar. Tone and vowel length are real but unwritten "
-        "— teach them by ear, never mark the learner wrong for omitting them. "
-        "Register: note Standard (Kano) Hausa vs regional forms and the heavy "
-        "use of greetings/honorifics in everyday speech."
-    ),
-    "es": (
-        "Language: Spanish.\n"
-        "You are an expert in Romance linguistics, specializing in Spanish. Key "
-        "teaching dimensions: the ser/estar distinction; the preterite vs "
-        "imperfect past tenses; the subjunctive mood; gender and adjective "
-        "agreement; and the personal 'a'. Accents are phonemic (sí vs si, está "
-        "vs esta) — teach them, but don't fail a learner who omits them. "
-        "Register: distinguish tú/usted and note major Latin American vs "
-        "Peninsular differences (vosotros, vos, vocabulary)."
-    ),
-    "it": (
-        "Language: Italian.\n"
-        "You are an expert in Romance linguistics, specializing in Italian. Key "
-        "teaching dimensions: noun gender and the article system (il/lo/la/i/"
-        "gli/le); the passato prossimo with essere vs avere and agreement; the "
-        "subjunctive; and clitic pronouns. Register: distinguish tu/Lei and "
-        "note standard vs colloquial/regional usage."
-    ),
-    "fr": (
-        "Language: French.\n"
-        "You are an expert in Romance linguistics, specializing in French. Key "
-        "teaching dimensions: gender and liaison; the passé composé with "
-        "avoir/être and past-participle agreement; the subjunctive; and "
-        "negation (ne…pas). Accents change meaning and pronunciation — teach "
-        "them but don't fail omissions. Register: distinguish tu/vous and note "
-        "formal written vs spoken/familiar forms (on for nous, dropped ne)."
-    ),
-    "de": (
-        "Language: German.\n"
-        "You are an expert in Germanic linguistics, specializing in German. Key "
-        "teaching dimensions: the four cases (nom/acc/dat/gen) and how they "
-        "drive article and adjective endings; the three genders; verb-second "
-        "and verb-final word order; and separable-prefix verbs. Nouns are "
-        "capitalized; ß and ss alternate. Register: distinguish du/Sie and note "
-        "formal vs colloquial usage."
-    ),
-    "ca": (
-        "Language: Catalan.\n"
-        "You are an expert in Romance linguistics, specializing in Catalan. Key "
-        "teaching dimensions: the article system including the personal article "
-        "(en/na) and contractions (al, del); weak/clitic pronouns including the "
-        "characteristic 'en' and 'hi'; gender and agreement; and the periphrastic "
-        "past (vaig + infinitive). Register: note Central vs Valencian/Balearic "
-        "variation and the ela geminada (l·l)."
-    ),
-    "mi": (
-        "Language: Māori (te reo Māori).\n"
-        "You are an expert in Polynesian linguistics, specializing in te reo "
-        "Māori. Key teaching dimensions: the macron (tohutō) which marks long "
-        "vowels and distinguishes words (keke 'cake' vs kēkē 'armpit') — always "
-        "write macrons, and treat an omitted macron as a near-miss, not wrong; "
-        "the particle-driven grammar (tense/aspect markers ka, kua, e…ana, i); "
-        "the a/o possessive categories; and VSO word order. Register: note "
-        "formal/whaikōrero register and the cultural weight of kupu — teach with "
-        "respect for tikanga."
-    ),
-    "xh": (
-        "Language: Xhosa.\n"
-        "You are an expert in Bantu (Nguni) linguistics, specializing in Xhosa. "
-        "Key teaching dimensions: the noun class system (um-/aba-, um-/imi-, "
-        "ili-/ama-, isi-/izi-, in-/izin-, ulu-, ubu-, uku-) and the concord "
-        "agreement it forces on verbs and adjectives; agglutinating verb "
-        "morphology (subject concord + tense + object concord + root); and the "
-        "three click consonants written c (dental), q (palatal), x (lateral). "
-        "Decompose words into morphemes so the learner sees the class system, "
-        "and treat clicks as ordinary letters in writing. Register: note "
-        "hlonipha (respect) vocabulary and standard vs colloquial usage."
-    ),
-}
+# ── Tutor skills (WP15b) ─────────────────────────────────────────────────
+# Per-language knowledge lives in skill bundles on disk, one directory per
+# language under tutor_skills/:
+#   SKILL.md     — the core brief; always in the prompt (kept small).
+#   REFERENCE.md — the app's CEFR-staged grammar path (generated from
+#                  data/grammar, so coaching uses the learner's card titles).
+#   ERRORS.md    — common interference errors + coaching moves.
+# REFERENCE/ERRORS load on demand via the consult_reference tool, so deep
+# knowledge never bloats the per-turn context (progressive disclosure).
+# Derived expertise only — never quotes of licensed resources.
+
+# Languages where tutoring accuracy is the product differentiator and the
+# stronger (costlier) model is worth it — the §6 model guide's low-resource
+# set. The admin's per-language override (languages.tutor_model) always wins;
+# this only picks the DEFAULT when no override is set.
+LOW_RESOURCE_LANGUAGES = frozenset({"mi", "sw", "yo", "ha", "xh", "ar"})
+
+
+def resolve_tutor_model(language_code: str, override: str | None = None) -> str:
+    """The model a tutor turn runs on.
+
+    Priority: admin per-language override > low-resource default > global
+    default. Cost context: Sonnet-tier is ~40% of Opus per token and handles
+    high-resource coaching well; low-resource languages pin the stronger
+    model because errors there damage the differentiator.
+    """
+    if override:
+        return override
+    settings = get_settings()
+    if language_code in LOW_RESOURCE_LANGUAGES:
+        return settings.tutor_model_low_resource
+    return settings.tutor_model
+
+
+SKILLS_DIR = Path(__file__).parent / "tutor_skills"
+
+_REFERENCE_TOPICS = {"reference": "REFERENCE.md", "errors": "ERRORS.md"}
+
+
+@cache
+def _load_skill(language_code: str) -> str | None:
+    """The always-loaded core brief for a language (None = no tutor)."""
+    path = SKILLS_DIR / language_code / "SKILL.md"
+    if not path.is_file():
+        return None
+    return path.read_text(encoding="utf-8").strip()
+
+
+@cache
+def load_reference(language_code: str, topic: str) -> str | None:
+    """An on-demand reference file for the consult_reference tool."""
+    filename = _REFERENCE_TOPICS.get(topic)
+    if filename is None:
+        return None
+    path = SKILLS_DIR / language_code / filename
+    if not path.is_file():
+        return None
+    return path.read_text(encoding="utf-8").strip()
+
+
+@lru_cache(maxsize=1)
+def available_tutors() -> frozenset[str]:
+    """Language codes that have a skill bundle (and therefore a tutor)."""
+    if not SKILLS_DIR.is_dir():
+        return frozenset()
+    return frozenset(
+        p.parent.name for p in SKILLS_DIR.glob("*/SKILL.md")
+    )
 
 _TUTOR_CHARTER = """\
 You are a private language tutor inside PolyglotSRS, a spaced-repetition \
@@ -211,12 +136,43 @@ difficulty to the CEFR levels of their weak items.
 - Be encouraging but honest — name the pattern behind their errors when you \
 see one (e.g. "you keep missing the locative case").
 
+Your knowledge has two layers. This core brief is always present. Two \
+deeper references load on demand through the `consult_reference` tool: \
+'reference' is the app's full grammar path in teaching order (the exact \
+point titles on the learner's cards — consult it before introducing new \
+grammar, so your sequence matches theirs), and 'errors' is the language's \
+common learner errors with coaching moves (consult it when a mistake looks \
+systematic). Load at most one per turn and only when this brief isn't \
+enough — keep the working context small.
+
 When you learn something durable and worth remembering next session — the \
 learner's goal or motivation, their native language, an interest to build \
 lessons around, or a recurring error pattern — call the `remember` tool. \
 Use it sparingly and only for things that should persist; do not record \
 transient chat.
 """
+
+CONSULT_TOOL: dict[str, Any] = {
+    "name": "consult_reference",
+    "description": (
+        "Load a deeper reference for the current language: 'reference' = the "
+        "app's full grammar path in teaching order (use before introducing "
+        "new grammar); 'errors' = common learner errors and coaching moves "
+        "(use when a mistake looks systematic). Load at most one per turn."
+    ),
+    "input_schema": {
+        "type": "object",
+        "properties": {
+            "topic": {
+                "type": "string",
+                "enum": ["reference", "errors"],
+                "description": "Which reference to load.",
+            },
+        },
+        "required": ["topic"],
+    },
+}
+
 
 # The `remember` tool is the live half of the hybrid memory strategy.
 REMEMBER_TOOL: dict[str, Any] = {
@@ -334,7 +290,7 @@ def build_system_blocks(
     cache_control marker. Block 1 (learner memory + SRS weak items) varies per
     user and per turn, so it sits after the cache breakpoint.
     """
-    brief = _LANGUAGE_BRIEFS.get(language_code)
+    brief = _load_skill(language_code)
     if brief is None:
         raise ValueError(f"No tutor available for language code '{language_code}'")
 
@@ -475,6 +431,37 @@ def _mock_chat(language_code: str, history: list[dict], weak_areas: list[dict]) 
     return reply, remembered
 
 
+def _execute_tools(
+    tool_uses: list[Any], language_code: str, remembered: list[dict]
+) -> list[dict]:
+    """Run this turn's tool calls (shared by both chat loops).
+
+    `remember` payloads accumulate into *remembered* for the caller to
+    persist; `consult_reference` answers from the skill bundle on disk.
+    """
+    results = []
+    for tu in tool_uses:
+        content = "Unknown tool."
+        if tu.name == "remember" and isinstance(tu.input, dict):
+            remembered.append({
+                "scope": tu.input.get("scope"),
+                "key": tu.input.get("key"),
+                "value": tu.input.get("value"),
+            })
+            content = "Saved."
+        elif tu.name == "consult_reference" and isinstance(tu.input, dict):
+            content = (
+                load_reference(language_code, tu.input.get("topic") or "")
+                or "No reference available on that topic."
+            )
+        results.append({
+            "type": "tool_result",
+            "tool_use_id": tu.id,
+            "content": content,
+        })
+    return results
+
+
 async def tutor_chat(
     language_code: str,
     messages: list[dict],
@@ -519,7 +506,7 @@ async def tutor_chat(
             thinking={"type": "adaptive"},
             system=system,
             messages=convo,
-            tools=[REMEMBER_TOOL],
+            tools=[REMEMBER_TOOL, CONSULT_TOOL],
         )
         _add_usage(usage, getattr(response, "usage", None))
 
@@ -531,22 +518,12 @@ async def tutor_chat(
             return reply, remembered, usage
 
         # Echo the assistant turn back verbatim (preserves thinking blocks),
-        # then answer each remember call so the model can continue.
+        # then answer each tool call so the model can continue.
         convo.append({"role": "assistant", "content": response.content})
-        results = []
-        for tu in tool_uses:
-            if tu.name == "remember" and isinstance(tu.input, dict):
-                remembered.append({
-                    "scope": tu.input.get("scope"),
-                    "key": tu.input.get("key"),
-                    "value": tu.input.get("value"),
-                })
-            results.append({
-                "type": "tool_result",
-                "tool_use_id": tu.id,
-                "content": "Saved.",
-            })
-        convo.append({"role": "user", "content": results})
+        convo.append({
+            "role": "user",
+            "content": _execute_tools(tool_uses, language_code, remembered),
+        })
 
     # Tool loop exhausted — make one final non-tool call for the reply.
     response = await client.messages.create(
@@ -609,7 +586,10 @@ async def tutor_chat_stream(
     usage = _empty_usage()
 
     for iteration in range(MAX_TOOL_ITERATIONS + 1):
-        tools = [REMEMBER_TOOL] if iteration < MAX_TOOL_ITERATIONS else []
+        tools = (
+            [REMEMBER_TOOL, CONSULT_TOOL]
+            if iteration < MAX_TOOL_ITERATIONS else []
+        )
         async with client.messages.stream(
             model=model,
             max_tokens=2048,
@@ -638,20 +618,10 @@ async def tutor_chat_stream(
         # it. Tell the client to drop the buffer, then continue the loop.
         yield {"type": "reset"}
         convo.append({"role": "assistant", "content": response.content})
-        results = []
-        for tu in tool_uses:
-            if tu.name == "remember" and isinstance(tu.input, dict):
-                remembered.append({
-                    "scope": tu.input.get("scope"),
-                    "key": tu.input.get("key"),
-                    "value": tu.input.get("value"),
-                })
-            results.append({
-                "type": "tool_result",
-                "tool_use_id": tu.id,
-                "content": "Saved.",
-            })
-        convo.append({"role": "user", "content": results})
+        convo.append({
+            "role": "user",
+            "content": _execute_tools(tool_uses, language_code, remembered),
+        })
 
 
 _SUMMARY_SCHEMA = {

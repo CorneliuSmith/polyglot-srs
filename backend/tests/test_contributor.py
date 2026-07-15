@@ -848,6 +848,37 @@ class TestAccountAdmin:
         assert resp.status_code == 200
         mock_set.assert_awaited_once()
 
+    def test_tutor_override_saves(self, client):
+        with _roles([{"language_id": None, "role": "admin"}]), \
+             patch("backend.routers.contribute.set_tutor_access",
+                   new=AsyncMock()) as mock_set:
+            resp = client.put(
+                "/api/contribute/users/99999999-aaaa-bbbb-cccc-000000000001/tutor",
+                json={"access": "enabled", "daily_cap": 10},
+                headers=_auth_headers(),
+            )
+        assert resp.status_code == 200
+        assert resp.json() == {"access": "enabled", "daily_cap": 10}
+        assert mock_set.await_args.args[2:] == ("enabled", 10)
+
+    def test_tutor_override_requires_admin(self, client):
+        with _roles([{"language_id": LANG, "role": "reviewer"}]):
+            resp = client.put(
+                "/api/contribute/users/99999999-aaaa-bbbb-cccc-000000000001/tutor",
+                json={"access": "blocked"},
+                headers=_auth_headers(),
+            )
+        assert resp.status_code == 403
+
+    def test_tutor_override_validates_access(self, client):
+        with _roles([{"language_id": None, "role": "admin"}]):
+            resp = client.put(
+                "/api/contribute/users/99999999-aaaa-bbbb-cccc-000000000001/tutor",
+                json={"access": "sometimes"},
+                headers=_auth_headers(),
+            )
+        assert resp.status_code == 422
+
     def test_create_account_requires_admin(self, client):
         with _roles([{"language_id": LANG, "role": "reviewer"}]):
             resp = client.post(

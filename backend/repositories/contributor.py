@@ -590,6 +590,7 @@ async def list_accounts(conn: asyncpg.Connection) -> list[dict]:
         """
         SELECT u.id, u.email, u.created_at, u.last_sign_in_at,
                up.plan_scope, pl.code AS plan_language,
+               up.tutor_access, up.tutor_daily_cap,
                COALESCE(r.roles, '{}') AS roles,
                COALESCE(c.cards, 0) AS cards,
                COALESCE(c.langs, 0) AS languages_studied
@@ -617,6 +618,8 @@ async def list_accounts(conn: asyncpg.Connection) -> list[dict]:
             ),
             "plan_scope": r["plan_scope"],
             "plan_language": r["plan_language"],
+            "tutor_access": r["tutor_access"] or "default",
+            "tutor_daily_cap": r["tutor_daily_cap"],
             "roles": list(r["roles"] or []),
             "cards": r["cards"],
             "languages_studied": r["languages_studied"],

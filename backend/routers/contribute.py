@@ -51,7 +51,7 @@ from backend.repositories.contributor import (
     update_drill,
 )
 from backend.repositories.pool import privileged_connection, rls_connection
-from backend.repositories.tutor import aggregate_tutor_usage
+from backend.repositories.tutor import aggregate_tutor_usage, set_tutor_access
 from backend.services.drills import validate_drill
 from backend.services.rate_limit import ai_review_limiter
 from backend.services.semantic_check import ai_available, semantic_check_point
@@ -724,6 +724,32 @@ async def override_plan(
     if not ok:
         raise HTTPException(status_code=404, detail="Account not found")
     return {"plan_scope": body.plan_scope}
+
+
+class TutorAccessOverride(BaseModel):
+    access: str = Field(pattern="^(default|blocked|enabled)$")
+    daily_cap: int | None = Field(default=None, ge=0, le=1000)
+
+
+@router.put("/users/{user_id}/tutor")
+async def override_tutor_access(
+    user_id: str,
+    body: TutorAccessOverride,
+    user: dict = Depends(get_current_user),
+):
+    """Per-account tutor override (admin, WP15b): block the tutor entirely,
+    or enable it with a daily message cap so a trial has bounded API cost.
+    The cap is stored regardless of mode, so toggling access back and forth
+    keeps the number."""
+    await _require_admin(user["id"])
+    async with privileged_connection() as conn:
+        exists = await conn.fetchval(
+            "SELECT 1 FROM auth.users WHERE id = $1", user_id
+        )
+        if not exists:
+            raise HTTPException(status_code=404, detail="Account not found")
+        await set_tutor_access(conn, user_id, body.access, body.daily_cap)
+    return {"access": body.access, "daily_cap": body.daily_cap}
 
 
 async def _require_admin(user_id: str) -> None:

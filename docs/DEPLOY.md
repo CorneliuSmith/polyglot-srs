@@ -243,3 +243,18 @@ Create accounts from Contribute → Accounts → "Manage accounts": enter an
 email, Generate a password, Create — then hand the password to your
 friend (they can change it via "Forgot password?"). The same panel edits
 plans and deletes accounts.
+
+## Plan billing (WP16, when launching payments)
+
+Set alongside the existing Stripe vars (all optional until launch —
+absent vars leave plan checkout returning 503 and the UI showing its
+free-beta copy):
+
+- `STRIPE_PRICE_SINGLE` — Price id of the "{Language} only" subscription
+- `STRIPE_PRICE_ALL` — Price id of the "All languages" subscription
+- `STRIPE_WEBHOOK_SECRET` — one webhook endpoint serves BOTH the tutor
+  add-on and plans (`/api/billing/webhook`); plan events are separated
+  by `metadata.kind = "plan"`.
+
+Apply migration `20260721000000_plan_subscriptions.sql` with the deploy.
+Never enable `STRIPE_DEV_MOCK` in production.

@@ -36,12 +36,15 @@ class FakeSettings:
     environment = "test"
     cors_origins = []
     anthropic_api_key = "fake-api-key"
-    tutor_model = "claude-opus-4-8"
+    tutor_model = "claude-sonnet-5"
     tutor_summary_model = "claude-sonnet-4-6"
     tutor_free_access = True
     tutor_dev_mock = False
     tutor_free_monthly_messages = 20
-    tutor_plus_daily_messages = 100
+    tutor_single_monthly_messages = 100
+    tutor_all_monthly_messages = 300
+    tutor_plus_daily_messages = 50
+    tutor_model_low_resource = "claude-opus-4-8"
 
 
 def _make_token() -> str:
@@ -122,7 +125,7 @@ def client():
 
 class TestBuildSystemBlocks:
     LANGS = ("ru", "ar", "en", "sw", "tr", "yo", "ha", "xh",
-             "es", "it", "fr", "de", "ca", "mi")
+             "es", "it", "fr", "de", "ca", "mi", "pt", "el", "ro")
 
     def test_all_languages_have_briefs(self):
         for code in self.LANGS:
@@ -169,6 +172,92 @@ class TestBuildSystemBlocks:
     def test_unknown_language_raises(self):
         with pytest.raises(ValueError):
             build_system_blocks("zz", [])
+
+
+class TestTutorSkills:
+    """WP15b: per-language skill bundles (SKILL.md core + on-demand
+    REFERENCE.md/ERRORS.md) replace the inline briefs dict."""
+
+    def test_every_language_with_grammar_has_a_tutor(self):
+        # The tutor roster must track the curriculum: a language we teach
+        # is a language we tutor. pt/el/ro once had paths but no tutor.
+        from pathlib import Path
+
+        from backend.services.tutor import available_tutors
+
+        grammar_langs = {
+            p.name.removesuffix("_grammar.json")
+            for p in Path("data/grammar").glob("*_grammar.json")
+        }
+        assert grammar_langs <= available_tutors(), (
+            grammar_langs - available_tutors()
+        )
+
+    def test_bundles_are_complete_and_bounded(self):
+        from backend.services.tutor import (
+            SKILLS_DIR,
+            available_tutors,
+            load_reference,
+        )
+
+        for code in sorted(available_tutors()):
+            for name in ("SKILL.md", "REFERENCE.md", "ERRORS.md"):
+                assert (SKILLS_DIR / code / name).is_file(), f"{code}/{name}"
+            # SKILL.md rides in EVERY prompt — keep it small (context rot
+            # control); the deep files load on demand and stay bounded too.
+            skill = (SKILLS_DIR / code / "SKILL.md").read_text(encoding="utf-8")
+            assert len(skill) < 2500, f"{code}: SKILL.md too large"
+            for topic in ("reference", "errors"):
+                text = load_reference(code, topic)
+                assert text and len(text) < 12000, f"{code}/{topic}"
+
+    def test_reference_uses_curriculum_point_titles(self):
+        import json
+
+        from backend.services.tutor import load_reference
+
+        ref = load_reference("ru", "reference")
+        data = json.load(open("data/grammar/ru_grammar.json"))
+        for point in data["points"][:5]:
+            assert point["title"] in ref
+
+    def test_charter_teaches_the_consult_tool(self):
+        blocks = build_system_blocks("pt", [])
+        assert "consult_reference" in blocks[0]["text"]
+
+    def test_unknown_topic_returns_none(self):
+        from backend.services.tutor import load_reference
+
+        assert load_reference("ru", "everything") is None
+        assert load_reference("zz", "reference") is None
+
+
+class TestResolveTutorModel:
+    """§6 model guide in code: Sonnet default, Opus for low-resource
+    languages, admin per-language override always wins."""
+
+    def test_high_resource_uses_sonnet_default(self):
+        from backend.services import tutor as tutor_mod
+
+        with patch.object(tutor_mod, "get_settings", return_value=FakeSettings()):
+            assert tutor_mod.resolve_tutor_model("es") == "claude-sonnet-5"
+            assert tutor_mod.resolve_tutor_model("en") == "claude-sonnet-5"
+
+    def test_low_resource_pins_stronger_model(self):
+        from backend.services import tutor as tutor_mod
+
+        with patch.object(tutor_mod, "get_settings", return_value=FakeSettings()):
+            for code in ("mi", "sw", "yo", "ha", "xh", "ar"):
+                assert tutor_mod.resolve_tutor_model(code) == "claude-opus-4-8", code
+
+    def test_admin_override_wins(self):
+        from backend.services import tutor as tutor_mod
+
+        with patch.object(tutor_mod, "get_settings", return_value=FakeSettings()):
+            assert (
+                tutor_mod.resolve_tutor_model("mi", "claude-fable-5")
+                == "claude-fable-5"
+            )
 
 
 # ---------------------------------------------------------------------------
@@ -369,12 +458,90 @@ class TestTutorChatEndpoint:
              patch("backend.routers.tutor.has_tutor_entitlement",
                    new=AsyncMock(return_value=True)), \
              patch("backend.routers.tutor.count_tutor_messages",
-                   new=AsyncMock(return_value=100)):
+                   new=AsyncMock(return_value=50)):
             resp = client.post("/api/tutor/chat", json=_chat_body(), headers=_auth_headers())
         assert resp.status_code == 402
         detail = resp.json()["detail"]
         assert detail["code"] == "allowance_exhausted"
         assert detail["tier"] == "plus"        # not an upsell — resets tomorrow
+        assert detail["limit"] == 50
+
+    def test_plan_scaled_monthly_allowances(self, client):
+        # A language plan includes a monthly tutor allowance: all 300,
+        # single 100, no plan 20 — flat tiers, never billed per message.
+        paid = FakeSettings()
+        paid.tutor_free_access = False
+        for plan, tier, limit in (("all", "all", 300),
+                                  ("single", "single", 100),
+                                  (None, "free", 20)):
+            p1, p2, p3, p4 = _patch_chat_repos()
+            with p1, p2, p3, p4, \
+                 patch("backend.routers.tutor.get_settings", return_value=paid), \
+                 patch("backend.routers.tutor.get_tutor_access",
+                       new=AsyncMock(return_value={
+                           "access": "default", "daily_cap": None,
+                           "plan_scope": plan,
+                       })), \
+                 patch("backend.routers.tutor.has_tutor_entitlement",
+                       new=AsyncMock(return_value=False)), \
+                 patch("backend.routers.tutor.count_tutor_messages",
+                       new=AsyncMock(return_value=1)), \
+                 patch("backend.routers.tutor.log_tutor_usage", new=AsyncMock()), \
+                 patch("backend.routers.tutor.tutor_chat",
+                       new=AsyncMock(return_value=("hi", [], _SOME_USAGE))):
+                resp = client.post(
+                    "/api/tutor/chat", json=_chat_body(), headers=_auth_headers()
+                )
+            assert resp.status_code == 200, plan
+            allowance = resp.json()["allowance"]
+            assert allowance["tier"] == tier
+            assert allowance["limit"] == limit
+
+    def test_blocked_account_403_even_in_free_access_mode(self, client):
+        # The admin block wins over EVERYTHING, including the operator's
+        # TUTOR_FREE_ACCESS demo bypass (FakeSettings has it on).
+        with patch("backend.routers.tutor.get_tutor_access",
+                   new=AsyncMock(return_value={"access": "blocked", "daily_cap": None})):
+            resp = client.post("/api/tutor/chat", json=_chat_body(), headers=_auth_headers())
+        assert resp.status_code == 403
+        assert resp.json()["detail"]["code"] == "tutor_blocked"
+
+    def test_granted_account_chats_under_its_cap(self, client):
+        # "Let a friend try the tutor, 10 messages a day": no entitlement,
+        # free-access off, but the admin grant carries its own allowance.
+        paid = FakeSettings()
+        paid.tutor_free_access = False
+        p1, p2, p3, p4 = _patch_chat_repos()
+        with p1, p2, p3, p4, \
+             patch("backend.routers.tutor.get_settings", return_value=paid), \
+             patch("backend.routers.tutor.get_tutor_access",
+                   new=AsyncMock(return_value={"access": "enabled", "daily_cap": 10})), \
+             patch("backend.routers.tutor.count_tutor_messages",
+                   new=AsyncMock(return_value=4)), \
+             patch("backend.routers.tutor.log_tutor_usage", new=AsyncMock()), \
+             patch("backend.routers.tutor.tutor_chat",
+                   new=AsyncMock(return_value=("hi", [], _SOME_USAGE))):
+            resp = client.post("/api/tutor/chat", json=_chat_body(), headers=_auth_headers())
+        assert resp.status_code == 200
+        allowance = resp.json()["allowance"]
+        assert allowance["tier"] == "granted"
+        assert allowance["limit"] == 10
+        assert allowance["remaining"] == 5     # 4 before + this one
+
+    def test_granted_account_blocked_at_its_cap(self, client):
+        paid = FakeSettings()
+        paid.tutor_free_access = False
+        with patch("backend.routers.tutor.get_settings", return_value=paid), \
+             patch("backend.routers.tutor.get_tutor_access",
+                   new=AsyncMock(return_value={"access": "enabled", "daily_cap": 10})), \
+             patch("backend.routers.tutor.count_tutor_messages",
+                   new=AsyncMock(return_value=10)):
+            resp = client.post("/api/tutor/chat", json=_chat_body(), headers=_auth_headers())
+        assert resp.status_code == 402
+        detail = resp.json()["detail"]
+        assert detail["code"] == "allowance_exhausted"
+        assert detail["tier"] == "granted"
+        assert detail["limit"] == 10
 
     def test_unconfigured_key_503(self, client):
         unconfigured = FakeSettings()
@@ -581,7 +748,7 @@ class TestTutorChatService:
             "cache_write_tokens": 0, "cache_read_tokens": 800,
         }
         kwargs = fake_client.messages.create.await_args.kwargs
-        assert kwargs["model"] == "claude-opus-4-8"
+        assert kwargs["model"] == "claude-sonnet-5"
         assert kwargs["thinking"] == {"type": "adaptive"}
         assert len(kwargs["system"]) == 2
 
@@ -613,6 +780,38 @@ class TestTutorChatService:
         # WP9b: the turn total sums BOTH tool-loop calls
         assert usage["input_tokens"] == 250
         assert usage["output_tokens"] == 70
+
+    @pytest.mark.asyncio
+    async def test_consult_reference_tool_loop(self):
+        # The tutor asks for the curriculum reference mid-turn; the loop
+        # answers from the skill bundle on disk and the model continues.
+        from backend.services import tutor as tutor_mod
+
+        first = _Resp([
+            _ToolUseBlock("t1", "consult_reference", {"topic": "reference"}),
+        ], usage=_Usage(input_tokens=100, output_tokens=10))
+        second = _Resp(
+            [_TextBlock("Next up in your path: the locative case.")],
+            usage=_Usage(input_tokens=200, output_tokens=40),
+        )
+        fake_client = AsyncMock()
+        fake_client.messages.create = AsyncMock(side_effect=[first, second])
+
+        with patch.object(tutor_mod, "AsyncAnthropic", return_value=fake_client), \
+             patch.object(tutor_mod, "get_settings", return_value=FakeSettings()):
+            reply, remembered, usage = await tutor_mod.tutor_chat(
+                "tr", [{"role": "user", "content": "what should I learn next?"}], []
+            )
+        assert reply == "Next up in your path: the locative case."
+        assert remembered == []  # consulting is not a memory write
+        # The second call carried the reference text as the tool result.
+        second_msgs = fake_client.messages.create.await_args_list[1].kwargs["messages"]
+        tool_result = second_msgs[-1]["content"][0]
+        assert tool_result["tool_use_id"] == "t1"
+        assert "Curriculum reference" in tool_result["content"]
+        # Both tools offered on tool-loop calls.
+        tools = fake_client.messages.create.await_args_list[0].kwargs["tools"]
+        assert {t["name"] for t in tools} == {"remember", "consult_reference"}
 
     @pytest.mark.asyncio
     async def test_empty_history_raises(self):

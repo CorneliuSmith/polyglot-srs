@@ -19,6 +19,19 @@ Curriculum file shape:
       }]
     }
 
+Companion hint-translation files (WP17), one per locale
+(data/grammar/{code}_drill_hints.{locale}.json), carry the drill
+hint/translation in a learner's support language:
+    {
+      "locale": "es", "reviewed": false,
+      "points": {"<point title>": {"<drill sentence>": {
+          "hint": "...", "translation": "..."}}}
+    }
+Entries are keyed by the drill's exact sentence — drills get fresh ids on
+every reseed (delete + insert), so the sentence is the only stable key. A
+key that no longer matches a drill fails the seed loudly: it means the
+drill was reworded and the translation needs re-drafting, not silent loss.
+
 CLI:
     python -m backend.services.seeder.seed_grammar --language ru
     python -m backend.services.seeder.seed_grammar --language all
@@ -29,6 +42,7 @@ import argparse
 import asyncio
 import json
 import logging
+import re
 
 import asyncpg
 
@@ -127,6 +141,7 @@ class GrammarSeeder:
                 "related": clean_related(p.get("related")),
                 "drills": drills,
             })
+        self._attach_hint_translations(points)
         # Every level that has points must have a deck (content_list) —
         # otherwise the level is invisible in Learn and the deck browser.
         # The A2–C2 deepening waves appended points without lists, which
@@ -143,6 +158,61 @@ class GrammarSeeder:
                     "description": f"Grammar points at {level}, in path order.",
                 })
         return {"lists": lists, "points": points}
+
+    def _attach_hint_translations(self, points: list[dict]) -> None:
+        """Merge {code}_drill_hints.{locale}.json files onto their drills.
+
+        Every entry must land on a real drill: an unknown point title or a
+        sentence that no longer matches means the drill was reworded after
+        the translation was drafted — fail the seed so the locale file gets
+        re-drafted instead of silently dropping the learner's scaffolding.
+        Partial coverage is fine (locales roll out tier by tier).
+        """
+        by_title = {p["title"]: p for p in points}
+        for path in sorted(
+            GRAMMAR_DIR.glob(f"{self.language_code}_drill_hints.*.json")
+        ):
+            with open(path, encoding="utf-8") as f:
+                payload = json.load(f)
+            locale = (payload.get("locale") or "").strip()
+            if not locale or locale == "en":
+                raise ValueError(f"{path.name}: missing or invalid locale")
+            reviewed = bool(payload.get("reviewed", False))
+            for title, sentences in (payload.get("points") or {}).items():
+                point = by_title.get(title)
+                if point is None:
+                    raise ValueError(f"{path.name}: unknown point: {title}")
+                by_sentence = {d["sentence"]: d for d in point["drills"]}
+                for sentence, entry in sentences.items():
+                    drill = by_sentence.get(sentence)
+                    if drill is None:
+                        raise ValueError(
+                            f"{path.name}: {title}: no drill matches "
+                            f"{sentence[:50]!r} (reworded since drafting?)"
+                        )
+                    hint = (entry.get("hint") or "").strip()
+                    translation = (entry.get("translation") or "").strip()
+                    if not hint or not translation:
+                        raise ValueError(
+                            f"{path.name}: {title}: empty hint/translation "
+                            f"for {sentence[:50]!r}"
+                        )
+                    # Same answer-leak gate as authored hints: a translated
+                    # hint that spells out the answer defeats the drill.
+                    ans = drill["answer"].lower()
+                    if len(ans) > 3 and re.search(
+                        rf"(?<![^\W\d_]){re.escape(ans)}(?![^\W\d_])",
+                        hint.lower(),
+                    ):
+                        raise ValueError(
+                            f"{path.name}: {title}: hint reveals answer "
+                            f"{drill['answer']!r}: {hint!r}"
+                        )
+                    drill.setdefault("hint_translations", {})[locale] = {
+                        "hint": hint,
+                        "translation": translation,
+                        "reviewed": reviewed,
+                    }
 
     async def load(self, data: dict) -> int:
         """Write lists, points, and drills. Returns the number of points loaded."""
@@ -167,6 +237,7 @@ class GrammarSeeder:
                 )
 
             count = 0
+            hint_rows = 0
             for point in data["points"]:
                 gp_id = await conn.fetchval(
                     """
@@ -193,25 +264,43 @@ class GrammarSeeder:
                     json.dumps(point.get("references") or [], ensure_ascii=False),
                     json.dumps(point.get("related") or [], ensure_ascii=False),
                 )
-                # Replace drills so re-seeding is idempotent.
+                # Replace drills so re-seeding is idempotent. The delete
+                # cascades to drill_hint_translations, so locale rows are
+                # rebuilt from the hint files right here — they can't be
+                # stranded on ids that no longer exist.
                 await conn.execute(
                     "DELETE FROM drill_sentences WHERE grammar_point_id = $1", gp_id
                 )
                 for d in point["drills"]:
-                    await conn.execute(
+                    drill_id = await conn.fetchval(
                         """
                         INSERT INTO drill_sentences
                             (grammar_point_id, sentence, answer, translation, hint,
                              gloss, transliteration, display_order)
                         VALUES ($1, $2, $3, $4, $5, $6, $7, $8)
+                        RETURNING id
                         """,
                         gp_id, d["sentence"], d["answer"], d["translation"],
                         d["hint"], d.get("gloss"), d.get("transliteration"),
                         d["display_order"],
                     )
+                    for locale, ht in (d.get("hint_translations") or {}).items():
+                        await conn.execute(
+                            """
+                            INSERT INTO drill_hint_translations
+                                (drill_id, locale, hint, translation, reviewed)
+                            VALUES ($1, $2, $3, $4, $5)
+                            """,
+                            drill_id, locale, ht["hint"], ht["translation"],
+                            ht["reviewed"],
+                        )
+                        hint_rows += 1
                 count += 1
 
-            logger.info("Loaded %d grammar points for %s", count, self.language_code)
+            logger.info(
+                "Loaded %d grammar points for %s (%d hint-translation rows)",
+                count, self.language_code, hint_rows,
+            )
             return count
         finally:
             await conn.close()
