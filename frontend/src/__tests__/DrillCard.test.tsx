@@ -219,3 +219,42 @@ describe('DrillCard mobile keyboard', () => {
     expect(input.getAttribute('spellcheck')).toBe('false')
   })
 })
+
+describe('DrillCard Android IME path', () => {
+  // Some Android soft keyboards never emit a usable Enter keydown
+  // (keyCode 229 / "Unidentified") — the action key instead triggers
+  // implicit form submission. The input is wrapped in a real <form>.
+  it('submits via the form when the keydown never fires', () => {
+    const onSubmit = vi.fn()
+    const { container } = render(
+      <DrillCard
+        sentence="I {{answer}} a student."
+        value="am"
+        onChange={() => {}}
+        onSubmit={onSubmit}
+        disabled={false}
+        languageCode="en"
+        result={null}
+      />,
+    )
+    fireEvent.submit(container.querySelector('form')!)
+    expect(onSubmit).toHaveBeenCalledTimes(1)
+  })
+
+  it('ignores form submission while disabled', () => {
+    const onSubmit = vi.fn()
+    const { container } = render(
+      <DrillCard
+        sentence="I {{answer}} a student."
+        value="am"
+        onChange={() => {}}
+        onSubmit={onSubmit}
+        disabled={true}
+        languageCode="en"
+        result="correct"
+      />,
+    )
+    fireEvent.submit(container.querySelector('form')!)
+    expect(onSubmit).not.toHaveBeenCalled()
+  })
+})

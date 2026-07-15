@@ -177,12 +177,21 @@ export default function OnboardingPage() {
                 <p className="text-xs text-gray-400">{currentItem.translation}</p>
               )}
               <LanguageWrapper languageCode={language.code}>
+                {/* Real form: some Android IMEs never emit a usable Enter
+                    keydown, but the action key always submits a form. */}
+                <form
+                  onSubmit={(e) => {
+                    e.preventDefault()
+                    if (curInput.trim()) submitAnswer(curInput)
+                  }}
+                >
                 <input
                   autoFocus
                   autoCapitalize="none"
                   autoCorrect="off"
                   autoComplete="off"
                   spellCheck={false}
+                  enterKeyHint="go"
                   value={curInput}
                   onChange={(e) => {
                     const v = isTranslitEnabled(language.code, qwertyTranslit)
@@ -191,11 +200,15 @@ export default function OnboardingPage() {
                     setCurInput(v)
                   }}
                   onKeyDown={(e) => {
-                    if (e.key === 'Enter' && curInput.trim()) submitAnswer(curInput)
+                    if (e.key === 'Enter' && !e.nativeEvent.isComposing && curInput.trim()) {
+                      e.preventDefault()
+                      submitAnswer(curInput)
+                    }
                   }}
                   aria-label={currentItem.prompt}
                   className="mt-1 w-full rounded-lg border border-gray-300 px-3 py-2 text-sm"
                 />
+                </form>
               </LanguageWrapper>
             </div>
             <div className="flex gap-2">
