@@ -573,6 +573,21 @@ generated drill passes the NLP answerability validation (already enforced).
 **Effort:** M per language + review time.
 
 ### WP7 — Audio: cached TTS + human recordings
+**(a) DONE 2026-07-16 — cached neural TTS.** POST /api/audio/tts:
+content-verified text only (drill sentences with answers filled, example
+sentences, vocab words — never an open TTS proxy), rate-limited on cache
+misses, synthesized via edge-tts (keyless neural voices), stored in the
+public 'tts' Supabase Storage bucket (created live), cached by
+(voice, sha256(text)) in tts_audio (migration 20260723000000, applied
+live). SpeakButton tries explicit audioUrl → cached neural TTS →
+browser speechSynthesis (now only the fallback). Coverage: 13/17
+languages (en es fr de it ca pt-BR ro el ru tr ar-SA sw-KE); yo/ha/xh/mi
+keep the browser fallback.
+**Remaining:** (b) yo/ha/xh/mi via local MMS-TTS bulk-generated offline
+into the same bucket — quality-check each before shipping; (c) human
+recordings for the highest-value items (A1 first); (d) swap edge-tts
+for a paid provider if the keyless endpoint proves flaky — the service
+interface is one function.
 **Goal:** consistent pronunciation. The UI seam exists (`SpeakButton audioUrl`
 prop, falls back to browser speech).
 **Steps:** add `audio_url` columns to `vocabulary`, `example_sentences`,

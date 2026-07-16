@@ -113,5 +113,8 @@ class RateLimiter:
 
 # Tutor chat: interactive, allow a brisk pace but cap runaway loops.
 tutor_chat_limiter = RateLimiter("tutor_chat", max_calls=20, per_seconds=60)
+# TTS cache misses synthesize + upload — cap the generation rate per user
+# (cache hits are not limited; they cost one SELECT).
+tts_limiter = RateLimiter("tts", max_calls=30, per_seconds=60)
 # AI semantic review: heavier calls, tighter cap.
 ai_review_limiter = RateLimiter("ai_review", max_calls=10, per_seconds=60)

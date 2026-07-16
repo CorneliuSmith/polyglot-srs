@@ -1,6 +1,12 @@
 import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest'
-import { render, screen, fireEvent } from '@testing-library/react'
+import { render, screen, fireEvent, waitFor } from '@testing-library/react'
+
+vi.mock('../api/audio', () => ({ getTTSUrl: vi.fn(() => Promise.resolve(null)) }))
+
 import SpeakButton from '../components/SpeakButton'
+import { getTTSUrl } from '../api/audio'
+
+const mockGetTTSUrl = getTTSUrl as ReturnType<typeof vi.fn>
 
 class FakeUtterance {
   text: string
@@ -29,13 +35,14 @@ describe('SpeakButton', () => {
     delete (window as unknown as { speechSynthesis?: unknown }).speechSynthesis
   })
 
-  it('speaks the text in the mapped locale when clicked', () => {
+  it('falls back to browser speech when no cached TTS exists', async () => {
     // the utterance is queued a tick after cancel() (Chrome swallows
     // same-tick speak-after-cancel)
     vi.useFakeTimers()
+    mockGetTTSUrl.mockResolvedValue(null)
     render(<SpeakButton text="hola" languageCode="es" />)
     fireEvent.click(screen.getByRole('button'))
-    vi.runAllTimers()
+    await vi.runAllTimersAsync() // flush the TTS lookup + the speech queue
     expect(speak).toHaveBeenCalledTimes(1)
     const utterance = speak.mock.calls[0][0] as FakeUtterance
     expect(utterance.text).toBe('hola')
@@ -43,10 +50,25 @@ describe('SpeakButton', () => {
     vi.useRealTimers()
   })
 
-  it('renders nothing when speech is unsupported and no audio file is given', () => {
+  it('prefers the cached neural TTS clip when the backend has one', async () => {
+    const play = vi.fn().mockResolvedValue(undefined)
+    ;(globalThis as unknown as { Audio: unknown }).Audio = vi.fn(() => ({
+      play,
+      currentTime: 0,
+      src: 'https://cdn/voce.mp3',
+    }))
+    mockGetTTSUrl.mockResolvedValue('https://cdn/voce.mp3')
+    render(<SpeakButton text="você" languageCode="pt" />)
+    fireEvent.click(screen.getByRole('button'))
+    await waitFor(() => expect(play).toHaveBeenCalledTimes(1))
+    expect(mockGetTTSUrl).toHaveBeenCalledWith('pt', 'você')
+    expect(speak).not.toHaveBeenCalled() // never the robot when we have real audio
+  })
+
+  it('still renders without browser speech — the backend may have a voice', () => {
     delete (window as unknown as { speechSynthesis?: unknown }).speechSynthesis
-    const { container } = render(<SpeakButton text="hola" languageCode="es" />)
-    expect(container.querySelector('button')).toBeNull()
+    render(<SpeakButton text="hola" languageCode="es" />)
+    expect(screen.getByRole('button')).toBeDefined()
   })
 
   it('plays a pre-generated audio file when an audioUrl is provided', () => {

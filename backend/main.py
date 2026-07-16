@@ -9,6 +9,7 @@ from fastapi.middleware.cors import CORSMiddleware
 
 from backend.config import get_settings
 from backend.repositories.pool import close_pool, init_pool
+from backend.routers.audio import router as audio_router
 from backend.routers.auth import router as auth_router
 from backend.routers.billing import router as billing_router
 from backend.routers.contribute import router as contribute_router
@@ -53,6 +54,7 @@ def create_app() -> FastAPI:
     _app.include_router(tutor_router, prefix="/api/tutor", tags=["tutor"])
     _app.include_router(contribute_router, prefix="/api/contribute", tags=["contribute"])
     _app.include_router(billing_router, prefix="/api/billing", tags=["billing"])
+    _app.include_router(audio_router, prefix="/api/audio", tags=["audio"])
 
     @_app.get("/api/health")
     async def health():

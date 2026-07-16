@@ -1,4 +1,5 @@
 import { useRef, useState } from 'react'
+import { getTTSUrl } from '../api/audio'
 import { useSpeech } from '../hooks/useSpeech'
 
 interface SpeakButtonProps {
@@ -30,23 +31,38 @@ export default function SpeakButton({
   const audioRef = useRef<HTMLAudioElement | null>(null)
   const [playing, setPlaying] = useState(false)
 
-  const hasAudio = !!audioUrl
-  if (!hasAudio && !supported) return null
+  const playUrl = (url: string) => {
+    const el =
+      audioRef.current && audioRef.current.src === url
+        ? audioRef.current
+        : new Audio(url)
+    audioRef.current = el
+    el.currentTime = 0
+    setPlaying(true)
+    el.onended = () => setPlaying(false)
+    void el.play().catch(() => setPlaying(false))
+  }
 
-  const handlePlay = () => {
-    if (hasAudio) {
-      const el = audioRef.current ?? new Audio(audioUrl!)
-      audioRef.current = el
-      el.currentTime = 0
-      setPlaying(true)
-      el.onended = () => setPlaying(false)
-      void el.play().catch(() => setPlaying(false))
+  const handlePlay = async () => {
+    if (playing) return
+    // Priority: explicit pre-generated file > cached neural TTS from the
+    // backend > the browser's speech synthesis (the old, awful default —
+    // now only the fallback for languages without a neural voice).
+    if (audioUrl) {
+      playUrl(audioUrl)
+      return
+    }
+    setPlaying(true) // optimistic: shows activity while the URL resolves
+    const url = await getTTSUrl(languageCode, text)
+    if (url) {
+      playUrl(url)
     } else {
-      speak(text, languageCode)
+      setPlaying(false)
+      if (supported) speak(text, languageCode)
     }
   }
 
-  const active = hasAudio ? playing : speaking
+  const active = playing || speaking
 
   return (
     <button
