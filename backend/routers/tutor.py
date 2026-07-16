@@ -16,6 +16,7 @@ On top of the tiers sits the admin's per-account override (WP15b):
 
 from __future__ import annotations
 
+import asyncio
 from datetime import UTC, datetime, timedelta
 
 import anthropic
@@ -48,6 +49,12 @@ from backend.services.tutor import (
 )
 
 router = APIRouter()
+
+# DigitalOcean's gateway drops connections with no bytes flowing for ~60s,
+# and a tutor turn can sit silent that long while the model thinks before
+# its first token. The stream endpoint emits a ping frame at this cadence
+# whenever the model is quiet; clients ignore unknown event types.
+STREAM_HEARTBEAT_SECONDS = 10.0
 
 
 class ChatMessage(BaseModel):
@@ -313,17 +320,35 @@ async def chat_stream(
         import json as _json
 
         settings = get_settings()
+        agen = tutor_chat_stream(
+            body.language_code,
+            [m.model_dump() for m in body.messages],
+            weak_areas,
+            user_profile=user_profile,
+            language_profile=lang["profile"],
+            session_summary=lang["session_summary"],
+            study_stats=study_stats,
+            model=model,
+        )
+        # Heartbeat interleave: wait on the generator's next event with a
+        # timeout, pinging while the model is quiet. asyncio.wait (not
+        # wait_for) — cancelling __anext__ would kill the generator.
+        next_task: asyncio.Task | None = None
         try:
-            async for event in tutor_chat_stream(
-                body.language_code,
-                [m.model_dump() for m in body.messages],
-                weak_areas,
-                user_profile=user_profile,
-                language_profile=lang["profile"],
-                session_summary=lang["session_summary"],
-                study_stats=study_stats,
-                model=model,
-            ):
+            while True:
+                if next_task is None:
+                    next_task = asyncio.ensure_future(agen.__anext__())
+                done_set, _ = await asyncio.wait(
+                    {next_task}, timeout=STREAM_HEARTBEAT_SECONDS
+                )
+                if not done_set:
+                    yield 'data: {"type": "ping"}\n\n'
+                    continue
+                task, next_task = next_task, None
+                try:
+                    event = task.result()
+                except StopAsyncIteration:
+                    break
                 if event["type"] == "done":
                     # Persist BEFORE the client sees "done" so a reload
                     # right after can't observe a half-recorded turn. The
