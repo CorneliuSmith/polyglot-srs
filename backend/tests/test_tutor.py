@@ -595,6 +595,38 @@ class TestTutorChatStream:
         assert logged_usage["input_tokens"] > 0
         assert logged_usage["output_tokens"] > 0
 
+    def test_stream_pings_while_the_model_is_quiet(self, client):
+        """DO's gateway kills connections with no bytes for ~60s, and a
+        turn can sit silent that long while the model thinks. The stream
+        emits ping frames whenever the generator is quiet (504 fix)."""
+        import asyncio as _asyncio
+        import json as _json
+
+        async def slow_stream(*args, **kwargs):
+            await _asyncio.sleep(0.12)  # "thinking" — several heartbeats
+            yield {"type": "delta", "text": "hi"}
+            yield {"type": "done", "reply": "hi", "remembered": [],
+                   "usage": _SOME_USAGE}
+
+        p1, p2, p3, p4 = _patch_chat_repos()
+        with p1, p2, p3, p4, \
+             patch("backend.routers.tutor.STREAM_HEARTBEAT_SECONDS", 0.02), \
+             patch("backend.routers.tutor.tutor_chat_stream", slow_stream), \
+             patch("backend.routers.tutor.log_tutor_usage", new=AsyncMock()):
+            resp = client.post(
+                "/api/tutor/chat/stream", json=_chat_body(), headers=_auth_headers()
+            )
+        assert resp.status_code == 200
+        events = [
+            _json.loads(line[len("data: "):])
+            for line in resp.text.splitlines()
+            if line.startswith("data: ")
+        ]
+        types = [e["type"] for e in events]
+        assert types.count("ping") >= 2      # kept the connection warm
+        assert types[-1] == "done"           # and the real events still flow
+        assert "hi" == [e for e in events if e["type"] == "done"][0]["reply"]
+
     def test_stream_blocked_when_allowance_exhausted(self, client):
         paid = FakeSettings()
         paid.tutor_free_access = False
