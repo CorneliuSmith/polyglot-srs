@@ -47,6 +47,8 @@ def _auth_headers() -> dict:
 
 FAKE_STATS = {
     "due_count": 12,
+    "due_grammar": 8,
+    "due_vocab": 4,
     "streak_days": 5,
     "cefr_progress": {
         "A1": {"learned": 50, "total": 100},
@@ -93,6 +95,9 @@ async def test_dashboard_returns_correct_shape(client):
     assert resp.status_code == 200
     data = resp.json()
     assert data["due_count"] == 12
+    # Review-tile expansion contract: type counts sum to the total.
+    assert data["due_grammar"] == 8
+    assert data["due_vocab"] == 4
     assert data["streak_days"] == 5
     assert "cefr_progress" in data
     assert set(data["cefr_progress"].keys()) == {"A1", "A2", "B1", "B2", "C1", "C2"}

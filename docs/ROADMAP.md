@@ -717,6 +717,11 @@ forecast, 14-day activity chart (vocab vs grammar), named-stage tiles
 days studied, last-session accuracy, items studied). Remaining: hourly
 forecast granularity, per-level grammar+vocab combined bars, community
 section (deferred).
+**Tile interaction (owner feedback + screenshots, 2026-07-16, DONE):** the
+big Learn button STARTS a learn session (next queued deck with items left);
+its chevron expands the deck rows. The big Review button starts all reviews;
+its chevron expands Grammar Only / Vocab Only rows with live due counts
+(`/api/review/due?card_type=`, personal cloze cards count as vocab).
 Home page becomes the command center, our style: top bar keeps OUR
 differentiators — the **language switcher** and a **Tutor** link — alongside
 Learn/Review; big **Learn N/day** and **Review N** buttons with live counts;
@@ -899,6 +904,34 @@ surface (curation + coverage computation) — own migration, seeder,
 browse UI. Effort: M–L; do (a)–(c) first.
 **Model:** implementation `claude-sonnet-5`; charter tuning + coverage
 heuristics `claude-opus-4-8`+. **Never store secrets in tutor memory.**
+
+### WP19 — Engagement, trust & platform (owner priorities, 2026-07-16)
+Adopted from the product assessment; the owner confirmed these as goals.
+**(a) Listening / dictation mode.** Reuse the WP7 TTS cache the other way:
+play the clip, learner types what they hear, grade through the existing NLP
+pipeline (same accent/typography tolerance). A "listening" toggle per review
+session rather than a separate deck. Effort: M.
+**(b) PWA installability.** Manifest + service worker + offline shell so the
+app installs to the home screen (pairs with WP12 mobile packaging; the
+safe-area work from 2026-07-16 already landed). Effort: S–M.
+**(c) Review reminders — OPT-IN ONLY, never default (owner directive
+2026-07-16).** A Settings toggle, off by default; daily "N cards due" nudge
+via email first (push once (b) ships). No reminder of any kind unless the
+learner turns it on. Effort: M.
+**(d) Error telemetry (Sentry).** Frontend + backend before the beta widens —
+beta bugs currently arrive as screenshots. Overlaps WP10(b); implement once.
+Effort: S.
+**(e) Tutor mastery suggestions ⭐ (owner, 2026-07-16).** The tutor can star
+cards it believes the learner already understands — only from evidence in the
+session (produced the structure correctly, unprompted). The learner sees the
+starred suggestions and either confirms ("mark it farther along" — a stability
+floor jump, so sessions never feel like they re-teach what the tutor already
+covered) or dismisses. NEVER automatic: no SRS state changes without the
+learner's confirmation. Effort: M.
+**(f) Terms of Service — DONE 2026-07-16.** Public `/terms` route (plain
+language: beta caveats, AI content accuracy, tutor allowances, billing via
+Stripe, what we store), linked from the login screen and Settings.
+**Model:** `claude-sonnet-5`; (e) charter wording one tier up.
 
 ## 6. Model selection guide
 

@@ -90,17 +90,26 @@ async def _support_locale(conn, user_id: str) -> str | None:
 async def get_due(
     language_id: str,
     limit: int = 20,
+    card_type: str | None = None,
     user: dict = Depends(get_current_user),
 ):
     """Return due cards for the user's active language, sorted by next_review ASC.
 
     *limit* is the learner's chosen session size (clamped 1–100).
+    *card_type* optionally scopes the session: 'grammar' or 'vocabulary'
+    (the dashboard's Grammar Only / Vocab Only reviews).
     """
+    if card_type is not None and card_type not in ("vocabulary", "grammar"):
+        raise HTTPException(
+            status_code=status.HTTP_422_UNPROCESSABLE_ENTITY,
+            detail="card_type must be 'vocabulary' or 'grammar'",
+        )
     limit = max(1, min(limit, 100))
     async with rls_connection(user["id"]) as conn:
         support = await _support_locale(conn, user["id"])
         cards = await get_due_cards(
-            conn, language_id, limit=limit, support_locale=support
+            conn, language_id, limit=limit, support_locale=support,
+            card_type=card_type,
         )
     return cards
 

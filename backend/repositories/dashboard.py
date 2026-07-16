@@ -26,9 +26,14 @@ async def get_dashboard_stats(
         }
     """
     # -- Due count -----------------------------------------------------------
+    # Split by type for the Review tile's Grammar Only / Vocab Only rows.
+    # Personal cloze cards count as vocab (the learner's own words), so the
+    # two rows always sum to the total.
     due_row = await conn.fetchrow(
         """
-        SELECT COUNT(*) AS due_count
+        SELECT
+            COUNT(*) AS due_count,
+            COUNT(*) FILTER (WHERE card_type = 'grammar') AS due_grammar
         FROM user_cards
         WHERE user_id = $1
           AND language_id = $2
@@ -39,6 +44,7 @@ async def get_dashboard_stats(
         language_id,
     )
     due_count = int(due_row["due_count"])
+    due_grammar = int(due_row["due_grammar"])
 
     # -- Streak --------------------------------------------------------------
     # Fetch distinct review dates descending to count consecutive days
@@ -230,6 +236,8 @@ async def get_dashboard_stats(
 
     return {
         "due_count": due_count,
+        "due_grammar": due_grammar,
+        "due_vocab": due_count - due_grammar,
         "streak_days": streak_days,
         "cefr_progress": cefr_progress,
         "forecast": forecast,

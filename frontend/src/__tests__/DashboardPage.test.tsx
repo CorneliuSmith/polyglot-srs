@@ -91,16 +91,34 @@ describe('CEFRProgress', () => {
 
 // ── DeckRow: Learn starts, the expansion manages ───────────────────────────
 
+const mockNavigate = vi.fn()
+vi.mock('react-router-dom', async (orig) => ({
+  ...(await orig<typeof import('react-router-dom')>()),
+  useNavigate: () => mockNavigate,
+}))
 vi.mock('../api/review', () => ({
   getDeckPreview: vi.fn(() =>
     Promise.resolve({ items: [{ item: 'ser', detail: 'to be' }] }),
   ),
   setDeckSubscription: vi.fn(() => Promise.resolve()),
   resetDeckProgress: vi.fn(() => Promise.resolve()),
+  getLearnDecks: vi.fn(),
 }))
+vi.mock('../api/dashboard', () => ({ getDashboardStats: vi.fn() }))
+vi.mock('../api/contribute', () => ({
+  getMyRoles: vi.fn(() => Promise.resolve({ roles: [] })),
+}))
+vi.mock('../api/onboarding', () => ({
+  getOnboardingStatus: vi.fn(() => Promise.resolve({ onboarded: true })),
+}))
+vi.mock('../stores/prefsStore', () => ({
+  usePrefsStore: vi.fn(() => 'lang-es'),
+}))
+vi.mock('../components/LanguagePicker', () => ({ default: () => <div /> }))
 
-import { DeckRow } from '../features/dashboard/DashboardPage'
-import { setDeckSubscription } from '../api/review'
+import DashboardPage, { DeckRow } from '../features/dashboard/DashboardPage'
+import { setDeckSubscription, getLearnDecks } from '../api/review'
+import { getDashboardStats } from '../api/dashboard'
 
 const baseDeck = {
   id: 'deck-1', list_type: 'grammar' as const, level: 'A1',
@@ -153,5 +171,81 @@ describe('DeckRow', () => {
     renderRow({ ...baseDeck, learned: 20 })
     const learn = screen.getByRole('button', { name: /^learn$/i }) as HTMLButtonElement
     expect(learn.disabled).toBe(true)
+  })
+})
+
+// ── Command-center tiles: the big button STARTS, the chevron expands ───────
+
+const mockStats = getDashboardStats as ReturnType<typeof vi.fn>
+const mockDecks = getLearnDecks as ReturnType<typeof vi.fn>
+
+function renderDashboard() {
+  const qc = new QueryClient({ defaultOptions: { queries: { retry: false } } })
+  render(
+    <QueryClientProvider client={qc}>
+      <MemoryRouter>
+        <DashboardPage />
+      </MemoryRouter>
+    </QueryClientProvider>,
+  )
+}
+
+describe('Dashboard tiles', () => {
+  beforeEach(() => {
+    vi.clearAllMocks()
+    mockStats.mockResolvedValue({
+      due_count: 99,
+      due_grammar: 60,
+      due_vocab: 39,
+      streak_days: 3,
+      cefr_progress: {},
+    })
+    mockDecks.mockResolvedValue([
+      { id: 'deck-1', list_type: 'grammar', level: 'A1', title: 'A1 Grammar',
+        total: 20, learned: 5, subscribed: true },
+      { id: 'deck-2', list_type: 'vocabulary', level: 'A1', title: 'A1 Vocab',
+        total: 30, learned: 30, subscribed: true },
+    ])
+  })
+
+  it('the Learn tile starts the next queued deck with items left', async () => {
+    renderDashboard()
+    fireEvent.click(
+      await screen.findByRole('button', { name: /new items queued/i }),
+    )
+    await waitFor(() =>
+      expect(mockNavigate).toHaveBeenCalledWith('/learn?type=grammar&level=A1'),
+    )
+  })
+
+  it('the Learn chevron expands the deck rows without starting a session', async () => {
+    renderDashboard()
+    fireEvent.click(
+      await screen.findByRole('button', { name: /learn queue decks/i }),
+    )
+    expect(await screen.findByText('A1 · Grammar')).toBeDefined()
+    expect(mockNavigate).not.toHaveBeenCalled()
+  })
+
+  it('the Review tile starts all reviews', async () => {
+    renderDashboard()
+    fireEvent.click(await screen.findByRole('button', { name: /all reviews/i }))
+    expect(mockNavigate).toHaveBeenCalledWith('/review')
+  })
+
+  it('the Review chevron reveals Grammar Only / Vocab Only with live counts', async () => {
+    renderDashboard()
+    fireEvent.click(
+      await screen.findByRole('button', { name: /review options/i }),
+    )
+    const options = await screen.findByTestId('review-options')
+    expect(options.textContent).toContain('Grammar Only')
+    expect(options.textContent).toContain('60')
+    expect(options.textContent).toContain('Vocab Only')
+    expect(options.textContent).toContain('39')
+    expect(mockNavigate).not.toHaveBeenCalled()
+
+    fireEvent.click(screen.getByRole('button', { name: /grammar only/i }))
+    expect(mockNavigate).toHaveBeenCalledWith('/review?type=grammar')
   })
 })

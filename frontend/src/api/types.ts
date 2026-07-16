@@ -190,6 +190,9 @@ export interface DashboardProfile {
 
 export interface DashboardStats {
   due_count: number
+  /** grammar + vocab always sum to due_count (personal cards count as vocab) */
+  due_grammar: number
+  due_vocab: number
   streak_days: number
   cefr_progress: Record<string, CEFRLevelProgress>
   forecast: ForecastDay[]

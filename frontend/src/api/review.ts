@@ -20,9 +20,14 @@ export async function getCardDetail(cardId: string): Promise<CardDetail> {
 export async function getDueCards(
   languageId: string,
   limit?: number,
+  cardType?: 'vocabulary' | 'grammar',
 ): Promise<DueCard[]> {
   const response = await apiClient.get<DueCard[]>('/api/review/due', {
-    params: { language_id: languageId, ...(limit ? { limit } : {}) },
+    params: {
+      language_id: languageId,
+      ...(limit ? { limit } : {}),
+      ...(cardType ? { card_type: cardType } : {}),
+    },
   })
   return response.data
 }

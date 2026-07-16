@@ -347,6 +347,12 @@ export default function SettingsPage() {
         >
           Sign out
         </button>
+
+        <p className="text-center text-xs text-gray-400">
+          <a href="/terms" className="hover:text-lang hover:underline">
+            Terms of Service
+          </a>
+        </p>
       </div>
     </div>
   )

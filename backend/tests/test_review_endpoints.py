@@ -177,6 +177,43 @@ def _make_fake_conn(batch_size: int = 5, profile_exists: bool = True):
     return conn
 
 
+# ---------------------------------------------------------------------------
+# GET /api/review/due — card_type filter (Grammar Only / Vocab Only sessions)
+# ---------------------------------------------------------------------------
+
+
+@pytest.mark.asyncio
+async def test_due_passes_card_type_filter(client):
+    """?card_type=grammar reaches the repository unchanged."""
+    with patch("backend.routers.review.rls_connection") as mock_rls, patch(
+        "backend.routers.review.get_due_cards", new=AsyncMock(return_value=[])
+    ) as mock_due, patch(
+        "backend.routers.review._support_locale", new=AsyncMock(return_value=None)
+    ):
+        conn = AsyncMock()
+        mock_rls.return_value.__aenter__ = AsyncMock(return_value=conn)
+        mock_rls.return_value.__aexit__ = AsyncMock(return_value=False)
+
+        resp = client.get(
+            "/api/review/due",
+            params={"language_id": TEST_LANGUAGE_ID, "card_type": "grammar"},
+            headers=_auth_headers(),
+        )
+
+    assert resp.status_code == 200
+    assert mock_due.await_args.kwargs["card_type"] == "grammar"
+
+
+@pytest.mark.asyncio
+async def test_due_rejects_unknown_card_type(client):
+    resp = client.get(
+        "/api/review/due",
+        params={"language_id": TEST_LANGUAGE_ID, "card_type": "everything"},
+        headers=_auth_headers(),
+    )
+    assert resp.status_code == 422
+
+
 @pytest.mark.asyncio
 async def test_learn_adds_batch_of_cards(client):
     """Happy path: learn returns added count and card ID list."""
