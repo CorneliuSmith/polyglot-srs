@@ -46,6 +46,14 @@ _TRAILING_PUNCT = ".,!?;:…。？！"
 _WRAPPING_QUOTES = (("'", "'"), ('"', '"'), ("«", "»"))
 
 
+def _strip_marks(text: str) -> str:
+    """Fold combining marks: você -> voce, está -> esta, ё -> е."""
+    decomposed = unicodedata.normalize("NFD", text)
+    return unicodedata.normalize(
+        "NFC", "".join(c for c in decomposed if not unicodedata.combining(c))
+    )
+
+
 def _undo_keyboard_typography(user: str, correct: str) -> str:
     """Strip keyboard-added typography from *user*, guarded by *correct*.
 
@@ -188,6 +196,18 @@ class BaseNLP(ABC):
         norm_correct = self.normalize(correct)
         if norm_user == norm_correct:
             return AnswerResult.CORRECT, None
+
+        # Layer 2.5: accent-folded match — the RIGHT word with missing or
+        # wrong diacritics (voce/você, esta/está, е/ё). Coaches (amber),
+        # never fails — even on grammar drills. This must run before the
+        # strict-form gate below: that gate is about morphology (is vs am),
+        # not typography, and without this layer it was failing accentless
+        # answers across every Latin-script language's grammar drills.
+        if norm_user and _strip_marks(norm_user) == _strip_marks(norm_correct):
+            return (
+                AnswerResult.CORRECT_SLOPPY,
+                f"Almost — check the accents. Expected: {correct_answer}",
+            )
 
         # Grammar drills test the FORM — "is" where "am" belongs is the very
         # thing being drilled, so lemma/family matches (layers 3–4) grade
