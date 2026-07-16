@@ -139,6 +139,80 @@ class TestTTSEndpoint:
         assert resp.status_code == 404
         mock_synth.assert_not_awaited()
 
+    def test_verification_covers_titles_and_own_sentences(self):
+        # Grammar point titles and the learner's own cloze sentences are
+        # spoken in the UI — the guard must cover them (RLS scopes the
+        # cloze rows to the caller), while staying a closed set.
+        import asyncio
+
+        from backend.routers.audio import _text_is_ours
+
+        conn = AsyncMock()
+        conn.fetchval = AsyncMock(return_value=True)
+        assert asyncio.run(_text_is_ours(conn, "sw", "Si ya maana."))
+        sql = conn.fetchval.await_args.args[0]
+        assert "gp.title = $2" in sql
+        assert "user_cloze_cards" in sql
+
+    def test_upload_failure_still_serves_the_clip_inline(self):
+        # Storage is an optimization: a broken bucket/key must never
+        # regress the learner to the browser voice. No cache row either.
+        priv = _conn([None])
+        rls = _conn([True])
+        upload = MagicMock(status_code=403, text="signature verification failed")
+        http_client = AsyncMock()
+        http_client.__aenter__ = AsyncMock(return_value=http_client)
+        http_client.__aexit__ = AsyncMock(return_value=False)
+        http_client.post = AsyncMock(return_value=upload)
+
+        ps = _client(priv, rls)
+        with ps[0], ps[1], ps[2], ps[3], ps[4], ps[5], ps[6], \
+             patch("backend.routers.audio.synthesize",
+                   new=AsyncMock(return_value=b"mp3bytes")), \
+             patch("backend.routers.audio.httpx.AsyncClient",
+                   return_value=http_client):
+            app = create_app()
+            with TestClient(app) as client:
+                resp = client.post(
+                    "/api/audio/tts",
+                    json={"language_code": "pt", "text": "você"},
+                    headers=_auth_headers(),
+                )
+        assert resp.status_code == 200
+        body = resp.json()
+        assert body["url"] is None
+        import base64
+        assert base64.b64decode(body["audio_b64"]) == b"mp3bytes"
+        priv.execute.assert_not_awaited()
+
+    def test_missing_service_key_serves_inline_without_storage(self):
+        class KeylessSettings(FakeSettings):
+            supabase_service_role_key = ""
+
+        priv = _conn([None])
+        rls = _conn([True])
+        # ps[4] is the audio-router get_settings patch — swap in the
+        # keyless settings there; everything else stays stock.
+        ps = _client(priv, rls)
+        with ps[0], ps[1], ps[2], ps[3], \
+             patch("backend.routers.audio.get_settings",
+                   return_value=KeylessSettings()), \
+             ps[5], ps[6], \
+             patch("backend.routers.audio.synthesize",
+                   new=AsyncMock(return_value=b"mp3bytes")), \
+             patch("backend.routers.audio.httpx.AsyncClient") as mock_httpx:
+            app = create_app()
+            with TestClient(app) as client:
+                resp = client.post(
+                    "/api/audio/tts",
+                    json={"language_code": "pt", "text": "você"},
+                    headers=_auth_headers(),
+                )
+        assert resp.status_code == 200
+        assert resp.json()["url"] is None
+        assert "audio_b64" in resp.json()
+        mock_httpx.assert_not_called()
+
     def test_miss_synthesizes_uploads_and_records(self):
         priv = _conn([None])          # cache miss, then INSERT via execute
         rls = _conn([True])           # the text is ours
