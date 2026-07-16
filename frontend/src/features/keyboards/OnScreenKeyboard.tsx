@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import Keyboard from 'react-simple-keyboard'
 import 'react-simple-keyboard/build/css/index.css'
 import russianLayout from 'simple-keyboard-layouts/build/layouts/russian'
@@ -61,9 +62,32 @@ const hausaLayout = {
   ],
 }
 
+// The stock Arabic layout hides every haraka and hamza-carrying letter
+// (أ إ آ) behind shift — invisible to learners. Surface them as an
+// always-visible row: tanween, short vowels, shadda, sukun, then the
+// hamza forms. The ".com @" row is web junk in a language drill.
+const HARAKAT_ROW = 'ً ٌ ٍ َ ُ ِ ّ ْ ء أ إ آ'
+// A lone combining mark is nearly invisible on a keycap — display each
+// haraka on a tatweel carrier (ـَ) while still inserting the bare mark.
+const HARAKAT_DISPLAY: Record<string, string> = Object.fromEntries(
+  'ً ٌ ٍ َ ُ ِ ّ ْ'.split(' ').map((ch) => [ch, `ـ${ch}`]),
+)
+const arabicWithHarakat = {
+  default: [
+    ...arabicLayout.layout.default.slice(0, -1),
+    HARAKAT_ROW,
+    '{space}',
+  ],
+  shift: [
+    ...arabicLayout.layout.shift.slice(0, -1),
+    HARAKAT_ROW,
+    '{space}',
+  ],
+}
+
 const LAYOUTS: Record<string, { default: string[] } | { [k: string]: string[] }> = {
   ru: russianLayout.layout,
-  ar: arabicLayout.layout,
+  ar: arabicWithHarakat,
   tr: turkishLayout.layout,
   yo: yorubaLayout,
   ha: hausaLayout,
@@ -84,8 +108,14 @@ export default function OnScreenKeyboard({
   onEnter,
   onBackspace,
 }: OnScreenKeyboardProps) {
+  // Layer state: shift is one-shot (like a phone keyboard), lock is sticky.
+  // Hooks live above the early return — hooks must run on every render.
+  const [layoutName, setLayoutName] = useState<'default' | 'shift'>('default')
+  const [locked, setLocked] = useState(false)
   const layout = LAYOUTS[languageCode]
   if (!layout) return null
+
+  const hasShiftLayer = 'shift' in layout
 
   const handleKeyPress = (button: string) => {
     // Special keys act, not insert. Everything else previously included
@@ -103,16 +133,35 @@ export default function OnScreenKeyboard({
       onKeyPress(' ')
       return
     }
+    // Shift/caps SWITCH LAYERS — the Arabic shift layer carries the
+    // harakat and hamza letters (أ إ آ), so an inert shift key made
+    // them untypeable (beta report: "can't add diacritics").
+    if (button === '{shift}' && hasShiftLayer) {
+      setLayoutName((prev) => (prev === 'shift' ? 'default' : 'shift'))
+      setLocked(false)
+      return
+    }
+    if (button === '{lock}' && hasShiftLayer) {
+      const engage = !(layoutName === 'shift' && locked)
+      setLayoutName(engage ? 'shift' : 'default')
+      setLocked(engage)
+      return
+    }
     if (button.startsWith('{') && button.endsWith('}')) {
-      return // shift/caps/tab: inert on purpose (answers are lowercase)
+      return // tab & friends: inert on purpose
     }
     onKeyPress(button)
+    // One-shot shift drops back after a single character.
+    if (layoutName === 'shift' && !locked) setLayoutName('default')
   }
 
   return (
     <div className="w-full border-t border-gray-200 pt-4 max-w-lg mx-auto" data-testid="on-screen-keyboard">
       <Keyboard
         layout={layout}
+        layoutName={hasShiftLayer ? layoutName : 'default'}
+        display={HARAKAT_DISPLAY}
+        mergeDisplay
         onKeyPress={handleKeyPress}
         theme="hg-theme-default"
       />
