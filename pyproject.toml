@@ -9,6 +9,7 @@ description = "Spaced repetition language learning platform with language-aware 
 readme = "README.md"
 requires-python = ">=3.11"
 dependencies = [
+    "edge-tts>=7.0",
     "fastapi>=0.135",
     "uvicorn[standard]>=0.30",
     "pydantic>=2.7",

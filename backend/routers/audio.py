@@ -1,0 +1,143 @@
+"""Audio router — cached neural TTS for the app's own content (WP7a).
+
+POST /api/audio/tts takes (language_code, text), verifies the text is
+actually one of ours (a drill sentence, an example sentence, or a
+vocabulary word in that language — this is NOT an open TTS proxy),
+serves the cached clip if one exists, and otherwise synthesizes, uploads
+to the public 'tts' storage bucket, records the cache row, and returns
+the public URL. The client falls back to browser speechSynthesis on any
+non-200 (uncovered language, unknown text, provider hiccup).
+"""
+
+from __future__ import annotations
+
+import logging
+
+import httpx
+from fastapi import APIRouter, Depends, HTTPException, status
+from pydantic import BaseModel, Field
+
+from backend.config import get_settings
+from backend.dependencies import get_current_user
+from backend.repositories.pool import privileged_connection, rls_connection
+from backend.services.rate_limit import tts_limiter
+from backend.services.tts import cache_key, synthesize, voice_for
+
+logger = logging.getLogger("audio")
+router = APIRouter()
+
+MAX_TTS_CHARS = 300
+
+
+class TTSRequest(BaseModel):
+    language_code: str = Field(min_length=2, max_length=8)
+    text: str = Field(min_length=1, max_length=MAX_TTS_CHARS)
+
+
+async def _text_is_ours(conn, language_code: str, text: str) -> bool:
+    """Only synthesize content we published: completed drill sentences,
+    example sentences, and vocabulary words/readings for that language."""
+    return bool(await conn.fetchval(
+        """
+        SELECT EXISTS(
+            SELECT 1
+            FROM drill_sentences ds
+            JOIN grammar_points gp ON ds.grammar_point_id = gp.id
+            JOIN languages l ON gp.language_id = l.id
+            WHERE l.code = $1
+              AND REPLACE(ds.sentence, '{{answer}}', ds.answer) = $2
+        ) OR EXISTS(
+            SELECT 1
+            FROM example_sentences es
+            JOIN languages l ON es.language_id = l.id
+            WHERE l.code = $1 AND es.sentence = $2
+        ) OR EXISTS(
+            SELECT 1
+            FROM vocabulary v
+            JOIN languages l ON v.language_id = l.id
+            WHERE l.code = $1 AND (v.word = $2 OR v.reading = $2)
+        )
+        """,
+        language_code, text,
+    ))
+
+
+def _public_url(settings, path: str) -> str:
+    return f"{settings.supabase_url.rstrip('/')}/storage/v1/object/public/tts/{path}"
+
+
+@router.post("/tts")
+async def tts(
+    body: TTSRequest,
+    user: dict = Depends(get_current_user),
+):
+    """Return a cached (or freshly synthesized) MP3 URL for one clip."""
+    voice = voice_for(body.language_code)
+    if voice is None:
+        raise HTTPException(
+            status_code=status.HTTP_404_NOT_FOUND,
+            detail=f"No TTS voice for language: {body.language_code}",
+        )
+    text = body.text.strip()
+    key = cache_key(voice, text)
+    storage_path = f"{body.language_code}/{key}.mp3"
+    settings = get_settings()
+
+    async with privileged_connection() as conn:
+        cached = await conn.fetchval(
+            "SELECT storage_path FROM tts_audio WHERE voice = $1 AND text_hash = $2",
+            voice, key,
+        )
+    if cached:
+        return {"url": _public_url(settings, cached), "cached": True}
+
+    # Only now (cache misses cost real work) gate + verify.
+    if not await tts_limiter.allow(user["id"]):
+        raise HTTPException(
+            status_code=status.HTTP_429_TOO_MANY_REQUESTS,
+            detail="Too many audio requests — slow down a moment.",
+        )
+    async with rls_connection(user["id"]) as conn:
+        if not await _text_is_ours(conn, body.language_code, text):
+            raise HTTPException(
+                status_code=status.HTTP_404_NOT_FOUND,
+                detail="Unknown text for this language",
+            )
+
+    try:
+        audio = await synthesize(text, body.language_code)
+    except Exception as exc:  # noqa: BLE001 — provider is best-effort
+        logger.error("TTS synthesis failed (%s): %s", type(exc).__name__, exc)
+        raise HTTPException(
+            status_code=status.HTTP_502_BAD_GATEWAY,
+            detail="Audio generation failed",
+        ) from exc
+
+    async with httpx.AsyncClient(timeout=30) as client:
+        resp = await client.post(
+            f"{settings.supabase_url.rstrip('/')}/storage/v1/object/tts/{storage_path}",
+            headers={
+                "apikey": settings.supabase_service_role_key,
+                "Authorization": f"Bearer {settings.supabase_service_role_key}",
+                "Content-Type": "audio/mpeg",
+                "x-upsert": "true",
+            },
+            content=audio,
+        )
+    if resp.status_code not in (200, 201):
+        logger.error("TTS upload failed (%s): %s", resp.status_code, resp.text[:200])
+        raise HTTPException(
+            status_code=status.HTTP_502_BAD_GATEWAY,
+            detail="Audio storage failed",
+        )
+
+    async with privileged_connection() as conn:
+        await conn.execute(
+            """
+            INSERT INTO tts_audio (language_code, voice, text_hash, storage_path)
+            VALUES ($1, $2, $3, $4)
+            ON CONFLICT (voice, text_hash) DO NOTHING
+            """,
+            body.language_code, voice, key, storage_path,
+        )
+    return {"url": _public_url(settings, storage_path), "cached": False}
