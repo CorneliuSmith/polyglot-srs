@@ -162,6 +162,14 @@ learner's goal or motivation, their native language, an interest to build \
 lessons around, or a recurring error pattern — call the `remember` tool. \
 Use it sparingly and only for things that should persist; do not record \
 transient chat.
+
+Mastery stars: when THIS session gives clear evidence the learner has \
+already mastered one of their weak items — they produced the exact \
+structure or word correctly, unprompted, more than once — call \
+`suggest_mastered` to star that card. The learner reviews your stars and \
+decides; their card only advances if they agree, so never present a star \
+as a done deal. Star sparingly (at most a couple per session), only items \
+from their weak-items list, and never in reference mode.
 """
 
 CONSULT_TOOL: dict[str, Any] = {
@@ -182,6 +190,48 @@ CONSULT_TOOL: dict[str, Any] = {
             },
         },
         "required": ["topic"],
+    },
+}
+
+
+# WP19(e): the tutor STARS cards it believes are already mastered; the
+# learner confirms (or dismisses) in the UI. The tool only records the
+# suggestion — SRS state never moves without the learner's explicit accept.
+SUGGEST_MASTERED_TOOL: dict[str, Any] = {
+    "name": "suggest_mastered",
+    "description": (
+        "Star a flashcard you believe the learner has already mastered, "
+        "based on evidence from THIS session (they produced the word or "
+        "structure correctly, unprompted, more than once). The learner "
+        "will be asked to confirm; nothing changes without their "
+        "agreement. Use sparingly — at most a couple per session, and "
+        "only for items on their weak-items list."
+    ),
+    "input_schema": {
+        "type": "object",
+        "properties": {
+            "item": {
+                "type": "string",
+                "description": (
+                    "The word or grammar point title EXACTLY as it appears "
+                    "in the learner's weak-items list (that is the card's "
+                    "name — a paraphrase won't match)."
+                ),
+            },
+            "kind": {
+                "type": "string",
+                "enum": ["vocabulary", "grammar"],
+                "description": "Which kind of card the item is.",
+            },
+            "evidence": {
+                "type": "string",
+                "description": (
+                    "One sentence of evidence from this session, quoted or "
+                    "paraphrased — the learner sees this next to the star."
+                ),
+            },
+        },
+        "required": ["item", "kind", "evidence"],
     },
 }
 
@@ -373,6 +423,10 @@ def merge_remembered(
         value = note.get("value")
         if not key or value is None:
             continue
+        if scope == "_mastery":
+            # Mastery stars are suggestion rows, not profile facts — the
+            # router persists them separately. Never fold into a profile.
+            continue
         if scope in ("focus_add", "focus_retire"):
             # WP18b: the Active Focus list — a bounded, tutor-managed set of
             # grammar structures under deliberate work (≈ the owner's 📍
@@ -455,6 +509,16 @@ def _mock_chat(language_code: str, history: list[dict], weak_areas: list[dict]) 
         if len(parts) == 4 and parts[1] in ("global", "language"):
             remembered.append({"scope": parts[1], "key": parts[2], "value": parts[3]})
             return f"[dev mock] Remembered ({parts[1]}) {parts[2]} = {parts[3]}.", remembered
+    # `/star <kind> <item> <evidence>` exercises the mastery-star path
+    # (suggest_mastered → suggestion row) deterministically.
+    if last_user.startswith("/star"):
+        parts = last_user.split(maxsplit=3)
+        if len(parts) == 4 and parts[1] in ("vocabulary", "grammar"):
+            remembered.append({
+                "scope": "_mastery", "key": parts[1],
+                "value": parts[2], "evidence": parts[3],
+            })
+            return f"[dev mock] Starred ({parts[1]}) {parts[2]}.", remembered
 
     drill = ""
     if weak_areas:
@@ -488,6 +552,17 @@ def _execute_tools(
                 "value": tu.input.get("value"),
             })
             content = "Saved."
+        elif tu.name == "suggest_mastered" and isinstance(tu.input, dict):
+            # Rides the `remembered` accumulator under the reserved
+            # "_mastery" scope; the router partitions it out and records a
+            # suggestion row for the learner to confirm.
+            remembered.append({
+                "scope": "_mastery",
+                "key": tu.input.get("kind"),
+                "value": tu.input.get("item"),
+                "evidence": tu.input.get("evidence"),
+            })
+            content = "Starred — the learner will be asked to confirm."
         elif tu.name == "consult_reference" and isinstance(tu.input, dict):
             content = (
                 load_reference(language_code, tu.input.get("topic") or "")
@@ -546,7 +621,7 @@ async def tutor_chat(
             thinking={"type": "adaptive"},
             system=system,
             messages=convo,
-            tools=[REMEMBER_TOOL, CONSULT_TOOL],
+            tools=[REMEMBER_TOOL, CONSULT_TOOL, SUGGEST_MASTERED_TOOL],
         )
         _add_usage(usage, getattr(response, "usage", None))
 
@@ -628,7 +703,7 @@ async def tutor_chat_stream(
 
     for iteration in range(MAX_TOOL_ITERATIONS + 1):
         tools = (
-            [REMEMBER_TOOL, CONSULT_TOOL]
+            [REMEMBER_TOOL, CONSULT_TOOL, SUGGEST_MASTERED_TOOL]
             if iteration < MAX_TOOL_ITERATIONS else []
         )
         async with client.messages.stream(

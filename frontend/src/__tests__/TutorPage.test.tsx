@@ -15,6 +15,7 @@ vi.mock('../api/tutor', () => ({
   sendTutorMessage: vi.fn(),
   streamTutorMessage: vi.fn(),
   endTutorSession: vi.fn(),
+  resolveMasterySuggestion: vi.fn(),
 }))
 
 vi.mock('../api/billing', () => ({
@@ -31,6 +32,7 @@ import {
   sendTutorMessage,
   streamTutorMessage,
   endTutorSession,
+  resolveMasterySuggestion,
 } from '../api/tutor'
 import { createCheckout } from '../api/billing'
 
@@ -294,5 +296,70 @@ describe('TutorPage', () => {
     await waitFor(() => {
       expect(screen.getByRole('alert')).toBeDefined()
     })
+  })
+})
+
+const mockResolveMastery = resolveMasterySuggestion as ReturnType<typeof vi.fn>
+
+describe('TutorPage mastery stars', () => {
+  const star = {
+    id: 's-1',
+    item: 'Locative case',
+    kind: 'grammar' as const,
+    evidence: 'You used -da/-de correctly three times unprompted.',
+    created_at: '2026-07-16T00:00:00+00:00',
+  }
+
+  beforeEach(() => {
+    vi.clearAllMocks()
+    mockGetLanguages.mockResolvedValue([turkish])
+    mockEndTutorSession.mockResolvedValue(undefined)
+    mockStreamTutorMessage.mockRejectedValue(new Error('no stream in jsdom'))
+  })
+
+  it('renders pending stars with the item, evidence, and both verdicts', async () => {
+    mockGetTutorStatus.mockResolvedValue({
+      ...statusWith(unlimited),
+      mastery_suggestions: [star],
+    })
+    renderPage()
+    const panel = await screen.findByTestId('mastery-suggestions')
+    expect(panel.textContent).toContain('Locative case')
+    expect(panel.textContent).toContain('three times unprompted')
+    expect(screen.getByRole('button', { name: /i know it/i })).toBeDefined()
+    expect(screen.getByRole('button', { name: /keep drilling/i })).toBeDefined()
+  })
+
+  it('accepting a star calls the resolve endpoint with accept', async () => {
+    mockGetTutorStatus.mockResolvedValue({
+      ...statusWith(unlimited),
+      mastery_suggestions: [star],
+    })
+    mockResolveMastery.mockResolvedValue({ action: 'accept', advanced: true })
+    renderPage()
+    fireEvent.click(await screen.findByRole('button', { name: /i know it/i }))
+    await waitFor(() =>
+      expect(mockResolveMastery).toHaveBeenCalledWith('s-1', 'accept'),
+    )
+  })
+
+  it('dismissing a star calls the resolve endpoint with dismiss', async () => {
+    mockGetTutorStatus.mockResolvedValue({
+      ...statusWith(unlimited),
+      mastery_suggestions: [star],
+    })
+    mockResolveMastery.mockResolvedValue({ action: 'dismiss', advanced: false })
+    renderPage()
+    fireEvent.click(await screen.findByRole('button', { name: /keep drilling/i }))
+    await waitFor(() =>
+      expect(mockResolveMastery).toHaveBeenCalledWith('s-1', 'dismiss'),
+    )
+  })
+
+  it('shows no panel when there are no pending stars', async () => {
+    mockGetTutorStatus.mockResolvedValue(statusWith(unlimited))
+    renderPage()
+    await screen.findByText(/I’m your Turkish tutor/i)
+    expect(screen.queryByTestId('mastery-suggestions')).toBeNull()
   })
 })

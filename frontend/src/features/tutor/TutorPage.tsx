@@ -7,6 +7,7 @@ import {
   endTutorSession,
   getTutorSessions,
   getTutorStatus,
+  resolveMasterySuggestion,
   sendTutorMessage,
   streamTutorMessage,
 } from '../../api/tutor'
@@ -97,6 +98,18 @@ export default function TutorPage() {
     enabled: !!activeLanguageId && historyOpen,
   })
 
+  // WP19(e): the learner's verdict on a mastery star. Accepting moves the
+  // card's next review ~a month out, so invalidate everything due-shaped.
+  const resolveMastery = useMutation({
+    mutationFn: ({ id, action }: { id: string; action: 'accept' | 'dismiss' }) =>
+      resolveMasterySuggestion(id, action),
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ['tutor-status'] })
+      queryClient.invalidateQueries({ queryKey: ['dashboard'] })
+      queryClient.invalidateQueries({ queryKey: ['due-cards'] })
+    },
+  })
+
   const sendMutation = useMutation({
     mutationFn: async (history: TutorMessage[]) => {
       // Stream when the transport allows it; fall back to the plain
@@ -113,11 +126,15 @@ export default function TutorPage() {
         return sendTutorMessage(activeLanguageId!, language!.code, history, mode)
       }
     },
-    onSuccess: ({ reply, allowance: fresh }) => {
+    onSuccess: ({ reply, allowance: fresh, starred }) => {
       setStreamingText(null)
       setMessages((prev) => [...prev, { role: 'assistant', content: reply }])
       setSendError(null)
       if (fresh) setLiveAllowance(fresh)
+      // A new mastery star landed — refetch status so the panel shows it.
+      if (starred > 0) {
+        queryClient.invalidateQueries({ queryKey: ['tutor-status'] })
+      }
     },
     onError: (err) => {
       const detail = (err as {
@@ -287,6 +304,64 @@ export default function TutorPage() {
               >
                 {f.structure}
               </span>
+            ))}
+          </div>
+        )}
+
+        {/* Mastery stars (WP19e): the tutor's "you've already got this"
+            suggestions. The learner decides — accept moves the card's next
+            review ~a month out; dismiss keeps drilling it. */}
+        {(status?.mastery_suggestions?.length ?? 0) > 0 && (
+          <div
+            className="mb-3 rounded-xl border border-amber-200 bg-amber-50 p-3 space-y-2"
+            data-testid="mastery-suggestions"
+          >
+            <p className="text-xs font-semibold text-amber-900">
+              ⭐ Your tutor thinks you already know these
+            </p>
+            <p className="text-[11px] text-amber-800/80">
+              Agree, and the card's next review moves about a month out —
+              nothing changes unless you say so.
+            </p>
+            {status!.mastery_suggestions!.map((s) => (
+              <div
+                key={s.id}
+                className="flex items-start justify-between gap-3 bg-white/70 rounded-lg px-2.5 py-2"
+              >
+                <div className="min-w-0 text-sm">
+                  <span className="font-medium text-gray-900">{s.item}</span>
+                  <span className="ml-1.5 text-[10px] uppercase tracking-wide text-gray-400">
+                    {s.kind === 'grammar' ? 'grammar' : 'vocab'}
+                  </span>
+                  {s.evidence && (
+                    <p className="text-xs text-gray-600 mt-0.5">{s.evidence}</p>
+                  )}
+                </div>
+                <span className="flex gap-2 shrink-0">
+                  <button
+                    type="button"
+                    onClick={() =>
+                      resolveMastery.mutate({ id: s.id, action: 'accept' })
+                    }
+                    disabled={resolveMastery.isPending}
+                    className="text-xs font-semibold rounded-lg bg-lang hover:bg-lang-dark text-lang-on px-2.5 py-1.5 disabled:opacity-50"
+                    style={{ minHeight: '32px' }}
+                  >
+                    I know it
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() =>
+                      resolveMastery.mutate({ id: s.id, action: 'dismiss' })
+                    }
+                    disabled={resolveMastery.isPending}
+                    className="text-xs rounded-lg border border-gray-300 bg-white text-gray-600 hover:text-lang px-2.5 py-1.5 disabled:opacity-50"
+                    style={{ minHeight: '32px' }}
+                  >
+                    Keep drilling
+                  </button>
+                </span>
+              </div>
             ))}
           </div>
         )}
