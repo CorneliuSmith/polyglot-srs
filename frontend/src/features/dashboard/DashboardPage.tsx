@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Navigate, useNavigate } from 'react-router-dom'
+import { Link, Navigate, useNavigate } from 'react-router-dom'
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
 import { getDashboardStats } from '../../api/dashboard'
 import {
@@ -19,11 +19,13 @@ import StageTiles from './StageTiles'
 import ProfileCard from './ProfileCard'
 import type { LearnDeck } from '../../api/types'
 
-/** One Bunpro-style deck row: level + type, progress bar, learned/total,
- * queue add/remove, and an expandable peek at the deck's first items. */
-function DeckRow({ deck, onLearn }: { deck: LearnDeck; onLearn: (d: LearnDeck) => void }) {
+/** One Bunpro-style deck row. Two affordances, deliberately separated:
+ * the Learn button STARTS learning from this deck (auto-adding it to the
+ * queue if needed), and the chevron expands the deck's management panel —
+ * add/remove from queue, reset, browse, and a peek at the contents. */
+export function DeckRow({ deck, onLearn }: { deck: LearnDeck; onLearn: (d: LearnDeck) => void }) {
   const queryClient = useQueryClient()
-  const [previewOpen, setPreviewOpen] = useState(false)
+  const [open, setOpen] = useState(false)
   const pct = deck.total > 0 ? Math.round((deck.learned / deck.total) * 100) : 0
   const label = `${deck.level ?? 'All'} · ${deck.list_type === 'grammar' ? 'Grammar' : 'Vocab'}`
   const done = deck.total > 0 && deck.learned >= deck.total
@@ -55,7 +57,7 @@ function DeckRow({ deck, onLearn }: { deck: LearnDeck; onLearn: (d: LearnDeck) =
   const { data: preview, isLoading: previewLoading } = useQuery({
     queryKey: ['deck-preview', deck.id],
     queryFn: () => getDeckPreview(deck.id),
-    enabled: previewOpen,
+    enabled: open,
     staleTime: 5 * 60 * 1000,
   })
 
@@ -63,23 +65,46 @@ function DeckRow({ deck, onLearn }: { deck: LearnDeck; onLearn: (d: LearnDeck) =
     <div className="border-t border-gray-100 first:border-t-0">
       <div className="w-full text-left px-4 py-3">
         <div className="flex items-center justify-between gap-3">
-          <button
-            type="button"
-            onClick={() => onLearn(deck)}
-            disabled={done || !deck.subscribed}
-            title={
-              deck.subscribed
-                ? 'Learn from this deck'
-                : 'Add the deck to your queue first'
-            }
-            className="text-sm font-medium text-gray-800 hover:text-lang disabled:opacity-60 disabled:hover:text-gray-800 text-left"
-          >
+          <span className="text-sm font-medium text-gray-800">
             {label}
-          </button>
+            {deck.subscribed && !done && (
+              <span className="ml-2 text-[10px] uppercase tracking-wide bg-lang-soft text-lang rounded px-1.5 py-0.5 align-middle">
+                In queue
+              </span>
+            )}
+          </span>
           <span className="flex items-center gap-2">
             <span className="text-xs tabular-nums text-gray-500">
               {deck.learned} / {deck.total}
             </span>
+            <button
+              type="button"
+              onClick={() => onLearn(deck)}
+              disabled={done}
+              title={done ? 'Deck complete' : 'Start learning from this deck'}
+              className="rounded-lg bg-lang hover:bg-lang-dark disabled:opacity-40 text-lang-on text-xs font-semibold px-3 py-1.5"
+            >
+              Learn
+            </button>
+            <button
+              type="button"
+              onClick={() => setOpen((v) => !v)}
+              aria-expanded={open}
+              aria-label={`Deck options for ${label}`}
+              title="Add to queue, reset, or browse this deck"
+              className={`rounded-lg border px-2 py-1.5 text-xs transition-colors ${
+                open
+                  ? 'border-lang/40 bg-lang-soft text-lang'
+                  : 'border-gray-200 text-gray-400 hover:text-lang hover:border-lang/40'
+              }`}
+            >
+              <span
+                aria-hidden
+                className={`inline-block transition-transform ${open ? 'rotate-180' : ''}`}
+              >
+                ⌄
+              </span>
+            </button>
           </span>
         </div>
         <div className="mt-2 w-full bg-gray-100 rounded-full h-1.5">
@@ -88,67 +113,59 @@ function DeckRow({ deck, onLearn }: { deck: LearnDeck; onLearn: (d: LearnDeck) =
             style={{ width: `${pct}%` }}
           />
         </div>
-        <div className="mt-2 flex items-center gap-4 text-xs">
-          <button
-            type="button"
-            onClick={() => setPreviewOpen((v) => !v)}
-            aria-expanded={previewOpen}
-            className="text-gray-500 hover:text-lang"
-          >
-            {previewOpen ? 'Hide contents' : 'Peek inside'}
-          </button>
-          {deck.subscribed ? (
-            <button
-              type="button"
-              onClick={() => subMutation.mutate(false)}
-              disabled={subMutation.isPending}
-              className="text-gray-500 hover:text-red-600"
-              title="Stops new cards from this deck. Cards you already learned keep their schedule."
+        {open && (
+          <div className="mt-3 space-y-3" data-testid="deck-options">
+            <div className="flex flex-wrap items-center gap-4 text-xs">
+              {deck.subscribed ? (
+                <button
+                  type="button"
+                  onClick={() => subMutation.mutate(false)}
+                  disabled={subMutation.isPending}
+                  className="text-gray-500 hover:text-red-600"
+                  title="Stops new cards from this deck. Cards you already learned keep their schedule."
+                >
+                  Remove from queue
+                </button>
+              ) : (
+                <button
+                  type="button"
+                  onClick={() => subMutation.mutate(true)}
+                  disabled={subMutation.isPending}
+                  className="text-lang hover:underline font-medium"
+                >
+                  Add to queue
+                </button>
+              )}
+              <Link to={`/decks/${deck.id}`} className="text-gray-500 hover:text-lang">
+                Browse all items →
+              </Link>
+              {deck.learned > 0 && (
+                <button
+                  type="button"
+                  onClick={handleReset}
+                  disabled={resetMutation.isPending}
+                  className="text-gray-400 hover:text-red-600"
+                  title="Permanently deletes this deck's cards and their review history."
+                >
+                  Reset progress
+                </button>
+              )}
+            </div>
+            <div
+              className="rounded-lg bg-gray-50 border border-gray-100 p-3 text-xs space-y-1"
+              data-testid="deck-preview"
             >
-              Remove from queue
-            </button>
-          ) : (
-            <button
-              type="button"
-              onClick={() => subMutation.mutate(true)}
-              disabled={subMutation.isPending}
-              className="text-lang hover:underline font-medium"
-            >
-              Add to queue
-            </button>
-          )}
-          {deck.learned > 0 && (
-            <button
-              type="button"
-              onClick={handleReset}
-              disabled={resetMutation.isPending}
-              className="text-gray-400 hover:text-red-600"
-              title="Permanently deletes this deck's cards and their review history."
-            >
-              Reset progress
-            </button>
-          )}
-          {deck.subscribed && !done && (
-            <span className="text-[10px] uppercase tracking-wide bg-lang-soft text-lang rounded px-1.5 py-0.5">
-              In queue
-            </span>
-          )}
-        </div>
-        {previewOpen && (
-          <div
-            className="mt-2 rounded-lg bg-gray-50 border border-gray-100 p-3 text-xs space-y-1"
-            data-testid="deck-preview"
-          >
-            {previewLoading && <p className="text-gray-400">Loading…</p>}
-            {preview?.items.map((it, i) => (
-              <p key={i} className="text-gray-700">
-                <span className="font-medium">{it.item}</span>
-                {it.detail && <span className="text-gray-500"> — {it.detail}</span>}
-              </p>
-            ))}
-            {preview && preview.items.length === 0 && (
-              <p className="text-gray-400">This deck is empty.</p>
-            )}
+              {previewLoading && <p className="text-gray-400">Loading…</p>}
+              {preview?.items.map((it, i) => (
+                <p key={i} className="text-gray-700">
+                  <span className="font-medium">{it.item}</span>
+                  {it.detail && <span className="text-gray-500"> — {it.detail}</span>}
+                </p>
+              ))}
+              {preview && preview.items.length === 0 && (
+                <p className="text-gray-400">This deck is empty.</p>
+              )}
+            </div>
           </div>
         )}
       </div>
@@ -167,6 +184,7 @@ function SkeletonCard() {
 
 export default function DashboardPage() {
   const navigate = useNavigate()
+  const queryClient = useQueryClient()
   const activeLanguageId = usePrefsStore((s) => s.activeLanguageId)
   const [learnOpen, setLearnOpen] = useState(false)
 
@@ -206,8 +224,19 @@ export default function DashboardPage() {
   // Learning routes through /learn, which TEACHES the new items (lesson
   // pages) before they are ever quizzed. Deck rows scope the batch to one
   // level; the plain buttons draw from everything queued.
-  const handleLearnDeck = (deck: LearnDeck) => {
+  const handleLearnDeck = async (deck: LearnDeck) => {
     if (!activeLanguageId) return
+    // Learn batches only draw from subscribed decks — clicking Learn on an
+    // unqueued deck adds it first, so Learn always just works. Queue
+    // control without starting lives in the row's expansion panel.
+    if (!deck.subscribed) {
+      try {
+        await setDeckSubscription(deck.id, true)
+        queryClient.invalidateQueries({ queryKey: ['learn-decks'] })
+      } catch {
+        return // surface nothing scarier than a no-op; the row still works
+      }
+    }
     const levelParam = deck.level ? `&level=${encodeURIComponent(deck.level)}` : ''
     navigate(`/learn?type=${deck.list_type}${levelParam}`)
   }
