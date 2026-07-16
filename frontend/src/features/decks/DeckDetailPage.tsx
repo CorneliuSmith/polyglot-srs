@@ -3,6 +3,7 @@ import { useNavigate, useParams } from 'react-router-dom'
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
 import {
   getDeckItems,
+  getLearnDecks,
   getVocabItem,
   setDeckSubscription,
 } from '../../api/review'
@@ -240,8 +241,17 @@ export default function DeckDetailPage() {
   })
   const canContribute = (roleInfo?.roles?.length ?? 0) > 0
 
+  // The queue button must reflect reality: a deck already in the learn
+  // queue shows as such (and offers removal), not a phantom "Add".
+  const { data: decks = [] } = useQuery({
+    queryKey: ['learn-decks', activeLanguageId],
+    queryFn: () => getLearnDecks(activeLanguageId!),
+    enabled: !!activeLanguageId,
+  })
+  const subscribed = decks.find((d) => d.id === deckId)?.subscribed ?? false
+
   const subMutation = useMutation({
-    mutationFn: (subscribed: boolean) => setDeckSubscription(deckId!, subscribed),
+    mutationFn: (next: boolean) => setDeckSubscription(deckId!, next),
     onSuccess: () =>
       queryClient.invalidateQueries({ queryKey: ['learn-decks'] }),
   })
@@ -288,14 +298,26 @@ export default function DeckDetailPage() {
             aria-label="Search this deck"
             className="flex-1 rounded-lg border border-gray-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-lang bg-white"
           />
-          <button
-            type="button"
-            onClick={() => subMutation.mutate(true)}
-            disabled={subMutation.isPending}
-            className="rounded-lg bg-lang hover:bg-lang-dark text-lang-on px-4 py-2 text-sm font-semibold disabled:opacity-50"
-          >
-            Add to queue
-          </button>
+          {subscribed ? (
+            <button
+              type="button"
+              onClick={() => subMutation.mutate(false)}
+              disabled={subMutation.isPending}
+              title="In your learn queue — click to remove. Cards you already learned keep their schedule."
+              className="rounded-lg border border-lang/40 bg-lang-soft text-lang px-4 py-2 text-sm font-semibold disabled:opacity-50 hover:border-red-300 hover:bg-red-50 hover:text-red-700"
+            >
+              ✓ In queue
+            </button>
+          ) : (
+            <button
+              type="button"
+              onClick={() => subMutation.mutate(true)}
+              disabled={subMutation.isPending}
+              className="rounded-lg bg-lang hover:bg-lang-dark text-lang-on px-4 py-2 text-sm font-semibold disabled:opacity-50"
+            >
+              Add to queue
+            </button>
+          )}
         </div>
 
         <div className="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
