@@ -2,6 +2,7 @@ import { useState, useRef, useEffect } from 'react'
 import { useNavigate, useSearchParams } from 'react-router-dom'
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query'
 import { getCramCards, getDueCards, validateAnswer, submitReview } from '../../api/review'
+import { getLanguages, getProfile, updateProfile } from '../../api/profile'
 import type { DueCard } from '../../api/types'
 import { usePrefsStore } from '../../stores/prefsStore'
 import { useReviewSession } from './useReviewSession'
@@ -24,6 +25,26 @@ import type { KeyboardLanguage } from '../keyboards/OnScreenKeyboard'
  * ever submitted — no FSRS update, no review log, no ghosts.
  */
 export default function ReviewSessionPage({ cram = false }: { cram?: boolean }) {
+  // Changing the translation language mid-session restarts the session
+  // with freshly localized cards — the key remount resets every piece of
+  // session state (index, results, requeue) in one move.
+  const [epoch, setEpoch] = useState(0)
+  return (
+    <ReviewSessionInner
+      key={epoch}
+      cram={cram}
+      onLocaleChanged={() => setEpoch((e) => e + 1)}
+    />
+  )
+}
+
+function ReviewSessionInner({
+  cram,
+  onLocaleChanged,
+}: {
+  cram: boolean
+  onLocaleChanged: () => void
+}) {
   const navigate = useNavigate()
   const queryClient = useQueryClient()
   const [searchParams] = useSearchParams()
@@ -78,6 +99,29 @@ export default function ReviewSessionPage({ cram = false }: { cram?: boolean }) 
   const session = useReviewSession(cards ?? [])
 
   const qwertyTranslit = usePrefsStore((s) => s.qwertyTranslit)
+
+  // English cards render definitions/translations in the learner's support
+  // locale — let them switch it right here instead of trekking to Settings.
+  // Saving restarts the session (key remount) with re-localized cards.
+  const studyingEnglish = (cards?.[0]?.language_code ?? '') === 'en'
+  const { data: profile } = useQuery({
+    queryKey: ['profile'],
+    queryFn: getProfile,
+    enabled: studyingEnglish,
+  })
+  const { data: languages = [] } = useQuery({
+    queryKey: ['languages'],
+    queryFn: getLanguages,
+    enabled: studyingEnglish,
+  })
+  const localeMutation = useMutation({
+    mutationFn: (support_locale: string) => updateProfile({ support_locale }),
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ['profile'] })
+      queryClient.invalidateQueries({ queryKey: ['due-cards'] })
+      onLocaleChanged()
+    },
+  })
 
   const validateMutation = useMutation({
     mutationFn: validateAnswer,
@@ -336,7 +380,28 @@ export default function ReviewSessionPage({ cram = false }: { cram?: boolean }) 
               Quick Cram · not recorded
             </span>
           ) : (
-            <span className="capitalize">{card.card_type}</span>
+            <span className="flex items-center gap-2">
+              {studyingEnglish && (
+                <select
+                  value={profile?.support_locale ?? 'en'}
+                  onChange={(e) => localeMutation.mutate(e.target.value)}
+                  disabled={localeMutation.isPending}
+                  aria-label="Translations language"
+                  title="Show definitions and translations in…"
+                  className="text-xs rounded-lg border border-gray-200 bg-white px-2 py-1 text-gray-600"
+                >
+                  <option value="en">English</option>
+                  {languages
+                    .filter((l) => l.code !== 'en')
+                    .map((l) => (
+                      <option key={l.code} value={l.code}>
+                        {l.name}
+                      </option>
+                    ))}
+                </select>
+              )}
+              <span className="capitalize">{card.card_type}</span>
+            </span>
           )}
         </div>
 

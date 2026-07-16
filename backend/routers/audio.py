@@ -11,6 +11,7 @@ non-200 (uncovered language, unknown text, provider hiccup).
 
 from __future__ import annotations
 
+import base64
 import logging
 
 import httpx
@@ -35,8 +36,10 @@ class TTSRequest(BaseModel):
 
 
 async def _text_is_ours(conn, language_code: str, text: str) -> bool:
-    """Only synthesize content we published: completed drill sentences,
-    example sentences, and vocabulary words/readings for that language."""
+    """Only synthesize content the learner legitimately sees: drill and
+    example sentences, vocabulary words/readings, grammar point titles,
+    and the learner's OWN cloze sentences (RLS scopes those rows — this
+    runs on the caller's connection). Still not an open proxy."""
     return bool(await conn.fetchval(
         """
         SELECT EXISTS(
@@ -56,6 +59,18 @@ async def _text_is_ours(conn, language_code: str, text: str) -> bool:
             FROM vocabulary v
             JOIN languages l ON v.language_id = l.id
             WHERE l.code = $1 AND (v.word = $2 OR v.reading = $2)
+        ) OR EXISTS(
+            SELECT 1
+            FROM grammar_points gp
+            JOIN languages l ON gp.language_id = l.id
+            WHERE l.code = $1 AND gp.title = $2
+        ) OR EXISTS(
+            SELECT 1
+            FROM user_cloze_cards cc
+            JOIN languages l ON cc.language_id = l.id
+            WHERE l.code = $1
+              AND (cc.sentence = $2
+                   OR REPLACE(cc.sentence, '{{answer}}', cc.answer) = $2)
         )
         """,
         language_code, text,
@@ -113,23 +128,44 @@ async def tts(
             detail="Audio generation failed",
         ) from exc
 
-    async with httpx.AsyncClient(timeout=30) as client:
-        resp = await client.post(
-            f"{settings.supabase_url.rstrip('/')}/storage/v1/object/tts/{storage_path}",
-            headers={
-                "apikey": settings.supabase_service_role_key,
-                "Authorization": f"Bearer {settings.supabase_service_role_key}",
-                "Content-Type": "audio/mpeg",
-                "x-upsert": "true",
-            },
-            content=audio,
+    # Storage is an OPTIMIZATION, not a requirement: when the service key
+    # is missing or the upload fails, the learner still gets the neural
+    # clip inline (base64) and only the CDN caching is lost. Beta lesson:
+    # a broken cache layer must never regress audio to the browser voice.
+    stored = False
+    if settings.supabase_service_role_key:
+        try:
+            async with httpx.AsyncClient(timeout=30) as client:
+                resp = await client.post(
+                    f"{settings.supabase_url.rstrip('/')}/storage/v1/object/tts/{storage_path}",
+                    headers={
+                        "apikey": settings.supabase_service_role_key,
+                        "Authorization": f"Bearer {settings.supabase_service_role_key}",
+                        "Content-Type": "audio/mpeg",
+                        "x-upsert": "true",
+                    },
+                    content=audio,
+                )
+            if resp.status_code in (200, 201):
+                stored = True
+            else:
+                logger.error(
+                    "TTS upload failed (%s): %s", resp.status_code, resp.text[:200]
+                )
+        except Exception as exc:  # noqa: BLE001 — storage outage ≠ no audio
+            logger.error("TTS upload errored (%s): %s", type(exc).__name__, exc)
+    else:
+        logger.error(
+            "TTS storage disabled: SUPABASE_SERVICE_ROLE_KEY is not set — "
+            "serving audio inline without caching"
         )
-    if resp.status_code not in (200, 201):
-        logger.error("TTS upload failed (%s): %s", resp.status_code, resp.text[:200])
-        raise HTTPException(
-            status_code=status.HTTP_502_BAD_GATEWAY,
-            detail="Audio storage failed",
-        )
+
+    if not stored:
+        return {
+            "url": None,
+            "cached": False,
+            "audio_b64": base64.b64encode(audio).decode(),
+        }
 
     async with privileged_connection() as conn:
         await conn.execute(

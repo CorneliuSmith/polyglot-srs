@@ -935,6 +935,28 @@ language: beta caveats, AI content accuracy, tutor allowances, billing via
 Stripe, what we store), linked from the login screen and Settings.
 **Model:** `claude-sonnet-5`; (e) charter wording one tier up.
 
+### WP20 — Content depth & gloss audit (owner escalation, 2026-07-16)
+Beta caught two classes of shallow content the gates missed:
+**(a) Grammar coverage gaps.** The ru A1 possessives point taught мой/твой/
+наш/ваш but omitted the invariable его/её/их entirely (fixed 2026-07-16 —
+свой was already its own B1 point, so staging was right; the MEMBER list
+was incomplete). Audit every point against the resource library: does the
+explanation cover the topic's full member set and its exceptions at that
+level, do the drills exercise each member, and is anything deferred
+actually staged later in the path (link it in `related` when it is)?
+Sweep order: beta-active languages first (en, ru, es, pt), then the rest.
+The audit writes findings into point_review_notes so reviewers can verify.
+**(b) Support-locale glosses for grammatical words.** Extraction gave case
+languages bare suffixes ("of" → ru "-ов"), neuter-less glosses the wrong
+gender ("it" → ru "он"), auxiliaries noun senses ("will" → ru "завещать").
+Curated hand table now covers ~20 closed-class words × 12 locales (fixed
+2026-07-16); the audit should eyeball every remaining function word's
+glosses per locale. Rule: where no one-word equivalent exists, a short
+parenthesized hint beats a wrong word.
+**Model:** `claude-fable-5` (this is exactly the low-resource-linguistics
+row of §6 — wrong-but-plausible content is the failure mode).
+**Effort:** M–L, chunked per language.
+
 ## 6. Model selection guide
 
 | Task type | Model | Why |
