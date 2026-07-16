@@ -17,6 +17,7 @@ On top of the tiers sits the admin's per-account override (WP15b):
 from __future__ import annotations
 
 import asyncio
+import logging
 from datetime import UTC, datetime, timedelta
 
 import anthropic
@@ -34,6 +35,8 @@ from backend.repositories.tutor import (
     get_user_profile,
     get_weak_areas,
     has_tutor_entitlement,
+    list_tutor_sessions,
+    log_tutor_session,
     log_tutor_usage,
     upsert_language_profile,
     upsert_user_profile,
@@ -47,6 +50,8 @@ from backend.services.tutor import (
     tutor_chat,
     tutor_chat_stream,
 )
+
+logger = logging.getLogger("tutor")
 
 router = APIRouter()
 
@@ -66,6 +71,9 @@ class TutorChatRequest(BaseModel):
     language_id: str
     language_code: str
     messages: list[ChatMessage] = Field(min_length=1)
+    # WP18c: 'reference' answers without drilling or memory writes — the
+    # gist's Reference Mode. Allowance still counts (the turn costs tokens).
+    mode: str = Field(default="practice", pattern="^(practice|reference)$")
 
 
 class SessionEndRequest(BaseModel):
@@ -189,10 +197,17 @@ async def tutor_status(
     if not available:
         return {"available": False, "entitled": False, "allowance": None}
     allowance = await _get_allowance(user["id"], language_id)
+    async with rls_connection(user["id"]) as conn:
+        lang = await get_language_profile(conn, user["id"], language_id)
+    focus = [
+        f for f in (lang["profile"].get("_active_focus") or [])
+        if isinstance(f, dict) and f.get("structure")
+    ]
     return {
         "available": True,
         "entitled": allowance["entitled"],
         "allowance": allowance,
+        "focus": focus,
     }
 
 
@@ -238,7 +253,10 @@ async def chat(
             session_summary=lang["session_summary"],
             study_stats=study_stats,
             model=model,
+            mode=body.mode,
         )
+        if body.mode == "reference":
+            remembered = []  # reference questions never write memory
     except ValueError as exc:
         raise HTTPException(status_code=422, detail=str(exc)) from exc
     except anthropic.RateLimitError as exc:
@@ -246,7 +264,20 @@ async def chat(
             status_code=status.HTTP_429_TOO_MANY_REQUESTS,
             detail="Tutor is busy — try again in a moment",
         ) from exc
+    except anthropic.AuthenticationError as exc:
+        # Operator problem, not a user problem: the configured API key was
+        # rejected. Say so plainly so the admin can act on the log line.
+        logger.error("Anthropic rejected the API key: %s", exc)
+        raise HTTPException(
+            status_code=status.HTTP_503_SERVICE_UNAVAILABLE,
+            detail="Tutor API key is invalid — check ANTHROPIC_API_KEY",
+        ) from exc
     except anthropic.APIError as exc:
+        # Log the real cause (billing, model access, overload…) — the
+        # client gets a generic 502, the runtime log gets the truth.
+        logger.error(
+            "Anthropic API error (%s): %s", type(exc).__name__, exc
+        )
         raise HTTPException(
             status_code=status.HTTP_502_BAD_GATEWAY,
             detail="Tutor is temporarily unavailable",
@@ -329,6 +360,7 @@ async def chat_stream(
             session_summary=lang["session_summary"],
             study_stats=study_stats,
             model=model,
+            mode=body.mode,
         )
         # Heartbeat interleave: wait on the generator's next event with a
         # timeout, pinging while the model is quiet. asyncio.wait (not
@@ -353,7 +385,10 @@ async def chat_stream(
                     # Persist BEFORE the client sees "done" so a reload
                     # right after can't observe a half-recorded turn. The
                     # usage block is operator data — logged, not forwarded.
-                    remembered = event.get("remembered") or []
+                    remembered = (
+                        [] if body.mode == "reference"
+                        else event.get("remembered") or []
+                    )
                     usage = event.pop("usage", None)
                     async with rls_connection(user["id"]) as conn:
                         await log_tutor_usage(
@@ -390,6 +425,16 @@ async def chat_stream(
                 yield f"data: {_json.dumps(event)}\n\n"
         except ValueError as exc:
             yield f"data: {_json.dumps({'type': 'error', 'message': str(exc)})}\n\n"
+        except anthropic.AuthenticationError as exc:
+            logger.error("Anthropic rejected the API key: %s", exc)
+            yield (
+                "data: "
+                + _json.dumps({
+                    "type": "error",
+                    "message": "Tutor API key is invalid — check ANTHROPIC_API_KEY",
+                })
+                + "\n\n"
+            )
         except anthropic.RateLimitError:
             yield (
                 "data: "
@@ -399,7 +444,10 @@ async def chat_stream(
                 })
                 + "\n\n"
             )
-        except anthropic.APIError:
+        except anthropic.APIError as exc:
+            logger.error(
+                "Anthropic API error (%s): %s", type(exc).__name__, exc
+            )
             yield (
                 "data: "
                 + _json.dumps({
@@ -416,6 +464,17 @@ async def chat_stream(
         media_type="text/event-stream",
         headers={"Cache-Control": "no-cache", "X-Accel-Buffering": "no"},
     )
+
+
+@router.get("/sessions")
+async def tutor_session_history(
+    language_id: str,
+    user: dict = Depends(get_current_user),
+):
+    """The learner's past tutor sessions, newest first (WP18a)."""
+    async with rls_connection(user["id"]) as conn:
+        sessions = await list_tutor_sessions(conn, user["id"], language_id)
+    return {"sessions": sessions}
 
 
 @router.post("/session/end")
@@ -448,6 +507,9 @@ async def end_session(
     async with rls_connection(user["id"]) as conn:
         user_profile = await get_user_profile(conn, user["id"])
         lang = await get_language_profile(conn, user["id"], body.language_id)
+        recent = await list_tutor_sessions(
+            conn, user["id"], body.language_id, limit=3
+        )
 
     try:
         result = await summarize_session(
@@ -456,9 +518,13 @@ async def end_session(
             user_profile=user_profile,
             language_profile=lang["profile"],
             prior_summary=lang["session_summary"],
+            recent_sessions=[r["summary"] for r in recent],
         )
-    except anthropic.APIError:
+    except anthropic.APIError as exc:
         # Summarization is best-effort — never fail the user's session-end.
+        logger.error(
+            "Anthropic API error in summarizer (%s): %s", type(exc).__name__, exc
+        )
         return {"summarized": False}
 
     new_user = {**user_profile, **(result.get("user_profile_updates") or {})}
@@ -477,6 +543,15 @@ async def end_session(
             session_summary=summary,
             touch_session=True,
         )
+        # WP18a: the append-only practice log — one immutable row per
+        # ended session, alongside the rolling "current state" summary.
+        if summary:
+            await log_tutor_session(
+                conn, user["id"], body.language_id, summary,
+                message_count=sum(
+                    1 for m in body.messages if m.role == "user"
+                ),
+            )
         if usage is not None:
             # Summarizer cost row (WP9b). kind='summary' rows are excluded
             # from allowance counting — this spend belongs to the operator.

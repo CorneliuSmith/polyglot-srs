@@ -136,6 +136,53 @@ async def set_tutor_access(
     )
 
 
+async def log_tutor_session(
+    conn: asyncpg.Connection,
+    user_id: str,
+    language_id: str,
+    summary: str,
+    message_count: int,
+) -> None:
+    """Append one immutable row per ended session (WP18a — the practice
+    log). Runs on the user's RLS connection; insert-own policy applies."""
+    await conn.execute(
+        """
+        INSERT INTO tutor_sessions (user_id, language_id, summary, message_count)
+        VALUES ($1, $2, $3, $4)
+        """,
+        user_id, language_id, summary, message_count,
+    )
+
+
+async def list_tutor_sessions(
+    conn: asyncpg.Connection,
+    user_id: str,
+    language_id: str,
+    limit: int = 10,
+) -> list[dict]:
+    """Most-recent-first session history for the tutor UI and the
+    summarizer's continuity context."""
+    rows = await conn.fetch(
+        """
+        SELECT id, summary, message_count, created_at
+        FROM tutor_sessions
+        WHERE user_id = $1 AND language_id = $2
+        ORDER BY created_at DESC
+        LIMIT $3
+        """,
+        user_id, language_id, limit,
+    )
+    return [
+        {
+            "id": str(r["id"]),
+            "summary": r["summary"],
+            "message_count": r["message_count"],
+            "created_at": r["created_at"].isoformat(),
+        }
+        for r in rows
+    ]
+
+
 async def has_tutor_entitlement(
     conn: asyncpg.Connection, user_id: str, language_id: str
 ) -> bool:

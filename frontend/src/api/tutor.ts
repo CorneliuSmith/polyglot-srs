@@ -20,10 +20,37 @@ export interface TutorAllowance {
   resets_at: string | null
 }
 
+export interface FocusItem {
+  structure: string
+  reason: string
+}
+
 export interface TutorStatus {
   available: boolean
   entitled: boolean
   allowance: TutorAllowance | null
+  /** Active Focus: structures the tutor is deliberately working on. */
+  focus?: FocusItem[]
+}
+
+export type TutorMode = 'practice' | 'reference'
+
+export interface TutorSessionRow {
+  id: string
+  summary: string
+  message_count: number
+  created_at: string
+}
+
+/** Past tutor sessions, newest first (the practice log). */
+export async function getTutorSessions(
+  languageId: string,
+): Promise<TutorSessionRow[]> {
+  const response = await apiClient.get<{ sessions: TutorSessionRow[] }>(
+    '/api/tutor/sessions',
+    { params: { language_id: languageId } },
+  )
+  return response.data.sessions
 }
 
 export async function getTutorStatus(
@@ -40,6 +67,7 @@ export async function sendTutorMessage(
   languageId: string,
   languageCode: string,
   messages: TutorMessage[],
+  mode: TutorMode = 'practice',
 ): Promise<{ reply: string; allowance: TutorAllowance | null }> {
   const response = await apiClient.post<{
     reply: string
@@ -48,6 +76,7 @@ export async function sendTutorMessage(
     language_id: languageId,
     language_code: languageCode,
     messages,
+    mode,
   })
   return { reply: response.data.reply, allowance: response.data.allowance ?? null }
 }
@@ -89,6 +118,7 @@ export async function streamTutorMessage(
   languageCode: string,
   messages: TutorMessage[],
   onDelta: (textSoFar: string) => void,
+  mode: TutorMode = 'practice',
 ): Promise<{ reply: string; allowance: TutorAllowance | null }> {
   const { data: sessionData } = await supabase.auth.getSession()
   const token = sessionData.session?.access_token
@@ -103,6 +133,7 @@ export async function streamTutorMessage(
       language_id: languageId,
       language_code: languageCode,
       messages,
+      mode,
     }),
   })
   if (!resp.ok) {

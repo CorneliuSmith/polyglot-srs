@@ -834,6 +834,18 @@ freeze lifts. **Model:** draft `claude-sonnet-5`, verify per-locale
 reviewer. **Effort:** M.
 
 ### WP18 — Tutor memory parity with the owner's Obsidian workflow
+**(a)–(c) DONE 2026-07-16** — tutor_sessions append-only log (migration
+20260722000000) + summarizer continuity (last 3 session summaries in its
+context) + "Past sessions" in the tutor UI; Active Focus via `remember`
+scopes focus_add/focus_retire (bounded 5, FIFO, `_active_focus` in the
+language profile, chips in the UI, /status carries it); Practice/Reference
+toggle — reference turns add a MODE flag to the volatile system block,
+never persist `remember` output, and reference-only sessions skip the
+summarizer client-side. WP9(c) charter tuning landed with it: grammar
+weak items are drilled as fill-in-the-blank patterns (consulting the
+curriculum reference for staging), never vocabulary flashcards — observe
+real transcripts + the cost panel to tune further. Remaining: (d) media
+library, below.
 **Spec source:** the owner's Obsidian language-learning system
 (https://gist.github.com/CorneliuSmith/127de0fa43274523bc28647c5d38b01b) —
 the tutors were always meant to work like it. What already maps: the
