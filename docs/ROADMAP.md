@@ -921,13 +921,15 @@ learner turns it on. Effort: M.
 **(d) Error telemetry (Sentry).** Frontend + backend before the beta widens —
 beta bugs currently arrive as screenshots. Overlaps WP10(b); implement once.
 Effort: S.
-**(e) Tutor mastery suggestions ⭐ (owner, 2026-07-16).** The tutor can star
-cards it believes the learner already understands — only from evidence in the
-session (produced the structure correctly, unprompted). The learner sees the
-starred suggestions and either confirms ("mark it farther along" — a stability
-floor jump, so sessions never feel like they re-teach what the tutor already
-covered) or dismisses. NEVER automatic: no SRS state changes without the
-learner's confirmation. Effort: M.
+**(e) Tutor mastery suggestions ⭐ — DONE 2026-07-16.** The tutor stars cards
+it believes the learner already understands via the `suggest_mastered` tool —
+only from evidence in the session, at most a couple per session, never in
+reference mode. Stars are pending rows in `tutor_card_suggestions` (migration
+20260724); the tutor page shows them with the evidence and two verdicts:
+"I know it" advances the card to the seasoned floor (stability/interval ≥ 30
+days, next review ~a month out), "Keep drilling" dismisses. NEVER automatic:
+`merge_remembered` refuses the reserved `_mastery` scope, and the resolve
+endpoint is the only path that touches SRS state.
 **(f) Terms of Service — DONE 2026-07-16.** Public `/terms` route (plain
 language: beta caveats, AI content accuracy, tutor allowances, billing via
 Stripe, what we store), linked from the login screen and Settings.

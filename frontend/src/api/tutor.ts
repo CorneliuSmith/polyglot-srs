@@ -25,12 +25,24 @@ export interface FocusItem {
   reason: string
 }
 
+/** A mastery star (WP19e): the tutor believes this card is already known;
+ * the learner confirms or dismisses — SRS state never moves on its own. */
+export interface MasterySuggestion {
+  id: string
+  item: string
+  kind: 'vocabulary' | 'grammar'
+  evidence: string | null
+  created_at: string
+}
+
 export interface TutorStatus {
   available: boolean
   entitled: boolean
   allowance: TutorAllowance | null
   /** Active Focus: structures the tutor is deliberately working on. */
   focus?: FocusItem[]
+  /** Pending mastery stars awaiting the learner's verdict. */
+  mastery_suggestions?: MasterySuggestion[]
 }
 
 export type TutorMode = 'practice' | 'reference'
@@ -68,23 +80,34 @@ export async function sendTutorMessage(
   languageCode: string,
   messages: TutorMessage[],
   mode: TutorMode = 'practice',
-): Promise<{ reply: string; allowance: TutorAllowance | null }> {
+): Promise<{ reply: string; allowance: TutorAllowance | null; starred: number }> {
   const response = await apiClient.post<{
     reply: string
     allowance?: TutorAllowance
+    starred?: number
   }>('/api/tutor/chat', {
     language_id: languageId,
     language_code: languageCode,
     messages,
     mode,
   })
-  return { reply: response.data.reply, allowance: response.data.allowance ?? null }
+  return {
+    reply: response.data.reply,
+    allowance: response.data.allowance ?? null,
+    starred: response.data.starred ?? 0,
+  }
 }
 
 export type TutorStreamEvent =
   | { type: 'delta'; text: string }
   | { type: 'reset' }
-  | { type: 'done'; reply: string; remembered: number; allowance: TutorAllowance | null }
+  | {
+      type: 'done'
+      reply: string
+      remembered: number
+      starred?: number
+      allowance: TutorAllowance | null
+    }
   | { type: 'error'; message: string }
 
 /** Parse complete `data: {json}` SSE lines out of a buffer; returns the
@@ -119,7 +142,7 @@ export async function streamTutorMessage(
   messages: TutorMessage[],
   onDelta: (textSoFar: string) => void,
   mode: TutorMode = 'practice',
-): Promise<{ reply: string; allowance: TutorAllowance | null }> {
+): Promise<{ reply: string; allowance: TutorAllowance | null; starred: number }> {
   const { data: sessionData } = await supabase.auth.getSession()
   const token = sessionData.session?.access_token
   const base = (import.meta.env.VITE_API_BASE_URL as string | undefined) ?? ''
@@ -165,13 +188,30 @@ export async function streamTutorMessage(
         text = ''
         onDelta(text)
       } else if (event.type === 'done') {
-        return { reply: event.reply, allowance: event.allowance ?? null }
+        return {
+          reply: event.reply,
+          allowance: event.allowance ?? null,
+          starred: event.starred ?? 0,
+        }
       } else if (event.type === 'error') {
         throw new Error(event.message)
       }
     }
   }
   throw new Error('Stream ended without a done event')
+}
+
+/** The learner's verdict on a mastery star: accept advances the card's
+ * schedule (~a month out), dismiss clears the star. */
+export async function resolveMasterySuggestion(
+  suggestionId: string,
+  action: 'accept' | 'dismiss',
+): Promise<{ action: string; advanced: boolean }> {
+  const response = await apiClient.post<{ action: string; advanced: boolean }>(
+    `/api/tutor/suggestions/${suggestionId}`,
+    { action },
+  )
+  return response.data
 }
 
 /**

@@ -19,6 +19,7 @@ from __future__ import annotations
 import asyncio
 import logging
 from datetime import UTC, datetime, timedelta
+from uuid import UUID
 
 import anthropic
 from fastapi import APIRouter, Depends, HTTPException, status
@@ -29,15 +30,18 @@ from backend.dependencies import get_current_user
 from backend.repositories.pool import rls_connection
 from backend.repositories.tutor import (
     count_tutor_messages,
+    create_mastery_suggestions,
     get_language_profile,
     get_study_stats,
     get_tutor_access,
     get_user_profile,
     get_weak_areas,
     has_tutor_entitlement,
+    list_mastery_suggestions,
     list_tutor_sessions,
     log_tutor_session,
     log_tutor_usage,
+    resolve_mastery_suggestion,
     upsert_language_profile,
     upsert_user_profile,
 )
@@ -199,6 +203,7 @@ async def tutor_status(
     allowance = await _get_allowance(user["id"], language_id)
     async with rls_connection(user["id"]) as conn:
         lang = await get_language_profile(conn, user["id"], language_id)
+        mastery = await list_mastery_suggestions(conn, user["id"], language_id)
     focus = [
         f for f in (lang["profile"].get("_active_focus") or [])
         if isinstance(f, dict) and f.get("structure")
@@ -208,6 +213,7 @@ async def tutor_status(
         "entitled": allowance["entitled"],
         "allowance": allowance,
         "focus": focus,
+        "mastery_suggestions": mastery,
     }
 
 
@@ -257,6 +263,11 @@ async def chat(
         )
         if body.mode == "reference":
             remembered = []  # reference questions never write memory
+        # Mastery stars ride the remember accumulator under the reserved
+        # "_mastery" scope — they become suggestion rows the learner
+        # confirms, never profile facts.
+        mastery = [r for r in remembered if r.get("scope") == "_mastery"]
+        remembered = [r for r in remembered if r.get("scope") != "_mastery"]
     except ValueError as exc:
         raise HTTPException(status_code=422, detail=str(exc)) from exc
     except anthropic.RateLimitError as exc:
@@ -299,11 +310,17 @@ async def chat(
                 await upsert_language_profile(
                     conn, user["id"], body.language_id, new_lang
                 )
+        starred = 0
+        if mastery:
+            starred = await create_mastery_suggestions(
+                conn, user["id"], body.language_id, mastery
+            )
 
     used_after = None if allowance["unlimited"] else allowance["used"] + 1
     return {
         "reply": reply,
         "remembered": len(remembered),
+        "starred": starred,
         "allowance": {
             **allowance,
             "used": used_after,
@@ -389,7 +406,14 @@ async def chat_stream(
                         [] if body.mode == "reference"
                         else event.get("remembered") or []
                     )
+                    mastery = [
+                        r for r in remembered if r.get("scope") == "_mastery"
+                    ]
+                    remembered = [
+                        r for r in remembered if r.get("scope") != "_mastery"
+                    ]
                     usage = event.pop("usage", None)
+                    starred = 0
                     async with rls_connection(user["id"]) as conn:
                         await log_tutor_usage(
                             conn, user["id"], body.language_id,
@@ -407,12 +431,17 @@ async def chat_stream(
                                 await upsert_language_profile(
                                     conn, user["id"], body.language_id, new_lang
                                 )
+                        if mastery:
+                            starred = await create_mastery_suggestions(
+                                conn, user["id"], body.language_id, mastery
+                            )
                     used_after = (
                         None if allowance["unlimited"] else allowance["used"] + 1
                     )
                     event = {
                         **event,
                         "remembered": len(remembered),
+                        "starred": starred,
                         "allowance": {
                             **allowance,
                             "used": used_after,
@@ -475,6 +504,34 @@ async def tutor_session_history(
     async with rls_connection(user["id"]) as conn:
         sessions = await list_tutor_sessions(conn, user["id"], language_id)
     return {"sessions": sessions}
+
+
+class ResolveSuggestionRequest(BaseModel):
+    action: str = Field(pattern="^(accept|dismiss)$")
+
+
+@router.post("/suggestions/{suggestion_id}")
+async def resolve_suggestion(
+    suggestion_id: UUID,
+    body: ResolveSuggestionRequest,
+    user: dict = Depends(get_current_user),
+):
+    """The learner's verdict on a mastery star (WP19e).
+
+    accept advances the card to the seasoned floor (next review ~a month
+    out); dismiss just clears the star. The tutor only ever SUGGESTS —
+    this endpoint is the sole place a suggestion touches SRS state.
+    """
+    async with rls_connection(user["id"]) as conn:
+        result = await resolve_mastery_suggestion(
+            conn, user["id"], str(suggestion_id), body.action
+        )
+    if result is None:
+        raise HTTPException(
+            status_code=status.HTTP_404_NOT_FOUND,
+            detail="No pending suggestion with that id",
+        )
+    return result
 
 
 @router.post("/session/end")

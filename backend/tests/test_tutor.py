@@ -964,9 +964,11 @@ class TestTutorChatService:
         tool_result = second_msgs[-1]["content"][0]
         assert tool_result["tool_use_id"] == "t1"
         assert "Curriculum reference" in tool_result["content"]
-        # Both tools offered on tool-loop calls.
+        # All three tools offered on tool-loop calls.
         tools = fake_client.messages.create.await_args_list[0].kwargs["tools"]
-        assert {t["name"] for t in tools} == {"remember", "consult_reference"}
+        assert {t["name"] for t in tools} == {
+            "remember", "consult_reference", "suggest_mastered",
+        }
 
     @pytest.mark.asyncio
     async def test_empty_history_raises(self):
@@ -1106,3 +1108,225 @@ class TestDevMock:
             resp = client.post("/api/tutor/chat", json=_chat_body(), headers=_auth_headers())
         assert resp.status_code == 200
         assert "dev mock" in resp.json()["reply"].lower()
+
+
+# ---------------------------------------------------------------------------
+# WP19(e): mastery stars — tutor suggests, learner confirms
+# ---------------------------------------------------------------------------
+
+
+class TestSuggestMasteredService:
+    def test_charter_teaches_the_star_tool(self):
+        from backend.services.tutor import _TUTOR_CHARTER
+
+        assert "suggest_mastered" in _TUTOR_CHARTER
+        # The safety property, spelled out for the model.
+        assert "never" in _TUTOR_CHARTER.lower()
+
+    def test_execute_tools_accumulates_star_under_reserved_scope(self):
+        from backend.services.tutor import _execute_tools
+
+        remembered: list[dict] = []
+        results = _execute_tools(
+            [_ToolUseBlock("t1", "suggest_mastered", {
+                "item": "Locative case", "kind": "grammar",
+                "evidence": "Produced -da/-de correctly three times unprompted.",
+            })],
+            "tr",
+            remembered,
+        )
+        assert remembered == [{
+            "scope": "_mastery", "key": "grammar", "value": "Locative case",
+            "evidence": "Produced -da/-de correctly three times unprompted.",
+        }]
+        assert "confirm" in results[0]["content"]
+
+    def test_merge_remembered_never_folds_stars_into_profiles(self):
+        user, lang = merge_remembered(
+            {}, {},
+            [{"scope": "_mastery", "key": "grammar", "value": "X", "evidence": "e"}],
+        )
+        assert user == {}
+        assert lang == {}
+
+    def test_mock_chat_star_command(self):
+        from backend.services.tutor import _mock_chat
+
+        reply, remembered = _mock_chat(
+            "es",
+            [{"role": "user", "content": "/star vocabulary casa said it twice"}],
+            [],
+        )
+        assert "Starred" in reply
+        assert remembered == [{
+            "scope": "_mastery", "key": "vocabulary",
+            "value": "casa", "evidence": "said it twice",
+        }]
+
+
+class TestMasteryRepository:
+    @pytest.mark.asyncio
+    async def test_create_matches_titles_and_skips_unmatched(self):
+        from backend.repositories.tutor import create_mastery_suggestions
+
+        conn = AsyncMock()
+        # First star resolves to a card; second finds no card; third has an
+        # invalid kind and never reaches the DB.
+        conn.fetchval = AsyncMock(side_effect=["card-1", None])
+        conn.execute = AsyncMock(return_value="INSERT 0 1")
+        created = await create_mastery_suggestions(
+            conn, "u-1", "l-1",
+            [
+                {"key": "grammar", "value": "Locative case", "evidence": "e1"},
+                {"key": "vocabulary", "value": "unknown word", "evidence": "e2"},
+                {"key": "bogus", "value": "x", "evidence": "e3"},
+            ],
+        )
+        assert created == 1
+        conn.execute.assert_awaited_once()
+        # The card lookup refuses already-seasoned and suspended cards.
+        lookup_sql = conn.fetchval.await_args_list[0].args[0]
+        assert "stability" in lookup_sql
+        assert "is_suspended = false" in lookup_sql
+
+    @pytest.mark.asyncio
+    async def test_accept_advances_to_the_seasoned_floor(self):
+        from backend.repositories.tutor import resolve_mastery_suggestion
+
+        conn = AsyncMock()
+        conn.fetchval = AsyncMock(return_value="card-1")
+        conn.execute = AsyncMock(return_value="UPDATE 1")
+        result = await resolve_mastery_suggestion(conn, "u-1", "s-1", "accept")
+        assert result == {"action": "accept", "advanced": True}
+        advance_sql = conn.execute.await_args.args[0]
+        assert "GREATEST(COALESCE(stability, 0), 30)" in advance_sql
+        assert "next_review" in advance_sql
+
+    @pytest.mark.asyncio
+    async def test_dismiss_never_touches_the_card(self):
+        from backend.repositories.tutor import resolve_mastery_suggestion
+
+        conn = AsyncMock()
+        conn.fetchval = AsyncMock(return_value="card-1")
+        conn.execute = AsyncMock()
+        result = await resolve_mastery_suggestion(conn, "u-1", "s-1", "dismiss")
+        assert result == {"action": "dismiss", "advanced": False}
+        conn.execute.assert_not_awaited()
+
+    @pytest.mark.asyncio
+    async def test_resolve_returns_none_when_not_pending_or_not_owned(self):
+        from backend.repositories.tutor import resolve_mastery_suggestion
+
+        conn = AsyncMock()
+        conn.fetchval = AsyncMock(return_value=None)
+        assert await resolve_mastery_suggestion(conn, "u-1", "s-1", "accept") is None
+
+
+class TestMasteryEndpoints:
+    def test_chat_records_stars_separately_from_profile_notes(self, client):
+        p1, p2, p3, p4 = _patch_chat_repos()
+        remembered = [
+            {"scope": "language", "key": "topic", "value": "travel"},
+            {"scope": "_mastery", "key": "grammar", "value": "Locative case",
+             "evidence": "used it twice"},
+        ]
+        with p1, p2, p3, p4, patch(
+            "backend.routers.tutor.tutor_chat",
+            new=AsyncMock(return_value=("ok", remembered, _SOME_USAGE)),
+        ), patch(
+            "backend.routers.tutor.create_mastery_suggestions",
+            new=AsyncMock(return_value=1),
+        ) as mock_create, patch(
+            "backend.routers.tutor.upsert_user_profile", new=AsyncMock(),
+        ), patch(
+            "backend.routers.tutor.upsert_language_profile", new=AsyncMock(),
+        ) as mock_lang:
+            resp = client.post(
+                "/api/tutor/chat", json=_chat_body(), headers=_auth_headers()
+            )
+        body = resp.json()
+        assert body["starred"] == 1
+        assert body["remembered"] == 1  # the star is not a profile note
+        # The star went to the suggestions table…
+        stars = mock_create.await_args.args[3]
+        assert stars == [remembered[1]]
+        # …and the language profile only received the real note.
+        saved_profile = mock_lang.await_args.args[3]
+        assert saved_profile == {"topic": "travel"}
+
+    def test_reference_mode_never_stars(self, client):
+        p1, p2, p3, p4 = _patch_chat_repos()
+        remembered = [
+            {"scope": "_mastery", "key": "grammar", "value": "X", "evidence": "e"},
+        ]
+        with p1, p2, p3, p4, patch(
+            "backend.routers.tutor.tutor_chat",
+            new=AsyncMock(return_value=("ok", remembered, _SOME_USAGE)),
+        ), patch(
+            "backend.routers.tutor.create_mastery_suggestions", new=AsyncMock(),
+        ) as mock_create:
+            resp = client.post(
+                "/api/tutor/chat",
+                json=_chat_body(mode="reference"),
+                headers=_auth_headers(),
+            )
+        assert resp.json()["starred"] == 0
+        mock_create.assert_not_awaited()
+
+    def test_status_lists_pending_stars(self, client):
+        stars = [{
+            "id": "s-1", "item": "Locative case", "kind": "grammar",
+            "evidence": "used it twice", "created_at": "2026-07-16T00:00:00",
+        }]
+        with patch(
+            "backend.routers.tutor.list_mastery_suggestions",
+            new=AsyncMock(return_value=stars),
+        ):
+            resp = client.get(
+                "/api/tutor/status",
+                params={"language_id": TEST_LANGUAGE_ID, "language_code": "tr"},
+                headers=_auth_headers(),
+            )
+        assert resp.json()["mastery_suggestions"] == stars
+
+    def test_resolve_accept_returns_verdict(self, client):
+        with patch(
+            "backend.routers.tutor.resolve_mastery_suggestion",
+            new=AsyncMock(return_value={"action": "accept", "advanced": True}),
+        ) as mock_resolve:
+            resp = client.post(
+                f"/api/tutor/suggestions/{TEST_LANGUAGE_ID}",
+                json={"action": "accept"},
+                headers=_auth_headers(),
+            )
+        assert resp.status_code == 200
+        assert resp.json() == {"action": "accept", "advanced": True}
+        assert mock_resolve.await_args.args[3] == "accept"
+
+    def test_resolve_404_when_not_pending(self, client):
+        with patch(
+            "backend.routers.tutor.resolve_mastery_suggestion",
+            new=AsyncMock(return_value=None),
+        ):
+            resp = client.post(
+                f"/api/tutor/suggestions/{TEST_LANGUAGE_ID}",
+                json={"action": "dismiss"},
+                headers=_auth_headers(),
+            )
+        assert resp.status_code == 404
+
+    def test_resolve_rejects_unknown_action(self, client):
+        resp = client.post(
+            f"/api/tutor/suggestions/{TEST_LANGUAGE_ID}",
+            json={"action": "maybe"},
+            headers=_auth_headers(),
+        )
+        assert resp.status_code == 422
+
+    def test_resolve_rejects_malformed_id(self, client):
+        resp = client.post(
+            "/api/tutor/suggestions/not-a-uuid",
+            json={"action": "accept"},
+            headers=_auth_headers(),
+        )
+        assert resp.status_code == 422

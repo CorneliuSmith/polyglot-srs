@@ -474,3 +474,142 @@ async def upsert_language_profile(
         session_summary,
         touch_session,
     )
+
+
+# ---------------------------------------------------------------------------
+# WP19(e): mastery stars — tutor-suggested, learner-confirmed advancement
+# ---------------------------------------------------------------------------
+
+
+async def create_mastery_suggestions(
+    conn: asyncpg.Connection,
+    user_id: str,
+    language_id: str,
+    stars: list[dict],
+) -> int:
+    """Record the tutor's `suggest_mastered` calls as pending suggestions.
+
+    Each star is {"key": kind, "value": item, "evidence": ...} (the reserved
+    "_mastery" scope of the remember accumulator). The item text is resolved
+    to the learner's card by exact (case-insensitive) title/word match;
+    unmatched items are dropped silently — the tutor was told to use the
+    weak-items list verbatim. Cards already at seasoned stability (>= 30
+    days) or still suspended are skipped: there is nothing to advance.
+
+    Returns the number of suggestions actually recorded.
+    """
+    created = 0
+    for star in stars:
+        kind = star.get("key")
+        item = (star.get("value") or "").strip()
+        if kind not in ("vocabulary", "grammar") or not item:
+            continue
+        if kind == "grammar":
+            card_id = await conn.fetchval(
+                """
+                SELECT uc.id
+                FROM user_cards uc
+                JOIN grammar_points gp
+                  ON uc.card_id = gp.id AND uc.card_type = 'grammar'
+                WHERE uc.user_id = $1
+                  AND uc.language_id = $2
+                  AND lower(gp.title) = lower($3)
+                  AND uc.is_suspended = false
+                  AND COALESCE(uc.stability, 0) < 30
+                """,
+                user_id, language_id, item,
+            )
+        else:
+            card_id = await conn.fetchval(
+                """
+                SELECT uc.id
+                FROM user_cards uc
+                JOIN vocabulary v
+                  ON uc.card_id = v.id AND uc.card_type = 'vocabulary'
+                WHERE uc.user_id = $1
+                  AND uc.language_id = $2
+                  AND lower(v.word) = lower($3)
+                  AND uc.is_suspended = false
+                  AND COALESCE(uc.stability, 0) < 30
+                """,
+                user_id, language_id, item,
+            )
+        if card_id is None:
+            continue
+        result = await conn.execute(
+            """
+            INSERT INTO tutor_card_suggestions
+                (user_id, card_id, language_id, item_title, kind, evidence)
+            VALUES ($1, $2, $3, $4, $5, $6)
+            ON CONFLICT (card_id) WHERE status = 'pending' DO NOTHING
+            """,
+            user_id, card_id, language_id, item, kind, star.get("evidence"),
+        )
+        if result.endswith("1"):
+            created += 1
+    return created
+
+
+async def list_mastery_suggestions(
+    conn: asyncpg.Connection, user_id: str, language_id: str
+) -> list[dict]:
+    """Pending mastery stars for the tutor UI, newest first."""
+    rows = await conn.fetch(
+        """
+        SELECT id, item_title, kind, evidence, created_at
+        FROM tutor_card_suggestions
+        WHERE user_id = $1 AND language_id = $2 AND status = 'pending'
+        ORDER BY created_at DESC
+        """,
+        user_id, language_id,
+    )
+    return [
+        {
+            "id": str(r["id"]),
+            "item": r["item_title"],
+            "kind": r["kind"],
+            "evidence": r["evidence"],
+            "created_at": r["created_at"].isoformat(),
+        }
+        for r in rows
+    ]
+
+
+async def resolve_mastery_suggestion(
+    conn: asyncpg.Connection, user_id: str, suggestion_id: str, action: str
+) -> dict | None:
+    """Learner's verdict on a star: 'accept' advances the card, 'dismiss'
+    just clears it. Returns {"action", "advanced"} or None if the suggestion
+    isn't theirs / isn't pending.
+
+    Accepting jumps the card to the seasoned floor — stability and interval
+    at least 30 days, next review a month out — the concrete meaning of
+    "mark it as farther along" without pretending it's fully mastered.
+    """
+    card_id = await conn.fetchval(
+        """
+        UPDATE tutor_card_suggestions
+        SET status = CASE WHEN $3 = 'accept' THEN 'accepted' ELSE 'dismissed' END,
+            resolved_at = now()
+        WHERE id = $1 AND user_id = $2 AND status = 'pending'
+        RETURNING card_id
+        """,
+        suggestion_id, user_id, action,
+    )
+    if card_id is None:
+        return None
+    advanced = False
+    if action == "accept":
+        result = await conn.execute(
+            """
+            UPDATE user_cards
+            SET stability = GREATEST(COALESCE(stability, 0), 30),
+                interval = GREATEST(interval, 30),
+                next_review = now() + GREATEST(interval, 30) * interval '1 day',
+                state = 'review'
+            WHERE id = $1 AND user_id = $2
+            """,
+            card_id, user_id,
+        )
+        advanced = result.endswith("1")
+    return {"action": action, "advanced": advanced}
