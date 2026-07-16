@@ -3,10 +3,18 @@ import 'react-simple-keyboard/build/css/index.css'
 import russianLayout from 'simple-keyboard-layouts/build/layouts/russian'
 import arabicLayout from 'simple-keyboard-layouts/build/layouts/arabic'
 import turkishLayout from 'simple-keyboard-layouts/build/layouts/turkish'
+import greekLayout from 'simple-keyboard-layouts/build/layouts/greek'
 
 export type KeyboardLanguage =
-  | 'ru' | 'ar' | 'tr' | 'yo' | 'ha'
-  | 'es' | 'it' | 'fr' | 'de' | 'ca' | 'mi'
+  | 'ru' | 'ar' | 'tr' | 'el' | 'yo' | 'ha'
+  | 'es' | 'it' | 'fr' | 'de' | 'ca' | 'mi' | 'pt' | 'ro'
+
+/** Languages that get an on-screen keyboard. Everything else (en, sw, xh —
+ * plain Latin) uses the device keyboard; NEVER fall back to another
+ * language's layout (Portuguese learners once got Cyrillic). */
+export function hasKeyboardLayout(code: string): boolean {
+  return code in LAYOUTS
+}
 
 interface OnScreenKeyboardProps {
   languageCode: KeyboardLanguage
@@ -65,6 +73,9 @@ const LAYOUTS: Record<string, { default: string[] } | { [k: string]: string[] }>
   de: withAccents('ä ö ü ß'),
   ca: withAccents('à è é í ï ò ó ú ü ç'),
   mi: withAccents('ā ē ī ō ū'),
+  pt: withAccents('ã õ á é í ó ú â ê ô à ç'),
+  ro: withAccents('ă â î ș ț'),
+  el: greekLayout.layout,
 }
 
 export default function OnScreenKeyboard({
@@ -73,7 +84,8 @@ export default function OnScreenKeyboard({
   onEnter,
   onBackspace,
 }: OnScreenKeyboardProps) {
-  const layout = LAYOUTS[languageCode] ?? russianLayout.layout
+  const layout = LAYOUTS[languageCode]
+  if (!layout) return null
 
   const handleKeyPress = (button: string) => {
     // Special keys act, not insert. Everything else previously included

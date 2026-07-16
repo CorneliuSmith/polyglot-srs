@@ -14,6 +14,7 @@ import OnScreenKeyboard from '../keyboards/OnScreenKeyboard'
 import { finalizeInput } from '../keyboards/translit'
 import { hintLayersFor } from './hintLayers'
 import SpeakButton from '../../components/SpeakButton'
+import { hasKeyboardLayout } from '../keyboards/OnScreenKeyboard'
 import type { KeyboardLanguage } from '../keyboards/OnScreenKeyboard'
 
 /**
@@ -280,9 +281,10 @@ export default function ReviewSessionPage({ cram = false }: { cram?: boolean }) 
 
   // Non-Latin scripts and Latin languages with accents/diacritics get an
   // on-screen helper. (Xhosa/English omitted: plain ASCII.)
-  const needsKeyboard = [
-    'ru', 'ar', 'tr', 'yo', 'ha', 'es', 'it', 'fr', 'de', 'ca', 'mi',
-  ].includes(card.language_code)
+  // Single source of truth with the component's layout map — pt/ro/el were
+  // missing here AND from the layouts, so Portuguese learners either had no
+  // accent row or (via the old fallback) a Russian keyboard.
+  const needsKeyboard = hasKeyboardLayout(card.language_code)
 
   return (
     <div className="min-h-screen bg-gray-50">

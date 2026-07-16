@@ -332,6 +332,16 @@ class TestGrammarStrictForm:
     def test_unrelated_word_stays_plain_wrong(self, nlp):
         assert nlp.check_answer("cat", "went", self.GRAMMAR)[0] == AnswerResult.WRONG
 
+    def test_accents_coach_but_never_fail_grammar_drills(self, nlp):
+        """Regression: the strict-form gate must not swallow the
+        diacritics-coach rule — a pt beta tester typing voce for você was
+        marked wrong on grammar drills across every Latin language."""
+        result, feedback = nlp.check_answer("voce", "você", self.GRAMMAR)
+        assert result == AnswerResult.CORRECT_SLOPPY
+        assert "accents" in feedback
+        # And on vocabulary too, same layer.
+        assert nlp.check_answer("esta", "está")[0] == AnswerResult.CORRECT_SLOPPY
+
 
 # ---------------------------------------------------------------------------
 # AnswerResult relocation tests
