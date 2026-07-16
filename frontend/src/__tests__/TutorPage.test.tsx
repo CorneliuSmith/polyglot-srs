@@ -11,6 +11,7 @@ vi.mock('../api/profile', () => ({
 
 vi.mock('../api/tutor', () => ({
   getTutorStatus: vi.fn(),
+  getTutorSessions: vi.fn(() => Promise.resolve([])),
   sendTutorMessage: vi.fn(),
   streamTutorMessage: vi.fn(),
   endTutorSession: vi.fn(),
@@ -168,7 +169,7 @@ describe('TutorPage', () => {
     ).toBeDefined()
     expect(mockSendTutorMessage).toHaveBeenCalledWith('lang-tr', 'tr', [
       { role: 'user', content: 'Help me with -de' },
-    ])
+    ], 'practice')
     expect(screen.getByTestId('tutor-allowance').textContent).toContain(
       '13 of 20',
     )
@@ -187,6 +188,56 @@ describe('TutorPage', () => {
 
     expect(await screen.findByTestId('tutor-exhausted')).toBeDefined()
     expect(screen.queryByRole('alert')).toBeNull()
+  })
+
+  it('reference mode sends mode=reference (WP18c)', async () => {
+    mockGetTutorStatus.mockResolvedValue(statusWith(freeAllowance(14)))
+    mockSendTutorMessage.mockResolvedValue({ reply: 'ok', allowance: null })
+    renderPage()
+
+    fireEvent.click(await screen.findByRole('button', { name: /^reference$/i }))
+    const input = screen.getByPlaceholderText(/message your tutor/i)
+    fireEvent.change(input, { target: { value: 'what does -de mean?' } })
+    fireEvent.keyDown(input, { key: 'Enter' })
+
+    await screen.findByText('what does -de mean?')
+    await waitFor(() =>
+      expect(mockSendTutorMessage).toHaveBeenCalledWith(
+        'lang-tr', 'tr',
+        [{ role: 'user', content: 'what does -de mean?' }],
+        'reference',
+      ),
+    )
+  })
+
+  it('shows the tutor-managed Active Focus chips (WP18b)', async () => {
+    mockGetTutorStatus.mockResolvedValue({
+      ...statusWith(freeAllowance(14)),
+      focus: [
+        { structure: 'Locative case', reason: 'confuses -de/-da' },
+        { structure: 'Vowel harmony', reason: 'suffix selection errors' },
+      ],
+    })
+    renderPage()
+    const chips = await screen.findByTestId('active-focus')
+    expect(chips.textContent).toContain('Locative case')
+    expect(chips.textContent).toContain('Vowel harmony')
+  })
+
+  it('lists past sessions on demand (WP18a)', async () => {
+    const { getTutorSessions } = await import('../api/tutor')
+    ;(getTutorSessions as ReturnType<typeof vi.fn>).mockResolvedValue([
+      { id: 's1', summary: 'Drilled the locative; retry -de/-da tomorrow.',
+        message_count: 9, created_at: '2026-07-15T10:00:00Z' },
+    ])
+    mockGetTutorStatus.mockResolvedValue(statusWith(freeAllowance(14)))
+    renderPage()
+
+    fireEvent.click(await screen.findByRole('button', { name: /past sessions/i }))
+    expect(await screen.findByText(/Drilled the locative/)).toBeDefined()
+    expect(screen.getByTestId('past-sessions').textContent).toContain(
+      '9 messages',
+    )
   })
 
   it('flushes the session to memory when End session is clicked', async () => {

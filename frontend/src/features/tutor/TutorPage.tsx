@@ -5,11 +5,12 @@ import { getLanguages } from '../../api/profile'
 import { createCheckout } from '../../api/billing'
 import {
   endTutorSession,
+  getTutorSessions,
   getTutorStatus,
   sendTutorMessage,
   streamTutorMessage,
 } from '../../api/tutor'
-import type { TutorAllowance, TutorMessage } from '../../api/tutor'
+import type { TutorAllowance, TutorMessage, TutorMode } from '../../api/tutor'
 import { usePrefsStore } from '../../stores/prefsStore'
 
 // Summarize into memory after this long without activity.
@@ -56,6 +57,7 @@ export default function TutorPage() {
     const lang = langRef.current
     const convo = messagesRef.current
     if (endedRef.current || !lang || convo.length < 2) return
+    if (!hadPractice.current) return // reference-only: nothing to summarize
     endedRef.current = true
     void endTutorSession(lang.id, lang.code, convo).catch(() => {
       // Best-effort: memory summary is not critical to the user's flow.
@@ -83,6 +85,17 @@ export default function TutorPage() {
 
   // Partial assistant text while a streamed reply is arriving (WP9d).
   const [streamingText, setStreamingText] = useState<string | null>(null)
+  // WP18c: reference questions are answered without drilling or memory
+  // writes; only practice turns make a session worth summarizing.
+  const [mode, setMode] = useState<TutorMode>('practice')
+  const hadPractice = useRef(false)
+  const [historyOpen, setHistoryOpen] = useState(false)
+
+  const { data: pastSessions = [] } = useQuery({
+    queryKey: ['tutor-sessions', activeLanguageId],
+    queryFn: () => getTutorSessions(activeLanguageId!),
+    enabled: !!activeLanguageId && historyOpen,
+  })
 
   const sendMutation = useMutation({
     mutationFn: async (history: TutorMessage[]) => {
@@ -91,13 +104,13 @@ export default function TutorPage() {
       // both endpoints report identically).
       try {
         return await streamTutorMessage(
-          activeLanguageId!, language!.code, history, setStreamingText,
+          activeLanguageId!, language!.code, history, setStreamingText, mode,
         )
       } catch (err) {
         const status = (err as { response?: { status?: number } })?.response?.status
         if (status === 402) throw err
         setStreamingText(null)
-        return sendTutorMessage(activeLanguageId!, language!.code, history)
+        return sendTutorMessage(activeLanguageId!, language!.code, history, mode)
       }
     },
     onSuccess: ({ reply, allowance: fresh }) => {
@@ -138,6 +151,7 @@ export default function TutorPage() {
   const handleSend = () => {
     const text = input.trim()
     if (!text || sendMutation.isPending || !language) return
+    if (mode === 'practice') hadPractice.current = true
     const history = [...messages, { role: 'user' as const, content: text }]
     setMessages(history)
     setInput('')
@@ -210,6 +224,96 @@ export default function TutorPage() {
             End session
           </button>
         </div>
+
+        {/* Practice vs Reference (WP18c): reference questions get direct
+            answers with no drilling and no memory writes. */}
+        <div className="flex flex-wrap items-center gap-2 mb-2 text-xs">
+          <div
+            role="group"
+            aria-label="Tutor mode"
+            className="inline-flex rounded-lg border border-gray-200 overflow-hidden"
+          >
+            <button
+              type="button"
+              onClick={() => setMode('practice')}
+              aria-pressed={mode === 'practice'}
+              className={
+                mode === 'practice'
+                  ? 'px-3 py-1 bg-lang text-lang-on font-semibold'
+                  : 'px-3 py-1 bg-white text-gray-500 hover:text-lang'
+              }
+            >
+              Practice
+            </button>
+            <button
+              type="button"
+              onClick={() => setMode('reference')}
+              aria-pressed={mode === 'reference'}
+              title="Ask a quick question — no drills, nothing saved to your profile"
+              className={
+                mode === 'reference'
+                  ? 'px-3 py-1 bg-lang text-lang-on font-semibold'
+                  : 'px-3 py-1 bg-white text-gray-500 hover:text-lang'
+              }
+            >
+              Reference
+            </button>
+          </div>
+          <button
+            type="button"
+            onClick={() => setHistoryOpen((v) => !v)}
+            aria-expanded={historyOpen}
+            className="text-gray-500 hover:text-lang"
+          >
+            {historyOpen ? 'Hide past sessions' : 'Past sessions'}
+          </button>
+        </div>
+
+        {/* Active Focus (WP18b): the structures the tutor is deliberately
+            working on with this learner — tutor-managed, read-only here. */}
+        {(status?.focus?.length ?? 0) > 0 && (
+          <div
+            className="flex flex-wrap items-center gap-1.5 mb-2"
+            data-testid="active-focus"
+          >
+            <span className="text-[10px] uppercase tracking-wide text-gray-400">
+              Active focus
+            </span>
+            {status!.focus!.map((f) => (
+              <span
+                key={f.structure}
+                title={f.reason}
+                className="text-xs rounded-full px-2 py-0.5 bg-lang-soft text-lang-dark"
+              >
+                {f.structure}
+              </span>
+            ))}
+          </div>
+        )}
+
+        {historyOpen && (
+          <div
+            className="mb-3 rounded-xl border border-gray-100 bg-white p-3 space-y-2 max-h-48 overflow-y-auto"
+            data-testid="past-sessions"
+          >
+            {pastSessions.length === 0 && (
+              <p className="text-xs text-gray-400">
+                No past sessions yet — they appear here after you end one.
+              </p>
+            )}
+            {pastSessions.map((sess) => (
+              <div key={sess.id} className="text-xs">
+                <p className="text-gray-400">
+                  {new Date(sess.created_at).toLocaleDateString(undefined, {
+                    month: 'short', day: 'numeric',
+                  })}{' '}
+                  · {sess.message_count} messages
+                </p>
+                <p className="text-gray-700">{sess.summary}</p>
+              </div>
+            ))}
+          </div>
+        )}
 
         {/* Allowance meter — flat pricing, so the cap is always visible.
             free/single/all are MONTHLY (included with the plan); plus/granted

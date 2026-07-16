@@ -1272,6 +1272,32 @@ async def test_english_drill_hints_localize(pool):
         assert cram[p_en]["hint"] == "the indefinite article"
 
 
+async def test_tutor_session_log_rls(pool):
+    """WP18a: the practice log is per-user — insert own, list own, and
+    another user sees nothing."""
+    from backend.repositories.tutor import list_tutor_sessions, log_tutor_session
+
+    a = await _new_user(pool, "logger@wp18")
+    b = await _new_user(pool, "snoop@wp18")
+    async with pool.privileged_connection() as conn:
+        lang = await conn.fetchval("SELECT id FROM languages LIMIT 1")
+
+    async with pool.rls_connection(a) as conn:
+        await log_tutor_session(conn, a, str(lang), "Drilled the locative.", 4)
+        rows = await list_tutor_sessions(conn, a, str(lang))
+    assert len(rows) == 1
+    assert rows[0]["summary"] == "Drilled the locative."
+    assert rows[0]["message_count"] == 4
+
+    async with pool.rls_connection(b) as conn:
+        assert await list_tutor_sessions(conn, b, str(lang)) == []
+        # RLS also blocks reading a's rows directly.
+        leaked = await conn.fetch(
+            "SELECT * FROM tutor_sessions WHERE user_id = $1", a
+        )
+    assert leaked == []
+
+
 async def test_tutor_access_override_round_trip(pool):
     """WP15b: the per-account tutor override persists and normalizes."""
     from backend.repositories.tutor import get_tutor_access, set_tutor_access

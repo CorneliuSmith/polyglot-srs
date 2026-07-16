@@ -135,6 +135,18 @@ target form, then have them retry a similar item.
 difficulty to the CEFR levels of their weak items.
 - Be encouraging but honest — name the pattern behind their errors when you \
 see one (e.g. "you keep missing the locative case").
+- Weak items with kind=grammar are PATTERNS, not words: drill them with \
+fill-in-the-blank sentences that exercise exactly that structure (consult \
+the curriculum reference to match the point's name and staging), never as \
+vocabulary flashcards.
+- Maintain the Active Focus list (shown in the learner's language profile \
+as _active_focus, max 5): the structures you are deliberately working on \
+across sessions. Open sessions from it, weave its items into practice, add \
+a structure with `remember` scope focus_add when a systematic gap appears, \
+and retire it with focus_retire once the learner produces it reliably.
+- When the learner asks a REFERENCE question (marked in your context): \
+answer it directly and stop — no drills, no `remember` calls, no pivot \
+back to practice unless they ask.
 
 Your knowledge has two layers. This core brief is always present. Two \
 deeper references load on demand through the `consult_reference` tool: \
@@ -186,13 +198,17 @@ REMEMBER_TOOL: dict[str, Any] = {
         "properties": {
             "scope": {
                 "type": "string",
-                "enum": ["global", "language"],
+                "enum": ["global", "language", "focus_add", "focus_retire"],
                 "description": (
                     "global = true across all languages the learner studies "
                     "(native language, why they're learning, other languages, "
                     "broad preferences). language = specific to the current "
                     "language (proficiency, a recurring error pattern, a topic "
-                    "covered)."
+                    "covered). focus_add = put a grammar structure on the "
+                    "Active Focus list (key = the structure's name, value = "
+                    "why it needs focused work; max 5 — retire something "
+                    "first if full). focus_retire = remove a mastered "
+                    "structure (key = its name, value = evidence of mastery)."
                 ),
             },
             "key": {
@@ -283,6 +299,7 @@ def build_system_blocks(
     language_profile: dict | None = None,
     session_summary: str | None = None,
     study_stats: dict | None = None,
+    mode: str = "practice",
 ) -> list[dict[str, Any]]:
     """Build the system prompt blocks for a tutor conversation.
 
@@ -305,6 +322,11 @@ def build_system_blocks(
             "text": _format_memory(
                 user_profile, language_profile, session_summary,
                 weak_areas, study_stats,
+            )
+            + (
+                "\n\nMODE: the learner flagged this as a REFERENCE question — "
+                "answer it directly; no drills, no memory writes."
+                if mode == "reference" else ""
             ),
         },
     ]
@@ -350,6 +372,23 @@ def merge_remembered(
         key = note.get("key")
         value = note.get("value")
         if not key or value is None:
+            continue
+        if scope in ("focus_add", "focus_retire"):
+            # WP18b: the Active Focus list — a bounded, tutor-managed set of
+            # grammar structures under deliberate work (≈ the owner's 📍
+            # "Active Focus" in claude_grammar.md). Bounded FIFO at 5.
+            focus = [
+                f for f in lang.get("_active_focus") or []
+                if isinstance(f, dict) and f.get("structure")
+            ]
+            if scope == "focus_add":
+                focus = [f for f in focus if f["structure"] != key]
+                focus.append({"structure": key, "reason": value})
+                lang["_active_focus"] = focus[-5:]
+            else:
+                lang["_active_focus"] = [
+                    f for f in focus if f["structure"] != key
+                ]
             continue
         target = user if scope == "global" else lang
         existing = target.get(key)
@@ -471,6 +510,7 @@ async def tutor_chat(
     session_summary: str | None = None,
     study_stats: dict | None = None,
     model: str | None = None,
+    mode: str = "practice",
 ) -> tuple[str, list[dict], dict[str, int]]:
     """Run one tutor turn.
 
@@ -493,7 +533,7 @@ async def tutor_chat(
     client = AsyncAnthropic(api_key=settings.anthropic_api_key)
     system = build_system_blocks(
         language_code, weak_areas, user_profile, language_profile,
-        session_summary, study_stats,
+        session_summary, study_stats, mode=mode,
     )
     convo: list[dict[str, Any]] = list(history)
     remembered: list[dict] = []
@@ -547,6 +587,7 @@ async def tutor_chat_stream(
     session_summary: str | None = None,
     study_stats: dict | None = None,
     model: str | None = None,
+    mode: str = "practice",
 ):
     """Streaming twin of tutor_chat (WP9d). Yields event dicts:
 
@@ -579,7 +620,7 @@ async def tutor_chat_stream(
     client = AsyncAnthropic(api_key=settings.anthropic_api_key)
     system = build_system_blocks(
         language_code, weak_areas, user_profile, language_profile,
-        session_summary, study_stats,
+        session_summary, study_stats, mode=mode,
     )
     convo: list[dict[str, Any]] = list(history)
     remembered: list[dict] = []
@@ -668,6 +709,7 @@ async def summarize_session(
     user_profile: dict | None = None,
     language_profile: dict | None = None,
     prior_summary: str | None = None,
+    recent_sessions: list[str] | None = None,
 ) -> dict:
     """Post-session memory extraction on a cheaper model.
 
@@ -717,6 +759,9 @@ async def summarize_session(
         "current_user_profile": user_profile or {},
         "current_language_profile": language_profile or {},
         "prior_summary": prior_summary or "",
+        # WP18a: the last few APPEND-ONLY session summaries, so long-term
+        # continuity survives the rolling summary being rewritten.
+        "recent_sessions": recent_sessions or [],
     }
 
     client = AsyncAnthropic(api_key=settings.anthropic_api_key)

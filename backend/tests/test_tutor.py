@@ -169,6 +169,11 @@ class TestBuildSystemBlocks:
     def test_no_data_prompts_diagnostic(self):
         assert "diagnostic" in build_system_blocks("sw", [])[1]["text"].lower()
 
+    def test_reference_mode_flags_the_volatile_block(self):
+        text = build_system_blocks("tr", [], mode="reference")[1]["text"]
+        assert "REFERENCE question" in text
+        assert "no memory writes" in text
+
     def test_unknown_language_raises(self):
         with pytest.raises(ValueError):
             build_system_blocks("zz", [])
@@ -304,6 +309,49 @@ class TestMergeRemembered:
             {}, {}, [{"scope": "global", "key": None, "value": "x"}]
         )
         assert user == {} and lang == {}
+
+
+class TestActiveFocus:
+    """WP18b: the tutor-managed Active Focus list in the language profile."""
+
+    def test_focus_add_and_retire(self):
+        user, lang = merge_remembered({}, {}, [
+            {"scope": "focus_add", "key": "Locative case",
+             "value": "confuses -de/-da"},
+            {"scope": "focus_add", "key": "Vowel harmony",
+             "value": "suffix selection"},
+        ])
+        assert [f["structure"] for f in lang["_active_focus"]] == [
+            "Locative case", "Vowel harmony",
+        ]
+        assert user == {}  # focus never leaks into the global profile
+
+        _, lang2 = merge_remembered({}, lang, [
+            {"scope": "focus_retire", "key": "Locative case",
+             "value": "produced reliably across 3 sessions"},
+        ])
+        assert [f["structure"] for f in lang2["_active_focus"]] == [
+            "Vowel harmony",
+        ]
+
+    def test_focus_bounded_at_five_fifo(self):
+        notes = [
+            {"scope": "focus_add", "key": f"S{i}", "value": "r"}
+            for i in range(7)
+        ]
+        _, lang = merge_remembered({}, {}, notes)
+        assert [f["structure"] for f in lang["_active_focus"]] == [
+            "S2", "S3", "S4", "S5", "S6",
+        ]
+
+    def test_focus_re_add_updates_reason_without_duplicating(self):
+        _, lang = merge_remembered({}, {}, [
+            {"scope": "focus_add", "key": "Aspect", "value": "old reason"},
+            {"scope": "focus_add", "key": "Aspect", "value": "new reason"},
+        ])
+        assert lang["_active_focus"] == [
+            {"structure": "Aspect", "reason": "new reason"},
+        ]
 
 
 # ---------------------------------------------------------------------------
@@ -543,6 +591,30 @@ class TestTutorChatEndpoint:
         assert detail["tier"] == "granted"
         assert detail["limit"] == 10
 
+    def test_reference_mode_never_writes_memory(self, client):
+        # WP18c: even if the model calls `remember` on a reference question,
+        # nothing is persisted.
+        p1, p2, p3, p4 = _patch_chat_repos()
+        remembered = [{"scope": "global", "key": "x", "value": "y"}]
+        with p1, p2, p3, p4, patch(
+            "backend.routers.tutor.tutor_chat",
+            new=AsyncMock(return_value=("answer", remembered, _SOME_USAGE)),
+        ) as mock_chat, patch(
+            "backend.routers.tutor.upsert_user_profile", new=AsyncMock(),
+        ) as mock_user, patch(
+            "backend.routers.tutor.upsert_language_profile", new=AsyncMock(),
+        ) as mock_lang:
+            resp = client.post(
+                "/api/tutor/chat",
+                json=_chat_body(mode="reference"),
+                headers=_auth_headers(),
+            )
+        assert resp.status_code == 200
+        assert resp.json()["remembered"] == 0
+        mock_user.assert_not_awaited()
+        mock_lang.assert_not_awaited()
+        assert mock_chat.await_args.kwargs["mode"] == "reference"
+
     def test_unconfigured_key_503(self, client):
         unconfigured = FakeSettings()
         unconfigured.anthropic_api_key = ""
@@ -706,6 +778,57 @@ class TestSessionEndEndpoint:
         assert mock_log.await_args.kwargs["usage"] == _SOME_USAGE
         # billed to the summarizer model, not the chat model
         assert mock_log.await_args.args[3] == "claude-sonnet-4-6"
+
+
+class TestSessionLog:
+    """WP18a: the append-only practice log."""
+
+    def test_end_session_appends_a_log_row(self, client):
+        summary = {"user_profile_updates": {}, "language_profile_updates": {},
+                   "session_summary": "Drilled the locative.", "usage": _SOME_USAGE}
+        with patch("backend.routers.tutor.get_user_profile",
+                   new=AsyncMock(return_value={})), \
+             patch("backend.routers.tutor.get_language_profile",
+                   new=AsyncMock(return_value={"profile": {}, "session_summary": ""})), \
+             patch("backend.routers.tutor.list_tutor_sessions",
+                   new=AsyncMock(return_value=[{"summary": "prior session"}])), \
+             patch("backend.routers.tutor.summarize_session",
+                   new=AsyncMock(return_value=summary)) as mock_sum, \
+             patch("backend.routers.tutor.upsert_user_profile", new=AsyncMock()), \
+             patch("backend.routers.tutor.upsert_language_profile", new=AsyncMock()), \
+             patch("backend.routers.tutor.log_tutor_usage", new=AsyncMock()), \
+             patch("backend.routers.tutor.log_tutor_session",
+                   new=AsyncMock()) as mock_log:
+            resp = client.post(
+                "/api/tutor/session/end",
+                json={"language_id": TEST_LANGUAGE_ID, "language_code": "tr",
+                      "messages": [
+                          {"role": "user", "content": "hi"},
+                          {"role": "assistant", "content": "merhaba"},
+                          {"role": "user", "content": "drill me"},
+                      ]},
+                headers=_auth_headers(),
+            )
+        assert resp.status_code == 200
+        # The summarizer received the recent-session continuity context...
+        assert mock_sum.await_args.kwargs["recent_sessions"] == ["prior session"]
+        # ...and one immutable row was appended with the user-turn count.
+        args = mock_log.await_args
+        assert args.args[2:] == (TEST_LANGUAGE_ID, "Drilled the locative.")
+        assert args.kwargs["message_count"] == 2
+
+    def test_history_endpoint_lists_sessions(self, client):
+        rows = [{"id": "s1", "summary": "x", "message_count": 3,
+                 "created_at": "2026-07-16T00:00:00"}]
+        with patch("backend.routers.tutor.list_tutor_sessions",
+                   new=AsyncMock(return_value=rows)):
+            resp = client.get(
+                "/api/tutor/sessions",
+                params={"language_id": TEST_LANGUAGE_ID},
+                headers=_auth_headers(),
+            )
+        assert resp.status_code == 200
+        assert resp.json()["sessions"] == rows
 
 
 class TestTutorStatus:
