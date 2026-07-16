@@ -11,6 +11,10 @@ export type KeyboardLanguage =
 interface OnScreenKeyboardProps {
   languageCode: KeyboardLanguage
   onKeyPress: (key: string) => void
+  /** The keyboard's enter key — submit the answer. */
+  onEnter?: () => void
+  /** The keyboard's backspace key — delete before the cursor. */
+  onBackspace?: () => void
   inputRef?: React.RefObject<HTMLInputElement | null>
 }
 
@@ -63,13 +67,32 @@ const LAYOUTS: Record<string, { default: string[] } | { [k: string]: string[] }>
   mi: withAccents('ā ē ī ō ū'),
 }
 
-export default function OnScreenKeyboard({ languageCode, onKeyPress }: OnScreenKeyboardProps) {
+export default function OnScreenKeyboard({
+  languageCode,
+  onKeyPress,
+  onEnter,
+  onBackspace,
+}: OnScreenKeyboardProps) {
   const layout = LAYOUTS[languageCode] ?? russianLayout.layout
 
   const handleKeyPress = (button: string) => {
-    // Filter out special function keys
-    if (button.startsWith('{') && button.endsWith('}')) {
+    // Special keys act, not insert. Everything else previously included
+    // enter and backspace being silently swallowed — Russian/Arabic
+    // learners literally could not submit from this keyboard.
+    if (button === '{enter}') {
+      onEnter?.()
       return
+    }
+    if (button === '{bksp}') {
+      onBackspace?.()
+      return
+    }
+    if (button === '{space}') {
+      onKeyPress(' ')
+      return
+    }
+    if (button.startsWith('{') && button.endsWith('}')) {
+      return // shift/caps/tab: inert on purpose (answers are lowercase)
     }
     onKeyPress(button)
   }

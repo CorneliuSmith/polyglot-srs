@@ -17,6 +17,7 @@ import OnboardingPage from './features/onboarding/OnboardingPage'
 import SettingsPage from './features/settings/SettingsPage'
 import GrammarPathPage from './features/curriculum/GrammarPathPage'
 import ContributorPage from './features/contribute/ContributorPage'
+import ErrorScreen from './components/ErrorScreen'
 import SearchPage from './features/search/SearchPage'
 import DecksPage from './features/decks/DecksPage'
 import DeckDetailPage from './features/decks/DeckDetailPage'
@@ -42,14 +43,17 @@ const router = createBrowserRouter([
   {
     path: '/login',
     element: <LoginPage />,
+    errorElement: <ErrorScreen />,
   },
   {
     // Public: the recovery email link lands here with a fresh session.
     path: '/reset-password',
     element: <ResetPasswordPage />,
+    errorElement: <ErrorScreen />,
   },
   {
     element: <ProtectedRoute />,
+    errorElement: <ErrorScreen />,
     children: [
       { path: '/', element: <DashboardPage /> },
       { path: '/onboarding', element: <OnboardingPage /> },

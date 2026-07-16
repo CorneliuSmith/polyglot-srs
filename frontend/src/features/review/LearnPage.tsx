@@ -68,24 +68,6 @@ export default function LearnPage() {
     },
   })
 
-  if (learnQuery.isError) {
-    return (
-      <div className="min-h-screen bg-gray-50 flex items-center justify-center px-4">
-        <div className="text-center space-y-4">
-          <p className="text-xl text-red-600">Failed to load new items.</p>
-          <p className="text-sm text-gray-500">Please try again later.</p>
-          <button
-            type="button"
-            onClick={() => navigate('/')}
-            className="text-lang hover:underline text-sm"
-          >
-            ← Back to Dashboard
-          </button>
-        </div>
-      </div>
-    )
-  }
-
   // Enter advances once the lesson's check is passed (or the lesson has no
   // check): the answer input is disabled at that point, so a document-level
   // listener keeps the keyboard flow going — answer with Enter, continue
@@ -112,6 +94,24 @@ export default function LearnPage() {
     return () => document.removeEventListener('keydown', onKeyDown)
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [learnQuery.data, lessonIndex, passedCards])
+
+  if (learnQuery.isError) {
+    return (
+      <div className="min-h-screen bg-gray-50 flex items-center justify-center px-4">
+        <div className="text-center space-y-4">
+          <p className="text-xl text-red-600">Failed to load new items.</p>
+          <p className="text-sm text-gray-500">Please try again later.</p>
+          <button
+            type="button"
+            onClick={() => navigate('/')}
+            className="text-lang hover:underline text-sm"
+          >
+            ← Back to Dashboard
+          </button>
+        </div>
+      </div>
+    )
+  }
 
   if (!learnQuery.isSuccess) {
     return (

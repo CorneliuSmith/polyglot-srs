@@ -190,6 +190,14 @@ describe('LearnPage (teach-before-quiz)', () => {
     await waitFor(() => expect(mockLearn).toHaveBeenCalledWith('lang-es', 'vocabulary', undefined))
   })
 
+  it('renders the error state without crashing (hooks precede returns)', async () => {
+    // React #300 regression: the Enter-advance effect must run on EVERY
+    // render, including the isError one — a beta tester hit the crash live.
+    mockLearn.mockRejectedValue(new Error('boom'))
+    renderPage()
+    expect(await screen.findByText(/could not prepare|went wrong|try again/i)).toBeDefined()
+  })
+
   it('explains when there is nothing new to learn', async () => {
     mockLearn.mockResolvedValue({ added: 0, items: [], lessons: [] })
     renderPage()
