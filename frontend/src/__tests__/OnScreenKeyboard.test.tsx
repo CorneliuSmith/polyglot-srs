@@ -7,6 +7,9 @@ vi.mock('react-simple-keyboard', () => ({
     <div data-testid="keyboard-mock">
       <button type="button" onClick={() => onKeyPress('а')}>а</button>
       <button type="button" onClick={() => onKeyPress('ب')}>ب</button>
+      <button type="button" onClick={() => onKeyPress('{enter}')}>enter</button>
+      <button type="button" onClick={() => onKeyPress('{bksp}')}>bksp</button>
+      <button type="button" onClick={() => onKeyPress('{space}')}>space</button>
     </div>
   ),
 }))
@@ -55,5 +58,29 @@ describe('OnScreenKeyboard', () => {
     const keyBtn = screen.getByText('ب')
     keyBtn.click()
     expect(onKeyPress).toHaveBeenCalledWith('ب')
+  })
+
+  it('enter submits and backspace deletes instead of being swallowed', () => {
+    // Regression: special keys were filtered out entirely — Russian and
+    // Arabic learners could not submit from the on-screen keyboard.
+    const onKeyPress = vi.fn()
+    const onEnter = vi.fn()
+    const onBackspace = vi.fn()
+    render(
+      <OnScreenKeyboard
+        languageCode="ru"
+        onKeyPress={onKeyPress}
+        onEnter={onEnter}
+        onBackspace={onBackspace}
+      />,
+    )
+    screen.getByText('enter').click()
+    screen.getByText('bksp').click()
+    screen.getByText('space').click()
+    expect(onEnter).toHaveBeenCalledTimes(1)
+    expect(onBackspace).toHaveBeenCalledTimes(1)
+    expect(onKeyPress).toHaveBeenCalledWith(' ')
+    expect(onKeyPress).not.toHaveBeenCalledWith('{enter}')
+    expect(onKeyPress).not.toHaveBeenCalledWith('{bksp}')
   })
 })

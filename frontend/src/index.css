@@ -97,3 +97,12 @@
 .dark .text-lang-dark {
   color: color-mix(in srgb, var(--lang-primary-dark) 40%, white);
 }
+
+/* iOS notch / home-screen mode: keep content out from under the status
+   bar and home indicator. env() resolves to 0 in normal browsers. */
+body {
+  padding-top: env(safe-area-inset-top);
+  padding-bottom: env(safe-area-inset-bottom);
+  padding-left: env(safe-area-inset-left);
+  padding-right: env(safe-area-inset-right);
+}

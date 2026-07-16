@@ -174,6 +174,23 @@ export default function ReviewSessionPage({ cram = false }: { cram?: boolean }) 
     })
   }
 
+  const handleKeyboardBackspace = () => {
+    const input = inputRef.current
+    if (!input) {
+      setUserInput((prev) => prev.slice(0, -1))
+      return
+    }
+    const start = input.selectionStart ?? input.value.length
+    const end = input.selectionEnd ?? input.value.length
+    // Delete the selection, or the character before the caret.
+    const from = start === end ? Math.max(0, start - 1) : start
+    setUserInput(input.value.slice(0, from) + input.value.slice(end))
+    requestAnimationFrame(() => {
+      input.focus()
+      input.setSelectionRange(from, from)
+    })
+  }
+
   if (isLoading || cards === null) {
     return (
       <div className="min-h-screen bg-gray-50 flex items-center justify-center">
@@ -415,6 +432,8 @@ export default function ReviewSessionPage({ cram = false }: { cram?: boolean }) 
               <OnScreenKeyboard
                 languageCode={card.language_code as KeyboardLanguage}
                 onKeyPress={handleKeyboardKeyPress}
+                onEnter={handleSubmitAnswer}
+                onBackspace={handleKeyboardBackspace}
                 inputRef={inputRef}
               />
             )}
