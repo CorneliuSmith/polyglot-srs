@@ -187,6 +187,7 @@ export default function DashboardPage() {
   const queryClient = useQueryClient()
   const activeLanguageId = usePrefsStore((s) => s.activeLanguageId)
   const [learnOpen, setLearnOpen] = useState(false)
+  const [reviewOpen, setReviewOpen] = useState(false)
 
   // First-run users are routed into onboarding before they can study.
   const { data: onboarding, isLoading: onboardingLoading } = useQuery({
@@ -245,6 +246,18 @@ export default function DashboardPage() {
     navigate('/review')
   }
 
+  // The Learn tile STARTS a session — the next queued deck with items left,
+  // in deck order (Bunpro's learn-queue behavior). With nothing queued it
+  // opens the deck panel instead, so the learner can add one.
+  const handleLearnStart = () => {
+    const next = visibleDecks.find((d) => d.subscribed && d.learned < d.total)
+    if (next) {
+      void handleLearnDeck(next)
+    } else {
+      setLearnOpen(true)
+    }
+  }
+
   if (!onboardingLoading && onboarding && !onboarding.onboarded) {
     return <Navigate to="/onboarding" replace />
   }
@@ -299,37 +312,77 @@ export default function DashboardPage() {
           </div>
         ) : (
           <div className="space-y-3">
+            {/* Bunpro-style tiles: the big button STARTS the session, the
+                chevron beside it expands options (decks / type filters). */}
             <div className="grid grid-cols-2 gap-4">
-              <button
-                type="button"
-                onClick={() => setLearnOpen((v) => !v)}
-                disabled={!activeLanguageId}
-                className="rounded-2xl bg-lang-dark hover:opacity-90 disabled:opacity-50 text-white p-5 text-left transition-opacity"
-                style={{ minHeight: '44px' }}
-              >
-                <span className="block text-sm font-semibold uppercase tracking-wide text-white/70">
-                  Learn
-                </span>
-                <span className="block text-3xl font-bold mt-1">
-                  {newAvailable}
-                </span>
-                <span className="block text-xs text-white/60 mt-1">
-                  new items available {learnOpen ? '▴' : '▾'}
-                </span>
-              </button>
-              <button
-                type="button"
-                onClick={handleReview}
-                disabled={stats.due_count === 0}
-                className="rounded-2xl bg-lang hover:bg-lang-dark disabled:opacity-50 text-lang-on p-5 text-left transition-colors"
-                style={{ minHeight: '44px' }}
-              >
-                <span className="block text-sm font-semibold uppercase tracking-wide text-lang-on/70">
-                  Review
-                </span>
-                <span className="block text-3xl font-bold mt-1">{stats.due_count}</span>
-                <span className="block text-xs text-lang-on/70 mt-1">cards due now</span>
-              </button>
+              <div className="rounded-2xl bg-lang-dark text-white p-3 flex items-stretch gap-2">
+                <button
+                  type="button"
+                  onClick={handleLearnStart}
+                  disabled={!activeLanguageId}
+                  title="Start learning new items from your queue"
+                  className="flex-1 min-w-0 text-left rounded-xl hover:bg-white/10 disabled:opacity-50 p-2 transition-colors"
+                  style={{ minHeight: '44px' }}
+                >
+                  <span className="block text-sm font-semibold uppercase tracking-wide text-white/70">
+                    Learn
+                  </span>
+                  <span className="block text-3xl font-bold mt-1">{newAvailable}</span>
+                  <span className="block text-xs text-white/60 mt-1">new items queued</span>
+                </button>
+                <button
+                  type="button"
+                  onClick={() => setLearnOpen((v) => !v)}
+                  aria-expanded={learnOpen}
+                  aria-label="Learn queue decks"
+                  title="Choose and manage your learn decks"
+                  className={`self-center rounded-xl border border-white/25 px-2.5 py-2 text-sm transition-colors ${
+                    learnOpen ? 'bg-white/20' : 'hover:bg-white/10'
+                  }`}
+                  style={{ minHeight: '44px' }}
+                >
+                  <span
+                    aria-hidden
+                    className={`inline-block transition-transform ${learnOpen ? 'rotate-180' : ''}`}
+                  >
+                    ⌄
+                  </span>
+                </button>
+              </div>
+              <div className="rounded-2xl bg-lang text-lang-on p-3 flex items-stretch gap-2">
+                <button
+                  type="button"
+                  onClick={handleReview}
+                  disabled={stats.due_count === 0}
+                  title="Review everything that's due"
+                  className="flex-1 min-w-0 text-left rounded-xl hover:bg-black/10 disabled:opacity-50 p-2 transition-colors"
+                  style={{ minHeight: '44px' }}
+                >
+                  <span className="block text-sm font-semibold uppercase tracking-wide text-lang-on/70">
+                    Review
+                  </span>
+                  <span className="block text-3xl font-bold mt-1">{stats.due_count}</span>
+                  <span className="block text-xs text-lang-on/70 mt-1">all reviews</span>
+                </button>
+                <button
+                  type="button"
+                  onClick={() => setReviewOpen((v) => !v)}
+                  aria-expanded={reviewOpen}
+                  aria-label="Review options"
+                  title="Grammar-only or vocab-only reviews"
+                  className={`self-center rounded-xl border border-lang-on/25 px-2.5 py-2 text-sm transition-colors ${
+                    reviewOpen ? 'bg-black/15' : 'hover:bg-black/10'
+                  }`}
+                  style={{ minHeight: '44px' }}
+                >
+                  <span
+                    aria-hidden
+                    className={`inline-block transition-transform ${reviewOpen ? 'rotate-180' : ''}`}
+                  >
+                    ⌄
+                  </span>
+                </button>
+              </div>
             </div>
 
             {/* Deck sections (like Bunpro's Learn Queue Decks) */}
@@ -344,6 +397,35 @@ export default function DashboardPage() {
                     <DeckRow key={deck.id} deck={deck} onLearn={handleLearnDeck} />
                   ))
                 )}
+              </div>
+            )}
+
+            {/* Review type filters (like Bunpro's Grammar Only / Vocab Only) */}
+            {reviewOpen && (
+              <div
+                className="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden"
+                data-testid="review-options"
+              >
+                {(
+                  [
+                    { label: 'Grammar Only', count: stats.due_grammar ?? 0, type: 'grammar' },
+                    { label: 'Vocab Only', count: stats.due_vocab ?? 0, type: 'vocabulary' },
+                  ] as const
+                ).map((row) => (
+                  <button
+                    key={row.type}
+                    type="button"
+                    onClick={() => navigate(`/review?type=${row.type}`)}
+                    disabled={row.count === 0}
+                    className="w-full flex items-center justify-between px-4 py-3 text-sm font-medium text-gray-800 hover:bg-gray-50 disabled:opacity-40 border-t border-gray-100 first:border-t-0"
+                    style={{ minHeight: '44px' }}
+                  >
+                    <span>{row.label}</span>
+                    <span className="tabular-nums text-xs bg-lang-soft text-lang rounded-lg px-2.5 py-1">
+                      {row.count}
+                    </span>
+                  </button>
+                ))}
               </div>
             )}
 

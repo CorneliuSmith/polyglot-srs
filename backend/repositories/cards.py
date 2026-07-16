@@ -39,6 +39,7 @@ async def get_due_cards(
     language_id: str,
     limit: int = 20,
     support_locale: str | None = None,
+    card_type: str | None = None,
 ) -> list[dict]:
     """Return due cards for the authenticated user with full card content.
 
@@ -57,8 +58,14 @@ async def get_due_cards(
     *support_locale* localizes ENGLISH cards ("learning English from X"):
     definitions prefer that locale (falling back to the English definition)
     and example sentences are the ones whose translation is in that locale.
+
+    *card_type* scopes the session ("Grammar Only" / "Vocab Only" reviews):
+    'grammar' returns grammar drills alone; 'vocabulary' returns vocabulary
+    plus personal cloze cards (the learner's own words live with vocab).
     """
     eff_locale = await _effective_locale(conn, language_id, support_locale)
+    want_vocab = card_type in (None, "vocabulary")
+    want_grammar = card_type in (None, "grammar")
     # -- Vocabulary cards ---------------------------------------------------
     # Teach the word in context: a real example sentence with the word blanked
     # out (cloze), with its translation as a hint. All of the word's sentences
@@ -66,7 +73,7 @@ async def get_due_cards(
     # shown last time (review_log.prompt_sentence) — so the learner practices
     # the word, not one memorized string. Falls back to the plain
     # definition -> type-the-word prompt when no sentence works.
-    vocab_rows = await conn.fetch(
+    vocab_rows = [] if not want_vocab else await conn.fetch(
         """
         SELECT
             uc.id,
@@ -133,7 +140,7 @@ async def get_due_cards(
     # -- Grammar cards -------------------------------------------------------
     # Fill-in-the-blank drills. All of a point's drills are fetched and each
     # appearance shows one at random, never the last-shown (same as vocab).
-    grammar_rows = await conn.fetch(
+    grammar_rows = [] if not want_grammar else await conn.fetch(
         """
         SELECT
             uc.id,
@@ -197,7 +204,7 @@ async def get_due_cards(
     )
 
     # -- Personal cloze cards (learner's own text) --------------------------
-    personal_rows = await conn.fetch(
+    personal_rows = [] if not want_vocab else await conn.fetch(
         """
         SELECT
             uc.id,

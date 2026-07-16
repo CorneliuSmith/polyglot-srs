@@ -28,6 +28,10 @@ export default function ReviewSessionPage({ cram = false }: { cram?: boolean }) 
   const queryClient = useQueryClient()
   const [searchParams] = useSearchParams()
   const cramPoints = cram ? (searchParams.get('points') ?? '') : ''
+  // Grammar Only / Vocab Only sessions (dashboard Review tile expansion).
+  const typeParam = searchParams.get('type')
+  const reviewType =
+    typeParam === 'grammar' || typeParam === 'vocabulary' ? typeParam : undefined
   const activeLanguageId = usePrefsStore((s) => s.activeLanguageId)
   const [userInput, setUserInput] = useState('')
   const [lastInput, setLastInput] = useState('')
@@ -52,8 +56,8 @@ export default function ReviewSessionPage({ cram = false }: { cram?: boolean }) 
           refetchOnWindowFocus: false,
         }
       : {
-          queryKey: ['due-cards', activeLanguageId, sessionSize],
-          queryFn: () => getDueCards(activeLanguageId!, sessionSize),
+          queryKey: ['due-cards', activeLanguageId, sessionSize, reviewType ?? 'all'],
+          queryFn: () => getDueCards(activeLanguageId!, sessionSize, reviewType),
           enabled: !!activeLanguageId,
           // A live session must never see its deck change under it, and a
           // NEW session must never flash the previous one's cached cards:

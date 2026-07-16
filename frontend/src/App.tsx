@@ -17,6 +17,7 @@ import OnboardingPage from './features/onboarding/OnboardingPage'
 import SettingsPage from './features/settings/SettingsPage'
 import GrammarPathPage from './features/curriculum/GrammarPathPage'
 import ContributorPage from './features/contribute/ContributorPage'
+import TermsPage from './features/legal/TermsPage'
 import ErrorScreen from './components/ErrorScreen'
 import SearchPage from './features/search/SearchPage'
 import DecksPage from './features/decks/DecksPage'
@@ -49,6 +50,12 @@ const router = createBrowserRouter([
     // Public: the recovery email link lands here with a fresh session.
     path: '/reset-password',
     element: <ResetPasswordPage />,
+    errorElement: <ErrorScreen />,
+  },
+  {
+    // Public: readable before signing up.
+    path: '/terms',
+    element: <TermsPage />,
     errorElement: <ErrorScreen />,
   },
   {

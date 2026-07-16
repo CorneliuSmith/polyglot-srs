@@ -254,6 +254,14 @@ export default function LoginPage() {
         </button>
         </>
         )}
+
+        <p className="mt-6 text-center text-xs text-gray-400">
+          By using PolyglotSRS you agree to the{' '}
+          <a href="/terms" className="text-lang hover:underline">
+            Terms of Service
+          </a>
+          .
+        </p>
       </div>
     </div>
   )
