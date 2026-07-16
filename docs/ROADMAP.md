@@ -833,6 +833,46 @@ self-certified — §3b); (b) apply the migration + reseed en when the
 freeze lifts. **Model:** draft `claude-sonnet-5`, verify per-locale
 reviewer. **Effort:** M.
 
+### WP18 — Tutor memory parity with the owner's Obsidian workflow
+**Spec source:** the owner's Obsidian language-learning system
+(https://gist.github.com/CorneliuSmith/127de0fa43274523bc28647c5d38b01b) —
+the tutors were always meant to work like it. What already maps: the
+learner/language profiles + rolling summary ≈ claude_context.md; SRS
+weak-area grounding ≈ the 🔴/🟡 flags (computed from review telemetry,
+stronger than hand-flagging); the `remember` tool ≈ mid-session capture;
+the end-of-session summarizer ≈ session-closure file writes; the
+pre-turn grounding ≈ "check all tracking files before engaging."
+**Gaps to close, in order:**
+(a) **Session log (≈ claude_practice.md).** New `tutor_sessions` table:
+one APPEND-ONLY row per ended session (language, started/ended, summary,
+message count, weak items drilled). The rolling summary stays as "current
+state" but the summarizer also writes the per-session row, and its prompt
+gains the last N session summaries as context so continuity stops washing
+out. Surface a "Past sessions" list in the tutor UI. Effort: S.
+(b) **Active Focus (≈ claude_grammar.md's 📍 list).** A structured,
+tutor-managed focus list per language: extend the `remember` tool with
+`focus_add` / `focus_retire` scopes writing to a bounded list (≤5 items,
+each {structure, reason, added_at}) in the language profile; charter
+instructs the tutor to open sessions from the focus list, drill it, and
+retire items when mastered (retirements land in the session log). Show
+the list as chips in the tutor UI. Effort: S.
+(c) **Mode awareness.** The gist's practice/reference distinction: a
+lightweight mode hint on /chat (client sends mode; charter: reference
+questions get answers WITHOUT logging weak-item drilling or profile
+writes — no `remember`, session/end skips the summarizer when the whole
+session was reference). Resource-processing mode stays out of scope for
+the tutor (the notes→cloze feature is its home). Effort: S.
+(d) **Media library (≈ claude_media.md).** Per-language native-content
+library with the gist's comprehension tiers (Tier 1: 75–85%, Tier 2:
+60–75%, Tier 3: 45–60%): content rows (title, url, kind, level tags),
+per-user tier placement estimated from vocab coverage against the item's
+word list, tutor recommendations pulled from the learner's current tier
+("watch X, you know ~80% of its vocabulary"). This is real product
+surface (curation + coverage computation) — own migration, seeder,
+browse UI. Effort: M–L; do (a)–(c) first.
+**Model:** implementation `claude-sonnet-5`; charter tuning + coverage
+heuristics `claude-opus-4-8`+. **Never store secrets in tutor memory.**
+
 ## 6. Model selection guide
 
 | Task type | Model | Why |
