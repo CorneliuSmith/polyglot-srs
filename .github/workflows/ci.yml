@@ -49,7 +49,7 @@ jobs:
           # gracefully and their tests skip, so they aren't needed in CI.
           pip install fastapi "uvicorn[standard]" pydantic pydantic-settings \
             asyncpg PyJWT cryptography httpx anthropic redis pymorphy3 cyrtranslit \
-            lemminflect nltk numpy scipy stripe ruff pytest pytest-asyncio cffi
+            lemminflect nltk numpy scipy stripe sentry-sdk ruff pytest pytest-asyncio cffi
       - name: Download NLTK WordNet (English seeder)
         run: python -m nltk.downloader -q wordnet omw-1.4
       - name: Ruff
