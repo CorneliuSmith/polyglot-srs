@@ -46,10 +46,12 @@ export default function StageTiles({
           ))}
         </div>
       </div>
-      <div className="grid grid-cols-5 gap-2">
+      {/* 3-up on phones (5-up squeezed "SEASONED" into ~64px — beta
+          screenshot 2026-07-17), 5-up from md. */}
+      <div className="grid grid-cols-3 md:grid-cols-5 gap-2">
         {MAIN_STAGES.map((s) => (
-          <div key={s.key} className={`rounded-xl p-3 ${s.tone}`}>
-            <span className="block text-[10px] uppercase tracking-wide opacity-80">
+          <div key={s.key} className={`rounded-xl p-3 min-w-0 ${s.tone}`}>
+            <span className="block text-[10px] uppercase tracking-wide opacity-80 truncate">
               {s.label}
             </span>
             <span className="block text-xl font-bold tabular-nums">
