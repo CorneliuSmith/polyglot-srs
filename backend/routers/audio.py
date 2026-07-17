@@ -71,6 +71,14 @@ async def _text_is_ours(conn, language_code: str, text: str) -> bool:
             WHERE l.code = $1
               AND (cc.sentence = $2
                    OR REPLACE(cc.sentence, '{{answer}}', cc.answer) = $2)
+        ) OR EXISTS(
+            -- WP21: sentences from the learner's own generated readings
+            -- (RLS scopes rows to the caller).
+            SELECT 1
+            FROM readings r
+            JOIN languages l ON r.language_id = l.id,
+            LATERAL jsonb_array_elements(r.content->'sentences') AS s
+            WHERE l.code = $1 AND s->>'text' = $2
         )
         """,
         language_code, text,
