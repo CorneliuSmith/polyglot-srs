@@ -17,7 +17,8 @@ async def main():
     parser.add_argument(
         "--language", "-l",
         choices=["ru", "ar", "en", "sw", "tr", "yo", "ha", "xh",
-                 "es", "it", "fr", "de", "ca", "mi", "ro", "el", "pt", "all"],
+                 "es", "it", "fr", "de", "ca", "mi", "ro", "el", "pt", "hi",
+                 "jam", "all"],
         default="all",
         help="Language to seed (default: all)",
     )
@@ -100,6 +101,12 @@ async def main():
     if args.language in ("xh", "all"):
         from .seed_xhosa import XhosaSeeder
         seeders.append(XhosaSeeder(args.db_url))
+    if args.language in ("hi", "all"):
+        from .seed_hindi import HindiSeeder
+        seeders.append(HindiSeeder(args.db_url))
+    if args.language in ("jam", "all"):
+        from .seed_jamaican import JamaicanSeeder
+        seeders.append(JamaicanSeeder(args.db_url))
     from .seed_latin import SEEDERS as LATIN_SEEDERS
     for code, seeder_cls in LATIN_SEEDERS.items():
         if args.language in (code, "all"):

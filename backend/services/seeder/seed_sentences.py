@@ -31,7 +31,16 @@ SENTENCES_DIR = DATA_DIR / "sentences"
 logger = logging.getLogger("seed_sentences")
 
 
-async def _seed_file(conn, lang_id, path, source: str, license_: str) -> int:
+async def _seed_file(
+    conn, lang_id, path, source: str, license_: str, code: str = "",
+) -> int:
+    # Hindi rides the transliteration hint layer (like ru/ar/el): when the
+    # TSV carries no romanization, compute one from the Devanagari.
+    romanize = None
+    if code == "hi":
+        from backend.services.nlp.hindi import devanagari_to_roman
+        romanize = devanagari_to_roman
+
     count = 0
     with open(path, encoding="utf-8") as f:
         for row in csv.DictReader(f, delimiter="\t"):
@@ -54,13 +63,15 @@ async def _seed_file(conn, lang_id, path, source: str, license_: str) -> int:
                     (language_id, vocabulary_id, sentence, translation,
                      difficulty_rank, source, license, gloss, transliteration)
                 VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9)
-                ON CONFLICT (vocabulary_id, sentence) DO NOTHING
+                ON CONFLICT (vocabulary_id, sentence, translation_locale)
+                    DO NOTHING
                 """,
                 lang_id, vocab_id, sentence,
                 (row.get("translation") or "").strip() or None,
                 rank, source, license_,
                 (row.get("gloss") or "").strip() or None,
-                (row.get("transliteration") or "").strip() or None,
+                (row.get("transliteration") or "").strip()
+                or (romanize(sentence) if romanize else None),
             )
             if result.endswith(" 1"):
                 count += 1
@@ -81,10 +92,12 @@ async def seed(db_url: str, code: str) -> int:
             raise ValueError(f"language '{code}' not found")
         count = 0
         if curated.exists():
-            count += await _seed_file(conn, lang_id, curated, "curated", "curated")
+            count += await _seed_file(
+                conn, lang_id, curated, "curated", "curated", code
+            )
         if pipeline.exists():
             count += await _seed_file(
-                conn, lang_id, pipeline, "tatoeba", "CC-BY 2.0 FR"
+                conn, lang_id, pipeline, "tatoeba", "CC-BY 2.0 FR", code
             )
         logger.info("OK %s: %d example sentences loaded", code, count)
         return count

@@ -1,0 +1,385 @@
+rank	word	pos	en	alt
+1	mi	pron	I; me; my	me
+2	yu	pron	you; your	you;yuh
+3	im	pron	he; she; him; her; his	him;he
+4	wi	pron	we; us; our; will (future marker)	we;will
+5	dem	pron	they; them; (plural marker after noun)	them
+6	unu	pron	you all (plural you)	oonu;unnu
+7	i	pron	it	it
+8	a	particle	is/are (equative); (progressive marker); to/at	
+9	de	verb	to be (at a place); there	deh
+10	di	article	the	de;the
+11	wan	article	a; one	one
+12	no	particle	not; don't (negator)	nuh
+13	neva	adv	didn't; never (past negator)	never
+14	did	particle	(past-tense marker)	
+15	en	particle	(past-tense marker, deep Patwa)	ben;men
+16	don	particle	already; finished (completive)	done
+17	ago	particle	going to (future marker)	a go
+18	gwaan	verb	to go on; to happen; carry on	gwan;gwaahn
+19	nyam	verb	to eat	
+20	go	verb	to go	
+21	kom	verb	to come	come
+22	si	verb	to see	see
+23	luk	verb	to look	look
+24	tek	verb	to take	take
+25	gi	verb	to give	give;gie
+26	mek	verb	to make; to let; to allow; why (we mek = why); so that	make
+27	waan	verb	to want	want;wah
+28	nuo	verb	to know	know;no
+29	tink	verb	to think	think;tenk
+30	taak	verb	to talk; to speak	talk
+31	se	verb	to say; that (after tell/know)	seh;say
+32	tel	verb	to tell	tell
+33	aks	verb	to ask	ask;ax
+34	ron	verb	to run	run
+35	waak	verb	to walk	walk
+36	wok	verb	to work; work; job; work	work
+37	plie	verb	to play	play
+38	sliip	verb	to sleep	sleep
+39	iit	verb	to eat (also nyam)	eat
+40	drink	verb	to drink	
+41	kuk	verb	to cook	cook
+42	bai	verb	to buy	buy
+43	sel	verb	to sell	sell
+44	kya	verb	to carry; to care	care;kyari
+45	bring	verb	to bring	
+46	fain	verb	to find	find
+47	get	verb	to get	
+48	gaan	adj	gone; left	gone
+49	kyan	verb	can; to be able	can
+50	kyaan	verb	can't; cannot	cyaan;caan
+51	hafi	verb	to have to; must	haffi
+52	mos	verb	must	must
+53	shuda	verb	should	shoulda
+54	kuda	verb	could	coulda
+55	wuda	verb	would	woulda
+56	fi	particle	to (infinitive); for; belonging to	fe
+57	pikni	noun	child	pickney;pikney
+58	uman	noun	woman	ooman;woman
+59	man	noun	man; person (general)	
+60	bwai	noun	boy	bwoy;boy
+61	gyal	noun	girl	gal
+62	yaad	noun	home; house; yard (also Jamaica)	yard
+63	skuul	noun	school	school
+64	wata	noun	water	water;waata
+65	fuud	noun	food	food
+66	moni	noun	money	money;munny
+67	taim	noun	time	time
+68	die	noun	day	day
+69	nait	noun	night	night
+70	mawnin	noun	morning	morning;mahnin
+71	iivnin	noun	evening	evening
+72	tide	adv	today	today
+73	tumaro	adv	tomorrow	tomorrow;tomarrow
+74	yeside	adv	yesterday	yesterday;yessiday
+75	nou	adv	now	now
+76	den	adv	then; at that time	then
+77	op	adv	up	up
+78	dong	adv	down	down;dung
+79	out	adv	out	
+80	ina	prep	in; inside; into	inna;in a
+81	pan	prep	on; upon	pon;upon
+82	anda	prep	under	under;unda
+83	outa	prep	out of	outta
+84	wid	prep	with	with;wit
+85	widout	prep	without	without
+86	bifuo	prep	before	before;afore
+87	afta	prep	after	after
+88	bak	adv	back	back
+89	ya	adv	here	yah;yasso
+90	de-so	adv	there	deh so;desso
+91	we	pron	where; which; who (relative)	weh;wha
+92	wa	pron	what	wah;wha;weh
+93	uu	pron	who	who;hoo
+94	wen	adv	when	when
+95	wai	adv	why (also 'we mek')	why
+96	ou	adv	how	how;ow
+97	umoch	adv	how much; how many	how much
+98	aal	adj	all	all
+99	som	adj	some	some
+100	nof	adj	plenty; a lot; many	nuff
+101	likl	adj	little; small	likkle;lickle
+102	big	adj	big	
+103	gud	adj	good	good
+104	bad	adj	bad; (slang) excellent	
+105	nyuu	adj	new	new
+106	uol	adj	old; to hold	ole;ol;hold
+107	nais	adj	nice	nice
+108	priti	adj	pretty	pretty;pretti
+109	ogli	adj	ugly	ugly
+110	bex	adj	angry; vexed	vex;vexed
+111	api	adj	happy	happy
+112	sad	adj	sad	
+113	taiyad	adj	tired	tired;tiyad
+114	ongri	adj	hungry	hungry;hongry
+115	tosti	adj	thirsty	thirsty
+116	sik	adj	sick; ill	sick
+117	wel	adv	well; very	well
+118	irie	adj	good; fine; at peace (Rasta/greeting)	iri
+119	kris	adj	crisp; brand-new; excellent	criss
+120	brok	adj	broke; broken; to break	bruk;broke
+121	fas	adj	fast; nosy (fas' inna)	fast;faas
+122	slou	adj	slow	slow
+123	at	adj	hot; hat	hot;ot;hat
+124	kuol	adj	cold	cold;cole
+125	rien	noun	rain	rain
+126	son	noun	sun	sun
+127	skai	noun	sky	sky
+128	sii	noun	sea	sea
+129	riva	noun	river	river
+130	bush	noun	bush; countryside; forest	
+131	tri	noun	tree	tree
+132	flowa	noun	flower	flower
+133	frut	noun	fruit	fruit
+134	mango	noun	mango	
+135	banana	noun	banana	
+136	akii	noun	ackee (national fruit)	ackee
+137	saalfish	noun	saltfish (salted cod)	saltfish
+138	rais	noun	rice	rice
+139	piiz	noun	peas; beans	peas
+140	chikin	noun	chicken	chicken
+141	fish	noun	fish	
+142	mit	noun	meat	meat
+143	bred	noun	bread	bread
+144	shuga	noun	sugar	sugar
+145	saal	noun	salt	salt
+146	pepa	noun	pepper	pepper
+147	ti	noun	tea (any hot drink)	tea
+148	kaafi	noun	coffee	coffee
+149	juus	noun	juice	juice
+150	dazn	noun	dozen	dozen
+151	dala	noun	dollar	dollar;dolla
+152	shap	noun	shop; store	shop
+153	maakit	noun	market	market
+154	chorch	noun	church	church
+155	striit	noun	street	street
+156	ruod	noun	road	road
+157	toun	noun	town; Kingston	town
+158	kontri	noun	country; countryside	country
+159	plies	noun	place	place
+160	bos	noun	bus	bus
+161	kyaar	noun	car	car;cyar
+162	taxi	noun	taxi (route taxi)	
+163	baisikl	noun	bicycle	bicycle
+164	ous	noun	house	house;ouse
+165	ruum	noun	room	room
+166	duo	noun	door	door
+167	winda	noun	window	window
+168	bed	noun	bed	
+169	tiebl	noun	table	table
+170	chier	noun	chair	chair
+171	kloz	noun	clothes	clothes;claat
+172	shuuz	noun	shoes	shoes
+173	bag	noun	bag	
+174	buk	noun	book	book
+175	pen	noun	pen	
+176	piepa	noun	paper	paper
+177	fuon	noun	phone	phone;fone
+178	tiicha	noun	teacher	teacher
+179	dakta	noun	doctor	doctor;docta
+180	nors	noun	nurse	nurse
+181	polis	noun	police	police
+182	faama	noun	farmer	farmer
+183	fishaman	noun	fisherman	fisherman
+184	friend	noun	friend	fren
+185	neiba	noun	neighbour	neighbour;neighba
+186	famili	noun	family	family
+187	mada	noun	mother	mother;madda
+188	faada	noun	father	father;fadda
+189	breda	noun	brother	brother;bredda
+190	sista	noun	sister	sister
+191	aanti	noun	aunt	auntie;aunty
+192	onkl	noun	uncle	uncle
+193	granmada	noun	grandmother	grandmother;granny
+194	granfaada	noun	grandfather	grandfather;granpa
+195	biebi	noun	baby	baby
+196	badi	noun	body; person	body
+197	ed	noun	head	head;aid
+198	ies	noun	eyes	eyes;yeye
+199	nuoz	noun	nose	nose
+200	mout	noun	mouth	mouth;mowt
+201	ier	noun	ear; hair; to hear	ear;hair;hear
+202	an	noun	hand; arm	hand;han;and
+203	fut	noun	foot; leg	foot;foot
+204	beli	noun	belly; stomach	belly
+205	aat	noun	heart	heart;awt
+206	dag	noun	dog	dog;dawg
+207	pus	noun	cat	puss
+208	kou	noun	cow	cow
+209	guot	noun	goat	goat
+210	fowl	noun	chicken (live); fowl	
+211	bod	noun	bird	bird;bud
+212	laiyan	noun	lion	lion
+213	mangguus	noun	mongoose	mongoose
+214	krab	noun	crab	crab
+215	waas	noun	wasp	wasp
+216	maskita	noun	mosquito	mosquito
+217	jankro	noun	vulture (John Crow)	john crow
+218	liad	noun	liar	liar
+219	tiif	noun	thief; to steal	thief;teef
+220	jraiv	verb	to drive	drive
+221	ried	verb	to read	read
+222	rait	verb	to write; right; correct	write;right
+223	lisn	verb	to listen	listen
+224	sing	verb	to sing	
+225	daans	verb	to dance	dance
+226	laaf	verb	to laugh	laugh;laff
+227	krai	verb	to cry	cry
+228	smail	verb	to smile	smile
+229	uop	verb	to hope	hope
+230	lov	verb	to love; love	love;luv
+231	iet	verb	to hate; eight	hate;eight
+232	fried	adj	afraid; scared	afraid;fraid
+233	shuor	adj	sure	sure
+234	riil	adj	real	real
+235	chuu	adj	true; through	true;tru
+236	rang	adj	wrong	wrong
+237	lef	verb	to leave; left (side)	left;lef'
+238	stie	verb	to stay	stay
+239	liv	verb	to live	live
+240	ded	verb	to die; dead	dead
+241	baan	verb	born	born
+242	grou	verb	to grow	grow
+243	laan	verb	to learn; to teach	learn
+244	tiich	verb	to teach	teach
+245	memba	verb	to remember	member;remember
+246	figet	verb	to forget	forget;fuget
+247	andastan	verb	to understand	understand;overstand
+248	biliiv	verb	to believe	believe
+249	chrai	verb	to try	try
+250	staat	verb	to start	start
+251	stap	verb	to stop	stop
+252	finish	verb	to finish	
+253	elp	verb	to help	help
+254	gud-op	intj	well done	good up
+255	tank	verb	to thank; thanks	thank;tenk
+256	beg	verb	to beg; please (mi a beg yu)	
+257	sari	adj	sorry	sorry
+258	waari	verb	to worry	worry
+259	vex	verb	to anger; annoyed	
+260	kil	verb	to kill	kill
+261	fait	verb	to fight	fight
+262	kech	verb	to catch	catch;ketch
+263	trow	verb	to throw	throw
+264	pul	verb	to pull	pull
+265	push	verb	to push	
+266	put	verb	to put	
+267	kot	verb	to cut	cut
+268	wash	verb	to wash	
+269	kliin	verb	to clean; clean	clean
+270	doti	adj	dirty; earth/ground	dutty
+271	wies	verb	to waste	waste
+272	yuuz	verb	to use	use
+273	niid	verb	to need	need
+274	laik	verb	to like; like (similar)	like
+275	pik	verb	to pick; to choose	pick
+276	chuuz	verb	to choose	choose
+277	shier	verb	to share	share
+278	open	verb	to open	
+279	shet	verb	to shut; to close	shut
+280	wier	verb	to wear	wear
+281	swim	verb	to swim	
+282	jomp	verb	to jump	jump
+283	tan	verb	to stand; to stay	stan
+284	sidong	verb	to sit down	siddung;sit down
+285	geddop	verb	to get up	get up;geddup
+286	wiek	verb	to wake	wake
+287	bied	verb	to bathe	bathe;bade
+288	marid	verb	to marry; married	married
+289	uona	noun	owner	owner
+290	biznis	noun	business	business;bizniz
+291	prablem	noun	problem	problem
+292	ansa	noun	answer	answer;ansah
+293	kwestyan	noun	question	question
+294	wod	noun	word	word
+295	niem	noun	name	name
+296	sang	noun	song	song
+297	myuuzik	noun	music	music
+298	riddim	noun	rhythm; riddim (music)	rhythm
+299	dansaal	noun	dancehall	dancehall
+300	rege	noun	reggae	reggae
+301	stori	noun	story	story
+302	nyuuz	noun	news	news
+303	chrut	noun	truth	truth;troot
+304	lai	noun	lie; to lie	lie
+305	joke	noun	joke	
+306	pati	noun	party	party
+307	fren	noun	friend	friend
+308	enimi	noun	enemy	enemy
+309	piipl	noun	people	people;peeple
+310	smadi	noun	somebody; person	somebody;smaddy
+311	notn	pron	nothing	nothing;nutten
+312	sinting	noun	something; thing	something;sitten
+313	evriting	pron	everything	everything
+314	evribadi	pron	everybody	everybody
+315	nobadi	pron	nobody	nobody
+316	wan-wan	adv	one by one; a few	one one
+317	tuu	num	two; too; also	two;too
+318	chrii	num	three	three;tree
+319	fuor	num	four	four
+320	faiv	num	five	five
+321	six	num	six	
+322	sevn	num	seven	seven
+323	nain	num	nine	nine
+324	ten	num	ten	
+325	onjred	num	hundred	hundred;undred
+326	touzn	num	thousand	thousand
+327	fos	adj	first	first;fuss
+328	las	adj	last	last;laas
+329	nex	adj	next	next
+330	oda	adj	other	other;odda
+331	siem	adj	same	same
+332	difrant	adj	different	different
+333	onggl	adv	only	only;ongly
+334	agen	adv	again	again
+335	aalwiez	adv	always	always
+336	somtaim	adv	sometimes	sometime;sometimes
+337	nowe	adv	nowhere	nowhere
+338	evriwe	adv	everywhere	everywhere
+339	muor	adj	more	more
+340	muos	adj	most	most
+341	beta	adj	better	better
+342	bes	adj	best	best
+343	wosa	adj	worse	worser;worse
+344	wos	adj	worst	worst
+345	dan	conj	than	than
+346	bot	conj	but	but
+347	ar	conj	or	or
+348	bikaa	conj	because	because;bicaa;cah
+349	ef	conj	if	if
+350	aldo	conj	although	although
+351	suo	conj	so	so
+352	yes	intj	yes	
+353	iiya	intj	hey; hi	iya
+354	waa-gwaan	intj	what's up? (greeting)	wah gwaan;whagwan
+355	mi-de-ya	intj	I'm here; I'm fine (reply)	mi deh yah
+356	laata	adv	later	later;lata
+357	suun	adv	soon	soon
+358	aredi	adv	already	already
+359	stil	adv	still	still
+360	yaso	adv	right here	ya so;yah so
+361	baxide	intj	wow! (mild expletive)	backside
+362	raatid	intj	wow!; my goodness (mild)	rahtid
+363	blesd	adj	blessed	blessed;bless
+364	jah	noun	God (Rastafari)	Jah
+365	ital	adj	natural; pure (Rasta food)	
+366	ganja	noun	cannabis	ganjah
+367	dopi	noun	ghost; spirit (duppy)	duppy
+368	obiya	noun	obeah (folk magic)	obeah
+369	anansi	noun	Anansi (trickster spider of folklore)	Anancy
+370	labrish	noun	gossip; chat	
+371	chil	verb	to relax; chill	chill
+372	smaal-op	verb	to make room; squeeze up	small up
+373	bly	noun	a chance; a break (gi mi a bly)	
+374	faava	verb	to resemble (favour)	favour;fava
+375	mash-op	verb	to destroy; wreck	mash up
+376	nyam-op	verb	to eat up; devour	nyam up
+377	griit	verb	to greet	greet
+378	respek	noun	respect (also greeting)	respect
+379	bigop	verb	to praise; shout out	big up
+380	linkop	verb	to meet up; connect	link up
+381	chek	verb	to check; to visit	check
+382	waan-taim	adv	once; one time	one time
+383	tuu-taim	adv	twice	two time
+384	uoltaim	adv	always; all the time	all the time

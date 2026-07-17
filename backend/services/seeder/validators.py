@@ -7,6 +7,10 @@ ARABIC_PATTERN = re.compile(
 )
 CYRILLIC_PATTERN = re.compile(r'^[\u0400-\u04FF\u0500-\u052F\s\-]+$')
 LATIN_PATTERN = re.compile(r"^[a-zA-Z\s\-']+$")
+# Devanagari block + extended, plus ZWNJ/ZWJ (conjunct control) and danda.
+DEVANAGARI_PATTERN = re.compile(
+    r'^[\u0900-\u097F\uA8E0-\uA8FF\u200C\u200D\s\-]+$'
+)
 
 VALID_POS = {
     "noun", "verb", "adj", "adv", "particle",
@@ -18,6 +22,7 @@ SCRIPT_VALIDATORS = {
     "ar": ("Arabic", ARABIC_PATTERN),
     "ru": ("Cyrillic", CYRILLIC_PATTERN),
     "en": ("Latin", LATIN_PATTERN),
+    "hi": ("Devanagari", DEVANAGARI_PATTERN),
 }
 
 

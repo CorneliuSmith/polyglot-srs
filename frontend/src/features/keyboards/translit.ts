@@ -19,7 +19,7 @@
  *    it at submit time.
  */
 
-export const TRANSLIT_LANGS = ['ru', 'ar', 'el'] as const
+export const TRANSLIT_LANGS = ['ru', 'ar', 'el', 'hi'] as const
 
 export function hasTranslit(code: string): boolean {
   return (TRANSLIT_LANGS as readonly string[]).includes(code)
@@ -223,6 +223,137 @@ function convertAr(rawText: string, finalizePending: boolean): string {
   return res
 }
 
+// ── Hindi (Devanagari) ───────────────────────────────────────────────────────
+// A syllabic IME, not a letter substitution: Devanagari builds each syllable
+// from a consonant + a vowel sign (matra), with the inherent "a" written as
+// nothing, and consonant clusters joined by a virama (halant). Capitals are
+// the retroflex/aspirate set (T D N = ट ड ण, and Sh = ष), matching the
+// Arabic scheme's "capitals are the hard letters" convention.
+//
+// The integration contract re-converts the WHOLE field each keystroke, so
+// the field holds committed Devanagari + a trailing Latin run. We decode the
+// Devanagari back to a phonetic string (reversible because committed clusters
+// always end in a matra or virama — never an ambiguous bare consonant during
+// typing), append the pending Latin, and re-encode. A trailing consonant is
+// kept PENDING (Latin) until a following letter or `finalize` decides it —
+// at submit it becomes the bare glyph, which is how Hindi writes a
+// word-final consonant (नाम, not नाम्).
+
+const HI_CONS: [string, string][] = [
+  ['chh', 'छ'], ['Rh', 'ढ़'], ['Th', 'ठ'], ['Dh', 'ढ'], ['kh', 'ख'],
+  ['gh', 'घ'], ['ch', 'च'], ['jh', 'झ'], ['th', 'थ'], ['dh', 'ध'],
+  ['ph', 'फ'], ['bh', 'भ'], ['sh', 'श'], ['Sh', 'ष'], ['ng', 'ङ'],
+  ['ny', 'ञ'],
+  ['k', 'क'], ['g', 'ग'], ['j', 'ज'], ['T', 'ट'], ['D', 'ड'], ['N', 'ण'],
+  ['R', 'ड़'], ['t', 'त'], ['d', 'द'], ['n', 'न'], ['p', 'प'], ['b', 'ब'],
+  ['m', 'म'], ['y', 'य'], ['r', 'र'], ['l', 'ल'], ['v', 'व'], ['w', 'व'],
+  ['s', 'स'], ['h', 'ह'], ['z', 'ज़'], ['f', 'फ़'], ['q', 'क़'],
+]
+
+// vowel grapheme -> [independent letter, matra ("" for inherent a)]
+const HI_VOWEL: [string, [string, string]][] = [
+  ['aa', ['आ', 'ा']], ['ai', ['ऐ', 'ै']], ['au', ['औ', 'ौ']],
+  ['ii', ['ई', 'ी']], ['ee', ['ई', 'ी']], ['uu', ['ऊ', 'ू']],
+  ['oo', ['ऊ', 'ू']], ['ri', ['ऋ', 'ृ']],
+  ['a', ['अ', '']], ['A', ['आ', 'ा']], ['i', ['इ', 'ि']],
+  ['I', ['ई', 'ी']], ['u', ['उ', 'ु']], ['U', ['ऊ', 'ू']],
+  ['e', ['ए', 'े']], ['o', ['ओ', 'ो']], ['M', ['ं', 'ं']],
+]
+
+const HI_VIRAMA = '्'
+// Reverse maps for decoding committed Devanagari back to phonetic.
+const HI_CONS_REV: Record<string, string> = {}
+for (const [lat, dev] of HI_CONS) if (!(dev in HI_CONS_REV)) HI_CONS_REV[dev] = lat
+const HI_MATRA_REV: Record<string, string> = {}
+const HI_INDEP_REV: Record<string, string> = {}
+for (const [lat, [indep, matra]] of HI_VOWEL) {
+  if (matra && !(matra in HI_MATRA_REV)) HI_MATRA_REV[matra] = lat
+  if (!(indep in HI_INDEP_REV)) HI_INDEP_REV[indep] = lat
+}
+
+const HI_NUKTA = '़' // U+093C, always decomposed after NFD
+const HI_NUKTA_REV: Record<string, string> = {
+  'ज': 'z', 'फ': 'f', 'क': 'q', 'ड': 'R', 'ढ': 'Rh',
+}
+
+/** Decode committed Devanagari (+ passthrough Latin/other) to a phonetic
+ * string the encoder can round-trip. Works on NFD so precomposed nukta
+ * letters (ड़ etc.) split into base + U+093C and decode uniformly. */
+function decodeHi(text: string): string {
+  let out = ''
+  const chars = Array.from(text.normalize('NFD'))
+  for (let i = 0; i < chars.length; i++) {
+    const ch = chars[i]
+    // nukta loan consonant: base + ़ , optionally + matra/virama
+    if (chars[i + 1] === HI_NUKTA && ch in HI_NUKTA_REV) {
+      const lat = HI_NUKTA_REV[ch]
+      const after = chars[i + 2]
+      if (after === HI_VIRAMA) { out += lat; i += 2; continue }
+      if (after && after in HI_MATRA_REV) { out += lat + HI_MATRA_REV[after]; i += 2; continue }
+      out += lat + 'a'; i++; continue
+    }
+    if (ch in HI_CONS_REV) {
+      const after = chars[i + 1]
+      if (after === HI_VIRAMA) { out += HI_CONS_REV[ch]; i++; continue }
+      if (after && after in HI_MATRA_REV) { out += HI_CONS_REV[ch] + HI_MATRA_REV[after]; i++; continue }
+      out += HI_CONS_REV[ch] + 'a' // bare consonant = inherent a
+      continue
+    }
+    if (ch in HI_INDEP_REV) { out += HI_INDEP_REV[ch]; continue }
+    if (ch === 'ं') { out += 'M'; continue }
+    out += ch // passthrough (Latin still pending, spaces, punctuation)
+  }
+  return out
+}
+
+/** Encode a phonetic string to Devanagari. When finalize is false the last
+ * consonant with no following vowel is left as Latin (pending). */
+function encodeHi(phon: string, finalize: boolean): string {
+  // tokenize into consonant / vowel / other graphemes
+  type Tok = { t: 'c' | 'v' | 'o'; lat: string; dev: string; matra?: string }
+  const toks: Tok[] = []
+  let i = 0
+  const matchAt = (arr: [string, string][] | [string, [string, string]][]) => {
+    for (const entry of arr) {
+      const seq = entry[0]
+      if (phon.slice(i, i + seq.length) === seq) return entry
+    }
+    return null
+  }
+  while (i < phon.length) {
+    const c = matchAt(HI_CONS) as [string, string] | null
+    if (c) { toks.push({ t: 'c', lat: c[0], dev: c[1] }); i += c[0].length; continue }
+    const v = matchAt(HI_VOWEL) as [string, [string, string]] | null
+    if (v) { toks.push({ t: 'v', lat: v[0], dev: v[1][0], matra: v[1][1] }); i += v[0].length; continue }
+    toks.push({ t: 'o', lat: phon[i], dev: phon[i] }); i++
+  }
+  let out = ''
+  for (let k = 0; k < toks.length; k++) {
+    const tok = toks[k]
+    if (tok.t === 'c') {
+      const next = toks[k + 1]
+      if (next && next.t === 'v') {
+        out += tok.dev + next.matra // consonant + matra (inherent a → '')
+        k++
+      } else if (next && next.t === 'c') {
+        out += tok.dev + HI_VIRAMA // cluster join
+      } else {
+        // trailing consonant: pending (Latin) until finalize, then bare glyph
+        out += finalize ? tok.dev : tok.lat
+      }
+    } else if (tok.t === 'v') {
+      out += tok.dev // independent vowel (word-initial or post-vowel)
+    } else {
+      out += tok.dev
+    }
+  }
+  return out
+}
+
+function convertHi(text: string, finalize: boolean): string {
+  return encodeHi(decodeHi(text), finalize)
+}
+
 // ── Public API ───────────────────────────────────────────────────────────────
 
 /** Convert as-you-type. Idempotent on already-converted text. */
@@ -234,14 +365,18 @@ export function convertTranslit(code: string, text: string): string {
       return convertEl(text)
     case 'ar':
       return convertAr(text, false)
+    case 'hi':
+      return convertHi(text, false)
     default:
       return text
   }
 }
 
-/** Resolve anything left pending (Arabic trailing vowels) at submit time. */
+/** Resolve anything left pending (Arabic trailing vowels, Hindi trailing
+ * consonants) at submit time. */
 export function finalizeTranslit(code: string, text: string): string {
   if (code === 'ar') return convertAr(text, true)
+  if (code === 'hi') return convertHi(text, true)
   return convertTranslit(code, text)
 }
 
@@ -295,6 +430,18 @@ export function translitGuide(code: string): GuideRow[] {
         { keys: 'u/y f w', out: 'υ φ ω' },
         { keys: 'th ch ps', out: 'θ χ ψ' },
         { keys: 's (end of word)', out: 'ς', note: 'final sigma is automatic' },
+      ]
+    case 'hi':
+      return [
+        { keys: 'k g j t d n p b m', out: 'क ग ज त द न प ब म' },
+        { keys: 'y r l v s h', out: 'य र ल व स ह' },
+        { keys: 'kh gh ch chh jh', out: 'ख घ च छ झ' },
+        { keys: 'th dh ph bh sh', out: 'थ ध फ भ श' },
+        { keys: 'T D N Th Dh Sh', out: 'ट ड ण ठ ढ ष', note: 'capitals = retroflex/hard letters' },
+        { keys: 'z f q', out: 'ज़ फ़ क़', note: 'nuqta loan sounds' },
+        { keys: 'a aa i ii u uu', out: 'अ आ इ ई उ ऊ', note: 'double a vowel to lengthen (raam → राम)' },
+        { keys: 'e o ai au ri', out: 'ए ओ ऐ औ ऋ' },
+        { keys: 'namaste', out: 'नमस्ते', note: 'consonants join automatically; M = ं (anusvara)' },
       ]
     default:
       return []
