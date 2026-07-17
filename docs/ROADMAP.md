@@ -1077,7 +1077,16 @@ missing-copula trap (Я студент → I AM a student), do-support vs intona
 questions, Continuous framed against Russian aspect. reviewed:false until
 native review. Remaining: ru B1–C2, then es/pt sets, then other locales by
 learner activity.
-**(c) Vocabulary translation overrides — measured, in progress.** Sampled
+**(c) Vocabulary translation overrides — ru pass DONE 2026-07-17.**
+Mechanism: data/en_translation_overrides.tsv (word/locale/translation),
+applied LAST in the seeder — beats extraction and the curated table.
+ru: 190 rows live (all 12 sampled wrong-sense fixes + every A1/A2
+coverage gap filled; only the deliberately-empty articles a/an/the
+remain untranslated, by the content rule). Tokenizer shrapnel
+(ain/isn/de/mm) blocklisted in the seeder and purged from the live DB
+(no learner cards referenced them). Remaining: es/pt gap-fill +
+wrong-sense passes, then the other locales by learner activity.
+**Original measurement:** Sampled
 defect rate ~10–15% wrong-sense at A1/A2 (grand→штука, mine→шахта,
 most→наи-) plus 185/1521 A1-A2 words missing ru rows entirely (ro: 390
 missing; sw: 821). Plan: an overrides file that beats the extraction TSV,
