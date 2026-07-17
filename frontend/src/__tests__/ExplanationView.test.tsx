@@ -74,6 +74,22 @@ describe('ExplanationView', () => {
     expect(screen.getByText('→ quiser')).toBeDefined()
   })
 
+  it('keeps the sentence AFTER an arrow table out of the rows', () => {
+    // the beta screenshot: "Señales: now, at the moment…" was swallowed
+    // into the write→writing row and dangled below the table
+    render(
+      <ExplanationView text={
+        'Ortografía: run → running (se dobla la consonante), write → writing (cae la e muda). Señales: now, at the moment, look!'
+      } />,
+    )
+    const rows = screen.getAllByRole('row')
+    expect(rows.length).toBe(2)
+    // the follow-on sentence renders whole, as prose below the table
+    expect(screen.getByText(/Señales: now, at the moment, look!/)).toBeDefined()
+    // and no row cell contains the fused text
+    expect(screen.queryByText(/muda\). Señales/)).toBeNull()
+  })
+
   it('typesets labeled form runs with a chip', () => {
     render(<ExplanationView text={'-ar: falei, falou, falamos, falaram.'} />)
     expect(screen.getByText('-ar')).toBeDefined()

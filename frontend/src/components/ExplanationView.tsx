@@ -119,20 +119,32 @@ function parseParagraph(p: string): Parsed {
 
   // Arrow derivations, optionally after an intro colon:
   // "Build it from the eles-perfeito minus -am: falaram → falar, …"
+  // Parsed on the FIRST sentence only, so a follow-on sentence ("Señales:
+  // now, at the moment…") rides below as prose instead of being swallowed
+  // into the last table row.
   if ((p.match(/→/g) ?? []).length >= 2) {
-    const firstArrow = p.indexOf('→')
-    const colon = p.lastIndexOf(':', firstArrow)
-    const intro = colon > 0 ? p.slice(0, colon + 1).trim() : undefined
-    const list = colon > 0 ? p.slice(colon + 1) : p
-    const rows: string[][] = []
-    const leftovers: string[] = []
-    for (const seg of splitTopLevel(list.replace(/\.$/, ''))) {
-      const m = seg.split('→')
-      if (m.length === 2) rows.push([m[0].trim(), m[1].trim()])
-      else if (seg.trim()) leftovers.push(seg.trim())
-    }
-    if (rows.length >= 2) {
-      return { kind: 'arrows', intro, rows, note: leftovers.join(', ') || undefined }
+    const [first, tail] = splitFirstSentence(p)
+    const firstArrow = first.indexOf('→')
+    if (firstArrow >= 0) {
+      const colon = first.lastIndexOf(':', firstArrow)
+      const intro = colon > 0 ? first.slice(0, colon + 1).trim() : undefined
+      const list = colon > 0 ? first.slice(colon + 1) : first
+      const rows: string[][] = []
+      const leftovers: string[] = []
+      for (const seg of splitTopLevel(list.replace(/[.।]$/, ''))) {
+        const m = seg.split('→')
+        if (m.length === 2) rows.push([m[0].trim(), m[1].trim()])
+        else if (seg.trim()) leftovers.push(seg.trim())
+      }
+      if (rows.length >= 2) {
+        return {
+          kind: 'arrows',
+          intro,
+          rows,
+          note: leftovers.join(', ') || undefined,
+          tail: tail || undefined,
+        }
+      }
     }
   }
 
