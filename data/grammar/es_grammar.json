@@ -579,7 +579,7 @@
           "sentence": "Yo {{answer}} de Colombia.",
           "answer": "soy",
           "translation": "I am from Colombia.",
-          "hint": "to be (identity), I",
+          "hint": "to be (identity) (I)",
           "cell": "yo",
           "display_order": 7
         },
@@ -587,7 +587,7 @@
           "sentence": "¿Tú {{answer}} médico?",
           "answer": "eres",
           "translation": "Are you a doctor?",
-          "hint": "to be (identity), you",
+          "hint": "to be (identity) (you, informal)",
           "cell": "tú",
           "display_order": 8
         },
@@ -595,7 +595,7 @@
           "sentence": "Mi madre {{answer}} profesora.",
           "answer": "es",
           "translation": "My mother is a teacher.",
-          "hint": "to be (identity), she",
+          "hint": "to be (identity) (she)",
           "cell": "él/ella",
           "display_order": 9
         },
@@ -603,7 +603,7 @@
           "sentence": "Nosotros {{answer}} hermanos.",
           "answer": "somos",
           "translation": "We are brothers.",
-          "hint": "to be (identity), we",
+          "hint": "to be (identity) (we)",
           "cell": "nosotros",
           "display_order": 10
         },
@@ -611,7 +611,7 @@
           "sentence": "Vosotros {{answer}} muy simpáticos.",
           "answer": "sois",
           "translation": "You all are very nice.",
-          "hint": "to be (identity), you all",
+          "hint": "to be (identity) (you all)",
           "cell": "vosotros",
           "display_order": 11
         },
@@ -619,7 +619,7 @@
           "sentence": "Mis padres {{answer}} de Sevilla.",
           "answer": "son",
           "translation": "My parents are from Seville.",
-          "hint": "to be (identity), they",
+          "hint": "to be (identity) (they)",
           "cell": "ellos",
           "display_order": 12
         }
@@ -723,7 +723,7 @@
           "sentence": "Vosotros {{answer}} en clase.",
           "answer": "estáis",
           "translation": "You all are in class.",
-          "hint": "to be (state/place), you all",
+          "hint": "to be (state/place) (you all)",
           "cell": "vosotros",
           "display_order": 7
         },
@@ -731,7 +731,7 @@
           "sentence": "Yo {{answer}} muy cansado hoy.",
           "answer": "estoy",
           "translation": "I am very tired today.",
-          "hint": "to be (state), I",
+          "hint": "to be (state) (I)",
           "cell": "yo",
           "display_order": 8
         },
@@ -739,7 +739,7 @@
           "sentence": "¿Dónde {{answer}} ahora?",
           "answer": "estás",
           "translation": "Where are you now?",
-          "hint": "to be (place), you",
+          "hint": "to be (place) (you, informal)",
           "cell": "tú",
           "display_order": 9
         },
@@ -747,7 +747,7 @@
           "sentence": "Nosotros {{answer}} listos.",
           "answer": "estamos",
           "translation": "We are ready.",
-          "hint": "to be (state), we",
+          "hint": "to be (state) (we)",
           "cell": "nosotros",
           "display_order": 10
         },
@@ -755,7 +755,7 @@
           "sentence": "¿Vosotros {{answer}} bien?",
           "answer": "estáis",
           "translation": "Are you all well?",
-          "hint": "to be (state), you all",
+          "hint": "to be (state) (you all)",
           "cell": "vosotros",
           "display_order": 11
         },
@@ -763,7 +763,7 @@
           "sentence": "Los platos {{answer}} en la mesa.",
           "answer": "están",
           "translation": "The plates are on the table.",
-          "hint": "to be (place), they",
+          "hint": "to be (place) (they)",
           "cell": "ellos",
           "display_order": 12
         }
@@ -827,7 +827,7 @@
           "sentence": "Ella {{answer}} en una oficina.",
           "answer": "trabaja",
           "translation": "She works in an office.",
-          "hint": "to work, she",
+          "hint": "to work (she)",
           "display_order": 2,
           "cell": "él/ella"
         },
@@ -859,7 +859,7 @@
           "sentence": "Mi madre {{answer}} la cena.",
           "answer": "prepara",
           "translation": "My mother prepares dinner.",
-          "hint": "to prepare, she",
+          "hint": "to prepare (she)",
           "display_order": 6,
           "cell": "él/ella"
         },
@@ -867,7 +867,7 @@
           "sentence": "¿Vosotros {{answer}} español?",
           "answer": "habláis",
           "translation": "Do you all speak Spanish?",
-          "hint": "to speak, you all",
+          "hint": "to speak (you all)",
           "cell": "vosotros",
           "display_order": 7
         },
@@ -875,7 +875,7 @@
           "sentence": "Yo {{answer}} en un hospital.",
           "answer": "trabajo",
           "translation": "I work in a hospital.",
-          "hint": "to work, I",
+          "hint": "to work (I)",
           "cell": "yo",
           "display_order": 8
         },
@@ -883,7 +883,7 @@
           "sentence": "¿Qué música {{answer}}?",
           "answer": "escuchas",
           "translation": "What music do you listen to?",
-          "hint": "to listen, you",
+          "hint": "to listen (you, informal)",
           "cell": "tú",
           "display_order": 9
         },
@@ -891,7 +891,7 @@
           "sentence": "Nosotros {{answer}} la comida juntos.",
           "answer": "preparamos",
           "translation": "We prepare the food together.",
-          "hint": "to prepare, we",
+          "hint": "to prepare (we)",
           "cell": "nosotros",
           "display_order": 10
         },
@@ -899,7 +899,7 @@
           "sentence": "¿Dónde {{answer}} vosotros?",
           "answer": "trabajáis",
           "translation": "Where do you all work?",
-          "hint": "to work, you all",
+          "hint": "to work (you all)",
           "cell": "vosotros",
           "display_order": 11
         },
@@ -907,7 +907,7 @@
           "sentence": "Mis amigos {{answer}} francés.",
           "answer": "estudian",
           "translation": "My friends study French.",
-          "hint": "to study, they",
+          "hint": "to study (they)",
           "cell": "ellos",
           "display_order": 12
         }
@@ -979,7 +979,7 @@
           "sentence": "Ella {{answer}} muchos libros.",
           "answer": "lee",
           "translation": "She reads many books.",
-          "hint": "to read, she",
+          "hint": "to read (she)",
           "display_order": 3,
           "cell": "él/ella"
         },
@@ -1011,7 +1011,7 @@
           "sentence": "¿Tú {{answer}} carne?",
           "answer": "comes",
           "translation": "Do you eat meat?",
-          "hint": "to eat, you",
+          "hint": "to eat (you, informal)",
           "cell": "tú",
           "display_order": 7
         },
@@ -1019,7 +1019,7 @@
           "sentence": "Vosotros {{answer}} cerca de la playa.",
           "answer": "vivís",
           "translation": "You all live near the beach.",
-          "hint": "to live, you all",
+          "hint": "to live (you all)",
           "cell": "vosotros",
           "display_order": 8
         },
@@ -1027,7 +1027,7 @@
           "sentence": "¿Qué {{answer}} normalmente?",
           "answer": "bebes",
           "translation": "What do you usually drink?",
-          "hint": "to drink, you",
+          "hint": "to drink (you, informal)",
           "cell": "tú",
           "display_order": 9
         },
@@ -1035,7 +1035,7 @@
           "sentence": "Mi hermano {{answer}} en Valencia.",
           "answer": "vive",
           "translation": "My brother lives in Valencia.",
-          "hint": "to live, he",
+          "hint": "to live (he)",
           "cell": "él/ella",
           "display_order": 10
         },
@@ -1043,7 +1043,7 @@
           "sentence": "¿Qué {{answer}} vosotros?",
           "answer": "leéis",
           "translation": "What are you all reading?",
-          "hint": "to read, you all",
+          "hint": "to read (you all)",
           "cell": "vosotros",
           "display_order": 11
         },
@@ -1051,7 +1051,7 @@
           "sentence": "Los niños {{answer}} mucho pan.",
           "answer": "comen",
           "translation": "The children eat a lot of bread.",
-          "hint": "to eat, they",
+          "hint": "to eat (they)",
           "cell": "ellos",
           "display_order": 12
         }
@@ -1485,7 +1485,7 @@
           "sentence": "Él se {{answer}} los dientes después de comer.",
           "answer": "lava",
           "translation": "He brushes his teeth after eating.",
-          "hint": "to wash (reflexive), he",
+          "hint": "to wash (reflexive) (he)",
           "display_order": 5
         },
         {

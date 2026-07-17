@@ -959,7 +959,7 @@
           "sentence": "She {{answer}} to work by bike every day.",
           "answer": "goes",
           "translation": "A habit → simple.",
-          "hint": "go — habit, she",
+          "hint": "go — habit (she)",
           "display_order": 2
         },
         {
@@ -973,7 +973,7 @@
           "sentence": "Water {{answer}} at 100 degrees.",
           "answer": "boils",
           "translation": "A fact → simple.",
-          "hint": "boil — fact, it",
+          "hint": "boil — fact (it)",
           "display_order": 4
         },
         {
@@ -987,7 +987,7 @@
           "sentence": "He usually {{answer}} coffee, not tea.",
           "answer": "drinks",
           "translation": "usually → simple.",
-          "hint": "drink — habit, he",
+          "hint": "drink — habit (he)",
           "display_order": 6
         }
       ]
@@ -1439,7 +1439,7 @@
           "sentence": "If it {{answer}} tomorrow, we'll cancel the picnic.",
           "answer": "rains",
           "translation": "Real condition → present.",
-          "hint": "rain — present, it",
+          "hint": "rain — present (it)",
           "display_order": 1
         },
         {
@@ -1499,7 +1499,7 @@
           "sentence": "This wine {{answer}} produced in Chile.",
           "answer": "is",
           "translation": "Present passive.",
-          "hint": "be — present, it",
+          "hint": "be — present (it)",
           "display_order": 1
         },
         {
@@ -1513,14 +1513,14 @@
           "sentence": "These photos {{answer}} taken by my grandmother.",
           "answer": "were",
           "translation": "Past passive, plural.",
-          "hint": "be — past, they",
+          "hint": "be — past (they)",
           "display_order": 3
         },
         {
           "sentence": "English {{answer}} spoken all over the world.",
           "answer": "is",
           "translation": "Present passive.",
-          "hint": "be — present, it",
+          "hint": "be — present (it)",
           "display_order": 4
         },
         {

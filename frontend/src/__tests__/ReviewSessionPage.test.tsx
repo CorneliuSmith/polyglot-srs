@@ -245,6 +245,44 @@ describe('ReviewSessionPage', () => {
   })
 })
 
+describe('ReviewSessionPage — listening mode cue', () => {
+  const listeningCard: DueCard = {
+    ...testCard,
+    hint: 'go — habit (she)',
+    translation: 'She goes to the market.',
+  }
+
+  beforeEach(() => {
+    vi.clearAllMocks()
+    // listeningMode on, no hint dots pressed — the cue must still show.
+    mockUsePrefsStore.mockImplementation(
+      (selector: (s: Record<string, unknown>) => unknown) =>
+        selector({
+          activeLanguageId: 'lang-123',
+          listeningMode: true,
+          hintLevel: 0,
+          qwertyTranslit: {},
+        }),
+    )
+    mockGetDueCards.mockResolvedValue([listeningCard])
+    mockValidateAnswer.mockResolvedValue(mockValidateResponse)
+    mockSubmitReview.mockResolvedValue(mockSubmitResponse)
+  })
+
+  it('reveals the expected-word hint by default while listening', async () => {
+    renderWithProviders(<ReviewSessionPage />)
+    await waitFor(() => {
+      expect(screen.getByTestId('listening-drill')).toBeDefined()
+    })
+    // The drill hint (what to type) shows without pressing Hint…
+    expect(screen.getByText('go — habit (she)')).toBeDefined()
+    // …but the sentence itself stays hidden,
+    expect(screen.queryByText(/to the market/)).toBeNull()
+    // and the unrevealed translation layer stays hidden too.
+    expect(screen.queryByText('She goes to the market.')).toBeNull()
+  })
+})
+
 describe('ReviewSessionPage — Quick Cram (WP13f)', () => {
   const cramCard: DueCard = {
     ...testCard,

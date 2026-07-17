@@ -204,14 +204,14 @@
           "sentence": "Yeye {{answer}} chai.",
           "answer": "anakunywa",
           "translation": "She is drinking tea.",
-          "hint": "to drink + present, he/she",
+          "hint": "to drink + present (he/she)",
           "display_order": 1
         },
         {
           "sentence": "Sisi {{answer}} Kiswahili.",
           "answer": "tunajifunza",
           "translation": "We are learning Swahili.",
-          "hint": "to learn + present, we",
+          "hint": "to learn + present (we)",
           "display_order": 2
         },
         {
@@ -433,14 +433,14 @@
           "sentence": "Wewe {{answer}} nyama?",
           "answer": "huli",
           "translation": "Don't you eat meat?",
-          "hint": "to eat + present negative, you",
+          "hint": "to eat + present negative (you)",
           "display_order": 4
         },
         {
           "sentence": "Wao {{answer}} Kiingereza.",
           "answer": "hawasemi",
           "translation": "They don't speak English.",
-          "hint": "to speak + present negative, they",
+          "hint": "to speak + present negative (they)",
           "display_order": 5
         },
         {
@@ -480,14 +480,14 @@
           "sentence": "Jana {{answer}} sokoni.",
           "answer": "nilienda",
           "translation": "Yesterday I went to the market.",
-          "hint": "to go + past, I",
+          "hint": "to go + past (I)",
           "display_order": 1
         },
         {
           "sentence": "Wao {{answer}} chakula.",
           "answer": "walipika",
           "translation": "They cooked food.",
-          "hint": "to cook + past, they",
+          "hint": "to cook + past (they)",
           "display_order": 2
         },
         {
@@ -548,14 +548,14 @@
           "sentence": "Kesho {{answer}} shule.",
           "answer": "nitaenda",
           "translation": "Tomorrow I will go to school.",
-          "hint": "to go + future, I",
+          "hint": "to go + future (I)",
           "display_order": 1
         },
         {
           "sentence": "Wao {{answer}} kesho.",
           "answer": "watafika",
           "translation": "They will arrive tomorrow.",
-          "hint": "to arrive + future, they",
+          "hint": "to arrive + future (they)",
           "display_order": 2
         },
         {
@@ -766,14 +766,14 @@
           "sentence": "{{answer}} chakula.",
           "answer": "Nimekula",
           "translation": "I have eaten.",
-          "hint": "to eat + perfect, I",
+          "hint": "to eat + perfect (I)",
           "display_order": 1
         },
         {
           "sentence": "Mgeni {{answer}}.",
           "answer": "amefika",
           "translation": "The guest has arrived.",
-          "hint": "to arrive + perfect, he/she",
+          "hint": "to arrive + perfect (he/she)",
           "display_order": 2
         },
         {
@@ -1378,42 +1378,42 @@
           "sentence": "Jana {{answer}} kazi.",
           "answer": "sikufanya",
           "translation": "Yesterday I didn't do work.",
-          "hint": "to do + past negative, I",
+          "hint": "to do + past negative (I)",
           "display_order": 1
         },
         {
           "sentence": "Yeye {{answer}} kesho.",
           "answer": "hatakuja",
           "translation": "She will not come tomorrow.",
-          "hint": "to come + future negative, he",
+          "hint": "to come + future negative (he)",
           "display_order": 2
         },
         {
           "sentence": "Sisi {{answer}} jana.",
           "answer": "hatukuenda",
           "translation": "We didn't go yesterday.",
-          "hint": "to go + past negative, we",
+          "hint": "to go + past negative (we)",
           "display_order": 3
         },
         {
           "sentence": "Mimi {{answer}} kesho.",
           "answer": "sitakuja",
           "translation": "I won't come tomorrow.",
-          "hint": "to come + future negative, I",
+          "hint": "to come + future negative (I)",
           "display_order": 4
         },
         {
           "sentence": "Wao {{answer}} chakula.",
           "answer": "hawakupika",
           "translation": "They didn't cook food.",
-          "hint": "to cook + past negative, they",
+          "hint": "to cook + past negative (they)",
           "display_order": 5
         },
         {
           "sentence": "Wewe {{answer}} kazi kesho?",
           "answer": "hutafanya",
           "translation": "Won't you work tomorrow?",
-          "hint": "to work + future negative, you",
+          "hint": "to work + future negative (you)",
           "display_order": 6
         }
       ]
@@ -1474,7 +1474,7 @@
           "sentence": "Mtu {{answer}} jana ni mgeni.",
           "answer": "aliyefika",
           "translation": "The person who arrived yesterday is a guest.",
-          "hint": "to arrive + past with the relative infix, he",
+          "hint": "to arrive + past with the relative infix (he)",
           "display_order": 5
         },
         {
@@ -1650,14 +1650,14 @@
           "sentence": "Yeye {{answer}} mwalimu zamani.",
           "answer": "alikuwa",
           "translation": "He was a teacher long ago.",
-          "hint": "'to be' + past, he/she",
+          "hint": "'to be' + past (he/she)",
           "display_order": 1
         },
         {
           "sentence": "Mimi {{answer}} daktari.",
           "answer": "nitakuwa",
           "translation": "I will be a doctor.",
-          "hint": "'to be' + future, I",
+          "hint": "'to be' + future (I)",
           "display_order": 2
         },
         {
@@ -2062,7 +2062,7 @@
           "sentence": "{{answer}} kwa bidii, utafaulu.",
           "answer": "Ukisoma",
           "translation": "If you study hard, you will succeed.",
-          "hint": "to study + 'if', you",
+          "hint": "to study + 'if' (you)",
           "display_order": 1
         },
         {
@@ -2130,14 +2130,14 @@
           "sentence": "{{answer}} na pesa, ningesafiri.",
           "answer": "Ningekuwa",
           "translation": "If I had money, I would travel.",
-          "hint": "'to be' + hypothetical, I",
+          "hint": "'to be' + hypothetical (I)",
           "display_order": 1
         },
         {
           "sentence": "{{answer}}, ungalifaulu.",
           "answer": "Ungalisoma",
           "translation": "Had you studied, you would have passed.",
-          "hint": "to study + past hypothetical, you",
+          "hint": "to study + past hypothetical (you)",
           "display_order": 2
         },
         {
@@ -2198,14 +2198,14 @@
           "sentence": "Alienda sokoni, {{answer}} ndizi.",
           "answer": "akanunua",
           "translation": "He went to the market and (then) bought bananas.",
-          "hint": "to buy + narrative 'and then', he/she",
+          "hint": "to buy + narrative 'and then' (he/she)",
           "display_order": 1
         },
         {
           "sentence": "Nilifika nyumbani, {{answer}} chakula.",
           "answer": "nikapika",
           "translation": "I got home and then cooked food.",
-          "hint": "to cook + narrative 'and then', I",
+          "hint": "to cook + narrative 'and then' (I)",
           "display_order": 2
         },
         {
@@ -2692,21 +2692,21 @@
           "sentence": "{{answer}} nyumbani, mvua ilianza.",
           "answer": "Nilipofika",
           "translation": "When I arrived home, the rain began.",
-          "hint": "to arrive + past + when-marker, I",
+          "hint": "to arrive + past + when-marker (I)",
           "display_order": 1
         },
         {
           "sentence": "{{answer}} kazi, nipigie simu.",
           "answer": "Utakapomaliza",
           "translation": "When you finish the work, call me.",
-          "hint": "to finish + future when-marker, you",
+          "hint": "to finish + future when-marker (you)",
           "display_order": 2
         },
         {
           "sentence": "{{answer}} mtoto, aliishi Mombasa.",
           "answer": "Alipokuwa",
           "translation": "When he was a child, he lived in Mombasa.",
-          "hint": "to be + past + when-marker, he",
+          "hint": "to be + past + when-marker (he)",
           "display_order": 3
         },
         {
@@ -2720,14 +2720,14 @@
           "sentence": "Kila {{answer}}, tunazungumza mengi.",
           "answer": "tunapokutana",
           "translation": "Every time we meet, we talk a lot.",
-          "hint": "to meet + present when-marker, we",
+          "hint": "to meet + present when-marker (we)",
           "display_order": 5
         },
         {
           "sentence": "Mara {{answer}} hatari, alikimbia.",
           "answer": "alipoona",
           "translation": "The moment he saw danger, he ran.",
-          "hint": "to see + past when-marker, he",
+          "hint": "to see + past when-marker (he)",
           "display_order": 6
         }
       ]
@@ -2764,21 +2764,21 @@
           "sentence": "Kama {{answer}}, maisha si rahisi.",
           "answer": "unavyojua",
           "translation": "As you know, life is not easy.",
-          "hint": "to know + present + how-marker, you",
+          "hint": "to know + present + how-marker (you)",
           "display_order": 1
         },
         {
           "sentence": "Fanya {{answer}}.",
           "answer": "upendavyo",
           "translation": "Do as you like.",
-          "hint": "to like + tenseless how-suffix, you",
+          "hint": "to like + tenseless how-suffix (you)",
           "display_order": 2
         },
         {
           "sentence": "Sielewi jinsi {{answer}}.",
           "answer": "anavyofikiri",
           "translation": "I don't understand how he thinks.",
-          "hint": "to think + present + how-marker, he",
+          "hint": "to think + present + how-marker (he)",
           "display_order": 3
         },
         {
@@ -2792,7 +2792,7 @@
           "sentence": "Mambo hayakwenda kama {{answer}}.",
           "answer": "tulivyopanga",
           "translation": "Things didn't go the way we planned.",
-          "hint": "to plan + past + how-marker, we",
+          "hint": "to plan + past + how-marker (we)",
           "display_order": 5
         },
         {
@@ -2915,7 +2915,7 @@
           "sentence": "Jana saa hii, tulikuwa {{answer}} chakula.",
           "answer": "tukipika",
           "translation": "This time yesterday, we were cooking food.",
-          "hint": "to cook + ongoing -ki-, we",
+          "hint": "to cook + ongoing -ki- (we)",
           "display_order": 2
         },
         {
@@ -2929,14 +2929,14 @@
           "sentence": "Alipoingia, mama alikuwa {{answer}} barua.",
           "answer": "akisoma",
           "translation": "When he came in, mother was reading a letter.",
-          "hint": "to read + ongoing -ki-, she",
+          "hint": "to read + ongoing -ki- (she)",
           "display_order": 4
         },
         {
           "sentence": "Mwaka jana, walikuwa {{answer}} Ulaya.",
           "answer": "wakiishi",
           "translation": "Last year, they were living in Europe.",
-          "hint": "to live + ongoing -ki-, they",
+          "hint": "to live + ongoing -ki- (they)",
           "display_order": 5
         },
         {
@@ -2987,28 +2987,28 @@
           "sentence": "Alipofika nyumbani, {{answer}} viatu.",
           "answer": "alivua",
           "translation": "When he got home, he took off his shoes.",
-          "hint": "to wear + reversive + past, he",
+          "hint": "to wear + reversive + past (he)",
           "display_order": 2
         },
         {
           "sentence": "Mwandishi wa habari {{answer}} siri kubwa.",
           "answer": "alifichua",
           "translation": "The journalist revealed a big secret.",
-          "hint": "to hide + reversive + past, he",
+          "hint": "to hide + reversive + past (he)",
           "display_order": 3
         },
         {
           "sentence": "Baada ya sherehe, {{answer}} meza.",
           "answer": "tulipangua",
           "translation": "After the party, we cleared away the tables.",
-          "hint": "to arrange + reversive + past, we",
+          "hint": "to arrange + reversive + past (we)",
           "display_order": 4
         },
         {
           "sentence": "Mtoto {{answer}} mtego kwa fimbo.",
           "answer": "alitegua",
           "translation": "The child sprang the trap with a stick.",
-          "hint": "to set (a trap) + reversive + past, he",
+          "hint": "to set (a trap) + reversive + past (he)",
           "display_order": 5
         },
         {
@@ -3080,7 +3080,7 @@
           "sentence": "Hata {{answer}} sana, hafaulu.",
           "answer": "akijaribu",
           "translation": "Even if he tries hard, he doesn't succeed.",
-          "hint": "to try + -ki- after 'even' = even if, he",
+          "hint": "to try + -ki- after 'even' = even if (he)",
           "display_order": 5
         },
         {
@@ -3196,14 +3196,14 @@
           "sentence": "{{answer}} kazi, hutalipwa.",
           "answer": "Usipofanya",
           "translation": "Unless you work, you won't be paid.",
-          "hint": "to do + unless-marker, you",
+          "hint": "to do + unless-marker (you)",
           "display_order": 1
         },
         {
           "sentence": "{{answer}} sasa, tutachelewa.",
           "answer": "Tusipoondoka",
           "translation": "If we don't leave now, we'll be late.",
-          "hint": "to leave + unless-marker, we",
+          "hint": "to leave + unless-marker (we)",
           "display_order": 2
         },
         {
@@ -3217,21 +3217,21 @@
           "sentence": "Asipokuja kesho, {{answer}} bila yeye.",
           "answer": "tutaanza",
           "translation": "If he doesn't come tomorrow, we'll start without him.",
-          "hint": "to start + future, we",
+          "hint": "to start + future (we)",
           "display_order": 4
         },
         {
           "sentence": "Usipojifunza kutoka makosa, {{answer}} kuyarudia.",
           "answer": "utaendelea",
           "translation": "If you don't learn from mistakes, you will keep repeating them.",
-          "hint": "to continue + future, you",
+          "hint": "to continue + future (you)",
           "display_order": 5
         },
         {
           "sentence": "Wasiposikiliza, {{answer}} kuelewa.",
           "answer": "hawataweza",
           "translation": "If they don't listen, they won't be able to understand.",
-          "hint": "to be able + negative future, they",
+          "hint": "to be able + negative future (they)",
           "display_order": 6
         }
       ]
@@ -3275,14 +3275,14 @@
           "sentence": "Alinunua simu ili {{answer}} na familia yake.",
           "answer": "awasiliane",
           "translation": "He bought a phone in order to communicate with his family.",
-          "hint": "to communicate + subjunctive, he",
+          "hint": "to communicate + subjunctive (he)",
           "display_order": 2
         },
         {
           "sentence": "Tuliondoka mapema ili {{answer}} foleni.",
           "answer": "tuepuke",
           "translation": "We left early in order to avoid the traffic.",
-          "hint": "to avoid + subjunctive, we",
+          "hint": "to avoid + subjunctive (we)",
           "display_order": 3
         },
         {
@@ -3340,42 +3340,42 @@
           "sentence": "Waliondoka {{answer}}.",
           "answer": "wakiimba",
           "translation": "They left singing.",
-          "hint": "to sing + simultaneous -ki-, they",
+          "hint": "to sing + simultaneous -ki- (they)",
           "display_order": 1
         },
         {
           "sentence": "Nilimwona {{answer}} barabarani.",
           "answer": "akitembea",
           "translation": "I saw him walking on the road.",
-          "hint": "to walk + simultaneous -ki-, he",
+          "hint": "to walk + simultaneous -ki- (he)",
           "display_order": 2
         },
         {
           "sentence": "Alikaa kimya, {{answer}} dirishani.",
           "answer": "akitazama",
           "translation": "He sat quietly, gazing out of the window.",
-          "hint": "to gaze + simultaneous -ki-, he",
+          "hint": "to gaze + simultaneous -ki- (he)",
           "display_order": 3
         },
         {
           "sentence": "Tulivuka mto {{answer}}.",
           "answer": "tukiogelea",
           "translation": "We crossed the river swimming.",
-          "hint": "to swim + simultaneous -ki-, we",
+          "hint": "to swim + simultaneous -ki- (we)",
           "display_order": 4
         },
         {
           "sentence": "Mama alirudi nyumbani {{answer}} mizigo.",
           "answer": "akibeba",
           "translation": "Mother came home carrying the luggage.",
-          "hint": "to carry + simultaneous -ki-, she",
+          "hint": "to carry + simultaneous -ki- (she)",
           "display_order": 5
         },
         {
           "sentence": "Usile {{answer}}.",
           "answer": "ukitembea",
           "translation": "Don't eat while walking.",
-          "hint": "to walk + simultaneous -ki-, you",
+          "hint": "to walk + simultaneous -ki- (you)",
           "display_order": 6
         }
       ]

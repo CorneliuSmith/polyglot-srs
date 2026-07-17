@@ -441,7 +441,7 @@
           "sentence": "Jo {{answer}} estudiant.",
           "answer": "soc",
           "translation": "I am a student.",
-          "hint": "to be, I",
+          "hint": "to be (I)",
           "display_order": 1,
           "cell": "jo"
         },
@@ -465,7 +465,7 @@
           "sentence": "Nosaltres {{answer}} amics.",
           "answer": "som",
           "translation": "We are friends.",
-          "hint": "to be, we",
+          "hint": "to be (we)",
           "display_order": 4,
           "cell": "nosaltres"
         },
@@ -489,7 +489,7 @@
           "sentence": "Jo {{answer}} de Tarragona.",
           "answer": "soc",
           "translation": "I am from Tarragona.",
-          "hint": "to be, I",
+          "hint": "to be (I)",
           "cell": "jo",
           "display_order": 7
         },
@@ -497,7 +497,7 @@
           "sentence": "Tu {{answer}} metge?",
           "answer": "ets",
           "translation": "Are you a doctor?",
-          "hint": "to be, you",
+          "hint": "to be (you, informal)",
           "cell": "tu",
           "display_order": 8
         },
@@ -505,7 +505,7 @@
           "sentence": "El meu pare {{answer}} mestre.",
           "answer": "és",
           "translation": "My father is a teacher.",
-          "hint": "to be, he",
+          "hint": "to be (he)",
           "cell": "ell",
           "display_order": 9
         },
@@ -513,7 +513,7 @@
           "sentence": "Nosaltres {{answer}} germans.",
           "answer": "som",
           "translation": "We are brothers.",
-          "hint": "to be, we",
+          "hint": "to be (we)",
           "cell": "nosaltres",
           "display_order": 10
         },
@@ -521,7 +521,7 @@
           "sentence": "Vosaltres {{answer}} de Lleida?",
           "answer": "sou",
           "translation": "Are you (all) from Lleida?",
-          "hint": "to be, you all",
+          "hint": "to be (you all)",
           "cell": "vosaltres",
           "display_order": 11
         },
@@ -529,7 +529,7 @@
           "sentence": "Els meus pares {{answer}} de València.",
           "answer": "són",
           "translation": "My parents are from Valencia.",
-          "hint": "to be, they",
+          "hint": "to be (they)",
           "cell": "ells",
           "display_order": 12
         }
@@ -571,7 +571,7 @@
           "sentence": "Jo {{answer}} vint anys.",
           "answer": "tinc",
           "translation": "I am twenty years old.",
-          "hint": "to have, I",
+          "hint": "to have (I)",
           "display_order": 1,
           "cell": "jo"
         },
@@ -595,7 +595,7 @@
           "sentence": "Nosaltres {{answer}} una pregunta.",
           "answer": "tenim",
           "translation": "We have a question.",
-          "hint": "to have, we",
+          "hint": "to have (we)",
           "display_order": 4,
           "cell": "nosaltres"
         },
@@ -611,7 +611,7 @@
           "sentence": "Ells {{answer}} set.",
           "answer": "tenen",
           "translation": "They are thirsty.",
-          "hint": "to have, they",
+          "hint": "to have (they)",
           "display_order": 6,
           "cell": "ells"
         },
@@ -619,7 +619,7 @@
           "sentence": "Jo {{answer}} dues germanes.",
           "answer": "tinc",
           "translation": "I have two sisters.",
-          "hint": "to have, I",
+          "hint": "to have (I)",
           "cell": "jo",
           "display_order": 7
         },
@@ -627,7 +627,7 @@
           "sentence": "Tu {{answer}} un bolígraf?",
           "answer": "tens",
           "translation": "Do you have a pen?",
-          "hint": "to have, you",
+          "hint": "to have (you, informal)",
           "cell": "tu",
           "display_order": 8
         },
@@ -635,7 +635,7 @@
           "sentence": "El meu germà {{answer}} un gos.",
           "answer": "té",
           "translation": "My brother has a dog.",
-          "hint": "to have, he",
+          "hint": "to have (he)",
           "cell": "ell",
           "display_order": 9
         },
@@ -643,7 +643,7 @@
           "sentence": "Nosaltres {{answer}} temps avui.",
           "answer": "tenim",
           "translation": "We have time today.",
-          "hint": "to have, we",
+          "hint": "to have (we)",
           "cell": "nosaltres",
           "display_order": 10
         },
@@ -651,7 +651,7 @@
           "sentence": "Vosaltres {{answer}} fills?",
           "answer": "teniu",
           "translation": "Do you (all) have children?",
-          "hint": "to have, you all",
+          "hint": "to have (you all)",
           "cell": "vosaltres",
           "display_order": 11
         },
@@ -659,7 +659,7 @@
           "sentence": "Ells {{answer}} una casa gran.",
           "answer": "tenen",
           "translation": "They have a big house.",
-          "hint": "to have, they",
+          "hint": "to have (they)",
           "cell": "ells",
           "display_order": 12
         }
@@ -701,7 +701,7 @@
           "sentence": "Nosaltres {{answer}} català.",
           "answer": "parlem",
           "translation": "We speak Catalan.",
-          "hint": "to speak, we",
+          "hint": "to speak (we)",
           "display_order": 1,
           "cell": "nosaltres"
         },
@@ -709,7 +709,7 @@
           "sentence": "Ella {{answer}} en una oficina.",
           "answer": "treballa",
           "translation": "She works in an office.",
-          "hint": "to work, she",
+          "hint": "to work (she)",
           "display_order": 2,
           "cell": "ell"
         },
@@ -725,7 +725,7 @@
           "sentence": "Ells {{answer}} a futbol.",
           "answer": "juguen",
           "translation": "They play football.",
-          "hint": "to play, they",
+          "hint": "to play (they)",
           "display_order": 4,
           "cell": "ells"
         },
@@ -741,7 +741,7 @@
           "sentence": "Jo {{answer}} el pa.",
           "answer": "compro",
           "translation": "I buy the bread.",
-          "hint": "to buy, I",
+          "hint": "to buy (I)",
           "display_order": 6,
           "cell": "jo"
         },
@@ -749,7 +749,7 @@
           "sentence": "Jo {{answer}} en un hospital.",
           "answer": "treballo",
           "translation": "I work in a hospital.",
-          "hint": "to work, I",
+          "hint": "to work (I)",
           "cell": "jo",
           "display_order": 7
         },
@@ -757,7 +757,7 @@
           "sentence": "Tu {{answer}} a quina hora?",
           "answer": "arribes",
           "translation": "What time do you arrive?",
-          "hint": "to arrive, you",
+          "hint": "to arrive (you, informal)",
           "cell": "tu",
           "display_order": 8
         },
@@ -765,7 +765,7 @@
           "sentence": "Ell {{answer}} el sopar.",
           "answer": "prepara",
           "translation": "He prepares dinner.",
-          "hint": "to prepare, he",
+          "hint": "to prepare (he)",
           "cell": "ell",
           "display_order": 9
         },
@@ -773,7 +773,7 @@
           "sentence": "Nosaltres {{answer}} la ràdio.",
           "answer": "escoltem",
           "translation": "We listen to the radio.",
-          "hint": "to listen, we",
+          "hint": "to listen (we)",
           "cell": "nosaltres",
           "display_order": 10
         },
@@ -781,7 +781,7 @@
           "sentence": "Vosaltres {{answer}} francès a l'escola?",
           "answer": "estudieu",
           "translation": "Do you (all) study French at school?",
-          "hint": "to study, you all",
+          "hint": "to study (you all)",
           "cell": "vosaltres",
           "display_order": 11
         },
@@ -789,7 +789,7 @@
           "sentence": "Els nens {{answer}} al parc.",
           "answer": "juguen",
           "translation": "The children play in the park.",
-          "hint": "to play, they",
+          "hint": "to play (they)",
           "cell": "ells",
           "display_order": 12
         }
@@ -831,7 +831,7 @@
           "sentence": "Jo {{answer}} molt.",
           "answer": "dormo",
           "translation": "I sleep a lot.",
-          "hint": "to sleep, I",
+          "hint": "to sleep (I)",
           "display_order": 1,
           "cell": "jo"
         },
@@ -839,7 +839,7 @@
           "sentence": "Nosaltres {{answer}} una carta.",
           "answer": "escrivim",
           "translation": "We are writing a letter.",
-          "hint": "to write, we",
+          "hint": "to write (we)",
           "display_order": 2,
           "cell": "nosaltres"
         },
@@ -879,7 +879,7 @@
           "sentence": "Ells {{answer}} el tren.",
           "answer": "perden",
           "translation": "They miss the train.",
-          "hint": "to lose/miss, they",
+          "hint": "to lose/miss (they)",
           "cell": "ells",
           "display_order": 7
         },
@@ -887,7 +887,7 @@
           "sentence": "Tu {{answer}} el cafè?",
           "answer": "prens",
           "translation": "Are you having coffee?",
-          "hint": "to take, you",
+          "hint": "to take (you, informal)",
           "cell": "tu",
           "display_order": 8
         },
@@ -895,7 +895,7 @@
           "sentence": "Ell {{answer}} fins tard.",
           "answer": "dorm",
           "translation": "He sleeps until late.",
-          "hint": "to sleep, he",
+          "hint": "to sleep (he)",
           "cell": "ell",
           "display_order": 9
         },
@@ -903,7 +903,7 @@
           "sentence": "Nosaltres {{answer}} el tren.",
           "answer": "perdem",
           "translation": "We are missing the train.",
-          "hint": "to lose/miss, we",
+          "hint": "to lose/miss (we)",
           "cell": "nosaltres",
           "display_order": 10
         },
@@ -911,7 +911,7 @@
           "sentence": "Vosaltres {{answer}} el diari?",
           "answer": "llegiu",
           "translation": "Do you (all) read the newspaper?",
-          "hint": "to read, you all",
+          "hint": "to read (you all)",
           "cell": "vosaltres",
           "display_order": 11
         },
@@ -919,7 +919,7 @@
           "sentence": "Ells {{answer}} moltes cartes.",
           "answer": "escriuen",
           "translation": "They write many letters.",
-          "hint": "to write, they",
+          "hint": "to write (they)",
           "cell": "ells",
           "display_order": 12
         }
