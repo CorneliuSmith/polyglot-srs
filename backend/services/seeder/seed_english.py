@@ -34,12 +34,20 @@ class EnglishSeeder(BaseSeeder):
         if not freq_path.exists():
             raise FileNotFoundError(f"English frequency file not found at {freq_path}")
 
+        # Tokenizer shrapnel that leaked into the frequency list — these
+        # must never become flashcards ("ain" from ain't, "isn" from
+        # isn't, stray "de"/"mm").
+        noise = {"ain", "isn", "de", "mm"}
+
         # Read frequency list
         freq_words = []
         with open(freq_path, encoding="utf-8") as f:
             reader = csv.DictReader(f, delimiter="\t")
             for row in reader:
-                freq_words.append((int(row["rank"]), row["word"].strip()))
+                word = row["word"].strip()
+                if word.lower() in noise:
+                    continue
+                freq_words.append((int(row["rank"]), word))
 
         # Optional: spaCy for POS and lemmatization
         nlp = None
@@ -335,6 +343,33 @@ class EnglishSeeder(BaseSeeder):
                     enriched += 1
             self.logger.info(
                 f"Merged support-locale translations for {enriched} words"
+            )
+
+        # WP22(c): hand-authored overrides beat EVERYTHING — extraction and
+        # the curated table alike. This is where wrong-sense picks (grand →
+        # штука, mine → шахта) get corrected and coverage gaps get filled,
+        # word by word, per locale.
+        overrides_path = data_dir / "en_translation_overrides.tsv"
+        if overrides_path.exists():
+            by_word = {rec["word"].lower(): rec for rec in records}
+            applied = 0
+            unknown = 0
+            with open(overrides_path, encoding="utf-8") as f:
+                for row in csv.DictReader(f, delimiter="\t"):
+                    word = (row.get("word") or "").strip().lower()
+                    locale = (row.get("locale") or "").strip()
+                    translation = (row.get("translation") or "").strip()
+                    if not word or not locale or not translation:
+                        continue
+                    rec = by_word.get(word)
+                    if rec is None:
+                        unknown += 1
+                        continue
+                    rec["translations"][locale] = translation
+                    applied += 1
+            self.logger.info(
+                f"Applied {applied} translation overrides"
+                + (f" ({unknown} for unknown words)" if unknown else "")
             )
 
         self.logger.info(f"Transformed {len(records)} English words")
