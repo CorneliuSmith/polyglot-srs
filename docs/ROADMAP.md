@@ -1071,21 +1071,28 @@ new language by design). New `explanation_translations` table (migration
 20260726, applied live) + `en_explanations.{locale}.json` seed format +
 COALESCE in the lesson payload and review detail: the whole explanation
 renders in the learner's support locale when a row exists.
-**(b) L1-aware explanations — ru A1+A2 DONE 2026-07-17 (23 points),**
-written FOR Russian speakers: articles explained to a no-article L1, the
-missing-copula trap (Я студент → I AM a student), do-support vs intonation
-questions, Continuous framed against Russian aspect. reviewed:false until
-native review. Remaining: ru B1–C2, then es/pt sets, then other locales by
-learner activity.
-**(c) Vocabulary translation overrides — ru pass DONE 2026-07-17.**
+**(b) L1-aware explanations — ru/es/pt full sets DONE 2026-07-17.**
+43 points × 3 locales = 129 rows live, each written FOR that L1: articles
+explained to a no-article language (ru) vs cognate-article languages
+(es/pt), the missing-copula trap, do-support vs intonation questions,
+Continuous framed against Russian aspect / estar+gerundio / estar+gerúndio.
+reviewed:false until native review. Remaining: other locales by learner
+activity.
+**(c) Vocabulary translation overrides — ru, es, pt DONE 2026-07-17.**
 Mechanism: data/en_translation_overrides.tsv (word/locale/translation),
-applied LAST in the seeder — beats extraction and the curated table.
-ru: 190 rows live (all 12 sampled wrong-sense fixes + every A1/A2
-coverage gap filled; only the deliberately-empty articles a/an/the
-remain untranslated, by the content rule). Tokenizer shrapnel
-(ain/isn/de/mm) blocklisted in the seeder and purged from the live DB
-(no learner cards referenced them). Remaining: es/pt gap-fill +
-wrong-sense passes, then the other locales by learner activity.
+applied LAST in the seeder — beats extraction and the curated table —
+plus a direct-DB upsert for live rows the current seed records no longer
+reach. 666 rows live (ru 193, es 243, pt 230): every sampled wrong-sense
+fix (grand→штука-class errors) and every A1/A2 coverage gap in all three
+locales. Articles a/an/the now carry contrastive glosses ("определённый
+артикль (в русском нет)" / "el; la (artículo definido)") instead of
+sitting empty. A1/A2 gap count across ru+es+pt: 0 (verified live).
+B1–C2 words without a locale row fall back to the English definition
+deliberately — monolingual definitions are the standard pedagogy from B1
+up, and the pipeline-wide gap there (~1.4–1.9k/locale) is a
+reviewer-era task, not a launch blocker. Tokenizer shrapnel
+(ain/isn/de/mm) blocklisted in the seeder and purged from the live DB.
+Remaining: other locales' A1/A2 passes by learner activity.
 **Original measurement:** Sampled
 defect rate ~10–15% wrong-sense at A1/A2 (grand→штука, mine→шахта,
 most→наи-) plus 185/1521 A1-A2 words missing ru rows entirely (ro: 390
