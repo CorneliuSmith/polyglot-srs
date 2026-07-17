@@ -967,8 +967,15 @@ Imperatives (Open…, Don't…) (A1), each with es/pt/ru hint translations
 missing ru points authored: Adjective agreement (новый/новая/новое,
 paradigm-gated 2-per-cell), Question words (кто, что, где), Conjunctions
 и/а/но (the а-contrast), and general Genitive (possession + у/из/после/
-для/без) linked to the genitive-of-absence point. Remaining sweeps: es
-and pt next (beta-active), then the other 13 languages.
+для/без) linked to the genitive-of-absence point. **es + pt pass DONE 2026-07-16.** es (43 → 47): Possessives (mi, tu, su —
+taught NOWHERE despite adjective agreement existing), Stem-changing verbs
+(quiero/puedo/pido — the present points were regular-only), Demonstratives
+(este/ese/aquel — pt had them, es didn't), Personal a; Quién/Cuál drills
+added to question words. pt (40 → 42): Key irregular presents (vou, faço,
+posso, quero — only ser/estar/ter + regulars were taught) and Pretérito
+perfeito irregulares (fui, fiz, tive — es had a dedicated point, pt
+didn't); O que / Por que drills added to question words. Remaining
+sweeps: the other 13 languages, prioritized by learner activity.
 
 ## 6. Model selection guide
 
