@@ -1014,6 +1014,45 @@ sw (deepest path, 50 points — held up best): only kwa nini and -ngapi
 drills were missing. yo/ha/xh/mi: audited WITH the native reviewers as
 part of the WP4 gate, not before.
 
+### WP21 — The Reader: comprehensible input on demand (owner, 2026-07-16)
+The tutor's third surface after Practice and Reference: the learner names
+a topic, the app writes them a short text at exactly their level.
+**(a) Level-locked generation.** One Claude call produces the whole
+artifact as strict JSON: a ~150–250-word text on the requested topic
+constrained to the learner's LEARNED grammar (point titles from their
+cards) and known-vocabulary level, deliberately seeding 5–8 new words
+chosen to be guessable from context — plus a token-level gloss map,
+per-sentence translations, the new-word list, and the list of grammar
+structures used. Weak items and Active Focus words are woven in for
+re-exposure. Everything the reader UI needs ships in that one response —
+hovers and translations never cost a second API call. Costs ride the
+existing tutor allowance (1 message per generation).
+**(b) Three-stage disclosure (the pedagogy).** Stage 1 — guess first: no
+translations available; seeded new words are subtly marked; tapping one
+asks "What do you think it means?" and reveals the gloss only after the
+learner commits a guess (the generation effect: a produced guess, right
+or wrong, beats a passive lookup). Stage 2 — after the first pass, hover/
+tap glosses unlock for every word, plus per-sentence translations. Stage
+3 — "Explain this sentence" on demand (allowance-gated) with links into
+the app's grammar points when a used structure matches one.
+**(c) Capture to SRS.** Any new word → one tap "Add to my reviews": the
+reading's own sentence becomes a personal cloze card via the existing
+notes pipeline, so words learned in context are reviewed in that context.
+**(d) Grammar gap collector (owner request).** The generator reports the
+structures it used; anything not matching a grammar point title for that
+language upserts into `grammar_gap_log` (count-incremented, statused
+new/planned/covered/dismissed). The app collects its own curriculum
+TODOs from real usage — WP20's audit, automated forward. Surfaced to
+admins in Contribute.
+**Scope notes:** generated text, not scraped web text — real articles
+can't be level-locked and carry copyright; the "internet" advantage lives
+in the model's knowledge of the topic. Reading length/frequency naturally
+bounded by the tutor allowance. Dev-mock (like tutor_dev_mock) makes the
+whole flow CI-testable without an API key.
+**Model:** generation `claude-sonnet-5` (low-resource languages pin the
+stronger model, same rule as the tutor); UI `claude-sonnet-5`.
+**Effort:** L (migration DONE 2026-07-16; service, router, reader UI).
+
 ## 6. Model selection guide
 
 | Task type | Model | Why |
