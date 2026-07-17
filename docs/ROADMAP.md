@@ -985,8 +985,18 @@ Key irregular presents (vado, faccio, posso, voglio) and Stare + gerundio
 (the progressive — es/pt had theirs); Chi + possessive drills. ca (40 →
 42): Key irregular presents (faig, puc, vull — anar disambiguated from
 its past-auxiliary use) and Estar (missing ENTIRELY — the path had ser
-and tenir but no estar); Per què + possessive drills. Remaining sweeps:
-ro, el, tr, ar, sw; yo/ha/xh/mi fold into the native-review gate.
+and tenir but no estar); Per què + possessive drills. **ro + el + tr + ar + sw pass DONE 2026-07-16 — reviewed-tier sweep
+complete (13/17).** ro (40 → 42): Demonstratives (acest/acel incl. the
+postposed cartea-aceasta pattern) and Key irregular presents (vreau,
+pot, știu — with the vor want/future ambiguity taught); De-ce drill.
+el (40 → 41): Demonstratives with the retained article (αυτό ΤΟ βιβλίο,
+εκείνος). tr (40 → 42): Question words (ne, kim, nerede — the path had
+only the mı particle) and Negation with değil (verbs and var/yok could
+be negated, 'to be' sentences could NOT). ar: ذلك/تلك added to
+demonstratives (point taught هذا/هذه only) + لماذا/ماذا question drills.
+sw (deepest path, 50 points — held up best): only kwa nini and -ngapi
+drills were missing. yo/ha/xh/mi: audited WITH the native reviewers as
+part of the WP4 gate, not before.
 
 ## 6. Model selection guide
 
