@@ -836,11 +836,16 @@ async def get_card_details_bulk(
     if grammar_ids:
         for gp in await conn.fetch(
             """
-            SELECT id, title, function_note, explanation, culture_note,
-                   reference_links, reviewed
-            FROM grammar_points WHERE id = ANY($1::uuid[])
+            SELECT gp.id, gp.title, gp.function_note,
+                   COALESCE(et.explanation, gp.explanation) AS explanation,
+                   gp.culture_note, gp.reference_links, gp.reviewed
+            FROM grammar_points gp
+            LEFT JOIN explanation_translations et
+                   ON et.grammar_point_id = gp.id AND et.locale = $2
+            WHERE gp.id = ANY($1::uuid[])
             """,
             grammar_ids,
+            eff_locale,
         ):
             grammar_by_id[gp["id"]] = gp
         for e in await conn.fetch(
@@ -1116,21 +1121,28 @@ async def get_card_detail(
         }
 
     # grammar
+    # WP17/WP22: hint, translation, AND the explanation itself render in
+    # the learner's locale for English cards (same COALESCE rule as
+    # vocabulary definitions).
+    eff_locale = await _effective_locale(conn, card["language_id"], support_locale)
     gp = await conn.fetchrow(
         """
-        SELECT title, function_note, explanation, culture_note,
-               explanation_source, reference_links, related, reviewed
-        FROM grammar_points WHERE id = $1
+        SELECT gp.title, gp.function_note,
+               COALESCE(et.explanation, gp.explanation) AS explanation,
+               gp.culture_note, gp.explanation_source, gp.reference_links,
+               gp.related, gp.reviewed
+        FROM grammar_points gp
+        LEFT JOIN explanation_translations et
+               ON et.grammar_point_id = gp.id AND et.locale = $2
+        WHERE gp.id = $1
         """,
         card["card_id"],
+        eff_locale,
     )
     related = (
         await resolve_related(conn, card["language_id"], gp["related"]) if gp else []
     )
     read_refs = await get_read_ref_keys(conn, str(card["card_id"]))
-    # WP17: drill hint/translation in the learner's locale when this is an
-    # English card (same COALESCE rule as vocabulary definitions).
-    eff_locale = await _effective_locale(conn, card["language_id"], support_locale)
     examples = await conn.fetch(
         """
         SELECT ds.sentence, ds.answer,

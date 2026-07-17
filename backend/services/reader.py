@@ -229,9 +229,13 @@ async def explain_sentence(
         max_tokens=1024,
         system=(
             f"You explain one {language_code} sentence to a {level} learner. "
-            "Under 120 words: what each part does grammatically and why the "
-            "sentence means what it means. Plain English, no jargon the "
-            "level doesn't know yet."
+            "Under 120 words, no jargon the level doesn't know yet.\n\n"
+            "Format exactly like this (the app renders it as a table):\n"
+            "One short intro sentence.\n"
+            "chunk — its grammatical role, briefly\n"
+            "chunk — its role\n"
+            "(one line per meaningful chunk, in sentence order)\n"
+            "Optionally ONE closing note sentence. No markdown, no bullets."
         ),
         messages=[{
             "role": "user",

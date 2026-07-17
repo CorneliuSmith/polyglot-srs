@@ -1057,6 +1057,31 @@ whole flow CI-testable without an API key.
 stronger model, same rule as the tutor); UI `claude-sonnet-5`.
 **Effort:** L (migration DONE 2026-07-16; service, router, reader UI).
 
+### WP22 — English from X: the full support-locale treatment (owner, 2026-07-17)
+English is the app's hardest teaching problem: every learner arrives from a
+different L1, so "the best it can be" means localized AND contrastive.
+**(a) DONE 2026-07-17 — switcher + explanation infrastructure.** The
+translation-language switcher now lives in BOTH the review session and the
+lesson walkthrough (switching remounts; suspended lessons re-teach in the
+new language by design). New `explanation_translations` table (migration
+20260726, applied live) + `en_explanations.{locale}.json` seed format +
+COALESCE in the lesson payload and review detail: the whole explanation
+renders in the learner's support locale when a row exists.
+**(b) L1-aware explanations — ru A1+A2 DONE 2026-07-17 (23 points),**
+written FOR Russian speakers: articles explained to a no-article L1, the
+missing-copula trap (Я студент → I AM a student), do-support vs intonation
+questions, Continuous framed against Russian aspect. reviewed:false until
+native review. Remaining: ru B1–C2, then es/pt sets, then other locales by
+learner activity.
+**(c) Vocabulary translation overrides — measured, in progress.** Sampled
+defect rate ~10–15% wrong-sense at A1/A2 (grand→штука, mine→шахта,
+most→наи-) plus 185/1521 A1-A2 words missing ru rows entirely (ro: 390
+missing; sw: 821). Plan: an overrides file that beats the extraction TSV,
+authored word-by-word for A1+A2 per locale, uncertain pairs flagged for
+native reviewers ("double review" = extraction + my check + reviewer).
+**Model:** `claude-fable-5` for all content authoring (contrastive
+pedagogy in 12 locales is the low-resource-linguistics row of §6).
+
 ## 6. Model selection guide
 
 | Task type | Model | Why |

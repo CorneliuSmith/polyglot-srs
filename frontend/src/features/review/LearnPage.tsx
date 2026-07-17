@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 import { useNavigate, useSearchParams } from 'react-router-dom'
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
 import { confirmLearnSession, startLearnSession, validateAnswer } from '../../api/review'
-import { getLanguages } from '../../api/profile'
+import { getLanguages, getProfile, updateProfile } from '../../api/profile'
 import { usePrefsStore } from '../../stores/prefsStore'
 import LanguageWrapper from '../../components/LanguageWrapper'
 import FormsPanel from '../../components/FormsPanel'
@@ -18,6 +18,14 @@ import type { Lesson, ValidateAnswerResponse } from '../../api/types'
  * learner pages through each new item, then starts the quiz.
  */
 export default function LearnPage() {
+  // Switching the translation language mid-walkthrough remounts the page
+  // (key epoch): unconfirmed lessons are suspended by design and re-taught
+  // by the fresh batch — now localized in the new language.
+  const [epoch, setEpoch] = useState(0)
+  return <LearnInner key={epoch} onLocaleChanged={() => setEpoch((e) => e + 1)} />
+}
+
+function LearnInner({ onLocaleChanged }: { onLocaleChanged: () => void }) {
   const navigate = useNavigate()
   const queryClient = useQueryClient()
   const [searchParams] = useSearchParams()
@@ -31,6 +39,22 @@ export default function LearnPage() {
 
   const { data: languages = [] } = useQuery({ queryKey: ['languages'], queryFn: getLanguages })
   const language = languages.find((l) => l.id === activeLanguageId)
+
+  // WP22: English lessons render definitions/hints/explanations in the
+  // learner's support locale — switchable right here, like in reviews.
+  const studyingEnglish = language?.code === 'en'
+  const { data: profile } = useQuery({
+    queryKey: ['profile'],
+    queryFn: getProfile,
+    enabled: studyingEnglish,
+  })
+  const localeMutation = useMutation({
+    mutationFn: (support_locale: string) => updateProfile({ support_locale }),
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ['profile'] })
+      onLocaleChanged()
+    },
+  })
 
   // The lesson batch is fetched as a one-shot QUERY, not a mutation fired
   // from an effect: the query cache dedupes StrictMode's double mount (one
@@ -195,13 +219,34 @@ export default function LearnPage() {
             New {cardType === 'grammar' ? 'grammar' : 'vocabulary'} ·{' '}
             {lessonIndex + 1} of {lessons.length}
           </p>
-          <button
-            type="button"
-            onClick={() => navigate('/')}
-            className="text-sm text-lang hover:underline"
-          >
-            ← Dashboard
-          </button>
+          <span className="flex items-center gap-3">
+            {studyingEnglish && (
+              <select
+                value={profile?.support_locale ?? 'en'}
+                onChange={(e) => localeMutation.mutate(e.target.value)}
+                disabled={localeMutation.isPending}
+                aria-label="Translations language"
+                title="Show definitions and explanations in…"
+                className="text-xs rounded-lg border border-gray-200 bg-white px-2 py-1 text-gray-600"
+              >
+                <option value="en">English</option>
+                {languages
+                  .filter((l) => l.code !== 'en')
+                  .map((l) => (
+                    <option key={l.code} value={l.code}>
+                      {l.name}
+                    </option>
+                  ))}
+              </select>
+            )}
+            <button
+              type="button"
+              onClick={() => navigate('/')}
+              className="text-sm text-lang hover:underline"
+            >
+              ← Dashboard
+            </button>
+          </span>
         </div>
 
         {lesson && (

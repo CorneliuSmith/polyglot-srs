@@ -14,7 +14,11 @@ vi.mock('../api/review', () => ({
   confirmLearnSession: vi.fn(),
   validateAnswer: vi.fn(),
 }))
-vi.mock('../api/profile', () => ({ getLanguages: vi.fn() }))
+vi.mock('../api/profile', () => ({
+  getLanguages: vi.fn(),
+  getProfile: vi.fn(() => Promise.resolve({ support_locale: null })),
+  updateProfile: vi.fn(),
+}))
 vi.mock('../stores/prefsStore', () => ({ usePrefsStore: vi.fn(() => 'lang-es') }))
 
 import { confirmLearnSession, startLearnSession, validateAnswer } from '../api/review'
