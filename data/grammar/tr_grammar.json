@@ -827,7 +827,7 @@
           "sentence": "Ben kitap {{answer}}.",
           "answer": "okuyorum",
           "translation": "I am reading a book.",
-          "hint": "to read + present continuous, I",
+          "hint": "to read + present continuous (I)",
           "display_order": 1,
           "cell": "ben"
         },
@@ -835,7 +835,7 @@
           "sentence": "O çay {{answer}}.",
           "answer": "içiyor",
           "translation": "He/she is drinking tea.",
-          "hint": "to drink + present continuous, he/she",
+          "hint": "to drink + present continuous (he/she)",
           "display_order": 2,
           "cell": "o"
         },
@@ -843,7 +843,7 @@
           "sentence": "Biz Türkçe {{answer}}.",
           "answer": "öğreniyoruz",
           "translation": "We are learning Turkish.",
-          "hint": "to learn + present continuous, we",
+          "hint": "to learn + present continuous (we)",
           "display_order": 3,
           "cell": "biz"
         },
@@ -851,7 +851,7 @@
           "sentence": "Onlar parkta {{answer}}.",
           "answer": "oynuyorlar",
           "translation": "They are playing in the park.",
-          "hint": "to play + present continuous, they",
+          "hint": "to play + present continuous (they)",
           "display_order": 4,
           "cell": "onlar"
         },
@@ -859,7 +859,7 @@
           "sentence": "Sen ne {{answer}}?",
           "answer": "yapıyorsun",
           "translation": "What are you doing?",
-          "hint": "to do + present continuous, you",
+          "hint": "to do + present continuous (you, informal)",
           "display_order": 5,
           "cell": "sen"
         },
@@ -867,7 +867,7 @@
           "sentence": "Annem yemek {{answer}}.",
           "answer": "pişiriyor",
           "translation": "My mother is cooking food.",
-          "hint": "to cook + present continuous, she",
+          "hint": "to cook + present continuous (she)",
           "display_order": 6,
           "cell": "o"
         },
@@ -883,7 +883,7 @@
           "sentence": "Ben şimdi eve {{answer}}.",
           "answer": "gidiyorum",
           "translation": "I am going home now.",
-          "hint": "to go + -iyor, I",
+          "hint": "to go + -iyor (I)",
           "cell": "ben",
           "display_order": 8
         },
@@ -891,7 +891,7 @@
           "sentence": "Sen çok hızlı {{answer}}.",
           "answer": "konuşuyorsun",
           "translation": "You are speaking very fast.",
-          "hint": "to speak + -iyor, you",
+          "hint": "to speak + -iyor (you, informal)",
           "cell": "sen",
           "display_order": 9
         },
@@ -899,7 +899,7 @@
           "sentence": "Biz akşam yemeği {{answer}}.",
           "answer": "yiyoruz",
           "translation": "We are eating dinner.",
-          "hint": "to eat + -iyor, we",
+          "hint": "to eat + -iyor (we)",
           "cell": "biz",
           "display_order": 10
         },
@@ -907,7 +907,7 @@
           "sentence": "Siz nerede {{answer}}?",
           "answer": "oturuyorsunuz",
           "translation": "Where do you (all) live?",
-          "hint": "to live/sit + -iyor, you all",
+          "hint": "to live/sit + -iyor (you all)",
           "cell": "siz",
           "display_order": 11
         },
@@ -915,7 +915,7 @@
           "sentence": "Onlar müzik {{answer}}.",
           "answer": "dinliyorlar",
           "translation": "They are listening to music.",
-          "hint": "to listen + -iyor, they",
+          "hint": "to listen + -iyor (they)",
           "cell": "onlar",
           "display_order": 12
         }
@@ -967,7 +967,7 @@
           "sentence": "Ben kahve {{answer}}.",
           "answer": "içmiyorum",
           "translation": "I am not drinking coffee.",
-          "hint": "to drink + negative present continuous, I",
+          "hint": "to drink + negative present continuous (I)",
           "display_order": 1,
           "cell": "ben"
         },
@@ -975,7 +975,7 @@
           "sentence": "O televizyon {{answer}}.",
           "answer": "izlemiyor",
           "translation": "He is not watching TV.",
-          "hint": "to watch + negative present continuous, he/she",
+          "hint": "to watch + negative present continuous (he/she)",
           "display_order": 2,
           "cell": "o"
         },
@@ -983,7 +983,7 @@
           "sentence": "Biz et {{answer}}.",
           "answer": "yemiyoruz",
           "translation": "We are not eating meat.",
-          "hint": "to eat + negative present continuous, we",
+          "hint": "to eat + negative present continuous (we)",
           "display_order": 3,
           "cell": "biz"
         },
@@ -991,7 +991,7 @@
           "sentence": "Sen beni {{answer}}.",
           "answer": "dinlemiyorsun",
           "translation": "You are not listening to me.",
-          "hint": "to listen + negative present continuous, you",
+          "hint": "to listen + negative present continuous (you, informal)",
           "display_order": 4,
           "cell": "sen"
         },
@@ -999,7 +999,7 @@
           "sentence": "Onlar bugün {{answer}}.",
           "answer": "çalışmıyorlar",
           "translation": "They are not working today.",
-          "hint": "to work + negative present continuous, they",
+          "hint": "to work + negative present continuous (they)",
           "display_order": 5,
           "cell": "onlar"
         },
@@ -1007,7 +1007,7 @@
           "sentence": "Bebek {{answer}}.",
           "answer": "uyumuyor",
           "translation": "The baby is not sleeping.",
-          "hint": "to sleep + negative present continuous, he/she",
+          "hint": "to sleep + negative present continuous (he/she)",
           "display_order": 6,
           "cell": "o"
         },
@@ -1023,7 +1023,7 @@
           "sentence": "Ben bugün {{answer}}.",
           "answer": "çalışmıyorum",
           "translation": "I am not working today.",
-          "hint": "to work + negative -iyor, I",
+          "hint": "to work + negative -iyor (I)",
           "cell": "ben",
           "display_order": 8
         },
@@ -1031,7 +1031,7 @@
           "sentence": "Sen hiç {{answer}}.",
           "answer": "gülmüyorsun",
           "translation": "You never smile.",
-          "hint": "to smile + negative -iyor, you",
+          "hint": "to smile + negative -iyor (you, informal)",
           "cell": "sen",
           "display_order": 9
         },
@@ -1039,7 +1039,7 @@
           "sentence": "Biz artık orada {{answer}}.",
           "answer": "oturmuyoruz",
           "translation": "We don't live there anymore.",
-          "hint": "to live + negative -iyor, we",
+          "hint": "to live + negative -iyor (we)",
           "cell": "biz",
           "display_order": 10
         },
@@ -1047,7 +1047,7 @@
           "sentence": "Siz neden {{answer}}?",
           "answer": "gelmiyorsunuz",
           "translation": "Why aren't you (all) coming?",
-          "hint": "to come + negative -iyor, you all",
+          "hint": "to come + negative -iyor (you all)",
           "cell": "siz",
           "display_order": 11
         },
@@ -1055,7 +1055,7 @@
           "sentence": "Onlar bizi {{answer}}.",
           "answer": "duymuyorlar",
           "translation": "They don't hear us.",
-          "hint": "to hear + negative -iyor, they",
+          "hint": "to hear + negative -iyor (they)",
           "cell": "onlar",
           "display_order": 12
         }
@@ -1221,21 +1221,21 @@
           "sentence": "Dün okula {{answer}}.",
           "answer": "gittim",
           "translation": "Yesterday I went to school.",
-          "hint": "to go + past, I",
+          "hint": "to go + past (I)",
           "display_order": 1
         },
         {
           "sentence": "O eve {{answer}}.",
           "answer": "geldi",
           "translation": "He/she came home.",
-          "hint": "to come + past, he/she",
+          "hint": "to come + past (he/she)",
           "display_order": 2
         },
         {
           "sentence": "Biz dün sinemaya {{answer}}.",
           "answer": "gittik",
           "translation": "Yesterday we went to the cinema.",
-          "hint": "to go + past, we",
+          "hint": "to go + past (we)",
           "display_order": 3
         },
         {
@@ -1256,7 +1256,7 @@
           "sentence": "Sen filmi {{answer}} mi?",
           "answer": "izledin",
           "translation": "Did you watch the film?",
-          "hint": "to watch + past, you",
+          "hint": "to watch + past (you)",
           "display_order": 6
         }
       ]
@@ -1296,7 +1296,7 @@
           "sentence": "Onlar yarın {{answer}}.",
           "answer": "gelecekler",
           "translation": "They will come tomorrow.",
-          "hint": "to come + future, they",
+          "hint": "to come + future (they)",
           "display_order": 2
         },
         {
@@ -1317,7 +1317,7 @@
           "sentence": "O akşam yemek {{answer}}.",
           "answer": "yapacak",
           "translation": "She will make dinner.",
-          "hint": "to do + future, she",
+          "hint": "to do + future (she)",
           "display_order": 5
         },
         {
@@ -1553,35 +1553,35 @@
           "sentence": "Her sabah kahve {{answer}}.",
           "answer": "içerim",
           "translation": "Every morning I drink coffee.",
-          "hint": "to drink + aorist, I",
+          "hint": "to drink + aorist (I)",
           "display_order": 1
         },
         {
           "sentence": "O erken {{answer}}.",
           "answer": "kalkar",
           "translation": "He gets up early.",
-          "hint": "to get up + aorist, he/she",
+          "hint": "to get up + aorist (he/she)",
           "display_order": 2
         },
         {
           "sentence": "O her akşam kitap {{answer}}.",
           "answer": "okur",
           "translation": "He reads a book every evening.",
-          "hint": "to read + aorist, he",
+          "hint": "to read + aorist (he)",
           "display_order": 3
         },
         {
           "sentence": "Biz pazar günleri geç {{answer}}.",
           "answer": "kalkarız",
           "translation": "On Sundays we get up late.",
-          "hint": "to get up + aorist, we",
+          "hint": "to get up + aorist (we)",
           "display_order": 4
         },
         {
           "sentence": "Ben her gün Türkçe {{answer}}.",
           "answer": "çalışırım",
           "translation": "I study Turkish every day.",
-          "hint": "to study + aorist, I",
+          "hint": "to study + aorist (I)",
           "display_order": 5
         },
         {
@@ -1621,7 +1621,7 @@
           "sentence": "Türkçe {{answer}}.",
           "answer": "konuşabilirim",
           "translation": "I can speak Turkish.",
-          "hint": "to speak + ability, I",
+          "hint": "to speak + ability (I)",
           "display_order": 1
         },
         {
@@ -1635,14 +1635,14 @@
           "sentence": "Ben çok hızlı {{answer}}.",
           "answer": "koşabilirim",
           "translation": "I can run very fast.",
-          "hint": "to run + ability, I",
+          "hint": "to run + ability (I)",
           "display_order": 3
         },
         {
           "sentence": "O üç dil {{answer}}.",
           "answer": "konuşabilir",
           "translation": "She can speak three languages.",
-          "hint": "to speak + ability, she",
+          "hint": "to speak + ability (she)",
           "display_order": 4
         },
         {
@@ -1656,7 +1656,7 @@
           "sentence": "Biz yarın {{answer}}.",
           "answer": "gelebiliriz",
           "translation": "We can come tomorrow.",
-          "hint": "to come + ability, we",
+          "hint": "to come + ability (we)",
           "display_order": 6
         }
       ]
@@ -1884,35 +1884,35 @@
           "sentence": "O yalan {{answer}}.",
           "answer": "söylemez",
           "translation": "He does not lie.",
-          "hint": "to say + aorist negative, he",
+          "hint": "to say + aorist negative (he)",
           "display_order": 2
         },
         {
           "sentence": "O asla geç {{answer}}.",
           "answer": "kalmaz",
           "translation": "He is never late.",
-          "hint": "to stay + aorist negative, he",
+          "hint": "to stay + aorist negative (he)",
           "display_order": 3
         },
         {
           "sentence": "Ben sabahları kahve {{answer}}.",
           "answer": "içmem",
           "translation": "I don't drink coffee in the mornings.",
-          "hint": "to drink + aorist negative, I",
+          "hint": "to drink + aorist negative (I)",
           "display_order": 4
         },
         {
           "sentence": "Biz yalan {{answer}}.",
           "answer": "söylemeyiz",
           "translation": "We don't tell lies.",
-          "hint": "to say + aorist negative, we",
+          "hint": "to say + aorist negative (we)",
           "display_order": 5
         },
         {
           "sentence": "O balık {{answer}}.",
           "answer": "sevmez",
           "translation": "He doesn't like fish.",
-          "hint": "to like + aorist negative, he",
+          "hint": "to like + aorist negative (he)",
           "display_order": 6
         }
       ]
@@ -1959,7 +1959,7 @@
           "sentence": "Sen dün çok {{answer}}.",
           "answer": "çalışmışsın",
           "translation": "Apparently you worked a lot yesterday.",
-          "hint": "to work + evidential past, you",
+          "hint": "to work + evidential past (you)",
           "display_order": 3
         },
         {
@@ -2009,35 +2009,35 @@
           "sentence": "Erken {{answer}}.",
           "answer": "kalkmalıyım",
           "translation": "I must get up early.",
-          "hint": "to get up + necessity, I",
+          "hint": "to get up + necessity (I)",
           "display_order": 1
         },
         {
           "sentence": "Daha çok {{answer}}.",
           "answer": "çalışmalısın",
           "translation": "You should study more.",
-          "hint": "to study + necessity, you",
+          "hint": "to study + necessity (you)",
           "display_order": 2
         },
         {
           "sentence": "Biz daha erken {{answer}}.",
           "answer": "yatmalıyız",
           "translation": "We should go to bed earlier.",
-          "hint": "to go to bed + necessity, we",
+          "hint": "to go to bed + necessity (we)",
           "display_order": 3
         },
         {
           "sentence": "O doktora {{answer}}.",
           "answer": "gitmeli",
           "translation": "She should go to the doctor.",
-          "hint": "to go + necessity, she",
+          "hint": "to go + necessity (she)",
           "display_order": 4
         },
         {
           "sentence": "Ben sigarayı {{answer}}.",
           "answer": "bırakmalıyım",
           "translation": "I must quit smoking.",
-          "hint": "to quit + necessity, I",
+          "hint": "to quit + necessity (I)",
           "display_order": 5
         },
         {
@@ -2094,7 +2094,7 @@
           "sentence": "Erken {{answer}}, kahvaltı yaparız.",
           "answer": "kalkarsak",
           "translation": "If we get up early, we'll have breakfast.",
-          "hint": "to get up + aorist + conditional, we",
+          "hint": "to get up + aorist + conditional (we)",
           "display_order": 4
         },
         {
@@ -2108,7 +2108,7 @@
           "sentence": "Geç {{answer}}, beni bekleme.",
           "answer": "kalırsam",
           "translation": "If I'm late, don't wait for me.",
-          "hint": "to be (late) + aorist + conditional, I",
+          "hint": "to be (late) + aorist + conditional (I)",
           "display_order": 6
         }
       ]
@@ -2529,42 +2529,42 @@
           "sentence": "Saçımı {{answer}}.",
           "answer": "kestirdim",
           "translation": "I had my hair cut.",
-          "hint": "to cut + causative + past, I",
+          "hint": "to cut + causative + past (I)",
           "display_order": 1
         },
         {
           "sentence": "Annesi çocuğa yemek {{answer}}.",
           "answer": "yedirdi",
           "translation": "His mother fed the child.",
-          "hint": "to eat + causative + past, she",
+          "hint": "to eat + causative + past (she)",
           "display_order": 2
         },
         {
           "sentence": "Arabamı {{answer}}.",
           "answer": "yıkattım",
           "translation": "I had my car washed.",
-          "hint": "to wash + causative + past, I",
+          "hint": "to wash + causative + past (I)",
           "display_order": 3
         },
         {
           "sentence": "Öğretmen öğrencilere kitap {{answer}}.",
           "answer": "okuttu",
           "translation": "The teacher had the students read a book.",
-          "hint": "to read + causative + past, he",
+          "hint": "to read + causative + past (he)",
           "display_order": 4
         },
         {
           "sentence": "Bebeği {{answer}}.",
           "answer": "uyuttum",
           "translation": "I put the baby to sleep.",
-          "hint": "to sleep + causative + past, I",
+          "hint": "to sleep + causative + past (I)",
           "display_order": 5
         },
         {
           "sentence": "Evi {{answer}}.",
           "answer": "boyattım",
           "translation": "I had the house painted.",
-          "hint": "to paint + causative + past, I",
+          "hint": "to paint + causative + past (I)",
           "display_order": 6
         }
       ]
@@ -2853,7 +2853,7 @@
           "sentence": "Biz üniversitede {{answer}}.",
           "answer": "tanıştık",
           "translation": "We met (each other) at university.",
-          "hint": "to know + reciprocal + past, we",
+          "hint": "to know + reciprocal + past (we)",
           "display_order": 1
         },
         {

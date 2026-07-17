@@ -1001,7 +1001,7 @@
           "sentence": "هو {{answer}} القهوة في الصباح.",
           "answer": "يشرب",
           "translation": "He drinks coffee in the morning.",
-          "hint": "to drink + present, he",
+          "hint": "to drink + present (he)",
           "cell": "هو",
           "display_order": 9,
           "transliteration": "huwa ___ al-qahwa fī aṣ-ṣabāḥ."
@@ -1010,7 +1010,7 @@
           "sentence": "هي {{answer}} في مستشفى.",
           "answer": "تعمل",
           "translation": "She works in a hospital.",
-          "hint": "to work + present, she",
+          "hint": "to work + present (she)",
           "cell": "هي",
           "display_order": 10,
           "transliteration": "hiya ___ fī mustashfā."
@@ -1019,7 +1019,7 @@
           "sentence": "نحن {{answer}} العربية.",
           "answer": "نتعلم",
           "translation": "We are learning Arabic.",
-          "hint": "to learn + present, we",
+          "hint": "to learn + present (we)",
           "cell": "نحن",
           "display_order": 11,
           "transliteration": "naḥnu ___ al-ʿarabiyya."
@@ -1028,7 +1028,7 @@
           "sentence": "هم {{answer}} في السوق.",
           "answer": "يعملون",
           "translation": "They work at the market.",
-          "hint": "to work + present, they",
+          "hint": "to work + present (they)",
           "cell": "هم",
           "display_order": 12,
           "transliteration": "hum ___ fī as-sūq."

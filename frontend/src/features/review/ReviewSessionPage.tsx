@@ -318,7 +318,7 @@ function ReviewSessionInner({
   const revealedLayers =
     session.phase !== 'answering' ? layers : layers.slice(0, Math.min(hintLevel, maxHint))
   const topHint = revealedLayers.find((l) => l.field === 'hint')
-  const belowLayers = revealedLayers.filter((l) => l.field !== 'hint')
+  const answering = session.phase === 'answering'
   const result = session.validationResult?.answer_result
   const resultStyles =
     result === 'correct'
@@ -335,6 +335,21 @@ function ReviewSessionInner({
   const canListen =
     card.sentence.includes('{{answer}}') && TTS_LANGUAGES.has(card.language_code)
   const listening = listeningMode && canListen
+
+  // Listening mode (beta feedback): the audio plays the WHOLE sentence, so
+  // with the words hidden nothing says which word to type. The drill's
+  // authored hint is exactly that cue — reveal it by default while
+  // listening. The transliteration/gloss layers spell the whole sentence
+  // out, which defeats the exercise — those stay hidden until grading.
+  const listeningCue =
+    listening && answering ? layers.find((l) => l.field === 'hint') : undefined
+  const shownTopHint = topHint ?? listeningCue
+  const belowLayers = revealedLayers.filter(
+    (l) =>
+      l.field !== 'hint' &&
+      !(listening && answering &&
+        (l.field === 'transliteration' || l.field === 'gloss')),
+  )
 
   // Non-Latin scripts and Latin languages with accents/diacritics get an
   // on-screen helper. (Xhosa/English omitted: plain ASCII.)
@@ -424,8 +439,10 @@ function ReviewSessionInner({
 
         {/* Card area */}
         <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-6 md:p-8">
-          {topHint && !listening && (
-            <p className="text-sm text-gray-400 text-center mb-4">{topHint.text}</p>
+          {shownTopHint && (
+            <p className="text-sm text-gray-400 text-center mb-4">
+              {shownTopHint.text}
+            </p>
           )}
 
           {listening && session.phase === 'answering' && (

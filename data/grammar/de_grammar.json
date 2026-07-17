@@ -441,7 +441,7 @@
           "sentence": "Ich {{answer}} Student.",
           "answer": "bin",
           "translation": "I am a student.",
-          "hint": "to be, I",
+          "hint": "to be (I)",
           "display_order": 1,
           "cell": "1sg"
         },
@@ -457,7 +457,7 @@
           "sentence": "Sie {{answer}} Lehrerin.",
           "answer": "ist",
           "translation": "She is a teacher.",
-          "hint": "to be, she",
+          "hint": "to be (she)",
           "display_order": 3,
           "cell": "3sg"
         },
@@ -465,7 +465,7 @@
           "sentence": "Wir {{answer}} Freunde.",
           "answer": "sind",
           "translation": "We are friends.",
-          "hint": "to be, we",
+          "hint": "to be (we)",
           "display_order": 4,
           "cell": "1pl"
         },
@@ -481,7 +481,7 @@
           "sentence": "Die Kinder {{answer}} im Garten.",
           "answer": "sind",
           "translation": "The children are in the garden.",
-          "hint": "to be, they",
+          "hint": "to be (they)",
           "display_order": 6,
           "cell": "3pl"
         },
@@ -489,7 +489,7 @@
           "sentence": "Ich {{answer}} müde.",
           "answer": "bin",
           "translation": "I am tired.",
-          "hint": "to be, I",
+          "hint": "to be (I)",
           "cell": "1sg",
           "display_order": 7
         },
@@ -497,7 +497,7 @@
           "sentence": "Du {{answer}} mein bester Freund.",
           "answer": "bist",
           "translation": "You are my best friend.",
-          "hint": "to be, you",
+          "hint": "to be (you, informal)",
           "cell": "2sg",
           "display_order": 8
         },
@@ -505,7 +505,7 @@
           "sentence": "Mein Vater {{answer}} Arzt.",
           "answer": "ist",
           "translation": "My father is a doctor.",
-          "hint": "to be, he",
+          "hint": "to be (he)",
           "cell": "3sg",
           "display_order": 9
         },
@@ -513,7 +513,7 @@
           "sentence": "Wir {{answer}} bereit.",
           "answer": "sind",
           "translation": "We are ready.",
-          "hint": "to be, we",
+          "hint": "to be (we)",
           "cell": "1pl",
           "display_order": 10
         },
@@ -521,7 +521,7 @@
           "sentence": "Ihr {{answer}} sehr nett.",
           "answer": "seid",
           "translation": "You (all) are very nice.",
-          "hint": "to be, you all",
+          "hint": "to be (you all)",
           "cell": "2pl",
           "display_order": 11
         },
@@ -529,7 +529,7 @@
           "sentence": "Meine Eltern {{answer}} aus Bonn.",
           "answer": "sind",
           "translation": "My parents are from Bonn.",
-          "hint": "to be, they",
+          "hint": "to be (they)",
           "cell": "3pl",
           "display_order": 12
         }
@@ -571,7 +571,7 @@
           "sentence": "Ich {{answer}} Hunger.",
           "answer": "habe",
           "translation": "I am hungry.",
-          "hint": "to have, I",
+          "hint": "to have (I)",
           "display_order": 1,
           "cell": "1sg"
         },
@@ -587,7 +587,7 @@
           "sentence": "Sie {{answer}} eine Katze.",
           "answer": "hat",
           "translation": "She has a cat.",
-          "hint": "to have, she",
+          "hint": "to have (she)",
           "display_order": 3,
           "cell": "3sg"
         },
@@ -595,7 +595,7 @@
           "sentence": "Wir {{answer}} Zeit.",
           "answer": "haben",
           "translation": "We have time.",
-          "hint": "to have, we",
+          "hint": "to have (we)",
           "display_order": 4,
           "cell": "1pl"
         },
@@ -619,7 +619,7 @@
           "sentence": "Ich {{answer}} eine Frage.",
           "answer": "habe",
           "translation": "I have a question.",
-          "hint": "to have, I",
+          "hint": "to have (I)",
           "cell": "1sg",
           "display_order": 7
         },
@@ -627,7 +627,7 @@
           "sentence": "Du {{answer}} einen Hund?",
           "answer": "hast",
           "translation": "Do you have a dog?",
-          "hint": "to have, you",
+          "hint": "to have (you, informal)",
           "cell": "2sg",
           "display_order": 8
         },
@@ -635,7 +635,7 @@
           "sentence": "Er {{answer}} heute Geburtstag.",
           "answer": "hat",
           "translation": "It's his birthday today.",
-          "hint": "to have, he",
+          "hint": "to have (he)",
           "cell": "3sg",
           "display_order": 9
         },
@@ -643,7 +643,7 @@
           "sentence": "Wir {{answer}} zwei Autos.",
           "answer": "haben",
           "translation": "We have two cars.",
-          "hint": "to have, we",
+          "hint": "to have (we)",
           "cell": "1pl",
           "display_order": 10
         },
@@ -651,7 +651,7 @@
           "sentence": "Ihr {{answer}} viel Arbeit.",
           "answer": "habt",
           "translation": "You (all) have a lot of work.",
-          "hint": "to have, you all",
+          "hint": "to have (you all)",
           "cell": "2pl",
           "display_order": 11
         },
@@ -659,7 +659,7 @@
           "sentence": "Die Kinder {{answer}} Hunger.",
           "answer": "haben",
           "translation": "The children are hungry.",
-          "hint": "to have, they",
+          "hint": "to have (they)",
           "cell": "3pl",
           "display_order": 12
         }
@@ -701,7 +701,7 @@
           "sentence": "Ich {{answer}} Deutsch.",
           "answer": "lerne",
           "translation": "I am learning German.",
-          "hint": "to learn, I",
+          "hint": "to learn (I)",
           "display_order": 1,
           "cell": "1sg"
         },
@@ -717,7 +717,7 @@
           "sentence": "Er {{answer}} in Hamburg.",
           "answer": "wohnt",
           "translation": "He lives in Hamburg.",
-          "hint": "to live, he",
+          "hint": "to live (he)",
           "display_order": 3,
           "cell": "3sg"
         },
@@ -725,7 +725,7 @@
           "sentence": "Wir {{answer}} Musik.",
           "answer": "hören",
           "translation": "We are listening to music.",
-          "hint": "to listen, we",
+          "hint": "to listen (we)",
           "display_order": 4,
           "cell": "1pl"
         },
@@ -741,7 +741,7 @@
           "sentence": "Sie {{answer}} jeden Tag.",
           "answer": "arbeiten",
           "translation": "They work every day.",
-          "hint": "to work, they",
+          "hint": "to work (they)",
           "display_order": 6,
           "cell": "3pl"
         },
@@ -749,7 +749,7 @@
           "sentence": "Ich {{answer}} bei einer Firma.",
           "answer": "arbeite",
           "translation": "I work at a company.",
-          "hint": "to work, I",
+          "hint": "to work (I)",
           "cell": "1sg",
           "display_order": 7
         },
@@ -757,7 +757,7 @@
           "sentence": "Du {{answer}} Deutsch?",
           "answer": "lernst",
           "translation": "Are you learning German?",
-          "hint": "to learn, you",
+          "hint": "to learn (you, informal)",
           "cell": "2sg",
           "display_order": 8
         },
@@ -765,7 +765,7 @@
           "sentence": "Meine Schwester {{answer}} im Chor.",
           "answer": "singt",
           "translation": "My sister sings in a choir.",
-          "hint": "to sing, she",
+          "hint": "to sing (she)",
           "cell": "3sg",
           "display_order": 9
         },
@@ -773,7 +773,7 @@
           "sentence": "Wir {{answer}} heute Abend.",
           "answer": "kochen",
           "translation": "We are cooking tonight.",
-          "hint": "to cook, we",
+          "hint": "to cook (we)",
           "cell": "1pl",
           "display_order": 10
         },
@@ -781,7 +781,7 @@
           "sentence": "Ihr {{answer}} laut Musik.",
           "answer": "hört",
           "translation": "You (all) are playing music loudly.",
-          "hint": "to hear/listen, you all",
+          "hint": "to hear/listen (you all)",
           "cell": "2pl",
           "display_order": 11
         },
@@ -789,7 +789,7 @@
           "sentence": "Die Kinder {{answer}} im Park.",
           "answer": "spielen",
           "translation": "The children are playing in the park.",
-          "hint": "to play, they",
+          "hint": "to play (they)",
           "cell": "3pl",
           "display_order": 12
         }

@@ -425,7 +425,7 @@
           "sentence": "Je {{answer}} étudiant.",
           "answer": "suis",
           "translation": "I am a student.",
-          "hint": "to be, I",
+          "hint": "to be (I)",
           "display_order": 1,
           "cell": "je"
         },
@@ -441,7 +441,7 @@
           "sentence": "Elle {{answer}} professeur.",
           "answer": "est",
           "translation": "She is a teacher.",
-          "hint": "to be, she",
+          "hint": "to be (she)",
           "display_order": 3,
           "cell": "il"
         },
@@ -449,7 +449,7 @@
           "sentence": "Nous {{answer}} amis.",
           "answer": "sommes",
           "translation": "We are friends.",
-          "hint": "to be, we",
+          "hint": "to be (we)",
           "display_order": 4,
           "cell": "nous"
         },
@@ -465,7 +465,7 @@
           "sentence": "Ils {{answer}} à la maison.",
           "answer": "sont",
           "translation": "They are at home.",
-          "hint": "to be, they",
+          "hint": "to be (they)",
           "display_order": 6,
           "cell": "ils"
         },
@@ -473,7 +473,7 @@
           "sentence": "Je {{answer}} de Marseille.",
           "answer": "suis",
           "translation": "I am from Marseille.",
-          "hint": "to be, I",
+          "hint": "to be (I)",
           "cell": "je",
           "display_order": 7
         },
@@ -481,7 +481,7 @@
           "sentence": "Tu {{answer}} médecin ?",
           "answer": "es",
           "translation": "Are you a doctor?",
-          "hint": "to be, you",
+          "hint": "to be (you, informal)",
           "cell": "tu",
           "display_order": 8
         },
@@ -489,7 +489,7 @@
           "sentence": "Mon père {{answer}} professeur.",
           "answer": "est",
           "translation": "My father is a teacher.",
-          "hint": "to be, he",
+          "hint": "to be (he)",
           "cell": "il",
           "display_order": 9
         },
@@ -497,7 +497,7 @@
           "sentence": "Nous {{answer}} prêts.",
           "answer": "sommes",
           "translation": "We are ready.",
-          "hint": "to be, we",
+          "hint": "to be (we)",
           "cell": "nous",
           "display_order": 10
         },
@@ -513,7 +513,7 @@
           "sentence": "Mes parents {{answer}} de Nice.",
           "answer": "sont",
           "translation": "My parents are from Nice.",
-          "hint": "to be, they",
+          "hint": "to be (they)",
           "cell": "ils",
           "display_order": 12
         }
@@ -555,7 +555,7 @@
           "sentence": "J'{{answer}} vingt ans.",
           "answer": "ai",
           "translation": "I am twenty years old.",
-          "hint": "to have, I",
+          "hint": "to have (I)",
           "display_order": 1,
           "cell": "je"
         },
@@ -571,7 +571,7 @@
           "sentence": "Elle {{answer}} un chat.",
           "answer": "a",
           "translation": "She has a cat.",
-          "hint": "to have, she",
+          "hint": "to have (she)",
           "display_order": 3,
           "cell": "il"
         },
@@ -579,7 +579,7 @@
           "sentence": "Nous {{answer}} une question.",
           "answer": "avons",
           "translation": "We have a question.",
-          "hint": "to have, we",
+          "hint": "to have (we)",
           "display_order": 4,
           "cell": "nous"
         },
@@ -595,7 +595,7 @@
           "sentence": "Ils {{answer}} soif.",
           "answer": "ont",
           "translation": "They are thirsty.",
-          "hint": "to have, they",
+          "hint": "to have (they)",
           "display_order": 6,
           "cell": "ils"
         },
@@ -603,7 +603,7 @@
           "sentence": "J'{{answer}} une petite question.",
           "answer": "ai",
           "translation": "I have a small question.",
-          "hint": "to have, I",
+          "hint": "to have (I)",
           "cell": "je",
           "display_order": 7
         },
@@ -611,7 +611,7 @@
           "sentence": "Tu {{answer}} un stylo ?",
           "answer": "as",
           "translation": "Do you have a pen?",
-          "hint": "to have, you",
+          "hint": "to have (you, informal)",
           "cell": "tu",
           "display_order": 8
         },
@@ -619,7 +619,7 @@
           "sentence": "Mon frère {{answer}} un chien.",
           "answer": "a",
           "translation": "My brother has a dog.",
-          "hint": "to have, he",
+          "hint": "to have (he)",
           "cell": "il",
           "display_order": 9
         },
@@ -627,7 +627,7 @@
           "sentence": "Nous {{answer}} le temps.",
           "answer": "avons",
           "translation": "We have time.",
-          "hint": "to have, we",
+          "hint": "to have (we)",
           "cell": "nous",
           "display_order": 10
         },
@@ -643,7 +643,7 @@
           "sentence": "Ils {{answer}} une grande maison.",
           "answer": "ont",
           "translation": "They have a big house.",
-          "hint": "to have, they",
+          "hint": "to have (they)",
           "cell": "ils",
           "display_order": 12
         }
@@ -685,7 +685,7 @@
           "sentence": "Nous {{answer}} français.",
           "answer": "parlons",
           "translation": "We speak French.",
-          "hint": "to speak, we",
+          "hint": "to speak (we)",
           "display_order": 1,
           "cell": "nous"
         },
@@ -693,7 +693,7 @@
           "sentence": "Elle {{answer}} dans un bureau.",
           "answer": "travaille",
           "translation": "She works in an office.",
-          "hint": "to work, she",
+          "hint": "to work (she)",
           "display_order": 2,
           "cell": "il"
         },
@@ -709,7 +709,7 @@
           "sentence": "Ils {{answer}} au football.",
           "answer": "jouent",
           "translation": "They play football.",
-          "hint": "to play, they",
+          "hint": "to play (they)",
           "display_order": 4,
           "cell": "ils"
         },
@@ -725,7 +725,7 @@
           "sentence": "Je {{answer}} la porte.",
           "answer": "ferme",
           "translation": "I close the door.",
-          "hint": "to close, I",
+          "hint": "to close (I)",
           "display_order": 6,
           "cell": "il"
         },
@@ -733,7 +733,7 @@
           "sentence": "Je {{answer}} un peu français.",
           "answer": "parle",
           "translation": "I speak a little French.",
-          "hint": "to speak, I",
+          "hint": "to speak (I)",
           "cell": "je",
           "display_order": 7
         },
@@ -741,7 +741,7 @@
           "sentence": "Je {{answer}} dans un hôpital.",
           "answer": "travaille",
           "translation": "I work in a hospital.",
-          "hint": "to work, I",
+          "hint": "to work (I)",
           "cell": "je",
           "display_order": 8
         },
@@ -749,7 +749,7 @@
           "sentence": "Tu {{answer}} à quelle heure ?",
           "answer": "arrives",
           "translation": "What time do you arrive?",
-          "hint": "to arrive, you",
+          "hint": "to arrive (you, informal)",
           "cell": "tu",
           "display_order": 9
         },
@@ -757,7 +757,7 @@
           "sentence": "Nous {{answer}} le dîner ensemble.",
           "answer": "préparons",
           "translation": "We prepare dinner together.",
-          "hint": "to prepare, we",
+          "hint": "to prepare (we)",
           "cell": "nous",
           "display_order": 10
         },
@@ -773,7 +773,7 @@
           "sentence": "Mes amis {{answer}} l'espagnol.",
           "answer": "étudient",
           "translation": "My friends study Spanish.",
-          "hint": "to study, they",
+          "hint": "to study (they)",
           "cell": "ils",
           "display_order": 12
         }
@@ -815,7 +815,7 @@
           "sentence": "Je {{answer}} mon travail à six heures.",
           "answer": "finis",
           "translation": "I finish my work at six o'clock.",
-          "hint": "to finish, I",
+          "hint": "to finish (I)",
           "display_order": 1,
           "cell": "je"
         },
@@ -823,7 +823,7 @@
           "sentence": "Nous {{answer}} le train.",
           "answer": "attendons",
           "translation": "We are waiting for the train.",
-          "hint": "to wait, we",
+          "hint": "to wait (we)",
           "display_order": 2,
           "cell": "nous"
         },
@@ -831,7 +831,7 @@
           "sentence": "Ils {{answer}} leurs devoirs.",
           "answer": "finissent",
           "translation": "They finish their homework.",
-          "hint": "to finish, they",
+          "hint": "to finish (they)",
           "display_order": 3,
           "cell": "ils"
         },
@@ -839,7 +839,7 @@
           "sentence": "Elle {{answer}} des fleurs au marché.",
           "answer": "vend",
           "translation": "She sells flowers at the market.",
-          "hint": "to sell, she",
+          "hint": "to sell (she)",
           "display_order": 4,
           "cell": "il"
         },
@@ -863,7 +863,7 @@
           "sentence": "Je {{answer}} le bus.",
           "answer": "attends",
           "translation": "I am waiting for the bus.",
-          "hint": "to wait, I",
+          "hint": "to wait (I)",
           "cell": "je",
           "display_order": 7
         },
@@ -871,7 +871,7 @@
           "sentence": "Tu {{answer}} tes devoirs ?",
           "answer": "finis",
           "translation": "Are you finishing your homework?",
-          "hint": "to finish, you",
+          "hint": "to finish (you, informal)",
           "cell": "tu",
           "display_order": 8
         },
@@ -879,7 +879,7 @@
           "sentence": "Il {{answer}} sa voiture.",
           "answer": "vend",
           "translation": "He is selling his car.",
-          "hint": "to sell, he",
+          "hint": "to sell (he)",
           "cell": "il",
           "display_order": 9
         },
@@ -887,7 +887,7 @@
           "sentence": "Nous {{answer}} nos légumes au marché.",
           "answer": "vendons",
           "translation": "We sell our vegetables at the market.",
-          "hint": "to sell, we",
+          "hint": "to sell (we)",
           "cell": "nous",
           "display_order": 10
         },
@@ -903,7 +903,7 @@
           "sentence": "Ils {{answer}} un cadeau.",
           "answer": "choisissent",
           "translation": "They are choosing a gift.",
-          "hint": "to choose, they",
+          "hint": "to choose (they)",
           "cell": "ils",
           "display_order": 12
         }

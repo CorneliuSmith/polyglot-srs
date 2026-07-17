@@ -480,7 +480,7 @@
           "answer": "είμαι",
           "translation": "I am a student.",
           "transliteration": "Egó ___ fititís.",
-          "hint": "to be, I",
+          "hint": "to be (I)",
           "display_order": 1,
           "cell": "1sg"
         },
@@ -498,7 +498,7 @@
           "answer": "είναι",
           "translation": "She is a teacher.",
           "transliteration": "Aftí ___ daskála.",
-          "hint": "to be, she",
+          "hint": "to be (she)",
           "display_order": 3,
           "cell": "3sg"
         },
@@ -507,7 +507,7 @@
           "answer": "είμαστε",
           "translation": "We are friends.",
           "transliteration": "Emís ___ fíli.",
-          "hint": "to be, we",
+          "hint": "to be (we)",
           "display_order": 4,
           "cell": "1pl"
         },
@@ -525,7 +525,7 @@
           "answer": "είναι",
           "translation": "They are at home.",
           "transliteration": "Aftí ___ sto spíti.",
-          "hint": "to be, they",
+          "hint": "to be (they)",
           "display_order": 6,
           "cell": "3pl"
         },
@@ -533,7 +533,7 @@
           "sentence": "Εγώ {{answer}} από την Κρήτη.",
           "answer": "είμαι",
           "translation": "I am from Crete.",
-          "hint": "to be, I",
+          "hint": "to be (I)",
           "cell": "1sg",
           "display_order": 7,
           "transliteration": "Egó ___ apó tin Kríti."
@@ -551,7 +551,7 @@
           "sentence": "Ο πατέρας μου {{answer}} γιατρός.",
           "answer": "είναι",
           "translation": "My father is a doctor.",
-          "hint": "to be, he",
+          "hint": "to be (he)",
           "cell": "3sg",
           "display_order": 9,
           "transliteration": "O patéras mu ___ yiatrós."
@@ -560,7 +560,7 @@
           "sentence": "Εμείς {{answer}} έτοιμοι.",
           "answer": "είμαστε",
           "translation": "We are ready.",
-          "hint": "to be, we",
+          "hint": "to be (we)",
           "cell": "1pl",
           "display_order": 10,
           "transliteration": "Emís ___ étimi."
@@ -578,7 +578,7 @@
           "sentence": "Τα παιδιά {{answer}} στον κήπο.",
           "answer": "είναι",
           "translation": "The children are in the garden.",
-          "hint": "to be, they",
+          "hint": "to be (they)",
           "cell": "3pl",
           "display_order": 12,
           "transliteration": "Ta pediá ___ ston kípo."
@@ -622,7 +622,7 @@
           "answer": "έχω",
           "translation": "I have a question.",
           "transliteration": "Egó ___ mia erótisi.",
-          "hint": "to have, I",
+          "hint": "to have (I)",
           "display_order": 1,
           "cell": "1sg"
         },
@@ -640,7 +640,7 @@
           "answer": "έχει",
           "translation": "She has a bicycle.",
           "transliteration": "Aftí ___ éna podílato.",
-          "hint": "to have, she",
+          "hint": "to have (she)",
           "display_order": 3,
           "cell": "3sg"
         },
@@ -649,7 +649,7 @@
           "answer": "έχουμε",
           "translation": "We have time.",
           "transliteration": "Emís ___ chróno.",
-          "hint": "to have, we",
+          "hint": "to have (we)",
           "display_order": 4,
           "cell": "1pl"
         },
@@ -667,7 +667,7 @@
           "answer": "έχουν",
           "translation": "They have a house by the sea.",
           "transliteration": "Aftí ___ éna spíti sti thálasa.",
-          "hint": "to have, they",
+          "hint": "to have (they)",
           "display_order": 6,
           "cell": "3pl"
         },
@@ -675,7 +675,7 @@
           "sentence": "Εγώ {{answer}} δύο αδελφές.",
           "answer": "έχω",
           "translation": "I have two sisters.",
-          "hint": "to have, I",
+          "hint": "to have (I)",
           "cell": "1sg",
           "display_order": 7,
           "transliteration": "Egó ___ dío adelfés."
@@ -693,7 +693,7 @@
           "sentence": "Αυτός {{answer}} πολλά βιβλία.",
           "answer": "έχει",
           "translation": "He has many books.",
-          "hint": "to have, he",
+          "hint": "to have (he)",
           "cell": "3sg",
           "display_order": 9,
           "transliteration": "Aftós ___ pollá vivlía."
@@ -702,7 +702,7 @@
           "sentence": "Εμείς {{answer}} ένα μεγάλο τραπέζι.",
           "answer": "έχουμε",
           "translation": "We have a big table.",
-          "hint": "to have, we",
+          "hint": "to have (we)",
           "cell": "1pl",
           "display_order": 10,
           "transliteration": "Emís ___ éna megálo trapézi."
@@ -720,7 +720,7 @@
           "sentence": "Αυτοί {{answer}} δύο γάτες.",
           "answer": "έχουν",
           "translation": "They have two cats.",
-          "hint": "to have, they",
+          "hint": "to have (they)",
           "cell": "3pl",
           "display_order": 12,
           "transliteration": "Aftí ___ dío gátes."
@@ -764,7 +764,7 @@
           "answer": "μένω",
           "translation": "I live in Athens.",
           "transliteration": "Egó ___ stin Athína.",
-          "hint": "to live, I",
+          "hint": "to live (I)",
           "display_order": 1,
           "cell": "1sg"
         },
@@ -773,7 +773,7 @@
           "answer": "δουλεύει",
           "translation": "She works in an office.",
           "transliteration": "Aftí ___ se éna grafío.",
-          "hint": "to work, she",
+          "hint": "to work (she)",
           "display_order": 2,
           "cell": "3sg"
         },
@@ -782,7 +782,7 @@
           "answer": "μαθαίνουμε",
           "translation": "We are learning Greek.",
           "transliteration": "Emís ___ eliniká.",
-          "hint": "to learn, we",
+          "hint": "to learn (we)",
           "display_order": 3,
           "cell": "1pl"
         },
@@ -791,7 +791,7 @@
           "answer": "παίζουν",
           "translation": "They play football.",
           "transliteration": "Aftí ___ podósfero.",
-          "hint": "to play, they",
+          "hint": "to play (they)",
           "display_order": 4,
           "cell": "3pl"
         },
@@ -809,7 +809,7 @@
           "answer": "διαβάζω",
           "translation": "I am reading a book.",
           "transliteration": "Egó ___ éna vivlío.",
-          "hint": "to read, I",
+          "hint": "to read (I)",
           "display_order": 6,
           "cell": "1sg"
         },
@@ -835,7 +835,7 @@
           "sentence": "Αυτός {{answer}} εφημερίδα.",
           "answer": "διαβάζει",
           "translation": "He reads a newspaper.",
-          "hint": "to read, he",
+          "hint": "to read (he)",
           "cell": "3sg",
           "display_order": 9,
           "transliteration": "Aftós ___ efimerída."
@@ -844,7 +844,7 @@
           "sentence": "Εμείς {{answer}} έναν καφέ.",
           "answer": "πίνουμε",
           "translation": "We are drinking a coffee.",
-          "hint": "to drink, we",
+          "hint": "to drink (we)",
           "cell": "1pl",
           "display_order": 10,
           "transliteration": "Emís ___ énan kafé."
@@ -862,7 +862,7 @@
           "sentence": "Αυτοί {{answer}} στο πάρκο.",
           "answer": "τρέχουν",
           "translation": "They run in the park.",
-          "hint": "to run, they",
+          "hint": "to run (they)",
           "cell": "3pl",
           "display_order": 12,
           "transliteration": "Aftí ___ sto párko."

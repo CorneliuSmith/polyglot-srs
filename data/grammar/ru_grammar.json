@@ -257,7 +257,7 @@
           "sentence": "Он {{answer}} по-английски.",
           "answer": "говорит",
           "translation": "He speaks English.",
-          "hint": "to speak, he",
+          "hint": "to speak (he)",
           "display_order": 3,
           "transliteration": "On ___ po-anglijski.",
           "cell": "3sg"
@@ -293,7 +293,7 @@
           "sentence": "Я {{answer}} по-испански.",
           "answer": "говорю",
           "translation": "I speak Spanish.",
-          "hint": "to speak, I",
+          "hint": "to speak (I)",
           "cell": "1sg",
           "display_order": 7,
           "transliteration": "Ya ___ po-ispanski."
@@ -302,7 +302,7 @@
           "sentence": "Ты {{answer}} газету?",
           "answer": "читаешь",
           "translation": "Are you reading the newspaper?",
-          "hint": "to read, you",
+          "hint": "to read (you, informal)",
           "cell": "2sg",
           "display_order": 8,
           "transliteration": "Ty' ___ gazetu?"
@@ -311,7 +311,7 @@
           "sentence": "Она {{answer}} в школе.",
           "answer": "работает",
           "translation": "She works at a school.",
-          "hint": "to work, she",
+          "hint": "to work (she)",
           "cell": "3sg",
           "display_order": 9,
           "transliteration": "Ona ___ v shkole."
@@ -320,7 +320,7 @@
           "sentence": "Мы {{answer}} музыку.",
           "answer": "слушаем",
           "translation": "We are listening to music.",
-          "hint": "to listen, we",
+          "hint": "to listen (we)",
           "cell": "1pl",
           "display_order": 10,
           "transliteration": "My' ___ muzy'ku."
@@ -338,7 +338,7 @@
           "sentence": "Они {{answer}} по-русски.",
           "answer": "говорят",
           "translation": "They speak Russian.",
-          "hint": "to speak, they",
+          "hint": "to speak (they)",
           "cell": "3pl",
           "display_order": 12,
           "transliteration": "Oni ___ po-russki."
@@ -1354,7 +1354,7 @@
           "sentence": "Он {{answer}} хлеб в магазине.",
           "answer": "купит",
           "translation": "He will buy bread at the shop.",
-          "hint": "to buy (perfective), he",
+          "hint": "to buy (perfective) (he)",
           "display_order": 6,
           "transliteration": "On ___ hleb v magazine."
         }
@@ -1420,7 +1420,7 @@
           "sentence": "Она часто {{answer}} в театр.",
           "answer": "ходит",
           "translation": "She often goes to the theatre.",
-          "hint": "repeated trips — the multidirectional verb, she",
+          "hint": "repeated trips — the multidirectional verb (she)",
           "display_order": 5,
           "transliteration": "Ona chasto ___ v teatr."
         },
