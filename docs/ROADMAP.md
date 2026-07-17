@@ -926,9 +926,13 @@ all its tolerance; the text reveals after grading. Gated to cloze cards
 in the 13 neural-voice languages (TTS_LANGUAGES mirrors the VOICES map);
 hints are suppressed while listening. Lights up fully once the Azure
 Speech key lands (WP7d).
-**(b) PWA installability.** Manifest + service worker + offline shell so the
-app installs to the home screen (pairs with WP12 mobile packaging; the
-safe-area work from 2026-07-16 already landed). Effort: S–M.
+**(b) PWA installability — DONE 2026-07-17.** manifest.webmanifest
+(standalone, theme #172554, 192/512 + maskable icons, apple-touch-icon)
++ a deliberately minimal sw.js registered in prod only: network-first
+navigations falling back to the cached shell offline, cache-first for
+hashed /assets (immutable), API calls untouched — a deploy can never be
+broken by a stale cache. Install from the browser menu ("Add to Home
+Screen" / "Install app").
 **(c) Review reminders — OPT-IN ONLY, never default (owner directive
 2026-07-16).** A Settings toggle, off by default; daily "N cards due" nudge
 via email first (push once (b) ships). No reminder of any kind unless the
