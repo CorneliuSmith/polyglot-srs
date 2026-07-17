@@ -23,8 +23,28 @@ from backend.routers.tutor import router as tutor_router
 from backend.services.nlp import init_nlp_backends
 
 
+def _init_sentry(settings) -> None:
+    """Error telemetry (WP19d) — a no-op until SENTRY_DSN is set.
+
+    Errors only (no tracing) and no PII: beta bugs should arrive as stack
+    traces instead of screenshots, not as a surveillance feed.
+    """
+    dsn = getattr(settings, "sentry_dsn", "")
+    if not dsn:
+        return
+    import sentry_sdk
+
+    sentry_sdk.init(
+        dsn=dsn,
+        environment=getattr(settings, "environment", "production"),
+        traces_sample_rate=0.0,
+        send_default_pii=False,
+    )
+
+
 def create_app() -> FastAPI:
     """Application factory — defers settings access until called."""
+    _init_sentry(get_settings())
 
     @asynccontextmanager
     async def lifespan(app: FastAPI):

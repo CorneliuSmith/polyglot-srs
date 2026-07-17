@@ -918,9 +918,14 @@ safe-area work from 2026-07-16 already landed). Effort: S–M.
 2026-07-16).** A Settings toggle, off by default; daily "N cards due" nudge
 via email first (push once (b) ships). No reminder of any kind unless the
 learner turns it on. Effort: M.
-**(d) Error telemetry (Sentry).** Frontend + backend before the beta widens —
-beta bugs currently arrive as screenshots. Overlaps WP10(b); implement once.
-Effort: S.
+**(d) Error telemetry (Sentry) — code DONE 2026-07-16, awaiting DSNs.**
+Backend: sentry-sdk[fastapi] init in create_app (errors only,
+traces_sample_rate=0, send_default_pii=False). Frontend: @sentry/react
+init in main.tsx + ErrorScreen reports route crashes. Both are complete
+no-ops until the owner creates a Sentry org with two projects and sets
+`SENTRY_DSN` (backend component env) and `VITE_SENTRY_DSN` (static-site
+BUILD-time env) in DO — encrypted, no quotes, then redeploy. ToS §8
+discloses anonymous error reports. Satisfies the WP10(b) overlap.
 **(e) Tutor mastery suggestions ⭐ — DONE 2026-07-16.** The tutor stars cards
 it believes the learner already understands via the `suggest_mastered` tool —
 only from evidence in the session, at most a couple per session, never in

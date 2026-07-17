@@ -1,4 +1,6 @@
+import { useEffect } from 'react'
 import { useRouteError } from 'react-router-dom'
+import { reportError } from '../lib/sentry'
 
 /** Route-level crash screen: apologize, offer reload, log the real error
  * to the console for debugging. Far better than the router's default
@@ -6,6 +8,11 @@ import { useRouteError } from 'react-router-dom'
 export default function ErrorScreen() {
   const error = useRouteError()
   console.error('Route error:', error)
+  // Telemetry (WP19d): the crash the tester used to screenshot now files
+  // itself. No-op until the Sentry DSN is configured.
+  useEffect(() => {
+    reportError(error)
+  }, [error])
   return (
     <div className="min-h-screen bg-gray-50 flex items-center justify-center px-4">
       <div className="text-center space-y-4 max-w-sm">

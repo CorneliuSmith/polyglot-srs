@@ -10,6 +10,7 @@
     "test": "vitest"
   },
   "dependencies": {
+    "@sentry/react": "^10.66.0",
     "@supabase/supabase-js": "^2.49.1",
     "@tailwindcss/vite": "^4.0.14",
     "@tanstack/react-query": "^5.69.0",
