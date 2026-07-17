@@ -956,6 +956,19 @@ parenthesized hint beats a wrong word.
 **Model:** `claude-fable-5` (this is exactly the low-resource-linguistics
 row of §6 — wrong-but-plausible content is the failure mode).
 **Effort:** M–L, chunked per language.
+**en + ru pass DONE 2026-07-16.** Findings and fixes: en drills never
+exercised They (subject pronouns), his/our (possessives), don't/doesn't
+(do-support — the title promised negation), often (frequency), or the
+running/writing spelling allomorphs (continuous) — all patched. Three
+missing en points authored: Past simple — regular verbs (-ed) (now FIRST
+at A2, before irregular), Object pronouns (me, him, them) (A1), and
+Imperatives (Open…, Don't…) (A1), each with es/pt/ru hint translations
+(the answer-leak gate rejected two draft hints — the gate works). Four
+missing ru points authored: Adjective agreement (новый/новая/новое,
+paradigm-gated 2-per-cell), Question words (кто, что, где), Conjunctions
+и/а/но (the а-contrast), and general Genitive (possession + у/из/после/
+для/без) linked to the genitive-of-absence point. Remaining sweeps: es
+and pt next (beta-active), then the other 13 languages.
 
 ## 6. Model selection guide
 

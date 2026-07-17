@@ -1,1048 +1,1158 @@
 {
- "language": "en",
- "locale": "ru",
- "reviewed": false,
- "_note": "WP17: Russian scaffolding for the full English path (A1–C2). Lemma cues stay English (Latin) on purpose — the learner must produce the English word. Drafted 2026-07; reviewed flips true after the per-locale reviewer pass (never self-certified, §3b).",
- "points": {
-  "Subject pronouns (I, you, he…)": {
-   "{{answer}} am from Brazil.": {
-    "hint": "говорящий — всегда с большой буквы",
-    "translation": "Представляетесь."
-   },
-   "{{answer}} is my sister.": {
-    "hint": "женщина",
-    "translation": "Представляете женщину из семьи."
-   },
-   "{{answer}} are students.": {
-    "hint": "говорящий + другие",
-    "translation": "О себе и одногруппниках."
-   },
-   "{{answer}} is my father.": {
-    "hint": "мужчина",
-    "translation": "Представляете мужчину из семьи."
-   },
-   "{{answer}} is on the table.": {
-    "hint": "предмет",
-    "translation": "О предмете."
-   },
-   "{{answer}} are very kind.": {
-    "hint": "собеседник",
-    "translation": "Комплимент собеседнику."
-   }
-  },
-  "To be — am / is / are": {
-   "I {{answer}} a student.": {
-    "hint": "be — с I",
-    "translation": "О себе."
-   },
-   "You {{answer}} my friend.": {
-    "hint": "be — с you",
-    "translation": "Разговор с одним человеком."
-   },
-   "She {{answer}} a doctor.": {
-    "hint": "be — с she",
-    "translation": "О её работе."
-   },
-   "We {{answer}} at home.": {
-    "hint": "be — с we",
-    "translation": "Где вы с семьёй."
-   },
-   "The coffee {{answer}} hot.": {
-    "hint": "be — с it/предметом",
-    "translation": "Описание напитка."
-   },
-   "They {{answer}} from Japan.": {
-    "hint": "be — с they",
-    "translation": "Откуда эти люди."
-   }
-  },
-  "Articles: a / an": {
-   "I have {{answer}} dog.": {
-    "hint": "перед согласным звуком",
-    "translation": "О питомце."
-   },
-   "She is {{answer}} engineer.": {
-    "hint": "перед гласным звуком",
-    "translation": "О её работе."
-   },
-   "It is {{answer}} big house.": {
-    "hint": "перед согласным звуком",
-    "translation": "Описание дома."
-   },
-   "He eats {{answer}} apple every day.": {
-    "hint": "перед гласным звуком",
-    "translation": "Ежедневная привычка."
-   },
-   "I read {{answer}} book every week.": {
-    "hint": "перед согласным звуком",
-    "translation": "Еженедельная привычка."
-   },
-   "I need {{answer}} umbrella.": {
-    "hint": "перед гласным звуком",
-    "translation": "Похоже, будет дождь."
-   }
-  },
-  "The — pointing at a specific thing": {
-   "{{answer}} sun is hot today.": {
-    "hint": "уникальные вещи берут этот артикль",
-    "translation": "Такое — одно."
-   },
-   "Please close {{answer}} door.": {
-    "hint": "оба знают, о каком речь",
-    "translation": "Вы оба знаете, какая дверь."
-   },
-   "{{answer}} keys in my hand are mine.": {
-    "hint": "опознано фразой после него",
-    "translation": "Конкретные, опознанные ключи."
-   },
-   "We live near {{answer}} station.": {
-    "hint": "оба знают, о каком речь",
-    "translation": "Вокзал этого города."
-   },
-   "{{answer}} moon is bright tonight.": {
-    "hint": "уникальные вещи берут этот артикль",
-    "translation": "Такая — одна."
-   },
-   "Where is {{answer}} bathroom?": {
-    "hint": "оба знают, о каком речь",
-    "translation": "Вопрос в кафе или в гостях."
-   }
-  },
-  "Plural nouns (-s, -es, irregular)": {
-   "I have two {{answer}}.": {
-    "hint": "book во множественном",
-    "translation": "То, что читают."
-   },
-   "The {{answer}} are playing outside.": {
-    "hint": "child — неправильное мн. число",
-    "translation": "Юные люди."
-   },
-   "She has three {{answer}}.": {
-    "hint": "watch — добавьте -es",
-    "translation": "То, что показывает время."
-   },
-   "The {{answer}} are late today.": {
-    "hint": "bus — добавьте -es",
-    "translation": "Общественный транспорт."
-   },
-   "Two {{answer}} live in our street.": {
-    "hint": "family — y меняется на -ies",
-    "translation": "Родители и дети."
-   },
-   "My {{answer}} are cold.": {
-    "hint": "foot — неправильное мн. число",
-    "translation": "На них вы стоите."
-   }
-  },
-  "Present simple (I work)": {
-   "I {{answer}} in a bank.": {
-    "hint": "чем вы заняты на работе",
-    "translation": "О вашей работе."
-   },
-   "We {{answer}} breakfast at seven.": {
-    "hint": "принимать (приём пищи)",
-    "translation": "Утренний распорядок."
-   },
-   "They {{answer}} in London.": {
-    "hint": "проживать где-то",
-    "translation": "Где живут эти люди."
-   },
-   "You {{answer}} English very well.": {
-    "hint": "пользоваться языком",
-    "translation": "Комплимент уровню языка."
-   },
-   "I {{answer}} coffee every morning.": {
-    "hint": "пить жидкость",
-    "translation": "Ежедневная привычка."
-   },
-   "We {{answer}} TV in the evening.": {
-    "hint": "смотреть на экран или передачу",
-    "translation": "Вечерняя привычка."
-   }
-  },
-  "Third-person -s (she works)": {
-   "She {{answer}} in a hospital.": {
-    "hint": "to work — с she",
-    "translation": "О её работе."
-   },
-   "He {{answer}} to school every day.": {
-    "hint": "to go — добавьте -es",
-    "translation": "Его ежедневный распорядок."
-   },
-   "My brother {{answer}} English.": {
-    "hint": "to study — y меняется на -ies",
-    "translation": "О его занятиях."
-   },
-   "The shop {{answer}} at nine.": {
-    "hint": "to open — с it",
-    "translation": "Часы работы."
-   },
-   "She {{answer}} TV after dinner.": {
-    "hint": "to watch — добавьте -es",
-    "translation": "Её вечерняя привычка."
-   },
-   "It {{answer}} a lot in April.": {
-    "hint": "to rain — с it",
-    "translation": "О погоде."
-   }
-  },
-  "Do-support: questions and negation": {
-   "{{answer}} you speak English?": {
-    "hint": "вспомогательный — с you",
-    "translation": "Вопрос о языках."
-   },
-   "{{answer}} she work here?": {
-    "hint": "вспомогательный — с she",
-    "translation": "Вопрос о её работе."
-   },
-   "I {{answer}} not eat meat.": {
-    "hint": "вспомогательный — с I",
-    "translation": "О вашей диете."
-   },
-   "He {{answer}} not like coffee.": {
-    "hint": "вспомогательный — с he",
-    "translation": "О его вкусах."
-   },
-   "{{answer}} they live in Rome?": {
-    "hint": "вспомогательный — с they",
-    "translation": "Где живут эти люди."
-   },
-   "We {{answer}} not have time.": {
-    "hint": "вспомогательный — с we",
-    "translation": "Вы спешите."
-   }
-  },
-  "Present continuous (I am working)": {
-   "I am {{answer}} a book right now.": {
-    "hint": "to read + -ing",
-    "translation": "Что вы делаете прямо сейчас."
-   },
-   "She is {{answer}} dinner now.": {
-    "hint": "to cook + -ing",
-    "translation": "Она на кухне."
-   },
-   "They are {{answer}} football.": {
-    "hint": "to play + -ing",
-    "translation": "Идёт игра."
-   },
-   "Look! It is {{answer}}.": {
-    "hint": "to rain + -ing",
-    "translation": "Погода, прямо сейчас."
-   },
-   "We are {{answer}} for the bus.": {
-    "hint": "to wait + -ing",
-    "translation": "Стоите на остановке."
-   },
-   "He is {{answer}} at the moment.": {
-    "hint": "to sleep + -ing",
-    "translation": "Тише, пожалуйста."
-   }
-  },
-  "There is / there are": {
-   "There {{answer}} a book on the table.": {
-    "hint": "единственное число",
-    "translation": "Существует одна вещь."
-   },
-   "There {{answer}} two cafés in this street.": {
-    "hint": "множественное число",
-    "translation": "Вещей больше одной."
-   },
-   "{{answer}} there a bank near here?": {
-    "hint": "единственное, порядок вопроса",
-    "translation": "Вопрос об одном месте."
-   },
-   "There {{answer}} no milk.": {
-    "hint": "единственное число",
-    "translation": "Холодильник пуст."
-   },
-   "{{answer}} there any questions?": {
-    "hint": "множественное, порядок вопроса",
-    "translation": "Вопрос группе в конце доклада."
-   },
-   "There {{answer}} many people here today.": {
-    "hint": "множественное число",
-    "translation": "Здесь полно людей."
-   }
-  },
-  "Question words (what, where, when…)": {
-   "{{answer}} do you live?": {
-    "hint": "спрашивает о месте",
-    "translation": "Где кто-то живёт."
-   },
-   "{{answer}} is your name?": {
-    "hint": "спрашивает о предмете",
-    "translation": "Знакомство."
-   },
-   "{{answer}} is your birthday?": {
-    "hint": "спрашивает о времени",
-    "translation": "Вопрос о дате."
-   },
-   "{{answer}} old are you?": {
-    "hint": "возраст спрашивают так",
-    "translation": "Вопрос о возрасте."
-   },
-   "{{answer}} is your teacher?": {
-    "hint": "спрашивает о человеке",
-    "translation": "Вопрос о человеке."
-   },
-   "{{answer}} are you crying?": {
-    "hint": "спрашивает о причине",
-    "translation": "Просите объяснить причину."
-   }
-  },
-  "Possessives (my, your, 's)": {
-   "This is {{answer}} book.": {
-    "hint": "принадлежит мне",
-    "translation": "Принадлежит говорящему."
-   },
-   "Is this {{answer}} car?": {
-    "hint": "принадлежит тебе",
-    "translation": "Вопрос собеседнику."
-   },
-   "{{answer}} name is Anna.": {
-    "hint": "принадлежит ей",
-    "translation": "Представляете женщину."
-   },
-   "That is my {{answer}} car.": {
-    "hint": "brother + окончание принадлежности",
-    "translation": "Принадлежит родственнику."
-   },
-   "{{answer}} house is big.": {
-    "hint": "принадлежит им",
-    "translation": "Принадлежит каким-то людям."
-   },
-   "The dog wags {{answer}} tail.": {
-    "hint": "принадлежит предмету — без апострофа",
-    "translation": "Хвост принадлежит собаке."
-   }
-  },
-  "Past simple — irregular verbs": {
-   "Yesterday I {{answer}} to the market.": {
-    "hint": "go — прошедшее",
-    "translation": "Прошедшее от 'go'."
-   },
-   "She {{answer}} a great film last night.": {
-    "hint": "see — прошедшее",
-    "translation": "Прошедшее от 'see'."
-   },
-   "We {{answer}} a new car in March.": {
-    "hint": "buy — прошедшее",
-    "translation": "Прошедшее от 'buy'."
-   },
-   "He {{answer}} the early train this morning.": {
-    "hint": "take — прошедшее",
-    "translation": "Прошедшее от 'take'."
-   },
-   "They {{answer}} home very late.": {
-    "hint": "come — прошедшее",
-    "translation": "Прошедшее от 'come'."
-   },
-   "I {{answer}} breakfast at seven.": {
-    "hint": "eat — прошедшее",
-    "translation": "Прошедшее от 'eat'."
-   }
-  },
-  "Present continuous vs present simple": {
-   "Quiet, please — the baby {{answer}} sleeping.": {
-    "hint": "be — третье лицо",
-    "translation": "Прямо сейчас → continuous."
-   },
-   "She {{answer}} to work by bike every day.": {
-    "hint": "go — привычка, she",
-    "translation": "Привычка → simple."
-   },
-   "I'm {{answer}} for my keys at the moment.": {
-    "hint": "look — continuous",
-    "translation": "Прямо сейчас → форма на -ing."
-   },
-   "Water {{answer}} at 100 degrees.": {
-    "hint": "boil — факт, it",
-    "translation": "Факт → simple."
-   },
-   "They {{answer}} watching TV right now.": {
-    "hint": "be — they",
-    "translation": "Прямо сейчас → continuous."
-   },
-   "He usually {{answer}} coffee, not tea.": {
-    "hint": "drink — привычка, he",
-    "translation": "usually → simple."
-   }
-  },
-  "Comparatives and superlatives": {
-   "This bag is {{answer}} than that one.": {
-    "hint": "cheap — сравнительная",
-    "translation": "cheap — сравниваем два."
-   },
-   "It's the {{answer}} building in the city.": {
-    "hint": "tall — превосходная",
-    "translation": "tall — номер один."
-   },
-   "Her English is {{answer}} than mine.": {
-    "hint": "good — неправильная сравнительная",
-    "translation": "good — неправильная сравнительная."
-   },
-   "That was the {{answer}} meal I've ever had.": {
-    "hint": "bad — неправильная превосходная",
-    "translation": "bad — неправильная превосходная."
-   },
-   "This exercise is {{answer}} difficult than the last.": {
-    "hint": "слово перед длинными прилагательными",
-    "translation": "Длинное прилагательное — добавьте слово."
-   },
-   "The station is {{answer}} than I thought.": {
-    "hint": "far — сравнительная",
-    "translation": "far — неправильная сравнительная."
-   }
-  },
-  "Going to and will": {
-   "We're {{answer}} to visit Rome in May.": {
-    "hint": "запланированное будущее",
-    "translation": "План, принятый заранее."
-   },
-   "Don't worry — I {{answer}} help you.": {
-    "hint": "мгновенное решение",
-    "translation": "Обещание, решено сейчас."
-   },
-   "Look at those clouds! It's going to {{answer}}.": {
-    "hint": "мокрая погода",
-    "translation": "Видно, что надвигается."
-   },
-   "I think she {{answer}} pass the exam.": {
-    "hint": "слово-предсказание",
-    "translation": "Мнение о будущем."
-   },
-   "They're going {{answer}} move house next year.": {
-    "hint": "частица после going",
-    "translation": "Словечко в 'going …'."
-   },
-   "I'm tired — I {{answer}} go to bed.": {
-    "hint": "краткая форма мгновенного будущего",
-    "translation": "Решение этой секунды."
-   }
-  },
-  "Some, any, much, many": {
-   "There's {{answer}} milk in the fridge.": {
-    "hint": "слово количества в утверждении",
-    "translation": "Утвердительное предложение."
-   },
-   "We don't have {{answer}} eggs left.": {
-    "hint": "слово количества в отрицании",
-    "translation": "Отрицательное предложение."
-   },
-   "Do you have {{answer}} questions?": {
-    "hint": "слово количества в вопросах",
-    "translation": "Вопрос."
-   },
-   "How {{answer}} money do you need?": {
-    "hint": "с неисчисляемыми",
-    "translation": "Неисчисляемое количество."
-   },
-   "How {{answer}} people are coming?": {
-    "hint": "с исчисляемыми",
-    "translation": "Исчисляемое количество."
-   },
-   "Would you like {{answer}} tea?": {
-    "hint": "слово количества в предложениях-угощениях",
-    "translation": "Угощения берут утвердительное слово."
-   }
-  },
-  "Adverbs of frequency": {
-   "I {{answer}} drink coffee in the morning — every single day.": {
-    "hint": "слово 100% случаев",
-    "translation": "100% случаев."
-   },
-   "He is {{answer}} late — it drives me crazy.": {
-    "hint": "слово 100% случаев",
-    "translation": "После 'be'."
-   },
-   "We {{answer}} go out on Fridays — maybe once a month.": {
-    "hint": "слово время-от-времени",
-    "translation": "Не часто и не никогда."
-   },
-   "She {{answer}} eats meat — she's almost vegetarian.": {
-    "hint": "слово почти-никогда",
-    "translation": "Почти никогда."
-   },
-   "I have {{answer}} been to Japan, but I'd love to go.": {
-    "hint": "слово ноль-раз",
-    "translation": "Ноль раз."
-   },
-   "They {{answer}} visit us at Christmas — most years.": {
-    "hint": "слово большинства случаев",
-    "translation": "Большинство случаев."
-   }
-  },
-  "Can, could, have to": {
-   "She {{answer}} speak three languages.": {
-    "hint": "слово умения",
-    "translation": "Умение сейчас."
-   },
-   "{{answer}} you open the window, please?": {
-    "hint": "слово вежливой просьбы",
-    "translation": "Вежливая просьба."
-   },
-   "I {{answer}} to wear a uniform at work.": {
-    "hint": "глагол обязанности",
-    "translation": "Внешняя обязанность."
-   },
-   "When I was five, I {{answer}} already read.": {
-    "hint": "слово умения — прошедшее",
-    "translation": "Умение в прошлом."
-   },
-   "You don't {{answer}} to come if you're busy.": {
-    "hint": "глагол обязанности",
-    "translation": "Обязанности нет."
-   },
-   "{{answer}} I sit here? — Of course.": {
-    "hint": "слово разрешения",
-    "translation": "Просите разрешения."
-   }
-  },
-  "Prepositions of time: in, on, at": {
-   "The meeting starts {{answer}} nine o'clock.": {
-    "hint": "предлог точного часа",
-    "translation": "Время по часам."
-   },
-   "I was born {{answer}} 1998.": {
-    "hint": "предлог длинных периодов",
-    "translation": "Год."
-   },
-   "We're leaving {{answer}} Friday.": {
-    "hint": "предлог дней",
-    "translation": "День."
-   },
-   "She works best {{answer}} the morning.": {
-    "hint": "предлог длинных периодов",
-    "translation": "Часть суток."
-   },
-   "My birthday is {{answer}} 12 March.": {
-    "hint": "предлог дат",
-    "translation": "Дата."
-   },
-   "He often studies {{answer}} night.": {
-    "hint": "устойчивый предлог с night",
-    "translation": "Устойчивое сочетание с 'night'."
-   }
-  },
-  "Present perfect vs past simple": {
-   "I've {{answer}} my wallet — can you help me look?": {
-    "hint": "lose — причастие",
-    "translation": "Потерян до сих пор → перфект."
-   },
-   "She {{answer}} in Berlin in 2019.": {
-    "hint": "live — прошедшее",
-    "translation": "Законченное время → past simple."
-   },
-   "Have you {{answer}} been to Japan?": {
-    "hint": "слово хоть-раз-в-жизни",
-    "translation": "Слово вопросов об опыте."
-   },
-   "We've known each other {{answer}} ten years.": {
-    "hint": "слово длительности",
-    "translation": "Отрезок времени."
-   },
-   "He's worked here {{answer}} 2020.": {
-    "hint": "слово точки отсчёта",
-    "translation": "Точка отсчёта."
-   },
-   "They haven't finished {{answer}}.": {
-    "hint": "слово всё-ещё-ждём",
-    "translation": "Ожидается, но не сделано."
-   }
-  },
-  "First and second conditionals": {
-   "If it {{answer}} tomorrow, we'll cancel the picnic.": {
-    "hint": "rain — настоящее, it",
-    "translation": "Реальное условие → настоящее."
-   },
-   "If you study, you {{answer}} pass.": {
-    "hint": "слово реального будущего",
-    "translation": "Реальный результат."
-   },
-   "If I {{answer}} rich, I would buy an island.": {
-    "hint": "be — нереальная форма",
-    "translation": "Воображаемое → прошедшая форма be."
-   },
-   "She {{answer}} travel more if she had time.": {
-    "hint": "слово нереального результата",
-    "translation": "Воображаемый результат."
-   },
-   "If we {{answer}} now, we'll catch the train.": {
-    "hint": "отправиться — форма настоящего",
-    "translation": "Реальное условие → настоящее."
-   },
-   "What {{answer}} you do if you won the lottery?": {
-    "hint": "слово нереального результата",
-    "translation": "Воображаемый вопрос."
-   }
-  },
-  "The passive (is made, was built)": {
-   "This wine {{answer}} produced in Chile.": {
-    "hint": "be — настоящее, it",
-    "translation": "Пассив настоящего."
-   },
-   "The castle was {{answer}} in the twelfth century.": {
-    "hint": "build — причастие",
-    "translation": "build — причастие."
-   },
-   "These photos {{answer}} taken by my grandmother.": {
-    "hint": "be — прошедшее, they",
-    "translation": "Пассив прошедшего, множественное."
-   },
-   "English {{answer}} spoken all over the world.": {
-    "hint": "be — настоящее, it",
-    "translation": "Пассив настоящего."
-   },
-   "The thief was caught {{answer}} the police.": {
-    "hint": "предлог деятеля",
-    "translation": "Называем деятеля."
-   },
-   "My phone was {{answer}} at the festival.": {
-    "hint": "steal — причастие",
-    "translation": "steal — причастие."
-   }
-  },
-  "Relative clauses (who, which, that, where)": {
-   "She's the doctor {{answer}} treated my father.": {
-    "hint": "связка для человека",
-    "translation": "Человек."
-   },
-   "That's the restaurant {{answer}} we first met.": {
-    "hint": "связка для места",
-    "translation": "Место."
-   },
-   "The laptop {{answer}} I bought last week is broken.": {
-    "hint": "универсальная связка",
-    "translation": "Предмет (ограничительное)."
-   },
-   "He's the author {{answer}} books sell millions.": {
-    "hint": "связка принадлежности",
-    "translation": "Принадлежность."
-   },
-   "The train, {{answer}} was already late, then broke down.": {
-    "hint": "связка для предмета",
-    "translation": "Предмет (после запятой)."
-   },
-   "People {{answer}} exercise regularly live longer.": {
-    "hint": "связка для человека",
-    "translation": "Люди вообще."
-   }
-  },
-  "Used to — past habits and states": {
-   "I {{answer}} to play football every weekend.": {
-    "hint": "глагол прошлой привычки",
-    "translation": "Прошлая привычка, уже закончилась."
-   },
-   "She didn't {{answer}} to like coffee, but now she loves it.": {
-    "hint": "глагол прошлой привычки, без -d",
-    "translation": "После didn't — без d."
-   },
-   "There {{answer}} to be a bakery on this corner.": {
-    "hint": "глагол прошлой привычки",
-    "translation": "Прошлое состояние."
-   },
-   "Did you {{answer}} to live in London?": {
-    "hint": "глагол прошлой привычки, без -d",
-    "translation": "В вопросах — без d."
-   },
-   "He used {{answer}} have long hair.": {
-    "hint": "частица",
-    "translation": "Словечко после 'used'."
-   },
-   "We {{answer}} to go camping every summer as kids.": {
-    "hint": "глагол прошлой привычки",
-    "translation": "Привычка детства."
-   }
-  },
-  "Reported speech": {
-   "'I'm busy.' → She said she {{answer}} busy.": {
-    "hint": "be — шаг назад",
-    "translation": "Настоящее отступает в прошедшее."
-   },
-   "'I'll call you.' → He said he {{answer}} call me.": {
-    "hint": "will — шаг назад",
-    "translation": "will отступает."
-   },
-   "'Are you ready?' → She asked {{answer}} I was ready.": {
-    "hint": "связка да/нет",
-    "translation": "Связка вопроса да/нет."
-   },
-   "'Where do you live?' → He asked where I {{answer}}.": {
-    "hint": "live — шаг назад",
-    "translation": "Вопросительное слово + обычный порядок."
-   },
-   "'I can swim.' → She said she {{answer}} swim.": {
-    "hint": "can — шаг назад",
-    "translation": "can отступает."
-   },
-   "'We bought a house.' → They said they {{answer}} bought a house.": {
-    "hint": "вспомогательный шага назад",
-    "translation": "Прошедшее отступает в перфект."
-   }
-  },
-  "Gerund or infinitive?": {
-   "I really enjoy {{answer}} in the sea.": {
-    "hint": "swim — какая форма?",
-    "translation": "enjoy + -ing."
-   },
-   "She decided {{answer}} accept the job.": {
-    "hint": "частица инфинитива",
-    "translation": "decide + инфинитив."
-   },
-   "Would you mind {{answer}} the door?": {
-    "hint": "close — какая форма?",
-    "translation": "mind + -ing."
-   },
-   "We hope {{answer}} see you soon.": {
-    "hint": "частица инфинитива",
-    "translation": "hope + инфинитив."
-   },
-   "He avoided {{answer}} my question.": {
-    "hint": "answer — какая форма?",
-    "translation": "avoid + -ing."
-   },
-   "They promised {{answer}} write every week.": {
-    "hint": "частица инфинитива",
-    "translation": "promise + инфинитив."
-   }
-  },
-  "Third and mixed conditionals": {
-   "If you {{answer}} told me, I would have helped.": {
-    "hint": "вспомогательный past perfect",
-    "translation": "Нереальное прошлое условие."
-   },
-   "If she had left earlier, she would {{answer}} caught the flight.": {
-    "hint": "перфектный вспомогательный после would",
-    "translation": "Нереальный прошлый результат."
-   },
-   "I wouldn't {{answer}} met her if I hadn't gone to that party.": {
-    "hint": "перфектный вспомогательный",
-    "translation": "Нереальный прошлый результат."
-   },
-   "If he had studied medicine, he {{answer}} be a doctor now.": {
-    "hint": "слово нереального результата",
-    "translation": "Прошлая причина, нынешний результат."
-   },
-   "If we {{answer}} taken the map, we wouldn't have got lost.": {
-    "hint": "вспомогательный past perfect",
-    "translation": "Нереальное прошлое условие."
-   },
-   "What would you have {{answer}} in my position?": {
-    "hint": "do — причастие",
-    "translation": "do — причастие."
-   }
-  },
-  "Modals of deduction (must, might, can't)": {
-   "The lights are on — someone {{answer}} be home.": {
-    "hint": "слово почти-уверенности",
-    "translation": "Почти наверняка правда."
-   },
-   "That {{answer}} be Maria — she's in Brazil this week!": {
-    "hint": "слово невозможности",
-    "translation": "Почти наверняка неправда."
-   },
-   "He {{answer}} be stuck in traffic — it happens.": {
-    "hint": "слово возможности",
-    "translation": "Всего лишь возможно."
-   },
-   "She must {{answer}} forgotten our meeting.": {
-    "hint": "вспомогательный прошлой догадки",
-    "translation": "Догадка о прошлом."
-   },
-   "They can't {{answer}} left already — the car's still here.": {
-    "hint": "вспомогательный прошлой догадки",
-    "translation": "Прошлая невозможность."
-   },
-   "It {{answer}} rain later, so take an umbrella.": {
-    "hint": "слово возможности",
-    "translation": "Открытая возможность."
-   }
-  },
-  "Advanced passives (has been done, being done)": {
-   "The road has {{answer}} closed since Monday.": {
-    "hint": "причастие от be",
-    "translation": "Пассив перфекта."
-   },
-   "Our office is {{answer}} renovated at the moment.": {
-    "hint": "-ing от be",
-    "translation": "Длительный пассив."
-   },
-   "All answers must be {{answer}} in ink.": {
-    "hint": "write — причастие",
-    "translation": "Пассив с модальным — write."
-   },
-   "She is {{answer}} to be the richest woman in the country.": {
-    "hint": "say — причастие",
-    "translation": "Пассив передачи слов — say."
-   },
-   "The results will {{answer}} announced on Friday.": {
-    "hint": "голый инфинитив пассива",
-    "translation": "Пассив будущего."
-   },
-   "By 1990, the bridge {{answer}} been rebuilt twice.": {
-    "hint": "вспомогательный past perfect",
-    "translation": "Пассив past perfect."
-   }
-  },
-  "Wish and if only": {
-   "I wish I {{answer}} how to drive.": {
-    "hint": "know — форма сожаления",
-    "translation": "Сожаление о настоящем → прошедшая форма."
-   },
-   "She wishes she {{answer}} accepted the offer.": {
-    "hint": "вспомогательный прошлого сожаления",
-    "translation": "Сожаление о прошлом → past perfect."
-   },
-   "I wish you {{answer}} stop interrupting me!": {
-    "hint": "слово жалобы",
-    "translation": "Жалоба на кого-то."
-   },
-   "If {{answer}} I had listened to your advice!": {
-    "hint": "слово после if",
-    "translation": "Усиленная версия wish."
-   },
-   "He wishes he {{answer}} taller.": {
-    "hint": "be — форма сожаления",
-    "translation": "Сожаление о настоящем с be."
-   },
-   "We wish we {{answer}} bought tickets earlier.": {
-    "hint": "вспомогательный прошлого сожаления",
-    "translation": "Сожаление о прошлом."
-   }
-  },
-  "Phrasal verbs — separable or not?": {
-   "Could you turn {{answer}} off? The music's too loud.": {
-    "hint": "местоимение-дополнение",
-    "translation": "Местоимения разрывают отделяемые глаголы."
-   },
-   "She's looking {{answer}} her elderly mother.": {
-    "hint": "частица заботы",
-    "translation": "Фразовый глагол заботы."
-   },
-   "Please fill {{answer}} this form.": {
-    "hint": "частица бланка",
-    "translation": "Заполнить документ."
-   },
-   "I'll pick you {{answer}} at eight.": {
-    "hint": "частица встречи",
-    "translation": "Заехать за кем-то."
-   },
-   "We've put {{answer}} the meeting until Friday.": {
-    "hint": "частица откладывания",
-    "translation": "Отложить."
-   },
-   "He takes {{answer}} his father — same smile, same laugh.": {
-    "hint": "частица сходства",
-    "translation": "Пойти в родителя."
-   }
-  },
-  "Question tags and indirect questions": {
-   "You've met before, {{answer}} you?": {
-    "hint": "перевёрнутый вспомогательный хвостика",
-    "translation": "Утверждение → отрицательный хвостик."
-   },
-   "She doesn't eat fish, {{answer}} she?": {
-    "hint": "перевёрнутый вспомогательный хвостика",
-    "translation": "Отрицание → утвердительный хвостик."
-   },
-   "Could you tell me where the bank {{answer}}?": {
-    "hint": "be — в КОНЦЕ",
-    "translation": "Внутри — порядок утверждения."
-   },
-   "Do you know if the shop {{answer}} at six?": {
-    "hint": "close — порядок утверждения",
-    "translation": "Косвенный вопрос да/нет."
-   },
-   "It's cold today, {{answer}} it?": {
-    "hint": "перевёрнутый вспомогательный хвостика",
-    "translation": "Утверждение → отрицательный хвостик."
-   },
-   "I wonder {{answer}} they got home safely.": {
-    "hint": "альтернатива if",
-    "translation": "Косвенная связка да/нет."
-   }
-  },
-  "Inversion (Never have I…, Not only…)": {
-   "Never {{answer}} I heard such nonsense.": {
-    "hint": "перфектный вспомогательный",
-    "translation": "Вспомогательный перед подлежащим."
-   },
-   "Not only {{answer}} she sing, she writes her own songs.": {
-    "hint": "вспомогательный настоящего",
-    "translation": "Эмфаза в настоящем."
-   },
-   "No sooner had we sat down {{answer}} the phone rang.": {
-    "hint": "парное слово",
-    "translation": "Пара к no sooner."
-   },
-   "Under no circumstances {{answer}} you open that door.": {
-    "hint": "модальный совета",
-    "translation": "Суровое предупреждение."
-   },
-   "Rarely {{answer}} we see such talent.": {
-    "hint": "вспомогательный настоящего",
-    "translation": "Эмфаза в настоящем."
-   },
-   "Only then {{answer}} I understand what she meant.": {
-    "hint": "вспомогательный прошедшего",
-    "translation": "Эмфаза в прошедшем."
-   }
-  },
-  "Cleft sentences (What I need is…, It was… that)": {
-   "{{answer}} I need is a good night's sleep.": {
-    "hint": "зачин расщеплённого предложения",
-    "translation": "Зачин с what."
-   },
-   "It was Marco {{answer}} suggested the idea.": {
-    "hint": "связка для человека",
-    "translation": "Фокус на человеке."
-   },
-   "What annoys me {{answer}} his constant lateness.": {
-    "hint": "be — стержень",
-    "translation": "Стержень расщепления."
-   },
-   "It {{answer}} in Paris that they first met.": {
-    "hint": "be — прошедшее",
-    "translation": "Фокус на месте."
-   },
-   "{{answer}} she wants is a little respect.": {
-    "hint": "зачин единственного",
-    "translation": "Расщепление о единственном."
-   },
-   "It wasn't until midnight {{answer}} he finally called.": {
-    "hint": "связка расщепления",
-    "translation": "Фокус на времени."
-   }
-  },
-  "Hedging and distancing (would seem, tend to)": {
-   "It would {{answer}} that the figures are wrong.": {
-    "hint": "глагол кажимости",
-    "translation": "Классическое смягчение."
-   },
-   "House prices {{answer}} to rise in spring.": {
-    "hint": "глагол тенденции",
-    "translation": "Общая тенденция."
-   },
-   "There {{answer}} to be a problem with the data.": {
-    "hint": "глагол кажимости, 3-е лицо",
-    "translation": "Видимое смягчение."
-   },
-   "It is widely {{answer}} that the climate is changing.": {
-    "hint": "believe — причастие",
-    "translation": "Дистанцированная передача — believe."
-   },
-   "The results {{answer}} that more research is needed.": {
-    "hint": "глагол намёка",
-    "translation": "Пусть говорят данные."
-   },
-   "It could be {{answer}} that the policy failed.": {
-    "hint": "argue — причастие",
-    "translation": "Дистанцированный спор — argue."
-   }
-  },
-  "Participle clauses (Having finished, …)": {
-   "{{answer}} finished dinner, we went for a walk.": {
-    "hint": "зачин перфектного причастия",
-    "translation": "Более раннее действие."
-   },
-   "{{answer}} through the window, she saw the storm coming.": {
-    "hint": "look — причастие",
-    "translation": "Одновременное действие — look."
-   },
-   "{{answer}} in 1889, the tower still draws millions.": {
-    "hint": "build — причастие",
-    "translation": "Пассивное причастие — build."
-   },
-   "Not {{answer}} what to say, he stayed silent.": {
-    "hint": "know — причастие",
-    "translation": "Отрицательное причастие — know."
-   },
-   "Having {{answer}} in Rome for years, she speaks fluent Italian.": {
-    "hint": "live — причастие",
-    "translation": "live — причастие."
-   },
-   "{{answer}} by the news, they cancelled the trip.": {
-    "hint": "shock — причастие",
-    "translation": "Пассивное причастие — shock."
-   }
-  },
-  "The mandative subjunctive (insist that he be)": {
-   "The board insisted that he {{answer}} removed from the project.": {
-    "hint": "be — голая форма",
-    "translation": "Голая форма be, все лица."
-   },
-   "It is essential that every member {{answer}} the code of conduct.": {
-    "hint": "подчиняться — голая форма",
-    "translation": "Голая форма — без -s."
-   },
-   "She recommended that the report {{answer}} rewritten.": {
-    "hint": "be — голая форма",
-    "translation": "Пассивный субжунктив."
-   },
-   "They demanded that the minister {{answer}}.": {
-    "hint": "уйти в отставку — голая форма",
-    "translation": "Голая форма — без -s."
-   },
-   "It's vital that she {{answer}} informed at once.": {
-    "hint": "be — голая форма",
-    "translation": "Пассивный субжунктив."
-   },
-   "We suggest that he {{answer}} a lawyer before signing.": {
-    "hint": "обратиться за советом — голая форма",
-    "translation": "Голая форма — без -s."
-   }
-  },
-  "Ellipsis and substitution (so, neither, do so)": {
-   "I loved the film. — {{answer}} did I!": {
-    "hint": "зачин и-я-тоже",
-    "translation": "Положительное эхо."
-   },
-   "She can't make it tonight. — {{answer}} can I.": {
-    "hint": "отрицательный зачин и-я-тоже",
-    "translation": "Отрицательное эхо."
-   },
-   "He was asked to apologise, and he did {{answer}} immediately.": {
-    "hint": "заместитель после did",
-    "translation": "Формальный заместитель сказуемого."
-   },
-   "You may be tired; if {{answer}}, rest.": {
-    "hint": "заместитель после if",
-    "translation": "Сжатое условие."
-   },
-   "They promised to help, but failed to {{answer}} so.": {
-    "hint": "глагол-заместитель",
-    "translation": "Формальный глагол-заместитель."
-   },
-   "I've never been to Oslo. — Nor {{answer}} I.": {
-    "hint": "перфектный вспомогательный",
-    "translation": "Отрицательное эхо, перфект."
-   }
-  },
-  "Formal connectors (notwithstanding, albeit)": {
-   "The plan went ahead, {{answer}} the objections.": {
-    "hint": "самый тяжёлый 'despite'",
-    "translation": "Формальный 'despite'."
-   },
-   "It was a victory, {{answer}} a narrow one.": {
-    "hint": "сжатый although",
-    "translation": "although + оборот."
-   },
-   "The costs rose sharply; {{answer}} the project was cancelled.": {
-    "hint": "формальный therefore",
-    "translation": "Формальный 'therefore'."
-   },
-   "A scheme {{answer}} employees share the profits.": {
-    "hint": "слово по-которому",
-    "translation": "по которому."
-   },
-   "A {{answer}} unknown author won the prize.": {
-    "hint": "слово до-сих-пор",
-    "translation": "до сих пор."
-   },
-   "The evidence, {{answer}} incomplete, points one way.": {
-    "hint": "урезанный although",
-    "translation": "Урезанная уступка."
-   }
+  "language": "en",
+  "locale": "ru",
+  "reviewed": false,
+  "_note": "WP17: Russian scaffolding for the full English path (A1–C2). Lemma cues stay English (Latin) on purpose — the learner must produce the English word. Drafted 2026-07; reviewed flips true after the per-locale reviewer pass (never self-certified, §3b).",
+  "points": {
+    "Subject pronouns (I, you, he…)": {
+      "{{answer}} am from Brazil.": {
+        "hint": "говорящий — всегда с большой буквы",
+        "translation": "Представляетесь."
+      },
+      "{{answer}} is my sister.": {
+        "hint": "женщина",
+        "translation": "Представляете женщину из семьи."
+      },
+      "{{answer}} are students.": {
+        "hint": "говорящий + другие",
+        "translation": "О себе и одногруппниках."
+      },
+      "{{answer}} is my father.": {
+        "hint": "мужчина",
+        "translation": "Представляете мужчину из семьи."
+      },
+      "{{answer}} is on the table.": {
+        "hint": "предмет",
+        "translation": "О предмете."
+      },
+      "{{answer}} are very kind.": {
+        "hint": "собеседник",
+        "translation": "Комплимент собеседнику."
+      },
+      "{{answer}} are my friends.": {
+        "hint": "несколько человек — «они»",
+        "translation": "О группе людей."
+      }
+    },
+    "To be — am / is / are": {
+      "I {{answer}} a student.": {
+        "hint": "be — с I",
+        "translation": "О себе."
+      },
+      "You {{answer}} my friend.": {
+        "hint": "be — с you",
+        "translation": "Разговор с одним человеком."
+      },
+      "She {{answer}} a doctor.": {
+        "hint": "be — с she",
+        "translation": "О её работе."
+      },
+      "We {{answer}} at home.": {
+        "hint": "be — с we",
+        "translation": "Где вы с семьёй."
+      },
+      "The coffee {{answer}} hot.": {
+        "hint": "be — с it/предметом",
+        "translation": "Описание напитка."
+      },
+      "They {{answer}} from Japan.": {
+        "hint": "be — с they",
+        "translation": "Откуда эти люди."
+      }
+    },
+    "Articles: a / an": {
+      "I have {{answer}} dog.": {
+        "hint": "перед согласным звуком",
+        "translation": "О питомце."
+      },
+      "She is {{answer}} engineer.": {
+        "hint": "перед гласным звуком",
+        "translation": "О её работе."
+      },
+      "It is {{answer}} big house.": {
+        "hint": "перед согласным звуком",
+        "translation": "Описание дома."
+      },
+      "He eats {{answer}} apple every day.": {
+        "hint": "перед гласным звуком",
+        "translation": "Ежедневная привычка."
+      },
+      "I read {{answer}} book every week.": {
+        "hint": "перед согласным звуком",
+        "translation": "Еженедельная привычка."
+      },
+      "I need {{answer}} umbrella.": {
+        "hint": "перед гласным звуком",
+        "translation": "Похоже, будет дождь."
+      }
+    },
+    "The — pointing at a specific thing": {
+      "{{answer}} sun is hot today.": {
+        "hint": "уникальные вещи берут этот артикль",
+        "translation": "Такое — одно."
+      },
+      "Please close {{answer}} door.": {
+        "hint": "оба знают, о каком речь",
+        "translation": "Вы оба знаете, какая дверь."
+      },
+      "{{answer}} keys in my hand are mine.": {
+        "hint": "опознано фразой после него",
+        "translation": "Конкретные, опознанные ключи."
+      },
+      "We live near {{answer}} station.": {
+        "hint": "оба знают, о каком речь",
+        "translation": "Вокзал этого города."
+      },
+      "{{answer}} moon is bright tonight.": {
+        "hint": "уникальные вещи берут этот артикль",
+        "translation": "Такая — одна."
+      },
+      "Where is {{answer}} bathroom?": {
+        "hint": "оба знают, о каком речь",
+        "translation": "Вопрос в кафе или в гостях."
+      }
+    },
+    "Plural nouns (-s, -es, irregular)": {
+      "I have two {{answer}}.": {
+        "hint": "book во множественном",
+        "translation": "То, что читают."
+      },
+      "The {{answer}} are playing outside.": {
+        "hint": "child — неправильное мн. число",
+        "translation": "Юные люди."
+      },
+      "She has three {{answer}}.": {
+        "hint": "watch — добавьте -es",
+        "translation": "То, что показывает время."
+      },
+      "The {{answer}} are late today.": {
+        "hint": "bus — добавьте -es",
+        "translation": "Общественный транспорт."
+      },
+      "Two {{answer}} live in our street.": {
+        "hint": "family — y меняется на -ies",
+        "translation": "Родители и дети."
+      },
+      "My {{answer}} are cold.": {
+        "hint": "foot — неправильное мн. число",
+        "translation": "На них вы стоите."
+      }
+    },
+    "Present simple (I work)": {
+      "I {{answer}} in a bank.": {
+        "hint": "чем вы заняты на работе",
+        "translation": "О вашей работе."
+      },
+      "We {{answer}} breakfast at seven.": {
+        "hint": "принимать (приём пищи)",
+        "translation": "Утренний распорядок."
+      },
+      "They {{answer}} in London.": {
+        "hint": "проживать где-то",
+        "translation": "Где живут эти люди."
+      },
+      "You {{answer}} English very well.": {
+        "hint": "пользоваться языком",
+        "translation": "Комплимент уровню языка."
+      },
+      "I {{answer}} coffee every morning.": {
+        "hint": "пить жидкость",
+        "translation": "Ежедневная привычка."
+      },
+      "We {{answer}} TV in the evening.": {
+        "hint": "смотреть на экран или передачу",
+        "translation": "Вечерняя привычка."
+      }
+    },
+    "Third-person -s (she works)": {
+      "She {{answer}} in a hospital.": {
+        "hint": "to work — с she",
+        "translation": "О её работе."
+      },
+      "He {{answer}} to school every day.": {
+        "hint": "to go — добавьте -es",
+        "translation": "Его ежедневный распорядок."
+      },
+      "My brother {{answer}} English.": {
+        "hint": "to study — y меняется на -ies",
+        "translation": "О его занятиях."
+      },
+      "The shop {{answer}} at nine.": {
+        "hint": "to open — с it",
+        "translation": "Часы работы."
+      },
+      "She {{answer}} TV after dinner.": {
+        "hint": "to watch — добавьте -es",
+        "translation": "Её вечерняя привычка."
+      },
+      "It {{answer}} a lot in April.": {
+        "hint": "to rain — с it",
+        "translation": "О погоде."
+      }
+    },
+    "Do-support: questions and negation": {
+      "{{answer}} you speak English?": {
+        "hint": "вспомогательный — с you",
+        "translation": "Вопрос о языках."
+      },
+      "{{answer}} she work here?": {
+        "hint": "вспомогательный — с she",
+        "translation": "Вопрос о её работе."
+      },
+      "I {{answer}} not eat meat.": {
+        "hint": "вспомогательный — с I",
+        "translation": "О вашей диете."
+      },
+      "He {{answer}} not like coffee.": {
+        "hint": "вспомогательный — с he",
+        "translation": "О его вкусах."
+      },
+      "{{answer}} they live in Rome?": {
+        "hint": "вспомогательный — с they",
+        "translation": "Где живут эти люди."
+      },
+      "We {{answer}} not have time.": {
+        "hint": "вспомогательный — с we",
+        "translation": "Вы спешите."
+      },
+      "I {{answer}} like coffee.": {
+        "hint": "отрицание с I — do + not",
+        "translation": "Сказать, что вам что-то не нравится."
+      },
+      "She {{answer}} work on Sundays.": {
+        "hint": "отрицание с she — does + not",
+        "translation": "Она не работает в этот день."
+      }
+    },
+    "Present continuous (I am working)": {
+      "I am {{answer}} a book right now.": {
+        "hint": "to read + -ing",
+        "translation": "Что вы делаете прямо сейчас."
+      },
+      "She is {{answer}} dinner now.": {
+        "hint": "to cook + -ing",
+        "translation": "Она на кухне."
+      },
+      "They are {{answer}} football.": {
+        "hint": "to play + -ing",
+        "translation": "Идёт игра."
+      },
+      "Look! It is {{answer}}.": {
+        "hint": "to rain + -ing",
+        "translation": "Погода, прямо сейчас."
+      },
+      "We are {{answer}} for the bus.": {
+        "hint": "to wait + -ing",
+        "translation": "Стоите на остановке."
+      },
+      "He is {{answer}} at the moment.": {
+        "hint": "to sleep + -ing",
+        "translation": "Тише, пожалуйста."
+      },
+      "He is {{answer}} in the park.": {
+        "hint": "run — удвойте последнюю согласную",
+        "translation": "Действие происходит сейчас."
+      },
+      "She is {{answer}} an email.": {
+        "hint": "write — отбросьте немую e",
+        "translation": "Действие происходит сейчас."
+      }
+    },
+    "There is / there are": {
+      "There {{answer}} a book on the table.": {
+        "hint": "единственное число",
+        "translation": "Существует одна вещь."
+      },
+      "There {{answer}} two cafés in this street.": {
+        "hint": "множественное число",
+        "translation": "Вещей больше одной."
+      },
+      "{{answer}} there a bank near here?": {
+        "hint": "единственное, порядок вопроса",
+        "translation": "Вопрос об одном месте."
+      },
+      "There {{answer}} no milk.": {
+        "hint": "единственное число",
+        "translation": "Холодильник пуст."
+      },
+      "{{answer}} there any questions?": {
+        "hint": "множественное, порядок вопроса",
+        "translation": "Вопрос группе в конце доклада."
+      },
+      "There {{answer}} many people here today.": {
+        "hint": "множественное число",
+        "translation": "Здесь полно людей."
+      }
+    },
+    "Question words (what, where, when…)": {
+      "{{answer}} do you live?": {
+        "hint": "спрашивает о месте",
+        "translation": "Где кто-то живёт."
+      },
+      "{{answer}} is your name?": {
+        "hint": "спрашивает о предмете",
+        "translation": "Знакомство."
+      },
+      "{{answer}} is your birthday?": {
+        "hint": "спрашивает о времени",
+        "translation": "Вопрос о дате."
+      },
+      "{{answer}} old are you?": {
+        "hint": "возраст спрашивают так",
+        "translation": "Вопрос о возрасте."
+      },
+      "{{answer}} is your teacher?": {
+        "hint": "спрашивает о человеке",
+        "translation": "Вопрос о человеке."
+      },
+      "{{answer}} are you crying?": {
+        "hint": "спрашивает о причине",
+        "translation": "Просите объяснить причину."
+      }
+    },
+    "Possessives (my, your, 's)": {
+      "This is {{answer}} book.": {
+        "hint": "принадлежит мне",
+        "translation": "Принадлежит говорящему."
+      },
+      "Is this {{answer}} car?": {
+        "hint": "принадлежит тебе",
+        "translation": "Вопрос собеседнику."
+      },
+      "{{answer}} name is Anna.": {
+        "hint": "принадлежит ей",
+        "translation": "Представляете женщину."
+      },
+      "That is my {{answer}} car.": {
+        "hint": "brother + окончание принадлежности",
+        "translation": "Принадлежит родственнику."
+      },
+      "{{answer}} house is big.": {
+        "hint": "принадлежит им",
+        "translation": "Принадлежит каким-то людям."
+      },
+      "The dog wags {{answer}} tail.": {
+        "hint": "принадлежит предмету — без апострофа",
+        "translation": "Хвост принадлежит собаке."
+      },
+      "{{answer}} name is David.": {
+        "hint": "имя мужчины — «его»",
+        "translation": "Имя мужчины."
+      },
+      "That is {{answer}} classroom.": {
+        "hint": "принадлежит нам — «наш»",
+        "translation": "Аудитория вашей группы."
+      }
+    },
+    "Past simple — irregular verbs": {
+      "Yesterday I {{answer}} to the market.": {
+        "hint": "go — прошедшее",
+        "translation": "Прошедшее от 'go'."
+      },
+      "She {{answer}} a great film last night.": {
+        "hint": "see — прошедшее",
+        "translation": "Прошедшее от 'see'."
+      },
+      "We {{answer}} a new car in March.": {
+        "hint": "buy — прошедшее",
+        "translation": "Прошедшее от 'buy'."
+      },
+      "He {{answer}} the early train this morning.": {
+        "hint": "take — прошедшее",
+        "translation": "Прошедшее от 'take'."
+      },
+      "They {{answer}} home very late.": {
+        "hint": "come — прошедшее",
+        "translation": "Прошедшее от 'come'."
+      },
+      "I {{answer}} breakfast at seven.": {
+        "hint": "eat — прошедшее",
+        "translation": "Прошедшее от 'eat'."
+      }
+    },
+    "Present continuous vs present simple": {
+      "Quiet, please — the baby {{answer}} sleeping.": {
+        "hint": "be — третье лицо",
+        "translation": "Прямо сейчас → continuous."
+      },
+      "She {{answer}} to work by bike every day.": {
+        "hint": "go — привычка, she",
+        "translation": "Привычка → simple."
+      },
+      "I'm {{answer}} for my keys at the moment.": {
+        "hint": "look — continuous",
+        "translation": "Прямо сейчас → форма на -ing."
+      },
+      "Water {{answer}} at 100 degrees.": {
+        "hint": "boil — факт, it",
+        "translation": "Факт → simple."
+      },
+      "They {{answer}} watching TV right now.": {
+        "hint": "be — they",
+        "translation": "Прямо сейчас → continuous."
+      },
+      "He usually {{answer}} coffee, not tea.": {
+        "hint": "drink — привычка, he",
+        "translation": "usually → simple."
+      }
+    },
+    "Comparatives and superlatives": {
+      "This bag is {{answer}} than that one.": {
+        "hint": "cheap — сравнительная",
+        "translation": "cheap — сравниваем два."
+      },
+      "It's the {{answer}} building in the city.": {
+        "hint": "tall — превосходная",
+        "translation": "tall — номер один."
+      },
+      "Her English is {{answer}} than mine.": {
+        "hint": "good — неправильная сравнительная",
+        "translation": "good — неправильная сравнительная."
+      },
+      "That was the {{answer}} meal I've ever had.": {
+        "hint": "bad — неправильная превосходная",
+        "translation": "bad — неправильная превосходная."
+      },
+      "This exercise is {{answer}} difficult than the last.": {
+        "hint": "слово перед длинными прилагательными",
+        "translation": "Длинное прилагательное — добавьте слово."
+      },
+      "The station is {{answer}} than I thought.": {
+        "hint": "far — сравнительная",
+        "translation": "far — неправильная сравнительная."
+      }
+    },
+    "Going to and will": {
+      "We're {{answer}} to visit Rome in May.": {
+        "hint": "запланированное будущее",
+        "translation": "План, принятый заранее."
+      },
+      "Don't worry — I {{answer}} help you.": {
+        "hint": "мгновенное решение",
+        "translation": "Обещание, решено сейчас."
+      },
+      "Look at those clouds! It's going to {{answer}}.": {
+        "hint": "мокрая погода",
+        "translation": "Видно, что надвигается."
+      },
+      "I think she {{answer}} pass the exam.": {
+        "hint": "слово-предсказание",
+        "translation": "Мнение о будущем."
+      },
+      "They're going {{answer}} move house next year.": {
+        "hint": "частица после going",
+        "translation": "Словечко в 'going …'."
+      },
+      "I'm tired — I {{answer}} go to bed.": {
+        "hint": "краткая форма мгновенного будущего",
+        "translation": "Решение этой секунды."
+      }
+    },
+    "Some, any, much, many": {
+      "There's {{answer}} milk in the fridge.": {
+        "hint": "слово количества в утверждении",
+        "translation": "Утвердительное предложение."
+      },
+      "We don't have {{answer}} eggs left.": {
+        "hint": "слово количества в отрицании",
+        "translation": "Отрицательное предложение."
+      },
+      "Do you have {{answer}} questions?": {
+        "hint": "слово количества в вопросах",
+        "translation": "Вопрос."
+      },
+      "How {{answer}} money do you need?": {
+        "hint": "с неисчисляемыми",
+        "translation": "Неисчисляемое количество."
+      },
+      "How {{answer}} people are coming?": {
+        "hint": "с исчисляемыми",
+        "translation": "Исчисляемое количество."
+      },
+      "Would you like {{answer}} tea?": {
+        "hint": "слово количества в предложениях-угощениях",
+        "translation": "Угощения берут утвердительное слово."
+      }
+    },
+    "Adverbs of frequency": {
+      "I {{answer}} drink coffee in the morning — every single day.": {
+        "hint": "слово 100% случаев",
+        "translation": "100% случаев."
+      },
+      "He is {{answer}} late — it drives me crazy.": {
+        "hint": "слово 100% случаев",
+        "translation": "После 'be'."
+      },
+      "We {{answer}} go out on Fridays — maybe once a month.": {
+        "hint": "слово время-от-времени",
+        "translation": "Не часто и не никогда."
+      },
+      "She {{answer}} eats meat — she's almost vegetarian.": {
+        "hint": "слово почти-никогда",
+        "translation": "Почти никогда."
+      },
+      "I have {{answer}} been to Japan, but I'd love to go.": {
+        "hint": "слово ноль-раз",
+        "translation": "Ноль раз."
+      },
+      "They {{answer}} visit us at Christmas — most years.": {
+        "hint": "слово большинства случаев",
+        "translation": "Большинство случаев."
+      },
+      "We {{answer}} eat out on Fridays.": {
+        "hint": "часто — между sometimes и always",
+        "translation": "Частая привычка."
+      }
+    },
+    "Can, could, have to": {
+      "She {{answer}} speak three languages.": {
+        "hint": "слово умения",
+        "translation": "Умение сейчас."
+      },
+      "{{answer}} you open the window, please?": {
+        "hint": "слово вежливой просьбы",
+        "translation": "Вежливая просьба."
+      },
+      "I {{answer}} to wear a uniform at work.": {
+        "hint": "глагол обязанности",
+        "translation": "Внешняя обязанность."
+      },
+      "When I was five, I {{answer}} already read.": {
+        "hint": "слово умения — прошедшее",
+        "translation": "Умение в прошлом."
+      },
+      "You don't {{answer}} to come if you're busy.": {
+        "hint": "глагол обязанности",
+        "translation": "Обязанности нет."
+      },
+      "{{answer}} I sit here? — Of course.": {
+        "hint": "слово разрешения",
+        "translation": "Просите разрешения."
+      }
+    },
+    "Prepositions of time: in, on, at": {
+      "The meeting starts {{answer}} nine o'clock.": {
+        "hint": "предлог точного часа",
+        "translation": "Время по часам."
+      },
+      "I was born {{answer}} 1998.": {
+        "hint": "предлог длинных периодов",
+        "translation": "Год."
+      },
+      "We're leaving {{answer}} Friday.": {
+        "hint": "предлог дней",
+        "translation": "День."
+      },
+      "She works best {{answer}} the morning.": {
+        "hint": "предлог длинных периодов",
+        "translation": "Часть суток."
+      },
+      "My birthday is {{answer}} 12 March.": {
+        "hint": "предлог дат",
+        "translation": "Дата."
+      },
+      "He often studies {{answer}} night.": {
+        "hint": "устойчивый предлог с night",
+        "translation": "Устойчивое сочетание с 'night'."
+      }
+    },
+    "Present perfect vs past simple": {
+      "I've {{answer}} my wallet — can you help me look?": {
+        "hint": "lose — причастие",
+        "translation": "Потерян до сих пор → перфект."
+      },
+      "She {{answer}} in Berlin in 2019.": {
+        "hint": "live — прошедшее",
+        "translation": "Законченное время → past simple."
+      },
+      "Have you {{answer}} been to Japan?": {
+        "hint": "слово хоть-раз-в-жизни",
+        "translation": "Слово вопросов об опыте."
+      },
+      "We've known each other {{answer}} ten years.": {
+        "hint": "слово длительности",
+        "translation": "Отрезок времени."
+      },
+      "He's worked here {{answer}} 2020.": {
+        "hint": "слово точки отсчёта",
+        "translation": "Точка отсчёта."
+      },
+      "They haven't finished {{answer}}.": {
+        "hint": "слово всё-ещё-ждём",
+        "translation": "Ожидается, но не сделано."
+      }
+    },
+    "First and second conditionals": {
+      "If it {{answer}} tomorrow, we'll cancel the picnic.": {
+        "hint": "rain — настоящее, it",
+        "translation": "Реальное условие → настоящее."
+      },
+      "If you study, you {{answer}} pass.": {
+        "hint": "слово реального будущего",
+        "translation": "Реальный результат."
+      },
+      "If I {{answer}} rich, I would buy an island.": {
+        "hint": "be — нереальная форма",
+        "translation": "Воображаемое → прошедшая форма be."
+      },
+      "She {{answer}} travel more if she had time.": {
+        "hint": "слово нереального результата",
+        "translation": "Воображаемый результат."
+      },
+      "If we {{answer}} now, we'll catch the train.": {
+        "hint": "отправиться — форма настоящего",
+        "translation": "Реальное условие → настоящее."
+      },
+      "What {{answer}} you do if you won the lottery?": {
+        "hint": "слово нереального результата",
+        "translation": "Воображаемый вопрос."
+      }
+    },
+    "The passive (is made, was built)": {
+      "This wine {{answer}} produced in Chile.": {
+        "hint": "be — настоящее, it",
+        "translation": "Пассив настоящего."
+      },
+      "The castle was {{answer}} in the twelfth century.": {
+        "hint": "build — причастие",
+        "translation": "build — причастие."
+      },
+      "These photos {{answer}} taken by my grandmother.": {
+        "hint": "be — прошедшее, they",
+        "translation": "Пассив прошедшего, множественное."
+      },
+      "English {{answer}} spoken all over the world.": {
+        "hint": "be — настоящее, it",
+        "translation": "Пассив настоящего."
+      },
+      "The thief was caught {{answer}} the police.": {
+        "hint": "предлог деятеля",
+        "translation": "Называем деятеля."
+      },
+      "My phone was {{answer}} at the festival.": {
+        "hint": "steal — причастие",
+        "translation": "steal — причастие."
+      }
+    },
+    "Relative clauses (who, which, that, where)": {
+      "She's the doctor {{answer}} treated my father.": {
+        "hint": "связка для человека",
+        "translation": "Человек."
+      },
+      "That's the restaurant {{answer}} we first met.": {
+        "hint": "связка для места",
+        "translation": "Место."
+      },
+      "The laptop {{answer}} I bought last week is broken.": {
+        "hint": "универсальная связка",
+        "translation": "Предмет (ограничительное)."
+      },
+      "He's the author {{answer}} books sell millions.": {
+        "hint": "связка принадлежности",
+        "translation": "Принадлежность."
+      },
+      "The train, {{answer}} was already late, then broke down.": {
+        "hint": "связка для предмета",
+        "translation": "Предмет (после запятой)."
+      },
+      "People {{answer}} exercise regularly live longer.": {
+        "hint": "связка для человека",
+        "translation": "Люди вообще."
+      }
+    },
+    "Used to — past habits and states": {
+      "I {{answer}} to play football every weekend.": {
+        "hint": "глагол прошлой привычки",
+        "translation": "Прошлая привычка, уже закончилась."
+      },
+      "She didn't {{answer}} to like coffee, but now she loves it.": {
+        "hint": "глагол прошлой привычки, без -d",
+        "translation": "После didn't — без d."
+      },
+      "There {{answer}} to be a bakery on this corner.": {
+        "hint": "глагол прошлой привычки",
+        "translation": "Прошлое состояние."
+      },
+      "Did you {{answer}} to live in London?": {
+        "hint": "глагол прошлой привычки, без -d",
+        "translation": "В вопросах — без d."
+      },
+      "He used {{answer}} have long hair.": {
+        "hint": "частица",
+        "translation": "Словечко после 'used'."
+      },
+      "We {{answer}} to go camping every summer as kids.": {
+        "hint": "глагол прошлой привычки",
+        "translation": "Привычка детства."
+      }
+    },
+    "Reported speech": {
+      "'I'm busy.' → She said she {{answer}} busy.": {
+        "hint": "be — шаг назад",
+        "translation": "Настоящее отступает в прошедшее."
+      },
+      "'I'll call you.' → He said he {{answer}} call me.": {
+        "hint": "will — шаг назад",
+        "translation": "will отступает."
+      },
+      "'Are you ready?' → She asked {{answer}} I was ready.": {
+        "hint": "связка да/нет",
+        "translation": "Связка вопроса да/нет."
+      },
+      "'Where do you live?' → He asked where I {{answer}}.": {
+        "hint": "live — шаг назад",
+        "translation": "Вопросительное слово + обычный порядок."
+      },
+      "'I can swim.' → She said she {{answer}} swim.": {
+        "hint": "can — шаг назад",
+        "translation": "can отступает."
+      },
+      "'We bought a house.' → They said they {{answer}} bought a house.": {
+        "hint": "вспомогательный шага назад",
+        "translation": "Прошедшее отступает в перфект."
+      }
+    },
+    "Gerund or infinitive?": {
+      "I really enjoy {{answer}} in the sea.": {
+        "hint": "swim — какая форма?",
+        "translation": "enjoy + -ing."
+      },
+      "She decided {{answer}} accept the job.": {
+        "hint": "частица инфинитива",
+        "translation": "decide + инфинитив."
+      },
+      "Would you mind {{answer}} the door?": {
+        "hint": "close — какая форма?",
+        "translation": "mind + -ing."
+      },
+      "We hope {{answer}} see you soon.": {
+        "hint": "частица инфинитива",
+        "translation": "hope + инфинитив."
+      },
+      "He avoided {{answer}} my question.": {
+        "hint": "answer — какая форма?",
+        "translation": "avoid + -ing."
+      },
+      "They promised {{answer}} write every week.": {
+        "hint": "частица инфинитива",
+        "translation": "promise + инфинитив."
+      }
+    },
+    "Third and mixed conditionals": {
+      "If you {{answer}} told me, I would have helped.": {
+        "hint": "вспомогательный past perfect",
+        "translation": "Нереальное прошлое условие."
+      },
+      "If she had left earlier, she would {{answer}} caught the flight.": {
+        "hint": "перфектный вспомогательный после would",
+        "translation": "Нереальный прошлый результат."
+      },
+      "I wouldn't {{answer}} met her if I hadn't gone to that party.": {
+        "hint": "перфектный вспомогательный",
+        "translation": "Нереальный прошлый результат."
+      },
+      "If he had studied medicine, he {{answer}} be a doctor now.": {
+        "hint": "слово нереального результата",
+        "translation": "Прошлая причина, нынешний результат."
+      },
+      "If we {{answer}} taken the map, we wouldn't have got lost.": {
+        "hint": "вспомогательный past perfect",
+        "translation": "Нереальное прошлое условие."
+      },
+      "What would you have {{answer}} in my position?": {
+        "hint": "do — причастие",
+        "translation": "do — причастие."
+      }
+    },
+    "Modals of deduction (must, might, can't)": {
+      "The lights are on — someone {{answer}} be home.": {
+        "hint": "слово почти-уверенности",
+        "translation": "Почти наверняка правда."
+      },
+      "That {{answer}} be Maria — she's in Brazil this week!": {
+        "hint": "слово невозможности",
+        "translation": "Почти наверняка неправда."
+      },
+      "He {{answer}} be stuck in traffic — it happens.": {
+        "hint": "слово возможности",
+        "translation": "Всего лишь возможно."
+      },
+      "She must {{answer}} forgotten our meeting.": {
+        "hint": "вспомогательный прошлой догадки",
+        "translation": "Догадка о прошлом."
+      },
+      "They can't {{answer}} left already — the car's still here.": {
+        "hint": "вспомогательный прошлой догадки",
+        "translation": "Прошлая невозможность."
+      },
+      "It {{answer}} rain later, so take an umbrella.": {
+        "hint": "слово возможности",
+        "translation": "Открытая возможность."
+      }
+    },
+    "Advanced passives (has been done, being done)": {
+      "The road has {{answer}} closed since Monday.": {
+        "hint": "причастие от be",
+        "translation": "Пассив перфекта."
+      },
+      "Our office is {{answer}} renovated at the moment.": {
+        "hint": "-ing от be",
+        "translation": "Длительный пассив."
+      },
+      "All answers must be {{answer}} in ink.": {
+        "hint": "write — причастие",
+        "translation": "Пассив с модальным — write."
+      },
+      "She is {{answer}} to be the richest woman in the country.": {
+        "hint": "say — причастие",
+        "translation": "Пассив передачи слов — say."
+      },
+      "The results will {{answer}} announced on Friday.": {
+        "hint": "голый инфинитив пассива",
+        "translation": "Пассив будущего."
+      },
+      "By 1990, the bridge {{answer}} been rebuilt twice.": {
+        "hint": "вспомогательный past perfect",
+        "translation": "Пассив past perfect."
+      }
+    },
+    "Wish and if only": {
+      "I wish I {{answer}} how to drive.": {
+        "hint": "know — форма сожаления",
+        "translation": "Сожаление о настоящем → прошедшая форма."
+      },
+      "She wishes she {{answer}} accepted the offer.": {
+        "hint": "вспомогательный прошлого сожаления",
+        "translation": "Сожаление о прошлом → past perfect."
+      },
+      "I wish you {{answer}} stop interrupting me!": {
+        "hint": "слово жалобы",
+        "translation": "Жалоба на кого-то."
+      },
+      "If {{answer}} I had listened to your advice!": {
+        "hint": "слово после if",
+        "translation": "Усиленная версия wish."
+      },
+      "He wishes he {{answer}} taller.": {
+        "hint": "be — форма сожаления",
+        "translation": "Сожаление о настоящем с be."
+      },
+      "We wish we {{answer}} bought tickets earlier.": {
+        "hint": "вспомогательный прошлого сожаления",
+        "translation": "Сожаление о прошлом."
+      }
+    },
+    "Phrasal verbs — separable or not?": {
+      "Could you turn {{answer}} off? The music's too loud.": {
+        "hint": "местоимение-дополнение",
+        "translation": "Местоимения разрывают отделяемые глаголы."
+      },
+      "She's looking {{answer}} her elderly mother.": {
+        "hint": "частица заботы",
+        "translation": "Фразовый глагол заботы."
+      },
+      "Please fill {{answer}} this form.": {
+        "hint": "частица бланка",
+        "translation": "Заполнить документ."
+      },
+      "I'll pick you {{answer}} at eight.": {
+        "hint": "частица встречи",
+        "translation": "Заехать за кем-то."
+      },
+      "We've put {{answer}} the meeting until Friday.": {
+        "hint": "частица откладывания",
+        "translation": "Отложить."
+      },
+      "He takes {{answer}} his father — same smile, same laugh.": {
+        "hint": "частица сходства",
+        "translation": "Пойти в родителя."
+      }
+    },
+    "Question tags and indirect questions": {
+      "You've met before, {{answer}} you?": {
+        "hint": "перевёрнутый вспомогательный хвостика",
+        "translation": "Утверждение → отрицательный хвостик."
+      },
+      "She doesn't eat fish, {{answer}} she?": {
+        "hint": "перевёрнутый вспомогательный хвостика",
+        "translation": "Отрицание → утвердительный хвостик."
+      },
+      "Could you tell me where the bank {{answer}}?": {
+        "hint": "be — в КОНЦЕ",
+        "translation": "Внутри — порядок утверждения."
+      },
+      "Do you know if the shop {{answer}} at six?": {
+        "hint": "close — порядок утверждения",
+        "translation": "Косвенный вопрос да/нет."
+      },
+      "It's cold today, {{answer}} it?": {
+        "hint": "перевёрнутый вспомогательный хвостика",
+        "translation": "Утверждение → отрицательный хвостик."
+      },
+      "I wonder {{answer}} they got home safely.": {
+        "hint": "альтернатива if",
+        "translation": "Косвенная связка да/нет."
+      }
+    },
+    "Inversion (Never have I…, Not only…)": {
+      "Never {{answer}} I heard such nonsense.": {
+        "hint": "перфектный вспомогательный",
+        "translation": "Вспомогательный перед подлежащим."
+      },
+      "Not only {{answer}} she sing, she writes her own songs.": {
+        "hint": "вспомогательный настоящего",
+        "translation": "Эмфаза в настоящем."
+      },
+      "No sooner had we sat down {{answer}} the phone rang.": {
+        "hint": "парное слово",
+        "translation": "Пара к no sooner."
+      },
+      "Under no circumstances {{answer}} you open that door.": {
+        "hint": "модальный совета",
+        "translation": "Суровое предупреждение."
+      },
+      "Rarely {{answer}} we see such talent.": {
+        "hint": "вспомогательный настоящего",
+        "translation": "Эмфаза в настоящем."
+      },
+      "Only then {{answer}} I understand what she meant.": {
+        "hint": "вспомогательный прошедшего",
+        "translation": "Эмфаза в прошедшем."
+      }
+    },
+    "Cleft sentences (What I need is…, It was… that)": {
+      "{{answer}} I need is a good night's sleep.": {
+        "hint": "зачин расщеплённого предложения",
+        "translation": "Зачин с what."
+      },
+      "It was Marco {{answer}} suggested the idea.": {
+        "hint": "связка для человека",
+        "translation": "Фокус на человеке."
+      },
+      "What annoys me {{answer}} his constant lateness.": {
+        "hint": "be — стержень",
+        "translation": "Стержень расщепления."
+      },
+      "It {{answer}} in Paris that they first met.": {
+        "hint": "be — прошедшее",
+        "translation": "Фокус на месте."
+      },
+      "{{answer}} she wants is a little respect.": {
+        "hint": "зачин единственного",
+        "translation": "Расщепление о единственном."
+      },
+      "It wasn't until midnight {{answer}} he finally called.": {
+        "hint": "связка расщепления",
+        "translation": "Фокус на времени."
+      }
+    },
+    "Hedging and distancing (would seem, tend to)": {
+      "It would {{answer}} that the figures are wrong.": {
+        "hint": "глагол кажимости",
+        "translation": "Классическое смягчение."
+      },
+      "House prices {{answer}} to rise in spring.": {
+        "hint": "глагол тенденции",
+        "translation": "Общая тенденция."
+      },
+      "There {{answer}} to be a problem with the data.": {
+        "hint": "глагол кажимости, 3-е лицо",
+        "translation": "Видимое смягчение."
+      },
+      "It is widely {{answer}} that the climate is changing.": {
+        "hint": "believe — причастие",
+        "translation": "Дистанцированная передача — believe."
+      },
+      "The results {{answer}} that more research is needed.": {
+        "hint": "глагол намёка",
+        "translation": "Пусть говорят данные."
+      },
+      "It could be {{answer}} that the policy failed.": {
+        "hint": "argue — причастие",
+        "translation": "Дистанцированный спор — argue."
+      }
+    },
+    "Participle clauses (Having finished, …)": {
+      "{{answer}} finished dinner, we went for a walk.": {
+        "hint": "зачин перфектного причастия",
+        "translation": "Более раннее действие."
+      },
+      "{{answer}} through the window, she saw the storm coming.": {
+        "hint": "look — причастие",
+        "translation": "Одновременное действие — look."
+      },
+      "{{answer}} in 1889, the tower still draws millions.": {
+        "hint": "build — причастие",
+        "translation": "Пассивное причастие — build."
+      },
+      "Not {{answer}} what to say, he stayed silent.": {
+        "hint": "know — причастие",
+        "translation": "Отрицательное причастие — know."
+      },
+      "Having {{answer}} in Rome for years, she speaks fluent Italian.": {
+        "hint": "live — причастие",
+        "translation": "live — причастие."
+      },
+      "{{answer}} by the news, they cancelled the trip.": {
+        "hint": "shock — причастие",
+        "translation": "Пассивное причастие — shock."
+      }
+    },
+    "The mandative subjunctive (insist that he be)": {
+      "The board insisted that he {{answer}} removed from the project.": {
+        "hint": "be — голая форма",
+        "translation": "Голая форма be, все лица."
+      },
+      "It is essential that every member {{answer}} the code of conduct.": {
+        "hint": "подчиняться — голая форма",
+        "translation": "Голая форма — без -s."
+      },
+      "She recommended that the report {{answer}} rewritten.": {
+        "hint": "be — голая форма",
+        "translation": "Пассивный субжунктив."
+      },
+      "They demanded that the minister {{answer}}.": {
+        "hint": "уйти в отставку — голая форма",
+        "translation": "Голая форма — без -s."
+      },
+      "It's vital that she {{answer}} informed at once.": {
+        "hint": "be — голая форма",
+        "translation": "Пассивный субжунктив."
+      },
+      "We suggest that he {{answer}} a lawyer before signing.": {
+        "hint": "обратиться за советом — голая форма",
+        "translation": "Голая форма — без -s."
+      }
+    },
+    "Ellipsis and substitution (so, neither, do so)": {
+      "I loved the film. — {{answer}} did I!": {
+        "hint": "зачин и-я-тоже",
+        "translation": "Положительное эхо."
+      },
+      "She can't make it tonight. — {{answer}} can I.": {
+        "hint": "отрицательный зачин и-я-тоже",
+        "translation": "Отрицательное эхо."
+      },
+      "He was asked to apologise, and he did {{answer}} immediately.": {
+        "hint": "заместитель после did",
+        "translation": "Формальный заместитель сказуемого."
+      },
+      "You may be tired; if {{answer}}, rest.": {
+        "hint": "заместитель после if",
+        "translation": "Сжатое условие."
+      },
+      "They promised to help, but failed to {{answer}} so.": {
+        "hint": "глагол-заместитель",
+        "translation": "Формальный глагол-заместитель."
+      },
+      "I've never been to Oslo. — Nor {{answer}} I.": {
+        "hint": "перфектный вспомогательный",
+        "translation": "Отрицательное эхо, перфект."
+      }
+    },
+    "Formal connectors (notwithstanding, albeit)": {
+      "The plan went ahead, {{answer}} the objections.": {
+        "hint": "самый тяжёлый 'despite'",
+        "translation": "Формальный 'despite'."
+      },
+      "It was a victory, {{answer}} a narrow one.": {
+        "hint": "сжатый although",
+        "translation": "although + оборот."
+      },
+      "The costs rose sharply; {{answer}} the project was cancelled.": {
+        "hint": "формальный therefore",
+        "translation": "Формальный 'therefore'."
+      },
+      "A scheme {{answer}} employees share the profits.": {
+        "hint": "слово по-которому",
+        "translation": "по которому."
+      },
+      "A {{answer}} unknown author won the prize.": {
+        "hint": "слово до-сих-пор",
+        "translation": "до сих пор."
+      },
+      "The evidence, {{answer}} incomplete, points one way.": {
+        "hint": "урезанный although",
+        "translation": "Урезанная уступка."
+      }
+    },
+    "Past simple — regular verbs (-ed)": {
+      "I {{answer}} in a bank for five years.": {
+        "hint": "work + -ed",
+        "translation": "Прежняя работа."
+      },
+      "She {{answer}} in Rome when she was young.": {
+        "hint": "live — добавьте только -d",
+        "translation": "Где она жила раньше."
+      },
+      "He {{answer}} English at university.": {
+        "hint": "study — y меняется на -ied",
+        "translation": "Что он изучал."
+      },
+      "The bus {{answer}} suddenly.": {
+        "hint": "stop — удвойте p",
+        "translation": "Что сделал автобус."
+      },
+      "We {{answer}} football in the park yesterday.": {
+        "hint": "гласная + y — просто -ed",
+        "translation": "Вчерашняя игра."
+      },
+      "They {{answer}} work yesterday — it was a holiday.": {
+        "hint": "отрицание в прошедшем: did + not",
+        "translation": "Выходной день."
+      }
+    },
+    "Object pronouns (me, him, them)": {
+      "Can you help {{answer}}, please?": {
+        "hint": "говорящий просит помощи — «меня»",
+        "translation": "Просьба о помощи для себя."
+      },
+      "I saw {{answer}} at school yesterday.": {
+        "hint": "мужчина — «его»",
+        "translation": "Вы видели мужчину."
+      },
+      "This present is for {{answer}}.": {
+        "hint": "женщина — «неё»",
+        "translation": "Подарок для женщины."
+      },
+      "Our teacher knows {{answer}} well.": {
+        "hint": "говорящий и другие — «нас»",
+        "translation": "Учитель хорошо знает вашу группу."
+      },
+      "I like these shoes — I'll buy {{answer}}.": {
+        "hint": "несколько предметов — «их»",
+        "translation": "Купить эти туфли."
+      },
+      "Where is my phone? I can't find {{answer}}.": {
+        "hint": "один предмет — «его»",
+        "translation": "Вы ищете свой телефон."
+      }
+    },
+    "Imperatives (Open…, Don't…)": {
+      "{{answer}} the door, please.": {
+        "hint": "глагол в базовой форме, без подлежащего",
+        "translation": "Просьба открыть дверь."
+      },
+      "{{answer}} worry — everything is fine.": {
+        "hint": "отрицательный приказ: отрицательная форма do + глагол",
+        "translation": "Сказать не волноваться."
+      },
+      "{{answer}} me tomorrow, please.": {
+        "hint": "глагол в базовой форме",
+        "translation": "Просьба позвонить."
+      },
+      "{{answer}} be late — the film starts at eight.": {
+        "hint": "отрицательный приказ с be",
+        "translation": "Предупреждение не опаздывать."
+      },
+      "{{answer}} quiet, please — the baby is sleeping.": {
+        "hint": "глагол be в базовой форме",
+        "translation": "Просьба соблюдать тишину."
+      },
+      "Please {{answer}} down and wait a moment.": {
+        "hint": "глагол в базовой форме",
+        "translation": "Предложение присесть."
+      }
+    }
   }
- }
 }

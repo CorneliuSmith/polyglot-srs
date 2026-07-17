@@ -4097,6 +4097,351 @@
           "transliteration": "CHto ___ vy' hotite skazat'?"
         }
       ]
+    },
+    {
+      "title": "Adjective agreement (новый, новая, новое)",
+      "level": "A1",
+      "function": "Describe things — matching the noun's gender",
+      "source": "contributor",
+      "reviewed": true,
+      "display_order": 9,
+      "explanation": "Adjectives agree with their noun's gender and number. Hard-stem endings in the nominative: -ый (m), -ая (f), -ое (n), -ые (pl): новый дом, новая книга, новое окно, новые дома.\n\nTwo spelling twists: after к, г, х, ж, ш, щ, ч the masculine and plural switch to -ий/-ие (русский, хорошие), and a stressed masculine ending is -ой (большой). Soft-stem adjectives (синий, синяя, синее, синие) follow the same pattern with soft vowels.\n\nAdjectives also decline for case — you'll meet those forms as you learn each case.",
+      "culture_note": "",
+      "references": [
+        {
+          "title": "Russian National Corpus",
+          "url": "https://ruscorpora.ru/en"
+        },
+        {
+          "title": "Wikipedia: Russian grammar",
+          "url": "https://en.wikipedia.org/wiki/Russian_grammar"
+        },
+        {
+          "title": "Wikipedia: Russian declension",
+          "url": "https://en.wikipedia.org/wiki/Russian_declension"
+        }
+      ],
+      "related": [
+        {
+          "title": "Gender of nouns (он, она, оно)",
+          "contrast": "The noun's gender picks the adjective ending: новый дом, новая книга."
+        }
+      ],
+      "paradigm": [
+        "m",
+        "f",
+        "n",
+        "pl"
+      ],
+      "drills": [
+        {
+          "sentence": "Это {{answer}} дом.",
+          "answer": "новый",
+          "translation": "This is a new house.",
+          "hint": "дом is masculine — -ый",
+          "transliteration": "E'to ___ dom.",
+          "cell": "m",
+          "display_order": 1
+        },
+        {
+          "sentence": "Москва — {{answer}} город.",
+          "answer": "большой",
+          "translation": "Moscow is a big city.",
+          "hint": "big — stressed ending, masculine: -ой",
+          "transliteration": "Moskva — ___ gorod.",
+          "cell": "m",
+          "display_order": 2
+        },
+        {
+          "sentence": "Это {{answer}} книга.",
+          "answer": "новая",
+          "translation": "This is a new book.",
+          "hint": "книга is feminine — -ая",
+          "transliteration": "E'to ___ kniga.",
+          "cell": "f",
+          "display_order": 3
+        },
+        {
+          "sentence": "У нас {{answer}} квартира.",
+          "answer": "большая",
+          "translation": "We have a big flat.",
+          "hint": "big — feminine: -ая",
+          "transliteration": "U nas ___ kvartira.",
+          "cell": "f",
+          "display_order": 4
+        },
+        {
+          "sentence": "Это {{answer}} окно.",
+          "answer": "новое",
+          "translation": "This is a new window.",
+          "hint": "окно is neuter — -ое",
+          "transliteration": "E'to ___ okno.",
+          "cell": "n",
+          "display_order": 5
+        },
+        {
+          "sentence": "Какое {{answer}} море!",
+          "answer": "красивое",
+          "translation": "What a beautiful sea!",
+          "hint": "beautiful — neuter: -ое",
+          "transliteration": "Kakoe ___ more!",
+          "cell": "n",
+          "display_order": 6
+        },
+        {
+          "sentence": "Это {{answer}} дома.",
+          "answer": "новые",
+          "translation": "These are new houses.",
+          "hint": "plural — -ые",
+          "transliteration": "E'to ___ doma.",
+          "cell": "pl",
+          "display_order": 7
+        },
+        {
+          "sentence": "Здесь живут {{answer}} люди.",
+          "answer": "хорошие",
+          "translation": "Good people live here.",
+          "hint": "good — plural, and after ш the spelling is -ие",
+          "transliteration": "Zdes' zhivut ___ lyudi.",
+          "cell": "pl",
+          "display_order": 8
+        }
+      ]
+    },
+    {
+      "title": "Question words (кто, что, где)",
+      "level": "A1",
+      "function": "Ask about people, things, places, and reasons",
+      "source": "contributor",
+      "reviewed": true,
+      "display_order": 10,
+      "explanation": "The core question words: кто (who), что (what), где (where), куда (where to), когда (when), почему (why), как (how), and какой (which / what kind — it agrees like an adjective).\n\nRussian questions keep normal word order — the question word simply comes first: Где ты живёшь? Кто это?",
+      "culture_note": "",
+      "references": [
+        {
+          "title": "Russian National Corpus",
+          "url": "https://ruscorpora.ru/en"
+        },
+        {
+          "title": "Wikipedia: Russian grammar",
+          "url": "https://en.wikipedia.org/wiki/Russian_grammar"
+        },
+        {
+          "title": "Wikipedia: Russian declension",
+          "url": "https://en.wikipedia.org/wiki/Russian_declension"
+        }
+      ],
+      "related": [
+        {
+          "title": "Это — this is / it is",
+          "contrast": "Кто это? / Что это? are the first questions built on это."
+        }
+      ],
+      "drills": [
+        {
+          "sentence": "{{answer}} это?",
+          "answer": "Кто",
+          "translation": "Who is this?",
+          "hint": "who — asking about a person",
+          "transliteration": "___ e'to?",
+          "display_order": 1
+        },
+        {
+          "sentence": "{{answer}} ты читаешь?",
+          "answer": "Что",
+          "translation": "What are you reading?",
+          "hint": "what — a thing",
+          "transliteration": "___ ty chitaesh'?",
+          "display_order": 2
+        },
+        {
+          "sentence": "{{answer}} ты живёшь?",
+          "answer": "Где",
+          "translation": "Where do you live?",
+          "hint": "where — location",
+          "transliteration": "___ ty zhivyosh'?",
+          "display_order": 3
+        },
+        {
+          "sentence": "{{answer}} начинается фильм?",
+          "answer": "Когда",
+          "translation": "When does the film start?",
+          "hint": "when — time",
+          "transliteration": "___ nachinaetsya fil'm?",
+          "display_order": 4
+        },
+        {
+          "sentence": "{{answer}} ты изучаешь русский?",
+          "answer": "Почему",
+          "translation": "Why are you learning Russian?",
+          "hint": "why — reason",
+          "transliteration": "___ ty izuchaesh' russkiy?",
+          "display_order": 5
+        },
+        {
+          "sentence": "{{answer}} дела?",
+          "answer": "Как",
+          "translation": "How are things?",
+          "hint": "how",
+          "transliteration": "___ dela?",
+          "display_order": 6
+        }
+      ]
+    },
+    {
+      "title": "Conjunctions и, а, но",
+      "level": "A1",
+      "function": "Join ideas — and contrast them the Russian way",
+      "source": "contributor",
+      "reviewed": true,
+      "display_order": 11,
+      "explanation": "Three little words connect everything. и joins similar things: чай и кофе. но objects, like English but: маленькая, но уютная (small but cosy).\n\nThe one English lacks is а — it marks contrast or a switch of topic: Это Анна, а это Иван. Я не пью кофе, а чай.\n\nRule of thumb: same direction → и, obstacle → но, comparing two different things → а.",
+      "culture_note": "",
+      "references": [
+        {
+          "title": "Russian National Corpus",
+          "url": "https://ruscorpora.ru/en"
+        },
+        {
+          "title": "Wikipedia: Russian grammar",
+          "url": "https://en.wikipedia.org/wiki/Russian_grammar"
+        },
+        {
+          "title": "Wikipedia: Russian declension",
+          "url": "https://en.wikipedia.org/wiki/Russian_declension"
+        }
+      ],
+      "related": [],
+      "drills": [
+        {
+          "sentence": "Я пью чай {{answer}} кофе.",
+          "answer": "и",
+          "translation": "I drink tea and coffee.",
+          "hint": "joining similar things",
+          "transliteration": "Ya p'yu chay ___ kofe.",
+          "display_order": 1
+        },
+        {
+          "sentence": "Это Анна, {{answer}} это Иван.",
+          "answer": "а",
+          "translation": "This is Anna, and this is Ivan.",
+          "hint": "switching to a new person — contrast",
+          "transliteration": "E'to Anna, ___ e'to Ivan.",
+          "display_order": 2
+        },
+        {
+          "sentence": "Квартира маленькая, {{answer}} уютная.",
+          "answer": "но",
+          "translation": "The flat is small but cosy.",
+          "hint": "an objection — but",
+          "transliteration": "Kvartira malen'kaya, ___ uyutnaya.",
+          "display_order": 3
+        },
+        {
+          "sentence": "Я не пью кофе, {{answer}} чай пью.",
+          "answer": "а",
+          "translation": "I don't drink coffee — I drink tea.",
+          "hint": "not X, а Y",
+          "transliteration": "Ya ne p'yu kofe, ___ chay p'yu.",
+          "display_order": 4
+        },
+        {
+          "sentence": "Он читает, {{answer}} она слушает музыку.",
+          "answer": "а",
+          "translation": "He is reading while she listens to music.",
+          "hint": "two people doing different things",
+          "transliteration": "On chitaet, ___ ona slushaet muzyku.",
+          "display_order": 5
+        },
+        {
+          "sentence": "Я хочу пойти, {{answer}} не могу.",
+          "answer": "но",
+          "translation": "I want to go but I can't.",
+          "hint": "obstacle — but",
+          "transliteration": "Ya khochu poyti, ___ ne mogu.",
+          "display_order": 6
+        }
+      ]
+    },
+    {
+      "title": "Genitive case (possession: книга брата)",
+      "level": "A2",
+      "function": "Link two nouns — of / 's",
+      "source": "contributor",
+      "reviewed": true,
+      "display_order": 13,
+      "explanation": "The genitive links two nouns like English 'of' or 's — the owner goes second, in the genitive: книга брата (my brother's book), центр города (the center of the city).\n\nSingular endings: masculine and neuter take -а/-я (брат → брата, окно → окна, музей → музея); feminine takes -ы/-и (сестра → сестры, книга → книги).\n\nThe same forms follow the prepositions у, из, от, до, после, для, без: у брата, из Москвы, после работы, без сахара. You already know one use — у меня нет + genitive is this same case.",
+      "culture_note": "",
+      "references": [
+        {
+          "title": "Russian National Corpus",
+          "url": "https://ruscorpora.ru/en"
+        },
+        {
+          "title": "Wikipedia: Russian grammar",
+          "url": "https://en.wikipedia.org/wiki/Russian_grammar"
+        },
+        {
+          "title": "Wikipedia: Russian declension",
+          "url": "https://en.wikipedia.org/wiki/Russian_declension"
+        }
+      ],
+      "related": [
+        {
+          "title": "Genitive of absence (у меня нет …)",
+          "contrast": "нет + genitive is the same case in its absence sense: нет времени."
+        }
+      ],
+      "drills": [
+        {
+          "sentence": "Это машина {{answer}}.",
+          "answer": "брата",
+          "translation": "This is my brother's car.",
+          "hint": "whose car? — брат in the genitive",
+          "transliteration": "E'to mashina ___.",
+          "display_order": 1
+        },
+        {
+          "sentence": "Вот фото {{answer}}.",
+          "answer": "сестры",
+          "translation": "Here is a photo of my sister.",
+          "hint": "сестра → feminine -ы",
+          "transliteration": "Vot foto ___.",
+          "display_order": 2
+        },
+        {
+          "sentence": "Он приехал из {{answer}}.",
+          "answer": "Москвы",
+          "translation": "He came from Moscow.",
+          "hint": "из + genitive",
+          "transliteration": "On priekhal iz ___.",
+          "display_order": 3
+        },
+        {
+          "sentence": "После {{answer}} мы идём домой.",
+          "answer": "работы",
+          "translation": "After work we go home.",
+          "hint": "после + genitive",
+          "transliteration": "Posle ___ my idyom domoy.",
+          "display_order": 4
+        },
+        {
+          "sentence": "Это подарок для {{answer}}.",
+          "answer": "друга",
+          "translation": "This is a present for a friend.",
+          "hint": "для + genitive, masculine -а",
+          "transliteration": "E'to podarok dlya ___.",
+          "display_order": 5
+        },
+        {
+          "sentence": "Я пью чай без {{answer}}.",
+          "answer": "сахара",
+          "translation": "I drink tea without sugar.",
+          "hint": "без + genitive",
+          "transliteration": "Ya p'yu chay bez ___.",
+          "display_order": 6
+        }
+      ]
     }
   ]
 }
