@@ -583,11 +583,22 @@ live). SpeakButton tries explicit audioUrl → cached neural TTS →
 browser speechSynthesis (now only the fallback). Coverage: 13/17
 languages (en es fr de it ca pt-BR ro el ru tr ar-SA sw-KE); yo/ha/xh/mi
 keep the browser fallback.
+**(d) DONE 2026-07-17 — Azure Speech provider.** The keyless endpoint
+proved flaky in the worst way: Microsoft rejects edge-tts from
+datacenter IPs, so prod synthesis failed on EVERY request (tts_audio
+stayed at 0 rows; beta heard the browser robot voice throughout) while
+local dev worked perfectly. synthesize() is now a chain: Azure Speech
+(same neural voices, official REST API, SSML with the -10% learner
+rate) when AZURE_SPEECH_KEY is set → edge-tts otherwise (local dev).
+**Owner setup (REQUIRED for prod audio):** create a free Azure Speech
+resource (F0 tier: 500K chars/month ≈ thousands of clips), then in DO
+set `AZURE_SPEECH_KEY` (encrypted, no quotes) and `AZURE_SPEECH_REGION`
+(the resource's region, e.g. eastus) on the backend component and
+redeploy. Also still recommended: `SUPABASE_SERVICE_ROLE_KEY`, so clips
+cache to the CDN instead of re-synthesizing per session.
 **Remaining:** (b) yo/ha/xh/mi via local MMS-TTS bulk-generated offline
 into the same bucket — quality-check each before shipping; (c) human
-recordings for the highest-value items (A1 first); (d) swap edge-tts
-for a paid provider if the keyless endpoint proves flaky — the service
-interface is one function.
+recordings for the highest-value items (A1 first).
 **Goal:** consistent pronunciation. The UI seam exists (`SpeakButton audioUrl`
 prop, falls back to browser speech).
 **Steps:** add `audio_url` columns to `vocabulary`, `example_sentences`,

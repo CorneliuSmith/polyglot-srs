@@ -7,6 +7,7 @@ from contextlib import asynccontextmanager
 from unittest.mock import AsyncMock, MagicMock, patch
 
 import jwt as pyjwt
+import pytest
 from fastapi.testclient import TestClient
 
 from backend.main import create_app
@@ -73,6 +74,73 @@ class TestVoices:
         a = cache_key("pt-BR-FranciscaNeural", "você")
         assert a == cache_key("pt-BR-FranciscaNeural", "você")
         assert a != cache_key("es-ES-ElviraNeural", "você")
+
+
+class TestProviderChain:
+    """Prod lesson: edge-tts is rejected from datacenter IPs — with an
+    Azure key set, synthesis must use the keyed API instead."""
+
+    def test_azure_used_when_key_set(self):
+        import asyncio
+
+        from backend.services import tts as tts_mod
+
+        class AzureSettings(FakeSettings):
+            azure_speech_key = "azkey"
+            azure_speech_region = "westeurope"
+
+        resp = MagicMock(status_code=200, content=b"mp3bytes")
+        http_client = AsyncMock()
+        http_client.__aenter__ = AsyncMock(return_value=http_client)
+        http_client.__aexit__ = AsyncMock(return_value=False)
+        http_client.post = AsyncMock(return_value=resp)
+
+        with patch("backend.config.get_settings", return_value=AzureSettings()), \
+             patch("httpx.AsyncClient", return_value=http_client):
+            audio = asyncio.run(tts_mod.synthesize("Habari <b>", "sw"))
+
+        assert audio == b"mp3bytes"
+        call = http_client.post.await_args
+        assert "westeurope.tts.speech.microsoft.com" in call.args[0]
+        assert call.kwargs["headers"]["Ocp-Apim-Subscription-Key"] == "azkey"
+        ssml = call.kwargs["content"].decode()
+        assert "sw-KE-ZuriNeural" in ssml
+        assert "rate='-10%'" in ssml
+        assert "&lt;b&gt;" in ssml  # text is XML-escaped
+
+    def test_azure_error_raises(self):
+        import asyncio
+
+        from backend.services import tts as tts_mod
+
+        class AzureSettings(FakeSettings):
+            azure_speech_key = "azkey"
+            azure_speech_region = "eastus"
+
+        resp = MagicMock(status_code=401, content=b"", text="unauthorized")
+        http_client = AsyncMock()
+        http_client.__aenter__ = AsyncMock(return_value=http_client)
+        http_client.__aexit__ = AsyncMock(return_value=False)
+        http_client.post = AsyncMock(return_value=resp)
+
+        with patch("backend.config.get_settings", return_value=AzureSettings()), \
+             patch("httpx.AsyncClient", return_value=http_client), \
+             pytest.raises(RuntimeError):
+            asyncio.run(tts_mod.synthesize("hello", "en"))
+
+    def test_edge_used_without_key(self):
+        import asyncio
+
+        from backend.services import tts as tts_mod
+
+        with patch("backend.config.get_settings", return_value=FakeSettings()), \
+             patch.object(
+                 tts_mod, "_synthesize_edge",
+                 new=AsyncMock(return_value=b"edgebytes"),
+             ) as mock_edge:
+            audio = asyncio.run(tts_mod.synthesize("hola", "es"))
+        assert audio == b"edgebytes"
+        mock_edge.assert_awaited_once_with("hola", "es-ES-ElviraNeural")
 
 
 class TestTTSEndpoint:

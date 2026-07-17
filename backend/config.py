@@ -23,6 +23,13 @@ class Settings(BaseSettings):
     # Error telemetry (WP19d). Empty DSN disables Sentry entirely.
     sentry_dsn: str = ""
 
+    # Neural TTS (WP7a). Microsoft blocks edge-tts's keyless endpoint from
+    # datacenter IPs, so production needs a real Azure Speech key (free
+    # tier covers the beta many times over). Empty key = edge-tts, which
+    # works from residential IPs (local dev).
+    azure_speech_key: str = ""
+    azure_speech_region: str = "eastus"
+
     # AI tutor (Claude API). Empty key disables the tutor endpoints.
     anthropic_api_key: str = ""
     # Chat default: Sonnet-tier handles scaffolded coaching well at ~40% of
