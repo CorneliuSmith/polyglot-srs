@@ -108,17 +108,31 @@ describe('ReaderPage (WP21)', () => {
     ).toBeDefined()
   })
 
-  it('stage 3 explains a sentence on demand', async () => {
-    mockExplain.mockResolvedValue('duerme is third person singular.')
+  it('stage 3 explains on demand, then hides/shows without refetching', async () => {
+    mockExplain.mockResolvedValue(
+      'A simple statement.\nEl gato — the subject\nduerme — third person singular verb',
+    )
     await generate()
     fireEvent.click(
       screen.getByRole('button', { name: /unlock translations/i }),
     )
     fireEvent.click(screen.getByRole('button', { name: /explain the grammar/i }))
-    expect(
-      await screen.findByText(/third person singular/),
-    ).toBeDefined()
+    expect(await screen.findByTestId('sentence-explanation')).toBeDefined()
     expect(mockExplain).toHaveBeenCalledWith('r-1', 0)
+
+    // Hide-able (owner feedback) — and toggling never refetches.
+    fireEvent.click(screen.getByRole('button', { name: /hide explanation/i }))
+    expect(screen.queryByTestId('sentence-explanation')).toBeNull()
+    fireEvent.click(screen.getByRole('button', { name: /show explanation/i }))
+    expect(screen.getByTestId('sentence-explanation')).toBeDefined()
+    expect(mockExplain).toHaveBeenCalledTimes(1)
+
+    // Formatted through ExplanationView: each chunk-line renders as its
+    // own spaced paragraph, not one squashed blob.
+    const paragraphs = screen
+      .getByTestId('sentence-explanation')
+      .querySelectorAll('p')
+    expect(paragraphs.length).toBeGreaterThanOrEqual(3)
   })
 
   it('new words can be added to reviews with their own sentence', async () => {

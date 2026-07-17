@@ -142,6 +142,7 @@ class GrammarSeeder:
                 "drills": drills,
             })
         self._attach_hint_translations(points)
+        self._attach_explanation_translations(points)
         # Every level that has points must have a deck (content_list) —
         # otherwise the level is invisible in Learn and the deck browser.
         # The A2–C2 deepening waves appended points without lists, which
@@ -214,6 +215,35 @@ class GrammarSeeder:
                         "reviewed": reviewed,
                     }
 
+    def _attach_explanation_translations(self, points: list[dict]) -> None:
+        """Merge {code}_explanations.{locale}.json onto their points (WP22).
+
+        L1-aware explanations for English-from-X learners: the whole
+        explanation, written IN the support locale FOR speakers of it.
+        Unknown titles fail the seed (the point was renamed after the
+        translation was drafted); partial coverage is fine.
+        """
+        by_title = {p["title"]: p for p in points}
+        for path in sorted(
+            GRAMMAR_DIR.glob(f"{self.language_code}_explanations.*.json")
+        ):
+            with open(path, encoding="utf-8") as f:
+                payload = json.load(f)
+            locale = (payload.get("locale") or "").strip()
+            if not locale or locale == "en":
+                raise ValueError(f"{path.name}: missing or invalid locale")
+            reviewed = bool(payload.get("reviewed", False))
+            for title, text in (payload.get("points") or {}).items():
+                point = by_title.get(title)
+                if point is None:
+                    raise ValueError(f"{path.name}: unknown point: {title}")
+                if not (text or "").strip():
+                    raise ValueError(f"{path.name}: empty explanation: {title}")
+                point.setdefault("explanation_translations", {})[locale] = {
+                    "explanation": text.strip(),
+                    "reviewed": reviewed,
+                }
+
     async def load(self, data: dict) -> int:
         """Write lists, points, and drills. Returns the number of points loaded."""
         conn = await asyncpg.connect(self.db_url)
@@ -238,6 +268,7 @@ class GrammarSeeder:
 
             count = 0
             hint_rows = 0
+            expl_rows = 0
             for point in data["points"]:
                 gp_id = await conn.fetchval(
                     """
@@ -295,11 +326,28 @@ class GrammarSeeder:
                             ht["reviewed"],
                         )
                         hint_rows += 1
+                # WP22: localized explanations upsert by (point, locale).
+                for locale, et in (
+                    point.get("explanation_translations") or {}
+                ).items():
+                    await conn.execute(
+                        """
+                        INSERT INTO explanation_translations
+                            (grammar_point_id, locale, explanation, reviewed)
+                        VALUES ($1, $2, $3, $4)
+                        ON CONFLICT (grammar_point_id, locale) DO UPDATE SET
+                            explanation = EXCLUDED.explanation,
+                            reviewed = EXCLUDED.reviewed
+                        """,
+                        gp_id, locale, et["explanation"], et["reviewed"],
+                    )
+                    expl_rows += 1
                 count += 1
 
             logger.info(
-                "Loaded %d grammar points for %s (%d hint-translation rows)",
-                count, self.language_code, hint_rows,
+                "Loaded %d grammar points for %s (%d hint rows, %d "
+                "explanation rows)",
+                count, self.language_code, hint_rows, expl_rows,
             )
             return count
         finally:

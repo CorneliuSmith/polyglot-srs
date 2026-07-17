@@ -13,6 +13,7 @@ import { getLanguages } from '../../api/profile'
 import { usePrefsStore } from '../../stores/prefsStore'
 import LanguageWrapper from '../../components/LanguageWrapper'
 import SpeakButton from '../../components/SpeakButton'
+import ExplanationView from '../../components/ExplanationView'
 
 type Stage = 'guess' | 'assisted'
 
@@ -44,7 +45,11 @@ export default function ReaderPage() {
   // Assisted stage: tapped word gloss + shown translations/explanations.
   const [peeked, setPeeked] = useState<{ s: number; t: number } | null>(null)
   const [openTranslations, setOpenTranslations] = useState<Set<number>>(new Set())
+  // Fetched once (it costs allowance), then freely shown/hidden.
   const [explanations, setExplanations] = useState<Record<number, string>>({})
+  const [shownExplanations, setShownExplanations] = useState<Set<number>>(
+    new Set(),
+  )
   const [addedWords, setAddedWords] = useState<Set<string>>(new Set())
 
   const { data: shelf = [] } = useQuery({
@@ -61,6 +66,7 @@ export default function ReaderPage() {
     setPeeked(null)
     setOpenTranslations(new Set())
     setExplanations({})
+    setShownExplanations(new Set())
     setAddedWords(new Set())
   }
 
@@ -88,8 +94,10 @@ export default function ReaderPage() {
       explainSentence(reading!.id, sentenceIndex).then(
         (explanation) => ({ sentenceIndex, explanation }),
       ),
-    onSuccess: ({ sentenceIndex, explanation }) =>
-      setExplanations((prev) => ({ ...prev, [sentenceIndex]: explanation })),
+    onSuccess: ({ sentenceIndex, explanation }) => {
+      setExplanations((prev) => ({ ...prev, [sentenceIndex]: explanation }))
+      setShownExplanations((prev) => new Set(prev).add(sentenceIndex))
+    },
   })
 
   const addWordMutation = useMutation({
@@ -324,16 +332,29 @@ export default function ReaderPage() {
                               ? 'Hide translation'
                               : 'Translation'}
                           </button>
-                          {!explanations[sIdx] && (
-                            <button
-                              type="button"
-                              onClick={() => explainMutation.mutate(sIdx)}
-                              disabled={explainMutation.isPending}
-                              className="hover:text-lang disabled:opacity-50"
-                            >
-                              Explain the grammar
-                            </button>
-                          )}
+                          <button
+                            type="button"
+                            onClick={() => {
+                              if (!explanations[sIdx]) {
+                                explainMutation.mutate(sIdx)
+                                return // fetched once; shown by onSuccess
+                              }
+                              setShownExplanations((prev) => {
+                                const next = new Set(prev)
+                                if (next.has(sIdx)) next.delete(sIdx)
+                                else next.add(sIdx)
+                                return next
+                              })
+                            }}
+                            disabled={explainMutation.isPending}
+                            className="hover:text-lang disabled:opacity-50"
+                          >
+                            {!explanations[sIdx]
+                              ? 'Explain the grammar'
+                              : shownExplanations.has(sIdx)
+                                ? 'Hide explanation'
+                                : 'Show explanation'}
+                          </button>
                         </div>
                       )}
                       {stage === 'assisted' && openTranslations.has(sIdx) && (
@@ -341,10 +362,16 @@ export default function ReaderPage() {
                           {sentence.translation}
                         </p>
                       )}
-                      {explanations[sIdx] && (
-                        <p className="text-sm text-gray-600 bg-gray-50 border border-gray-100 rounded-lg p-3 mt-1">
-                          {explanations[sIdx]}
-                        </p>
+                      {explanations[sIdx] && shownExplanations.has(sIdx) && (
+                        <div
+                          className="bg-gray-50 border border-gray-100 rounded-lg p-3 mt-1"
+                          data-testid="sentence-explanation"
+                        >
+                          <ExplanationView
+                            text={explanations[sIdx]}
+                            className="text-sm text-gray-600"
+                          />
+                        </div>
                       )}
                     </div>
                   ))}
