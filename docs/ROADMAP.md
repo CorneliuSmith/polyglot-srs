@@ -974,8 +974,19 @@ taught NOWHERE despite adjective agreement existing), Stem-changing verbs
 added to question words. pt (40 → 42): Key irregular presents (vou, faço,
 posso, quero — only ser/estar/ter + regulars were taught) and Pretérito
 perfeito irregulares (fui, fiz, tive — es had a dedicated point, pt
-didn't); O que / Por que drills added to question words. Remaining
-sweeps: the other 13 languages, prioritized by learner activity.
+didn't); O que / Por que drills added to question words. **fr + de + it + ca pass DONE 2026-07-16.** fr (40 → 42): Key irregular
+presents (vais, fais, peux, veux — never taught despite the near-future
+point USING vais at B1) and The imperative (missing entirely; it/ca had
+one); Qui/Quel + mes/notre/leurs/cet drills. de (40 → 43): Stem-changing
+presents (du fährst, er spricht), Personal pronouns accusative & dative
+(mich, dir — the path taught case articles but a learner couldn't say
+"ich liebe dich"), and The imperative; Warum/Wohin drills. it (40 → 42):
+Key irregular presents (vado, faccio, posso, voglio) and Stare + gerundio
+(the progressive — es/pt had theirs); Chi + possessive drills. ca (40 →
+42): Key irregular presents (faig, puc, vull — anar disambiguated from
+its past-auxiliary use) and Estar (missing ENTIRELY — the path had ser
+and tenir but no estar); Per què + possessive drills. Remaining sweeps:
+ro, el, tr, ar, sw; yo/ha/xh/mi fold into the native-review gate.
 
 ## 6. Model selection guide
 
