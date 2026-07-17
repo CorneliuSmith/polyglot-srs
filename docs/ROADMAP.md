@@ -918,10 +918,14 @@ heuristics `claude-opus-4-8`+. **Never store secrets in tutor memory.**
 
 ### WP19 — Engagement, trust & platform (owner priorities, 2026-07-16)
 Adopted from the product assessment; the owner confirmed these as goals.
-**(a) Listening / dictation mode.** Reuse the WP7 TTS cache the other way:
-play the clip, learner types what they hear, grade through the existing NLP
-pipeline (same accent/typography tolerance). A "listening" toggle per review
-session rather than a separate deck. Effort: M.
+**(a) Listening / dictation mode — DONE 2026-07-17.** A 🎧 toggle in the
+review session (persisted like hintLevel): cloze cards hide the sentence,
+a prominent play button speaks the COMPLETED sentence (the missing word
+included), and the learner types the blank by ear. Same NLP grading with
+all its tolerance; the text reveals after grading. Gated to cloze cards
+in the 13 neural-voice languages (TTS_LANGUAGES mirrors the VOICES map);
+hints are suppressed while listening. Lights up fully once the Azure
+Speech key lands (WP7d).
 **(b) PWA installability.** Manifest + service worker + offline shell so the
 app installs to the home screen (pairs with WP12 mobile packaging; the
 safe-area work from 2026-07-16 already landed). Effort: S–M.
