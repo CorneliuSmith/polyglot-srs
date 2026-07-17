@@ -15,6 +15,7 @@ import OnScreenKeyboard from '../keyboards/OnScreenKeyboard'
 import { finalizeInput } from '../keyboards/translit'
 import { hintLayersFor } from './hintLayers'
 import SpeakButton from '../../components/SpeakButton'
+import { TTS_LANGUAGES } from '../../api/audio'
 import { hasKeyboardLayout } from '../keyboards/OnScreenKeyboard'
 import type { KeyboardLanguage } from '../keyboards/OnScreenKeyboard'
 
@@ -63,6 +64,8 @@ function ReviewSessionInner({
   // cards and across sessions, until the learner changes it.
   const hintLevel = usePrefsStore((s) => s.hintLevel)
   const setHintLevel = usePrefsStore((s) => s.setHintLevel)
+  const listeningMode = usePrefsStore((s) => s.listeningMode)
+  const setListeningMode = usePrefsStore((s) => s.setListeningMode)
   const inputRef = useRef<HTMLInputElement>(null)
 
   const sessionSize = usePrefsStore((s) => s.sessionSize)
@@ -327,6 +330,12 @@ function ReviewSessionInner({
     ? card.sentence.replace('{{answer}}', card.correct_answer)
     : card.correct_answer
 
+  // Listening mode (WP19a): only for cloze cards in languages with a real
+  // neural voice — hearing the full sentence and typing the missing word.
+  const canListen =
+    card.sentence.includes('{{answer}}') && TTS_LANGUAGES.has(card.language_code)
+  const listening = listeningMode && canListen
+
   // Non-Latin scripts and Latin languages with accents/diacritics get an
   // on-screen helper. (Xhosa/English omitted: plain ASCII.)
   // Single source of truth with the component's layout map — pt/ro/el were
@@ -415,8 +424,22 @@ function ReviewSessionInner({
 
         {/* Card area */}
         <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-6 md:p-8">
-          {topHint && (
+          {topHint && !listening && (
             <p className="text-sm text-gray-400 text-center mb-4">{topHint.text}</p>
+          )}
+
+          {listening && session.phase === 'answering' && (
+            <div
+              className="flex justify-center mb-4"
+              data-testid="listening-player"
+            >
+              <SpeakButton
+                text={completedSentence}
+                languageCode={card.language_code}
+                label="Play the sentence"
+                className="inline-flex items-center justify-center rounded-full border-2 border-lang/40 text-lang hover:bg-lang-soft p-4"
+              />
+            </div>
           )}
 
           <DrillCard
@@ -429,6 +452,7 @@ function ReviewSessionInner({
             languageCode={card.language_code}
             inputRef={inputRef}
             result={session.phase !== 'answering' ? result : null}
+            hideSentence={listening && session.phase === 'answering'}
           />
 
           {belowLayers.length > 0 && (
@@ -481,6 +505,21 @@ function ReviewSessionInner({
                     }`}
                   />
                 ))}
+              </button>
+            )}
+            {canListen && (
+              <button
+                type="button"
+                aria-pressed={listening}
+                onClick={() => setListeningMode(!listeningMode)}
+                title="Hide the sentence and fill the blank by ear"
+                className={`ml-auto text-sm rounded-full px-3 py-1 border transition ${
+                  listening
+                    ? 'border-lang/40 bg-lang-soft text-lang'
+                    : 'border-gray-200 text-gray-400 hover:text-lang'
+                }`}
+              >
+                🎧 Listening {listening ? 'on' : 'off'}
               </button>
             )}
           </div>

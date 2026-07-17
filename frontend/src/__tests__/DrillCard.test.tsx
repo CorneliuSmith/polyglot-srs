@@ -258,3 +258,40 @@ describe('DrillCard Android IME path', () => {
     expect(onSubmit).not.toHaveBeenCalled()
   })
 })
+
+describe('listening mode (WP19a)', () => {
+  it('hides the sentence but keeps the input', () => {
+    render(
+      <DrillCard
+        sentence="I {{answer}} a student."
+        value=""
+        onChange={() => {}}
+        onSubmit={() => {}}
+        disabled={false}
+        languageCode="en"
+        hideSentence
+      />,
+    )
+    expect(screen.getByTestId('listening-drill')).toBeDefined()
+    // The words are hidden…
+    expect(screen.queryByText(/a student/)).toBeNull()
+    // …the answer input is not.
+    expect(screen.getByRole('textbox')).toBeDefined()
+    expect(screen.getByText(/listen, then type/i)).toBeDefined()
+  })
+
+  it('shows the sentence normally when off', () => {
+    render(
+      <DrillCard
+        sentence="I {{answer}} a student."
+        value=""
+        onChange={() => {}}
+        onSubmit={() => {}}
+        disabled={false}
+        languageCode="en"
+      />,
+    )
+    expect(screen.queryByTestId('listening-drill')).toBeNull()
+    expect(screen.getByText(/a student/)).toBeDefined()
+  })
+})

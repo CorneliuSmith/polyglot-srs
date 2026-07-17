@@ -15,6 +15,9 @@ interface DrillCardProps {
   inputRef?: React.RefObject<HTMLInputElement | null>
   /** After grading: colors the blank green/amber/red in place. */
   result?: string | null
+  /** Listening mode (WP19a): hide the sentence — the learner types the
+   * missing word from the AUDIO, and the text reveals after grading. */
+  hideSentence?: boolean
 }
 
 // The graded answer stays visible IN the blank: green = right,
@@ -98,6 +101,7 @@ export default function DrillCard({
   dir,
   inputRef,
   result,
+  hideSentence = false,
 }: DrillCardProps) {
   const translit = useTranslit(languageCode)
   const hasMarker = sentence.includes('{{answer}}')
@@ -178,6 +182,39 @@ export default function DrillCard({
   const parts = sentence.split('{{answer}}')
   const before = parts[0]
   const after = parts.slice(1).join('{{answer}}')
+
+  if (hideSentence) {
+    // Listening mode: ears only. The input stays; the words don't.
+    return (
+      <form
+        onSubmit={handleFormSubmit}
+        className="flex flex-col items-center gap-4"
+        data-testid="listening-drill"
+      >
+        <p className="text-sm text-gray-400 text-center">
+          🎧 Listen, then type the missing word
+        </p>
+        <input
+          ref={inputRef}
+          type="text"
+          autoFocus
+          autoCapitalize="none"
+          autoCorrect="off"
+          autoComplete="off"
+          spellCheck={false}
+          enterKeyHint="go"
+          value={value}
+          onChange={(e) => handleChange(e.target.value)}
+          onKeyDown={handleKeyDown}
+          disabled={disabled}
+          className={`min-w-[200px] border-b-2 ${inputTone} outline-none text-xl text-center py-1 bg-transparent text-base touch-manipulation`}
+          style={{ minHeight: '44px' }}
+          dir={resolvedDir}
+        />
+        {controls}
+      </form>
+    )
+  }
 
   return (
     <form onSubmit={handleFormSubmit}>
