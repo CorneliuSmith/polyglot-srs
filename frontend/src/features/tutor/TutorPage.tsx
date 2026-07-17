@@ -284,6 +284,14 @@ export default function TutorPage() {
           >
             {historyOpen ? 'Hide past sessions' : 'Past sessions'}
           </button>
+          <button
+            type="button"
+            onClick={() => navigate('/read')}
+            title="A text written at your level, on your topic"
+            className="text-gray-500 hover:text-lang"
+          >
+            Read →
+          </button>
         </div>
 
         {/* Active Focus (WP18b): the structures the tutor is deliberately

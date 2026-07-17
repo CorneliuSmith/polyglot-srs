@@ -488,6 +488,23 @@ export default function DashboardPage() {
           <span aria-hidden className="text-lang">→</span>
         </button>
 
+        {/* The Reader (WP21) */}
+        <button
+          type="button"
+          onClick={() => navigate('/read')}
+          disabled={!activeLanguageId}
+          className="w-full bg-white hover:bg-gray-50 disabled:opacity-50 text-gray-800 font-semibold rounded-xl px-6 py-3 text-sm border border-gray-200 transition-colors text-left flex items-center justify-between"
+          style={{ minHeight: '44px' }}
+        >
+          <span>
+            Read about anything
+            <span className="block text-xs font-normal text-gray-500">
+              A text written at your level, on your topic
+            </span>
+          </span>
+          <span aria-hidden className="text-lang">→</span>
+        </button>
+
         {/* Learn from your own text */}
         <button
           type="button"
