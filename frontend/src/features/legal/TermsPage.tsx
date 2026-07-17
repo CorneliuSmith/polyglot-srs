@@ -117,8 +117,10 @@ export default function TermsPage() {
               settings, your review history (which drives the spaced-repetition
               scheduling), your tutor conversations and the tutor's notes, and
               billing status (payment details themselves are held by Stripe,
-              not us). Deleting your account removes your personal data from
-              the service.
+              not us). When something crashes, we collect an anonymous error
+              report (the technical error — not your personal data or study
+              content) so we can fix it. Deleting your account removes your
+              personal data from the service.
             </p>
           </Section>
 

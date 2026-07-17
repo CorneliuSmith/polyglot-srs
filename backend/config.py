@@ -20,6 +20,9 @@ class Settings(BaseSettings):
     environment: str = "development"
     cors_origins: list[str] = ["http://localhost:5173"]
 
+    # Error telemetry (WP19d). Empty DSN disables Sentry entirely.
+    sentry_dsn: str = ""
+
     # AI tutor (Claude API). Empty key disables the tutor endpoints.
     anthropic_api_key: str = ""
     # Chat default: Sonnet-tier handles scaffolded coaching well at ~40% of
