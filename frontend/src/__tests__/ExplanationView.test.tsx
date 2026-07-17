@@ -21,6 +21,48 @@ describe('ExplanationView', () => {
     expect(screen.getByText(/verb ending names the person/)).toBeDefined()
   })
 
+  it('typesets a colon-introduced example enumeration (the ne/ce card class)', () => {
+    // the Hausa card the owner flagged: rule text, colon, then example
+    // sentences with glosses — previously one unreadable paragraph
+    render(
+      <ExplanationView text={
+        'Identity sentences end in ne (masculine/plural) or ce (feminine): Ni malami ne (I am a teacher), Ita malama ce (She is a teacher), Su ɗalibai ne (They are students).'
+      } />,
+    )
+    // rule intro stays as prose (parens and all)
+    expect(screen.getByText(/Identity sentences end in ne/)).toBeDefined()
+    // the three examples become table rows: sentence | gloss
+    const rows = screen.getAllByRole('row')
+    expect(rows.length).toBe(3)
+    expect(screen.getByText('Ni malami ne')).toBeDefined()
+    expect(screen.getByText('She is a teacher')).toBeDefined()
+  })
+
+  it('typesets a Devanagari colon enumeration and keeps the follow-on prose', () => {
+    render(
+      <ExplanationView text={
+        'होना (to be) in the present: मैं हूँ (I am), यह/वह है (he/she/it is), तुम हो (you are, informal). Unlike Russian or Arabic, Hindi NEVER drops the copula.'
+      } />,
+    )
+    const rows = screen.getAllByRole('row')
+    expect(rows.length).toBe(3)
+    expect(screen.getByText('मैं हूँ')).toBeDefined()
+    expect(screen.getByText(/NEVER drops the copula/)).toBeDefined()
+  })
+
+  it('typesets equals-sign runs (the Patois pronoun card class)', () => {
+    render(
+      <ExplanationView text={
+        'Patois pronouns do not change form: mi = I/me/my, yu = you/your, im = he/she/him/her, wi = we/us/our.'
+      } />,
+    )
+    expect(screen.getByText(/Patois pronouns do not change form/)).toBeDefined()
+    const rows = screen.getAllByRole('row')
+    expect(rows.length).toBe(4)
+    expect(screen.getByText('yu')).toBeDefined()
+    expect(screen.getByText('he/she/him/her')).toBeDefined()
+  })
+
   it('typesets arrow derivations as a from→to table with intro', () => {
     render(
       <ExplanationView text={

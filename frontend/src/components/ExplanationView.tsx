@@ -50,15 +50,73 @@ interface Parsed {
   tail?: string
 }
 
-/** First sentence + the rest ("…dumneavoastră. The verb ending…"). */
+/** First sentence + the rest ("…dumneavoastră. The verb ending…").
+ * The follow-on sentence may open with a quoted term ('Ni' is …) or, for
+ * the Hindi path, a Devanagari word; । is the Devanagari full stop. */
 function splitFirstSentence(p: string): [string, string] {
-  // the next sentence may open with a quoted term ('Ni' is …)
-  const m = p.match(/^(.+?[.!?])\s+(?=['‘"“]?[A-ZÀ-ÞΑ-ΩА-Я])/su)
+  const m = p.match(/^(.+?[.!?।])\s+(?=['‘"“]?[A-ZÀ-ÞΑ-ΩА-Яऀ-ॿ])/su)
   if (!m) return [p, '']
   return [m[1], p.slice(m[0].length)]
 }
 
+// Example sentences with glosses run longer than single terms.
+const EXAMPLE_GLOSS = /^(.{1,80}?)\s*\(([^()]{1,90})\)[.!?]?$/
+
 function parseParagraph(p: string): Parsed {
+  // Colon-introduced example enumeration — the most common authored shape:
+  // "Identity sentences end in ne (masc.) or ce (fem.): Ni malami ne
+  //  (I am a teacher), Ita malama ce (She is a teacher), …"
+  // The rule text before the colon renders as prose; the examples become
+  // the two-column table. Tried before the generic pair scan because the
+  // fused intro otherwise poisons the first segment.
+  {
+    const [first, tail] = splitFirstSentence(p)
+    const colon = first.lastIndexOf(':')
+    if (colon > 0 && !first.slice(0, colon).includes('→')) {
+      const segs = splitTopLevel(first.slice(colon + 1).replace(/[.।]$/, ''))
+      const rows: string[][] = []
+      let broken = false
+      for (const seg of segs) {
+        const m = seg.match(EXAMPLE_GLOSS)
+        if (m) rows.push([m[1].trim(), m[2].trim()])
+        else if (seg.trim()) broken = true
+      }
+      if (!broken && rows.length >= 2) {
+        return {
+          kind: 'terms',
+          intro: first.slice(0, colon + 1),
+          rows,
+          tail: tail || undefined,
+        }
+      }
+    }
+  }
+
+  // Equals-sign runs ("mi = I/me/my, yu = you/your, im = he/she…"),
+  // optionally after an intro colon — the Patois pronoun-card shape.
+  if ((p.match(/ = /g) ?? []).length >= 3) {
+    const [first, tail] = splitFirstSentence(p)
+    const colon = first.indexOf(':')
+    const intro = colon > 0 ? first.slice(0, colon + 1).trim() : undefined
+    const list = colon > 0 ? first.slice(colon + 1) : first
+    const rows: string[][] = []
+    const leftovers: string[] = []
+    for (const seg of splitTopLevel(list.replace(/[.।]$/, ''))) {
+      const m = seg.split(' = ')
+      if (m.length === 2) rows.push([m[0].trim(), m[1].trim()])
+      else if (seg.trim()) leftovers.push(seg.trim())
+    }
+    if (rows.length >= 3 && leftovers.length <= 1) {
+      return {
+        kind: 'terms',
+        intro,
+        rows,
+        note: leftovers.join(', ') || undefined,
+        tail: tail || undefined,
+      }
+    }
+  }
+
   // Arrow derivations, optionally after an intro colon:
   // "Build it from the eles-perfeito minus -am: falaram → falar, …"
   if ((p.match(/→/g) ?? []).length >= 2) {

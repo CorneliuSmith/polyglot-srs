@@ -25,6 +25,7 @@ const LAYER_ORDER: Record<string, HintLayerField[]> = {
   ru: SCRIPT_FIRST,
   ar: SCRIPT_FIRST,
   el: SCRIPT_FIRST,
+  hi: SCRIPT_FIRST,
   mi: GLOSS_FIRST,
   sw: GLOSS_FIRST,
   yo: GLOSS_FIRST,
