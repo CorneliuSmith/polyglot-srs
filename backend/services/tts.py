@@ -36,6 +36,8 @@ VOICES: dict[str, str] = {
     "tr": "tr-TR-EmelNeural",
     "ar": "ar-SA-ZariyahNeural",
     "sw": "sw-KE-ZuriNeural",
+    "hi": "hi-IN-SwaraNeural",
+    # No neural voice exists for Jamaican Patois; jam is intentionally absent.
 }
 
 # Slightly slower than native speed — these are learners.

@@ -50,6 +50,10 @@ const THEMES: Record<string, LanguageTheme> = {
   // Owner-specified tino rangatiratanga palette:
   // #CC0000 / #000000 / #FFFFFF / #BCBCBC / #778E46
   mi: { primary: '#CC0000', dark: '#000000', accent: '#778E46', soft: '#F4F0F0', on: '#FFFFFF', emoji: '🇳🇿' },
+  // India saffron / green, with the Ashoka-chakra navy as accent.
+  hi: { primary: '#FF9933', dark: '#CC6E1F', accent: '#138808', soft: '#FFF3E6', on: '#1F2937', emoji: '🇮🇳', darkText: true },
+  // Jamaica: gold field, green primary, black accent (draft tier).
+  jam: { primary: '#009B3A', dark: '#00752C', accent: '#000000', soft: '#E5F5EC', on: '#FFFFFF', emoji: '🇯🇲' },
 }
 
 const FALLBACK: LanguageTheme = {

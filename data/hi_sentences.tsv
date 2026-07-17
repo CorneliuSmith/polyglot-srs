@@ -1,0 +1,428 @@
+word	sentence	translation	difficulty_rank
+एक	एक और!	Another!	10
+और	एक और!	Another!	10
+कर	बस करो!	Stop!	86
+बस	बस करो!	Stop!	86
+कर	बस कर!	Stop!	86
+बस	बस कर!	Stop!	86
+आ	आ!	Come on!	95
+आओ	आओ!	Come!	155
+सच	सच?	Really?	191
+मर	मरो!	Die!	201
+मतलब	कला मतलब?	What is art?	220
+कल	कला मतलब?	What is art?	220
+कल	कल?	Tomorrow?	220
+चल	चलो चलें!	Let's go!	252
+चल	चलो।	Walk.	252
+चल	चला!	Drive!	252
+गई	समझ गई!	Got it!	256
+समझ	समझ गई!	Got it!	256
+समझ	नासमझ!	Fool!	256
+न	नासमझ!	Fool!	256
+समझ	समझा?	Understood?	256
+गलत	गलत।	Wrong.	280
+गलत	गलत!	Wrong!	280
+गई	वह बदल गई।	She changed.	308
+वह	वह बदल गई।	She changed.	308
+बदल	वह बदल गई।	She changed.	308
+आग	आग!	Fire!	329
+आओ	आगे आओ।	Come forward.	329
+आग	आगे आओ।	Come forward.	329
+आग	आगे!	Forward!	329
+रह	बस वहीं रहो।	Just stay there.	465
+वह	बस वहीं रहो।	Just stay there.	465
+बस	बस वहीं रहो।	Just stay there.	465
+रह	वह रहा!	There it is!	465
+वह	वह रहा!	There it is!	465
+रह	वहीं रह।	Stay there.	465
+कब	कब ?	When?	495
+रख	यह रखो।	Keep this.	514
+यह	यह रखो।	Keep this.	514
+रख	यह रख।	Keep this.	514
+यह	यह रख।	Keep this.	514
+रख	यह रखें।	Keep this.	514
+यह	यह रखें।	Keep this.	514
+ए	यह रखिए।	Keep this.	834
+ए	बस वहीं रहिए।	Just stay there.	834
+ए	वहीं रहिए।	Stay there.	834
+गए	सब बच गए।	Everyone was saved.	842
+सब	सब बच गए।	Everyone was saved.	842
+बच	सब बच गए।	Everyone was saved.	842
+ओ	बचाओ!	Help!	1104
+बच	बचाओ!	Help!	1104
+धत	धत!	Scram!	1707
+आज	जल्दी घर आजाओ।	Come home early.	1721
+द	जल्दी घर आजाओ।	Come home early.	1721
+ओ	जल्दी घर आजाओ।	Come home early.	1721
+घर	जल्दी घर आजाओ।	Come home early.	1721
+जल	जल्दी घर आजाओ।	Come home early.	1721
+कर	जल्दी करो!	Hurry up.	1721
+जल	जल्दी करो!	Hurry up.	1721
+द	जल्दी करो!	Hurry up.	1721
+जल	जल्दी!	Quick!	1721
+द	जल्दी!	Quick!	1721
+उस	यह उसे दे दो।	Give this to her.	1721
+उस	यह उसे दो।	Give this to her.	1721
+आओ	जल्दी आओ!	Come quick!	1721
+आ	जल्दी आ!	Come quick!	1721
+हम	हमें घर ले चलो।	Take us home.	1778
+ल	हमें घर ले चलो।	Take us home.	1778
+घर	हमें घर ले चलो।	Take us home.	1778
+हम	हमें घर ले चलिए।	Take us home.	1778
+घर	हमें घर ले चलिए।	Take us home.	1778
+ल	हमें घर ले चलिए।	Take us home.	1778
+उठ	उठ।	Get up.	1863
+उठ	उठो।	Get up.	1863
+उठ	उठिए।	Get up.	1863
+और	उठो और चलो।	Stand up and walk.	1863
+व	वादा रहा।	It's a promise.	2173
+व	वे आए।	He came.	2173
+आए	वे आए।	He came.	2173
+व	वे आगे आए।	He came forward.	2173
+आए	वे आगे आए।	He came forward.	2173
+ई	विदाई!	Farewell!	2175
+उतर	उतर!	Get down!	2293
+उतर	उतरो!	Get down!	2293
+उतर	उतरिए!	Get down!	2293
+ख	यह देख।	Watch this.	2719
+ख	यह देखो।	Watch this.	2719
+ख	यह देखिए।	Watch this.	2719
+उस	उसे दिखाओ।	Show it to her.	2719
+ओ	उसे दिखाओ।	Show it to her.	2719
+ल	लिख!	Write!	2719
+मत	वह मत खोलिए।	Don't open that.	2719
+न	खाना!	Food!	2719
+कमर	यह रहा कमरा ८३९।	This is Room 839.	3251
+अब	अब हमें परेशान मत करो।	Don't bother us anymore.	3401
+श	अब हमें परेशान मत करो।	Don't bother us anymore.	3401
+न	अब हमें परेशान मत करो।	Don't bother us anymore.	3401
+हम	अब हमें परेशान मत करो।	Don't bother us anymore.	3401
+मत	अब हमें परेशान मत करो।	Don't bother us anymore.	3401
+पर	अब हमें परेशान मत करो।	Don't bother us anymore.	3401
+श	हमेशा।	Always.	3401
+अ	अंदर रहिए।	Stay inside.	3520
+दर	अंदर रहिए।	Stay inside.	3520
+अ	वे सब अंदर गए।	They all went in.	3520
+दर	वे सब अंदर गए।	They all went in.	3520
+गए	वे सब अंदर गए।	They all went in.	3520
+सब	वे सब अंदर गए।	They all went in.	3520
+आय	वह आया।	He came.	3659
+आय	समझ आया?	Understand?	3659
+आय	वह आगे आया।	He came forward.	3659
+त	वही तो!	Precisely!	4285
+त	खाता खोलें।	Open an account.	4285
+त	खाता खोलो।	Open an account.	4285
+श	शांत!	Quiet!	4285
+ट	आप लौट आये।	You came back.	4673
+आप	आप लौट आये।	You came back.	4673
+क	कौन?	Who?	4811
+ई	कोई आया।	Someone came.	4811
+क	कोई आया।	Someone came.	4811
+क	लिंक पर क्लिक करो।	Click on the link.	4811
+पर	लिंक पर क्लिक करो।	Click on the link.	4811
+पर	लिंक पर क्लिक कर।	Click on the link.	4811
+मन	तुमने कोशिश की।	You tried.	4811
+पक	पक्का?	Are you sure?	4824
+गई	बिजली चली गई।	The power went out.	4995
+ब	बिजली चली गई।	The power went out.	4995
+ब	आग के करीब आओ।	Come near the fire.	4995
+हल	हल्ला बोल!	Attack!	4995
+ब	हल्ला बोल!	Attack!	4995
+दल	उन काले बादलों को तो देखो।	Look at those black clouds.	4995
+उन	उन काले बादलों को तो देखो।	Look at those black clouds.	4995
+दल	उन काले बादलों को देखो।	Look at those black clouds.	4995
+उन	उन काले बादलों को देखो।	Look at those black clouds.	4995
+दल	उन काले बादलों को देखिए।	Look at those black clouds.	4995
+उन	उन काले बादलों को देखिए।	Look at those black clouds.	4995
+सन	किसने बात की?	Who spoke?	4995
+हर	लैला बाहर गई।	Layla went outside.	4995
+अ	उसे अंदर आने दो।	Let him in.	5077
+दर	उसे अंदर आने दो।	Let him in.	5077
+आन	उसे अंदर आने दो।	Let him in.	5077
+ई	कोई कबूतर दिखें?	Did you see any pigeons?	5185
+तर	कोई कबूतर दिखें?	Did you see any pigeons?	5185
+कब	कोई कबूतर दिखें?	Did you see any pigeons?	5185
+घ	घिनौना!	Disgusting!	5386
+चमक	तारे चमके।	The stars twinkled.	5576
+र	तारे चमके।	The stars twinkled.	5576
+र	और एक बार।	Once again.	5576
+एक	और एक बार।	Once again.	5576
+और	और एक बार।	Once again.	5576
+अब	बस अब रोना बंद करो।	Now stop crying.	5576
+र	बस अब रोना बंद करो।	Now stop crying.	5576
+ट	ट्रोल को मत खिलाओ।	Do not feed the troll.	5576
+मत	ट्रोल को मत खिलाओ।	Do not feed the troll.	5576
+ट	ट्रोल को ना खिलाएं।	Do not feed the troll.	5576
+आ	लो, आ गई ट्रेन।	Here comes the train.	5576
+आई	केन की बारी आई।	Ken's turn came.	5576
+एक	और एक बार!	Again!	5576
+धत	धत् तेरे की.	Shit.	5576
+आए	वे और क़रीब आए।	He came closer.	5576
+लग	वह रोने लगा।	He began crying.	5576
+लग	वे रोने लगे।	He began crying.	5576
+तन	कितने दूर?	How far?	5689
+आज	मैंने आज एक तारा देखा।	Today, I saw a star.	5920
+म	मैंने आज एक तारा देखा।	Today, I saw a star.	5920
+म	टॉम ने मॅरी को देखा।	Tom looked at Mary.	5920
+म	टॉम ने मैरी की तरफ़ देखा।	Tom looked at Mary.	5920
+तरफ	टॉम ने मैरी की तरफ़ देखा।	Tom looked at Mary.	5920
+कमर	वह मेरे कमरे में आया।	He entered my room.	5920
+कमर	वे मेरे कमरे में आए।	He entered my room.	5920
+अब	अब मेरी मदद करो।	Now help me.	5920
+मदद	अब मेरी मदद करो।	Now help me.	5920
+पहन	टॉम ने कोट पहन कर देखा।	Tom tried the coat on.	5920
+तब	मैं उसे तब पहली बार मिली।	I met him then for the first time.	5920
+पहल	मैं उसे तब पहली बार मिली।	I met him then for the first time.	5920
+तब	मैं उसे तब पहली बार मिला।	I met him then for the first time.	5920
+पहल	मैं उसे तब पहली बार मिला।	I met him then for the first time.	5920
+लग	मेरी बहन रोने लगी।	My sister started crying.	5920
+बहन	मेरी बहन रोने लगी।	My sister started crying.	5920
+मन	तुमने मेरी मदद की।	You helped me.	5920
+मदद	तुमने मेरी मदद की।	You helped me.	5920
+मदद	बॉब ने मेरी मदद की।	Bob helped me.	5920
+सच	सच में?	Really?	5920
+शह	शह और मात।	Checkmate.	5920
+गलत	टॉम ने एक गलती की।	Tom made a mistake.	5920
+यम	मेरा घर, मेरे नियम।	My house, my rules.	5920
+कल	टॉम ने कल एक ख़त लिखा।	Tom wrote a letter yesterday.	5920
+आप	आप कब मिले?	When did you meet?	5920
+कब	आप कब मिले?	When did you meet?	5920
+बच	तुमने मेरी शादी बचा ली, टॉम।	You saved my marriage, Tom.	5920
+मन	तुमने मेरी शादी बचा ली, टॉम।	You saved my marriage, Tom.	5920
+असफल	टॉम ने कोशिश की लेकिन वह असफल रहा।	Tom tried but he failed.	5920
+शह	शह और मात !	Check and mate!	5920
+आई	टॉम की बारी आई।	Tom's turn came.	5920
+भर	टॉम रात भर रोता रहा।	Tom kept crying all night.	5920
+हर	मैं बाहर गई।	I went out.	5920
+ज	बुल्ला, कौन जाने मैं कौन!	Bulla, who knows who I am!	6359
+ज	तुमने मेरी जान बचाली।	You're a life saver.	6359
+ज	कौन जाने?	Who knows?	6359
+हर	बाहर निकल जाओ!	Get out!	6359
+तट	वे हमें समुद्र तट पर दिखे।	We saw them on the beach.	6402
+सम	वे हमें समुद्र तट पर दिखे।	We saw them on the beach.	6402
+छ	उसे छूना मत।	Don't touch it.	6486
+छ	कुछ मत कहो!	Don't say anything!	6486
+कह	कुछ मत कहो!	Don't say anything!	6486
+कह	कुछ मत कहिए!	Don't say anything!	6486
+छ	कुछ मत कहिए!	Don't say anything!	6486
+नई	कुछ नई बात?	Anything new?	6486
+कस	उसे शिकस्त दो!	Defeat him.	6698
+ह	यह एक किताब है।	This is a book.	6704
+ह	यह किताब है।	This is a book.	6704
+ह	यह मेरा कुत्ता है।	This is my dog.	6704
+बहन	मेरी दोनो बहनें शादीशुदा हैं।	Both of my sisters are married.	6704
+चमक	तारे ऊपर चमक रहें हैं।	The stars are glittering above.	6704
+ऊपर	तारे ऊपर चमक रहें हैं।	The stars are glittering above.	6704
+नस	तुम्हारी किताब कौनसी है?	Which book is yours?	6704
+आज	आज कौनसा वार है?	What day is it today?	6704
+नस	आज कौनसा वार है?	What day is it today?	6704
+छत	लाल छत वाला वह टॉम का घर है।	That's Tom's house with the red roof.	6704
+लत	वह हर रोज़ बेसबॉल खेलता है।	He plays baseball every day.	6704
+सब	वह हर रोज़ बेसबॉल खेलता है।	He plays baseball every day.	6704
+इस	इस कमरे में मेज़ है।	There is a desk in this room.	6704
+कह	तुम्हारी आँखें कहाँ हैं?	Where are your eyes?	6704
+नस	तुम्हारा कुत्ता कौनसा है?	Which dog is yours?	6704
+गर	वह गरीब है, पर खुश है।	She is poor, but happy.	6704
+इस	इस घर में छः कमरे हैं।	This house has six rooms.	6704
+थक	तुम थक गए हो, है ना?	You are tired, aren't you?	6704
+गए	तुम थक गए हो, है ना?	You are tired, aren't you?	6704
+सर	उन्होंने एक-दूसरे को देखा।	They looked at each other.	6704
+इस	तुम्हारी बारी है। इस तरफ़ आओ।	It's your turn. Please come this way.	6704
+तरफ	तुम्हारी बारी है। इस तरफ़ आओ।	It's your turn. Please come this way.	6704
+पक	तुम्हें पक्का मालूम है कि वह समय पर आ रही है?	Are you sure of her coming on time?	6704
+समय	तुम्हें पक्का मालूम है कि वह समय पर आ रही है?	Are you sure of her coming on time?	6704
+हल	मैं हल चलाता हूँ।	I till the earth.	6704
+सर	सर्दी आ रही है।	Winter is coming on.	6704
+लत	वह अरबी बोलता है।	He speaks Arabic.	6704
+अरब	वह अरबी बोलता है।	He speaks Arabic.	6704
+दस	हादसा कब हुआ?	When did the accident happen?	6704
+आस	मेरे लिए तैरना आसान है।	Swimming is easy for me.	6704
+रन	मेरे लिए तैरना आसान है।	Swimming is easy for me.	6704
+नगर	वह नगर दो मील दूर है।	That town is two miles away.	6704
+नगर	वह नगर दो मील की दूरी पर है।	That town is two miles away.	6704
+रस	देखो, रसोई में बिल्ली है।	Look, there's a cat in the kitchen.	6704
+आप	आप गलत ट्रेन पर हैं।	You are on the wrong train.	6704
+थक	मेरी आँखें थक गईं हैं।	My eyes are tired.	6704
+कम	मैं निकम्मा हूँ।	I'm a good-for-nothing bum.	6704
+लत	चलो बेसबॉल खेलतें हैं।	Let's play baseball!	6704
+कट	मेरी टिकट खो गई है।	I've lost my ticket.	6704
+पक	वह तेल में पका हुआ है।	That was cooked in oil.	6704
+बन	मूँह मत बनाओ।	Don't make faces.	6704
+लगभग	लगभग कितनी कीमत का है?	About how much will it cost?	6704
+तन	लगभग कितनी कीमत का है?	About how much will it cost?	6704
+बहन	टॉम की मॅरी नाम की एक बहन है।	Tom has a sister named Mary.	6704
+जग	उन्हें जगाओ।	Wake them up.	6704
+आई	नींद आई है?	Are you sleepy?	6704
+तन	वह ट्रेन कितनी तेज़ जा रही है?	How fast is that train going?	6704
+जगह	मैं उस जगह जा रहा हूं।	I am going to that place.	6704
+जगह	मैं उस जगह जा रही हूं।	I am going to that place.	6704
+सन	तुम्हारे बाल किसने काटें?	Who cut your hair?	6704
+ऊ	तुम्हें कुछ दिखाऊं?	Can I show you something?	6704
+घ	मैरी घुटने टेक रही है।	Mary is kneeling.	6704
+टन	मैरी घुटने टेक रही है।	Mary is kneeling.	6704
+घ	मैरी घुटने टेक रहीं है।	Mary is kneeling.	6704
+टन	मैरी घुटने टेक रहीं है।	Mary is kneeling.	6704
+दस	बस हर दस मिनिटों में जाती है।	The bus leaves every ten minutes.	6704
+शहर	हम शहर में हैं।	We're in town.	6704
+समय	आप विदेश में किता समय रहे हैं?	How long have you been abroad?	6704
+डर	मेरी को कुत्तों का डर है।	Merry is scared of dogs.	6704
+पहल	पहले खा लेते है।	Let's eat first.	6704
+डर	डरावना है।	It's scary.	6704
+वन	डरावना है।	It's scary.	6704
+डर	हम डरे हुए हैं।	We're afraid.	6704
+उमर	टॉम मेरी उमर का है।	Tom is my age.	6704
+वन	डरावना है, ना?	Scary, isn't it?	6704
+आदत	बुरी आदत है।	It's a bad habit.	6704
+तय	तय हुआ है।	It's been decided.	6704
+तरह	हम सब टॉम की तरह हैं।	We're all like Tom.	6704
+सर	दूसरा वाला है।	It's the other one.	6704
+आस	वह वाला आसान है।	That's an easy one.	6704
+सच	यह सच है, है ना?	It's true, isn't it?	6704
+आन	जुआओं के बहन का नाम जोआना है।	The name of João's sister is Joana.	6704
+तल	मैं इस बोतल में तेल भर रहा हूँ।	I am filling this bottle with oil.	6704
+भर	मैं इस बोतल में तेल भर रहा हूँ।	I am filling this bottle with oil.	6704
+तल	मैं इस बोतल में तेल भर रही हूँ।	I am filling this bottle with oil.	6704
+भर	मैं इस बोतल में तेल भर रही हूँ।	I am filling this bottle with oil.	6704
+जगह	वह जगह खाली है।	The place is empty.	6704
+जग	यह जगा हमारी है।	This place is ours.	6704
+धन	मेरा परिवार धनी है।	My family is wealthy.	6704
+जन	सर्जन मैं हूँ।	I'm the surgeon.	6704
+मतलब	मेरा वहीं मतलब है।	I do mean that.	6704
+गज	यह कागज़ी टिकट है।	This is a paper ticket.	6704
+कट	यह कागज़ी टिकट है।	This is a paper ticket.	6704
+गज	किताब कागज़ का बना होता है।	A book is made of paper.	6704
+बन	किताब कागज़ का बना होता है।	A book is made of paper.	6704
+अरब	हम अरब हैं।	We are Arabs.	6704
+जन	मेरे परिवार में नौ जन हैं।	There are nine people in my family.	6704
+गर	मैं रोमन नागरिक हूँ।	I am a Roman citizen.	6704
+तरफ	टॉम इस तरफ़ आ रहा है।	Tom is headed this way.	6704
+फल	कौनसा फल लाल है?	What fruit is red?	6704
+गर	टॉम गरीब है।	Tom is poor.	6704
+शक	वह शक्तिशाली है।	She is powerful.	6704
+असल	मेरा असली नाम मैरी है।	My real name is Mary.	6704
+असल	मेरा असली नाम टॉम है।	My real name is Tom.	6704
+थक	मैं थक जाता हूँ।	I get tired.	6704
+यम	मुलायम है।	It is soft.	6704
+जन	मेरा जन्म ओसाका में हुआ।	I was born in Osaka.	6704
+ओस	मेरा जन्म ओसाका में हुआ।	I was born in Osaka.	6704
+ओस	मेरे दादा ओसाका के हैं।	My grandfather is from Osaka.	6704
+ओस	मेरे नाना ओसाका के हैं।	My grandfather is from Osaka.	6704
+कस	तुर्की एक विकसित देश है।	Turkey is a developed country.	6704
+कम	एक कम है।	There is one less.	6704
+औरत	"""वह तो औरतों का काम है,"" टॉम ने कहा।"	"""That's a woman's job,"" said Tom."	6704
+फल	कौनसा फल लाल होता है?	What fruit is red?	6704
+नव	तुम एक मानव हो।	You're a human.	6704
+तट	समुद्र तट कहां है?	Where is the beach?	6704
+सम	समुद्र तट कहां है?	Where is the beach?	6704
+वन	जल ही जीवन है।	Water is life.	6704
+मर	मरा हुआ?	Dead?	6704
+सहमत	मैं सहमत हूँ।	I agree.	6704
+सहमत	हम सहमत हैं।	We agree.	6704
+औरत	नेहा एक औरत है।	Nehi is a woman.	6704
+रस	मैं रसोई में हूँ।	I am in the kitchen.	6704
+आदर	टॉम मेरा आदर्श है।	Tom is my idol.	6704
+शहर	मैरी शहर में नई है, है ना?	Mary is new in town, isn't she?	6704
+नई	मैरी शहर में नई है, है ना?	Mary is new in town, isn't she?	6704
+बल	मैंने तुम्हारे लिए एक टैबलेट ख़रीदा है।	I bought a tablet for you.	6704
+सन	वे सब टॉम पर हँसने लगे।	They all started laughing at Tom.	6704
+रस	वह मेरी कुरसी है।	That's my chair.	6704
+बल	लैला का बलात्कार हुआ।	Layla got raped.	6704
+कई	टॉम ने कई किताबें लिखी हैं।	Tom has written many books.	6704
+अरब	क़ुरान अरबी में लिखा है।	The Quran is written in Arabic.	6704
+असल	टॉम असली मूर्ख है।	Tom is a real fool.	6704
+मर	टॉम बेबी बूमर है।	Tom is a baby boomer.	6704
+आम	मेरे देश में यह आम बात है।	This is normal in my country.	6704
+आन	विवाह आनंद है।	Marriage is bliss.	6704
+कम	मैं दिन के €100 कमाता हूं।	I make €100 a day.	6704
+सबक	सबकुछ उसी के लिए होता है।	Everything is done for him.	6704
+फल	तुम फल खाते हो, है न?	You eat fruit, don't you?	6704
+शक	उसे शक होने लगा।	She became suspicious.	6704
+नमक	नमक कम है।	Not enough salt.	6704
+अलग	आज तुम अलग लग रहे हो।	You seem different today.	6704
+अलग	आज तुम अलग लग रही हो।	You seem different today.	6704
+अलग	आज आप अलग लग रहे हैं।	You seem different today.	6704
+लट	मैं मालटा का हूँ।	I'm from Malta.	6704
+लट	मैं मालटा की हूँ।	I'm from Malta.	6704
+जलकर	दस घर जलकर राख हो गए।	Ten houses were burned down.	6718
+दस	दस घर जलकर राख हो गए।	Ten houses were burned down.	6718
+चर	तुम्हारे टीचर कौन हैं?	Who is your teacher?	6782
+मद	कल मेरा जन्मदिन है।	Tomorrow is my birthday.	7010
+मद	आज मेरी बहन का जन्मदिन है।	Today is my sister's birthday.	7010
+मद	आज मेरी दीदी का जन्मदिन है।	Today is my sister's birthday.	7010
+लय	बस उस कोने के आगे ही एक मदिरालय है।	There's a pub just around the corner.	7010
+खत	मैं टीवी देखता हूँ।	I watch television.	7646
+लगभग	मैं लगभग हर रोज़ खत लिखता हूं।	I write letters almost every day.	7646
+खत	मैं लगभग हर रोज़ खत लिखता हूं।	I write letters almost every day.	7646
+लगभग	मैं लगभग हर रोज़ खत लिखती हूं।	I write letters almost every day.	7646
+खत	मैं लगभग हर रोज़ खत लिखती हूं।	I write letters almost every day.	7646
+थ	कल मेरा जन्मदिन था।	Yesterday was my birthday.	7800
+थ	बॉब यहाँ आया था ना?	Bob came here, didn't he?	7800
+थ	तुमने उसे कब देखा था?	When did you see her?	7800
+शहर	शहर के ऊपर काले बादल छा रहे थे।	Dark clouds were brooding over the city.	7800
+ऊपर	शहर के ऊपर काले बादल छा रहे थे।	Dark clouds were brooding over the city.	7800
+ओर	वह समुंदर की ओर चल रहा था।	He was walking toward the sea.	7800
+सम	वह समुंदर की ओर चल रहा था।	He was walking toward the sea.	7800
+बरस	कल रात बरसात हो रही थी।	It was raining last night.	7800
+ठहर	जिम मेरे घर में ठहरा था।	Jim had stayed at my house.	7800
+तक	हैदराबाद पर १९४८ तक निज़ाम का राज था।	Hyderabad was ruled by a nizam until 1948.	7800
+ऊपर	हाथ ऊपर करो!	Hands up!	7800
+आस	आसान था।	It was easy.	7800
+जब	मैं जब उठा तो मैं दुखी था।	When I woke up, I was sad.	7800
+शक	शक कौन थे?	Who were the Scythians?	7800
+तर	तुम ख़तरे में थे।	You were in danger.	7800
+तर	आप ख़तरे में थे।	You were in danger.	7800
+दब	शादी में जल्दबाजी न करें।	Don't rush into marriage.	7842
+आलस	मैं आलसी हूँ।	I'm lazy.	7878
+आलस	कितने आलसी हो तुम।	You're so lazy.	7878
+आलस	तुम कितनी आलसी हो।	You're so lazy.	7878
+तम	कमरे में तम्बाकू की महक थी।	The room smelled of tobacco.	7894
+महक	कमरे में तम्बाकू की महक थी।	The room smelled of tobacco.	7894
+शमन	तुम्हारा दुशमन कौन है?	Who is your enemy?	7935
+शमन	टॉम दुशमन है।	Tom is the enemy.	7935
+शमन	वह हमारा दुशमन है।	He's our enemy.	7935
+थन	मैं एंथनी।	I am Anthony.	8136
+थन	एंथनी मैं हूँ।	I am Anthony.	8136
+पहर	इस दोपहर को मिलते हैं।	Let's meet this afternoon.	8204
+पहर	आज दोपहर बारिश होने वाली है।	It is going to rain this afternoon.	8204
+पहर	वह कल दोपहर को मर गई।	She died yesterday afternoon.	8204
+शत	टॉम शत्रु है।	Tom is the enemy.	8227
+शत	वह हमारा शत्रु है।	He's our enemy.	8227
+शत	वे हमारे शत्रु हैं।	He's our enemy.	8227
+स	इस नोट को सिक्कों में बदल दीजिए।	Please change this bill into coins.	8657
+बदल	इस नोट को सिक्कों में बदल दीजिए।	Please change this bill into coins.	8657
+स	मैं टैक्सी का इंतेज़ार कर रहा था।	I was waiting for a taxi.	8657
+इ	मैं टैक्सी का इंतेज़ार कर रहा था।	I was waiting for a taxi.	8657
+स	शेर मास खाते हैं।	Lions feed on flesh.	8657
+हल	ट्रेन हल्के से आकर रुकी।	The train came to a smooth stop.	8657
+आकर	ट्रेन हल्के से आकर रुकी।	The train came to a smooth stop.	8657
+आदत	बुरी आदतें कितनी आसानी से लग जातीं हैं!	How easily one acquires bad habits!	8657
+उठकर	वह खाना खाने के बाद मेज़ से उठकर चली गई।	She left the table after dinner.	8657
+हद	मैं तुम्हारे साथ एक हद तक सहमत हूँ।	I agree with you to a degree.	8657
+तक	मैं तुम्हारे साथ एक हद तक सहमत हूँ।	I agree with you to a degree.	8657
+सहमत	मैं तुम्हारे साथ एक हद तक सहमत हूँ।	I agree with you to a degree.	8657
+खट	यह सेव खट्टा है ना?	This apple tastes sour, doesn't it?	8657
+तक	मैंने खेल को शुरू से अंत तक देखा।	I watched the game from beginning to end.	8657
+समय	तुम किस समय घर जाती हो?	What time do you go home?	8657
+यम	हॅमिल्टन के दोस्तों में से एक ने नियम समझाएं।	One of Hamilton's friends explained the rules.	8657
+टन	हॅमिल्टन के दोस्तों में से एक ने नियम समझाएं।	One of Hamilton's friends explained the rules.	8657
+बचपन	खेल ही वास्तव में बचपन का काम है।	Play is really the work of childhood.	8657
+तव	खेल ही वास्तव में बचपन का काम है।	Play is really the work of childhood.	8657
+गण	वे गणित के क्लास में है।	They're in math class.	8657
+तरह	वह किसी राजा की तरह जीता है।	He lives like a king.	8657
+अमर	लूसी अमरीकी है।	Lucy is an American.	8657
+बक	बक्से में कितने सेब थे?	How many apples were in the box?	8657
+सबक	मैं तुम्हें सबक सिखाने वाला हूँ।	I'm going to teach you a lesson.	8657
+सबक	मैं तुम्हें सबक सिखाने वाली हूँ।	I'm going to teach you a lesson.	8657
+तब	तब तुम्हें कैसा लगा?	How did you feel then?	8657
+डच	डच दूतावास कहाँ है?	Where is the Dutch embassy?	8657
+कट	हमारा देश संकट में है।	Our country is in a crisis.	8657
+बन	हम सब सैनिक बने।	We all became soldiers.	8657
+परम	यहां एक हरा मैदान था; अब एक सुपरमार्केट है।	Here stood a green field; now it is a supermarket.	8657
+वजह	किस वजह से?	What for?	8657
+ओर	सामी ने बाहर की ओर देखा।	Sami looked outside.	8657
+खट	सामी की शादी खट्टी हो गई।	Sami's marriage turned sour.	8657
+आपस	आपसे सिगरेट की बू आ रही है।	You stink of cigarettes.	8657
+आठ	वह आठ साल की है।	She is eight.	8657
+नरक	सामी नरक में था।	Sami was in hell.	8657
+बक	वे बक्से खाली हैं।	Those boxes are empty.	8657
+हठ	टॉम हठी था।	Tom was obstinate.	8678

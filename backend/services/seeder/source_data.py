@@ -59,6 +59,7 @@ import httpx
 
 from backend.services.nlp.arabic import ArabicNLP
 from backend.services.nlp.hausa import HausaNLP, normalize_hausa
+from backend.services.nlp.hindi import HindiNLP
 from backend.services.nlp.latin_base import (
     CatalanNLP,
     FrenchNLP,
@@ -81,7 +82,7 @@ from backend.services.seeder.base import DATA_DIR
 # (OpenSubtitles) + a kaikki Wiktionary dictionary. The path is
 # script-agnostic — ro/el/ar ride the same rails as the Latin five; it just
 # needs a frequency list, a kaikki extract, and a lemmatizer.
-FREQUENCYWORDS_LANGS = {"es", "it", "fr", "de", "ca", "ro", "el", "ar", "ru", "pt"}
+FREQUENCYWORDS_LANGS = {"es", "it", "fr", "de", "ca", "ro", "el", "ar", "ru", "pt", "hi"}
 LATIN_NLP = {
     "es": SpanishNLP, "it": ItalianNLP, "fr": FrenchNLP,
     "de": GermanNLP, "ca": CatalanNLP, "mi": MaoriNLP,
@@ -94,6 +95,7 @@ LATIN_NLP = {
 FREQ_NLP = {
     **LATIN_NLP,
     "ro": RomanianNLP, "el": GreekNLP, "ar": ArabicNLP, "ru": RussianNLP,
+    "hi": HindiNLP,
 }
 
 logger = logging.getLogger("source_data")
@@ -133,6 +135,7 @@ SOURCES = {
     "ar_kaikki": "https://kaikki.org/dictionary/Arabic/kaikki.org-dictionary-Arabic.jsonl",
     "ru_kaikki": "https://kaikki.org/dictionary/Russian/kaikki.org-dictionary-Russian.jsonl",
     "pt_kaikki": "https://kaikki.org/dictionary/Portuguese/kaikki.org-dictionary-Portuguese.jsonl",
+    "hi_kaikki": "https://kaikki.org/dictionary/Hindi/kaikki.org-dictionary-Hindi.jsonl",
     # HermitDave FrequencyWords (OpenSubtitles 2018), per ISO code.
     "frequencywords": (
         "https://raw.githubusercontent.com/hermitdave/FrequencyWords/"
@@ -169,6 +172,13 @@ SOURCES = {
     "en_kaikki_gz": (
         "https://kaikki.org/dictionary/English/kaikki.org-dictionary-English.jsonl.gz"
     ),
+    # Hindi: HermitDave 2018 publishes only the FULL list under hi/ (no
+    # hi_50k.txt); it is Devanagari OpenSubtitles counts. parse_hermitdave
+    # ranks it, and build_frequency_rows caps at max_words.
+    "hi_frequency": (
+        "https://raw.githubusercontent.com/hermitdave/FrequencyWords/"
+        "master/content/2018/hi/hi_full.txt"
+    ),
 }
 
 # Support locales for English-as-target study ("I'm learning English from
@@ -186,6 +196,7 @@ TATOEBA_ISO3 = {
     # European tier + ru/ar (well-covered on Tatoeba)
     "es": "spa", "fr": "fra", "de": "deu", "it": "ita", "ca": "cat",
     "ro": "ron", "el": "ell", "ru": "rus", "ar": "ara", "pt": "por",
+    "hi": "hin", "jam": "jam",
 }
 
 # Hausa has no reachable public-domain corpus in this pipeline; the user drops
@@ -862,10 +873,13 @@ def build_language(language: str, source: str, max_words: int, cache_dir: Path) 
             raise ValueError(
                 f"{language} has no FreeDict dictionary — run with --source kaikki"
             )
-        freq_path = download(
-            SOURCES["frequencywords"].format(code=language),
-            cache_dir / f"{language}_50k.txt",
+        # Hindi's HermitDave list lives at a different path (hi_full.txt);
+        # everything else follows the {code}_50k.txt template.
+        freq_url = (
+            SOURCES["hi_frequency"] if language == "hi"
+            else SOURCES["frequencywords"].format(code=language)
         )
+        freq_path = download(freq_url, cache_dir / f"{language}_50k.txt")
         freq = parse_hermitdave(freq_path)
         dictionary = _build_dictionary(language, source, cache_dir, None)
         rows = build_frequency_rows(
@@ -1189,9 +1203,12 @@ def build_sentences(language: str, cache_dir: Path, per_word: int = 3) -> Path:
         for row in csv.DictReader(f, delimiter="\t"):
             rank_by_word[row["word"]] = int(row["rank"])
 
+    from backend.services.nlp.jamaican import JamaicanNLP
+
     nlp_by_lang = {
         "tr": TurkishNLP, "sw": SwahiliNLP, "yo": YorubaNLP,
         "xh": XhosaNLP, "ha": HausaNLP, "ru": RussianNLP,
+        "jam": JamaicanNLP,
         **FREQ_NLP,
     }
     lemmatize = nlp_by_lang[language]().lemmatize
@@ -1214,7 +1231,7 @@ def main() -> None:
     parser.add_argument(
         "--language", "-l",
         choices=["tr", "sw", "yo", "ha", "xh", "mi", "es", "it", "fr", "de", "ca",
-                 "ro", "el", "ar", "ru", "en", "pt"],
+                 "ro", "el", "ar", "ru", "en", "pt", "hi", "jam"],
         required=True
     )
     parser.add_argument(

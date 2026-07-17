@@ -1102,6 +1102,37 @@ native reviewers ("double review" = extraction + my check + reviewer).
 **Model:** `claude-fable-5` for all content authoring (contrastive
 pedagogy in 12 locales is the low-resource-linguistics row of §6).
 
+### WP23 — Hindi + Jamaican Patois (owner, 2026-07-17)
+The 18th and 19th languages, on the owner's go.
+**(a) Hindi (hi) — DONE 2026-07-17, draft tier.** Full corpus pipeline:
+HermitDave 2018 Devanagari list (hi_full.txt — no 50k variant exists) +
+kaikki Hindi extract + Tatoeba hin sentences; 9,096 words with romanized
+readings from the new schwa-deleting romanizer (services/nlp/hindi —
+raam/larkaa/samajh class all correct). Curated glosses override the kaikki
+"inflection of X:" noise for ~90 high-frequency function words/inflections.
+42-point grammar path A1→C2 (252 drills, 7 paradigms): SOV, the three
+'you's, gender agreement, oblique case, ergative ने with object agreement,
+compound verbs, causatives, presumptive, register (तत्सम vs Perso-Arabic),
+honorific concord, Iyaric-grade C2 (izāfat, poetic inversion). Devanagari
+QWERTY IME (syllabic: consonant+matra assembly, virama clusters, pending
+trailing consonant — vitest-covered), hi-IN-SwaraNeural TTS, India-flag
+theme, Devanagari script validator, HindiNLP (rule lemmatizer folds
+-ता/-ते/-ों onto citation forms), tutor skill bundle. Ships
+grammar_review_policy='ai_ok', points reviewed:false — native reviewer
+promotes to strict at the reviewer-program milestone.
+**(b) Jamaican Patois (jam) — DONE 2026-07-17, draft tier.** Cassidy/JLU
+phonemic orthography as the teaching spelling with English-based spellings
+(likkle/pickney/cyaan) loaded as answer alternatives AND folded by
+JamaicanNLP so either convention grades correct. Curated 384-word core
+vocabulary (no public corpus exists); 32-point grammar path (192 drills):
+invariant pronouns + unu, the three-way copula split (equative a, locative
+de, zero before adjectives), preverbal TMA markers (did/a/don/wi/ago, did-a
+stacking), dem-plurals, fi, serial verbs, predicate cleft, reduplication,
+the basilect–acrolect continuum, proverbs, Iyaric, and written-Patwa
+literacy. No TTS (no neural voice exists anywhere). source:'ai' +
+reviewed:false + policy 'ai_ok'; promotion gated on the JLU-connected
+reviewer per the beta rollout plan.
+
 ## 6. Model selection guide
 
 | Task type | Model | Why |
