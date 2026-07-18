@@ -337,6 +337,29 @@ function AccountRow({
 
 /** Mint a beta account (invite-only signup is disabled — the admin
  * creates email+password logins and hands them to friends). */
+/** Turn a create-account failure into something an admin can act on: the
+ * server's reason if there is one, a validation summary, or — the case that
+ * used to read only "Could not create the account" — a clear network error. */
+export function accountErrorMessage(error: unknown): string {
+  const e = error as {
+    response?: { data?: { detail?: unknown } }
+    message?: string
+  }
+  const detail = e?.response?.data?.detail
+  if (typeof detail === 'string') return detail
+  if (Array.isArray(detail)) {
+    const msg = detail
+      .map((d: { msg?: string }) => d?.msg)
+      .filter(Boolean)
+      .join('; ')
+    if (msg) return msg
+  }
+  if (!e?.response) {
+    return "Couldn't reach the server — check your connection and try again."
+  }
+  return 'Could not create the account.'
+}
+
 function InviteForm() {
   const queryClient = useQueryClient()
   const [email, setEmail] = useState('')
@@ -398,10 +421,7 @@ function InviteForm() {
         </p>
       )}
       {mutation.isError && (
-        <p className="text-xs text-red-600">
-          {(mutation.error as { response?: { data?: { detail?: string } } })
-            ?.response?.data?.detail ?? 'Could not create the account.'}
-        </p>
+        <p className="text-xs text-red-600">{accountErrorMessage(mutation.error)}</p>
       )}
     </div>
   )

@@ -7,6 +7,7 @@ caller's role is verified for the target language.
 
 from __future__ import annotations
 
+import logging
 import re
 from datetime import UTC, datetime, timedelta
 
@@ -64,6 +65,7 @@ from backend.services.rate_limit import ai_review_limiter
 from backend.services.semantic_check import ai_available, semantic_check_point
 from backend.services.tutor_costs import estimate_cost_usd
 
+logger = logging.getLogger(__name__)
 router = APIRouter()
 
 
@@ -775,32 +777,52 @@ async def create_account(
     await _require_admin(user["id"])
     from backend.dependencies import get_settings
     settings = get_settings()
-    if not settings.supabase_service_role_key:
+    if not settings.supabase_service_role_key or not settings.supabase_url:
         raise HTTPException(
             status_code=status.HTTP_503_SERVICE_UNAVAILABLE,
-            detail="SUPABASE_SERVICE_ROLE_KEY is not configured on the server",
+            detail=(
+                "Account creation isn't configured on the server "
+                "(SUPABASE_SERVICE_ROLE_KEY / SUPABASE_URL missing)."
+            ),
         )
     import httpx
-    async with httpx.AsyncClient(timeout=15) as client:
-        resp = await client.post(
-            f"{settings.supabase_url}/auth/v1/admin/users",
-            headers={
-                "apikey": settings.supabase_service_role_key,
-                "Authorization": f"Bearer {settings.supabase_service_role_key}",
-            },
-            json={"email": body.email, "password": body.password,
-                  "email_confirm": True},
-        )
-    if resp.status_code == 422 and "already" in resp.text.lower():
-        raise HTTPException(
-            status_code=status.HTTP_409_CONFLICT,
-            detail="An account with that email already exists",
-        )
-    if resp.status_code >= 400:
+    try:
+        async with httpx.AsyncClient(timeout=15) as client:
+            resp = await client.post(
+                f"{settings.supabase_url.rstrip('/')}/auth/v1/admin/users",
+                headers={
+                    "apikey": settings.supabase_service_role_key,
+                    "Authorization": f"Bearer {settings.supabase_service_role_key}",
+                },
+                json={"email": body.email, "password": body.password,
+                      "email_confirm": True},
+            )
+    except httpx.HTTPError as exc:
+        logger.warning("account creation: couldn't reach Supabase: %s", exc)
         raise HTTPException(
             status_code=status.HTTP_502_BAD_GATEWAY,
-            detail=f"Supabase rejected the account: {resp.text[:200]}",
+            detail="Couldn't reach the authentication service — please try again.",
+        ) from exc
+    # Duplicate email — Supabase tags it error_code=email_exists (422).
+    if resp.status_code == 422 and (
+        "already" in resp.text.lower() or "email_exists" in resp.text
+    ):
+        raise HTTPException(
+            status_code=status.HTTP_409_CONFLICT,
+            detail="An account with that email already exists.",
         )
+    if resp.status_code >= 400:
+        logger.warning(
+            "account creation: Supabase %s — %s", resp.status_code, resp.text[:300]
+        )
+        detail = "The authentication service rejected the account."
+        try:
+            msg = resp.json().get("msg") or resp.json().get("error_description")
+            if msg:
+                detail = f"{detail} {msg}"
+        except ValueError:
+            pass
+        raise HTTPException(status_code=status.HTTP_502_BAD_GATEWAY, detail=detail)
     created = resp.json()
     return {"id": created.get("id"), "email": created.get("email")}
 
