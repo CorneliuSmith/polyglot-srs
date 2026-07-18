@@ -13,6 +13,7 @@ import ReviewSessionPage from './features/review/ReviewSessionPage'
 import LearnPage from './features/review/LearnPage'
 import TutorPage from './features/tutor/TutorPage'
 import ReaderPage from './features/reader/ReaderPage'
+import LettersPage from './features/letters/LettersPage'
 import NotesPage from './features/notes/NotesPage'
 import OnboardingPage from './features/onboarding/OnboardingPage'
 import SettingsPage from './features/settings/SettingsPage'
@@ -75,6 +76,7 @@ const router = createBrowserRouter([
       { path: '/learn', element: <LearnPage /> },
       { path: '/tutor', element: <TutorPage /> },
       { path: '/read', element: <ReaderPage /> },
+      { path: '/letters', element: <LettersPage /> },
       { path: '/notes', element: <NotesPage /> },
       { path: '/contribute', element: <ContributorPage /> },
     ],
