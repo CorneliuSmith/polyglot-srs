@@ -171,6 +171,11 @@ export default function GrammarPathPage() {
                                 </LanguageWrapper>
                                 <SpeakButton text={ex.sentence} languageCode={languageCode} />
                               </span>
+                              {ex.reading && (
+                                <span className="block text-gray-400 text-xs italic">
+                                  {ex.reading}
+                                </span>
+                              )}
                               {ex.translation && (
                                 <BlurReveal className="block text-gray-500">
                                   {ex.translation}
