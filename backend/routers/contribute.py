@@ -17,6 +17,7 @@ from backend.dependencies import get_current_user
 from backend.repositories.contributor import (
     add_drill,
     add_review_note,
+    admin_engagement,
     approve_explanation,
     can_contribute,
     can_review,
@@ -247,6 +248,20 @@ async def tutor_usage_overview(
             sum(r["est_cost_usd"] for r in priced), 4
         ),
     }
+
+
+@router.get("/engagement")
+async def engagement_overview(
+    days: int = 30,
+    user: dict = Depends(get_current_user),
+):
+    """App-wide engagement snapshot (admin-only): active users, feature
+    usage, study time, and the languages people actually study — read from
+    the activity tables normal use already writes."""
+    await _require_admin(user["id"])
+    days = max(1, min(days, 365))
+    async with privileged_connection() as conn:
+        return await admin_engagement(conn, days)
 
 
 @router.put("/grammar/{point_id}")

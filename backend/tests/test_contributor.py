@@ -572,6 +572,51 @@ class TestTutorUsageOverview:
         assert resp.json()["days"] == 365
 
 
+class TestEngagement:
+    """Admin engagement snapshot — active users, feature usage, study time."""
+
+    def test_requires_admin(self, client):
+        with _roles([{"language_id": LANG, "role": "reviewer"}]):
+            resp = client.get(
+                "/api/contribute/engagement", headers=_auth_headers()
+            )
+        assert resp.status_code == 403
+
+    def test_admin_gets_snapshot(self, client):
+        snapshot = {
+            "days": 30, "total_users": 12, "new_users": 4,
+            "active_users": {"d1": 3, "d7": 7, "d30": 9},
+            "reviews": 186, "review_hours": 9.4, "tutor_messages": 35,
+            "readings": 3, "cards_started": 325,
+            "feature_users": {"review": 6, "tutor": 4, "reader": 2},
+            "top_languages": [
+                {"code": "es", "name": "Spanish", "learners": 4, "cards": 120},
+            ],
+        }
+        with _roles([{"language_id": None, "role": "admin"}]), \
+             patch("backend.routers.contribute.admin_engagement",
+                   new=AsyncMock(return_value=snapshot)) as mock_eng:
+            resp = client.get(
+                "/api/contribute/engagement",
+                params={"days": 30},
+                headers=_auth_headers(),
+            )
+        assert resp.status_code == 200
+        assert resp.json() == snapshot
+        mock_eng.assert_awaited_once()
+
+    def test_days_window_clamped(self, client):
+        with _roles([{"language_id": None, "role": "admin"}]), \
+             patch("backend.routers.contribute.admin_engagement",
+                   new=AsyncMock(return_value={})) as mock_eng:
+            client.get(
+                "/api/contribute/engagement",
+                params={"days": 9999},
+                headers=_auth_headers(),
+            )
+        assert mock_eng.await_args.args[1] == 365
+
+
 class TestCreatePoint:
     def test_create_requires_role(self, client):
         with _roles([]):

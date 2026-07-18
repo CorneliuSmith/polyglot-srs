@@ -69,6 +69,12 @@ function ReviewSessionInner({
   const inputRef = useRef<HTMLInputElement>(null)
 
   const sessionSize = usePrefsStore((s) => s.sessionSize)
+  // Fetched unconditionally (cheap, usually pre-cached) so the support
+  // locale is part of the due-cards key BEFORE cards load — changing the
+  // "learning English from" language then genuinely re-keys and refetches
+  // the localized cards, instead of racing an invalidate + remount.
+  const { data: profile } = useQuery({ queryKey: ['profile'], queryFn: getProfile })
+  const supportLocale = profile?.support_locale ?? 'en'
   const { data: fetched, isLoading } = useQuery(
     cram
       ? {
@@ -80,7 +86,7 @@ function ReviewSessionInner({
           refetchOnWindowFocus: false,
         }
       : {
-          queryKey: ['due-cards', activeLanguageId, sessionSize, reviewType ?? 'all'],
+          queryKey: ['due-cards', activeLanguageId, sessionSize, reviewType ?? 'all', supportLocale],
           queryFn: () => getDueCards(activeLanguageId!, sessionSize, reviewType),
           enabled: !!activeLanguageId,
           // A live session must never see its deck change under it, and a
@@ -107,11 +113,6 @@ function ReviewSessionInner({
   // locale — let them switch it right here instead of trekking to Settings.
   // Saving restarts the session (key remount) with re-localized cards.
   const studyingEnglish = (cards?.[0]?.language_code ?? '') === 'en'
-  const { data: profile } = useQuery({
-    queryKey: ['profile'],
-    queryFn: getProfile,
-    enabled: studyingEnglish,
-  })
   const { data: languages = [] } = useQuery({
     queryKey: ['languages'],
     queryFn: getLanguages,
@@ -119,9 +120,11 @@ function ReviewSessionInner({
   })
   const localeMutation = useMutation({
     mutationFn: (support_locale: string) => updateProfile({ support_locale }),
-    onSuccess: () => {
-      queryClient.invalidateQueries({ queryKey: ['profile'] })
-      queryClient.invalidateQueries({ queryKey: ['due-cards'] })
+    onSuccess: async () => {
+      // Await the profile refetch so the new supportLocale is in place, then
+      // remount — the remounted session re-keys the due-cards query on the
+      // fresh locale and pulls re-localized cards.
+      await queryClient.invalidateQueries({ queryKey: ['profile'] })
       onLocaleChanged()
     },
   })
@@ -388,7 +391,7 @@ function ReviewSessionInner({
             <button type="button" onClick={() => navigate('/tutor')} className="hover:text-lang">
               Tutor
             </button>
-            <button type="button" onClick={() => navigate('/settings')} aria-label="Settings" className="hover:text-lang">
+            <button type="button" onClick={() => navigate('/account')} aria-label="Account" className="hover:text-lang">
               ⚙
             </button>
           </div>

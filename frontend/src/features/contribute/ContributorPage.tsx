@@ -17,6 +17,7 @@ import FeedbackPanel from './FeedbackPanel'
 import IssuesPanel from './IssuesPanel'
 import RolesPanel from './RolesPanel'
 import AccountsPanel from './AccountsPanel'
+import EngagementPanel from './EngagementPanel'
 import { useAuthStore } from '../../stores/authStore'
 import {
   flagPointIssue,
@@ -26,7 +27,7 @@ import {
 } from '../../api/contribute'
 
 /** Admin-only per-language tutor model override (WP15a). */
-function TutorModelControl({
+export function TutorModelControl({
   languageId,
   current,
   onChanged,
@@ -68,7 +69,7 @@ function TutorModelControl({
 
 /** Admin-only tutor cost monitor (WP9b): token rollups across ALL languages,
  * priced at list rates — the data behind per-language model choices. */
-function TutorCostsPanel() {
+export function TutorCostsPanel() {
   const { data } = useQuery({
     queryKey: ['tutor-usage'],
     queryFn: () => getTutorUsage(30),
@@ -192,7 +193,7 @@ function FlagIssueBox({ pointId }: { pointId: string }) {
   )
 }
 
-function NewPointForm({
+export function NewPointForm({
   languageId,
   onCreated,
 }: {
@@ -402,7 +403,7 @@ function PointEditor({
   )
 }
 
-function ReviewPolicyControl({
+export function ReviewPolicyControl({
   languageId,
   policy,
   onChanged,
@@ -548,6 +549,7 @@ export default function ContributorPage() {
 
             {tab === 'admin' && data.is_admin && (
               <>
+                <EngagementPanel />
                 <AccountsPanel languages={languages} selfId={selfId} />
                 <RolesPanel languages={languages} />
                 <ReviewPolicyControl

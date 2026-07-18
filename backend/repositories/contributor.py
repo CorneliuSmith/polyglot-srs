@@ -655,3 +655,102 @@ async def set_account_plan(
         user_id, plan_scope, plan_language_id,
     )
     return result.endswith("1")
+
+
+async def admin_engagement(conn: asyncpg.Connection, days: int = 30) -> dict:
+    """App-wide engagement snapshot for the admin panel (privileged conn).
+
+    Answers "who is using the app, doing what, for how long" from the
+    activity tables already written by normal use — review_log (reviews +
+    per-answer time), tutor_usage (tutor messages), readings (Reader
+    sessions), user_cards (cards started). No new tracking: this is a read
+    over existing data. All users, all languages.
+    """
+    since_expr = f"now() - interval '{int(days)} days'"
+
+    totals = await conn.fetchrow(
+        f"""
+        SELECT
+          (SELECT count(*) FROM user_profiles) AS total_users,
+          (SELECT count(*) FROM user_profiles
+             WHERE created_at > {since_expr}) AS new_users,
+          (SELECT count(*) FROM review_log
+             WHERE created_at > {since_expr}) AS reviews,
+          (SELECT COALESCE(sum(time_taken_ms), 0) FROM review_log
+             WHERE created_at > {since_expr}) AS review_ms,
+          (SELECT count(*) FROM tutor_usage
+             WHERE created_at > {since_expr}) AS tutor_messages,
+          (SELECT count(*) FROM readings
+             WHERE created_at > {since_expr}) AS readings,
+          (SELECT count(*) FROM user_cards
+             WHERE created_at > {since_expr}) AS cards_started
+        """
+    )
+
+    # Active users per window: anyone with ANY activity (review / tutor /
+    # reading / new card) in the window.
+    active = await conn.fetchrow(
+        """
+        SELECT
+          count(DISTINCT u) FILTER (WHERE t > now() - interval '1 day')  AS d1,
+          count(DISTINCT u) FILTER (WHERE t > now() - interval '7 days')  AS d7,
+          count(DISTINCT u) FILTER (WHERE t > now() - interval '30 days') AS d30
+        FROM (
+          SELECT user_id AS u, created_at AS t FROM review_log
+          UNION ALL SELECT user_id, created_at FROM tutor_usage
+          UNION ALL SELECT user_id, created_at FROM readings
+          UNION ALL SELECT user_id, created_at FROM user_cards
+        ) acts
+        """
+    )
+
+    # Distinct users who touched each feature in the window — which features
+    # are actually pulling their weight.
+    feature_users = await conn.fetchrow(
+        f"""
+        SELECT
+          (SELECT count(DISTINCT user_id) FROM review_log
+             WHERE created_at > {since_expr}) AS review_users,
+          (SELECT count(DISTINCT user_id) FROM tutor_usage
+             WHERE created_at > {since_expr}) AS tutor_users,
+          (SELECT count(DISTINCT user_id) FROM readings
+             WHERE created_at > {since_expr}) AS reader_users
+        """
+    )
+
+    # Which languages people are actually studying (by active cards).
+    top_langs = await conn.fetch(
+        """
+        SELECT l.code, l.name, count(DISTINCT uc.user_id) AS learners,
+               count(*) AS cards
+        FROM user_cards uc JOIN languages l ON uc.language_id = l.id
+        GROUP BY l.code, l.name
+        ORDER BY learners DESC, cards DESC
+        LIMIT 8
+        """
+    )
+
+    review_ms = int(totals["review_ms"] or 0)
+    return {
+        "days": days,
+        "total_users": totals["total_users"],
+        "new_users": totals["new_users"],
+        "active_users": {
+            "d1": active["d1"], "d7": active["d7"], "d30": active["d30"],
+        },
+        "reviews": totals["reviews"],
+        "review_hours": round(review_ms / 3_600_000, 1),
+        "tutor_messages": totals["tutor_messages"],
+        "readings": totals["readings"],
+        "cards_started": totals["cards_started"],
+        "feature_users": {
+            "review": feature_users["review_users"],
+            "tutor": feature_users["tutor_users"],
+            "reader": feature_users["reader_users"],
+        },
+        "top_languages": [
+            {"code": r["code"], "name": r["name"],
+             "learners": r["learners"], "cards": r["cards"]}
+            for r in top_langs
+        ],
+    }

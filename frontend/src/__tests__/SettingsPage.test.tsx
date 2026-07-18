@@ -4,6 +4,10 @@ import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { MemoryRouter } from 'react-router-dom'
 import SettingsPage from '../features/settings/SettingsPage'
 
+// Mutable so a single test can study English (which reveals the
+// English-only "learning English from" section); default is Spanish.
+let mockPrefsActiveLanguageId = 'lang-es'
+
 const mockNavigate = vi.fn()
 vi.mock('react-router-dom', async (orig) => ({
   ...(await orig<typeof import('react-router-dom')>()),
@@ -29,12 +33,14 @@ vi.mock('../stores/prefsStore', () => ({
   usePrefsStore: vi.fn(
     (selector: (s: Record<string, unknown>) => unknown) =>
       selector({
-        activeLanguageId: 'lang-es',
+        activeLanguageId: mockPrefsActiveLanguageId,
         setActiveLanguageId: vi.fn(),
         theme: 'system',
         setTheme: mockSetTheme,
         sessionSize: 20,
         setSessionSize: mockSetSessionSize,
+        accentsOptional: false,
+        setAccentsOptional: vi.fn(),
       }),
   ),
 }))
@@ -70,6 +76,7 @@ function renderPage() {
 describe('SettingsPage', () => {
   beforeEach(() => {
     vi.clearAllMocks()
+    mockPrefsActiveLanguageId = 'lang-es'
     mockGetProfile.mockResolvedValue({
       id: 'u1', batch_size: 5, ui_language: 'en', active_language_id: 'lang-es',
       support_locale: null, created_at: '', updated_at: '',
@@ -117,6 +124,7 @@ describe('SettingsPage', () => {
   })
 
   it("sets the 'learning English from' support locale", async () => {
+    mockPrefsActiveLanguageId = 'lang-en' // English-only section
     renderPage()
     const select = (await screen.findByLabelText(
       'Learning English from',
@@ -181,6 +189,9 @@ describe('SettingsPage', () => {
 })
 
 describe('SettingsPage danger zone', () => {
+  beforeEach(() => {
+    mockPrefsActiveLanguageId = 'lang-es'
+  })
   it('resets the active language only after the user confirms', async () => {
     mockReset.mockResolvedValue({ cards_deleted: 7 })
     const confirmSpy = vi.spyOn(window, 'confirm').mockReturnValue(false)

@@ -14,6 +14,20 @@ import { usePrefsStore } from '../../stores/prefsStore'
 import type { Theme } from '../../stores/prefsStore'
 import { supabase } from '../../lib/supabase'
 import LanguagePicker from '../../components/LanguagePicker'
+import { getGrammarForLanguage } from '../../api/contribute'
+import AccountsPanel from '../contribute/AccountsPanel'
+import RolesPanel from '../contribute/RolesPanel'
+import IssuesPanel from '../contribute/IssuesPanel'
+import FeedbackPanel from '../contribute/FeedbackPanel'
+import EngagementPanel from '../contribute/EngagementPanel'
+import {
+  ReviewPolicyControl,
+  TutorModelControl,
+  TutorCostsPanel,
+} from '../contribute/ContributorPage'
+import { useAuthStore } from '../../stores/authStore'
+
+type AccountTab = 'learner' | 'contribute' | 'review' | 'admin'
 
 const BATCH_SIZES = [3, 5, 10, 15, 20]
 const SESSION_SIZES = [10, 20, 50, 100]
@@ -32,9 +46,31 @@ export default function SettingsPage() {
   const setTheme = usePrefsStore((s) => s.setTheme)
   const sessionSize = usePrefsStore((s) => s.sessionSize)
   const setSessionSize = usePrefsStore((s) => s.setSessionSize)
+  const accentsOptional = usePrefsStore((s) => s.accentsOptional)
+  const setAccentsOptional = usePrefsStore((s) => s.setAccentsOptional)
 
   const { data: profile } = useQuery({ queryKey: ['profile'], queryFn: getProfile })
   const { data: languages = [] } = useQuery({ queryKey: ['languages'], queryFn: getLanguages })
+  // The "learning English from" support locale only matters when the active
+  // language IS English — hide it otherwise.
+  const studyingEnglish =
+    languages.find((l) => l.id === activeLanguageId)?.code === 'en'
+  const selfId = useAuthStore((s) => s.session?.user?.id ?? null)
+
+  // Account is a role-tabbed hub (beta request): Learner settings are the
+  // default; Contribute/Review/Admin appear for accounts that hold those
+  // roles, so the panels sit here instead of on a separate page to scroll.
+  const [tab, setTab] = useState<AccountTab>('learner')
+  const { data: workspace } = useQuery({
+    queryKey: ['contribute-grammar', activeLanguageId],
+    queryFn: () => getGrammarForLanguage(activeLanguageId!),
+    enabled: !!activeLanguageId,
+    retry: false,
+  })
+  const canReview = workspace?.can_review ?? workspace?.is_admin ?? false
+  const isAdmin = workspace?.is_admin ?? false
+  const workspaceRefresh = () =>
+    queryClient.invalidateQueries({ queryKey: ['contribute-grammar', activeLanguageId] })
   const { data: stats } = useQuery({
     queryKey: ['dashboard', activeLanguageId],
     queryFn: () => getDashboardStats(activeLanguageId!),
@@ -125,7 +161,7 @@ export default function SettingsPage() {
     <div className="min-h-screen bg-gray-50">
       <div className="max-w-xl mx-auto px-4 py-8 space-y-6">
         <div className="flex items-center justify-between">
-          <h1 className="text-2xl font-bold text-gray-900">Settings</h1>
+          <h1 className="text-2xl font-bold text-gray-900">Account</h1>
           <button
             type="button"
             onClick={() => navigate('/')}
@@ -135,6 +171,86 @@ export default function SettingsPage() {
           </button>
         </div>
 
+        {/* Role tabs: Learner is always present; the rest appear by role. */}
+        {(canReview || isAdmin) && (
+          <div
+            className="flex rounded-xl border border-gray-200 bg-white overflow-hidden text-sm"
+            role="tablist"
+            aria-label="Account sections"
+          >
+            {(
+              [
+                ['learner', 'Learner', true],
+                ['contribute', 'Contribute', true],
+                ['review', 'Review', canReview],
+                ['admin', 'Admin', isAdmin],
+              ] as [AccountTab, string, boolean][]
+            )
+              .filter(([, , show]) => show)
+              .map(([key, label]) => (
+                <button
+                  key={key}
+                  type="button"
+                  role="tab"
+                  aria-selected={tab === key}
+                  onClick={() => setTab(key)}
+                  className={`flex-1 px-4 py-2 font-semibold transition-colors ${
+                    tab === key
+                      ? 'bg-lang text-lang-on'
+                      : 'text-gray-500 hover:bg-gray-50'
+                  }`}
+                >
+                  {label}
+                </button>
+              ))}
+          </div>
+        )}
+
+        {tab === 'contribute' && activeLanguageId && (
+          <section className="bg-white rounded-2xl shadow-sm border border-gray-100 p-5 space-y-3">
+            <h2 className="font-semibold text-gray-800">Contribute</h2>
+            <p className="text-xs text-gray-500">
+              Draft and edit grammar points for the active language in the
+              full editor.
+            </p>
+            <button
+              type="button"
+              onClick={() => navigate('/contribute')}
+              className="rounded-lg bg-lang hover:bg-lang-dark text-lang-on font-semibold px-4 py-2 text-sm"
+            >
+              Open grammar editor
+            </button>
+          </section>
+        )}
+
+        {tab === 'review' && activeLanguageId && (
+          <>
+            <IssuesPanel languageId={activeLanguageId} canResolve={canReview} />
+            <FeedbackPanel languageId={activeLanguageId} />
+          </>
+        )}
+
+        {tab === 'admin' && activeLanguageId && isAdmin && (
+          <>
+            <EngagementPanel />
+            <AccountsPanel languages={languages} selfId={selfId} />
+            <RolesPanel languages={languages} />
+            <ReviewPolicyControl
+              languageId={activeLanguageId}
+              policy={workspace?.review_policy ?? 'strict'}
+              onChanged={workspaceRefresh}
+            />
+            <TutorModelControl
+              languageId={activeLanguageId}
+              current={workspace?.tutor_model ?? null}
+              onChanged={workspaceRefresh}
+            />
+            <TutorCostsPanel />
+          </>
+        )}
+
+        {tab === 'learner' && (
+        <>
         <section className="bg-white rounded-2xl shadow-sm border border-gray-100 p-5 space-y-3">
           <h2 className="font-semibold text-gray-800">Active language</h2>
           <LanguagePicker />
@@ -236,30 +352,62 @@ export default function SettingsPage() {
         </section>
 
         <section className="bg-white rounded-2xl shadow-sm border border-gray-100 p-5 space-y-3">
-          <h2 className="font-semibold text-gray-800">Learning English from</h2>
-          <p className="text-xs text-gray-500">
-            When you study <span className="font-medium">English</span>, hints,
-            definitions, and example-sentence translations appear in this
-            language instead of English.
-          </p>
-          <select
-            value={profile?.support_locale ?? 'en'}
-            onChange={(e) => supportMutation.mutate(e.target.value)}
-            disabled={supportMutation.isPending}
-            aria-label="Learning English from"
-            className="rounded-lg border border-gray-300 px-3 py-2 text-sm bg-white"
-          >
-            <option value="en">English (definitions)</option>
-            {languages
-              .filter((l) => l.code !== 'en')
-              .map((l) => (
-                <option key={l.code} value={l.code}>{l.name}</option>
-              ))}
-          </select>
-          {supportMutation.isError && (
-            <p className="text-xs text-red-500">Couldn’t save — try again.</p>
-          )}
+          <div className="flex items-start justify-between gap-4">
+            <div>
+              <h2 className="font-semibold text-gray-800">Accents optional</h2>
+              <p className="text-xs text-gray-500">
+                Count answers correct even when accents or diacritics are
+                missing — “quien” passes for “quién”. The right spelling still
+                shows, so you keep learning the marks.
+              </p>
+            </div>
+            <button
+              type="button"
+              role="switch"
+              aria-checked={accentsOptional}
+              aria-label="Accents optional"
+              onClick={() => setAccentsOptional(!accentsOptional)}
+              className={
+                'relative shrink-0 inline-flex h-6 w-11 items-center rounded-full transition-colors ' +
+                (accentsOptional ? 'bg-lang' : 'bg-gray-300')
+              }
+            >
+              <span
+                className={
+                  'inline-block h-5 w-5 transform rounded-full bg-white transition-transform ' +
+                  (accentsOptional ? 'translate-x-5' : 'translate-x-1')
+                }
+              />
+            </button>
+          </div>
         </section>
+
+        {studyingEnglish && (
+          <section className="bg-white rounded-2xl shadow-sm border border-gray-100 p-5 space-y-3">
+            <h2 className="font-semibold text-gray-800">Learning English from</h2>
+            <p className="text-xs text-gray-500">
+              Hints, definitions, and example-sentence translations appear in
+              this language instead of English.
+            </p>
+            <select
+              value={profile?.support_locale ?? 'en'}
+              onChange={(e) => supportMutation.mutate(e.target.value)}
+              disabled={supportMutation.isPending}
+              aria-label="Learning English from"
+              className="rounded-lg border border-gray-300 px-3 py-2 text-sm bg-white"
+            >
+              <option value="en">English (definitions)</option>
+              {languages
+                .filter((l) => l.code !== 'en')
+                .map((l) => (
+                  <option key={l.code} value={l.code}>{l.name}</option>
+                ))}
+            </select>
+            {supportMutation.isError && (
+              <p className="text-xs text-red-500">Couldn’t save — try again.</p>
+            )}
+          </section>
+        )}
 
         <section className="bg-white rounded-2xl shadow-sm border border-gray-100 p-5 space-y-3">
           <h2 className="font-semibold text-gray-800">Theme</h2>
@@ -353,6 +501,8 @@ export default function SettingsPage() {
             Terms of Service
           </a>
         </p>
+        </>
+        )}
       </div>
     </div>
   )
