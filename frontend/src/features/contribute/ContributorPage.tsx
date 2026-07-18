@@ -17,6 +17,7 @@ import FeedbackPanel from './FeedbackPanel'
 import IssuesPanel from './IssuesPanel'
 import RolesPanel from './RolesPanel'
 import AccountsPanel from './AccountsPanel'
+import EngagementPanel from './EngagementPanel'
 import { useAuthStore } from '../../stores/authStore'
 import {
   flagPointIssue,
@@ -548,6 +549,7 @@ export default function ContributorPage() {
 
             {tab === 'admin' && data.is_admin && (
               <>
+                <EngagementPanel />
                 <AccountsPanel languages={languages} selfId={selfId} />
                 <RolesPanel languages={languages} />
                 <ReviewPolicyControl

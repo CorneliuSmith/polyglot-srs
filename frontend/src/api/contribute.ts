@@ -120,6 +120,27 @@ export async function getTutorUsage(days = 30): Promise<TutorUsageSummary> {
   return response.data
 }
 
+export interface Engagement {
+  days: number
+  total_users: number
+  new_users: number
+  active_users: { d1: number; d7: number; d30: number }
+  reviews: number
+  review_hours: number
+  tutor_messages: number
+  readings: number
+  cards_started: number
+  feature_users: { review: number; tutor: number; reader: number }
+  top_languages: { code: string; name: string; learners: number; cards: number }[]
+}
+
+export async function getEngagement(days = 30): Promise<Engagement> {
+  const response = await apiClient.get('/api/contribute/engagement', {
+    params: { days },
+  })
+  return response.data
+}
+
 export type GrantableRole = 'contributor' | 'reviewer' | 'admin'
 
 export interface RoleGrantRow {
