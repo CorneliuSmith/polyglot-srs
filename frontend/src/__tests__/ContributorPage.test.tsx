@@ -62,6 +62,10 @@ const basePoint = {
   ai_check_status: null, ai_check_notes: null, reviewed_by: null, reviewed_at: null,
 }
 
+async function openTab(name: 'Contribute' | 'Review' | 'Admin') {
+  fireEvent.click(await screen.findByRole('tab', { name }))
+}
+
 function renderPage() {
   const queryClient = new QueryClient({ defaultOptions: { queries: { retry: false } } })
   return render(
@@ -110,6 +114,7 @@ describe('ContributorPage', () => {
       points: [{ ...basePoint, explanation: 'Has content', explanation_source: 'contributor' }],
     })
     renderPage()
+    await openTab('Review')
     expect(await screen.findByRole('button', { name: /approve \(linguist/i })).toBeDefined()
   })
 
@@ -150,6 +155,7 @@ describe('ContributorPage', () => {
       is_admin: true, points: [], review_policy: 'strict', tutor_model: null,
     })
     renderPage()
+    await openTab('Admin')
 
     const select = (await screen.findByLabelText('Tutor model')) as HTMLSelectElement
     expect(select.value).toBe('') // default (server setting)
@@ -178,6 +184,7 @@ describe('ContributorPage', () => {
       is_admin: true, points: [], review_policy: 'strict', tutor_model: null,
     })
     renderPage()
+    await openTab('Admin')
 
     const panel = await screen.findByTestId('tutor-costs')
     expect(panel.textContent).toContain('Turkish')
@@ -220,6 +227,7 @@ describe('ContributorPage', () => {
     mockGrant.mockResolvedValue(undefined)
     mockRevoke.mockResolvedValue(undefined)
     renderPage()
+    await openTab('Admin')
 
     fireEvent.click(await screen.findByRole('button', { name: /manage accounts/i }))
     const table = await screen.findByTestId('accounts-table')
@@ -271,6 +279,7 @@ describe('ContributorPage', () => {
       is_admin: true, points: [], review_policy: 'strict', tutor_model: null,
     })
     renderPage()
+    await openTab('Admin')
 
     fireEvent.click(await screen.findByRole('button', { name: /manage accounts/i }))
     // Current state renders: enabled + its cap.
@@ -318,6 +327,7 @@ describe('ContributorPage', () => {
     })
     try {
       renderPage()
+    await openTab('Admin')
       fireEvent.click(
         await screen.findByRole('button', { name: /manage accounts/i }),
       )
@@ -341,6 +351,7 @@ describe('ContributorPage', () => {
     }])
     mockResolveNote.mockResolvedValue(undefined)
     renderPage()
+    await openTab('Review')
 
     const panel = await screen.findByTestId('issues-panel')
     expect(panel.textContent).toContain('tone marks look off')

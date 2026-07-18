@@ -6,13 +6,19 @@ import { LETTERS } from '../features/letters/lettersData'
 import LettersPage from '../features/letters/LettersPage'
 
 vi.mock('../api/profile', () => ({
-  getProfile: vi.fn(),
   getLanguages: vi.fn(),
 }))
+// The page reads the LIVE active language from the prefs store (the cached
+// profile query lagged language switches — the ru/tr/ar leak from beta).
+vi.mock('../stores/prefsStore', () => ({
+  usePrefsStore: vi.fn(
+    (selector: (s: Record<string, unknown>) => unknown) =>
+      selector({ activeLanguageId: 'lang-es', qwertyTranslit: {} }),
+  ),
+}))
 
-import { getLanguages, getProfile } from '../api/profile'
+import { getLanguages } from '../api/profile'
 
-const mockGetProfile = getProfile as ReturnType<typeof vi.fn>
 const mockGetLanguages = getLanguages as ReturnType<typeof vi.fn>
 
 const ALL_CODES = [
@@ -53,8 +59,6 @@ describe('Letters & Sounds data', () => {
 
 describe('LettersPage', () => {
   beforeEach(() => {
-    vi.clearAllMocks()
-    mockGetProfile.mockResolvedValue({ active_language_id: 'lang-es' })
     mockGetLanguages.mockResolvedValue([
       { id: 'lang-es', code: 'es', name: 'Spanish', rtl: false },
     ])

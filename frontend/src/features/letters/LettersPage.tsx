@@ -1,6 +1,7 @@
 import { useQuery } from '@tanstack/react-query'
 import { useNavigate } from 'react-router-dom'
-import { getLanguages, getProfile } from '../../api/profile'
+import { getLanguages } from '../../api/profile'
+import { usePrefsStore } from '../../stores/prefsStore'
 import SpeakButton from '../../components/SpeakButton'
 import LanguageWrapper from '../../components/LanguageWrapper'
 import { TTS_LANGUAGES } from '../../api/audio'
@@ -14,10 +15,13 @@ import { lettersFor } from './lettersData'
  */
 export default function LettersPage() {
   const navigate = useNavigate()
-  const { data: profile } = useQuery({ queryKey: ['profile'], queryFn: getProfile })
+  // The LIVE active language comes from the prefs store (same source the
+  // dashboard uses) — the cached profile query lagged a language switch,
+  // so Russian/Turkish/Arabic letters leaked into the next language.
+  const activeLanguageId = usePrefsStore((s) => s.activeLanguageId)
   const { data: languages = [] } = useQuery({ queryKey: ['languages'], queryFn: getLanguages })
 
-  const language = languages.find((l) => l.id === profile?.active_language_id)
+  const language = languages.find((l) => l.id === activeLanguageId)
   const code = language?.code
   const letters = lettersFor(code)
   const hasVoice = !!code && TTS_LANGUAGES.has(code)

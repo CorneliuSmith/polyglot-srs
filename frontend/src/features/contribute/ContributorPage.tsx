@@ -456,6 +456,8 @@ function orderedPoints<T extends { id: string }>(
   return [hit, ...points.filter((p) => p.id !== focusId)]
 }
 
+type WorkspaceTab = 'contribute' | 'review' | 'admin'
+
 export default function ContributorPage() {
   const [searchParams] = useSearchParams()
   const focusPointId = searchParams.get('point')
@@ -463,6 +465,7 @@ export default function ContributorPage() {
   const navigate = useNavigate()
   const queryClient = useQueryClient()
   const activeLanguageId = usePrefsStore((s) => s.activeLanguageId)
+  const [tab, setTab] = useState<WorkspaceTab>('contribute')
 
   const { data: languages = [] } = useQuery({ queryKey: ['languages'], queryFn: getLanguages })
   const language = languages.find((l) => l.id === activeLanguageId)
@@ -508,7 +511,42 @@ export default function ContributorPage() {
 
         {data && activeLanguageId && (
           <>
-            {data.is_admin && (
+            {/* Role tiers (beta request): Contribute for drafting, Review
+                for approvals + reader feedback, Admin for accounts,
+                controls, and costs. Tabs render only for roles the account
+                holds; learners without a role never reach this content. */}
+            <div
+              className="flex rounded-xl border border-gray-200 bg-white overflow-hidden text-sm"
+              role="tablist"
+              aria-label="Workspace"
+            >
+              {(
+                [
+                  ['contribute', 'Contribute', true],
+                  ['review', 'Review', data.can_review ?? data.is_admin],
+                  ['admin', 'Admin', data.is_admin],
+                ] as [WorkspaceTab, string, boolean][]
+              )
+                .filter(([, , show]) => show)
+                .map(([key, label]) => (
+                  <button
+                    key={key}
+                    type="button"
+                    role="tab"
+                    aria-selected={tab === key}
+                    onClick={() => setTab(key)}
+                    className={`flex-1 px-4 py-2 font-semibold transition-colors ${
+                      tab === key
+                        ? 'bg-lang text-lang-on'
+                        : 'text-gray-500 hover:bg-gray-50'
+                    }`}
+                  >
+                    {label}
+                  </button>
+                ))}
+            </div>
+
+            {tab === 'admin' && data.is_admin && (
               <>
                 <AccountsPanel languages={languages} selfId={selfId} />
                 <RolesPanel languages={languages} />
@@ -525,20 +563,26 @@ export default function ContributorPage() {
                 <TutorCostsPanel />
               </>
             )}
-            <IssuesPanel
-              languageId={activeLanguageId}
-              canResolve={data.can_review ?? data.is_admin}
-            />
-            <FeedbackPanel languageId={activeLanguageId} />
-            <NewPointForm languageId={activeLanguageId} onCreated={refresh} />
+            {tab === 'review' && (
+              <>
+                <IssuesPanel
+                  languageId={activeLanguageId}
+                  canResolve={data.can_review ?? data.is_admin}
+                />
+                <FeedbackPanel languageId={activeLanguageId} />
+              </>
+            )}
+            {tab === 'contribute' && (
+              <NewPointForm languageId={activeLanguageId} onCreated={refresh} />
+            )}
           </>
         )}
 
-        {data && data.points.length === 0 && (
+        {data && tab !== 'admin' && data.points.length === 0 && (
           <p className="text-gray-500">No grammar points for this language yet.</p>
         )}
 
-        {data &&
+        {data && tab !== 'admin' &&
           orderedPoints(data.points, focusPointId).map((point) => (
             <div
               key={point.id}
@@ -551,7 +595,7 @@ export default function ContributorPage() {
             >
               <PointEditor
                 point={point}
-                canReview={data.can_review ?? data.is_admin}
+                canReview={tab === 'review' && (data.can_review ?? data.is_admin)}
                 onSaved={refresh}
               />
             </div>
