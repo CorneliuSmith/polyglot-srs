@@ -196,7 +196,7 @@ TATOEBA_ISO3 = {
     # European tier + ru/ar (well-covered on Tatoeba)
     "es": "spa", "fr": "fra", "de": "deu", "it": "ita", "ca": "cat",
     "ro": "ron", "el": "ell", "ru": "rus", "ar": "ara", "pt": "por",
-    "hi": "hin", "jam": "jam",
+    "hi": "hin", "jam": "jam", "mi": "mri",
 }
 
 # Hausa has no reachable public-domain corpus in this pipeline; the user drops
@@ -349,7 +349,34 @@ def parse_kaikki_jsonl(path: Path, wanted: set[str] | None = None) -> dict[str, 
     return entries
 
 
-_WORD_RE = re.compile(r"[^\W\d_]+", re.UNICODE)
+# Word tokens INCLUDING combining marks: Python's \w excludes Unicode Mn/Mc
+# marks, so the plain [^\W\d_]+ pattern shredded every Devanagari word with
+# a matra (नहीं tokenized as नह) — the reason Hindi sentence matching found
+# almost nothing. The added ranges cover Devanagari signs/matras, Arabic
+# harakat, and general combining diacriticals; digit-bearing tokens are
+# filtered after the fact to preserve the old \d exclusion.
+_WORD_CHARS = (
+    r"[^\W\d_]"
+    r"|[ऀ-ःऺ-ॏ॑-ॗॢ-ॣঁ-ঃ]"
+    r"|[ً-ْٰ]"
+    r"|[̀-ͯ]"
+)
+_WORD_RE_RAW = re.compile(f"(?:{_WORD_CHARS})+", re.UNICODE)
+
+
+class _WordRe:
+    """Drop-in for the old regex: findall() with mark-aware tokens."""
+
+    @staticmethod
+    def findall(text: str) -> list[str]:
+        # Tokens made ONLY of combining marks (stray matras) are noise.
+        return [
+            t for t in _WORD_RE_RAW.findall(text)
+            if re.search(r"[^\W\d_]", t, re.UNICODE)
+        ]
+
+
+_WORD_RE = _WordRe()
 
 
 def corpus_word_counts(xml_path: Path) -> Counter:
@@ -621,19 +648,39 @@ def sentence_difficulty(
     rank_by_word: dict[str, int],
     lemmatize,
     unknown_penalty: int = 99999,
+    tolerated_unknown_rank: int = 19999,
 ) -> int:
     """Score a sentence by its rarest word: max frequency rank over tokens.
 
     This is the progression metric — a sentence is only as easy as its
-    hardest word. Tokens missing from the vocabulary get *unknown_penalty*
-    so sentences with out-of-list words sort to the end.
+    hardest word. Two forgiveness rules (beta fix — the old all-or-nothing
+    drop left Hindi with 427 sentences from a corpus of thousands and
+    Catalan at 17% coverage):
+
+      - single-letter tokens are ignored: they are elision clitics (l'home,
+        d'una) and initials, not vocabulary;
+      - exactly ONE unknown multi-letter token scores *tolerated_unknown_rank*
+        (hard-but-usable) instead of poisoning the sentence. Easiest-first
+        selection means such sentences only surface for words that would
+        otherwise have no example at all. Two or more unknowns still get
+        *unknown_penalty* — that's a sentence the learner can't read.
     """
     ranks = []
+    unknowns = 0
     for token in _WORD_RE.findall(sentence.lower()):
+        if len(token) == 1:
+            continue
         rank = rank_by_word.get(token)
         if rank is None:
-            rank = rank_by_word.get(lemmatize(token), unknown_penalty)
+            rank = rank_by_word.get(lemmatize(token))
+        if rank is None:
+            unknowns += 1
+            continue
         ranks.append(rank)
+    if unknowns >= 2 or (unknowns == 1 and not ranks):
+        return unknown_penalty
+    if unknowns == 1:
+        ranks.append(tolerated_unknown_rank)
     return max(ranks) if ranks else unknown_penalty
 
 
@@ -1202,7 +1249,16 @@ def build_sentences(language: str, cache_dir: Path, per_word: int = 3) -> Path:
     with open(freq_tsv, encoding="utf-8") as f:
         for row in csv.DictReader(f, delimiter="\t"):
             rank_by_word[row["word"]] = int(row["rank"])
-
+    if language == "hi":
+        # The rule lemmatizer folds only the most productive endings, so
+        # corpus tokens like जाएगी or बच्चों miss the headword and the
+        # sentence gets dropped. Expanding each headword into its surface
+        # family (the same generator the answer-grader uses) closes most of
+        # the gap: every family form scores at the headword's rank.
+        nlp = HindiNLP()
+        for word, rank in list(rank_by_word.items()):
+            for form in nlp.get_morphological_family(word):
+                rank_by_word.setdefault(form, rank)
     from backend.services.nlp.jamaican import JamaicanNLP
 
     nlp_by_lang = {

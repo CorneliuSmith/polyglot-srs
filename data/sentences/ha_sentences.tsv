@@ -1,193 +1,36 @@
-word	sentence	translation
-ni	Ni ɗalibi ne.	I am a student.
-kai	Kai ɗan Najeriya ne?	Are you Nigerian?
-shi	Shi yana nan.	He is here.
-mu	Mu tafi gida.	Let's go home.
-zama	Ina son zama malami.	I want to be a teacher.
-yi	Ina son yi aiki.	I want to do work.
-tafi	Ina son tafi gida.	I want to go home.
-ci	Ina son ci 'ya'yan itace.	I want to eat fruit.
-sha	Ina son sha ruwa.	I want to drink water.
-so	Ina so in koya.	I want to learn.
-gani	Zan iya gani.	I can see.
-ce	Me kake son ce?	What do you want to say?
-ruwa	Ruwa yana da sanyi.	The water is cold.
-abinci	Abinci ya shirya.	The food is ready.
-gida	Wannan gida babba ne.	This house is big.
-mutum	Shi mutum ne mai kyau.	He is a good person.
-rana	Yau rana ce mai kyau.	Today is a nice day.
-ee	Ee, na yarda.	Yes, I agree.
-a'a	A'a, ba ni da lokaci.	No, I don't have time.
-na gode	Na gode sosai.	Thank you very much.
-koya	Ina son koya Hausa.	I want to learn Hausa.
-magana	Ina son magana da kai.	I want to talk with you.
-gane	Ban gane ba.	I don't understand.
-sani	Ina son sani gaskiya.	I want to know the truth.
-rubuta	Zan rubuta wasika.	I will write a letter.
-karanta	Ina son karanta littafi.	I want to read a book.
-littafi	Wannan littafi yana da kyau.	This book is good.
-harshe	Hausa harshe ne mai kyau.	Hausa is a nice language.
-babba	Birni babba ne.	The city is big.
-kyau	Kofi yana da kyau.	The coffee is good.
-ni	Ni ɗalibi ne.	I am a student.
-ni	Ni ne na yi shi.	It was I who did it.
-ni	Ita ta gan ni.	She saw me.
-ni	Sun kira ni jiya.	They called me yesterday.
-ni	Ba ni da lokaci.	I don't have time.
-kai	Kai malami ne?	Are you a teacher?
-kai	Kai ne abokina.	You are my friend.
-kai	Kai fa?	And you?
-kai	Kai da ni za mu tafi.	You and I will go.
-kai	Kai ne ka fara.	It was you who started.
-shi	Shi likita ne.	He is a doctor.
-shi	Na san shi.	I know him.
-shi	Shi ne ya zo jiya.	He is the one who came yesterday.
-shi	Ban gan shi ba.	I didn't see him.
-shi	Ita ta fi shi tsayi.	She is taller than him.
-mu	Mu ɗalibai ne.	We are students.
-mu	Sun gan mu.	They saw us.
-mu	Mu ne muka yi aikin.	It was we who did the work.
-mu	Za su taimake mu.	They will help us.
-mu	Mu da su muna aiki tare.	We and they work together.
-zama	Ina so in zama likita.	I want to become a doctor.
-zama	Ya zama malami.	He became a teacher.
-zama	Ta zama shugabar makaranta.	She became the head of the school.
-zama	Wannan ya zama matsala.	This has become a problem.
-zama	Za mu zama abokai.	We will become friends.
-yi	Me kake yi?	What are you doing?
-yi	Na yi aiki da yawa.	I did a lot of work.
-yi	Za mu yi ƙoƙari.	We will try.
-yi	Ta yi abinci mai daɗi.	She made delicious food.
-yi	Kada ka yi haka!	Don't do that!
-tafi	Ina so in tafi gida.	I want to go home.
-tafi	Ya tafi kasuwa.	He went to the market.
-tafi	Za mu tafi gobe.	We will go tomorrow.
-tafi	Kada ka tafi yanzu.	Don't go now.
-tafi	Sun tafi makaranta.	They went to school.
-ci	Na ci shinkafa.	I ate rice.
-ci	Me za ka ci?	What will you eat?
-ci	Mun ci abinci da safe.	We ate in the morning.
-ci	Ta ci burodi.	She ate bread.
-ci	Ba su ci ba tukuna.	They haven't eaten yet.
-sha	Na sha ruwa.	I drank water.
-sha	Me za ka sha?	What will you drink?
-sha	Mukan sha shayi da safe.	We usually drink tea in the morning.
-sha	Ta sha madara.	She drank milk.
-sha	Ya kamata ka sha ruwa da yawa.	You should drink a lot of water.
-so	Ina so in koyi Hausa.	I want to learn Hausa.
-so	Tana son karatu.	She likes studying.
-so	Muna son abinci mai daɗi.	We like tasty food.
-so	Ba na son surutu.	I don't like noise.
-so	Suna son juna.	They love each other.
-gani	Ba zan iya gani ba.	I cannot see.
-gani	Gani ya fi ji.	Seeing is better than hearing.
-gani	Za ka iya gani daga nan?	Can you see from here?
-gani	Ina bukatar gilashi don gani.	I need glasses in order to see.
-gani	Duhu ya hana mu gani.	The darkness kept us from seeing.
-ce	Me ta ce?	What did she say?
-ce	Ta ce za ta zo.	She said she would come.
-ce	Ka ce mini gaskiya.	Tell me the truth.
-ce	Su ce abin da suke so.	Let them say what they want.
-ce	Na ce masa barka.	I greeted him.
-ruwa	Ruwa yana da sanyi.	The water is cold.
-ruwa	Ina bukatar ruwa.	I need water.
-ruwa	Babu ruwa a gida.	There is no water at home.
-ruwa	Sha ruwa kowace rana.	Drink water every day.
-ruwa	Ruwa ya sauka jiya.	It rained yesterday.
-abinci	Abinci ya yi daɗi.	The food is delicious.
-abinci	Muna dafa abinci.	We are cooking food.
-abinci	Abinci yana kan tebur.	The food is on the table.
-abinci	Ta sayi abinci a kasuwa.	She bought food at the market.
-abinci	Wannan abinci yana da kyau.	This food is good.
-gida	Ina zuwa gida.	I am going home.
-gida	Suna gida yanzu.	They are at home now.
-gida	Mun gina sabon gida.	We built a new house.
-gida	Babu kowa a gida.	There is nobody at home.
-gida	Gida shi ne wurin hutawa.	Home is the place of rest.
-mutum	Shi mutum ne mai kirki.	He is a kind person.
-mutum	Kowane mutum ya bambanta.	Every person is different.
-mutum	Wani mutum yana jira a ƙofa.	A man is waiting at the door.
-mutum	Ban san wannan mutum ba.	I don't know this person.
-mutum	Mutum nawa suka zo?	How many people came?
-rana	Rana tana da zafi.	The sun is hot.
-rana	Yau rana ce mai kyau.	Today is a nice day.
-rana	Muna aiki da rana.	We work during the day.
-rana	Kowace rana ina karatu.	Every day I study.
-rana	Rana ta fito.	The sun has come out.
-ee	Ee, na yarda.	Yes, I agree.
-ee	Ee, zan zo gobe.	Yes, I will come tomorrow.
-ee	Ee, ina jin Hausa.	Yes, I understand Hausa.
-ee	Ya ce ee.	He said yes.
-ee	Ee, haka ne.	Yes, that's right.
-a'a	A'a, ban gama ba.	No, I haven't finished.
-a'a	A'a, na gode.	No, thank you.
-a'a	A'a, ba haka ba ne.	No, it's not like that.
-a'a	Ta ce a'a.	She said no.
-a'a	A'a, babu matsala.	No, there's no problem.
-na gode	Na gode da taimakonka.	Thank you for your help.
-na gode	Na gode sosai.	Thank you very much.
-na gode	Na gode da abinci.	Thank you for the food.
-na gode	Na gode, ina lafiya.	Thanks, I am fine.
-na gode	Na gode da zuwanka.	Thank you for coming.
-koya	Tana koya mini Hausa.	She is teaching me Hausa.
-koya	Yana da kyau a koya sababbin abubuwa.	It is good to learn new things.
-koya	Malam ya koya mana darasi.	The teacher taught us a lesson.
-koya	Za mu koya tare.	We will learn together.
-koya	Kowa na iya koya.	Anyone can learn.
-magana	Ina son magana da kai.	I want to talk with you.
-magana	Suna magana game da aiki.	They are talking about work.
-magana	Yi magana a hankali.	Speak slowly and carefully.
-magana	Magana ta gaskiya ce.	The statement is true.
-magana	Magana da yawa ba ta da amfani.	Too much talk is useless.
-gane	Na gane.	I understand.
-gane	Ban gane ba.	I don't understand.
-gane	Ka gane abin da nake nufi?	Do you understand what I mean?
-gane	Yanzu na fara gane.	Now I am starting to understand.
-gane	Ta gane darasin.	She understood the lesson.
-sani	Ina son sani.	I want to know.
-sani	Ba ni da sani game da wannan.	I have no knowledge about this.
-sani	Da na sani, da ban zo ba.	Had I known, I would not have come.
-sani	Sani ya fi dukiya.	Knowledge is better than wealth.
-sani	Kowa yana bukatar sani.	Everyone needs knowledge.
-rubuta	Ina so in rubuta wasiƙa.	I want to write a letter.
-rubuta	Ta rubuta littafi.	She wrote a book.
-rubuta	Rubuta sunanka a nan.	Write your name here.
-rubuta	Za mu rubuta jarrabawa gobe.	We will write an exam tomorrow.
-rubuta	Ya rubuta mini saƙo.	He wrote me a message.
-karanta	Ina son karanta littattafai.	I like reading books.
-karanta	Ta karanta jarida.	She read the newspaper.
-karanta	Karanta umarnin da kyau.	Read the instructions well.
-karanta	Muna karanta Hausa a makaranta.	We read Hausa at school.
-karanta	Ya karanta labarin jiya.	He read the story yesterday.
-littafi	Littafi yana kan tebur.	The book is on the table.
-littafi	Na sayi sabon littafi.	I bought a new book.
-littafi	Wannan littafi yana da kyau.	This book is good.
-littafi	Ina da wani littafi mai daɗi.	I have an interesting book.
-littafi	Littafi ya ɓace.	The book got lost.
-harshe	Hausa harshe ne mai daɗi.	Hausa is a sweet language.
-harshe	Wane harshe kake magana a gida?	What language do you speak at home?
-harshe	Kowane harshe yana da kyau.	Every language is beautiful.
-harshe	Ina koyon sabon harshe.	I am learning a new language.
-harshe	Harshe shi ne mabuɗin al'adu.	Language is the key to culture.
-babba	Gidansu babba ne.	Their house is big.
-babba	Kano birni ne babba.	Kano is a big city.
-babba	Yau rana ce babba a gare mu.	Today is a big day for us.
-babba	Akwai kasuwa babba a nan.	There is a big market here.
-babba	Ɗan'uwana babba yana aiki.	My elder brother is working.
-kyau	Aikinka yana da kyau.	Your work is good.
-kyau	Yarinyar tana da kyau.	The girl is beautiful.
-kyau	Yana da kyau a sha ruwa.	It is good to drink water.
-kyau	Wannan abu ba shi da kyau.	This thing is not good.
-kyau	Yanayi yana da kyau yau.	The weather is nice today.
-so	Ina so in tafi yanzu.	I want to go now.
-so	Muna so mu gan ka.	We want to see you.
-so	Tana so ta zama likita.	She wants to become a doctor.
-so	Suna so su zo gobe.	They want to come tomorrow.
-ni	Wannan littafi nawa ne, ba naka ba, ka ba ni shi.	This book is mine, not yours, give it to me.
-ruwa	Muna bukatar ruwa don tafiya.	We need water for the journey.
-rana	Za mu sadu wata rana.	We will meet some day.
-ee	Ee, ga shi nan.	Yes, here it is.
-gane	Kowa ya gane maganar.	Everyone understood the statement.
-littafi	Ka mayar da littafi ɗakin karatu.	Return the book to the library.
-magana	Ka ji magana mai kyau.	Listen to good advice.
-na gode	Na gode da haƙurinka.	Thank you for your patience.
+word	sentence	translation	difficulty_rank
+wannan	Wannan gida ne.	This is a house.	100
+daga	Na zo daga Kano.	I came from Kano.	100
+wani	Wani mutum ya zo.	A man came.	100
+mai	Babu mai a gida.	There is no oil at home.	100
+amma	Ina so, amma ba ni da kudi.	I want to, but I have no money.	100
+suna	Wannan suna ne mai kyau.	That is a nice name.	100
+allah	Allah ya taimake mu.	May God help us.	100
+idan	Idan ka zo, za mu ci abinci.	If you come, we will eat.	100
+har	Mun jira har dare.	We waited until night.	100
+yanzu	Ina zuwa yanzu.	I am coming now.	100
+bayan	Gida yana bayan kasuwa.	The house is behind the market.	100
+saboda	Ban zo ba saboda ruwan sama.	I did not come because of the rain.	100
+wata	Wata ya fito.	The moon is out.	100
+ita	Ita ce malama.	She is a teacher.	100
+aiki	Ina da aiki da yawa.	I have a lot of work.	100
+duniya	Duniya tana da girma.	The world is big.	100
+biyu	Ina da yara biyu.	I have two children.	100
+mata	Mata suna aiki a gona.	The women are working on the farm.	100
+nuna	Nuna mini hanya.	Show me the way.	100
+ji	Na ji labari.	I heard the news.	100
+ciki	Ruwa yana ciki.	The water is inside.	100
+tun	Ina nan tun safe.	I have been here since morning.	100
+abu	Wannan abu ne mai kyau.	This is a good thing.	100
+farko	Wannan shi ne farko.	This is the beginning.	100
+dama	Kana da dama yanzu.	You have a chance now.	100
+lafiya	Ina lafiya.	I am fine.	100
+gwamnati	Gwamnati ta gina makaranta.	The government built a school.	100
+shekara	Ina da shekara ashirin.	I am twenty years old.	100
+amfani	Wannan yana da amfani.	This is useful.	100
+yawa	Mutane da yawa sun zo.	Many people came.	100
+nijeriya	Nijeriya kasa ce babba.	Nigeria is a big country.	100
+zuwa	Ina zuwa kasuwa.	I am going to the market.	100
+yadda	Ka ga yadda ya yi.	See how he did it.	100
+musamman	Na zo musamman don ka.	I came especially for you.	100
+domin	Na yi shi domin ka.	I did it for your sake.	100

@@ -1,13 +1,16 @@
 word	sentence	translation	difficulty_rank
-a	Mi a 24.	I'm 24 years old.	8
-mi	Mi a 24.	I'm 24 years old.	8
-a	Mi a 18.	I'm 18 years old.	8
-mi	Mi a 18.	I'm 18 years old.	8
-a	Mi a 25.	I'm 25 years old.	8
-mi	Mi a 25.	I'm 25 years old.	8
+mi	Mi a 24.	I'm 24 years old.	1
+a	Mi a 24.	I'm 24 years old.	1
+mi	Mi a 18.	I'm 18 years old.	1
+a	Mi a 18.	I'm 18 years old.	1
+mi	Mi a 25.	I'm 25 years old.	1
+a	Mi a 25.	I'm 25 years old.	1
 gaan	Mi gaan!	Good-bye!	48
 gaan	Mi gaan.	Good-bye.	48
 gud	Gud Mawnin!	Good morning!	103
 mawnin	Gud Mawnin!	Good morning!	103
 gud	Gud Mawnin.	Good morning.	103
 mawnin	Gud Mawnin.	Good morning.	103
+gaan	Mi gaan, Sayoko!	Good-bye, Sayoko!	19999
+yu	Yu egzaastid.	You're exhausted.	19999
+gwaan	Gwaan weh.	Go.	19999
