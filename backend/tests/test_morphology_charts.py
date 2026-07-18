@@ -1,7 +1,10 @@
 """The language-shaped morphology builders (§3b): each language extracts
 what ITS learners need per part of speech from kaikki forms arrays."""
 
-from backend.services.seeder.morphology_charts import BUILDERS
+from backend.services.seeder.morphology_charts import (
+    BUILDERS,
+    strip_nominal_chips,
+)
 
 
 def _entry(pos, forms, expansion=""):
@@ -161,3 +164,34 @@ class TestEmpty:
     def test_no_usable_forms_returns_none(self):
         assert BUILDERS["ru"](_entry("verb", [])) is None
         assert BUILDERS["es"](_entry("noun", [("x", ["romanization"])])) is None
+
+
+class TestStripNominalChips:
+    """A word's chosen POS vetoes gender/number chips inherited from a
+    homographic noun sense (de/para/no showing 'Plural des')."""
+
+    def _morph(self):
+        return {"pos": "noun", "lemma": "de",
+                "chips": [{"label": "Gender", "value": "feminine"},
+                          {"label": "Plural", "value": "des"}]}
+
+    def test_preposition_loses_gender_and_plural(self):
+        out = strip_nominal_chips(self._morph(), "prep")
+        assert out.get("chips") in (None, [])
+        assert out["lemma"] == "de"
+
+    def test_noun_keeps_its_chips(self):
+        out = strip_nominal_chips(self._morph(), "noun")
+        assert _chip(out, "Gender") == "feminine"
+        assert _chip(out, "Plural") == "des"
+
+    def test_verb_conjugation_chips_survive(self):
+        m = {"chips": [{"label": "Gerund", "value": "yendo"},
+                       {"label": "Plural", "value": "xs"}]}
+        out = strip_nominal_chips(m, "verb")
+        assert _chip(out, "Gerund") == "yendo"
+        assert _chip(out, "Plural") is None
+
+    def test_none_and_empty_are_safe(self):
+        assert strip_nominal_chips(None, "prep") is None
+        assert strip_nominal_chips({}, "prep") == {}

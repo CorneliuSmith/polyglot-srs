@@ -48,6 +48,7 @@ class BaseSeeder(ABC):
         path = DATA_DIR / f"{self.language_code}_morphology.json"
         if not path.exists():
             return
+        from .morphology_charts import strip_nominal_chips
         with open(path, encoding="utf-8") as f:
             by_word = json.load(f)
         merged = 0
@@ -58,7 +59,11 @@ class BaseSeeder(ABC):
             base = rec.get("morphology") or {}
             if isinstance(base, str):
                 base = json.loads(base) if base.strip() else {}
-            rec["morphology"] = {**base, **extra}
+            # A word's chosen POS vetoes gender/number chips inherited from a
+            # homographic noun sense (de/para/no showing "Plural des").
+            rec["morphology"] = strip_nominal_chips(
+                {**base, **extra}, rec.get("pos")
+            )
             merged += 1
         if merged:
             self.logger.info(
