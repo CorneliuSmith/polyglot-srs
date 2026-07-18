@@ -1,169 +1,64 @@
-word	sentence	translation
-mo	Mo jẹ́ akẹ́kọ̀ọ́.	I am a student.
-ìwọ	Ìwọ ń sọ Yorùbá?	Do you speak Yoruba?
-ó	Ó wà ní ilé.	He is at home.
-àwa	Àwa jọ jẹun.	We eat together.
-ní	Mo fẹ́ ní ajá.	I want to have a dog.
-lọ	Mo fẹ́ lọ sí ilé.	I want to go home.
-jẹ	Mo fẹ́ jẹ èso.	I want to eat fruit.
-mu	Mo fẹ́ mu omi.	I want to drink water.
-fẹ́	Mo fẹ́ kọ́ Yorùbá.	I want to learn Yoruba.
-rí	Mo fẹ́ rí ọ.	I want to see you.
-sọ	Kí ni o fẹ́ sọ?	What do you want to say?
-omi	Omi náà tutù.	The water is cold.
-oúnjẹ	Oúnjẹ ti ṣetán.	The food is ready.
-ilé	Ilé mi kéré.	My house is small.
-ènìyàn	Ó jẹ́ ènìyàn rere.	She is a good person.
-ọjọ́	Ọjọ́ tó dára ni òní.	Today is a good day.
-bẹ́ẹ̀ni	Bẹ́ẹ̀ni, mo gbà.	Yes, I agree.
-bẹ́ẹ̀kọ́	Bẹ́ẹ̀kọ́, mi ò ní àkókò.	No, I don't have time.
-kọ́	Mo fẹ́ kọ́ èdè Yorùbá.	I want to learn the Yoruba language.
-sọ̀rọ̀	Mo fẹ́ sọ̀rọ̀ pẹ̀lú rẹ.	I want to talk with you.
-yé	Kò yé mi.	I don't understand.
-mọ̀	Mo fẹ́ mọ̀ òtítọ́.	I want to know the truth.
-kọ	Mo fẹ́ kọ lẹ́tà.	I want to write a letter.
-ka	Mo fẹ́ ka ìwé.	I want to read a book.
-ìwé	Ìwé yìí dára.	This book is good.
-èdè	Èdè Yorùbá lẹ́wà.	The Yoruba language is beautiful.
-ńlá	Ilé ńlá ni.	It is a big house.
-dáa	Kọfí náà dáa.	The coffee is good.
-mo	Mo ń kọ́ èdè Yorùbá.	I am learning the Yoruba language.
-mo	Mo ń gbé ní Èkó.	I live in Lagos.
-mo	Mo rí i lánàá.	I saw him yesterday.
-mo	Mo fẹ́ràn oúnjẹ yìí.	I love this food.
-mo	Mo máa lọ lọ́la.	I will go tomorrow.
-ìwọ	Ìwọ ni ọ̀rẹ́ mi.	You are my friend.
-ìwọ	Ìwọ ńkọ́?	And you?
-ìwọ	Ṣé ìwọ ló ṣe é?	Was it you who did it?
-ìwọ	Ìwọ àti èmi lọ sí ọjà.	You and I went to the market.
-ìwọ	Ìwọ ni mo ń bá sọ̀rọ̀.	It is you I am talking to.
-ó	Ó ń ṣiṣẹ́ lọ́wọ́.	He is working right now.
-ó	Ó jẹ́ olùkọ́.	She is a teacher.
-ó	Ó fẹ́ràn tii.	He likes tea.
-ó	Ó ti dé ilé.	He has arrived home.
-ó	Ó ń kàwé.	She is studying.
-àwa	Àwa ń kọ́ èdè Yorùbá.	We are learning Yoruba.
-àwa	Àwa jẹ́ akẹ́kọ̀ọ́.	We are students.
-àwa	Àwa ni a ṣe é.	It was we who did it.
-àwa	Àwa yóò lọ lọ́la.	We will go tomorrow.
-àwa	Àwa ń gbé ní Ìbàdàn.	We live in Ibadan.
-ní	Mo ní ìwé mẹ́ta.	I have three books.
-ní	Ó ní owó.	He has money.
-ní	A ní ilé kékeré.	We have a small house.
-ní	Wọ́n ní ọmọ méjì.	They have two children.
-ní	Ṣé o ní àkókò?	Do you have time?
-lọ	A fẹ́ lọ sí ọjà.	We want to go to the market.
-lọ	Ó ti lọ sí iṣẹ́.	He has gone to work.
-lọ	Wọ́n máa lọ lọ́la.	They will go tomorrow.
-lọ	Jẹ́ ká lọ!	Let's go!
-lọ	Mo gbọ́dọ̀ lọ báyìí.	I must go now.
-jẹ	Mo fẹ́ jẹ ìrẹsì.	I want to eat rice.
-jẹ	Ó ń jẹ oúnjẹ.	He is eating food.
-jẹ	A jẹ ẹ̀wà lánàá.	We ate beans yesterday.
-jẹ	Kí ni o fẹ́ jẹ?	What do you want to eat?
-jẹ	Wọ́n ń jẹ àgbàdo.	They are eating corn.
-mu	Ó ń mu tii.	She is drinking tea.
-mu	Mo máa mu omi.	I will drink water.
-mu	A gbọ́dọ̀ mu omi púpọ̀.	We must drink plenty of water.
-mu	Kí ni o fẹ́ mu?	What do you want to drink?
-mu	Wọ́n ń mu kọfí ní àárọ̀.	They drink coffee in the morning.
-fẹ́	Mo fẹ́ sùn.	I want to sleep.
-fẹ́	Ó fẹ́ ra ìwé.	He wants to buy a book.
-fẹ́	A fẹ́ jẹun báyìí.	We want to eat now.
-fẹ́	Kí ni o fẹ́?	What do you want?
-fẹ́	Wọ́n fẹ́ kọ́ èdè Gẹ̀ẹ́sì.	They want to learn English.
-rí	Mo rí ọkọ̀ náà.	I saw the vehicle.
-rí	Ó rí ọ̀rẹ́ rẹ̀ ní ọjà.	She saw her friend at the market.
-rí	Ṣé o rí òkè yẹn?	Do you see that mountain?
-rí	A rí i lánàá.	We saw him yesterday.
-rí	N kò rí nǹkan.	I don't see anything.
-sọ	Sọ òtítọ́!	Tell the truth!
-sọ	Ó sọ pé òun máa wá.	He said that he would come.
-sọ	Kí ni wọ́n sọ?	What did they say?
-sọ	Mo fẹ́ sọ nǹkan kan.	I want to say something.
-sọ	Ó ṣòro láti sọ.	It is hard to say.
-omi	Mo mu omi tútù.	I drank cold water.
-omi	Omi wà nínú ìgò.	There is water in the bottle.
-omi	Omi náà mọ́.	The water is clean.
-omi	A nílò omi fún ìrìn àjò.	We need water for the journey.
-omi	Omi òkun kò ṣe é mu.	Sea water is not drinkable.
-oúnjẹ	Oúnjẹ náà dùn.	The food is delicious.
-oúnjẹ	Mo fẹ́ràn oúnjẹ Yorùbá.	I love Yoruba food.
-oúnjẹ	Oúnjẹ wà lórí tábìlì.	There is food on the table.
-oúnjẹ	Màmá ń se oúnjẹ.	Mum is cooking food.
-oúnjẹ	A ra oúnjẹ ní ọjà.	We bought food at the market.
-ilé	Ilé wa tóbi.	Our house is big.
-ilé	Mo ń lọ sí ilé.	I am going home.
-ilé	Ilé ìwé wà nítòsí.	The school is nearby.
-ilé	Ilé àwọn òbí mi ti pẹ́.	My parents' house is old.
-ilé	Ta ni ó wà ní ilé?	Who is at home?
-ènìyàn	Ènìyàn púpọ̀ wà ní ọjà.	There are many people at the market.
-ènìyàn	Ó jẹ́ ènìyàn dáadáa.	He is a good person.
-ènìyàn	Ènìyàn kọ̀ọ̀kan yàtọ̀.	Each person is different.
-ènìyàn	N kò mọ ènìyàn yẹn.	I don't know that person.
-ènìyàn	Ènìyàn ni yóò ràn ọ́ lọ́wọ́.	It is people who will help you.
-ọjọ́	Ọjọ́ ìbí mi ni lọ́la.	Tomorrow is my birthday.
-ọjọ́	Ọjọ́ kọ̀ọ̀kan ni mo ń kàwé.	I study every day.
-ọjọ́	Ọjọ́ náà gùn.	The day is long.
-ọjọ́	Ọjọ́ Ajé ni a máa bẹ̀rẹ̀.	We start on Monday.
-ọjọ́	Ọjọ́ mẹ́ta ni mo fi ṣe é.	It took me three days to do it.
-bẹ́ẹ̀ni	Bẹ́ẹ̀ni, mo fẹ́ tii.	Yes, I want tea.
-bẹ́ẹ̀ni	Bẹ́ẹ̀ni, ó ti dé.	Yes, he has arrived.
-bẹ́ẹ̀ni	Bẹ́ẹ̀ni, mo gbọ́ ọ.	Yes, I hear you.
-bẹ́ẹ̀ni	Ó ní bẹ́ẹ̀ni.	He said yes.
-bẹ́ẹ̀ni	Bẹ́ẹ̀ni, a máa wá.	Yes, we will come.
-bẹ́ẹ̀kọ́	Bẹ́ẹ̀kọ́, kò rí bẹ́ẹ̀.	No, it is not like that.
-bẹ́ẹ̀kọ́	Bẹ́ẹ̀kọ́, n kò lọ.	No, I did not go.
-bẹ́ẹ̀kọ́	Ó ní bẹ́ẹ̀kọ́.	She said no.
-bẹ́ẹ̀kọ́	Bẹ́ẹ̀kọ́, ẹ ṣé.	No, thank you.
-bẹ́ẹ̀kọ́	Bẹ́ẹ̀kọ́, kò sí ìṣòro.	No, there is no problem.
-kọ́	A ń kọ́ èdè tuntun.	We are learning a new language.
-kọ́	Ó fẹ́ kọ́ iṣẹ́ ọwọ́.	He wants to learn a craft.
-kọ́	Mo ń kọ́ bí a ṣe ń se oúnjẹ.	I am learning how to cook.
-kọ́	Wọ́n ń kọ́ Yorùbá ní ilé ìwé.	They learn Yoruba at school.
-kọ́	Kò pẹ́ jù láti kọ́.	It is not too late to learn.
-sọ̀rọ̀	Wọ́n ń sọ̀rọ̀ nípa iṣẹ́.	They are talking about work.
-sọ̀rọ̀	Mo fẹ́ bá ọ sọ̀rọ̀.	I want to talk with you.
-sọ̀rọ̀	Ó ń sọ̀rọ̀ pẹ̀lú màmá rẹ̀.	She is talking with her mother.
-sọ̀rọ̀	Ẹ jọ̀wọ́, ẹ sọ̀rọ̀ jẹ́jẹ́.	Please speak slowly.
-sọ̀rọ̀	A sọ̀rọ̀ lẹ́yìn oúnjẹ alẹ́.	We talked after dinner.
-yé	Ọ̀rọ̀ náà yé mi.	I understand the matter.
-yé	Ṣé ó yé ọ?	Do you understand?
-yé	Kò yé wa.	We don't understand.
-yé	Ó bẹ̀rẹ̀ sí í yé mi.	I am beginning to understand.
-yé	Èdè náà yé e.	He understands the language.
-mọ̀	Mo mọ̀ ọ́n dáadáa.	I know him well.
-mọ̀	A mọ̀ pé òtítọ́ ni.	We know that it is true.
-mọ̀	Ṣé o mọ̀ ọ̀nà?	Do you know the way?
-mọ̀	N kò mọ̀.	I don't know.
-mọ̀	Ó yẹ kí o mọ̀ èyí.	You should know this.
-kọ	Ó ń kọ lẹ́tà.	He is writing a letter.
-kọ	A kọ orúkọ wa.	We wrote our names.
-kọ	Ó ń kọ ìwé tuntun.	She is writing a new book.
-kọ	Kọ orúkọ rẹ síbí.	Write your name here.
-kọ	Mo máa kọ sí ọ.	I will write to you.
-ka	Ó ń ka ìwé ìròyìn.	He is reading the newspaper.
-ka	Mo fẹ́ràn láti ka ìwé.	I love to read books.
-ka	A ka ìtàn náà.	We read the story.
-ka	Ka ìlànà náà dáadáa.	Read the instructions carefully.
-ka	Ó ń ka ìwé kí ó tó sùn.	She reads before sleeping.
-ìwé	Ìwé náà wà lórí tábìlì.	The book is on the table.
-ìwé	Mo ra ìwé tuntun.	I bought a new book.
-ìwé	Ìwé mi dà?	Where is my book?
-ìwé	Ó ní ìwé púpọ̀.	He has many books.
-ìwé	Ìwé ìtàn ni mo fẹ́ràn jù.	Storybooks are my favourite.
-èdè	Èdè wo ni o ń sọ ní ilé?	What language do you speak at home?
-èdè	Èdè kọ̀ọ̀kan lẹ́wà.	Every language is beautiful.
-èdè	Èdè tuntun ṣí ilẹ̀kùn.	A new language opens doors.
-èdè	Èdè Gẹ̀ẹ́sì àti Yorùbá ni mo mọ̀.	I know English and Yoruba.
-èdè	Èdè ìbílẹ̀ wa ni Yorùbá.	Yoruba is our native language.
-ńlá	Ìlú ńlá ni Èkó.	Lagos is a big city.
-ńlá	Ó ra ilé ńlá.	He bought a big house.
-ńlá	Ọjà ńlá wà níbẹ̀.	There is a big market there.
-ńlá	Igi ńlá wà nínú ọgbà.	There is a big tree in the garden.
-ńlá	Ayọ̀ ńlá ni fún wa.	It is a great joy for us.
-dáa	Iṣẹ́ rẹ dáa gan-an.	Your work is very good.
-dáa	Oúnjẹ náà dáa.	The food is good.
-dáa	Ó dáa, a máa bẹ̀rẹ̀ lọ́la.	Alright, we start tomorrow.
-dáa	Ojú ọjọ́ dáa lónìí.	The weather is good today.
-dáa	Ilé oúnjẹ yìí dáa.	This restaurant is good.
+word	sentence	translation	difficulty_rank
+wọn	Wọn wà ní ilé.	They are at home.	100
+fun	Fun mi ní omi.	Give me water.	100
+rẹ	Ilé rẹ tóbi.	Your house is big.	100
+ẹ ṣé	Ẹ ṣé gan-an.	Thank you very much.	100
+pe	Pe mi ní ọ̀la.	Call me tomorrow.	100
+le	Mo le ṣe é.	I can do it.	100
+ilu	Ilu wa tóbi.	Our town is big.	100
+ohun	Ohun yìí dára.	This thing is good.	100
+mọ	Mo mọ ọkùnrin náà.	I know that man.	100
+ẹni	Ẹni rere ni í ṣe.	He is a good person.	100
+nitori	Mo dúró nitori òjò.	I stayed because of the rain.	100
+kan	Mo ní ọmọ kan.	I have one child.	100
+ara	Ara mi le.	I am healthy.	100
+tabi	Tii tabi kọfí?	Tea or coffee?	100
+iṣẹ	Iṣẹ mi dára.	My work is good.	100
+owo	Mo ní owo díẹ̀.	I have a little money.	100
+gba	Gba owo yìí.	Take this money.	100
+ninu	Omi wà ninu ife.	The water is in the cup.	100
+ọjọ	Ọjọ dára lónìí.	It is a fine day today.	100
+gbogbo	Gbogbo wa wà níbí.	We are all here.	100
+ju	Ju bọ́ọ̀lù náà sí mi.	Throw the ball to me.	100
+gbe	Gbe àpò náà.	Carry the bag.	100
+eyi	Eyi dára púpọ̀.	This is very good.	100
+da	Da omi sí inú ife.	Pour water into the cup.	100
+yoruba	Mo ń kọ́ èdè Yoruba.	I am learning the Yoruba language.	100
+ọmọ	Ọmọ náà ń sùn.	The child is sleeping.	100
+ati	Mo ra iṣu ati ẹja.	I bought yam and fish.	100
+wọ	Ó wọ aṣọ tuntun.	He put on new clothes.	100
+ti	Mo ti jẹun.	I have already eaten.	100
+bi	Ó dùn bi oyin.	It is sweet like honey.	100
+fi	Fi ọbẹ gé e.	Cut it with a knife.	100
+to	Owo yìí to fún wa.	This money is enough for us.	100
+pọ	Èèyàn pọ ní ọjà.	There are many people at the market.	100
+ba	Mo ba ọ̀rẹ́ mi sọ̀rọ̀.	I spoke with my friend.	100
+yi	Ọkùnrin yi ga.	This man is tall.	100
+ri	Mo ri ilé náà.	I saw the house.	100
+ọdun	Ọdun tuntun ti dé.	The new year has arrived.	100
+na	Ọjà náà wọ́n.	That market is expensive.	100
+pẹ	Má pẹ dé ilé.	Don't be late coming home.	100
+di	Ó di ọlọ́rọ̀.	He became rich.	100
+ede	Mo fẹ́ kọ́ ede tuntun.	I want to learn a new language.	100
+ijọba	Ijọba kọ́ ilé-ìwé.	The government built a school.	100
+la	Mo la àlá dáradára.	I dreamed a good dream.	100
+ọkọ	Ọkọ rẹ̀ wà ní ilé.	Her husband is at home.	100
+igba	Igba ni ó kún fún omi.	The calabash is full of water.	100
+ku	Igi náà ti ku.	The tree has died.	100
+wo	Wo mi lójú.	Look at me.	100
+gbọ	Mo gbọ orin náà.	I heard the song.	100
+obinrin	Obinrin náà ń ṣiṣẹ́.	The woman is working.	100
+pa	Ejò lè pa eku.	A snake can kill a rat.	100
+baba	Baba mi wà ní oko.	My father is at the farm.	100
+oju	Oju rẹ̀ dára.	Her face is beautiful.	100
+iwa	Iwa rere dára ju owó lọ.	Good character is better than money.	100
+ẹbi	Ẹbi mi tóbi.	My family is big.	100
+iya	Iya mi ń se oúnjẹ.	My mother is cooking food.	100
+eniyan	Eniyan rere ni ó jẹ́.	He is a good person.	100
+agba	Bọ̀wọ̀ fún àwọn agba.	Respect the elders.	100
+pataki	Ẹ̀kọ́ ṣe pataki.	Education is important.	100
+bọ	Yóò bọ̀ lọ́la.	He will return tomorrow.	100
+maa	Èmi yóò maa kọ́ èdè Yorùbá.	I will keep learning Yoruba.	100
+oṣelu	Oṣelu náà sọ̀rọ̀ lónìí.	The politician spoke today.	100
+ibi	Ibi dára ni èyí.	This is a good place.	100
+tọ	Ọ̀nà yìí tọ́.	This way is right.	100

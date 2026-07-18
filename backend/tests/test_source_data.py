@@ -146,9 +146,24 @@ class TestSentencePipeline:
         ranks = {"ev": 10, "güzel": 200}
         assert sentence_difficulty("Ev güzel", ranks, lambda w: w) == 200
 
-    def test_unknown_words_penalized(self):
+    def test_one_unknown_word_tolerated_as_hard(self):
+        # One out-of-list word no longer poisons the sentence (the old
+        # all-or-nothing drop left Hindi with 427 sentences and Catalan at
+        # 17% coverage) — it scores hard-but-usable instead.
         ranks = {"ev": 10}
-        assert sentence_difficulty("Ev xyzzy", ranks, lambda w: w) == 99999
+        assert sentence_difficulty("Ev xyzzy", ranks, lambda w: w) == 19999
+
+    def test_two_unknown_words_penalized(self):
+        ranks = {"ev": 10}
+        assert sentence_difficulty("Ev xyzzy plugh", ranks, lambda w: w) == 99999
+
+    def test_all_unknown_penalized(self):
+        assert sentence_difficulty("xyzzy", {"ev": 10}, lambda w: w) == 99999
+
+    def test_single_letter_clitics_ignored(self):
+        # l'home tokenizes to "l" + "home": the bare clitic is not vocabulary
+        ranks = {"home": 50}
+        assert sentence_difficulty("L'home", ranks, lambda w: w) == 50
 
     def test_build_sentence_rows_prefers_easy_sentences(self):
         target = {1: "Ev güzel.", 2: "Ev karmaşık."}

@@ -1,82 +1,110 @@
 word	sentence	translation	difficulty_rank
-ẹ	Ẹ ṣé!	Thanks!	15
 ṣe	Ẹ ṣé!	Thanks!	15
-ni	Bẹ́ẹ̀ni.	Yes.	37
+ẹ	Ẹ ṣé!	Thanks!	15
 ẹ	Bẹ́ẹ̀ni.	Yes.	37
+ni	Bẹ́ẹ̀ni.	Yes.	37
 bẹ	Bẹ́ẹ̀ni.	Yes.	37
+o	Kí l'o fẹ́?	What do you want?	53
+ki	Kí l'o fẹ́?	What do you want?	53
+fẹ	Kí l'o fẹ́?	What do you want?	53
+l	Kí l'o fẹ́?	What do you want?	53
+lọ	Ó fẹ́ lọ.	He wants to go.	53
 o	Ó fẹ́ lọ.	He wants to go.	53
 fẹ	Ó fẹ́ lọ.	He wants to go.	53
-lọ	Ó fẹ́ lọ.	He wants to go.	53
-ki	Kí ló dé?	What happened?	81
 lo	Kí ló dé?	What happened?	81
 de	Kí ló dé?	What happened?	81
+ki	Kí ló dé?	What happened?	81
+kọ	Mi ò fẹ́ lọ sí ilé-ẹ́kọ́.	I don't want to go to school.	105
+ẹ	Mi ò fẹ́ lọ sí ilé-ẹ́kọ́.	I don't want to go to school.	105
+si	Mi ò fẹ́ lọ sí ilé-ẹ́kọ́.	I don't want to go to school.	105
 o	Mi ò fẹ́ lọ sí ilé-ẹ́kọ́.	I don't want to go to school.	105
+fẹ	Mi ò fẹ́ lọ sí ilé-ẹ́kọ́.	I don't want to go to school.	105
+mi	Mi ò fẹ́ lọ sí ilé-ẹ́kọ́.	I don't want to go to school.	105
 lọ	Mi ò fẹ́ lọ sí ilé-ẹ́kọ́.	I don't want to go to school.	105
 ile	Mi ò fẹ́ lọ sí ilé-ẹ́kọ́.	I don't want to go to school.	105
-si	Mi ò fẹ́ lọ sí ilé-ẹ́kọ́.	I don't want to go to school.	105
-fẹ	Mi ò fẹ́ lọ sí ilé-ẹ́kọ́.	I don't want to go to school.	105
-ẹ	Mi ò fẹ́ lọ sí ilé-ẹ́kọ́.	I don't want to go to school.	105
-kọ	Mi ò fẹ́ lọ sí ilé-ẹ́kọ́.	I don't want to go to school.	105
-mi	Mi ò fẹ́ lọ sí ilé-ẹ́kọ́.	I don't want to go to school.	105
-ni	Omi ni ayé.	Water is life.	123
-omi	Omi ni ayé.	Water is life.	123
 aye	Omi ni ayé.	Water is life.	123
-o	Ó wá láti Èkó.	He came from Lagos.	130
+omi	Omi ni ayé.	Water is life.	123
+ni	Omi ni ayé.	Water is life.	123
+eko	Ó wá láti Èkó.	He came from Lagos.	130
 lati	Ó wá láti Èkó.	He came from Lagos.	130
 wa	Ó wá láti Èkó.	He came from Lagos.	130
-eko	Ó wá láti Èkó.	He came from Lagos.	130
-lọ	Ìyàwó mi lọ sí oko.	My wife went to the farm.	147
-iyawo	Ìyàwó mi lọ sí oko.	My wife went to the farm.	147
 si	Ìyàwó mi lọ sí oko.	My wife went to the farm.	147
-mi	Ìyàwó mi lọ sí oko.	My wife went to the farm.	147
+iyawo	Ìyàwó mi lọ sí oko.	My wife went to the farm.	147
 oko	Ìyàwó mi lọ sí oko.	My wife went to the farm.	147
+mi	Ìyàwó mi lọ sí oko.	My wife went to the farm.	147
+lọ	Ìyàwó mi lọ sí oko.	My wife went to the farm.	147
 ra	Mo fẹ́ rà ìwé.	I want to buy a book.	166
-mo	Mo fẹ́ rà ìwé.	I want to buy a book.	166
 iwe	Mo fẹ́ rà ìwé.	I want to buy a book.	166
-fẹ	Mo fẹ́ rà ìwé.	I want to buy a book.	166
-ni	Ìwọ ta ni?	Who is it?	196
-ta	Ìwọ ta ni?	Who is it?	196
+mo	Mo fẹ́ rà ìwé.	I want to buy a book.	166
+s	Mo lọ s'ọ́jà.	I went to the market.	166
+ọ	Mo lọ s'ọ́jà.	I went to the market.	166
+ja	Mo lọ s'ọ́jà.	I went to the market.	166
+mo	Mo lọ s'ọ́jà.	I went to the market.	166
 iwọ	Ìwọ ta ni?	Who is it?	196
-mo	Mo lọ sí odò.	I went to the river.	227
+ta	Ìwọ ta ni?	Who is it?	196
+ni	Ìwọ ta ni?	Who is it?	196
 si	Mo lọ sí odò.	I went to the river.	227
+mo	Mo lọ sí odò.	I went to the river.	227
 odo	Mo lọ sí odò.	I went to the river.	227
-ọ	Mo lọ s'ọ́jà.	I went to the market.	258
-mo	Mo lọ s'ọ́jà.	I went to the market.	258
-s	Mo lọ s'ọ́jà.	I went to the market.	258
-ja	Mo lọ s'ọ́jà.	I went to the market.	258
-l	Kí l'o fẹ́?	What do you want?	306
-ki	Kí l'o fẹ́?	What do you want?	306
-ologbo	Mo ní ológbò méjì.	I have two cats.	433
 meji	Mo ní ológbò méjì.	I have two cats.	433
+ologbo	Mo ní ológbò méjì.	I have two cats.	433
 funfun	Ẹṣin jẹ́ funfun.	The horse is white.	441
-ẹṣin	Ẹṣin jẹ́ funfun.	The horse is white.	441
 jẹ	Ẹṣin jẹ́ funfun.	The horse is white.	441
+ẹṣin	Ẹṣin jẹ́ funfun.	The horse is white.	441
 funfun	Ẹṣin yìí jẹ́ funfun.	This horse is white.	441
 yii	Ẹṣin yìí jẹ́ funfun.	This horse is white.	441
-ẹṣin	Ẹṣin yìí jẹ́ funfun.	This horse is white.	441
 jẹ	Ẹṣin yìí jẹ́ funfun.	This horse is white.	441
+ẹṣin	Ẹṣin yìí jẹ́ funfun.	This horse is white.	441
 funfun	Ẹṣin náà jẹ́ funfun.	That horse is white.	441
-ẹṣin	Ẹṣin náà jẹ́ funfun.	That horse is white.	441
 naa	Ẹṣin náà jẹ́ funfun.	That horse is white.	441
 jẹ	Ẹṣin náà jẹ́ funfun.	That horse is white.	441
-ra	Mo rà fìlà.	I bought a hat.	454
+ẹṣin	Ẹṣin náà jẹ́ funfun.	That horse is white.	441
 fila	Mo rà fìlà.	I bought a hat.	454
+ra	Mo rà fìlà.	I bought a hat.	454
 bawo	Bawo ni?	How are you?	518
 ṣokoto	Mo fẹ́ ṣòkòtò.	I want trousers.	535
-kii	Ẹṣin kìí ṣe funfun.	The horse is not white.	609
 ṣe	Ẹṣin kìí ṣe funfun.	The horse is not white.	609
+kii	Ẹṣin kìí ṣe funfun.	The horse is not white.	609
 kii	Ẹṣin yìí kìí ṣe funfun.	This horse is not white.	609
 yii	Ẹṣin yìí kìí ṣe funfun.	This horse is not white.	609
 ṣe	Ẹṣin yìí kìí ṣe funfun.	This horse is not white.	609
-kii	Ẹṣin náà kìí ṣe funfun.	That horse is not white.	609
 naa	Ẹṣin náà kìí ṣe funfun.	That horse is not white.	609
+kii	Ẹṣin náà kìí ṣe funfun.	That horse is not white.	609
 iwe	Ìwé kìí ṣe titun.	The book isn't new.	609
 titun	Ìwé kìí ṣe titun.	The book isn't new.	609
 ko	kò sí wahála.	There is no problem.	680
 wahala	kò sí wahála.	There is no problem.	680
 rọra	Ẹ rọra.	Be careful.	903
-awọn	Àwọn erékùṣù wà ní òkun.	There are islands in the sea.	933
 okun	Àwọn erékùṣù wà ní òkun.	There are islands in the sea.	933
-wa	Àwọn erékùṣù wà ní òkun.	There are islands in the sea.	933
 erekuṣu	Àwọn erékùṣù wà ní òkun.	There are islands in the sea.	933
+wa	Àwọn erékùṣù wà ní òkun.	There are islands in the sea.	933
+awọn	Àwọn erékùṣù wà ní òkun.	There are islands in the sea.	933
 kaaarọ	Ẹ káàárọ̀!	Good morning!	1253
+mi	Onísègùn ni mí.	I'm a doctor.	19999
+wa	Onísègùn ni wá.	We're doctors.	19999
+yin	Onísègùn ni yín.	You're doctors.	19999
+n	Onísègùn ni wọ́n.	They're doctors.	19999
+wọ	Onísègùn ni wọ́n.	They're doctors.	19999
+rẹ	Owó rẹ̀ wà ní bánkì.	His money is in the bank.	19999
+owo	Owó rẹ̀ wà ní bánkì.	His money is in the bank.	19999
+l	Ó yà mí l'ẹ́nu.	It surprises me.	19999
+ya	Ó yà mí l'ẹ́nu.	It surprises me.	19999
+agogo	Agogo mejila ọsan.	It's midday.	19999
+ọsan	Agogo mejila ọsan.	It's midday.	19999
+ta	Ta ni Emily?	Who is Emily?	19999
+awọn	Mo ní àwọn arákunrin.	I have brothers.	19999
+rẹ	Mo nifẹẹ rẹ.	I love you.	19999
+ana	Ṣé o lọ sọjà ni àna?	Did you go to the market yesterday?	19999
+gan	Gidi gan?	Really?	19999
+a	A fẹ́ àwọn ọ̀rọ̀ ní gbólóhùn pípé.	We want complete sentences.	19999
+rọ	A fẹ́ àwọn ọ̀rọ̀ ní gbólóhùn pípé.	We want complete sentences.	19999
+ọ	A fẹ́ àwọn ọ̀rọ̀ ní gbólóhùn pípé.	We want complete sentences.	19999
+gbolohun	A fẹ́ àwọn ọ̀rọ̀ ní gbólóhùn pípé.	We want complete sentences.	19999
+awọn	A fẹ́ àwọn ọ̀rọ̀ ní gbólóhùn pípé.	We want complete sentences.	19999
+pada	Kaabo padà sí ilé	Welcome back home.	19999
+ile	Kaabo padà sí ilé	Welcome back home.	19999
+orukọ	Orúkọ mi ni Jack.	My name is Jack.	19999
+ibeere	Ó dáhùn ìbéèré náà.	He answered the question.	19999
+naa	Ó dáhùn ìbéèré náà.	He answered the question.	19999
+ọmọ	Ó jẹ́ ọmọ ilẹ̀ Potogí.	He is Portuguese.	19999
+ilẹ	Ó jẹ́ ọmọ ilẹ̀ Potogí.	He is Portuguese.	19999
