@@ -913,6 +913,82 @@ class TestSelfApprovalGuard:
         assert "different reviewer" in resp.json()["detail"]
 
 
+class _FakeHttpxResp:
+    def __init__(self, status_code, text="", payload=None):
+        self.status_code = status_code
+        self.text = text
+        self._payload = payload
+
+    def json(self):
+        if self._payload is None:
+            raise ValueError("no json")
+        return self._payload
+
+
+def _fake_httpx(resp=None, exc=None):
+    class _C:
+        async def __aenter__(self):
+            return self
+
+        async def __aexit__(self, *a):
+            return False
+
+        async def post(self, *a, **k):
+            if exc:
+                raise exc
+            return resp
+
+    return lambda *a, **k: _C()
+
+
+class TestCreateAccount:
+    """The invite-only beta path: admin mints accounts via the Supabase API."""
+
+    _body = {"email": "friend@example.com", "password": "0123456789"}
+
+    def test_requires_admin(self, client):
+        with _roles([{"language_id": LANG, "role": "reviewer"}]):
+            resp = client.post("/api/contribute/users", json=self._body,
+                               headers=_auth_headers())
+        assert resp.status_code == 403
+
+    def test_success(self, client):
+        resp_ok = _FakeHttpxResp(200, payload={"id": "new-1", "email": "friend@example.com"})
+        with _roles([{"language_id": None, "role": "admin"}]), \
+             patch("httpx.AsyncClient", _fake_httpx(resp=resp_ok)):
+            resp = client.post("/api/contribute/users", json=self._body,
+                               headers=_auth_headers())
+        assert resp.status_code == 200
+        assert resp.json()["id"] == "new-1"
+
+    def test_duplicate_email_409(self, client):
+        dup = _FakeHttpxResp(422, text='{"error_code":"email_exists","msg":"already registered"}')
+        with _roles([{"language_id": None, "role": "admin"}]), \
+             patch("httpx.AsyncClient", _fake_httpx(resp=dup)):
+            resp = client.post("/api/contribute/users", json=self._body,
+                               headers=_auth_headers())
+        assert resp.status_code == 409
+
+    def test_network_error_is_502_not_opaque(self, client):
+        import httpx
+        with _roles([{"language_id": None, "role": "admin"}]), \
+             patch("httpx.AsyncClient", _fake_httpx(exc=httpx.ConnectError("down"))):
+            resp = client.post("/api/contribute/users", json=self._body,
+                               headers=_auth_headers())
+        assert resp.status_code == 502
+        assert "reach the authentication service" in resp.json()["detail"]
+
+    def test_missing_service_key_503(self, client):
+        class NoKey(FakeSettings):
+            supabase_service_role_key = ""
+        with _roles([{"language_id": None, "role": "admin"}]), \
+             patch("backend.dependencies.get_settings", return_value=NoKey()):
+            resp = client.post("/api/contribute/users", json=self._body,
+                               headers=_auth_headers())
+        assert resp.status_code == 503
+        assert "SUPABASE_SERVICE_ROLE_KEY" in resp.json()["detail"]
+
+
 class TestAccountAdmin:
     """Admin account management: list, plan override, deletion guards."""
 
