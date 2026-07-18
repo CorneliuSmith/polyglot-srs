@@ -34,6 +34,34 @@ RAW_DIR = DATA_DIR / "raw"
 NOISE = {"table-tags", "inflection-template", "class", "romanization",
          "archaic", "obsolete", "rare", "dated", "dialectal"}
 
+# Gender / number are properties of nouns and adjectives only. When a
+# high-frequency function word (de, para, no, yo, sí…) is a homograph of a
+# rare noun, kaikki's `forms` come from that noun sense, so the card ends up
+# showing "Gender feminine, Plural des" on a preposition. These labels are
+# never right on a non-nominal word — strip them (folded per-word against the
+# card's chosen part of speech).
+NOMINAL_CHIP_LABELS = {"Gender", "Plural", "Feminine", "Animacy"}
+NOMINAL_POS = {"noun", "adj", "name", "propn"}
+
+
+def strip_nominal_chips(morphology: dict | None, pos: str | None) -> dict | None:
+    """Drop gender/number chips from a word whose part of speech can't carry
+    them. No-op for nouns/adjectives and for morphology without such chips."""
+    if not morphology or pos in NOMINAL_POS:
+        return morphology
+    chips = morphology.get("chips")
+    if not chips:
+        return morphology
+    kept = [c for c in chips if c.get("label") not in NOMINAL_CHIP_LABELS]
+    if len(kept) == len(chips):
+        return morphology
+    out = dict(morphology)
+    if kept:
+        out["chips"] = kept
+    else:
+        out.pop("chips", None)
+    return out
+
 
 def _clean_forms(entry: dict) -> list[tuple[str, frozenset[str]]]:
     out = []

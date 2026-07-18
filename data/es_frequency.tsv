@@ -2,7 +2,7 @@ rank	word	pos	en
 1	de	prep	of; 's; used after the thing owned and before the owner
 2	que	conj	that; than
 3	no	adv	not
-4	a	noun	bishop
+4	a	prep	to; at (marks a direct/indirect object, direction, or time)
 5	la	article	feminine singular definite article; the
 6	el	article	masculine singular definite article; the
 7	y	conj	and; plus, and
@@ -13,16 +13,16 @@ rank	word	pos	en
 12	por	prep	by; for (indicates something given in an exchange)
 13	qué	det	what; which; what a; such
 14	me	pron	accusative of yo: me
-15	una	noun	feminine of uno
+15	una	article	a, an (feminine)
 16	los	article	masculine plural of el (“the”)
 17	se	pron	A pronoun used with transitive verbs to create the passive voice
 18	te	pron	yourself
 19	con	prep	with; Dependent preposition following certain verbs.
 20	para	prep	for, to (expressing a recipient)
 21	está	verb	inflection of estar:
-22	mi	noun	mu; the Greek letter Μ, μ
+22	mi	det	my
 23	pero	conj	but; well well; so; well (used for emphasis)
-24	sí	intj	hello? (used when answering a phone call)
+24	sí	adv	yes
 25	si	conj	if, whether
 26	bien	adv	well (adverbial form of bueno)
 27	eso	pron	neuter singular of ése; that
@@ -30,9 +30,9 @@ rank	word	pos	en
 29	las	article	feminine plural definite article; the
 30	yo	pron	first-person singular pronoun in the nominative case; I
 31	del	contraction	of the, from the (+ a masculine noun in singular).
-32	como	name	Como (a city and comune, the capital of the province of Como, Lombardy)
+32	como	conj	as, like; how; since
 33	aquí	adv	here (in the speaker's location)
-34	al	contraction	upon
+34	al	contraction	to the (a + el)
 35	más	adv	more; -er (used to make comparisons)
 36	le	pron	to him, for him; dative of él
 37	solo	adj	sole; one; only; single (unique)
@@ -72,13 +72,13 @@ rank	word	pos	en
 71	soy	verb	first-person singular present indicative of ser
 72	todos	det	masculine plural of todo
 73	porque	conj	because
-74	son	noun	tone (pleasant sound)
+74	son	verb	they are (third-person plural present of ser)
 75	tienes	verb	second-person singular present indicative of tener
 76	creo	verb	first-person singular present indicative of crear
 77	voy	verb	first-person singular present indicative of ir
-78	sabes	intj	you know? (rhetorical question)
+78	sabes	verb	you know (second-person singular present of saber)
 79	estaba	verb	first/third-person singular imperfect indicative of estar
-80	puede	intj	it's possible; could be
+80	puede	verb	can, is able (third-person singular present of poder); maybe
 81	eres	verb	second-person singular present indicative of ser; you are
 82	ese	det	that
 83	usted	pron	second person formal; you (singular)
@@ -142,7 +142,7 @@ rank	word	pos	en
 141	gente	noun	people; guys, lads (used to address a group of people)
 142	sea	verb	inflection of ser:
 143	padre	noun	father
-144	mira	noun	target; purpose, object
+144	mira	verb	look! (imperative of mirar); (he/she) looks
 145	mismo	adj	self; emphasizes the identity or singularity of the modified noun phrase
 146	dijo	verb	third-person singular preterite indicative of decir
 147	nadie	pron	no one; nobody (anyone or anybody)
