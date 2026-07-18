@@ -294,6 +294,13 @@ export default function TutorPage() {
           </button>
         </div>
 
+        {/* One-line explainer of the two modes (beta request). */}
+        <p className="text-[11px] text-gray-400 mb-2">
+          {mode === 'practice'
+            ? 'Practice — the tutor drills you and remembers what you covered.'
+            : 'Reference — a quick answer, no drills, nothing saved to your profile.'}
+        </p>
+
         {/* Active Focus (WP18b): the structures the tutor is deliberately
             working on with this learner — tutor-managed, read-only here. */}
         {(status?.focus?.length ?? 0) > 0 && (

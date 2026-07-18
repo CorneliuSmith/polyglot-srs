@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Link, Navigate, useNavigate } from 'react-router-dom'
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
 import { getDashboardStats } from '../../api/dashboard'
@@ -19,6 +19,7 @@ import ForecastStrip from './ForecastStrip'
 import ActivityChart from './ActivityChart'
 import StageTiles from './StageTiles'
 import ProfileCard from './ProfileCard'
+import Walkthrough from '../onboarding/Walkthrough'
 import type { LearnDeck } from '../../api/types'
 
 /** One Bunpro-style deck row. Two affordances, deliberately separated:
@@ -188,8 +189,15 @@ export default function DashboardPage() {
   const navigate = useNavigate()
   const queryClient = useQueryClient()
   const activeLanguageId = usePrefsStore((s) => s.activeLanguageId)
+  const walkthroughDone = usePrefsStore((s) => s.walkthroughDone)
   const [learnOpen, setLearnOpen] = useState(false)
   const [reviewOpen, setReviewOpen] = useState(false)
+  const [showTour, setShowTour] = useState(false)
+
+  // Open the feature tour once, for someone who hasn't dismissed it.
+  useEffect(() => {
+    if (!walkthroughDone) setShowTour(true)
+  }, [walkthroughDone])
 
   // First-run users are routed into onboarding before they can study.
   const { data: onboarding, isLoading: onboardingLoading } = useQuery({
@@ -322,8 +330,19 @@ export default function DashboardPage() {
             >
               Account
             </button>
+            <button
+              type="button"
+              onClick={() => setShowTour(true)}
+              aria-label="Take the feature tour"
+              title="Take the tour"
+              className="text-sm text-gray-400 hover:text-lang"
+            >
+              ?
+            </button>
           </div>
         </div>
+
+        {showTour && <Walkthrough onClose={() => setShowTour(false)} />}
 
         {/* Language picker */}
         <div>
