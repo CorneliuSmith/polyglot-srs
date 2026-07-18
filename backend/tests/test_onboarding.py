@@ -127,3 +127,32 @@ class TestOnboarding:
             "language_id": LANG, "level": "Z9",
         }, headers=_auth_headers())
         assert resp.status_code == 422
+
+
+class TestPlainPromptFilter:
+    """Placement prompts must read like flashcards, not a linguistics glossary
+    (beta feedback: 'too much grammar vocab')."""
+
+    def test_concrete_definitions_pass(self):
+        from backend.repositories.onboarding import _plain_prompt
+
+        assert _plain_prompt("house")
+        assert _plain_prompt("to eat")
+        assert _plain_prompt("water; rain")
+
+    def test_grammarese_is_rejected(self):
+        from backend.repositories.onboarding import _plain_prompt
+
+        assert not _plain_prompt("initial interrogative particle")
+        assert not _plain_prompt("inflection of होना (honā):")
+        assert not _plain_prompt("feminine singular of o")
+        assert not _plain_prompt("first/third-person plural present indicative")
+        assert not _plain_prompt("dative of я")
+
+    def test_overlong_definitions_are_rejected(self):
+        from backend.repositories.onboarding import _plain_prompt
+
+        assert not _plain_prompt(
+            "sometimes after lhe, especially when referring to a body part, "
+            "a family member, or a pet."
+        )

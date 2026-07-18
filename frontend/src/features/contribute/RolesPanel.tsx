@@ -124,13 +124,14 @@ export default function RolesPanel({ languages }: { languages: Language[] }) {
         <select
           value={languageId}
           onChange={(e) => setLanguageId(e.target.value)}
-          aria-label="Language scope"
+          aria-label="Role scope"
+          title="Which languages this CONTENT role covers — not what the account can study"
           className="rounded-lg border border-gray-300 px-2 py-1.5 text-sm"
         >
-          <option value="">All languages</option>
+          <option value="">Role scope: all languages</option>
           {languages.map((l) => (
             <option key={l.id} value={l.id}>
-              {l.name}
+              Role scope: {l.name}
             </option>
           ))}
         </select>
@@ -142,6 +143,13 @@ export default function RolesPanel({ languages }: { languages: Language[] }) {
           Grant
         </button>
       </form>
+      {/* A tester got locked to one language because "All languages" here
+          read like the STUDY plan. It is not — say so where the admin looks. */}
+      <p className="text-xs text-gray-400">
+        Roles control content permissions (editing, reviewing). To change which
+        languages an account can <em>study</em>, use the Accounts panel’s plan
+        switch (Single ↔ All languages).
+      </p>
       {error && <p className="text-xs text-red-500">{error}</p>}
     </div>
   )

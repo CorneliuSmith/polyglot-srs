@@ -1,0 +1,1158 @@
+{
+  "language": "en",
+  "locale": "hi",
+  "reviewed": false,
+  "_note": "Hindi hints + faithful translations for the English path; authored 2026-07-17, native review pending.",
+  "points": {
+    "Subject pronouns (I, you, he…)": {
+      "{{answer}} am from Brazil.": {
+        "hint": "be — पहला पुरुष",
+        "translation": "मैं ब्राज़ील से हूँ।"
+      },
+      "{{answer}} is my sister.": {
+        "hint": "be — तीसरा पुरुष, स्त्री",
+        "translation": "वह मेरी बहन है।"
+      },
+      "{{answer}} are students.": {
+        "hint": "be — बहुवचन 'हम'",
+        "translation": "हम छात्र हैं।"
+      },
+      "{{answer}} is my father.": {
+        "hint": "be — तीसरा पुरुष, पुरुष",
+        "translation": "वे मेरे पिता हैं।"
+      },
+      "{{answer}} is on the table.": {
+        "hint": "be — निर्जीव 'यह'",
+        "translation": "यह मेज़ पर है।"
+      },
+      "{{answer}} are very kind.": {
+        "hint": "be — 'तुम' के साथ",
+        "translation": "तुम बहुत दयालु हो।"
+      },
+      "{{answer}} are my friends.": {
+        "hint": "be — 'वे' के साथ",
+        "translation": "वे मेरे दोस्त हैं।"
+      }
+    },
+    "To be — am / is / are": {
+      "I {{answer}} a student.": {
+        "hint": "be — 'मैं' के साथ",
+        "translation": "मैं छात्र हूँ।"
+      },
+      "You {{answer}} my friend.": {
+        "hint": "be — 'तुम' के साथ",
+        "translation": "तुम मेरे दोस्त हो।"
+      },
+      "She {{answer}} a doctor.": {
+        "hint": "be — तीसरा पुरुष",
+        "translation": "वह डॉक्टर है।"
+      },
+      "We {{answer}} at home.": {
+        "hint": "be — 'हम' के साथ",
+        "translation": "हम घर पर हैं।"
+      },
+      "The coffee {{answer}} hot.": {
+        "hint": "be — निर्जीव एकवचन",
+        "translation": "कॉफ़ी गर्म है।"
+      },
+      "They {{answer}} from Japan.": {
+        "hint": "be — बहुवचन",
+        "translation": "वे जापान से हैं।"
+      }
+    },
+    "Articles: a / an": {
+      "I have {{answer}} dog.": {
+        "hint": "अनिश्चित article — व्यंजन से पहले",
+        "translation": "मेरे पास एक कुत्ता है।"
+      },
+      "She is {{answer}} engineer.": {
+        "hint": "स्वर-ध्वनि से पहले वाला article",
+        "translation": "वह इंजीनियर है।"
+      },
+      "It is {{answer}} big house.": {
+        "hint": "व्यंजन से पहले वाला article",
+        "translation": "यह एक बड़ा घर है।"
+      },
+      "He eats {{answer}} apple every day.": {
+        "hint": "स्वर से पहले वाला article",
+        "translation": "वह रोज़ एक सेब खाता है।"
+      },
+      "I read {{answer}} book every week.": {
+        "hint": "व्यंजन से पहले वाला article",
+        "translation": "मैं हर हफ़्ते एक किताब पढ़ता हूँ।"
+      },
+      "I need {{answer}} umbrella.": {
+        "hint": "स्वर से पहले वाला article",
+        "translation": "मुझे एक छाता चाहिए।"
+      }
+    },
+    "The — pointing at a specific thing": {
+      "{{answer}} sun is hot today.": {
+        "hint": "निश्चित article — एक ही सूरज",
+        "translation": "आज धूप तेज़ है।"
+      },
+      "Please close {{answer}} door.": {
+        "hint": "निश्चित article — वही दरवाज़ा",
+        "translation": "कृपया दरवाज़ा बंद कीजिए।"
+      },
+      "{{answer}} keys in my hand are mine.": {
+        "hint": "निश्चित article",
+        "translation": "मेरे हाथ की चाबियाँ मेरी हैं।"
+      },
+      "We live near {{answer}} station.": {
+        "hint": "निश्चित article — वही स्टेशन",
+        "translation": "हम स्टेशन के पास रहते हैं।"
+      },
+      "{{answer}} moon is bright tonight.": {
+        "hint": "निश्चित article — एक ही चाँद",
+        "translation": "आज रात चाँद चमकीला है।"
+      },
+      "Where is {{answer}} bathroom?": {
+        "hint": "निश्चित article",
+        "translation": "बाथरूम कहाँ है?"
+      }
+    },
+    "Plural nouns (-s, -es, irregular)": {
+      "I have two {{answer}}.": {
+        "hint": "बहुवचन -s",
+        "translation": "मेरे पास दो किताबें हैं।"
+      },
+      "The {{answer}} are playing outside.": {
+        "hint": "अनियमित बहुवचन — child से",
+        "translation": "बच्चे बाहर खेल रहे हैं।"
+      },
+      "She has three {{answer}}.": {
+        "hint": "-es बहुवचन",
+        "translation": "उसके पास तीन घड़ियाँ हैं।"
+      },
+      "The {{answer}} are late today.": {
+        "hint": "-es बहुवचन",
+        "translation": "आज बसें देर से चल रही हैं।"
+      },
+      "Two {{answer}} live in our street.": {
+        "hint": "-y → -ies",
+        "translation": "हमारी गली में दो परिवार रहते हैं।"
+      },
+      "My {{answer}} are cold.": {
+        "hint": "अनियमित बहुवचन — foot से",
+        "translation": "मेरे पैर ठंडे हैं।"
+      }
+    },
+    "Present simple (I work)": {
+      "I {{answer}} in a bank.": {
+        "hint": "सामान्य वर्तमान — 'मैं'",
+        "translation": "मैं एक बैंक में काम करता हूँ।"
+      },
+      "We {{answer}} breakfast at seven.": {
+        "hint": "सामान्य वर्तमान — 'हम'",
+        "translation": "हम सात बजे नाश्ता करते हैं।"
+      },
+      "They {{answer}} in London.": {
+        "hint": "सामान्य वर्तमान — 'वे'",
+        "translation": "वे लंदन में रहते हैं।"
+      },
+      "You {{answer}} English very well.": {
+        "hint": "सामान्य वर्तमान — 'तुम'",
+        "translation": "तुम बहुत अच्छी अंग्रेज़ी बोलते हो।"
+      },
+      "I {{answer}} coffee every morning.": {
+        "hint": "सामान्य वर्तमान — आदत",
+        "translation": "मैं हर सुबह कॉफ़ी पीता हूँ।"
+      },
+      "We {{answer}} TV in the evening.": {
+        "hint": "सामान्य वर्तमान — 'हम'",
+        "translation": "हम शाम को टीवी देखते हैं।"
+      }
+    },
+    "Third-person -s (she works)": {
+      "She {{answer}} in a hospital.": {
+        "hint": "तीसरे पुरुष का -s",
+        "translation": "वह अस्पताल में काम करती है।"
+      },
+      "He {{answer}} to school every day.": {
+        "hint": "तीसरा पुरुष — -es रूप",
+        "translation": "वह रोज़ स्कूल जाता है।"
+      },
+      "My brother {{answer}} English.": {
+        "hint": "-y → -ies रूप",
+        "translation": "मेरा भाई अंग्रेज़ी पढ़ता है।"
+      },
+      "The shop {{answer}} at nine.": {
+        "hint": "तीसरे पुरुष का -s",
+        "translation": "दुकान नौ बजे खुलती है।"
+      },
+      "She {{answer}} TV after dinner.": {
+        "hint": "-es रूप",
+        "translation": "वह खाने के बाद टीवी देखती है।"
+      },
+      "It {{answer}} a lot in April.": {
+        "hint": "तीसरे पुरुष का -s",
+        "translation": "अप्रैल में बहुत बारिश होती है।"
+      }
+    },
+    "Do-support: questions and negation": {
+      "{{answer}} you speak English?": {
+        "hint": "प्रश्न-सहायक — 'तुम' के साथ",
+        "translation": "क्या तुम अंग्रेज़ी बोलते हो?"
+      },
+      "{{answer}} she work here?": {
+        "hint": "प्रश्न-सहायक — तीसरा पुरुष",
+        "translation": "क्या वह यहाँ काम करती है?"
+      },
+      "I {{answer}} not eat meat.": {
+        "hint": "नकार-सहायक — 'मैं'",
+        "translation": "मैं मांस नहीं खाता।"
+      },
+      "He {{answer}} not like coffee.": {
+        "hint": "नकार-सहायक — तीसरा पुरुष",
+        "translation": "उसे कॉफ़ी पसंद नहीं है।"
+      },
+      "{{answer}} they live in Rome?": {
+        "hint": "प्रश्न-सहायक — बहुवचन",
+        "translation": "क्या वे रोम में रहते हैं?"
+      },
+      "We {{answer}} not have time.": {
+        "hint": "नकार-सहायक — 'हम'",
+        "translation": "हमारे पास समय नहीं है।"
+      },
+      "I {{answer}} like coffee.": {
+        "hint": "संक्षिप्त नकार — 'मैं'",
+        "translation": "मुझे कॉफ़ी पसंद नहीं।"
+      },
+      "She {{answer}} work on Sundays.": {
+        "hint": "संक्षिप्त नकार — तीसरा पुरुष",
+        "translation": "वह रविवार को काम नहीं करती।"
+      }
+    },
+    "Present continuous (I am working)": {
+      "I am {{answer}} a book right now.": {
+        "hint": "read + -ing",
+        "translation": "मैं अभी एक किताब पढ़ रहा हूँ।"
+      },
+      "She is {{answer}} dinner now.": {
+        "hint": "cook + -ing",
+        "translation": "वह अभी खाना बना रही है।"
+      },
+      "They are {{answer}} football.": {
+        "hint": "play + -ing",
+        "translation": "वे फ़ुटबॉल खेल रहे हैं।"
+      },
+      "Look! It is {{answer}}.": {
+        "hint": "rain + -ing",
+        "translation": "देखो! बारिश हो रही है।"
+      },
+      "We are {{answer}} for the bus.": {
+        "hint": "wait + -ing",
+        "translation": "हम बस का इंतज़ार कर रहे हैं।"
+      },
+      "He is {{answer}} at the moment.": {
+        "hint": "sleep + -ing",
+        "translation": "वह इस समय सो रहा है।"
+      },
+      "He is {{answer}} in the park.": {
+        "hint": "run + -ing — व्यंजन दोहराएँ",
+        "translation": "वह पार्क में दौड़ रहा है।"
+      },
+      "She is {{answer}} an email.": {
+        "hint": "write + -ing — e हटाएँ",
+        "translation": "वह ईमेल लिख रही है।"
+      }
+    },
+    "There is / there are": {
+      "There {{answer}} a book on the table.": {
+        "hint": "एकवचन",
+        "translation": "मेज़ पर एक किताब है।"
+      },
+      "There {{answer}} two cafés in this street.": {
+        "hint": "बहुवचन",
+        "translation": "इस गली में दो कैफ़े हैं।"
+      },
+      "{{answer}} there a bank near here?": {
+        "hint": "एकवचन — प्रश्न-क्रम",
+        "translation": "क्या यहाँ पास में कोई बैंक है?"
+      },
+      "There {{answer}} no milk.": {
+        "hint": "एकवचन",
+        "translation": "दूध नहीं है।"
+      },
+      "{{answer}} there any questions?": {
+        "hint": "बहुवचन — प्रश्न-क्रम",
+        "translation": "क्या कोई सवाल हैं?"
+      },
+      "There {{answer}} many people here today.": {
+        "hint": "बहुवचन",
+        "translation": "आज यहाँ बहुत लोग हैं।"
+      }
+    },
+    "Question words (what, where, when…)": {
+      "{{answer}} do you live?": {
+        "hint": "'कहाँ' वाला प्रश्न-शब्द",
+        "translation": "तुम कहाँ रहते हो?"
+      },
+      "{{answer}} is your name?": {
+        "hint": "'क्या' वाला प्रश्न-शब्द",
+        "translation": "तुम्हारा नाम क्या है?"
+      },
+      "{{answer}} is your birthday?": {
+        "hint": "'कब' वाला प्रश्न-शब्द",
+        "translation": "तुम्हारा जन्मदिन कब है?"
+      },
+      "{{answer}} old are you?": {
+        "hint": "उम्र पूछने का प्रश्न",
+        "translation": "तुम्हारी उम्र क्या है?"
+      },
+      "{{answer}} is your teacher?": {
+        "hint": "'कौन' वाला प्रश्न-शब्द",
+        "translation": "तुम्हारे शिक्षक कौन हैं?"
+      },
+      "{{answer}} are you crying?": {
+        "hint": "'क्यों' वाला प्रश्न-शब्द",
+        "translation": "तुम क्यों रो रहे हो?"
+      }
+    },
+    "Possessives (my, your, 's)": {
+      "This is {{answer}} book.": {
+        "hint": "'मेरा' — संज्ञा से पहले",
+        "translation": "यह मेरी किताब है।"
+      },
+      "Is this {{answer}} car?": {
+        "hint": "'तुम्हारा'",
+        "translation": "क्या यह तुम्हारी गाड़ी है?"
+      },
+      "{{answer}} name is Anna.": {
+        "hint": "'उसका' — स्त्री",
+        "translation": "उसका नाम अन्ना है।"
+      },
+      "That is my {{answer}} car.": {
+        "hint": "अपॉस्ट्रॉफ़ी-s स्वामित्व",
+        "translation": "वह मेरे भाई की गाड़ी है।"
+      },
+      "{{answer}} house is big.": {
+        "hint": "'उनका'",
+        "translation": "उनका घर बड़ा है।"
+      },
+      "The dog wags {{answer}} tail.": {
+        "hint": "निर्जीव का स्वामित्व-रूप",
+        "translation": "कुत्ता अपनी पूँछ हिलाता है।"
+      },
+      "{{answer}} name is David.": {
+        "hint": "'उसका' — पुरुष",
+        "translation": "उसका नाम डेविड है।"
+      },
+      "That is {{answer}} classroom.": {
+        "hint": "'हमारा'",
+        "translation": "वह हमारी कक्षा है।"
+      }
+    },
+    "Past simple — irregular verbs": {
+      "Yesterday I {{answer}} to the market.": {
+        "hint": "go का अनियमित भूतकाल",
+        "translation": "कल मैं बाज़ार गया।"
+      },
+      "She {{answer}} a great film last night.": {
+        "hint": "see का अनियमित भूतकाल",
+        "translation": "उसने कल रात एक बढ़िया फ़िल्म देखी।"
+      },
+      "We {{answer}} a new car in March.": {
+        "hint": "buy का अनियमित भूतकाल",
+        "translation": "हमने मार्च में नई गाड़ी ख़रीदी।"
+      },
+      "He {{answer}} the early train this morning.": {
+        "hint": "take का अनियमित भूतकाल",
+        "translation": "उसने आज सुबह जल्दी वाली ट्रेन पकड़ी।"
+      },
+      "They {{answer}} home very late.": {
+        "hint": "come का अनियमित भूतकाल",
+        "translation": "वे बहुत देर से घर आए।"
+      },
+      "I {{answer}} breakfast at seven.": {
+        "hint": "eat का अनियमित भूतकाल",
+        "translation": "मैंने सात बजे नाश्ता किया।"
+      }
+    },
+    "Present continuous vs present simple": {
+      "Quiet, please — the baby {{answer}} sleeping.": {
+        "hint": "अभी हो रहा है → be + -ing",
+        "translation": "चुप रहिए — बच्चा सो रहा है।"
+      },
+      "She {{answer}} to work by bike every day.": {
+        "hint": "आदत → सामान्य रूप",
+        "translation": "वह रोज़ साइकिल से काम पर जाती है।"
+      },
+      "I'm {{answer}} for my keys at the moment.": {
+        "hint": "अभी → -ing रूप",
+        "translation": "मैं इस समय अपनी चाबियाँ ढूँढ रहा हूँ।"
+      },
+      "Water {{answer}} at 100 degrees.": {
+        "hint": "सामान्य सत्य → सामान्य रूप",
+        "translation": "पानी 100 डिग्री पर उबलता है।"
+      },
+      "They {{answer}} watching TV right now.": {
+        "hint": "अभी → be + -ing",
+        "translation": "वे अभी टीवी देख रहे हैं।"
+      },
+      "He usually {{answer}} coffee, not tea.": {
+        "hint": "आदत → -s रूप",
+        "translation": "वह आम तौर पर कॉफ़ी पीता है, चाय नहीं।"
+      }
+    },
+    "Comparatives and superlatives": {
+      "This bag is {{answer}} than that one.": {
+        "hint": "तुलना — -er रूप",
+        "translation": "यह बैग उससे सस्ता है।"
+      },
+      "It's the {{answer}} building in the city.": {
+        "hint": "सर्वोच्च — the + -est",
+        "translation": "यह शहर की सबसे ऊँची इमारत है।"
+      },
+      "Her English is {{answer}} than mine.": {
+        "hint": "good का अनियमित तुलनात्मक रूप",
+        "translation": "उसकी अंग्रेज़ी मेरी से अच्छी है।"
+      },
+      "That was the {{answer}} meal I've ever had.": {
+        "hint": "bad का अनियमित सर्वोच्च रूप",
+        "translation": "वह मेरी ज़िंदगी का सबसे ख़राब खाना था।"
+      },
+      "This exercise is {{answer}} difficult than the last.": {
+        "hint": "लंबे विशेषण से पहले मात्रा-शब्द",
+        "translation": "यह अभ्यास पिछले से ज़्यादा कठिन है।"
+      },
+      "The station is {{answer}} than I thought.": {
+        "hint": "far का अनियमित तुलनात्मक रूप",
+        "translation": "स्टेशन मेरी सोच से ज़्यादा दूर है।"
+      }
+    },
+    "Going to and will": {
+      "We're {{answer}} to visit Rome in May.": {
+        "hint": "योजना — be + ___ to संरचना",
+        "translation": "हम मई में रोम घूमने जा रहे हैं।"
+      },
+      "Don't worry — I {{answer}} help you.": {
+        "hint": "तुरंत फ़ैसला — भविष्य-सहायक",
+        "translation": "चिंता मत करो — मैं तुम्हारी मदद करूँगा।"
+      },
+      "Look at those clouds! It's going to {{answer}}.": {
+        "hint": "सबूत दिखता है — be + ___ to",
+        "translation": "वे बादल देखो! बारिश होने वाली है।"
+      },
+      "I think she {{answer}} pass the exam.": {
+        "hint": "अनुमान — भविष्य-सहायक",
+        "translation": "मुझे लगता है वह परीक्षा पास कर लेगी।"
+      },
+      "They're going {{answer}} move house next year.": {
+        "hint": "योजना — be + ___ to",
+        "translation": "वे अगले साल घर बदलने वाले हैं।"
+      },
+      "I'm tired — I {{answer}} go to bed.": {
+        "hint": "तुरंत फ़ैसला → संक्षिप्त will",
+        "translation": "मैं थक गया हूँ — मैं सोने जाऊँगा।"
+      }
+    },
+    "Some, any, much, many": {
+      "There's {{answer}} milk in the fridge.": {
+        "hint": "सकारात्मक वाक्य वाला परिमाण-शब्द",
+        "translation": "फ़्रिज में थोड़ा दूध है।"
+      },
+      "We don't have {{answer}} eggs left.": {
+        "hint": "नकार वाला परिमाण-शब्द",
+        "translation": "हमारे पास अंडे नहीं बचे।"
+      },
+      "Do you have {{answer}} questions?": {
+        "hint": "प्रश्न वाला परिमाण-शब्द",
+        "translation": "क्या तुम्हारे कोई सवाल हैं?"
+      },
+      "How {{answer}} money do you need?": {
+        "hint": "अगणनीय के लिए 'कितना'",
+        "translation": "तुम्हें कितने पैसे चाहिए?"
+      },
+      "How {{answer}} people are coming?": {
+        "hint": "गणनीय के लिए 'कितने'",
+        "translation": "कितने लोग आ रहे हैं?"
+      },
+      "Would you like {{answer}} tea?": {
+        "hint": "पेशकश में इस्तेमाल होने वाला शब्द",
+        "translation": "क्या आप थोड़ी चाय लेंगे?"
+      }
+    },
+    "Adverbs of frequency": {
+      "I {{answer}} drink coffee in the morning — every single day.": {
+        "hint": "100% आवृत्ति",
+        "translation": "मैं सुबह हमेशा कॉफ़ी पीता हूँ — हर एक दिन।"
+      },
+      "He is {{answer}} late — it drives me crazy.": {
+        "hint": "be के बाद आवृत्ति-शब्द",
+        "translation": "वह हमेशा देर से आता है — मुझे पागल कर देता है।"
+      },
+      "We {{answer}} go out on Fridays — maybe once a month.": {
+        "hint": "कभी-कभी",
+        "translation": "हम कभी-कभी शुक्रवार को बाहर जाते हैं — शायद महीने में एक बार।"
+      },
+      "She {{answer}} eats meat — she's almost vegetarian.": {
+        "hint": "बहुत कम आवृत्ति",
+        "translation": "वह मांस बहुत कम खाती है — लगभग शाकाहारी है।"
+      },
+      "I have {{answer}} been to Japan, but I'd love to go.": {
+        "hint": "0% आवृत्ति",
+        "translation": "मैं कभी जापान नहीं गया, पर जाना बहुत चाहूँगा।"
+      },
+      "They {{answer}} visit us at Christmas — most years.": {
+        "hint": "आम तौर पर",
+        "translation": "वे आम तौर पर क्रिसमस पर हमसे मिलने आते हैं — ज़्यादातर सालों में।"
+      },
+      "We {{answer}} eat out on Fridays.": {
+        "hint": "अक्सर",
+        "translation": "हम अक्सर शुक्रवार को बाहर खाते हैं।"
+      }
+    },
+    "Can, could, have to": {
+      "She {{answer}} speak three languages.": {
+        "hint": "क्षमता का modal",
+        "translation": "वह तीन भाषाएँ बोल सकती है।"
+      },
+      "{{answer}} you open the window, please?": {
+        "hint": "विनम्र अनुरोध का modal",
+        "translation": "क्या आप खिड़की खोल सकते हैं, कृपया?"
+      },
+      "I {{answer}} to wear a uniform at work.": {
+        "hint": "मजबूरी — 'करना पड़ता है' वाला सहायक",
+        "translation": "मुझे काम पर वर्दी पहननी पड़ती है।"
+      },
+      "When I was five, I {{answer}} already read.": {
+        "hint": "भूतकाल की क्षमता",
+        "translation": "जब मैं पाँच साल का था, मैं पहले से पढ़ सकता था।"
+      },
+      "You don't {{answer}} to come if you're busy.": {
+        "hint": "ज़रूरत नहीं — नकार",
+        "translation": "अगर तुम व्यस्त हो तो आना ज़रूरी नहीं।"
+      },
+      "{{answer}} I sit here? — Of course.": {
+        "hint": "अनुमति का modal",
+        "translation": "क्या मैं यहाँ बैठ सकता हूँ? — बिलकुल।"
+      }
+    },
+    "Prepositions of time: in, on, at": {
+      "The meeting starts {{answer}} nine o'clock.": {
+        "hint": "घड़ी के समय वाला preposition",
+        "translation": "बैठक नौ बजे शुरू होती है।"
+      },
+      "I was born {{answer}} 1998.": {
+        "hint": "साल वाला preposition",
+        "translation": "मैं 1998 में पैदा हुआ।"
+      },
+      "We're leaving {{answer}} Friday.": {
+        "hint": "दिन वाला preposition",
+        "translation": "हम शुक्रवार को निकल रहे हैं।"
+      },
+      "She works best {{answer}} the morning.": {
+        "hint": "दिन के हिस्से वाला preposition",
+        "translation": "वह सुबह सबसे अच्छा काम करती है।"
+      },
+      "My birthday is {{answer}} 12 March.": {
+        "hint": "तारीख़ वाला preposition",
+        "translation": "मेरा जन्मदिन 12 मार्च को है।"
+      },
+      "He often studies {{answer}} night.": {
+        "hint": "'रात' वाला preposition",
+        "translation": "वह अक्सर रात में पढ़ता है।"
+      }
+    },
+    "Present perfect vs past simple": {
+      "I've {{answer}} my wallet — can you help me look?": {
+        "hint": "असर अभी तक → present perfect",
+        "translation": "मेरा बटुआ खो गया है — ढूँढने में मदद करोगे?"
+      },
+      "She {{answer}} in Berlin in 2019.": {
+        "hint": "बीता हुआ समय → simple past",
+        "translation": "वह 2019 में बर्लिन में रहती थी।"
+      },
+      "Have you {{answer}} been to Japan?": {
+        "hint": "अब तक का अनुभव → perfect",
+        "translation": "क्या तुम कभी जापान गए हो?"
+      },
+      "We've known each other {{answer}} ten years.": {
+        "hint": "अवधि — for के साथ",
+        "translation": "हम एक-दूसरे को दस साल से जानते हैं।"
+      },
+      "He's worked here {{answer}} 2020.": {
+        "hint": "शुरुआत-बिंदु बताने वाला शब्द",
+        "translation": "वह 2020 से यहाँ काम कर रहा है।"
+      },
+      "They haven't finished {{answer}}.": {
+        "hint": "yet के साथ नकार",
+        "translation": "उन्होंने अभी तक ख़त्म नहीं किया।"
+      }
+    },
+    "First and second conditionals": {
+      "If it {{answer}} tomorrow, we'll cancel the picnic.": {
+        "hint": "पहला conditional — संभव",
+        "translation": "अगर कल बारिश हुई, तो हम पिकनिक रद्द कर देंगे।"
+      },
+      "If you study, you {{answer}} pass.": {
+        "hint": "पहला conditional",
+        "translation": "अगर तुम पढ़ोगे, तो पास हो जाओगे।"
+      },
+      "If I {{answer}} rich, I would buy an island.": {
+        "hint": "दूसरा conditional — काल्पनिक",
+        "translation": "अगर मैं अमीर होता, तो एक द्वीप ख़रीद लेता।"
+      },
+      "She {{answer}} travel more if she had time.": {
+        "hint": "दूसरा conditional",
+        "translation": "अगर उसके पास समय होता, तो वह और सफ़र करती।"
+      },
+      "If we {{answer}} now, we'll catch the train.": {
+        "hint": "पहला conditional",
+        "translation": "अगर हम अभी निकलें, तो ट्रेन पकड़ लेंगे।"
+      },
+      "What {{answer}} you do if you won the lottery?": {
+        "hint": "दूसरा conditional — प्रश्न",
+        "translation": "अगर तुम लॉटरी जीत जाते, तो क्या करते?"
+      }
+    },
+    "The passive (is made, was built)": {
+      "This wine {{answer}} produced in Chile.": {
+        "hint": "वर्तमान passive",
+        "translation": "यह वाइन चिली में बनाई जाती है।"
+      },
+      "The castle was {{answer}} in the twelfth century.": {
+        "hint": "भूतकाल passive",
+        "translation": "यह क़िला बारहवीं सदी में बनाया गया था।"
+      },
+      "These photos {{answer}} taken by my grandmother.": {
+        "hint": "भूतकाल passive — by कर्ता",
+        "translation": "ये तस्वीरें मेरी दादी ने खींची थीं।"
+      },
+      "English {{answer}} spoken all over the world.": {
+        "hint": "वर्तमान passive",
+        "translation": "अंग्रेज़ी पूरी दुनिया में बोली जाती है।"
+      },
+      "The thief was caught {{answer}} the police.": {
+        "hint": "भूतकाल passive",
+        "translation": "चोर पुलिस के हाथों पकड़ा गया।"
+      },
+      "My phone was {{answer}} at the festival.": {
+        "hint": "भूतकाल passive",
+        "translation": "मेरा फ़ोन मेले में चोरी हो गया।"
+      }
+    },
+    "Relative clauses (who, which, that, where)": {
+      "She's the doctor {{answer}} treated my father.": {
+        "hint": "व्यक्ति के लिए relative शब्द",
+        "translation": "वही डॉक्टर हैं जिन्होंने मेरे पिता का इलाज किया।"
+      },
+      "That's the restaurant {{answer}} we first met.": {
+        "hint": "जगह के लिए relative शब्द",
+        "translation": "यही वह रेस्तराँ है जहाँ हम पहली बार मिले थे।"
+      },
+      "The laptop {{answer}} I bought last week is broken.": {
+        "hint": "चीज़ के लिए relative शब्द",
+        "translation": "जो लैपटॉप मैंने पिछले हफ़्ते ख़रीदा, वह ख़राब है।"
+      },
+      "He's the author {{answer}} books sell millions.": {
+        "hint": "स्वामित्व वाला relative शब्द",
+        "translation": "वही लेखक हैं जिनकी किताबें लाखों में बिकती हैं।"
+      },
+      "The train, {{answer}} was already late, then broke down.": {
+        "hint": "गैर-प्रतिबंधक relative",
+        "translation": "ट्रेन, जो पहले से लेट थी, फिर ख़राब हो गई।"
+      },
+      "People {{answer}} exercise regularly live longer.": {
+        "hint": "व्यक्ति के लिए relative शब्द",
+        "translation": "जो लोग नियमित व्यायाम करते हैं, वे ज़्यादा जीते हैं।"
+      }
+    },
+    "Used to — past habits and states": {
+      "I {{answer}} to play football every weekend.": {
+        "hint": "बीती आदत की संरचना",
+        "translation": "मैं पहले हर वीकेंड फ़ुटबॉल खेलता था।"
+      },
+      "She didn't {{answer}} to like coffee, but now she loves it.": {
+        "hint": "बीती आदत — नकार (d नहीं)",
+        "translation": "पहले उसे कॉफ़ी पसंद नहीं थी, पर अब बहुत पसंद है।"
+      },
+      "There {{answer}} to be a bakery on this corner.": {
+        "hint": "बीती स्थिति",
+        "translation": "पहले इस नुक्कड़ पर एक बेकरी हुआ करती थी।"
+      },
+      "Did you {{answer}} to live in London?": {
+        "hint": "बीती आदत — प्रश्न (d नहीं)",
+        "translation": "क्या तुम पहले लंदन में रहते थे?"
+      },
+      "He used {{answer}} have long hair.": {
+        "hint": "बीती स्थिति",
+        "translation": "पहले उसके बाल लंबे थे।"
+      },
+      "We {{answer}} to go camping every summer as kids.": {
+        "hint": "बीती आदत",
+        "translation": "बचपन में हम हर गर्मी में कैंपिंग जाते थे।"
+      }
+    },
+    "Reported speech": {
+      "'I'm busy.' → She said she {{answer}} busy.": {
+        "hint": "कथन में काल पीछे जाता है",
+        "translation": "'मैं व्यस्त हूँ।' → उसने कहा कि वह व्यस्त थी।"
+      },
+      "'I'll call you.' → He said he {{answer}} call me.": {
+        "hint": "will का अप्रत्यक्ष रूप",
+        "translation": "'मैं फ़ोन करूँगा।' → उसने कहा कि वह मुझे फ़ोन करेगा।"
+      },
+      "'Are you ready?' → She asked {{answer}} I was ready.": {
+        "hint": "हाँ/नहीं प्रश्न → if",
+        "translation": "'तैयार हो?' → उसने पूछा कि क्या मैं तैयार हूँ।"
+      },
+      "'Where do you live?' → He asked where I {{answer}}.": {
+        "hint": "प्रश्न-शब्द बना रहता है",
+        "translation": "'कहाँ रहते हो?' → उसने पूछा कि मैं कहाँ रहता हूँ।"
+      },
+      "'I can swim.' → She said she {{answer}} swim.": {
+        "hint": "can का अप्रत्यक्ष रूप",
+        "translation": "'मैं तैर सकती हूँ।' → उसने कहा कि वह तैर सकती है।"
+      },
+      "'We bought a house.' → They said they {{answer}} bought a house.": {
+        "hint": "past → past perfect",
+        "translation": "'हमने घर ख़रीदा।' → उन्होंने कहा कि उन्होंने घर ख़रीदा था।"
+      }
+    },
+    "Gerund or infinitive?": {
+      "I really enjoy {{answer}} in the sea.": {
+        "hint": "enjoy के बाद -ing",
+        "translation": "मुझे समुद्र में तैरना बहुत अच्छा लगता है।"
+      },
+      "She decided {{answer}} accept the job.": {
+        "hint": "decide के बाद to-रूप",
+        "translation": "उसने नौकरी स्वीकार करने का फ़ैसला किया।"
+      },
+      "Would you mind {{answer}} the door?": {
+        "hint": "mind के बाद -ing",
+        "translation": "क्या आप दरवाज़ा बंद कर देंगे?"
+      },
+      "We hope {{answer}} see you soon.": {
+        "hint": "hope के बाद to-रूप",
+        "translation": "हमें उम्मीद है कि जल्द मिलेंगे।"
+      },
+      "He avoided {{answer}} my question.": {
+        "hint": "avoid के बाद -ing",
+        "translation": "उसने मेरे सवाल का जवाब टाल दिया।"
+      },
+      "They promised {{answer}} write every week.": {
+        "hint": "promise के बाद to-रूप",
+        "translation": "उन्होंने हर हफ़्ते लिखने का वादा किया।"
+      }
+    },
+    "Third and mixed conditionals": {
+      "If you {{answer}} told me, I would have helped.": {
+        "hint": "तीसरा conditional — बीता हुआ काल्पनिक",
+        "translation": "अगर तुमने मुझे बताया होता, तो मैं मदद करता।"
+      },
+      "If she had left earlier, she would {{answer}} caught the flight.": {
+        "hint": "तीसरा conditional",
+        "translation": "अगर वह पहले निकलती, तो फ़्लाइट पकड़ लेती।"
+      },
+      "I wouldn't {{answer}} met her if I hadn't gone to that party.": {
+        "hint": "तीसरा conditional — दोहरा नकार",
+        "translation": "अगर मैं उस पार्टी में न गया होता, तो उससे न मिलता।"
+      },
+      "If he had studied medicine, he {{answer}} be a doctor now.": {
+        "hint": "मिश्रित conditional — अतीत → अब",
+        "translation": "अगर उसने डॉक्टरी पढ़ी होती, तो आज डॉक्टर होता।"
+      },
+      "If we {{answer}} taken the map, we wouldn't have got lost.": {
+        "hint": "तीसरा conditional",
+        "translation": "अगर हम नक़्शा ले लेते, तो नहीं भटकते।"
+      },
+      "What would you have {{answer}} in my position?": {
+        "hint": "तीसरा conditional — प्रश्न",
+        "translation": "मेरी जगह तुम क्या करते?"
+      }
+    },
+    "Modals of deduction (must, might, can't)": {
+      "The lights are on — someone {{answer}} be home.": {
+        "hint": "पक्का अनुमान का modal",
+        "translation": "बत्तियाँ जल रही हैं — कोई घर पर ज़रूर है।"
+      },
+      "That {{answer}} be Maria — she's in Brazil this week!": {
+        "hint": "नामुमकिन का modal",
+        "translation": "वह मारिया नहीं हो सकती — वह इस हफ़्ते ब्राज़ील में है!"
+      },
+      "He {{answer}} be stuck in traffic — it happens.": {
+        "hint": "संभावना का modal",
+        "translation": "शायद वह ट्रैफ़िक में फँसा हो — ऐसा होता है।"
+      },
+      "She must {{answer}} forgotten our meeting.": {
+        "hint": "बीते पर पक्का अनुमान",
+        "translation": "वह हमारी मुलाक़ात ज़रूर भूल गई होगी।"
+      },
+      "They can't {{answer}} left already — the car's still here.": {
+        "hint": "बीते पर नामुमकिन",
+        "translation": "वे अभी गए नहीं हो सकते — गाड़ी अब भी यहीं है।"
+      },
+      "It {{answer}} rain later, so take an umbrella.": {
+        "hint": "संभावना का modal",
+        "translation": "बाद में बारिश हो सकती है, इसलिए छाता ले लो।"
+      }
+    },
+    "Advanced passives (has been done, being done)": {
+      "The road has {{answer}} closed since Monday.": {
+        "hint": "perfect passive",
+        "translation": "सड़क सोमवार से बंद है।"
+      },
+      "Our office is {{answer}} renovated at the moment.": {
+        "hint": "continuous passive",
+        "translation": "हमारे दफ़्तर की इस समय मरम्मत चल रही है।"
+      },
+      "All answers must be {{answer}} in ink.": {
+        "hint": "modal passive",
+        "translation": "सभी उत्तर स्याही से लिखे जाने चाहिए।"
+      },
+      "She is {{answer}} to be the richest woman in the country.": {
+        "hint": "कहा जाता है — passive रिपोर्ट",
+        "translation": "कहा जाता है कि वह देश की सबसे अमीर महिला हैं।"
+      },
+      "The results will {{answer}} announced on Friday.": {
+        "hint": "भविष्य passive",
+        "translation": "नतीजे शुक्रवार को घोषित किए जाएँगे।"
+      },
+      "By 1990, the bridge {{answer}} been rebuilt twice.": {
+        "hint": "past perfect passive",
+        "translation": "1990 तक पुल दो बार दोबारा बनाया जा चुका था।"
+      }
+    },
+    "Wish and if only": {
+      "I wish I {{answer}} how to drive.": {
+        "hint": "मौजूदा अफ़सोस — भूतकाल रूप",
+        "translation": "काश मुझे गाड़ी चलानी आती।"
+      },
+      "She wishes she {{answer}} accepted the offer.": {
+        "hint": "बीते का अफ़सोस — past perfect",
+        "translation": "काश उसने वह पेशकश स्वीकार कर ली होती।"
+      },
+      "I wish you {{answer}} stop interrupting me!": {
+        "hint": "झुँझलाहट — will का भूत-रूप",
+        "translation": "काश तुम मुझे टोकना बंद कर दो!"
+      },
+      "If {{answer}} I had listened to your advice!": {
+        "hint": "गहरा अफ़सोस",
+        "translation": "काश मैंने तुम्हारी सलाह मानी होती!"
+      },
+      "He wishes he {{answer}} taller.": {
+        "hint": "मौजूदा अफ़सोस — be का subjunctive रूप",
+        "translation": "काश वह और लंबा होता।"
+      },
+      "We wish we {{answer}} bought tickets earlier.": {
+        "hint": "बीते का अफ़सोस",
+        "translation": "काश हमने टिकट पहले ख़रीद लिए होते।"
+      }
+    },
+    "Phrasal verbs — separable or not?": {
+      "Could you turn {{answer}} off? The music's too loud.": {
+        "hint": "अलग होने वाला phrasal verb",
+        "translation": "क्या तुम इसे बंद कर दोगे? संगीत बहुत तेज़ है।"
+      },
+      "She's looking {{answer}} her elderly mother.": {
+        "hint": "न अलग होने वाला phrasal verb",
+        "translation": "वह अपनी बुज़ुर्ग माँ की देखभाल कर रही है।"
+      },
+      "Please fill {{answer}} this form.": {
+        "hint": "फ़ॉर्म भरने वाला phrasal verb",
+        "translation": "कृपया यह फ़ॉर्म भर दीजिए।"
+      },
+      "I'll pick you {{answer}} at eight.": {
+        "hint": "सर्वनाम बीच में आता है",
+        "translation": "मैं आठ बजे तुम्हें लेने आऊँगा।"
+      },
+      "We've put {{answer}} the meeting until Friday.": {
+        "hint": "टालने वाला phrasal verb",
+        "translation": "हमने बैठक शुक्रवार तक टाल दी है।"
+      },
+      "He takes {{answer}} his father — same smile, same laugh.": {
+        "hint": "मिलते-जुलते होने वाला phrasal verb",
+        "translation": "वह अपने पिता पर गया है — वही मुस्कान, वही हँसी।"
+      }
+    },
+    "Question tags and indirect questions": {
+      "You've met before, {{answer}} you?": {
+        "hint": "सकारात्मक → नकारात्मक tag",
+        "translation": "तुम पहले मिल चुके हो, है ना?"
+      },
+      "She doesn't eat fish, {{answer}} she?": {
+        "hint": "नकारात्मक → सकारात्मक tag",
+        "translation": "वह मछली नहीं खाती, खाती है क्या?"
+      },
+      "Could you tell me where the bank {{answer}}?": {
+        "hint": "अप्रत्यक्ष प्रश्न — सीधा क्रम",
+        "translation": "क्या आप बता सकते हैं कि बैंक कहाँ है?"
+      },
+      "Do you know if the shop {{answer}} at six?": {
+        "hint": "अप्रत्यक्ष हाँ/नहीं प्रश्न",
+        "translation": "क्या तुम्हें पता है कि दुकान छह बजे बंद होती है?"
+      },
+      "It's cold today, {{answer}} it?": {
+        "hint": "सहमति माँगने वाला tag",
+        "translation": "आज ठंड है, है ना?"
+      },
+      "I wonder {{answer}} they got home safely.": {
+        "hint": "अप्रत्यक्ष प्रश्न — 'या नहीं' वाला शब्द",
+        "translation": "पता नहीं वे सही-सलामत घर पहुँचे या नहीं।"
+      }
+    },
+    "Inversion (Never have I…, Not only…)": {
+      "Never {{answer}} I heard such nonsense.": {
+        "hint": "नकारात्मक शुरुआत → उल्टा क्रम",
+        "translation": "ऐसी बकवास मैंने कभी नहीं सुनी।"
+      },
+      "Not only {{answer}} she sing, she writes her own songs.": {
+        "hint": "Not only → उल्टा क्रम",
+        "translation": "वह सिर्फ़ गाती ही नहीं, अपने गीत ख़ुद लिखती भी है।"
+      },
+      "No sooner had we sat down {{answer}} the phone rang.": {
+        "hint": "No sooner → उल्टा क्रम",
+        "translation": "हम बैठे ही थे कि फ़ोन बज उठा।"
+      },
+      "Under no circumstances {{answer}} you open that door.": {
+        "hint": "नकारात्मक शुरुआत → उल्टा क्रम",
+        "translation": "किसी भी हालत में वह दरवाज़ा मत खोलना।"
+      },
+      "Rarely {{answer}} we see such talent.": {
+        "hint": "Rarely → उल्टा क्रम",
+        "translation": "ऐसी प्रतिभा हमें कम ही देखने को मिलती है।"
+      },
+      "Only then {{answer}} I understand what she meant.": {
+        "hint": "Only then → उल्टा क्रम",
+        "translation": "तभी जाकर मैं समझा कि उसका मतलब क्या था।"
+      }
+    },
+    "Cleft sentences (What I need is…, It was… that)": {
+      "{{answer}} I need is a good night's sleep.": {
+        "hint": "'जो चीज़ चाहिए…' से शुरू होने वाला cleft",
+        "translation": "मुझे बस एक अच्छी नींद चाहिए।"
+      },
+      "It was Marco {{answer}} suggested the idea.": {
+        "hint": "It was … who वाला cleft",
+        "translation": "यह विचार मार्को ने ही सुझाया था।"
+      },
+      "What annoys me {{answer}} his constant lateness.": {
+        "hint": "What वाला cleft",
+        "translation": "मुझे जो खलता है वह है उसका हमेशा देर से आना।"
+      },
+      "It {{answer}} in Paris that they first met.": {
+        "hint": "It was … that वाला cleft",
+        "translation": "वे पहली बार पेरिस में ही मिले थे।"
+      },
+      "{{answer}} she wants is a little respect.": {
+        "hint": "All वाला cleft",
+        "translation": "वह बस थोड़ी इज़्ज़त चाहती है।"
+      },
+      "It wasn't until midnight {{answer}} he finally called.": {
+        "hint": "not until वाला cleft",
+        "translation": "आधी रात के बाद ही उसने आख़िरकार फ़ोन किया।"
+      }
+    },
+    "Hedging and distancing (would seem, tend to)": {
+      "It would {{answer}} that the figures are wrong.": {
+        "hint": "दूरी बनाने वाली संरचना",
+        "translation": "ऐसा लगता है कि आँकड़े ग़लत हैं।"
+      },
+      "House prices {{answer}} to rise in spring.": {
+        "hint": "प्रवृत्ति की संरचना",
+        "translation": "मकानों के दाम बसंत में बढ़ने की प्रवृत्ति रखते हैं।"
+      },
+      "There {{answer}} to be a problem with the data.": {
+        "hint": "प्रतीत होना — संरचना",
+        "translation": "डेटा में कोई समस्या प्रतीत होती है।"
+      },
+      "It is widely {{answer}} that the climate is changing.": {
+        "hint": "passive रिपोर्ट",
+        "translation": "व्यापक रूप से माना जाता है कि जलवायु बदल रही है।"
+      },
+      "The results {{answer}} that more research is needed.": {
+        "hint": "संकेत की संरचना",
+        "translation": "नतीजे बताते हैं कि और शोध की ज़रूरत है।"
+      },
+      "It could be {{answer}} that the policy failed.": {
+        "hint": "तर्क की passive संरचना",
+        "translation": "यह तर्क दिया जा सकता है कि नीति विफल रही।"
+      }
+    },
+    "Participle clauses (Having finished, …)": {
+      "{{answer}} finished dinner, we went for a walk.": {
+        "hint": "पूर्णता — perfect participle से शुरुआत",
+        "translation": "खाना ख़त्म करके हम टहलने निकले।"
+      },
+      "{{answer}} through the window, she saw the storm coming.": {
+        "hint": "साथ-साथ — -ing participle",
+        "translation": "खिड़की से देखते हुए उसने तूफ़ान आते देखा।"
+      },
+      "{{answer}} in 1889, the tower still draws millions.": {
+        "hint": "passive participle से शुरुआत",
+        "translation": "1889 में बना यह टावर आज भी लाखों को खींचता है।"
+      },
+      "Not {{answer}} what to say, he stayed silent.": {
+        "hint": "नकारात्मक participle",
+        "translation": "क्या कहें यह न सूझने पर वह चुप रहा।"
+      },
+      "Having {{answer}} in Rome for years, she speaks fluent Italian.": {
+        "hint": "Having + participle",
+        "translation": "बरसों रोम में रहने के कारण वह धाराप्रवाह इतालवी बोलती है।"
+      },
+      "{{answer}} by the news, they cancelled the trip.": {
+        "hint": "passive participle",
+        "translation": "ख़बर से सन्न होकर उन्होंने यात्रा रद्द कर दी।"
+      }
+    },
+    "The mandative subjunctive (insist that he be)": {
+      "The board insisted that he {{answer}} removed from the project.": {
+        "hint": "subjunctive — मूल रूप",
+        "translation": "बोर्ड ने ज़ोर दिया कि उसे परियोजना से हटाया जाए।"
+      },
+      "It is essential that every member {{answer}} the code of conduct.": {
+        "hint": "subjunctive — -s नहीं",
+        "translation": "अनिवार्य है कि हर सदस्य आचार-संहिता का पालन करे।"
+      },
+      "She recommended that the report {{answer}} rewritten.": {
+        "hint": "subjunctive — मूल रूप",
+        "translation": "उसने सिफ़ारिश की कि रिपोर्ट दोबारा लिखी जाए।"
+      },
+      "They demanded that the minister {{answer}}.": {
+        "hint": "subjunctive — -s नहीं",
+        "translation": "उन्होंने माँग की कि मंत्री इस्तीफ़ा दें।"
+      },
+      "It's vital that she {{answer}} informed at once.": {
+        "hint": "subjunctive — मूल रूप",
+        "translation": "बेहद ज़रूरी है कि उसे तुरंत सूचित किया जाए।"
+      },
+      "We suggest that he {{answer}} a lawyer before signing.": {
+        "hint": "subjunctive — -s नहीं",
+        "translation": "हमारा सुझाव है कि हस्ताक्षर से पहले वह वकील से सलाह ले।"
+      }
+    },
+    "Ellipsis and substitution (so, neither, do so)": {
+      "I loved the film. — {{answer}} did I!": {
+        "hint": "सहमति — So + सहायक",
+        "translation": "मुझे फ़िल्म बहुत पसंद आई। — मुझे भी!"
+      },
+      "She can't make it tonight. — {{answer}} can I.": {
+        "hint": "नकारात्मक सहमति",
+        "translation": "वह आज रात नहीं आ सकती। — मैं भी नहीं।"
+      },
+      "He was asked to apologise, and he did {{answer}} immediately.": {
+        "hint": "दोहराव से बचना — do so",
+        "translation": "उससे माफ़ी माँगने को कहा गया, और उसने तुरंत ऐसा किया।"
+      },
+      "You may be tired; if {{answer}}, rest.": {
+        "hint": "संक्षेप — if so",
+        "translation": "शायद तुम थके हो; अगर ऐसा है, तो आराम करो।"
+      },
+      "They promised to help, but failed to {{answer}} so.": {
+        "hint": "do so संरचना",
+        "translation": "उन्होंने मदद का वादा किया, पर ऐसा कर नहीं पाए।"
+      },
+      "I've never been to Oslo. — Nor {{answer}} I.": {
+        "hint": "नकारात्मक सहमति — Nor",
+        "translation": "मैं कभी ओस्लो नहीं गया। — मैं भी नहीं।"
+      }
+    },
+    "Formal connectors (notwithstanding, albeit)": {
+      "The plan went ahead, {{answer}} the objections.": {
+        "hint": "औपचारिक 'के बावजूद'",
+        "translation": "आपत्तियों के बावजूद योजना आगे बढ़ी।"
+      },
+      "It was a victory, {{answer}} a narrow one.": {
+        "hint": "औपचारिक 'यद्यपि'",
+        "translation": "यह जीत थी, भले ही मामूली अंतर से।"
+      },
+      "The costs rose sharply; {{answer}} the project was cancelled.": {
+        "hint": "औपचारिक 'इसलिए'",
+        "translation": "लागत तेज़ी से बढ़ी; इसलिए परियोजना रद्द कर दी गई।"
+      },
+      "A scheme {{answer}} employees share the profits.": {
+        "hint": "औपचारिक 'जिसके द्वारा'",
+        "translation": "एक योजना जिसके तहत कर्मचारी मुनाफ़ा बाँटते हैं।"
+      },
+      "A {{answer}} unknown author won the prize.": {
+        "hint": "औपचारिक 'अब तक'",
+        "translation": "अब तक अनजान एक लेखक ने पुरस्कार जीता।"
+      },
+      "The evidence, {{answer}} incomplete, points one way.": {
+        "hint": "औपचारिक 'यद्यपि'",
+        "translation": "सबूत, अधूरे होने पर भी, एक ही दिशा दिखाते हैं।"
+      }
+    },
+    "Past simple — regular verbs (-ed)": {
+      "I {{answer}} in a bank for five years.": {
+        "hint": "-ed भूतकाल",
+        "translation": "मैंने पाँच साल एक बैंक में काम किया।"
+      },
+      "She {{answer}} in Rome when she was young.": {
+        "hint": "-ed भूतकाल",
+        "translation": "जवानी में वह रोम में रहती थी।"
+      },
+      "He {{answer}} English at university.": {
+        "hint": "-y → -ied",
+        "translation": "उसने विश्वविद्यालय में अंग्रेज़ी पढ़ी।"
+      },
+      "The bus {{answer}} suddenly.": {
+        "hint": "व्यंजन दोहराकर -ed",
+        "translation": "बस अचानक रुक गई।"
+      },
+      "We {{answer}} football in the park yesterday.": {
+        "hint": "-ed भूतकाल",
+        "translation": "कल हमने पार्क में फ़ुटबॉल खेला।"
+      },
+      "They {{answer}} work yesterday — it was a holiday.": {
+        "hint": "भूतकाल का नकार — मूल रूप",
+        "translation": "कल उन्होंने काम नहीं किया — छुट्टी थी।"
+      }
+    },
+    "Object pronouns (me, him, them)": {
+      "Can you help {{answer}}, please?": {
+        "hint": "कर्म-रूप 'मुझे'",
+        "translation": "क्या तुम मेरी मदद कर सकते हो?"
+      },
+      "I saw {{answer}} at school yesterday.": {
+        "hint": "कर्म-रूप 'उसे' (पुरुष)",
+        "translation": "मैंने उसे कल स्कूल में देखा।"
+      },
+      "This present is for {{answer}}.": {
+        "hint": "कर्म-रूप 'उसे' (स्त्री)",
+        "translation": "यह तोहफ़ा उसके लिए है।"
+      },
+      "Our teacher knows {{answer}} well.": {
+        "hint": "कर्म-रूप 'हमें'",
+        "translation": "हमारे शिक्षक हमें अच्छी तरह जानते हैं।"
+      },
+      "I like these shoes — I'll buy {{answer}}.": {
+        "hint": "कर्म-रूप 'उन्हें'",
+        "translation": "मुझे ये जूते पसंद हैं — मैं इन्हें ख़रीदूँगा।"
+      },
+      "Where is my phone? I can't find {{answer}}.": {
+        "hint": "निर्जीव कर्म-रूप",
+        "translation": "मेरा फ़ोन कहाँ है? मुझे मिल नहीं रहा।"
+      }
+    },
+    "Imperatives (Open…, Don't…)": {
+      "{{answer}} the door, please.": {
+        "hint": "आदेश — मूल क्रिया से शुरू",
+        "translation": "दरवाज़ा खोलो, प्लीज़।"
+      },
+      "{{answer}} worry — everything is fine.": {
+        "hint": "नकारात्मक आदेश",
+        "translation": "चिंता मत करो — सब ठीक है।"
+      },
+      "{{answer}} me tomorrow, please.": {
+        "hint": "आदेश — मूल क्रिया",
+        "translation": "कल मुझे फ़ोन करना, प्लीज़।"
+      },
+      "{{answer}} be late — the film starts at eight.": {
+        "hint": "be का नकारात्मक आदेश",
+        "translation": "देर मत करना — फ़िल्म आठ बजे शुरू होती है।"
+      },
+      "{{answer}} quiet, please — the baby is sleeping.": {
+        "hint": "be का आदेश",
+        "translation": "चुप रहो, प्लीज़ — बच्चा सो रहा है।"
+      },
+      "Please {{answer}} down and wait a moment.": {
+        "hint": "विनम्र आदेश",
+        "translation": "कृपया बैठिए और एक पल प्रतीक्षा कीजिए।"
+      }
+    }
+  }
+}
