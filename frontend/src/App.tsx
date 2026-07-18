@@ -67,6 +67,7 @@ const router = createBrowserRouter([
       { path: '/', element: <DashboardPage /> },
       { path: '/onboarding', element: <OnboardingPage /> },
       { path: '/settings', element: <SettingsPage /> },
+      { path: '/account', element: <SettingsPage /> },
       { path: '/grammar', element: <GrammarPathPage /> },
       { path: '/review', element: <ReviewSessionPage /> },
       { path: '/cram', element: <ReviewSessionPage cram /> },

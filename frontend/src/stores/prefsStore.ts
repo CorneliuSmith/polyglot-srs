@@ -28,6 +28,12 @@ interface PrefsState {
   // hintLevel: the chosen mode carries across cards and sessions.
   listeningMode: boolean
   setListeningMode: (on: boolean) => void
+  // Accents optional (beta request): when on, a diacritic-only miss
+  // ("quien" for "quién") counts as fully correct instead of "Almost —
+  // check the accents". Applied client-side by remapping correct_sloppy →
+  // correct before it drives feedback and the SRS grade.
+  accentsOptional: boolean
+  setAccentsOptional: (on: boolean) => void
 }
 
 export const usePrefsStore = create<PrefsState>()(
@@ -46,6 +52,8 @@ export const usePrefsStore = create<PrefsState>()(
         set((s) => ({ qwertyTranslit: { ...s.qwertyTranslit, [code]: on } })),
       listeningMode: false,
       setListeningMode: (on) => set({ listeningMode: on }),
+      accentsOptional: false,
+      setAccentsOptional: (on) => set({ accentsOptional: on }),
     }),
     {
       name: 'polyglot-prefs',

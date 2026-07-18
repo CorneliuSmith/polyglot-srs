@@ -1,4 +1,5 @@
 import apiClient from './client'
+import { usePrefsStore } from '../stores/prefsStore'
 import type {
   CardDetail,
   DueCard,
@@ -72,7 +73,18 @@ export async function validateAnswer(
     '/api/review/validate-answer',
     req,
   )
-  return response.data
+  const data = response.data
+  // Accents optional (beta request): a diacritic-only miss is graded
+  // 'correct_sloppy' with an "Almost — check the accents" note. When the
+  // learner has turned accents off, promote it to a full 'correct' and drop
+  // the note, so it reads and scores green everywhere downstream.
+  if (
+    data.answer_result === 'correct_sloppy' &&
+    usePrefsStore.getState().accentsOptional
+  ) {
+    return { ...data, answer_result: 'correct', feedback: null }
+  }
+  return data
 }
 
 export async function submitReview(

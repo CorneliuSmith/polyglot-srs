@@ -316,11 +316,11 @@ export default function DashboardPage() {
             </button>
             <button
               type="button"
-              onClick={() => navigate('/settings')}
-              aria-label="Settings"
+              onClick={() => navigate('/account')}
+              aria-label="Account"
               className="text-sm text-gray-500 hover:text-lang"
             >
-              Settings
+              Account
             </button>
           </div>
         </div>

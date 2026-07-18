@@ -26,7 +26,7 @@ import {
 } from '../../api/contribute'
 
 /** Admin-only per-language tutor model override (WP15a). */
-function TutorModelControl({
+export function TutorModelControl({
   languageId,
   current,
   onChanged,
@@ -68,7 +68,7 @@ function TutorModelControl({
 
 /** Admin-only tutor cost monitor (WP9b): token rollups across ALL languages,
  * priced at list rates — the data behind per-language model choices. */
-function TutorCostsPanel() {
+export function TutorCostsPanel() {
   const { data } = useQuery({
     queryKey: ['tutor-usage'],
     queryFn: () => getTutorUsage(30),
@@ -192,7 +192,7 @@ function FlagIssueBox({ pointId }: { pointId: string }) {
   )
 }
 
-function NewPointForm({
+export function NewPointForm({
   languageId,
   onCreated,
 }: {
@@ -402,7 +402,7 @@ function PointEditor({
   )
 }
 
-function ReviewPolicyControl({
+export function ReviewPolicyControl({
   languageId,
   policy,
   onChanged,
