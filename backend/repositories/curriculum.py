@@ -13,6 +13,7 @@ import json
 import asyncpg
 
 from backend.services.extract import ANSWER_MARKER
+from backend.services.readings import sentence_reading
 from backend.services.references import clean_references
 from backend.services.srs_stages import stage_for
 
@@ -158,7 +159,8 @@ async def get_curriculum_point(
     """Full read view of one grammar point (lesson-page shape)."""
     gp = await conn.fetchrow(
         """
-        SELECT gp.id, gp.language_id, gp.title, gp.level, gp.function_note,
+        SELECT gp.id, gp.language_id, l.code AS language_code,
+               gp.title, gp.level, gp.function_note,
                gp.explanation, gp.culture_note, gp.reference_links, gp.related,
                gp.reviewed,
                EXISTS (
@@ -208,7 +210,9 @@ async def get_curriculum_point(
         "related": related,
         "examples": [
             {
-                "sentence": d["sentence"].replace(ANSWER_MARKER, d["answer"]),
+                "sentence": (filled := d["sentence"].replace(
+                    ANSWER_MARKER, d["answer"])),
+                "reading": sentence_reading(filled, gp["language_code"]),
                 "translation": d["translation"],
                 "hint": d["hint"],
             }

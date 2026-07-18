@@ -24,7 +24,12 @@ export interface CurriculumPointDetail {
   references: ReferenceLink[]
   read_refs?: string[]
   related?: RelatedPoint[]
-  examples: { sentence: string; translation: string | null; hint: string | null }[]
+  examples: {
+    sentence: string
+    reading?: string | null
+    translation: string | null
+    hint: string | null
+  }[]
 }
 
 export async function getCurriculum(languageId: string): Promise<CurriculumPoint[]> {
