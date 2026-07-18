@@ -19,11 +19,13 @@ from backend.repositories.contributor import (
     add_review_note,
     admin_engagement,
     approve_explanation,
+    approve_suggestion,
     can_contribute,
     can_review,
     create_grammar_point,
     delete_account,
     delete_drill,
+    entity_language,
     find_user_by_email,
     get_feedback_language,
     get_language_policy,
@@ -33,6 +35,7 @@ from backend.repositories.contributor import (
     get_point_language,
     get_point_language_and_code,
     get_roles,
+    get_suggestion,
     grant_role,
     is_admin,
     list_accounts,
@@ -41,6 +44,8 @@ from backend.repositories.contributor import (
     list_feedback,
     list_grammar_points,
     list_review_notes,
+    list_suggestions,
+    reject_suggestion,
     resolve_feedback,
     resolve_review_note,
     revoke_role,
@@ -49,6 +54,7 @@ from backend.repositories.contributor import (
     set_account_plan,
     set_language_policy,
     set_language_tutor_model,
+    submit_suggestion,
     update_drill,
 )
 from backend.repositories.pool import privileged_connection, rls_connection
@@ -633,6 +639,110 @@ async def resolve_card_feedback(
             )
         await resolve_feedback(conn, feedback_id)
     return {"resolved": True}
+
+
+class NewSuggestion(BaseModel):
+    entity_type: str = Field(pattern="^(vocabulary|grammar)$")
+    entity_id: str
+    proposed: dict
+    note: str | None = Field(default=None, max_length=1000)
+
+
+class RejectSuggestion(BaseModel):
+    review_note: str | None = Field(default=None, max_length=1000)
+
+
+@router.post("/suggestions")
+async def create_suggestion(
+    body: NewSuggestion,
+    user: dict = Depends(get_current_user),
+):
+    """Propose an edit to a live card. Contributor-gated; nothing goes live
+    until a reviewer approves it."""
+    async with rls_connection(user["id"]) as conn:
+        roles = await get_roles(conn, user["id"])
+    async with privileged_connection() as conn:
+        language_id = await entity_language(conn, body.entity_type, body.entity_id)
+        if language_id is None:
+            raise HTTPException(status_code=404, detail="Card not found")
+        if not can_contribute(roles, language_id):
+            raise HTTPException(
+                status_code=status.HTTP_403_FORBIDDEN,
+                detail="You don't have a contributor role for this language",
+            )
+        try:
+            sid = await submit_suggestion(
+                conn, language_id, body.entity_type, body.entity_id,
+                user["id"], body.proposed, body.note,
+            )
+        except ValueError as exc:
+            raise HTTPException(status_code=422, detail=str(exc)) from exc
+    return {"id": sid}
+
+
+@router.get("/suggestions")
+async def suggestions_queue(
+    language_id: str,
+    user: dict = Depends(get_current_user),
+):
+    """Pending suggestions for a language (reviewer/admin only)."""
+    async with rls_connection(user["id"]) as conn:
+        roles = await get_roles(conn, user["id"])
+    if not can_review(roles, language_id):
+        raise HTTPException(
+            status_code=status.HTTP_403_FORBIDDEN,
+            detail="You don't have a reviewer role for this language",
+        )
+    async with privileged_connection() as conn:
+        items = await list_suggestions(conn, language_id)
+    return {"suggestions": items}
+
+
+@router.post("/suggestions/{suggestion_id}/approve")
+async def approve_content_suggestion(
+    suggestion_id: str,
+    user: dict = Depends(get_current_user),
+):
+    """Apply a suggestion to the live card (reviewer/admin for its language)."""
+    async with rls_connection(user["id"]) as conn:
+        roles = await get_roles(conn, user["id"])
+    async with privileged_connection() as conn:
+        s = await get_suggestion(conn, suggestion_id)
+        if s is None:
+            raise HTTPException(status_code=404, detail="Suggestion not found")
+        if not can_review(roles, s["language_id"]):
+            raise HTTPException(
+                status_code=status.HTTP_403_FORBIDDEN,
+                detail="You don't have a reviewer role for this language",
+            )
+        applied = await approve_suggestion(conn, suggestion_id, user["id"])
+        if not applied:
+            raise HTTPException(status_code=409, detail="Already resolved")
+    return {"approved": True}
+
+
+@router.post("/suggestions/{suggestion_id}/reject")
+async def reject_content_suggestion(
+    suggestion_id: str,
+    body: RejectSuggestion,
+    user: dict = Depends(get_current_user),
+):
+    """Reject a suggestion (reviewer/admin for its language); nothing applied."""
+    async with rls_connection(user["id"]) as conn:
+        roles = await get_roles(conn, user["id"])
+    async with privileged_connection() as conn:
+        s = await get_suggestion(conn, suggestion_id)
+        if s is None:
+            raise HTTPException(status_code=404, detail="Suggestion not found")
+        if not can_review(roles, s["language_id"]):
+            raise HTTPException(
+                status_code=status.HTTP_403_FORBIDDEN,
+                detail="You don't have a reviewer role for this language",
+            )
+        ok = await reject_suggestion(conn, suggestion_id, user["id"], body.review_note)
+        if not ok:
+            raise HTTPException(status_code=409, detail="Already resolved")
+    return {"rejected": True}
 
 
 class NewAccount(BaseModel):

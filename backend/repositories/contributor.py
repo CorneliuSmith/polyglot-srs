@@ -12,6 +12,7 @@ import json
 import asyncpg
 
 from backend.services.references import clean_references
+from backend.services.seeder.morphology_charts import strip_nominal_chips
 
 
 async def get_roles(conn: asyncpg.Connection, user_id: str) -> list[dict]:
@@ -653,6 +654,220 @@ async def set_account_plan(
         WHERE id = $1
         """,
         user_id, plan_scope, plan_language_id,
+    )
+    return result.endswith("1")
+
+
+# ── Content suggestions (contributor-proposed card edits) ─────────────────
+# The editable text fields a contributor may propose changing on a card.
+SUGGESTION_FIELDS = {
+    "vocabulary": ("definition", "part_of_speech", "usage_note"),
+    "grammar": ("function_note", "explanation", "culture_note"),
+}
+
+
+async def entity_language(
+    conn: asyncpg.Connection, entity_type: str, entity_id: str
+) -> str | None:
+    """The language_id owning a vocabulary row or grammar point, or None."""
+    table = "vocabulary" if entity_type == "vocabulary" else "grammar_points"
+    lid = await conn.fetchval(
+        f"SELECT language_id FROM {table} WHERE id = $1", entity_id
+    )
+    return str(lid) if lid else None
+
+
+async def submit_suggestion(
+    conn: asyncpg.Connection,
+    language_id: str,
+    entity_type: str,
+    entity_id: str,
+    author_id: str,
+    proposed: dict,
+    note: str | None,
+) -> str:
+    """Store a proposed edit (pending). Only known fields are kept."""
+    allowed = SUGGESTION_FIELDS[entity_type]
+    clean = {
+        k: (v.strip() if isinstance(v, str) else v)
+        for k, v in proposed.items()
+        if k in allowed and v is not None and str(v).strip() != ""
+    }
+    if not clean:
+        raise ValueError("no editable fields in proposal")
+    row = await conn.fetchrow(
+        """
+        INSERT INTO content_suggestions
+            (language_id, entity_type, entity_id, author_id, proposed, note)
+        VALUES ($1, $2, $3, $4, $5, $6)
+        RETURNING id
+        """,
+        language_id, entity_type, entity_id, author_id,
+        json.dumps(clean, ensure_ascii=False), (note or "").strip() or None,
+    )
+    return str(row["id"])
+
+
+async def _current_fields(
+    conn: asyncpg.Connection, entity_type: str, entity_id: str
+) -> dict:
+    """The card's current values for the suggestable fields (for the diff)."""
+    if entity_type == "vocabulary":
+        r = await conn.fetchrow(
+            """
+            SELECT v.word, v.part_of_speech, v.usage_note,
+                   (SELECT definition FROM translations
+                     WHERE vocabulary_id = v.id AND locale = 'en' LIMIT 1) AS definition
+            FROM vocabulary v WHERE v.id = $1
+            """,
+            entity_id,
+        )
+        if not r:
+            return {}
+        return {"title": r["word"], "definition": r["definition"],
+                "part_of_speech": r["part_of_speech"], "usage_note": r["usage_note"]}
+    r = await conn.fetchrow(
+        "SELECT title, function_note, explanation, culture_note "
+        "FROM grammar_points WHERE id = $1", entity_id,
+    )
+    if not r:
+        return {}
+    return {"title": r["title"], "function_note": r["function_note"],
+            "explanation": r["explanation"], "culture_note": r["culture_note"]}
+
+
+async def list_suggestions(
+    conn: asyncpg.Connection, language_id: str, status_filter: str = "pending"
+) -> list[dict]:
+    """Pending suggestions for a language, each with current vs proposed."""
+    rows = await conn.fetch(
+        """
+        SELECT s.id, s.entity_type, s.entity_id, s.proposed, s.note,
+               s.status, s.created_at
+        FROM content_suggestions s
+        WHERE s.language_id = $1 AND s.status = $2
+        ORDER BY s.created_at ASC
+        LIMIT 100
+        """,
+        language_id, status_filter,
+    )
+    out = []
+    for r in rows:
+        current = await _current_fields(conn, r["entity_type"], str(r["entity_id"]))
+        proposed = r["proposed"]
+        if isinstance(proposed, str):
+            proposed = json.loads(proposed)
+        out.append({
+            "id": str(r["id"]),
+            "entity_type": r["entity_type"],
+            "entity_id": str(r["entity_id"]),
+            "card_title": current.get("title"),
+            "current": {k: v for k, v in current.items() if k != "title"},
+            "proposed": proposed,
+            "note": r["note"],
+            "status": r["status"],
+            "created_at": r["created_at"].isoformat() if r["created_at"] else None,
+        })
+    return out
+
+
+async def get_suggestion(conn: asyncpg.Connection, suggestion_id: str) -> dict | None:
+    """Raw suggestion row (for the router's language + status checks)."""
+    r = await conn.fetchrow(
+        "SELECT id, language_id, entity_type, entity_id, proposed, status "
+        "FROM content_suggestions WHERE id = $1", suggestion_id,
+    )
+    if not r:
+        return None
+    proposed = r["proposed"]
+    if isinstance(proposed, str):
+        proposed = json.loads(proposed)
+    return {"id": str(r["id"]), "language_id": str(r["language_id"]),
+            "entity_type": r["entity_type"], "entity_id": str(r["entity_id"]),
+            "proposed": proposed, "status": r["status"]}
+
+
+async def _apply_to_entity(
+    conn: asyncpg.Connection, entity_type: str, entity_id: str, proposed: dict
+) -> None:
+    """Write an approved proposal onto the live card."""
+    allowed = SUGGESTION_FIELDS[entity_type]
+    fields = {k: v for k, v in proposed.items() if k in allowed}
+    if entity_type == "vocabulary":
+        if "part_of_speech" in fields:
+            await conn.execute(
+                "UPDATE vocabulary SET part_of_speech = $1 WHERE id = $2",
+                fields["part_of_speech"], entity_id,
+            )
+            # a POS change can retire wrong-sense gender/number chips
+            m = await conn.fetchval(
+                "SELECT morphology FROM vocabulary WHERE id = $1", entity_id)
+            if isinstance(m, str):
+                m = json.loads(m) if m else {}
+            new = strip_nominal_chips(m, fields["part_of_speech"])
+            if new != m:
+                await conn.execute(
+                    "UPDATE vocabulary SET morphology = $1 WHERE id = $2",
+                    json.dumps(new, ensure_ascii=False), entity_id)
+        if "usage_note" in fields:
+            await conn.execute(
+                "UPDATE vocabulary SET usage_note = $1 WHERE id = $2",
+                fields["usage_note"], entity_id,
+            )
+        if "definition" in fields:
+            await conn.execute(
+                """
+                INSERT INTO translations (vocabulary_id, locale, definition)
+                VALUES ($1, 'en', $2)
+                ON CONFLICT (vocabulary_id, locale)
+                    DO UPDATE SET definition = EXCLUDED.definition
+                """,
+                entity_id, fields["definition"],
+            )
+    else:  # grammar
+        cols = [k for k in ("function_note", "explanation", "culture_note")
+                if k in fields]
+        if cols:
+            sets = ", ".join(f"{c} = ${i + 2}" for i, c in enumerate(cols))
+            await conn.execute(
+                f"UPDATE grammar_points SET {sets} WHERE id = $1",
+                entity_id, *[fields[c] for c in cols],
+            )
+
+
+async def approve_suggestion(
+    conn: asyncpg.Connection, suggestion_id: str, reviewer_id: str
+) -> bool:
+    """Apply a pending suggestion to the card and mark it approved."""
+    s = await get_suggestion(conn, suggestion_id)
+    if not s or s["status"] != "pending":
+        return False
+    async with conn.transaction():
+        await _apply_to_entity(conn, s["entity_type"], s["entity_id"], s["proposed"])
+        await conn.execute(
+            """
+            UPDATE content_suggestions
+            SET status = 'approved', reviewer_id = $2, resolved_at = now()
+            WHERE id = $1
+            """,
+            suggestion_id, reviewer_id,
+        )
+    return True
+
+
+async def reject_suggestion(
+    conn: asyncpg.Connection, suggestion_id: str, reviewer_id: str,
+    review_note: str | None,
+) -> bool:
+    """Mark a pending suggestion rejected (nothing is applied)."""
+    result = await conn.execute(
+        """
+        UPDATE content_suggestions
+        SET status = 'rejected', reviewer_id = $2, review_note = $3,
+            resolved_at = now()
+        WHERE id = $1 AND status = 'pending'
+        """,
+        suggestion_id, reviewer_id, (review_note or "").strip() or None,
     )
     return result.endswith("1")
 

@@ -617,6 +617,96 @@ class TestEngagement:
         assert mock_eng.await_args.args[1] == 365
 
 
+class TestSuggestions:
+    """Contributor-proposed card edits: propose → queue → approve/reject."""
+
+    def _payload(self, **over):
+        p = {"entity_type": "vocabulary", "entity_id": POINT,
+             "proposed": {"definition": "to; at"}, "note": "was 'bishop'"}
+        p.update(over)
+        return p
+
+    def test_submit_requires_contributor(self, client):
+        with _roles([]), \
+             patch("backend.routers.contribute.entity_language",
+                   new=AsyncMock(return_value=LANG)):
+            resp = client.post("/api/contribute/suggestions",
+                               json=self._payload(), headers=_auth_headers())
+        assert resp.status_code == 403
+
+    def test_submit_unknown_card_404(self, client):
+        with _roles([{"language_id": LANG, "role": "contributor"}]), \
+             patch("backend.routers.contribute.entity_language",
+                   new=AsyncMock(return_value=None)):
+            resp = client.post("/api/contribute/suggestions",
+                               json=self._payload(), headers=_auth_headers())
+        assert resp.status_code == 404
+
+    def test_submit_success(self, client):
+        with _roles([{"language_id": LANG, "role": "contributor"}]), \
+             patch("backend.routers.contribute.entity_language",
+                   new=AsyncMock(return_value=LANG)), \
+             patch("backend.routers.contribute.submit_suggestion",
+                   new=AsyncMock(return_value="sug-1")) as mock_sub:
+            resp = client.post("/api/contribute/suggestions",
+                               json=self._payload(), headers=_auth_headers())
+        assert resp.status_code == 200
+        assert resp.json()["id"] == "sug-1"
+        mock_sub.assert_awaited_once()
+
+    def test_queue_requires_reviewer(self, client):
+        # a contributor (not reviewer) cannot see the queue
+        with _roles([{"language_id": LANG, "role": "contributor"}]):
+            resp = client.get("/api/contribute/suggestions",
+                              params={"language_id": LANG}, headers=_auth_headers())
+        assert resp.status_code == 403
+
+    def test_queue_success(self, client):
+        rows = [{"id": "s1", "entity_type": "vocabulary", "card_title": "a",
+                 "current": {"definition": "bishop"},
+                 "proposed": {"definition": "to; at"}}]
+        with _roles([{"language_id": LANG, "role": "reviewer"}]), \
+             patch("backend.routers.contribute.list_suggestions",
+                   new=AsyncMock(return_value=rows)):
+            resp = client.get("/api/contribute/suggestions",
+                              params={"language_id": LANG}, headers=_auth_headers())
+        assert resp.status_code == 200
+        assert resp.json()["suggestions"][0]["card_title"] == "a"
+
+    def test_approve_applies(self, client):
+        with _roles([{"language_id": LANG, "role": "reviewer"}]), \
+             patch("backend.routers.contribute.get_suggestion",
+                   new=AsyncMock(return_value={"language_id": LANG, "status": "pending"})), \
+             patch("backend.routers.contribute.approve_suggestion",
+                   new=AsyncMock(return_value=True)) as mock_ap:
+            resp = client.post("/api/contribute/suggestions/s1/approve",
+                               headers=_auth_headers())
+        assert resp.status_code == 200
+        assert resp.json()["approved"] is True
+        mock_ap.assert_awaited_once()
+
+    def test_approve_requires_reviewer_for_that_language(self, client):
+        with _roles([{"language_id": OTHER_LANG, "role": "reviewer"}]), \
+             patch("backend.routers.contribute.get_suggestion",
+                   new=AsyncMock(return_value={"language_id": LANG, "status": "pending"})):
+            resp = client.post("/api/contribute/suggestions/s1/approve",
+                               headers=_auth_headers())
+        assert resp.status_code == 403
+
+    def test_reject_success(self, client):
+        with _roles([{"language_id": LANG, "role": "reviewer"}]), \
+             patch("backend.routers.contribute.get_suggestion",
+                   new=AsyncMock(return_value={"language_id": LANG, "status": "pending"})), \
+             patch("backend.routers.contribute.reject_suggestion",
+                   new=AsyncMock(return_value=True)) as mock_rej:
+            resp = client.post("/api/contribute/suggestions/s1/reject",
+                               json={"review_note": "wrong sense"},
+                               headers=_auth_headers())
+        assert resp.status_code == 200
+        assert resp.json()["rejected"] is True
+        mock_rej.assert_awaited_once()
+
+
 class TestCreatePoint:
     def test_create_requires_role(self, client):
         with _roles([]):

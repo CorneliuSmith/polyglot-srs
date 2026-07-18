@@ -19,6 +19,7 @@ import AccountsPanel from '../contribute/AccountsPanel'
 import RolesPanel from '../contribute/RolesPanel'
 import IssuesPanel from '../contribute/IssuesPanel'
 import FeedbackPanel from '../contribute/FeedbackPanel'
+import SuggestionsPanel from '../contribute/SuggestionsPanel'
 import EngagementPanel from '../contribute/EngagementPanel'
 import {
   ReviewPolicyControl,
@@ -225,6 +226,7 @@ export default function SettingsPage() {
 
         {tab === 'review' && activeLanguageId && (
           <>
+            {canReview && <SuggestionsPanel languageId={activeLanguageId} />}
             <IssuesPanel languageId={activeLanguageId} canResolve={canReview} />
             <FeedbackPanel languageId={activeLanguageId} />
           </>
