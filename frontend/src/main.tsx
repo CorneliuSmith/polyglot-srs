@@ -16,6 +16,16 @@ if (import.meta.env.PROD && 'serviceWorker' in navigator) {
   })
 }
 
+// A dynamic-import chunk that 404s means this tab is running against a bundle
+// that a deploy has since replaced. Reload once (guarded) to pick up the new
+// index and its fresh asset hashes.
+window.addEventListener('vite:preloadError', () => {
+  if (!sessionStorage.getItem('polyglot-chunk-reloaded')) {
+    sessionStorage.setItem('polyglot-chunk-reloaded', '1')
+    window.location.reload()
+  }
+})
+
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <App />

@@ -5,7 +5,7 @@
  *  - hashed /assets/*: cache-first (immutable by construction)
  *  - everything else (API calls included): straight to the network
  */
-const CACHE = 'polyglot-shell-v1';
+const CACHE = 'polyglot-shell-v2';
 
 self.addEventListener('install', (event) => {
   event.waitUntil(
@@ -35,8 +35,12 @@ self.addEventListener('fetch', (event) => {
     event.respondWith(
       fetch(event.request)
         .then((resp) => {
-          const copy = resp.clone();
-          caches.open(CACHE).then((cache) => cache.put('/', copy));
+          // Only cache a good shell — never a 404/500 page, which would then
+          // be served offline as a broken fallback.
+          if (resp.ok) {
+            const copy = resp.clone();
+            caches.open(CACHE).then((cache) => cache.put('/', copy));
+          }
           return resp;
         })
         .catch(() => caches.match('/')),
@@ -50,8 +54,12 @@ self.addEventListener('fetch', (event) => {
         (hit) =>
           hit ||
           fetch(event.request).then((resp) => {
-            const copy = resp.clone();
-            caches.open(CACHE).then((cache) => cache.put(event.request, copy));
+            // A 404 for a hashed asset means a stale shell asked for a bundle
+            // that no longer exists — don't poison the cache with it.
+            if (resp.ok) {
+              const copy = resp.clone();
+              caches.open(CACHE).then((cache) => cache.put(event.request, copy));
+            }
             return resp;
           }),
       ),

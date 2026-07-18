@@ -31,6 +31,44 @@
       } catch (e) {}
     </script>
     <div id="root"></div>
+    <script>
+      // Self-heal a broken stylesheet load. A stale service-worker cache after
+      // a deploy can leave the app pointing at a CSS bundle that 404s, so it
+      // renders as unstyled serif HTML. If OUR OWN css failed to load, drop the
+      // service worker + caches and reload once (guarded so it can't loop).
+      // Only same-origin sheets are checked — a cross-origin webfont link
+      // legitimately exposes no .sheet and must not trigger recovery.
+      window.addEventListener('load', function () {
+        setTimeout(function () {
+          try {
+            if (sessionStorage.getItem('polyglot-css-healed')) return
+            var origin = location.origin
+            var broke = false
+            document.querySelectorAll('link[rel="stylesheet"]').forEach(function (l) {
+              if (l.href && l.href.indexOf(origin) === 0 && !l.sheet) broke = true
+            })
+            if (!broke) return
+            sessionStorage.setItem('polyglot-css-healed', '1')
+            var reload = function () { location.reload() }
+            var clearCaches = window.caches
+              ? caches.keys().then(function (ks) {
+                  return Promise.all(ks.map(function (k) { return caches.delete(k) }))
+                })
+              : Promise.resolve()
+            if (navigator.serviceWorker) {
+              navigator.serviceWorker.getRegistrations()
+                .then(function (rs) {
+                  return Promise.all(rs.map(function (r) { return r.unregister() }))
+                })
+                .then(function () { return clearCaches })
+                .then(reload, reload)
+            } else {
+              clearCaches.then(reload, reload)
+            }
+          } catch (e) { /* recovery is best-effort */ }
+        }, 2000)
+      })
+    </script>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>
