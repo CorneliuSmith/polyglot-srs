@@ -62,6 +62,7 @@ from backend.services.nlp.hausa import HausaNLP, normalize_hausa
 from backend.services.nlp.hindi import HindiNLP
 from backend.services.nlp.latin_base import (
     CatalanNLP,
+    DutchNLP,
     FrenchNLP,
     GermanNLP,
     GreekNLP,
@@ -73,6 +74,7 @@ from backend.services.nlp.latin_base import (
 )
 from backend.services.nlp.russian import RussianNLP
 from backend.services.nlp.swahili import SwahiliNLP
+from backend.services.nlp.thai import ThaiNLP
 from backend.services.nlp.turkish import TurkishNLP, turkish_lower
 from backend.services.nlp.xhosa import XhosaNLP
 from backend.services.nlp.yoruba import YorubaNLP, strip_tones
@@ -82,7 +84,7 @@ from backend.services.seeder.base import DATA_DIR
 # (OpenSubtitles) + a kaikki Wiktionary dictionary. The path is
 # script-agnostic — ro/el/ar ride the same rails as the Latin five; it just
 # needs a frequency list, a kaikki extract, and a lemmatizer.
-FREQUENCYWORDS_LANGS = {"es", "it", "fr", "de", "ca", "ro", "el", "ar", "ru", "pt", "hi"}
+FREQUENCYWORDS_LANGS = {"es", "it", "fr", "de", "ca", "ro", "el", "ar", "ru", "pt", "hi", "nl", "th"}
 LATIN_NLP = {
     "es": SpanishNLP, "it": ItalianNLP, "fr": FrenchNLP,
     "de": GermanNLP, "ca": CatalanNLP, "mi": MaoriNLP,
@@ -95,7 +97,7 @@ LATIN_NLP = {
 FREQ_NLP = {
     **LATIN_NLP,
     "ro": RomanianNLP, "el": GreekNLP, "ar": ArabicNLP, "ru": RussianNLP,
-    "hi": HindiNLP,
+    "hi": HindiNLP, "nl": DutchNLP, "th": ThaiNLP,
 }
 
 logger = logging.getLogger("source_data")
@@ -136,6 +138,8 @@ SOURCES = {
     "ru_kaikki": "https://kaikki.org/dictionary/Russian/kaikki.org-dictionary-Russian.jsonl",
     "pt_kaikki": "https://kaikki.org/dictionary/Portuguese/kaikki.org-dictionary-Portuguese.jsonl",
     "hi_kaikki": "https://kaikki.org/dictionary/Hindi/kaikki.org-dictionary-Hindi.jsonl",
+    "nl_kaikki": "https://kaikki.org/dictionary/Dutch/kaikki.org-dictionary-Dutch.jsonl",
+    "th_kaikki": "https://kaikki.org/dictionary/Thai/kaikki.org-dictionary-Thai.jsonl",
     # HermitDave FrequencyWords (OpenSubtitles 2018), per ISO code.
     "frequencywords": (
         "https://raw.githubusercontent.com/hermitdave/FrequencyWords/"
@@ -196,7 +200,7 @@ TATOEBA_ISO3 = {
     # European tier + ru/ar (well-covered on Tatoeba)
     "es": "spa", "fr": "fra", "de": "deu", "it": "ita", "ca": "cat",
     "ro": "ron", "el": "ell", "ru": "rus", "ar": "ara", "pt": "por",
-    "hi": "hin", "jam": "jam", "mi": "mri",
+    "hi": "hin", "jam": "jam", "mi": "mri", "nl": "nld", "th": "tha",
 }
 
 # Hausa has no reachable public-domain corpus in this pipeline; the user drops
@@ -649,6 +653,7 @@ def sentence_difficulty(
     lemmatize,
     unknown_penalty: int = 99999,
     tolerated_unknown_rank: int = 19999,
+    tokenize=None,
 ) -> int:
     """Score a sentence by its rarest word: max frequency rank over tokens.
 
@@ -667,7 +672,8 @@ def sentence_difficulty(
     """
     ranks = []
     unknowns = 0
-    for token in _WORD_RE.findall(sentence.lower()):
+    tokens = tokenize(sentence.lower()) if tokenize else _WORD_RE.findall(sentence.lower())
+    for token in tokens:
         if len(token) == 1:
             continue
         rank = rank_by_word.get(token)
@@ -692,6 +698,7 @@ def build_sentence_rows(
     lemmatize,
     per_word: int = 3,
     max_difficulty: int = 20000,
+    tokenize=None,
 ) -> list[dict]:
     """Pick up to *per_word* easiest example sentences for each vocab word.
 
@@ -705,11 +712,14 @@ def build_sentence_rows(
         translation = eng_sentences.get(tgt_id)
         if not sentence or not translation:
             continue
-        difficulty = sentence_difficulty(sentence, rank_by_word, lemmatize)
+        difficulty = sentence_difficulty(
+            sentence, rank_by_word, lemmatize, tokenize=tokenize
+        )
         if difficulty > max_difficulty:
             continue
         words = set()
-        for token in _WORD_RE.findall(sentence.lower()):
+        tokens = tokenize(sentence.lower()) if tokenize else _WORD_RE.findall(sentence.lower())
+        for token in tokens:
             if token in rank_by_word:
                 words.add(token)
             else:
@@ -1264,10 +1274,18 @@ def build_sentences(language: str, cache_dir: Path, per_word: int = 3) -> Path:
     nlp_by_lang = {
         "tr": TurkishNLP, "sw": SwahiliNLP, "yo": YorubaNLP,
         "xh": XhosaNLP, "ha": HausaNLP, "ru": RussianNLP,
-        "jam": JamaicanNLP,
+        "jam": JamaicanNLP, "th": ThaiNLP,
         **FREQ_NLP,
     }
     lemmatize = nlp_by_lang[language]().lemmatize
+    tokenize = None
+    if language == "th":
+        # Thai writes without spaces — greedy longest-match against the
+        # frequency lexicon is the segmentation baseline (services/nlp/thai).
+        from backend.services.nlp.thai import segment as thai_segment
+
+        lexicon = set(rank_by_word)
+        tokenize = lambda text: thai_segment(text, lexicon)  # noqa: E731
     rows = build_sentence_rows(
         parse_tatoeba_sentences(tgt),
         parse_tatoeba_sentences(eng),
@@ -1275,6 +1293,7 @@ def build_sentences(language: str, cache_dir: Path, per_word: int = 3) -> Path:
         rank_by_word,
         lemmatize,
         per_word=per_word,
+        tokenize=tokenize,
     )
     out_path = DATA_DIR / f"{language}_sentences.tsv"
     n = write_sentences_tsv(rows, out_path)
@@ -1287,7 +1306,7 @@ def main() -> None:
     parser.add_argument(
         "--language", "-l",
         choices=["tr", "sw", "yo", "ha", "xh", "mi", "es", "it", "fr", "de", "ca",
-                 "ro", "el", "ar", "ru", "en", "pt", "hi", "jam"],
+                 "ro", "el", "ar", "ru", "en", "pt", "hi", "jam", "nl", "th"],
         required=True
     )
     parser.add_argument(

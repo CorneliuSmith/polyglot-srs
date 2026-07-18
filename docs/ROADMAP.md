@@ -1133,6 +1133,30 @@ literacy. No TTS (no neural voice exists anywhere). source:'ai' +
 reviewed:false + policy 'ai_ok'; promotion gated on the JLU-connected
 reviewer per the beta rollout plan.
 
+### WP24 — Dutch + Thai (owner, 2026-07-17)
+Languages 20 and 21, both draft tier ('ai_ok', reviewed:false + AI-pass).
+**(a) Dutch (nl) — DONE.** Full generic pipeline (HermitDave nl_50k +
+kaikki Dutch + Tatoeba nld): 10,000 words, 23,710 example sentences.
+42-point A1→C2 path (252 drills): V2 + verb-final + the tang, de/het and
+the -e exception, 't kofschip perfects, separable verbs, the five jobs of
+er, modal particles, double infinitives, posture verbs, NL-vs-Flanders,
+and case fossils. DutchNLP (accent-folding, de/het/een articles),
+nl-NL-ColetteNeural voice, oranje theme, tutor bundle.
+**(b) Thai (th) — DONE.** First space-less script: ThaiNLP with greedy
+longest-match lexicon segmentation feeds the sentence pipeline (3,604
+words, 4,037 segmented Tatoeba sentences). 40-point path (240 drills):
+zero-inflection SVO, polite particles, the three 'be's, classifiers, the
+three jobs of ได้, serial verbs, misfortune passives, kinship pronouns,
+royal register, and written-Thai conventions. Curated glosses fix the
+kaikki noise (ใช่ glossed as negation). th-TH-PremwadeeNeural voice, Thai
+on-screen keyboard, Thai-script validator, flag theme, tutor bundle.
+Romanized readings deferred to native review (tone marks must be right
+or absent).
+**(c) Letters & Sounds assembly explainers — DONE.** "How letters come
+together" sections for Thai (vowels wrap the consonant, tone stacking),
+Hindi (matras, virama clusters, the two r-forms), and Arabic (four
+positional shapes, non-joiners, lam-alif) — beta request.
+
 ## 6. Model selection guide
 
 | Task type | Model | Why |

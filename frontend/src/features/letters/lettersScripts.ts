@@ -128,6 +128,16 @@ export const arabicLetters: LanguageLetters = {
   intro: 'The Arabic abjad — 28 letters, written right to left. Letters connect and change shape by position; short vowels are usually unwritten.',
   sections: [
     {
+      title: 'How letters come together',
+      note: 'Arabic is cursive by rule: most letters take four shapes — alone, initial, medial, final — and join to their neighbours.',
+      rows: [
+        { char: 'م ح م د → محمد', roman: 'm-H-m-d', example: 'محمد', sound: 'the same letters, connected: each changes shape by position' },
+        { char: 'ب ـبـ ـب', roman: 'b', example: 'باب', sound: 'one letter, three joined shapes: initial, medial, final' },
+        { char: 'ا د ر ز و', roman: '(non-joiners)', example: 'دار', sound: 'six letters never connect FORWARD — they force a gap mid-word' },
+        { char: 'ل + ا → لا', roman: 'laa', example: 'سلام', sound: 'lam + alif fuse into the special lam-alif ligature' },
+      ],
+    },
+    {
       title: 'Long vowels and glides',
       rows: [
         { char: 'ا', roman: 'aa', example: 'باب', sound: "long 'aa' as in father" },
@@ -194,6 +204,17 @@ export const arabicLetters: LanguageLetters = {
 export const hindiLetters: LanguageLetters = {
   intro: 'Devanagari — each consonant carries a built-in "a"; vowel signs (matras) replace it. The headline sounds: retroflex letters (tongue curled back) vs dental letters (tongue on the teeth), and aspirated pairs with an extra puff of air.',
   sections: [
+    {
+      title: 'How letters come together',
+      note: 'Devanagari builds syllables: vowel signs attach to consonants, and the virama (्) welds consonants into stacks.',
+      rows: [
+        { char: 'क + ा → का', roman: 'k + aa', example: 'काम', sound: 'a vowel sign (matra) replaces the built-in a' },
+        { char: 'क + ि → कि', roman: 'k + i', example: 'किताब', sound: 'the i-matra writes to the LEFT of its consonant' },
+        { char: 'स + ् + त → स्त', roman: 's+t', example: 'नमस्ते', sound: 'the virama deletes the a and fuses the pair into one cluster' },
+        { char: 'क + ् + ष → क्ष', roman: 'ksh', example: 'क्षमा', sound: 'some clusters get a whole new shape — learn the common ones by sight' },
+        { char: 'र special', roman: 'r', example: 'कर्म / प्रेम', sound: 'r ABOVE a cluster when first (कर्म), a small slash below when second (प्रेम)' },
+      ],
+    },
     {
       title: 'Independent vowels',
       note: 'Used at the start of a word; inside words they become matras (next section).',
@@ -276,3 +297,84 @@ export const hindiLetters: LanguageLetters = {
     },
   ],
 }
+
+export const thaiLetters: LanguageLetters = {
+  intro: 'Thai script: 44 consonants in three CLASSES (the class + tone mark decides the tone), vowels that attach around the consonant, and no spaces between words.',
+  sections: [
+    {
+      title: 'How letters come together',
+      note: 'Vowels wrap their consonant — before, after, above, or below it — and tone marks stack on top.',
+      rows: [
+        { char: 'ก + า → กา', roman: 'k + aa', example: 'กาแฟ', sound: 'this vowel follows the consonant' },
+        { char: 'ก + ิ → กิ', roman: 'k + i', example: 'กิน', sound: 'this vowel sits ON TOP' },
+        { char: 'ก + ุ → กุ', roman: 'k + u', example: 'กุ้ง', sound: 'this vowel hangs BELOW' },
+        { char: 'เ + ก → เก', roman: 'k + e', example: 'เกาะ', sound: 'this vowel writes BEFORE the consonant you say it after' },
+        { char: 'เ-ีย, เ-ือ', roman: 'ia, uea', example: 'เมีย', sound: 'compound vowels surround the consonant on two or three sides' },
+        { char: 'ก่ ก้ ก๊ ก๋', roman: 'tones', example: 'ไม่', sound: 'four tone marks stack above; the consonant class decides what they mean' },
+      ],
+    },
+    {
+      title: 'Everyday consonants (mid class)',
+      rows: [
+        { char: 'ก', roman: 'g/k', example: 'ไก่', sound: "'g' as in go (unaspirated k)" },
+        { char: 'จ', roman: 'j', example: 'จาน', sound: "'j' as in jar (crisper)" },
+        { char: 'ด', roman: 'd', example: 'เด็ก', sound: "'d' as in dog" },
+        { char: 'ต', roman: 'dt', example: 'ตา', sound: "between d and t — an unaspirated t" },
+        { char: 'บ', roman: 'b', example: 'บ้าน', sound: "'b' as in bat" },
+        { char: 'ป', roman: 'bp', example: 'ปลา', sound: 'between b and p — an unaspirated p' },
+        { char: 'อ', roman: '(silent)', example: 'อาหาร', sound: 'the silent consonant that carries lone vowels' },
+      ],
+    },
+    {
+      title: 'Breathy consonants (high + low pairs)',
+      note: 'Same sound, different class — the class changes the TONE of the syllable.',
+      rows: [
+        { char: 'ข / ค', roman: 'kh', example: 'ขาว / ควาย', sound: "'k'+breath (high class / low class)" },
+        { char: 'ถ / ท', roman: 'th', example: 'ถนน / ทำ', sound: "'t'+breath (high / low)" },
+        { char: 'ผ / พ', roman: 'ph', example: 'ผม / พ่อ', sound: "'p'+breath — never an f! (high / low)" },
+        { char: 'ฝ / ฟ', roman: 'f', example: 'ฝน / ไฟ', sound: "'f' as in fun (high / low)" },
+        { char: 'ส / ซ', roman: 's', example: 'สวย / ซ้าย', sound: "'s' (high / low)" },
+        { char: 'ห / ฮ', roman: 'h', example: 'หก / ฮา', sound: "'h' (high / low); ห also silently raises the class of the next letter" },
+      ],
+    },
+    {
+      title: 'Sonorants and the rest',
+      rows: [
+        { char: 'ม', roman: 'm', example:'แม่', sound: "'m' as in map" },
+        { char: 'น / ณ', roman: 'n', example: 'น้ำ', sound: "'n' as in no" },
+        { char: 'ง', roman: 'ng', example: 'งู', sound: "'ng' of singer — at word START too" },
+        { char: 'ร', roman: 'r', example: 'รถ', sound: 'rolled r (often becomes l in casual speech)' },
+        { char: 'ล', roman: 'l', example: 'ลิง', sound: "'l' as in lamp" },
+        { char: 'ว', roman: 'w', example: 'วัน', sound: "'w' as in way" },
+        { char: 'ย / ญ', roman: 'y', example: 'ยา', sound: "'y' as in yes" },
+        { char: 'ช', roman: 'ch', example: 'ช้าง', sound: "'ch'+breath as in chat" },
+      ],
+    },
+    {
+      title: 'Core vowels (shown on ก)',
+      note: 'Short vs long changes meaning — hold the long ones noticeably.',
+      rows: [
+        { char: 'กะ / กา', roman: 'a / aa', example: 'มา', sound: "'a' short / long as in father" },
+        { char: 'กิ / กี', roman: 'i / ii', example: 'มี', sound: "'i' short / 'ee' long" },
+        { char: 'กุ / กู', roman: 'u / uu', example: 'ดู', sound: "'u' short / 'oo' long" },
+        { char: 'เกะ / เก', roman: 'e', example: 'เย็น', sound: "'e' as in met / 'ay' long" },
+        { char: 'โกะ / โก', roman: 'o', example: 'โต', sound: "'o' short / long as in go" },
+        { char: 'ไก / ใก', roman: 'ai', example: 'ไป', sound: "'eye' — two spellings, same sound" },
+        { char: 'เกา', roman: 'ao', example: 'เก้า', sound: "'ow' as in cow" },
+        { char: 'กือ', roman: 'ue', example: 'มือ', sound: "'u' with spread lips — no English match" },
+      ],
+    },
+    {
+      title: 'The five tones',
+      note: 'Same syllable, five meanings. Tone comes from consonant class + tone mark + syllable type.',
+      rows: [
+        { char: 'มา (mid)', roman: 'maa', example: 'มา', sound: 'level pitch — to come' },
+        { char: 'หม่า (low)', roman: 'màa', example: 'ไม่', sound: 'starts low, stays low' },
+        { char: 'ม้า (high… falling)', roman: 'máa', example: 'ม้า', sound: 'high tone — horse' },
+        { char: 'หม้า (falling)', roman: 'mâa', example: 'บ้าน', sound: 'drops from high to low' },
+        { char: 'หมา (rising)', roman: 'mǎa', example: 'หมา', sound: 'dips then rises — dog (mind the horse/dog pair!)' },
+      ],
+    },
+  ],
+}
+
