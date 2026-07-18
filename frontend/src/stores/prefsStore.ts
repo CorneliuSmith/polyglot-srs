@@ -34,6 +34,10 @@ interface PrefsState {
   // correct before it drives feedback and the SRS grade.
   accentsOptional: boolean
   setAccentsOptional: (on: boolean) => void
+  // First-run feature tour. Undefined until the learner finishes or dismisses
+  // it with "don't show again"; the dashboard auto-opens it once while unset.
+  walkthroughDone: boolean
+  setWalkthroughDone: (done: boolean) => void
 }
 
 export const usePrefsStore = create<PrefsState>()(
@@ -54,6 +58,8 @@ export const usePrefsStore = create<PrefsState>()(
       setListeningMode: (on) => set({ listeningMode: on }),
       accentsOptional: false,
       setAccentsOptional: (on) => set({ accentsOptional: on }),
+      walkthroughDone: false,
+      setWalkthroughDone: (done) => set({ walkthroughDone: done }),
     }),
     {
       name: 'polyglot-prefs',
