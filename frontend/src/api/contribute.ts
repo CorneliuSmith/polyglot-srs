@@ -349,3 +349,54 @@ export async function overridePlan(
     plan_language_id: planLanguageId ?? null,
   })
 }
+
+// ── Content suggestions (contributor-proposed card edits) ────────────────
+export type SuggestEntity = 'vocabulary' | 'grammar'
+
+export interface SuggestionFields {
+  definition?: string
+  part_of_speech?: string
+  usage_note?: string
+  function_note?: string
+  explanation?: string
+  culture_note?: string
+}
+
+export interface Suggestion {
+  id: string
+  entity_type: SuggestEntity
+  entity_id: string
+  card_title: string | null
+  current: SuggestionFields
+  proposed: SuggestionFields
+  note: string | null
+  status: string
+  created_at: string | null
+}
+
+export async function submitSuggestion(input: {
+  entity_type: SuggestEntity
+  entity_id: string
+  proposed: SuggestionFields
+  note?: string
+}): Promise<{ id: string }> {
+  const res = await apiClient.post('/api/contribute/suggestions', input)
+  return res.data
+}
+
+export async function getSuggestions(languageId: string): Promise<Suggestion[]> {
+  const res = await apiClient.get('/api/contribute/suggestions', {
+    params: { language_id: languageId },
+  })
+  return res.data.suggestions
+}
+
+export async function approveSuggestion(id: string): Promise<void> {
+  await apiClient.post(`/api/contribute/suggestions/${id}/approve`)
+}
+
+export async function rejectSuggestion(id: string, reviewNote?: string): Promise<void> {
+  await apiClient.post(`/api/contribute/suggestions/${id}/reject`, {
+    review_note: reviewNote ?? null,
+  })
+}

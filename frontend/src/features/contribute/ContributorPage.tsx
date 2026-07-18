@@ -15,6 +15,7 @@ import { usePrefsStore } from '../../stores/prefsStore'
 import DrillsEditor from './DrillsEditor'
 import FeedbackPanel from './FeedbackPanel'
 import IssuesPanel from './IssuesPanel'
+import SuggestionsPanel from './SuggestionsPanel'
 import RolesPanel from './RolesPanel'
 import AccountsPanel from './AccountsPanel'
 import EngagementPanel from './EngagementPanel'
@@ -567,6 +568,9 @@ export default function ContributorPage() {
             )}
             {tab === 'review' && (
               <>
+                {(data.can_review ?? data.is_admin) && (
+                  <SuggestionsPanel languageId={activeLanguageId} />
+                )}
                 <IssuesPanel
                   languageId={activeLanguageId}
                   canResolve={data.can_review ?? data.is_admin}

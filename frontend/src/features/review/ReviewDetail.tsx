@@ -3,6 +3,8 @@ import { useNavigate } from 'react-router-dom'
 import { useQuery } from '@tanstack/react-query'
 import { getCardDetail } from '../../api/review'
 import { getLanguages } from '../../api/profile'
+import { getMyRoles } from '../../api/contribute'
+import SuggestEditModal from '../contribute/SuggestEditModal'
 import type { CardProgress } from '../../api/types'
 import LanguageWrapper from '../../components/LanguageWrapper'
 import FormsPanel from '../../components/FormsPanel'
@@ -74,10 +76,11 @@ function ProgressPanel({ progress }: { progress: CardProgress }) {
  * Collapsed by default — a learner who's satisfied with the quick feedback
  * just continues.
  */
-export default function ReviewDetail({ cardId, languageCode, stats }: ReviewDetailProps) {
+export default function ReviewDetail({ cardId, cardType, languageCode, stats }: ReviewDetailProps) {
   const navigate = useNavigate()
   const [open, setOpen] = useState(false)
   const [showTranslations, setShowTranslations] = useState(false)
+  const [editing, setEditing] = useState(false)
 
   const { data, isLoading, isError } = useQuery({
     queryKey: ['card-detail', cardId],
@@ -91,6 +94,22 @@ export default function ReviewDetail({ cardId, languageCode, stats }: ReviewDeta
     enabled: open,
     staleTime: 5 * 60 * 1000,
   })
+  const { data: roleInfo } = useQuery({
+    queryKey: ['my-roles'],
+    queryFn: getMyRoles,
+    enabled: open,
+    staleTime: 5 * 60 * 1000,
+  })
+
+  const languageId = languages.find((l) => l.code === languageCode)?.id
+  const canContribute =
+    !!roleInfo &&
+    (roleInfo.is_admin ||
+      roleInfo.roles.some(
+        (r) =>
+          (r.language_id === null || r.language_id === languageId) &&
+          ['contributor', 'reviewer', 'admin'].includes(r.role),
+      ))
 
   const ownSentences = data?.your_sentences ?? []
   // "Learning English from X": say which language the hints are in.
@@ -209,6 +228,30 @@ export default function ReviewDetail({ cardId, languageCode, stats }: ReviewDeta
                   <h3 className="font-semibold text-gray-700 mb-1">Usage</h3>
                   <p className="text-gray-700 whitespace-pre-wrap">{data.usage_note}</p>
                 </div>
+              )}
+
+              {canContribute && cardType === 'vocabulary' && (
+                <button
+                  type="button"
+                  onClick={() => setEditing(true)}
+                  className="text-xs text-lang hover:underline"
+                >
+                  Suggest an edit
+                </button>
+              )}
+              {editing && (
+                <SuggestEditModal
+                  entityType="vocabulary"
+                  entityId={cardId}
+                  word={data.title ?? ''}
+                  languageCode={languageCode}
+                  current={{
+                    definition: data.definition ?? '',
+                    part_of_speech: data.part_of_speech ?? '',
+                    usage_note: data.usage_note ?? '',
+                  }}
+                  onClose={() => setEditing(false)}
+                />
               )}
 
               {data.card_type === 'vocabulary' && (
