@@ -304,6 +304,24 @@ export default function DashboardPage() {
           <LanguagePicker />
         </div>
 
+        {/* Letters & Sounds (beta request): the alphabet with pronunciation,
+            right under the language and before the study tiles. */}
+        <button
+          type="button"
+          onClick={() => navigate('/letters')}
+          disabled={!activeLanguageId}
+          className="w-full bg-white hover:bg-gray-50 disabled:opacity-50 text-gray-800 font-semibold rounded-xl px-6 py-3 text-sm border border-gray-200 transition-colors text-left flex items-center justify-between"
+          style={{ minHeight: '44px' }}
+        >
+          <span>
+            Letters &amp; Sounds
+            <span className="block text-xs font-normal text-gray-500">
+              Every letter, its variants, and how to say them
+            </span>
+          </span>
+          <span aria-hidden className="text-lang">🔤</span>
+        </button>
+
         {/* Command center: Learn (deck sections) + Review, Bunpro-style */}
         {isLoading || !stats ? (
           <div className="grid grid-cols-2 gap-4">
