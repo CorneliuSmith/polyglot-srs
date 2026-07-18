@@ -188,7 +188,7 @@ SOURCES = {
 ENGLISH_SUPPORT_ISO3 = {
     "es": "spa", "fr": "fra", "de": "deu", "it": "ita", "ru": "rus",
     "tr": "tur", "ar": "ara", "el": "ell", "ro": "ron", "ca": "cat",
-    "sw": "swh", "pt": "por",
+    "sw": "swh", "pt": "por", "hi": "hin",
 }
 
 TATOEBA_ISO3 = {

@@ -7,6 +7,8 @@ language. All writes are RLS-scoped to the user.
 """
 from __future__ import annotations
 
+import re
+
 import asyncpg
 
 from backend.services.extract import ANSWER_MARKER
@@ -135,6 +137,27 @@ async def get_status(conn: asyncpg.Connection, user_id: str) -> dict:
     }
 
 
+# Dictionary-derived definitions for the MOST frequent words are exactly the
+# ones written in grammarese ("initial interrogative particle", "feminine
+# singular of o") — a beta tester rightly flagged that a placement test is no
+# place for linguistics vocabulary. Prompts matching this are skipped in
+# favour of the next-most-frequent word with a plain, concrete definition.
+_JARGON_RE = re.compile(
+    r"inflection of|indicative|subjunctive|participle|particle\b|conjunction"
+    r"|preposition|genitive|dative|accusative|nominative|vocative|oblique"
+    r"|singular of|plural of|feminine|masculine|diminutive|auxiliary"
+    r"|clitic|copula|interrogative|grammatical|denotes|comitative|ergative"
+    r"|postposition|definite article|indefinite article|conjugat",
+    re.IGNORECASE,
+)
+_MAX_PROMPT_LEN = 60  # long dictionary entries make bad type-the-word prompts
+
+
+def _plain_prompt(definition: str) -> bool:
+    d = definition.strip()
+    return bool(d) and len(d) <= _MAX_PROMPT_LEN and not _JARGON_RE.search(d)
+
+
 async def sample_placement_items(
     conn: asyncpg.Connection, language_id: str, *, per_level: int = 3
 ) -> list[dict]:
@@ -144,7 +167,9 @@ async def sample_placement_items(
     show a reviewed cloze sentence with a blank (type the missing form). Both
     pick the most representative items per CEFR level. Answers are not returned.
     """
-    vocab = await conn.fetch(
+    # Over-fetch per level, then keep the first plain-language definitions —
+    # frequency order is preserved, jargon rows just fall through.
+    vocab_pool = await conn.fetch(
         """
         SELECT id, level, prompt FROM (
             SELECT
@@ -164,8 +189,27 @@ async def sample_placement_items(
         ORDER BY level, rn
         """,
         language_id,
-        per_level,
+        per_level * 8,
     )
+    vocab: list = []
+    taken: dict[str, int] = {}
+    for r in vocab_pool:
+        if taken.get(r["level"], 0) >= per_level:
+            continue
+        if not _plain_prompt(r["prompt"]):
+            continue
+        taken[r["level"]] = taken.get(r["level"], 0) + 1
+        vocab.append(r)
+    # A level whose every candidate is jargon still gets its plain-limit
+    # fallback rows rather than vanishing from the staircase.
+    for level in {r["level"] for r in vocab_pool}:
+        if taken.get(level, 0) == 0:
+            for r in vocab_pool:
+                if r["level"] == level:
+                    vocab.append(r)
+                    taken[level] = taken.get(level, 0) + 1
+                    if taken[level] >= per_level:
+                        break
     grammar = await conn.fetch(
         """
         SELECT id, level, sentence, translation FROM (
