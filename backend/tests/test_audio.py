@@ -64,11 +64,11 @@ def _client(priv_conn, rls_conn):
 
 class TestVoices:
     def test_covered_languages(self):
-        # 14 of 18 — yo/ha/xh/mi wait on the MMS phase (browser fallback);
+        # 16 of 21 — yo/ha/xh/mi wait on the MMS phase (browser fallback);
         # jam has no neural voice anywhere and is deliberately voiceless.
         assert set(VOICES) == {
             "en", "es", "fr", "de", "it", "ca", "pt", "ro", "el",
-            "ru", "tr", "ar", "sw", "hi",
+            "ru", "tr", "ar", "sw", "hi", "nl", "th",
         }
 
     def test_cache_key_is_stable_and_voice_scoped(self):

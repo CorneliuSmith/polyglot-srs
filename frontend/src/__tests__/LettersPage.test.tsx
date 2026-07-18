@@ -23,7 +23,7 @@ const mockGetLanguages = getLanguages as ReturnType<typeof vi.fn>
 
 const ALL_CODES = [
   'ar', 'ca', 'de', 'el', 'en', 'es', 'fr', 'ha', 'hi', 'it', 'jam',
-  'mi', 'pt', 'ro', 'ru', 'sw', 'tr', 'xh', 'yo',
+  'mi', 'nl', 'pt', 'ro', 'ru', 'sw', 'th', 'tr', 'xh', 'yo',
 ]
 
 describe('Letters & Sounds data', () => {

@@ -5,6 +5,7 @@ import russianLayout from 'simple-keyboard-layouts/build/layouts/russian'
 import arabicLayout from 'simple-keyboard-layouts/build/layouts/arabic'
 import turkishLayout from 'simple-keyboard-layouts/build/layouts/turkish'
 import greekLayout from 'simple-keyboard-layouts/build/layouts/greek'
+import thaiLayout from 'simple-keyboard-layouts/build/layouts/thai'
 
 export type KeyboardLanguage =
   | 'ru' | 'ar' | 'tr' | 'el' | 'yo' | 'ha'
@@ -100,6 +101,7 @@ const LAYOUTS: Record<string, { default: string[] } | { [k: string]: string[] }>
   pt: withAccents('ã õ á é í ó ú â ê ô à ç'),
   ro: withAccents('ă â î ș ț'),
   el: greekLayout.layout,
+  th: thaiLayout.layout,
 }
 
 export default function OnScreenKeyboard({

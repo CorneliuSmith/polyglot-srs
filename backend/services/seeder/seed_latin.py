@@ -108,6 +108,11 @@ class PortugueseSeeder(_FrequencyTsvSeeder):
     freq_filename = "pt_frequency.tsv"
 
 
+class DutchSeeder(_FrequencyTsvSeeder):
+    language_code = "nl"
+    freq_filename = "nl_frequency.tsv"
+
+
 class RomanianSeeder(_FrequencyTsvSeeder):
     language_code = "ro"
     freq_filename = "ro_frequency.tsv"
@@ -122,4 +127,5 @@ SEEDERS = {
     "es": SpanishSeeder, "it": ItalianSeeder, "fr": FrenchSeeder,
     "de": GermanSeeder, "ca": CatalanSeeder, "mi": MaoriSeeder,
     "ro": RomanianSeeder, "el": GreekSeeder, "pt": PortugueseSeeder,
+    "nl": DutchSeeder,
 }

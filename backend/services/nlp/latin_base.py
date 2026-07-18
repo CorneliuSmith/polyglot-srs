@@ -75,6 +75,10 @@ class PortugueseNLP(AccentFoldingNLP):
     leading_articles = ("o ", "a ", "os ", "as ", "um ", "uma ", "uns ", "umas ")
 
 
+class DutchNLP(AccentFoldingNLP):
+    leading_articles = ("de ", "het ", "een ")
+
+
 class ItalianNLP(AccentFoldingNLP):
     leading_articles = ("il ", "lo ", "la ", "i ", "gli ", "le ", "un ", "uno ", "una ", "l'")
 

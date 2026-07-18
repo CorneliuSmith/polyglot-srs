@@ -31,7 +31,7 @@ export interface LanguageLetters {
   sections: LetterSection[]
 }
 
-import { arabicLetters, greekLetters, hindiLetters, russianLetters } from './lettersScripts'
+import { arabicLetters, greekLetters, hindiLetters, russianLetters, thaiLetters } from './lettersScripts'
 
 const spanish: LanguageLetters = {
   intro: 'Spanish spelling is honest: five pure vowels, and almost every letter says the same thing every time.',
@@ -517,6 +517,41 @@ const jamaican: LanguageLetters = {
   ],
 }
 
+
+const dutch: LanguageLetters = {
+  intro: 'Dutch spelling is friendly — a few letter teams and one famous vowel (ui) do all the damage.',
+  sections: [
+    {
+      title: 'The vowel teams',
+      rows: [
+        { char: 'aa / a', example: 'water', sound: "long 'ah' / short 'uh' — doubling marks length" },
+        { char: 'ee / e', example: 'been', sound: "long 'ay' / short 'e'; final -e is a schwa" },
+        { char: 'oo / o', example: 'boom', sound: "long 'oh' / short 'o'" },
+        { char: 'uu / u', example: 'muur', sound: "say 'ee' with rounded lips / short 'uh'" },
+        { char: 'ie', example: 'niet', sound: "'ee' as in see" },
+        { char: 'oe', example: 'boek', sound: "'oo' as in boot" },
+        { char: 'eu', example: 'leuk', sound: "say 'ay' with rounded lips" },
+        { char: 'ij / ei', example: 'ijs', sound: "'ay-ish eye' — the famous Dutch diphthong, two spellings" },
+        { char: 'ui', example: 'huis', sound: "no English match: say 'ow' with tightly rounded lips" },
+        { char: 'ou / au', example: 'oud', sound: "'ow' as in cow" },
+      ],
+    },
+    {
+      title: 'Consonant habits',
+      rows: [
+        { char: 'g / ch', example: 'goed', sound: 'the Dutch rasp — Scottish loch (softer in the south)' },
+        { char: 'sch', example: 'school', sound: "'s' + the rasp: s-chool" },
+        { char: 'w', example: 'water', sound: "between English w and v" },
+        { char: 'v', example: 'vader', sound: "between v and f" },
+        { char: 'j', example: 'ja', sound: "'y' as in yes" },
+        { char: 'r', example: 'rood', sound: 'rolled or throaty — both fine' },
+        { char: '-en (ending)', example: 'lopen', sound: "the final n often drops: 'lope(n)'" },
+        { char: '-tje', example: 'kopje', sound: 'the diminutive machine — koppje, huisje, momentje' },
+      ],
+    },
+  ],
+}
+
 const english: LanguageLetters = {
   intro: 'English spelling is history, not phonetics. These are the sounds learners fight — with reliable spellings where they exist.',
   sections: [
@@ -567,10 +602,12 @@ export const LETTERS: Record<string, LanguageLetters> = {
   mi: maori,
   jam: jamaican,
   en: english,
+  nl: dutch,
   ru: russianLetters,
   el: greekLetters,
   ar: arabicLetters,
   hi: hindiLetters,
+  th: thaiLetters,
 }
 
 export function lettersFor(code: string | undefined | null): LanguageLetters | null {

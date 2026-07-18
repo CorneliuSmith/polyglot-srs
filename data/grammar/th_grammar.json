@@ -1,0 +1,2654 @@
+{
+  "language": "th",
+  "lists": [
+    {
+      "level": "A1",
+      "title": "Thai A1 Grammar Path",
+      "description": "First Thai: SVO with zero inflection, polite particles, gendered pronouns and dropping them, the three 'be's, question particles, negation, having, classifiers, question words, adjectives-as-verbs, the future marker, and possession."
+    },
+    {
+      "level": "A2",
+      "title": "Thai A2 Grammar Path",
+      "description": "Time and favours: completion, the progressive sandwich, the three jobs of the can-word, must/should/want-to, direction verbs, the Swiss-army give, comparisons, experience, soft requests, and the linker."
+    },
+    {
+      "level": "B1",
+      "title": "Thai B1 Grammar Path",
+      "description": "Real sentences: relatives, that-clauses, conditionals, the misfortune passive, serial verbs, causes, still/not-yet, and because/so."
+    },
+    {
+      "level": "B2",
+      "title": "Thai B2 Grammar Path",
+      "description": "Spoken color: final particles, together/each-other, topic-comment structure, noun-building prefixes, the repeat sign, and the politeness ladder of vocabulary."
+    },
+    {
+      "level": "C1",
+      "title": "Thai C1 Grammar Path",
+      "description": "The social map: kinship-term pronouns and four-syllable elegance."
+    },
+    {
+      "level": "C2",
+      "title": "Thai C2 Grammar Path",
+      "description": "Recognition mastery: royal vocabulary and the conventions of written Thai."
+    }
+  ],
+  "points": [
+    {
+      "title": "Word order: SVO, and nothing ever changes shape",
+      "level": "A1",
+      "function": "Subject–verb–object, zero conjugation, zero plurals",
+      "source": "ai",
+      "reviewed": false,
+      "display_order": 1,
+      "explanation": "Thai words NEVER change form: no conjugation, no plural, no gender endings. ผมกินข้าว (I eat rice) works for eat/ate/will eat — time comes from context or little marker words. Modifiers FOLLOW their noun: บ้านใหญ่ (house big = a big house), รถสีแดง (car colour red).",
+      "references": [
+        {
+          "title": "Wikipedia: Thai grammar",
+          "url": "https://en.wikipedia.org/wiki/Thai_language#Grammar"
+        },
+        {
+          "title": "thai-language.com reference",
+          "url": "http://www.thai-language.com/ref"
+        }
+      ],
+      "drills": [
+        {
+          "sentence": "ผม{{answer}}ข้าว",
+          "answer": "กิน",
+          "translation": "I eat rice.",
+          "hint": "to eat — same form forever",
+          "display_order": 1
+        },
+        {
+          "sentence": "เขา{{answer}}หนังสือ",
+          "answer": "อ่าน",
+          "translation": "He reads a book.",
+          "hint": "to read",
+          "display_order": 2
+        },
+        {
+          "sentence": "ฉัน{{answer}}น้ำ",
+          "answer": "ดื่ม",
+          "translation": "I drink water.",
+          "hint": "to drink",
+          "display_order": 3
+        },
+        {
+          "sentence": "บ้าน{{answer}}",
+          "answer": "ใหญ่",
+          "translation": "The house is big. (house big)",
+          "hint": "big — follows the noun",
+          "display_order": 4
+        },
+        {
+          "sentence": "เรา{{answer}}ภาษาไทย",
+          "answer": "เรียน",
+          "translation": "We study Thai.",
+          "hint": "to study",
+          "display_order": 5
+        },
+        {
+          "sentence": "แมว{{answer}}ปลา",
+          "answer": "กิน",
+          "translation": "The cat eats fish.",
+          "hint": "to eat — no -s for the cat",
+          "display_order": 6
+        }
+      ]
+    },
+    {
+      "title": "Polite particles: ครับ and ค่ะ",
+      "level": "A1",
+      "function": "End almost every sentence politely — by YOUR gender",
+      "source": "ai",
+      "reviewed": false,
+      "display_order": 2,
+      "explanation": "Politeness is a particle at the end, chosen by the SPEAKER's gender: men say ครับ (khráp), women say ค่ะ (khâ) in statements and คะ (rising) in questions. สวัสดีครับ / สวัสดีค่ะ (hello). Omitting them with strangers sounds curt; with friends they relax away.",
+      "references": [
+        {
+          "title": "Wikipedia: Thai grammar",
+          "url": "https://en.wikipedia.org/wiki/Thai_language#Grammar"
+        },
+        {
+          "title": "thai-language.com reference",
+          "url": "http://www.thai-language.com/ref"
+        }
+      ],
+      "paradigm": [
+        "ครับ",
+        "ค่ะ",
+        "คะ"
+      ],
+      "drills": [
+        {
+          "sentence": "สวัสดี{{answer}} (ผู้ชายพูด)",
+          "answer": "ครับ",
+          "translation": "Hello. (male speaker)",
+          "hint": "the male politeness particle",
+          "display_order": 1,
+          "cell": "ครับ"
+        },
+        {
+          "sentence": "ขอบคุณ{{answer}} (ผู้ชายพูด)",
+          "answer": "ครับ",
+          "translation": "Thank you. (male speaker)",
+          "hint": "male particle",
+          "display_order": 2,
+          "cell": "ครับ"
+        },
+        {
+          "sentence": "สวัสดี{{answer}} (ผู้หญิงพูด)",
+          "answer": "ค่ะ",
+          "translation": "Hello. (female speaker)",
+          "hint": "the female statement particle",
+          "display_order": 3,
+          "cell": "ค่ะ"
+        },
+        {
+          "sentence": "ขอบคุณ{{answer}} (ผู้หญิงพูด)",
+          "answer": "ค่ะ",
+          "translation": "Thank you. (female speaker)",
+          "hint": "female statement particle",
+          "display_order": 4,
+          "cell": "ค่ะ"
+        },
+        {
+          "sentence": "ไปไหน{{answer}} (ผู้หญิงถาม)",
+          "answer": "คะ",
+          "translation": "Where are you going? (female asking)",
+          "hint": "female QUESTION particle — high tone",
+          "display_order": 5,
+          "cell": "คะ"
+        },
+        {
+          "sentence": "อะไรนะ{{answer}} (ผู้หญิงถาม)",
+          "answer": "คะ",
+          "translation": "What was that? (female asking)",
+          "hint": "female question particle",
+          "display_order": 6,
+          "cell": "คะ"
+        }
+      ]
+    },
+    {
+      "title": "Pronouns: ผม, ฉัน, คุณ — and leaving them out",
+      "level": "A1",
+      "function": "Choose 'I' by gender, and drop pronouns freely",
+      "source": "ai",
+      "reviewed": false,
+      "display_order": 3,
+      "explanation": "ผม = I (male), ฉัน = I (female/informal), ดิฉัน = I (female, formal), คุณ = you (polite), เขา = he/she, เรา = we, มัน = it (things/animals; rude for people). Thai drops pronouns whenever context is clear: กินข้าวหรือยัง (eaten yet?) has no 'you' at all — and that's the natural way.",
+      "references": [
+        {
+          "title": "Wikipedia: Thai grammar",
+          "url": "https://en.wikipedia.org/wiki/Thai_language#Grammar"
+        },
+        {
+          "title": "thai-language.com reference",
+          "url": "http://www.thai-language.com/ref"
+        }
+      ],
+      "paradigm": [
+        "ผม",
+        "ฉัน",
+        "คุณ"
+      ],
+      "drills": [
+        {
+          "sentence": "{{answer}}ชื่อสมชาย (ผู้ชายพูด)",
+          "answer": "ผม",
+          "translation": "My name is Somchai. (male)",
+          "hint": "male 'I'",
+          "display_order": 1,
+          "cell": "ผม"
+        },
+        {
+          "sentence": "{{answer}}เป็นครู (ผู้ชายพูด)",
+          "answer": "ผม",
+          "translation": "I am a teacher. (male)",
+          "hint": "male 'I'",
+          "display_order": 2,
+          "cell": "ผม"
+        },
+        {
+          "sentence": "{{answer}}ชื่อมะลิ (ผู้หญิงพูด)",
+          "answer": "ฉัน",
+          "translation": "My name is Mali. (female)",
+          "hint": "female 'I'",
+          "display_order": 3,
+          "cell": "ฉัน"
+        },
+        {
+          "sentence": "{{answer}}หิวข้าว (ผู้หญิงพูด)",
+          "answer": "ฉัน",
+          "translation": "I am hungry. (female)",
+          "hint": "female 'I'",
+          "display_order": 4,
+          "cell": "ฉัน"
+        },
+        {
+          "sentence": "{{answer}}มาจากไหน",
+          "answer": "คุณ",
+          "translation": "Where do you come from?",
+          "hint": "polite 'you'",
+          "display_order": 5,
+          "cell": "คุณ"
+        },
+        {
+          "sentence": "{{answer}}พูดไทยได้ไหม",
+          "answer": "คุณ",
+          "translation": "Can you speak Thai?",
+          "hint": "polite 'you'",
+          "display_order": 6,
+          "cell": "คุณ"
+        }
+      ]
+    },
+    {
+      "title": "The three 'be's: เป็น, คือ, อยู่",
+      "level": "A1",
+      "function": "Identity, definition, and location each get their own verb",
+      "source": "ai",
+      "reviewed": false,
+      "display_order": 4,
+      "explanation": "เป็น links roles and categories: ผมเป็นครู (I am a teacher). คือ defines and equates: นี่คือบ้านของผม (this is my house — pointing/defining). อยู่ locates: เขาอยู่ที่บ้าน (he is at home). With adjectives use NONE: อาหารอร่อย (the food [is] delicious).",
+      "references": [
+        {
+          "title": "Wikipedia: Thai grammar",
+          "url": "https://en.wikipedia.org/wiki/Thai_language#Grammar"
+        },
+        {
+          "title": "thai-language.com reference",
+          "url": "http://www.thai-language.com/ref"
+        }
+      ],
+      "paradigm": [
+        "เป็น",
+        "คือ",
+        "อยู่"
+      ],
+      "drills": [
+        {
+          "sentence": "ผม{{answer}}หมอ",
+          "answer": "เป็น",
+          "translation": "I am a doctor.",
+          "hint": "role/category 'be'",
+          "display_order": 1,
+          "cell": "เป็น"
+        },
+        {
+          "sentence": "เธอ{{answer}}นักเรียน",
+          "answer": "เป็น",
+          "translation": "She is a student.",
+          "hint": "category 'be'",
+          "display_order": 2,
+          "cell": "เป็น"
+        },
+        {
+          "sentence": "นี่{{answer}}อะไร",
+          "answer": "คือ",
+          "translation": "What is this?",
+          "hint": "defining 'be'",
+          "display_order": 3,
+          "cell": "คือ"
+        },
+        {
+          "sentence": "นั่น{{answer}}โรงเรียนของเรา",
+          "answer": "คือ",
+          "translation": "That is our school.",
+          "hint": "pointing-out 'be'",
+          "display_order": 4,
+          "cell": "คือ"
+        },
+        {
+          "sentence": "แม่{{answer}}ที่บ้าน",
+          "answer": "อยู่",
+          "translation": "Mother is at home.",
+          "hint": "location 'be'",
+          "display_order": 5,
+          "cell": "อยู่"
+        },
+        {
+          "sentence": "ห้องน้ำ{{answer}}ที่ไหน",
+          "answer": "อยู่",
+          "translation": "Where is the bathroom?",
+          "hint": "location 'be'",
+          "display_order": 6,
+          "cell": "อยู่"
+        }
+      ]
+    },
+    {
+      "title": "Yes/no questions: ไหม and หรือเปล่า",
+      "level": "A1",
+      "function": "Ask by adding a word at the end — answer with the verb",
+      "source": "ai",
+      "reviewed": false,
+      "display_order": 5,
+      "explanation": "Add ไหม (mái) to make a yes/no question: ไปไหม (going?). หรือเปล่า (…or not?) is its everyday cousin: กินหรือเปล่า. Thai has no words for yes/no — you echo the verb: ไป (going = yes) / ไม่ไป (not going = no). ใช่ไหม asks 'right?'.",
+      "references": [
+        {
+          "title": "Wikipedia: Thai grammar",
+          "url": "https://en.wikipedia.org/wiki/Thai_language#Grammar"
+        },
+        {
+          "title": "thai-language.com reference",
+          "url": "http://www.thai-language.com/ref"
+        }
+      ],
+      "drills": [
+        {
+          "sentence": "คุณไป{{answer}}",
+          "answer": "ไหม",
+          "translation": "Are you going?",
+          "hint": "the yes/no question particle",
+          "display_order": 1
+        },
+        {
+          "sentence": "อร่อย{{answer}}",
+          "answer": "ไหม",
+          "translation": "Is it delicious?",
+          "hint": "question particle",
+          "display_order": 2
+        },
+        {
+          "sentence": "คุณหิว{{answer}}",
+          "answer": "ไหม",
+          "translation": "Are you hungry?",
+          "hint": "question particle",
+          "display_order": 3
+        },
+        {
+          "sentence": "ไปกิน ข้าวกันไหม — ตอบรับ: {{answer}}",
+          "answer": "ไป",
+          "translation": "Shall we go eat? — Yes: (I) go.",
+          "hint": "answer 'yes' by echoing the verb",
+          "display_order": 4
+        },
+        {
+          "sentence": "คุณเหนื่อยหรือ{{answer}}",
+          "answer": "เปล่า",
+          "translation": "Are you tired or not?",
+          "hint": "the '…or not' half",
+          "display_order": 5
+        },
+        {
+          "sentence": "คุณเป็นคนไทย ใช่{{answer}}",
+          "answer": "ไหม",
+          "translation": "You are Thai, right?",
+          "hint": "the tag question",
+          "display_order": 6
+        }
+      ]
+    },
+    {
+      "title": "Negation: ไม่ before the verb",
+      "level": "A1",
+      "function": "Not — one word, one position",
+      "source": "ai",
+      "reviewed": false,
+      "display_order": 6,
+      "explanation": "ไม่ (mâi) goes directly before the verb or adjective: ไม่กิน (don't eat), ไม่แพง (not expensive), ไม่สวย (not beautiful). 'To not be' a thing: ไม่ใช่ + noun — เขาไม่ใช่ครู (he's not a teacher; NOT ไม่เป็น). Don't do it: อย่า — อย่าไป (don't go).",
+      "references": [
+        {
+          "title": "Wikipedia: Thai grammar",
+          "url": "https://en.wikipedia.org/wiki/Thai_language#Grammar"
+        },
+        {
+          "title": "thai-language.com reference",
+          "url": "http://www.thai-language.com/ref"
+        }
+      ],
+      "drills": [
+        {
+          "sentence": "ผม{{answer}}กินเผ็ด",
+          "answer": "ไม่",
+          "translation": "I don't eat spicy food.",
+          "hint": "not — before the verb",
+          "display_order": 1
+        },
+        {
+          "sentence": "อาหาร{{answer}}แพง",
+          "answer": "ไม่",
+          "translation": "The food is not expensive.",
+          "hint": "not — before the adjective",
+          "display_order": 2
+        },
+        {
+          "sentence": "เขา{{answer}}ใช่คนไทย",
+          "answer": "ไม่",
+          "translation": "He is not Thai.",
+          "hint": "not-be for nouns uses ___ใช่",
+          "display_order": 3
+        },
+        {
+          "sentence": "ฉัน{{answer}}เข้าใจ",
+          "answer": "ไม่",
+          "translation": "I don't understand.",
+          "hint": "before the verb",
+          "display_order": 4
+        },
+        {
+          "sentence": "{{answer}}ไป!",
+          "answer": "อย่า",
+          "translation": "Don't go!",
+          "hint": "the prohibitive 'don't'",
+          "display_order": 5
+        },
+        {
+          "sentence": "{{answer}}ลืมนะ",
+          "answer": "อย่า",
+          "translation": "Don't forget, okay?",
+          "hint": "prohibitive",
+          "display_order": 6
+        }
+      ]
+    },
+    {
+      "title": "มี — have, and there is",
+      "level": "A1",
+      "function": "Possession and existence share one verb",
+      "source": "ai",
+      "reviewed": false,
+      "display_order": 7,
+      "explanation": "มี = have: ผมมีพี่ชายสองคน (I have two older brothers). Sentence-initial, it means 'there is/are': มีร้านอาหารใกล้ๆ (there's a restaurant nearby). Negative: ไม่มี (don't have / there isn't) — also the answer to 'do you have…?': มีไหม — ไม่มี.",
+      "references": [
+        {
+          "title": "Wikipedia: Thai grammar",
+          "url": "https://en.wikipedia.org/wiki/Thai_language#Grammar"
+        },
+        {
+          "title": "thai-language.com reference",
+          "url": "http://www.thai-language.com/ref"
+        }
+      ],
+      "drills": [
+        {
+          "sentence": "ผม{{answer}}รถ",
+          "answer": "มี",
+          "translation": "I have a car.",
+          "hint": "to have",
+          "display_order": 1
+        },
+        {
+          "sentence": "{{answer}}ร้านกาแฟใกล้ๆ ไหม",
+          "answer": "มี",
+          "translation": "Is there a coffee shop nearby?",
+          "hint": "there-is",
+          "display_order": 2
+        },
+        {
+          "sentence": "ฉัน{{answer}}มีเงิน",
+          "answer": "ไม่",
+          "translation": "I don't have money.",
+          "hint": "the negator before have",
+          "display_order": 3
+        },
+        {
+          "sentence": "ที่นี่{{answer}}ไวไฟไหม",
+          "answer": "มี",
+          "translation": "Is there wifi here?",
+          "hint": "there-is",
+          "display_order": 4
+        },
+        {
+          "sentence": "เขา{{answer}}ลูกสามคน",
+          "answer": "มี",
+          "translation": "He has three children.",
+          "hint": "to have",
+          "display_order": 5
+        },
+        {
+          "sentence": "วันนี้{{answer}}มีเรียน",
+          "answer": "ไม่",
+          "translation": "There is no class today.",
+          "hint": "negator",
+          "display_order": 6
+        }
+      ]
+    },
+    {
+      "title": "Classifiers: คน, ตัว, อัน, เล่ม",
+      "level": "A1",
+      "function": "Count things with their counter word",
+      "source": "ai",
+      "reviewed": false,
+      "display_order": 8,
+      "explanation": "Thai counts with classifiers: noun + number + classifier. เพื่อนสองคน (friend two person = two friends), แมวสามตัว (cats three bodies), หนังสือหนึ่งเล่ม (book one volume). คน for people, ตัว for animals/clothes, เล่ม for books, อัน for small things, ที่ for orders in restaurants. Wrong classifier = instantly noticeable.",
+      "references": [
+        {
+          "title": "Wikipedia: Thai grammar",
+          "url": "https://en.wikipedia.org/wiki/Thai_language#Grammar"
+        },
+        {
+          "title": "thai-language.com reference",
+          "url": "http://www.thai-language.com/ref"
+        }
+      ],
+      "paradigm": [
+        "คน",
+        "ตัว",
+        "เล่ม"
+      ],
+      "drills": [
+        {
+          "sentence": "ผมมีเพื่อนสอง{{answer}}",
+          "answer": "คน",
+          "translation": "I have two friends.",
+          "hint": "classifier for people",
+          "display_order": 1,
+          "cell": "คน"
+        },
+        {
+          "sentence": "ครอบครัวเรามีสี่{{answer}}",
+          "answer": "คน",
+          "translation": "Our family has four people.",
+          "hint": "people classifier",
+          "display_order": 2,
+          "cell": "คน"
+        },
+        {
+          "sentence": "เขามีแมวสาม{{answer}}",
+          "answer": "ตัว",
+          "translation": "He has three cats.",
+          "hint": "classifier for animals",
+          "display_order": 3,
+          "cell": "ตัว"
+        },
+        {
+          "sentence": "ฉันซื้อเสื้อสอง{{answer}}",
+          "answer": "ตัว",
+          "translation": "I bought two shirts.",
+          "hint": "animals AND clothes",
+          "display_order": 4,
+          "cell": "ตัว"
+        },
+        {
+          "sentence": "ขอหนังสือหนึ่ง{{answer}}",
+          "answer": "เล่ม",
+          "translation": "One book, please.",
+          "hint": "classifier for books",
+          "display_order": 5,
+          "cell": "เล่ม"
+        },
+        {
+          "sentence": "หนังสือสอง{{answer}}นี้สนุก",
+          "answer": "เล่ม",
+          "translation": "These two books are fun.",
+          "hint": "book classifier",
+          "display_order": 6,
+          "cell": "เล่ม"
+        }
+      ]
+    },
+    {
+      "title": "Question words: อะไร, ที่ไหน, ใคร…",
+      "level": "A1",
+      "function": "What, where, who — sitting where the answer sits",
+      "source": "ai",
+      "reviewed": false,
+      "display_order": 9,
+      "explanation": "Question words stay in the answer's position (no fronting): กินอะไร (eat WHAT), ไปที่ไหน (go WHERE), ใครมา (WHO comes), เมื่อไหร่ (when), ทำไม (why), อย่างไร/ยังไง (how), เท่าไหร่ (how much — prices!).",
+      "references": [
+        {
+          "title": "Wikipedia: Thai grammar",
+          "url": "https://en.wikipedia.org/wiki/Thai_language#Grammar"
+        },
+        {
+          "title": "thai-language.com reference",
+          "url": "http://www.thai-language.com/ref"
+        }
+      ],
+      "drills": [
+        {
+          "sentence": "คุณกิน{{answer}}",
+          "answer": "อะไร",
+          "translation": "What are you eating?",
+          "hint": "what — after the verb",
+          "display_order": 1
+        },
+        {
+          "sentence": "คุณจะไป{{answer}}",
+          "answer": "ที่ไหน",
+          "translation": "Where are you going?",
+          "hint": "where",
+          "display_order": 2
+        },
+        {
+          "sentence": "{{answer}}มากับคุณ",
+          "answer": "ใคร",
+          "translation": "Who came with you?",
+          "hint": "who",
+          "display_order": 3
+        },
+        {
+          "sentence": "อันนี้{{answer}}",
+          "answer": "เท่าไหร่",
+          "translation": "How much is this one?",
+          "hint": "how much — the shopping word",
+          "display_order": 4
+        },
+        {
+          "sentence": "{{answer}}คุณเรียนภาษาไทย",
+          "answer": "ทำไม",
+          "translation": "Why do you study Thai?",
+          "hint": "why",
+          "display_order": 5
+        },
+        {
+          "sentence": "คุณจะกลับ{{answer}}",
+          "answer": "เมื่อไหร่",
+          "translation": "When will you return?",
+          "hint": "when",
+          "display_order": 6
+        }
+      ]
+    },
+    {
+      "title": "Adjectives are verbs: บ้านใหญ่",
+      "level": "A1",
+      "function": "No 'is' before adjectives — they carry the sentence alone",
+      "source": "ai",
+      "reviewed": false,
+      "display_order": 10,
+      "explanation": "Thai adjectives work like verbs: อาหารอร่อย (food delicious = the food is delicious), อากาศร้อน (weather hot). They negate like verbs (ไม่ร้อน) and question like verbs (ร้อนไหม). Intensify with มาก after: อร่อยมาก (very delicious).",
+      "references": [
+        {
+          "title": "Wikipedia: Thai grammar",
+          "url": "https://en.wikipedia.org/wiki/Thai_language#Grammar"
+        },
+        {
+          "title": "thai-language.com reference",
+          "url": "http://www.thai-language.com/ref"
+        }
+      ],
+      "drills": [
+        {
+          "sentence": "อาหารไทย{{answer}}",
+          "answer": "อร่อย",
+          "translation": "Thai food is delicious.",
+          "hint": "delicious — no 'is' needed",
+          "display_order": 1
+        },
+        {
+          "sentence": "วันนี้อากาศ{{answer}}",
+          "answer": "ร้อน",
+          "translation": "The weather is hot today.",
+          "hint": "hot",
+          "display_order": 2
+        },
+        {
+          "sentence": "ภาษาไทย{{answer}}ไหม",
+          "answer": "ยาก",
+          "translation": "Is Thai difficult?",
+          "hint": "difficult",
+          "display_order": 3
+        },
+        {
+          "sentence": "ทะเล{{answer}}มาก",
+          "answer": "สวย",
+          "translation": "The sea is very beautiful.",
+          "hint": "beautiful",
+          "display_order": 4
+        },
+        {
+          "sentence": "กระเป๋านี้{{answer}}เกินไป",
+          "answer": "แพง",
+          "translation": "This bag is too expensive.",
+          "hint": "expensive",
+          "display_order": 5
+        },
+        {
+          "sentence": "น้ำ{{answer}}",
+          "answer": "เย็น",
+          "translation": "The water is cold.",
+          "hint": "cold/cool",
+          "display_order": 6
+        }
+      ]
+    },
+    {
+      "title": "จะ — the future marker",
+      "level": "A1",
+      "function": "Will and going to, one syllable",
+      "source": "ai",
+      "reviewed": false,
+      "display_order": 11,
+      "explanation": "จะ before the verb marks intention/future: ผมจะไป (I will go), ฝนจะตก (it's going to rain). Negative: จะไม่ไป (won't go) or more commonly ไม่ไป with a time word. คงจะ = probably will.",
+      "references": [
+        {
+          "title": "Wikipedia: Thai grammar",
+          "url": "https://en.wikipedia.org/wiki/Thai_language#Grammar"
+        },
+        {
+          "title": "thai-language.com reference",
+          "url": "http://www.thai-language.com/ref"
+        }
+      ],
+      "drills": [
+        {
+          "sentence": "พรุ่งนี้ผม{{answer}}ไปเชียงใหม่",
+          "answer": "จะ",
+          "translation": "Tomorrow I will go to Chiang Mai.",
+          "hint": "the future marker",
+          "display_order": 1
+        },
+        {
+          "sentence": "เรา{{answer}}กินข้าวด้วยกัน",
+          "answer": "จะ",
+          "translation": "We will eat together.",
+          "hint": "before the verb",
+          "display_order": 2
+        },
+        {
+          "sentence": "ฝน{{answer}}ตก",
+          "answer": "จะ",
+          "translation": "It is going to rain.",
+          "hint": "future marker",
+          "display_order": 3
+        },
+        {
+          "sentence": "เขา{{answer}}มาสาย",
+          "answer": "จะ",
+          "translation": "He is going to be late.",
+          "hint": "future",
+          "display_order": 4
+        },
+        {
+          "sentence": "ฉันจะ{{answer}}ไปงาน",
+          "answer": "ไม่",
+          "translation": "I will not go to the event.",
+          "hint": "negator slots after the future marker",
+          "display_order": 5
+        },
+        {
+          "sentence": "คุณ{{answer}}ทำอะไรวันเสาร์",
+          "answer": "จะ",
+          "translation": "What will you do on Saturday?",
+          "hint": "future marker",
+          "display_order": 6
+        }
+      ]
+    },
+    {
+      "title": "ของ — of and mine",
+      "level": "A1",
+      "function": "Possession — with a word you can often drop",
+      "source": "ai",
+      "reviewed": false,
+      "display_order": 12,
+      "explanation": "Possession: thing + ของ + owner: บ้านของผม (house of me = my house), รถของเขา. In casual speech ของ drops: บ้านผม, แม่ฉัน. 'Whose?': ของใคร. 'Mine': ของผม/ของฉัน standing alone.",
+      "references": [
+        {
+          "title": "Wikipedia: Thai grammar",
+          "url": "https://en.wikipedia.org/wiki/Thai_language#Grammar"
+        },
+        {
+          "title": "thai-language.com reference",
+          "url": "http://www.thai-language.com/ref"
+        }
+      ],
+      "drills": [
+        {
+          "sentence": "นี่คือบ้าน{{answer}}ผม",
+          "answer": "ของ",
+          "translation": "This is my house.",
+          "hint": "the possession linker",
+          "display_order": 1
+        },
+        {
+          "sentence": "รถคันนี้{{answer}}ใคร",
+          "answer": "ของ",
+          "translation": "Whose car is this?",
+          "hint": "of-whom",
+          "display_order": 2
+        },
+        {
+          "sentence": "กระเป๋านี้เป็น{{answer}}ฉัน",
+          "answer": "ของ",
+          "translation": "This bag is mine.",
+          "hint": "possession word",
+          "display_order": 3
+        },
+        {
+          "sentence": "โทรศัพท์{{answer}}เขาหาย",
+          "answer": "ของ",
+          "translation": "His phone is lost.",
+          "hint": "linker",
+          "display_order": 4
+        },
+        {
+          "sentence": "หมา{{answer}}เราชื่อโมโม่",
+          "answer": "ของ",
+          "translation": "Our dog is named Momo.",
+          "hint": "possession linker",
+          "display_order": 5
+        },
+        {
+          "sentence": "อันนี้{{answer}}ผมเอง",
+          "answer": "ของ",
+          "translation": "This one is mine.",
+          "hint": "standing possession",
+          "display_order": 6
+        }
+      ]
+    },
+    {
+      "title": "แล้ว — already, and then",
+      "level": "A2",
+      "function": "Mark completion — Thai's 'past tense'",
+      "source": "ai",
+      "reviewed": false,
+      "display_order": 1,
+      "explanation": "แล้ว after the verb phrase marks done/already: กินแล้ว (eaten already — the natural answer to 'have you eaten?'), เขาไปแล้ว (he's already gone). It also chains events: อาบน้ำแล้วนอน (shower, then sleep). กำลัง…อยู่แล้ว combos come next lesson.",
+      "references": [
+        {
+          "title": "Wikipedia: Thai grammar",
+          "url": "https://en.wikipedia.org/wiki/Thai_language#Grammar"
+        },
+        {
+          "title": "thai-language.com reference",
+          "url": "http://www.thai-language.com/ref"
+        }
+      ],
+      "drills": [
+        {
+          "sentence": "ผมกินข้าว{{answer}}",
+          "answer": "แล้ว",
+          "translation": "I have already eaten.",
+          "hint": "completion marker at the end",
+          "display_order": 1
+        },
+        {
+          "sentence": "รถไฟออก{{answer}}",
+          "answer": "แล้ว",
+          "translation": "The train has already left.",
+          "hint": "already",
+          "display_order": 2
+        },
+        {
+          "sentence": "เขาแต่งงาน{{answer}}",
+          "answer": "แล้ว",
+          "translation": "He is already married.",
+          "hint": "already",
+          "display_order": 3
+        },
+        {
+          "sentence": "ฉันทำการบ้านเสร็จ{{answer}}",
+          "answer": "แล้ว",
+          "translation": "I have finished my homework.",
+          "hint": "completion",
+          "display_order": 4
+        },
+        {
+          "sentence": "อาบน้ำ{{answer}}นอน",
+          "answer": "แล้ว",
+          "translation": "Shower, then sleep.",
+          "hint": "the 'and then' use",
+          "display_order": 5
+        },
+        {
+          "sentence": "พอ{{answer}} ขอบคุณ",
+          "answer": "แล้ว",
+          "translation": "That's enough already, thank you.",
+          "hint": "with พอ — enough",
+          "display_order": 6
+        }
+      ]
+    },
+    {
+      "title": "กำลัง … อยู่ — happening right now",
+      "level": "A2",
+      "function": "The progressive sandwich",
+      "source": "ai",
+      "reviewed": false,
+      "display_order": 2,
+      "explanation": "กำลัง before the verb, อยู่ after — use either or both: ผมกำลังกินข้าวอยู่ (I am eating right now). กำลังจะ = about to: เรากำลังจะออก (we're about to leave). อยู่ alone after a verb also works: ทำงานอยู่ (working at the moment).",
+      "references": [
+        {
+          "title": "Wikipedia: Thai grammar",
+          "url": "https://en.wikipedia.org/wiki/Thai_language#Grammar"
+        },
+        {
+          "title": "thai-language.com reference",
+          "url": "http://www.thai-language.com/ref"
+        }
+      ],
+      "drills": [
+        {
+          "sentence": "ผม{{answer}}กินข้าวอยู่",
+          "answer": "กำลัง",
+          "translation": "I am eating (right now).",
+          "hint": "the front half of the sandwich",
+          "display_order": 1
+        },
+        {
+          "sentence": "แม่กำลังทำอาหาร{{answer}}",
+          "answer": "อยู่",
+          "translation": "Mother is cooking.",
+          "hint": "the back half",
+          "display_order": 2
+        },
+        {
+          "sentence": "เขา{{answer}}อาบน้ำอยู่",
+          "answer": "กำลัง",
+          "translation": "He is showering.",
+          "hint": "front half",
+          "display_order": 3
+        },
+        {
+          "sentence": "ฉันทำงาน{{answer}} โทรกลับได้ไหม",
+          "answer": "อยู่",
+          "translation": "I'm working — can I call back?",
+          "hint": "back half alone",
+          "display_order": 4
+        },
+        {
+          "sentence": "เรา{{answer}}จะออกจากบ้าน",
+          "answer": "กำลัง",
+          "translation": "We are about to leave the house.",
+          "hint": "with จะ = about to",
+          "display_order": 5
+        },
+        {
+          "sentence": "ฝน{{answer}}ตกอยู่",
+          "answer": "กำลัง",
+          "translation": "It is raining (right now).",
+          "hint": "front half",
+          "display_order": 6
+        }
+      ]
+    },
+    {
+      "title": "ได้ — can, got to, and the past",
+      "level": "A2",
+      "function": "One word, three grammar jobs — position decides",
+      "source": "ai",
+      "reviewed": false,
+      "display_order": 3,
+      "explanation": "AFTER the verb = can/ability: พูดไทยได้ (can speak Thai), กินเผ็ดไม่ได้ (can't eat spicy). BEFORE the verb = got to/did (attainment past): ผมได้ไปเชียงใหม่ (I got to go / went to Chiang Mai). In requests: ได้ไหม = may I / is it OK? — ขอนั่งได้ไหม.",
+      "references": [
+        {
+          "title": "Wikipedia: Thai grammar",
+          "url": "https://en.wikipedia.org/wiki/Thai_language#Grammar"
+        },
+        {
+          "title": "thai-language.com reference",
+          "url": "http://www.thai-language.com/ref"
+        }
+      ],
+      "drills": [
+        {
+          "sentence": "ผมพูดภาษาไทย{{answer}}",
+          "answer": "ได้",
+          "translation": "I can speak Thai.",
+          "hint": "after the verb = can",
+          "display_order": 1
+        },
+        {
+          "sentence": "เขาว่ายน้ำไม่{{answer}}",
+          "answer": "ได้",
+          "translation": "He cannot swim.",
+          "hint": "can — negated",
+          "display_order": 2
+        },
+        {
+          "sentence": "นั่งที่นี่{{answer}}ไหม",
+          "answer": "ได้",
+          "translation": "May I sit here?",
+          "hint": "the permission question",
+          "display_order": 3
+        },
+        {
+          "sentence": "เมื่อวานผม{{answer}}เจอเพื่อนเก่า",
+          "answer": "ได้",
+          "translation": "Yesterday I got to meet an old friend.",
+          "hint": "before the verb = got to",
+          "display_order": 4
+        },
+        {
+          "sentence": "กินเผ็ด{{answer}}ไหม",
+          "answer": "ได้",
+          "translation": "Can you eat spicy food?",
+          "hint": "ability question",
+          "display_order": 5
+        },
+        {
+          "sentence": "ปีที่แล้วฉัน{{answer}}ไปญี่ปุ่น",
+          "answer": "ได้",
+          "translation": "Last year I got to go to Japan.",
+          "hint": "attainment past",
+          "display_order": 6
+        }
+      ]
+    },
+    {
+      "title": "ต้อง, ควร, อยาก — must, should, want to",
+      "level": "A2",
+      "function": "The pre-verb helpers",
+      "source": "ai",
+      "reviewed": false,
+      "display_order": 4,
+      "explanation": "All sit before the verb: ต้องไป (must go), ควรพัก (should rest), อยากกิน (want to eat — for wanting THINGS use อยากได้). Negatives: ไม่ต้อง (don't have to!), ไม่ควร (shouldn't), ไม่อยาก (don't want to). ต้องการ is the formal 'need'.",
+      "references": [
+        {
+          "title": "Wikipedia: Thai grammar",
+          "url": "https://en.wikipedia.org/wiki/Thai_language#Grammar"
+        },
+        {
+          "title": "thai-language.com reference",
+          "url": "http://www.thai-language.com/ref"
+        }
+      ],
+      "paradigm": [
+        "ต้อง",
+        "ควร",
+        "อยาก"
+      ],
+      "drills": [
+        {
+          "sentence": "ผม{{answer}}ไปทำงาน",
+          "answer": "ต้อง",
+          "translation": "I have to go to work.",
+          "hint": "must",
+          "display_order": 1,
+          "cell": "ต้อง"
+        },
+        {
+          "sentence": "คุณไม่{{answer}}มา",
+          "answer": "ต้อง",
+          "translation": "You don't have to come.",
+          "hint": "don't-have-to",
+          "display_order": 2,
+          "cell": "ต้อง"
+        },
+        {
+          "sentence": "คุณ{{answer}}พักผ่อน",
+          "answer": "ควร",
+          "translation": "You should rest.",
+          "hint": "should",
+          "display_order": 3,
+          "cell": "ควร"
+        },
+        {
+          "sentence": "เราไม่{{answer}}กินดึก",
+          "answer": "ควร",
+          "translation": "We shouldn't eat late.",
+          "hint": "shouldn't",
+          "display_order": 4,
+          "cell": "ควร"
+        },
+        {
+          "sentence": "ฉัน{{answer}}กินส้มตำ",
+          "answer": "อยาก",
+          "translation": "I want to eat som tam.",
+          "hint": "want-to",
+          "display_order": 5,
+          "cell": "อยาก"
+        },
+        {
+          "sentence": "เขา{{answer}}ไปทะเล",
+          "answer": "อยาก",
+          "translation": "He wants to go to the sea.",
+          "hint": "want-to",
+          "display_order": 6,
+          "cell": "อยาก"
+        }
+      ]
+    },
+    {
+      "title": "ไป and มา — direction after the verb",
+      "level": "A2",
+      "function": "Away from me, toward me — glued to the verb",
+      "source": "ai",
+      "reviewed": false,
+      "display_order": 5,
+      "explanation": "ไป (go) and มา (come) ride after verbs to show direction relative to the speaker: เอาไป (take away), เอามา (bring here), กลับไป (go back), กลับมา (come back), โทรมา (call me — toward speaker). They also mark time-flavour: มา = up to now (อยู่มานาน — have stayed long).",
+      "references": [
+        {
+          "title": "Wikipedia: Thai grammar",
+          "url": "https://en.wikipedia.org/wiki/Thai_language#Grammar"
+        },
+        {
+          "title": "thai-language.com reference",
+          "url": "http://www.thai-language.com/ref"
+        }
+      ],
+      "paradigm": [
+        "มา",
+        "ไป"
+      ],
+      "drills": [
+        {
+          "sentence": "เอาหนังสือ{{answer}}ให้ฉันหน่อย",
+          "answer": "มา",
+          "translation": "Bring me the book, please.",
+          "hint": "toward the speaker",
+          "display_order": 1,
+          "cell": "มา"
+        },
+        {
+          "sentence": "เพื่อนโทร{{answer}}เมื่อคืน",
+          "answer": "มา",
+          "translation": "A friend called (me) last night.",
+          "hint": "toward the speaker",
+          "display_order": 2,
+          "cell": "มา"
+        },
+        {
+          "sentence": "เอาขยะ{{answer}}ทิ้ง",
+          "answer": "ไป",
+          "translation": "Take the trash out.",
+          "hint": "away from the speaker",
+          "display_order": 3,
+          "cell": "ไป"
+        },
+        {
+          "sentence": "เขากลับ{{answer}}บ้านแล้ว",
+          "answer": "ไป",
+          "translation": "He has gone back home.",
+          "hint": "away",
+          "display_order": 4,
+          "cell": "ไป"
+        },
+        {
+          "sentence": "พ่อกลับ{{answer}}จากทำงานแล้ว",
+          "answer": "มา",
+          "translation": "Father has come back from work.",
+          "hint": "toward the speaker",
+          "display_order": 5,
+          "cell": "มา"
+        },
+        {
+          "sentence": "ส่งรูป{{answer}}ให้หน่อย",
+          "answer": "มา",
+          "translation": "Send me the photo, please.",
+          "hint": "toward me",
+          "display_order": 6,
+          "cell": "มา"
+        }
+      ]
+    },
+    {
+      "title": "ให้ — give, for, and make someone",
+      "level": "A2",
+      "function": "The Swiss-army verb of doing things for people",
+      "source": "ai",
+      "reviewed": false,
+      "display_order": 6,
+      "explanation": "Plain verb: give — เขาให้เงินฉัน (he gave me money). Benefactive: verb + ให้ = do FOR someone: แม่ทำอาหารให้ (mum cooks for me), เปิดประตูให้หน่อย (open the door for me). Causative: ให้ + person + verb = have/let someone do: หมอให้ผมพัก (the doctor had me rest).",
+      "references": [
+        {
+          "title": "Wikipedia: Thai grammar",
+          "url": "https://en.wikipedia.org/wiki/Thai_language#Grammar"
+        },
+        {
+          "title": "thai-language.com reference",
+          "url": "http://www.thai-language.com/ref"
+        }
+      ],
+      "drills": [
+        {
+          "sentence": "เขา{{answer}}ของขวัญฉัน",
+          "answer": "ให้",
+          "translation": "He gave me a present.",
+          "hint": "plain 'give'",
+          "display_order": 1
+        },
+        {
+          "sentence": "แม่ทำอาหาร{{answer}}ลูก",
+          "answer": "ให้",
+          "translation": "Mum cooks for the children.",
+          "hint": "do-for marker",
+          "display_order": 2
+        },
+        {
+          "sentence": "เปิดประตู{{answer}}หน่อย",
+          "answer": "ให้",
+          "translation": "Open the door for me, please.",
+          "hint": "benefactive",
+          "display_order": 3
+        },
+        {
+          "sentence": "หมอ{{answer}}ผมพักผ่อน",
+          "answer": "ให้",
+          "translation": "The doctor had me rest.",
+          "hint": "causative — before the person",
+          "display_order": 4
+        },
+        {
+          "sentence": "ครู{{answer}}นักเรียนอ่านทุกวัน",
+          "answer": "ให้",
+          "translation": "The teacher has the students read every day.",
+          "hint": "causative",
+          "display_order": 5
+        },
+        {
+          "sentence": "ช่วยถือกระเป๋า{{answer}}หน่อย",
+          "answer": "ให้",
+          "translation": "Please carry the bag for me.",
+          "hint": "do-for",
+          "display_order": 6
+        }
+      ]
+    },
+    {
+      "title": "Comparisons: กว่า and ที่สุด",
+      "level": "A2",
+      "function": "More-than and the most",
+      "source": "ai",
+      "reviewed": false,
+      "display_order": 7,
+      "explanation": "Comparative: adjective + กว่า — แพงกว่า (more expensive), ใหญ่กว่าบ้านผม (bigger than my house). Superlative: adjective + ที่สุด — อร่อยที่สุด (the most delicious). Equality: เท่ากัน (equal) / เหมือนกัน (same).",
+      "references": [
+        {
+          "title": "Wikipedia: Thai grammar",
+          "url": "https://en.wikipedia.org/wiki/Thai_language#Grammar"
+        },
+        {
+          "title": "thai-language.com reference",
+          "url": "http://www.thai-language.com/ref"
+        }
+      ],
+      "drills": [
+        {
+          "sentence": "อันนี้แพง{{answer}}",
+          "answer": "กว่า",
+          "translation": "This one is more expensive.",
+          "hint": "the more-than word",
+          "display_order": 1
+        },
+        {
+          "sentence": "กรุงเทพใหญ่{{answer}}เชียงใหม่",
+          "answer": "กว่า",
+          "translation": "Bangkok is bigger than Chiang Mai.",
+          "hint": "than",
+          "display_order": 2
+        },
+        {
+          "sentence": "วันนี้ร้อน{{answer}}เมื่อวาน",
+          "answer": "กว่า",
+          "translation": "Today is hotter than yesterday.",
+          "hint": "than",
+          "display_order": 3
+        },
+        {
+          "sentence": "ร้านนี้อร่อย{{answer}}",
+          "answer": "ที่สุด",
+          "translation": "This restaurant is the most delicious.",
+          "hint": "the most",
+          "display_order": 4
+        },
+        {
+          "sentence": "เขาเก่ง{{answer}}ในห้อง",
+          "answer": "ที่สุด",
+          "translation": "He is the best in the class.",
+          "hint": "superlative",
+          "display_order": 5
+        },
+        {
+          "sentence": "ราคาสองอันนี้เท่า{{answer}}",
+          "answer": "กัน",
+          "translation": "These two cost the same.",
+          "hint": "the equality tail",
+          "display_order": 6
+        }
+      ]
+    },
+    {
+      "title": "เคย — ever and used to",
+      "level": "A2",
+      "function": "Experience: have you ever…?",
+      "source": "ai",
+      "reviewed": false,
+      "display_order": 8,
+      "explanation": "เคย before the verb = have ever / used to: ผมเคยไปภูเก็ต (I've been to Phuket), เขาเคยสอนที่นี่ (he used to teach here). Question: เคย…ไหม (ever…?). Negative: ไม่เคย (never): ฉันไม่เคยกินทุเรียน (I've never eaten durian).",
+      "references": [
+        {
+          "title": "Wikipedia: Thai grammar",
+          "url": "https://en.wikipedia.org/wiki/Thai_language#Grammar"
+        },
+        {
+          "title": "thai-language.com reference",
+          "url": "http://www.thai-language.com/ref"
+        }
+      ],
+      "drills": [
+        {
+          "sentence": "ผม{{answer}}ไปภูเก็ต",
+          "answer": "เคย",
+          "translation": "I have been to Phuket.",
+          "hint": "the experience marker",
+          "display_order": 1
+        },
+        {
+          "sentence": "คุณ{{answer}}กินทุเรียนไหม",
+          "answer": "เคย",
+          "translation": "Have you ever eaten durian?",
+          "hint": "ever",
+          "display_order": 2
+        },
+        {
+          "sentence": "ฉันไม่{{answer}}ขี่ช้าง",
+          "answer": "เคย",
+          "translation": "I have never ridden an elephant.",
+          "hint": "never = not-ever",
+          "display_order": 3
+        },
+        {
+          "sentence": "เขา{{answer}}อยู่ที่ญี่ปุ่น",
+          "answer": "เคย",
+          "translation": "He used to live in Japan.",
+          "hint": "used-to",
+          "display_order": 4
+        },
+        {
+          "sentence": "เรา{{answer}}เจอกันที่ไหนไหม",
+          "answer": "เคย",
+          "translation": "Have we met somewhere before?",
+          "hint": "ever",
+          "display_order": 5
+        },
+        {
+          "sentence": "ผมไม่{{answer}}เห็นหิมะ",
+          "answer": "เคย",
+          "translation": "I have never seen snow.",
+          "hint": "never",
+          "display_order": 6
+        }
+      ]
+    },
+    {
+      "title": "Requests: ขอ…หน่อย, ช่วย…หน่อย",
+      "level": "A2",
+      "function": "Ask for things and favours the soft way",
+      "source": "ai",
+      "reviewed": false,
+      "display_order": 9,
+      "explanation": "ขอ + noun + หน่อย asks for things: ขอน้ำหน่อย (some water, please). ช่วย + verb + หน่อย asks for actions: ช่วยเปิดหน้าต่างหน่อย (please open the window). หน่อย ('a little') is the pillow that softens it; add ครับ/ค่ะ and you're fully polite.",
+      "references": [
+        {
+          "title": "Wikipedia: Thai grammar",
+          "url": "https://en.wikipedia.org/wiki/Thai_language#Grammar"
+        },
+        {
+          "title": "thai-language.com reference",
+          "url": "http://www.thai-language.com/ref"
+        }
+      ],
+      "drills": [
+        {
+          "sentence": "{{answer}}น้ำหน่อยครับ",
+          "answer": "ขอ",
+          "translation": "Some water, please.",
+          "hint": "the asking-for-things opener",
+          "display_order": 1
+        },
+        {
+          "sentence": "{{answer}}เมนูหน่อยค่ะ",
+          "answer": "ขอ",
+          "translation": "The menu, please.",
+          "hint": "asking for a thing",
+          "display_order": 2
+        },
+        {
+          "sentence": "{{answer}}เปิดแอร์หน่อย",
+          "answer": "ช่วย",
+          "translation": "Please turn on the air-con.",
+          "hint": "the asking-for-actions opener",
+          "display_order": 3
+        },
+        {
+          "sentence": "{{answer}}ถ่ายรูปให้หน่อยครับ",
+          "answer": "ช่วย",
+          "translation": "Please take a photo for me.",
+          "hint": "action request",
+          "display_order": 4
+        },
+        {
+          "sentence": "ขอโทษ พูดช้าๆ {{answer}}ได้ไหม",
+          "answer": "หน่อย",
+          "translation": "Sorry — could you speak slowly, please?",
+          "hint": "the softener",
+          "display_order": 5
+        },
+        {
+          "sentence": "ขอบิล{{answer}}ครับ",
+          "answer": "หน่อย",
+          "translation": "The bill, please.",
+          "hint": "softener",
+          "display_order": 6
+        }
+      ]
+    },
+    {
+      "title": "ก็ — so, then, too",
+      "level": "A2",
+      "function": "The little linker in half of all Thai sentences",
+      "source": "ai",
+      "reviewed": false,
+      "display_order": 10,
+      "explanation": "ก็ (gɔ̂ɔ) links topic to comment: ถ้าฝนตก เราก็ไม่ไป (if it rains, then we don't go); softens answers: ก็ดีนะ (well, that's nice); means 'also': ผมก็หิว (I'm hungry too); and fills pauses: ก็… (well…). Learn its rhythm and Thai starts flowing.",
+      "references": [
+        {
+          "title": "Wikipedia: Thai grammar",
+          "url": "https://en.wikipedia.org/wiki/Thai_language#Grammar"
+        },
+        {
+          "title": "thai-language.com reference",
+          "url": "http://www.thai-language.com/ref"
+        }
+      ],
+      "drills": [
+        {
+          "sentence": "ถ้าฝนตก เรา{{answer}}ไม่ไป",
+          "answer": "ก็",
+          "translation": "If it rains, then we won't go.",
+          "hint": "the then-linker",
+          "display_order": 1
+        },
+        {
+          "sentence": "ผม{{answer}}หิวเหมือนกัน",
+          "answer": "ก็",
+          "translation": "I'm hungry too.",
+          "hint": "also",
+          "display_order": 2
+        },
+        {
+          "sentence": "อาหาร{{answer}}อร่อยดีนะ",
+          "answer": "ก็",
+          "translation": "Well, the food is pretty good.",
+          "hint": "softener",
+          "display_order": 3
+        },
+        {
+          "sentence": "ใครมา ฉัน{{answer}}ดีใจ",
+          "answer": "ก็",
+          "translation": "Whoever comes, I'm happy.",
+          "hint": "whoever…then",
+          "display_order": 4
+        },
+        {
+          "sentence": "ถ้าถูก ผม{{answer}}ซื้อ",
+          "answer": "ก็",
+          "translation": "If it's cheap, then I'll buy it.",
+          "hint": "then",
+          "display_order": 5
+        },
+        {
+          "sentence": "เขาไป ฉัน{{answer}}ไป",
+          "answer": "ก็",
+          "translation": "If he goes, I go too.",
+          "hint": "too/then",
+          "display_order": 6
+        }
+      ]
+    },
+    {
+      "title": "ที่ — relative clauses",
+      "level": "B1",
+      "function": "The person who…, the thing that…",
+      "source": "ai",
+      "reviewed": false,
+      "display_order": 1,
+      "explanation": "ที่ links a noun to its describing clause: คนที่พูดไทยได้ (a person who can speak Thai), อาหารที่ผมชอบ (the food that I like), ร้านที่เราไปเมื่อวาน (the shop we went to yesterday). ซึ่ง is its formal twin (writing); อัน appears in fixed/literary use.",
+      "references": [
+        {
+          "title": "Wikipedia: Thai grammar",
+          "url": "https://en.wikipedia.org/wiki/Thai_language#Grammar"
+        },
+        {
+          "title": "thai-language.com reference",
+          "url": "http://www.thai-language.com/ref"
+        }
+      ],
+      "drills": [
+        {
+          "sentence": "คน{{answer}}ยืนอยู่ตรงนั้นคือพี่ชายผม",
+          "answer": "ที่",
+          "translation": "The person standing there is my older brother.",
+          "hint": "the relative linker",
+          "display_order": 1
+        },
+        {
+          "sentence": "อาหาร{{answer}}ผมชอบคือผัดไทย",
+          "answer": "ที่",
+          "translation": "The food I like is pad thai.",
+          "hint": "that/which",
+          "display_order": 2
+        },
+        {
+          "sentence": "หนังสือ{{answer}}คุณให้ฉันสนุกมาก",
+          "answer": "ที่",
+          "translation": "The book you gave me is really fun.",
+          "hint": "relative linker",
+          "display_order": 3
+        },
+        {
+          "sentence": "ร้าน{{answer}}เราไปเมื่อวานปิดแล้ว",
+          "answer": "ที่",
+          "translation": "The shop we went to yesterday is closed now.",
+          "hint": "where-clause uses the same word",
+          "display_order": 4
+        },
+        {
+          "sentence": "คน{{answer}}ขยันจะสำเร็จ",
+          "answer": "ที่",
+          "translation": "People who are diligent will succeed.",
+          "hint": "who",
+          "display_order": 5
+        },
+        {
+          "sentence": "นี่คือรูป{{answer}}ผมถ่ายเอง",
+          "answer": "ที่",
+          "translation": "This is a photo that I took myself.",
+          "hint": "that",
+          "display_order": 6
+        }
+      ]
+    },
+    {
+      "title": "ว่า — the that-clause",
+      "level": "B1",
+      "function": "Say, think, know that…",
+      "source": "ai",
+      "reviewed": false,
+      "display_order": 2,
+      "explanation": "After verbs of saying/thinking/knowing, ว่า opens the clause: คิดว่า… (think that), บอกว่า… (say that), รู้ว่า… (know that), ได้ยินว่า… (hear that). Questions embed with ว่า + question word: ไม่รู้ว่าเขาอยู่ไหน (don't know where he is).",
+      "references": [
+        {
+          "title": "Wikipedia: Thai grammar",
+          "url": "https://en.wikipedia.org/wiki/Thai_language#Grammar"
+        },
+        {
+          "title": "thai-language.com reference",
+          "url": "http://www.thai-language.com/ref"
+        }
+      ],
+      "drills": [
+        {
+          "sentence": "ผมคิด{{answer}}คุณพูดถูก",
+          "answer": "ว่า",
+          "translation": "I think that you are right.",
+          "hint": "the that-opener",
+          "display_order": 1
+        },
+        {
+          "sentence": "เขาบอก{{answer}}จะมาสาย",
+          "answer": "ว่า",
+          "translation": "He said that he would be late.",
+          "hint": "after 'say'",
+          "display_order": 2
+        },
+        {
+          "sentence": "ฉันรู้{{answer}}คุณเหนื่อย",
+          "answer": "ว่า",
+          "translation": "I know that you are tired.",
+          "hint": "after 'know'",
+          "display_order": 3
+        },
+        {
+          "sentence": "ได้ยิน{{answer}}ร้านนี้อร่อย",
+          "answer": "ว่า",
+          "translation": "I hear that this restaurant is good.",
+          "hint": "after 'hear'",
+          "display_order": 4
+        },
+        {
+          "sentence": "ไม่รู้{{answer}}เขาอยู่ที่ไหน",
+          "answer": "ว่า",
+          "translation": "I don't know where he is.",
+          "hint": "embedded question",
+          "display_order": 5
+        },
+        {
+          "sentence": "เขาถาม{{answer}}คุณชื่ออะไร",
+          "answer": "ว่า",
+          "translation": "He asked what your name is.",
+          "hint": "embedded question",
+          "display_order": 6
+        }
+      ]
+    },
+    {
+      "title": "ถ้า — conditionals",
+      "level": "B1",
+      "function": "If…, then… — with ก็ tying the knot",
+      "source": "ai",
+      "reviewed": false,
+      "display_order": 3,
+      "explanation": "ถ้า opens the condition, ก็ usually opens the result: ถ้าฝนตก เราก็อยู่บ้าน (if it rains, we stay home). Future: ถ้ามีเวลา จะไป (if there's time, will go). Counterfactuals lean on context or ถ้า…คง(จะ): ถ้าผมรวย ผมคงซื้อบ้าน (if I were rich I'd probably buy a house).",
+      "references": [
+        {
+          "title": "Wikipedia: Thai grammar",
+          "url": "https://en.wikipedia.org/wiki/Thai_language#Grammar"
+        },
+        {
+          "title": "thai-language.com reference",
+          "url": "http://www.thai-language.com/ref"
+        }
+      ],
+      "drills": [
+        {
+          "sentence": "{{answer}}ฝนตก เราก็อยู่บ้าน",
+          "answer": "ถ้า",
+          "translation": "If it rains, we'll stay home.",
+          "hint": "if",
+          "display_order": 1
+        },
+        {
+          "sentence": "{{answer}}มีเวลา ผมจะไปหาคุณ",
+          "answer": "ถ้า",
+          "translation": "If I have time, I'll come see you.",
+          "hint": "if",
+          "display_order": 2
+        },
+        {
+          "sentence": "ถ้าอร่อย ฉัน{{answer}}สั่งอีก",
+          "answer": "จะ",
+          "translation": "If it's tasty, I will order more.",
+          "hint": "future in the result clause",
+          "display_order": 3
+        },
+        {
+          "sentence": "ถ้าผมรวย ผม{{answer}}ซื้อเกาะ",
+          "answer": "คง",
+          "translation": "If I were rich, I would probably buy an island.",
+          "hint": "the probably-would marker",
+          "display_order": 4
+        },
+        {
+          "sentence": "ถ้าไม่รีบ เรา{{answer}}ตกรถไฟ",
+          "answer": "จะ",
+          "translation": "If we don't hurry, we will miss the train.",
+          "hint": "future marker",
+          "display_order": 5
+        },
+        {
+          "sentence": "ถ้าเหนื่อย {{answer}}พักก่อน",
+          "answer": "ก็",
+          "translation": "If you're tired, then rest first.",
+          "hint": "the then-linker",
+          "display_order": 6
+        }
+      ]
+    },
+    {
+      "title": "ถูก and โดน — the passive of bad things",
+      "level": "B1",
+      "function": "Thai's passive is for suffering",
+      "source": "ai",
+      "reviewed": false,
+      "display_order": 4,
+      "explanation": "ถูก/โดน + (doer) + verb marks the adversative passive — mostly unpleasant: ผมถูกหมากัด (I got bitten by a dog), เขาโดนตำรวจจับ (he got arrested), โดนขโมยกระเป๋า (had a bag stolen). Neutral English passives usually stay ACTIVE in Thai; ได้รับ handles formal 'receive' passives: ได้รับเชิญ (be invited).",
+      "references": [
+        {
+          "title": "Wikipedia: Thai grammar",
+          "url": "https://en.wikipedia.org/wiki/Thai_language#Grammar"
+        },
+        {
+          "title": "thai-language.com reference",
+          "url": "http://www.thai-language.com/ref"
+        }
+      ],
+      "drills": [
+        {
+          "sentence": "ผม{{answer}}หมากัด",
+          "answer": "ถูก",
+          "translation": "I was bitten by a dog.",
+          "hint": "the misfortune passive",
+          "display_order": 1
+        },
+        {
+          "sentence": "เขา{{answer}}ครูดุ",
+          "answer": "ถูก",
+          "translation": "He got scolded by the teacher.",
+          "hint": "adversative passive",
+          "display_order": 2
+        },
+        {
+          "sentence": "ฉัน{{answer}}ฝนเปียกหมดเลย",
+          "answer": "โดน",
+          "translation": "I got soaked by the rain.",
+          "hint": "the colloquial twin",
+          "display_order": 3
+        },
+        {
+          "sentence": "เขา{{answer}}ขโมยโทรศัพท์",
+          "answer": "โดน",
+          "translation": "He had his phone stolen.",
+          "hint": "colloquial passive",
+          "display_order": 4
+        },
+        {
+          "sentence": "นักร้อง{{answer}}รับเชิญไปงาน",
+          "answer": "ได้",
+          "translation": "The singer was invited to the event.",
+          "hint": "the formal receive-passive ___รับ",
+          "display_order": 5
+        },
+        {
+          "sentence": "ระวังนะ เดี๋ยว{{answer}}รถชน",
+          "answer": "โดน",
+          "translation": "Careful — you might get hit by a car.",
+          "hint": "colloquial",
+          "display_order": 6
+        }
+      ]
+    },
+    {
+      "title": "Serial verbs: เดินไปซื้อกลับมากิน",
+      "level": "B1",
+      "function": "Chain verbs like beads — no 'and', no 'to'",
+      "source": "ai",
+      "reviewed": false,
+      "display_order": 5,
+      "explanation": "Thai stacks verbs in action order: เดินไปซื้อข้าว (walk-go-buy rice = walk over to buy rice), พาลูกไปหาหมอ (take child go see doctor), ออกไปวิ่ง (go out running). Each verb keeps full meaning; direction verbs (ไป/มา/ขึ้น/ลง/เข้า/ออก) thread through the chain.",
+      "references": [
+        {
+          "title": "Wikipedia: Thai grammar",
+          "url": "https://en.wikipedia.org/wiki/Thai_language#Grammar"
+        },
+        {
+          "title": "thai-language.com reference",
+          "url": "http://www.thai-language.com/ref"
+        }
+      ],
+      "drills": [
+        {
+          "sentence": "ผมเดิน{{answer}}ซื้อกาแฟ",
+          "answer": "ไป",
+          "translation": "I walked over to buy coffee.",
+          "hint": "the go-thread in the chain",
+          "display_order": 1
+        },
+        {
+          "sentence": "แม่{{answer}}ลูกไปโรงเรียน",
+          "answer": "พา",
+          "translation": "Mum takes the child to school.",
+          "hint": "the 'lead/take someone' verb",
+          "display_order": 2
+        },
+        {
+          "sentence": "เขาวิ่ง{{answer}}ไปข้างนอก",
+          "answer": "ออก",
+          "translation": "He ran out(side).",
+          "hint": "the exit-direction verb",
+          "display_order": 3
+        },
+        {
+          "sentence": "ฉันกลับมา{{answer}}ข้าวที่บ้าน",
+          "answer": "กิน",
+          "translation": "I came back to eat at home.",
+          "hint": "the action at the chain's end",
+          "display_order": 4
+        },
+        {
+          "sentence": "เดิน{{answer}}บันไดไปชั้นสอง",
+          "answer": "ขึ้น",
+          "translation": "Walk up the stairs to the second floor.",
+          "hint": "the ascend-direction verb",
+          "display_order": 5
+        },
+        {
+          "sentence": "เขาขับรถ{{answer}}ส่งฉัน",
+          "answer": "มา",
+          "translation": "He drove over to drop me off.",
+          "hint": "toward-speaker thread",
+          "display_order": 6
+        }
+      ]
+    },
+    {
+      "title": "ทำให้ — make it happen",
+      "level": "B1",
+      "function": "Cause states and feelings",
+      "source": "ai",
+      "reviewed": false,
+      "display_order": 6,
+      "explanation": "ทำให้ + (someone) + state = make/cause: ข่าวนี้ทำให้ผมดีใจ (this news makes me happy), ฝนทำให้รถติด (rain causes traffic). Person-on-person: เขาทำให้ฉันหัวเราะ (he makes me laugh). Contrast with plain ให้-causative (have someone do) — ทำให้ is about RESULTS.",
+      "references": [
+        {
+          "title": "Wikipedia: Thai grammar",
+          "url": "https://en.wikipedia.org/wiki/Thai_language#Grammar"
+        },
+        {
+          "title": "thai-language.com reference",
+          "url": "http://www.thai-language.com/ref"
+        }
+      ],
+      "drills": [
+        {
+          "sentence": "ข่าวนี้{{answer}}ผมดีใจมาก",
+          "answer": "ทำให้",
+          "translation": "This news makes me very happy.",
+          "hint": "the cause-a-state verb",
+          "display_order": 1
+        },
+        {
+          "sentence": "ฝน{{answer}}รถติด",
+          "answer": "ทำให้",
+          "translation": "The rain causes traffic jams.",
+          "hint": "cause",
+          "display_order": 2
+        },
+        {
+          "sentence": "เพลงนี้{{answer}}ฉันคิดถึงบ้าน",
+          "answer": "ทำให้",
+          "translation": "This song makes me miss home.",
+          "hint": "cause-feeling",
+          "display_order": 3
+        },
+        {
+          "sentence": "เขา{{answer}}ทุกคนหัวเราะ",
+          "answer": "ทำให้",
+          "translation": "He makes everyone laugh.",
+          "hint": "cause",
+          "display_order": 4
+        },
+        {
+          "sentence": "อากาศร้อน{{answer}}คนเหนื่อยง่าย",
+          "answer": "ทำให้",
+          "translation": "Hot weather makes people tire easily.",
+          "hint": "cause",
+          "display_order": 5
+        },
+        {
+          "sentence": "การออกกำลังกาย{{answer}}สุขภาพดี",
+          "answer": "ทำให้",
+          "translation": "Exercise makes for good health.",
+          "hint": "cause",
+          "display_order": 6
+        }
+      ]
+    },
+    {
+      "title": "ยัง — still and not yet",
+      "level": "B1",
+      "function": "The continuing and the pending",
+      "source": "ai",
+      "reviewed": false,
+      "display_order": 7,
+      "explanation": "ยัง + verb = still: เขายังทำงานอยู่ (he's still working). ยังไม่ + verb = not yet: ผมยังไม่ได้กิน (I haven't eaten yet). The classic exchange: กินข้าวหรือยัง (eaten yet?) — ยัง (not yet — one word suffices!) or กินแล้ว (already have).",
+      "references": [
+        {
+          "title": "Wikipedia: Thai grammar",
+          "url": "https://en.wikipedia.org/wiki/Thai_language#Grammar"
+        },
+        {
+          "title": "thai-language.com reference",
+          "url": "http://www.thai-language.com/ref"
+        }
+      ],
+      "drills": [
+        {
+          "sentence": "เขา{{answer}}ทำงานอยู่",
+          "answer": "ยัง",
+          "translation": "He is still working.",
+          "hint": "still",
+          "display_order": 1
+        },
+        {
+          "sentence": "ผม{{answer}}ไม่ได้กินข้าว",
+          "answer": "ยัง",
+          "translation": "I haven't eaten yet.",
+          "hint": "not-yet frame",
+          "display_order": 2
+        },
+        {
+          "sentence": "กินข้าวหรือ{{answer}}",
+          "answer": "ยัง",
+          "translation": "Have you eaten yet?",
+          "hint": "the '…or yet?' tail",
+          "display_order": 3
+        },
+        {
+          "sentence": "ฝน{{answer}}ตกอยู่เลย",
+          "answer": "ยัง",
+          "translation": "It is still raining.",
+          "hint": "still",
+          "display_order": 4
+        },
+        {
+          "sentence": "งาน{{answer}}ไม่เสร็จ",
+          "answer": "ยัง",
+          "translation": "The work is not finished yet.",
+          "hint": "not yet",
+          "display_order": 5
+        },
+        {
+          "sentence": "คุณ{{answer}}โกรธฉันอยู่ไหม",
+          "answer": "ยัง",
+          "translation": "Are you still angry with me?",
+          "hint": "still",
+          "display_order": 6
+        }
+      ]
+    },
+    {
+      "title": "เพราะ — because, and เลย — so",
+      "level": "B1",
+      "function": "Cause and consequence, spoken Thai style",
+      "source": "ai",
+      "reviewed": false,
+      "display_order": 8,
+      "explanation": "เพราะ(ว่า) = because: ผมไม่ไปเพราะฝนตก. เลย = so/therefore (and 'completely' as an intensifier): ฝนตก เลยไม่ไป (it rained, so [I] didn't go). ดังนั้น is the formal 'therefore'. เพราะฉะนั้น bridges speech and writing.",
+      "references": [
+        {
+          "title": "Wikipedia: Thai grammar",
+          "url": "https://en.wikipedia.org/wiki/Thai_language#Grammar"
+        },
+        {
+          "title": "thai-language.com reference",
+          "url": "http://www.thai-language.com/ref"
+        }
+      ],
+      "drills": [
+        {
+          "sentence": "ผมไม่ไป{{answer}}ฝนตก",
+          "answer": "เพราะ",
+          "translation": "I'm not going because it's raining.",
+          "hint": "because",
+          "display_order": 1
+        },
+        {
+          "sentence": "เขาดีใจ{{answer}}สอบผ่าน",
+          "answer": "เพราะ",
+          "translation": "He is happy because he passed the exam.",
+          "hint": "because",
+          "display_order": 2
+        },
+        {
+          "sentence": "ฝนตกหนัก {{answer}}รถติดมาก",
+          "answer": "เลย",
+          "translation": "It rained hard, so traffic is terrible.",
+          "hint": "the spoken 'so'",
+          "display_order": 3
+        },
+        {
+          "sentence": "ง่วงมาก {{answer}}นอนเร็ว",
+          "answer": "เลย",
+          "translation": "I was so sleepy, so I went to bed early.",
+          "hint": "so/therefore",
+          "display_order": 4
+        },
+        {
+          "sentence": "อร่อยมาก{{answer}}",
+          "answer": "เลย",
+          "translation": "It's SO delicious!",
+          "hint": "the intensifier use",
+          "display_order": 5
+        },
+        {
+          "sentence": "{{answer}}ว่าเหนื่อย เขาก็เลยพัก",
+          "answer": "เพราะ",
+          "translation": "Because he was tired, he rested.",
+          "hint": "because (+ว่า)",
+          "display_order": 6
+        }
+      ]
+    },
+    {
+      "title": "Final particles: นะ, สิ, ล่ะ, หรอก",
+      "level": "B2",
+      "function": "The emotional temperature at the end of the sentence",
+      "source": "ai",
+      "reviewed": false,
+      "display_order": 1,
+      "explanation": "นะ softens and warms: ไปนะ (I'm off, okay?), อร่อยนะ (tasty, isn't it). สิ urges: มาสิ (come on!), นั่งสิ (do sit). ล่ะ asks 'and…?/what about': แล้วคุณล่ะ (and you?). หรอก corrects gently in negatives: ไม่แพงหรอก (it's not expensive, really). Mastering these is mastering spoken Thai.",
+      "references": [
+        {
+          "title": "Wikipedia: Thai grammar",
+          "url": "https://en.wikipedia.org/wiki/Thai_language#Grammar"
+        },
+        {
+          "title": "thai-language.com reference",
+          "url": "http://www.thai-language.com/ref"
+        }
+      ],
+      "paradigm": [
+        "นะ",
+        "สิ",
+        "ล่ะ"
+      ],
+      "drills": [
+        {
+          "sentence": "ผมไปก่อน{{answer}}",
+          "answer": "นะ",
+          "translation": "I'm heading off now, okay?",
+          "hint": "the warm softener",
+          "display_order": 1,
+          "cell": "นะ"
+        },
+        {
+          "sentence": "ขอบคุณมาก{{answer}}",
+          "answer": "นะ",
+          "translation": "Thanks so much, yeah?",
+          "hint": "softener",
+          "display_order": 2,
+          "cell": "นะ"
+        },
+        {
+          "sentence": "มา{{answer}} ไม่ต้องอาย",
+          "answer": "สิ",
+          "translation": "Come on — don't be shy!",
+          "hint": "the urging particle",
+          "display_order": 3,
+          "cell": "สิ"
+        },
+        {
+          "sentence": "ลองชิม{{answer}} อร่อยมาก",
+          "answer": "สิ",
+          "translation": "Do try it — it's delicious!",
+          "hint": "urging",
+          "display_order": 4,
+          "cell": "สิ"
+        },
+        {
+          "sentence": "ผมสบายดี แล้วคุณ{{answer}}",
+          "answer": "ล่ะ",
+          "translation": "I'm fine — and you?",
+          "hint": "the what-about particle",
+          "display_order": 5,
+          "cell": "ล่ะ"
+        },
+        {
+          "sentence": "แล้วอันนี้{{answer}} เอาไหม",
+          "answer": "ล่ะ",
+          "translation": "And what about this one — want it?",
+          "hint": "what-about",
+          "display_order": 6,
+          "cell": "ล่ะ"
+        }
+      ]
+    },
+    {
+      "title": "กัน — together and each other",
+      "level": "B2",
+      "function": "The reciprocal-collective tail",
+      "source": "ai",
+      "reviewed": false,
+      "display_order": 2,
+      "explanation": "กัน after the verb = together/each other: ไปกัน (let's go — together), รักกัน (love each other), เจอกันพรุ่งนี้ (see each other tomorrow). ช่วยกัน (help each other/all pitch in), ด้วยกัน (together with — stressed). กันเอง = among ourselves/informal.",
+      "references": [
+        {
+          "title": "Wikipedia: Thai grammar",
+          "url": "https://en.wikipedia.org/wiki/Thai_language#Grammar"
+        },
+        {
+          "title": "thai-language.com reference",
+          "url": "http://www.thai-language.com/ref"
+        }
+      ],
+      "drills": [
+        {
+          "sentence": "ไป{{answer}}เถอะ",
+          "answer": "กัน",
+          "translation": "Let's go (together).",
+          "hint": "the together-tail",
+          "display_order": 1
+        },
+        {
+          "sentence": "เจอ{{answer}}พรุ่งนี้นะ",
+          "answer": "กัน",
+          "translation": "See you (each other) tomorrow.",
+          "hint": "reciprocal",
+          "display_order": 2
+        },
+        {
+          "sentence": "เขารัก{{answer}}มาก",
+          "answer": "กัน",
+          "translation": "They love each other very much.",
+          "hint": "each other",
+          "display_order": 3
+        },
+        {
+          "sentence": "เรากินข้าวด้วย{{answer}}",
+          "answer": "กัน",
+          "translation": "We eat together.",
+          "hint": "with-together",
+          "display_order": 4
+        },
+        {
+          "sentence": "ช่วย{{answer}}ทำความสะอาด",
+          "answer": "กัน",
+          "translation": "Let's all pitch in and clean.",
+          "hint": "collective",
+          "display_order": 5
+        },
+        {
+          "sentence": "คุย{{answer}}ก่อนตัดสินใจ",
+          "answer": "กัน",
+          "translation": "Let's talk it over (together) before deciding.",
+          "hint": "together",
+          "display_order": 6
+        }
+      ]
+    },
+    {
+      "title": "Topic first: เรื่องนี้ ผมไม่รู้",
+      "level": "B2",
+      "function": "Front the topic, then comment",
+      "source": "ai",
+      "reviewed": false,
+      "display_order": 3,
+      "explanation": "Thai loves topic-comment: เรื่องนี้ ผมไม่รู้ (this matter — I don't know), อาหารไทย ฉันชอบมาก (Thai food — I like a lot). The fronted topic needs no linking word; a pause (or นะ/เนี่ย in speech) does the work. This is why word-for-word translation from English sounds stiff.",
+      "references": [
+        {
+          "title": "Wikipedia: Thai grammar",
+          "url": "https://en.wikipedia.org/wiki/Thai_language#Grammar"
+        },
+        {
+          "title": "thai-language.com reference",
+          "url": "http://www.thai-language.com/ref"
+        }
+      ],
+      "drills": [
+        {
+          "sentence": "{{answer}}นี้ ผมไม่รู้จริงๆ",
+          "answer": "เรื่อง",
+          "translation": "About this matter — I really don't know.",
+          "hint": "the topic word 'matter/story'",
+          "display_order": 1
+        },
+        {
+          "sentence": "อาหารไทย ฉันชอบ{{answer}}",
+          "answer": "มาก",
+          "translation": "Thai food — I like it a lot.",
+          "hint": "the comment's intensifier",
+          "display_order": 2
+        },
+        {
+          "sentence": "ภาษาไทย ไวยากรณ์ไม่{{answer}}",
+          "answer": "ยาก",
+          "translation": "Thai — the grammar isn't hard.",
+          "hint": "the commented adjective",
+          "display_order": 3
+        },
+        {
+          "sentence": "เมืองไทย อากาศ{{answer}}ตลอด",
+          "answer": "ร้อน",
+          "translation": "Thailand — the weather's always hot.",
+          "hint": "comment adjective",
+          "display_order": 4
+        },
+        {
+          "sentence": "งานนี้ เรา{{answer}}เสร็จวันนี้",
+          "answer": "ต้อง",
+          "translation": "This job — we must finish it today.",
+          "hint": "the must-helper in the comment",
+          "display_order": 5
+        },
+        {
+          "sentence": "หนังเรื่องนั้น ฉันดู{{answer}}",
+          "answer": "แล้ว",
+          "translation": "That movie — I've already seen it.",
+          "hint": "the already-marker",
+          "display_order": 6
+        }
+      ]
+    },
+    {
+      "title": "การ- and ความ- — making nouns",
+      "level": "B2",
+      "function": "Actions become การ-nouns, qualities become ความ-nouns",
+      "source": "ai",
+      "reviewed": false,
+      "display_order": 4,
+      "explanation": "การ + verb = the act of: การเรียน (studying), การเดินทาง (travelling). ความ + adjective/feeling = the quality of: ความสุข (happiness), ความรัก (love), ความจริง (truth). Wrong prefix is a classic error: การสุข ✗, ความเรียน ✗.",
+      "references": [
+        {
+          "title": "Wikipedia: Thai grammar",
+          "url": "https://en.wikipedia.org/wiki/Thai_language#Grammar"
+        },
+        {
+          "title": "thai-language.com reference",
+          "url": "http://www.thai-language.com/ref"
+        }
+      ],
+      "paradigm": [
+        "การ",
+        "ความ"
+      ],
+      "drills": [
+        {
+          "sentence": "{{answer}}เรียนภาษาต้องใช้เวลา",
+          "answer": "การ",
+          "translation": "Learning a language takes time.",
+          "hint": "act-of prefix",
+          "display_order": 1,
+          "cell": "การ"
+        },
+        {
+          "sentence": "{{answer}}เดินทางเปิดโลก",
+          "answer": "การ",
+          "translation": "Travel opens up the world.",
+          "hint": "act-of",
+          "display_order": 2,
+          "cell": "การ"
+        },
+        {
+          "sentence": "{{answer}}สุขสำคัญกว่าเงิน",
+          "answer": "ความ",
+          "translation": "Happiness matters more than money.",
+          "hint": "quality-of prefix",
+          "display_order": 3,
+          "cell": "ความ"
+        },
+        {
+          "sentence": "{{answer}}รักชนะทุกอย่าง",
+          "answer": "ความ",
+          "translation": "Love conquers all.",
+          "hint": "quality-of",
+          "display_order": 4,
+          "cell": "ความ"
+        },
+        {
+          "sentence": "บอก{{answer}}จริงมาเถอะ",
+          "answer": "ความ",
+          "translation": "Just tell the truth.",
+          "hint": "quality-of + true",
+          "display_order": 5,
+          "cell": "ความ"
+        },
+        {
+          "sentence": "{{answer}}ออกกำลังกายดีต่อสุขภาพ",
+          "answer": "การ",
+          "translation": "Exercising is good for your health.",
+          "hint": "act-of",
+          "display_order": 6,
+          "cell": "การ"
+        }
+      ]
+    },
+    {
+      "title": "Reduplication and ๆ",
+      "level": "B2",
+      "function": "Double for plural-ish, softer, or more",
+      "source": "ai",
+      "reviewed": false,
+      "display_order": 5,
+      "explanation": "The repeat sign ๆ (ไม้ยมก) doubles the word before it. Nouns → plural-ish/collective: เด็กๆ (kids). Adjectives → softened: เร็วๆ (quickish/quickly now!), ใกล้ๆ (nearby). Adverbs of manner: ช้าๆ (slowly), ดีๆ (properly). Tone-changed doubling intensifies in speech.",
+      "references": [
+        {
+          "title": "Wikipedia: Thai grammar",
+          "url": "https://en.wikipedia.org/wiki/Thai_language#Grammar"
+        },
+        {
+          "title": "thai-language.com reference",
+          "url": "http://www.thai-language.com/ref"
+        }
+      ],
+      "drills": [
+        {
+          "sentence": "เด็ก{{answer}}เล่นอยู่ในสวน",
+          "answer": "ๆ",
+          "translation": "The kids are playing in the garden.",
+          "hint": "the repeat sign",
+          "display_order": 1
+        },
+        {
+          "sentence": "พูดช้า{{answer}}หน่อยครับ",
+          "answer": "ๆ",
+          "translation": "Please speak slowly.",
+          "hint": "doubles the adjective into an adverb",
+          "display_order": 2
+        },
+        {
+          "sentence": "มีร้านอร่อยใกล้{{answer}}",
+          "answer": "ๆ",
+          "translation": "There's a good restaurant nearby.",
+          "hint": "softened 'near'",
+          "display_order": 3
+        },
+        {
+          "sentence": "ฟังดี{{answer}}นะ",
+          "answer": "ๆ",
+          "translation": "Listen properly, okay?",
+          "hint": "doubled 'good' = properly",
+          "display_order": 4
+        },
+        {
+          "sentence": "เร็ว{{answer}}เข้า เดี๋ยวสาย",
+          "answer": "ๆ",
+          "translation": "Hurry up — we'll be late!",
+          "hint": "doubled 'fast'",
+          "display_order": 5
+        },
+        {
+          "sentence": "ผู้ใหญ่{{answer}}คุยกันอยู่",
+          "answer": "ๆ",
+          "translation": "The grown-ups are talking.",
+          "hint": "collective doubling",
+          "display_order": 6
+        }
+      ]
+    },
+    {
+      "title": "Register: กิน, ทาน, รับประทาน",
+      "level": "B2",
+      "function": "One meaning, a ladder of politeness",
+      "source": "ai",
+      "reviewed": false,
+      "display_order": 6,
+      "explanation": "Thai vocabulary comes in register sets. 'Eat': กิน (plain) → ทาน (polite) → รับประทาน (formal). 'I': กู (crude) → ฉัน/ผม (standard) → ดิฉัน/กระผม (formal). Choosing the rung IS the politeness — particles alone can't rescue a crude verb. Restaurants and hosts say ทาน; announcements say รับประทาน.",
+      "references": [
+        {
+          "title": "Wikipedia: Thai grammar",
+          "url": "https://en.wikipedia.org/wiki/Thai_language#Grammar"
+        },
+        {
+          "title": "thai-language.com reference",
+          "url": "http://www.thai-language.com/ref"
+        }
+      ],
+      "paradigm": [
+        "กิน",
+        "ทาน",
+        "รับประทาน"
+      ],
+      "drills": [
+        {
+          "sentence": "กับเพื่อน: ไป{{answer}}ข้าวกัน",
+          "answer": "กิน",
+          "translation": "With friends: let's go eat.",
+          "hint": "the plain rung",
+          "display_order": 1,
+          "cell": "กิน"
+        },
+        {
+          "sentence": "เด็กๆ ชอบ{{answer}}ขนม",
+          "answer": "กิน",
+          "translation": "Kids love eating snacks.",
+          "hint": "plain",
+          "display_order": 2,
+          "cell": "กิน"
+        },
+        {
+          "sentence": "เชิญ{{answer}}ข้าวก่อนนะคะ",
+          "answer": "ทาน",
+          "translation": "Please eat first. (polite host)",
+          "hint": "the polite rung",
+          "display_order": 3,
+          "cell": "ทาน"
+        },
+        {
+          "sentence": "คุณยาย{{answer}}อะไรดีคะ",
+          "answer": "ทาน",
+          "translation": "Grandma, what would you like to eat?",
+          "hint": "polite",
+          "display_order": 4,
+          "cell": "ทาน"
+        },
+        {
+          "sentence": "เชิญ{{answer}}อาหารได้เลยครับ",
+          "answer": "รับประทาน",
+          "translation": "Please begin the meal. (formal announcement)",
+          "hint": "the formal rung",
+          "display_order": 5,
+          "cell": "รับประทาน"
+        },
+        {
+          "sentence": "ยานี้{{answer}}หลังอาหาร",
+          "answer": "รับประทาน",
+          "translation": "Take this medicine after meals. (label register)",
+          "hint": "formal",
+          "display_order": 6,
+          "cell": "รับประทาน"
+        }
+      ]
+    },
+    {
+      "title": "The pronoun landscape: พี่, น้อง, ลุง, หนู",
+      "level": "C1",
+      "function": "Thai replaces pronouns with relationships",
+      "source": "ai",
+      "reviewed": false,
+      "display_order": 1,
+      "explanation": "Real Thai talk swaps I/you for kinship and names: พี่ (older sibling — to/by anyone slightly older), น้อง (younger — also to waiters), ลุง/ป้า (uncle/auntie — older folks), หนู ('mouse' — young women/children about themselves), ครู/หมอ (teachers/doctors as 'I'), and one's own NICKNAME as 'I'. Reading who calls whom what is reading the whole social map.",
+      "references": [
+        {
+          "title": "Wikipedia: Thai grammar",
+          "url": "https://en.wikipedia.org/wiki/Thai_language#Grammar"
+        },
+        {
+          "title": "thai-language.com reference",
+          "url": "http://www.thai-language.com/ref"
+        }
+      ],
+      "drills": [
+        {
+          "sentence": "เรียกพนักงานหนุ่มในร้าน: {{answer}}ครับ คิดเงินหน่อย",
+          "answer": "น้อง",
+          "translation": "Calling a young waiter: 'Nong — the bill, please.'",
+          "hint": "the younger-person address",
+          "display_order": 1
+        },
+        {
+          "sentence": "เด็กเรียกตัวเอง: {{answer}}หิวข้าว",
+          "answer": "หนู",
+          "translation": "A child about herself: 'I ('mouse') am hungry.'",
+          "hint": "the child/young-woman 'I'",
+          "display_order": 2
+        },
+        {
+          "sentence": "พูดกับคนแก่กว่านิดหน่อย: {{answer}}จะไปไหน",
+          "answer": "พี่",
+          "translation": "To someone a bit older: 'Where are you (phi) going?'",
+          "hint": "the older-sibling address",
+          "display_order": 3
+        },
+        {
+          "sentence": "{{answer}}ขอถามหน่อย (พูดกับชายสูงอายุ)",
+          "answer": "ลุง",
+          "translation": "'Uncle, may I ask something?' (to an older man)",
+          "hint": "the uncle address",
+          "display_order": 4
+        },
+        {
+          "sentence": "หมอพูดกับคนไข้: {{answer}}แนะนำให้พัก",
+          "answer": "หมอ",
+          "translation": "The doctor to a patient: 'I (doctor) recommend rest.'",
+          "hint": "profession as 'I'",
+          "display_order": 5
+        },
+        {
+          "sentence": "น้องสาวเรียกพี่สาว: {{answer}}คะ ช่วยหนูหน่อย",
+          "answer": "พี่",
+          "translation": "Little sister to big sister: 'Phi, help me please.'",
+          "hint": "older-sibling address",
+          "display_order": 6
+        }
+      ]
+    },
+    {
+      "title": "Four-syllable elegance: สะดวกสบาย",
+      "level": "C1",
+      "function": "The rhythm of polished Thai",
+      "source": "ai",
+      "reviewed": false,
+      "display_order": 2,
+      "explanation": "Elevated Thai loves four-syllable compounds that pair near-synonyms for rhythm: สะดวกสบาย (convenient-comfortable), เรียบร้อย (neat and proper), ปลอดภัย…​ pairs like ถูกต้องเหมาะสม (correct and appropriate), บ้านเรือน (houses-homes = housing). Using them signals education; overusing them signals a textbook.",
+      "references": [
+        {
+          "title": "Wikipedia: Thai grammar",
+          "url": "https://en.wikipedia.org/wiki/Thai_language#Grammar"
+        },
+        {
+          "title": "thai-language.com reference",
+          "url": "http://www.thai-language.com/ref"
+        }
+      ],
+      "drills": [
+        {
+          "sentence": "เดินทางโดย{{answer}}ภัยนะครับ",
+          "answer": "สวัสดิ",
+          "translation": "Travel safely. (formal สวัสดิภาพ-style wish)",
+          "hint": "the formal safe- element",
+          "display_order": 1
+        },
+        {
+          "sentence": "ห้องพัก{{answer}}สบายมาก",
+          "answer": "สะดวก",
+          "translation": "The room is very convenient-and-comfortable.",
+          "hint": "the first half of the pair",
+          "display_order": 2
+        },
+        {
+          "sentence": "แต่งตัวให้{{answer}}ร้อยก่อนออกงาน",
+          "answer": "เรียบ",
+          "translation": "Dress neatly before the event.",
+          "hint": "first half of neat-proper",
+          "display_order": 3
+        },
+        {
+          "sentence": "ทำงานถูกต้อง{{answer}}สม",
+          "answer": "เหมาะ",
+          "translation": "Work correctly and appropriately.",
+          "hint": "first half of 'appropriate'",
+          "display_order": 4
+        },
+        {
+          "sentence": "ดูแลบ้าน{{answer}}ให้สะอาด",
+          "answer": "เรือน",
+          "translation": "Keep the house(hold) clean.",
+          "hint": "the pair-word of บ้าน",
+          "display_order": 5
+        },
+        {
+          "sentence": "ขอให้มีความสุขความ{{answer}}",
+          "answer": "เจริญ",
+          "translation": "May you have happiness and prosperity.",
+          "hint": "the prosperity half of the blessing",
+          "display_order": 6
+        }
+      ]
+    },
+    {
+      "title": "ราชาศัพท์ — royal vocabulary",
+      "level": "C2",
+      "function": "Recognize the language of palace and news",
+      "source": "ai",
+      "reviewed": false,
+      "display_order": 1,
+      "explanation": "Thai keeps a separate royal register (ราชาศัพท์) for royalty and, partly, monks: เสวย (eat), บรรทม (sleep), เสด็จ (go), พระราชทาน (give), สวรรคต (die). News about the royal family uses it exclusively — learners need recognition, not production. Monk-language overlaps: ฉัน (a monk eating!), จำวัด (a monk sleeping).",
+      "references": [
+        {
+          "title": "Wikipedia: Thai grammar",
+          "url": "https://en.wikipedia.org/wiki/Thai_language#Grammar"
+        },
+        {
+          "title": "thai-language.com reference",
+          "url": "http://www.thai-language.com/ref"
+        }
+      ],
+      "drills": [
+        {
+          "sentence": "ข่าวในพระราชสำนัก: พระองค์{{answer}}พระกระยาหาร",
+          "answer": "เสวย",
+          "translation": "Palace news: His Majesty dines.",
+          "hint": "royal 'eat'",
+          "display_order": 1
+        },
+        {
+          "sentence": "พระมหากษัตริย์{{answer}}ไปต่างประเทศ",
+          "answer": "เสด็จ",
+          "translation": "The King travels abroad.",
+          "hint": "royal 'go'",
+          "display_order": 2
+        },
+        {
+          "sentence": "ทรงพระ{{answer}} — คำราชาศัพท์ของ 'นอน'",
+          "answer": "บรรทม",
+          "translation": "The royal word for 'sleep'.",
+          "hint": "royal 'sleep'",
+          "display_order": 3
+        },
+        {
+          "sentence": "พระราช{{answer}}ปริญญาบัตร",
+          "answer": "ทาน",
+          "translation": "Royally bestows the diplomas.",
+          "hint": "the giving element of พระราช___",
+          "display_order": 4
+        },
+        {
+          "sentence": "พระภิกษุ{{answer}}ภัตตาหารเช้า",
+          "answer": "ฉัน",
+          "translation": "The monk eats the morning meal.",
+          "hint": "the monk's 'eat' — looks like the pronoun!",
+          "display_order": 5
+        },
+        {
+          "sentence": "คำว่า '{{answer}}' ใช้เมื่อกษัตริย์สิ้นพระชนม์",
+          "answer": "สวรรคต",
+          "translation": "The word used when a king passes away.",
+          "hint": "royal 'die' — 'ascend to heaven'",
+          "display_order": 6
+        }
+      ]
+    },
+    {
+      "title": "Written Thai: no spaces, ฯลฯ, and reading flow",
+      "level": "C2",
+      "function": "Read real Thai text with its own conventions",
+      "source": "ai",
+      "reviewed": false,
+      "display_order": 2,
+      "explanation": "Written Thai runs words together; SPACES separate clauses and sentences, not words. Abbreviation marks: ฯ clips long names (กรุงเทพฯ), ฯลฯ = etc., ๆ repeats. Numbers: Thai digits ๑๒๓ survive in formal documents. Vowels wrap consonants (เ- comes BEFORE its consonant) — so scanning, not spelling-out, is the reading skill; segmentation comes from vocabulary, which is why reading fluency tracks word knowledge almost perfectly.",
+      "references": [
+        {
+          "title": "Wikipedia: Thai grammar",
+          "url": "https://en.wikipedia.org/wiki/Thai_language#Grammar"
+        },
+        {
+          "title": "thai-language.com reference",
+          "url": "http://www.thai-language.com/ref"
+        }
+      ],
+      "drills": [
+        {
+          "sentence": "ชื่อเต็มยาวมาก จึงเขียน กรุงเทพ{{answer}}",
+          "answer": "ฯ",
+          "translation": "The full name is long, so one writes 'Krung Thep ฯ'.",
+          "hint": "the clipping mark",
+          "display_order": 1
+        },
+        {
+          "sentence": "ผลไม้ เช่น มะม่วง กล้วย {{answer}}",
+          "answer": "ฯลฯ",
+          "translation": "Fruits such as mango, banana, etc.",
+          "hint": "the et-cetera mark",
+          "display_order": 2
+        },
+        {
+          "sentence": "เลขไทยของ 3 คือ {{answer}}",
+          "answer": "๓",
+          "translation": "The Thai numeral for 3.",
+          "hint": "Thai digit",
+          "display_order": 3
+        },
+        {
+          "sentence": "สระ {{answer}} เขียนหน้าพยัญชนะ เช่น เมา",
+          "answer": "เ",
+          "translation": "The vowel เ- is written BEFORE its consonant, as in เมา.",
+          "hint": "the leading vowel sign",
+          "display_order": 4
+        },
+        {
+          "sentence": "ช่องว่างในภาษาไทยคั่น{{answer}} ไม่ใช่คำ",
+          "answer": "ประโยค",
+          "translation": "Spaces in Thai separate sentences/clauses, not words.",
+          "hint": "what the space separates",
+          "display_order": 5
+        },
+        {
+          "sentence": "เด็ก{{answer}} — เครื่องหมายซ้ำคำ",
+          "answer": "ๆ",
+          "translation": "'Kids' — the repetition mark in action.",
+          "hint": "the repeat sign",
+          "display_order": 6
+        }
+      ]
+    }
+  ]
+}

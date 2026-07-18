@@ -11,6 +11,7 @@ LATIN_PATTERN = re.compile(r"^[a-zA-Z\s\-']+$")
 DEVANAGARI_PATTERN = re.compile(
     r'^[\u0900-\u097F\uA8E0-\uA8FF\u200C\u200D\s\-]+$'
 )
+THAI_PATTERN = re.compile(r'^[\u0E00-\u0E7F\s\-]+$')
 
 VALID_POS = {
     "noun", "verb", "adj", "adv", "particle",
@@ -23,6 +24,7 @@ SCRIPT_VALIDATORS = {
     "ru": ("Cyrillic", CYRILLIC_PATTERN),
     "en": ("Latin", LATIN_PATTERN),
     "hi": ("Devanagari", DEVANAGARI_PATTERN),
+    "th": ("Thai", THAI_PATTERN),
 }
 
 

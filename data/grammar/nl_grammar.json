@@ -1,0 +1,2748 @@
+{
+  "language": "nl",
+  "lists": [
+    {
+      "level": "A1",
+      "title": "Dutch A1 Grammar Path",
+      "description": "First Dutch: verb-second order, de/het, pronouns with polite u, zijn and hebben, the three-form present, plurals, niet/geen, questions, the adjective -e rule, possessives, and er is/er zijn."
+    },
+    {
+      "level": "A2",
+      "title": "Dutch A2 Grammar Path",
+      "description": "The working past and more: the perfect with 't kofschip, the imperfect, modals, separable verbs, verb-final subclauses, futures, comparisons, diminutives, om te, and the imperative."
+    },
+    {
+      "level": "B1",
+      "title": "Dutch B1 Grammar Path",
+      "description": "Fluent plumbing: the five jobs of er, relative die/dat/wie, reflexives, the worden/zijn passive, want vs omdat, te-infinitives, zou, and indirect speech."
+    },
+    {
+      "level": "B2",
+      "title": "Dutch B2 Grammar Path",
+      "description": "Sounding Dutch: modal particles, the past perfect, double infinitives, aan het + zitten te progressives, waar-compounds, and conditionals."
+    },
+    {
+      "level": "C1",
+      "title": "Dutch C1 Grammar Path",
+      "description": "Polish: register and letter-craft, nominalization, the sentence bracket (tang), and posture verbs as 'to be'."
+    },
+    {
+      "level": "C2",
+      "title": "Dutch C2 Grammar Path",
+      "description": "Mastery: Netherlands vs Flanders, and the case-system fossils that still walk the streets."
+    }
+  ],
+  "points": [
+    {
+      "title": "Word order: the verb comes second",
+      "level": "A1",
+      "function": "Build your first sentences — one verb slot, position two",
+      "source": "ai",
+      "reviewed": false,
+      "display_order": 1,
+      "explanation": "A Dutch main clause puts the conjugated verb in SECOND position, whatever comes first: Ik drink koffie (I drink coffee), Morgen drink ik koffie (tomorrow drink I coffee — the subject hops behind the verb!). Starting with time or place is completely normal; forgetting to flip the subject is the classic beginner error.",
+      "references": [
+        {
+          "title": "Wikipedia: Dutch grammar",
+          "url": "https://en.wikipedia.org/wiki/Dutch_grammar"
+        },
+        {
+          "title": "Zichtbaar Nederlands (visual Dutch grammar)",
+          "url": "https://www.zichtbaarnederlands.nl/en"
+        }
+      ],
+      "drills": [
+        {
+          "sentence": "Ik {{answer}} koffie.",
+          "answer": "drink",
+          "translation": "I drink coffee.",
+          "hint": "the drinking verb — position two",
+          "display_order": 1
+        },
+        {
+          "sentence": "Morgen {{answer}} ik naar Amsterdam.",
+          "answer": "ga",
+          "translation": "Tomorrow I am going to Amsterdam.",
+          "hint": "to go — verb stays second, subject flips",
+          "display_order": 2
+        },
+        {
+          "sentence": "Vandaag {{answer}} wij thuis.",
+          "answer": "blijven",
+          "translation": "Today we are staying home.",
+          "hint": "to stay — after a time word",
+          "display_order": 3
+        },
+        {
+          "sentence": "Hij {{answer}} in Utrecht.",
+          "answer": "woont",
+          "translation": "He lives in Utrecht.",
+          "hint": "to live",
+          "display_order": 4
+        },
+        {
+          "sentence": "Nu {{answer}} je het.",
+          "answer": "begrijp",
+          "translation": "Now you understand it.",
+          "hint": "to understand — subject after the verb",
+          "display_order": 5
+        },
+        {
+          "sentence": "Wij {{answer}} Nederlands.",
+          "answer": "leren",
+          "translation": "We are learning Dutch.",
+          "hint": "to learn",
+          "display_order": 6
+        }
+      ]
+    },
+    {
+      "title": "De and het: the two genders",
+      "level": "A1",
+      "function": "Every noun is a de-word or a het-word",
+      "source": "ai",
+      "reviewed": false,
+      "display_order": 2,
+      "explanation": "Dutch has two articles: de (common gender — about 75% of nouns, and ALL plurals) and het (neuter — including every diminutive on -je). Een is 'a/an' for both. There is no reliable rule: learn each noun with its article. Het-words matter later — they change adjective endings and pronouns.",
+      "references": [
+        {
+          "title": "Wikipedia: Dutch grammar",
+          "url": "https://en.wikipedia.org/wiki/Dutch_grammar"
+        },
+        {
+          "title": "Taalunie — Algemene Nederlandse Spraakkunst",
+          "url": "https://e-ans.ivdnt.org/"
+        }
+      ],
+      "paradigm": [
+        "de",
+        "het",
+        "een"
+      ],
+      "drills": [
+        {
+          "sentence": "{{answer}} man loopt op straat.",
+          "answer": "De",
+          "translation": "The man walks in the street.",
+          "hint": "common-gender article",
+          "display_order": 1,
+          "cell": "de"
+        },
+        {
+          "sentence": "{{answer}} vrouw leest een boek.",
+          "answer": "De",
+          "translation": "The woman reads a book.",
+          "hint": "common gender",
+          "display_order": 2,
+          "cell": "de"
+        },
+        {
+          "sentence": "{{answer}} huis is groot.",
+          "answer": "Het",
+          "translation": "The house is big.",
+          "hint": "neuter article",
+          "display_order": 3,
+          "cell": "het"
+        },
+        {
+          "sentence": "{{answer}} kind slaapt.",
+          "answer": "Het",
+          "translation": "The child sleeps.",
+          "hint": "neuter — kind is het",
+          "display_order": 4,
+          "cell": "het"
+        },
+        {
+          "sentence": "Ik zie {{answer}} hond.",
+          "answer": "een",
+          "translation": "I see a dog.",
+          "hint": "a/an — same for both genders",
+          "display_order": 5,
+          "cell": "een"
+        },
+        {
+          "sentence": "Zij koopt {{answer}} boek.",
+          "answer": "een",
+          "translation": "She buys a book.",
+          "hint": "indefinite article",
+          "display_order": 6,
+          "cell": "een"
+        }
+      ]
+    },
+    {
+      "title": "Subject pronouns: ik, jij, u, hij, zij…",
+      "level": "A1",
+      "function": "Say who does what — with the polite u",
+      "source": "ai",
+      "reviewed": false,
+      "display_order": 3,
+      "explanation": "ik (I), jij/je (you — informal), u (you — polite, singular AND plural), hij (he), zij/ze (she), het (it), wij/we (we), jullie (you all), zij/ze (they). The full forms (jij, zij, wij) add emphasis; the short ones (je, ze, we) are the everyday default. u takes the same verb form as jij.",
+      "references": [
+        {
+          "title": "Wikipedia: Dutch grammar",
+          "url": "https://en.wikipedia.org/wiki/Dutch_grammar"
+        },
+        {
+          "title": "Zichtbaar Nederlands (visual Dutch grammar)",
+          "url": "https://www.zichtbaarnederlands.nl/en"
+        }
+      ],
+      "drills": [
+        {
+          "sentence": "{{answer}} ben moe.",
+          "answer": "Ik",
+          "translation": "I am tired.",
+          "hint": "I",
+          "display_order": 1
+        },
+        {
+          "sentence": "{{answer}} bent mijn vriend.",
+          "answer": "Jij",
+          "translation": "You are my friend. (informal)",
+          "hint": "informal you (full form)",
+          "display_order": 2
+        },
+        {
+          "sentence": "{{answer}} bent van harte welkom.",
+          "answer": "U",
+          "translation": "You are most welcome. (polite)",
+          "hint": "the polite you",
+          "display_order": 3
+        },
+        {
+          "sentence": "{{answer}} is mijn broer.",
+          "answer": "Hij",
+          "translation": "He is my brother.",
+          "hint": "he",
+          "display_order": 4
+        },
+        {
+          "sentence": "{{answer}} wonen in Rotterdam.",
+          "answer": "Wij",
+          "translation": "We live in Rotterdam.",
+          "hint": "we (full form)",
+          "display_order": 5
+        },
+        {
+          "sentence": "{{answer}} zijn laat.",
+          "answer": "Jullie",
+          "translation": "You all are late.",
+          "hint": "plural you",
+          "display_order": 6
+        }
+      ]
+    },
+    {
+      "title": "Zijn — present (ben, bent, is, zijn)",
+      "level": "A1",
+      "function": "Say who or what someone is",
+      "source": "ai",
+      "reviewed": false,
+      "display_order": 4,
+      "explanation": "zijn (to be): ik ben, jij bent (but: ben jij? — the -t drops when jij follows!), u bent, hij/zij/het is, wij/jullie/zij zijn. The jij-inversion rule (bent → ben) applies to every verb and only to jij/je.",
+      "references": [
+        {
+          "title": "Wikipedia: Dutch grammar",
+          "url": "https://en.wikipedia.org/wiki/Dutch_grammar"
+        },
+        {
+          "title": "Zichtbaar Nederlands (visual Dutch grammar)",
+          "url": "https://www.zichtbaarnederlands.nl/en"
+        }
+      ],
+      "paradigm": [
+        "ben",
+        "bent",
+        "is"
+      ],
+      "drills": [
+        {
+          "sentence": "Ik {{answer}} student.",
+          "answer": "ben",
+          "translation": "I am a student.",
+          "hint": "am",
+          "display_order": 1,
+          "cell": "ben"
+        },
+        {
+          "sentence": "{{answer}} jij klaar?",
+          "answer": "Ben",
+          "translation": "Are you ready?",
+          "hint": "the -t drops in jij-questions",
+          "display_order": 2,
+          "cell": "ben"
+        },
+        {
+          "sentence": "Jij {{answer}} aardig.",
+          "answer": "bent",
+          "translation": "You are nice.",
+          "hint": "are — jij before the verb",
+          "display_order": 3,
+          "cell": "bent"
+        },
+        {
+          "sentence": "U {{answer}} de eerste.",
+          "answer": "bent",
+          "translation": "You are the first. (polite)",
+          "hint": "u takes the jij-form",
+          "display_order": 4,
+          "cell": "bent"
+        },
+        {
+          "sentence": "Het weer {{answer}} mooi.",
+          "answer": "is",
+          "translation": "The weather is nice.",
+          "hint": "is",
+          "display_order": 5,
+          "cell": "is"
+        },
+        {
+          "sentence": "Dat {{answer}} mijn fiets.",
+          "answer": "is",
+          "translation": "That is my bicycle.",
+          "hint": "is",
+          "display_order": 6,
+          "cell": "is"
+        }
+      ]
+    },
+    {
+      "title": "Hebben — present (heb, hebt, heeft)",
+      "level": "A1",
+      "function": "Say what you have",
+      "source": "ai",
+      "reviewed": false,
+      "display_order": 5,
+      "explanation": "hebben (to have): ik heb, jij hebt (heb jij?), u hebt/heeft, hij/zij heeft, wij/jullie/zij hebben. It is also the engine of the perfect tense later, so these forms pay double.",
+      "references": [
+        {
+          "title": "Wikipedia: Dutch grammar",
+          "url": "https://en.wikipedia.org/wiki/Dutch_grammar"
+        },
+        {
+          "title": "Zichtbaar Nederlands (visual Dutch grammar)",
+          "url": "https://www.zichtbaarnederlands.nl/en"
+        }
+      ],
+      "drills": [
+        {
+          "sentence": "Ik {{answer}} een vraag.",
+          "answer": "heb",
+          "translation": "I have a question.",
+          "hint": "have — first person",
+          "display_order": 1
+        },
+        {
+          "sentence": "{{answer}} jij tijd?",
+          "answer": "Heb",
+          "translation": "Do you have time?",
+          "hint": "jij-question form",
+          "display_order": 2
+        },
+        {
+          "sentence": "Jij {{answer}} gelijk.",
+          "answer": "hebt",
+          "translation": "You are right. ('have right')",
+          "hint": "jij before the verb",
+          "display_order": 3
+        },
+        {
+          "sentence": "Zij {{answer}} twee katten.",
+          "answer": "heeft",
+          "translation": "She has two cats.",
+          "hint": "third person singular",
+          "display_order": 4
+        },
+        {
+          "sentence": "Hij {{answer}} honger.",
+          "answer": "heeft",
+          "translation": "He is hungry. ('has hunger')",
+          "hint": "third singular",
+          "display_order": 5
+        },
+        {
+          "sentence": "Ik {{answer}} het koud.",
+          "answer": "heb",
+          "translation": "I am cold. ('have it cold')",
+          "hint": "first person",
+          "display_order": 6
+        }
+      ]
+    },
+    {
+      "title": "Present tense: stem, stem+t, infinitive",
+      "level": "A1",
+      "function": "Conjugate any regular verb with three forms",
+      "source": "ai",
+      "reviewed": false,
+      "display_order": 6,
+      "explanation": "Regular present: ik = the stem (werk), jij/u/hij/zij = stem+t (werkt), all plurals = the infinitive (werken). Inversion drops the -t for jij only: werk jij? Spelling keeps vowel length: schrijven → ik schrijf; komen → ik kom, hij komt.",
+      "references": [
+        {
+          "title": "Wikipedia: Dutch grammar",
+          "url": "https://en.wikipedia.org/wiki/Dutch_grammar"
+        },
+        {
+          "title": "Zichtbaar Nederlands (visual Dutch grammar)",
+          "url": "https://www.zichtbaarnederlands.nl/en"
+        }
+      ],
+      "paradigm": [
+        "stem",
+        "stem+t",
+        "infinitief"
+      ],
+      "drills": [
+        {
+          "sentence": "Ik {{answer}} bij een bank.",
+          "answer": "werk",
+          "translation": "I work at a bank.",
+          "hint": "work — bare stem",
+          "display_order": 1,
+          "cell": "stem"
+        },
+        {
+          "sentence": "Ik {{answer}} een brief.",
+          "answer": "schrijf",
+          "translation": "I am writing a letter.",
+          "hint": "write — stem, long vowel spelled short",
+          "display_order": 2,
+          "cell": "stem"
+        },
+        {
+          "sentence": "Hij {{answer}} in Den Haag.",
+          "answer": "werkt",
+          "translation": "He works in The Hague.",
+          "hint": "work + t",
+          "display_order": 3,
+          "cell": "stem+t"
+        },
+        {
+          "sentence": "Zij {{answer}} elke dag.",
+          "answer": "fietst",
+          "translation": "She cycles every day.",
+          "hint": "cycle + t",
+          "display_order": 4,
+          "cell": "stem+t"
+        },
+        {
+          "sentence": "Wij {{answer}} Nederlands.",
+          "answer": "spreken",
+          "translation": "We speak Dutch.",
+          "hint": "plural = infinitive",
+          "display_order": 5,
+          "cell": "infinitief"
+        },
+        {
+          "sentence": "Jullie {{answer}} te snel.",
+          "answer": "praten",
+          "translation": "You all talk too fast.",
+          "hint": "plural form",
+          "display_order": 6,
+          "cell": "infinitief"
+        }
+      ]
+    },
+    {
+      "title": "Plurals: -en and -s",
+      "level": "A1",
+      "function": "More than one — and every plural is a de-word",
+      "source": "ai",
+      "reviewed": false,
+      "display_order": 7,
+      "explanation": "Most nouns take -en (boek → boeken, huis → huizen — note s→z, f→v voicing). Nouns ending in unstressed -e, -el, -er, -en and most loanwords take -s (tafel → tafels, auto → auto's — apostrophe after a long vowel letter). All plurals use de, even het-words: het huis → de huizen.",
+      "references": [
+        {
+          "title": "Wikipedia: Dutch grammar",
+          "url": "https://en.wikipedia.org/wiki/Dutch_grammar"
+        },
+        {
+          "title": "Taalunie — Algemene Nederlandse Spraakkunst",
+          "url": "https://e-ans.ivdnt.org/"
+        }
+      ],
+      "drills": [
+        {
+          "sentence": "Ik lees twee {{answer}}.",
+          "answer": "boeken",
+          "translation": "I am reading two books.",
+          "hint": "plural of boek",
+          "display_order": 1
+        },
+        {
+          "sentence": "De {{answer}} zijn oud.",
+          "answer": "huizen",
+          "translation": "The houses are old.",
+          "hint": "plural of huis — s becomes z",
+          "display_order": 2
+        },
+        {
+          "sentence": "Er staan vier {{answer}} in de kamer.",
+          "answer": "tafels",
+          "translation": "There are four tables in the room.",
+          "hint": "-el words take -s",
+          "display_order": 3
+        },
+        {
+          "sentence": "Twee {{answer}} staan voor de deur.",
+          "answer": "auto's",
+          "translation": "Two cars are parked at the door.",
+          "hint": "loanword — apostrophe s",
+          "display_order": 4
+        },
+        {
+          "sentence": "De {{answer}} spelen buiten.",
+          "answer": "kinderen",
+          "translation": "The children are playing outside.",
+          "hint": "irregular plural of kind",
+          "display_order": 5
+        },
+        {
+          "sentence": "Alle {{answer}} zijn vandaag open.",
+          "answer": "winkels",
+          "translation": "All the shops are open today.",
+          "hint": "-el word",
+          "display_order": 6
+        }
+      ]
+    },
+    {
+      "title": "Negation: niet and geen",
+      "level": "A1",
+      "function": "Two words for 'not' — and the choice is grammatical",
+      "source": "ai",
+      "reviewed": false,
+      "display_order": 8,
+      "explanation": "geen negates a noun with een or no article: Ik heb geen auto (I have no car), Ik drink geen koffie. niet negates everything else — verbs, adjectives, definite nouns — and gravitates toward the end: Ik werk vandaag niet, De auto is niet duur. If you could say 'not a/no X', it's geen; otherwise niet.",
+      "references": [
+        {
+          "title": "Wikipedia: Dutch grammar",
+          "url": "https://en.wikipedia.org/wiki/Dutch_grammar"
+        },
+        {
+          "title": "Zichtbaar Nederlands (visual Dutch grammar)",
+          "url": "https://www.zichtbaarnederlands.nl/en"
+        }
+      ],
+      "paradigm": [
+        "geen",
+        "niet"
+      ],
+      "drills": [
+        {
+          "sentence": "Ik heb {{answer}} auto.",
+          "answer": "geen",
+          "translation": "I don't have a car.",
+          "hint": "negates an indefinite noun",
+          "display_order": 1,
+          "cell": "geen"
+        },
+        {
+          "sentence": "Zij drinkt {{answer}} melk.",
+          "answer": "geen",
+          "translation": "She doesn't drink milk.",
+          "hint": "no + noun",
+          "display_order": 2,
+          "cell": "geen"
+        },
+        {
+          "sentence": "Er is {{answer}} brood meer.",
+          "answer": "geen",
+          "translation": "There is no bread left.",
+          "hint": "no + noun",
+          "display_order": 3,
+          "cell": "geen"
+        },
+        {
+          "sentence": "Ik werk vandaag {{answer}}.",
+          "answer": "niet",
+          "translation": "I am not working today.",
+          "hint": "negates the verb — goes late",
+          "display_order": 4,
+          "cell": "niet"
+        },
+        {
+          "sentence": "Het boek is {{answer}} duur.",
+          "answer": "niet",
+          "translation": "The book is not expensive.",
+          "hint": "negates an adjective",
+          "display_order": 5,
+          "cell": "niet"
+        },
+        {
+          "sentence": "Dat is {{answer}} mijn fiets.",
+          "answer": "niet",
+          "translation": "That is not my bicycle.",
+          "hint": "definite noun → this negator",
+          "display_order": 6,
+          "cell": "niet"
+        }
+      ]
+    },
+    {
+      "title": "Questions: inversion and question words",
+      "level": "A1",
+      "function": "Ask by flipping — no 'do' needed",
+      "source": "ai",
+      "reviewed": false,
+      "display_order": 9,
+      "explanation": "Yes/no questions just invert verb and subject: Jij werkt → Werk jij? (remember: no -t before jij). Question words come first, verb second: Waar woon je? (where do you live), Wat doe je? Wie (who), wat (what), waar (where), wanneer (when), waarom (why), hoe (how), welke/welk (which).",
+      "references": [
+        {
+          "title": "Wikipedia: Dutch grammar",
+          "url": "https://en.wikipedia.org/wiki/Dutch_grammar"
+        },
+        {
+          "title": "Zichtbaar Nederlands (visual Dutch grammar)",
+          "url": "https://www.zichtbaarnederlands.nl/en"
+        }
+      ],
+      "drills": [
+        {
+          "sentence": "{{answer}} woon je?",
+          "answer": "Waar",
+          "translation": "Where do you live?",
+          "hint": "where",
+          "display_order": 1
+        },
+        {
+          "sentence": "{{answer}} is dat?",
+          "answer": "Wie",
+          "translation": "Who is that?",
+          "hint": "who",
+          "display_order": 2
+        },
+        {
+          "sentence": "{{answer}} kom je naar huis?",
+          "answer": "Wanneer",
+          "translation": "When are you coming home?",
+          "hint": "when",
+          "display_order": 3
+        },
+        {
+          "sentence": "{{answer}} kost dat?",
+          "answer": "Wat",
+          "translation": "What does that cost?",
+          "hint": "what",
+          "display_order": 4
+        },
+        {
+          "sentence": "{{answer}} ben je moe?",
+          "answer": "Waarom",
+          "translation": "Why are you tired?",
+          "hint": "why",
+          "display_order": 5
+        },
+        {
+          "sentence": "{{answer}} je morgen?",
+          "answer": "Werk",
+          "translation": "Are you working tomorrow?",
+          "hint": "verb first, no -t before je",
+          "display_order": 6
+        }
+      ]
+    },
+    {
+      "title": "Adjectives: the -e rule",
+      "level": "A1",
+      "function": "One little e, one famous exception",
+      "source": "ai",
+      "reviewed": false,
+      "display_order": 10,
+      "explanation": "Before a noun, adjectives take -e: de grote man, het grote huis, de grote huizen. THE exception: een + het-word + singular = no -e: een groot huis (but: een grote man, because man is a de-word). After the noun, never inflected: het huis is groot.",
+      "references": [
+        {
+          "title": "Wikipedia: Dutch grammar",
+          "url": "https://en.wikipedia.org/wiki/Dutch_grammar"
+        },
+        {
+          "title": "Taalunie — Algemene Nederlandse Spraakkunst",
+          "url": "https://e-ans.ivdnt.org/"
+        }
+      ],
+      "drills": [
+        {
+          "sentence": "De {{answer}} man lacht.",
+          "answer": "oude",
+          "translation": "The old man laughs.",
+          "hint": "old + -e (de-word)",
+          "display_order": 1
+        },
+        {
+          "sentence": "Het {{answer}} huis staat te koop.",
+          "answer": "witte",
+          "translation": "The white house is for sale.",
+          "hint": "white + -e (definite het-word)",
+          "display_order": 2
+        },
+        {
+          "sentence": "Ik zoek een {{answer}} huis.",
+          "answer": "groot",
+          "translation": "I am looking for a big house.",
+          "hint": "een + het-word: NO -e",
+          "display_order": 3
+        },
+        {
+          "sentence": "Zij heeft een {{answer}} idee.",
+          "answer": "goed",
+          "translation": "She has a good idea.",
+          "hint": "een + het-word (idee) — bare form",
+          "display_order": 4
+        },
+        {
+          "sentence": "Dat is een {{answer}} vrouw.",
+          "answer": "sterke",
+          "translation": "That is a strong woman.",
+          "hint": "een + de-word keeps the -e",
+          "display_order": 5
+        },
+        {
+          "sentence": "De koffie is {{answer}}.",
+          "answer": "warm",
+          "translation": "The coffee is warm.",
+          "hint": "after the noun — never inflected",
+          "display_order": 6
+        }
+      ]
+    },
+    {
+      "title": "Possessives: mijn, jouw, zijn, haar…",
+      "level": "A1",
+      "function": "Say whose it is",
+      "source": "ai",
+      "reviewed": false,
+      "display_order": 11,
+      "explanation": "mijn (my), jouw/je (your — informal), uw (your — polite), zijn (his), haar (her), ons/onze (our — ons before het-words singular, onze elsewhere!), jullie (your pl.), hun (their). Only ons/onze changes form.",
+      "references": [
+        {
+          "title": "Wikipedia: Dutch grammar",
+          "url": "https://en.wikipedia.org/wiki/Dutch_grammar"
+        },
+        {
+          "title": "Zichtbaar Nederlands (visual Dutch grammar)",
+          "url": "https://www.zichtbaarnederlands.nl/en"
+        }
+      ],
+      "drills": [
+        {
+          "sentence": "Dit is {{answer}} fiets.",
+          "answer": "mijn",
+          "translation": "This is my bicycle.",
+          "hint": "my",
+          "display_order": 1
+        },
+        {
+          "sentence": "Is dat {{answer}} jas?",
+          "answer": "jouw",
+          "translation": "Is that your coat? (informal)",
+          "hint": "your — informal full form",
+          "display_order": 2
+        },
+        {
+          "sentence": "{{answer}} huis is klein.",
+          "answer": "Ons",
+          "translation": "Our house is small.",
+          "hint": "our — het-word singular takes the short form",
+          "display_order": 3
+        },
+        {
+          "sentence": "{{answer}} auto staat buiten.",
+          "answer": "Onze",
+          "translation": "Our car is parked outside.",
+          "hint": "our — de-word takes the long form",
+          "display_order": 4
+        },
+        {
+          "sentence": "{{answer}} kinderen zijn al groot.",
+          "answer": "Onze",
+          "translation": "Our children are already grown.",
+          "hint": "our — plural always long",
+          "display_order": 5
+        },
+        {
+          "sentence": "Zij wast {{answer}} handen.",
+          "answer": "haar",
+          "translation": "She washes her hands.",
+          "hint": "her",
+          "display_order": 6
+        }
+      ]
+    },
+    {
+      "title": "Er is / er zijn",
+      "level": "A1",
+      "function": "There is, there are",
+      "source": "ai",
+      "reviewed": false,
+      "display_order": 12,
+      "explanation": "Existence uses er: Er is een probleem (there is a problem), Er zijn veel mensen (there are many people). Questions: Is er koffie? Zijn er vragen? This little er returns at B1 with four more jobs — meet it properly now.",
+      "references": [
+        {
+          "title": "Wikipedia: Dutch grammar",
+          "url": "https://en.wikipedia.org/wiki/Dutch_grammar"
+        },
+        {
+          "title": "Zichtbaar Nederlands (visual Dutch grammar)",
+          "url": "https://www.zichtbaarnederlands.nl/en"
+        }
+      ],
+      "drills": [
+        {
+          "sentence": "Er {{answer}} een probleem.",
+          "answer": "is",
+          "translation": "There is a problem.",
+          "hint": "singular",
+          "display_order": 1
+        },
+        {
+          "sentence": "Er {{answer}} veel mensen op straat.",
+          "answer": "zijn",
+          "translation": "There are many people in the street.",
+          "hint": "plural",
+          "display_order": 2
+        },
+        {
+          "sentence": "{{answer}} er nog koffie?",
+          "answer": "Is",
+          "translation": "Is there still coffee?",
+          "hint": "question — singular",
+          "display_order": 3
+        },
+        {
+          "sentence": "{{answer}} er vragen?",
+          "answer": "Zijn",
+          "translation": "Are there any questions?",
+          "hint": "question — plural",
+          "display_order": 4
+        },
+        {
+          "sentence": "Er {{answer}} geen melk in de koelkast.",
+          "answer": "is",
+          "translation": "There is no milk in the fridge.",
+          "hint": "singular",
+          "display_order": 5
+        },
+        {
+          "sentence": "Er {{answer}} twee banken in het park.",
+          "answer": "staan",
+          "translation": "There are two benches in the park. ('stand')",
+          "hint": "Dutch prefers a posture verb here",
+          "display_order": 6
+        }
+      ]
+    },
+    {
+      "title": "The perfect: heb gewerkt, ben gegaan",
+      "level": "A2",
+      "function": "The everyday past — Dutch talks about yesterday in the perfect",
+      "source": "ai",
+      "reviewed": false,
+      "display_order": 1,
+      "explanation": "Spoken Dutch uses the perfect for most past events: hebben/zijn + participle at the END. Regular participles: ge + stem + d/t — t after the 't kofschip consonants (t k f s ch p): gewerkt, but gespeeld. zijn goes with movement/change: Ik ben naar huis gegaan. Common irregulars: gedaan, gezien, geweest, gekocht.",
+      "references": [
+        {
+          "title": "Wikipedia: Dutch grammar",
+          "url": "https://en.wikipedia.org/wiki/Dutch_grammar"
+        },
+        {
+          "title": "Zichtbaar Nederlands (visual Dutch grammar)",
+          "url": "https://www.zichtbaarnederlands.nl/en"
+        }
+      ],
+      "drills": [
+        {
+          "sentence": "Ik heb gisteren {{answer}}.",
+          "answer": "gewerkt",
+          "translation": "I worked yesterday.",
+          "hint": "participle of werken — 't kofschip t",
+          "display_order": 1
+        },
+        {
+          "sentence": "De kinderen hebben buiten {{answer}}.",
+          "answer": "gespeeld",
+          "translation": "The children played outside.",
+          "hint": "participle of spelen — soft d",
+          "display_order": 2
+        },
+        {
+          "sentence": "Wij zijn naar Utrecht {{answer}}.",
+          "answer": "gegaan",
+          "translation": "We went to Utrecht.",
+          "hint": "movement takes zijn; irregular participle",
+          "display_order": 3
+        },
+        {
+          "sentence": "Ik {{answer}} die film gezien.",
+          "answer": "heb",
+          "translation": "I have seen that film.",
+          "hint": "the auxiliary for most verbs",
+          "display_order": 4
+        },
+        {
+          "sentence": "Zij {{answer}} thuis gebleven.",
+          "answer": "is",
+          "translation": "She stayed home.",
+          "hint": "blijven takes the other auxiliary",
+          "display_order": 5
+        },
+        {
+          "sentence": "Hij heeft een nieuwe fiets {{answer}}.",
+          "answer": "gekocht",
+          "translation": "He bought a new bicycle.",
+          "hint": "participle of kopen — irregular",
+          "display_order": 6
+        }
+      ]
+    },
+    {
+      "title": "Imperfect: werkte, speelde",
+      "level": "A2",
+      "function": "The story-telling past",
+      "source": "ai",
+      "reviewed": false,
+      "display_order": 2,
+      "explanation": "The imperfect (simple past) carries stories and descriptions: stem + de(n)/te(n) — te after 't kofschip: werkte, maar speelde. Irregular verbs change vowel: gaan → ging, komen → kwam, zijn → was/waren, hebben → had/hadden. Rule of thumb: single events in speech → perfect; background and narration → imperfect.",
+      "references": [
+        {
+          "title": "Wikipedia: Dutch grammar",
+          "url": "https://en.wikipedia.org/wiki/Dutch_grammar"
+        },
+        {
+          "title": "Taalunie — Algemene Nederlandse Spraakkunst",
+          "url": "https://e-ans.ivdnt.org/"
+        }
+      ],
+      "drills": [
+        {
+          "sentence": "Ik {{answer}} vroeger in Leiden.",
+          "answer": "woonde",
+          "translation": "I used to live in Leiden.",
+          "hint": "wonen — soft de",
+          "display_order": 1
+        },
+        {
+          "sentence": "Hij {{answer}} elke dag.",
+          "answer": "werkte",
+          "translation": "He worked every day.",
+          "hint": "werken — 't kofschip te",
+          "display_order": 2
+        },
+        {
+          "sentence": "Het {{answer}} koud die winter.",
+          "answer": "was",
+          "translation": "It was cold that winter.",
+          "hint": "past of zijn",
+          "display_order": 3
+        },
+        {
+          "sentence": "Wij {{answer}} geen geld.",
+          "answer": "hadden",
+          "translation": "We had no money.",
+          "hint": "past plural of hebben",
+          "display_order": 4
+        },
+        {
+          "sentence": "Zij {{answer}} om acht uur.",
+          "answer": "kwam",
+          "translation": "She came at eight o'clock.",
+          "hint": "komen — vowel change",
+          "display_order": 5
+        },
+        {
+          "sentence": "De trein {{answer}} te laat.",
+          "answer": "ging",
+          "translation": "The train left too late.",
+          "hint": "gaan — vowel change",
+          "display_order": 6
+        }
+      ]
+    },
+    {
+      "title": "Modal verbs: kunnen, moeten, mogen, willen",
+      "level": "A2",
+      "function": "Can, must, may, want — with the infinitive at the end",
+      "source": "ai",
+      "reviewed": false,
+      "display_order": 3,
+      "explanation": "Modals conjugate irregularly and send the main verb (infinitive) to the END: Ik kan morgen komen. kunnen (can): ik kan, hij kan, wij kunnen. moeten (must). mogen (may): ik mag. willen (want): ik wil. zullen (shall/will) drives the future and polite offers: Zal ik helpen?",
+      "references": [
+        {
+          "title": "Wikipedia: Dutch grammar",
+          "url": "https://en.wikipedia.org/wiki/Dutch_grammar"
+        },
+        {
+          "title": "Zichtbaar Nederlands (visual Dutch grammar)",
+          "url": "https://www.zichtbaarnederlands.nl/en"
+        }
+      ],
+      "drills": [
+        {
+          "sentence": "Ik {{answer}} morgen niet komen.",
+          "answer": "kan",
+          "translation": "I can't come tomorrow.",
+          "hint": "can — first person",
+          "display_order": 1
+        },
+        {
+          "sentence": "Je {{answer}} hier niet roken.",
+          "answer": "mag",
+          "translation": "You may not smoke here.",
+          "hint": "may",
+          "display_order": 2
+        },
+        {
+          "sentence": "Wij {{answer}} nu gaan.",
+          "answer": "moeten",
+          "translation": "We have to go now.",
+          "hint": "must — plural",
+          "display_order": 3
+        },
+        {
+          "sentence": "Zij {{answer}} arts worden.",
+          "answer": "wil",
+          "translation": "She wants to become a doctor.",
+          "hint": "want — third singular",
+          "display_order": 4
+        },
+        {
+          "sentence": "{{answer}} ik u helpen?",
+          "answer": "Zal",
+          "translation": "Shall I help you?",
+          "hint": "the offer modal",
+          "display_order": 5
+        },
+        {
+          "sentence": "Hij {{answer}} goed koken.",
+          "answer": "kan",
+          "translation": "He can cook well.",
+          "hint": "can",
+          "display_order": 6
+        }
+      ]
+    },
+    {
+      "title": "Separable verbs: opstaan → ik sta op",
+      "level": "A2",
+      "function": "The prefix breaks off and lands at the end",
+      "source": "ai",
+      "reviewed": false,
+      "display_order": 4,
+      "explanation": "Verbs like opstaan (get up), meekomen (come along), aankomen (arrive) split in main clauses: Ik sta om zeven uur op — the prefix flies to the end. In the perfect, ge- slots INSIDE: opgestaan. With modals they stay whole: Ik moet vroeg opstaan.",
+      "references": [
+        {
+          "title": "Wikipedia: Dutch grammar",
+          "url": "https://en.wikipedia.org/wiki/Dutch_grammar"
+        },
+        {
+          "title": "Zichtbaar Nederlands (visual Dutch grammar)",
+          "url": "https://www.zichtbaarnederlands.nl/en"
+        }
+      ],
+      "drills": [
+        {
+          "sentence": "Ik sta om zeven uur {{answer}}.",
+          "answer": "op",
+          "translation": "I get up at seven.",
+          "hint": "the broken-off prefix of opstaan",
+          "display_order": 1
+        },
+        {
+          "sentence": "De trein komt om tien uur {{answer}}.",
+          "answer": "aan",
+          "translation": "The train arrives at ten.",
+          "hint": "prefix of aankomen",
+          "display_order": 2
+        },
+        {
+          "sentence": "Kom je vanavond {{answer}}?",
+          "answer": "mee",
+          "translation": "Are you coming along tonight?",
+          "hint": "prefix of meekomen",
+          "display_order": 3
+        },
+        {
+          "sentence": "Ik ben vroeg {{answer}}.",
+          "answer": "opgestaan",
+          "translation": "I got up early.",
+          "hint": "perfect — ge inside the verb",
+          "display_order": 4
+        },
+        {
+          "sentence": "Zij belt haar moeder {{answer}}.",
+          "answer": "op",
+          "translation": "She calls her mother.",
+          "hint": "prefix of opbellen",
+          "display_order": 5
+        },
+        {
+          "sentence": "Ik moet morgen vroeg {{answer}}.",
+          "answer": "opstaan",
+          "translation": "I have to get up early tomorrow.",
+          "hint": "whole again after a modal",
+          "display_order": 6
+        }
+      ]
+    },
+    {
+      "title": "Subclauses: the verb walks to the end",
+      "level": "A2",
+      "function": "After omdat, dat, als — everything changes",
+      "source": "ai",
+      "reviewed": false,
+      "display_order": 5,
+      "explanation": "In a subclause the conjugated verb moves to the END: Ik blijf thuis omdat ik ziek ben (…because I sick am). Same after dat (that), als (if/when), terwijl (while), toen (when-past). This end-verb rule plus V2 in main clauses IS Dutch word order.",
+      "references": [
+        {
+          "title": "Wikipedia: Dutch grammar",
+          "url": "https://en.wikipedia.org/wiki/Dutch_grammar"
+        },
+        {
+          "title": "Zichtbaar Nederlands (visual Dutch grammar)",
+          "url": "https://www.zichtbaarnederlands.nl/en"
+        }
+      ],
+      "drills": [
+        {
+          "sentence": "Ik blijf thuis omdat ik ziek {{answer}}.",
+          "answer": "ben",
+          "translation": "I'm staying home because I am sick.",
+          "hint": "the verb ends the omdat-clause",
+          "display_order": 1
+        },
+        {
+          "sentence": "Hij zegt dat hij morgen {{answer}}.",
+          "answer": "komt",
+          "translation": "He says that he is coming tomorrow.",
+          "hint": "verb-final after dat",
+          "display_order": 2
+        },
+        {
+          "sentence": "Als het {{answer}}, blijven we binnen.",
+          "answer": "regent",
+          "translation": "If it rains, we stay inside.",
+          "hint": "verb-final in the als-clause",
+          "display_order": 3
+        },
+        {
+          "sentence": "Ik weet dat zij hard {{answer}}.",
+          "answer": "werkt",
+          "translation": "I know that she works hard.",
+          "hint": "end position",
+          "display_order": 4
+        },
+        {
+          "sentence": "Terwijl ik {{answer}}, luister ik muziek.",
+          "answer": "kook",
+          "translation": "While I cook, I listen to music.",
+          "hint": "verb-final after terwijl",
+          "display_order": 5
+        },
+        {
+          "sentence": "Toen ik jong {{answer}}, woonde ik hier.",
+          "answer": "was",
+          "translation": "When I was young, I lived here.",
+          "hint": "past 'to be', clause-final",
+          "display_order": 6
+        }
+      ]
+    },
+    {
+      "title": "Future: gaan + infinitive, zullen",
+      "level": "A2",
+      "function": "Plans with gaan, promises with zullen",
+      "source": "ai",
+      "reviewed": false,
+      "display_order": 6,
+      "explanation": "Everyday future = gaan + infinitive at the end: Ik ga morgen werken. zullen adds promise/prediction/proposal: Ik zal het doen (I'll do it), Het zal regenen. And Dutch loves plain present + time word: Ik kom morgen — perfectly future.",
+      "references": [
+        {
+          "title": "Wikipedia: Dutch grammar",
+          "url": "https://en.wikipedia.org/wiki/Dutch_grammar"
+        },
+        {
+          "title": "Zichtbaar Nederlands (visual Dutch grammar)",
+          "url": "https://www.zichtbaarnederlands.nl/en"
+        }
+      ],
+      "drills": [
+        {
+          "sentence": "Ik {{answer}} morgen boodschappen doen.",
+          "answer": "ga",
+          "translation": "I am going to do groceries tomorrow.",
+          "hint": "the everyday future auxiliary",
+          "display_order": 1
+        },
+        {
+          "sentence": "Wat {{answer}} jullie dit weekend doen?",
+          "answer": "gaan",
+          "translation": "What are you all going to do this weekend?",
+          "hint": "plural",
+          "display_order": 2
+        },
+        {
+          "sentence": "Ik {{answer}} je helpen, beloofd.",
+          "answer": "zal",
+          "translation": "I will help you, promised.",
+          "hint": "the promise auxiliary",
+          "display_order": 3
+        },
+        {
+          "sentence": "Het {{answer}} vanavond sneeuwen.",
+          "answer": "gaat",
+          "translation": "It is going to snow tonight.",
+          "hint": "third singular",
+          "display_order": 4
+        },
+        {
+          "sentence": "{{answer}} we samen eten?",
+          "answer": "Zullen",
+          "translation": "Shall we eat together?",
+          "hint": "the proposal form",
+          "display_order": 5
+        },
+        {
+          "sentence": "Zij {{answer}} volgend jaar verhuizen.",
+          "answer": "gaat",
+          "translation": "She is going to move next year.",
+          "hint": "third singular",
+          "display_order": 6
+        }
+      ]
+    },
+    {
+      "title": "Comparative and superlative: -er, -st",
+      "level": "A2",
+      "function": "Bigger and biggest — with dan, not als",
+      "source": "ai",
+      "reviewed": false,
+      "display_order": 7,
+      "explanation": "groot → groter → grootst. -r words insert d: duur → duurder. Compare with dan: groter dan ik (bigger than me) — colloquial 'groter als' is widely heard, widely corrected. Irregulars: goed → beter → best, veel → meer → meest, graag → liever → liefst.",
+      "references": [
+        {
+          "title": "Wikipedia: Dutch grammar",
+          "url": "https://en.wikipedia.org/wiki/Dutch_grammar"
+        },
+        {
+          "title": "Taalunie — Algemene Nederlandse Spraakkunst",
+          "url": "https://e-ans.ivdnt.org/"
+        }
+      ],
+      "drills": [
+        {
+          "sentence": "Mijn huis is {{answer}} dan jouw huis.",
+          "answer": "groter",
+          "translation": "My house is bigger than yours.",
+          "hint": "big + er",
+          "display_order": 1
+        },
+        {
+          "sentence": "Deze jas is {{answer}} dan die.",
+          "answer": "duurder",
+          "translation": "This coat is more expensive than that one.",
+          "hint": "-r word inserts d",
+          "display_order": 2
+        },
+        {
+          "sentence": "Dit is het {{answer}} gebouw van de stad.",
+          "answer": "hoogste",
+          "translation": "This is the tallest building in the city.",
+          "hint": "high + ste",
+          "display_order": 3
+        },
+        {
+          "sentence": "Haar Nederlands is {{answer}} dan het mijne.",
+          "answer": "beter",
+          "translation": "Her Dutch is better than mine.",
+          "hint": "irregular comparative of goed",
+          "display_order": 4
+        },
+        {
+          "sentence": "Ik drink {{answer}} thee dan koffie.",
+          "answer": "liever",
+          "translation": "I prefer tea to coffee. ('more gladly')",
+          "hint": "comparative of graag",
+          "display_order": 5
+        },
+        {
+          "sentence": "Dat is het {{answer}} idee tot nu toe.",
+          "answer": "beste",
+          "translation": "That is the best idea so far.",
+          "hint": "superlative of goed",
+          "display_order": 6
+        }
+      ]
+    },
+    {
+      "title": "Diminutives: -je, -tje, -pje",
+      "level": "A2",
+      "function": "The most Dutch thing there is",
+      "source": "ai",
+      "reviewed": false,
+      "display_order": 8,
+      "explanation": "Dutch shrinks everything: huis → huisje, boom → boompje, tafel → tafeltje. The ending depends on the final sound (-je, -tje, -etje, -pje, -kje) — and EVERY diminutive becomes a het-word: het meisje (the girl — literally 'little maid'). Diminutives soften, endear, and sometimes change meaning: biertje (a beer, the normal way to order one).",
+      "references": [
+        {
+          "title": "Wikipedia: Dutch grammar",
+          "url": "https://en.wikipedia.org/wiki/Dutch_grammar"
+        },
+        {
+          "title": "Taalunie — Algemene Nederlandse Spraakkunst",
+          "url": "https://e-ans.ivdnt.org/"
+        }
+      ],
+      "drills": [
+        {
+          "sentence": "Wij wonen in een klein {{answer}}.",
+          "answer": "huisje",
+          "translation": "We live in a little house.",
+          "hint": "huis + je",
+          "display_order": 1
+        },
+        {
+          "sentence": "Mag ik een {{answer}}?",
+          "answer": "biertje",
+          "translation": "May I have a beer?",
+          "hint": "how you actually order beer",
+          "display_order": 2
+        },
+        {
+          "sentence": "Het {{answer}} speelt in de tuin.",
+          "answer": "meisje",
+          "translation": "The girl plays in the garden.",
+          "hint": "the famous het-word for girl",
+          "display_order": 3
+        },
+        {
+          "sentence": "Er zit een {{answer}} in de boom.",
+          "answer": "vogeltje",
+          "translation": "There is a little bird in the tree.",
+          "hint": "vogel + tje",
+          "display_order": 4
+        },
+        {
+          "sentence": "Zullen we een {{answer}} maken?",
+          "answer": "ommetje",
+          "translation": "Shall we take a little walk?",
+          "hint": "om + etje — a stroll around the block",
+          "display_order": 5
+        },
+        {
+          "sentence": "Wacht een {{answer}}!",
+          "answer": "momentje",
+          "translation": "Wait a moment!",
+          "hint": "moment + je",
+          "display_order": 6
+        }
+      ]
+    },
+    {
+      "title": "Om te + infinitive",
+      "level": "A2",
+      "function": "In order to — purpose and after adjectives",
+      "source": "ai",
+      "reviewed": false,
+      "display_order": 9,
+      "explanation": "Purpose: Ik ga naar de winkel om brood te kopen (to buy bread) — om opens, te + infinitive closes. After adjectives: Het is moeilijk om Nederlands te leren. With separable verbs, te goes inside: om op te staan.",
+      "references": [
+        {
+          "title": "Wikipedia: Dutch grammar",
+          "url": "https://en.wikipedia.org/wiki/Dutch_grammar"
+        },
+        {
+          "title": "Zichtbaar Nederlands (visual Dutch grammar)",
+          "url": "https://www.zichtbaarnederlands.nl/en"
+        }
+      ],
+      "drills": [
+        {
+          "sentence": "Ik ga naar de markt om groente {{answer}} kopen.",
+          "answer": "te",
+          "translation": "I'm going to the market to buy vegetables.",
+          "hint": "the little word before the infinitive",
+          "display_order": 1
+        },
+        {
+          "sentence": "Het is leuk {{answer}} nieuwe mensen te ontmoeten.",
+          "answer": "om",
+          "translation": "It is nice to meet new people.",
+          "hint": "the opener of the construction",
+          "display_order": 2
+        },
+        {
+          "sentence": "Zij spaart om een huis te {{answer}}.",
+          "answer": "kopen",
+          "translation": "She is saving to buy a house.",
+          "hint": "the infinitive closes it",
+          "display_order": 3
+        },
+        {
+          "sentence": "Het is tijd om op te {{answer}}.",
+          "answer": "staan",
+          "translation": "It is time to get up.",
+          "hint": "separable verb — te sits inside",
+          "display_order": 4
+        },
+        {
+          "sentence": "Hij belt om iets {{answer}} vragen.",
+          "answer": "te",
+          "translation": "He is calling to ask something.",
+          "hint": "before the infinitive",
+          "display_order": 5
+        },
+        {
+          "sentence": "Het is moeilijk om vroeg {{answer}} beginnen.",
+          "answer": "te",
+          "translation": "It is hard to start early.",
+          "hint": "same slot",
+          "display_order": 6
+        }
+      ]
+    },
+    {
+      "title": "The imperative",
+      "level": "A2",
+      "function": "Tell people what to do — with the bare stem",
+      "source": "ai",
+      "reviewed": false,
+      "display_order": 10,
+      "explanation": "The imperative is just the stem: Kom hier! Kijk uit! (watch out). Polite version adds u and -t: Komt u binnen (do come in). Softeners make it friendly: Kom maar, Ga even zitten, Doe eens rustig — maar/even/eens turn commands into invitations.",
+      "references": [
+        {
+          "title": "Wikipedia: Dutch grammar",
+          "url": "https://en.wikipedia.org/wiki/Dutch_grammar"
+        },
+        {
+          "title": "Zichtbaar Nederlands (visual Dutch grammar)",
+          "url": "https://www.zichtbaarnederlands.nl/en"
+        }
+      ],
+      "drills": [
+        {
+          "sentence": "{{answer}} hier!",
+          "answer": "Kom",
+          "translation": "Come here!",
+          "hint": "bare stem of komen",
+          "display_order": 1
+        },
+        {
+          "sentence": "{{answer}} uit!",
+          "answer": "Kijk",
+          "translation": "Watch out!",
+          "hint": "stem of kijken",
+          "display_order": 2
+        },
+        {
+          "sentence": "{{answer}} u binnen.",
+          "answer": "Komt",
+          "translation": "Do come in. (polite)",
+          "hint": "polite form adds -t with u",
+          "display_order": 3
+        },
+        {
+          "sentence": "{{answer}} even zitten.",
+          "answer": "Ga",
+          "translation": "Have a seat.",
+          "hint": "stem of gaan, softened with even",
+          "display_order": 4
+        },
+        {
+          "sentence": "{{answer}} maar rustig aan.",
+          "answer": "Doe",
+          "translation": "Take it easy.",
+          "hint": "stem of doen",
+          "display_order": 5
+        },
+        {
+          "sentence": "{{answer}} je jas aan!",
+          "answer": "Trek",
+          "translation": "Put your coat on!",
+          "hint": "stem of aantrekken — prefix at the end",
+          "display_order": 6
+        }
+      ]
+    },
+    {
+      "title": "Er — the five jobs of one little word",
+      "level": "B1",
+      "function": "Location, existence, quantity, prepositions, passive — er does it all",
+      "source": "ai",
+      "reviewed": false,
+      "display_order": 1,
+      "explanation": "Beyond er is/er zijn: (1) place — Ik woon er al jaren (I've lived THERE for years). (2) quantity — Hoeveel kinderen heb je? Ik heb er drie (I have three OF THEM). (3) preposition fusion — over het boek → erover (about it): Ik denk erover na. (4) passive subject-filler — Er wordt gebeld (someone's ringing). Dutch speakers sprinkle er everywhere; learners leave it out and sound abrupt.",
+      "references": [
+        {
+          "title": "Wikipedia: Dutch grammar",
+          "url": "https://en.wikipedia.org/wiki/Dutch_grammar"
+        },
+        {
+          "title": "Taalunie — Algemene Nederlandse Spraakkunst",
+          "url": "https://e-ans.ivdnt.org/"
+        }
+      ],
+      "drills": [
+        {
+          "sentence": "Hoeveel katten heb je? — Ik heb {{answer}} twee.",
+          "answer": "er",
+          "translation": "How many cats do you have? — I have two (of them).",
+          "hint": "the quantity filler",
+          "display_order": 1
+        },
+        {
+          "sentence": "Ik woon {{answer}} al tien jaar.",
+          "answer": "er",
+          "translation": "I have lived there for ten years.",
+          "hint": "unstressed 'there'",
+          "display_order": 2
+        },
+        {
+          "sentence": "Denk je nog over het aanbod na? — Ik denk {{answer}} over na.",
+          "answer": "er",
+          "translation": "Are you still considering the offer? — I'm thinking about it.",
+          "hint": "fuses with the preposition",
+          "display_order": 3
+        },
+        {
+          "sentence": "{{answer}} wordt op de deur geklopt.",
+          "answer": "Er",
+          "translation": "Someone is knocking on the door.",
+          "hint": "the passive filler",
+          "display_order": 4
+        },
+        {
+          "sentence": "Zijn er nog kaartjes? — Ja, {{answer}} zijn er nog vijf.",
+          "answer": "er",
+          "translation": "Are there tickets left? — Yes, there are five left.",
+          "hint": "existence",
+          "display_order": 5
+        },
+        {
+          "sentence": "Ik ben {{answer}} nooit geweest.",
+          "answer": "er",
+          "translation": "I have never been there.",
+          "hint": "place, unstressed",
+          "display_order": 6
+        }
+      ]
+    },
+    {
+      "title": "Relative clauses: die, dat, waar",
+      "level": "B1",
+      "function": "Who, which, that — chosen by the noun's gender",
+      "source": "ai",
+      "reviewed": false,
+      "display_order": 2,
+      "explanation": "de-words take die: de man die daar loopt. het-words take dat: het boek dat ik lees. After a preposition, people take wie (de man met wie ik werk) and things take waar+preposition fused: het huis waarin ik woon / waar ik in woon. The verb goes to the end — it's a subclause.",
+      "references": [
+        {
+          "title": "Wikipedia: Dutch grammar",
+          "url": "https://en.wikipedia.org/wiki/Dutch_grammar"
+        },
+        {
+          "title": "Zichtbaar Nederlands (visual Dutch grammar)",
+          "url": "https://www.zichtbaarnederlands.nl/en"
+        }
+      ],
+      "paradigm": [
+        "die",
+        "dat",
+        "wie"
+      ],
+      "drills": [
+        {
+          "sentence": "De vrouw {{answer}} daar staat, is mijn buurvrouw.",
+          "answer": "die",
+          "translation": "The woman who is standing there is my neighbour.",
+          "hint": "de-word relative",
+          "display_order": 1,
+          "cell": "die"
+        },
+        {
+          "sentence": "De fiets {{answer}} ik kocht, is al kapot.",
+          "answer": "die",
+          "translation": "The bicycle I bought is already broken.",
+          "hint": "de-word",
+          "display_order": 2,
+          "cell": "die"
+        },
+        {
+          "sentence": "Het boek {{answer}} ik lees, is spannend.",
+          "answer": "dat",
+          "translation": "The book I am reading is exciting.",
+          "hint": "het-word relative",
+          "display_order": 3,
+          "cell": "dat"
+        },
+        {
+          "sentence": "Het huis {{answer}} te koop staat, is oud.",
+          "answer": "dat",
+          "translation": "The house that is for sale is old.",
+          "hint": "het-word",
+          "display_order": 4,
+          "cell": "dat"
+        },
+        {
+          "sentence": "De collega met {{answer}} ik samenwerk, is aardig.",
+          "answer": "wie",
+          "translation": "The colleague I work with is nice.",
+          "hint": "person after a preposition",
+          "display_order": 5,
+          "cell": "wie"
+        },
+        {
+          "sentence": "Weet jij met {{answer}} zij praat?",
+          "answer": "wie",
+          "translation": "Do you know who she is talking to?",
+          "hint": "person + preposition",
+          "display_order": 6,
+          "cell": "wie"
+        }
+      ]
+    },
+    {
+      "title": "Reflexive verbs: zich vergissen, zich voelen",
+      "level": "B1",
+      "function": "Verbs that point back at their subject",
+      "source": "ai",
+      "reviewed": false,
+      "display_order": 3,
+      "explanation": "me/mij (ik), je (jij), zich (hij/zij/u/zij-plural), ons (wij), je (jullie): Ik vergis me (I'm mistaken), Hij voelt zich goed, Wij herinneren ons die dag. Some verbs are always reflexive in Dutch though never in English: zich vervelen (be bored), zich haasten (hurry).",
+      "references": [
+        {
+          "title": "Wikipedia: Dutch grammar",
+          "url": "https://en.wikipedia.org/wiki/Dutch_grammar"
+        },
+        {
+          "title": "Zichtbaar Nederlands (visual Dutch grammar)",
+          "url": "https://www.zichtbaarnederlands.nl/en"
+        }
+      ],
+      "drills": [
+        {
+          "sentence": "Ik vergis {{answer}} soms.",
+          "answer": "me",
+          "translation": "I am sometimes mistaken.",
+          "hint": "first-person reflexive",
+          "display_order": 1
+        },
+        {
+          "sentence": "Hij voelt {{answer}} vandaag beter.",
+          "answer": "zich",
+          "translation": "He feels better today.",
+          "hint": "third-person reflexive",
+          "display_order": 2
+        },
+        {
+          "sentence": "Wij herinneren {{answer}} die zomer nog goed.",
+          "answer": "ons",
+          "translation": "We still remember that summer well.",
+          "hint": "first-plural reflexive",
+          "display_order": 3
+        },
+        {
+          "sentence": "Verveel je {{answer}}?",
+          "answer": "je",
+          "translation": "Are you bored?",
+          "hint": "second-person reflexive",
+          "display_order": 4
+        },
+        {
+          "sentence": "Zij haasten {{answer}} naar de trein.",
+          "answer": "zich",
+          "translation": "They hurry to the train.",
+          "hint": "plural third-person",
+          "display_order": 5
+        },
+        {
+          "sentence": "Ik was {{answer}} elke ochtend.",
+          "answer": "me",
+          "translation": "I wash (myself) every morning.",
+          "hint": "first person",
+          "display_order": 6
+        }
+      ]
+    },
+    {
+      "title": "The passive: worden and zijn",
+      "level": "B1",
+      "function": "It is being done vs it is done",
+      "source": "ai",
+      "reviewed": false,
+      "display_order": 4,
+      "explanation": "Ongoing passive = worden + participle: De brug wordt gerepareerd (is being repaired). Result state = zijn: De brug is gerepareerd (has been / is repaired). Past: werd gerepareerd. The doer takes door: door de gemeente (by the city).",
+      "references": [
+        {
+          "title": "Wikipedia: Dutch grammar",
+          "url": "https://en.wikipedia.org/wiki/Dutch_grammar"
+        },
+        {
+          "title": "Taalunie — Algemene Nederlandse Spraakkunst",
+          "url": "https://e-ans.ivdnt.org/"
+        }
+      ],
+      "drills": [
+        {
+          "sentence": "De weg {{answer}} volgende week gerepareerd.",
+          "answer": "wordt",
+          "translation": "The road will be repaired next week.",
+          "hint": "ongoing-passive auxiliary",
+          "display_order": 1
+        },
+        {
+          "sentence": "Dit huis {{answer}} in 1900 gebouwd.",
+          "answer": "werd",
+          "translation": "This house was built in 1900.",
+          "hint": "past of the passive auxiliary",
+          "display_order": 2
+        },
+        {
+          "sentence": "Het probleem {{answer}} al opgelost.",
+          "answer": "is",
+          "translation": "The problem is already solved.",
+          "hint": "result state",
+          "display_order": 3
+        },
+        {
+          "sentence": "De brief wordt morgen {{answer}}.",
+          "answer": "verstuurd",
+          "translation": "The letter will be sent tomorrow.",
+          "hint": "participle of versturen",
+          "display_order": 4
+        },
+        {
+          "sentence": "Het boek werd {{answer}} veel mensen gelezen.",
+          "answer": "door",
+          "translation": "The book was read by many people.",
+          "hint": "marks the doer",
+          "display_order": 5
+        },
+        {
+          "sentence": "Er {{answer}} hier veel gebouwd.",
+          "answer": "wordt",
+          "translation": "A lot is being built here.",
+          "hint": "with er — impersonal",
+          "display_order": 6
+        }
+      ]
+    },
+    {
+      "title": "Want vs omdat, dus and maar",
+      "level": "B1",
+      "function": "Two 'becauses' with two word orders",
+      "source": "ai",
+      "reviewed": false,
+      "display_order": 5,
+      "explanation": "want (for/because) is a COORDINATOR — normal V2 order follows: Ik blijf thuis, want ik ben ziek. omdat is a SUBORDINATOR — verb to the end: …omdat ik ziek ben. Same meaning, different grammar. dus (so) and maar (but) also keep main-clause order. Pick your 'because' by the word order you want.",
+      "references": [
+        {
+          "title": "Wikipedia: Dutch grammar",
+          "url": "https://en.wikipedia.org/wiki/Dutch_grammar"
+        },
+        {
+          "title": "Zichtbaar Nederlands (visual Dutch grammar)",
+          "url": "https://www.zichtbaarnederlands.nl/en"
+        }
+      ],
+      "drills": [
+        {
+          "sentence": "Ik blijf thuis, {{answer}} ik ben ziek.",
+          "answer": "want",
+          "translation": "I'm staying home, for I am sick.",
+          "hint": "the because that keeps normal order",
+          "display_order": 1
+        },
+        {
+          "sentence": "Zij is blij, {{answer}} het is vrijdag.",
+          "answer": "want",
+          "translation": "She is happy, because it is Friday.",
+          "hint": "V2 follows it",
+          "display_order": 2
+        },
+        {
+          "sentence": "Ik blijf thuis {{answer}} ik ziek ben.",
+          "answer": "omdat",
+          "translation": "I'm staying home because I am sick.",
+          "hint": "the because that kicks the verb to the end",
+          "display_order": 3
+        },
+        {
+          "sentence": "Hij leert Nederlands {{answer}} hij in Utrecht woont.",
+          "answer": "omdat",
+          "translation": "He is learning Dutch because he lives in Utrecht.",
+          "hint": "verb-final follows",
+          "display_order": 4
+        },
+        {
+          "sentence": "Het regent, {{answer}} we blijven binnen.",
+          "answer": "dus",
+          "translation": "It's raining, so we're staying inside.",
+          "hint": "so — coordinator",
+          "display_order": 5
+        },
+        {
+          "sentence": "Ik wil komen, {{answer}} ik heb geen tijd.",
+          "answer": "maar",
+          "translation": "I want to come, but I have no time.",
+          "hint": "but",
+          "display_order": 6
+        }
+      ]
+    },
+    {
+      "title": "Te + infinitive: proberen te, hoeven te",
+      "level": "B1",
+      "function": "Which verbs take te — and which don't",
+      "source": "ai",
+      "reviewed": false,
+      "display_order": 6,
+      "explanation": "Modals and laten/gaan/komen/zien/horen take a bare infinitive: Ik kan zwemmen, Ik laat mijn fiets repareren. Most other verbs need te: Ik probeer te slapen, Je hoeft niet te komen (hoeven = need not, only in negation!), Hij belooft te helpen. Vergeet niet te bellen!",
+      "references": [
+        {
+          "title": "Wikipedia: Dutch grammar",
+          "url": "https://en.wikipedia.org/wiki/Dutch_grammar"
+        },
+        {
+          "title": "Taalunie — Algemene Nederlandse Spraakkunst",
+          "url": "https://e-ans.ivdnt.org/"
+        }
+      ],
+      "drills": [
+        {
+          "sentence": "Ik probeer elke dag {{answer}} sporten.",
+          "answer": "te",
+          "translation": "I try to exercise every day.",
+          "hint": "proberen takes this",
+          "display_order": 1
+        },
+        {
+          "sentence": "Je hoeft niet {{answer}} komen.",
+          "answer": "te",
+          "translation": "You don't have to come.",
+          "hint": "hoeven + niet + …",
+          "display_order": 2
+        },
+        {
+          "sentence": "Vergeet niet je moeder {{answer}} bellen!",
+          "answer": "te",
+          "translation": "Don't forget to call your mother!",
+          "hint": "vergeten takes it",
+          "display_order": 3
+        },
+        {
+          "sentence": "Ik laat mijn haar {{answer}}.",
+          "answer": "knippen",
+          "translation": "I am having my hair cut.",
+          "hint": "laten + bare infinitive",
+          "display_order": 4
+        },
+        {
+          "sentence": "Ik zie hem elke dag {{answer}}.",
+          "answer": "fietsen",
+          "translation": "I see him cycling every day.",
+          "hint": "zien + bare infinitive",
+          "display_order": 5
+        },
+        {
+          "sentence": "Zij belooft op tijd {{answer}} zijn.",
+          "answer": "te",
+          "translation": "She promises to be on time.",
+          "hint": "beloven takes it",
+          "display_order": 6
+        }
+      ]
+    },
+    {
+      "title": "Zou: would, could you, apparently",
+      "level": "B1",
+      "function": "Politeness, hypotheticals, and hearsay in one verb",
+      "source": "ai",
+      "reviewed": false,
+      "display_order": 7,
+      "explanation": "zou/zouden (past of zullen) covers: polite requests — Zou je me kunnen helpen? (could you help me); hypotheticals — Ik zou een huis kopen (I would buy a house); advice — Je zou meer moeten slapen (you should sleep more); hearsay — Hij zou rijk zijn (he is said to be rich).",
+      "references": [
+        {
+          "title": "Wikipedia: Dutch grammar",
+          "url": "https://en.wikipedia.org/wiki/Dutch_grammar"
+        },
+        {
+          "title": "Taalunie — Algemene Nederlandse Spraakkunst",
+          "url": "https://e-ans.ivdnt.org/"
+        }
+      ],
+      "drills": [
+        {
+          "sentence": "{{answer}} je het raam kunnen sluiten?",
+          "answer": "Zou",
+          "translation": "Could you close the window?",
+          "hint": "the politeness auxiliary",
+          "display_order": 1
+        },
+        {
+          "sentence": "Ik {{answer}} graag een huis met een tuin willen.",
+          "answer": "zou",
+          "translation": "I would like a house with a garden.",
+          "hint": "would",
+          "display_order": 2
+        },
+        {
+          "sentence": "Wat {{answer}} jij doen in mijn plaats?",
+          "answer": "zou",
+          "translation": "What would you do in my place?",
+          "hint": "hypothetical",
+          "display_order": 3
+        },
+        {
+          "sentence": "Je {{answer}} meer water moeten drinken.",
+          "answer": "zou",
+          "translation": "You should drink more water.",
+          "hint": "advice — with moeten",
+          "display_order": 4
+        },
+        {
+          "sentence": "{{answer}} wij samen kunnen lunchen?",
+          "answer": "Zouden",
+          "translation": "Could we have lunch together?",
+          "hint": "plural form",
+          "display_order": 5
+        },
+        {
+          "sentence": "Hij {{answer}} miljonair zijn, zegt men.",
+          "answer": "zou",
+          "translation": "He is said to be a millionaire.",
+          "hint": "hearsay use",
+          "display_order": 6
+        }
+      ]
+    },
+    {
+      "title": "Indirect speech: dat and of",
+      "level": "B1",
+      "function": "Report statements with dat, questions with of",
+      "source": "ai",
+      "reviewed": false,
+      "display_order": 8,
+      "explanation": "Statements: Hij zegt dat hij moe is (verb to the end). Yes/no questions: Ze vraagt of ik kom (of = whether). Question-word questions keep their word: Hij vraagt waar ik woon. All are subclauses — verb final, every time.",
+      "references": [
+        {
+          "title": "Wikipedia: Dutch grammar",
+          "url": "https://en.wikipedia.org/wiki/Dutch_grammar"
+        },
+        {
+          "title": "Zichtbaar Nederlands (visual Dutch grammar)",
+          "url": "https://www.zichtbaarnederlands.nl/en"
+        }
+      ],
+      "drills": [
+        {
+          "sentence": "Hij zegt {{answer}} hij morgen komt.",
+          "answer": "dat",
+          "translation": "He says that he is coming tomorrow.",
+          "hint": "reported statement",
+          "display_order": 1
+        },
+        {
+          "sentence": "Zij vraagt {{answer}} ik tijd heb.",
+          "answer": "of",
+          "translation": "She asks whether I have time.",
+          "hint": "reported yes/no question",
+          "display_order": 2
+        },
+        {
+          "sentence": "Ik weet niet {{answer}} hij thuis is.",
+          "answer": "of",
+          "translation": "I don't know whether he is home.",
+          "hint": "whether",
+          "display_order": 3
+        },
+        {
+          "sentence": "Ze vraagt {{answer}} de winkel opengaat.",
+          "answer": "wanneer",
+          "translation": "She asks when the shop opens.",
+          "hint": "the question word survives",
+          "display_order": 4
+        },
+        {
+          "sentence": "Hij vertelt dat hij in Gent {{answer}}.",
+          "answer": "woont",
+          "translation": "He says that he lives in Ghent.",
+          "hint": "verb-final in the dat-clause",
+          "display_order": 5
+        },
+        {
+          "sentence": "Weet jij {{answer}} zij komt?",
+          "answer": "of",
+          "translation": "Do you know whether she is coming?",
+          "hint": "whether",
+          "display_order": 6
+        }
+      ]
+    },
+    {
+      "title": "Modal particles: wel, toch, maar, even, eens",
+      "level": "B2",
+      "function": "The seasoning that makes Dutch sound Dutch",
+      "source": "ai",
+      "reviewed": false,
+      "display_order": 1,
+      "explanation": "Untranslatable but essential: wel contradicts softly (Het is wel lekker — it IS nice, actually); toch seeks agreement or marks 'after all' (Je komt toch?); maar softens commands (Ga maar zitten); even makes things quick and casual (Ik bel je even); eens adds 'just/sometime' (Kom eens kijken!). Stack them: Kom maar eens even kijken.",
+      "references": [
+        {
+          "title": "Taalunie — Algemene Nederlandse Spraakkunst",
+          "url": "https://e-ans.ivdnt.org/"
+        },
+        {
+          "title": "Wikipedia: Dutch grammar",
+          "url": "https://en.wikipedia.org/wiki/Dutch_grammar"
+        }
+      ],
+      "drills": [
+        {
+          "sentence": "Het is {{answer}} lekker, hoor.",
+          "answer": "wel",
+          "translation": "It IS actually tasty.",
+          "hint": "the soft contradiction particle",
+          "display_order": 1
+        },
+        {
+          "sentence": "Je komt morgen {{answer}}?",
+          "answer": "toch",
+          "translation": "You're coming tomorrow, right?",
+          "hint": "seeks agreement",
+          "display_order": 2
+        },
+        {
+          "sentence": "Ga {{answer}} zitten.",
+          "answer": "maar",
+          "translation": "Go ahead and sit down.",
+          "hint": "softens the command",
+          "display_order": 3
+        },
+        {
+          "sentence": "Ik bel je {{answer}}.",
+          "answer": "even",
+          "translation": "I'll give you a quick call.",
+          "hint": "makes it quick and casual",
+          "display_order": 4
+        },
+        {
+          "sentence": "Kom {{answer}} kijken!",
+          "answer": "eens",
+          "translation": "Come and have a look!",
+          "hint": "'just/sometime' invitation",
+          "display_order": 5
+        },
+        {
+          "sentence": "Dat valt {{answer}} mee.",
+          "answer": "wel",
+          "translation": "It's not as bad as it seems.",
+          "hint": "in the fixed phrase 'valt … mee'",
+          "display_order": 6
+        }
+      ]
+    },
+    {
+      "title": "Past perfect and tense sequencing",
+      "level": "B2",
+      "function": "What had happened before something else happened",
+      "source": "ai",
+      "reviewed": false,
+      "display_order": 2,
+      "explanation": "had/waren + participle: Ik had al gegeten toen zij kwam (I had already eaten when she came). Movement/change verbs take waren: Zij waren al vertrokken. In stories the past perfect sets the pre-history, the imperfect carries the narrative, and toen (when — one past moment) pairs with it constantly.",
+      "references": [
+        {
+          "title": "Wikipedia: Dutch grammar",
+          "url": "https://en.wikipedia.org/wiki/Dutch_grammar"
+        },
+        {
+          "title": "Taalunie — Algemene Nederlandse Spraakkunst",
+          "url": "https://e-ans.ivdnt.org/"
+        }
+      ],
+      "drills": [
+        {
+          "sentence": "Ik {{answer}} al gegeten toen zij kwam.",
+          "answer": "had",
+          "translation": "I had already eaten when she came.",
+          "hint": "past-perfect auxiliary",
+          "display_order": 1
+        },
+        {
+          "sentence": "De trein {{answer}} al vertrokken.",
+          "answer": "was",
+          "translation": "The train had already left.",
+          "hint": "movement takes the zijn-past",
+          "display_order": 2
+        },
+        {
+          "sentence": "Wij {{answer}} het huis al verkocht.",
+          "answer": "hadden",
+          "translation": "We had already sold the house.",
+          "hint": "plural auxiliary",
+          "display_order": 3
+        },
+        {
+          "sentence": "Toen ik aankwam, {{answer}} het feest al begonnen.",
+          "answer": "was",
+          "translation": "When I arrived, the party had already started.",
+          "hint": "beginnen takes zijn",
+          "display_order": 4
+        },
+        {
+          "sentence": "Zij had de brief nog niet {{answer}}.",
+          "answer": "gelezen",
+          "translation": "She had not yet read the letter.",
+          "hint": "participle of lezen",
+          "display_order": 5
+        },
+        {
+          "sentence": "Hij was al naar huis {{answer}}.",
+          "answer": "gegaan",
+          "translation": "He had already gone home.",
+          "hint": "participle of gaan",
+          "display_order": 6
+        }
+      ]
+    },
+    {
+      "title": "Double infinitives: heb kunnen doen",
+      "level": "B2",
+      "function": "Perfect + modal = two infinitives at the end",
+      "source": "ai",
+      "reviewed": false,
+      "display_order": 3,
+      "explanation": "When a modal goes into the perfect, both verbs stand as infinitives: Ik heb niet kunnen slapen (NOT gekund!), Zij heeft willen komen, Wij hadden moeten bellen. Order: auxiliary … modal-infinitive + main-infinitive. Same with laten and zien: Ik heb mijn fiets laten repareren.",
+      "references": [
+        {
+          "title": "Taalunie — Algemene Nederlandse Spraakkunst",
+          "url": "https://e-ans.ivdnt.org/"
+        },
+        {
+          "title": "Wikipedia: Dutch grammar",
+          "url": "https://en.wikipedia.org/wiki/Dutch_grammar"
+        }
+      ],
+      "drills": [
+        {
+          "sentence": "Ik heb vannacht niet {{answer}} slapen.",
+          "answer": "kunnen",
+          "translation": "I couldn't sleep last night.",
+          "hint": "modal as infinitive, not participle",
+          "display_order": 1
+        },
+        {
+          "sentence": "Zij heeft niet {{answer}} komen.",
+          "answer": "willen",
+          "translation": "She didn't want to come.",
+          "hint": "infinitive form",
+          "display_order": 2
+        },
+        {
+          "sentence": "Wij hadden eerder {{answer}} bellen.",
+          "answer": "moeten",
+          "translation": "We should have called earlier.",
+          "hint": "infinitive of the must-modal",
+          "display_order": 3
+        },
+        {
+          "sentence": "Hij heeft zijn auto laten {{answer}}.",
+          "answer": "repareren",
+          "translation": "He had his car repaired.",
+          "hint": "laten + infinitive in the perfect",
+          "display_order": 4
+        },
+        {
+          "sentence": "Ik heb hem zien {{answer}}.",
+          "answer": "vertrekken",
+          "translation": "I saw him leave.",
+          "hint": "zien + infinitive in the perfect",
+          "display_order": 5
+        },
+        {
+          "sentence": "Je had het {{answer}} weten.",
+          "answer": "kunnen",
+          "translation": "You could have known.",
+          "hint": "infinitive modal",
+          "display_order": 6
+        }
+      ]
+    },
+    {
+      "title": "Progressive: aan het + infinitive, zitten te",
+      "level": "B2",
+      "function": "Right now, in the middle of it",
+      "source": "ai",
+      "reviewed": false,
+      "display_order": 4,
+      "explanation": "Dutch marks 'busy doing' with aan het + infinitive: Ik ben aan het koken (I'm cooking). The posture verbs add flavour AND te: Hij zit te lezen (he sits reading), Zij staat te wachten, Ze liggen te slapen. Pick the posture that's literally true — Dutch does.",
+      "references": [
+        {
+          "title": "Wikipedia: Dutch grammar",
+          "url": "https://en.wikipedia.org/wiki/Dutch_grammar"
+        },
+        {
+          "title": "Zichtbaar Nederlands (visual Dutch grammar)",
+          "url": "https://www.zichtbaarnederlands.nl/en"
+        }
+      ],
+      "drills": [
+        {
+          "sentence": "Ik ben {{answer}} het koken.",
+          "answer": "aan",
+          "translation": "I am (busy) cooking.",
+          "hint": "the progressive frame",
+          "display_order": 1
+        },
+        {
+          "sentence": "Zij is aan het {{answer}}.",
+          "answer": "werken",
+          "translation": "She is working.",
+          "hint": "infinitive closes the frame",
+          "display_order": 2
+        },
+        {
+          "sentence": "Hij zit al uren {{answer}} lezen.",
+          "answer": "te",
+          "translation": "He has been sitting reading for hours.",
+          "hint": "posture verb + this word",
+          "display_order": 3
+        },
+        {
+          "sentence": "Wij staan buiten {{answer}} wachten.",
+          "answer": "te",
+          "translation": "We are standing outside waiting.",
+          "hint": "staan + … + infinitive",
+          "display_order": 4
+        },
+        {
+          "sentence": "De baby ligt {{answer}} slapen.",
+          "answer": "te",
+          "translation": "The baby is (lying) sleeping.",
+          "hint": "liggen + … + infinitive",
+          "display_order": 5
+        },
+        {
+          "sentence": "Ik was net aan het {{answer}} toen je belde.",
+          "answer": "eten",
+          "translation": "I was just eating when you called.",
+          "hint": "infinitive in the frame",
+          "display_order": 6
+        }
+      ]
+    },
+    {
+      "title": "Waar-compounds: waarover, erop, daarmee",
+      "level": "B2",
+      "function": "Preposition + it/what/that fuse into one word",
+      "source": "ai",
+      "reviewed": false,
+      "display_order": 5,
+      "explanation": "Prepositions never combine with het/dat/wat directly — they fuse: over het → erover, over dat → daarover, over wat → waarover. Waar denk je aan? (what are you thinking about — splittable!), Ik ben het ermee eens (I agree with it), Daar heb ik geen zin in. met becomes -mee, tot becomes -toe.",
+      "references": [
+        {
+          "title": "Taalunie — Algemene Nederlandse Spraakkunst",
+          "url": "https://e-ans.ivdnt.org/"
+        },
+        {
+          "title": "Wikipedia: Dutch grammar",
+          "url": "https://en.wikipedia.org/wiki/Dutch_grammar"
+        }
+      ],
+      "drills": [
+        {
+          "sentence": "{{answer}} denk je aan?",
+          "answer": "Waar",
+          "translation": "What are you thinking about?",
+          "hint": "what + preposition, fused and split",
+          "display_order": 1
+        },
+        {
+          "sentence": "Ik ben het er niet {{answer}} eens.",
+          "answer": "mee",
+          "translation": "I don't agree with it.",
+          "hint": "met fuses to this",
+          "display_order": 2
+        },
+        {
+          "sentence": "{{answer}} heb ik geen zin in.",
+          "answer": "Daar",
+          "translation": "I don't feel like that.",
+          "hint": "that + in, fused and split",
+          "display_order": 3
+        },
+        {
+          "sentence": "Ik denk er vaak {{answer}}.",
+          "answer": "aan",
+          "translation": "I often think about it.",
+          "hint": "the preposition lands at the end",
+          "display_order": 4
+        },
+        {
+          "sentence": "{{answer}} gaat dit boek over?",
+          "answer": "Waar",
+          "translation": "What is this book about?",
+          "hint": "what-fusion, split",
+          "display_order": 5
+        },
+        {
+          "sentence": "Zij is er trots {{answer}}.",
+          "answer": "op",
+          "translation": "She is proud of it.",
+          "hint": "trots op → er…op",
+          "display_order": 6
+        }
+      ]
+    },
+    {
+      "title": "Conditionals: als … zou, had gedaan",
+      "level": "B2",
+      "function": "If-worlds, real and missed",
+      "source": "ai",
+      "reviewed": false,
+      "display_order": 6,
+      "explanation": "Real: Als het regent, blijven we thuis. Hypothetical: Als ik rijk was/zou zijn, zou ik reizen (if I were rich I would travel). Missed past: Als ik het had geweten, was ik gekomen / zou ik gekomen zijn (if I had known…). The als-clause is verb-final; the main clause often starts with dan.",
+      "references": [
+        {
+          "title": "Wikipedia: Dutch grammar",
+          "url": "https://en.wikipedia.org/wiki/Dutch_grammar"
+        },
+        {
+          "title": "Taalunie — Algemene Nederlandse Spraakkunst",
+          "url": "https://e-ans.ivdnt.org/"
+        }
+      ],
+      "drills": [
+        {
+          "sentence": "Als ik rijk was, {{answer}} ik de wereld rondreizen.",
+          "answer": "zou",
+          "translation": "If I were rich, I would travel the world.",
+          "hint": "the would-auxiliary",
+          "display_order": 1
+        },
+        {
+          "sentence": "Als het morgen {{answer}}, gaan we naar het strand.",
+          "answer": "zonnig is",
+          "translation": "If it is sunny tomorrow, we'll go to the beach.",
+          "hint": "adjective + verb-final 'is'",
+          "display_order": 2
+        },
+        {
+          "sentence": "Als ik het {{answer}} geweten, was ik gekomen.",
+          "answer": "had",
+          "translation": "If I had known, I would have come.",
+          "hint": "past-perfect in the if-clause",
+          "display_order": 3
+        },
+        {
+          "sentence": "Wat zou je doen als je de loterij {{answer}} winnen?",
+          "answer": "zou",
+          "translation": "What would you do if you were to win the lottery?",
+          "hint": "hypothetical marker in the als-clause",
+          "display_order": 4
+        },
+        {
+          "sentence": "Als je harder had gewerkt, {{answer}} je geslaagd.",
+          "answer": "was",
+          "translation": "If you had worked harder, you would have passed.",
+          "hint": "zijn-past as the result auxiliary",
+          "display_order": 5
+        },
+        {
+          "sentence": "{{answer}} het regent, dan blijven we binnen.",
+          "answer": "Als",
+          "translation": "If it rains, then we stay inside.",
+          "hint": "the if-word",
+          "display_order": 6
+        }
+      ]
+    },
+    {
+      "title": "Register: u-space, je-space, and writing",
+      "level": "C1",
+      "function": "Choose the right distance",
+      "source": "ai",
+      "reviewed": false,
+      "display_order": 1,
+      "explanation": "The Netherlands went largely informal — colleagues, shops, and ads say je; u survives for elders, officials, first contacts, and formal letters (Geachte heer/mevrouw … Met vriendelijke groet). Flanders keeps u warmer and longer. Switching too early ('tutoyeren') can sting; offering the switch is a small ritual: Zeg maar je, hoor.",
+      "references": [
+        {
+          "title": "Taalunie — Algemene Nederlandse Spraakkunst",
+          "url": "https://e-ans.ivdnt.org/"
+        },
+        {
+          "title": "Wikipedia: Dutch grammar",
+          "url": "https://en.wikipedia.org/wiki/Dutch_grammar"
+        }
+      ],
+      "drills": [
+        {
+          "sentence": "{{answer}} heer De Vries, — zo opent een formele brief.",
+          "answer": "Geachte",
+          "translation": "Dear Mr De Vries, — the formal letter opening.",
+          "hint": "the formal salutation",
+          "display_order": 1
+        },
+        {
+          "sentence": "Met vriendelijke {{answer}} — de standaardafsluiting.",
+          "answer": "groet",
+          "translation": "With kind regards — the standard sign-off.",
+          "hint": "the closing noun",
+          "display_order": 2
+        },
+        {
+          "sentence": "Tegen een oudere klant zeg je {{answer}}, geen je.",
+          "answer": "u",
+          "translation": "To an older customer you say u, not je.",
+          "hint": "the polite pronoun",
+          "display_order": 3
+        },
+        {
+          "sentence": "Zeg maar {{answer}}, hoor.",
+          "answer": "je",
+          "translation": "Feel free to use the informal you.",
+          "hint": "the informal pronoun being offered",
+          "display_order": 4
+        },
+        {
+          "sentence": "In Vlaanderen blijft {{answer}} langer gebruikelijk.",
+          "answer": "u",
+          "translation": "In Flanders, u stays customary longer.",
+          "hint": "the formal pronoun",
+          "display_order": 5
+        },
+        {
+          "sentence": "Onder collega's is {{answer}} tegenwoordig normaal.",
+          "answer": "je",
+          "translation": "Among colleagues, informal you is normal nowadays.",
+          "hint": "informal",
+          "display_order": 6
+        }
+      ]
+    },
+    {
+      "title": "Nominalization: het + infinitive, -heid, ge-",
+      "level": "C1",
+      "function": "Turn actions into things",
+      "source": "ai",
+      "reviewed": false,
+      "display_order": 2,
+      "explanation": "Any infinitive nominalizes with het: het reizen (travelling), het leren van een taal. -heid builds qualities: vrijheid (freedom), snelheid. ge- + stem makes (often annoyed) activity nouns: dat gepraat (all that talking), het geloop. Formal prose leans on these; conversation prefers verbs.",
+      "references": [
+        {
+          "title": "Taalunie — Algemene Nederlandse Spraakkunst",
+          "url": "https://e-ans.ivdnt.org/"
+        },
+        {
+          "title": "Wikipedia: Dutch grammar",
+          "url": "https://en.wikipedia.org/wiki/Dutch_grammar"
+        }
+      ],
+      "drills": [
+        {
+          "sentence": "{{answer}} reizen verbreedt de blik.",
+          "answer": "Het",
+          "translation": "Travelling broadens the mind.",
+          "hint": "the article that nominalizes",
+          "display_order": 1
+        },
+        {
+          "sentence": "Vrij{{answer}} is een groot goed.",
+          "answer": "heid",
+          "translation": "Freedom is a precious thing.",
+          "hint": "the quality suffix",
+          "display_order": 2
+        },
+        {
+          "sentence": "Ik word gek van dat {{answer}}!",
+          "answer": "gepraat",
+          "translation": "All that talking is driving me mad!",
+          "hint": "ge- + stem, irritated",
+          "display_order": 3
+        },
+        {
+          "sentence": "De snel{{answer}} van het antwoord verbaasde me.",
+          "answer": "heid",
+          "translation": "The speed of the reply surprised me.",
+          "hint": "quality suffix",
+          "display_order": 4
+        },
+        {
+          "sentence": "{{answer}} leren van talen kost tijd.",
+          "answer": "Het",
+          "translation": "Learning languages takes time.",
+          "hint": "nominalizing article",
+          "display_order": 5
+        },
+        {
+          "sentence": "Dat eeuwige {{answer}} in de gangen stoort iedereen.",
+          "answer": "geloop",
+          "translation": "That endless walking about in the corridors bothers everyone.",
+          "hint": "ge-noun of lopen",
+          "display_order": 6
+        }
+      ]
+    },
+    {
+      "title": "The tang: brackets around the sentence",
+      "level": "C1",
+      "function": "Dutch sentences close like pincers — master the frame",
+      "source": "ai",
+      "reviewed": false,
+      "display_order": 3,
+      "explanation": "The conjugated verb (position 2) and everything verbal at the end form a 'tang' (pincer) that brackets the middle: Ik heb gisteren met mijn moeder over de vakantie gebeld. Long middles are fine; breaking the bracket is not. Exception — extraposition: prepositional phrases may follow the end-verb (…gebeld over de vakantie), which relaxed prose uses for breath.",
+      "references": [
+        {
+          "title": "Taalunie — Algemene Nederlandse Spraakkunst",
+          "url": "https://e-ans.ivdnt.org/"
+        },
+        {
+          "title": "Wikipedia: Dutch grammar",
+          "url": "https://en.wikipedia.org/wiki/Dutch_grammar"
+        }
+      ],
+      "drills": [
+        {
+          "sentence": "Ik heb gisteren de hele dag aan mijn scriptie {{answer}}.",
+          "answer": "gewerkt",
+          "translation": "I worked on my thesis all day yesterday.",
+          "hint": "the participle closes the pincer",
+          "display_order": 1
+        },
+        {
+          "sentence": "Zij wil volgend jaar in Amsterdam gaan {{answer}}.",
+          "answer": "studeren",
+          "translation": "She wants to go study in Amsterdam next year.",
+          "hint": "infinitive chain at the close",
+          "display_order": 2
+        },
+        {
+          "sentence": "Hij heeft ons gisteren pas over het plan {{answer}}.",
+          "answer": "verteld",
+          "translation": "He only told us about the plan yesterday.",
+          "hint": "participle at the close",
+          "display_order": 3
+        },
+        {
+          "sentence": "Ik moet morgen vroeg naar het station {{answer}}.",
+          "answer": "vertrekken",
+          "translation": "I have to leave for the station early tomorrow.",
+          "hint": "infinitive closes",
+          "display_order": 4
+        },
+        {
+          "sentence": "Wij hebben lang op de uitslag {{answer}}.",
+          "answer": "gewacht",
+          "translation": "We waited a long time for the result.",
+          "hint": "participle closes",
+          "display_order": 5
+        },
+        {
+          "sentence": "Ze heeft de kinderen naar school {{answer}}.",
+          "answer": "gebracht",
+          "translation": "She took the children to school.",
+          "hint": "participle of brengen",
+          "display_order": 6
+        }
+      ]
+    },
+    {
+      "title": "Posture verbs as 'to be': staan, liggen, zitten",
+      "level": "C1",
+      "function": "Where English says 'is', Dutch says stands, lies, or sits",
+      "source": "ai",
+      "reviewed": false,
+      "display_order": 4,
+      "explanation": "Dutch locates things by posture: De fles staat op tafel (bottle stands — upright), Het boek ligt op tafel (lies — flat), De sleutels zitten in mijn zak (sit — contained). Hangen for hanging things, lopen for ongoing processes (Het loopt goed). Using zijn instead is grammatical but instantly foreign.",
+      "references": [
+        {
+          "title": "Taalunie — Algemene Nederlandse Spraakkunst",
+          "url": "https://e-ans.ivdnt.org/"
+        },
+        {
+          "title": "Wikipedia: Dutch grammar",
+          "url": "https://en.wikipedia.org/wiki/Dutch_grammar"
+        }
+      ],
+      "paradigm": [
+        "staan",
+        "liggen",
+        "zitten"
+      ],
+      "drills": [
+        {
+          "sentence": "De fles {{answer}} op tafel.",
+          "answer": "staat",
+          "translation": "The bottle is (standing) on the table.",
+          "hint": "upright things",
+          "display_order": 1,
+          "cell": "staan"
+        },
+        {
+          "sentence": "De vaas {{answer}} op de kast.",
+          "answer": "staat",
+          "translation": "The vase is on the cupboard.",
+          "hint": "upright",
+          "display_order": 2,
+          "cell": "staan"
+        },
+        {
+          "sentence": "De krant {{answer}} op de mat.",
+          "answer": "ligt",
+          "translation": "The newspaper is (lying) on the doormat.",
+          "hint": "flat things",
+          "display_order": 3,
+          "cell": "liggen"
+        },
+        {
+          "sentence": "Amsterdam {{answer}} aan het IJ.",
+          "answer": "ligt",
+          "translation": "Amsterdam lies on the IJ.",
+          "hint": "cities lie",
+          "display_order": 4,
+          "cell": "liggen"
+        },
+        {
+          "sentence": "De sleutels {{answer}} in mijn jaszak.",
+          "answer": "zitten",
+          "translation": "The keys are in my coat pocket.",
+          "hint": "contained things",
+          "display_order": 5,
+          "cell": "zitten"
+        },
+        {
+          "sentence": "Er {{answer}} een gat in mijn sok.",
+          "answer": "zit",
+          "translation": "There is a hole in my sock.",
+          "hint": "contained",
+          "display_order": 6,
+          "cell": "zitten"
+        }
+      ]
+    },
+    {
+      "title": "Netherlands vs Flanders: one language, two flavours",
+      "level": "C2",
+      "function": "Read both sides of the border",
+      "source": "ai",
+      "reviewed": false,
+      "display_order": 1,
+      "explanation": "Standard Dutch is shared; flavour differs. Belgian Dutch keeps ge/gij (you) colloquially, prefers u warmth, and has its own lexicon: goesting (zin — desire), plezant (leuk), hesp (ham), proper (schoon — clean); 'schoon' itself means BEAUTIFUL in Flanders. Pronunciation is softer (the 'zachte g'). Official register ('VRT-Nederlands') aligns with the north, but tussentaal — the in-between — rules Flemish daily life.",
+      "references": [
+        {
+          "title": "Taalunie — Algemene Nederlandse Spraakkunst",
+          "url": "https://e-ans.ivdnt.org/"
+        },
+        {
+          "title": "Wikipedia: Dutch grammar",
+          "url": "https://en.wikipedia.org/wiki/Dutch_grammar"
+        }
+      ],
+      "drills": [
+        {
+          "sentence": "Vlaams voor 'zin': Ik heb {{answer}} in frieten.",
+          "answer": "goesting",
+          "translation": "Flemish for 'desire': I fancy fries.",
+          "hint": "the Flemish craving word",
+          "display_order": 1
+        },
+        {
+          "sentence": "Vlaams informeel 'jij': {{answer}} zijt gij daar?",
+          "answer": "Wat",
+          "translation": "Flemish informal: What are you doing there?",
+          "hint": "the question word — note zijt gij",
+          "display_order": 2
+        },
+        {
+          "sentence": "'Dat is {{answer}}!' — zegt een Vlaming over iets moois.",
+          "answer": "schoon",
+          "translation": "'That is beautiful!' — as a Fleming says it.",
+          "hint": "means clean up north, beautiful down south",
+          "display_order": 3
+        },
+        {
+          "sentence": "Vlaams voor 'leuk': een {{answer}} avond.",
+          "answer": "plezante",
+          "translation": "Flemish for 'fun': a fun evening.",
+          "hint": "with the adjective -e",
+          "display_order": 4
+        },
+        {
+          "sentence": "Vlaams voor 'ham': een boterham met {{answer}}.",
+          "answer": "hesp",
+          "translation": "Flemish for 'ham': a sandwich with ham.",
+          "hint": "the Belgian word",
+          "display_order": 5
+        },
+        {
+          "sentence": "De zachte {{answer}} kleurt het zuidelijke accent.",
+          "answer": "g",
+          "translation": "The 'soft g' colours the southern accent.",
+          "hint": "one letter",
+          "display_order": 6
+        }
+      ]
+    },
+    {
+      "title": "Fossils: der, des, te allen tijde",
+      "level": "C2",
+      "function": "Read the case endings Dutch officially buried",
+      "source": "ai",
+      "reviewed": false,
+      "display_order": 2,
+      "explanation": "Dutch dropped its case system, but fossils walk the streets: genitives — de heer des huizes (the master of the house), de loop der dingen (the course of things), 's ochtends (= des ochtends, in the morning); datives in fixed phrases — te allen tijde (at all times), ten slotte, ter plaatse. Productive only in high style and irony; obligatory in reading.",
+      "references": [
+        {
+          "title": "Taalunie — Algemene Nederlandse Spraakkunst",
+          "url": "https://e-ans.ivdnt.org/"
+        },
+        {
+          "title": "Wikipedia: Dutch grammar",
+          "url": "https://en.wikipedia.org/wiki/Dutch_grammar"
+        }
+      ],
+      "drills": [
+        {
+          "sentence": "De loop {{answer}} dingen — zo gaat het leven.",
+          "answer": "der",
+          "translation": "The course of things — such is life.",
+          "hint": "fossil genitive article (fem./pl.)",
+          "display_order": 1
+        },
+        {
+          "sentence": "{{answer}} ochtends drink ik koffie.",
+          "answer": "'s",
+          "translation": "In the morning I drink coffee.",
+          "hint": "the clitic remnant of des",
+          "display_order": 2
+        },
+        {
+          "sentence": "Te {{answer}} tijde bereikbaar.",
+          "answer": "allen",
+          "translation": "Reachable at all times.",
+          "hint": "dative fossil after te",
+          "display_order": 3
+        },
+        {
+          "sentence": "{{answer}} slotte wil ik u bedanken.",
+          "answer": "Ten",
+          "translation": "Finally, I want to thank you.",
+          "hint": "te + den fused",
+          "display_order": 4
+        },
+        {
+          "sentence": "De heer {{answer}} huizes opent de deur.",
+          "answer": "des",
+          "translation": "The master of the house opens the door.",
+          "hint": "fossil genitive article (masc./neut.)",
+          "display_order": 5
+        },
+        {
+          "sentence": "Het onderzoek gebeurt {{answer}} plaatse.",
+          "answer": "ter",
+          "translation": "The investigation happens on site.",
+          "hint": "te + der fused",
+          "display_order": 6
+        }
+      ]
+    }
+  ]
+}

@@ -54,6 +54,10 @@ const THEMES: Record<string, LanguageTheme> = {
   hi: { primary: '#FF9933', dark: '#CC6E1F', accent: '#138808', soft: '#FFF3E6', on: '#1F2937', emoji: '🇮🇳', darkText: true },
   // Jamaica: gold field, green primary, black accent (draft tier).
   jam: { primary: '#009B3A', dark: '#00752C', accent: '#000000', soft: '#E5F5EC', on: '#FFFFFF', emoji: '🇯🇲' },
+  // The Netherlands: national oranje with the flag's cobalt as accent.
+  nl: { primary: '#FF7900', dark: '#C25B00', accent: '#21468B', soft: '#FFF1E3', on: '#FFFFFF', emoji: '🇳🇱' },
+  // Thailand: flag crimson with the central navy band as accent.
+  th: { primary: '#A51931', dark: '#7A1224', accent: '#2D2A4A', soft: '#F8E8EB', on: '#FFFFFF', emoji: '🇹🇭' },
 }
 
 const FALLBACK: LanguageTheme = {
