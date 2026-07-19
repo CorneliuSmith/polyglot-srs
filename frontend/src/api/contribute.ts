@@ -134,6 +134,31 @@ export interface Engagement {
   top_languages: { code: string; name: string; learners: number; cards: number }[]
 }
 
+export interface TranslationReview {
+  id: string
+  locale: string
+  word: string
+  proposed: string | null
+  reason: string | null
+  current_definition: string | null
+  created_at: string | null
+}
+
+export async function getTranslationReviews(): Promise<TranslationReview[]> {
+  const response = await apiClient.get<{ reviews: TranslationReview[] }>(
+    '/api/contribute/translation-reviews',
+  )
+  return response.data.reviews
+}
+
+export async function approveTranslationReview(id: string): Promise<void> {
+  await apiClient.post(`/api/contribute/translation-reviews/${id}/approve`)
+}
+
+export async function rejectTranslationReview(id: string): Promise<void> {
+  await apiClient.post(`/api/contribute/translation-reviews/${id}/reject`)
+}
+
 export async function getEngagement(days = 30): Promise<Engagement> {
   const response = await apiClient.get('/api/contribute/engagement', {
     params: { days },
