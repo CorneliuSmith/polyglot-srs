@@ -84,7 +84,9 @@ export default function OnboardingPage() {
       completeOnboarding({ languageId: language!.id, level, planScope }),
     onSuccess: () => {
       setActiveLanguageId(language!.id)
-      navigate('/', { replace: true })
+      // Land on the toolkit walkthrough, not the bare dashboard — new
+      // accounts had no idea the tutor/reader/letters existed.
+      navigate('/welcome', { replace: true })
     },
   })
 

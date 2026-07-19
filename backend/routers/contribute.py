@@ -9,6 +9,7 @@ from __future__ import annotations
 
 import logging
 import re
+import uuid
 from datetime import UTC, datetime, timedelta
 
 from fastapi import APIRouter, Depends, HTTPException, status
@@ -19,6 +20,7 @@ from backend.repositories.contributor import (
     add_drill,
     add_review_note,
     admin_engagement,
+    admin_engagement_user_detail,
     admin_engagement_users,
     approve_explanation,
     approve_suggestion,
@@ -288,6 +290,26 @@ async def engagement_users(
     days = max(1, min(days, 365))
     async with privileged_connection() as conn:
         return {"users": await admin_engagement_users(conn, days)}
+
+
+@router.get("/engagement/users/{user_id}")
+async def engagement_user_detail(
+    user_id: str,
+    days: int = 30,
+    user: dict = Depends(get_current_user),
+):
+    """Per-language breakdown for one account (admin-only) — the expanded
+    view under a row in the engagement users table."""
+    await _require_admin(user["id"])
+    try:
+        uuid.UUID(user_id)
+    except ValueError as exc:
+        raise HTTPException(status_code=422, detail="Invalid user id") from exc
+    days = max(1, min(days, 365))
+    async with privileged_connection() as conn:
+        return {
+            "languages": await admin_engagement_user_detail(conn, user_id, days)
+        }
 
 
 @router.put("/grammar/{point_id}")

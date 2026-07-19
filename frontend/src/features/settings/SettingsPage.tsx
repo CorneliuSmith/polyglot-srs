@@ -278,6 +278,21 @@ export default function SettingsPage() {
         </section>
 
         <section className="bg-white rounded-2xl shadow-sm border border-gray-100 p-5 space-y-3">
+          <h2 className="font-semibold text-gray-800">New here?</h2>
+          <p className="text-sm text-gray-600">
+            A one-card-per-feature tour of everything in the app.
+          </p>
+          <button
+            type="button"
+            onClick={() => navigate('/welcome')}
+            className="rounded-xl border border-gray-300 px-4 py-2 text-sm text-gray-700 hover:bg-gray-50"
+            style={{ minHeight: '44px' }}
+          >
+            Show me around
+          </button>
+        </section>
+
+        <section className="bg-white rounded-2xl shadow-sm border border-gray-100 p-5 space-y-3">
           <h2 className="font-semibold text-gray-800">Plan</h2>
           <p className="text-sm text-gray-600">
             {profile?.plan_scope === 'single'

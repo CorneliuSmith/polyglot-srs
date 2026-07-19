@@ -988,6 +988,60 @@ async def admin_engagement_users(
     ]
 
 
+async def admin_engagement_user_detail(
+    conn: asyncpg.Connection, user_id: str, days: int = 30
+) -> list[dict]:
+    """Per-language activity for ONE account (privileged conn) — what an
+    admin sees when they expand a row in the engagement users table.
+    review_log carries no language_id, so reviews route through the card.
+    """
+    rows = await conn.fetch(
+        """
+        SELECT l.code, l.name,
+          (SELECT count(*) FROM user_cards uc
+            WHERE uc.user_id = $1 AND uc.language_id = l.id) AS cards_total,
+          (SELECT count(*) FROM review_log rl
+            JOIN user_cards uc2 ON uc2.id = rl.card_id
+            WHERE rl.user_id = $1 AND uc2.language_id = l.id
+              AND rl.created_at > now() - make_interval(days => $2)) AS reviews,
+          (SELECT COALESCE(sum(rl.time_taken_ms), 0) FROM review_log rl
+            JOIN user_cards uc2 ON uc2.id = rl.card_id
+            WHERE rl.user_id = $1 AND uc2.language_id = l.id
+              AND rl.created_at > now() - make_interval(days => $2)) AS review_ms,
+          (SELECT count(*) FROM tutor_usage tu
+            WHERE tu.user_id = $1 AND tu.language_id = l.id
+              AND tu.created_at > now() - make_interval(days => $2)) AS tutor_messages,
+          (SELECT count(*) FROM readings r
+            WHERE r.user_id = $1 AND r.language_id = l.id
+              AND r.created_at > now() - make_interval(days => $2)) AS readings,
+          (SELECT max(uc3.last_review) FROM user_cards uc3
+            WHERE uc3.user_id = $1 AND uc3.language_id = l.id) AS last_review
+        FROM languages l
+        WHERE EXISTS (SELECT 1 FROM user_cards uc0
+                       WHERE uc0.user_id = $1 AND uc0.language_id = l.id)
+           OR EXISTS (SELECT 1 FROM tutor_usage tu0
+                       WHERE tu0.user_id = $1 AND tu0.language_id = l.id)
+           OR EXISTS (SELECT 1 FROM readings r0
+                       WHERE r0.user_id = $1 AND r0.language_id = l.id)
+        ORDER BY cards_total DESC
+        """,
+        user_id, days,
+    )
+    return [
+        {
+            "code": r["code"],
+            "name": r["name"],
+            "cards_total": r["cards_total"],
+            "reviews": r["reviews"],
+            "review_minutes": round((r["review_ms"] or 0) / 60_000),
+            "tutor_messages": r["tutor_messages"],
+            "readings": r["readings"],
+            "last_review": r["last_review"].isoformat() if r["last_review"] else None,
+        }
+        for r in rows
+    ]
+
+
 # ── Translation review queue (what the AI maker-checker wouldn't apply) ───
 async def list_translation_reviews(
     conn: asyncpg.Connection, status_filter: str = "pending"

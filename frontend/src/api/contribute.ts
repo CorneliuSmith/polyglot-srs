@@ -156,6 +156,28 @@ export async function getEngagementUsers(days = 30): Promise<EngagementUser[]> {
   return response.data.users
 }
 
+export interface EngagementUserLanguage {
+  code: string
+  name: string
+  cards_total: number
+  reviews: number
+  review_minutes: number
+  tutor_messages: number
+  readings: number
+  last_review: string | null
+}
+
+export async function getEngagementUserDetail(
+  userId: string,
+  days = 30,
+): Promise<EngagementUserLanguage[]> {
+  const response = await apiClient.get<{ languages: EngagementUserLanguage[] }>(
+    `/api/contribute/engagement/users/${userId}`,
+    { params: { days } },
+  )
+  return response.data.languages
+}
+
 export interface TranslationReview {
   id: string
   locale: string

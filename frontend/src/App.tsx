@@ -16,6 +16,7 @@ import ReaderPage from './features/reader/ReaderPage'
 import LettersPage from './features/letters/LettersPage'
 import NotesPage from './features/notes/NotesPage'
 import OnboardingPage from './features/onboarding/OnboardingPage'
+import WelcomePage from './features/onboarding/WelcomePage'
 import SettingsPage from './features/settings/SettingsPage'
 import GrammarPathPage from './features/curriculum/GrammarPathPage'
 import ContributorPage from './features/contribute/ContributorPage'
@@ -66,6 +67,7 @@ const router = createBrowserRouter([
     children: [
       { path: '/', element: <DashboardPage /> },
       { path: '/onboarding', element: <OnboardingPage /> },
+      { path: '/welcome', element: <WelcomePage /> },
       { path: '/settings', element: <SettingsPage /> },
       { path: '/account', element: <SettingsPage /> },
       { path: '/grammar', element: <GrammarPathPage /> },
