@@ -1,4 +1,6 @@
+import { useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
+import { usePrefsStore } from '../../stores/prefsStore'
 
 /** Post-placement walkthrough (beta request: "nothing popped up showing
  * the tools available"). One card per area of the app, each tappable.
@@ -57,6 +59,14 @@ const TOOLS: {
 
 export default function WelcomePage() {
   const navigate = useNavigate()
+  const setWalkthroughDone = usePrefsStore((s) => s.setWalkthroughDone)
+
+  // This page IS the tour — don't also auto-open the slide modal the
+  // dashboard shows to first-time accounts, or new users get two tours
+  // back to back.
+  useEffect(() => {
+    setWalkthroughDone(true)
+  }, [setWalkthroughDone])
 
   return (
     <div className="min-h-screen bg-gray-50">

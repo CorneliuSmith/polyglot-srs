@@ -234,10 +234,25 @@ async def get_dashboard_stats(
         for i in range(7)
     ]
 
+    # -- Learned today (daily goal) ------------------------------------------
+    # New cards started since UTC midnight — the Learn tile shows progress
+    # toward a small daily goal instead of the whole queue count.
+    learned_today = await conn.fetchval(
+        """
+        SELECT COUNT(*) FROM user_cards
+        WHERE user_id = $1
+          AND language_id = $2
+          AND created_at AT TIME ZONE 'UTC' >= DATE(now() AT TIME ZONE 'UTC')
+        """,
+        user_id,
+        language_id,
+    )
+
     return {
         "due_count": due_count,
         "due_grammar": due_grammar,
         "due_vocab": due_count - due_grammar,
+        "learned_today": int(learned_today or 0),
         "streak_days": streak_days,
         "cefr_progress": cefr_progress,
         "forecast": forecast,

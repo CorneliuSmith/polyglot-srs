@@ -193,6 +193,8 @@ export interface DashboardStats {
   /** grammar + vocab always sum to due_count (personal cards count as vocab) */
   due_grammar: number
   due_vocab: number
+  /** new cards started since UTC midnight — drives the daily learn goal */
+  learned_today: number
   streak_days: number
   cefr_progress: Record<string, CEFRLevelProgress>
   forecast: ForecastDay[]
