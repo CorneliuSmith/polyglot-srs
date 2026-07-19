@@ -26,13 +26,16 @@ import type { KeyboardLanguage } from '../keyboards/OnScreenKeyboard'
  * ever submitted — no FSRS update, no review log, no ghosts.
  */
 export default function ReviewSessionPage({ cram = false }: { cram?: boolean }) {
-  // Changing the translation language mid-session restarts the session
-  // with freshly localized cards — the key remount resets every piece of
-  // session state (index, results, requeue) in one move.
+  // Changing the translation language — or the ACTIVE language (beta bug:
+  // a session started in English kept serving English cards under a
+  // "Swahili" label) — restarts the session with fresh cards. The key
+  // remount resets every piece of session state (index, results, requeue)
+  // in one move.
   const [epoch, setEpoch] = useState(0)
+  const activeLanguageId = usePrefsStore((s) => s.activeLanguageId)
   return (
     <ReviewSessionInner
-      key={epoch}
+      key={`${activeLanguageId ?? 'none'}:${epoch}`}
       cram={cram}
       onLocaleChanged={() => setEpoch((e) => e + 1)}
     />
