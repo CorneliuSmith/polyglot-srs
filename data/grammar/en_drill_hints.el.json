@@ -1,0 +1,360 @@
+{
+  "language": "en",
+  "locale": "el",
+  "reviewed": false,
+  "_note": "Hints and faithful sentence translations for ENGLISH drills, shown to learners whose support locale is Greek. The hint names the expected English word (kept in English) with a Greek cue; the translation renders the completed sentence in natural Greek.",
+  "points": {
+    "Past simple — irregular verbs": {
+      "Yesterday I {{answer}} to the market.": {"hint": "go — αόριστος", "translation": "Χθες πήγα στην αγορά."},
+      "She {{answer}} a great film last night.": {"hint": "see — αόριστος", "translation": "Χθες το βράδυ είδε μια υπέροχη ταινία."},
+      "We {{answer}} a new car in March.": {"hint": "buy — αόριστος", "translation": "Τον Μάρτιο αγοράσαμε καινούργιο αυτοκίνητο."},
+      "He {{answer}} the early train this morning.": {"hint": "take — αόριστος", "translation": "Σήμερα το πρωί πήρε το πρωινό τρένο."},
+      "They {{answer}} home very late.": {"hint": "come — αόριστος", "translation": "Γύρισαν σπίτι πολύ αργά."},
+      "I {{answer}} breakfast at seven.": {"hint": "eat — αόριστος", "translation": "Πήρα πρωινό στις επτά."}
+    },
+    "Present continuous vs present simple": {
+      "Quiet, please — the baby {{answer}} sleeping.": {"hint": "be — τρίτο πρόσωπο", "translation": "Ησυχία, παρακαλώ — το μωρό κοιμάται τώρα."},
+      "She {{answer}} to work by bike every day.": {"hint": "go — συνήθεια, αυτή", "translation": "Πηγαίνει στη δουλειά με ποδήλατο κάθε μέρα."},
+      "I'm {{answer}} for my keys at the moment.": {"hint": "look — εξακολουθητική μορφή", "translation": "Ψάχνω τα κλειδιά μου αυτή τη στιγμή."},
+      "Water {{answer}} at 100 degrees.": {"hint": "boil — γενική αλήθεια, it", "translation": "Το νερό βράζει στους 100 βαθμούς."},
+      "They {{answer}} watching TV right now.": {"hint": "be — αυτοί", "translation": "Βλέπουν τηλεόραση αυτή τη στιγμή."},
+      "He usually {{answer}} coffee, not tea.": {"hint": "drink — συνήθεια, αυτός", "translation": "Συνήθως πίνει καφέ, όχι τσάι."}
+    },
+    "Comparatives and superlatives": {
+      "This bag is {{answer}} than that one.": {"hint": "cheap — συγκριτικός", "translation": "Αυτή η τσάντα είναι φθηνότερη από εκείνη."},
+      "It's the {{answer}} building in the city.": {"hint": "tall — υπερθετικός", "translation": "Είναι το ψηλότερο κτίριο της πόλης."},
+      "Her English is {{answer}} than mine.": {"hint": "good — συγκριτικός", "translation": "Τα αγγλικά της είναι καλύτερα από τα δικά μου."},
+      "That was the {{answer}} meal I've ever had.": {"hint": "bad — υπερθετικός", "translation": "Ήταν το χειρότερο γεύμα της ζωής μου."},
+      "This exercise is {{answer}} difficult than the last.": {"hint": "η λέξη πριν από τα μακριά επίθετα", "translation": "Αυτή η άσκηση είναι πιο δύσκολη από την προηγούμενη."},
+      "The station is {{answer}} than I thought.": {"hint": "far — συγκριτικός", "translation": "Ο σταθμός είναι πιο μακριά απ' ό,τι νόμιζα."}
+    },
+    "Going to and will": {
+      "We're {{answer}} to visit Rome in May.": {"hint": "το μέλλον των αποφασισμένων σχεδίων", "translation": "Θα επισκεφτούμε τη Ρώμη τον Μάιο."},
+      "Don't worry — I {{answer}} help you.": {"hint": "απόφαση της στιγμής", "translation": "Μην ανησυχείς — θα σε βοηθήσω."},
+      "Look at those clouds! It's going to {{answer}}.": {"hint": "καιρός βροχής", "translation": "Κοίτα τα σύννεφα! Θα βρέξει."},
+      "I think she {{answer}} pass the exam.": {"hint": "η λέξη των προβλέψεων", "translation": "Νομίζω ότι θα περάσει τις εξετάσεις."},
+      "They're going {{answer}} move house next year.": {"hint": "το μόριο μετά το going", "translation": "Του χρόνου θα μετακομίσουν."},
+      "I'm tired — I {{answer}} go to bed.": {"hint": "συνηρημένη μορφή του άμεσου μέλλοντα", "translation": "Είμαι κουρασμένος — πάω για ύπνο."}
+    },
+    "Some, any, much, many": {
+      "There's {{answer}} milk in the fridge.": {"hint": "ποσοδείκτης των καταφατικών προτάσεων", "translation": "Υπάρχει λίγο γάλα στο ψυγείο."},
+      "We don't have {{answer}} eggs left.": {"hint": "ποσοδείκτης των αρνητικών προτάσεων", "translation": "Δεν μας έχουν μείνει αυγά."},
+      "Do you have {{answer}} questions?": {"hint": "ποσοδείκτης των ερωτήσεων", "translation": "Έχετε ερωτήσεις;"},
+      "How {{answer}} money do you need?": {"hint": "με τα μη αριθμήσιμα", "translation": "Πόσα χρήματα χρειάζεσαι;"},
+      "How {{answer}} people are coming?": {"hint": "με τα αριθμήσιμα", "translation": "Πόσοι άνθρωποι θα έρθουν;"},
+      "Would you like {{answer}} tea?": {"hint": "ποσοδείκτης των προσφορών", "translation": "Θα θέλατε λίγο τσάι;"}
+    },
+    "Adverbs of frequency": {
+      "I {{answer}} drink coffee in the morning — every single day.": {"hint": "η λέξη του «κάθε φορά»", "translation": "Πίνω πάντα καφέ το πρωί — κυριολεκτικά κάθε μέρα."},
+      "He is {{answer}} late — it drives me crazy.": {"hint": "η λέξη του «κάθε φορά»", "translation": "Πάντα αργεί — με τρελαίνει."},
+      "We {{answer}} go out on Fridays — maybe once a month.": {"hint": "η λέξη του «πού και πού»", "translation": "Καμιά φορά βγαίνουμε τις Παρασκευές — ίσως μία φορά τον μήνα."},
+      "She {{answer}} eats meat — she's almost vegetarian.": {"hint": "η λέξη του «σχεδόν ποτέ»", "translation": "Σπάνια τρώει κρέας — είναι σχεδόν χορτοφάγος."},
+      "I have {{answer}} been to Japan, but I'd love to go.": {"hint": "η λέξη του «μηδέν φορές»", "translation": "Δεν έχω πάει ποτέ στην Ιαπωνία, αλλά θα το ήθελα πολύ."},
+      "They {{answer}} visit us at Christmas — most years.": {"hint": "η λέξη του «συνήθως»", "translation": "Συνήθως μας επισκέπτονται τα Χριστούγεννα — σχεδόν κάθε χρόνο."},
+      "We {{answer}} eat out on Fridays.": {"hint": "συχνά — ανάμεσα στο 'sometimes' και το 'always'", "translation": "Τις Παρασκευές τρώμε συχνά έξω."}
+    },
+    "Can, could, have to": {
+      "She {{answer}} speak three languages.": {"hint": "η λέξη της ικανότητας", "translation": "Μπορεί να μιλήσει τρεις γλώσσες."},
+      "{{answer}} you open the window, please?": {"hint": "η λέξη της ευγενικής παράκλησης", "translation": "Θα μπορούσατε να ανοίξετε το παράθυρο, παρακαλώ;"},
+      "I {{answer}} to wear a uniform at work.": {"hint": "το ρήμα της υποχρέωσης", "translation": "Πρέπει να φοράω στολή στη δουλειά."},
+      "When I was five, I {{answer}} already read.": {"hint": "η λέξη της ικανότητας — αόριστος", "translation": "Στα πέντε μου ήξερα ήδη να διαβάζω."},
+      "You don't {{answer}} to come if you're busy.": {"hint": "το ρήμα της υποχρέωσης", "translation": "Δεν χρειάζεται να έρθεις αν είσαι απασχολημένος."},
+      "{{answer}} I sit here? — Of course.": {"hint": "η λέξη της άδειας", "translation": "Μπορώ να καθίσω εδώ; — Φυσικά."}
+    },
+    "Prepositions of time: in, on, at": {
+      "The meeting starts {{answer}} nine o'clock.": {"hint": "πρόθεση της ακριβούς ώρας", "translation": "Η συνάντηση αρχίζει στις εννέα."},
+      "I was born {{answer}} 1998.": {"hint": "πρόθεση των μεγάλων περιόδων", "translation": "Γεννήθηκα το 1998."},
+      "We're leaving {{answer}} Friday.": {"hint": "πρόθεση των ημερών", "translation": "Φεύγουμε την Παρασκευή."},
+      "She works best {{answer}} the morning.": {"hint": "πρόθεση των μεγάλων περιόδων", "translation": "Δουλεύει καλύτερα το πρωί."},
+      "My birthday is {{answer}} 12 March.": {"hint": "πρόθεση των ημερομηνιών", "translation": "Τα γενέθλιά μου είναι στις 12 Μαρτίου."},
+      "He often studies {{answer}} night.": {"hint": "η πάγια πρόθεση με το night", "translation": "Συχνά διαβάζει τη νύχτα."}
+    },
+    "Subject pronouns (I, you, he…)": {
+      "{{answer}} am from Brazil.": {"hint": "αυτός που μιλάει — πάντα με κεφαλαίο", "translation": "Εγώ είμαι από τη Βραζιλία."},
+      "{{answer}} is my sister.": {"hint": "μια γυναίκα", "translation": "Αυτή είναι η αδερφή μου."},
+      "{{answer}} are students.": {"hint": "αυτός που μιλάει + άλλοι", "translation": "Εμείς είμαστε φοιτητές."},
+      "{{answer}} is my father.": {"hint": "ένας άντρας", "translation": "Αυτός είναι ο πατέρας μου."},
+      "{{answer}} is on the table.": {"hint": "ένα πράγμα", "translation": "Είναι πάνω στο τραπέζι."},
+      "{{answer}} are very kind.": {"hint": "το πρόσωπο με το οποίο μιλάς", "translation": "Είσαι πολύ ευγενικός. / Είστε πολύ ευγενικοί."},
+      "{{answer}} are my friends.": {"hint": "πολλά πρόσωπα — «αυτοί»", "translation": "Αυτοί είναι οι φίλοι μου."}
+    },
+    "To be — am / is / are": {
+      "I {{answer}} a student.": {"hint": "be — με το I", "translation": "Είμαι φοιτητής."},
+      "You {{answer}} my friend.": {"hint": "be — με το you", "translation": "Είσαι φίλος μου."},
+      "She {{answer}} a doctor.": {"hint": "be — με το she", "translation": "Είναι γιατρός."},
+      "We {{answer}} at home.": {"hint": "be — με το we", "translation": "Είμαστε σπίτι."},
+      "The coffee {{answer}} hot.": {"hint": "be — με το it/ένα πράγμα", "translation": "Ο καφές είναι ζεστός."},
+      "They {{answer}} from Japan.": {"hint": "be — με το they", "translation": "Είναι από την Ιαπωνία."}
+    },
+    "Articles: a / an": {
+      "I have {{answer}} dog.": {"hint": "πριν από συμφωνικό ήχο", "translation": "Έχω έναν σκύλο."},
+      "She is {{answer}} engineer.": {"hint": "πριν από φωνηεντικό ήχο", "translation": "Είναι μηχανικός."},
+      "It is {{answer}} big house.": {"hint": "πριν από συμφωνικό ήχο", "translation": "Είναι ένα μεγάλο σπίτι."},
+      "He eats {{answer}} apple every day.": {"hint": "πριν από φωνηεντικό ήχο", "translation": "Τρώει ένα μήλο κάθε μέρα."},
+      "I read {{answer}} book every week.": {"hint": "πριν από συμφωνικό ήχο", "translation": "Διαβάζω ένα βιβλίο κάθε εβδομάδα."},
+      "I need {{answer}} umbrella.": {"hint": "πριν από φωνηεντικό ήχο", "translation": "Χρειάζομαι μια ομπρέλα."}
+    },
+    "The — pointing at a specific thing": {
+      "{{answer}} sun is hot today.": {"hint": "τα μοναδικά πράγματα παίρνουν αυτό το άρθρο", "translation": "Ο ήλιος καίει σήμερα."},
+      "Please close {{answer}} door.": {"hint": "και οι δύο ξέρετε ποια", "translation": "Κλείσε την πόρτα, σε παρακαλώ."},
+      "{{answer}} keys in my hand are mine.": {"hint": "προσδιορίζεται από αυτό που ακολουθεί", "translation": "Τα κλειδιά στο χέρι μου είναι δικά μου."},
+      "We live near {{answer}} station.": {"hint": "και οι δύο ξέρετε ποιον", "translation": "Μένουμε κοντά στον σταθμό."},
+      "{{answer}} moon is bright tonight.": {"hint": "τα μοναδικά πράγματα παίρνουν αυτό το άρθρο", "translation": "Το φεγγάρι λάμπει απόψε."},
+      "Where is {{answer}} bathroom?": {"hint": "και οι δύο ξέρετε ποιο", "translation": "Πού είναι η τουαλέτα;"}
+    },
+    "Plural nouns (-s, -es, irregular)": {
+      "I have two {{answer}}.": {"hint": "book, στον πληθυντικό", "translation": "Έχω δύο βιβλία."},
+      "The {{answer}} are playing outside.": {"hint": "child — ανώμαλος πληθυντικός", "translation": "Τα παιδιά παίζουν έξω."},
+      "She has three {{answer}}.": {"hint": "watch — προσθέτει -es", "translation": "Έχει τρία ρολόγια."},
+      "The {{answer}} are late today.": {"hint": "bus — προσθέτει -es", "translation": "Τα λεωφορεία αργούν σήμερα."},
+      "Two {{answer}} live in our street.": {"hint": "family — το y γίνεται -ies", "translation": "Δύο οικογένειες μένουν στον δρόμο μας."},
+      "My {{answer}} are cold.": {"hint": "foot — ανώμαλος πληθυντικός", "translation": "Κρυώνουν τα πόδια μου."}
+    },
+    "Present simple (I work)": {
+      "I {{answer}} in a bank.": {"hint": "αυτό που κάνεις ως επάγγελμα", "translation": "Δουλεύω σε τράπεζα."},
+      "We {{answer}} breakfast at seven.": {"hint": "παίρνω (ένα γεύμα)", "translation": "Παίρνουμε πρωινό στις επτά."},
+      "They {{answer}} in London.": {"hint": "μένω κάπου", "translation": "Μένουν στο Λονδίνο."},
+      "You {{answer}} English very well.": {"hint": "χρησιμοποιώ μια γλώσσα", "translation": "Μιλάς αγγλικά πολύ καλά."},
+      "I {{answer}} coffee every morning.": {"hint": "καταναλώνω ένα υγρό", "translation": "Πίνω καφέ κάθε πρωί."},
+      "We {{answer}} TV in the evening.": {"hint": "κοιτάζω οθόνη ή εκπομπή", "translation": "Βλέπουμε τηλεόραση το βράδυ."}
+    },
+    "Third-person -s (she works)": {
+      "She {{answer}} in a hospital.": {"hint": "to work — με το she", "translation": "Δουλεύει σε νοσοκομείο."},
+      "He {{answer}} to school every day.": {"hint": "to go — προσθέτει -es", "translation": "Πηγαίνει σχολείο κάθε μέρα."},
+      "My brother {{answer}} English.": {"hint": "to study — το y γίνεται -ies", "translation": "Ο αδερφός μου σπουδάζει αγγλικά."},
+      "The shop {{answer}} at nine.": {"hint": "to open — με το it", "translation": "Το μαγαζί ανοίγει στις εννέα."},
+      "She {{answer}} TV after dinner.": {"hint": "to watch — προσθέτει -es", "translation": "Βλέπει τηλεόραση μετά το δείπνο."},
+      "It {{answer}} a lot in April.": {"hint": "to rain — με το it", "translation": "Τον Απρίλιο βρέχει πολύ."}
+    },
+    "Do-support: questions and negation": {
+      "{{answer}} you speak English?": {"hint": "το βοηθητικό — με το you", "translation": "Μιλάς αγγλικά;"},
+      "{{answer}} she work here?": {"hint": "το βοηθητικό — με το she", "translation": "Δουλεύει εδώ;"},
+      "I {{answer}} not eat meat.": {"hint": "το βοηθητικό — με το I", "translation": "Δεν τρώω κρέας."},
+      "He {{answer}} not like coffee.": {"hint": "το βοηθητικό — με το he", "translation": "Δεν του αρέσει ο καφές."},
+      "{{answer}} they live in Rome?": {"hint": "το βοηθητικό — με το they", "translation": "Μένουν στη Ρώμη;"},
+      "We {{answer}} not have time.": {"hint": "το βοηθητικό — με το we", "translation": "Δεν έχουμε χρόνο."},
+      "I {{answer}} like coffee.": {"hint": "άρνηση με το I — do + not", "translation": "Δεν μου αρέσει ο καφές."},
+      "She {{answer}} work on Sundays.": {"hint": "άρνηση με το she — does + not", "translation": "Δεν δουλεύει τις Κυριακές."}
+    },
+    "Present continuous (I am working)": {
+      "I am {{answer}} a book right now.": {"hint": "to read + -ing", "translation": "Διαβάζω ένα βιβλίο αυτή τη στιγμή."},
+      "She is {{answer}} dinner now.": {"hint": "to cook + -ing", "translation": "Μαγειρεύει το δείπνο τώρα."},
+      "They are {{answer}} football.": {"hint": "to play + -ing", "translation": "Παίζουν ποδόσφαιρο τώρα."},
+      "Look! It is {{answer}}.": {"hint": "to rain + -ing", "translation": "Κοίτα! Βρέχει."},
+      "We are {{answer}} for the bus.": {"hint": "to wait + -ing", "translation": "Περιμένουμε το λεωφορείο."},
+      "He is {{answer}} at the moment.": {"hint": "to sleep + -ing", "translation": "Κοιμάται αυτή τη στιγμή."},
+      "He is {{answer}} in the park.": {"hint": "run — διπλασιάζει το τελικό σύμφωνο", "translation": "Τρέχει στο πάρκο."},
+      "She is {{answer}} an email.": {"hint": "write — πέφτει το άφωνο e", "translation": "Γράφει ένα email."}
+    },
+    "There is / there are": {
+      "There {{answer}} a book on the table.": {"hint": "ενικός", "translation": "Υπάρχει ένα βιβλίο πάνω στο τραπέζι."},
+      "There {{answer}} two cafés in this street.": {"hint": "πληθυντικός", "translation": "Σε αυτόν τον δρόμο υπάρχουν δύο καφέ."},
+      "{{answer}} there a bank near here?": {"hint": "ενικός, ερωτηματική σειρά", "translation": "Υπάρχει τράπεζα εδώ κοντά;"},
+      "There {{answer}} no milk.": {"hint": "ενικός", "translation": "Δεν υπάρχει γάλα."},
+      "{{answer}} there any questions?": {"hint": "πληθυντικός, ερωτηματική σειρά", "translation": "Υπάρχουν ερωτήσεις;"},
+      "There {{answer}} many people here today.": {"hint": "πληθυντικός", "translation": "Σήμερα υπάρχει πολύς κόσμος εδώ."}
+    },
+    "Question words (what, where, when…)": {
+      "{{answer}} do you live?": {"hint": "ρωτάμε για τόπο", "translation": "Πού μένεις;"},
+      "{{answer}} is your name?": {"hint": "ρωτάμε για πράγμα", "translation": "Πώς σε λένε; (κατά λέξη: ποιο είναι το όνομά σου;)"},
+      "{{answer}} is your birthday?": {"hint": "ρωτάμε για χρονική στιγμή", "translation": "Πότε είναι τα γενέθλιά σου;"},
+      "{{answer}} old are you?": {"hint": "έτσι ρωτάμε την ηλικία", "translation": "Πόσων χρονών είσαι;"},
+      "{{answer}} is your teacher?": {"hint": "ρωτάμε για πρόσωπο", "translation": "Ποιος είναι ο δάσκαλός σου;"},
+      "{{answer}} are you crying?": {"hint": "ρωτάμε για αιτία", "translation": "Γιατί κλαις;"}
+    },
+    "Possessives (my, your, 's)": {
+      "This is {{answer}} book.": {"hint": "αυτού που μιλάει", "translation": "Αυτό είναι το βιβλίο μου."},
+      "Is this {{answer}} car?": {"hint": "δικό σου", "translation": "Δικό σου είναι αυτό το αυτοκίνητο;"},
+      "{{answer}} name is Anna.": {"hint": "δικό της", "translation": "Το όνομά της είναι Άννα."},
+      "That is my {{answer}} car.": {"hint": "brother + η κατάληξη της κτήσης", "translation": "Εκείνο είναι το αυτοκίνητο του αδερφού μου."},
+      "{{answer}} house is big.": {"hint": "δικό τους", "translation": "Το σπίτι τους είναι μεγάλο."},
+      "The dog wags {{answer}} tail.": {"hint": "ενός πράγματος — χωρίς απόστροφο", "translation": "Ο σκύλος κουνάει την ουρά του."},
+      "{{answer}} name is David.": {"hint": "το όνομα ενός άντρα — «δικό του»", "translation": "Το όνομά του είναι Ντέιβιντ."},
+      "That is {{answer}} classroom.": {"hint": "μας ανήκει — «δική μας»", "translation": "Εκείνη είναι η αίθουσά μας."}
+    },
+    "Present perfect vs past simple": {
+      "I've {{answer}} my wallet — can you help me look?": {"hint": "lose — μετοχή", "translation": "Έχασα το πορτοφόλι μου — με βοηθάς να ψάξω;"},
+      "She {{answer}} in Berlin in 2019.": {"hint": "live — αόριστος", "translation": "Το 2019 ζούσε στο Βερολίνο."},
+      "Have you {{answer}} been to Japan?": {"hint": "η λέξη του «έστω μία φορά στη ζωή»", "translation": "Έχεις πάει ποτέ στην Ιαπωνία;"},
+      "We've known each other {{answer}} ten years.": {"hint": "η λέξη της διάρκειας", "translation": "Γνωριζόμαστε δέκα χρόνια."},
+      "He's worked here {{answer}} 2020.": {"hint": "η λέξη του σημείου εκκίνησης", "translation": "Δουλεύει εδώ από το 2020."},
+      "They haven't finished {{answer}}.": {"hint": "η λέξη του «όχι ακόμα»", "translation": "Δεν έχουν τελειώσει ακόμα."}
+    },
+    "First and second conditionals": {
+      "If it {{answer}} tomorrow, we'll cancel the picnic.": {"hint": "rain — ενεστώτας, it", "translation": "Αν βρέξει αύριο, θα ακυρώσουμε το πικνίκ."},
+      "If you study, you {{answer}} pass.": {"hint": "η λέξη του πραγματικού μέλλοντα", "translation": "Αν διαβάσεις, θα περάσεις."},
+      "If I {{answer}} rich, I would buy an island.": {"hint": "be — μη πραγματική μορφή", "translation": "Αν ήμουν πλούσιος, θα αγόραζα ένα νησί."},
+      "She {{answer}} travel more if she had time.": {"hint": "η λέξη του μη πραγματικού αποτελέσματος", "translation": "Θα ταξίδευε περισσότερο αν είχε χρόνο."},
+      "If we {{answer}} now, we'll catch the train.": {"hint": "φεύγω — σε ενεστώτα", "translation": "Αν φύγουμε τώρα, θα προλάβουμε το τρένο."},
+      "What {{answer}} you do if you won the lottery?": {"hint": "η λέξη του μη πραγματικού αποτελέσματος", "translation": "Τι θα έκανες αν κέρδιζες το λαχείο;"}
+    },
+    "The passive (is made, was built)": {
+      "This wine {{answer}} produced in Chile.": {"hint": "be — ενεστώτας, it", "translation": "Αυτό το κρασί παράγεται στη Χιλή."},
+      "The castle was {{answer}} in the twelfth century.": {"hint": "build — μετοχή", "translation": "Το κάστρο χτίστηκε τον δωδέκατο αιώνα."},
+      "These photos {{answer}} taken by my grandmother.": {"hint": "be — αόριστος, they", "translation": "Αυτές οι φωτογραφίες τραβήχτηκαν από τη γιαγιά μου."},
+      "English {{answer}} spoken all over the world.": {"hint": "be — ενεστώτας, it", "translation": "Τα αγγλικά μιλιούνται σε όλο τον κόσμο."},
+      "The thief was caught {{answer}} the police.": {"hint": "η πρόθεση του δράστη", "translation": "Ο κλέφτης πιάστηκε από την αστυνομία."},
+      "My phone was {{answer}} at the festival.": {"hint": "steal — μετοχή", "translation": "Το κινητό μου κλάπηκε στο φεστιβάλ."}
+    },
+    "Relative clauses (who, which, that, where)": {
+      "She's the doctor {{answer}} treated my father.": {"hint": "αναφορικό των προσώπων", "translation": "Είναι η γιατρός που κούραρε τον πατέρα μου."},
+      "That's the restaurant {{answer}} we first met.": {"hint": "αναφορικό των τόπων", "translation": "Εκείνο είναι το εστιατόριο όπου πρωτογνωριστήκαμε."},
+      "The laptop {{answer}} I bought last week is broken.": {"hint": "το αναφορικό-πασπαρτού", "translation": "Το λάπτοπ που αγόρασα την περασμένη εβδομάδα χάλασε."},
+      "He's the author {{answer}} books sell millions.": {"hint": "αναφορικό της κτήσης", "translation": "Είναι ο συγγραφέας του οποίου τα βιβλία πουλάνε εκατομμύρια."},
+      "The train, {{answer}} was already late, then broke down.": {"hint": "αναφορικό των πραγμάτων", "translation": "Το τρένο, που ήδη είχε καθυστέρηση, μετά χάλασε κιόλας."},
+      "People {{answer}} exercise regularly live longer.": {"hint": "αναφορικό των προσώπων", "translation": "Οι άνθρωποι που γυμνάζονται τακτικά ζουν περισσότερο."}
+    },
+    "Used to — past habits and states": {
+      "I {{answer}} to play football every weekend.": {"hint": "το ρήμα της παλιάς συνήθειας", "translation": "Παλιά έπαιζα ποδόσφαιρο κάθε σαββατοκύριακο."},
+      "She didn't {{answer}} to like coffee, but now she loves it.": {"hint": "το ρήμα της παλιάς συνήθειας, χωρίς -d", "translation": "Παλιά δεν της άρεσε ο καφές, αλλά τώρα τον λατρεύει."},
+      "There {{answer}} to be a bakery on this corner.": {"hint": "το ρήμα της παλιάς συνήθειας", "translation": "Παλιά υπήρχε ένας φούρνος σε αυτή τη γωνία."},
+      "Did you {{answer}} to live in London?": {"hint": "το ρήμα της παλιάς συνήθειας, χωρίς -d", "translation": "Έμενες παλιά στο Λονδίνο;"},
+      "He used {{answer}} have long hair.": {"hint": "το μόριο", "translation": "Παλιά είχε μακριά μαλλιά."},
+      "We {{answer}} to go camping every summer as kids.": {"hint": "το ρήμα της παλιάς συνήθειας", "translation": "Μικροί πηγαίναμε κάμπινγκ κάθε καλοκαίρι."}
+    },
+    "Reported speech": {
+      "'I'm busy.' → She said she {{answer}} busy.": {"hint": "be — ένα βήμα πίσω", "translation": "«Είμαι απασχολημένη.» → Είπε ότι ήταν απασχολημένη."},
+      "'I'll call you.' → He said he {{answer}} call me.": {"hint": "will — ένα βήμα πίσω", "translation": "«Θα σε πάρω.» → Είπε ότι θα με έπαιρνε."},
+      "'Are you ready?' → She asked {{answer}} I was ready.": {"hint": "η λέξη των ερωτήσεων ναι/όχι", "translation": "«Είσαι έτοιμος;» → Με ρώτησε αν ήμουν έτοιμος."},
+      "'Where do you live?' → He asked where I {{answer}}.": {"hint": "live — ένα βήμα πίσω", "translation": "«Πού μένεις;» → Με ρώτησε πού έμενα."},
+      "'I can swim.' → She said she {{answer}} swim.": {"hint": "can — ένα βήμα πίσω", "translation": "«Ξέρω κολύμπι.» → Είπε ότι ήξερε κολύμπι."},
+      "'We bought a house.' → They said they {{answer}} bought a house.": {"hint": "το βοηθητικό του βήματος πίσω", "translation": "«Αγοράσαμε σπίτι.» → Είπαν ότι είχαν αγοράσει σπίτι."}
+    },
+    "Gerund or infinitive?": {
+      "I really enjoy {{answer}} in the sea.": {"hint": "swim — ποια μορφή;", "translation": "Μου αρέσει πραγματικά να κολυμπάω στη θάλασσα."},
+      "She decided {{answer}} accept the job.": {"hint": "το μόριο του απαρεμφάτου", "translation": "Αποφάσισε να δεχτεί τη δουλειά."},
+      "Would you mind {{answer}} the door?": {"hint": "close — ποια μορφή;", "translation": "Θα σας πείραζε να κλείσετε την πόρτα;"},
+      "We hope {{answer}} see you soon.": {"hint": "το μόριο του απαρεμφάτου", "translation": "Ελπίζουμε να σε δούμε σύντομα."},
+      "He avoided {{answer}} my question.": {"hint": "answer — ποια μορφή;", "translation": "Απέφυγε να απαντήσει στην ερώτησή μου."},
+      "They promised {{answer}} write every week.": {"hint": "το μόριο του απαρεμφάτου", "translation": "Υποσχέθηκαν να γράφουν κάθε εβδομάδα."}
+    },
+    "Third and mixed conditionals": {
+      "If you {{answer}} told me, I would have helped.": {"hint": "το βοηθητικό του υπερσυντέλικου", "translation": "Αν μου το είχες πει, θα είχα βοηθήσει."},
+      "If she had left earlier, she would {{answer}} caught the flight.": {"hint": "το βοηθητικό του συντελεσμένου μετά το would", "translation": "Αν είχε φύγει νωρίτερα, θα είχε προλάβει την πτήση."},
+      "I wouldn't {{answer}} met her if I hadn't gone to that party.": {"hint": "το βοηθητικό του συντελεσμένου", "translation": "Δεν θα την είχα γνωρίσει αν δεν είχα πάει σε εκείνο το πάρτι."},
+      "If he had studied medicine, he {{answer}} be a doctor now.": {"hint": "η λέξη του μη πραγματικού αποτελέσματος", "translation": "Αν είχε σπουδάσει ιατρική, τώρα θα ήταν γιατρός."},
+      "If we {{answer}} taken the map, we wouldn't have got lost.": {"hint": "το βοηθητικό του υπερσυντέλικου", "translation": "Αν είχαμε πάρει τον χάρτη, δεν θα είχαμε χαθεί."},
+      "What would you have {{answer}} in my position?": {"hint": "do — μετοχή", "translation": "Εσύ τι θα είχες κάνει στη θέση μου;"}
+    },
+    "Modals of deduction (must, might, can't)": {
+      "The lights are on — someone {{answer}} be home.": {"hint": "η λέξη της σχεδόν-βεβαιότητας", "translation": "Τα φώτα είναι αναμμένα — κάποιος πρέπει να είναι σπίτι."},
+      "That {{answer}} be Maria — she's in Brazil this week!": {"hint": "η λέξη του αδυνάτου", "translation": "Αποκλείεται να είναι η Μαρία — αυτή την εβδομάδα είναι στη Βραζιλία!"},
+      "He {{answer}} be stuck in traffic — it happens.": {"hint": "μια λέξη πιθανότητας", "translation": "Ίσως έχει κολλήσει στην κίνηση — συμβαίνει."},
+      "She must {{answer}} forgotten our meeting.": {"hint": "το βοηθητικό της συμπερασματικής για το παρελθόν", "translation": "Πρέπει να έχει ξεχάσει το ραντεβού μας."},
+      "They can't {{answer}} left already — the car's still here.": {"hint": "το βοηθητικό της συμπερασματικής για το παρελθόν", "translation": "Αποκλείεται να έχουν φύγει κιόλας — το αυτοκίνητο είναι ακόμα εδώ."},
+      "It {{answer}} rain later, so take an umbrella.": {"hint": "μια λέξη πιθανότητας", "translation": "Μπορεί να βρέξει αργότερα, οπότε πάρε ομπρέλα."}
+    },
+    "Advanced passives (has been done, being done)": {
+      "The road has {{answer}} closed since Monday.": {"hint": "η μετοχή του be", "translation": "Ο δρόμος είναι κλειστός από τη Δευτέρα."},
+      "Our office is {{answer}} renovated at the moment.": {"hint": "το -ing του be", "translation": "Το γραφείο μας ανακαινίζεται αυτόν τον καιρό."},
+      "All answers must be {{answer}} in ink.": {"hint": "write — μετοχή", "translation": "Όλες οι απαντήσεις πρέπει να γραφτούν με μελάνι."},
+      "She is {{answer}} to be the richest woman in the country.": {"hint": "say — μετοχή", "translation": "Λέγεται ότι είναι η πλουσιότερη γυναίκα της χώρας."},
+      "The results will {{answer}} announced on Friday.": {"hint": "το γυμνό απαρέμφατο της παθητικής", "translation": "Τα αποτελέσματα θα ανακοινωθούν την Παρασκευή."},
+      "By 1990, the bridge {{answer}} been rebuilt twice.": {"hint": "το βοηθητικό του υπερσυντέλικου", "translation": "Μέχρι το 1990, η γέφυρα είχε ήδη ξαναχτιστεί δύο φορές."}
+    },
+    "Wish and if only": {
+      "I wish I {{answer}} how to drive.": {"hint": "know — μορφή της ευχής", "translation": "Μακάρι να ήξερα να οδηγώ."},
+      "She wishes she {{answer}} accepted the offer.": {"hint": "το βοηθητικό της περασμένης μεταμέλειας", "translation": "Μακάρι να είχε δεχτεί την προσφορά."},
+      "I wish you {{answer}} stop interrupting me!": {"hint": "η λέξη του παραπόνου", "translation": "Μακάρι να σταματούσες να με διακόπτεις!"},
+      "If {{answer}} I had listened to your advice!": {"hint": "η λέξη μετά το if", "translation": "Αχ και να είχα ακούσει τη συμβουλή σου!"},
+      "He wishes he {{answer}} taller.": {"hint": "be — μορφή της ευχής", "translation": "Μακάρι να ήταν ψηλότερος."},
+      "We wish we {{answer}} bought tickets earlier.": {"hint": "το βοηθητικό της περασμένης μεταμέλειας", "translation": "Μακάρι να είχαμε αγοράσει τα εισιτήρια νωρίτερα."}
+    },
+    "Phrasal verbs — separable or not?": {
+      "Could you turn {{answer}} off? The music's too loud.": {"hint": "η αντωνυμία-αντικείμενο", "translation": "Μπορείς να την κλείσεις; Η μουσική είναι πολύ δυνατά."},
+      "She's looking {{answer}} her elderly mother.": {"hint": "το μόριο της φροντίδας", "translation": "Φροντίζει την ηλικιωμένη μητέρα της."},
+      "Please fill {{answer}} this form.": {"hint": "το μόριο των εντύπων", "translation": "Συμπληρώστε αυτό το έντυπο, παρακαλώ."},
+      "I'll pick you {{answer}} at eight.": {"hint": "το μόριο του «περνάω να πάρω»", "translation": "Θα περάσω να σε πάρω στις οκτώ."},
+      "We've put {{answer}} the meeting until Friday.": {"hint": "το μόριο της αναβολής", "translation": "Αναβάλαμε τη συνάντηση για την Παρασκευή."},
+      "He takes {{answer}} his father — same smile, same laugh.": {"hint": "το μόριο του «μοιάζω σε»", "translation": "Έχει πάρει από τον πατέρα του — ίδιο χαμόγελο, ίδιο γέλιο."}
+    },
+    "Question tags and indirect questions": {
+      "You've met before, {{answer}} you?": {"hint": "το ανεστραμμένο βοηθητικό της ουράς-ερώτησης", "translation": "Έχετε ξανασυναντηθεί, έτσι δεν είναι;"},
+      "She doesn't eat fish, {{answer}} she?": {"hint": "το ανεστραμμένο βοηθητικό της ουράς-ερώτησης", "translation": "Δεν τρώει ψάρι, έτσι;"},
+      "Could you tell me where the bank {{answer}}?": {"hint": "be — στο ΤΕΛΟΣ", "translation": "Μπορείτε να μου πείτε πού είναι η τράπεζα;"},
+      "Do you know if the shop {{answer}} at six?": {"hint": "close — σειρά κατάφασης", "translation": "Ξέρεις αν το μαγαζί κλείνει στις έξι;"},
+      "It's cold today, {{answer}} it?": {"hint": "το ανεστραμμένο βοηθητικό της ουράς-ερώτησης", "translation": "Κάνει κρύο σήμερα, έτσι δεν είναι;"},
+      "I wonder {{answer}} they got home safely.": {"hint": "η εναλλακτική του if", "translation": "Αναρωτιέμαι αν έφτασαν σπίτι με ασφάλεια."}
+    },
+    "Inversion (Never have I…, Not only…)": {
+      "Never {{answer}} I heard such nonsense.": {"hint": "το βοηθητικό του συντελεσμένου", "translation": "Ποτέ δεν έχω ακούσει τέτοια ανοησία."},
+      "Not only {{answer}} she sing, she writes her own songs.": {"hint": "το βοηθητικό του ενεστώτα", "translation": "Όχι μόνο τραγουδάει, γράφει και τα δικά της τραγούδια."},
+      "No sooner had we sat down {{answer}} the phone rang.": {"hint": "η λέξη που συμπληρώνει το ζευγάρι", "translation": "Δεν είχαμε καλά καλά καθίσει και χτύπησε το τηλέφωνο."},
+      "Under no circumstances {{answer}} you open that door.": {"hint": "το βοηθητικό της συμβουλής", "translation": "Σε καμία περίπτωση δεν θα έπρεπε να ανοίξεις εκείνη την πόρτα."},
+      "Rarely {{answer}} we see such talent.": {"hint": "το βοηθητικό του ενεστώτα", "translation": "Σπάνια βλέπουμε τέτοιο ταλέντο."},
+      "Only then {{answer}} I understand what she meant.": {"hint": "το βοηθητικό του αορίστου", "translation": "Μόνο τότε κατάλαβα τι εννοούσε."}
+    },
+    "Cleft sentences (What I need is…, It was… that)": {
+      "{{answer}} I need is a good night's sleep.": {"hint": "η αρχή της σχιστής πρότασης", "translation": "Αυτό που χρειάζομαι είναι έναν καλό ύπνο."},
+      "It was Marco {{answer}} suggested the idea.": {"hint": "το αναφορικό των προσώπων", "translation": "Ο Μάρκο ήταν αυτός που πρότεινε την ιδέα."},
+      "What annoys me {{answer}} his constant lateness.": {"hint": "be — ο άξονας της πρότασης", "translation": "Αυτό που με εκνευρίζει είναι η συνεχής αργοπορία του."},
+      "It {{answer}} in Paris that they first met.": {"hint": "be — αόριστος", "translation": "Στο Παρίσι ήταν που πρωτογνωρίστηκαν."},
+      "{{answer}} she wants is a little respect.": {"hint": "η αρχή του «το μόνο που»", "translation": "Το μόνο που θέλει είναι λίγος σεβασμός."},
+      "It wasn't until midnight {{answer}} he finally called.": {"hint": "ο σύνδεσμος της σχιστής πρότασης", "translation": "Μόνο τα μεσάνυχτα πήρε επιτέλους τηλέφωνο."}
+    },
+    "Hedging and distancing (would seem, tend to)": {
+      "It would {{answer}} that the figures are wrong.": {"hint": "το ρήμα της εντύπωσης", "translation": "Φαίνεται πως τα νούμερα είναι λανθασμένα."},
+      "House prices {{answer}} to rise in spring.": {"hint": "το ρήμα της τάσης", "translation": "Οι τιμές των κατοικιών τείνουν να ανεβαίνουν την άνοιξη."},
+      "There {{answer}} to be a problem with the data.": {"hint": "το ρήμα της εντύπωσης, τρίτο πρόσωπο", "translation": "Φαίνεται να υπάρχει πρόβλημα με τα δεδομένα."},
+      "It is widely {{answer}} that the climate is changing.": {"hint": "believe — μετοχή", "translation": "Πιστεύεται ευρέως ότι το κλίμα αλλάζει."},
+      "The results {{answer}} that more research is needed.": {"hint": "το ρήμα της υπόδειξης", "translation": "Τα αποτελέσματα υποδηλώνουν ότι χρειάζεται περισσότερη έρευνα."},
+      "It could be {{answer}} that the policy failed.": {"hint": "argue — μετοχή", "translation": "Θα μπορούσε να υποστηριχθεί ότι η πολιτική απέτυχε."}
+    },
+    "Participle clauses (Having finished, …)": {
+      "{{answer}} finished dinner, we went for a walk.": {"hint": "η αρχή της συντελεσμένης μετοχής", "translation": "Έχοντας τελειώσει το δείπνο, βγήκαμε βόλτα."},
+      "{{answer}} through the window, she saw the storm coming.": {"hint": "look — μετοχή", "translation": "Κοιτάζοντας από το παράθυρο, είδε την καταιγίδα να πλησιάζει."},
+      "{{answer}} in 1889, the tower still draws millions.": {"hint": "build — μετοχή", "translation": "Χτισμένος το 1889, ο πύργος εξακολουθεί να προσελκύει εκατομμύρια."},
+      "Not {{answer}} what to say, he stayed silent.": {"hint": "know — μετοχή", "translation": "Μην ξέροντας τι να πει, έμεινε σιωπηλός."},
+      "Having {{answer}} in Rome for years, she speaks fluent Italian.": {"hint": "live — μετοχή", "translation": "Έχοντας ζήσει χρόνια στη Ρώμη, μιλάει άπταιστα ιταλικά."},
+      "{{answer}} by the news, they cancelled the trip.": {"hint": "shock — μετοχή", "translation": "Σοκαρισμένοι από την είδηση, ακύρωσαν το ταξίδι."}
+    },
+    "The mandative subjunctive (insist that he be)": {
+      "The board insisted that he {{answer}} removed from the project.": {"hint": "be — γυμνή μορφή", "translation": "Το συμβούλιο επέμεινε να απομακρυνθεί από το έργο."},
+      "It is essential that every member {{answer}} the code of conduct.": {"hint": "τηρώ — γυμνή μορφή", "translation": "Είναι απαραίτητο κάθε μέλος να τηρεί τον κώδικα δεοντολογίας."},
+      "She recommended that the report {{answer}} rewritten.": {"hint": "be — γυμνή μορφή", "translation": "Συνέστησε να ξαναγραφτεί η έκθεση."},
+      "They demanded that the minister {{answer}}.": {"hint": "παραιτούμαι — γυμνή μορφή", "translation": "Απαίτησαν να παραιτηθεί ο υπουργός."},
+      "It's vital that she {{answer}} informed at once.": {"hint": "be — γυμνή μορφή", "translation": "Είναι ζωτικής σημασίας να ενημερωθεί αμέσως."},
+      "We suggest that he {{answer}} a lawyer before signing.": {"hint": "συμβουλεύομαι — γυμνή μορφή", "translation": "Προτείνουμε να συμβουλευτεί δικηγόρο πριν υπογράψει."}
+    },
+    "Ellipsis and substitution (so, neither, do so)": {
+      "I loved the film. — {{answer}} did I!": {"hint": "η αρχή του «κι εγώ»", "translation": "Μου άρεσε πολύ η ταινία. — Κι εμένα!"},
+      "She can't make it tonight. — {{answer}} can I.": {"hint": "η αρνητική αρχή του «ούτε εγώ»", "translation": "Δεν μπορεί να έρθει απόψε. — Ούτε εγώ."},
+      "He was asked to apologise, and he did {{answer}} immediately.": {"hint": "το υποκατάστατο μετά το did", "translation": "Του ζητήθηκε να ζητήσει συγγνώμη, και το έκανε αμέσως."},
+      "You may be tired; if {{answer}}, rest.": {"hint": "το υποκατάστατο μετά το if", "translation": "Ίσως είσαι κουρασμένος· αν ναι, ξεκουράσου."},
+      "They promised to help, but failed to {{answer}} so.": {"hint": "το ρήμα-υποκατάστατο", "translation": "Υποσχέθηκαν να βοηθήσουν, αλλά δεν το έκαναν."},
+      "I've never been to Oslo. — Nor {{answer}} I.": {"hint": "το βοηθητικό του συντελεσμένου", "translation": "Δεν έχω πάει ποτέ στο Όσλο. — Ούτε εγώ."}
+    },
+    "Formal connectors (notwithstanding, albeit)": {
+      "The plan went ahead, {{answer}} the objections.": {"hint": "το πιο επίσημο 'despite'", "translation": "Το σχέδιο προχώρησε, παρά τις αντιρρήσεις."},
+      "It was a victory, {{answer}} a narrow one.": {"hint": "το συμπυκνωμένο although", "translation": "Ήταν νίκη, αν και οριακή."},
+      "The costs rose sharply; {{answer}} the project was cancelled.": {"hint": "ένα επίσημο therefore", "translation": "Το κόστος αυξήθηκε απότομα· κατά συνέπεια, το έργο ακυρώθηκε."},
+      "A scheme {{answer}} employees share the profits.": {"hint": "η λέξη του «μέσω του οποίου»", "translation": "Ένα σύστημα μέσω του οποίου οι εργαζόμενοι μοιράζονται τα κέρδη."},
+      "A {{answer}} unknown author won the prize.": {"hint": "η λέξη του «έως τότε»", "translation": "Ένας έως τότε άγνωστος συγγραφέας κέρδισε το βραβείο."},
+      "The evidence, {{answer}} incomplete, points one way.": {"hint": "το συντομευμένο although", "translation": "Τα στοιχεία, αν και ελλιπή, δείχνουν προς μία κατεύθυνση."}
+    },
+    "Past simple — regular verbs (-ed)": {
+      "I {{answer}} in a bank for five years.": {"hint": "work + -ed", "translation": "Δούλεψα σε τράπεζα πέντε χρόνια."},
+      "She {{answer}} in Rome when she was young.": {"hint": "live — προσθέτει μόνο -d", "translation": "Έζησε στη Ρώμη όταν ήταν νέα."},
+      "He {{answer}} English at university.": {"hint": "study — το y γίνεται -ied", "translation": "Σπούδασε αγγλικά στο πανεπιστήμιο."},
+      "The bus {{answer}} suddenly.": {"hint": "stop — διπλασιάζει το p", "translation": "Το λεωφορείο σταμάτησε απότομα."},
+      "We {{answer}} football in the park yesterday.": {"hint": "φωνήεν + y — μόνο -ed", "translation": "Χθες παίξαμε ποδόσφαιρο στο πάρκο."},
+      "They {{answer}} work yesterday — it was a holiday.": {"hint": "αρνητικός αόριστος: did + not", "translation": "Χθες δεν δούλεψαν — ήταν αργία."}
+    },
+    "Object pronouns (me, him, them)": {
+      "Can you help {{answer}}, please?": {"hint": "αυτός που μιλάει ζητά βοήθεια — «με»", "translation": "Μπορείς να με βοηθήσεις, σε παρακαλώ;"},
+      "I saw {{answer}} at school yesterday.": {"hint": "ένας άντρας — «τον»", "translation": "Τον είδα χθες στο σχολείο."},
+      "This present is for {{answer}}.": {"hint": "μια γυναίκα — «αυτήν»", "translation": "Αυτό το δώρο είναι για εκείνη."},
+      "Our teacher knows {{answer}} well.": {"hint": "αυτός που μιλάει + άλλοι — «μας»", "translation": "Ο δάσκαλός μας μάς ξέρει καλά."},
+      "I like these shoes — I'll buy {{answer}}.": {"hint": "πολλά πράγματα — «τα»", "translation": "Μου αρέσουν αυτά τα παπούτσια — θα τα αγοράσω."},
+      "Where is my phone? I can't find {{answer}}.": {"hint": "ένα πράγμα — «το»", "translation": "Πού είναι το κινητό μου; Δεν το βρίσκω."}
+    },
+    "Imperatives (Open…, Don't…)": {
+      "{{answer}} the door, please.": {"hint": "ρήμα στη βασική μορφή, χωρίς υποκείμενο", "translation": "Άνοιξε την πόρτα, σε παρακαλώ."},
+      "{{answer}} worry — everything is fine.": {"hint": "αρνητική προστακτική: η αρνητική μορφή του do + ρήμα", "translation": "Μην ανησυχείς — όλα είναι καλά."},
+      "{{answer}} me tomorrow, please.": {"hint": "ρήμα στη βασική μορφή", "translation": "Πάρε με τηλέφωνο αύριο, σε παρακαλώ."},
+      "{{answer}} be late — the film starts at eight.": {"hint": "αρνητική προστακτική με το be", "translation": "Μην αργήσεις — η ταινία αρχίζει στις οκτώ."},
+      "{{answer}} quiet, please — the baby is sleeping.": {"hint": "το ρήμα be στη βασική μορφή", "translation": "Κάνε ησυχία, σε παρακαλώ — το μωρό κοιμάται."},
+      "Please {{answer}} down and wait a moment.": {"hint": "ρήμα στη βασική μορφή", "translation": "Παρακαλώ καθίστε και περιμένετε ένα λεπτό."}
+    }
+  }
+}
