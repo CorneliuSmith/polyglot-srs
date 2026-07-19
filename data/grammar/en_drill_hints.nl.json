@@ -1,0 +1,360 @@
+{
+  "language": "en",
+  "locale": "nl",
+  "reviewed": false,
+  "_note": "Hints and faithful sentence translations for ENGLISH drills, shown to learners whose support locale is Dutch. The hint names the expected English word (kept in English) with a Dutch cue; the translation renders the completed sentence in natural Dutch.",
+  "points": {
+    "Past simple — irregular verbs": {
+      "Yesterday I {{answer}} to the market.": {"hint": "go — verleden tijd", "translation": "Gisteren ging ik naar de markt."},
+      "She {{answer}} a great film last night.": {"hint": "see — verleden tijd", "translation": "Ze zag gisteravond een geweldige film."},
+      "We {{answer}} a new car in March.": {"hint": "buy — verleden tijd", "translation": "We kochten in maart een nieuwe auto."},
+      "He {{answer}} the early train this morning.": {"hint": "take — verleden tijd", "translation": "Hij nam vanochtend de vroege trein."},
+      "They {{answer}} home very late.": {"hint": "come — verleden tijd", "translation": "Ze kwamen heel laat thuis."},
+      "I {{answer}} breakfast at seven.": {"hint": "eat — verleden tijd", "translation": "Ik ontbeet om zeven uur."}
+    },
+    "Present continuous vs present simple": {
+      "Quiet, please — the baby {{answer}} sleeping.": {"hint": "be — derde persoon", "translation": "Stil, alsjeblieft — de baby slaapt nu."},
+      "She {{answer}} to work by bike every day.": {"hint": "go — gewoonte, zij", "translation": "Ze gaat elke dag met de fiets naar haar werk."},
+      "I'm {{answer}} for my keys at the moment.": {"hint": "look — duurvorm", "translation": "Ik ben op dit moment mijn sleutels aan het zoeken."},
+      "Water {{answer}} at 100 degrees.": {"hint": "boil — algemeen feit, it", "translation": "Water kookt bij 100 graden."},
+      "They {{answer}} watching TV right now.": {"hint": "be — zij (meervoud)", "translation": "Ze zijn nu tv aan het kijken."},
+      "He usually {{answer}} coffee, not tea.": {"hint": "drink — gewoonte, hij", "translation": "Hij drinkt meestal koffie, geen thee."}
+    },
+    "Comparatives and superlatives": {
+      "This bag is {{answer}} than that one.": {"hint": "cheap — vergrotende trap", "translation": "Deze tas is goedkoper dan die."},
+      "It's the {{answer}} building in the city.": {"hint": "tall — overtreffende trap", "translation": "Het is het hoogste gebouw van de stad."},
+      "Her English is {{answer}} than mine.": {"hint": "good — vergrotende trap", "translation": "Haar Engels is beter dan het mijne."},
+      "That was the {{answer}} meal I've ever had.": {"hint": "bad — overtreffende trap", "translation": "Dat was de slechtste maaltijd van mijn leven."},
+      "This exercise is {{answer}} difficult than the last.": {"hint": "het woord vóór lange bijvoeglijke naamwoorden", "translation": "Deze oefening is moeilijker dan de vorige."},
+      "The station is {{answer}} than I thought.": {"hint": "far — vergrotende trap", "translation": "Het station is verder weg dan ik dacht."}
+    },
+    "Going to and will": {
+      "We're {{answer}} to visit Rome in May.": {"hint": "de toekomst van vaststaande plannen", "translation": "We gaan in mei Rome bezoeken."},
+      "Don't worry — I {{answer}} help you.": {"hint": "beslissing van het moment", "translation": "Maak je geen zorgen — ik help je wel."},
+      "Look at those clouds! It's going to {{answer}}.": {"hint": "regenweer", "translation": "Kijk die wolken! Het gaat regenen."},
+      "I think she {{answer}} pass the exam.": {"hint": "het woord van voorspellingen", "translation": "Ik denk dat ze het examen zal halen."},
+      "They're going {{answer}} move house next year.": {"hint": "het woordje na going", "translation": "Ze gaan volgend jaar verhuizen."},
+      "I'm tired — I {{answer}} go to bed.": {"hint": "verkorte vorm van de nabije toekomst", "translation": "Ik ben moe — ik ga naar bed."}
+    },
+    "Some, any, much, many": {
+      "There's {{answer}} milk in the fridge.": {"hint": "hoeveelheidswoord in bevestigende zinnen", "translation": "Er staat wat melk in de koelkast."},
+      "We don't have {{answer}} eggs left.": {"hint": "hoeveelheidswoord in ontkenningen", "translation": "We hebben geen eieren meer."},
+      "Do you have {{answer}} questions?": {"hint": "hoeveelheidswoord in vragen", "translation": "Hebben jullie vragen?"},
+      "How {{answer}} money do you need?": {"hint": "bij niet-telbare dingen", "translation": "Hoeveel geld heb je nodig?"},
+      "How {{answer}} people are coming?": {"hint": "bij telbare dingen", "translation": "Hoeveel mensen komen er?"},
+      "Would you like {{answer}} tea?": {"hint": "hoeveelheidswoord in aanbiedingen", "translation": "Wil je wat thee?"}
+    },
+    "Adverbs of frequency": {
+      "I {{answer}} drink coffee in the morning — every single day.": {"hint": "het elke-keer-woord", "translation": "Ik drink 's ochtends altijd koffie — werkelijk elke dag."},
+      "He is {{answer}} late — it drives me crazy.": {"hint": "het elke-keer-woord", "translation": "Hij is altijd te laat — ik word er gek van."},
+      "We {{answer}} go out on Fridays — maybe once a month.": {"hint": "het zo-nu-en-dan-woord", "translation": "We gaan soms op vrijdag uit — misschien één keer per maand."},
+      "She {{answer}} eats meat — she's almost vegetarian.": {"hint": "het bijna-nooit-woord", "translation": "Ze eet zelden vlees — ze is bijna vegetariër."},
+      "I have {{answer}} been to Japan, but I'd love to go.": {"hint": "het nul-keer-woord", "translation": "Ik ben nog nooit in Japan geweest, maar ik zou er heel graag heen gaan."},
+      "They {{answer}} visit us at Christmas — most years.": {"hint": "het meestal-woord", "translation": "Ze bezoeken ons meestal met Kerstmis — bijna elk jaar."},
+      "We {{answer}} eat out on Fridays.": {"hint": "vaak — tussen 'sometimes' en 'always'", "translation": "We eten op vrijdag vaak buiten de deur."}
+    },
+    "Can, could, have to": {
+      "She {{answer}} speak three languages.": {"hint": "het kunnen-woord", "translation": "Ze kan drie talen spreken."},
+      "{{answer}} you open the window, please?": {"hint": "het woord van het beleefde verzoek", "translation": "Zou u het raam willen openen, alstublieft?"},
+      "I {{answer}} to wear a uniform at work.": {"hint": "het moeten-werkwoord", "translation": "Ik moet op mijn werk een uniform dragen."},
+      "When I was five, I {{answer}} already read.": {"hint": "het kunnen-woord — verleden tijd", "translation": "Toen ik vijf was, kon ik al lezen."},
+      "You don't {{answer}} to come if you're busy.": {"hint": "het moeten-werkwoord", "translation": "Je hoeft niet te komen als je het druk hebt."},
+      "{{answer}} I sit here? — Of course.": {"hint": "het toestemmingswoord", "translation": "Mag ik hier zitten? — Natuurlijk."}
+    },
+    "Prepositions of time: in, on, at": {
+      "The meeting starts {{answer}} nine o'clock.": {"hint": "voorzetsel van het exacte tijdstip", "translation": "De vergadering begint om negen uur."},
+      "I was born {{answer}} 1998.": {"hint": "voorzetsel van lange periodes", "translation": "Ik ben in 1998 geboren."},
+      "We're leaving {{answer}} Friday.": {"hint": "voorzetsel van dagen", "translation": "We vertrekken vrijdag."},
+      "She works best {{answer}} the morning.": {"hint": "voorzetsel van lange periodes", "translation": "Ze werkt het best 's ochtends."},
+      "My birthday is {{answer}} 12 March.": {"hint": "voorzetsel van datums", "translation": "Mijn verjaardag is op 12 maart."},
+      "He often studies {{answer}} night.": {"hint": "het vaste voorzetsel bij night", "translation": "Hij studeert vaak 's nachts."}
+    },
+    "Subject pronouns (I, you, he…)": {
+      "{{answer}} am from Brazil.": {"hint": "wie er spreekt — altijd met hoofdletter", "translation": "Ik kom uit Brazilië."},
+      "{{answer}} is my sister.": {"hint": "een vrouw", "translation": "Zij is mijn zus."},
+      "{{answer}} are students.": {"hint": "wie er spreekt + anderen", "translation": "Wij zijn studenten."},
+      "{{answer}} is my father.": {"hint": "een man", "translation": "Hij is mijn vader."},
+      "{{answer}} is on the table.": {"hint": "een ding", "translation": "Het ligt op tafel."},
+      "{{answer}} are very kind.": {"hint": "degene tegen wie je praat", "translation": "Je bent heel aardig. / Jullie zijn heel aardig."},
+      "{{answer}} are my friends.": {"hint": "meerdere personen — „zij”", "translation": "Zij zijn mijn vrienden."}
+    },
+    "To be — am / is / are": {
+      "I {{answer}} a student.": {"hint": "be — met I", "translation": "Ik ben student."},
+      "You {{answer}} my friend.": {"hint": "be — met you", "translation": "Jij bent mijn vriend."},
+      "She {{answer}} a doctor.": {"hint": "be — met she", "translation": "Zij is arts."},
+      "We {{answer}} at home.": {"hint": "be — met we", "translation": "We zijn thuis."},
+      "The coffee {{answer}} hot.": {"hint": "be — met it/een ding", "translation": "De koffie is heet."},
+      "They {{answer}} from Japan.": {"hint": "be — met they", "translation": "Ze komen uit Japan."}
+    },
+    "Articles: a / an": {
+      "I have {{answer}} dog.": {"hint": "vóór een medeklinkerklank", "translation": "Ik heb een hond."},
+      "She is {{answer}} engineer.": {"hint": "vóór een klinkerklank", "translation": "Ze is ingenieur."},
+      "It is {{answer}} big house.": {"hint": "vóór een medeklinkerklank", "translation": "Het is een groot huis."},
+      "He eats {{answer}} apple every day.": {"hint": "vóór een klinkerklank", "translation": "Hij eet elke dag een appel."},
+      "I read {{answer}} book every week.": {"hint": "vóór een medeklinkerklank", "translation": "Ik lees elke week een boek."},
+      "I need {{answer}} umbrella.": {"hint": "vóór een klinkerklank", "translation": "Ik heb een paraplu nodig."}
+    },
+    "The — pointing at a specific thing": {
+      "{{answer}} sun is hot today.": {"hint": "unieke dingen krijgen dit lidwoord", "translation": "De zon is heet vandaag."},
+      "Please close {{answer}} door.": {"hint": "jullie weten allebei welke", "translation": "Doe de deur dicht, alsjeblieft."},
+      "{{answer}} keys in my hand are mine.": {"hint": "bepaald door wat erna komt", "translation": "De sleutels in mijn hand zijn van mij."},
+      "We live near {{answer}} station.": {"hint": "jullie weten allebei welk", "translation": "We wonen vlak bij het station."},
+      "{{answer}} moon is bright tonight.": {"hint": "unieke dingen krijgen dit lidwoord", "translation": "De maan is helder vannacht."},
+      "Where is {{answer}} bathroom?": {"hint": "jullie weten allebei welke", "translation": "Waar is het toilet?"}
+    },
+    "Plural nouns (-s, -es, irregular)": {
+      "I have two {{answer}}.": {"hint": "book, in het meervoud", "translation": "Ik heb twee boeken."},
+      "The {{answer}} are playing outside.": {"hint": "child — onregelmatig meervoud", "translation": "De kinderen spelen buiten."},
+      "She has three {{answer}}.": {"hint": "watch — krijgt -es", "translation": "Ze heeft drie horloges."},
+      "The {{answer}} are late today.": {"hint": "bus — krijgt -es", "translation": "De bussen zijn vandaag te laat."},
+      "Two {{answer}} live in our street.": {"hint": "family — de y wordt -ies", "translation": "Er wonen twee gezinnen in onze straat."},
+      "My {{answer}} are cold.": {"hint": "foot — onregelmatig meervoud", "translation": "Mijn voeten zijn koud."}
+    },
+    "Present simple (I work)": {
+      "I {{answer}} in a bank.": {"hint": "wat je als beroep doet", "translation": "Ik werk bij een bank."},
+      "We {{answer}} breakfast at seven.": {"hint": "(een maaltijd) nuttigen", "translation": "We ontbijten om zeven uur."},
+      "They {{answer}} in London.": {"hint": "ergens wonen", "translation": "Ze wonen in Londen."},
+      "You {{answer}} English very well.": {"hint": "een taal gebruiken", "translation": "Je spreekt heel goed Engels."},
+      "I {{answer}} coffee every morning.": {"hint": "een drank nuttigen", "translation": "Ik drink elke ochtend koffie."},
+      "We {{answer}} TV in the evening.": {"hint": "naar een scherm of programma kijken", "translation": "We kijken 's avonds tv."}
+    },
+    "Third-person -s (she works)": {
+      "She {{answer}} in a hospital.": {"hint": "to work — met she", "translation": "Ze werkt in een ziekenhuis."},
+      "He {{answer}} to school every day.": {"hint": "to go — krijgt -es", "translation": "Hij gaat elke dag naar school."},
+      "My brother {{answer}} English.": {"hint": "to study — de y wordt -ies", "translation": "Mijn broer studeert Engels."},
+      "The shop {{answer}} at nine.": {"hint": "to open — met it", "translation": "De winkel gaat om negen uur open."},
+      "She {{answer}} TV after dinner.": {"hint": "to watch — krijgt -es", "translation": "Ze kijkt na het eten tv."},
+      "It {{answer}} a lot in April.": {"hint": "to rain — met it", "translation": "In april regent het veel."}
+    },
+    "Do-support: questions and negation": {
+      "{{answer}} you speak English?": {"hint": "het hulpwerkwoord — met you", "translation": "Spreek je Engels?"},
+      "{{answer}} she work here?": {"hint": "het hulpwerkwoord — met she", "translation": "Werkt ze hier?"},
+      "I {{answer}} not eat meat.": {"hint": "het hulpwerkwoord — met I", "translation": "Ik eet geen vlees."},
+      "He {{answer}} not like coffee.": {"hint": "het hulpwerkwoord — met he", "translation": "Hij houdt niet van koffie."},
+      "{{answer}} they live in Rome?": {"hint": "het hulpwerkwoord — met they", "translation": "Wonen ze in Rome?"},
+      "We {{answer}} not have time.": {"hint": "het hulpwerkwoord — met we", "translation": "We hebben geen tijd."},
+      "I {{answer}} like coffee.": {"hint": "ontkenning met I — do + not", "translation": "Ik houd niet van koffie."},
+      "She {{answer}} work on Sundays.": {"hint": "ontkenning met she — does + not", "translation": "Ze werkt niet op zondag."}
+    },
+    "Present continuous (I am working)": {
+      "I am {{answer}} a book right now.": {"hint": "to read + -ing", "translation": "Ik ben nu een boek aan het lezen."},
+      "She is {{answer}} dinner now.": {"hint": "to cook + -ing", "translation": "Ze is nu het avondeten aan het koken."},
+      "They are {{answer}} football.": {"hint": "to play + -ing", "translation": "Ze zijn aan het voetballen."},
+      "Look! It is {{answer}}.": {"hint": "to rain + -ing", "translation": "Kijk! Het regent."},
+      "We are {{answer}} for the bus.": {"hint": "to wait + -ing", "translation": "We staan op de bus te wachten."},
+      "He is {{answer}} at the moment.": {"hint": "to sleep + -ing", "translation": "Hij slaapt op dit moment."},
+      "He is {{answer}} in the park.": {"hint": "run — de eindmedeklinker verdubbelt", "translation": "Hij is in het park aan het hardlopen."},
+      "She is {{answer}} an email.": {"hint": "write — de stomme e valt weg", "translation": "Ze is een e-mail aan het schrijven."}
+    },
+    "There is / there are": {
+      "There {{answer}} a book on the table.": {"hint": "enkelvoud", "translation": "Er ligt een boek op tafel."},
+      "There {{answer}} two cafés in this street.": {"hint": "meervoud", "translation": "Er zijn twee cafés in deze straat."},
+      "{{answer}} there a bank near here?": {"hint": "enkelvoud, vraagvolgorde", "translation": "Is er een bank in de buurt?"},
+      "There {{answer}} no milk.": {"hint": "enkelvoud", "translation": "Er is geen melk."},
+      "{{answer}} there any questions?": {"hint": "meervoud, vraagvolgorde", "translation": "Zijn er vragen?"},
+      "There {{answer}} many people here today.": {"hint": "meervoud", "translation": "Er zijn vandaag veel mensen hier."}
+    },
+    "Question words (what, where, when…)": {
+      "{{answer}} do you live?": {"hint": "er wordt naar een plaats gevraagd", "translation": "Waar woon je?"},
+      "{{answer}} is your name?": {"hint": "er wordt naar een ding gevraagd", "translation": "Wat is je naam?"},
+      "{{answer}} is your birthday?": {"hint": "er wordt naar een tijdstip gevraagd", "translation": "Wanneer is je verjaardag?"},
+      "{{answer}} old are you?": {"hint": "zo vraag je naar leeftijd", "translation": "Hoe oud ben je?"},
+      "{{answer}} is your teacher?": {"hint": "er wordt naar een persoon gevraagd", "translation": "Wie is je leraar?"},
+      "{{answer}} are you crying?": {"hint": "er wordt naar een reden gevraagd", "translation": "Waarom huil je?"}
+    },
+    "Possessives (my, your, 's)": {
+      "This is {{answer}} book.": {"hint": "van wie er spreekt", "translation": "Dit is mijn boek."},
+      "Is this {{answer}} car?": {"hint": "van jou", "translation": "Is dit jouw auto?"},
+      "{{answer}} name is Anna.": {"hint": "van haar", "translation": "Haar naam is Anna."},
+      "That is my {{answer}} car.": {"hint": "brother + de bezitsuitgang", "translation": "Dat is de auto van mijn broer."},
+      "{{answer}} house is big.": {"hint": "van hen", "translation": "Hun huis is groot."},
+      "The dog wags {{answer}} tail.": {"hint": "van een ding — zonder apostrof", "translation": "De hond kwispelt met zijn staart."},
+      "{{answer}} name is David.": {"hint": "de naam van een man — „zijn”", "translation": "Zijn naam is David."},
+      "That is {{answer}} classroom.": {"hint": "het is van ons — „ons”", "translation": "Dat is ons klaslokaal."}
+    },
+    "Present perfect vs past simple": {
+      "I've {{answer}} my wallet — can you help me look?": {"hint": "lose — voltooid deelwoord", "translation": "Ik ben mijn portemonnee kwijt — help je me zoeken?"},
+      "She {{answer}} in Berlin in 2019.": {"hint": "live — verleden tijd", "translation": "Ze woonde in 2019 in Berlijn."},
+      "Have you {{answer}} been to Japan?": {"hint": "het ooit-in-je-leven-woord", "translation": "Ben je ooit in Japan geweest?"},
+      "We've known each other {{answer}} ten years.": {"hint": "het duurwoord", "translation": "We kennen elkaar al tien jaar."},
+      "He's worked here {{answer}} 2020.": {"hint": "het beginpuntwoord", "translation": "Hij werkt hier sinds 2020."},
+      "They haven't finished {{answer}}.": {"hint": "het nog-niet-woord", "translation": "Ze zijn nog niet klaar."}
+    },
+    "First and second conditionals": {
+      "If it {{answer}} tomorrow, we'll cancel the picnic.": {"hint": "rain — tegenwoordige tijd, it", "translation": "Als het morgen regent, zeggen we de picknick af."},
+      "If you study, you {{answer}} pass.": {"hint": "het woord van de echte toekomst", "translation": "Als je studeert, zul je slagen."},
+      "If I {{answer}} rich, I would buy an island.": {"hint": "be — irreële vorm", "translation": "Als ik rijk was, zou ik een eiland kopen."},
+      "She {{answer}} travel more if she had time.": {"hint": "het woord van het irreële gevolg", "translation": "Ze zou meer reizen als ze tijd had."},
+      "If we {{answer}} now, we'll catch the train.": {"hint": "vertrekken — in de tegenwoordige tijd", "translation": "Als we nu vertrekken, halen we de trein."},
+      "What {{answer}} you do if you won the lottery?": {"hint": "het woord van het irreële gevolg", "translation": "Wat zou je doen als je de loterij won?"}
+    },
+    "The passive (is made, was built)": {
+      "This wine {{answer}} produced in Chile.": {"hint": "be — tegenwoordige tijd, it", "translation": "Deze wijn wordt in Chili geproduceerd."},
+      "The castle was {{answer}} in the twelfth century.": {"hint": "build — voltooid deelwoord", "translation": "Het kasteel werd in de twaalfde eeuw gebouwd."},
+      "These photos {{answer}} taken by my grandmother.": {"hint": "be — verleden tijd, they", "translation": "Deze foto's zijn door mijn oma gemaakt."},
+      "English {{answer}} spoken all over the world.": {"hint": "be — tegenwoordige tijd, it", "translation": "Engels wordt over de hele wereld gesproken."},
+      "The thief was caught {{answer}} the police.": {"hint": "het voorzetsel van de handelende persoon", "translation": "De dief werd door de politie gepakt."},
+      "My phone was {{answer}} at the festival.": {"hint": "steal — voltooid deelwoord", "translation": "Mijn telefoon is op het festival gestolen."}
+    },
+    "Relative clauses (who, which, that, where)": {
+      "She's the doctor {{answer}} treated my father.": {"hint": "betrekkelijk woord voor personen", "translation": "Zij is de arts die mijn vader heeft behandeld."},
+      "That's the restaurant {{answer}} we first met.": {"hint": "betrekkelijk woord voor plaatsen", "translation": "Dat is het restaurant waar we elkaar voor het eerst ontmoetten."},
+      "The laptop {{answer}} I bought last week is broken.": {"hint": "het betrekkelijke passe-partoutwoord", "translation": "De laptop die ik vorige week kocht, is kapot."},
+      "He's the author {{answer}} books sell millions.": {"hint": "betrekkelijk woord van bezit", "translation": "Hij is de schrijver wiens boeken miljoenen exemplaren verkopen."},
+      "The train, {{answer}} was already late, then broke down.": {"hint": "betrekkelijk woord voor dingen", "translation": "De trein, die al vertraging had, kreeg vervolgens ook nog pech."},
+      "People {{answer}} exercise regularly live longer.": {"hint": "betrekkelijk woord voor personen", "translation": "Mensen die regelmatig sporten, leven langer."}
+    },
+    "Used to — past habits and states": {
+      "I {{answer}} to play football every weekend.": {"hint": "het werkwoord van de vroegere gewoonte", "translation": "Vroeger voetbalde ik elk weekend."},
+      "She didn't {{answer}} to like coffee, but now she loves it.": {"hint": "het werkwoord van de vroegere gewoonte, zonder -d", "translation": "Vroeger hield ze niet van koffie, maar nu is ze er dol op."},
+      "There {{answer}} to be a bakery on this corner.": {"hint": "het werkwoord van de vroegere gewoonte", "translation": "Vroeger zat er een bakkerij op deze hoek."},
+      "Did you {{answer}} to live in London?": {"hint": "het werkwoord van de vroegere gewoonte, zonder -d", "translation": "Woonde je vroeger in Londen?"},
+      "He used {{answer}} have long hair.": {"hint": "het woordje", "translation": "Vroeger had hij lang haar."},
+      "We {{answer}} to go camping every summer as kids.": {"hint": "het werkwoord van de vroegere gewoonte", "translation": "Als kinderen gingen we elke zomer kamperen."}
+    },
+    "Reported speech": {
+      "'I'm busy.' → She said she {{answer}} busy.": {"hint": "be — één stap terug", "translation": "„Ik heb het druk.” → Ze zei dat ze het druk had."},
+      "'I'll call you.' → He said he {{answer}} call me.": {"hint": "will — één stap terug", "translation": "„Ik bel je.” → Hij zei dat hij me zou bellen."},
+      "'Are you ready?' → She asked {{answer}} I was ready.": {"hint": "het woord van ja/nee-vragen", "translation": "„Ben je klaar?” → Ze vroeg of ik klaar was."},
+      "'Where do you live?' → He asked where I {{answer}}.": {"hint": "live — één stap terug", "translation": "„Waar woon je?” → Hij vroeg waar ik woonde."},
+      "'I can swim.' → She said she {{answer}} swim.": {"hint": "can — één stap terug", "translation": "„Ik kan zwemmen.” → Ze zei dat ze kon zwemmen."},
+      "'We bought a house.' → They said they {{answer}} bought a house.": {"hint": "het hulpwerkwoord van de terugverschuiving", "translation": "„We hebben een huis gekocht.” → Ze zeiden dat ze een huis hadden gekocht."}
+    },
+    "Gerund or infinitive?": {
+      "I really enjoy {{answer}} in the sea.": {"hint": "swim — welke vorm?", "translation": "Ik geniet echt van zwemmen in zee."},
+      "She decided {{answer}} accept the job.": {"hint": "het woordje van de infinitief", "translation": "Ze besloot de baan aan te nemen."},
+      "Would you mind {{answer}} the door?": {"hint": "close — welke vorm?", "translation": "Zou u de deur willen sluiten?"},
+      "We hope {{answer}} see you soon.": {"hint": "het woordje van de infinitief", "translation": "We hopen je snel te zien."},
+      "He avoided {{answer}} my question.": {"hint": "answer — welke vorm?", "translation": "Hij ontweek het beantwoorden van mijn vraag."},
+      "They promised {{answer}} write every week.": {"hint": "het woordje van de infinitief", "translation": "Ze beloofden elke week te schrijven."}
+    },
+    "Third and mixed conditionals": {
+      "If you {{answer}} told me, I would have helped.": {"hint": "het hulpwerkwoord van de voltooid verleden tijd", "translation": "Als je het me had verteld, had ik geholpen."},
+      "If she had left earlier, she would {{answer}} caught the flight.": {"hint": "het voltooiingshulpwerkwoord na would", "translation": "Als ze eerder was vertrokken, had ze de vlucht gehaald."},
+      "I wouldn't {{answer}} met her if I hadn't gone to that party.": {"hint": "het voltooiingshulpwerkwoord", "translation": "Ik zou haar nooit hebben ontmoet als ik niet naar dat feest was gegaan."},
+      "If he had studied medicine, he {{answer}} be a doctor now.": {"hint": "het woord van het irreële gevolg", "translation": "Als hij geneeskunde had gestudeerd, zou hij nu arts zijn."},
+      "If we {{answer}} taken the map, we wouldn't have got lost.": {"hint": "het hulpwerkwoord van de voltooid verleden tijd", "translation": "Als we de kaart hadden meegenomen, waren we niet verdwaald."},
+      "What would you have {{answer}} in my position?": {"hint": "do — voltooid deelwoord", "translation": "Wat zou jij in mijn plaats hebben gedaan?"}
+    },
+    "Modals of deduction (must, might, can't)": {
+      "The lights are on — someone {{answer}} be home.": {"hint": "het woord van de bijna-zekerheid", "translation": "De lichten zijn aan — er moet iemand thuis zijn."},
+      "That {{answer}} be Maria — she's in Brazil this week!": {"hint": "het woord van de onmogelijkheid", "translation": "Dat kan Maria niet zijn — ze is deze week in Brazilië!"},
+      "He {{answer}} be stuck in traffic — it happens.": {"hint": "een mogelijkheidswoord", "translation": "Misschien staat hij in de file — dat gebeurt."},
+      "She must {{answer}} forgotten our meeting.": {"hint": "het hulpwerkwoord van de gevolgtrekking over het verleden", "translation": "Ze moet onze afspraak vergeten zijn."},
+      "They can't {{answer}} left already — the car's still here.": {"hint": "het hulpwerkwoord van de gevolgtrekking over het verleden", "translation": "Ze kunnen nog niet vertrokken zijn — de auto staat er nog."},
+      "It {{answer}} rain later, so take an umbrella.": {"hint": "een mogelijkheidswoord", "translation": "Het kan straks gaan regenen, dus neem een paraplu mee."}
+    },
+    "Advanced passives (has been done, being done)": {
+      "The road has {{answer}} closed since Monday.": {"hint": "het voltooid deelwoord van be", "translation": "De weg is sinds maandag afgesloten."},
+      "Our office is {{answer}} renovated at the moment.": {"hint": "de -ing-vorm van be", "translation": "Ons kantoor wordt momenteel gerenoveerd."},
+      "All answers must be {{answer}} in ink.": {"hint": "write — voltooid deelwoord", "translation": "Alle antwoorden moeten met inkt worden geschreven."},
+      "She is {{answer}} to be the richest woman in the country.": {"hint": "say — voltooid deelwoord", "translation": "Er wordt gezegd dat ze de rijkste vrouw van het land is."},
+      "The results will {{answer}} announced on Friday.": {"hint": "de kale infinitief van de lijdende vorm", "translation": "De uitslagen worden vrijdag bekendgemaakt."},
+      "By 1990, the bridge {{answer}} been rebuilt twice.": {"hint": "het hulpwerkwoord van de voltooid verleden tijd", "translation": "In 1990 was de brug al twee keer herbouwd."}
+    },
+    "Wish and if only": {
+      "I wish I {{answer}} how to drive.": {"hint": "know — wensvorm", "translation": "Ik wou dat ik kon autorijden."},
+      "She wishes she {{answer}} accepted the offer.": {"hint": "het hulpwerkwoord van de spijt over het verleden", "translation": "Ze wou dat ze het aanbod had aangenomen."},
+      "I wish you {{answer}} stop interrupting me!": {"hint": "het klaagwoord", "translation": "Ik wou dat je ophield me te onderbreken!"},
+      "If {{answer}} I had listened to your advice!": {"hint": "het woord na if", "translation": "Had ik maar naar je advies geluisterd!"},
+      "He wishes he {{answer}} taller.": {"hint": "be — wensvorm", "translation": "Hij wou dat hij langer was."},
+      "We wish we {{answer}} bought tickets earlier.": {"hint": "het hulpwerkwoord van de spijt over het verleden", "translation": "We wilden dat we de kaartjes eerder hadden gekocht."}
+    },
+    "Phrasal verbs — separable or not?": {
+      "Could you turn {{answer}} off? The music's too loud.": {"hint": "het voornaamwoord-lijdend voorwerp", "translation": "Kun je haar uitzetten? De muziek staat te hard."},
+      "She's looking {{answer}} her elderly mother.": {"hint": "het partikel van het zorgen voor", "translation": "Ze zorgt voor haar bejaarde moeder."},
+      "Please fill {{answer}} this form.": {"hint": "het formulierenpartikel", "translation": "Vul dit formulier in, alstublieft."},
+      "I'll pick you {{answer}} at eight.": {"hint": "het ophaalpartikel", "translation": "Ik haal je om acht uur op."},
+      "We've put {{answer}} the meeting until Friday.": {"hint": "het uitstelpartikel", "translation": "We hebben de vergadering uitgesteld tot vrijdag."},
+      "He takes {{answer}} his father — same smile, same laugh.": {"hint": "het lijken-op-partikel", "translation": "Hij lijkt op zijn vader — dezelfde glimlach, dezelfde lach."}
+    },
+    "Question tags and indirect questions": {
+      "You've met before, {{answer}} you?": {"hint": "het omgekeerde hulpwerkwoord van het vraagstaartje", "translation": "Jullie hebben elkaar al eens ontmoet, toch?"},
+      "She doesn't eat fish, {{answer}} she?": {"hint": "het omgekeerde hulpwerkwoord van het vraagstaartje", "translation": "Ze eet geen vis, toch?"},
+      "Could you tell me where the bank {{answer}}?": {"hint": "be — aan het EIND", "translation": "Kunt u me vertellen waar de bank is?"},
+      "Do you know if the shop {{answer}} at six?": {"hint": "close — volgorde van een mededeling", "translation": "Weet je of de winkel om zes uur sluit?"},
+      "It's cold today, {{answer}} it?": {"hint": "het omgekeerde hulpwerkwoord van het vraagstaartje", "translation": "Het is koud vandaag, hè?"},
+      "I wonder {{answer}} they got home safely.": {"hint": "het alternatief voor if", "translation": "Ik vraag me af of ze veilig thuis zijn gekomen."}
+    },
+    "Inversion (Never have I…, Not only…)": {
+      "Never {{answer}} I heard such nonsense.": {"hint": "het voltooiingshulpwerkwoord", "translation": "Nooit heb ik zulke onzin gehoord."},
+      "Not only {{answer}} she sing, she writes her own songs.": {"hint": "het hulpwerkwoord van de tegenwoordige tijd", "translation": "Ze zingt niet alleen, ze schrijft ook haar eigen liedjes."},
+      "No sooner had we sat down {{answer}} the phone rang.": {"hint": "het woord dat het paar afmaakt", "translation": "We waren nog maar net gaan zitten of de telefoon ging."},
+      "Under no circumstances {{answer}} you open that door.": {"hint": "het advieswoord", "translation": "Onder geen beding zou je die deur moeten openen."},
+      "Rarely {{answer}} we see such talent.": {"hint": "het hulpwerkwoord van de tegenwoordige tijd", "translation": "Zelden zien we zo'n talent."},
+      "Only then {{answer}} I understand what she meant.": {"hint": "het hulpwerkwoord van de verleden tijd", "translation": "Pas toen begreep ik wat ze bedoelde."}
+    },
+    "Cleft sentences (What I need is…, It was… that)": {
+      "{{answer}} I need is a good night's sleep.": {"hint": "de aanhef van de gekloofde zin", "translation": "Wat ik nodig heb, is een goede nachtrust."},
+      "It was Marco {{answer}} suggested the idea.": {"hint": "het betrekkelijke woord voor personen", "translation": "Het was Marco die het idee opperde."},
+      "What annoys me {{answer}} his constant lateness.": {"hint": "be — het scharnier van de zin", "translation": "Wat me ergert, is dat hij altijd te laat komt."},
+      "It {{answer}} in Paris that they first met.": {"hint": "be — verleden tijd", "translation": "Het was in Parijs dat ze elkaar voor het eerst ontmoetten."},
+      "{{answer}} she wants is a little respect.": {"hint": "de aanhef van het alles-wat", "translation": "Alles wat ze wil, is een beetje respect."},
+      "It wasn't until midnight {{answer}} he finally called.": {"hint": "het verbindingswoord van de gekloofde zin", "translation": "Pas om middernacht belde hij eindelijk."}
+    },
+    "Hedging and distancing (would seem, tend to)": {
+      "It would {{answer}} that the figures are wrong.": {"hint": "het schijnwerkwoord", "translation": "Het lijkt erop dat de cijfers onjuist zijn."},
+      "House prices {{answer}} to rise in spring.": {"hint": "het neigingswerkwoord", "translation": "Huizenprijzen hebben de neiging in het voorjaar te stijgen."},
+      "There {{answer}} to be a problem with the data.": {"hint": "het schijnwerkwoord, derde persoon", "translation": "Er lijkt een probleem met de gegevens te zijn."},
+      "It is widely {{answer}} that the climate is changing.": {"hint": "believe — voltooid deelwoord", "translation": "Er wordt algemeen aangenomen dat het klimaat verandert."},
+      "The results {{answer}} that more research is needed.": {"hint": "het suggereerwerkwoord", "translation": "De resultaten suggereren dat er meer onderzoek nodig is."},
+      "It could be {{answer}} that the policy failed.": {"hint": "argue — voltooid deelwoord", "translation": "Men zou kunnen betogen dat het beleid heeft gefaald."}
+    },
+    "Participle clauses (Having finished, …)": {
+      "{{answer}} finished dinner, we went for a walk.": {"hint": "de aanhef van het voltooide deelwoord", "translation": "Na het avondeten gingen we een stukje wandelen."},
+      "{{answer}} through the window, she saw the storm coming.": {"hint": "look — deelwoord", "translation": "Toen ze uit het raam keek, zag ze de storm aankomen."},
+      "{{answer}} in 1889, the tower still draws millions.": {"hint": "build — deelwoord", "translation": "De toren, gebouwd in 1889, trekt nog altijd miljoenen bezoekers."},
+      "Not {{answer}} what to say, he stayed silent.": {"hint": "know — deelwoord", "translation": "Omdat hij niet wist wat hij moest zeggen, zweeg hij."},
+      "Having {{answer}} in Rome for years, she speaks fluent Italian.": {"hint": "live — deelwoord", "translation": "Omdat ze jaren in Rome heeft gewoond, spreekt ze vloeiend Italiaans."},
+      "{{answer}} by the news, they cancelled the trip.": {"hint": "shock — deelwoord", "translation": "Geschokt door het nieuws zegden ze de reis af."}
+    },
+    "The mandative subjunctive (insist that he be)": {
+      "The board insisted that he {{answer}} removed from the project.": {"hint": "be — kale vorm", "translation": "Het bestuur stond erop dat hij van het project werd gehaald."},
+      "It is essential that every member {{answer}} the code of conduct.": {"hint": "naleven — kale vorm", "translation": "Het is essentieel dat elk lid de gedragscode naleeft."},
+      "She recommended that the report {{answer}} rewritten.": {"hint": "be — kale vorm", "translation": "Ze adviseerde dat het rapport herschreven zou worden."},
+      "They demanded that the minister {{answer}}.": {"hint": "aftreden — kale vorm", "translation": "Ze eisten dat de minister zou aftreden."},
+      "It's vital that she {{answer}} informed at once.": {"hint": "be — kale vorm", "translation": "Het is van vitaal belang dat ze onmiddellijk wordt ingelicht."},
+      "We suggest that he {{answer}} a lawyer before signing.": {"hint": "raadplegen — kale vorm", "translation": "We stellen voor dat hij vóór het tekenen een advocaat raadpleegt."}
+    },
+    "Ellipsis and substitution (so, neither, do so)": {
+      "I loved the film. — {{answer}} did I!": {"hint": "de aanhef van het ik-ook", "translation": "Ik vond de film geweldig. — Ik ook!"},
+      "She can't make it tonight. — {{answer}} can I.": {"hint": "de negatieve aanhef van het ik-ook-niet", "translation": "Zij kan vanavond niet komen. — Ik ook niet."},
+      "He was asked to apologise, and he did {{answer}} immediately.": {"hint": "het vervangwoord na did", "translation": "Hem werd gevraagd zijn excuses aan te bieden, en dat deed hij meteen."},
+      "You may be tired; if {{answer}}, rest.": {"hint": "het vervangwoord na if", "translation": "Misschien ben je moe; zo ja, rust dan uit."},
+      "They promised to help, but failed to {{answer}} so.": {"hint": "het vervangwerkwoord", "translation": "Ze beloofden te helpen, maar deden dat niet."},
+      "I've never been to Oslo. — Nor {{answer}} I.": {"hint": "het voltooiingshulpwerkwoord", "translation": "Ik ben nog nooit in Oslo geweest. — Ik ook niet."}
+    },
+    "Formal connectors (notwithstanding, albeit)": {
+      "The plan went ahead, {{answer}} the objections.": {"hint": "het formelere 'despite'", "translation": "Het plan ging door, niettegenstaande de bezwaren."},
+      "It was a victory, {{answer}} a narrow one.": {"hint": "het samengeperste although", "translation": "Het was een overwinning, zij het een nipte."},
+      "The costs rose sharply; {{answer}} the project was cancelled.": {"hint": "een formeel therefore", "translation": "De kosten stegen sterk; bijgevolg werd het project geannuleerd."},
+      "A scheme {{answer}} employees share the profits.": {"hint": "het woord van het waardoor", "translation": "Een regeling waarbij werknemers in de winst delen."},
+      "A {{answer}} unknown author won the prize.": {"hint": "het tot-dan-toe-woord", "translation": "Een tot dan toe onbekende schrijver won de prijs."},
+      "The evidence, {{answer}} incomplete, points one way.": {"hint": "het verkorte although", "translation": "Het bewijs, hoewel onvolledig, wijst één kant op."}
+    },
+    "Past simple — regular verbs (-ed)": {
+      "I {{answer}} in a bank for five years.": {"hint": "work + -ed", "translation": "Ik werkte vijf jaar bij een bank."},
+      "She {{answer}} in Rome when she was young.": {"hint": "live — krijgt alleen -d", "translation": "Ze woonde in Rome toen ze jong was."},
+      "He {{answer}} English at university.": {"hint": "study — de y wordt -ied", "translation": "Hij studeerde Engels aan de universiteit."},
+      "The bus {{answer}} suddenly.": {"hint": "stop — de p verdubbelt", "translation": "De bus stopte plotseling."},
+      "We {{answer}} football in the park yesterday.": {"hint": "klinker + y — alleen -ed", "translation": "We voetbalden gisteren in het park."},
+      "They {{answer}} work yesterday — it was a holiday.": {"hint": "ontkende verleden tijd: did + not", "translation": "Ze werkten gisteren niet — het was een feestdag."}
+    },
+    "Object pronouns (me, him, them)": {
+      "Can you help {{answer}}, please?": {"hint": "wie spreekt vraagt hulp — „mij”", "translation": "Kun je mij helpen, alsjeblieft?"},
+      "I saw {{answer}} at school yesterday.": {"hint": "een man — „hem”", "translation": "Ik zag hem gisteren op school."},
+      "This present is for {{answer}}.": {"hint": "een vrouw — „haar”", "translation": "Dit cadeau is voor haar."},
+      "Our teacher knows {{answer}} well.": {"hint": "wie spreekt + anderen — „ons”", "translation": "Onze leraar kent ons goed."},
+      "I like these shoes — I'll buy {{answer}}.": {"hint": "meerdere dingen — „ze”", "translation": "Ik vind deze schoenen mooi — ik koop ze."},
+      "Where is my phone? I can't find {{answer}}.": {"hint": "een ding — „hem/het”", "translation": "Waar is mijn telefoon? Ik kan hem niet vinden."}
+    },
+    "Imperatives (Open…, Don't…)": {
+      "{{answer}} the door, please.": {"hint": "werkwoord in de basisvorm, zonder onderwerp", "translation": "Doe de deur open, alsjeblieft."},
+      "{{answer}} worry — everything is fine.": {"hint": "ontkennend bevel: de ontkennende vorm van do + werkwoord", "translation": "Maak je geen zorgen — alles is in orde."},
+      "{{answer}} me tomorrow, please.": {"hint": "werkwoord in de basisvorm", "translation": "Bel me morgen, alsjeblieft."},
+      "{{answer}} be late — the film starts at eight.": {"hint": "ontkennend bevel met be", "translation": "Kom niet te laat — de film begint om acht uur."},
+      "{{answer}} quiet, please — the baby is sleeping.": {"hint": "het werkwoord be in de basisvorm", "translation": "Wees stil, alsjeblieft — de baby slaapt."},
+      "Please {{answer}} down and wait a moment.": {"hint": "werkwoord in de basisvorm", "translation": "Gaat u zitten en wacht u even, alstublieft."}
+    }
+  }
+}
