@@ -15,6 +15,7 @@ class TestAlphabetData:
         assert len(RUSSIAN) == 33   # modern Cyrillic
         assert len(GREEK) == 24     # Greek alphabet
         assert len(ARABIC) == 28    # Arabic abjad
+        assert len(HINDI) == 43     # 10 vowels + 33 consonants
         assert len(THAI) == 44      # Thai consonants (incl. the 2 obsolete)
 
     def test_letters_unique(self):
