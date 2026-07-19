@@ -47,9 +47,11 @@ from backend.repositories.contributor import (
     list_grammar_points,
     list_review_notes,
     list_suggestions,
+    list_translation_reviews,
     reject_suggestion,
     resolve_feedback,
     resolve_review_note,
+    resolve_translation_review,
     revoke_role,
     save_ai_check,
     save_explanation,
@@ -746,6 +748,45 @@ async def reject_content_suggestion(
         if not ok:
             raise HTTPException(status_code=409, detail="Already resolved")
     return {"rejected": True}
+
+
+@router.get("/translation-reviews")
+async def translation_reviews_queue(user: dict = Depends(get_current_user)):
+    """Glosses/hints the AI maker-checker refused to auto-apply (admin-only)."""
+    await _require_admin(user["id"])
+    async with privileged_connection() as conn:
+        return {"reviews": await list_translation_reviews(conn)}
+
+
+async def _resolve_review(review_id: str, user: dict, approve: bool) -> dict:
+    await _require_admin(user["id"])
+    async with privileged_connection() as conn:
+        outcome = await resolve_translation_review(conn, review_id, approve)
+    if outcome == "not_found":
+        raise HTTPException(status_code=404, detail="Review item not found")
+    if outcome == "not_pending":
+        raise HTTPException(status_code=409, detail="Already resolved")
+    if outcome == "empty":
+        raise HTTPException(
+            status_code=422,
+            detail="Nothing to apply — this item has no proposed text; reject it "
+                   "or fix the card directly.",
+        )
+    return {"approved" if approve else "rejected": True}
+
+
+@router.post("/translation-reviews/{review_id}/approve")
+async def approve_translation_review(
+    review_id: str, user: dict = Depends(get_current_user),
+):
+    return await _resolve_review(review_id, user, approve=True)
+
+
+@router.post("/translation-reviews/{review_id}/reject")
+async def reject_translation_review(
+    review_id: str, user: dict = Depends(get_current_user),
+):
+    return await _resolve_review(review_id, user, approve=False)
 
 
 class NewAccount(BaseModel):

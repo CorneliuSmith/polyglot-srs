@@ -21,6 +21,7 @@ import IssuesPanel from '../contribute/IssuesPanel'
 import FeedbackPanel from '../contribute/FeedbackPanel'
 import SuggestionsPanel from '../contribute/SuggestionsPanel'
 import EngagementPanel from '../contribute/EngagementPanel'
+import TranslationReviewsPanel from '../contribute/TranslationReviewsPanel'
 import {
   ReviewPolicyControl,
   TutorModelControl,
@@ -252,6 +253,7 @@ export default function SettingsPage() {
         {tab === 'admin' && activeLanguageId && isAdmin && (
           <>
             <EngagementPanel />
+            <TranslationReviewsPanel />
             <AccountsPanel languages={languages} selfId={selfId} />
             <RolesPanel languages={languages} />
             <ReviewPolicyControl

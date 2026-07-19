@@ -924,6 +924,76 @@ async def reject_suggestion(
     return result.endswith("1")
 
 
+# ── Translation review queue (what the AI maker-checker wouldn't apply) ───
+async def list_translation_reviews(
+    conn: asyncpg.Connection, status_filter: str = "pending"
+) -> list[dict]:
+    """Pending AI-translation rejects, with the card's word + current gloss."""
+    rows = await conn.fetch(
+        """
+        SELECT r.id, r.locale, r.proposed, r.reason, r.status, r.created_at,
+               v.word,
+               (SELECT definition FROM translations t
+                 WHERE t.vocabulary_id = v.id AND t.locale = 'en' LIMIT 1)
+                   AS current_definition
+        FROM translation_reviews r
+        JOIN vocabulary v ON r.vocabulary_id = v.id
+        WHERE r.status = $1
+        ORDER BY r.locale, r.created_at
+        LIMIT 200
+        """,
+        status_filter,
+    )
+    return [
+        {
+            "id": str(r["id"]), "locale": r["locale"], "word": r["word"],
+            "proposed": r["proposed"], "reason": r["reason"],
+            "current_definition": r["current_definition"],
+            "created_at": r["created_at"].isoformat() if r["created_at"] else None,
+        }
+        for r in rows
+    ]
+
+
+async def resolve_translation_review(
+    conn: asyncpg.Connection, review_id: str, approve: bool
+) -> str:
+    """Approve (apply the proposed gloss to its real locale) or reject.
+
+    'en-hint' rows are flagged ENGLISH definitions, so they apply to 'en';
+    every other row applies to its own support locale. Returns
+    'ok' | 'not_found' | 'not_pending' | 'empty'.
+    """
+    r = await conn.fetchrow(
+        "SELECT id, vocabulary_id, locale, proposed, status "
+        "FROM translation_reviews WHERE id = $1",
+        review_id,
+    )
+    if not r:
+        return "not_found"
+    if r["status"] != "pending":
+        return "not_pending"
+    if approve:
+        proposed = (r["proposed"] or "").strip()
+        if not proposed:
+            return "empty"
+        target = "en" if r["locale"] == "en-hint" else r["locale"]
+        await conn.execute(
+            """
+            INSERT INTO translations (vocabulary_id, locale, definition)
+            VALUES ($1, $2, $3)
+            ON CONFLICT (vocabulary_id, locale)
+                DO UPDATE SET definition = EXCLUDED.definition
+            """,
+            r["vocabulary_id"], target, proposed,
+        )
+    await conn.execute(
+        "UPDATE translation_reviews SET status = $2 WHERE id = $1",
+        review_id, "approved" if approve else "rejected",
+    )
+    return "ok"
+
+
 async def admin_engagement(conn: asyncpg.Connection, days: int = 30) -> dict:
     """App-wide engagement snapshot for the admin panel (privileged conn).
 

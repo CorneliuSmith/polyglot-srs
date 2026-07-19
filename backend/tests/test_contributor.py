@@ -1020,6 +1020,54 @@ class TestCreateAccount:
         assert "SUPABASE_SERVICE_ROLE_KEY" in resp.json()["detail"]
 
 
+class TestTranslationReviews:
+    """The AI maker-checker's reject queue: list, approve (applies), reject."""
+
+    def test_requires_admin(self, client):
+        with _roles([{"language_id": LANG, "role": "reviewer"}]):
+            resp = client.get("/api/contribute/translation-reviews",
+                              headers=_auth_headers())
+        assert resp.status_code == 403
+
+    def test_admin_lists_queue(self, client):
+        items = [{"id": "r1", "locale": "nl", "word": "cat", "proposed": "kat",
+                  "reason": "unsure", "current_definition": "small feline",
+                  "created_at": None}]
+        with _roles([{"language_id": None, "role": "admin"}]), \
+             patch("backend.routers.contribute.list_translation_reviews",
+                   new=AsyncMock(return_value=items)):
+            resp = client.get("/api/contribute/translation-reviews",
+                              headers=_auth_headers())
+        assert resp.status_code == 200
+        assert resp.json() == {"reviews": items}
+
+    def test_approve_applies(self, client):
+        with _roles([{"language_id": None, "role": "admin"}]), \
+             patch("backend.routers.contribute.resolve_translation_review",
+                   new=AsyncMock(return_value="ok")) as mock_resolve:
+            resp = client.post("/api/contribute/translation-reviews/r1/approve",
+                               headers=_auth_headers())
+        assert resp.status_code == 200
+        assert resp.json() == {"approved": True}
+        assert mock_resolve.await_args.args[2] is True
+
+    def test_approve_without_proposal_422(self, client):
+        with _roles([{"language_id": None, "role": "admin"}]), \
+             patch("backend.routers.contribute.resolve_translation_review",
+                   new=AsyncMock(return_value="empty")):
+            resp = client.post("/api/contribute/translation-reviews/r1/approve",
+                               headers=_auth_headers())
+        assert resp.status_code == 422
+
+    def test_reject_resolved_is_409(self, client):
+        with _roles([{"language_id": None, "role": "admin"}]), \
+             patch("backend.routers.contribute.resolve_translation_review",
+                   new=AsyncMock(return_value="not_pending")):
+            resp = client.post("/api/contribute/translation-reviews/r1/reject",
+                               headers=_auth_headers())
+        assert resp.status_code == 409
+
+
 class TestAccountAdmin:
     """Admin account management: list, plan override, deletion guards."""
 
