@@ -952,29 +952,13 @@ class TestCreateAccount:
                                headers=_auth_headers())
         assert resp.status_code == 403
 
-    def test_success(self, client):
-        resp_ok = _FakeHttpxResp(200, payload={"id": "new-1", "email": "friend@example.com"})
+    def test_success_via_sql_first(self, client):
+        # DB first: no HTTP call at all on the happy path (this deploy's
+        # egress to the auth API hangs — the old API-first order 504'd).
+        def boom(*a, **k):
+            raise AssertionError("httpx must not be used when SQL succeeds")
         with _roles([{"language_id": None, "role": "admin"}]), \
-             patch("httpx.AsyncClient", _fake_httpx(resp=resp_ok)):
-            resp = client.post("/api/contribute/users", json=self._body,
-                               headers=_auth_headers())
-        assert resp.status_code == 200
-        assert resp.json()["id"] == "new-1"
-
-    def test_duplicate_email_409(self, client):
-        dup = _FakeHttpxResp(422, text='{"error_code":"email_exists","msg":"already registered"}')
-        with _roles([{"language_id": None, "role": "admin"}]), \
-             patch("httpx.AsyncClient", _fake_httpx(resp=dup)):
-            resp = client.post("/api/contribute/users", json=self._body,
-                               headers=_auth_headers())
-        assert resp.status_code == 409
-
-    def test_network_error_uses_db_fallback(self, client):
-        # The deploy's HTTP egress to Supabase hangs; the account must still
-        # be minted — directly in the auth schema over the (working) DB.
-        import httpx
-        with _roles([{"language_id": None, "role": "admin"}]), \
-             patch("httpx.AsyncClient", _fake_httpx(exc=httpx.ConnectError("down"))), \
+             patch("httpx.AsyncClient", boom), \
              patch("backend.routers.contribute.create_auth_user",
                    new=AsyncMock(return_value="db-uid-1")) as mock_sql:
             resp = client.post("/api/contribute/users", json=self._body,
@@ -983,12 +967,31 @@ class TestCreateAccount:
         assert resp.json() == {"id": "db-uid-1", "email": "friend@example.com"}
         mock_sql.assert_awaited_once()
 
-    def test_db_fallback_duplicate_is_409(self, client):
-        import httpx
+    def test_duplicate_email_409(self, client):
         with _roles([{"language_id": None, "role": "admin"}]), \
-             patch("httpx.AsyncClient", _fake_httpx(exc=httpx.ConnectError("down"))), \
              patch("backend.routers.contribute.create_auth_user",
                    new=AsyncMock(side_effect=ValueError("email already registered"))):
+            resp = client.post("/api/contribute/users", json=self._body,
+                               headers=_auth_headers())
+        assert resp.status_code == 409
+
+    def test_sql_down_falls_back_to_api(self, client):
+        resp_ok = _FakeHttpxResp(200, payload={"id": "api-1", "email": "friend@example.com"})
+        with _roles([{"language_id": None, "role": "admin"}]), \
+             patch("httpx.AsyncClient", _fake_httpx(resp=resp_ok)), \
+             patch("backend.routers.contribute.create_auth_user",
+                   new=AsyncMock(side_effect=RuntimeError("db hiccup"))):
+            resp = client.post("/api/contribute/users", json=self._body,
+                               headers=_auth_headers())
+        assert resp.status_code == 200
+        assert resp.json()["id"] == "api-1"
+
+    def test_sql_down_api_duplicate_409(self, client):
+        dup = _FakeHttpxResp(422, text='{"error_code":"email_exists","msg":"already registered"}')
+        with _roles([{"language_id": None, "role": "admin"}]), \
+             patch("httpx.AsyncClient", _fake_httpx(resp=dup)), \
+             patch("backend.routers.contribute.create_auth_user",
+                   new=AsyncMock(side_effect=RuntimeError("db hiccup"))):
             resp = client.post("/api/contribute/users", json=self._body,
                                headers=_auth_headers())
         assert resp.status_code == 409
@@ -1002,13 +1005,15 @@ class TestCreateAccount:
             resp = client.post("/api/contribute/users", json=self._body,
                                headers=_auth_headers())
         assert resp.status_code == 502
-        assert "database fallback failed" in resp.json()["detail"]
+        assert "both paths" in resp.json()["detail"]
 
-    def test_missing_service_key_503(self, client):
+    def test_sql_down_and_no_key_503(self, client):
         class NoKey(FakeSettings):
             supabase_service_role_key = ""
         with _roles([{"language_id": None, "role": "admin"}]), \
-             patch("backend.dependencies.get_settings", return_value=NoKey()):
+             patch("backend.dependencies.get_settings", return_value=NoKey()), \
+             patch("backend.routers.contribute.create_auth_user",
+                   new=AsyncMock(side_effect=RuntimeError("db down"))):
             resp = client.post("/api/contribute/users", json=self._body,
                                headers=_auth_headers())
         assert resp.status_code == 503
