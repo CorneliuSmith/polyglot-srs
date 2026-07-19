@@ -1,0 +1,360 @@
+{
+  "language": "en",
+  "locale": "th",
+  "reviewed": false,
+  "_note": "Hints and faithful sentence translations for ENGLISH drills, shown to learners whose support locale is Thai. The hint names the expected English word (kept in English) with a Thai cue; the translation renders the completed sentence in natural Thai.",
+  "points": {
+    "Past simple — irregular verbs": {
+      "Yesterday I {{answer}} to the market.": {"hint": "go — รูปอดีต", "translation": "เมื่อวานฉันไปตลาด"},
+      "She {{answer}} a great film last night.": {"hint": "see — รูปอดีต", "translation": "เมื่อคืนเธอดูหนังเรื่องเยี่ยมมาก"},
+      "We {{answer}} a new car in March.": {"hint": "buy — รูปอดีต", "translation": "เราซื้อรถใหม่เมื่อเดือนมีนาคม"},
+      "He {{answer}} the early train this morning.": {"hint": "take — รูปอดีต", "translation": "เช้านี้เขาขึ้นรถไฟเที่ยวเช้าตรู่"},
+      "They {{answer}} home very late.": {"hint": "come — รูปอดีต", "translation": "พวกเขากลับบ้านดึกมาก"},
+      "I {{answer}} breakfast at seven.": {"hint": "eat — รูปอดีต", "translation": "ฉันกินอาหารเช้าตอนเจ็ดโมง"}
+    },
+    "Present continuous vs present simple": {
+      "Quiet, please — the baby {{answer}} sleeping.": {"hint": "be — บุรุษที่สาม", "translation": "เงียบหน่อยนะ — เด็กน้อยกำลังหลับอยู่"},
+      "She {{answer}} to work by bike every day.": {"hint": "go — กิจวัตร, เธอ", "translation": "เธอปั่นจักรยานไปทำงานทุกวัน"},
+      "I'm {{answer}} for my keys at the moment.": {"hint": "look — รูปกำลังกระทำ", "translation": "ตอนนี้ฉันกำลังหากุญแจอยู่"},
+      "Water {{answer}} at 100 degrees.": {"hint": "boil — ความจริงทั่วไป, it", "translation": "น้ำเดือดที่ 100 องศา"},
+      "They {{answer}} watching TV right now.": {"hint": "be — พวกเขา", "translation": "ตอนนี้พวกเขากำลังดูทีวีอยู่"},
+      "He usually {{answer}} coffee, not tea.": {"hint": "drink — กิจวัตร, เขา", "translation": "ปกติเขาดื่มกาแฟ ไม่ใช่ชา"}
+    },
+    "Comparatives and superlatives": {
+      "This bag is {{answer}} than that one.": {"hint": "cheap — ขั้นกว่า", "translation": "กระเป๋าใบนี้ถูกกว่าใบนั้น"},
+      "It's the {{answer}} building in the city.": {"hint": "tall — ขั้นสุด", "translation": "มันเป็นตึกที่สูงที่สุดในเมือง"},
+      "Her English is {{answer}} than mine.": {"hint": "good — ขั้นกว่า", "translation": "ภาษาอังกฤษของเธอดีกว่าของฉัน"},
+      "That was the {{answer}} meal I've ever had.": {"hint": "bad — ขั้นสุด", "translation": "นั่นเป็นมื้ออาหารที่แย่ที่สุดในชีวิตฉัน"},
+      "This exercise is {{answer}} difficult than the last.": {"hint": "คำที่วางหน้าคำคุณศัพท์ยาว", "translation": "แบบฝึกหัดนี้ยากกว่าอันที่แล้ว"},
+      "The station is {{answer}} than I thought.": {"hint": "far — ขั้นกว่า", "translation": "สถานีอยู่ไกลกว่าที่ฉันคิด"}
+    },
+    "Going to and will": {
+      "We're {{answer}} to visit Rome in May.": {"hint": "อนาคตของแผนที่วางไว้แล้ว", "translation": "เดือนพฤษภาคมเราจะไปเที่ยวโรม"},
+      "Don't worry — I {{answer}} help you.": {"hint": "การตัดสินใจ ณ ขณะนั้น", "translation": "ไม่ต้องห่วง — ฉันจะช่วยเอง"},
+      "Look at those clouds! It's going to {{answer}}.": {"hint": "อากาศฝนตก", "translation": "ดูเมฆพวกนั้นสิ! ฝนกำลังจะตก"},
+      "I think she {{answer}} pass the exam.": {"hint": "คำของการคาดการณ์", "translation": "ฉันคิดว่าเธอจะสอบผ่าน"},
+      "They're going {{answer}} move house next year.": {"hint": "คำเล็ก ๆ หลัง going", "translation": "ปีหน้าพวกเขาจะย้ายบ้าน"},
+      "I'm tired — I {{answer}} go to bed.": {"hint": "รูปย่อของอนาคตอันใกล้", "translation": "ฉันเหนื่อยแล้ว — จะไปนอนละ"}
+    },
+    "Some, any, much, many": {
+      "There's {{answer}} milk in the fridge.": {"hint": "คำบอกปริมาณในประโยคบอกเล่า", "translation": "มีนมอยู่บ้างในตู้เย็น"},
+      "We don't have {{answer}} eggs left.": {"hint": "คำบอกปริมาณในประโยคปฏิเสธ", "translation": "เราไม่มีไข่เหลือเลย"},
+      "Do you have {{answer}} questions?": {"hint": "คำบอกปริมาณในคำถาม", "translation": "มีคำถามไหม"},
+      "How {{answer}} money do you need?": {"hint": "ใช้กับนามนับไม่ได้", "translation": "คุณต้องการเงินเท่าไร"},
+      "How {{answer}} people are coming?": {"hint": "ใช้กับนามนับได้", "translation": "จะมีคนมากี่คน"},
+      "Would you like {{answer}} tea?": {"hint": "คำบอกปริมาณในการเสนอ", "translation": "รับชาสักหน่อยไหม"}
+    },
+    "Adverbs of frequency": {
+      "I {{answer}} drink coffee in the morning — every single day.": {"hint": "คำว่า «ทุกครั้ง»", "translation": "ฉันดื่มกาแฟตอนเช้าเสมอ — ทุกวันจริง ๆ"},
+      "He is {{answer}} late — it drives me crazy.": {"hint": "คำว่า «ทุกครั้ง»", "translation": "เขามาสายเสมอ — ทำเอาฉันแทบบ้า"},
+      "We {{answer}} go out on Fridays — maybe once a month.": {"hint": "คำว่า «นาน ๆ ที»", "translation": "บางครั้งเราออกไปเที่ยววันศุกร์ — อาจจะเดือนละครั้ง"},
+      "She {{answer}} eats meat — she's almost vegetarian.": {"hint": "คำว่า «แทบไม่เคย»", "translation": "เธอแทบไม่กินเนื้อสัตว์ — เกือบจะเป็นมังสวิรัติแล้ว"},
+      "I have {{answer}} been to Japan, but I'd love to go.": {"hint": "คำว่า «ศูนย์ครั้ง»", "translation": "ฉันไม่เคยไปญี่ปุ่นเลย แต่อยากไปมาก"},
+      "They {{answer}} visit us at Christmas — most years.": {"hint": "คำว่า «โดยปกติ»", "translation": "ปกติพวกเขามาเยี่ยมเราช่วงคริสต์มาส — เกือบทุกปี"},
+      "We {{answer}} eat out on Fridays.": {"hint": "บ่อย ๆ — อยู่ระหว่าง 'sometimes' กับ 'always'", "translation": "วันศุกร์เรามักออกไปกินข้าวนอกบ้านบ่อย ๆ"}
+    },
+    "Can, could, have to": {
+      "She {{answer}} speak three languages.": {"hint": "คำบอกความสามารถ", "translation": "เธอพูดได้สามภาษา"},
+      "{{answer}} you open the window, please?": {"hint": "คำขอร้องแบบสุภาพ", "translation": "ช่วยเปิดหน้าต่างให้หน่อยได้ไหมครับ/คะ"},
+      "I {{answer}} to wear a uniform at work.": {"hint": "กริยาบอกความจำเป็น", "translation": "ฉันต้องใส่ยูนิฟอร์มไปทำงาน"},
+      "When I was five, I {{answer}} already read.": {"hint": "คำบอกความสามารถ — รูปอดีต", "translation": "ตอนอายุห้าขวบ ฉันอ่านหนังสือได้แล้ว"},
+      "You don't {{answer}} to come if you're busy.": {"hint": "กริยาบอกความจำเป็น", "translation": "ถ้าคุณยุ่งก็ไม่ต้องมาก็ได้"},
+      "{{answer}} I sit here? — Of course.": {"hint": "คำขออนุญาต", "translation": "ขอนั่งตรงนี้ได้ไหม — ได้สิ"}
+    },
+    "Prepositions of time: in, on, at": {
+      "The meeting starts {{answer}} nine o'clock.": {"hint": "บุพบทของเวลาเป๊ะ ๆ", "translation": "การประชุมเริ่มตอนเก้าโมง"},
+      "I was born {{answer}} 1998.": {"hint": "บุพบทของช่วงเวลายาว", "translation": "ฉันเกิดปี 1998"},
+      "We're leaving {{answer}} Friday.": {"hint": "บุพบทของวัน", "translation": "เราจะออกเดินทางวันศุกร์"},
+      "She works best {{answer}} the morning.": {"hint": "บุพบทของช่วงเวลายาว", "translation": "เธอทำงานได้ดีที่สุดในตอนเช้า"},
+      "My birthday is {{answer}} 12 March.": {"hint": "บุพบทของวันที่", "translation": "วันเกิดฉันคือวันที่ 12 มีนาคม"},
+      "He often studies {{answer}} night.": {"hint": "บุพบทตายตัวคู่กับ night", "translation": "เขามักอ่านหนังสือตอนกลางคืน"}
+    },
+    "Subject pronouns (I, you, he…)": {
+      "{{answer}} am from Brazil.": {"hint": "ผู้พูด — เขียนตัวใหญ่เสมอ", "translation": "ฉันมาจากบราซิล"},
+      "{{answer}} is my sister.": {"hint": "ผู้หญิงคนหนึ่ง", "translation": "เธอคือน้องสาว/พี่สาวของฉัน"},
+      "{{answer}} are students.": {"hint": "ผู้พูด + คนอื่น ๆ", "translation": "พวกเราเป็นนักเรียน"},
+      "{{answer}} is my father.": {"hint": "ผู้ชายคนหนึ่ง", "translation": "เขาคือพ่อของฉัน"},
+      "{{answer}} is on the table.": {"hint": "สิ่งของ", "translation": "มันอยู่บนโต๊ะ"},
+      "{{answer}} are very kind.": {"hint": "คนที่คุณคุยด้วย", "translation": "คุณใจดีมาก"},
+      "{{answer}} are my friends.": {"hint": "หลายคน — «พวกเขา»", "translation": "พวกเขาเป็นเพื่อนของฉัน"}
+    },
+    "To be — am / is / are": {
+      "I {{answer}} a student.": {"hint": "be — กับ I", "translation": "ฉันเป็นนักเรียน"},
+      "You {{answer}} my friend.": {"hint": "be — กับ you", "translation": "คุณเป็นเพื่อนของฉัน"},
+      "She {{answer}} a doctor.": {"hint": "be — กับ she", "translation": "เธอเป็นหมอ"},
+      "We {{answer}} at home.": {"hint": "be — กับ we", "translation": "พวกเราอยู่บ้าน"},
+      "The coffee {{answer}} hot.": {"hint": "be — กับ it/สิ่งของ", "translation": "กาแฟร้อน"},
+      "They {{answer}} from Japan.": {"hint": "be — กับ they", "translation": "พวกเขามาจากญี่ปุ่น"}
+    },
+    "Articles: a / an": {
+      "I have {{answer}} dog.": {"hint": "หน้าเสียงพยัญชนะ", "translation": "ฉันมีสุนัขหนึ่งตัว"},
+      "She is {{answer}} engineer.": {"hint": "หน้าเสียงสระ", "translation": "เธอเป็นวิศวกร"},
+      "It is {{answer}} big house.": {"hint": "หน้าเสียงพยัญชนะ", "translation": "มันเป็นบ้านหลังใหญ่"},
+      "He eats {{answer}} apple every day.": {"hint": "หน้าเสียงสระ", "translation": "เขากินแอปเปิลวันละหนึ่งลูก"},
+      "I read {{answer}} book every week.": {"hint": "หน้าเสียงพยัญชนะ", "translation": "ฉันอ่านหนังสือสัปดาห์ละหนึ่งเล่ม"},
+      "I need {{answer}} umbrella.": {"hint": "หน้าเสียงสระ", "translation": "ฉันต้องการร่มหนึ่งคัน"}
+    },
+    "The — pointing at a specific thing": {
+      "{{answer}} sun is hot today.": {"hint": "สิ่งที่มีหนึ่งเดียวใช้คำนำหน้านี้", "translation": "วันนี้แดดร้อนมาก"},
+      "Please close {{answer}} door.": {"hint": "ทั้งคู่รู้ว่าบานไหน", "translation": "ช่วยปิดประตูหน่อย"},
+      "{{answer}} keys in my hand are mine.": {"hint": "ถูกระบุด้วยส่วนที่ตามมา", "translation": "กุญแจในมือฉันเป็นของฉัน"},
+      "We live near {{answer}} station.": {"hint": "ทั้งคู่รู้ว่าสถานีไหน", "translation": "เราอาศัยอยู่ใกล้สถานี"},
+      "{{answer}} moon is bright tonight.": {"hint": "สิ่งที่มีหนึ่งเดียวใช้คำนำหน้านี้", "translation": "คืนนี้พระจันทร์สว่างมาก"},
+      "Where is {{answer}} bathroom?": {"hint": "ทั้งคู่รู้ว่าห้องไหน", "translation": "ห้องน้ำอยู่ไหน"}
+    },
+    "Plural nouns (-s, -es, irregular)": {
+      "I have two {{answer}}.": {"hint": "book ในรูปพหูพจน์", "translation": "ฉันมีหนังสือสองเล่ม"},
+      "The {{answer}} are playing outside.": {"hint": "child — พหูพจน์ไม่ปกติ", "translation": "เด็ก ๆ กำลังเล่นอยู่ข้างนอก"},
+      "She has three {{answer}}.": {"hint": "watch — เติม -es", "translation": "เธอมีนาฬิกาสามเรือน"},
+      "The {{answer}} are late today.": {"hint": "bus — เติม -es", "translation": "วันนี้รถเมล์มาสาย"},
+      "Two {{answer}} live in our street.": {"hint": "family — y เปลี่ยนเป็น -ies", "translation": "มีสองครอบครัวอาศัยอยู่ในถนนของเรา"},
+      "My {{answer}} are cold.": {"hint": "foot — พหูพจน์ไม่ปกติ", "translation": "เท้าของฉันเย็น"}
+    },
+    "Present simple (I work)": {
+      "I {{answer}} in a bank.": {"hint": "สิ่งที่ทำเป็นอาชีพ", "translation": "ฉันทำงานที่ธนาคาร"},
+      "We {{answer}} breakfast at seven.": {"hint": "รับประทาน (มื้ออาหาร)", "translation": "เรากินอาหารเช้าตอนเจ็ดโมง"},
+      "They {{answer}} in London.": {"hint": "อาศัยอยู่ที่ไหนสักแห่ง", "translation": "พวกเขาอาศัยอยู่ที่ลอนดอน"},
+      "You {{answer}} English very well.": {"hint": "ใช้ภาษา", "translation": "คุณพูดภาษาอังกฤษเก่งมาก"},
+      "I {{answer}} coffee every morning.": {"hint": "ดื่มของเหลว", "translation": "ฉันดื่มกาแฟทุกเช้า"},
+      "We {{answer}} TV in the evening.": {"hint": "มองจอหรือรายการ", "translation": "เราดูทีวีตอนเย็น"}
+    },
+    "Third-person -s (she works)": {
+      "She {{answer}} in a hospital.": {"hint": "to work — กับ she", "translation": "เธอทำงานที่โรงพยาบาล"},
+      "He {{answer}} to school every day.": {"hint": "to go — เติม -es", "translation": "เขาไปโรงเรียนทุกวัน"},
+      "My brother {{answer}} English.": {"hint": "to study — y เปลี่ยนเป็น -ies", "translation": "พี่ชาย/น้องชายของฉันเรียนภาษาอังกฤษ"},
+      "The shop {{answer}} at nine.": {"hint": "to open — กับ it", "translation": "ร้านเปิดตอนเก้าโมง"},
+      "She {{answer}} TV after dinner.": {"hint": "to watch — เติม -es", "translation": "เธอดูทีวีหลังอาหารเย็น"},
+      "It {{answer}} a lot in April.": {"hint": "to rain — กับ it", "translation": "เดือนเมษายนฝนตกบ่อย"}
+    },
+    "Do-support: questions and negation": {
+      "{{answer}} you speak English?": {"hint": "กริยาช่วย — กับ you", "translation": "คุณพูดภาษาอังกฤษได้ไหม"},
+      "{{answer}} she work here?": {"hint": "กริยาช่วย — กับ she", "translation": "เธอทำงานที่นี่หรือเปล่า"},
+      "I {{answer}} not eat meat.": {"hint": "กริยาช่วย — กับ I", "translation": "ฉันไม่กินเนื้อสัตว์"},
+      "He {{answer}} not like coffee.": {"hint": "กริยาช่วย — กับ he", "translation": "เขาไม่ชอบกาแฟ"},
+      "{{answer}} they live in Rome?": {"hint": "กริยาช่วย — กับ they", "translation": "พวกเขาอาศัยอยู่ที่โรมหรือเปล่า"},
+      "We {{answer}} not have time.": {"hint": "กริยาช่วย — กับ we", "translation": "เราไม่มีเวลา"},
+      "I {{answer}} like coffee.": {"hint": "ปฏิเสธกับ I — do + not", "translation": "ฉันไม่ชอบกาแฟ"},
+      "She {{answer}} work on Sundays.": {"hint": "ปฏิเสธกับ she — does + not", "translation": "เธอไม่ทำงานวันอาทิตย์"}
+    },
+    "Present continuous (I am working)": {
+      "I am {{answer}} a book right now.": {"hint": "to read + -ing", "translation": "ตอนนี้ฉันกำลังอ่านหนังสืออยู่"},
+      "She is {{answer}} dinner now.": {"hint": "to cook + -ing", "translation": "ตอนนี้เธอกำลังทำอาหารเย็นอยู่"},
+      "They are {{answer}} football.": {"hint": "to play + -ing", "translation": "พวกเขากำลังเล่นฟุตบอลอยู่"},
+      "Look! It is {{answer}}.": {"hint": "to rain + -ing", "translation": "ดูสิ! ฝนกำลังตก"},
+      "We are {{answer}} for the bus.": {"hint": "to wait + -ing", "translation": "เรากำลังรอรถเมล์อยู่"},
+      "He is {{answer}} at the moment.": {"hint": "to sleep + -ing", "translation": "ตอนนี้เขากำลังหลับอยู่"},
+      "He is {{answer}} in the park.": {"hint": "run — พยัญชนะท้ายซ้ำสองตัว", "translation": "เขากำลังวิ่งอยู่ในสวน"},
+      "She is {{answer}} an email.": {"hint": "write — ตัด e ที่ไม่ออกเสียงทิ้ง", "translation": "เธอกำลังเขียนอีเมลอยู่"}
+    },
+    "There is / there are": {
+      "There {{answer}} a book on the table.": {"hint": "เอกพจน์", "translation": "มีหนังสือหนึ่งเล่มอยู่บนโต๊ะ"},
+      "There {{answer}} two cafés in this street.": {"hint": "พหูพจน์", "translation": "ถนนสายนี้มีร้านกาแฟสองร้าน"},
+      "{{answer}} there a bank near here?": {"hint": "เอกพจน์ เรียงแบบคำถาม", "translation": "แถวนี้มีธนาคารไหม"},
+      "There {{answer}} no milk.": {"hint": "เอกพจน์", "translation": "ไม่มีนมเลย"},
+      "{{answer}} there any questions?": {"hint": "พหูพจน์ เรียงแบบคำถาม", "translation": "มีคำถามไหม"},
+      "There {{answer}} many people here today.": {"hint": "พหูพจน์", "translation": "วันนี้ที่นี่มีคนเยอะ"}
+    },
+    "Question words (what, where, when…)": {
+      "{{answer}} do you live?": {"hint": "ถามถึงสถานที่", "translation": "คุณอาศัยอยู่ที่ไหน"},
+      "{{answer}} is your name?": {"hint": "ถามถึงสิ่งของ", "translation": "คุณชื่ออะไร"},
+      "{{answer}} is your birthday?": {"hint": "ถามถึงเวลา", "translation": "วันเกิดของคุณคือเมื่อไร"},
+      "{{answer}} old are you?": {"hint": "ถามอายุแบบนี้", "translation": "คุณอายุเท่าไร"},
+      "{{answer}} is your teacher?": {"hint": "ถามถึงบุคคล", "translation": "ครูของคุณคือใคร"},
+      "{{answer}} are you crying?": {"hint": "ถามถึงเหตุผล", "translation": "ทำไมคุณถึงร้องไห้"}
+    },
+    "Possessives (my, your, 's)": {
+      "This is {{answer}} book.": {"hint": "ของผู้พูด", "translation": "นี่คือหนังสือของฉัน"},
+      "Is this {{answer}} car?": {"hint": "ของคุณ", "translation": "นี่รถของคุณหรือเปล่า"},
+      "{{answer}} name is Anna.": {"hint": "ของเธอ", "translation": "ชื่อของเธอคือแอนนา"},
+      "That is my {{answer}} car.": {"hint": "brother + ตัวลงท้ายแสดงความเป็นเจ้าของ", "translation": "นั่นคือรถของพี่ชาย/น้องชายฉัน"},
+      "{{answer}} house is big.": {"hint": "ของพวกเขา", "translation": "บ้านของพวกเขาหลังใหญ่"},
+      "The dog wags {{answer}} tail.": {"hint": "ของสิ่งของ/สัตว์ — ไม่มีเครื่องหมายอะพอสทรอฟี", "translation": "สุนัขกระดิกหางของมัน"},
+      "{{answer}} name is David.": {"hint": "ชื่อของผู้ชาย — «ของเขา»", "translation": "ชื่อของเขาคือเดวิด"},
+      "That is {{answer}} classroom.": {"hint": "เป็นของพวกเรา — «ของเรา»", "translation": "นั่นคือห้องเรียนของพวกเรา"}
+    },
+    "Present perfect vs past simple": {
+      "I've {{answer}} my wallet — can you help me look?": {"hint": "lose — รูปกริยาช่องสาม", "translation": "ฉันทำกระเป๋าสตางค์หาย — ช่วยหาหน่อยได้ไหม"},
+      "She {{answer}} in Berlin in 2019.": {"hint": "live — รูปอดีต", "translation": "ปี 2019 เธออาศัยอยู่ที่เบอร์ลิน"},
+      "Have you {{answer}} been to Japan?": {"hint": "คำว่า «สักครั้งในชีวิต»", "translation": "คุณเคยไปญี่ปุ่นไหม"},
+      "We've known each other {{answer}} ten years.": {"hint": "คำบอกระยะเวลา", "translation": "เรารู้จักกันมาสิบปีแล้ว"},
+      "He's worked here {{answer}} 2020.": {"hint": "คำบอกจุดเริ่มต้น", "translation": "เขาทำงานที่นี่มาตั้งแต่ปี 2020"},
+      "They haven't finished {{answer}}.": {"hint": "คำว่า «ยังไม่»", "translation": "พวกเขายังทำไม่เสร็จ"}
+    },
+    "First and second conditionals": {
+      "If it {{answer}} tomorrow, we'll cancel the picnic.": {"hint": "rain — รูปปัจจุบัน, it", "translation": "ถ้าพรุ่งนี้ฝนตก เราจะยกเลิกปิกนิก"},
+      "If you study, you {{answer}} pass.": {"hint": "คำของอนาคตที่เป็นไปได้จริง", "translation": "ถ้าคุณตั้งใจเรียน คุณก็จะสอบผ่าน"},
+      "If I {{answer}} rich, I would buy an island.": {"hint": "be — รูปสมมุติ", "translation": "ถ้าฉันรวย ฉันจะซื้อเกาะสักเกาะ"},
+      "She {{answer}} travel more if she had time.": {"hint": "คำของผลลัพธ์สมมุติ", "translation": "เธอคงเที่ยวมากกว่านี้ถ้ามีเวลา"},
+      "If we {{answer}} now, we'll catch the train.": {"hint": "ออกเดินทาง — รูปปัจจุบัน", "translation": "ถ้าเราออกตอนนี้ เราจะทันรถไฟ"},
+      "What {{answer}} you do if you won the lottery?": {"hint": "คำของผลลัพธ์สมมุติ", "translation": "ถ้าคุณถูกลอตเตอรี่ คุณจะทำอะไร"}
+    },
+    "The passive (is made, was built)": {
+      "This wine {{answer}} produced in Chile.": {"hint": "be — รูปปัจจุบัน, it", "translation": "ไวน์นี้ผลิตในชิลี"},
+      "The castle was {{answer}} in the twelfth century.": {"hint": "build — รูปกริยาช่องสาม", "translation": "ปราสาทนี้ถูกสร้างขึ้นในศตวรรษที่สิบสอง"},
+      "These photos {{answer}} taken by my grandmother.": {"hint": "be — รูปอดีต, they", "translation": "รูปพวกนี้คุณยายของฉันเป็นคนถ่าย"},
+      "English {{answer}} spoken all over the world.": {"hint": "be — รูปปัจจุบัน, it", "translation": "ภาษาอังกฤษถูกใช้พูดกันทั่วโลก"},
+      "The thief was caught {{answer}} the police.": {"hint": "บุพบทบอกผู้กระทำ", "translation": "โจรถูกตำรวจจับได้"},
+      "My phone was {{answer}} at the festival.": {"hint": "steal — รูปกริยาช่องสาม", "translation": "โทรศัพท์ของฉันถูกขโมยในงานเทศกาล"}
+    },
+    "Relative clauses (who, which, that, where)": {
+      "She's the doctor {{answer}} treated my father.": {"hint": "คำเชื่อมสำหรับบุคคล", "translation": "เธอคือหมอที่รักษาพ่อของฉัน"},
+      "That's the restaurant {{answer}} we first met.": {"hint": "คำเชื่อมสำหรับสถานที่", "translation": "นั่นคือร้านอาหารที่เราเจอกันครั้งแรก"},
+      "The laptop {{answer}} I bought last week is broken.": {"hint": "คำเชื่อมสารพัดประโยชน์", "translation": "โน้ตบุ๊กที่ฉันซื้อเมื่อสัปดาห์ก่อนพังแล้ว"},
+      "He's the author {{answer}} books sell millions.": {"hint": "คำเชื่อมแสดงความเป็นเจ้าของ", "translation": "เขาคือนักเขียนที่หนังสือขายได้หลายล้านเล่ม"},
+      "The train, {{answer}} was already late, then broke down.": {"hint": "คำเชื่อมสำหรับสิ่งของ", "translation": "รถไฟซึ่งมาสายอยู่แล้ว ก็ยังมาเสียอีก"},
+      "People {{answer}} exercise regularly live longer.": {"hint": "คำเชื่อมสำหรับบุคคล", "translation": "คนที่ออกกำลังกายสม่ำเสมอมีอายุยืนกว่า"}
+    },
+    "Used to — past habits and states": {
+      "I {{answer}} to play football every weekend.": {"hint": "กริยาบอกนิสัยในอดีต", "translation": "เมื่อก่อนฉันเล่นฟุตบอลทุกสุดสัปดาห์"},
+      "She didn't {{answer}} to like coffee, but now she loves it.": {"hint": "กริยาบอกนิสัยในอดีต ไม่มี -d", "translation": "เมื่อก่อนเธอไม่ชอบกาแฟ แต่ตอนนี้ชอบมาก"},
+      "There {{answer}} to be a bakery on this corner.": {"hint": "กริยาบอกนิสัยในอดีต", "translation": "เมื่อก่อนหัวมุมนี้เคยมีร้านเบเกอรี่"},
+      "Did you {{answer}} to live in London?": {"hint": "กริยาบอกนิสัยในอดีต ไม่มี -d", "translation": "เมื่อก่อนคุณเคยอยู่ลอนดอนหรือเปล่า"},
+      "He used {{answer}} have long hair.": {"hint": "คำเล็ก ๆ", "translation": "เมื่อก่อนเขาไว้ผมยาว"},
+      "We {{answer}} to go camping every summer as kids.": {"hint": "กริยาบอกนิสัยในอดีต", "translation": "ตอนเด็ก ๆ เราไปตั้งแคมป์กันทุกหน้าร้อน"}
+    },
+    "Reported speech": {
+      "'I'm busy.' → She said she {{answer}} busy.": {"hint": "be — ถอยหลังหนึ่งขั้น", "translation": "«ฉันยุ่งอยู่» → เธอบอกว่าเธอยุ่งอยู่"},
+      "'I'll call you.' → He said he {{answer}} call me.": {"hint": "will — ถอยหลังหนึ่งขั้น", "translation": "«ฉันจะโทรหานะ» → เขาบอกว่าเขาจะโทรหาฉัน"},
+      "'Are you ready?' → She asked {{answer}} I was ready.": {"hint": "คำของคำถามใช่/ไม่ใช่", "translation": "«พร้อมหรือยัง» → เธอถามว่าฉันพร้อมหรือยัง"},
+      "'Where do you live?' → He asked where I {{answer}}.": {"hint": "live — ถอยหลังหนึ่งขั้น", "translation": "«คุณอยู่ที่ไหน» → เขาถามว่าฉันอยู่ที่ไหน"},
+      "'I can swim.' → She said she {{answer}} swim.": {"hint": "can — ถอยหลังหนึ่งขั้น", "translation": "«ฉันว่ายน้ำเป็น» → เธอบอกว่าเธอว่ายน้ำเป็น"},
+      "'We bought a house.' → They said they {{answer}} bought a house.": {"hint": "กริยาช่วยของการถอยขั้น", "translation": "«เราซื้อบ้านแล้ว» → พวกเขาบอกว่าพวกเขาซื้อบ้านแล้ว"}
+    },
+    "Gerund or infinitive?": {
+      "I really enjoy {{answer}} in the sea.": {"hint": "swim — รูปไหน?", "translation": "ฉันชอบว่ายน้ำในทะเลจริง ๆ"},
+      "She decided {{answer}} accept the job.": {"hint": "คำนำหน้ากริยารูป infinitive", "translation": "เธอตัดสินใจรับงานนั้น"},
+      "Would you mind {{answer}} the door?": {"hint": "close — รูปไหน?", "translation": "ช่วยปิดประตูหน่อยจะเป็นไรไหม"},
+      "We hope {{answer}} see you soon.": {"hint": "คำนำหน้ากริยารูป infinitive", "translation": "เราหวังว่าจะได้เจอคุณเร็ว ๆ นี้"},
+      "He avoided {{answer}} my question.": {"hint": "answer — รูปไหน?", "translation": "เขาเลี่ยงที่จะตอบคำถามของฉัน"},
+      "They promised {{answer}} write every week.": {"hint": "คำนำหน้ากริยารูป infinitive", "translation": "พวกเขาสัญญาว่าจะเขียนมาทุกสัปดาห์"}
+    },
+    "Third and mixed conditionals": {
+      "If you {{answer}} told me, I would have helped.": {"hint": "กริยาช่วยของอดีตสมบูรณ์", "translation": "ถ้าคุณบอกฉันตอนนั้น ฉันคงช่วยไปแล้ว"},
+      "If she had left earlier, she would {{answer}} caught the flight.": {"hint": "กริยาช่วยสมบูรณ์หลัง would", "translation": "ถ้าเธอออกเร็วกว่านั้น เธอคงทันเครื่องบิน"},
+      "I wouldn't {{answer}} met her if I hadn't gone to that party.": {"hint": "กริยาช่วยสมบูรณ์", "translation": "ฉันคงไม่ได้พบเธอ ถ้าฉันไม่ได้ไปงานเลี้ยงนั้น"},
+      "If he had studied medicine, he {{answer}} be a doctor now.": {"hint": "คำของผลลัพธ์สมมุติ", "translation": "ถ้าเขาเรียนแพทย์ ตอนนี้เขาคงเป็นหมอไปแล้ว"},
+      "If we {{answer}} taken the map, we wouldn't have got lost.": {"hint": "กริยาช่วยของอดีตสมบูรณ์", "translation": "ถ้าเราเอาแผนที่มา เราคงไม่หลงทาง"},
+      "What would you have {{answer}} in my position?": {"hint": "do — รูปกริยาช่องสาม", "translation": "ถ้าเป็นคุณอยู่ในสถานการณ์ของฉัน คุณจะทำอย่างไร"}
+    },
+    "Modals of deduction (must, might, can't)": {
+      "The lights are on — someone {{answer}} be home.": {"hint": "คำของความมั่นใจเกือบร้อย", "translation": "ไฟเปิดอยู่ — ต้องมีคนอยู่บ้านแน่ ๆ"},
+      "That {{answer}} be Maria — she's in Brazil this week!": {"hint": "คำของความเป็นไปไม่ได้", "translation": "นั่นไม่มีทางเป็นมาเรีย — สัปดาห์นี้เธออยู่บราซิล!"},
+      "He {{answer}} be stuck in traffic — it happens.": {"hint": "คำบอกความเป็นไปได้", "translation": "เขาอาจจะรถติดอยู่ — ก็เกิดขึ้นได้"},
+      "She must {{answer}} forgotten our meeting.": {"hint": "กริยาช่วยของการอนุมานเรื่องอดีต", "translation": "เธอคงลืมนัดของเราไปแล้วแน่ ๆ"},
+      "They can't {{answer}} left already — the car's still here.": {"hint": "กริยาช่วยของการอนุมานเรื่องอดีต", "translation": "พวกเขาไม่น่าจะไปแล้ว — รถยังจอดอยู่เลย"},
+      "It {{answer}} rain later, so take an umbrella.": {"hint": "คำบอกความเป็นไปได้", "translation": "เดี๋ยวฝนอาจจะตก เอาร่มไปด้วยนะ"}
+    },
+    "Advanced passives (has been done, being done)": {
+      "The road has {{answer}} closed since Monday.": {"hint": "รูปกริยาช่องสามของ be", "translation": "ถนนถูกปิดมาตั้งแต่วันจันทร์"},
+      "Our office is {{answer}} renovated at the moment.": {"hint": "รูป -ing ของ be", "translation": "ออฟฟิศของเรากำลังถูกปรับปรุงอยู่"},
+      "All answers must be {{answer}} in ink.": {"hint": "write — รูปกริยาช่องสาม", "translation": "คำตอบทั้งหมดต้องเขียนด้วยปากกาหมึก"},
+      "She is {{answer}} to be the richest woman in the country.": {"hint": "say — รูปกริยาช่องสาม", "translation": "ว่ากันว่าเธอเป็นผู้หญิงที่รวยที่สุดในประเทศ"},
+      "The results will {{answer}} announced on Friday.": {"hint": "กริยารูปเปล่าของประโยคถูกกระทำ", "translation": "ผลจะถูกประกาศในวันศุกร์"},
+      "By 1990, the bridge {{answer}} been rebuilt twice.": {"hint": "กริยาช่วยของอดีตสมบูรณ์", "translation": "ถึงปี 1990 สะพานถูกสร้างใหม่ไปแล้วสองครั้ง"}
+    },
+    "Wish and if only": {
+      "I wish I {{answer}} how to drive.": {"hint": "know — รูปของความปรารถนา", "translation": "ฉันอยากขับรถเป็นจัง"},
+      "She wishes she {{answer}} accepted the offer.": {"hint": "กริยาช่วยของความเสียดายในอดีต", "translation": "เธอเสียดายที่ไม่ได้รับข้อเสนอนั้น"},
+      "I wish you {{answer}} stop interrupting me!": {"hint": "คำของการบ่น", "translation": "อยากให้คุณเลิกขัดจังหวะฉันเสียที!"},
+      "If {{answer}} I had listened to your advice!": {"hint": "คำที่ตามหลัง if", "translation": "รู้งี้ฟังคำแนะนำของคุณก็ดีสิ!"},
+      "He wishes he {{answer}} taller.": {"hint": "be — รูปของความปรารถนา", "translation": "เขาอยากตัวสูงกว่านี้"},
+      "We wish we {{answer}} bought tickets earlier.": {"hint": "กริยาช่วยของความเสียดายในอดีต", "translation": "เราเสียดายที่ไม่ได้ซื้อตั๋วให้เร็วกว่านี้"}
+    },
+    "Phrasal verbs — separable or not?": {
+      "Could you turn {{answer}} off? The music's too loud.": {"hint": "สรรพนามกรรม", "translation": "ช่วยปิดหน่อยได้ไหม เพลงดังเกินไป"},
+      "She's looking {{answer}} her elderly mother.": {"hint": "คำต่อท้ายของการดูแล", "translation": "เธอดูแลคุณแม่ที่ชราของเธอ"},
+      "Please fill {{answer}} this form.": {"hint": "คำต่อท้ายของแบบฟอร์ม", "translation": "กรุณากรอกแบบฟอร์มนี้"},
+      "I'll pick you {{answer}} at eight.": {"hint": "คำต่อท้ายของการไปรับ", "translation": "ฉันจะไปรับคุณตอนสองทุ่ม"},
+      "We've put {{answer}} the meeting until Friday.": {"hint": "คำต่อท้ายของการเลื่อน", "translation": "เราเลื่อนประชุมไปเป็นวันศุกร์"},
+      "He takes {{answer}} his father — same smile, same laugh.": {"hint": "คำต่อท้ายของการเหมือนพ่อแม่", "translation": "เขาเหมือนพ่อมาก — รอยยิ้มเดียวกัน เสียงหัวเราะเดียวกัน"}
+    },
+    "Question tags and indirect questions": {
+      "You've met before, {{answer}} you?": {"hint": "กริยาช่วยกลับขั้วของคำถามท้ายประโยค", "translation": "พวกคุณเคยเจอกันมาก่อนใช่ไหม"},
+      "She doesn't eat fish, {{answer}} she?": {"hint": "กริยาช่วยกลับขั้วของคำถามท้ายประโยค", "translation": "เธอไม่กินปลาใช่ไหม"},
+      "Could you tell me where the bank {{answer}}?": {"hint": "be — วางไว้ท้ายสุด", "translation": "ช่วยบอกหน่อยได้ไหมว่าธนาคารอยู่ที่ไหน"},
+      "Do you know if the shop {{answer}} at six?": {"hint": "close — เรียงแบบประโยคบอกเล่า", "translation": "คุณรู้ไหมว่าร้านปิดตอนหกโมงหรือเปล่า"},
+      "It's cold today, {{answer}} it?": {"hint": "กริยาช่วยกลับขั้วของคำถามท้ายประโยค", "translation": "วันนี้อากาศหนาวใช่ไหม"},
+      "I wonder {{answer}} they got home safely.": {"hint": "คำที่ใช้แทน if ได้", "translation": "ไม่รู้ว่าพวกเขาถึงบ้านโดยปลอดภัยหรือเปล่า"}
+    },
+    "Inversion (Never have I…, Not only…)": {
+      "Never {{answer}} I heard such nonsense.": {"hint": "กริยาช่วยสมบูรณ์", "translation": "ไม่เคยได้ยินเรื่องเหลวไหลแบบนี้มาก่อนเลย"},
+      "Not only {{answer}} she sing, she writes her own songs.": {"hint": "กริยาช่วยรูปปัจจุบัน", "translation": "เธอไม่ได้แค่ร้องเพลง แต่ยังแต่งเพลงเองด้วย"},
+      "No sooner had we sat down {{answer}} the phone rang.": {"hint": "คำที่มาเป็นคู่กัน", "translation": "เราเพิ่งนั่งลงเท่านั้น โทรศัพท์ก็ดังขึ้น"},
+      "Under no circumstances {{answer}} you open that door.": {"hint": "กริยาช่วยของคำแนะนำ", "translation": "ไม่ว่ากรณีใด ๆ คุณก็ไม่ควรเปิดประตูบานนั้น"},
+      "Rarely {{answer}} we see such talent.": {"hint": "กริยาช่วยรูปปัจจุบัน", "translation": "นาน ๆ ทีเราจะได้เห็นพรสวรรค์ระดับนี้"},
+      "Only then {{answer}} I understand what she meant.": {"hint": "กริยาช่วยรูปอดีต", "translation": "ตอนนั้นเองฉันจึงเข้าใจว่าเธอหมายถึงอะไร"}
+    },
+    "Cleft sentences (What I need is…, It was… that)": {
+      "{{answer}} I need is a good night's sleep.": {"hint": "คำขึ้นต้นประโยคเน้นความ", "translation": "สิ่งที่ฉันต้องการคือการนอนหลับเต็มอิ่มสักคืน"},
+      "It was Marco {{answer}} suggested the idea.": {"hint": "คำเชื่อมสำหรับบุคคล", "translation": "มาร์โกนี่แหละที่เป็นคนเสนอไอเดียนี้"},
+      "What annoys me {{answer}} his constant lateness.": {"hint": "be — จุดหมุนของประโยค", "translation": "สิ่งที่ทำให้ฉันหงุดหงิดคือการมาสายเป็นประจำของเขา"},
+      "It {{answer}} in Paris that they first met.": {"hint": "be — รูปอดีต", "translation": "ที่ปารีสนั่นเองที่พวกเขาพบกันครั้งแรก"},
+      "{{answer}} she wants is a little respect.": {"hint": "คำขึ้นต้นของ «ทั้งหมดที่»", "translation": "ทั้งหมดที่เธอต้องการคือความเคารพสักนิด"},
+      "It wasn't until midnight {{answer}} he finally called.": {"hint": "คำเชื่อมของประโยคเน้นความ", "translation": "กว่าเขาจะโทรมาก็ปาเข้าไปเที่ยงคืน"}
+    },
+    "Hedging and distancing (would seem, tend to)": {
+      "It would {{answer}} that the figures are wrong.": {"hint": "กริยาของการดูเหมือน", "translation": "ดูเหมือนว่าตัวเลขจะไม่ถูกต้อง"},
+      "House prices {{answer}} to rise in spring.": {"hint": "กริยาของแนวโน้ม", "translation": "ราคาบ้านมีแนวโน้มสูงขึ้นในฤดูใบไม้ผลิ"},
+      "There {{answer}} to be a problem with the data.": {"hint": "กริยาของการดูเหมือน บุรุษที่สาม", "translation": "ดูเหมือนข้อมูลจะมีปัญหา"},
+      "It is widely {{answer}} that the climate is changing.": {"hint": "believe — รูปกริยาช่องสาม", "translation": "เป็นที่เชื่อกันอย่างกว้างขวางว่าภูมิอากาศกำลังเปลี่ยนแปลง"},
+      "The results {{answer}} that more research is needed.": {"hint": "กริยาของการบ่งชี้", "translation": "ผลการศึกษาบ่งชี้ว่าต้องมีการวิจัยเพิ่มเติม"},
+      "It could be {{answer}} that the policy failed.": {"hint": "argue — รูปกริยาช่องสาม", "translation": "อาจแย้งได้ว่านโยบายนี้ล้มเหลว"}
+    },
+    "Participle clauses (Having finished, …)": {
+      "{{answer}} finished dinner, we went for a walk.": {"hint": "คำขึ้นต้นของกริยาสมบูรณ์", "translation": "หลังกินอาหารเย็นเสร็จ เราก็ออกไปเดินเล่น"},
+      "{{answer}} through the window, she saw the storm coming.": {"hint": "look — รูป participle", "translation": "ขณะมองออกไปนอกหน้าต่าง เธอเห็นพายุกำลังเข้ามา"},
+      "{{answer}} in 1889, the tower still draws millions.": {"hint": "build — รูป participle", "translation": "หอคอยที่สร้างขึ้นในปี 1889 ยังคงดึงดูดผู้คนนับล้าน"},
+      "Not {{answer}} what to say, he stayed silent.": {"hint": "know — รูป participle", "translation": "เพราะไม่รู้จะพูดอะไร เขาจึงนิ่งเงียบ"},
+      "Having {{answer}} in Rome for years, she speaks fluent Italian.": {"hint": "live — รูป participle", "translation": "เพราะอยู่โรมมาหลายปี เธอจึงพูดภาษาอิตาลีได้คล่อง"},
+      "{{answer}} by the news, they cancelled the trip.": {"hint": "shock — รูป participle", "translation": "เพราะตกใจกับข่าว พวกเขาจึงยกเลิกทริป"}
+    },
+    "The mandative subjunctive (insist that he be)": {
+      "The board insisted that he {{answer}} removed from the project.": {"hint": "be — รูปกริยาเปล่า", "translation": "คณะกรรมการยืนกรานให้ถอดเขาออกจากโครงการ"},
+      "It is essential that every member {{answer}} the code of conduct.": {"hint": "ปฏิบัติตาม — รูปกริยาเปล่า", "translation": "จำเป็นอย่างยิ่งที่สมาชิกทุกคนต้องปฏิบัติตามจรรยาบรรณ"},
+      "She recommended that the report {{answer}} rewritten.": {"hint": "be — รูปกริยาเปล่า", "translation": "เธอแนะนำให้เขียนรายงานใหม่"},
+      "They demanded that the minister {{answer}}.": {"hint": "ลาออก — รูปกริยาเปล่า", "translation": "พวกเขาเรียกร้องให้รัฐมนตรีลาออก"},
+      "It's vital that she {{answer}} informed at once.": {"hint": "be — รูปกริยาเปล่า", "translation": "สำคัญมากที่ต้องแจ้งเธอทันที"},
+      "We suggest that he {{answer}} a lawyer before signing.": {"hint": "ปรึกษา — รูปกริยาเปล่า", "translation": "เราแนะนำให้เขาปรึกษาทนายก่อนเซ็นสัญญา"}
+    },
+    "Ellipsis and substitution (so, neither, do so)": {
+      "I loved the film. — {{answer}} did I!": {"hint": "คำขึ้นต้นของ «ฉันก็เหมือนกัน»", "translation": "ฉันชอบหนังเรื่องนี้มาก — ฉันก็เหมือนกัน!"},
+      "She can't make it tonight. — {{answer}} can I.": {"hint": "คำขึ้นต้นเชิงปฏิเสธของ «ฉันก็ไม่เหมือนกัน»", "translation": "คืนนี้เธอมาไม่ได้ — ฉันก็มาไม่ได้เหมือนกัน"},
+      "He was asked to apologise, and he did {{answer}} immediately.": {"hint": "คำแทนที่หลัง did", "translation": "เขาถูกขอให้ขอโทษ และเขาก็ทำทันที"},
+      "You may be tired; if {{answer}}, rest.": {"hint": "คำแทนที่หลัง if", "translation": "คุณอาจจะเหนื่อย ถ้าอย่างนั้นก็พักเถอะ"},
+      "They promised to help, but failed to {{answer}} so.": {"hint": "กริยาแทนที่", "translation": "พวกเขาสัญญาว่าจะช่วย แต่ก็ไม่ได้ทำ"},
+      "I've never been to Oslo. — Nor {{answer}} I.": {"hint": "กริยาช่วยสมบูรณ์", "translation": "ฉันไม่เคยไปออสโลเลย — ฉันก็เหมือนกัน"}
+    },
+    "Formal connectors (notwithstanding, albeit)": {
+      "The plan went ahead, {{answer}} the objections.": {"hint": "คำที่เป็นทางการกว่า 'despite'", "translation": "แผนเดินหน้าต่อไป แม้จะมีข้อคัดค้าน"},
+      "It was a victory, {{answer}} a narrow one.": {"hint": "although แบบบีบอัด", "translation": "มันคือชัยชนะ แม้จะเฉียดฉิวก็ตาม"},
+      "The costs rose sharply; {{answer}} the project was cancelled.": {"hint": "therefore แบบทางการ", "translation": "ต้นทุนพุ่งสูงขึ้นมาก ดังนั้นโครงการจึงถูกยกเลิก"},
+      "A scheme {{answer}} employees share the profits.": {"hint": "คำว่า «ซึ่งโดยผ่านทางนั้น»", "translation": "ระบบซึ่งพนักงานได้แบ่งปันผลกำไรผ่านมัน"},
+      "A {{answer}} unknown author won the prize.": {"hint": "คำว่า «จนถึงตอนนั้น»", "translation": "นักเขียนที่ไม่มีใครรู้จักมาก่อนคว้ารางวัลไปครอง"},
+      "The evidence, {{answer}} incomplete, points one way.": {"hint": "although แบบย่อ", "translation": "หลักฐานแม้จะไม่สมบูรณ์ แต่ก็ชี้ไปทางเดียวกัน"}
+    },
+    "Past simple — regular verbs (-ed)": {
+      "I {{answer}} in a bank for five years.": {"hint": "work + -ed", "translation": "ฉันทำงานที่ธนาคารมาห้าปี"},
+      "She {{answer}} in Rome when she was young.": {"hint": "live — เติมแค่ -d", "translation": "ตอนสาว ๆ เธออาศัยอยู่ที่โรม"},
+      "He {{answer}} English at university.": {"hint": "study — y เปลี่ยนเป็น -ied", "translation": "เขาเรียนภาษาอังกฤษที่มหาวิทยาลัย"},
+      "The bus {{answer}} suddenly.": {"hint": "stop — p ซ้ำสองตัว", "translation": "รถเมล์หยุดกะทันหัน"},
+      "We {{answer}} football in the park yesterday.": {"hint": "สระ + y — เติม -ed เฉย ๆ", "translation": "เมื่อวานเราเล่นฟุตบอลกันในสวน"},
+      "They {{answer}} work yesterday — it was a holiday.": {"hint": "อดีตปฏิเสธ: did + not", "translation": "เมื่อวานพวกเขาไม่ได้ทำงาน — เป็นวันหยุด"}
+    },
+    "Object pronouns (me, him, them)": {
+      "Can you help {{answer}}, please?": {"hint": "ผู้พูดขอความช่วยเหลือ — «ฉัน»", "translation": "ช่วยฉันหน่อยได้ไหม"},
+      "I saw {{answer}} at school yesterday.": {"hint": "ผู้ชาย — «เขา»", "translation": "เมื่อวานฉันเห็นเขาที่โรงเรียน"},
+      "This present is for {{answer}}.": {"hint": "ผู้หญิง — «เธอ»", "translation": "ของขวัญชิ้นนี้สำหรับเธอ"},
+      "Our teacher knows {{answer}} well.": {"hint": "ผู้พูด + คนอื่น ๆ — «พวกเรา»", "translation": "ครูของเรารู้จักพวกเราดี"},
+      "I like these shoes — I'll buy {{answer}}.": {"hint": "หลายสิ่ง — «พวกมัน»", "translation": "ฉันชอบรองเท้าคู่นี้ — จะซื้อเลย"},
+      "Where is my phone? I can't find {{answer}}.": {"hint": "สิ่งเดียว — «มัน»", "translation": "โทรศัพท์ฉันอยู่ไหน หามันไม่เจอเลย"}
+    },
+    "Imperatives (Open…, Don't…)": {
+      "{{answer}} the door, please.": {"hint": "กริยารูปเปล่า ไม่มีประธาน", "translation": "เปิดประตูหน่อยครับ/ค่ะ"},
+      "{{answer}} worry — everything is fine.": {"hint": "คำสั่งเชิงปฏิเสธ: รูปปฏิเสธของ do + กริยา", "translation": "ไม่ต้องกังวล — ทุกอย่างเรียบร้อยดี"},
+      "{{answer}} me tomorrow, please.": {"hint": "กริยารูปเปล่า", "translation": "พรุ่งนี้โทรหาฉันหน่อยนะ"},
+      "{{answer}} be late — the film starts at eight.": {"hint": "คำสั่งเชิงปฏิเสธกับ be", "translation": "อย่ามาสายนะ — หนังเริ่มสองทุ่ม"},
+      "{{answer}} quiet, please — the baby is sleeping.": {"hint": "กริยา be รูปเปล่า", "translation": "เงียบหน่อยนะ — เด็กน้อยกำลังหลับ"},
+      "Please {{answer}} down and wait a moment.": {"hint": "กริยารูปเปล่า", "translation": "เชิญนั่งและรอสักครู่ครับ/ค่ะ"}
+    }
+  }
+}
