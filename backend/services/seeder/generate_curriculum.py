@@ -210,7 +210,7 @@ async def validate_curriculum(
         })
     lists = [{
         "level": level,
-        "title": f"{language_code.upper()} {level} Grammar",
+        "title": f"{language_code.upper()} {level} Grammar Path",
         "description": "AI-generated grammar curriculum (pending review).",
     }]
     return {"lists": lists, "points": points_out}
