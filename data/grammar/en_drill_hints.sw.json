@@ -1,0 +1,360 @@
+{
+  "language": "en",
+  "locale": "sw",
+  "reviewed": false,
+  "_note": "Hints and faithful sentence translations for ENGLISH drills, shown to learners whose support locale is Swahili. The hint names the expected English word (kept in English) with a Swahili cue; the translation renders the completed sentence in natural Swahili.",
+  "points": {
+    "Past simple — irregular verbs": {
+      "Yesterday I {{answer}} to the market.": {"hint": "go — wakati uliopita", "translation": "Jana nilienda sokoni."},
+      "She {{answer}} a great film last night.": {"hint": "see — wakati uliopita", "translation": "Jana usiku aliona filamu nzuri sana."},
+      "We {{answer}} a new car in March.": {"hint": "buy — wakati uliopita", "translation": "Tulinunua gari jipya mwezi wa Machi."},
+      "He {{answer}} the early train this morning.": {"hint": "take — wakati uliopita", "translation": "Alipanda treni ya asubuhi na mapema leo asubuhi."},
+      "They {{answer}} home very late.": {"hint": "come — wakati uliopita", "translation": "Walirudi nyumbani usiku sana."},
+      "I {{answer}} breakfast at seven.": {"hint": "eat — wakati uliopita", "translation": "Nilikula kifungua kinywa saa moja asubuhi."}
+    },
+    "Present continuous vs present simple": {
+      "Quiet, please — the baby {{answer}} sleeping.": {"hint": "be — nafsi ya tatu", "translation": "Tafadhali nyamaza — mtoto analala sasa."},
+      "She {{answer}} to work by bike every day.": {"hint": "go — mazoea, yeye (mwanamke)", "translation": "Huenda kazini kwa baiskeli kila siku."},
+      "I'm {{answer}} for my keys at the moment.": {"hint": "look — hali ya kuendelea", "translation": "Natafuta funguo zangu sasa hivi."},
+      "Water {{answer}} at 100 degrees.": {"hint": "boil — ukweli wa jumla, it", "translation": "Maji huchemka kwenye nyuzi 100."},
+      "They {{answer}} watching TV right now.": {"hint": "be — wao", "translation": "Wanatazama televisheni sasa hivi."},
+      "He usually {{answer}} coffee, not tea.": {"hint": "drink — mazoea, yeye (mwanamume)", "translation": "Kwa kawaida hunywa kahawa, si chai."}
+    },
+    "Comparatives and superlatives": {
+      "This bag is {{answer}} than that one.": {"hint": "cheap — daraja la kulinganisha", "translation": "Mfuko huu ni rahisi kuliko ule."},
+      "It's the {{answer}} building in the city.": {"hint": "tall — daraja la juu kabisa", "translation": "Ni jengo refu kuliko yote mjini."},
+      "Her English is {{answer}} than mine.": {"hint": "good — daraja la kulinganisha", "translation": "Kiingereza chake ni bora kuliko changu."},
+      "That was the {{answer}} meal I've ever had.": {"hint": "bad — daraja la juu kabisa", "translation": "Ilikuwa mlo mbaya kuliko yote maishani mwangu."},
+      "This exercise is {{answer}} difficult than the last.": {"hint": "neno linalotangulia vivumishi virefu", "translation": "Zoezi hili ni gumu zaidi kuliko lile la mwisho."},
+      "The station is {{answer}} than I thought.": {"hint": "far — daraja la kulinganisha", "translation": "Stesheni iko mbali zaidi kuliko nilivyofikiri."}
+    },
+    "Going to and will": {
+      "We're {{answer}} to visit Rome in May.": {"hint": "wakati ujao wa mipango iliyokwisha amuliwa", "translation": "Tutatembelea Roma mwezi wa Mei."},
+      "Don't worry — I {{answer}} help you.": {"hint": "uamuzi wa papo hapo", "translation": "Usijali — nitakusaidia."},
+      "Look at those clouds! It's going to {{answer}}.": {"hint": "hali ya hewa ya mvua", "translation": "Tazama mawingu yale! Mvua itanyesha."},
+      "I think she {{answer}} pass the exam.": {"hint": "neno la utabiri", "translation": "Nadhani atafaulu mtihani."},
+      "They're going {{answer}} move house next year.": {"hint": "kineno kidogo baada ya going", "translation": "Watahamia nyumba nyingine mwakani."},
+      "I'm tired — I {{answer}} go to bed.": {"hint": "umbo fupi la wakati ujao wa karibu", "translation": "Nimechoka — naenda kulala."}
+    },
+    "Some, any, much, many": {
+      "There's {{answer}} milk in the fridge.": {"hint": "neno la kiasi katika sentensi za uthibitisho", "translation": "Kuna maziwa kidogo jokofuni."},
+      "We don't have {{answer}} eggs left.": {"hint": "neno la kiasi katika sentensi za ukanusho", "translation": "Hatuna mayai yaliyobaki."},
+      "Do you have {{answer}} questions?": {"hint": "neno la kiasi katika maswali", "translation": "Je, una maswali yoyote?"},
+      "How {{answer}} money do you need?": {"hint": "kwa visivyohesabika", "translation": "Unahitaji pesa kiasi gani?"},
+      "How {{answer}} people are coming?": {"hint": "kwa vinavyohesabika", "translation": "Watu wangapi wanakuja?"},
+      "Would you like {{answer}} tea?": {"hint": "neno la kiasi katika matoleo", "translation": "Ungependa chai kidogo?"}
+    },
+    "Adverbs of frequency": {
+      "I {{answer}} drink coffee in the morning — every single day.": {"hint": "neno la «kila mara»", "translation": "Mimi hunywa kahawa asubuhi kila wakati — kila siku bila kukosa."},
+      "He is {{answer}} late — it drives me crazy.": {"hint": "neno la «kila mara»", "translation": "Yeye huchelewa kila wakati — inanitia wazimu."},
+      "We {{answer}} go out on Fridays — maybe once a month.": {"hint": "neno la «mara kwa mara»", "translation": "Wakati mwingine hutoka Ijumaa — labda mara moja kwa mwezi."},
+      "She {{answer}} eats meat — she's almost vegetarian.": {"hint": "neno la «karibu kamwe»", "translation": "Yeye hula nyama mara chache sana — ni karibu mla mboga tu."},
+      "I have {{answer}} been to Japan, but I'd love to go.": {"hint": "neno la «mara sifuri»", "translation": "Sijawahi kwenda Japani, lakini ningependa sana."},
+      "They {{answer}} visit us at Christmas — most years.": {"hint": "neno la «kwa kawaida»", "translation": "Kwa kawaida hututembelea wakati wa Krismasi — karibu kila mwaka."},
+      "We {{answer}} eat out on Fridays.": {"hint": "mara nyingi — kati ya 'sometimes' na 'always'", "translation": "Ijumaa mara nyingi hula nje."}
+    },
+    "Can, could, have to": {
+      "She {{answer}} speak three languages.": {"hint": "neno la uwezo", "translation": "Anaweza kuzungumza lugha tatu."},
+      "{{answer}} you open the window, please?": {"hint": "neno la ombi la adabu", "translation": "Tafadhali, ungeweza kufungua dirisha?"},
+      "I {{answer}} to wear a uniform at work.": {"hint": "kitenzi cha lazima", "translation": "Lazima nivae sare kazini."},
+      "When I was five, I {{answer}} already read.": {"hint": "neno la uwezo — wakati uliopita", "translation": "Nilipokuwa na miaka mitano, niliweza kusoma tayari."},
+      "You don't {{answer}} to come if you're busy.": {"hint": "kitenzi cha lazima", "translation": "Si lazima uje ikiwa una shughuli."},
+      "{{answer}} I sit here? — Of course.": {"hint": "neno la ruhusa", "translation": "Naweza kukaa hapa? — Bila shaka."}
+    },
+    "Prepositions of time: in, on, at": {
+      "The meeting starts {{answer}} nine o'clock.": {"hint": "kihusishi cha saa kamili", "translation": "Mkutano unaanza saa tatu kamili."},
+      "I was born {{answer}} 1998.": {"hint": "kihusishi cha vipindi virefu", "translation": "Nilizaliwa mwaka 1998."},
+      "We're leaving {{answer}} Friday.": {"hint": "kihusishi cha siku", "translation": "Tunaondoka Ijumaa."},
+      "She works best {{answer}} the morning.": {"hint": "kihusishi cha vipindi virefu", "translation": "Hufanya kazi vizuri zaidi asubuhi."},
+      "My birthday is {{answer}} 12 March.": {"hint": "kihusishi cha tarehe", "translation": "Siku yangu ya kuzaliwa ni tarehe 12 Machi."},
+      "He often studies {{answer}} night.": {"hint": "kihusishi maalum na night", "translation": "Mara nyingi husoma usiku."}
+    },
+    "Subject pronouns (I, you, he…)": {
+      "{{answer}} am from Brazil.": {"hint": "mzungumzaji — huandikwa kwa herufi kubwa daima", "translation": "Mimi ninatoka Brazili."},
+      "{{answer}} is my sister.": {"hint": "mwanamke", "translation": "Yeye ni dada yangu."},
+      "{{answer}} are students.": {"hint": "mzungumzaji + wengine", "translation": "Sisi ni wanafunzi."},
+      "{{answer}} is my father.": {"hint": "mwanamume", "translation": "Yeye ni baba yangu."},
+      "{{answer}} is on the table.": {"hint": "kitu", "translation": "Kiko mezani."},
+      "{{answer}} are very kind.": {"hint": "unayezungumza naye", "translation": "Wewe ni mwema sana. / Ninyi ni wema sana."},
+      "{{answer}} are my friends.": {"hint": "watu zaidi ya mmoja — «wao»", "translation": "Wao ni marafiki zangu."}
+    },
+    "To be — am / is / are": {
+      "I {{answer}} a student.": {"hint": "be — na I", "translation": "Mimi ni mwanafunzi."},
+      "You {{answer}} my friend.": {"hint": "be — na you", "translation": "Wewe ni rafiki yangu."},
+      "She {{answer}} a doctor.": {"hint": "be — na she", "translation": "Yeye ni daktari."},
+      "We {{answer}} at home.": {"hint": "be — na we", "translation": "Tuko nyumbani."},
+      "The coffee {{answer}} hot.": {"hint": "be — na it/kitu", "translation": "Kahawa ni moto."},
+      "They {{answer}} from Japan.": {"hint": "be — na they", "translation": "Wanatoka Japani."}
+    },
+    "Articles: a / an": {
+      "I have {{answer}} dog.": {"hint": "kabla ya sauti ya konsonanti", "translation": "Nina mbwa."},
+      "She is {{answer}} engineer.": {"hint": "kabla ya sauti ya vokali", "translation": "Yeye ni mhandisi."},
+      "It is {{answer}} big house.": {"hint": "kabla ya sauti ya konsonanti", "translation": "Ni nyumba kubwa."},
+      "He eats {{answer}} apple every day.": {"hint": "kabla ya sauti ya vokali", "translation": "Hula tufaha moja kila siku."},
+      "I read {{answer}} book every week.": {"hint": "kabla ya sauti ya konsonanti", "translation": "Husoma kitabu kimoja kila wiki."},
+      "I need {{answer}} umbrella.": {"hint": "kabla ya sauti ya vokali", "translation": "Nahitaji mwavuli."}
+    },
+    "The — pointing at a specific thing": {
+      "{{answer}} sun is hot today.": {"hint": "vitu vya pekee huchukua kibainishi hiki", "translation": "Jua ni kali leo."},
+      "Please close {{answer}} door.": {"hint": "nyote wawili mnajua ni lipi", "translation": "Tafadhali funga mlango."},
+      "{{answer}} keys in my hand are mine.": {"hint": "imebainishwa na kinachofuata", "translation": "Funguo zilizo mkononi mwangu ni zangu."},
+      "We live near {{answer}} station.": {"hint": "nyote wawili mnajua ni ipi", "translation": "Tunaishi karibu na stesheni."},
+      "{{answer}} moon is bright tonight.": {"hint": "vitu vya pekee huchukua kibainishi hiki", "translation": "Mwezi unang'aa usiku huu."},
+      "Where is {{answer}} bathroom?": {"hint": "nyote wawili mnajua ni ipi", "translation": "Choo kiko wapi?"}
+    },
+    "Plural nouns (-s, -es, irregular)": {
+      "I have two {{answer}}.": {"hint": "book, katika wingi", "translation": "Nina vitabu viwili."},
+      "The {{answer}} are playing outside.": {"hint": "child — wingi usio wa kawaida", "translation": "Watoto wanacheza nje."},
+      "She has three {{answer}}.": {"hint": "watch — huongeza ‎-es", "translation": "Ana saa tatu."},
+      "The {{answer}} are late today.": {"hint": "bus — huongeza ‎-es", "translation": "Mabasi yamechelewa leo."},
+      "Two {{answer}} live in our street.": {"hint": "family — y hubadilika kuwa ‎-ies", "translation": "Familia mbili zinaishi katika mtaa wetu."},
+      "My {{answer}} are cold.": {"hint": "foot — wingi usio wa kawaida", "translation": "Miguu yangu ina baridi."}
+    },
+    "Present simple (I work)": {
+      "I {{answer}} in a bank.": {"hint": "unachofanya kama kazi", "translation": "Ninafanya kazi benki."},
+      "We {{answer}} breakfast at seven.": {"hint": "kula (mlo)", "translation": "Tunakula kifungua kinywa saa moja."},
+      "They {{answer}} in London.": {"hint": "kuishi mahali", "translation": "Wanaishi London."},
+      "You {{answer}} English very well.": {"hint": "kutumia lugha", "translation": "Unazungumza Kiingereza vizuri sana."},
+      "I {{answer}} coffee every morning.": {"hint": "kunywa kinywaji", "translation": "Ninakunywa kahawa kila asubuhi."},
+      "We {{answer}} TV in the evening.": {"hint": "kutazama skrini au kipindi", "translation": "Tunatazama televisheni jioni."}
+    },
+    "Third-person -s (she works)": {
+      "She {{answer}} in a hospital.": {"hint": "to work — na she", "translation": "Anafanya kazi hospitalini."},
+      "He {{answer}} to school every day.": {"hint": "to go — huongeza ‎-es", "translation": "Huenda shuleni kila siku."},
+      "My brother {{answer}} English.": {"hint": "to study — y hubadilika kuwa ‎-ies", "translation": "Kaka yangu anasoma Kiingereza."},
+      "The shop {{answer}} at nine.": {"hint": "to open — na it", "translation": "Duka hufunguliwa saa tatu."},
+      "She {{answer}} TV after dinner.": {"hint": "to watch — huongeza ‎-es", "translation": "Hutazama televisheni baada ya chakula cha jioni."},
+      "It {{answer}} a lot in April.": {"hint": "to rain — na it", "translation": "Mvua hunyesha sana mwezi wa Aprili."}
+    },
+    "Do-support: questions and negation": {
+      "{{answer}} you speak English?": {"hint": "kitenzi kisaidizi — na you", "translation": "Je, unazungumza Kiingereza?"},
+      "{{answer}} she work here?": {"hint": "kitenzi kisaidizi — na she", "translation": "Je, anafanya kazi hapa?"},
+      "I {{answer}} not eat meat.": {"hint": "kitenzi kisaidizi — na I", "translation": "Sili nyama."},
+      "He {{answer}} not like coffee.": {"hint": "kitenzi kisaidizi — na he", "translation": "Hapendi kahawa."},
+      "{{answer}} they live in Rome?": {"hint": "kitenzi kisaidizi — na they", "translation": "Je, wanaishi Roma?"},
+      "We {{answer}} not have time.": {"hint": "kitenzi kisaidizi — na we", "translation": "Hatuna muda."},
+      "I {{answer}} like coffee.": {"hint": "ukanusho na I — do + not", "translation": "Sipendi kahawa."},
+      "She {{answer}} work on Sundays.": {"hint": "ukanusho na she — does + not", "translation": "Hafanyi kazi Jumapili."}
+    },
+    "Present continuous (I am working)": {
+      "I am {{answer}} a book right now.": {"hint": "to read + ‏-ing", "translation": "Ninasoma kitabu sasa hivi."},
+      "She is {{answer}} dinner now.": {"hint": "to cook + ‏-ing", "translation": "Anapika chakula cha jioni sasa."},
+      "They are {{answer}} football.": {"hint": "to play + ‏-ing", "translation": "Wanacheza mpira wa miguu."},
+      "Look! It is {{answer}}.": {"hint": "to rain + ‏-ing", "translation": "Tazama! Mvua inanyesha."},
+      "We are {{answer}} for the bus.": {"hint": "to wait + ‏-ing", "translation": "Tunasubiri basi."},
+      "He is {{answer}} at the moment.": {"hint": "to sleep + ‏-ing", "translation": "Analala kwa sasa."},
+      "He is {{answer}} in the park.": {"hint": "run — konsonanti ya mwisho hurudiwa", "translation": "Anakimbia bustanini."},
+      "She is {{answer}} an email.": {"hint": "write — e bubu huondoka", "translation": "Anaandika barua pepe."}
+    },
+    "There is / there are": {
+      "There {{answer}} a book on the table.": {"hint": "umoja", "translation": "Kuna kitabu mezani."},
+      "There {{answer}} two cafés in this street.": {"hint": "wingi", "translation": "Kuna mikahawa miwili katika mtaa huu."},
+      "{{answer}} there a bank near here?": {"hint": "umoja, mpangilio wa swali", "translation": "Je, kuna benki karibu na hapa?"},
+      "There {{answer}} no milk.": {"hint": "umoja", "translation": "Hakuna maziwa."},
+      "{{answer}} there any questions?": {"hint": "wingi, mpangilio wa swali", "translation": "Je, kuna maswali yoyote?"},
+      "There {{answer}} many people here today.": {"hint": "wingi", "translation": "Kuna watu wengi hapa leo."}
+    },
+    "Question words (what, where, when…)": {
+      "{{answer}} do you live?": {"hint": "huulizwa mahali", "translation": "Unaishi wapi?"},
+      "{{answer}} is your name?": {"hint": "huulizwa kitu", "translation": "Jina lako ni nani?"},
+      "{{answer}} is your birthday?": {"hint": "huulizwa wakati", "translation": "Siku yako ya kuzaliwa ni lini?"},
+      "{{answer}} old are you?": {"hint": "hivi ndivyo umri huulizwa", "translation": "Una miaka mingapi?"},
+      "{{answer}} is your teacher?": {"hint": "huulizwa mtu", "translation": "Mwalimu wako ni nani?"},
+      "{{answer}} are you crying?": {"hint": "huulizwa sababu", "translation": "Kwa nini unalia?"}
+    },
+    "Possessives (my, your, 's)": {
+      "This is {{answer}} book.": {"hint": "cha mzungumzaji", "translation": "Hiki ni kitabu changu."},
+      "Is this {{answer}} car?": {"hint": "chako", "translation": "Je, hili ni gari lako?"},
+      "{{answer}} name is Anna.": {"hint": "chake (mwanamke)", "translation": "Jina lake ni Anna."},
+      "That is my {{answer}} car.": {"hint": "brother + kiambishi cha umiliki", "translation": "Lile ni gari la kaka yangu."},
+      "{{answer}} house is big.": {"hint": "chao", "translation": "Nyumba yao ni kubwa."},
+      "The dog wags {{answer}} tail.": {"hint": "cha kitu — bila alama ya ritifaa", "translation": "Mbwa anatikisa mkia wake."},
+      "{{answer}} name is David.": {"hint": "jina la mwanamume — «lake»", "translation": "Jina lake ni David."},
+      "That is {{answer}} classroom.": {"hint": "ni yetu — «chetu»", "translation": "Kile ni chumba chetu cha darasa."}
+    },
+    "Present perfect vs past simple": {
+      "I've {{answer}} my wallet — can you help me look?": {"hint": "lose — kitenzi kishirikishi", "translation": "Nimepoteza pochi yangu — unaweza kunisaidia kutafuta?"},
+      "She {{answer}} in Berlin in 2019.": {"hint": "live — wakati uliopita", "translation": "Aliishi Berlin mwaka 2019."},
+      "Have you {{answer}} been to Japan?": {"hint": "neno la «angalau mara moja maishani»", "translation": "Je, umewahi kwenda Japani?"},
+      "We've known each other {{answer}} ten years.": {"hint": "neno la muda", "translation": "Tumefahamiana kwa miaka kumi."},
+      "He's worked here {{answer}} 2020.": {"hint": "neno la mwanzo wa kipindi", "translation": "Amefanya kazi hapa tangu 2020."},
+      "They haven't finished {{answer}}.": {"hint": "neno la «bado»", "translation": "Bado hawajamaliza."}
+    },
+    "First and second conditionals": {
+      "If it {{answer}} tomorrow, we'll cancel the picnic.": {"hint": "rain — wakati uliopo, it", "translation": "Ikinyesha kesho, tutaghairi matembezi."},
+      "If you study, you {{answer}} pass.": {"hint": "neno la wakati ujao halisi", "translation": "Ukisoma, utafaulu."},
+      "If I {{answer}} rich, I would buy an island.": {"hint": "be — umbo la dhahania", "translation": "Ningekuwa tajiri, ningenunua kisiwa."},
+      "She {{answer}} travel more if she had time.": {"hint": "neno la matokeo ya dhahania", "translation": "Angesafiri zaidi kama angekuwa na muda."},
+      "If we {{answer}} now, we'll catch the train.": {"hint": "kuondoka — kwa wakati uliopo", "translation": "Tukiondoka sasa, tutawahi treni."},
+      "What {{answer}} you do if you won the lottery?": {"hint": "neno la matokeo ya dhahania", "translation": "Ungefanya nini kama ungeshinda bahati nasibu?"}
+    },
+    "The passive (is made, was built)": {
+      "This wine {{answer}} produced in Chile.": {"hint": "be — wakati uliopo, it", "translation": "Mvinyo huu hutengenezwa Chile."},
+      "The castle was {{answer}} in the twelfth century.": {"hint": "build — kitenzi kishirikishi", "translation": "Ngome ilijengwa katika karne ya kumi na mbili."},
+      "These photos {{answer}} taken by my grandmother.": {"hint": "be — wakati uliopita, they", "translation": "Picha hizi zilipigwa na bibi yangu."},
+      "English {{answer}} spoken all over the world.": {"hint": "be — wakati uliopo, it", "translation": "Kiingereza huzungumzwa duniani kote."},
+      "The thief was caught {{answer}} the police.": {"hint": "kihusishi cha mtendaji", "translation": "Mwizi alikamatwa na polisi."},
+      "My phone was {{answer}} at the festival.": {"hint": "steal — kitenzi kishirikishi", "translation": "Simu yangu iliibwa kwenye tamasha."}
+    },
+    "Relative clauses (who, which, that, where)": {
+      "She's the doctor {{answer}} treated my father.": {"hint": "kirejeshi cha watu", "translation": "Yeye ndiye daktari aliyemtibu baba yangu."},
+      "That's the restaurant {{answer}} we first met.": {"hint": "kirejeshi cha mahali", "translation": "Ule ndio mkahawa tulipokutana mara ya kwanza."},
+      "The laptop {{answer}} I bought last week is broken.": {"hint": "kirejeshi cha kila matumizi", "translation": "Kompyuta mpakato niliyonunua wiki iliyopita imeharibika."},
+      "He's the author {{answer}} books sell millions.": {"hint": "kirejeshi cha umiliki", "translation": "Yeye ndiye mwandishi ambaye vitabu vyake huuzwa kwa mamilioni."},
+      "The train, {{answer}} was already late, then broke down.": {"hint": "kirejeshi cha vitu", "translation": "Treni, ambayo tayari ilikuwa imechelewa, kisha iliharibika."},
+      "People {{answer}} exercise regularly live longer.": {"hint": "kirejeshi cha watu", "translation": "Watu wanaofanya mazoezi mara kwa mara huishi muda mrefu zaidi."}
+    },
+    "Used to — past habits and states": {
+      "I {{answer}} to play football every weekend.": {"hint": "kitenzi cha mazoea ya zamani", "translation": "Zamani nilikuwa nikicheza mpira kila wikendi."},
+      "She didn't {{answer}} to like coffee, but now she loves it.": {"hint": "kitenzi cha mazoea ya zamani, bila ‎-d", "translation": "Zamani hakupenda kahawa, lakini sasa anaipenda sana."},
+      "There {{answer}} to be a bakery on this corner.": {"hint": "kitenzi cha mazoea ya zamani", "translation": "Zamani kulikuwa na duka la mikate kwenye kona hii."},
+      "Did you {{answer}} to live in London?": {"hint": "kitenzi cha mazoea ya zamani, bila ‎-d", "translation": "Je, zamani uliishi London?"},
+      "He used {{answer}} have long hair.": {"hint": "kineno kidogo", "translation": "Zamani alikuwa na nywele ndefu."},
+      "We {{answer}} to go camping every summer as kids.": {"hint": "kitenzi cha mazoea ya zamani", "translation": "Tukiwa watoto tulikuwa tukienda kupiga kambi kila kiangazi."}
+    },
+    "Reported speech": {
+      "'I'm busy.' → She said she {{answer}} busy.": {"hint": "be — hatua moja nyuma", "translation": "«Nina shughuli.» → Alisema alikuwa na shughuli."},
+      "'I'll call you.' → He said he {{answer}} call me.": {"hint": "will — hatua moja nyuma", "translation": "«Nitakupigia simu.» → Alisema angenipigia simu."},
+      "'Are you ready?' → She asked {{answer}} I was ready.": {"hint": "neno la maswali ya ndiyo/hapana", "translation": "«Uko tayari?» → Aliniuliza kama nilikuwa tayari."},
+      "'Where do you live?' → He asked where I {{answer}}.": {"hint": "live — hatua moja nyuma", "translation": "«Unaishi wapi?» → Aliniuliza mahali nilipoishi."},
+      "'I can swim.' → She said she {{answer}} swim.": {"hint": "can — hatua moja nyuma", "translation": "«Naweza kuogelea.» → Alisema aliweza kuogelea."},
+      "'We bought a house.' → They said they {{answer}} bought a house.": {"hint": "kisaidizi cha kurudisha nyuma", "translation": "«Tulinunua nyumba.» → Walisema walikuwa wamenunua nyumba."}
+    },
+    "Gerund or infinitive?": {
+      "I really enjoy {{answer}} in the sea.": {"hint": "swim — umbo lipi?", "translation": "Ninafurahia sana kuogelea baharini."},
+      "She decided {{answer}} accept the job.": {"hint": "kineno cha kitenzi-jina", "translation": "Aliamua kukubali kazi hiyo."},
+      "Would you mind {{answer}} the door?": {"hint": "close — umbo lipi?", "translation": "Haitakuwa shida kufunga mlango?"},
+      "We hope {{answer}} see you soon.": {"hint": "kineno cha kitenzi-jina", "translation": "Tunatumaini kukuona hivi karibuni."},
+      "He avoided {{answer}} my question.": {"hint": "answer — umbo lipi?", "translation": "Aliepuka kujibu swali langu."},
+      "They promised {{answer}} write every week.": {"hint": "kineno cha kitenzi-jina", "translation": "Waliahidi kuandika kila wiki."}
+    },
+    "Third and mixed conditionals": {
+      "If you {{answer}} told me, I would have helped.": {"hint": "kisaidizi cha wakati uliopita kabisa", "translation": "Kama ungeniambia, ningalisaidia."},
+      "If she had left earlier, she would {{answer}} caught the flight.": {"hint": "kisaidizi cha utimilifu baada ya would", "translation": "Kama angeondoka mapema, angaliwahi ndege."},
+      "I wouldn't {{answer}} met her if I hadn't gone to that party.": {"hint": "kisaidizi cha utimilifu", "translation": "Nisingalikutana naye kama nisingalikwenda kwenye sherehe ile."},
+      "If he had studied medicine, he {{answer}} be a doctor now.": {"hint": "neno la matokeo ya dhahania", "translation": "Kama angalisomea udaktari, angekuwa daktari sasa."},
+      "If we {{answer}} taken the map, we wouldn't have got lost.": {"hint": "kisaidizi cha wakati uliopita kabisa", "translation": "Kama tungalichukua ramani, tusingalipotea."},
+      "What would you have {{answer}} in my position?": {"hint": "do — kitenzi kishirikishi", "translation": "Ungalifanya nini ukiwa mahali pangu?"}
+    },
+    "Modals of deduction (must, might, can't)": {
+      "The lights are on — someone {{answer}} be home.": {"hint": "neno la uhakika unaokaribia", "translation": "Taa zinawaka — lazima kuna mtu nyumbani."},
+      "That {{answer}} be Maria — she's in Brazil this week!": {"hint": "neno la kutowezekana", "translation": "Haiwezi kuwa Maria — yuko Brazili wiki hii!"},
+      "He {{answer}} be stuck in traffic — it happens.": {"hint": "neno la uwezekano", "translation": "Huenda amekwama kwenye msongamano — hutokea."},
+      "She must {{answer}} forgotten our meeting.": {"hint": "kisaidizi cha uamuzi kuhusu wakati uliopita", "translation": "Lazima atakuwa amesahau mkutano wetu."},
+      "They can't {{answer}} left already — the car's still here.": {"hint": "kisaidizi cha uamuzi kuhusu wakati uliopita", "translation": "Hawawezi kuwa wameondoka tayari — gari bado lipo hapa."},
+      "It {{answer}} rain later, so take an umbrella.": {"hint": "neno la uwezekano", "translation": "Huenda mvua ikanyesha baadaye, kwa hivyo chukua mwavuli."}
+    },
+    "Advanced passives (has been done, being done)": {
+      "The road has {{answer}} closed since Monday.": {"hint": "kitenzi kishirikishi cha be", "translation": "Barabara imefungwa tangu Jumatatu."},
+      "Our office is {{answer}} renovated at the moment.": {"hint": "umbo la ‎-ing la be", "translation": "Ofisi yetu inakarabatiwa kwa sasa."},
+      "All answers must be {{answer}} in ink.": {"hint": "write — kitenzi kishirikishi", "translation": "Majibu yote lazima yaandikwe kwa wino."},
+      "She is {{answer}} to be the richest woman in the country.": {"hint": "say — kitenzi kishirikishi", "translation": "Inasemekana kuwa yeye ndiye mwanamke tajiri zaidi nchini."},
+      "The results will {{answer}} announced on Friday.": {"hint": "kitenzi-jina huru cha kauli ya kutendwa", "translation": "Matokeo yatatangazwa Ijumaa."},
+      "By 1990, the bridge {{answer}} been rebuilt twice.": {"hint": "kisaidizi cha wakati uliopita kabisa", "translation": "Kufikia 1990, daraja lilikuwa limejengwa upya mara mbili."}
+    },
+    "Wish and if only": {
+      "I wish I {{answer}} how to drive.": {"hint": "know — umbo la matamanio", "translation": "Laiti ningejua kuendesha gari."},
+      "She wishes she {{answer}} accepted the offer.": {"hint": "kisaidizi cha majuto ya zamani", "translation": "Anatamani angalikubali ofa ile."},
+      "I wish you {{answer}} stop interrupting me!": {"hint": "neno la lalamiko", "translation": "Laiti ungeacha kunikatiza!"},
+      "If {{answer}} I had listened to your advice!": {"hint": "neno baada ya if", "translation": "Laiti ningalisikiliza ushauri wako!"},
+      "He wishes he {{answer}} taller.": {"hint": "be — umbo la matamanio", "translation": "Anatamani angekuwa mrefu zaidi."},
+      "We wish we {{answer}} bought tickets earlier.": {"hint": "kisaidizi cha majuto ya zamani", "translation": "Tunatamani tungalinunua tiketi mapema."}
+    },
+    "Phrasal verbs — separable or not?": {
+      "Could you turn {{answer}} off? The music's too loud.": {"hint": "kiwakilishi cha mtendwa", "translation": "Unaweza kuizima? Muziki uko juu mno."},
+      "She's looking {{answer}} her elderly mother.": {"hint": "kineno cha kutunza", "translation": "Anamtunza mama yake mzee."},
+      "Please fill {{answer}} this form.": {"hint": "kineno cha fomu", "translation": "Tafadhali jaza fomu hii."},
+      "I'll pick you {{answer}} at eight.": {"hint": "kineno cha kuchukua mtu", "translation": "Nitakuchukua saa mbili."},
+      "We've put {{answer}} the meeting until Friday.": {"hint": "kineno cha kuahirisha", "translation": "Tumeahirisha mkutano hadi Ijumaa."},
+      "He takes {{answer}} his father — same smile, same laugh.": {"hint": "kineno cha kufanana na mzazi", "translation": "Amefanana na baba yake — tabasamu lile lile, kicheko kile kile."}
+    },
+    "Question tags and indirect questions": {
+      "You've met before, {{answer}} you?": {"hint": "kisaidizi kilichogeuzwa cha mkia wa swali", "translation": "Mmekutana zamani, sivyo?"},
+      "She doesn't eat fish, {{answer}} she?": {"hint": "kisaidizi kilichogeuzwa cha mkia wa swali", "translation": "Hali samaki, sivyo?"},
+      "Could you tell me where the bank {{answer}}?": {"hint": "be — MWISHONI", "translation": "Unaweza kuniambia benki iko wapi?"},
+      "Do you know if the shop {{answer}} at six?": {"hint": "close — mpangilio wa sentensi ya kawaida", "translation": "Unajua kama duka hufungwa saa kumi na mbili?"},
+      "It's cold today, {{answer}} it?": {"hint": "kisaidizi kilichogeuzwa cha mkia wa swali", "translation": "Kuna baridi leo, sivyo?"},
+      "I wonder {{answer}} they got home safely.": {"hint": "mbadala wa if", "translation": "Najiuliza kama walifika nyumbani salama."}
+    },
+    "Inversion (Never have I…, Not only…)": {
+      "Never {{answer}} I heard such nonsense.": {"hint": "kisaidizi cha utimilifu", "translation": "Sijawahi kamwe kusikia upuuzi kama huo."},
+      "Not only {{answer}} she sing, she writes her own songs.": {"hint": "kisaidizi cha wakati uliopo", "translation": "Si kwamba anaimba tu, bali pia huandika nyimbo zake mwenyewe."},
+      "No sooner had we sat down {{answer}} the phone rang.": {"hint": "neno linalokamilisha jozi", "translation": "Mara tu tulipoketi, simu ililia."},
+      "Under no circumstances {{answer}} you open that door.": {"hint": "kisaidizi cha ushauri", "translation": "Kwa hali yoyote ile hupaswi kufungua mlango ule."},
+      "Rarely {{answer}} we see such talent.": {"hint": "kisaidizi cha wakati uliopo", "translation": "Ni nadra sana kuona kipaji kama hicho."},
+      "Only then {{answer}} I understand what she meant.": {"hint": "kisaidizi cha wakati uliopita", "translation": "Hapo ndipo nilipoelewa alichomaanisha."}
+    },
+    "Cleft sentences (What I need is…, It was… that)": {
+      "{{answer}} I need is a good night's sleep.": {"hint": "mwanzo wa sentensi pasuko", "translation": "Ninachohitaji ni usingizi mzuri wa usiku mzima."},
+      "It was Marco {{answer}} suggested the idea.": {"hint": "kirejeshi cha watu", "translation": "Alikuwa Marco ndiye aliyependekeza wazo hilo."},
+      "What annoys me {{answer}} his constant lateness.": {"hint": "be — kiini cha sentensi", "translation": "Kinachonikera ni kuchelewa kwake kila mara."},
+      "It {{answer}} in Paris that they first met.": {"hint": "be — wakati uliopita", "translation": "Ilikuwa Paris ndipo walipokutana mara ya kwanza."},
+      "{{answer}} she wants is a little respect.": {"hint": "mwanzo wa «chote anachotaka»", "translation": "Chote anachotaka ni heshima kidogo."},
+      "It wasn't until midnight {{answer}} he finally called.": {"hint": "kiunganishi cha sentensi pasuko", "translation": "Hakupiga simu hatimaye hadi saa sita usiku."}
+    },
+    "Hedging and distancing (would seem, tend to)": {
+      "It would {{answer}} that the figures are wrong.": {"hint": "kitenzi cha kuonekana", "translation": "Inaonekana kwamba takwimu si sahihi."},
+      "House prices {{answer}} to rise in spring.": {"hint": "kitenzi cha mwelekeo", "translation": "Bei za nyumba huelekea kupanda majira ya kuchipua."},
+      "There {{answer}} to be a problem with the data.": {"hint": "kitenzi cha kuonekana, nafsi ya tatu", "translation": "Inaonekana kuna tatizo na data."},
+      "It is widely {{answer}} that the climate is changing.": {"hint": "believe — kitenzi kishirikishi", "translation": "Inaaminika kwa mapana kwamba tabianchi inabadilika."},
+      "The results {{answer}} that more research is needed.": {"hint": "kitenzi cha kudokeza", "translation": "Matokeo yanadokeza kwamba utafiti zaidi unahitajika."},
+      "It could be {{answer}} that the policy failed.": {"hint": "argue — kitenzi kishirikishi", "translation": "Inaweza kuhojiwa kwamba sera ilishindwa."}
+    },
+    "Participle clauses (Having finished, …)": {
+      "{{answer}} finished dinner, we went for a walk.": {"hint": "mwanzo wa kishirikishi timilifu", "translation": "Baada ya kumaliza chakula cha jioni, tulienda kutembea."},
+      "{{answer}} through the window, she saw the storm coming.": {"hint": "look — kishirikishi", "translation": "Akitazama dirishani, aliona dhoruba ikija."},
+      "{{answer}} in 1889, the tower still draws millions.": {"hint": "build — kishirikishi", "translation": "Ukiwa umejengwa mwaka 1889, mnara bado huvutia mamilioni."},
+      "Not {{answer}} what to say, he stayed silent.": {"hint": "know — kishirikishi", "translation": "Kwa kutojua la kusema, alinyamaza."},
+      "Having {{answer}} in Rome for years, she speaks fluent Italian.": {"hint": "live — kishirikishi", "translation": "Kwa kuwa aliishi Roma kwa miaka mingi, huzungumza Kiitaliano fasaha."},
+      "{{answer}} by the news, they cancelled the trip.": {"hint": "shock — kishirikishi", "translation": "Wakiwa wameshtushwa na habari hiyo, waliighairi safari."}
+    },
+    "The mandative subjunctive (insist that he be)": {
+      "The board insisted that he {{answer}} removed from the project.": {"hint": "be — umbo tupu", "translation": "Bodi ilisisitiza kwamba aondolewe kwenye mradi."},
+      "It is essential that every member {{answer}} the code of conduct.": {"hint": "kufuata — umbo tupu", "translation": "Ni muhimu kila mwanachama afuate kanuni za maadili."},
+      "She recommended that the report {{answer}} rewritten.": {"hint": "be — umbo tupu", "translation": "Alipendekeza ripoti iandikwe upya."},
+      "They demanded that the minister {{answer}}.": {"hint": "kujiuzulu — umbo tupu", "translation": "Walidai waziri ajiuzulu."},
+      "It's vital that she {{answer}} informed at once.": {"hint": "be — umbo tupu", "translation": "Ni muhimu sana ajulishwe mara moja."},
+      "We suggest that he {{answer}} a lawyer before signing.": {"hint": "kushauriana — umbo tupu", "translation": "Tunapendekeza ashauriane na mwanasheria kabla ya kutia saini."}
+    },
+    "Ellipsis and substitution (so, neither, do so)": {
+      "I loved the film. — {{answer}} did I!": {"hint": "mwanzo wa «mimi pia»", "translation": "Niliipenda filamu. — Mimi pia!"},
+      "She can't make it tonight. — {{answer}} can I.": {"hint": "mwanzo hasi wa «wala mimi»", "translation": "Hawezi kuja leo usiku. — Wala mimi."},
+      "He was asked to apologise, and he did {{answer}} immediately.": {"hint": "badala baada ya did", "translation": "Aliombwa aombe radhi, naye alifanya hivyo mara moja."},
+      "You may be tired; if {{answer}}, rest.": {"hint": "badala baada ya if", "translation": "Huenda umechoka; ikiwa ndivyo, pumzika."},
+      "They promised to help, but failed to {{answer}} so.": {"hint": "kitenzi badala", "translation": "Waliahidi kusaidia, lakini hawakufanya hivyo."},
+      "I've never been to Oslo. — Nor {{answer}} I.": {"hint": "kisaidizi cha utimilifu", "translation": "Sijawahi kwenda Oslo. — Wala mimi."}
+    },
+    "Formal connectors (notwithstanding, albeit)": {
+      "The plan went ahead, {{answer}} the objections.": {"hint": "'despite' rasmi zaidi", "translation": "Mpango uliendelea, licha ya pingamizi."},
+      "It was a victory, {{answer}} a narrow one.": {"hint": "although iliyobanwa", "translation": "Ulikuwa ushindi, ingawa wa kufinya."},
+      "The costs rose sharply; {{answer}} the project was cancelled.": {"hint": "therefore rasmi", "translation": "Gharama zilipanda kwa kasi; kwa hiyo mradi ulighairiwa."},
+      "A scheme {{answer}} employees share the profits.": {"hint": "neno la «ambako kupitia»", "translation": "Mpango ambao kupitia huo wafanyakazi hugawana faida."},
+      "A {{answer}} unknown author won the prize.": {"hint": "neno la «hadi wakati huo»", "translation": "Mwandishi asiyejulikana hadi wakati huo alishinda tuzo."},
+      "The evidence, {{answer}} incomplete, points one way.": {"hint": "although iliyofupishwa", "translation": "Ushahidi, ingawa si kamili, unaelekeza upande mmoja."}
+    },
+    "Past simple — regular verbs (-ed)": {
+      "I {{answer}} in a bank for five years.": {"hint": "work + ‏-ed", "translation": "Nilifanya kazi benki kwa miaka mitano."},
+      "She {{answer}} in Rome when she was young.": {"hint": "live — huongeza ‎-d tu", "translation": "Aliishi Roma alipokuwa mdogo."},
+      "He {{answer}} English at university.": {"hint": "study — y hubadilika kuwa ‎-ied", "translation": "Alisoma Kiingereza chuo kikuu."},
+      "The bus {{answer}} suddenly.": {"hint": "stop — p hurudiwa", "translation": "Basi lilisimama ghafla."},
+      "We {{answer}} football in the park yesterday.": {"hint": "vokali + y — ‏-ed tu", "translation": "Tulicheza mpira bustanini jana."},
+      "They {{answer}} work yesterday — it was a holiday.": {"hint": "ukanusho wa wakati uliopita: did + not", "translation": "Hawakufanya kazi jana — ilikuwa sikukuu."}
+    },
+    "Object pronouns (me, him, them)": {
+      "Can you help {{answer}}, please?": {"hint": "mzungumzaji anaomba msaada — «ni-»", "translation": "Tafadhali, unaweza kunisaidia?"},
+      "I saw {{answer}} at school yesterday.": {"hint": "mwanamume — «m-»", "translation": "Nilimwona shuleni jana."},
+      "This present is for {{answer}}.": {"hint": "mwanamke — «yeye»", "translation": "Zawadi hii ni yake."},
+      "Our teacher knows {{answer}} well.": {"hint": "mzungumzaji + wengine — «tu-»", "translation": "Mwalimu wetu anatujua vizuri."},
+      "I like these shoes — I'll buy {{answer}}.": {"hint": "vitu vingi — «vi-»", "translation": "Ninapenda viatu hivi — nitavinunua."},
+      "Where is my phone? I can't find {{answer}}.": {"hint": "kitu — «i-»", "translation": "Simu yangu iko wapi? Siiwezi kuipata."}
+    },
+    "Imperatives (Open…, Don't…)": {
+      "{{answer}} the door, please.": {"hint": "kitenzi katika umbo la msingi, bila mtenda", "translation": "Fungua mlango, tafadhali."},
+      "{{answer}} worry — everything is fine.": {"hint": "amri hasi: umbo hasi la do + kitenzi", "translation": "Usijali — kila kitu kiko sawa."},
+      "{{answer}} me tomorrow, please.": {"hint": "kitenzi katika umbo la msingi", "translation": "Nipigie simu kesho, tafadhali."},
+      "{{answer}} be late — the film starts at eight.": {"hint": "amri hasi na be", "translation": "Usichelewe — filamu inaanza saa mbili."},
+      "{{answer}} quiet, please — the baby is sleeping.": {"hint": "kitenzi be katika umbo la msingi", "translation": "Kaa kimya, tafadhali — mtoto analala."},
+      "Please {{answer}} down and wait a moment.": {"hint": "kitenzi katika umbo la msingi", "translation": "Tafadhali keti na usubiri kidogo."}
+    }
+  }
+}

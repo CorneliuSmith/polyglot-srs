@@ -1,0 +1,360 @@
+{
+  "language": "en",
+  "locale": "ar",
+  "reviewed": false,
+  "_note": "Hints and faithful sentence translations for ENGLISH drills, shown to learners whose support locale is Arabic. The hint names the expected English word (kept in English) with an Arabic cue; the translation renders the completed sentence in natural Modern Standard Arabic.",
+  "points": {
+    "Past simple — irregular verbs": {
+      "Yesterday I {{answer}} to the market.": {"hint": "go — الماضي", "translation": "ذهبتُ إلى السوق أمس."},
+      "She {{answer}} a great film last night.": {"hint": "see — الماضي", "translation": "شاهدَت فيلمًا رائعًا الليلة الماضية."},
+      "We {{answer}} a new car in March.": {"hint": "buy — الماضي", "translation": "اشترينا سيارة جديدة في مارس."},
+      "He {{answer}} the early train this morning.": {"hint": "take — الماضي", "translation": "ركب قطار الصباح الباكر هذا الصباح."},
+      "They {{answer}} home very late.": {"hint": "come — الماضي", "translation": "عادوا إلى البيت متأخرين جدًا."},
+      "I {{answer}} breakfast at seven.": {"hint": "eat — الماضي", "translation": "تناولتُ الفطور في السابعة."}
+    },
+    "Present continuous vs present simple": {
+      "Quiet, please — the baby {{answer}} sleeping.": {"hint": "be — الغائب المفرد", "translation": "الهدوء من فضلك — الرضيع نائم الآن."},
+      "She {{answer}} to work by bike every day.": {"hint": "go — عادة، هي", "translation": "تذهب إلى العمل بالدراجة كل يوم."},
+      "I'm {{answer}} for my keys at the moment.": {"hint": "look — صيغة الاستمرار", "translation": "أبحث عن مفاتيحي في هذه اللحظة."},
+      "Water {{answer}} at 100 degrees.": {"hint": "boil — حقيقة عامة، it", "translation": "يغلي الماء عند 100 درجة."},
+      "They {{answer}} watching TV right now.": {"hint": "be — هم", "translation": "يشاهدون التلفاز الآن."},
+      "He usually {{answer}} coffee, not tea.": {"hint": "drink — عادة، هو", "translation": "يشرب القهوة عادةً، لا الشاي."}
+    },
+    "Comparatives and superlatives": {
+      "This bag is {{answer}} than that one.": {"hint": "cheap — صيغة المقارنة", "translation": "هذه الحقيبة أرخص من تلك."},
+      "It's the {{answer}} building in the city.": {"hint": "tall — صيغة التفضيل", "translation": "إنه أطول مبنى في المدينة."},
+      "Her English is {{answer}} than mine.": {"hint": "good — صيغة المقارنة", "translation": "إنجليزيتها أفضل من إنجليزيتي."},
+      "That was the {{answer}} meal I've ever had.": {"hint": "bad — صيغة التفضيل", "translation": "كانت أسوأ وجبة في حياتي."},
+      "This exercise is {{answer}} difficult than the last.": {"hint": "الكلمة قبل الصفات الطويلة", "translation": "هذا التمرين أصعب من السابق."},
+      "The station is {{answer}} than I thought.": {"hint": "far — صيغة المقارنة", "translation": "المحطة أبعد مما ظننت."}
+    },
+    "Going to and will": {
+      "We're {{answer}} to visit Rome in May.": {"hint": "مستقبل الخطط المقررة", "translation": "سنزور روما في مايو."},
+      "Don't worry — I {{answer}} help you.": {"hint": "قرار لحظي", "translation": "لا تقلق — سأساعدك."},
+      "Look at those clouds! It's going to {{answer}}.": {"hint": "طقس ماطر", "translation": "انظر إلى تلك الغيوم! ستمطر."},
+      "I think she {{answer}} pass the exam.": {"hint": "كلمة التنبؤات", "translation": "أظن أنها ستنجح في الامتحان."},
+      "They're going {{answer}} move house next year.": {"hint": "الأداة بعد going", "translation": "سينتقلون إلى بيت جديد العام القادم."},
+      "I'm tired — I {{answer}} go to bed.": {"hint": "الصيغة المختصرة للمستقبل القريب", "translation": "أنا متعب — سأذهب إلى النوم."}
+    },
+    "Some, any, much, many": {
+      "There's {{answer}} milk in the fridge.": {"hint": "كلمة الكمية في الجمل المثبتة", "translation": "يوجد بعض الحليب في الثلاجة."},
+      "We don't have {{answer}} eggs left.": {"hint": "كلمة الكمية في الجمل المنفية", "translation": "لم يبقَ لدينا أي بيض."},
+      "Do you have {{answer}} questions?": {"hint": "كلمة الكمية في الأسئلة", "translation": "هل لديكم أي أسئلة؟"},
+      "How {{answer}} money do you need?": {"hint": "مع غير المعدود", "translation": "كم من المال تحتاج؟"},
+      "How {{answer}} people are coming?": {"hint": "مع المعدود", "translation": "كم شخصًا سيأتي؟"},
+      "Would you like {{answer}} tea?": {"hint": "كلمة الكمية في العروض", "translation": "هل تريد بعض الشاي؟"}
+    },
+    "Adverbs of frequency": {
+      "I {{answer}} drink coffee in the morning — every single day.": {"hint": "كلمة «في كل مرة»", "translation": "أشرب القهوة صباحًا دائمًا — كل يوم بلا استثناء."},
+      "He is {{answer}} late — it drives me crazy.": {"hint": "كلمة «في كل مرة»", "translation": "يتأخر دائمًا — وهذا يثير جنوني."},
+      "We {{answer}} go out on Fridays — maybe once a month.": {"hint": "كلمة «من حين لآخر»", "translation": "نخرج أحيانًا أيام الجمعة — ربما مرة في الشهر."},
+      "She {{answer}} eats meat — she's almost vegetarian.": {"hint": "كلمة «نادرًا ما»", "translation": "نادرًا ما تأكل اللحم — تكاد تكون نباتية."},
+      "I have {{answer}} been to Japan, but I'd love to go.": {"hint": "كلمة «ولا مرة»", "translation": "لم أزر اليابان قط، لكنني أتمنى ذلك بشدة."},
+      "They {{answer}} visit us at Christmas — most years.": {"hint": "كلمة «عادةً»", "translation": "يزوروننا عادةً في عيد الميلاد — في معظم السنوات."},
+      "We {{answer}} eat out on Fridays.": {"hint": "غالبًا — بين 'sometimes' و'always'", "translation": "نأكل خارج البيت غالبًا أيام الجمعة."}
+    },
+    "Can, could, have to": {
+      "She {{answer}} speak three languages.": {"hint": "كلمة القدرة", "translation": "تستطيع التحدث بثلاث لغات."},
+      "{{answer}} you open the window, please?": {"hint": "كلمة الطلب المهذب", "translation": "هلا فتحتَ النافذة من فضلك؟"},
+      "I {{answer}} to wear a uniform at work.": {"hint": "فعل الإلزام", "translation": "يجب أن أرتدي زيًّا موحدًا في العمل."},
+      "When I was five, I {{answer}} already read.": {"hint": "كلمة القدرة — الماضي", "translation": "عندما كنت في الخامسة، كنت أستطيع القراءة بالفعل."},
+      "You don't {{answer}} to come if you're busy.": {"hint": "فعل الإلزام", "translation": "لست مضطرًا للمجيء إن كنت مشغولًا."},
+      "{{answer}} I sit here? — Of course.": {"hint": "كلمة الاستئذان", "translation": "هل يمكنني الجلوس هنا؟ — بالطبع."}
+    },
+    "Prepositions of time: in, on, at": {
+      "The meeting starts {{answer}} nine o'clock.": {"hint": "حرف جر الساعة المحددة", "translation": "يبدأ الاجتماع في الساعة التاسعة."},
+      "I was born {{answer}} 1998.": {"hint": "حرف جر الفترات الطويلة", "translation": "وُلدتُ عام 1998."},
+      "We're leaving {{answer}} Friday.": {"hint": "حرف جر الأيام", "translation": "سنغادر يوم الجمعة."},
+      "She works best {{answer}} the morning.": {"hint": "حرف جر الفترات الطويلة", "translation": "تعمل على أفضل وجه في الصباح."},
+      "My birthday is {{answer}} 12 March.": {"hint": "حرف جر التواريخ", "translation": "عيد ميلادي في 12 مارس."},
+      "He often studies {{answer}} night.": {"hint": "حرف الجر الثابت مع night", "translation": "يدرس ليلًا في كثير من الأحيان."}
+    },
+    "Subject pronouns (I, you, he…)": {
+      "{{answer}} am from Brazil.": {"hint": "المتكلم — يُكتب دائمًا بحرف كبير", "translation": "أنا من البرازيل."},
+      "{{answer}} is my sister.": {"hint": "امرأة", "translation": "هي أختي."},
+      "{{answer}} are students.": {"hint": "المتكلم + آخرون", "translation": "نحن طلاب."},
+      "{{answer}} is my father.": {"hint": "رجل", "translation": "هو أبي."},
+      "{{answer}} is on the table.": {"hint": "شيء", "translation": "إنه على الطاولة."},
+      "{{answer}} are very kind.": {"hint": "من تخاطبه", "translation": "أنت لطيف جدًا. / أنتم لطفاء جدًا."},
+      "{{answer}} are my friends.": {"hint": "أكثر من شخص — «هم»", "translation": "هم أصدقائي."}
+    },
+    "To be — am / is / are": {
+      "I {{answer}} a student.": {"hint": "be — مع I", "translation": "أنا طالب."},
+      "You {{answer}} my friend.": {"hint": "be — مع you", "translation": "أنت صديقي."},
+      "She {{answer}} a doctor.": {"hint": "be — مع she", "translation": "هي طبيبة."},
+      "We {{answer}} at home.": {"hint": "be — مع we", "translation": "نحن في البيت."},
+      "The coffee {{answer}} hot.": {"hint": "be — مع it/شيء", "translation": "القهوة ساخنة."},
+      "They {{answer}} from Japan.": {"hint": "be — مع they", "translation": "هم من اليابان."}
+    },
+    "Articles: a / an": {
+      "I have {{answer}} dog.": {"hint": "قبل صوت ساكن", "translation": "عندي كلب."},
+      "She is {{answer}} engineer.": {"hint": "قبل صوت علة", "translation": "هي مهندسة."},
+      "It is {{answer}} big house.": {"hint": "قبل صوت ساكن", "translation": "إنه بيت كبير."},
+      "He eats {{answer}} apple every day.": {"hint": "قبل صوت علة", "translation": "يأكل تفاحة كل يوم."},
+      "I read {{answer}} book every week.": {"hint": "قبل صوت ساكن", "translation": "أقرأ كتابًا كل أسبوع."},
+      "I need {{answer}} umbrella.": {"hint": "قبل صوت علة", "translation": "أحتاج إلى مظلة."}
+    },
+    "The — pointing at a specific thing": {
+      "{{answer}} sun is hot today.": {"hint": "الأشياء الفريدة تأخذ هذه الأداة", "translation": "الشمس حارة اليوم."},
+      "Please close {{answer}} door.": {"hint": "كلاكما يعرف أيّها المقصود", "translation": "أغلق الباب من فضلك."},
+      "{{answer}} keys in my hand are mine.": {"hint": "محدَّد بما يليه", "translation": "المفاتيح التي في يدي مفاتيحي."},
+      "We live near {{answer}} station.": {"hint": "كلاكما يعرف أيّها المقصود", "translation": "نسكن قرب المحطة."},
+      "{{answer}} moon is bright tonight.": {"hint": "الأشياء الفريدة تأخذ هذه الأداة", "translation": "القمر ساطع الليلة."},
+      "Where is {{answer}} bathroom?": {"hint": "كلاكما يعرف أيّه المقصود", "translation": "أين الحمّام؟"}
+    },
+    "Plural nouns (-s, -es, irregular)": {
+      "I have two {{answer}}.": {"hint": "book، بصيغة الجمع", "translation": "عندي كتابان."},
+      "The {{answer}} are playing outside.": {"hint": "child — جمع شاذ", "translation": "الأطفال يلعبون في الخارج."},
+      "She has three {{answer}}.": {"hint": "watch — تُضاف ‎-es", "translation": "لديها ثلاث ساعات."},
+      "The {{answer}} are late today.": {"hint": "bus — تُضاف ‎-es", "translation": "الحافلات متأخرة اليوم."},
+      "Two {{answer}} live in our street.": {"hint": "family — تتحول y إلى ‎-ies", "translation": "تسكن عائلتان في شارعنا."},
+      "My {{answer}} are cold.": {"hint": "foot — جمع شاذ", "translation": "قدماي باردتان."}
+    },
+    "Present simple (I work)": {
+      "I {{answer}} in a bank.": {"hint": "ما تفعله مهنةً", "translation": "أعمل في مصرف."},
+      "We {{answer}} breakfast at seven.": {"hint": "تناوُل (وجبة)", "translation": "نتناول الفطور في السابعة."},
+      "They {{answer}} in London.": {"hint": "السكن في مكان", "translation": "يعيشون في لندن."},
+      "You {{answer}} English very well.": {"hint": "استخدام لغة", "translation": "تتحدث الإنجليزية جيدًا جدًا."},
+      "I {{answer}} coffee every morning.": {"hint": "شرب سائل", "translation": "أشرب القهوة كل صباح."},
+      "We {{answer}} TV in the evening.": {"hint": "النظر إلى شاشة أو برنامج", "translation": "نشاهد التلفاز في المساء."}
+    },
+    "Third-person -s (she works)": {
+      "She {{answer}} in a hospital.": {"hint": "to work — مع she", "translation": "تعمل في مستشفى."},
+      "He {{answer}} to school every day.": {"hint": "to go — تُضاف ‎-es", "translation": "يذهب إلى المدرسة كل يوم."},
+      "My brother {{answer}} English.": {"hint": "to study — تتحول y إلى ‎-ies", "translation": "يدرس أخي الإنجليزية."},
+      "The shop {{answer}} at nine.": {"hint": "to open — مع it", "translation": "يفتح المتجر في التاسعة."},
+      "She {{answer}} TV after dinner.": {"hint": "to watch — تُضاف ‎-es", "translation": "تشاهد التلفاز بعد العشاء."},
+      "It {{answer}} a lot in April.": {"hint": "to rain — مع it", "translation": "تمطر كثيرًا في أبريل."}
+    },
+    "Do-support: questions and negation": {
+      "{{answer}} you speak English?": {"hint": "الفعل المساعد — مع you", "translation": "هل تتحدث الإنجليزية؟"},
+      "{{answer}} she work here?": {"hint": "الفعل المساعد — مع she", "translation": "هل تعمل هنا؟"},
+      "I {{answer}} not eat meat.": {"hint": "الفعل المساعد — مع I", "translation": "لا آكل اللحم."},
+      "He {{answer}} not like coffee.": {"hint": "الفعل المساعد — مع he", "translation": "لا يحب القهوة."},
+      "{{answer}} they live in Rome?": {"hint": "الفعل المساعد — مع they", "translation": "هل يعيشون في روما؟"},
+      "We {{answer}} not have time.": {"hint": "الفعل المساعد — مع we", "translation": "ليس لدينا وقت."},
+      "I {{answer}} like coffee.": {"hint": "النفي مع I — ‏do + not", "translation": "لا أحب القهوة."},
+      "She {{answer}} work on Sundays.": {"hint": "النفي مع she — ‏does + not", "translation": "لا تعمل أيام الأحد."}
+    },
+    "Present continuous (I am working)": {
+      "I am {{answer}} a book right now.": {"hint": "to read + ‏-ing", "translation": "أقرأ كتابًا الآن."},
+      "She is {{answer}} dinner now.": {"hint": "to cook + ‏-ing", "translation": "تطبخ العشاء الآن."},
+      "They are {{answer}} football.": {"hint": "to play + ‏-ing", "translation": "يلعبون كرة القدم الآن."},
+      "Look! It is {{answer}}.": {"hint": "to rain + ‏-ing", "translation": "انظر! إنها تمطر."},
+      "We are {{answer}} for the bus.": {"hint": "to wait + ‏-ing", "translation": "ننتظر الحافلة."},
+      "He is {{answer}} at the moment.": {"hint": "to sleep + ‏-ing", "translation": "إنه نائم في هذه اللحظة."},
+      "He is {{answer}} in the park.": {"hint": "run — يُضعَّف الحرف الأخير", "translation": "يركض في الحديقة."},
+      "She is {{answer}} an email.": {"hint": "write — تسقط الـe الصامتة", "translation": "تكتب رسالة إلكترونية."}
+    },
+    "There is / there are": {
+      "There {{answer}} a book on the table.": {"hint": "المفرد", "translation": "يوجد كتاب على الطاولة."},
+      "There {{answer}} two cafés in this street.": {"hint": "الجمع", "translation": "يوجد مقهيان في هذا الشارع."},
+      "{{answer}} there a bank near here?": {"hint": "المفرد، ترتيب السؤال", "translation": "هل يوجد مصرف قريب من هنا؟"},
+      "There {{answer}} no milk.": {"hint": "المفرد", "translation": "لا يوجد حليب."},
+      "{{answer}} there any questions?": {"hint": "الجمع، ترتيب السؤال", "translation": "هل هناك أسئلة؟"},
+      "There {{answer}} many people here today.": {"hint": "الجمع", "translation": "يوجد كثير من الناس هنا اليوم."}
+    },
+    "Question words (what, where, when…)": {
+      "{{answer}} do you live?": {"hint": "يُسأل عن مكان", "translation": "أين تسكن؟"},
+      "{{answer}} is your name?": {"hint": "يُسأل عن شيء", "translation": "ما اسمك؟"},
+      "{{answer}} is your birthday?": {"hint": "يُسأل عن وقت", "translation": "متى عيد ميلادك؟"},
+      "{{answer}} old are you?": {"hint": "هكذا يُسأل عن العمر", "translation": "كم عمرك؟"},
+      "{{answer}} is your teacher?": {"hint": "يُسأل عن شخص", "translation": "من معلمك؟"},
+      "{{answer}} are you crying?": {"hint": "يُسأل عن سبب", "translation": "لماذا تبكي؟"}
+    },
+    "Possessives (my, your, 's)": {
+      "This is {{answer}} book.": {"hint": "يخص المتكلم", "translation": "هذا كتابي."},
+      "Is this {{answer}} car?": {"hint": "يخصك", "translation": "هل هذه سيارتك؟"},
+      "{{answer}} name is Anna.": {"hint": "يخصها", "translation": "اسمها آنا."},
+      "That is my {{answer}} car.": {"hint": "brother + لاحقة الملكية", "translation": "تلك سيارة أخي."},
+      "{{answer}} house is big.": {"hint": "يخصهم", "translation": "بيتهم كبير."},
+      "The dog wags {{answer}} tail.": {"hint": "يخص شيئًا — بلا فاصلة عليا", "translation": "يهز الكلب ذيله."},
+      "{{answer}} name is David.": {"hint": "اسم رجل — «له»", "translation": "اسمه ديفيد."},
+      "That is {{answer}} classroom.": {"hint": "يخصنا — «لنا»", "translation": "تلك قاعة صفّنا."}
+    },
+    "Present perfect vs past simple": {
+      "I've {{answer}} my wallet — can you help me look?": {"hint": "lose — اسم المفعول", "translation": "أضعتُ محفظتي — هل تساعدني في البحث؟"},
+      "She {{answer}} in Berlin in 2019.": {"hint": "live — الماضي", "translation": "عاشت في برلين عام 2019."},
+      "Have you {{answer}} been to Japan?": {"hint": "كلمة «ولو مرة في العمر»", "translation": "هل سبق أن زرت اليابان؟"},
+      "We've known each other {{answer}} ten years.": {"hint": "كلمة المدة", "translation": "نعرف بعضنا منذ عشر سنوات."},
+      "He's worked here {{answer}} 2020.": {"hint": "كلمة نقطة البداية", "translation": "يعمل هنا منذ عام 2020."},
+      "They haven't finished {{answer}}.": {"hint": "كلمة «ليس بعد»", "translation": "لم ينتهوا بعد."}
+    },
+    "First and second conditionals": {
+      "If it {{answer}} tomorrow, we'll cancel the picnic.": {"hint": "rain — المضارع، it", "translation": "إذا أمطرت غدًا، فسنلغي النزهة."},
+      "If you study, you {{answer}} pass.": {"hint": "كلمة المستقبل الواقعي", "translation": "إذا درستَ، فستنجح."},
+      "If I {{answer}} rich, I would buy an island.": {"hint": "be — الصيغة الافتراضية", "translation": "لو كنتُ غنيًا لاشتريتُ جزيرة."},
+      "She {{answer}} travel more if she had time.": {"hint": "كلمة النتيجة الافتراضية", "translation": "لسافرت أكثر لو كان لديها وقت."},
+      "If we {{answer}} now, we'll catch the train.": {"hint": "المغادرة — بالمضارع", "translation": "إذا غادرنا الآن، فسنلحق بالقطار."},
+      "What {{answer}} you do if you won the lottery?": {"hint": "كلمة النتيجة الافتراضية", "translation": "ماذا كنت ستفعل لو ربحت اليانصيب؟"}
+    },
+    "The passive (is made, was built)": {
+      "This wine {{answer}} produced in Chile.": {"hint": "be — المضارع، it", "translation": "يُنتَج هذا النبيذ في تشيلي."},
+      "The castle was {{answer}} in the twelfth century.": {"hint": "build — اسم المفعول", "translation": "بُنيت القلعة في القرن الثاني عشر."},
+      "These photos {{answer}} taken by my grandmother.": {"hint": "be — الماضي، they", "translation": "التُقطت هذه الصور على يد جدتي."},
+      "English {{answer}} spoken all over the world.": {"hint": "be — المضارع، it", "translation": "تُتحدَّث الإنجليزية في جميع أنحاء العالم."},
+      "The thief was caught {{answer}} the police.": {"hint": "حرف جر الفاعل", "translation": "قُبض على اللص من قِبل الشرطة."},
+      "My phone was {{answer}} at the festival.": {"hint": "steal — اسم المفعول", "translation": "سُرق هاتفي في المهرجان."}
+    },
+    "Relative clauses (who, which, that, where)": {
+      "She's the doctor {{answer}} treated my father.": {"hint": "اسم الموصول للأشخاص", "translation": "هي الطبيبة التي عالجت أبي."},
+      "That's the restaurant {{answer}} we first met.": {"hint": "اسم الموصول للأماكن", "translation": "ذلك هو المطعم حيث التقينا أول مرة."},
+      "The laptop {{answer}} I bought last week is broken.": {"hint": "اسم الموصول العام", "translation": "الحاسوب المحمول الذي اشتريته الأسبوع الماضي معطل."},
+      "He's the author {{answer}} books sell millions.": {"hint": "اسم الموصول للملكية", "translation": "هو الكاتب الذي تُباع كتبه بالملايين."},
+      "The train, {{answer}} was already late, then broke down.": {"hint": "اسم الموصول للأشياء", "translation": "القطار، الذي كان متأخرًا أصلًا، تعطل بعد ذلك."},
+      "People {{answer}} exercise regularly live longer.": {"hint": "اسم الموصول للأشخاص", "translation": "الأشخاص الذين يمارسون الرياضة بانتظام يعيشون أطول."}
+    },
+    "Used to — past habits and states": {
+      "I {{answer}} to play football every weekend.": {"hint": "فعل العادة الماضية", "translation": "كنتُ ألعب كرة القدم كل عطلة أسبوع."},
+      "She didn't {{answer}} to like coffee, but now she loves it.": {"hint": "فعل العادة الماضية، بدون ‎-d", "translation": "لم تكن تحب القهوة، لكنها الآن تعشقها."},
+      "There {{answer}} to be a bakery on this corner.": {"hint": "فعل العادة الماضية", "translation": "كان يوجد مخبز عند هذه الزاوية."},
+      "Did you {{answer}} to live in London?": {"hint": "فعل العادة الماضية، بدون ‎-d", "translation": "هل كنت تسكن في لندن سابقًا؟"},
+      "He used {{answer}} have long hair.": {"hint": "الأداة", "translation": "كان شعره طويلًا فيما مضى."},
+      "We {{answer}} to go camping every summer as kids.": {"hint": "فعل العادة الماضية", "translation": "كنا نذهب للتخييم كل صيف في طفولتنا."}
+    },
+    "Reported speech": {
+      "'I'm busy.' → She said she {{answer}} busy.": {"hint": "be — خطوة إلى الوراء", "translation": "«أنا مشغولة.» ← قالت إنها كانت مشغولة."},
+      "'I'll call you.' → He said he {{answer}} call me.": {"hint": "will — خطوة إلى الوراء", "translation": "«سأتصل بك.» ← قال إنه سيتصل بي."},
+      "'Are you ready?' → She asked {{answer}} I was ready.": {"hint": "كلمة أسئلة نعم/لا", "translation": "«هل أنت جاهز؟» ← سألتني إن كنت جاهزًا."},
+      "'Where do you live?' → He asked where I {{answer}}.": {"hint": "live — خطوة إلى الوراء", "translation": "«أين تسكن؟» ← سألني أين أسكن."},
+      "'I can swim.' → She said she {{answer}} swim.": {"hint": "can — خطوة إلى الوراء", "translation": "«أستطيع السباحة.» ← قالت إنها تستطيع السباحة."},
+      "'We bought a house.' → They said they {{answer}} bought a house.": {"hint": "الفعل المساعد للإرجاع خطوة", "translation": "«اشترينا بيتًا.» ← قالوا إنهم اشتروا بيتًا."}
+    },
+    "Gerund or infinitive?": {
+      "I really enjoy {{answer}} in the sea.": {"hint": "swim — أي صيغة؟", "translation": "أستمتع حقًا بالسباحة في البحر."},
+      "She decided {{answer}} accept the job.": {"hint": "أداة المصدر", "translation": "قررت قبول الوظيفة."},
+      "Would you mind {{answer}} the door?": {"hint": "close — أي صيغة؟", "translation": "هل تمانع في إغلاق الباب؟"},
+      "We hope {{answer}} see you soon.": {"hint": "أداة المصدر", "translation": "نأمل أن نراك قريبًا."},
+      "He avoided {{answer}} my question.": {"hint": "answer — أي صيغة؟", "translation": "تجنب الإجابة عن سؤالي."},
+      "They promised {{answer}} write every week.": {"hint": "أداة المصدر", "translation": "وعدوا بأن يكتبوا كل أسبوع."}
+    },
+    "Third and mixed conditionals": {
+      "If you {{answer}} told me, I would have helped.": {"hint": "الفعل المساعد للماضي الأسبق", "translation": "لو أخبرتني لساعدتك."},
+      "If she had left earlier, she would {{answer}} caught the flight.": {"hint": "مساعد التمام بعد would", "translation": "لو غادرت أبكر للحقت بالطائرة."},
+      "I wouldn't {{answer}} met her if I hadn't gone to that party.": {"hint": "مساعد التمام", "translation": "لما التقيتُ بها لو لم أذهب إلى تلك الحفلة."},
+      "If he had studied medicine, he {{answer}} be a doctor now.": {"hint": "كلمة النتيجة الافتراضية", "translation": "لو درس الطب لكان طبيبًا الآن."},
+      "If we {{answer}} taken the map, we wouldn't have got lost.": {"hint": "الفعل المساعد للماضي الأسبق", "translation": "لو أخذنا الخريطة لما ضللنا الطريق."},
+      "What would you have {{answer}} in my position?": {"hint": "do — اسم المفعول", "translation": "ماذا كنت ستفعل لو كنت مكاني؟"}
+    },
+    "Modals of deduction (must, might, can't)": {
+      "The lights are on — someone {{answer}} be home.": {"hint": "كلمة شبه اليقين", "translation": "الأنوار مضاءة — لا بد أن أحدًا في البيت."},
+      "That {{answer}} be Maria — she's in Brazil this week!": {"hint": "كلمة الاستحالة", "translation": "لا يمكن أن تكون ماريا — إنها في البرازيل هذا الأسبوع!"},
+      "He {{answer}} be stuck in traffic — it happens.": {"hint": "كلمة احتمال", "translation": "ربما هو عالق في الزحام — هذا يحدث."},
+      "She must {{answer}} forgotten our meeting.": {"hint": "مساعد الاستنتاج عن الماضي", "translation": "لا بد أنها نسيت اجتماعنا."},
+      "They can't {{answer}} left already — the car's still here.": {"hint": "مساعد الاستنتاج عن الماضي", "translation": "لا يمكن أن يكونوا غادروا بالفعل — السيارة ما زالت هنا."},
+      "It {{answer}} rain later, so take an umbrella.": {"hint": "كلمة احتمال", "translation": "قد تمطر لاحقًا، فخذ مظلة."}
+    },
+    "Advanced passives (has been done, being done)": {
+      "The road has {{answer}} closed since Monday.": {"hint": "اسم المفعول من be", "translation": "الطريق مغلق منذ الاثنين."},
+      "Our office is {{answer}} renovated at the moment.": {"hint": "صيغة ‎-ing من be", "translation": "مكتبنا قيد التجديد حاليًا."},
+      "All answers must be {{answer}} in ink.": {"hint": "write — اسم المفعول", "translation": "يجب أن تُكتب جميع الإجابات بالحبر."},
+      "She is {{answer}} to be the richest woman in the country.": {"hint": "say — اسم المفعول", "translation": "يُقال إنها أغنى امرأة في البلاد."},
+      "The results will {{answer}} announced on Friday.": {"hint": "المصدر المجرد للمبني للمجهول", "translation": "ستُعلَن النتائج يوم الجمعة."},
+      "By 1990, the bridge {{answer}} been rebuilt twice.": {"hint": "الفعل المساعد للماضي الأسبق", "translation": "بحلول عام 1990، كان الجسر قد أُعيد بناؤه مرتين."}
+    },
+    "Wish and if only": {
+      "I wish I {{answer}} how to drive.": {"hint": "know — صيغة التمني", "translation": "ليتني أعرف قيادة السيارة."},
+      "She wishes she {{answer}} accepted the offer.": {"hint": "مساعد الندم على الماضي", "translation": "ليتها قبلت العرض."},
+      "I wish you {{answer}} stop interrupting me!": {"hint": "كلمة الشكوى", "translation": "ليتك تكف عن مقاطعتي!"},
+      "If {{answer}} I had listened to your advice!": {"hint": "الكلمة بعد if", "translation": "ليتني أصغيت إلى نصيحتك!"},
+      "He wishes he {{answer}} taller.": {"hint": "be — صيغة التمني", "translation": "ليته كان أطول."},
+      "We wish we {{answer}} bought tickets earlier.": {"hint": "مساعد الندم على الماضي", "translation": "ليتنا اشترينا التذاكر أبكر."}
+    },
+    "Phrasal verbs — separable or not?": {
+      "Could you turn {{answer}} off? The music's too loud.": {"hint": "ضمير المفعول", "translation": "هلا أطفأتها؟ الموسيقى عالية جدًا."},
+      "She's looking {{answer}} her elderly mother.": {"hint": "أداة الاعتناء", "translation": "تعتني بوالدتها المسنة."},
+      "Please fill {{answer}} this form.": {"hint": "أداة الاستمارات", "translation": "املأ هذه الاستمارة من فضلك."},
+      "I'll pick you {{answer}} at eight.": {"hint": "أداة المرور للاصطحاب", "translation": "سآتي لاصطحابك في الثامنة."},
+      "We've put {{answer}} the meeting until Friday.": {"hint": "أداة التأجيل", "translation": "أجّلنا الاجتماع إلى يوم الجمعة."},
+      "He takes {{answer}} his father — same smile, same laugh.": {"hint": "أداة الشبه بالوالد", "translation": "إنه يشبه أباه — الابتسامة نفسها والضحكة نفسها."}
+    },
+    "Question tags and indirect questions": {
+      "You've met before, {{answer}} you?": {"hint": "المساعد المعكوس لذيل السؤال", "translation": "التقيتما من قبل، أليس كذلك؟"},
+      "She doesn't eat fish, {{answer}} she?": {"hint": "المساعد المعكوس لذيل السؤال", "translation": "هي لا تأكل السمك، أليس كذلك؟"},
+      "Could you tell me where the bank {{answer}}?": {"hint": "be — في النهاية", "translation": "هلا أخبرتني أين المصرف؟"},
+      "Do you know if the shop {{answer}} at six?": {"hint": "close — ترتيب الجملة الخبرية", "translation": "هل تعرف إن كان المتجر يغلق في السادسة؟"},
+      "It's cold today, {{answer}} it?": {"hint": "المساعد المعكوس لذيل السؤال", "translation": "الجو بارد اليوم، أليس كذلك؟"},
+      "I wonder {{answer}} they got home safely.": {"hint": "بديل if", "translation": "أتساءل إن كانوا وصلوا البيت سالمين."}
+    },
+    "Inversion (Never have I…, Not only…)": {
+      "Never {{answer}} I heard such nonsense.": {"hint": "مساعد التمام", "translation": "لم أسمع قط مثل هذا الهراء."},
+      "Not only {{answer}} she sing, she writes her own songs.": {"hint": "مساعد المضارع", "translation": "هي لا تغني فحسب، بل تكتب أغانيها بنفسها."},
+      "No sooner had we sat down {{answer}} the phone rang.": {"hint": "الكلمة التي تكمل الثنائي", "translation": "ما إن جلسنا حتى رنّ الهاتف."},
+      "Under no circumstances {{answer}} you open that door.": {"hint": "فعل النصيحة الناقص", "translation": "لا ينبغي بأي حال أن تفتح ذلك الباب."},
+      "Rarely {{answer}} we see such talent.": {"hint": "مساعد المضارع", "translation": "نادرًا ما نرى موهبة كهذه."},
+      "Only then {{answer}} I understand what she meant.": {"hint": "مساعد الماضي", "translation": "عندها فقط فهمت ما كانت تقصده."}
+    },
+    "Cleft sentences (What I need is…, It was… that)": {
+      "{{answer}} I need is a good night's sleep.": {"hint": "مفتتح الجملة المشطورة", "translation": "ما أحتاجه هو نوم هانئ ليلة كاملة."},
+      "It was Marco {{answer}} suggested the idea.": {"hint": "اسم الموصول للأشخاص", "translation": "ماركو هو من اقترح الفكرة."},
+      "What annoys me {{answer}} his constant lateness.": {"hint": "be — محور الجملة", "translation": "ما يزعجني هو تأخره الدائم."},
+      "It {{answer}} in Paris that they first met.": {"hint": "be — الماضي", "translation": "في باريس كان لقاؤهما الأول."},
+      "{{answer}} she wants is a little respect.": {"hint": "مفتتح «كل ما»", "translation": "كل ما تريده هو قليل من الاحترام."},
+      "It wasn't until midnight {{answer}} he finally called.": {"hint": "رابط الجملة المشطورة", "translation": "لم يتصل أخيرًا إلا عند منتصف الليل."}
+    },
+    "Hedging and distancing (would seem, tend to)": {
+      "It would {{answer}} that the figures are wrong.": {"hint": "فعل الظهور", "translation": "يبدو أن الأرقام خاطئة."},
+      "House prices {{answer}} to rise in spring.": {"hint": "فعل الميل", "translation": "تميل أسعار المنازل إلى الارتفاع في الربيع."},
+      "There {{answer}} to be a problem with the data.": {"hint": "فعل الظهور، الغائب", "translation": "يبدو أن هناك مشكلة في البيانات."},
+      "It is widely {{answer}} that the climate is changing.": {"hint": "believe — اسم المفعول", "translation": "يُعتقد على نطاق واسع أن المناخ يتغير."},
+      "The results {{answer}} that more research is needed.": {"hint": "فعل الإيحاء", "translation": "تشير النتائج إلى الحاجة لمزيد من البحث."},
+      "It could be {{answer}} that the policy failed.": {"hint": "argue — اسم المفعول", "translation": "يمكن القول إن السياسة فشلت."}
+    },
+    "Participle clauses (Having finished, …)": {
+      "{{answer}} finished dinner, we went for a walk.": {"hint": "مفتتح اسم الفاعل التام", "translation": "بعد أن أنهينا العشاء، خرجنا للتنزه."},
+      "{{answer}} through the window, she saw the storm coming.": {"hint": "look — اسم الفاعل", "translation": "وبينما تنظر من النافذة، رأت العاصفة قادمة."},
+      "{{answer}} in 1889, the tower still draws millions.": {"hint": "build — اسم المفعول", "translation": "بُني البرج عام 1889، وما زال يجذب الملايين."},
+      "Not {{answer}} what to say, he stayed silent.": {"hint": "know — اسم الفاعل", "translation": "إذ لم يعرف ما يقول، لزم الصمت."},
+      "Having {{answer}} in Rome for years, she speaks fluent Italian.": {"hint": "live — اسم المفعول", "translation": "لأنها عاشت في روما سنوات، تتحدث الإيطالية بطلاقة."},
+      "{{answer}} by the news, they cancelled the trip.": {"hint": "shock — اسم المفعول", "translation": "وقد صدمهم الخبر، فألغوا الرحلة."}
+    },
+    "The mandative subjunctive (insist that he be)": {
+      "The board insisted that he {{answer}} removed from the project.": {"hint": "be — الصيغة المجردة", "translation": "أصر المجلس على أن يُستبعد من المشروع."},
+      "It is essential that every member {{answer}} the code of conduct.": {"hint": "الالتزام — الصيغة المجردة", "translation": "من الضروري أن يلتزم كل عضو بمدونة السلوك."},
+      "She recommended that the report {{answer}} rewritten.": {"hint": "be — الصيغة المجردة", "translation": "أوصت بأن يُعاد كتابة التقرير."},
+      "They demanded that the minister {{answer}}.": {"hint": "الاستقالة — الصيغة المجردة", "translation": "طالبوا بأن يستقيل الوزير."},
+      "It's vital that she {{answer}} informed at once.": {"hint": "be — الصيغة المجردة", "translation": "من الحيوي أن تُبلَّغ فورًا."},
+      "We suggest that he {{answer}} a lawyer before signing.": {"hint": "الاستشارة — الصيغة المجردة", "translation": "نقترح أن يستشير محاميًا قبل التوقيع."}
+    },
+    "Ellipsis and substitution (so, neither, do so)": {
+      "I loved the film. — {{answer}} did I!": {"hint": "مفتتح «وأنا أيضًا»", "translation": "أعجبني الفيلم كثيرًا. — وأنا أيضًا!"},
+      "She can't make it tonight. — {{answer}} can I.": {"hint": "المفتتح المنفي لـ«ولا أنا»", "translation": "لا تستطيع الحضور الليلة. — ولا أنا."},
+      "He was asked to apologise, and he did {{answer}} immediately.": {"hint": "البديل بعد did", "translation": "طُلب منه الاعتذار، ففعل ذلك فورًا."},
+      "You may be tired; if {{answer}}, rest.": {"hint": "البديل بعد if", "translation": "قد تكون متعبًا؛ إن كان الأمر كذلك فاسترح."},
+      "They promised to help, but failed to {{answer}} so.": {"hint": "الفعل البديل", "translation": "وعدوا بالمساعدة لكنهم لم يفعلوا."},
+      "I've never been to Oslo. — Nor {{answer}} I.": {"hint": "مساعد التمام", "translation": "لم أزر أوسلو قط. — ولا أنا."}
+    },
+    "Formal connectors (notwithstanding, albeit)": {
+      "The plan went ahead, {{answer}} the objections.": {"hint": "البديل الأرسم لـ'despite'", "translation": "مضت الخطة قدمًا، رغم الاعتراضات."},
+      "It was a victory, {{answer}} a narrow one.": {"hint": "although المضغوطة", "translation": "كان انتصارًا، وإن كان بفارق ضئيل."},
+      "The costs rose sharply; {{answer}} the project was cancelled.": {"hint": "therefore رسمية", "translation": "ارتفعت التكاليف بشدة؛ وبالتالي أُلغي المشروع."},
+      "A scheme {{answer}} employees share the profits.": {"hint": "كلمة «التي بموجبها»", "translation": "نظام يتقاسم الموظفون بموجبه الأرباح."},
+      "A {{answer}} unknown author won the prize.": {"hint": "كلمة «حتى ذلك الحين»", "translation": "فاز بالجائزة كاتب لم يكن معروفًا حتى ذلك الحين."},
+      "The evidence, {{answer}} incomplete, points one way.": {"hint": "although المختصرة", "translation": "الأدلة، وإن كانت ناقصة، تشير إلى اتجاه واحد."}
+    },
+    "Past simple — regular verbs (-ed)": {
+      "I {{answer}} in a bank for five years.": {"hint": "work + ‏-ed", "translation": "عملتُ في مصرف خمس سنوات."},
+      "She {{answer}} in Rome when she was young.": {"hint": "live — تُضاف ‎-d فقط", "translation": "عاشت في روما في شبابها."},
+      "He {{answer}} English at university.": {"hint": "study — تتحول y إلى ‎-ied", "translation": "درس الإنجليزية في الجامعة."},
+      "The bus {{answer}} suddenly.": {"hint": "stop — تُضعَّف الـp", "translation": "توقفت الحافلة فجأة."},
+      "We {{answer}} football in the park yesterday.": {"hint": "علة + y — ‏-ed فقط", "translation": "لعبنا كرة القدم في الحديقة أمس."},
+      "They {{answer}} work yesterday — it was a holiday.": {"hint": "الماضي المنفي: did + not", "translation": "لم يعملوا أمس — كان يوم عطلة."}
+    },
+    "Object pronouns (me, him, them)": {
+      "Can you help {{answer}}, please?": {"hint": "المتكلم يطلب المساعدة — «ني»", "translation": "هل يمكنك مساعدتي من فضلك؟"},
+      "I saw {{answer}} at school yesterday.": {"hint": "رجل — «ـه»", "translation": "رأيته في المدرسة أمس."},
+      "This present is for {{answer}}.": {"hint": "امرأة — «ها»", "translation": "هذه الهدية لها."},
+      "Our teacher knows {{answer}} well.": {"hint": "المتكلم + آخرون — «نا»", "translation": "معلمنا يعرفنا جيدًا."},
+      "I like these shoes — I'll buy {{answer}}.": {"hint": "أشياء متعددة — «ها»", "translation": "يعجبني هذا الحذاء — سأشتريه."},
+      "Where is my phone? I can't find {{answer}}.": {"hint": "شيء — «ـه»", "translation": "أين هاتفي؟ لا أجده."}
+    },
+    "Imperatives (Open…, Don't…)": {
+      "{{answer}} the door, please.": {"hint": "الفعل بصيغته المجردة، بلا فاعل", "translation": "افتح الباب من فضلك."},
+      "{{answer}} worry — everything is fine.": {"hint": "النهي: صيغة do المنفية + الفعل", "translation": "لا تقلق — كل شيء على ما يرام."},
+      "{{answer}} me tomorrow, please.": {"hint": "الفعل بصيغته المجردة", "translation": "اتصل بي غدًا من فضلك."},
+      "{{answer}} be late — the film starts at eight.": {"hint": "النهي مع be", "translation": "لا تتأخر — يبدأ الفيلم في الثامنة."},
+      "{{answer}} quiet, please — the baby is sleeping.": {"hint": "فعل be بصيغته المجردة", "translation": "كن هادئًا من فضلك — الرضيع نائم."},
+      "Please {{answer}} down and wait a moment.": {"hint": "الفعل بصيغته المجردة", "translation": "تفضل بالجلوس وانتظر لحظة."}
+    }
+  }
+}
