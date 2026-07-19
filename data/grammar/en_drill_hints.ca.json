@@ -1,0 +1,360 @@
+{
+  "language": "en",
+  "locale": "ca",
+  "reviewed": false,
+  "_note": "Hints and faithful sentence translations for ENGLISH drills, shown to learners whose support locale is Catalan. The hint names the expected English word (kept in English) with a Catalan cue; the translation renders the completed sentence in natural Catalan.",
+  "points": {
+    "Past simple — irregular verbs": {
+      "Yesterday I {{answer}} to the market.": {"hint": "go — passat", "translation": "Ahir vaig anar al mercat."},
+      "She {{answer}} a great film last night.": {"hint": "see — passat", "translation": "Ahir a la nit va veure una pel·lícula fantàstica."},
+      "We {{answer}} a new car in March.": {"hint": "buy — passat", "translation": "Al març vam comprar un cotxe nou."},
+      "He {{answer}} the early train this morning.": {"hint": "take — passat", "translation": "Aquest matí ha agafat el tren de primera hora."},
+      "They {{answer}} home very late.": {"hint": "come — passat", "translation": "Van tornar a casa molt tard."},
+      "I {{answer}} breakfast at seven.": {"hint": "eat — passat", "translation": "Vaig esmorzar a les set."}
+    },
+    "Present continuous vs present simple": {
+      "Quiet, please — the baby {{answer}} sleeping.": {"hint": "be — tercera persona", "translation": "Silenci, si us plau — el nadó està dormint."},
+      "She {{answer}} to work by bike every day.": {"hint": "go — hàbit, ella", "translation": "Va a la feina amb bici cada dia."},
+      "I'm {{answer}} for my keys at the moment.": {"hint": "look — forma progressiva", "translation": "Ara mateix estic buscant les claus."},
+      "Water {{answer}} at 100 degrees.": {"hint": "boil — fet general, it", "translation": "L'aigua bull a 100 graus."},
+      "They {{answer}} watching TV right now.": {"hint": "be — ells", "translation": "Ara mateix estan mirant la televisió."},
+      "He usually {{answer}} coffee, not tea.": {"hint": "drink — hàbit, ell", "translation": "Normalment beu cafè, no te."}
+    },
+    "Comparatives and superlatives": {
+      "This bag is {{answer}} than that one.": {"hint": "cheap — comparatiu", "translation": "Aquesta bossa és més barata que aquella."},
+      "It's the {{answer}} building in the city.": {"hint": "tall — superlatiu", "translation": "És l'edifici més alt de la ciutat."},
+      "Her English is {{answer}} than mine.": {"hint": "good — comparatiu", "translation": "El seu anglès és millor que el meu."},
+      "That was the {{answer}} meal I've ever had.": {"hint": "bad — superlatiu", "translation": "Va ser el pitjor àpat de la meva vida."},
+      "This exercise is {{answer}} difficult than the last.": {"hint": "la paraula davant dels adjectius llargs", "translation": "Aquest exercici és més difícil que l'anterior."},
+      "The station is {{answer}} than I thought.": {"hint": "far — comparatiu", "translation": "L'estació és més lluny del que em pensava."}
+    },
+    "Going to and will": {
+      "We're {{answer}} to visit Rome in May.": {"hint": "el futur dels plans decidits", "translation": "Visitarem Roma al maig."},
+      "Don't worry — I {{answer}} help you.": {"hint": "decisió presa a l'instant", "translation": "No et preocupis — t'ajudaré."},
+      "Look at those clouds! It's going to {{answer}}.": {"hint": "temps de pluja", "translation": "Mira quins núvols! Està a punt de ploure."},
+      "I think she {{answer}} pass the exam.": {"hint": "la paraula de les prediccions", "translation": "Crec que aprovarà l'examen."},
+      "They're going {{answer}} move house next year.": {"hint": "la partícula després de going", "translation": "L'any que ve es mudaran de casa."},
+      "I'm tired — I {{answer}} go to bed.": {"hint": "forma contreta del futur immediat", "translation": "Estic cansat — me'n vaig al llit."}
+    },
+    "Some, any, much, many": {
+      "There's {{answer}} milk in the fridge.": {"hint": "quantificador de les frases afirmatives", "translation": "Hi ha llet a la nevera."},
+      "We don't have {{answer}} eggs left.": {"hint": "quantificador de les frases negatives", "translation": "No ens queden ous."},
+      "Do you have {{answer}} questions?": {"hint": "quantificador de les preguntes", "translation": "Teniu preguntes?"},
+      "How {{answer}} money do you need?": {"hint": "amb els incomptables", "translation": "Quants diners necessites?"},
+      "How {{answer}} people are coming?": {"hint": "amb els comptables", "translation": "Quanta gent vindrà?"},
+      "Would you like {{answer}} tea?": {"hint": "quantificador dels oferiments", "translation": "Vols una mica de te?"}
+    },
+    "Adverbs of frequency": {
+      "I {{answer}} drink coffee in the morning — every single day.": {"hint": "la paraula del 'cada vegada'", "translation": "Sempre prenc cafè al matí — cada dia sense excepció."},
+      "He is {{answer}} late — it drives me crazy.": {"hint": "la paraula del 'cada vegada'", "translation": "Sempre arriba tard — em treu de polleguera."},
+      "We {{answer}} go out on Fridays — maybe once a month.": {"hint": "la paraula del 'de tant en tant'", "translation": "De vegades sortim els divendres — potser un cop al mes."},
+      "She {{answer}} eats meat — she's almost vegetarian.": {"hint": "la paraula del 'gairebé mai'", "translation": "Rarament menja carn — és gairebé vegetariana."},
+      "I have {{answer}} been to Japan, but I'd love to go.": {"hint": "la paraula del 'zero vegades'", "translation": "No he estat mai al Japó, però m'encantaria anar-hi."},
+      "They {{answer}} visit us at Christmas — most years.": {"hint": "la paraula del 'normalment'", "translation": "Normalment ens visiten per Nadal — gairebé cada any."},
+      "We {{answer}} eat out on Fridays.": {"hint": "sovint — entre 'sometimes' i 'always'", "translation": "Els divendres sovint mengem fora."}
+    },
+    "Can, could, have to": {
+      "She {{answer}} speak three languages.": {"hint": "la paraula de la capacitat", "translation": "Sap parlar tres llengües."},
+      "{{answer}} you open the window, please?": {"hint": "la paraula de la petició cortesa", "translation": "Podria obrir la finestra, si us plau?"},
+      "I {{answer}} to wear a uniform at work.": {"hint": "el verb de l'obligació", "translation": "He de portar uniforme a la feina."},
+      "When I was five, I {{answer}} already read.": {"hint": "la paraula de la capacitat — passat", "translation": "Als cinc anys ja sabia llegir."},
+      "You don't {{answer}} to come if you're busy.": {"hint": "el verb de l'obligació", "translation": "No cal que vinguis si estàs enfeinat."},
+      "{{answer}} I sit here? — Of course.": {"hint": "la paraula del permís", "translation": "Puc seure aquí? — És clar."}
+    },
+    "Prepositions of time: in, on, at": {
+      "The meeting starts {{answer}} nine o'clock.": {"hint": "preposició de l'hora exacta", "translation": "La reunió comença a les nou."},
+      "I was born {{answer}} 1998.": {"hint": "preposició dels períodes llargs", "translation": "Vaig néixer el 1998."},
+      "We're leaving {{answer}} Friday.": {"hint": "preposició dels dies", "translation": "Marxem divendres."},
+      "She works best {{answer}} the morning.": {"hint": "preposició dels períodes llargs", "translation": "Treballa millor al matí."},
+      "My birthday is {{answer}} 12 March.": {"hint": "preposició de les dates", "translation": "El meu aniversari és el 12 de març."},
+      "He often studies {{answer}} night.": {"hint": "la preposició fixa amb night", "translation": "Sovint estudia de nit."}
+    },
+    "Subject pronouns (I, you, he…)": {
+      "{{answer}} am from Brazil.": {"hint": "qui parla — sempre en majúscula", "translation": "Jo sóc del Brasil."},
+      "{{answer}} is my sister.": {"hint": "una dona", "translation": "Ella és la meva germana."},
+      "{{answer}} are students.": {"hint": "qui parla + altres", "translation": "Nosaltres som estudiants."},
+      "{{answer}} is my father.": {"hint": "un home", "translation": "Ell és el meu pare."},
+      "{{answer}} is on the table.": {"hint": "una cosa", "translation": "És sobre la taula."},
+      "{{answer}} are very kind.": {"hint": "la persona amb qui parles", "translation": "Ets molt amable. / Sou molt amables."},
+      "{{answer}} are my friends.": {"hint": "més d'una persona — «ells»", "translation": "Ells són els meus amics."}
+    },
+    "To be — am / is / are": {
+      "I {{answer}} a student.": {"hint": "be — amb I", "translation": "Sóc estudiant."},
+      "You {{answer}} my friend.": {"hint": "be — amb you", "translation": "Ets el meu amic."},
+      "She {{answer}} a doctor.": {"hint": "be — amb she", "translation": "Ella és metgessa."},
+      "We {{answer}} at home.": {"hint": "be — amb we", "translation": "Som a casa."},
+      "The coffee {{answer}} hot.": {"hint": "be — amb it/una cosa", "translation": "El cafè és calent."},
+      "They {{answer}} from Japan.": {"hint": "be — amb they", "translation": "Són del Japó."}
+    },
+    "Articles: a / an": {
+      "I have {{answer}} dog.": {"hint": "davant de so consonàntic", "translation": "Tinc un gos."},
+      "She is {{answer}} engineer.": {"hint": "davant de so vocàlic", "translation": "És enginyera."},
+      "It is {{answer}} big house.": {"hint": "davant de so consonàntic", "translation": "És una casa gran."},
+      "He eats {{answer}} apple every day.": {"hint": "davant de so vocàlic", "translation": "Menja una poma cada dia."},
+      "I read {{answer}} book every week.": {"hint": "davant de so consonàntic", "translation": "Llegeixo un llibre cada setmana."},
+      "I need {{answer}} umbrella.": {"hint": "davant de so vocàlic", "translation": "Necessito un paraigua."}
+    },
+    "The — pointing at a specific thing": {
+      "{{answer}} sun is hot today.": {"hint": "les coses úniques porten aquest article", "translation": "El sol crema avui."},
+      "Please close {{answer}} door.": {"hint": "tots dos sabeu quina", "translation": "Tanca la porta, si us plau."},
+      "{{answer}} keys in my hand are mine.": {"hint": "especificat pel que segueix", "translation": "Les claus que tinc a la mà són meves."},
+      "We live near {{answer}} station.": {"hint": "tots dos sabeu quina", "translation": "Vivim a prop de l'estació."},
+      "{{answer}} moon is bright tonight.": {"hint": "les coses úniques porten aquest article", "translation": "La lluna brilla aquesta nit."},
+      "Where is {{answer}} bathroom?": {"hint": "tots dos sabeu quin", "translation": "On és el lavabo?"}
+    },
+    "Plural nouns (-s, -es, irregular)": {
+      "I have two {{answer}}.": {"hint": "book, en plural", "translation": "Tinc dos llibres."},
+      "The {{answer}} are playing outside.": {"hint": "child — plural irregular", "translation": "Els nens estan jugant a fora."},
+      "She has three {{answer}}.": {"hint": "watch — afegeix -es", "translation": "Té tres rellotges."},
+      "The {{answer}} are late today.": {"hint": "bus — afegeix -es", "translation": "Avui els autobusos van amb retard."},
+      "Two {{answer}} live in our street.": {"hint": "family — la y es torna -ies", "translation": "Dues famílies viuen al nostre carrer."},
+      "My {{answer}} are cold.": {"hint": "foot — plural irregular", "translation": "Tinc els peus freds."}
+    },
+    "Present simple (I work)": {
+      "I {{answer}} in a bank.": {"hint": "allò que es fa d'ofici", "translation": "Treballo en un banc."},
+      "We {{answer}} breakfast at seven.": {"hint": "prendre (un àpat)", "translation": "Esmorzem a les set."},
+      "They {{answer}} in London.": {"hint": "residir en un lloc", "translation": "Viuen a Londres."},
+      "You {{answer}} English very well.": {"hint": "fer servir una llengua", "translation": "Parles anglès molt bé."},
+      "I {{answer}} coffee every morning.": {"hint": "prendre un líquid", "translation": "Bec cafè cada matí."},
+      "We {{answer}} TV in the evening.": {"hint": "mirar una pantalla o un programa", "translation": "Mirem la televisió al vespre."}
+    },
+    "Third-person -s (she works)": {
+      "She {{answer}} in a hospital.": {"hint": "to work — amb she", "translation": "Treballa en un hospital."},
+      "He {{answer}} to school every day.": {"hint": "to go — afegeix -es", "translation": "Va a l'escola cada dia."},
+      "My brother {{answer}} English.": {"hint": "to study — la y es torna -ies", "translation": "El meu germà estudia anglès."},
+      "The shop {{answer}} at nine.": {"hint": "to open — amb it", "translation": "La botiga obre a les nou."},
+      "She {{answer}} TV after dinner.": {"hint": "to watch — afegeix -es", "translation": "Mira la televisió després de sopar."},
+      "It {{answer}} a lot in April.": {"hint": "to rain — amb it", "translation": "A l'abril plou molt."}
+    },
+    "Do-support: questions and negation": {
+      "{{answer}} you speak English?": {"hint": "l'auxiliar — amb you", "translation": "Parles anglès?"},
+      "{{answer}} she work here?": {"hint": "l'auxiliar — amb she", "translation": "Treballa aquí, ella?"},
+      "I {{answer}} not eat meat.": {"hint": "l'auxiliar — amb I", "translation": "No menjo carn."},
+      "He {{answer}} not like coffee.": {"hint": "l'auxiliar — amb he", "translation": "No li agrada el cafè."},
+      "{{answer}} they live in Rome?": {"hint": "l'auxiliar — amb they", "translation": "Viuen a Roma?"},
+      "We {{answer}} not have time.": {"hint": "l'auxiliar — amb we", "translation": "No tenim temps."},
+      "I {{answer}} like coffee.": {"hint": "negació amb I — do + not", "translation": "No m'agrada el cafè."},
+      "She {{answer}} work on Sundays.": {"hint": "negació amb she — does + not", "translation": "No treballa els diumenges."}
+    },
+    "Present continuous (I am working)": {
+      "I am {{answer}} a book right now.": {"hint": "to read + -ing", "translation": "Ara mateix estic llegint un llibre."},
+      "She is {{answer}} dinner now.": {"hint": "to cook + -ing", "translation": "Ara està cuinant el sopar."},
+      "They are {{answer}} football.": {"hint": "to play + -ing", "translation": "Estan jugant a futbol."},
+      "Look! It is {{answer}}.": {"hint": "to rain + -ing", "translation": "Mira! Està plovent."},
+      "We are {{answer}} for the bus.": {"hint": "to wait + -ing", "translation": "Estem esperant l'autobús."},
+      "He is {{answer}} at the moment.": {"hint": "to sleep + -ing", "translation": "Ara mateix està dormint."},
+      "He is {{answer}} in the park.": {"hint": "run — dobla la consonant final", "translation": "Està corrent pel parc."},
+      "She is {{answer}} an email.": {"hint": "write — cau la e muda", "translation": "Està escrivint un correu electrònic."}
+    },
+    "There is / there are": {
+      "There {{answer}} a book on the table.": {"hint": "singular", "translation": "Hi ha un llibre sobre la taula."},
+      "There {{answer}} two cafés in this street.": {"hint": "plural", "translation": "En aquest carrer hi ha dos cafès."},
+      "{{answer}} there a bank near here?": {"hint": "singular, ordre interrogatiu", "translation": "Hi ha cap banc a prop d'aquí?"},
+      "There {{answer}} no milk.": {"hint": "singular", "translation": "No hi ha llet."},
+      "{{answer}} there any questions?": {"hint": "plural, ordre interrogatiu", "translation": "Hi ha preguntes?"},
+      "There {{answer}} many people here today.": {"hint": "plural", "translation": "Avui hi ha molta gent aquí."}
+    },
+    "Question words (what, where, when…)": {
+      "{{answer}} do you live?": {"hint": "es pregunta un lloc", "translation": "On vius?"},
+      "{{answer}} is your name?": {"hint": "es pregunta una cosa", "translation": "Com et dius? (literalment: quin és el teu nom?)"},
+      "{{answer}} is your birthday?": {"hint": "es pregunta un moment", "translation": "Quan és el teu aniversari?"},
+      "{{answer}} old are you?": {"hint": "així es pregunta l'edat", "translation": "Quants anys tens?"},
+      "{{answer}} is your teacher?": {"hint": "es pregunta una persona", "translation": "Qui és el teu professor?"},
+      "{{answer}} are you crying?": {"hint": "es pregunta un motiu", "translation": "Per què plores?"}
+    },
+    "Possessives (my, your, 's)": {
+      "This is {{answer}} book.": {"hint": "de qui parla", "translation": "Aquest és el meu llibre."},
+      "Is this {{answer}} car?": {"hint": "de tu", "translation": "És teu, aquest cotxe?"},
+      "{{answer}} name is Anna.": {"hint": "d'ella", "translation": "El seu nom és Anna."},
+      "That is my {{answer}} car.": {"hint": "brother + la terminació de possessió", "translation": "Aquell és el cotxe del meu germà."},
+      "{{answer}} house is big.": {"hint": "d'ells", "translation": "La seva casa és gran."},
+      "The dog wags {{answer}} tail.": {"hint": "d'una cosa — sense apòstrof", "translation": "El gos remena la cua."},
+      "{{answer}} name is David.": {"hint": "el nom d'un home — «seu»", "translation": "El seu nom és David."},
+      "That is {{answer}} classroom.": {"hint": "ens pertany — «nostra»", "translation": "Aquella és la nostra aula."}
+    },
+    "Present perfect vs past simple": {
+      "I've {{answer}} my wallet — can you help me look?": {"hint": "lose — participi", "translation": "He perdut la cartera — m'ajudes a buscar-la?"},
+      "She {{answer}} in Berlin in 2019.": {"hint": "live — passat", "translation": "El 2019 vivia a Berlín."},
+      "Have you {{answer}} been to Japan?": {"hint": "la paraula del 'algun cop a la vida'", "translation": "Has estat mai al Japó?"},
+      "We've known each other {{answer}} ten years.": {"hint": "la paraula de la durada", "translation": "Ens coneixem des de fa deu anys."},
+      "He's worked here {{answer}} 2020.": {"hint": "la paraula del punt de partida", "translation": "Treballa aquí des del 2020."},
+      "They haven't finished {{answer}}.": {"hint": "la paraula del 'encara no'", "translation": "Encara no han acabat."}
+    },
+    "First and second conditionals": {
+      "If it {{answer}} tomorrow, we'll cancel the picnic.": {"hint": "rain — present, it", "translation": "Si demà plou, anul·larem el pícnic."},
+      "If you study, you {{answer}} pass.": {"hint": "la paraula del futur real", "translation": "Si estudies, aprovaràs."},
+      "If I {{answer}} rich, I would buy an island.": {"hint": "be — forma irreal", "translation": "Si fos ric, em compraria una illa."},
+      "She {{answer}} travel more if she had time.": {"hint": "la paraula del resultat irreal", "translation": "Viatjaria més si tingués temps."},
+      "If we {{answer}} now, we'll catch the train.": {"hint": "marxar — en present", "translation": "Si marxem ara, agafarem el tren."},
+      "What {{answer}} you do if you won the lottery?": {"hint": "la paraula del resultat irreal", "translation": "Què faries si et toqués la loteria?"}
+    },
+    "The passive (is made, was built)": {
+      "This wine {{answer}} produced in Chile.": {"hint": "be — present, it", "translation": "Aquest vi es produeix a Xile."},
+      "The castle was {{answer}} in the twelfth century.": {"hint": "build — participi", "translation": "El castell va ser construït al segle XII."},
+      "These photos {{answer}} taken by my grandmother.": {"hint": "be — passat, they", "translation": "Aquestes fotos les va fer la meva àvia."},
+      "English {{answer}} spoken all over the world.": {"hint": "be — present, it", "translation": "L'anglès es parla arreu del món."},
+      "The thief was caught {{answer}} the police.": {"hint": "la preposició de l'agent", "translation": "El lladre va ser atrapat per la policia."},
+      "My phone was {{answer}} at the festival.": {"hint": "steal — participi", "translation": "Em van robar el mòbil al festival."}
+    },
+    "Relative clauses (who, which, that, where)": {
+      "She's the doctor {{answer}} treated my father.": {"hint": "relatiu de les persones", "translation": "És la doctora que va tractar el meu pare."},
+      "That's the restaurant {{answer}} we first met.": {"hint": "relatiu dels llocs", "translation": "Aquell és el restaurant on ens vam conèixer."},
+      "The laptop {{answer}} I bought last week is broken.": {"hint": "el relatiu comodí", "translation": "El portàtil que vaig comprar la setmana passada s'ha espatllat."},
+      "He's the author {{answer}} books sell millions.": {"hint": "relatiu de la possessió", "translation": "És l'autor els llibres del qual venen milions d'exemplars."},
+      "The train, {{answer}} was already late, then broke down.": {"hint": "relatiu de les coses", "translation": "El tren, que ja anava amb retard, a sobre es va avariar."},
+      "People {{answer}} exercise regularly live longer.": {"hint": "relatiu de les persones", "translation": "Les persones que fan exercici regularment viuen més anys."}
+    },
+    "Used to — past habits and states": {
+      "I {{answer}} to play football every weekend.": {"hint": "el verb de l'hàbit passat", "translation": "Abans jugava a futbol cada cap de setmana."},
+      "She didn't {{answer}} to like coffee, but now she loves it.": {"hint": "el verb de l'hàbit passat, sense -d", "translation": "Abans no li agradava el cafè, però ara li encanta."},
+      "There {{answer}} to be a bakery on this corner.": {"hint": "el verb de l'hàbit passat", "translation": "Abans hi havia un forn en aquesta cantonada."},
+      "Did you {{answer}} to live in London?": {"hint": "el verb de l'hàbit passat, sense -d", "translation": "Vivies a Londres, abans?"},
+      "He used {{answer}} have long hair.": {"hint": "la partícula", "translation": "Abans portava els cabells llargs."},
+      "We {{answer}} to go camping every summer as kids.": {"hint": "el verb de l'hàbit passat", "translation": "De petits anàvem d'acampada cada estiu."}
+    },
+    "Reported speech": {
+      "'I'm busy.' → She said she {{answer}} busy.": {"hint": "be — un pas enrere", "translation": "«Estic ocupada.» → Va dir que estava ocupada."},
+      "'I'll call you.' → He said he {{answer}} call me.": {"hint": "will — un pas enrere", "translation": "«Et trucaré.» → Va dir que em trucaria."},
+      "'Are you ready?' → She asked {{answer}} I was ready.": {"hint": "la paraula de les preguntes sí/no", "translation": "«Estàs a punt?» → Em va preguntar si estava a punt."},
+      "'Where do you live?' → He asked where I {{answer}}.": {"hint": "live — un pas enrere", "translation": "«On vius?» → Em va preguntar on vivia."},
+      "'I can swim.' → She said she {{answer}} swim.": {"hint": "can — un pas enrere", "translation": "«Sé nedar.» → Va dir que sabia nedar."},
+      "'We bought a house.' → They said they {{answer}} bought a house.": {"hint": "l'auxiliar del pas enrere", "translation": "«Hem comprat una casa.» → Van dir que havien comprat una casa."}
+    },
+    "Gerund or infinitive?": {
+      "I really enjoy {{answer}} in the sea.": {"hint": "swim — quina forma?", "translation": "M'agrada moltíssim nedar al mar."},
+      "She decided {{answer}} accept the job.": {"hint": "la partícula de l'infinitiu", "translation": "Va decidir acceptar la feina."},
+      "Would you mind {{answer}} the door?": {"hint": "close — quina forma?", "translation": "Li faria res tancar la porta?"},
+      "We hope {{answer}} see you soon.": {"hint": "la partícula de l'infinitiu", "translation": "Esperem veure't aviat."},
+      "He avoided {{answer}} my question.": {"hint": "answer — quina forma?", "translation": "Va evitar respondre la meva pregunta."},
+      "They promised {{answer}} write every week.": {"hint": "la partícula de l'infinitiu", "translation": "Van prometre escriure cada setmana."}
+    },
+    "Third and mixed conditionals": {
+      "If you {{answer}} told me, I would have helped.": {"hint": "l'auxiliar del plusquamperfet", "translation": "Si m'ho haguessis dit, t'hauria ajudat."},
+      "If she had left earlier, she would {{answer}} caught the flight.": {"hint": "l'auxiliar del perfet després de would", "translation": "Si hagués sortit abans, hauria agafat el vol."},
+      "I wouldn't {{answer}} met her if I hadn't gone to that party.": {"hint": "l'auxiliar del perfet", "translation": "No l'hauria coneguda si no hagués anat a aquella festa."},
+      "If he had studied medicine, he {{answer}} be a doctor now.": {"hint": "la paraula del resultat irreal", "translation": "Si hagués estudiat medicina, ara seria metge."},
+      "If we {{answer}} taken the map, we wouldn't have got lost.": {"hint": "l'auxiliar del plusquamperfet", "translation": "Si haguéssim agafat el mapa, no ens hauríem perdut."},
+      "What would you have {{answer}} in my position?": {"hint": "do — participi", "translation": "Què hauries fet tu al meu lloc?"}
+    },
+    "Modals of deduction (must, might, can't)": {
+      "The lights are on — someone {{answer}} be home.": {"hint": "la paraula de la quasi-certesa", "translation": "Els llums són encesos — hi deu haver algú a casa."},
+      "That {{answer}} be Maria — she's in Brazil this week!": {"hint": "la paraula de la impossibilitat", "translation": "No pot ser la Maria — aquesta setmana és al Brasil!"},
+      "He {{answer}} be stuck in traffic — it happens.": {"hint": "una paraula de possibilitat", "translation": "Potser està encallat al trànsit — passa sovint."},
+      "She must {{answer}} forgotten our meeting.": {"hint": "l'auxiliar de la deducció en passat", "translation": "Deu haver oblidat la nostra reunió."},
+      "They can't {{answer}} left already — the car's still here.": {"hint": "l'auxiliar de la deducció en passat", "translation": "No poden haver marxat encara — el cotxe encara és aquí."},
+      "It {{answer}} rain later, so take an umbrella.": {"hint": "una paraula de possibilitat", "translation": "Podria ploure més tard, així que agafa un paraigua."}
+    },
+    "Advanced passives (has been done, being done)": {
+      "The road has {{answer}} closed since Monday.": {"hint": "el participi de be", "translation": "La carretera està tancada des de dilluns."},
+      "Our office is {{answer}} renovated at the moment.": {"hint": "el -ing de be", "translation": "Ara mateix estan renovant la nostra oficina."},
+      "All answers must be {{answer}} in ink.": {"hint": "write — participi", "translation": "Totes les respostes s'han d'escriure amb tinta."},
+      "She is {{answer}} to be the richest woman in the country.": {"hint": "say — participi", "translation": "Es diu que és la dona més rica del país."},
+      "The results will {{answer}} announced on Friday.": {"hint": "l'infinitiu nu del passiu", "translation": "Els resultats s'anunciaran divendres."},
+      "By 1990, the bridge {{answer}} been rebuilt twice.": {"hint": "l'auxiliar del plusquamperfet", "translation": "El 1990 el pont ja havia estat reconstruït dues vegades."}
+    },
+    "Wish and if only": {
+      "I wish I {{answer}} how to drive.": {"hint": "know — forma del penediment", "translation": "Tant de bo sabés conduir."},
+      "She wishes she {{answer}} accepted the offer.": {"hint": "l'auxiliar del penediment passat", "translation": "Voldria haver acceptat l'oferta."},
+      "I wish you {{answer}} stop interrupting me!": {"hint": "la paraula de la queixa", "translation": "Tant de bo deixessis d'interrompre'm!"},
+      "If {{answer}} I had listened to your advice!": {"hint": "la paraula després de if", "translation": "Si almenys hagués escoltat el teu consell!"},
+      "He wishes he {{answer}} taller.": {"hint": "be — forma del penediment", "translation": "Voldria ser més alt."},
+      "We wish we {{answer}} bought tickets earlier.": {"hint": "l'auxiliar del penediment passat", "translation": "Tant de bo haguéssim comprat les entrades abans."}
+    },
+    "Phrasal verbs — separable or not?": {
+      "Could you turn {{answer}} off? The music's too loud.": {"hint": "el pronom objecte", "translation": "Pots apagar-la? La música està massa alta."},
+      "She's looking {{answer}} her elderly mother.": {"hint": "la partícula de tenir cura", "translation": "Té cura de la seva mare gran."},
+      "Please fill {{answer}} this form.": {"hint": "la partícula dels formularis", "translation": "Ompli aquest formulari, si us plau."},
+      "I'll pick you {{answer}} at eight.": {"hint": "la partícula de passar a buscar", "translation": "Et passaré a buscar a les vuit."},
+      "We've put {{answer}} the meeting until Friday.": {"hint": "la partícula d'ajornar", "translation": "Hem ajornat la reunió fins divendres."},
+      "He takes {{answer}} his father — same smile, same laugh.": {"hint": "la partícula d'assemblar-se", "translation": "Ha sortit al seu pare — el mateix somriure, la mateixa rialla."}
+    },
+    "Question tags and indirect questions": {
+      "You've met before, {{answer}} you?": {"hint": "l'auxiliar invertit de la coda interrogativa", "translation": "Ja us coneixíeu, oi?"},
+      "She doesn't eat fish, {{answer}} she?": {"hint": "l'auxiliar invertit de la coda interrogativa", "translation": "No menja peix, oi?"},
+      "Could you tell me where the bank {{answer}}?": {"hint": "be — al FINAL", "translation": "Em podria dir on és el banc?"},
+      "Do you know if the shop {{answer}} at six?": {"hint": "close — ordre d'afirmació", "translation": "Saps si la botiga tanca a les sis?"},
+      "It's cold today, {{answer}} it?": {"hint": "l'auxiliar invertit de la coda interrogativa", "translation": "Fa fred avui, oi?"},
+      "I wonder {{answer}} they got home safely.": {"hint": "l'alternativa a if", "translation": "Em pregunto si van arribar bé a casa."}
+    },
+    "Inversion (Never have I…, Not only…)": {
+      "Never {{answer}} I heard such nonsense.": {"hint": "l'auxiliar del perfet", "translation": "Mai no havia sentit una bajanada semblant."},
+      "Not only {{answer}} she sing, she writes her own songs.": {"hint": "l'auxiliar del present", "translation": "No només canta, sinó que escriu les seves pròpies cançons."},
+      "No sooner had we sat down {{answer}} the phone rang.": {"hint": "la paraula que completa la parella", "translation": "Tot just ens havíem assegut que va sonar el telèfon."},
+      "Under no circumstances {{answer}} you open that door.": {"hint": "el modal del consell", "translation": "Sota cap concepte hauries d'obrir aquella porta."},
+      "Rarely {{answer}} we see such talent.": {"hint": "l'auxiliar del present", "translation": "Rarament es veu un talent així."},
+      "Only then {{answer}} I understand what she meant.": {"hint": "l'auxiliar del passat", "translation": "Només llavors vaig entendre què volia dir."}
+    },
+    "Cleft sentences (What I need is…, It was… that)": {
+      "{{answer}} I need is a good night's sleep.": {"hint": "l'inici de la frase clivellada", "translation": "El que necessito és dormir bé una nit."},
+      "It was Marco {{answer}} suggested the idea.": {"hint": "el relatiu de les persones", "translation": "Va ser en Marco qui va suggerir la idea."},
+      "What annoys me {{answer}} his constant lateness.": {"hint": "be — el pern de la frase", "translation": "El que m'empipa és la seva impuntualitat constant."},
+      "It {{answer}} in Paris that they first met.": {"hint": "be — passat", "translation": "Va ser a París que es van conèixer."},
+      "{{answer}} she wants is a little respect.": {"hint": "l'inici del 'tot el que'", "translation": "Tot el que vol és una mica de respecte."},
+      "It wasn't until midnight {{answer}} he finally called.": {"hint": "el connector de la frase clivellada", "translation": "No va ser fins a mitjanit que finalment va trucar."}
+    },
+    "Hedging and distancing (would seem, tend to)": {
+      "It would {{answer}} that the figures are wrong.": {"hint": "el verb de l'aparença", "translation": "Semblaria que les xifres són errònies."},
+      "House prices {{answer}} to rise in spring.": {"hint": "el verb de la tendència", "translation": "Els preus dels habitatges tendeixen a pujar a la primavera."},
+      "There {{answer}} to be a problem with the data.": {"hint": "el verb de l'aparença, tercera persona", "translation": "Sembla que hi ha un problema amb les dades."},
+      "It is widely {{answer}} that the climate is changing.": {"hint": "believe — participi", "translation": "És creença estesa que el clima està canviant."},
+      "The results {{answer}} that more research is needed.": {"hint": "el verb de suggerir", "translation": "Els resultats suggereixen que cal més recerca."},
+      "It could be {{answer}} that the policy failed.": {"hint": "argue — participi", "translation": "Es podria argumentar que la política va fracassar."}
+    },
+    "Participle clauses (Having finished, …)": {
+      "{{answer}} finished dinner, we went for a walk.": {"hint": "l'inici del participi perfet", "translation": "Havent acabat de sopar, vam sortir a passejar."},
+      "{{answer}} through the window, she saw the storm coming.": {"hint": "look — participi", "translation": "Mirant per la finestra, va veure que s'acostava la tempesta."},
+      "{{answer}} in 1889, the tower still draws millions.": {"hint": "build — participi", "translation": "Construïda el 1889, la torre encara atrau milions de visitants."},
+      "Not {{answer}} what to say, he stayed silent.": {"hint": "know — participi", "translation": "Sense saber què dir, va restar en silenci."},
+      "Having {{answer}} in Rome for years, she speaks fluent Italian.": {"hint": "live — participi", "translation": "Havent viscut a Roma durant anys, parla un italià fluid."},
+      "{{answer}} by the news, they cancelled the trip.": {"hint": "shock — participi", "translation": "Consternats per la notícia, van anul·lar el viatge."}
+    },
+    "The mandative subjunctive (insist that he be)": {
+      "The board insisted that he {{answer}} removed from the project.": {"hint": "be — forma nua", "translation": "El consell va insistir que fos retirat del projecte."},
+      "It is essential that every member {{answer}} the code of conduct.": {"hint": "seguir — forma nua", "translation": "És essencial que cada membre segueixi el codi de conducta."},
+      "She recommended that the report {{answer}} rewritten.": {"hint": "be — forma nua", "translation": "Va recomanar que l'informe fos reescrit."},
+      "They demanded that the minister {{answer}}.": {"hint": "dimitir — forma nua", "translation": "Van exigir que el ministre dimitís."},
+      "It's vital that she {{answer}} informed at once.": {"hint": "be — forma nua", "translation": "És vital que sigui informada de seguida."},
+      "We suggest that he {{answer}} a lawyer before signing.": {"hint": "consultar — forma nua", "translation": "Suggerim que consulti un advocat abans de signar."}
+    },
+    "Ellipsis and substitution (so, neither, do so)": {
+      "I loved the film. — {{answer}} did I!": {"hint": "l'inici del 'jo també'", "translation": "M'ha encantat la pel·lícula. — A mi també!"},
+      "She can't make it tonight. — {{answer}} can I.": {"hint": "l'inici negatiu del 'jo tampoc'", "translation": "Ella no pot venir aquesta nit. — Jo tampoc."},
+      "He was asked to apologise, and he did {{answer}} immediately.": {"hint": "el substitut després de did", "translation": "Li van demanar que es disculpés, i ho va fer de seguida."},
+      "You may be tired; if {{answer}}, rest.": {"hint": "el substitut després de if", "translation": "Potser estàs cansat; si és així, descansa."},
+      "They promised to help, but failed to {{answer}} so.": {"hint": "el verb substitut", "translation": "Van prometre ajudar, però no ho van fer."},
+      "I've never been to Oslo. — Nor {{answer}} I.": {"hint": "l'auxiliar del perfet", "translation": "No he estat mai a Oslo. — Jo tampoc."}
+    },
+    "Formal connectors (notwithstanding, albeit)": {
+      "The plan went ahead, {{answer}} the objections.": {"hint": "el 'despite' més formal", "translation": "El pla va tirar endavant, malgrat les objeccions."},
+      "It was a victory, {{answer}} a narrow one.": {"hint": "l'although comprimit", "translation": "Va ser una victòria, si bé ajustada."},
+      "The costs rose sharply; {{answer}} the project was cancelled.": {"hint": "un therefore formal", "translation": "Els costos van pujar bruscament; per consegüent, el projecte es va cancel·lar."},
+      "A scheme {{answer}} employees share the profits.": {"hint": "la paraula del 'mitjançant el qual'", "translation": "Un pla mitjançant el qual els empleats participen dels beneficis."},
+      "A {{answer}} unknown author won the prize.": {"hint": "la paraula del 'fins llavors'", "translation": "Un autor fins llavors desconegut va guanyar el premi."},
+      "The evidence, {{answer}} incomplete, points one way.": {"hint": "l'although abreujat", "translation": "Les proves, bé que incompletes, apunten en una direcció."}
+    },
+    "Past simple — regular verbs (-ed)": {
+      "I {{answer}} in a bank for five years.": {"hint": "work + -ed", "translation": "Vaig treballar en un banc durant cinc anys."},
+      "She {{answer}} in Rome when she was young.": {"hint": "live — només afegeix -d", "translation": "De jove vivia a Roma."},
+      "He {{answer}} English at university.": {"hint": "study — la y es torna -ied", "translation": "Va estudiar anglès a la universitat."},
+      "The bus {{answer}} suddenly.": {"hint": "stop — dobla la p", "translation": "L'autobús es va aturar de sobte."},
+      "We {{answer}} football in the park yesterday.": {"hint": "vocal + y — només -ed", "translation": "Ahir vam jugar a futbol al parc."},
+      "They {{answer}} work yesterday — it was a holiday.": {"hint": "passat negatiu: did + not", "translation": "Ahir no van treballar — era festa."}
+    },
+    "Object pronouns (me, him, them)": {
+      "Can you help {{answer}}, please?": {"hint": "qui parla demana ajuda — «em»", "translation": "Em pots ajudar, si us plau?"},
+      "I saw {{answer}} at school yesterday.": {"hint": "un home — «el»", "translation": "El vaig veure ahir a l'escola."},
+      "This present is for {{answer}}.": {"hint": "una dona — «ella»", "translation": "Aquest regal és per a ella."},
+      "Our teacher knows {{answer}} well.": {"hint": "qui parla + altres — «ens»", "translation": "El nostre professor ens coneix bé."},
+      "I like these shoes — I'll buy {{answer}}.": {"hint": "més d'una cosa — «les»", "translation": "M'agraden aquestes sabates — les compraré."},
+      "Where is my phone? I can't find {{answer}}.": {"hint": "una cosa — «el»", "translation": "On és el meu mòbil? No el trobo."}
+    },
+    "Imperatives (Open…, Don't…)": {
+      "{{answer}} the door, please.": {"hint": "verb en forma base, sense subjecte", "translation": "Obre la porta, si us plau."},
+      "{{answer}} worry — everything is fine.": {"hint": "ordre negativa: la forma negativa de do + verb", "translation": "No et preocupis — tot va bé."},
+      "{{answer}} me tomorrow, please.": {"hint": "verb en forma base", "translation": "Truca'm demà, si us plau."},
+      "{{answer}} be late — the film starts at eight.": {"hint": "ordre negativa amb be", "translation": "No arribis tard — la pel·lícula comença a les vuit."},
+      "{{answer}} quiet, please — the baby is sleeping.": {"hint": "el verb be en forma base", "translation": "Estigues callat, si us plau — el nadó dorm."},
+      "Please {{answer}} down and wait a moment.": {"hint": "verb en forma base", "translation": "Segui, si us plau, i esperi un moment."}
+    }
+  }
+}
