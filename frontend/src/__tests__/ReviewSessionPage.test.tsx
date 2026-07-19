@@ -290,6 +290,46 @@ describe('ReviewSessionPage — listening mode cue', () => {
     expect(screen.queryByText('She goes to the market.')).toBeNull()
   })
 
+  it('switching the ACTIVE language mid-session restarts with that language', async () => {
+    // Beta bug: a session started in English kept serving English cards
+    // under a "Swahili" label. The session must remount + refetch when the
+    // active language changes.
+    let lang = 'lang-english'
+    mockUsePrefsStore.mockImplementation(
+      (selector: (s: Record<string, unknown>) => unknown) =>
+        selector({
+          activeLanguageId: lang,
+          listeningMode: false,
+          hintLevel: 0,
+          qwertyTranslit: {},
+          sessionSize: 20,
+          accentsOptional: false,
+          setListeningMode: vi.fn(),
+          setHintLevel: vi.fn(),
+          setQwertyTranslit: vi.fn(),
+        }),
+    )
+    const queryClient = new QueryClient({
+      defaultOptions: { queries: { retry: false }, mutations: { retry: false } },
+    })
+    const tree = (
+      <QueryClientProvider client={queryClient}>
+        <MemoryRouter>
+          <ReviewSessionPage />
+        </MemoryRouter>
+      </QueryClientProvider>
+    )
+    const { rerender } = render(tree)
+    await waitFor(() => {
+      expect(mockGetDueCards.mock.calls.some((c) => c[0] === 'lang-english')).toBe(true)
+    })
+    lang = 'lang-swahili'
+    rerender(tree)
+    await waitFor(() => {
+      expect(mockGetDueCards.mock.calls.some((c) => c[0] === 'lang-swahili')).toBe(true)
+    })
+  })
+
   it('answering-phase audio speaks the GAPPED sentence — never the answer', async () => {
     // Beta round 2: the full-sentence audio both leaked the answer and gave
     // no clue which word was missing. The pause marks the blank by ear.
