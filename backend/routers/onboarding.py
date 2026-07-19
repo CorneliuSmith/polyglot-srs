@@ -119,7 +119,8 @@ async def placement_next(
             continue  # not one of ours — ignore rather than error
         try:
             result, _ = await validate_answer_async(
-                code, entry.input, key["answer"], None
+                code, entry.input, key["answer"],
+                {"answer_alternatives": key.get("alternatives") or []},
             )
         except ValueError as exc:
             raise HTTPException(
@@ -176,7 +177,10 @@ async def score_placement(
         if item is None or item["level"] is None:
             continue
         try:
-            result, _ = await validate_answer_async(code, answer.input, item["answer"], None)
+            result, _ = await validate_answer_async(
+                code, answer.input, item["answer"],
+                {"answer_alternatives": item.get("alternatives") or []},
+            )
         except ValueError as exc:
             raise HTTPException(
                 status_code=422, detail=f"Unsupported language: {code}"

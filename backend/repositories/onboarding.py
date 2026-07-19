@@ -48,6 +48,10 @@ def estimate_level(per_level: dict[str, tuple[int, int]], *, threshold: float = 
 # most learners finish in 5–8 items instead of a fixed batch.
 
 MAX_ADAPTIVE_ITEMS = 12
+MIN_ADAPTIVE_ITEMS = 6    # beta fix: don't let oscillation end the test early —
+                          # with 1–3 samples per level, one unlucky item was
+                          # deciding the placement. Floor/ceiling stops are
+                          # unambiguous and stay immediate.
 _START_PROBE = 1          # A2 — assumes a little knowledge, falls fast if not
 _STOP_REVERSALS = 4       # direction changes = oscillating around the level
 _STOP_BOUNDARY = 2        # consecutive misses at A1 / passes at C2
@@ -84,7 +88,7 @@ def adaptive_next(
 
     if (
         len(history) >= MAX_ADAPTIVE_ITEMS
-        or reversals >= _STOP_REVERSALS
+        or (reversals >= _STOP_REVERSALS and len(history) >= MIN_ADAPTIVE_ITEMS)
         or floor_misses >= _STOP_BOUNDARY
         or ceiling_passes >= _STOP_BOUNDARY
     ):
@@ -264,8 +268,13 @@ async def get_placement_answers(
     """
     if not item_ids:
         return {}
+    # Alternatives matter here (beta fix): a vocab prompt is an English
+    # definition, and several target words can be right ("to walk" →
+    # ходить/идти). The review flow already accepts a card's recorded
+    # alternatives — placement must too, or valid answers grade as misses
+    # and the staircase under-places.
     vocab = await conn.fetch(
-        "SELECT id, word AS answer, level FROM vocabulary "
+        "SELECT id, word AS answer, level, alternatives FROM vocabulary "
         "WHERE language_id = $1 AND id = ANY($2::uuid[])",
         language_id,
         item_ids,
@@ -280,9 +289,20 @@ async def get_placement_answers(
         language_id,
         item_ids,
     )
-    answers = {str(r["id"]): {"answer": r["answer"], "level": r["level"]} for r in vocab}
+    answers = {
+        str(r["id"]): {
+            "answer": r["answer"], "level": r["level"],
+            "alternatives": list(r["alternatives"] or []),
+        }
+        for r in vocab
+    }
     answers.update(
-        {str(r["id"]): {"answer": r["answer"], "level": r["level"]} for r in grammar}
+        {
+            str(r["id"]): {
+                "answer": r["answer"], "level": r["level"], "alternatives": [],
+            }
+            for r in grammar
+        }
     )
     return answers
 

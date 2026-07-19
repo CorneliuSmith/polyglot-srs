@@ -156,3 +156,70 @@ class TestPlainPromptFilter:
             "sometimes after lhe, especially when referring to a body part, "
             "a family member, or a pet."
         )
+
+
+class TestAdaptiveStopCalibration:
+    """Beta fix: oscillation can't end the test before MIN_ADAPTIVE_ITEMS —
+    with 1–3 samples per level, one unlucky item was deciding the placement."""
+
+    def _pool(self):
+        from backend.repositories.onboarding import CEFR_ORDER
+        return [
+            {"id": f"p{i}", "kind": "vocabulary" if i % 2 else "grammar",
+             "level": CEFR_ORDER[i % len(CEFR_ORDER)]}
+            for i in range(30)
+        ]
+
+    def test_oscillation_does_not_stop_before_min_items(self):
+        from backend.repositories.onboarding import adaptive_next
+        pool, hist = self._pool(), []
+        for i in range(5):  # pass/miss alternation racks up 4 reversals by item 5
+            item = adaptive_next(pool, hist)
+            assert item is not None
+            hist.append((item, i % 2 == 0))
+        # 5 items with 4 reversals: the old code stopped here — now it must
+        # keep probing until MIN_ADAPTIVE_ITEMS.
+        assert adaptive_next(pool, hist) is not None
+
+    def test_oscillation_stops_at_min_items(self):
+        from backend.repositories.onboarding import MIN_ADAPTIVE_ITEMS, adaptive_next
+        pool, hist = self._pool(), []
+        for i in range(MIN_ADAPTIVE_ITEMS):
+            item = adaptive_next(pool, hist)
+            assert item is not None
+            hist.append((item, i % 2 == 0))
+        assert adaptive_next(pool, hist) is None
+
+    def test_floor_stop_stays_immediate(self):
+        from backend.repositories.onboarding import adaptive_next
+        pool, hist = self._pool(), []
+        for _ in range(3):  # A2 miss -> A1, then two misses AT the floor
+            item = adaptive_next(pool, hist)
+            assert item is not None
+            hist.append((item, False))
+        # an absolute beginner is obvious after 3 misses — no min-items delay
+        assert adaptive_next(pool, hist) is None
+
+
+class TestPlacementAlternatives:
+    """Beta fix: a definition prompt has several right answers (делать /
+    сделать) — the card's recorded alternatives must count as correct."""
+
+    def test_adaptive_grading_passes_alternatives_to_validator(self, client):
+        pool = [{"id": "a1", "kind": "vocabulary", "level": "A1",
+                 "prompt": "to do, to make", "translation": None}] + _items(11)
+        answers = {"a1": {"answer": "делать", "level": "A1",
+                          "alternatives": ["сделать"]}}
+        with patch("backend.routers.onboarding._language_code",
+                   new=AsyncMock(return_value="ru")), \
+             patch("backend.routers.onboarding.sample_placement_items",
+                   new=AsyncMock(return_value=pool)), \
+             patch("backend.routers.onboarding.get_placement_answers",
+                   new=AsyncMock(return_value=answers)), \
+             patch("backend.routers.onboarding.validate_answer_async",
+                   new=AsyncMock(return_value=(AnswerResult.CORRECT, None))) as mock_v:
+            resp = client.post(f"/api/onboarding/placement/{LANG}/next", json={
+                "history": [{"id": "a1", "input": "сделать"}],
+            }, headers=_auth_headers())
+        assert resp.status_code == 200
+        assert mock_v.await_args.args[3] == {"answer_alternatives": ["сделать"]}
