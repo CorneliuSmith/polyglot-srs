@@ -145,6 +145,14 @@ class TestProviderChain:
 
 
 class TestTTSEndpoint:
+    @pytest.fixture(autouse=True)
+    def _reset_storage_breaker(self):
+        import backend.routers.audio as audio_mod
+
+        audio_mod._storage_down_until = 0.0
+        yield
+        audio_mod._storage_down_until = 0.0
+
     def test_requires_auth(self):
         ps = _client(_conn([None]), _conn([True]))
         with ps[0], ps[1], ps[2], ps[3], ps[4], ps[5], ps[6]:
@@ -253,6 +261,77 @@ class TestTTSEndpoint:
         import base64
         assert base64.b64decode(body["audio_b64"]) == b"mp3bytes"
         priv.execute.assert_not_awaited()
+
+    def test_upload_timeout_trips_cooldown_then_skips_storage(self):
+        # Prod egress quirk: connections to Supabase's HTTP APIs hang.
+        # A transport error must (a) still serve the clip inline and
+        # (b) trip the cooldown so the NEXT miss skips storage entirely
+        # instead of paying the connect timeout again.
+        import backend.routers.audio as audio_mod
+
+        priv = _conn([None, None])
+        rls = _conn([True, True])
+        http_client = AsyncMock()
+        http_client.__aenter__ = AsyncMock(return_value=http_client)
+        http_client.__aexit__ = AsyncMock(return_value=False)
+        http_client.post = AsyncMock(
+            side_effect=__import__("httpx").ConnectTimeout("hang")
+        )
+
+        ps = _client(priv, rls)
+        with ps[0], ps[1], ps[2], ps[3], ps[4], ps[5], ps[6], \
+             patch("backend.routers.audio.synthesize",
+                   new=AsyncMock(return_value=b"mp3bytes")), \
+             patch("backend.routers.audio.httpx.AsyncClient",
+                   return_value=http_client) as mock_client:
+            app = create_app()
+            with TestClient(app) as client:
+                first = client.post(
+                    "/api/audio/tts",
+                    json={"language_code": "pt", "text": "você"},
+                    headers=_auth_headers(),
+                )
+                second = client.post(
+                    "/api/audio/tts",
+                    json={"language_code": "pt", "text": "você"},
+                    headers=_auth_headers(),
+                )
+        for resp in (first, second):
+            assert resp.status_code == 200
+            body = resp.json()
+            assert body["url"] is None
+            assert "audio_b64" in body
+        # One attempted upload (the timeout), then the breaker held.
+        assert mock_client.call_count == 1
+        assert audio_mod._storage_down_until > 0
+
+    def test_http_error_does_not_trip_cooldown(self):
+        # A 403 answers fast — no latency cost, so keep trying storage.
+        import backend.routers.audio as audio_mod
+
+        priv = _conn([None])
+        rls = _conn([True])
+        upload = MagicMock(status_code=403, text="denied")
+        http_client = AsyncMock()
+        http_client.__aenter__ = AsyncMock(return_value=http_client)
+        http_client.__aexit__ = AsyncMock(return_value=False)
+        http_client.post = AsyncMock(return_value=upload)
+
+        ps = _client(priv, rls)
+        with ps[0], ps[1], ps[2], ps[3], ps[4], ps[5], ps[6], \
+             patch("backend.routers.audio.synthesize",
+                   new=AsyncMock(return_value=b"mp3bytes")), \
+             patch("backend.routers.audio.httpx.AsyncClient",
+                   return_value=http_client):
+            app = create_app()
+            with TestClient(app) as client:
+                resp = client.post(
+                    "/api/audio/tts",
+                    json={"language_code": "pt", "text": "você"},
+                    headers=_auth_headers(),
+                )
+        assert resp.status_code == 200
+        assert audio_mod._storage_down_until == 0.0
 
     def test_missing_service_key_serves_inline_without_storage(self):
         class KeylessSettings(FakeSettings):

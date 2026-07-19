@@ -13,6 +13,7 @@ from __future__ import annotations
 
 import base64
 import logging
+import time
 
 import httpx
 from fastapi import APIRouter, Depends, HTTPException, status
@@ -28,6 +29,15 @@ logger = logging.getLogger("audio")
 router = APIRouter()
 
 MAX_TTS_CHARS = 300
+
+# The DO deploy cannot reach Supabase's HTTP APIs — connections hang
+# until timeout (same egress quirk as the account-creation admin API).
+# Storage uploads are bounded tightly, and after a transport failure we
+# stop attempting uploads for a cooldown so cache misses don't each pay
+# the connect timeout before serving the clip inline.
+_STORAGE_TIMEOUT = httpx.Timeout(4.0, connect=2.0)
+_STORAGE_COOLDOWN_S = 600.0
+_storage_down_until = 0.0
 
 
 class TTSRequest(BaseModel):
@@ -144,10 +154,11 @@ async def tts(
     # is missing or the upload fails, the learner still gets the neural
     # clip inline (base64) and only the CDN caching is lost. Beta lesson:
     # a broken cache layer must never regress audio to the browser voice.
+    global _storage_down_until
     stored = False
-    if settings.supabase_service_role_key:
+    if settings.supabase_service_role_key and time.monotonic() >= _storage_down_until:
         try:
-            async with httpx.AsyncClient(timeout=30) as client:
+            async with httpx.AsyncClient(timeout=_STORAGE_TIMEOUT) as client:
                 resp = await client.post(
                     f"{settings.supabase_url.rstrip('/')}/storage/v1/object/tts/{storage_path}",
                     headers={
@@ -165,7 +176,13 @@ async def tts(
                     "TTS upload failed (%s): %s", resp.status_code, resp.text[:200]
                 )
         except Exception as exc:  # noqa: BLE001 — storage outage ≠ no audio
-            logger.error("TTS upload errored (%s): %s", type(exc).__name__, exc)
+            _storage_down_until = time.monotonic() + _STORAGE_COOLDOWN_S
+            logger.error(
+                "TTS upload errored (%s): %s — skipping storage for %.0fs",
+                type(exc).__name__, exc, _STORAGE_COOLDOWN_S,
+            )
+    elif settings.supabase_service_role_key:
+        logger.warning("TTS storage in cooldown — serving audio inline")
     else:
         logger.error(
             "TTS storage disabled: SUPABASE_SERVICE_ROLE_KEY is not set — "
