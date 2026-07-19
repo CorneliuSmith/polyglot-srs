@@ -1,0 +1,360 @@
+{
+  "language": "en",
+  "locale": "tr",
+  "reviewed": false,
+  "_note": "Hints and faithful sentence translations for ENGLISH drills, shown to learners whose support locale is Turkish. The hint names the expected English word (kept in English) with a Turkish cue; the translation renders the completed sentence in natural Turkish.",
+  "points": {
+    "Past simple — irregular verbs": {
+      "Yesterday I {{answer}} to the market.": {"hint": "go — geçmiş zaman", "translation": "Dün pazara gittim."},
+      "She {{answer}} a great film last night.": {"hint": "see — geçmiş zaman", "translation": "Dün gece harika bir film izledi."},
+      "We {{answer}} a new car in March.": {"hint": "buy — geçmiş zaman", "translation": "Mart ayında yeni bir araba aldık."},
+      "He {{answer}} the early train this morning.": {"hint": "take — geçmiş zaman", "translation": "Bu sabah erken treni bindi."},
+      "They {{answer}} home very late.": {"hint": "come — geçmiş zaman", "translation": "Eve çok geç geldiler."},
+      "I {{answer}} breakfast at seven.": {"hint": "eat — geçmiş zaman", "translation": "Kahvaltıyı yedide yaptım."}
+    },
+    "Present continuous vs present simple": {
+      "Quiet, please — the baby {{answer}} sleeping.": {"hint": "be — üçüncü tekil kişi", "translation": "Sessiz olun lütfen — bebek şu an uyuyor."},
+      "She {{answer}} to work by bike every day.": {"hint": "go — alışkanlık, o (kadın)", "translation": "Her gün işe bisikletle gider."},
+      "I'm {{answer}} for my keys at the moment.": {"hint": "look — şimdiki zaman biçimi", "translation": "Şu anda anahtarlarımı arıyorum."},
+      "Water {{answer}} at 100 degrees.": {"hint": "boil — genel gerçek, it", "translation": "Su 100 derecede kaynar."},
+      "They {{answer}} watching TV right now.": {"hint": "be — onlar", "translation": "Şu anda televizyon izliyorlar."},
+      "He usually {{answer}} coffee, not tea.": {"hint": "drink — alışkanlık, o (erkek)", "translation": "Genellikle kahve içer, çay değil."}
+    },
+    "Comparatives and superlatives": {
+      "This bag is {{answer}} than that one.": {"hint": "cheap — karşılaştırma derecesi", "translation": "Bu çanta şundan daha ucuz."},
+      "It's the {{answer}} building in the city.": {"hint": "tall — enüstünlük derecesi", "translation": "Şehrin en yüksek binası."},
+      "Her English is {{answer}} than mine.": {"hint": "good — karşılaştırma derecesi", "translation": "Onun İngilizcesi benimkinden daha iyi."},
+      "That was the {{answer}} meal I've ever had.": {"hint": "bad — enüstünlük derecesi", "translation": "Hayatımda yediğim en kötü yemekti."},
+      "This exercise is {{answer}} difficult than the last.": {"hint": "uzun sıfatlardan önce gelen kelime", "translation": "Bu alıştırma öncekinden daha zor."},
+      "The station is {{answer}} than I thought.": {"hint": "far — karşılaştırma derecesi", "translation": "İstasyon sandığımdan daha uzakmış."}
+    },
+    "Going to and will": {
+      "We're {{answer}} to visit Rome in May.": {"hint": "kararlaştırılmış planların geleceği", "translation": "Mayısta Roma'yı ziyaret edeceğiz."},
+      "Don't worry — I {{answer}} help you.": {"hint": "anlık karar", "translation": "Merak etme — sana yardım ederim."},
+      "Look at those clouds! It's going to {{answer}}.": {"hint": "yağışlı hava", "translation": "Şu bulutlara bak! Yağmur yağacak."},
+      "I think she {{answer}} pass the exam.": {"hint": "tahminlerin kelimesi", "translation": "Bence sınavı geçecek."},
+      "They're going {{answer}} move house next year.": {"hint": "going'den sonraki edat", "translation": "Gelecek yıl taşınacaklar."},
+      "I'm tired — I {{answer}} go to bed.": {"hint": "yakın geleceğin kısaltılmış biçimi", "translation": "Yorgunum — yatmaya gidiyorum."}
+    },
+    "Some, any, much, many": {
+      "There's {{answer}} milk in the fridge.": {"hint": "olumlu cümlelerin miktar kelimesi", "translation": "Buzdolabında biraz süt var."},
+      "We don't have {{answer}} eggs left.": {"hint": "olumsuz cümlelerin miktar kelimesi", "translation": "Hiç yumurtamız kalmadı."},
+      "Do you have {{answer}} questions?": {"hint": "soruların miktar kelimesi", "translation": "Sorunuz var mı?"},
+      "How {{answer}} money do you need?": {"hint": "sayılamayanlarla", "translation": "Ne kadar paraya ihtiyacın var?"},
+      "How {{answer}} people are coming?": {"hint": "sayılabilenlerle", "translation": "Kaç kişi geliyor?"},
+      "Would you like {{answer}} tea?": {"hint": "ikramların miktar kelimesi", "translation": "Biraz çay ister misiniz?"}
+    },
+    "Adverbs of frequency": {
+      "I {{answer}} drink coffee in the morning — every single day.": {"hint": "«her seferinde» kelimesi", "translation": "Sabahları her zaman kahve içerim — istisnasız her gün."},
+      "He is {{answer}} late — it drives me crazy.": {"hint": "«her seferinde» kelimesi", "translation": "Her zaman geç kalıyor — beni deli ediyor."},
+      "We {{answer}} go out on Fridays — maybe once a month.": {"hint": "«ara sıra» kelimesi", "translation": "Bazen cuma günleri dışarı çıkarız — belki ayda bir."},
+      "She {{answer}} eats meat — she's almost vegetarian.": {"hint": "«neredeyse hiç» kelimesi", "translation": "Nadiren et yer — neredeyse vejetaryen."},
+      "I have {{answer}} been to Japan, but I'd love to go.": {"hint": "«sıfır kez» kelimesi", "translation": "Japonya'ya hiç gitmedim ama çok isterim."},
+      "They {{answer}} visit us at Christmas — most years.": {"hint": "«genellikle» kelimesi", "translation": "Genellikle Noel'de bizi ziyaret ederler — çoğu yıl."},
+      "We {{answer}} eat out on Fridays.": {"hint": "sık sık — 'sometimes' ile 'always' arasında", "translation": "Cuma günleri sık sık dışarıda yeriz."}
+    },
+    "Can, could, have to": {
+      "She {{answer}} speak three languages.": {"hint": "yetenek kelimesi", "translation": "Üç dil konuşabiliyor."},
+      "{{answer}} you open the window, please?": {"hint": "kibar rica kelimesi", "translation": "Pencereyi açar mısınız lütfen?"},
+      "I {{answer}} to wear a uniform at work.": {"hint": "zorunluluk fiili", "translation": "İşte üniforma giymek zorundayım."},
+      "When I was five, I {{answer}} already read.": {"hint": "yetenek kelimesi — geçmiş", "translation": "Beş yaşındayken zaten okuyabiliyordum."},
+      "You don't {{answer}} to come if you're busy.": {"hint": "zorunluluk fiili", "translation": "Meşgulsen gelmek zorunda değilsin."},
+      "{{answer}} I sit here? — Of course.": {"hint": "izin kelimesi", "translation": "Buraya oturabilir miyim? — Tabii ki."}
+    },
+    "Prepositions of time: in, on, at": {
+      "The meeting starts {{answer}} nine o'clock.": {"hint": "tam saatin edatı", "translation": "Toplantı saat dokuzda başlıyor."},
+      "I was born {{answer}} 1998.": {"hint": "uzun dönemlerin edatı", "translation": "1998'de doğdum."},
+      "We're leaving {{answer}} Friday.": {"hint": "günlerin edatı", "translation": "Cuma günü yola çıkıyoruz."},
+      "She works best {{answer}} the morning.": {"hint": "uzun dönemlerin edatı", "translation": "En iyi sabahları çalışır."},
+      "My birthday is {{answer}} 12 March.": {"hint": "tarihlerin edatı", "translation": "Doğum günüm 12 Mart'ta."},
+      "He often studies {{answer}} night.": {"hint": "night ile kalıplaşmış edat", "translation": "Sık sık geceleri ders çalışır."}
+    },
+    "Subject pronouns (I, you, he…)": {
+      "{{answer}} am from Brazil.": {"hint": "konuşan kişi — her zaman büyük harfle", "translation": "Ben Brezilyalıyım."},
+      "{{answer}} is my sister.": {"hint": "bir kadın", "translation": "O benim kız kardeşim."},
+      "{{answer}} are students.": {"hint": "konuşan kişi + başkaları", "translation": "Biz öğrenciyiz."},
+      "{{answer}} is my father.": {"hint": "bir erkek", "translation": "O benim babam."},
+      "{{answer}} is on the table.": {"hint": "bir nesne", "translation": "Masanın üstünde."},
+      "{{answer}} are very kind.": {"hint": "konuştuğun kişi", "translation": "Çok naziksin. / Çok naziksiniz."},
+      "{{answer}} are my friends.": {"hint": "birden çok kişi — «onlar»", "translation": "Onlar benim arkadaşlarım."}
+    },
+    "To be — am / is / are": {
+      "I {{answer}} a student.": {"hint": "be — I ile", "translation": "Ben öğrenciyim."},
+      "You {{answer}} my friend.": {"hint": "be — you ile", "translation": "Sen benim arkadaşımsın."},
+      "She {{answer}} a doctor.": {"hint": "be — she ile", "translation": "O doktor."},
+      "We {{answer}} at home.": {"hint": "be — we ile", "translation": "Evdeyiz."},
+      "The coffee {{answer}} hot.": {"hint": "be — it/bir nesne ile", "translation": "Kahve sıcak."},
+      "They {{answer}} from Japan.": {"hint": "be — they ile", "translation": "Onlar Japonyalı."}
+    },
+    "Articles: a / an": {
+      "I have {{answer}} dog.": {"hint": "ünsüz sesinden önce", "translation": "Bir köpeğim var."},
+      "She is {{answer}} engineer.": {"hint": "ünlü sesinden önce", "translation": "O bir mühendis."},
+      "It is {{answer}} big house.": {"hint": "ünsüz sesinden önce", "translation": "Büyük bir ev."},
+      "He eats {{answer}} apple every day.": {"hint": "ünlü sesinden önce", "translation": "Her gün bir elma yer."},
+      "I read {{answer}} book every week.": {"hint": "ünsüz sesinden önce", "translation": "Her hafta bir kitap okurum."},
+      "I need {{answer}} umbrella.": {"hint": "ünlü sesinden önce", "translation": "Bir şemsiyeye ihtiyacım var."}
+    },
+    "The — pointing at a specific thing": {
+      "{{answer}} sun is hot today.": {"hint": "eşsiz şeyler bu tanımlığı alır", "translation": "Güneş bugün çok sıcak."},
+      "Please close {{answer}} door.": {"hint": "ikiniz de hangisi olduğunu biliyorsunuz", "translation": "Kapıyı kapat lütfen."},
+      "{{answer}} keys in my hand are mine.": {"hint": "ardından gelenle belirtilmiş", "translation": "Elimdeki anahtarlar benim."},
+      "We live near {{answer}} station.": {"hint": "ikiniz de hangisi olduğunu biliyorsunuz", "translation": "İstasyonun yakınında oturuyoruz."},
+      "{{answer}} moon is bright tonight.": {"hint": "eşsiz şeyler bu tanımlığı alır", "translation": "Ay bu gece çok parlak."},
+      "Where is {{answer}} bathroom?": {"hint": "ikiniz de hangisi olduğunu biliyorsunuz", "translation": "Tuvalet nerede?"}
+    },
+    "Plural nouns (-s, -es, irregular)": {
+      "I have two {{answer}}.": {"hint": "book, çoğul hâli", "translation": "İki kitabım var."},
+      "The {{answer}} are playing outside.": {"hint": "child — kuralsız çoğul", "translation": "Çocuklar dışarıda oynuyor."},
+      "She has three {{answer}}.": {"hint": "watch — -es alır", "translation": "Üç saati var."},
+      "The {{answer}} are late today.": {"hint": "bus — -es alır", "translation": "Otobüsler bugün gecikmeli."},
+      "Two {{answer}} live in our street.": {"hint": "family — y, -ies olur", "translation": "Sokağımızda iki aile oturuyor."},
+      "My {{answer}} are cold.": {"hint": "foot — kuralsız çoğul", "translation": "Ayaklarım üşüyor."}
+    },
+    "Present simple (I work)": {
+      "I {{answer}} in a bank.": {"hint": "meslek olarak yapılan şey", "translation": "Bir bankada çalışıyorum."},
+      "We {{answer}} breakfast at seven.": {"hint": "(öğün) yemek", "translation": "Kahvaltıyı yedide yaparız."},
+      "They {{answer}} in London.": {"hint": "bir yerde oturmak", "translation": "Londra'da yaşıyorlar."},
+      "You {{answer}} English very well.": {"hint": "bir dili kullanmak", "translation": "Çok iyi İngilizce konuşuyorsun."},
+      "I {{answer}} coffee every morning.": {"hint": "bir içeceği içmek", "translation": "Her sabah kahve içerim."},
+      "We {{answer}} TV in the evening.": {"hint": "ekrana ya da programa bakmak", "translation": "Akşamları televizyon izleriz."}
+    },
+    "Third-person -s (she works)": {
+      "She {{answer}} in a hospital.": {"hint": "to work — she ile", "translation": "Bir hastanede çalışır."},
+      "He {{answer}} to school every day.": {"hint": "to go — -es alır", "translation": "Her gün okula gider."},
+      "My brother {{answer}} English.": {"hint": "to study — y, -ies olur", "translation": "Kardeşim İngilizce okuyor."},
+      "The shop {{answer}} at nine.": {"hint": "to open — it ile", "translation": "Dükkân dokuzda açılır."},
+      "She {{answer}} TV after dinner.": {"hint": "to watch — -es alır", "translation": "Akşam yemeğinden sonra televizyon izler."},
+      "It {{answer}} a lot in April.": {"hint": "to rain — it ile", "translation": "Nisanda çok yağmur yağar."}
+    },
+    "Do-support: questions and negation": {
+      "{{answer}} you speak English?": {"hint": "yardımcı fiil — you ile", "translation": "İngilizce konuşuyor musun?"},
+      "{{answer}} she work here?": {"hint": "yardımcı fiil — she ile", "translation": "Burada mı çalışıyor?"},
+      "I {{answer}} not eat meat.": {"hint": "yardımcı fiil — I ile", "translation": "Et yemem."},
+      "He {{answer}} not like coffee.": {"hint": "yardımcı fiil — he ile", "translation": "Kahveyi sevmez."},
+      "{{answer}} they live in Rome?": {"hint": "yardımcı fiil — they ile", "translation": "Roma'da mı yaşıyorlar?"},
+      "We {{answer}} not have time.": {"hint": "yardımcı fiil — we ile", "translation": "Vaktimiz yok."},
+      "I {{answer}} like coffee.": {"hint": "I ile olumsuzluk — do + not", "translation": "Kahveyi sevmiyorum."},
+      "She {{answer}} work on Sundays.": {"hint": "she ile olumsuzluk — does + not", "translation": "Pazarları çalışmaz."}
+    },
+    "Present continuous (I am working)": {
+      "I am {{answer}} a book right now.": {"hint": "to read + -ing", "translation": "Şu anda bir kitap okuyorum."},
+      "She is {{answer}} dinner now.": {"hint": "to cook + -ing", "translation": "Şimdi akşam yemeği pişiriyor."},
+      "They are {{answer}} football.": {"hint": "to play + -ing", "translation": "Futbol oynuyorlar."},
+      "Look! It is {{answer}}.": {"hint": "to rain + -ing", "translation": "Bak! Yağmur yağıyor."},
+      "We are {{answer}} for the bus.": {"hint": "to wait + -ing", "translation": "Otobüsü bekliyoruz."},
+      "He is {{answer}} at the moment.": {"hint": "to sleep + -ing", "translation": "Şu anda uyuyor."},
+      "He is {{answer}} in the park.": {"hint": "run — son ünsüz ikizleşir", "translation": "Parkta koşuyor."},
+      "She is {{answer}} an email.": {"hint": "write — sessiz e düşer", "translation": "Bir e-posta yazıyor."}
+    },
+    "There is / there are": {
+      "There {{answer}} a book on the table.": {"hint": "tekil", "translation": "Masada bir kitap var."},
+      "There {{answer}} two cafés in this street.": {"hint": "çoğul", "translation": "Bu sokakta iki kafe var."},
+      "{{answer}} there a bank near here?": {"hint": "tekil, soru dizilişi", "translation": "Buralarda bir banka var mı?"},
+      "There {{answer}} no milk.": {"hint": "tekil", "translation": "Süt yok."},
+      "{{answer}} there any questions?": {"hint": "çoğul, soru dizilişi", "translation": "Soru var mı?"},
+      "There {{answer}} many people here today.": {"hint": "çoğul", "translation": "Bugün burada çok insan var."}
+    },
+    "Question words (what, where, when…)": {
+      "{{answer}} do you live?": {"hint": "bir yer sorulur", "translation": "Nerede oturuyorsun?"},
+      "{{answer}} is your name?": {"hint": "bir şey sorulur", "translation": "Adın ne?"},
+      "{{answer}} is your birthday?": {"hint": "bir zaman sorulur", "translation": "Doğum günün ne zaman?"},
+      "{{answer}} old are you?": {"hint": "yaş böyle sorulur", "translation": "Kaç yaşındasın?"},
+      "{{answer}} is your teacher?": {"hint": "bir kişi sorulur", "translation": "Öğretmenin kim?"},
+      "{{answer}} are you crying?": {"hint": "bir sebep sorulur", "translation": "Neden ağlıyorsun?"}
+    },
+    "Possessives (my, your, 's)": {
+      "This is {{answer}} book.": {"hint": "konuşanın", "translation": "Bu benim kitabım."},
+      "Is this {{answer}} car?": {"hint": "senin", "translation": "Bu senin araban mı?"},
+      "{{answer}} name is Anna.": {"hint": "onun (kadın)", "translation": "Onun adı Anna."},
+      "That is my {{answer}} car.": {"hint": "brother + iyelik eki", "translation": "Şu, erkek kardeşimin arabası."},
+      "{{answer}} house is big.": {"hint": "onların", "translation": "Onların evi büyük."},
+      "The dog wags {{answer}} tail.": {"hint": "bir nesnenin — kesme işareti olmadan", "translation": "Köpek kuyruğunu sallıyor."},
+      "{{answer}} name is David.": {"hint": "bir erkeğin adı — «onun»", "translation": "Onun adı David."},
+      "That is {{answer}} classroom.": {"hint": "bize ait — «bizim»", "translation": "Şu bizim sınıfımız."}
+    },
+    "Present perfect vs past simple": {
+      "I've {{answer}} my wallet — can you help me look?": {"hint": "lose — sıfat-fiil (participle)", "translation": "Cüzdanımı kaybettim — aramama yardım eder misin?"},
+      "She {{answer}} in Berlin in 2019.": {"hint": "live — geçmiş zaman", "translation": "2019'da Berlin'de yaşıyordu."},
+      "Have you {{answer}} been to Japan?": {"hint": "«hayatında en az bir kez» kelimesi", "translation": "Hiç Japonya'ya gittin mi?"},
+      "We've known each other {{answer}} ten years.": {"hint": "süre kelimesi", "translation": "Birbirimizi on yıldır tanıyoruz."},
+      "He's worked here {{answer}} 2020.": {"hint": "başlangıç noktası kelimesi", "translation": "2020'den beri burada çalışıyor."},
+      "They haven't finished {{answer}}.": {"hint": "«henüz değil» kelimesi", "translation": "Henüz bitirmediler."}
+    },
+    "First and second conditionals": {
+      "If it {{answer}} tomorrow, we'll cancel the picnic.": {"hint": "rain — geniş zaman, it", "translation": "Yarın yağmur yağarsa pikniği iptal ederiz."},
+      "If you study, you {{answer}} pass.": {"hint": "gerçek geleceğin kelimesi", "translation": "Çalışırsan geçersin."},
+      "If I {{answer}} rich, I would buy an island.": {"hint": "be — gerçek dışı biçim", "translation": "Zengin olsaydım bir ada alırdım."},
+      "She {{answer}} travel more if she had time.": {"hint": "gerçek dışı sonucun kelimesi", "translation": "Vakti olsaydı daha çok seyahat ederdi."},
+      "If we {{answer}} now, we'll catch the train.": {"hint": "çıkmak — geniş zamanda", "translation": "Şimdi çıkarsak treni yakalarız."},
+      "What {{answer}} you do if you won the lottery?": {"hint": "gerçek dışı sonucun kelimesi", "translation": "Piyangoyu kazansaydın ne yapardın?"}
+    },
+    "The passive (is made, was built)": {
+      "This wine {{answer}} produced in Chile.": {"hint": "be — geniş zaman, it", "translation": "Bu şarap Şili'de üretiliyor."},
+      "The castle was {{answer}} in the twelfth century.": {"hint": "build — sıfat-fiil", "translation": "Kale on ikinci yüzyılda inşa edildi."},
+      "These photos {{answer}} taken by my grandmother.": {"hint": "be — geçmiş zaman, they", "translation": "Bu fotoğraflar büyükannem tarafından çekildi."},
+      "English {{answer}} spoken all over the world.": {"hint": "be — geniş zaman, it", "translation": "İngilizce tüm dünyada konuşulur."},
+      "The thief was caught {{answer}} the police.": {"hint": "eylemi yapanın edatı", "translation": "Hırsız polis tarafından yakalandı."},
+      "My phone was {{answer}} at the festival.": {"hint": "steal — sıfat-fiil", "translation": "Telefonum festivalde çalındı."}
+    },
+    "Relative clauses (who, which, that, where)": {
+      "She's the doctor {{answer}} treated my father.": {"hint": "kişilerin ilgi zamiri", "translation": "Babamı tedavi eden doktor o."},
+      "That's the restaurant {{answer}} we first met.": {"hint": "yerlerin ilgi zamiri", "translation": "İlk tanıştığımız restoran şurası."},
+      "The laptop {{answer}} I bought last week is broken.": {"hint": "her işe yarayan ilgi zamiri", "translation": "Geçen hafta aldığım dizüstü bilgisayar bozuldu."},
+      "He's the author {{answer}} books sell millions.": {"hint": "iyelik ilgi zamiri", "translation": "Kitapları milyonlarca satan yazar o."},
+      "The train, {{answer}} was already late, then broke down.": {"hint": "nesnelerin ilgi zamiri", "translation": "Zaten gecikmiş olan tren bir de arızalandı."},
+      "People {{answer}} exercise regularly live longer.": {"hint": "kişilerin ilgi zamiri", "translation": "Düzenli egzersiz yapan insanlar daha uzun yaşar."}
+    },
+    "Used to — past habits and states": {
+      "I {{answer}} to play football every weekend.": {"hint": "eski alışkanlık fiili", "translation": "Eskiden her hafta sonu futbol oynardım."},
+      "She didn't {{answer}} to like coffee, but now she loves it.": {"hint": "eski alışkanlık fiili, -d'siz", "translation": "Eskiden kahveyi sevmezdi ama şimdi bayılıyor."},
+      "There {{answer}} to be a bakery on this corner.": {"hint": "eski alışkanlık fiili", "translation": "Eskiden bu köşede bir fırın vardı."},
+      "Did you {{answer}} to live in London?": {"hint": "eski alışkanlık fiili, -d'siz", "translation": "Eskiden Londra'da mı oturuyordun?"},
+      "He used {{answer}} have long hair.": {"hint": "edat", "translation": "Eskiden saçları uzundu."},
+      "We {{answer}} to go camping every summer as kids.": {"hint": "eski alışkanlık fiili", "translation": "Çocukken her yaz kampa giderdik."}
+    },
+    "Reported speech": {
+      "'I'm busy.' → She said she {{answer}} busy.": {"hint": "be — bir basamak geriye", "translation": "«Meşgulüm.» → Meşgul olduğunu söyledi."},
+      "'I'll call you.' → He said he {{answer}} call me.": {"hint": "will — bir basamak geriye", "translation": "«Seni ararım.» → Beni arayacağını söyledi."},
+      "'Are you ready?' → She asked {{answer}} I was ready.": {"hint": "evet/hayır sorularının kelimesi", "translation": "«Hazır mısın?» → Hazır olup olmadığımı sordu."},
+      "'Where do you live?' → He asked where I {{answer}}.": {"hint": "live — bir basamak geriye", "translation": "«Nerede oturuyorsun?» → Nerede oturduğumu sordu."},
+      "'I can swim.' → She said she {{answer}} swim.": {"hint": "can — bir basamak geriye", "translation": "«Yüzebilirim.» → Yüzebildiğini söyledi."},
+      "'We bought a house.' → They said they {{answer}} bought a house.": {"hint": "geriye kaydırmanın yardımcı fiili", "translation": "«Bir ev aldık.» → Bir ev aldıklarını söylediler."}
+    },
+    "Gerund or infinitive?": {
+      "I really enjoy {{answer}} in the sea.": {"hint": "swim — hangi biçim?", "translation": "Denizde yüzmekten gerçekten keyif alıyorum."},
+      "She decided {{answer}} accept the job.": {"hint": "mastarın edatı", "translation": "İşi kabul etmeye karar verdi."},
+      "Would you mind {{answer}} the door?": {"hint": "close — hangi biçim?", "translation": "Kapıyı kapatır mısınız acaba?"},
+      "We hope {{answer}} see you soon.": {"hint": "mastarın edatı", "translation": "Seni yakında görmeyi umuyoruz."},
+      "He avoided {{answer}} my question.": {"hint": "answer — hangi biçim?", "translation": "Soruma cevap vermekten kaçındı."},
+      "They promised {{answer}} write every week.": {"hint": "mastarın edatı", "translation": "Her hafta yazmaya söz verdiler."}
+    },
+    "Third and mixed conditionals": {
+      "If you {{answer}} told me, I would have helped.": {"hint": "-miş'li geçmişin yardımcı fiili", "translation": "Bana söyleseydin yardım ederdim."},
+      "If she had left earlier, she would {{answer}} caught the flight.": {"hint": "would'dan sonraki perfect yardımcısı", "translation": "Daha erken çıksaydı uçağa yetişirdi."},
+      "I wouldn't {{answer}} met her if I hadn't gone to that party.": {"hint": "perfect yardımcısı", "translation": "O partiye gitmeseydim onunla hiç tanışmazdım."},
+      "If he had studied medicine, he {{answer}} be a doctor now.": {"hint": "gerçek dışı sonucun kelimesi", "translation": "Tıp okusaydı şimdi doktor olurdu."},
+      "If we {{answer}} taken the map, we wouldn't have got lost.": {"hint": "-miş'li geçmişin yardımcı fiili", "translation": "Haritayı alsaydık kaybolmazdık."},
+      "What would you have {{answer}} in my position?": {"hint": "do — sıfat-fiil", "translation": "Benim yerimde olsan ne yapardın?"}
+    },
+    "Modals of deduction (must, might, can't)": {
+      "The lights are on — someone {{answer}} be home.": {"hint": "kesine yakın çıkarımın kelimesi", "translation": "Işıklar açık — evde biri olmalı."},
+      "That {{answer}} be Maria — she's in Brazil this week!": {"hint": "imkânsızlığın kelimesi", "translation": "O Maria olamaz — bu hafta Brezilya'da!"},
+      "He {{answer}} be stuck in traffic — it happens.": {"hint": "bir olasılık kelimesi", "translation": "Belki trafiğe takılmıştır — olur böyle şeyler."},
+      "She must {{answer}} forgotten our meeting.": {"hint": "geçmişe dönük çıkarımın yardımcı fiili", "translation": "Toplantımızı unutmuş olmalı."},
+      "They can't {{answer}} left already — the car's still here.": {"hint": "geçmişe dönük çıkarımın yardımcı fiili", "translation": "Şimdiden gitmiş olamazlar — araba hâlâ burada."},
+      "It {{answer}} rain later, so take an umbrella.": {"hint": "bir olasılık kelimesi", "translation": "Sonra yağmur yağabilir, yanına şemsiye al."}
+    },
+    "Advanced passives (has been done, being done)": {
+      "The road has {{answer}} closed since Monday.": {"hint": "be fiilinin sıfat-fiili", "translation": "Yol pazartesiden beri kapalı."},
+      "Our office is {{answer}} renovated at the moment.": {"hint": "be fiilinin -ing hâli", "translation": "Ofisimiz şu sıralar yenileniyor."},
+      "All answers must be {{answer}} in ink.": {"hint": "write — sıfat-fiil", "translation": "Tüm cevaplar mürekkeple yazılmalı."},
+      "She is {{answer}} to be the richest woman in the country.": {"hint": "say — sıfat-fiil", "translation": "Ülkenin en zengin kadını olduğu söyleniyor."},
+      "The results will {{answer}} announced on Friday.": {"hint": "edilgen çatının yalın mastarı", "translation": "Sonuçlar cuma günü açıklanacak."},
+      "By 1990, the bridge {{answer}} been rebuilt twice.": {"hint": "-miş'li geçmişin yardımcı fiili", "translation": "1990'a gelindiğinde köprü iki kez yeniden inşa edilmişti."}
+    },
+    "Wish and if only": {
+      "I wish I {{answer}} how to drive.": {"hint": "know — pişmanlık biçimi", "translation": "Keşke araba kullanmayı bilseydim."},
+      "She wishes she {{answer}} accepted the offer.": {"hint": "geçmiş pişmanlığın yardımcı fiili", "translation": "Keşke teklifi kabul etseydim diyor."},
+      "I wish you {{answer}} stop interrupting me!": {"hint": "şikâyet kelimesi", "translation": "Keşke sözümü kesmeyi bıraksan!"},
+      "If {{answer}} I had listened to your advice!": {"hint": "if'ten sonraki kelime", "translation": "Keşke tavsiyeni dinleseydim!"},
+      "He wishes he {{answer}} taller.": {"hint": "be — pişmanlık biçimi", "translation": "Keşke daha uzun olsaydım diyor."},
+      "We wish we {{answer}} bought tickets earlier.": {"hint": "geçmiş pişmanlığın yardımcı fiili", "translation": "Keşke biletleri daha erken alsaydık."}
+    },
+    "Phrasal verbs — separable or not?": {
+      "Could you turn {{answer}} off? The music's too loud.": {"hint": "nesne zamiri", "translation": "Kapatır mısın? Müzik çok yüksek."},
+      "She's looking {{answer}} her elderly mother.": {"hint": "bakıp gözetmenin edatı", "translation": "Yaşlı annesine bakıyor."},
+      "Please fill {{answer}} this form.": {"hint": "formların edatı", "translation": "Lütfen bu formu doldurun."},
+      "I'll pick you {{answer}} at eight.": {"hint": "gelip almanın edatı", "translation": "Seni sekizde alırım."},
+      "We've put {{answer}} the meeting until Friday.": {"hint": "ertelemenin edatı", "translation": "Toplantıyı cumaya erteledik."},
+      "He takes {{answer}} his father — same smile, same laugh.": {"hint": "çekmenin (benzemenin) edatı", "translation": "Babasına çekmiş — aynı gülümseme, aynı kahkaha."}
+    },
+    "Question tags and indirect questions": {
+      "You've met before, {{answer}} you?": {"hint": "soru kuyruğunun ters çevrilmiş yardımcı fiili", "translation": "Daha önce tanışmıştınız, değil mi?"},
+      "She doesn't eat fish, {{answer}} she?": {"hint": "soru kuyruğunun ters çevrilmiş yardımcı fiili", "translation": "Balık yemiyor, değil mi?"},
+      "Could you tell me where the bank {{answer}}?": {"hint": "be — cümlenin SONUNA", "translation": "Bankanın nerede olduğunu söyler misiniz?"},
+      "Do you know if the shop {{answer}} at six?": {"hint": "close — düz cümle dizilişi", "translation": "Dükkânın altıda kapanıp kapanmadığını biliyor musun?"},
+      "It's cold today, {{answer}} it?": {"hint": "soru kuyruğunun ters çevrilmiş yardımcı fiili", "translation": "Bugün hava soğuk, değil mi?"},
+      "I wonder {{answer}} they got home safely.": {"hint": "if'in alternatifi", "translation": "Acaba eve sağ salim vardılar mı?"}
+    },
+    "Inversion (Never have I…, Not only…)": {
+      "Never {{answer}} I heard such nonsense.": {"hint": "perfect'in yardımcı fiili", "translation": "Böyle bir saçmalığı hiç duymadım."},
+      "Not only {{answer}} she sing, she writes her own songs.": {"hint": "geniş zamanın yardımcı fiili", "translation": "Sadece şarkı söylemekle kalmıyor, kendi şarkılarını da yazıyor."},
+      "No sooner had we sat down {{answer}} the phone rang.": {"hint": "ikiliyi tamamlayan kelime", "translation": "Daha oturur oturmaz telefon çaldı."},
+      "Under no circumstances {{answer}} you open that door.": {"hint": "tavsiye kipi", "translation": "Hiçbir koşulda o kapıyı açmamalısın."},
+      "Rarely {{answer}} we see such talent.": {"hint": "geniş zamanın yardımcı fiili", "translation": "Böyle bir yetenek nadiren görülür."},
+      "Only then {{answer}} I understand what she meant.": {"hint": "geçmiş zamanın yardımcı fiili", "translation": "Ancak o zaman ne demek istediğini anladım."}
+    },
+    "Cleft sentences (What I need is…, It was… that)": {
+      "{{answer}} I need is a good night's sleep.": {"hint": "yarık cümlenin giriş kelimesi", "translation": "İhtiyacım olan şey iyi bir gece uykusu."},
+      "It was Marco {{answer}} suggested the idea.": {"hint": "kişilerin ilgi zamiri", "translation": "Fikri öneren Marco'ydu."},
+      "What annoys me {{answer}} his constant lateness.": {"hint": "be — cümlenin mihenk noktası", "translation": "Beni sinirlendiren şey onun sürekli geç kalması."},
+      "It {{answer}} in Paris that they first met.": {"hint": "be — geçmiş zaman", "translation": "İlk tanıştıkları yer Paris'ti."},
+      "{{answer}} she wants is a little respect.": {"hint": "«tek istediği» kalıbının girişi", "translation": "Tek istediği biraz saygı."},
+      "It wasn't until midnight {{answer}} he finally called.": {"hint": "yarık cümlenin bağlacı", "translation": "Ancak gece yarısı aradı."}
+    },
+    "Hedging and distancing (would seem, tend to)": {
+      "It would {{answer}} that the figures are wrong.": {"hint": "görünme fiili", "translation": "Rakamlar yanlış gibi görünüyor."},
+      "House prices {{answer}} to rise in spring.": {"hint": "eğilim fiili", "translation": "Konut fiyatları ilkbaharda yükselme eğilimindedir."},
+      "There {{answer}} to be a problem with the data.": {"hint": "görünme fiili, üçüncü kişi", "translation": "Verilerde bir sorun var gibi görünüyor."},
+      "It is widely {{answer}} that the climate is changing.": {"hint": "believe — sıfat-fiil", "translation": "İklimin değiştiğine yaygın olarak inanılıyor."},
+      "The results {{answer}} that more research is needed.": {"hint": "işaret etme fiili", "translation": "Sonuçlar daha fazla araştırmaya ihtiyaç olduğunu gösteriyor."},
+      "It could be {{answer}} that the policy failed.": {"hint": "argue — sıfat-fiil", "translation": "Politikanın başarısız olduğu ileri sürülebilir."}
+    },
+    "Participle clauses (Having finished, …)": {
+      "{{answer}} finished dinner, we went for a walk.": {"hint": "perfect ortacın girişi", "translation": "Akşam yemeğini bitirdikten sonra yürüyüşe çıktık."},
+      "{{answer}} through the window, she saw the storm coming.": {"hint": "look — ortaç", "translation": "Pencereden bakarken fırtınanın yaklaştığını gördü."},
+      "{{answer}} in 1889, the tower still draws millions.": {"hint": "build — ortaç", "translation": "1889'da inşa edilen kule hâlâ milyonları çekiyor."},
+      "Not {{answer}} what to say, he stayed silent.": {"hint": "know — ortaç", "translation": "Ne diyeceğini bilemediğinden sessiz kaldı."},
+      "Having {{answer}} in Rome for years, she speaks fluent Italian.": {"hint": "live — ortaç", "translation": "Yıllarca Roma'da yaşadığı için akıcı İtalyanca konuşuyor."},
+      "{{answer}} by the news, they cancelled the trip.": {"hint": "shock — ortaç", "translation": "Haberden sarsılınca geziyi iptal ettiler."}
+    },
+    "The mandative subjunctive (insist that he be)": {
+      "The board insisted that he {{answer}} removed from the project.": {"hint": "be — yalın biçim", "translation": "Yönetim kurulu onun projeden alınmasında ısrar etti."},
+      "It is essential that every member {{answer}} the code of conduct.": {"hint": "uymak — yalın biçim", "translation": "Her üyenin davranış kurallarına uyması şarttır."},
+      "She recommended that the report {{answer}} rewritten.": {"hint": "be — yalın biçim", "translation": "Raporun yeniden yazılmasını önerdi."},
+      "They demanded that the minister {{answer}}.": {"hint": "istifa etmek — yalın biçim", "translation": "Bakanın istifa etmesini talep ettiler."},
+      "It's vital that she {{answer}} informed at once.": {"hint": "be — yalın biçim", "translation": "Derhâl bilgilendirilmesi hayati önem taşıyor."},
+      "We suggest that he {{answer}} a lawyer before signing.": {"hint": "danışmak — yalın biçim", "translation": "İmzalamadan önce bir avukata danışmasını öneririz."}
+    },
+    "Ellipsis and substitution (so, neither, do so)": {
+      "I loved the film. — {{answer}} did I!": {"hint": "«ben de» kalıbının girişi", "translation": "Filme bayıldım. — Ben de!"},
+      "She can't make it tonight. — {{answer}} can I.": {"hint": "«ben de -memek» kalıbının olumsuz girişi", "translation": "Bu akşam gelemiyor. — Ben de gelemiyorum."},
+      "He was asked to apologise, and he did {{answer}} immediately.": {"hint": "did'den sonraki yerine geçen kelime", "translation": "Özür dilemesi istendi ve bunu hemen yaptı."},
+      "You may be tired; if {{answer}}, rest.": {"hint": "if'ten sonraki yerine geçen kelime", "translation": "Belki yorgunsundur; öyleyse dinlen."},
+      "They promised to help, but failed to {{answer}} so.": {"hint": "yerine geçen fiil", "translation": "Yardım edeceklerine söz verdiler ama etmediler."},
+      "I've never been to Oslo. — Nor {{answer}} I.": {"hint": "perfect'in yardımcı fiili", "translation": "Oslo'ya hiç gitmedim. — Ben de."}
+    },
+    "Formal connectors (notwithstanding, albeit)": {
+      "The plan went ahead, {{answer}} the objections.": {"hint": "daha resmî 'despite'", "translation": "İtirazlara rağmen plan yürürlüğe girdi."},
+      "It was a victory, {{answer}} a narrow one.": {"hint": "sıkıştırılmış although", "translation": "Bir zaferdi, gerçi kıl payı."},
+      "The costs rose sharply; {{answer}} the project was cancelled.": {"hint": "resmî bir therefore", "translation": "Maliyetler hızla arttı; bu nedenle proje iptal edildi."},
+      "A scheme {{answer}} employees share the profits.": {"hint": "«aracılığıyla» kelimesi", "translation": "Çalışanların kârı paylaştığı bir düzen."},
+      "A {{answer}} unknown author won the prize.": {"hint": "«o zamana dek» kelimesi", "translation": "O zamana dek tanınmayan bir yazar ödülü kazandı."},
+      "The evidence, {{answer}} incomplete, points one way.": {"hint": "kısaltılmış although", "translation": "Kanıtlar, eksik olsa da tek bir yönü işaret ediyor."}
+    },
+    "Past simple — regular verbs (-ed)": {
+      "I {{answer}} in a bank for five years.": {"hint": "work + -ed", "translation": "Beş yıl bir bankada çalıştım."},
+      "She {{answer}} in Rome when she was young.": {"hint": "live — sadece -d eklenir", "translation": "Gençken Roma'da yaşadı."},
+      "He {{answer}} English at university.": {"hint": "study — y, -ied olur", "translation": "Üniversitede İngilizce okudu."},
+      "The bus {{answer}} suddenly.": {"hint": "stop — p ikizleşir", "translation": "Otobüs aniden durdu."},
+      "We {{answer}} football in the park yesterday.": {"hint": "ünlü + y — sadece -ed", "translation": "Dün parkta futbol oynadık."},
+      "They {{answer}} work yesterday — it was a holiday.": {"hint": "olumsuz geçmiş: did + not", "translation": "Dün çalışmadılar — tatildi."}
+    },
+    "Object pronouns (me, him, them)": {
+      "Can you help {{answer}}, please?": {"hint": "konuşan yardım istiyor — «bana»", "translation": "Bana yardım eder misin lütfen?"},
+      "I saw {{answer}} at school yesterday.": {"hint": "bir erkek — «onu»", "translation": "Onu dün okulda gördüm."},
+      "This present is for {{answer}}.": {"hint": "bir kadın — «ona»", "translation": "Bu hediye onun için."},
+      "Our teacher knows {{answer}} well.": {"hint": "konuşan + başkaları — «bizi»", "translation": "Öğretmenimiz bizi iyi tanır."},
+      "I like these shoes — I'll buy {{answer}}.": {"hint": "birden çok nesne — «onları»", "translation": "Bu ayakkabıları beğendim — onları alacağım."},
+      "Where is my phone? I can't find {{answer}}.": {"hint": "bir nesne — «onu»", "translation": "Telefonum nerede? Onu bulamıyorum."}
+    },
+    "Imperatives (Open…, Don't…)": {
+      "{{answer}} the door, please.": {"hint": "yalın hâlde fiil, özne yok", "translation": "Kapıyı aç lütfen."},
+      "{{answer}} worry — everything is fine.": {"hint": "olumsuz emir: do'nun olumsuz biçimi + fiil", "translation": "Merak etme — her şey yolunda."},
+      "{{answer}} me tomorrow, please.": {"hint": "yalın hâlde fiil", "translation": "Beni yarın ara lütfen."},
+      "{{answer}} be late — the film starts at eight.": {"hint": "be ile olumsuz emir", "translation": "Geç kalma — film sekizde başlıyor."},
+      "{{answer}} quiet, please — the baby is sleeping.": {"hint": "yalın hâlde be fiili", "translation": "Sessiz ol lütfen — bebek uyuyor."},
+      "Please {{answer}} down and wait a moment.": {"hint": "yalın hâlde fiil", "translation": "Lütfen oturun ve biraz bekleyin."}
+    }
+  }
+}
