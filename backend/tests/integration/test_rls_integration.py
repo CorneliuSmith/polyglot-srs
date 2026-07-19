@@ -917,7 +917,7 @@ async def test_placement_includes_grammar_cloze(pool):
     item = grammar_items[0]
     assert item["prompt"] == "la casa ____"  # the {{answer}} marker is blanked
     assert item["translation"] == "the red house"
-    assert answers[str(drill)] == {"answer": "roja", "level": "A2"}
+    assert answers[str(drill)] == {"answer": "roja", "level": "A2", "alternatives": []}
 
 
 async def test_vocab_seeder_creates_content_lists(pool):
