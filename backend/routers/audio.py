@@ -48,7 +48,10 @@ async def _text_is_ours(conn, language_code: str, text: str) -> bool:
             JOIN grammar_points gp ON ds.grammar_point_id = gp.id
             JOIN languages l ON gp.language_id = l.id
             WHERE l.code = $1
-              AND REPLACE(ds.sentence, '{{answer}}', ds.answer) = $2
+              AND (REPLACE(ds.sentence, '{{answer}}', ds.answer) = $2
+                   -- listening mode speaks the sentence with the blank as a
+                   -- pause (never the answer): the gapped form is ours too
+                   OR REPLACE(ds.sentence, '{{answer}}', '…') = $2)
         ) OR EXISTS(
             SELECT 1
             FROM example_sentences es
@@ -70,7 +73,8 @@ async def _text_is_ours(conn, language_code: str, text: str) -> bool:
             JOIN languages l ON cc.language_id = l.id
             WHERE l.code = $1
               AND (cc.sentence = $2
-                   OR REPLACE(cc.sentence, '{{answer}}', cc.answer) = $2)
+                   OR REPLACE(cc.sentence, '{{answer}}', cc.answer) = $2
+                   OR REPLACE(cc.sentence, '{{answer}}', '…') = $2)
         ) OR EXISTS(
             -- WP21: sentences from the learner's own generated readings
             -- (RLS scopes rows to the caller).

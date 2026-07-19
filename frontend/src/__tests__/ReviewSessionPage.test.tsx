@@ -18,6 +18,14 @@ vi.mock('../stores/prefsStore', () => ({
   usePrefsStore: vi.fn(() => 'lang-123'),
 }))
 
+// Stub SpeakButton so tests can assert WHAT text each player would speak
+// (the real one only reveals it by fetching audio on click).
+vi.mock('../components/SpeakButton', () => ({
+  default: ({ text, label }: { text: string; label?: string }) => (
+    <button aria-label={label ?? 'speak'} data-text={text} />
+  ),
+}))
+
 import { getCramCards, getDueCards, validateAnswer, submitReview } from '../api/review'
 import { usePrefsStore } from '../stores/prefsStore'
 
@@ -280,6 +288,18 @@ describe('ReviewSessionPage — listening mode cue', () => {
     expect(screen.queryByText(/to the market/)).toBeNull()
     // and the unrevealed translation layer stays hidden too.
     expect(screen.queryByText('She goes to the market.')).toBeNull()
+  })
+
+  it('answering-phase audio speaks the GAPPED sentence — never the answer', async () => {
+    // Beta round 2: the full-sentence audio both leaked the answer and gave
+    // no clue which word was missing. The pause marks the blank by ear.
+    renderWithProviders(<ReviewSessionPage />)
+    await waitFor(() => {
+      expect(screen.getByTestId('listening-player')).toBeDefined()
+    })
+    const player = screen.getByLabelText('Play the sentence')
+    expect(player.getAttribute('data-text')).toBe('She … to the market.')
+    expect(player.getAttribute('data-text')).not.toContain('goes')
   })
 })
 

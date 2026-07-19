@@ -339,11 +339,14 @@ function ReviewSessionInner({
     card.sentence.includes('{{answer}}') && TTS_LANGUAGES.has(card.language_code)
   const listening = listeningMode && canListen
 
-  // Listening mode (beta feedback): the audio plays the WHOLE sentence, so
-  // with the words hidden nothing says which word to type. The drill's
-  // authored hint is exactly that cue — reveal it by default while
-  // listening. The transliteration/gloss layers spell the whole sentence
-  // out, which defeats the exercise — those stay hidden until grading.
+  // Listening mode (beta feedback, round 2): the answering-phase audio
+  // speaks the sentence with the blank as a PAUSE — never the answer — so
+  // the ear hears exactly where the missing word goes (before, users heard
+  // the full sentence and couldn't tell which word to type). The full
+  // sentence still plays after grading. The drill's authored hint stays
+  // revealed as the cue; transliteration/gloss layers would spell the whole
+  // sentence out, so those stay hidden until grading.
+  const gappedSentence = card.sentence.split('{{answer}}').join('…')
   const listeningCue =
     listening && answering ? layers.find((l) => l.field === 'hint') : undefined
   const shownTopHint = topHint ?? listeningCue
@@ -454,7 +457,7 @@ function ReviewSessionInner({
               data-testid="listening-player"
             >
               <SpeakButton
-                text={completedSentence}
+                text={gappedSentence}
                 languageCode={card.language_code}
                 label="Play the sentence"
                 className="inline-flex items-center justify-center rounded-full border-2 border-lang/40 text-lang hover:bg-lang-soft p-4"
