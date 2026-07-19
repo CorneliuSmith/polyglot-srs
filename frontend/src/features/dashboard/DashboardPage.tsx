@@ -20,6 +20,7 @@ import ActivityChart from './ActivityChart'
 import StageTiles from './StageTiles'
 import ProfileCard from './ProfileCard'
 import Walkthrough from '../onboarding/Walkthrough'
+import InstallPrompt from '../../components/InstallPrompt'
 import type { LearnDeck } from '../../api/types'
 
 /** One Bunpro-style deck row. Two affordances, deliberately separated:
@@ -343,6 +344,8 @@ export default function DashboardPage() {
         </div>
 
         {showTour && <Walkthrough onClose={() => setShowTour(false)} />}
+
+        <InstallPrompt />
 
         {/* Language picker */}
         <div>

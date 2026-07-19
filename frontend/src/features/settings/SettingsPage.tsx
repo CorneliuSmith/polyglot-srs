@@ -30,6 +30,17 @@ import { useAuthStore } from '../../stores/authStore'
 
 type AccountTab = 'learner' | 'contribute' | 'review' | 'admin'
 
+// Reminder hours are stored in UTC; the picker shows the learner's local
+// hour. Rounded whole-hour conversion (half-hour zones shift by ≤30 min).
+export function utcToLocalHour(utc: number): number {
+  const offset = Math.round(-new Date().getTimezoneOffset() / 60)
+  return (((utc + offset) % 24) + 24) % 24
+}
+export function localToUtcHour(local: number): number {
+  const offset = Math.round(-new Date().getTimezoneOffset() / 60)
+  return (((local - offset) % 24) + 24) % 24
+}
+
 const BATCH_SIZES = [3, 5, 10, 15, 20]
 const SESSION_SIZES = [10, 20, 50, 100]
 
@@ -88,6 +99,12 @@ export default function SettingsPage() {
 
   // Upgrade (single → all): dev-mock grants directly; real mode redirects
   // to Stripe Checkout. A 503 means billing isn't launched — say so.
+  const reminderMutation = useMutation({
+    mutationFn: (patch: { reminder_opt_in?: boolean; reminder_hour_utc?: number }) =>
+      updateProfile(patch),
+    onSuccess: () => queryClient.invalidateQueries({ queryKey: ['profile'] }),
+  })
+
   const upgradeMutation = useMutation({
     mutationFn: () => startPlanCheckout('all'),
     onSuccess: (res) => {
@@ -382,6 +399,62 @@ export default function SettingsPage() {
               />
             </button>
           </div>
+        </section>
+
+        <section className="bg-white rounded-2xl shadow-sm border border-gray-100 p-5 space-y-3">
+          <div className="flex items-start justify-between gap-4">
+            <div>
+              <h2 className="font-semibold text-gray-800">Email reminders</h2>
+              <p className="text-xs text-gray-500">
+                One email a day when reviews are waiting — nothing on days with
+                no reviews due.
+              </p>
+            </div>
+            <button
+              type="button"
+              role="switch"
+              aria-checked={profile?.reminder_opt_in ?? false}
+              aria-label="Email reminders"
+              onClick={() =>
+                reminderMutation.mutate({
+                  reminder_opt_in: !(profile?.reminder_opt_in ?? false),
+                })
+              }
+              className={
+                'relative shrink-0 inline-flex h-6 w-11 items-center rounded-full transition-colors ' +
+                (profile?.reminder_opt_in ? 'bg-lang' : 'bg-gray-300')
+              }
+            >
+              <span
+                className={
+                  'inline-block h-5 w-5 transform rounded-full bg-white transition-transform ' +
+                  (profile?.reminder_opt_in ? 'translate-x-5' : 'translate-x-1')
+                }
+              />
+            </button>
+          </div>
+          {profile?.reminder_opt_in && (
+            <label className="flex items-center gap-2 text-sm text-gray-700">
+              Send around
+              <select
+                value={utcToLocalHour(profile?.reminder_hour_utc ?? 16)}
+                onChange={(e) =>
+                  reminderMutation.mutate({
+                    reminder_hour_utc: localToUtcHour(Number(e.target.value)),
+                  })
+                }
+                className="rounded-lg border border-gray-200 px-2 py-1 text-sm"
+                aria-label="Reminder hour"
+              >
+                {Array.from({ length: 24 }, (_, h) => (
+                  <option key={h} value={h}>
+                    {h.toString().padStart(2, '0')}:00
+                  </option>
+                ))}
+              </select>
+              your time
+            </label>
+          )}
         </section>
 
         {studyingEnglish && (

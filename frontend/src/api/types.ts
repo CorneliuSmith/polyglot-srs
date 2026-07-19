@@ -212,6 +212,10 @@ export interface UserProfile {
   plan_scope: 'single' | 'all'
   /** the licensed language when plan_scope is 'single' */
   plan_language_id: string | null
+  /** opt-in daily email when reviews are due */
+  reminder_opt_in: boolean
+  /** hour of the daily reminder, in UTC (client converts to local) */
+  reminder_hour_utc: number
   created_at: string
   updated_at: string
 }
@@ -222,4 +226,6 @@ export interface ProfileUpdate {
   active_language_id?: string
   /** send 'en' to reset to English definitions */
   support_locale?: string
+  reminder_opt_in?: boolean
+  reminder_hour_utc?: number
 }

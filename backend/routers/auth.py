@@ -3,7 +3,7 @@
 from __future__ import annotations
 
 from fastapi import APIRouter, Depends, HTTPException, status
-from pydantic import BaseModel
+from pydantic import BaseModel, Field
 
 from backend.dependencies import get_current_user
 from backend.repositories.pool import rls_connection
@@ -19,6 +19,10 @@ class ProfileUpdate(BaseModel):
     # translations for ENGLISH cards render in this locale. 'en' resets to
     # the default (English definitions).
     support_locale: str | None = None
+    # Opt-in daily email when reviews are due; the hour is UTC (the client
+    # converts from the learner's local time).
+    reminder_opt_in: bool | None = None
+    reminder_hour_utc: int | None = Field(default=None, ge=0, le=23)
 
 
 @router.get("/me")
@@ -34,6 +38,7 @@ async def get_profile(user: dict = Depends(get_current_user)):
         row = await conn.fetchrow(
             "SELECT id, batch_size, ui_language, active_language_id, "
             "support_locale, plan_scope, plan_language_id, "
+            "reminder_opt_in, reminder_hour_utc, "
             "created_at, updated_at "
             "FROM user_profiles WHERE id = $1",
             user["id"],
@@ -86,9 +91,10 @@ async def upsert_profile(
         row = await conn.fetchrow(
             """
             INSERT INTO user_profiles
-                (id, batch_size, ui_language, active_language_id, support_locale)
+                (id, batch_size, ui_language, active_language_id, support_locale,
+                 reminder_opt_in, reminder_hour_utc)
             VALUES ($1, COALESCE($2, 5), COALESCE($3, 'en'), $4,
-                    NULLIF($5, 'en'))
+                    NULLIF($5, 'en'), COALESCE($6, false), COALESCE($7, 16))
             ON CONFLICT (id) DO UPDATE SET
                 batch_size = COALESCE($2, user_profiles.batch_size),
                 ui_language = COALESCE($3, user_profiles.ui_language),
@@ -98,9 +104,12 @@ async def upsert_profile(
                     WHEN $5 IS NULL THEN user_profiles.support_locale
                     ELSE NULLIF($5, 'en')
                 END,
+                reminder_opt_in = COALESCE($6, user_profiles.reminder_opt_in),
+                reminder_hour_utc = COALESCE($7, user_profiles.reminder_hour_utc),
                 updated_at = now()
             RETURNING id, batch_size, ui_language, active_language_id,
                       support_locale, plan_scope, plan_language_id,
+                      reminder_opt_in, reminder_hour_utc,
                       created_at, updated_at
             """,
             user["id"],
@@ -108,5 +117,7 @@ async def upsert_profile(
             body.ui_language,
             body.active_language_id,
             body.support_locale,
+            body.reminder_opt_in,
+            body.reminder_hour_utc,
         )
     return dict(row)

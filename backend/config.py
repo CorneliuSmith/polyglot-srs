@@ -23,6 +23,16 @@ class Settings(BaseSettings):
     # Error telemetry (WP19d). Empty DSN disables Sentry entirely.
     sentry_dsn: str = ""
 
+    # Opt-in email review reminders. Sending goes through Resend; an empty
+    # key means log-only (the sweep skips, nothing is marked sent), so the
+    # feature is safe to ship before the mail account exists. resend_from
+    # must be a sender the Resend account is allowed to use.
+    resend_api_key: str = ""
+    resend_from: str = "PolyglotSRS <onboarding@resend.dev>"
+    email_reminders_enabled: bool = True
+    # Public base URL used in reminder emails' links.
+    app_url: str = "https://polyglot-srs-avaraq-xhk74.ondigitalocean.app"
+
     # Neural TTS (WP7a). Microsoft blocks edge-tts's keyless endpoint from
     # datacenter IPs, so production needs a real Azure Speech key (free
     # tier covers the beta many times over). Empty key = edge-tts, which

@@ -38,6 +38,9 @@ interface PrefsState {
   // it with "don't show again"; the dashboard auto-opens it once while unset.
   walkthroughDone: boolean
   setWalkthroughDone: (done: boolean) => void
+  // "Install the app" banner (PWA): once dismissed, stays gone.
+  installPromptDismissed: boolean
+  setInstallPromptDismissed: (done: boolean) => void
 }
 
 export const usePrefsStore = create<PrefsState>()(
@@ -60,6 +63,8 @@ export const usePrefsStore = create<PrefsState>()(
       setAccentsOptional: (on) => set({ accentsOptional: on }),
       walkthroughDone: false,
       setWalkthroughDone: (done) => set({ walkthroughDone: done }),
+      installPromptDismissed: false,
+      setInstallPromptDismissed: (done) => set({ installPromptDismissed: done }),
     }),
     {
       name: 'polyglot-prefs',
