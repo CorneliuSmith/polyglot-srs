@@ -1,0 +1,360 @@
+{
+  "language": "en",
+  "locale": "ro",
+  "reviewed": false,
+  "_note": "Hints and faithful sentence translations for ENGLISH drills, shown to learners whose support locale is Romanian. The hint names the expected English word (kept in English) with a Romanian cue; the translation renders the completed sentence in natural Romanian.",
+  "points": {
+    "Past simple — irregular verbs": {
+      "Yesterday I {{answer}} to the market.": {"hint": "go — trecut", "translation": "Ieri m-am dus la piață."},
+      "She {{answer}} a great film last night.": {"hint": "see — trecut", "translation": "Aseară a văzut un film grozav."},
+      "We {{answer}} a new car in March.": {"hint": "buy — trecut", "translation": "În martie am cumpărat o mașină nouă."},
+      "He {{answer}} the early train this morning.": {"hint": "take — trecut", "translation": "Azi-dimineață a luat trenul de dimineață."},
+      "They {{answer}} home very late.": {"hint": "come — trecut", "translation": "Au ajuns acasă foarte târziu."},
+      "I {{answer}} breakfast at seven.": {"hint": "eat — trecut", "translation": "Am luat micul dejun la șapte."}
+    },
+    "Present continuous vs present simple": {
+      "Quiet, please — the baby {{answer}} sleeping.": {"hint": "be — persoana a treia", "translation": "Liniște, vă rog — bebelușul doarme acum."},
+      "She {{answer}} to work by bike every day.": {"hint": "go — obicei, ea", "translation": "Merge la serviciu cu bicicleta în fiecare zi."},
+      "I'm {{answer}} for my keys at the moment.": {"hint": "look — forma continuă", "translation": "Îmi caut cheile chiar acum."},
+      "Water {{answer}} at 100 degrees.": {"hint": "boil — adevăr general, it", "translation": "Apa fierbe la 100 de grade."},
+      "They {{answer}} watching TV right now.": {"hint": "be — ei", "translation": "Ei se uită la televizor chiar acum."},
+      "He usually {{answer}} coffee, not tea.": {"hint": "drink — obicei, el", "translation": "De obicei bea cafea, nu ceai."}
+    },
+    "Comparatives and superlatives": {
+      "This bag is {{answer}} than that one.": {"hint": "cheap — comparativ", "translation": "Geanta aceasta este mai ieftină decât aceea."},
+      "It's the {{answer}} building in the city.": {"hint": "tall — superlativ", "translation": "Este cea mai înaltă clădire din oraș."},
+      "Her English is {{answer}} than mine.": {"hint": "good — comparativ", "translation": "Engleza ei este mai bună decât a mea."},
+      "That was the {{answer}} meal I've ever had.": {"hint": "bad — superlativ", "translation": "A fost cea mai proastă masă din viața mea."},
+      "This exercise is {{answer}} difficult than the last.": {"hint": "cuvântul dinaintea adjectivelor lungi", "translation": "Exercițiul acesta este mai dificil decât ultimul."},
+      "The station is {{answer}} than I thought.": {"hint": "far — comparativ", "translation": "Gara este mai departe decât credeam."}
+    },
+    "Going to and will": {
+      "We're {{answer}} to visit Rome in May.": {"hint": "viitorul planurilor stabilite", "translation": "O să vizităm Roma în mai."},
+      "Don't worry — I {{answer}} help you.": {"hint": "decizie luată pe loc", "translation": "Nu-ți face griji — te ajut eu."},
+      "Look at those clouds! It's going to {{answer}}.": {"hint": "vreme de ploaie", "translation": "Uite ce nori! O să plouă."},
+      "I think she {{answer}} pass the exam.": {"hint": "cuvântul predicțiilor", "translation": "Cred că va trece examenul."},
+      "They're going {{answer}} move house next year.": {"hint": "particula de după going", "translation": "Anul viitor se vor muta."},
+      "I'm tired — I {{answer}} go to bed.": {"hint": "forma contrasă a viitorului imediat", "translation": "Sunt obosit — mă duc la culcare."}
+    },
+    "Some, any, much, many": {
+      "There's {{answer}} milk in the fridge.": {"hint": "cuantificatorul propozițiilor afirmative", "translation": "Este niște lapte în frigider."},
+      "We don't have {{answer}} eggs left.": {"hint": "cuantificatorul propozițiilor negative", "translation": "Nu ne-au mai rămas ouă."},
+      "Do you have {{answer}} questions?": {"hint": "cuantificatorul întrebărilor", "translation": "Aveți întrebări?"},
+      "How {{answer}} money do you need?": {"hint": "cu substantivele nenumărabile", "translation": "De câți bani ai nevoie?"},
+      "How {{answer}} people are coming?": {"hint": "cu substantivele numărabile", "translation": "Câți oameni vin?"},
+      "Would you like {{answer}} tea?": {"hint": "cuantificatorul ofertelor", "translation": "Doriți niște ceai?"}
+    },
+    "Adverbs of frequency": {
+      "I {{answer}} drink coffee in the morning — every single day.": {"hint": "cuvântul lui 'de fiecare dată'", "translation": "Beau întotdeauna cafea dimineața — absolut în fiecare zi."},
+      "He is {{answer}} late — it drives me crazy.": {"hint": "cuvântul lui 'de fiecare dată'", "translation": "Întârzie mereu — mă scoate din minți."},
+      "We {{answer}} go out on Fridays — maybe once a month.": {"hint": "cuvântul lui 'din când în când'", "translation": "Uneori ieșim vinerea — poate o dată pe lună."},
+      "She {{answer}} eats meat — she's almost vegetarian.": {"hint": "cuvântul lui 'aproape niciodată'", "translation": "Mănâncă rar carne — e aproape vegetariană."},
+      "I have {{answer}} been to Japan, but I'd love to go.": {"hint": "cuvântul lui 'de zero ori'", "translation": "Nu am fost niciodată în Japonia, dar mi-ar plăcea mult să merg."},
+      "They {{answer}} visit us at Christmas — most years.": {"hint": "cuvântul lui 'de obicei'", "translation": "De obicei ne vizitează de Crăciun — mai în fiecare an."},
+      "We {{answer}} eat out on Fridays.": {"hint": "des — între 'sometimes' și 'always'", "translation": "Vinerea mâncăm adesea în oraș."}
+    },
+    "Can, could, have to": {
+      "She {{answer}} speak three languages.": {"hint": "cuvântul capacității", "translation": "Știe să vorbească trei limbi."},
+      "{{answer}} you open the window, please?": {"hint": "cuvântul cererii politicoase", "translation": "Ați putea deschide fereastra, vă rog?"},
+      "I {{answer}} to wear a uniform at work.": {"hint": "verbul obligației", "translation": "Trebuie să port uniformă la serviciu."},
+      "When I was five, I {{answer}} already read.": {"hint": "cuvântul capacității — trecut", "translation": "La cinci ani știam deja să citesc."},
+      "You don't {{answer}} to come if you're busy.": {"hint": "verbul obligației", "translation": "Nu trebuie să vii dacă ești ocupat."},
+      "{{answer}} I sit here? — Of course.": {"hint": "cuvântul permisiunii", "translation": "Pot să stau aici? — Desigur."}
+    },
+    "Prepositions of time: in, on, at": {
+      "The meeting starts {{answer}} nine o'clock.": {"hint": "prepoziția orei exacte", "translation": "Ședința începe la ora nouă."},
+      "I was born {{answer}} 1998.": {"hint": "prepoziția perioadelor lungi", "translation": "M-am născut în 1998."},
+      "We're leaving {{answer}} Friday.": {"hint": "prepoziția zilelor", "translation": "Plecăm vineri."},
+      "She works best {{answer}} the morning.": {"hint": "prepoziția perioadelor lungi", "translation": "Lucrează cel mai bine dimineața."},
+      "My birthday is {{answer}} 12 March.": {"hint": "prepoziția datelor", "translation": "Ziua mea este pe 12 martie."},
+      "He often studies {{answer}} night.": {"hint": "prepoziția fixă cu night", "translation": "Învață adesea noaptea."}
+    },
+    "Subject pronouns (I, you, he…)": {
+      "{{answer}} am from Brazil.": {"hint": "cine vorbește — mereu cu majusculă", "translation": "Eu sunt din Brazilia."},
+      "{{answer}} is my sister.": {"hint": "o femeie", "translation": "Ea este sora mea."},
+      "{{answer}} are students.": {"hint": "cine vorbește + alții", "translation": "Noi suntem studenți."},
+      "{{answer}} is my father.": {"hint": "un bărbat", "translation": "El este tatăl meu."},
+      "{{answer}} is on the table.": {"hint": "un lucru", "translation": "Este pe masă."},
+      "{{answer}} are very kind.": {"hint": "persoana cu care vorbești", "translation": "Ești foarte amabil. / Sunteți foarte amabili."},
+      "{{answer}} are my friends.": {"hint": "mai multe persoane — „ei”", "translation": "Ei sunt prietenii mei."}
+    },
+    "To be — am / is / are": {
+      "I {{answer}} a student.": {"hint": "be — cu I", "translation": "Sunt student."},
+      "You {{answer}} my friend.": {"hint": "be — cu you", "translation": "Ești prietenul meu."},
+      "She {{answer}} a doctor.": {"hint": "be — cu she", "translation": "Ea este medic."},
+      "We {{answer}} at home.": {"hint": "be — cu we", "translation": "Suntem acasă."},
+      "The coffee {{answer}} hot.": {"hint": "be — cu it/un lucru", "translation": "Cafeaua este fierbinte."},
+      "They {{answer}} from Japan.": {"hint": "be — cu they", "translation": "Ei sunt din Japonia."}
+    },
+    "Articles: a / an": {
+      "I have {{answer}} dog.": {"hint": "înaintea unui sunet consonantic", "translation": "Am un câine."},
+      "She is {{answer}} engineer.": {"hint": "înaintea unui sunet vocalic", "translation": "Este ingineră."},
+      "It is {{answer}} big house.": {"hint": "înaintea unui sunet consonantic", "translation": "Este o casă mare."},
+      "He eats {{answer}} apple every day.": {"hint": "înaintea unui sunet vocalic", "translation": "Mănâncă un măr în fiecare zi."},
+      "I read {{answer}} book every week.": {"hint": "înaintea unui sunet consonantic", "translation": "Citesc o carte în fiecare săptămână."},
+      "I need {{answer}} umbrella.": {"hint": "înaintea unui sunet vocalic", "translation": "Am nevoie de o umbrelă."}
+    },
+    "The — pointing at a specific thing": {
+      "{{answer}} sun is hot today.": {"hint": "lucrurile unice primesc acest articol", "translation": "Soarele arde astăzi."},
+      "Please close {{answer}} door.": {"hint": "amândoi știți care", "translation": "Închide ușa, te rog."},
+      "{{answer}} keys in my hand are mine.": {"hint": "precizat de ceea ce urmează", "translation": "Cheile din mâna mea sunt ale mele."},
+      "We live near {{answer}} station.": {"hint": "amândoi știți care", "translation": "Locuim lângă gară."},
+      "{{answer}} moon is bright tonight.": {"hint": "lucrurile unice primesc acest articol", "translation": "Luna e strălucitoare în seara asta."},
+      "Where is {{answer}} bathroom?": {"hint": "amândoi știți care", "translation": "Unde este baia?"}
+    },
+    "Plural nouns (-s, -es, irregular)": {
+      "I have two {{answer}}.": {"hint": "book, la plural", "translation": "Am două cărți."},
+      "The {{answer}} are playing outside.": {"hint": "child — plural neregulat", "translation": "Copiii se joacă afară."},
+      "She has three {{answer}}.": {"hint": "watch — adaugă -es", "translation": "Are trei ceasuri."},
+      "The {{answer}} are late today.": {"hint": "bus — adaugă -es", "translation": "Autobuzele întârzie astăzi."},
+      "Two {{answer}} live in our street.": {"hint": "family — y devine -ies", "translation": "Două familii locuiesc pe strada noastră."},
+      "My {{answer}} are cold.": {"hint": "foot — plural neregulat", "translation": "Îmi sunt reci picioarele."}
+    },
+    "Present simple (I work)": {
+      "I {{answer}} in a bank.": {"hint": "ce faci ca meserie", "translation": "Lucrez la o bancă."},
+      "We {{answer}} breakfast at seven.": {"hint": "a lua (o masă)", "translation": "Luăm micul dejun la șapte."},
+      "They {{answer}} in London.": {"hint": "a locui undeva", "translation": "Locuiesc la Londra."},
+      "You {{answer}} English very well.": {"hint": "a folosi o limbă", "translation": "Vorbești engleza foarte bine."},
+      "I {{answer}} coffee every morning.": {"hint": "a consuma un lichid", "translation": "Beau cafea în fiecare dimineață."},
+      "We {{answer}} TV in the evening.": {"hint": "a privi un ecran sau o emisiune", "translation": "Ne uităm la televizor seara."}
+    },
+    "Third-person -s (she works)": {
+      "She {{answer}} in a hospital.": {"hint": "to work — cu she", "translation": "Lucrează la un spital."},
+      "He {{answer}} to school every day.": {"hint": "to go — adaugă -es", "translation": "Merge la școală în fiecare zi."},
+      "My brother {{answer}} English.": {"hint": "to study — y devine -ies", "translation": "Fratele meu studiază engleza."},
+      "The shop {{answer}} at nine.": {"hint": "to open — cu it", "translation": "Magazinul se deschide la nouă."},
+      "She {{answer}} TV after dinner.": {"hint": "to watch — adaugă -es", "translation": "Se uită la televizor după cină."},
+      "It {{answer}} a lot in April.": {"hint": "to rain — cu it", "translation": "În aprilie plouă mult."}
+    },
+    "Do-support: questions and negation": {
+      "{{answer}} you speak English?": {"hint": "auxiliarul — cu you", "translation": "Vorbești engleză?"},
+      "{{answer}} she work here?": {"hint": "auxiliarul — cu she", "translation": "Lucrează aici?"},
+      "I {{answer}} not eat meat.": {"hint": "auxiliarul — cu I", "translation": "Nu mănânc carne."},
+      "He {{answer}} not like coffee.": {"hint": "auxiliarul — cu he", "translation": "Nu-i place cafeaua."},
+      "{{answer}} they live in Rome?": {"hint": "auxiliarul — cu they", "translation": "Locuiesc la Roma?"},
+      "We {{answer}} not have time.": {"hint": "auxiliarul — cu we", "translation": "Nu avem timp."},
+      "I {{answer}} like coffee.": {"hint": "negația cu I — do + not", "translation": "Nu-mi place cafeaua."},
+      "She {{answer}} work on Sundays.": {"hint": "negația cu she — does + not", "translation": "Nu lucrează duminica."}
+    },
+    "Present continuous (I am working)": {
+      "I am {{answer}} a book right now.": {"hint": "to read + -ing", "translation": "Citesc o carte chiar acum."},
+      "She is {{answer}} dinner now.": {"hint": "to cook + -ing", "translation": "Gătește cina acum."},
+      "They are {{answer}} football.": {"hint": "to play + -ing", "translation": "Joacă fotbal acum."},
+      "Look! It is {{answer}}.": {"hint": "to rain + -ing", "translation": "Uite! Plouă."},
+      "We are {{answer}} for the bus.": {"hint": "to wait + -ing", "translation": "Așteptăm autobuzul."},
+      "He is {{answer}} at the moment.": {"hint": "to sleep + -ing", "translation": "Doarme în acest moment."},
+      "He is {{answer}} in the park.": {"hint": "run — dublează consoana finală", "translation": "Aleargă prin parc."},
+      "She is {{answer}} an email.": {"hint": "write — cade e-ul mut", "translation": "Scrie un e-mail."}
+    },
+    "There is / there are": {
+      "There {{answer}} a book on the table.": {"hint": "singular", "translation": "Este o carte pe masă."},
+      "There {{answer}} two cafés in this street.": {"hint": "plural", "translation": "Pe strada aceasta sunt două cafenele."},
+      "{{answer}} there a bank near here?": {"hint": "singular, ordine interogativă", "translation": "Există vreo bancă prin apropiere?"},
+      "There {{answer}} no milk.": {"hint": "singular", "translation": "Nu este lapte."},
+      "{{answer}} there any questions?": {"hint": "plural, ordine interogativă", "translation": "Sunt întrebări?"},
+      "There {{answer}} many people here today.": {"hint": "plural", "translation": "Astăzi sunt mulți oameni aici."}
+    },
+    "Question words (what, where, when…)": {
+      "{{answer}} do you live?": {"hint": "se întreabă despre un loc", "translation": "Unde locuiești?"},
+      "{{answer}} is your name?": {"hint": "se întreabă despre un lucru", "translation": "Cum te cheamă? (literal: care este numele tău?)"},
+      "{{answer}} is your birthday?": {"hint": "se întreabă despre un moment", "translation": "Când este ziua ta de naștere?"},
+      "{{answer}} old are you?": {"hint": "așa se întreabă vârsta", "translation": "Câți ani ai?"},
+      "{{answer}} is your teacher?": {"hint": "se întreabă despre o persoană", "translation": "Cine este profesorul tău?"},
+      "{{answer}} are you crying?": {"hint": "se întreabă despre un motiv", "translation": "De ce plângi?"}
+    },
+    "Possessives (my, your, 's)": {
+      "This is {{answer}} book.": {"hint": "al celui care vorbește", "translation": "Aceasta este cartea mea."},
+      "Is this {{answer}} car?": {"hint": "al tău", "translation": "Este mașina ta?"},
+      "{{answer}} name is Anna.": {"hint": "al ei", "translation": "Numele ei este Anna."},
+      "That is my {{answer}} car.": {"hint": "brother + terminația posesiei", "translation": "Aceea este mașina fratelui meu."},
+      "{{answer}} house is big.": {"hint": "al lor", "translation": "Casa lor este mare."},
+      "The dog wags {{answer}} tail.": {"hint": "al unui lucru — fără apostrof", "translation": "Câinele dă din coadă."},
+      "{{answer}} name is David.": {"hint": "numele unui bărbat — „al lui”", "translation": "Numele lui este David."},
+      "That is {{answer}} classroom.": {"hint": "ne aparține — „a noastră”", "translation": "Aceea este sala noastră de clasă."}
+    },
+    "Present perfect vs past simple": {
+      "I've {{answer}} my wallet — can you help me look?": {"hint": "lose — participiu", "translation": "Mi-am pierdut portofelul — mă ajuți să-l caut?"},
+      "She {{answer}} in Berlin in 2019.": {"hint": "live — trecut", "translation": "În 2019 locuia la Berlin."},
+      "Have you {{answer}} been to Japan?": {"hint": "cuvântul lui 'măcar o dată în viață'", "translation": "Ai fost vreodată în Japonia?"},
+      "We've known each other {{answer}} ten years.": {"hint": "cuvântul duratei", "translation": "Ne cunoaștem de zece ani."},
+      "He's worked here {{answer}} 2020.": {"hint": "cuvântul punctului de plecare", "translation": "Lucrează aici din 2020."},
+      "They haven't finished {{answer}}.": {"hint": "cuvântul lui 'încă nu'", "translation": "Încă nu au terminat."}
+    },
+    "First and second conditionals": {
+      "If it {{answer}} tomorrow, we'll cancel the picnic.": {"hint": "rain — prezent, it", "translation": "Dacă plouă mâine, anulăm picnicul."},
+      "If you study, you {{answer}} pass.": {"hint": "cuvântul viitorului real", "translation": "Dacă înveți, vei trece."},
+      "If I {{answer}} rich, I would buy an island.": {"hint": "be — forma ireală", "translation": "Dacă aș fi bogat, mi-aș cumpăra o insulă."},
+      "She {{answer}} travel more if she had time.": {"hint": "cuvântul rezultatului ireal", "translation": "Ar călători mai mult dacă ar avea timp."},
+      "If we {{answer}} now, we'll catch the train.": {"hint": "a pleca — la prezent", "translation": "Dacă plecăm acum, prindem trenul."},
+      "What {{answer}} you do if you won the lottery?": {"hint": "cuvântul rezultatului ireal", "translation": "Ce ai face dacă ai câștiga la loterie?"}
+    },
+    "The passive (is made, was built)": {
+      "This wine {{answer}} produced in Chile.": {"hint": "be — prezent, it", "translation": "Acest vin este produs în Chile."},
+      "The castle was {{answer}} in the twelfth century.": {"hint": "build — participiu", "translation": "Castelul a fost construit în secolul al XII-lea."},
+      "These photos {{answer}} taken by my grandmother.": {"hint": "be — trecut, they", "translation": "Aceste fotografii au fost făcute de bunica mea."},
+      "English {{answer}} spoken all over the world.": {"hint": "be — prezent, it", "translation": "Engleza este vorbită în toată lumea."},
+      "The thief was caught {{answer}} the police.": {"hint": "prepoziția agentului", "translation": "Hoțul a fost prins de poliție."},
+      "My phone was {{answer}} at the festival.": {"hint": "steal — participiu", "translation": "Mi-a fost furat telefonul la festival."}
+    },
+    "Relative clauses (who, which, that, where)": {
+      "She's the doctor {{answer}} treated my father.": {"hint": "relativul persoanelor", "translation": "Ea este doctorița care l-a tratat pe tatăl meu."},
+      "That's the restaurant {{answer}} we first met.": {"hint": "relativul locurilor", "translation": "Acela este restaurantul unde ne-am cunoscut."},
+      "The laptop {{answer}} I bought last week is broken.": {"hint": "relativul universal", "translation": "Laptopul pe care l-am cumpărat săptămâna trecută s-a stricat."},
+      "He's the author {{answer}} books sell millions.": {"hint": "relativul posesiei", "translation": "El este autorul ale cărui cărți se vând în milioane de exemplare."},
+      "The train, {{answer}} was already late, then broke down.": {"hint": "relativul lucrurilor", "translation": "Trenul, care oricum întârzia, s-a și defectat apoi."},
+      "People {{answer}} exercise regularly live longer.": {"hint": "relativul persoanelor", "translation": "Oamenii care fac sport regulat trăiesc mai mult."}
+    },
+    "Used to — past habits and states": {
+      "I {{answer}} to play football every weekend.": {"hint": "verbul obiceiului trecut", "translation": "Pe vremuri jucam fotbal în fiecare weekend."},
+      "She didn't {{answer}} to like coffee, but now she loves it.": {"hint": "verbul obiceiului trecut, fără -d", "translation": "Înainte nu-i plăcea cafeaua, dar acum o adoră."},
+      "There {{answer}} to be a bakery on this corner.": {"hint": "verbul obiceiului trecut", "translation": "Pe vremuri era o brutărie la colțul acesta."},
+      "Did you {{answer}} to live in London?": {"hint": "verbul obiceiului trecut, fără -d", "translation": "Locuiai la Londra pe vremuri?"},
+      "He used {{answer}} have long hair.": {"hint": "particula", "translation": "Pe vremuri avea părul lung."},
+      "We {{answer}} to go camping every summer as kids.": {"hint": "verbul obiceiului trecut", "translation": "În copilărie mergeam cu cortul în fiecare vară."}
+    },
+    "Reported speech": {
+      "'I'm busy.' → She said she {{answer}} busy.": {"hint": "be — un pas înapoi", "translation": "„Sunt ocupată.” → A spus că era ocupată."},
+      "'I'll call you.' → He said he {{answer}} call me.": {"hint": "will — un pas înapoi", "translation": "„Te sun.” → A spus că mă va suna."},
+      "'Are you ready?' → She asked {{answer}} I was ready.": {"hint": "cuvântul întrebărilor da/nu", "translation": "„Ești gata?” → M-a întrebat dacă sunt gata."},
+      "'Where do you live?' → He asked where I {{answer}}.": {"hint": "live — un pas înapoi", "translation": "„Unde locuiești?” → M-a întrebat unde locuiesc."},
+      "'I can swim.' → She said she {{answer}} swim.": {"hint": "can — un pas înapoi", "translation": "„Știu să înot.” → A spus că știe să înoate."},
+      "'We bought a house.' → They said they {{answer}} bought a house.": {"hint": "auxiliarul pasului înapoi", "translation": "„Am cumpărat o casă.” → Au spus că au cumpărat o casă."}
+    },
+    "Gerund or infinitive?": {
+      "I really enjoy {{answer}} in the sea.": {"hint": "swim — ce formă?", "translation": "Îmi place foarte mult să înot în mare."},
+      "She decided {{answer}} accept the job.": {"hint": "particula infinitivului", "translation": "A decis să accepte postul."},
+      "Would you mind {{answer}} the door?": {"hint": "close — ce formă?", "translation": "V-ar deranja să închideți ușa?"},
+      "We hope {{answer}} see you soon.": {"hint": "particula infinitivului", "translation": "Sperăm să te vedem curând."},
+      "He avoided {{answer}} my question.": {"hint": "answer — ce formă?", "translation": "A evitat să răspundă la întrebarea mea."},
+      "They promised {{answer}} write every week.": {"hint": "particula infinitivului", "translation": "Au promis să scrie în fiecare săptămână."}
+    },
+    "Third and mixed conditionals": {
+      "If you {{answer}} told me, I would have helped.": {"hint": "auxiliarul mai-mult-ca-perfectului", "translation": "Dacă mi-ai fi spus, te-aș fi ajutat."},
+      "If she had left earlier, she would {{answer}} caught the flight.": {"hint": "auxiliarul perfectului după would", "translation": "Dacă ar fi plecat mai devreme, ar fi prins zborul."},
+      "I wouldn't {{answer}} met her if I hadn't gone to that party.": {"hint": "auxiliarul perfectului", "translation": "N-aș fi cunoscut-o dacă nu m-aș fi dus la petrecerea aceea."},
+      "If he had studied medicine, he {{answer}} be a doctor now.": {"hint": "cuvântul rezultatului ireal", "translation": "Dacă ar fi studiat medicina, acum ar fi medic."},
+      "If we {{answer}} taken the map, we wouldn't have got lost.": {"hint": "auxiliarul mai-mult-ca-perfectului", "translation": "Dacă am fi luat harta, nu ne-am fi rătăcit."},
+      "What would you have {{answer}} in my position?": {"hint": "do — participiu", "translation": "Tu ce ai fi făcut în locul meu?"}
+    },
+    "Modals of deduction (must, might, can't)": {
+      "The lights are on — someone {{answer}} be home.": {"hint": "cuvântul cvasi-certitudinii", "translation": "Luminile sunt aprinse — trebuie să fie cineva acasă."},
+      "That {{answer}} be Maria — she's in Brazil this week!": {"hint": "cuvântul imposibilității", "translation": "Nu se poate să fie Maria — săptămâna asta e în Brazilia!"},
+      "He {{answer}} be stuck in traffic — it happens.": {"hint": "un cuvânt de posibilitate", "translation": "Poate e blocat în trafic — se mai întâmplă."},
+      "She must {{answer}} forgotten our meeting.": {"hint": "auxiliarul deducției la trecut", "translation": "Probabil a uitat de întâlnirea noastră."},
+      "They can't {{answer}} left already — the car's still here.": {"hint": "auxiliarul deducției la trecut", "translation": "Nu se poate să fi plecat deja — mașina e încă aici."},
+      "It {{answer}} rain later, so take an umbrella.": {"hint": "un cuvânt de posibilitate", "translation": "S-ar putea să plouă mai târziu, așa că ia o umbrelă."}
+    },
+    "Advanced passives (has been done, being done)": {
+      "The road has {{answer}} closed since Monday.": {"hint": "participiul lui be", "translation": "Drumul este închis de luni."},
+      "Our office is {{answer}} renovated at the moment.": {"hint": "forma -ing a lui be", "translation": "Biroul nostru este în renovare în acest moment."},
+      "All answers must be {{answer}} in ink.": {"hint": "write — participiu", "translation": "Toate răspunsurile trebuie scrise cu cerneală."},
+      "She is {{answer}} to be the richest woman in the country.": {"hint": "say — participiu", "translation": "Se spune că ar fi cea mai bogată femeie din țară."},
+      "The results will {{answer}} announced on Friday.": {"hint": "infinitivul scurt al pasivului", "translation": "Rezultatele vor fi anunțate vineri."},
+      "By 1990, the bridge {{answer}} been rebuilt twice.": {"hint": "auxiliarul mai-mult-ca-perfectului", "translation": "Până în 1990, podul fusese reconstruit deja de două ori."}
+    },
+    "Wish and if only": {
+      "I wish I {{answer}} how to drive.": {"hint": "know — forma regretului", "translation": "Aș vrea să știu să conduc."},
+      "She wishes she {{answer}} accepted the offer.": {"hint": "auxiliarul regretului trecut", "translation": "Își dorește să fi acceptat oferta."},
+      "I wish you {{answer}} stop interrupting me!": {"hint": "cuvântul plângerii", "translation": "Aș vrea să nu mă mai întrerupi!"},
+      "If {{answer}} I had listened to your advice!": {"hint": "cuvântul de după if", "translation": "Măcar de-aș fi ascultat sfatul tău!"},
+      "He wishes he {{answer}} taller.": {"hint": "be — forma regretului", "translation": "Și-ar dori să fie mai înalt."},
+      "We wish we {{answer}} bought tickets earlier.": {"hint": "auxiliarul regretului trecut", "translation": "Ne pare rău că nu am cumpărat biletele mai devreme."}
+    },
+    "Phrasal verbs — separable or not?": {
+      "Could you turn {{answer}} off? The music's too loud.": {"hint": "pronumele obiect", "translation": "Poți s-o oprești? Muzica e prea tare."},
+      "She's looking {{answer}} her elderly mother.": {"hint": "particula îngrijirii", "translation": "Are grijă de mama ei în vârstă."},
+      "Please fill {{answer}} this form.": {"hint": "particula formularelor", "translation": "Completați acest formular, vă rog."},
+      "I'll pick you {{answer}} at eight.": {"hint": "particula luării de acasă", "translation": "Te iau la opt."},
+      "We've put {{answer}} the meeting until Friday.": {"hint": "particula amânării", "translation": "Am amânat ședința până vineri."},
+      "He takes {{answer}} his father — same smile, same laugh.": {"hint": "particula asemănării", "translation": "Îi seamănă tatălui său — același zâmbet, același râs."}
+    },
+    "Question tags and indirect questions": {
+      "You've met before, {{answer}} you?": {"hint": "auxiliarul inversat al codei interogative", "translation": "V-ați mai întâlnit, nu-i așa?"},
+      "She doesn't eat fish, {{answer}} she?": {"hint": "auxiliarul inversat al codei interogative", "translation": "Nu mănâncă pește, nu-i așa?"},
+      "Could you tell me where the bank {{answer}}?": {"hint": "be — la SFÂRȘIT", "translation": "Ați putea să-mi spuneți unde este banca?"},
+      "Do you know if the shop {{answer}} at six?": {"hint": "close — ordinea afirmației", "translation": "Știi dacă magazinul se închide la șase?"},
+      "It's cold today, {{answer}} it?": {"hint": "auxiliarul inversat al codei interogative", "translation": "E frig azi, nu-i așa?"},
+      "I wonder {{answer}} they got home safely.": {"hint": "alternativa la if", "translation": "Mă întreb dacă au ajuns cu bine acasă."}
+    },
+    "Inversion (Never have I…, Not only…)": {
+      "Never {{answer}} I heard such nonsense.": {"hint": "auxiliarul perfectului", "translation": "Niciodată n-am auzit asemenea prostie."},
+      "Not only {{answer}} she sing, she writes her own songs.": {"hint": "auxiliarul prezentului", "translation": "Nu doar că ea cântă, dar își și scrie propriile cântece."},
+      "No sooner had we sat down {{answer}} the phone rang.": {"hint": "cuvântul care completează perechea", "translation": "Nici nu ne așezaserăm bine, că a sunat telefonul."},
+      "Under no circumstances {{answer}} you open that door.": {"hint": "modalul sfatului", "translation": "Sub nicio formă n-ar trebui să deschizi ușa aceea."},
+      "Rarely {{answer}} we see such talent.": {"hint": "auxiliarul prezentului", "translation": "Rar vedem un asemenea talent."},
+      "Only then {{answer}} I understand what she meant.": {"hint": "auxiliarul trecutului", "translation": "Abia atunci am înțeles ce voia să spună."}
+    },
+    "Cleft sentences (What I need is…, It was… that)": {
+      "{{answer}} I need is a good night's sleep.": {"hint": "începutul frazei scindate", "translation": "Ceea ce îmi trebuie este un somn bun."},
+      "It was Marco {{answer}} suggested the idea.": {"hint": "relativul persoanelor", "translation": "Marco a fost cel care a sugerat ideea."},
+      "What annoys me {{answer}} his constant lateness.": {"hint": "be — pivotul frazei", "translation": "Ceea ce mă enervează este întârzierea lui constantă."},
+      "It {{answer}} in Paris that they first met.": {"hint": "be — trecut", "translation": "La Paris s-au cunoscut."},
+      "{{answer}} she wants is a little respect.": {"hint": "începutul lui 'tot ce'", "translation": "Tot ce vrea este puțin respect."},
+      "It wasn't until midnight {{answer}} he finally called.": {"hint": "conectorul frazei scindate", "translation": "Abia la miezul nopții a sunat în sfârșit."}
+    },
+    "Hedging and distancing (would seem, tend to)": {
+      "It would {{answer}} that the figures are wrong.": {"hint": "verbul aparenței", "translation": "S-ar părea că cifrele sunt greșite."},
+      "House prices {{answer}} to rise in spring.": {"hint": "verbul tendinței", "translation": "Prețurile locuințelor tind să crească primăvara."},
+      "There {{answer}} to be a problem with the data.": {"hint": "verbul aparenței, persoana a treia", "translation": "Pare să existe o problemă cu datele."},
+      "It is widely {{answer}} that the climate is changing.": {"hint": "believe — participiu", "translation": "Este o convingere larg răspândită că clima se schimbă."},
+      "The results {{answer}} that more research is needed.": {"hint": "verbul sugerării", "translation": "Rezultatele sugerează că este nevoie de mai multă cercetare."},
+      "It could be {{answer}} that the policy failed.": {"hint": "argue — participiu", "translation": "S-ar putea susține că politica a eșuat."}
+    },
+    "Participle clauses (Having finished, …)": {
+      "{{answer}} finished dinner, we went for a walk.": {"hint": "începutul participiului perfect", "translation": "După ce am terminat cina, am ieșit la plimbare."},
+      "{{answer}} through the window, she saw the storm coming.": {"hint": "look — participiu", "translation": "Privind pe fereastră, a văzut furtuna apropiindu-se."},
+      "{{answer}} in 1889, the tower still draws millions.": {"hint": "build — participiu", "translation": "Construit în 1889, turnul atrage și astăzi milioane de vizitatori."},
+      "Not {{answer}} what to say, he stayed silent.": {"hint": "know — participiu", "translation": "Neștiind ce să spună, a tăcut."},
+      "Having {{answer}} in Rome for years, she speaks fluent Italian.": {"hint": "live — participiu", "translation": "Fiindcă a locuit ani de zile la Roma, vorbește italiana fluent."},
+      "{{answer}} by the news, they cancelled the trip.": {"hint": "shock — participiu", "translation": "Șocați de veste, au anulat călătoria."}
+    },
+    "The mandative subjunctive (insist that he be)": {
+      "The board insisted that he {{answer}} removed from the project.": {"hint": "be — forma scurtă", "translation": "Consiliul a insistat ca el să fie retras din proiect."},
+      "It is essential that every member {{answer}} the code of conduct.": {"hint": "a respecta — forma scurtă", "translation": "Este esențial ca fiecare membru să respecte codul de conduită."},
+      "She recommended that the report {{answer}} rewritten.": {"hint": "be — forma scurtă", "translation": "A recomandat ca raportul să fie rescris."},
+      "They demanded that the minister {{answer}}.": {"hint": "a demisiona — forma scurtă", "translation": "Au cerut ca ministrul să demisioneze."},
+      "It's vital that she {{answer}} informed at once.": {"hint": "be — forma scurtă", "translation": "Este vital ca ea să fie informată imediat."},
+      "We suggest that he {{answer}} a lawyer before signing.": {"hint": "a consulta — forma scurtă", "translation": "Sugerăm să consulte un avocat înainte de a semna."}
+    },
+    "Ellipsis and substitution (so, neither, do so)": {
+      "I loved the film. — {{answer}} did I!": {"hint": "începutul lui 'și eu'", "translation": "Mi-a plăcut mult filmul. — Și mie!"},
+      "She can't make it tonight. — {{answer}} can I.": {"hint": "începutul negativ al lui 'nici eu'", "translation": "Ea nu poate veni diseară. — Nici eu."},
+      "He was asked to apologise, and he did {{answer}} immediately.": {"hint": "substitutul de după did", "translation": "I s-a cerut să-și ceară scuze, și a făcut-o imediat."},
+      "You may be tired; if {{answer}}, rest.": {"hint": "substitutul de după if", "translation": "Poate ești obosit; dacă da, odihnește-te."},
+      "They promised to help, but failed to {{answer}} so.": {"hint": "verbul substitut", "translation": "Au promis să ajute, dar n-au făcut-o."},
+      "I've never been to Oslo. — Nor {{answer}} I.": {"hint": "auxiliarul perfectului", "translation": "N-am fost niciodată la Oslo. — Nici eu."}
+    },
+    "Formal connectors (notwithstanding, albeit)": {
+      "The plan went ahead, {{answer}} the objections.": {"hint": "varianta mai formală a lui 'despite'", "translation": "Planul a mers înainte, în pofida obiecțiilor."},
+      "It was a victory, {{answer}} a narrow one.": {"hint": "although comprimat", "translation": "A fost o victorie, deși una la limită."},
+      "The costs rose sharply; {{answer}} the project was cancelled.": {"hint": "un therefore formal", "translation": "Costurile au crescut brusc; prin urmare, proiectul a fost anulat."},
+      "A scheme {{answer}} employees share the profits.": {"hint": "cuvântul lui 'prin care'", "translation": "Un sistem prin care angajații împart profitul."},
+      "A {{answer}} unknown author won the prize.": {"hint": "cuvântul lui 'până atunci'", "translation": "Un autor până atunci necunoscut a câștigat premiul."},
+      "The evidence, {{answer}} incomplete, points one way.": {"hint": "although prescurtat", "translation": "Dovezile, deși incomplete, indică o singură direcție."}
+    },
+    "Past simple — regular verbs (-ed)": {
+      "I {{answer}} in a bank for five years.": {"hint": "work + -ed", "translation": "Am lucrat la o bancă timp de cinci ani."},
+      "She {{answer}} in Rome when she was young.": {"hint": "live — adaugă doar -d", "translation": "În tinerețe a locuit la Roma."},
+      "He {{answer}} English at university.": {"hint": "study — y devine -ied", "translation": "A studiat engleza la universitate."},
+      "The bus {{answer}} suddenly.": {"hint": "stop — dublează p-ul", "translation": "Autobuzul a oprit brusc."},
+      "We {{answer}} football in the park yesterday.": {"hint": "vocală + y — doar -ed", "translation": "Ieri am jucat fotbal în parc."},
+      "They {{answer}} work yesterday — it was a holiday.": {"hint": "trecutul negativ: did + not", "translation": "Ieri n-au lucrat — era sărbătoare."}
+    },
+    "Object pronouns (me, him, them)": {
+      "Can you help {{answer}}, please?": {"hint": "cine vorbește cere ajutor — „mă”", "translation": "Mă poți ajuta, te rog?"},
+      "I saw {{answer}} at school yesterday.": {"hint": "un bărbat — „l-”", "translation": "L-am văzut ieri la școală."},
+      "This present is for {{answer}}.": {"hint": "o femeie — „ea”", "translation": "Cadoul acesta este pentru ea."},
+      "Our teacher knows {{answer}} well.": {"hint": "cine vorbește + alții — „ne”", "translation": "Profesorul nostru ne cunoaște bine."},
+      "I like these shoes — I'll buy {{answer}}.": {"hint": "mai multe lucruri — „îi/le”", "translation": "Îmi plac pantofii aceștia — îi cumpăr."},
+      "Where is my phone? I can't find {{answer}}.": {"hint": "un lucru — „îl”", "translation": "Unde e telefonul meu? Nu-l găsesc."}
+    },
+    "Imperatives (Open…, Don't…)": {
+      "{{answer}} the door, please.": {"hint": "verb la forma de bază, fără subiect", "translation": "Deschide ușa, te rog."},
+      "{{answer}} worry — everything is fine.": {"hint": "ordin negativ: forma negativă a lui do + verb", "translation": "Nu-ți face griji — totul e în regulă."},
+      "{{answer}} me tomorrow, please.": {"hint": "verb la forma de bază", "translation": "Sună-mă mâine, te rog."},
+      "{{answer}} be late — the film starts at eight.": {"hint": "ordin negativ cu be", "translation": "Nu întârzia — filmul începe la opt."},
+      "{{answer}} quiet, please — the baby is sleeping.": {"hint": "verbul be la forma de bază", "translation": "Fă liniște, te rog — bebelușul doarme."},
+      "Please {{answer}} down and wait a moment.": {"hint": "verb la forma de bază", "translation": "Vă rog să luați loc și să așteptați o clipă."}
+    }
+  }
+}
