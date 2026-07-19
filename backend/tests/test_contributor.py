@@ -1020,6 +1020,30 @@ class TestCreateAccount:
         assert "SUPABASE_SERVICE_ROLE_KEY" in resp.json()["detail"]
 
 
+class TestEngagementUsers:
+    """Per-user drill-down behind the engagement tiles."""
+
+    def test_requires_admin(self, client):
+        with _roles([{"language_id": LANG, "role": "reviewer"}]):
+            resp = client.get("/api/contribute/engagement/users",
+                              headers=_auth_headers())
+        assert resp.status_code == 403
+
+    def test_admin_gets_user_rows(self, client):
+        rows = [{"id": "u1", "email": "a@b.c", "joined": None,
+                 "last_active": "2026-07-19T00:00:00+00:00", "reviews": 12,
+                 "review_minutes": 8, "tutor_messages": 2, "readings": 1,
+                 "cards_started": 5, "cards_total": 40, "languages": ["es"]}]
+        with _roles([{"language_id": None, "role": "admin"}]), \
+             patch("backend.routers.contribute.admin_engagement_users",
+                   new=AsyncMock(return_value=rows)) as mock_users:
+            resp = client.get("/api/contribute/engagement/users",
+                              params={"days": 9999}, headers=_auth_headers())
+        assert resp.status_code == 200
+        assert resp.json() == {"users": rows}
+        assert mock_users.await_args.args[1] == 365  # days clamped
+
+
 class TestTranslationReviews:
     """The AI maker-checker's reject queue: list, approve (applies), reject."""
 

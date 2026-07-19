@@ -134,6 +134,28 @@ export interface Engagement {
   top_languages: { code: string; name: string; learners: number; cards: number }[]
 }
 
+export interface EngagementUser {
+  id: string
+  email: string | null
+  joined: string | null
+  last_active: string | null
+  reviews: number
+  review_minutes: number
+  tutor_messages: number
+  readings: number
+  cards_started: number
+  cards_total: number
+  languages: string[]
+}
+
+export async function getEngagementUsers(days = 30): Promise<EngagementUser[]> {
+  const response = await apiClient.get<{ users: EngagementUser[] }>(
+    '/api/contribute/engagement/users',
+    { params: { days } },
+  )
+  return response.data.users
+}
+
 export interface TranslationReview {
   id: string
   locale: string

@@ -924,6 +924,70 @@ async def reject_suggestion(
     return result.endswith("1")
 
 
+async def admin_engagement_users(
+    conn: asyncpg.Connection, days: int = 30
+) -> list[dict]:
+    """Per-user engagement drill-down for the admin panel (privileged conn).
+
+    One row per account: identity, when they joined, when they were last
+    active anywhere, and their activity counts inside the window — the
+    detail behind the aggregate tiles. Same activity tables, no new
+    tracking.
+    """
+    rows = await conn.fetch(
+        """
+        SELECT u.id, u.email, p.created_at AS joined,
+          (SELECT count(*) FROM review_log rl
+            WHERE rl.user_id = u.id
+              AND rl.created_at > now() - make_interval(days => $1)) AS reviews,
+          (SELECT COALESCE(sum(rl.time_taken_ms), 0) FROM review_log rl
+            WHERE rl.user_id = u.id
+              AND rl.created_at > now() - make_interval(days => $1)) AS review_ms,
+          (SELECT count(*) FROM tutor_usage tu
+            WHERE tu.user_id = u.id
+              AND tu.created_at > now() - make_interval(days => $1)) AS tutor_messages,
+          (SELECT count(*) FROM readings r
+            WHERE r.user_id = u.id
+              AND r.created_at > now() - make_interval(days => $1)) AS readings,
+          (SELECT count(*) FROM user_cards uc
+            WHERE uc.user_id = u.id
+              AND uc.created_at > now() - make_interval(days => $1)) AS cards_started,
+          (SELECT count(*) FROM user_cards uc
+            WHERE uc.user_id = u.id) AS cards_total,
+          (SELECT max(t) FROM (
+              SELECT max(created_at) AS t FROM review_log WHERE user_id = u.id
+              UNION ALL SELECT max(created_at) FROM tutor_usage WHERE user_id = u.id
+              UNION ALL SELECT max(created_at) FROM readings WHERE user_id = u.id
+              UNION ALL SELECT max(created_at) FROM user_cards WHERE user_id = u.id
+          ) acts) AS last_active,
+          (SELECT COALESCE(array_agg(DISTINCT l.code), '{}') FROM user_cards uc
+            JOIN languages l ON uc.language_id = l.id
+            WHERE uc.user_id = u.id) AS languages
+        FROM auth.users u
+        LEFT JOIN user_profiles p ON p.id = u.id
+        ORDER BY last_active DESC NULLS LAST
+        LIMIT 200
+        """,
+        days,
+    )
+    return [
+        {
+            "id": str(r["id"]),
+            "email": r["email"],
+            "joined": r["joined"].isoformat() if r["joined"] else None,
+            "last_active": r["last_active"].isoformat() if r["last_active"] else None,
+            "reviews": r["reviews"],
+            "review_minutes": round((r["review_ms"] or 0) / 60_000),
+            "tutor_messages": r["tutor_messages"],
+            "readings": r["readings"],
+            "cards_started": r["cards_started"],
+            "cards_total": r["cards_total"],
+            "languages": list(r["languages"] or []),
+        }
+        for r in rows
+    ]
+
+
 # ── Translation review queue (what the AI maker-checker wouldn't apply) ───
 async def list_translation_reviews(
     conn: asyncpg.Connection, status_filter: str = "pending"
