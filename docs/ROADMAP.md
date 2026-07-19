@@ -1161,9 +1161,10 @@ positional shapes, non-joiners, lam-alif) — beta request.
 **Major feature.** Working name "The Gym" (sibling of The Reader; the
 owner's "Conjugation/Declension Focus" renamed for learners — alternates
 considered: Form Forge, Forms Workout). For inflection-heavy languages,
-the learner CHOOSES the forms to train — verb cells (tense/mood/person:
-"present of to love") and nominal cells (case/number: "Russian
-accusative") — then drills them through sentence creation:
+the learner chooses FORM CATEGORIES to train — present, present
+progressive, past, past perfect, accusative, dative… whatever that
+language actually has — never individual words; the system supplies the
+vocabulary. Drills are sentence creation against the chosen categories:
 `I ____ cats. (to love — present)` / `Я вижу ____. (кошка — вин. п.)`.
 Cues use plain language per the WP-placement wording standard (#68).
 **(a) Form inventories per language.** Reuse the paradigm cells grammar
@@ -1174,17 +1175,32 @@ scraping): ru case×number + verb aspect/tense, Romance tense/mood
 ladders, de case+gender, tr agglutinative chains, ar verb forms +
 broken plurals, sw/xh noun-class concords (low-resource cells reviewed,
 never bulk-generated). Plain-language labels for every cell.
-**(b) Session builder + UI.** A Gym entry point where the learner picks
-one or more cells (verbal and nominal mixable) and gets a cram-style
-session sampled ACROSS the chosen cells — the mixed bag is the point:
-you can't autopilot one ending when accusative singular and dative
-plural alternate. Cram scoring first (no FSRS writes); later feed
-misses into the weakness-aware rotation (WP12) so normal reviews
-also lean on weak cells.
+**(b) Session builder + UI.** A Gym entry point with a form-category
+picker. Multi-select is the norm. For languages with declensions the
+picker splits into columns — **verbs | nouns | adjectives** (Russian:
+tenses/aspect under verbs, the six cases under nouns and adjectives);
+purely verbal languages get a single column. Hovering (long-press on
+mobile) any category shows an inline preview: one example sentence plus
+a plain-language explanation of when that form is used — the learner
+knows what they're signing up for BEFORE the session. One extra toggle,
+**"include non-standard words"**, mixes irregulars (stem changes,
+suppletion, exceptional declensions) into the pool; off by default.
+Word supply is familiar-first: drills draw from vocabulary the learner
+already has cards for, expanding to unseen words only when the familiar
+pool runs thin. Sessions sample ACROSS the chosen categories — the
+mixed bag is the point: you can't autopilot one ending when accusative
+singular and dative plural alternate. Cram scoring first (no FSRS
+writes); later feed misses into the weakness-aware rotation (WP12) so
+normal reviews also lean on weak cells.
 **(c) Collapsed chart per word.** Every Gym drill hides the word's full
 conjugation/declension table by default; "Show the full table" expands
-the existing FormsPanel inline. Look-ups are logged per cell — opening
-the chart for the same cell repeatedly is itself a weakness signal.
+the existing FormsPanel inline. For non-standard words the expansion
+carries an extra explanation of exactly HOW the word deviates from the
+regular pattern (which stem changes, where the endings differ) alongside
+the standard conjugation guide every word gets — most important right
+after a miss, which is when learners open it. Look-ups are logged per
+cell — opening the chart for the same cell repeatedly is itself a
+weakness signal.
 **(d) Corpus growth.** Seed pool = existing cell-tagged drills (≥2 per
 cell today). Then a maker-checker generation pipeline (same pattern as
 translate_english/review_hints: draft model + verifying model,
