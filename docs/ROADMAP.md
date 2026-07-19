@@ -1157,6 +1157,49 @@ together" sections for Thai (vowels wrap the consonant, tone stacking),
 Hindi (matras, virama clusters, the two r-forms), and Arabic (four
 positional shapes, non-joiners, lam-alif) — beta request.
 
+### WP25 — The Gym: chosen-form conjugation & declension practice (owner, 2026-07-19)
+**Major feature.** Working name "The Gym" (sibling of The Reader; the
+owner's "Conjugation/Declension Focus" renamed for learners — alternates
+considered: Form Forge, Forms Workout). For inflection-heavy languages,
+the learner CHOOSES the forms to train — verb cells (tense/mood/person:
+"present of to love") and nominal cells (case/number: "Russian
+accusative") — then drills them through sentence creation:
+`I ____ cats. (to love — present)` / `Я вижу ____. (кошка — вин. п.)`.
+Cues use plain language per the WP-placement wording standard (#68).
+**(a) Form inventories per language.** Reuse the paradigm cells grammar
+points already declare (seeder validates coverage; FormsPanel renders
+charts). Audit each language's inventory for completeness against a
+reference conjugator (e.g. cooljugator.com — reference only, no
+scraping): ru case×number + verb aspect/tense, Romance tense/mood
+ladders, de case+gender, tr agglutinative chains, ar verb forms +
+broken plurals, sw/xh noun-class concords (low-resource cells reviewed,
+never bulk-generated). Plain-language labels for every cell.
+**(b) Session builder + UI.** A Gym entry point where the learner picks
+one or more cells (verbal and nominal mixable) and gets a cram-style
+session sampled ACROSS the chosen cells — the mixed bag is the point:
+you can't autopilot one ending when accusative singular and dative
+plural alternate. Cram scoring first (no FSRS writes); later feed
+misses into the weakness-aware rotation (WP12) so normal reviews
+also lean on weak cells.
+**(c) Collapsed chart per word.** Every Gym drill hides the word's full
+conjugation/declension table by default; "Show the full table" expands
+the existing FormsPanel inline. Look-ups are logged per cell — opening
+the chart for the same cell repeatedly is itself a weakness signal.
+**(d) Corpus growth.** Seed pool = existing cell-tagged drills (≥2 per
+cell today). Then a maker-checker generation pipeline (same pattern as
+translate_english/review_hints: draft model + verifying model,
+idempotent, resumable, per-run undo journal) mints NEW cell-tagged
+sentences for variety, batched offline on the owner's key with a cost
+estimate printed before each run. ai_ok policy applies: yo excluded
+from bulk generation (verified tones only); draft-tier languages land
+as reviewed:false for the reviewer queue.
+**(e) Rollout order.** ru first (richest case+aspect payoff), then
+de/es/fr/it/ca/pt/ro, tr, el, ar, sw/xh concords; en/th/mi/jam sit this
+one out (little to no inflection) — the Gym tile hides for them.
+**Cost note:** generation is the only token spend; per-language batches
+budgeted like the WP17 runs (Sonnet-draft + Opus-verify tiering per the
+model guide below).
+
 ## 6. Model selection guide
 
 | Task type | Model | Why |
