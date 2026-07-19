@@ -969,14 +969,40 @@ class TestCreateAccount:
                                headers=_auth_headers())
         assert resp.status_code == 409
 
-    def test_network_error_is_502_not_opaque(self, client):
+    def test_network_error_uses_db_fallback(self, client):
+        # The deploy's HTTP egress to Supabase hangs; the account must still
+        # be minted — directly in the auth schema over the (working) DB.
         import httpx
         with _roles([{"language_id": None, "role": "admin"}]), \
-             patch("httpx.AsyncClient", _fake_httpx(exc=httpx.ConnectError("down"))):
+             patch("httpx.AsyncClient", _fake_httpx(exc=httpx.ConnectError("down"))), \
+             patch("backend.routers.contribute.create_auth_user",
+                   new=AsyncMock(return_value="db-uid-1")) as mock_sql:
+            resp = client.post("/api/contribute/users", json=self._body,
+                               headers=_auth_headers())
+        assert resp.status_code == 200
+        assert resp.json() == {"id": "db-uid-1", "email": "friend@example.com"}
+        mock_sql.assert_awaited_once()
+
+    def test_db_fallback_duplicate_is_409(self, client):
+        import httpx
+        with _roles([{"language_id": None, "role": "admin"}]), \
+             patch("httpx.AsyncClient", _fake_httpx(exc=httpx.ConnectError("down"))), \
+             patch("backend.routers.contribute.create_auth_user",
+                   new=AsyncMock(side_effect=ValueError("email already registered"))):
+            resp = client.post("/api/contribute/users", json=self._body,
+                               headers=_auth_headers())
+        assert resp.status_code == 409
+
+    def test_both_paths_down_is_502(self, client):
+        import httpx
+        with _roles([{"language_id": None, "role": "admin"}]), \
+             patch("httpx.AsyncClient", _fake_httpx(exc=httpx.ConnectError("down"))), \
+             patch("backend.routers.contribute.create_auth_user",
+                   new=AsyncMock(side_effect=RuntimeError("db down too"))):
             resp = client.post("/api/contribute/users", json=self._body,
                                headers=_auth_headers())
         assert resp.status_code == 502
-        assert "reach the authentication service" in resp.json()["detail"]
+        assert "database fallback failed" in resp.json()["detail"]
 
     def test_missing_service_key_503(self, client):
         class NoKey(FakeSettings):
