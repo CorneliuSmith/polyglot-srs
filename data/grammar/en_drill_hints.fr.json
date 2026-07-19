@@ -1,0 +1,360 @@
+{
+  "language": "en",
+  "locale": "fr",
+  "reviewed": false,
+  "_note": "Hints and faithful sentence translations for ENGLISH drills, shown to learners whose support locale is French. The hint names the expected English word (kept in English) with a French cue; the translation renders the completed sentence in natural French.",
+  "points": {
+    "Past simple — irregular verbs": {
+      "Yesterday I {{answer}} to the market.": {"hint": "go — passé", "translation": "Hier, je suis allé au marché."},
+      "She {{answer}} a great film last night.": {"hint": "see — passé", "translation": "Elle a vu un très bon film hier soir."},
+      "We {{answer}} a new car in March.": {"hint": "buy — passé", "translation": "Nous avons acheté une voiture neuve en mars."},
+      "He {{answer}} the early train this morning.": {"hint": "take — passé", "translation": "Il a pris le premier train ce matin."},
+      "They {{answer}} home very late.": {"hint": "come — passé", "translation": "Ils sont rentrés très tard."},
+      "I {{answer}} breakfast at seven.": {"hint": "eat — passé", "translation": "J'ai pris le petit-déjeuner à sept heures."}
+    },
+    "Present continuous vs present simple": {
+      "Quiet, please — the baby {{answer}} sleeping.": {"hint": "be — troisième personne", "translation": "Silence, s'il vous plaît — le bébé est en train de dormir."},
+      "She {{answer}} to work by bike every day.": {"hint": "go — habitude, elle", "translation": "Elle va au travail à vélo tous les jours."},
+      "I'm {{answer}} for my keys at the moment.": {"hint": "look — forme continue", "translation": "Je suis en train de chercher mes clés."},
+      "Water {{answer}} at 100 degrees.": {"hint": "boil — fait général, it", "translation": "L'eau bout à 100 degrés."},
+      "They {{answer}} watching TV right now.": {"hint": "be — ils", "translation": "Ils sont en train de regarder la télé en ce moment."},
+      "He usually {{answer}} coffee, not tea.": {"hint": "drink — habitude, il", "translation": "D'habitude il boit du café, pas du thé."}
+    },
+    "Comparatives and superlatives": {
+      "This bag is {{answer}} than that one.": {"hint": "cheap — comparatif", "translation": "Ce sac est moins cher que celui-là."},
+      "It's the {{answer}} building in the city.": {"hint": "tall — superlatif", "translation": "C'est le bâtiment le plus haut de la ville."},
+      "Her English is {{answer}} than mine.": {"hint": "good — comparatif", "translation": "Son anglais est meilleur que le mien."},
+      "That was the {{answer}} meal I've ever had.": {"hint": "bad — superlatif", "translation": "C'était le pire repas de ma vie."},
+      "This exercise is {{answer}} difficult than the last.": {"hint": "le mot placé devant les adjectifs longs", "translation": "Cet exercice est plus difficile que le précédent."},
+      "The station is {{answer}} than I thought.": {"hint": "far — comparatif", "translation": "La gare est plus loin que je ne le pensais."}
+    },
+    "Going to and will": {
+      "We're {{answer}} to visit Rome in May.": {"hint": "le futur des projets prévus", "translation": "Nous allons visiter Rome en mai."},
+      "Don't worry — I {{answer}} help you.": {"hint": "décision prise à l'instant", "translation": "Ne t'inquiète pas — je vais t'aider."},
+      "Look at those clouds! It's going to {{answer}}.": {"hint": "temps pluvieux", "translation": "Regarde ces nuages ! Il va pleuvoir."},
+      "I think she {{answer}} pass the exam.": {"hint": "le mot de la prédiction", "translation": "Je pense qu'elle réussira l'examen."},
+      "They're going {{answer}} move house next year.": {"hint": "le petit mot après going", "translation": "Ils vont déménager l'année prochaine."},
+      "I'm tired — I {{answer}} go to bed.": {"hint": "forme courte du futur immédiat", "translation": "Je suis fatigué — je vais me coucher."}
+    },
+    "Some, any, much, many": {
+      "There's {{answer}} milk in the fridge.": {"hint": "mot de quantité affirmatif", "translation": "Il y a du lait dans le frigo."},
+      "We don't have {{answer}} eggs left.": {"hint": "mot de quantité négatif", "translation": "Il ne nous reste plus d'œufs."},
+      "Do you have {{answer}} questions?": {"hint": "mot de quantité des questions", "translation": "Avez-vous des questions ?"},
+      "How {{answer}} money do you need?": {"hint": "avec les indénombrables", "translation": "De combien d'argent as-tu besoin ?"},
+      "How {{answer}} people are coming?": {"hint": "avec les dénombrables", "translation": "Combien de personnes viennent ?"},
+      "Would you like {{answer}} tea?": {"hint": "mot de quantité des propositions", "translation": "Voulez-vous du thé ?"}
+    },
+    "Adverbs of frequency": {
+      "I {{answer}} drink coffee in the morning — every single day.": {"hint": "le mot de toutes-les-fois", "translation": "Je bois toujours du café le matin — chaque jour sans exception."},
+      "He is {{answer}} late — it drives me crazy.": {"hint": "le mot de toutes-les-fois", "translation": "Il est toujours en retard — ça me rend fou."},
+      "We {{answer}} go out on Fridays — maybe once a month.": {"hint": "le mot de de-temps-en-temps", "translation": "Nous sortons parfois le vendredi — peut-être une fois par mois."},
+      "She {{answer}} eats meat — she's almost vegetarian.": {"hint": "le mot de presque-jamais", "translation": "Elle mange rarement de la viande — elle est presque végétarienne."},
+      "I have {{answer}} been to Japan, but I'd love to go.": {"hint": "le mot de zéro-fois", "translation": "Je ne suis jamais allé au Japon, mais j'adorerais y aller."},
+      "They {{answer}} visit us at Christmas — most years.": {"hint": "le mot de la-plupart-des-fois", "translation": "Ils nous rendent visite en général à Noël — presque chaque année."},
+      "We {{answer}} eat out on Fridays.": {"hint": "souvent — entre 'sometimes' et 'always'", "translation": "Nous mangeons souvent au restaurant le vendredi."}
+    },
+    "Can, could, have to": {
+      "She {{answer}} speak three languages.": {"hint": "mot de capacité", "translation": "Elle sait parler trois langues."},
+      "{{answer}} you open the window, please?": {"hint": "mot de demande polie", "translation": "Pourriez-vous ouvrir la fenêtre, s'il vous plaît ?"},
+      "I {{answer}} to wear a uniform at work.": {"hint": "verbe d'obligation", "translation": "Je dois porter un uniforme au travail."},
+      "When I was five, I {{answer}} already read.": {"hint": "mot de capacité — passé", "translation": "À cinq ans, je savais déjà lire."},
+      "You don't {{answer}} to come if you're busy.": {"hint": "verbe d'obligation", "translation": "Tu n'es pas obligé de venir si tu es occupé."},
+      "{{answer}} I sit here? — Of course.": {"hint": "mot de permission", "translation": "Puis-je m'asseoir ici ? — Bien sûr."}
+    },
+    "Prepositions of time: in, on, at": {
+      "The meeting starts {{answer}} nine o'clock.": {"hint": "préposition de l'heure exacte", "translation": "La réunion commence à neuf heures."},
+      "I was born {{answer}} 1998.": {"hint": "préposition des longues périodes", "translation": "Je suis né en 1998."},
+      "We're leaving {{answer}} Friday.": {"hint": "préposition des jours", "translation": "Nous partons vendredi."},
+      "She works best {{answer}} the morning.": {"hint": "préposition des longues périodes", "translation": "Elle travaille mieux le matin."},
+      "My birthday is {{answer}} 12 March.": {"hint": "préposition des dates", "translation": "Mon anniversaire est le 12 mars."},
+      "He often studies {{answer}} night.": {"hint": "la préposition figée avec night", "translation": "Il étudie souvent la nuit."}
+    },
+    "Subject pronouns (I, you, he…)": {
+      "{{answer}} am from Brazil.": {"hint": "celui qui parle — toujours en majuscule", "translation": "Je viens du Brésil."},
+      "{{answer}} is my sister.": {"hint": "une femme", "translation": "C'est ma sœur. (« Elle est ma sœur. »)"},
+      "{{answer}} are students.": {"hint": "celui qui parle + d'autres", "translation": "Nous sommes étudiants."},
+      "{{answer}} is my father.": {"hint": "un homme", "translation": "C'est mon père. (« Il est mon père. »)"},
+      "{{answer}} is on the table.": {"hint": "une chose", "translation": "C'est sur la table. (« Il/Elle est sur la table. »)"},
+      "{{answer}} are very kind.": {"hint": "la personne à qui tu parles", "translation": "Tu es très gentil. / Vous êtes très gentils."},
+      "{{answer}} are my friends.": {"hint": "plusieurs personnes — « ils »", "translation": "Ce sont mes amis."}
+    },
+    "To be — am / is / are": {
+      "I {{answer}} a student.": {"hint": "be — avec I", "translation": "Je suis étudiant."},
+      "You {{answer}} my friend.": {"hint": "be — avec you", "translation": "Tu es mon ami."},
+      "She {{answer}} a doctor.": {"hint": "be — avec she", "translation": "Elle est médecin."},
+      "We {{answer}} at home.": {"hint": "be — avec we", "translation": "Nous sommes à la maison."},
+      "The coffee {{answer}} hot.": {"hint": "be — avec it/une chose", "translation": "Le café est chaud."},
+      "They {{answer}} from Japan.": {"hint": "be — avec they", "translation": "Ils viennent du Japon."}
+    },
+    "Articles: a / an": {
+      "I have {{answer}} dog.": {"hint": "devant un son de consonne", "translation": "J'ai un chien."},
+      "She is {{answer}} engineer.": {"hint": "devant un son de voyelle", "translation": "Elle est ingénieure."},
+      "It is {{answer}} big house.": {"hint": "devant un son de consonne", "translation": "C'est une grande maison."},
+      "He eats {{answer}} apple every day.": {"hint": "devant un son de voyelle", "translation": "Il mange une pomme chaque jour."},
+      "I read {{answer}} book every week.": {"hint": "devant un son de consonne", "translation": "Je lis un livre chaque semaine."},
+      "I need {{answer}} umbrella.": {"hint": "devant un son de voyelle", "translation": "J'ai besoin d'un parapluie."}
+    },
+    "The — pointing at a specific thing": {
+      "{{answer}} sun is hot today.": {"hint": "les choses uniques prennent cet article", "translation": "Le soleil est chaud aujourd'hui."},
+      "Please close {{answer}} door.": {"hint": "les deux savent laquelle", "translation": "Ferme la porte, s'il te plaît."},
+      "{{answer}} keys in my hand are mine.": {"hint": "identifié par ce qui suit", "translation": "Les clés dans ma main sont à moi."},
+      "We live near {{answer}} station.": {"hint": "les deux savent laquelle", "translation": "Nous habitons près de la gare."},
+      "{{answer}} moon is bright tonight.": {"hint": "les choses uniques prennent cet article", "translation": "La lune est brillante ce soir."},
+      "Where is {{answer}} bathroom?": {"hint": "les deux savent laquelle", "translation": "Où sont les toilettes ?"}
+    },
+    "Plural nouns (-s, -es, irregular)": {
+      "I have two {{answer}}.": {"hint": "book, au pluriel", "translation": "J'ai deux livres."},
+      "The {{answer}} are playing outside.": {"hint": "child — pluriel irrégulier", "translation": "Les enfants jouent dehors."},
+      "She has three {{answer}}.": {"hint": "watch — ajoute -es", "translation": "Elle a trois montres."},
+      "The {{answer}} are late today.": {"hint": "bus — ajoute -es", "translation": "Les bus sont en retard aujourd'hui."},
+      "Two {{answer}} live in our street.": {"hint": "family — le y devient -ies", "translation": "Deux familles habitent dans notre rue."},
+      "My {{answer}} are cold.": {"hint": "foot — pluriel irrégulier", "translation": "J'ai froid aux pieds."}
+    },
+    "Present simple (I work)": {
+      "I {{answer}} in a bank.": {"hint": "ce qu'on fait comme métier", "translation": "Je travaille dans une banque."},
+      "We {{answer}} breakfast at seven.": {"hint": "prendre (un repas)", "translation": "Nous prenons le petit-déjeuner à sept heures."},
+      "They {{answer}} in London.": {"hint": "résider quelque part", "translation": "Ils habitent à Londres."},
+      "You {{answer}} English very well.": {"hint": "utiliser une langue", "translation": "Tu parles très bien anglais."},
+      "I {{answer}} coffee every morning.": {"hint": "consommer un liquide", "translation": "Je bois du café chaque matin."},
+      "We {{answer}} TV in the evening.": {"hint": "regarder un écran ou une émission", "translation": "Nous regardons la télé le soir."}
+    },
+    "Third-person -s (she works)": {
+      "She {{answer}} in a hospital.": {"hint": "to work — avec she", "translation": "Elle travaille dans un hôpital."},
+      "He {{answer}} to school every day.": {"hint": "to go — ajoute -es", "translation": "Il va à l'école tous les jours."},
+      "My brother {{answer}} English.": {"hint": "to study — le y devient -ies", "translation": "Mon frère étudie l'anglais."},
+      "The shop {{answer}} at nine.": {"hint": "to open — avec it", "translation": "Le magasin ouvre à neuf heures."},
+      "She {{answer}} TV after dinner.": {"hint": "to watch — ajoute -es", "translation": "Elle regarde la télé après le dîner."},
+      "It {{answer}} a lot in April.": {"hint": "to rain — avec it", "translation": "Il pleut beaucoup en avril."}
+    },
+    "Do-support: questions and negation": {
+      "{{answer}} you speak English?": {"hint": "l'auxiliaire — avec you", "translation": "Parles-tu anglais ?"},
+      "{{answer}} she work here?": {"hint": "l'auxiliaire — avec she", "translation": "Est-ce qu'elle travaille ici ?"},
+      "I {{answer}} not eat meat.": {"hint": "l'auxiliaire — avec I", "translation": "Je ne mange pas de viande."},
+      "He {{answer}} not like coffee.": {"hint": "l'auxiliaire — avec he", "translation": "Il n'aime pas le café."},
+      "{{answer}} they live in Rome?": {"hint": "l'auxiliaire — avec they", "translation": "Est-ce qu'ils habitent à Rome ?"},
+      "We {{answer}} not have time.": {"hint": "l'auxiliaire — avec we", "translation": "Nous n'avons pas le temps."},
+      "I {{answer}} like coffee.": {"hint": "négation avec I — do + not", "translation": "Je n'aime pas le café."},
+      "She {{answer}} work on Sundays.": {"hint": "négation avec she — does + not", "translation": "Elle ne travaille pas le dimanche."}
+    },
+    "Present continuous (I am working)": {
+      "I am {{answer}} a book right now.": {"hint": "to read + -ing", "translation": "Je suis en train de lire un livre."},
+      "She is {{answer}} dinner now.": {"hint": "to cook + -ing", "translation": "Elle prépare le dîner en ce moment."},
+      "They are {{answer}} football.": {"hint": "to play + -ing", "translation": "Ils jouent au football."},
+      "Look! It is {{answer}}.": {"hint": "to rain + -ing", "translation": "Regarde ! Il pleut."},
+      "We are {{answer}} for the bus.": {"hint": "to wait + -ing", "translation": "Nous attendons le bus."},
+      "He is {{answer}} at the moment.": {"hint": "to sleep + -ing", "translation": "Il dort en ce moment."},
+      "He is {{answer}} in the park.": {"hint": "run — la consonne finale se double", "translation": "Il court dans le parc."},
+      "She is {{answer}} an email.": {"hint": "write — le e muet disparaît", "translation": "Elle écrit un e-mail."}
+    },
+    "There is / there are": {
+      "There {{answer}} a book on the table.": {"hint": "singulier", "translation": "Il y a un livre sur la table."},
+      "There {{answer}} two cafés in this street.": {"hint": "pluriel", "translation": "Il y a deux cafés dans cette rue."},
+      "{{answer}} there a bank near here?": {"hint": "singulier, ordre interrogatif", "translation": "Y a-t-il une banque près d'ici ?"},
+      "There {{answer}} no milk.": {"hint": "singulier", "translation": "Il n'y a pas de lait."},
+      "{{answer}} there any questions?": {"hint": "pluriel, ordre interrogatif", "translation": "Y a-t-il des questions ?"},
+      "There {{answer}} many people here today.": {"hint": "pluriel", "translation": "Il y a beaucoup de monde ici aujourd'hui."}
+    },
+    "Question words (what, where, when…)": {
+      "{{answer}} do you live?": {"hint": "on demande un lieu", "translation": "Où habites-tu ?"},
+      "{{answer}} is your name?": {"hint": "on demande une chose", "translation": "Quel est ton nom ?"},
+      "{{answer}} is your birthday?": {"hint": "on demande un moment", "translation": "Quand est ton anniversaire ?"},
+      "{{answer}} old are you?": {"hint": "l'âge se demande ainsi", "translation": "Quel âge as-tu ?"},
+      "{{answer}} is your teacher?": {"hint": "on demande une personne", "translation": "Qui est ton professeur ?"},
+      "{{answer}} are you crying?": {"hint": "on demande une raison", "translation": "Pourquoi pleures-tu ?"}
+    },
+    "Possessives (my, your, 's)": {
+      "This is {{answer}} book.": {"hint": "à moi", "translation": "C'est mon livre."},
+      "Is this {{answer}} car?": {"hint": "à toi", "translation": "C'est ta voiture ?"},
+      "{{answer}} name is Anna.": {"hint": "à elle", "translation": "Son nom est Anna."},
+      "That is my {{answer}} car.": {"hint": "brother + la terminaison de possession", "translation": "C'est la voiture de mon frère."},
+      "{{answer}} house is big.": {"hint": "à eux", "translation": "Leur maison est grande."},
+      "The dog wags {{answer}} tail.": {"hint": "d'une chose — sans apostrophe", "translation": "Le chien remue la queue."},
+      "{{answer}} name is David.": {"hint": "le nom d'un homme — « son »", "translation": "Son nom est David."},
+      "That is {{answer}} classroom.": {"hint": "à nous — « notre »", "translation": "C'est notre salle de classe."}
+    },
+    "Present perfect vs past simple": {
+      "I've {{answer}} my wallet — can you help me look?": {"hint": "lose — participe", "translation": "J'ai perdu mon portefeuille — tu peux m'aider à chercher ?"},
+      "She {{answer}} in Berlin in 2019.": {"hint": "live — passé", "translation": "Elle a vécu à Berlin en 2019."},
+      "Have you {{answer}} been to Japan?": {"hint": "le mot de au-moins-une-fois-dans-la-vie", "translation": "Es-tu déjà allé au Japon ?"},
+      "We've known each other {{answer}} ten years.": {"hint": "mot de durée", "translation": "Nous nous connaissons depuis dix ans."},
+      "He's worked here {{answer}} 2020.": {"hint": "mot du point de départ", "translation": "Il travaille ici depuis 2020."},
+      "They haven't finished {{answer}}.": {"hint": "le mot du pas-encore", "translation": "Ils n'ont pas encore fini."}
+    },
+    "First and second conditionals": {
+      "If it {{answer}} tomorrow, we'll cancel the picnic.": {"hint": "rain — présent, it", "translation": "S'il pleut demain, nous annulerons le pique-nique."},
+      "If you study, you {{answer}} pass.": {"hint": "le mot du futur réel", "translation": "Si tu étudies, tu réussiras."},
+      "If I {{answer}} rich, I would buy an island.": {"hint": "be — forme irréelle", "translation": "Si j'étais riche, j'achèterais une île."},
+      "She {{answer}} travel more if she had time.": {"hint": "le mot du résultat irréel", "translation": "Elle voyagerait davantage si elle avait le temps."},
+      "If we {{answer}} now, we'll catch the train.": {"hint": "partir — forme du présent", "translation": "Si nous partons maintenant, nous aurons le train."},
+      "What {{answer}} you do if you won the lottery?": {"hint": "le mot du résultat irréel", "translation": "Que ferais-tu si tu gagnais au loto ?"}
+    },
+    "The passive (is made, was built)": {
+      "This wine {{answer}} produced in Chile.": {"hint": "be — présent, it", "translation": "Ce vin est produit au Chili."},
+      "The castle was {{answer}} in the twelfth century.": {"hint": "build — participe", "translation": "Le château a été construit au douzième siècle."},
+      "These photos {{answer}} taken by my grandmother.": {"hint": "be — passé, they", "translation": "Ces photos ont été prises par ma grand-mère."},
+      "English {{answer}} spoken all over the world.": {"hint": "be — présent, it", "translation": "L'anglais est parlé dans le monde entier."},
+      "The thief was caught {{answer}} the police.": {"hint": "la préposition de l'agent", "translation": "Le voleur a été attrapé par la police."},
+      "My phone was {{answer}} at the festival.": {"hint": "steal — participe", "translation": "Mon téléphone a été volé au festival."}
+    },
+    "Relative clauses (who, which, that, where)": {
+      "She's the doctor {{answer}} treated my father.": {"hint": "relatif de personne", "translation": "C'est la médecin qui a soigné mon père."},
+      "That's the restaurant {{answer}} we first met.": {"hint": "relatif de lieu", "translation": "C'est le restaurant où nous nous sommes rencontrés."},
+      "The laptop {{answer}} I bought last week is broken.": {"hint": "le relatif passe-partout", "translation": "L'ordinateur portable que j'ai acheté la semaine dernière est cassé."},
+      "He's the author {{answer}} books sell millions.": {"hint": "relatif de possession", "translation": "C'est l'auteur dont les livres se vendent par millions."},
+      "The train, {{answer}} was already late, then broke down.": {"hint": "relatif de chose", "translation": "Le train, qui était déjà en retard, est ensuite tombé en panne."},
+      "People {{answer}} exercise regularly live longer.": {"hint": "relatif de personne", "translation": "Les gens qui font régulièrement de l'exercice vivent plus longtemps."}
+    },
+    "Used to — past habits and states": {
+      "I {{answer}} to play football every weekend.": {"hint": "le verbe de l'habitude passée", "translation": "Avant, je jouais au football chaque week-end."},
+      "She didn't {{answer}} to like coffee, but now she loves it.": {"hint": "le verbe de l'habitude passée, sans -d", "translation": "Avant, elle n'aimait pas le café, mais maintenant elle l'adore."},
+      "There {{answer}} to be a bakery on this corner.": {"hint": "le verbe de l'habitude passée", "translation": "Avant, il y avait une boulangerie à ce coin de rue."},
+      "Did you {{answer}} to live in London?": {"hint": "le verbe de l'habitude passée, sans -d", "translation": "Est-ce que tu habitais à Londres avant ?"},
+      "He used {{answer}} have long hair.": {"hint": "la particule", "translation": "Avant, il avait les cheveux longs."},
+      "We {{answer}} to go camping every summer as kids.": {"hint": "le verbe de l'habitude passée", "translation": "Enfants, nous faisions du camping chaque été."}
+    },
+    "Reported speech": {
+      "'I'm busy.' → She said she {{answer}} busy.": {"hint": "be — un cran en arrière", "translation": "« Je suis occupée. » → Elle a dit qu'elle était occupée."},
+      "'I'll call you.' → He said he {{answer}} call me.": {"hint": "will — un cran en arrière", "translation": "« Je t'appellerai. » → Il a dit qu'il m'appellerait."},
+      "'Are you ready?' → She asked {{answer}} I was ready.": {"hint": "le mot des questions oui/non", "translation": "« Tu es prêt ? » → Elle a demandé si j'étais prêt."},
+      "'Where do you live?' → He asked where I {{answer}}.": {"hint": "live — un cran en arrière", "translation": "« Où habites-tu ? » → Il a demandé où j'habitais."},
+      "'I can swim.' → She said she {{answer}} swim.": {"hint": "can — un cran en arrière", "translation": "« Je sais nager. » → Elle a dit qu'elle savait nager."},
+      "'We bought a house.' → They said they {{answer}} bought a house.": {"hint": "l'auxiliaire du cran en arrière", "translation": "« Nous avons acheté une maison. » → Ils ont dit qu'ils avaient acheté une maison."}
+    },
+    "Gerund or infinitive?": {
+      "I really enjoy {{answer}} in the sea.": {"hint": "swim — quelle forme ?", "translation": "J'adore nager dans la mer."},
+      "She decided {{answer}} accept the job.": {"hint": "la particule de l'infinitif", "translation": "Elle a décidé d'accepter le poste."},
+      "Would you mind {{answer}} the door?": {"hint": "close — quelle forme ?", "translation": "Cela vous dérangerait-il de fermer la porte ?"},
+      "We hope {{answer}} see you soon.": {"hint": "la particule de l'infinitif", "translation": "Nous espérons vous voir bientôt."},
+      "He avoided {{answer}} my question.": {"hint": "answer — quelle forme ?", "translation": "Il a évité de répondre à ma question."},
+      "They promised {{answer}} write every week.": {"hint": "la particule de l'infinitif", "translation": "Ils ont promis d'écrire chaque semaine."}
+    },
+    "Third and mixed conditionals": {
+      "If you {{answer}} told me, I would have helped.": {"hint": "l'auxiliaire du plus-que-parfait", "translation": "Si tu me l'avais dit, j'aurais aidé."},
+      "If she had left earlier, she would {{answer}} caught the flight.": {"hint": "l'auxiliaire parfait après would", "translation": "Si elle était partie plus tôt, elle aurait eu son vol."},
+      "I wouldn't {{answer}} met her if I hadn't gone to that party.": {"hint": "l'auxiliaire parfait", "translation": "Je ne l'aurais pas rencontrée si je n'étais pas allé à cette fête."},
+      "If he had studied medicine, he {{answer}} be a doctor now.": {"hint": "le mot du résultat irréel", "translation": "S'il avait étudié la médecine, il serait médecin aujourd'hui."},
+      "If we {{answer}} taken the map, we wouldn't have got lost.": {"hint": "l'auxiliaire du plus-que-parfait", "translation": "Si nous avions pris la carte, nous ne nous serions pas perdus."},
+      "What would you have {{answer}} in my position?": {"hint": "do — participe", "translation": "Qu'aurais-tu fait à ma place ?"}
+    },
+    "Modals of deduction (must, might, can't)": {
+      "The lights are on — someone {{answer}} be home.": {"hint": "le mot de la quasi-certitude", "translation": "Les lumières sont allumées — il doit y avoir quelqu'un."},
+      "That {{answer}} be Maria — she's in Brazil this week!": {"hint": "le mot de l'impossibilité", "translation": "Ça ne peut pas être Maria — elle est au Brésil cette semaine !"},
+      "He {{answer}} be stuck in traffic — it happens.": {"hint": "un mot de possibilité", "translation": "Il est peut-être coincé dans les embouteillages — ça arrive."},
+      "She must {{answer}} forgotten our meeting.": {"hint": "l'auxiliaire de la déduction passée", "translation": "Elle a dû oublier notre rendez-vous."},
+      "They can't {{answer}} left already — the car's still here.": {"hint": "l'auxiliaire de la déduction passée", "translation": "Ils ne peuvent pas être déjà partis — la voiture est encore là."},
+      "It {{answer}} rain later, so take an umbrella.": {"hint": "un mot de possibilité", "translation": "Il pourrait pleuvoir plus tard, alors prends un parapluie."}
+    },
+    "Advanced passives (has been done, being done)": {
+      "The road has {{answer}} closed since Monday.": {"hint": "le participe de be", "translation": "La route est fermée depuis lundi."},
+      "Our office is {{answer}} renovated at the moment.": {"hint": "le -ing de be", "translation": "Nos bureaux sont en cours de rénovation."},
+      "All answers must be {{answer}} in ink.": {"hint": "write — participe", "translation": "Toutes les réponses doivent être écrites à l'encre."},
+      "She is {{answer}} to be the richest woman in the country.": {"hint": "say — participe", "translation": "On dit qu'elle est la femme la plus riche du pays."},
+      "The results will {{answer}} announced on Friday.": {"hint": "l'infinitif nu du passif", "translation": "Les résultats seront annoncés vendredi."},
+      "By 1990, the bridge {{answer}} been rebuilt twice.": {"hint": "l'auxiliaire du plus-que-parfait", "translation": "En 1990, le pont avait déjà été reconstruit deux fois."}
+    },
+    "Wish and if only": {
+      "I wish I {{answer}} how to drive.": {"hint": "know — forme du regret", "translation": "J'aimerais savoir conduire."},
+      "She wishes she {{answer}} accepted the offer.": {"hint": "l'auxiliaire du regret passé", "translation": "Elle regrette de ne pas avoir accepté l'offre."},
+      "I wish you {{answer}} stop interrupting me!": {"hint": "le mot de la plainte", "translation": "J'aimerais que tu arrêtes de m'interrompre !"},
+      "If {{answer}} I had listened to your advice!": {"hint": "le mot après if", "translation": "Si seulement j'avais écouté tes conseils !"},
+      "He wishes he {{answer}} taller.": {"hint": "be — forme du regret", "translation": "Il aimerait être plus grand."},
+      "We wish we {{answer}} bought tickets earlier.": {"hint": "l'auxiliaire du regret passé", "translation": "Nous regrettons de ne pas avoir acheté les billets plus tôt."}
+    },
+    "Phrasal verbs — separable or not?": {
+      "Could you turn {{answer}} off? The music's too loud.": {"hint": "le pronom objet", "translation": "Tu peux l'éteindre ? La musique est trop forte."},
+      "She's looking {{answer}} her elderly mother.": {"hint": "la particule de s'occuper-de", "translation": "Elle s'occupe de sa mère âgée."},
+      "Please fill {{answer}} this form.": {"hint": "la particule du formulaire", "translation": "Veuillez remplir ce formulaire."},
+      "I'll pick you {{answer}} at eight.": {"hint": "la particule de passer-prendre", "translation": "Je passerai te prendre à huit heures."},
+      "We've put {{answer}} the meeting until Friday.": {"hint": "la particule de reporter", "translation": "Nous avons reporté la réunion à vendredi."},
+      "He takes {{answer}} his father — same smile, same laugh.": {"hint": "la particule de ressembler-à", "translation": "Il tient de son père — même sourire, même rire."}
+    },
+    "Question tags and indirect questions": {
+      "You've met before, {{answer}} you?": {"hint": "l'auxiliaire inversé du tag", "translation": "Vous vous êtes déjà rencontrés, n'est-ce pas ?"},
+      "She doesn't eat fish, {{answer}} she?": {"hint": "l'auxiliaire inversé du tag", "translation": "Elle ne mange pas de poisson, si ?"},
+      "Could you tell me where the bank {{answer}}?": {"hint": "be — à la FIN", "translation": "Pourriez-vous me dire où est la banque ?"},
+      "Do you know if the shop {{answer}} at six?": {"hint": "close — ordre affirmatif", "translation": "Sais-tu si le magasin ferme à six heures ?"},
+      "It's cold today, {{answer}} it?": {"hint": "l'auxiliaire inversé du tag", "translation": "Il fait froid aujourd'hui, n'est-ce pas ?"},
+      "I wonder {{answer}} they got home safely.": {"hint": "l'alternative à if", "translation": "Je me demande s'ils sont bien rentrés."}
+    },
+    "Inversion (Never have I…, Not only…)": {
+      "Never {{answer}} I heard such nonsense.": {"hint": "l'auxiliaire parfait", "translation": "Jamais je n'ai entendu de telles absurdités."},
+      "Not only {{answer}} she sing, she writes her own songs.": {"hint": "l'auxiliaire du présent", "translation": "Non seulement elle chante, mais elle écrit ses propres chansons."},
+      "No sooner had we sat down {{answer}} the phone rang.": {"hint": "le mot qui fait la paire", "translation": "À peine étions-nous assis que le téléphone a sonné."},
+      "Under no circumstances {{answer}} you open that door.": {"hint": "le modal du conseil", "translation": "Tu ne dois ouvrir cette porte sous aucun prétexte."},
+      "Rarely {{answer}} we see such talent.": {"hint": "l'auxiliaire du présent", "translation": "Rarement voit-on un tel talent."},
+      "Only then {{answer}} I understand what she meant.": {"hint": "l'auxiliaire du passé", "translation": "C'est alors seulement que j'ai compris ce qu'elle voulait dire."}
+    },
+    "Cleft sentences (What I need is…, It was… that)": {
+      "{{answer}} I need is a good night's sleep.": {"hint": "l'amorce de la phrase clivée", "translation": "Ce dont j'ai besoin, c'est d'une bonne nuit de sommeil."},
+      "It was Marco {{answer}} suggested the idea.": {"hint": "le relatif de personne", "translation": "C'est Marco qui a proposé l'idée."},
+      "What annoys me {{answer}} his constant lateness.": {"hint": "be — le pivot", "translation": "Ce qui m'agace, c'est son retard permanent."},
+      "It {{answer}} in Paris that they first met.": {"hint": "be — passé", "translation": "C'est à Paris qu'ils se sont rencontrés."},
+      "{{answer}} she wants is a little respect.": {"hint": "l'amorce du tout-ce-que", "translation": "Tout ce qu'elle veut, c'est un peu de respect."},
+      "It wasn't until midnight {{answer}} he finally called.": {"hint": "le relatif de la clivée", "translation": "Ce n'est qu'à minuit qu'il a enfin appelé."}
+    },
+    "Hedging and distancing (would seem, tend to)": {
+      "It would {{answer}} that the figures are wrong.": {"hint": "le verbe du sembler", "translation": "Il semblerait que les chiffres soient faux."},
+      "House prices {{answer}} to rise in spring.": {"hint": "le verbe de la tendance", "translation": "Les prix de l'immobilier ont tendance à monter au printemps."},
+      "There {{answer}} to be a problem with the data.": {"hint": "le verbe du sembler, 3e personne", "translation": "Il semble y avoir un problème avec les données."},
+      "It is widely {{answer}} that the climate is changing.": {"hint": "believe — participe", "translation": "Il est largement admis que le climat change."},
+      "The results {{answer}} that more research is needed.": {"hint": "le verbe du suggérer", "translation": "Les résultats suggèrent que davantage de recherches sont nécessaires."},
+      "It could be {{answer}} that the policy failed.": {"hint": "argue — participe", "translation": "On pourrait soutenir que la politique a échoué."}
+    },
+    "Participle clauses (Having finished, …)": {
+      "{{answer}} finished dinner, we went for a walk.": {"hint": "l'amorce du participe parfait", "translation": "Ayant fini de dîner, nous sommes allés nous promener."},
+      "{{answer}} through the window, she saw the storm coming.": {"hint": "look — participe", "translation": "En regardant par la fenêtre, elle a vu l'orage arriver."},
+      "{{answer}} in 1889, the tower still draws millions.": {"hint": "build — participe", "translation": "Construite en 1889, la tour attire encore des millions de visiteurs."},
+      "Not {{answer}} what to say, he stayed silent.": {"hint": "know — participe", "translation": "Ne sachant pas quoi dire, il est resté silencieux."},
+      "Having {{answer}} in Rome for years, she speaks fluent Italian.": {"hint": "live — participe", "translation": "Ayant vécu des années à Rome, elle parle couramment italien."},
+      "{{answer}} by the news, they cancelled the trip.": {"hint": "shock — participe", "translation": "Choqués par la nouvelle, ils ont annulé le voyage."}
+    },
+    "The mandative subjunctive (insist that he be)": {
+      "The board insisted that he {{answer}} removed from the project.": {"hint": "be — forme nue", "translation": "Le conseil a insisté pour qu'il soit retiré du projet."},
+      "It is essential that every member {{answer}} the code of conduct.": {"hint": "obéir à — forme nue", "translation": "Il est essentiel que chaque membre respecte le code de conduite."},
+      "She recommended that the report {{answer}} rewritten.": {"hint": "be — forme nue", "translation": "Elle a recommandé que le rapport soit réécrit."},
+      "They demanded that the minister {{answer}}.": {"hint": "démissionner — forme nue", "translation": "Ils ont exigé que le ministre démissionne."},
+      "It's vital that she {{answer}} informed at once.": {"hint": "be — forme nue", "translation": "Il est vital qu'elle soit informée immédiatement."},
+      "We suggest that he {{answer}} a lawyer before signing.": {"hint": "consulter — forme nue", "translation": "Nous suggérons qu'il consulte un avocat avant de signer."}
+    },
+    "Ellipsis and substitution (so, neither, do so)": {
+      "I loved the film. — {{answer}} did I!": {"hint": "l'amorce du moi-aussi", "translation": "J'ai adoré le film. — Moi aussi !"},
+      "She can't make it tonight. — {{answer}} can I.": {"hint": "l'amorce négative du moi-non-plus", "translation": "Elle ne peut pas venir ce soir. — Moi non plus."},
+      "He was asked to apologise, and he did {{answer}} immediately.": {"hint": "le substitut après did", "translation": "On lui a demandé de s'excuser, et il l'a fait immédiatement."},
+      "You may be tired; if {{answer}}, rest.": {"hint": "le substitut après if", "translation": "Tu es peut-être fatigué ; si c'est le cas, repose-toi."},
+      "They promised to help, but failed to {{answer}} so.": {"hint": "le verbe substitut", "translation": "Ils ont promis d'aider, mais ne l'ont pas fait."},
+      "I've never been to Oslo. — Nor {{answer}} I.": {"hint": "l'auxiliaire parfait", "translation": "Je ne suis jamais allé à Oslo. — Moi non plus."}
+    },
+    "Formal connectors (notwithstanding, albeit)": {
+      "The plan went ahead, {{answer}} the objections.": {"hint": "le 'despite' plus soutenu", "translation": "Le projet s'est poursuivi, nonobstant les objections."},
+      "It was a victory, {{answer}} a narrow one.": {"hint": "le although comprimé", "translation": "C'était une victoire, quoique étroite."},
+      "The costs rose sharply; {{answer}} the project was cancelled.": {"hint": "un therefore soutenu", "translation": "Les coûts ont fortement augmenté ; par conséquent, le projet a été annulé."},
+      "A scheme {{answer}} employees share the profits.": {"hint": "le mot du par-lequel", "translation": "Un dispositif par lequel les employés se partagent les bénéfices."},
+      "A {{answer}} unknown author won the prize.": {"hint": "le mot du jusqu'ici", "translation": "Un auteur jusqu'alors inconnu a remporté le prix."},
+      "The evidence, {{answer}} incomplete, points one way.": {"hint": "le although réduit", "translation": "Les preuves, bien qu'incomplètes, vont dans le même sens."}
+    },
+    "Past simple — regular verbs (-ed)": {
+      "I {{answer}} in a bank for five years.": {"hint": "work + -ed", "translation": "J'ai travaillé dans une banque pendant cinq ans."},
+      "She {{answer}} in Rome when she was young.": {"hint": "live — on ajoute seulement -d", "translation": "Elle a vécu à Rome quand elle était jeune."},
+      "He {{answer}} English at university.": {"hint": "study — le y devient -ied", "translation": "Il a étudié l'anglais à l'université."},
+      "The bus {{answer}} suddenly.": {"hint": "stop — le p se double", "translation": "Le bus s'est arrêté brusquement."},
+      "We {{answer}} football in the park yesterday.": {"hint": "voyelle + y — seulement -ed", "translation": "Nous avons joué au football dans le parc hier."},
+      "They {{answer}} work yesterday — it was a holiday.": {"hint": "passé négatif : did + not", "translation": "Ils n'ont pas travaillé hier — c'était férié."}
+    },
+    "Object pronouns (me, him, them)": {
+      "Can you help {{answer}}, please?": {"hint": "celui qui parle demande de l'aide — « me »", "translation": "Tu peux m'aider, s'il te plaît ?"},
+      "I saw {{answer}} at school yesterday.": {"hint": "un homme — « le »", "translation": "Je l'ai vu à l'école hier."},
+      "This present is for {{answer}}.": {"hint": "une femme — « elle »", "translation": "Ce cadeau est pour elle."},
+      "Our teacher knows {{answer}} well.": {"hint": "celui qui parle + d'autres — « nous »", "translation": "Notre professeur nous connaît bien."},
+      "I like these shoes — I'll buy {{answer}}.": {"hint": "plusieurs choses — « les »", "translation": "J'aime ces chaussures — je vais les acheter."},
+      "Where is my phone? I can't find {{answer}}.": {"hint": "une chose — « le »", "translation": "Où est mon téléphone ? Je ne le trouve pas."}
+    },
+    "Imperatives (Open…, Don't…)": {
+      "{{answer}} the door, please.": {"hint": "verbe à la base, sans sujet", "translation": "Ouvre la porte, s'il te plaît."},
+      "{{answer}} worry — everything is fine.": {"hint": "ordre négatif : la forme négative de do + verbe", "translation": "Ne t'inquiète pas — tout va bien."},
+      "{{answer}} me tomorrow, please.": {"hint": "verbe à la base", "translation": "Appelle-moi demain, s'il te plaît."},
+      "{{answer}} be late — the film starts at eight.": {"hint": "ordre négatif avec be", "translation": "Ne sois pas en retard — le film commence à huit heures."},
+      "{{answer}} quiet, please — the baby is sleeping.": {"hint": "le verbe be à la forme de base", "translation": "Sois silencieux, s'il te plaît — le bébé dort."},
+      "Please {{answer}} down and wait a moment.": {"hint": "verbe à la base", "translation": "Asseyez-vous et patientez un instant, s'il vous plaît."}
+    }
+  }
+}
