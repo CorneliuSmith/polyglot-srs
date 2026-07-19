@@ -58,7 +58,87 @@ GREEK = [
     ("ψ", "ps", "'ps' as in lapse"), ("ω", "o", "'o' as in got"),
 ]
 
-ALPHABETS: dict[str, list[tuple[str, str, str]]] = {"ru": RUSSIAN, "el": GREEK}
+ARABIC = [
+    ("ا", "ā", "long 'aa', or a seat for other vowels"),
+    ("ب", "b", "'b' as in boy"), ("ت", "t", "'t' as in top"),
+    ("ث", "th", "'th' as in think"), ("ج", "j", "'j' as in jam"),
+    ("ح", "ḥ", "a breathy 'h' from deep in the throat"),
+    ("خ", "kh", "'ch' as in Scottish loch"), ("د", "d", "'d' as in dog"),
+    ("ذ", "dh", "'th' as in this"), ("ر", "r", "a rolled 'r'"),
+    ("ز", "z", "'z' as in zoo"), ("س", "s", "'s' as in sun"),
+    ("ش", "sh", "'sh' as in shoe"), ("ص", "ṣ", "a heavy, deep 's'"),
+    ("ض", "ḍ", "a heavy, deep 'd'"), ("ط", "ṭ", "a heavy, deep 't'"),
+    ("ظ", "ẓ", "a heavy, deep 'dh'"),
+    ("ع", "ʿ", "a tight sound from the throat — no English match"),
+    ("غ", "gh", "a gargled 'r', like a French 'r'"), ("ف", "f", "'f' as in fan"),
+    ("ق", "q", "a 'k' made far back in the throat"), ("ك", "k", "'k' as in kit"),
+    ("ل", "l", "'l' as in lamp"), ("م", "m", "'m' as in map"),
+    ("ن", "n", "'n' as in net"), ("ه", "h", "'h' as in hat"),
+    ("و", "w", "'w' as in wet, or a long 'oo'"),
+    ("ي", "y", "'y' as in yes, or a long 'ee'"),
+]
+
+# Hindi (Devanagari): vowels first, then the consonant series. Consonants
+# carry the inherent 'a', so क is "ka".
+HINDI = [
+    ("अ", "a", "short 'a' as in about"), ("आ", "ā", "long 'aa' as in father"),
+    ("इ", "i", "short 'i' as in sit"), ("ई", "ī", "long 'ee' as in see"),
+    ("उ", "u", "short 'u' as in put"), ("ऊ", "ū", "long 'oo' as in boot"),
+    ("ए", "e", "'ay' as in say"), ("ऐ", "ai", "'ai' as in aisle"),
+    ("ओ", "o", "'o' as in go"), ("औ", "au", "'au' as in caught"),
+    ("क", "ka", "'k' as in skate"), ("ख", "kha", "aspirated 'k' — k with a puff"),
+    ("ग", "ga", "'g' as in go"), ("घ", "gha", "aspirated 'g'"),
+    ("ङ", "ṅa", "'ng' as in sing"), ("च", "ca", "'ch' as in church"),
+    ("छ", "cha", "aspirated 'ch'"), ("ज", "ja", "'j' as in jam"),
+    ("झ", "jha", "aspirated 'j'"), ("ञ", "ña", "'ny' as in canyon"),
+    ("ट", "ṭa", "hard 't', tongue curled back"), ("ठ", "ṭha", "aspirated hard 't'"),
+    ("ड", "ḍa", "hard 'd', tongue curled back"), ("ढ", "ḍha", "aspirated hard 'd'"),
+    ("ण", "ṇa", "hard 'n', tongue curled back"), ("त", "ta", "soft 't', tongue on teeth"),
+    ("थ", "tha", "aspirated soft 't'"), ("द", "da", "soft 'd', tongue on teeth"),
+    ("ध", "dha", "aspirated soft 'd'"), ("न", "na", "'n' as in net"),
+    ("प", "pa", "'p' as in spin"), ("फ", "pha", "aspirated 'p'"),
+    ("ब", "ba", "'b' as in boy"), ("भ", "bha", "aspirated 'b'"),
+    ("म", "ma", "'m' as in map"), ("य", "ya", "'y' as in yes"),
+    ("र", "ra", "a rolled 'r'"), ("ल", "la", "'l' as in lamp"),
+    ("व", "va", "between 'v' and 'w'"), ("श", "śa", "'sh' as in shoe"),
+    ("ष", "ṣa", "hard 'sh', tongue curled back"), ("स", "sa", "'s' as in sun"),
+    ("ह", "ha", "'h' as in hat"),
+]
+
+# Thai consonants (44). The romanization is the INITIAL sound; the class
+# (low/mid/high) that decides the tone is noted, since it's the thing a
+# beginner needs alongside the shape.
+THAI = [
+    ("ก", "g", "'g' as in go (mid class)"), ("ข", "kh", "'k' with a puff (high class)"),
+    ("ฃ", "kh", "'k' with a puff — obsolete (high class)"),
+    ("ค", "kh", "'k' with a puff (low class)"),
+    ("ฅ", "kh", "'k' with a puff — obsolete (low class)"),
+    ("ฆ", "kh", "'k' with a puff (low class)"), ("ง", "ng", "'ng' as in sing (low class)"),
+    ("จ", "j", "'j' as in jar (mid class)"), ("ฉ", "ch", "'ch' with a puff (high class)"),
+    ("ช", "ch", "'ch' (low class)"), ("ซ", "s", "'s' as in sun (low class)"),
+    ("ฌ", "ch", "'ch' (low class)"), ("ญ", "y", "'y' as in yes (low class)"),
+    ("ฎ", "d", "'d' as in dog (mid class)"), ("ฏ", "t", "hard 't' (mid class)"),
+    ("ฐ", "th", "'t' with a puff (high class)"), ("ฑ", "th", "'t' with a puff (low class)"),
+    ("ฒ", "th", "'t' with a puff (low class)"), ("ณ", "n", "'n' as in net (low class)"),
+    ("ด", "d", "'d' as in dog (mid class)"), ("ต", "t", "hard 't' (mid class)"),
+    ("ถ", "th", "'t' with a puff (high class)"), ("ท", "th", "'t' with a puff (low class)"),
+    ("ธ", "th", "'t' with a puff (low class)"), ("น", "n", "'n' as in net (low class)"),
+    ("บ", "b", "'b' as in boy (mid class)"), ("ป", "p", "'p' as in spin (mid class)"),
+    ("ผ", "ph", "'p' with a puff (high class)"), ("ฝ", "f", "'f' as in fan (high class)"),
+    ("พ", "ph", "'p' with a puff (low class)"), ("ฟ", "f", "'f' as in fan (low class)"),
+    ("ภ", "ph", "'p' with a puff (low class)"), ("ม", "m", "'m' as in map (low class)"),
+    ("ย", "y", "'y' as in yes (low class)"), ("ร", "r", "a rolled 'r' (low class)"),
+    ("ล", "l", "'l' as in lamp (low class)"), ("ว", "w", "'w' as in we (low class)"),
+    ("ศ", "s", "'s' as in sun (high class)"), ("ษ", "s", "'s' as in sun (high class)"),
+    ("ส", "s", "'s' as in sun (high class)"), ("ห", "h", "'h' as in hat (high class)"),
+    ("ฬ", "l", "'l' as in lamp (low class)"),
+    ("อ", "-", "silent holder for a vowel (mid class)"),
+    ("ฮ", "h", "'h' as in hat (low class)"),
+]
+
+ALPHABETS: dict[str, list[tuple[str, str, str]]] = {
+    "ru": RUSSIAN, "el": GREEK, "ar": ARABIC, "hi": HINDI, "th": THAI,
+}
 
 
 async def seed(db_url: str, code: str) -> int:
