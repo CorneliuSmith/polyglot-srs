@@ -248,7 +248,7 @@ rank	word	pos	en
 247	деле	noun	prepositional singular of де́ло (délo)
 248	ребёнок	noun	child, kid, baby: children, kids, babies
 249	хотите	verb	inflection of хоте́ть (xotétʹ):
-250	говорить	verb	to speak, to talk (perfective поговорить)
+250	говорить	verb	to speak, to talk (imperfective; perfective: поговорить)
 251	давайте	verb	second-person plural imperative imperfective of дава́ть (davátʹ)
 252	совсем	adv	quite, entirely, totally
 253	знал	verb	masculine singular past indicative imperfective of знать (znatʹ)
@@ -313,7 +313,7 @@ rank	word	pos	en
 312	вообще	adv	generally, in general, usually
 313	пошли	verb	plural past indicative perfective of пойти́ (pojtí)
 314	мать	noun	mother
-315	нельзя	adj	it is impossible (perfective aspect), one cannot, you can't
+315	нельзя	adj	one cannot, it is impossible; you can't
 316	наверное	adv	probably, most likely
 317	нами	pron	instrumental plural of мы (my)
 318	убить	verb	to kill; to murder
