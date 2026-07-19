@@ -61,3 +61,15 @@ class TestTranslate:
         assert by_word["dog"]["verdict"] == "ok"
         assert by_word["dog"]["gloss"] == "[dog]"
         assert by_word["run"]["gloss"] == "[run]"
+
+
+class TestReviewDefinitions:
+    @pytest.mark.asyncio
+    async def test_mock_keeps_definitions(self):
+        s, b = _mock()
+        items = [{"i": 0, "word": "говорить", "definition": "to speak (perfective поговорить)"}]
+        with s, b:
+            out = await tr.review_definitions("Russian", items)
+        assert out[0]["verdict"] == "ok"
+        assert out[0]["definition"] == "to speak (perfective поговорить)"
+        assert out[0]["word"] == "говорить"

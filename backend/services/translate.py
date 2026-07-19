@@ -194,3 +194,58 @@ async def maker_check_batch(target_language: str, items: list[dict],
             "verdict": v["verdict"], "note": v["note"],
         })
     return results
+
+
+async def review_definitions(target_language: str, items: list[dict],
+                             model: str | None = None) -> list[dict]:
+    """Clarity pass over EXISTING card definitions/hints (not a translation).
+
+    Catches misleading wording — e.g. a Russian imperfective glossed
+    "to speak, to talk (perfective поговорить)", which reads like it wants the
+    perfective. items: {i, word, definition}. Returns per item
+    {i, word, verdict, definition, note}: 'ok' keep as-is, 'fixed' use the
+    reworded `definition`, 'reject' → empty (queue for a human).
+    """
+    settings = get_settings()
+    if getattr(settings, "tutor_dev_mock", False):
+        return [{"i": it["i"], "word": it["word"],
+                 "verdict": "ok", "definition": it["definition"], "note": ""}
+                for it in items]
+    lines = "\n".join(
+        f'{it["i"]}. "{it["word"]}" — {it["definition"]}' for it in items
+    )
+    resp = await _client().messages.create(
+        model=model or settings.tutor_summary_model,
+        max_tokens=4096,
+        system=(
+            f"You review flash-card definitions for learners of {target_language}. "
+            "For each, judge CLARITY, not translation: is it unambiguous and not "
+            "misleading? A common fault is a parenthetical that reads like an "
+            "instruction — e.g. an imperfective verb glossed '...(perfective X)' "
+            "looks like it's asking for X. Verdict 'ok' if it's clear; 'fixed' if "
+            "you can reword it clearly (keep the meaning, put any partner/aspect "
+            "note in plain words, e.g. 'to speak (imperfective; pairs with X)') and "
+            "put it in `final`; 'reject' if you're unsure. Keep it concise."
+        ),
+        messages=[{"role": "user", "content": lines}],
+        output_config={"format": {"type": "json_schema", "schema": _CHECKER_SCHEMA}},
+    )
+    text = next((b.text for b in resp.content if b.type == "text"), "{}")
+    try:
+        data = json.loads(text)
+    except (json.JSONDecodeError, TypeError):
+        return []
+    by_i = {}
+    for v in data.get("verdicts", []):
+        verdict = v.get("verdict")
+        if verdict not in ("ok", "fixed", "reject"):
+            verdict = "reject"
+        by_i[v["i"]] = (verdict, (v.get("final") or "").strip(), (v.get("note") or "").strip())
+    out = []
+    for it in items:
+        verdict, final, note = by_i.get(it["i"], ("reject", "", "no verdict"))
+        definition = it["definition"] if verdict == "ok" else final
+        out.append({"i": it["i"], "word": it["word"], "verdict": verdict,
+                    "definition": definition if verdict in ("ok", "fixed") else "",
+                    "note": note})
+    return out
