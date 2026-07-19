@@ -773,25 +773,48 @@ async def create_account(
     user: dict = Depends(get_current_user),
 ):
     """Create an account directly (admin-only) — the invite-only beta path:
-    public signup is disabled, so the admin mints email+password accounts
-    for friends via the Supabase admin API."""
+    public signup is disabled, so the admin mints email+password accounts.
+
+    DATABASE FIRST: this deploy's HTTP egress to *.supabase.co hangs (the
+    old API-first order spent its whole gateway window waiting before the
+    fallback could run → 504). The SQL path writes the same rows the admin
+    API writes — confirmed auth.users with the bf-crypt hash GoTrue checks
+    at sign-in, plus the email identity — and completes in ~1s over the
+    (working) database connection. The admin API is kept as the backup for
+    environments where the SQL path can't run.
+    """
     await _require_admin(user["id"])
+    try:
+        async with privileged_connection() as conn:
+            uid = await create_auth_user(conn, body.email, body.password)
+        return {"id": uid, "email": body.email.lower()}
+    except ValueError:
+        raise HTTPException(
+            status_code=status.HTTP_409_CONFLICT,
+            detail="An account with that email already exists.",
+        ) from None
+    except Exception as db_exc:  # noqa: BLE001
+        logger.warning(
+            "account creation: SQL path failed (%s) — trying the admin API",
+            db_exc,
+        )
+
     from backend.dependencies import get_settings
     settings = get_settings()
     if not settings.supabase_service_role_key or not settings.supabase_url:
         raise HTTPException(
             status_code=status.HTTP_503_SERVICE_UNAVAILABLE,
             detail=(
-                "Account creation isn't configured on the server "
-                "(SUPABASE_SERVICE_ROLE_KEY / SUPABASE_URL missing)."
+                "Account creation failed: the database path errored and the "
+                "admin API isn't configured (SUPABASE_SERVICE_ROLE_KEY / "
+                "SUPABASE_URL missing)."
             ),
         )
     import httpx
-    # Keep this well UNDER the platform's gateway timeout (DigitalOcean ~10s)
-    # so a slow/hung Supabase call returns our own clear 502 instead of an
-    # opaque 504 — and so a stuck request frees its worker fast.
+    # Short timeouts: stay well under the platform's ~10s gateway window so
+    # a hung call returns our own clear 502, never an opaque 504.
     try:
-        timeout = httpx.Timeout(6.0, connect=4.0)
+        timeout = httpx.Timeout(3.0, connect=2.0)
         async with httpx.AsyncClient(timeout=timeout) as client:
             resp = await client.post(
                 f"{settings.supabase_url.rstrip('/')}/auth/v1/admin/users",
@@ -803,33 +826,15 @@ async def create_account(
                       "email_confirm": True},
             )
     except httpx.HTTPError as exc:
-        # The deploy's HTTP egress to *.supabase.co hangs while its database
-        # connection works fine — so when the admin API is unreachable, mint
-        # the account directly in the auth schema over SQL instead. Same
-        # rows, same bf-crypt hash GoTrue verifies at sign-in.
         kind = type(exc).__name__
-        logger.warning(
-            "account creation: Supabase API unreachable (%s) — using the "
-            "database fallback", kind,
-        )
-        try:
-            async with privileged_connection() as conn:
-                uid = await create_auth_user(conn, body.email, body.password)
-        except ValueError:
-            raise HTTPException(
-                status_code=status.HTTP_409_CONFLICT,
-                detail="An account with that email already exists.",
-            ) from None
-        except Exception as db_exc:  # noqa: BLE001
-            logger.warning("account creation: database fallback failed: %s", db_exc)
-            raise HTTPException(
-                status_code=status.HTTP_502_BAD_GATEWAY,
-                detail=(
-                    f"Couldn't reach the authentication service ({kind}), and "
-                    "the database fallback failed too. Please try again."
-                ),
-            ) from db_exc
-        return {"id": uid, "email": body.email.lower()}
+        logger.warning("account creation: admin API also failed (%s): %s", kind, exc)
+        raise HTTPException(
+            status_code=status.HTTP_502_BAD_GATEWAY,
+            detail=(
+                "Account creation failed on both paths — the database write "
+                f"errored and the authentication service was unreachable ({kind})."
+            ),
+        ) from exc
     # Duplicate email — Supabase tags it error_code=email_exists (422).
     if resp.status_code == 422 and (
         "already" in resp.text.lower() or "email_exists" in resp.text
