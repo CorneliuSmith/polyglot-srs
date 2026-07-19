@@ -1,0 +1,360 @@
+{
+  "language": "en",
+  "locale": "ha",
+  "reviewed": false,
+  "_note": "Hints and faithful sentence translations for ENGLISH drills, shown to learners whose support locale is Hausa. The hint names the expected English word (kept in English) with a Hausa cue; the translation renders the completed sentence in natural Hausa (Boko orthography, no tone marks per standard written practice). Draft tier: flagged for native review.",
+  "points": {
+    "Past simple — irregular verbs": {
+      "Yesterday I {{answer}} to the market.": {"hint": "go — lokacin da ya wuce", "translation": "Jiya na je kasuwa."},
+      "She {{answer}} a great film last night.": {"hint": "see — lokacin da ya wuce", "translation": "Ta kalli fim mai kyau jiya da dare."},
+      "We {{answer}} a new car in March.": {"hint": "buy — lokacin da ya wuce", "translation": "Mun sayi sabuwar mota a watan Maris."},
+      "He {{answer}} the early train this morning.": {"hint": "take — lokacin da ya wuce", "translation": "Ya hau jirgin kasa na safe da wuri yau da safe."},
+      "They {{answer}} home very late.": {"hint": "come — lokacin da ya wuce", "translation": "Sun dawo gida da latti sosai."},
+      "I {{answer}} breakfast at seven.": {"hint": "eat — lokacin da ya wuce", "translation": "Na ci karin kumallo da karfe bakwai."}
+    },
+    "Present continuous vs present simple": {
+      "Quiet, please — the baby {{answer}} sleeping.": {"hint": "be — mutum na uku", "translation": "Yi shiru, don Allah — jaririn yana barci yanzu."},
+      "She {{answer}} to work by bike every day.": {"hint": "go — al'ada, ita", "translation": "Takan je aiki da keke kowace rana."},
+      "I'm {{answer}} for my keys at the moment.": {"hint": "look — siga mai gudana", "translation": "Ina neman mabudaina a yanzu haka."},
+      "Water {{answer}} at 100 degrees.": {"hint": "boil — gaskiya ta kowa, it", "translation": "Ruwa yakan tafasa a ma'aunin zafi na 100."},
+      "They {{answer}} watching TV right now.": {"hint": "be — su", "translation": "Suna kallon talabijin a yanzu haka."},
+      "He usually {{answer}} coffee, not tea.": {"hint": "drink — al'ada, shi", "translation": "Yakan sha kofi, ba shayi ba."}
+    },
+    "Comparatives and superlatives": {
+      "This bag is {{answer}} than that one.": {"hint": "cheap — kwatanci", "translation": "Wannan jaka ta fi waccan araha."},
+      "It's the {{answer}} building in the city.": {"hint": "tall — mafi girma", "translation": "Shi ne gini mafi tsayi a birnin."},
+      "Her English is {{answer}} than mine.": {"hint": "good — kwatanci", "translation": "Turancinta ya fi nawa kyau."},
+      "That was the {{answer}} meal I've ever had.": {"hint": "bad — mafi girma", "translation": "Wannan shi ne abinci mafi muni da na taba ci."},
+      "This exercise is {{answer}} difficult than the last.": {"hint": "kalmar da ake sawa gaban dogayen siffofi", "translation": "Wannan motsa jiki ya fi na baya wahala."},
+      "The station is {{answer}} than I thought.": {"hint": "far — kwatanci", "translation": "Tashar ta fi nisan da na zata."}
+    },
+    "Going to and will": {
+      "We're {{answer}} to visit Rome in May.": {"hint": "makomar shirye-shiryen da aka tsara", "translation": "Za mu ziyarci Roma a watan Mayu."},
+      "Don't worry — I {{answer}} help you.": {"hint": "shawarar nan take", "translation": "Kada ka damu — zan taimake ka."},
+      "Look at those clouds! It's going to {{answer}}.": {"hint": "yanayin ruwan sama", "translation": "Duba wadancan gizagizai! Ruwan sama zai sauka."},
+      "I think she {{answer}} pass the exam.": {"hint": "kalmar hasashe", "translation": "Ina tsammanin za ta ci jarrabawar."},
+      "They're going {{answer}} move house next year.": {"hint": "karamar kalma bayan going", "translation": "Za su koma sabon gida badi."},
+      "I'm tired — I {{answer}} go to bed.": {"hint": "gajeriyar siga ta makoma ta kusa", "translation": "Na gaji — zan je kwanciya."}
+    },
+    "Some, any, much, many": {
+      "There's {{answer}} milk in the fridge.": {"hint": "kalmar yawa a jimla tabbatacciya", "translation": "Akwai madara kadan a firiji."},
+      "We don't have {{answer}} eggs left.": {"hint": "kalmar yawa a jimla korau", "translation": "Ba mu da sauran kwai ko kadan."},
+      "Do you have {{answer}} questions?": {"hint": "kalmar yawa a tambaya", "translation": "Kuna da wata tambaya?"},
+      "How {{answer}} money do you need?": {"hint": "da abin da ba a kirgawa", "translation": "Kudi nawa kake bukata?"},
+      "How {{answer}} people are coming?": {"hint": "da abin da ake kirgawa", "translation": "Mutane nawa ne za su zo?"},
+      "Would you like {{answer}} tea?": {"hint": "kalmar yawa a tayi", "translation": "Kana son shayi kadan?"}
+    },
+    "Adverbs of frequency": {
+      "I {{answer}} drink coffee in the morning — every single day.": {"hint": "kalmar «kowane lokaci»", "translation": "Kullum ina shan kofi da safe — kowace rana ba tare da kasawa ba."},
+      "He is {{answer}} late — it drives me crazy.": {"hint": "kalmar «kowane lokaci»", "translation": "Kullum yana makara — yana sa ni hauka."},
+      "We {{answer}} go out on Fridays — maybe once a month.": {"hint": "kalmar «wani lokaci»", "translation": "Wani lokaci mukan fita ranar Juma'a — watakila sau daya a wata."},
+      "She {{answer}} eats meat — she's almost vegetarian.": {"hint": "kalmar «da wuya»", "translation": "Da wuya ta ci nama — kusan ba ta cin nama ce."},
+      "I have {{answer}} been to Japan, but I'd love to go.": {"hint": "kalmar «babu ko sau daya»", "translation": "Ban taba zuwa Japan ba, amma ina matukar son zuwa."},
+      "They {{answer}} visit us at Christmas — most years.": {"hint": "kalmar «galibi»", "translation": "Galibi sukan ziyarce mu lokacin Kirsimeti — kusan kowace shekara."},
+      "We {{answer}} eat out on Fridays.": {"hint": "sau da yawa — tsakanin 'sometimes' da 'always'", "translation": "Sau da yawa mukan ci abinci a waje ranar Juma'a."}
+    },
+    "Can, could, have to": {
+      "She {{answer}} speak three languages.": {"hint": "kalmar iyawa", "translation": "Tana iya magana da harsuna uku."},
+      "{{answer}} you open the window, please?": {"hint": "kalmar roko cikin ladabi", "translation": "Za ka iya bude tagar, don Allah?"},
+      "I {{answer}} to wear a uniform at work.": {"hint": "aikatau na dole", "translation": "Dole ne in sa kayan aiki a wurin aiki."},
+      "When I was five, I {{answer}} already read.": {"hint": "kalmar iyawa — lokacin da ya wuce", "translation": "Ina dan shekara biyar, na riga na iya karatu."},
+      "You don't {{answer}} to come if you're busy.": {"hint": "aikatau na dole", "translation": "Ba dole ba ne ka zo idan kana da aiki."},
+      "{{answer}} I sit here? — Of course.": {"hint": "kalmar neman izini", "translation": "Zan iya zama a nan? — Tabbas."}
+    },
+    "Prepositions of time: in, on, at": {
+      "The meeting starts {{answer}} nine o'clock.": {"hint": "harafin lokaci na daidai", "translation": "Taron zai fara da karfe tara."},
+      "I was born {{answer}} 1998.": {"hint": "harafin dogon lokaci", "translation": "An haife ni a shekarar 1998."},
+      "We're leaving {{answer}} Friday.": {"hint": "harafin ranaku", "translation": "Za mu tafi ranar Juma'a."},
+      "She works best {{answer}} the morning.": {"hint": "harafin dogon lokaci", "translation": "Tana aiki mafi kyau da safe."},
+      "My birthday is {{answer}} 12 March.": {"hint": "harafin kwanan wata", "translation": "Ranar haihuwata ita ce 12 ga Maris."},
+      "He often studies {{answer}} night.": {"hint": "harafi tabbatacce tare da night", "translation": "Yakan yi karatu da dare sau da yawa."}
+    },
+    "Subject pronouns (I, you, he…)": {
+      "{{answer}} am from Brazil.": {"hint": "mai magana — kullum da babban harafi", "translation": "Ni daga Brazil nake."},
+      "{{answer}} is my sister.": {"hint": "mace", "translation": "Ita 'yar'uwata ce."},
+      "{{answer}} are students.": {"hint": "mai magana da wasu", "translation": "Mu dalibai ne."},
+      "{{answer}} is my father.": {"hint": "namiji", "translation": "Shi mahaifina ne."},
+      "{{answer}} is on the table.": {"hint": "abu", "translation": "Yana kan tebur."},
+      "{{answer}} are very kind.": {"hint": "wanda kake magana da shi", "translation": "Kai mai kirki ne sosai. / Ku masu kirki ne sosai."},
+      "{{answer}} are my friends.": {"hint": "mutane fiye da daya — «su»", "translation": "Su abokaina ne."}
+    },
+    "To be — am / is / are": {
+      "I {{answer}} a student.": {"hint": "be — tare da I", "translation": "Ni dalibi ne."},
+      "You {{answer}} my friend.": {"hint": "be — tare da you", "translation": "Kai abokina ne."},
+      "She {{answer}} a doctor.": {"hint": "be — tare da she", "translation": "Ita likita ce."},
+      "We {{answer}} at home.": {"hint": "be — tare da we", "translation": "Muna gida."},
+      "The coffee {{answer}} hot.": {"hint": "be — tare da it/abu", "translation": "Kofin yana da zafi."},
+      "They {{answer}} from Japan.": {"hint": "be — tare da they", "translation": "Su daga Japan suke."}
+    },
+    "Articles: a / an": {
+      "I have {{answer}} dog.": {"hint": "gaban sautin bakin harafi", "translation": "Ina da kare."},
+      "She is {{answer}} engineer.": {"hint": "gaban sautin wasali", "translation": "Ita injiniya ce."},
+      "It is {{answer}} big house.": {"hint": "gaban sautin bakin harafi", "translation": "Babban gida ne."},
+      "He eats {{answer}} apple every day.": {"hint": "gaban sautin wasali", "translation": "Yakan ci tuffa daya kowace rana."},
+      "I read {{answer}} book every week.": {"hint": "gaban sautin bakin harafi", "translation": "Nakan karanta littafi daya kowane mako."},
+      "I need {{answer}} umbrella.": {"hint": "gaban sautin wasali", "translation": "Ina bukatar laima."}
+    },
+    "The — pointing at a specific thing": {
+      "{{answer}} sun is hot today.": {"hint": "abubuwa na musamman suna daukar wannan kalma", "translation": "Rana tana da zafi yau."},
+      "Please close {{answer}} door.": {"hint": "dukanku kun san wacce ce", "translation": "Don Allah rufe kofar."},
+      "{{answer}} keys in my hand are mine.": {"hint": "abin da ke biye ya bayyana su", "translation": "Mabudan da ke hannuna nawa ne."},
+      "We live near {{answer}} station.": {"hint": "dukanku kun san wacce ce", "translation": "Muna zaune kusa da tashar."},
+      "{{answer}} moon is bright tonight.": {"hint": "abubuwa na musamman suna daukar wannan kalma", "translation": "Wata yana haske sosai yau da dare."},
+      "Where is {{answer}} bathroom?": {"hint": "dukanku kun san wanne ne", "translation": "Ina bandaki yake?"}
+    },
+    "Plural nouns (-s, -es, irregular)": {
+      "I have two {{answer}}.": {"hint": "book a jam'i", "translation": "Ina da littattafai biyu."},
+      "The {{answer}} are playing outside.": {"hint": "child — jam'i mara bin ka'ida", "translation": "Yara suna wasa a waje."},
+      "She has three {{answer}}.": {"hint": "watch — ana kara -es", "translation": "Tana da agogo uku."},
+      "The {{answer}} are late today.": {"hint": "bus — ana kara -es", "translation": "Motocin bas sun makara yau."},
+      "Two {{answer}} live in our street.": {"hint": "family — y ta koma -ies", "translation": "Iyalai biyu suna zaune a titinmu."},
+      "My {{answer}} are cold.": {"hint": "foot — jam'i mara bin ka'ida", "translation": "Kafafuna suna sanyi."}
+    },
+    "Present simple (I work)": {
+      "I {{answer}} in a bank.": {"hint": "abin da kake yi na sana'a", "translation": "Ina aiki a banki."},
+      "We {{answer}} breakfast at seven.": {"hint": "cin (abinci)", "translation": "Mukan ci karin kumallo da karfe bakwai."},
+      "They {{answer}} in London.": {"hint": "zama a wani wuri", "translation": "Suna zaune a London."},
+      "You {{answer}} English very well.": {"hint": "amfani da harshe", "translation": "Kana jin Turanci sosai."},
+      "I {{answer}} coffee every morning.": {"hint": "shan abin sha", "translation": "Nakan sha kofi kowace safiya."},
+      "We {{answer}} TV in the evening.": {"hint": "kallon allo ko shiri", "translation": "Mukan kalli talabijin da yamma."}
+    },
+    "Third-person -s (she works)": {
+      "She {{answer}} in a hospital.": {"hint": "to work — tare da she", "translation": "Tana aiki a asibiti."},
+      "He {{answer}} to school every day.": {"hint": "to go — ana kara -es", "translation": "Yakan je makaranta kowace rana."},
+      "My brother {{answer}} English.": {"hint": "to study — y ta koma -ies", "translation": "Dan'uwana yana karatun Turanci."},
+      "The shop {{answer}} at nine.": {"hint": "to open — tare da it", "translation": "Shagon yakan bude da karfe tara."},
+      "She {{answer}} TV after dinner.": {"hint": "to watch — ana kara -es", "translation": "Takan kalli talabijin bayan cin abincin dare."},
+      "It {{answer}} a lot in April.": {"hint": "to rain — tare da it", "translation": "Ruwan sama yakan yi yawa a watan Afrilu."}
+    },
+    "Do-support: questions and negation": {
+      "{{answer}} you speak English?": {"hint": "aikatau mai taimako — tare da you", "translation": "Kana jin Turanci?"},
+      "{{answer}} she work here?": {"hint": "aikatau mai taimako — tare da she", "translation": "Tana aiki a nan?"},
+      "I {{answer}} not eat meat.": {"hint": "aikatau mai taimako — tare da I", "translation": "Ba na cin nama."},
+      "He {{answer}} not like coffee.": {"hint": "aikatau mai taimako — tare da he", "translation": "Ba ya son kofi."},
+      "{{answer}} they live in Rome?": {"hint": "aikatau mai taimako — tare da they", "translation": "Suna zaune a Roma?"},
+      "We {{answer}} not have time.": {"hint": "aikatau mai taimako — tare da we", "translation": "Ba mu da lokaci."},
+      "I {{answer}} like coffee.": {"hint": "korau tare da I — do + not", "translation": "Ba na son kofi."},
+      "She {{answer}} work on Sundays.": {"hint": "korau tare da she — does + not", "translation": "Ba ta aiki ranar Lahadi."}
+    },
+    "Present continuous (I am working)": {
+      "I am {{answer}} a book right now.": {"hint": "to read + -ing", "translation": "Ina karanta littafi a yanzu haka."},
+      "She is {{answer}} dinner now.": {"hint": "to cook + -ing", "translation": "Tana dafa abincin dare yanzu."},
+      "They are {{answer}} football.": {"hint": "to play + -ing", "translation": "Suna wasan kwallon kafa."},
+      "Look! It is {{answer}}.": {"hint": "to rain + -ing", "translation": "Duba! Ana ruwan sama."},
+      "We are {{answer}} for the bus.": {"hint": "to wait + -ing", "translation": "Muna jiran bas."},
+      "He is {{answer}} at the moment.": {"hint": "to sleep + -ing", "translation": "Yana barci a yanzu haka."},
+      "He is {{answer}} in the park.": {"hint": "run — ana ninka bakin harafi na karshe", "translation": "Yana gudu a wurin shakatawa."},
+      "She is {{answer}} an email.": {"hint": "write — e mara sauti ta fadi", "translation": "Tana rubuta imel."}
+    },
+    "There is / there are": {
+      "There {{answer}} a book on the table.": {"hint": "tilo", "translation": "Akwai littafi guda a kan tebur."},
+      "There {{answer}} two cafés in this street.": {"hint": "jam'i", "translation": "Akwai gidajen kofi guda biyu a wannan titi."},
+      "{{answer}} there a bank near here?": {"hint": "tilo, tsarin tambaya", "translation": "Akwai banki kusa da nan?"},
+      "There {{answer}} no milk.": {"hint": "tilo", "translation": "Babu madara."},
+      "{{answer}} there any questions?": {"hint": "jam'i, tsarin tambaya", "translation": "Akwai wasu tambayoyi?"},
+      "There {{answer}} many people here today.": {"hint": "jam'i", "translation": "Akwai mutane da yawa a nan yau."}
+    },
+    "Question words (what, where, when…)": {
+      "{{answer}} do you live?": {"hint": "ana tambayar wuri", "translation": "A ina kake zaune?"},
+      "{{answer}} is your name?": {"hint": "ana tambayar abu", "translation": "Menene sunanka?"},
+      "{{answer}} is your birthday?": {"hint": "ana tambayar lokaci", "translation": "Yaushe ne ranar haihuwarka?"},
+      "{{answer}} old are you?": {"hint": "haka ake tambayar shekaru", "translation": "Shekarunka nawa?"},
+      "{{answer}} is your teacher?": {"hint": "ana tambayar mutum", "translation": "Wanene malaminka?"},
+      "{{answer}} are you crying?": {"hint": "ana tambayar dalili", "translation": "Me ya sa kake kuka?"}
+    },
+    "Possessives (my, your, 's)": {
+      "This is {{answer}} book.": {"hint": "na mai magana", "translation": "Wannan littafina ne."},
+      "Is this {{answer}} car?": {"hint": "naka", "translation": "Wannan motarka ce?"},
+      "{{answer}} name is Anna.": {"hint": "nata", "translation": "Sunanta Anna."},
+      "That is my {{answer}} car.": {"hint": "brother + karin mallaka", "translation": "Wancan motar dan'uwana ce."},
+      "{{answer}} house is big.": {"hint": "nasu", "translation": "Gidansu babba ne."},
+      "The dog wags {{answer}} tail.": {"hint": "na abu — ba tare da alamar ' ba", "translation": "Karen yana kada wutsiyarsa."},
+      "{{answer}} name is David.": {"hint": "sunan namiji — «nasa»", "translation": "Sunansa Da'ud."},
+      "That is {{answer}} classroom.": {"hint": "namu ne — «namu»", "translation": "Wancan ajinmu ne."}
+    },
+    "Present perfect vs past simple": {
+      "I've {{answer}} my wallet — can you help me look?": {"hint": "lose — sigar aikatau ta uku", "translation": "Na bata walat dina — za ka taimake ni nema?"},
+      "She {{answer}} in Berlin in 2019.": {"hint": "live — lokacin da ya wuce", "translation": "Ta zauna a Berlin a shekarar 2019."},
+      "Have you {{answer}} been to Japan?": {"hint": "kalmar «ko sau daya a rayuwa»", "translation": "Ka taba zuwa Japan?"},
+      "We've known each other {{answer}} ten years.": {"hint": "kalmar tsawon lokaci", "translation": "Mun san juna tsawon shekaru goma."},
+      "He's worked here {{answer}} 2020.": {"hint": "kalmar farkon lokaci", "translation": "Yana aiki a nan tun shekarar 2020."},
+      "They haven't finished {{answer}}.": {"hint": "kalmar «ba tukuna»", "translation": "Ba su gama ba tukuna."}
+    },
+    "First and second conditionals": {
+      "If it {{answer}} tomorrow, we'll cancel the picnic.": {"hint": "rain — lokacin yanzu, it", "translation": "Idan ruwan sama ya sauka gobe, za mu soke yawon shakatawar."},
+      "If you study, you {{answer}} pass.": {"hint": "kalmar makoma ta gaskiya", "translation": "Idan ka yi karatu, za ka ci jarrabawa."},
+      "If I {{answer}} rich, I would buy an island.": {"hint": "be — sigar zato", "translation": "Da ni mai kudi ne, da na sayi tsibiri."},
+      "She {{answer}} travel more if she had time.": {"hint": "kalmar sakamakon zato", "translation": "Da tana da lokaci, da ta yi tafiye-tafiye da yawa."},
+      "If we {{answer}} now, we'll catch the train.": {"hint": "tashi — a lokacin yanzu", "translation": "Idan muka tashi yanzu, za mu sami jirgin kasa."},
+      "What {{answer}} you do if you won the lottery?": {"hint": "kalmar sakamakon zato", "translation": "Me za ka yi da ka ci caca?"}
+    },
+    "The passive (is made, was built)": {
+      "This wine {{answer}} produced in Chile.": {"hint": "be — lokacin yanzu, it", "translation": "Ana yin wannan giyar inabi a kasar Chile."},
+      "The castle was {{answer}} in the twelfth century.": {"hint": "build — sigar aikatau ta uku", "translation": "An gina katangar a karni na goma sha biyu."},
+      "These photos {{answer}} taken by my grandmother.": {"hint": "be — lokacin da ya wuce, they", "translation": "Kakata ce ta dauki wadannan hotuna."},
+      "English {{answer}} spoken all over the world.": {"hint": "be — lokacin yanzu, it", "translation": "Ana jin Turanci a ko'ina cikin duniya."},
+      "The thief was caught {{answer}} the police.": {"hint": "harafin mai aikatawa", "translation": "'Yan sanda ne suka kama barawon."},
+      "My phone was {{answer}} at the festival.": {"hint": "steal — sigar aikatau ta uku", "translation": "An sace wayata a wurin bikin."}
+    },
+    "Relative clauses (who, which, that, where)": {
+      "She's the doctor {{answer}} treated my father.": {"hint": "kalmar dangantaka ta mutane", "translation": "Ita ce likitar da ta yi wa mahaifina magani."},
+      "That's the restaurant {{answer}} we first met.": {"hint": "kalmar dangantaka ta wurare", "translation": "Wancan ne gidan abincin da muka fara haduwa."},
+      "The laptop {{answer}} I bought last week is broken.": {"hint": "kalmar dangantaka ta kowa", "translation": "Kwamfutar da na saya makon jiya ta lalace."},
+      "He's the author {{answer}} books sell millions.": {"hint": "kalmar dangantaka ta mallaka", "translation": "Shi ne marubucin da littattafansa ke sayarwa miliyoyi."},
+      "The train, {{answer}} was already late, then broke down.": {"hint": "kalmar dangantaka ta abubuwa", "translation": "Jirgin kasan, wanda ya riga ya makara, sai ya lalace."},
+      "People {{answer}} exercise regularly live longer.": {"hint": "kalmar dangantaka ta mutane", "translation": "Mutanen da ke motsa jiki akai-akai suna rayuwa tsawon lokaci."}
+    },
+    "Used to — past habits and states": {
+      "I {{answer}} to play football every weekend.": {"hint": "aikatau na al'adar da", "translation": "Da nakan buga kwallon kafa kowane karshen mako."},
+      "She didn't {{answer}} to like coffee, but now she loves it.": {"hint": "aikatau na al'adar da, ba tare da -d ba", "translation": "Da ba ta son kofi, amma yanzu tana matukar sonsa."},
+      "There {{answer}} to be a bakery on this corner.": {"hint": "aikatau na al'adar da", "translation": "Da akwai gidan burodi a wannan kusurwa."},
+      "Did you {{answer}} to live in London?": {"hint": "aikatau na al'adar da, ba tare da -d ba", "translation": "Da kana zaune a London ne?"},
+      "He used {{answer}} have long hair.": {"hint": "karamar kalma", "translation": "Da yana da dogon gashi."},
+      "We {{answer}} to go camping every summer as kids.": {"hint": "aikatau na al'adar da", "translation": "Muna yara, mukan je sansani kowane lokacin rani."}
+    },
+    "Reported speech": {
+      "'I'm busy.' → She said she {{answer}} busy.": {"hint": "be — mataki daya baya", "translation": "«Ina da aiki.» → Ta ce tana da aiki."},
+      "'I'll call you.' → He said he {{answer}} call me.": {"hint": "will — mataki daya baya", "translation": "«Zan kira ka.» → Ya ce zai kira ni."},
+      "'Are you ready?' → She asked {{answer}} I was ready.": {"hint": "kalmar tambayoyin i/a'a", "translation": "«Ka shirya?» → Ta tambaye ni ko na shirya."},
+      "'Where do you live?' → He asked where I {{answer}}.": {"hint": "live — mataki daya baya", "translation": "«A ina kake zaune?» → Ya tambaye ni inda nake zaune."},
+      "'I can swim.' → She said she {{answer}} swim.": {"hint": "can — mataki daya baya", "translation": "«Ina iya iyo.» → Ta ce tana iya iyo."},
+      "'We bought a house.' → They said they {{answer}} bought a house.": {"hint": "aikatau mai taimako na komawa baya", "translation": "«Mun sayi gida.» → Sun ce sun sayi gida."}
+    },
+    "Gerund or infinitive?": {
+      "I really enjoy {{answer}} in the sea.": {"hint": "swim — wace siga?", "translation": "Ina matukar jin dadin iyo a teku."},
+      "She decided {{answer}} accept the job.": {"hint": "karamar kalmar infinitive", "translation": "Ta yanke shawarar karbar aikin."},
+      "Would you mind {{answer}} the door?": {"hint": "close — wace siga?", "translation": "Ko za ka iya rufe kofar?"},
+      "We hope {{answer}} see you soon.": {"hint": "karamar kalmar infinitive", "translation": "Muna fatan ganinka nan ba da jimawa ba."},
+      "He avoided {{answer}} my question.": {"hint": "answer — wace siga?", "translation": "Ya kaucewa amsa tambayata."},
+      "They promised {{answer}} write every week.": {"hint": "karamar kalmar infinitive", "translation": "Sun yi alkawarin rubutawa kowane mako."}
+    },
+    "Third and mixed conditionals": {
+      "If you {{answer}} told me, I would have helped.": {"hint": "aikatau mai taimako na lokacin da ya wuce kafin wani", "translation": "Da ka gaya mini, da na taimaka."},
+      "If she had left earlier, she would {{answer}} caught the flight.": {"hint": "mai taimakon kammala bayan would", "translation": "Da ta tashi da wuri, da ta sami jirgin sama."},
+      "I wouldn't {{answer}} met her if I hadn't gone to that party.": {"hint": "mai taimakon kammala", "translation": "Da ban je wancan bikin ba, da ban hadu da ita ba."},
+      "If he had studied medicine, he {{answer}} be a doctor now.": {"hint": "kalmar sakamakon zato", "translation": "Da ya karanci likitanci, da yanzu likita ne."},
+      "If we {{answer}} taken the map, we wouldn't have got lost.": {"hint": "aikatau mai taimako na lokacin da ya wuce kafin wani", "translation": "Da mun dauki taswirar, da ba mu bata ba."},
+      "What would you have {{answer}} in my position?": {"hint": "do — sigar aikatau ta uku", "translation": "Me da ka yi a matsayina?"}
+    },
+    "Modals of deduction (must, might, can't)": {
+      "The lights are on — someone {{answer}} be home.": {"hint": "kalmar kusan tabbaci", "translation": "Fitilu suna kunne — tabbas akwai wani a gida."},
+      "That {{answer}} be Maria — she's in Brazil this week!": {"hint": "kalmar rashin yiwuwa", "translation": "Wannan ba za ta iya zama Maria ba — tana Brazil wannan makon!"},
+      "He {{answer}} be stuck in traffic — it happens.": {"hint": "kalmar yiwuwa", "translation": "Watakila ya makale a cunkoson ababen hawa — yakan faru."},
+      "She must {{answer}} forgotten our meeting.": {"hint": "mai taimakon tunani kan abin da ya wuce", "translation": "Tabbas ta manta da taronmu."},
+      "They can't {{answer}} left already — the car's still here.": {"hint": "mai taimakon tunani kan abin da ya wuce", "translation": "Ba za su iya kasancewa sun riga sun tafi ba — motar tana nan har yanzu."},
+      "It {{answer}} rain later, so take an umbrella.": {"hint": "kalmar yiwuwa", "translation": "Watakila ruwan sama ya sauka daga baya, don haka dauki laima."}
+    },
+    "Advanced passives (has been done, being done)": {
+      "The road has {{answer}} closed since Monday.": {"hint": "sigar aikatau ta uku ta be", "translation": "An rufe hanyar tun ranar Litinin."},
+      "Our office is {{answer}} renovated at the moment.": {"hint": "sigar -ing ta be", "translation": "Ana gyara ofishinmu a yanzu haka."},
+      "All answers must be {{answer}} in ink.": {"hint": "write — sigar aikatau ta uku", "translation": "Dole ne a rubuta dukan amsoshi da tawada."},
+      "She is {{answer}} to be the richest woman in the country.": {"hint": "say — sigar aikatau ta uku", "translation": "Ana cewa ita ce mace mafi arziki a kasar."},
+      "The results will {{answer}} announced on Friday.": {"hint": "aikatau tsirara na kauli wanda aka yi wa", "translation": "Za a sanar da sakamakon ranar Juma'a."},
+      "By 1990, the bridge {{answer}} been rebuilt twice.": {"hint": "aikatau mai taimako na lokacin da ya wuce kafin wani", "translation": "Zuwa shekarar 1990, an sake gina gadar sau biyu."}
+    },
+    "Wish and if only": {
+      "I wish I {{answer}} how to drive.": {"hint": "know — sigar buri", "translation": "Ina fata da na iya tuka mota."},
+      "She wishes she {{answer}} accepted the offer.": {"hint": "mai taimakon nadamar abin da ya wuce", "translation": "Tana fata da ta karbi tayin."},
+      "I wish you {{answer}} stop interrupting me!": {"hint": "kalmar kuka", "translation": "Ina fata ka daina katse mini magana!"},
+      "If {{answer}} I had listened to your advice!": {"hint": "kalmar bayan if", "translation": "Da ma na saurari shawararka!"},
+      "He wishes he {{answer}} taller.": {"hint": "be — sigar buri", "translation": "Yana fata da shi ya fi tsayi."},
+      "We wish we {{answer}} bought tickets earlier.": {"hint": "mai taimakon nadamar abin da ya wuce", "translation": "Muna fata da mun sayi tikiti da wuri."}
+    },
+    "Phrasal verbs — separable or not?": {
+      "Could you turn {{answer}} off? The music's too loud.": {"hint": "wakilin abin da aka aikata wa", "translation": "Za ka iya kashe ta? Kidan ya yi kara sosai."},
+      "She's looking {{answer}} her elderly mother.": {"hint": "karin kalmar kulawa", "translation": "Tana kula da tsohuwar mahaifiyarta."},
+      "Please fill {{answer}} this form.": {"hint": "karin kalmar fom", "translation": "Don Allah cika wannan fom."},
+      "I'll pick you {{answer}} at eight.": {"hint": "karin kalmar daukar mutum", "translation": "Zan dauke ka da karfe takwas."},
+      "We've put {{answer}} the meeting until Friday.": {"hint": "karin kalmar dagewa", "translation": "Mun dage taron zuwa ranar Juma'a."},
+      "He takes {{answer}} his father — same smile, same laugh.": {"hint": "karin kalmar gadon kama", "translation": "Ya gaji kamannin mahaifinsa — murmushi daya, dariya daya."}
+    },
+    "Question tags and indirect questions": {
+      "You've met before, {{answer}} you?": {"hint": "mai taimako da aka juya na karin tambaya", "translation": "Kun taba haduwa, ko ba haka ba?"},
+      "She doesn't eat fish, {{answer}} she?": {"hint": "mai taimako da aka juya na karin tambaya", "translation": "Ba ta cin kifi, ko ba haka ba?"},
+      "Could you tell me where the bank {{answer}}?": {"hint": "be — a KARSHE", "translation": "Za ka iya gaya mini inda bankin yake?"},
+      "Do you know if the shop {{answer}} at six?": {"hint": "close — tsarin jimla tabbatacciya", "translation": "Ka san ko shagon yakan rufe da karfe shida?"},
+      "It's cold today, {{answer}} it?": {"hint": "mai taimako da aka juya na karin tambaya", "translation": "Akwai sanyi yau, ko ba haka ba?"},
+      "I wonder {{answer}} they got home safely.": {"hint": "madadin if", "translation": "Ina mamakin ko sun isa gida lafiya."}
+    },
+    "Inversion (Never have I…, Not only…)": {
+      "Never {{answer}} I heard such nonsense.": {"hint": "mai taimakon kammala", "translation": "Ban taba jin irin wannan maganar banza ba."},
+      "Not only {{answer}} she sing, she writes her own songs.": {"hint": "mai taimakon lokacin yanzu", "translation": "Ba wai kawai tana rera waka ba, har ma tana rubuta wakokinta."},
+      "No sooner had we sat down {{answer}} the phone rang.": {"hint": "kalmar da ke cika ma'auratan", "translation": "Nan da nan da muka zauna sai wayar ta yi kara."},
+      "Under no circumstances {{answer}} you open that door.": {"hint": "kalmar shawara", "translation": "Ko ta halin kaka kada ka bude wannan kofar."},
+      "Rarely {{answer}} we see such talent.": {"hint": "mai taimakon lokacin yanzu", "translation": "Da wuya mu ga irin wannan baiwa."},
+      "Only then {{answer}} I understand what she meant.": {"hint": "mai taimakon lokacin da ya wuce", "translation": "Sai a lokacin ne na fahimci abin da take nufi."}
+    },
+    "Cleft sentences (What I need is…, It was… that)": {
+      "{{answer}} I need is a good night's sleep.": {"hint": "farkon jimlar fifita abu", "translation": "Abin da nake bukata shi ne barci mai kyau na dare daya."},
+      "It was Marco {{answer}} suggested the idea.": {"hint": "kalmar dangantaka ta mutane", "translation": "Marco ne ya ba da shawarar."},
+      "What annoys me {{answer}} his constant lateness.": {"hint": "be — jigon jimlar", "translation": "Abin da ke bani haushi shi ne makarar da yake yi kullum."},
+      "It {{answer}} in Paris that they first met.": {"hint": "be — lokacin da ya wuce", "translation": "A birnin Paris ne suka fara haduwa."},
+      "{{answer}} she wants is a little respect.": {"hint": "farkon «duk abin da»", "translation": "Duk abin da take so shi ne dan girmamawa kadan."},
+      "It wasn't until midnight {{answer}} he finally called.": {"hint": "kalmar hada jimlar fifita abu", "translation": "Sai da tsakar dare ya kira a karshe."}
+    },
+    "Hedging and distancing (would seem, tend to)": {
+      "It would {{answer}} that the figures are wrong.": {"hint": "aikatau na kamanni", "translation": "Da alama alkaluman ba daidai ba ne."},
+      "House prices {{answer}} to rise in spring.": {"hint": "aikatau na dabi'a", "translation": "Farashin gidaje yakan karu a lokacin bazara."},
+      "There {{answer}} to be a problem with the data.": {"hint": "aikatau na kamanni, mutum na uku", "translation": "Da alama akwai matsala da bayanan."},
+      "It is widely {{answer}} that the climate is changing.": {"hint": "believe — sigar aikatau ta uku", "translation": "An yarda a ko'ina cewa yanayi yana canzawa."},
+      "The results {{answer}} that more research is needed.": {"hint": "aikatau na nuni", "translation": "Sakamakon yana nuna cewa ana bukatar karin bincike."},
+      "It could be {{answer}} that the policy failed.": {"hint": "argue — sigar aikatau ta uku", "translation": "Za a iya cewa manufar ta gaza."}
+    },
+    "Participle clauses (Having finished, …)": {
+      "{{answer}} finished dinner, we went for a walk.": {"hint": "farkon sigar kammala", "translation": "Bayan mun gama cin abincin dare, muka je yawo."},
+      "{{answer}} through the window, she saw the storm coming.": {"hint": "look — sigar participle", "translation": "Tana kallo ta taga, sai ta ga hadari yana zuwa."},
+      "{{answer}} in 1889, the tower still draws millions.": {"hint": "build — sigar participle", "translation": "An gina hasumiyar a 1889, kuma har yanzu tana jan hankalin miliyoyi."},
+      "Not {{answer}} what to say, he stayed silent.": {"hint": "know — sigar participle", "translation": "Da bai san abin da zai ce ba, sai ya yi shiru."},
+      "Having {{answer}} in Rome for years, she speaks fluent Italian.": {"hint": "live — sigar participle", "translation": "Da yake ta zauna a Roma shekaru da yawa, tana jin Italiyanci sosai."},
+      "{{answer}} by the news, they cancelled the trip.": {"hint": "shock — sigar participle", "translation": "Labarin ya girgiza su, sai suka soke tafiyar."}
+    },
+    "The mandative subjunctive (insist that he be)": {
+      "The board insisted that he {{answer}} removed from the project.": {"hint": "be — siga tsirara", "translation": "Hukumar ta dage cewa a cire shi daga aikin."},
+      "It is essential that every member {{answer}} the code of conduct.": {"hint": "bi — siga tsirara", "translation": "Yana da muhimmanci kowane memba ya bi ka'idojin da'a."},
+      "She recommended that the report {{answer}} rewritten.": {"hint": "be — siga tsirara", "translation": "Ta ba da shawarar a sake rubuta rahoton."},
+      "They demanded that the minister {{answer}}.": {"hint": "yi murabus — siga tsirara", "translation": "Sun bukaci ministan ya yi murabus."},
+      "It's vital that she {{answer}} informed at once.": {"hint": "be — siga tsirara", "translation": "Yana da matukar muhimmanci a sanar da ita nan take."},
+      "We suggest that he {{answer}} a lawyer before signing.": {"hint": "tuntubi — siga tsirara", "translation": "Muna ba da shawarar ya tuntubi lauya kafin ya sa hannu."}
+    },
+    "Ellipsis and substitution (so, neither, do so)": {
+      "I loved the film. — {{answer}} did I!": {"hint": "farkon «ni ma»", "translation": "Na so fim din sosai. — Ni ma!"},
+      "She can't make it tonight. — {{answer}} can I.": {"hint": "farkon korau na «ni ma ba»", "translation": "Ba za ta iya zuwa yau da dare ba. — Ni ma ba zan iya ba."},
+      "He was asked to apologise, and he did {{answer}} immediately.": {"hint": "kalmar maye bayan did", "translation": "An bukace shi ya nemi gafara, kuma ya yi haka nan take."},
+      "You may be tired; if {{answer}}, rest.": {"hint": "kalmar maye bayan if", "translation": "Watakila ka gaji; idan haka ne, ka huta."},
+      "They promised to help, but failed to {{answer}} so.": {"hint": "aikatau na maye", "translation": "Sun yi alkawarin taimako, amma ba su yi ba."},
+      "I've never been to Oslo. — Nor {{answer}} I.": {"hint": "mai taimakon kammala", "translation": "Ban taba zuwa Oslo ba. — Ni ma ban taba ba."}
+    },
+    "Formal connectors (notwithstanding, albeit)": {
+      "The plan went ahead, {{answer}} the objections.": {"hint": "'despite' mafi girmamawa", "translation": "Shirin ya ci gaba, duk da kalubalen."},
+      "It was a victory, {{answer}} a narrow one.": {"hint": "although da aka takaita", "translation": "Nasara ce, ko da yake ta kankanta."},
+      "The costs rose sharply; {{answer}} the project was cancelled.": {"hint": "therefore na girmamawa", "translation": "Kudade sun hauhawa sosai; saboda haka aka soke aikin."},
+      "A scheme {{answer}} employees share the profits.": {"hint": "kalmar «wanda ta hanyarsa»", "translation": "Tsari wanda ta hanyarsa ma'aikata ke raba riba."},
+      "A {{answer}} unknown author won the prize.": {"hint": "kalmar «har zuwa lokacin»", "translation": "Marubucin da ba a san shi ba har zuwa lokacin ya lashe kyautar."},
+      "The evidence, {{answer}} incomplete, points one way.": {"hint": "although da aka gajarta", "translation": "Shaidun, ko da yake ba cikakku ba, suna nuni hanya daya."}
+    },
+    "Past simple — regular verbs (-ed)": {
+      "I {{answer}} in a bank for five years.": {"hint": "work + -ed", "translation": "Na yi aiki a banki tsawon shekaru biyar."},
+      "She {{answer}} in Rome when she was young.": {"hint": "live — sai -d kawai ake karawa", "translation": "Ta zauna a Roma tana karama."},
+      "He {{answer}} English at university.": {"hint": "study — y ta koma -ied", "translation": "Ya karanci Turanci a jami'a."},
+      "The bus {{answer}} suddenly.": {"hint": "stop — ana ninka p", "translation": "Bas din ya tsaya kwatsam."},
+      "We {{answer}} football in the park yesterday.": {"hint": "wasali + y — sai -ed kawai", "translation": "Mun buga kwallon kafa a wurin shakatawa jiya."},
+      "They {{answer}} work yesterday — it was a holiday.": {"hint": "korau na lokacin da ya wuce: did + not", "translation": "Ba su yi aiki jiya ba — ranar hutu ce."}
+    },
+    "Object pronouns (me, him, them)": {
+      "Can you help {{answer}}, please?": {"hint": "mai magana yana neman taimako — «ni»", "translation": "Za ka iya taimaka mini, don Allah?"},
+      "I saw {{answer}} at school yesterday.": {"hint": "namiji — «shi»", "translation": "Na gan shi a makaranta jiya."},
+      "This present is for {{answer}}.": {"hint": "mace — «ita»", "translation": "Wannan kyautar tata ce."},
+      "Our teacher knows {{answer}} well.": {"hint": "mai magana da wasu — «mu»", "translation": "Malaminmu ya san mu sosai."},
+      "I like these shoes — I'll buy {{answer}}.": {"hint": "abubuwa da yawa — «su»", "translation": "Ina son wadannan takalma — zan saye su."},
+      "Where is my phone? I can't find {{answer}}.": {"hint": "abu daya — «shi»", "translation": "Ina wayata take? Ba na iya samun ta."}
+    },
+    "Imperatives (Open…, Don't…)": {
+      "{{answer}} the door, please.": {"hint": "aikatau a siga tsirara, ba tare da mai yi ba", "translation": "Bude kofar, don Allah."},
+      "{{answer}} worry — everything is fine.": {"hint": "umarni korau: sigar korau ta do + aikatau", "translation": "Kada ka damu — komai yana nan lafiya."},
+      "{{answer}} me tomorrow, please.": {"hint": "aikatau a siga tsirara", "translation": "Kira ni gobe, don Allah."},
+      "{{answer}} be late — the film starts at eight.": {"hint": "umarni korau tare da be", "translation": "Kada ka makara — fim din zai fara da karfe takwas."},
+      "{{answer}} quiet, please — the baby is sleeping.": {"hint": "aikatau be a siga tsirara", "translation": "Yi shiru, don Allah — jaririn yana barci."},
+      "Please {{answer}} down and wait a moment.": {"hint": "aikatau a siga tsirara", "translation": "Don Allah zauna ka jira na dan lokaci."}
+    }
+  }
+}
