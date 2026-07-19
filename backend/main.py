@@ -60,7 +60,18 @@ def create_app() -> FastAPI:
             logging.getLogger(__name__).warning(
                 "init_nlp_backends() failed — NLP answer validation unavailable"
             )
+        # Opt-in email review reminders: an in-process 15-minute sweep.
+        # getattr default False so test FakeSettings (which lack the flag)
+        # never start the loop.
+        reminder_task = None
+        if getattr(settings, "email_reminders_enabled", False):
+            import asyncio
+
+            from backend.services.reminders import reminder_loop
+            reminder_task = asyncio.create_task(reminder_loop())
         yield
+        if reminder_task is not None:
+            reminder_task.cancel()
         await close_pool()
 
     _app = FastAPI(title="PolyglotSRS", lifespan=lifespan)
