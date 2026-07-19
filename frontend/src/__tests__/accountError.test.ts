@@ -18,7 +18,15 @@ describe('accountErrorMessage', () => {
     expect(accountErrorMessage({ message: 'Network Error' })).toMatch(/reach the server/i)
   })
 
-  it('falls back for a response without a detail', () => {
-    expect(accountErrorMessage({ response: { data: {} } })).toBe('Could not create the account.')
+  it('explains a 504 gateway timeout (no JSON body)', () => {
+    expect(accountErrorMessage({ response: { status: 504, data: '' } })).toMatch(
+      /timed out reaching the sign-up service/i,
+    )
+  })
+
+  it('falls back for a 4xx response without a detail', () => {
+    expect(accountErrorMessage({ response: { status: 400, data: {} } })).toBe(
+      'Could not create the account.',
+    )
   })
 })

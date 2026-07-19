@@ -342,7 +342,7 @@ function AccountRow({
  * used to read only "Could not create the account" — a clear network error. */
 export function accountErrorMessage(error: unknown): string {
   const e = error as {
-    response?: { data?: { detail?: unknown } }
+    response?: { status?: number; data?: { detail?: unknown } }
     message?: string
   }
   const detail = e?.response?.data?.detail
@@ -356,6 +356,11 @@ export function accountErrorMessage(error: unknown): string {
   }
   if (!e?.response) {
     return "Couldn't reach the server — check your connection and try again."
+  }
+  // A gateway timeout (504) is the platform giving up while the server was
+  // still waiting on the sign-up service — no JSON body to read.
+  if ((e.response.status ?? 0) >= 502) {
+    return 'The server timed out reaching the sign-up service. Wait a moment and try again.'
   }
   return 'Could not create the account.'
 }

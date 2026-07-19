@@ -786,8 +786,12 @@ async def create_account(
             ),
         )
     import httpx
+    # Keep this well UNDER the platform's gateway timeout (DigitalOcean ~10s)
+    # so a slow/hung Supabase call returns our own clear 502 instead of an
+    # opaque 504 — and so a stuck request frees its worker fast.
     try:
-        async with httpx.AsyncClient(timeout=15) as client:
+        timeout = httpx.Timeout(6.0, connect=4.0)
+        async with httpx.AsyncClient(timeout=timeout) as client:
             resp = await client.post(
                 f"{settings.supabase_url.rstrip('/')}/auth/v1/admin/users",
                 headers={
@@ -798,10 +802,19 @@ async def create_account(
                       "email_confirm": True},
             )
     except httpx.HTTPError as exc:
-        logger.warning("account creation: couldn't reach Supabase: %s", exc)
+        # Name the failure mode in the message so the cause is visible without
+        # server logs: a *Timeout means Supabase didn't respond in time (the
+        # server can reach it but it's slow / blocking); a Connect* error means
+        # the server can't reach it at all.
+        kind = type(exc).__name__
+        logger.warning("account creation: couldn't reach Supabase (%s): %s", kind, exc)
         raise HTTPException(
             status_code=status.HTTP_502_BAD_GATEWAY,
-            detail="Couldn't reach the authentication service — please try again.",
+            detail=(
+                f"Couldn't reach the authentication service ({kind}). "
+                "Please try again — if it persists, check the server can "
+                "reach Supabase."
+            ),
         ) from exc
     # Duplicate email — Supabase tags it error_code=email_exists (422).
     if resp.status_code == 422 and (
