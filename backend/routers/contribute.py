@@ -19,6 +19,7 @@ from backend.repositories.contributor import (
     add_drill,
     add_review_note,
     admin_engagement,
+    admin_engagement_users,
     approve_explanation,
     approve_suggestion,
     can_contribute,
@@ -273,6 +274,20 @@ async def engagement_overview(
     days = max(1, min(days, 365))
     async with privileged_connection() as conn:
         return await admin_engagement(conn, days)
+
+
+@router.get("/engagement/users")
+async def engagement_users(
+    days: int = 30,
+    user: dict = Depends(get_current_user),
+):
+    """Per-user drill-down behind the engagement tiles (admin-only): who
+    each user is, when they were last active, and what they did in the
+    window."""
+    await _require_admin(user["id"])
+    days = max(1, min(days, 365))
+    async with privileged_connection() as conn:
+        return {"users": await admin_engagement_users(conn, days)}
 
 
 @router.put("/grammar/{point_id}")
