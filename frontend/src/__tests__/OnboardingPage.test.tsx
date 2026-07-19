@@ -69,7 +69,7 @@ describe('OnboardingPage', () => {
       })
     })
     expect(mockSetActive).toHaveBeenCalledWith('lang-es')
-    expect(mockNavigate).toHaveBeenCalledWith('/', { replace: true })
+    expect(mockNavigate).toHaveBeenCalledWith('/welcome', { replace: true })
   })
 
   it('adaptive placement: one item at a time, estimate flows into completion', async () => {

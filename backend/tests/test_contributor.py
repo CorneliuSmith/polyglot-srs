@@ -1044,6 +1044,38 @@ class TestEngagementUsers:
         assert mock_users.await_args.args[1] == 365  # days clamped
 
 
+class TestEngagementUserDetail:
+    """Per-language breakdown behind one row of the users table."""
+
+    UID = "550e8400-e29b-41d4-a716-446655440042"
+
+    def test_requires_admin(self, client):
+        with _roles([{"language_id": LANG, "role": "reviewer"}]):
+            resp = client.get(f"/api/contribute/engagement/users/{self.UID}",
+                              headers=_auth_headers())
+        assert resp.status_code == 403
+
+    def test_invalid_uuid_422(self, client):
+        with _roles([{"language_id": None, "role": "admin"}]):
+            resp = client.get("/api/contribute/engagement/users/not-a-uuid",
+                              headers=_auth_headers())
+        assert resp.status_code == 422
+
+    def test_admin_gets_language_rows(self, client):
+        rows = [{"code": "ru", "name": "Russian", "cards_total": 80,
+                 "reviews": 50, "review_minutes": 30, "tutor_messages": 0,
+                 "readings": 0, "last_review": "2026-07-19T00:00:00+00:00"}]
+        with _roles([{"language_id": None, "role": "admin"}]), \
+             patch("backend.routers.contribute.admin_engagement_user_detail",
+                   new=AsyncMock(return_value=rows)) as mock_detail:
+            resp = client.get(f"/api/contribute/engagement/users/{self.UID}",
+                              params={"days": 9999}, headers=_auth_headers())
+        assert resp.status_code == 200
+        assert resp.json() == {"languages": rows}
+        assert mock_detail.await_args.args[1] == self.UID
+        assert mock_detail.await_args.args[2] == 365  # days clamped
+
+
 class TestTranslationReviews:
     """The AI maker-checker's reject queue: list, approve (applies), reject."""
 
