@@ -658,6 +658,58 @@ async def set_account_plan(
     return result.endswith("1")
 
 
+async def create_auth_user(
+    conn: asyncpg.Connection, email: str, password: str
+) -> str:
+    """Create a confirmed email+password auth account via SQL (privileged).
+
+    Fallback for when the GoTrue admin HTTP API is unreachable from the
+    server (the deploy's egress to *.supabase.co hangs while the database
+    pooler works fine). Writes exactly what /auth/v1/admin/users with
+    email_confirm=true writes: a confirmed auth.users row hashed with
+    pgcrypto's bf crypt — the same check GoTrue runs at sign-in — plus its
+    email identity. Token columns are '' not NULL (GoTrue scans them).
+    Raises ValueError on a duplicate email.
+    """
+    try:
+        async with conn.transaction():
+            row = await conn.fetchrow(
+                """
+                INSERT INTO auth.users
+                    (instance_id, id, aud, role, email, encrypted_password,
+                     email_confirmed_at, raw_app_meta_data, raw_user_meta_data,
+                     created_at, updated_at,
+                     confirmation_token, recovery_token,
+                     email_change, email_change_token_new)
+                VALUES
+                    ('00000000-0000-0000-0000-000000000000', gen_random_uuid(),
+                     'authenticated', 'authenticated', lower($1),
+                     extensions.crypt($2, extensions.gen_salt('bf')),
+                     now(), '{"provider": "email", "providers": ["email"]}',
+                     '{}', now(), now(), '', '', '', '')
+                RETURNING id
+                """,
+                email, password,
+            )
+            uid = str(row["id"])
+            await conn.execute(
+                """
+                INSERT INTO auth.identities
+                    (id, user_id, provider_id, identity_data, provider,
+                     last_sign_in_at, created_at, updated_at)
+                VALUES
+                    (gen_random_uuid(), $1::uuid, $1,
+                     jsonb_build_object('sub', $1, 'email', lower($2),
+                                        'email_verified', true),
+                     'email', now(), now(), now())
+                """,
+                uid, email,
+            )
+    except asyncpg.UniqueViolationError as exc:
+        raise ValueError("email already registered") from exc
+    return uid
+
+
 # ── Content suggestions (contributor-proposed card edits) ─────────────────
 # The editable text fields a contributor may propose changing on a card.
 SUGGESTION_FIELDS = {

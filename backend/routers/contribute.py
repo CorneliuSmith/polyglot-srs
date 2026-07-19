@@ -23,6 +23,7 @@ from backend.repositories.contributor import (
     approve_suggestion,
     can_contribute,
     can_review,
+    create_auth_user,
     create_grammar_point,
     delete_account,
     delete_drill,
@@ -802,20 +803,33 @@ async def create_account(
                       "email_confirm": True},
             )
     except httpx.HTTPError as exc:
-        # Name the failure mode in the message so the cause is visible without
-        # server logs: a *Timeout means Supabase didn't respond in time (the
-        # server can reach it but it's slow / blocking); a Connect* error means
-        # the server can't reach it at all.
+        # The deploy's HTTP egress to *.supabase.co hangs while its database
+        # connection works fine — so when the admin API is unreachable, mint
+        # the account directly in the auth schema over SQL instead. Same
+        # rows, same bf-crypt hash GoTrue verifies at sign-in.
         kind = type(exc).__name__
-        logger.warning("account creation: couldn't reach Supabase (%s): %s", kind, exc)
-        raise HTTPException(
-            status_code=status.HTTP_502_BAD_GATEWAY,
-            detail=(
-                f"Couldn't reach the authentication service ({kind}). "
-                "Please try again — if it persists, check the server can "
-                "reach Supabase."
-            ),
-        ) from exc
+        logger.warning(
+            "account creation: Supabase API unreachable (%s) — using the "
+            "database fallback", kind,
+        )
+        try:
+            async with privileged_connection() as conn:
+                uid = await create_auth_user(conn, body.email, body.password)
+        except ValueError:
+            raise HTTPException(
+                status_code=status.HTTP_409_CONFLICT,
+                detail="An account with that email already exists.",
+            ) from None
+        except Exception as db_exc:  # noqa: BLE001
+            logger.warning("account creation: database fallback failed: %s", db_exc)
+            raise HTTPException(
+                status_code=status.HTTP_502_BAD_GATEWAY,
+                detail=(
+                    f"Couldn't reach the authentication service ({kind}), and "
+                    "the database fallback failed too. Please try again."
+                ),
+            ) from db_exc
+        return {"id": uid, "email": body.email.lower()}
     # Duplicate email — Supabase tags it error_code=email_exists (422).
     if resp.status_code == 422 and (
         "already" in resp.text.lower() or "email_exists" in resp.text
