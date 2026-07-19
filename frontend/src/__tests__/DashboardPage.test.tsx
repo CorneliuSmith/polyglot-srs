@@ -1,5 +1,5 @@
 import { describe, it, expect, vi, beforeEach } from 'vitest'
-import { render, screen, fireEvent, waitFor } from '@testing-library/react'
+import { render, screen, fireEvent, waitFor, cleanup } from '@testing-library/react'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { MemoryRouter } from 'react-router-dom'
 import DueCount from '../features/dashboard/DueCount'
@@ -111,8 +111,18 @@ vi.mock('../api/contribute', () => ({
 vi.mock('../api/onboarding', () => ({
   getOnboardingStatus: vi.fn(() => Promise.resolve({ onboarded: true })),
 }))
+let mockDailyLearnGoal = 20
 vi.mock('../stores/prefsStore', () => ({
-  usePrefsStore: vi.fn(() => 'lang-es'),
+  usePrefsStore: vi.fn(
+    (selector: (s: Record<string, unknown>) => unknown) =>
+      selector({
+        activeLanguageId: 'lang-es',
+        walkthroughDone: true,
+        dailyLearnGoal: mockDailyLearnGoal,
+        installPromptDismissed: true,
+        setInstallPromptDismissed: vi.fn(),
+      }),
+  ),
 }))
 vi.mock('../components/LanguagePicker', () => ({ default: () => <div /> }))
 
@@ -193,10 +203,12 @@ function renderDashboard() {
 describe('Dashboard tiles', () => {
   beforeEach(() => {
     vi.clearAllMocks()
+    mockDailyLearnGoal = 20
     mockStats.mockResolvedValue({
       due_count: 99,
       due_grammar: 60,
       due_vocab: 39,
+      learned_today: 3,
       streak_days: 3,
       cefr_progress: {},
     })
@@ -211,11 +223,34 @@ describe('Dashboard tiles', () => {
   it('the Learn tile starts the next queued deck with items left', async () => {
     renderDashboard()
     fireEvent.click(
-      await screen.findByRole('button', { name: /new items queued/i }),
+      await screen.findByRole('button', { name: /learned today/i }),
     )
     await waitFor(() =>
       expect(mockNavigate).toHaveBeenCalledWith('/learn?type=grammar&level=A1'),
     )
+  })
+
+  it('the Learn tile shows daily-goal progress, not the whole queue', async () => {
+    renderDashboard()
+    // 3 learned today of the default 20-goal; the queue moves to the sublabel
+    expect(await screen.findByText('3 / 20')).toBeDefined()
+    expect(screen.getByText(/learned today · 15 queued/)).toBeDefined()
+  })
+
+  it('a met goal celebrates and goal 0 falls back to the queue count', async () => {
+    mockStats.mockResolvedValue({
+      due_count: 99, due_grammar: 60, due_vocab: 39,
+      learned_today: 25, streak_days: 3, cefr_progress: {},
+    })
+    renderDashboard()
+    expect(await screen.findByText('20 / 20')).toBeDefined()
+    expect(screen.getByText(/daily goal done/)).toBeDefined()
+
+    cleanup()
+    mockDailyLearnGoal = 0
+    renderDashboard()
+    expect(await screen.findByText('15')).toBeDefined()
+    expect(screen.getByText(/new items queued/)).toBeDefined()
   })
 
   it('the Learn chevron expands the deck rows without starting a session', async () => {

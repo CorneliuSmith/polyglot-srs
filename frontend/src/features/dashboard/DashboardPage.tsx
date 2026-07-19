@@ -191,6 +191,7 @@ export default function DashboardPage() {
   const queryClient = useQueryClient()
   const activeLanguageId = usePrefsStore((s) => s.activeLanguageId)
   const walkthroughDone = usePrefsStore((s) => s.walkthroughDone)
+  const dailyLearnGoal = usePrefsStore((s) => s.dailyLearnGoal)
   const [learnOpen, setLearnOpen] = useState(false)
   const [reviewOpen, setReviewOpen] = useState(false)
   const [showTour, setShowTour] = useState(false)
@@ -399,8 +400,26 @@ export default function DashboardPage() {
                   <span className="block text-sm font-semibold uppercase tracking-wide text-white/70">
                     Learn
                   </span>
-                  <span className="block text-3xl font-bold mt-1">{newAvailable}</span>
-                  <span className="block text-xs text-white/60 mt-1">new items queued</span>
+                  {/* Daily goal framing (beta request): "538 queued" was
+                      overwhelming — show progress toward a small daily
+                      target instead. Goal 0 = the old full-queue count. */}
+                  {dailyLearnGoal > 0 ? (
+                    <>
+                      <span className="block text-3xl font-bold mt-1">
+                        {Math.min(stats.learned_today, dailyLearnGoal)} / {dailyLearnGoal}
+                      </span>
+                      <span className="block text-xs text-white/60 mt-1">
+                        {stats.learned_today >= dailyLearnGoal
+                          ? `daily goal done · ${newAvailable} queued`
+                          : `learned today · ${newAvailable} queued`}
+                      </span>
+                    </>
+                  ) : (
+                    <>
+                      <span className="block text-3xl font-bold mt-1">{newAvailable}</span>
+                      <span className="block text-xs text-white/60 mt-1">new items queued</span>
+                    </>
+                  )}
                 </button>
                 <button
                   type="button"

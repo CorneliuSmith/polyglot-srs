@@ -24,7 +24,8 @@ vi.mock('../api/profile', () => ({
   ),
 }))
 vi.mock('../api/dashboard', () => ({ getDashboardStats: vi.fn() }))
-const { signOut, mockSetTheme, mockSetSessionSize } = vi.hoisted(() => ({
+const { signOut, mockSetTheme, mockSetSessionSize, mockSetDailyLearnGoal } = vi.hoisted(() => ({
+  mockSetDailyLearnGoal: vi.fn(),
   signOut: vi.fn(() => Promise.resolve({ error: null })),
   mockSetTheme: vi.fn(),
   mockSetSessionSize: vi.fn(),
@@ -41,6 +42,8 @@ vi.mock('../stores/prefsStore', () => ({
         setSessionSize: mockSetSessionSize,
         accentsOptional: false,
         setAccentsOptional: vi.fn(),
+        dailyLearnGoal: 20,
+        setDailyLearnGoal: mockSetDailyLearnGoal,
       }),
   ),
 }))
@@ -92,6 +95,17 @@ describe('SettingsPage', () => {
     expect(await screen.findByText('12')).toBeDefined()  // cards learned (A1 learned)
     expect(screen.getByText('4')).toBeDefined()          // due now
     expect(screen.getByText('day streak')).toBeDefined()
+  })
+
+  it('changes the daily learn goal, including "whole queue" = 0', async () => {
+    renderPage()
+    const section = (
+      await screen.findByText('Daily learn goal')
+    ).closest('section') as HTMLElement
+    fireEvent.click(within(section).getByRole('button', { name: '50' }))
+    expect(mockSetDailyLearnGoal).toHaveBeenCalledWith(50)
+    fireEvent.click(within(section).getByRole('button', { name: 'Whole queue' }))
+    expect(mockSetDailyLearnGoal).toHaveBeenCalledWith(0)
   })
 
   it('changes the new-cards-per-session batch size', async () => {

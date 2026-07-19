@@ -41,6 +41,11 @@ interface PrefsState {
   // "Install the app" banner (PWA): once dismissed, stays gone.
   installPromptDismissed: boolean
   setInstallPromptDismissed: (done: boolean) => void
+  // Daily learn goal (beta request): the Learn tile shows progress toward a
+  // small daily target instead of the whole queue count ("538 queued" was
+  // overwhelming). 0 = no goal, show the full queue.
+  dailyLearnGoal: number
+  setDailyLearnGoal: (n: number) => void
 }
 
 export const usePrefsStore = create<PrefsState>()(
@@ -65,6 +70,8 @@ export const usePrefsStore = create<PrefsState>()(
       setWalkthroughDone: (done) => set({ walkthroughDone: done }),
       installPromptDismissed: false,
       setInstallPromptDismissed: (done) => set({ installPromptDismissed: done }),
+      dailyLearnGoal: 20,
+      setDailyLearnGoal: (n) => set({ dailyLearnGoal: n }),
     }),
     {
       name: 'polyglot-prefs',

@@ -61,6 +61,8 @@ export default function SettingsPage() {
   const setSessionSize = usePrefsStore((s) => s.setSessionSize)
   const accentsOptional = usePrefsStore((s) => s.accentsOptional)
   const setAccentsOptional = usePrefsStore((s) => s.setAccentsOptional)
+  const dailyLearnGoal = usePrefsStore((s) => s.dailyLearnGoal)
+  const setDailyLearnGoal = usePrefsStore((s) => s.setDailyLearnGoal)
 
   const { data: profile } = useQuery({ queryKey: ['profile'], queryFn: getProfile })
   const { data: languages = [] } = useQuery({ queryKey: ['languages'], queryFn: getLanguages })
@@ -332,6 +334,33 @@ export default function SettingsPage() {
               plan for free, and keep their price when it goes live.
             </p>
           )}
+        </section>
+
+        <section className="bg-white rounded-2xl shadow-sm border border-gray-100 p-5 space-y-3">
+          <h2 className="font-semibold text-gray-800">Daily learn goal</h2>
+          <p className="text-xs text-gray-500">
+            What the Learn tile counts toward each day. A small goal keeps the
+            queue from feeling overwhelming — or show every queued card.
+          </p>
+          <div className="flex gap-2">
+            {([20, 50, 0] as const).map((n) => (
+              <button
+                key={n}
+                type="button"
+                onClick={() => setDailyLearnGoal(n)}
+                aria-pressed={dailyLearnGoal === n}
+                className={
+                  'rounded-lg px-4 py-2 text-sm font-medium border ' +
+                  (dailyLearnGoal === n
+                    ? 'bg-lang text-white border-lang'
+                    : 'bg-white text-gray-700 border-gray-300 hover:bg-gray-50')
+                }
+                style={{ minHeight: '44px' }}
+              >
+                {n === 0 ? 'Whole queue' : n}
+              </button>
+            ))}
+          </div>
         </section>
 
         <section className="bg-white rounded-2xl shadow-sm border border-gray-100 p-5 space-y-3">
