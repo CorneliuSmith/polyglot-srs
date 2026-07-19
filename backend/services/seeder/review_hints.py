@@ -16,14 +16,22 @@ from __future__ import annotations
 
 import argparse
 import asyncio
+import json
 import logging
 import os
+from datetime import UTC, datetime
+from pathlib import Path
 
 import asyncpg
 
 from backend.services.translate import review_definitions, translations_available
 
 logger = logging.getLogger("review_hints")
+
+# Every applied rewrite is journaled here first, so a whole run can be
+# reverted with --restore <file> — the checker can never make things
+# permanently worse.
+BACKUP_DIR = Path(__file__).resolve().parents[3] / "data" / "backups"
 
 # Definitions likely to read as an instruction or as raw dictionary plumbing.
 SUSPICIOUS = r"\((perfective|imperfective|plural|feminine|masculine|neuter|" \
@@ -70,14 +78,25 @@ async def review_language(db_url, code, *, limit, batch_size, concurrency,
             async with sem:
                 res = await review_definitions(lang["name"], items, model)
             by_i = {x["i"]: x for x in res}
-            return [{**by_i[n], "id": batch[n]["id"]}
+            return [{**by_i[n], "id": batch[n]["id"],
+                     "old": batch[n]["definition"]}
                     for n in range(len(batch)) if n in by_i]
 
+        backup_file = None
         fixed = queued = kept = 0
         for chunk in await asyncio.gather(*(run(b) for b in batches)):
             for r in chunk:
                 if r["verdict"] == "fixed" and r["definition"]:
                     if not dry_run:
+                        if backup_file is None:
+                            BACKUP_DIR.mkdir(parents=True, exist_ok=True)
+                            stamp = datetime.now(UTC).strftime("%Y%m%d-%H%M%S")
+                            backup_file = BACKUP_DIR / f"hints_{code}_{stamp}.jsonl"
+                        with open(backup_file, "a", encoding="utf-8") as f:
+                            f.write(json.dumps(
+                                {"vocabulary_id": str(r["id"]), "word": r["word"],
+                                 "old": r["old"], "new": r["definition"]},
+                                ensure_ascii=False) + "\n")
                         await conn.execute(
                             "UPDATE translations SET definition = $1 "
                             "WHERE vocabulary_id = $2 AND locale = 'en'",
@@ -96,7 +115,30 @@ async def review_language(db_url, code, *, limit, batch_size, concurrency,
                     kept += 1
         verb = "would fix" if dry_run else "fixed"
         logger.info("%s: %s %d, queued %d, kept %d", code, verb, fixed, queued, kept)
+        if backup_file is not None:
+            logger.info("%s: originals journaled to %s (undo: --restore %s)",
+                        code, backup_file, backup_file.name)
         return {"code": code, "fixed": fixed, "queued": queued, "kept": kept}
+    finally:
+        await conn.close()
+
+
+async def restore(db_url: str, backup_path: Path) -> int:
+    """Revert every rewrite journaled in a backup file. Returns rows restored."""
+    conn = await asyncpg.connect(db_url)
+    try:
+        n = 0
+        with open(backup_path, encoding="utf-8") as f:
+            for line in f:
+                if not line.strip():
+                    continue
+                rec = json.loads(line)
+                result = await conn.execute(
+                    "UPDATE translations SET definition = $1 "
+                    "WHERE vocabulary_id = $2 AND locale = 'en'",
+                    rec["old"], rec["vocabulary_id"])
+                n += int(result.endswith("1"))
+        return n
     finally:
         await conn.close()
 
@@ -110,14 +152,27 @@ async def main() -> None:
     p.add_argument("--concurrency", type=int, default=4)
     p.add_argument("--model", default=None)
     p.add_argument("--dry-run", action="store_true")
+    p.add_argument("--restore", metavar="FILE",
+                   help="undo a previous run from its backup file "
+                        "(name or path under data/backups/)")
     p.add_argument("--db-url", default=os.environ.get("DATABASE_URL"))
     args = p.parse_args()
     logging.basicConfig(level=logging.INFO, format="%(name)s | %(message)s")
-    if not translations_available():
-        print("ERROR: no ANTHROPIC_API_KEY (and TUTOR_DEV_MOCK off).")
-        return
     if not args.db_url:
         print("ERROR: DATABASE_URL not set.")
+        return
+    if args.restore:
+        path = Path(args.restore)
+        if not path.exists():
+            path = BACKUP_DIR / args.restore
+        if not path.exists():
+            print(f"ERROR: backup file not found: {args.restore}")
+            return
+        n = await restore(args.db_url, path)
+        print(f"RESTORED {n} definitions from {path.name}")
+        return
+    if not translations_available():
+        print("ERROR: no ANTHROPIC_API_KEY (and TUTOR_DEV_MOCK off).")
         return
 
     codes = [args.language]
