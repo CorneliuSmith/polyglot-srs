@@ -1,0 +1,360 @@
+{
+  "language": "en",
+  "locale": "mi",
+  "reviewed": false,
+  "_note": "Hints and faithful sentence translations for ENGLISH drills, shown to learners whose support locale is Māori. The hint names the expected English word (kept in English) with a Māori cue; the translation renders the completed sentence in natural Māori (macrons per standard orthography). Draft tier: flagged for native review.",
+  "points": {
+    "Past simple — irregular verbs": {
+      "Yesterday I {{answer}} to the market.": {"hint": "go — wā mua", "translation": "Inanahi i haere au ki te mākete."},
+      "She {{answer}} a great film last night.": {"hint": "see — wā mua", "translation": "I kite ia i tētahi kiriata rawe inapō."},
+      "We {{answer}} a new car in March.": {"hint": "buy — wā mua", "translation": "I hokona e mātou he motokā hou i te Poutūterangi."},
+      "He {{answer}} the early train this morning.": {"hint": "take — wā mua", "translation": "I eke ia i te tereina moata i tēnei ata."},
+      "They {{answer}} home very late.": {"hint": "come — wā mua", "translation": "I hoki rātou ki te kāinga i te pō tino mutunga."},
+      "I {{answer}} breakfast at seven.": {"hint": "eat — wā mua", "translation": "I kai au i te parakuihi i te whitu karaka."}
+    },
+    "Present continuous vs present simple": {
+      "Quiet, please — the baby {{answer}} sleeping.": {"hint": "be — tuatoru o ngā tāngata", "translation": "Kia ata noho — kei te moe te pēpi."},
+      "She {{answer}} to work by bike every day.": {"hint": "go — ritenga, ia (wahine)", "translation": "Ka haere ia ki te mahi mā runga paihikara ia rā."},
+      "I'm {{answer}} for my keys at the moment.": {"hint": "look — āhua haere tonu", "translation": "Kei te rapu au i aku kī i tēnei wā."},
+      "Water {{answer}} at 100 degrees.": {"hint": "boil — pono whānui, it", "translation": "Ka koropupū te wai i te 100 pāenga."},
+      "They {{answer}} watching TV right now.": {"hint": "be — rātou", "translation": "Kei te mātakitaki pouaka whakaata rātou i tēnei wā tonu."},
+      "He usually {{answer}} coffee, not tea.": {"hint": "drink — ritenga, ia (tāne)", "translation": "Ka inu kawhe ia i te nuinga o te wā, ehara i te tī."}
+    },
+    "Comparatives and superlatives": {
+      "This bag is {{answer}} than that one.": {"hint": "cheap — whakataurite", "translation": "He iti ake te utu o tēnei pēke i tērā."},
+      "It's the {{answer}} building in the city.": {"hint": "tall — te mutunga kē", "translation": "Koinei te whare teitei rawa o te tāone."},
+      "Her English is {{answer}} than mine.": {"hint": "good — whakataurite", "translation": "He pai ake tāna reo Ingarihi i tāku."},
+      "That was the {{answer}} meal I've ever had.": {"hint": "bad — te mutunga kē", "translation": "Koirā te kai kino rawa atu i kainga e au."},
+      "This exercise is {{answer}} difficult than the last.": {"hint": "te kupu i mua i ngā kupu āhua roa", "translation": "He uaua ake tēnei mahi i tērā o mua."},
+      "The station is {{answer}} than I thought.": {"hint": "far — whakataurite", "translation": "He tawhiti ake te teihana i tāku i whakaaro ai."}
+    },
+    "Going to and will": {
+      "We're {{answer}} to visit Rome in May.": {"hint": "te anamata o ngā mahere kua oti te whakarite", "translation": "Ka toro mātou ki Rōma ā te Haratua."},
+      "Don't worry — I {{answer}} help you.": {"hint": "whakatau i taua wā tonu", "translation": "Kaua e māharahara — māku koe e āwhina."},
+      "Look at those clouds! It's going to {{answer}}.": {"hint": "huarere ua", "translation": "Titiro ki ērā kapua! Ka ua ākuanei."},
+      "I think she {{answer}} pass the exam.": {"hint": "te kupu matapae", "translation": "Ki tōku whakaaro ka eke ia i te whakamātautau."},
+      "They're going {{answer}} move house next year.": {"hint": "te kupu iti i muri i a going", "translation": "Ka hūnuku rātou ā tērā tau."},
+      "I'm tired — I {{answer}} go to bed.": {"hint": "te āhua poto o te anamata tata", "translation": "Kua ngenge au — ka haere au ki te moe."}
+    },
+    "Some, any, much, many": {
+      "There's {{answer}} milk in the fridge.": {"hint": "kupu rahinga i te rerenga whakaū", "translation": "He miraka kei roto i te pouaka mātao."},
+      "We don't have {{answer}} eggs left.": {"hint": "kupu rahinga i te rerenga whakakāhore", "translation": "Kāore he hēki e toe ana ki a mātou."},
+      "Do you have {{answer}} questions?": {"hint": "kupu rahinga i te pātai", "translation": "He pātai āu?"},
+      "How {{answer}} money do you need?": {"hint": "mō ngā mea kore e taua", "translation": "E hia te moni e hiahiatia ana e koe?"},
+      "How {{answer}} people are coming?": {"hint": "mō ngā mea ka taua", "translation": "Tokohia ngā tāngata ka haere mai?"},
+      "Would you like {{answer}} tea?": {"hint": "kupu rahinga i te tuku", "translation": "He tī māu?"}
+    },
+    "Adverbs of frequency": {
+      "I {{answer}} drink coffee in the morning — every single day.": {"hint": "te kupu «ia wā»", "translation": "Ka inu kawhe au i ngā ata i ngā wā katoa — ia rā tonu."},
+      "He is {{answer}} late — it drives me crazy.": {"hint": "te kupu «ia wā»", "translation": "He tōmuri ia i ngā wā katoa — ka pōrangi au i a ia."},
+      "We {{answer}} go out on Fridays — maybe once a month.": {"hint": "te kupu «i ētahi wā»", "translation": "I ētahi wā ka puta mātou i ngā Paraire — kotahi pea te marama."},
+      "She {{answer}} eats meat — she's almost vegetarian.": {"hint": "te kupu «he uaua kē»", "translation": "He uaua kē tana kai mīti — tata tonu ia ki te kaikai huawhenua anake."},
+      "I have {{answer}} been to Japan, but I'd love to go.": {"hint": "te kupu «kore rawa»", "translation": "Kāore anō au kia tae ki Hapani, engari e tino hiahia ana au ki te haere."},
+      "They {{answer}} visit us at Christmas — most years.": {"hint": "te kupu «i te nuinga o te wā»", "translation": "I te nuinga o te wā ka toro mai rātou i te Kirihimete — tata ki ia tau."},
+      "We {{answer}} eat out on Fridays.": {"hint": "he maha ngā wā — kei waenga i 'sometimes' me 'always'", "translation": "He maha ngā wā ka kai mātou i waho i ngā Paraire."}
+    },
+    "Can, could, have to": {
+      "She {{answer}} speak three languages.": {"hint": "te kupu āheinga", "translation": "Ka taea e ia te kōrero i ngā reo e toru."},
+      "{{answer}} you open the window, please?": {"hint": "te kupu tono whakaute", "translation": "Ka taea e koe te whakatuwhera i te matapihi, koa?"},
+      "I {{answer}} to wear a uniform at work.": {"hint": "te kupumahi herenga", "translation": "Me mau kākahu ōkawa au i te mahi."},
+      "When I was five, I {{answer}} already read.": {"hint": "te kupu āheinga — wā mua", "translation": "I ahau e rima ana ngā tau, kua taea kē e au te pānui."},
+      "You don't {{answer}} to come if you're busy.": {"hint": "te kupumahi herenga", "translation": "Kāore he take kia haere mai koe mēnā he nui āu mahi."},
+      "{{answer}} I sit here? — Of course.": {"hint": "te kupu whakaae", "translation": "Ka pai kia noho au ki konei? — Āe mārika."}
+    },
+    "Prepositions of time: in, on, at": {
+      "The meeting starts {{answer}} nine o'clock.": {"hint": "kupu tūmua o te wā tino tika", "translation": "Ka tīmata te hui i te iwa karaka."},
+      "I was born {{answer}} 1998.": {"hint": "kupu tūmua o ngā wā roa", "translation": "I whānau au i te tau 1998."},
+      "We're leaving {{answer}} Friday.": {"hint": "kupu tūmua o ngā rā", "translation": "Ka wehe mātou ā te Paraire."},
+      "She works best {{answer}} the morning.": {"hint": "kupu tūmua o ngā wā roa", "translation": "Ko te ata te wā pai rawa mō āna mahi."},
+      "My birthday is {{answer}} 12 March.": {"hint": "kupu tūmua o ngā rā o te marama", "translation": "Ko tōku rā whānau te 12 o Poutūterangi."},
+      "He often studies {{answer}} night.": {"hint": "te kupu tūmua pūmau me night", "translation": "He maha ngā wā ka ako ia i te pō."}
+    },
+    "Subject pronouns (I, you, he…)": {
+      "{{answer}} am from Brazil.": {"hint": "te kaikōrero — he pūmatua i ngā wā katoa", "translation": "Nō Parahi au."},
+      "{{answer}} is my sister.": {"hint": "he wahine", "translation": "Ko ia tōku tuahine."},
+      "{{answer}} are students.": {"hint": "te kaikōrero me ētahi atu", "translation": "He ākonga mātou."},
+      "{{answer}} is my father.": {"hint": "he tāne", "translation": "Ko ia tōku pāpā."},
+      "{{answer}} is on the table.": {"hint": "he mea", "translation": "Kei runga i te tēpu."},
+      "{{answer}} are very kind.": {"hint": "te tangata e kōrero nā koe ki a ia", "translation": "He tino atawhai koe. / He tino atawhai koutou."},
+      "{{answer}} are my friends.": {"hint": "neke atu i te kotahi — «rātou»", "translation": "Ko rātou ōku hoa."}
+    },
+    "To be — am / is / are": {
+      "I {{answer}} a student.": {"hint": "be — me I", "translation": "He ākonga au."},
+      "You {{answer}} my friend.": {"hint": "be — me you", "translation": "Ko koe tōku hoa."},
+      "She {{answer}} a doctor.": {"hint": "be — me she", "translation": "He tākuta ia."},
+      "We {{answer}} at home.": {"hint": "be — me we", "translation": "Kei te kāinga mātou."},
+      "The coffee {{answer}} hot.": {"hint": "be — me it/he mea", "translation": "He wera te kawhe."},
+      "They {{answer}} from Japan.": {"hint": "be — me they", "translation": "Nō Hapani rātou."}
+    },
+    "Articles: a / an": {
+      "I have {{answer}} dog.": {"hint": "i mua i te oro orokati", "translation": "He kurī tāku."},
+      "She is {{answer}} engineer.": {"hint": "i mua i te oro oropuare", "translation": "He mataaro ia."},
+      "It is {{answer}} big house.": {"hint": "i mua i te oro orokati", "translation": "He whare nui."},
+      "He eats {{answer}} apple every day.": {"hint": "i mua i te oro oropuare", "translation": "Ka kai ia i te āporo kotahi ia rā."},
+      "I read {{answer}} book every week.": {"hint": "i mua i te oro orokati", "translation": "Ka pānui au i te pukapuka kotahi ia wiki."},
+      "I need {{answer}} umbrella.": {"hint": "i mua i te oro oropuare", "translation": "E hiahia ana au ki tētahi hamarara."}
+    },
+    "The — pointing at a specific thing": {
+      "{{answer}} sun is hot today.": {"hint": "ka mau ngā mea kotahi anake i tēnei kupu", "translation": "He wera te rā i tēnei rā."},
+      "Please close {{answer}} door.": {"hint": "e mōhio ana kōrua ko tēhea", "translation": "Katia koa te tatau."},
+      "{{answer}} keys in my hand are mine.": {"hint": "kua tautuhia e ngā kupu e whai ake", "translation": "Nāku ngā kī kei tōku ringa."},
+      "We live near {{answer}} station.": {"hint": "e mōhio ana kōrua ko tēhea", "translation": "E noho ana mātou i te taha o te teihana."},
+      "{{answer}} moon is bright tonight.": {"hint": "ka mau ngā mea kotahi anake i tēnei kupu", "translation": "He mārama te marama i tēnei pō."},
+      "Where is {{answer}} bathroom?": {"hint": "e mōhio ana kōrua ko tēhea", "translation": "Kei hea te wharepaku?"}
+    },
+    "Plural nouns (-s, -es, irregular)": {
+      "I have two {{answer}}.": {"hint": "book — te āhua maha", "translation": "E rua aku pukapuka."},
+      "The {{answer}} are playing outside.": {"hint": "child — maha kore ture", "translation": "Kei te tākaro ngā tamariki i waho."},
+      "She has three {{answer}}.": {"hint": "watch — ka tāpirihia te -es", "translation": "E toru āna wāti."},
+      "The {{answer}} are late today.": {"hint": "bus — ka tāpirihia te -es", "translation": "Kua tōmuri ngā pahi i tēnei rā."},
+      "Two {{answer}} live in our street.": {"hint": "family — ka huri te y hei -ies", "translation": "E rua ngā whānau e noho ana i tō mātou tiriti."},
+      "My {{answer}} are cold.": {"hint": "foot — maha kore ture", "translation": "Kua mātao ōku waewae."}
+    },
+    "Present simple (I work)": {
+      "I {{answer}} in a bank.": {"hint": "tāu mahi ia rā", "translation": "Ka mahi au i tētahi pēke."},
+      "We {{answer}} breakfast at seven.": {"hint": "te kai (i tētahi kai)", "translation": "Ka kai mātou i te parakuihi i te whitu karaka."},
+      "They {{answer}} in London.": {"hint": "te noho ki tētahi wāhi", "translation": "E noho ana rātou ki Rānana."},
+      "You {{answer}} English very well.": {"hint": "te whakamahi i te reo", "translation": "He tino pai tō kōrero i te reo Ingarihi."},
+      "I {{answer}} coffee every morning.": {"hint": "te inu i te wai", "translation": "Ka inu kawhe au ia ata."},
+      "We {{answer}} TV in the evening.": {"hint": "te mātaki i te mata, i te hōtaka rānei", "translation": "Ka mātakitaki pouaka whakaata mātou i te ahiahi pō."}
+    },
+    "Third-person -s (she works)": {
+      "She {{answer}} in a hospital.": {"hint": "to work — me she", "translation": "Ka mahi ia i tētahi hōhipera."},
+      "He {{answer}} to school every day.": {"hint": "to go — ka tāpirihia te -es", "translation": "Ka haere ia ki te kura ia rā."},
+      "My brother {{answer}} English.": {"hint": "to study — ka huri te y hei -ies", "translation": "E ako ana tōku tungāne i te reo Ingarihi."},
+      "The shop {{answer}} at nine.": {"hint": "to open — me it", "translation": "Ka tuwhera te toa i te iwa karaka."},
+      "She {{answer}} TV after dinner.": {"hint": "to watch — ka tāpirihia te -es", "translation": "Ka mātakitaki pouaka whakaata ia i muri i te kai o te pō."},
+      "It {{answer}} a lot in April.": {"hint": "to rain — me it", "translation": "He nui te ua i te Paengawhāwhā."}
+    },
+    "Do-support: questions and negation": {
+      "{{answer}} you speak English?": {"hint": "te kupumahi āwhina — me you", "translation": "Ka kōrero Ingarihi koe?"},
+      "{{answer}} she work here?": {"hint": "te kupumahi āwhina — me she", "translation": "Ka mahi ia i konei?"},
+      "I {{answer}} not eat meat.": {"hint": "te kupumahi āwhina — me I", "translation": "Kāore au e kai mīti."},
+      "He {{answer}} not like coffee.": {"hint": "te kupumahi āwhina — me he", "translation": "Kāore ia e pai ki te kawhe."},
+      "{{answer}} they live in Rome?": {"hint": "te kupumahi āwhina — me they", "translation": "E noho ana rātou ki Rōma?"},
+      "We {{answer}} not have time.": {"hint": "te kupumahi āwhina — me we", "translation": "Kāore ō mātou wā."},
+      "I {{answer}} like coffee.": {"hint": "whakakāhore me I — do + not", "translation": "Kāore au e pai ki te kawhe."},
+      "She {{answer}} work on Sundays.": {"hint": "whakakāhore me she — does + not", "translation": "Kāore ia e mahi i ngā Rātapu."}
+    },
+    "Present continuous (I am working)": {
+      "I am {{answer}} a book right now.": {"hint": "to read + -ing", "translation": "Kei te pānui pukapuka au i tēnei wā tonu."},
+      "She is {{answer}} dinner now.": {"hint": "to cook + -ing", "translation": "Kei te tunu kai ia mō te pō nei."},
+      "They are {{answer}} football.": {"hint": "to play + -ing", "translation": "Kei te tākaro whutupōro rātou."},
+      "Look! It is {{answer}}.": {"hint": "to rain + -ing", "translation": "Titiro! Kei te ua."},
+      "We are {{answer}} for the bus.": {"hint": "to wait + -ing", "translation": "Kei te tatari mātou mō te pahi."},
+      "He is {{answer}} at the moment.": {"hint": "to sleep + -ing", "translation": "Kei te moe ia i tēnei wā."},
+      "He is {{answer}} in the park.": {"hint": "run — ka tāruatia te orokati whakamutunga", "translation": "Kei te oma ia i te papa rēhia."},
+      "She is {{answer}} an email.": {"hint": "write — ka makere te e wahangū", "translation": "Kei te tuhi īmēra ia."}
+    },
+    "There is / there are": {
+      "There {{answer}} a book on the table.": {"hint": "takitahi", "translation": "He pukapuka kei runga i te tēpu."},
+      "There {{answer}} two cafés in this street.": {"hint": "takimaha", "translation": "E rua ngā wharekawhe kei tēnei tiriti."},
+      "{{answer}} there a bank near here?": {"hint": "takitahi, raupapa pātai", "translation": "He pēke kei tētahi wāhi tata?"},
+      "There {{answer}} no milk.": {"hint": "takitahi", "translation": "Kāore he miraka."},
+      "{{answer}} there any questions?": {"hint": "takimaha, raupapa pātai", "translation": "He pātai?"},
+      "There {{answer}} many people here today.": {"hint": "takimaha", "translation": "He tokomaha ngā tāngata i konei i tēnei rā."}
+    },
+    "Question words (what, where, when…)": {
+      "{{answer}} do you live?": {"hint": "he pātai wāhi", "translation": "Kei hea koe e noho ana?"},
+      "{{answer}} is your name?": {"hint": "he pātai mea", "translation": "Ko wai tōu ingoa?"},
+      "{{answer}} is your birthday?": {"hint": "he pātai wā", "translation": "Āhea tōu rā whānau?"},
+      "{{answer}} old are you?": {"hint": "koinei te pātai tau", "translation": "E hia ōu tau?"},
+      "{{answer}} is your teacher?": {"hint": "he pātai tangata", "translation": "Ko wai tōu kaiako?"},
+      "{{answer}} are you crying?": {"hint": "he pātai take", "translation": "He aha koe e tangi ai?"}
+    },
+    "Possessives (my, your, 's)": {
+      "This is {{answer}} book.": {"hint": "nā te kaikōrero", "translation": "Ko tāku pukapuka tēnei."},
+      "Is this {{answer}} car?": {"hint": "nāu", "translation": "Nōu tēnei motokā?"},
+      "{{answer}} name is Anna.": {"hint": "nāna (wahine)", "translation": "Ko Anna tōna ingoa."},
+      "That is my {{answer}} car.": {"hint": "brother + te kūmuri pupuri", "translation": "Nō tōku tungāne tērā motokā."},
+      "{{answer}} house is big.": {"hint": "nō rātou", "translation": "He nui tō rātou whare."},
+      "The dog wags {{answer}} tail.": {"hint": "nō te mea — kāore he tohu '", "translation": "Ka wherowhero te kurī i tōna hiku."},
+      "{{answer}} name is David.": {"hint": "te ingoa o te tāne — «tōna»", "translation": "Ko Rāwiri tōna ingoa."},
+      "That is {{answer}} classroom.": {"hint": "nō mātou — «tō mātou»", "translation": "Ko tō mātou akomanga tērā."}
+    },
+    "Present perfect vs past simple": {
+      "I've {{answer}} my wallet — can you help me look?": {"hint": "lose — kupumahi tūmahi tuatoru", "translation": "Kua ngaro tāku pēke moni — māu au e āwhina ki te rapu?"},
+      "She {{answer}} in Berlin in 2019.": {"hint": "live — wā mua", "translation": "I noho ia ki Pearīni i te tau 2019."},
+      "Have you {{answer}} been to Japan?": {"hint": "te kupu «kotahi te wā i te koiora»", "translation": "Kua tae atu koe ki Hapani i mua?"},
+      "We've known each other {{answer}} ten years.": {"hint": "te kupu roanga", "translation": "Tekau tau mātou e mōhio ana tētahi ki tētahi."},
+      "He's worked here {{answer}} 2020.": {"hint": "te kupu tīmatanga", "translation": "E mahi ana ia i konei mai i te tau 2020."},
+      "They haven't finished {{answer}}.": {"hint": "te kupu «kāore anō»", "translation": "Kāore anō rātou kia oti."}
+    },
+    "First and second conditionals": {
+      "If it {{answer}} tomorrow, we'll cancel the picnic.": {"hint": "rain — wā onāianei, it", "translation": "Ki te ua āpōpō, ka whakakorea e mātou te pikiniki."},
+      "If you study, you {{answer}} pass.": {"hint": "te kupu o te anamata pono", "translation": "Ki te ako koe, ka eke koe."},
+      "If I {{answer}} rich, I would buy an island.": {"hint": "be — āhua pohewa", "translation": "Mehemea he whai rawa au, ka hokona e au tētahi moutere."},
+      "She {{answer}} travel more if she had time.": {"hint": "te kupu o te hua pohewa", "translation": "Ka nui ake āna haerenga mehemea he wā tōna."},
+      "If we {{answer}} now, we'll catch the train.": {"hint": "te wehe — i te wā onāianei", "translation": "Ki te wehe tātou ināianei, ka mau i a tātou te tereina."},
+      "What {{answer}} you do if you won the lottery?": {"hint": "te kupu o te hua pohewa", "translation": "Ka aha koe mehemea i toa koe i te rota?"}
+    },
+    "The passive (is made, was built)": {
+      "This wine {{answer}} produced in Chile.": {"hint": "be — wā onāianei, it", "translation": "Ka hangaia tēnei wāina ki Hiri."},
+      "The castle was {{answer}} in the twelfth century.": {"hint": "build — kupumahi tūmahi tuatoru", "translation": "I hangaia te whare rangatira i te rautau tekau mā rua."},
+      "These photos {{answer}} taken by my grandmother.": {"hint": "be — wā mua, they", "translation": "Nā tōku kuia ēnei whakaahua i tango."},
+      "English {{answer}} spoken all over the world.": {"hint": "be — wā onāianei, it", "translation": "Ka kōrerotia te reo Ingarihi huri noa i te ao."},
+      "The thief was caught {{answer}} the police.": {"hint": "te kupu tūmua o te kaimahi", "translation": "I mau te tāhae i ngā pirihimana."},
+      "My phone was {{answer}} at the festival.": {"hint": "steal — kupumahi tūmahi tuatoru", "translation": "I tāhaetia tāku waea i te hākari."}
+    },
+    "Relative clauses (who, which, that, where)": {
+      "She's the doctor {{answer}} treated my father.": {"hint": "kupu hono mō ngā tāngata", "translation": "Ko ia te tākuta nāna tōku pāpā i rongoā."},
+      "That's the restaurant {{answer}} we first met.": {"hint": "kupu hono mō ngā wāhi", "translation": "Koirā te wharekai i tūtaki tuatahi ai māua."},
+      "The laptop {{answer}} I bought last week is broken.": {"hint": "te kupu hono whānui", "translation": "Kua pakaru te rorohiko pōnaho i hokona e au i tērā wiki."},
+      "He's the author {{answer}} books sell millions.": {"hint": "kupu hono pupuri", "translation": "Ko ia te kaituhi e hokona ai āna pukapuka mā ngā miriona."},
+      "The train, {{answer}} was already late, then broke down.": {"hint": "kupu hono mō ngā mea", "translation": "Ko te tereina, kua tōmuri kē, i pakaru i muri mai."},
+      "People {{answer}} exercise regularly live longer.": {"hint": "kupu hono mō ngā tāngata", "translation": "Ka roa ake te ora o ngā tāngata e whakapakari tinana auau ana."}
+    },
+    "Used to — past habits and states": {
+      "I {{answer}} to play football every weekend.": {"hint": "te kupumahi o te ritenga o mua", "translation": "I mua ka tākaro whutupōro au ia mutunga wiki."},
+      "She didn't {{answer}} to like coffee, but now she loves it.": {"hint": "te kupumahi o te ritenga o mua, kore -d", "translation": "I mua kāore ia i pai ki te kawhe, engari ināianei e tino pai ana."},
+      "There {{answer}} to be a bakery on this corner.": {"hint": "te kupumahi o te ritenga o mua", "translation": "I mua he wharetunu parāoa i tēnei kokonga."},
+      "Did you {{answer}} to live in London?": {"hint": "te kupumahi o te ritenga o mua, kore -d", "translation": "I noho koe ki Rānana i mua?"},
+      "He used {{answer}} have long hair.": {"hint": "te kupu iti", "translation": "He roa ōna makawe i mua."},
+      "We {{answer}} to go camping every summer as kids.": {"hint": "te kupumahi o te ritenga o mua", "translation": "I a mātou e tamariki ana, ka haere mātou ki te noho puni ia raumati."}
+    },
+    "Reported speech": {
+      "'I'm busy.' → She said she {{answer}} busy.": {"hint": "be — kotahi te hikoi whakamuri", "translation": "«He nui aku mahi.» → I kī ia he nui āna mahi."},
+      "'I'll call you.' → He said he {{answer}} call me.": {"hint": "will — kotahi te hikoi whakamuri", "translation": "«Ka waea atu au.» → I kī ia ka waea mai ia ki ahau."},
+      "'Are you ready?' → She asked {{answer}} I was ready.": {"hint": "te kupu o ngā pātai āe/kāo", "translation": "«Kua rite koe?» → I pātai ia mehemea kua rite au."},
+      "'Where do you live?' → He asked where I {{answer}}.": {"hint": "live — kotahi te hikoi whakamuri", "translation": "«Kei hea koe e noho ana?» → I pātai ia kei hea au e noho ana."},
+      "'I can swim.' → She said she {{answer}} swim.": {"hint": "can — kotahi te hikoi whakamuri", "translation": "«Ka taea e au te kauhoe.» → I kī ia ka taea e ia te kauhoe."},
+      "'We bought a house.' → They said they {{answer}} bought a house.": {"hint": "te kupumahi āwhina o te hikoi whakamuri", "translation": "«I hokona e mātou he whare.» → I kī rātou kua hokona e rātou he whare."}
+    },
+    "Gerund or infinitive?": {
+      "I really enjoy {{answer}} in the sea.": {"hint": "swim — ko tēhea āhua?", "translation": "He tino pai ki ahau te kauhoe i te moana."},
+      "She decided {{answer}} accept the job.": {"hint": "te kupu iti o te infinitive", "translation": "I whakatau ia ki te whakaae ki te mahi."},
+      "Would you mind {{answer}} the door?": {"hint": "close — ko tēhea āhua?", "translation": "E pai ana koe ki te kati i te tatau?"},
+      "We hope {{answer}} see you soon.": {"hint": "te kupu iti o te infinitive", "translation": "Ko te tūmanako ka kite wawe mātou i a koe."},
+      "He avoided {{answer}} my question.": {"hint": "answer — ko tēhea āhua?", "translation": "I karo ia i te whakautu i tāku pātai."},
+      "They promised {{answer}} write every week.": {"hint": "te kupu iti o te infinitive", "translation": "I oati rātou ka tuhi ia wiki."}
+    },
+    "Third and mixed conditionals": {
+      "If you {{answer}} told me, I would have helped.": {"hint": "te kupumahi āwhina o te wā mua rawa", "translation": "Mehemea i kī mai koe, kua āwhina au."},
+      "If she had left earlier, she would {{answer}} caught the flight.": {"hint": "te āwhina whakaoti i muri i a would", "translation": "Mehemea i wehe moata ia, kua mau i a ia te rererangi."},
+      "I wouldn't {{answer}} met her if I hadn't gone to that party.": {"hint": "te āwhina whakaoti", "translation": "Kāore au e tūtaki ki a ia mehemea kāore au i haere ki taua hākari."},
+      "If he had studied medicine, he {{answer}} be a doctor now.": {"hint": "te kupu o te hua pohewa", "translation": "Mehemea i ako ia i te rongoā, he tākuta ia ināianei."},
+      "If we {{answer}} taken the map, we wouldn't have got lost.": {"hint": "te kupumahi āwhina o te wā mua rawa", "translation": "Mehemea i mauria e mātou te mahere, kāore mātou i ngaro."},
+      "What would you have {{answer}} in my position?": {"hint": "do — kupumahi tūmahi tuatoru", "translation": "Ka aha koe mehemea ko koe i tōku tūranga?"}
+    },
+    "Modals of deduction (must, might, can't)": {
+      "The lights are on — someone {{answer}} be home.": {"hint": "te kupu tata-tino-pono", "translation": "E kā ana ngā rama — me te mea kei te kāinga tētahi."},
+      "That {{answer}} be Maria — she's in Brazil this week!": {"hint": "te kupu kore e taea", "translation": "E kore pea ko Maria tērā — kei Parahi ia i tēnei wiki!"},
+      "He {{answer}} be stuck in traffic — it happens.": {"hint": "he kupu tūponotanga", "translation": "Tērā pea kei te raru ia i te waipuke waka — ka pēnā i ētahi wā."},
+      "She must {{answer}} forgotten our meeting.": {"hint": "te āwhina o te whakatau mō te wā mua", "translation": "Me te mea kua wareware i a ia tā māua hui."},
+      "They can't {{answer}} left already — the car's still here.": {"hint": "te āwhina o te whakatau mō te wā mua", "translation": "E kore e taea kua wehe kē rātou — kei konei tonu te motokā."},
+      "It {{answer}} rain later, so take an umbrella.": {"hint": "he kupu tūponotanga", "translation": "Tērā pea ka ua ā muri ake, nō reira mauria he hamarara."}
+    },
+    "Advanced passives (has been done, being done)": {
+      "The road has {{answer}} closed since Monday.": {"hint": "te kupumahi tūmahi tuatoru o be", "translation": "Kua katia te rori mai i te Mane."},
+      "Our office is {{answer}} renovated at the moment.": {"hint": "te āhua -ing o be", "translation": "Kei te whakahoutia tō mātou tari i tēnei wā."},
+      "All answers must be {{answer}} in ink.": {"hint": "write — kupumahi tūmahi tuatoru", "translation": "Me tuhi ngā whakautu katoa ki te mangumangu."},
+      "She is {{answer}} to be the richest woman in the country.": {"hint": "say — kupumahi tūmahi tuatoru", "translation": "E kīia ana ko ia te wahine whai rawa rawa atu o te motu."},
+      "The results will {{answer}} announced on Friday.": {"hint": "te kupumahi tahanga o te tūmahi", "translation": "Ka pānuitia ngā hua ā te Paraire."},
+      "By 1990, the bridge {{answer}} been rebuilt twice.": {"hint": "te kupumahi āwhina o te wā mua rawa", "translation": "Tae rawa ki te tau 1990, e rua ngā hanganga anō o te piriti."}
+    },
+    "Wish and if only": {
+      "I wish I {{answer}} how to drive.": {"hint": "know — te āhua hiahia", "translation": "Ko taku hiahia me i mōhio au ki te taraiwa."},
+      "She wishes she {{answer}} accepted the offer.": {"hint": "te āwhina o te pōuri mō te wā mua", "translation": "Ko tāna e hiahia ana me i whakaae ia ki te tuku."},
+      "I wish you {{answer}} stop interrupting me!": {"hint": "te kupu amuamu", "translation": "Ko taku hiahia kia mutu tāu whakapoka i ahau!"},
+      "If {{answer}} I had listened to your advice!": {"hint": "te kupu i muri i a if", "translation": "Aue, me i whakarongo au ki tāu tohutohu!"},
+      "He wishes he {{answer}} taller.": {"hint": "be — te āhua hiahia", "translation": "Ko tāna e hiahia ana me i teitei ake ia."},
+      "We wish we {{answer}} bought tickets earlier.": {"hint": "te āwhina o te pōuri mō te wā mua", "translation": "Ko tā mātou e hiahia ana me i hoko moata mātou i ngā tīkiti."}
+    },
+    "Phrasal verbs — separable or not?": {
+      "Could you turn {{answer}} off? The music's too loud.": {"hint": "te kupu whakakapi tūmahi", "translation": "Ka taea e koe te whakaweto? He nui rawa te tangi o te puoro."},
+      "She's looking {{answer}} her elderly mother.": {"hint": "te kupu āpiti o te tiaki", "translation": "Kei te tiaki ia i tōna whaea kaumātua."},
+      "Please fill {{answer}} this form.": {"hint": "te kupu āpiti o ngā puka", "translation": "Whakakīia koa tēnei puka."},
+      "I'll pick you {{answer}} at eight.": {"hint": "te kupu āpiti o te tiki", "translation": "Māku koe e tiki i te waru karaka."},
+      "We've put {{answer}} the meeting until Friday.": {"hint": "te kupu āpiti o te whakatārewa", "translation": "Kua whakatārewatia e mātou te hui ki te Paraire."},
+      "He takes {{answer}} his father — same smile, same laugh.": {"hint": "te kupu āpiti o te rite ki te matua", "translation": "He rite ia ki tōna pāpā — kotahi te menemene, kotahi te katakata."}
+    },
+    "Question tags and indirect questions": {
+      "You've met before, {{answer}} you?": {"hint": "te āwhina hurihia o te hiku pātai", "translation": "Kua tūtaki kōrua i mua, nē?"},
+      "She doesn't eat fish, {{answer}} she?": {"hint": "te āwhina hurihia o te hiku pātai", "translation": "Kāore ia e kai ika, nē?"},
+      "Could you tell me where the bank {{answer}}?": {"hint": "be — ki te MUTUNGA", "translation": "Ka taea e koe te kī mai kei hea te pēke?"},
+      "Do you know if the shop {{answer}} at six?": {"hint": "close — raupapa kōrero whakaū", "translation": "E mōhio ana koe mehemea ka kati te toa i te ono karaka?"},
+      "It's cold today, {{answer}} it?": {"hint": "te āwhina hurihia o te hiku pātai", "translation": "He makariri i tēnei rā, nē?"},
+      "I wonder {{answer}} they got home safely.": {"hint": "te kupu kē atu i a if", "translation": "Kei te whakaaro au mehemea i tae ora atu rātou ki te kāinga."}
+    },
+    "Inversion (Never have I…, Not only…)": {
+      "Never {{answer}} I heard such nonsense.": {"hint": "te āwhina whakaoti", "translation": "Kāore rawa au i rongo i tētahi kōrero pōhēhē pēnā."},
+      "Not only {{answer}} she sing, she writes her own songs.": {"hint": "te āwhina o te wā onāianei", "translation": "Ehara i te mea ka waiata noa ia, ka tito anō ia i āna ake waiata."},
+      "No sooner had we sat down {{answer}} the phone rang.": {"hint": "te kupu whakaoti i te takirua", "translation": "Kātahi anō mātou ka noho, ka tangi te waea."},
+      "Under no circumstances {{answer}} you open that door.": {"hint": "te kupu tohutohu", "translation": "Ahakoa te aha, kaua rawa koe e whakatuwhera i taua tatau."},
+      "Rarely {{answer}} we see such talent.": {"hint": "te āwhina o te wā onāianei", "translation": "He uaua kē te kite i tēnei momo pūkenga."},
+      "Only then {{answer}} I understand what she meant.": {"hint": "te āwhina o te wā mua", "translation": "Kātahi anō au ka mārama ki tāna i whakaaro ai."}
+    },
+    "Cleft sentences (What I need is…, It was… that)": {
+      "{{answer}} I need is a good night's sleep.": {"hint": "te tīmatanga o te rerenga whakahau", "translation": "Ko te mea e hiahiatia ana e au he moe pai mō te pō."},
+      "It was Marco {{answer}} suggested the idea.": {"hint": "te kupu hono mō ngā tāngata", "translation": "Ko Marco te tangata nāna te whakaaro i whakatakoto."},
+      "What annoys me {{answer}} his constant lateness.": {"hint": "be — te pou o te rerenga", "translation": "Ko te mea e whakapōuri ana i ahau ko tōna tōmuri i ngā wā katoa."},
+      "It {{answer}} in Paris that they first met.": {"hint": "be — wā mua", "translation": "I Parī rāua i tūtaki tuatahi ai."},
+      "{{answer}} she wants is a little respect.": {"hint": "te tīmatanga o te «ko ngā mea katoa»", "translation": "Ko ngā mea katoa e hiahiatia ana e ia he iti noa te whakaute."},
+      "It wasn't until midnight {{answer}} he finally called.": {"hint": "te kupu hono o te rerenga whakahau", "translation": "Tae rawa ki waenganui pō kātahi anō ia ka waea mai."}
+    },
+    "Hedging and distancing (would seem, tend to)": {
+      "It would {{answer}} that the figures are wrong.": {"hint": "te kupumahi āhua-nei", "translation": "Te āhua nei kei te hē ngā tatauranga."},
+      "House prices {{answer}} to rise in spring.": {"hint": "te kupumahi ia-nei", "translation": "He rite tonu te piki o ngā utu whare i te kōanga."},
+      "There {{answer}} to be a problem with the data.": {"hint": "te kupumahi āhua-nei, tuatoru o ngā tāngata", "translation": "Te āhua nei he raru kei ngā raraunga."},
+      "It is widely {{answer}} that the climate is changing.": {"hint": "believe — kupumahi tūmahi tuatoru", "translation": "E whakaponohia whānuitia ana kei te huri te āhuarangi."},
+      "The results {{answer}} that more research is needed.": {"hint": "te kupumahi tohu", "translation": "E tohu ana ngā hua me nui ake te rangahau."},
+      "It could be {{answer}} that the policy failed.": {"hint": "argue — kupumahi tūmahi tuatoru", "translation": "Ka taea te tohe i rahua te kaupapa here."}
+    },
+    "Participle clauses (Having finished, …)": {
+      "{{answer}} finished dinner, we went for a walk.": {"hint": "te tīmatanga o te participle whakaoti", "translation": "Ka oti te kai o te pō, ka haere mātou ki te hīkoi."},
+      "{{answer}} through the window, she saw the storm coming.": {"hint": "look — te āhua participle", "translation": "I a ia e titiro ana mā te matapihi, ka kite ia i te tūpuhi e haere mai ana."},
+      "{{answer}} in 1889, the tower still draws millions.": {"hint": "build — te āhua participle", "translation": "I hangaia i te tau 1889, ā, e kukume tonu ana te pourewa i ngā miriona."},
+      "Not {{answer}} what to say, he stayed silent.": {"hint": "know — te āhua participle", "translation": "I te kore mōhio he aha te kōrero, ka noho wahangū ia."},
+      "Having {{answer}} in Rome for years, she speaks fluent Italian.": {"hint": "live — te āhua participle", "translation": "Nā te mea kua roa ia e noho ana ki Rōma, he matatau tana kōrero Itariana."},
+      "{{answer}} by the news, they cancelled the trip.": {"hint": "shock — te āhua participle", "translation": "I te ohorere i te rongo, ka whakakorea e rātou te haerenga."}
+    },
+    "The mandative subjunctive (insist that he be)": {
+      "The board insisted that he {{answer}} removed from the project.": {"hint": "be — āhua tahanga", "translation": "I tohe te poari kia tangohia ia i te kaupapa."},
+      "It is essential that every member {{answer}} the code of conduct.": {"hint": "te whai — āhua tahanga", "translation": "He mea nui kia whāia e ia mema te tikanga whanonga."},
+      "She recommended that the report {{answer}} rewritten.": {"hint": "be — āhua tahanga", "translation": "I tūtohu ia kia tuhia anō te pūrongo."},
+      "They demanded that the minister {{answer}}.": {"hint": "te rīhaina — āhua tahanga", "translation": "I tono rātou kia rīhaina te minita."},
+      "It's vital that she {{answer}} informed at once.": {"hint": "be — āhua tahanga", "translation": "He mea nui rawa kia whakamōhiotia ia i taua wā tonu."},
+      "We suggest that he {{answer}} a lawyer before signing.": {"hint": "te toro atu — āhua tahanga", "translation": "Ko tā mātou tūtohu kia toro atu ia ki tētahi rōia i mua i te haina."}
+    },
+    "Ellipsis and substitution (so, neither, do so)": {
+      "I loved the film. — {{answer}} did I!": {"hint": "te tīmatanga o te «me au anō»", "translation": "I tino pai te kiriata ki ahau. — Me au anō!"},
+      "She can't make it tonight. — {{answer}} can I.": {"hint": "te tīmatanga whakakāhore o te «me au anō kāore»", "translation": "Kāore ia e tae mai i te pō nei. — Me au anō kāore."},
+      "He was asked to apologise, and he did {{answer}} immediately.": {"hint": "te kupu whakakapi i muri i a did", "translation": "I tonoa ia kia whakapāha, ā, i pērā tonu ia i taua wā."},
+      "You may be tired; if {{answer}}, rest.": {"hint": "te kupu whakakapi i muri i a if", "translation": "Tērā pea kua ngenge koe; ki te pērā, me okioki."},
+      "They promised to help, but failed to {{answer}} so.": {"hint": "te kupumahi whakakapi", "translation": "I oati rātou ki te āwhina, engari kāore i pērā."},
+      "I've never been to Oslo. — Nor {{answer}} I.": {"hint": "te āwhina whakaoti", "translation": "Kāore anō au kia tae ki Oslo. — Me au anō kāore."}
+    },
+    "Formal connectors (notwithstanding, albeit)": {
+      "The plan went ahead, {{answer}} the objections.": {"hint": "te 'despite' ōkawa ake", "translation": "I haere tonu te mahere, ahakoa ngā whakahē."},
+      "It was a victory, {{answer}} a narrow one.": {"hint": "te although kua whakapotoa", "translation": "He wikitōria, ahakoa he paku noa."},
+      "The costs rose sharply; {{answer}} the project was cancelled.": {"hint": "he therefore ōkawa", "translation": "I piki tere ngā utu; nā konā i whakakorea ai te kaupapa."},
+      "A scheme {{answer}} employees share the profits.": {"hint": "te kupu «mā reira»", "translation": "He kaupapa e wehewehea ai ngā hua ki ngā kaimahi."},
+      "A {{answer}} unknown author won the prize.": {"hint": "te kupu «tae noa ki taua wā»", "translation": "I toa tētahi kaituhi kāore i mōhiotia i mua i te paraihe."},
+      "The evidence, {{answer}} incomplete, points one way.": {"hint": "te although poto", "translation": "Ko ngā taunakitanga, ahakoa kāore i oti, e tohu ana ki te ara kotahi."}
+    },
+    "Past simple — regular verbs (-ed)": {
+      "I {{answer}} in a bank for five years.": {"hint": "work + -ed", "translation": "E rima tau au i mahi ai i tētahi pēke."},
+      "She {{answer}} in Rome when she was young.": {"hint": "live — ka tāpirihia te -d anake", "translation": "I noho ia ki Rōma i a ia e taiohi ana."},
+      "He {{answer}} English at university.": {"hint": "study — ka huri te y hei -ied", "translation": "I ako ia i te reo Ingarihi i te whare wānanga."},
+      "The bus {{answer}} suddenly.": {"hint": "stop — ka tāruatia te p", "translation": "I tū ohorere te pahi."},
+      "We {{answer}} football in the park yesterday.": {"hint": "oropuare + y — -ed anake", "translation": "I tākaro whutupōro mātou i te papa rēhia inanahi."},
+      "They {{answer}} work yesterday — it was a holiday.": {"hint": "wā mua whakakāhore: did + not", "translation": "Kāore rātou i mahi inanahi — he rā hararei."}
+    },
+    "Object pronouns (me, him, them)": {
+      "Can you help {{answer}}, please?": {"hint": "kei te tono āwhina te kaikōrero — «ahau»", "translation": "Ka taea e koe te āwhina i ahau, koa?"},
+      "I saw {{answer}} at school yesterday.": {"hint": "he tāne — «ia»", "translation": "I kite au i a ia i te kura inanahi."},
+      "This present is for {{answer}}.": {"hint": "he wahine — «ia»", "translation": "Mō tērā wahine tēnei koha."},
+      "Our teacher knows {{answer}} well.": {"hint": "te kaikōrero me ētahi atu — «mātou»", "translation": "E tino mōhio ana tō mātou kaiako ki a mātou."},
+      "I like these shoes — I'll buy {{answer}}.": {"hint": "he maha ngā mea — «ērā»", "translation": "He pai ki ahau ēnei hū — ka hokona e au."},
+      "Where is my phone? I can't find {{answer}}.": {"hint": "kotahi te mea — «ia»", "translation": "Kei hea tāku waea? Kāore e kitea e au."}
+    },
+    "Imperatives (Open…, Don't…)": {
+      "{{answer}} the door, please.": {"hint": "kupumahi i te āhua tahanga, kore kaimahi", "translation": "Whakatuwherahia te tatau, koa."},
+      "{{answer}} worry — everything is fine.": {"hint": "whakahau whakakāhore: te āhua whakakāhore o do + kupumahi", "translation": "Kaua e māharahara — kei te pai ngā mea katoa."},
+      "{{answer}} me tomorrow, please.": {"hint": "kupumahi i te āhua tahanga", "translation": "Waea mai ki ahau āpōpō, koa."},
+      "{{answer}} be late — the film starts at eight.": {"hint": "whakahau whakakāhore me be", "translation": "Kaua e tōmuri — ka tīmata te kiriata i te waru karaka."},
+      "{{answer}} quiet, please — the baby is sleeping.": {"hint": "te kupumahi be i te āhua tahanga", "translation": "Kia ata noho, koa — kei te moe te pēpi."},
+      "Please {{answer}} down and wait a moment.": {"hint": "kupumahi i te āhua tahanga", "translation": "Tēnā, e noho, ā, tatari mō te wā poto."}
+    }
+  }
+}
