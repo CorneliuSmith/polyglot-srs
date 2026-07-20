@@ -1,0 +1,205 @@
+import { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
+import { useQuery } from '@tanstack/react-query'
+import { getGymManifest } from '../../api/gym'
+import type { GymEntry } from '../../api/gym'
+import { usePrefsStore } from '../../stores/prefsStore'
+
+/** The Gym (WP25): pick the FORMS to train — present, past perfect,
+ * accusative… — never individual words, then drill them through a mixed
+ * cram session (ungraded; misses don't touch the SRS schedule).
+ *
+ * Hovering (or focusing) a category shows an example sentence plus a
+ * plain-language line on when the form is used. Categories the learner
+ * already has in reviews are marked and listed first — cover familiar
+ * ground, then expand. "Include non-standard words" reveals the
+ * categories that break or sit outside the regular patterns.
+ */
+const MAX_SELECTED = 12 // the cram endpoint's point cap
+
+function sortFamiliarFirst(entries: GymEntry[]): GymEntry[] {
+  return [...entries].sort((a, b) => Number(b.familiar) - Number(a.familiar))
+}
+
+export default function GymPage() {
+  const navigate = useNavigate()
+  const activeLanguageId = usePrefsStore((s) => s.activeLanguageId)
+  const [selected, setSelected] = useState<Set<string>>(new Set())
+  const [nonstandard, setNonstandard] = useState(false)
+
+  const { data, isLoading } = useQuery({
+    queryKey: ['gym-manifest', activeLanguageId],
+    queryFn: () => getGymManifest(activeLanguageId!),
+    enabled: !!activeLanguageId,
+  })
+
+  const columns = data?.columns ?? []
+  const hasNonstandard = columns.some((c) =>
+    c.entries.some((e) => e.nonstandard),
+  )
+
+  const toggle = (id: string) =>
+    setSelected((prev) => {
+      const next = new Set(prev)
+      if (next.has(id)) next.delete(id)
+      else if (next.size < MAX_SELECTED) next.add(id)
+      return next
+    })
+
+  const toggleNonstandard = (on: boolean) => {
+    setNonstandard(on)
+    if (!on) {
+      // Hidden categories can't stay silently selected.
+      const hidden = new Set(
+        columns.flatMap((c) =>
+          c.entries.filter((e) => e.nonstandard).map((e) => e.point_id),
+        ),
+      )
+      setSelected((prev) => new Set([...prev].filter((id) => !hidden.has(id))))
+    }
+  }
+
+  const start = () => {
+    if (selected.size === 0) return
+    navigate(`/cram?points=${[...selected].join(',')}&mix=1`)
+  }
+
+  return (
+    <div className="min-h-screen bg-gray-50">
+      <div className="max-w-3xl mx-auto px-4 py-8 space-y-5">
+        <div className="flex items-center justify-between">
+          <header>
+            <h1 className="text-2xl font-bold text-gray-900">The Gym</h1>
+            <p className="text-sm text-gray-500">
+              Pick the forms to train — hover one to see how it's used. Your
+              session mixes everything you pick.
+            </p>
+          </header>
+          <button
+            type="button"
+            onClick={() => navigate('/')}
+            className="text-sm text-lang hover:underline"
+          >
+            ← Dashboard
+          </button>
+        </div>
+
+        {isLoading && <p className="text-sm text-gray-400">Loading…</p>}
+
+        {!isLoading && columns.length === 0 && (
+          <div className="bg-white rounded-2xl border border-gray-100 p-6 text-sm text-gray-500">
+            This language doesn't bend its words enough to need a gym — there
+            are no conjugation or declension forms to train here yet.
+          </div>
+        )}
+
+        {columns.length > 0 && (
+          <>
+            <div
+              className={
+                'grid gap-4 ' +
+                (columns.length >= 3
+                  ? 'sm:grid-cols-3'
+                  : columns.length === 2
+                    ? 'sm:grid-cols-2'
+                    : '')
+              }
+            >
+              {columns.map((col) => {
+                const entries = sortFamiliarFirst(col.entries).filter(
+                  (e) => nonstandard || !e.nonstandard,
+                )
+                if (entries.length === 0) return null
+                return (
+                  <section
+                    key={col.kind}
+                    className="bg-white rounded-2xl border border-gray-100 p-4"
+                  >
+                    <h2 className="text-xs uppercase tracking-wide text-gray-400 mb-3">
+                      {col.label}
+                    </h2>
+                    <div className="space-y-2">
+                      {entries.map((e) => (
+                        <div key={e.point_id} className="relative group">
+                          <button
+                            type="button"
+                            onClick={() => toggle(e.point_id)}
+                            aria-pressed={selected.has(e.point_id)}
+                            className={
+                              'w-full rounded-xl border px-3 py-2 text-left text-sm transition-colors ' +
+                              (selected.has(e.point_id)
+                                ? 'border-lang bg-lang-soft text-gray-900'
+                                : 'border-gray-200 bg-white text-gray-700 hover:border-lang/50')
+                            }
+                            style={{ minHeight: '44px' }}
+                          >
+                            <span className="flex items-center justify-between gap-2">
+                              <span className="font-medium">{e.label}</span>
+                              <span className="flex items-center gap-1 text-[10px] text-gray-400">
+                                {e.familiar && (
+                                  <span
+                                    className="rounded-full bg-lang-soft text-lang px-1.5 py-0.5"
+                                    title="Already in your reviews"
+                                  >
+                                    known
+                                  </span>
+                                )}
+                                {e.level}
+                              </span>
+                            </span>
+                          </button>
+                          {/* Hover/focus preview: what the form does + one
+                              real example, BEFORE committing to it. */}
+                          {(e.usage || e.example) && (
+                            <div
+                              role="tooltip"
+                              className="pointer-events-none absolute left-0 right-0 top-full z-10 mt-1 hidden rounded-xl border border-gray-200 bg-white p-3 text-xs shadow-lg group-hover:block group-focus-within:block"
+                            >
+                              {e.usage && (
+                                <p className="text-gray-600">{e.usage}</p>
+                              )}
+                              {e.example && (
+                                <p className="mt-1 text-gray-400">{e.example}</p>
+                              )}
+                            </div>
+                          )}
+                        </div>
+                      ))}
+                    </div>
+                  </section>
+                )
+              })}
+            </div>
+
+            <div className="flex flex-wrap items-center justify-between gap-3">
+              {hasNonstandard ? (
+                <label className="flex items-center gap-2 text-sm text-gray-600 select-none">
+                  <input
+                    type="checkbox"
+                    checked={nonstandard}
+                    onChange={(event) => toggleNonstandard(event.target.checked)}
+                    className="rounded border-gray-300"
+                  />
+                  Include non-standard words
+                </label>
+              ) : (
+                <span />
+              )}
+              <button
+                type="button"
+                onClick={start}
+                disabled={selected.size === 0}
+                className="bg-lang hover:bg-lang-dark disabled:opacity-40 text-lang-on font-semibold rounded-xl px-6 py-3 text-sm"
+                style={{ minHeight: '44px' }}
+              >
+                {selected.size === 0
+                  ? 'Pick at least one form'
+                  : `Start training · ${selected.size} form${selected.size === 1 ? '' : 's'}`}
+              </button>
+            </div>
+          </>
+        )}
+      </div>
+    </div>
+  )
+}

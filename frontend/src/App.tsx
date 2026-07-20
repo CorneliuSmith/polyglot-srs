@@ -14,6 +14,7 @@ import LearnPage from './features/review/LearnPage'
 import TutorPage from './features/tutor/TutorPage'
 import ReaderPage from './features/reader/ReaderPage'
 import LettersPage from './features/letters/LettersPage'
+import GymPage from './features/gym/GymPage'
 import NotesPage from './features/notes/NotesPage'
 import OnboardingPage from './features/onboarding/OnboardingPage'
 import WelcomePage from './features/onboarding/WelcomePage'
@@ -80,6 +81,7 @@ const router = createBrowserRouter([
       { path: '/tutor', element: <TutorPage /> },
       { path: '/read', element: <ReaderPage /> },
       { path: '/letters', element: <LettersPage /> },
+      { path: '/gym', element: <GymPage /> },
       { path: '/notes', element: <NotesPage /> },
       { path: '/contribute', element: <ContributorPage /> },
     ],

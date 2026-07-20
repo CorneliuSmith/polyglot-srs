@@ -53,6 +53,10 @@ function ReviewSessionInner({
   const queryClient = useQueryClient()
   const [searchParams] = useSearchParams()
   const cramPoints = cram ? (searchParams.get('points') ?? '') : ''
+  // The Gym passes mix=1: cards from the selected form categories are
+  // shuffled together, so accusative singular and dative plural alternate
+  // instead of arriving grouped per point (the mixed bag is the point).
+  const cramMix = cram && searchParams.get('mix') === '1'
   // Grammar Only / Vocab Only sessions (dashboard Review tile expansion).
   const typeParam = searchParams.get('type')
   const reviewType =
@@ -81,8 +85,17 @@ function ReviewSessionInner({
   const { data: fetched, isLoading } = useQuery(
     cram
       ? {
-          queryKey: ['cram-cards', cramPoints],
-          queryFn: () => getCramCards(cramPoints.split(',')),
+          queryKey: ['cram-cards', cramPoints, cramMix],
+          queryFn: async () => {
+            const cards = await getCramCards(cramPoints.split(','))
+            if (!cramMix) return cards
+            const mixed = [...cards]
+            for (let i = mixed.length - 1; i > 0; i--) {
+              const j = Math.floor(Math.random() * (i + 1))
+              ;[mixed[i], mixed[j]] = [mixed[j], mixed[i]]
+            }
+            return mixed
+          },
           enabled: cramPoints.length > 0,
           staleTime: Infinity, // one fetch per cram session — no mid-session reshuffle
           gcTime: 0,
