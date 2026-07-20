@@ -15,10 +15,10 @@ from backend.routers.billing import router as billing_router
 from backend.routers.contribute import router as contribute_router
 from backend.routers.curriculum import router as curriculum_router
 from backend.routers.dashboard import router as dashboard_router
+from backend.routers.gym import router as gym_router
 from backend.routers.languages import router as languages_router
 from backend.routers.notes import router as notes_router
 from backend.routers.onboarding import router as onboarding_router
-from backend.routers.gym import router as gym_router
 from backend.routers.reader import router as reader_router
 from backend.routers.review import router as review_router
 from backend.routers.tutor import router as tutor_router

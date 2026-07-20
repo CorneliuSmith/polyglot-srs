@@ -10,7 +10,6 @@ from contextlib import asynccontextmanager
 from unittest.mock import AsyncMock, patch
 
 import jwt as pyjwt
-import pytest
 from fastapi.testclient import TestClient
 
 from backend.main import create_app
