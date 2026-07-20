@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import { Link, Navigate, useNavigate } from 'react-router-dom'
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
 import { getDashboardStats } from '../../api/dashboard'
+import { getGymManifest } from '../../api/gym'
 import {
   getDeckPreview,
   getLearnDecks,
@@ -218,6 +219,16 @@ export default function DashboardPage() {
   )?.code
   const hasLetters = !!lettersFor(activeLanguageCode)
 
+  // The Gym tile shows only when this language has form categories to
+  // train (empty manifest = uninflected language, no tile).
+  const { data: gymManifest } = useQuery({
+    queryKey: ['gym-manifest', activeLanguageId],
+    queryFn: () => getGymManifest(activeLanguageId!),
+    enabled: !!activeLanguageId,
+    retry: false,
+  })
+  const hasGym = (gymManifest?.columns.length ?? 0) > 0
+
   const { data: stats, isLoading } = useQuery({
     queryKey: ['dashboard', activeLanguageId],
     queryFn: () => getDashboardStats(activeLanguageId!),
@@ -371,6 +382,24 @@ export default function DashboardPage() {
               Letters &amp; Sounds
               <span className="block text-xs font-normal text-gray-500">
                 Every letter, its variants, and how to say them
+              </span>
+            </span>
+            <span aria-hidden className="text-lang">→</span>
+          </button>
+        )}
+
+        {/* The Gym (WP25): only for languages with forms to train. */}
+        {hasGym && (
+          <button
+            type="button"
+            onClick={() => navigate('/gym')}
+            className="w-full bg-white hover:bg-gray-50 text-gray-800 font-semibold rounded-xl px-6 py-3 text-sm border border-gray-200 transition-colors text-left flex items-center justify-between"
+            style={{ minHeight: '44px' }}
+          >
+            <span>
+              The Gym
+              <span className="block text-xs font-normal text-gray-500">
+                Pick a tense or case and drill it — conjugations, declensions, reps
               </span>
             </span>
             <span aria-hidden className="text-lang">→</span>

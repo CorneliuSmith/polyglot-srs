@@ -15,6 +15,7 @@ from backend.routers.billing import router as billing_router
 from backend.routers.contribute import router as contribute_router
 from backend.routers.curriculum import router as curriculum_router
 from backend.routers.dashboard import router as dashboard_router
+from backend.routers.gym import router as gym_router
 from backend.routers.languages import router as languages_router
 from backend.routers.notes import router as notes_router
 from backend.routers.onboarding import router as onboarding_router
@@ -88,6 +89,7 @@ def create_app() -> FastAPI:
     _app.include_router(billing_router, prefix="/api/billing", tags=["billing"])
     _app.include_router(audio_router, prefix="/api/audio", tags=["audio"])
     _app.include_router(reader_router, prefix="/api/reader", tags=["reader"])
+    _app.include_router(gym_router, prefix="/api/gym", tags=["gym"])
 
     @_app.get("/api/health")
     async def health():

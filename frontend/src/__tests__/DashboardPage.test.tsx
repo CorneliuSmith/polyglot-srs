@@ -111,6 +111,9 @@ vi.mock('../api/contribute', () => ({
 vi.mock('../api/onboarding', () => ({
   getOnboardingStatus: vi.fn(() => Promise.resolve({ onboarded: true })),
 }))
+vi.mock('../api/gym', () => ({
+  getGymManifest: vi.fn(() => Promise.resolve({ columns: [] })),
+}))
 let mockDailyLearnGoal = 20
 vi.mock('../stores/prefsStore', () => ({
   usePrefsStore: vi.fn(
@@ -228,6 +231,22 @@ describe('Dashboard tiles', () => {
     await waitFor(() =>
       expect(mockNavigate).toHaveBeenCalledWith('/learn?type=grammar&level=A1'),
     )
+  })
+
+  it('shows The Gym tile only when the language has form categories', async () => {
+    const { getGymManifest } = await import('../api/gym')
+    const mockGym = getGymManifest as ReturnType<typeof vi.fn>
+    renderDashboard()
+    await screen.findByText(/learned today/i)
+    expect(screen.queryByText('The Gym')).toBeNull()
+
+    cleanup()
+    mockGym.mockResolvedValue({
+      columns: [{ kind: 'verbs', label: 'Verbs', entries: [{}] }],
+    })
+    renderDashboard()
+    fireEvent.click(await screen.findByRole('button', { name: /the gym/i }))
+    expect(mockNavigate).toHaveBeenCalledWith('/gym')
   })
 
   it('the Learn tile shows daily-goal progress, not the whole queue', async () => {

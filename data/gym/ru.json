@@ -1,0 +1,179 @@
+{
+  "language": "ru",
+  "_note": "The Gym manifest (WP25a): which grammar points act as selectable form categories, grouped into picker columns. 'point' must match the grammar point title exactly (resolved to ids at request time). 'usage' is the plain-language hover explanation; 'example' is a real drill sentence from that point. 'nonstandard': entries hidden behind the 'include non-standard words' toggle — forms that break or sit outside the regular patterns.",
+  "columns": [
+    {
+      "kind": "verbs",
+      "label": "Verbs",
+      "entries": [
+        {
+          "point": "Present tense (читать, говорить)",
+          "label": "Present",
+          "usage": "What someone does now or does regularly. The ending changes with who is doing it.",
+          "example": "Я читаю книгу. — I am reading a book."
+        },
+        {
+          "point": "Past tense (-л)",
+          "label": "Past",
+          "usage": "What already happened. The ending follows the doer's gender and number, not the person.",
+          "example": "Она была в Москве. — She was in Moscow."
+        },
+        {
+          "point": "Future with буду (imperfective future)",
+          "label": "Future (ongoing)",
+          "usage": "What will be happening — быть + the action, for processes without a finish line.",
+          "example": "Завтра я буду работать дома. — Tomorrow I will be working at home."
+        },
+        {
+          "point": "Perfective future (прочитаю, напишу)",
+          "label": "Future (completed)",
+          "usage": "What will get done — one word, present-style endings on the perfective verb.",
+          "example": "Я позвоню тебе вечером. — I will call you in the evening."
+        },
+        {
+          "point": "Aspect pairs: imperfective and perfective",
+          "label": "Aspect choice",
+          "usage": "The process verb or the result verb — читать vs прочитать. The heart of the Russian verb.",
+          "example": "Вчера я наконец прочитал эту книгу. — Yesterday I finally finished reading this book."
+        },
+        {
+          "point": "Imperative (читай! говорите!)",
+          "label": "Commands",
+          "usage": "Telling someone to do something — informal читай, polite or plural читайте.",
+          "example": "Скажите, пожалуйста, где метро? — Please tell me, where is the metro?"
+        },
+        {
+          "point": "Reflexive verbs (-ся)",
+          "label": "Reflexives (-ся)",
+          "usage": "Verbs that fold back on their subject — the -ся tail stays through every form.",
+          "example": "Я занимаюсь русским языком. — I study the Russian language."
+        },
+        {
+          "point": "Conditional бы",
+          "label": "Would (бы)",
+          "usage": "Wishes and what-ifs — past form + бы makes 'would'.",
+          "example": "Я хотел бы чашку кофе. — I would like a cup of coffee."
+        },
+        {
+          "point": "Verbs of motion: идти vs ходить",
+          "label": "Going on foot",
+          "nonstandard": true,
+          "usage": "Two different verbs for walking: one trip in progress (идти) vs trips in general (ходить).",
+          "example": "Сейчас я иду в школу. — I am walking to school right now."
+        },
+        {
+          "point": "Verbs of motion: ехать vs ездить",
+          "label": "Going by vehicle",
+          "nonstandard": true,
+          "usage": "Riding or driving splits the same way: one trip (ехать) vs habitual travel (ездить).",
+          "example": "Сейчас мы едем в Москву. — We are on our way to Moscow now."
+        },
+        {
+          "point": "Prefixed verbs of motion (прийти, уйти, выйти)",
+          "label": "Arriving & leaving",
+          "nonstandard": true,
+          "usage": "Prefixes aim the motion — при- arrives, у- departs, вы- exits — and flip the aspect.",
+          "example": "Он пришёл домой в семь часов. — He came home at seven o'clock."
+        }
+      ]
+    },
+    {
+      "kind": "nouns",
+      "label": "Nouns",
+      "entries": [
+        {
+          "point": "Prepositional case (location: в / на)",
+          "label": "Prepositional (where)",
+          "usage": "Where something is — after в and на for locations, the noun's ending changes.",
+          "example": "Книга на столе. — The book is on the table."
+        },
+        {
+          "point": "Accusative case (direct object)",
+          "label": "Accusative (what)",
+          "usage": "The thing the action lands on — feminine -а becomes -у, masculine things stay put.",
+          "example": "Я читаю книгу. — I am reading a book."
+        },
+        {
+          "point": "Animate accusative (вижу брата)",
+          "label": "Accusative (whom)",
+          "usage": "When the object is alive, masculine nouns borrow the genitive ending instead.",
+          "example": "Я вижу брата каждый день. — I see my brother every day."
+        },
+        {
+          "point": "Genitive case (possession: книга брата)",
+          "label": "Genitive (whose)",
+          "usage": "Ownership and 'of' — the possessor follows the thing possessed, in genitive.",
+          "example": "Это машина брата. — This is my brother's car."
+        },
+        {
+          "point": "Genitive of absence (у меня нет …)",
+          "label": "Genitive (there's no…)",
+          "usage": "What's missing — нет always pulls the missing thing into the genitive.",
+          "example": "У меня нет времени. — I have no time."
+        },
+        {
+          "point": "Dative case (indirect object)",
+          "label": "Dative (to whom)",
+          "usage": "The receiver — whoever something is given, said, or shown to takes the dative.",
+          "example": "Я даю брату книгу. — I am giving my brother a book."
+        },
+        {
+          "point": "Instrumental case (with, by means of)",
+          "label": "Instrumental (with what)",
+          "usage": "The tool or companion — writing with a pen, tea with sugar, going with a friend.",
+          "example": "Я пишу ручкой. — I write with a pen."
+        },
+        {
+          "point": "Numerals + case (два часа, пять лет)",
+          "label": "Counting forms",
+          "nonstandard": true,
+          "usage": "Numbers boss the noun around: 2–4 take one form, 5+ another — час, часа, часов.",
+          "example": "Мне двадцать два года. — I am twenty-two years old."
+        }
+      ]
+    },
+    {
+      "kind": "adjectives",
+      "label": "Adjectives",
+      "entries": [
+        {
+          "point": "Adjective agreement (новый, новая, новое)",
+          "label": "Agreement",
+          "usage": "The adjective mirrors its noun — новый дом, новая книга, новое слово.",
+          "example": "Это новый дом. — This is a new house."
+        },
+        {
+          "point": "Comparatives (интереснее, лучше)",
+          "label": "Comparatives",
+          "usage": "More and -er — usually -ее on the stem, with a few classics like лучше and больше.",
+          "example": "Эта книга интереснее, чем фильм. — This book is more interesting than the film."
+        },
+        {
+          "point": "Superlatives (самый)",
+          "label": "Superlatives",
+          "usage": "The most — самый in front, agreeing with the noun like any adjective.",
+          "example": "Москва — самый большой город России. — Moscow is the biggest city in Russia."
+        },
+        {
+          "point": "Short-form adjectives (рад, готов, должен)",
+          "label": "Short forms",
+          "nonstandard": true,
+          "usage": "A clipped predicate form — рад, рада, рады — only after 'to be', never before a noun.",
+          "example": "Я очень рад тебя видеть. — I am very glad to see you."
+        },
+        {
+          "point": "Possessive pronouns (мой, моя, моё)",
+          "label": "My / your / our",
+          "usage": "Possessives agree like adjectives — мой дом, моя книга, моё окно.",
+          "example": "Это моя книга. — This is my book."
+        },
+        {
+          "point": "Свой — one's own",
+          "label": "Свой (one's own)",
+          "usage": "The boomerang possessive — points back at the subject, whoever that is.",
+          "example": "Я люблю свою работу. — I love my (own) job."
+        }
+      ]
+    }
+  ]
+}
