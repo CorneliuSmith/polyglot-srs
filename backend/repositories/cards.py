@@ -5,6 +5,7 @@ from __future__ import annotations
 import hashlib
 import json
 import random
+import re
 from datetime import UTC, datetime
 
 import asyncpg
@@ -1281,7 +1282,106 @@ async def get_cram_cards(
             })
     # Interleave points instead of drilling one point three times in a row.
     random.Random(today).shuffle(cards)
+    await attach_cram_charts(conn, cards)
     return cards
+
+
+def _chartable(morphology) -> object | None:
+    """Return *morphology* only if it carries at least one chart table.
+
+    The Gym's collapsed panel is specifically the conjugation/declension
+    CHART — words with only chips (gender, aspect…) get no toggle.
+    """
+    parsed = morphology
+    if isinstance(parsed, str):
+        try:
+            parsed = json.loads(parsed)
+        except (json.JSONDecodeError, TypeError):
+            return None
+    if not isinstance(parsed, dict) or not parsed.get("charts"):
+        return None
+    return morphology
+
+
+async def attach_cram_charts(conn: asyncpg.Connection, cards: list[dict]) -> None:
+    """WP25(c): give each Gym drill the chart of the word it exercises.
+
+    Drills store only the surface form ("слушаю"); the charts live on the
+    vocabulary row of the dictionary form ("слушать"). The language's NLP
+    lemmatizer bridges the two. Best-effort by design — an answer that isn't
+    a chartable vocabulary word keeps morphology None and the session UI
+    simply shows no chart toggle.
+    """
+    from backend.services.nlp import get_nlp
+
+    # Candidate dictionary forms per card, batched into one query per language.
+    wanted: dict[str, set[str]] = {}
+    plans: list[tuple[dict, list[str]]] = []
+    for card in cards:
+        if card.get("morphology") is not None:
+            continue
+        lang = card.get("language_code")
+        tokens = [
+            t for t in re.findall(r"[^\W\d_]+", card.get("correct_answer") or "")
+            if len(t) > 2
+        ]
+        if not lang or not tokens:
+            continue
+        try:
+            nlp = get_nlp(lang)
+        except ValueError:
+            nlp = None
+        candidates: list[str] = []
+        for t in tokens:
+            low = t.lower()
+            if nlp is not None:
+                try:
+                    lemma = nlp.lemmatize(nlp.normalize(low))
+                except Exception:  # noqa: BLE001 — charts are extra, never fail cram
+                    lemma = low
+                if lemma and lemma not in candidates:
+                    candidates.append(lemma)
+            if low not in candidates:
+                candidates.append(low)
+        plans.append((card, candidates))
+        wanted.setdefault(lang, set()).update(candidates)
+
+    if not wanted:
+        return
+
+    forms: dict[tuple[str, str], dict] = {}
+    for lang, words in wanted.items():
+        rows = await conn.fetch(
+            """
+            SELECT v.word, v.morphology, v.usage_note
+            FROM vocabulary v
+            JOIN languages l ON v.language_id = l.id
+            WHERE l.code = $1
+              AND lower(v.word) = ANY($2::text[])
+              AND v.morphology IS NOT NULL
+            """,
+            lang,
+            sorted(words),
+        )
+        for r in rows:
+            word = r.get("word")
+            m = _chartable(r.get("morphology"))
+            if not word or m is None:
+                continue
+            forms.setdefault((lang, word.lower()), {
+                "word": word,
+                "morphology": m,
+                "usage_note": r.get("usage_note"),
+            })
+
+    for card, candidates in plans:
+        for cand in candidates:
+            hit = forms.get((card["language_code"], cand))
+            if hit is not None:
+                card["morphology"] = hit["morphology"]
+                card["chart_word"] = hit["word"]
+                card["chart_usage_note"] = hit["usage_note"]
+                break
 
 
 async def get_deck_preview(
