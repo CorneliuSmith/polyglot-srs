@@ -290,6 +290,32 @@ describe('ReviewSessionPage — listening mode cue', () => {
     expect(screen.queryByText('She goes to the market.')).toBeNull()
   })
 
+  it('shows the sentence SHAPE with the blank in place (beta report)', async () => {
+    // Words hidden + gapped audio left nothing marking WHERE the missing
+    // word falls — the skeleton masks every word but keeps the blank.
+    renderWithProviders(<ReviewSessionPage />)
+    await waitFor(() => {
+      expect(screen.getByTestId('listening-skeleton')).toBeDefined()
+    })
+    const skeleton = screen.getByTestId('listening-skeleton')
+    expect(skeleton.textContent).toContain('▬▬')
+    expect(skeleton.textContent).toContain('___')
+    // no real words leak through the mask
+    expect(skeleton.textContent).not.toMatch(/market|she|goes/i)
+  })
+
+  it('a failed answer check surfaces an error instead of dying silently', async () => {
+    mockValidateAnswer.mockRejectedValue(new Error('network'))
+    renderWithProviders(<ReviewSessionPage />)
+    await waitFor(() => screen.getByRole('textbox'))
+    const input = screen.getByRole('textbox')
+    fireEvent.change(input, { target: { value: 'anything' } })
+    fireEvent.keyDown(input, { key: 'Enter' })
+    expect(
+      await screen.findByText(/couldn't check that answer/i),
+    ).toBeDefined()
+  })
+
   it('switching the ACTIVE language mid-session restarts with that language', async () => {
     // Beta bug: a session started in English kept serving English cards
     // under a "Swahili" label. The session must remount + refetch when the

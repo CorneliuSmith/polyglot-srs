@@ -184,7 +184,14 @@ export default function DrillCard({
   const after = parts.slice(1).join('{{answer}}')
 
   if (hideSentence) {
-    // Listening mode: ears only. The input stays; the words don't.
+    // Listening mode: ears only — but the SHAPE of the sentence stays
+    // visible (beta report: with the words hidden and the audio gapped,
+    // nothing showed where the missing word even falls). Every word is
+    // masked; the blank glows in place.
+    const mask = (part: string) =>
+      part.trim().split(/\s+/).filter(Boolean).map(() => '▬▬')
+    const beforeMasks = mask(before)
+    const afterMasks = mask(after)
     return (
       <form
         onSubmit={handleFormSubmit}
@@ -192,7 +199,18 @@ export default function DrillCard({
         data-testid="listening-drill"
       >
         <p className="text-sm text-gray-400 text-center">
-          🎧 Listen, then type the missing word
+          🎧 Listen — the pause is the missing word
+        </p>
+        <p
+          className="text-lg text-gray-300 text-center tracking-widest select-none"
+          aria-hidden
+          data-testid="listening-skeleton"
+        >
+          {beforeMasks.join(' ')}
+          {beforeMasks.length > 0 && ' '}
+          <span className="text-lang font-bold">___</span>
+          {afterMasks.length > 0 && ' '}
+          {afterMasks.join(' ')}
         </p>
         <input
           ref={inputRef}

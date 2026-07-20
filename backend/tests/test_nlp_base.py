@@ -96,6 +96,42 @@ class TestCheckAnswerPipeline:
         assert result == AnswerResult.CORRECT
         assert msg is None
 
+    # Near-miss feedback (beta report: слышать for слушать failed with
+    # no explanation at all — a couple of letters off is usually a real
+    # DIFFERENT word, and the learner deserves to see where they differ).
+    def test_near_miss_wrong_names_both_words(self, nlp):
+        result, msg = nlp.check_answer("слышать", "слушать")
+        assert result == AnswerResult.WRONG
+        assert msg is not None
+        assert "слышать" in msg and "слушать" in msg
+
+    def test_distant_wrong_stays_silent(self, nlp):
+        result, msg = nlp.check_answer("gato", "biblioteca")
+        assert result == AnswerResult.WRONG
+        assert msg is None
+
+    def test_short_words_never_get_near_miss_feedback(self, nlp):
+        # 'is' vs 'it' is not a near-miss worth coaching — too short to
+        # distinguish typo from guess.
+        result, msg = nlp.check_answer("is", "it")
+        assert result == AnswerResult.WRONG
+        assert msg is None
+
+    # The review/learn sessions send alternatives under "alternatives";
+    # placement sends "answer_alternatives". Both must work (the mismatch
+    # silently disabled alternatives for every review card).
+    def test_alternatives_key_from_sessions(self, nlp):
+        result, _ = nlp.check_answer(
+            "mesa", "table", card_context={"alternatives": ["mesa"]}
+        )
+        assert result == AnswerResult.CORRECT
+
+    def test_alternatives_key_from_placement(self, nlp):
+        result, _ = nlp.check_answer(
+            "mesa", "table", card_context={"answer_alternatives": ["mesa"]}
+        )
+        assert result == AnswerResult.CORRECT
+
     def test_exact_match_preserves_case_sensitivity(self, nlp):
         """Exact match is case-sensitive before normalization."""
         result, msg = nlp.check_answer("Dog", "dog")

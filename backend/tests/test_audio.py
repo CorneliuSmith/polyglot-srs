@@ -109,6 +109,31 @@ class TestProviderChain:
         assert "rate='-10%'" in ssml
         assert "&lt;b&gt;" in ssml  # text is XML-escaped
 
+    def test_azure_gapped_text_becomes_a_break(self):
+        # Listening-mode audio replaces the answer with '…' — voices read
+        # that as nothing, so the SSML must turn it into real silence.
+        import asyncio
+
+        from backend.services import tts as tts_mod
+
+        class AzureSettings(FakeSettings):
+            azure_speech_key = "azkey"
+            azure_speech_region = "eastus"
+
+        resp = MagicMock(status_code=200, content=b"mp3bytes")
+        http_client = AsyncMock()
+        http_client.__aenter__ = AsyncMock(return_value=http_client)
+        http_client.__aexit__ = AsyncMock(return_value=False)
+        http_client.post = AsyncMock(return_value=resp)
+
+        with patch("backend.config.get_settings", return_value=AzureSettings()), \
+             patch("httpx.AsyncClient", return_value=http_client):
+            asyncio.run(tts_mod.synthesize("Он не станет меня … .", "ru"))
+
+        ssml = http_client.post.await_args.kwargs["content"].decode()
+        assert "<break time='900ms'/>" in ssml
+        assert "…" not in ssml
+
     def test_azure_error_raises(self):
         import asyncio
 
