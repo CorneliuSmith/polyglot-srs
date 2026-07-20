@@ -17,6 +17,7 @@ type Filter =
   | { kind: 'window'; w: ActiveWindow }
   | { kind: 'metric'; m: MetricKey }
   | { kind: 'language'; code: string }
+  | { kind: 'all' }
 
 const WINDOW_DAYS: Record<ActiveWindow, number> = { d1: 1, d7: 7, d30: 30 }
 
@@ -38,7 +39,7 @@ function sameFilter(a: Filter | null, b: Filter): boolean {
   if (a.kind === 'window' && b.kind === 'window') return a.w === b.w
   if (a.kind === 'metric' && b.kind === 'metric') return a.m === b.m
   if (a.kind === 'language' && b.kind === 'language') return a.code === b.code
-  return false
+  return a.kind === 'all'
 }
 
 /** Admin engagement snapshot (beta request): who's using the app, doing
@@ -115,11 +116,12 @@ export default function EngagementPanel() {
         behind it; tap a user for their per-language detail.
       </p>
 
-      <div className="grid grid-cols-3 gap-2 mb-3">
+      <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 mb-3">
         {tile({ kind: 'window', w: 'd1' }, 'active today', data.active_users.d1)}
         {tile({ kind: 'window', w: 'd7' }, 'active · 7 days', data.active_users.d7)}
-        {tile({ kind: 'window', w: 'd30' }, 'active · 30 days', data.active_users.d30,
-              `of ${data.total_users} total`)}
+        {tile({ kind: 'window', w: 'd30' }, 'active · 30 days', data.active_users.d30)}
+        {tile({ kind: 'all' }, 'all accounts', data.total_users,
+              'including never-active')}
       </div>
 
       <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 mb-3">

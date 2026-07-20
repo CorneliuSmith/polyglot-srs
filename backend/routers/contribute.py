@@ -19,9 +19,11 @@ from backend.dependencies import get_current_user
 from backend.repositories.contributor import (
     add_drill,
     add_review_note,
+    admin_cohorts,
     admin_engagement,
     admin_engagement_user_detail,
     admin_engagement_users,
+    admin_timeseries,
     approve_explanation,
     approve_suggestion,
     can_contribute,
@@ -290,6 +292,29 @@ async def engagement_users(
     days = max(1, min(days, 365))
     async with privileged_connection() as conn:
         return {"users": await admin_engagement_users(conn, days)}
+
+
+@router.get("/analytics/timeseries")
+async def analytics_timeseries(
+    days: int = 30,
+    user: dict = Depends(get_current_user),
+):
+    """Daily active-users / reviews / minutes / signups series (admin;
+    WP26a) for the 7/30/90-day charts."""
+    await _require_admin(user["id"])
+    days = max(7, min(days, 90))
+    async with privileged_connection() as conn:
+        return {"days": days, "series": await admin_timeseries(conn, days)}
+
+
+@router.get("/analytics/cohorts")
+async def analytics_cohorts(
+    user: dict = Depends(get_current_user),
+):
+    """Weekly signup-cohort retention grid (admin; WP26b)."""
+    await _require_admin(user["id"])
+    async with privileged_connection() as conn:
+        return {"cohorts": await admin_cohorts(conn, 8)}
 
 
 @router.get("/engagement/users/{user_id}")
