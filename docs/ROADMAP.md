@@ -1201,20 +1201,50 @@ the standard conjugation guide every word gets — most important right
 after a miss, which is when learners open it. Look-ups are logged per
 cell — opening the chart for the same cell repeatedly is itself a
 weakness signal.
-**(d) Corpus growth.** Seed pool = existing cell-tagged drills (≥2 per
-cell today). Then a maker-checker generation pipeline (same pattern as
-translate_english/review_hints: draft model + verifying model,
-idempotent, resumable, per-run undo journal) mints NEW cell-tagged
-sentences for variety, batched offline on the owner's key with a cost
-estimate printed before each run. ai_ok policy applies: yo excluded
-from bulk generation (verified tones only); draft-tier languages land
-as reviewed:false for the reviewer queue.
+**(d) Corpus growth — the harvest loop first (owner, 2026-07-20).**
+Primary source: RECYCLE sentences the app already generated and paid
+for — Reader passages (and, phase 2, the tutor's own sentences once
+message capture exists; today only session summaries persist). The
+privacy rule is structural and absolute: harvest ONLY app-generated
+content (`readings.source = 'generated'`; the learner-typed topic is
+never harvested; any future paste-a-passage mode must write
+`source='pasted'` and is excluded). Every candidate passes a checker
+gate before entering the shared pool: exact word present
+(accent-sensitive — the él/el lesson), natural + grammatical, right
+word-sense, no vulgarity/slurs, and no references to private
+individuals (topics can be personal; generated sentences inherit
+that). Accepted rows land as `source='harvested'` with per-word caps,
+journaled for undo. Runner: `harvest_sentences.py`, idempotent,
+--dry-run first, owner-triggered batches (not scheduled). Fresh
+maker-checker GENERATION (draft + verify models, cost estimate printed
+per run) becomes the fallback for words the harvest never covers.
+ai_ok policy applies: yo excluded from bulk anything (verified tones
+only); draft-tier languages land reviewed:false for the queue. Also
+closes gaps tracked under the sentence-coverage WP.
 **(e) Rollout order.** ru first (richest case+aspect payoff), then
 de/es/fr/it/ca/pt/ro, tr, el, ar, sw/xh concords; en/th/mi/jam sit this
 one out (little to no inflection) — the Gym tile hides for them.
 **Cost note:** generation is the only token spend; per-language batches
 budgeted like the WP17 runs (Sonnet-draft + Opus-verify tiering per the
 model guide below).
+
+### WP26 — Admin Analytics v2: from snapshots to Studio (owner, 2026-07-20)
+The engagement panel shows numbers with drill-downs; the owner wants
+trends, retention, and funnels ("like what YouTube provides"). All
+derivable from tables normal use already writes — no new tracking.
+**(a) Time-series charts.** Active users, reviews, and study minutes
+per day as charts with a 7/30/90-day range picker, plus new signups.
+**(b) Retention cohorts.** Weekly signup cohorts × came-back-in-week-N
+grid — the churn view that decides whether beta sticks.
+**(c) Per-language trends.** Learners and activity per language over
+time, not just totals.
+**(d) Per-user page.** The row expansion grows into a page: activity
+calendar, accuracy trend, per-language history, roles, plan.
+**(e) The funnel.** signup → placement → first learn → first review →
+returned-in-week-2, so drop-off points are visible.
+Also folds in: the "all accounts" tile (every account listable,
+including never-active — previously invisible in every activity
+window).
 
 ## 6. Model selection guide
 

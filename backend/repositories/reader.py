@@ -76,8 +76,10 @@ async def save_reading(
     row = await conn.fetchrow(
         """
         INSERT INTO readings
-            (user_id, language_id, topic, title, level, content, new_words, structures)
-        VALUES ($1, $2, $3, $4, $5, $6::jsonb, $7::jsonb, $8::jsonb)
+            (user_id, language_id, topic, title, level, content, new_words,
+             structures, source)
+        VALUES ($1, $2, $3, $4, $5, $6::jsonb, $7::jsonb, $8::jsonb,
+                'generated')
         RETURNING id
         """,
         user_id, language_id, topic,
