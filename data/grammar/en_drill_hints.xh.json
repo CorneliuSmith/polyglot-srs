@@ -1,0 +1,360 @@
+{
+  "language": "en",
+  "locale": "xh",
+  "reviewed": false,
+  "_note": "Hints and faithful sentence translations for ENGLISH drills, shown to learners whose support locale is isiXhosa. The hint names the expected English word (kept in English) with an isiXhosa cue; the translation renders the completed sentence in natural isiXhosa. Draft tier: concord agreement flagged for native review.",
+  "points": {
+    "Past simple — irregular verbs": {
+      "Yesterday I {{answer}} to the market.": {"hint": "go — ixesha elidlulileyo", "translation": "Izolo ndiye emarikeni."},
+      "She {{answer}} a great film last night.": {"hint": "see — ixesha elidlulileyo", "translation": "Ubukele ifilimu emnandi phezolo."},
+      "We {{answer}} a new car in March.": {"hint": "buy — ixesha elidlulileyo", "translation": "Sithenge imoto entsha ngoMatshi."},
+      "He {{answer}} the early train this morning.": {"hint": "take — ixesha elidlulileyo", "translation": "Ukhwele uloliwe wakusasa ngale ntsasa."},
+      "They {{answer}} home very late.": {"hint": "come — ixesha elidlulileyo", "translation": "Bafike ekhaya sekuhlwile kakhulu."},
+      "I {{answer}} breakfast at seven.": {"hint": "eat — ixesha elidlulileyo", "translation": "Nditye isidlo sakusasa ngentsimbi yesixhenxe."}
+    },
+    "Present continuous vs present simple": {
+      "Quiet, please — the baby {{answer}} sleeping.": {"hint": "be — umntu wesithathu", "translation": "Thulani torho — usana luyalala ngoku."},
+      "She {{answer}} to work by bike every day.": {"hint": "go — umkhwa, yena (ibhinqa)", "translation": "Uya emsebenzini ngebhayisekile yonke imihla."},
+      "I'm {{answer}} for my keys at the moment.": {"hint": "look — isenzeka ngoku", "translation": "Ndikhangela izitshixo zam ngalo mzuzu."},
+      "Water {{answer}} at 100 degrees.": {"hint": "boil — inyaniso jikelele, it", "translation": "Amanzi abila kwi-100 yeedigri."},
+      "They {{answer}} watching TV right now.": {"hint": "be — bona", "translation": "Babukele umabonakude ngoku kanye."},
+      "He usually {{answer}} coffee, not tea.": {"hint": "drink — umkhwa, yena (indoda)", "translation": "Udla ngokusela ikofu, hayi iti."}
+    },
+    "Comparatives and superlatives": {
+      "This bag is {{answer}} than that one.": {"hint": "cheap — uthelekiso", "translation": "Le ngxowa itshiphu kunaleya."},
+      "It's the {{answer}} building in the city.": {"hint": "tall — eyona ipheleleyo", "translation": "Sesona sakhiwo side esixekweni."},
+      "Her English is {{answer}} than mine.": {"hint": "good — uthelekiso", "translation": "IsiNgesi sakhe singcono kunesam."},
+      "That was the {{answer}} meal I've ever had.": {"hint": "bad — eyona ipheleleyo", "translation": "Eso yayisesona sidlo sibi endakha ndasitya."},
+      "This exercise is {{answer}} difficult than the last.": {"hint": "igama elibekwa phambi kwezichazi ezinde", "translation": "Lo msebenzi unzima ngakumbi kunalowo wangaphambili."},
+      "The station is {{answer}} than I thought.": {"hint": "far — uthelekiso", "translation": "Isikhululo sikude ngakumbi kunokuba bendicinga."}
+    },
+    "Going to and will": {
+      "We're {{answer}} to visit Rome in May.": {"hint": "ikamva lezicwangciso esele zimisiwe", "translation": "Siza kutyelela iRoma ngoMeyi."},
+      "Don't worry — I {{answer}} help you.": {"hint": "isigqibo sangoko nangoko", "translation": "Ungakhathazeki — ndiza kukunceda."},
+      "Look at those clouds! It's going to {{answer}}.": {"hint": "imozulu yemvula", "translation": "Jonga loo mafu! Iza kunetha."},
+      "I think she {{answer}} pass the exam.": {"hint": "igama loqikelelo", "translation": "Ndicinga ukuba uza kuphumelela uviwo."},
+      "They're going {{answer}} move house next year.": {"hint": "igama elincinci emva kuka-going", "translation": "Baza kufudukela kwenye indlu kunyaka ozayo."},
+      "I'm tired — I {{answer}} go to bed.": {"hint": "uhlobo olufutshane lwekamva elikufuphi", "translation": "Ndidiniwe — ndiya kulala."}
+    },
+    "Some, any, much, many": {
+      "There's {{answer}} milk in the fridge.": {"hint": "igama lobungakanani kwizivakalisi ezivumayo", "translation": "Kukho ubisi efrijini."},
+      "We don't have {{answer}} eggs left.": {"hint": "igama lobungakanani kwizivakalisi ezikhanyelayo", "translation": "Asinamaqanda aseleyo."},
+      "Do you have {{answer}} questions?": {"hint": "igama lobungakanani kwimibuzo", "translation": "Ingaba unemibuzo?"},
+      "How {{answer}} money do you need?": {"hint": "kwizinto ezingabalekiyo", "translation": "Ufuna imali engakanani?"},
+      "How {{answer}} people are coming?": {"hint": "kwizinto ezibalekayo", "translation": "Kuza abantu abangaphi?"},
+      "Would you like {{answer}} tea?": {"hint": "igama lobungakanani xa unika", "translation": "Ungathanda iti?"}
+    },
+    "Adverbs of frequency": {
+      "I {{answer}} drink coffee in the morning — every single day.": {"hint": "igama «lonke ixesha»", "translation": "Ndisela ikofu kusasa rhoqo — yonke imihla ngokwenene."},
+      "He is {{answer}} late — it drives me crazy.": {"hint": "igama «lonke ixesha»", "translation": "Uhlala efika emva kwexesha — kundenza ndiphambane."},
+      "We {{answer}} go out on Fridays — maybe once a month.": {"hint": "igama «ngamanye amaxesha»", "translation": "Ngamanye amaxesha siyaphuma ngooLwezihlanu — mhlawumbi kanye ngenyanga."},
+      "She {{answer}} eats meat — she's almost vegetarian.": {"hint": "igama «kunqabile»", "translation": "Kunqabile ukuba atye inyama — uphantse abe ngotya imifuno kuphela."},
+      "I have {{answer}} been to Japan, but I'd love to go.": {"hint": "igama «akukho nakanye»", "translation": "Andizange ndiye eJapan, kodwa ndingathanda kakhulu ukuya."},
+      "They {{answer}} visit us at Christmas — most years.": {"hint": "igama «ngokuqhelekileyo»", "translation": "Ngokuqhelekileyo basityelela ngeKrisimesi — phantse yonke iminyaka."},
+      "We {{answer}} eat out on Fridays.": {"hint": "amaxesha amaninzi — phakathi kuka-'sometimes' no-'always'", "translation": "Amaxesha amaninzi sitya ngaphandle ngooLwezihlanu."}
+    },
+    "Can, could, have to": {
+      "She {{answer}} speak three languages.": {"hint": "igama lokukwazi", "translation": "Uyakwazi ukuthetha iilwimi ezintathu."},
+      "{{answer}} you open the window, please?": {"hint": "igama lesicelo esinembeko", "translation": "Ungayivula ifestile, nceda?"},
+      "I {{answer}} to wear a uniform at work.": {"hint": "isenzi sokunyanzeleka", "translation": "Kufuneka ndinxibe iyunifomu emsebenzini."},
+      "When I was five, I {{answer}} already read.": {"hint": "igama lokukwazi — ixesha elidlulileyo", "translation": "Xa ndandineminyaka emihlanu, ndandisele ndikwazi ukufunda."},
+      "You don't {{answer}} to come if you're busy.": {"hint": "isenzi sokunyanzeleka", "translation": "Akunyanzelekanga ukuba uze ukuba uxakekile."},
+      "{{answer}} I sit here? — Of course.": {"hint": "igama lemvume", "translation": "Ndingahlala apha? — Ewe kakade."}
+    },
+    "Prepositions of time: in, on, at": {
+      "The meeting starts {{answer}} nine o'clock.": {"hint": "isihlanganisi sexesha elichanekileyo", "translation": "Intlanganiso iqala ngentsimbi yethoba."},
+      "I was born {{answer}} 1998.": {"hint": "isihlanganisi samaxesha amade", "translation": "Ndazalwa ngo-1998."},
+      "We're leaving {{answer}} Friday.": {"hint": "isihlanganisi seentsuku", "translation": "Sihamba ngoLwesihlanu."},
+      "She works best {{answer}} the morning.": {"hint": "isihlanganisi samaxesha amade", "translation": "Usebenza kakuhle kakhulu kusasa."},
+      "My birthday is {{answer}} 12 March.": {"hint": "isihlanganisi semihla", "translation": "Usuku lwam lokuzalwa lungomhla we-12 kuMatshi."},
+      "He often studies {{answer}} night.": {"hint": "isihlanganisi esisisigxina no-night", "translation": "Amaxesha amaninzi ufunda ebusuku."}
+    },
+    "Subject pronouns (I, you, he…)": {
+      "{{answer}} am from Brazil.": {"hint": "othethayo — uhlala ebhalwa ngonobumba omkhulu", "translation": "Mna ndivela eBrazil."},
+      "{{answer}} is my sister.": {"hint": "ibhinqa", "translation": "Yena ngudade wethu."},
+      "{{answer}} are students.": {"hint": "othethayo nabanye", "translation": "Thina singabafundi."},
+      "{{answer}} is my father.": {"hint": "indoda", "translation": "Yena ngutata wam."},
+      "{{answer}} is on the table.": {"hint": "into", "translation": "Iphezu kwetafile."},
+      "{{answer}} are very kind.": {"hint": "lowo uthetha naye", "translation": "Unobubele kakhulu. / Ninobubele kakhulu."},
+      "{{answer}} are my friends.": {"hint": "abantu abangaphezu komnye — «bona»", "translation": "Bona ngabahlobo bam."}
+    },
+    "To be — am / is / are": {
+      "I {{answer}} a student.": {"hint": "be — no-I", "translation": "Ndingumfundi."},
+      "You {{answer}} my friend.": {"hint": "be — no-you", "translation": "Ungumhlobo wam."},
+      "She {{answer}} a doctor.": {"hint": "be — no-she", "translation": "Ungugqirha."},
+      "We {{answer}} at home.": {"hint": "be — no-we", "translation": "Sisekhaya."},
+      "The coffee {{answer}} hot.": {"hint": "be — no-it/into", "translation": "Ikofu ishushu."},
+      "They {{answer}} from Japan.": {"hint": "be — no-they", "translation": "Bavela eJapan."}
+    },
+    "Articles: a / an": {
+      "I have {{answer}} dog.": {"hint": "phambi kwesandi songwaqa", "translation": "Ndinenja."},
+      "She is {{answer}} engineer.": {"hint": "phambi kwesandi sikankamisa", "translation": "Uyinjineli."},
+      "It is {{answer}} big house.": {"hint": "phambi kwesandi songwaqa", "translation": "Yindlu enkulu."},
+      "He eats {{answer}} apple every day.": {"hint": "phambi kwesandi sikankamisa", "translation": "Utya iapile yonke imihla."},
+      "I read {{answer}} book every week.": {"hint": "phambi kwesandi songwaqa", "translation": "Ndifunda incwadi qho ngeveki."},
+      "I need {{answer}} umbrella.": {"hint": "phambi kwesandi sikankamisa", "translation": "Ndifuna iambrela."}
+    },
+    "The — pointing at a specific thing": {
+      "{{answer}} sun is hot today.": {"hint": "izinto ezizodwa zithatha eli gama", "translation": "Ilanga lishushu namhlanje."},
+      "Please close {{answer}} door.": {"hint": "nobabini niyayazi ukuba yeyiphi", "translation": "Nceda uvale ucango."},
+      "{{answer}} keys in my hand are mine.": {"hint": "zichazwe koko kulandelayo", "translation": "Izitshixo ezisesandleni sam zezam."},
+      "We live near {{answer}} station.": {"hint": "nobabini niyayazi ukuba sesiphi", "translation": "Sihlala kufuphi nesikhululo."},
+      "{{answer}} moon is bright tonight.": {"hint": "izinto ezizodwa zithatha eli gama", "translation": "Inyanga iqaqambile ngobu busuku."},
+      "Where is {{answer}} bathroom?": {"hint": "nobabini niyayazi ukuba yeyiphi", "translation": "Iphi indlu yangasese?"}
+    },
+    "Plural nouns (-s, -es, irregular)": {
+      "I have two {{answer}}.": {"hint": "book — kwisininzi", "translation": "Ndineencwadi ezimbini."},
+      "The {{answer}} are playing outside.": {"hint": "child — isininzi esingalandeli mthetho", "translation": "Abantwana badlala phandle."},
+      "She has three {{answer}}.": {"hint": "watch — kongezwa u--es", "translation": "Uneewotshi ezintathu."},
+      "The {{answer}} are late today.": {"hint": "bus — kongezwa u--es", "translation": "Iibhasi zifika emva kwexesha namhlanje."},
+      "Two {{answer}} live in our street.": {"hint": "family — u-y uba ngu--ies", "translation": "Iintsapho ezimbini zihlala kwisitalato sethu."},
+      "My {{answer}} are cold.": {"hint": "foot — isininzi esingalandeli mthetho", "translation": "Iinyawo zam ziyabanda."}
+    },
+    "Present simple (I work)": {
+      "I {{answer}} in a bank.": {"hint": "into oyenzayo njengomsebenzi", "translation": "Ndisebenza ebhankini."},
+      "We {{answer}} breakfast at seven.": {"hint": "ukutya (isidlo)", "translation": "Sitya isidlo sakusasa ngentsimbi yesixhenxe."},
+      "They {{answer}} in London.": {"hint": "ukuhlala kwindawo ethile", "translation": "Bahlala eLondon."},
+      "You {{answer}} English very well.": {"hint": "ukusebenzisa ulwimi", "translation": "Usithetha kakuhle kakhulu isiNgesi."},
+      "I {{answer}} coffee every morning.": {"hint": "ukusela into", "translation": "Ndisela ikofu qho kusasa."},
+      "We {{answer}} TV in the evening.": {"hint": "ukubukela isikrini okanye inkqubo", "translation": "Sibukela umabonakude ngokuhlwa."}
+    },
+    "Third-person -s (she works)": {
+      "She {{answer}} in a hospital.": {"hint": "to work — no-she", "translation": "Usebenza esibhedlele."},
+      "He {{answer}} to school every day.": {"hint": "to go — kongezwa u--es", "translation": "Uya esikolweni yonke imihla."},
+      "My brother {{answer}} English.": {"hint": "to study — u-y uba ngu--ies", "translation": "Umntakwethu ufunda isiNgesi."},
+      "The shop {{answer}} at nine.": {"hint": "to open — no-it", "translation": "Ivenkile ivula ngentsimbi yethoba."},
+      "She {{answer}} TV after dinner.": {"hint": "to watch — kongezwa u--es", "translation": "Ubukela umabonakude emva kwesidlo sangokuhlwa."},
+      "It {{answer}} a lot in April.": {"hint": "to rain — no-it", "translation": "Inetha kakhulu ngoAprili."}
+    },
+    "Do-support: questions and negation": {
+      "{{answer}} you speak English?": {"hint": "isenzi esincedisayo — no-you", "translation": "Uyasithetha isiNgesi?"},
+      "{{answer}} she work here?": {"hint": "isenzi esincedisayo — no-she", "translation": "Usebenza apha?"},
+      "I {{answer}} not eat meat.": {"hint": "isenzi esincedisayo — no-I", "translation": "Andiyityi inyama."},
+      "He {{answer}} not like coffee.": {"hint": "isenzi esincedisayo — no-he", "translation": "Akayithandi ikofu."},
+      "{{answer}} they live in Rome?": {"hint": "isenzi esincedisayo — no-they", "translation": "Bahlala eRoma?"},
+      "We {{answer}} not have time.": {"hint": "isenzi esincedisayo — no-we", "translation": "Asinaxesha."},
+      "I {{answer}} like coffee.": {"hint": "ukukhanyela no-I — do + not", "translation": "Andiyithandi ikofu."},
+      "She {{answer}} work on Sundays.": {"hint": "ukukhanyela no-she — does + not", "translation": "Akasebenzi ngeeCawa."}
+    },
+    "Present continuous (I am working)": {
+      "I am {{answer}} a book right now.": {"hint": "to read + -ing", "translation": "Ndifunda incwadi ngoku kanye."},
+      "She is {{answer}} dinner now.": {"hint": "to cook + -ing", "translation": "Upheka isidlo sangokuhlwa ngoku."},
+      "They are {{answer}} football.": {"hint": "to play + -ing", "translation": "Badlala ibhola ekhatywayo."},
+      "Look! It is {{answer}}.": {"hint": "to rain + -ing", "translation": "Jonga! Iyanetha."},
+      "We are {{answer}} for the bus.": {"hint": "to wait + -ing", "translation": "Silinde ibhasi."},
+      "He is {{answer}} at the moment.": {"hint": "to sleep + -ing", "translation": "Ulele ngalo mzuzu."},
+      "He is {{answer}} in the park.": {"hint": "run — uphindwa ungwaqa wokugqibela", "translation": "Ubaleka epakini."},
+      "She is {{answer}} an email.": {"hint": "write — uyawa u-e ongavakaliyo", "translation": "Ubhala i-imeyile."}
+    },
+    "There is / there are": {
+      "There {{answer}} a book on the table.": {"hint": "isinye", "translation": "Kukho incwadi phezu kwetafile."},
+      "There {{answer}} two cafés in this street.": {"hint": "isininzi", "translation": "Kukho iikhefi ezimbini kwesi sitalato."},
+      "{{answer}} there a bank near here?": {"hint": "isinye, ulandelelwano lombuzo", "translation": "Ingaba kukho ibhanki kufuphi apha?"},
+      "There {{answer}} no milk.": {"hint": "isinye", "translation": "Akukho bisi."},
+      "{{answer}} there any questions?": {"hint": "isininzi, ulandelelwano lombuzo", "translation": "Ingaba ikho imibuzo?"},
+      "There {{answer}} many people here today.": {"hint": "isininzi", "translation": "Kukho abantu abaninzi apha namhlanje."}
+    },
+    "Question words (what, where, when…)": {
+      "{{answer}} do you live?": {"hint": "kubuzwa indawo", "translation": "Uhlala phi?"},
+      "{{answer}} is your name?": {"hint": "kubuzwa into", "translation": "Ungubani igama lakho?"},
+      "{{answer}} is your birthday?": {"hint": "kubuzwa ixesha", "translation": "Lunini usuku lwakho lokuzalwa?"},
+      "{{answer}} old are you?": {"hint": "kubuzwa iminyaka ngolu hlobo", "translation": "Umingaphi iminyaka?"},
+      "{{answer}} is your teacher?": {"hint": "kubuzwa umntu", "translation": "Ngubani utitshala wakho?"},
+      "{{answer}} are you crying?": {"hint": "kubuzwa isizathu", "translation": "Ulilela ntoni?"}
+    },
+    "Possessives (my, your, 's)": {
+      "This is {{answer}} book.": {"hint": "eyalowo uthethayo", "translation": "Le yincwadi yam."},
+      "Is this {{answer}} car?": {"hint": "eyakho", "translation": "Ingaba le yimoto yakho?"},
+      "{{answer}} name is Anna.": {"hint": "elakhe (ibhinqa)", "translation": "Igama lakhe nguAnna."},
+      "That is my {{answer}} car.": {"hint": "brother + isimamva sobumnini", "translation": "Leya yimoto yomntakwethu."},
+      "{{answer}} house is big.": {"hint": "eyabo", "translation": "Indlu yabo inkulu."},
+      "The dog wags {{answer}} tail.": {"hint": "eyento — ngaphandle kophawu '", "translation": "Inja itshikizisa umsila wayo."},
+      "{{answer}} name is David.": {"hint": "igama lendoda — «elakhe»", "translation": "Igama lakhe nguDavid."},
+      "That is {{answer}} classroom.": {"hint": "yeyethu — «eyethu»", "translation": "Elaa ligumbi lethu lokufundela."}
+    },
+    "Present perfect vs past simple": {
+      "I've {{answer}} my wallet — can you help me look?": {"hint": "lose — isenzi sesithathu", "translation": "Ndilahlekelwe sisipaji sam — ungandinceda ndikhangele?"},
+      "She {{answer}} in Berlin in 2019.": {"hint": "live — ixesha elidlulileyo", "translation": "Wayehlala eBerlin ngo-2019."},
+      "Have you {{answer}} been to Japan?": {"hint": "igama «nokuba kanye ebomini»", "translation": "Wakha waya eJapan?"},
+      "We've known each other {{answer}} ten years.": {"hint": "igama lobude bexesha", "translation": "Sesazana iminyaka elishumi."},
+      "He's worked here {{answer}} 2020.": {"hint": "igama lendawo yokuqala", "translation": "Usebenza apha ukususela ngo-2020."},
+      "They haven't finished {{answer}}.": {"hint": "igama «okwangoku»", "translation": "Abakagqibi okwangoku."}
+    },
+    "First and second conditionals": {
+      "If it {{answer}} tomorrow, we'll cancel the picnic.": {"hint": "rain — ixesha langoku, it", "translation": "Ukuba kuyanetha ngomso, siza kuyirhoxisa ipikniki."},
+      "If you study, you {{answer}} pass.": {"hint": "igama lekamva lokwenene", "translation": "Ukuba uyafunda, uza kuphumelela."},
+      "If I {{answer}} rich, I would buy an island.": {"hint": "be — uhlobo lokucingelwa", "translation": "Ukuba bendisisityebi, bendiya kuthenga isiqithi."},
+      "She {{answer}} travel more if she had time.": {"hint": "igama lesiphumo esicingelwayo", "translation": "Ebeya kuhamba ngakumbi ukuba ebenexesha."},
+      "If we {{answer}} now, we'll catch the train.": {"hint": "ukuhamba — kwixesha langoku", "translation": "Ukuba sihamba ngoku, siza kufumana uloliwe."},
+      "What {{answer}} you do if you won the lottery?": {"hint": "igama lesiphumo esicingelwayo", "translation": "Ubuya kwenza ntoni ukuba ubuphumelele ilotho?"}
+    },
+    "The passive (is made, was built)": {
+      "This wine {{answer}} produced in Chile.": {"hint": "be — ixesha langoku, it", "translation": "Le wayini iveliswa eChile."},
+      "The castle was {{answer}} in the twelfth century.": {"hint": "build — isenzi sesithathu", "translation": "Inqaba yakhiwa kwinkulungwane yeshumi elinesibini."},
+      "These photos {{answer}} taken by my grandmother.": {"hint": "be — ixesha elidlulileyo, they", "translation": "Ezi foto zathatyathwa ngumakhulu wam."},
+      "English {{answer}} spoken all over the world.": {"hint": "be — ixesha langoku, it", "translation": "IsiNgesi sithethwa kwihlabathi liphela."},
+      "The thief was caught {{answer}} the police.": {"hint": "isihlanganisi somenzi", "translation": "Isela labanjwa ngamapolisa."},
+      "My phone was {{answer}} at the festival.": {"hint": "steal — isenzi sesithathu", "translation": "Ifowuni yam yabiwa emnyhadaleni."}
+    },
+    "Relative clauses (who, which, that, where)": {
+      "She's the doctor {{answer}} treated my father.": {"hint": "isihlanganisi sabantu", "translation": "Ungugqirha owanyanga utata wam."},
+      "That's the restaurant {{answer}} we first met.": {"hint": "isihlanganisi seendawo", "translation": "Leyo yirestyu apho sadibana khona okokuqala."},
+      "The laptop {{answer}} I bought last week is broken.": {"hint": "isihlanganisi esisetyenziswa naphi na", "translation": "Ilaptop endayithenga kwiveki ephelileyo yophukile."},
+      "He's the author {{answer}} books sell millions.": {"hint": "isihlanganisi sobumnini", "translation": "Ungumbhali oncwadi zakhe zithengisa izigidi."},
+      "The train, {{answer}} was already late, then broke down.": {"hint": "isihlanganisi sezinto", "translation": "Uloliwe, owayesele efika emva kwexesha, waza wonakala."},
+      "People {{answer}} exercise regularly live longer.": {"hint": "isihlanganisi sabantu", "translation": "Abantu abazilolonga rhoqo baphila ixesha elide."}
+    },
+    "Used to — past habits and states": {
+      "I {{answer}} to play football every weekend.": {"hint": "isenzi somkhwa wangaphambili", "translation": "Ndandidlala ibhola ekhatywayo qho ngempelaveki."},
+      "She didn't {{answer}} to like coffee, but now she loves it.": {"hint": "isenzi somkhwa wangaphambili, ngaphandle kuka--d", "translation": "Wayengayithandi ikofu ngaphambili, kodwa ngoku uyayithanda kakhulu."},
+      "There {{answer}} to be a bakery on this corner.": {"hint": "isenzi somkhwa wangaphambili", "translation": "Kwakukho indawo yokubhaka kule kona ngaphambili."},
+      "Did you {{answer}} to live in London?": {"hint": "isenzi somkhwa wangaphambili, ngaphandle kuka--d", "translation": "Wawuhlala eLondon ngaphambili?"},
+      "He used {{answer}} have long hair.": {"hint": "igama elincinci", "translation": "Wayeneenwele ezinde ngaphambili."},
+      "We {{answer}} to go camping every summer as kids.": {"hint": "isenzi somkhwa wangaphambili", "translation": "Sasisiya ekukampeni qho ngehlobo sisengabantwana."}
+    },
+    "Reported speech": {
+      "'I'm busy.' → She said she {{answer}} busy.": {"hint": "be — inyathelo elinye umva", "translation": "«Ndixakekile.» → Wathi uxakekile."},
+      "'I'll call you.' → He said he {{answer}} call me.": {"hint": "will — inyathelo elinye umva", "translation": "«Ndiza kukufowunela.» → Wathi uza kundifowunela."},
+      "'Are you ready?' → She asked {{answer}} I was ready.": {"hint": "igama lemibuzo ewe/hayi", "translation": "«Ulungile?» → Wandibuza ukuba ndilungile na."},
+      "'Where do you live?' → He asked where I {{answer}}.": {"hint": "live — inyathelo elinye umva", "translation": "«Uhlala phi?» → Wandibuza ukuba ndihlala phi."},
+      "'I can swim.' → She said she {{answer}} swim.": {"hint": "can — inyathelo elinye umva", "translation": "«Ndiyakwazi ukuqubha.» → Wathi uyakwazi ukuqubha."},
+      "'We bought a house.' → They said they {{answer}} bought a house.": {"hint": "isenzi esincedisayo sokubuyela umva", "translation": "«Sithenge indlu.» → Bathi bathenge indlu."}
+    },
+    "Gerund or infinitive?": {
+      "I really enjoy {{answer}} in the sea.": {"hint": "swim — loluphi uhlobo?", "translation": "Ndikonwabela nyhani ukuqubha elwandle."},
+      "She decided {{answer}} accept the job.": {"hint": "igama elincinci le-infinitive", "translation": "Wagqiba ekubeni awamkele umsebenzi."},
+      "Would you mind {{answer}} the door?": {"hint": "close — loluphi uhlobo?", "translation": "Ungakhathazeka ukuluvala ucango?"},
+      "We hope {{answer}} see you soon.": {"hint": "igama elincinci le-infinitive", "translation": "Sinethemba lokukubona kungekudala."},
+      "He avoided {{answer}} my question.": {"hint": "answer — loluphi uhlobo?", "translation": "Wakuphepha ukuphendula umbuzo wam."},
+      "They promised {{answer}} write every week.": {"hint": "igama elincinci le-infinitive", "translation": "Bathembisa ukubhala qho ngeveki."}
+    },
+    "Third and mixed conditionals": {
+      "If you {{answer}} told me, I would have helped.": {"hint": "isenzi esincedisayo sexesha elidlulileyo kakhulu", "translation": "Ukuba wawundixelele, ngendandincedile."},
+      "If she had left earlier, she would {{answer}} caught the flight.": {"hint": "isincedisi sokugqiba emva kuka-would", "translation": "Ukuba wayehambe kwangethuba, ngewayeyifumene inqwelomoya."},
+      "I wouldn't {{answer}} met her if I hadn't gone to that party.": {"hint": "isincedisi sokugqiba", "translation": "Ngendingazange ndidibane naye ukuba andizange ndiye kwelo theko."},
+      "If he had studied medicine, he {{answer}} be a doctor now.": {"hint": "igama lesiphumo esicingelwayo", "translation": "Ukuba wayefunde ubugqirha, ngengugqirha ngoku."},
+      "If we {{answer}} taken the map, we wouldn't have got lost.": {"hint": "isenzi esincedisayo sexesha elidlulileyo kakhulu", "translation": "Ukuba sasithathe imephu, ngesingazange silahleke."},
+      "What would you have {{answer}} in my position?": {"hint": "do — isenzi sesithathu", "translation": "Ngewenze ntoni ukuba ubusendaweni yam?"}
+    },
+    "Modals of deduction (must, might, can't)": {
+      "The lights are on — someone {{answer}} be home.": {"hint": "igama lokuqiniseka phantse", "translation": "Izibane ziyakhanya — kumele ukuba kukho umntu ekhaya."},
+      "That {{answer}} be Maria — she's in Brazil this week!": {"hint": "igama lokungenzeki", "translation": "Ayinakuba nguMaria leya — useBrazil kule veki!"},
+      "He {{answer}} be stuck in traffic — it happens.": {"hint": "igama lokunokwenzeka", "translation": "Mhlawumbi uxinge kwisithuthi — kuyenzeka."},
+      "She must {{answer}} forgotten our meeting.": {"hint": "isincedisi sokuqikelela ngokudlulileyo", "translation": "Kumele ukuba uyilibele intlanganiso yethu."},
+      "They can't {{answer}} left already — the car's still here.": {"hint": "isincedisi sokuqikelela ngokudlulileyo", "translation": "Abanakuba sebehambile — imoto isekhona apha."},
+      "It {{answer}} rain later, so take an umbrella.": {"hint": "igama lokunokwenzeka", "translation": "Isenokunetha kamva, ngoko thatha iambrela."}
+    },
+    "Advanced passives (has been done, being done)": {
+      "The road has {{answer}} closed since Monday.": {"hint": "isenzi sesithathu sika-be", "translation": "Indlela ivaliwe ukususela ngoMvulo."},
+      "Our office is {{answer}} renovated at the moment.": {"hint": "uhlobo -ing luka-be", "translation": "Iofisi yethu iyalungiswa ngalo mzuzu."},
+      "All answers must be {{answer}} in ink.": {"hint": "write — isenzi sesithathu", "translation": "Zonke iimpendulo kufuneka zibhalwe nge-inki."},
+      "She is {{answer}} to be the richest woman in the country.": {"hint": "say — isenzi sesithathu", "translation": "Kuthiwa lelona bhinqa lisisityebi elizweni."},
+      "The results will {{answer}} announced on Friday.": {"hint": "isenzi esingenanto sokwenziwa", "translation": "Iziphumo ziza kubhengezwa ngoLwesihlanu."},
+      "By 1990, the bridge {{answer}} been rebuilt twice.": {"hint": "isenzi esincedisayo sexesha elidlulileyo kakhulu", "translation": "Ngo-1990, ibhulorho yayisele yakhiwe kwakhona kabini."}
+    },
+    "Wish and if only": {
+      "I wish I {{answer}} how to drive.": {"hint": "know — uhlobo lomnqweno", "translation": "Akwaba bendikwazi ukuqhuba."},
+      "She wishes she {{answer}} accepted the offer.": {"hint": "isincedisi sokuzisola ngokudlulileyo", "translation": "Unqwenela ukuba ngewayesamkele isicelo."},
+      "I wish you {{answer}} stop interrupting me!": {"hint": "igama lesikhalazo", "translation": "Akwaba ungayeka ukundiphazamisa!"},
+      "If {{answer}} I had listened to your advice!": {"hint": "igama emva kuka-if", "translation": "Akwaba ndandiliphulaphule icebiso lakho!"},
+      "He wishes he {{answer}} taller.": {"hint": "be — uhlobo lomnqweno", "translation": "Unqwenela ukuba ngewayemde ngakumbi."},
+      "We wish we {{answer}} bought tickets earlier.": {"hint": "isincedisi sokuzisola ngokudlulileyo", "translation": "Sinqwenela ukuba ngesathenga amatikiti kwangethuba."}
+    },
+    "Phrasal verbs — separable or not?": {
+      "Could you turn {{answer}} off? The music's too loud.": {"hint": "isimelabizo senjongosenzi", "translation": "Ungayicima? Umculo ukhwaza kakhulu."},
+      "She's looking {{answer}} her elderly mother.": {"hint": "isongezo sokunyamekela", "translation": "Unyamekela umama wakhe osele ekhulile."},
+      "Please fill {{answer}} this form.": {"hint": "isongezo seefomu", "translation": "Nceda uzalise le fomu."},
+      "I'll pick you {{answer}} at eight.": {"hint": "isongezo sokulanda umntu", "translation": "Ndiza kukulanda ngentsimbi yesibhozo."},
+      "We've put {{answer}} the meeting until Friday.": {"hint": "isongezo sokumisela", "translation": "Siyimisele intlanganiso ukuya kuLwesihlanu."},
+      "He takes {{answer}} his father — same smile, same laugh.": {"hint": "isongezo sokufana nomzali", "translation": "Ufana notata wakhe — uncumo olunye, intsini enye."}
+    },
+    "Question tags and indirect questions": {
+      "You've met before, {{answer}} you?": {"hint": "isincedisi esiguqulweyo somsila wombuzo", "translation": "Nakha nadibana ngaphambili, akunjalo?"},
+      "She doesn't eat fish, {{answer}} she?": {"hint": "isincedisi esiguqulweyo somsila wombuzo", "translation": "Akayityi intlanzi, akunjalo?"},
+      "Could you tell me where the bank {{answer}}?": {"hint": "be — EKUGQIBELENI", "translation": "Ungandixelela ukuba iphi ibhanki?"},
+      "Do you know if the shop {{answer}} at six?": {"hint": "close — ulandelelwano lwesivakalisi esivumayo", "translation": "Uyazi ukuba ivenkile ivala ngentsimbi yesithandathu na?"},
+      "It's cold today, {{answer}} it?": {"hint": "isincedisi esiguqulweyo somsila wombuzo", "translation": "Kuyabanda namhlanje, akunjalo?"},
+      "I wonder {{answer}} they got home safely.": {"hint": "enye indlela ka-if", "translation": "Ndiyazibuza ukuba bafike bekhuselekile na ekhaya."}
+    },
+    "Inversion (Never have I…, Not only…)": {
+      "Never {{answer}} I heard such nonsense.": {"hint": "isincedisi sokugqiba", "translation": "Andizange ndive ubuvuvu obunje."},
+      "Not only {{answer}} she sing, she writes her own songs.": {"hint": "isincedisi sexesha langoku", "translation": "Akaculi nje kuphela, ubhala neengoma zakhe."},
+      "No sooner had we sat down {{answer}} the phone rang.": {"hint": "igama eligqibezela isibini", "translation": "Sathi nje sakuhlala phantsi, yakhala ifowuni."},
+      "Under no circumstances {{answer}} you open that door.": {"hint": "igama lengcebiso", "translation": "Nakweyiphi na imeko akufanele uluvule olo cango."},
+      "Rarely {{answer}} we see such talent.": {"hint": "isincedisi sexesha langoku", "translation": "Kunqabile ukubona italente enje."},
+      "Only then {{answer}} I understand what she meant.": {"hint": "isincedisi sexesha elidlulileyo", "translation": "Kulapho kuphela ndaqonda into awayeyithetha."}
+    },
+    "Cleft sentences (What I need is…, It was… that)": {
+      "{{answer}} I need is a good night's sleep.": {"hint": "isiqalo sesivakalisi esigxininisayo", "translation": "Into endiyifunayo bubuthongo obuhle bobusuku."},
+      "It was Marco {{answer}} suggested the idea.": {"hint": "isihlanganisi sabantu", "translation": "NguMarco owacebisa le ngcamango."},
+      "What annoys me {{answer}} his constant lateness.": {"hint": "be — umgca wesivakalisi", "translation": "Into endicaphukisayo kukufika kwakhe emva kwexesha rhoqo."},
+      "It {{answer}} in Paris that they first met.": {"hint": "be — ixesha elidlulileyo", "translation": "KuseParis apho badibana khona okokuqala."},
+      "{{answer}} she wants is a little respect.": {"hint": "isiqalo se-«konke oko»", "translation": "Konke akufunayo yintlonipho encinci."},
+      "It wasn't until midnight {{answer}} he finally called.": {"hint": "isihlanganisi sesivakalisi esigxininisayo", "translation": "Kwada kwaphakathi kobusuku ukuba afowune ekugqibeleni."}
+    },
+    "Hedging and distancing (would seem, tend to)": {
+      "It would {{answer}} that the figures are wrong.": {"hint": "isenzi sokubonakala", "translation": "Kubonakala ngathi amanani awachanekanga."},
+      "House prices {{answer}} to rise in spring.": {"hint": "isenzi sotyekelo", "translation": "Amaxabiso ezindlu adla ngokunyuka entwasahlobo."},
+      "There {{answer}} to be a problem with the data.": {"hint": "isenzi sokubonakala, umntu wesithathu", "translation": "Kubonakala ngathi kukho ingxaki kwidatha."},
+      "It is widely {{answer}} that the climate is changing.": {"hint": "believe — isenzi sesithathu", "translation": "Kukholelwa ngokubanzi ukuba imozulu iyatshintsha."},
+      "The results {{answer}} that more research is needed.": {"hint": "isenzi sokubonisa", "translation": "Iziphumo zibonisa ukuba kufuneka olunye uphando."},
+      "It could be {{answer}} that the policy failed.": {"hint": "argue — isenzi sesithathu", "translation": "Kunokuthethwa ukuba umgaqo-nkqubo woyisakele."}
+    },
+    "Participle clauses (Having finished, …)": {
+      "{{answer}} finished dinner, we went for a walk.": {"hint": "isiqalo se-participle egqityiweyo", "translation": "Sakugqiba isidlo sangokuhlwa, sahamba sayokucanda."},
+      "{{answer}} through the window, she saw the storm coming.": {"hint": "look — uhlobo lwe-participle", "translation": "Ejonge ngefestile, wabona isaqhwithi sisiza."},
+      "{{answer}} in 1889, the tower still draws millions.": {"hint": "build — uhlobo lwe-participle", "translation": "Yakhiwa ngo-1889, inqaba isatsala izigidi nangoku."},
+      "Not {{answer}} what to say, he stayed silent.": {"hint": "know — uhlobo lwe-participle", "translation": "Engazi ukuba athini, wahlala ethe cwaka."},
+      "Having {{answer}} in Rome for years, she speaks fluent Italian.": {"hint": "live — uhlobo lwe-participle", "translation": "Ekubeni ehleli eRoma iminyaka, usithetha ngokutyibilikayo isiTaliyane."},
+      "{{answer}} by the news, they cancelled the trip.": {"hint": "shock — uhlobo lwe-participle", "translation": "Bothukile ziindaba, baluhoxisa uhambo."}
+    },
+    "The mandative subjunctive (insist that he be)": {
+      "The board insisted that he {{answer}} removed from the project.": {"hint": "be — uhlobo olungenanto", "translation": "Ibhodi yanyanzelisa ukuba asuswe kwiprojekthi."},
+      "It is essential that every member {{answer}} the code of conduct.": {"hint": "ukulandela — uhlobo olungenanto", "translation": "Kubalulekile ukuba ilungu ngalinye lilandele ikhowudi yokuziphatha."},
+      "She recommended that the report {{answer}} rewritten.": {"hint": "be — uhlobo olungenanto", "translation": "Wacebisa ukuba ingxelo ibhalwe kwakhona."},
+      "They demanded that the minister {{answer}}.": {"hint": "ukurhoxa — uhlobo olungenanto", "translation": "Bafuna ukuba umphathiswa arhoxe."},
+      "It's vital that she {{answer}} informed at once.": {"hint": "be — uhlobo olungenanto", "translation": "Kubaluleke kakhulu ukuba axelelwe kwangoko."},
+      "We suggest that he {{answer}} a lawyer before signing.": {"hint": "ukubonisana — uhlobo olungenanto", "translation": "Sicebisa ukuba abonisane negqwetha phambi kokusayina."}
+    },
+    "Ellipsis and substitution (so, neither, do so)": {
+      "I loved the film. — {{answer}} did I!": {"hint": "isiqalo se-«nam»", "translation": "Ndiyithandile ifilimu. — Nam!"},
+      "She can't make it tonight. — {{answer}} can I.": {"hint": "isiqalo esikhanyelayo se-«nam andinako»", "translation": "Akanako ukuza ngobu busuku. — Nam andinako."},
+      "He was asked to apologise, and he did {{answer}} immediately.": {"hint": "igama elithatha indawo emva kuka-did", "translation": "Wacelwa ukuba axolise, wakwenza oko kwangoko."},
+      "You may be tired; if {{answer}}, rest.": {"hint": "igama elithatha indawo emva kuka-if", "translation": "Usenokuba udiniwe; ukuba kunjalo, phumla."},
+      "They promised to help, but failed to {{answer}} so.": {"hint": "isenzi esithatha indawo", "translation": "Bathembisa ukunceda, kodwa abakwenzanga oko."},
+      "I've never been to Oslo. — Nor {{answer}} I.": {"hint": "isincedisi sokugqiba", "translation": "Andizange ndiye eOslo. — Nam andizange."}
+    },
+    "Formal connectors (notwithstanding, albeit)": {
+      "The plan went ahead, {{answer}} the objections.": {"hint": "u-'despite' osesikweni ngakumbi", "translation": "Isicwangciso saqhubeka, nangona kwakukho izichaso."},
+      "It was a victory, {{answer}} a narrow one.": {"hint": "u-although ocuthiweyo", "translation": "Yayiluloyiso, nangona lwalulincinci."},
+      "The costs rose sharply; {{answer}} the project was cancelled.": {"hint": "u-therefore osesikweni", "translation": "Iindleko zenyuka kakhulu; ngoko ke iprojekthi yarhoxiswa."},
+      "A scheme {{answer}} employees share the profits.": {"hint": "igama le-«ekuthi ngalo»", "translation": "Iskim ekuthi ngaso abasebenzi babelane ngenzuzo."},
+      "A {{answer}} unknown author won the prize.": {"hint": "igama le-«kude kube ngoko»", "translation": "Umbhali owayengaziwa kude kube ngoko waphumelela ibhaso."},
+      "The evidence, {{answer}} incomplete, points one way.": {"hint": "u-although ofinyeziweyo", "translation": "Ubungqina, nangona bungaphelelanga, bukhomba kwicala elinye."}
+    },
+    "Past simple — regular verbs (-ed)": {
+      "I {{answer}} in a bank for five years.": {"hint": "work + -ed", "translation": "Ndasebenza ebhankini iminyaka emihlanu."},
+      "She {{answer}} in Rome when she was young.": {"hint": "live — kongezwa u--d kuphela", "translation": "Wayehlala eRoma esemncinci."},
+      "He {{answer}} English at university.": {"hint": "study — u-y uba ngu--ied", "translation": "Wafunda isiNgesi eyunivesithi."},
+      "The bus {{answer}} suddenly.": {"hint": "stop — uphindwa u-p", "translation": "Ibhasi yema ngequbuliso."},
+      "We {{answer}} football in the park yesterday.": {"hint": "unkamisa + y — u--ed kuphela", "translation": "Sadlala ibhola ekhatywayo epakini izolo."},
+      "They {{answer}} work yesterday — it was a holiday.": {"hint": "ixesha elidlulileyo elikhanyelayo: did + not", "translation": "Abasebenzanga izolo — yayiyiholide."}
+    },
+    "Object pronouns (me, him, them)": {
+      "Can you help {{answer}}, please?": {"hint": "othethayo ucela uncedo — «ndi-»", "translation": "Ungandinceda, torho?"},
+      "I saw {{answer}} at school yesterday.": {"hint": "indoda — «m-»", "translation": "Ndambona esikolweni izolo."},
+      "This present is for {{answer}}.": {"hint": "ibhinqa — «yena»", "translation": "Esi sipho sesakhe."},
+      "Our teacher knows {{answer}} well.": {"hint": "othethayo nabanye — «si-»", "translation": "Utitshala wethu usazi kakuhle."},
+      "I like these shoes — I'll buy {{answer}}.": {"hint": "izinto ezininzi — «zi-»", "translation": "Ndiyazithanda ezi zihlangu — ndiza kuzithenga."},
+      "Where is my phone? I can't find {{answer}}.": {"hint": "into enye — «yi-»", "translation": "Iphi ifowuni yam? Andiyifumani."}
+    },
+    "Imperatives (Open…, Don't…)": {
+      "{{answer}} the door, please.": {"hint": "isenzi kuhlobo olungenanto, ngaphandle komenzi", "translation": "Vula ucango, nceda."},
+      "{{answer}} worry — everything is fine.": {"hint": "umyalelo okhanyelayo: uhlobo olukhanyelayo luka-do + isenzi", "translation": "Ungakhathazeki — yonke into ilungile."},
+      "{{answer}} me tomorrow, please.": {"hint": "isenzi kuhlobo olungenanto", "translation": "Ndifowunele ngomso, nceda."},
+      "{{answer}} be late — the film starts at eight.": {"hint": "umyalelo okhanyelayo no-be", "translation": "Ungafiki emva kwexesha — ifilimu iqala ngentsimbi yesibhozo."},
+      "{{answer}} quiet, please — the baby is sleeping.": {"hint": "isenzi u-be kuhlobo olungenanto", "translation": "Thula, torho — usana luyalala."},
+      "Please {{answer}} down and wait a moment.": {"hint": "isenzi kuhlobo olungenanto", "translation": "Nceda uhlale phantsi ulinde umzuzwana."}
+    }
+  }
+}
