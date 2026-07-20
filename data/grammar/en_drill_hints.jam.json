@@ -1,0 +1,360 @@
+{
+  "language": "en",
+  "locale": "jam",
+  "reviewed": false,
+  "_note": "Hints and faithful sentence translations for ENGLISH drills, shown to learners whose support locale is Jamaican Patois. The hint names the expected English word (kept in English) with a Patois cue; the translation renders the completed sentence in natural Patois (common written spelling, matching the app's jam conventions). Draft tier: flagged for review.",
+  "points": {
+    "Past simple — irregular verbs": {
+      "Yesterday I {{answer}} to the market.": {"hint": "go — pas tens", "translation": "Yeside mi go a maakit."},
+      "She {{answer}} a great film last night.": {"hint": "see — pas tens", "translation": "Har watch wan kris film laas nait."},
+      "We {{answer}} a new car in March.": {"hint": "buy — pas tens", "translation": "Wi did buy wan nyuu kyar eena Maach."},
+      "He {{answer}} the early train this morning.": {"hint": "take — pas tens", "translation": "Im tek di orli chrien dis maanin."},
+      "They {{answer}} home very late.": {"hint": "come — pas tens", "translation": "Dem come home real late."},
+      "I {{answer}} breakfast at seven.": {"hint": "eat — pas tens", "translation": "Mi nyam brekfas a seven."}
+    },
+    "Present continuous vs present simple": {
+      "Quiet, please — the baby {{answer}} sleeping.": {"hint": "be — tord person", "translation": "Quiet nuh — di biebi a sleep."},
+      "She {{answer}} to work by bike every day.": {"hint": "go — habit, shi", "translation": "Shi go a wok pan baisikl evri die."},
+      "I'm {{answer}} for my keys at the moment.": {"hint": "look — di -ing form", "translation": "Mi a look fi mi kii dem rait now."},
+      "Water {{answer}} at 100 degrees.": {"hint": "boil — jinaral chuut, it", "translation": "Waata bwail a 100 digrii."},
+      "They {{answer}} watching TV right now.": {"hint": "be — dem", "translation": "Dem a watch TV rait now."},
+      "He usually {{answer}} coffee, not tea.": {"hint": "drink — habit, im", "translation": "Im yuujali jrink kaafi, no tii."}
+    },
+    "Comparatives and superlatives": {
+      "This bag is {{answer}} than that one.": {"hint": "cheap — komperativ", "translation": "Dis bag chiipa dan dat de wan."},
+      "It's the {{answer}} building in the city.": {"hint": "tall — suuperlativ", "translation": "A di taales bildn eena di siti."},
+      "Her English is {{answer}} than mine.": {"hint": "good — komperativ", "translation": "Har Ingglish beta dan fi mi own."},
+      "That was the {{answer}} meal I've ever had.": {"hint": "bad — suuperlativ", "translation": "Dat a di wosis miil mi eva nyam."},
+      "This exercise is {{answer}} difficult than the last.": {"hint": "di wod we go infronta lang ajektiv dem", "translation": "Dis eksasaiz aada dan di laas wan."},
+      "The station is {{answer}} than I thought.": {"hint": "far — komperativ", "translation": "Di stieshan farda dan we mi did tink."}
+    },
+    "Going to and will": {
+      "We're {{answer}} to visit Rome in May.": {"hint": "di fyuucha fi plan we set aredi", "translation": "Wi a go visit Rome eena Mie."},
+      "Don't worry — I {{answer}} help you.": {"hint": "disizhan mek pan di spat", "translation": "No wori — mi wi help yu."},
+      "Look at those clouds! It's going to {{answer}}.": {"hint": "wet weda a come", "translation": "Watch dem klaud de! Rien a go faal."},
+      "I think she {{answer}} pass the exam.": {"hint": "di prediksyan wod", "translation": "Mi tink shi wi paas di egzam."},
+      "They're going {{answer}} move house next year.": {"hint": "di likl wod afta going", "translation": "Dem a go muuv house nex year."},
+      "I'm tired — I {{answer}} go to bed.": {"hint": "di shaat form a di niir fyuucha", "translation": "Mi taiad — mi a go a mi bed."}
+    },
+    "Some, any, much, many": {
+      "There's {{answer}} milk in the fridge.": {"hint": "kwantiti wod eena pazitiv sentans", "translation": "Sum milk de eena di frij."},
+      "We don't have {{answer}} eggs left.": {"hint": "kwantiti wod eena negativ sentans", "translation": "Wi no hab no eg lef."},
+      "Do you have {{answer}} questions?": {"hint": "kwantiti wod eena kweschan", "translation": "Yu hab eni kweschan?"},
+      "How {{answer}} money do you need?": {"hint": "wid ting we yu kyaan count", "translation": "Homoch moni yu niid?"},
+      "How {{answer}} people are coming?": {"hint": "wid ting we yu kyan count", "translation": "Homoch smadi a come?"},
+      "Would you like {{answer}} tea?": {"hint": "kwantiti wod wen yu a aafa sinting", "translation": "Yu wuda like sum tii?"}
+    },
+    "Adverbs of frequency": {
+      "I {{answer}} drink coffee in the morning — every single day.": {"hint": "di «evri taim» wod", "translation": "Mi aalwiez jrink kaafi a maanin — evri sing die."},
+      "He is {{answer}} late — it drives me crazy.": {"hint": "di «evri taim» wod", "translation": "Im aalwiez late — it a mek mi mad."},
+      "We {{answer}} go out on Fridays — maybe once a month.": {"hint": "di «now an den» wod", "translation": "Sumtaim wi go out pan Fraidie — miebi wan taim a mont."},
+      "She {{answer}} eats meat — she's almost vegetarian.": {"hint": "di «aadli eva» wod", "translation": "Shi aadli nyam miit — shi aalmuos vejitierian."},
+      "I have {{answer}} been to Japan, but I'd love to go.": {"hint": "di «zero taim» wod", "translation": "Mi neva go a Japan yet, but mi wuda lov fi go."},
+      "They {{answer}} visit us at Christmas — most years.": {"hint": "di «muos taim» wod", "translation": "Dem yuujali visit wi a Krismos — muos year dem."},
+      "We {{answer}} eat out on Fridays.": {"hint": "aafn — biitwiin 'sometimes' an 'always'", "translation": "Wi aafn nyam out pan Fraidie."}
+    },
+    "Can, could, have to": {
+      "She {{answer}} speak three languages.": {"hint": "di ability wod", "translation": "Shi kyan taak chrii langgwij."},
+      "{{answer}} you open the window, please?": {"hint": "di mannasabl rikwes wod", "translation": "Yu kudn open di winda fi mi, duu?"},
+      "I {{answer}} to wear a uniform at work.": {"hint": "di haffi vorb", "translation": "Mi haffi wear yuunifaam a wok."},
+      "When I was five, I {{answer}} already read.": {"hint": "di ability wod — pas tens", "translation": "Wen mi did a five, mi kuda riid aredi."},
+      "You don't {{answer}} to come if you're busy.": {"hint": "di haffi vorb", "translation": "Yu no haffi come if yu bizi."},
+      "{{answer}} I sit here? — Of course.": {"hint": "di pormishan wod", "translation": "Mi kyan siddung ya so? — Yeh man."}
+    },
+    "Prepositions of time: in, on, at": {
+      "The meeting starts {{answer}} nine o'clock.": {"hint": "prepozishan fi egzak taim", "translation": "Di miitn staat a nain aklak."},
+      "I was born {{answer}} 1998.": {"hint": "prepozishan fi lang piiriad", "translation": "Mi baan eena 1998."},
+      "We're leaving {{answer}} Friday.": {"hint": "prepozishan fi die dem", "translation": "Wi a lef pan Fraidie."},
+      "She works best {{answer}} the morning.": {"hint": "prepozishan fi lang piiriad", "translation": "Shi wok bes eena di maanin."},
+      "My birthday is {{answer}} 12 March.": {"hint": "prepozishan fi diet dem", "translation": "Mi bortdie a pan di 12 a Maach."},
+      "He often studies {{answer}} night.": {"hint": "di fix prepozishan wid night", "translation": "Im aafn stodi a nait taim."}
+    },
+    "Subject pronouns (I, you, he…)": {
+      "{{answer}} am from Brazil.": {"hint": "di smadi we a taak — aalwiez kyapital leta", "translation": "Mi come fram Brazil."},
+      "{{answer}} is my sister.": {"hint": "wan uman", "translation": "Shi a mi sista."},
+      "{{answer}} are students.": {"hint": "di smadi we a taak plos ada smadi", "translation": "Wi a styuudant."},
+      "{{answer}} is my father.": {"hint": "wan man", "translation": "Im a mi faada."},
+      "{{answer}} is on the table.": {"hint": "wan ting", "translation": "It de pan di tiebl."},
+      "{{answer}} are very kind.": {"hint": "di smadi we yu a taak tu", "translation": "Yu real kain."},
+      "{{answer}} are my friends.": {"hint": "muor dan wan smadi — «dem»", "translation": "Dem a mi fren dem."}
+    },
+    "To be — am / is / are": {
+      "I {{answer}} a student.": {"hint": "be — wid I", "translation": "Mi a wan styuudant."},
+      "You {{answer}} my friend.": {"hint": "be — wid you", "translation": "Yu a mi fren."},
+      "She {{answer}} a doctor.": {"hint": "be — wid she", "translation": "Shi a dakta."},
+      "We {{answer}} at home.": {"hint": "be — wid we", "translation": "Wi de a yaad."},
+      "The coffee {{answer}} hot.": {"hint": "be — wid it/wan ting", "translation": "Di kaafi hat."},
+      "They {{answer}} from Japan.": {"hint": "be — wid they", "translation": "Dem come fram Japan."}
+    },
+    "Articles: a / an": {
+      "I have {{answer}} dog.": {"hint": "bifuor kansonant sound", "translation": "Mi hab wan daag."},
+      "She is {{answer}} engineer.": {"hint": "bifuor vowel sound", "translation": "Shi a wan enjiniir."},
+      "It is {{answer}} big house.": {"hint": "bifuor kansonant sound", "translation": "A wan big house."},
+      "He eats {{answer}} apple every day.": {"hint": "bifuor vowel sound", "translation": "Im nyam wan apl evri die."},
+      "I read {{answer}} book every week.": {"hint": "bifuor kansonant sound", "translation": "Mi riid wan buk evri wiik."},
+      "I need {{answer}} umbrella.": {"hint": "bifuor vowel sound", "translation": "Mi niid wan ombrela."}
+    },
+    "The — pointing at a specific thing": {
+      "{{answer}} sun is hot today.": {"hint": "wan-a-kain ting dem tek dis wod", "translation": "Di son hat tide."},
+      "Please close {{answer}} door.": {"hint": "di tuu a unu know which wan", "translation": "Duu, lack di duor."},
+      "{{answer}} keys in my hand are mine.": {"hint": "we come afta it point it out", "translation": "Di kii dem eena mi han a fi mi."},
+      "We live near {{answer}} station.": {"hint": "di tuu a unu know which wan", "translation": "Wi liv niir di stieshan."},
+      "{{answer}} moon is bright tonight.": {"hint": "wan-a-kain ting dem tek dis wod", "translation": "Di muun brait tinait."},
+      "Where is {{answer}} bathroom?": {"hint": "di tuu a unu know which wan", "translation": "We di baatruum de?"}
+    },
+    "Plural nouns (-s, -es, irregular)": {
+      "I have two {{answer}}.": {"hint": "book — eena pluural", "translation": "Mi hab tuu buk."},
+      "The {{answer}} are playing outside.": {"hint": "child — iregyula pluural", "translation": "Di pikni dem a plie outta duor."},
+      "She has three {{answer}}.": {"hint": "watch — tek -es", "translation": "Shi hab chrii wach."},
+      "The {{answer}} are late today.": {"hint": "bus — tek -es", "translation": "Di bos dem late tide."},
+      "Two {{answer}} live in our street.": {"hint": "family — di y ton -ies", "translation": "Tuu fambili liv pan fi wi schriit."},
+      "My {{answer}} are cold.": {"hint": "foot — iregyula pluural", "translation": "Mi fut dem kuol."}
+    },
+    "Present simple (I work)": {
+      "I {{answer}} in a bank.": {"hint": "we yu du fi wok", "translation": "Mi wok a bank."},
+      "We {{answer}} breakfast at seven.": {"hint": "nyam (wan miil)", "translation": "Wi nyam brekfas a seven."},
+      "They {{answer}} in London.": {"hint": "liv sumwe", "translation": "Dem liv a London."},
+      "You {{answer}} English very well.": {"hint": "yuuz wan langgwij", "translation": "Yu taak Ingglish real gud."},
+      "I {{answer}} coffee every morning.": {"hint": "jrink sinting", "translation": "Mi jrink kaafi evri maanin."},
+      "We {{answer}} TV in the evening.": {"hint": "look pan skriin ar pruogram", "translation": "Wi watch TV eena di iivnin."}
+    },
+    "Third-person -s (she works)": {
+      "She {{answer}} in a hospital.": {"hint": "to work — wid she", "translation": "Shi wok a haspital."},
+      "He {{answer}} to school every day.": {"hint": "to go — tek -es", "translation": "Im go a skuul evri die."},
+      "My brother {{answer}} English.": {"hint": "to study — di y ton -ies", "translation": "Mi breda a stodi Ingglish."},
+      "The shop {{answer}} at nine.": {"hint": "to open — wid it", "translation": "Di shap open a nain."},
+      "She {{answer}} TV after dinner.": {"hint": "to watch — tek -es", "translation": "Shi watch TV afta dina."},
+      "It {{answer}} a lot in April.": {"hint": "to rain — wid it", "translation": "Nof rien faal eena Iepril."}
+    },
+    "Do-support: questions and negation": {
+      "{{answer}} you speak English?": {"hint": "di helpa vorb — wid you", "translation": "Yu taak Ingglish?"},
+      "{{answer}} she work here?": {"hint": "di helpa vorb — wid she", "translation": "Shi wok ya so?"},
+      "I {{answer}} not eat meat.": {"hint": "di helpa vorb — wid I", "translation": "Mi no nyam miit."},
+      "He {{answer}} not like coffee.": {"hint": "di helpa vorb — wid he", "translation": "Im no like kaafi."},
+      "{{answer}} they live in Rome?": {"hint": "di helpa vorb — wid they", "translation": "Dem liv a Rome?"},
+      "We {{answer}} not have time.": {"hint": "di helpa vorb — wid we", "translation": "Wi no hab no taim."},
+      "I {{answer}} like coffee.": {"hint": "negativ wid I — do + not", "translation": "Mi no like kaafi."},
+      "She {{answer}} work on Sundays.": {"hint": "negativ wid she — does + not", "translation": "Shi no wok pan Sondie."}
+    },
+    "Present continuous (I am working)": {
+      "I am {{answer}} a book right now.": {"hint": "to read + -ing", "translation": "Mi a riid wan buk rait now."},
+      "She is {{answer}} dinner now.": {"hint": "to cook + -ing", "translation": "Shi a kuk dina now."},
+      "They are {{answer}} football.": {"hint": "to play + -ing", "translation": "Dem a plie futbaal."},
+      "Look! It is {{answer}}.": {"hint": "to rain + -ing", "translation": "Watch de! Rien a faal."},
+      "We are {{answer}} for the bus.": {"hint": "to wait + -ing", "translation": "Wi a wiet pan di bos."},
+      "He is {{answer}} at the moment.": {"hint": "to sleep + -ing", "translation": "Im a sleep rait now."},
+      "He is {{answer}} in the park.": {"hint": "run — di laas kansonant dobl op", "translation": "Im a ron eena di paak."},
+      "She is {{answer}} an email.": {"hint": "write — di sailent e jrap aaf", "translation": "Shi a rait wan iimiel."}
+    },
+    "There is / there are": {
+      "There {{answer}} a book on the table.": {"hint": "singgyula", "translation": "Wan buk de pan di tiebl."},
+      "There {{answer}} two cafés in this street.": {"hint": "pluural", "translation": "Tuu kafe de pan dis schriit."},
+      "{{answer}} there a bank near here?": {"hint": "singgyula, kweschan aada", "translation": "Eni bank de niir ya so?"},
+      "There {{answer}} no milk.": {"hint": "singgyula", "translation": "No milk no de de."},
+      "{{answer}} there any questions?": {"hint": "pluural, kweschan aada", "translation": "Eni kweschan de de?"},
+      "There {{answer}} many people here today.": {"hint": "pluural", "translation": "Nof smadi de ya tide."}
+    },
+    "Question words (what, where, when…)": {
+      "{{answer}} do you live?": {"hint": "yu a aks bout plies", "translation": "We yu liv?"},
+      "{{answer}} is your name?": {"hint": "yu a aks bout ting", "translation": "Wa yu name?"},
+      "{{answer}} is your birthday?": {"hint": "yu a aks bout taim", "translation": "Wen a yu bortdie?"},
+      "{{answer}} old are you?": {"hint": "a so yu aks bout iej", "translation": "Homoch year yu hab?"},
+      "{{answer}} is your teacher?": {"hint": "yu a aks bout smadi", "translation": "A huu a yu tiicha?"},
+      "{{answer}} are you crying?": {"hint": "yu a aks bout riizn", "translation": "Wa mek yu a krai?"}
+    },
+    "Possessives (my, your, 's)": {
+      "This is {{answer}} book.": {"hint": "fi di smadi we a taak", "translation": "Dis a fi mi buk."},
+      "Is this {{answer}} car?": {"hint": "fi yu", "translation": "A fi yu kyar dis?"},
+      "{{answer}} name is Anna.": {"hint": "fi har", "translation": "Har name a Anna."},
+      "That is my {{answer}} car.": {"hint": "brother + di puozeshan endin", "translation": "Dat a fi mi breda kyar."},
+      "{{answer}} house is big.": {"hint": "fi dem", "translation": "Fi dem house big."},
+      "The dog wags {{answer}} tail.": {"hint": "fi wan ting — no apastrafi", "translation": "Di daag a wag im tiel."},
+      "{{answer}} name is David.": {"hint": "wan man name — «fi im»", "translation": "Im name a David."},
+      "That is {{answer}} classroom.": {"hint": "a fi wi own — «fi wi»", "translation": "Dat a fi wi klaasruum."}
+    },
+    "Present perfect vs past simple": {
+      "I've {{answer}} my wallet — can you help me look?": {"hint": "lose — paas partisipl", "translation": "Mi laas mi walit — yu kyan help mi look fi it?"},
+      "She {{answer}} in Berlin in 2019.": {"hint": "live — pas tens", "translation": "Shi did liv a Berlin eena 2019."},
+      "Have you {{answer}} been to Japan?": {"hint": "di «eni taim eena yu laif» wod", "translation": "Yu eva go a Japan?"},
+      "We've known each other {{answer}} ten years.": {"hint": "di durieshan wod", "translation": "Wi know wi wan aneda fi ten year."},
+      "He's worked here {{answer}} 2020.": {"hint": "di staatin point wod", "translation": "Im a wok ya so fram 2020."},
+      "They haven't finished {{answer}}.": {"hint": "di «no dun yet» wod", "translation": "Dem no dun yet."}
+    },
+    "First and second conditionals": {
+      "If it {{answer}} tomorrow, we'll cancel the picnic.": {"hint": "rain — prezent tens, it", "translation": "If rien faal tumaro, wi a go kansl di piknik."},
+      "If you study, you {{answer}} pass.": {"hint": "di riil fyuucha wod", "translation": "If yu stodi, yu wi paas."},
+      "If I {{answer}} rich, I would buy an island.": {"hint": "be — di mek-biliiv form", "translation": "If mi did rich, mi wuda buy wan ailan."},
+      "She {{answer}} travel more if she had time.": {"hint": "di mek-biliiv rizolt wod", "translation": "Shi wuda travl muor if shi did hab taim."},
+      "If we {{answer}} now, we'll catch the train.": {"hint": "lef — eena prezent tens", "translation": "If wi lef now, wi wi kech di chrien."},
+      "What {{answer}} you do if you won the lottery?": {"hint": "di mek-biliiv rizolt wod", "translation": "Wa yu wuda du if yu did win di latri?"}
+    },
+    "The passive (is made, was built)": {
+      "This wine {{answer}} produced in Chile.": {"hint": "be — prezent tens, it", "translation": "Dem mek dis wain a Chile."},
+      "The castle was {{answer}} in the twelfth century.": {"hint": "build — paas partisipl", "translation": "Dem did bil di kyasl eena di twelf senchri."},
+      "These photos {{answer}} taken by my grandmother.": {"hint": "be — pas tens, they", "translation": "A mi granmada tek dem foto ya."},
+      "English {{answer}} spoken all over the world.": {"hint": "be — prezent tens, it", "translation": "Piipl taak Ingglish aal uova di worl."},
+      "The thief was caught {{answer}} the police.": {"hint": "di prepozishan fi di duu-a", "translation": "A di polis kech di tiif."},
+      "My phone was {{answer}} at the festival.": {"hint": "steal — paas partisipl", "translation": "Dem tiif mi fuon a di festival."}
+    },
+    "Relative clauses (who, which, that, where)": {
+      "She's the doctor {{answer}} treated my father.": {"hint": "rilativ wod fi piipl", "translation": "Shi a di dakta we did chriit mi faada."},
+      "That's the restaurant {{answer}} we first met.": {"hint": "rilativ wod fi plies", "translation": "Dat a di restarant we wi fos miit op."},
+      "The laptop {{answer}} I bought last week is broken.": {"hint": "di du-evriting rilativ wod", "translation": "Di laptap we mi buy laas wiik brok."},
+      "He's the author {{answer}} books sell millions.": {"hint": "di puozeshan rilativ wod", "translation": "Im a di raita we im buk dem sel milian."},
+      "The train, {{answer}} was already late, then broke down.": {"hint": "rilativ wod fi ting", "translation": "Di chrien, we did late aredi, den brok dung."},
+      "People {{answer}} exercise regularly live longer.": {"hint": "rilativ wod fi piipl", "translation": "Piipl we eksasaiz regyula liv langga."}
+    },
+    "Used to — past habits and states": {
+      "I {{answer}} to play football every weekend.": {"hint": "di uol-taim habit vorb", "translation": "Mi yuustu plie futbaal evri wiikén."},
+      "She didn't {{answer}} to like coffee, but now she loves it.": {"hint": "di uol-taim habit vorb, no -d", "translation": "Shi neva yuustu like kaafi, but now shi lov it."},
+      "There {{answer}} to be a bakery on this corner.": {"hint": "di uol-taim habit vorb", "translation": "Wan biekri yuustu de pan dis kaana."},
+      "Did you {{answer}} to live in London?": {"hint": "di uol-taim habit vorb, no -d", "translation": "Yu did yuustu liv a London?"},
+      "He used {{answer}} have long hair.": {"hint": "di likl wod", "translation": "Im yuustu hab lang hier."},
+      "We {{answer}} to go camping every summer as kids.": {"hint": "di uol-taim habit vorb", "translation": "Wi yuustu go kyampin evri soma wen wi a pikni."}
+    },
+    "Reported speech": {
+      "'I'm busy.' → She said she {{answer}} busy.": {"hint": "be — wan step bak", "translation": "«Mi bizi.» → Shi se shi did bizi."},
+      "'I'll call you.' → He said he {{answer}} call me.": {"hint": "will — wan step bak", "translation": "«Mi wi kaal yu.» → Im se im wuda kaal mi."},
+      "'Are you ready?' → She asked {{answer}} I was ready.": {"hint": "di yes/no kweschan wod", "translation": "«Yu redi?» → Shi aks mi if mi did redi."},
+      "'Where do you live?' → He asked where I {{answer}}.": {"hint": "live — wan step bak", "translation": "«We yu liv?» → Im aks mi we mi did liv."},
+      "'I can swim.' → She said she {{answer}} swim.": {"hint": "can — wan step bak", "translation": "«Mi kyan swim.» → Shi se shi kuda swim."},
+      "'We bought a house.' → They said they {{answer}} bought a house.": {"hint": "di step-bak helpa vorb", "translation": "«Wi buy wan house.» → Dem se dem did buy wan house."}
+    },
+    "Gerund or infinitive?": {
+      "I really enjoy {{answer}} in the sea.": {"hint": "swim — which form?", "translation": "Mi riili enjai swim eena di sii."},
+      "She decided {{answer}} accept the job.": {"hint": "di likl infinitiv wod", "translation": "Shi disaid fi tek di jab."},
+      "Would you mind {{answer}} the door?": {"hint": "close — which form?", "translation": "Yu wuda main lack di duor?"},
+      "We hope {{answer}} see you soon.": {"hint": "di likl infinitiv wod", "translation": "Wi huop fi si yu suun."},
+      "He avoided {{answer}} my question.": {"hint": "answer — which form?", "translation": "Im dadge fram ansa mi kweschan."},
+      "They promised {{answer}} write every week.": {"hint": "di likl infinitiv wod", "translation": "Dem pramis fi rait evri wiik."}
+    },
+    "Third and mixed conditionals": {
+      "If you {{answer}} told me, I would have helped.": {"hint": "di paas-porfek helpa vorb", "translation": "If yu did tel mi, mi wuda did help."},
+      "If she had left earlier, she would {{answer}} caught the flight.": {"hint": "di porfek helpa afta would", "translation": "If shi did lef orlia, shi wuda did kech di flait."},
+      "I wouldn't {{answer}} met her if I hadn't gone to that party.": {"hint": "di porfek helpa", "translation": "Mi wudn did miit har if mi neva go a dat paati de."},
+      "If he had studied medicine, he {{answer}} be a doctor now.": {"hint": "di mek-biliiv rizolt wod", "translation": "If im did stodi medisn, im wuda a dakta now."},
+      "If we {{answer}} taken the map, we wouldn't have got lost.": {"hint": "di paas-porfek helpa vorb", "translation": "If wi did kyari di map, wi wudn did get laas."},
+      "What would you have {{answer}} in my position?": {"hint": "do — paas partisipl", "translation": "Wa yu wuda did du eena fi mi pozishan?"}
+    },
+    "Modals of deduction (must, might, can't)": {
+      "The lights are on — someone {{answer}} be home.": {"hint": "di aalmuos-shuor wod", "translation": "Di lait dem on — smadi mos de a yaad."},
+      "That {{answer}} be Maria — she's in Brazil this week!": {"hint": "di no-wie wod", "translation": "Dat kyaan a Maria — shi de a Brazil dis wiik!"},
+      "He {{answer}} be stuck in traffic — it happens.": {"hint": "wan mait-bii wod", "translation": "Im mait de stok eena chrafik — it hapn saataim."},
+      "She must {{answer}} forgotten our meeting.": {"hint": "di helpa fi figyor out bout di paas", "translation": "Shi mos did figet wi miitn."},
+      "They can't {{answer}} left already — the car's still here.": {"hint": "di helpa fi figyor out bout di paas", "translation": "Dem kyaan gaan aredi — di kyar stil de ya."},
+      "It {{answer}} rain later, so take an umbrella.": {"hint": "wan mait-bii wod", "translation": "Rien mait faal lieta, so kyari wan ombrela."}
+    },
+    "Advanced passives (has been done, being done)": {
+      "The road has {{answer}} closed since Monday.": {"hint": "di paas partisipl a be", "translation": "Di ruod lack fram Mondie."},
+      "Our office is {{answer}} renovated at the moment.": {"hint": "di -ing form a be", "translation": "Dem a fix op fi wi afis rait now."},
+      "All answers must be {{answer}} in ink.": {"hint": "write — paas partisipl", "translation": "Aal ansa haffi rait eena ink."},
+      "She is {{answer}} to be the richest woman in the country.": {"hint": "say — paas partisipl", "translation": "Dem se shi a di riches uman eena di konchri."},
+      "The results will {{answer}} announced on Friday.": {"hint": "di bier infinitiv a di pasiv", "translation": "Dem a go anounce di rizolt dem pan Fraidie."},
+      "By 1990, the bridge {{answer}} been rebuilt twice.": {"hint": "di paas-porfek helpa vorb", "translation": "Bai 1990, dem did bil bak di brij tuu taim aredi."}
+    },
+    "Wish and if only": {
+      "I wish I {{answer}} how to drive.": {"hint": "know — di wish form", "translation": "Mi wish se mi did know how fi jraiv."},
+      "She wishes she {{answer}} accepted the offer.": {"hint": "di paas-riget helpa", "translation": "Shi wish se shi did tek di aafa."},
+      "I wish you {{answer}} stop interrupting me!": {"hint": "di kamplien wod", "translation": "Mi wish se yu wuda stap kot mi aaf!"},
+      "If {{answer}} I had listened to your advice!": {"hint": "di wod afta if", "translation": "If onli mi did lisn tu yu advais!"},
+      "He wishes he {{answer}} taller.": {"hint": "be — di wish form", "translation": "Im wish se im did taala."},
+      "We wish we {{answer}} bought tickets earlier.": {"hint": "di paas-riget helpa", "translation": "Wi wish se wi did buy di tikit dem orlia."}
+    },
+    "Phrasal verbs — separable or not?": {
+      "Could you turn {{answer}} off? The music's too loud.": {"hint": "di abjek pronoun", "translation": "Yu kyan ton it aaf? Di myuuzik tuu loud."},
+      "She's looking {{answer}} her elderly mother.": {"hint": "di likl wod fi tek kier", "translation": "Shi a look afta har uol mada."},
+      "Please fill {{answer}} this form.": {"hint": "di faam likl wod", "translation": "Duu, ful out dis faam."},
+      "I'll pick you {{answer}} at eight.": {"hint": "di pik-op likl wod", "translation": "Mi wi pik yu op a eit."},
+      "We've put {{answer}} the meeting until Friday.": {"hint": "di pushback likl wod", "translation": "Wi push bak di miitn til Fraidie."},
+      "He takes {{answer}} his father — same smile, same laugh.": {"hint": "di fieva likl wod", "translation": "Im fieva im faada — siem smail, siem laaf."}
+    },
+    "Question tags and indirect questions": {
+      "You've met before, {{answer}} you?": {"hint": "di ton-roun helpa a di kweschan tag", "translation": "Unu did miit op bifuor, no chruu?"},
+      "She doesn't eat fish, {{answer}} she?": {"hint": "di ton-roun helpa a di kweschan tag", "translation": "Shi no nyam fish, no chruu?"},
+      "Could you tell me where the bank {{answer}}?": {"hint": "be — a di EN", "translation": "Yu kyan tel mi we di bank de?"},
+      "Do you know if the shop {{answer}} at six?": {"hint": "close — regyula sentans aada", "translation": "Yu know if di shap lack a siks?"},
+      "It's cold today, {{answer}} it?": {"hint": "di ton-roun helpa a di kweschan tag", "translation": "It kuol tide, no chruu?"},
+      "I wonder {{answer}} they got home safely.": {"hint": "di ada wie fi se if", "translation": "Mi a wanda if dem rich home siefli."}
+    },
+    "Inversion (Never have I…, Not only…)": {
+      "Never {{answer}} I heard such nonsense.": {"hint": "di porfek helpa", "translation": "Mi neva yet hier no fuulishnis so."},
+      "Not only {{answer}} she sing, she writes her own songs.": {"hint": "di prezent-tens helpa", "translation": "A no sing wan shi sing, shi rait fi har own sang dem tu."},
+      "No sooner had we sat down {{answer}} the phone rang.": {"hint": "di wod we finish di pier", "translation": "Wi jos siddung wan minit an di fuon ring."},
+      "Under no circumstances {{answer}} you open that door.": {"hint": "di advais modal", "translation": "No mata wa, yu no fi open dat duor de."},
+      "Rarely {{answer}} we see such talent.": {"hint": "di prezent-tens helpa", "translation": "A aadli wi si talent so."},
+      "Only then {{answer}} I understand what she meant.": {"hint": "di pas-tens helpa", "translation": "A den so mi andastan wa shi did miin."}
+    },
+    "Cleft sentences (What I need is…, It was… that)": {
+      "{{answer}} I need is a good night's sleep.": {"hint": "di staat a di fuokos sentans", "translation": "Wa mi niid a wan gud nait sliip."},
+      "It was Marco {{answer}} suggested the idea.": {"hint": "di rilativ wod fi piipl", "translation": "A Marco did sojes di aidiia."},
+      "What annoys me {{answer}} his constant lateness.": {"hint": "be — di hinj a di sentans", "translation": "Wa veks mi a how im aalwiez late."},
+      "It {{answer}} in Paris that they first met.": {"hint": "be — pas tens", "translation": "A Paris dem did fos miit op."},
+      "{{answer}} she wants is a little respect.": {"hint": "di staat a di «aal we»", "translation": "Aal we shi waant a likl rispek."},
+      "It wasn't until midnight {{answer}} he finally called.": {"hint": "di fuokos sentans kanekta", "translation": "A no til midnait im fainali kaal."}
+    },
+    "Hedging and distancing (would seem, tend to)": {
+      "It would {{answer}} that the figures are wrong.": {"hint": "di look-like vorb", "translation": "It look like se di nomba dem rang."},
+      "House prices {{answer}} to rise in spring.": {"hint": "di tendensi vorb", "translation": "House prais dem ten fi go op eena spring."},
+      "There {{answer}} to be a problem with the data.": {"hint": "di look-like vorb, tord person", "translation": "It siim like wan prablem de wid di dieta."},
+      "It is widely {{answer}} that the climate is changing.": {"hint": "believe — paas partisipl", "translation": "Nof piipl biliiv se di klaimit a chienj."},
+      "The results {{answer}} that more research is needed.": {"hint": "di sojes vorb", "translation": "Di rizolt dem sojes se muor risorch niid."},
+      "It could be {{answer}} that the policy failed.": {"hint": "argue — paas partisipl", "translation": "Smadi kuda aagyu se di palisi fiel."}
+    },
+    "Participle clauses (Having finished, …)": {
+      "{{answer}} finished dinner, we went for a walk.": {"hint": "di staat a di porfek partisipl", "translation": "Afta wi dun nyam dina, wi go waak."},
+      "{{answer}} through the window, she saw the storm coming.": {"hint": "look — partisipl form", "translation": "Wen shi a look chruu di winda, shi si di staam a come."},
+      "{{answer}} in 1889, the tower still draws millions.": {"hint": "build — partisipl form", "translation": "Dem bil it eena 1889, an di towa stil a jraa milian a piipl."},
+      "Not {{answer}} what to say, he stayed silent.": {"hint": "know — partisipl form", "translation": "Kaa im no know wa fi se, im stie quiet."},
+      "Having {{answer}} in Rome for years, she speaks fluent Italian.": {"hint": "live — partisipl form", "translation": "Kaa shi did liv a Rome fi nof year, shi taak Italian fluent."},
+      "{{answer}} by the news, they cancelled the trip.": {"hint": "shock — partisipl form", "translation": "Di nyuuz shak dem, so dem kansl di chrip."}
+    },
+    "The mandative subjunctive (insist that he be)": {
+      "The board insisted that he {{answer}} removed from the project.": {"hint": "be — di bier form", "translation": "Di buord insis se im fi muuv aafa di prajek."},
+      "It is essential that every member {{answer}} the code of conduct.": {"hint": "fala — di bier form", "translation": "It impuotant se evri memba fala di kuod a kandok."},
+      "She recommended that the report {{answer}} rewritten.": {"hint": "be — di bier form", "translation": "Shi rekamen se di ripuot fi rait uova."},
+      "They demanded that the minister {{answer}}.": {"hint": "rizain — di bier form", "translation": "Dem dimaan se di minista fi rizain."},
+      "It's vital that she {{answer}} informed at once.": {"hint": "be — di bier form", "translation": "It impuotant bad se dem fi tel har wan taim."},
+      "We suggest that he {{answer}} a lawyer before signing.": {"hint": "kansolt — di bier form", "translation": "Wi sojes se im fi kansolt wan laaya bifuor im sain."}
+    },
+    "Ellipsis and substitution (so, neither, do so)": {
+      "I loved the film. — {{answer}} did I!": {"hint": "di staat a di «mi tu»", "translation": "Mi did lov di film. — Mi tu!"},
+      "She can't make it tonight. — {{answer}} can I.": {"hint": "di negativ staat a di «mi niida»", "translation": "Shi kyaan mek it tinait. — Mi niida."},
+      "He was asked to apologise, and he did {{answer}} immediately.": {"hint": "di fil-in wod afta did", "translation": "Dem aks im fi se sari, an im du it wan taim."},
+      "You may be tired; if {{answer}}, rest.": {"hint": "di fil-in wod afta if", "translation": "Miebi yu taiad; if a so, res yuself."},
+      "They promised to help, but failed to {{answer}} so.": {"hint": "di fil-in vorb", "translation": "Dem pramis fi help, but dem neva du it."},
+      "I've never been to Oslo. — Nor {{answer}} I.": {"hint": "di porfek helpa", "translation": "Mi neva go a Oslo yet. — Mi niida."}
+    },
+    "Formal connectors (notwithstanding, albeit)": {
+      "The plan went ahead, {{answer}} the objections.": {"hint": "di muor faamal 'despite'", "translation": "Di plan gwaan siem wie, no mata di abjekshan dem."},
+      "It was a victory, {{answer}} a narrow one.": {"hint": "di skwiiz-op although", "translation": "A wan vikchri, iivn duo a wan tait wan."},
+      "The costs rose sharply; {{answer}} the project was cancelled.": {"hint": "wan faamal therefore", "translation": "Di kaas dem go op shaap; so derfuor dem kansl di prajek."},
+      "A scheme {{answer}} employees share the profits.": {"hint": "di «chruu which» wod", "translation": "Wan skiim we chruu it di worka dem shier di prafit."},
+      "A {{answer}} unknown author won the prize.": {"hint": "di «op til den» wod", "translation": "Wan raita we nobadi neva know bifuor dat win di praiz."},
+      "The evidence, {{answer}} incomplete, points one way.": {"hint": "di shaatn-op although", "translation": "Di evidens, iivn duo it no komplit, a point wan wie."}
+    },
+    "Past simple — regular verbs (-ed)": {
+      "I {{answer}} in a bank for five years.": {"hint": "work + -ed", "translation": "Mi did wok a bank fi faiv year."},
+      "She {{answer}} in Rome when she was young.": {"hint": "live — jos ad -d", "translation": "Shi did liv a Rome wen shi did yong."},
+      "He {{answer}} English at university.": {"hint": "study — di y ton -ied", "translation": "Im did stodi Ingglish a yuunivorsiti."},
+      "The bus {{answer}} suddenly.": {"hint": "stop — di p dobl op", "translation": "Di bos stap all af a sodn."},
+      "We {{answer}} football in the park yesterday.": {"hint": "vowel + y — jos -ed", "translation": "Wi did plie futbaal eena di paak yeside."},
+      "They {{answer}} work yesterday — it was a holiday.": {"hint": "negativ pas tens: did + not", "translation": "Dem neva wok yeside — a did halidie."}
+    },
+    "Object pronouns (me, him, them)": {
+      "Can you help {{answer}}, please?": {"hint": "di taaka a aks fi help — «mi»", "translation": "Yu kyan help mi, duu?"},
+      "I saw {{answer}} at school yesterday.": {"hint": "wan man — «im»", "translation": "Mi did si im a skuul yeside."},
+      "This present is for {{answer}}.": {"hint": "wan uman — «har»", "translation": "Dis prezent a fi har."},
+      "Our teacher knows {{answer}} well.": {"hint": "di taaka plos ada smadi — «wi»", "translation": "Fi wi tiicha know wi gud."},
+      "I like these shoes — I'll buy {{answer}}.": {"hint": "muor dan wan ting — «dem»", "translation": "Mi like dem shuuz ya — mi a go buy dem."},
+      "Where is my phone? I can't find {{answer}}.": {"hint": "wan ting — «it»", "translation": "We mi fuon de? Mi kyaan fain it."}
+    },
+    "Imperatives (Open…, Don't…)": {
+      "{{answer}} the door, please.": {"hint": "vorb eena di bier form, no sobjek", "translation": "Open di duor, duu."},
+      "{{answer}} worry — everything is fine.": {"hint": "negativ kamaan: di negativ form a do + vorb", "translation": "No wori — evriting aarait."},
+      "{{answer}} me tomorrow, please.": {"hint": "vorb eena di bier form", "translation": "Kaal mi tumaro, duu."},
+      "{{answer}} be late — the film starts at eight.": {"hint": "negativ kamaan wid be", "translation": "No come late — di film staat a eit."},
+      "{{answer}} quiet, please — the baby is sleeping.": {"hint": "di vorb be eena di bier form", "translation": "Tan quiet, duu — di biebi a sliip."},
+      "Please {{answer}} down and wait a moment.": {"hint": "vorb eena di bier form", "translation": "Duu, siddung an wiet wan minit."}
+    }
+  }
+}
