@@ -63,8 +63,8 @@ cosa	He de dir-li una cosa.	There's one thing I must tell you.	56
 una	He de dir-li una cosa.	There's one thing I must tell you.	56
 els	Els he de dir una cosa.	There's one thing I must tell you.	56
 jo	Sóc jo.	It's me.	58
-soc	Sóc jo.	It's me.	58
-soc	Jo sóc!	I am!	58
+sóc	Sóc jo.	It's me.	58
+sóc	Jo sóc!	I am!	58
 ets	Qui ets tu?	Who are you?	64
 tu	Qui ets tu?	Who are you?	64
 qui	Qui ets tu?	Who are you?	64
@@ -223,7 +223,6 @@ millor	Ell és millor que tots nosaltres.	He's better than us all.	137
 nosaltres	Ell és millor que tots nosaltres.	He's better than us all.	137
 tots	Ell és millor que tots nosaltres.	He's better than us all.	137
 altre	Això vas dir l'altre día, no?	You said that the other day, right?	138
-dia	Això vas dir l'altre día, no?	You said that the other day, right?	138
 altre	Gràcies per l'altre dia.	Thank you for the other day.	138
 dia	Gràcies per l'altre dia.	Thank you for the other day.	138
 tant	I tant.	Obviously.	140
@@ -581,7 +580,7 @@ moltes	Moltes gràcies.	Thank you very much!	341
 moltes	Moltes gràcies!	Thank you very much!	341
 moltes	Moltes gràcies, de veritat.	Thank you very much indeed.	341
 penses	Penses molt en ella?	Do you think about her a lot?	346
-adeu	Adéu!	Goodbye!	351
+adéu	Adéu!	Goodbye!	351
 menys	Ho sap tothom menys jo.	Everybody knows it except me.	352
 tothom	Ho sap tothom menys jo.	Everybody knows it except me.	352
 menys	5 són menys que 8.	5 is less than 8.	352
@@ -1349,8 +1348,6 @@ planeta	El nostre planeta és bonic.	Our planet is beautiful.	925
 nostre	El nostre planeta és bonic.	Our planet is beautiful.	925
 dreta	L'edifici de la dreta és una escola.	The building on the right is a school.	928
 edifici	L'edifici de la dreta és una escola.	The building on the right is a school.	928
-dreta	Soc dretà.	I am right-handed.	928
-dreta	Ets dretà?	Are you right-handed?	928
 vendre	On vols vendre això?	Where do you want to sell this?	930
 vingui	Vingui quan vulgui.	Come whenever you like.	931
 vulgui	Vingui quan vulgui.	Come whenever you like.	931
@@ -1479,9 +1476,9 @@ teua	Ho sap la teua mare?	Does your mother know?	1068
 tingut	Ell encara no ha tingut èxit.	He hasn't succeeded yet.	1069
 sigui	Vull que sigui un èxit.	I want it to be a success.	1069
 èxit	Vull que sigui un èxit.	I want it to be a success.	1069
-vens	D'on véns?	Where are you from?	1070
+véns	D'on véns?	Where are you from?	1070
 cada	Véns aquí cada dia?	Do you come here every day?	1070
-vens	Véns aquí cada dia?	Do you come here every day?	1070
+véns	Véns aquí cada dia?	Do you come here every day?	1070
 vens	Vens amb nosaltres?	Are you coming with us?	1070
 bossa	Aquí és la teva bossa.	Here is your bag.	1075
 teua	Ací està la teua bossa.	Here is your bag.	1075
@@ -1539,7 +1536,7 @@ arribi	He estat esperant que arribi aquest dia.	I've been waiting for this day t
 esperant	He estat esperant que arribi aquest dia.	I've been waiting for this day to come.	1151
 missatge	Dóna-li aquest missatge quan arribi.	Give him this message the moment he arrives.	1151
 arribi	Dóna-li aquest missatge quan arribi.	Give him this message the moment he arrives.	1151
-dona	Dóna-li aquest missatge quan arribi.	Give him this message the moment he arrives.	1151
+dóna	Dóna-li aquest missatge quan arribi.	Give him this message the moment he arrives.	1151
 bar	Aquesta nit anirem a un nou bar. Vols venir?	We're going to a new bar tonight. Do you want to come along?	1154
 penso	Tinc ganes de dir-li què penso d'ell.	I feel like telling him what I think of him.	1156
 ganes	Tinc ganes de dir-li què penso d'ell.	I feel like telling him what I think of him.	1156
@@ -2016,7 +2013,6 @@ autobús	L'autobús para ací?	Does the bus stop here?	1741
 para	L'autobús para ací?	Does the bus stop here?	1741
 autobús	L'autobús arribà deu minuts tard.	The bus arrived ten minutes late.	1741
 minuts	L'autobús arribà deu minuts tard.	The bus arrived ten minutes late.	1741
-arriba	L'autobús arribà deu minuts tard.	The bus arrived ten minutes late.	1741
 baixar	Ells van baixar de l'autobús.	They got off the bus.	1741
 autobús	Ells van baixar de l'autobús.	They got off the bus.	1741
 ajudant	Ella m'està ajudant molt.	She's helping me a lot.	1747
@@ -2141,7 +2137,6 @@ treballo	Jo treballo a un banc.	I work in a bank.	1887
 mapa	Té vosté un mapa?	Do you have a map?	1889
 vosté	Té vosté un mapa?	Do you have a map?	1889
 mapa	Em faríes un mapa?	Would you draw me a map?	1889
-faries	Em faríes un mapa?	Would you draw me a map?	1889
 miracle	És un miracle!	It's a miracle!	1892
 cec	Es diu que l'amor és cec.	They say that love is blind.	1899
 respondre	Fins i tot un nen pot respondre aquesta pregunta.	Even a child could answer that question.	1900
@@ -2156,7 +2151,7 @@ caminant	M'aniré caminant.	I will go on foot.	1916
 pinta	Pinta la imatge.	Colour the picture.	1921
 imatge	Pinta la imatge.	Colour the picture.	1921
 aixecar	"Ell va dir: ""Adéu a tots"" i es va aixecar."	He said 'Goodbye everyone' and stood up.	1922
-adeu	"Ell va dir: ""Adéu a tots"" i es va aixecar."	He said 'Goodbye everyone' and stood up.	1922
+adéu	"Ell va dir: ""Adéu a tots"" i es va aixecar."	He said 'Goodbye everyone' and stood up.	1922
 aixecar	Ella es va aixecar.	She stood up.	1922
 aixecar	Ella va aixecar la mà.	She raised her hand.	1922
 mà	Ella va aixecar la mà.	She raised her hand.	1922
@@ -2334,7 +2329,6 @@ mentit	Ningú no ha mentit mai a internet.	No one has ever lied on the Internet.
 fumar	Has de deixar de fumar.	You must quit smoking.	2217
 mesos	Ja fa nou mesos que deixí de fumar.	It's already been nine months since I gave up smoking.	2217
 fumar	Ja fa nou mesos que deixí de fumar.	It's already been nine months since I gave up smoking.	2217
-deixi	Ja fa nou mesos que deixí de fumar.	It's already been nine months since I gave up smoking.	2217
 fumar	M'he aturat de fumar i beure alcohol.	I have quit smoking and drinking.	2217
 aturat	M'he aturat de fumar i beure alcohol.	I have quit smoking and drinking.	2217
 alcohol	M'he aturat de fumar i beure alcohol.	I have quit smoking and drinking.	2217
@@ -2598,7 +2592,6 @@ aguantar	No puc aguantar aquest soroll.	I can't stand that noise.	2753
 cobert	El terra era cobert de neu.	The ground was covered in snow.	2757
 neu	El terra era cobert de neu.	The ground was covered in snow.	2757
 confessar	Has de confessar.	You have to confess.	2771
-desitjaria	Els llibres són per la gent que desitjaría ser-hi amb un altre lloc.	Books are for people who wish they were somewhere else.	2774
 mateixes	Ens agraden les mateixes coses.	We like the same things.	2777
 agraden	Ens agraden les mateixes coses.	We like the same things.	2777
 estómac	Ja he tingut suficient, el meu estómac està ple.	I've had enough, so my stomach is full.	2779
@@ -2668,7 +2661,6 @@ cor	Un rostre bell pot amagar un cor cruel.	A beautiful face can hide a cruel he
 bell	Un rostre bell pot amagar un cor cruel.	A beautiful face can hide a cruel heart.	2944
 amagar	Un rostre bell pot amagar un cor cruel.	A beautiful face can hide a cruel heart.	2944
 papà	On vas papà?	Where are you going, Dad?	2947
-coneixen	Allà no em conèixen.	They don't know me there.	2949
 motiu	No hi ha cap motiu per preocupar-se.	There's no reason to worry.	2952
 preocupar	No hi ha cap motiu per preocupar-se.	There's no reason to worry.	2952
 realitat	Què és en realitat la cultura?	What is actually culture?	2960
@@ -3035,7 +3027,6 @@ ganes	No tinc ganes de fer exercici.	I don't feel like exercising.	3812
 exercici	Fes exercici cada dia.	Exercise every day.	3812
 idees	Les idees d'ell són una mica estranyes.	He is a little queer in his ideas.	3815
 estranyes	Les idees d'ell són una mica estranyes.	He is a little queer in his ideas.	3815
-guanyes	Tothom esperava que guanyés.	Everyone hoped that she would win.	3817
 esperava	Tothom esperava que guanyés.	Everyone hoped that she would win.	3817
 acabaré	Vaig començar a escriure un llibre nou. No sé, però, si mai l'acabaré.	I started writing a new book. I don't know, though, if I'll ever finish it.	3818
 convido	Avui et convido jo a dinar.	Today, I invite you to have dinner.	3821
@@ -3627,7 +3618,6 @@ presoners	El general ordenà la matança de tots els presoners de guerra.	The ge
 matança	El general ordenà la matança de tots els presoners de guerra.	The general ordered the killing of all the prisoners of war.	6161
 general	El general ordenà la matança de tots els presoners de guerra.	The general ordered the killing of all the prisoners of war.	6161
 guerra	El general ordenà la matança de tots els presoners de guerra.	The general ordered the killing of all the prisoners of war.	6161
-ordena	El general ordenà la matança de tots els presoners de guerra.	The general ordered the killing of all the prisoners of war.	6161
 rendició	Rendició!	Surrender!	6184
 concedir	Potser et puc concedir set minuts.	I can probably give you seven minutes.	6190
 corri	Corri.	Run!	6200
@@ -3670,7 +3660,6 @@ vides	La música envolta les nostres vides com ho fa l'aire.	Music surrounds our
 aire	La música envolta les nostres vides com ho fa l'aire.	Music surrounds our lives like air.	6402
 català	Parles català?	Do you speak Catalan?	6418
 català	Tant de bo el meu anglés fos tan bo com el teu català.	I wish my English was as good as your Catalan.	6418
-angles	Tant de bo el meu anglés fos tan bo com el teu català.	I wish my English was as good as your Catalan.	6418
 arròs	Necessito arròs.	I need rice.	6452
 convincent	És convincent.	He is convincing.	6459
 prenyada	Ella està prenyada.	She's pregnant.	6462
@@ -3988,7 +3977,6 @@ expulsat	El seu fill ha sigut expulsat de l'escola.	His son has been expelled fr
 expulsat	El seu fill va ser expulsat de l'escola.	His son was thrown out of school.	7977
 tracta	Tracta d'entendre-ho amb espanyol, sense traduïr-lo amb anglès.	Try to understand it in Spanish, without translating to English.	7993
 espanyol	Tracta d'entendre-ho amb espanyol, sense traduïr-lo amb anglès.	Try to understand it in Spanish, without translating to English.	7993
-traduir	Tracta d'entendre-ho amb espanyol, sense traduïr-lo amb anglès.	Try to understand it in Spanish, without translating to English.	7993
 marrons	Les seves sabates són marrons.	His shoes are brown.	8010
 sabates	Les seves sabates són marrons.	His shoes are brown.	8010
 marrons	Té els ulls marrons.	He has brown eyes.	8010
@@ -4239,7 +4227,7 @@ mengen	Els francesos no mengen prou fibres.	The French do not eat enough fiber.	
 francesos	Els francesos no mengen prou fibres.	The French do not eat enough fiber.	9911
 fibres	Els francesos no mengen prou fibres.	The French do not eat enough fiber.	9911
 faldilla	Pots pagar aquesta faldilla?	Can you pay for this skirt?	9973
-adeu	Adéu, Sayoko.	Goodbye, Sayoko.	19999
+adéu	Adéu, Sayoko.	Goodbye, Sayoko.	19999
 tip	Estic tip que em sermonegi constantment.	I'm fed up with him always preaching to me.	19999
 constantment	Estic tip que em sermonegi constantment.	I'm fed up with him always preaching to me.	19999
 feia	Li vas dir que havies enllestit la feina feia tres dies.	You told her that you had finished the work three days before.	19999
@@ -4310,7 +4298,6 @@ mitja	D'aquí a l'estació triguem mitja hora a peu.	It takes us thirty minutes 
 cinema	No em comparis amb una estrella de cinema.	Don't compare me to a movie star.	19999
 estrella	No em comparis amb una estrella de cinema.	Don't compare me to a movie star.	19999
 vesprada	Estudiaré anglés aquesta vesprada.	I am going to study English this afternoon.	19999
-angles	Estudiaré anglés aquesta vesprada.	I am going to study English this afternoon.	19999
 antigues	La meva afició és col·leccionar joguines antigues.	My hobby is collecting old toys.	19999
 col	La meva afició és col·leccionar joguines antigues.	My hobby is collecting old toys.	19999
 joguines	La meva afició és col·leccionar joguines antigues.	My hobby is collecting old toys.	19999
@@ -4470,7 +4457,6 @@ qual	No sé el motiu pel qual va anar-hi.	I don't know the reason why he went th
 motiu	No sé el motiu pel qual va anar-hi.	I don't know the reason why he went there.	19999
 dono	Dono per descomptat que aprovarà l'examen.	I took it for granted that he would pass the exam.	19999
 descomptat	Dono per descomptat que aprovarà l'examen.	I took it for granted that he would pass the exam.	19999
-acceptes	Em sorprèn que acceptés l'oferiment.	I'm surprised that he accepted the offer.	19999
 sorprèn	Em sorprèn que acceptés l'oferiment.	I'm surprised that he accepted the offer.	19999
 impossible	Considero impossible que ell ressolgui el problema.	I thought it impossible for him to solve the problem.	19999
 considero	Considero impossible que ell ressolgui el problema.	I thought it impossible for him to solve the problem.	19999
@@ -4588,7 +4574,6 @@ parleu	Quina llengua parleu al vostre país?	What language do you speak in your 
 aconsellar	El metge de la Mary li va aconsellar que fes exercici.	Mary's doctor advised her to exercise.	19999
 exercici	El metge de la Mary li va aconsellar que fes exercici.	Mary's doctor advised her to exercise.	19999
 principi	Al principi Déu creà el cel i la terra.	In the beginning God created the heaven and the earth.	19999
-crea	Al principi Déu creà el cel i la terra.	In the beginning God created the heaven and the earth.	19999
 construir	La vermella és la casa que va construir en Jack.	The red house is the one that Jack built.	19999
 vermella	La vermella és la casa que va construir en Jack.	The red house is the one that Jack built.	19999
 sensible	El nas del gos és molt sensible.	A dog's nose is very sensitive.	19999
@@ -4821,13 +4806,11 @@ podrà	Com redimonis ens podrà trobar algú aquí?	How is anyone ever going to 
 volies	Em pensava que havies dit que ho volies fer per en Tom.	I thought you said you wanted to do that for Tom.	19999
 planegen	No sé quan planegen fer-ho en Tom i la Maria.	I don't know when Tom and Mary plan to do that.	19999
 haurien	En Tom i la Maria probablement haurien d'haver demanat a en Joan que els ajudés.	Tom and Mary probably should've asked John to help them do that.	19999
-ajudes	En Tom i la Maria probablement haurien d'haver demanat a en Joan que els ajudés.	Tom and Mary probably should've asked John to help them do that.	19999
 joan	En Tom i la Maria probablement haurien d'haver demanat a en Joan que els ajudés.	Tom and Mary probably should've asked John to help them do that.	19999
 probablement	En Tom i la Maria probablement haurien d'haver demanat a en Joan que els ajudés.	Tom and Mary probably should've asked John to help them do that.	19999
 imaginar	En Tom no podia imaginar la seva vida sense la Maria.	Tom couldn't imagine his life without Mary.	19999
 creu	En Tom no s'ho creu gaire.	Tom doesn't quite buy it.	19999
 sorprendre	Em va sorprendre que en Tom no necessités fer-ho.	I was surprised that Tom didn't need to do that.	19999
-necessites	Em va sorprendre que en Tom no necessités fer-ho.	I was surprised that Tom didn't need to do that.	19999
 individus	Els gats són complexos individus.	Cats are complex individuals.	19999
 salsa	Com et pots menjar una entxilada sense salsa?	How can you eat an enchilada without salsa?	19999
 mereix	La Mary no es mereix un noi com aquell.	Mary doesn't deserve a guy like that.	19999
@@ -4934,8 +4917,6 @@ passaria	La Mary va dir que es pensava que no passaria res per fer-ho.	Mary said
 mudar	En Tom va dir a tothom que es volia mudar a Boston.	Tom told everybody that he wanted to move to Boston.	19999
 zelanda	La llengua maori es parla a Nova Zelanda.	The Maori language is spoken in New Zealand.	19999
 qual	El ca bordà furiosament, la qual cosa despertà el meu germà.	The dog barked furiously, which awakened my brother.	19999
-borda	El ca bordà furiosament, la qual cosa despertà el meu germà.	The dog barked furiously, which awakened my brother.	19999
-desperta	El ca bordà furiosament, la qual cosa despertà el meu germà.	The dog barked furiously, which awakened my brother.	19999
 ca	El ca bordà furiosament, la qual cosa despertà el meu germà.	The dog barked furiously, which awakened my brother.	19999
 tret	No ho facis tret que en Tom et digui que has de fer-ho.	Don't do that unless Tom says you have to do it.	19999
 digui	No ho facis tret que en Tom et digui que has de fer-ho.	Don't do that unless Tom says you have to do it.	19999
@@ -5375,7 +5356,6 @@ jardí	Jo tinc cura del jardí.	I take care of the garden.	19999
 cura	Jo tinc cura del jardí.	I take care of the garden.	19999
 podran	Si marxen, no podran tornar mai més.	If they leave, they'll never be able to come back.	19999
 moderna	Tòquio és la ciutat més important i moderna del Japó.	Tokyo is the most important and most modern city in Japan.	19999
-pal	Estava pàl·lid.	He was pale.	19999
 jueva	La meva mare és jueva i el meu pare és polonès.	My mother is Jewish and my father is Polish.	19999
 espai	En Tom va néixer a l'espai.	Tom was born in space.	19999
 malvat	Tom era un home malvat.	Tom was an evil man.	19999

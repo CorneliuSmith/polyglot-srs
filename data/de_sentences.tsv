@@ -141,8 +141,6 @@ kann	Kann er das?	Can he do it?	51
 gut	Es ist gut so.	So be it.	52
 gut	Was gut für dich ist, ist gut für mich.	What is good for you is good for me.	52
 gut	Er ist gut.	He's good.	52
-dass	Es ist gut, daß Sie hier sind.	It's a good thing you're here.	52
-dass	Gut, daß Sie hier sind!	Good thing you're here.	52
 auch	Ja, sie ist auch da.	Yes, it's there too.	53
 auch	Auch das noch!	As if it weren't enough already!	53
 auch	Ich auch.	Me, too.	53
@@ -9018,7 +9016,6 @@ rückkehr	Tom hatte keinen Ort der Rückkehr.	Tom had nowhere to return to.	3088
 rückkehr	Ich hatte gehofft, dass ihr bis zu meiner Rückkehr fertig würdet.	I'd hoped you'd be finished by the time I got back.	3088
 hafen	Die Insel hat einen schönen Hafen.	The island has a fine harbor.	3089
 hafen	Der Sturm wird es für das Schiff unmöglich machen, den Hafen zu verlassen.	The storm will make it impossible for the ship to leave port.	3089
-hafen	Das ist ein Häfen.	This is a pot.	3089
 indianer	Mein Freund ist Indianer.	My friend is Indian.	3090
 indianer	Am Anfang waren die Indianer freundlich.	At first, the Indians were friendly.	3090
 indianer	Die Indianer hatten Hunger.	The Indians were hungry.	3090
@@ -9154,7 +9151,6 @@ berühmt	Er wurde berühmt.	He became famous.	3136
 aussteigen	Könnten Sie mir Bescheid sagen, wenn ich aussteigen soll?	Would you please tell me when to get off?	3137
 aussteigen	Nicht aussteigen, bevor der Bus hält.	Don't get off the bus till it stops.	3137
 aussteigen	Wir müssen bei der nächsten Station aussteigen.	We have to get off at the next station.	3137
-felix	Félix spricht kein Französisch.	Felix doesn't speak French.	3138
 felix	Felix hatte kaum etwas auf.	Felix barely had any homework.	3138
 felix	Felix hat es auch gehört.	Felix heard it, too.	3138
 ginge	Sie sagte, es ginge ihr gut. In Wirklichkeit war sie schrecklich verletzt.	She said she was OK. In fact, she was terribly injured.	3139
@@ -10411,7 +10407,6 @@ handschellen	Legen Sie ihm Handschellen an.	Cuff him.	3578
 versehen	Er nahm aus Versehen den falschen Bus.	He took the wrong bus by mistake.	3579
 versehen	Jemand hat aus Versehen meine Schuhe genommen.	Someone has taken my shoes by mistake.	3579
 versehen	Ich habe aus Versehen das Zimmer von jemand anderem betreten.	I entered someone else's room by mistake.	3579
-bande	Dieses Buch hat zwei Bände.	This book comes in two volumes.	3580
 bande	Tom ist ein Mitglied der Bande.	Tom is a gang member.	3580
 bande	Tom gehört auch zu der Bande.	Tom is a gang member.	3580
 treu	Alle Hunde sind treu.	All dogs are faithful.	3581
@@ -10607,9 +10602,6 @@ brennen	Die Häuser brennen.	The houses are burning.	3649
 durst	Ich habe Durst. Ich hätte gerne eine Tasse Kaffee.	I am thirsty. I would like to have a cup of coffee.	3650
 durst	Ich habe immer noch Durst.	I'm still thirsty.	3650
 durst	Ich habe Durst.	I'm thirsty.	3650
-hatt	Hätt’ ich’s bemerkt, hätt’ ich dir’s gesagt.	If I'd noticed, I would've told you.	3651
-hatt	„Nun sag an: Hast du dich entschuldigt?“ – „Ja.“ – „Und?“ – „Ich hätt’s mir verdammt noch mal sparen können.“	"""So, tell me. Did you apologise?"" ""I did."" ""And?"" ""It didn't make a sodding bit of difference."""	3651
-hatt	Wenn ich gewußt hätte, daß ich dich küssen sollte, hätt’ ich’s getan.	If I'd known you wanted me to kiss you, I would've.	3651
 schwarzer	Wo ist dein schwarzer Anzug?	Where's your black suit?	3652
 schwarzer	Wo ist Ihr schwarzer Anzug?	Where's your black suit?	3652
 schwarzer	Es ist besser, schwarz zu sein als schwul. Wenn man als Schwarzer geboren wurde, muss man sich wenigstens keine Gedanken machen, wie man das seiner Mutter sagen soll.	To be black is better than to be gay. If you were born black, at least you don't have to think about how to tell your mother about this.	3652
@@ -11434,7 +11426,7 @@ stürzen	Das einzige, was die Regierung tut, besteht darin, das Land in Schulden
 gefälligst	Sie soll gefälligst warten!	Let her wait!	3952
 gefälligst	Er soll gefälligst warten!	Let him wait!	3952
 gefälligst	Mach gefälligst das Fenster zu!	Close the window, will you?	3952
-farben	Ich möchte den Stoff färben lassen.	I'd like to have this fabric dyed.	3953
+färben	Ich möchte den Stoff färben lassen.	I'd like to have this fabric dyed.	3953
 farben	Ich mag von allen Farben blau am liebsten.	I like blue best of all colors.	3953
 farben	Haben Sie diese Jacke in verschiedenen Farben?	Do you have this jacket in different colors?	3953
 geliebten	Er starb und ließ seine geliebten Kinder zurück.	He died leaving his beloved children behind.	3954
@@ -13656,7 +13648,6 @@ halloween	Tom ging zu einer Halloween-Party.	Tom went to a Halloween party.	4780
 halloween	Halloween steht vor der Tür.	Halloween is just around the corner.	4780
 abgesagt	Das Treffen wurde abgesagt.	The meeting was called off.	4781
 abgesagt	Wenn es morgen regnet, wird das Spiel abgesagt.	The game will be called off if it rains tomorrow.	4781
-abgesagt	O nein! Ich habe aus Versehen meinen Finger abgesägt! Und was jetzt?	Oh no, I accidentally sawed off my finger! What should I do?	4781
 kocht	Meine Mutter kocht gut.	My mother cooks well.	4783
 kocht	Er kocht vor Wut.	He is furious with anger.	4783
 kocht	Was kocht ihr?	What are you cooking?	4783
@@ -13820,7 +13811,6 @@ operiert	Er wurde gestern operiert.	He was operated on yesterday.	4845
 operiert	Sind Sie schon einmal operiert worden? Weswegen?	Have you undergone any surgery before? For what reason?	4845
 unfassbar	Es ist unfassbar, einfach unfassbar!	It's unbelievable, just unbelievable!	4846
 unfassbar	Es ist unfassbar, dass Tom schon über 80 Jahre alt ist.	It's unbelievable that Tom's already over 80.	4846
-unfassbar	Findest du es toll, mich so zu ignorieren? Das ist unfaßbar unhöflich.	Do you think it's cool to just ignore me like that? It's incredibly disrespectful.	4846
 herrin	Ja, Herrin!	Yes, mistress.	4847
 hergestellt	Diese Maschine wurde in Frankreich hergestellt.	This machine was manufactured in France.	4848
 hergestellt	Papier wird aus Holz hergestellt.	Paper is made from wood.	4848
@@ -14360,9 +14350,9 @@ schweden	Schweden hat eine eigene Sprache.	Sweden has a language of its own.	504
 schweden	Schweden hat seine eigene Sprache.	Sweden has its own language.	5047
 schweden	Sie kommen aus Schweden.	They come from Sweden.	5047
 häuptling	Ich bin der Häuptling.	I'm the chief.	5049
-marz	Am 15. März sind wir 20 Jahre verheiratet.	On March 15 we will have been married for 20 years.	5050
-marz	Mein Geburtstag ist am 22. März.	My birthday is on March 22.	5050
-marz	Ende März werden wir heiraten.	At the end of March we'll marry.	5050
+märz	Am 15. März sind wir 20 Jahre verheiratet.	On March 15 we will have been married for 20 years.	5050
+märz	Mein Geburtstag ist am 22. März.	My birthday is on March 22.	5050
+märz	Ende März werden wir heiraten.	At the end of March we'll marry.	5050
 nummern	Er ist ein paar Nummern zu groß für mich.	He's way out of my league.	5051
 nummern	Der ist ein paar Nummern zu groß für dich.	He's way out of your league.	5051
 nummern	Die Nummern stehen an den Türen oder neben den Türen.	The numbers are on the doors or next to the doors.	5051
@@ -15548,7 +15538,6 @@ beförderung	Meine Beförderung hängt von seiner Entscheidung ab.	My promotion 
 beförderung	Tom verdient eine Beförderung.	Tom deserves a promotion.	5487
 kranke	Du solltest dich um deine kranke Mutter kümmern.	You should take care of your sick mother.	5488
 kranke	Da ist der kranke Zahn; der muss entfernt werden.	Here is the bad tooth, it must be extracted.	5488
-kranke	Ich hatte Angst davor, dass ich ihn kränke.	I was afraid that I might hurt his feelings.	5488
 eifersucht	Keine Liebe ohne Eifersucht.	There's no love without jealousy.	5489
 eifersucht	Ich kann ihre Eifersucht nicht ertragen.	I can't stand her jealousy.	5489
 eifersucht	Sie war grün vor Eifersucht.	She was green with jealousy.	5489
@@ -15779,7 +15768,6 @@ erzogen	Seine Söhne sind nicht gut erzogen.	His sons are not properly brought u
 erzogen	Er wurde von seinem Onkel erzogen.	He was brought up by his uncle.	5565
 erzogen	Er ist frei erzogen worden.	He's had a liberal upbringing.	5565
 kongress	Er wurde das erste Mal 1948 in den Kongress gewählt.	He was first elected to Congress in 1948.	5566
-kongress	Der Kongreß ist in Europa.	The congress is in Europe.	5566
 eingezogen	Wir sind gerade erst eingezogen.	We just moved in.	5567
 eingezogen	Ich bin gerade eingezogen.	I just moved in.	5567
 eingezogen	Ich bin erst gestern eingezogen.	I just moved in yesterday.	5567
@@ -16621,7 +16609,6 @@ einmischen	Tom hätte sich nicht einmischen sollen.	Tom shouldn't have interfere
 privaten	Tom sagte Maria, sie solle sich nicht in seine privaten Angelegenheiten einmischen.	Tom told Mary not to interfere in his personal affairs.	5895
 ärsche	Meine Nachbarn sind alle Ärsche.	My neighbors are all jerks.	5896
 ärsche	Alle meine Nachbarn sind Ärsche.	All of my neighbors are jerks.	5896
-futter	Fütter den Vogel!	Feed the bird!	5897
 futter	Welche Art Futter sollte ich meinem Hund zu fressen geben?	What kind of food should I be feeding my dog?	5897
 futter	Ist es in Ordnung, wenn ich meinem Hund das gleiche Futter wie meiner Katze gebe?	Is it OK to feed my dog the same thing that I feed my cat?	5897
 verknallt	Er hat sich total in sie verknallt.	He fell for her big time.	5898
@@ -16687,7 +16674,6 @@ deutscher	Man kann an seinem Akzent erkennen, dass er Deutscher ist.	One can tel
 deutscher	Du bist Deutscher, nicht?	You're German, aren't you?	5925
 saubere	Katzen sind sehr saubere Tiere.	Cats are very clean animals.	5926
 saubere	Wir atmen saubere Luft.	We are breathing pure air.	5926
-saubere	Ich säubere die Küche.	I am cleaning the kitchen.	5926
 gebete	Ich möchte allen für ihre Gebete danken.	I want to thank everyone for their prayers.	5927
 gebete	Nur Gebete halten ihn am Leben.	Only prayers keep him alive.	5927
 gebete	Sei still, mein Herz, diese großen Bäume sind Gebete.	Be still, my heart, these great trees are prayers.	5927
@@ -16883,7 +16869,6 @@ zustimmung	Schweigen bedeutet Zustimmung.	Silence gives consent.	5999
 besagt	Das Schild besagt, dass die Polizei Ihren Wagen entfernen wird, wenn Sie hier parken.	The sign says that the police will take your car away if you park it here.	6000
 besagt	Gibt es eine Regel, die besagt, dass ich das nicht darf?	Is there a rule that says I can't do this?	6000
 besagt	Der Brief besagt, dass er am Montag ankommen wird.	This letter says that he will arrive on Monday.	6000
-roter	Dieser Apfel ist röter.	This apple is redder.	6001
 roter	Mars ist ein roter Planet.	Mars is a red planet.	6001
 roter	Roter Alarm!	Red alert!	6001
 flamme	Drehe die Flamme auf klein.	Turn the flame down low.	6002
@@ -17122,9 +17107,7 @@ demokratie	Ich stehe auf der Seite der Demokratie.	I am on the side of democracy
 empfehle	Ich empfehle dir, mit dem Zug zu fahren.	I recommend you to go by train.	6090
 empfehle	Ich empfehle auch zumindest eine Stadt zu besuchen, die Touristen gewöhnlich nicht besuchen.	I also recommend to visit at least one city which is usually not visited by tourists.	6090
 empfehle	Ich empfehle Ihnen, rechtzeitig zu erscheinen.	I advise you to be punctual.	6090
-schalt	Er schält seinen Apfel.	He peels his apple.	6091
 schalt	Schalt den Fernseher aus, ich kann mich nicht konzentrieren.	Turn off the television. I can't concentrate.	6091
-schalt	Er schält ihren Apfel.	He peels her apple.	6091
 gevögelt	Wir sind platt, weil wir den ganzen Tag gevögelt haben.	We are worn out because we fucked all day long.	6092
 gevögelt	Habt ihr beiden miteinander gevögelt?	Have you two been shagging?	6092
 kräften	Du musst ordentlich essen, um bei Kräften zu bleiben.	You must eat properly to keep up your strength.	6093
@@ -17667,7 +17650,6 @@ verbrennt	Wo man Bücher verbrennt, verbrennt man auch am Ende Menschen.	Where t
 verbrennt	Du musst aufpassen, dass der Kuchen nicht verbrennt.	You must see to it that the cakes do not burn.	6302
 verbrennt	Die Sonne verbrennt meine Augen.	The sun burns my eyes.	6302
 drang	Bob drang durch ein Fenster in das Haus ein.	Bob entered the house through a window.	6303
-drang	Dräng mich nicht zu sehr! Es ist gefährlich.	Don’t push me too hard. It’s dangerous.	6303
 drang	Tom widerstand dem Drang zu schreien.	Tom resisted the urge to scream.	6303
 allergisch	Ich bin allergisch gegen einige Medikamente.	I'm allergic to some medicine.	6304
 allergisch	Ich bin allergisch gegen Fisch.	I'm allergic to fish.	6304
@@ -17852,7 +17834,6 @@ gedrückt	Nachdem du diesen Knopf gedrückt hast, wird die Maschine anhalten.	If
 gedrückt	Hast du deine Kinder je gedrückt?	Have you ever hugged your children?	6373
 gedrückt	Hast du auf den Knopf gedrückt?	Did you push the button?	6373
 reinigung	Bitte bringe meine Kleidung aus der Reinigung mit.	Please pick up my dry cleaning.	6374
-fordert	Unsere Schule fördert den Sport.	Our school encourages sports.	6375
 fordert	Wer das tut, fordert es heraus, Ärger zu bekommen.	To do so is asking for trouble.	6375
 fordert	Wer von anderen viel fordert, sollte auch von sich selbst viel fordern.	If you're so demanding of others, you should also be demanding of yourself.	6375
 ideale	Es ist gut, Ideale zu haben, findest du nicht?	It is good to have ideals... don't you think?	6376
@@ -18237,7 +18218,6 @@ angewiesen	Ich habe die Kinder angewiesen, ruhig zu sein, aber sie haben weiter 
 überlebende	Wie viele Überlebende gab es?	How many survivors were there?	6526
 bass	Sie mag diesen Bass.	She likes that bass.	6527
 bass	Ich weiß, dass Tom Bass spielt.	I know Tom plays the bass.	6527
-bass	Tom spielt gut Baß.	Tom is a good bass player.	6527
 lahm	Es ist lahm und langweilig.	It's slow and boring.	6528
 lahm	Wissenschaft ohne Religion ist lahm, Religion ohne Wissenschaft ist blind.	Science without religion is lame, religion without science is blind.	6528
 lahm	Mein Internet ist in letzter Zeit so was von lahm.	My internet connection has been really slow lately.	6528
@@ -18415,10 +18395,8 @@ glückspilz	Was für ein Glückspilz er ist!	What a lucky person he is!	6598
 glückspilz	Mann! Du bist so ein Glückspilz!	Wow, you're so lucky!	6598
 glückspilz	Tom war schon immer ein Glückspilz.	Tom has always been lucky.	6598
 verdammter	Du verdammter Glückspilz!	You lucky bastard.	6598
-platzen	Die Leute würden ihre Seele dafür verkaufen, das Konzert von solchen Plätzen aus hören zu können.	People would sell their souls to hear the concert from those seats.	6599
 platzen	Der Bürgermeister hat auf der Pressekonferenz die Bombe platzen lassen.	The mayor dropped a bombshell at the news conference.	6599
 üblichen	Tom und Maria saßen auf ihren üblichen Plätzen.	Tom and Mary were sitting in their usual places.	6599
-platzen	Tom und Maria saßen auf ihren üblichen Plätzen.	Tom and Mary were sitting in their usual places.	6599
 ego	Was für ein Ego!	What an ego!	6600
 ego	Tom ist mein Alter Ego.	Tom is my alter ego.	6600
 reinste	Das ist einfach — das reinste Kinderspiel.	This is easy. It's like taking candy from a baby.	6601
@@ -18464,7 +18442,6 @@ absetzen	Kannst du mich an der Bibliothek absetzen?	Could you drop me off at the
 vorgeschlagen	Ich habe vorgeschlagen, er solle sofort da hingehen.	I suggested that he go there at once.	6620
 vorgeschlagen	Du hast doch vorgeschlagen, diesen Film zu sehen.	It was you that suggested seeing that movie.	6620
 vorgeschlagen	Er hat vorgeschlagen, das Meeting auf Montag zu verschieben.	He suggested that the meeting be put off till Monday.	6620
-tausch	Täusch dich nicht.	Don't be mistaken.	6621
 arbeitslos	Ich bin arbeitslos.	I am out of work.	6622
 arbeitslos	Mein Vater ist schon ein Jahr arbeitslos.	My father has been out of work for a year.	6622
 arbeitslos	Sie sind jetzt arbeitslos.	They are out of work now.	6622
@@ -18662,7 +18639,6 @@ körpers	Die Temperatur des menschlichen Körpers bewegt sich um 37 °C.	The tem
 körpers	Die Seele ist das Gefängnis des Körpers.	The soul is the prison of the body.	6701
 körpers	Ich schäme mich meines Körpers.	I'm ashamed of my body.	6701
 schal	Das Mädchen dort mit dem Schal ist Jungfrau.	That girl who's wearing a scarf is a virgin.	6702
-schal	Schäl den Apfel, bevor du ihn isst.	Take the skin off before you eat the apple.	6702
 schal	Es tut mir aufrichtig leid, aber ich glaube, ich habe Ihren Schal verlegt.	I'm really sorry, but I seem to have misplaced your scarf.	6702
 schlagt	Schlagt euer Buch auf Seite zehn auf.	Open your book to page ten.	6704
 schlagt	Schlagt Tom!	Hit Tom.	6704
@@ -18789,8 +18765,6 @@ liefen	Wir liefen der Katze nach.	We ran after the cat.	6750
 liefen	Wir liefen 10 Kilometer weit.	We ran for 10 kilometers.	6750
 liefen	Die Kinder liefen den Hügel hinunter.	The children ran down the hill.	6750
 schale	Es ist kein Zucker in der Schale.	There is no sugar in the bowl.	6751
-schale	Schäle bitte die Kartoffeln.	Please scrape the skin off the potatoes.	6751
-schale	Ich schäle Äpfel.	I am peeling apples.	6751
 pressen	Wir pressen die Orange aus und werfen die Schale weg.	We squeeze the orange and throw away the rind.	6751
 restaurants	Gibt es hier in der Umgebung irgendwelche guten Restaurants?	Are there any good restaurants around here?	6752
 restaurants	Ich habe es satt, in Restaurants zu essen.	I'm fed up with eating in restaurants.	6752
@@ -19830,7 +19804,6 @@ perlen	Diese Perlen sehen echt aus.	These pearls look real.	7148
 perlen	Seine Zähne sind weiß wie Perlen.	His teeth are pearly white.	7148
 perlen	Sind das echte Perlen oder falsche?	Are the pearls real or fake?	7148
 schwulen	Ich habe einen schwulen Nachbarn.	I have a gay neighbor.	7149
-schwulen	Tom hält die schwülen Sommer hier nicht aus. Darum geht er in die Berge.	Tom can't stand the hot and muggy summers here, so he heads for the mountains.	7149
 schwulen	Er hat einen schwulen Sohn.	He has a gay son.	7149
 dutzende	Ich bin dutzende Male dort gewesen.	I went there dozens of times.	7150
 dutzende	Dutzende von Studenten haben sich hier versammelt.	Dozens of students gathered there.	7150
@@ -20113,9 +20086,6 @@ debatte	Er nahm an der Debatte teil.	He participated in the debate.	7256
 debatte	Tom nahm an der Debatte teil.	Tom participated in the debate.	7256
 debatte	Diese Debatte führt zu nichts.	This debate won't get us anywhere.	7256
 informant	Tom ist Informant.	Tom is an informer.	7257
-masse	Ich hatte gehört, dass er dick war, aber ich hätte nicht gedacht, dass er in dem Maße dick wäre.	I had heard that he was fat, but I didn't think he would be that fat.	7258
-masse	Ich frage mich, ob Tom sich in dem gleichen Maße dafür interessiert wie Maria.	I wonder if Tom is as interested in this as Mary is.	7258
-masse	Die Maße müssen stimmen.	The measurements must be precise.	7258
 insekten	Diese Art von Insekten ist in Japan weit verbreitet.	These insects are widely distributed throughout Japan.	7259
 insekten	Mein Hobby ist das Sammeln von Insekten.	My pastime is collecting insects.	7259
 insekten	Wer mag Insekten?	Who likes insects?	7259
@@ -21901,7 +21871,6 @@ gerochen	Tom hat etwas gerochen.	Tom smelled something.	7954
 meintest	Was meintest du mit diesem Satz?	What did you mean by this sentence?	7955
 meintest	Meintest Du das ernst?	Did you mean it?	7955
 meintest	Das war es wohl nicht, was du meintest.	I don't believe that's what you meant to say.	7955
-wusstet	Es bringt nichts, so zu tun, als wüsstet ihr nichts darüber.	It is no use pretending you know nothing about it.	7956
 wusstet	Wusstet ihr das?	Did you know that?	7956
 wusstet	Wusstet ihr, dass Tom beinahe Maria geheiratet hätte?	Did you know that Tom almost married Mary?	7956
 drehst	Drehst du gerade durch?	Are you freaking out?	7958
@@ -21942,8 +21911,6 @@ wunderschöner	Danke, Tom! Es war ein wunderschöner Abend!	Thanks, Tom. I had a
 wunderschöner	Die Welt ist ein wunderschöner Ort.	The world is a beautiful place.	7971
 wunderschöner	Was für ein wunderschöner Satz!	What a beautiful sentence!	7971
 naht	Die Luft heute Morgen ist kalt. Der Winter naht.	The air feels cold this morning; winter is approaching.	7972
-naht	Sie näht ein Kleid.	She is sewing a dress.	7972
-naht	Tom näht seine Jacke.	Tom is sewing his jacket.	7972
 handtücher	Die Handtücher sind dreckig.	The towels are dirty.	7973
 handtücher	Hast du die Handtücher gezählt?	Have you counted the towels?	7973
 handtücher	Kann ich ein paar saubere Handtücher bekommen?	Can I get some clean towels?	7973
@@ -22103,7 +22070,6 @@ taxifahrer	Sage dem Taxifahrer, dass er schneller fahren soll.	Tell the taxi dri
 länge	Heute haben Tag und Nacht die gleiche Länge.	The lengths of day and night are the same today.	8042
 länge	Ich ging die Straße der Länge nach.	I walked the length of the street.	8042
 länge	Ich kenne die genaue Länge dieser Brücke nicht.	I don't know the exact length of this bridge.	8042
-miss	Miß die Länge.	Measure the length.	8042
 träumst	Du träumst.	You're dreaming.	8043
 träumst	Davon träumst du!	In your dreams!	8043
 träumst	Träumst du auf Französisch?	Do you dream in French?	8043
@@ -22561,9 +22527,6 @@ verstößt	Es verstößt gegen meine Prinzipien.	It's against my principles.	823
 ähnelt	Er ähnelt seiner Mutter.	He resembles his mother.	8239
 ähnelt	Sie ähnelt ihrer Mutter.	She takes after her mother.	8239
 ähnelt	Das Mädchen ähnelt seiner Mutter.	The girl resembles her mother.	8239
-bote	Ich böte Ihnen die Stelle gerne an.	I would like to offer you the position.	8242
-bote	Ich böte dir die Stelle gerne an.	I would like to offer you the position.	8242
-bote	Tom wollte nicht mehr, als eine Frau zu finden, die alle Liebe, die er böte, annähme.	All Tom wanted was to find a woman who would accept all the love he could give.	8242
 kooperation	Ich weiß Ihre Kooperation wirklich zu schätzen.	I really appreciate your cooperation.	8244
 schwerkraft	Wenn du die Schwerkraft zu deinem Vorteil nutzen kannst, tu es.	If you can use gravity to your advantage, do so.	8245
 schwerkraft	Wenn du die Schwerkraft zu deinem Vorteil nutzen kannst, so mache das.	If you can use gravity to your advantage, do so.	8245
@@ -22677,7 +22640,6 @@ gastgeber	Wenn du nicht weißt, was zu tun ist, frage den Gastgeber.	When you do
 gastgeber	Er ist der Gastgeber der Show.	He's the show host.	8284
 floss	Blut floss aus seiner Wunde.	Blood ran from his wound.	8285
 floss	Das Blut floss ihr über die Brust.	Her blood flowed over her chest.	8285
-floss	Der Junge fuhr auf einem Floß den Fluss entlang.	The boy went down the river on a raft.	8285
 innenstadt	Wir wohnen in der Innenstadt.	We live in the center of the city.	8286
 innenstadt	Ich gehe nicht in die Innenstadt.	I don't go downtown.	8286
 innenstadt	Das Hotel, in dem er wohnt, befindet sich in der Innenstadt.	The hotel he's living in is downtown.	8286
@@ -22695,7 +22657,6 @@ ratschlag	Ihr Ratschlag hat mich dazu gebracht, ins Ausland zu gehen.	Her advice
 ratschlag	Ich bin dir für deinen Ratschlag sehr dankbar.	I am very grateful to you for your advice.	8290
 scham	Er wurde vor Scham rot.	He blushed with shame.	8291
 scham	Sie wurde rot vor Scham.	She blushed with shame.	8291
-scham	Schäm dich!	Shame on you!	8291
 intensiv	Ich will von nun an Englisch intensiv lernen.	I will study English hard from now on.	8292
 intensiv	Du musst intensiv lernen.	You must study hard.	8292
 intensiv	Der Wettkampf um diese Position ist sehr intensiv.	Competition for the position is very intense.	8292
@@ -22758,8 +22719,6 @@ physik	Die Mathematik ist wie die Logik der Physik.	Mathematics is like the logi
 physik	Ich mag Mathe nicht, noch weniger Physik.	I don't like math, much less physics.	8318
 physik	Ich mag Physik und Mathematik mag ich noch mehr.	I like physics, and I like mathematics even more.	8318
 dosen	Sie legen Fisch in Dosen ein.	They can fish.	8319
-dosen	Ich bin oft am Dösen.	I'm often half-asleep.	8319
-dosen	Ich bin am Dösen.	I am dozing.	8319
 möchtet	Wie viel Geld möchtet ihr?	How much money do you want?	8320
 möchtet	Möchtet ihr, dass ich euch helfe?	Do you wish me to help?	8320
 möchtet	Möchtet ihr mit uns spielen?	Would you like to play with us?	8320
@@ -22814,7 +22773,6 @@ liefere	Liefere Tom keinen weiteren Vorwand.	Don't give Tom another excuse.	8342
 anschließend	Ich werde es dir anschließend sagen.	I'll tell you afterwards.	8343
 anschließend	Anschließend möchte ich ins Hotel gehen.	Afterwards, I want to go to the hotel.	8343
 anschließend	Wenn ich nur 5 Minuten deine Stimme höre, bin ich anschließend 23 Stunden und 55 Minuten glücklich.	When I hear your voice for only 5 minutes, I am happy afterwards for 23 hours and 55 minutes.	8343
-grube	Was würde passieren, wenn ich dort gerade nach unten grübe?	What would happen if I dug straight down there?	8344
 grube	Statt dem Feind eine Grube zu graben, bau dem Freund ein Haus.	Instead of digging a pit for your enemy, you should build your friend a house.	8344
 beatrice	Das ist meine Mutter. Sie heißt Beatrice.	This is my mother. Her name is Beatrice.	8345
 flieht	Tom flieht.	Tom is escaping.	8346
@@ -22956,9 +22914,7 @@ kerlen	Maria hat etwas mit zwei Kerlen am Laufen.	Mary is dating two different g
 zuverlässig	Soweit ich weiß, ist er ehrlich und zuverlässig.	As far as I know, he is honest and reliable.	8406
 zuverlässig	Er ist zwar jung, aber sehr zuverlässig.	It is true that he is young, but he is very reliable.	8406
 zuverlässig	Du bist zuverlässig.	You're reliable.	8406
-ole	Öle dieses Fahrrad.	Oil this bicycle.	8407
 ole	Ole hat einen langen, grauen Bart.	Ole has a long gray beard.	8407
-ole	Olé, olé, wir sind Meister!	Olé, olé, we are the champions!	8407
 aufprall	Ich hörte einen Schrei und dann einen Aufprall.	I heard a shout and then a crash.	8408
 hochzeiten	Es gab hier gestern zwei Hochzeiten.	There were two marriages here yesterday.	8409
 hochzeiten	Man kann nicht auf zwei Hochzeiten tanzen.	You can't have your cake and eat it too.	8409
@@ -23448,12 +23404,9 @@ aufführung	Ich bin mit ihrer Aufführung zufrieden.	I'm pleased with her perfor
 fraß	Der Hund fraß das Fleisch nicht.	The dog didn't eat the meat.	8614
 fraß	Tom fraß wie ein Schwein.	Tom ate like a pig.	8614
 fraß	Die Katze fraß die Maus.	The cat ate the mouse.	8614
-abfahrt	Es ist noch etwas Zeit, bis der Zug abfährt.	There is a little time before the train departs.	8615
 abfahrt	Wir haben die Abfahrt verpasst.	We missed the exit.	8615
-abfahrt	Wir wollen nicht, dass der Bus ohne uns abfährt.	We don't want the bus leaving without us.	8615
 briefkasten	Wo ist der Briefkasten?	Where is the mailbox?	8617
 briefkasten	Gibt es hier in der Nähe einen Briefkasten?	Is there a mailbox near here?	8617
-briefkasten	Wir sehen in unsere Briefkästen.	We are checking our mailboxes.	8617
 obhut	Sobald etwas in den Briefkasten geworfen wird, befindet es sich in der Obhut der Post.	Once a thing is posted, it is in the care of the Post Office.	8617
 zahlung	Bei dieser Bestellung steht die Zahlung noch aus.	This order is pending payment.	8618
 häftling	Ein Häftling ist aus dem Gefängnis ausgebrochen.	A convict has escaped from prison.	8619
@@ -24148,7 +24101,6 @@ hungern	Wir ertrinken in Informationen, aber wir hungern nach Wissen.	We drown i
 hungern	Wir müssen nicht hungern.	We don't have to starve.	8909
 verschwanden	Als ich ankam, verschwanden sie schnell aus dem Haus.	When I arrived, they quickly cleared out of the house.	8910
 verschwanden	Sie verschwanden.	They vanished.	8910
-verschwanden	Wie wär’s, wenn wir hier verschwänden?	How about we get out of here?	8910
 therapeuten	Glaubst du wirklich, dass ich mich an einen Therapeuten wenden sollte?	Do you really think I should see a therapist?	8912
 therapeuten	Sie verliebte sich in ihren Therapeuten.	She fell in love with her therapist.	8912
 therapeuten	Du solltest einen Therapeuten aufsuchen.	You should see a therapist.	8912
@@ -25191,7 +25143,6 @@ frühere	Ich vermisse unsere frühere Nähe.	I miss the intimacy we used to have
 frühere	Er erzählt eine neue Lüge, um eine frühere zu decken.	He's telling a new lie to cover a previous one.	9324
 missbrauch	Nach drei Jahren Missbrauch verließ sie ihren Freund.	She walked out on her boyfriend after three years of abuse.	9325
 missbrauch	Ich bin gegen jegliche Art von Missbrauch.	I'm against any kind of abuse.	9325
-missbrauch	Warum sollte man Selbstmord durch Mißbrauch eines Polizisten begehen?	Why would you commit suicide by cop?	9325
 seminar	Das ganze Seminar war ruhig.	The whole class was quiet.	9326
 seminar	In meinem Seminar sind dreißig Studenten.	There are thirty students in my class.	9326
 seminar	Wir sprechen in diesem Seminar über Sprachen.	We are talking about languages in this seminar.	9326
@@ -26194,8 +26145,6 @@ praktikum	Mein Praktikum endet heute.	My internship ends today.	9754
 praktikum	Heute endet mein Praktikum.	My internship ends today.	9754
 praktikum	Wie läuft das Praktikum?	How's your internship going?	9754
 grossen	Ich habe einen grossen Bruder und zwei kleine Schwestern.	I have one big brother and two little sisters.	9755
-grossen	Sind das alle Größen, die Sie haben?	Are these all the sizes you have?	9755
-grossen	Diese Gemälde haben unterschiedliche Größen.	These paintings are different sizes.	9755
 märtyrer	Spiel dich nicht als Märtyrer auf!	Stop making a martyr of yourself.	9757
 blutest	Du blutest an der Nase.	Your nose is bleeding.	9758
 blutest	Warum blutest du?	Why are you bleeding?	9758
@@ -26394,8 +26343,6 @@ zeitmaschine	Tom hat eine Zeitmaschine.	Tom has a time machine.	9844
 weiterzumachen	Wir können es uns nicht leisten, so weiterzumachen wie bisher.	We can't afford to keep doing things the way we've been doing them.	9845
 weiterzumachen	Was treibt dich an weiterzumachen?	What keeps you going?	9845
 weiterzumachen	Ich war zu müde, um weiterzumachen.	I was too tired to go on.	9845
-beiss	Beiß mal rein!	Take a bite.	9846
-beiss	Hast du dir schon mal eine Bevor-ich-ins-Gras-beiß’-Liste gemacht?	Have you ever made a bucket list?	9846
 kleinsten	Wie läuft's bei deiner kleinsten Schwester?	How are things going with your youngest sister?	9847
 kleinsten	Ich sehe auch den kleinsten Fleck.	I can see the tiniest spot.	9847
 kleinsten	Bei der kleinsten Bewegung puste ich dir das Gehirn aus dem Schädel!	If you move, I'll blow your brains out.	9847
@@ -26407,14 +26354,10 @@ sprit	Bei unserem Auto war nach zehn Minuten der Sprit alle.	Our car ran out of 
 initialen	Wie lauten deine Initialen?	What are your initials?	9850
 ansprache	Seine Ansprache ist eine kurze Rede.	His address is a concise speech.	9851
 ansprache	Tom hat seine Ansprache mit einem Sprichwort beendet.	Tom concluded his speech with a proverb.	9851
-ansprache	Tom wollte, dass Maria Johannes gegenüber das Problem anspräche, das sie mit seinen Kindern hatte.	Tom wanted Mary to talk to John about the problem she was having with his children.	9851
 recherchiert	Er hat selbst recherchiert.	He did his own research.	9852
 erfuhren	Wir erfuhren, dass er einen Unfall hatte.	We learned that he had an accident.	9853
-erfuhren	Was würde deine Eltern am meisten überraschen, wenn sie es über dich erführen?	What would your parents be most surprised to learn about you?	9853
-erfuhren	Maria wollte nicht, dass ihre Eltern es erführen.	Mary didn't want her parents to find out.	9853
 zahlte	Er zahlte das Geld auf sein Konto ein.	He paid the money into his account.	9854
 zahlte	Er zahlte einen zu hohen Preis für den Erfolg.	He paid too high a price for success.	9854
-zahlte	Ich zählte bis 200.	I counted up to 200.	9854
 inklusive	Er zahlte die Schulden inklusive Zinsen.	He paid the loan with interest.	9854
 zinsen	Er zahlte die Schulden inklusive Zinsen.	He paid the loan with interest.	9854
 eingebaut	Es kann nicht entfernt werden. Es ist fest eingebaut.	It can't be removed. It's fixed.	9855
@@ -26581,7 +26524,6 @@ sonderlich	Das ist nicht sonderlich beruhigend.	That's not very reassuring.	9919
 sonderlich	Tom gefiel nicht sonderlich, was er sah.	Tom didn't much like what he saw.	9919
 prag	Prag ist sehr schön.	Prague is very beautiful.	9920
 prag	Was wird dein Mann drei Tage in Prag tun?	What will your husband do for three days in Prague?	9920
-prag	Präg es dir ein.	Memorize it.	9920
 frösche	Frösche haben Angst vor Schlangen.	Frogs are afraid of snakes.	9921
 frösche	Auf dieser Wiese gibt es viele Frösche.	This meadow abounds in frogs.	9921
 frösche	Frösche verwandeln sich nur in Märchen in Prinzen.	Frogs turn into princes only in fairy tales.	9921
@@ -27118,7 +27060,6 @@ aufträge	Ihre Aufgabe besteht darin, falsche Aufträge zu erteilen, um dem Konk
 bereitschaft	Die Bereitschaft zur Korrektur ist ein Zeichen von Weisheit.	Willingness to correct is a sign of wisdom.	19999
 forscher	Die Forscher haben Affen dazu trainiert, Videospiele zu spielen.	The researchers trained monkeys to play a video game.	19999
 gouverneur	Er wurde 1994 zum Gouverneur von Texas gewählt.	He was elected governor of Texas in 1994.	19999
-edith	Édith Piaf war eine französische Sängerin.	Edith Piaf was a French singer.	19999
 simone	Simone Signoret war eine französische Schauspielerin.	Simone Signoret was a French actress.	19999
 groll	Es ist nicht schlimm, ich hege keinen Groll gegen ihn.	It's not serious, I don't bear him a grudge.	19999
 argentinien	Argentinien ist das zweitgrößte Land in Südamerika.	Argentina is the second largest country in South America.	19999
@@ -27248,7 +27189,6 @@ don	Sei bei ihm vorsichtig! Er ist ein Don Juan.	Be careful with him. He's a Don
 mönche	Diese Mönche leben im Kloster.	These monks live inside the monastery.	19999
 spender	Sie benötigt eine Knochenmarktransplantation, aber sie hat noch keinen Spender gefunden.	She needs a bone marrow transplant, but she has not found a donor yet.	19999
 dosis	Eine gesunde Dosis Skepsis ist wesentlich, wenn man einem Politiker zuhört.	A healthy dose of skepticism is vital when listening to a politician speak.	19999
-beiss	Beiß nie die Hand, die dich füttert.	Never bite the hand that feeds you.	19999
 rast	Wir legten unterwegs eine Rast zum Mittagessen ein.	We stopped along the way to have lunch.	19999
 attentat	Auf den Präsidenten wurde ein Attentat verübt.	There was an attempt on the president's life.	19999
 verluste	Der Feind erlitt große Verluste.	The enemy suffered many casualties.	19999
@@ -27298,7 +27238,7 @@ glotzt	Tom bleibt den ganzen Tag drinnen und glotzt in den Computer.	Tom stays i
 lücke	Bitte, beachten Sie die Lücke zwischen Zug und Bahnsteigkante.	Please mind the gap between the train and the platform.	19999
 prediger	Ich, der Prediger, war König über Israel zu Jerusalem.	I, the Preacher, was king over Israel in Jerusalem.	19999
 abgezogen	Man hat ihm bei lebendigem Leib die Haut abgezogen.	They skinned him alive.	19999
-rohre	Wer zuerst kommt malt zuerst, hieß es, und die ersten hundert Kunden bekamen einen Gutschein; wer später kam, musste in die Röhre gucken.	First come, first serve, was the word, and the first hundred customers got a certificate; whoever came later was shit out of luck.	19999
+röhre	Wer zuerst kommt malt zuerst, hieß es, und die ersten hundert Kunden bekamen einen Gutschein; wer später kam, musste in die Röhre gucken.	First come, first serve, was the word, and the first hundred customers got a certificate; whoever came later was shit out of luck.	19999
 abzug	Tom nahm den Finger vom Abzug.	Tom took his finger off the trigger.	19999
 leinwand	Diese Welt ist nur die Leinwand für unsere Phantasien.	This world is but canvas to our imaginations.	19999
 union	Seit dem ersten Mai 2004 ist Polen Mitglied der Europäischen Union.	Poland has been a member of the European Union since 1 May 2004.	19999
@@ -27798,7 +27738,6 @@ armeen	Schach ist ein Spiel, das den Konflikt zwischen zwei Armeen simuliert.	Ch
 hanna	Tante Hanna kommt diesmal nicht – vielleicht nächstesmal.	We won't be seeing Auntie Jo this time round – maybe next time.	19999
 verlobter	Ich bin Marias Verlobter.	I'm Máire's fiancé.	19999
 seuche	Treffen Sie sich mit so wenigen wie möglich, damit sich die Seuche nicht noch weiter ausbreitet!	Limit the number of contacts you have to prevent the spread of the disease.	19999
-helene	Jacques und Hélène sind begeistert von dem, was sie getan haben.	Jacques and Hélène are delighted with what they've done.	19999
 madame	Kann ich Madame Tussauds besuchen?	Can I visit Madame Tussauds?	19999
 abzeichen	Tom küsst das Abzeichen jetzt, aber wenn ihm United mehr Geld böte, wäre er schneller weg, als man gucken könnte.	Tom's kissing the badge now, but if United offered him more money, he'd be out of the door like a shot.	19999
 untergrund	Sie fand ein Pfund im Untergrund-Zug.	She found a pound on the underground.	19999
@@ -27905,7 +27844,6 @@ würmer	Wenn man einen vollen Magen hat, hat jede Guave Würmer.	When your belly
 hauptquartier	Haben Sie Meldung im Hauptquartier gemacht?	Did you report to headquarters?	19999
 würmer	Sind Raupen Würmer?	Are caterpillars worms?	19999
 business	Es ist höchste Zeit, dass du ein neues Business startest.	It is high time you started a new business.	19999
-saugen	Du mußt Juri noch fünf Monate säugen.	You need to keep breast-feeding Yuri for another five months.	19999
 kanone	Es scheint ein Schrubber für die Kanone zu sein.	It seems to be a swab for the cannon.	19999
 bordell	Dies ist ein Hotel und kein Bordell.	This is a hotel, not a brothel.	19999
 lanze	Der Ritter hatte einen blauen Wimpel am Ende seiner Lanze hängen.	The knight had a blue pennon hanging from the end of his lance.	19999
@@ -27961,7 +27899,6 @@ psychiatrie	Sie wurde in die Psychiatrie eingewiesen.	She was sent to a mental h
 psychiatrie	Sie wurde in die Psychiatrie eingeliefert.	She was admitted to a mental hospital.	19999
 thor	Thor war einer der nordischen Götter.	Thor was one of the Norse gods.	19999
 thor	Thor zählte zu den nordischen Göttern.	Thor was one of the Norse gods.	19999
-therese	Thérèse, es gibt Jahre, in denen die Apfelbäume keine Äpfel tragen.	Teresa, there are years when the apple trees don't have any apples.	19999
 ministerium	Er ist irgendein hohes Tier im Ministerium.	He's some high-up in the ministry.	19999
 schichten	Sami bezahlt seine Kollegen dafür, daß die seine Schichten übernehmen.	Sami pays his co-workers to work his shifts for him.	19999
 aktivität	Hie und da konnte waren Spuren menschlicher Aktivität sichtbar.	Here and there, you could see signs of human activity.	19999
@@ -27980,7 +27917,6 @@ viktor	„Maria lernt jetzt Ungarisch.“ – „Wegen Viktor?“ – „Trotz V
 staates	Die Vermittlung eines Staates in einem Streit zwischen anderen Mächten wird als Mediation bezeichnet.	The intervention of a nation in a dispute between other powers is called mediation.	19999
 vermittlung	Die Vermittlung eines Staates in einem Streit zwischen anderen Mächten wird als Mediation bezeichnet.	The intervention of a nation in a dispute between other powers is called mediation.	19999
 marihuana	Johannes ist dafür, daß Marihuana legalisiert wird.	John supports the legalization of marijuana.	19999
-ka	Das einzige Wort auf Thailändisch, das ich kenne, ist „ká“.	"The only word of Thai I know is ""ká."""	19999
 gewehre	Sie machten sich bereit, die Gewehre abzufeuern.	They prepared to shoot their rifles.	19999
 beamter	Der Beamter wird die Informationen im Formular nachsehen.	The civil servant will check the information in the form.	19999
 beschissenes	Was für ein beschissenes Arschgesicht benimmt sich denn so?	What kind of a rotten asswipe would behave that way?	19999

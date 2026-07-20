@@ -97,7 +97,6 @@ word	sentence	translation	difficulty_rank
 ξέρεις	Τον ξέρεις;	Do you know him?	60
 να	Θέλω να ξέρω ό,τι ξέρεις.	I want to know what you know.	60
 ξέρεις	Θέλω να ξέρω ό,τι ξέρεις.	I want to know what you know.	60
-ο	Θέλω να ξέρω ό,τι ξέρεις.	I want to know what you know.	60
 με	Με ξέρεις;	Do you know me?	60
 έτσι	Ξέρεις γιατί, έτσι δεν είναι;	You know why, don't you?	60
 έχεις	Τι έχεις;	What do you have?	61
@@ -154,7 +153,6 @@ word	sentence	translation	difficulty_rank
 έχω	Έχω κάτι να κάνω.	I've got something to do.	73
 για	Δεν μπορώ να κάνω τίποτα για σας.	I can't do anything for you.	73
 αν	Δεν ξέρω αν μπορώ να το κάνω.	I don't know if I can do it.	73
-ο	Θα κάνω ό,τι μπορώ.	I'll do what I can.	73
 εσύ	Κάνω πολύ καλά, ευχαριστώ, και εσύ;	I'm doing very well, thank you, and you?	73
 αλλά	Δεν είμαι αυτό που κάνω, αλλά αυτό που μπορώ να κάνω!	I'm not what I do, but what I can do!	73
 που	Δεν είμαι αυτό που κάνω, αλλά αυτό που μπορώ να κάνω!	I'm not what I do, but what I can do!	73
@@ -545,7 +543,7 @@ word	sentence	translation	difficulty_rank
 ιδέα	Αυτή είναι καλή ιδέα.	That's a good idea.	226
 ιδέα	Είναι μια καλή ιδέα!	That's a good idea!	226
 ιδέα	Έχω μια ιδέα.	I have an idea.	226
-α	Ά, δεν έχω ιδέα!	Oh, I have no idea!	226
+ά	Ά, δεν έχω ιδέα!	Oh, I have no idea!	226
 είχε	Αυτή είχε μια καλή ιδέα.	She had a good idea.	226
 όλη	Δεν ξέρω όλη την αλήθεια.	I don't know the whole truth.	227
 όλη	Όλη την ώρα, αυτό κάνουμε	We do that all the time.	227
@@ -767,7 +765,6 @@ word	sentence	translation	difficulty_rank
 μεγάλη	Η πόλη είναι μεγάλη.	The city is big.	303
 πόλη	Η πόλη είναι μεγάλη.	The city is big.	303
 βρω	Θα ήθελα να βρω μια δουλειά που μου αρέσει να κάνω.	I'd like to find a job that I enjoy doing.	304
-βρω	Πρέπει να τη βρώ τώρα.	I have to find her now.	304
 βρω	Πώς θα το βρω;	How will I find it?	304
 τρόπο	Θα βρω έναν τρόπο να το κάνω.	I'll find a way to do it.	304
 κορίτσι	Ποιο είναι αυτό το κορίτσι;	Who is this girl?	305
@@ -1290,7 +1287,6 @@ word	sentence	translation	difficulty_rank
 φοβάμαι	Για να σου πω την αλήθεια, φοβάμαι λίγο.	To tell you the truth, I'm a little afraid.	497
 φοβάμαι	Φοβάμαι ότι κάνεις λάθος.	I'm afraid you're wrong.	497
 φοβάμαι	Σε φοβάμαι.	I'm afraid of you.	497
-γιος	Πού είναι ο γιός μου;	Where's my son?	498
 μπαμπάς	Ο μπαμπάς μου είναι ο γιος της.	My dad is her son.	498
 γιος	Ο μπαμπάς μου είναι ο γιος της.	My dad is her son.	498
 κορίτσια	Γεια σας κορίτσια.	Hello, girls.	499
@@ -1906,8 +1902,6 @@ word	sentence	translation	difficulty_rank
 κόσμος	Ο κόσμος είναι πολύ μεγάλος.	The world is very big.	791
 μεγάλος	Ο κόσμος είναι πολύ μεγάλος.	The world is very big.	791
 ποιοι	Πες τους ποιοι είμαστε.	Tell them who we are.	792
-ποιοι	Ποιοί είναι οι γονείς σου;	Who are your parents?	792
-ποιοι	Ποιοί είναι οι γονείς σας;	Who are your parents?	792
 ως	Να σε βγάλω ως την πόρτα.	Let me take you to the door.	794
 βγάλω	Να σε βγάλω ως την πόρτα.	Let me take you to the door.	794
 πόρτα	Να σε βγάλω ως την πόρτα.	Let me take you to the door.	794
@@ -2067,7 +2061,6 @@ word	sentence	translation	difficulty_rank
 έφερα	Σου έφερα κάτι.	I've brought you something.	890
 ψυχή	Το τραπέζι δεν έχει ψυχή.	The table doesn't have a soul.	892
 γιε	Τι είναι αυτό, γιε μου;	What is that, my son?	894
-γιε	Τι είναι αυτό, γιέ μου;	What is that, my son?	894
 πηγαίνω	Πηγαίνω σχολείο.	I go to school.	895
 πηγαίνω	Πηγαίνω σχολείο κάθε πρωί.	I go to school every morning.	895
 πηγαίνω	Πηγαίνω σε ένα ταξίδι.	I'm going on a trip.	895
@@ -3394,7 +3387,6 @@ word	sentence	translation	difficulty_rank
 επείγον	Είναι τόσο επείγον;	Is it that urgent?	1736
 επείγον	Ήταν επείγον.	It was urgent.	1736
 επείγον	Πείτε τους ότι είναι επείγον.	Tell them it's urgent.	1736
-πιω	Θέλω να πιώ ένα καφέ.	I want to drink a coffee.	1739
 πιω	Θέλω να πιω κάτι.	I want to drink something.	1739
 πιω	Θέλω να πιω λίγο νερό.	I want to drink some water.	1739
 ανοίξει	Η πόρτα δεν ήθελε να ανοίξει.	The door would not open.	1741
@@ -3896,7 +3888,6 @@ word	sentence	translation	difficulty_rank
 γκαράζ	Το αυτοκίνητο είναι μπροστά από το γκαράζ.	The car is in front of the garage.	2097
 βγαίνεις	Δε νομίζω ότι σου κάνει καλό να βγαίνεις μαζί του.	I don't think your seeing him is good for you.	2099
 βγαίνεις	Βγαίνεις έξω;	Are you going out?	2099
-πιει	Θα πιεί λίγο γάλα.	She's going to drink some milk.	2101
 πιει	Έχω πιει το κρασί.	I have drunk the wine.	2101
 πιει	Κανείς δε θέλει να πιει;	Is anybody thirsty?	2101
 φαντασία	Η φαντασία σου είναι.	It is just your imagination.	2103
@@ -5513,7 +5504,6 @@ word	sentence	translation	difficulty_rank
 εγκέφαλος	Ο εγκέφαλος και το μυαλό είναι δύο διαφορετικά πράγματα.	The brain and the mind are two different things.	3928
 διαφορετικά	Ο εγκέφαλος και το μυαλό είναι δύο διαφορετικά πράγματα.	The brain and the mind are two different things.	3928
 υπογράψω	Δε θα το υπογράψω αυτό.	I won't sign this.	3931
-γιους	Ο Τζον έχει δύο γιούς.	John has two sons.	3932
 είχαν	Είχαν τρεις γιους.	They had three sons.	3932
 γιους	Είχαν τρεις γιους.	They had three sons.	3932
 γιους	Αυτός είχε τρεις γιους που έγιναν δικηγόροι.	He had three sons who became lawyers.	3932
@@ -6938,7 +6928,6 @@ word	sentence	translation	difficulty_rank
 πρόβατο	Είναι το μαύρο πρόβατο της οικογένειας.	He's the black sheep of the family.	6270
 λαμπρή	Τι λαμπρή ιστορία που είναι.	What a shining story it is.	6272
 αργό	Ποιού το αυτοκίνητο είναι αργό, το δικό του ή το δικό της;	Whose car is slow, his or mine?	6281
-ποιου	Ποιού το αυτοκίνητο είναι αργό, το δικό του ή το δικό της;	Whose car is slow, his or mine?	6281
 τραγουδιστής	Η επιθυμία μου είναι να γίνω τραγουδιστής.	My wish is to be a singer.	6282
 τραγουδιστής	Είμαι τραγουδιστής.	I am a singer.	6282
 τραγουδιστής	Είναι καλός τραγουδιστής.	He is a good singer.	6282
@@ -8138,7 +8127,6 @@ word	sentence	translation	difficulty_rank
 ξανθά	Η Άννα έχει μαύρα μαλλιά αλλά η Μαγδαληνή έχει ξανθά .	Ania has brown hair, but Magdalena has blonde hair.	19999
 ξεκινάει	Πότε ξεκινάει η επόμενη ξενάγηση;	When is the next guided tour?	19999
 μάγια	Η Μάγια Κέουτς είναι καλή τραγουδίστρια.	Maja Keuc is a good singer.	19999
-κλαις	Σε παρακαλώ, μην κλαίς.	Please don't cry.	19999
 νησιά	Υπάρχουν πολλά νησιά στην Ελλάδα.	There are many islands in Greece.	19999
 αυγή	Φτάσανε εκεί πριν την αυγή.	They arrived there before dawn.	19999
 τραγούδια	Θέλουμε να μάθουμε μερικά ισπανικά τραγούδια.	We want to learn some Spanish songs.	19999
@@ -9066,7 +9054,6 @@ word	sentence	translation	difficulty_rank
 καλοσύνη	Εκτίμησα την καλοσύνη σας.	I appreciated your kindness.	19999
 καλοσύνη	Εκτίμησα την καλοσύνη σου.	I appreciated your kindness.	19999
 βουνό	Θέλω να πάω στο βουνό.	I want to go to the mountain.	19999
-βγω	Θα βγώ το βράδυ με τη Λίζα.	I'm going out with Lisa tonight.	19999
 πήραν	Οι γονείς του Τομ πήραν διαζύγιο, όταν ήταν ακόμα πολύ μικρός.	Tom's parents got divorced when he was very young.	19999
 διαζύγιο	Οι γονείς του Τομ πήραν διαζύγιο, όταν ήταν ακόμα πολύ μικρός.	Tom's parents got divorced when he was very young.	19999
 εξαιρέσεις	Οι εξαιρέσεις επιβεβαιώνουν τον κανόνα.	Exceptions prove the rule.	19999

@@ -79,6 +79,10 @@ function LearnInner({ onLocaleChanged }: { onLocaleChanged: () => void }) {
   // a correct answer confirms THAT card into the review queue. Items never
   // checked stay suspended and are re-taught next time.
   const [passedCards, setPassedCards] = useState<Set<string>>(new Set())
+  // Cards passed on the right word but with missing/wrong accents — shown
+  // amber ("check the accents"), never a green ✓ (beta report: accentless
+  // answers read as fully correct even with accents-optional OFF).
+  const [sloppyCards, setSloppyCards] = useState<Set<string>>(new Set())
   const [quizInput, setQuizInput] = useState('')
   const [quizResult, setQuizResult] = useState<ValidateAnswerResponse | null>(null)
 
@@ -173,6 +177,7 @@ function LearnInner({ onLocaleChanged }: { onLocaleChanged: () => void }) {
   const languageCode = language?.code ?? 'en'
   // Advancing requires passing this lesson's check (when it has one).
   const currentPassed = !lesson?.quiz || passedCards.has(lesson.card_id)
+  const currentSloppy = !!lesson?.quiz && sloppyCards.has(lesson.card_id)
 
   const goToLesson = (i: number) => {
     setLessonIndex(i)
@@ -202,8 +207,14 @@ function LearnInner({ onLocaleChanged }: { onLocaleChanged: () => void }) {
             res.answer_result === 'correct' ||
             res.answer_result === 'correct_sloppy'
           ) {
+            // Right word either way — the card enters the review queue.
+            // But an accent-only miss ('correct_sloppy' survives the
+            // accents-optional remap only when that pref is OFF) keeps its
+            // amber "check the accents" treatment instead of a green ✓.
+            if (res.answer_result === 'correct_sloppy') {
+              setSloppyCards((prev) => new Set(prev).add(lesson.card_id))
+            }
             setPassedCards((prev) => new Set(prev).add(lesson.card_id))
-            // Correct first check — the card enters the review queue.
             confirmMutation.mutate([lesson.card_id])
           }
         },
@@ -365,7 +376,13 @@ function LearnInner({ onLocaleChanged }: { onLocaleChanged: () => void }) {
                   onSubmit={handleCheck}
                   disabled={currentPassed || validateMutation.isPending}
                   languageCode={languageCode}
-                  result={currentPassed ? 'correct' : quizResult?.answer_result ?? null}
+                  result={
+                    currentPassed
+                      ? currentSloppy
+                        ? 'correct_sloppy'
+                        : 'correct'
+                      : quizResult?.answer_result ?? null
+                  }
                 />
                 {lesson.quiz.transliteration && (
                   <p className="text-sm italic text-gray-500 text-center mt-3">
@@ -394,9 +411,15 @@ function LearnInner({ onLocaleChanged }: { onLocaleChanged: () => void }) {
                     {validateMutation.isPending ? '…' : '→'}
                   </button>
                 )}
-                {currentPassed && lesson.quiz && (
+                {currentPassed && lesson.quiz && !currentSloppy && (
                   <p className="mt-3 text-sm text-green-700 text-center" role="status">
                     ✓ Correct — added to your reviews
+                  </p>
+                )}
+                {currentPassed && lesson.quiz && currentSloppy && (
+                  <p className="mt-3 text-sm text-amber-700 text-center" role="status">
+                    Almost — check the accents: <b>{lesson.quiz.answer}</b>.
+                    Added to your reviews.
                   </p>
                 )}
                 {!currentPassed &&

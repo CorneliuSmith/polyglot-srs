@@ -71,6 +71,7 @@ from backend.services.nlp.latin_base import (
     PortugueseNLP,
     RomanianNLP,
     SpanishNLP,
+    fold_diacritics,
 )
 from backend.services.nlp.russian import RussianNLP
 from backend.services.nlp.swahili import SwahiliNLP
@@ -724,7 +725,13 @@ def build_sentence_rows(
                 words.add(token)
             else:
                 lemma = lemmatize(token)
-                if lemma in rank_by_word:
+                # A lemma match may only bridge real morphology, never bare
+                # diacritics: for accent-folding languages lemmatize("él")
+                # is "el", which used to hand él-sentences to the article
+                # card (and año-sentences to "ano"). If folding alone
+                # explains the match, the sentence does NOT contain this
+                # word — skip it.
+                if lemma in rank_by_word and fold_diacritics(token) != lemma:
                     words.add(lemma)
         if words:
             scored.append((difficulty, sentence, translation, words))
