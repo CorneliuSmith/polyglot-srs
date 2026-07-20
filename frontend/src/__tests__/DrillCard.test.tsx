@@ -277,7 +277,41 @@ describe('listening mode (WP19a)', () => {
     expect(screen.queryByText(/a student/)).toBeNull()
     // …the answer input is not.
     expect(screen.getByRole('textbox')).toBeDefined()
-    expect(screen.getByText(/listen, then type/i)).toBeDefined()
+    expect(screen.getByText(/the pause is the missing word/i)).toBeDefined()
+  })
+
+  it('masks each word but marks the blank position (beta report)', () => {
+    render(
+      <DrillCard
+        sentence="I {{answer}} a student."
+        value=""
+        onChange={() => {}}
+        onSubmit={() => {}}
+        disabled={false}
+        languageCode="en"
+        hideSentence
+      />,
+    )
+    const skeleton = screen.getByTestId('listening-skeleton')
+    // "I" before the blank → one mask; "a student." after → two masks.
+    expect(skeleton.textContent).toBe('▬▬ ___ ▬▬ ▬▬')
+  })
+
+  it('skeleton handles a blank at the start of the sentence', () => {
+    render(
+      <DrillCard
+        sentence="{{answer}} to school."
+        value=""
+        onChange={() => {}}
+        onSubmit={() => {}}
+        disabled={false}
+        languageCode="en"
+        hideSentence
+      />,
+    )
+    expect(screen.getByTestId('listening-skeleton').textContent).toBe(
+      '___ ▬▬ ▬▬',
+    )
   })
 
   it('shows the sentence normally when off', () => {

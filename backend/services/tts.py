@@ -96,10 +96,14 @@ async def _synthesize_azure(
 
     # Voice names carry their locale prefix: en-US-JennyNeural → en-US.
     lang = "-".join(voice.split("-")[:2])
+    # Listening-mode cloze audio replaces the answer with '…' — most
+    # voices read that as NOTHING, so the gap was inaudible (beta
+    # report). A hard break makes the missing word a real silence.
+    body = escape(text).replace("…", "<break time='900ms'/>")
     ssml = (
         f"<speak version='1.0' xml:lang='{lang}'>"
         f"<voice name='{voice}'>"
-        f"<prosody rate='{RATE}'>{escape(text)}</prosody>"
+        f"<prosody rate='{RATE}'>{body}</prosody>"
         f"</voice></speak>"
     )
     async with httpx.AsyncClient(timeout=30) as client:

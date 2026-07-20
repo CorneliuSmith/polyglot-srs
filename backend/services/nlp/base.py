@@ -54,6 +54,29 @@ def _strip_marks(text: str) -> str:
     )
 
 
+def _edit_distance(a: str, b: str, cap: int = 2) -> int:
+    """Levenshtein distance, short-circuited at *cap* (only near-misses
+    matter — anything farther is just wrong)."""
+    if abs(len(a) - len(b)) > cap:
+        return cap + 1
+    prev = list(range(len(b) + 1))
+    for i, ca in enumerate(a, 1):
+        cur = [i]
+        best = i
+        for j, cb in enumerate(b, 1):
+            cost = min(
+                prev[j] + 1,
+                cur[j - 1] + 1,
+                prev[j - 1] + (ca != cb),
+            )
+            cur.append(cost)
+            best = min(best, cost)
+        if best > cap:
+            return cap + 1
+        prev = cur
+    return prev[-1]
+
+
 def _undo_keyboard_typography(user: str, correct: str) -> str:
     """Strip keyboard-added typography from *user*, guarded by *correct*.
 
@@ -255,14 +278,33 @@ class BaseNLP(ABC):
                     f"You typed the aspect partner. Expected: {correct_answer}",
                 )
 
-        # Layer 6: Answer alternatives
+        # Layer 6: Answer alternatives. Callers disagree on the key —
+        # placement sends "answer_alternatives", review/learn sessions send
+        # "alternatives" — so accept both (the mismatch silently disabled
+        # alternatives for every review card).
         alternatives: list[str] = []
         if card_context is not None:
-            alternatives = card_context.get("answer_alternatives") or []
+            alternatives = (
+                card_context.get("answer_alternatives")
+                or card_context.get("alternatives")
+                or []
+            )
         for alt in alternatives:
             norm_alt = self.normalize(unicodedata.normalize("NFC", alt).strip())
             if norm_user == norm_alt:
                 return AnswerResult.CORRECT, None
 
-        # Default
+        # Default. A near-miss (a couple of letters off — usually a DIFFERENT
+        # real word, слышать for слушать) previously failed with no feedback
+        # at all; name both words so the learner sees where they diverge.
+        if (
+            len(norm_user) >= 3
+            and len(norm_correct) >= 3
+            and _edit_distance(norm_user, norm_correct, cap=2) <= 2
+        ):
+            return (
+                AnswerResult.WRONG,
+                f"Close, but that's a different word — compare "
+                f"{user_input.strip()} with {correct_answer}.",
+            )
         return AnswerResult.WRONG, None

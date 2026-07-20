@@ -152,7 +152,11 @@ function ReviewSessionInner({
       session.setValidationResult(result)
       setUserInput('')
     },
+    // A failed check used to die silently — the arrow stayed white and
+    // nothing explained why the answer wouldn't grade (beta report).
+    onError: () => {},
   })
+  const checkFailed = validateMutation.isError
 
   // The session advances optimistically in rate(); if the backend save
   // fails, the review is lost server-side, so surface that to the user.
@@ -528,6 +532,11 @@ function ReviewSessionInner({
             >
               {validateMutation.isPending ? '…' : '→'}
             </button>
+            {checkFailed && (
+              <p className="text-sm text-red-600 text-center" role="alert">
+                Couldn't check that answer — press → to try again.
+              </p>
+            )}
             {maxHint > 0 && (
               <button
                 type="button"
