@@ -14,6 +14,7 @@ router = APIRouter()
 @router.get("/{language_id}")
 async def get_dashboard(
     language_id: str,
+    tz: str = "UTC",
     user: dict = Depends(get_current_user),
 ):
     """Return dashboard stats for the user's given language.
@@ -29,6 +30,8 @@ async def get_dashboard(
             }
         }
     """
+    # *tz* is the browser's IANA zone: the daily-goal counter and streak
+    # roll over at the learner's local midnight, not UTC's.
     async with rls_connection(user["id"]) as conn:
-        stats = await get_dashboard_stats(conn, user["id"], language_id)
+        stats = await get_dashboard_stats(conn, user["id"], language_id, tz=tz)
     return stats
