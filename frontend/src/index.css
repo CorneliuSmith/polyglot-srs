@@ -106,3 +106,19 @@ body {
   padding-left: env(safe-area-inset-left);
   padding-right: env(safe-area-inset-right);
 }
+
+/* Dark mode: react-simple-keyboard ships light keys and inherits the page
+   text color — on dark that was near-white letters on white keys, i.e.
+   invisible (beta report). Restyle the keys to the dark card surface. */
+.dark .simple-keyboard.hg-theme-default {
+  background-color: var(--color-gray-100);
+}
+.dark .simple-keyboard.hg-theme-default .hg-button {
+  background: #1a2130;
+  color: var(--color-gray-900);
+  border-bottom-color: #0d1220;
+}
+.dark .simple-keyboard.hg-theme-default .hg-button:active,
+.dark .simple-keyboard.hg-theme-default .hg-button.hg-activeButton {
+  background: var(--color-gray-200);
+}

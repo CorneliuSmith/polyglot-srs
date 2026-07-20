@@ -434,8 +434,11 @@ export default function DashboardPage() {
                       target instead. Goal 0 = the old full-queue count. */}
                   {dailyLearnGoal > 0 ? (
                     <>
+                      {/* Overflow shows honestly — 21 / 20, not a clamped
+                          20 / 20 (owner request): going past the goal is
+                          worth seeing. */}
                       <span className="block text-3xl font-bold mt-1">
-                        {Math.min(stats.learned_today, dailyLearnGoal)} / {dailyLearnGoal}
+                        {stats.learned_today} / {dailyLearnGoal}
                       </span>
                       <span className="block text-xs text-white/60 mt-1">
                         {stats.learned_today >= dailyLearnGoal

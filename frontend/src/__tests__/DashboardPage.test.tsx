@@ -262,7 +262,8 @@ describe('Dashboard tiles', () => {
       learned_today: 25, streak_days: 3, cefr_progress: {},
     })
     renderDashboard()
-    expect(await screen.findByText('20 / 20')).toBeDefined()
+    // overflow reads honestly: 25 / 20, not a clamped 20 / 20
+    expect(await screen.findByText('25 / 20')).toBeDefined()
     expect(screen.getByText(/daily goal done/)).toBeDefined()
 
     cleanup()
