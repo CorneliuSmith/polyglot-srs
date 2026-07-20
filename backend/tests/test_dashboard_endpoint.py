@@ -156,6 +156,51 @@ async def test_dashboard_zero_streak_when_no_reviews(client):
 # ---------------------------------------------------------------------------
 
 
+def test_safe_tz_accepts_real_zones_and_rejects_garbage():
+    from backend.repositories.dashboard import _safe_tz
+
+    assert _safe_tz("America/New_York") == "America/New_York"
+    assert _safe_tz("Europe/Madrid") == "Europe/Madrid"
+    # Garbage from a hostile/broken client degrades to the old behavior,
+    # never to a SQL error.
+    assert _safe_tz("Not/AZone") == "UTC"
+    assert _safe_tz("") == "UTC"
+    assert _safe_tz(None) == "UTC"
+    assert _safe_tz("'; DROP TABLE readings; --") == "UTC"
+
+
+def test_compute_streak_uses_the_supplied_today():
+    from datetime import date
+
+    from backend.repositories.dashboard import _compute_streak
+
+    # 23:30 in New York is already "tomorrow" in UTC: with the learner's
+    # local date passed in, yesterday+today still count as a 2-day streak.
+    local_today = date(2026, 7, 20)
+    dates = {date(2026, 7, 19), date(2026, 7, 20)}
+    assert _compute_streak(dates, today=local_today) == 2
+    # A "today" one day later sees the same dates as ending yesterday.
+    assert _compute_streak(dates, today=date(2026, 7, 21)) == 2
+    assert _compute_streak(dates, today=date(2026, 7, 23)) == 0
+
+
+@pytest.mark.asyncio
+async def test_dashboard_passes_browser_timezone(client):
+    with patch("backend.routers.dashboard.rls_connection") as mock_rls, patch(
+        "backend.routers.dashboard.get_dashboard_stats",
+        new=AsyncMock(return_value=FAKE_STATS),
+    ) as mock_stats:
+        mock_rls.return_value.__aenter__ = AsyncMock(return_value=AsyncMock())
+        mock_rls.return_value.__aexit__ = AsyncMock(return_value=False)
+        resp = client.get(
+            f"/api/dashboard/{TEST_LANGUAGE_ID}",
+            params={"tz": "America/New_York"},
+            headers=_auth_headers(),
+        )
+    assert resp.status_code == 200
+    assert mock_stats.await_args.kwargs["tz"] == "America/New_York"
+
+
 def test_compute_streak_empty():
     from backend.repositories.dashboard import _compute_streak
 

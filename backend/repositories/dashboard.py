@@ -3,14 +3,30 @@
 from __future__ import annotations
 
 from datetime import UTC, date, datetime, timedelta
+from zoneinfo import ZoneInfo
 
 import asyncpg
+
+
+def _safe_tz(tz: str | None) -> str:
+    """An IANA zone name the database will accept, falling back to UTC.
+
+    The browser supplies the zone; a garbage value must degrade to the
+    old UTC behavior, never to a SQL error."""
+    if not tz:
+        return "UTC"
+    try:
+        ZoneInfo(tz)
+    except Exception:
+        return "UTC"
+    return tz
 
 
 async def get_dashboard_stats(
     conn: asyncpg.Connection,
     user_id: str,
     language_id: str,
+    tz: str = "UTC",
 ) -> dict:
     """Return dashboard statistics for the given user and language.
 
@@ -47,10 +63,13 @@ async def get_dashboard_stats(
     due_grammar = int(due_row["due_grammar"])
 
     # -- Streak --------------------------------------------------------------
-    # Fetch distinct review dates descending to count consecutive days
+    # Days are counted in the LEARNER's timezone (browser-supplied), so
+    # the streak and the daily goal roll over at their local midnight —
+    # not at UTC midnight, which lands mid-evening for US users.
+    tzname = _safe_tz(tz)
     date_rows = await conn.fetch(
         """
-        SELECT DISTINCT DATE(rl.created_at AT TIME ZONE 'UTC') AS review_date
+        SELECT DISTINCT DATE(rl.created_at AT TIME ZONE $3) AS review_date
         FROM review_log rl
         JOIN user_cards uc ON rl.card_id = uc.id
         WHERE rl.user_id = $1
@@ -59,9 +78,12 @@ async def get_dashboard_stats(
         """,
         user_id,
         language_id,
+        tzname,
     )
     review_dates = {r["review_date"] for r in date_rows}
-    streak_days = _compute_streak(review_dates)
+    streak_days = _compute_streak(
+        review_dates, today=datetime.now(ZoneInfo(tzname)).date()
+    )
 
     # -- CEFR progress -------------------------------------------------------
     cefr_rows = await conn.fetch(
@@ -235,17 +257,19 @@ async def get_dashboard_stats(
     ]
 
     # -- Learned today (daily goal) ------------------------------------------
-    # New cards started since UTC midnight — the Learn tile shows progress
-    # toward a small daily goal instead of the whole queue count.
+    # New cards started since the learner's LOCAL midnight — the Learn
+    # tile shows progress toward a small daily goal instead of the whole
+    # queue count, and resets when their day actually ends.
     learned_today = await conn.fetchval(
         """
         SELECT COUNT(*) FROM user_cards
         WHERE user_id = $1
           AND language_id = $2
-          AND created_at AT TIME ZONE 'UTC' >= DATE(now() AT TIME ZONE 'UTC')
+          AND created_at AT TIME ZONE $3 >= DATE(now() AT TIME ZONE $3)
         """,
         user_id,
         language_id,
+        tzname,
     )
 
     return {
@@ -269,19 +293,20 @@ async def get_dashboard_stats(
     }
 
 
-def _compute_streak(review_dates: set[date]) -> int:
+def _compute_streak(review_dates: set[date], today: date | None = None) -> int:
     """Count consecutive days ending today (or yesterday) with a review.
 
     A streak of 1 means the user reviewed today only.  If no review today
     but a review yesterday, the streak is still counted from yesterday.
 
-    "Today" is the current UTC date, matching the UTC day boundaries used
-    when extracting review dates in SQL.
+    *today* must use the same day boundary the SQL used when extracting
+    review dates (the learner's timezone); defaults to the UTC date.
     """
     if not review_dates:
         return 0
 
-    today = datetime.now(UTC).date()
+    if today is None:
+        today = datetime.now(UTC).date()
     # Allow streak to start from today or yesterday (grace period)
     start = today if today in review_dates else today - timedelta(days=1)
     if start not in review_dates:
