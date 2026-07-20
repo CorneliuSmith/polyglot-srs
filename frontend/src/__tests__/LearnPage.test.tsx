@@ -169,6 +169,32 @@ describe('LearnPage (teach-before-quiz)', () => {
     await waitFor(() => expect(mockNavigate).toHaveBeenCalledWith('/review'))
   })
 
+  it('an accent-only miss passes AMBER, not green (accents pref off)', async () => {
+    // validateAnswer already applied the accents-optional remap: a surviving
+    // 'correct_sloppy' means the pref is OFF and the accents were wrong.
+    mockLearn.mockResolvedValue({
+      added: 1,
+      items: ['uc-2'],
+      lessons: [vocabLesson],
+    })
+    renderPage()
+    await screen.findByText(/1 of 1/)
+
+    mockValidate.mockResolvedValue({
+      answer_result: 'correct_sloppy',
+      feedback: 'Almost — check the accents. Expected: agua',
+    })
+    mockConfirm.mockResolvedValue({ confirmed: 1 })
+    fireEvent.change(screen.getByRole('textbox'), { target: { value: 'agua' } })
+    fireEvent.click(screen.getByRole('button', { name: /check answer/i }))
+
+    // Right word → still queued for review…
+    await waitFor(() => expect(mockConfirm).toHaveBeenCalledWith(['uc-2']))
+    // …but the message is the amber accents warning, not the green ✓.
+    expect(await screen.findByText(/check the accents/i)).toBeDefined()
+    expect(screen.queryByText(/✓ Correct/)).toBeNull()
+  })
+
   it('keeps the card out of reviews until the check is answered correctly', async () => {
     mockLearn.mockResolvedValue({
       added: 1,

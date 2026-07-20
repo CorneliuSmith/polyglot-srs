@@ -103,7 +103,6 @@ voi	Am spus că voi face asta!	I said I would do that!	60
 fi	De ce ar fi spus nu?	Why would she say no?	60
 ar	De ce ar fi spus nu?	Why would she say no?	60
 el	El i-a spus.	He told her.	60
-si	A spus şi asta?	He said that too?	60
 da	"A spus ""da""."	He said yes.	60
 va	El a spus că va face asta.	He said that he would do that.	60
 ei	Unde sunt ei?	Where are they?	61
@@ -431,9 +430,7 @@ lumea	Cum putem face lumea mai bună?	How can we make our world better?	172
 bună	Cum putem face lumea mai bună?	How can we make our world better?	172
 peste	El este peste tot.	He is everywhere.	174
 un	Nu există nici un loc ca acasă.	There's no place like home.	175
-exista	Nu există nici un loc ca acasă.	There's no place like home.	175
 toată	Există loc pentru toată lumea.	There's room for everyone.	175
-exista	Există loc pentru toată lumea.	There's room for everyone.	175
 timpul	Timpul va spune.	Time will tell.	176
 timpul	N-ar trebui să faci asta tot timpul.	I shouldn't be doing this all the time.	176
 timpul	„Este timpul.” „Timpul pentru ce?”	"""It's time."" ""Time for what?"""	176
@@ -636,8 +633,6 @@ facă	Ce le place să facă?	What do they like doing?	253
 vrea	Vrea cineva să facă ceva?	Does anyone want to do anything?	253
 mereu	Mereu.	Always.	254
 ajuta	Ne pare rău că nu vă putem ajuta.	We're sorry we weren't able to help you.	255
-ajuta	Ei nu ajută.	They don't help.	255
-ajuta	Cine o ajută pe mama ta?	Who helps your mother?	255
 spun	Ei spun că ne pot ajuta.	They say that they can help us.	255
 seara	Bună seara.	Good evening.	258
 seara	Bună seara, ce faci?	Good evening, how are you?	258
@@ -706,8 +701,6 @@ mâine	Ne vedem mâine!	See you tomorrow.	281
 mâine	Pe mâine!	See you tomorrow!	281
 mâine	Și mâine e o zi.	Tomorrow is another day.	281
 asculta	Nu-l asculta.	Don't pay attention to him.	282
-asculta	Ascultă-mă!	Listen to me!	282
-asculta	Ea nu mă ascultă.	She doesn't listen to me.	282
 mamă	Noapte bună, mamă.	Good night, Mom.	283
 mamă	Mamă, te rog ascultă-mă.	Mom, please listen to me.	283
 mi	Mi-a dat ce bani avea la el.	He gave me what money he had with him.	284
@@ -882,9 +875,6 @@ nostru	Unde este fiul nostru?	Where's our son?	354
 ciudat	Ciudat!	Strange.	355
 ciudat	Acest lucru este ciudat.	This is outlandish.	355
 ciudat	Ce om ciudat!	What a crank he is!	355
-suna	Sună-mă dacă ai nevoie de ajutor.	Give me a call if you need help.	357
-suna	Sună bine.	This sounds about right.	357
-suna	Sună ciudat pentru mine.	It sounds strange to me.	357
 probleme	Am avut ceva probleme.	I had some trouble.	358
 probleme	Sună-mă dacă ai probleme.	Call me if you have difficulties.	358
 probleme	Sper că nu vor fi probleme.	I hope there won't be any problems.	358
@@ -892,7 +882,6 @@ problemă	Atunci e o problemă…	Then there is a problem...	359
 atunci	Atunci e o problemă…	Then there is a problem...	359
 problemă	E o problemă acolo pe care nu o vezi.	There's a problem there that you don't see.	359
 problemă	Nici o problemă!	No problem!	359
-exista	Nu există nici un fel de problemă.	There's no problem whatsoever.	359
 această	Nu am mai avut această problemă până acum.	We've never had this problem before.	359
 banii	Banii nu vor fi o problemă.	Money won't be a problem.	359
 vorbit	După aceea, nu am vorbit cu ei.	Afterwards, I did not speak with them.	360
@@ -927,9 +916,6 @@ ales	Deja am ales.	I've already chosen.	368
 ales	Nu cred că avem de ales.	I'm not sure we have any choice.	368
 ales	Ai ales?	Have you chosen?	368
 dai	Tu nu-mi dai prea multe de ales.	You're not giving me much choice.	368
-intra	Te rog, intră.	Please come in.	369
-intra	Intră, te rog.	Please come in.	369
-intra	Ea intră.	She comes in.	369
 crede	Ei nu ne vor crede.	They won't believe us.	370
 crede	Cine crede asta?	Who thinks so?	370
 crede	De ce te-am crede?	Why should we trust you?	370
@@ -1094,9 +1080,6 @@ ucis	Nu știu cine a ucis-o.	I don't know who killed her.	424
 pleci	Când pleci de aici?	When do you leave here?	425
 pleci	De ce vrei să pleci azi?	Why do you want to leave today?	425
 pleci	Cred că tu trebuie să pleci acum.	I think you should leave now.	425
-plecam	Plecăm.	We're going.	426
-plecam	Hai să plecăm de aici.	Let's go away.	426
-plecam	Noi plecăm.	We're going away.	426
 haide	Haide, să plecăm de aici.	Come on, let's get out of here.	426
 prieteni	Am prieteni aici.	I have friends here.	427
 prieteni	Ei sunt prieteni?	Are they friends?	427
@@ -1123,7 +1106,7 @@ ora	Spune-mi te rog, cât este ora?	What time is it please?	433
 mic	Orice mic ajutor e bun.	Every little bit helps.	436
 orice	Orice mic ajutor e bun.	Every little bit helps.	436
 mic	Tu ești mic.	You're small.	436
-las	Ești un laș.	You're a coward.	437
+laș	Ești un laș.	You're a coward.	437
 las	Doar las-o un moment.	Just give her a second.	437
 las	Las-o!	Leave it!	437
 începe	Începe!	Begin!	439
@@ -1306,7 +1289,6 @@ noaptea	Acolo unde se termină noaptea, începe o nouă zi.	Where the night ends
 devreme	Nu-i nevoie să pleci prea devreme, nu-i așa?	You needn't go too early, need you?	505
 devreme	Pot să plec mai devreme astăzi?	May I leave early today?	505
 devreme	Aş putea să plec mai devreme astăzi?	May I leave early today?	505
-as	Aş putea să plec mai devreme astăzi?	May I leave early today?	505
 muncă	Acum sunt în drum spre muncă.	I'm on my way to work now.	506
 spre	Acum sunt în drum spre muncă.	I'm on my way to work now.	506
 muncă	Ce faci după muncă?	What will you do after work?	506
@@ -1419,7 +1401,6 @@ cumva	Să nu cumva să pleci.	Don't you go away.	548
 cumva	Știi cumva?	Do you know?	548
 aflat	Cum ai aflat?	How did you find out?	549
 aflat	A şi aflat?	Did she find out at last?	549
-si	A şi aflat?	Did she find out at last?	549
 aflat	Așa am aflat despre acest lucru.	That's how I found out about it.	549
 ah	Ah!	Ah!	550
 momentul	Am venit chiar în momentul în care el pleca.	I arrived just when he was leaving.	551
@@ -1454,7 +1435,6 @@ uneori	Uneori el poate fi un tip ciudat.	Sometimes he can be a strange guy.	565
 stat	Cât ai stat?	How long did you stay?	567
 stat	Nu am stat acolo prea mult timp.	I didn't stay there very long.	567
 stat	El a stat acolo pentru moment.	He stayed there for a moment.	567
-arat	Vreau să arăt ca ei.	I want to look like them.	569
 acela	Acela este tatăl nostru.	That is our father.	570
 cazul	În cazul acela ai dreptate.	In that case, you are right.	570
 acela	În cazul acela ai dreptate.	In that case, you are right.	570
@@ -1688,7 +1668,6 @@ mersi	Sunt bine, mersi de întrebare.	I'm fine, thanks for asking!	673
 vreo	Are cineva vreo întrebare?	Does anyone have a question?	673
 întrebare	Are cineva vreo întrebare?	Does anyone have a question?	673
 pun	Pot să vă pun o ultimă întrebare?	Can I ask you one final question?	673
-ultima	Pot să vă pun o ultimă întrebare?	Can I ask you one final question?	673
 atâta	Voi sta cu tine atâta timp cât vrei.	I'll stay with you as long as you want me to.	675
 puternic	El este puternic.	He's strong.	676
 puternic	Ești foarte puternic(ă).	You're very strong.	676
@@ -1814,7 +1793,6 @@ jur	Tom trebuie să aibă în jur de 30 de ani.	Tom must be around thirty.	713
 aibă	Tom trebuie să aibă în jur de 30 de ani.	Tom must be around thirty.	713
 prin	Ce a vrut să spună Tom prin asta?	What did Tom mean by that?	713
 ucide	Tom nu mă va ucide.	Tom isn't going to kill me.	713
-arat	A trebuit să i-o arăt lui Tom.	I had to show it to Tom.	713
 ăla	Ești ăla care l-ai făcut pe tom sa facă aia?	Are you the one who asked Tom to do that?	713
 sa	Ești ăla care l-ai făcut pe tom sa facă aia?	Are you the one who asked Tom to do that?	713
 haide	Haide, Tom.	Come on, Tom.	713
@@ -1962,7 +1940,6 @@ mii	Din nou, mii de scuze.	Again, a thousand apologies.	775
 cer	Din nou, îmi cer mii de scuze.	Again, a thousand apologies.	775
 mii	Din nou, îmi cer mii de scuze.	Again, a thousand apologies.	775
 mintea	Ai fost mereu în mintea mea.	You were always on my mind.	776
-mintea	Este clar că Tom mințea.	It's obvious Tom was lying.	776
 potrivit	El este un om potrivit pentru treaba asta.	He is a good man for the job.	778
 vostru	Avem nevoie de ajutorul vostru!	We need your help!	779
 atent	Trebuie să fii atent.	You must be careful.	780
@@ -2024,9 +2001,6 @@ stea	Vreau ca Tom să stea un pic mai mult.	I want Tom to stay a bit longer.	799
 deschis	Ești deschis la minte?	Are you broad-minded?	800
 deschis	Voi fi foarte deschis cu tine.	I'm going to be very honest with you.	800
 privire	Aruncă o privire.	Take a look.	801
-arunca	Aruncă o privire.	Take a look.	801
-arunca	Te rog aruncă asta.	Please throw this away.	801
-arunca	Aruncă-i.	Throw them away.	801
 dormi	Ar trebui să dormi.	You should sleep.	802
 dormi	Dormi!	Sleep!	802
 dormi	Dacă nu dormi, vei muri.	If you don't sleep, you'll die.	802
@@ -2304,9 +2278,6 @@ mâncat	Eu încă nu am mâncat.	I haven't eaten yet.	914
 mâncat	Nu pot să cred că Tom a mâncat totul.	I can't believe Tom ate the whole thing.	914
 arăta	Tom arăta foarte fericit.	Tom looked very happy.	915
 arăta	Arăta bine.	It looked good.	915
-ridica	Ea se ridică pentru a răspunde la telefon.	She got up to answer the phone.	917
-ridica	Ridică-te, te rog!	Stand up, please.	917
-ridica	Ridică-te.	Get up.	917
 luptă	Ridică-te și luptă.	Get up and fight.	917
 câine	El are un câine.	He has a dog.	918
 câine	Vrei un câine?	Would you like a dog?	918
@@ -2404,7 +2375,6 @@ petrecerea	Vreau ca Tom să vină la petrecerea mea.	I want Tom to come to my pa
 curat	Eu îmi fac curat în cameră aproape în fiecare zi.	I clean my room almost every day.	957
 curat	Să facem curat.	Let's clean up.	957
 curat	Este curat.	It's pristine.	957
-verifica	Verifică-l!	Check it out!	958
 observat	Nu am observat.	I didn't notice.	961
 observat	Este prima dată când ai observat problema asta?	Is this the first time that you've noticed this problem?	961
 observat	El a observat din prima.	He noticed straight away.	961
@@ -2448,8 +2418,6 @@ poartă	Poartă-te frumos cu copii tăi.	Be nice to your kids.	978
 lungă	Ei bine, noaptea este destul de lungă, nu-i așa?	Well, the night is quite long, isn't it?	979
 lungă	Asta va fi o zi lungă.	This is going to be a long day.	979
 lungă	Cât de lungă?	How long?	979
-urgenta	Care este urgența?	What is the emergency?	981
-urgenta	Trebuie să vorbesc cu tine despre o treabă urgentă.	I need to talk to you about an urgent matter.	981
 alb	Alb?	Is it white?	982
 negru	Am un câine negru și un câine alb.	I have a black dog and a white dog.	982
 alb	Am un câine negru și un câine alb.	I have a black dog and a white dog.	982
@@ -2511,16 +2479,12 @@ oriunde	Ei pot să meargă oriunde doresc.	They may go anywhere they like.	1004
 depinde	- Când te vei întoarce? - Totul depinde de vreme.	"""When will you be back?"" ""It all depends on the weather."""	1005
 depinde	Uneori depinde și de noroc.	Sometimes it depends on luck.	1005
 depinde	Asta depinde cu totul de ea.	That's entirely up to her.	1005
-putina	Are nevoie de puțină iubire.	It just needs a little love.	1006
-putina	Am nevoie de puțină companie.	I need a little company.	1006
 zilele	Am prea multe lucruri în minte zilele astea.	I have too many things on my mind these days.	1007
 zilele	Nu sunt ocupat în zilele astea.	I'm not busy nowadays.	1007
 grea	Ea este mult mai grea decât el.	She's much heavier than him.	1008
 grea	E o muncă foarte, foarte grea.	It's very, very hard work.	1008
 grea	Nu este o întrebare grea.	That's not a hard question.	1008
 devine	Munca devine grea.	Work becomes difficult.	1008
-prezenta	Toată lumea în afară de Tom a fost prezentă.	Everyone except Tom was present.	1009
-prezenta	Ea nu era prezentă.	She was away.	1009
 arestat	El a fost arestat.	He was taken away.	1010
 arestat	Tom ar putea fi arestat pentru asta.	Tom could be arrested for doing that.	1010
 arestat	Nu cred că Tom va fi arestat.	I don't think that Tom will be arrested.	1010
@@ -2560,8 +2524,6 @@ rezolva	Este cea mai bună cale de a rezolva problema.	It's the best way to solv
 singuri	Cred că eu și Tom am fi putut rezolva singuri această problemă.	I think Tom and I could've solved that problem by ourselves.	1029
 final	Sunt sigur că totul se va rezolva în final.	I'm sure everything will work out in the end.	1029
 final	Sunt sigură că totul se va rezolva în final.	I'm sure everything will work out in the end.	1029
-discutam	Noi nu ar trebui să discutăm asta acum.	We shouldn't be discussing this now.	1030
-discutam	Să discutăm.	Let's chat.	1030
 alege	Poți alege orice carte vrei.	You may choose whichever book you like.	1031
 alege	Poți alege ce carte vrei.	You may choose whichever book you like.	1031
 alege	Alege una.	Choose one.	1031
@@ -2579,9 +2541,6 @@ oare	Există oare acel loc?	Does that place even exist?	1038
 oare	Oare ar trebui să plec?	I wonder whether I should go.	1038
 oare	Oare de ce este Tom singur?	I wonder why Tom is alone.	1038
 număr	Sună la acest număr.	Call this number.	1039
-costa	Cât costă?	How much is it?	1040
-costa	Cât costă o cameră?	How much is a room?	1040
-costa	Cât costă cartea aceasta?	How much does this book cost?	1040
 pariu	Ea a făcut un pariu cu el.	She made a bet with him.	1041
 criminal	Ești un criminal?	Are you a criminal?	1042
 criminal	Tom e un criminal.	Tom is a criminal.	1042
@@ -2598,7 +2557,6 @@ sosit	A sosit noaptea.	Night came.	1045
 momentul	A sosit momentul.	The moment came.	1045
 căutat	L-am căutat peste tot.	We looked for it high and low.	1046
 căutat	Te-am căutat peste tot.	We've been looking all over for you.	1046
-duca	Le-am spus să se ducă acasă.	I told them to go home.	1047
 părăsit	Acest loc pare a fi părăsit.	The place is apparently deserted.	1049
 părăsit	Tom arăta părăsit.	Tom looked lonely.	1049
 iată	Iată echipa mea.	There's my team.	1050
@@ -2705,7 +2663,6 @@ onoare	Este o onoare!	It is an honor!	1101
 întâlnesc	Mă bucur să vă întâlnesc.	I am happy to meet you.	1102
 întâlnesc	Cu cine să mă întâlnesc în afară de Tom?	Who should I meet but Tom?	1102
 rezista	Tu nu ai rezista nici o zi acolo.	You wouldn't last a day there.	1103
-rezista	Rezistă.	Hold on.	1103
 habar	Habar n-am.	I have no idea.	1105
 habar	Habar n-am cum am făcut-o.	I have no idea how I did it.	1105
 habar	Habar n-am cine a făcut asta.	I have no idea who did that.	1105
@@ -2752,7 +2709,6 @@ oferi	Ce-mi poți oferi?	What can you give me?	1123
 vocea	Tom și-a pierdut vocea.	Tom lost his voice.	1124
 vocea	Vocea ei sună foarte bine.	Her voice sounds really good.	1124
 respira	Nu se poate respira aici.	You can't breathe here.	1126
-respira	Respiră!	Breathe!	1126
 vorbind	Vorbind.	Speaking.	1127
 vorbind	Te-am auzit vorbind la telefon.	I heard you talking on the phone.	1127
 pământul	Pământul este prea mic.	The Earth is too small.	1129
@@ -2831,7 +2787,6 @@ săturat	M-am săturat să lucrez aici.	I'm fed up with working here.	1162
 aveau	Ei aveau dreptate.	They were right.	1163
 aveau	Ei nu aveau dreptate.	They were wrong.	1163
 aveau	Ei nu aveau nicio mâncare.	They had no food.	1163
-duca	Ei nu aveau unde să se ducă.	They had no place to go.	1163
 convins	Tom este convins că trebuie să facă asta.	Tom is convinced he needs to do that.	1164
 convins	L-ai convins pe Tom?	Did you convince Tom?	1164
 convins	Tom nu este încă așa de convins.	Tom still isn't quite convinced.	1164
@@ -2914,7 +2869,6 @@ iasă	Tom ar trebui să iasă din închisoare de acum.	Tom should be out of jail
 oricare	Tom este mai rapid decât oricare altul.	Tom is faster than anybody else.	1200
 vi	Dacă așa vi s-a spus, probabil că e corect.	If this is the way you were told, it is probably correct.	1201
 descurca	Tot timpul se va descurca.	He'll always come through.	1202
-descurca	Descurcă-te!	Deal with it!	1202
 descurca	Știu că va fi greu, dar te vei descurca.	I know that it'll be hard but you can handle it.	1202
 arătat	Mi-a arătat-o.	She showed it to me.	1205
 arătat	Mi l-a arătat.	She showed it to me.	1205
@@ -2954,9 +2908,6 @@ mândru	Ești mândru de tatăl tău?	Are you proud of your father?	1222
 mândru	Tom este mândru de Maria.	Tom is proud of Mary.	1222
 mândru	Tom este foarte mândru de tine.	Tom is very proud of you.	1222
 cuiva	Tom este prea mândru pentru a cere ajutorul cuiva.	Tom is too proud to ask anyone for help.	1222
-lucram	Noi lucrăm în acest moment.	We're working at the moment.	1223
-lucram	Ne-ar plăcea să lucrăm cu tine.	We would love to work with you.	1223
-lucram	Nu mai lucrăm pentru Tom.	We don't work for Tom anymore.	1223
 călătorie	Ce mai faci? Ai avut o călătorie bună?	How are you? Did you have a good trip?	1224
 implicat	Tom nu este implicat.	Tom isn't involved.	1225
 somn	E ora de somn.	It's time to sleep.	1227
@@ -2988,7 +2939,6 @@ creat	Dumnezeu m-a creat.	God created me.	1231
 grup	Cine a creat acest grup?	Who created this group?	1231
 energie	Există o nevoie urgentă de energie verde.	There is an urgent need for clean energy.	1232
 verde	Există o nevoie urgentă de energie verde.	There is an urgent need for clean energy.	1232
-urgenta	Există o nevoie urgentă de energie verde.	There is an urgent need for clean energy.	1232
 verde	A devenit verde.	It turned green.	1232
 scriu	Vreau să scriu o carte.	I want to write a book.	1233
 scriu	Mă gândesc să scriu o carte.	I'm thinking of writing a book.	1233
@@ -3011,7 +2961,6 @@ ascult	Ascult muzică.	I'm listening to music.	1239
 muzică	Ascult muzică.	I'm listening to music.	1239
 muzică	Asculta muzică.	She was listening to music.	1239
 muzică	El a vorbit despre muzică.	He talked about music.	1239
-putina	Te deranjează dacă pun puțină muzică?	Would you mind if I put on a little music?	1239
 păr	Am văzut o fată cu păr lung.	I saw a girl with long hair.	1241
 prânz	După prânz, m-am întors la birou.	After lunch, I returned to the office.	1242
 prânz	Ce a mâncat Tom la prânz?	What did Tom eat for lunch?	1242
@@ -3087,7 +3036,6 @@ băutură	Ea și-a făcut o băutură.	She made herself a drink.	1278
 îndrăgostit	El s-a îndrăgostit de ea.	He's fallen in love with her.	1279
 viu	Daca nu m-ar fi ajutat ea, nu aş mai fi viu acum.	If it weren't for her help, I would not be alive now.	1281
 daca	Daca nu m-ar fi ajutat ea, nu aş mai fi viu acum.	If it weren't for her help, I would not be alive now.	1281
-as	Daca nu m-ar fi ajutat ea, nu aş mai fi viu acum.	If it weren't for her help, I would not be alive now.	1281
 viu	A fost viu.	It was alive.	1281
 cadavrul	Doar peste cadavrul meu!	Over my dead body.	1284
 vizită	Să-i facem o vizită lui Tom.	Let's pay Tom a visit.	1285
@@ -3333,10 +3281,6 @@ bărbatul	Este bărbatul perfect pentru el.	He's the perfect man for him.	1410
 bărbatul	E bărbatul perfect pentru el.	He's the perfect man for him.	1410
 fantastic	Fantastic!	Terrific!	1412
 fantastic	A fost fantastic.	It's been fantastic.	1412
-tipa	Țipă!	Scream!	1413
-tipa	Copiii care țipă afară mă deranjează.	The children that shout outside are bothering me.	1413
-terminam	Hai să terminăm treaba.	Let's finish the job.	1415
-terminam	Ar fi timpul să terminăm petrecerea asta, nu?	It's about time we brought this party to an end, isn't it?	1415
 poza	I-a arătat poza mea.	She showed him my picture.	1416
 poza	Uită-te la poza de pe birou.	Look at that picture on the desk.	1416
 poza	Știu că mi-ai aruncat poza.	I know you threw my picture away.	1416
@@ -3390,7 +3334,6 @@ adu	Adu-l la mine!	Bring it to me!	1441
 adânc	Este adânc.	It's deep.	1443
 adânc	Nu este atât de adânc.	It isn't that deep.	1443
 adânc	Cât de adânc?	How deep?	1443
-respira	Doar respiră adânc.	Just take a deep breath.	1443
 realitate	Acest vis va deveni realitate.	This dream will come true.	1444
 discutat	Am discutat problema cu fiecare dintre ei.	We discussed the matter with each other.	1445
 discutat	Am discutat problema între noi.	We discussed the matter with each other.	1445
@@ -3445,7 +3388,6 @@ trenul	A pierdut trenul de la opt și jumătate.	He failed to catch the 8:30 tra
 trenul	A pierdut trenul de 8:30.	He failed to catch the 8:30 train.	1470
 prinde	A plecat devreme; altfel nu ar fi putut prinde trenul.	He left early; otherwise he could not have caught the train.	1470
 prinde	N-am putut prinde trenul.	I couldn't catch the train.	1470
-ataca	Atacă!	Attack!	1471
 tineri	Ei erau tineri.	They were young.	1472
 televizor	Îmi place să mă uit la televizor.	I like to watch TV.	1473
 televizor	Există un televizor în camera mea.	There is a television in my room.	1473
@@ -3461,7 +3403,6 @@ eliberat	Au eliberat-o.	They've released her.	1476
 râs	Nu mă puteam opri din râs.	I couldn't stop laughing.	1477
 râs	Tom a râs din toată inima.	Tom laughed wholeheartedly.	1477
 râs	Toți au râs.	Everybody laughed.	1477
-si	A râs şi el.	He laughed too.	1477
 fals	Tot ce spune ea este fals.	Everything she says is untrue.	1478
 fals	Ăsta e fals.	That's a fake.	1478
 fals	Cred că Tom este fals.	I think Tom is deceitful.	1478
@@ -3656,7 +3597,6 @@ imagine	Uită-te la imagine.	Look at the picture.	1593
 imagine	În această imagine pare să arate cu degetul spre ceva, dar nu se știe ce ar putea fi.	He appears to be pointing at something in this image, but it's hard to tell what that might be.	1593
 arate	În această imagine pare să arate cu degetul spre ceva, dar nu se știe ce ar putea fi.	He appears to be pointing at something in this image, but it's hard to tell what that might be.	1593
 degetul	În această imagine pare să arate cu degetul spre ceva, dar nu se știe ce ar putea fi.	He appears to be pointing at something in this image, but it's hard to tell what that might be.	1593
-violenta	Nu mă mai pot pune cu violența lui.	I can't put up with his violence any longer.	1594
 sat	Este un sat.	It is a village.	1597
 sat	E un sat.	It is a village.	1597
 vai	Vai.	Alas.	1598
@@ -3695,14 +3635,10 @@ idei	Am câteva idei bune dar am nevoie de bani.	I've got some great ideas but I
 idei	Tom chiar are idei bune.	Tom has really good ideas.	1618
 idei	Tom are multe idei bune.	Tom has a lot of good ideas.	1618
 grămadă	Am o grămadă de idei.	I've got tons of ideas.	1618
-scurta	Viața este scurtă.	Life is short.	1619
-scurta	Am făcut o scurtă pauză pe drum.	We took a short rest on the way.	1619
-scurta	Fă-o scurtă.	Make it brief.	1619
 fotografie	Pot să fac o fotografie?	May I take a photo?	1620
 fotografie	Unde a făcut ea această fotografie?	Where did she take this picture?	1620
 mijloc	Cea din mijloc este a mea.	The middle one is mine.	1621
 mijloc	El a fost prins la mijloc.	He was caught in the middle.	1621
-considera	Tom se consideră norocos.	Tom considers himself lucky.	1622
 dovedi	Poți dovedi asta?	Can you prove that?	1623
 dovedi	O poți dovedi?	Can you prove it?	1623
 dovedi	Nu poți dovedi asta.	You can't prove that.	1623
@@ -3814,9 +3750,6 @@ credit	Cartea dumneavoastră de credit, vă rog.	Your credit card, please.	1678
 petrec	Vreau să petrec mai mult timp cu familia mea.	I want to spend more time with my family.	1679
 petrec	Eu prefer să petrec timpul în casă.	I prefer spending time indoors.	1679
 aleg	Pot să-mi aleg biroul de la fereastră?	Can I pick the desk by the window?	1681
-bucura	Bucură-te!	Enjoy!	1683
-bucura	Bucură-te cât mai poți.	Enjoy it while you can.	1683
-bucura	Bucură-te de joc.	Enjoy the game.	1683
 vând	Eu trebuie să-mi vând casa.	I must sell my house.	1685
 norocul	Mă rog ca tu să ai parte de tot norocul din lume.	I pray that you will have the best of luck.	1686
 norocul	Am avut norocul de a fi ales.	I had the good fortune to be chosen.	1686
@@ -3846,7 +3779,6 @@ weekend	Ai avut un weekend plăcut?	Did you have a good weekend?	1702
 weekend	Un weekend plăcut!	Have a nice weekend.	1702
 barcă	Sunt pe o barcă.	I'm on a boat.	1703
 barcă	Vreau o barcă care să mă ducă departe de aici.	I want a boat that will take me far away from here.	1703
-duca	Vreau o barcă care să mă ducă departe de aici.	I want a boat that will take me far away from here.	1703
 barcă	Luăm cina pe barcă.	We have dinner on the boat.	1703
 parcă	Parcă ai spus că o faci pe gratis.	I thought you said that you'd do that for free.	1704
 gratis	Parcă ai spus că o faci pe gratis.	I thought you said that you'd do that for free.	1704
@@ -3938,9 +3870,6 @@ iubi	A iubi pe cineva este atât de minunat.	To love someone is so wonderful.	17
 iubi	De ce nu îi pot iubi pe ei amândoi?	Why can't I love them both?	1757
 etaj	Tom este cu un etaj mai jos.	Tom is downstairs.	1758
 china	Eu am scris o carte despre China.	I wrote a book about China.	1760
-atenta	Puteți fi, vă rog, atentă?	Can you pay attention, please?	1761
-atenta	Poți fi te rog atentă?	Can you pay attention, please?	1761
-atenta	Toată lumea trebuie să fie un pic mai atentă.	Everyone needs to be a little more careful.	1761
 victoria	Victoria lui l-a făcut un erou.	His victory made him a hero.	1762
 erou	Victoria lui l-a făcut un erou.	His victory made him a hero.	1762
 tabără	Nimeni din nici o tabără nu a fost omorât.	No one on either side was killed.	1763
@@ -4068,7 +3997,6 @@ revin	Revin în câteva minute.	I'll be back in a few minutes.	1832
 revin	Revin.	I'll come back.	1832
 ador	Te ador.	I'm crazy about you.	1833
 ador	Pur și simplu îl ador.	I simply adore him.	1833
-stand	Îi place să mănânce stând in picioare.	He likes to eat standing up.	1835
 acuma	Acuma bea!	Now drink up.	1836
 pâine	Mănânc pâine.	I eat bread.	1838
 pâine	Ai vrea pâine?	Would you like bread?	1838
@@ -4149,9 +4077,6 @@ mut	A rămas mut.	He was left speechless.	1891
 priceput	E priceput cu copiii.	He is good at dealing with children.	1893
 suc	Îmi dai niște suc, te rog?	Can I have some soda, please?	1894
 suc	O să beau niște suc.	I'm going to drink some juice.	1894
-razi	Râzi în legătură cu ce?	What are you laughing at?	1895
-razi	Râzi cu ei.	Laugh with them.	1895
-razi	De cine râzi?	Who are you laughing at?	1895
 jaf	Asta este jaf la drumul mare!	That's highway robbery!	1897
 mincinos	Ai putea spune că-i mincinos, dar nu poți spune că-i om rău.	You may call him a liar, but you cannot call him a bad man.	1899
 mincinos	Sunt un mincinos.	I'm a liar.	1899
@@ -4182,7 +4107,6 @@ gen	Ce gen de muzică?	What kind of music?	1920
 îmbrăcat	Tom s-a îmbrăcat ca o fată.	Tom dressed like a girl.	1921
 ofertă	O ofertă ca aceea nu e de refuzat.	An offer like that is not to be refused.	1922
 ofertă	Nu se refuză așa ofertă.	One does not refuse such an offer.	1922
-refuza	Nu se refuză așa ofertă.	One does not refuse such an offer.	1922
 ofertă	Fă o ofertă.	Make an offer.	1922
 cafeaua	Dar cafeaua nu este bună.	But the coffee's not good.	1923
 cafeaua	Îmi place mai mult cafeaua.	I like coffee better.	1923
@@ -4246,9 +4170,6 @@ anglia	Nu mă gândesc la Anglia în timp ce scriu în engleză.	I do not think 
 vorbeam	Vorbeam de obicei în engleză.	We usually talked in English.	1953
 iertare	Cum și-a cerut Tom iertare?	How did Tom apologize?	1955
 iertare	Tom i-a cerut iertare lui Dumnezeu.	Tom asked God for forgiveness.	1955
-prosti	Oamenii nu sunt proști.	People aren't stupid.	1956
-prosti	Cât de proști suntem?	How stupid are we?	1956
-prosti	Chiar crezi că sunt toți atât de proști?	Do you think that they're all that stupid?	1956
 băga	Nu te băga.	Stay away.	1958
 trădat	Te-am trădat.	I betrayed you.	1959
 trădat	Tom a spus că a fost trădat.	Tom said he was betrayed.	1959
@@ -4309,11 +4230,8 @@ protejez	Mă protejez.	I'm protecting myself.	1993
 protejez	Vreau să-l protejez pe Tom.	I want to protect Tom.	1993
 hol	Să ne întâlnim în hol.	Let's meet in the lobby.	1995
 întâlnim	Să ne întâlnim în hol.	Let's meet in the lobby.	1995
-repeta	Istoria se repetă.	History is repeating itself.	1997
 istoria	Istoria se repetă.	History is repeating itself.	1997
-repeta	Repetă!	Repeat!	1997
 repeta	Puteți repeta asta?	Could you repeat that?	1997
-aduna	Adună-te!	Pull yourself together!	1999
 dezamăgit	Am fost un pic dezamăgit.	I was mildly disappointed.	2000
 dezamăgit	Tom a fost foarte dezamăgit.	Tom was very disappointed.	2000
 dezamăgit	Nu sunt supărat. Sunt doar dezamăgit.	I'm not mad. I'm just disappointed.	2000
@@ -4326,7 +4244,6 @@ degeaba	El a încercat din nou, dar degeaba.	He tried again, but in vain.	2002
 degeaba	Ai râs degeaba, pentru că am avut dreptate.	You laughed for nothing, for I was right.	2002
 urmare	Nu gândesc, prin urmare nu sunt.	I don't think, therefore I am not.	2004
 salutare	Salutare tuturor!	Hello everyone!	2005
-varul	El este vărul meu din partea tatălui.	He is my cousin on the father's side.	2006
 comandat	Am comandat pizza.	I ordered pizza.	2008
 comandat	Ai terminat de comandat?	Have you finished ordering?	2008
 comandat	Cine a comandat pizza asta?	Who ordered this pizza?	2008
@@ -4361,7 +4278,6 @@ iubim	Eu și Tom ne iubim.	Tom and I love each other.	2031
 mexic	Ea s-a născut în Mexic.	She was born in Mexico.	2032
 crea	A crea este mai dificil decât a distruge.	Creating is harder than destroying.	2033
 distruge	A crea este mai dificil decât a distruge.	Creating is harder than destroying.	2033
-mos	A venit Moş Crăciun.	Father Christmas has come.	2037
 copie	Am făcut o copie.	I made a copy.	2038
 deosebit	Pari deosebit de convins de asta.	You seem awfully sure of that.	2039
 stupid	Tocmai am spus ceva foarte stupid.	I just said something very stupid.	2043
@@ -4371,7 +4287,6 @@ romantic	El este foarte romantic!	He is very romantic!	2044
 romantic	Este foarte romantic.	It's very romantic.	2044
 visele	Să crezi în visele tale oricât de imposibil de atins ar părea.	Believe in your dreams, no matter how impossible they seem.	2046
 oricât	Să crezi în visele tale oricât de imposibil de atins ar părea.	Believe in your dreams, no matter how impossible they seem.	2046
-implica	Ce implică asta?	What does it involve?	2047
 vedere	La prima vedere, totul părea curat și ordonat.	Everything seemed neat and orderly at a first glance.	2048
 ordonat	La prima vedere, totul părea curat și ordonat.	Everything seemed neat and orderly at a first glance.	2048
 politică	El a decis o nouă politică.	He had decided on a new policy.	2049
@@ -4413,8 +4328,6 @@ liceu	Erai gras când erai în liceu?	Were you fat when you were in high school?
 bucurie	Cu bucurie te voi ajuta.	I will gladly help you.	2072
 bucurie	Sunt alături de mine cu bucurie.	I'm beside myself with joy.	2072
 bucurie	El a plâns de bucurie.	He cried for joy.	2072
-vindeca	Timpul le vindecă pe toate.	Time heals all wounds.	2074
-vindeca	Unele răni nu se vindecă niciodată.	Some wounds never heal.	2074
 răni	Unele răni nu se vindecă niciodată.	Some wounds never heal.	2074
 unele	Unele răni nu se vindecă niciodată.	Some wounds never heal.	2074
 corp	Se poate vindeca un corp cu o inimă bolnavă?	Can a body heal with a sick heart?	2074
@@ -4429,7 +4342,6 @@ vară	E deja vară.	It's summer already.	2078
 muncit	Am muncit mult azi.	I worked a lot today.	2079
 muncit	Am muncit mult săptămâna asta.	I worked a lot this week.	2079
 muncit	Am muncit din greu.	I've worked hard.	2079
-soc	Mai devreme sau mai târziu va trece peste şoc.	Sooner or later, she'll get over the shock.	2080
 avertizat	Te-am avertizat în legătură cu Tom.	I warned you about Tom.	2081
 avertizat	Te-am avertizat despre ea.	I warned you about her.	2081
 avertizat	Tom a fost avertizat despre asta.	Tom has warned me about that.	2081
@@ -4618,15 +4530,11 @@ ierta	Nu îl voi ierta pe Tom.	I won't forgive Tom.	2224
 ierta	Nu-l voi ierta niciodată.	I'll never forgive him.	2224
 evita	Nimeni nu poate evita moartea.	Nobody can escape death.	2226
 moartea	Nimeni nu poate evita moartea.	Nobody can escape death.	2226
-evita	Evită acest loc.	Stay away from here.	2226
-evita	Evită aia.	Stay away from that.	2226
 terenul	Acela este terenul nostru de baseball.	That's our baseball field.	2227
 baseball	Acela este terenul nostru de baseball.	That's our baseball field.	2227
 baseball	Nu-mi place să joc baseball.	I don't like playing baseball.	2227
 câtă	Este incredibil câtă treabă a mai făcut!	What an incredible amount of work he has done!	2228
-respecta	Tatăl meu respectă ceea ce spune el.	My father abides by what he said.	2229
 respecta	El o respecta.	He respected her.	2229
-respecta	Respectă această familie.	Respect this family.	2229
 inutil	E inutil să mai gândesc.	It's useless to keep on thinking any more.	2230
 inutil	Cred că este inutil să vorbim despre asta.	I think it is unnecessary to talk about it.	2230
 inutil	Este inutil!	It's useless!	2230
@@ -4808,10 +4716,7 @@ firmă	Tom ar trebui să-și facă propria lui firmă.	Tom should start his own 
 firmă	Tom a plecat din firmă.	Tom quit the company.	2342
 scări	El a fugit jos pe scări.	He ran down the stairs.	2343
 scări	El a căzut pe scări și s-a rănit.	He fell down the stairs and hurt himself.	2343
-putini	Acel copil are prieteni puțini.	That child has few friends.	2346
-putini	Familiile au început să aibă din ce în ce mai puțini copii.	Families began to have fewer and fewer children.	2346
 familiile	Familiile au început să aibă din ce în ce mai puțini copii.	Families began to have fewer and fewer children.	2346
-putini	Puțini oameni îmi vorbesc limba.	Few people speak my language.	2346
 inspector	El este un inspector.	He is an inspector.	2348
 inspector	El este inspector.	He is an inspector.	2348
 recunoscător	Le sunt recunoscător.	I am grateful to them.	2349
@@ -4839,8 +4744,6 @@ vorbești	Cine ești tu ca să vorbești așa cu mine?	Who are you to talk to me
 vorbești	Vorbești serios? Mie mi se pare că ești nebun.	Are you serious? It looks to me like you're crazy.	2366
 voce	Te rog să vorbești cu voce tare.	Please speak in a loud voice.	2366
 sexuală	El nu vrea să vorbești despre viața ta sexuală cu el.	He doesn't want you to talk about your sexual life to him.	2366
-apuca	Apucă-te de el.	Grab him.	2367
-apuca	Des el nu apucă să mănânce cu zilele.	He often goes without food for days.	2367
 același	A nu dori e același lucru cu a avea.	Not wanting is the same as having.	2368
 același	Ești sigur că vorbim despre același Tom?	Are you sure we're talking about the same Tom?	2368
 același	Tom este încă același tip.	Tom is still the same guy.	2368
@@ -4917,7 +4820,7 @@ sari	Du-te să sari în lac.	Go jump in the lake.	2423
 memorie	El are o memorie bună.	He has a good memory.	2424
 dansez	Ador să dansez.	I love to dance.	2425
 ador	Ador să dansez.	I love to dance.	2425
-mos	Moș Crăciun va aduce niște cadouri.	Father Christmas will bring some presents.	2427
+moș	Moș Crăciun va aduce niște cadouri.	Father Christmas will bring some presents.	2427
 cadouri	Moș Crăciun va aduce niște cadouri.	Father Christmas will bring some presents.	2427
 crime	A comis mai multe crime.	He committed multiple crimes.	2429
 comis	A comis mai multe crime.	He committed multiple crimes.	2429
@@ -4979,7 +4882,7 @@ schimb	Ești un student de schimb?	Are you an exchange student?	2463
 facultate	Nu-mi vine să cred că Tom este deja student în anul doi de facultate.	I can't believe Tom is already a sophomore.	2463
 actor	Nu cred că e un mare actor.	I don't think he's a great actor.	2464
 actor	Este Tom un actor?	Is Tom an actor?	2464
-print	Ea s-a îndrăgostit de un anumit prinț.	She fell in love with a certain prince.	2468
+prinț	Ea s-a îndrăgostit de un anumit prinț.	She fell in love with a certain prince.	2468
 anumit	Ea s-a îndrăgostit de un anumit prinț.	She fell in love with a certain prince.	2468
 locuit	Ea a locuit cu el toată viața ei.	She lived with him all her life.	2473
 nepotrivit	Ai fost pe acel drum la momentul nepotrivit.	You were on that road at the wrong time.	2474
@@ -5062,7 +4965,6 @@ ridicat	Ne-am ridicat toți deodată.	We all stood up at once.	2539
 deodată	Ne-am ridicat toți deodată.	We all stood up at once.	2539
 deodată	Nu poți fi în două locuri deodată.	You can't be at two places at once.	2539
 locuri	Nu poți fi în două locuri deodată.	You can't be at two places at once.	2539
-tipa	Deodată, Tom țipă de durere.	Suddenly, Tom cried out in pain.	2539
 deodată	Deodată, Tom țipă de durere.	Suddenly, Tom cried out in pain.	2539
 durere	Deodată, Tom țipă de durere.	Suddenly, Tom cried out in pain.	2539
 negri	Am nevoie de o pereche de pantofi negri.	I need a pair of black shoes.	2541
@@ -5082,7 +4984,6 @@ anulat	Zborul a fost anulat. Am luat trenul în locul său.	The flight was cance
 zborul	Zborul a fost anulat. Am luat trenul în locul său.	The flight was cancelled. We took the train instead.	2545
 prietenilor	El predă engleză prietenilor săi.	He teaches his friends English.	2547
 săi	El predă engleză prietenilor săi.	He teaches his friends English.	2547
-preda	El predă engleză prietenilor săi.	He teaches his friends English.	2547
 preda	Cred că mă voi preda acum.	I think I'll turn in now.	2547
 preda	Ei nu se vor preda.	They would not surrender.	2547
 servi	Cu ce te pot servi?	How can I serve you?	2550
@@ -5117,9 +5018,9 @@ frigider	De ce nu am mâncare în frigider?	Why is there no food in my refrigera
 frigider	Putem cumpăra un frigider.	We can buy a refrigerator.	2569
 cumpăra	Putem cumpăra un frigider.	We can buy a refrigerator.	2569
 picior	Un câine a mușcat-o de picior.	A dog bit her leg.	2570
-muscat	Un câine a mușcat-o de picior.	A dog bit her leg.	2570
-muscat	Ești norocos că nu te-a mușcat.	You're lucky because he didn't bite you.	2570
-muscat	Câinele mi-a mușcat mâna.	The dog bit my hand.	2570
+mușcat	Un câine a mușcat-o de picior.	A dog bit her leg.	2570
+mușcat	Ești norocos că nu te-a mușcat.	You're lucky because he didn't bite you.	2570
+mușcat	Câinele mi-a mușcat mâna.	The dog bit my hand.	2570
 calul	Tom a fost mușcat de calul său.	Tom has been bitten by his horse.	2570
 castel	Acest castel are peste o mie de ani.	This castle is over a thousand years old.	2576
 castel	Am făcut un castel de nisip.	We made a sand castle.	2576
@@ -5207,10 +5108,7 @@ față	Am stat față în față.	We stood face to face.	2635
 față	Nimeni nu-i poate face față lui.	No one can cope with him.	2635
 acestei	Cum am putea face față acestei probleme?	How could we handle this problem?	2635
 dreaptă	Nu mușca pe partea dreaptă.	Don't bite on the right side.	2636
-musca	Nu mușca pe partea dreaptă.	Don't bite on the right side.	2636
-musca	Mușcă.	Bite.	2636
 major	Tom a avut un accident major.	Tom had a major accident.	2638
-adora	Ea îl adoră.	She worships him.	2642
 existat	Nu a existat nici un fel de avertisment.	There was no warning whatsoever.	2646
 avertisment	Nu a existat nici un fel de avertisment.	There was no warning whatsoever.	2646
 avertisment	Acesta este ultimul avertisment.	This is your last warning.	2646
@@ -5231,10 +5129,7 @@ dolar	Dă-mi un dolar pentru carte.	Give me one dollar for the book.	2652
 dolar	Uneori aveau un tort întreg pentru un dolar.	Sometimes they had a whole cake for a dollar.	2652
 întreg	Uneori aveau un tort întreg pentru un dolar.	Sometimes they had a whole cake for a dollar.	2652
 furtună	După furtună, marea era calmă.	After the storm, the sea was calm.	2653
-calma	După furtună, marea era calmă.	After the storm, the sea was calm.	2653
 marea	După furtună, marea era calmă.	After the storm, the sea was calm.	2653
-calma	A fost o noapte calmă.	It was a calm night.	2653
-calma	Vocea lui Tom era calmă.	Tom's voice was calm.	2653
 urc	Lasă-mă să mă urc mai întâi în mașină.	Let me get into the car first.	2655
 depus	A depus banii din premiu la bancă.	He deposited the prize money in the bank.	2661
 premiu	A depus banii din premiu la bancă.	He deposited the prize money in the bank.	2661
@@ -5270,7 +5165,6 @@ fiicei	El i-a dat fiicei lui mulți bani.	He gave his daughter quite a lot of mo
 distrăm	Noi ne distrăm de minune.	We're having a great time.	2681
 minune	Noi ne distrăm de minune.	We're having a great time.	2681
 distrăm	Noi ne distrăm.	We're having fun.	2681
-tari	Am vizitat multe țări, dar îmi place cel mai mult Japonia.	I've visited many countries, but I like Japan best of all.	2682
 vizitat	Am vizitat multe țări, dar îmi place cel mai mult Japonia.	I've visited many countries, but I like Japan best of all.	2682
 vizitat	Ai vizitat vreodată Italia?	Have you ever visited Italy?	2682
 vizitat	Un număr mare de oameni au vizitat Japonia.	Scores of people visited Japan.	2682
@@ -5302,7 +5196,7 @@ postul	Trebui să știi să vorbești în franceză pentru postul ăsta.	You mus
 august	În luna august nu se face școală.	There is no school during August.	2710
 august	Suntem deja în luna august.	It's already August.	2710
 ating	Dă-mi drumul la braț! Nu suport oamenii care mă ating.	Let go of my arm! I can't stand people touching me.	2712
-brat	Dă-mi drumul la braț! Nu suport oamenii care mă ating.	Let go of my arm! I can't stand people touching me.	2712
+braț	Dă-mi drumul la braț! Nu suport oamenii care mă ating.	Let go of my arm! I can't stand people touching me.	2712
 format	Am format numărul.	I dialled the number.	2717
 necunoscut	Ați ajuta un necunoscut?	Would you help a stranger?	2718
 prostesc	E cel mai prostesc lucru pe care l-am spus vreodată.	That's the stupidest thing I've ever said.	2720
@@ -5311,7 +5205,6 @@ prostesc	Simt cum mă prostesc.	I can feel myself getting dumber.	2720
 sar	Sar peste cină pentru că am mâncat extrem de mult la prânz.	I'm skipping dinner because I had a huge lunch.	2725
 extrem	Sar peste cină pentru că am mâncat extrem de mult la prânz.	I'm skipping dinner because I had a huge lunch.	2725
 culca	Poți culca copiii?	Can you put the children to bed?	2727
-culca	Culcă-te devreme.	Go to bed early.	2727
 geantă	Ce ai în geantă?	What have you got in your bag?	2729
 promisiune	O promisiune e o promisiune.	A promise is a promise.	2730
 promisiune	I-am făcut o promisiune ei.	I made a promise to her.	2730
@@ -5353,7 +5246,6 @@ iubito	Bună dimineața, iubito! Ai dormit bine?	Good morning, baby! Did you sle
 fim	Noi trebuie să fim la aeroport la 5 dimineața.	We have to be at the airport at 5:00AM.	2772
 aeroport	Noi trebuie să fim la aeroport la 5 dimineața.	We have to be at the airport at 5:00AM.	2772
 furtună	Dimineața am avut o furtună violentă.	In the morning, we had a violent storm.	2772
-violenta	Dimineața am avut o furtună violentă.	In the morning, we had a violent storm.	2772
 gândească	Tom a vrut să se oprească și să se gândească.	Tom wanted to stop and think.	2773
 oprească	Tom a vrut să se oprească și să se gândească.	Tom wanted to stop and think.	2773
 gândească	Tom nu voia să se gândească la ce s-ar putea întâmpla.	Tom didn't want to think about what might happen.	2773
@@ -5583,11 +5475,7 @@ apari	Mă întrebam dacă ai de gând să apari azi.	I was wondering if you were
 apari	Era și timpul să apari.	It's about time you showed up.	2939
 rude	Nu am nici un fel de rude în Anglia.	I had neither kith nor kin in England.	2940
 regreta	Va veni timpul când vei regreta.	The time will come when you'll regret it.	2941
-regreta	Tom regretă că a lipsit de la școală.	Tom regrets skipping school.	2941
-regreta	Nu va trece mult până când ea regretă.	It will not be long before she regrets it.	2941
-participa	Participă!	Participate!	2942
 participa	Nu voi participa la petrecere.	I won't attend the party.	2942
-participa	Participă la întâlnire.	Attend the meeting.	2942
 palma	Batem palma?	Deal?	2945
 batem	Batem palma?	Deal?	2945
 nefericire	Din nefericire nu cred că aș fi de prea mult ajutor.	Unfortunately I don't think I'd be of much help.	2947
@@ -5648,27 +5536,19 @@ duminica	Duminica este ultima zi din săptămână.	Sunday is the last day of th
 străzile	Străzile sunt sub apă.	The streets are flooded.	2998
 ochilor	Văd viața prin lumina ochilor tăi.	I see life through the light of your eyes.	3000
 păsa	Lui Tom nu-i va păsa.	Tom won't care.	3005
-comporta	Tom se comportă de parcă nu i-ar păsa.	Tom is acting like he doesn't care.	3005
 păsa	Tom se comportă de parcă nu i-ar păsa.	Tom is acting like he doesn't care.	3005
 păsa	Nu-mi păsa dacă lui Tom îi plăcea de mine sau nu.	I didn't care whether Tom liked me or not.	3005
 vindecat	M-am vindecat!	I'm cured!	3006
 vindecat	El i-a vindecat pe toți.	He mended them all.	3006
-certam	Eu și tu se pare că ne certăm des.	You and I seem to argue a lot.	3016
 cauza	Să nu ne certăm din cauza asta.	Let's not fight about it.	3016
-certam	Să nu ne certăm din cauza asta.	Let's not fight about it.	3016
-certam	N-are rost să ne certăm.	There's no point in arguing.	3016
 provoca	Nu mă provoca.	Don't provoke me.	3017
 limbă	Anul acesta oferim același curs de limbă ca și anul trecut.	This year we offer the same language course as last year.	3019
 oferim	Anul acesta oferim același curs de limbă ca și anul trecut.	This year we offer the same language course as last year.	3019
 curs	Anul acesta oferim același curs de limbă ca și anul trecut.	This year we offer the same language course as last year.	3019
 separat	Împreună sau separat?	Together or separately?	3020
-amesteca	Amestecă în supă.	Stir the soup.	3021
 supă	Amestecă în supă.	Stir the soup.	3021
-plimba	Se tot plimbă în sus și-n jos fără odihnă.	He keeps pacing up and down restlessly.	3022
-plimba	Plimbă-te cu noi.	Walk with us.	3022
 iubea	Tom o iubea.	Tom loved her.	3023
 iubea	Ea a spus că mă iubea.	She said she loved me.	3023
-duba	Tom nu este în dubă.	Tom isn't in the van.	3024
 fraier	Trebuie să fii un fraier.	You must be a fool.	3025
 fraier	E un fraier.	He's a pushover.	3025
 fraier	Fraier.	Sucker.	3025
@@ -5710,7 +5590,6 @@ octombrie	Ne vom întâlni din nou în octombrie.	We'll meet again in October.	3
 octombrie	Cred că Tom nu a mai făcut asta din octombrie.	I think Tom hasn't done that since October.	3048
 douăzeci	Astăzi este douăzeci și șase octombrie.	Today is October twenty-sixth.	3048
 nivel	Aceste cuvinte sunt în al doilea și al treilea nivel de frecvență.	Those words are in the second and third tiers of frequency.	3050
-frecventa	Aceste cuvinte sunt în al doilea și al treilea nivel de frecvență.	Those words are in the second and third tiers of frequency.	3050
 treilea	Aceste cuvinte sunt în al doilea și al treilea nivel de frecvență.	Those words are in the second and third tiers of frequency.	3050
 lunga	Probabil că este foarte obosit după lunga plimbare.	He must be very tired after a long walk.	3053
 paradis	Ia-mă de mână, sunt un străin în paradis.	Take my hand, I'm a stranger in paradise.	3054
@@ -5786,7 +5665,6 @@ dimineață	Tom nu s-a trezit destul de dimineață pentru a prinde primul tren.
 dimineață	Cine se scoală de dimineață, departe ajunge.	The early bird gets the worm.	3123
 scoală	Cine se scoală de dimineață, departe ajunge.	The early bird gets the worm.	3123
 dimineață	Îmi las copiii la școală în fiecare dimineață înainte de a mă duce la serviciu.	I drop off my children at school every morning before going to work.	3123
-plimba	El plimbă câinele său în fiecare dimineață.	He walks his dog every morning.	3123
 mici	Îi duc la școală pe cei mici în fiecare dimineață.	I take the little ones to school every morning.	3123
 cinema	Nu suntem la cinema.	We are not at the cinema.	3124
 cinema	Uneori mă duc cu sora mea la cinema.	My sister and I go to the movies from time to time.	3124
@@ -5797,7 +5675,6 @@ stinge	El se stinge.	He's fading away.	3130
 stinge	Te rog stinge lumina înainte de a te culca.	Please turn off the light before you go to sleep.	3130
 culca	Te rog stinge lumina înainte de a te culca.	Please turn off the light before you go to sleep.	3130
 limbă	Fiecare limbă care se stinge ia cu ea o bucată din istoria umană.	Every language that dies out takes a piece of human history with it.	3130
-umana	Fiecare limbă care se stinge ia cu ea o bucată din istoria umană.	Every language that dies out takes a piece of human history with it.	3130
 istoria	Fiecare limbă care se stinge ia cu ea o bucată din istoria umană.	Every language that dies out takes a piece of human history with it.	3130
 bucată	Fiecare limbă care se stinge ia cu ea o bucată din istoria umană.	Every language that dies out takes a piece of human history with it.	3130
 cavaler	Cine este acel cavaler înalt?	Who is that tall knight?	3131
@@ -5829,7 +5706,6 @@ mașina	Îmi spăl mașina în fața casei fără probleme.	I wash my car in fro
 casei	Îmi spăl mașina în fața casei fără probleme.	I wash my car in front of the house without any problems.	3144
 mașina	Când ar trebui să aduc mașina înapoi?	When should I return the car?	3144
 mașina	Mașina aceea este a mea.	That car is mine.	3144
-as	Dacă s-ar întâmpla ceva cu mașina mea, aş merge cu autobuzul.	If anything should be wrong with my car, I would go by bus.	3144
 dreapta	I-am văzut mașina făcând la dreapta.	I saw his car make a right turn.	3144
 deci	Mașina lui nu e aici, deci el trebuie să fi plecat.	His car isn't here, so he must have gone.	3144
 benzină	Tom și-a abandonat mașina, care a rămas fără benzină, și a început să meargă pe jos.	Tom abandoned his car that had run out of gasoline and started walking.	3144
@@ -5862,8 +5738,6 @@ lacul	Cât de adânc este lacul?	How deep is the lake?	3157
 lacul	E adânc lacul?	Is the lake deep?	3157
 lacul	Lacul este albastru.	The lake is blue.	3157
 albastru	Lacul este albastru.	The lake is blue.	3157
-acorda	Acordă-i timp.	Give it time.	3160
-acorda	Tom acordă o mână de ajutor când totul pare să meargă complet greșit.	Tom lends a helping hand when everything seems to be going completely wrong.	3160
 sezon	Ei îi se pare primul sezon mai bun decât al doilea sezon.	She finds the first season better than the second season.	3161
 medicină	El practică medicină.	He practices medicine.	3162
 practică	El practică medicină.	He practices medicine.	3162
@@ -5912,10 +5786,8 @@ distra	Tom sigur se distra.	Tom was certainly enjoying himself.	3198
 picat	El a picat din nou?	Has he failed again?	3199
 politicos	El este foarte politicos azi.	He is being very polite today.	3204
 politicos	Te rugăm să fii politicos.	Please be polite.	3204
-rugam	Te rugăm să fii politicos.	Please be polite.	3204
 politicos	Este foarte politicos din partea ta să mă suni.	It is very courteous of you to call on me.	3204
 ignora	Dacă telefonul sună din nou, îl voi ignora.	If the phone rings again, I will ignore it.	3206
-ignora	Ignoră-l pur și simplu.	Just ignore him.	3206
 manager	Ea este asistent-manager.	She's the assistant manager.	3207
 asistent	Ea este asistent-manager.	She's the assistant manager.	3207
 caritate	Ei se duc la un eveniment de caritate.	They're going to a charity event.	3211
@@ -5985,9 +5857,6 @@ marcat	Tom a marcat de două ori.	Tom scored twice.	3273
 marcat	Tom a marcat de trei ori.	Tom scored three times.	3273
 marcat	Chiar și Tom a marcat astăzi.	Even Tom scored today.	3273
 puncte	Tom a marcat doar trei puncte.	Tom scored only three points.	3273
-sufla	Suflă mai tare!	Blow harder!	3275
-beata	Trebuie să fiu beată.	I must be drunk.	3278
-beata	Pari beată.	You look drunk.	3278
 poftă	Poftă bună!	Enjoy your meal!	3280
 poftă	Am poftă de pizza.	I'm craving pizza.	3280
 poftă	Tom nu prea avea poftă de mâncare.	Tom didn't feel much like eating.	3280
@@ -6010,7 +5879,7 @@ răspunsurile	Răspunsurile sunt la pagina o sută douăzeci și trei.	The answe
 pagina	Răspunsurile sunt la pagina o sută douăzeci și trei.	The answers are on page one hundred twenty-three.	3294
 sută	Răspunsurile sunt la pagina o sută douăzeci și trei.	The answers are on page one hundred twenty-three.	3294
 aștepta	Nu se poate aștepta totul de la școli.	One can't expect everything from schools.	3297
-scoli	Nu se poate aștepta totul de la școli.	One can't expect everything from schools.	3297
+școli	Nu se poate aștepta totul de la școli.	One can't expect everything from schools.	3297
 aștepta	Pot aștepta doar.	I can only wait.	3297
 aștepta	Nu te poți aștepta să mă gândesc mereu la tot!	You can't expect me to always think of everything!	3297
 muzeu	Astăzi am vizitat un muzeu.	Today I visited a museum.	3299
@@ -6118,7 +5987,6 @@ depărtare	E la mile depărtare.	It's miles away.	3393
 mile	E la mile depărtare.	It's miles away.	3393
 depărtare	Soarele se află la mare depărtare de Pământ.	The sun is very far away from the Earth.	3393
 soarele	Soarele se află la mare depărtare de Pământ.	The sun is very far away from the Earth.	3393
-profita	Tom profită de tine.	Tom is taking advantage of you.	3394
 pâinea	Unde s-a dus toată pâinea?	Where did all the bread go?	3398
 piatra	Pâinea asta e tare ca piatra.	This bread is hard as a rock.	3398
 pâinea	Pâinea asta e tare ca piatra.	This bread is hard as a rock.	3398
@@ -6318,8 +6186,6 @@ vărsat	Fata a vărsat câteva lacrimi atunci când i-a murit tatăl.	The girl s
 lacrimi	Fata a vărsat câteva lacrimi atunci când i-a murit tatăl.	The girl shed some tears when her father died.	3584
 mască	Pot să port o mască la această petrecere?	Can I wear a mask at this party?	3586
 mască	Pot purta o mască la această petrecere?	Can I wear a mask at this party?	3586
-inspira	Inspiră!	Inhale.	3587
-inspira	Ea nu prea inspiră încredere, nu-i așa?	She isn't very trustworthy, is she?	3587
 cert	Nu eram dispus să o cert pentru că a întârziat.	I didn't feel like scolding her for being late.	3588
 dispus	Nu eram dispus să o cert pentru că a întârziat.	I didn't feel like scolding her for being late.	3588
 cert	În mod cert!	Definitely!	3588
@@ -6371,7 +6237,6 @@ deschidere	Noul program de deschidere este pe site.	The new opening hours are on
 defect	Are un defect.	It has a flaw.	3651
 defect	Autobuzul este defect?	Is the bus broken?	3651
 defect	Autobuzul este defect.	The bus is broken!	3651
-accepta	Acest restaurant acceptă doar numerar.	This restaurant only accepts cash.	3653
 numerar	Acest restaurant acceptă doar numerar.	This restaurant only accepts cash.	3653
 belea	Tom nu a dat niciodată de belea.	Tom has never been in any trouble.	3655
 paturi	Aș dori o cameră cu două paturi.	I'd like a double room.	3657
@@ -6413,7 +6278,6 @@ material	Patru metri din acest material costă nouă franci; deci doi metri cost
 franci	Patru metri din acest material costă nouă franci; deci doi metri costă patru franci și jumătate.	Four metres of this material cost nine francs; therefore, two metres cost four and a half francs.	3685
 luând	Luând totul în considerare, nu poate fi criminal.	Taking everything into consideration, he can't be the criminal.	3693
 iubească	Iubirea adoră să iubească iubirea.	Love loves to love love.	3694
-adora	Iubirea adoră să iubească iubirea.	Love loves to love love.	3694
 dansat	Ea a dansat toată noaptea.	She danced all night long.	3696
 dansat	Am dansat singur.	I danced alone.	3696
 riscuri	Există riscuri.	There are risks.	3697
@@ -6458,7 +6322,6 @@ progrese	Ai făcut progrese.	You've made progress.	3726
 progrese	Faci progrese.	You're making progress.	3726
 danseze	Chiar vrei ca Tom să danseze?	Do you really want Tom to dance?	3730
 danseze	Ea adoră să danseze.	She loves to dance.	3730
-adora	Ea adoră să danseze.	She loves to dance.	3730
 microfon	Tom a urcat la microfon.	Tom stepped up to the microphone.	3731
 haios	El este un om haios.	He's a funny man.	3734
 cocos	Eu beau apă de cocos dimineața.	I drink coconut water in the morning.	3736
@@ -6479,7 +6342,6 @@ scrisul	Abia pot să-i citesc scrisul.	I can barely read her writing.	3750
 comunitatea	Era văzut ca un om învățat în comunitatea noastră.	He passed for a learned man in our community.	3756
 învățat	Ai multe de învățat.	You have much to learn.	3756
 învățat	Nimeni nu m-a învățat.	Nobody taught me.	3756
-violenta	Am învățat violența de la voi.	We learned violence from you.	3756
 pensie	Cred că trebuie să ieși la pensie.	I think you should retire.	3757
 pensie	Sunt la pensie de trei ani.	I've been retired for three years.	3757
 scurgere	Este o scurgere.	It's a leak.	3758
@@ -6571,7 +6433,6 @@ stins	Toate luminile în clădire s-au stins.	All the lights in the building hav
 focul	Tom a stins focul.	Tom stamped out the fire.	3836
 stins	Tom a stins focul.	Tom stamped out the fire.	3836
 insula	Se scufundă insula?	Is the island sinking?	3840
-scufunda	Se scufundă insula?	Is the island sinking?	3840
 surprindere	Tom a fost luat prin surprindere.	Tom was taken aback.	3844
 surprindere	Am fost luat prin surprindere.	I was taken aback.	3844
 factura	Ai factura?	Do you have the receipt?	3845
@@ -6651,8 +6512,6 @@ scaune	Te rog să pui acele scaune deoparte.	Please put those chairs away.	3938
 acele	Te rog să pui acele scaune deoparte.	Please put those chairs away.	3938
 scaune	Câte scaune avem?	How many chairs do we have?	3938
 concentra	Nu mă pot concentra deloc.	I cannot concentrate at all.	3939
-tremura	Spune adevărul, chiar dacă îți tremură vocea.	Speak the truth, even if your voice shakes.	3943
-tremura	Ea tremură de frig.	She trembles with cold.	3943
 soarele	A răsărit soarele.	The sun rose.	3945
 răsărit	A răsărit soarele.	The sun rose.	3945
 soarele	Soarele a răsărit.	The sun is up.	3945
@@ -6736,7 +6595,6 @@ legume	Noi avem o mică grădină de legume.	We have a small vegetable garden.	4
 împrumuta	Îți voi împrumuta cartea asta.	I'll lend you this book.	4041
 împrumuta	Pentru cât timp îl pot împrumuta?	How long can I borrow it?	4041
 februarie	Suntem acum în februarie.	We're now in February.	4043
-absenta	Absența ta m-a dezamăgit.	I was disappointed at your absence.	4048
 preocupat	Este foarte preocupat de viitorul fiului său.	He is very much concerned about the future of his son.	4050
 treizeci	El este în treizeci de ani.	He is in his early thirties.	4066
 treizeci	Vă rugam să așteptați treizeci de minute.	Please wait for thirty minutes.	4066
@@ -6761,7 +6619,6 @@ cerebral	Ea a avut un atac cerebral.	She had a stroke.	4080
 critic	Cine sunt eu să-l critic?	Who am I to criticize him?	4081
 critic	De ce nu este Tom aici în acest moment critic?	Why isn't Tom here at this critical time?	4081
 graba	Graba strică treaba.	Haste makes waste.	4083
-strica	Graba strică treaba.	Haste makes waste.	4083
 obiceiul	Cunosc obiceiul ăsta.	I know this custom.	4087
 obiceiul	Am obiceiul să fac asta.	I have a habit of doing that.	4087
 dinte	Ochi pentru ochi, dinte pentru dinte !	An eye for an eye, a tooth for a tooth.	4091
@@ -6786,8 +6643,6 @@ greșeală	Ea a făcut aceeași greșeală din nou.	She made the same mistake ag
 responsabilă	Nu eu sunt responsabilă pentru această greșeală.	I'm not the one responsible for this mistake.	4108
 responsabilă	Nu eu sunt cea responsabilă pentru această greșeală.	I'm not the one responsible for this mistake.	4108
 efect	Fiecare greșeală are un efect.	Every mistake has an effect.	4108
-grava	Ai făcut o greșeală, dar nu e gravă.	You made a mistake but it's not serious.	4108
-grava	Ar fi o greșeală gravă să facem asta.	It would be a bad mistake to do that.	4108
 sufăr	De ce trebuie să mă faci să sufăr?	Why must you make me suffer?	4115
 cazier	Tom nu are cazier.	Tom has no criminal record.	4118
 faliment	S-ar putea să dea faliment.	She may go out of business.	4119
@@ -6899,8 +6754,6 @@ opune	El se opune acestui proiect.	He opposes this project.	4251
 șapte	Unu, doi, trei, patru, cinci, șase, șapte, opt, nouă, zece.	One, two, three, four, five, six, seven, eight, nine, ten.	4254
 șapte	O săptămână are șapte zile.	A week has seven days.	4254
 șapte	Este aproape șapte. Trebuie să mergem la școală.	It's almost seven. We have to go to school.	4254
-paturi	Ai șapte pături.	You have seven blankets.	4254
-paturi	Aveți șapte pături.	You have seven blankets.	4254
 avioane	N-am decât șapte avioane.	I have but seven aeroplanes.	4254
 continui	Am fost pentru prima dată la școală când aveam șapte ani. Și continui să studiez până astăzi, pentru că mai am multe de învățat.	I went to school for the first time when I was seven years old. And I keep studying to this day because I still have a lot to learn.	4254
 beri	Cei doi prieteni au băut împreună șapte beri.	The two friends drank seven beers together.	4254
@@ -6917,7 +6770,6 @@ petrol	Această țară este bogată în petrol.	This country is rich in oil.	427
 țară	Germania este o țară rece.	Germany is a cold country.	4270
 călătorit	Am călătorit prin țară cu mașina.	We traveled around the country by car.	4270
 grădina	Tom își udă grădina.	Tom is watering his garden.	4273
-uda	Tom își udă grădina.	Tom is watering his garden.	4273
 uda	Probabil te vei uda foarte tare făcând asta.	You'll likely get very wet doing that.	4273
 lipsea	Pentru a fi perfectă îi lipsea doar un defect.	To be perfect she lacked just one defect.	4275
 profil	E frumoasă poza mea de profil?	Is my profile picture beautiful?	4276
@@ -6943,7 +6795,6 @@ aglomerat	Autobuzul era groaznic de aglomerat.	The bus was awfully crowded.	4301
 deprimat	Tom era complet deprimat.	Tom was thoroughly depressed.	4307
 deprimat	Ajută-mă, te rog. Mă simt deprimat.	Help me, please. I'm feeling depressed.	4307
 deprimat	Tom a spus că era deprimat.	Tom said that he's depressed.	4307
-inocenta	Inocența e un lucru minunat.	Innocence is a beautiful thing.	4310
 dinafară	Vrei să fii lăsat pe dinafară?	Do you want to be left out?	4311
 tablou	Cine a pictat acest tablou?	Who painted this picture?	4313
 pictat	Cine a pictat acest tablou?	Who painted this picture?	4313
@@ -7001,7 +6852,6 @@ pătură	Adu-mi o pătură, te rog.	Bring me a blanket, please.	4360
 cucerit	Am venit, am văzut, am cucerit.	I came, I saw, I conquered.	4366
 oarbă	Ei spun că dragostea este oarbă.	They say love is blind.	4369
 băieții	Câteodată băieții se comportă foarte stupid.	Sometimes guys can be really stupid.	4371
-comporta	Câteodată băieții se comportă foarte stupid.	Sometimes guys can be really stupid.	4371
 băieții	Toți băieții au fugit.	All the boys ran away.	4371
 băieții	Nu-mi plac băieții răi.	I don't like bad boys.	4371
 răi	Nu-mi plac băieții răi.	I don't like bad boys.	4371
@@ -7020,7 +6870,6 @@ reușit	N-am reușit s-o înțeleg.	I couldn't get it.	4380
 reușit	N-aș fi reușit fără tine. Mulțumesc.	I couldn't have done it without you. Thank you.	4380
 reușit	N-aș fi reușit asta fără tine.	I couldn't have done this without you.	4380
 scapi	Cum ai reușit să scapi?	How did you manage to escape?	4380
-scap	Am reușit să scăp de el.	I managed to get rid of him.	4380
 treia	Tom a reușit să o facă la a treia încercare.	Tom was able to do it on his third try.	4380
 urmare	Prin urmare, el a reușit.	Thus he succeeded.	4380
 distreze	Tom ar trebuie să mai iasă și să se distreze.	Tom should go out and have some fun.	4382
@@ -7047,7 +6896,6 @@ compus	Cine a compus asta?	Who composed this?	4409
 întrerupe	Tom, nu întrerupe.	Tom, don't interrupt.	4410
 apărat	M-am apărat.	I defended myself.	4414
 mărime	Ai o mărime mai mare pentru asta?	Do you have this in a larger size?	4416
-arat	Arăt eu a fermier?	Do I look like a farmer?	4418
 fermier	Arăt eu a fermier?	Do I look like a farmer?	4418
 fermier	El dorea să fie fermier.	He wanted to be a farmer.	4418
 fermier	Sunt doar un simplu fermier.	I'm just a simple farmer.	4418
@@ -7094,10 +6942,7 @@ broască	Tom chiar a mâncat o broască?	Did Tom actually eat a frog?	4465
 mobilă	Această mobilă nu e de vânzare.	These pieces of furniture are not for sale.	4467
 mobilă	Tom face mobilă.	Tom makes furniture.	4467
 mobilă	Am cumpărat ceva mobilă nouă.	I bought some new furniture.	4467
-expira	Expiră!	Exhale.	4468
-matura	Fata nu e destul de matură pentru a fi responsabilă.	The girl is not old enough to be responsible.	4473
 responsabilă	Fata nu e destul de matură pentru a fi responsabilă.	The girl is not old enough to be responsible.	4473
-matura	Un copil nu este o persoană matură.	A child is not a mature person.	4473
 dedicat	Ești un muncitor dedicat.	You're a very hard worker.	4480
 muncitor	Ești un muncitor dedicat.	You're a very hard worker.	4480
 muncitor	Tom este foarte muncitor, nu-i așa?	Tom is a very hard worker, isn't he?	4480
@@ -7181,7 +7026,6 @@ naiv	Nu sunt în întregime naiv.	I'm not completely naive.	4585
 întregime	Nu sunt în întregime naiv.	I'm not completely naive.	4585
 viitorului	Aceasta este mașina viitorului.	This is the car of the future.	4586
 păianjen	Este acest păianjen periculos?	Is this spider dangerous?	4587
-imaginam	Ne imaginăm imediat ce este cel mai rău.	We imagine immediately what is the worst.	4588
 fiicele	Noi suntem fiicele tale.	We are your daughters.	4590
 fiicele	Sunteți fiicele ei.	You're her daughters.	4590
 floarea	Îți place floarea aceasta?	Do you like this flower?	4592
@@ -7204,7 +7048,7 @@ aștept	Aștept trenul.	I'm waiting for the train.	4604
 aștept	Aștept cu nerăbdare.	I look forward to it.	4604
 nerăbdare	Aștept cu nerăbdare.	I look forward to it.	4604
 nerăbdare	Mi-a plăcut plăcere să te cunosc și aștept cu nerăbdare vești de la tine.	It was nice to meet you, and I look forward to hearing from you.	4604
-vesti	Mi-a plăcut plăcere să te cunosc și aștept cu nerăbdare vești de la tine.	It was nice to meet you, and I look forward to hearing from you.	4604
+vești	Mi-a plăcut plăcere să te cunosc și aștept cu nerăbdare vești de la tine.	It was nice to meet you, and I look forward to hearing from you.	4604
 nerăbdare	Aștept cu nerăbdare acest lucru.	I look forward to it.	4604
 întâmplător	Întâmplător, îl cunosc.	Coincidentally enough, I know him.	4606
 ceapă	Ea plânge pentru că taie ceapă.	She is crying since she is cutting onions.	4607
@@ -7247,7 +7091,6 @@ umed	Azi-noapte a fost foarte cald și umed, și nu am putut să dorm foarte bin
 ateriza	Mâine, va ateriza pe Lună.	Tomorrow, he will land on the moon.	4653
 comandant	Tom era un comandant de tanc.	Tom was a tank commander.	4655
 tanc	Tom era un comandant de tanc.	Tom was a tank commander.	4655
-tanc	Asta vine la țanc.	That comes in handy.	4655
 atenție	Atenție!	Attention!	4657
 gaură	Atenție! E o gaură mare acolo.	Watch out! There's a big hole there.	4657
 atenție	Atenție! E o gaură mare acolo.	Watch out! There's a big hole there.	4657
@@ -7279,10 +7122,8 @@ accentul	Nu puteam să-i înțeleg accentul.	I couldn't understand her accent.	4
 irosit	Cred că am irosit deja prea mult timp.	I think we've already wasted too much time.	4679
 golful	Iubesc golful.	I love golf.	4681
 evaluare	Cred că asta este o evaluare corectă.	I think that's an accurate assessment.	4682
-corecta	Cred că asta este o evaluare corectă.	I think that's an accurate assessment.	4682
 meritam	Meritam mai mult.	I deserved better.	4684
 pedeapsă	Cu ce ​​am greșit ca să merităm această pedeapsă?	What did we do wrong to deserve this sanction?	4684
-meritam	Cu ce ​​am greșit ca să merităm această pedeapsă?	What did we do wrong to deserve this sanction?	4684
 servitoare	El are o servitoare.	He has a maid.	4687
 vrăjitoarea	În această carte, vrăjitoarea este rea.	In this book, the witch is evil.	4688
 chinezesc	Tom știe un restaurant chinezesc bun, nu prea departe de biroul său.	Tom knows a good Chinese restaurant not too far from his office.	4690
@@ -7292,7 +7133,6 @@ mințit	Cel mai bun prieten m-a mințit.	My best friend lied to me.	4692
 mințit	Cea mai bună prietenă m-a mințit.	My best friend lied to me.	4692
 ministru	Primul Ministru a semnat un acord comercial între cele două țări.	The Prime Minister signed a trade agreement between the two countries.	4696
 comercial	Primul Ministru a semnat un acord comercial între cele două țări.	The Prime Minister signed a trade agreement between the two countries.	4696
-tari	Primul Ministru a semnat un acord comercial între cele două țări.	The Prime Minister signed a trade agreement between the two countries.	4696
 semnat	Primul Ministru a semnat un acord comercial între cele două țări.	The Prime Minister signed a trade agreement between the two countries.	4696
 narator	Acest narator este foarte bun.	This narrator is very good.	4700
 continent	Europa este un continent.	Europe is a continent.	4704
@@ -7377,10 +7217,8 @@ japoneză	Am vorbit deseori despre politica japoneză.	We often talked about Jap
 politica	Am vorbit deseori despre politica japoneză.	We often talked about Japanese politics.	4803
 gândea	Tom nu se gândea că am observat.	Tom didn't think I noticed.	4806
 contabil	Am fost contabil înainte de a deveni profesor.	I was an accountant before I became a teacher.	4809
-reflecta	Ochii mei sunt un ocean în care visele mele se reflectă.	My eyes are an ocean in which my dreams are reflected.	4810
 visele	Ochii mei sunt un ocean în care visele mele se reflectă.	My eyes are an ocean in which my dreams are reflected.	4810
 ocean	Ochii mei sunt un ocean în care visele mele se reflectă.	My eyes are an ocean in which my dreams are reflected.	4810
-reflecta	Visele mele se reflectă în ochii ei mici negri.	My dreams are reflected in her little black eyes.	4810
 negri	Visele mele se reflectă în ochii ei mici negri.	My dreams are reflected in her little black eyes.	4810
 visele	Visele mele se reflectă în ochii ei mici negri.	My dreams are reflected in her little black eyes.	4810
 alaska	Aici nu este așa de frig ca în Alaska.	It isn't as cold here as in Alaska.	4811
@@ -7394,10 +7232,8 @@ obiceiurile	Fiecare țară are obiceiurile ei.	Every country has its own customs
 obiceiurile	Aș vrea o carte despre obiceiurile din Japonia.	I want a book telling about Japanese customs.	4825
 patra	Să repetăm cea de-a patra scenă.	Let's rehearse the fourth scene.	4828
 scenă	Să repetăm cea de-a patra scenă.	Let's rehearse the fourth scene.	4828
-repetam	Să repetăm cea de-a patra scenă.	Let's rehearse the fourth scene.	4828
 patra	Hai să repetăm cea de-a patra scenă.	Let's rehearse the fourth scene.	4828
 scenă	Hai să repetăm cea de-a patra scenă.	Let's rehearse the fourth scene.	4828
-repetam	Hai să repetăm cea de-a patra scenă.	Let's rehearse the fourth scene.	4828
 cot	M-am lovit la cot.	I hurt my elbow.	4830
 vaci	Am trei vaci.	I have three cows.	4831
 vaci	Câte vaci ai?	How many cows do you have?	4831
@@ -7531,7 +7367,6 @@ răcit	Vremea s-a răcit.	The weather got cold.	5027
 răcit	Sunt răcit acum.	I have a cold now.	5027
 sushi	Îți place sushi?	Do you like sushi?	5036
 lupii	În general lupii nu atacă oamenii.	Wolves won't usually attack people.	5038
-ataca	În general lupii nu atacă oamenii.	Wolves won't usually attack people.	5038
 pompier	Tom nu este pompier.	Tom isn't a fireman.	5040
 gălăgie	Nu faceți gălăgie!	Don't make noise!	5041
 gălăgie	Uită-te la film și nu fă gălăgie!	Watch the movie and be quiet!	5041
@@ -7548,7 +7383,6 @@ tulburat	În timp ce discutam cu el, mi se părea tulburat, dar prietenos.	On ha
 discutam	În timp ce discutam cu el, mi se părea tulburat, dar prietenos.	On having a talk with him, I found him troubled but friendly.	5053
 calculat	Am calculat în grabă.	I calculated hastily.	5054
 hit	Nu aș fi foarte surprins dacă acest cântec ar deveni un hit.	I wouldn't be too surprised if this song became a hit.	5060
-rate	Mai târziu, ea dă de mâncare la rațe.	Later, she feeds the ducks.	5062
 romane	Ea a scris 5 romane în 5 ani.	She wrote 5 novels in 5 years.	5077
 miezul	Acesta este miezul problemei.	This is the core of the problem.	5080
 problemei	Acesta este miezul problemei.	This is the core of the problem.	5080
@@ -7573,14 +7407,12 @@ optimist	Tom mi-a spus că era optimist.	Tom told me that he was optimistic.	509
 optimist	Sunt optimist.	I'm optimistic.	5098
 nemuritor	Niciunul dintre noi nu este nemuritor.	None of us are immortal.	5101
 lipsea	A vândut mașina a cărei roată lipsea.	He sold the car that was missing a wheel.	5106
-carei	A vândut mașina a cărei roată lipsea.	He sold the car that was missing a wheel.	5106
 roată	A vândut mașina a cărei roată lipsea.	He sold the car that was missing a wheel.	5106
 durată	Filmul are o durată de două ore și jumătate.	The movie is two and a half hours long.	5107
 zgârietură	Am ieșit din luptă fără nicio zgârietură.	I got out of the fight without a scratch.	5113
 războaie	Ea a trecut peste trei războaie.	She has survived three wars.	5116
 veterinar	Tom nu vrea să fie veterinar.	Tom doesn't want to be a veterinarian.	5119
 suplimentar	Ei solicită un ajutor suplimentar.	They require extra help.	5122
-solicita	Ei solicită un ajutor suplimentar.	They require extra help.	5122
 gândești	Îți voi da o zi să te gândești la asta.	I'll give you a day to think about it.	5125
 gândești	Pari să te gândești la altceva.	You seem to be thinking of something else.	5125
 gândești	Nu vrei să te gândești la Tom, nu-i așa?	You don't want to think about Tom, do you?	5125
@@ -7621,7 +7453,6 @@ alcoolic	Ești un alcoolic.	You are an alcoholic.	5197
 exist	Nu exist pentru tine.	I don't exist to you.	5198
 bărbați	Nu suntem copii, suntem bărbați.	We are not children, we are men.	5199
 contat	Nu a contat că eram femeie.	It didn't matter that I was a woman.	5200
-necesita	Acest post nu necesită o diplomă.	This position doesn't require a degree.	5204
 post	Acest post nu necesită o diplomă.	This position doesn't require a degree.	5204
 diplomă	Acest post nu necesită o diplomă.	This position doesn't require a degree.	5204
 gustat	Tom nu a gustat din prânz.	Tom didn't touch his lunch.	5211
@@ -7649,13 +7480,11 @@ rușine	Îmi este rușine de mine.	I'm very ashamed of myself.	5245
 instantaneu	El a fost lovit de o mașină și a murit instantaneu.	He was hit by a car and died instantly.	5251
 calculatoare	Ei știu cum să repare calculatoare.	They know how to repair computers.	5253
 calculatoare	Din ce în ce mai mulți oameni au calculatoare acasă.	More and more people have a computer in their home.	5253
-reparam	Nu reparăm calculatoare aici.	We don't repair PCs here.	5253
 calculatoare	Nu reparăm calculatoare aici.	We don't repair PCs here.	5253
 suedia	Sunt un student de schimb din Suedia.	I'm an exchange student from Sweden.	5254
 schimb	Sunt un student de schimb din Suedia.	I'm an exchange student from Sweden.	5254
 suedia	Eu sunt din Suedia.	I'm from Sweden.	5254
 suedia	Sunt din Suedia.	I'm from Sweden.	5254
-tratam	Trebuie să îi tratăm pe toți în mod corect.	We need to treat everyone fairly.	5274
 religioasă	Ești o persoană religioasă, nu-i așa?	You are religious, right?	5275
 scriem	Scriem.	We're writing.	5277
 scriem	Noi scriem.	We're writing.	5277
@@ -7673,12 +7502,9 @@ bănuit	Am bănuit!	I suspected it!	5299
 doreai	Asta este ce doreai.	This is what you wanted.	5302
 doreai	Știu de ce tu nu doreai să faci asta.	I know why you didn't want to do that.	5302
 motoare	Dă drumul la motoare.	Fire up the engines.	5303
-celebra	Ea se comportă diferit de când este celebră.	She behaves differently since she became famous.	5305
-celebra	De când este celebră, nu mai vorbește cu noi.	Since she's been famous, she's not talking to us anymore.	5305
 realizare	Ce realizare!	What an accomplishment!	5308
 realizare	Asta a fost cea mai mare realizare a noastră.	That was our biggest accomplishment.	5308
 libertatea	Libertatea constă în a fi capabil de a face totul cât de inofensiv posibil.	Liberty consists of being able to make everything as harmless as possible.	5313
-consta	Libertatea constă în a fi capabil de a face totul cât de inofensiv posibil.	Liberty consists of being able to make everything as harmless as possible.	5313
 inofensiv	Libertatea constă în a fi capabil de a face totul cât de inofensiv posibil.	Liberty consists of being able to make everything as harmless as possible.	5313
 muzician	Tatăl lui Tom e muzician.	Tom's father is a musician.	5316
 muzician	Tom este muzician la fel ca tatăl lui.	Tom is a musician like his father.	5316
@@ -7693,7 +7519,6 @@ pasionat	Sunt pasionat să cunosc alte limbi.	I am passionate about learning oth
 liniște	Când sunt singur acasă, e prea liniște.	When I'm home alone, the house is too quiet.	5343
 liniște	Liniște!	Quiet!	5343
 liniște	E prea multă liniște.	It's too quiet.	5343
-tina	Tom a încercat să-i țină pe copii în liniște.	Tom tried to keep the children quiet.	5343
 jurul	Soțul meu vine acasă în jurul orei opt.	My husband comes home at about eight.	5346
 orei	Soțul meu vine acasă în jurul orei opt.	My husband comes home at about eight.	5346
 relevant	Nu este relevant.	It's not pertinent.	5347
@@ -7771,7 +7596,6 @@ cercul	Cercul este roșu.	The circle is red.	5458
 însămi	Îl voi duce eu însămi acolo.	I'll take him there myself.	5459
 indicat	Copilul mi-a indicat-o pe mama lui.	The child pointed out her mother to me.	5465
 destinat	Pentru ce este destinat acel lucru?	What's that thing supposed to do?	5467
-imita	Doar imită ceea ce face el.	Just imitate what he does.	5468
 inacceptabil	Asta este complet inacceptabil.	This is completely unacceptable.	5469
 nepot	Tom va avea un alt nepot.	Tom is going to have another grandchild.	5473
 boxer	Tom nu este boxer.	Tom isn't a boxer.	5477
@@ -7873,10 +7697,8 @@ ulterior	Ulterior, Tom a fost concediat.	Tom was subsequently fired.	5612
 grijuliu	Tom este grijuliu.	Tom is thoughtful.	5614
 zgâriat	Te-ai zgâriat?	Did you get scratched?	5621
 zgâriat	Ai fost zgâriat?	Did you get scratched?	5621
-radem	Povestea lui ne-a făcut să râdem.	His story made us laugh.	5624
 hotărî	Nu mă pot hotărî pe care rochie să o cumpăr.	I can't decide which dress I should buy.	5629
 hotărî	Nu mă pot hotărî ce să fac.	I can't decide what to do.	5629
-strica	Fructele se strică la soare.	Fruits decay in the sun.	5633
 fructele	Fructele se strică la soare.	Fruits decay in the sun.	5633
 fructele	Un copac este cunoscut după fructele sale.	You will know them by their fruits.	5633
 stilou	Acesta este un creion și acela este un stilou.	This is a pencil and that is a pen.	5637
@@ -8050,7 +7872,7 @@ aspirină	Aș vrea să cumpăr niște aspirină.	I would like to buy some aspiri
 aspirină	Ia două pastile de aspirină.	Take two aspirin tablets.	5883
 pastile	Ia două pastile de aspirină.	Take two aspirin tablets.	5883
 aspirină	Vrei o aspirină?	Do you want some aspirin?	5883
-print	Fiul meu s-a deghizat în prinț.	My son dressed up as a prince.	5888
+prinț	Fiul meu s-a deghizat în prinț.	My son dressed up as a prince.	5888
 deghizat	Fiul meu s-a deghizat în prinț.	My son dressed up as a prince.	5888
 unsprezece	Este deja unsprezece.	It is already eleven.	5889
 traversa	După unsprezece secunde pot traversa strada.	After eleven seconds they can cross the street.	5889
@@ -8063,8 +7885,7 @@ situația	M-am săturat până peste cap de situația asta.	I'm sick and tired o
 situația	Tom poate explica situația.	Tom can explain the situation.	5895
 descrie	Poate este cel mai bun cuvânt pentru a descrie situația mea.	Perhaps it's the best word to describe my condition.	5895
 critică	Situația este critică.	The situation is critical.	5895
-grava	Situația este gravă din cauza ta.	The situation is serious because of you.	5895
-pupa	Pupă!	Kiss!	5899
+pupă	Pupă!	Kiss!	5899
 muscă	E o muscă în cafea.	There is a fly in the coffee.	5902
 aburi	Ce zici de o baie de aburi?	How about a steam bath?	5904
 supun	Trebuie să mă supun ei.	I must obey her.	5907
@@ -8121,7 +7942,6 @@ soție	Ea nu este cea mai frumoasă femeie, dar este o soție bună.	She isn't t
 îmbătrânit	N-ai îmbătrânit o zi.	You haven't aged a day.	5981
 castron	Tom a mâncat un castron cu supă de scoici.	Tom ate a bowl of clam chowder.	5982
 scoici	Tom a mâncat un castron cu supă de scoici.	Tom ate a bowl of clam chowder.	5982
-rate	Sunt o mulțime de rațe sălbatice împrejur.	There are a lot of wild ducks around here.	5983
 sălbatice	Sunt o mulțime de rațe sălbatice împrejur.	There are a lot of wild ducks around here.	5983
 împrejur	Sunt o mulțime de rațe sălbatice împrejur.	There are a lot of wild ducks around here.	5983
 albinele	Albinele fac miere.	Bees make honey.	5988
@@ -8158,13 +7978,12 @@ gustos	Gustos!	Yummy!	6045
 scund	Tom nu este scund.	Tom isn't short.	6048
 scund	Sunt cel mai scund din clasa mea.	I'm the shortest in my class.	6048
 scund	Tom este mult mai scund decât mine.	Tom is a lot shorter than me.	6048
-rama	Aș prefera o ramă simplă la acești ochelari.	I'd prefer a plain frame on these glasses.	6050
+ramă	Aș prefera o ramă simplă la acești ochelari.	I'd prefer a plain frame on these glasses.	6050
 prevăzut	Ai prevăzut asta?	Did you foresee this?	6052
 vestă	Tom purta o vestă.	Tom wore a vest.	6057
 valiză	Am cumpărat o valiză nouă alaltăieri.	I bought a new suitcase the day before yesterday.	6060
 alaltăieri	Am cumpărat o valiză nouă alaltăieri.	I bought a new suitcase the day before yesterday.	6060
 repete	Oamenii care ignoră istoria tind să o repete.	People who ignore history tend to repeat it.	6063
-ignora	Oamenii care ignoră istoria tind să o repete.	People who ignore history tend to repeat it.	6063
 tind	Oamenii care ignoră istoria tind să o repete.	People who ignore history tend to repeat it.	6063
 fotografii	Avem o tonă de fotografii de la nunta noastră.	We have tons of photos from our wedding.	6064
 tonă	Avem o tonă de fotografii de la nunta noastră.	We have tons of photos from our wedding.	6064
@@ -8198,9 +8017,7 @@ nor	Nu se vede nici un nor la orizont.	There's not a cloud in sight.	6100
 orizont	Nu se vede nici un nor la orizont.	There's not a cloud in sight.	6100
 musulman	Tom e musulman.	Tom is a Muslim.	6102
 musulman	Tom nu este musulman.	Tom isn't a Muslim.	6102
-domina	Ea își domină soțul.	She dominates her husband.	6103
 contez	Contez pe ajutorul tău.	I count on your help.	6106
-prezenta	Contez pe prezența ta.	I'm counting on your presence.	6106
 contez	Contez pe prezența ta.	I'm counting on your presence.	6106
 versuri	Pot să cânt cântecul acesta fără să mă uit la versuri.	I can sing this song without looking at the lyrics.	6107
 fiert	Vreau un ou fiert.	I want a boiled egg.	6114
@@ -8226,7 +8043,6 @@ trabuc	Poți fuma un trabuc când vei fi mare.	You can smoke a cigar when you gr
 voce	Tom are o voce groasă.	Tom has a low-pitched voice.	6149
 groasă	Tom are o voce groasă.	Tom has a low-pitched voice.	6149
 groasă	O ceața groasă a întârziat zborul nostru.	A thick fog delayed our flight.	6149
-ceata	O ceața groasă a întârziat zborul nostru.	A thick fog delayed our flight.	6149
 groasă	Am nevoie de o haină groasă.	I need a heavy coat.	6149
 adaugi	Ar trebui să adaugi puțin mai multă sare.	You should add a little more salt.	6155
 vopsit	Ea și-a vopsit părul blond.	She dyed her hair blonde.	6156
@@ -8305,7 +8121,6 @@ pustie	Gara era pustie.	The train station was deserted.	6296
 zgomotos	Era așa de zgomotos încât n-am putut vorbi.	It was so noisy that we couldn't talk.	6297
 zgomotos	A râs zgomotos.	He laughed loudly.	6297
 zgomotos	Tom e un copil foarte zgomotos.	Tom is a very noisy kid.	6297
-bazam	Ne bazăm pe tine.	We are counting on you.	6298
 glumi	Nu glumi!	Don't joke!	6305
 citeam	Am plâns în timp ce citeam această carte.	I cried while reading this book.	6306
 negustor	El era fiul unui negustor bogat.	He was the son of a wealthy merchant.	6314
@@ -8347,7 +8162,6 @@ exemplul	Tom a urmat exemplul îndată.	Tom soon followed suit.	6367
 exemplul	Acesta este exemplul perfect.	This is the perfect example.	6367
 agendă	Trebuie să cumpăr o agendă.	I must buy an appointment book.	6369
 sfori	El poate trage niște sfori pentru tine.	He can pull strings for you.	6370
-socata	Toată lumea a fost șocată.	Everyone was shocked.	6375
 corecta	Poți corecta acest eseu pentru mine?	Can you proofread this essay for me?	6378
 eseu	Poți corecta acest eseu pentru mine?	Can you proofread this essay for me?	6378
 eseu	Tom a marcat un eseu.	Tom scored a touchdown.	6378
@@ -8424,7 +8238,6 @@ pește	Aș vrea niște pește.	I would like some fish.	6512
 pește	Un liliac nu e pasăre mai mult decât este pește.	A bat is not a bird any more than a fish is.	6512
 liliac	Un liliac nu e pasăre mai mult decât este pește.	A bat is not a bird any more than a fish is.	6512
 crud	Dacă aș fi fost străin, probabil că nu aș fi putut mânca pește crud.	If I were a foreigner, I probably couldn't eat raw fish.	6512
-plus	Nu sunt un pește real, sunt doar un pluș.	I'm not a real fish, I'm just a mere plushy.	6512
 real	Nu sunt un pește real, sunt doar un pluș.	I'm not a real fish, I'm just a mere plushy.	6512
 vând	Ei vând pește și carne.	They sell fish and meat.	6512
 deoarece	Acel pește nu a cum sa vadă deoarece nu are ochi.	That fish cannot see because he does not have eyes.	6512
@@ -8470,7 +8283,6 @@ capota	Deschide capota.	Open the hood.	6591
 încălca	Tom este o persoană care nu ar încălca niciodată o promisiune.	Tom is a person who would never break a promise.	6593
 încălca	Nu încălca regulile.	Do not disobey the rules.	6593
 frază	Această frază nu este în engleză.	This sentence isn't in English.	6598
-corecta	Aceasta frază mi se pare corectă.	This phrase seems correct to me.	6598
 frază	Aceasta frază mi se pare corectă.	This phrase seems correct to me.	6598
 menționat	Ah, nu am menționat-o?	Oh, didn't I mention it?	6603
 ah	Ah, nu am menționat-o?	Oh, didn't I mention it?	6603
@@ -8577,7 +8389,6 @@ ii	Lui ii place să fie răutăcios.	He likes to be mischievous.	6793
 răutăcios	Lui ii place să fie răutăcios.	He likes to be mischievous.	6793
 răutăcios	Tom este răutăcios.	Tom is being mean.	6793
 muncitoare	Eu sunt o muncitoare.	I am a worker.	6796
-rase	Tom probabil râse.	Tom probably laughed.	6808
 canadian	Ești canadian?	Are you Canadian?	6810
 canadian	Sunteți canadian?	Are you Canadian?	6810
 canadian	Tom este american sau canadian?	Is Tom American or Canadian?	6810
@@ -8674,7 +8485,6 @@ trenurile	Ador trenurile.	I love trains.	6973
 sărată	Supa este prea sărată.	The soup is too salty.	6978
 sărată	Tom s-a plâns de cât de sărată era mâncarea.	Tom complained about how salty the food was.	6978
 sărată	Mâncarea era foarte sărată.	The food was very salty.	6978
-confunda	Toți mă confundă cu fratele meu.	Everyone mistakes me for my brother.	6980
 artistă	Din câte se poate spune, este o artistă.	As far as one can tell, she is an artist.	6981
 robinet	Nu puteți folosi acest robinet; este stricat.	You can't use this faucet. It's out of order.	6985
 robinet	Pot să beau apă de la robinet?	Can I drink the tap water?	6985
@@ -8690,10 +8500,9 @@ predică	Predică!	Preach!	7006
 deplasa	Tom nu se poate deplasa fără un scaun cu rotile.	Tom can't get around without a wheelchair.	7009
 rotile	Tom nu se poate deplasa fără un scaun cu rotile.	Tom can't get around without a wheelchair.	7009
 diplomat	Tom a încercat să fie diplomat.	Tom tried to be tactful.	7013
-buza	Ai ceva pe buză.	You've got something on your lip.	7014
+buză	Ai ceva pe buză.	You've got something on your lip.	7014
 infirmieră	Mătușa mea este infirmieră în acest spital.	My aunt is a nurse in this hospital.	7019
 condamnată	Ea a fost condamnată la moarte în absență.	She was sentenced to death in absentia.	7024
-absenta	Ea a fost condamnată la moarte în absență.	She was sentenced to death in absentia.	7024
 orezul	Orezul este un pic picant.	The rice is a little spicy.	7030
 orezul	Orezul este tare.	The rice is hard.	7030
 orezul	În opinia mea, orezul cu lapte are gust bun.	In my opinion, the rice puddling tastes good.	7030
@@ -8711,8 +8520,6 @@ adopta	Dacă nu poți avea copii, ai putea oricând adopta.	If you can't have ch
 forța	Nu mă poți forța să mă căsătoresc cu tine.	You can't force me to marry you.	7059
 cola	Vreau o sticlă de Coca-Cola.	I want a bottle of Coca-Cola.	7060
 coca	Vreau o sticlă de Coca-Cola.	I want a bottle of Coca-Cola.	7060
-transpira	Tom transpiră mult.	Tom sweats a lot.	7066
-preturi	Hai să mergem la un magazin cu prețuri mai mici.	Let's go to a store with lower prices.	7069
 mișca	Nu te mișca de aici.	Don't you move from here.	7071
 mișca	Nu te mișca.	Stay put.	7071
 mișca	Nu mișca!	Don't move.	7071
@@ -8722,7 +8529,6 @@ răbdător	Trebuie să fiu mai răbdător.	I need to be more patient.	7078
 mergeți	Vreți să mergeți la film sau la teatru?	Do you want to go to the movies or to the theater?	7090
 mergeți	Mergeți cu Tom.	Go with Tom.	7090
 mergeți	Mergeți cu ei.	Go with them.	7090
-inocenta	Și-a afirmat inocența.	He affirmed his innocence.	7093
 afirmat	Și-a afirmat inocența.	He affirmed his innocence.	7093
 volum	Tom are un volum mare de muncă.	Tom has a heavy workload.	7095
 volum	Acest volum mare de muncă este prea mult pentru mine.	This heavy workload is too much for me.	7095
@@ -8742,7 +8548,6 @@ strigăt	Un strigăt a ieșit din mulțime.	A cry arose from the crowd.	7167
 agonie	Ea a strigat de agonie.	She screamed in agony.	7169
 agonie	Eram în agonie.	I was in agony.	7169
 sedativ	Doctorul i-a dat lui Tom un sedativ.	The doctor gave Tom a sedative.	7181
-prepara	El prepară cina.	He's making dinner.	7186
 săracii	Săracii copii!	Poor children!	7188
 experiență	Tom are o experiență bogată în calculatoare.	Tom has a lot of experience in computers.	7189
 experiență	El are multă experiență ca medic.	He has much practical experience as a doctor.	7189
@@ -8771,7 +8576,7 @@ morocănos	Tom părea morocănos.	William seemed grumpy.	7254
 plouat	Au stat acasă, pentru că a plouat.	They stayed at home, because it rained.	7269
 plouat	A plouat zi după zi.	It rained day after day.	7269
 plouat	Ieri a plouat sănătos.	It rained heavily yesterday.	7269
-sir	A plouat zile în șir.	It rained for days.	7269
+șir	A plouat zile în șir.	It rained for days.	7269
 trusă	Am nevoie de o trusă de prim ajutor.	I need a first aid kit.	7272
 funcționa	Asta nu va funcționa, ai încredere în mine.	That won't work, trust me.	7279
 funcționa	Asta nu va funcționa, crede-mă.	That won't work, trust me.	7279
@@ -8851,7 +8656,6 @@ aparține	Asta nu-mi aparține.	That doesn't belong to me.	7443
 aparține	Asta îți aparține?	Does this belong to you?	7443
 aparține	Aceasta îți aparține?	Does this belong to you?	7443
 fiți	Vă rugăm să fiți politicos.	Please be polite.	7450
-rugam	Vă rugăm să fiți politicos.	Please be polite.	7450
 fiți	Fiți pregătite!	Be prepared.	7450
 pregătite	Fiți pregătite!	Be prepared.	7450
 morții	Viața este o luptă împotriva morții.	Life is a fight against death.	7453
@@ -8878,7 +8682,6 @@ brațul	Nu pot să-mi întind brațul drept.	I can't stretch my right arm.	7481
 întind	Nu pot să-mi întind brațul drept.	I can't stretch my right arm.	7481
 stâng	Tot nu-și poate folosi brațul stâng.	She still can't use her left arm.	7481
 egipt	Vărul meu este din Egipt. Este egiptean.	My cousin is from Egypt. He is Egyptian.	7498
-varul	Vărul meu este din Egipt. Este egiptean.	My cousin is from Egypt. He is Egyptian.	7498
 egiptean	Vărul meu este din Egipt. Este egiptean.	My cousin is from Egypt. He is Egyptian.	7498
 avertiza	M-ai fi putut avertiza.	You could have warned me.	7503
 imoral	Ceea ce ai făcut este imoral.	What you did is immoral.	7506
@@ -8914,7 +8717,6 @@ strâmt	E prea strâmt.	It's too narrow.	7559
 purtare	A se spăla înainte de prima purtare.	Wash before first wearing.	7561
 spăla	A se spăla înainte de prima purtare.	Wash before first wearing.	7561
 zahărul	El s-a întins să ia zahărul care era pe masă.	He reached out for the sugar that was on the table.	7562
-aspra	El e o persoană aspră.	He is a rude person.	7569
 polițiștii	Plecăm de aici. Vin polițiștii.	We're getting out of here. The cops are coming.	7572
 polițiștii	Nu-i plac polițiștii.	He doesn't like cops.	7572
 polițiștii	Lui nu-i plac polițiștii.	He doesn't like cops.	7572
@@ -8949,7 +8751,6 @@ revino	Revino.	Come back.	7665
 revino	Revino aici.	Get back here.	7665
 serial	Despre ce este vorba în acest serial coreean?	What is this Korean TV series about?	7667
 coreean	Despre ce este vorba în acest serial coreean?	What is this Korean TV series about?	7667
-clarificam	Este timpul să clarificăm situația în legătură cu ceea ce s-a întâmplat.	It's time for us to set the record straight about what happened.	7669
 cutremure	Mi-e frică de cutremure.	I'm afraid of earthquakes.	7671
 considerabil	Petrecerea a fost un succes considerabil.	The party was a marked success.	7673
 ciocnit	S-au ciocnit unii cu alții.	They bumped against each other.	7680
@@ -8958,7 +8759,7 @@ ospitalitate	În primul rând, vreau să vă mulțumesc pentru ospitalitate.	Fir
 îmbăt	Nu trebuie să mă îmbăt.	I mustn't get drunk.	7698
 vream	Nu vream asta.	I didn't want that.	7700
 video	Nu poți juca jocul acesta video decât pe consolă.	You can only play this video game on console.	7702
-consola	Nu poți juca jocul acesta video decât pe consolă.	You can only play this video game on console.	7702
+consolă	Nu poți juca jocul acesta video decât pe consolă.	You can only play this video game on console.	7702
 strădui	Mă voi strădui mai mult.	I'll try harder.	7712
 glonț	Războiul a început când s-a tras primul glonț.	The war began when the first shot was fired.	7716
 roșie	Gura copilului este roșie.	The mouth of the child is red.	7717
@@ -8972,7 +8773,6 @@ improbabil	Cred că e improbabil că o situație ca aceasta s-ar întâmpla vreo
 improbabil	E improbabil că Tom va face asta.	It isn't likely that Tom will do that.	7728
 improbabil	Tom și Maria știu amândoi că acest lucru e improbabil.	Tom and Mary both know that that's not likely to happen.	7728
 excentric	O persoană cu o idee nouă este un excentric până când ideea are succes.	A person with a new idea is a crank until the idea succeeds.	7729
-planifica	Tom planifică o excursie prin Europa.	Tom is planning a trip to Europe.	7730
 respirat	A respirat adânc.	He breathed deeply.	7732
 flămânzi	Există oameni atât de flămânzi în lume, încât Dumnezeu nu le poate apărea decât sub formă de pâine.	There are people in the world so hungry, that God cannot appear to them except in the form of bread.	7742
 flămânzi	Suntem mereu flămânzi.	We are always hungry.	7742
@@ -9003,7 +8803,6 @@ preț	Nu pot vinde la acest preț.	I can't sell at this price.	7843
 convenit	Am convenit asupra unui preț, dar după aceea au vrut 10 dolari în plus.	We agreed on a price, but afterwards they wanted 10 dollars extra.	7843
 asupra	Am convenit asupra unui preț, dar după aceea au vrut 10 dolari în plus.	We agreed on a price, but afterwards they wanted 10 dollars extra.	7843
 asupra	Ne-am înțeles asupra unui preț, dar după aceea au vrut 10 dolari în plus.	We agreed on a price, but afterwards they wanted 10 dollars extra.	7843
-aplauda	Aplaudă!	Clap!	7852
 aplauda	Acum puteți aplauda.	You may now applaud.	7852
 franța	Eu sunt din Franța, tu?	I'm from France, and you?	7854
 franța	Am călătorit în Franța.	We traveled to France.	7854
@@ -9025,7 +8824,6 @@ analizează	Tom analizează situația.	Tom is looking into the situation.	7877
 jenă	Poți vorbi fără nicio jenă.	You may speak freely.	7881
 încuietoare	Această încuietoare este frumoasă.	This lock is beautiful.	7887
 reia	Doar reia ceea ce făceai.	Just go back to what you were doing.	7892
-detesta	Tom detestă aceste lucruri.	Tom hates these things.	7902
 absent	De ce crezi că Tom a fost absent astăzi?	Why do you think Tom was absent today?	7904
 absent	Am fost absent.	I was away.	7904
 absent	El a fost absent.	He's been away.	7904
@@ -9090,7 +8888,6 @@ moral	Mă simt îndatorat moral față de ea.	I feel morally indebted to her.	80
 așteptam	Ești ultima persoană pe care mă așteptam să o văd aici.	You are the last person I expected to see here.	8043
 așteptam	Ne cam așteptam că așa ceva se va întâmpla.	We kind of expected this to happen.	8043
 așteptam	Nu te așteptam până la 2:30.	I wasn't expecting you until 2:30.	8043
-comunicam	Trebuie să comunicăm unii cu alții.	We need to communicate with each other.	8045
 ascultător	Doresc să devin un bun ascultător.	I want to become a good listener.	8047
 iminent	Războiul pare iminent.	War seems imminent.	8049
 fizician	E fizician.	He is a physicist.	8050
@@ -9103,7 +8900,6 @@ compozitor	Tom nu este un bun compozitor.	Tom isn't a good songwriter.	8062
 fusesem	Fusesem avertizat să nu fac asta.	I had been warned not to do that.	8067
 găina	Găina a depus un ou în această dimineață.	The chicken laid an egg this morning.	8069
 găina	Găina a mâncat o râmă.	The hen ate an earthworm.	8069
-rama	Găina a mâncat o râmă.	The hen ate an earthworm.	8069
 găina	Găina mănâncă ouă?	Does the hen eat eggs?	8069
 forță	Violența e o forță slabă.	Violence is a weak force.	8074
 externat	Tom va fi probabil externat mâine.	Tom will probably be discharged from hospital tomorrow.	8089
@@ -9155,7 +8951,6 @@ trăiești	Știu unde trăiești.	I know where you dwell.	8199
 trăiești	Cum e să trăiești în Germania?	What is it like living in Germany?	8199
 amară	Cafeaua este amară.	The coffee is bitter.	8204
 amară	Cafeaua asta este mult prea amară pentru mine.	This coffee is way too bitter for me.	8204
-ceata	Ceața s-a risipit.	The fog faded away.	8205
 risipit	Ceața s-a risipit.	The fog faded away.	8205
 înaintat	Tom a înaintat un nivel.	Tom gained a level.	8206
 lămuri	Poate mă poți lămuri.	Maybe you could enlighten me.	8207
@@ -9199,7 +8994,6 @@ europeană	Islanda nu a intrat în Uniunea Europeană.	Iceland has not joined th
 uniunea	Islanda nu a intrat în Uniunea Europeană.	Iceland has not joined the European Union.	8276
 trăsnet	Am auzit un trăsnet în depărtare.	I heard thunder in the distance.	8290
 aseamănă	Cine se aseamănă se adună.	Birds of a feather flock together.	8294
-aduna	Cine se aseamănă se adună.	Birds of a feather flock together.	8294
 aseamănă	Toate aceste case se aseamănă.	These houses are all alike.	8294
 case	Toate aceste case se aseamănă.	These houses are all alike.	8294
 aparat	Când erai copil, trebuia să porți un aparat dentar?	When you were a child, did you have to wear braces?	8298
@@ -9285,7 +9079,6 @@ degete	Este bun de te lingi pe degete.	It's finger-licking good.	8517
 dinadins	Știu că ai făcut-o dinadins.	I know you did it on purpose.	8518
 dinadins	Știu că ați făcut-o dinadins.	I know you did it on purpose.	8518
 mamelor	Luna mai este luna mamelor.	The month of May is the month of mothers.	8527
-confrunta	Tom se confruntă cu o dilemă.	Tom faces a conundrum.	8535
 dilemă	Tom se confruntă cu o dilemă.	Tom faces a conundrum.	8535
 ipoteză	Aceasta este doar o ipoteză.	This is just a hypothesis.	8542
 bucăți	Vreau trei bucăți de zahăr în laptele meu.	I want three sugars in my milk.	8558
@@ -9447,7 +9240,6 @@ hoț	Poliția a căutat peste tot, dar nu l-a găsit pe hoț.	The police searche
 hoț	Hoț!	Thief!	9053
 hoț	Câinele curajos l-a mușcat pe hoț.	The brave dog bit the thief.	9053
 cititul	Am fost ocupat cu cititul unui roman.	I was absorbed in reading a novel.	9055
-exercita	Avem libertate de exprimare și libertate de gândire, dar prima se exercită mult mai mult decât a doua.	We have freedom of speech and freedom of thought, but the former is exercised much more than the latter.	9062
 gândire	Avem libertate de exprimare și libertate de gândire, dar prima se exercită mult mai mult decât a doua.	We have freedom of speech and freedom of thought, but the former is exercised much more than the latter.	9062
 exprimare	Avem libertate de exprimare și libertate de gândire, dar prima se exercită mult mai mult decât a doua.	We have freedom of speech and freedom of thought, but the former is exercised much more than the latter.	9062
 aragaz	Am cumpărat un aragaz nou destul de scump.	We have bought a new, rather expensive stove.	9063
@@ -9501,7 +9293,6 @@ maimuță	Hei, uite, o maimuță cu trei capete!	Hey, look, a three-headed monke
 sărat	Este mult prea sărat pentru mine.	This is way too salty for me.	9151
 câștigă	Încet și fără grabă se câștigă cursa.	Slow and steady wins the race.	9158
 câștigă	Cine nu riscă, nu câștigă.	Nothing ventured, nothing gained.	9158
-risca	Cine nu riscă, nu câștigă.	Nothing ventured, nothing gained.	9158
 câștigă	Cine câștigă?	Who's winning?	9158
 punct	Se câștigă un punct pe rundă.	You win one point per round.	9158
 rundă	Se câștigă un punct pe rundă.	You win one point per round.	9158
@@ -9535,12 +9326,10 @@ nepedepsit	De data asta nu vei scăpa nepedepsit.	This time, you won't escape pu
 funcție	E persoana în funcție, nu-i așa?	She's the person in charge, isn't she?	9209
 vacă	Este o vacă sau un bivol?	Is that a cow or a buffalo?	9222
 bivol	Este o vacă sau un bivol?	Is that a cow or a buffalo?	9222
-inunda	Străzile noastre se inundă când plouă.	Our streets flood when it rains.	9229
 străzile	Străzile noastre se inundă când plouă.	Our streets flood when it rains.	9229
 renegat	Tatăl lui Tom l-a renegat.	Tom's father disowned him.	9230
 peria	Unde este peria mea?	Where's my brush?	9232
 indonezia	Nava transportă materie primă din Indonezia.	The ship transports raw materials from Indonesia.	9233
-transporta	Nava transportă materie primă din Indonezia.	The ship transports raw materials from Indonesia.	9233
 primă	Nava transportă materie primă din Indonezia.	The ship transports raw materials from Indonesia.	9233
 materie	Nava transportă materie primă din Indonezia.	The ship transports raw materials from Indonesia.	9233
 stafide	Tom a mâncat o mână de stafide.	Tom ate a handful of raisins.	9234
@@ -9551,7 +9340,6 @@ anii	Asta era la modă în anii optzeci.	This was popular in the eighties.	9239
 optzeci	Bunica mea are optzeci de ani.	My grandma is eighty years old.	9239
 anii	S-a născut în anii optzeci.	He was born in the eighties.	9239
 primește	Asigură-te că Tom primește asta.	Make sure Tom gets this.	9242
-asigura	Asigură-te că Tom primește asta.	Make sure Tom gets this.	9242
 primește	Maria este cea mai bună din clasă. Ea primește mereu un 10!	Mary is the best in the class. She always gets an A!	9242
 cămară	Să vedem ce avem în cămară.	Let's see what we have in the pantry.	9260
 flaut	El știe să cânte la flaut.	He can play a flute.	9261
@@ -9637,11 +9425,10 @@ binevoitor	Nu fi atât de binevoitor.	Don't be so condescending.	9463
 balustradă	Ține-te de balustradă.	Hold the handrail.	9468
 pianist	Tom nu este pianist.	Tom isn't a pianist.	9476
 înșine	Trebuie să avem grijă de noi înșine.	We need to take care of ourselves.	9481
-emana	Această floare emană un miros plăcut.	This flower gives off a sweet fragrance.	9482
 piața	Poliția a evacuat piața.	The police have cleared the square.	9489
 evacuat	Poliția a evacuat piața.	The police have cleared the square.	9489
-stima	Nu am nici o stimă de sine.	I have no self-esteem.	9494
-stima	O am în mare stimă.	I think highly of her.	9494
+stimă	Nu am nici o stimă de sine.	I have no self-esteem.	9494
+stimă	O am în mare stimă.	I think highly of her.	9494
 tăcea	Noi nu vom tăcea niciodată.	We will never be silent.	9510
 învinuit	L-am învinuit pe Tom.	I blamed Tom.	9526
 pipă	Poți să fumezi o pipă când vei fi mare.	You can smoke a pipe when you grow up.	9531
@@ -9659,7 +9446,6 @@ recunoaște	El recunoaște că plânge des.	He admits that he often cries.	9550
 îngâmfat	Toți pe care îi știu cred că Tom este un îngâmfat.	Everybody I know thinks Tom is stuck up.	9558
 gătim	Ce ar trebui să gătim?	What should we cook?	9577
 acceptare	Tom a ținut un discurs de acceptare.	Tom gave an acceptance speech.	9579
-exageram	Exagerăm.	We are exaggerating.	9585
 discotecă	L-au dat afară din discotecă fără nicio explicație.	They kicked him out of the disco without any explanation.	9594
 explicație	L-au dat afară din discotecă fără nicio explicație.	They kicked him out of the disco without any explanation.	9594
 explicație	Nu există încă o explicație fizică pentru acest fenomen.	There is not a physical explanation for this phenomenon yet.	9594
@@ -9680,7 +9466,7 @@ teoria	Nu găsesc nici un cusur în legătură cu teoria ei.	I can't find a sing
 curăța	Cine va curăța asta?	Who is going to clean this?	9622
 anunț	Vă anunț când sunt gata.	I'll let you know when I'm ready.	9624
 anunț	O să te anunț când este gata.	I'll notify you when it's ready.	9624
-eclipsa	Are loc o eclipsă de lună.	There is a lunar eclipse.	9626
+eclipsă	Are loc o eclipsă de lună.	There is a lunar eclipse.	9626
 dureros	Era dureros de subțire.	He was painfully thin.	9643
 subțire	Era dureros de subțire.	He was painfully thin.	9643
 subțire	Această vestă este prea subțire.	This jacket is too thin.	9643
@@ -9724,7 +9510,6 @@ nativ	Cum știi că Tom nu e un vorbitor nativ?	How do you know that Tom isn't a
 vorbitor	Cum îți dai seama că Tom nu e un vorbitor nativ?	How do you know that Tom isn't a native speaker?	9736
 nativ	Cum îți dai seama că Tom nu e un vorbitor nativ?	How do you know that Tom isn't a native speaker?	9736
 drapelul	Drapelul roșu indică prezența unui pericol.	The red flag indicated the presence of danger.	9749
-indica	Drapelul roșu indică prezența unui pericol.	The red flag indicated the presence of danger.	9749
 vorbiți	Vorbiți italiană?	Do you speak Italian?	9753
 vorbiți	Vorbiți japoneză?	Do you speak Japanese?	9753
 vorbiți	Vorbiți engleză?	Do you speak English?	9753
@@ -9747,7 +9532,6 @@ votat	Trei au votat împotriva ideii.	Three voted against the idea.	9790
 filmele	Este prea mult sex și violență în filmele de azi.	There's too much sex and violence in today's movies.	9792
 sex	Este prea mult sex și violență în filmele de azi.	There's too much sex and violence in today's movies.	9792
 violență	Este prea mult sex și violență în filmele de azi.	There's too much sex and violence in today's movies.	9792
-satura	Tom nu se satură niciodată să vorbească despre mașina lui.	Tom never gets tired of talking about his car.	9795
 translator	Studiez pentru a deveni un translator sau interpret.	I am studying to be a translator or interpreter.	9805
 interpret	Studiez pentru a deveni un translator sau interpret.	I am studying to be a translator or interpreter.	9805
 abuziv	Tom a devenit abuziv.	Tom became abusive.	9815
@@ -9797,7 +9581,7 @@ deținut	Tom spune că nu a deținut niciodată vreo mașină.	Tom says that he'
 muzee	Berlin este orașul cu cele mai multe muzee în Germania.	Berlin is the city with the most museums in Germany.	9950
 berlin	Berlin este orașul cu cele mai multe muzee în Germania.	Berlin is the city with the most museums in Germany.	9950
 armăsar	E armăsar sau iapă?	Is this a stallion or a mare?	9954
-iapa	E armăsar sau iapă?	Is this a stallion or a mare?	9954
+iapă	E armăsar sau iapă?	Is this a stallion or a mare?	9954
 oprești	Trebuie să te oprești.	You have to stop.	9963
 oprești	Cred că ar trebui să te oprești din fumat.	I think that you should stop smoking.	9963
 terorizat	Nu fi terorizat.	Don't be terrified.	9971
@@ -9815,9 +9599,7 @@ doamnă	Doamnă Ionescu, aș vrea să vă întreb ceva.	Mrs. Ionescu, I'd like t
 formular	Domnule, vă rog completați acest formular.	Sir, please fill out this form.	19999
 metrou	O întâlnesc pe Mihaela în fiecare dimineață, la metrou.	I meet Mihaela every morning at the subway.	19999
 română	Cărțile mele sunt în limba română, ale ei sunt în engleză.	My books are in Romanian; hers are in English.	19999
-completa	Care este mai completă, prima ediție sau a doua?	Which is more complete, the first edition or the second?	19999
 soț	Colega al cărei soț este francez a plecat la Paris.	The colleague whose husband is French has left for Paris.	19999
-carei	Colega al cărei soț este francez a plecat la Paris.	The colleague whose husband is French has left for Paris.	19999
 bat	Pentru cine bat clopotele?	For whom do the bells toll?	19999
 acestui	Cărțile acestui student sunt noi.	This student's books are new.	19999
 operare	Avem aceleași intenții, dar nu același mod de operare.	We have the same intentions, but not the same modus operandi.	19999
@@ -9865,7 +9647,6 @@ li	Ea este Li Ying.	She is Li Ying.	19999
 voiaj	Lucrez la o agenție de voiaj.	I work for a travel agency.	19999
 uimit	A fost uimit de prostia sa.	He was amazed at his foolishness.	19999
 spaniolă	Pot citi cu ușurință în spaniolă.	I can read Spanish with ease.	19999
-admira	Toată lumea admiră picturile sale.	Everyone admires the pictures painted by him.	19999
 li	Am cerut să li se permită sa plece.	I demanded that they be allowed to leave.	19999
 domnul	Domnul Suzuki nu este dentist, ci medic.	Mr Suzuki is not a dentist but a physician.	19999
 curiozitate	Din curiozitate, am deschis cutia.	I opened the box out of curiosity.	19999
@@ -9923,7 +9704,6 @@ serie	Tom nu avea nicio idee că Mary era o criminală în serie.	Tom had no ide
 criminală	Tom nu avea nicio idee că Mary era o criminală în serie.	Tom had no idea that Mary was a serial killer.	19999
 scriem	Dacă nu primim niciun răspuns de la Tom în următoarele trei zile, cred că ar trebui să îi scriem din nou.	If we don't receive Tom's reply within the next three days, I think we should write him again.	19999
 primim	Dacă nu primim niciun răspuns de la Tom în următoarele trei zile, cred că ar trebui să îi scriem din nou.	If we don't receive Tom's reply within the next three days, I think we should write him again.	19999
-musca	Nu mușca niciodată mâna celui care te hrănește.	Never bite the hand that feeds you.	19999
 celui	Nu mușca niciodată mâna celui care te hrănește.	Never bite the hand that feeds you.	19999
 lovind	L-am văzut pe Tom lovind-o pe Mary.	I saw Tom hit Mary.	19999
 căsătorie	Tom a cerut-o în căsătorie pe Mary.	Tom asked Mary to marry him.	19999
@@ -9964,7 +9744,6 @@ clasică	Îi place să asculte muzică clasică.	She enjoys listening to classic
 persoanele	Persoanele care călătoresc în străinătate trebuie întotdeauna să se obișnuiască cu mâncăruri noi.	People traveling abroad always have to get used to new food.	19999
 mâncăruri	Persoanele care călătoresc în străinătate trebuie întotdeauna să se obișnuiască cu mâncăruri noi.	People traveling abroad always have to get used to new food.	19999
 eroină	Tom consideră că Mary e o eroină.	Tom considers Mary to be a heroine.	19999
-considera	Tom consideră că Mary e o eroină.	Tom considers Mary to be a heroine.	19999
 grevă	Conducătorii de autobuze vor face grevă astăzi.	The bus drivers are going on strike today.	19999
 autobuze	Conducătorii de autobuze vor face grevă astăzi.	The bus drivers are going on strike today.	19999
 instrumente	Poate cânta la tot felul de instrumente, clasice sau populare.	She can play all kinds of instruments, classical or folk.	19999
@@ -10069,7 +9848,6 @@ ecran	Indiferent de ce joacă pe ecran, Tom arată grozav.	No matter what he pla
 green	Încearcă să fii cât de politicos poți fi înaintea domnului Green.	Try to be as polite as you can before Mr Green.	19999
 domnului	Încearcă să fii cât de politicos poți fi înaintea domnului Green.	Try to be as polite as you can before Mr Green.	19999
 regină	O republică este o națiune al cărei conducător nu este un rege sau o regină, ci un președinte.	A republic is a nation whose head is not a king or queen, but a president.	19999
-carei	O republică este o națiune al cărei conducător nu este un rege sau o regină, ci un președinte.	A republic is a nation whose head is not a king or queen, but a president.	19999
 conducător	O republică este o națiune al cărei conducător nu este un rege sau o regină, ci un președinte.	A republic is a nation whose head is not a king or queen, but a president.	19999
 republică	O republică este o națiune al cărei conducător nu este un rege sau o regină, ci un președinte.	A republic is a nation whose head is not a king or queen, but a president.	19999
 viitorului	Tărâm al libertății, tărâm al viitorului, te salut!	Land of liberty, land of the future, I salute you!	19999
@@ -10152,7 +9930,6 @@ vărsat	Am vărsat apă pe tastatură. Trebuie să îmi cumpăr una nouă.	I spi
 mineri	Minorii nu pot fi mineri.	Minors can't be miners.	19999
 săpun	O să îţi spăl gura cu săpun!	I'll wash your mouth out with soap!	19999
 fain	E un loc fain, dar nu vrea să locuiesc acolo.	It's a nice place, but I wouldn't live there.	19999
-tara	E o ţară bună de vizitat, dar nu aş vrea să locuiesc acolo.	It's a nice country to visit, but I wouldn't live there.	19999
 conserve	El a cumpărat pâine, o bucată de unt și două conserve de sardine în ulei.	He bought a bread, a packet of butter and two canned sardines packed in oil.	19999
 unt	El a cumpărat pâine, o bucată de unt și două conserve de sardine în ulei.	He bought a bread, a packet of butter and two canned sardines packed in oil.	19999
 ulei	El a cumpărat pâine, o bucată de unt și două conserve de sardine în ulei.	He bought a bread, a packet of butter and two canned sardines packed in oil.	19999
@@ -10200,13 +9977,11 @@ puncte	Toată lumea are puncte forte și puncte slabe.	Everyone has strengths an
 râd	Totuși serios, episodul 21 aproape m-a făcut să râd cu lacrimi.	Seriously though, episode 21 made me almost cry while laughing.	19999
 robot	Asta arată doar că nu ești robot.	It only shows you're not a robot.	19999
 robot	Cum aș putea fi robot? Roboți nu visează.	How could I be a robot? Robots don't dream.	19999
-roboti	Cum aș putea fi robot? Roboți nu visează.	How could I be a robot? Robots don't dream.	19999
 cosmic	Cum găsești mâncare în spațiul cosmic?	How do you find food in outer space?	19999
 oficial	Am tot disprețul pentru scrisul oficial!	I utterly despise formal writing!	19999
 scrisul	Am tot disprețul pentru scrisul oficial!	I utterly despise formal writing!	19999
 intrigă	Străinii mă intrigă.	Foreign people intrigue me.	19999
 inconfortabil	Oprește-te! O faci să se simtă inconfortabil!	Stop it! You're making her feel uncomfortable!	19999
-posta	Am vrut doar să-mi verific poșta electronică.	I just wanted to check my email.	19999
 electronică	Am vrut doar să-mi verific poșta electronică.	I just wanted to check my email.	19999
 anumit	Aș vrea să-mi pese mai mult de notele mele, dar se pare că, la un anumit moment din viața mea, am decis că n-ar fi chiar așa de important.	I wish I could care more about my grades but it seems that, at a certain point of my life, I decided they wouldn't be so important anymore.	19999
 pese	Aș vrea să-mi pese mai mult de notele mele, dar se pare că, la un anumit moment din viața mea, am decis că n-ar fi chiar așa de important.	I wish I could care more about my grades but it seems that, at a certain point of my life, I decided they wouldn't be so important anymore.	19999
@@ -10253,7 +10028,6 @@ prăbușit	Avionul s-a prăbușit.	The plane crashed.	19999
 numesc	Mă numesc Ricardo.	My name is Ricardo.	19999
 voastre	Ce părere aveți despre ouăle voastre?	What do you think about your eggs?	19999
 interzis	Fumatul interzis.	No smoking.	19999
-invitam	Vă invităm să ne ascultați din nou.	We invite you to listen to us again.	19999
 populară	Ceaiul este o băutură populară în toată lumea.	Tea is a popular beverage throughout the world.	19999
 zic	Aveți dificultăți în a înțelege ce vă zic femeile și copiii mici?	Do you have difficulty understanding what women or small children say to you?	19999
 momentan	Domnul Tanaka nu este momentan în biroul său.	Mr Tanaka is not at his desk right now.	19999
@@ -10369,7 +10143,6 @@ terasă	Tom și Mary sunt pe terasă.	Tom and Mary are on the porch.	19999
 par	Ei par mișcați.	They seem moved.	19999
 prudent	Condu prudent.	Drive carefully.	19999
 lista	Verifică-ți lista!	Check your list.	19999
-verifica	Verifică-ți lista!	Check your list.	19999
 tai	O să-ți tai capul!	I'll cut your head off!	19999
 versurile	Alege un cântec și transcrie-i versurile.	Choose a song and transcribe the lyrics.	19999
 cărat	OK, m-am cărat de aici.	All right, I'm outta here.	19999
@@ -10472,7 +10245,6 @@ forte	Toți au atât puncte forte cât și puncte slabe.	Everyone has both stron
 puncte	Toți au atât puncte forte cât și puncte slabe.	Everyone has both strong and weak points.	19999
 mila	Să nu confunzi niciodată mila cu dragostea.	Never confuse pity with love.	19999
 respirație	Pneumonia determină o dificultate în respirație.	Pneumonia causes difficulty in breathing.	19999
-determina	Pneumonia determină o dificultate în respirație.	Pneumonia causes difficulty in breathing.	19999
 plămân	E o conexiune între fumat și cacerul de plămân.	There is a connection between smoking and lung cancer.	19999
 conexiune	E o conexiune între fumat și cacerul de plămân.	There is a connection between smoking and lung cancer.	19999
 ilegal	El a intrat ilegal într-o casă.	He broke into a house.	19999
@@ -10508,7 +10280,7 @@ parolă	O parolă bună ar trebui să fie greu de ghicit, dar ușor de reținut.
 ghicit	O parolă bună ar trebui să fie greu de ghicit, dar ușor de reținut.	A good password should be difficult to guess, but easy to remember.	19999
 gem	Vreți niște gem de caise?	Would you like some apricot jam?	19999
 cultiva	Ea cultiva trandafiri.	She grew roses.	19999
-brat	Ea are o poșetă sub braț.	She has a bag under her arm.	19999
+braț	Ea are o poșetă sub braț.	She has a bag under her arm.	19999
 ezita	Dacă dorești ceva nu ezita să îmi ceri.	If there is anything you want, don't hesitate to ask me.	19999
 import	E o cerere mare pentru mașinile de import.	Imported cars are in strong demand.	19999
 cerere	E o cerere mare pentru mașinile de import.	Imported cars are in strong demand.	19999
@@ -10523,10 +10295,8 @@ rade	Un frizer e un om care rade și taie părul bărbaților.	A barber is a man
 frizer	Un frizer e un om care rade și taie părul bărbaților.	A barber is a man who shaves and cuts men's hair.	19999
 taie	Un frizer e un om care rade și taie părul bărbaților.	A barber is a man who shaves and cuts men's hair.	19999
 magazie	Ne-am ascuns de furtună într-o magazie din apropiere.	We took refuge from the storm in a nearby barn.	19999
-sufla	Cine s-a fript cu ciorba suflă și-n iaurt.	A burnt child dreads the fire.	19999
 fript	Cine s-a fript cu ciorba suflă și-n iaurt.	A burnt child dreads the fire.	19999
 iaurt	Cine s-a fript cu ciorba suflă și-n iaurt.	A burnt child dreads the fire.	19999
-profita	De îndoială profită învinuitul.	When in doubt, in favour of the accused.	19999
 opera	Sfârșitul încununează opera.	The end crowns the work.	19999
 călcat	Dacă calci cu fierul de călcat Elveția, ar fi mai mare decât Germania.	If you ironed Switzerland, it would be bigger than Germany.	19999
 calci	Dacă calci cu fierul de călcat Elveția, ar fi mai mare decât Germania.	If you ironed Switzerland, it would be bigger than Germany.	19999
@@ -10543,7 +10313,6 @@ telefonică	Unde este cea mai apropiată cabină telefonică?	Where's the neares
 act	A fost un act disperat.	It was an act of desperation.	19999
 verificat	Echipa de securitate a verificat mașina de explozibili.	The security team checked the car for explosives.	19999
 securitate	Echipa de securitate a verificat mașina de explozibili.	The security team checked the car for explosives.	19999
-anulam	Ar trebui să anulăm excursia.	We should cancel the hike.	19999
 microunde	Te rog să pui asta în cuptorul cu microunde.	Please put this into the microwave oven.	19999
 muta	Mă voi muta în curând.	I'll move soon.	19999
 timpuri	Doar ca să te menții în viață este suficient de greu în aceste timpuri.	Just staying alive in these times is hard enough.	19999
@@ -10635,7 +10404,6 @@ atlet	Acest atlet este puternic și agil.	This athlete is strong and agile.	1999
 concentra	Nu mă pot concentra dacă mă tot bați pe umăr.	I can't concentrate if you keep tapping me on the shoulder.	19999
 umăr	Nu mă pot concentra dacă mă tot bați pe umăr.	I can't concentrate if you keep tapping me on the shoulder.	19999
 omului	Tom i-a arătat pașaportul său omului de la poartă.	Tom showed his passport to the man at the gate.	19999
-tanc	Tom și-a făcut apariția la țanc.	Tom showed up just in time.	19999
 dinăuntru	Ușa asta e încuiată pe dinăuntru.	This door is locked from the inside.	19999
 călugărul	Călugărul se roagă.	The monk is praying.	19999
 critică	Lui Tom nu-i place când Mary îl critică în public.	Tom doesn't like it when Mary criticizes him in public.	19999
@@ -10699,7 +10467,6 @@ dietă	Această dietă te face mai suplu, dar te face și mai sănătos?	That di
 străzile	Străzile erau aglomerate.	The streets were chock-a-block.	19999
 falsă	Aceasta este o acuzație complet falsă.	This is a completely false accusation.	19999
 jocului	Trebuie să respectăm regulile jocului.	We must abide by the rules of the game.	19999
-continuam	Hai să continuăm discuția.	Let's carry on the discussion.	19999
 dezvălui	Nu-mi dezvălui secretul.	Don't give away my secret.	19999
 ancheta	Probabil că ancheta va scoate la lumină multe detalii.	The investigation will probably bring a lot of details to light.	19999
 lumină	Probabil că ancheta va scoate la lumină multe detalii.	The investigation will probably bring a lot of details to light.	19999
@@ -10752,10 +10519,8 @@ intrare	Am arătat biletul la intrare.	I showed the ticket at the gate.	19999
 canal	Ai un canal de Youtube?	Do you have a YouTube channel?	19999
 mat	Șah mat!	Checkmate!	19999
 steag	Ai împăturit vreodată vreun steag?	Have you ever folded a flag?	19999
-varul	Helen, el este vărul meu.	Helen, this is my cousin.	19999
 navă	Mă întreb unde se îndreaptă acea navă.	I wonder where that ship is headed.	19999
 recomandat	Acest film este recomandat cu precădere.	This movie is highly recommended.	19999
-ceata	Ceața devine mai densă.	The fog is getting thicker.	19999
 pună	Tom și Mary au probleme să se pună de acord.	Tom and Mary have trouble getting along.	19999
 gamă	Tom are o gamă largă de interese.	Tom has a wide range of interests.	19999
 largă	Tom are o gamă largă de interese.	Tom has a wide range of interests.	19999
@@ -10768,10 +10533,9 @@ buget	Sunt îngrijorați de buget.	They're concerned about the budget.	19999
 păstrat	M-am păstrat cu firea.	I just kept my cool.	19999
 treburile	Treburile se înrăutățesc.	Things are getting worse.	19999
 scandalos	Prețul era scandalos.	The price was outrageous.	19999
-sir	Tom și Mary au discutat ore în șir.	Tom and Mary talked for hours.	19999
+șir	Tom și Mary au discutat ore în șir.	Tom and Mary talked for hours.	19999
 baston	Tom s-a sprijinit în baston.	Tom leaned on his cane.	19999
 mediu	Care este costul mediu al unei nunți?	What's the average cost of a wedding?	19999
-nunti	Care este costul mediu al unei nunți?	What's the average cost of a wedding?	19999
 opriți	Vreau că voi doi să vă opriți să vă mai certați.	I want the two of you to quit arguing.	19999
 sfântul	Piața Sfântul Petru era aglomerată.	Saint Peter's Square was crowded.	19999
 petru	Piața Sfântul Petru era aglomerată.	Saint Peter's Square was crowded.	19999
@@ -10781,7 +10545,6 @@ haina	Tom și-a scos haina din șifonier și s-a îmbrăcat cu ea.	Tom took his 
 cafenea	Ne-am petrecut timpul într-o cafenea.	We hung out in the coffee shop.	19999
 mexican	Tom și Mary au mâncat la același restaurant mexican.	Tom and Mary ate at the same Mexican restaurant.	19999
 reală	Cererea este foarte reală.	The demand is very real.	19999
-turna	Tom turnă ceva vin într-un pahar.	Tom poured some wine into a glass.	19999
 obosi	Nu te obosi să-l chemi pe Tom.	Don't bother to call Tom.	19999
 umane	Erau o groază de rămășițe umane în acel loc.	There were a lot of human remains in that place.	19999
 natal	El locuiește foarte departe de orașul său natal.	He lives far away from his hometown.	19999
@@ -10846,9 +10609,7 @@ promovat	Ulterior, a fost promovat treptat, până a devenit președintele compa
 companiei	Ulterior, a fost promovat treptat, până a devenit președintele companiei.	Thereafter, he was gradually promoted until he became company president.	19999
 ulterior	Ulterior, a fost promovat treptat, până a devenit președintele companiei.	Thereafter, he was gradually promoted until he became company president.	19999
 pasiv	Cum poți fi atât de pasiv? De ce nu te răzbuni?	How can you be so passive? Why don't you retaliate?	19999
-arsa	Friptura a fost arsă din greșeală, dar totuși a avut un gust spectaculos.	The steak was inadvertently burnt, but nonetheless it tasted spectacular.	19999
 spectaculos	Friptura a fost arsă din greșeală, dar totuși a avut un gust spectaculos.	The steak was inadvertently burnt, but nonetheless it tasted spectacular.	19999
-arsa	Friptura a fost arsă din greșeală, dar cu toate acestea a avut un gust spectaculos.	The steak was inadvertently burnt, but nonetheless it tasted spectacular.	19999
 spectaculos	Friptura a fost arsă din greșeală, dar cu toate acestea a avut un gust spectaculos.	The steak was inadvertently burnt, but nonetheless it tasted spectacular.	19999
 fabrica	Fabrica produce muniție.	The factory produces ammunition.	19999
 produce	Fabrica produce muniție.	The factory produces ammunition.	19999
@@ -10897,7 +10658,6 @@ impact	Ei nu au nici un impact asupra mediului.	They have no impact on the envir
 indica	Un pumn închis poate indica stresul.	A closed fist can indicate stress.	19999
 pumn	Un pumn închis poate indica stresul.	A closed fist can indicate stress.	19999
 bucuria	Zâmbetele nu indică întotdeauna bucuria.	Smiles do not always indicate pleasure.	19999
-indica	Zâmbetele nu indică întotdeauna bucuria.	Smiles do not always indicate pleasure.	19999
 asumat	Mi-am asumat niște riscuri atunci când am făcut investiția.	I took a risk when I made the investment.	19999
 principal	Acesta este obiectivul nostru principal.	This is our primary target.	19999
 culori	Există trei culori primare.	There are three primary colours.	19999
@@ -10910,7 +10670,6 @@ abis	El a fost înghițit de abis.	He was swallowed by the abyss.	19999
 abis	Există un abis între mine și conștiința mea.	Between me and my consciousness is an abyss.	19999
 vot	Mă abțin de la vot.	I abstain from voting.	19999
 încheiat	Conversația s-a încheiat brusc când Tom a intrat în cameră.	The conversation ended abruptly when Tom entered the room.	19999
-necesita	Acest text nu necesită prescurtare.	This text requires no abridgement.	19999
 anormal	Nasul ei este anormal de mare.	Her nose is abnormally large.	19999
 rus	Ambasadorul rus a fost luat prin surprindere.	The Russian ambassador was taken aback.	19999
 surprindere	Ambasadorul rus a fost luat prin surprindere.	The Russian ambassador was taken aback.	19999
@@ -10963,7 +10722,6 @@ piele	Ea are mereu o piele așa de tânără și de strălucitoare.	She always h
 confrunta	El se va confrunta cu probleme dificile.	He'll cope with difficult problems.	19999
 amenințat	Ai fost amenințat sau forțat să pledezi vinovat?	Have you been threatened or coerced into pleading guilty?	19999
 ating	Trebuie să-mi ating scopul cu orice preț.	I have to attain my purpose at all costs.	19999
-umana	Interdependența umană este singura noastră cale de a supraviețui.	Human interdependence is our only way to survive.	19999
 superioară	Nu pot să înțeleg cum ar putea cineva să creadă, că o rasă este superioară una alteia.	I can't begin to fathom how someone could believe that one race is superior to another.	19999
 rasă	Nu pot să înțeleg cum ar putea cineva să creadă, că o rasă este superioară una alteia.	I can't begin to fathom how someone could believe that one race is superior to another.	19999
 alteia	Nu pot să înțeleg cum ar putea cineva să creadă, că o rasă este superioară una alteia.	I can't begin to fathom how someone could believe that one race is superior to another.	19999
@@ -10979,7 +10737,7 @@ satul	Această catastrofă misterioasă a consternat tot satul.	This mysterious 
 fundamentală	Înțelegerea este fundamentală.	Comprehension is fundamental.	19999
 sabie	Această sabie îți furnizează o mare putere.	This sword endows you with great power.	19999
 lipsită	Lumea pe care am văzut-o în visul meu era o lume pașnică, lipsită de război.	The world which I saw in my dream was a peaceful world devoid of war.	19999
-vesti	Am niște vești proaste pentru tine.	I have some bad news for you.	19999
+vești	Am niște vești proaste pentru tine.	I have some bad news for you.	19999
 cunoscută	"De acum înainte, această veveriță va fi cunoscută sub numele de ""Cea drăguță""."	"This squirrel shall be henceforth known as ""The Cute One."""	19999
 neobișnuit	Nimic nu părea neobișnuit.	Nothing seemed out of the ordinary.	19999
 formată	Comunitatea este formată din indivizi.	The community is made up of individuals.	19999
@@ -11005,7 +10763,6 @@ unchi	Tom are trei unchi în Boston.	Tom has three uncles in Boston.	19999
 flaut	Mary a spus că și ea cântă la flaut.	Mary said that she plays the flute, too.	19999
 apel	Faceți apel la curajul dumneavoastră și spuneți adevărul.	Summon up your courage and tell the truth.	19999
 printre	Londra este printre cele mai mari orașe ale lumii.	London is among the largest cities in the world.	19999
-prospera	Regele a avut o domnie lungă și prosperă.	The king had a long and prosperous reign.	19999
 regele	Regele a avut o domnie lungă și prosperă.	The king had a long and prosperous reign.	19999
 coșmar	Am avut un coșmar noaptea trecută.	I had a nightmare last night.	19999
 cunoscută	Cauza incendiului nu este cunoscută.	The cause of the fire is not known.	19999
@@ -11022,7 +10779,6 @@ boală	Este inutil să simulezi o boală.	It's futile to feign illness.	19999
 statul	Statul vă poate lua copiii dacă vă consideră o mamă nepotrivită.	The state can take your children away if they deem you an unfit mother.	19999
 chinuit	Tom pare chinuit de remușcări.	Tom looks contrite.	19999
 încheiat	Imediat ce discuția s-a încheiat, am plecat imediat de la birou.	As soon as the argument ended, I left the office forthwith.	19999
-absenta	Trebuie să dai explicații pentru absența ta.	You must account for your absence.	19999
 asemănare	Exista o asemănare izbitoare între ele.	There was a striking resemblance between them.	19999
 asemănare	Exista o asemănare izbitoare între ei.	There was a striking resemblance between them.	19999
 grave	Acest lucru ar putea avea consecințe grave.	This could have far-reaching consequences.	19999
@@ -11058,7 +10814,6 @@ sângera	Layla sângera profund.	Layla was bleeding profusely.	19999
 profund	Layla sângera profund.	Layla was bleeding profusely.	19999
 banda	Tom transpira abundent, după o jumătate de oră pe banda de alergat.	Tom was sweating profusely after a half an hour on the treadmill.	19999
 transpira	Tom transpira abundent, după o jumătate de oră pe banda de alergat.	Tom was sweating profusely after a half an hour on the treadmill.	19999
-negativa	Perspectiva era negativă.	The outlook was negative.	19999
 durată	Țestoasele de mare au o durată de viață lungă.	Sea turtles have a long lifespan.	19999
 medie	Care este durata medie de viață a unui fluture?	What's the average lifespan of a butterfly?	19999
 fluture	Care este durata medie de viață a unui fluture?	What's the average lifespan of a butterfly?	19999
@@ -11073,7 +10828,6 @@ acestei	Ea este sprijinul acestei familiei.	She's the breadwinner in this family
 act	Sinuciderea este un act de disperare.	Suicide is an act of desperation.	19999
 disperare	Sinuciderea este un act de disperare.	Suicide is an act of desperation.	19999
 papagal	Un papagal bătrân nu mai învață să vorbească.	An old parrot doesn't learn to speak.	19999
-mutam	Casa noastră actuală este prea mică, așa că ne-am decis să ne mutăm.	Our current house is too small, so we decided to move.	19999
 populară	Această muzică este populară cu tinerii.	This music is popular with young people.	19999
 dorească	Tom s-ar putea să nu dorească să o vadă pe Mary.	Tom might not want to see Mary.	19999
 reveni	Doctorul mi-a spus că-mi voi reveni în curând.	The doctor told me that I would recover soon.	19999
@@ -11087,7 +10841,6 @@ lămâie	Îmi place ceaiul cu lămâie.	I like lemon tea.	19999
 recomandare	Lauda de sine nu este o recomandare.	Self-praise is no recommendation.	19999
 inch	Sami a crescut șase inch.	Sami has grown six inches.	19999
 optsprezece	Mary nu poate avea peste treizeci de ani. Ea pare a avea cam vreo optsprezece ani.	Mary can't be over thirty. She looks like she's about eighteen.	19999
-posta	Cât de des îți verifici poșta?	How frequently do you check your mail?	19999
 convinge	Sper că îl pot convinge pe Tom să ne ajute.	I hope I can convince Tom to help us.	19999
 chiuvetă	Pasta de dinți este pe chiuvetă.	The toothpaste is on the sink.	19999
 dispărea	Zăpada va dispărea în curând.	The snow will be gone soon.	19999
@@ -11108,7 +10861,6 @@ telefoane	Repar telefoane stricate.	I repair broken phones.	19999
 repar	Repar telefoane stricate.	I repair broken phones.	19999
 cumva	Ești într-o stare de spirit proastă cumva?	Are you in a bad mood or something?	19999
 exagerat	Credeam că Tom a exagerat.	I thought Tom was overreacting.	19999
-alina	Muzica clasică mă alină.	Classical music soothes me.	19999
 salutat	Tom a salutat-o pe Mary.	Tom greeted Mary.	19999
 punem	Să punem pomul de Crăciun aici.	Let's put the Christmas tree here.	19999
 recoltă	Noi am avut o recoltă proastă datorită lipsei apei.	We've had a poor crop due to lack of water.	19999
@@ -11173,7 +10925,6 @@ alias	Sami a creat un alias.	Sami created an alias.	19999
 încurcătură	Sami a creat această încurcătură.	Sami created this mess.	19999
 egali	Toți oamenii sunt creați egali.	All men are created equal.	19999
 continue	Colaborarea trebuie să continue.	Collaboration must continue.	19999
-necesita	Asta necesită o atentă considerație.	That requires careful consideration.	19999
 virtute	Moderația e o virtute.	Moderation is a virtue.	19999
 pânzele	Ridicați pânzele!	Make sail!	19999
 depune	Depune mai multe eforturi.	Make more efforts.	19999
@@ -11208,7 +10959,6 @@ frații	Unul din frații mei vrea să devină astronaut.	One of my brothers want
 astronaut	Unul din frații mei vrea să devină astronaut.	One of my brothers wants to become an astronaut.	19999
 mergeau	Tom și cu Mary mergeau.	Tom and Mary were walking.	19999
 dansează	Lui Tom îi place felul în care dansează Mary.	Tom likes the way Mary dances.	19999
-exprima	Statuia exprimă libertate.	The statue expresses freedom.	19999
 cursei	Tom trebuie să fie foarte fericit după câștigarea cursei.	Tom must be very happy after winning the race.	19999
 folosite	Aceste cuvinte nu sunt folosite în limba vorbită.	These words aren't used in spoken language.	19999
 coșmar	M-am trezit dintr-un coșmar.	I woke from a nightmare.	19999
@@ -11225,7 +10975,6 @@ pitici	Această poveste cuprinde elfi, pitici și dragoni.	This story features e
 dragoni	Această poveste cuprinde elfi, pitici și dragoni.	This story features elves, dwarves and dragons.	19999
 limuzină	El este un șofer de limuzină.	He's a limousine driver.	19999
 flămânzi	Nu cred că Tom și Mary sunt flămânzi.	I don't think Tom and Mary are hungry.	19999
-posta	Merg la poștă să cumpăr timbre.	I'm going to the post office to buy stamps.	19999
 îndeplini	Promite-mi că îți vei îndeplini promisiunile.	Promise me that you will fulfill your promises.	19999
 regelui	Fiul cel mai mare al regelui este succesorul la tron.	The king's eldest son is the heir to the throne.	19999
 tron	Fiul cel mai mare al regelui este succesorul la tron.	The king's eldest son is the heir to the throne.	19999
@@ -11308,7 +11057,6 @@ muncii	Ei sunt foarte dedicați muncii lor.	They're very dedicated to their jobs
 întrerupt	Tom ne-a întrerupt conversația.	Tom interrupted our conversation.	19999
 întrerupt	Tom a întrerupt conversația noastră.	Tom interrupted our conversation.	19999
 pasul	Mary mergea atât de repede încât Tom nu putea să țină pasul cu ea.	Mary was walking so fast that Tom couldn't catch up with her.	19999
-tina	Mary mergea atât de repede încât Tom nu putea să țină pasul cu ea.	Mary was walking so fast that Tom couldn't catch up with her.	19999
 delicioasă	Mâncarea algeriană este simplă și delicioasă.	Algerian food is simple and delicious.	19999
 intervievat	Sami a fost intervievat timp de șase ore.	Sami was interviewed for six hours.	19999
 vârfurile	Vârfurile muntelui sunt acoperite de zăpadă.	The mountain tops are covered with snow.	19999
@@ -11337,7 +11085,6 @@ mierea	Urșilor le place mierea la fel de mult ca oamenilor.	Bears like honey ju
 câinilor	Tom a preferat compania câinilor săi în locul oamenilor.	Tom preferred the company of his dogs to people.	19999
 alea	Deschideți ușile alea.	Open those doors.	19999
 ușile	Deschideți ușile alea.	Open those doors.	19999
-utila	Asta nu este o informație utilă.	That's not a useful piece of information.	19999
 uscat	Mary și-a uscat fața cu un prosop.	Mary dried her face with a towel.	19999
 prosop	Mary și-a uscat fața cu un prosop.	Mary dried her face with a towel.	19999
 iadul	Iadul este gol și toți diavolii sunt aici.	Hell is empty, and all the devils are here!	19999
@@ -11356,7 +11103,6 @@ dentară	Folosesc ața dentară zilnic.	I floss my teeth every day.	19999
 concret	Exprimați-vă ideea în mod concret.	Express your idea concretely.	19999
 britanic	Nu înțeleg umorul britanic.	I don't understand British humour.	19999
 mască	Vă rugăm să purtați mască.	Please wear a mask.	19999
-acceptam	Acceptăm cecuri.	We accept checks.	19999
 amendă	Încetinește sau iei amendă.	Slow down or you'll get a fine.	19999
 armele	Piloții și-au testat armele.	The pilots tested their guns.	19999
 testat	Piloții și-au testat armele.	The pilots tested their guns.	19999
@@ -11373,7 +11119,6 @@ azil	Am solicitat azil.	I've requested asylum.	19999
 biblie	Să citim câteva versete din Biblie.	Let's read a few verses from the Bible.	19999
 citim	Să citim câteva versete din Biblie.	Let's read a few verses from the Bible.	19999
 capitol	Din ce capitol este acest verset?	Which chapter is this verse from?	19999
-tremura	Tom tremură ca varga.	Tom was shaking like a leaf.	19999
 stomac	Mâncarea ajunge în stomac prin esofag.	The food goes down into the stomach through the esophagus.	19999
 etaj	Locuiesc la primul etaj.	I live on the first floor.	19999
 populară	Nu cred că Tom știe ceva despre muzica populară.	I don't think that Tom knows anything about folk music.	19999
@@ -11490,7 +11235,6 @@ africa	Algeria ar trebui să devină cea mai sigură țară din Africa de Nord.	
 schimbe	Sami nu poate schimba pe cineva care nu vrea să se schimbe.	Sami can't change somebody who doesn't want to change.	19999
 apel	Ziri nu a răspuns la niciun apel.	Ziri didn't answer any calls.	19999
 particular	Sunt profesor particular de limbi străine.	I'm a private language teacher.	19999
-persista	Această superstiție mai persistă printre ei.	This superstition still lingers on among them.	19999
 ude	L-am pus pe fiul meu să ude gazonul.	I had my son water the lawn.	19999
 problemei	Nu pot localiza sursa problemei.	I can't locate the source of the problem.	19999
 localiza	Nu pot localiza sursa problemei.	I can't locate the source of the problem.	19999
@@ -11514,9 +11258,7 @@ coreeană	Eu învăț coreeană.	I am learning Korean.	19999
 întind	Îmi întind cămășile.	I am hanging up my shirts.	19999
 durea	Mary a spus că o durea spatele.	Mary said that her back was sore.	19999
 mileniu	A mie de ani înseamnă un mileniu.	A thousand years makes a millennium.	19999
-confrunta	Tom se confruntă cu o problemă dificilă.	Tom is faced with a difficult problem.	19999
 albine	Tom a fost atacat de un roi de albine.	Tom was attacked by a swarm of bees.	19999
-tari	Libertatea de exprimare este restricționată în unele țări.	Freedom of speech is restricted in some countries.	19999
 exprimare	Libertatea de exprimare este restricționată în unele țări.	Freedom of speech is restricted in some countries.	19999
 fusesem	Știam că fusesem acolo.	I knew I had been there.	19999
 răsturnat	Barca lui Tom s-a răsturnat.	Tom's rowboat capsized.	19999
@@ -11578,10 +11320,7 @@ contacta	Nu-mi pot contacta rudele.	I can't contact my relatives.	19999
 bag	De obicei eu nu mă bag în nimic.	I don't usually get involved in anything.	19999
 vampir	Sami nu este un vampir obișnuit.	Sami isn't an ordinary vampire.	19999
 vampir	Sami nu e un vampir obișnuit.	Sami isn't an ordinary vampire.	19999
-tasta	Bara de spațiu este cea mai mare tastă de pe tastatură.	The spacebar is the largest key on your keyboard.	19999
 bara	Bara de spațiu este cea mai mare tastă de pe tastatură.	The spacebar is the largest key on your keyboard.	19999
-tasta	Apăsați orice tastă.	Press any key.	19999
-tasta	Apăsați o tastă oarecare.	Press any key.	19999
 oarecare	Apăsați o tastă oarecare.	Press any key.	19999
 balcon	Ziri se află pe balcon.	Ziri is on the balcony.	19999
 balcon	Ziri este pe balcon.	Ziri is on the balcony.	19999
@@ -11621,7 +11360,6 @@ anonim	Mai bine să fii un bețiv faimos decât un alcoolic anonim.	It's better 
 alcoolic	Mai bine să fii un bețiv faimos decât un alcoolic anonim.	It's better to be a well-known boozer than an anonymous alcoholic.	19999
 fotografia	Ea i-a înmânat fotografia înapoi.	She handed the photo back to him.	19999
 sexul	Sexul și dragostea sunt două lucruri diferite.	Sex and love are two different things.	19999
-celebra	Tom este căsătorit cu o actriță celebră.	Tom is married to a famous actress.	19999
 telefonic	Contactează-i telefonic.	Contact them by phone.	19999
 lucrurilor	Pune-l la curent cu starea lucrurilor.	Get him up to speed on the state of things.	19999
 situat	Unde este situat magazinul?	Where is the store located?	19999
@@ -11691,7 +11429,7 @@ ocoli	Nu ocoli subiectul.	Don't talk around it.	19999
 bunătate	Tom a răspuns cu bunătate la toate întrebările mele.	Tom kindly answered all my questions.	19999
 râd	Obișnuiam să râd mai mult decât o fac acum.	I used to laugh much more than I do now.	19999
 clinică	Unde se află cea mai apropiată clinică?	Where is the nearest clinic?	19999
-vesti	Avem niște vești minunate.	We have some wonderful news.	19999
+vești	Avem niște vești minunate.	We have some wonderful news.	19999
 povești	Tom este eroul propriei sale povești.	Tom is the hero of his own story.	19999
 evreică	O altă evreică a fost ucisă în Franța.	Another Jew was murdered in France.	19999
 geantă	Mary și-a pus telefonul în geantă.	Mary put her phone in her handbag.	19999
@@ -11707,7 +11445,6 @@ oceanul	Spațiul vest-european se termină în oceanul Atlantic.	The Western Eur
 european	Spațiul vest-european se termină în oceanul Atlantic.	The Western European area ends with the Atlantic ocean.	19999
 atlantic	Spațiul vest-european se termină în oceanul Atlantic.	The Western European area ends with the Atlantic ocean.	19999
 pastilă	Un profesor a inventat o pastilă care elimină mahmureala.	A teacher invented a pill that gets rid of a hangover.	19999
-elimina	Un profesor a inventat o pastilă care elimină mahmureala.	A teacher invented a pill that gets rid of a hangover.	19999
 culori	Drapelul elvețian are doar două culori, nu trei.	The Swiss flag has only two colors, not three.	19999
 drapelul	Drapelul elvețian are doar două culori, nu trei.	The Swiss flag has only two colors, not three.	19999
 păi	Păi, Cupid e un lunetist groaznic.	Well, Cupid is a terrible sniper.	19999
@@ -11728,7 +11465,6 @@ mute	A decis să se mute în Belgia.	She decided to move to Belgium.	19999
 plantă	Tocmai am cumpărat o nouă plantă pentru camera mea. Arată atât de frumos!	I just bought a new plant for my room. It looks so nice!	19999
 înfipt	Tom a înfipt o floare în butoniera sa.	Tom stuck a flower in his buttonhole.	19999
 bată	Crezi că Tom poate să-l bată pe John?	Do you think Tom can beat John?	19999
-comandam	Hai să comandăm câteva pizze mari.	Let's order a couple of large pizzas.	19999
 desene	Faci adesea desene cu creionul?	Do you often do pencil drawings?	19999
 descris	El a descris în detaliu accidentul poliției.	He described the accident in detail to the police.	19999
 banană	Maimuța vrea o banană.	The monkey wants a banana.	19999
@@ -11746,10 +11482,8 @@ ucigaș	Grădinarul era un ucigaș.	The gardener was a murderer.	19999
 vulpe	Vânătorul a ucis o vulpe.	The hunter killed a fox.	19999
 dezamăgitor	Rezultatul a fost dezamăgitor.	The result was a disappointment.	19999
 profesionist	Un profesionist vopsește casa.	A professional is painting the house.	19999
-umana	O ființă umană a scris povestea.	A human being wrote the story.	19999
 apăra	Algerienii își vor apăra țara.	Algerians will defend their country.	19999
 regretat	El nu și-a regretat decizia.	He did not regret his decision.	19999
-asigura	Asigură-te că închizi ferestrele.	Make sure you close the windows.	19999
 legat	Hoțul a fost legat de mâini și de picioare.	The thief was bound hand and foot.	19999
 senin	Cerul este albastru și senin.	The sky is blue and clear.	19999
 isus	Pilat a întrebat ce este adevărul, dar Isus nu a răspuns.	Pilate asked what the truth was, but Jesus did not answer.	19999
@@ -11779,7 +11513,6 @@ zahărul	Zahărul este dulce, untul este gras.	Sugar is sweet, butter is fat.	19
 insectă	Albina este o insectă și mănâncă miere.	The bee is an insect and it eats honey.	19999
 cuptor	Curcanul este la cuptor.	The turkey is in the oven.	19999
 insecte	Păianjenii mănâncă insecte.	Spiders eat insects.	19999
-reflecta	Meciul reflectă ceea ce am mai adânc în suflet.	The match reflects the deepest of my soul.	19999
 neiertat	Traducatorul a făcut o greșeală de neiertat.	The translator made an unforgivable mistake.	19999
 pictor	Fotograful este un fel de pictor.	The photographer is a kind of painter.	19999
 explodat	Eram pe punctul de a pleca când bomba a explodat.	I was just about to leave when the bomb exploded.	19999
@@ -11811,7 +11544,6 @@ saltea	Noi punem cearșaful peste saltea.	We put the sheet over the mattress.	19
 sunet	Trompeta are un sunet puternic.	The trumpet has a strong sound.	19999
 barba	Cât de des îți radi barba?	How often do you shave your beard?	19999
 lisa	Lisa s-a făcut că nu aude.	Lisa pretended not to hear.	19999
-aduna	Albinele adună polenul din flori.	The bees collect the pollen from the flowers.	19999
 albinele	Albinele adună polenul din flori.	The bees collect the pollen from the flowers.	19999
 regelui	Prințul este fiul regelui.	The prince is the son of the king.	19999
 malarie	Țânțarii aceia transmit malarie.	Those mosquitoes transmit malaria.	19999
@@ -11831,7 +11563,6 @@ spitalului	Medicul mi-a dat adresa spitalului.	The physician gave me the address
 pică	Numiți o pică o pică.	Call a spade a spade.	19999
 dezbatere	Tom a participat în dezbatere.	Tom participated in the debate.	19999
 unic	Îmi place stilul tău. Este unic.	I like your style. It's unique.	19999
-stand	Bunicul meu a adormit stând pe canapea.	My grandfather fell asleep sitting on the couch.	19999
 canapea	Bunicul meu a adormit stând pe canapea.	My grandfather fell asleep sitting on the couch.	19999
 câmpuri	Casa lui este înconjurată de câmpuri de floarea soarelui.	His house is surrounded by fields of sunflowers.	19999
 maroc	Suntem împreună cu voi, Maroc și Libia.	We are together with you, Morocco and Libya.	19999
@@ -11868,7 +11599,7 @@ cultură	Există vreo diferență între cultură și educație?	Is there any di
 oprită	Intrarea oprită!	No Entry!	19999
 major	Acolo unde este major, minorul devine neglijat.	Where there is the major, the minor becomes neglected.	19999
 neglijat	Acolo unde este major, minorul devine neglijat.	Where there is the major, the minor becomes neglected.	19999
-rotunda	Mingea este rotundă.	The ball is round.	19999
+rotundă	Mingea este rotundă.	The ball is round.	19999
 traduc	Nu-mi place să traduc propoziții lungi.	I don't like to translate long sentences.	19999
 ierte	Dumnezeu sa ma ierte.	May God forgive me.	19999
 semne	Căutați semne de descompunere.	Look for signs of decomposition.	19999
@@ -11893,7 +11624,6 @@ comercială	Lucrez într-o societate comercială.	I work for a trading company.	
 camion	Așteptăm un camion de remorcare.	We're waiting for a tow truck.	19999
 malul	El insistă să cumpere o vilă la malul mării.	He insists on buying a seaside villa.	19999
 vilă	El insistă să cumpere o vilă la malul mării.	He insists on buying a seaside villa.	19999
-insista	El insistă să cumpere o vilă la malul mării.	He insists on buying a seaside villa.	19999
 mării	El insistă să cumpere o vilă la malul mării.	He insists on buying a seaside villa.	19999
 malul	Este hotărât să cumpere o vilă la malul mării.	He is bent on buying a seaside villa.	19999
 vilă	Este hotărât să cumpere o vilă la malul mării.	He is bent on buying a seaside villa.	19999
@@ -11903,7 +11633,6 @@ creativ	Tom dorea să găsească un mod creativ pentru a-i spune lui Mary că o 
 găsească	Tom dorea să găsească un mod creativ pentru a-i spune lui Mary că o iubește.	Tom wanted to find a creative way to tell Mary that he loved her.	19999
 analizat	Am analizat lichidul.	I've analyzed the liquid.	19999
 chestiuni	Avem chestiuni importante de discutat.	We have important matters to discuss.	19999
-definitiva	Decizia mea era definitivă.	My decision was final.	19999
 conservă	Nu consuma mâncare la conservă expirată.	Don't consume canned food that has expired.	19999
 consuma	Nu consuma mâncare la conservă expirată.	Don't consume canned food that has expired.	19999
 devastat	Patruzeci de ani de conflict au devastat Afganistanul.	Forty years of conflict have devastated Afghanistan.	19999
@@ -11931,7 +11660,6 @@ convenabil	Este foarte convenabil să locuiești lângă o gară.	It is very con
 comunicare	Engleza este un mijloc de comunicare mai bun decât oricare altul din lume.	English is a better means of communication than any other in the world.	19999
 mijloc	Engleza este un mijloc de comunicare mai bun decât oricare altul din lume.	English is a better means of communication than any other in the world.	19999
 placă	Ar trebui să-ți placă asta.	You should enjoy this.	19999
-transforma	Nașterea unui copil îți transformă viața complet.	The birth of a child completely transforms your life.	19999
 sinucis	Ziri s-a sinucis.	Ziri killed himself.	19999
 fura	Sami fura bani din casa de marcat.	Sami was stealing money out of the register.	19999
 soră	Tom are o soră pe nume Mary.	Tom has a sister named Mary.	19999
@@ -11964,7 +11692,6 @@ cezar	Cezar a dezbrăcat inamicul de armele lor.	Caesar stripped the enemy of th
 câini	A fost sfâșiat de câini.	He was torn to pieces by dogs.	19999
 cinei	E ora cinei așa că e mai bine să mă deconectez.	It’s dinner time, so I better sign out.	19999
 izvorul	Poate că apa e izvorul vieții, dar calitatea sa de a da viață depinde de cum o tratăm.	Water may be the source of life, but its life-giving quality depends on how we treat it.	19999
-tratam	Poate că apa e izvorul vieții, dar calitatea sa de a da viață depinde de cum o tratăm.	Water may be the source of life, but its life-giving quality depends on how we treat it.	19999
 forța	Nu te voi forța să faci nimic ceea ce nu vrei să faci.	I'm not going to force you to do anything you don't want to do.	19999
 forța	Nu vă voi forța să faceți nimic ce nu vreți să faceți.	I'm not going to force you to do anything that you don't want to do.	19999
 capturat	De îndată ce orașul a fost capturat, Aeneas a fugit.	As soon as the city was captured, Aeneas fled.	19999
@@ -11983,7 +11710,6 @@ murind	Își văzuse singurul fiu murind.	She had her only son die.	19999
 rai	Sărutările ei mă duc în rai.	Her kisses take me to heaven.	19999
 împăcat	S-au împăcat și au redevenit prieteni.	They made up and became friends again.	19999
 bandaj	Cum aplic un bandaj?	How do I apply a bandage?	19999
-confirma	Excepția confirmă regula.	The exception proves the rule.	19999
 regula	Excepția confirmă regula.	The exception proves the rule.	19999
 radio	Îți amintești acel cântec ce a fost difuzat la radio?	Do you remember that song that they had played on the radio?	19999
 difuzat	Îți amintești acel cântec ce a fost difuzat la radio?	Do you remember that song that they had played on the radio?	19999
@@ -11998,7 +11724,6 @@ observa	Nimeni nu va observa schimbarea.	No one will notice the substitution.	19
 clauză	Există o clauză în contractul de închiriere cu privire la acest lucru?	Is there a clause in the lease regarding that?	19999
 închiriere	Există o clauză în acest sens în contractul de închiriere?	Is there a clause in the lease regarding that?	19999
 clauză	Există o clauză în acest sens în contractul de închiriere?	Is there a clause in the lease regarding that?	19999
-afirma	Maria afirmă că știe să conducă.	Mary says she already knows how to drive.	19999
 salutat	Tom l-a salutat pe vecinul său.	Tom said hello to his neighbor.	19999
 gustare	Tom și Maria au decis să iasă pentru o gustare nocturnă.	Tom and Mary decided to go out for a late-night snack.	19999
 servietă	Tom nu știa ce era în servietă.	Tom didn't know what was in the briefcase.	19999
@@ -12160,7 +11885,6 @@ oficiu	Satul nu are un oficiu poștal.	The village does not have a post office.	
 căpitanului	Ordinele căpitanului erau clare.	The captain's orders were clear.	19999
 clare	Ordinele căpitanului erau clare.	The captain's orders were clear.	19999
 concurs	Am participat la concurs.	I took part in the contest.	19999
-sort	Mary și-a uscat mâinile pe șorț.	Mary dried her hands on her apron.	19999
 semna	Nu semna documentul până nu l-ai citit.	Don't sign the document until you've read it.	19999
 adineauri	Care pisică a fătat adineauri?	Which cat just gave birth?	19999
 biblioteca	Biblioteca stă la dispoziția tuturor.	The library is open to everyone.	19999
@@ -12209,7 +11933,6 @@ primărie	Vă rog să mă scuzați, cum putem ajunge la primărie?	Excuse me ple
 conform	Trebuie să jucăm conform regulilor.	We should play by the rules.	19999
 regulilor	Trebuie să jucăm conform regulilor.	We should play by the rules.	19999
 aluat	Aluat trebuie mai întâi frământat.	The dough must first be kneaded.	19999
-amesteca	Amestecă făina cu laptele.	Mix the flour with the milk.	19999
 prăjite	Maultaschen trebuie prăjite timp de cincisprezece minute.	The Maultaschen must be fried for fifteen minutes.	19999
 gustat	Am gustat tortul mătușii mele.	I tried the layer cake of my aunt.	19999
 fu	La final dragonul fu omorât.	At the end the drago was killed.	19999
@@ -12283,7 +12006,6 @@ opta	A opta parte a filmului este cea mai interesantă.	The eighth part of the f
 filmului	A opta parte a filmului este cea mai interesantă.	The eighth part of the film is the most interesting.	19999
 părți	Romanul are două părți.	The novel has two parts.	19999
 istorie	Prezentarea pentru ora de istorie este pentru săptămâna viitoare.	The presentation for the history lesson is due next week.	19999
-consta	Concursul de cultură generală constă în zece runde.	The quiz consists of ten rounds.	19999
 runde	Concursul de cultură generală constă în zece runde.	The quiz consists of ten rounds.	19999
 generală	Concursul de cultură generală constă în zece runde.	The quiz consists of ten rounds.	19999
 caritabil	Ana participă la maratonul caritabil.	Anna is participating in the charity marathon.	19999
@@ -12302,7 +12024,6 @@ determine	Este greu să se determine distanța.	It is hard to determine the dist
 negre	Rochiile lungi, negre, sunt la modă acum.	Long, black dresses are in mode now.	19999
 încăpere	Am nevoie de o încăpere luminoasă pentru plantele mele.	I need a bright room for my plants.	19999
 luminoasă	Am nevoie de o încăpere luminoasă pentru plantele mele.	I need a bright room for my plants.	19999
-detesta	Ea detestă fustele scurte.	She hates short skirts.	19999
 acestor	Mi se par prea mari buzunarele acestor pantaloni.	I find the pockets of these pants too big.	19999
 timpurilor	Cine este savantul cel mai cunoscut al tuturor timpurilor?	Who is the most well-known scientist of all time?	19999
 valoare	Vreau să recuperez obiectele mele de valoare.	I want to recover my valuables.	19999
@@ -12352,7 +12073,6 @@ feluri	Cina a fost minunată! A fost atât de romantică și a avut cinci feluri
 umeri	Ea își face masaj la umeri la spa.	She's getting her shoulders massaged in the spa.	19999
 masaj	Ea își face masaj la umeri la spa.	She's getting her shoulders massaged in the spa.	19999
 disputa	Disputa se transformă repede într-un război.	The dispute turned quickly into a war.	19999
-transforma	Disputa se transformă repede într-un război.	The dispute turned quickly into a war.	19999
 decid	Nu pot să mă decid dacă ar trebui să port rochia sau fusta.	I can't decide whether I should wear the dress or the skirt.	19999
 fusta	Nu pot să mă decid dacă ar trebui să port rochia sau fusta.	I can't decide whether I should wear the dress or the skirt.	19999
 european	Ca cetățean european, nu trebuie să cer un permis de muncă pentru a lucra în Germania.	As an EU citizen, I don't have to apply for an work permit in order to work in Germany.	19999
@@ -12377,7 +12097,6 @@ blond	Băiatul cu părul blond este verișorul meu.	The boy with blond hair is m
 rude	Aveți multe rude care trăiesc în Germania?	Do you have many relatives who live in Germany?	19999
 fu	Străbunicul meu fu omorât în Rusia în timpul celui de al Doilea Război Mondial.	My great grandfather was killed in Russia during the Second World War.	19999
 creeze	Guvernul promite să creeze noi locuri de muncă.	The government is promising to create new jobs.	19999
-catalina	Cătălina face ucenicia în străinătate ca bucătar.	Catherine is doing an apprenticeship abroad as a cook.	19999
 fetei	Bunica oferi o scufiță roșie fetei.	The grandmother gave the girl a little red hood.	19999
 îmbolnăvi	Într-o zi, bunica se îmbolnăvi.	One day, the grandmother fell ill.	19999
 lup	Scufița Roșie îl întâlni pe lup pe drum.	Little Red Riding Hood met the wolf on the way.	19999

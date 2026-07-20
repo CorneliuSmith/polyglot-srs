@@ -176,6 +176,34 @@ class TestSentencePipeline:
         assert ev_rows[0]["sentence"] == "Ev güzel."
         assert ev_rows[0]["difficulty_rank"] == 50
 
+    def test_build_sentence_rows_never_bridges_diacritics(self):
+        # Beta bug: with the accent-folding lemmatizer, "Es él." nominated
+        # itself as an example for the ARTICLE card 'el' (and año-sentences
+        # for 'ano'). A fold-only lemma match must not link; an exact token
+        # and a real morphology fold still do.
+        from backend.services.nlp.latin_base import SpanishNLP
+
+        target = {1: "Es él.", 2: "¿Cómo está el tiempo?"}
+        eng = {90: "It is he.", 91: "How's the weather?"}
+        links = [(1, 90), (2, 91)]
+        ranks = {"el": 1, "es": 2, "cómo": 3, "está": 4, "tiempo": 5}
+        rows = build_sentence_rows(
+            target, eng, links, ranks, SpanishNLP().lemmatize, per_word=5
+        )
+        el_sentences = {r["sentence"] for r in rows if r["word"] == "el"}
+        assert el_sentences == {"¿Cómo está el tiempo?"}
+
+    def test_build_sentence_rows_keeps_real_lemma_matches(self):
+        # A genuine lemmatizer fold (кошку -> кошка) still links.
+        target = {1: "Я вижу кошку."}
+        eng = {90: "I see the cat."}
+        ranks = {"кошка": 10, "я": 1, "вижу": 5}
+        lemmatize = lambda w: "кошка" if w == "кошку" else w  # noqa: E731
+        rows = build_sentence_rows(
+            target, eng, [(1, 90)], ranks, lemmatize, per_word=5
+        )
+        assert any(r["word"] == "кошка" for r in rows)
+
     def test_write_frequency_tsv_roundtrip(self, tmp_path):
         rows = [{"word": "ev", "pos": "n", "gloss": "house"}]
         out = tmp_path / "out.tsv"

@@ -3,15 +3,15 @@ no	No.	No.	3
 no	¡No!	No!	3
 no	No, no, no!	No, no, no!	3
 es	Es él.	It is he.	8
-el	Es él.	It is he.	8
+él	Es él.	It is he.	8
 es	Es él, ¿no?	He's the one, isn't he?	8
-el	Es él, ¿no?	He's the one, isn't he?	8
+él	Es él, ¿no?	He's the one, isn't he?	8
 es	Es lo que es.	It is what it is.	10
 lo	Es lo que es.	It is what it is.	10
 que	Es lo que es.	It is what it is.	10
 a	¡A por él!	Seize him!	12
 por	¡A por él!	Seize him!	12
-el	¡A por él!	Seize him!	12
+él	¡A por él!	Seize him!	12
 por	¿Por qué?	Why?	13
 qué	¿Por qué?	Why?	13
 qué	¿Y qué?	So what?	13
@@ -1020,7 +1020,6 @@ realidad	En realidad no es una mujer... es un hombre.	She's not really a woman..
 realidad	¿Qué significa en realidad?	What does it actually mean?	340
 deja	Deja de ir allí.	Stop going there.	341
 deja	Deja mis cosas.	Leave my stuff alone.	341
-deja	Dejá eso ahí.	Leave that there.	341
 da	Se me da bien la historia.	I am good at history.	342
 da	Me da lo mismo.	I'm not bothered.	342
 da	¿Me da la cuenta, por favor?	May I have the check, please?	342
@@ -2676,7 +2675,6 @@ acabó	Se acabó la fiesta.	The party is over.	899
 acabó	Se te acabó el tiempo.	Your time is up.	899
 juro	Juro que nunca haré tal cosa.	I swear I will never do such a thing.	900
 juro	Juro por Dios que voy a decir la verdad.	I swear by God that I will speak the truth.	900
-juro	Juró que nunca más iba a tomar.	He swore that he would no longer drink.	900
 mantener	Debemos mantener esta información en secreto por el momento.	We should keep this information under wraps for the time being.	901
 mantener	No tengo familia para mantener.	I have no family to provide for.	901
 mantener	Él tiene cuatro hijos a los que mantener.	He has four children to provide for.	901
@@ -2893,7 +2891,6 @@ escena	Ella estaba en la escena del crimen.	She was on the scene of the crime.	9
 escena	La policía ya va a llegar a la escena del crimen.	The police will soon arrive on the scene.	973
 piso	Vivo en un piso.	I live in an apartment.	974
 piso	Había sangre por todo el piso.	There was blood all over the floor.	974
-piso	Él pisó mierda de perro.	He stepped into dog shit.	974
 señal	Estaban esperando la señal para empezar.	They were watching for the signal to start.	975
 señal	No vi la señal.	I did not see the sign.	975
 señal	Es una señal de peligro.	It's a signal of danger.	975
@@ -3765,9 +3762,9 @@ dejaré	Te prometo que nunca te dejaré.	I promise you I won't ever leave you.	1
 evitar	Deberías evitar ir por ese lado de la ciudad.	You should keep clear of that side of town.	1272
 evitar	No puedo evitar pensar así.	I cannot help thinking so.	1272
 evitar	No puedo evitar pensar en el futuro.	I can't help thinking of the future.	1272
-video	Él tiene un vídeo.	He has a video.	1273
-video	Tengo el vídeo.	I have the video.	1273
-video	¡Quiero ver el vídeo!	I want to see the video!	1273
+vídeo	Él tiene un vídeo.	He has a video.	1273
+vídeo	Tengo el vídeo.	I have the video.	1273
+vídeo	¡Quiero ver el vídeo!	I want to see the video!	1273
 máquina	Ella puso la máquina en marcha.	She put the machine in motion.	1274
 máquina	¿Esta máquina de escribir es tuya?	Is this typewriter yours?	1274
 máquina	Hoy voy a probar esta máquina.	I am going to put this machine to the test today.	1274
@@ -4085,7 +4082,6 @@ depende	Ella depende todavía de sus padres.	She still depends on her parents.	1
 juez	Su vida depende de la decisión del juez.	His life hangs on the judge's decision.	1378
 motivo	¿Cuál es el motivo de su visita?	What is the purpose of your visit?	1379
 motivo	¿Cuál es el motivo de su viaje?	What's the purpose of your trip?	1379
-motivo	Mi consejo la motivó.	My advice acted as an encouragement to her.	1379
 inglés	Ella no habla casi nada de inglés.	She spoke scarcely a word of English.	1380
 inglés	Él es bueno en inglés.	He is such a good English speaker.	1380
 inglés	¿Habla usted inglés?	Do you speak English?	1380
@@ -4600,8 +4596,6 @@ bajar	Por favor, ayúdame a bajar esto.	Please help me take this down.	1551
 nervioso	Hablar en público me pone nervioso.	Speaking in public makes me nervous.	1552
 nervioso	Esperar mucho rato a un amigo me pone nervioso.	Waiting a long time for a friend makes me nervous.	1552
 nervioso	El equipo estaba bastante nervioso antes del partido.	The team were quite nervous before the game.	1552
-vengo	Él se vengó.	He revenged himself.	1553
-vengo	Se vengó de la muerte de su padre.	He avenged his father's death.	1553
 vengo	¿Te viene bien si vengo a las seis?	Is it convenient for you if I come at 6 p.m.?	1553
 sirve	Por una vez en mi vida hago una buena acción... y no sirve de nada.	For once in my life I'm doing a good deed... And it is useless.	1555
 sirve	¿A qué hora se sirve la cena?	What time is dinner served?	1555
@@ -4736,7 +4730,6 @@ tenéis	No tenéis nada que hacer excepto confiar el uno en el otro.	All you can
 tenéis	¿No tenéis hambre?	Aren't you hungry?	1599
 tenéis	¿Tenéis algo que ver con este grupo?	Do you have something to do with this group?	1599
 apoyo	¡Tú puedes hacerlo! ¡Vamos! Yo te apoyo.	You can make it! Go for it. I'll stand by you.	1600
-apoyo	Nadie la apoyó.	No one encouraged her.	1600
 apoyo	Ojalá el apoyo llegue a tiempo.	Let's hope the support arrives on time.	1600
 bala	La bala dio a su blanco.	The bullet found its mark.	1601
 bala	La bala dio a su objetivo.	The bullet found its mark.	1601
@@ -4817,7 +4810,6 @@ nariz	Tiene los ojos del padre y la nariz de la madre.	She has her father's eyes
 nariz	Él apoyó la nariz contra la ventana.	He pushed his nose against the window.	1627
 aquellos	Aquellos son los libros de ellos.	Those are their books.	1628
 aquellos	Me acuerdo de aquellos tiempos.	I remember those times.	1628
-aquellos	Aquéllos son mis libros.	Those are my books.	1628
 clases	¡¿Nunca tienes clases o qué?!	You never have class or what?!	1629
 clases	Nuestro director de escuela no da clases.	Our principal does no teaching.	1629
 clases	Tiene dos clases por la mañana y una por la tarde.	He has two classes in the morning and one in the afternoon.	1629
@@ -4940,7 +4932,6 @@ lleve	Deja que te lleve a casa.	Let me take you home.	1669
 lleve	¿Quieres que te lleve a casa?	Do you want me to take you home?	1669
 presente	Nadie estaba presente.	No one was present.	1670
 presente	No había mucha gente presente.	There were not many present.	1670
-presente	Te la presenté la semana pasada.	I introduced her to you last week.	1670
 conocía	Yo conocía ese hecho.	I was aware of that fact.	1671
 conocía	Yo no conocía el plan de él.	I didn't know about his plan.	1671
 conocía	Nadie ahí lo conocía bien.	Nobody there knew him well.	1671
@@ -5293,9 +5284,7 @@ negra	Tiene una suerte negra.	He has very bad luck.	1792
 habido	Ha habido un accidente.	There has been an accident.	1793
 habido	Parece que ha habido un accidente.	There appears to have been an accident.	1793
 habido	No ha habido problemas hasta ahora.	There have been no problems so far.	1793
-limpio	Ella limpió la habitación por mí.	She cleaned the room for me.	1794
 limpio	¿Está limpio el baño?	Is the bath clean?	1794
-limpio	Ella sola limpió la casa.	She cleaned the house all by herself.	1794
 china	Él ha escrito un libro en China.	He wrote a book in China.	1795
 china	El libro trata de China.	This book deals with China.	1795
 china	Mis padres son de China.	My parents are from China.	1795
@@ -5651,7 +5640,7 @@ búsqueda	Creo que es una búsqueda inútil.	I think it's a wild goose chase.	19
 domingo	Voy a la iglesia el domingo.	I go to church on Sunday.	1917
 domingo	Este día es domingo.	Today is Sunday.	1917
 domingo	No voy a la escuela en domingo.	I don't go to school on Sunday.	1917
-tomas	¿Tomás café?	Do you drink coffee?	1918
+tomás	¿Tomás café?	Do you drink coffee?	1918
 tomas	¿Por qué no tomas un taxi?	Why don't you take a taxi?	1918
 tomas	Está bien si vas ahí y tomas asiento.	It's okay if you go in there and take a seat.	1918
 campamento	Tomás fue de campamento con un amigo.	Tom went on a camping trip with a friend.	1918
@@ -6007,7 +5996,6 @@ compartir	Me gustaría compartir mi secreto con vos.	I'd like to share my secret
 compartir	No me molesta compartir la habitación con él.	I don't mind sharing the room with him.	2039
 compartir	Juro que lo iba a compartir.	I swear I was going to share it.	2039
 saca	Saca la lengua.	Stick out your tongue.	2040
-saca	Sacá la lengua, por favor.	Put out your tongue, please.	2040
 saca	Saca estas cosas de aquí.	Get this stuff out of here.	2040
 irás	¿Irás en tren?	Will you go by train?	2041
 irás	Con este tren irás el doble de rápido.	With this train you'll go twice as fast.	2041
@@ -6023,7 +6011,6 @@ empezando	Estoy empezando a ver que va a ser imposible.	I'm beginning to see tha
 empezando	Estoy empezando a entender.	I am beginning to understand.	2044
 empezando	¡Estoy empezando a hacerme viejo!	I'm starting to get old!	2044
 local	La policía registró el local a fondo.	The police searched the premises thoroughly.	2045
-registro	La policía registró el local a fondo.	The police searched the premises thoroughly.	2045
 registro	¿Dónde está la oficina de registro?	Where is the registrar's office?	2045
 registro	El registro empieza a las dos y media.	Registration starts at 2:30.	2045
 continúa	La vida continúa.	Life goes on.	2046
@@ -6366,7 +6353,6 @@ condiciones	La vieja casa estaba en malas condiciones.	The old house was in bad 
 condiciones	No estás en condiciones de pedir nada.	You are not in a position to ask for anything.	2162
 dudo	Dudo que él venga.	I am doubtful whether he will come.	2163
 dudo	Dudo que sea un abogado.	I doubt if he is a lawyer.	2163
-dudo	Él dudó antes de responder.	He hesitated before answering.	2163
 robó	Alguien me robó mi bolsa.	Someone stole my bag.	2164
 robó	El hombre le robó su bolsa.	The man robbed her of her bag.	2164
 robó	El muchacho robó dinero de la bolsa de su madre.	The boy stole money from his mother's handbag.	2164
@@ -6512,7 +6498,6 @@ rara	Aunque su casa queda cerca, yo rara vez la veo.	Although her house is nearb
 estudiantes	¿Sois estudiantes de esta escuela?	Are you students at this school?	2214
 estudiantes	Los estudiantes están de vacaciones.	The students are on vacation.	2214
 estudiantes	No conozco a todos los estudiantes.	I don't know all the students.	2214
-reino	El rey reinó sobre la isla.	The king reigned over the island.	2215
 reino	Su reino es vuestro infierno.	Her kingdom is your hell.	2215
 reino	Él reinó con justicia su reino.	He ruled his kingdom fairly.	2215
 alegría	Ella estaba llena de alegría.	She was full of joy.	2216
@@ -6770,8 +6755,6 @@ gustas	Me gustas mucho.	I like you very much.	2302
 gustas	Ya no me gustas.	I don't like you anymore.	2302
 gustas	Eres raro - Me gustas.	You're weird - I like you.	2302
 aseguro	Le aseguro que no voy a llegar tarde.	I assure you that I won't be late.	2303
-aseguro	El capitán nos aseguró que no habría peligro.	The captain assured us that there would be no danger.	2303
-aseguro	Ella le aseguró que todo iba bien.	She assured him that everything was OK.	2303
 ira	La ira es una energía.	Anger is an energy.	2304
 ira	Tal era su ira que ella perdió el control.	Such was her anger that she lost control of herself.	2304
 ira	La ira es difícil de controlar.	Anger is hard to control.	2304
@@ -7390,8 +7373,6 @@ posibilidades	Tenemos pocas posibilidades de ganar.	We have little chance of win
 elegido	Ellos han elegido un nuevo gobierno.	They have elected a new government.	2514
 elegido	Fue elegido como miembro del equipo.	He was chosen to be a member of the team.	2514
 elegido	¿Ya ha elegido?	Have you already chosen?	2514
-divorcio	El mes pasado se divorció de su esposa.	He divorced his wife last month.	2515
-divorcio	Ella se divorció de su marido.	She divorced her husband.	2515
 divorcio	Ellos no se ven desde el divorcio.	They haven't seen each other since the divorce.	2515
 recibí	No recibí respuesta hasta la semana pasada.	Up to last week, I hadn't received a reply.	2517
 recibí	Recibí su carta.	I received your letter.	2517
@@ -7589,7 +7570,6 @@ juega	La suerte juega un papel importante en la vida.	Luck plays an important pa
 suéltame	Suéltame el brazo.	Let go of my arm.	2585
 suéltame	¡Suéltame!	Let go of me!	2585
 suéltame	Suéltame el brazo por favor.	Please let go of my arm.	2585
-arresto	La policía arrestó al sospechoso ayer.	The police arrested the suspect yesterday.	2586
 arresto	Usted está bajo arresto.	You are under arrest.	2586
 arresto	Estás bajo arresto.	You're under arrest.	2586
 ricos	Eso no nos hará ni más ricos ni más pobres.	That sum of money won't make or mar us.	2587
@@ -7917,8 +7897,6 @@ pura	Me encontré con él de pura casualidad.	I met him by pure chance.	2692
 volveremos	Pero éste es un asunto al que volveremos más tarde.	But this is an issue to which we return later.	2693
 volveremos	Volveremos a los detalles de este problema más tarde.	We'll return to the details of this problem later.	2693
 volveremos	Es duro saber que no volveremos a vernos más.	It's hard to know that we won't see each other again.	2693
-voto	Nadie votó en contra.	No one voted against it.	2694
-voto	La mayoría votó contra el proyecto de ley.	A majority voted against the bill.	2694
 voto	Cada estado tenía solo un voto.	Each state had just one vote.	2694
 méxico	Ella se fue a México sola.	She went to Mexico by herself.	2695
 méxico	¿Has estado alguna vez en México?	Have you ever been to Mexico?	2695
@@ -8365,7 +8343,6 @@ abandonar	Nada va a hacerme abandonar.	Nothing can force me to give it up.	2849
 nave	Debemos abandonar la nave.	We must abandon ship.	2849
 nave	¿Crees que deberíamos abandonar la nave?	Do you think we should abandon ship?	2849
 dispara	¡Dispara!	Shoot!	2850
-dispara	¡Dispará!	Shoot!	2850
 dispara	Dispara.	He shoots.	2850
 buscamos	La victoria por sí misma no es el cambio que buscamos.	This victory alone is not the change we seek.	2851
 buscamos	Precisamente él es el hombre que buscamos.	He is precisely the man we're looking for.	2851
@@ -8556,7 +8533,7 @@ gritando	El bebé está gritando.	The baby is screaming.	2917
 gritando	Le estoy gritando a mis hijos.	I am shouting at my kids.	2917
 pare	No abrir antes de que pare el tren.	Don't open before the train stops.	2918
 pare	Deseo que pare la lluvia.	I wish the rain would stop.	2918
-pare	Paré de fumar y de beber.	I stopped smoking and drinking.	2918
+paré	Paré de fumar y de beber.	I stopped smoking and drinking.	2918
 peces	Los peces viven en el agua.	Fish live in the water.	2919
 peces	Los peces viven en el mar.	Fish live in the sea.	2919
 peces	Agua es para los peces lo que el aire es para el hombre.	Water is to fish what air is to man.	2919
@@ -8618,7 +8595,6 @@ nacido	Desearía que nunca hubieras nacido.	I wish you'd never been born.	2940
 nacido	Ella deseó haber nacido veinte años atrás.	She wished she had been born twenty years earlier.	2940
 nacido	No, no me acuerdo. No había nacido aún.	No, I don't remember. I wasn't born yet.	2940
 anuncio	Vimos en el diario el anuncio de una casa que cuesta R$125.000,00.	We saw an ad in the newspaper for a house that costs R$125,000.00.	2941
-anuncio	La televisión no anunció nada.	The TV didn't announce anything.	2941
 anuncio	¿Qué acaba de decir el anuncio?	What did the announcement just say?	2941
 física	Él está en buena condición física.	He is in good physical condition.	2942
 física	¡Al carajo con la física!	Physics be hanged!	2942
@@ -8877,7 +8853,6 @@ consciente	Él no fue consciente de su propio error.	He was not conscious of his
 consciente	Yo no era consciente de lo que estaba haciendo en realidad.	I was not conscious what in fact I was doing then.	3032
 alcance	Esto está lejos del alcance de mis habilidades.	This is beyond the compass of my ability.	3033
 alcance	Ahora los libros están al alcance de todos.	Books are now within the reach of everybody.	3033
-alcance	Les alcancé pronto.	I caught up with them soon.	3033
 evento	Yo no sabía del evento hasta ayer.	Not until yesterday did I know of the event.	3034
 evento	Recuerdo el evento tan claramente como si hubiera sido ayer.	I remember the event as clearly as if it had happened just yesterday.	3034
 evento	Este es un evento importante.	This is an important event.	3034
@@ -9224,7 +9199,6 @@ buscan	Cree a aquellos que buscan la verdad, ten cuidado con aquellos que la enc
 encuentran	Cree a aquellos que buscan la verdad, ten cuidado con aquellos que la encuentran.	Believe those who seek truth, beware those who find it.	3152
 buscan	Todavía buscan al niño.	They are still looking for the child.	3152
 buscan	Ellos buscan mi libro.	They're looking for my book.	3152
-enfrente	Me enfrenté al campeón.	I faced the champion.	3153
 enfrente	Tomé un taxi enfrente de la estación.	I got a taxi in front of the station.	3153
 enfrente	La estación está justo enfrente.	The station is dead ahead.	3153
 restos	Esos son restos del almuerzo.	Those are the leftovers from lunch.	3154
@@ -9485,8 +9459,6 @@ moral	Esta es una cuestión moral.	It is a moral question.	3243
 moral	A él le falta sentido de moral.	He lacks moral sense.	3243
 moral	Ella me dio apoyo moral.	She gave me moral support.	3243
 bestia	Un hombre sin moral es una bestia salvaje suelta en este mundo.	A man without ethics is a wild beast loosed upon this world.	3243
-asalto	Una banda de ladrones asaltó la fiesta.	A band of robbers attacked the party.	3244
-asalto	Una banda de ladrones asaltó el banco.	A gang of thieves broke into the bank.	3244
 decente	Me gustaría vivir en una casa decente.	I'd like to live in a decent house.	3245
 decente	A ese lugar no va gente decente.	No decent people go to that place.	3245
 decente	No tengo un vestido decente para tal ocasión.	I don't have a dress good enough for such an occasion.	3245
@@ -9741,7 +9713,6 @@ pasas	¿Doble o pasas?	Double or quit?	3333
 apúrate	¡Apúrate, que nos vamos!	Hurry up, we are leaving!	3334
 apúrate	Apúrate por favor.	Please hurry.	3334
 apúrate	Apúrate. Vas a llegar tarde a la escuela.	Hurry up. You'll be late for school.	3334
-ma	Má, ¡apúrate! Están todos esperando.	Mom, hurry up! Everyone's waiting.	3334
 mami	Mami, ¡apúrate!	Hurry up, Mom.	3334
 entregar	Tienes que entregar los informes el lunes.	You have to turn in the reports on Monday.	3335
 entregar	Lo podemos entregar dentro de una semana.	We can deliver within a week.	3335
@@ -10033,8 +10004,6 @@ producto	La persona es un producto de sus circunstancias.	Man is a product of hi
 producto	Lo que me sorprende es que realmente puedan vender ese producto por tanto dinero.	What surprises me is that they can actually sell that product for so much money.	3437
 daños	El barco no recibió daños.	The ship was not damaged.	3438
 daños	Tuvo que pagar los daños.	He had to pay the damages.	3438
-abrazo	La niña abrazó su muñeca.	The girl hugged her doll.	3439
-abrazo	Ella le abrazó.	She hugged him.	3439
 abrazo	Me dio un abrazo.	He gave me a hug.	3439
 gafas	¿Dónde están mis gafas?	Where are my glasses?	3440
 gafas	¿Le quedan bien las gafas?	Do the glasses fit you well?	3440
@@ -10397,9 +10366,7 @@ máscara	Dale a un hombre una máscara y te dirá la verdad.	Give a man a mask a
 máscara	El policía lleva puesta una máscara de gas.	The policeman is wearing a gas mask.	3568
 máscara	Un amigo mío lo hizo con una máscara.	A friend of mine made it with a mask.	3568
 daniel	El tío de la máscara era Daniel.	The guy in the mask was Daniel.	3568
-alegre	Me alegré de verlo.	I was happy to see him.	3569
 alegre	No conozco el nombre de los pájaros que están cantando una canción tan alegre.	I don't know the name of the birds that were singing such a merry song.	3569
-alegre	Me alegré con la noticia.	I was delighted with the news.	3569
 comprender	Lo que él trata de decir es bien sencillo de comprender.	His meaning is quite plain.	3570
 comprender	Algo está pasando aquí que no acabo de comprender.	There's something happening here that I don't quite understand.	3570
 comprender	No lo puedo comprender.	I cannot understand it.	3570
@@ -10654,7 +10621,6 @@ mas	Mas ellos vendrán aquí mañana.	But they will come here tomorrow.	3660
 extrañas	Había unas caras extrañas esta mañana en el banco.	There were strange guys at the bank this morning.	3661
 extrañas	Cuando entra el vino, salen cosas extrañas.	When the wine goes in, strange things come out.	3661
 extrañas	Bueno, han pasado cosas aún más extrañas.	Well, stranger things have happened.	3661
-impacto	Un rayo impactó la torre.	Lightning struck the tower.	3662
 impacto	Tendrá un impacto cuando vea los resultados.	She would be shocked if she were to know the result.	3662
 impacto	La falta de sueño tiene un enorme impacto negativo en las notas de los estudiantes.	Lack of sleep can have an enormous negative impact on a student's grades.	3662
 equipaje	¿Has terminado de hacer el equipaje?	Have you finished packing yet?	3663
@@ -10856,7 +10822,6 @@ siguió	El perro me siguió hasta casa.	The dog followed me to my home.	3729
 siguió	El bebé siguió llorando toda la noche.	The baby kept crying all night.	3729
 reto	Este problema es todo un reto.	This problem is a real challenge.	3730
 reto	¡Acepto el reto!	I accept the challenge!	3730
-reto	Lo retó.	She scolded him.	3730
 aldea	Él vive en una aldea.	He lives in a village.	3731
 aldea	Para mi sorpresa, no había gente en la aldea.	To my surprise, there were no people in the village.	3731
 aldea	En esa aldea solo queda una familia.	In that village only one family remains.	3731
@@ -10968,7 +10933,6 @@ destrucción	La destrucción del medio ambiente es grande.	The destruction of th
 texto	Este texto está escrito en inglés simple.	This textbook is written in simple English.	3768
 texto	Olvidé comprar el libro de texto.	I forgot to buy the textbook.	3768
 texto	Este libro de texto es demasiado difícil para mí.	This textbook is too hard for me.	3768
-peleas	¡Vos siempre peleás!	You always fight!	3769
 peleas	Nuestra amistad es más grande que nuestras peleas.	Our friendship is greater than our quarrels.	3769
 peleas	¿Por qué peleas?	What are you fighting for?	3769
 liga	¿Cuánto queda para que empiece la liga?	How long until the league starts?	3770
@@ -11236,7 +11200,6 @@ logrado	Si me hubieras ayudado, lo habría logrado.	If you had helped me, I shou
 logrado	Lo que ya hemos logrado nos da esperanza para lo que podemos y debemos lograr mañana.	What we've already achieved gives us hope for what we can and must achieve tomorrow.	3868
 odias	¿Por qué me odias?	Why do you hate me?	3869
 odias	Gracias por decirme lo que odias. Ahora se ha vuelto más fácil pelear contigo.	Thank you for telling me what you hate. Now it has become easier to fight you.	3869
-odias	Parece que odiás a las mujeres.	You seem to hate women.	3869
 comisión	Somos miembros de la comisión.	We are members of the commission.	3870
 vampiro	Trabaja de profesor pero, de hecho, es un vampiro.	He works as a teacher, but actually he's a vampire.	3871
 finales	La mayoría de los estudiantes se está preparando para las pruebas finales.	Most students are preparing for the final exams.	3872
@@ -11363,7 +11326,6 @@ herramientas	Hay muchas herramientas en la caja.	There are a lot of tools in the
 herramientas	Ojalá nadie tome mis herramientas.	I hope no one takes my tools.	3917
 desaparece	¡Desaparece de mi vida!	Get out of my life!	3918
 desaparece	El dinero en la mano desaparece.	Ready money will away.	3918
-desaparece	¡Desaparecé, perro!	Get out of here, you dog!	3918
 apostar	Tienes que dejar de apostar de una vez por todas.	You've got to give up gambling once and for all.	3919
 apostar	¿Cuánto tienes para apostar?	How much can you bet?	3919
 apostar	Deja de apostar.	Quit gambling.	3919
@@ -11389,7 +11351,6 @@ auxilio	¡Auxilio!	Help!	3925
 éstos	Éstos son mis libros.	These are my books.	3926
 fracaso	El proyecto era un fracaso desde el principio.	The project was a loser from the start.	3927
 fracaso	Su fracaso le llevó a beber cada noche.	His failure led him to drink every night.	3927
-fracaso	Su empresa fracasó por falta de fondos.	His undertaking failed for lack of funds.	3927
 berlín	Vino a Berlín de profesor.	He came to Berlin as a teacher.	3928
 berlín	Voy a Berlín a visitar a mi amigo.	I'm going to Berlin to visit my friend.	3928
 berlín	Ya has estado en Berlín.	You've already been to Berlin.	3928
@@ -11451,7 +11412,7 @@ jugo	Me gustaría un jugo de naranja.	I'd like an orange juice.	3951
 jugo	Sí, jugo de naranja, por favor.	Yes, orange juice, please.	3951
 jugo	Un poco de jugo, por favor.	Some juice, please.	3951
 pico	Es la hora pico.	It's rush hour.	3952
-pico	Algo te picó.	Something bit you.	3952
+picó	Algo te picó.	Something bit you.	3952
 pico	No pico.	I don't buy it.	3952
 miré	Miré a mi alrededor y vi que era el único coche que estaba en la carretera.	I looked around and noticed that I was the only car on the road.	3953
 miré	Cuando miré a mi alrededor, vi una carta sobre el escritorio.	When I looked about, I found a letter on the desk.	3953
@@ -11739,13 +11700,9 @@ cargos	La lectura de cargos de hoy ofrece al acusado su primera oportunidad para
 ofrece	El océano ofrece varios tipos de recursos.	The ocean affords various kinds of resources.	4055
 ofrece	¿Alguien se ofrece para ayudarme?	Will anyone volunteer to help me?	4055
 seco	Tiene el pelo seco.	She has dry hair.	4056
-seco	Mi boca se secó.	My mouth dried up.	4056
-seco	La pintura no se secó todavía.	The paint hasn't dried yet.	4056
 sagrado	Si hay algo sagrado, el cuerpo humano es sagrado.	If anything is sacred the human body is sacred.	4057
 sagrado	No hay nada sagrado.	Nothing is holy.	4057
 sagrado	Si hay algo que debe ser llamado sagrado, es el cuerpo humano.	If anything is to be called sacred, it's the human body.	4057
-monte	Por error monté un tren que iba en sentido contrario.	By mistake I boarded a train going in the opposite direction.	4058
-monte	Ayer monté a caballo por primera vez.	I rode a horse for the first time yesterday.	4058
 monte	Pasamos un día fabuloso en el monte.	We spent a fabulous day in the woods.	4058
 discos	No me gusta ninguno de estos discos.	I don't like any of these records.	4060
 discos	Tengo muchos discos.	I have many discs.	4060
@@ -11805,13 +11762,10 @@ pescar	¿Podemos ir a pescar?	Can we go fishing?	4079
 pescar	Fui a pescar al río ayer.	I went fishing in the river yesterday.	4079
 mezcla	El aceite no se mezcla con el agua.	Oil and water don't mix.	4080
 mezcla	Toda opinión es una mezcla de la verdad y de errores.	Every opinion is a mixture of truth and mistakes.	4080
-mezcla	Mezclá la sopa.	Stir the soup.	4080
 parejas	La mejor manera de resolver estos problemas es trabajando en parejas.	Work in pairs is the easier way to solve these problems.	4081
 parejas	Este restaurante está lleno de parejas jóvenes.	This restaurant is full of young couples.	4081
 parejas	Había muchas parejas jóvenes en el parque.	There were a lot of young couples in the park.	4081
 giro	¿Dónde giro?	Where do I turn?	4083
-giro	Ella se giró rápidamente.	She turned around quickly.	4083
-giro	Ella giró la cabeza para que él no viera sus lágrimas.	She turned her face away so he wouldn't see her tears.	4083
 bonitas	Las dos hermanas son bonitas.	Both sisters are pretty.	4084
 bonitas	¡Qué flores tan bonitas!	What pretty flowers!	4084
 bonitas	¡Qué bonitas son estas flores!	What pretty flowers!	4084
@@ -11898,7 +11852,6 @@ típico	El típico bebé de una familia de clase media americana llega a casa de
 típico	Su comportamiento no es el típico de una niña.	Her behavior isn't normal for a young girl.	4111
 típico	Hablar lentamente es típico de ese hombre.	Slow speech is characteristic of that man.	4111
 ayudas	¿Me ayudas a buscar mis llaves?	Would you help me look for my keys?	4112
-ayudas	¿Me ayudás a limpiar la sala?	Will you help me clean the room?	4112
 ayudas	¿Me ayudas un minuto?	Will you help me for a minute?	4112
 regresado	El pájaro no ha regresado.	The bird has not returned.	4113
 regresado	Estoy contento de que hayas regresado a salvo.	I am glad that you have returned safe.	4113
@@ -11936,7 +11889,6 @@ gustará	Te gustará está ciudad enseguida.	You will soon come to like this tow
 gustará	Seguramente me gustará este libro.	Perhaps I'll like this book.	4126
 gustará	Ella nunca me ha gustado y nunca me gustará.	I have never liked her and I never will.	4126
 luis	Mi nombre es Luis.	My name is Luis.	4127
-luis	Mi nombre es Luís.	My name is Luis.	4127
 brujas	La reina de las brujas está muerta.	The queen of the witches is dead.	4128
 brujas	¿Estás listo para la Noche de Brujas?	Are you ready for Halloween?	4128
 horario	Todos los días trabajo un horario distinto.	Every day I work different hours.	4129
@@ -12119,11 +12071,7 @@ dosis	Tómalo en dosis bajas.	Take it in small doses.	4190
 dejaremos	Le dejaremos intentar.	We will let him try.	4191
 dejaremos	Por hoy lo dejaremos pasar.	We'll let it go for the present.	4191
 dejaremos	No te dejaremos morir.	We won't let you die.	4191
-canto	Él cantó una canción.	He sang a song.	4193
-canto	Ella cantó mejor que él.	She sang better than he.	4193
-canto	Cada uno de ellos cantó una canción.	Each of them sang a song.	4193
 aumento	No puedo creer que tuviera los cojones de pedirle al jefe un aumento de sueldo.	I can't believe he had the balls to ask the boss for a raise.	4194
-aumento	La noticia de su llegada aumentó nuestra emoción.	The news of his arrival added to our excitement.	4194
 aumento	El aumento de la población es un problema serio.	The increase of the population is a serious problem.	4194
 esconder	No tengo nada que esconder.	I have nothing to hide.	4195
 esconder	¿Me puedes esconder de la policía?	Can you hide me from the police?	4195
@@ -12237,9 +12185,6 @@ consiga	¡Espero que él consiga venir! Me gustaría verle.	I hope he'll be able
 consiga	Creo que es hora de que consiga un nuevo trabajo.	I think it's time for me to get a new job.	4234
 consiga	Déjame que te consiga algo para beber.	Let me get you something to drink.	4234
 huella	Desapareció sin dejar huella.	He disappeared without a trace.	4235
-agarra	¡Agarrá el dinero antes que venga la policía!	Take the money before the police come!	4236
-agarra	Agarrá bien los huevos o los vas a romper.	Hold the eggs tight or you'll break them.	4236
-agarra	¡Agarrá un hoja y escribí!	Take a sheet of paper and write!	4236
 decírmelo	¿Puedes decírmelo?	Can you tell me?	4238
 decírmelo	Tienes que decírmelo.	You must tell me.	4238
 decírmelo	Decírmelo era lo correcto.	Telling me was the right thing to do.	4238
@@ -12402,7 +12347,6 @@ muertes	El accidente ha causado muchas muertes.	The accident has caused many dea
 causado	El accidente ha causado muchas muertes.	The accident has caused many deaths.	4294
 causado	Se considera que algunos políticos habrían causado ese incidente.	Some politicians are considered to have caused that incident.	4294
 causado	Me ha causado muchos problemas.	She's caused me a lot of trouble.	4294
-beneficio	Él se benefició con la lluvia.	He availed himself of the rain.	4295
 beneficio	Sin riesgo, no hay beneficio.	Nothing ventured, nothing gained.	4295
 beneficio	El que la gente está intentando usar esta crisis en su beneficio está claro.	That people are trying to use this crisis to their advantage is clear.	4295
 querrías	¿Querrías hablar con un abogado?	Would you like to talk to a lawyer?	4296
@@ -12551,7 +12495,6 @@ reconocer	Lo puedo reconocer incluso de entre una multitud.	I can recognize him 
 reconocer	Un héroe a menudo es solo una persona sin la habilidad de reconocer el peligro.	A hero is often just a person who doesn't have the ability to recognise danger.	4350
 reconocer	Hay que reconocer que no fue la mejor comida que he probado.	Admittedly, it wasn't the best meal I've ever eaten.	4350
 desarrollo	Estaba interesado sobre todo en el origen y desarrollo del universo.	He was mainly interested in the origin and development of the universe.	4351
-desarrollo	Él desarrolló su propia teoría.	He developed his own theory.	4351
 desarrollo	El desarrollo de la conciencia política requiere tiempo.	Developing political awareness takes time.	4351
 contarte	Tengo algo bueno que contarte.	I have something good to tell you.	4352
 contarte	Me gustaría contarte algo.	I would like to tell you something.	4352
@@ -12913,7 +12856,6 @@ copas	Llenó las copas de vino.	He filled the glasses with wine.	4485
 copas	Sólo tomé dos copas de vino.	I only had two glasses of wine.	4485
 golpea	Mi esposa me golpea.	My wife beats me.	4486
 golpea	La lluvia golpea las ventanas.	The rain is beating against the windows.	4486
-golpea	Por favor, golpeá la puerta antes de entrar.	Please knock before you come in.	4486
 edificios	Hay muchos edificios altos en el centro.	There are many tall buildings downtown.	4487
 edificios	Desde la colina pudimos ver todos los edificios de la ciudad.	From the hill, we could see all the buildings in the city.	4487
 edificios	Roma tiene muchos edificios antiguos.	Rome has a lot of ancient buildings.	4487
@@ -12976,7 +12918,6 @@ pagando	¿Qué estamos pagando exactamente?	What exactly are we paying for?	4506
 pagando	Tú estás pagando.	You're paying.	4506
 cenizas	¡Paz a sus cenizas!	Peace to his ashes!	4507
 cenizas	Todo estaba hecho cenizas.	Everything was burnt to ashes.	4507
-retraso	El tren se retrasó una hora.	The train was delayed for an hour.	4508
 retraso	Perdón por el retraso.	Please excuse my being late.	4508
 retraso	Ella no mencionó la razón de su retraso.	She didn't mention the reason for being late.	4508
 asesinar	El plan de asesinar al presidente fue descubierto justo a tiempo.	The plot to assassinate the president was discovered just in time.	4509
@@ -13420,7 +13361,6 @@ construido	Esto fue construido hace mucho tiempo.	This was built long ago.	4669
 preocupados	Ellos están preocupados por el presupuesto.	They're concerned about the budget.	4670
 preocupados	Estábamos preocupados por su seguridad.	We felt anxious for her safety.	4670
 preocupados	Estábamos preocupados.	We were worried.	4670
-intercambio	Él intercambió su vaca por dos caballos.	He exchanged his cow for two horses.	4671
 intercambio	Nuestra escuela ha aceptado a tres americanos como estudiantes de intercambio.	Our school has accepted three Americans as exchange students.	4671
 intercambio	Él se decidió a estudiar de intercambio.	He made up his mind to study abroad.	4671
 constante	Viven en constante miedo.	They live in constant fear.	4672
@@ -13793,7 +13733,6 @@ débiles	Somos débiles.	We're weak.	4808
 plena	Ellos tienen plena confianza en su líder.	They have full confidence in their leader.	4809
 plena	Tengo una fe plena en mi médico.	I have complete faith in my doctor.	4809
 plena	Tengo plena confianza en mi médico.	I have complete faith in my doctor.	4809
-asalto	Una banda de tres asaltó el banco a plena luz del día.	A gang of three robbed the bank in broad daylight.	4809
 pierda	Ya he perdido la esperanza de que ella pierda peso.	I've already lost hope of her losing weight.	4810
 pierda	Creo que es hora de que pierda algo de peso.	I think it's time for me to lose some weight.	4810
 pierda	No pierda el tren.	Don't be late for the train.	4810
@@ -13920,7 +13859,6 @@ encuentres	Será mejor que no te encuentres con ella ahora.	You'd better not see
 encuentres	Espero que te encuentres bien.	I hope you are well.	4855
 encuentres	Espero que encuentres lo que estoy buscando.	I hope you'll find what I'm searching for.	4855
 matas	Si no los matas, ellos te matarán.	If you don't kill them, they'll kill you.	4856
-matas	¿Por qué no te matás?	Why don't you go kill yourself?	4856
 matas	Mientras matas el tiempo, el tiempo te mata a ti.	While you're killing time, time's killing you.	4856
 quitado	Algunos de ellos se han quitado la vida.	Some of them have committed suicide.	4857
 quitado	Ella me ha quitado todo.	She has taken everything from me.	4857
@@ -14042,7 +13980,6 @@ miran	Estas ventanas miran hacia el sur.	These windows look to the south.	4900
 miran	¿Por qué te miran todos?	Why's everyone staring at you?	4900
 prometes	¿Lo prometes?	Do you promise?	4901
 prometes	«¿Me lo prometes?» «Sí, te lo prometo.»	"""Do you promise?"" ""Yes, I promise."""	4901
-prometes	¿Me prometés que vas a pensar mi propuesta?	Will you promise to think about my offer?	4901
 pluma	Esta es la pluma que se me perdió ayer.	This is the pen that I lost yesterday.	4902
 pluma	¿Tienes una pluma?	Do you have a pen on you?	4902
 pluma	Su pluma es mejor que la mía.	Your pen is better than mine.	4902
@@ -14093,7 +14030,6 @@ mandado	Él fue mandado a volar por un camión.	He was knocked down by a truck.	
 mandado	Mi tía me ha mandado un regalo de cumpleaños.	My aunt sent me a birthday present.	4919
 mandado	Creo que me has mandado el documento equivocado.	I think you sent me the wrong document.	4919
 continua	El sueño continua.	The dream continues.	4920
-continua	Continuá hablando.	Keep talking.	4920
 continua	Continua con la multitud.	Go along with the crowd.	4920
 ausencia	Frente a la ausencia de una mejor idea, tuve que elegir este método.	In the absence of a better idea I had to choose this method.	4921
 ausencia	Apareció de repente tras tres años de ausencia.	He suddenly appeared after a three-year absence.	4921
@@ -14204,8 +14140,6 @@ gesto	No hagas ese gesto.	Don't make that expression.	4957
 cintas	Mira las cintas.	Watch the tapes.	4958
 sugiere	¿Sugiere que soy un cobarde?	Are you suggesting that I'm a coward?	4959
 embarazo	La noticia de su embarazo la tomó por sorpresa.	News of her pregnancy took her by surprise.	4960
-embarazo	Embarazó a su novia.	He got his girlfriend pregnant.	4960
-embarazo	Tomás la embarazó.	Tom got her pregnant.	4960
 encaja	Esta pieza no encaja.	This piece doesn't match.	4961
 encaja	Esto no encaja.	This doesn't fit.	4961
 encaja	Aquí no encaja.	It doesn't fit here.	4961
@@ -14357,7 +14291,6 @@ ancianos	Mis padres son ancianos.	My parents are old.	5014
 ancianos	La pareja de ancianos murió tranquila.	The elderly couple died peacefully.	5014
 ancianos	Sea amable con los ancianos.	Be kind to the old.	5014
 preocupo	Me preocupo por él.	I worry about him.	5015
-preocupo	La madre se preocupó por sus hijos.	The mother worried about her children.	5015
 preocupo	Me preocupo mucho.	I do a lot of worrying.	5015
 bebes	¿Bebes alcohol?	Do you drink alcohol?	5016
 bebes	Bebes demasiado café.	You drink too much coffee.	5016
@@ -14443,8 +14376,6 @@ rojas	Las hojas de los árboles se ponen rojas en otoño.	The leaves of the tree
 repetir	Lo siento, ¿puede repetir, por favor?	I'm sorry, could you repeat that please?	5048
 repetir	¿Puede repetir eso de nuevo?	Could you repeat that again?	5048
 repetir	¿Podrías repetir eso?	Could you repeat that?	5048
-respiro	Él respiró profundamente.	He breathed deeply.	5049
-respiro	Respiró profundamente antes de entrar a la oficina de su jefe.	He breathed deeply before entering his boss's office.	5049
 respiro	Por favor, dame un respiro.	Give me a break, please.	5049
 cuya	Vi una mujer en la iglesia, cuya belleza me dejó impresionado.	I saw a woman at the church, whose beauty made a lasting impression on me.	5050
 cuya	Una república es una nación cuya cabeza no es un rey ni una reina, sino un presidente.	A republic is a nation whose head is not a king or queen, but a president.	5050
@@ -14544,9 +14475,6 @@ bruno	Bruno tenía la playa para él solo.	Bruno had the beach to himself.	5087
 llévate	Tráeme un plato limpio y llévate el sucio.	Bring me a clean plate and take the dirty one away.	5088
 llévate	Llévate un mapa en caso de que te pierdas.	Take a map with you in case you get lost.	5088
 llévate	Llévate estos de aquí.	Take these.	5088
-oculto	Ocultó su tristeza tras una sonrisa.	He hid his sadness behind a smile.	5089
-oculto	Él ocultó su pesar bajo una sonrisa.	He hid his sadness behind a smile.	5089
-oculto	El conejo se ocultó detrás del árbol.	The rabbit hid behind the tree.	5089
 metes	Si te metes con las drogas, te estás buscando problemas.	If you mess with drugs, you're asking for trouble.	5090
 metes	Si metes ruido los niños van a despertar.	The children will wake up if you make noise.	5090
 metes	¿Por qué te metes en la vida de los demás?	Why do you interfere with other people's lives?	5090
@@ -14568,7 +14496,6 @@ chofer	El chofer les dijo a los alumnos que mantengan sus cabezas dentro del aut
 mantengan	El chofer les dijo a los alumnos que mantengan sus cabezas dentro del autobús.	The bus driver told the pupils to keep their heads inside the bus.	5095
 mantengan	Mantengan su posición.	Hold your position.	5095
 mantengan	Solo mantengan la calma. Se irá.	Just stay calm. It will go away.	5095
-entras	¿Por qué no entrás?	Why don't you come in?	5096
 entras	O sales, o entras.	Either go out or come in.	5096
 entras	¿Por qué no entras?	Why don't you come inside?	5096
 promesas	Promesas son promesas.	A promise is a promise.	5097
@@ -15049,7 +14976,6 @@ llevarla	Esta mochila pesa mucho, creo que no voy a poder llevarla hasta la escu
 responda	Responda la pregunta.	Answer the question.	5276
 responda	Responda en inglés.	Answer in English.	5276
 responda	Por favor, responda en chino o en inglés.	Please reply in Chinese or English.	5276
-lance	Yo lancé la moneda al aire.	I flipped the coin.	5277
 lance	El hombre que lance más lejos será el ganador.	The man who throws the furthest will be the winner.	5277
 pondría	Yo pondría una queja.	I would complain.	5278
 pondría	Pensé que se pondría más fácil.	I thought it'd get easier.	5278
@@ -15194,7 +15120,6 @@ distinta	Ella es distinta de los demás en que ella tiene una meta.	She differs 
 sentiría	Jamás imaginé que me sentiría de esta manera sobre ti.	I never imagined I'd feel this way about you.	5328
 golpeado	Justo me estaba preguntando cómo se sentiría al ser golpeado en el estómago.	I was just wondering how it would feel to be punched in the stomach.	5328
 sentiría	Justo me estaba preguntando cómo se sentiría al ser golpeado en el estómago.	I was just wondering how it would feel to be punched in the stomach.	5328
-abuso	El rey abusó de su poder.	The king abused his power.	5329
 abuso	El abuso infantil está en contra de la ley.	Child abuse is against the law.	5329
 abuso	Ellos están en contra del abuso animal.	They're against animal abuse.	5329
 gobernador	El gobernador abusó de su autoridad.	The governor abused his authority.	5329
@@ -15857,9 +15782,7 @@ despertado	Nunca me he despertado tan temprano.	I've never woken up this early.	
 mantenerte	Lee tantos periódicos como puedas para mantenerte al día.	Read as many newspapers as you can so as to keep up with the times.	5581
 mantenerte	Esto te ayudará a mantenerte caliente.	This will help keep you warm.	5581
 mantenerte	Ya tienes edad para mantenerte solo.	You are now old enough to support yourself.	5581
-suplico	Suplicó a su madre dejarle ir a la fiesta.	He pleaded with his mother to let him go to the party.	5582
 suplico	Le suplico que me dé un poco de agua.	I beg you to give me a little water.	5582
-suplico	Me suplicó que me quedara.	He begged me to stay.	5582
 escúcheme	Escúcheme, por favor.	Please listen to me.	5583
 escúcheme	¡Escúcheme!	Listen to me!	5583
 escúcheme	Escúcheme. Tengo un plan.	Listen to me. I have a plan.	5583
@@ -15975,9 +15898,6 @@ submarino	Un submarino puede viajar sobre y bajo el agua.	A submarine can travel
 expertos	Deja ese trabajo a los expertos.	Leave that job to the experts!	5622
 expertos	Si vuelves esta tarde, te tendré aquí a un par de expertos.	If you come back this afternoon, I'll have a couple of experts here for you.	5622
 expertos	Ustedes son los expertos en la materia.	You're the experts.	5622
-afecto	El clima afectó su salud.	The climate affected his health.	5624
-afecto	El calor me afectó.	I was affected by the heat.	5624
-afecto	A ella no le afectó mucho la muerte de su marido.	She was quite unaffected by the death of her husband.	5624
 sonreír	Desde que le pusieron el aparato casi no la he visto sonreír.	Since she got her braces, I've hardly seen her smile.	5625
 sonreír	Hace mucho tiempo que no te veo sonreír.	It's been a long time since I've seen you smile.	5625
 sonreír	No puedes dejar de sonreír.	You can't stop smiling.	5625
@@ -16461,7 +16381,6 @@ adelantado	Tienes que pagar por adelantado.	You have to pay in advance.	5808
 sábanas	No puedo salir de las sábanas, pero tengo que ir a trabajar.	I can't get out from under the covers, but I need to go to work.	5809
 sábanas	Había dos sábanas sobre la cama.	Two sheets were on the bed.	5809
 sábanas	Ella puso sábanas en su cama.	She put sheets on her bed.	5809
-argumento	Él argumentó del siguiente modo.	He argued as follows.	5810
 argumento	Es un argumento interesante.	It's an interesting argument.	5810
 argumento	No me gustó el argumento de la película.	I didn't like the plot of the movie.	5810
 dueños	Algunos dueños de perros se preguntan si estará bien darles de comer pescado a sus perros.	Some dog owners wonder if it's OK to feed their dogs fish.	5811
@@ -16500,9 +16419,6 @@ creció	¿Dónde nació él, y dónde creció?	Where was he born and raised?	582
 creció	Nació y creció en Tokio.	He was born and raised in Tokyo.	5823
 cobertura	En esta zona no hay cobertura.	There's no cellphone coverage in this area.	5824
 cobertura	En esta zona no hay cobertura para el móvil.	There's no cellphone coverage in this area.	5824
-pillo	Él los pilló robando manzanas.	He caught them stealing apples.	5825
-pillo	La noticia le pilló por sorpresa.	The news took him by surprise.	5825
-pillo	Me pilló la lluvia de camino a casa.	I was caught in the rain on my way home.	5825
 digamos	Digamos que no me pilló de sorpresa.	Let's just say that I wasn't surprised.	5825
 porno	Me pilló viendo porno.	She caught me watching porn.	5825
 escritura	La escritura es un sueño más profundo que la muerte.	Writing is a deeper sleep than death.	5826
@@ -16538,7 +16454,6 @@ periodo	De repente, hubo un periodo de terrible violencia y odio entre blancos y
 periodo	El periodo de almuerzo de los estudiantes de las doce a las una.	The students' lunch period is from twelve to one.	5839
 periodo	Se me ha retrasado el periodo.	I'm late with my period.	5839
 ocupo	Yo ocupo todo el tiempo que puedo en leer.	I spend what time I can spare reading.	5840
-ocupo	Él ocupó cada oportunidad para practicar inglés.	He used every chance to practice English.	5840
 ocupo	Ocupo menos espacio que otros empleados de la oficina.	I take up less office space than other employees.	5840
 traicionado	En otras palabras, nos ha traicionado.	In other words, he betrayed us.	5841
 traicionado	Él ha traicionado a sus amigos por dinero.	He betrayed his friends for money.	5841
@@ -16547,7 +16462,6 @@ furia	Él estaba rojo de furia.	He was blazing with anger.	5842
 recuperado	No te preocupes. Me he recuperado del todo.	Don't worry. I have completely recovered.	5843
 recuperado	Estoy completamente recuperado.	I'm fully recovered.	5843
 recuperado	Me alegro de que te hayas recuperado.	I'm glad you've recovered.	5843
-cuide	Cuidé de mi hermana enferma.	I took care of my sick sister.	5844
 cuide	Hoy no puedo salir porque me han dicho que cuide de la casa.	I can't go out today as I've been told to house sit.	5844
 cuide	Necesito a alguien que cuide a mi hijo mientras esté afuera.	I need someone to look after my son while he is outdoors.	5844
 tortuga	De lejos, la pequeña isla se parecía a una tortuga.	The small island looked like a tortoise from a distance.	5845
@@ -16708,9 +16622,6 @@ polis	¿Son polis?	Are they cops?	5903
 reconocido	Él es un reconocido médico.	He became known as a doctor.	5904
 reconocido	Un amigo mío encargó a un reconocido artista pintar un retrato de su esposa.	A friend of mine commissioned a well-known artist to paint a portrait of his wife.	5904
 reconocido	Fue reconocido como un cantante de primera clase.	He was recognized as a first-class singer.	5904
-videos	Pero ¿esta historia de los vídeos es cierta?	But this stuff of the videos is true?	5905
-videos	Estoy viendo vídeos.	I'm watching videos.	5905
-videos	Estoy viendo vídeos ahora.	I'm watching videos now.	5905
 gripe	Mi madre pilló la gripe la semana pasada.	Last week my mother came down with the flu.	5906
 gripe	Él está en cama con gripe.	He's in bed with the flu.	5906
 gripe	En invierno, pillo a menudo la gripe.	I often catch cold in winter.	5906
@@ -16871,9 +16782,6 @@ aquellas	¿Ha puesto usted marcos a aquellas fotografías que traje la semana pa
 tristes	¿Por qué están tan tristes?	Why are you so sad?	5963
 tristes	¿Por qué estáis tan tristes?	Why are you so sad?	5963
 tristes	Mamá siempre llora cuando escucha canciones tristes.	Mother always cries when she listens to sad songs.	5963
-bloqueo	El árbol caído bloqueó el camino, y no pude sacar mi auto del garaje.	The fallen tree got in the way, and I could not get my car out of the garage.	5965
-bloqueo	Él bloqueó mi camino.	He blocked my way.	5965
-bloqueo	El árbol bloqueó la calle.	The tree blocked the road.	5965
 preguntaré	No te preguntaré más por hoy.	I won't ask you anything else today.	5966
 preguntaré	Lo preguntaré de otro modo.	Let me rephrase it.	5966
 preguntaré	Le preguntaré si quiere otra copa.	I'll ask whether he wants another drink.	5966
@@ -17019,8 +16927,6 @@ evidencias	No dejen evidencias.	Don't leave evidence.	6021
 desaparecida	Estas son evidencias de una antigua cultura desaparecida.	These are evidence of a vanished ancient culture.	6021
 evidencias	Estas son evidencias de una antigua cultura desaparecida.	These are evidence of a vanished ancient culture.	6021
 evidencias	Quiero evidencias.	I want evidence.	6021
-garantizo	Garantizó la libertad de sus esclavos.	He guaranteed his slaves' freedom.	6022
-garantizo	Japón garantizó a países en desarrollo un paquete de ayuda por 2 mil millones.	Japan guaranteed a 2 billion yen aid package to developing countries.	6022
 garantizo	¡Es la verdad, te lo garantizo!	This is the truth, I assure you!	6022
 criar	Criar a un niño requiere paciencia.	Rearing a child calls for perseverance.	6023
 criar	Criar un hijo cuesta una fortuna.	Raising a child costs a fortune.	6023
@@ -17262,9 +17168,6 @@ manejo	¿Tienes una licencia de manejo?	Do you have a driver's license?	6112
 manejo	Ella quiere obtener una licencia de manejo.	She wants to get a driver's license.	6112
 manejo	El manejo de esto ofrece peligro.	This is a dangerous thing to handle.	6112
 motel	Yo manejo un motel.	I run a motel.	6112
-saludo	Él saludó a la mujer.	He said hello to the woman.	6113
-saludo	Él sujetó el volante con una mano y me saludó con la otra.	He held the wheel with one hand and waved to me with the other.	6113
-saludo	Me saludó con una sonrisa.	He greeted me with a smile.	6113
 fans	La actriz saludó a sus fans desde el escenario.	The actress greeted her fans from the stage.	6113
 compramos	Nosotros compramos los huevos por docenas.	We buy eggs by the dozen.	6114
 compramos	¿Qué le compramos para su cumpleaños?	What shall we buy him for his birthday?	6114
@@ -17281,9 +17184,6 @@ cohete	El cohete ha de haber llegado a la luna ya.	The rocket ought to have reac
 cohete	¿Cuántas personas hay en el cohete?	How many people are there in the rocket?	6118
 gps	Mi GPS no funciona en el extranjero.	My GPS navigator doesn't work abroad.	6119
 gps	Actualmente el GPS se usa en el mundo entero.	Currently, GPS is used throughout the world.	6119
-disculpo	Aunque él se disculpó, aún estoy enojada.	Even though he apologized, I'm still furious.	6120
-disculpo	Se disculpó con nosotros por haber llegado tarde.	He made an apology to us for being late.	6120
-disculpo	Ella se disculpó ante él por llegar tarde.	She apologized to him for being late.	6120
 extrañar	Te voy a extrañar tanto.	I'll miss you so much.	6121
 extrañar	Te voy a extrañar.	I'll miss you.	6121
 extrañar	Cuando te vayas, te voy a extrañar mucho.	When you go, I'll miss you very much.	6121
@@ -17383,9 +17283,6 @@ arrestar	¿Me vas a arrestar?	Are you going to arrest me?	6160
 respirando	¿Él está respirando?	Is he breathing?	6161
 respirando	Alguien está respirando en mi cara. Es asqueroso.	Somebody's breathing on my face. It's disgusting.	6161
 respirando	Estamos respirando aire puro.	We are breathing pure air.	6161
-sonaba	Yo soñaba con él.	I used to dream of him.	6162
-sonaba	Ella soñaba con ser princesa.	She dreamed of being a princess.	6162
-sonaba	María soñaba con casarse.	Mary used to dream about getting married.	6162
 especialidad	¿Cuál es la especialidad de la casa?	What's the restaurant's speciality?	6163
 especialidad	¿Cuál es su especialidad?	What's your speciality?	6163
 especialidad	La moda no es mi especialidad.	Fashion is not my specialty.	6163
@@ -17588,7 +17485,6 @@ cortinas	¿Puedo correr las cortinas?	May I draw the curtains?	6237
 cortinas	Las cortinas hacen que esta habitación sea hermosa.	The curtains make this room beautiful.	6237
 cruce	Gira a la derecha en el cruce.	Turn right at the crossroad.	6238
 cruce	Deberías tener más cuidado en un cruce.	You should be more careful at a crosswalk.	6238
-cruce	Crucé el río en bote.	I crossed the river by boat.	6238
 músico	Él es científico a la vez que músico.	He is a scientist and musician.	6239
 músico	Si yo pudiera vivir de nuevo, me gustaría ser un músico.	If I were to live again, I would like to be a musician.	6239
 músico	Él era un músico pobre.	He was a poor musician.	6239
@@ -17834,7 +17730,6 @@ misericordia	¡Ten misericordia!	Have mercy!	6331
 cometa	El domingo estuvimos en la playa volando la cometa.	On Sunday we were on the beach flying a kite.	6332
 cometa	Así es como él descubrió el cometa.	That's how he discovered the comet.	6332
 cometa	Te compré una cometa.	I bought you a kite.	6332
-brillo	Después de la muerte de César, un cometa brilló durante siete días.	After the death of Caesar, a comet shone for seven days.	6332
 césar	Después de la muerte de César, un cometa brilló durante siete días.	After the death of Caesar, a comet shone for seven days.	6332
 particularmente	No soy una persona que tenga un aspecto particularmente sospechoso.	I'm not a particularly suspicious-looking person.	6333
 particularmente	La menor de las hijas era particularmente hermosa.	The youngest daughter was particularly beautiful.	6333
@@ -18090,7 +17985,6 @@ bingo	Mi tía va al bingo todos los domingos.	My aunt goes to bingo every Sunday
 confundida	Parece confundida.	She looks confused.	6432
 confundida	Estoy completamente confundida.	I'm completely confused.	6432
 confundida	Estoy totalmente confundida.	I'm totally confused.	6432
-dele	Déle recuerdos de mi parte.	Give him my regards.	6433
 dele	Con el DELE tengo más oportunidades de trabajo.	With the DELE, I have more opportunities of work.	6433
 dele	Dele fuerte.	Hit it hard.	6433
 romanos	El puente fue construido por los romanos.	The bridge was built by the Romans.	6434
@@ -18239,9 +18133,6 @@ experiencias	Dicen que su nueva novela está basada en sus propias experiencias.
 sobrevivido	Cómo has sobrevivido a la explosión?	How did you survive the explosion?	6492
 sobrevivido	¿Cómo has sobrevivido a la explosión?	How did you survive the explosion?	6492
 sobrevivido	Hemos sobrevivido a un accidente de avión.	We've survived a plane crash.	6492
-fijo	El ladrón se fijó en esa casa.	The thief set his eyes on that house.	6493
-fijo	Ella fijó su mirada en mí.	She stared at me.	6493
-fijo	Ella fijó la mirada en mí.	She stared at me.	6493
 servidor	El servidor está caído y no puedo leer mi correo.	I can't check my mail. The server is down.	6494
 servidor	El servidor se cayó.	The server was down.	6494
 servidor	El servidor encontró un error temporal y no pudo completar su orden.	The server encountered a temporary error and could not complete your request.	6494
@@ -18299,8 +18190,6 @@ racista	¿Eres racista?	Are you racist?	6516
 cuadra	La descripción en el periódico cuadra con él.	He answers to the description in the newspaper.	6517
 cuadra	Algo no cuadra aquí.	Something doesn't make sense here.	6517
 cuadra	Hay algo que no cuadra.	Something is very wrong.	6517
-explique	Les expliqué las reglas del juego.	I explained the rules of the game to them.	6518
-explique	Le expliqué a él ese asunto.	I explained the matter to him.	6518
 explique	Deja que te explique cómo funciona.	Let me explain to you how this works.	6518
 significar	¿Qué más podría significar?	What else could it mean?	6519
 significar	Esto puede significar la guerra.	This could mean war.	6519
@@ -18601,9 +18490,7 @@ hábito	Es difícil abandonar el hábito de fumar.	It's hard to shake the smokin
 hábito	Ella tiene el hábito de guardar viejas cartas.	She has a way of keeping old letters.	6639
 hábito	Tengo el hábito de tomarme una ducha en las mañanas.	I am in the habit of taking a shower in the morning.	6639
 eventualmente	Eventualmente se convirtió en su hábito.	That gradually became his habit.	6639
-perdono	Ella me perdonó por haber roto el espejo.	She forgave me for breaking her mirror.	6640
 perdono	Te perdono.	I forgive you.	6640
-perdono	Ella lo perdonó.	She forgave him.	6640
 integridad	Este símbolo representa fuerza e integridad.	This symbol stands for strength and integrity.	6641
 integridad	Él es conocido por su integridad.	He has a reputation for integrity.	6641
 orinar	Tengo problemas para orinar.	I have a problem urinating.	6642
@@ -18646,7 +18533,6 @@ primaria	Nuestros hijos fueron a la misma escuela primaria.	Our children were at
 convención	Hubo una convención el mes pasado.	There was a convention last month.	6657
 debían	Ella lo invitó a una cita, pero él dijo que no ya que pensaba que las chicas no debían invitar a los chicos.	She asked him out on a date, but he said no since he thought girls should not ask boys out.	6658
 cago	¡Me cago!	Fucking damn it!	6659
-cago	Él la cagó.	He fucked up.	6659
 cago	Si yo la cago, ¿Qué es lo peor que puede ocurrir?	If I screw up, what's the worst that can happen?	6659
 tiras	Si tiras basura en la calle tienes que pagar una multa de hasta 500 dólares.	If you throw trash on the road, you have to pay a fine of up to 500 dollars.	6660
 tiras	Vi a mi hermana hacer tiras la carta.	I saw my sister tear up the letter.	6660
@@ -18718,8 +18604,6 @@ time	¿Tenéis la revista Time?	Do you have Time magazine?	6682
 forman	Los hombres forman una sociedad.	The men form a society.	6683
 forman	Las personas forman la sociedad.	People form society.	6683
 forman	Forman una pareja encantadora.	They make a lovely couple.	6683
-disfrute	Disfruté hablar con él en la fiesta.	I enjoyed talking with him at the party.	6684
-disfrute	Disfruté conversar con mi novia.	I enjoyed talking with my girlfriend.	6684
 disfrute	Espero que disfrute del vuelo.	I hope you enjoy your flight.	6684
 enano	Ayer en el cine disfruté como un enano, de verdad que tienes que ver esa película.	I had so much fun at the movies yesterday. You really need to see this movie.	6684
 ríen	Algunas personas se ríen de sus chistes, pero otras no.	Some people laugh at his jokes, but others don't.	6687
@@ -18820,7 +18704,6 @@ cargos	¿Qué son estos cargos extras?	What are these charges for?	6721
 temes	¿Le temes a la oscuridad?	Are you afraid of the dark?	6722
 temes	¿No me temes?	Aren't you afraid of me?	6722
 temes	No temes las alturas, ¿a que no?	You aren't afraid of heights, are you?	6722
-bromeo	Él bromeó al respecto.	He made a joke about it.	6723
 bromeo	¿De qué te ríes? Es un hecho ¡no bromeo!	What are you laughing at? It's a fact. No kidding!	6723
 bromeo	Solo bromeo.	I'm just joking.	6723
 atraer	Él intentó atraer su atención.	He tried to attract her attention.	6724
@@ -19106,8 +18989,6 @@ insisto	Entra, insisto.	Come in. I insist.	6834
 insisto	Insisto en que ella era sincera.	I insist that she was honest.	6834
 sirena	Según la leyenda fue una sirena.	The legend says that she was a mermaid.	6835
 sirena	La sirena sonó.	The siren blew.	6835
-are	Aré lo que pude.	I plowed as much as I could.	6836
-are	Aré cuanto pude.	I plowed as much as I could.	6836
 frito	Mi cerebro está frito después de ese examen de inglés.	After that English exam, my brain is fried.	6839
 frito	Mucha gente come pollo frito con las manos.	Many people eat fried chicken with their fingers.	6839
 frito	He comido demasiado pollo frito.	I've had too much fried chicken.	6839
@@ -19247,7 +19128,6 @@ positiva	Tienes que tener una actitud positiva si quieres tener éxito en la vid
 positiva	Trata de tener una actitud positiva hacia todo.	Try to have a positive attitude about everything.	6895
 positiva	Sigue positiva.	Stay positive.	6895
 triunfo	Estamos seguros de su triunfo.	We are sure of his success.	6896
-triunfo	Trabajó duro, por eso triunfó.	He worked hard, so that he succeeded.	6896
 triunfo	Él cree que la suerte es la causa de su triunfo.	He thinks that his success is due to luck.	6896
 vendí	Vendí un libro.	I sold a book.	6897
 vendí	Lo vendí en diez dólares.	I sold it for ten dollars.	6897
@@ -19416,15 +19296,11 @@ contaba	Mi padre me tenía sobre sus rodillas mientras me contaba canciones de s
 hoteles	¿Tiene usted una lista de hoteles?	Do you have a list of hotels?	6959
 hoteles	La mayoría de los hoteles están abiertos todo el año.	Most of the hotels are open all year round.	6959
 hoteles	Puedes usar el inglés en casi todos los hoteles del mundo.	You can use English at most hotels around the world.	6959
-guardo	Ella guardó la llave en el bolsillo.	She put the key in her pocket.	6960
-guardo	Ese niño guardó sus juguetes.	That child put his playthings away.	6960
-guardo	Él guardó silencio durante la reunión.	He kept silent during the meeting.	6960
 rencor	No te guardo rencor.	I bear no grudge against you.	6960
 rencor	No va en serio, no le guardo rencor.	It's not serious, I don't bear him a grudge.	6960
 iniciativa	Ella ayudó a su madre por propia iniciativa.	She helped her mother of her own accord.	6961
 iniciativa	Gracias por la iniciativa.	Thank you for the lead.	6961
 iniciativa	Se lo pregunto a usted, el que impulsó esta iniciativa.	I'm asking you, the one who promoted this initiative.	6961
-impulso	Se lo pregunto a usted, el que impulsó esta iniciativa.	I'm asking you, the one who promoted this initiative.	6961
 denme	Denme una segunda oportunidad.	Give me a second chance.	6962
 denme	Denme tiempo.	Give me time.	6962
 denme	Denme todo el dinero.	Give me all the money.	6962
@@ -19711,7 +19587,6 @@ acordado	Pensé que habíamos acordado que no harías más eso.	I thought we had
 acordado	Qué bueno que me dijiste, o si no jamás me hubiera acordado.	Good that you told me, otherwise I would never have remembered it.	7072
 apuro	No hay apuro.	There's no hurry.	7073
 apuro	El reporte era pobre, como si hubiera sido escrito en un apuro.	As it had been written in haste, the report was poor.	7073
-apuro	Él se apuró para así llegar a tiempo al tren.	He hurried so as to be in time for the train.	7073
 pañales	La noche está en pañales.	The party is just getting started.	7074
 pañales	Juan tiene que cambiar los pañales al bebé todos los días.	John has to change the baby's diapers every day.	7074
 pañales	Necesito pañales para mi bebé.	I need nappies for my baby.	7074
@@ -19807,8 +19682,6 @@ impide	¿Qué impide que hagas un estudio?	What's stopping you from doing a stud
 llover	Ese día hizo frío, además comenzó a llover.	It was cold that day, and moreover it began to rain.	7109
 llover	Para peor, comenzó a llover.	To make matters worse, it began to rain.	7109
 llover	Ha parado de llover.	It has stopped raining.	7109
-trono	Primero tronó y luego empezó a llover.	First it thundered, and then it started to rain.	7109
-trono	Tronó y entonces empezó a llover.	There was thunder and then it started to rain.	7109
 falló	Él le disparó al pájaro, sin embargo falló.	He shot at the bird, but missed it.	7110
 falló	La flecha falló su objetivo.	The arrow missed its target.	7110
 falló	Como falló dos veces ayer, no quiere volver a intentarlo.	Having failed twice yesterday, he doesn't want to try again.	7110
@@ -19974,11 +19847,8 @@ explicarle	No puedo explicarle la regla.	I can't explain the rule to you.	7170
 bastón	Me las arreglo bastante bien ahora con mi nuevo bastón.	I get along quite well now with my new cane.	7171
 bastón	Mi abuelo no puede caminar sin su bastón.	My grandfather can't walk without his cane.	7171
 bastón	Este bastón de caramelo sabe a manzana verde.	This candy cane tastes like green apple.	7171
-explico	Ella explicó su idea utilizando dibujos.	She explained her idea by means of pictures.	7172
 dibujos	Ella explicó su idea utilizando dibujos.	She explained her idea by means of pictures.	7172
 utilizando	Ella explicó su idea utilizando dibujos.	She explained her idea by means of pictures.	7172
-explico	Ella me explicó cómo hacer un pastel.	She explained to me how to make a cake.	7172
-explico	Él nos explicó su plan a mi hijo y a mí.	He explained his plan both to my son and to me.	7172
 canales	¿Puedo ver qué hay en los otros canales?	Can I see what's on the other channels?	7173
 canales	Por favor, deja los canales en paz.	Please stop changing channels.	7173
 canales	¿Puedo ver qué hay en los demás canales?	Can I see what's on the other channels?	7173
@@ -20069,7 +19939,6 @@ llegaba	Ella siempre llegaba tarde.	She was always late.	7206
 jet	Posee un jet privado.	He owns a private jet.	7207
 jet	Este jet cuesta una fortuna.	This jet costs a fortune.	7207
 desperdicio	Amar a alguien no es nunca un desperdicio.	Love is never wasted.	7208
-desperdicio	Él desperdició aquello que había recibido de su padre.	He wasted that which he had received from his father.	7208
 desperdicio	¡Vaya desperdicio de dinero!	What a fearful waste of money!	7208
 detendrá	Nadie me detendrá.	No one will stop me.	7209
 detendrá	María no se detendrá por nada para conseguir su meta.	Mary will stop at nothing to achieve her goal.	7209
@@ -20270,9 +20139,6 @@ ponle	Ponle un poco más de leche a mi té, por favor.	Add a little more milk to
 furiosa	Ella estaba tan furiosa que no podía hablar.	She was so angry that she could not speak.	7294
 furiosa	Su esposa estaba furiosa.	His wife was mad.	7294
 furiosa	Mi madre estaba furiosa.	My mother was furious.	7294
-apunto	Cogió el rifle y lo apuntó al blanco.	He picked up the rifle and aimed it at the target.	7295
-apunto	El ladrón apuntó al oficial de policía con su pistola.	The robber aimed his gun at the police officer.	7295
-apunto	Ella apuntó al objetivo.	She aimed at the target.	7295
 esperándote	Estuvimos esperándote un día entero.	We waited for you all day long.	7296
 esperándote	Él estará esperándote.	He will be waiting for you.	7296
 esperándote	Llevo 5 horas esperándote.	I've been waiting for you for 5 hours.	7296
@@ -20287,7 +20153,6 @@ abandona	Abandona su trabajo a menudo.	He frequently neglects his work.	7299
 abandona	Abandona mientras puedes.	Leave while you can.	7299
 cuidados	Los niños estaban bien cuidados.	The children were well looked after.	7300
 cuidados	Tener cuidados sobre qué y cuánto comemos es esencial para una buena salud.	Being aware of what and how much we eat is essential to good health.	7300
-huido	Nunca se me pasó por la cabeza que él podría ser un prisionero huído.	It never occurred to me that he might be an escaped prisoner.	7301
 huido	Ellos pudieron haber huido.	They could've run away.	7301
 huido	Ha huido de la justicia.	He fled justice.	7301
 terrorismo	El gobierno está decidido a poner fin al terrorismo.	The government is determined to put an end to terrorism.	7302
@@ -20406,7 +20271,6 @@ espléndido	El rey era famoso por su espléndido palacio.	The king was famous fo
 espléndido	Verdaderamente es espléndido con su dinero.	He's certainly generous with his money.	7354
 reflejo	Podíamos ver el reflejo de las montañas en el lago.	We could see the reflection of the mountains in the lake.	7355
 reflejo	Miro mi reflejo en el lago.	I'm looking at my reflection in the lake.	7355
-reflejo	La ira se reflejó en su rostro.	The anger showed on her face.	7355
 suavemente	Ella cantó suavemente la canción.	She sang the song softly.	7356
 suavemente	Él golpeó suavemente a la puerta.	He quietly knocked at the door.	7356
 suavemente	Llueve suavemente sobre la ciudad.	It rains softly on the town.	7356
@@ -20605,7 +20469,6 @@ conocimientos	Mis conocimientos de japonés son más bien pobres.	My knowledge o
 conocimientos	Tiene conocimientos de inglés.	He has a knowledge of English.	7433
 conocimientos	Sus conocimientos sobre arte son pobres.	His knowledge of art is poor.	7433
 estreno	Hoy es el estreno.	Today's the premiere.	7434
-estreno	Mi marido estrenó un nuevo traje.	My husband tried out a new suit.	7434
 manteniendo	Paso unas pocas horas al día manteniendo mi sitio web.	I spend a few hours a day maintaining my website.	7435
 manteniendo	Seguimos manteniendo nuestra postura.	We still maintain our stance.	7435
 cosita	Tengo una cosita para ti.	I have a little something for you.	7436
@@ -20832,7 +20695,6 @@ estupideces	Mis padres siguen discutiendo por estupideces. ¡Es tan molesto!	My 
 estupideces	La falta de sueño lo lleva a uno a hacer estupideces.	Lack of sleep will make you do stupid things.	7516
 estupideces	Incluso la gente inteligente hace estupideces de vez en cuando.	Even smart people sometimes do stupid things.	7516
 cruza	Cruza la calle.	Cross the street.	7517
-cruza	Cruzá la calle con cuidado.	Take care when you cross the street.	7517
 cruza	Cruza a la derecha en el próximo cruce.	Turn right at the next intersection.	7517
 llámalo	Por favor, llámalo por teléfono.	Please telephone him.	7518
 llámalo	Llámalo, por favor.	Please call him up.	7518
@@ -20953,9 +20815,6 @@ latas	Quisiera dos latas de tomate.	I'd like two cans of tomatoes.	7572
 traerla	Quien sea que encuentre la mochila debe traerla aquí.	Whoever finds the bag must bring it here.	7573
 traerla	No voy a traerla.	I'm not bringing her.	7573
 traerla	Quiero traerla aquí.	I want to bring her here.	7573
-suministro	Este lago suministró nuestra ciudad con agua.	This lake supplies our city with water.	7574
-suministro	La ciudad suministró alimento para los niños.	The city supplied food for the children.	7574
-suministro	Este lago suministró agua a nuestra ciudad.	This lake provided water to our city.	7574
 aislamiento	¡Ay de los que están solos, amigos míos! Parece que el aislamiento social rápidamente destruye la razón de cualquiera.	Woe to who be alone, my friends. It seems that social isolation quickly destroys one's reason.	7575
 aislamiento	La soledad da vida; el aislamiento mata.	Solitude vitalizes; isolation kills.	7575
 perlas	Quiere comprar un collar de perlas para su mujer.	He wants to buy a pearl necklace for his wife.	7576
@@ -21092,7 +20951,6 @@ género	Mi género favorito de música es el Pop.	My favourite genre of music is
 género	Es realmente único en su género.	He is really one of a kind.	7628
 masculino	El disfrute, aunque masculino, es independiente del género.	Enjoyment, despite being a masculine word in gendered languages, is independent of gender.	7628
 refresco	Este nuevo refresco es lo mejor para beber este verano.	This new soft drink is the best thing to drink this summer.	7629
-refresco	Él se refrescó con una taza de té.	He refreshed himself with a cup of tea.	7629
 ofrecerte	¿Puedo ofrecerte algo de refresco?	Can I offer you some refreshment?	7629
 refresco	¿Puedo ofrecerte algo de refresco?	Can I offer you some refreshment?	7629
 interruptor	Ella pulsó el interruptor.	She pressed the switch.	7630
@@ -21201,8 +21059,6 @@ regaló	Ella me regaló un libro por Navidad.	She gave me a book for Christmas.	
 regaló	Mi tía me regaló una cámara.	My aunt gave me a camera.	7675
 regaló	Mi papá me regaló un juego.	My father gave me a game.	7675
 coges	¿Cuál coges?	Which one do you take?	7676
-insulto	Insultó a nuestro equipo.	He insulted our team.	7677
-insulto	Me insultó sin motivo.	He insulted me without reason.	7677
 insulto	Parece que se ha tomado mi comentario como un insulto.	She seems to have taken my remark as an insult.	7677
 bando	Hagamos un concurso. Aquel bando al que se le ocurra el peor insulto, gana.	Let's have a contest. The side to come up with the worst insult wins.	7677
 paces	Vinieron a hacer las paces.	They came to make peace.	7678
@@ -21498,8 +21354,6 @@ separamos	Han pasado dos años desde que nos separamos.	Two years have passed si
 barriga	Un hombre con la barriga llena piensa que nadie está hambriento.	A man with a full belly thinks no one is hungry.	7804
 barriga	Últimamente he echado un poco de barriga, así que he decidido que, empezando desde mañana, voy a ir al gimnasio.	I've developed a bit of a gut lately, so I've decided that, starting tomorrow, I'm going to go to the gym.	7804
 disfruto	Ahora disfruto de mi nuevo estilo de vida.	Now I am enjoying my new life style.	7805
-disfruto	Él disfrutó viendo el partido de béisbol.	We enjoyed watching the baseball game.	7805
-disfruto	Disfrutó de esas visitas.	He enjoyed those visits.	7805
 despegar	El avión está por despegar.	The plane is about to take off.	7807
 despegar	El avión está a punto de despegar rumbo a París.	The plane is about to take off for Paris.	7807
 despegar	El avión estaba a punto de despegar.	The airplane was just going to take off.	7807
@@ -21585,7 +21439,6 @@ cocinera	Estoy haciendo de cocinera.	I'm doing the cooking.	7838
 cocinera	Ella es tan buena cocinera como su madre.	She's as good a cook as her mother.	7838
 cocinera	Ella no es una buena cocinera.	She's not a good cook.	7838
 felicito	Le felicito por su triunfo.	I congratulate you on your success.	7839
-felicito	Él me felicitó por mi éxito.	He congratulated me on my success.	7839
 felicito	Felicito a las manos que hicieron posible esto.	My compliments to the hands that made this possible.	7839
 agáchate	¡Agáchate!	Get down!	7840
 renuncio	Renuncio.	I resign.	7841
@@ -21776,7 +21629,6 @@ billar	No juego al billar.	I don't play pool.	7915
 billar	Compramos una mesa de billar, pero aún no jugamos ni una partida.	We bought a pool table but have yet to play a single game.	7915
 desprecio	No mires con desprecio a los pobres.	Don't look down on the poor.	7916
 desprecio	Él siempre habla con desprecio del gobierno.	He always speaks of the government with contempt.	7916
-desprecio	Ella le despreció.	She despised him.	7916
 discursos	No estoy acostumbrado a hacer discursos en público.	I'm not used to making speeches in public.	7917
 descansando	Ella ahora está descansando.	She is resting now.	7918
 descansando	En este momento están descansando.	They're having a break at the moment.	7918
@@ -21920,7 +21772,6 @@ optimista	Me siento optimista con respecto a...	I feel all hopeful about...	7973
 optimista	Él es bastante optimista.	He is rather optimistic.	7973
 optimista	Sos una chica demasiado optimista.	You're an overly optimistic girl.	7973
 recuperación	Los pacientes con una actitud positiva y optimista suelen experimentar una recuperación más fácil después de la cirugía.	Patients who have an optimistic, positive attitude generally have a smoother recovery after surgery.	7973
-protesto	Él protestó contra el nuevo plan.	He protested against the new plan.	7974
 protesto	¡Protesto!	Objection!	7974
 protesto	«¡Protesto!» «Se admite.»	"""Objection!"" ""Sustained!"""	7974
 defensor	"El abogado defensor se puso en pie de un salto y gritó ""¡Protesto!""."	"The defense attorney jumped to his feet and shouted ""Objection!"""	7974
@@ -21960,8 +21811,6 @@ estropeado	Me parece que mi reloj podría estar estropeado.	It occurred to me th
 estropeado	Los niños han estropeado el radio.	The boys have ruined the radio.	7985
 estropeado	El aire acondicionado está estropeado.	The air conditioner is out of order.	7985
 cobre	El cobre conduce bien la electricidad.	Copper conducts electricity well.	7986
-cobre	Ayer cobré.	I got my pay yesterday.	7986
-cobre	Les cobré demasiado por la habitación.	I charged them too much money for their room.	7986
 superarlo	No puedo superarlo.	I can't get over it.	7987
 superarlo	Nadie puede superarlo.	Nobody can surpass him.	7987
 mejilla	El cadáver fue identificado por un lunar en la mejilla.	The dead body was identified by a mole on the cheek.	7988
@@ -22005,7 +21854,6 @@ cooperar	Voy a cooperar.	I'll play along.	8002
 cooperar	Estoy feliz de cooperar.	I'm happy to cooperate.	8002
 conteste	¿Quieres que conteste?	Do you want me to answer?	8003
 conteste	Estas preguntas son demasiado difíciles para que las conteste yo.	These questions are too difficult for me to answer.	8003
-conteste	Pero contesté a mi amo: ''¿Qué tal si la mujer no vendrá conmigo?¨	But I answered my master: What if the woman will not come with me?	8003
 llegarás	Si te das prisa llegarás a tiempo.	If you hurry up, you will be in time.	8005
 llegarás	No llegarás ahí a tiempo.	You won't get there on time.	8005
 llegarás	Levántate temprano o llegarás tarde.	Get up early, or you'll be late.	8005
@@ -22107,7 +21955,6 @@ pusiera	Ella compró una camisa para que él se pusiera en la fiesta.	She bought
 pusiera	Ella quisiera que él se pusiera en contacto con ella tan pronto como sea posible.	She'd like him to get in touch with her as soon as possible.	8049
 pusiera	Mi madre me pidió que pusiera la mesa.	My mother asked me to set the table.	8049
 necesitaría	Si un sacerdote se pusiera a confesar a los políticos necesitaría veinte vidas.	If a priest were to confess politicians, he'd need twenty lives.	8049
-torno	La tormenta se tornó aún más violenta.	The storm became even more violent.	8050
 torno	La Tierra gira en torno al Sol.	The Earth revolves around the Sun.	8050
 torno	El mundo no gira en torno tuyo.	The world doesn't revolve around you.	8050
 golpeé	Golpeé la puerta, pero nadie respondió.	I banged on the door, but nobody answered.	8052
@@ -22248,7 +22095,6 @@ dinosaurios	¿Te gustan los dinosaurios?	Do you like dinosaurs?	8107
 dirigía	El autobús se dirigía al norte.	The bus was heading north.	8108
 dirigía	En ese momento yo me dirigía a la estación.	I was walking to the station then.	8108
 dirigía	A partir de la dirección a la que él iba, yo diría que él se dirigía a la ciudad.	From the direction that he was going in, I would say he was headed to town.	8108
-perpetua	La gente solitaria perpetúa su propia soledad a través de su miedo a los demás.	Lonely people perpetuate their own loneliness through their fear of others.	8109
 perpetua	Al hombre le dieron cadena perpetua.	The man was given a life sentence.	8109
 condenados	Tres de ellos fueron condenados a cadena perpetua.	Three were sentenced to life imprisonment.	8109
 perpetua	Tres de ellos fueron condenados a cadena perpetua.	Three were sentenced to life imprisonment.	8109
@@ -22345,7 +22191,6 @@ bandido	¡Bandido!	Bandit!	8145
 crucial	Es crucial que entiendas la situación.	It's essential that you understand the situation.	8146
 crucial	Aquel día resultó ser un punto crucial en su carrera.	That day proved to be the turning point in his career.	8146
 crucial	Juega un papel crucial en el desarrollo de la política.	It plays an important role in the development of the policy.	8146
-filme	Mira este vídeo que filmé con mis amigos.	Check out this video I made with my friends.	8147
 meten	Esos niños siempre se meten en problemas con sus padres.	Those children always get into trouble with their parents.	8148
 pónganse	Por favor, pónganse el cinturón de seguridad.	Please fasten your seat belt.	8149
 pónganse	Pónganse cómodos.	Make yourselves comfortable.	8149
@@ -22386,7 +22231,7 @@ lastima	Puedo comer vidrio, no me lastima.	I can eat glass; it does not hurt me.
 asustes	¡No me asustes así!	Don't scare me like that!	8163
 asustes	No te asustes.	Don't be scared.	8163
 asustes	Te dije que no me asustes así.	I told you not to sneak up on me like that.	8163
-crio	A ella la crió su abuela.	She was brought up by her grandmother.	8164
+crió	A ella la crió su abuela.	She was brought up by her grandmother.	8164
 crio	La crio su abuela.	She was raised by her grandmother.	8164
 crio	Su madre murió cuando era joven, y su abuela lo crio.	His mother died when he was young, and his grandmother brought him up.	8164
 cultural	Es algo cultural.	It's a cultural thing.	8165
@@ -22500,7 +22345,6 @@ creamos	Nosotros creamos un mundo de belleza a través de nuestros pensamientos 
 polis	Los polis están buscando los documentos desaparecidos.	The cops are searching for the missing documents.	8211
 desaparecidos	Los polis están buscando los documentos desaparecidos.	The cops are searching for the missing documents.	8211
 informa	Si ves a una persona sospechosa, por favor informa a la policía.	If you see a suspicious person, please inform the police.	8212
-relleno	Lo rellenó hasta el borde.	He filled it up to the brim.	8213
 relleno	El pan está relleno de queso.	The bread is stuffed with cheese.	8213
 pedo	Eché un pedo en clase y la maestra me echó.	I farted in class, and the teacher threw me out.	8214
 pedo	«Alguien se tiró un pedo.» «¡No fui yo!»	"""Someone farted."" ""It wasn't me!"""	8214
@@ -22615,9 +22459,6 @@ enfrentamos	No sabemos a lo que nos enfrentamos.	We don't know what we're up aga
 disculparte	Creo que deberías disculparte con ella.	I think that you ought to apologize to her.	8260
 disculparte	Tienes que disculparte por lo que dijiste.	You must apologize for what you said.	8260
 disculparte	Debes disculparte con ella por venir tarde.	You must apologize to her for coming late.	8260
-colapso	El puente se colapsó bajo la presión.	The bridge crashed under the pressure.	8261
-colapso	La casa se colapsó en un terremoto.	The house collapsed in an earthquake.	8261
-colapso	La pared colapsó con el terremoto.	The wall gave way in the earthquake.	8261
 pesos	Necesito cambiar dólares por pesos.	I need to exchange dollars for pesos.	8263
 pesos	Quisiera cambiar estos pesos, por favor.	I'd like to change these pesos, please.	8263
 pesos	Yo tengo menos de diez pesos.	I have less than ten pesos.	8263
@@ -22648,9 +22489,6 @@ saquen	Usualmente se pide a las visitas que se saquen los zapatos antes de entra
 japonesa	"Él dijo, ""La administración japonesa debe aprender como tratar con los trabajadores americanos""."	Japanese management must learn how to deal with American workers, he said.	8274
 directa	Sin embargo, es una traducción directa de la versión japonesa.	However, it is a direct translation of the Japanese version.	8274
 establecido	Científicos británicos han establecido que si uno pone de cabeza la bandera japonesa, da la bandera japonesa.	British scientists have established that if you turn the flag of Japan upside down, you get the flag of Japan.	8274
-aconsejo	Su médico le aconsejó que dejara de fumar.	His doctor advised him to give up smoking.	8275
-aconsejo	Él me aconsejó que fuera allí.	He advised me to go there.	8275
-aconsejo	El doctor le aconsejó hacer más ejercicio.	The doctor advised him to do more exercise.	8275
 tomara	Le aconsejó que tomara más leche.	She advised him to drink more milk.	8275
 tomara	Le aconsejó que tomara el dinero.	She advised him to take the money.	8275
 tomara	Le aconsejó que se tomara el remedio.	She advised him to take the medicine.	8275
@@ -22813,7 +22651,6 @@ admirador	El admirador le pidió su autógrafo.	The fan asked for his autograph.
 autógrafo	El admirador le pidió su autógrafo.	The fan asked for his autograph.	8342
 topo	Tienes que estar ciego como un topo si no podías verlo.	You must be blind as a bat if you couldn't see it.	8343
 topo	Sin sus gafas él ve menos que un topo.	Without his glasses, he is as blind as a bat.	8343
-topo	Se topó con un amigo en el camino.	He encountered a friend on the road.	8343
 financiera	Hubo una crisis financiera en 2009.	There was a financial crisis in 2009.	8344
 financiera	Él no era una carga financiera para ella.	He was not a financial burden on her.	8344
 financiera	Podemos contar con él por la ayuda financiera.	We can count on him for financial help.	8344
@@ -22821,9 +22658,6 @@ nace	Quien nace en España es español.	A person who is born in Spain is a Spani
 nace	Quien nace en Francia es francés.	A person who is born in France is French.	8345
 nace	El que nace en Japón es japonés.	He who is born in Japan is Japanese.	8345
 penal	Brasil hizo un gol de penal.	Brazil scored a penalty goal.	8346
-noto	De repente, el príncipe notó que su guardaespaldas no seguía a su lado.	Suddenly, the prince noticed that his bodyguard wasn't at his side anymore.	8347
-noto	¿Nadie notó mi ausencia?	Nobody noticed my absence?	8347
-noto	Se asustó cuando notó al hombre que la seguía.	She became scared when she noticed the man following her.	8347
 orina	Notó sangre en su orina.	She noticed some blood in her urine.	8347
 amabas	¿De verdad me amabas?	Did you really love me?	8348
 amabas	¿Me amabas?	Did you love me?	8348
@@ -22831,8 +22665,6 @@ amabas	Dijiste que me amabas.	You said you loved me.	8348
 eliges	La verdadera libertad no está en lo que haces, sino en la forma como eliges vivir lo que haces, y sólo a ti te pertenece tal facultad.	True freedom is not in what you do, but in the way you choose to live what you do, and that faculty belongs just to you.	8349
 eliges	¿Me eliges una corbata?	Will you pick out a tie for me?	8349
 eliges	¿Cuál de los dos caminos eliges?	Which of the two ways do you choose?	8349
-entregue	Le entregué la carta a escondidas.	I slipped the letter to him.	8350
-entregue	Ayer entregué un trabajo.	I turned in a paper yesterday.	8350
 entregue	—Entregue su arma —dijo el policía.	"""Hand over your gun"", said the policeman."	8350
 aceptamos	Aceptamos con gusto su propuesta.	We gladly accept your offer.	8351
 aceptamos	Aceptamos su invitación.	We accepted his invitation.	8351
@@ -23014,7 +22846,6 @@ ausente	No sé por qué se encuentra ausente hoy.	I don't know the reason he is 
 ausente	Estuve ausente de la reunión.	I was absent from the meeting.	8423
 ausente	Lamento que ella esté ausente de la conferencia.	I am sorry that she is absent from the conference.	8423
 recupere	Hay pocas esperanzas de que se recupere.	There is little hope of her recovery.	8425
-recupere	Cuando recuperé la conciencia, estaba en el hospital.	When I came to, I found myself in the hospital.	8425
 recupere	Hay alguna posibilidad de que se recupere?	Is there any chance that he'll recover?	8425
 concentrarme	Están haciendo demasiado ruido, no puedo concentrarme.	They're making too much noise. I can't concentrate.	8427
 concentrarme	No puedo concentrarme con todo este ruido.	I can't apply my mind to anything with all that noise!	8427
@@ -23048,9 +22879,6 @@ suaves	Sus senos son suaves.	Her boobs are soft.	8438
 senos	Sus senos son suaves.	Her boobs are soft.	8438
 conozcan	¡Para ayudar a todos a que se conozcan, hemos creado algunos juegos para romper el hielo!	To help you all get to know each other, we've created some games to break the ice!	8440
 conozcan	Quieren vivir en una ciudad pequeña donde todos se conozcan.	They want to live in a small town where everyone knows each other.	8440
-traslado	No recuerdo cuándo se trasladó él a Boston.	I can't remember when he moved to Boston.	8441
-traslado	Él se trasladó a Tokio.	He moved to Tokyo.	8441
-traslado	Él se trasladó a Tokio el mes pasado.	He moved to Tokyo last month.	8441
 camello	Un camello es, por así decirlo, un barco en el desierto.	A camel is, so to speak, a ship on the desert.	8442
 camello	Es más fácil que un camello pase por el agujero de una aguja a que un rico entre al Reino de Dios.	It is easier for a camel to pass through the eye of a needle than for a rich man to enter the kingdom of God.	8442
 camello	Es más fácil que un camello pase por el ojo de una aguja que que un rico entre en el Reino de Dios.	It is easier for a camel to pass through the eye of a needle than for a rich man to enter the kingdom of God.	8442
@@ -23259,9 +23087,6 @@ pobrecito	Pobrecito.	You poor baby.	8531
 creíamos	La situación es peor de lo que creíamos.	The situation is worse than we believed.	8532
 creíamos	Creíamos que estabas enfermo.	We thought you were sick.	8532
 creíamos	Creíamos que ya no habría más problemas.	We believed that there wouldn't be any more problems.	8532
-comete	Cómete el que te guste.	Eat whichever one you like.	8534
-comete	Cómete una rana viva cada mañana, y no te pasará nada peor durante el resto del día.	Eat a live frog every morning, and nothing worse will happen to you the rest of the day.	8534
-comete	¡Cómete el pan!	Eat the bread!	8534
 explicado	Por fin está más o menos explicado.	That is somewhat explained at the end.	8535
 explicado	Probablemente nunca sea explicado el origen del universo.	The origin of the universe will probably never be explained.	8535
 explicado	¿Me he explicado con claridad?	Have I made myself clear?	8535
@@ -23294,10 +23119,8 @@ coñac	Se ha acabado el coñac.	The brandy is all gone.	8545
 coñac	No tomo coñac.	I don't drink cognac.	8545
 pretender	Ninguna religión puede ni tiene derecho a pretender ser la única religión verdadera.	No religion can nor has the right to pretend to be the only true religion.	8547
 pretender	No podemos pretender que esto no ocurrió.	We can't claim that this didn't happen.	8547
-suenan	¿Cómo podría ser yo un robot? Si los robots no sueñan.	How could I be a robot? Robots don't dream.	8548
 enviamos	Lee la lista que te enviamos y comprueba que todas las frases te suenan bien.	Read the list we sent you and check that all the sentences sound natural to you.	8548
 suenan	Lee la lista que te enviamos y comprueba que todas las frases te suenan bien.	Read the list we sent you and check that all the sentences sound natural to you.	8548
-suenan	¿Los gatos sueñan?	Do cats dream?	8548
 sugerir	Nadie fue capaz de sugerir una solución.	Nobody was able to suggest a solution.	8549
 creando	Si Dios me hubiera preguntado, cuando estaba creando los planetas, le habría podido sugerir un sistema más sencillo.	If God had consulted me before embarking on the creation of the planets, I would have suggested a simpler system.	8549
 sugerir	Si Dios me hubiera preguntado, cuando estaba creando los planetas, le habría podido sugerir un sistema más sencillo.	If God had consulted me before embarking on the creation of the planets, I would have suggested a simpler system.	8549
@@ -23371,9 +23194,6 @@ racha	Sigues con la racha.	You're still in the lead.	8576
 repentino	Su expresión sufrió un cambio repentino.	Her expression underwent a sudden change.	8578
 repentino	Hubo un cambio repentino en el tiempo.	There was a sudden change in the weather.	8578
 repentino	Veo un repentino aumento en el crecimiento del préstamo.	I see a surge in loan growth.	8578
-rezo	Rezó para que volviera su hijo.	She prayed for her son's return.	8579
-rezo	Ella le rezó a Dios de rodillas.	She prayed to God on her knees.	8579
-rezo	Ella rezó una oración y lo siguió.	She said a prayer and followed him.	8579
 bailes	Nosotros tenemos bailes en la noche del sábado.	We have dances on Saturday evening.	8580
 bailes	¡Quiero aprender esos bailes!	I want to learn these dances!	8580
 bailes	Quiero que bailes.	I want you to dance.	8580
@@ -23778,9 +23598,7 @@ secundario	La calidad de vida de los ciudadanos es siempre un tema secundario.	T
 portal	Al pasar por este portal, perder la ropa es un efecto secundario posible.	Losing your clothes in transit is a possible side effect of using this portal.	8747
 ingreso	Tienen que vivir con su pequeño ingreso.	They have to live on his small income.	8748
 ingreso	Los impuestos van en función del ingreso.	Taxation is based on income.	8748
-ingreso	Él ingresó 100 dólares en su cuenta de ahorros.	He deposited 100 dollars in his saving account.	8748
 maduro	El plan no está maduro.	The plan is not mature.	8750
-maduro	Maduró con los años.	He became more mature with the passing of the years.	8750
 maduro	Este limón no está maduro.	This lime isn't ripe.	8750
 apartamentos	Este edificio tiene 5 pisos y 20 apartamentos.	This building has 5 floors and 20 apartments.	8751
 apartamentos	Hay muchas escaleras en este edificio de apartamentos.	There are a lot of stairs in this apartment building.	8751
@@ -24018,8 +23836,6 @@ reducido	Siento haberte reducido en sólo quien carga mis maletas.	Sorry that I'
 inauguración	La inauguración de la tienda fue ayer.	The store's opening was yesterday.	8850
 muda	La serpiente muda su piel varias veces al año.	The snake sloughs its skin several times a year.	8851
 tope	En un autobús a tope me daría rabia perder mi parada por culpa de otros pasajeros.	In a packed bus, it would infuriate me to miss my stop on account of other passengers.	8852
-tope	Me topé con un viejo amigo.	I ran into an old friend.	8852
-tope	Me topé con ella en la calle.	I ran into her in the street.	8852
 terminas	¿A qué hora terminas de trabajar?	What time do you finish work?	8853
 terminas	¿A qué hora terminas?	At what time do you finish?	8853
 terminas	¿Ya casi terminas?	Are you almost done?	8853
@@ -24154,8 +23970,6 @@ acera	Estoy de pie en una acera en Londres mientras llueve.	I'm standing on a si
 acera	Esa chica es un peligro para el tráfico cuando camina por la acera.	That girl is a danger to traffic when she walks along the sidewalk.	8905
 hombrecito	Ya está hecho un hombrecito.	He's a proper young man now.	8906
 potente	Este ordenador es potente, eficiente y fácil de utilizar.	This computer is powerful, efficient, and easy to use.	8907
-bombardeo	El enemigo bombardeó la fábrica.	The enemy dropped bombs on the factory.	8908
-bombardeo	La prensa bombardeó al ministro con preguntas.	The press besieged the minister with questions.	8908
 gritaba	Gritaba mucho.	He screamed a lot.	8909
 borrado	Israel debe ser borrado del mapa.	Israel should be wiped off the map.	8910
 borrado	Puede que la Guerra Fría haya terminado, pero el miedo a la guerra todavía no se ha borrado de las mentes de los hombres.	The Cold War may have ended, but the fear of war has not yet been removed from the minds of men.	8910
@@ -24249,7 +24063,6 @@ pálido	Él está un poco pálido.	He looks kind of pale.	8945
 pálido	Él se ve un poco pálido.	He looks kind of pale.	8945
 cuido	Yo te cuido.	I look after you.	8946
 cuido	Sobre todo, cuido mi salud.	Above all, I take care of my health.	8946
-cuido	Ella cuidó de mi perro.	She took care of my dog.	8946
 entierro	María cuidó de los hijos de los vecinos mientras ellos estaban en un entierro.	Mary minded her neighbours' children while they went to a funeral.	8946
 impuesto	Tenemos que pagar el impuesto.	We must pay the tax.	8947
 impuesto	Lamento haberte impuesto tanto.	I am sorry I have imposed so much on you.	8947
@@ -24373,8 +24186,6 @@ remolque	Es un camión con remolque.	It's a truck with a trailer.	8998
 peleado	Parece que se han peleado.	It seems that they have quarreled.	8999
 peleado	Pregunté cuántas guerras había peleado el general.	I asked how many wars the general had fought.	8999
 adelanto	He pedido a mi jefe un adelanto del sueldo.	I asked my boss for a salary advance.	9000
-adelanto	Él adelantó su partida dos días.	He advanced his departure by two days.	9000
-adelanto	El conductor adelantó el coche.	The driver overtook the car.	9000
 pasados	Pasados tres meses, ya estaba acostumbrado a la vida de la ciudad.	After three months, he got used to the life in the town.	9001
 pasados	Estos zapatos están pasados de moda.	Those shoes are out of date.	9001
 pasados	Sus métodos ya están pasados de moda.	He's behind the times in his methods.	9001
@@ -24505,8 +24316,6 @@ blog	Nunca me imaginé ni por un momento que mi blog se volvería tan popular.	I
 blog	Él tiene un blog.	He has a blog.	9059
 asamblea	Es más fácil ceder su asiento a una mujer en el autobús que en la Asamblea Nacional.	It's easier to give your seat to a woman on the bus than in the National Assembly.	9060
 ocupe	Deje que me ocupe de eso por usted.	Let me take care of that for you.	9061
-ocupe	Como mi madre estaba enferma, yo me ocupé de ella.	My mother being ill, I looked after her.	9061
-ocupe	Me ocupé de eso.	I've taken care of it.	9061
 porche	Dejé todo en el porche.	I left everything on the porch.	9062
 porche	He dejado todo en el porche.	I left everything on the porch.	9062
 porche	¿Por qué no esperamos en el porche?	Why don't we wait on the porch?	9062
@@ -24553,8 +24362,6 @@ mostaza	No puedo echarle mostaza a mi pan. No me gusta.	I cannot spread mustard 
 mostaza	Esta mostaza realmente pica la lengua.	This mustard really bites the tongue.	9078
 psiquiátrico	Dan puso a su hija, Linda, bajo tratamiento psiquiátrico.	Dan placed his daughter, Linda, under the care of a psychiatrist.	9079
 psiquiátrico	Si te gusta hablar con tomates, tenemos un psiquiátrico para ti.	If you like to talk to tomatoes, have we got a psychiatric hospital for you.	9079
-retire	Ocurrió mientras retiré la vista.	It happened while I wasn't looking.	9080
-retire	No fue sino hasta que me retiré del colegio que me di cuenta de la importancia de estudiar.	It was not until I left school that I realized the importance of study.	9080
 retire	Es mi sueño tener un hijo que se haga carga de mi negocio cuando me retire.	It's my dream to have a son who'll take over my business when I retire.	9080
 barbie	Barbie tiene cabello rubio y ojos azules.	Barbie has blond hair and blue eyes.	9082
 sosteniendo	Ella está sosteniendo una flor roja.	She is holding a red flower.	9083
@@ -24733,15 +24540,11 @@ inminente	El parto es inminente. Ha roto aguas.	The birth is imminent. The water
 acusados	Ninguno de los acusados ​​fue declarado culpable.	Neither defendant was found guilty.	9162
 declarado	Ninguno de los acusados ​​fue declarado culpable.	Neither defendant was found guilty.	9162
 acusados	Ninguno de los acusados fue encontrado culpable.	Neither defendant was found guilty.	9162
-encargue	Encargué el libro por teléfono.	I telephoned my order for the book.	9163
-encargue	Encargué un libro de Londres.	I ordered a book from London.	9163
-encargue	Le encargué el resto a él y salí.	I left the rest to him and went out.	9163
 respóndeme	Respóndeme esto.	Answer me this.	9164
 respóndeme	Respóndeme.	Answer me.	9164
 respóndeme	Por favor, respóndeme.	Please answer me.	9164
 raja	Él es un cara de raja.	He's such a shameless jerk.	9166
 raja	La taza tiene una raja.	The cup has a crack.	9166
-raja	Rajá de mi clase.	Get out of my class.	9166
 brillar	Empezó a brillar.	It started glowing.	9167
 brillar	El sol y la luna habían comenzado a brillar.	The sun and the moon had started to shine.	9167
 brillar	Entonces los ojos de la muñeca comenzaron a brillar como dos estrellas y ella se hizo viva.	Then the doll's eyes began to shine like two stars and it became alive.	9167
@@ -24760,8 +24563,6 @@ argentina	"""¿No eres mexicano?"" ""Sí, pero ahora vivo en Argentina."""	"""Ar
 argentina	Catalina es de Argentina. Es argentina.	Catalina is from Argentina. She is Argentinian.	9174
 catalina	Catalina es de Argentina. Es argentina.	Catalina is from Argentina. She is Argentinian.	9174
 crie	Aquí es donde nací y me crie.	This is where I was born and brought up.	9175
-crie	Me crié en esta casa.	I grew up in this house.	9175
-crie	Me crié en esa casa.	I grew up in that house.	9175
 virginidad	Las chicas están perdiendo la virginidad cada vez más pronto.	Girls are losing their virginity earlier and earlier.	9177
 virginidad	La virginidad se pierde con las relaciones sexuales.	Virginity is lost in intercourse.	9177
 comamos	Comamos mientras esté caliente.	Let's eat while the food is warm.	9178
@@ -25009,7 +24810,6 @@ cobertizo	Por suerte este cobertizo es firme, o si no seguramente se hubiera ido
 guardas	¿Qué guardas en ese cobertizo?	What do you keep in that shed?	9274
 buscándote	Hemos estado buscándote desde hace días.	We've been searching for you for days.	9275
 buscándote	Hemos estado buscándote.	We've been searching for you.	9275
-reemplazo	Él reemplazó la campana por una luz.	He replaced the bell with a light.	9276
 recordarte	Estoy llamando para recordarte nuestros planes para la cena.	I'm calling to remind you of our dinner plans.	9277
 recordarte	Me gustaría recordarte que estás bajo juramento.	I'd like to remind you that you're under oath.	9277
 recordarte	Quiero recordarte que tienes una cita a las 2:30.	I want to remind you that you have a 2:30 appointment.	9277
@@ -25084,7 +24884,6 @@ denuncia	Una denuncia anónima permitió a la policía llegar a los terroristas.
 nativos	Me encantan los nativos americanos.	I love Native Americans.	9307
 nativos	Le voy a preguntar a otros nativos, a ver qué dicen.	I'm going to ask other natives and see what they say.	9307
 prestas	¿Me prestas algo de dinero?	Will you lend me some money?	9308
-prestas	¿Me prestás un lápiz?	Could I borrow a pencil?	9308
 prestas	"""¿Me prestas algo de dinero?"" ""Estoy sin blanca."""	Can you lend me some money? I'm skint.	9308
 escaparon	Ellos se escaparon de la cárcel.	They escaped from prison.	9310
 escaparon	Afortunadamente, escaparon del peligro.	Fortunately, they escaped the danger.	9310
@@ -25107,7 +24906,6 @@ unida	Nada separa una pareja unida por el destino.	Nothing separates a pair join
 ladrillo	Es un edificio grande de ladrillo.	It's a large brick building.	9316
 ladrillo	Alguien lanzó un ladrillo por mi ventana.	Somebody threw a brick through my window.	9316
 ladrillo	La chimenea está hecha de ladrillo.	The chimney is made of brick.	9316
-lance	Lancé un ladrillo sobre el muro.	I threw a brick over the wall.	9316
 mentalmente	Pero es necesario para la felicidad del ser humano que este sea mentalmente fiel a sí mismo.	But it is necessary to the happiness of man that he be mentally faithful to himself.	9317
 mentalmente	Él estaba allá físicamente pero no mentalmente.	He was there physically, but not mentally.	9317
 calmar	Toma algunas galletas para calmar el hambre hasta la cena.	She had some cookies to stay her hunger until dinner.	9318
@@ -25238,7 +25036,6 @@ acabaré	Acabaré por volverme loco.	I'll end up by going crazy.	9371
 acabaré	Acabaré en un momento.	I'm almost ready.	9371
 acabaré	En breve acabaré.	I'm almost ready.	9371
 enojo	El enojo es una forma de locura.	Anger is a form of madness.	9372
-enojo	Ella se enojó.	She got angry.	9372
 enojo	Su enojo era auténtico.	Her anger was genuine.	9372
 consejero	El enojo es un mal consejero.	Anger is a bad advisor.	9372
 acelerador	El acelerador suena demasiado.	The accelerator sounds too loud.	9373
@@ -25573,7 +25370,6 @@ antena	¿Han conectado la antena del radio?	Have they connected the radio antenn
 colaboración	Él ha estudiado la posibilidad de una colaboración.	He has studied the possibility of a collaboration.	9519
 colaboración	No tengo mucho espíritu de colaboración.	I don't have much collaborative spirit.	9519
 solicito	¿En dónde solicito mi equipaje?	Where do I claim my baggage?	9520
-solicito	El mago solicitó un voluntario entre la audiencia.	The magician asked for a volunteer from the audience.	9520
 taquilla	¿Dónde está la taquilla?	Where is the ticket office?	9521
 taquilla	Cada estudiante tiene una taquilla.	Each student has a locker.	9521
 taquilla	Cientos de personas estaban esperando afuera de la taquilla.	Hundreds of people were waiting outside the ticket office.	9521
@@ -25825,8 +25621,6 @@ contestado	No he contestado a ninguna de las dos cartas.	I answered neither of t
 contestado	He contestado sus preguntas. Ahora déjeme preguntarle algunas.	I answered your questions. Now let me ask you a few.	9636
 contestado	Todavía no me ha contestado.	He hasn't answered me yet.	9636
 cante	La ópera no termina hasta que cante la señora gorda.	The opera ain't over till the fat lady sings.	9637
-cante	Canté por dos horas.	I sang for two hours.	9637
-cante	Canté durante dos horas.	I sang for two hours.	9637
 entraré	Entraré.	I'll go in.	9638
 plantado	¿Has plantado un árbol alguna vez?	Have you ever planted a tree?	9639
 plantado	Esta es la primera vez que he plantado un árbol.	This is the first time I've ever planted a tree.	9639
@@ -25879,7 +25673,6 @@ honores	Los títulos y honores no significan nada para mí.	Titles and honors me
 títulos	Los títulos y honores no significan nada para mí.	Titles and honors mean nothing to me.	9661
 amplio	En el amplio sentido, el hombre también es un animal.	Man is also an animal in a broad sense.	9662
 amplio	El mercado para este producto es amplio.	There is an ample market for this product.	9662
-amplio	Se amplió el gimnasio de la escuela.	The school gymnasium was enlarged.	9662
 moisés	¿Cuántos animales de cada especie había en el arca de Moisés?	How many animals of each species were there on Moses' ark?	9664
 arca	¿Cuántos animales de cada especie había en el arca de Moisés?	How many animals of each species were there on Moses' ark?	9664
 moisés	Moisés les dijo: Que nadie guarde nada para mañana.	And Moses said to them: Let no man leave thereof till the morning.	9664
@@ -25891,7 +25684,6 @@ cenamos	Cenamos en casa de nuestro tío.	We dined at our uncle's.	9666
 solucionarlo	Me llevó varias horas solucionarlo.	It took me several hours to correct it.	9667
 solucionarlo	¿Sos capaz de solucionarlo?	Are you able to solve it?	9667
 solucionarlo	Tenemos que solucionarlo.	We have to figure it out.	9667
-gire	Giré el volante del coche hacia la derecha.	I turned my steering wheel to the right.	9669
 gire	Gire a la derecha.	Turn to the right.	9669
 gire	Gire a la izquierda.	Turn to the left.	9669
 discutido	Hemos discutido el problema varias veces, pero ha sido inútil.	We have discussed the problem several times but to no avail.	9670
@@ -25904,7 +25696,6 @@ entendería	Entendería que quisieras cambiar de idea.	If you want to change you
 visitando	Durante su estancia en Japón, él fue visitando de ciudad en ciudad.	He went about from town to town while he was in Japan.	9673
 visitando	Estoy visitando a mi abuela en el hospital.	I'm visiting my grandmother in the hospital.	9673
 visitando	El hombre está visitando Moscú.	The man is visiting Moscow.	9673
-rastreo	Él rastreó a su gato perdido todo el día.	He hunted for his missing cat all day.	9674
 tambores	Oigo los tambores.	I hear the drum.	9675
 crudo	No come pescado crudo.	He doesn't eat raw fish.	9676
 crudo	Comemos pescado crudo.	We eat fish raw.	9676
@@ -25948,7 +25739,6 @@ regresaron	Regresaron del cine juntos.	They came back from the cinema together.	
 acompañaré	Le acompañaré a la estación.	I'll accompany you to the station.	9694
 acompañaré	Te acompañaré a la estación.	I'll accompany you to the station.	9694
 acompañaré	Le acompañaré hasta el aeropuerto.	I'll accompany you to the airport.	9694
-ingenio	Él ingenió un nuevo motor que no utiliza gasolina.	He contrived a new engine that does not use gas.	9695
 ingenio	Esa frase tiene mucho ingenio.	That's a very witty phrase.	9695
 ingenio	Quien escribió ese libro posee tanto humor como ingenio, ¿verdad?	The person who wrote that book is possessed of both humour and wit, isn't he?	9695
 rindas	Cuanto antes te rindas, tanto mayores serán los beneficios.	The sooner you give up, the greater the benefits.	9696
@@ -25963,9 +25753,9 @@ grúa	Él maneja una grúa.	He drives a tow truck.	9698
 ganancia	Compartimos la ganancia entre todos nosotros.	We shared the profit among us all.	9699
 ganancia	En el mejor de los casos sólo podemos esperar una ganancia pequeña.	At best we can only hope for a small profit.	9699
 ganancia	Su pérdida supone nuestra ganancia.	Their loss is our gain.	9699
-lloro	Ella lloró toda la noche.	She cried throughout the night.	9700
-lloro	El bebé lloró toda la noche.	The baby cried all night.	9700
-lloro	Jesús lloró.	Jesus wept.	9700
+lloró	Ella lloró toda la noche.	She cried throughout the night.	9700
+lloró	El bebé lloró toda la noche.	The baby cried all night.	9700
+lloró	Jesús lloró.	Jesus wept.	9700
 afortunada	Ella lloró de alegría por lo afortunada que era.	She cried with joy how lucky she was.	9700
 manipular	Manipular dinamita puede ser peligroso.	Handling dynamite can be dangerous.	9701
 manipular	Ellos piensan que nos pueden manipular.	They think they can manipulate us.	9701
@@ -26086,8 +25876,6 @@ barca	Oí que compraste una barca.	I heard you bought a boat.	9750
 paracaídas	Y ahora mi paracaídas cae de sueño en sueño por los espacios de la muerte.	And now my parachutes fall from dream to dream through the spaces of death.	9751
 espacios	Y ahora mi paracaídas cae de sueño en sueño por los espacios de la muerte.	And now my parachutes fall from dream to dream through the spaces of death.	9751
 apague	Apague la luz al salir del cuarto.	Turn off the light on leaving the room.	9752
-apague	No apagué la luz.	I didn't turn off the light.	9752
-apague	Apagué la radio.	I turned off the radio.	9752
 vainilla	Me gustan mucho los helados de vainilla.	I like vanilla ice cream very much.	9753
 vainilla	Quiero un helado de vainilla.	I want a vanilla ice cream.	9753
 vainilla	Dos helados de vainilla, por favor.	Two vanilla ice creams, please.	9753
@@ -26167,9 +25955,7 @@ mango	Quiero comer un mango.	I want to eat a mango.	9785
 atada	Esto es como pelear con alguien con una mano atada a la espalda.	This is like fighting someone with one arm tied behind your back.	9786
 atada	Llevaba una cinta atada a la cabeza.	She wore a ribbon tied around her hair.	9786
 atada	Puedo hacer eso con una mano atada detrás de mi espalda.	I can do that with one hand tied behind my back.	9786
-gasto	Sandra gastó el doble de dinero que yo.	Sandra spent twice as much as I did.	9787
 gasto	¡Qué gasto de energía!	What a waste of energy!	9787
-gasto	Él gastó todo su dinero en un coche.	He spent all of his money on a car.	9787
 remota	No tengo ni la más remota idea.	I haven't the faintest idea.	9788
 remota	No tengo la más remota idea.	I haven't the foggiest idea.	9788
 remota	No tengo ni la más remota idea de qué hará después.	I don't have the remotest idea what he will do next.	9788
@@ -26245,8 +26031,6 @@ recordó	Mi amigo recordó que camino había que tomar.	My friend remembered whi
 recordó	Ella le recordó que fuera al banco.	She reminded him to go to the bank.	9819
 expreso	Él tomó el expreso con dirección a Tokio.	He took the express for Tokyo.	9820
 ardiente	El poeta expresó su ardiente pasión por la mujer que amaba.	The poet expressed his burning passion for the woman he loved.	9820
-expreso	El poeta expresó su ardiente pasión por la mujer que amaba.	The poet expressed his burning passion for the woman he loved.	9820
-expreso	Su sonrisa expresó amor.	Her smile spoke love.	9820
 quites	No quites eso aún.	Don't put that away yet.	9821
 quites	No te quites los pantalones.	Keep your pants on.	9821
 quites	No te quites los calzoncillos.	Keep your pants on.	9821
@@ -26379,7 +26163,6 @@ clavos	Necesito una caja de clavos.	I need a box of nails.	9875
 negado	Ese hecho no puede ser negado.	The fact cannot be denied.	9876
 negado	Soy negado para el francés.	I'm useless at French.	9876
 negado	Antes de que cante el gallo me habrás negado tres veces.	Before the rooster crows, you will deny me three times.	9876
-casara	Ella se casará el año próximo.	She'll be getting married next year.	9877
 casara	¡Ojalá se casara conmigo!	If only he would marry me!	9877
 casara	Ella le pidió que se casara con ella.	She asked him to marry her.	9877
 actuado	Él ha actuado en televisión muchas veces.	He has acted on TV many times.	9878
@@ -26450,7 +26233,6 @@ recogeré	Te recogeré a las 8am para el gimnasio.	I'll pick you up at 8am for t
 am	Te recogeré a las 8am para el gimnasio.	I'll pick you up at 8am for the gym.	9910
 recogeré	Lo recogeré a las cinco.	I'll pick him up at 5.	9910
 lanzando	Por primera vez un satélite fue lanzando en la órbita.	For the first time a satellite was launched into orbit.	9911
-arranque	Arranqué la imagen del álbum.	I tore the picture out of the album.	9912
 arranque	En un arranque me volví a mi pueblo.	On a sudden impulse, I returned to my home town.	9912
 arranque	¡Arranca para la casa de inmediato si no quieres que te arranque el corazón!	Come home now if you don't want me to rip your heart out!	9912
 conduces	¿Para qué quieres un coche si no lo conduces?	What's the good of having a car if you don't drive?	9913
@@ -26549,7 +26331,6 @@ enviarme	Él amablemente se tomó la molestia de enviarme a casa.	He kindly took
 enviarme	¿Por qué ella dejó de enviarme cartas?	Why doesn't she send me letters anymore?	9952
 enviarme	"Gracias por enviarme el enlace de compra para la película ""El padrino""."	"Thank you for sending me the link to purchase ""The Godfather"" movie."	9952
 agrado	Eso es de todo mi agrado.	That's quite to my taste.	9953
-agrado	Me agradó su compañía.	I enjoyed your company.	9953
 agrado	Él no me agrada más de lo que yo le agrado a él.	I don't like him any more than he likes me.	9953
 ponche	Toma un poco de ponche.	Have some eggnog.	9954
 ponche	Bebe un poco de ponche.	Have some eggnog.	9954
@@ -26602,9 +26383,7 @@ columbia	Somos de Columbia.	We are from Columbia.	9975
 pensemos	Pensemos en lo peor que podría pasar.	Let's consider the worst that could happen.	9977
 pensemos	Es importante que pensemos en el futuro del mundo.	It's important for us to think about the future of the world.	9977
 pensemos	Mejor pensemos en algo.	We'd better think of something.	9977
-dedico	Él dedicó su vida a la paz.	He dedicated his life to peace.	9978
 dedico	Le dedico este libro a mi hija.	I dedicate this book to my daughter.	9978
-dedico	Se dedicó a leer libros.	He devoted himself to reading books.	9978
 tostadas	Siempre desayuno café con tostadas.	I always have coffee and toast for breakfast.	9979
 tostadas	Me gusta comer papas tostadas.	I like to eat potato chips.	9979
 reportaje	El periodista fue hallado muerto luego de hacer un reportaje de alto riesgo en Argentina.	The journalist was found dead after doing a high-risk report in Argentina.	9980
@@ -26722,7 +26501,6 @@ divino	Errar es humano; perdonar, divino.	To err is human, to forgive divine.	19
 convencerme	Mi esposa ha abandonado toda esperanza de convencerme a cortar el pasto hoy.	My wife has given up all hope of convincing me to mow the lawn today.	19999
 espías	El quehacer de los espías es saber cosas que tú no quieres que sepan.	Spies make it their business to know things that you don't want them to know.	19999
 testimonio	Su explicación de lo que ocurrió es inconsistente con testimonio de otros testigos.	His account of what happened is inconsistent with testimony from other witnesses.	19999
-relleno	Tom rellenó el formulario de solicitud.	Tom filled out the application form.	19999
 homero	Él tradujo a Homero del griego al inglés.	He translated Homer from the Greek into English.	19999
 colorado	Y colorín colorado, este cuento se ha acabado.	And they all lived happily ever after.	19999
 autoridades	Su mejor amigo le delató a las autoridades.	His best friend ratted him out to the authorities.	19999
@@ -26863,7 +26641,7 @@ británica	La población de Londres es mucho mayor que la de cualquier otra ciud
 muda	Ella era ciega, sorda y muda.	She was blind, deaf, and dumb.	19999
 retroceder	Es muy tarde para retroceder ahora.	It's too late to turn back now.	19999
 circulación	Una pequeña cantidad de alcohol relaja la mente y el cuerpo y mejora la circulación.	A small amount of alcohol will relax the mind and body and improve blood circulation.	19999
-guion	"Todos sabemos que vas al cine a ver ""Crepúsculo"" por su fantástico guión y no por sus actores..."	"We all know you go to the cinema to watch ""Twilight"" because of its ""brilliant script"" and not because of its actors."	19999
+guión	"Todos sabemos que vas al cine a ver ""Crepúsculo"" por su fantástico guión y no por sus actores..."	"We all know you go to the cinema to watch ""Twilight"" because of its ""brilliant script"" and not because of its actors."	19999
 gelatina	La gelatina de uva es la que más me gusta.	I like grape jelly best.	19999
 sacarte	Hay que sacarte la muela.	Your tooth must be extracted.	19999
 actuado	Él ha actuado sabiamente.	He has acted wisely.	19999
@@ -27071,7 +26849,6 @@ peleado	¿Os habíais peleado cuando ella se fue?	Had you all been fighting when
 temperamento	A pesar de ser insultado, él consiguió mantener su temperamento.	In spite of being insulted, he managed to keep his temper.	19999
 brindar	En referencia a tu solicitud, yo quiero brindar mi apoyo.	With reference to your request, I will support.	19999
 específicamente	El aviso de trabajo solicitaba específicamente a una dama.	The job advertisement specifically requested females.	19999
-solicito	Se les solicitó a todos los pasajeros que se bajaran del tren.	All the passengers were requested to get off the train.	19999
 sendero	Guíanos por el sendero recto.	Show us the straight path.	19999
 digna	Su nueva novela es digna de leerse.	His new novel is worth reading.	19999
 técnicos	Ella me asesora en asuntos técnicos.	She advises me on technical matters.	19999
@@ -27267,7 +27044,6 @@ líos	Vigila tus pasos o te meterás en líos.	Watch your step or you'll get int
 histórico	Visitamos lugares de interés histórico.	We visited places of historic interest.	19999
 supervisor	¿Puedes describir la relación supervisor - subordinado ideal?	Can you describe the ideal supervisor-subordinate relationship?	19999
 psiquiátrico	Deberían haber metido a alguien como Tom en un psiquiátrico el siglo pasado.	Last century they would have just thrown someone like Tom into a lunatic asylum.	19999
-pito	El policía pitó al coche para que parara.	The policeman whistled for the car to stop.	19999
 fraternidad	Anhela formar parte de la fraternidad de los ricos.	He longs for the fellowship of the rich.	19999
 propaganda	No es necesario hacer propaganda de un buen vino.	There's no need to advertise a good wine.	19999
 contactos	Con tus contactos, deberías ser capaz de encontrar un trabajo para Tom.	With your connections, you should be able to find a job for Tom.	19999
@@ -27378,7 +27154,6 @@ margarita	Me gusta tomar a sorbos un margarita con sal al borde del vaso.	I enjo
 chicle	Mastiqué el chicle.	I chewed the gum.	19999
 tirando	Tom le está tirando piedras a los pájaros.	Tom is throwing stones at birds.	19999
 reciba	Y quien sea que no te reciba ni oiga tus palabras, cuando salgas de esa casa o ciudad, sacude el polvo de tus pies.	And whosoever shall not receive you, nor hear your words, when ye depart out of that house or city, shake off the dust of your feet.	19999
-filme	¿Por qué nunca filmé en mis numerosos viajes?	Why did I never make a movie during my numerous journeys?	19999
 apuntando	Tom le está apuntando a un pájaro.	Tom is aiming at a bird.	19999
 pondrán	Se está poniendo más y más helado por las mañanas y las noches. Las hojas de los árboles pronto se pondrán rojas o amarillas.	It is getting colder and colder morning and evening. The leaves of trees will soon turn red or yellow.	19999
 músculo	El diafragma es un músculo.	The diaphragm is a muscle.	19999
@@ -27541,7 +27316,6 @@ regresamos	Era muy de noche cuando regresamos.	It was late at night when we got 
 militares	Es un club de militares.	It's a military club.	19999
 sonidos	Hay que hacer una distinción entre los dos sonidos.	It's necessary to make a distinction between the two sounds.	19999
 arreglará	Enojándose no arreglará nada.	Nothing will be gained by getting angry.	19999
-estreno	Esa obra se estrenó en Broadway la semana pasada.	That play opened on Broadway last week.	19999
 hilos	El gato enredó todos los hilos.	The cat tangled up all the threads.	19999
 obreros	Los obreros no bajaron a la mina aquella noche.	The workmen didn't go down into the mine that night.	19999
 división	Hay una gran división en el partido.	There's a serious split in the party.	19999
@@ -27693,7 +27467,6 @@ socios	Tom y yo éramos socios de negocios.	Tom and I were business partners.	19
 rita	Rita es la nuera de Dan.	Rita is Dan's daughter-in-law.	19999
 femenina	A fin de ser conveniente a los pasajeros ciegos, los anuncios de los metros en Moscú están en voz masculina si se va hasta el centro y en voz femenina si se va del centro.	For the convenience of blind passengers, on the Moscow metro the station announcements are in a male voice if you are moving towards the center of the city, and in a female one if you are moving away.	19999
 investigadores	"Un equipo de investigadores británicos ha descubierto una aparente ""fuerte relación"" entre la fe de las personas y su estructura cerebral."	A team of British scientists has discovered what is apparently a “strong correlation” between a person's beliefs and the structure of his or her brain.	19999
-paras	Te parás y cerrás la puerta.	You stand up and close the door.	19999
 respondiendo	Tom está respondiendo bien al nuevo tratamiento.	Tom is responding well to the new treatment.	19999
 respondiendo	Tom está respondiendo bien al tratamiento nuevo.	Tom is responding well to the new treatment.	19999
 merecido	Te daré tu merecido.	I'll give you what for.	19999
@@ -27838,7 +27611,6 @@ escoria	Incluso la corte disfruta de un papel ocasional entre la escoria.	Even t
 armadura	Un largo traje de una vieja armadura se había desprendido de su sitio y había caído sobre el suelo de piedra.	A large suit of old armour had become detached from its stand, and had fallen on the stone floor.	19999
 definitivo	El éxito no es definitivo, el fracaso no es fatídico. Lo que cuenta es el valor para continuar.	Success is not final, failure is not fatal: it is the courage to continue that counts.	19999
 grandeza	La grandeza de una nación y su progreso moral pueden ser juzgados por la manera en que trata sus animales.	The greatness of a nation and its moral progress can be judged by the way its animals are treated.	19999
-retorno	Finalmente, él retornó la espada a su vaina.	Eventually, he returned the sword to its sheath.	19999
 buda	"Una vez un hombre le dijo a Buda, ""yo quiero ser feliz"". Buda respondió, ""primero retira ""yo"", esto es el ego, después remueve ""quiero"", porque es el deseo. Mira, ahora solo tienes felicidad""."	"A man once said to the Buddha, ""I want to be happy!"" Buddha said, ""First remove 'I', that's ego, then remove 'want', that's desire. See, now you are left with only happiness!"""	19999
 guerreros	Los guerreros combatieron con valentía, pero la derrota fue inevitable.	The warriors fought valiantly, but the defeat was inevitable.	19999
 deliberadamente	Tom se dio cuenta de que María lo estaba evitando deliberadamente.	Tom realized Mary was deliberately avoiding him.	19999
@@ -27878,7 +27650,6 @@ hallaron	Hallaron culpable a Sami de acoso criminal.	Sami was found guilty of fe
 juvenil	Mary escribió una novela juvenil.	Mary wrote a young adult novel.	19999
 amen	Mary quiere que la amen.	Mary wants someone to love her.	19999
 instalación	Quiero poner una instalación geotérmica.	I would like to set up a geothermal installation.	19999
-rastreo	Se rastreó la falla en parte hasta un guion faltante en el programa de comunicación.	The fault was traced partly to a missing hyphen in communications software.	19999
 matón	Cuando conocí a Sami, era un adolescente que se hacía el matón.	When I first met Sami, he was a wannabe-thug teenager.	19999
 suspira	Mary suspira.	Mary sighs.	19999
 despreciable	Matar gente que está rezando es la cosa más despreciable que uno pueda imaginarse.	Killing people while they pray is the most despicable thing imaginable.	19999
@@ -27923,7 +27694,6 @@ memorias	Cada vez que miro hacia él, mi corazón desploma y memorias que nunca 
 portada	Compré el libro por la fantástica ilustración de la portada.	I bought the book because of the fantastic illustration on the cover.	19999
 regresan	Ellas regresan de vacaciones.	They are coming back from vacation.	19999
 alfredo	Mi alimento favorito es la pasta alfredo con hongos, tomate y mazorca en el lado.	My favorite food is alfredo pasta with mushrooms, tomatoes and corn on the cob on the side.	19999
-edith	Mi cantante favorita es Édith Piaf.	My favorite singer is Édith Piaf.	19999
 despido	Sin más me despido. Besos y abrazos.	Without further ado, I say goodbye. Hugs and kisses.	19999
 tirador	¡Qué buen tirador!	What a good shot!	19999
 envían	Antes del día de los Reyes Magos, los niños les envían las cartas con sus deseos.	Before Three Kings' Day, the children send letters with their wishes.	19999
@@ -28086,7 +27856,6 @@ acusar	Si me vais a acusar de algo, hacedlo de una buena vez.	If you're going to
 supervisor	Grapó el informe y lo dejó encima de la mesa de su supervisor.	She stapled the report and left it on her supervisor's desk.	19999
 like	Alí le dio like a una foto mía en Facebook.	Ali liked one of my pictures on Facebook.	19999
 jueces	La Constitución Española no la respetan ni los jueces.	Not even judges respect the Spanish Constitution.	19999
-empuje	Empujé a Tom al agua.	I pushed Tom into the water.	19999
 estafador	Ayudamos de forma altruista, si alguien te pide dinero es un estafador.	We help for free. If someone wants money from you, they are a scammer.	19999
 humillación	Hay una diferencia entre la humildad y la humillación.	There's a difference between humility and humiliation.	19999
 sensacional	Fue una victoria sensacional, pero para coronarse campeón, el equipo todavía tiene que derrotar a algunos rivales realmente duros.	It was a sensational victory, but in order to be crowned champions, the team still has to defeat some really tough opponents.	19999
@@ -28115,7 +27884,6 @@ cera	¿Por qué sabe amargo el cera del oído?	Why does ear wax taste bitter?	19
 gusanos	Por ahora, sabemos que los agujeros de gusanos existen en nuestros corazones, y en papel como ecuaciones.	For now, we only know that wormholes exist in our hearts, and on paper in the form of equations.	19999
 golpeaste	¿Por qué golpeaste a tu hermana?	Why did you hit your sister?	19999
 perdonen	Espero que perdonen a Tom por haber hecho eso.	I hope Tom is forgiven for doing that.	19999
-frio	Tom frió un huevo.	Tom fried an egg.	19999
 detectar	Cuando Tom habla inglés, puedes detectar pistas de todos los lugares distintos donde ha vivido.	When Tom speaks English, you can detect traces of all the different places he's lived in.	19999
 élite	En las películas de cine, la élite nos anuncia lo que va a suceder décadas después.	In the movies at the theater, the elite announces to us what is going to happen decades later.	19999
 unidades	El gramo y el kilo son unidades de peso.	The gram and the kilo are units of weight.	19999

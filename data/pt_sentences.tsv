@@ -117,7 +117,7 @@ tu	E tu?	What about you?	48
 vou	Eu vou.	I'm going to go.	49
 vou	Eu vou fazer.	I am going to do it.	49
 vou	Eu vou bem.	I'm fine.	49
-as	Eu vou fazer isso às 2h30.	I'll do that at 2:30.	49
+às	Eu vou fazer isso às 2h30.	I'll do that at 2:30.	49
 h	Eu vou fazer isso às 2h30.	I'll do that at 2:30.	49
 sei	Não sei.	I don't know.	50
 sei	Eu não sei.	I don't know.	50
@@ -391,7 +391,7 @@ tinha	Eu tinha 13 anos em 2003.	I was 13 in 2003.	129
 estar	Você pode estar certo.	You may be right.	130
 estar	Quero estar com você para sempre.	I want to be with you forever.	130
 estar	Você pode estar certo sobre isso.	You may be right about that.	130
-as	Tenho que estar lá às 2h30.	I have to be there at 2:30.	130
+às	Tenho que estar lá às 2h30.	I have to be there at 2:30.	130
 queres	Que queres?	What do you want?	131
 queres	Por que me queres bem?	Why do you love me?	131
 queres	Sei onde queres estar.	I know where you want to be.	131
@@ -708,7 +708,6 @@ dias	Não como há dias.	I haven't eaten for days.	234
 fui	Eu também fui.	I also went.	235
 fui	Eu fui, também.	I went, too.	235
 fui	Fui claro?	Have I made myself clear?	235
-sabia	Ela é muito sábia.	She is very wise.	236
 sabia	Eu não sabia para onde ir.	I didn't know where to go.	236
 sabia	Eu não sabia que ela tinha um filho.	I didn't know that she had a child.	236
 anda	Meu pai anda.	My father walks.	237
@@ -1843,7 +1842,6 @@ dez	Ele é dez anos mais velho que você.	He's ten years older than you.	621
 último	É o último.	It's the last one.	622
 assassino	"""Você é um assassino!"" ""Não, não sou!"""	"""You're a murderer!"" ""No, I'm not!"""	623
 assassino	Eu sei quem é o assassino.	I know who the killer is.	623
-assassino	Existe por aí um assassíno entre nós.	There is a killer among us.	623
 tinhas	Parece que tinhas razão.	It looks like you were right.	625
 tinhas	Tu não tinhas um carro?	Didn't you use to have a car?	625
 tinhas	Não tinhas o direito de fazer isso.	You had no right to do that.	625
@@ -2578,8 +2576,6 @@ namorada	Você sabe se ele tem namorada?	Do you know if he has a girlfriend?	884
 precisam	As crianças precisam brincar.	Children need to play.	885
 precisam	As crianças precisam jogar.	Children need to play.	885
 precisam	Vocês não precisam ficar.	You don't have to stay.	885
-sabias	Palavras sábias!	Wise words!	886
-sabias	Sábias palavras!	Wise words!	886
 sabias	Tu sabias que eu sabia.	You knew I knew.	886
 empresa	Eu quero trabalhar com sua empresa.	I want to work with your company.	887
 empresa	Eu adoro esta empresa.	I love this company.	887
@@ -3444,8 +3440,8 @@ par	Você precisa de um par de dados para jogar esse jogo.	You need a pair of di
 perdido	Com licença, eu estou perdido.	Excuse me, I'm lost.	1192
 perdido	Você é mesmo um caso perdido.	You really are hopeless.	1192
 perdido	Estou provavelmente perdido.	I am probably lost.	1192
-bebe	Você não é mais nenhum bebê.	You are no longer a baby.	1194
-bebe	Aquele bebê é Tom.	That baby is Tom.	1194
+bebê	Você não é mais nenhum bebê.	You are no longer a baby.	1194
+bebê	Aquele bebê é Tom.	That baby is Tom.	1194
 bebe	Quando você bebe café?	When do you drink coffee?	1194
 dado	Em um dado momento.	At a given moment.	1195
 dado	Isto me foi dado pela própria Rainha.	It was given to me by the Queen herself.	1195
@@ -6132,7 +6128,6 @@ deserto	O local está quase deserto.	The place is almost deserted.	2180
 deserto	Eu detesto o deserto.	I hate the desert.	2180
 esperamos	Esperamos um pouco mais?	Shall we wait a little more?	2181
 esperamos	Nós esperamos por muito tempo, mas ela não apareceu.	We waited a long time, but she didn't show up.	2181
-esperamos	Esperámos por ti o dia inteiro.	We waited for you all day long.	2181
 ficava	Ela ficava cada dia mais bonita.	She grew every day more and more beautiful.	2182
 ficava	Quanto mais rico ficava, mais queria.	The richer he became, the more he wanted.	2182
 ficava	Tom me disse que eu não ficava bem de azul.	Tom told me I didn't look good in blue.	2182
@@ -7669,9 +7664,6 @@ suficientes	Eu já tenho problemas suficientes.	I've got enough problems as it i
 recebemos	Até agora, nós não recebemos nenhuma carta dele.	We have not received a letter from him so far.	2776
 recebemos	Acabou que nós recebemos um milhão de dólares.	It turned out that we received a million dollars.	2776
 recebemos	Recebemos a notícia.	We got the news.	2776
-metro	Onde fica a estação de metrô mais próxima?	Where is the nearest subway station?	2777
-metro	Onde está a estação de metrô mais próxima?	Where's the closest metro station?	2777
-metro	Onde é a estação de metrô mais próxima?	Where's the closest metro station?	2777
 centro	Que metrô vai para o centro?	What subway goes to the center of town?	2777
 amostra	Esta é uma amostra.	This is a sample.	2778
 procuramos	Procuramos por ela.	We looked for her.	2779
@@ -10640,7 +10632,6 @@ pesca	Meu pai pesca muito bem.	My father is very good at fishing.	3972
 pesca	Você tem uma licença de pesca?	Do you have a fishing license?	3972
 temporada	Quando começa a temporada de pesca?	When does fishing season start?	3972
 ira	Você deve apenas parar em frente à porta. Ela ira abrir por si mesma.	You have only to stand in front of the door. It will open by itself.	3973
-ira	Meu filho foi para o Irã.	My son went to Iran.	3973
 elegante	Isto não é muito elegante.	This is not very stylish.	3975
 elegante	É muito elegante.	It's really classy.	3975
 elegante	Maria é uma mulher muito elegante.	Mary is a very elegant woman.	3975
@@ -10923,7 +10914,6 @@ controla	Quem controla a Internet?	Who controls the internet?	4088
 deixaria	Ela não disse nada que o deixaria nervoso.	She said nothing that would make him angry.	4089
 deixaria	Obter uma carteira de motorista me deixaria feliz.	Getting a driver's license would make me happy.	4089
 deixaria	Sair para caminhar contigo me deixaria feliz.	Going for a walk with you would make me happy.	4089
-ira	Tom não sabe a diferença entre Iraque e Irã.	Tom doesn't know the difference between Iraq and Iran.	4090
 iraque	Tom não sabe a diferença entre Iraque e Irã.	Tom doesn't know the difference between Iraq and Iran.	4090
 iraque	O Irã não é o Iraque.	Iran is not Iraq.	4090
 iraque	Primeiro a França e depois o Iraque.	First France, then Iraq.	4090
@@ -11059,7 +11049,6 @@ aprendeu	Você se lembra qual foi a primeira palavra em inglês que você aprend
 sentença	Esta sentença não está escrita de forma clara.	This sentence isn't written clearly.	4141
 sentença	Ele não conseguiu entender a sentença.	He couldn't understand the sentence.	4141
 sentença	Esta sentença não está em Italiano.	This sentence is not in Italian.	4141
-juiz	O juíz deu à mulher uma sentença de três anos.	The judge gave the woman a three year sentence.	4141
 soubeste	Já soubeste?	Have you heard something about this?	4142
 suja	A criança está suja.	The child is dirty.	4143
 suja	Casa suja, chão sujo.	Dirty house, dirty floor.	4143
@@ -12038,9 +12027,9 @@ apelido	Quem lhe deu seu apelido?	Who gave you your nickname?	4552
 cola	Essa fita não cola.	This tape doesn't stick.	4554
 cola	Eu preciso de cola.	I need glue.	4554
 cola	Passe-me a cola.	Pass me the glue.	4554
-cortes	Fiquei impressionado, como Tom era cortês com as senhoras.	It astonished me how nice Tom was to ladies.	4555
-cortes	Tom é cortês com todos.	Tom is courteous to everyone.	4555
-cortes	Tom é sempre cortês, não é?	Tom is always courteous, isn't he?	4555
+cortês	Fiquei impressionado, como Tom era cortês com as senhoras.	It astonished me how nice Tom was to ladies.	4555
+cortês	Tom é cortês com todos.	Tom is courteous to everyone.	4555
+cortês	Tom é sempre cortês, não é?	Tom is always courteous, isn't he?	4555
 preocupações	Ei, Tom, esqueça suas preocupações.	Hey, Tom, forget about your worries.	4556
 almas	Almas pequenas têm pequenas preocupações, grandes almas não têm tempo para preocupações.	Little minds have little worries, big minds have no time for worries.	4556
 preocupações	Almas pequenas têm pequenas preocupações, grandes almas não têm tempo para preocupações.	Little minds have little worries, big minds have no time for worries.	4556
@@ -12539,9 +12528,9 @@ vivas	Estão vivas.	They're alive.	4762
 vendido	Tudo vendido!	All sold out!	4763
 vendido	Eu devia não ter vendido meu carro.	I shouldn't have sold my car.	4763
 vendido	O menino foi vendido como escravo.	The boy was sold into slavery.	4763
-tomas	Tomás é o meu irmão.	Tom is my brother.	4764
-tomas	Tomás é um menino de ouro.	Tom is a golden boy.	4764
-tomas	Tomás corre muito rápido.	Tom runs very fast.	4764
+tomás	Tomás é o meu irmão.	Tom is my brother.	4764
+tomás	Tomás é um menino de ouro.	Tom is a golden boy.	4764
+tomás	Tomás corre muito rápido.	Tom runs very fast.	4764
 assassínio	O Tomás é procurado por assassínio.	Tom is wanted for murder.	4764
 condução	O Tomás não tem carta de condução.	Tom doesn't have a driver's license.	4764
 beba	Beba um pouco de chá.	Drink some tea.	4765
@@ -13909,9 +13898,6 @@ queixas	Ele tem que lidar com queixas.	He has to deal with complaints.	5374
 queixas	Não tivemos queixas de Tom.	We've had no complaints from Tom.	5374
 conduta	Recebi algumas queixas sobre a conduta de Tom.	I got a few complaints regarding Tom's conduct.	5374
 queixas	Recebi algumas queixas sobre a conduta de Tom.	I got a few complaints regarding Tom's conduct.	5374
-coreia	Eu quero visitar a Coréia.	I want to visit Korea.	5375
-coreia	Quero visitar a Coréia.	I want to visit Korea.	5375
-coreia	Por que você veio à Coréia?	Why did you come to Korea?	5375
 congressista	Cada congressista poderia votar.	Each congressman could vote.	5376
 cheguem	Quero limpar a casa antes que meus pais cheguem.	I want to clean the house before my parents return.	5378
 cheguem	É melhor que não comeces até que eles cheguem.	You had better not start until they arrive.	5378
@@ -13938,7 +13924,7 @@ inglesa	Passa-me a chave inglesa.	Hand me the wrench.	5385
 voltaria	Ele não disse quando voltaria.	He didn't specify when he would return.	5386
 voltaria	Ele disse que voltaria logo.	He said that he would be back soon.	5386
 voltaria	Eu sabia que Tom voltaria.	I knew Tom would come back.	5386
-magoa	Tom não guarda mágoa.	Tom doesn't hold a grudge.	5387
+mágoa	Tom não guarda mágoa.	Tom doesn't hold a grudge.	5387
 magoa	Você sabe o que realmente me magoa mais?	Do you know what really hurts me the most?	5387
 coisinha	Tenho uma coisinha para você.	I have a little something for you.	5388
 coisinha	Tenho uma coisinha para ti.	I have a little something for you.	5388
@@ -14219,7 +14205,6 @@ entusiasmado	Ele se mostrou entusiasmado pelo desenvolvimento de novos produtos.
 desenvolvimento	Ele se mostrou entusiasmado pelo desenvolvimento de novos produtos.	He showed a lot of enthusiasm for the development of new products.	5516
 entusiasmado	Eu fiquei muito entusiasmado.	I got very excited.	5516
 entusiasmado	Tom tentou não parecer muito entusiasmado.	Tom tried not to appear too enthusiastic.	5516
-ivan	Ele não é o Iván o Terrível.	He is not Ivan The Terrible.	5518
 ivan	Ivan, o Terrível, matou o próprio filho em 1581.	Ivan the Terrible killed his son in 1581.	5518
 ivan	Ivan ficou ainda mais preocupado.	Ivan got more worried.	5518
 tristes	Ele trouxe-nos notícias tristes.	He brought us sad news.	5519
@@ -14421,8 +14406,6 @@ cabras	Quantas cabras eles têm?	How many goats do they have?	5608
 cabras	Tom tem algumas cabras.	Tom has some goats.	5608
 cabras	Temos duas cabras.	We have two goats.	5608
 bebes	Bebes café?	Do you drink coffee?	5609
-bebes	Os bebês não são capazes de cuidar de si próprios.	Babies are not capable of looking after themselves.	5609
-bebes	De onde vêm os bebês?	Where do babies come from?	5609
 transferido	O Tom foi transferido?	Has Tom been transferred?	5610
 transferido	Por que o Tom foi transferido?	Why was Tom transferred?	5610
 transferido	Tom já foi transferido para outro hospital.	Tom has already been transferred to another hospital.	5610
@@ -15051,9 +15034,9 @@ paras	Nunca paras de aprender.	You never stop learning.	5919
 levada	A vida é breve demais para ser levada a sério.	Life is too short for men to take it seriously.	5920
 levada	A vítima foi levada para o hospital em estado grave.	The victim has been transported to the hospital in serious condition.	5920
 levada	A bola está a ser levada pelo rio.	The ball is being carried by the river.	5920
-coco	Eu não quero limpar cocô de cachorro.	I don't wanna clean up dog shit.	5921
+cocô	Eu não quero limpar cocô de cachorro.	I don't wanna clean up dog shit.	5921
 coco	Isto é um coco.	This is a coconut.	5921
-coco	O cachorro fez cocô?	Did the dog poop?	5921
+cocô	O cachorro fez cocô?	Did the dog poop?	5921
 donde	Donde vens?	Where are you from?	5922
 donde	Donde veio isso?	Where did that come from?	5922
 vermelhas	Eu gosto de rosas vermelhas.	I like red roses.	5924
@@ -15092,9 +15075,6 @@ acrescentar	Tom não tinha nada a acrescentar.	Tom had nothing to add.	5938
 xixi	Quando eu estava andando pela rua, vi dois gatos brancos fazendo xixi perto de um pneu.	While walking down the street, I saw two white cats pissing near a car tire.	5939
 xixi	Eu preciso fazer xixi.	I need to go pee.	5939
 xixi	Estou apertado para fazer xixi.	I'm bursting for a pee.	5939
-antonio	Eu sou Antônio.	I am Antonio.	5940
-antonio	De todos os seus irmãos, Antônio é o menos sábio.	Out of all his brothers, Anthony is the least wise.	5940
-antonio	Antônio é um ministro.	Tom is a minister.	5940
 relativamente	Este hotel é relativamente caro para esta cidade.	This hotel is relatively expensive for this town.	5942
 relativamente	Ela falou relativamente rápido.	She spoke relatively quickly.	5942
 relativamente	Isso é relativamente fácil de fazer.	That's relatively easy to do.	5942
@@ -15524,7 +15504,6 @@ estudei	Estudei.	I've studied it.	6123
 madrugada	Eu vou ter que trabalhar até de madrugada hoje de noite.	I have to burn the midnight oil tonight.	6125
 madrugada	Normalmente eu fico acordado até de madrugada.	I usually stay up till after midnight.	6125
 madrugada	Devemos acordar de madrugada.	We must get up at dawn.	6125
-manga	Ele não faz nada além de ler mangá.	He does nothing but read manga.	6126
 manga	Estou procurando uma manga para comer.	I'm looking for a mango to eat.	6126
 manga	Não existe manga azul.	There is no blue mango.	6126
 longas	Ele tem pernas longas.	He has long legs.	6131
@@ -15632,9 +15611,6 @@ hitler	O Tom não deveria ter comparado o professor dele com Hitler.	Tom shouldn
 cuide	Cuide-se bem.	Take good care of yourself.	6177
 cuide	Cuide-se.	Take care.	6177
 cuide	Cuide-se!	Take care!	6177
-loucas	Você poderia explicar como a máquina de lavar louças funciona?	Could you explain how the dishwasher works?	6178
-loucas	Você poderia me ajudar com as louças?	Could you help me wash the dishes?	6178
-loucas	Meu trabalho é lavar as louças.	My job is to wash the dishes.	6178
 laço	Você ganhou um laço também?	Did you win a ribbon, too?	6179
 negociações	As negociações tiveram muito pouco progresso.	The negotiations made little progress.	6180
 negociações	Está aberto a negociações.	It's open to negotiation.	6180
@@ -15717,9 +15693,9 @@ percebem	As senhoras percebem o perigo que estão correndo?	Do you realize the d
 garotos	Vocês são garotos jovens.	You are young boys.	6216
 garotos	Ela passa todo o tempo pensando em garotos.	She spends all her time thinking about boys.	6216
 garotos	Os garotos encontraram uma moeda.	The boys have found a coin.	6216
-iris	Que belo arco-íris!	What a beautiful rainbow!	6217
-iris	Sol e chuva, arco-íris.	Sun and rain, rainbow.	6217
-iris	Eu nunca vi um arco-íris.	I've never seen a rainbow.	6217
+íris	Que belo arco-íris!	What a beautiful rainbow!	6217
+íris	Sol e chuva, arco-íris.	Sun and rain, rainbow.	6217
+íris	Eu nunca vi um arco-íris.	I've never seen a rainbow.	6217
 lança	O arco-íris lança chuva sobre a terra.	The rainbow casts rain on the earth.	6217
 perguntes	Odeio e amo. Talvez perguntes o porquê. Não sei, mas sinto acontecer e me tortura.	I hate and I love. Why would I do this, maybe you're asking? I don't know, but I feel it happening and am tortured.	6219
 perguntes	Por favor, não me perguntes.	Please do not ask me.	6219
@@ -17006,7 +16982,7 @@ instalação	Esta é uma excelente instalação.	This is a great facility.	6854
 batom	Maria passou um pouco mais de batom.	Mary put on some more lipstick.	6855
 batom	Você está usando batom?	Are you wearing lipstick?	6855
 batom	Estou passando batom.	I'm putting on lipstick.	6855
-electrico	Apanhamos o eléctrico.	We took the tram.	6856
+eléctrico	Apanhamos o eléctrico.	We took the tram.	6856
 apanhamos	Apanhamos o eléctrico.	We took the tram.	6856
 furacão	O grande número de mortos pelo furacão subiu para 200.	The death toll from the hurricane climbed to 200.	6859
 furacão	Um furacão de categoria 5 causa dano máximo.	A category 5 hurricane causes maximum damage.	6859
@@ -17774,9 +17750,9 @@ primária	Tom é professor de escola primária.	Tom is a primary school teacher.
 equipamentos	Comprar novos equipamentos não vai resolver os seus problemas.	Buying new equipment isn't going to solve your problems.	7257
 equipamentos	Comprar novos equipamentos não vai resolver os problemas de vocês.	Buying new equipment isn't going to solve your problems.	7257
 equipamentos	Nós temos muitos equipamentos que ninguém sabe como usar.	We have a lot of equipment that no one knows how to use.	7257
-havai	Você já foi para o Havaí?	Have you ever been to Hawaii?	7258
-havai	Conta o que você fez em Havaí.	Tell me what you did in Hawaii.	7258
-havai	A minha pizza favorita é a Pizza Havaí.	My favorite pizza is Pizza Hawaii.	7258
+havaí	Você já foi para o Havaí?	Have you ever been to Hawaii?	7258
+havaí	Conta o que você fez em Havaí.	Tell me what you did in Hawaii.	7258
+havaí	A minha pizza favorita é a Pizza Havaí.	My favorite pizza is Pizza Hawaii.	7258
 disfarçado	Acho que Tom é um policial disfarçado.	I think Tom is an undercover cop.	7259
 aceitável	O preço é aceitável?	Is this price acceptable?	7262
 aceitável	Isso seria aceitável.	That would be acceptable.	7262
@@ -17876,7 +17852,6 @@ nozes	Eu amo chocolate, principalmente o com nozes.	I love chocolates, especiall
 sugeriu	Ela sugeriu que eu fosse à loja com ele.	She suggested that I go to the store with him.	7305
 sugeriu	O professor sugeriu que fôssemos à biblioteca estudar.	The teacher suggested that we go to the library to study.	7305
 sugeriu	Ele sugeriu que fóssemos para a praia.	He suggested to me that we go to the beach.	7305
-fossemos	Ele sugeriu que fóssemos para a praia.	He suggested to me that we go to the beach.	7305
 prateleira	Não posso alcançar a prateleira de cima.	I can't reach the top shelf.	7307
 prateleira	O Tom ficou em uma cadeira para poder alcançar a prateleira de cima.	Tom stood on a chair so he could reach the top shelf.	7307
 prateleira	Está em qual prateleira?	Which shelf is it on?	7307
@@ -19032,8 +19007,6 @@ pensasse	Não gostaria que sua mãe pensasse que estou tendo um caso.	I wouldn't
 casacos	Tirem os casacos e fiquem à vontade.	Take off your coats and make yourselves at home.	7894
 casacos	Eles tiraram seus casacos.	They took their coats off.	7894
 deveras	Isso me é deveras importante.	It's so important to me.	7895
-deveras	Tu jamais deverás esquecer isso.	You must never forget that.	7895
-deveras	Nunca deverás esquecer isso.	You must never forget that.	7895
 lutadores	Eles são lutadores de sumô japoneses.	They are Japanese sumo wrestlers.	7896
 assembleia	A senhora, por favor, sabe em que sala vai ter lugar a assembleia?	Do you know which room the meeting will be held in?	7898
 universal	A música é uma linguagem universal.	Music is a universal language.	7899
@@ -19553,7 +19526,6 @@ chorou	Ela simplesmente chorou um mar de lágrimas sobre o túmulo de seu pai.	S
 chorou	Bill chorou por horas.	Bill kept on crying for hours.	8152
 contem	Este alimento contem carne?	Does this food contain any meat?	8153
 contem	Nunca mais contem mentira.	Never tell a lie again.	8153
-contem	As frutas contêm sementes.	Fruits have seeds in them.	8153
 entregues	Os livros que eu comprei me foram entregues hoje de manhã.	The books that I bought were delivered to me this morning.	8154
 entregues	Quando os livros lhe foram entregues?	When were your books delivered?	8154
 entregues	Senhora, estas rosas lhe foram entregues.‎	Miss, these roses have been delivered to you.	8154
@@ -20132,7 +20104,7 @@ vaticano	O Vaticano é um país independente.	The Vatican is an independent coun
 espancado	Ele permitiu que seu amigo fosse espancado.	He allowed his friend to be beaten.	8489
 espancado	Ele permitiu que o amigo dele fosse espancado.	He allowed his friend to be beaten.	8489
 espancado	Tom foi espancado até a morte.	Tom was beaten to death.	8489
-maca	A maça foi comida por mim.	The apple was eaten by me.	8490
+maça	A maça foi comida por mim.	The apple was eaten by me.	8490
 amarrado	Tom acordou amarrado a uma maca.	Tom woke up strapped to a gurney.	8490
 maca	Tom acordou amarrado a uma maca.	Tom woke up strapped to a gurney.	8490
 maca	Ele foi levado em uma maca.	He was carried away on a stretcher.	8490
@@ -20244,7 +20216,6 @@ barman	O Tom está pensando em se tornar um barman.	Tom is considering becoming 
 barman	O Tom ainda é um barman?	Is Tom still a bartender?	8547
 barman	Ele é um barman.	He's a bartender.	8547
 voos	Os voos ainda não partiram.	The flights haven't left yet.	8549
-voos	Quantos vôos para Tóquio você oferece por dia?	How many flights to Tokyo do you offer a day?	8549
 oferece	Quantos vôos para Tóquio você oferece por dia?	How many flights to Tokyo do you offer a day?	8549
 divulgar	É nossa política não divulgar informações pessoais.	It is our policy not to give out personal information.	8550
 lutaram	Eles dois lutaram pela recompensa.	The two of them fought for the prize.	8551
@@ -21570,7 +21541,6 @@ morango	É época de morango.	Strawberries are now in season.	9274
 morango	Quer um morango? Aqui, pegue aquele de que mais gostar.	Do you want a strawberry? Here, take the one that pleases you most.	9274
 colmeia	Em cada colmeia só pode haver uma única rainha.	In each beehive there can only be one queen.	9275
 colmeia	O lugar é uma colmeia de atividade.	The place is a beehive of activity.	9275
-colmeia	Uma colméia pode ter apenas uma rainha.	A hive can have only one queen.	9275
 penteado	Ela tinha um penteado de colmeia por muitos anos.	She had a beehive hairdo for many years.	9275
 evita	Ela me evita.	She avoids me.	9276
 evita	Ele evita-me.	He avoids me.	9276
@@ -21923,7 +21893,6 @@ cereja	Assim, tudo o que você precisa é um bom queijo e um pote de geleia de c
 negra	Assim, tudo o que você precisa é um bom queijo e um pote de geleia de cereja negra.	So all you need is good cheese and a jar of black cherry jam.	9477
 pote	Assim, tudo o que você precisa é um bom queijo e um pote de geleia de cereja negra.	So all you need is good cheese and a jar of black cherry jam.	9477
 geleia	Assim, tudo o que você precisa é um bom queijo e um pote de geleia de cereja negra.	So all you need is good cheese and a jar of black cherry jam.	9477
-geleia	Ele gosta de geléia.	He likes jelly.	9477
 geleia	Adoro geleia de laranja.	I love orange marmalade.	9477
 gastos	Eles vão reduzir seus gastos.	They will cut down on their expenses.	9478
 gastos	Elas vão reduzir seus gastos.	They will cut down on their expenses.	9478
@@ -22097,7 +22066,6 @@ massachusetts	Eles podiam viver como queriam em Massachusetts.	They were able to
 criativa	Seja criativa.	Be creative.	9570
 criativa	Sê criativa.	Be creative.	9570
 criativa	Eu não sou criativa.	I'm not creative.	9570
-gala	Tom é um galã.	Tom is a hunk.	9571
 gala	Você está indo para a gala?	Are you going to the gala?	9571
 subterrâneo	Onde fica a entrada para o estacionamento subterrâneo?	Where's the entrance to the underground car park?	9573
 perguntem	Perguntem a alguém.	Ask anybody.	9574
@@ -22752,9 +22720,9 @@ centímetro	Cada centímetro de sua pele está coberto de tatuagens.	Each centim
 centímetro	Eles estavam tão assustados que não conseguiam se mover nem um centímetro.	They were so frightened that they couldn't move an inch.	9955
 estupendo	Isso é estupendo!	This looks awesome!	9957
 estupendo	Isso foi estupendo!	It was really great.	9957
-baba	Tom não consegue encontrar uma babá para a sexta-feira à noite.	Tom can't find a babysitter for Friday night.	9959
-baba	Tom se ofereceu para ajudar Maria a pagar por uma babá.	Tom offered to help Mary pay for a babysitter.	9959
-baba	A mãe está procurando uma babá.	The mother is looking for a babysitter.	9959
+babá	Tom não consegue encontrar uma babá para a sexta-feira à noite.	Tom can't find a babysitter for Friday night.	9959
+babá	Tom se ofereceu para ajudar Maria a pagar por uma babá.	Tom offered to help Mary pay for a babysitter.	9959
+babá	A mãe está procurando uma babá.	The mother is looking for a babysitter.	9959
 origens	Porém, a cantora não nega suas origens.	However, the singer does not deny her ancestry.	9960
 origens	Ele tem amigos de muitas origens diferentes.	He has friends from many different walks of life.	9960
 fogos	Desde quando existem fogos de artifício?	Since when are there fireworks?	9961
@@ -22926,7 +22894,6 @@ seguidos	Choveu durante três dias seguidos.	It rained for three days in a row.	
 edifícios	Em Nova York, muitos edifícios não têm o décimo terceiro andar.	Many buildings in New York don't have a thirteenth floor.	19999
 décimo	Em Nova York, muitos edifícios não têm o décimo terceiro andar.	Many buildings in New York don't have a thirteenth floor.	19999
 pertencer	O mundo se divide entre pessoas que fazem as coisas e pessoas que levam o crédito. Tente, se puder, pertencer à primeira classe. Há bem menos competição.	The world is divided into people who do things and people who get the credit. Try, if you can, to belong to the first class. There’s far less competition.	19999
-garcia	O Sr. García é muito simpático.	Mr. García is very nice.	19999
 miguel	Miguel o deu a Dora.	Michael gave it to Dora.	19999
 referências	Eu pedirei referências suas.	I will request references about you.	19999
 cujos	Aquelas são as pessoas cujos carros eu consertei.	Those are the people whose car I repaired.	19999
@@ -23007,7 +22974,6 @@ diários	Exercícios físicos diários são indispensáveis para sua saúde.	Eve
 mero	Física quântica é muito difícil para um mero mortal entender.	Quantum physics is too difficult for a mere mortal to understand.	19999
 ramo	A física é um ramo da ciência.	Physics is a branch of science.	19999
 subo	Subo no telhado quando quero ver o céu azul.	I go up to the rooftop when I want to see the blue sky.	19999
-expulsa	Cale a boca. Se você não calar, vão expulsá-lo.	Shut up. If you don't, you'll be thrown out.	19999
 palco	Você já a ouviu cantar no palco?	Have you ever heard her sing on the stage?	19999
 constituição	Você já leu a Constituição do Japão?	Have you ever read the Constitution of Japan?	19999
 cemitério	Você já andou num cemitério à meia-noite?	Have you ever walked through a graveyard at midnight?	19999
@@ -23639,9 +23605,6 @@ poderás	Enquanto teu amigo te segurar calorosamente por ambas as tuas mãos est
 governos	Eles eram membros dos governos locais.	They were members of the local governments.	19999
 pico	Desculpe por te incomodar nesta hora de pico.	Sorry for bothering you at this busy time.	19999
 possuir	Todos gostam de um belo fraseado. E ele parece possuir a habilidade de encontrar exatamente as palavras certas para qualquer ocasião.	Everyone loves an exquisite turn of phrase. And he seems to have the knack of finding exactly the right words for any occasion.	19999
-apanha	Vou apanhá-la dentro de dez minutos.	I'll pick you up in ten minutes.	19999
-apanha	Vou apanhá-lo dentro de dez minutos.	I'll pick you up in ten minutes.	19999
-apanha	Vou apanhá-las dentro de dez minutos.	I'll pick you up in ten minutes.	19999
 tóxico	Não há dúvida de que o cloro pode ser muito tóxico.	Of course chlorine can be very toxic.	19999
 radiação	Não desejamos qualquer tipo de radiação à nossa volta.	We don't want any radiation around.	19999
 imperial	A família real mora no palácio imperial.	The royal family lives in the Imperial Palace.	19999
@@ -23655,7 +23618,6 @@ bailarina	A Mary tem corpo de bailarina.	Mary has a dancer's body.	19999
 tubos	Os tubos estão entupidos.	The tubes are clogged.	19999
 disparei	Eu apontei para o tigre e disparei, mas eu o perdi.	I aimed at the tiger and fired, but missed him.	19999
 resultou	Nada bom resultou daquilo.	Nothing good came out of it.	19999
-partilha	Vou partilhá-los contigo.	I'll share them with you.	19999
 camiões	A rua é muito estreita para camiões.	The street is too narrow for lorries.	19999
 assassina	A assassina escondeu-se nas montanhas.	The murderer hid in the mountains.	19999
 gays	Edu tem mais ou menos mil amigos gays.	Edu has more or less a thousand gay friends.	19999
@@ -23763,7 +23725,7 @@ atenções	Não estou habituado a ser o centro das atenções.	I'm not accustome
 atenções	Não estou acostumado a ser o centro das atenções.	I'm not accustomed to being in the limelight.	19999
 atenções	Adoro ser o centro das atenções.	I love being in the spotlight.	19999
 salários	Os salários subiram.	Salaries have increased.	19999
-espectaculo	A tourada é um espectáculo muito interessante.	Bull fighting is a very interesting spectacle.	19999
+espectáculo	A tourada é um espectáculo muito interessante.	Bull fighting is a very interesting spectacle.	19999
 ilusões	Não alimente muitas ilusões sobre esse negócio.	Don't bank too much on that business.	19999
 dinamite	A manipulação de dinamite é perigosa.	The handling of dynamite is dangerous.	19999
 anjos	Você acredita em anjos da guarda?	Do you believe in guardian angels?	19999
@@ -24281,7 +24243,6 @@ profissionais	Atletas profissionais passam horas treinando.	Professional athlete
 capturar	Nós armamos uma armadilha para capturar uma raposa.	We set a trap to catch a fox.	19999
 simone	Simone de Beauvoir é uma mulher feia.	Simone de Beauvoir is an ugly woman.	19999
 times	Nosso time venceu todos os outros times da cidade.	Our soccer team beat all the other teams in the town.	19999
-porno	Na verdade eu odeio pornô.	Actually I hate porn.	19999
 tenda	Mary não está em sua tenda.	Mary isn't in her tent.	19999
 procedimentos	Sami não podia realizar procedimentos em pacientes.	Sami couldn't perform procedures on patients.	19999
 mecanismo	Eu acho que a raiva do Tom é só um mecanismo de defesa. Eu não levaria para o lado pessoal se fosse você.	I think Tom's anger is just a defense mechanism; I wouldn't take it personally if I were you.	19999
@@ -24501,7 +24462,6 @@ controlo	Controlo meus pensamentos na direção que escolho.	I control my though
 administrador	Quem é o administrador do grupo?	Who is the group administrator?	19999
 administrador	O administrador do grupo, sou eu.	The group administrator is me.	19999
 resistência	A boa resistência é de grande importância para o desempenho de muitos esportes.	Good endurance is of great importance to the performance of many sports.	19999
-sofia	É uma unidade de seis horas de Sófia para Varna.	It is a six-hour drive from Sofia to Varna.	19999
 sofia	É uma unidade de seis horas de Sofia para Varna.	It is a six hours' drive from Sofia to Varna.	19999
 vera	Nem Vera nem Sergey puderam responder essa pergunta.	Neither Vera nor Sergey could answer that question.	19999
 vera	Olga esperou Vera em vão.	Olga waited for Vera in vain.	19999
@@ -24725,8 +24685,6 @@ seguranças	Tom contratou três seguranças para protegê-lo.	Tom hired three bo
 arredores	A casa dele está nos arredores da cidade.	His house is on the outskirts of the city.	19999
 marta	O vestido preto de Marta, limpo, mas desbotado pelo uso, tinha bom aspecto, apesar de não ser novo.	Marta's black dress, which was clean, but worn, looked good, even though it wasn't new.	19999
 cuidados	Tom requer cuidados constantes.	Tom requires constant care.	19999
-forca	Não quero forçá-lo a fazer algo que não quer fazer.	I don't want to force you into doing something you don't want to do.	19999
-forca	Não quero forçá-la a fazer algo que não quer fazer.	I don't want to force you into doing something you don't want to do.	19999
 parados	Os sentinelas estavam de pé e parados.	The sentries were standing bolt upright and motionless.	19999
 colónia	Uma parte do país foi, em tempos, uma colónia francesa.	A part of the country was at one time a French settlement.	19999
 relatos	Os relatos diziam que se aproximaram de um acordo.	Reports said they came close to a settlement.	19999
@@ -24876,7 +24834,6 @@ praga	Os seres humanos são a praga mais perigosa que já viveu neste globo que 
 globo	Os seres humanos são a praga mais perigosa que já viveu neste globo que chamamos de Terra.	Humans are the most dangerous pests ever lived on this globe we call Earth.	19999
 adega	Os pais de Tom o prenderam na adega.	Tom's parents locked him in the cellar.	19999
 adega	Os pais de Tom prenderam ele na adega.	Tom's parents locked him in the cellar.	19999
-emenda	Acho que isso está errado e é muito feio, mas não posso fazer nada para emendá-lo.	I think this is wrong and very ugly, but I can't do anything to fix it.	19999
 encontrarás	Se procurares bem, encontrarás.	If you search well, you will find.	19999
 agitação	Uma pequena água-forte antiga descoberta pelo presidente da Universidade Católica em Washington, D.C., criou uma verdadeira agitação cultural.	A small antique etching discovered by the president of Catholic University in Washington, D.C., has created quite a cultural stir.	19999
 negligência	Tom me acusou de negligência.	Tom accused me of negligence.	19999
@@ -25070,7 +25027,6 @@ disfarçar	A senhora contou-me isto e perguntou-me como se poderia disfarçar pa
 respondeste	E quando senti a tua mão no meu braço e te falei, porque não respondeste?	And when I felt your hand upon my arm and spake to you, why did you give no answer?	19999
 masculina	Aquele que ela amava estava com ela e ela sabia que ele a amava com toda a força da sua verdadeira natureza masculina.	The one she loved was with her, and she knew that he loved her with all the strength of his true manly nature.	19999
 alienígena	Martino destruiu a criatura alienígena.	Martino destroyed the alien creature.	19999
-forca	Não vou forçá-lo a fazer nada que não queira fazer.	I'm not going to force you to do anything you don't want to do.	19999
 perguntaste	Perguntaste ao Tom se ele estará lá?	Have you asked Tom if he'll be there?	19999
 bebés	O mundo dele é igualmente fantástico. Está cheio de flores felizes, bebés alienígenas sorridentes e cogumelos com dentes.	His world is equally fantastical. It is filled with happy flowers, smiling alien babies, and fanged mushrooms.	19999
 alcoólico	Esta cerveja tem um teor alcoólico de 5%.	This beer has an alcohol content of 5%.	19999
