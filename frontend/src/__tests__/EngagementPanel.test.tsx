@@ -103,6 +103,37 @@ describe('EngagementPanel', () => {
     ])
   }
 
+  it("the 'all accounts' tile lists everyone, including never-active users", async () => {
+    mockGet.mockResolvedValue({
+      days: 30, total_users: 2, new_users: 0,
+      active_users: { d1: 1, d7: 1, d30: 1 },
+      reviews: 50, review_hours: 0.5, tutor_messages: 0,
+      readings: 7, cards_started: 3,
+      feature_users: { review: 1, tutor: 0, reader: 1 },
+      top_languages: [],
+    })
+    mockGetUsers.mockResolvedValue([
+      { id: 'u1', email: 'active@x.co', joined: null,
+        last_active: new Date().toISOString(), reviews: 5, review_minutes: 3,
+        tutor_messages: 0, readings: 0, cards_started: 1, cards_total: 9,
+        languages: ['es'] },
+      { id: 'u2', email: 'ghost@x.co', joined: null, last_active: null,
+        reviews: 0, review_minutes: 0, tutor_messages: 0, readings: 0,
+        cards_started: 0, cards_total: 0, languages: [] },
+    ])
+    renderPanel()
+    await waitFor(() => expect(screen.getByTestId('engagement')).toBeDefined())
+    // the never-active account is invisible in every window…
+    fireEvent.click(screen.getByRole('button', { name: /active · 30 days/ }))
+    await waitFor(() => expect(screen.getByText('active@x.co')).toBeDefined())
+    expect(screen.queryByText('ghost@x.co')).toBeNull()
+    // …but 'all accounts' shows everyone
+    fireEvent.click(screen.getByRole('button', { name: /all accounts/ }))
+    await waitFor(() => expect(screen.getByText('ghost@x.co')).toBeDefined())
+    expect(screen.getByText('active@x.co')).toBeDefined()
+    expect(screen.getByText('never')).toBeDefined()
+  })
+
   it('feature tiles drill into the users who used that feature', async () => {
     mockGet.mockResolvedValue({
       days: 30, total_users: 2, new_users: 0,

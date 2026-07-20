@@ -18,6 +18,7 @@ import IssuesPanel from './IssuesPanel'
 import SuggestionsPanel from './SuggestionsPanel'
 import RolesPanel from './RolesPanel'
 import AccountsPanel from './AccountsPanel'
+import AnalyticsPanel from './AnalyticsPanel'
 import EngagementPanel from './EngagementPanel'
 import TranslationReviewsPanel from './TranslationReviewsPanel'
 import { useAuthStore } from '../../stores/authStore'
@@ -551,6 +552,7 @@ export default function ContributorPage() {
 
             {tab === 'admin' && data.is_admin && (
               <>
+                <AnalyticsPanel />
                 <EngagementPanel />
                 <TranslationReviewsPanel />
                 <AccountsPanel languages={languages} selfId={selfId} />

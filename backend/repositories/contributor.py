@@ -988,6 +988,111 @@ async def admin_engagement_users(
     ]
 
 
+async def admin_timeseries(conn: asyncpg.Connection, days: int = 30) -> list[dict]:
+    """Daily activity series for the admin analytics charts (WP26a).
+
+    One row per calendar day (UTC): distinct active users across every
+    activity table, review count, study minutes, and new signups. All
+    from tables normal use writes — no extra tracking.
+    """
+    rows = await conn.fetch(
+        """
+        SELECT day::date AS day,
+          (SELECT count(DISTINCT u) FROM (
+              SELECT user_id AS u FROM review_log
+               WHERE (created_at AT TIME ZONE 'UTC')::date = day
+              UNION SELECT user_id FROM tutor_usage
+               WHERE (created_at AT TIME ZONE 'UTC')::date = day
+              UNION SELECT user_id FROM readings
+               WHERE (created_at AT TIME ZONE 'UTC')::date = day
+              UNION SELECT user_id FROM user_cards
+               WHERE (created_at AT TIME ZONE 'UTC')::date = day
+          ) acts) AS active_users,
+          (SELECT count(*) FROM review_log
+            WHERE (created_at AT TIME ZONE 'UTC')::date = day) AS reviews,
+          (SELECT COALESCE(sum(time_taken_ms), 0) / 60000 FROM review_log
+            WHERE (created_at AT TIME ZONE 'UTC')::date = day) AS minutes,
+          (SELECT count(*) FROM user_profiles
+            WHERE (created_at AT TIME ZONE 'UTC')::date = day) AS new_users
+        FROM generate_series(
+            (now() AT TIME ZONE 'UTC')::date - ($1 - 1),
+            (now() AT TIME ZONE 'UTC')::date,
+            interval '1 day'
+        ) AS day
+        ORDER BY day
+        """,
+        days,
+    )
+    return [
+        {
+            "date": r["day"].isoformat(),
+            "active_users": int(r["active_users"]),
+            "reviews": int(r["reviews"]),
+            "minutes": int(r["minutes"]),
+            "new_users": int(r["new_users"]),
+        }
+        for r in rows
+    ]
+
+
+def compute_cohort_grid(
+    signups: list[tuple[str, str]],
+    activity: set[tuple[str, str]],
+) -> list[dict]:
+    """Weekly retention grid (WP26b), pure so it's unit-testable.
+
+    *signups*: (user_id, iso signup-week-start); *activity*: distinct
+    (user_id, iso activity-week-start). Week 0 is the signup week itself.
+    """
+    from datetime import date, timedelta
+
+    cohorts: dict[str, list[str]] = {}
+    for uid, wk in signups:
+        cohorts.setdefault(wk, []).append(uid)
+
+    grid = []
+    for wk in sorted(cohorts):
+        members = cohorts[wk]
+        start = date.fromisoformat(wk)
+        weeks = []
+        for offset in range(8):
+            target = (start + timedelta(weeks=offset)).isoformat()
+            returned = sum(1 for uid in members if (uid, target) in activity)
+            weeks.append(returned)
+        grid.append({"cohort_week": wk, "size": len(members), "returned": weeks})
+    return grid
+
+
+async def admin_cohorts(conn: asyncpg.Connection, weeks: int = 8) -> list[dict]:
+    """Signup-cohort retention (WP26b): of each week's signups, how many
+    were active in week 0, 1, 2…  Small data — aggregate in Python."""
+    signup_rows = await conn.fetch(
+        """
+        SELECT id, date_trunc('week', created_at AT TIME ZONE 'UTC')::date AS wk
+        FROM user_profiles
+        WHERE created_at > now() - make_interval(weeks => $1)
+        """,
+        weeks,
+    )
+    activity_rows = await conn.fetch(
+        """
+        SELECT DISTINCT user_id,
+               date_trunc('week', created_at AT TIME ZONE 'UTC')::date AS wk
+        FROM (
+            SELECT user_id, created_at FROM review_log
+            UNION ALL SELECT user_id, created_at FROM tutor_usage
+            UNION ALL SELECT user_id, created_at FROM readings
+            UNION ALL SELECT user_id, created_at FROM user_cards
+        ) acts
+        WHERE created_at > now() - make_interval(weeks => $1)
+        """,
+        weeks,
+    )
+    signups = [(str(r["id"]), r["wk"].isoformat()) for r in signup_rows]
+    activity = {(str(r["user_id"]), r["wk"].isoformat()) for r in activity_rows}
+    return compute_cohort_grid(signups, activity)
+
+
 async def admin_engagement_user_detail(
     conn: asyncpg.Connection, user_id: str, days: int = 30
 ) -> list[dict]:

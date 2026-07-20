@@ -1044,6 +1044,56 @@ class TestEngagementUsers:
         assert mock_users.await_args.args[1] == 365  # days clamped
 
 
+class TestAnalytics:
+    """WP26 a+b: time-series and cohort endpoints (admin only)."""
+
+    def test_timeseries_requires_admin(self, client):
+        with _roles([{"language_id": LANG, "role": "reviewer"}]):
+            resp = client.get("/api/contribute/analytics/timeseries",
+                              headers=_auth_headers())
+        assert resp.status_code == 403
+
+    def test_timeseries_clamps_days(self, client):
+        series = [{"date": "2026-07-19", "active_users": 2, "reviews": 10,
+                   "minutes": 5, "new_users": 1}]
+        with _roles([{"language_id": None, "role": "admin"}]), \
+             patch("backend.routers.contribute.admin_timeseries",
+                   new=AsyncMock(return_value=series)) as mock_ts:
+            resp = client.get("/api/contribute/analytics/timeseries",
+                              params={"days": 9999}, headers=_auth_headers())
+        assert resp.status_code == 200
+        assert resp.json() == {"days": 90, "series": series}
+        assert mock_ts.await_args.args[1] == 90
+
+    def test_cohorts_endpoint(self, client):
+        grid = [{"cohort_week": "2026-07-06", "size": 4,
+                 "returned": [4, 2, 1, 0, 0, 0, 0, 0]}]
+        with _roles([{"language_id": None, "role": "admin"}]), \
+             patch("backend.routers.contribute.admin_cohorts",
+                   new=AsyncMock(return_value=grid)):
+            resp = client.get("/api/contribute/analytics/cohorts",
+                              headers=_auth_headers())
+        assert resp.status_code == 200
+        assert resp.json() == {"cohorts": grid}
+
+    def test_cohort_grid_math(self):
+        from backend.repositories.contributor import compute_cohort_grid
+
+        signups = [("u1", "2026-07-06"), ("u2", "2026-07-06"),
+                   ("u3", "2026-07-13")]
+        activity = {
+            ("u1", "2026-07-06"), ("u1", "2026-07-13"),  # active w0 + w1
+            ("u2", "2026-07-06"),                          # w0 only
+            ("u3", "2026-07-13"),                          # later cohort, w0
+        }
+        grid = compute_cohort_grid(signups, activity)
+        assert grid[0]["cohort_week"] == "2026-07-06"
+        assert grid[0]["size"] == 2
+        assert grid[0]["returned"][:3] == [2, 1, 0]
+        assert grid[1]["cohort_week"] == "2026-07-13"
+        assert grid[1]["returned"][0] == 1
+
+
 class TestEngagementUserDetail:
     """Per-language breakdown behind one row of the users table."""
 

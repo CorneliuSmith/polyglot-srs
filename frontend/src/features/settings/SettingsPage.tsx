@@ -20,6 +20,7 @@ import RolesPanel from '../contribute/RolesPanel'
 import IssuesPanel from '../contribute/IssuesPanel'
 import FeedbackPanel from '../contribute/FeedbackPanel'
 import SuggestionsPanel from '../contribute/SuggestionsPanel'
+import AnalyticsPanel from '../contribute/AnalyticsPanel'
 import EngagementPanel from '../contribute/EngagementPanel'
 import TranslationReviewsPanel from '../contribute/TranslationReviewsPanel'
 import {
@@ -254,6 +255,7 @@ export default function SettingsPage() {
 
         {tab === 'admin' && activeLanguageId && isAdmin && (
           <>
+            <AnalyticsPanel />
             <EngagementPanel />
             <TranslationReviewsPanel />
             <AccountsPanel languages={languages} selfId={selfId} />

@@ -156,6 +156,36 @@ export async function getEngagementUsers(days = 30): Promise<EngagementUser[]> {
   return response.data.users
 }
 
+export interface AnalyticsDay {
+  date: string
+  active_users: number
+  reviews: number
+  minutes: number
+  new_users: number
+}
+
+export async function getAnalyticsTimeseries(days = 30): Promise<AnalyticsDay[]> {
+  const response = await apiClient.get<{ days: number; series: AnalyticsDay[] }>(
+    '/api/contribute/analytics/timeseries',
+    { params: { days } },
+  )
+  return response.data.series
+}
+
+export interface RetentionCohort {
+  cohort_week: string
+  size: number
+  /** returned[n] = members active in week n after signup (week 0 = signup week) */
+  returned: number[]
+}
+
+export async function getAnalyticsCohorts(): Promise<RetentionCohort[]> {
+  const response = await apiClient.get<{ cohorts: RetentionCohort[] }>(
+    '/api/contribute/analytics/cohorts',
+  )
+  return response.data.cohorts
+}
+
 export interface EngagementUserLanguage {
   code: string
   name: string
