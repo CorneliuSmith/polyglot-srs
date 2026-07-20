@@ -46,6 +46,10 @@ interface PrefsState {
   // overwhelming). 0 = no goal, show the full queue.
   dailyLearnGoal: number
   setDailyLearnGoal: (n: number) => void
+  // What's-new entry ids the learner has already opened the panel over.
+  // Drives the unseen-count badge on the dashboard.
+  whatsNewSeen: string[]
+  markWhatsNewSeen: (ids: string[]) => void
 }
 
 export const usePrefsStore = create<PrefsState>()(
@@ -72,6 +76,11 @@ export const usePrefsStore = create<PrefsState>()(
       setInstallPromptDismissed: (done) => set({ installPromptDismissed: done }),
       dailyLearnGoal: 20,
       setDailyLearnGoal: (n) => set({ dailyLearnGoal: n }),
+      whatsNewSeen: [],
+      markWhatsNewSeen: (ids) =>
+        set((s) => ({
+          whatsNewSeen: Array.from(new Set([...s.whatsNewSeen, ...ids])),
+        })),
     }),
     {
       name: 'polyglot-prefs',

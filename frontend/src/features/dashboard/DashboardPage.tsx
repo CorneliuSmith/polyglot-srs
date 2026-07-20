@@ -21,6 +21,8 @@ import ActivityChart from './ActivityChart'
 import StageTiles from './StageTiles'
 import ProfileCard from './ProfileCard'
 import Walkthrough from '../onboarding/Walkthrough'
+import WhatsNewPanel from '../announcements/WhatsNewPanel'
+import { unseenWhatsNew } from '../announcements/whatsNew'
 import InstallPrompt from '../../components/InstallPrompt'
 import type { LearnDeck } from '../../api/types'
 
@@ -196,6 +198,9 @@ export default function DashboardPage() {
   const [learnOpen, setLearnOpen] = useState(false)
   const [reviewOpen, setReviewOpen] = useState(false)
   const [showTour, setShowTour] = useState(false)
+  const [showWhatsNew, setShowWhatsNew] = useState(false)
+  const whatsNewSeen = usePrefsStore((s) => s.whatsNewSeen)
+  const unseenCount = unseenWhatsNew(whatsNewSeen).length
 
   // Open the feature tour once, for someone who hasn't dismissed it.
   useEffect(() => {
@@ -345,6 +350,23 @@ export default function DashboardPage() {
             </button>
             <button
               type="button"
+              onClick={() => setShowWhatsNew(true)}
+              aria-label="What's new"
+              title="What's new"
+              className="relative text-sm text-gray-500 hover:text-lang"
+            >
+              New
+              {unseenCount > 0 && (
+                <span
+                  data-testid="whats-new-badge"
+                  className="absolute -top-1.5 -right-2.5 min-w-4 h-4 rounded-full bg-lang text-white text-[10px] font-bold leading-4 text-center px-0.5"
+                >
+                  {unseenCount}
+                </span>
+              )}
+            </button>
+            <button
+              type="button"
               onClick={() => setShowTour(true)}
               aria-label="Take the feature tour"
               title="Take the tour"
@@ -356,6 +378,7 @@ export default function DashboardPage() {
         </div>
 
         {showTour && <Walkthrough onClose={() => setShowTour(false)} />}
+        {showWhatsNew && <WhatsNewPanel onClose={() => setShowWhatsNew(false)} />}
 
         <InstallPrompt />
 

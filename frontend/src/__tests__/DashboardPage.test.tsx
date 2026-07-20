@@ -124,6 +124,7 @@ vi.mock('../stores/prefsStore', () => ({
         dailyLearnGoal: mockDailyLearnGoal,
         installPromptDismissed: true,
         setInstallPromptDismissed: vi.fn(),
+        whatsNewSeen: [],
       }),
   ),
 }))
