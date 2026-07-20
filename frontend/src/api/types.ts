@@ -16,8 +16,12 @@ export interface DueCard {
   // language-aware hint layers (present when authored for this sentence)
   gloss?: string | null
   transliteration?: string | null
-  // null for grammar cards — the backend only populates these for vocabulary
+  // null for grammar cards — the backend only populates these for vocabulary.
+  // Exception: cram/Gym cards may carry the chart of the word the drill
+  // exercises (WP25c), resolved by lemmatizing the answer server-side.
   morphology: Record<string, unknown> | null
+  chart_word?: string | null
+  chart_usage_note?: string | null
   alternatives: string[] | null
   language_code: string
   ease_factor: number

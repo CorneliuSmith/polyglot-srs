@@ -175,6 +175,94 @@ class TestGetCramCards:
 
 
 # ---------------------------------------------------------------------------
+# attach_cram_charts (WP25c: Gym drills carry the exercised word's chart)
+# ---------------------------------------------------------------------------
+
+
+class _StubNLP:
+    """Just enough NLP to bridge a surface form to its dictionary form."""
+
+    def normalize(self, text: str) -> str:
+        return text.lower().strip()
+
+    def lemmatize(self, word: str) -> str:
+        return {"evlerde": "ev"}.get(word, word)
+
+
+def _gym_card(answer: str, code: str = "tr") -> dict:
+    return {
+        "id": f"cram-{POINT_A}-0",
+        "card_type": "grammar",
+        "card_id": POINT_A,
+        "correct_answer": answer,
+        "language_code": code,
+        "morphology": None,
+    }
+
+
+CHARTED = (
+    '{"charts": [{"title": "Cases", "rows": [["locative", "evde"]]}]}'
+)
+
+
+class TestAttachCramCharts:
+    @pytest.mark.asyncio
+    async def test_lemma_links_drill_to_chart(self):
+        from backend.repositories.cards import attach_cram_charts
+
+        card = _gym_card("evlerde")
+        conn = AsyncMock()
+        conn.fetch = AsyncMock(return_value=[
+            {"word": "ev", "morphology": CHARTED, "usage_note": "house"},
+        ])
+        with patch.dict("backend.services.nlp.NLP_BACKENDS", {"tr": _StubNLP()}):
+            await attach_cram_charts(conn, [card])
+
+        assert card["morphology"] == CHARTED
+        assert card["chart_word"] == "ev"
+        assert card["chart_usage_note"] == "house"
+        # The lookup asked for both the lemma and the surface form.
+        looked_up = conn.fetch.await_args.args[2]
+        assert "ev" in looked_up and "evlerde" in looked_up
+
+    @pytest.mark.asyncio
+    async def test_no_vocabulary_match_leaves_card_bare(self):
+        from backend.repositories.cards import attach_cram_charts
+
+        card = _gym_card("evlerde")
+        conn = AsyncMock()
+        conn.fetch = AsyncMock(return_value=[])
+        with patch.dict("backend.services.nlp.NLP_BACKENDS", {"tr": _StubNLP()}):
+            await attach_cram_charts(conn, [card])
+        assert card["morphology"] is None
+        assert "chart_word" not in card
+
+    @pytest.mark.asyncio
+    async def test_chips_only_morphology_is_not_a_chart(self):
+        from backend.repositories.cards import attach_cram_charts
+
+        card = _gym_card("evlerde")
+        conn = AsyncMock()
+        conn.fetch = AsyncMock(return_value=[
+            {"word": "ev", "morphology": '{"chips": [{"label": "gender"}]}',
+             "usage_note": None},
+        ])
+        with patch.dict("backend.services.nlp.NLP_BACKENDS", {"tr": _StubNLP()}):
+            await attach_cram_charts(conn, [card])
+        assert card["morphology"] is None
+
+    @pytest.mark.asyncio
+    async def test_short_answers_skip_the_lookup_entirely(self):
+        from backend.repositories.cards import attach_cram_charts
+
+        card = _gym_card("a0")
+        conn = AsyncMock()
+        await attach_cram_charts(conn, [card])
+        conn.fetch.assert_not_awaited()
+        assert card["morphology"] is None
+
+
+# ---------------------------------------------------------------------------
 # GET /api/curriculum/search
 # ---------------------------------------------------------------------------
 

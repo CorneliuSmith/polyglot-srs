@@ -428,3 +428,72 @@ describe('ReviewSessionPage — Quick Cram (WP13f)', () => {
     })
   })
 })
+
+describe('ReviewSessionPage — Gym chart peek (WP25c)', () => {
+  const gymCard: DueCard = {
+    ...testCard,
+    id: 'cram-grammar-abc-0',
+    sentence: 'Я {{answer}} музыку.',
+    correct_answer: 'слушаю',
+    language_code: 'ru',
+    morphology: {
+      charts: [{ title: 'Present', rows: [['я', 'слушаю'], ['ты', 'слушаешь']] }],
+    },
+    chart_word: 'слушать',
+    chart_usage_note: 'Imperfective; the pair of послушать.',
+  }
+
+  function renderCram() {
+    const queryClient = new QueryClient({
+      defaultOptions: { queries: { retry: false }, mutations: { retry: false } },
+    })
+    return render(
+      <QueryClientProvider client={queryClient}>
+        <MemoryRouter initialEntries={['/cram?points=p1&mix=1']}>
+          <ReviewSessionPage cram />
+        </MemoryRouter>
+      </QueryClientProvider>,
+    )
+  }
+
+  beforeEach(() => {
+    vi.clearAllMocks()
+    // qwertyTranslit must exist: the ru card mounts the translit hook.
+    mockUsePrefsStore.mockImplementation(
+      (selector: (s: Record<string, unknown>) => unknown) =>
+        selector({
+          activeLanguageId: 'lang-123',
+          listeningMode: false,
+          hintLevel: 0,
+          qwertyTranslit: {},
+        }),
+    )
+    mockGetCramCards.mockResolvedValue([gymCard])
+    mockValidateAnswer.mockResolvedValue(mockValidateResponse)
+    mockSubmitReview.mockResolvedValue(mockSubmitResponse)
+  })
+
+  it('chart is hidden until peeked, then shows forms + deviation note', async () => {
+    renderCram()
+    const peek = await screen.findByRole('button', {
+      name: /peek at the chart — слушать/i,
+    })
+    // Hidden initially — the whole point of the collapsed panel.
+    expect(screen.queryByTestId('gym-chart')).toBeNull()
+
+    fireEvent.click(peek)
+    expect(screen.getByTestId('gym-chart')).toBeDefined()
+    expect(screen.getByText('слушаешь')).toBeDefined()
+    expect(screen.getByText(/imperfective; the pair of/i)).toBeDefined()
+
+    fireEvent.click(screen.getByRole('button', { name: /hide the chart/i }))
+    expect(screen.queryByTestId('gym-chart')).toBeNull()
+  })
+
+  it('graded reviews never offer the peek (it would leak the answer)', async () => {
+    mockGetDueCards.mockResolvedValue([{ ...gymCard, id: 'card-real' }])
+    renderWithProviders(<ReviewSessionPage />)
+    await waitFor(() => screen.getByRole('textbox'))
+    expect(screen.queryByText(/peek at the chart/i)).toBeNull()
+  })
+})

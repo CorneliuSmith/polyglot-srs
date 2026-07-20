@@ -15,6 +15,7 @@ import OnScreenKeyboard from '../keyboards/OnScreenKeyboard'
 import { finalizeInput } from '../keyboards/translit'
 import { hintLayersFor } from './hintLayers'
 import SpeakButton from '../../components/SpeakButton'
+import FormsPanel from '../../components/FormsPanel'
 import { TTS_LANGUAGES } from '../../api/audio'
 import { hasKeyboardLayout } from '../keyboards/OnScreenKeyboard'
 import type { KeyboardLanguage } from '../keyboards/OnScreenKeyboard'
@@ -66,6 +67,9 @@ function ReviewSessionInner({
   const [lastInput, setLastInput] = useState('')
   const [showKeyboard, setShowKeyboard] = useState(true)
   const [saveErrorCount, setSaveErrorCount] = useState(0)
+  // Gym chart peek (WP25c): hidden on every card until opened. Cram is
+  // ungraded practice, so looking the form up mid-question is a feature.
+  const [chartOpen, setChartOpen] = useState(false)
   // Graduated hint disclosure (Bunpro-style dots): 0 = nothing revealed.
   // Persisted in prefs — the level chosen last time stays chosen, across
   // cards and across sessions, until the learner changes it.
@@ -122,6 +126,9 @@ function ReviewSessionInner({
   }, [fetched, cards])
 
   const session = useReviewSession(cards ?? [])
+
+  // "Hidden initially" means hidden on EVERY card, not just the first.
+  useEffect(() => setChartOpen(false), [session.currentIndex])
 
   const qwertyTranslit = usePrefsStore((s) => s.qwertyTranslit)
 
@@ -515,6 +522,37 @@ function ReviewSessionInner({
                   {l.text}
                 </p>
               ))}
+            </div>
+          )}
+
+          {cram && card.morphology != null && (
+            <div className="mt-5 border-t border-gray-100 pt-3 text-center">
+              <button
+                type="button"
+                onClick={() => setChartOpen((v) => !v)}
+                aria-expanded={chartOpen}
+                className="text-sm text-gray-400 hover:text-lang"
+              >
+                {chartOpen
+                  ? 'Hide the chart'
+                  : `Peek at the chart${card.chart_word ? ` — ${card.chart_word}` : ''}`}
+              </button>
+              {chartOpen && (
+                <div className="mt-3 text-left" data-testid="gym-chart">
+                  <FormsPanel
+                    morphology={card.morphology}
+                    languageCode={card.language_code}
+                  />
+                  {card.chart_usage_note && (
+                    <p className="mt-2 text-xs text-gray-500">
+                      {card.chart_usage_note}
+                    </p>
+                  )}
+                  <p className="mt-2 text-[11px] text-gray-300">
+                    Practice mode — peeking is allowed.
+                  </p>
+                </div>
+              )}
             </div>
           )}
         </div>
