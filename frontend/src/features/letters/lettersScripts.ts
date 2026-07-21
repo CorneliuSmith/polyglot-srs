@@ -378,3 +378,82 @@ export const thaiLetters: LanguageLetters = {
   ],
 }
 
+
+export const koreanLetters: LanguageLetters = {
+  intro: 'Hangul — 24 basic letters that ASSEMBLE into syllable blocks. Invented in 1443 to be learnable in a morning; the shapes even draw the mouth making the sound.',
+  sections: [
+    {
+      title: 'How letters come together',
+      note: 'Letters stack into square syllable blocks: consonant + vowel, plus an optional final consonant (받침) underneath. 한국 is six letters in two blocks.',
+      rows: [
+        { char: 'ㅎ + ㅏ + ㄴ → 한', roman: 'h + a + n', example: '한국', sound: 'consonant left, vertical vowel right, final letter below' },
+        { char: 'ㄱ + ㅜ + ㄱ → 국', roman: 'g + u + k', example: '한국', sound: 'horizontal vowels go UNDER the first consonant' },
+        { char: 'ㅅ + ㅏ → 사', roman: 's + a', example: '사람', sound: 'no final letter — just consonant + vowel' },
+        { char: 'ㅇ + ㅜ → 우', roman: '(silent) + u', example: '우유', sound: 'ㅇ is a silent placeholder when a block starts with a vowel' },
+        { char: 'ㅂ + ㅏ + ㅂ → 밥', roman: 'b + a + p', example: '밥', sound: 'the final ㅂ (받침) closes the syllable' },
+        { char: '받침 rule', roman: 'finals', example: '있다', sound: 'only 7 sounds can end a block: k, n, t, l, m, p, ng — spelling keeps the letter, the mouth simplifies' },
+      ],
+    },
+    {
+      title: 'Plain consonants',
+      rows: [
+        { char: 'ㄱ', roman: 'g/k', example: '가다', sound: "between 'g' and 'k' — 'g' at the start of a word cluster" },
+        { char: 'ㄴ', roman: 'n', example: '나', sound: "'n' as in no" },
+        { char: 'ㄷ', roman: 'd/t', example: '돈', sound: "between 'd' and 't'" },
+        { char: 'ㄹ', roman: 'r/l', example: '물', sound: "a tap 'r' between vowels; 'l' at the end of a block" },
+        { char: 'ㅁ', roman: 'm', example: '몸', sound: "'m' as in mom" },
+        { char: 'ㅂ', roman: 'b/p', example: '밥', sound: "between 'b' and 'p'" },
+        { char: 'ㅅ', roman: 's', example: '사람', sound: "'s' as in see; 'sh' before ㅣ" },
+        { char: 'ㅇ', roman: '-/ng', example: '강', sound: "silent at the start; 'ng' as in song at the end" },
+        { char: 'ㅈ', roman: 'j', example: '집', sound: "between 'j' and 'ch'" },
+        { char: 'ㅎ', roman: 'h', example: '하다', sound: "'h' as in hat" },
+      ],
+    },
+    {
+      title: 'Aspirated consonants (add a puff of air)',
+      note: 'Each is a plain consonant with an extra stroke and an extra puff.',
+      rows: [
+        { char: 'ㅋ', roman: 'k', example: '코', sound: "'k' with a strong puff (ㄱ + air)" },
+        { char: 'ㅌ', roman: 't', example: '토요일', sound: "'t' with a strong puff (ㄷ + air)" },
+        { char: 'ㅍ', roman: 'p', example: '팔', sound: "'p' with a strong puff (ㅂ + air)" },
+        { char: 'ㅊ', roman: 'ch', example: '차', sound: "'ch' with a strong puff (ㅈ + air)" },
+      ],
+    },
+    {
+      title: 'Tense consonants (doubled, no air)',
+      note: 'Say them with a tight throat and zero puff — like the second p in "happy".',
+      rows: [
+        { char: 'ㄲ', roman: 'kk', example: '까만', sound: "a tight, unaspirated 'k'" },
+        { char: 'ㄸ', roman: 'tt', example: '딸', sound: "a tight, unaspirated 't'" },
+        { char: 'ㅃ', roman: 'pp', example: '빵', sound: "a tight, unaspirated 'p'" },
+        { char: 'ㅆ', roman: 'ss', example: '쌀', sound: "a tight 's'" },
+        { char: 'ㅉ', roman: 'jj', example: '짜다', sound: "a tight, unaspirated 'j'" },
+      ],
+    },
+    {
+      title: 'Basic vowels',
+      rows: [
+        { char: 'ㅏ', roman: 'a', example: '아빠', sound: "'ah' as in father" },
+        { char: 'ㅓ', roman: 'eo', example: '어머니', sound: "'u' as in cut — an open 'aw'" },
+        { char: 'ㅗ', roman: 'o', example: '오늘', sound: "'o' as in go (lips rounded)" },
+        { char: 'ㅜ', roman: 'u', example: '우리', sound: "'oo' as in moon" },
+        { char: 'ㅡ', roman: 'eu', example: '그', sound: "'u' with lips FLAT — say 'oo' while smiling" },
+        { char: 'ㅣ', roman: 'i', example: '이름', sound: "'ee' as in see" },
+        { char: 'ㅐ', roman: 'ae', example: '개', sound: "'e' as in bed (same as ㅔ in modern speech)" },
+        { char: 'ㅔ', roman: 'e', example: '세 시', sound: "'e' as in bed" },
+      ],
+    },
+    {
+      title: 'Y- and W- vowels',
+      note: 'An extra stroke adds y-; combining two vowels makes w-.',
+      rows: [
+        { char: 'ㅑ ㅕ ㅛ ㅠ', roman: 'ya yeo yo yu', example: '야구, 여자', sound: 'the four basic vowels with a y- on front' },
+        { char: 'ㅒ ㅖ', roman: 'yae ye', example: '예', sound: "'ye' as in yes" },
+        { char: 'ㅘ ㅝ', roman: 'wa wo', example: '와요, 뭐', sound: "'wa' as in water, 'wo' as in wonder" },
+        { char: 'ㅙ ㅞ ㅚ', roman: 'wae we oe', example: '왜, 회사', sound: "all three sound like 'we' in modern speech" },
+        { char: 'ㅟ', roman: 'wi', example: '귀', sound: "'wee' as in week" },
+        { char: 'ㅢ', roman: 'ui', example: '의사', sound: "'u' + 'i' glided together; often just 'i' or 'e' in speech" },
+      ],
+    },
+  ],
+}

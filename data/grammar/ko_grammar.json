@@ -1,0 +1,2557 @@
+{
+ "language": "ko",
+ "lists": [
+  {
+   "level": "A1",
+   "title": "Korean A1 Grammar Path",
+   "description": "First Korean: topic, subject, and object particles, the verb-last sentence, the copula, polite present and past, negation with 안, place particles 에/에서, question words, having with 있어요/없어요, counters, and linking with 하고/도."
+  },
+  {
+   "level": "A2",
+   "title": "Korean A2 Grammar Path",
+   "description": "Getting things done: the 을 거예요 future, wanting with 고 싶어요, honorific requests with (으)세요, favours with 아/어 주세요, 못 vs 안, ability with (으)ㄹ 수 있어요, reasons with 아/어서, contrast with 지만, purpose with (으)러, and comparisons with 보다."
+  },
+  {
+   "level": "B1",
+   "title": "Korean B1 Grammar Path",
+   "description": "Real sentences: the formal ㅂ니다 style, the ㅂ/ㄷ/르 irregular families, conditions with (으)면, command-friendly reasons with (으)니까, obligation and permission, noun-modifying clauses, ongoing and resulting states, and (으)ㄹ 때."
+  },
+  {
+   "level": "B2",
+   "title": "Korean B2 Grammar Path",
+   "description": "Nuance: intention and inference with 겠, reported speech with 다고/라고, the 이히리기 passive and causative families, scene-setting with (으)ㄴ/는데, hedging with 것 같아요, and formal causes with 기 때문에."
+  },
+  {
+   "level": "C1",
+   "title": "Korean C1 Grammar Path",
+   "description": "Register control: the full honorific machinery (께서, 시, humble 드리다/뵙다) and the plain written 한다-style of books and news."
+  },
+  {
+   "level": "C2",
+   "title": "Korean C2 Grammar Path",
+   "description": "Native texture: squeezed quotations (대요/래요/냬요/재요) and the formal written connectives (으)며, (으)나, (으)므로."
+  }
+ ],
+ "points": [
+  {
+   "title": "Topic particle 은/는 (저는, 이것은)",
+   "level": "A1",
+   "function": "Marks what the sentence is ABOUT: 는 after a vowel, 은 after a consonant",
+   "explanation": "Korean tags the topic of a sentence with 은/는: 저는 학생이에요 (as for me, I'm a student). Use 는 when the word ends in a vowel (저는, 친구는) and 은 when it ends in a consonant (이것은, 선생님은). The topic is the frame — 'as for X' — and once set, you can drop it entirely in the next sentences.",
+   "references": [
+    {
+     "title": "Wikipedia: Korean postpositions",
+     "url": "https://en.wikipedia.org/wiki/Korean_postpositions"
+    },
+    {
+     "title": "How to Study Korean: Unit 1 particles",
+     "url": "https://www.howtostudykorean.com/unit1/unit-1-lessons-1-8/unit-1-lesson-1/"
+    }
+   ],
+   "drills": [
+    {
+     "sentence": "저{{answer}} 학생이에요.",
+     "answer": "는",
+     "translation": "I am a student.",
+     "hint": "topic marker — 저 ends in a vowel",
+     "display_order": 1
+    },
+    {
+     "sentence": "선생님{{answer}} 한국 사람이에요.",
+     "answer": "은",
+     "translation": "The teacher is Korean.",
+     "hint": "topic marker — 선생님 ends in a consonant",
+     "display_order": 2
+    },
+    {
+     "sentence": "친구{{answer}} 집에 있어요.",
+     "answer": "는",
+     "translation": "My friend is at home.",
+     "hint": "topic marker after a vowel",
+     "display_order": 3
+    },
+    {
+     "sentence": "이것{{answer}} 책이에요.",
+     "answer": "은",
+     "translation": "This is a book.",
+     "hint": "topic marker after a consonant",
+     "display_order": 4
+    },
+    {
+     "sentence": "오늘{{answer}} 날씨가 좋아요.",
+     "answer": "은",
+     "translation": "As for today, the weather is good.",
+     "hint": "topic marker — sets the frame 'as for today'",
+     "display_order": 5
+    },
+    {
+     "sentence": "우리{{answer}} 한국어를 공부해요.",
+     "answer": "는",
+     "translation": "We study Korean.",
+     "hint": "topic marker after a vowel",
+     "display_order": 6
+    }
+   ],
+   "source": "ai",
+   "reviewed": false,
+   "display_order": 1
+  },
+  {
+   "title": "Subject particle 이/가 (친구가, 물이)",
+   "level": "A1",
+   "function": "Marks WHO or WHAT does it: 가 after a vowel, 이 after a consonant",
+   "explanation": "이/가 marks the grammatical subject — the one doing or being: 친구가 와요 (a friend is coming). 가 follows vowels (친구가), 이 follows consonants (물이). Against 은/는: use 이/가 for NEW information and answers to 'who?' (누가 왔어요? 친구가 왔어요), and 은/는 for what's already the topic.",
+   "references": [
+    {
+     "title": "Wikipedia: Korean postpositions",
+     "url": "https://en.wikipedia.org/wiki/Korean_postpositions"
+    },
+    {
+     "title": "How to Study Korean: 이/가 vs 은/는",
+     "url": "https://www.howtostudykorean.com/unit1/unit-1-lessons-1-8/unit-1-lesson-2/"
+    }
+   ],
+   "drills": [
+    {
+     "sentence": "친구{{answer}} 와요.",
+     "answer": "가",
+     "translation": "A friend is coming.",
+     "hint": "subject marker — 친구 ends in a vowel",
+     "display_order": 1
+    },
+    {
+     "sentence": "물{{answer}} 차가워요.",
+     "answer": "이",
+     "translation": "The water is cold.",
+     "hint": "subject marker — 물 ends in a consonant",
+     "display_order": 2
+    },
+    {
+     "sentence": "날씨{{answer}} 좋아요.",
+     "answer": "가",
+     "translation": "The weather is good.",
+     "hint": "subject marker after a vowel",
+     "display_order": 3
+    },
+    {
+     "sentence": "동생{{answer}} 자요.",
+     "answer": "이",
+     "translation": "My little sibling is sleeping.",
+     "hint": "subject marker after a consonant",
+     "display_order": 4
+    },
+    {
+     "sentence": "누{{answer}} 왔어요?",
+     "answer": "가",
+     "translation": "Who came?",
+     "hint": "subject marker — 'who' takes the subject form 누가",
+     "display_order": 5
+    },
+    {
+     "sentence": "커피{{answer}} 맛있어요.",
+     "answer": "가",
+     "translation": "The coffee is delicious.",
+     "hint": "subject marker after a vowel",
+     "display_order": 6
+    }
+   ],
+   "source": "ai",
+   "reviewed": false,
+   "display_order": 2
+  },
+  {
+   "title": "Object particle 을/를 and verb-last order (밥을 먹어요)",
+   "level": "A1",
+   "function": "Marks the thing acted on; the verb always comes LAST",
+   "explanation": "Korean sentences end with the verb: subject – object – verb. The object wears 을/를: 밥을 먹어요 (I eat rice — literally 'rice-OBJECT eat'). 를 follows vowels (커피를), 을 follows consonants (밥을). Because the particles say who does what, word order before the verb is flexible — but the verb stays at the end.",
+   "references": [
+    {
+     "title": "Wikipedia: Korean grammar",
+     "url": "https://en.wikipedia.org/wiki/Korean_grammar"
+    },
+    {
+     "title": "How to Study Korean: word order",
+     "url": "https://www.howtostudykorean.com/unit1/unit-1-lessons-1-8/unit-1-lesson-1/"
+    }
+   ],
+   "drills": [
+    {
+     "sentence": "밥{{answer}} 먹어요.",
+     "answer": "을",
+     "translation": "I eat rice.",
+     "hint": "object marker — 밥 ends in a consonant",
+     "display_order": 1
+    },
+    {
+     "sentence": "커피{{answer}} 마셔요.",
+     "answer": "를",
+     "translation": "I drink coffee.",
+     "hint": "object marker — 커피 ends in a vowel",
+     "display_order": 2
+    },
+    {
+     "sentence": "책{{answer}} 읽어요.",
+     "answer": "을",
+     "translation": "I read a book.",
+     "hint": "object marker after a consonant",
+     "display_order": 3
+    },
+    {
+     "sentence": "한국어{{answer}} 공부해요.",
+     "answer": "를",
+     "translation": "I study Korean.",
+     "hint": "object marker after a vowel",
+     "display_order": 4
+    },
+    {
+     "sentence": "영화{{answer}} 봐요.",
+     "answer": "를",
+     "translation": "I watch a movie.",
+     "hint": "object marker after a vowel",
+     "display_order": 5
+    },
+    {
+     "sentence": "음악{{answer}} 들어요.",
+     "answer": "을",
+     "translation": "I listen to music.",
+     "hint": "object marker after a consonant",
+     "display_order": 6
+    }
+   ],
+   "source": "ai",
+   "reviewed": false,
+   "display_order": 3
+  },
+  {
+   "title": "The copula 이에요/예요 (책이에요, 의사예요)",
+   "level": "A1",
+   "function": "'X is Y': 이에요 after a consonant, 예요 after a vowel",
+   "explanation": "To say 'X is Y', attach the copula straight to the noun: 책이에요 (it's a book), 의사예요 (she's a doctor). 이에요 follows consonants, 예요 follows vowels. The negative is a separate word with 이/가: 학생이 아니에요 (is not a student).",
+   "references": [
+    {
+     "title": "Wikipedia: Korean grammar — copula",
+     "url": "https://en.wikipedia.org/wiki/Korean_grammar"
+    },
+    {
+     "title": "How to Study Korean: 이다",
+     "url": "https://www.howtostudykorean.com/unit1/unit-1-lessons-1-8/unit-1-lesson-5/"
+    }
+   ],
+   "drills": [
+    {
+     "sentence": "이것은 책{{answer}}.",
+     "answer": "이에요",
+     "translation": "This is a book.",
+     "hint": "'is' — 책 ends in a consonant",
+     "display_order": 1
+    },
+    {
+     "sentence": "저는 의사{{answer}}.",
+     "answer": "예요",
+     "translation": "I am a doctor.",
+     "hint": "'is' — 의사 ends in a vowel",
+     "display_order": 2
+    },
+    {
+     "sentence": "그분은 선생님{{answer}}.",
+     "answer": "이에요",
+     "translation": "That person is a teacher.",
+     "hint": "'is' after a consonant",
+     "display_order": 3
+    },
+    {
+     "sentence": "여기는 학교{{answer}}.",
+     "answer": "예요",
+     "translation": "This place is a school.",
+     "hint": "'is' after a vowel",
+     "display_order": 4
+    },
+    {
+     "sentence": "저는 학생이 {{answer}}.",
+     "answer": "아니에요",
+     "translation": "I am not a student.",
+     "hint": "'is not' — its own word",
+     "display_order": 5
+    },
+    {
+     "sentence": "그것은 물{{answer}}.",
+     "answer": "이에요",
+     "translation": "That is water.",
+     "hint": "'is' after a consonant",
+     "display_order": 6
+    }
+   ],
+   "source": "ai",
+   "reviewed": false,
+   "display_order": 4
+  },
+  {
+   "title": "Present polite 아요/어요 (가요, 먹어요)",
+   "level": "A1",
+   "function": "The everyday polite ending: 아요 after bright vowels ㅏ/ㅗ, 어요 otherwise",
+   "explanation": "Drop 다 from the dictionary form and add 아요 or 어요: 가다 → 가요 (go), 먹다 → 먹어요 (eat). If the stem's last vowel is ㅏ or ㅗ, use 아요 (살다 → 살아요); otherwise 어요 (읽다 → 읽어요). 하다 verbs become 해요 (공부하다 → 공부해요). This one form covers 'I go', 'she goes', and 'we go' — Korean verbs never change for person.",
+   "references": [
+    {
+     "title": "Wikipedia: Korean verbs",
+     "url": "https://en.wikipedia.org/wiki/Korean_verbs"
+    },
+    {
+     "title": "How to Study Korean: conjugation basics",
+     "url": "https://www.howtostudykorean.com/unit1/unit-1-lessons-1-8/unit-1-lesson-5/"
+    }
+   ],
+   "drills": [
+    {
+     "sentence": "저는 학교에 {{answer}}.",
+     "answer": "가요",
+     "translation": "I go to school.",
+     "hint": "to go (가다) — polite present",
+     "display_order": 1
+    },
+    {
+     "sentence": "동생이 밥을 {{answer}}.",
+     "answer": "먹어요",
+     "translation": "My little sibling eats rice.",
+     "hint": "to eat (먹다) — stem vowel is not bright",
+     "display_order": 2
+    },
+    {
+     "sentence": "친구가 책을 {{answer}}.",
+     "answer": "읽어요",
+     "translation": "My friend reads a book.",
+     "hint": "to read (읽다) — polite present",
+     "display_order": 3
+    },
+    {
+     "sentence": "우리는 한국어를 {{answer}}.",
+     "answer": "공부해요",
+     "translation": "We study Korean.",
+     "hint": "to study (공부하다) — 하다 becomes 해요",
+     "display_order": 4
+    },
+    {
+     "sentence": "저는 서울에 {{answer}}.",
+     "answer": "살아요",
+     "translation": "I live in Seoul.",
+     "hint": "to live (살다) — stem vowel ㅏ is bright",
+     "display_order": 5
+    },
+    {
+     "sentence": "언니가 물을 {{answer}}.",
+     "answer": "마셔요",
+     "translation": "My older sister drinks water.",
+     "hint": "to drink (마시다) — 이 + 어요 contracts",
+     "display_order": 6
+    }
+   ],
+   "source": "ai",
+   "reviewed": false,
+   "display_order": 5
+  },
+  {
+   "title": "Negation with 안 (안 가요)",
+   "level": "A1",
+   "function": "Put 안 right before the verb: don't / doesn't",
+   "explanation": "The simplest negative is 안 in front of the verb: 안 가요 (I don't go), 안 먹어요 (I don't eat). With 하다 verbs, 안 slips between the noun and 하다: 공부 안 해요 (I don't study). The longer twin 지 않아요 means the same and sounds a touch more formal: 가지 않아요.",
+   "references": [
+    {
+     "title": "Wikipedia: Korean grammar — negation",
+     "url": "https://en.wikipedia.org/wiki/Korean_grammar"
+    },
+    {
+     "title": "How to Study Korean: negatives",
+     "url": "https://www.howtostudykorean.com/unit1/unit-1-lessons-1-8/unit-1-lesson-8/"
+    }
+   ],
+   "drills": [
+    {
+     "sentence": "저는 오늘 학교에 {{answer}} 가요.",
+     "answer": "안",
+     "translation": "I'm not going to school today.",
+     "hint": "the little 'not' word before the verb",
+     "display_order": 1
+    },
+    {
+     "sentence": "동생은 고기를 {{answer}} 먹어요.",
+     "answer": "안",
+     "translation": "My little sibling doesn't eat meat.",
+     "hint": "'not' — right before the verb",
+     "display_order": 2
+    },
+    {
+     "sentence": "저는 커피를 안 {{answer}}.",
+     "answer": "마셔요",
+     "translation": "I don't drink coffee.",
+     "hint": "to drink — polite present after 안",
+     "display_order": 3
+    },
+    {
+     "sentence": "오늘은 공부 {{answer}} 해요.",
+     "answer": "안",
+     "translation": "I'm not studying today.",
+     "hint": "with 하다 verbs it goes between noun and 하다",
+     "display_order": 4
+    },
+    {
+     "sentence": "친구가 가{{answer}} 않아요.",
+     "answer": "지",
+     "translation": "My friend isn't going.",
+     "hint": "the longer negative: verb stem + 지 않아요",
+     "display_order": 5
+    },
+    {
+     "sentence": "저는 텔레비전을 {{answer}} 봐요.",
+     "answer": "안",
+     "translation": "I don't watch television.",
+     "hint": "'not' before the verb",
+     "display_order": 6
+    }
+   ],
+   "source": "ai",
+   "reviewed": false,
+   "display_order": 6
+  },
+  {
+   "title": "Place and time: 에 vs 에서 (집에, 집에서)",
+   "level": "A1",
+   "function": "에 = at/to (destination, time, existence); 에서 = where an action happens",
+   "explanation": "에 marks a destination or a time: 학교에 가요 (go TO school), 세 시에 (AT three o'clock), and where something simply exists: 집에 있어요 (be at home). 에서 marks where an ACTION happens: 집에서 공부해요 (study AT home). Rule of thumb: doing something somewhere → 에서; going somewhere or just being there → 에.",
+   "references": [
+    {
+     "title": "Wikipedia: Korean postpositions",
+     "url": "https://en.wikipedia.org/wiki/Korean_postpositions"
+    },
+    {
+     "title": "How to Study Korean: 에 and 에서",
+     "url": "https://www.howtostudykorean.com/unit1/unit-1-lessons-1-8/unit-1-lesson-4/"
+    }
+   ],
+   "drills": [
+    {
+     "sentence": "저는 학교{{answer}} 가요.",
+     "answer": "에",
+     "translation": "I go to school.",
+     "hint": "destination marker",
+     "display_order": 1
+    },
+    {
+     "sentence": "도서관{{answer}} 공부해요.",
+     "answer": "에서",
+     "translation": "I study at the library.",
+     "hint": "the action happens there",
+     "display_order": 2
+    },
+    {
+     "sentence": "친구가 집{{answer}} 있어요.",
+     "answer": "에",
+     "translation": "My friend is at home.",
+     "hint": "just being there, no action",
+     "display_order": 3
+    },
+    {
+     "sentence": "식당{{answer}} 밥을 먹어요.",
+     "answer": "에서",
+     "translation": "I eat at a restaurant.",
+     "hint": "eating is an action",
+     "display_order": 4
+    },
+    {
+     "sentence": "세 시{{answer}} 만나요.",
+     "answer": "에",
+     "translation": "We meet at three o'clock.",
+     "hint": "time marker",
+     "display_order": 5
+    },
+    {
+     "sentence": "카페{{answer}} 커피를 마셔요.",
+     "answer": "에서",
+     "translation": "I drink coffee at a cafe.",
+     "hint": "drinking is an action",
+     "display_order": 6
+    }
+   ],
+   "source": "ai",
+   "reviewed": false,
+   "display_order": 7
+  },
+  {
+   "title": "Past tense 았어요/었어요 (갔어요, 먹었어요)",
+   "level": "A1",
+   "function": "Add 았/었 before 어요: bright-vowel stems take 았, the rest 었",
+   "explanation": "The past slots 았/었 between stem and ending: 가다 → 갔어요 (went), 먹다 → 먹었어요 (ate). Bright vowels ㅏ/ㅗ take 았어요 (살았어요), everything else 었어요 (읽었어요), and 하다 becomes 했어요 (공부했어요). Same form for I/you/she/we — person never matters.",
+   "references": [
+    {
+     "title": "Wikipedia: Korean verbs — tense",
+     "url": "https://en.wikipedia.org/wiki/Korean_verbs"
+    },
+    {
+     "title": "How to Study Korean: past tense",
+     "url": "https://www.howtostudykorean.com/unit1/unit-1-lessons-1-8/unit-1-lesson-5/"
+    }
+   ],
+   "drills": [
+    {
+     "sentence": "어제 학교에 {{answer}}.",
+     "answer": "갔어요",
+     "translation": "I went to school yesterday.",
+     "hint": "to go (가다) — past polite",
+     "display_order": 1
+    },
+    {
+     "sentence": "아침에 밥을 {{answer}}.",
+     "answer": "먹었어요",
+     "translation": "I ate rice in the morning.",
+     "hint": "to eat (먹다) — past polite",
+     "display_order": 2
+    },
+    {
+     "sentence": "주말에 영화를 {{answer}}.",
+     "answer": "봤어요",
+     "translation": "I watched a movie on the weekend.",
+     "hint": "to see/watch (보다) — 오 + 았 contracts",
+     "display_order": 3
+    },
+    {
+     "sentence": "어제 한국어를 {{answer}}.",
+     "answer": "공부했어요",
+     "translation": "I studied Korean yesterday.",
+     "hint": "공부하다 — 하다 becomes 했어요 in the past",
+     "display_order": 4
+    },
+    {
+     "sentence": "친구를 {{answer}}.",
+     "answer": "만났어요",
+     "translation": "I met a friend.",
+     "hint": "to meet (만나다) — past polite",
+     "display_order": 5
+    },
+    {
+     "sentence": "물을 {{answer}}.",
+     "answer": "마셨어요",
+     "translation": "I drank water.",
+     "hint": "to drink (마시다) — past polite",
+     "display_order": 6
+    }
+   ],
+   "source": "ai",
+   "reviewed": false,
+   "display_order": 8
+  },
+  {
+   "title": "Question words: 뭐, 누구, 어디, 언제 (뭐 해요?)",
+   "level": "A1",
+   "function": "Questions keep normal word order — just add the question word and a rising tone",
+   "explanation": "Korean questions don't rearrange anything: 뭐 해요? (what are you doing?), 어디에 가요? (where are you going?). The polite ending 요 plus rising intonation is the whole question machinery. Who = 누구 (누가 as subject), what = 뭐/무엇, where = 어디, when = 언제, why = 왜, how = 어떻게.",
+   "references": [
+    {
+     "title": "Wikipedia: Korean grammar",
+     "url": "https://en.wikipedia.org/wiki/Korean_grammar"
+    },
+    {
+     "title": "How to Study Korean: question words",
+     "url": "https://www.howtostudykorean.com/unit-2-lower-intermediate-korean-grammar/unit-2-lessons-17-25-2/lesson-21/"
+    }
+   ],
+   "drills": [
+    {
+     "sentence": "지금 {{answer}} 해요?",
+     "answer": "뭐",
+     "translation": "What are you doing now?",
+     "hint": "'what' (colloquial)",
+     "display_order": 1
+    },
+    {
+     "sentence": "{{answer}}에 가요?",
+     "answer": "어디",
+     "translation": "Where are you going?",
+     "hint": "'where'",
+     "display_order": 2
+    },
+    {
+     "sentence": "저 사람은 {{answer}}예요?",
+     "answer": "누구",
+     "translation": "Who is that person?",
+     "hint": "'who'",
+     "display_order": 3
+    },
+    {
+     "sentence": "{{answer}} 한국에 왔어요?",
+     "answer": "언제",
+     "translation": "When did you come to Korea?",
+     "hint": "'when'",
+     "display_order": 4
+    },
+    {
+     "sentence": "{{answer}} 늦었어요?",
+     "answer": "왜",
+     "translation": "Why were you late?",
+     "hint": "'why'",
+     "display_order": 5
+    },
+    {
+     "sentence": "이거 {{answer}} 먹어요?",
+     "answer": "어떻게",
+     "translation": "How do you eat this?",
+     "hint": "'how'",
+     "display_order": 6
+    }
+   ],
+   "source": "ai",
+   "reviewed": false,
+   "display_order": 9
+  },
+  {
+   "title": "있어요/없어요: existing and having (시간이 있어요)",
+   "level": "A1",
+   "function": "One pair covers 'there is / I have' and 'there isn't / I don't have'",
+   "explanation": "있어요 says something exists or you have it: 시간이 있어요 (I have time / there is time). 없어요 is its negative: 돈이 없어요 (I have no money). The thing possessed takes 이/가, not 을/를 — Korean literally says 'to me, time exists'. For people you respect, 있다 upgrades to 계시다: 할머니가 집에 계세요.",
+   "references": [
+    {
+     "title": "Wikipedia: Korean grammar",
+     "url": "https://en.wikipedia.org/wiki/Korean_grammar"
+    },
+    {
+     "title": "How to Study Korean: 있다 and 없다",
+     "url": "https://www.howtostudykorean.com/unit1/unit-1-lessons-1-8/unit-1-lesson-3/"
+    }
+   ],
+   "drills": [
+    {
+     "sentence": "오늘 시간이 {{answer}}?",
+     "answer": "있어요",
+     "translation": "Do you have time today?",
+     "hint": "'have / there is'",
+     "display_order": 1
+    },
+    {
+     "sentence": "지금 돈이 {{answer}}.",
+     "answer": "없어요",
+     "translation": "I have no money right now.",
+     "hint": "'don't have / there isn't'",
+     "display_order": 2
+    },
+    {
+     "sentence": "고양이가 방에 {{answer}}.",
+     "answer": "있어요",
+     "translation": "The cat is in the room.",
+     "hint": "'is there' — existence",
+     "display_order": 3
+    },
+    {
+     "sentence": "질문이 {{answer}}.",
+     "answer": "있어요",
+     "translation": "I have a question.",
+     "hint": "'have'",
+     "display_order": 4
+    },
+    {
+     "sentence": "냉장고에 우유가 {{answer}}.",
+     "answer": "없어요",
+     "translation": "There is no milk in the fridge.",
+     "hint": "'there isn't'",
+     "display_order": 5
+    },
+    {
+     "sentence": "형이 두 명 {{answer}}.",
+     "answer": "있어요",
+     "translation": "I have two older brothers.",
+     "hint": "'have'",
+     "display_order": 6
+    }
+   ],
+   "source": "ai",
+   "reviewed": false,
+   "display_order": 10
+  },
+  {
+   "title": "Counters: 개, 명, 마리 with native numbers (사과 두 개)",
+   "level": "A1",
+   "function": "Count things as NOUN + number + counter, with the native numbers",
+   "explanation": "Korean counts with measure words: 사과 두 개 (apples, two-item = two apples), 학생 세 명 (three students), 고양이 한 마리 (one cat). The pattern is noun + native number + counter. Before a counter, the first numbers shorten: 하나→한, 둘→두, 셋→세, 넷→네. 개 counts objects, 명 people (분 politely), 마리 animals, 권 books, 잔 cups.",
+   "references": [
+    {
+     "title": "Wikipedia: Korean count word",
+     "url": "https://en.wikipedia.org/wiki/Korean_count_word"
+    },
+    {
+     "title": "How to Study Korean: counters",
+     "url": "https://www.howtostudykorean.com/unit1/unit-1-lessons-9-16/lesson-10/"
+    }
+   ],
+   "drills": [
+    {
+     "sentence": "사과 두 {{answer}} 주세요.",
+     "answer": "개",
+     "translation": "Two apples, please.",
+     "hint": "counter for things",
+     "display_order": 1
+    },
+    {
+     "sentence": "학생이 세 {{answer}} 있어요.",
+     "answer": "명",
+     "translation": "There are three students.",
+     "hint": "counter for people",
+     "display_order": 2
+    },
+    {
+     "sentence": "고양이 한 {{answer}}가 있어요.",
+     "answer": "마리",
+     "translation": "There is one cat.",
+     "hint": "counter for animals",
+     "display_order": 3
+    },
+    {
+     "sentence": "책 네 {{answer}}을 샀어요.",
+     "answer": "권",
+     "translation": "I bought four books.",
+     "hint": "counter for books",
+     "display_order": 4
+    },
+    {
+     "sentence": "커피 {{answer}} 잔 주세요.",
+     "answer": "한",
+     "translation": "One cup of coffee, please.",
+     "hint": "'one' shortens before a counter (하나 → ?)",
+     "display_order": 5
+    },
+    {
+     "sentence": "사과 {{answer}} 개 먹었어요.",
+     "answer": "두",
+     "translation": "I ate two apples.",
+     "hint": "'two' shortens before a counter (둘 → ?)",
+     "display_order": 6
+    }
+   ],
+   "source": "ai",
+   "reviewed": false,
+   "display_order": 11
+  },
+  {
+   "title": "Linking nouns: 하고 (and/with) and 도 (also)",
+   "level": "A1",
+   "function": "하고 joins nouns or means 'together with'; 도 replaces 은/는/이/가 to say 'too'",
+   "explanation": "하고 glues nouns together: 빵하고 우유 (bread and milk), and doubles as 'with': 친구하고 갔어요 (I went with a friend). Its formal twins are 와 (after vowels) and 과 (after consonants). 도 means 'also/too' and REPLACES the topic or subject particle instead of stacking on it: 저도 가요 (I'm going too — never 저는도).",
+   "references": [
+    {
+     "title": "Wikipedia: Korean postpositions",
+     "url": "https://en.wikipedia.org/wiki/Korean_postpositions"
+    },
+    {
+     "title": "How to Study Korean: 도, 하고",
+     "url": "https://www.howtostudykorean.com/unit1/unit-1-lessons-1-8/unit-1-lesson-4/"
+    }
+   ],
+   "drills": [
+    {
+     "sentence": "빵{{answer}} 우유를 샀어요.",
+     "answer": "하고",
+     "translation": "I bought bread and milk.",
+     "hint": "'and' between nouns (colloquial)",
+     "display_order": 1
+    },
+    {
+     "sentence": "친구{{answer}} 영화를 봤어요.",
+     "answer": "하고",
+     "translation": "I watched a movie with a friend.",
+     "hint": "'together with'",
+     "display_order": 2
+    },
+    {
+     "sentence": "저{{answer}} 가고 싶어요.",
+     "answer": "도",
+     "translation": "I want to go too.",
+     "hint": "'also' — replaces the topic particle",
+     "display_order": 3
+    },
+    {
+     "sentence": "커피{{answer}} 차를 좋아해요.",
+     "answer": "와",
+     "translation": "I like coffee and tea.",
+     "hint": "formal 'and' after a vowel",
+     "display_order": 4
+    },
+    {
+     "sentence": "책{{answer}} 공책을 주세요.",
+     "answer": "과",
+     "translation": "Please give me a book and a notebook.",
+     "hint": "formal 'and' after a consonant",
+     "display_order": 5
+    },
+    {
+     "sentence": "동생{{answer}} 한국어를 배워요.",
+     "answer": "도",
+     "translation": "My little sibling learns Korean too.",
+     "hint": "'also'",
+     "display_order": 6
+    }
+   ],
+   "source": "ai",
+   "reviewed": false,
+   "display_order": 12
+  },
+  {
+   "title": "Future with (으)ㄹ 거예요 (갈 거예요)",
+   "level": "A2",
+   "function": "Plans and predictions: stem + ㄹ/을 거예요",
+   "explanation": "The everyday future: 내일 갈 거예요 (I'll go tomorrow). Vowel stems take ㄹ 거예요 (가다 → 갈 거예요), consonant stems take 을 거예요 (먹다 → 먹을 거예요). It covers both plans (I'm going to…) and guesses about the present: 지금 집에 있을 거예요 (he's probably home now).",
+   "references": [
+    {
+     "title": "Wikipedia: Korean verbs",
+     "url": "https://en.wikipedia.org/wiki/Korean_verbs"
+    },
+    {
+     "title": "How to Study Korean: future tense",
+     "url": "https://www.howtostudykorean.com/unit1/unit-1-lessons-9-16/unit-1-lesson-9/"
+    }
+   ],
+   "drills": [
+    {
+     "sentence": "내일 학교에 {{answer}} 거예요.",
+     "answer": "갈",
+     "translation": "I will go to school tomorrow.",
+     "hint": "to go (가다) — future stem before 거예요",
+     "display_order": 1
+    },
+    {
+     "sentence": "저녁에 밥을 {{answer}} 거예요.",
+     "answer": "먹을",
+     "translation": "I will eat dinner in the evening.",
+     "hint": "to eat (먹다) — consonant stem takes 을",
+     "display_order": 2
+    },
+    {
+     "sentence": "주말에 영화를 볼 {{answer}}.",
+     "answer": "거예요",
+     "translation": "I will watch a movie on the weekend.",
+     "hint": "the future ending after the ㄹ stem",
+     "display_order": 3
+    },
+    {
+     "sentence": "내년에 한국어를 {{answer}} 거예요.",
+     "answer": "배울",
+     "translation": "I will learn Korean next year.",
+     "hint": "to learn (배우다) — future stem",
+     "display_order": 4
+    },
+    {
+     "sentence": "친구가 지금 집에 {{answer}} 거예요.",
+     "answer": "있을",
+     "translation": "My friend is probably home now.",
+     "hint": "있다 as a guess about the present",
+     "display_order": 5
+    },
+    {
+     "sentence": "다음 주에 부산에 {{answer}} 거예요.",
+     "answer": "갈",
+     "translation": "I will go to Busan next week.",
+     "hint": "to go — future stem",
+     "display_order": 6
+    }
+   ],
+   "source": "ai",
+   "reviewed": false,
+   "display_order": 13
+  },
+  {
+   "title": "Wanting: 고 싶어요 (가고 싶어요)",
+   "level": "A2",
+   "function": "stem + 고 싶어요 = want to; third person uses 고 싶어해요",
+   "explanation": "Attach 고 싶어요 to any verb stem: 한국에 가고 싶어요 (I want to go to Korea), 쉬고 싶어요 (I want to rest). The stem never changes — no vowel matching. For what SOMEONE ELSE wants, Korean switches to 고 싶어해요: 동생이 자고 싶어해요 (my sibling wants to sleep).",
+   "references": [
+    {
+     "title": "Wikipedia: Korean verbs",
+     "url": "https://en.wikipedia.org/wiki/Korean_verbs"
+    },
+    {
+     "title": "How to Study Korean: 고 싶다",
+     "url": "https://www.howtostudykorean.com/unit1/unit-1-lessons-9-16/unit-1-lesson-13/"
+    }
+   ],
+   "drills": [
+    {
+     "sentence": "한국에 {{answer}} 싶어요.",
+     "answer": "가고",
+     "translation": "I want to go to Korea.",
+     "hint": "to go + the wanting connector",
+     "display_order": 1
+    },
+    {
+     "sentence": "김치를 {{answer}} 싶어요.",
+     "answer": "먹고",
+     "translation": "I want to eat kimchi.",
+     "hint": "to eat + the wanting connector",
+     "display_order": 2
+    },
+    {
+     "sentence": "오늘은 집에서 쉬고 {{answer}}.",
+     "answer": "싶어요",
+     "translation": "Today I want to rest at home.",
+     "hint": "the 'want' part after stem + 고",
+     "display_order": 3
+    },
+    {
+     "sentence": "한국어를 잘 {{answer}} 싶어요.",
+     "answer": "하고",
+     "translation": "I want to speak Korean well.",
+     "hint": "하다 stem + the wanting connector",
+     "display_order": 4
+    },
+    {
+     "sentence": "동생이 자고 {{answer}}.",
+     "answer": "싶어해요",
+     "translation": "My little sibling wants to sleep.",
+     "hint": "someone ELSE's wish uses a different ending",
+     "display_order": 5
+    },
+    {
+     "sentence": "친구를 {{answer}} 싶어요.",
+     "answer": "만나고",
+     "translation": "I want to meet my friend.",
+     "hint": "to meet + the wanting connector",
+     "display_order": 6
+    }
+   ],
+   "source": "ai",
+   "reviewed": false,
+   "display_order": 14
+  },
+  {
+   "title": "Polite requests and honorific (으)세요 (앉으세요)",
+   "level": "A2",
+   "function": "One ending, two jobs: honoring the subject, and gentle commands",
+   "explanation": "(으)세요 does double duty. As a request: 앉으세요 (please sit), 여기 보세요 (look here). As an honorific statement about someone respected: 할머니가 주무세요 (grandmother is sleeping — 자다 upgrades to 주무시다). Vowel stems take 세요 (가세요), consonant stems 으세요 (앉으세요). Some verbs swap entirely: 먹다 → 드세요, 자다 → 주무세요, 있다 → 계세요.",
+   "references": [
+    {
+     "title": "Wikipedia: Korean honorifics",
+     "url": "https://en.wikipedia.org/wiki/Korean_honorifics"
+    },
+    {
+     "title": "How to Study Korean: honorifics",
+     "url": "https://www.howtostudykorean.com/unit1/unit-1-lessons-9-16/lesson-13/"
+    }
+   ],
+   "drills": [
+    {
+     "sentence": "여기 {{answer}}.",
+     "answer": "앉으세요",
+     "translation": "Please sit here.",
+     "hint": "to sit (앉다) — polite request, consonant stem",
+     "display_order": 1
+    },
+    {
+     "sentence": "안녕히 {{answer}}.",
+     "answer": "가세요",
+     "translation": "Goodbye (go peacefully).",
+     "hint": "to go — polite request, vowel stem",
+     "display_order": 2
+    },
+    {
+     "sentence": "맛있게 {{answer}}.",
+     "answer": "드세요",
+     "translation": "Enjoy your meal (eat well).",
+     "hint": "먹다 has a special honorific verb",
+     "display_order": 3
+    },
+    {
+     "sentence": "할머니가 지금 {{answer}}.",
+     "answer": "주무세요",
+     "translation": "Grandmother is sleeping now.",
+     "hint": "자다 has a special honorific verb",
+     "display_order": 4
+    },
+    {
+     "sentence": "선생님이 교실에 {{answer}}.",
+     "answer": "계세요",
+     "translation": "The teacher is in the classroom.",
+     "hint": "있다 upgrades for respected people",
+     "display_order": 5
+    },
+    {
+     "sentence": "천천히 {{answer}}.",
+     "answer": "말씀하세요",
+     "translation": "Please speak slowly.",
+     "hint": "말하다 upgrades to 말씀하다 + 세요",
+     "display_order": 6
+    }
+   ],
+   "source": "ai",
+   "reviewed": false,
+   "display_order": 15
+  },
+  {
+   "title": "Do it for me: 아/어 주세요 (도와주세요)",
+   "level": "A2",
+   "function": "Verb + 아/어 주세요 asks someone to do something FOR you",
+   "explanation": "주다 (to give) after another verb turns it into a favour: 문을 열어 주세요 (please open the door — literally 'open-give'). Bright stems take 아 주세요 (사 주세요 — buy for me), the rest 어 주세요 (읽어 주세요 — read for me). Statements work too: 친구가 도와줬어요 (a friend helped me out).",
+   "references": [
+    {
+     "title": "Wikipedia: Korean verbs",
+     "url": "https://en.wikipedia.org/wiki/Korean_verbs"
+    },
+    {
+     "title": "How to Study Korean: 주다 favours",
+     "url": "https://www.howtostudykorean.com/unit-3-intermediate-korean-grammar/unit-3-lessons-42-50/lesson-41/"
+    }
+   ],
+   "drills": [
+    {
+     "sentence": "문을 {{answer}} 주세요.",
+     "answer": "열어",
+     "translation": "Please open the door (for me).",
+     "hint": "to open (열다) + the favour connector",
+     "display_order": 1
+    },
+    {
+     "sentence": "다시 한번 {{answer}} 주세요.",
+     "answer": "말해",
+     "translation": "Please say it one more time.",
+     "hint": "to say (말하다) + the favour connector",
+     "display_order": 2
+    },
+    {
+     "sentence": "사진을 찍어 {{answer}}.",
+     "answer": "주세요",
+     "translation": "Please take a photo (for me).",
+     "hint": "the 'for me' part after 찍어",
+     "display_order": 3
+    },
+    {
+     "sentence": "친구가 숙제를 {{answer}}.",
+     "answer": "도와줬어요",
+     "translation": "My friend helped me with homework.",
+     "hint": "돕다 + 주다 in the past — did it for me",
+     "display_order": 4
+    },
+    {
+     "sentence": "이것 좀 {{answer}} 주세요.",
+     "answer": "봐",
+     "translation": "Please take a look at this.",
+     "hint": "to look (보다) + the favour connector",
+     "display_order": 5
+    },
+    {
+     "sentence": "천천히 {{answer}} 주세요.",
+     "answer": "가",
+     "translation": "Please go slowly (for me).",
+     "hint": "to go + the favour connector",
+     "display_order": 6
+    }
+   ],
+   "source": "ai",
+   "reviewed": false,
+   "display_order": 16
+  },
+  {
+   "title": "Can't: 못 vs won't: 안 (못 가요)",
+   "level": "A2",
+   "function": "안 = choose not to; 못 = unable to",
+   "explanation": "안 가요 means I'm not going (my choice); 못 가요 means I CAN'T go (something stops me). 못 sits right before the verb, and with 하다 verbs slips inside: 수영 못 해요 (I can't swim). The longer form is 지 못해요: 먹지 못해요. Pick by asking: is it refusal (안) or inability (못)?",
+   "references": [
+    {
+     "title": "Wikipedia: Korean grammar — negation",
+     "url": "https://en.wikipedia.org/wiki/Korean_grammar"
+    },
+    {
+     "title": "How to Study Korean: 못",
+     "url": "https://www.howtostudykorean.com/unit1/unit-1-lessons-9-16/lesson-12/"
+    }
+   ],
+   "drills": [
+    {
+     "sentence": "다리를 다쳐서 {{answer}} 가요.",
+     "answer": "못",
+     "translation": "I hurt my leg, so I can't go.",
+     "hint": "unable, not unwilling",
+     "display_order": 1
+    },
+    {
+     "sentence": "저는 수영 {{answer}} 해요.",
+     "answer": "못",
+     "translation": "I can't swim.",
+     "hint": "inability — inside the 하다 verb",
+     "display_order": 2
+    },
+    {
+     "sentence": "매운 것을 {{answer}} 먹어요.",
+     "answer": "못",
+     "translation": "I can't eat spicy things.",
+     "hint": "unable to eat",
+     "display_order": 3
+    },
+    {
+     "sentence": "오늘은 일부러 {{answer}} 가요.",
+     "answer": "안",
+     "translation": "Today I'm deliberately not going.",
+     "hint": "refusal — a choice, not inability",
+     "display_order": 4
+    },
+    {
+     "sentence": "시끄러워서 자지 {{answer}}.",
+     "answer": "못해요",
+     "translation": "It's noisy, so I can't sleep.",
+     "hint": "the longer inability form after 지",
+     "display_order": 5
+    },
+    {
+     "sentence": "어제 숙제를 {{answer}} 했어요.",
+     "answer": "못",
+     "translation": "I couldn't do my homework yesterday.",
+     "hint": "inability in the past",
+     "display_order": 6
+    }
+   ],
+   "source": "ai",
+   "reviewed": false,
+   "display_order": 17
+  },
+  {
+   "title": "Ability: (으)ㄹ 수 있어요/없어요 (할 수 있어요)",
+   "level": "A2",
+   "function": "stem + ㄹ/을 수 있어요 = can; 없어요 = cannot",
+   "explanation": "The full 'can' pattern: 한국어를 할 수 있어요 (I can speak Korean). Build the same stem as the future (가다 → 갈, 먹다 → 먹을), add 수 있어요 for can and 수 없어요 for cannot. 못 and (으)ㄹ 수 없어요 overlap — 못 is shorter and more spoken, this one is clearer and works in writing.",
+   "references": [
+    {
+     "title": "Wikipedia: Korean verbs",
+     "url": "https://en.wikipedia.org/wiki/Korean_verbs"
+    },
+    {
+     "title": "How to Study Korean: ability",
+     "url": "https://www.howtostudykorean.com/unit-2-lower-intermediate-korean-grammar/unit-2-lessons-42-50-2/lesson-45/"
+    }
+   ],
+   "drills": [
+    {
+     "sentence": "저는 한국어를 {{answer}} 수 있어요.",
+     "answer": "할",
+     "translation": "I can speak Korean.",
+     "hint": "하다 — the same stem shape as the future",
+     "display_order": 1
+    },
+    {
+     "sentence": "매운 음식을 먹을 수 {{answer}}.",
+     "answer": "있어요",
+     "translation": "I can eat spicy food.",
+     "hint": "'can' — the ability word",
+     "display_order": 2
+    },
+    {
+     "sentence": "오늘은 만날 수 {{answer}}.",
+     "answer": "없어요",
+     "translation": "I can't meet today.",
+     "hint": "'cannot' — the ability word negated",
+     "display_order": 3
+    },
+    {
+     "sentence": "피아노를 {{answer}} 수 있어요.",
+     "answer": "칠",
+     "translation": "I can play the piano.",
+     "hint": "치다 (to play) — ability stem",
+     "display_order": 4
+    },
+    {
+     "sentence": "여기서 사진을 {{answer}} 수 없어요.",
+     "answer": "찍을",
+     "translation": "You can't take photos here.",
+     "hint": "찍다 — consonant stem takes 을",
+     "display_order": 5
+    },
+    {
+     "sentence": "자전거를 {{answer}} 수 있어요?",
+     "answer": "탈",
+     "translation": "Can you ride a bicycle?",
+     "hint": "타다 (to ride) — ability stem",
+     "display_order": 6
+    }
+   ],
+   "source": "ai",
+   "reviewed": false,
+   "display_order": 18
+  },
+  {
+   "title": "Because / and then: 아서/어서 (배가 고파서)",
+   "level": "A2",
+   "function": "Links a reason or a sequence; never takes past tense before it",
+   "explanation": "아서/어서 chains clauses two ways. Reason: 배가 고파서 밥을 먹었어요 (I was hungry, so I ate). Sequence where the first step leads into the second: 친구를 만나서 영화를 봤어요 (I met a friend and [with them] watched a movie). The tense lives at the END only — never 갔어서. It can't order anyone around: no commands after 어서 (that's 으니까's job).",
+   "references": [
+    {
+     "title": "Wikipedia: Korean grammar — connectives",
+     "url": "https://en.wikipedia.org/wiki/Korean_grammar"
+    },
+    {
+     "title": "How to Study Korean: 아/어서",
+     "url": "https://www.howtostudykorean.com/unit-2-lower-intermediate-korean-grammar/unit-2-lessons-26-33/lesson-37/"
+    }
+   ],
+   "drills": [
+    {
+     "sentence": "배가 {{answer}} 밥을 먹었어요.",
+     "answer": "고파서",
+     "translation": "I was hungry, so I ate.",
+     "hint": "고프다 + the reason connector",
+     "display_order": 1
+    },
+    {
+     "sentence": "비가 {{answer}} 집에 있었어요.",
+     "answer": "와서",
+     "translation": "It rained, so I stayed home.",
+     "hint": "오다 + the reason connector",
+     "display_order": 2
+    },
+    {
+     "sentence": "친구를 {{answer}} 커피를 마셨어요.",
+     "answer": "만나서",
+     "translation": "I met a friend and (then, together) drank coffee.",
+     "hint": "만나다 + the sequence connector",
+     "display_order": 3
+    },
+    {
+     "sentence": "피곤{{answer}} 일찍 잤어요.",
+     "answer": "해서",
+     "translation": "I was tired, so I slept early.",
+     "hint": "피곤하다 — the 하다 form of the connector",
+     "display_order": 4
+    },
+    {
+     "sentence": "늦{{answer}} 미안해요.",
+     "answer": "어서",
+     "translation": "Sorry for being late.",
+     "hint": "늦다 + the reason connector — tense never goes before it",
+     "display_order": 5
+    },
+    {
+     "sentence": "시장에 {{answer}} 과일을 샀어요.",
+     "answer": "가서",
+     "translation": "I went to the market and bought fruit.",
+     "hint": "가다 + the sequence connector",
+     "display_order": 6
+    }
+   ],
+   "source": "ai",
+   "reviewed": false,
+   "display_order": 19
+  },
+  {
+   "title": "But and and: 지만, 고 (춥지만, 먹고)",
+   "level": "A2",
+   "function": "지만 = but; 고 = and (between clauses); both attach straight to the stem",
+   "explanation": "지만 contrasts: 춥지만 갈 거예요 (it's cold, but I'll go). 고 simply lists or sequences: 밥을 먹고 커피를 마셔요 (I eat, and [then] drink coffee). Both glue onto the plain stem of any verb — no vowel matching. Unlike 어서, 고 allows past before it in lists: 어제는 일했고 오늘은 쉬어요.",
+   "references": [
+    {
+     "title": "Wikipedia: Korean grammar — connectives",
+     "url": "https://en.wikipedia.org/wiki/Korean_grammar"
+    },
+    {
+     "title": "How to Study Korean: 고 and 지만",
+     "url": "https://www.howtostudykorean.com/unit-2-lower-intermediate-korean-grammar/unit-2-lessons-17-25-2/lesson-17/"
+    }
+   ],
+   "drills": [
+    {
+     "sentence": "날씨가 {{answer}} 갈 거예요.",
+     "answer": "춥지만",
+     "translation": "The weather is cold, but I will go.",
+     "hint": "춥다 + 'but'",
+     "display_order": 1
+    },
+    {
+     "sentence": "밥을 {{answer}} 커피를 마셔요.",
+     "answer": "먹고",
+     "translation": "I eat, and then drink coffee.",
+     "hint": "먹다 + 'and'",
+     "display_order": 2
+    },
+    {
+     "sentence": "한국어는 {{answer}} 재미있어요.",
+     "answer": "어렵지만",
+     "translation": "Korean is difficult but fun.",
+     "hint": "어렵다 + 'but'",
+     "display_order": 3
+    },
+    {
+     "sentence": "숙제를 {{answer}} 잤어요.",
+     "answer": "하고",
+     "translation": "I did my homework and slept.",
+     "hint": "하다 + 'and'",
+     "display_order": 4
+    },
+    {
+     "sentence": "비싸{{answer}} 샀어요.",
+     "answer": "지만",
+     "translation": "It was expensive, but I bought it.",
+     "hint": "'but' — attaches straight to the stem",
+     "display_order": 5
+    },
+    {
+     "sentence": "아침에 운동하{{answer}} 샤워해요.",
+     "answer": "고",
+     "translation": "In the morning I exercise and shower.",
+     "hint": "'and' between clauses",
+     "display_order": 6
+    }
+   ],
+   "source": "ai",
+   "reviewed": false,
+   "display_order": 20
+  },
+  {
+   "title": "Going somewhere to do: (으)러 가요 (먹으러 가요)",
+   "level": "A2",
+   "function": "stem + (으)러 + a motion verb = go/come in order to",
+   "explanation": "For purpose plus movement: 밥을 먹으러 가요 (I'm going [somewhere] to eat), 친구를 만나러 왔어요 (I came to meet a friend). Vowel stems take 러 (보러), consonant stems 으러 (먹으러). It ONLY works with motion verbs like 가다/오다/다니다 — for other purposes Korean uses (으)려고.",
+   "references": [
+    {
+     "title": "Wikipedia: Korean verbs",
+     "url": "https://en.wikipedia.org/wiki/Korean_verbs"
+    },
+    {
+     "title": "How to Study Korean: (으)러",
+     "url": "https://www.howtostudykorean.com/unit-2-lower-intermediate-korean-grammar/unit-2-lessons-26-33/lesson-32/"
+    }
+   ],
+   "drills": [
+    {
+     "sentence": "밥을 {{answer}} 가요.",
+     "answer": "먹으러",
+     "translation": "I'm going (out) to eat.",
+     "hint": "먹다 + the purpose-of-motion ending",
+     "display_order": 1
+    },
+    {
+     "sentence": "영화를 {{answer}} 가요.",
+     "answer": "보러",
+     "translation": "I'm going to see a movie.",
+     "hint": "보다 + the purpose-of-motion ending",
+     "display_order": 2
+    },
+    {
+     "sentence": "친구를 {{answer}} 왔어요.",
+     "answer": "만나러",
+     "translation": "I came to meet a friend.",
+     "hint": "만나다 + the purpose-of-motion ending",
+     "display_order": 3
+    },
+    {
+     "sentence": "책을 {{answer}} 도서관에 가요.",
+     "answer": "빌리러",
+     "translation": "I'm going to the library to borrow a book.",
+     "hint": "빌리다 (to borrow) + the purpose ending",
+     "display_order": 4
+    },
+    {
+     "sentence": "한국어를 {{answer}} 학교에 다녀요.",
+     "answer": "배우러",
+     "translation": "I attend school to learn Korean.",
+     "hint": "배우다 + the purpose ending",
+     "display_order": 5
+    },
+    {
+     "sentence": "커피를 {{answer}} 카페에 가요.",
+     "answer": "마시러",
+     "translation": "I'm going to a cafe to drink coffee.",
+     "hint": "마시다 + the purpose ending",
+     "display_order": 6
+    }
+   ],
+   "source": "ai",
+   "reviewed": false,
+   "display_order": 21
+  },
+  {
+   "title": "Comparing: 보다 and 제일/가장 (더 커요)",
+   "level": "A2",
+   "function": "X보다 (더) = more than X; 제일/가장 = the most",
+   "explanation": "Comparison hangs 보다 on the loser: 형은 저보다 커요 (my brother is taller than me). 더 (more) is optional but common: 저보다 더 커요. For superlatives put 제일 or 가장 before the describing word: 제일 좋아요 (like it the most), 가장 큰 도시 (the biggest city). Less = 덜.",
+   "references": [
+    {
+     "title": "Wikipedia: Korean grammar",
+     "url": "https://en.wikipedia.org/wiki/Korean_grammar"
+    },
+    {
+     "title": "How to Study Korean: comparatives",
+     "url": "https://www.howtostudykorean.com/unit-2-lower-intermediate-korean-grammar/unit-2-lessons-17-25-2/lesson-19/"
+    }
+   ],
+   "drills": [
+    {
+     "sentence": "형은 저{{answer}} 커요.",
+     "answer": "보다",
+     "translation": "My older brother is taller than me.",
+     "hint": "'than' — attaches to the one being beaten",
+     "display_order": 1
+    },
+    {
+     "sentence": "오늘은 어제보다 {{answer}} 더워요.",
+     "answer": "더",
+     "translation": "Today is hotter than yesterday.",
+     "hint": "'more'",
+     "display_order": 2
+    },
+    {
+     "sentence": "저는 여름을 {{answer}} 좋아해요.",
+     "answer": "제일",
+     "translation": "I like summer the most.",
+     "hint": "'the most' (colloquial)",
+     "display_order": 3
+    },
+    {
+     "sentence": "서울은 한국에서 {{answer}} 큰 도시예요.",
+     "answer": "가장",
+     "translation": "Seoul is the biggest city in Korea.",
+     "hint": "'the most' (slightly formal)",
+     "display_order": 4
+    },
+    {
+     "sentence": "지하철이 버스{{answer}} 빨라요.",
+     "answer": "보다",
+     "translation": "The subway is faster than the bus.",
+     "hint": "'than'",
+     "display_order": 5
+    },
+    {
+     "sentence": "이 식당이 저 식당보다 {{answer}} 비싸요.",
+     "answer": "덜",
+     "translation": "This restaurant is less expensive than that one.",
+     "hint": "'less' — the opposite of 더",
+     "display_order": 6
+    }
+   ],
+   "source": "ai",
+   "reviewed": false,
+   "display_order": 22
+  },
+  {
+   "title": "Formal style ㅂ니다/습니다 (감사합니다)",
+   "level": "B1",
+   "function": "News-and-business polite: ㅂ니다 after vowels, 습니다 after consonants",
+   "explanation": "The formal register of announcements, presentations, and shops: 감사합니다 (thank you), 알겠습니다 (understood). Vowel stems fuse ㅂ into the last syllable + 니다 (가다 → 갑니다), consonant stems add 습니다 (먹다 → 먹습니다). Questions swap 다 for 까: 어디에 갑니까? Everyday conversation stays in 요-form; this style signals distance and respect.",
+   "references": [
+    {
+     "title": "Wikipedia: Korean speech levels",
+     "url": "https://en.wikipedia.org/wiki/Korean_speech_levels"
+    },
+    {
+     "title": "How to Study Korean: formal endings",
+     "url": "https://www.howtostudykorean.com/unit1/unit-1-lessons-1-8/unit-1-lesson-6/"
+    }
+   ],
+   "drills": [
+    {
+     "sentence": "정말 감사{{answer}}.",
+     "answer": "합니다",
+     "translation": "Thank you very much.",
+     "hint": "하다 in the formal style",
+     "display_order": 1
+    },
+    {
+     "sentence": "저는 매일 회사에 {{answer}}.",
+     "answer": "갑니다",
+     "translation": "I go to the office every day.",
+     "hint": "가다 — the ㅂ fuses into the stem",
+     "display_order": 2
+    },
+    {
+     "sentence": "아침을 {{answer}}.",
+     "answer": "먹습니다",
+     "translation": "I eat breakfast.",
+     "hint": "먹다 — consonant stem takes 습니다",
+     "display_order": 3
+    },
+    {
+     "sentence": "네, {{answer}}.",
+     "answer": "알겠습니다",
+     "translation": "Yes, understood.",
+     "hint": "알다 + 겠 in the formal style — the set phrase",
+     "display_order": 4
+    },
+    {
+     "sentence": "어디에 {{answer}}?",
+     "answer": "갑니까",
+     "translation": "Where are you going? (formal)",
+     "hint": "formal question — 다 becomes 까",
+     "display_order": 5
+    },
+    {
+     "sentence": "회의를 시작{{answer}}.",
+     "answer": "하겠습니다",
+     "translation": "We will now begin the meeting.",
+     "hint": "하다 + 겠 (intention) in the formal style",
+     "display_order": 6
+    }
+   ],
+   "source": "ai",
+   "reviewed": false,
+   "display_order": 23
+  },
+  {
+   "title": "Irregular verbs: ㅂ, ㄷ, 르 (추워요, 들어요, 몰라요)",
+   "level": "B1",
+   "function": "Three stem families that transform before vowel endings",
+   "explanation": "Some stems shapeshift before 아/어. ㅂ-irregulars melt ㅂ into 우: 춥다 → 추워요 (cold), 돕다 → 도와요 (help). ㄷ-irregulars soften ㄷ to ㄹ: 듣다 → 들어요 (listen), 걷다 → 걸어요 (walk). 르-irregulars double the ㄹ: 모르다 → 몰라요 (not know), 빠르다 → 빨라요 (fast). Before consonant endings they behave: 춥지만, 듣고, 모르지만.",
+   "references": [
+    {
+     "title": "Wikipedia: Korean irregular verbs",
+     "url": "https://en.wikipedia.org/wiki/Korean_verbs#Irregular_verbs"
+    },
+    {
+     "title": "How to Study Korean: irregulars",
+     "url": "https://www.howtostudykorean.com/unit1/unit-1-lessons-1-8/unit-1-lesson-7/"
+    }
+   ],
+   "drills": [
+    {
+     "sentence": "오늘 날씨가 정말 {{answer}}.",
+     "answer": "추워요",
+     "translation": "The weather is really cold today.",
+     "hint": "춥다 — the ㅂ melts into 우",
+     "display_order": 1
+    },
+    {
+     "sentence": "저는 음악을 {{answer}}.",
+     "answer": "들어요",
+     "translation": "I listen to music.",
+     "hint": "듣다 — the ㄷ softens to ㄹ",
+     "display_order": 2
+    },
+    {
+     "sentence": "답을 {{answer}}.",
+     "answer": "몰라요",
+     "translation": "I don't know the answer.",
+     "hint": "모르다 — the ㄹ doubles",
+     "display_order": 3
+    },
+    {
+     "sentence": "친구가 저를 {{answer}}.",
+     "answer": "도와요",
+     "translation": "My friend helps me.",
+     "hint": "돕다 — the ㅂ melts into 오/와",
+     "display_order": 4
+    },
+    {
+     "sentence": "지하철이 버스보다 {{answer}}.",
+     "answer": "빨라요",
+     "translation": "The subway is faster than the bus.",
+     "hint": "빠르다 — the ㄹ doubles",
+     "display_order": 5
+    },
+    {
+     "sentence": "매일 공원에서 {{answer}}.",
+     "answer": "걸어요",
+     "translation": "I walk in the park every day.",
+     "hint": "걷다 — the ㄷ softens to ㄹ",
+     "display_order": 6
+    }
+   ],
+   "source": "ai",
+   "reviewed": false,
+   "display_order": 24
+  },
+  {
+   "title": "If and when: (으)면 (시간이 있으면)",
+   "level": "B1",
+   "function": "stem + 면/으면 covers both 'if' and 'when(ever)'",
+   "explanation": "One ending for conditions and habitual whens: 시간이 있으면 오세요 (come if you have time), 봄이 오면 꽃이 펴요 (when spring comes, flowers bloom). Vowel stems take 면 (가면), consonant stems 으면 (먹으면). 만약 up front flags a pure hypothesis: 만약 비가 오면… (if it should rain…).",
+   "references": [
+    {
+     "title": "Wikipedia: Korean grammar — conditionals",
+     "url": "https://en.wikipedia.org/wiki/Korean_grammar"
+    },
+    {
+     "title": "How to Study Korean: (으)면",
+     "url": "https://www.howtostudykorean.com/unit-2-lower-intermediate-korean-grammar/unit-2-lessons-34-41/lesson-43/"
+    }
+   ],
+   "drills": [
+    {
+     "sentence": "시간이 {{answer}} 전화하세요.",
+     "answer": "있으면",
+     "translation": "Call me if you have time.",
+     "hint": "있다 + 'if'",
+     "display_order": 1
+    },
+    {
+     "sentence": "비가 {{answer}} 집에 있을 거예요.",
+     "answer": "오면",
+     "translation": "If it rains, I'll stay home.",
+     "hint": "오다 + 'if'",
+     "display_order": 2
+    },
+    {
+     "sentence": "이 버튼을 {{answer}} 문이 열려요.",
+     "answer": "누르면",
+     "translation": "If you press this button, the door opens.",
+     "hint": "누르다 + 'if/when'",
+     "display_order": 3
+    },
+    {
+     "sentence": "한국에 {{answer}} 연락하세요.",
+     "answer": "도착하면",
+     "translation": "When you arrive in Korea, contact me.",
+     "hint": "도착하다 + 'when'",
+     "display_order": 4
+    },
+    {
+     "sentence": "돈이 많이 {{answer}} 여행할 거예요.",
+     "answer": "있으면",
+     "translation": "If I have a lot of money, I'll travel.",
+     "hint": "있다 + 'if'",
+     "display_order": 5
+    },
+    {
+     "sentence": "피곤{{answer}} 쉬세요.",
+     "answer": "하면",
+     "translation": "If you're tired, rest.",
+     "hint": "피곤하다 + 'if'",
+     "display_order": 6
+    }
+   ],
+   "source": "ai",
+   "reviewed": false,
+   "display_order": 25
+  },
+  {
+   "title": "Because (commands allowed): (으)니까 (늦으니까)",
+   "level": "B1",
+   "function": "The reason connector that CAN introduce commands and suggestions",
+   "explanation": "(으)니까 gives a reason like 어서, with two differences: it happily precedes commands and let's-suggestions — 늦으니까 빨리 가세요 (it's late, so hurry) — and it can carry past tense: 어제 갔으니까 오늘은 안 가요 (since I went yesterday, I'm not going today). 어서 can do neither. For apologies and thanks, though, Korean insists on 어서: 늦어서 미안해요.",
+   "references": [
+    {
+     "title": "Wikipedia: Korean grammar — connectives",
+     "url": "https://en.wikipedia.org/wiki/Korean_grammar"
+    },
+    {
+     "title": "How to Study Korean: (으)니까",
+     "url": "https://www.howtostudykorean.com/unit-2-lower-intermediate-korean-grammar/unit-2-lessons-34-41/lesson-38/"
+    }
+   ],
+   "drills": [
+    {
+     "sentence": "시간이 {{answer}} 빨리 가세요.",
+     "answer": "없으니까",
+     "translation": "There's no time, so go quickly.",
+     "hint": "없다 + the command-friendly 'because'",
+     "display_order": 1
+    },
+    {
+     "sentence": "비가 {{answer}} 우산을 가져가세요.",
+     "answer": "오니까",
+     "translation": "It's raining, so take an umbrella.",
+     "hint": "오다 + the command-friendly 'because'",
+     "display_order": 2
+    },
+    {
+     "sentence": "오늘은 {{answer}} 내일 만나요.",
+     "answer": "바쁘니까",
+     "translation": "I'm busy today, so let's meet tomorrow.",
+     "hint": "바쁘다 + 'because' before a suggestion",
+     "display_order": 3
+    },
+    {
+     "sentence": "어제 {{answer}} 오늘은 쉬어요.",
+     "answer": "일했으니까",
+     "translation": "Since I worked yesterday, I'm resting today.",
+     "hint": "past tense fits inside this 'because'",
+     "display_order": 4
+    },
+    {
+     "sentence": "위험{{answer}} 조심하세요.",
+     "answer": "하니까",
+     "translation": "It's dangerous, so be careful.",
+     "hint": "위험하다 + the command-friendly 'because'",
+     "display_order": 5
+    },
+    {
+     "sentence": "맛있{{answer}} 한번 드셔 보세요.",
+     "answer": "으니까",
+     "translation": "It's delicious, so give it a try.",
+     "hint": "the consonant-stem form of the connector",
+     "display_order": 6
+    }
+   ],
+   "source": "ai",
+   "reviewed": false,
+   "display_order": 26
+  },
+  {
+   "title": "Must and may: 아/어야 해요, 아/어도 돼요 (가야 해요)",
+   "level": "B1",
+   "function": "야 해요 = have to; 도 돼요 = it's okay to; (으)면 안 돼요 = must not",
+   "explanation": "Obligation: verb + 아/어야 해요 — 지금 가야 해요 (I have to go now). Permission: 아/어도 돼요 — 여기 앉아도 돼요? (may I sit here?). Prohibition flips to (으)면 안 돼요 — 여기서 담배를 피우면 안 돼요 (you must not smoke here). The three form the classroom-and-real-life triangle of rules.",
+   "references": [
+    {
+     "title": "Wikipedia: Korean verbs",
+     "url": "https://en.wikipedia.org/wiki/Korean_verbs"
+    },
+    {
+     "title": "How to Study Korean: obligation and permission",
+     "url": "https://www.howtostudykorean.com/unit-2-lower-intermediate-korean-grammar/unit-2-lessons-42-50-2/lesson-46/"
+    }
+   ],
+   "drills": [
+    {
+     "sentence": "지금 집에 {{answer}} 해요.",
+     "answer": "가야",
+     "translation": "I have to go home now.",
+     "hint": "가다 + the obligation connector",
+     "display_order": 1
+    },
+    {
+     "sentence": "약을 {{answer}} 해요.",
+     "answer": "먹어야",
+     "translation": "You have to take the medicine.",
+     "hint": "먹다 + the obligation connector",
+     "display_order": 2
+    },
+    {
+     "sentence": "여기 {{answer}} 돼요?",
+     "answer": "앉아도",
+     "translation": "May I sit here?",
+     "hint": "앉다 + the permission connector",
+     "display_order": 3
+    },
+    {
+     "sentence": "창문을 열어도 {{answer}}?",
+     "answer": "돼요",
+     "translation": "Is it okay to open the window?",
+     "hint": "the 'it's allowed' verb",
+     "display_order": 4
+    },
+    {
+     "sentence": "여기서 사진을 찍으면 안 {{answer}}.",
+     "answer": "돼요",
+     "translation": "You must not take photos here.",
+     "hint": "the same verb, after 으면 안",
+     "display_order": 5
+    },
+    {
+     "sentence": "내일까지 숙제를 {{answer}} 해요.",
+     "answer": "내야",
+     "translation": "I have to hand in the homework by tomorrow.",
+     "hint": "내다 (to hand in) + the obligation connector",
+     "display_order": 6
+    }
+   ],
+   "source": "ai",
+   "reviewed": false,
+   "display_order": 27
+  },
+  {
+   "title": "Describing nouns: 는/(으)ㄴ/(으)ㄹ (읽는 책)",
+   "level": "B1",
+   "function": "Whole clauses become noun modifiers — Korean's relative clauses, always BEFORE the noun",
+   "explanation": "'The book I'm reading' turns around in Korean: 제가 읽는 책 (I-read book). Verbs take 는 for present (읽는 책), (으)ㄴ for past (읽은 책 — the book I read), (으)ㄹ for future (읽을 책 — the book I'll read). Descriptive verbs use (으)ㄴ for their plain present: 큰 집 (a big house), 예쁜 꽃 (a pretty flower). No word for 'who/which/that' — position does everything.",
+   "references": [
+    {
+     "title": "Wikipedia: Korean grammar — modifiers",
+     "url": "https://en.wikipedia.org/wiki/Korean_grammar"
+    },
+    {
+     "title": "How to Study Korean: describing nouns",
+     "url": "https://www.howtostudykorean.com/unit-2-lower-intermediate-korean-grammar/unit-2-lessons-26-33/lesson-26/"
+    }
+   ],
+   "drills": [
+    {
+     "sentence": "지금 {{answer}} 책이 재미있어요.",
+     "answer": "읽는",
+     "translation": "The book I'm reading now is interesting.",
+     "hint": "읽다 as a present-tense noun describer",
+     "display_order": 1
+    },
+    {
+     "sentence": "어제 {{answer}} 영화가 슬펐어요.",
+     "answer": "본",
+     "translation": "The movie I watched yesterday was sad.",
+     "hint": "보다 as a past-tense noun describer",
+     "display_order": 2
+    },
+    {
+     "sentence": "내일 {{answer}} 음식을 준비해요.",
+     "answer": "먹을",
+     "translation": "I'm preparing the food we'll eat tomorrow.",
+     "hint": "먹다 as a future noun describer",
+     "display_order": 3
+    },
+    {
+     "sentence": "{{answer}} 집에서 살고 싶어요.",
+     "answer": "큰",
+     "translation": "I want to live in a big house.",
+     "hint": "크다 describing a noun",
+     "display_order": 4
+    },
+    {
+     "sentence": "한국어를 {{answer}} 사람이 많아요.",
+     "answer": "배우는",
+     "translation": "There are many people who learn Korean.",
+     "hint": "배우다 as a present describer — 'people who learn'",
+     "display_order": 5
+    },
+    {
+     "sentence": "제가 {{answer}} 케이크예요.",
+     "answer": "만든",
+     "translation": "It's a cake that I made.",
+     "hint": "만들다 as a past describer (the ㄹ drops)",
+     "display_order": 6
+    }
+   ],
+   "source": "ai",
+   "reviewed": false,
+   "display_order": 28
+  },
+  {
+   "title": "Ongoing and resulting: 고 있어요 / 아·어 있어요 (자고 있어요)",
+   "level": "B1",
+   "function": "고 있어요 = in the middle of doing; 아/어 있어요 = in the state that resulted",
+   "explanation": "고 있어요 is the -ing of action in progress: 지금 밥을 먹고 있어요 (I'm eating right now). 아/어 있어요 is for the STATE left after an action: 문이 열려 있어요 (the door stands open), 앉아 있어요 (is seated). Honor the subject by upgrading 있다: 선생님이 기다리고 계세요.",
+   "references": [
+    {
+     "title": "Wikipedia: Korean verbs — aspect",
+     "url": "https://en.wikipedia.org/wiki/Korean_verbs"
+    },
+    {
+     "title": "How to Study Korean: 고 있다",
+     "url": "https://www.howtostudykorean.com/unit-2-lower-intermediate-korean-grammar/unit-2-lessons-17-25-2/lesson-18/"
+    }
+   ],
+   "drills": [
+    {
+     "sentence": "지금 밥을 {{answer}} 있어요.",
+     "answer": "먹고",
+     "translation": "I'm eating right now.",
+     "hint": "먹다 + the in-progress connector",
+     "display_order": 1
+    },
+    {
+     "sentence": "동생이 지금 {{answer}} 있어요.",
+     "answer": "자고",
+     "translation": "My little sibling is sleeping now.",
+     "hint": "자다 + the in-progress connector",
+     "display_order": 2
+    },
+    {
+     "sentence": "문이 {{answer}} 있어요.",
+     "answer": "열려",
+     "translation": "The door is (standing) open.",
+     "hint": "열리다 — the state that resulted",
+     "display_order": 3
+    },
+    {
+     "sentence": "친구가 의자에 {{answer}} 있어요.",
+     "answer": "앉아",
+     "translation": "My friend is seated on the chair.",
+     "hint": "앉다 — the state after sitting down",
+     "display_order": 4
+    },
+    {
+     "sentence": "한국어를 {{answer}} 있어요.",
+     "answer": "배우고",
+     "translation": "I am learning Korean.",
+     "hint": "배우다 + the in-progress connector",
+     "display_order": 5
+    },
+    {
+     "sentence": "선생님이 기다리고 {{answer}}.",
+     "answer": "계세요",
+     "translation": "The teacher is waiting.",
+     "hint": "있다 upgrades for respected people",
+     "display_order": 6
+    }
+   ],
+   "source": "ai",
+   "reviewed": false,
+   "display_order": 29
+  },
+  {
+   "title": "When: (으)ㄹ 때 (먹을 때, 어렸을 때)",
+   "level": "B1",
+   "function": "stem + ㄹ/을 때 = at the time of doing/being",
+   "explanation": "때 (time) after the future-modifier stem means 'when': 밥을 먹을 때 (when eating), 학교에 갈 때 (when going to school). For a finished past, 았/었을 때: 어렸을 때 (when I was young), 한국에 살았을 때 (when I lived in Korea). Nouns take 때 directly: 시험 때 (at exam time), 방학 때 (during vacation).",
+   "references": [
+    {
+     "title": "Wikipedia: Korean grammar",
+     "url": "https://en.wikipedia.org/wiki/Korean_grammar"
+    },
+    {
+     "title": "How to Study Korean: (으)ㄹ 때",
+     "url": "https://www.howtostudykorean.com/unit-2-lower-intermediate-korean-grammar/unit-2-lessons-42-50-2/lesson-42/"
+    }
+   ],
+   "drills": [
+    {
+     "sentence": "밥을 {{answer}} 때 텔레비전을 봐요.",
+     "answer": "먹을",
+     "translation": "I watch TV when I eat.",
+     "hint": "먹다 in the shape that goes before 때",
+     "display_order": 1
+    },
+    {
+     "sentence": "학교에 {{answer}} 때 버스를 타요.",
+     "answer": "갈",
+     "translation": "When I go to school, I take the bus.",
+     "hint": "가다 in the shape that goes before 때",
+     "display_order": 2
+    },
+    {
+     "sentence": "{{answer}} 때 부산에 살았어요.",
+     "answer": "어렸을",
+     "translation": "When I was young, I lived in Busan.",
+     "hint": "어리다 + past + the 때-shape",
+     "display_order": 3
+    },
+    {
+     "sentence": "시간이 {{answer}} 때 책을 읽어요.",
+     "answer": "있을",
+     "translation": "When I have time, I read books.",
+     "hint": "있다 in the shape that goes before 때",
+     "display_order": 4
+    },
+    {
+     "sentence": "시험 {{answer}} 커피를 많이 마셔요.",
+     "answer": "때",
+     "translation": "At exam time, I drink a lot of coffee.",
+     "hint": "nouns take the time word directly",
+     "display_order": 5
+    },
+    {
+     "sentence": "한국에 {{answer}} 때 한국어를 배웠어요.",
+     "answer": "살았을",
+     "translation": "When I lived in Korea, I learned Korean.",
+     "hint": "살다 + past + the 때-shape",
+     "display_order": 6
+    }
+   ],
+   "source": "ai",
+   "reviewed": false,
+   "display_order": 30
+  },
+  {
+   "title": "Intention and guessing with 겠 (하겠습니다, 맛있겠다)",
+   "level": "B2",
+   "function": "First person: I will (resolve); elsewhere: must be / looks like",
+   "explanation": "겠 slides in before the ending and changes meaning by person. On yourself it's commitment: 제가 하겠습니다 (I'll do it). About anything else it's an on-the-spot inference: 맛있겠어요 (that looks delicious), 힘들겠어요 (that must be tough), 내일은 춥겠습니다 (tomorrow will be cold — the weather-forecast future). Set phrases live here too: 알겠습니다, 모르겠어요.",
+   "references": [
+    {
+     "title": "Wikipedia: Korean verbs — 겠",
+     "url": "https://en.wikipedia.org/wiki/Korean_verbs"
+    },
+    {
+     "title": "How to Study Korean: 겠",
+     "url": "https://www.howtostudykorean.com/unit-2-lower-intermediate-korean-grammar/unit-2-lessons-42-50-2/lesson-43/"
+    }
+   ],
+   "drills": [
+    {
+     "sentence": "제가 {{answer}}.",
+     "answer": "하겠습니다",
+     "translation": "I will do it.",
+     "hint": "하다 + the resolve marker, formal",
+     "display_order": 1
+    },
+    {
+     "sentence": "와, 정말 {{answer}}!",
+     "answer": "맛있겠어요",
+     "translation": "Wow, that looks really delicious!",
+     "hint": "맛있다 + the looks-like marker",
+     "display_order": 2
+    },
+    {
+     "sentence": "잘 {{answer}}.",
+     "answer": "모르겠어요",
+     "translation": "I'm not sure. (I wouldn't know.)",
+     "hint": "모르다 + the softening 겠 — the set phrase",
+     "display_order": 3
+    },
+    {
+     "sentence": "내일은 많이 {{answer}}.",
+     "answer": "춥겠습니다",
+     "translation": "Tomorrow will be very cold. (forecast style)",
+     "hint": "춥다 + 겠 in the formal style",
+     "display_order": 4
+    },
+    {
+     "sentence": "혼자 이사하면 {{answer}}.",
+     "answer": "힘들겠어요",
+     "translation": "Moving alone must be tough.",
+     "hint": "힘들다 + the empathy 겠",
+     "display_order": 5
+    },
+    {
+     "sentence": "먼저 {{answer}}.",
+     "answer": "가겠습니다",
+     "translation": "I'll be going first. (taking my leave)",
+     "hint": "가다 + the resolve marker, formal",
+     "display_order": 6
+    }
+   ],
+   "source": "ai",
+   "reviewed": false,
+   "display_order": 31
+  },
+  {
+   "title": "Reported speech: 다고/라고 해요 (온다고 해요)",
+   "level": "B2",
+   "function": "Fold what someone said into your sentence with 다고 (verbs) / 라고 (nouns)",
+   "explanation": "To relay speech, quote the PLAIN form + 고 하다: 친구가 내일 온다고 해요 (my friend says he's coming tomorrow). Action verbs in present take ㄴ/는다고 (간다고, 먹는다고), descriptive verbs keep 다고 (바쁘다고), nouns take (이)라고 (학생이라고 해요 — says he's a student). Past adds 았/었다고. It's also how Korean names things: 이것을 김치라고 해요 (this is called kimchi).",
+   "references": [
+    {
+     "title": "Wikipedia: Korean grammar — quotation",
+     "url": "https://en.wikipedia.org/wiki/Korean_grammar"
+    },
+    {
+     "title": "How to Study Korean: quoting",
+     "url": "https://www.howtostudykorean.com/unit-3-intermediate-korean-grammar/unit-3-lessons-51-58/lesson-52/"
+    }
+   ],
+   "drills": [
+    {
+     "sentence": "친구가 내일 {{answer}} 해요.",
+     "answer": "온다고",
+     "translation": "My friend says he's coming tomorrow.",
+     "hint": "오다 in the quoted plain form + 고",
+     "display_order": 1
+    },
+    {
+     "sentence": "동생이 지금 {{answer}} 해요.",
+     "answer": "바쁘다고",
+     "translation": "My sibling says she's busy now.",
+     "hint": "descriptive verbs keep plain 다 + 고",
+     "display_order": 2
+    },
+    {
+     "sentence": "그분은 의사{{answer}} 해요.",
+     "answer": "라고",
+     "translation": "They say that person is a doctor.",
+     "hint": "nouns take their own quote particle",
+     "display_order": 3
+    },
+    {
+     "sentence": "이것을 한국어로 김치{{answer}} 해요.",
+     "answer": "라고",
+     "translation": "In Korean, this is called kimchi.",
+     "hint": "naming uses the noun quote particle",
+     "display_order": 4
+    },
+    {
+     "sentence": "친구가 어제 영화를 {{answer}} 했어요.",
+     "answer": "봤다고",
+     "translation": "My friend said she watched a movie yesterday.",
+     "hint": "past inside the quote: 보다 → 봤 + the quote ending",
+     "display_order": 5
+    },
+    {
+     "sentence": "선생님이 숙제가 {{answer}} 하셨어요.",
+     "answer": "있다고",
+     "translation": "The teacher said there is homework.",
+     "hint": "있다 keeps plain 다 + 고",
+     "display_order": 6
+    }
+   ],
+   "source": "ai",
+   "reviewed": false,
+   "display_order": 32
+  },
+  {
+   "title": "Passive and causative: 이히리기 (열리다, 먹이다)",
+   "level": "B2",
+   "function": "One suffix family, two directions: be-done-to (passive) and make-do (causative)",
+   "explanation": "Korean derives both voices with the 이/히/리/기 suffixes — which verb takes which is memorized, not computed. Passive: 열다 → 열리다 (be opened: 문이 열렸어요), 듣다 → 들리다 (be heard: 소리가 들려요), 보다 → 보이다 (be visible: 산이 보여요). Causative: 먹다 → 먹이다 (feed), 입다 → 입히다 (dress someone), 자다 → 재우다 (put to sleep). The catch-all causative is 게 하다: 웃게 해요 (makes me laugh).",
+   "references": [
+    {
+     "title": "Wikipedia: Korean verbs — voice",
+     "url": "https://en.wikipedia.org/wiki/Korean_verbs"
+    },
+    {
+     "title": "How to Study Korean: passive verbs",
+     "url": "https://www.howtostudykorean.com/unit-2-lower-intermediate-korean-grammar/unit-2-lessons-42-50-2/lesson-49/"
+    }
+   ],
+   "drills": [
+    {
+     "sentence": "바람에 문이 {{answer}}.",
+     "answer": "열렸어요",
+     "translation": "The door was opened by the wind.",
+     "hint": "열다 in its passive form, past",
+     "display_order": 1
+    },
+    {
+     "sentence": "여기서 바다가 잘 {{answer}}.",
+     "answer": "보여요",
+     "translation": "The sea is clearly visible from here.",
+     "hint": "보다 in its passive/visible form",
+     "display_order": 2
+    },
+    {
+     "sentence": "옆방에서 음악 소리가 {{answer}}.",
+     "answer": "들려요",
+     "translation": "Music can be heard from the next room.",
+     "hint": "듣다 in its passive form",
+     "display_order": 3
+    },
+    {
+     "sentence": "엄마가 아기에게 밥을 {{answer}}.",
+     "answer": "먹여요",
+     "translation": "The mother feeds the baby.",
+     "hint": "먹다 in its causative form — make/let eat",
+     "display_order": 4
+    },
+    {
+     "sentence": "아이에게 옷을 {{answer}}.",
+     "answer": "입혀요",
+     "translation": "She dresses the child.",
+     "hint": "입다 in its causative form",
+     "display_order": 5
+    },
+    {
+     "sentence": "그 영화는 항상 저를 웃게 {{answer}}.",
+     "answer": "해요",
+     "translation": "That movie always makes me laugh.",
+     "hint": "the catch-all causative: 게 + ?",
+     "display_order": 6
+    }
+   ],
+   "source": "ai",
+   "reviewed": false,
+   "display_order": 33
+  },
+  {
+   "title": "Background and contrast: (으)ㄴ/는데 (바쁜데, 가는데)",
+   "level": "B2",
+   "function": "Sets the scene, contrasts, or softens — Korean's favourite clause glue",
+   "explanation": "은데/는데 frames what follows: 지금 바쁜데 나중에 전화해도 돼요? (I'm busy right now — can I call later?). Action verbs take 는데 (가는데, 먹는데), descriptive verbs (으)ㄴ데 (바쁜데, 추운데), nouns 인데. It contrasts (형은 큰데 저는 작아요), introduces background before a request, and trails off politely on its own: 좀 비싼데요… (it's a bit pricey…).",
+   "references": [
+    {
+     "title": "Wikipedia: Korean grammar — connectives",
+     "url": "https://en.wikipedia.org/wiki/Korean_grammar"
+    },
+    {
+     "title": "How to Study Korean: ~는데",
+     "url": "https://www.howtostudykorean.com/unit-3-intermediate-korean-grammar/unit-3-lessons-67-75/lesson-76/"
+    }
+   ],
+   "drills": [
+    {
+     "sentence": "지금 {{answer}} 나중에 전화해도 돼요?",
+     "answer": "바쁜데",
+     "translation": "I'm busy now — can I call you later?",
+     "hint": "바쁘다 + the scene-setting connector",
+     "display_order": 1
+    },
+    {
+     "sentence": "밖에 비가 {{answer}} 우산 있어요?",
+     "answer": "오는데",
+     "translation": "It's raining outside — do you have an umbrella?",
+     "hint": "오다 + the scene-setting connector (action verb)",
+     "display_order": 2
+    },
+    {
+     "sentence": "형은 {{answer}} 저는 작아요.",
+     "answer": "큰데",
+     "translation": "My older brother is tall, but I am short.",
+     "hint": "크다 + the contrast connector",
+     "display_order": 3
+    },
+    {
+     "sentence": "한국에 {{answer}} 한국어를 못 해요.",
+     "answer": "사는데",
+     "translation": "I live in Korea, but I can't speak Korean.",
+     "hint": "살다 + the contrast connector (the ㄹ drops)",
+     "display_order": 4
+    },
+    {
+     "sentence": "저는 학생{{answer}} 돈이 없어요.",
+     "answer": "인데",
+     "translation": "I'm a student, so (as background) I have no money.",
+     "hint": "the noun form of the connector",
+     "display_order": 5
+    },
+    {
+     "sentence": "이거 좀 {{answer}}…",
+     "answer": "비싼데요",
+     "translation": "This is a bit expensive… (trailing off)",
+     "hint": "비싸다 + the softener, sentence-final",
+     "display_order": 6
+    }
+   ],
+   "source": "ai",
+   "reviewed": false,
+   "display_order": 34
+  },
+  {
+   "title": "Seems like: 것 같아요 (비가 올 것 같아요)",
+   "level": "B2",
+   "function": "Hedge anything: modifier form + 것 같아요 = it seems / I think",
+   "explanation": "Korean softens claims with 것 같아요 after the noun-modifier forms: 비가 올 것 같아요 (it looks like rain — future ㄹ), 자는 것 같아요 (he seems to be sleeping — present 는), 벌써 간 것 같아요 (seems she already left — past ㄴ). Koreans also use it for polite opinions where English would be direct: 좀 매운 것 같아요 (I find it a bit spicy).",
+   "references": [
+    {
+     "title": "Wikipedia: Korean grammar",
+     "url": "https://en.wikipedia.org/wiki/Korean_grammar"
+    },
+    {
+     "title": "How to Study Korean: 것 같다",
+     "url": "https://www.howtostudykorean.com/unit-2-lower-intermediate-korean-grammar/unit-2-lessons-34-41/lesson-35/"
+    }
+   ],
+   "drills": [
+    {
+     "sentence": "비가 {{answer}} 것 같아요.",
+     "answer": "올",
+     "translation": "It looks like it's going to rain.",
+     "hint": "오다 in the future modifier shape",
+     "display_order": 1
+    },
+    {
+     "sentence": "동생이 지금 {{answer}} 것 같아요.",
+     "answer": "자는",
+     "translation": "My sibling seems to be sleeping now.",
+     "hint": "자다 in the present modifier shape",
+     "display_order": 2
+    },
+    {
+     "sentence": "친구가 벌써 {{answer}} 것 같아요.",
+     "answer": "간",
+     "translation": "It seems my friend already left.",
+     "hint": "가다 in the past modifier shape",
+     "display_order": 3
+    },
+    {
+     "sentence": "이 음식이 좀 {{answer}} 것 같아요.",
+     "answer": "매운",
+     "translation": "I find this food a bit spicy.",
+     "hint": "맵다 in its modifier shape (the ㅂ melts)",
+     "display_order": 4
+    },
+    {
+     "sentence": "그 영화가 재미있을 것 {{answer}}.",
+     "answer": "같아요",
+     "translation": "I think that movie will be fun.",
+     "hint": "the 'seems' verb itself",
+     "display_order": 5
+    },
+    {
+     "sentence": "길이 {{answer}} 것 같아요.",
+     "answer": "막힌",
+     "translation": "It seems the roads are jammed.",
+     "hint": "막히다 in the past/state modifier shape",
+     "display_order": 6
+    }
+   ],
+   "source": "ai",
+   "reviewed": false,
+   "display_order": 35
+  },
+  {
+   "title": "Because, formally: 기 때문에 (일 때문에)",
+   "level": "B2",
+   "function": "Noun/stem + 때문에 pins the cause; heavier than 아서 or 으니까",
+   "explanation": "때문에 hangs off a noun (일 때문에 못 가요 — I can't go because of work) or a nominalized verb with 기 (비가 오기 때문에 — because it is raining). It states causes with written-register weight; conversation prefers 어서/으니까. Blame or credit a WHOLE clause with 았기/었기 때문에 for past causes. Related: 덕분에 (thanks to) for good causes, 때문에 alone can sound accusatory.",
+   "references": [
+    {
+     "title": "Wikipedia: Korean grammar",
+     "url": "https://en.wikipedia.org/wiki/Korean_grammar"
+    },
+    {
+     "title": "How to Study Korean: 기 때문에",
+     "url": "https://www.howtostudykorean.com/unit-2-lower-intermediate-korean-grammar/unit-2-lessons-34-41/lesson-38/"
+    }
+   ],
+   "drills": [
+    {
+     "sentence": "일 {{answer}} 못 가요.",
+     "answer": "때문에",
+     "translation": "I can't go because of work.",
+     "hint": "the 'because of' word after a noun",
+     "display_order": 1
+    },
+    {
+     "sentence": "비가 {{answer}} 때문에 경기가 취소됐어요.",
+     "answer": "오기",
+     "translation": "The match was cancelled because it is raining.",
+     "hint": "오다 nominalized with 기",
+     "display_order": 2
+    },
+    {
+     "sentence": "시험이 {{answer}} 때문에 공부해야 해요.",
+     "answer": "있기",
+     "translation": "I have to study because there's an exam.",
+     "hint": "있다 nominalized with 기",
+     "display_order": 3
+    },
+    {
+     "sentence": "친구 {{answer}} 한국에 왔어요.",
+     "answer": "덕분에",
+     "translation": "Thanks to my friend, I came to Korea.",
+     "hint": "the grateful cousin of 때문에",
+     "display_order": 4
+    },
+    {
+     "sentence": "늦게 {{answer}} 때문에 피곤해요.",
+     "answer": "잤기",
+     "translation": "I'm tired because I slept late.",
+     "hint": "past cause: 자다 → 잤 + 기",
+     "display_order": 5
+    },
+    {
+     "sentence": "눈이 많이 왔기 {{answer}} 길이 미끄러워요.",
+     "answer": "때문에",
+     "translation": "Because it snowed a lot, the roads are slippery.",
+     "hint": "the 'because' word after 기",
+     "display_order": 6
+    }
+   ],
+   "source": "ai",
+   "reviewed": false,
+   "display_order": 36
+  },
+  {
+   "title": "Honorific machinery: 께서, 드리다, 뵙다 (선생님께서 말씀하셨어요)",
+   "level": "C1",
+   "function": "Raising the subject (께서 + 시) and lowering yourself (humble verbs)",
+   "explanation": "Full honorific Korean works both directions. Raise the respected subject: 이/가 becomes 께서, 에게 becomes 께, and the verb takes 시 — 선생님께서 말씀하셨어요 (the teacher spoke). Lower yourself with humble verbs: 주다 → 드리다 (give TO a superior), 만나다 → 뵙다 (meet a superior), 말하다 → 말씀드리다, 묻다 → 여쭤보다. The choreography: honor THEM with 시, humble YOURSELF with 드리다-verbs — never 시 on your own actions.",
+   "references": [
+    {
+     "title": "Wikipedia: Korean honorifics",
+     "url": "https://en.wikipedia.org/wiki/Korean_honorifics"
+    },
+    {
+     "title": "National Institute of Korean Language",
+     "url": "https://www.korean.go.kr/"
+    }
+   ],
+   "drills": [
+    {
+     "sentence": "선생님{{answer}} 오셨어요.",
+     "answer": "께서",
+     "translation": "The teacher has arrived.",
+     "hint": "the honorific subject particle",
+     "display_order": 1
+    },
+    {
+     "sentence": "할아버지께서 {{answer}}.",
+     "answer": "말씀하셨어요",
+     "translation": "Grandfather spoke.",
+     "hint": "말하다 upgraded twice: 말씀 + 시, past",
+     "display_order": 2
+    },
+    {
+     "sentence": "선생님께 선물을 {{answer}}.",
+     "answer": "드렸어요",
+     "translation": "I gave a present to the teacher.",
+     "hint": "주다 lowered to its humble form, past",
+     "display_order": 3
+    },
+    {
+     "sentence": "내일 사장님을 {{answer}}.",
+     "answer": "뵙겠습니다",
+     "translation": "I will meet the director tomorrow.",
+     "hint": "만나다 lowered to its humble form + 겠",
+     "display_order": 4
+    },
+    {
+     "sentence": "부모님{{answer}} 전화를 드렸어요.",
+     "answer": "께",
+     "translation": "I called my parents. (humbly)",
+     "hint": "에게 upgraded for respected receivers",
+     "display_order": 5
+    },
+    {
+     "sentence": "하나 {{answer}} 돼요?",
+     "answer": "여쭤봐도",
+     "translation": "May I (humbly) ask you something?",
+     "hint": "묻다 lowered to its humble form + 아도",
+     "display_order": 6
+    }
+   ],
+   "source": "ai",
+   "reviewed": false,
+   "display_order": 37
+  },
+  {
+   "title": "Plain written style: 한다/는다 (신문체)",
+   "level": "C1",
+   "function": "The narration register of books, news, and diaries — no 요, no audience",
+   "explanation": "Written Korean narrates in the plain style: action verbs take ㄴ다/는다 (간다, 먹는다), descriptive verbs and 있다 keep bare 다 (크다, 있다), past is 았다/었다 (갔다), and the copula is 이다/다. 한국은 사계절이 있다 (Korea has four seasons) — this is textbook-and-newspaper voice, also the intimate speech of close friends (반말). Learn to READ it early; it's every book you'll open.",
+   "references": [
+    {
+     "title": "Wikipedia: Korean speech levels",
+     "url": "https://en.wikipedia.org/wiki/Korean_speech_levels"
+    },
+    {
+     "title": "National Institute of Korean Language",
+     "url": "https://www.korean.go.kr/"
+    }
+   ],
+   "drills": [
+    {
+     "sentence": "한국은 사계절이 {{answer}}.",
+     "answer": "있다",
+     "translation": "Korea has four seasons. (written style)",
+     "hint": "있다 stays bare in the plain style",
+     "display_order": 1
+    },
+    {
+     "sentence": "그는 매일 도서관에 {{answer}}.",
+     "answer": "간다",
+     "translation": "He goes to the library every day. (written style)",
+     "hint": "가다 in the plain present — ㄴ다",
+     "display_order": 2
+    },
+    {
+     "sentence": "아이가 밥을 {{answer}}.",
+     "answer": "먹는다",
+     "translation": "The child eats. (written style)",
+     "hint": "먹다 in the plain present — 는다",
+     "display_order": 3
+    },
+    {
+     "sentence": "어제 서울에 눈이 많이 {{answer}}.",
+     "answer": "왔다",
+     "translation": "It snowed heavily in Seoul yesterday. (news style)",
+     "hint": "오다 in the plain past",
+     "display_order": 4
+    },
+    {
+     "sentence": "서울은 한국의 수도{{answer}}.",
+     "answer": "이다",
+     "translation": "Seoul is the capital of Korea. (written style)",
+     "hint": "the copula in the plain style",
+     "display_order": 5
+    },
+    {
+     "sentence": "겨울 바다는 정말 {{answer}}.",
+     "answer": "아름답다",
+     "translation": "The winter sea is truly beautiful. (written style)",
+     "hint": "descriptive verbs stay bare in the plain style",
+     "display_order": 6
+    }
+   ],
+   "source": "ai",
+   "reviewed": false,
+   "display_order": 38
+  },
+  {
+   "title": "Quote contractions: 대요, 래요, 냬요, 재요 (온대요)",
+   "level": "C2",
+   "function": "Squeezed reported speech: statements 대요, commands 래요, questions 냬요, suggestions 재요",
+   "explanation": "Spoken Korean compresses 다고 해요 into 대요: 내일 온대요 (they say he's coming tomorrow). Each speech act has its squeeze: statements ㄴ/는대요 (간대요), noun-statements (이)래요 (학생이래요), commands (으)래요 (오래요 — told me to come), questions 냬요 (가냬요 — asked if I'm going), suggestions 재요 (가재요 — suggested we go). Hearsay 다면서요? (I heard that…, right?) rides the same rails.",
+   "references": [
+    {
+     "title": "Wikipedia: Korean grammar — quotation",
+     "url": "https://en.wikipedia.org/wiki/Korean_grammar"
+    },
+    {
+     "title": "How to Study Korean: quoted contractions",
+     "url": "https://www.howtostudykorean.com/unit-3-intermediate-korean-grammar/unit-3-lessons-51-58/lesson-53/"
+    }
+   ],
+   "drills": [
+    {
+     "sentence": "친구가 내일 {{answer}}.",
+     "answer": "온대요",
+     "translation": "My friend says he's coming tomorrow.",
+     "hint": "오다 + the squeezed statement quote",
+     "display_order": 1
+    },
+    {
+     "sentence": "그분이 새 선생님{{answer}}.",
+     "answer": "이래요",
+     "translation": "They say that person is the new teacher.",
+     "hint": "the squeezed noun quote",
+     "display_order": 2
+    },
+    {
+     "sentence": "엄마가 빨리 {{answer}}.",
+     "answer": "오래요",
+     "translation": "Mom says to come quickly.",
+     "hint": "the squeezed command quote",
+     "display_order": 3
+    },
+    {
+     "sentence": "친구가 언제 {{answer}}.",
+     "answer": "가냬요",
+     "translation": "My friend asks when I'm going.",
+     "hint": "the squeezed question quote",
+     "display_order": 4
+    },
+    {
+     "sentence": "동생이 같이 영화를 {{answer}}.",
+     "answer": "보재요",
+     "translation": "My sibling suggests we watch a movie together.",
+     "hint": "the squeezed suggestion quote",
+     "display_order": 5
+    },
+    {
+     "sentence": "한국에 {{answer}}? 축하해요!",
+     "answer": "간다면서요",
+     "translation": "I heard you're going to Korea? Congratulations!",
+     "hint": "the confirm-the-rumour ending",
+     "display_order": 6
+    }
+   ],
+   "source": "ai",
+   "reviewed": false,
+   "display_order": 39
+  },
+  {
+   "title": "Formal written connectives: (으)며, (으)나, 므로 (있으며, 크나)",
+   "level": "C2",
+   "function": "The connectives of reports and essays: 며 = and, 나 = but, 므로 = therefore",
+   "explanation": "Formal prose swaps the spoken connectives for tighter ones: (으)며 for 고 (서울은 수도이며 최대 도시이다 — Seoul is the capital and the largest city), (으)나 for 지만 (노력했으나 실패했다 — strove but failed), (으)므로 for 기 때문에 (증거가 없으므로 무죄이다 — therefore not guilty). 며 also marks simultaneity like 면서. You'll meet these in contracts, papers, and news — produce them only in writing.",
+   "references": [
+    {
+     "title": "Wikipedia: Korean grammar — connectives",
+     "url": "https://en.wikipedia.org/wiki/Korean_grammar"
+    },
+    {
+     "title": "National Institute of Korean Language",
+     "url": "https://www.korean.go.kr/"
+    }
+   ],
+   "drills": [
+    {
+     "sentence": "서울은 한국의 수도{{answer}} 최대 도시이다.",
+     "answer": "이며",
+     "translation": "Seoul is Korea's capital and its largest city.",
+     "hint": "the formal 'and' on a noun",
+     "display_order": 1
+    },
+    {
+     "sentence": "열심히 {{answer}} 결과는 좋지 않았다.",
+     "answer": "노력했으나",
+     "translation": "(We) strove hard, but the result was not good.",
+     "hint": "노력하다 + the formal 'but', past",
+     "display_order": 2
+    },
+    {
+     "sentence": "증거가 {{answer}} 무죄이다.",
+     "answer": "없으므로",
+     "translation": "As there is no evidence, (the accused) is not guilty.",
+     "hint": "없다 + the formal 'therefore'",
+     "display_order": 3
+    },
+    {
+     "sentence": "그 나라는 역사가 {{answer}} 문화가 풍부하다.",
+     "answer": "길며",
+     "translation": "That country has a long history and a rich culture.",
+     "hint": "길다 + the formal 'and'",
+     "display_order": 4
+    },
+    {
+     "sentence": "음악을 {{answer}} 공부한다.",
+     "answer": "들으며",
+     "translation": "(He) studies while listening to music.",
+     "hint": "듣다 + 며 as 'while' (the ㄷ softens)",
+     "display_order": 5
+    },
+    {
+     "sentence": "비가 {{answer}} 행사는 실내에서 열린다.",
+     "answer": "오므로",
+     "translation": "As it is raining, the event will be held indoors.",
+     "hint": "오다 + the formal 'therefore'",
+     "display_order": 6
+    }
+   ],
+   "source": "ai",
+   "reviewed": false,
+   "display_order": 40
+  }
+ ]
+}

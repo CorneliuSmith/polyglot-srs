@@ -1,0 +1,154 @@
+{
+  "language": "ko",
+  "_note": "The Gym manifest (WP25a): which grammar points act as selectable form categories, grouped into picker columns. 'point' must match the grammar point title exactly (resolved to ids at request time). 'usage' is the plain-language hover explanation; 'example' is a real drill sentence from that point. 'nonstandard': entries hidden behind the 'include non-standard words' toggle.",
+  "columns": [
+    {
+      "kind": "verbs",
+      "label": "Verb endings",
+      "entries": [
+        {
+          "point": "Present polite 아요/어요 (가요, 먹어요)",
+          "label": "Present (polite)",
+          "usage": "What happens now or regularly — the everyday 요-form.",
+          "example": "저는 학교에 가요. — I go to school."
+        },
+        {
+          "point": "Past tense 았어요/었어요 (갔어요, 먹었어요)",
+          "label": "Past",
+          "usage": "What already happened: 았/었 slides in before the ending.",
+          "example": "어제 학교에 갔어요. — I went to school yesterday."
+        },
+        {
+          "point": "Future with (으)ㄹ 거예요 (갈 거예요)",
+          "label": "Future",
+          "usage": "Plans and predictions with (으)ㄹ 거예요.",
+          "example": "내일 학교에 갈 거예요. — I will go to school tomorrow."
+        },
+        {
+          "point": "Formal style ㅂ니다/습니다 (감사합니다)",
+          "label": "Formal ㅂ니다",
+          "usage": "The news-and-business register: 갑니다, 먹습니다.",
+          "example": "저는 매일 회사에 갑니다. — I go to the office every day."
+        },
+        {
+          "point": "Ongoing and resulting: 고 있어요 / 아·어 있어요 (자고 있어요)",
+          "label": "Progressive",
+          "usage": "In the middle of doing: 고 있어요.",
+          "example": "지금 밥을 먹고 있어요. — I'm eating right now."
+        },
+        {
+          "point": "Ability: (으)ㄹ 수 있어요/없어요 (할 수 있어요)",
+          "label": "Can / can't",
+          "usage": "Ability and impossibility with (으)ㄹ 수 있어요/없어요.",
+          "example": "저는 한국어를 할 수 있어요. — I can speak Korean."
+        },
+        {
+          "point": "Must and may: 아/어야 해요, 아/어도 돼요 (가야 해요)",
+          "label": "Must / may",
+          "usage": "Obligation (야 해요) and permission (도 돼요).",
+          "example": "지금 집에 가야 해요. — I have to go home now."
+        },
+        {
+          "point": "Irregular verbs: ㅂ, ㄷ, 르 (추워요, 들어요, 몰라요)",
+          "label": "Irregular stems",
+          "usage": "The ㅂ/ㄷ/르 families transform before vowel endings: 춥다 → 추워요.",
+          "example": "오늘 날씨가 정말 추워요. — The weather is really cold today.",
+          "nonstandard": true
+        },
+        {
+          "point": "Honorific machinery: 께서, 드리다, 뵙다 (선생님께서 말씀하셨어요)",
+          "label": "Honorific forms",
+          "usage": "Raising the subject with 께서 + 시, humbling yourself with 드리다/뵙다.",
+          "example": "선생님께서 오셨어요. — The teacher has arrived.",
+          "nonstandard": true
+        }
+      ]
+    },
+    {
+      "kind": "particles",
+      "label": "Particles",
+      "entries": [
+        {
+          "point": "Topic particle 은/는 (저는, 이것은)",
+          "label": "Topic 은/는",
+          "usage": "What the sentence is about: 는 after vowels, 은 after consonants.",
+          "example": "저는 학생이에요. — I am a student."
+        },
+        {
+          "point": "Subject particle 이/가 (친구가, 물이)",
+          "label": "Subject 이/가",
+          "usage": "Who or what does it — new information takes 이/가.",
+          "example": "친구가 와요. — A friend is coming."
+        },
+        {
+          "point": "Object particle 을/를 and verb-last order (밥을 먹어요)",
+          "label": "Object 을/를",
+          "usage": "The thing acted on: 를 after vowels, 을 after consonants.",
+          "example": "밥을 먹어요. — I eat rice."
+        },
+        {
+          "point": "Place and time: 에 vs 에서 (집에, 집에서)",
+          "label": "에 vs 에서",
+          "usage": "Destination/time/being-there = 에; where an action happens = 에서.",
+          "example": "도서관에서 공부해요. — I study at the library."
+        },
+        {
+          "point": "Linking nouns: 하고 (and/with) and 도 (also)",
+          "label": "하고 / 도",
+          "usage": "하고 joins nouns or means 'with'; 도 replaces the particle to say 'too'.",
+          "example": "빵하고 우유를 샀어요. — I bought bread and milk."
+        },
+        {
+          "point": "Comparing: 보다 and 제일/가장 (더 커요)",
+          "label": "Comparison 보다",
+          "usage": "X보다 = more than X; 제일/가장 = the most.",
+          "example": "형은 저보다 커요. — My brother is taller than me."
+        }
+      ]
+    },
+    {
+      "kind": "connectors",
+      "label": "Connectors",
+      "entries": [
+        {
+          "point": "Because / and then: 아서/어서 (배가 고파서)",
+          "label": "Reason 아/어서",
+          "usage": "Reasons and lead-in sequences; no commands after it.",
+          "example": "배가 고파서 밥을 먹었어요. — I was hungry, so I ate."
+        },
+        {
+          "point": "Because (commands allowed): (으)니까 (늦으니까)",
+          "label": "Reason (으)니까",
+          "usage": "The reason connector that CAN introduce commands and suggestions.",
+          "example": "시간이 없으니까 빨리 가세요. — There's no time, so go quickly."
+        },
+        {
+          "point": "If and when: (으)면 (시간이 있으면)",
+          "label": "If (으)면",
+          "usage": "Conditions and habitual whens.",
+          "example": "비가 오면 집에 있을 거예요. — If it rains, I'll stay home."
+        },
+        {
+          "point": "But and and: 지만, 고 (춥지만, 먹고)",
+          "label": "But / and",
+          "usage": "지만 contrasts; 고 lists and sequences.",
+          "example": "날씨가 춥지만 갈 거예요. — It's cold, but I'll go."
+        },
+        {
+          "point": "Describing nouns: 는/(으)ㄴ/(으)ㄹ (읽는 책)",
+          "label": "Noun modifiers",
+          "usage": "Whole clauses describe nouns from the front — Korean's relative clauses.",
+          "example": "지금 읽는 책이 재미있어요. — The book I'm reading is interesting.",
+          "nonstandard": true
+        },
+        {
+          "point": "Reported speech: 다고/라고 해요 (온다고 해요)",
+          "label": "Quotes 다고",
+          "usage": "Fold what someone said into your sentence.",
+          "example": "친구가 내일 온다고 해요. — My friend says he's coming tomorrow.",
+          "nonstandard": true
+        }
+      ]
+    }
+  ]
+}

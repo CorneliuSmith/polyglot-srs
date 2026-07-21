@@ -1246,6 +1246,27 @@ Also folds in: the "all accounts" tile (every account listable,
 including never-active — previously invisible in every activity
 window).
 
+### WP27 — Korean (owner, 2026-07-20)
+Language 22, draft tier ('ai_ok', reviewed:false + AI-pass, same as
+hi/jam/nl/th). Full generic pipeline (HermitDave ko_50k + kaikki Korean
++ Tatoeba kor): 7,054 words with curated function-word glosses over the
+kaikki jargon, 3,771 example sentences, 40-point A1→C2 path (240
+drills): the particle system (은/는 vs 이/가 front and center), the
+요/ㅂ니다/한다 register ladder, honorifics both directions (께서+시 up,
+드리다/뵙다 down), vowel-harmony conjugation + the ㅂ/ㄷ/르 irregular
+families, counters with native/Sino numbers, and the quotation system
+through its spoken contractions. KoreanNLP: particle stripping,
+conservative de-conjugation (jamo arithmetic recovers ㅂ니다 stems),
+lemma matches grade sloppy-never-correct. Hangul everywhere: Letters &
+Sounds panel with a block-assembly explainer, a 40-letter alphabet
+deck. ko-KR-SunHiNeural voice, taegukgi-blue theme, tutor bundle
+(SKILL/REFERENCE/ERRORS), Gym manifest (verb endings | particles |
+connectors). Deferred: on-screen keyboard (Hangul needs jamo
+COMPOSITION — an IME automaton, not a layout; system IME meanwhile),
+Revised-Romanization readings (native-reviewer era), en_drill_hints.ko
++ English-from-Korean gating (next WP17 batch), ko morphology charts
+for FormsPanel/Gym chart peek (charts generator has no ko rules yet).
+
 ## 6. Model selection guide
 
 | Task type | Model | Why |

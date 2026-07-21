@@ -58,6 +58,8 @@ const THEMES: Record<string, LanguageTheme> = {
   nl: { primary: '#FF7900', dark: '#C25B00', accent: '#21468B', soft: '#FFF1E3', on: '#FFFFFF', emoji: '🇳🇱' },
   // Thailand: flag crimson with the central navy band as accent.
   th: { primary: '#A51931', dark: '#7A1224', accent: '#2D2A4A', soft: '#F8E8EB', on: '#FFFFFF', emoji: '🇹🇭' },
+  // Taegukgi blue with the red as accent.
+  ko: { primary: '#003478', dark: '#002357', accent: '#C60C30', soft: '#E6EDF6', on: '#FFFFFF', emoji: '🇰🇷' },
 }
 
 const FALLBACK: LanguageTheme = {

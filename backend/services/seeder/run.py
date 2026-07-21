@@ -18,7 +18,7 @@ async def main():
         "--language", "-l",
         choices=["ru", "ar", "en", "sw", "tr", "yo", "ha", "xh",
                  "es", "it", "fr", "de", "ca", "mi", "ro", "el", "pt", "hi",
-                 "jam", "nl", "th", "all"],
+                 "jam", "nl", "th", "ko", "all"],
         default="all",
         help="Language to seed (default: all)",
     )
@@ -110,6 +110,9 @@ async def main():
     if args.language in ("th", "all"):
         from .seed_thai import ThaiSeeder
         seeders.append(ThaiSeeder(args.db_url))
+    if args.language in ("ko", "all"):
+        from .seed_korean import KoreanSeeder
+        seeders.append(KoreanSeeder(args.db_url))
     from .seed_latin import SEEDERS as LATIN_SEEDERS
     for code, seeder_cls in LATIN_SEEDERS.items():
         if args.language in (code, "all"):

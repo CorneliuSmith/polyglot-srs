@@ -17,6 +17,17 @@ export interface WhatsNewEntry {
 
 export const WHATS_NEW: WhatsNewEntry[] = [
   {
+    id: 'korean-2026-07',
+    date: 'July 2026',
+    title: 'Korean 🇰🇷',
+    body:
+      'Language #20 is live: 7,000 words, a 40-point grammar path from ' +
+      'particles to honorifics, Hangul in Letters & Sounds, neural audio, ' +
+      'the tutor, the Reader, and its own Gym. 한국어를 배워요!',
+    link: '/account',
+    linkLabel: 'Add Korean',
+  },
+  {
     id: 'gym-2026-07',
     date: 'July 2026',
     title: 'The Gym 🏋️',
