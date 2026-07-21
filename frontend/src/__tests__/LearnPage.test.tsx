@@ -138,6 +138,19 @@ describe('LearnPage (teach-before-quiz)', () => {
     expect(mockLearn).toHaveBeenCalledWith('lang-es', 'grammar', undefined)
   })
 
+  it('offers the on-screen keyboard during the quiz (beta report)', async () => {
+    // Alphabet-vocab languages had no keyboard access while learning; the
+    // review session had it, learn didn't. es has a layout (Latin accents),
+    // so the toggle renders here just as it does in review.
+    mockLearn.mockResolvedValue({ added: 1, items: ['uc-1'], lessons: [grammarLesson] })
+    renderPage()
+    await screen.findByText(/1 of 1/)
+    // Keyboard is shown by default → a "Hide Keyboard" toggle is present.
+    expect(
+      screen.getByRole('button', { name: /keyboard/i }),
+    ).toBeDefined()
+  })
+
   it('Enter advances after a passed check (keyboard-only flow)', async () => {
     mockLearn.mockResolvedValue({
       added: 2,
