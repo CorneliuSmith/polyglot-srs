@@ -1246,6 +1246,39 @@ Also folds in: the "all accounts" tile (every account listable,
 including never-active — previously invisible in every activity
 window).
 
+### WP28 — Korean depth + owner resource review (owner, 2026-07-20)
+The owner keeps a reference library at
+`~/Library/CloudStorage/Dropbox/Online Learning/` — licensed courses to
+VERIFY our content against (consult for facts, sequencing, and gap
+analysis; NEVER copy their text, sentences, or exercises — everything we
+ship stays original). Korean example: `HowtoStudyKorean/HTSK` (Units
+1–6, 150 lessons + worksheets). Other mappings to exploit later:
+90 Day Korean (ko), BeFluentClass + 2000 Common Russian Words (ru),
+Arab Academy (ar).
+**(a) Gap analysis — DONE.** The WP27 40-point path covers the HTSK
+Unit 1–2 core well, but Korean is a sentence-ender language ("hundreds
+of ways to end a sentence") and the path stops early. Confirmed gaps,
+by topic: the ~는 것 nominalization family (것/기/음, ~던/았던
+modifiers, ~지 for time-since), purpose/attempt ((으)려고, 아/어 보다,
+~는 중), perception (보이다, ~것 같다 extensions, 아/어 지다),
+simultaneity ((으)면서, ~자마자, ~는 길에), decisions and outcomes
+(~기로 하다, ~게 되다, ~도록, ~다가), limitation (뿐, 밖에, 만큼,
+대신에), reactive texture (~구나/군요, ~네요, ~잖아요, ~거든요),
+hindsight (~았어야 했다, ~ㄹ걸, ~ㄹ 뻔했다, ~ㄹ까 봐), retrospective
+~더~ (더라, 더니, 던가), formal instrumentals ((으)로서/(으)로써),
+consequence (~는 바람에, ~느라고, ~ㄹ수록), plus 사이시옷 and big
+numbers.
+**(b) Deepening waves.** ~65 new points in three waves, all original
+content verified against HTSK: wave 1 (+25, A2–B1 enders and
+connectors), wave 2 (+25, B2–C1 nuance and texture), wave 3 (+15,
+C1–C2 retrospectives and formal register). Each: 6 drills, plain-
+language hints, faithful translations, Gym manifest additions where the
+point is a trainable form category.
+**(c) Vocab + sentence verification.** Cross-check the 7k vocab band's
+glosses and the curated-sentence coverage against HTSK's per-lesson
+vocabulary lists (facts only); fix wrong-sense glosses the way WP22(c)
+did for English.
+
 ### WP27 — Korean (owner, 2026-07-20)
 Language 22, draft tier ('ai_ok', reviewed:false + AI-pass, same as
 hi/jam/nl/th). Full generic pipeline (HermitDave ko_50k + kaikki Korean
