@@ -1,0 +1,97 @@
+{
+  "language": "ro",
+  "_note": "The Gym manifest (WP25a): which grammar points act as selectable form categories, grouped into picker columns. 'point' must match the grammar point title exactly (resolved to ids at request time). 'usage' is the plain-language hover explanation; 'example' is a short illustration. 'nonstandard': forms hidden behind the 'include non-standard words' toggle.",
+  "columns": [
+    {
+      "kind": "verbs",
+      "label": "Verb tenses & moods",
+      "entries": [
+        {
+          "point": "Present tense of -a verbs",
+          "label": "Present -a",
+          "usage": "Now or regularly, -a verbs.",
+          "example": "Eu vorbesc română."
+        },
+        {
+          "point": "-ea, -e and -i verbs (a vedea, a merge, a dormi)",
+          "label": "Present -ea/-e/-i",
+          "usage": "Now or regularly, other verb classes.",
+          "example": "Merg acasă."
+        },
+        {
+          "point": "The past — perfectul compus",
+          "label": "Perfect compus",
+          "usage": "A finished past: am + participle.",
+          "example": "Am vorbit ieri."
+        },
+        {
+          "point": "The imperfect (imperfectul)",
+          "label": "Imperfect",
+          "usage": "The ongoing or habitual past.",
+          "example": "Mă jucam mereu."
+        },
+        {
+          "point": "The future (voi scrie / o să scriu)",
+          "label": "Future",
+          "usage": "What will happen.",
+          "example": "Voi mânca mâine."
+        },
+        {
+          "point": "The conditional (aș scrie)",
+          "label": "Conditional",
+          "usage": "What would happen.",
+          "example": "Aș vrea să plec."
+        },
+        {
+          "point": "The subjunctive (conjunctivul cu să)",
+          "label": "Subjunctive",
+          "usage": "After să — wish, purpose.",
+          "example": "Vreau să vii."
+        },
+        {
+          "point": "The imperative (scrie! scrieți! nu scrie!)",
+          "label": "Imperative",
+          "usage": "Commands.",
+          "example": "Scrie mai tare!"
+        }
+      ]
+    },
+    {
+      "kind": "nouns",
+      "label": "Cases & agreement",
+      "entries": [
+        {
+          "point": "The definite article is a suffix (-ul / -a)",
+          "label": "Definite suffix",
+          "usage": "The article attaches to the noun end.",
+          "example": "băiat → băiatul"
+        },
+        {
+          "point": "The genitive-dative case",
+          "label": "Genitive-dative",
+          "usage": "of / to — one case for both.",
+          "example": "cartea băiatului"
+        },
+        {
+          "point": "Plural of nouns",
+          "label": "Plural",
+          "usage": "Noun plural forms.",
+          "example": "băiat → băieți"
+        },
+        {
+          "point": "Adjective agreement",
+          "label": "Adjectives",
+          "usage": "Adjectives match gender and number.",
+          "example": "o casă mare"
+        },
+        {
+          "point": "Gender and number — including the neuter",
+          "label": "Gender (incl. neuter)",
+          "usage": "Masculine, feminine, and the Romanian neuter.",
+          "example": "un scaun, două scaune",
+          "nonstandard": true
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,97 @@
+{
+  "language": "el",
+  "_note": "The Gym manifest (WP25a): which grammar points act as selectable form categories, grouped into picker columns. 'point' must match the grammar point title exactly (resolved to ids at request time). 'usage' is the plain-language hover explanation; 'example' is a short illustration. 'nonstandard': forms hidden behind the 'include non-standard words' toggle.",
+  "columns": [
+    {
+      "kind": "verbs",
+      "label": "Verb tenses & moods",
+      "entries": [
+        {
+          "point": "Present tense of -ω verbs",
+          "label": "Present",
+          "usage": "Now or regularly.",
+          "example": "Γράφω ένα γράμμα."
+        },
+        {
+          "point": "The future with θα",
+          "label": "Future",
+          "usage": "θα + verb.",
+          "example": "Θα φύγω αύριο."
+        },
+        {
+          "point": "The past — aorist (αόριστος)",
+          "label": "Aorist",
+          "usage": "A finished past action.",
+          "example": "Έγραψα χθες."
+        },
+        {
+          "point": "The imperfect (παρατατικός)",
+          "label": "Imperfect",
+          "usage": "The ongoing or habitual past.",
+          "example": "Έγραφα κάθε μέρα."
+        },
+        {
+          "point": "The perfect (παρακείμενος: έχω γράψει)",
+          "label": "Perfect",
+          "usage": "έχω + form — completed with present relevance.",
+          "example": "Έχω γράψει το γράμμα."
+        },
+        {
+          "point": "The subjunctive with να — aspect",
+          "label": "Subjunctive (να)",
+          "usage": "να + verb, aspect matters.",
+          "example": "Θέλω να φύγω."
+        },
+        {
+          "point": "The imperative (γράψε! μην γράφεις!)",
+          "label": "Imperative",
+          "usage": "Commands.",
+          "example": "Γράψε πιο δυνατά!"
+        },
+        {
+          "point": "The passive aorist (πλύθηκα, γράφτηκε)",
+          "label": "Passive aorist",
+          "usage": "The action done to the subject, past.",
+          "example": "Το γράμμα γράφτηκε.",
+          "nonstandard": true
+        }
+      ]
+    },
+    {
+      "kind": "nouns",
+      "label": "Cases & agreement",
+      "entries": [
+        {
+          "point": "The accusative object (τον / την / το)",
+          "label": "Accusative",
+          "usage": "The direct object.",
+          "example": "Βλέπω τον άντρα."
+        },
+        {
+          "point": "The genitive case (γενική)",
+          "label": "Genitive",
+          "usage": "Possession: of.",
+          "example": "το βιβλίο του παιδιού"
+        },
+        {
+          "point": "Plural of nouns (οι φίλοι, οι πόρτες, τα βιβλία)",
+          "label": "Plural",
+          "usage": "Noun plural forms.",
+          "example": "ο φίλος → οι φίλοι"
+        },
+        {
+          "point": "Adjective agreement (καλός / καλή / καλό)",
+          "label": "Adjectives",
+          "usage": "Adjectives match gender, number, case.",
+          "example": "καλός άντρας, καλή μέρα"
+        },
+        {
+          "point": "Definite articles (ο / η / το)",
+          "label": "Definite article",
+          "usage": "ο/η/το decline by case.",
+          "example": "ο άντρας, τον άντρα"
+        }
+      ]
+    }
+  ]
+}

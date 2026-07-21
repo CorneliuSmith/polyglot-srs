@@ -1,0 +1,98 @@
+{
+  "language": "hi",
+  "_note": "The Gym manifest (WP25a): which grammar points act as selectable form categories, grouped into picker columns. 'point' must match the grammar point title exactly (resolved to ids at request time). 'usage' is the plain-language hover explanation; 'example' is a short illustration. 'nonstandard': forms hidden behind the 'include non-standard words' toggle.",
+  "columns": [
+    {
+      "kind": "verbs",
+      "label": "Verb tenses & aspect",
+      "entries": [
+        {
+          "point": "Simple present: करता हूँ, करती है, करते हैं",
+          "label": "Simple present",
+          "usage": "Habitual present, agreeing with gender.",
+          "example": "मैं हिंदी बोलता हूँ।"
+        },
+        {
+          "point": "Present continuous: रहा है, रही है, रहे हैं",
+          "label": "Present continuous",
+          "usage": "Happening right now.",
+          "example": "मैं खा रहा हूँ।"
+        },
+        {
+          "point": "Simple past: गया, आई, पहुँचे",
+          "label": "Simple past",
+          "usage": "A finished past action.",
+          "example": "वह घर गया।"
+        },
+        {
+          "point": "Future: जाऊँगा, करेगी, मिलेंगे",
+          "label": "Future",
+          "usage": "What will happen.",
+          "example": "मैं कल आऊँगा।"
+        },
+        {
+          "point": "The perfect tenses: चुका है, गया था",
+          "label": "Perfect tenses",
+          "usage": "Completed action with relevance.",
+          "example": "मैं खा चुका हूँ।"
+        },
+        {
+          "point": "Let's and may I: the subjunctive",
+          "label": "Subjunctive",
+          "usage": "Wish, suggestion, possibility.",
+          "example": "शायद वह आए।"
+        },
+        {
+          "point": "The ergative ने: मैंने किताब पढ़ी",
+          "label": "Ergative ने",
+          "usage": "Past transitive: subject takes ने.",
+          "example": "मैंने किताब पढ़ी।",
+          "nonstandard": true
+        },
+        {
+          "point": "Causatives: करना → कराना, बनना → बनाना",
+          "label": "Causatives",
+          "usage": "make / have someone do.",
+          "example": "मैंने खाना बनवाया।",
+          "nonstandard": true
+        }
+      ]
+    },
+    {
+      "kind": "nouns",
+      "label": "Cases & agreement",
+      "entries": [
+        {
+          "point": "The oblique case: कमरे में, लड़के को",
+          "label": "Oblique case",
+          "usage": "Noun form before a postposition.",
+          "example": "लड़का → लड़के को"
+        },
+        {
+          "point": "Postpositions: में, पर, से, को",
+          "label": "Postpositions",
+          "usage": "in / on / from / to — after the noun.",
+          "example": "घर में, मेज़ पर"
+        },
+        {
+          "point": "Plurals: लड़के, लड़कियाँ, किताबें",
+          "label": "Plurals",
+          "usage": "Noun plural by gender.",
+          "example": "किताब → किताबें"
+        },
+        {
+          "point": "Possession: का, के, की",
+          "label": "Possession का/के/की",
+          "usage": "'s — agrees with the thing owned.",
+          "example": "राम का घर, राम की किताब"
+        },
+        {
+          "point": "Noun gender: masculine and feminine",
+          "label": "Gender",
+          "usage": "Every noun is masculine or feminine.",
+          "example": "लड़का (m), लड़की (f)"
+        }
+      ]
+    }
+  ]
+}

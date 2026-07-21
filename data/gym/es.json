@@ -1,0 +1,110 @@
+{
+  "language": "es",
+  "_note": "The Gym manifest (WP25a): which grammar points act as selectable form categories, grouped into picker columns. 'point' must match the grammar point title exactly (resolved to ids at request time). 'usage' is the plain-language hover explanation; 'example' is a short illustration. 'nonstandard': forms hidden behind the 'include non-standard words' toggle.",
+  "columns": [
+    {
+      "kind": "verbs",
+      "label": "Verb tenses & moods",
+      "entries": [
+        {
+          "point": "Present tense of -ar verbs",
+          "label": "Present -ar",
+          "usage": "What happens now or regularly, -ar verbs.",
+          "example": "Yo hablo español."
+        },
+        {
+          "point": "Present tense of -er and -ir verbs",
+          "label": "Present -er/-ir",
+          "usage": "Now or regularly, -er and -ir verbs.",
+          "example": "Como pan y vivo aquí."
+        },
+        {
+          "point": "Preterite — regular verbs",
+          "label": "Preterite",
+          "usage": "A finished past action.",
+          "example": "Ayer hablé con ella."
+        },
+        {
+          "point": "Imperfect (hablaba)",
+          "label": "Imperfect",
+          "usage": "The ongoing or habitual past.",
+          "example": "De niño jugaba mucho."
+        },
+        {
+          "point": "Future simple (hablaré)",
+          "label": "Future",
+          "usage": "What will happen, one word.",
+          "example": "Mañana comeré tarde."
+        },
+        {
+          "point": "Conditional (hablaría)",
+          "label": "Conditional",
+          "usage": "What would happen.",
+          "example": "Yo viviría en el mar."
+        },
+        {
+          "point": "Present subjunctive — wishes and requests",
+          "label": "Subjunctive",
+          "usage": "Wishes, doubts, requests after que.",
+          "example": "Espero que hables pronto."
+        },
+        {
+          "point": "Estar + gerund (present progressive)",
+          "label": "Progressive",
+          "usage": "Happening right now: estar + -ando/-iendo.",
+          "example": "Estoy comiendo ahora."
+        },
+        {
+          "point": "Preterite — key irregulars (fui, hice, tuve)",
+          "label": "Preterite irregulars",
+          "usage": "The common irregular preterites.",
+          "example": "Fui al centro y lo hice.",
+          "nonstandard": true
+        },
+        {
+          "point": "Past (imperfect) subjunctive (hablara)",
+          "label": "Past subjunctive",
+          "usage": "Hypotheticals and softened requests.",
+          "example": "Si hablara más, entendería.",
+          "nonstandard": true
+        }
+      ]
+    },
+    {
+      "kind": "agreement",
+      "label": "Agreement",
+      "entries": [
+        {
+          "point": "Definite articles (el / la)",
+          "label": "Definite article",
+          "usage": "el/la/los/las agree with the noun.",
+          "example": "el libro, la casa"
+        },
+        {
+          "point": "Indefinite articles (un / una)",
+          "label": "Indefinite article",
+          "usage": "un/una/unos/unas.",
+          "example": "un coche, una mesa"
+        },
+        {
+          "point": "Adjective agreement",
+          "label": "Adjectives",
+          "usage": "Adjectives match gender and number.",
+          "example": "un coche rojo, casas rojas"
+        },
+        {
+          "point": "Possessives (mi, tu, su)",
+          "label": "Possessives",
+          "usage": "mi/tu/su and plurals.",
+          "example": "mis amigos, tu casa"
+        },
+        {
+          "point": "Demonstratives (este, ese, aquel)",
+          "label": "Demonstratives",
+          "usage": "this/that agree with the noun.",
+          "example": "este día, aquella noche"
+        }
+      ]
+    }
+  ]
+}

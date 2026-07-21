@@ -1,0 +1,112 @@
+{
+  "language": "ar",
+  "_note": "The Gym manifest (WP25a): which grammar points act as selectable form categories, grouped into picker columns. 'point' must match the grammar point title exactly (resolved to ids at request time). 'usage' is the plain-language hover explanation; 'example' is a short illustration. 'nonstandard': forms hidden behind the 'include non-standard words' toggle.",
+  "columns": [
+    {
+      "kind": "verbs",
+      "label": "Verb forms & tenses",
+      "entries": [
+        {
+          "point": "Present tense (أدرس، يعمل…)",
+          "label": "Present",
+          "usage": "The imperfect: now or habitual.",
+          "example": "أدرسُ العربية."
+        },
+        {
+          "point": "Past tense (الماضي)",
+          "label": "Past",
+          "usage": "A finished past action.",
+          "example": "درستُ أمس."
+        },
+        {
+          "point": "The future (سـ / سوف)",
+          "label": "Future",
+          "usage": "سـ / سوف + present.",
+          "example": "سأدرسُ غدًا."
+        },
+        {
+          "point": "The subjunctive (المنصوب)",
+          "label": "Subjunctive",
+          "usage": "After أن / لن — the naṣb ending.",
+          "example": "أريد أن أدرسَ."
+        },
+        {
+          "point": "Jussive & past negation (لم)",
+          "label": "Jussive (لم)",
+          "usage": "لم + jussive negates the past.",
+          "example": "لم أدرسْ."
+        },
+        {
+          "point": "The imperative (الأمر)",
+          "label": "Imperative",
+          "usage": "Commands.",
+          "example": "اُدرسْ!"
+        },
+        {
+          "point": "Derived verb forms II–IV (فعّل، فاعَل، أفعَل)",
+          "label": "Forms II–IV",
+          "usage": "Derived patterns that shift meaning.",
+          "example": "علّم، قاتل، أرسل",
+          "nonstandard": true
+        },
+        {
+          "point": "Derived verb forms V–X (تفعّل، انفعل، افتعل، استفعل)",
+          "label": "Forms V–X",
+          "usage": "More derived patterns.",
+          "example": "تعلّم، استقبل",
+          "nonstandard": true
+        },
+        {
+          "point": "The passive voice (المبني للمجهول)",
+          "label": "Passive",
+          "usage": "The action done, doer unnamed.",
+          "example": "كُتِبَ الدرسُ.",
+          "nonstandard": true
+        }
+      ]
+    },
+    {
+      "kind": "nouns",
+      "label": "Nouns & cases",
+      "entries": [
+        {
+          "point": "Sound plurals (ون/ين، ات)",
+          "label": "Sound plurals",
+          "usage": "Regular masculine and feminine plurals.",
+          "example": "مُعلِّم → مُعلِّمون"
+        },
+        {
+          "point": "Broken plurals (جمع التكسير)",
+          "label": "Broken plurals",
+          "usage": "Irregular internal-change plurals.",
+          "example": "كتاب → كُتُب",
+          "nonstandard": true
+        },
+        {
+          "point": "The dual (المثنّى)",
+          "label": "Dual",
+          "usage": "Exactly two: -ān / -ayn.",
+          "example": "كتابان، كتابين"
+        },
+        {
+          "point": "Iḍāfa — possession by pairing",
+          "label": "Iḍāfa",
+          "usage": "X of Y by pairing two nouns.",
+          "example": "بابُ البيتِ"
+        },
+        {
+          "point": "The definite article ال — sun and moon letters",
+          "label": "The article ال",
+          "usage": "the — with sun/moon assimilation.",
+          "example": "الشمس، القمر"
+        },
+        {
+          "point": "Comparative & superlative (أفعل التفضيل)",
+          "label": "Comparative",
+          "usage": "The afʿal pattern.",
+          "example": "أكبر، أجمل"
+        }
+      ]
+    }
+  ]
+}

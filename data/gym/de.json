@@ -1,0 +1,109 @@
+{
+  "language": "de",
+  "_note": "The Gym manifest (WP25a): which grammar points act as selectable form categories, grouped into picker columns. 'point' must match the grammar point title exactly (resolved to ids at request time). 'usage' is the plain-language hover explanation; 'example' is a short illustration. 'nonstandard': forms hidden behind the 'include non-standard words' toggle.",
+  "columns": [
+    {
+      "kind": "verbs",
+      "label": "Verb tenses & moods",
+      "entries": [
+        {
+          "point": "Present tense of regular verbs",
+          "label": "Present",
+          "usage": "Now or regularly.",
+          "example": "Ich spiele Fußball."
+        },
+        {
+          "point": "Sein — present (ich bin, du bist…)",
+          "label": "sein (present)",
+          "usage": "'to be'.",
+          "example": "Ich bin müde."
+        },
+        {
+          "point": "Haben — present (ich habe Hunger)",
+          "label": "haben (present)",
+          "usage": "'to have'.",
+          "example": "Ich habe Zeit."
+        },
+        {
+          "point": "Modal verbs (können, müssen, wollen…)",
+          "label": "Modal verbs",
+          "usage": "can / must / want + infinitive.",
+          "example": "Ich kann schwimmen."
+        },
+        {
+          "point": "The perfect with haben",
+          "label": "Perfect (haben)",
+          "usage": "Finished past with haben.",
+          "example": "Ich habe gegessen."
+        },
+        {
+          "point": "The perfect with sein",
+          "label": "Perfect (sein)",
+          "usage": "Past with sein — motion/change.",
+          "example": "Sie ist gegangen."
+        },
+        {
+          "point": "The simple past (Präteritum)",
+          "label": "Präteritum",
+          "usage": "The written past tense.",
+          "example": "Er ging nach Hause."
+        },
+        {
+          "point": "The Konjunktiv II (würde, wäre, hätte)",
+          "label": "Konjunktiv II",
+          "usage": "Would / were / had — hypotheticals.",
+          "example": "Ich hätte gern Kaffee."
+        },
+        {
+          "point": "The passive voice (werden + Partizip II)",
+          "label": "Passive",
+          "usage": "The action done to the subject.",
+          "example": "Das Haus wird gebaut.",
+          "nonstandard": true
+        }
+      ]
+    },
+    {
+      "kind": "nouns",
+      "label": "Cases",
+      "entries": [
+        {
+          "point": "Accusative case (den / einen)",
+          "label": "Accusative",
+          "usage": "The direct object.",
+          "example": "Ich sehe den Mann."
+        },
+        {
+          "point": "The dative case (dem, der, den…)",
+          "label": "Dative",
+          "usage": "The indirect object; after certain prepositions.",
+          "example": "Ich gebe dem Kind das Buch."
+        },
+        {
+          "point": "The genitive case (des, der)",
+          "label": "Genitive",
+          "usage": "Possession: of.",
+          "example": "das Auto des Mannes"
+        },
+        {
+          "point": "Adjective endings",
+          "label": "Adjective endings",
+          "usage": "Adjective endings by case, gender, article.",
+          "example": "ein roter Wagen, den roten Wagen"
+        },
+        {
+          "point": "Two-way prepositions (in, auf, an…)",
+          "label": "Two-way prepositions",
+          "usage": "Accusative for motion, dative for place.",
+          "example": "in die Stadt / in der Stadt"
+        },
+        {
+          "point": "Possessive articles (mein, dein, sein…)",
+          "label": "Possessive articles",
+          "usage": "mein/dein/sein decline like ein.",
+          "example": "mein Bruder, meinem Bruder"
+        }
+      ]
+    }
+  ]
+}

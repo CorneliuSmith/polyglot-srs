@@ -1,0 +1,109 @@
+{
+  "language": "fr",
+  "_note": "The Gym manifest (WP25a): which grammar points act as selectable form categories, grouped into picker columns. 'point' must match the grammar point title exactly (resolved to ids at request time). 'usage' is the plain-language hover explanation; 'example' is a short illustration. 'nonstandard': forms hidden behind the 'include non-standard words' toggle.",
+  "columns": [
+    {
+      "kind": "verbs",
+      "label": "Verb tenses & moods",
+      "entries": [
+        {
+          "point": "Present tense of -er verbs",
+          "label": "Present -er",
+          "usage": "Now or regularly, -er verbs.",
+          "example": "Je parle français."
+        },
+        {
+          "point": "-ir and -re verbs (finir, vendre)",
+          "label": "Present -ir/-re",
+          "usage": "Now or regularly, -ir and -re verbs.",
+          "example": "Je finis, tu vends."
+        },
+        {
+          "point": "Passé composé with avoir",
+          "label": "Passé composé (avoir)",
+          "usage": "A finished past with avoir.",
+          "example": "J'ai mangé une pomme."
+        },
+        {
+          "point": "Passé composé with être",
+          "label": "Passé composé (être)",
+          "usage": "Past with être — motion and reflexives.",
+          "example": "Elle est partie tôt."
+        },
+        {
+          "point": "The imperfect (l'imparfait)",
+          "label": "Imperfect",
+          "usage": "The ongoing or habitual past.",
+          "example": "Je jouais souvent."
+        },
+        {
+          "point": "The future (le futur simple)",
+          "label": "Future",
+          "usage": "What will happen.",
+          "example": "Demain je partirai."
+        },
+        {
+          "point": "The conditional (le conditionnel)",
+          "label": "Conditional",
+          "usage": "What would happen.",
+          "example": "Je voudrais partir."
+        },
+        {
+          "point": "The subjunctive (le subjonctif)",
+          "label": "Subjunctive",
+          "usage": "After que — wish, doubt, necessity.",
+          "example": "Il faut que tu viennes."
+        },
+        {
+          "point": "The imperative (parle ! / ne parle pas !)",
+          "label": "Imperative",
+          "usage": "Commands.",
+          "example": "Parle plus fort !"
+        },
+        {
+          "point": "The pluperfect (le plus-que-parfait)",
+          "label": "Pluperfect",
+          "usage": "The past-before-the-past.",
+          "example": "J'avais déjà mangé.",
+          "nonstandard": true
+        }
+      ]
+    },
+    {
+      "kind": "agreement",
+      "label": "Agreement",
+      "entries": [
+        {
+          "point": "Definite articles (le / la / les)",
+          "label": "Definite article",
+          "usage": "le/la/les.",
+          "example": "le livre, la porte"
+        },
+        {
+          "point": "Indefinite articles (un / une / des)",
+          "label": "Indefinite article",
+          "usage": "un/une/des.",
+          "example": "un chat, des chats"
+        },
+        {
+          "point": "Partitive articles (du, de la, des)",
+          "label": "Partitive",
+          "usage": "some / any of something.",
+          "example": "du pain, de la eau"
+        },
+        {
+          "point": "Adjective agreement",
+          "label": "Adjectives",
+          "usage": "Adjectives match gender and number.",
+          "example": "une voiture bleue"
+        },
+        {
+          "point": "Possessive & demonstrative adjectives (mon, ce…)",
+          "label": "Possessive/demonstrative",
+          "usage": "mon/ma/mes, ce/cette/ces.",
+          "example": "mon ami, cette nuit"
+        }
+      ]
+    }
+  ]
+}

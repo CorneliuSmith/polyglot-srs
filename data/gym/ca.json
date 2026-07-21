@@ -1,0 +1,90 @@
+{
+  "language": "ca",
+  "_note": "The Gym manifest (WP25a): which grammar points act as selectable form categories, grouped into picker columns. 'point' must match the grammar point title exactly (resolved to ids at request time). 'usage' is the plain-language hover explanation; 'example' is a short illustration. 'nonstandard': forms hidden behind the 'include non-standard words' toggle.",
+  "columns": [
+    {
+      "kind": "verbs",
+      "label": "Verb tenses & moods",
+      "entries": [
+        {
+          "point": "Present tense of -ar verbs",
+          "label": "Present -ar",
+          "usage": "Now or regularly, -ar verbs.",
+          "example": "Jo parlo català."
+        },
+        {
+          "point": "-re and -ir verbs (perdre, dormir, llegir)",
+          "label": "Present -re/-ir",
+          "usage": "Now or regularly, -re and -ir verbs.",
+          "example": "Llegeixo un llibre."
+        },
+        {
+          "point": "The past (passat perifràstic: vaig anar)",
+          "label": "Past (perifràstic)",
+          "usage": "The finished past: vaig + infinitive.",
+          "example": "Ahir vaig parlar."
+        },
+        {
+          "point": "The imperfect (l'imperfet)",
+          "label": "Imperfect",
+          "usage": "The ongoing or habitual past.",
+          "example": "De petit jugava molt."
+        },
+        {
+          "point": "The future (el futur)",
+          "label": "Future",
+          "usage": "What will happen.",
+          "example": "Demà menjaré tard."
+        },
+        {
+          "point": "The conditional (el condicional)",
+          "label": "Conditional",
+          "usage": "What would happen.",
+          "example": "Voldria marxar."
+        },
+        {
+          "point": "The subjunctive (el subjuntiu)",
+          "label": "Subjunctive",
+          "usage": "After que — wish, doubt.",
+          "example": "Espero que vinguis."
+        },
+        {
+          "point": "The imperative (parla! no parlis!)",
+          "label": "Imperative",
+          "usage": "Commands.",
+          "example": "Parla més fort!"
+        }
+      ]
+    },
+    {
+      "kind": "agreement",
+      "label": "Agreement",
+      "entries": [
+        {
+          "point": "Definite articles (el / la / els / les)",
+          "label": "Definite article",
+          "usage": "el/la/els/les.",
+          "example": "el llibre, les cases"
+        },
+        {
+          "point": "Indefinite articles (un / una)",
+          "label": "Indefinite article",
+          "usage": "un/una/uns/unes.",
+          "example": "un cotxe, una taula"
+        },
+        {
+          "point": "Adjective agreement",
+          "label": "Adjectives",
+          "usage": "Adjectives match gender and number.",
+          "example": "un cotxe vermell"
+        },
+        {
+          "point": "Possessives & demonstratives (el meu, aquest…)",
+          "label": "Possessive/demonstrative",
+          "usage": "el meu, aquest/aquell.",
+          "example": "el meu amic, aquesta nit"
+        }
+      ]
+    }
+  ]
+}
