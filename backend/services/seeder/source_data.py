@@ -60,6 +60,7 @@ import httpx
 from backend.services.nlp.arabic import ArabicNLP
 from backend.services.nlp.hausa import HausaNLP, normalize_hausa
 from backend.services.nlp.hindi import HindiNLP
+from backend.services.nlp.korean import KoreanNLP
 from backend.services.nlp.latin_base import (
     CatalanNLP,
     DutchNLP,
@@ -85,7 +86,7 @@ from backend.services.seeder.base import DATA_DIR
 # (OpenSubtitles) + a kaikki Wiktionary dictionary. The path is
 # script-agnostic — ro/el/ar ride the same rails as the Latin five; it just
 # needs a frequency list, a kaikki extract, and a lemmatizer.
-FREQUENCYWORDS_LANGS = {"es", "it", "fr", "de", "ca", "ro", "el", "ar", "ru", "pt", "hi", "nl", "th"}
+FREQUENCYWORDS_LANGS = {"es", "it", "fr", "de", "ca", "ro", "el", "ar", "ru", "pt", "hi", "nl", "th", "ko"}
 LATIN_NLP = {
     "es": SpanishNLP, "it": ItalianNLP, "fr": FrenchNLP,
     "de": GermanNLP, "ca": CatalanNLP, "mi": MaoriNLP,
@@ -98,7 +99,7 @@ LATIN_NLP = {
 FREQ_NLP = {
     **LATIN_NLP,
     "ro": RomanianNLP, "el": GreekNLP, "ar": ArabicNLP, "ru": RussianNLP,
-    "hi": HindiNLP, "nl": DutchNLP, "th": ThaiNLP,
+    "hi": HindiNLP, "nl": DutchNLP, "th": ThaiNLP, "ko": KoreanNLP,
 }
 
 logger = logging.getLogger("source_data")
@@ -141,6 +142,7 @@ SOURCES = {
     "hi_kaikki": "https://kaikki.org/dictionary/Hindi/kaikki.org-dictionary-Hindi.jsonl",
     "nl_kaikki": "https://kaikki.org/dictionary/Dutch/kaikki.org-dictionary-Dutch.jsonl",
     "th_kaikki": "https://kaikki.org/dictionary/Thai/kaikki.org-dictionary-Thai.jsonl",
+    "ko_kaikki": "https://kaikki.org/dictionary/Korean/kaikki.org-dictionary-Korean.jsonl",
     # HermitDave FrequencyWords (OpenSubtitles 2018), per ISO code.
     "frequencywords": (
         "https://raw.githubusercontent.com/hermitdave/FrequencyWords/"
@@ -202,6 +204,7 @@ TATOEBA_ISO3 = {
     "es": "spa", "fr": "fra", "de": "deu", "it": "ita", "ca": "cat",
     "ro": "ron", "el": "ell", "ru": "rus", "ar": "ara", "pt": "por",
     "hi": "hin", "jam": "jam", "mi": "mri", "nl": "nld", "th": "tha",
+    "ko": "kor",
 }
 
 # Hausa has no reachable public-domain corpus in this pipeline; the user drops
@@ -1313,7 +1316,7 @@ def main() -> None:
     parser.add_argument(
         "--language", "-l",
         choices=["tr", "sw", "yo", "ha", "xh", "mi", "es", "it", "fr", "de", "ca",
-                 "ro", "el", "ar", "ru", "en", "pt", "hi", "jam", "nl", "th"],
+                 "ro", "el", "ar", "ru", "en", "pt", "hi", "jam", "nl", "th", "ko"],
         required=True
     )
     parser.add_argument(

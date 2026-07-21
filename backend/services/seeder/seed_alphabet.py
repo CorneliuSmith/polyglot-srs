@@ -136,8 +136,38 @@ THAI = [
     ("ฮ", "h", "'h' as in hat (low class)"),
 ]
 
+# Hangul jamo (WP27). Consonants first (plain, aspirated, tense), then
+# vowels — the block-assembly rule lives in the Letters & Sounds panel;
+# the deck drills each letter's sound.
+HANGUL = [
+    ("ㄱ", "g/k", "between 'g' and 'k'"), ("ㄴ", "n", "'n' as in no"),
+    ("ㄷ", "d/t", "between 'd' and 't'"), ("ㄹ", "r/l", "a tap 'r'; 'l' at the end of a block"),
+    ("ㅁ", "m", "'m' as in mom"), ("ㅂ", "b/p", "between 'b' and 'p'"),
+    ("ㅅ", "s", "'s' as in see; 'sh' before ㅣ"),
+    ("ㅇ", "-/ng", "silent at the start; 'ng' at the end"),
+    ("ㅈ", "j", "between 'j' and 'ch'"), ("ㅎ", "h", "'h' as in hat"),
+    ("ㅋ", "k", "'k' with a strong puff"), ("ㅌ", "t", "'t' with a strong puff"),
+    ("ㅍ", "p", "'p' with a strong puff"), ("ㅊ", "ch", "'ch' with a strong puff"),
+    ("ㄲ", "kk", "a tight 'k', no puff"), ("ㄸ", "tt", "a tight 't', no puff"),
+    ("ㅃ", "pp", "a tight 'p', no puff"), ("ㅆ", "ss", "a tight 's'"),
+    ("ㅉ", "jj", "a tight 'j', no puff"),
+    ("ㅏ", "a", "'ah' as in father"), ("ㅓ", "eo", "'u' as in cut — an open 'aw'"),
+    ("ㅗ", "o", "'o' as in go"), ("ㅜ", "u", "'oo' as in moon"),
+    ("ㅡ", "eu", "'oo' with flat lips — smile while saying it"),
+    ("ㅣ", "i", "'ee' as in see"), ("ㅐ", "ae", "'e' as in bed"),
+    ("ㅔ", "e", "'e' as in bed (same sound today)"),
+    ("ㅑ", "ya", "'ya' as in yard"), ("ㅕ", "yeo", "'yu' as in young"),
+    ("ㅛ", "yo", "'yo' as in yogurt"), ("ㅠ", "yu", "'you'"),
+    ("ㅒ", "yae", "'ye' as in yes"), ("ㅖ", "ye", "'ye' as in yes"),
+    ("ㅘ", "wa", "'wa' as in water"), ("ㅝ", "wo", "'wo' as in wonder"),
+    ("ㅙ", "wae", "'we' as in wet"), ("ㅞ", "we", "'we' as in wet"),
+    ("ㅚ", "oe", "'we' as in wet (modern speech)"), ("ㅟ", "wi", "'wee' as in week"),
+    ("ㅢ", "ui", "'u'+'i' glided; often just 'i' in speech"),
+]
+
 ALPHABETS: dict[str, list[tuple[str, str, str]]] = {
     "ru": RUSSIAN, "el": GREEK, "ar": ARABIC, "hi": HINDI, "th": THAI,
+    "ko": HANGUL,
 }
 
 

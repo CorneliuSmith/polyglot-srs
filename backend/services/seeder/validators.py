@@ -12,6 +12,10 @@ DEVANAGARI_PATTERN = re.compile(
     r'^[\u0900-\u097F\uA8E0-\uA8FF\u200C\u200D\s\-]+$'
 )
 THAI_PATTERN = re.compile(r'^[\u0E00-\u0E7F\s\-]+$')
+# Hangul syllables + jamo blocks (compatibility jamo appear in letter names).
+HANGUL_PATTERN = re.compile(
+    r'^[\uAC00-\uD7A3\u1100-\u11FF\u3130-\u318F\s\-]+$'
+)
 
 VALID_POS = {
     "noun", "verb", "adj", "adv", "particle",
@@ -25,6 +29,7 @@ SCRIPT_VALIDATORS = {
     "en": ("Latin", LATIN_PATTERN),
     "hi": ("Devanagari", DEVANAGARI_PATTERN),
     "th": ("Thai", THAI_PATTERN),
+    "ko": ("Hangul", HANGUL_PATTERN),
 }
 
 

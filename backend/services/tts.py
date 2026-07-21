@@ -39,6 +39,7 @@ VOICES: dict[str, str] = {
     "hi": "hi-IN-SwaraNeural",
     "nl": "nl-NL-ColetteNeural",
     "th": "th-TH-PremwadeeNeural",
+    "ko": "ko-KR-SunHiNeural",
     # No neural voice exists for Jamaican Patois; jam is intentionally absent.
 }
 

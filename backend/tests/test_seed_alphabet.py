@@ -30,5 +30,5 @@ class TestAlphabetData:
                 assert rom.strip(), (code, letter)
                 assert sound.strip(), (code, letter)
 
-    def test_all_five_scripts(self):
-        assert set(ALPHABETS) == {"ru", "el", "ar", "hi", "th"}
+    def test_all_six_scripts(self):
+        assert set(ALPHABETS) == {"ru", "el", "ar", "hi", "th", "ko"}

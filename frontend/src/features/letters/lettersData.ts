@@ -31,7 +31,7 @@ export interface LanguageLetters {
   sections: LetterSection[]
 }
 
-import { arabicLetters, greekLetters, hindiLetters, russianLetters, thaiLetters } from './lettersScripts'
+import { arabicLetters, greekLetters, hindiLetters, koreanLetters, russianLetters, thaiLetters } from './lettersScripts'
 
 const spanish: LanguageLetters = {
   intro: 'Spanish spelling is honest: five pure vowels, and almost every letter says the same thing every time.',
@@ -608,6 +608,7 @@ export const LETTERS: Record<string, LanguageLetters> = {
   ar: arabicLetters,
   hi: hindiLetters,
   th: thaiLetters,
+  ko: koreanLetters,
 }
 
 export function lettersFor(code: string | undefined | null): LanguageLetters | null {
