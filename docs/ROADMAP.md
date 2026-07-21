@@ -1246,6 +1246,17 @@ Also folds in: the "all accounts" tile (every account listable,
 including never-active — previously invisible in every activity
 window).
 
+### WP30 — On-screen keyboard in the Learn section (owner, 2026-07-20)
+The review session had both QWERTY transliteration (ru/ar/el/hi, via
+DrillCard) and the on-screen keyboard (ru/ar/el/th + Latin-accent
+layouts); the Learn section had only the translit — no keyboard access
+while learning alphabet-vocab languages. LearnPage now renders the same
+OnScreenKeyboard + Show/Hide toggle during the quiz phase (gated on
+hasKeyboardLayout), wired to the quiz input with the identical
+insert/backspace/caret handling as review. Translit auto-conversion was
+already present in Learn via DrillCard. (ko has neither a translit scheme
+nor a layout — it uses the device IME, per WP27.)
+
 ### WP25(e) — Gym manifests for the inflected languages (owner, 2026-07-20)
 The Gym shipped with manifests for ru + ko only, so every OTHER language
 showed "doesn't bend its words enough to need a gym" — the empty state was

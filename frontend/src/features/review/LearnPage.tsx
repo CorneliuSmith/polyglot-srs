@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { useNavigate, useSearchParams } from 'react-router-dom'
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
 import { confirmLearnSession, startLearnSession, validateAnswer } from '../../api/review'
@@ -9,6 +9,8 @@ import FormsPanel from '../../components/FormsPanel'
 import ExplanationView from '../../components/ExplanationView'
 import SpeakButton from '../../components/SpeakButton'
 import DrillCard from './DrillCard'
+import OnScreenKeyboard, { hasKeyboardLayout } from '../keyboards/OnScreenKeyboard'
+import type { KeyboardLanguage } from '../keyboards/OnScreenKeyboard'
 import { finalizeInput } from '../keyboards/translit'
 import type { Lesson, ValidateAnswerResponse } from '../../api/types'
 
@@ -90,6 +92,38 @@ function LearnInner({ onLocaleChanged }: { onLocaleChanged: () => void }) {
   const [missedCards, setMissedCards] = useState<Set<string>>(new Set())
   const [quizInput, setQuizInput] = useState('')
   const [quizResult, setQuizResult] = useState<ValidateAnswerResponse | null>(null)
+  // On-screen keyboard for non-Latin scripts (ru/ar/el/th) — same access the
+  // review session has (beta report: alphabet languages had no keyboard while
+  // learning). Types the target script straight into the answer.
+  const inputRef = useRef<HTMLInputElement>(null)
+  const [showKeyboard, setShowKeyboard] = useState(true)
+
+  const typeIntoQuiz = (insert: string, replaceBackspace = false) => {
+    setQuizResult(null)
+    const input = inputRef.current
+    if (!input) {
+      setQuizInput((prev) =>
+        replaceBackspace ? prev.slice(0, -1) : prev + insert,
+      )
+      return
+    }
+    const start = input.selectionStart ?? input.value.length
+    const end = input.selectionEnd ?? input.value.length
+    if (replaceBackspace) {
+      const from = start === end ? Math.max(0, start - 1) : start
+      setQuizInput(input.value.slice(0, from) + input.value.slice(end))
+      requestAnimationFrame(() => {
+        input.focus()
+        input.setSelectionRange(from, from)
+      })
+      return
+    }
+    setQuizInput(input.value.slice(0, start) + insert + input.value.slice(end))
+    requestAnimationFrame(() => {
+      input.focus()
+      input.setSelectionRange(start + insert.length, start + insert.length)
+    })
+  }
 
   const validateMutation = useMutation({ mutationFn: validateAnswer })
   const confirmMutation = useMutation({
@@ -386,6 +420,7 @@ function LearnInner({ onLocaleChanged }: { onLocaleChanged: () => void }) {
                   onSubmit={handleCheck}
                   disabled={currentPassed || validateMutation.isPending}
                   languageCode={languageCode}
+                  inputRef={inputRef}
                   result={
                     currentPassed
                       ? currentSloppy
@@ -420,6 +455,31 @@ function LearnInner({ onLocaleChanged }: { onLocaleChanged: () => void }) {
                   >
                     {validateMutation.isPending ? '…' : '→'}
                   </button>
+                )}
+
+                {/* On-screen keyboard for non-Latin scripts, during answering */}
+                {!currentPassed && hasKeyboardLayout(languageCode) && (
+                  <div className="mt-3 space-y-2">
+                    <div className="flex justify-end">
+                      <button
+                        type="button"
+                        onClick={() => setShowKeyboard((v) => !v)}
+                        className="text-xs text-gray-500 hover:text-gray-700 border border-gray-200 rounded-lg px-3 py-1.5 touch-manipulation"
+                        style={{ minHeight: '44px' }}
+                      >
+                        {showKeyboard ? 'Hide Keyboard' : 'Show Keyboard'}
+                      </button>
+                    </div>
+                    {showKeyboard && (
+                      <OnScreenKeyboard
+                        languageCode={languageCode as KeyboardLanguage}
+                        onKeyPress={(key) => typeIntoQuiz(key)}
+                        onEnter={handleCheck}
+                        onBackspace={() => typeIntoQuiz('', true)}
+                        inputRef={inputRef}
+                      />
+                    )}
+                  </div>
                 )}
                 {currentPassed && lesson.quiz && !currentSloppy && (
                   <p className="mt-3 text-sm text-green-700 text-center" role="status">
