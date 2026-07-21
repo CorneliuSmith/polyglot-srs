@@ -860,7 +860,7 @@
           "cell": "vous"
         },
         {
-          "sentence": "Je {{answer}} le bus.",
+          "sentence": "J'{{answer}} le bus.",
           "answer": "attends",
           "translation": "I am waiting for the bus.",
           "hint": "to wait (I)",

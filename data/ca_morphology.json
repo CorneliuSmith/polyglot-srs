@@ -5125,10 +5125,6 @@
 "agent": {
 "chips": [
 {
-"label": "Gender",
-"value": "feminine"
-},
-{
 "label": "Plural",
 "value": "agents"
 }
@@ -6210,10 +6206,6 @@
 },
 "alcalde": {
 "chips": [
-{
-"label": "Gender",
-"value": "feminine"
-},
 {
 "label": "Plural",
 "value": "alcaldes"
@@ -8071,10 +8063,6 @@
 "amor": {
 "chips": [
 {
-"label": "Gender",
-"value": "feminine"
-},
-{
 "label": "Plural",
 "value": "amors"
 }
@@ -9129,6 +9117,19 @@
 }
 ],
 "pos": "adj"
+},
+"ant": {
+"chips": [
+{
+"label": "Gender",
+"value": "masculine"
+},
+{
+"label": "Plural",
+"value": "ants"
+}
+],
+"pos": "noun"
 },
 "antena": {
 "chips": [
@@ -12965,10 +12966,6 @@
 "art": {
 "chips": [
 {
-"label": "Gender",
-"value": "feminine"
-},
-{
 "label": "Plural",
 "value": "arts"
 }
@@ -13026,10 +13023,6 @@
 "artista": {
 "chips": [
 {
-"label": "Gender",
-"value": "feminine"
-},
-{
 "label": "Plural",
 "value": "artistes"
 }
@@ -13040,7 +13033,7 @@
 "chips": [
 {
 "label": "Gender",
-"value": "feminine"
+"value": "masculine"
 }
 ],
 "pos": "noun"
@@ -14774,19 +14767,6 @@
 ],
 "pos": "noun"
 },
-"astronauta": {
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
-},
-{
-"label": "Plural",
-"value": "astronautes"
-}
-],
-"pos": "noun"
-},
 "astut": {
 "chips": [
 {
@@ -14811,10 +14791,6 @@
 },
 "atacant": {
 "chips": [
-{
-"label": "Gender",
-"value": "feminine"
-},
 {
 "label": "Plural",
 "value": "atacants"
@@ -15285,6 +15261,137 @@
 ],
 "pos": "noun"
 },
+"atracar": {
+"charts": [
+{
+"rows": [
+[
+"jo",
+"atraco"
+],
+[
+"tu",
+"atraques"
+],
+[
+"ell/ella",
+"atraca"
+],
+[
+"nosaltres",
+"atraquem"
+],
+[
+"vosaltres",
+"atraqueu"
+],
+[
+"ells",
+"atraquen"
+]
+],
+"title": "Present"
+},
+{
+"rows": [
+[
+"jo",
+"atracava"
+],
+[
+"tu",
+"atracaves"
+],
+[
+"ell/ella",
+"atracava"
+],
+[
+"nosaltres",
+"atracàvem"
+],
+[
+"vosaltres",
+"atracàveu"
+],
+[
+"ells",
+"atracaven"
+]
+],
+"title": "Imperfect"
+},
+{
+"rows": [
+[
+"jo",
+"atracaré"
+],
+[
+"tu",
+"atracaràs"
+],
+[
+"ell/ella",
+"atracarà"
+],
+[
+"nosaltres",
+"atracarem"
+],
+[
+"vosaltres",
+"atracareu"
+],
+[
+"ells",
+"atracaran"
+]
+],
+"title": "Future"
+},
+{
+"rows": [
+[
+"jo",
+"atraqui"
+],
+[
+"tu",
+"atraquis"
+],
+[
+"ell/ella",
+"atraqui"
+],
+[
+"nosaltres",
+"atraquem"
+],
+[
+"vosaltres",
+"atraqueu"
+],
+[
+"ells",
+"atraquin"
+]
+],
+"title": "Subjunctive (present)"
+}
+],
+"chips": [
+{
+"label": "Gerund",
+"value": "atracant"
+},
+{
+"label": "Past participle",
+"value": "atracat"
+}
+],
+"pos": "verb"
+},
 "atracció": {
 "chips": [
 {
@@ -15434,137 +15541,6 @@
 {
 "label": "Past participle",
 "value": "atrapat"
-}
-],
-"pos": "verb"
-},
-"atraure": {
-"charts": [
-{
-"rows": [
-[
-"jo",
-"atrec"
-],
-[
-"tu",
-"atreus"
-],
-[
-"ell/ella",
-"atreu"
-],
-[
-"nosaltres",
-"atraiem"
-],
-[
-"vosaltres",
-"atraieu"
-],
-[
-"ells",
-"atreuen"
-]
-],
-"title": "Present"
-},
-{
-"rows": [
-[
-"jo",
-"atreia"
-],
-[
-"tu",
-"atreies"
-],
-[
-"ell/ella",
-"atreia"
-],
-[
-"nosaltres",
-"atrèiem"
-],
-[
-"vosaltres",
-"atrèieu"
-],
-[
-"ells",
-"atreien"
-]
-],
-"title": "Imperfect"
-},
-{
-"rows": [
-[
-"jo",
-"atrauré"
-],
-[
-"tu",
-"atrauràs"
-],
-[
-"ell/ella",
-"atraurà"
-],
-[
-"nosaltres",
-"atraurem"
-],
-[
-"vosaltres",
-"atraureu"
-],
-[
-"ells",
-"atrauran"
-]
-],
-"title": "Future"
-},
-{
-"rows": [
-[
-"jo",
-"atregui"
-],
-[
-"tu",
-"atreguis"
-],
-[
-"ell/ella",
-"atregui"
-],
-[
-"nosaltres",
-"atraguem"
-],
-[
-"vosaltres",
-"atragueu"
-],
-[
-"ells",
-"atreguin"
-]
-],
-"title": "Subjunctive (present)"
-}
-],
-"chips": [
-{
-"label": "Gerund",
-"value": "atraient"
-},
-{
-"label": "Past participle",
-"value": "atret"
 }
 ],
 "pos": "verb"
@@ -19011,19 +18987,6 @@
 ],
 "pos": "noun"
 },
-"bebé": {
-"chips": [
-{
-"label": "Gender",
-"value": "masculine"
-},
-{
-"label": "Plural",
-"value": "bebés"
-}
-],
-"pos": "noun"
-},
 "bec": {
 "chips": [
 {
@@ -19554,19 +19517,6 @@
 {
 "label": "Plural",
 "value": "biblioteques"
-}
-],
-"pos": "noun"
-},
-"bici": {
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
-},
-{
-"label": "Plural",
-"value": "bicis"
 }
 ],
 "pos": "noun"
@@ -21268,10 +21218,6 @@
 "bus": {
 "chips": [
 {
-"label": "Gender",
-"value": "feminine"
-},
-{
 "label": "Plural",
 "value": "bussos"
 }
@@ -21561,19 +21507,6 @@
 ],
 "pos": "noun"
 },
-"cabana": {
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
-},
-{
-"label": "Plural",
-"value": "cabanes"
-}
-],
-"pos": "noun"
-},
 "cabell": {
 "chips": [
 {
@@ -21783,19 +21716,6 @@
 {
 "label": "Plural",
 "value": "cafès"
-}
-],
-"pos": "noun"
-},
-"café": {
-"chips": [
-{
-"label": "Gender",
-"value": "masculine"
-},
-{
-"label": "Plural",
-"value": "cafés"
 }
 ],
 "pos": "noun"
@@ -22145,6 +22065,137 @@
 {
 "label": "Past participle",
 "value": "calat"
+}
+],
+"pos": "verb"
+},
+"calcular": {
+"charts": [
+{
+"rows": [
+[
+"jo",
+"calculo"
+],
+[
+"tu",
+"calcules"
+],
+[
+"ell/ella",
+"calcula"
+],
+[
+"nosaltres",
+"calculem"
+],
+[
+"vosaltres",
+"calculeu"
+],
+[
+"ells",
+"calculen"
+]
+],
+"title": "Present"
+},
+{
+"rows": [
+[
+"jo",
+"calculava"
+],
+[
+"tu",
+"calculaves"
+],
+[
+"ell/ella",
+"calculava"
+],
+[
+"nosaltres",
+"calculàvem"
+],
+[
+"vosaltres",
+"calculàveu"
+],
+[
+"ells",
+"calculaven"
+]
+],
+"title": "Imperfect"
+},
+{
+"rows": [
+[
+"jo",
+"calcularé"
+],
+[
+"tu",
+"calcularàs"
+],
+[
+"ell/ella",
+"calcularà"
+],
+[
+"nosaltres",
+"calcularem"
+],
+[
+"vosaltres",
+"calculareu"
+],
+[
+"ells",
+"calcularan"
+]
+],
+"title": "Future"
+},
+{
+"rows": [
+[
+"jo",
+"calculi"
+],
+[
+"tu",
+"calculis"
+],
+[
+"ell/ella",
+"calculi"
+],
+[
+"nosaltres",
+"calculem"
+],
+[
+"vosaltres",
+"calculeu"
+],
+[
+"ells",
+"calculin"
+]
+],
+"title": "Subjunctive (present)"
+}
+],
+"chips": [
+{
+"label": "Gerund",
+"value": "calculant"
+},
+{
+"label": "Past participle",
+"value": "calculat"
 }
 ],
 "pos": "verb"
@@ -22515,10 +22566,6 @@
 "camarada": {
 "chips": [
 {
-"label": "Gender",
-"value": "feminine"
-},
-{
 "label": "Plural",
 "value": "camarades"
 }
@@ -22579,10 +22626,6 @@
 },
 "caminant": {
 "chips": [
-{
-"label": "Gender",
-"value": "feminine"
-},
 {
 "label": "Plural",
 "value": "caminants"
@@ -23098,10 +23141,6 @@
 },
 "cantant": {
 "chips": [
-{
-"label": "Gender",
-"value": "feminine"
-},
 {
 "label": "Plural",
 "value": "cantants"
@@ -23916,19 +23955,6 @@
 {
 "label": "Plural",
 "value": "carbons"
-}
-],
-"pos": "noun"
-},
-"carceller": {
-"chips": [
-{
-"label": "Gender",
-"value": "masculine"
-},
-{
-"label": "Plural",
-"value": "carcellers"
 }
 ],
 "pos": "noun"
@@ -25833,6 +25859,19 @@
 }
 ],
 "pos": "verb"
+},
+"cd": {
+"chips": [
+{
+"label": "Gender",
+"value": "masculine"
+},
+{
+"label": "Plural",
+"value": "CDs"
+}
+],
+"pos": "noun"
 },
 "ceba": {
 "chips": [
@@ -28239,146 +28278,11 @@
 "color": {
 "chips": [
 {
-"label": "Gender",
-"value": "feminine"
-},
-{
 "label": "Plural",
 "value": "colors"
 }
 ],
 "pos": "noun"
-},
-"colpejar": {
-"charts": [
-{
-"rows": [
-[
-"jo",
-"colpejo"
-],
-[
-"tu",
-"colpeges"
-],
-[
-"ell/ella",
-"colpeja"
-],
-[
-"nosaltres",
-"colpegem"
-],
-[
-"vosaltres",
-"colpegeu"
-],
-[
-"ells",
-"colpegen"
-]
-],
-"title": "Present"
-},
-{
-"rows": [
-[
-"jo",
-"colpejava"
-],
-[
-"tu",
-"colpejaves"
-],
-[
-"ell/ella",
-"colpejava"
-],
-[
-"nosaltres",
-"colpejàvem"
-],
-[
-"vosaltres",
-"colpejàveu"
-],
-[
-"ells",
-"colpejaven"
-]
-],
-"title": "Imperfect"
-},
-{
-"rows": [
-[
-"jo",
-"colpejaré"
-],
-[
-"tu",
-"colpejaràs"
-],
-[
-"ell/ella",
-"colpejarà"
-],
-[
-"nosaltres",
-"colpejarem"
-],
-[
-"vosaltres",
-"colpejareu"
-],
-[
-"ells",
-"colpejaran"
-]
-],
-"title": "Future"
-},
-{
-"rows": [
-[
-"jo",
-"colpegi"
-],
-[
-"tu",
-"colpegis"
-],
-[
-"ell/ella",
-"colpegi"
-],
-[
-"nosaltres",
-"colpegem"
-],
-[
-"vosaltres",
-"colpegeu"
-],
-[
-"ells",
-"colpegin"
-]
-],
-"title": "Subjunctive (present)"
-}
-],
-"chips": [
-{
-"label": "Gerund",
-"value": "colpejant"
-},
-{
-"label": "Past participle",
-"value": "colpejat"
-}
-],
-"pos": "verb"
 },
 "columna": {
 "chips": [
@@ -31593,7 +31497,7 @@
 "chips": [
 {
 "label": "Gender",
-"value": "feminine"
+"value": "masculine"
 }
 ],
 "pos": "noun"
@@ -33257,10 +33161,6 @@
 "congressista": {
 "chips": [
 {
-"label": "Gender",
-"value": "feminine"
-},
-{
 "label": "Plural",
 "value": "congressistes"
 }
@@ -34769,6 +34669,137 @@
 ],
 "pos": "noun"
 },
+"contemplar": {
+"charts": [
+{
+"rows": [
+[
+"jo",
+"contemplo"
+],
+[
+"tu",
+"contemples"
+],
+[
+"ell/ella",
+"contempla"
+],
+[
+"nosaltres",
+"contemplem"
+],
+[
+"vosaltres",
+"contempleu"
+],
+[
+"ells",
+"contemplen"
+]
+],
+"title": "Present"
+},
+{
+"rows": [
+[
+"jo",
+"contemplava"
+],
+[
+"tu",
+"contemplaves"
+],
+[
+"ell/ella",
+"contemplava"
+],
+[
+"nosaltres",
+"contemplàvem"
+],
+[
+"vosaltres",
+"contemplàveu"
+],
+[
+"ells",
+"contemplaven"
+]
+],
+"title": "Imperfect"
+},
+{
+"rows": [
+[
+"jo",
+"contemplaré"
+],
+[
+"tu",
+"contemplaràs"
+],
+[
+"ell/ella",
+"contemplarà"
+],
+[
+"nosaltres",
+"contemplarem"
+],
+[
+"vosaltres",
+"contemplareu"
+],
+[
+"ells",
+"contemplaran"
+]
+],
+"title": "Future"
+},
+{
+"rows": [
+[
+"jo",
+"contempli"
+],
+[
+"tu",
+"contemplis"
+],
+[
+"ell/ella",
+"contempli"
+],
+[
+"nosaltres",
+"contemplem"
+],
+[
+"vosaltres",
+"contempleu"
+],
+[
+"ells",
+"contemplin"
+]
+],
+"title": "Subjunctive (present)"
+}
+],
+"chips": [
+{
+"label": "Gerund",
+"value": "contemplant"
+},
+{
+"label": "Past participle",
+"value": "contemplat"
+}
+],
+"pos": "verb"
+},
 "contenció": {
 "chips": [
 {
@@ -35261,10 +35292,6 @@
 "contrabandista": {
 "chips": [
 {
-"label": "Gender",
-"value": "feminine"
-},
-{
 "label": "Plural",
 "value": "contrabandistes"
 }
@@ -35433,6 +35460,19 @@
 {
 "label": "Plural",
 "value": "contrasenyes"
+}
+],
+"pos": "noun"
+},
+"contrast": {
+"chips": [
+{
+"label": "Gender",
+"value": "masculine"
+},
+{
+"label": "Plural",
+"value": "contrasts"
 }
 ],
 "pos": "noun"
@@ -36398,15 +36438,6 @@
 ],
 "pos": "verb"
 },
-"conéixer": {
-"chips": [
-{
-"label": "Past participle",
-"value": "conascut"
-}
-],
-"pos": "verb"
-},
 "cooperació": {
 "chips": [
 {
@@ -36925,10 +36956,6 @@
 "corresponsal": {
 "chips": [
 {
-"label": "Gender",
-"value": "feminine"
-},
-{
 "label": "Plural",
 "value": "corresponsals"
 }
@@ -36960,6 +36987,137 @@
 }
 ],
 "pos": "noun"
+},
+"corrompre": {
+"charts": [
+{
+"rows": [
+[
+"jo",
+"corrompo"
+],
+[
+"tu",
+"corromps"
+],
+[
+"ell/ella",
+"corromp"
+],
+[
+"nosaltres",
+"corrompem"
+],
+[
+"vosaltres",
+"corrompeu"
+],
+[
+"ells",
+"corrompen"
+]
+],
+"title": "Present"
+},
+{
+"rows": [
+[
+"jo",
+"corrompia"
+],
+[
+"tu",
+"corrompies"
+],
+[
+"ell/ella",
+"corrompia"
+],
+[
+"nosaltres",
+"corrompíem"
+],
+[
+"vosaltres",
+"corrompíeu"
+],
+[
+"ells",
+"corrompien"
+]
+],
+"title": "Imperfect"
+},
+{
+"rows": [
+[
+"jo",
+"corrompré"
+],
+[
+"tu",
+"corrompràs"
+],
+[
+"ell/ella",
+"corromprà"
+],
+[
+"nosaltres",
+"corromprem"
+],
+[
+"vosaltres",
+"corrompreu"
+],
+[
+"ells",
+"corrompran"
+]
+],
+"title": "Future"
+},
+{
+"rows": [
+[
+"jo",
+"corrompi"
+],
+[
+"tu",
+"corrompis"
+],
+[
+"ell/ella",
+"corrompi"
+],
+[
+"nosaltres",
+"corrompem"
+],
+[
+"vosaltres",
+"corrompeu"
+],
+[
+"ells",
+"corrompin"
+]
+],
+"title": "Subjunctive (present)"
+}
+],
+"chips": [
+{
+"label": "Gerund",
+"value": "corrompent"
+},
+{
+"label": "Past participle",
+"value": "corromput"
+}
+],
+"pos": "verb"
 },
 "corrupció": {
 "chips": [
@@ -40080,10 +40238,6 @@
 "còmplice": {
 "chips": [
 {
-"label": "Gender",
-"value": "feminine"
-},
-{
 "label": "Plural",
 "value": "còmplices"
 }
@@ -40112,19 +40266,6 @@
 {
 "label": "Plural",
 "value": "còpies"
-}
-],
-"pos": "noun"
-},
-"cóm": {
-"chips": [
-{
-"label": "Gender",
-"value": "masculine"
-},
-{
-"label": "Plural",
-"value": "cóms"
 }
 ],
 "pos": "noun"
@@ -40494,6 +40635,137 @@
 }
 ],
 "pos": "noun"
+},
+"decapitar": {
+"charts": [
+{
+"rows": [
+[
+"jo",
+"decapito"
+],
+[
+"tu",
+"decapites"
+],
+[
+"ell/ella",
+"decapita"
+],
+[
+"nosaltres",
+"decapitem"
+],
+[
+"vosaltres",
+"decapiteu"
+],
+[
+"ells",
+"decapiten"
+]
+],
+"title": "Present"
+},
+{
+"rows": [
+[
+"jo",
+"decapitava"
+],
+[
+"tu",
+"decapitaves"
+],
+[
+"ell/ella",
+"decapitava"
+],
+[
+"nosaltres",
+"decapitàvem"
+],
+[
+"vosaltres",
+"decapitàveu"
+],
+[
+"ells",
+"decapitaven"
+]
+],
+"title": "Imperfect"
+},
+{
+"rows": [
+[
+"jo",
+"decapitaré"
+],
+[
+"tu",
+"decapitaràs"
+],
+[
+"ell/ella",
+"decapitarà"
+],
+[
+"nosaltres",
+"decapitarem"
+],
+[
+"vosaltres",
+"decapitareu"
+],
+[
+"ells",
+"decapitaran"
+]
+],
+"title": "Future"
+},
+{
+"rows": [
+[
+"jo",
+"decapiti"
+],
+[
+"tu",
+"decapitis"
+],
+[
+"ell/ella",
+"decapiti"
+],
+[
+"nosaltres",
+"decapitem"
+],
+[
+"vosaltres",
+"decapiteu"
+],
+[
+"ells",
+"decapitin"
+]
+],
+"title": "Subjunctive (present)"
+}
+],
+"chips": [
+{
+"label": "Gerund",
+"value": "decapitant"
+},
+{
+"label": "Past participle",
+"value": "decapitat"
+}
+],
+"pos": "verb"
 },
 "decebedor": {
 "chips": [
@@ -40936,6 +41208,19 @@
 ],
 "pos": "verb"
 },
+"decoració": {
+"chips": [
+{
+"label": "Gender",
+"value": "feminine"
+},
+{
+"label": "Plural",
+"value": "decoracions"
+}
+],
+"pos": "noun"
+},
 "decret": {
 "chips": [
 {
@@ -41092,6 +41377,19 @@
 }
 ],
 "pos": "verb"
+},
+"deducció": {
+"chips": [
+{
+"label": "Gender",
+"value": "feminine"
+},
+{
+"label": "Plural",
+"value": "deduccions"
+}
+],
+"pos": "noun"
 },
 "deduir": {
 "charts": [
@@ -41784,6 +42082,19 @@
 ],
 "pos": "adj"
 },
+"deliri": {
+"chips": [
+{
+"label": "Gender",
+"value": "masculine"
+},
+{
+"label": "Plural",
+"value": "deliris"
+}
+],
+"pos": "noun"
+},
 "delta": {
 "chips": [
 {
@@ -42088,10 +42399,6 @@
 "demòcrata": {
 "chips": [
 {
-"label": "Gender",
-"value": "feminine"
-},
-{
 "label": "Plural",
 "value": "demòcrates"
 }
@@ -42126,10 +42433,6 @@
 },
 "dentista": {
 "chips": [
-{
-"label": "Gender",
-"value": "feminine"
-},
 {
 "label": "Plural",
 "value": "dentistes"
@@ -43359,6 +43662,15 @@
 }
 ],
 "pos": "verb"
+},
+"descendent": {
+"chips": [
+{
+"label": "Plural",
+"value": "descendents"
+}
+],
+"pos": "adj"
 },
 "descens": {
 "chips": [
@@ -45754,137 +46066,6 @@
 ],
 "pos": "adj"
 },
-"detindre": {
-"charts": [
-{
-"rows": [
-[
-"jo",
-"detinc"
-],
-[
-"tu",
-"detens"
-],
-[
-"ell/ella",
-"deté"
-],
-[
-"nosaltres",
-"detenim"
-],
-[
-"vosaltres",
-"deteniu"
-],
-[
-"ells",
-"detenen"
-]
-],
-"title": "Present"
-},
-{
-"rows": [
-[
-"jo",
-"detenia"
-],
-[
-"tu",
-"detenies"
-],
-[
-"ell/ella",
-"detenia"
-],
-[
-"nosaltres",
-"deteníem"
-],
-[
-"vosaltres",
-"deteníeu"
-],
-[
-"ells",
-"detenien"
-]
-],
-"title": "Imperfect"
-},
-{
-"rows": [
-[
-"jo",
-"detindré"
-],
-[
-"tu",
-"detindràs"
-],
-[
-"ell/ella",
-"detindrà"
-],
-[
-"nosaltres",
-"detindrem"
-],
-[
-"vosaltres",
-"detindreu"
-],
-[
-"ells",
-"detindran"
-]
-],
-"title": "Future"
-},
-{
-"rows": [
-[
-"jo",
-"detingui"
-],
-[
-"tu",
-"detinguis"
-],
-[
-"ell/ella",
-"detingui"
-],
-[
-"nosaltres",
-"detinguem"
-],
-[
-"vosaltres",
-"detingueu"
-],
-[
-"ells",
-"detinguin"
-]
-],
-"title": "Subjunctive (present)"
-}
-],
-"chips": [
-{
-"label": "Gerund",
-"value": "detenint"
-},
-{
-"label": "Past participle",
-"value": "detingut"
-}
-],
-"pos": "verb"
-},
 "detingut": {
 "chips": [
 {
@@ -46171,10 +46352,6 @@
 },
 "dibuixant": {
 "chips": [
-{
-"label": "Gender",
-"value": "feminine"
-},
 {
 "label": "Plural",
 "value": "dibuixants"
@@ -48728,10 +48905,6 @@
 "dolor": {
 "chips": [
 {
-"label": "Gender",
-"value": "feminine"
-},
-{
 "label": "Plural",
 "value": "dolors"
 }
@@ -48768,6 +48941,15 @@
 }
 ],
 "pos": "noun"
+},
+"dominant": {
+"chips": [
+{
+"label": "Plural",
+"value": "dominants"
+}
+],
+"pos": "adj"
 },
 "dominar": {
 "charts": [
@@ -48941,10 +49123,6 @@
 },
 "donant": {
 "chips": [
-{
-"label": "Gender",
-"value": "feminine"
-},
 {
 "label": "Plural",
 "value": "donants"
@@ -49746,6 +49924,15 @@
 {
 "label": "Plural",
 "value": "dutxes"
+}
+],
+"pos": "noun"
+},
+"dvd": {
+"chips": [
+{
+"label": "Gender",
+"value": "masculine"
 }
 ],
 "pos": "noun"
@@ -56579,10 +56766,6 @@
 "error": {
 "chips": [
 {
-"label": "Gender",
-"value": "feminine"
-},
-{
 "label": "Plural",
 "value": "errors"
 }
@@ -57577,10 +57760,6 @@
 },
 "escolar": {
 "chips": [
-{
-"label": "Gender",
-"value": "feminine"
-},
 {
 "label": "Plural",
 "value": "escolars"
@@ -59224,10 +59403,6 @@
 "especialista": {
 "chips": [
 {
-"label": "Gender",
-"value": "feminine"
-},
-{
 "label": "Plural",
 "value": "especialistes"
 }
@@ -59653,19 +59828,6 @@
 }
 ],
 "pos": "adj"
-},
-"esport": {
-"chips": [
-{
-"label": "Gender",
-"value": "masculine"
-},
-{
-"label": "Plural",
-"value": "esports"
-}
-],
-"pos": "noun"
 },
 "esposa": {
 "chips": [
@@ -61583,10 +61745,6 @@
 "estudiant": {
 "chips": [
 {
-"label": "Gender",
-"value": "feminine"
-},
-{
 "label": "Plural",
 "value": "estudiants"
 }
@@ -61829,19 +61987,6 @@
 {
 "label": "Plural",
 "value": "etiquetes"
-}
-],
-"pos": "noun"
-},
-"euga": {
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
-},
-{
-"label": "Plural",
-"value": "eugues"
 }
 ],
 "pos": "noun"
@@ -62152,15 +62297,6 @@
 {
 "label": "Plural",
 "value": "evolucions"
-}
-],
-"pos": "noun"
-},
-"ex": {
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
 }
 ],
 "pos": "noun"
@@ -64217,10 +64353,6 @@
 "fabricant": {
 "chips": [
 {
-"label": "Gender",
-"value": "feminine"
-},
-{
 "label": "Plural",
 "value": "fabricants"
 }
@@ -64476,6 +64608,19 @@
 {
 "label": "Plural",
 "value": "faldes"
+}
+],
+"pos": "noun"
+},
+"faldilla": {
+"chips": [
+{
+"label": "Gender",
+"value": "feminine"
+},
+{
+"label": "Plural",
+"value": "faldilles"
 }
 ],
 "pos": "noun"
@@ -65195,10 +65340,6 @@
 },
 "favor": {
 "chips": [
-{
-"label": "Gender",
-"value": "feminine"
-},
 {
 "label": "Plural",
 "value": "favors"
@@ -68419,6 +68560,19 @@
 ],
 "pos": "noun"
 },
+"forquilla": {
+"chips": [
+{
+"label": "Gender",
+"value": "feminine"
+},
+{
+"label": "Plural",
+"value": "forquilles"
+}
+],
+"pos": "noun"
+},
 "fort": {
 "chips": [
 {
@@ -68655,6 +68809,19 @@
 {
 "label": "Plural",
 "value": "foscors"
+}
+],
+"pos": "noun"
+},
+"fossa": {
+"chips": [
+{
+"label": "Gender",
+"value": "feminine"
+},
+{
+"label": "Plural",
+"value": "fosses"
 }
 ],
 "pos": "noun"
@@ -71310,10 +71477,6 @@
 "gerent": {
 "chips": [
 {
-"label": "Gender",
-"value": "feminine"
-},
-{
 "label": "Plural",
 "value": "gerents"
 }
@@ -72874,7 +73037,7 @@
 "chips": [
 {
 "label": "Gender",
-"value": "feminine"
+"value": "masculine"
 }
 ],
 "pos": "noun"
@@ -74165,10 +74328,6 @@
 "honor": {
 "chips": [
 {
-"label": "Gender",
-"value": "feminine"
-},
-{
 "label": "Plural",
 "value": "honors"
 }
@@ -74468,19 +74627,6 @@
 ],
 "pos": "noun"
 },
-"huit": {
-"chips": [
-{
-"label": "Gender",
-"value": "masculine"
-},
-{
-"label": "Plural",
-"value": "huits"
-}
-],
-"pos": "noun"
-},
 "humanitat": {
 "chips": [
 {
@@ -74527,10 +74673,6 @@
 },
 "humor": {
 "chips": [
-{
-"label": "Gender",
-"value": "feminine"
-},
 {
 "label": "Plural",
 "value": "humors"
@@ -74591,7 +74733,7 @@
 ],
 "pos": "noun"
 },
-"i": {
+"ia": {
 "chips": [
 {
 "label": "Gender",
@@ -74599,7 +74741,7 @@
 },
 {
 "label": "Plural",
-"value": "is"
+"value": "IAs"
 }
 ],
 "pos": "noun"
@@ -76123,6 +76265,137 @@
 }
 ],
 "pos": "adj"
+},
+"incloure": {
+"charts": [
+{
+"rows": [
+[
+"jo",
+"incloc"
+],
+[
+"tu",
+"inclous"
+],
+[
+"ell/ella",
+"inclou"
+],
+[
+"nosaltres",
+"incloem"
+],
+[
+"vosaltres",
+"incloeu"
+],
+[
+"ells",
+"inclouen"
+]
+],
+"title": "Present"
+},
+{
+"rows": [
+[
+"jo",
+"incloïa"
+],
+[
+"tu",
+"incloïes"
+],
+[
+"ell/ella",
+"incloïa"
+],
+[
+"nosaltres",
+"incloíem"
+],
+[
+"vosaltres",
+"incloíeu"
+],
+[
+"ells",
+"incloïen"
+]
+],
+"title": "Imperfect"
+},
+{
+"rows": [
+[
+"jo",
+"inclouré"
+],
+[
+"tu",
+"inclouràs"
+],
+[
+"ell/ella",
+"inclourà"
+],
+[
+"nosaltres",
+"inclourem"
+],
+[
+"vosaltres",
+"incloureu"
+],
+[
+"ells",
+"inclouran"
+]
+],
+"title": "Future"
+},
+{
+"rows": [
+[
+"jo",
+"inclogui"
+],
+[
+"tu",
+"incloguis"
+],
+[
+"ell/ella",
+"inclogui"
+],
+[
+"nosaltres",
+"incloguem"
+],
+[
+"vosaltres",
+"inclogueu"
+],
+[
+"ells",
+"incloguin"
+]
+],
+"title": "Subjunctive (present)"
+}
+],
+"chips": [
+{
+"label": "Gerund",
+"value": "incloent"
+},
+{
+"label": "Past participle",
+"value": "inclòs"
+}
+],
+"pos": "verb"
 },
 "inclòs": {
 "chips": [
@@ -81422,6 +81695,19 @@
 ],
 "pos": "noun"
 },
+"laberint": {
+"chips": [
+{
+"label": "Gender",
+"value": "masculine"
+},
+{
+"label": "Plural",
+"value": "laberints"
+}
+],
+"pos": "noun"
+},
 "laboral": {
 "chips": [
 {
@@ -81586,6 +81872,15 @@
 {
 "label": "Plural",
 "value": "letals"
+}
+],
+"pos": "adj"
+},
+"liberal": {
+"chips": [
+{
+"label": "Plural",
+"value": "liberals"
 }
 ],
 "pos": "adj"
@@ -81756,6 +82051,19 @@
 ],
 "pos": "adj"
 },
+"lis": {
+"chips": [
+{
+"label": "Gender",
+"value": "masculine"
+},
+{
+"label": "Plural",
+"value": "lisos"
+}
+],
+"pos": "noun"
+},
 "literatura": {
 "chips": [
 {
@@ -81784,10 +82092,6 @@
 },
 "lladre": {
 "chips": [
-{
-"label": "Gender",
-"value": "feminine"
-},
 {
 "label": "Plural",
 "value": "lladres"
@@ -81830,6 +82134,19 @@
 {
 "label": "Plural",
 "value": "llanes"
+}
+],
+"pos": "noun"
+},
+"llanterna": {
+"chips": [
+{
+"label": "Gender",
+"value": "feminine"
+},
+{
+"label": "Plural",
+"value": "llanternes"
 }
 ],
 "pos": "noun"
@@ -82066,6 +82383,19 @@
 {
 "label": "Plural",
 "value": "llaunes"
+}
+],
+"pos": "noun"
+},
+"llavi": {
+"chips": [
+{
+"label": "Gender",
+"value": "masculine"
+},
+{
+"label": "Plural",
+"value": "llavis"
 }
 ],
 "pos": "noun"
@@ -83955,6 +84285,19 @@
 ],
 "pos": "noun"
 },
+"làmpada": {
+"chips": [
+{
+"label": "Gender",
+"value": "feminine"
+},
+{
+"label": "Plural",
+"value": "làmpades"
+}
+],
+"pos": "noun"
+},
 "làser": {
 "chips": [
 {
@@ -83970,10 +84313,6 @@
 },
 "líder": {
 "chips": [
-{
-"label": "Gender",
-"value": "feminine"
-},
 {
 "label": "Plural",
 "value": "líders"
@@ -85094,137 +85433,6 @@
 ],
 "pos": "verb"
 },
-"mantindre": {
-"charts": [
-{
-"rows": [
-[
-"jo",
-"mantinc"
-],
-[
-"tu",
-"mantens"
-],
-[
-"ell/ella",
-"manté"
-],
-[
-"nosaltres",
-"mantenim"
-],
-[
-"vosaltres",
-"manteniu"
-],
-[
-"ells",
-"mantenen"
-]
-],
-"title": "Present"
-},
-{
-"rows": [
-[
-"jo",
-"mantenia"
-],
-[
-"tu",
-"mantenies"
-],
-[
-"ell/ella",
-"mantenia"
-],
-[
-"nosaltres",
-"manteníem"
-],
-[
-"vosaltres",
-"manteníeu"
-],
-[
-"ells",
-"mantenien"
-]
-],
-"title": "Imperfect"
-},
-{
-"rows": [
-[
-"jo",
-"mantindré"
-],
-[
-"tu",
-"mantindràs"
-],
-[
-"ell/ella",
-"mantindrà"
-],
-[
-"nosaltres",
-"mantindrem"
-],
-[
-"vosaltres",
-"mantindreu"
-],
-[
-"ells",
-"mantindran"
-]
-],
-"title": "Future"
-},
-{
-"rows": [
-[
-"jo",
-"mantingui"
-],
-[
-"tu",
-"mantinguis"
-],
-[
-"ell/ella",
-"mantingui"
-],
-[
-"nosaltres",
-"mantinguem"
-],
-[
-"vosaltres",
-"mantingueu"
-],
-[
-"ells",
-"mantinguin"
-]
-],
-"title": "Subjunctive (present)"
-}
-],
-"chips": [
-{
-"label": "Gerund",
-"value": "mantenint"
-},
-{
-"label": "Past participle",
-"value": "mantingut"
-}
-],
-"pos": "verb"
-},
 "manual": {
 "chips": [
 {
@@ -85297,10 +85505,6 @@
 },
 "mar": {
 "chips": [
-{
-"label": "Gender",
-"value": "feminine"
-},
 {
 "label": "Plural",
 "value": "mars"
@@ -85650,10 +85854,6 @@
 },
 "marxant": {
 "chips": [
-{
-"label": "Gender",
-"value": "feminine"
-},
 {
 "label": "Plural",
 "value": "marxants"
@@ -86027,6 +86227,137 @@
 }
 ],
 "pos": "adj"
+},
+"mastegar": {
+"charts": [
+{
+"rows": [
+[
+"jo",
+"mastego"
+],
+[
+"tu",
+"mastegues"
+],
+[
+"ell/ella",
+"mastega"
+],
+[
+"nosaltres",
+"masteguem"
+],
+[
+"vosaltres",
+"mastegueu"
+],
+[
+"ells",
+"masteguen"
+]
+],
+"title": "Present"
+},
+{
+"rows": [
+[
+"jo",
+"mastegava"
+],
+[
+"tu",
+"mastegaves"
+],
+[
+"ell/ella",
+"mastegava"
+],
+[
+"nosaltres",
+"mastegàvem"
+],
+[
+"vosaltres",
+"mastegàveu"
+],
+[
+"ells",
+"mastegaven"
+]
+],
+"title": "Imperfect"
+},
+{
+"rows": [
+[
+"jo",
+"mastegaré"
+],
+[
+"tu",
+"mastegaràs"
+],
+[
+"ell/ella",
+"mastegarà"
+],
+[
+"nosaltres",
+"mastegarem"
+],
+[
+"vosaltres",
+"mastegareu"
+],
+[
+"ells",
+"mastegaran"
+]
+],
+"title": "Future"
+},
+{
+"rows": [
+[
+"jo",
+"mastegui"
+],
+[
+"tu",
+"masteguis"
+],
+[
+"ell/ella",
+"mastegui"
+],
+[
+"nosaltres",
+"masteguem"
+],
+[
+"vosaltres",
+"mastegueu"
+],
+[
+"ells",
+"masteguin"
+]
+],
+"title": "Subjunctive (present)"
+}
+],
+"chips": [
+{
+"label": "Gerund",
+"value": "mastegant"
+},
+{
+"label": "Past participle",
+"value": "mastegat"
+}
+],
+"pos": "verb"
 },
 "mat": {
 "chips": [
@@ -88289,6 +88620,19 @@
 ],
 "pos": "noun"
 },
+"missouri": {
+"chips": [
+{
+"label": "Gender",
+"value": "masculine"
+},
+{
+"label": "Plural",
+"value": "Missouris"
+}
+],
+"pos": "noun"
+},
 "misteri": {
 "chips": [
 {
@@ -88320,19 +88664,6 @@
 {
 "label": "Plural",
 "value": "misèries"
-}
-],
-"pos": "noun"
-},
-"mitat": {
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
-},
-{
-"label": "Plural",
-"value": "mitats"
 }
 ],
 "pos": "noun"
@@ -88857,6 +89188,19 @@
 ],
 "pos": "noun"
 },
+"morena": {
+"chips": [
+{
+"label": "Gender",
+"value": "feminine"
+},
+{
+"label": "Plural",
+"value": "morenes"
+}
+],
+"pos": "noun"
+},
 "morfina": {
 "chips": [
 {
@@ -89086,10 +89430,6 @@
 },
 "mossega": {
 "chips": [
-{
-"label": "Gender",
-"value": "feminine"
-},
 {
 "label": "Plural",
 "value": "mossegues"
@@ -90044,6 +90384,19 @@
 ],
 "pos": "noun"
 },
+"muscle": {
+"chips": [
+{
+"label": "Gender",
+"value": "masculine"
+},
+{
+"label": "Plural",
+"value": "muscles"
+}
+],
+"pos": "noun"
+},
 "museu": {
 "chips": [
 {
@@ -90208,10 +90561,6 @@
 },
 "màrtir": {
 "chips": [
-{
-"label": "Gender",
-"value": "feminine"
-},
 {
 "label": "Plural",
 "value": "màrtirs"
@@ -90889,10 +91238,6 @@
 },
 "nazi": {
 "chips": [
-{
-"label": "Gender",
-"value": "feminine"
-},
 {
 "label": "Plural",
 "value": "nazis"
@@ -91965,10 +92310,6 @@
 "ningú": {
 "chips": [
 {
-"label": "Gender",
-"value": "feminine"
-},
-{
 "label": "Plural",
 "value": "ninguns"
 }
@@ -92032,10 +92373,6 @@
 {
 "label": "Gender",
 "value": "masculine"
-},
-{
-"label": "Plural",
-"value": "nos"
 }
 ],
 "pos": "noun"
@@ -92700,137 +93037,6 @@
 ],
 "pos": "noun"
 },
-"nàixer": {
-"charts": [
-{
-"rows": [
-[
-"jo",
-"neixo"
-],
-[
-"tu",
-"neixes"
-],
-[
-"ell/ella",
-"neix"
-],
-[
-"nosaltres",
-"naixem"
-],
-[
-"vosaltres",
-"naixeu"
-],
-[
-"ells",
-"neixen"
-]
-],
-"title": "Present"
-},
-{
-"rows": [
-[
-"jo",
-"naixia"
-],
-[
-"tu",
-"naixies"
-],
-[
-"ell/ella",
-"naixia"
-],
-[
-"nosaltres",
-"naixíem"
-],
-[
-"vosaltres",
-"naixíeu"
-],
-[
-"ells",
-"naixien"
-]
-],
-"title": "Imperfect"
-},
-{
-"rows": [
-[
-"jo",
-"naixeré"
-],
-[
-"tu",
-"naixeràs"
-],
-[
-"ell/ella",
-"naixerà"
-],
-[
-"nosaltres",
-"naixerem"
-],
-[
-"vosaltres",
-"naixereu"
-],
-[
-"ells",
-"naixeran"
-]
-],
-"title": "Future"
-},
-{
-"rows": [
-[
-"jo",
-"neixi"
-],
-[
-"tu",
-"neixis"
-],
-[
-"ell/ella",
-"neixi"
-],
-[
-"nosaltres",
-"naixem"
-],
-[
-"vosaltres",
-"naixeu"
-],
-[
-"ells",
-"neixin"
-]
-],
-"title": "Subjunctive (present)"
-}
-],
-"chips": [
-{
-"label": "Gerund",
-"value": "naixent"
-},
-{
-"label": "Past participle",
-"value": "nascut"
-}
-],
-"pos": "verb"
-},
 "néixer": {
 "charts": [
 {
@@ -92961,32 +93167,6 @@
 }
 ],
 "pos": "verb"
-},
-"nét": {
-"chips": [
-{
-"label": "Gender",
-"value": "masculine"
-},
-{
-"label": "Plural",
-"value": "néts"
-}
-],
-"pos": "noun"
-},
-"néta": {
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
-},
-{
-"label": "Plural",
-"value": "nétes"
-}
-],
-"pos": "noun"
 },
 "nòmina": {
 "chips": [
@@ -94379,10 +94559,6 @@
 },
 "ocupa": {
 "chips": [
-{
-"label": "Gender",
-"value": "feminine"
-},
 {
 "label": "Plural",
 "value": "ocupes"
@@ -96738,10 +96914,6 @@
 "ostatge": {
 "chips": [
 {
-"label": "Gender",
-"value": "feminine"
-},
-{
 "label": "Plural",
 "value": "ostatges"
 }
@@ -96811,10 +96983,6 @@
 },
 "pacient": {
 "chips": [
-{
-"label": "Gender",
-"value": "feminine"
-},
 {
 "label": "Plural",
 "value": "pacients"
@@ -97279,19 +97447,6 @@
 {
 "label": "Plural",
 "value": "papers"
-}
-],
-"pos": "noun"
-},
-"paperassa": {
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
-},
-{
-"label": "Plural",
-"value": "paperasses"
 }
 ],
 "pos": "noun"
@@ -99095,6 +99250,19 @@
 ],
 "pos": "noun"
 },
+"pavelló": {
+"chips": [
+{
+"label": "Gender",
+"value": "masculine"
+},
+{
+"label": "Plural",
+"value": "pavellons"
+}
+],
+"pos": "noun"
+},
 "país": {
 "chips": [
 {
@@ -99104,6 +99272,19 @@
 {
 "label": "Plural",
 "value": "països"
+}
+],
+"pos": "noun"
+},
+"pc": {
+"chips": [
+{
+"label": "Gender",
+"value": "masculine"
+},
+{
+"label": "Plural",
+"value": "PCs"
 }
 ],
 "pos": "noun"
@@ -100590,10 +100771,6 @@
 },
 "periodista": {
 "chips": [
-{
-"label": "Gender",
-"value": "feminine"
-},
 {
 "label": "Plural",
 "value": "periodistes"
@@ -102197,10 +102374,6 @@
 "pilot": {
 "chips": [
 {
-"label": "Gender",
-"value": "feminine"
-},
-{
 "label": "Plural",
 "value": "pilots"
 }
@@ -102517,6 +102690,19 @@
 {
 "label": "Plural",
 "value": "pintures"
+}
+],
+"pos": "noun"
+},
+"pinxo": {
+"chips": [
+{
+"label": "Gender",
+"value": "masculine"
+},
+{
+"label": "Plural",
+"value": "pinxos"
 }
 ],
 "pos": "noun"
@@ -103964,10 +104150,6 @@
 "pocavergonya": {
 "chips": [
 {
-"label": "Gender",
-"value": "feminine"
-},
-{
 "label": "Plural",
 "value": "pocavergonyes"
 }
@@ -104164,10 +104346,6 @@
 },
 "poeta": {
 "chips": [
-{
-"label": "Gender",
-"value": "feminine"
-},
 {
 "label": "Plural",
 "value": "poetes"
@@ -104627,6 +104805,15 @@
 }
 ],
 "pos": "verb"
+},
+"portaveu": {
+"chips": [
+{
+"label": "Plural",
+"value": "portaveus"
+}
+],
+"pos": "noun"
 },
 "porter": {
 "chips": [
@@ -107824,10 +108011,6 @@
 "profeta": {
 "chips": [
 {
-"label": "Gender",
-"value": "feminine"
-},
-{
 "label": "Plural",
 "value": "profetes"
 }
@@ -108850,10 +109033,6 @@
 "protagonista": {
 "chips": [
 {
-"label": "Gender",
-"value": "feminine"
-},
-{
 "label": "Plural",
 "value": "protagonistes"
 }
@@ -109026,6 +109205,19 @@
 ],
 "pos": "noun"
 },
+"proteïna": {
+"chips": [
+{
+"label": "Gender",
+"value": "feminine"
+},
+{
+"label": "Plural",
+"value": "proteïnes"
+}
+],
+"pos": "noun"
+},
 "protocol": {
 "chips": [
 {
@@ -109192,6 +109384,137 @@
 {
 "label": "Past participle",
 "value": "provat"
+}
+],
+"pos": "verb"
+},
+"proveir": {
+"charts": [
+{
+"rows": [
+[
+"jo",
+"proveeixo"
+],
+[
+"tu",
+"proveeixes"
+],
+[
+"ell/ella",
+"proveeix"
+],
+[
+"nosaltres",
+"proveïm"
+],
+[
+"vosaltres",
+"proveïu"
+],
+[
+"ells",
+"proveeixen"
+]
+],
+"title": "Present"
+},
+{
+"rows": [
+[
+"jo",
+"proveïa"
+],
+[
+"tu",
+"proveïes"
+],
+[
+"ell/ella",
+"proveïa"
+],
+[
+"nosaltres",
+"proveíem"
+],
+[
+"vosaltres",
+"proveíeu"
+],
+[
+"ells",
+"proveïen"
+]
+],
+"title": "Imperfect"
+},
+{
+"rows": [
+[
+"jo",
+"proveiré"
+],
+[
+"tu",
+"proveiràs"
+],
+[
+"ell/ella",
+"proveirà"
+],
+[
+"nosaltres",
+"proveirem"
+],
+[
+"vosaltres",
+"proveireu"
+],
+[
+"ells",
+"proveiran"
+]
+],
+"title": "Future"
+},
+{
+"rows": [
+[
+"jo",
+"proveeixi"
+],
+[
+"tu",
+"proveeixis"
+],
+[
+"ell/ella",
+"proveeixi"
+],
+[
+"nosaltres",
+"proveïm"
+],
+[
+"vosaltres",
+"proveïu"
+],
+[
+"ells",
+"proveeixin"
+]
+],
+"title": "Subjunctive (present)"
+}
+],
+"chips": [
+{
+"label": "Gerund",
+"value": "proveint"
+},
+{
+"label": "Past participle",
+"value": "proveït"
 }
 ],
 "pos": "verb"
@@ -109596,10 +109919,6 @@
 },
 "psicòpata": {
 "chips": [
-{
-"label": "Gender",
-"value": "feminine"
-},
 {
 "label": "Plural",
 "value": "psicòpates"
@@ -111379,19 +111698,6 @@
 ],
 "pos": "noun"
 },
-"ratpenat": {
-"chips": [
-{
-"label": "Gender",
-"value": "masculine"
-},
-{
-"label": "Plural",
-"value": "ratpenats"
-}
-],
-"pos": "noun"
-},
 "rave": {
 "chips": [
 {
@@ -111612,10 +111918,6 @@
 },
 "realista": {
 "chips": [
-{
-"label": "Gender",
-"value": "feminine"
-},
 {
 "label": "Plural",
 "value": "realistes"
@@ -112206,10 +112508,6 @@
 },
 "recepcionista": {
 "chips": [
-{
-"label": "Gender",
-"value": "feminine"
-},
 {
 "label": "Plural",
 "value": "recepcionistes"
@@ -116547,6 +116845,19 @@
 ],
 "pos": "verb"
 },
+"represàlia": {
+"chips": [
+{
+"label": "Gender",
+"value": "feminine"
+},
+{
+"label": "Plural",
+"value": "represàlies"
+}
+],
+"pos": "noun"
+},
 "reproductor": {
 "chips": [
 {
@@ -117191,10 +117502,6 @@
 },
 "resident": {
 "chips": [
-{
-"label": "Gender",
-"value": "feminine"
-},
 {
 "label": "Plural",
 "value": "residents"
@@ -120352,10 +120659,6 @@
 "rodamón": {
 "chips": [
 {
-"label": "Gender",
-"value": "feminine"
-},
-{
 "label": "Plural",
 "value": "rodamons"
 }
@@ -120902,10 +121205,6 @@
 "rumor": {
 "chips": [
 {
-"label": "Gender",
-"value": "feminine"
-},
-{
 "label": "Plural",
 "value": "rumors"
 }
@@ -121202,10 +121501,6 @@
 },
 "sabor": {
 "chips": [
-{
-"label": "Gender",
-"value": "feminine"
-},
 {
 "label": "Plural",
 "value": "sabors"
@@ -123501,6 +123796,137 @@
 ],
 "pos": "verb"
 },
+"sembrar": {
+"charts": [
+{
+"rows": [
+[
+"jo",
+"sembro"
+],
+[
+"tu",
+"sembres"
+],
+[
+"ell/ella",
+"sembra"
+],
+[
+"nosaltres",
+"sembrem"
+],
+[
+"vosaltres",
+"sembreu"
+],
+[
+"ells",
+"sembren"
+]
+],
+"title": "Present"
+},
+{
+"rows": [
+[
+"jo",
+"sembrava"
+],
+[
+"tu",
+"sembraves"
+],
+[
+"ell/ella",
+"sembrava"
+],
+[
+"nosaltres",
+"sembràvem"
+],
+[
+"vosaltres",
+"sembràveu"
+],
+[
+"ells",
+"sembraven"
+]
+],
+"title": "Imperfect"
+},
+{
+"rows": [
+[
+"jo",
+"sembraré"
+],
+[
+"tu",
+"sembraràs"
+],
+[
+"ell/ella",
+"sembrarà"
+],
+[
+"nosaltres",
+"sembrarem"
+],
+[
+"vosaltres",
+"sembrareu"
+],
+[
+"ells",
+"sembraran"
+]
+],
+"title": "Future"
+},
+{
+"rows": [
+[
+"jo",
+"sembri"
+],
+[
+"tu",
+"sembris"
+],
+[
+"ell/ella",
+"sembri"
+],
+[
+"nosaltres",
+"sembrem"
+],
+[
+"vosaltres",
+"sembreu"
+],
+[
+"ells",
+"sembrin"
+]
+],
+"title": "Subjunctive (present)"
+}
+],
+"chips": [
+{
+"label": "Gerund",
+"value": "sembrant"
+},
+{
+"label": "Past participle",
+"value": "sembrat"
+}
+],
+"pos": "verb"
+},
 "semental": {
 "chips": [
 {
@@ -124235,6 +124661,19 @@
 ],
 "pos": "verb"
 },
+"serenitat": {
+"chips": [
+{
+"label": "Gender",
+"value": "feminine"
+},
+{
+"label": "Plural",
+"value": "serenitats"
+}
+],
+"pos": "noun"
+},
 "sergent": {
 "chips": [
 {
@@ -124493,15 +124932,6 @@
 {
 "label": "Plural",
 "value": "setantes"
-}
-],
-"pos": "noun"
-},
-"setciències": {
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
 }
 ],
 "pos": "noun"
@@ -124772,6 +125202,19 @@
 }
 ],
 "pos": "adj"
+},
+"sexualitat": {
+"chips": [
+{
+"label": "Gender",
+"value": "feminine"
+},
+{
+"label": "Plural",
+"value": "sexualitats"
+}
+],
+"pos": "noun"
 },
 "si": {
 "chips": [
@@ -125135,6 +125578,19 @@
 }
 ],
 "pos": "adj"
+},
+"simulacre": {
+"chips": [
+{
+"label": "Gender",
+"value": "masculine"
+},
+{
+"label": "Plural",
+"value": "simulacres"
+}
+],
+"pos": "noun"
 },
 "sincer": {
 "chips": [
@@ -125547,6 +126003,15 @@
 ],
 "pos": "noun"
 },
+"socialistes": {
+"chips": [
+{
+"label": "Gender",
+"value": "masculine"
+}
+],
+"pos": "noun"
+},
 "societat": {
 "chips": [
 {
@@ -125562,10 +126027,6 @@
 },
 "sociòpata": {
 "chips": [
-{
-"label": "Gender",
-"value": "feminine"
-},
 {
 "label": "Plural",
 "value": "sociòpates"
@@ -128822,10 +129283,6 @@
 "supervivent": {
 "chips": [
 {
-"label": "Gender",
-"value": "feminine"
-},
-{
 "label": "Plural",
 "value": "supervivents"
 }
@@ -130566,10 +131023,6 @@
 "taxista": {
 "chips": [
 {
-"label": "Gender",
-"value": "feminine"
-},
-{
 "label": "Plural",
 "value": "taxistes"
 }
@@ -130865,10 +131318,6 @@
 },
 "temor": {
 "chips": [
-{
-"label": "Gender",
-"value": "feminine"
-},
 {
 "label": "Plural",
 "value": "temors"
@@ -131185,10 +131634,6 @@
 "terapeuta": {
 "chips": [
 {
-"label": "Gender",
-"value": "feminine"
-},
-{
 "label": "Plural",
 "value": "terapeutes"
 }
@@ -131337,10 +131782,6 @@
 },
 "terror": {
 "chips": [
-{
-"label": "Gender",
-"value": "feminine"
-},
 {
 "label": "Plural",
 "value": "terrors"
@@ -131708,137 +132149,6 @@
 }
 ],
 "pos": "noun"
-},
-"tindre": {
-"charts": [
-{
-"rows": [
-[
-"jo",
-"tinc"
-],
-[
-"tu",
-"tens"
-],
-[
-"ell/ella",
-"té"
-],
-[
-"nosaltres",
-"tenim"
-],
-[
-"vosaltres",
-"teniu"
-],
-[
-"ells",
-"tenen"
-]
-],
-"title": "Present"
-},
-{
-"rows": [
-[
-"jo",
-"tenia"
-],
-[
-"tu",
-"tenies"
-],
-[
-"ell/ella",
-"tenia"
-],
-[
-"nosaltres",
-"teníem"
-],
-[
-"vosaltres",
-"teníeu"
-],
-[
-"ells",
-"tenien"
-]
-],
-"title": "Imperfect"
-},
-{
-"rows": [
-[
-"jo",
-"tindré"
-],
-[
-"tu",
-"tindràs"
-],
-[
-"ell/ella",
-"tindrà"
-],
-[
-"nosaltres",
-"tindrem"
-],
-[
-"vosaltres",
-"tindreu"
-],
-[
-"ells",
-"tindran"
-]
-],
-"title": "Future"
-},
-{
-"rows": [
-[
-"jo",
-"tingui"
-],
-[
-"tu",
-"tinguis"
-],
-[
-"ell/ella",
-"tingui"
-],
-[
-"nosaltres",
-"tinguem"
-],
-[
-"vosaltres",
-"tingueu"
-],
-[
-"ells",
-"tinguin"
-]
-],
-"title": "Subjunctive (present)"
-}
-],
-"chips": [
-{
-"label": "Gerund",
-"value": "tenint"
-},
-{
-"label": "Past participle",
-"value": "tingut"
-}
-],
-"pos": "verb"
 },
 "tinent": {
 "chips": [
@@ -132878,15 +133188,6 @@
 ],
 "pos": "noun"
 },
-"torracollons": {
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
-}
-],
-"pos": "noun"
-},
 "torre": {
 "chips": [
 {
@@ -133656,6 +133957,15 @@
 ],
 "pos": "noun"
 },
+"trampós": {
+"chips": [
+{
+"label": "Plural",
+"value": "tramposos"
+}
+],
+"pos": "adj"
+},
 "tranquil": {
 "chips": [
 {
@@ -134275,137 +134585,6 @@
 }
 ],
 "pos": "noun"
-},
-"traure": {
-"charts": [
-{
-"rows": [
-[
-"jo",
-"trec"
-],
-[
-"tu",
-"treus"
-],
-[
-"ell/ella",
-"treu"
-],
-[
-"nosaltres",
-"traiem"
-],
-[
-"vosaltres",
-"traieu"
-],
-[
-"ells",
-"treuen"
-]
-],
-"title": "Present"
-},
-{
-"rows": [
-[
-"jo",
-"treia"
-],
-[
-"tu",
-"treies"
-],
-[
-"ell/ella",
-"treia"
-],
-[
-"nosaltres",
-"trèiem"
-],
-[
-"vosaltres",
-"trèieu"
-],
-[
-"ells",
-"treien"
-]
-],
-"title": "Imperfect"
-},
-{
-"rows": [
-[
-"jo",
-"trauré"
-],
-[
-"tu",
-"trauràs"
-],
-[
-"ell/ella",
-"traurà"
-],
-[
-"nosaltres",
-"traurem"
-],
-[
-"vosaltres",
-"traureu"
-],
-[
-"ells",
-"trauran"
-]
-],
-"title": "Future"
-},
-{
-"rows": [
-[
-"jo",
-"tregui"
-],
-[
-"tu",
-"treguis"
-],
-[
-"ell/ella",
-"tregui"
-],
-[
-"nosaltres",
-"traguem"
-],
-[
-"vosaltres",
-"tragueu"
-],
-[
-"ells",
-"treguin"
-]
-],
-"title": "Subjunctive (present)"
-}
-],
-"chips": [
-{
-"label": "Gerund",
-"value": "traient"
-},
-{
-"label": "Past participle",
-"value": "tret"
-}
-],
-"pos": "verb"
 },
 "travessa": {
 "chips": [
@@ -136033,10 +136212,6 @@
 "tripulant": {
 "chips": [
 {
-"label": "Gender",
-"value": "feminine"
-},
-{
 "label": "Plural",
 "value": "tripulants"
 }
@@ -136591,10 +136766,6 @@
 "turista": {
 "chips": [
 {
-"label": "Gender",
-"value": "feminine"
-},
-{
 "label": "Plural",
 "value": "turistes"
 }
@@ -136605,7 +136776,7 @@
 "chips": [
 {
 "label": "Gender",
-"value": "feminine"
+"value": "masculine"
 }
 ],
 "pos": "noun"
@@ -139676,137 +139847,6 @@
 ],
 "pos": "noun"
 },
-"vindre": {
-"charts": [
-{
-"rows": [
-[
-"jo",
-"vinc"
-],
-[
-"tu",
-"vens"
-],
-[
-"ell/ella",
-"ve"
-],
-[
-"nosaltres",
-"venim"
-],
-[
-"vosaltres",
-"veniu"
-],
-[
-"ells",
-"venen"
-]
-],
-"title": "Present"
-},
-{
-"rows": [
-[
-"jo",
-"venia"
-],
-[
-"tu",
-"venies"
-],
-[
-"ell/ella",
-"venia"
-],
-[
-"nosaltres",
-"veníem"
-],
-[
-"vosaltres",
-"veníeu"
-],
-[
-"ells",
-"venien"
-]
-],
-"title": "Imperfect"
-},
-{
-"rows": [
-[
-"jo",
-"vindré"
-],
-[
-"tu",
-"vindràs"
-],
-[
-"ell/ella",
-"vindrà"
-],
-[
-"nosaltres",
-"vindrem"
-],
-[
-"vosaltres",
-"vindreu"
-],
-[
-"ells",
-"vindran"
-]
-],
-"title": "Future"
-},
-{
-"rows": [
-[
-"jo",
-"vingui"
-],
-[
-"tu",
-"vinguis"
-],
-[
-"ell/ella",
-"vingui"
-],
-[
-"nosaltres",
-"vinguem"
-],
-[
-"vosaltres",
-"vingueu"
-],
-[
-"ells",
-"vinguin"
-]
-],
-"title": "Subjunctive (present)"
-}
-],
-"chips": [
-{
-"label": "Gerund",
-"value": "venint"
-},
-{
-"label": "Past participle",
-"value": "vingut"
-}
-],
-"pos": "verb"
-},
 "vinent": {
 "chips": [
 {
@@ -141130,10 +141170,6 @@
 "votant": {
 "chips": [
 {
-"label": "Gender",
-"value": "feminine"
-},
-{
 "label": "Plural",
 "value": "votants"
 }
@@ -141626,10 +141662,6 @@
 },
 "xef": {
 "chips": [
-{
-"label": "Gender",
-"value": "feminine"
-},
 {
 "label": "Plural",
 "value": "xefs"
@@ -142187,19 +142219,6 @@
 ],
 "pos": "noun"
 },
-"zoo": {
-"chips": [
-{
-"label": "Gender",
-"value": "masculine"
-},
-{
-"label": "Plural",
-"value": "zoos"
-}
-],
-"pos": "noun"
-},
 "zoològic": {
 "chips": [
 {
@@ -142231,15 +142250,11 @@
 ],
 "pos": "noun"
 },
-"àliga": {
+"àlies": {
 "chips": [
 {
 "label": "Gender",
-"value": "feminine"
-},
-{
-"label": "Plural",
-"value": "àligues"
+"value": "masculine"
 }
 ],
 "pos": "noun"
@@ -142624,19 +142639,6 @@
 {
 "label": "Plural",
 "value": "òrgans"
-}
-],
-"pos": "noun"
-},
-"ós": {
-"chips": [
-{
-"label": "Gender",
-"value": "masculine"
-},
-{
-"label": "Plural",
-"value": "óssos"
 }
 ],
 "pos": "noun"

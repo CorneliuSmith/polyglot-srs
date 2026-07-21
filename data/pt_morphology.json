@@ -7,7 +7,7 @@
 },
 {
 "label": "Plural",
-"value": "as"
+"value": "As"
 }
 ],
 "pos": "noun"
@@ -779,6 +779,166 @@
 ],
 "pos": "noun"
 },
+"aborrecer": {
+"charts": [
+{
+"rows": [
+[
+"eu",
+"aborreço"
+],
+[
+"tu",
+"aborreces"
+],
+[
+"ele/você",
+"aborrece"
+],
+[
+"nós",
+"aborrecemos"
+],
+[
+"vós",
+"aborreceis"
+],
+[
+"eles",
+"aborrecem"
+]
+],
+"title": "Present"
+},
+{
+"rows": [
+[
+"eu",
+"aborreci"
+],
+[
+"tu",
+"aborreceste"
+],
+[
+"ele/você",
+"aborreceu"
+],
+[
+"nós",
+"aborrecemos"
+],
+[
+"vós",
+"aborrecestes"
+],
+[
+"eles",
+"aborreceram"
+]
+],
+"title": "Preterite (perfeito)"
+},
+{
+"rows": [
+[
+"eu",
+"aborrecia"
+],
+[
+"tu",
+"aborrecias"
+],
+[
+"ele/você",
+"aborrecia"
+],
+[
+"nós",
+"aborrecíamos"
+],
+[
+"vós",
+"aborrecíeis"
+],
+[
+"eles",
+"aborreciam"
+]
+],
+"title": "Imperfect"
+},
+{
+"rows": [
+[
+"eu",
+"aborrecerei"
+],
+[
+"tu",
+"aborrecerás"
+],
+[
+"ele/você",
+"aborrecerá"
+],
+[
+"nós",
+"aborreceremos"
+],
+[
+"vós",
+"aborrecereis"
+],
+[
+"eles",
+"aborrecerão"
+]
+],
+"title": "Future"
+},
+{
+"rows": [
+[
+"eu",
+"aborreça"
+],
+[
+"tu",
+"aborreças"
+],
+[
+"ele/você",
+"aborreça"
+],
+[
+"nós",
+"aborreçamos"
+],
+[
+"vós",
+"aborreçais"
+],
+[
+"eles",
+"aborreçam"
+]
+],
+"title": "Subjunctive (present)"
+}
+],
+"chips": [
+{
+"label": "Gerund",
+"value": "aborrecendo"
+},
+{
+"label": "Past participle",
+"value": "aborrecido"
+}
+],
+"pos": "verb"
+},
 "aborrecido": {
 "chips": [
 {
@@ -1510,6 +1670,166 @@
 }
 ],
 "pos": "adj"
+},
+"absorver": {
+"charts": [
+{
+"rows": [
+[
+"eu",
+"absorvo"
+],
+[
+"tu",
+"absorves"
+],
+[
+"ele/você",
+"absorve"
+],
+[
+"nós",
+"absorvemos"
+],
+[
+"vós",
+"absorveis"
+],
+[
+"eles",
+"absorvem"
+]
+],
+"title": "Present"
+},
+{
+"rows": [
+[
+"eu",
+"absorvi"
+],
+[
+"tu",
+"absorveste"
+],
+[
+"ele/você",
+"absorveu"
+],
+[
+"nós",
+"absorvemos"
+],
+[
+"vós",
+"absorvestes"
+],
+[
+"eles",
+"absorveram"
+]
+],
+"title": "Preterite (perfeito)"
+},
+{
+"rows": [
+[
+"eu",
+"absorvia"
+],
+[
+"tu",
+"absorvias"
+],
+[
+"ele/você",
+"absorvia"
+],
+[
+"nós",
+"absorvíamos"
+],
+[
+"vós",
+"absorvíeis"
+],
+[
+"eles",
+"absorviam"
+]
+],
+"title": "Imperfect"
+},
+{
+"rows": [
+[
+"eu",
+"absorverei"
+],
+[
+"tu",
+"absorverás"
+],
+[
+"ele/você",
+"absorverá"
+],
+[
+"nós",
+"absorveremos"
+],
+[
+"vós",
+"absorvereis"
+],
+[
+"eles",
+"absorverão"
+]
+],
+"title": "Future"
+},
+{
+"rows": [
+[
+"eu",
+"absorva"
+],
+[
+"tu",
+"absorvas"
+],
+[
+"ele/você",
+"absorva"
+],
+[
+"nós",
+"absorvamos"
+],
+[
+"vós",
+"absorvais"
+],
+[
+"eles",
+"absorvam"
+]
+],
+"title": "Subjunctive (present)"
+}
+],
+"chips": [
+{
+"label": "Gerund",
+"value": "absorvendo"
+},
+{
+"label": "Past participle",
+"value": "absorvido"
+}
+],
+"pos": "verb"
 },
 "absurdo": {
 "chips": [
@@ -3312,6 +3632,19 @@
 ],
 "pos": "noun"
 },
+"acolhimento": {
+"chips": [
+{
+"label": "Gender",
+"value": "masculine"
+},
+{
+"label": "Plural",
+"value": "acolhimentos"
+}
+],
+"pos": "noun"
+},
 "acompanhado": {
 "chips": [
 {
@@ -4196,179 +4529,6 @@
 ],
 "pos": "adj"
 },
-"activar": {
-"charts": [
-{
-"rows": [
-[
-"eu",
-"activo"
-],
-[
-"tu",
-"activas"
-],
-[
-"ele/você",
-"activa"
-],
-[
-"nós",
-"activamos"
-],
-[
-"vós",
-"activais"
-],
-[
-"eles",
-"activam"
-]
-],
-"title": "Present"
-},
-{
-"rows": [
-[
-"eu",
-"activei"
-],
-[
-"tu",
-"activaste"
-],
-[
-"ele/você",
-"activou"
-],
-[
-"nós",
-"activamos"
-],
-[
-"vós",
-"activastes"
-],
-[
-"eles",
-"activaram"
-]
-],
-"title": "Preterite (perfeito)"
-},
-{
-"rows": [
-[
-"eu",
-"activava"
-],
-[
-"tu",
-"activavas"
-],
-[
-"ele/você",
-"activava"
-],
-[
-"nós",
-"activávamos"
-],
-[
-"vós",
-"activáveis"
-],
-[
-"eles",
-"activavam"
-]
-],
-"title": "Imperfect"
-},
-{
-"rows": [
-[
-"eu",
-"activarei"
-],
-[
-"tu",
-"activarás"
-],
-[
-"ele/você",
-"activará"
-],
-[
-"nós",
-"activaremos"
-],
-[
-"vós",
-"activareis"
-],
-[
-"eles",
-"activarão"
-]
-],
-"title": "Future"
-},
-{
-"rows": [
-[
-"eu",
-"active"
-],
-[
-"tu",
-"actives"
-],
-[
-"ele/você",
-"active"
-],
-[
-"nós",
-"activemos"
-],
-[
-"vós",
-"activeis"
-],
-[
-"eles",
-"activem"
-]
-],
-"title": "Subjunctive (present)"
-}
-],
-"chips": [
-{
-"label": "Gerund",
-"value": "activando"
-},
-{
-"label": "Past participle",
-"value": "activado"
-}
-],
-"pos": "verb"
-},
-"actividade": {
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
-},
-{
-"label": "Plural",
-"value": "actividades"
-}
-],
-"pos": "noun"
-},
 "actividades": {
 "chips": [
 {
@@ -4387,227 +4547,6 @@
 {
 "label": "Plural",
 "value": "activos"
-}
-],
-"pos": "noun"
-},
-"acto": {
-"chips": [
-{
-"label": "Gender",
-"value": "masculine"
-},
-{
-"label": "Plural",
-"value": "actos"
-}
-],
-"pos": "noun"
-},
-"actor": {
-"chips": [
-{
-"label": "Gender",
-"value": "masculine"
-},
-{
-"label": "Plural",
-"value": "actores"
-}
-],
-"pos": "noun"
-},
-"actriz": {
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
-},
-{
-"label": "Plural",
-"value": "actrizes"
-}
-],
-"pos": "noun"
-},
-"actual": {
-"chips": [
-{
-"label": "Plural",
-"value": "actuais"
-}
-],
-"pos": "adj"
-},
-"actuar": {
-"charts": [
-{
-"rows": [
-[
-"eu",
-"actuo"
-],
-[
-"tu",
-"actuas"
-],
-[
-"ele/você",
-"actua"
-],
-[
-"nós",
-"actuamos"
-],
-[
-"vós",
-"actuais"
-],
-[
-"eles",
-"actuam"
-]
-],
-"title": "Present"
-},
-{
-"rows": [
-[
-"eu",
-"actuei"
-],
-[
-"tu",
-"actuaste"
-],
-[
-"ele/você",
-"actuou"
-],
-[
-"nós",
-"actuamos"
-],
-[
-"vós",
-"actuastes"
-],
-[
-"eles",
-"actuaram"
-]
-],
-"title": "Preterite (perfeito)"
-},
-{
-"rows": [
-[
-"eu",
-"actuava"
-],
-[
-"tu",
-"actuavas"
-],
-[
-"ele/você",
-"actuava"
-],
-[
-"nós",
-"actuávamos"
-],
-[
-"vós",
-"actuáveis"
-],
-[
-"eles",
-"actuavam"
-]
-],
-"title": "Imperfect"
-},
-{
-"rows": [
-[
-"eu",
-"actuarei"
-],
-[
-"tu",
-"actuarás"
-],
-[
-"ele/você",
-"actuará"
-],
-[
-"nós",
-"actuaremos"
-],
-[
-"vós",
-"actuareis"
-],
-[
-"eles",
-"actuarão"
-]
-],
-"title": "Future"
-},
-{
-"rows": [
-[
-"eu",
-"actue"
-],
-[
-"tu",
-"actues"
-],
-[
-"ele/você",
-"actue"
-],
-[
-"nós",
-"actuemos"
-],
-[
-"vós",
-"actueis"
-],
-[
-"eles",
-"actuem"
-]
-],
-"title": "Subjunctive (present)"
-}
-],
-"chips": [
-{
-"label": "Gerund",
-"value": "actuando"
-},
-{
-"label": "Past participle",
-"value": "actuado"
-}
-],
-"pos": "verb"
-},
-"actuação": {
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
-},
-{
-"label": "Plural",
-"value": "actuações"
 }
 ],
 "pos": "noun"
@@ -4812,19 +4751,6 @@
 {
 "label": "Plural",
 "value": "acusações"
-}
-],
-"pos": "noun"
-},
-"acção": {
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
-},
-{
-"label": "Plural",
-"value": "acções"
 }
 ],
 "pos": "noun"
@@ -5916,6 +5842,19 @@
 ],
 "pos": "verb"
 },
+"adn": {
+"chips": [
+{
+"label": "Gender",
+"value": "masculine"
+},
+{
+"label": "Plural",
+"value": "ADNs"
+}
+],
+"pos": "noun"
+},
 "adolescente": {
 "chips": [
 {
@@ -5924,179 +5863,6 @@
 }
 ],
 "pos": "adj"
-},
-"adoptar": {
-"charts": [
-{
-"rows": [
-[
-"eu",
-"adopto"
-],
-[
-"tu",
-"adoptas"
-],
-[
-"ele/você",
-"adopta"
-],
-[
-"nós",
-"adoptamos"
-],
-[
-"vós",
-"adoptais"
-],
-[
-"eles",
-"adoptam"
-]
-],
-"title": "Present"
-},
-{
-"rows": [
-[
-"eu",
-"adoptei"
-],
-[
-"tu",
-"adoptaste"
-],
-[
-"ele/você",
-"adoptou"
-],
-[
-"nós",
-"adoptamos"
-],
-[
-"vós",
-"adoptastes"
-],
-[
-"eles",
-"adoptaram"
-]
-],
-"title": "Preterite (perfeito)"
-},
-{
-"rows": [
-[
-"eu",
-"adoptava"
-],
-[
-"tu",
-"adoptavas"
-],
-[
-"ele/você",
-"adoptava"
-],
-[
-"nós",
-"adoptávamos"
-],
-[
-"vós",
-"adoptáveis"
-],
-[
-"eles",
-"adoptavam"
-]
-],
-"title": "Imperfect"
-},
-{
-"rows": [
-[
-"eu",
-"adoptarei"
-],
-[
-"tu",
-"adoptarás"
-],
-[
-"ele/você",
-"adoptará"
-],
-[
-"nós",
-"adoptaremos"
-],
-[
-"vós",
-"adoptareis"
-],
-[
-"eles",
-"adoptarão"
-]
-],
-"title": "Future"
-},
-{
-"rows": [
-[
-"eu",
-"adopte"
-],
-[
-"tu",
-"adoptes"
-],
-[
-"ele/você",
-"adopte"
-],
-[
-"nós",
-"adoptemos"
-],
-[
-"vós",
-"adopteis"
-],
-[
-"eles",
-"adoptem"
-]
-],
-"title": "Subjunctive (present)"
-}
-],
-"chips": [
-{
-"label": "Gerund",
-"value": "adoptando"
-},
-{
-"label": "Past participle",
-"value": "adoptado"
-}
-],
-"pos": "verb"
-},
-"adopção": {
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
-},
-{
-"label": "Plural",
-"value": "adopções"
-}
-],
-"pos": "noun"
 },
 "adorar": {
 "charts": [
@@ -6445,6 +6211,166 @@
 ],
 "pos": "adj"
 },
+"adquirir": {
+"charts": [
+{
+"rows": [
+[
+"eu",
+"adquiro"
+],
+[
+"tu",
+"adquires"
+],
+[
+"ele/você",
+"adquire"
+],
+[
+"nós",
+"adquirimos"
+],
+[
+"vós",
+"adquiris"
+],
+[
+"eles",
+"adquirem"
+]
+],
+"title": "Present"
+},
+{
+"rows": [
+[
+"eu",
+"adquiri"
+],
+[
+"tu",
+"adquiriste"
+],
+[
+"ele/você",
+"adquiriu"
+],
+[
+"nós",
+"adquirimos"
+],
+[
+"vós",
+"adquiristes"
+],
+[
+"eles",
+"adquiriram"
+]
+],
+"title": "Preterite (perfeito)"
+},
+{
+"rows": [
+[
+"eu",
+"adquiria"
+],
+[
+"tu",
+"adquirias"
+],
+[
+"ele/você",
+"adquiria"
+],
+[
+"nós",
+"adquiríamos"
+],
+[
+"vós",
+"adquiríeis"
+],
+[
+"eles",
+"adquiriam"
+]
+],
+"title": "Imperfect"
+},
+{
+"rows": [
+[
+"eu",
+"adquirirei"
+],
+[
+"tu",
+"adquirirás"
+],
+[
+"ele/você",
+"adquirirá"
+],
+[
+"nós",
+"adquiriremos"
+],
+[
+"vós",
+"adquirireis"
+],
+[
+"eles",
+"adquirirão"
+]
+],
+"title": "Future"
+},
+{
+"rows": [
+[
+"eu",
+"adquira"
+],
+[
+"tu",
+"adquiras"
+],
+[
+"ele/você",
+"adquira"
+],
+[
+"nós",
+"adquiramos"
+],
+[
+"vós",
+"adquirais"
+],
+[
+"eles",
+"adquiram"
+]
+],
+"title": "Subjunctive (present)"
+}
+],
+"chips": [
+{
+"label": "Gerund",
+"value": "adquirindo"
+},
+{
+"label": "Past participle",
+"value": "adquirido"
+}
+],
+"pos": "verb"
+},
 "adrenalina": {
 "chips": [
 {
@@ -6701,166 +6627,6 @@
 ],
 "pos": "verb"
 },
-"afectar": {
-"charts": [
-{
-"rows": [
-[
-"eu",
-"afecto"
-],
-[
-"tu",
-"afectas"
-],
-[
-"ele/você",
-"afecta"
-],
-[
-"nós",
-"afectamos"
-],
-[
-"vós",
-"afectais"
-],
-[
-"eles",
-"afectam"
-]
-],
-"title": "Present"
-},
-{
-"rows": [
-[
-"eu",
-"afectei"
-],
-[
-"tu",
-"afectaste"
-],
-[
-"ele/você",
-"afectou"
-],
-[
-"nós",
-"afectamos"
-],
-[
-"vós",
-"afectastes"
-],
-[
-"eles",
-"afectaram"
-]
-],
-"title": "Preterite (perfeito)"
-},
-{
-"rows": [
-[
-"eu",
-"afectava"
-],
-[
-"tu",
-"afectavas"
-],
-[
-"ele/você",
-"afectava"
-],
-[
-"nós",
-"afectávamos"
-],
-[
-"vós",
-"afectáveis"
-],
-[
-"eles",
-"afectavam"
-]
-],
-"title": "Imperfect"
-},
-{
-"rows": [
-[
-"eu",
-"afectarei"
-],
-[
-"tu",
-"afectarás"
-],
-[
-"ele/você",
-"afectará"
-],
-[
-"nós",
-"afectaremos"
-],
-[
-"vós",
-"afectareis"
-],
-[
-"eles",
-"afectarão"
-]
-],
-"title": "Future"
-},
-{
-"rows": [
-[
-"eu",
-"afecte"
-],
-[
-"tu",
-"afectes"
-],
-[
-"ele/você",
-"afecte"
-],
-[
-"nós",
-"afectemos"
-],
-[
-"vós",
-"afecteis"
-],
-[
-"eles",
-"afectem"
-]
-],
-"title": "Subjunctive (present)"
-}
-],
-"chips": [
-{
-"label": "Gerund",
-"value": "afectando"
-},
-{
-"label": "Past participle",
-"value": "afectado"
-}
-],
-"pos": "verb"
-},
 "afecto": {
 "chips": [
 {
@@ -7042,6 +6808,19 @@
 }
 ],
 "pos": "adj"
+},
+"afirmação": {
+"chips": [
+{
+"label": "Gender",
+"value": "feminine"
+},
+{
+"label": "Plural",
+"value": "afirmações"
+}
+],
+"pos": "noun"
 },
 "afogar": {
 "charts": [
@@ -7538,10 +7317,6 @@
 },
 "agente": {
 "chips": [
-{
-"label": "Gender",
-"value": "feminine"
-},
 {
 "label": "Plural",
 "value": "agentes"
@@ -8557,10 +8332,6 @@
 "ajudante": {
 "chips": [
 {
-"label": "Gender",
-"value": "feminine"
-},
-{
 "label": "Plural",
 "value": "ajudantes"
 }
@@ -8935,6 +8706,15 @@
 ],
 "pos": "noun"
 },
+"alavanca": {
+"chips": [
+{
+"label": "Gender",
+"value": "feminine"
+}
+],
+"pos": "noun"
+},
 "alcance": {
 "chips": [
 {
@@ -9234,6 +9014,166 @@
 }
 ],
 "pos": "adj"
+},
+"alertar": {
+"charts": [
+{
+"rows": [
+[
+"eu",
+"alerto"
+],
+[
+"tu",
+"alertas"
+],
+[
+"ele/você",
+"alerta"
+],
+[
+"nós",
+"alertamos"
+],
+[
+"vós",
+"alertais"
+],
+[
+"eles",
+"alertam"
+]
+],
+"title": "Present"
+},
+{
+"rows": [
+[
+"eu",
+"alertei"
+],
+[
+"tu",
+"alertaste"
+],
+[
+"ele/você",
+"alertou"
+],
+[
+"nós",
+"alertamos"
+],
+[
+"vós",
+"alertastes"
+],
+[
+"eles",
+"alertaram"
+]
+],
+"title": "Preterite (perfeito)"
+},
+{
+"rows": [
+[
+"eu",
+"alertava"
+],
+[
+"tu",
+"alertavas"
+],
+[
+"ele/você",
+"alertava"
+],
+[
+"nós",
+"alertávamos"
+],
+[
+"vós",
+"alertáveis"
+],
+[
+"eles",
+"alertavam"
+]
+],
+"title": "Imperfect"
+},
+{
+"rows": [
+[
+"eu",
+"alertarei"
+],
+[
+"tu",
+"alertarás"
+],
+[
+"ele/você",
+"alertará"
+],
+[
+"nós",
+"alertaremos"
+],
+[
+"vós",
+"alertareis"
+],
+[
+"eles",
+"alertarão"
+]
+],
+"title": "Future"
+},
+{
+"rows": [
+[
+"eu",
+"alerte"
+],
+[
+"tu",
+"alertes"
+],
+[
+"ele/você",
+"alerte"
+],
+[
+"nós",
+"alertemos"
+],
+[
+"vós",
+"alerteis"
+],
+[
+"eles",
+"alertem"
+]
+],
+"title": "Subjunctive (present)"
+}
+],
+"chips": [
+{
+"label": "Gerund",
+"value": "alertando"
+},
+{
+"label": "Past participle",
+"value": "alertado"
+}
+],
+"pos": "verb"
 },
 "alfa": {
 "chips": [
@@ -10588,6 +10528,19 @@
 ],
 "pos": "noun"
 },
+"alumínio": {
+"chips": [
+{
+"label": "Gender",
+"value": "masculine"
+},
+{
+"label": "Plural",
+"value": "alumínios"
+}
+],
+"pos": "noun"
+},
 "aluna": {
 "chips": [
 {
@@ -11683,10 +11636,6 @@
 "analista": {
 "chips": [
 {
-"label": "Gender",
-"value": "feminine"
-},
-{
 "label": "Plural",
 "value": "analistas"
 }
@@ -11702,6 +11651,19 @@
 {
 "label": "Plural",
 "value": "anatomias"
+}
+],
+"pos": "noun"
+},
+"anca": {
+"chips": [
+{
+"label": "Gender",
+"value": "feminine"
+},
+{
+"label": "Plural",
+"value": "ancas"
 }
 ],
 "pos": "noun"
@@ -11940,6 +11902,19 @@
 {
 "label": "Plural",
 "value": "anfitriões"
+}
+],
+"pos": "noun"
+},
+"angariação": {
+"chips": [
+{
+"label": "Gender",
+"value": "feminine"
+},
+{
+"label": "Plural",
+"value": "angariações"
 }
 ],
 "pos": "noun"
@@ -13733,6 +13708,15 @@
 ],
 "pos": "noun"
 },
+"aparente": {
+"chips": [
+{
+"label": "Plural",
+"value": "aparentes"
+}
+],
+"pos": "adj"
+},
 "apartamento": {
 "chips": [
 {
@@ -15337,10 +15321,6 @@
 "aprendiz": {
 "chips": [
 {
-"label": "Gender",
-"value": "feminine"
-},
-{
 "label": "Plural",
 "value": "aprendizes"
 }
@@ -16641,6 +16621,19 @@
 ],
 "pos": "verb"
 },
+"are": {
+"chips": [
+{
+"label": "Gender",
+"value": "masculine"
+},
+{
+"label": "Plural",
+"value": "ares"
+}
+],
+"pos": "noun"
+},
 "areia": {
 "chips": [
 {
@@ -16676,6 +16669,19 @@
 {
 "label": "Plural",
 "value": "argentinas"
+}
+],
+"pos": "noun"
+},
+"arguido": {
+"chips": [
+{
+"label": "Gender",
+"value": "masculine"
+},
+{
+"label": "Plural",
+"value": "arguidos"
 }
 ],
 "pos": "noun"
@@ -16976,6 +16982,19 @@
 {
 "label": "Plural",
 "value": "armários"
+}
+],
+"pos": "noun"
+},
+"arqueiro": {
+"chips": [
+{
+"label": "Gender",
+"value": "masculine"
+},
+{
+"label": "Plural",
+"value": "arqueiros"
 }
 ],
 "pos": "noun"
@@ -18809,6 +18828,19 @@
 ],
 "pos": "adj"
 },
+"artifício": {
+"chips": [
+{
+"label": "Gender",
+"value": "masculine"
+},
+{
+"label": "Plural",
+"value": "artifícios"
+}
+],
+"pos": "noun"
+},
 "artigo": {
 "chips": [
 {
@@ -18838,10 +18870,6 @@
 "artista": {
 "chips": [
 {
-"label": "Gender",
-"value": "feminine"
-},
-{
 "label": "Plural",
 "value": "artistas"
 }
@@ -18860,6 +18888,15 @@
 }
 ],
 "pos": "noun"
+},
+"artístico": {
+"chips": [
+{
+"label": "Plural",
+"value": "artísticos"
+}
+],
+"pos": "adj"
 },
 "as": {
 "chips": [
@@ -18918,6 +18955,15 @@
 ],
 "pos": "noun"
 },
+"asiático": {
+"chips": [
+{
+"label": "Plural",
+"value": "asiáticos"
+}
+],
+"pos": "adj"
+},
 "asma": {
 "chips": [
 {
@@ -18949,19 +18995,6 @@
 {
 "label": "Plural",
 "value": "aspectos"
-}
-],
-"pos": "noun"
-},
-"aspeto": {
-"chips": [
-{
-"label": "Gender",
-"value": "masculine"
-},
-{
-"label": "Plural",
-"value": "aspetos"
 }
 ],
 "pos": "noun"
@@ -20474,19 +20507,6 @@
 ],
 "pos": "noun"
 },
-"astronauta": {
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
-},
-{
-"label": "Plural",
-"value": "astronautas"
-}
-],
-"pos": "noun"
-},
 "ataca": {
 "chips": [
 {
@@ -21444,10 +21464,6 @@
 "atleta": {
 "chips": [
 {
-"label": "Gender",
-"value": "feminine"
-},
-{
 "label": "Plural",
 "value": "atletas"
 }
@@ -21498,19 +21514,6 @@
 {
 "label": "Plural",
 "value": "atores"
-}
-],
-"pos": "noun"
-},
-"atracção": {
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
-},
-{
-"label": "Plural",
-"value": "atracções"
 }
 ],
 "pos": "noun"
@@ -22204,6 +22207,19 @@
 ],
 "pos": "adj"
 },
+"atriz": {
+"chips": [
+{
+"label": "Gender",
+"value": "feminine"
+},
+{
+"label": "Plural",
+"value": "atrizes"
+}
+],
+"pos": "noun"
+},
 "atual": {
 "chips": [
 {
@@ -22681,19 +22697,6 @@
 ],
 "pos": "noun"
 },
-"auto-estrada": {
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
-},
-{
-"label": "Plural",
-"value": "auto-estradas"
-}
-],
-"pos": "noun"
-},
 "autocarro": {
 "chips": [
 {
@@ -23154,6 +23157,19 @@
 {
 "label": "Plural",
 "value": "avanços"
+}
+],
+"pos": "noun"
+},
+"avaria": {
+"chips": [
+{
+"label": "Gender",
+"value": "feminine"
+},
+{
+"label": "Plural",
+"value": "avarias"
 }
 ],
 "pos": "noun"
@@ -23710,6 +23726,19 @@
 ],
 "pos": "noun"
 },
+"baba": {
+"chips": [
+{
+"label": "Gender",
+"value": "feminine"
+},
+{
+"label": "Plural",
+"value": "babas"
+}
+],
+"pos": "noun"
+},
 "bacano": {
 "chips": [
 {
@@ -24262,6 +24291,19 @@
 ],
 "pos": "noun"
 },
+"baralho": {
+"chips": [
+{
+"label": "Gender",
+"value": "masculine"
+},
+{
+"label": "Plural",
+"value": "baralhos"
+}
+],
+"pos": "noun"
+},
 "barata": {
 "chips": [
 {
@@ -24293,6 +24335,32 @@
 {
 "label": "Plural",
 "value": "barbas"
+}
+],
+"pos": "noun"
+},
+"barbeiro": {
+"chips": [
+{
+"label": "Gender",
+"value": "masculine"
+},
+{
+"label": "Plural",
+"value": "barbeiros"
+}
+],
+"pos": "noun"
+},
+"barbie": {
+"chips": [
+{
+"label": "Gender",
+"value": "feminine"
+},
+{
+"label": "Plural",
+"value": "Barbies"
 }
 ],
 "pos": "noun"
@@ -24345,6 +24413,19 @@
 {
 "label": "Plural",
 "value": "barracas"
+}
+],
+"pos": "noun"
+},
+"barragem": {
+"chips": [
+{
+"label": "Gender",
+"value": "feminine"
+},
+{
+"label": "Plural",
+"value": "barragens"
 }
 ],
 "pos": "noun"
@@ -24435,15 +24516,6 @@
 }
 ],
 "pos": "adj"
-},
-"basebol": {
-"chips": [
-{
-"label": "Gender",
-"value": "masculine"
-}
-],
-"pos": "noun"
 },
 "basquetebol": {
 "chips": [
@@ -24545,6 +24617,15 @@
 }
 ],
 "pos": "noun"
+},
+"batedor": {
+"chips": [
+{
+"label": "Plural",
+"value": "batedores"
+}
+],
+"pos": "adj"
 },
 "bater": {
 "charts": [
@@ -25009,38 +25090,8 @@
 "bebé": {
 "chips": [
 {
-"label": "Gender",
-"value": "feminine"
-},
-{
 "label": "Plural",
 "value": "bebés"
-}
-],
-"pos": "noun"
-},
-"bebê": {
-"chips": [
-{
-"label": "Gender",
-"value": "masculine"
-},
-{
-"label": "Plural",
-"value": "bebês"
-}
-],
-"pos": "noun"
-},
-"beck": {
-"chips": [
-{
-"label": "Gender",
-"value": "masculine"
-},
-{
-"label": "Plural",
-"value": "becks"
 }
 ],
 "pos": "noun"
@@ -25217,6 +25268,19 @@
 }
 ],
 "pos": "verb"
+},
+"beijinho": {
+"chips": [
+{
+"label": "Gender",
+"value": "masculine"
+},
+{
+"label": "Plural",
+"value": "beijinhos"
+}
+],
+"pos": "noun"
 },
 "beijo": {
 "chips": [
@@ -25748,19 +25812,6 @@
 }
 ],
 "pos": "adj"
-},
-"black": {
-"chips": [
-{
-"label": "Gender",
-"value": "masculine"
-},
-{
-"label": "Plural",
-"value": "blacks"
-}
-],
-"pos": "noun"
 },
 "bloco": {
 "chips": [
@@ -26502,15 +26553,6 @@
 ],
 "pos": "noun"
 },
-"bowling": {
-"chips": [
-{
-"label": "Gender",
-"value": "masculine"
-}
-],
-"pos": "noun"
-},
 "boxe": {
 "chips": [
 {
@@ -26564,19 +26606,6 @@
 {
 "label": "Gender",
 "value": "masculine"
-}
-],
-"pos": "noun"
-},
-"brandy": {
-"chips": [
-{
-"label": "Gender",
-"value": "masculine"
-},
-{
-"label": "Plural",
-"value": "brandies"
 }
 ],
 "pos": "noun"
@@ -27801,15 +27830,6 @@
 ],
 "pos": "noun"
 },
-"bêbedo": {
-"chips": [
-{
-"label": "Plural",
-"value": "bêbedos"
-}
-],
-"pos": "adj"
-},
 "bênção": {
 "chips": [
 {
@@ -27915,19 +27935,6 @@
 {
 "label": "Plural",
 "value": "cabinas"
-}
-],
-"pos": "noun"
-},
-"cabine": {
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
-},
-{
-"label": "Plural",
-"value": "cabines"
 }
 ],
 "pos": "noun"
@@ -28090,10 +28097,6 @@
 },
 "cadete": {
 "chips": [
-{
-"label": "Gender",
-"value": "feminine"
-},
 {
 "label": "Plural",
 "value": "cadetes"
@@ -28497,10 +28500,6 @@
 },
 "cal": {
 "chips": [
-{
-"label": "Gender",
-"value": "feminine"
-},
 {
 "label": "Plural",
 "value": "cales"
@@ -29023,6 +29022,19 @@
 ],
 "pos": "noun"
 },
+"caligrafia": {
+"chips": [
+{
+"label": "Gender",
+"value": "feminine"
+},
+{
+"label": "Plural",
+"value": "caligrafias"
+}
+],
+"pos": "noun"
+},
 "calma": {
 "chips": [
 {
@@ -29095,10 +29107,6 @@
 },
 "camarada": {
 "chips": [
-{
-"label": "Gender",
-"value": "feminine"
-},
 {
 "label": "Plural",
 "value": "camaradas"
@@ -29529,10 +29537,6 @@
 },
 "canalha": {
 "chips": [
-{
-"label": "Gender",
-"value": "feminine"
-},
 {
 "label": "Plural",
 "value": "canalhas"
@@ -31094,19 +31098,6 @@
 ],
 "pos": "noun"
 },
-"cartel": {
-"chips": [
-{
-"label": "Gender",
-"value": "masculine"
-},
-{
-"label": "Plural",
-"value": "cartéis"
-}
-],
-"pos": "noun"
-},
 "cartão": {
 "chips": [
 {
@@ -31142,19 +31133,6 @@
 {
 "label": "Plural",
 "value": "carvões"
-}
-],
-"pos": "noun"
-},
-"carácter": {
-"chips": [
-{
-"label": "Gender",
-"value": "masculine"
-},
-{
-"label": "Plural",
-"value": "caracteres"
 }
 ],
 "pos": "noun"
@@ -31506,10 +31484,6 @@
 "cassete": {
 "chips": [
 {
-"label": "Gender",
-"value": "feminine"
-},
-{
 "label": "Plural",
 "value": "cassetes"
 }
@@ -31720,6 +31694,19 @@
 ],
 "pos": "noun"
 },
+"castor": {
+"chips": [
+{
+"label": "Gender",
+"value": "masculine"
+},
+{
+"label": "Plural",
+"value": "castores"
+}
+],
+"pos": "noun"
+},
 "casual": {
 "chips": [
 {
@@ -31738,6 +31725,19 @@
 {
 "label": "Plural",
 "value": "categorias"
+}
+],
+"pos": "noun"
+},
+"catálogo": {
+"chips": [
+{
+"label": "Gender",
+"value": "masculine"
+},
+{
+"label": "Plural",
+"value": "catálogos"
 }
 ],
 "pos": "noun"
@@ -32414,15 +32414,15 @@
 ],
 "pos": "adj"
 },
-"cebola": {
+"cd": {
 "chips": [
 {
 "label": "Gender",
-"value": "feminine"
+"value": "masculine"
 },
 {
 "label": "Plural",
-"value": "cebolas"
+"value": "CDs"
 }
 ],
 "pos": "noun"
@@ -32892,19 +32892,6 @@
 ],
 "pos": "noun"
 },
-"centavo": {
-"chips": [
-{
-"label": "Gender",
-"value": "masculine"
-},
-{
-"label": "Plural",
-"value": "centavos"
-}
-],
-"pos": "noun"
-},
 "centavos": {
 "chips": [
 {
@@ -32963,6 +32950,19 @@
 {
 "label": "Gender",
 "value": "masculine"
+}
+],
+"pos": "noun"
+},
+"centímetro": {
+"chips": [
+{
+"label": "Gender",
+"value": "masculine"
+},
+{
+"label": "Plural",
+"value": "centímetros"
 }
 ],
 "pos": "noun"
@@ -33734,10 +33734,6 @@
 "chanceler": {
 "chips": [
 {
-"label": "Gender",
-"value": "feminine"
-},
-{
 "label": "Plural",
 "value": "chanceleres"
 }
@@ -34044,25 +34040,8 @@
 ],
 "pos": "noun"
 },
-"chef": {
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
-},
-{
-"label": "Plural",
-"value": "chefs"
-}
-],
-"pos": "noun"
-},
 "chefe": {
 "chips": [
-{
-"label": "Gender",
-"value": "feminine"
-},
 {
 "label": "Plural",
 "value": "chefes"
@@ -34581,19 +34560,6 @@
 }
 ],
 "pos": "adj"
-},
-"chip": {
-"chips": [
-{
-"label": "Gender",
-"value": "masculine"
-},
-{
-"label": "Plural",
-"value": "chips"
-}
-],
-"pos": "noun"
 },
 "chique": {
 "chips": [
@@ -35332,10 +35298,6 @@
 "cientista": {
 "chips": [
 {
-"label": "Gender",
-"value": "feminine"
-},
-{
 "label": "Plural",
 "value": "cientistas"
 }
@@ -35556,6 +35518,19 @@
 ],
 "pos": "noun"
 },
+"circunstância": {
+"chips": [
+{
+"label": "Gender",
+"value": "feminine"
+},
+{
+"label": "Plural",
+"value": "circunstâncias"
+}
+],
+"pos": "noun"
+},
 "cirurgia": {
 "chips": [
 {
@@ -35755,15 +35730,6 @@
 ],
 "pos": "noun"
 },
-"ciumento": {
-"chips": [
-{
-"label": "Plural",
-"value": "ciumentos"
-}
-],
-"pos": "adj"
-},
 "civil": {
 "chips": [
 {
@@ -35872,10 +35838,6 @@
 "cliente": {
 "chips": [
 {
-"label": "Gender",
-"value": "feminine"
-},
-{
 "label": "Plural",
 "value": "clientes"
 }
@@ -35891,6 +35853,19 @@
 {
 "label": "Plural",
 "value": "climas"
+}
+],
+"pos": "noun"
+},
+"clone": {
+"chips": [
+{
+"label": "Gender",
+"value": "masculine"
+},
+{
+"label": "Plural",
+"value": "clones"
 }
 ],
 "pos": "noun"
@@ -35943,20 +35918,11 @@
 ],
 "pos": "noun"
 },
-"cobarde": {
-"chips": [
-{
-"label": "Plural",
-"value": "cobardes"
-}
-],
-"pos": "adj"
-},
 "cobardes": {
 "chips": [
 {
 "label": "Gender",
-"value": "feminine"
+"value": "masculine"
 }
 ],
 "pos": "noun"
@@ -36442,19 +36408,6 @@
 ],
 "pos": "noun"
 },
-"coiro": {
-"chips": [
-{
-"label": "Gender",
-"value": "masculine"
-},
-{
-"label": "Plural",
-"value": "coiros"
-}
-],
-"pos": "noun"
-},
 "coisa": {
 "chips": [
 {
@@ -36737,25 +36690,8 @@
 ],
 "pos": "noun"
 },
-"colecção": {
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
-},
-{
-"label": "Plural",
-"value": "colecções"
-}
-],
-"pos": "noun"
-},
 "colega": {
 "chips": [
-{
-"label": "Gender",
-"value": "feminine"
-},
 {
 "label": "Plural",
 "value": "colegas"
@@ -37110,12 +37046,21 @@
 ],
 "pos": "noun"
 },
-"comandante": {
+"comanda": {
 "chips": [
 {
 "label": "Gender",
 "value": "feminine"
 },
+{
+"label": "Plural",
+"value": "comandas"
+}
+],
+"pos": "noun"
+},
+"comandante": {
+"chips": [
 {
 "label": "Plural",
 "value": "comandantes"
@@ -37679,10 +37624,6 @@
 },
 "comediante": {
 "chips": [
-{
-"label": "Gender",
-"value": "feminine"
-},
 {
 "label": "Plural",
 "value": "comediantes"
@@ -38567,10 +38508,6 @@
 },
 "comichão": {
 "chips": [
-{
-"label": "Gender",
-"value": "feminine"
-},
 {
 "label": "Plural",
 "value": "comichões"
@@ -40851,6 +40788,19 @@
 ],
 "pos": "noun"
 },
+"concha": {
+"chips": [
+{
+"label": "Gender",
+"value": "feminine"
+},
+{
+"label": "Plural",
+"value": "conchas"
+}
+],
+"pos": "noun"
+},
 "concluir": {
 "charts": [
 {
@@ -41365,6 +41315,15 @@
 }
 ],
 "pos": "noun"
+},
+"concreto": {
+"chips": [
+{
+"label": "Plural",
+"value": "concretos"
+}
+],
+"pos": "adj"
 },
 "concurso": {
 "chips": [
@@ -42843,10 +42802,6 @@
 },
 "congressista": {
 "chips": [
-{
-"label": "Gender",
-"value": "feminine"
-},
 {
 "label": "Plural",
 "value": "congressistas"
@@ -44455,10 +44410,6 @@
 "contabilista": {
 "chips": [
 {
-"label": "Gender",
-"value": "feminine"
-},
-{
 "label": "Plural",
 "value": "contabilistas"
 }
@@ -45787,6 +45738,19 @@
 ],
 "pos": "verb"
 },
+"contribuição": {
+"chips": [
+{
+"label": "Gender",
+"value": "feminine"
+},
+{
+"label": "Plural",
+"value": "contribuições"
+}
+],
+"pos": "noun"
+},
 "controlar": {
 "charts": [
 {
@@ -45978,6 +45942,15 @@
 {
 "label": "Plural",
 "value": "contrários"
+}
+],
+"pos": "adj"
+},
+"contínuo": {
+"chips": [
+{
+"label": "Plural",
+"value": "contínuos"
 }
 ],
 "pos": "adj"
@@ -46752,10 +46725,6 @@
 "cookie": {
 "chips": [
 {
-"label": "Gender",
-"value": "feminine"
-},
-{
 "label": "Plural",
 "value": "cookies"
 }
@@ -47152,15 +47121,6 @@
 ],
 "pos": "noun"
 },
-"cor-de-rosa": {
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
-}
-],
-"pos": "noun"
-},
 "coragem": {
 "chips": [
 {
@@ -47362,28 +47322,6 @@
 {
 "label": "Plural",
 "value": "corres"
-}
-],
-"pos": "noun"
-},
-"correcto": {
-"chips": [
-{
-"label": "Plural",
-"value": "correctos"
-}
-],
-"pos": "adj"
-},
-"correcção": {
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
-},
-{
-"label": "Plural",
-"value": "correcções"
 }
 ],
 "pos": "noun"
@@ -48092,6 +48030,19 @@
 ],
 "pos": "noun"
 },
+"cotovelo": {
+"chips": [
+{
+"label": "Gender",
+"value": "masculine"
+},
+{
+"label": "Plural",
+"value": "cotovelos"
+}
+],
+"pos": "noun"
+},
 "country": {
 "chips": [
 {
@@ -48136,7 +48087,7 @@
 ],
 "pos": "adj"
 },
-"cowboy": {
+"covil": {
 "chips": [
 {
 "label": "Gender",
@@ -48144,7 +48095,7 @@
 },
 {
 "label": "Plural",
-"value": "cowboys"
+"value": "covis"
 }
 ],
 "pos": "noun"
@@ -49422,6 +49373,19 @@
 ],
 "pos": "noun"
 },
+"cruzado": {
+"chips": [
+{
+"label": "Gender",
+"value": "masculine"
+},
+{
+"label": "Plural",
+"value": "cruzados"
+}
+],
+"pos": "noun"
+},
 "cruzamento": {
 "chips": [
 {
@@ -50095,6 +50059,166 @@
 ],
 "pos": "verb"
 },
+"cultivar": {
+"charts": [
+{
+"rows": [
+[
+"eu",
+"cultivo"
+],
+[
+"tu",
+"cultivas"
+],
+[
+"ele/você",
+"cultiva"
+],
+[
+"nós",
+"cultivamos"
+],
+[
+"vós",
+"cultivais"
+],
+[
+"eles",
+"cultivam"
+]
+],
+"title": "Present"
+},
+{
+"rows": [
+[
+"eu",
+"cultivei"
+],
+[
+"tu",
+"cultivaste"
+],
+[
+"ele/você",
+"cultivou"
+],
+[
+"nós",
+"cultivamos"
+],
+[
+"vós",
+"cultivastes"
+],
+[
+"eles",
+"cultivaram"
+]
+],
+"title": "Preterite (perfeito)"
+},
+{
+"rows": [
+[
+"eu",
+"cultivava"
+],
+[
+"tu",
+"cultivavas"
+],
+[
+"ele/você",
+"cultivava"
+],
+[
+"nós",
+"cultivávamos"
+],
+[
+"vós",
+"cultiváveis"
+],
+[
+"eles",
+"cultivavam"
+]
+],
+"title": "Imperfect"
+},
+{
+"rows": [
+[
+"eu",
+"cultivarei"
+],
+[
+"tu",
+"cultivarás"
+],
+[
+"ele/você",
+"cultivará"
+],
+[
+"nós",
+"cultivaremos"
+],
+[
+"vós",
+"cultivareis"
+],
+[
+"eles",
+"cultivarão"
+]
+],
+"title": "Future"
+},
+{
+"rows": [
+[
+"eu",
+"cultive"
+],
+[
+"tu",
+"cultives"
+],
+[
+"ele/você",
+"cultive"
+],
+[
+"nós",
+"cultivemos"
+],
+[
+"vós",
+"cultiveis"
+],
+[
+"eles",
+"cultivem"
+]
+],
+"title": "Subjunctive (present)"
+}
+],
+"chips": [
+{
+"label": "Gerund",
+"value": "cultivando"
+},
+{
+"label": "Past participle",
+"value": "cultivado"
+}
+],
+"pos": "verb"
+},
 "culto": {
 "chips": [
 {
@@ -50696,10 +50820,6 @@
 "curta": {
 "chips": [
 {
-"label": "Gender",
-"value": "feminine"
-},
-{
 "label": "Plural",
 "value": "curtas"
 }
@@ -51299,19 +51419,6 @@
 ],
 "pos": "noun"
 },
-"câmera": {
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
-},
-{
-"label": "Plural",
-"value": "câmeras"
-}
-],
-"pos": "noun"
-},
 "cão": {
 "chips": [
 {
@@ -51460,25 +51567,8 @@
 ],
 "pos": "noun"
 },
-"cú": {
-"chips": [
-{
-"label": "Gender",
-"value": "masculine"
-},
-{
-"label": "Plural",
-"value": "cús"
-}
-],
-"pos": "noun"
-},
 "cúmplice": {
 "chips": [
-{
-"label": "Gender",
-"value": "feminine"
-},
 {
 "label": "Plural",
 "value": "cúmplices"
@@ -51495,24 +51585,6 @@
 {
 "label": "Plural",
 "value": "cúpulas"
-}
-],
-"pos": "noun"
-},
-"d": {
-"chips": [
-{
-"label": "Gender",
-"value": "masculine"
-}
-],
-"pos": "noun"
-},
-"d.": {
-"chips": [
-{
-"label": "Gender",
-"value": "masculine"
 }
 ],
 "pos": "noun"
@@ -52847,6 +52919,166 @@
 ],
 "pos": "adj"
 },
+"dedicar": {
+"charts": [
+{
+"rows": [
+[
+"eu",
+"dedico"
+],
+[
+"tu",
+"dedicas"
+],
+[
+"ele/você",
+"dedica"
+],
+[
+"nós",
+"dedicamos"
+],
+[
+"vós",
+"dedicais"
+],
+[
+"eles",
+"dedicam"
+]
+],
+"title": "Present"
+},
+{
+"rows": [
+[
+"eu",
+"dediquei"
+],
+[
+"tu",
+"dedicaste"
+],
+[
+"ele/você",
+"dedicou"
+],
+[
+"nós",
+"dedicamos"
+],
+[
+"vós",
+"dedicastes"
+],
+[
+"eles",
+"dedicaram"
+]
+],
+"title": "Preterite (perfeito)"
+},
+{
+"rows": [
+[
+"eu",
+"dedicava"
+],
+[
+"tu",
+"dedicavas"
+],
+[
+"ele/você",
+"dedicava"
+],
+[
+"nós",
+"dedicávamos"
+],
+[
+"vós",
+"dedicáveis"
+],
+[
+"eles",
+"dedicavam"
+]
+],
+"title": "Imperfect"
+},
+{
+"rows": [
+[
+"eu",
+"dedicarei"
+],
+[
+"tu",
+"dedicarás"
+],
+[
+"ele/você",
+"dedicará"
+],
+[
+"nós",
+"dedicaremos"
+],
+[
+"vós",
+"dedicareis"
+],
+[
+"eles",
+"dedicarão"
+]
+],
+"title": "Future"
+},
+{
+"rows": [
+[
+"eu",
+"dedique"
+],
+[
+"tu",
+"dediques"
+],
+[
+"ele/você",
+"dedique"
+],
+[
+"nós",
+"dediquemos"
+],
+[
+"vós",
+"dediqueis"
+],
+[
+"eles",
+"dediquem"
+]
+],
+"title": "Subjunctive (present)"
+}
+],
+"chips": [
+{
+"label": "Gerund",
+"value": "dedicando"
+},
+{
+"label": "Past participle",
+"value": "dedicado"
+}
+],
+"pos": "verb"
+},
 "dedicação": {
 "chips": [
 {
@@ -53045,6 +53277,15 @@
 }
 ],
 "pos": "verb"
+},
+"defensiva": {
+"chips": [
+{
+"label": "Gender",
+"value": "feminine"
+}
+],
+"pos": "noun"
 },
 "defensor": {
 "chips": [
@@ -54248,10 +54489,6 @@
 },
 "dentista": {
 "chips": [
-{
-"label": "Gender",
-"value": "feminine"
-},
 {
 "label": "Plural",
 "value": "dentistas"
@@ -58119,6 +58356,15 @@
 ],
 "pos": "adj"
 },
+"desgraçados": {
+"chips": [
+{
+"label": "Gender",
+"value": "masculine"
+}
+],
+"pos": "noun"
+},
 "design": {
 "chips": [
 {
@@ -59518,6 +59764,166 @@
 ],
 "pos": "noun"
 },
+"despir": {
+"charts": [
+{
+"rows": [
+[
+"eu",
+"dispo"
+],
+[
+"tu",
+"despes"
+],
+[
+"ele/você",
+"despe"
+],
+[
+"nós",
+"despimos"
+],
+[
+"vós",
+"despis"
+],
+[
+"eles",
+"despem"
+]
+],
+"title": "Present"
+},
+{
+"rows": [
+[
+"eu",
+"despi"
+],
+[
+"tu",
+"despiste"
+],
+[
+"ele/você",
+"despiu"
+],
+[
+"nós",
+"despimos"
+],
+[
+"vós",
+"despistes"
+],
+[
+"eles",
+"despiram"
+]
+],
+"title": "Preterite (perfeito)"
+},
+{
+"rows": [
+[
+"eu",
+"despia"
+],
+[
+"tu",
+"despias"
+],
+[
+"ele/você",
+"despia"
+],
+[
+"nós",
+"despíamos"
+],
+[
+"vós",
+"despíeis"
+],
+[
+"eles",
+"despiam"
+]
+],
+"title": "Imperfect"
+},
+{
+"rows": [
+[
+"eu",
+"despirei"
+],
+[
+"tu",
+"despirás"
+],
+[
+"ele/você",
+"despirá"
+],
+[
+"nós",
+"despiremos"
+],
+[
+"vós",
+"despireis"
+],
+[
+"eles",
+"despirão"
+]
+],
+"title": "Future"
+},
+{
+"rows": [
+[
+"eu",
+"dispa"
+],
+[
+"tu",
+"dispas"
+],
+[
+"ele/você",
+"dispa"
+],
+[
+"nós",
+"dispamos"
+],
+[
+"vós",
+"dispais"
+],
+[
+"eles",
+"dispam"
+]
+],
+"title": "Subjunctive (present)"
+}
+],
+"chips": [
+{
+"label": "Gerund",
+"value": "despindo"
+},
+{
+"label": "Past participle",
+"value": "despido"
+}
+],
+"pos": "verb"
+},
 "desportivo": {
 "chips": [
 {
@@ -60125,28 +60531,6 @@
 ],
 "pos": "verb"
 },
-"detective": {
-"chips": [
-{
-"label": "Gender",
-"value": "masculine"
-},
-{
-"label": "Plural",
-"value": "detectives"
-}
-],
-"pos": "noun"
-},
-"detector": {
-"chips": [
-{
-"label": "Plural",
-"value": "detectores"
-}
-],
-"pos": "adj"
-},
 "detenção": {
 "chips": [
 {
@@ -60498,19 +60882,6 @@
 {
 "label": "Plural",
 "value": "determinações"
-}
-],
-"pos": "noun"
-},
-"detetive": {
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
-},
-{
-"label": "Plural",
-"value": "detetives"
 }
 ],
 "pos": "noun"
@@ -60958,6 +61329,19 @@
 ],
 "pos": "noun"
 },
+"diabetes": {
+"chips": [
+{
+"label": "Gender",
+"value": "feminine"
+},
+{
+"label": "Plural",
+"value": "diabetes"
+}
+],
+"pos": "noun"
+},
 "diabo": {
 "chips": [
 {
@@ -61305,10 +61689,6 @@
 "dinamite": {
 "chips": [
 {
-"label": "Gender",
-"value": "feminine"
-},
-{
 "label": "Plural",
 "value": "dinamites"
 }
@@ -61354,24 +61734,6 @@
 ],
 "pos": "noun"
 },
-"directo": {
-"chips": [
-{
-"label": "Plural",
-"value": "directos"
-}
-],
-"pos": "adj"
-},
-"director": {
-"chips": [
-{
-"label": "Plural",
-"value": "directores"
-}
-],
-"pos": "adj"
-},
 "directora": {
 "chips": [
 {
@@ -61381,19 +61743,6 @@
 {
 "label": "Plural",
 "value": "directoras"
-}
-],
-"pos": "noun"
-},
-"direcção": {
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
-},
-{
-"label": "Plural",
-"value": "direcções"
 }
 ],
 "pos": "noun"
@@ -61914,6 +62263,179 @@
 }
 ],
 "pos": "adj"
+},
+"disfarçar": {
+"charts": [
+{
+"rows": [
+[
+"eu",
+"disfarço"
+],
+[
+"tu",
+"disfarças"
+],
+[
+"ele/você",
+"disfarça"
+],
+[
+"nós",
+"disfarçamos"
+],
+[
+"vós",
+"disfarçais"
+],
+[
+"eles",
+"disfarçam"
+]
+],
+"title": "Present"
+},
+{
+"rows": [
+[
+"eu",
+"disfarcei"
+],
+[
+"tu",
+"disfarçaste"
+],
+[
+"ele/você",
+"disfarçou"
+],
+[
+"nós",
+"disfarçamos"
+],
+[
+"vós",
+"disfarçastes"
+],
+[
+"eles",
+"disfarçaram"
+]
+],
+"title": "Preterite (perfeito)"
+},
+{
+"rows": [
+[
+"eu",
+"disfarçava"
+],
+[
+"tu",
+"disfarçavas"
+],
+[
+"ele/você",
+"disfarçava"
+],
+[
+"nós",
+"disfarçávamos"
+],
+[
+"vós",
+"disfarçáveis"
+],
+[
+"eles",
+"disfarçavam"
+]
+],
+"title": "Imperfect"
+},
+{
+"rows": [
+[
+"eu",
+"disfarçarei"
+],
+[
+"tu",
+"disfarçarás"
+],
+[
+"ele/você",
+"disfarçará"
+],
+[
+"nós",
+"disfarçaremos"
+],
+[
+"vós",
+"disfarçareis"
+],
+[
+"eles",
+"disfarçarão"
+]
+],
+"title": "Future"
+},
+{
+"rows": [
+[
+"eu",
+"disfarce"
+],
+[
+"tu",
+"disfarces"
+],
+[
+"ele/você",
+"disfarce"
+],
+[
+"nós",
+"disfarcemos"
+],
+[
+"vós",
+"disfarceis"
+],
+[
+"eles",
+"disfarcem"
+]
+],
+"title": "Subjunctive (present)"
+}
+],
+"chips": [
+{
+"label": "Gerund",
+"value": "disfarçando"
+},
+{
+"label": "Past participle",
+"value": "disfarçado"
+}
+],
+"pos": "verb"
+},
+"disney": {
+"chips": [
+{
+"label": "Gender",
+"value": "feminine"
+},
+{
+"label": "Plural",
+"value": "Disneys"
+}
+],
+"pos": "noun"
 },
 "disparar": {
 "charts": [
@@ -62666,19 +63188,6 @@
 ],
 "pos": "adj"
 },
-"distracção": {
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
-},
-{
-"label": "Plural",
-"value": "distracções"
-}
-],
-"pos": "noun"
-},
 "distrair": {
 "charts": [
 {
@@ -63294,6 +63803,15 @@
 ],
 "pos": "verb"
 },
+"dividido": {
+"chips": [
+{
+"label": "Plural",
+"value": "divididos"
+}
+],
+"pos": "adj"
+},
 "dividir": {
 "charts": [
 {
@@ -63827,6 +64345,15 @@
 ],
 "pos": "noun"
 },
+"dj": {
+"chips": [
+{
+"label": "Plural",
+"value": "DJs"
+}
+],
+"pos": "noun"
+},
 "doar": {
 "charts": [
 {
@@ -64208,15 +64735,6 @@
 ],
 "pos": "adj"
 },
-"doces": {
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
-}
-],
-"pos": "noun"
-},
 "docinho": {
 "chips": [
 {
@@ -64260,6 +64778,15 @@
 }
 ],
 "pos": "adj"
+},
+"doe": {
+"chips": [
+{
+"label": "Gender",
+"value": "masculine"
+}
+],
+"pos": "noun"
 },
 "doente": {
 "chips": [
@@ -64313,19 +64840,6 @@
 }
 ],
 "pos": "verb"
-},
-"dog": {
-"chips": [
-{
-"label": "Gender",
-"value": "masculine"
-},
-{
-"label": "Plural",
-"value": "dogs"
-}
-],
-"pos": "noun"
 },
 "doida": {
 "chips": [
@@ -64922,6 +65436,15 @@
 ],
 "pos": "noun"
 },
+"dra.": {
+"chips": [
+{
+"label": "Gender",
+"value": "feminine"
+}
+],
+"pos": "noun"
+},
 "dragão": {
 "chips": [
 {
@@ -64968,10 +65491,6 @@
 },
 "drive": {
 "chips": [
-{
-"label": "Gender",
-"value": "feminine"
-},
 {
 "label": "Plural",
 "value": "drives"
@@ -65058,6 +65577,19 @@
 {
 "label": "Plural",
 "value": "duelos"
+}
+],
+"pos": "noun"
+},
+"duende": {
+"chips": [
+{
+"label": "Gender",
+"value": "masculine"
+},
+{
+"label": "Plural",
+"value": "duendes"
 }
 ],
 "pos": "noun"
@@ -65457,6 +65989,19 @@
 ],
 "pos": "noun"
 },
+"dvd": {
+"chips": [
+{
+"label": "Gender",
+"value": "masculine"
+},
+{
+"label": "Plural",
+"value": "DVDs"
+}
+],
+"pos": "noun"
+},
 "dádiva": {
 "chips": [
 {
@@ -65523,6 +66068,15 @@
 {
 "label": "Plural",
 "value": "dívidas"
+}
+],
+"pos": "noun"
+},
+"dó": {
+"chips": [
+{
+"label": "Plural",
+"value": "dós"
 }
 ],
 "pos": "noun"
@@ -65754,6 +66308,24 @@
 ],
 "pos": "adj"
 },
+"einstein": {
+"chips": [
+{
+"label": "Gender",
+"value": "masculine"
+}
+],
+"pos": "noun"
+},
+"ela": {
+"chips": [
+{
+"label": "Gender",
+"value": "feminine"
+}
+],
+"pos": "noun"
+},
 "ele": {
 "chips": [
 {
@@ -65767,18 +66339,14 @@
 ],
 "pos": "noun"
 },
-"electricidade": {
+"electrico": {
 "chips": [
 {
-"label": "Gender",
-"value": "feminine"
-},
-{
 "label": "Plural",
-"value": "electricidades"
+"value": "electricos"
 }
 ],
-"pos": "noun"
+"pos": "adj"
 },
 "electrónica": {
 "chips": [
@@ -66107,28 +66675,6 @@
 {
 "label": "Plural",
 "value": "elogios"
-}
-],
-"pos": "noun"
-},
-"eléctrico": {
-"chips": [
-{
-"label": "Plural",
-"value": "eléctricos"
-}
-],
-"pos": "adj"
-},
-"email": {
-"chips": [
-{
-"label": "Gender",
-"value": "masculine"
-},
-{
-"label": "Plural",
-"value": "emails"
 }
 ],
 "pos": "noun"
@@ -67172,6 +67718,19 @@
 }
 ],
 "pos": "verb"
+},
+"empurrão": {
+"chips": [
+{
+"label": "Gender",
+"value": "masculine"
+},
+{
+"label": "Plural",
+"value": "empurrões"
+}
+],
+"pos": "noun"
 },
 "encantado": {
 "chips": [
@@ -68464,6 +69023,19 @@
 ],
 "pos": "noun"
 },
+"enfermeiro": {
+"chips": [
+{
+"label": "Gender",
+"value": "masculine"
+},
+{
+"label": "Plural",
+"value": "enfermeiros"
+}
+],
+"pos": "noun"
+},
 "enfiar": {
 "charts": [
 {
@@ -68956,6 +69528,166 @@
 }
 ],
 "pos": "noun"
+},
+"engatar": {
+"charts": [
+{
+"rows": [
+[
+"eu",
+"engato"
+],
+[
+"tu",
+"engatas"
+],
+[
+"ele/você",
+"engata"
+],
+[
+"nós",
+"engatamos"
+],
+[
+"vós",
+"engatais"
+],
+[
+"eles",
+"engatam"
+]
+],
+"title": "Present"
+},
+{
+"rows": [
+[
+"eu",
+"engatei"
+],
+[
+"tu",
+"engataste"
+],
+[
+"ele/você",
+"engatou"
+],
+[
+"nós",
+"engatamos"
+],
+[
+"vós",
+"engatastes"
+],
+[
+"eles",
+"engataram"
+]
+],
+"title": "Preterite (perfeito)"
+},
+{
+"rows": [
+[
+"eu",
+"engatava"
+],
+[
+"tu",
+"engatavas"
+],
+[
+"ele/você",
+"engatava"
+],
+[
+"nós",
+"engatávamos"
+],
+[
+"vós",
+"engatáveis"
+],
+[
+"eles",
+"engatavam"
+]
+],
+"title": "Imperfect"
+},
+{
+"rows": [
+[
+"eu",
+"engatarei"
+],
+[
+"tu",
+"engatarás"
+],
+[
+"ele/você",
+"engatará"
+],
+[
+"nós",
+"engataremos"
+],
+[
+"vós",
+"engatareis"
+],
+[
+"eles",
+"engatarão"
+]
+],
+"title": "Future"
+},
+{
+"rows": [
+[
+"eu",
+"engate"
+],
+[
+"tu",
+"engates"
+],
+[
+"ele/você",
+"engate"
+],
+[
+"nós",
+"engatemos"
+],
+[
+"vós",
+"engateis"
+],
+[
+"eles",
+"engatem"
+]
+],
+"title": "Subjunctive (present)"
+}
+],
+"chips": [
+{
+"label": "Gerund",
+"value": "engatando"
+},
+{
+"label": "Past participle",
+"value": "engatado"
+}
+],
+"pos": "verb"
 },
 "engenharia": {
 "chips": [
@@ -72614,6 +73346,19 @@
 ],
 "pos": "adj"
 },
+"escorpião": {
+"chips": [
+{
+"label": "Gender",
+"value": "masculine"
+},
+{
+"label": "Plural",
+"value": "escorpiões"
+}
+],
+"pos": "noun"
+},
 "escotilha": {
 "chips": [
 {
@@ -72835,6 +73580,15 @@
 {
 "label": "Plural",
 "value": "escritas"
+}
+],
+"pos": "noun"
+},
+"escritas": {
+"chips": [
+{
+"label": "Gender",
+"value": "feminine"
 }
 ],
 "pos": "noun"
@@ -74095,10 +74849,6 @@
 "especialista": {
 "chips": [
 {
-"label": "Gender",
-"value": "feminine"
-},
-{
 "label": "Plural",
 "value": "especialistas"
 }
@@ -74109,19 +74859,23 @@
 "chips": [
 {
 "label": "Gender",
-"value": "feminine"
+"value": "masculine"
 }
 ],
 "pos": "noun"
 },
-"espectacular": {
+"espectaculo": {
 "chips": [
 {
+"label": "Gender",
+"value": "masculine"
+},
+{
 "label": "Plural",
-"value": "espectaculares"
+"value": "espectaculos"
 }
 ],
-"pos": "adj"
+"pos": "noun"
 },
 "espectro": {
 "chips": [
@@ -74132,19 +74886,6 @@
 {
 "label": "Plural",
 "value": "espectros"
-}
-],
-"pos": "noun"
-},
-"espectáculo": {
-"chips": [
-{
-"label": "Gender",
-"value": "masculine"
-},
-{
-"label": "Plural",
-"value": "espectáculos"
 }
 ],
 "pos": "noun"
@@ -75173,6 +75914,19 @@
 }
 ],
 "pos": "adj"
+},
+"esqui": {
+"chips": [
+{
+"label": "Gender",
+"value": "masculine"
+},
+{
+"label": "Plural",
+"value": "esquis"
+}
+],
+"pos": "noun"
 },
 "esquilo": {
 "chips": [
@@ -76402,10 +77156,6 @@
 "estudante": {
 "chips": [
 {
-"label": "Gender",
-"value": "feminine"
-},
-{
 "label": "Plural",
 "value": "estudantes"
 }
@@ -76584,6 +77334,28 @@
 }
 ],
 "pos": "noun"
+},
+"estufa": {
+"chips": [
+{
+"label": "Gender",
+"value": "feminine"
+},
+{
+"label": "Plural",
+"value": "estufas"
+}
+],
+"pos": "noun"
+},
+"estupendo": {
+"chips": [
+{
+"label": "Plural",
+"value": "estupendos"
+}
+],
+"pos": "adj"
 },
 "estupidez": {
 "chips": [
@@ -77132,6 +77904,166 @@
 ],
 "pos": "verb"
 },
+"evoluir": {
+"charts": [
+{
+"rows": [
+[
+"eu",
+"evoluo"
+],
+[
+"tu",
+"evoluis"
+],
+[
+"ele/você",
+"evolui"
+],
+[
+"nós",
+"evoluímos"
+],
+[
+"vós",
+"evoluís"
+],
+[
+"eles",
+"evoluem"
+]
+],
+"title": "Present"
+},
+{
+"rows": [
+[
+"eu",
+"evoluí"
+],
+[
+"tu",
+"evoluíste"
+],
+[
+"ele/você",
+"evoluiu"
+],
+[
+"nós",
+"evoluímos"
+],
+[
+"vós",
+"evoluístes"
+],
+[
+"eles",
+"evoluíram"
+]
+],
+"title": "Preterite (perfeito)"
+},
+{
+"rows": [
+[
+"eu",
+"evoluía"
+],
+[
+"tu",
+"evoluías"
+],
+[
+"ele/você",
+"evoluía"
+],
+[
+"nós",
+"evoluíamos"
+],
+[
+"vós",
+"evoluíeis"
+],
+[
+"eles",
+"evoluíam"
+]
+],
+"title": "Imperfect"
+},
+{
+"rows": [
+[
+"eu",
+"evoluirei"
+],
+[
+"tu",
+"evoluirás"
+],
+[
+"ele/você",
+"evoluirá"
+],
+[
+"nós",
+"evoluiremos"
+],
+[
+"vós",
+"evoluireis"
+],
+[
+"eles",
+"evoluirão"
+]
+],
+"title": "Future"
+},
+{
+"rows": [
+[
+"eu",
+"evolua"
+],
+[
+"tu",
+"evoluas"
+],
+[
+"ele/você",
+"evolua"
+],
+[
+"nós",
+"evoluamos"
+],
+[
+"vós",
+"evoluais"
+],
+[
+"eles",
+"evoluam"
+]
+],
+"title": "Subjunctive (present)"
+}
+],
+"chips": [
+{
+"label": "Gerund",
+"value": "evoluindo"
+},
+{
+"label": "Past participle",
+"value": "evoluído"
+}
+],
+"pos": "verb"
+},
 "evolução": {
 "chips": [
 {
@@ -77141,15 +78073,6 @@
 {
 "label": "Plural",
 "value": "evoluções"
-}
-],
-"pos": "noun"
-},
-"ex": {
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
 }
 ],
 "pos": "noun"
@@ -77179,15 +78102,6 @@
 }
 ],
 "pos": "noun"
-},
-"exacto": {
-"chips": [
-{
-"label": "Plural",
-"value": "exactos"
-}
-],
-"pos": "adj"
 },
 "exagerado": {
 "chips": [
@@ -77588,19 +78502,6 @@
 }
 ],
 "pos": "adj"
-},
-"excepção": {
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
-},
-{
-"label": "Plural",
-"value": "excepções"
-}
-],
-"pos": "noun"
 },
 "excesso": {
 "chips": [
@@ -80055,19 +80956,6 @@
 ],
 "pos": "adj"
 },
-"extracção": {
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
-},
-{
-"label": "Plural",
-"value": "extracções"
-}
-],
-"pos": "noun"
-},
 "extrair": {
 "charts": [
 {
@@ -80273,6 +81161,19 @@
 {
 "label": "Gender",
 "value": "masculine"
+}
+],
+"pos": "noun"
+},
+"fabricante": {
+"chips": [
+{
+"label": "Gender",
+"value": "masculine"
+},
+{
+"label": "Plural",
+"value": "fabricantes"
 }
 ],
 "pos": "noun"
@@ -80525,19 +81426,6 @@
 {
 "label": "Plural",
 "value": "factos"
-}
-],
-"pos": "noun"
-},
-"factor": {
-"chips": [
-{
-"label": "Gender",
-"value": "masculine"
-},
-{
-"label": "Plural",
-"value": "factores"
 }
 ],
 "pos": "noun"
@@ -81223,19 +82111,6 @@
 ],
 "pos": "noun"
 },
-"familia": {
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
-},
-{
-"label": "Plural",
-"value": "familias"
-}
-],
-"pos": "noun"
-},
 "familiar": {
 "chips": [
 {
@@ -81296,10 +82171,6 @@
 "fantasma": {
 "chips": [
 {
-"label": "Gender",
-"value": "feminine"
-},
-{
 "label": "Plural",
 "value": "fantasmas"
 }
@@ -81319,7 +82190,7 @@
 "chips": [
 {
 "label": "Gender",
-"value": "feminine"
+"value": "masculine"
 },
 {
 "label": "Plural",
@@ -82112,6 +82983,19 @@
 ],
 "pos": "noun"
 },
+"fera": {
+"chips": [
+{
+"label": "Gender",
+"value": "feminine"
+},
+{
+"label": "Plural",
+"value": "feras"
+}
+],
+"pos": "noun"
+},
 "feriado": {
 "chips": [
 {
@@ -82758,19 +83642,6 @@
 ],
 "pos": "noun"
 },
-"fiança": {
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
-},
-{
-"label": "Plural",
-"value": "fianças"
-}
-],
-"pos": "noun"
-},
 "fibra": {
 "chips": [
 {
@@ -82979,6 +83850,19 @@
 {
 "label": "Plural",
 "value": "ficções"
+}
+],
+"pos": "noun"
+},
+"fidelidade": {
+"chips": [
+{
+"label": "Gender",
+"value": "feminine"
+},
+{
+"label": "Plural",
+"value": "fidelidades"
 }
 ],
 "pos": "noun"
@@ -83252,6 +84136,19 @@
 ],
 "pos": "noun"
 },
+"filtro": {
+"chips": [
+{
+"label": "Gender",
+"value": "masculine"
+},
+{
+"label": "Plural",
+"value": "filtros"
+}
+],
+"pos": "noun"
+},
 "fim": {
 "chips": [
 {
@@ -83261,19 +84158,6 @@
 {
 "label": "Plural",
 "value": "fins"
-}
-],
-"pos": "noun"
-},
-"fim-de-semana": {
-"chips": [
-{
-"label": "Gender",
-"value": "masculine"
-},
-{
-"label": "Plural",
-"value": "fins-de-semana"
 }
 ],
 "pos": "noun"
@@ -83952,6 +84836,166 @@
 ],
 "pos": "noun"
 },
+"focar": {
+"charts": [
+{
+"rows": [
+[
+"eu",
+"foco"
+],
+[
+"tu",
+"focas"
+],
+[
+"ele/você",
+"foca"
+],
+[
+"nós",
+"focamos"
+],
+[
+"vós",
+"focais"
+],
+[
+"eles",
+"focam"
+]
+],
+"title": "Present"
+},
+{
+"rows": [
+[
+"eu",
+"foquei"
+],
+[
+"tu",
+"focaste"
+],
+[
+"ele/você",
+"focou"
+],
+[
+"nós",
+"focamos"
+],
+[
+"vós",
+"focastes"
+],
+[
+"eles",
+"focaram"
+]
+],
+"title": "Preterite (perfeito)"
+},
+{
+"rows": [
+[
+"eu",
+"focava"
+],
+[
+"tu",
+"focavas"
+],
+[
+"ele/você",
+"focava"
+],
+[
+"nós",
+"focávamos"
+],
+[
+"vós",
+"focáveis"
+],
+[
+"eles",
+"focavam"
+]
+],
+"title": "Imperfect"
+},
+{
+"rows": [
+[
+"eu",
+"focarei"
+],
+[
+"tu",
+"focarás"
+],
+[
+"ele/você",
+"focará"
+],
+[
+"nós",
+"focaremos"
+],
+[
+"vós",
+"focareis"
+],
+[
+"eles",
+"focarão"
+]
+],
+"title": "Future"
+},
+{
+"rows": [
+[
+"eu",
+"foque"
+],
+[
+"tu",
+"foques"
+],
+[
+"ele/você",
+"foque"
+],
+[
+"nós",
+"foquemos"
+],
+[
+"vós",
+"foqueis"
+],
+[
+"eles",
+"foquem"
+]
+],
+"title": "Subjunctive (present)"
+}
+],
+"chips": [
+{
+"label": "Gerund",
+"value": "focando"
+},
+{
+"label": "Past participle",
+"value": "focado"
+}
+],
+"pos": "verb"
+},
 "foco": {
 "chips": [
 {
@@ -84159,6 +85203,15 @@
 }
 ],
 "pos": "noun"
+},
+"fofinho": {
+"chips": [
+{
+"label": "Plural",
+"value": "fofinhos"
+}
+],
+"pos": "adj"
 },
 "fofo": {
 "chips": [
@@ -85752,7 +86805,7 @@
 },
 {
 "label": "Plural",
-"value": "fulanos"
+"value": "Fulanos"
 }
 ],
 "pos": "noun"
@@ -86230,6 +87283,19 @@
 ],
 "pos": "adj"
 },
+"furo": {
+"chips": [
+{
+"label": "Gender",
+"value": "masculine"
+},
+{
+"label": "Plural",
+"value": "furos"
+}
+],
+"pos": "noun"
+},
 "fusão": {
 "chips": [
 {
@@ -86299,21 +87365,8 @@
 "fã": {
 "chips": [
 {
-"label": "Gender",
-"value": "feminine"
-},
-{
 "label": "Plural",
 "value": "fãs"
-}
-],
-"pos": "noun"
-},
-"fãs": {
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
 }
 ],
 "pos": "noun"
@@ -86453,7 +87506,7 @@
 },
 {
 "label": "Plural",
-"value": "führer"
+"value": "Führer"
 }
 ],
 "pos": "noun"
@@ -86606,19 +87659,6 @@
 ],
 "pos": "noun"
 },
-"galáxia": {
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
-},
-{
-"label": "Plural",
-"value": "galáxias"
-}
-],
-"pos": "noun"
-},
 "gama": {
 "chips": [
 {
@@ -86648,35 +87688,14 @@
 "gang": {
 "chips": [
 {
-"label": "Gender",
-"value": "feminine"
-},
-{
 "label": "Plural",
 "value": "gangs"
 }
 ],
 "pos": "noun"
 },
-"gangster": {
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
-},
-{
-"label": "Plural",
-"value": "gangsters"
-}
-],
-"pos": "noun"
-},
 "gangue": {
 "chips": [
-{
-"label": "Gender",
-"value": "feminine"
-},
 {
 "label": "Plural",
 "value": "gangues"
@@ -87395,6 +88414,19 @@
 ],
 "pos": "noun"
 },
+"gatinha": {
+"chips": [
+{
+"label": "Gender",
+"value": "feminine"
+},
+{
+"label": "Plural",
+"value": "gatinhas"
+}
+],
+"pos": "noun"
+},
 "gatinho": {
 "chips": [
 {
@@ -88026,15 +89058,6 @@
 }
 ],
 "pos": "adj"
-},
-"gin": {
-"chips": [
-{
-"label": "Gender",
-"value": "masculine"
-}
-],
-"pos": "noun"
 },
 "ginásio": {
 "chips": [
@@ -88999,6 +90022,15 @@
 ],
 "pos": "noun"
 },
+"gps": {
+"chips": [
+{
+"label": "Gender",
+"value": "masculine"
+}
+],
+"pos": "noun"
+},
 "gramas": {
 "chips": [
 {
@@ -89417,19 +90449,6 @@
 ],
 "pos": "noun"
 },
-"grey": {
-"chips": [
-{
-"label": "Gender",
-"value": "masculine"
-},
-{
-"label": "Plural",
-"value": "greys"
-}
-],
-"pos": "noun"
-},
 "gripe": {
 "chips": [
 {
@@ -89689,10 +90708,6 @@
 "guarda": {
 "chips": [
 {
-"label": "Gender",
-"value": "feminine"
-},
-{
 "label": "Plural",
 "value": "guardas"
 }
@@ -89704,6 +90719,19 @@
 {
 "label": "Gender",
 "value": "masculine"
+}
+],
+"pos": "noun"
+},
+"guarda-roupa": {
+"chips": [
+{
+"label": "Gender",
+"value": "masculine"
+},
+{
+"label": "Plural",
+"value": "guarda-roupas"
 }
 ],
 "pos": "noun"
@@ -89905,10 +90933,6 @@
 },
 "guia": {
 "chips": [
-{
-"label": "Gender",
-"value": "feminine"
-},
 {
 "label": "Plural",
 "value": "guias"
@@ -90335,10 +91359,6 @@
 "hacker": {
 "chips": [
 {
-"label": "Gender",
-"value": "feminine"
-},
-{
 "label": "Plural",
 "value": "hackers"
 }
@@ -90360,10 +91380,6 @@
 },
 "hambúrguer": {
 "chips": [
-{
-"label": "Gender",
-"value": "feminine"
-},
 {
 "label": "Plural",
 "value": "hambúrgueres"
@@ -90579,19 +91595,6 @@
 ],
 "pos": "verb"
 },
-"helicóptero": {
-"chips": [
-{
-"label": "Gender",
-"value": "masculine"
-},
-{
-"label": "Plural",
-"value": "helicópteros"
-}
-],
-"pos": "noun"
-},
 "hemorragia": {
 "chips": [
 {
@@ -90701,15 +91704,6 @@
 ],
 "pos": "adj"
 },
-"hip-hop": {
-"chips": [
-{
-"label": "Gender",
-"value": "masculine"
-}
-],
-"pos": "noun"
-},
 "hipoteca": {
 "chips": [
 {
@@ -90780,7 +91774,7 @@
 ],
 "pos": "adj"
 },
-"home": {
+"hitler": {
 "chips": [
 {
 "label": "Gender",
@@ -90788,7 +91782,7 @@
 },
 {
 "label": "Plural",
-"value": "homes"
+"value": "Hitlers"
 }
 ],
 "pos": "noun"
@@ -91181,19 +92175,6 @@
 ],
 "pos": "adj"
 },
-"hot": {
-"chips": [
-{
-"label": "Gender",
-"value": "masculine"
-},
-{
-"label": "Plural",
-"value": "hots"
-}
-],
-"pos": "noun"
-},
 "hotel": {
 "chips": [
 {
@@ -91342,10 +92323,6 @@
 "hóspede": {
 "chips": [
 {
-"label": "Gender",
-"value": "feminine"
-},
-{
 "label": "Plural",
 "value": "hóspedes"
 }
@@ -91361,15 +92338,15 @@
 ],
 "pos": "noun"
 },
-"i": {
+"ia": {
 "chips": [
 {
 "label": "Gender",
-"value": "masculine"
+"value": "feminine"
 },
 {
 "label": "Plural",
-"value": "is"
+"value": "IAs"
 }
 ],
 "pos": "noun"
@@ -91647,7 +92624,7 @@
 "chips": [
 {
 "label": "Gender",
-"value": "feminine"
+"value": "masculine"
 }
 ],
 "pos": "noun"
@@ -92165,15 +93142,6 @@
 ],
 "pos": "adj"
 },
-"imigrantes": {
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
-}
-],
-"pos": "noun"
-},
 "imigração": {
 "chips": [
 {
@@ -92399,6 +93367,19 @@
 }
 ],
 "pos": "adj"
+},
+"imortalidade": {
+"chips": [
+{
+"label": "Gender",
+"value": "feminine"
+},
+{
+"label": "Plural",
+"value": "imortalidades"
+}
+],
+"pos": "noun"
 },
 "impaciente": {
 "chips": [
@@ -92778,6 +93759,166 @@
 {
 "label": "Past participle",
 "value": "implorado"
+}
+],
+"pos": "verb"
+},
+"impor": {
+"charts": [
+{
+"rows": [
+[
+"eu",
+"imponho"
+],
+[
+"tu",
+"impões"
+],
+[
+"ele/você",
+"impõe"
+],
+[
+"nós",
+"impomos"
+],
+[
+"vós",
+"impondes"
+],
+[
+"eles",
+"impõem"
+]
+],
+"title": "Present"
+},
+{
+"rows": [
+[
+"eu",
+"impus"
+],
+[
+"tu",
+"impuseste"
+],
+[
+"ele/você",
+"impôs"
+],
+[
+"nós",
+"impusemos"
+],
+[
+"vós",
+"impusestes"
+],
+[
+"eles",
+"impuseram"
+]
+],
+"title": "Preterite (perfeito)"
+},
+{
+"rows": [
+[
+"eu",
+"impunha"
+],
+[
+"tu",
+"impunhas"
+],
+[
+"ele/você",
+"impunha"
+],
+[
+"nós",
+"impúnhamos"
+],
+[
+"vós",
+"impúnheis"
+],
+[
+"eles",
+"impunham"
+]
+],
+"title": "Imperfect"
+},
+{
+"rows": [
+[
+"eu",
+"imporei"
+],
+[
+"tu",
+"imporás"
+],
+[
+"ele/você",
+"imporá"
+],
+[
+"nós",
+"imporemos"
+],
+[
+"vós",
+"imporeis"
+],
+[
+"eles",
+"imporão"
+]
+],
+"title": "Future"
+},
+{
+"rows": [
+[
+"eu",
+"imponha"
+],
+[
+"tu",
+"imponhas"
+],
+[
+"ele/você",
+"imponha"
+],
+[
+"nós",
+"imponhamos"
+],
+[
+"vós",
+"imponhais"
+],
+[
+"eles",
+"imponham"
+]
+],
+"title": "Subjunctive (present)"
+}
+],
+"chips": [
+{
+"label": "Gerund",
+"value": "impondo"
+},
+{
+"label": "Past participle",
+"value": "imposto"
 }
 ],
 "pos": "verb"
@@ -93226,6 +94367,166 @@
 ],
 "pos": "adj"
 },
+"imprimir": {
+"charts": [
+{
+"rows": [
+[
+"eu",
+"imprimo"
+],
+[
+"tu",
+"imprimes"
+],
+[
+"ele/você",
+"imprime"
+],
+[
+"nós",
+"imprimimos"
+],
+[
+"vós",
+"imprimis"
+],
+[
+"eles",
+"imprimem"
+]
+],
+"title": "Present"
+},
+{
+"rows": [
+[
+"eu",
+"imprimi"
+],
+[
+"tu",
+"imprimiste"
+],
+[
+"ele/você",
+"imprimiu"
+],
+[
+"nós",
+"imprimimos"
+],
+[
+"vós",
+"imprimistes"
+],
+[
+"eles",
+"imprimiram"
+]
+],
+"title": "Preterite (perfeito)"
+},
+{
+"rows": [
+[
+"eu",
+"imprimia"
+],
+[
+"tu",
+"imprimias"
+],
+[
+"ele/você",
+"imprimia"
+],
+[
+"nós",
+"imprimíamos"
+],
+[
+"vós",
+"imprimíeis"
+],
+[
+"eles",
+"imprimiam"
+]
+],
+"title": "Imperfect"
+},
+{
+"rows": [
+[
+"eu",
+"imprimirei"
+],
+[
+"tu",
+"imprimirás"
+],
+[
+"ele/você",
+"imprimirá"
+],
+[
+"nós",
+"imprimiremos"
+],
+[
+"vós",
+"imprimireis"
+],
+[
+"eles",
+"imprimirão"
+]
+],
+"title": "Future"
+},
+{
+"rows": [
+[
+"eu",
+"imprima"
+],
+[
+"tu",
+"imprimas"
+],
+[
+"ele/você",
+"imprima"
+],
+[
+"nós",
+"imprimamos"
+],
+[
+"vós",
+"imprimais"
+],
+[
+"eles",
+"imprimam"
+]
+],
+"title": "Subjunctive (present)"
+}
+],
+"chips": [
+{
+"label": "Gerund",
+"value": "imprimindo"
+},
+{
+"label": "Past participle",
+"value": "imprimido"
+}
+],
+"pos": "verb"
+},
 "improvisar": {
 "charts": [
 {
@@ -93482,6 +94783,166 @@
 }
 ],
 "pos": "adj"
+},
+"incendiar": {
+"charts": [
+{
+"rows": [
+[
+"eu",
+"incendeio"
+],
+[
+"tu",
+"incendeias"
+],
+[
+"ele/você",
+"incendeia"
+],
+[
+"nós",
+"incendiamos"
+],
+[
+"vós",
+"incendiais"
+],
+[
+"eles",
+"incendeiam"
+]
+],
+"title": "Present"
+},
+{
+"rows": [
+[
+"eu",
+"incendiei"
+],
+[
+"tu",
+"incendiaste"
+],
+[
+"ele/você",
+"incendiou"
+],
+[
+"nós",
+"incendiamos"
+],
+[
+"vós",
+"incendiastes"
+],
+[
+"eles",
+"incendiaram"
+]
+],
+"title": "Preterite (perfeito)"
+},
+{
+"rows": [
+[
+"eu",
+"incendiava"
+],
+[
+"tu",
+"incendiavas"
+],
+[
+"ele/você",
+"incendiava"
+],
+[
+"nós",
+"incendiávamos"
+],
+[
+"vós",
+"incendiáveis"
+],
+[
+"eles",
+"incendiavam"
+]
+],
+"title": "Imperfect"
+},
+{
+"rows": [
+[
+"eu",
+"incendiarei"
+],
+[
+"tu",
+"incendiarás"
+],
+[
+"ele/você",
+"incendiará"
+],
+[
+"nós",
+"incendiaremos"
+],
+[
+"vós",
+"incendiareis"
+],
+[
+"eles",
+"incendiarão"
+]
+],
+"title": "Future"
+},
+{
+"rows": [
+[
+"eu",
+"incendeie"
+],
+[
+"tu",
+"incendeies"
+],
+[
+"ele/você",
+"incendeie"
+],
+[
+"nós",
+"incendiemos"
+],
+[
+"vós",
+"incendieis"
+],
+[
+"eles",
+"incendeiem"
+]
+],
+"title": "Subjunctive (present)"
+}
+],
+"chips": [
+{
+"label": "Gerund",
+"value": "incendiando"
+},
+{
+"label": "Past participle",
+"value": "incendiado"
+}
+],
+"pos": "verb"
 },
 "incidente": {
 "chips": [
@@ -94225,6 +95686,15 @@
 ],
 "pos": "noun"
 },
+"infiel": {
+"chips": [
+{
+"label": "Plural",
+"value": "infiéis"
+}
+],
+"pos": "adj"
+},
 "infinito": {
 "chips": [
 {
@@ -94729,19 +96199,6 @@
 ],
 "pos": "noun"
 },
-"injecção": {
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
-},
-{
-"label": "Plural",
-"value": "injecções"
-}
-],
-"pos": "noun"
-},
 "injustiça": {
 "chips": [
 {
@@ -94808,6 +96265,19 @@
 ],
 "pos": "noun"
 },
+"insanidade": {
+"chips": [
+{
+"label": "Gender",
+"value": "feminine"
+},
+{
+"label": "Plural",
+"value": "insanidades"
+}
+],
+"pos": "noun"
+},
 "inscrição": {
 "chips": [
 {
@@ -94817,19 +96287,6 @@
 {
 "label": "Plural",
 "value": "inscrições"
-}
-],
-"pos": "noun"
-},
-"insecto": {
-"chips": [
-{
-"label": "Gender",
-"value": "masculine"
-},
-{
-"label": "Plural",
-"value": "insectos"
 }
 ],
 "pos": "noun"
@@ -95172,28 +96629,6 @@
 ],
 "pos": "verb"
 },
-"inspector": {
-"chips": [
-{
-"label": "Plural",
-"value": "inspectores"
-}
-],
-"pos": "adj"
-},
-"inspecção": {
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
-},
-{
-"label": "Plural",
-"value": "inspecções"
-}
-],
-"pos": "noun"
-},
 "inspetor": {
 "chips": [
 {
@@ -95477,6 +96912,19 @@
 ],
 "pos": "noun"
 },
+"instrutor": {
+"chips": [
+{
+"label": "Gender",
+"value": "masculine"
+},
+{
+"label": "Plural",
+"value": "instrutores"
+}
+],
+"pos": "noun"
+},
 "instável": {
 "chips": [
 {
@@ -95726,6 +97174,19 @@
 {
 "label": "Plural",
 "value": "inteligências"
+}
+],
+"pos": "noun"
+},
+"intensidade": {
+"chips": [
+{
+"label": "Gender",
+"value": "feminine"
+},
+{
+"label": "Plural",
+"value": "intensidades"
 }
 ],
 "pos": "noun"
@@ -96662,6 +98123,19 @@
 {
 "label": "Plural",
 "value": "interruptores"
+}
+],
+"pos": "noun"
+},
+"interrupção": {
+"chips": [
+{
+"label": "Gender",
+"value": "feminine"
+},
+{
+"label": "Plural",
+"value": "interrupções"
 }
 ],
 "pos": "noun"
@@ -97720,15 +99194,6 @@
 ],
 "pos": "adj"
 },
-"ioga": {
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
-}
-],
-"pos": "noun"
-},
 "iogurte": {
 "chips": [
 {
@@ -98450,7 +99915,7 @@
 "chips": [
 {
 "label": "Gender",
-"value": "feminine"
+"value": "masculine"
 }
 ],
 "pos": "noun"
@@ -98656,11 +100121,15 @@
 ],
 "pos": "noun"
 },
-"jazz": {
+"jedi": {
 "chips": [
 {
 "label": "Gender",
 "value": "masculine"
+},
+{
+"label": "Plural",
+"value": "Jedis"
 }
 ],
 "pos": "noun"
@@ -98963,10 +100432,6 @@
 "jornalista": {
 "chips": [
 {
-"label": "Gender",
-"value": "feminine"
-},
-{
 "label": "Plural",
 "value": "jornalistas"
 }
@@ -99041,10 +100506,6 @@
 },
 "juiz": {
 "chips": [
-{
-"label": "Gender",
-"value": "feminine"
-},
 {
 "label": "Plural",
 "value": "juízes"
@@ -99932,19 +101393,6 @@
 ],
 "pos": "noun"
 },
-"karma": {
-"chips": [
-{
-"label": "Gender",
-"value": "masculine"
-},
-{
-"label": "Plural",
-"value": "karmas"
-}
-],
-"pos": "noun"
-},
 "ketchup": {
 "chips": [
 {
@@ -99954,19 +101402,6 @@
 {
 "label": "Plural",
 "value": "ketchups"
-}
-],
-"pos": "noun"
-},
-"khan": {
-"chips": [
-{
-"label": "Gender",
-"value": "masculine"
-},
-{
-"label": "Plural",
-"value": "khans"
 }
 ],
 "pos": "noun"
@@ -102435,6 +103870,19 @@
 ],
 "pos": "noun"
 },
+"licor": {
+"chips": [
+{
+"label": "Gender",
+"value": "masculine"
+},
+{
+"label": "Plural",
+"value": "licores"
+}
+],
+"pos": "noun"
+},
 "lida": {
 "chips": [
 {
@@ -103224,19 +104672,6 @@
 ],
 "pos": "adj"
 },
-"limusina": {
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
-},
-{
-"label": "Plural",
-"value": "limusinas"
-}
-],
-"pos": "noun"
-},
 "limão": {
 "chips": [
 {
@@ -103766,7 +105201,7 @@
 "chips": [
 {
 "label": "Gender",
-"value": "feminine"
+"value": "masculine"
 },
 {
 "label": "Plural",
@@ -104004,10 +105439,6 @@
 "logo": {
 "chips": [
 {
-"label": "Gender",
-"value": "feminine"
-},
-{
 "label": "Plural",
 "value": "logos"
 }
@@ -104167,19 +105598,6 @@
 {
 "label": "Plural",
 "value": "luas"
-}
-],
-"pos": "noun"
-},
-"lua-de-mel": {
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
-},
-{
-"label": "Plural",
-"value": "luas-de-mel"
 }
 ],
 "pos": "noun"
@@ -104594,10 +106012,6 @@
 },
 "líder": {
 "chips": [
-{
-"label": "Gender",
-"value": "feminine"
-},
 {
 "label": "Plural",
 "value": "líderes"
@@ -105074,10 +106488,6 @@
 "major": {
 "chips": [
 {
-"label": "Gender",
-"value": "feminine"
-},
-{
 "label": "Plural",
 "value": "majores"
 }
@@ -105307,6 +106717,15 @@
 ],
 "pos": "noun"
 },
+"mandados": {
+"chips": [
+{
+"label": "Gender",
+"value": "masculine"
+}
+],
+"pos": "noun"
+},
 "mandar": {
 "charts": [
 {
@@ -105515,6 +106934,15 @@
 {
 "label": "Plural",
 "value": "mangas"
+}
+],
+"pos": "noun"
+},
+"mangas": {
+"chips": [
+{
+"label": "Gender",
+"value": "feminine"
 }
 ],
 "pos": "noun"
@@ -105943,11 +107371,33 @@
 ],
 "pos": "verb"
 },
+"manto": {
+"chips": [
+{
+"label": "Gender",
+"value": "masculine"
+},
+{
+"label": "Plural",
+"value": "mantos"
+}
+],
+"pos": "noun"
+},
 "manual": {
 "chips": [
 {
 "label": "Plural",
 "value": "manuais"
+}
+],
+"pos": "adj"
+},
+"manuscrito": {
+"chips": [
+{
+"label": "Plural",
+"value": "manuscritos"
 }
 ],
 "pos": "adj"
@@ -105974,19 +107424,6 @@
 {
 "label": "Plural",
 "value": "maníacos"
-}
-],
-"pos": "noun"
-},
-"mapa": {
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
-},
-{
-"label": "Plural",
-"value": "mapas"
 }
 ],
 "pos": "noun"
@@ -106916,6 +108353,19 @@
 ],
 "pos": "noun"
 },
+"matriz": {
+"chips": [
+{
+"label": "Gender",
+"value": "feminine"
+},
+{
+"label": "Plural",
+"value": "matrizes"
+}
+],
+"pos": "noun"
+},
 "matrícula": {
 "chips": [
 {
@@ -106947,28 +108397,6 @@
 {
 "label": "Plural",
 "value": "maus"
-}
-],
-"pos": "adj"
-},
-"maya": {
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
-},
-{
-"label": "Plural",
-"value": "mayas"
-}
-],
-"pos": "noun"
-},
-"mayor": {
-"chips": [
-{
-"label": "Plural",
-"value": "mayores"
 }
 ],
 "pos": "adj"
@@ -107562,10 +108990,6 @@
 "membro": {
 "chips": [
 {
-"label": "Gender",
-"value": "feminine"
-},
-{
 "label": "Plural",
 "value": "membros"
 }
@@ -107779,15 +109203,6 @@
 }
 ],
 "pos": "adj"
-},
-"menores": {
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
-}
-],
-"pos": "noun"
 },
 "menos": {
 "chips": [
@@ -108093,6 +109508,15 @@
 ],
 "pos": "noun"
 },
+"mercados": {
+"chips": [
+{
+"label": "Gender",
+"value": "masculine"
+}
+],
+"pos": "noun"
+},
 "mercearia": {
 "chips": [
 {
@@ -108111,6 +109535,19 @@
 {
 "label": "Gender",
 "value": "masculine"
+}
+],
+"pos": "noun"
+},
+"mercúrio": {
+"chips": [
+{
+"label": "Gender",
+"value": "masculine"
+},
+{
+"label": "Plural",
+"value": "mercúrios"
 }
 ],
 "pos": "noun"
@@ -108792,19 +110229,6 @@
 ],
 "pos": "noun"
 },
-"metáfora": {
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
-},
-{
-"label": "Plural",
-"value": "metáforas"
-}
-],
-"pos": "noun"
-},
 "meu": {
 "chips": [
 {
@@ -109296,6 +110720,28 @@
 ],
 "pos": "adj"
 },
+"milícia": {
+"chips": [
+{
+"label": "Gender",
+"value": "feminine"
+},
+{
+"label": "Plural",
+"value": "milícias"
+}
+],
+"pos": "noun"
+},
+"min": {
+"chips": [
+{
+"label": "Gender",
+"value": "masculine"
+}
+],
+"pos": "noun"
+},
 "mina": {
 "chips": [
 {
@@ -109678,19 +111124,6 @@
 }
 ],
 "pos": "adj"
-},
-"mm": {
-"chips": [
-{
-"label": "Gender",
-"value": "masculine"
-},
-{
-"label": "Plural",
-"value": "mms"
-}
-],
-"pos": "noun"
 },
 "mobília": {
 "chips": [
@@ -110677,6 +112110,19 @@
 ],
 "pos": "verb"
 },
+"mordida": {
+"chips": [
+{
+"label": "Gender",
+"value": "feminine"
+},
+{
+"label": "Plural",
+"value": "mordidas"
+}
+],
+"pos": "noun"
+},
 "mordido": {
 "chips": [
 {
@@ -110894,15 +112340,6 @@
 {
 "label": "Plural",
 "value": "morros"
-}
-],
-"pos": "noun"
-},
-"mortais": {
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
 }
 ],
 "pos": "noun"
@@ -111275,10 +112712,6 @@
 },
 "motorista": {
 "chips": [
-{
-"label": "Gender",
-"value": "feminine"
-},
 {
 "label": "Plural",
 "value": "motoristas"
@@ -111859,6 +113292,37 @@
 ],
 "pos": "adj"
 },
+"mutante": {
+"chips": [
+{
+"label": "Plural",
+"value": "mutantes"
+}
+],
+"pos": "adj"
+},
+"mutação": {
+"chips": [
+{
+"label": "Gender",
+"value": "feminine"
+},
+{
+"label": "Plural",
+"value": "mutações"
+}
+],
+"pos": "noun"
+},
+"muçulmano": {
+"chips": [
+{
+"label": "Plural",
+"value": "muçulmanos"
+}
+],
+"pos": "adj"
+},
 "máfia": {
 "chips": [
 {
@@ -112042,6 +113506,19 @@
 ],
 "pos": "noun"
 },
+"médico-legista": {
+"chips": [
+{
+"label": "Gender",
+"value": "masculine"
+},
+{
+"label": "Plural",
+"value": "médicos-legistas"
+}
+],
+"pos": "noun"
+},
 "médio": {
 "chips": [
 {
@@ -112208,15 +113685,6 @@
 {
 "label": "Plural",
 "value": "músicos"
-}
-],
-"pos": "noun"
-},
-"n": {
-"chips": [
-{
-"label": "Gender",
-"value": "masculine"
 }
 ],
 "pos": "noun"
@@ -112616,19 +114084,6 @@
 ],
 "pos": "noun"
 },
-"nao": {
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
-},
-{
-"label": "Plural",
-"value": "naos"
-}
-],
-"pos": "noun"
-},
 "nariz": {
 "chips": [
 {
@@ -112832,6 +114287,15 @@
 }
 ],
 "pos": "adj"
+},
+"natas": {
+"chips": [
+{
+"label": "Gender",
+"value": "feminine"
+}
+],
+"pos": "noun"
 },
 "natação": {
 "chips": [
@@ -113084,21 +114548,8 @@
 "nazi": {
 "chips": [
 {
-"label": "Gender",
-"value": "feminine"
-},
-{
 "label": "Plural",
 "value": "nazis"
-}
-],
-"pos": "noun"
-},
-"nazis": {
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
 }
 ],
 "pos": "noun"
@@ -113607,19 +115058,6 @@
 ],
 "pos": "noun"
 },
-"nele": {
-"chips": [
-{
-"label": "Gender",
-"value": "masculine"
-},
-{
-"label": "Plural",
-"value": "neles"
-}
-],
-"pos": "noun"
-},
 "nervoso": {
 "chips": [
 {
@@ -113788,10 +115226,6 @@
 "ninja": {
 "chips": [
 {
-"label": "Gender",
-"value": "feminine"
-},
-{
 "label": "Plural",
 "value": "ninjas"
 }
@@ -113816,15 +115250,6 @@
 {
 "label": "Plural",
 "value": "nobres"
-}
-],
-"pos": "adj"
-},
-"nocturno": {
-"chips": [
-{
-"label": "Plural",
-"value": "nocturnos"
 }
 ],
 "pos": "adj"
@@ -114431,19 +115856,6 @@
 ],
 "pos": "noun"
 },
-"nº": {
-"chips": [
-{
-"label": "Gender",
-"value": "masculine"
-},
-{
-"label": "Plural",
-"value": "nºs"
-}
-],
-"pos": "noun"
-},
 "não": {
 "chips": [
 {
@@ -114696,15 +116108,6 @@
 ],
 "pos": "verb"
 },
-"objectivo": {
-"chips": [
-{
-"label": "Plural",
-"value": "objectivos"
-}
-],
-"pos": "adj"
-},
 "objecto": {
 "chips": [
 {
@@ -114714,19 +116117,6 @@
 {
 "label": "Plural",
 "value": "objectos"
-}
-],
-"pos": "noun"
-},
-"objecção": {
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
-},
-{
-"label": "Plural",
-"value": "objecções"
 }
 ],
 "pos": "noun"
@@ -114987,6 +116377,15 @@
 }
 ],
 "pos": "noun"
+},
+"obscuro": {
+"chips": [
+{
+"label": "Plural",
+"value": "obscuros"
+}
+],
+"pos": "adj"
 },
 "observador": {
 "chips": [
@@ -115593,6 +116992,15 @@
 }
 ],
 "pos": "noun"
+},
+"ocular": {
+"chips": [
+{
+"label": "Plural",
+"value": "oculares"
+}
+],
+"pos": "adj"
 },
 "ocupado": {
 "chips": [
@@ -116334,7 +117742,7 @@
 "chips": [
 {
 "label": "Gender",
-"value": "feminine"
+"value": "masculine"
 }
 ],
 "pos": "noun"
@@ -116357,6 +117765,19 @@
 {
 "label": "Plural",
 "value": "oficinas"
+}
+],
+"pos": "noun"
+},
+"ofício": {
+"chips": [
+{
+"label": "Gender",
+"value": "masculine"
+},
+{
+"label": "Plural",
+"value": "ofícios"
 }
 ],
 "pos": "noun"
@@ -116417,20 +117838,7 @@
 },
 {
 "label": "Plural",
-"value": "oks"
-}
-],
-"pos": "noun"
-},
-"ola": {
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
-},
-{
-"label": "Plural",
-"value": "olas"
+"value": "OKs"
 }
 ],
 "pos": "noun"
@@ -116951,11 +118359,11 @@
 ],
 "pos": "adj"
 },
-"optimista": {
+"optimo": {
 "chips": [
 {
 "label": "Plural",
-"value": "optimistas"
+"value": "optimos"
 }
 ],
 "pos": "adj"
@@ -117016,6 +118424,166 @@
 }
 ],
 "pos": "adj"
+},
+"ordenar": {
+"charts": [
+{
+"rows": [
+[
+"eu",
+"ordeno"
+],
+[
+"tu",
+"ordenas"
+],
+[
+"ele/você",
+"ordena"
+],
+[
+"nós",
+"ordenamos"
+],
+[
+"vós",
+"ordenais"
+],
+[
+"eles",
+"ordenam"
+]
+],
+"title": "Present"
+},
+{
+"rows": [
+[
+"eu",
+"ordenei"
+],
+[
+"tu",
+"ordenaste"
+],
+[
+"ele/você",
+"ordenou"
+],
+[
+"nós",
+"ordenamos"
+],
+[
+"vós",
+"ordenastes"
+],
+[
+"eles",
+"ordenaram"
+]
+],
+"title": "Preterite (perfeito)"
+},
+{
+"rows": [
+[
+"eu",
+"ordenava"
+],
+[
+"tu",
+"ordenavas"
+],
+[
+"ele/você",
+"ordenava"
+],
+[
+"nós",
+"ordenávamos"
+],
+[
+"vós",
+"ordenáveis"
+],
+[
+"eles",
+"ordenavam"
+]
+],
+"title": "Imperfect"
+},
+{
+"rows": [
+[
+"eu",
+"ordenarei"
+],
+[
+"tu",
+"ordenarás"
+],
+[
+"ele/você",
+"ordenará"
+],
+[
+"nós",
+"ordenaremos"
+],
+[
+"vós",
+"ordenareis"
+],
+[
+"eles",
+"ordenarão"
+]
+],
+"title": "Future"
+},
+{
+"rows": [
+[
+"eu",
+"ordene"
+],
+[
+"tu",
+"ordenes"
+],
+[
+"ele/você",
+"ordene"
+],
+[
+"nós",
+"ordenemos"
+],
+[
+"vós",
+"ordeneis"
+],
+[
+"eles",
+"ordenem"
+]
+],
+"title": "Subjunctive (present)"
+}
+],
+"chips": [
+{
+"label": "Gerund",
+"value": "ordenando"
+},
+{
+"label": "Past participle",
+"value": "ordenado"
+}
+],
+"pos": "verb"
 },
 "orelha": {
 "chips": [
@@ -117374,6 +118942,19 @@
 ],
 "pos": "noun"
 },
+"oscar": {
+"chips": [
+{
+"label": "Gender",
+"value": "masculine"
+},
+{
+"label": "Plural",
+"value": "Oscars"
+}
+],
+"pos": "noun"
+},
 "osso": {
 "chips": [
 {
@@ -117726,37 +119307,11 @@
 ],
 "pos": "noun"
 },
-"p.": {
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
-},
-{
-"label": "Plural",
-"value": "pp."
-}
-],
-"pos": "noun"
-},
 "paciente": {
 "chips": [
 {
-"label": "Gender",
-"value": "feminine"
-},
-{
 "label": "Plural",
 "value": "pacientes"
-}
-],
-"pos": "noun"
-},
-"pacientes": {
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
 }
 ],
 "pos": "noun"
@@ -118274,6 +119829,19 @@
 ],
 "pos": "noun"
 },
+"panela": {
+"chips": [
+{
+"label": "Gender",
+"value": "feminine"
+},
+{
+"label": "Plural",
+"value": "panelas"
+}
+],
+"pos": "noun"
+},
 "pano": {
 "chips": [
 {
@@ -118435,7 +120003,7 @@
 ],
 "pos": "noun"
 },
-"paranóia": {
+"paranoia": {
 "chips": [
 {
 "label": "Gender",
@@ -118443,16 +120011,16 @@
 },
 {
 "label": "Plural",
-"value": "paranóias"
+"value": "paranoias"
 }
 ],
 "pos": "noun"
 },
-"paranóico": {
+"paranoico": {
 "chips": [
 {
 "label": "Plural",
-"value": "paranóicos"
+"value": "paranoicos"
 }
 ],
 "pos": "adj"
@@ -118620,10 +120188,6 @@
 "parasita": {
 "chips": [
 {
-"label": "Gender",
-"value": "feminine"
-},
-{
 "label": "Plural",
 "value": "parasitas"
 }
@@ -118634,7 +120198,7 @@
 "chips": [
 {
 "label": "Gender",
-"value": "feminine"
+"value": "masculine"
 }
 ],
 "pos": "noun"
@@ -118893,10 +120457,6 @@
 },
 "parente": {
 "chips": [
-{
-"label": "Gender",
-"value": "feminine"
-},
 {
 "label": "Plural",
 "value": "parentes"
@@ -120105,10 +121665,6 @@
 "pateta": {
 "chips": [
 {
-"label": "Gender",
-"value": "feminine"
-},
-{
 "label": "Plural",
 "value": "patetas"
 }
@@ -120295,6 +121851,15 @@
 {
 "label": "Plural",
 "value": "pecados"
+}
+],
+"pos": "noun"
+},
+"pecadores": {
+"chips": [
+{
+"label": "Gender",
+"value": "masculine"
 }
 ],
 "pos": "noun"
@@ -120508,6 +122073,19 @@
 {
 "label": "Plural",
 "value": "pedras"
+}
+],
+"pos": "noun"
+},
+"pedrada": {
+"chips": [
+{
+"label": "Gender",
+"value": "feminine"
+},
+{
+"label": "Plural",
+"value": "pedradas"
 }
 ],
 "pos": "noun"
@@ -120786,19 +122364,6 @@
 {
 "label": "Plural",
 "value": "pelotões"
-}
-],
-"pos": "noun"
-},
-"pen": {
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
-},
-{
-"label": "Plural",
-"value": "pens"
 }
 ],
 "pos": "noun"
@@ -121154,19 +122719,6 @@
 {
 "label": "Plural",
 "value": "penhascos"
-}
-],
-"pos": "noun"
-},
-"penny": {
-"chips": [
-{
-"label": "Gender",
-"value": "masculine"
-},
-{
-"label": "Plural",
-"value": "pennies"
 }
 ],
 "pos": "noun"
@@ -123047,10 +124599,6 @@
 "personagem": {
 "chips": [
 {
-"label": "Gender",
-"value": "feminine"
-},
-{
 "label": "Plural",
 "value": "personagens"
 }
@@ -124150,6 +125698,19 @@
 ],
 "pos": "noun"
 },
+"peão": {
+"chips": [
+{
+"label": "Gender",
+"value": "masculine"
+},
+{
+"label": "Plural",
+"value": "peões"
+}
+],
+"pos": "noun"
+},
 "peça": {
 "chips": [
 {
@@ -124159,6 +125720,19 @@
 {
 "label": "Plural",
 "value": "peças"
+}
+],
+"pos": "noun"
+},
+"pia": {
+"chips": [
+{
+"label": "Gender",
+"value": "feminine"
+},
+{
+"label": "Plural",
+"value": "pias"
 }
 ],
 "pos": "noun"
@@ -124461,10 +126035,6 @@
 "piloto": {
 "chips": [
 {
-"label": "Gender",
-"value": "feminine"
-},
-{
 "label": "Plural",
 "value": "pilotos"
 }
@@ -124506,6 +126076,19 @@
 {
 "label": "Plural",
 "value": "pintas"
+}
+],
+"pos": "noun"
+},
+"pintado": {
+"chips": [
+{
+"label": "Gender",
+"value": "masculine"
+},
+{
+"label": "Plural",
+"value": "pintados"
 }
 ],
 "pos": "noun"
@@ -124669,6 +126252,19 @@
 }
 ],
 "pos": "verb"
+},
+"pinto": {
+"chips": [
+{
+"label": "Gender",
+"value": "masculine"
+},
+{
+"label": "Plural",
+"value": "pintos"
+}
+],
+"pos": "noun"
 },
 "pintor": {
 "chips": [
@@ -124881,10 +126477,6 @@
 "pirata": {
 "chips": [
 {
-"label": "Gender",
-"value": "feminine"
-},
-{
 "label": "Plural",
 "value": "piratas"
 }
@@ -124895,7 +126487,7 @@
 "chips": [
 {
 "label": "Gender",
-"value": "feminine"
+"value": "masculine"
 }
 ],
 "pos": "noun"
@@ -125281,19 +126873,6 @@
 {
 "label": "Plural",
 "value": "pistolas"
-}
-],
-"pos": "noun"
-},
-"piza": {
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
-},
-{
-"label": "Plural",
-"value": "pizas"
 }
 ],
 "pos": "noun"
@@ -125701,6 +127280,19 @@
 ],
 "pos": "verb"
 },
+"plantação": {
+"chips": [
+{
+"label": "Gender",
+"value": "feminine"
+},
+{
+"label": "Plural",
+"value": "plantações"
+}
+],
+"pos": "noun"
+},
 "plasma": {
 "chips": [
 {
@@ -125723,6 +127315,19 @@
 {
 "label": "Plural",
 "value": "plataformas"
+}
+],
+"pos": "noun"
+},
+"plateia": {
+"chips": [
+{
+"label": "Gender",
+"value": "feminine"
+},
+{
+"label": "Plural",
+"value": "plateias"
 }
 ],
 "pos": "noun"
@@ -126022,10 +127627,6 @@
 "poeta": {
 "chips": [
 {
-"label": "Gender",
-"value": "feminine"
-},
-{
 "label": "Plural",
 "value": "poetas"
 }
@@ -126079,6 +127680,19 @@
 }
 ],
 "pos": "adj"
+},
+"polo": {
+"chips": [
+{
+"label": "Gender",
+"value": "masculine"
+},
+{
+"label": "Plural",
+"value": "polos"
+}
+],
+"pos": "noun"
 },
 "polícia": {
 "chips": [
@@ -126410,10 +128024,6 @@
 "porta-voz": {
 "chips": [
 {
-"label": "Gender",
-"value": "feminine"
-},
-{
 "label": "Plural",
 "value": "porta-vozes"
 }
@@ -126572,15 +128182,6 @@
 }
 ],
 "pos": "noun"
-},
-"possivel": {
-"chips": [
-{
-"label": "Plural",
-"value": "possiveis"
-}
-],
-"pos": "adj"
 },
 "possuir": {
 "charts": [
@@ -126874,6 +128475,19 @@
 {
 "label": "Plural",
 "value": "potências"
+}
+],
+"pos": "noun"
+},
+"poupa": {
+"chips": [
+{
+"label": "Gender",
+"value": "feminine"
+},
+{
+"label": "Plural",
+"value": "poupas"
 }
 ],
 "pos": "noun"
@@ -129252,10 +130866,6 @@
 "presidente": {
 "chips": [
 {
-"label": "Gender",
-"value": "feminine"
-},
-{
 "label": "Plural",
 "value": "presidentes"
 }
@@ -130179,6 +131789,15 @@
 }
 ],
 "pos": "noun"
+},
+"previsível": {
+"chips": [
+{
+"label": "Plural",
+"value": "previsíveis"
+}
+],
+"pos": "adj"
 },
 "preço": {
 "chips": [
@@ -132015,32 +133634,6 @@
 ],
 "pos": "noun"
 },
-"protector": {
-"chips": [
-{
-"label": "Gender",
-"value": "masculine"
-},
-{
-"label": "Plural",
-"value": "protectores"
-}
-],
-"pos": "noun"
-},
-"protecção": {
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
-},
-{
-"label": "Plural",
-"value": "protecções"
-}
-],
-"pos": "noun"
-},
 "proteger": {
 "charts": [
 {
@@ -132197,6 +133790,166 @@
 {
 "label": "Past participle",
 "value": "protegido"
+}
+],
+"pos": "verb"
+},
+"protestar": {
+"charts": [
+{
+"rows": [
+[
+"eu",
+"protesto"
+],
+[
+"tu",
+"protestas"
+],
+[
+"ele/você",
+"protesta"
+],
+[
+"nós",
+"protestamos"
+],
+[
+"vós",
+"protestais"
+],
+[
+"eles",
+"protestam"
+]
+],
+"title": "Present"
+},
+{
+"rows": [
+[
+"eu",
+"protestei"
+],
+[
+"tu",
+"protestaste"
+],
+[
+"ele/você",
+"protestou"
+],
+[
+"nós",
+"protestamos"
+],
+[
+"vós",
+"protestastes"
+],
+[
+"eles",
+"protestaram"
+]
+],
+"title": "Preterite (perfeito)"
+},
+{
+"rows": [
+[
+"eu",
+"protestava"
+],
+[
+"tu",
+"protestavas"
+],
+[
+"ele/você",
+"protestava"
+],
+[
+"nós",
+"protestávamos"
+],
+[
+"vós",
+"protestáveis"
+],
+[
+"eles",
+"protestavam"
+]
+],
+"title": "Imperfect"
+},
+{
+"rows": [
+[
+"eu",
+"protestarei"
+],
+[
+"tu",
+"protestarás"
+],
+[
+"ele/você",
+"protestará"
+],
+[
+"nós",
+"protestaremos"
+],
+[
+"vós",
+"protestareis"
+],
+[
+"eles",
+"protestarão"
+]
+],
+"title": "Future"
+},
+{
+"rows": [
+[
+"eu",
+"proteste"
+],
+[
+"tu",
+"protestes"
+],
+[
+"ele/você",
+"proteste"
+],
+[
+"nós",
+"protestemos"
+],
+[
+"vós",
+"protesteis"
+],
+[
+"eles",
+"protestem"
+]
+],
+"title": "Subjunctive (present)"
+}
+],
+"chips": [
+{
+"label": "Gerund",
+"value": "protestando"
+},
+{
+"label": "Past participle",
+"value": "protestado"
 }
 ],
 "pos": "verb"
@@ -132747,10 +134500,6 @@
 "psicopata": {
 "chips": [
 {
-"label": "Gender",
-"value": "feminine"
-},
-{
 "label": "Plural",
 "value": "psicopatas"
 }
@@ -132773,10 +134522,6 @@
 "psiquiatra": {
 "chips": [
 {
-"label": "Gender",
-"value": "feminine"
-},
-{
 "label": "Plural",
 "value": "psiquiatras"
 }
@@ -132791,6 +134536,19 @@
 }
 ],
 "pos": "adj"
+},
+"pt": {
+"chips": [
+{
+"label": "Gender",
+"value": "masculine"
+},
+{
+"label": "Plural",
+"value": "PTs"
+}
+],
+"pos": "noun"
 },
 "publicar": {
 "charts": [
@@ -133335,15 +135093,6 @@
 ],
 "pos": "adj"
 },
-"pára-quedas": {
-"chips": [
-{
-"label": "Gender",
-"value": "masculine"
-}
-],
-"pos": "noun"
-},
 "pássaro": {
 "chips": [
 {
@@ -133458,19 +135207,6 @@
 ],
 "pos": "adj"
 },
-"pêlo": {
-"chips": [
-{
-"label": "Gender",
-"value": "masculine"
-},
-{
-"label": "Plural",
-"value": "pêlos"
-}
-],
-"pos": "noun"
-},
 "pílula": {
 "chips": [
 {
@@ -133493,19 +135229,6 @@
 {
 "label": "Plural",
 "value": "pós"
-}
-],
-"pos": "noun"
-},
-"pólo": {
-"chips": [
-{
-"label": "Gender",
-"value": "masculine"
-},
-{
-"label": "Plural",
-"value": "pólos"
 }
 ],
 "pos": "noun"
@@ -133696,19 +135419,6 @@
 ],
 "pos": "verb"
 },
-"pôr-do-sol": {
-"chips": [
-{
-"label": "Gender",
-"value": "masculine"
-},
-{
-"label": "Plural",
-"value": "pores-do-sol"
-}
-],
-"pos": "noun"
-},
 "público": {
 "chips": [
 {
@@ -133849,6 +135559,19 @@
 {
 "label": "Plural",
 "value": "quarentenas"
+}
+],
+"pos": "noun"
+},
+"quark": {
+"chips": [
+{
+"label": "Gender",
+"value": "masculine"
+},
+{
+"label": "Plural",
+"value": "quarks"
 }
 ],
 "pos": "noun"
@@ -135204,6 +136927,19 @@
 ],
 "pos": "noun"
 },
+"raio-x": {
+"chips": [
+{
+"label": "Gender",
+"value": "masculine"
+},
+{
+"label": "Plural",
+"value": "raios-X"
+}
+],
+"pos": "noun"
+},
 "raiva": {
 "chips": [
 {
@@ -135715,6 +137451,166 @@
 ],
 "pos": "adj"
 },
+"rasgar": {
+"charts": [
+{
+"rows": [
+[
+"eu",
+"rasgo"
+],
+[
+"tu",
+"rasgas"
+],
+[
+"ele/você",
+"rasga"
+],
+[
+"nós",
+"rasgamos"
+],
+[
+"vós",
+"rasgais"
+],
+[
+"eles",
+"rasgam"
+]
+],
+"title": "Present"
+},
+{
+"rows": [
+[
+"eu",
+"rasguei"
+],
+[
+"tu",
+"rasgaste"
+],
+[
+"ele/você",
+"rasgou"
+],
+[
+"nós",
+"rasgamos"
+],
+[
+"vós",
+"rasgastes"
+],
+[
+"eles",
+"rasgaram"
+]
+],
+"title": "Preterite (perfeito)"
+},
+{
+"rows": [
+[
+"eu",
+"rasgava"
+],
+[
+"tu",
+"rasgavas"
+],
+[
+"ele/você",
+"rasgava"
+],
+[
+"nós",
+"rasgávamos"
+],
+[
+"vós",
+"rasgáveis"
+],
+[
+"eles",
+"rasgavam"
+]
+],
+"title": "Imperfect"
+},
+{
+"rows": [
+[
+"eu",
+"rasgarei"
+],
+[
+"tu",
+"rasgarás"
+],
+[
+"ele/você",
+"rasgará"
+],
+[
+"nós",
+"rasgaremos"
+],
+[
+"vós",
+"rasgareis"
+],
+[
+"eles",
+"rasgarão"
+]
+],
+"title": "Future"
+},
+{
+"rows": [
+[
+"eu",
+"rasgue"
+],
+[
+"tu",
+"rasgues"
+],
+[
+"ele/você",
+"rasgue"
+],
+[
+"nós",
+"rasguemos"
+],
+[
+"vós",
+"rasgueis"
+],
+[
+"eles",
+"rasguem"
+]
+],
+"title": "Subjunctive (present)"
+}
+],
+"chips": [
+{
+"label": "Gerund",
+"value": "rasgando"
+},
+{
+"label": "Past participle",
+"value": "rasgado"
+}
+],
+"pos": "verb"
+},
 "rastejar": {
 "charts": [
 {
@@ -136144,32 +138040,6 @@
 ],
 "pos": "noun"
 },
-"reactor": {
-"chips": [
-{
-"label": "Gender",
-"value": "masculine"
-},
-{
-"label": "Plural",
-"value": "reactores"
-}
-],
-"pos": "noun"
-},
-"reacção": {
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
-},
-{
-"label": "Plural",
-"value": "reacções"
-}
-],
-"pos": "noun"
-},
 "reagir": {
 "charts": [
 {
@@ -136376,10 +138246,6 @@
 },
 "realista": {
 "chips": [
-{
-"label": "Gender",
-"value": "feminine"
-},
 {
 "label": "Plural",
 "value": "realistas"
@@ -136602,21 +138468,8 @@
 "rebelde": {
 "chips": [
 {
-"label": "Gender",
-"value": "feminine"
-},
-{
 "label": "Plural",
 "value": "rebeldes"
-}
-],
-"pos": "noun"
-},
-"rebeldes": {
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
 }
 ],
 "pos": "noun"
@@ -137015,6 +138868,15 @@
 ],
 "pos": "adj"
 },
+"recepcionista": {
+"chips": [
+{
+"label": "Plural",
+"value": "recepcionistas"
+}
+],
+"pos": "noun"
+},
 "recepção": {
 "chips": [
 {
@@ -137037,6 +138899,19 @@
 {
 "label": "Plural",
 "value": "recibos"
+}
+],
+"pos": "noun"
+},
+"recipiente": {
+"chips": [
+{
+"label": "Gender",
+"value": "masculine"
+},
+{
+"label": "Plural",
+"value": "recipientes"
 }
 ],
 "pos": "noun"
@@ -137742,6 +139617,166 @@
 ],
 "pos": "noun"
 },
+"reconsiderar": {
+"charts": [
+{
+"rows": [
+[
+"eu",
+"reconsidero"
+],
+[
+"tu",
+"reconsideras"
+],
+[
+"ele/você",
+"reconsidera"
+],
+[
+"nós",
+"reconsideramos"
+],
+[
+"vós",
+"reconsiderais"
+],
+[
+"eles",
+"reconsideram"
+]
+],
+"title": "Present"
+},
+{
+"rows": [
+[
+"eu",
+"reconsiderei"
+],
+[
+"tu",
+"reconsideraste"
+],
+[
+"ele/você",
+"reconsiderou"
+],
+[
+"nós",
+"reconsideramos"
+],
+[
+"vós",
+"reconsiderastes"
+],
+[
+"eles",
+"reconsideraram"
+]
+],
+"title": "Preterite (perfeito)"
+},
+{
+"rows": [
+[
+"eu",
+"reconsiderava"
+],
+[
+"tu",
+"reconsideravas"
+],
+[
+"ele/você",
+"reconsiderava"
+],
+[
+"nós",
+"reconsiderávamos"
+],
+[
+"vós",
+"reconsideráveis"
+],
+[
+"eles",
+"reconsideravam"
+]
+],
+"title": "Imperfect"
+},
+{
+"rows": [
+[
+"eu",
+"reconsiderarei"
+],
+[
+"tu",
+"reconsiderarás"
+],
+[
+"ele/você",
+"reconsiderará"
+],
+[
+"nós",
+"reconsideraremos"
+],
+[
+"vós",
+"reconsiderareis"
+],
+[
+"eles",
+"reconsiderarão"
+]
+],
+"title": "Future"
+},
+{
+"rows": [
+[
+"eu",
+"reconsidere"
+],
+[
+"tu",
+"reconsideres"
+],
+[
+"ele/você",
+"reconsidere"
+],
+[
+"nós",
+"reconsideremos"
+],
+[
+"vós",
+"reconsidereis"
+],
+[
+"eles",
+"reconsiderem"
+]
+],
+"title": "Subjunctive (present)"
+}
+],
+"chips": [
+{
+"label": "Gerund",
+"value": "reconsiderando"
+},
+{
+"label": "Past participle",
+"value": "reconsiderado"
+}
+],
+"pos": "verb"
+},
 "reconstruir": {
 "charts": [
 {
@@ -138276,10 +140311,6 @@
 },
 "recruta": {
 "chips": [
-{
-"label": "Gender",
-"value": "feminine"
-},
 {
 "label": "Plural",
 "value": "recrutas"
@@ -139152,6 +141183,19 @@
 ],
 "pos": "verb"
 },
+"redução": {
+"chips": [
+{
+"label": "Gender",
+"value": "feminine"
+},
+{
+"label": "Plural",
+"value": "reduções"
+}
+],
+"pos": "noun"
+},
 "refeição": {
 "chips": [
 {
@@ -139876,6 +141920,19 @@
 ],
 "pos": "noun"
 },
+"reinado": {
+"chips": [
+{
+"label": "Gender",
+"value": "masculine"
+},
+{
+"label": "Plural",
+"value": "reinados"
+}
+],
+"pos": "noun"
+},
 "reino": {
 "chips": [
 {
@@ -139910,6 +141967,166 @@
 }
 ],
 "pos": "noun"
+},
+"rejeitar": {
+"charts": [
+{
+"rows": [
+[
+"eu",
+"rejeito"
+],
+[
+"tu",
+"rejeitas"
+],
+[
+"ele/você",
+"rejeita"
+],
+[
+"nós",
+"rejeitamos"
+],
+[
+"vós",
+"rejeitais"
+],
+[
+"eles",
+"rejeitam"
+]
+],
+"title": "Present"
+},
+{
+"rows": [
+[
+"eu",
+"rejeitei"
+],
+[
+"tu",
+"rejeitaste"
+],
+[
+"ele/você",
+"rejeitou"
+],
+[
+"nós",
+"rejeitamos"
+],
+[
+"vós",
+"rejeitastes"
+],
+[
+"eles",
+"rejeitaram"
+]
+],
+"title": "Preterite (perfeito)"
+},
+{
+"rows": [
+[
+"eu",
+"rejeitava"
+],
+[
+"tu",
+"rejeitavas"
+],
+[
+"ele/você",
+"rejeitava"
+],
+[
+"nós",
+"rejeitávamos"
+],
+[
+"vós",
+"rejeitáveis"
+],
+[
+"eles",
+"rejeitavam"
+]
+],
+"title": "Imperfect"
+},
+{
+"rows": [
+[
+"eu",
+"rejeitarei"
+],
+[
+"tu",
+"rejeitarás"
+],
+[
+"ele/você",
+"rejeitará"
+],
+[
+"nós",
+"rejeitaremos"
+],
+[
+"vós",
+"rejeitareis"
+],
+[
+"eles",
+"rejeitarão"
+]
+],
+"title": "Future"
+},
+{
+"rows": [
+[
+"eu",
+"rejeite"
+],
+[
+"tu",
+"rejeites"
+],
+[
+"ele/você",
+"rejeite"
+],
+[
+"nós",
+"rejeitemos"
+],
+[
+"vós",
+"rejeiteis"
+],
+[
+"eles",
+"rejeitem"
+]
+],
+"title": "Subjunctive (present)"
+}
+],
+"chips": [
+{
+"label": "Gerund",
+"value": "rejeitando"
+},
+{
+"label": "Past participle",
+"value": "rejeitado"
+}
+],
+"pos": "verb"
 },
 "relacionado": {
 "chips": [
@@ -140739,6 +142956,19 @@
 ],
 "pos": "verb"
 },
+"reparação": {
+"chips": [
+{
+"label": "Gender",
+"value": "feminine"
+},
+{
+"label": "Plural",
+"value": "reparações"
+}
+],
+"pos": "noun"
+},
 "repente": {
 "chips": [
 {
@@ -140925,6 +143155,166 @@
 ],
 "pos": "noun"
 },
+"reportar": {
+"charts": [
+{
+"rows": [
+[
+"eu",
+"reporto"
+],
+[
+"tu",
+"reportas"
+],
+[
+"ele/você",
+"reporta"
+],
+[
+"nós",
+"reportamos"
+],
+[
+"vós",
+"reportais"
+],
+[
+"eles",
+"reportam"
+]
+],
+"title": "Present"
+},
+{
+"rows": [
+[
+"eu",
+"reportei"
+],
+[
+"tu",
+"reportaste"
+],
+[
+"ele/você",
+"reportou"
+],
+[
+"nós",
+"reportamos"
+],
+[
+"vós",
+"reportastes"
+],
+[
+"eles",
+"reportaram"
+]
+],
+"title": "Preterite (perfeito)"
+},
+{
+"rows": [
+[
+"eu",
+"reportava"
+],
+[
+"tu",
+"reportavas"
+],
+[
+"ele/você",
+"reportava"
+],
+[
+"nós",
+"reportávamos"
+],
+[
+"vós",
+"reportáveis"
+],
+[
+"eles",
+"reportavam"
+]
+],
+"title": "Imperfect"
+},
+{
+"rows": [
+[
+"eu",
+"reportarei"
+],
+[
+"tu",
+"reportarás"
+],
+[
+"ele/você",
+"reportará"
+],
+[
+"nós",
+"reportaremos"
+],
+[
+"vós",
+"reportareis"
+],
+[
+"eles",
+"reportarão"
+]
+],
+"title": "Future"
+},
+{
+"rows": [
+[
+"eu",
+"reporte"
+],
+[
+"tu",
+"reportes"
+],
+[
+"ele/você",
+"reporte"
+],
+[
+"nós",
+"reportemos"
+],
+[
+"vós",
+"reporteis"
+],
+[
+"eles",
+"reportem"
+]
+],
+"title": "Subjunctive (present)"
+}
+],
+"chips": [
+{
+"label": "Gerund",
+"value": "reportando"
+},
+{
+"label": "Past participle",
+"value": "reportado"
+}
+],
+"pos": "verb"
+},
 "repouso": {
 "chips": [
 {
@@ -140940,10 +143330,6 @@
 },
 "representante": {
 "chips": [
-{
-"label": "Gender",
-"value": "feminine"
-},
 {
 "label": "Plural",
 "value": "representantes"
@@ -141157,10 +143543,6 @@
 },
 "repórter": {
 "chips": [
-{
-"label": "Gender",
-"value": "feminine"
-},
 {
 "label": "Plural",
 "value": "repórteres"
@@ -141384,15 +143766,6 @@
 }
 ],
 "pos": "adj"
-},
-"residentes": {
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
-}
-],
-"pos": "noun"
 },
 "residência": {
 "chips": [
@@ -143770,6 +146143,15 @@
 ],
 "pos": "verb"
 },
+"reverendo": {
+"chips": [
+{
+"label": "Gender",
+"value": "masculine"
+}
+],
+"pos": "noun"
+},
 "reverter": {
 "charts": [
 {
@@ -144787,25 +147169,8 @@
 "rival": {
 "chips": [
 {
-"label": "Gender",
-"value": "feminine"
-},
-{
 "label": "Plural",
 "value": "rivais"
-}
-],
-"pos": "noun"
-},
-"robot": {
-"chips": [
-{
-"label": "Gender",
-"value": "masculine"
-},
-{
-"label": "Plural",
-"value": "robots"
 }
 ],
 "pos": "noun"
@@ -145231,6 +147596,15 @@
 {
 "label": "Plural",
 "value": "romances"
+}
+],
+"pos": "noun"
+},
+"romances": {
+"chips": [
+{
+"label": "Gender",
+"value": "masculine"
 }
 ],
 "pos": "noun"
@@ -145678,6 +148052,19 @@
 ],
 "pos": "noun"
 },
+"round": {
+"chips": [
+{
+"label": "Gender",
+"value": "masculine"
+},
+{
+"label": "Plural",
+"value": "rounds"
+}
+],
+"pos": "noun"
+},
 "roupa": {
 "chips": [
 {
@@ -145836,6 +148223,19 @@
 {
 "label": "Plural",
 "value": "ruídos"
+}
+],
+"pos": "noun"
+},
+"ruína": {
+"chips": [
+{
+"label": "Gender",
+"value": "feminine"
+},
+{
+"label": "Plural",
+"value": "ruínas"
 }
 ],
 "pos": "noun"
@@ -146120,10 +148520,6 @@
 },
 "sacana": {
 "chips": [
-{
-"label": "Gender",
-"value": "feminine"
-},
 {
 "label": "Plural",
 "value": "sacanas"
@@ -146907,6 +149303,19 @@
 ],
 "pos": "noun"
 },
+"saliva": {
+"chips": [
+{
+"label": "Gender",
+"value": "feminine"
+},
+{
+"label": "Plural",
+"value": "salivas"
+}
+],
+"pos": "noun"
+},
 "salmão": {
 "chips": [
 {
@@ -147132,7 +149541,7 @@
 "chips": [
 {
 "label": "Gender",
-"value": "feminine"
+"value": "masculine"
 }
 ],
 "pos": "noun"
@@ -147409,10 +149818,6 @@
 "sanduíche": {
 "chips": [
 {
-"label": "Gender",
-"value": "feminine"
-},
-{
 "label": "Plural",
 "value": "sanduíches"
 }
@@ -147610,10 +150015,6 @@
 {
 "label": "Gender",
 "value": "feminine"
-},
-{
-"label": "Plural",
-"value": "santas"
 }
 ],
 "pos": "noun"
@@ -147679,12 +150080,168 @@
 ],
 "pos": "noun"
 },
-"sargento": {
+"sarar": {
+"charts": [
+{
+"rows": [
+[
+"eu",
+"saro"
+],
+[
+"tu",
+"saras"
+],
+[
+"ele/você",
+"sara"
+],
+[
+"nós",
+"saramos"
+],
+[
+"vós",
+"sarais"
+],
+[
+"eles",
+"saram"
+]
+],
+"title": "Present"
+},
+{
+"rows": [
+[
+"eu",
+"sarei"
+],
+[
+"tu",
+"saraste"
+],
+[
+"ele/você",
+"sarou"
+],
+[
+"nós",
+"saramos"
+],
+[
+"vós",
+"sarastes"
+],
+[
+"eles",
+"sararam"
+]
+],
+"title": "Preterite (perfeito)"
+},
+{
+"rows": [
+[
+"eu",
+"sarava"
+],
+[
+"tu",
+"saravas"
+],
+[
+"ele/você",
+"sarava"
+],
+[
+"nós",
+"sarávamos"
+],
+[
+"vós",
+"saráveis"
+],
+[
+"eles",
+"saravam"
+]
+],
+"title": "Imperfect"
+},
+{
+"rows": [
+[
+"eu",
+"sararei"
+],
+[
+"tu",
+"sararás"
+],
+[
+"ele/você",
+"sarará"
+],
+[
+"nós",
+"sararemos"
+],
+[
+"vós",
+"sarareis"
+],
+[
+"eles",
+"sararão"
+]
+],
+"title": "Future"
+},
+{
+"rows": [
+[
+"eu",
+"sare"
+],
+[
+"tu",
+"sares"
+],
+[
+"ele/você",
+"sare"
+],
+[
+"nós",
+"saremos"
+],
+[
+"vós",
+"sareis"
+],
+[
+"eles",
+"sarem"
+]
+],
+"title": "Subjunctive (present)"
+}
+],
 "chips": [
 {
-"label": "Gender",
-"value": "feminine"
+"label": "Gerund",
+"value": "sarando"
 },
+{
+"label": "Past participle",
+"value": "sarado"
+}
+],
+"pos": "verb"
+},
+"sargento": {
+"chips": [
 {
 "label": "Plural",
 "value": "sargentos"
@@ -148192,19 +150749,6 @@
 ],
 "pos": "noun"
 },
-"sector": {
-"chips": [
-{
-"label": "Gender",
-"value": "masculine"
-},
-{
-"label": "Plural",
-"value": "sectores"
-}
-],
-"pos": "noun"
-},
 "secundária": {
 "chips": [
 {
@@ -148252,6 +150796,15 @@
 }
 ],
 "pos": "noun"
+},
+"sedativo": {
+"chips": [
+{
+"label": "Plural",
+"value": "sedativos"
+}
+],
+"pos": "adj"
 },
 "sede": {
 "chips": [
@@ -148856,19 +151409,6 @@
 ],
 "pos": "noun"
 },
-"selecção": {
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
-},
-{
-"label": "Plural",
-"value": "selecções"
-}
-],
-"pos": "noun"
-},
 "selo": {
 "chips": [
 {
@@ -148913,24 +151453,6 @@
 ],
 "pos": "adj"
 },
-"selvagens": {
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
-}
-],
-"pos": "noun"
-},
-"sem-abrigo": {
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
-}
-],
-"pos": "noun"
-},
 "semana": {
 "chips": [
 {
@@ -148952,6 +151474,19 @@
 }
 ],
 "pos": "adj"
+},
+"semelhança": {
+"chips": [
+{
+"label": "Gender",
+"value": "feminine"
+},
+{
+"label": "Plural",
+"value": "semelhanças"
+}
+],
+"pos": "noun"
 },
 "semente": {
 "chips": [
@@ -149999,6 +152534,19 @@
 ],
 "pos": "noun"
 },
+"seringa": {
+"chips": [
+{
+"label": "Gender",
+"value": "feminine"
+},
+{
+"label": "Plural",
+"value": "seringas"
+}
+],
+"pos": "noun"
+},
 "serio": {
 "chips": [
 {
@@ -150307,6 +152855,19 @@
 ],
 "pos": "noun"
 },
+"seta": {
+"chips": [
+{
+"label": "Gender",
+"value": "feminine"
+},
+{
+"label": "Plural",
+"value": "setas"
+}
+],
+"pos": "noun"
+},
 "sete": {
 "chips": [
 {
@@ -150329,6 +152890,19 @@
 {
 "label": "Plural",
 "value": "setembros"
+}
+],
+"pos": "noun"
+},
+"setenta": {
+"chips": [
+{
+"label": "Gender",
+"value": "masculine"
+},
+{
+"label": "Plural",
+"value": "setentas"
 }
 ],
 "pos": "noun"
@@ -150434,6 +153008,15 @@
 {
 "label": "Plural",
 "value": "sis"
+}
+],
+"pos": "noun"
+},
+"sida": {
+"chips": [
+{
+"label": "Gender",
+"value": "feminine"
 }
 ],
 "pos": "noun"
@@ -150839,6 +153422,19 @@
 {
 "label": "Plural",
 "value": "skates"
+}
+],
+"pos": "noun"
+},
+"smoking": {
+"chips": [
+{
+"label": "Gender",
+"value": "masculine"
+},
+{
+"label": "Plural",
+"value": "smokings"
 }
 ],
 "pos": "noun"
@@ -151272,15 +153868,6 @@
 ],
 "pos": "noun"
 },
-"sociais": {
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
-}
-],
-"pos": "noun"
-},
 "social": {
 "chips": [
 {
@@ -151588,10 +154175,6 @@
 "soldado": {
 "chips": [
 {
-"label": "Gender",
-"value": "feminine"
-},
-{
 "label": "Plural",
 "value": "soldados"
 }
@@ -151602,7 +154185,7 @@
 "chips": [
 {
 "label": "Gender",
-"value": "feminine"
+"value": "masculine"
 }
 ],
 "pos": "noun"
@@ -152102,19 +154685,6 @@
 ],
 "pos": "noun"
 },
-"sopa": {
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
-},
-{
-"label": "Plural",
-"value": "sopas"
-}
-],
-"pos": "noun"
-},
 "soprar": {
 "charts": [
 {
@@ -152566,50 +155136,6 @@
 ],
 "pos": "noun"
 },
-"sr": {
-"chips": [
-{
-"label": "Gender",
-"value": "masculine"
-},
-{
-"label": "Plural",
-"value": "srs"
-}
-],
-"pos": "noun"
-},
-"sr.": {
-"chips": [
-{
-"label": "Gender",
-"value": "masculine"
-},
-{
-"label": "Plural",
-"value": "srs."
-}
-],
-"pos": "noun"
-},
-"ss": {
-"chips": [
-{
-"label": "Gender",
-"value": "masculine"
-}
-],
-"pos": "noun"
-},
-"star": {
-"chips": [
-{
-"label": "Past participle",
-"value": "stado"
-}
-],
-"pos": "verb"
-},
 "stop": {
 "chips": [
 {
@@ -152619,19 +155145,6 @@
 {
 "label": "Plural",
 "value": "stops"
-}
-],
-"pos": "noun"
-},
-"stress": {
-"chips": [
-{
-"label": "Gender",
-"value": "masculine"
-},
-{
-"label": "Plural",
-"value": "stresses"
 }
 ],
 "pos": "noun"
@@ -152651,10 +155164,6 @@
 },
 "stripper": {
 "chips": [
-{
-"label": "Gender",
-"value": "feminine"
-},
 {
 "label": "Plural",
 "value": "strippers"
@@ -152831,19 +155340,6 @@
 ],
 "pos": "adj"
 },
-"sub": {
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
-},
-{
-"label": "Plural",
-"value": "subs"
-}
-],
-"pos": "noun"
-},
 "suba": {
 "chips": [
 {
@@ -152853,6 +155349,28 @@
 {
 "label": "Plural",
 "value": "subas"
+}
+],
+"pos": "noun"
+},
+"subconsciente": {
+"chips": [
+{
+"label": "Plural",
+"value": "subconscientes"
+}
+],
+"pos": "adj"
+},
+"subida": {
+"chips": [
+{
+"label": "Gender",
+"value": "feminine"
+},
+{
+"label": "Plural",
+"value": "subidas"
 }
 ],
 "pos": "noun"
@@ -154063,6 +156581,19 @@
 ],
 "pos": "noun"
 },
+"super-herói": {
+"chips": [
+{
+"label": "Gender",
+"value": "masculine"
+},
+{
+"label": "Plural",
+"value": "super-heróis"
+}
+],
+"pos": "noun"
+},
 "super-homem": {
 "chips": [
 {
@@ -154683,6 +157214,166 @@
 }
 ],
 "pos": "noun"
+},
+"surfar": {
+"charts": [
+{
+"rows": [
+[
+"eu",
+"surfo"
+],
+[
+"tu",
+"surfas"
+],
+[
+"ele/você",
+"surfa"
+],
+[
+"nós",
+"surfamos"
+],
+[
+"vós",
+"surfais"
+],
+[
+"eles",
+"surfam"
+]
+],
+"title": "Present"
+},
+{
+"rows": [
+[
+"eu",
+"surfei"
+],
+[
+"tu",
+"surfaste"
+],
+[
+"ele/você",
+"surfou"
+],
+[
+"nós",
+"surfamos"
+],
+[
+"vós",
+"surfastes"
+],
+[
+"eles",
+"surfaram"
+]
+],
+"title": "Preterite (perfeito)"
+},
+{
+"rows": [
+[
+"eu",
+"surfava"
+],
+[
+"tu",
+"surfavas"
+],
+[
+"ele/você",
+"surfava"
+],
+[
+"nós",
+"surfávamos"
+],
+[
+"vós",
+"surfáveis"
+],
+[
+"eles",
+"surfavam"
+]
+],
+"title": "Imperfect"
+},
+{
+"rows": [
+[
+"eu",
+"surfarei"
+],
+[
+"tu",
+"surfarás"
+],
+[
+"ele/você",
+"surfará"
+],
+[
+"nós",
+"surfaremos"
+],
+[
+"vós",
+"surfareis"
+],
+[
+"eles",
+"surfarão"
+]
+],
+"title": "Future"
+},
+{
+"rows": [
+[
+"eu",
+"surfe"
+],
+[
+"tu",
+"surfes"
+],
+[
+"ele/você",
+"surfe"
+],
+[
+"nós",
+"surfemos"
+],
+[
+"vós",
+"surfeis"
+],
+[
+"eles",
+"surfem"
+]
+],
+"title": "Subjunctive (present)"
+}
+],
+"chips": [
+{
+"label": "Gerund",
+"value": "surfando"
+},
+{
+"label": "Past participle",
+"value": "surfado"
+}
+],
+"pos": "verb"
 },
 "surgir": {
 "charts": [
@@ -155588,19 +158279,6 @@
 ],
 "pos": "noun"
 },
-"síndrome": {
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
-},
-{
-"label": "Plural",
-"value": "síndromes"
-}
-],
-"pos": "noun"
-},
 "síria": {
 "chips": [
 {
@@ -155689,6 +158367,19 @@
 ],
 "pos": "adj"
 },
+"t": {
+"chips": [
+{
+"label": "Gender",
+"value": "masculine"
+},
+{
+"label": "Plural",
+"value": "Ts"
+}
+],
+"pos": "noun"
+},
 "t-shirt": {
 "chips": [
 {
@@ -155728,6 +158419,28 @@
 ],
 "pos": "noun"
 },
+"tac": {
+"chips": [
+{
+"label": "Plural",
+"value": "TACs"
+}
+],
+"pos": "noun"
+},
+"tacada": {
+"chips": [
+{
+"label": "Gender",
+"value": "feminine"
+},
+{
+"label": "Plural",
+"value": "tacadas"
+}
+],
+"pos": "noun"
+},
 "taco": {
 "chips": [
 {
@@ -155752,10 +158465,6 @@
 },
 "tal": {
 "chips": [
-{
-"label": "Gender",
-"value": "feminine"
-},
 {
 "label": "Plural",
 "value": "tais"
@@ -156170,10 +158879,6 @@
 "taxista": {
 "chips": [
 {
-"label": "Gender",
-"value": "feminine"
-},
-{
 "label": "Plural",
 "value": "taxistas"
 }
@@ -156246,19 +158951,6 @@
 {
 "label": "Plural",
 "value": "tecnologias"
-}
-],
-"pos": "noun"
-},
-"tecto": {
-"chips": [
-{
-"label": "Gender",
-"value": "masculine"
-},
-{
-"label": "Plural",
-"value": "tectos"
 }
 ],
 "pos": "noun"
@@ -156839,10 +159531,6 @@
 "tenente": {
 "chips": [
 {
-"label": "Gender",
-"value": "feminine"
-},
-{
 "label": "Plural",
 "value": "tenentes"
 }
@@ -157259,10 +159947,6 @@
 "terapeuta": {
 "chips": [
 {
-"label": "Gender",
-"value": "feminine"
-},
-{
 "label": "Plural",
 "value": "terapeutas"
 }
@@ -157595,15 +160279,6 @@
 }
 ],
 "pos": "adj"
-},
-"terroristas": {
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
-}
-],
-"pos": "noun"
 },
 "terrível": {
 "chips": [
@@ -158143,6 +160818,19 @@
 {
 "label": "Plural",
 "value": "textos"
+}
+],
+"pos": "noun"
+},
+"ti": {
+"chips": [
+{
+"label": "Gender",
+"value": "feminine"
+},
+{
+"label": "Plural",
+"value": "TIs"
 }
 ],
 "pos": "noun"
@@ -158735,10 +161423,6 @@
 },
 "toda": {
 "chips": [
-{
-"label": "Gender",
-"value": "feminine"
-},
 {
 "label": "Plural",
 "value": "todas"
@@ -159574,6 +162258,19 @@
 ],
 "pos": "noun"
 },
+"torneira": {
+"chips": [
+{
+"label": "Gender",
+"value": "feminine"
+},
+{
+"label": "Plural",
+"value": "torneiras"
+}
+],
+"pos": "noun"
+},
 "torno": {
 "chips": [
 {
@@ -159583,19 +162280,6 @@
 {
 "label": "Plural",
 "value": "tornos"
-}
-],
-"pos": "noun"
-},
-"tornozelo": {
-"chips": [
-{
-"label": "Gender",
-"value": "masculine"
-},
-{
-"label": "Plural",
-"value": "tornozelos"
 }
 ],
 "pos": "noun"
@@ -160257,10 +162941,6 @@
 },
 "traficante": {
 "chips": [
-{
-"label": "Gender",
-"value": "feminine"
-},
 {
 "label": "Plural",
 "value": "traficantes"
@@ -161424,6 +164104,15 @@
 ],
 "pos": "noun"
 },
+"transportador": {
+"chips": [
+{
+"label": "Plural",
+"value": "transportadores"
+}
+],
+"pos": "adj"
+},
 "transportar": {
 "charts": [
 {
@@ -162017,6 +164706,19 @@
 }
 ],
 "pos": "verb"
+},
+"travão": {
+"chips": [
+{
+"label": "Gender",
+"value": "masculine"
+},
+{
+"label": "Plural",
+"value": "travões"
+}
+],
+"pos": "noun"
 },
 "trazer": {
 "charts": [
@@ -162751,6 +165453,19 @@
 ],
 "pos": "noun"
 },
+"trocado": {
+"chips": [
+{
+"label": "Gender",
+"value": "masculine"
+},
+{
+"label": "Plural",
+"value": "trocados"
+}
+],
+"pos": "noun"
+},
 "trocar": {
 "charts": [
 {
@@ -163160,6 +165875,24 @@
 ],
 "pos": "noun"
 },
+"turco": {
+"chips": [
+{
+"label": "Plural",
+"value": "turcos"
+}
+],
+"pos": "adj"
+},
+"turista": {
+"chips": [
+{
+"label": "Plural",
+"value": "turistas"
+}
+],
+"pos": "noun"
+},
 "turma": {
 "chips": [
 {
@@ -163203,7 +165936,7 @@
 },
 {
 "label": "Plural",
-"value": "tvs"
+"value": "TVs"
 }
 ],
 "pos": "noun"
@@ -164043,6 +166776,19 @@
 ],
 "pos": "noun"
 },
+"urânio": {
+"chips": [
+{
+"label": "Gender",
+"value": "masculine"
+},
+{
+"label": "Plural",
+"value": "urânios"
+}
+],
+"pos": "noun"
+},
 "usado": {
 "chips": [
 {
@@ -164698,19 +167444,6 @@
 ],
 "pos": "noun"
 },
-"val": {
-"chips": [
-{
-"label": "Gender",
-"value": "masculine"
-},
-{
-"label": "Plural",
-"value": "vales"
-}
-],
-"pos": "noun"
-},
 "vala": {
 "chips": [
 {
@@ -164950,6 +167683,19 @@
 {
 "label": "Plural",
 "value": "valores"
+}
+],
+"pos": "noun"
+},
+"vampira": {
+"chips": [
+{
+"label": "Gender",
+"value": "feminine"
+},
+{
+"label": "Plural",
+"value": "vampiras"
 }
 ],
 "pos": "noun"
@@ -166257,19 +169003,6 @@
 ],
 "pos": "noun"
 },
-"veredicto": {
-"chips": [
-{
-"label": "Gender",
-"value": "masculine"
-},
-{
-"label": "Plural",
-"value": "veredictos"
-}
-],
-"pos": "noun"
-},
 "vergonha": {
 "chips": [
 {
@@ -166282,6 +169015,15 @@
 }
 ],
 "pos": "noun"
+},
+"vergonhoso": {
+"chips": [
+{
+"label": "Plural",
+"value": "vergonhosos"
+}
+],
+"pos": "adj"
 },
 "verificar": {
 "charts": [
@@ -166477,6 +169219,19 @@
 }
 ],
 "pos": "adj"
+},
+"verso": {
+"chips": [
+{
+"label": "Gender",
+"value": "masculine"
+},
+{
+"label": "Plural",
+"value": "versos"
+}
+],
+"pos": "noun"
 },
 "versão": {
 "chips": [
@@ -166777,10 +169532,6 @@
 "viajante": {
 "chips": [
 {
-"label": "Gender",
-"value": "feminine"
-},
-{
 "label": "Plural",
 "value": "viajantes"
 }
@@ -166950,10 +169701,6 @@
 "vice": {
 "chips": [
 {
-"label": "Gender",
-"value": "feminine"
-},
-{
 "label": "Plural",
 "value": "vices"
 }
@@ -166962,10 +169709,6 @@
 },
 "vice-presidente": {
 "chips": [
-{
-"label": "Gender",
-"value": "feminine"
-},
 {
 "label": "Plural",
 "value": "vice-presidentes"
@@ -166995,19 +169738,6 @@
 ],
 "pos": "adj"
 },
-"victoria": {
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
-},
-{
-"label": "Plural",
-"value": "victorias"
-}
-],
-"pos": "noun"
-},
 "vida": {
 "chips": [
 {
@@ -167023,10 +169753,6 @@
 },
 "vidente": {
 "chips": [
-{
-"label": "Gender",
-"value": "feminine"
-},
 {
 "label": "Plural",
 "value": "videntes"
@@ -167049,10 +169775,6 @@
 },
 "vigarista": {
 "chips": [
-{
-"label": "Gender",
-"value": "feminine"
-},
 {
 "label": "Plural",
 "value": "vigaristas"
@@ -168090,21 +170812,8 @@
 "virgem": {
 "chips": [
 {
-"label": "Gender",
-"value": "feminine"
-},
-{
 "label": "Plural",
 "value": "virgens"
-}
-],
-"pos": "noun"
-},
-"virgens": {
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
 }
 ],
 "pos": "noun"
@@ -168826,19 +171535,6 @@
 }
 ],
 "pos": "verb"
-},
-"vodka": {
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
-},
-{
-"label": "Plural",
-"value": "vodkas"
-}
-],
-"pos": "noun"
 },
 "volante": {
 "chips": [
@@ -169661,6 +172357,19 @@
 ],
 "pos": "noun"
 },
+"wc": {
+"chips": [
+{
+"label": "Gender",
+"value": "masculine"
+},
+{
+"label": "Plural",
+"value": "WCs"
+}
+],
+"pos": "noun"
+},
 "web": {
 "chips": [
 {
@@ -169670,7 +172379,16 @@
 ],
 "pos": "noun"
 },
-"whisky": {
+"xadrez": {
+"chips": [
+{
+"label": "Gender",
+"value": "masculine"
+}
+],
+"pos": "noun"
+},
+"xarope": {
 "chips": [
 {
 "label": "Gender",
@@ -169678,16 +172396,7 @@
 },
 {
 "label": "Plural",
-"value": "whiskies"
-}
-],
-"pos": "noun"
-},
-"xadrez": {
-"chips": [
-{
-"label": "Gender",
-"value": "masculine"
+"value": "xaropes"
 }
 ],
 "pos": "noun"
@@ -169718,6 +172427,19 @@
 ],
 "pos": "noun"
 },
+"y": {
+"chips": [
+{
+"label": "Gender",
+"value": "masculine"
+},
+{
+"label": "Plural",
+"value": "Ys"
+}
+],
+"pos": "noun"
+},
 "zangado": {
 "chips": [
 {
@@ -169742,10 +172464,6 @@
 },
 "zombie": {
 "chips": [
-{
-"label": "Gender",
-"value": "feminine"
-},
 {
 "label": "Plural",
 "value": "zombies"
@@ -169901,21 +172619,8 @@
 ],
 "pos": "adj"
 },
-"árabes": {
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
-}
-],
-"pos": "noun"
-},
 "árbitro": {
 "chips": [
-{
-"label": "Gender",
-"value": "feminine"
-},
 {
 "label": "Plural",
 "value": "árbitros"
@@ -169988,6 +172693,19 @@
 ],
 "pos": "noun"
 },
+"âncora": {
+"chips": [
+{
+"label": "Gender",
+"value": "feminine"
+},
+{
+"label": "Plural",
+"value": "âncoras"
+}
+],
+"pos": "noun"
+},
 "ângulo": {
 "chips": [
 {
@@ -170041,19 +172759,6 @@
 {
 "label": "Gender",
 "value": "feminine"
-}
-],
-"pos": "noun"
-},
-"ê": {
-"chips": [
-{
-"label": "Gender",
-"value": "masculine"
-},
-{
-"label": "Plural",
-"value": "ês"
 }
 ],
 "pos": "noun"
@@ -170185,15 +172890,6 @@
 ],
 "pos": "noun"
 },
-"óptimo": {
-"chips": [
-{
-"label": "Plural",
-"value": "óptimos"
-}
-],
-"pos": "adj"
-},
 "órbita": {
 "chips": [
 {
@@ -170237,7 +172933,7 @@
 },
 {
 "label": "Plural",
-"value": "óscares"
+"value": "Óscares"
 }
 ],
 "pos": "noun"

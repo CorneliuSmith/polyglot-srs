@@ -1981,7 +1981,7 @@
       ],
       "drills": [
         {
-          "sentence": "{{answer}} meva cotxe és nou.",
+          "sentence": "{{answer}} meu cotxe és nou.",
           "answer": "El",
           "translation": "My car is new.",
           "hint": "the (with 'meu', masc.)",

@@ -83,6 +83,11 @@ function LearnInner({ onLocaleChanged }: { onLocaleChanged: () => void }) {
   // amber ("check the accents"), never a green ✓ (beta report: accentless
   // answers read as fully correct even with accents-optional OFF).
   const [sloppyCards, setSloppyCards] = useState<Set<string>>(new Set())
+  // Cards answered WRONG at least once. A wrong answer unlocks "Next" too
+  // (beta report: vocab lessons trapped you until you got it right, unlike
+  // grammar reviews) — the card just stays unconfirmed, so it is re-taught
+  // in the next Learn session instead of entering reviews.
+  const [missedCards, setMissedCards] = useState<Set<string>>(new Set())
   const [quizInput, setQuizInput] = useState('')
   const [quizResult, setQuizResult] = useState<ValidateAnswerResponse | null>(null)
 
@@ -178,6 +183,9 @@ function LearnInner({ onLocaleChanged }: { onLocaleChanged: () => void }) {
   // Advancing requires passing this lesson's check (when it has one).
   const currentPassed = !lesson?.quiz || passedCards.has(lesson.card_id)
   const currentSloppy = !!lesson?.quiz && sloppyCards.has(lesson.card_id)
+  // Attempted-but-wrong also unlocks Next; the card stays unconfirmed.
+  const currentAttempted =
+    currentPassed || (!!lesson?.quiz && missedCards.has(lesson.card_id))
 
   const goToLesson = (i: number) => {
     setLessonIndex(i)
@@ -216,6 +224,8 @@ function LearnInner({ onLocaleChanged }: { onLocaleChanged: () => void }) {
             }
             setPassedCards((prev) => new Set(prev).add(lesson.card_id))
             confirmMutation.mutate([lesson.card_id])
+          } else {
+            setMissedCards((prev) => new Set(prev).add(lesson.card_id))
           }
         },
       },
@@ -427,8 +437,9 @@ function LearnInner({ onLocaleChanged }: { onLocaleChanged: () => void }) {
                   quizResult.answer_result !== 'correct' &&
                   quizResult.answer_result !== 'correct_sloppy' && (
                     <p className="mt-3 text-sm text-red-600 text-center" role="alert">
-                      Not quite — the material above has everything you need.
-                      Try again!
+                      Not quite — the answer is <b>{lesson.quiz.answer}</b>.
+                      Try again, or move on and this one will be re-taught
+                      next time.
                     </p>
                   )}
               </div>
@@ -451,8 +462,8 @@ function LearnInner({ onLocaleChanged }: { onLocaleChanged: () => void }) {
             <button
               type="button"
               onClick={() => navigate('/review')}
-              disabled={!currentPassed}
-              title={currentPassed ? undefined : 'Answer the sentence above first'}
+              disabled={!currentAttempted}
+              title={currentAttempted ? undefined : 'Try the sentence above first'}
               className="flex-1 bg-lang hover:bg-lang-dark disabled:opacity-50 text-lang-on font-semibold rounded-xl px-6 py-3 text-sm"
               style={{ minHeight: '44px' }}
             >
@@ -462,8 +473,8 @@ function LearnInner({ onLocaleChanged }: { onLocaleChanged: () => void }) {
             <button
               type="button"
               onClick={() => goToLesson(lessonIndex + 1)}
-              disabled={!currentPassed}
-              title={currentPassed ? undefined : 'Answer the sentence above first'}
+              disabled={!currentAttempted}
+              title={currentAttempted ? undefined : 'Try the sentence above first'}
               className="flex-1 bg-lang hover:bg-lang-dark disabled:opacity-50 text-lang-on font-semibold rounded-xl px-6 py-3 text-sm"
               style={{ minHeight: '44px' }}
             >

@@ -23,6 +23,7 @@ from __future__ import annotations
 import argparse
 import json
 import logging
+import re
 from pathlib import Path
 
 logger = logging.getLogger("morphology")
@@ -112,6 +113,31 @@ def _canonical_tags(entry: dict) -> frozenset[str]:
 def _expansion(entry: dict) -> str:
     hts = entry.get("head_templates") or []
     return hts[0].get("expansion", "") if hts else ""
+
+
+def _headword_gender_marker(exp: str) -> str | None:
+    """The gender letter belonging to the HEADWORD itself.
+
+    Expansions routinely mention OTHER genders inside parentheses —
+    "cane m (plural cani, feminine cagna, diminutive canìna f or …)" —
+    so a substring sniff over the whole line labeled masculine nouns
+    feminine (beta report: FormsPanel called il cane feminine). The
+    headword's own marker is the standalone m/f/n OUTSIDE parentheses;
+    "m or f" outside parens means common gender → no single marker.
+    """
+    outside = exp
+    while "(" in outside:
+        reduced = re.sub(r"\([^()]*\)", " ", outside)
+        if reduced == outside:
+            break
+        outside = reduced
+    toks = [t.strip(",;·•") for t in outside.split()]
+    for i, t in enumerate(toks):
+        if t in ("m", "f", "n"):
+            if i + 2 < len(toks) and toks[i + 1] == "or" and toks[i + 2] in ("m", "f", "n"):
+                return None
+            return t
+    return None
 
 
 # ── Russian ───────────────────────────────────────────────────────────────
@@ -290,9 +316,8 @@ def build_romance(code: str):
         elif pos == "noun":
             gender = next((g for g in ("masculine", "feminine", "neuter") if g in canon), None)
             if not gender:
-                exp = _expansion(entry)
-                gender = ("feminine" if " f " in f" {exp} " else
-                          "masculine" if " m " in f" {exp} " else None)
+                marker = _headword_gender_marker(_expansion(entry))
+                gender = {"m": "masculine", "f": "feminine"}.get(marker)
             if gender:
                 chips.append({"label": "Gender", "value": gender})
             pl = _pick(forms, {"plural"})
@@ -343,9 +368,8 @@ def build_de(entry: dict) -> dict | None:
         if chart:
             charts.append(chart)
     elif pos == "noun":
-        exp = f" {_expansion(entry)} "
-        gender = ("das" if " n " in exp else "der" if " m " in exp
-                  else "die" if " f " in exp else None)
+        marker = _headword_gender_marker(_expansion(entry))
+        gender = {"m": "der", "f": "die", "n": "das"}.get(marker)
         if gender:
             chips.append({"label": "Article", "value": gender})
         gen = _pick(forms, {"genitive"}, {"plural"})
@@ -468,9 +492,8 @@ def build_el(entry: dict) -> dict | None:
     elif pos == "noun":
         gender = next((g for g in ("masculine", "feminine", "neuter") if g in canon), None)
         if not gender:
-            exp = f" {_expansion(entry)} "
-            gender = ("neuter" if " n " in exp else "feminine" if " f " in exp
-                      else "masculine" if " m " in exp else None)
+            marker = _headword_gender_marker(_expansion(entry))
+            gender = {"m": "masculine", "f": "feminine", "n": "neuter"}.get(marker)
         if gender:
             chips.append({"label": "Gender", "value": gender})
         rows = []
