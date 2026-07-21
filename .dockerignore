@@ -5,7 +5,11 @@
 .venv
 node_modules
 frontend
-data
+# Exclude the seed corpora but KEEP data/gym — the API serves the Gym
+# manifests from disk at runtime, so they must be in the image. (Excluding
+# all of data/ silently made COPY data/gym a no-op: the Gym shipped empty.)
+data/*
+!data/gym
 docs
 scripts
 supabase
