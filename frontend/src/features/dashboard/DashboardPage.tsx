@@ -332,6 +332,16 @@ export default function DashboardPage() {
             >
               Read
             </button>
+            {hasGym && (
+              <button
+                type="button"
+                onClick={() => navigate('/gym')}
+                aria-label="Gym"
+                className="text-sm text-gray-500 hover:text-lang"
+              >
+                Gym
+              </button>
+            )}
             <button
               type="button"
               onClick={() => navigate('/search')}
