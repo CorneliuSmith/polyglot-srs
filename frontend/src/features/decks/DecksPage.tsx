@@ -3,6 +3,7 @@ import { useQuery } from '@tanstack/react-query'
 import { getLearnDecks } from '../../api/review'
 import { usePrefsStore } from '../../stores/prefsStore'
 import LanguagePicker from '../../components/LanguagePicker'
+import PersonalDecksSection from './PersonalDecksSection'
 import type { LearnDeck } from '../../api/types'
 
 /**
@@ -100,6 +101,8 @@ export default function DecksPage() {
         {!isLoading && visible.length === 0 && (
           <p className="text-sm text-gray-500">No decks for this language yet.</p>
         )}
+
+        {activeLanguageId && <PersonalDecksSection languageId={activeLanguageId} />}
       </div>
     </div>
   )
