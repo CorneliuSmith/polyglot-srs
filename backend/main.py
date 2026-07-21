@@ -51,27 +51,41 @@ def create_app() -> FastAPI:
 
     @asynccontextmanager
     async def lifespan(app: FastAPI):
+        import asyncio
+        import logging
+
         settings = get_settings()
         await init_pool(settings.database_url)
-        # Initialize NLP backends — wrapped in try/except so the app can start
-        # even when NLP libraries are not yet installed (dev convenience).
-        try:
-            init_nlp_backends()
-        except Exception:  # noqa: BLE001
-            import logging
-            logging.getLogger(__name__).warning(
-                "init_nlp_backends() failed — NLP answer validation unavailable"
-            )
+
+        # Load NLP backends OFF the startup path. uvicorn does not accept any
+        # requests — including the platform's health check — until lifespan
+        # startup returns, and loading spaCy + per-language models for ~22
+        # languages takes tens of seconds and grows with each language added.
+        # Blocking here pushed cold starts past DigitalOcean's health-check
+        # window, so every deploy failed with "container did not respond to
+        # health checks" and the old image kept serving. Loading in a worker
+        # thread lets the container report healthy immediately; answer
+        # validation for a language simply isn't available for the few seconds
+        # until its backend finishes registering.
+        async def _load_nlp() -> None:
+            try:
+                await asyncio.to_thread(init_nlp_backends)
+            except Exception:  # noqa: BLE001
+                logging.getLogger(__name__).warning(
+                    "init_nlp_backends() failed — NLP answer validation unavailable"
+                )
+
+        nlp_task = asyncio.create_task(_load_nlp())
+
         # Opt-in email review reminders: an in-process 15-minute sweep.
         # getattr default False so test FakeSettings (which lack the flag)
         # never start the loop.
         reminder_task = None
         if getattr(settings, "email_reminders_enabled", False):
-            import asyncio
-
             from backend.services.reminders import reminder_loop
             reminder_task = asyncio.create_task(reminder_loop())
         yield
+        nlp_task.cancel()
         if reminder_task is not None:
             reminder_task.cancel()
         await close_pool()
@@ -98,6 +112,13 @@ def create_app() -> FastAPI:
     @_app.get("/api/health")
     async def health():
         return {"status": "ok"}
+
+    # Belt-and-suspenders: some platform health checks default to "/". The
+    # API otherwise has no root route (404 reads as unhealthy). Cheap 200 so
+    # the probe passes regardless of how the path is configured.
+    @_app.get("/")
+    async def root():
+        return {"status": "ok", "service": "polyglot-srs-api"}
 
     return _app
 

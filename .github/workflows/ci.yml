@@ -70,7 +70,11 @@ jobs:
           cache: npm
           cache-dependency-path: frontend/package-lock.json
       - run: npm ci
-      - name: Type-check
-        run: npx tsc -b
       - name: Tests
         run: npx vitest run
+      - name: Build (tsc -b + vite build)
+        # The static site deploys this exact build. Running it in CI catches
+        # a broken production build before it fails on the platform (a build
+        # break otherwise slips past a tests-only check and the old bundle
+        # keeps serving).
+        run: npm run build
