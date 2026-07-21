@@ -1292,3 +1292,111 @@ class TestAccountAdmin:
                 headers=_auth_headers(),
             )
         assert resp.status_code == 422
+
+
+class TestChangeRequests:
+    CR = "44444444-4444-4444-4444-444444444444"
+
+    def test_create_requires_a_staff_role(self, client):
+        with _roles([]):  # a plain learner
+            resp = client.post(
+                "/api/contribute/change-requests",
+                json={"language_id": LANG, "field": "sentence", "issue": "wrong gender"},
+                headers=_auth_headers(),
+            )
+        assert resp.status_code == 403
+
+    def test_reviewer_can_create(self, client):
+        with _roles([{"language_id": LANG, "role": "reviewer"}]), \
+             patch("backend.routers.contribute.create_request",
+                   new=AsyncMock(return_value=self.CR)) as mock_create:
+            resp = client.post(
+                "/api/contribute/change-requests",
+                json={
+                    "language_id": LANG, "target_type": "drill", "field": "sentence",
+                    "target_label": "El meva cotxe és nou.",
+                    "issue": "meva should be meu (cotxe is masculine)",
+                    "suggestion": "El meu cotxe és nou.",
+                },
+                headers=_auth_headers(),
+            )
+        assert resp.status_code == 201
+        assert resp.json()["id"] == self.CR
+        assert mock_create.await_args.args[6] == "sentence"
+
+    def test_contributor_can_create_too(self, client):
+        # "Contributors have all reviewer permissions" — can_contribute gate.
+        with _roles([{"language_id": LANG, "role": "contributor"}]), \
+             patch("backend.routers.contribute.create_request",
+                   new=AsyncMock(return_value=self.CR)):
+            resp = client.post(
+                "/api/contribute/change-requests",
+                json={"language_id": LANG, "field": "hint", "issue": "hint leaks the answer"},
+                headers=_auth_headers(),
+            )
+        assert resp.status_code == 201
+
+    def test_invalid_field_422(self, client):
+        with _roles([{"language_id": LANG, "role": "reviewer"}]):
+            resp = client.post(
+                "/api/contribute/change-requests",
+                json={"language_id": LANG, "field": "nonsense", "issue": "x"},
+                headers=_auth_headers(),
+            )
+        assert resp.status_code == 422
+
+    def test_board_lists_and_reports_resolve_permission(self, client):
+        reqs = [{"id": self.CR, "field": "sentence", "issue": "x", "score": 2,
+                 "my_vote": 1, "status": "open"}]
+        with _roles([{"language_id": LANG, "role": "reviewer"}]), \
+             patch("backend.routers.contribute.list_requests",
+                   new=AsyncMock(return_value=reqs)):
+            resp = client.get(
+                "/api/contribute/change-requests",
+                params={"language_id": LANG}, headers=_auth_headers(),
+            )
+        assert resp.status_code == 200
+        assert resp.json()["requests"] == reqs
+        assert resp.json()["can_resolve"] is False  # reviewer, not admin
+
+    def test_vote_requires_staff(self, client):
+        with _roles([]), \
+             patch("backend.routers.contribute.get_request_language",
+                   new=AsyncMock(return_value=LANG)):
+            resp = client.post(
+                f"/api/contribute/change-requests/{self.CR}/vote",
+                json={"vote": 1}, headers=_auth_headers(),
+            )
+        assert resp.status_code == 403
+
+    def test_vote_ok(self, client):
+        with _roles([{"language_id": LANG, "role": "contributor"}]), \
+             patch("backend.routers.contribute.get_request_language",
+                   new=AsyncMock(return_value=LANG)), \
+             patch("backend.routers.contribute.cast_vote",
+                   new=AsyncMock(return_value=True)) as mock_vote:
+            resp = client.post(
+                f"/api/contribute/change-requests/{self.CR}/vote",
+                json={"vote": -1}, headers=_auth_headers(),
+            )
+        assert resp.status_code == 200
+        assert mock_vote.await_args.args[3] == -1
+
+    def test_only_admin_resolves(self, client):
+        with _roles([{"language_id": LANG, "role": "reviewer"}]):
+            resp = client.post(
+                f"/api/contribute/change-requests/{self.CR}/resolve",
+                json={"status": "accepted"}, headers=_auth_headers(),
+            )
+        assert resp.status_code == 403
+
+    def test_admin_resolves(self, client):
+        with _roles([{"language_id": None, "role": "admin"}]), \
+             patch("backend.routers.contribute.resolve_request",
+                   new=AsyncMock(return_value=True)):
+            resp = client.post(
+                f"/api/contribute/change-requests/{self.CR}/resolve",
+                json={"status": "accepted"}, headers=_auth_headers(),
+            )
+        assert resp.status_code == 200
+        assert resp.json()["status"] == "accepted"

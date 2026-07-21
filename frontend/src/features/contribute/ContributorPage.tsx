@@ -15,6 +15,7 @@ import { usePrefsStore } from '../../stores/prefsStore'
 import DrillsEditor from './DrillsEditor'
 import FeedbackPanel from './FeedbackPanel'
 import IssuesPanel from './IssuesPanel'
+import ChangeRequestsPanel from './ChangeRequestsPanel'
 import SuggestionsPanel from './SuggestionsPanel'
 import RolesPanel from './RolesPanel'
 import AccountsPanel from './AccountsPanel'
@@ -527,7 +528,10 @@ export default function ContributorPage() {
               {(
                 [
                   ['contribute', 'Contribute', true],
-                  ['review', 'Review', data.can_review ?? data.is_admin],
+                  // Contributors have all reviewer permissions on the
+                  // change-request board, so they get the Review tab too.
+                  ['review', 'Review',
+                    (data.can_review ?? data.is_admin) || (data.can_contribute ?? false)],
                   ['admin', 'Admin', data.is_admin],
                 ] as [WorkspaceTab, string, boolean][]
               )
@@ -572,14 +576,21 @@ export default function ContributorPage() {
             )}
             {tab === 'review' && (
               <>
+                {/* Change requests: everyone with a role sees and votes;
+                    only admins accept/reject (server-enforced). */}
+                <ChangeRequestsPanel languageId={activeLanguageId} />
                 {(data.can_review ?? data.is_admin) && (
                   <SuggestionsPanel languageId={activeLanguageId} />
                 )}
-                <IssuesPanel
-                  languageId={activeLanguageId}
-                  canResolve={data.can_review ?? data.is_admin}
-                />
-                <FeedbackPanel languageId={activeLanguageId} />
+                {(data.can_review ?? data.is_admin) && (
+                  <>
+                    <IssuesPanel
+                      languageId={activeLanguageId}
+                      canResolve={data.can_review ?? data.is_admin}
+                    />
+                    <FeedbackPanel languageId={activeLanguageId} />
+                  </>
+                )}
               </>
             )}
             {tab === 'contribute' && (

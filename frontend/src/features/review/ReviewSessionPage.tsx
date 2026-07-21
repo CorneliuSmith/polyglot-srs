@@ -9,6 +9,7 @@ import { useReviewSession } from './useReviewSession'
 import DrillCard from './DrillCard'
 import FeedbackPanel from './FeedbackPanel'
 import ReviewDetail from './ReviewDetail'
+import SuggestChange from '../contribute/SuggestChange'
 import CardFeedback from './CardFeedback'
 import SessionSummary from './SessionSummary'
 import OnScreenKeyboard from '../keyboards/OnScreenKeyboard'
@@ -660,6 +661,14 @@ function ReviewSessionInner({
                     lapses: card.lapses,
                     next_review: card.next_review,
                   }}
+                />
+              )}
+              {!cram && (
+                <SuggestChange
+                  languageId={activeLanguageId}
+                  targetType={card.card_type === 'grammar' ? 'drill' : 'vocabulary'}
+                  targetId={card.card_id}
+                  targetLabel={card.sentence.replace('{{answer}}', card.correct_answer)}
                 />
               )}
               {/* The answer was already graded by the NLP check; auto-record
