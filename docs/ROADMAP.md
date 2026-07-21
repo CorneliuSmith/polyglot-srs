@@ -1246,6 +1246,24 @@ Also folds in: the "all accounts" tile (every account listable,
 including never-active — previously invisible in every activity
 window).
 
+### WP32 — Suggest-on-decks + vocab review surface (owner, 2026-07-21)
+Extends WP31's votable change-request engine to two places it was missing.
+(1) The inline **Suggest a change** affordance now appears on the **deck
+browser** too (`DeckDetailPage`): reviewers browsing a deck can flag a
+grammar point or a word and propose a fix inline, landing on the same review
+board — no more leaving the deck to file it. (2) The Contributor workspace,
+previously grammar-only, gains a **Grammar / Vocab** content toggle. The new
+`VocabReviewPanel` lists a language's vocabulary (searchable, level-filtered),
+flags **thin** entries (no definition or no example sentences) so reviewers
+can target gaps, and carries the same inline votable suggestion on every
+word. Backed by a new role-gated `GET /api/contribute/vocab`
+(`list_vocab_items`, read-only; the change-request board remains where fixes
+are proposed and voted). Also fixes a Decks crash on personal cards with a
+null sentence, and hardens lazy route-chunk loading (retry + one guarded
+reload) introduced with the mobile perf split. Deferred: a full vocab editor
+/ linguist sign-off flow (parallel to grammar approval) — vocab fixes still
+route through the change-request board for now.
+
 ### WP31 — Card change requests: inline, votable staff suggestions (owner, 2026-07-20)
 Less friction for reviewers/contributors flagging content problems (beta:
 a Catalan reviewer wanted to mark the sentence/hint and propose a fix

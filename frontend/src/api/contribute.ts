@@ -46,6 +46,31 @@ export async function getGrammarForLanguage(
   return response.data
 }
 
+export interface VocabItemEdit {
+  id: string
+  word: string
+  reading: string | null
+  part_of_speech: string | null
+  level: string | null
+  frequency_rank: number | null
+  definition: string | null
+  example_count: number
+}
+
+export async function getVocabForLanguage(
+  languageId: string,
+): Promise<{
+  items: VocabItemEdit[]
+  is_admin: boolean
+  can_review: boolean
+  can_contribute: boolean
+}> {
+  const response = await apiClient.get('/api/contribute/vocab', {
+    params: { language_id: languageId },
+  })
+  return response.data
+}
+
 export interface ReviewNote {
   id: string
   grammar_point_id: string
