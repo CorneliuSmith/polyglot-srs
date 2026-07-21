@@ -15,7 +15,9 @@ interface PrefsState {
   setSessionSize: (n: number) => void
   // Hint disclosure level during reviews (0 = nothing revealed). Persisted:
   // the level the learner chose last time carries over to the next card and
-  // the next session, instead of resetting to hidden every card.
+  // the next session. Defaults to ALL layers revealed (beta report: a bare
+  // "Tengo tres ___." is unanswerable — nobody found the hint dots); the
+  // dots cycle back to fewer for learners who want the harder mode.
   hintLevel: number
   setHintLevel: (level: number) => void
   // QWERTY transliteration input per language code (ru/ar/el). Absent =
@@ -61,7 +63,8 @@ export const usePrefsStore = create<PrefsState>()(
       setTheme: (theme) => set({ theme }),
       sessionSize: 20,
       setSessionSize: (n) => set({ sessionSize: n }),
-      hintLevel: 0,
+      // 9 = "everything this card has" (clamped to the card's layer count).
+      hintLevel: 9,
       setHintLevel: (level) => set({ hintLevel: level }),
       qwertyTranslit: {},
       setQwertyTranslit: (code, on) =>
@@ -84,6 +87,17 @@ export const usePrefsStore = create<PrefsState>()(
     }),
     {
       name: 'polyglot-prefs',
+      // v1: hints default ON. One-time bump for existing accounts whose
+      // persisted level is the old hidden default — learners who prefer
+      // the hard mode cycle the dots back to 0 once.
+      version: 1,
+      migrate: (persisted, version) => {
+        const state = persisted as Partial<PrefsState>
+        if (version < 1 && (state.hintLevel ?? 0) === 0) {
+          state.hintLevel = 9
+        }
+        return state as PrefsState
+      },
     },
   ),
 )
