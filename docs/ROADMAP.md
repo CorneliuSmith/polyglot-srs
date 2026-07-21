@@ -1276,6 +1276,22 @@ insert/backspace/caret handling as review. Translit auto-conversion was
 already present in Learn via DrillCard. (ko has neither a translit scheme
 nor a layout — it uses the device IME, per WP27.)
 
+### WP25(f) — Gym coverage audit; add pt, nl, en (owner, 2026-07-21)
+Portuguese was missing a Gym despite conjugating like es/it/ca/ro — an
+oversight from WP25(e). Reviewed all 22 languages against "has trainable
+conjugation/declension forms":
+- **Added now:** pt (Romance verbs + agreement), nl (Germanic verbs +
+  de/het/adjective-e/plurals), en (light verb-tense gym — thin morphology
+  but learners drill tenses). 45 entries, all verified against the live DB.
+- **Should have, but needs native review first:** sw, xh (Bantu noun-class
+  concords + verb agreement — very trainable, but draft-tier content and
+  the class labels need a native check).
+- **Marginal + deferred:** ha, mi (aspect/particle-based, low-resource).
+- **Correctly NO Gym:** th and jam (analytic — no inflection/conjugation),
+  yo (analytic AND the tone policy forbids authoring tone-marked forms
+  without verified-tone contributors).
+Gym now covers 15 languages: ar ca de el en es fr hi it ko nl pt ro ru tr.
+
 ### WP25(e) — Gym manifests for the inflected languages (owner, 2026-07-20)
 The Gym shipped with manifests for ru + ko only, so every OTHER language
 showed "doesn't bend its words enough to need a gym" — the empty state was

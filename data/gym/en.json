@@ -1,0 +1,91 @@
+{
+  "language": "en",
+  "_note": "The Gym manifest (WP25a): which grammar points act as selectable form categories, grouped into picker columns. 'point' must match the grammar point title exactly (resolved to ids at request time). 'usage' is the plain-language hover explanation; 'example' is a short illustration. 'nonstandard': forms hidden behind the 'include non-standard words' toggle.",
+  "columns": [
+    {
+      "kind": "verbs",
+      "label": "Verb tenses & moods",
+      "entries": [
+        {
+          "point": "Present simple (I work)",
+          "label": "Present simple",
+          "usage": "Habits and general truths.",
+          "example": "I work here."
+        },
+        {
+          "point": "Present continuous (I am working)",
+          "label": "Present continuous",
+          "usage": "Happening right now.",
+          "example": "I am working now."
+        },
+        {
+          "point": "Past simple — regular verbs (-ed)",
+          "label": "Past simple",
+          "usage": "A finished past action.",
+          "example": "I worked yesterday."
+        },
+        {
+          "point": "Going to and will",
+          "label": "Future",
+          "usage": "will / going to.",
+          "example": "I will come tomorrow."
+        },
+        {
+          "point": "Present perfect vs past simple",
+          "label": "Present perfect",
+          "usage": "have + past participle.",
+          "example": "I have finished."
+        },
+        {
+          "point": "Third-person -s (she works)",
+          "label": "Third-person -s",
+          "usage": "he/she/it adds -s.",
+          "example": "She works hard."
+        },
+        {
+          "point": "First and second conditionals",
+          "label": "Conditionals",
+          "usage": "if-clauses.",
+          "example": "If it rains, I'll stay."
+        },
+        {
+          "point": "Past simple — irregular verbs",
+          "label": "Irregular past",
+          "usage": "Irregular past forms.",
+          "example": "I went home.",
+          "nonstandard": true
+        }
+      ]
+    },
+    {
+      "kind": "agreement",
+      "label": "Forms",
+      "entries": [
+        {
+          "point": "Plural nouns (-s, -es, irregular)",
+          "label": "Plurals",
+          "usage": "Noun plural forms.",
+          "example": "box → boxes, child → children"
+        },
+        {
+          "point": "Comparatives and superlatives",
+          "label": "Comparatives",
+          "usage": "-er/-est, more/most.",
+          "example": "big → bigger → biggest"
+        },
+        {
+          "point": "Articles: a / an",
+          "label": "Articles a/an",
+          "usage": "a before a consonant, an before a vowel.",
+          "example": "a car, an apple"
+        },
+        {
+          "point": "Possessives (my, your, 's)",
+          "label": "Possessives",
+          "usage": "my/your and the 's ending.",
+          "example": "my book, Anna's car"
+        }
+      ]
+    }
+  ]
+}

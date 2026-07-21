@@ -1,0 +1,122 @@
+{
+  "language": "pt",
+  "_note": "The Gym manifest (WP25a): which grammar points act as selectable form categories, grouped into picker columns. 'point' must match the grammar point title exactly (resolved to ids at request time). 'usage' is the plain-language hover explanation; 'example' is a short illustration. 'nonstandard': forms hidden behind the 'include non-standard words' toggle.",
+  "columns": [
+    {
+      "kind": "verbs",
+      "label": "Verb tenses & moods",
+      "entries": [
+        {
+          "point": "Present tense of -ar verbs",
+          "label": "Present -ar",
+          "usage": "Now or regularly, -ar verbs.",
+          "example": "Eu falo português."
+        },
+        {
+          "point": "-er and -ir verbs (comer, abrir)",
+          "label": "Present -er/-ir",
+          "usage": "Now or regularly, -er and -ir verbs.",
+          "example": "Como pão e abro a porta."
+        },
+        {
+          "point": "The past — pretérito perfeito (falei, comeu)",
+          "label": "Pretérito perfeito",
+          "usage": "A finished past action.",
+          "example": "Ontem falei com ela."
+        },
+        {
+          "point": "The imperfect (falava, comia)",
+          "label": "Imperfect",
+          "usage": "The ongoing or habitual past.",
+          "example": "Quando era criança, falava muito."
+        },
+        {
+          "point": "The future with ir (vou falar)",
+          "label": "Future (ir)",
+          "usage": "What will happen: ir + infinitive.",
+          "example": "Amanhã vou comer tarde."
+        },
+        {
+          "point": "The conditional (falaria, gostaria)",
+          "label": "Conditional",
+          "usage": "What would happen.",
+          "example": "Eu gostaria de viajar."
+        },
+        {
+          "point": "Presente do subjuntivo (que eu fale)",
+          "label": "Subjunctive",
+          "usage": "After que — wish, doubt, request.",
+          "example": "Espero que você fale."
+        },
+        {
+          "point": "Imperfeito do subjuntivo (se eu falasse)",
+          "label": "Past subjunctive",
+          "usage": "Hypotheticals: se eu falasse…",
+          "example": "Se eu falasse, entenderia."
+        },
+        {
+          "point": "The imperative (fala! / fale!)",
+          "label": "Imperative",
+          "usage": "Commands.",
+          "example": "Fala mais alto!"
+        },
+        {
+          "point": "Right now: estar + -ndo (estou falando)",
+          "label": "Progressive",
+          "usage": "Happening right now.",
+          "example": "Estou comendo agora."
+        },
+        {
+          "point": "Key irregular presents (vou, faço, posso, quero)",
+          "label": "Irregular presents",
+          "usage": "The common irregular present forms.",
+          "example": "Vou ao centro e faço tudo.",
+          "nonstandard": true
+        },
+        {
+          "point": "Pretérito perfeito — irregulares (fui, fiz, tive)",
+          "label": "Irregular preterites",
+          "usage": "The common irregular preterites.",
+          "example": "Fui e fiz tudo.",
+          "nonstandard": true
+        }
+      ]
+    },
+    {
+      "kind": "agreement",
+      "label": "Agreement",
+      "entries": [
+        {
+          "point": "Articles (o, a, um, uma)",
+          "label": "Articles",
+          "usage": "o/a/os/as and um/uma.",
+          "example": "o livro, a casa"
+        },
+        {
+          "point": "Adjective agreement",
+          "label": "Adjectives",
+          "usage": "Adjectives match gender and number.",
+          "example": "um carro vermelho"
+        },
+        {
+          "point": "Possessives (meu, sua, dele…)",
+          "label": "Possessives",
+          "usage": "meu/minha, seu/sua.",
+          "example": "meu amigo, minha casa"
+        },
+        {
+          "point": "Demonstratives (este, esse, aquele)",
+          "label": "Demonstratives",
+          "usage": "this / that / that over there.",
+          "example": "este dia, aquela noite"
+        },
+        {
+          "point": "Contractions (no, da, dele, pelo…)",
+          "label": "Contractions",
+          "usage": "preposition + article fused.",
+          "example": "no bosque, da cidade"
+        }
+      ]
+    }
+  ]
+}
