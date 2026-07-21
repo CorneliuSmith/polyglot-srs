@@ -43,6 +43,10 @@ class PersonalCardCreate(BaseModel):
     answer: str = Field(min_length=1, max_length=200)
     translation: str = ""
     note_id: str | None = None
+    # Fallback prompt (a short gloss/definition) used when the answer appears
+    # only in an INFLECTED form in the sentence — the Reader lists dictionary
+    # forms (başkent) while the text has başkenti, so a cloze can't be built.
+    gloss: str = ""
 
 
 def _nlp_or_422(language_code: str):
@@ -98,22 +102,30 @@ async def extract(body: ExtractRequest, user: dict = Depends(get_current_user)):
 
 @router.post("/cards")
 async def create_card(body: PersonalCardCreate, user: dict = Depends(get_current_user)):
-    """Make a cloze card from one of the learner's sentences (NLP-validated)."""
+    """Make a card from one of the learner's sentences.
+
+    Prefers a cloze (blank the word in its own sentence) when the answer is a
+    whole word there and validates. When it isn't — the common Reader case
+    where the listed word is a dictionary form but the sentence inflects it —
+    falls back to a definition-prompt card (type-the-word: the gloss is the
+    prompt) so "Add to reviews" never silently fails on a real new word.
+    """
     _nlp_or_422(body.language_code)
     cloze = make_cloze(body.sentence, body.answer)
-    if cloze is None:
+    if cloze is not None and await validate_drill(body.language_code, cloze, body.answer):
+        stored_sentence = cloze
+    elif body.gloss.strip():
+        # No {{answer}} marker → the review UI renders this as type-the-word,
+        # showing the gloss and asking for the dictionary form.
+        stored_sentence = body.gloss.strip()
+    else:
         raise HTTPException(
             status_code=status.HTTP_422_UNPROCESSABLE_ENTITY,
             detail="The answer must be a whole word in the sentence.",
         )
-    if not await validate_drill(body.language_code, cloze, body.answer):
-        raise HTTPException(
-            status_code=status.HTTP_422_UNPROCESSABLE_ENTITY,
-            detail="The answer doesn't validate in this language.",
-        )
     async with rls_connection(user["id"]) as conn:
         card_id = await create_personal_card(
-            conn, user["id"], body.language_id, cloze, body.answer,
+            conn, user["id"], body.language_id, stored_sentence, body.answer,
             body.translation, body.note_id,
         )
-    return {"id": card_id, "sentence": cloze}
+    return {"id": card_id, "sentence": stored_sentence}

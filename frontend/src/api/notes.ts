@@ -44,6 +44,9 @@ export async function createPersonalCard(input: {
   answer: string
   translation?: string
   noteId?: string
+  // Fallback prompt when the word appears inflected in the sentence and a
+  // cloze can't be built (backend makes a type-the-word card instead).
+  gloss?: string
 }): Promise<{ id: string; sentence: string }> {
   const response = await apiClient.post('/api/notes/cards', {
     language_id: input.languageId,
@@ -52,6 +55,7 @@ export async function createPersonalCard(input: {
     answer: input.answer,
     translation: input.translation ?? '',
     note_id: input.noteId ?? null,
+    gloss: input.gloss ?? '',
   })
   return response.data
 }

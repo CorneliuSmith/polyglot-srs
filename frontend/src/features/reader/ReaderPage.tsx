@@ -51,6 +51,7 @@ export default function ReaderPage() {
     new Set(),
   )
   const [addedWords, setAddedWords] = useState<Set<string>>(new Set())
+  const [failedWords, setFailedWords] = useState<Set<string>>(new Set())
 
   const { data: shelf = [] } = useQuery({
     queryKey: ['readings', activeLanguageId],
@@ -68,6 +69,7 @@ export default function ReaderPage() {
     setExplanations({})
     setShownExplanations(new Set())
     setAddedWords(new Set())
+    setFailedWords(new Set())
   }
 
   const generateMutation = useMutation({
@@ -101,17 +103,32 @@ export default function ReaderPage() {
   })
 
   const addWordMutation = useMutation({
-    mutationFn: (w: { word: string; sentence: string; translation: string }) =>
+    mutationFn: (w: {
+      word: string
+      sentence: string
+      translation: string
+      gloss: string
+    }) =>
       createPersonalCard({
         languageId: activeLanguageId!,
         languageCode: language!.code,
         sentence: w.sentence,
         answer: w.word,
         translation: w.translation,
+        gloss: w.gloss,
       }),
     onSuccess: (_res, w) => {
       setAddedWords((prev) => new Set(prev).add(w.word))
+      setFailedWords((prev) => {
+        const next = new Set(prev)
+        next.delete(w.word)
+        return next
+      })
       queryClient.invalidateQueries({ queryKey: ['dashboard'] })
+      queryClient.invalidateQueries({ queryKey: ['personal-cards'] })
+    },
+    onError: (_err, w) => {
+      setFailedWords((prev) => new Set(prev).add(w.word))
     },
   })
 
@@ -448,25 +465,46 @@ export default function ReaderPage() {
                       <span className="text-gray-500"> — {w.gloss}</span>
                     </span>
                     {addedWords.has(w.word) ? (
-                      <span className="text-xs text-green-700">✓ In your reviews</span>
-                    ) : (
-                      <button
-                        type="button"
-                        onClick={() =>
-                          addWordMutation.mutate({
-                            word: w.word,
-                            sentence:
-                              reading.sentences[w.sentence_index]?.text ?? '',
-                            translation:
-                              reading.sentences[w.sentence_index]?.translation ??
-                              '',
-                          })
-                        }
-                        disabled={addWordMutation.isPending}
-                        className="text-xs rounded-lg bg-lang hover:bg-lang-dark text-lang-on px-2.5 py-1.5 font-semibold disabled:opacity-50"
+                      <span
+                        className="inline-flex items-center gap-1 text-xs font-semibold text-green-700"
+                        data-testid="word-added"
                       >
-                        Add to reviews
-                      </button>
+                        ✓ Added
+                      </span>
+                    ) : (
+                      <span className="flex items-center gap-2">
+                        {failedWords.has(w.word) && (
+                          <span className="text-xs text-red-600" role="alert">
+                            Couldn't add
+                          </span>
+                        )}
+                        <button
+                          type="button"
+                          onClick={() =>
+                            addWordMutation.mutate({
+                              word: w.word,
+                              sentence:
+                                reading.sentences[w.sentence_index]?.text ?? '',
+                              translation:
+                                reading.sentences[w.sentence_index]?.translation ??
+                                '',
+                              gloss: w.gloss,
+                            })
+                          }
+                          disabled={
+                            addWordMutation.isPending &&
+                            addWordMutation.variables?.word === w.word
+                          }
+                          className="text-xs rounded-lg bg-lang hover:bg-lang-dark text-lang-on px-2.5 py-1.5 font-semibold disabled:opacity-50"
+                        >
+                          {addWordMutation.isPending &&
+                          addWordMutation.variables?.word === w.word
+                            ? 'Adding…'
+                            : failedWords.has(w.word)
+                              ? 'Retry'
+                              : 'Add to reviews'}
+                        </button>
+                      </span>
                     )}
                   </div>
                 ))}

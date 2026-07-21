@@ -215,7 +215,10 @@ async def get_due_cards(
             uc.card_id,
             cc.sentence                     AS sentence,
             cc.answer                       AS correct_answer,
-            NULL::text                      AS hint,
+            -- The final hint dot reveals the word itself — personal cards
+            -- store no authored cue, and one translation-only dot left the
+            -- card unanswerable when the sentence had many candidates.
+            cc.answer                       AS hint,
             cc.translation                  AS translation,
             NULL::jsonb                     AS morphology,
             NULL::text[]                    AS alternatives,

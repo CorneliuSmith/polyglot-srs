@@ -1246,6 +1246,26 @@ Also folds in: the "all accounts" tile (every account listable,
 including never-active — previously invisible in every activity
 window).
 
+### WP29 — Personal decks + Reader-add robustness (owner, 2026-07-20)
+**(a) Personal decks — DONE.** Learner-named folders over personal cloze
+cards (the Tutor/Reader mints). `personal_decks` table + `personal_deck_id`
+FK on user_cloze_cards (ON DELETE SET NULL — deleting a deck never deletes
+cards, they fall back to Unfiled). CRUD + file endpoints under
+`/api/personal-decks`, all RLS-scoped; the Decks page grows a "Personal
+decks" section (create/rename/delete, per-card deck dropdown). Organization
+only — no learner-authored cards yet (deliberate).
+**(b) Personal card second hint — DONE.** Personal cards selected
+`NULL AS hint`, so listening/cloze cards had a single translation dot and
+were unanswerable when many words fit. The final dot now reveals the word
+itself (`cc.answer AS hint`), matching every other card type.
+**(c) Reader "Add to reviews" no longer silently fails — DONE.** The
+Reader lists dictionary forms (başkent) but sentences inflect them
+(başkenti), so `make_cloze` returned None → 422 → the add died with no
+feedback. The endpoint now falls back to a definition-prompt card (the
+gloss becomes a type-the-word prompt) when a cloze can't be built; the UI
+threads the gloss through, shows per-word "Adding…/✓ Added", and surfaces
+"Couldn't add" + Retry on genuine failure.
+
 ### WP28 — Korean depth + owner resource review (owner, 2026-07-20)
 The owner keeps a reference library at
 `~/Library/CloudStorage/Dropbox/Online Learning/` — licensed courses to

@@ -107,3 +107,33 @@ class TestNotes:
                 "sentence": "El gato duerme.", "answer": "gato",
             }, headers=_auth_headers())
         assert resp.status_code == 422
+
+    def test_inflected_word_falls_back_to_gloss_prompt(self, client):
+        # Reader lists dictionary forms; the sentence inflects them (başkent →
+        # başkenti). No cloze is possible, so the gloss becomes a type-the-word
+        # prompt instead of a silent 422.
+        with patch("backend.routers.notes.create_personal_card",
+                   new=AsyncMock(return_value="card-2")) as mock_create:
+            resp = client.post("/api/notes/cards", json={
+                "language_id": LANG, "language_code": "tr",
+                "sentence": "Ankara Türkiye'nin başkentidir.",
+                "answer": "başkent", "gloss": "capital city",
+            }, headers=_auth_headers())
+        assert resp.status_code == 200
+        # Stored sentence is the gloss (no {{answer}} marker → type-the-word).
+        assert mock_create.await_args.args[3] == "capital city"
+        assert mock_create.await_args.args[4] == "başkent"
+
+    def test_prefers_cloze_over_gloss_when_word_is_verbatim(self, client):
+        with patch("backend.routers.notes.validate_drill",
+                   new=AsyncMock(return_value=True)), \
+             patch("backend.routers.notes.create_personal_card",
+                   new=AsyncMock(return_value="card-3")) as mock_create:
+            resp = client.post("/api/notes/cards", json={
+                "language_id": LANG, "language_code": "es",
+                "sentence": "El gato duerme.", "answer": "gato",
+                "gloss": "cat",
+            }, headers=_auth_headers())
+        assert resp.status_code == 200
+        # Cloze wins — the gloss is only a fallback.
+        assert mock_create.await_args.args[3] == "El {{answer}} duerme."

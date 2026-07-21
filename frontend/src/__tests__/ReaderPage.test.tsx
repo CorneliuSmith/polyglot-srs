@@ -149,9 +149,24 @@ describe('ReaderPage (WP21)', () => {
         expect.objectContaining({
           answer: 'ventana',
           sentence: 'El gato duerme en la ventana.',
+          // The gloss rides along as the fallback prompt for inflected words.
+          gloss: 'window',
         }),
       ),
     )
-    expect(await screen.findByText(/in your reviews/i)).toBeDefined()
+    expect(await screen.findByTestId('word-added')).toBeDefined()
+  })
+
+  it('a failed add surfaces an error and offers a retry (no silent 422)', async () => {
+    mockAddCard.mockRejectedValue(new Error('422'))
+    await generate()
+    fireEvent.click(
+      screen.getByRole('button', { name: /unlock translations/i }),
+    )
+    fireEvent.click(
+      await screen.findByRole('button', { name: /add to reviews/i }),
+    )
+    expect(await screen.findByText(/couldn't add/i)).toBeDefined()
+    expect(screen.getByRole('button', { name: /retry/i })).toBeDefined()
   })
 })

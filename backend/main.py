@@ -19,6 +19,7 @@ from backend.routers.gym import router as gym_router
 from backend.routers.languages import router as languages_router
 from backend.routers.notes import router as notes_router
 from backend.routers.onboarding import router as onboarding_router
+from backend.routers.personal_decks import router as personal_decks_router
 from backend.routers.reader import router as reader_router
 from backend.routers.review import router as review_router
 from backend.routers.tutor import router as tutor_router
@@ -83,6 +84,9 @@ def create_app() -> FastAPI:
     _app.include_router(curriculum_router, prefix="/api/curriculum", tags=["curriculum"])
     _app.include_router(review_router, prefix="/api/review", tags=["review"])
     _app.include_router(notes_router, prefix="/api/notes", tags=["notes"])
+    _app.include_router(
+        personal_decks_router, prefix="/api/personal-decks", tags=["personal-decks"]
+    )
     _app.include_router(onboarding_router, prefix="/api/onboarding", tags=["onboarding"])
     _app.include_router(tutor_router, prefix="/api/tutor", tags=["tutor"])
     _app.include_router(contribute_router, prefix="/api/contribute", tags=["contribute"])
