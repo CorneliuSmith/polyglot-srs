@@ -172,7 +172,7 @@ export default function PersonalDecksSection({ languageId }: { languageId: strin
                           {c.answer}
                         </span>
                         <span className="block text-xs text-gray-400 truncate">
-                          {c.sentence.replace('{{answer}}', '___')}
+                          {(c.sentence ?? '').replace('{{answer}}', '___')}
                         </span>
                       </span>
                       <select

@@ -9,7 +9,9 @@ export interface PersonalDeck {
 export interface PersonalCard {
   id: string
   answer: string
-  sentence: string
+  // Nullable in practice: cards minted without a cloze context (e.g. a bare
+  // word added from the Reader) can arrive with no sentence.
+  sentence: string | null
   translation: string | null
   deck_id: string | null
 }
