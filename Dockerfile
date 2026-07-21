@@ -25,6 +25,10 @@ WORKDIR /app
 # when pyproject.toml changes, not on every code edit.
 COPY pyproject.toml README.md ./
 COPY backend ./backend
+# Runtime data the API serves from disk (NOT the seed corpora): the Gym
+# manifests. Without this the deployed app had no /app/data at all and
+# every language's Gym showed the "no forms to train" empty state.
+COPY data/gym ./data/gym
 RUN pip install --no-cache-dir .
 
 # Model/data downloads the app expects at runtime:

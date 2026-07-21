@@ -348,18 +348,21 @@ export default function DashboardPage() {
             >
               Account
             </button>
+            {/* Utility cluster, set apart from navigation: announcements
+                and the tour are ABOUT the app, not places in it. */}
+            <span aria-hidden className="h-4 w-px bg-gray-200" />
             <button
               type="button"
               onClick={() => setShowWhatsNew(true)}
               aria-label="What's new"
               title="What's new"
-              className="relative text-sm text-gray-500 hover:text-lang"
+              className="relative w-7 h-7 rounded-full border border-gray-200 text-gray-400 hover:text-lang hover:border-lang/40 text-xs leading-none"
             >
-              New
+              🔔
               {unseenCount > 0 && (
                 <span
                   data-testid="whats-new-badge"
-                  className="absolute -top-1.5 -right-2.5 min-w-4 h-4 rounded-full bg-lang text-white text-[10px] font-bold leading-4 text-center px-0.5"
+                  className="absolute -top-1.5 -right-1.5 min-w-4 h-4 rounded-full bg-lang text-white text-[10px] font-bold leading-4 text-center px-0.5"
                 >
                   {unseenCount}
                 </span>
@@ -370,7 +373,7 @@ export default function DashboardPage() {
               onClick={() => setShowTour(true)}
               aria-label="Take the feature tour"
               title="Take the tour"
-              className="text-sm text-gray-400 hover:text-lang"
+              className="w-7 h-7 rounded-full border border-gray-200 text-gray-400 hover:text-lang hover:border-lang/40 text-xs leading-none"
             >
               ?
             </button>
