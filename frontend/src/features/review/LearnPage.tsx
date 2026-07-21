@@ -9,6 +9,7 @@ import FormsPanel from '../../components/FormsPanel'
 import ExplanationView from '../../components/ExplanationView'
 import SpeakButton from '../../components/SpeakButton'
 import DrillCard from './DrillCard'
+import SuggestChange from '../contribute/SuggestChange'
 import OnScreenKeyboard, { hasKeyboardLayout } from '../keyboards/OnScreenKeyboard'
 import type { KeyboardLanguage } from '../keyboards/OnScreenKeyboard'
 import { finalizeInput } from '../keyboards/translit'
@@ -504,6 +505,17 @@ function LearnInner({ onLocaleChanged }: { onLocaleChanged: () => void }) {
                   )}
               </div>
             )}
+
+            <SuggestChange
+              languageId={activeLanguageId}
+              targetType={lesson.card_type === 'grammar' ? 'drill' : 'vocabulary'}
+              targetId={lesson.card_id}
+              targetLabel={
+                lesson.quiz
+                  ? lesson.quiz.sentence.replace('{{answer}}', lesson.quiz.answer)
+                  : lesson.title
+              }
+            />
           </div>
         )}
 

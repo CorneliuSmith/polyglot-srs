@@ -36,6 +36,7 @@ export async function getGrammarForLanguage(
   points: GrammarPointEdit[]
   is_admin: boolean
   can_review: boolean
+  can_contribute: boolean
   review_policy: string
   tutor_model?: string | null
 }> {
@@ -498,4 +499,73 @@ export async function rejectSuggestion(id: string, reviewNote?: string): Promise
   await apiClient.post(`/api/contribute/suggestions/${id}/reject`, {
     review_note: reviewNote ?? null,
   })
+}
+
+// ── Card change requests (votable staff suggestions) ───────────────────────
+
+export interface ChangeRequest {
+  id: string
+  target_type: string
+  target_id: string | null
+  target_label: string | null
+  field: string
+  issue: string
+  suggestion: string | null
+  status: string
+  author_email: string | null
+  score: number
+  upvotes: number
+  downvotes: number
+  my_vote: number
+  created_at: string
+}
+
+export interface NewChangeRequest {
+  language_id: string
+  target_type?: string
+  target_id?: string | null
+  target_label?: string | null
+  field: string
+  issue: string
+  suggestion?: string | null
+}
+
+export async function createChangeRequest(body: NewChangeRequest): Promise<{ id: string }> {
+  const response = await apiClient.post('/api/contribute/change-requests', body)
+  return response.data
+}
+
+export async function getChangeRequests(
+  languageId: string,
+  status = 'open',
+): Promise<{ requests: ChangeRequest[]; can_resolve: boolean }> {
+  const response = await apiClient.get('/api/contribute/change-requests', {
+    params: { language_id: languageId, status },
+  })
+  return response.data
+}
+
+export async function voteChangeRequest(requestId: string, vote: number): Promise<void> {
+  await apiClient.post(`/api/contribute/change-requests/${requestId}/vote`, { vote })
+}
+
+export async function resolveChangeRequest(
+  requestId: string,
+  status: 'accepted' | 'rejected',
+): Promise<void> {
+  await apiClient.post(`/api/contribute/change-requests/${requestId}/resolve`, { status })
+}
+
+/** Client mirror of backend can_contribute: admin anywhere, or a
+ * contributor/reviewer for this language (null language = all). */
+export function canSuggestForLanguage(
+  roles: ContributorRole[],
+  languageId: string | null,
+): boolean {
+  return roles.some(
+    (r) =>
+      r.role === 'admin' ||
+      ((r.role === 'contributor' || r.role === 'reviewer') &&
+        (r.language_id === null || r.language_id === languageId)),
+  )
 }

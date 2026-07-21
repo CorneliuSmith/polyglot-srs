@@ -16,6 +16,13 @@ from fastapi import APIRouter, Depends, HTTPException, status
 from pydantic import BaseModel, Field
 
 from backend.dependencies import get_current_user
+from backend.repositories.change_requests import (
+    cast_vote,
+    create_request,
+    get_request_language,
+    list_requests,
+    resolve_request,
+)
 from backend.repositories.contributor import (
     add_drill,
     add_review_note,
@@ -157,6 +164,9 @@ async def grammar_for_language(
         "points": points,
         "is_admin": is_admin(roles),
         "can_review": can_review(roles, language_id),
+        # Contributors have all reviewer permissions on the change-request
+        # board (raise + vote); only admins accept/reject.
+        "can_contribute": can_contribute(roles, language_id),
         "review_policy": policy,
         "tutor_model": tutor_model,
     }
@@ -565,6 +575,119 @@ async def ai_check(
     async with privileged_connection() as conn:
         await save_ai_check(conn, point_id, result["status"], result["notes"])
     return result
+
+
+TARGET_TYPES = ("grammar_point", "drill", "vocabulary", "example_sentence", "other")
+FIELDS = ("sentence", "hint", "translation", "answer", "explanation", "other")
+
+
+class NewChangeRequest(BaseModel):
+    language_id: str
+    target_type: str = "other"
+    target_id: str | None = None
+    target_label: str | None = Field(default=None, max_length=500)
+    field: str = "other"
+    issue: str = Field(min_length=1, max_length=2000)
+    suggestion: str | None = Field(default=None, max_length=2000)
+
+
+class VoteBody(BaseModel):
+    vote: int = Field(ge=-1, le=1)
+
+
+class ResolveBody(BaseModel):
+    status: str  # 'accepted' | 'rejected'
+
+
+@router.post("/change-requests", status_code=status.HTTP_201_CREATED)
+async def create_change_request(
+    body: NewChangeRequest, user: dict = Depends(get_current_user)
+):
+    """Raise a votable change request on a card (reviewer / contributor /
+    admin for the card's language). Low-friction: name the field, say what's
+    wrong, optionally suggest a fix. Learners use 'Report an issue' instead."""
+    if body.target_type not in TARGET_TYPES or body.field not in FIELDS:
+        raise HTTPException(
+            status_code=status.HTTP_422_UNPROCESSABLE_ENTITY,
+            detail="Invalid target_type or field",
+        )
+    async with rls_connection(user["id"]) as conn:
+        roles = await get_roles(conn, user["id"])
+    if not can_contribute(roles, body.language_id):
+        raise HTTPException(
+            status_code=status.HTTP_403_FORBIDDEN,
+            detail="You need a reviewer or contributor role for this language",
+        )
+    async with privileged_connection() as conn:
+        req_id = await create_request(
+            conn, user["id"], body.language_id, body.target_type,
+            body.target_id, (body.target_label or "").strip() or None,
+            body.field, body.issue.strip(),
+            (body.suggestion or "").strip() or None,
+        )
+    return {"id": req_id}
+
+
+@router.get("/change-requests")
+async def get_change_requests(
+    language_id: str,
+    status: str = "open",
+    user: dict = Depends(get_current_user),
+):
+    """The review board for a language (reviewer / contributor / admin)."""
+    if status not in ("open", "accepted", "rejected"):
+        raise HTTPException(status_code=422, detail="Invalid status")
+    async with rls_connection(user["id"]) as conn:
+        roles = await get_roles(conn, user["id"])
+    if not can_contribute(roles, language_id):
+        raise HTTPException(
+            status_code=status.HTTP_403_FORBIDDEN,
+            detail="You need a reviewer or contributor role for this language",
+        )
+    async with privileged_connection() as conn:
+        requests = await list_requests(conn, language_id, user["id"], status)
+    return {"requests": requests, "can_resolve": is_admin(roles)}
+
+
+@router.post("/change-requests/{request_id}/vote")
+async def vote_change_request(
+    request_id: str, body: VoteBody, user: dict = Depends(get_current_user)
+):
+    """Up/down/clear a vote (reviewer / contributor / admin for the language)."""
+    async with rls_connection(user["id"]) as conn:
+        roles = await get_roles(conn, user["id"])
+    async with privileged_connection() as conn:
+        language_id = await get_request_language(conn, request_id)
+        if language_id is None:
+            raise HTTPException(status_code=404, detail="Change request not found")
+        if not can_contribute(roles, language_id):
+            raise HTTPException(
+                status_code=status.HTTP_403_FORBIDDEN,
+                detail="You need a reviewer or contributor role for this language",
+            )
+        await cast_vote(conn, request_id, user["id"], body.vote)
+    return {"ok": True}
+
+
+@router.post("/change-requests/{request_id}/resolve")
+async def resolve_change_request(
+    request_id: str, body: ResolveBody, user: dict = Depends(get_current_user)
+):
+    """Accept or reject a change request — admins only."""
+    if body.status not in ("accepted", "rejected"):
+        raise HTTPException(status_code=422, detail="status must be accepted or rejected")
+    async with rls_connection(user["id"]) as conn:
+        roles = await get_roles(conn, user["id"])
+    if not is_admin(roles):
+        raise HTTPException(
+            status_code=status.HTTP_403_FORBIDDEN,
+            detail="Only an admin can accept or reject a change request",
+        )
+    async with privileged_connection() as conn:
+        ok = await resolve_request(conn, request_id, user["id"], body.status)
+    if not ok:
+        raise HTTPException(status_code=404, detail="Change request not found or already resolved")
+    return {"status": body.status}
 
 
 @router.post("/grammar/{point_id}/notes")

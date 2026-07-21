@@ -1246,6 +1246,25 @@ Also folds in: the "all accounts" tile (every account listable,
 including never-active — previously invisible in every activity
 window).
 
+### WP31 — Card change requests: inline, votable staff suggestions (owner, 2026-07-20)
+Less friction for reviewers/contributors flagging content problems (beta:
+a Catalan reviewer wanted to mark the sentence/hint and propose a fix
+without leaving the card). New `card_change_requests` + `_votes` tables
+(privileged-connection + role-gate pattern, RLS owner-only as defense).
+An inline **Suggest a change** affordance (`SuggestChange`) appears on
+every card in **Learn and Review** for staff only (learners keep "Report
+an issue"): pick the field (sentence/hint/translation/answer/explanation),
+say what's wrong, optionally paste an alternate. It lands on the **review
+board** (`ChangeRequestsPanel`, in the Review tab) ranked by vote.
+Permissions per the owner: reviewers, contributors, AND admins raise +
+up/down-vote (backend `can_contribute`); only **admins accept/reject**.
+Contributors now have all reviewer permissions — the Review tab opens to
+them (change-request board only; approval panels stay reviewer-gated).
+Endpoints under `/api/contribute/change-requests` (create / list / vote /
+resolve). Deferred: auto-applying an accepted suggestion to the live card
+(admins apply via the existing card editor for now); a notification when
+your request resolves.
+
 ### WP30 — On-screen keyboard in the Learn section (owner, 2026-07-20)
 The review session had both QWERTY transliteration (ru/ar/el/hi, via
 DrillCard) and the on-screen keyboard (ru/ar/el/th + Latin-accent
