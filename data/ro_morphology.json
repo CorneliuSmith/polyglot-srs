@@ -1,4 +1,13 @@
 {
+"abandon": {
+"chips": [
+{
+"label": "Plural",
+"value": "abandonuri"
+}
+],
+"pos": "noun"
+},
 "abandona": {
 "charts": [
 {
@@ -932,6 +941,19 @@
 ],
 "pos": "noun"
 },
+"abuziv": {
+"chips": [
+{
+"label": "Feminine",
+"value": "abuzivă"
+},
+{
+"label": "Plural",
+"value": "abuzivi"
+}
+],
+"pos": "adj"
+},
 "abătut": {
 "chips": [
 {
@@ -1374,6 +1396,15 @@
 ],
 "pos": "verb"
 },
+"accesoriu": {
+"chips": [
+{
+"label": "Plural",
+"value": "accesorii"
+}
+],
+"pos": "noun"
+},
 "accident": {
 "chips": [
 {
@@ -1408,6 +1439,108 @@
 }
 ],
 "pos": "adj"
+},
+"achita": {
+"charts": [
+{
+"rows": [
+[
+"eu",
+"achit"
+],
+[
+"tu",
+"achiți"
+],
+[
+"el/ea",
+"achită"
+],
+[
+"noi",
+"achităm"
+],
+[
+"voi",
+"achitați"
+],
+[
+"ei",
+"achită"
+]
+],
+"title": "Present"
+},
+{
+"rows": [
+[
+"eu",
+"achitam"
+],
+[
+"tu",
+"achitai"
+],
+[
+"el/ea",
+"achita"
+],
+[
+"noi",
+"achitam"
+],
+[
+"voi",
+"achitați"
+],
+[
+"ei",
+"achitau"
+]
+],
+"title": "Imperfect"
+},
+{
+"rows": [
+[
+"eu",
+"să achit"
+],
+[
+"tu",
+"să achiți"
+],
+[
+"el/ea",
+"să achite"
+],
+[
+"noi",
+"să achităm"
+],
+[
+"voi",
+"să achitați"
+],
+[
+"ei",
+"să achite"
+]
+],
+"title": "Subjunctive (present)"
+}
+],
+"chips": [
+{
+"label": "Gerund",
+"value": "achitând"
+},
+{
+"label": "Past participle",
+"value": "achitat"
+}
+],
+"pos": "verb"
 },
 "achitat": {
 "chips": [
@@ -2216,15 +2349,6 @@
 ],
 "pos": "noun"
 },
-"ad": {
-"chips": [
-{
-"label": "Plural",
-"value": "aduri"
-}
-],
-"pos": "noun"
-},
 "adapta": {
 "charts": [
 {
@@ -2375,6 +2499,19 @@
 {
 "label": "Plural",
 "value": "ademeniți"
+}
+],
+"pos": "adj"
+},
+"adeverit": {
+"chips": [
+{
+"label": "Feminine",
+"value": "adeverită"
+},
+{
+"label": "Plural",
+"value": "adeveriți"
 }
 ],
 "pos": "adj"
@@ -2970,6 +3107,19 @@
 {
 "label": "Plural",
 "value": "adoptați"
+}
+],
+"pos": "adj"
+},
+"adoptiv": {
+"chips": [
+{
+"label": "Feminine",
+"value": "adoptivă"
+},
+{
+"label": "Plural",
+"value": "adoptivi"
 }
 ],
 "pos": "adj"
@@ -5361,6 +5511,19 @@
 ],
 "pos": "noun"
 },
+"alcătuit": {
+"chips": [
+{
+"label": "Feminine",
+"value": "alcătuită"
+},
+{
+"label": "Plural",
+"value": "alcătuiți"
+}
+],
+"pos": "adj"
+},
 "aleatoriu": {
 "chips": [
 {
@@ -5948,19 +6111,6 @@
 {
 "label": "Plural",
 "value": "alibiuri"
-}
-],
-"pos": "noun"
-},
-"alice": {
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
-},
-{
-"label": "Plural",
-"value": "alice"
 }
 ],
 "pos": "noun"
@@ -6934,6 +7084,19 @@
 ],
 "pos": "noun"
 },
+"ambalare": {
+"chips": [
+{
+"label": "Gender",
+"value": "feminine"
+},
+{
+"label": "Plural",
+"value": "ambalări"
+}
+],
+"pos": "noun"
+},
 "ambasador": {
 "chips": [
 {
@@ -7498,6 +7661,108 @@
 ],
 "pos": "noun"
 },
+"amplifica": {
+"charts": [
+{
+"rows": [
+[
+"eu",
+"amplific"
+],
+[
+"tu",
+"amplifici"
+],
+[
+"el/ea",
+"amplifică"
+],
+[
+"noi",
+"amplificăm"
+],
+[
+"voi",
+"amplificați"
+],
+[
+"ei",
+"amplifică"
+]
+],
+"title": "Present"
+},
+{
+"rows": [
+[
+"eu",
+"amplificam"
+],
+[
+"tu",
+"amplificai"
+],
+[
+"el/ea",
+"amplifica"
+],
+[
+"noi",
+"amplificam"
+],
+[
+"voi",
+"amplificați"
+],
+[
+"ei",
+"amplificau"
+]
+],
+"title": "Imperfect"
+},
+{
+"rows": [
+[
+"eu",
+"să amplific"
+],
+[
+"tu",
+"să amplifici"
+],
+[
+"el/ea",
+"să amplifice"
+],
+[
+"noi",
+"să amplificăm"
+],
+[
+"voi",
+"să amplificați"
+],
+[
+"ei",
+"să amplifice"
+]
+],
+"title": "Subjunctive (present)"
+}
+],
+"chips": [
+{
+"label": "Gerund",
+"value": "amplificând"
+},
+{
+"label": "Past participle",
+"value": "amplificat"
+}
+],
+"pos": "verb"
+},
 "amploare": {
 "chips": [
 {
@@ -7983,6 +8248,19 @@
 {
 "label": "Plural",
 "value": "ananași"
+}
+],
+"pos": "noun"
+},
+"ananghie": {
+"chips": [
+{
+"label": "Gender",
+"value": "feminine"
+},
+{
+"label": "Plural",
+"value": "ananghii"
 }
 ],
 "pos": "noun"
@@ -9588,19 +9866,6 @@
 ],
 "pos": "noun"
 },
-"apocalipsă": {
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
-},
-{
-"label": "Plural",
-"value": "apocalipse"
-}
-],
-"pos": "noun"
-},
 "apos": {
 "chips": [
 {
@@ -9738,15 +10003,6 @@
 {
 "label": "Plural",
 "value": "aprecieri"
-}
-],
-"pos": "noun"
-},
-"april": {
-"chips": [
-{
-"label": "Gender",
-"value": "masculine"
 }
 ],
 "pos": "noun"
@@ -10657,15 +10913,6 @@
 ],
 "pos": "noun"
 },
-"apăs": {
-"chips": [
-{
-"label": "Plural",
-"value": "apăsuri"
-}
-],
-"pos": "noun"
-},
 "apăsa": {
 "charts": [
 {
@@ -11099,19 +11346,6 @@
 ],
 "pos": "noun"
 },
-"arca": {
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
-},
-{
-"label": "Plural",
-"value": "arcale"
-}
-],
-"pos": "noun"
-},
 "arctic": {
 "chips": [
 {
@@ -11124,6 +11358,19 @@
 }
 ],
 "pos": "adj"
+},
+"arcă": {
+"chips": [
+{
+"label": "Gender",
+"value": "feminine"
+},
+{
+"label": "Plural",
+"value": "arce"
+}
+],
+"pos": "noun"
 },
 "arde": {
 "charts": [
@@ -11795,6 +12042,15 @@
 ],
 "pos": "noun"
 },
+"armăsarul": {
+"chips": [
+{
+"label": "Gender",
+"value": "masculine"
+}
+],
+"pos": "noun"
+},
 "arogant": {
 "chips": [
 {
@@ -11807,108 +12063,6 @@
 }
 ],
 "pos": "adj"
-},
-"aroma": {
-"charts": [
-{
-"rows": [
-[
-"eu",
-"aromez"
-],
-[
-"tu",
-"aromezi"
-],
-[
-"el/ea",
-"aromează"
-],
-[
-"noi",
-"aromăm"
-],
-[
-"voi",
-"aromați"
-],
-[
-"ei",
-"aromează"
-]
-],
-"title": "Present"
-},
-{
-"rows": [
-[
-"eu",
-"aromam"
-],
-[
-"tu",
-"aromai"
-],
-[
-"el/ea",
-"aroma"
-],
-[
-"noi",
-"aromam"
-],
-[
-"voi",
-"aromați"
-],
-[
-"ei",
-"aromau"
-]
-],
-"title": "Imperfect"
-},
-{
-"rows": [
-[
-"eu",
-"să aromez"
-],
-[
-"tu",
-"să aromezi"
-],
-[
-"el/ea",
-"să aromeze"
-],
-[
-"noi",
-"să aromăm"
-],
-[
-"voi",
-"să aromați"
-],
-[
-"ei",
-"să aromeze"
-]
-],
-"title": "Subjunctive (present)"
-}
-],
-"chips": [
-{
-"label": "Gerund",
-"value": "aromând"
-},
-{
-"label": "Past participle",
-"value": "aromat"
-}
-],
-"pos": "verb"
 },
 "aromă": {
 "chips": [
@@ -11972,6 +12126,19 @@
 {
 "label": "Gender",
 "value": "feminine"
+}
+],
+"pos": "noun"
+},
+"arteră": {
+"chips": [
+{
+"label": "Gender",
+"value": "feminine"
+},
+{
+"label": "Plural",
+"value": "artere"
 }
 ],
 "pos": "noun"
@@ -12210,6 +12377,15 @@
 "label": "Gender",
 "value": "feminine"
 },
+{
+"label": "Plural",
+"value": "arzătoare"
+}
+],
+"pos": "noun"
+},
+"arzător": {
+"chips": [
 {
 "label": "Plural",
 "value": "arzătoare"
@@ -13243,15 +13419,6 @@
 ],
 "pos": "noun"
 },
-"astm": {
-"chips": [
-{
-"label": "Plural",
-"value": "astmuri"
-}
-],
-"pos": "noun"
-},
 "astronaut": {
 "chips": [
 {
@@ -13975,6 +14142,19 @@
 }
 ],
 "pos": "noun"
+},
+"atletic": {
+"chips": [
+{
+"label": "Feminine",
+"value": "atletică"
+},
+{
+"label": "Plural",
+"value": "atletici"
+}
+],
+"pos": "adj"
 },
 "atmosferă": {
 "chips": [
@@ -14738,6 +14918,15 @@
 ],
 "pos": "verb"
 },
+"avanpost": {
+"chips": [
+{
+"label": "Plural",
+"value": "avanposturi"
+}
+],
+"pos": "noun"
+},
 "avans": {
 "chips": [
 {
@@ -15128,6 +15317,15 @@
 {
 "label": "Plural",
 "value": "averi"
+}
+],
+"pos": "noun"
+},
+"averi": {
+"chips": [
+{
+"label": "Gender",
+"value": "feminine"
 }
 ],
 "pos": "noun"
@@ -15565,6 +15763,19 @@
 ],
 "pos": "noun"
 },
+"baghetă": {
+"chips": [
+{
+"label": "Gender",
+"value": "feminine"
+},
+{
+"label": "Plural",
+"value": "baghete"
+}
+],
+"pos": "noun"
+},
 "bai": {
 "chips": [
 {
@@ -15641,6 +15852,19 @@
 {
 "label": "Plural",
 "value": "balene"
+}
+],
+"pos": "noun"
+},
+"balerină": {
+"chips": [
+{
+"label": "Gender",
+"value": "feminine"
+},
+{
+"label": "Plural",
+"value": "balerine"
 }
 ],
 "pos": "noun"
@@ -17250,6 +17474,15 @@
 ],
 "pos": "adj"
 },
+"bifat": {
+"chips": [
+{
+"label": "Plural",
+"value": "bifaturi"
+}
+],
+"pos": "noun"
+},
 "bijuterie": {
 "chips": [
 {
@@ -17522,6 +17755,19 @@
 ],
 "pos": "adj"
 },
+"bizon": {
+"chips": [
+{
+"label": "Gender",
+"value": "masculine"
+},
+{
+"label": "Plural",
+"value": "bizoni"
+}
+],
+"pos": "noun"
+},
 "blană": {
 "chips": [
 {
@@ -17566,6 +17812,19 @@
 {
 "label": "Plural",
 "value": "blestemați"
+}
+],
+"pos": "adj"
+},
+"blindat": {
+"chips": [
+{
+"label": "Feminine",
+"value": "blindată"
+},
+{
+"label": "Plural",
+"value": "blindați"
 }
 ],
 "pos": "adj"
@@ -17936,6 +18195,19 @@
 {
 "label": "Plural",
 "value": "bolnave"
+}
+],
+"pos": "noun"
+},
+"bolovan": {
+"chips": [
+{
+"label": "Gender",
+"value": "masculine"
+},
+{
+"label": "Plural",
+"value": "bolovani"
 }
 ],
 "pos": "noun"
@@ -18712,19 +18984,6 @@
 ],
 "pos": "noun"
 },
-"brânci": {
-"chips": [
-{
-"label": "Gender",
-"value": "masculine"
-},
-{
-"label": "Plural",
-"value": "brânci"
-}
-],
-"pos": "noun"
-},
 "brânză": {
 "chips": [
 {
@@ -18759,6 +19018,108 @@
 }
 ],
 "pos": "noun"
+},
+"bucla": {
+"charts": [
+{
+"rows": [
+[
+"eu",
+"buclez"
+],
+[
+"tu",
+"buclezi"
+],
+[
+"el/ea",
+"buclează"
+],
+[
+"noi",
+"buclăm"
+],
+[
+"voi",
+"buclați"
+],
+[
+"ei",
+"buclează"
+]
+],
+"title": "Present"
+},
+{
+"rows": [
+[
+"eu",
+"buclam"
+],
+[
+"tu",
+"buclai"
+],
+[
+"el/ea",
+"bucla"
+],
+[
+"noi",
+"buclam"
+],
+[
+"voi",
+"buclați"
+],
+[
+"ei",
+"buclau"
+]
+],
+"title": "Imperfect"
+},
+{
+"rows": [
+[
+"eu",
+"să buclez"
+],
+[
+"tu",
+"să buclezi"
+],
+[
+"el/ea",
+"să bucleze"
+],
+[
+"noi",
+"să buclăm"
+],
+[
+"voi",
+"să buclați"
+],
+[
+"ei",
+"să bucleze"
+]
+],
+"title": "Subjunctive (present)"
+}
+],
+"chips": [
+{
+"label": "Gerund",
+"value": "buclând"
+},
+{
+"label": "Past participle",
+"value": "buclat"
+}
+],
+"pos": "verb"
 },
 "bucluc": {
 "chips": [
@@ -19060,6 +19421,108 @@
 ],
 "pos": "verb"
 },
+"buda": {
+"charts": [
+{
+"rows": [
+[
+"eu",
+"budez"
+],
+[
+"tu",
+"budezi"
+],
+[
+"el/ea",
+"budează"
+],
+[
+"noi",
+"budăm"
+],
+[
+"voi",
+"budați"
+],
+[
+"ei",
+"budează"
+]
+],
+"title": "Present"
+},
+{
+"rows": [
+[
+"eu",
+"budam"
+],
+[
+"tu",
+"budai"
+],
+[
+"el/ea",
+"buda"
+],
+[
+"noi",
+"budam"
+],
+[
+"voi",
+"budați"
+],
+[
+"ei",
+"budau"
+]
+],
+"title": "Imperfect"
+},
+{
+"rows": [
+[
+"eu",
+"să budez"
+],
+[
+"tu",
+"să budezi"
+],
+[
+"el/ea",
+"să budeze"
+],
+[
+"noi",
+"să budăm"
+],
+[
+"voi",
+"să budați"
+],
+[
+"ei",
+"să budeze"
+]
+],
+"title": "Subjunctive (present)"
+}
+],
+"chips": [
+{
+"label": "Gerund",
+"value": "budând"
+},
+{
+"label": "Past participle",
+"value": "budat"
+}
+],
+"pos": "verb"
+},
 "budincă": {
 "chips": [
 {
@@ -19253,6 +19716,15 @@
 ],
 "pos": "noun"
 },
+"burlaci": {
+"chips": [
+{
+"label": "Gender",
+"value": "masculine"
+}
+],
+"pos": "noun"
+},
 "bursă": {
 "chips": [
 {
@@ -19315,6 +19787,15 @@
 {
 "label": "Plural",
 "value": "busole"
+}
+],
+"pos": "noun"
+},
+"bust": {
+"chips": [
+{
+"label": "Plural",
+"value": "busturi"
 }
 ],
 "pos": "noun"
@@ -19541,6 +20022,19 @@
 ],
 "pos": "noun"
 },
+"băcănie": {
+"chips": [
+{
+"label": "Gender",
+"value": "feminine"
+},
+{
+"label": "Plural",
+"value": "băcănii"
+}
+],
+"pos": "noun"
+},
 "bădăran": {
 "chips": [
 {
@@ -19655,19 +20149,6 @@
 }
 ],
 "pos": "verb"
-},
-"băgat": {
-"chips": [
-{
-"label": "Feminine",
-"value": "băgată"
-},
-{
-"label": "Plural",
-"value": "băgați"
-}
-],
-"pos": "adj"
 },
 "băi": {
 "chips": [
@@ -19806,6 +20287,19 @@
 ],
 "pos": "verb"
 },
+"bărbătesc": {
+"chips": [
+{
+"label": "Feminine",
+"value": "bărbătească"
+},
+{
+"label": "Plural",
+"value": "bărbătești"
+}
+],
+"pos": "adj"
+},
 "bătaie": {
 "chips": [
 {
@@ -19831,6 +20325,19 @@
 }
 ],
 "pos": "adj"
+},
+"bătrânică": {
+"chips": [
+{
+"label": "Gender",
+"value": "feminine"
+},
+{
+"label": "Plural",
+"value": "bătrânele"
+}
+],
+"pos": "noun"
 },
 "bătrână": {
 "chips": [
@@ -22212,6 +22719,19 @@
 ],
 "pos": "noun"
 },
+"castravete": {
+"chips": [
+{
+"label": "Gender",
+"value": "masculine"
+},
+{
+"label": "Plural",
+"value": "castraveți"
+}
+],
+"pos": "noun"
+},
 "castron": {
 "chips": [
 {
@@ -22261,6 +22781,19 @@
 {
 "label": "Plural",
 "value": "catastrofe"
+}
+],
+"pos": "noun"
+},
+"catedrală": {
+"chips": [
+{
+"label": "Gender",
+"value": "feminine"
+},
+{
+"label": "Plural",
+"value": "catedrale"
 }
 ],
 "pos": "noun"
@@ -22590,7 +23123,7 @@
 ],
 "pos": "noun"
 },
-"cazino": {
+"cazinou": {
 "chips": [
 {
 "label": "Plural",
@@ -22599,11 +23132,11 @@
 ],
 "pos": "noun"
 },
-"cazinou": {
+"cd": {
 "chips": [
 {
 "label": "Plural",
-"value": "cazinouri"
+"value": "CD-uri"
 }
 ],
 "pos": "noun"
@@ -22624,8 +23157,8 @@
 "ceai": {
 "chips": [
 {
-"label": "Gender",
-"value": "masculine"
+"label": "Plural",
+"value": "ceaiuri"
 }
 ],
 "pos": "noun"
@@ -22701,6 +23234,19 @@
 {
 "label": "Gender",
 "value": "feminine"
+}
+],
+"pos": "noun"
+},
+"ceată": {
+"chips": [
+{
+"label": "Gender",
+"value": "feminine"
+},
+{
+"label": "Plural",
+"value": "cete"
 }
 ],
 "pos": "noun"
@@ -22841,6 +23387,15 @@
 }
 ],
 "pos": "adj"
+},
+"cei": {
+"chips": [
+{
+"label": "Plural",
+"value": "CEI-uri"
+}
+],
+"pos": "noun"
 },
 "celebra": {
 "charts": [
@@ -23160,6 +23715,19 @@
 {
 "label": "Plural",
 "value": "ceruri"
+}
+],
+"pos": "noun"
+},
+"ceramică": {
+"chips": [
+{
+"label": "Gender",
+"value": "feminine"
+},
+{
+"label": "Plural",
+"value": "ceramice"
 }
 ],
 "pos": "noun"
@@ -23675,6 +24243,19 @@
 ],
 "pos": "verb"
 },
+"cetate": {
+"chips": [
+{
+"label": "Gender",
+"value": "feminine"
+},
+{
+"label": "Plural",
+"value": "cetăți"
+}
+],
+"pos": "noun"
+},
 "cezar": {
 "chips": [
 {
@@ -24098,107 +24679,23 @@
 ],
 "pos": "noun"
 },
-"chili": {
-"charts": [
-{
-"rows": [
-[
-"eu",
-"chilesc"
-],
-[
-"tu",
-"chilești"
-],
-[
-"el/ea",
-"chilește"
-],
-[
-"noi",
-"chilim"
-],
-[
-"voi",
-"chiliți"
-],
-[
-"ei",
-"chilesc"
-]
-],
-"title": "Present"
-},
-{
-"rows": [
-[
-"eu",
-"chileam"
-],
-[
-"tu",
-"chileai"
-],
-[
-"el/ea",
-"chilea"
-],
-[
-"noi",
-"chileam"
-],
-[
-"voi",
-"chileați"
-],
-[
-"ei",
-"chileau"
-]
-],
-"title": "Imperfect"
-},
-{
-"rows": [
-[
-"eu",
-"să chilesc"
-],
-[
-"tu",
-"să chilești"
-],
-[
-"el/ea",
-"să chilească"
-],
-[
-"noi",
-"să chilim"
-],
-[
-"voi",
-"să chiliți"
-],
-[
-"ei",
-"să chilească"
-]
-],
-"title": "Subjunctive (present)"
-}
-],
+"chifle": {
 "chips": [
 {
-"label": "Gerund",
-"value": "chilind"
-},
-{
-"label": "Past participle",
-"value": "chilit"
+"label": "Gender",
+"value": "feminine"
 }
 ],
-"pos": "verb"
+"pos": "noun"
+},
+"chilipir": {
+"chips": [
+{
+"label": "Plural",
+"value": "chilipiruri"
+}
+],
+"pos": "noun"
 },
 "chimic": {
 "chips": [
@@ -24508,19 +25005,6 @@
 ],
 "pos": "noun"
 },
-"chit": {
-"chips": [
-{
-"label": "Gender",
-"value": "masculine"
-},
-{
-"label": "Plural",
-"value": "chiți"
-}
-],
-"pos": "noun"
-},
 "chitara": {
 "chips": [
 {
@@ -24556,6 +25040,15 @@
 ],
 "pos": "noun"
 },
+"ci": {
+"chips": [
+{
+"label": "Plural",
+"value": "CI-uri"
+}
+],
+"pos": "noun"
+},
 "cianură": {
 "chips": [
 {
@@ -24568,6 +25061,19 @@
 }
 ],
 "pos": "noun"
+},
+"cibernetic": {
+"chips": [
+{
+"label": "Feminine",
+"value": "cibernetică"
+},
+{
+"label": "Plural",
+"value": "cibernetici"
+}
+],
+"pos": "adj"
 },
 "cicatrice": {
 "chips": [
@@ -25827,6 +26333,32 @@
 ],
 "pos": "noun"
 },
+"clauză": {
+"chips": [
+{
+"label": "Gender",
+"value": "feminine"
+},
+{
+"label": "Plural",
+"value": "clauze"
+}
+],
+"pos": "noun"
+},
+"clement": {
+"chips": [
+{
+"label": "Feminine",
+"value": "clementă"
+},
+{
+"label": "Plural",
+"value": "clemenți"
+}
+],
+"pos": "adj"
+},
 "client": {
 "chips": [
 {
@@ -26670,6 +27202,15 @@
 ],
 "pos": "verb"
 },
+"coc": {
+"chips": [
+{
+"label": "Plural",
+"value": "cocuri"
+}
+],
+"pos": "noun"
+},
 "coca": {
 "chips": [
 {
@@ -26688,6 +27229,19 @@
 {
 "label": "Plural",
 "value": "cocaine"
+}
+],
+"pos": "noun"
+},
+"cocină": {
+"chips": [
+{
+"label": "Gender",
+"value": "feminine"
+},
+{
+"label": "Plural",
+"value": "cocini"
 }
 ],
 "pos": "noun"
@@ -27063,6 +27617,15 @@
 {
 "label": "Plural",
 "value": "colege"
+}
+],
+"pos": "noun"
+},
+"colet": {
+"chips": [
+{
+"label": "Plural",
+"value": "colete"
 }
 ],
 "pos": "noun"
@@ -27665,6 +28228,19 @@
 ],
 "pos": "noun"
 },
+"cometă": {
+"chips": [
+{
+"label": "Gender",
+"value": "feminine"
+},
+{
+"label": "Plural",
+"value": "comete"
+}
+],
+"pos": "noun"
+},
 "comic": {
 "chips": [
 {
@@ -27833,19 +28409,6 @@
 {
 "label": "Plural",
 "value": "comitete"
-}
-],
-"pos": "noun"
-},
-"comită": {
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
-},
-{
-"label": "Plural",
-"value": "comite"
 }
 ],
 "pos": "noun"
@@ -28171,6 +28734,19 @@
 }
 ],
 "pos": "verb"
+},
+"compensare": {
+"chips": [
+{
+"label": "Gender",
+"value": "feminine"
+},
+{
+"label": "Plural",
+"value": "compensări"
+}
+],
+"pos": "noun"
 },
 "competent": {
 "chips": [
@@ -28733,6 +29309,108 @@
 ],
 "pos": "verb"
 },
+"compune": {
+"charts": [
+{
+"rows": [
+[
+"eu",
+"compun"
+],
+[
+"tu",
+"compui"
+],
+[
+"el/ea",
+"compune"
+],
+[
+"noi",
+"compunem"
+],
+[
+"voi",
+"compuneți"
+],
+[
+"ei",
+"compun"
+]
+],
+"title": "Present"
+},
+{
+"rows": [
+[
+"eu",
+"compuneam"
+],
+[
+"tu",
+"compuneai"
+],
+[
+"el/ea",
+"compunea"
+],
+[
+"noi",
+"compuneam"
+],
+[
+"voi",
+"compuneați"
+],
+[
+"ei",
+"compuneau"
+]
+],
+"title": "Imperfect"
+},
+{
+"rows": [
+[
+"eu",
+"să compun"
+],
+[
+"tu",
+"să compui"
+],
+[
+"el/ea",
+"să compună"
+],
+[
+"noi",
+"să compunem"
+],
+[
+"voi",
+"să compuneți"
+],
+[
+"ei",
+"să compună"
+]
+],
+"title": "Subjunctive (present)"
+}
+],
+"chips": [
+{
+"label": "Gerund",
+"value": "compunând"
+},
+{
+"label": "Past participle",
+"value": "compus"
+}
+],
+"pos": "verb"
+},
 "compus": {
 "chips": [
 {
@@ -28767,6 +29445,15 @@
 }
 ],
 "pos": "adj"
+},
+"comuna": {
+"chips": [
+{
+"label": "Gender",
+"value": "feminine"
+}
+],
+"pos": "noun"
 },
 "comunica": {
 "charts": [
@@ -29249,6 +29936,108 @@
 ],
 "pos": "noun"
 },
+"concepe": {
+"charts": [
+{
+"rows": [
+[
+"eu",
+"concep"
+],
+[
+"tu",
+"concepi"
+],
+[
+"el/ea",
+"concepe"
+],
+[
+"noi",
+"concepem"
+],
+[
+"voi",
+"concepeți"
+],
+[
+"ei",
+"concep"
+]
+],
+"title": "Present"
+},
+{
+"rows": [
+[
+"eu",
+"concepeam"
+],
+[
+"tu",
+"concepeai"
+],
+[
+"el/ea",
+"concepea"
+],
+[
+"noi",
+"concepeam"
+],
+[
+"voi",
+"concepeați"
+],
+[
+"ei",
+"concepeau"
+]
+],
+"title": "Imperfect"
+},
+{
+"rows": [
+[
+"eu",
+"să concep"
+],
+[
+"tu",
+"să concepi"
+],
+[
+"el/ea",
+"să conceapă"
+],
+[
+"noi",
+"să concepem"
+],
+[
+"voi",
+"să concepeți"
+],
+[
+"ei",
+"să conceapă"
+]
+],
+"title": "Subjunctive (present)"
+}
+],
+"chips": [
+{
+"label": "Gerund",
+"value": "concepând"
+},
+{
+"label": "Past participle",
+"value": "conceput"
+}
+],
+"pos": "verb"
+},
 "concept": {
 "chips": [
 {
@@ -29712,6 +30501,19 @@
 ],
 "pos": "noun"
 },
+"conduită": {
+"chips": [
+{
+"label": "Gender",
+"value": "feminine"
+},
+{
+"label": "Plural",
+"value": "conduite"
+}
+],
+"pos": "noun"
+},
 "condus": {
 "chips": [
 {
@@ -29982,6 +30784,108 @@
 {
 "label": "Past participle",
 "value": "of confirma"
+}
+],
+"pos": "verb"
+},
+"confisca": {
+"charts": [
+{
+"rows": [
+[
+"eu",
+"confisc"
+],
+[
+"tu",
+"confiști"
+],
+[
+"el/ea",
+"confiscă"
+],
+[
+"noi",
+"confiscăm"
+],
+[
+"voi",
+"confiscați"
+],
+[
+"ei",
+"confiscă"
+]
+],
+"title": "Present"
+},
+{
+"rows": [
+[
+"eu",
+"confiscam"
+],
+[
+"tu",
+"confiscai"
+],
+[
+"el/ea",
+"confisca"
+],
+[
+"noi",
+"confiscam"
+],
+[
+"voi",
+"confiscați"
+],
+[
+"ei",
+"confiscau"
+]
+],
+"title": "Imperfect"
+},
+{
+"rows": [
+[
+"eu",
+"să confisc"
+],
+[
+"tu",
+"să confiști"
+],
+[
+"el/ea",
+"să confiște"
+],
+[
+"noi",
+"să confiscăm"
+],
+[
+"voi",
+"să confiscați"
+],
+[
+"ei",
+"să confiște"
+]
+],
+"title": "Subjunctive (present)"
+}
+],
+"chips": [
+{
+"label": "Gerund",
+"value": "confiscând"
+},
+{
+"label": "Past participle",
+"value": "confiscat"
 }
 ],
 "pos": "verb"
@@ -30309,19 +31213,6 @@
 {
 "label": "Plural",
 "value": "congrese"
-}
-],
-"pos": "noun"
-},
-"congresman": {
-"chips": [
-{
-"label": "Gender",
-"value": "masculine"
-},
-{
-"label": "Plural",
-"value": "congresmeni"
 }
 ],
 "pos": "noun"
@@ -31058,6 +31949,15 @@
 ],
 "pos": "noun"
 },
+"consulat": {
+"chips": [
+{
+"label": "Plural",
+"value": "consulate"
+}
+],
+"pos": "noun"
+},
 "consult": {
 "chips": [
 {
@@ -31442,6 +32342,15 @@
 }
 ],
 "pos": "adj"
+},
+"contabile": {
+"chips": [
+{
+"label": "Gender",
+"value": "feminine"
+}
+],
+"pos": "noun"
 },
 "contabilitate": {
 "chips": [
@@ -32047,6 +32956,15 @@
 }
 ],
 "pos": "adj"
+},
+"contrast": {
+"chips": [
+{
+"label": "Plural",
+"value": "contraste"
+}
+],
+"pos": "noun"
 },
 "contrazice": {
 "charts": [
@@ -33190,6 +34108,15 @@
 ],
 "pos": "noun"
 },
+"cordon": {
+"chips": [
+{
+"label": "Plural",
+"value": "cordoane"
+}
+],
+"pos": "noun"
+},
 "corect": {
 "chips": [
 {
@@ -33539,15 +34466,6 @@
 ],
 "pos": "adj"
 },
-"cosciug": {
-"chips": [
-{
-"label": "Plural",
-"value": "cosciuge"
-}
-],
-"pos": "noun"
-},
 "cosmic": {
 "chips": [
 {
@@ -33867,6 +34785,15 @@
 {
 "label": "Gender",
 "value": "feminine"
+}
+],
+"pos": "noun"
+},
+"coșmar": {
+"chips": [
+{
+"label": "Plural",
+"value": "coșmaruri"
 }
 ],
 "pos": "noun"
@@ -34816,6 +35743,19 @@
 ],
 "pos": "noun"
 },
+"cruciadă": {
+"chips": [
+{
+"label": "Gender",
+"value": "feminine"
+},
+{
+"label": "Plural",
+"value": "cruciade"
+}
+],
+"pos": "noun"
+},
 "crucial": {
 "chips": [
 {
@@ -34992,6 +35932,19 @@
 ],
 "pos": "verb"
 },
+"cucerire": {
+"chips": [
+{
+"label": "Gender",
+"value": "feminine"
+},
+{
+"label": "Plural",
+"value": "cuceriri"
+}
+],
+"pos": "noun"
+},
 "cucerit": {
 "chips": [
 {
@@ -35004,6 +35957,19 @@
 }
 ],
 "pos": "adj"
+},
+"cuceritor": {
+"chips": [
+{
+"label": "Gender",
+"value": "masculine"
+},
+{
+"label": "Plural",
+"value": "cuceritori"
+}
+],
+"pos": "noun"
 },
 "cucoană": {
 "chips": [
@@ -35906,6 +36872,15 @@
 ],
 "pos": "noun"
 },
+"cupon": {
+"chips": [
+{
+"label": "Plural",
+"value": "cupoane"
+}
+],
+"pos": "noun"
+},
 "cuprinde": {
 "charts": [
 {
@@ -36537,19 +37512,6 @@
 ],
 "pos": "noun"
 },
-"curând": {
-"chips": [
-{
-"label": "Feminine",
-"value": "curândă"
-},
-{
-"label": "Plural",
-"value": "curânzi"
-}
-],
-"pos": "adj"
-},
 "curăța": {
 "charts": [
 {
@@ -36719,15 +37681,6 @@
 {
 "label": "Gender",
 "value": "masculine"
-}
-],
-"pos": "noun"
-},
-"cutter": {
-"chips": [
-{
-"label": "Plural",
-"value": "cuttere"
 }
 ],
 "pos": "noun"
@@ -36945,6 +37898,19 @@
 {
 "label": "Plural",
 "value": "cârlige"
+}
+],
+"pos": "noun"
+},
+"cârmă": {
+"chips": [
+{
+"label": "Gender",
+"value": "feminine"
+},
+{
+"label": "Plural",
+"value": "cârme"
 }
 ],
 "pos": "noun"
@@ -39011,6 +39977,19 @@
 ],
 "pos": "noun"
 },
+"dara": {
+"chips": [
+{
+"label": "Gender",
+"value": "feminine"
+},
+{
+"label": "Plural",
+"value": "darale"
+}
+],
+"pos": "noun"
+},
 "dat": {
 "chips": [
 {
@@ -39241,19 +40220,6 @@
 ],
 "pos": "verb"
 },
-"datorat": {
-"chips": [
-{
-"label": "Feminine",
-"value": "datorată"
-},
-{
-"label": "Plural",
-"value": "datorați"
-}
-],
-"pos": "adj"
-},
 "datori": {
 "charts": [
 {
@@ -39425,6 +40391,19 @@
 }
 ],
 "pos": "noun"
+},
+"debarcat": {
+"chips": [
+{
+"label": "Feminine",
+"value": "debarcată"
+},
+{
+"label": "Plural",
+"value": "debarcați"
+}
+],
+"pos": "adj"
 },
 "decan": {
 "chips": [
@@ -40189,6 +41168,108 @@
 ],
 "pos": "adj"
 },
+"defecta": {
+"charts": [
+{
+"rows": [
+[
+"eu",
+"defectez"
+],
+[
+"tu",
+"defectezi"
+],
+[
+"el/ea",
+"defectează"
+],
+[
+"noi",
+"defectăm"
+],
+[
+"voi",
+"defectați"
+],
+[
+"ei",
+"defectează"
+]
+],
+"title": "Present"
+},
+{
+"rows": [
+[
+"eu",
+"defectam"
+],
+[
+"tu",
+"defectai"
+],
+[
+"el/ea",
+"defecta"
+],
+[
+"noi",
+"defectam"
+],
+[
+"voi",
+"defectați"
+],
+[
+"ei",
+"defectau"
+]
+],
+"title": "Imperfect"
+},
+{
+"rows": [
+[
+"eu",
+"să defectez"
+],
+[
+"tu",
+"să defectezi"
+],
+[
+"el/ea",
+"să defecteze"
+],
+[
+"noi",
+"să defectăm"
+],
+[
+"voi",
+"să defectați"
+],
+[
+"ei",
+"să defecteze"
+]
+],
+"title": "Subjunctive (present)"
+}
+],
+"chips": [
+{
+"label": "Gerund",
+"value": "defectând"
+},
+{
+"label": "Past participle",
+"value": "defectat"
+}
+],
+"pos": "verb"
+},
 "defectat": {
 "chips": [
 {
@@ -40227,6 +41308,108 @@
 }
 ],
 "pos": "noun"
+},
+"defini": {
+"charts": [
+{
+"rows": [
+[
+"eu",
+"definesc"
+],
+[
+"tu",
+"definești"
+],
+[
+"el/ea",
+"definește"
+],
+[
+"noi",
+"definim"
+],
+[
+"voi",
+"definiți"
+],
+[
+"ei",
+"definesc"
+]
+],
+"title": "Present"
+},
+{
+"rows": [
+[
+"eu",
+"defineam"
+],
+[
+"tu",
+"defineai"
+],
+[
+"el/ea",
+"definea"
+],
+[
+"noi",
+"defineam"
+],
+[
+"voi",
+"defineați"
+],
+[
+"ei",
+"defineau"
+]
+],
+"title": "Imperfect"
+},
+{
+"rows": [
+[
+"eu",
+"să definesc"
+],
+[
+"tu",
+"să definești"
+],
+[
+"el/ea",
+"să definească"
+],
+[
+"noi",
+"să definim"
+],
+[
+"voi",
+"să definiți"
+],
+[
+"ei",
+"să definească"
+]
+],
+"title": "Subjunctive (present)"
+}
+],
+"chips": [
+{
+"label": "Gerund",
+"value": "definind"
+},
+{
+"label": "Past participle",
+"value": "definit"
+}
+],
+"pos": "verb"
 },
 "definit": {
 "chips": [
@@ -41024,6 +42207,108 @@
 ],
 "pos": "verb"
 },
+"depista": {
+"charts": [
+{
+"rows": [
+[
+"eu",
+"depistez"
+],
+[
+"tu",
+"depistezi"
+],
+[
+"el/ea",
+"depistează"
+],
+[
+"noi",
+"depistăm"
+],
+[
+"voi",
+"depistați"
+],
+[
+"ei",
+"depistează"
+]
+],
+"title": "Present"
+},
+{
+"rows": [
+[
+"eu",
+"depistam"
+],
+[
+"tu",
+"depistai"
+],
+[
+"el/ea",
+"depista"
+],
+[
+"noi",
+"depistam"
+],
+[
+"voi",
+"depistați"
+],
+[
+"ei",
+"depistau"
+]
+],
+"title": "Imperfect"
+},
+{
+"rows": [
+[
+"eu",
+"să depistez"
+],
+[
+"tu",
+"să depistezi"
+],
+[
+"el/ea",
+"să depisteze"
+],
+[
+"noi",
+"să depistăm"
+],
+[
+"voi",
+"să depistați"
+],
+[
+"ei",
+"să depisteze"
+]
+],
+"title": "Subjunctive (present)"
+}
+],
+"chips": [
+{
+"label": "Gerund",
+"value": "depistând"
+},
+{
+"label": "Past participle",
+"value": "depistat"
+}
+],
+"pos": "verb"
+},
 "depistat": {
 "chips": [
 {
@@ -41196,19 +42481,6 @@
 {
 "label": "Plural",
 "value": "depozitări"
-}
-],
-"pos": "noun"
-},
-"depresie": {
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
-},
-{
-"label": "Plural",
-"value": "depresii"
 }
 ],
 "pos": "noun"
@@ -43014,6 +44286,19 @@
 ],
 "pos": "verb"
 },
+"determinare": {
+"chips": [
+{
+"label": "Gender",
+"value": "feminine"
+},
+{
+"label": "Plural",
+"value": "determinări"
+}
+],
+"pos": "noun"
+},
 "determinat": {
 "chips": [
 {
@@ -43429,108 +44714,6 @@
 ],
 "pos": "adj"
 },
-"devina": {
-"charts": [
-{
-"rows": [
-[
-"eu",
-"devinez"
-],
-[
-"tu",
-"devinezi"
-],
-[
-"el/ea",
-"devinează"
-],
-[
-"noi",
-"devinăm"
-],
-[
-"voi",
-"devinați"
-],
-[
-"ei",
-"devinează"
-]
-],
-"title": "Present"
-},
-{
-"rows": [
-[
-"eu",
-"devinam"
-],
-[
-"tu",
-"devinai"
-],
-[
-"el/ea",
-"devina"
-],
-[
-"noi",
-"devinam"
-],
-[
-"voi",
-"devinați"
-],
-[
-"ei",
-"devinau"
-]
-],
-"title": "Imperfect"
-},
-{
-"rows": [
-[
-"eu",
-"să devinez"
-],
-[
-"tu",
-"să devinezi"
-],
-[
-"el/ea",
-"să devineze"
-],
-[
-"noi",
-"să devinăm"
-],
-[
-"voi",
-"să devinați"
-],
-[
-"ei",
-"să devineze"
-]
-],
-"title": "Subjunctive (present)"
-}
-],
-"chips": [
-{
-"label": "Gerund",
-"value": "devinând"
-},
-{
-"label": "Past participle",
-"value": "devinat"
-}
-],
-"pos": "verb"
-},
 "devotament": {
 "chips": [
 {
@@ -43888,6 +45071,19 @@
 ],
 "pos": "noun"
 },
+"dezgustat": {
+"chips": [
+{
+"label": "Feminine",
+"value": "dezgustată"
+},
+{
+"label": "Plural",
+"value": "dezgustați"
+}
+],
+"pos": "adj"
+},
 "dezgustător": {
 "chips": [
 {
@@ -43913,6 +45109,121 @@
 }
 ],
 "pos": "noun"
+},
+"dezlega": {
+"charts": [
+{
+"rows": [
+[
+"eu",
+"dezleg"
+],
+[
+"tu",
+"dezlegi"
+],
+[
+"el/ea",
+"dezleagă"
+],
+[
+"noi",
+"dezlegăm"
+],
+[
+"voi",
+"dezlegați"
+],
+[
+"ei",
+"dezleagă"
+]
+],
+"title": "Present"
+},
+{
+"rows": [
+[
+"eu",
+"dezlegam"
+],
+[
+"tu",
+"dezlegai"
+],
+[
+"el/ea",
+"dezlega"
+],
+[
+"noi",
+"dezlegam"
+],
+[
+"voi",
+"dezlegați"
+],
+[
+"ei",
+"dezlegau"
+]
+],
+"title": "Imperfect"
+},
+{
+"rows": [
+[
+"eu",
+"să dezleg"
+],
+[
+"tu",
+"să dezlegi"
+],
+[
+"el/ea",
+"să dezlege"
+],
+[
+"noi",
+"să dezlegăm"
+],
+[
+"voi",
+"să dezlegați"
+],
+[
+"ei",
+"să dezlege"
+]
+],
+"title": "Subjunctive (present)"
+}
+],
+"chips": [
+{
+"label": "Gerund",
+"value": "dezlegând"
+},
+{
+"label": "Past participle",
+"value": "dezlegat"
+}
+],
+"pos": "verb"
+},
+"dezlegat": {
+"chips": [
+{
+"label": "Feminine",
+"value": "dezlegată"
+},
+{
+"label": "Plural",
+"value": "dezlegați"
+}
+],
+"pos": "adj"
 },
 "dezonorat": {
 "chips": [
@@ -44311,6 +45622,19 @@
 ],
 "pos": "verb"
 },
+"deținut": {
+"chips": [
+{
+"label": "Gender",
+"value": "masculine"
+},
+{
+"label": "Plural",
+"value": "deținuți"
+}
+],
+"pos": "noun"
+},
 "diabet": {
 "chips": [
 {
@@ -44573,6 +45897,19 @@
 }
 ],
 "pos": "noun"
+},
+"dinamic": {
+"chips": [
+{
+"label": "Feminine",
+"value": "dinamică"
+},
+{
+"label": "Plural",
+"value": "dinamici"
+}
+],
+"pos": "adj"
 },
 "dinamita": {
 "charts": [
@@ -45093,6 +46430,15 @@
 ],
 "pos": "noun"
 },
+"discount": {
+"chips": [
+{
+"label": "Plural",
+"value": "discounturi"
+}
+],
+"pos": "noun"
+},
 "discret": {
 "chips": [
 {
@@ -45282,6 +46628,15 @@
 ],
 "pos": "adj"
 },
+"dispecerat": {
+"chips": [
+{
+"label": "Plural",
+"value": "dispecerate"
+}
+],
+"pos": "noun"
+},
 "disperare": {
 "chips": [
 {
@@ -45294,19 +46649,6 @@
 }
 ],
 "pos": "noun"
-},
-"disperat": {
-"chips": [
-{
-"label": "Feminine",
-"value": "disperată"
-},
-{
-"label": "Plural",
-"value": "disperați"
-}
-],
-"pos": "adj"
 },
 "disponibil": {
 "chips": [
@@ -45700,6 +47042,108 @@
 }
 ],
 "pos": "noun"
+},
+"distinge": {
+"charts": [
+{
+"rows": [
+[
+"eu",
+"disting"
+],
+[
+"tu",
+"distingi"
+],
+[
+"el/ea",
+"distinge"
+],
+[
+"noi",
+"distingem"
+],
+[
+"voi",
+"distingeți"
+],
+[
+"ei",
+"disting"
+]
+],
+"title": "Present"
+},
+{
+"rows": [
+[
+"eu",
+"distingeam"
+],
+[
+"tu",
+"distingeai"
+],
+[
+"el/ea",
+"distingea"
+],
+[
+"noi",
+"distingeam"
+],
+[
+"voi",
+"distingeați"
+],
+[
+"ei",
+"distingeau"
+]
+],
+"title": "Imperfect"
+},
+{
+"rows": [
+[
+"eu",
+"să disting"
+],
+[
+"tu",
+"să distingi"
+],
+[
+"el/ea",
+"să distingă"
+],
+[
+"noi",
+"să distingem"
+],
+[
+"voi",
+"să distingeți"
+],
+[
+"ei",
+"să distingă"
+]
+],
+"title": "Subjunctive (present)"
+}
+],
+"chips": [
+{
+"label": "Gerund",
+"value": "distingând"
+},
+{
+"label": "Past participle",
+"value": "distins"
+}
+],
+"pos": "verb"
 },
 "distins": {
 "chips": [
@@ -46442,6 +47886,15 @@
 ],
 "pos": "verb"
 },
+"dna": {
+"chips": [
+{
+"label": "Plural",
+"value": "DNA-uri"
+}
+],
+"pos": "noun"
+},
 "do": {
 "chips": [
 {
@@ -46451,6 +47904,15 @@
 {
 "label": "Plural",
 "value": "do"
+}
+],
+"pos": "noun"
+},
+"doamne": {
+"chips": [
+{
+"label": "Gender",
+"value": "masculine"
 }
 ],
 "pos": "noun"
@@ -46679,6 +48141,19 @@
 }
 ],
 "pos": "adj"
+},
+"documentare": {
+"chips": [
+{
+"label": "Gender",
+"value": "feminine"
+},
+{
+"label": "Plural",
+"value": "documentări"
+}
+],
+"pos": "noun"
 },
 "documentat": {
 "chips": [
@@ -47391,19 +48866,6 @@
 }
 ],
 "pos": "verb"
-},
-"dormitoare": {
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
-},
-{
-"label": "Plural",
-"value": "dormitori"
-}
-],
-"pos": "noun"
 },
 "dormitor": {
 "chips": [
@@ -48441,6 +49903,19 @@
 ],
 "pos": "adj"
 },
+"dublură": {
+"chips": [
+{
+"label": "Gender",
+"value": "feminine"
+},
+{
+"label": "Plural",
+"value": "dubluri"
+}
+],
+"pos": "noun"
+},
 "dublă": {
 "chips": [
 {
@@ -49444,6 +50919,15 @@
 ],
 "pos": "verb"
 },
+"ecografie": {
+"chips": [
+{
+"label": "Gender",
+"value": "feminine"
+}
+],
+"pos": "noun"
+},
 "economic": {
 "chips": [
 {
@@ -49990,6 +51474,19 @@
 ],
 "pos": "adj"
 },
+"electrician": {
+"chips": [
+{
+"label": "Gender",
+"value": "masculine"
+},
+{
+"label": "Plural",
+"value": "electricieni"
+}
+],
+"pos": "noun"
+},
 "electricitate": {
 "chips": [
 {
@@ -50535,19 +52032,6 @@
 }
 ],
 "pos": "adj"
-},
-"emisie": {
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
-},
-{
-"label": "Plural",
-"value": "emisii"
-}
-],
-"pos": "noun"
 },
 "emisiune": {
 "chips": [
@@ -51121,6 +52605,19 @@
 {
 "label": "Plural",
 "value": "epidemii"
+}
+],
+"pos": "noun"
+},
+"epilepsie": {
+"chips": [
+{
+"label": "Gender",
+"value": "feminine"
+},
+{
+"label": "Plural",
+"value": "epilepsii"
 }
 ],
 "pos": "noun"
@@ -51718,6 +53215,108 @@
 ],
 "pos": "noun"
 },
+"evacua": {
+"charts": [
+{
+"rows": [
+[
+"eu",
+"evacuez"
+],
+[
+"tu",
+"evacuezi"
+],
+[
+"el/ea",
+"evacuează"
+],
+[
+"noi",
+"evacuăm"
+],
+[
+"voi",
+"evacuați"
+],
+[
+"ei",
+"evacuează"
+]
+],
+"title": "Present"
+},
+{
+"rows": [
+[
+"eu",
+"evacuam"
+],
+[
+"tu",
+"evacuai"
+],
+[
+"el/ea",
+"evacua"
+],
+[
+"noi",
+"evacuam"
+],
+[
+"voi",
+"evacuați"
+],
+[
+"ei",
+"evacuau"
+]
+],
+"title": "Imperfect"
+},
+{
+"rows": [
+[
+"eu",
+"să evacuez"
+],
+[
+"tu",
+"să evacuezi"
+],
+[
+"el/ea",
+"să evacueze"
+],
+[
+"noi",
+"să evacuăm"
+],
+[
+"voi",
+"să evacuați"
+],
+[
+"ei",
+"să evacueze"
+]
+],
+"title": "Subjunctive (present)"
+}
+],
+"chips": [
+{
+"label": "Gerund",
+"value": "evacuând"
+},
+{
+"label": "Past participle",
+"value": "evacuat"
+}
+],
+"pos": "verb"
+},
 "evacuare": {
 "chips": [
 {
@@ -51999,6 +53598,108 @@
 }
 ],
 "pos": "adj"
+},
+"evapora": {
+"charts": [
+{
+"rows": [
+[
+"eu",
+"evapor"
+],
+[
+"tu",
+"evapori"
+],
+[
+"el/ea",
+"evaporă"
+],
+[
+"noi",
+"evaporăm"
+],
+[
+"voi",
+"evaporați"
+],
+[
+"ei",
+"evaporă"
+]
+],
+"title": "Present"
+},
+{
+"rows": [
+[
+"eu",
+"evaporam"
+],
+[
+"tu",
+"evaporai"
+],
+[
+"el/ea",
+"evapora"
+],
+[
+"noi",
+"evaporam"
+],
+[
+"voi",
+"evaporați"
+],
+[
+"ei",
+"evaporau"
+]
+],
+"title": "Imperfect"
+},
+{
+"rows": [
+[
+"eu",
+"să evapor"
+],
+[
+"tu",
+"să evapori"
+],
+[
+"el/ea",
+"să evapore"
+],
+[
+"noi",
+"să evaporăm"
+],
+[
+"voi",
+"să evaporați"
+],
+[
+"ei",
+"să evapore"
+]
+],
+"title": "Subjunctive (present)"
+}
+],
+"chips": [
+{
+"label": "Gerund",
+"value": "evaporând"
+},
+{
+"label": "Past participle",
+"value": "evaporat"
+}
+],
+"pos": "verb"
 },
 "evaporat": {
 "chips": [
@@ -54083,6 +55784,19 @@
 ],
 "pos": "verb"
 },
+"exploatat": {
+"chips": [
+{
+"label": "Feminine",
+"value": "exploatată"
+},
+{
+"label": "Plural",
+"value": "exploatați"
+}
+],
+"pos": "adj"
+},
 "exploda": {
 "charts": [
 {
@@ -54312,6 +56026,19 @@
 }
 ],
 "pos": "noun"
+},
+"explorat": {
+"chips": [
+{
+"label": "Feminine",
+"value": "explorată"
+},
+{
+"label": "Plural",
+"value": "explorați"
+}
+],
+"pos": "adj"
 },
 "explozibil": {
 "chips": [
@@ -55998,15 +57725,6 @@
 ],
 "pos": "noun"
 },
-"favor": {
-"chips": [
-{
-"label": "Plural",
-"value": "favoruri"
-}
-],
-"pos": "noun"
-},
 "favorabil": {
 "chips": [
 {
@@ -56521,108 +58239,6 @@
 }
 ],
 "pos": "adj"
-},
-"fericita": {
-"charts": [
-{
-"rows": [
-[
-"eu",
-"fericit"
-],
-[
-"tu",
-"fericiți"
-],
-[
-"el/ea",
-"fericită"
-],
-[
-"noi",
-"fericităm"
-],
-[
-"voi",
-"fericitați"
-],
-[
-"ei",
-"fericită"
-]
-],
-"title": "Present"
-},
-{
-"rows": [
-[
-"eu",
-"fericitam"
-],
-[
-"tu",
-"fericitai"
-],
-[
-"el/ea",
-"fericita"
-],
-[
-"noi",
-"fericitam"
-],
-[
-"voi",
-"fericitați"
-],
-[
-"ei",
-"fericitau"
-]
-],
-"title": "Imperfect"
-},
-{
-"rows": [
-[
-"eu",
-"să fericit"
-],
-[
-"tu",
-"să fericiți"
-],
-[
-"el/ea",
-"să fericite"
-],
-[
-"noi",
-"să fericităm"
-],
-[
-"voi",
-"să fericitați"
-],
-[
-"ei",
-"să fericite"
-]
-],
-"title": "Subjunctive (present)"
-}
-],
-"chips": [
-{
-"label": "Gerund",
-"value": "fericitând"
-},
-{
-"label": "Past participle",
-"value": "fericitat"
-}
-],
-"pos": "verb"
 },
 "fericită": {
 "chips": [
@@ -57365,19 +58981,6 @@
 ],
 "pos": "adj"
 },
-"filosofie": {
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
-},
-{
-"label": "Plural",
-"value": "filosofii"
-}
-],
-"pos": "noun"
-},
 "filozofia": {
 "chips": [
 {
@@ -57689,6 +59292,19 @@
 }
 ],
 "pos": "noun"
+},
+"fiscal": {
+"chips": [
+{
+"label": "Feminine",
+"value": "fiscală"
+},
+{
+"label": "Plural",
+"value": "fiscali"
+}
+],
+"pos": "adj"
 },
 "fisura": {
 "charts": [
@@ -58365,6 +59981,108 @@
 ],
 "pos": "noun"
 },
+"fluiera": {
+"charts": [
+{
+"rows": [
+[
+"eu",
+"fluier"
+],
+[
+"tu",
+"fluieri"
+],
+[
+"el/ea",
+"fluieră"
+],
+[
+"noi",
+"fluierăm"
+],
+[
+"voi",
+"fluierați"
+],
+[
+"ei",
+"fluieră"
+]
+],
+"title": "Present"
+},
+{
+"rows": [
+[
+"eu",
+"fluieram"
+],
+[
+"tu",
+"fluierai"
+],
+[
+"el/ea",
+"fluiera"
+],
+[
+"noi",
+"fluieram"
+],
+[
+"voi",
+"fluierați"
+],
+[
+"ei",
+"fluierau"
+]
+],
+"title": "Imperfect"
+},
+{
+"rows": [
+[
+"eu",
+"să fluier"
+],
+[
+"tu",
+"să fluieri"
+],
+[
+"el/ea",
+"să fluiere"
+],
+[
+"noi",
+"să fluierăm"
+],
+[
+"voi",
+"să fluierați"
+],
+[
+"ei",
+"să fluiere"
+]
+],
+"title": "Subjunctive (present)"
+}
+],
+"chips": [
+{
+"label": "Gerund",
+"value": "fluierând"
+},
+{
+"label": "Past participle",
+"value": "fluierat"
+}
+],
+"pos": "verb"
+},
 "fluierat": {
 "chips": [
 {
@@ -58962,18 +60680,18 @@
 ],
 "pos": "noun"
 },
-"fondat": {
+"fondator": {
 "chips": [
 {
-"label": "Feminine",
-"value": "fondată"
+"label": "Gender",
+"value": "masculine"
 },
 {
 "label": "Plural",
-"value": "fondați"
+"value": "fondatori"
 }
 ],
-"pos": "adj"
+"pos": "noun"
 },
 "font": {
 "chips": [
@@ -59354,6 +61072,15 @@
 }
 ],
 "pos": "adj"
+},
+"forum": {
+"chips": [
+{
+"label": "Plural",
+"value": "forumuri"
+}
+],
+"pos": "noun"
 },
 "forța": {
 "charts": [
@@ -61209,6 +62936,19 @@
 ],
 "pos": "noun"
 },
+"fugară": {
+"chips": [
+{
+"label": "Gender",
+"value": "feminine"
+},
+{
+"label": "Plural",
+"value": "fugare"
+}
+],
+"pos": "noun"
+},
 "fugi": {
 "charts": [
 {
@@ -62263,6 +64003,19 @@
 ],
 "pos": "noun"
 },
+"gal": {
+"chips": [
+{
+"label": "Gender",
+"value": "masculine"
+},
+{
+"label": "Plural",
+"value": "gali"
+}
+],
+"pos": "noun"
+},
 "galaxie": {
 "chips": [
 {
@@ -63245,6 +64998,19 @@
 ],
 "pos": "noun"
 },
+"geografie": {
+"chips": [
+{
+"label": "Gender",
+"value": "feminine"
+},
+{
+"label": "Plural",
+"value": "geografii"
+}
+],
+"pos": "noun"
+},
 "ger": {
 "chips": [
 {
@@ -63683,11 +65449,15 @@
 ],
 "pos": "noun"
 },
-"ghimbir": {
+"ghimpe": {
 "chips": [
 {
 "label": "Gender",
 "value": "masculine"
+},
+{
+"label": "Plural",
+"value": "ghimpi"
 }
 ],
 "pos": "noun"
@@ -63862,19 +65632,6 @@
 }
 ],
 "pos": "adj"
-},
-"globul": {
-"chips": [
-{
-"label": "Gender",
-"value": "masculine"
-},
-{
-"label": "Plural",
-"value": "globuli"
-}
-],
-"pos": "noun"
 },
 "glonte": {
 "chips": [
@@ -64062,6 +65819,19 @@
 {
 "label": "Plural",
 "value": "glume"
+}
+],
+"pos": "noun"
+},
+"goană": {
+"chips": [
+{
+"label": "Gender",
+"value": "feminine"
+},
+{
+"label": "Plural",
+"value": "goane"
 }
 ],
 "pos": "noun"
@@ -64357,19 +66127,6 @@
 ],
 "pos": "noun"
 },
-"gratie": {
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
-},
-{
-"label": "Plural",
-"value": "gratii"
-}
-],
-"pos": "noun"
-},
 "gratis": {
 "chips": [
 {
@@ -64511,6 +66268,19 @@
 ],
 "pos": "verb"
 },
+"gravat": {
+"chips": [
+{
+"label": "Feminine",
+"value": "gravată"
+},
+{
+"label": "Plural",
+"value": "gravați"
+}
+],
+"pos": "adj"
+},
 "gravidă": {
 "chips": [
 {
@@ -64648,6 +66418,19 @@
 {
 "label": "Plural",
 "value": "greci"
+}
+],
+"pos": "adj"
+},
+"grecesc": {
+"chips": [
+{
+"label": "Feminine",
+"value": "grecească"
+},
+{
+"label": "Plural",
+"value": "grecești"
 }
 ],
 "pos": "adj"
@@ -65320,6 +67103,15 @@
 }
 ],
 "pos": "noun"
+},
+"grădinărit": {
+"chips": [
+{
+"label": "Past participle",
+"value": "of grădinări"
+}
+],
+"pos": "verb"
 },
 "grămadă": {
 "chips": [
@@ -66588,15 +68380,6 @@
 ],
 "pos": "noun"
 },
-"hall": {
-"chips": [
-{
-"label": "Plural",
-"value": "halluri"
-}
-],
-"pos": "noun"
-},
 "halo": {
 "chips": [
 {
@@ -66792,6 +68575,19 @@
 ],
 "pos": "noun"
 },
+"herald": {
+"chips": [
+{
+"label": "Gender",
+"value": "masculine"
+},
+{
+"label": "Plural",
+"value": "heralzi"
+}
+],
+"pos": "noun"
+},
 "herb": {
 "chips": [
 {
@@ -66810,6 +68606,19 @@
 {
 "label": "Plural",
 "value": "herculi"
+}
+],
+"pos": "noun"
+},
+"hernie": {
+"chips": [
+{
+"label": "Gender",
+"value": "feminine"
+},
+{
+"label": "Plural",
+"value": "hernii"
 }
 ],
 "pos": "noun"
@@ -66888,19 +68697,6 @@
 ],
 "pos": "adj"
 },
-"hilar": {
-"chips": [
-{
-"label": "Feminine",
-"value": "hilară"
-},
-{
-"label": "Plural",
-"value": "hilari"
-}
-],
-"pos": "adj"
-},
 "hindi": {
 "chips": [
 {
@@ -66922,6 +68718,19 @@
 }
 ],
 "pos": "adj"
+},
+"hipnoză": {
+"chips": [
+{
+"label": "Gender",
+"value": "feminine"
+},
+{
+"label": "Plural",
+"value": "hipnoze"
+}
+],
+"pos": "noun"
 },
 "hit": {
 "chips": [
@@ -67440,6 +69249,15 @@
 {
 "label": "Plural",
 "value": "hârtii"
+}
+],
+"pos": "noun"
+},
+"ia": {
+"chips": [
+{
+"label": "Gender",
+"value": "feminine"
 }
 ],
 "pos": "noun"
@@ -69027,19 +70845,6 @@
 ],
 "pos": "adj"
 },
-"importante": {
-"chips": [
-{
-"label": "Feminine",
-"value": "importante"
-},
-{
-"label": "Plural",
-"value": "importanți"
-}
-],
-"pos": "adj"
-},
 "imposibil": {
 "chips": [
 {
@@ -69078,6 +70883,15 @@
 }
 ],
 "pos": "adj"
+},
+"impozit": {
+"chips": [
+{
+"label": "Plural",
+"value": "impozite"
+}
+],
+"pos": "noun"
 },
 "impresar": {
 "chips": [
@@ -69255,6 +71069,28 @@
 {
 "label": "Plural",
 "value": "imprimante"
+}
+],
+"pos": "noun"
+},
+"imprimare": {
+"chips": [
+{
+"label": "Gender",
+"value": "feminine"
+},
+{
+"label": "Plural",
+"value": "imprimări"
+}
+],
+"pos": "noun"
+},
+"imprimat": {
+"chips": [
+{
+"label": "Plural",
+"value": "imprimați"
 }
 ],
 "pos": "noun"
@@ -70068,6 +71904,19 @@
 }
 ],
 "pos": "noun"
+},
+"indirect": {
+"chips": [
+{
+"label": "Feminine",
+"value": "indirectă"
+},
+{
+"label": "Plural",
+"value": "indirecți"
+}
+],
+"pos": "adj"
 },
 "indistinct": {
 "chips": [
@@ -71028,6 +72877,19 @@
 ],
 "pos": "adj"
 },
+"insomnie": {
+"chips": [
+{
+"label": "Gender",
+"value": "feminine"
+},
+{
+"label": "Plural",
+"value": "insomnii"
+}
+],
+"pos": "noun"
+},
 "inspector": {
 "chips": [
 {
@@ -71775,6 +73637,108 @@
 }
 ],
 "pos": "adj"
+},
+"intensifica": {
+"charts": [
+{
+"rows": [
+[
+"eu",
+"intensific"
+],
+[
+"tu",
+"intensifici"
+],
+[
+"el/ea",
+"intensifică"
+],
+[
+"noi",
+"intensificăm"
+],
+[
+"voi",
+"intensificați"
+],
+[
+"ei",
+"intensifică"
+]
+],
+"title": "Present"
+},
+{
+"rows": [
+[
+"eu",
+"intensificam"
+],
+[
+"tu",
+"intensificai"
+],
+[
+"el/ea",
+"intensifica"
+],
+[
+"noi",
+"intensificam"
+],
+[
+"voi",
+"intensificați"
+],
+[
+"ei",
+"intensificau"
+]
+],
+"title": "Imperfect"
+},
+{
+"rows": [
+[
+"eu",
+"să intensific"
+],
+[
+"tu",
+"să intensifici"
+],
+[
+"el/ea",
+"să intensifice"
+],
+[
+"noi",
+"să intensificăm"
+],
+[
+"voi",
+"să intensificați"
+],
+[
+"ei",
+"să intensifice"
+]
+],
+"title": "Subjunctive (present)"
+}
+],
+"chips": [
+{
+"label": "Gerund",
+"value": "intensificând"
+},
+{
+"label": "Past participle",
+"value": "intensificat"
+}
+],
+"pos": "verb"
 },
 "intensitate": {
 "chips": [
@@ -73766,6 +75730,108 @@
 ],
 "pos": "adj"
 },
+"investi": {
+"charts": [
+{
+"rows": [
+[
+"eu",
+"investesc"
+],
+[
+"tu",
+"investești"
+],
+[
+"el/ea",
+"investește"
+],
+[
+"noi",
+"investim"
+],
+[
+"voi",
+"investiți"
+],
+[
+"ei",
+"investesc"
+]
+],
+"title": "Present"
+},
+{
+"rows": [
+[
+"eu",
+"investeam"
+],
+[
+"tu",
+"investeai"
+],
+[
+"el/ea",
+"investea"
+],
+[
+"noi",
+"investeam"
+],
+[
+"voi",
+"investeați"
+],
+[
+"ei",
+"investeau"
+]
+],
+"title": "Imperfect"
+},
+{
+"rows": [
+[
+"eu",
+"să investesc"
+],
+[
+"tu",
+"să investești"
+],
+[
+"el/ea",
+"să investească"
+],
+[
+"noi",
+"să investim"
+],
+[
+"voi",
+"să investiți"
+],
+[
+"ei",
+"să investească"
+]
+],
+"title": "Subjunctive (present)"
+}
+],
+"chips": [
+{
+"label": "Gerund",
+"value": "investind"
+},
+{
+"label": "Past participle",
+"value": "investit"
+}
+],
+"pos": "verb"
+},
 "investiga": {
 "charts": [
 {
@@ -75376,15 +77442,6 @@
 ],
 "pos": "noun"
 },
-"jack": {
-"chips": [
-{
-"label": "Plural",
-"value": "jackuri"
-}
-],
-"pos": "noun"
-},
 "jad": {
 "chips": [
 {
@@ -76307,6 +78364,19 @@
 ],
 "pos": "verb"
 },
+"judecătoare": {
+"chips": [
+{
+"label": "Gender",
+"value": "feminine"
+},
+{
+"label": "Plural",
+"value": "judecătoare"
+}
+],
+"pos": "noun"
+},
 "judecător": {
 "chips": [
 {
@@ -76345,15 +78415,6 @@
 }
 ],
 "pos": "adj"
-},
-"juma": {
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
-}
-],
-"pos": "noun"
 },
 "jumate": {
 "chips": [
@@ -76726,6 +78787,19 @@
 ],
 "pos": "verb"
 },
+"justificare": {
+"chips": [
+{
+"label": "Gender",
+"value": "feminine"
+},
+{
+"label": "Plural",
+"value": "justificări"
+}
+],
+"pos": "noun"
+},
 "justificat": {
 "chips": [
 {
@@ -76766,6 +78840,15 @@
 {
 "label": "Gender",
 "value": "feminine"
+}
+],
+"pos": "noun"
+},
+"kelvin": {
+"chips": [
+{
+"label": "Gender",
+"value": "masculine"
 }
 ],
 "pos": "noun"
@@ -76939,6 +79022,19 @@
 {
 "label": "Plural",
 "value": "laboratoare"
+}
+],
+"pos": "noun"
+},
+"labă": {
+"chips": [
+{
+"label": "Gender",
+"value": "feminine"
+},
+{
+"label": "Plural",
+"value": "labe"
 }
 ],
 "pos": "noun"
@@ -77454,19 +79550,6 @@
 ],
 "pos": "noun"
 },
-"leader": {
-"chips": [
-{
-"label": "Gender",
-"value": "masculine"
-},
-{
-"label": "Plural",
-"value": "leaderi"
-}
-],
-"pos": "noun"
-},
 "leagăn": {
 "chips": [
 {
@@ -77792,6 +79875,19 @@
 }
 ],
 "pos": "noun"
+},
+"legendar": {
+"chips": [
+{
+"label": "Feminine",
+"value": "legendară"
+},
+{
+"label": "Plural",
+"value": "legendari"
+}
+],
+"pos": "adj"
 },
 "legendă": {
 "chips": [
@@ -78377,6 +80473,19 @@
 ],
 "pos": "adj"
 },
+"lichidă": {
+"chips": [
+{
+"label": "Gender",
+"value": "feminine"
+},
+{
+"label": "Plural",
+"value": "lichide"
+}
+],
+"pos": "noun"
+},
 "lichior": {
 "chips": [
 {
@@ -78810,6 +80919,15 @@
 "pos": "verb"
 },
 "lingura": {
+"chips": [
+{
+"label": "Gender",
+"value": "feminine"
+}
+],
+"pos": "noun"
+},
+"linguri": {
 "chips": [
 {
 "label": "Gender",
@@ -79493,6 +81611,19 @@
 }
 ],
 "pos": "verb"
+},
+"literal": {
+"chips": [
+{
+"label": "Feminine",
+"value": "literală"
+},
+{
+"label": "Plural",
+"value": "literali"
+}
+],
+"pos": "adj"
 },
 "literar": {
 "chips": [
@@ -81505,6 +83636,15 @@
 ],
 "pos": "adj"
 },
+"lături": {
+"chips": [
+{
+"label": "Gender",
+"value": "feminine"
+}
+],
+"pos": "noun"
+},
 "lăuda": {
 "charts": [
 {
@@ -81938,15 +84078,6 @@
 ],
 "pos": "noun"
 },
-"majestate": {
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
-}
-],
-"pos": "noun"
-},
 "major": {
 "chips": [
 {
@@ -81972,19 +84103,6 @@
 }
 ],
 "pos": "noun"
-},
-"majore": {
-"chips": [
-{
-"label": "Feminine",
-"value": "majore"
-},
-{
-"label": "Plural",
-"value": "majori"
-}
-],
-"pos": "adj"
 },
 "majoretă": {
 "chips": [
@@ -82017,6 +84135,19 @@
 {
 "label": "Plural",
 "value": "maluri"
+}
+],
+"pos": "noun"
+},
+"mala": {
+"chips": [
+{
+"label": "Gender",
+"value": "feminine"
+},
+{
+"label": "Plural",
+"value": "malale"
 }
 ],
 "pos": "noun"
@@ -82228,6 +84359,108 @@
 ],
 "pos": "noun"
 },
+"mania": {
+"charts": [
+{
+"rows": [
+[
+"eu",
+"maniez"
+],
+[
+"tu",
+"maniezi"
+],
+[
+"el/ea",
+"maniază"
+],
+[
+"noi",
+"maniem"
+],
+[
+"voi",
+"maniați"
+],
+[
+"ei",
+"maniază"
+]
+],
+"title": "Present"
+},
+{
+"rows": [
+[
+"eu",
+"maniam"
+],
+[
+"tu",
+"maniai"
+],
+[
+"el/ea",
+"mania"
+],
+[
+"noi",
+"maniam"
+],
+[
+"voi",
+"maniați"
+],
+[
+"ei",
+"maniau"
+]
+],
+"title": "Imperfect"
+},
+{
+"rows": [
+[
+"eu",
+"să maniez"
+],
+[
+"tu",
+"să maniezi"
+],
+[
+"el/ea",
+"să manieze"
+],
+[
+"noi",
+"să maniem"
+],
+[
+"voi",
+"să maniați"
+],
+[
+"ei",
+"să manieze"
+]
+],
+"title": "Subjunctive (present)"
+}
+],
+"chips": [
+{
+"label": "Gerund",
+"value": "maniind"
+},
+{
+"label": "Past participle",
+"value": "maniat"
+}
+],
+"pos": "verb"
+},
 "maniac": {
 "chips": [
 {
@@ -82355,6 +84588,19 @@
 }
 ],
 "pos": "verb"
+},
+"manifestare": {
+"chips": [
+{
+"label": "Gender",
+"value": "feminine"
+},
+{
+"label": "Plural",
+"value": "manifestări"
+}
+],
+"pos": "noun"
 },
 "manipula": {
 "charts": [
@@ -82625,6 +84871,15 @@
 }
 ],
 "pos": "verb"
+},
+"marcaj": {
+"chips": [
+{
+"label": "Plural",
+"value": "marcaje"
+}
+],
+"pos": "noun"
 },
 "marcat": {
 "chips": [
@@ -83088,6 +85343,28 @@
 ],
 "pos": "noun"
 },
+"marți": {
+"chips": [
+{
+"label": "Gender",
+"value": "feminine"
+},
+{
+"label": "Plural",
+"value": "marți"
+}
+],
+"pos": "noun"
+},
+"mas": {
+"chips": [
+{
+"label": "Plural",
+"value": "masuri"
+}
+],
+"pos": "noun"
+},
 "masa": {
 "charts": [
 {
@@ -83444,6 +85721,19 @@
 }
 ],
 "pos": "noun"
+},
+"matematic": {
+"chips": [
+{
+"label": "Feminine",
+"value": "matematică"
+},
+{
+"label": "Plural",
+"value": "matematici"
+}
+],
+"pos": "adj"
 },
 "matematică": {
 "chips": [
@@ -83842,6 +86132,19 @@
 {
 "label": "Plural",
 "value": "meciuri"
+}
+],
+"pos": "noun"
+},
+"med": {
+"chips": [
+{
+"label": "Gender",
+"value": "masculine"
+},
+{
+"label": "Plural",
+"value": "mezi"
 }
 ],
 "pos": "noun"
@@ -84303,19 +86606,6 @@
 }
 ],
 "pos": "noun"
-},
-"mental": {
-"chips": [
-{
-"label": "Feminine",
-"value": "mentală"
-},
-{
-"label": "Plural",
-"value": "mentali"
-}
-],
-"pos": "adj"
 },
 "mentor": {
 "chips": [
@@ -84976,6 +87266,19 @@
 ],
 "pos": "adj"
 },
+"metaforic": {
+"chips": [
+{
+"label": "Feminine",
+"value": "metaforică"
+},
+{
+"label": "Plural",
+"value": "metaforici"
+}
+],
+"pos": "adj"
+},
 "metaforă": {
 "chips": [
 {
@@ -85068,15 +87371,6 @@
 {
 "label": "Gender",
 "value": "masculine"
-}
-],
-"pos": "noun"
-},
-"metro": {
-"chips": [
-{
-"label": "Plural",
-"value": "metrouri"
 }
 ],
 "pos": "noun"
@@ -85836,19 +88130,6 @@
 ],
 "pos": "adj"
 },
-"minore": {
-"chips": [
-{
-"label": "Feminine",
-"value": "minore"
-},
-{
-"label": "Plural",
-"value": "minori"
-}
-],
-"pos": "adj"
-},
 "mintal": {
 "chips": [
 {
@@ -85871,15 +88152,6 @@
 {
 "label": "Plural",
 "value": "minți"
-}
-],
-"pos": "noun"
-},
-"mintă": {
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
 }
 ],
 "pos": "noun"
@@ -86791,6 +89063,15 @@
 }
 ],
 "pos": "adj"
+},
+"moaca": {
+"chips": [
+{
+"label": "Gender",
+"value": "feminine"
+}
+],
+"pos": "noun"
 },
 "moale": {
 "chips": [
@@ -88146,6 +90427,15 @@
 ],
 "pos": "adj"
 },
+"murmur": {
+"chips": [
+{
+"label": "Plural",
+"value": "murmure"
+}
+],
+"pos": "noun"
+},
 "musafir": {
 "chips": [
 {
@@ -88688,6 +90978,19 @@
 {
 "label": "Plural",
 "value": "mâncărimi"
+}
+],
+"pos": "noun"
+},
+"mâncător": {
+"chips": [
+{
+"label": "Gender",
+"value": "masculine"
+},
+{
+"label": "Plural",
+"value": "mâncători"
 }
 ],
 "pos": "noun"
@@ -89772,15 +92075,6 @@
 ],
 "pos": "noun"
 },
-"naiba": {
-"chips": [
-{
-"label": "Gender",
-"value": "masculine"
-}
-],
-"pos": "noun"
-},
 "naiv": {
 "chips": [
 {
@@ -89846,6 +92140,19 @@
 ],
 "pos": "noun"
 },
+"narcisist": {
+"chips": [
+{
+"label": "Feminine",
+"value": "narcisistă"
+},
+{
+"label": "Plural",
+"value": "narcisiști"
+}
+],
+"pos": "adj"
+},
 "nas": {
 "chips": [
 {
@@ -89894,19 +92201,6 @@
 ],
 "pos": "noun"
 },
-"nasul": {
-"chips": [
-{
-"label": "Feminine",
-"value": "nasulă"
-},
-{
-"label": "Plural",
-"value": "nasuli"
-}
-],
-"pos": "adj"
-},
 "nat": {
 "chips": [
 {
@@ -89929,6 +92223,19 @@
 {
 "label": "Plural",
 "value": "natali"
+}
+],
+"pos": "adj"
+},
+"nativ": {
+"chips": [
+{
+"label": "Feminine",
+"value": "nativă"
+},
+{
+"label": "Plural",
+"value": "nativi"
 }
 ],
 "pos": "adj"
@@ -90122,19 +92429,6 @@
 ],
 "pos": "noun"
 },
-"nazir": {
-"chips": [
-{
-"label": "Gender",
-"value": "masculine"
-},
-{
-"label": "Plural",
-"value": "naziri"
-}
-],
-"pos": "noun"
-},
 "nazist": {
 "chips": [
 {
@@ -90214,6 +92508,19 @@
 {
 "label": "Plural",
 "value": "neapărați"
+}
+],
+"pos": "adj"
+},
+"neatent": {
+"chips": [
+{
+"label": "Feminine",
+"value": "neatentă"
+},
+{
+"label": "Plural",
+"value": "neatenți"
 }
 ],
 "pos": "adj"
@@ -91670,6 +93977,19 @@
 ],
 "pos": "noun"
 },
+"nerezolvat": {
+"chips": [
+{
+"label": "Feminine",
+"value": "nerezolvată"
+},
+{
+"label": "Plural",
+"value": "nerezolvați"
+}
+],
+"pos": "adj"
+},
 "nerv": {
 "chips": [
 {
@@ -92191,15 +94511,6 @@
 ],
 "pos": "adj"
 },
-"nimic": {
-"chips": [
-{
-"label": "Plural",
-"value": "nimicuri"
-}
-],
-"pos": "noun"
-},
 "ninge": {
 "chips": [
 {
@@ -92269,19 +94580,6 @@
 }
 ],
 "pos": "noun"
-},
-"noble": {
-"chips": [
-{
-"label": "Feminine",
-"value": "noble"
-},
-{
-"label": "Plural",
-"value": "nobli"
-}
-],
-"pos": "adj"
 },
 "nod": {
 "chips": [
@@ -93399,6 +95697,19 @@
 ],
 "pos": "noun"
 },
+"nătărău": {
+"chips": [
+{
+"label": "Gender",
+"value": "masculine"
+},
+{
+"label": "Plural",
+"value": "nătărăi"
+}
+],
+"pos": "noun"
+},
 "oaie": {
 "chips": [
 {
@@ -93824,6 +96135,108 @@
 }
 ],
 "pos": "adj"
+},
+"obscura": {
+"charts": [
+{
+"rows": [
+[
+"eu",
+"obscurez"
+],
+[
+"tu",
+"obscurezi"
+],
+[
+"el/ea",
+"obscurează"
+],
+[
+"noi",
+"obscurăm"
+],
+[
+"voi",
+"obscurați"
+],
+[
+"ei",
+"obscurează"
+]
+],
+"title": "Present"
+},
+{
+"rows": [
+[
+"eu",
+"obscuram"
+],
+[
+"tu",
+"obscurai"
+],
+[
+"el/ea",
+"obscura"
+],
+[
+"noi",
+"obscuram"
+],
+[
+"voi",
+"obscurați"
+],
+[
+"ei",
+"obscurau"
+]
+],
+"title": "Imperfect"
+},
+{
+"rows": [
+[
+"eu",
+"să obscurez"
+],
+[
+"tu",
+"să obscurezi"
+],
+[
+"el/ea",
+"să obscureze"
+],
+[
+"noi",
+"să obscurăm"
+],
+[
+"voi",
+"să obscurați"
+],
+[
+"ei",
+"să obscureze"
+]
+],
+"title": "Subjunctive (present)"
+}
+],
+"chips": [
+{
+"label": "Gerund",
+"value": "obscurând"
+},
+{
+"label": "Past participle",
+"value": "obscurat"
+}
+],
+"pos": "verb"
 },
 "obsedat": {
 "chips": [
@@ -94571,6 +96984,19 @@
 ],
 "pos": "noun"
 },
+"ofensă": {
+"chips": [
+{
+"label": "Gender",
+"value": "feminine"
+},
+{
+"label": "Plural",
+"value": "ofense"
+}
+],
+"pos": "noun"
+},
 "oferi": {
 "charts": [
 {
@@ -94832,108 +97258,6 @@
 ],
 "pos": "noun"
 },
-"oglinda": {
-"charts": [
-{
-"rows": [
-[
-"eu",
-"oglindez"
-],
-[
-"tu",
-"oglindezi"
-],
-[
-"el/ea",
-"oglindează"
-],
-[
-"noi",
-"oglindăm"
-],
-[
-"voi",
-"oglindați"
-],
-[
-"ei",
-"oglindează"
-]
-],
-"title": "Present"
-},
-{
-"rows": [
-[
-"eu",
-"oglindam"
-],
-[
-"tu",
-"oglindai"
-],
-[
-"el/ea",
-"oglinda"
-],
-[
-"noi",
-"oglindam"
-],
-[
-"voi",
-"oglindați"
-],
-[
-"ei",
-"oglindau"
-]
-],
-"title": "Imperfect"
-},
-{
-"rows": [
-[
-"eu",
-"să oglindez"
-],
-[
-"tu",
-"să oglindezi"
-],
-[
-"el/ea",
-"să oglindeze"
-],
-[
-"noi",
-"să oglindăm"
-],
-[
-"voi",
-"să oglindați"
-],
-[
-"ei",
-"să oglindeze"
-]
-],
-"title": "Subjunctive (present)"
-}
-],
-"chips": [
-{
-"label": "Gerund",
-"value": "oglindând"
-},
-{
-"label": "Past participle",
-"value": "oglindat"
-}
-],
-"pos": "verb"
-},
 "oglindă": {
 "chips": [
 {
@@ -94978,6 +97302,19 @@
 {
 "label": "Plural",
 "value": "olandeze"
+}
+],
+"pos": "noun"
+},
+"olimpiadă": {
+"chips": [
+{
+"label": "Gender",
+"value": "feminine"
+},
+{
+"label": "Plural",
+"value": "olimpiade"
 }
 ],
 "pos": "noun"
@@ -95086,19 +97423,6 @@
 }
 ],
 "pos": "noun"
-},
-"omorit": {
-"chips": [
-{
-"label": "Feminine",
-"value": "omorită"
-},
-{
-"label": "Plural",
-"value": "omoriți"
-}
-],
-"pos": "adj"
 },
 "omoruri": {
 "chips": [
@@ -95884,6 +98208,15 @@
 }
 ],
 "pos": "verb"
+},
+"optică": {
+"chips": [
+{
+"label": "Gender",
+"value": "feminine"
+}
+],
+"pos": "noun"
 },
 "optimist": {
 "chips": [
@@ -96677,6 +99010,15 @@
 ],
 "pos": "noun"
 },
+"origini": {
+"chips": [
+{
+"label": "Gender",
+"value": "feminine"
+}
+],
+"pos": "noun"
+},
 "orizont": {
 "chips": [
 {
@@ -96794,15 +99136,6 @@
 }
 ],
 "pos": "adj"
-},
-"otel": {
-"chips": [
-{
-"label": "Plural",
-"value": "oteluri"
-}
-],
-"pos": "noun"
 },
 "otrava": {
 "chips": [
@@ -97236,6 +99569,32 @@
 ],
 "pos": "noun"
 },
+"pajură": {
+"chips": [
+{
+"label": "Gender",
+"value": "feminine"
+},
+{
+"label": "Plural",
+"value": "pajuri"
+}
+],
+"pos": "noun"
+},
+"pal": {
+"chips": [
+{
+"label": "Feminine",
+"value": "pală"
+},
+{
+"label": "Plural",
+"value": "pali"
+}
+],
+"pos": "adj"
+},
 "palat": {
 "chips": [
 {
@@ -97289,6 +99648,19 @@
 ],
 "pos": "noun"
 },
+"palmier": {
+"chips": [
+{
+"label": "Gender",
+"value": "masculine"
+},
+{
+"label": "Plural",
+"value": "palmieri"
+}
+],
+"pos": "noun"
+},
 "palmă": {
 "chips": [
 {
@@ -97333,6 +99705,19 @@
 {
 "label": "Gender",
 "value": "masculine"
+}
+],
+"pos": "noun"
+},
+"panglică": {
+"chips": [
+{
+"label": "Gender",
+"value": "feminine"
+},
+{
+"label": "Plural",
+"value": "panglici"
 }
 ],
 "pos": "noun"
@@ -97686,6 +100071,15 @@
 ],
 "pos": "noun"
 },
+"paradox": {
+"chips": [
+{
+"label": "Plural",
+"value": "paradoxuri"
+}
+],
+"pos": "noun"
+},
 "paradă": {
 "chips": [
 {
@@ -97695,6 +100089,15 @@
 {
 "label": "Plural",
 "value": "parade"
+}
+],
+"pos": "noun"
+},
+"paragraf": {
+"chips": [
+{
+"label": "Plural",
+"value": "paragrafe"
 }
 ],
 "pos": "noun"
@@ -97791,6 +100194,15 @@
 {
 "label": "Plural",
 "value": "paranoice"
+}
+],
+"pos": "noun"
+},
+"paravan": {
+"chips": [
+{
+"label": "Plural",
+"value": "paravane"
 }
 ],
 "pos": "noun"
@@ -98410,6 +100822,19 @@
 ],
 "pos": "verb"
 },
+"participare": {
+"chips": [
+{
+"label": "Gender",
+"value": "feminine"
+},
+{
+"label": "Plural",
+"value": "participări"
+}
+],
+"pos": "noun"
+},
 "particular": {
 "chips": [
 {
@@ -98604,15 +101029,6 @@
 ],
 "pos": "noun"
 },
-"pasaport": {
-"chips": [
-{
-"label": "Plural",
-"value": "pasapoarte"
-}
-],
-"pos": "noun"
-},
 "pasare": {
 "chips": [
 {
@@ -98731,15 +101147,6 @@
 {
 "label": "Plural",
 "value": "pastori"
-}
-],
-"pos": "noun"
-},
-"pastra": {
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
 }
 ],
 "pos": "noun"
@@ -99294,6 +101701,19 @@
 ],
 "pos": "adj"
 },
+"pediatru": {
+"chips": [
+{
+"label": "Gender",
+"value": "masculine"
+},
+{
+"label": "Plural",
+"value": "pediatri"
+}
+],
+"pos": "noun"
+},
 "pedofil": {
 "chips": [
 {
@@ -99350,6 +101770,19 @@
 }
 ],
 "pos": "adj"
+},
+"penetrare": {
+"chips": [
+{
+"label": "Gender",
+"value": "feminine"
+},
+{
+"label": "Plural",
+"value": "penetrări"
+}
+],
+"pos": "noun"
 },
 "penibil": {
 "chips": [
@@ -100202,6 +102635,108 @@
 ],
 "pos": "noun"
 },
+"persista": {
+"charts": [
+{
+"rows": [
+[
+"eu",
+"persist"
+],
+[
+"tu",
+"persiști"
+],
+[
+"el/ea",
+"persistă"
+],
+[
+"noi",
+"persistăm"
+],
+[
+"voi",
+"persistați"
+],
+[
+"ei",
+"persistă"
+]
+],
+"title": "Present"
+},
+{
+"rows": [
+[
+"eu",
+"persistam"
+],
+[
+"tu",
+"persistai"
+],
+[
+"el/ea",
+"persista"
+],
+[
+"noi",
+"persistam"
+],
+[
+"voi",
+"persistați"
+],
+[
+"ei",
+"persistau"
+]
+],
+"title": "Imperfect"
+},
+{
+"rows": [
+[
+"eu",
+"să persist"
+],
+[
+"tu",
+"să persiști"
+],
+[
+"el/ea",
+"să persiste"
+],
+[
+"noi",
+"să persistăm"
+],
+[
+"voi",
+"să persistați"
+],
+[
+"ei",
+"să persiste"
+]
+],
+"title": "Subjunctive (present)"
+}
+],
+"chips": [
+{
+"label": "Gerund",
+"value": "persistând"
+},
+{
+"label": "Past participle",
+"value": "persistat"
+}
+],
+"pos": "verb"
+},
 "persoană": {
 "chips": [
 {
@@ -100324,6 +102859,15 @@
 {
 "label": "Plural",
 "value": "pesimiști"
+}
+],
+"pos": "noun"
+},
+"petale": {
+"chips": [
+{
+"label": "Gender",
+"value": "feminine"
 }
 ],
 "pos": "noun"
@@ -100928,6 +103472,19 @@
 {
 "label": "Plural",
 "value": "piepturi"
+}
+],
+"pos": "noun"
+},
+"pieptene": {
+"chips": [
+{
+"label": "Gender",
+"value": "masculine"
+},
+{
+"label": "Plural",
+"value": "piepteni"
 }
 ],
 "pos": "noun"
@@ -101973,15 +104530,6 @@
 ],
 "pos": "noun"
 },
-"pl": {
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
-}
-],
-"pos": "noun"
-},
 "placa": {
 "charts": [
 {
@@ -102128,19 +104676,6 @@
 {
 "label": "Plural",
 "value": "planuri"
-}
-],
-"pos": "noun"
-},
-"planet": {
-"chips": [
-{
-"label": "Gender",
-"value": "masculine"
-},
-{
-"label": "Plural",
-"value": "planeți"
 }
 ],
 "pos": "noun"
@@ -103631,6 +106166,19 @@
 ],
 "pos": "noun"
 },
+"plângăcios": {
+"chips": [
+{
+"label": "Feminine",
+"value": "plângăcioasă"
+},
+{
+"label": "Plural",
+"value": "plângăcioși"
+}
+],
+"pos": "adj"
+},
 "plâns": {
 "chips": [
 {
@@ -103943,108 +106491,6 @@
 }
 ],
 "pos": "noun"
-},
-"poanta": {
-"charts": [
-{
-"rows": [
-[
-"eu",
-"poantez"
-],
-[
-"tu",
-"poantezi"
-],
-[
-"el/ea",
-"poantează"
-],
-[
-"noi",
-"poantăm"
-],
-[
-"voi",
-"poantați"
-],
-[
-"ei",
-"poantează"
-]
-],
-"title": "Present"
-},
-{
-"rows": [
-[
-"eu",
-"poantam"
-],
-[
-"tu",
-"poantai"
-],
-[
-"el/ea",
-"poanta"
-],
-[
-"noi",
-"poantam"
-],
-[
-"voi",
-"poantați"
-],
-[
-"ei",
-"poantau"
-]
-],
-"title": "Imperfect"
-},
-{
-"rows": [
-[
-"eu",
-"să poantez"
-],
-[
-"tu",
-"să poantezi"
-],
-[
-"el/ea",
-"să poanteze"
-],
-[
-"noi",
-"să poantăm"
-],
-[
-"voi",
-"să poantați"
-],
-[
-"ei",
-"să poanteze"
-]
-],
-"title": "Subjunctive (present)"
-}
-],
-"chips": [
-{
-"label": "Gerund",
-"value": "poantând"
-},
-{
-"label": "Past participle",
-"value": "poantat"
-}
-],
-"pos": "verb"
 },
 "poartă": {
 "chips": [
@@ -104573,6 +107019,15 @@
 ],
 "pos": "adj"
 },
+"pomi": {
+"chips": [
+{
+"label": "Gender",
+"value": "masculine"
+}
+],
+"pos": "noun"
+},
 "pompa": {
 "charts": [
 {
@@ -104789,6 +107244,15 @@
 {
 "label": "Plural",
 "value": "populări"
+}
+],
+"pos": "noun"
+},
+"popularitate": {
+"chips": [
+{
+"label": "Gender",
+"value": "feminine"
 }
 ],
 "pos": "noun"
@@ -105080,6 +107544,15 @@
 {
 "label": "Plural",
 "value": "porniți"
+}
+],
+"pos": "adj"
+},
+"pornite": {
+"chips": [
+{
+"label": "Plural",
+"value": "porníte"
 }
 ],
 "pos": "adj"
@@ -105472,19 +107945,6 @@
 ],
 "pos": "noun"
 },
-"posesie": {
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
-},
-{
-"label": "Plural",
-"value": "posesii"
-}
-],
-"pos": "noun"
-},
 "posibil": {
 "chips": [
 {
@@ -105622,19 +108082,6 @@
 ],
 "pos": "verb"
 },
-"postal": {
-"chips": [
-{
-"label": "Feminine",
-"value": "postală"
-},
-{
-"label": "Plural",
-"value": "postali"
-}
-],
-"pos": "adj"
-},
 "poster": {
 "chips": [
 {
@@ -105665,6 +108112,19 @@
 }
 ],
 "pos": "noun"
+},
+"potolit": {
+"chips": [
+{
+"label": "Feminine",
+"value": "potolită"
+},
+{
+"label": "Plural",
+"value": "potoliți"
+}
+],
+"pos": "adj"
 },
 "potop": {
 "chips": [
@@ -107251,6 +109711,19 @@
 ],
 "pos": "noun"
 },
+"premeditat": {
+"chips": [
+{
+"label": "Feminine",
+"value": "premeditată"
+},
+{
+"label": "Plural",
+"value": "premeditați"
+}
+],
+"pos": "adj"
+},
 "premieră": {
 "chips": [
 {
@@ -108664,6 +111137,15 @@
 ],
 "pos": "noun"
 },
+"prietenelor": {
+"chips": [
+{
+"label": "Gender",
+"value": "feminine"
+}
+],
+"pos": "noun"
+},
 "prieteni": {
 "chips": [
 {
@@ -108870,19 +111352,6 @@
 }
 ],
 "pos": "adj"
-},
-"primare": {
-"chips": [
-{
-"label": "Gender",
-"value": "masculine"
-},
-{
-"label": "Plural",
-"value": "primari"
-}
-],
-"pos": "noun"
 },
 "primejdie": {
 "chips": [
@@ -109258,6 +111727,19 @@
 ],
 "pos": "noun"
 },
+"pripit": {
+"chips": [
+{
+"label": "Feminine",
+"value": "pripită"
+},
+{
+"label": "Plural",
+"value": "pripiți"
+}
+],
+"pos": "adj"
+},
 "privat": {
 "chips": [
 {
@@ -109422,108 +111904,6 @@
 {
 "label": "Past participle",
 "value": "of privi"
-}
-],
-"pos": "verb"
-},
-"priviti": {
-"charts": [
-{
-"rows": [
-[
-"eu",
-"privit"
-],
-[
-"tu",
-"priviți"
-],
-[
-"el/ea",
-"privite"
-],
-[
-"noi",
-"privitim"
-],
-[
-"voi",
-"privitiți"
-],
-[
-"ei",
-"privit"
-]
-],
-"title": "Present"
-},
-{
-"rows": [
-[
-"eu",
-"priviteam"
-],
-[
-"tu",
-"priviteai"
-],
-[
-"el/ea",
-"privitea"
-],
-[
-"noi",
-"priviteam"
-],
-[
-"voi",
-"priviteați"
-],
-[
-"ei",
-"priviteau"
-]
-],
-"title": "Imperfect"
-},
-{
-"rows": [
-[
-"eu",
-"să privit"
-],
-[
-"tu",
-"să priviți"
-],
-[
-"el/ea",
-"să privită"
-],
-[
-"noi",
-"să privitim"
-],
-[
-"voi",
-"să privitiți"
-],
-[
-"ei",
-"să privită"
-]
-],
-"title": "Subjunctive (present)"
-}
-],
-"chips": [
-{
-"label": "Gerund",
-"value": "privitind"
-},
-{
-"label": "Past participle",
-"value": "privitit"
 }
 ],
 "pos": "verb"
@@ -110135,6 +112515,19 @@
 }
 ],
 "pos": "verb"
+},
+"productiv": {
+"chips": [
+{
+"label": "Feminine",
+"value": "productivă"
+},
+{
+"label": "Plural",
+"value": "productivi"
+}
+],
+"pos": "adj"
 },
 "producător": {
 "chips": [
@@ -111731,6 +114124,19 @@
 ],
 "pos": "noun"
 },
+"prăbușit": {
+"chips": [
+{
+"label": "Feminine",
+"value": "prăbușită"
+},
+{
+"label": "Plural",
+"value": "prăbușiți"
+}
+],
+"pos": "adj"
+},
 "prădător": {
 "chips": [
 {
@@ -111744,6 +114150,108 @@
 ],
 "pos": "noun"
 },
+"prăji": {
+"charts": [
+{
+"rows": [
+[
+"eu",
+"prăjesc"
+],
+[
+"tu",
+"prăjești"
+],
+[
+"el/ea",
+"prăjește"
+],
+[
+"noi",
+"prăjim"
+],
+[
+"voi",
+"prăjiți"
+],
+[
+"ei",
+"prăjesc"
+]
+],
+"title": "Present"
+},
+{
+"rows": [
+[
+"eu",
+"prăjeam"
+],
+[
+"tu",
+"prăjeai"
+],
+[
+"el/ea",
+"prăjea"
+],
+[
+"noi",
+"prăjeam"
+],
+[
+"voi",
+"prăjeați"
+],
+[
+"ei",
+"prăjeau"
+]
+],
+"title": "Imperfect"
+},
+{
+"rows": [
+[
+"eu",
+"să prăjesc"
+],
+[
+"tu",
+"să prăjești"
+],
+[
+"el/ea",
+"să prăjească"
+],
+[
+"noi",
+"să prăjim"
+],
+[
+"voi",
+"să prăjiți"
+],
+[
+"ei",
+"să prăjească"
+]
+],
+"title": "Subjunctive (present)"
+}
+],
+"chips": [
+{
+"label": "Gerund",
+"value": "prăjind"
+},
+{
+"label": "Past participle",
+"value": "prăjit"
+}
+],
+"pos": "verb"
+},
 "prăjit": {
 "chips": [
 {
@@ -111756,6 +114264,19 @@
 }
 ],
 "pos": "adj"
+},
+"prăjiturică": {
+"chips": [
+{
+"label": "Gender",
+"value": "feminine"
+},
+{
+"label": "Plural",
+"value": "prăjiturele"
+}
+],
+"pos": "noun"
 },
 "prăjitură": {
 "chips": [
@@ -111779,6 +114300,28 @@
 {
 "label": "Plural",
 "value": "prăpăstii"
+}
+],
+"pos": "noun"
+},
+"prăpădit": {
+"chips": [
+{
+"label": "Feminine",
+"value": "prăpădită"
+},
+{
+"label": "Plural",
+"value": "prăpădiți"
+}
+],
+"pos": "adj"
+},
+"pseudonim": {
+"chips": [
+{
+"label": "Plural",
+"value": "pseudonime"
 }
 ],
 "pos": "noun"
@@ -111923,6 +114466,19 @@
 {
 "label": "Plural",
 "value": "puburi"
+}
+],
+"pos": "noun"
+},
+"pubertate": {
+"chips": [
+{
+"label": "Gender",
+"value": "feminine"
+},
+{
+"label": "Plural",
+"value": "pubertăți"
 }
 ],
 "pos": "noun"
@@ -112915,19 +115471,6 @@
 ],
 "pos": "noun"
 },
-"pură": {
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
-},
-{
-"label": "Plural",
-"value": "pure"
-}
-],
-"pos": "noun"
-},
 "pustie": {
 "chips": [
 {
@@ -113330,6 +115873,19 @@
 {
 "label": "Plural",
 "value": "puzzle-uri"
+}
+],
+"pos": "noun"
+},
+"pușcă": {
+"chips": [
+{
+"label": "Gender",
+"value": "feminine"
+},
+{
+"label": "Plural",
+"value": "puști"
 }
 ],
 "pos": "noun"
@@ -113761,6 +116317,19 @@
 }
 ],
 "pos": "verb"
+},
+"păgân": {
+"chips": [
+{
+"label": "Feminine",
+"value": "păgână"
+},
+{
+"label": "Plural",
+"value": "păgâni"
+}
+],
+"pos": "adj"
 },
 "păhărel": {
 "chips": [
@@ -114869,6 +117438,15 @@
 ],
 "pos": "noun"
 },
+"radiologie": {
+"chips": [
+{
+"label": "Gender",
+"value": "feminine"
+}
+],
+"pos": "noun"
+},
 "rafinat": {
 "chips": [
 {
@@ -115064,6 +117642,15 @@
 {
 "label": "Plural",
 "value": "ramuri"
+}
+],
+"pos": "noun"
+},
+"ranch": {
+"chips": [
+{
+"label": "Plural",
+"value": "ranch-uri"
 }
 ],
 "pos": "noun"
@@ -115456,6 +118043,19 @@
 {
 "label": "Gender",
 "value": "feminine"
+}
+],
+"pos": "noun"
+},
+"razie": {
+"chips": [
+{
+"label": "Gender",
+"value": "feminine"
+},
+{
+"label": "Plural",
+"value": "razii"
 }
 ],
 "pos": "noun"
@@ -117579,108 +120179,6 @@
 ],
 "pos": "verb"
 },
-"refera": {
-"charts": [
-{
-"rows": [
-[
-"eu",
-"referez"
-],
-[
-"tu",
-"referezi"
-],
-[
-"el/ea",
-"referează"
-],
-[
-"noi",
-"referăm"
-],
-[
-"voi",
-"referați"
-],
-[
-"ei",
-"referează"
-]
-],
-"title": "Present"
-},
-{
-"rows": [
-[
-"eu",
-"referam"
-],
-[
-"tu",
-"referai"
-],
-[
-"el/ea",
-"refera"
-],
-[
-"noi",
-"referam"
-],
-[
-"voi",
-"referați"
-],
-[
-"ei",
-"referau"
-]
-],
-"title": "Imperfect"
-},
-{
-"rows": [
-[
-"eu",
-"să referez"
-],
-[
-"tu",
-"să referezi"
-],
-[
-"el/ea",
-"să refereze"
-],
-[
-"noi",
-"să referăm"
-],
-[
-"voi",
-"să referați"
-],
-[
-"ei",
-"să refereze"
-]
-],
-"title": "Subjunctive (present)"
-}
-],
-"chips": [
-{
-"label": "Gerund",
-"value": "referând"
-},
-{
-"label": "Past participle",
-"value": "referat"
-}
-],
-"pos": "verb"
-},
 "referi": {
 "charts": [
 {
@@ -118747,15 +121245,6 @@
 ],
 "pos": "verb"
 },
-"regulament": {
-"chips": [
-{
-"label": "Plural",
-"value": "regulamente"
-}
-],
-"pos": "noun"
-},
 "regulat": {
 "chips": [
 {
@@ -119063,6 +121552,19 @@
 }
 ],
 "pos": "adj"
+},
+"relicvă": {
+"chips": [
+{
+"label": "Gender",
+"value": "feminine"
+},
+{
+"label": "Plural",
+"value": "relicve"
+}
+],
+"pos": "noun"
 },
 "religie": {
 "chips": [
@@ -119735,6 +122237,15 @@
 ],
 "pos": "adj"
 },
+"reper": {
+"chips": [
+{
+"label": "Plural",
+"value": "repere"
+}
+],
+"pos": "noun"
+},
 "reperat": {
 "chips": [
 {
@@ -120277,6 +122788,108 @@
 }
 ],
 "pos": "noun"
+},
+"reprograma": {
+"charts": [
+{
+"rows": [
+[
+"eu",
+"reprogramez"
+],
+[
+"tu",
+"reprogramezi"
+],
+[
+"el/ea",
+"reprogramează"
+],
+[
+"noi",
+"reprogramăm"
+],
+[
+"voi",
+"reprogramați"
+],
+[
+"ei",
+"reprogramează"
+]
+],
+"title": "Present"
+},
+{
+"rows": [
+[
+"eu",
+"reprogramam"
+],
+[
+"tu",
+"reprogramai"
+],
+[
+"el/ea",
+"reprograma"
+],
+[
+"noi",
+"reprogramam"
+],
+[
+"voi",
+"reprogramați"
+],
+[
+"ei",
+"reprogramau"
+]
+],
+"title": "Imperfect"
+},
+{
+"rows": [
+[
+"eu",
+"să reprogramez"
+],
+[
+"tu",
+"să reprogramezi"
+],
+[
+"el/ea",
+"să reprogrameze"
+],
+[
+"noi",
+"să reprogramăm"
+],
+[
+"voi",
+"să reprogramați"
+],
+[
+"ei",
+"să reprogrameze"
+]
+],
+"title": "Subjunctive (present)"
+}
+],
+"chips": [
+{
+"label": "Gerund",
+"value": "reprogramând"
+},
+{
+"label": "Past participle",
+"value": "reprogramat"
+}
+],
+"pos": "verb"
 },
 "republica": {
 "charts": [
@@ -121166,6 +123779,108 @@
 ],
 "pos": "verb"
 },
+"restrânge": {
+"charts": [
+{
+"rows": [
+[
+"eu",
+"restrâng"
+],
+[
+"tu",
+"restrângi"
+],
+[
+"el/ea",
+"restrânge"
+],
+[
+"noi",
+"restrângem"
+],
+[
+"voi",
+"restrângeți"
+],
+[
+"ei",
+"restrâng"
+]
+],
+"title": "Present"
+},
+{
+"rows": [
+[
+"eu",
+"restrângeam"
+],
+[
+"tu",
+"restrângeai"
+],
+[
+"el/ea",
+"restrângea"
+],
+[
+"noi",
+"restrângeam"
+],
+[
+"voi",
+"restrângeați"
+],
+[
+"ei",
+"restrângeau"
+]
+],
+"title": "Imperfect"
+},
+{
+"rows": [
+[
+"eu",
+"să restrâng"
+],
+[
+"tu",
+"să restrângi"
+],
+[
+"el/ea",
+"să restrângă"
+],
+[
+"noi",
+"să restrângem"
+],
+[
+"voi",
+"să restrângeți"
+],
+[
+"ei",
+"să restrângă"
+]
+],
+"title": "Subjunctive (present)"
+}
+],
+"chips": [
+{
+"label": "Gerund",
+"value": "restrângând"
+},
+{
+"label": "Past participle",
+"value": "restrâns"
+}
+],
+"pos": "verb"
+},
 "restrâns": {
 "chips": [
 {
@@ -121213,6 +123928,15 @@
 }
 ],
 "pos": "adj"
+},
+"retorică": {
+"chips": [
+{
+"label": "Gender",
+"value": "feminine"
+}
+],
+"pos": "noun"
 },
 "retrage": {
 "charts": [
@@ -121338,6 +124062,19 @@
 {
 "label": "Plural",
 "value": "retrași"
+}
+],
+"pos": "adj"
+},
+"retro": {
+"chips": [
+{
+"label": "Feminine",
+"value": "retro"
+},
+{
+"label": "Plural",
+"value": "retro"
 }
 ],
 "pos": "adj"
@@ -121973,6 +124710,19 @@
 }
 ],
 "pos": "noun"
+},
+"revizuit": {
+"chips": [
+{
+"label": "Feminine",
+"value": "revizuită"
+},
+{
+"label": "Plural",
+"value": "revizuiți"
+}
+],
+"pos": "adj"
 },
 "revolta": {
 "charts": [
@@ -123962,6 +126712,15 @@
 ],
 "pos": "verb"
 },
+"rostogolit": {
+"chips": [
+{
+"label": "Past participle",
+"value": "of rostogoli"
+}
+],
+"pos": "verb"
+},
 "roti": {
 "charts": [
 {
@@ -124076,19 +126835,6 @@
 }
 ],
 "pos": "adj"
-},
-"rotundă": {
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
-},
-{
-"label": "Plural",
-"value": "rotunde"
-}
-],
-"pos": "noun"
 },
 "roz": {
 "chips": [
@@ -124765,19 +127511,6 @@
 ],
 "pos": "noun"
 },
-"ruptă": {
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
-},
-{
-"label": "Plural",
-"value": "rupte"
-}
-],
-"pos": "noun"
-},
 "rus": {
 "chips": [
 {
@@ -125285,6 +128018,108 @@
 ],
 "pos": "noun"
 },
+"răci": {
+"charts": [
+{
+"rows": [
+[
+"eu",
+"răcesc"
+],
+[
+"tu",
+"răcești"
+],
+[
+"el/ea",
+"răcește"
+],
+[
+"noi",
+"răcim"
+],
+[
+"voi",
+"răciți"
+],
+[
+"ei",
+"răcesc"
+]
+],
+"title": "Present"
+},
+{
+"rows": [
+[
+"eu",
+"răceam"
+],
+[
+"tu",
+"răceai"
+],
+[
+"el/ea",
+"răcea"
+],
+[
+"noi",
+"răceam"
+],
+[
+"voi",
+"răceați"
+],
+[
+"ei",
+"răceau"
+]
+],
+"title": "Imperfect"
+},
+{
+"rows": [
+[
+"eu",
+"să răcesc"
+],
+[
+"tu",
+"să răcești"
+],
+[
+"el/ea",
+"să răcească"
+],
+[
+"noi",
+"să răcim"
+],
+[
+"voi",
+"să răciți"
+],
+[
+"ei",
+"să răcească"
+]
+],
+"title": "Subjunctive (present)"
+}
+],
+"chips": [
+{
+"label": "Gerund",
+"value": "răcind"
+},
+{
+"label": "Past participle",
+"value": "răcit"
+}
+],
+"pos": "verb"
+},
 "răcire": {
 "chips": [
 {
@@ -125369,108 +128204,6 @@
 "pos": "noun"
 },
 "rămâne": {
-"charts": [
-{
-"rows": [
-[
-"eu",
-"rămân"
-],
-[
-"tu",
-"rămâi"
-],
-[
-"el/ea",
-"rămâne"
-],
-[
-"noi",
-"rămânem"
-],
-[
-"voi",
-"rămâneți"
-],
-[
-"ei",
-"rămân"
-]
-],
-"title": "Present"
-},
-{
-"rows": [
-[
-"eu",
-"rămâneam"
-],
-[
-"tu",
-"rămâneai"
-],
-[
-"el/ea",
-"rămânea"
-],
-[
-"noi",
-"rămâneam"
-],
-[
-"voi",
-"rămâneați"
-],
-[
-"ei",
-"rămâneau"
-]
-],
-"title": "Imperfect"
-},
-{
-"rows": [
-[
-"eu",
-"să rămân"
-],
-[
-"tu",
-"să rămâi"
-],
-[
-"el/ea",
-"să rămână"
-],
-[
-"noi",
-"să rămânem"
-],
-[
-"voi",
-"să rămâneți"
-],
-[
-"ei",
-"să rămână"
-]
-],
-"title": "Subjunctive (present)"
-}
-],
-"chips": [
-{
-"label": "Gerund",
-"value": "rămânând"
-},
-{
-"label": "Past participle",
-"value": "rămas"
-}
-],
-"pos": "verb"
-},
-"rămânea": {
 "charts": [
 {
 "rows": [
@@ -126256,6 +128989,108 @@
 ],
 "pos": "adj"
 },
+"răsări": {
+"charts": [
+{
+"rows": [
+[
+"eu",
+"răsar"
+],
+[
+"tu",
+"răsari"
+],
+[
+"el/ea",
+"răsare"
+],
+[
+"noi",
+"răsărim"
+],
+[
+"voi",
+"răsăriți"
+],
+[
+"ei",
+"răsar"
+]
+],
+"title": "Present"
+},
+{
+"rows": [
+[
+"eu",
+"răsăream"
+],
+[
+"tu",
+"răsăreai"
+],
+[
+"el/ea",
+"răsărea"
+],
+[
+"noi",
+"răsăream"
+],
+[
+"voi",
+"răsăreați"
+],
+[
+"ei",
+"răsăreau"
+]
+],
+"title": "Imperfect"
+},
+{
+"rows": [
+[
+"eu",
+"să răsar"
+],
+[
+"tu",
+"să răsari"
+],
+[
+"el/ea",
+"să răsară"
+],
+[
+"noi",
+"să răsărim"
+],
+[
+"voi",
+"să răsăriți"
+],
+[
+"ei",
+"să răsară"
+]
+],
+"title": "Subjunctive (present)"
+}
+],
+"chips": [
+{
+"label": "Gerund",
+"value": "răsărind"
+},
+{
+"label": "Past participle",
+"value": "răsărit"
+}
+],
+"pos": "verb"
+},
 "răsărit": {
 "chips": [
 {
@@ -126351,6 +129186,19 @@
 }
 ],
 "pos": "adj"
+},
+"războinică": {
+"chips": [
+{
+"label": "Gender",
+"value": "feminine"
+},
+{
+"label": "Plural",
+"value": "războinice"
+}
+],
+"pos": "noun"
 },
 "răzbuna": {
 "charts": [
@@ -126595,6 +129443,15 @@
 ],
 "pos": "verb"
 },
+"sabat": {
+"chips": [
+{
+"label": "Plural",
+"value": "sabaturi"
+}
+],
+"pos": "noun"
+},
 "sabie": {
 "chips": [
 {
@@ -126775,15 +129632,6 @@
 }
 ],
 "pos": "adj"
-},
-"sacul": {
-"chips": [
-{
-"label": "Plural",
-"value": "sacule"
-}
-],
-"pos": "noun"
 },
 "sadic": {
 "chips": [
@@ -127328,6 +130176,19 @@
 ],
 "pos": "noun"
 },
+"sanguină": {
+"chips": [
+{
+"label": "Gender",
+"value": "feminine"
+},
+{
+"label": "Plural",
+"value": "sanguine"
+}
+],
+"pos": "noun"
+},
 "sanie": {
 "chips": [
 {
@@ -127340,6 +130201,19 @@
 }
 ],
 "pos": "noun"
+},
+"sanitar": {
+"chips": [
+{
+"label": "Feminine",
+"value": "sanitară"
+},
+{
+"label": "Plural",
+"value": "sanitari"
+}
+],
+"pos": "adj"
 },
 "sapă": {
 "chips": [
@@ -127402,37 +130276,11 @@
 ],
 "pos": "noun"
 },
-"sară": {
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
-},
-{
-"label": "Plural",
-"value": "seri"
-}
-],
-"pos": "noun"
-},
 "sat": {
 "chips": [
 {
 "label": "Plural",
 "value": "sate"
-}
-],
-"pos": "noun"
-},
-"satan": {
-"chips": [
-{
-"label": "Gender",
-"value": "masculine"
-},
-{
-"label": "Plural",
-"value": "satani"
 }
 ],
 "pos": "noun"
@@ -127577,6 +130425,108 @@
 }
 ],
 "pos": "adj"
+},
+"satura": {
+"charts": [
+{
+"rows": [
+[
+"eu",
+"saturez"
+],
+[
+"tu",
+"saturezi"
+],
+[
+"el/ea",
+"saturează"
+],
+[
+"noi",
+"saturăm"
+],
+[
+"voi",
+"saturați"
+],
+[
+"ei",
+"saturează"
+]
+],
+"title": "Present"
+},
+{
+"rows": [
+[
+"eu",
+"saturam"
+],
+[
+"tu",
+"saturai"
+],
+[
+"el/ea",
+"satura"
+],
+[
+"noi",
+"saturam"
+],
+[
+"voi",
+"saturați"
+],
+[
+"ei",
+"saturau"
+]
+],
+"title": "Imperfect"
+},
+{
+"rows": [
+[
+"eu",
+"să saturez"
+],
+[
+"tu",
+"să saturezi"
+],
+[
+"el/ea",
+"să satureze"
+],
+[
+"noi",
+"să saturăm"
+],
+[
+"voi",
+"să saturați"
+],
+[
+"ei",
+"să satureze"
+]
+],
+"title": "Subjunctive (present)"
+}
+],
+"chips": [
+{
+"label": "Gerund",
+"value": "saturând"
+},
+{
+"label": "Past participle",
+"value": "saturat"
+}
+],
+"pos": "verb"
 },
 "saturat": {
 "chips": [
@@ -128111,18 +131061,18 @@
 ],
 "pos": "noun"
 },
-"scolar": {
+"scoică": {
 "chips": [
 {
-"label": "Feminine",
-"value": "scolară"
+"label": "Gender",
+"value": "feminine"
 },
 {
 "label": "Plural",
-"value": "scolari"
+"value": "scoici"
 }
 ],
-"pos": "adj"
+"pos": "noun"
 },
 "scop": {
 "chips": [
@@ -128176,6 +131126,15 @@
 }
 ],
 "pos": "verb"
+},
+"scrabble": {
+"chips": [
+{
+"label": "Plural",
+"value": "scrabble-uri"
+}
+],
+"pos": "noun"
 },
 "scrie": {
 "charts": [
@@ -128278,6 +131237,19 @@
 }
 ],
 "pos": "verb"
+},
+"scriere": {
+"chips": [
+{
+"label": "Gender",
+"value": "feminine"
+},
+{
+"label": "Plural",
+"value": "scrieri"
+}
+],
+"pos": "noun"
 },
 "scriitoare": {
 "chips": [
@@ -129494,6 +132466,108 @@
 ],
 "pos": "noun"
 },
+"scânteia": {
+"charts": [
+{
+"rows": [
+[
+"eu",
+"scânteiez"
+],
+[
+"tu",
+"scânteiezi"
+],
+[
+"el/ea",
+"scânteiază"
+],
+[
+"noi",
+"scânteiem"
+],
+[
+"voi",
+"scânteiați"
+],
+[
+"ei",
+"scânteiază"
+]
+],
+"title": "Present"
+},
+{
+"rows": [
+[
+"eu",
+"scânteiam"
+],
+[
+"tu",
+"scânteiai"
+],
+[
+"el/ea",
+"scânteia"
+],
+[
+"noi",
+"scânteiam"
+],
+[
+"voi",
+"scânteiați"
+],
+[
+"ei",
+"scânteiau"
+]
+],
+"title": "Imperfect"
+},
+{
+"rows": [
+[
+"eu",
+"să scânteiez"
+],
+[
+"tu",
+"să scânteiezi"
+],
+[
+"el/ea",
+"să scânteieze"
+],
+[
+"noi",
+"să scânteiem"
+],
+[
+"voi",
+"să scânteiați"
+],
+[
+"ei",
+"să scânteieze"
+]
+],
+"title": "Subjunctive (present)"
+}
+],
+"chips": [
+{
+"label": "Gerund",
+"value": "scânteind"
+},
+{
+"label": "Past participle",
+"value": "scânteiat"
+}
+],
+"pos": "verb"
+},
 "scânteie": {
 "chips": [
 {
@@ -130013,6 +133087,19 @@
 ],
 "pos": "noun"
 },
+"secretos": {
+"chips": [
+{
+"label": "Feminine",
+"value": "secretoasă"
+},
+{
+"label": "Plural",
+"value": "secretoși"
+}
+],
+"pos": "adj"
+},
 "sector": {
 "chips": [
 {
@@ -130356,15 +133443,6 @@
 }
 ],
 "pos": "adj"
-},
-"sef": {
-"chips": [
-{
-"label": "Plural",
-"value": "sefuri"
-}
-],
-"pos": "noun"
 },
 "seif": {
 "chips": [
@@ -131663,6 +134741,15 @@
 ],
 "pos": "verb"
 },
+"sh": {
+"chips": [
+{
+"label": "Plural",
+"value": "SH-uri"
+}
+],
+"pos": "noun"
+},
 "show": {
 "chips": [
 {
@@ -132080,6 +135167,19 @@
 ],
 "pos": "noun"
 },
+"sincronizat": {
+"chips": [
+{
+"label": "Feminine",
+"value": "sincronizată"
+},
+{
+"label": "Plural",
+"value": "sincronizați"
+}
+],
+"pos": "adj"
+},
 "sindicat": {
 "chips": [
 {
@@ -132167,19 +135267,6 @@
 }
 ],
 "pos": "adj"
-},
-"sinucid": {
-"chips": [
-{
-"label": "Gender",
-"value": "masculine"
-},
-{
-"label": "Plural",
-"value": "sinucizi"
-}
-],
-"pos": "noun"
 },
 "sinucide": {
 "charts": [
@@ -132354,6 +135441,19 @@
 ],
 "pos": "noun"
 },
+"sistematic": {
+"chips": [
+{
+"label": "Feminine",
+"value": "sistematică"
+},
+{
+"label": "Plural",
+"value": "sistematici"
+}
+],
+"pos": "adj"
+},
 "sit": {
 "chips": [
 {
@@ -132420,15 +135520,6 @@
 {
 "label": "Plural",
 "value": "slăvi"
-}
-],
-"pos": "noun"
-},
-"slim": {
-"chips": [
-{
-"label": "Plural",
-"value": "slimuri"
 }
 ],
 "pos": "noun"
@@ -132698,18 +135789,14 @@
 ],
 "pos": "adj"
 },
-"smecher": {
+"sms": {
 "chips": [
 {
-"label": "Feminine",
-"value": "smecheră"
-},
-{
 "label": "Plural",
-"value": "smecheri"
+"value": "SMS-uri"
 }
 ],
-"pos": "adj"
+"pos": "noun"
 },
 "smulge": {
 "charts": [
@@ -133433,15 +136520,6 @@
 ],
 "pos": "adj"
 },
-"soprano": {
-"chips": [
-{
-"label": "Plural",
-"value": "soprane"
-}
-],
-"pos": "noun"
-},
 "sora": {
 "chips": [
 {
@@ -133795,6 +136873,15 @@
 ],
 "pos": "noun"
 },
+"spaima": {
+"chips": [
+{
+"label": "Gender",
+"value": "feminine"
+}
+],
+"pos": "noun"
+},
 "spanac": {
 "chips": [
 {
@@ -133950,19 +137037,6 @@
 {
 "label": "Plural",
 "value": "spargeri"
-}
-],
-"pos": "noun"
-},
-"spargă": {
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
-},
-{
-"label": "Plural",
-"value": "sparge"
 }
 ],
 "pos": "noun"
@@ -134129,6 +137203,15 @@
 {
 "label": "Plural",
 "value": "spectatori"
+}
+],
+"pos": "noun"
+},
+"spectru": {
+"chips": [
+{
+"label": "Plural",
+"value": "spectre"
 }
 ],
 "pos": "noun"
@@ -135564,19 +138647,6 @@
 ],
 "pos": "adj"
 },
-"stabile": {
-"chips": [
-{
-"label": "Feminine",
-"value": "stabile"
-},
-{
-"label": "Plural",
-"value": "stabili"
-}
-],
-"pos": "adj"
-},
 "stabili": {
 "charts": [
 {
@@ -135679,6 +138749,15 @@
 ],
 "pos": "verb"
 },
+"stabilire": {
+"chips": [
+{
+"label": "Gender",
+"value": "feminine"
+}
+],
+"pos": "noun"
+},
 "stabilit": {
 "chips": [
 {
@@ -135719,6 +138798,19 @@
 ],
 "pos": "noun"
 },
+"stafie": {
+"chips": [
+{
+"label": "Gender",
+"value": "feminine"
+},
+{
+"label": "Plural",
+"value": "stafii"
+}
+],
+"pos": "noun"
+},
 "stagiar": {
 "chips": [
 {
@@ -135740,108 +138832,6 @@
 }
 ],
 "pos": "noun"
-},
-"stampila": {
-"charts": [
-{
-"rows": [
-[
-"eu",
-"stampilez"
-],
-[
-"tu",
-"stampilezi"
-],
-[
-"el/ea",
-"stampilează"
-],
-[
-"noi",
-"stampilăm"
-],
-[
-"voi",
-"stampilați"
-],
-[
-"ei",
-"stampilează"
-]
-],
-"title": "Present"
-},
-{
-"rows": [
-[
-"eu",
-"stampilam"
-],
-[
-"tu",
-"stampilai"
-],
-[
-"el/ea",
-"stampila"
-],
-[
-"noi",
-"stampilam"
-],
-[
-"voi",
-"stampilați"
-],
-[
-"ei",
-"stampilau"
-]
-],
-"title": "Imperfect"
-},
-{
-"rows": [
-[
-"eu",
-"să stampilez"
-],
-[
-"tu",
-"să stampilezi"
-],
-[
-"el/ea",
-"să stampileze"
-],
-[
-"noi",
-"să stampilăm"
-],
-[
-"voi",
-"să stampilați"
-],
-[
-"ei",
-"să stampileze"
-]
-],
-"title": "Subjunctive (present)"
-}
-],
-"chips": [
-{
-"label": "Gerund",
-"value": "stampilând"
-},
-{
-"label": "Past participle",
-"value": "stampilat"
-}
-],
-"pos": "verb"
 },
 "stan": {
 "chips": [
@@ -135910,6 +138900,19 @@
 ],
 "pos": "noun"
 },
+"statal": {
+"chips": [
+{
+"label": "Feminine",
+"value": "statală"
+},
+{
+"label": "Plural",
+"value": "statali"
+}
+],
+"pos": "adj"
+},
 "static": {
 "chips": [
 {
@@ -135922,19 +138925,6 @@
 }
 ],
 "pos": "adj"
-},
-"statie": {
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
-},
-{
-"label": "Plural",
-"value": "statii"
-}
-],
-"pos": "noun"
 },
 "statistic": {
 "chips": [
@@ -136040,6 +139030,32 @@
 }
 ],
 "pos": "noun"
+},
+"stereo": {
+"chips": [
+{
+"label": "Feminine",
+"value": "stereo"
+},
+{
+"label": "Plural",
+"value": "stereo"
+}
+],
+"pos": "adj"
+},
+"steril": {
+"chips": [
+{
+"label": "Feminine",
+"value": "sterilă"
+},
+{
+"label": "Plural",
+"value": "sterili"
+}
+],
+"pos": "adj"
 },
 "stern": {
 "chips": [
@@ -136717,6 +139733,108 @@
 ],
 "pos": "noun"
 },
+"stresa": {
+"charts": [
+{
+"rows": [
+[
+"eu",
+"stresez"
+],
+[
+"tu",
+"stresezi"
+],
+[
+"el/ea",
+"stresează"
+],
+[
+"noi",
+"stresăm"
+],
+[
+"voi",
+"stresați"
+],
+[
+"ei",
+"stresează"
+]
+],
+"title": "Present"
+},
+{
+"rows": [
+[
+"eu",
+"stresam"
+],
+[
+"tu",
+"stresai"
+],
+[
+"el/ea",
+"stresa"
+],
+[
+"noi",
+"stresam"
+],
+[
+"voi",
+"stresați"
+],
+[
+"ei",
+"stresau"
+]
+],
+"title": "Imperfect"
+},
+{
+"rows": [
+[
+"eu",
+"să stresez"
+],
+[
+"tu",
+"să stresezi"
+],
+[
+"el/ea",
+"să streseze"
+],
+[
+"noi",
+"să stresăm"
+],
+[
+"voi",
+"să stresați"
+],
+[
+"ei",
+"să streseze"
+]
+],
+"title": "Subjunctive (present)"
+}
+],
+"chips": [
+{
+"label": "Gerund",
+"value": "stresând"
+},
+{
+"label": "Past participle",
+"value": "stresat"
+}
+],
+"pos": "verb"
+},
 "stresant": {
 "chips": [
 {
@@ -136955,6 +140073,19 @@
 }
 ],
 "pos": "verb"
+},
+"strigoi": {
+"chips": [
+{
+"label": "Gender",
+"value": "masculine"
+},
+{
+"label": "Plural",
+"value": "strigoi"
+}
+],
+"pos": "noun"
 },
 "strigă": {
 "chips": [
@@ -137392,6 +140523,108 @@
 }
 ],
 "pos": "noun"
+},
+"străbate": {
+"charts": [
+{
+"rows": [
+[
+"eu",
+"străbat"
+],
+[
+"tu",
+"străbați"
+],
+[
+"el/ea",
+"străbate"
+],
+[
+"noi",
+"străbatem"
+],
+[
+"voi",
+"străbateți"
+],
+[
+"ei",
+"străbat"
+]
+],
+"title": "Present"
+},
+{
+"rows": [
+[
+"eu",
+"străbăteam"
+],
+[
+"tu",
+"străbăteai"
+],
+[
+"el/ea",
+"străbătea"
+],
+[
+"noi",
+"străbăteam"
+],
+[
+"voi",
+"străbăteați"
+],
+[
+"ei",
+"străbăteau"
+]
+],
+"title": "Imperfect"
+},
+{
+"rows": [
+[
+"eu",
+"să străbat"
+],
+[
+"tu",
+"să străbați"
+],
+[
+"el/ea",
+"să străbată"
+],
+[
+"noi",
+"să străbatem"
+],
+[
+"voi",
+"să străbateți"
+],
+[
+"ei",
+"să străbată"
+]
+],
+"title": "Subjunctive (present)"
+}
+],
+"chips": [
+{
+"label": "Gerund",
+"value": "străbătând"
+},
+{
+"label": "Past participle",
+"value": "străbătut"
+}
+],
+"pos": "verb"
 },
 "străbătut": {
 "chips": [
@@ -138379,6 +141612,19 @@
 {
 "label": "Plural",
 "value": "succese"
+}
+],
+"pos": "noun"
+},
+"succesiune": {
+"chips": [
+{
+"label": "Gender",
+"value": "feminine"
+},
+{
+"label": "Plural",
+"value": "succesiuni"
 }
 ],
 "pos": "noun"
@@ -141181,6 +144427,19 @@
 ],
 "pos": "noun"
 },
+"suveran": {
+"chips": [
+{
+"label": "Feminine",
+"value": "suverană"
+},
+{
+"label": "Plural",
+"value": "suverani"
+}
+],
+"pos": "adj"
+},
 "sâmbătă": {
 "chips": [
 {
@@ -141353,6 +144612,19 @@
 {
 "label": "Plural",
 "value": "sângeroși"
+}
+],
+"pos": "adj"
+},
+"sângerând": {
+"chips": [
+{
+"label": "Feminine",
+"value": "sângerândă"
+},
+{
+"label": "Plural",
+"value": "sângerânzi"
 }
 ],
 "pos": "adj"
@@ -142277,15 +145549,6 @@
 ],
 "pos": "adj"
 },
-"tango": {
-"chips": [
-{
-"label": "Plural",
-"value": "tangouri"
-}
-],
-"pos": "noun"
-},
 "tanti": {
 "chips": [
 {
@@ -142560,19 +145823,6 @@
 {
 "label": "Gender",
 "value": "masculine"
-}
-],
-"pos": "noun"
-},
-"tava": {
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
-},
-{
-"label": "Plural",
-"value": "tavale"
 }
 ],
 "pos": "noun"
@@ -143173,6 +146423,15 @@
 ],
 "pos": "verb"
 },
+"temei": {
+"chips": [
+{
+"label": "Plural",
+"value": "temeiuri"
+}
+],
+"pos": "noun"
+},
 "temelie": {
 "chips": [
 {
@@ -143321,6 +146580,108 @@
 }
 ],
 "pos": "noun"
+},
+"tenta": {
+"charts": [
+{
+"rows": [
+[
+"eu",
+"tentez"
+],
+[
+"tu",
+"tentezi"
+],
+[
+"el/ea",
+"tentează"
+],
+[
+"noi",
+"tentăm"
+],
+[
+"voi",
+"tentați"
+],
+[
+"ei",
+"tentează"
+]
+],
+"title": "Present"
+},
+{
+"rows": [
+[
+"eu",
+"tentam"
+],
+[
+"tu",
+"tentai"
+],
+[
+"el/ea",
+"tenta"
+],
+[
+"noi",
+"tentam"
+],
+[
+"voi",
+"tentați"
+],
+[
+"ei",
+"tentau"
+]
+],
+"title": "Imperfect"
+},
+{
+"rows": [
+[
+"eu",
+"să tentez"
+],
+[
+"tu",
+"să tentezi"
+],
+[
+"el/ea",
+"să tenteze"
+],
+[
+"noi",
+"să tentăm"
+],
+[
+"voi",
+"să tentați"
+],
+[
+"ei",
+"să tenteze"
+]
+],
+"title": "Subjunctive (present)"
+}
+],
+"chips": [
+{
+"label": "Gerund",
+"value": "tentând"
+},
+{
+"label": "Past participle",
+"value": "tentat"
+}
+],
+"pos": "verb"
 },
 "tentant": {
 "chips": [
@@ -143546,19 +146907,6 @@
 ],
 "pos": "adj"
 },
-"teribile": {
-"chips": [
-{
-"label": "Feminine",
-"value": "teribile"
-},
-{
-"label": "Plural",
-"value": "teribile"
-}
-],
-"pos": "adj"
-},
 "terifiant": {
 "chips": [
 {
@@ -143757,6 +147105,19 @@
 ],
 "pos": "noun"
 },
+"terorizat": {
+"chips": [
+{
+"label": "Feminine",
+"value": "terorizată"
+},
+{
+"label": "Plural",
+"value": "terorizați"
+}
+],
+"pos": "adj"
+},
 "tesla": {
 "chips": [
 {
@@ -143899,6 +147260,15 @@
 ],
 "pos": "noun"
 },
+"testosteron": {
+"chips": [
+{
+"label": "Gender",
+"value": "masculine"
+}
+],
+"pos": "noun"
+},
 "text": {
 "chips": [
 {
@@ -143907,28 +147277,6 @@
 }
 ],
 "pos": "noun"
-},
-"tic": {
-"chips": [
-{
-"label": "Plural",
-"value": "ticuri"
-}
-],
-"pos": "noun"
-},
-"ticnit": {
-"chips": [
-{
-"label": "Feminine",
-"value": "ticnită"
-},
-{
-"label": "Plural",
-"value": "ticniți"
-}
-],
-"pos": "adj"
 },
 "ticăloasă": {
 "chips": [
@@ -144006,10 +147354,6 @@
 },
 "timp": {
 "chips": [
-{
-"label": "Gender",
-"value": "masculine"
-},
 {
 "label": "Plural",
 "value": "timpuri"
@@ -144228,6 +147572,15 @@
 }
 ],
 "pos": "noun"
+},
+"tipărit": {
+"chips": [
+{
+"label": "Past participle",
+"value": "of tipări"
+}
+],
+"pos": "verb"
 },
 "tiran": {
 "chips": [
@@ -144780,6 +148133,108 @@
 }
 ],
 "pos": "noun"
+},
+"torpila": {
+"charts": [
+{
+"rows": [
+[
+"eu",
+"torpilez"
+],
+[
+"tu",
+"torpilezi"
+],
+[
+"el/ea",
+"torpilează"
+],
+[
+"noi",
+"torpilăm"
+],
+[
+"voi",
+"torpilați"
+],
+[
+"ei",
+"torpilează"
+]
+],
+"title": "Present"
+},
+{
+"rows": [
+[
+"eu",
+"torpilam"
+],
+[
+"tu",
+"torpilai"
+],
+[
+"el/ea",
+"torpila"
+],
+[
+"noi",
+"torpilam"
+],
+[
+"voi",
+"torpilați"
+],
+[
+"ei",
+"torpilau"
+]
+],
+"title": "Imperfect"
+},
+{
+"rows": [
+[
+"eu",
+"să torpilez"
+],
+[
+"tu",
+"să torpilezi"
+],
+[
+"el/ea",
+"să torpileze"
+],
+[
+"noi",
+"să torpilăm"
+],
+[
+"voi",
+"să torpilați"
+],
+[
+"ei",
+"să torpileze"
+]
+],
+"title": "Subjunctive (present)"
+}
+],
+"chips": [
+{
+"label": "Gerund",
+"value": "torpilând"
+},
+{
+"label": "Past participle",
+"value": "torpilat"
+}
+],
+"pos": "verb"
 },
 "tort": {
 "chips": [
@@ -145592,6 +149047,19 @@
 ],
 "pos": "noun"
 },
+"translator": {
+"chips": [
+{
+"label": "Gender",
+"value": "masculine"
+},
+{
+"label": "Plural",
+"value": "translatori"
+}
+],
+"pos": "noun"
+},
 "transmis": {
 "chips": [
 {
@@ -145732,6 +149200,19 @@
 }
 ],
 "pos": "verb"
+},
+"transparent": {
+"chips": [
+{
+"label": "Feminine",
+"value": "transparentă"
+},
+{
+"label": "Plural",
+"value": "transparenți"
+}
+],
+"pos": "adj"
 },
 "transpira": {
 "charts": [
@@ -146012,6 +149493,19 @@
 ],
 "pos": "noun"
 },
+"trapă": {
+"chips": [
+{
+"label": "Gender",
+"value": "feminine"
+},
+{
+"label": "Plural",
+"value": "trape"
+}
+],
+"pos": "noun"
+},
 "trasa": {
 "charts": [
 {
@@ -146270,15 +149764,6 @@
 {
 "label": "Plural",
 "value": "travalii"
-}
-],
-"pos": "noun"
-},
-"travers": {
-"chips": [
-{
-"label": "Plural",
-"value": "traversuri"
 }
 ],
 "pos": "noun"
@@ -147384,6 +150869,15 @@
 ],
 "pos": "noun"
 },
+"trufe": {
+"chips": [
+{
+"label": "Gender",
+"value": "feminine"
+}
+],
+"pos": "noun"
+},
 "trunchi": {
 "chips": [
 {
@@ -147961,19 +151455,6 @@
 ],
 "pos": "noun"
 },
-"tumoră": {
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
-},
-{
-"label": "Plural",
-"value": "tumore"
-}
-],
-"pos": "noun"
-},
 "tun": {
 "chips": [
 {
@@ -148297,6 +151778,19 @@
 ],
 "pos": "noun"
 },
+"turistic": {
+"chips": [
+{
+"label": "Feminine",
+"value": "turistică"
+},
+{
+"label": "Plural",
+"value": "turistici"
+}
+],
+"pos": "adj"
+},
 "turmă": {
 "chips": [
 {
@@ -148505,6 +151999,15 @@
 {
 "label": "Plural",
 "value": "tutunuri"
+}
+],
+"pos": "noun"
+},
+"twist": {
+"chips": [
+{
+"label": "Plural",
+"value": "twisturi"
 }
 ],
 "pos": "noun"
@@ -149046,19 +152549,6 @@
 ],
 "pos": "noun"
 },
-"tăntălău": {
-"chips": [
-{
-"label": "Feminine",
-"value": "tăntăloaică"
-},
-{
-"label": "Plural",
-"value": "tăntălăi"
-}
-],
-"pos": "adj"
-},
 "tărie": {
 "chips": [
 {
@@ -149381,108 +152871,6 @@
 ],
 "pos": "adj"
 },
-"ui": {
-"charts": [
-{
-"rows": [
-[
-"eu",
-"uiesc"
-],
-[
-"tu",
-"uiești"
-],
-[
-"el/ea",
-"uiește"
-],
-[
-"noi",
-"uim"
-],
-[
-"voi",
-"uiți"
-],
-[
-"ei",
-"uiesc"
-]
-],
-"title": "Present"
-},
-{
-"rows": [
-[
-"eu",
-"uiam"
-],
-[
-"tu",
-"uiai"
-],
-[
-"el/ea",
-"uia"
-],
-[
-"noi",
-"uiam"
-],
-[
-"voi",
-"uiați"
-],
-[
-"ei",
-"uiau"
-]
-],
-"title": "Imperfect"
-},
-{
-"rows": [
-[
-"eu",
-"să uiesc"
-],
-[
-"tu",
-"să uiești"
-],
-[
-"el/ea",
-"să uiască"
-],
-[
-"noi",
-"să uim"
-],
-[
-"voi",
-"să uiți"
-],
-[
-"ei",
-"să uiască"
-]
-],
-"title": "Subjunctive (present)"
-}
-],
-"chips": [
-{
-"label": "Gerund",
-"value": "uind"
-},
-{
-"label": "Past participle",
-"value": "uit"
-}
-],
-"pos": "verb"
-},
 "uimit": {
 "chips": [
 {
@@ -149610,6 +152998,19 @@
 }
 ],
 "pos": "verb"
+},
+"uitare": {
+"chips": [
+{
+"label": "Gender",
+"value": "feminine"
+},
+{
+"label": "Plural",
+"value": "uitări"
+}
+],
+"pos": "noun"
 },
 "uitat": {
 "chips": [
@@ -150033,108 +153434,6 @@
 }
 ],
 "pos": "adj"
-},
-"umila": {
-"charts": [
-{
-"rows": [
-[
-"eu",
-"umilez"
-],
-[
-"tu",
-"umilezi"
-],
-[
-"el/ea",
-"umilează"
-],
-[
-"noi",
-"umilăm"
-],
-[
-"voi",
-"umilați"
-],
-[
-"ei",
-"umilează"
-]
-],
-"title": "Present"
-},
-{
-"rows": [
-[
-"eu",
-"umilam"
-],
-[
-"tu",
-"umilai"
-],
-[
-"el/ea",
-"umila"
-],
-[
-"noi",
-"umilam"
-],
-[
-"voi",
-"umilați"
-],
-[
-"ei",
-"umilau"
-]
-],
-"title": "Imperfect"
-},
-{
-"rows": [
-[
-"eu",
-"să umilez"
-],
-[
-"tu",
-"să umilezi"
-],
-[
-"el/ea",
-"să umileze"
-],
-[
-"noi",
-"să umilăm"
-],
-[
-"voi",
-"să umilați"
-],
-[
-"ei",
-"să umileze"
-]
-],
-"title": "Subjunctive (present)"
-}
-],
-"chips": [
-{
-"label": "Gerund",
-"value": "umilând"
-},
-{
-"label": "Past participle",
-"value": "umilat"
-}
-],
-"pos": "verb"
 },
 "umili": {
 "charts": [
@@ -150598,6 +153897,19 @@
 }
 ],
 "pos": "adj"
+},
+"unificare": {
+"chips": [
+{
+"label": "Gender",
+"value": "feminine"
+},
+{
+"label": "Plural",
+"value": "unificări"
+}
+],
+"pos": "noun"
 },
 "uniformă": {
 "chips": [
@@ -151434,6 +154746,15 @@
 ],
 "pos": "verb"
 },
+"urlat": {
+"chips": [
+{
+"label": "Past participle",
+"value": "of urla"
+}
+],
+"pos": "verb"
+},
 "urm": {
 "chips": [
 {
@@ -151750,108 +155071,6 @@
 }
 ],
 "pos": "noun"
-},
-"ursi": {
-"charts": [
-{
-"rows": [
-[
-"eu",
-"ursesc"
-],
-[
-"tu",
-"ursești"
-],
-[
-"el/ea",
-"ursește"
-],
-[
-"noi",
-"ursim"
-],
-[
-"voi",
-"ursiți"
-],
-[
-"ei",
-"ursesc"
-]
-],
-"title": "Present"
-},
-{
-"rows": [
-[
-"eu",
-"urseam"
-],
-[
-"tu",
-"urseai"
-],
-[
-"el/ea",
-"ursea"
-],
-[
-"noi",
-"urseam"
-],
-[
-"voi",
-"urseați"
-],
-[
-"ei",
-"urseau"
-]
-],
-"title": "Imperfect"
-},
-{
-"rows": [
-[
-"eu",
-"să ursesc"
-],
-[
-"tu",
-"să ursești"
-],
-[
-"el/ea",
-"să ursească"
-],
-[
-"noi",
-"să ursim"
-],
-[
-"voi",
-"să ursiți"
-],
-[
-"ei",
-"să ursească"
-]
-],
-"title": "Subjunctive (present)"
-}
-],
-"chips": [
-{
-"label": "Gerund",
-"value": "ursind"
-},
-{
-"label": "Past participle",
-"value": "ursit"
-}
-],
-"pos": "verb"
 },
 "urât": {
 "chips": [
@@ -152481,6 +155700,19 @@
 ],
 "pos": "verb"
 },
+"uzină": {
+"chips": [
+{
+"label": "Gender",
+"value": "feminine"
+},
+{
+"label": "Plural",
+"value": "uzine"
+}
+],
+"pos": "noun"
+},
 "ușor": {
 "chips": [
 {
@@ -152890,6 +156122,15 @@
 ],
 "pos": "noun"
 },
+"vapori": {
+"chips": [
+{
+"label": "Gender",
+"value": "masculine"
+}
+],
+"pos": "noun"
+},
 "var": {
 "chips": [
 {
@@ -153017,6 +156258,15 @@
 {
 "label": "Plural",
 "value": "vetre"
+}
+],
+"pos": "noun"
+},
+"vată": {
+"chips": [
+{
+"label": "Gender",
+"value": "feminine"
 }
 ],
 "pos": "noun"
@@ -153639,6 +156889,19 @@
 ],
 "pos": "noun"
 },
+"venă": {
+"chips": [
+{
+"label": "Gender",
+"value": "feminine"
+},
+{
+"label": "Plural",
+"value": "vene"
+}
+],
+"pos": "noun"
+},
 "verandă": {
 "chips": [
 {
@@ -153871,6 +157134,19 @@
 }
 ],
 "pos": "noun"
+},
+"vertical": {
+"chips": [
+{
+"label": "Feminine",
+"value": "verticală"
+},
+{
+"label": "Plural",
+"value": "verticali"
+}
+],
+"pos": "adj"
 },
 "verticală": {
 "chips": [
@@ -154159,19 +157435,6 @@
 ],
 "pos": "noun"
 },
-"veteran": {
-"chips": [
-{
-"label": "Gender",
-"value": "masculine"
-},
-{
-"label": "Plural",
-"value": "veterani"
-}
-],
-"pos": "noun"
-},
 "veterinar": {
 "chips": [
 {
@@ -154184,108 +157447,6 @@
 }
 ],
 "pos": "adj"
-},
-"vești": {
-"charts": [
-{
-"rows": [
-[
-"eu",
-"veștesc"
-],
-[
-"tu",
-"veștești"
-],
-[
-"el/ea",
-"veștește"
-],
-[
-"noi",
-"veștim"
-],
-[
-"voi",
-"veștiți"
-],
-[
-"ei",
-"veștesc"
-]
-],
-"title": "Present"
-},
-{
-"rows": [
-[
-"eu",
-"veșteam"
-],
-[
-"tu",
-"veșteai"
-],
-[
-"el/ea",
-"veștea"
-],
-[
-"noi",
-"veșteam"
-],
-[
-"voi",
-"veșteați"
-],
-[
-"ei",
-"veșteau"
-]
-],
-"title": "Imperfect"
-},
-{
-"rows": [
-[
-"eu",
-"să veștesc"
-],
-[
-"tu",
-"să veștești"
-],
-[
-"el/ea",
-"să veștească"
-],
-[
-"noi",
-"să veștim"
-],
-[
-"voi",
-"să veștiți"
-],
-[
-"ei",
-"să veștească"
-]
-],
-"title": "Subjunctive (present)"
-}
-],
-"chips": [
-{
-"label": "Gerund",
-"value": "veștind"
-},
-{
-"label": "Past participle",
-"value": "veștit"
-}
-],
-"pos": "verb"
 },
 "via": {
 "charts": [
@@ -154411,6 +157572,15 @@
 ],
 "pos": "noun"
 },
+"vibrator": {
+"chips": [
+{
+"label": "Plural",
+"value": "vibratori"
+}
+],
+"pos": "noun"
+},
 "vicios": {
 "chips": [
 {
@@ -154471,6 +157641,19 @@
 }
 ],
 "pos": "noun"
+},
+"victorios": {
+"chips": [
+{
+"label": "Feminine",
+"value": "victorioasă"
+},
+{
+"label": "Plural",
+"value": "victorioși"
+}
+],
+"pos": "adj"
 },
 "vid": {
 "chips": [
@@ -154638,108 +157821,6 @@
 }
 ],
 "pos": "noun"
-},
-"vince": {
-"charts": [
-{
-"rows": [
-[
-"eu",
-"vinc"
-],
-[
-"tu",
-"vinci"
-],
-[
-"el/ea",
-"vince"
-],
-[
-"noi",
-"vincem"
-],
-[
-"voi",
-"vinceți"
-],
-[
-"ei",
-"vinc"
-]
-],
-"title": "Present"
-},
-{
-"rows": [
-[
-"eu",
-"vinceam"
-],
-[
-"tu",
-"vinceai"
-],
-[
-"el/ea",
-"vincea"
-],
-[
-"noi",
-"vinceam"
-],
-[
-"voi",
-"vinceați"
-],
-[
-"ei",
-"vinceau"
-]
-],
-"title": "Imperfect"
-},
-{
-"rows": [
-[
-"eu",
-"să vinc"
-],
-[
-"tu",
-"să vinci"
-],
-[
-"el/ea",
-"să vincă"
-],
-[
-"noi",
-"să vincem"
-],
-[
-"voi",
-"să vinceți"
-],
-[
-"ei",
-"să vincă"
-]
-],
-"title": "Subjunctive (present)"
-}
-],
-"chips": [
-{
-"label": "Gerund",
-"value": "vincând"
-},
-{
-"label": "Past participle",
-"value": "vins"
-}
-],
-"pos": "verb"
 },
 "vinde": {
 "charts": [
@@ -155297,6 +158378,19 @@
 ],
 "pos": "verb"
 },
+"violență": {
+"chips": [
+{
+"label": "Gender",
+"value": "feminine"
+},
+{
+"label": "Plural",
+"value": "violențe"
+}
+],
+"pos": "noun"
+},
 "violet": {
 "chips": [
 {
@@ -155309,6 +158403,28 @@
 }
 ],
 "pos": "adj"
+},
+"violoncel": {
+"chips": [
+{
+"label": "Plural",
+"value": "violoncele"
+}
+],
+"pos": "noun"
+},
+"viperă": {
+"chips": [
+{
+"label": "Gender",
+"value": "feminine"
+},
+{
+"label": "Plural",
+"value": "vipere"
+}
+],
+"pos": "noun"
 },
 "viraj": {
 "chips": [
@@ -155732,18 +158848,14 @@
 ],
 "pos": "adj"
 },
-"vizibile": {
+"vizibilitate": {
 "chips": [
 {
-"label": "Feminine",
-"value": "vizibile"
-},
-{
-"label": "Plural",
-"value": "vizibili"
+"label": "Gender",
+"value": "feminine"
 }
 ],
-"pos": "adj"
+"pos": "noun"
 },
 "viziona": {
 "charts": [
@@ -156128,19 +159240,6 @@
 {
 "label": "Gender",
 "value": "feminine"
-}
-],
-"pos": "noun"
-},
-"vodcă": {
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
-},
-{
-"label": "Plural",
-"value": "vodci"
 }
 ],
 "pos": "noun"
@@ -156638,6 +159737,19 @@
 ],
 "pos": "adj"
 },
+"vorbitoare": {
+"chips": [
+{
+"label": "Gender",
+"value": "feminine"
+},
+{
+"label": "Plural",
+"value": "vorbitoare"
+}
+],
+"pos": "noun"
+},
 "vorbitor": {
 "chips": [
 {
@@ -156660,6 +159772,15 @@
 {
 "label": "Plural",
 "value": "vorbe"
+}
+],
+"pos": "noun"
+},
+"vortex": {
+"chips": [
+{
+"label": "Plural",
+"value": "vortexuri"
 }
 ],
 "pos": "noun"
@@ -156800,6 +159921,19 @@
 }
 ],
 "pos": "adj"
+},
+"votcă": {
+"chips": [
+{
+"label": "Gender",
+"value": "feminine"
+},
+{
+"label": "Plural",
+"value": "votci"
+}
+],
+"pos": "noun"
 },
 "vraci": {
 "chips": [
@@ -157382,19 +160516,6 @@
 "pos": "noun"
 },
 "vârcolac": {
-"chips": [
-{
-"label": "Gender",
-"value": "masculine"
-},
-{
-"label": "Plural",
-"value": "vârcolaci"
-}
-],
-"pos": "noun"
-},
-"vârcolaci": {
 "chips": [
 {
 "label": "Gender",
@@ -158100,6 +161221,19 @@
 ],
 "pos": "adj"
 },
+"zdruncinat": {
+"chips": [
+{
+"label": "Feminine",
+"value": "zdruncinată"
+},
+{
+"label": "Plural",
+"value": "zdruncinați"
+}
+],
+"pos": "adj"
+},
 "zei": {
 "chips": [
 {
@@ -158426,19 +161560,6 @@
 ],
 "pos": "verb"
 },
-"ziuă": {
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
-},
-{
-"label": "Plural",
-"value": "zile"
-}
-],
-"pos": "noun"
-},
 "zmeu": {
 "chips": [
 {
@@ -158448,6 +161569,19 @@
 {
 "label": "Plural",
 "value": "zmei"
+}
+],
+"pos": "noun"
+},
+"zmeură": {
+"chips": [
+{
+"label": "Gender",
+"value": "feminine"
+},
+{
+"label": "Plural",
+"value": "zmeure"
 }
 ],
 "pos": "noun"
@@ -159054,6 +162188,108 @@
 ],
 "pos": "noun"
 },
+"îmbăta": {
+"charts": [
+{
+"rows": [
+[
+"eu",
+"îmbăt"
+],
+[
+"tu",
+"îmbeți"
+],
+[
+"el/ea",
+"îmbătă"
+],
+[
+"noi",
+"îmbătăm"
+],
+[
+"voi",
+"îmbătați"
+],
+[
+"ei",
+"îmbătă"
+]
+],
+"title": "Present"
+},
+{
+"rows": [
+[
+"eu",
+"îmbătam"
+],
+[
+"tu",
+"îmbătai"
+],
+[
+"el/ea",
+"îmbăta"
+],
+[
+"noi",
+"îmbătam"
+],
+[
+"voi",
+"îmbătați"
+],
+[
+"ei",
+"îmbătau"
+]
+],
+"title": "Imperfect"
+},
+{
+"rows": [
+[
+"eu",
+"să îmbăt"
+],
+[
+"tu",
+"să îmbeți"
+],
+[
+"el/ea",
+"să îmbete"
+],
+[
+"noi",
+"să îmbătăm"
+],
+[
+"voi",
+"să îmbătați"
+],
+[
+"ei",
+"să îmbete"
+]
+],
+"title": "Subjunctive (present)"
+}
+],
+"chips": [
+{
+"label": "Gerund",
+"value": "îmbătând"
+},
+{
+"label": "Past participle",
+"value": "îmbătat"
+}
+],
+"pos": "verb"
+},
 "îmbătat": {
 "chips": [
 {
@@ -159181,6 +162417,108 @@
 }
 ],
 "pos": "adj"
+},
+"împacheta": {
+"charts": [
+{
+"rows": [
+[
+"eu",
+"împachetez"
+],
+[
+"tu",
+"împachetezi"
+],
+[
+"el/ea",
+"împachetează"
+],
+[
+"noi",
+"împachetăm"
+],
+[
+"voi",
+"împachetați"
+],
+[
+"ei",
+"împachetează"
+]
+],
+"title": "Present"
+},
+{
+"rows": [
+[
+"eu",
+"împachetam"
+],
+[
+"tu",
+"împachetai"
+],
+[
+"el/ea",
+"împacheta"
+],
+[
+"noi",
+"împachetam"
+],
+[
+"voi",
+"împachetați"
+],
+[
+"ei",
+"împachetau"
+]
+],
+"title": "Imperfect"
+},
+{
+"rows": [
+[
+"eu",
+"să împachetez"
+],
+[
+"tu",
+"să împachetezi"
+],
+[
+"el/ea",
+"să împacheteze"
+],
+[
+"noi",
+"să împachetăm"
+],
+[
+"voi",
+"să împachetați"
+],
+[
+"ei",
+"să împacheteze"
+]
+],
+"title": "Subjunctive (present)"
+}
+],
+"chips": [
+{
+"label": "Gerund",
+"value": "împachetând"
+},
+{
+"label": "Past participle",
+"value": "împachetat"
+}
+],
+"pos": "verb"
 },
 "împerechere": {
 "chips": [
@@ -161406,6 +164744,108 @@
 ],
 "pos": "noun"
 },
+"încinge": {
+"charts": [
+{
+"rows": [
+[
+"eu",
+"încing"
+],
+[
+"tu",
+"încingi"
+],
+[
+"el/ea",
+"încinge"
+],
+[
+"noi",
+"încingem"
+],
+[
+"voi",
+"încingeți"
+],
+[
+"ei",
+"încing"
+]
+],
+"title": "Present"
+},
+{
+"rows": [
+[
+"eu",
+"încingeam"
+],
+[
+"tu",
+"încingeai"
+],
+[
+"el/ea",
+"încingea"
+],
+[
+"noi",
+"încingeam"
+],
+[
+"voi",
+"încingeați"
+],
+[
+"ei",
+"încingeau"
+]
+],
+"title": "Imperfect"
+},
+{
+"rows": [
+[
+"eu",
+"să încing"
+],
+[
+"tu",
+"să încingi"
+],
+[
+"el/ea",
+"să încingă"
+],
+[
+"noi",
+"să încingem"
+],
+[
+"voi",
+"să încingeți"
+],
+[
+"ei",
+"să încingă"
+]
+],
+"title": "Subjunctive (present)"
+}
+],
+"chips": [
+{
+"label": "Gerund",
+"value": "încingând"
+},
+{
+"label": "Past participle",
+"value": "încins"
+}
+],
+"pos": "verb"
+},
 "încins": {
 "chips": [
 {
@@ -162184,6 +165624,108 @@
 }
 ],
 "pos": "adj"
+},
+"încăpea": {
+"charts": [
+{
+"rows": [
+[
+"eu",
+"încap"
+],
+[
+"tu",
+"încapi"
+],
+[
+"el/ea",
+"încape"
+],
+[
+"noi",
+"încăpem"
+],
+[
+"voi",
+"încăpeți"
+],
+[
+"ei",
+"încap"
+]
+],
+"title": "Present"
+},
+{
+"rows": [
+[
+"eu",
+"încăpeam"
+],
+[
+"tu",
+"încăpeai"
+],
+[
+"el/ea",
+"încăpea"
+],
+[
+"noi",
+"încăpeam"
+],
+[
+"voi",
+"încăpeați"
+],
+[
+"ei",
+"încăpeau"
+]
+],
+"title": "Imperfect"
+},
+{
+"rows": [
+[
+"eu",
+"să încap"
+],
+[
+"tu",
+"să încapi"
+],
+[
+"el/ea",
+"să încapă"
+],
+[
+"noi",
+"să încăpem"
+],
+[
+"voi",
+"să încăpeți"
+],
+[
+"ei",
+"să încapă"
+]
+],
+"title": "Subjunctive (present)"
+}
+],
+"chips": [
+{
+"label": "Gerund",
+"value": "încăpând"
+},
+{
+"label": "Past participle",
+"value": "încăput"
+}
+],
+"pos": "verb"
 },
 "încăpere": {
 "chips": [
@@ -163192,15 +166734,15 @@
 ],
 "pos": "noun"
 },
-"îndurat": {
+"îndurerat": {
 "chips": [
 {
 "label": "Feminine",
-"value": "îndurată"
+"value": "îndurerată"
 },
 {
 "label": "Plural",
-"value": "îndurați"
+"value": "îndurerați"
 }
 ],
 "pos": "adj"
@@ -163791,6 +167333,19 @@
 }
 ],
 "pos": "adj"
+},
+"înghețată": {
+"chips": [
+{
+"label": "Gender",
+"value": "feminine"
+},
+{
+"label": "Plural",
+"value": "înghețate"
+}
+],
+"pos": "noun"
 },
 "îngriji": {
 "charts": [
@@ -164583,6 +168138,108 @@
 ],
 "pos": "noun"
 },
+"înlătura": {
+"charts": [
+{
+"rows": [
+[
+"eu",
+"înlătur"
+],
+[
+"tu",
+"înlături"
+],
+[
+"el/ea",
+"înlătură"
+],
+[
+"noi",
+"înlăturăm"
+],
+[
+"voi",
+"înlăturați"
+],
+[
+"ei",
+"înlătură"
+]
+],
+"title": "Present"
+},
+{
+"rows": [
+[
+"eu",
+"înlăturam"
+],
+[
+"tu",
+"înlăturai"
+],
+[
+"el/ea",
+"înlătura"
+],
+[
+"noi",
+"înlăturam"
+],
+[
+"voi",
+"înlăturați"
+],
+[
+"ei",
+"înlăturau"
+]
+],
+"title": "Imperfect"
+},
+{
+"rows": [
+[
+"eu",
+"să înlătur"
+],
+[
+"tu",
+"să înlături"
+],
+[
+"el/ea",
+"să înlăture"
+],
+[
+"noi",
+"să înlăturăm"
+],
+[
+"voi",
+"să înlăturați"
+],
+[
+"ei",
+"să înlăture"
+]
+],
+"title": "Subjunctive (present)"
+}
+],
+"chips": [
+{
+"label": "Gerund",
+"value": "înlăturând"
+},
+{
+"label": "Past participle",
+"value": "înlăturat"
+}
+],
+"pos": "verb"
+},
 "înmatriculare": {
 "chips": [
 {
@@ -165109,6 +168766,15 @@
 {
 "label": "Plural",
 "value": "înscrieri"
+}
+],
+"pos": "noun"
+},
+"însemn": {
+"chips": [
+{
+"label": "Plural",
+"value": "însemne"
 }
 ],
 "pos": "noun"
@@ -167441,6 +171107,108 @@
 ],
 "pos": "verb"
 },
+"învia": {
+"charts": [
+{
+"rows": [
+[
+"eu",
+"învii"
+],
+[
+"tu",
+"învii"
+],
+[
+"el/ea",
+"învie"
+],
+[
+"noi",
+"înviem"
+],
+[
+"voi",
+"înviați"
+],
+[
+"ei",
+"învie"
+]
+],
+"title": "Present"
+},
+{
+"rows": [
+[
+"eu",
+"înviam"
+],
+[
+"tu",
+"înviai"
+],
+[
+"el/ea",
+"învia"
+],
+[
+"noi",
+"înviam"
+],
+[
+"voi",
+"înviați"
+],
+[
+"ei",
+"înviau"
+]
+],
+"title": "Imperfect"
+},
+{
+"rows": [
+[
+"eu",
+"să învii"
+],
+[
+"tu",
+"să învii"
+],
+[
+"el/ea",
+"să învie"
+],
+[
+"noi",
+"să înviem"
+],
+[
+"voi",
+"să înviați"
+],
+[
+"ei",
+"să învie"
+]
+],
+"title": "Subjunctive (present)"
+}
+],
+"chips": [
+{
+"label": "Gerund",
+"value": "înviind"
+},
+{
+"label": "Past participle",
+"value": "înviat"
+}
+],
+"pos": "verb"
+},
 "învinge": {
 "charts": [
 {
@@ -167684,6 +171452,19 @@
 ],
 "pos": "adj"
 },
+"învoială": {
+"chips": [
+{
+"label": "Gender",
+"value": "feminine"
+},
+{
+"label": "Plural",
+"value": "învoieli"
+}
+],
+"pos": "noun"
+},
 "învârti": {
 "charts": [
 {
@@ -167913,6 +171694,19 @@
 }
 ],
 "pos": "adj"
+},
+"înălbitor": {
+"chips": [
+{
+"label": "Gender",
+"value": "masculine"
+},
+{
+"label": "Plural",
+"value": "înălbitori"
+}
+],
+"pos": "noun"
 },
 "înșelat": {
 "chips": [

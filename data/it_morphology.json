@@ -754,15 +754,6 @@
 ],
 "pos": "noun"
 },
-"abitanti": {
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
-}
-],
-"pos": "noun"
-},
 "abiti": {
 "chips": [
 {
@@ -2366,6 +2357,15 @@
 ],
 "pos": "noun"
 },
+"adam": {
+"chips": [
+{
+"label": "Gender",
+"value": "masculine"
+}
+],
+"pos": "noun"
+},
 "adatto": {
 "chips": [
 {
@@ -2467,15 +2467,6 @@
 }
 ],
 "pos": "adj"
-},
-"adolescenti": {
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
-}
-],
-"pos": "noun"
 },
 "adorabile": {
 "chips": [
@@ -4094,12 +4085,26 @@
 ],
 "pos": "noun"
 },
-"aiutante": {
+"ai": {
 "chips": [
 {
 "label": "Gender",
 "value": "feminine"
+}
+],
+"pos": "noun"
 },
+"aids": {
+"chips": [
+{
+"label": "Gender",
+"value": "masculine"
+}
+],
+"pos": "noun"
+},
+"aiutante": {
+"chips": [
 {
 "label": "Plural",
 "value": "aiutanti"
@@ -4390,20 +4395,15 @@
 ],
 "pos": "noun"
 },
-"alcool": {
-"chips": [
-{
-"label": "Gender",
-"value": "masculine"
-}
-],
-"pos": "noun"
-},
 "alfa": {
 "chips": [
 {
 "label": "Gender",
 "value": "feminine"
+},
+{
+"label": "Plural",
+"value": "alfe"
 }
 ],
 "pos": "noun"
@@ -5391,21 +5391,8 @@
 "amante": {
 "chips": [
 {
-"label": "Gender",
-"value": "feminine"
-},
-{
 "label": "Plural",
 "value": "amanti"
-}
-],
-"pos": "noun"
-},
-"amanti": {
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
 }
 ],
 "pos": "noun"
@@ -5670,6 +5657,15 @@
 }
 ],
 "pos": "noun"
+},
+"ambizioso": {
+"chips": [
+{
+"label": "Plural",
+"value": "ambiziosi"
+}
+],
+"pos": "adj"
 },
 "ambulanza": {
 "chips": [
@@ -6215,15 +6211,6 @@
 ],
 "pos": "noun"
 },
-"amor": {
-"chips": [
-{
-"label": "Gender",
-"value": "masculine"
-}
-],
-"pos": "noun"
-},
 "amore": {
 "chips": [
 {
@@ -6237,6 +6224,15 @@
 ],
 "pos": "noun"
 },
+"ampio": {
+"chips": [
+{
+"label": "Plural",
+"value": "ampi"
+}
+],
+"pos": "adj"
+},
 "analisi": {
 "chips": [
 {
@@ -6248,10 +6244,6 @@
 },
 "analista": {
 "chips": [
-{
-"label": "Gender",
-"value": "feminine"
-},
 {
 "label": "Plural",
 "value": "analisti"
@@ -7128,6 +7120,15 @@
 ],
 "pos": "verb"
 },
+"annunci": {
+"chips": [
+{
+"label": "Gender",
+"value": "masculine"
+}
+],
+"pos": "noun"
+},
 "annunciare": {
 "charts": [
 {
@@ -7570,6 +7571,19 @@
 ],
 "pos": "noun"
 },
+"apparenza": {
+"chips": [
+{
+"label": "Gender",
+"value": "feminine"
+},
+{
+"label": "Plural",
+"value": "apparenze"
+}
+],
+"pos": "noun"
+},
 "apparire": {
 "charts": [
 {
@@ -7833,10 +7847,6 @@
 },
 "apprendista": {
 "chips": [
-{
-"label": "Gender",
-"value": "feminine"
-},
 {
 "label": "Plural",
 "value": "apprendisti"
@@ -9126,6 +9136,15 @@
 ],
 "pos": "verb"
 },
+"arreso": {
+"chips": [
+{
+"label": "Plural",
+"value": "arresi"
+}
+],
+"pos": "adj"
+},
 "arrestare": {
 "charts": [
 {
@@ -9643,10 +9662,6 @@
 "artista": {
 "chips": [
 {
-"label": "Gender",
-"value": "feminine"
-},
-{
 "label": "Plural",
 "value": "artisti"
 }
@@ -10118,6 +10133,15 @@
 {
 "label": "Plural",
 "value": "aspetti"
+}
+],
+"pos": "noun"
+},
+"aspirapolvere": {
+"chips": [
+{
+"label": "Gender",
+"value": "masculine"
 }
 ],
 "pos": "noun"
@@ -10777,6 +10801,15 @@
 ],
 "pos": "noun"
 },
+"assicurazioni": {
+"chips": [
+{
+"label": "Gender",
+"value": "feminine"
+}
+],
+"pos": "noun"
+},
 "assieme": {
 "chips": [
 {
@@ -10789,21 +10822,8 @@
 "assistente": {
 "chips": [
 {
-"label": "Gender",
-"value": "feminine"
-},
-{
 "label": "Plural",
 "value": "assistenti"
-}
-],
-"pos": "noun"
-},
-"assistenti": {
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
 }
 ],
 "pos": "noun"
@@ -11185,6 +11205,19 @@
 ],
 "pos": "verb"
 },
+"assunta": {
+"chips": [
+{
+"label": "Gender",
+"value": "feminine"
+},
+{
+"label": "Plural",
+"value": "Assunte"
+}
+],
+"pos": "noun"
+},
 "assunto": {
 "chips": [
 {
@@ -11193,6 +11226,15 @@
 }
 ],
 "pos": "adj"
+},
+"assurdità": {
+"chips": [
+{
+"label": "Gender",
+"value": "feminine"
+}
+],
+"pos": "noun"
 },
 "assurdo": {
 "chips": [
@@ -11232,10 +11274,6 @@
 "astronauta": {
 "chips": [
 {
-"label": "Gender",
-"value": "feminine"
-},
-{
 "label": "Plural",
 "value": "astronauti"
 }
@@ -11266,10 +11304,6 @@
 },
 "atleta": {
 "chips": [
-{
-"label": "Gender",
-"value": "feminine"
-},
 {
 "label": "Plural",
 "value": "atleti"
@@ -14592,16 +14626,7 @@
 "chips": [
 {
 "label": "Gender",
-"value": "feminine"
-}
-],
-"pos": "noun"
-},
-"babysitter": {
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
+"value": "masculine"
 }
 ],
 "pos": "noun"
@@ -15730,12 +15755,34 @@
 ],
 "pos": "noun"
 },
-"barista": {
+"barella": {
 "chips": [
 {
 "label": "Gender",
 "value": "feminine"
 },
+{
+"label": "Plural",
+"value": "barelle"
+}
+],
+"pos": "noun"
+},
+"barile": {
+"chips": [
+{
+"label": "Gender",
+"value": "masculine"
+},
+{
+"label": "Plural",
+"value": "barili"
+}
+],
+"pos": "noun"
+},
+"barista": {
+"chips": [
 {
 "label": "Plural",
 "value": "baristi"
@@ -16336,15 +16383,6 @@
 {
 "label": "Plural",
 "value": "bauli"
-}
-],
-"pos": "noun"
-},
-"be": {
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
 }
 ],
 "pos": "noun"
@@ -17135,15 +17173,6 @@
 ],
 "pos": "noun"
 },
-"bici": {
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
-}
-],
-"pos": "noun"
-},
 "bicicletta": {
 "chips": [
 {
@@ -17838,6 +17867,15 @@
 ],
 "pos": "noun"
 },
+"borghese": {
+"chips": [
+{
+"label": "Plural",
+"value": "borghesi"
+}
+],
+"pos": "adj"
+},
 "borsa": {
 "chips": [
 {
@@ -18066,7 +18104,7 @@
 "chips": [
 {
 "label": "Gender",
-"value": "feminine"
+"value": "masculine"
 }
 ],
 "pos": "noun"
@@ -18196,6 +18234,19 @@
 {
 "label": "Gender",
 "value": "masculine"
+}
+],
+"pos": "noun"
+},
+"brivido": {
+"chips": [
+{
+"label": "Gender",
+"value": "masculine"
+},
+{
+"label": "Plural",
+"value": "brividi"
 }
 ],
 "pos": "noun"
@@ -19069,15 +19120,6 @@
 ],
 "pos": "noun"
 },
-"ca": {
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
-}
-],
-"pos": "noun"
-},
 "cabina": {
 "chips": [
 {
@@ -19569,166 +19611,6 @@
 ],
 "pos": "noun"
 },
-"cagare": {
-"charts": [
-{
-"rows": [
-[
-"io",
-"càgo"
-],
-[
-"tu",
-"càghi"
-],
-[
-"lui/lei",
-"càga"
-],
-[
-"noi",
-"caghiàmo"
-],
-[
-"voi",
-"cagàte"
-],
-[
-"loro",
-"càgano"
-]
-],
-"title": "Present"
-},
-{
-"rows": [
-[
-"io",
-"cagàvo"
-],
-[
-"tu",
-"cagàvi"
-],
-[
-"lui/lei",
-"cagàva"
-],
-[
-"noi",
-"cagavàmo"
-],
-[
-"voi",
-"cagavàte"
-],
-[
-"loro",
-"cagàvano"
-]
-],
-"title": "Imperfect"
-},
-{
-"rows": [
-[
-"io",
-"cagherò"
-],
-[
-"tu",
-"cagherài"
-],
-[
-"lui/lei",
-"cagherà"
-],
-[
-"noi",
-"cagherémo"
-],
-[
-"voi",
-"cagheréte"
-],
-[
-"loro",
-"cagherànno"
-]
-],
-"title": "Future"
-},
-{
-"rows": [
-[
-"io",
-"cagài"
-],
-[
-"tu",
-"cagàsti"
-],
-[
-"lui/lei",
-"cagò"
-],
-[
-"noi",
-"cagàmmo"
-],
-[
-"voi",
-"cagàste"
-],
-[
-"loro",
-"cagàrono"
-]
-],
-"title": "Passato remoto"
-},
-{
-"rows": [
-[
-"io",
-"càghi"
-],
-[
-"tu",
-"càghi"
-],
-[
-"lui/lei",
-"càghi"
-],
-[
-"noi",
-"caghiàmo"
-],
-[
-"voi",
-"caghiàte"
-],
-[
-"loro",
-"càghino"
-]
-],
-"title": "Subjunctive (present)"
-}
-],
-"chips": [
-{
-"label": "Gerund",
-"value": "cagàndo"
-},
-{
-"label": "Past participle",
-"value": "cagàto"
-}
-],
-"pos": "verb"
-},
 "cagna": {
 "chips": [
 {
@@ -19776,6 +19658,15 @@
 }
 ],
 "pos": "noun"
+},
+"calcolato": {
+"chips": [
+{
+"label": "Plural",
+"value": "calcolati"
+}
+],
+"pos": "adj"
 },
 "calcoli": {
 "chips": [
@@ -20708,15 +20599,6 @@
 ],
 "pos": "noun"
 },
-"can": {
-"chips": [
-{
-"label": "Gender",
-"value": "masculine"
-}
-],
-"pos": "noun"
-},
 "canadese": {
 "chips": [
 {
@@ -21026,7 +20908,7 @@
 "chips": [
 {
 "label": "Gender",
-"value": "feminine"
+"value": "masculine"
 },
 {
 "label": "Plural",
@@ -21081,10 +20963,6 @@
 },
 "cantante": {
 "chips": [
-{
-"label": "Gender",
-"value": "feminine"
-},
 {
 "label": "Plural",
 "value": "cantanti"
@@ -21584,15 +21462,6 @@
 ],
 "pos": "adj"
 },
-"capitan": {
-"chips": [
-{
-"label": "Gender",
-"value": "masculine"
-}
-],
-"pos": "noun"
-},
 "capitano": {
 "chips": [
 {
@@ -21830,10 +21699,6 @@
 "caporale": {
 "chips": [
 {
-"label": "Gender",
-"value": "feminine"
-},
-{
 "label": "Plural",
 "value": "caporali"
 }
@@ -22034,10 +21899,6 @@
 },
 "carcere": {
 "chips": [
-{
-"label": "Gender",
-"value": "feminine"
-},
 {
 "label": "Plural",
 "value": "carceri"
@@ -22254,6 +22115,15 @@
 ],
 "pos": "adj"
 },
+"cariche": {
+"chips": [
+{
+"label": "Gender",
+"value": "feminine"
+}
+],
+"pos": "noun"
+},
 "carico": {
 "chips": [
 {
@@ -22302,6 +22172,19 @@
 }
 ],
 "pos": "adj"
+},
+"carogna": {
+"chips": [
+{
+"label": "Gender",
+"value": "feminine"
+},
+{
+"label": "Plural",
+"value": "carogne"
+}
+],
+"pos": "noun"
 },
 "carote": {
 "chips": [
@@ -22597,15 +22480,6 @@
 {
 "label": "Plural",
 "value": "casini"
-}
-],
-"pos": "noun"
-},
-"casinò": {
-"chips": [
-{
-"label": "Gender",
-"value": "masculine"
 }
 ],
 "pos": "noun"
@@ -23462,6 +23336,166 @@
 ],
 "pos": "noun"
 },
+"cavarsela": {
+"charts": [
+{
+"rows": [
+[
+"io",
+"me la càvo"
+],
+[
+"tu",
+"te la càvi"
+],
+[
+"lui/lei",
+"se la càva"
+],
+[
+"noi",
+"ce la caviàmo"
+],
+[
+"voi",
+"ve la cavàte"
+],
+[
+"loro",
+"se la càvano"
+]
+],
+"title": "Present"
+},
+{
+"rows": [
+[
+"io",
+"me la cavàvo"
+],
+[
+"tu",
+"te la cavàvi"
+],
+[
+"lui/lei",
+"se la cavàva"
+],
+[
+"noi",
+"ce la cavavàmo"
+],
+[
+"voi",
+"ve la cavavàte"
+],
+[
+"loro",
+"se la cavàvano"
+]
+],
+"title": "Imperfect"
+},
+{
+"rows": [
+[
+"io",
+"me la caverò"
+],
+[
+"tu",
+"te la caverài"
+],
+[
+"lui/lei",
+"se la caverà"
+],
+[
+"noi",
+"ce la caverémo"
+],
+[
+"voi",
+"ve la caveréte"
+],
+[
+"loro",
+"se la caverànno"
+]
+],
+"title": "Future"
+},
+{
+"rows": [
+[
+"io",
+"me la cavài"
+],
+[
+"tu",
+"te la cavàsti"
+],
+[
+"lui/lei",
+"se la cavò"
+],
+[
+"noi",
+"ce la cavàmmo"
+],
+[
+"voi",
+"ve la cavàste"
+],
+[
+"loro",
+"se la cavàrono"
+]
+],
+"title": "Passato remoto"
+},
+{
+"rows": [
+[
+"io",
+"me la càvi"
+],
+[
+"tu",
+"te la càvi"
+],
+[
+"lui/lei",
+"se la càvi"
+],
+[
+"noi",
+"ce la caviàmo"
+],
+[
+"voi",
+"ve la caviàte"
+],
+[
+"loro",
+"se la càvino"
+]
+],
+"title": "Subjunctive (present)"
+}
+],
+"chips": [
+{
+"label": "Gerund",
+"value": "cavàndosela"
+},
+{
+"label": "Past participle",
+"value": "cavàtosela"
+}
+],
+"pos": "verb"
+},
 "caveau": {
 "chips": [
 {
@@ -23590,6 +23624,15 @@
 {
 "label": "Plural",
 "value": "cazzoni"
+}
+],
+"pos": "noun"
+},
+"cd": {
+"chips": [
+{
+"label": "Gender",
+"value": "masculine"
 }
 ],
 "pos": "noun"
@@ -24241,6 +24284,15 @@
 ],
 "pos": "verb"
 },
+"cene": {
+"chips": [
+{
+"label": "Gender",
+"value": "feminine"
+}
+],
+"pos": "noun"
+},
 "cenere": {
 "chips": [
 {
@@ -24590,15 +24642,6 @@
 ],
 "pos": "noun"
 },
-"cerco": {
-"chips": [
-{
-"label": "Plural",
-"value": "cerchi"
-}
-],
-"pos": "adj"
-},
 "cereali": {
 "chips": [
 {
@@ -24780,15 +24823,6 @@
 "pos": "noun"
 },
 "chemio": {
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
-}
-],
-"pos": "noun"
-},
-"chi": {
 "chips": [
 {
 "label": "Gender",
@@ -26151,7 +26185,7 @@
 "chips": [
 {
 "label": "Gender",
-"value": "feminine"
+"value": "masculine"
 },
 {
 "label": "Plural",
@@ -26182,6 +26216,15 @@
 {
 "label": "Plural",
 "value": "cimici"
+}
+],
+"pos": "noun"
+},
+"cimici": {
+"chips": [
+{
+"label": "Gender",
+"value": "feminine"
 }
 ],
 "pos": "noun"
@@ -26221,7 +26264,7 @@
 "chips": [
 {
 "label": "Gender",
-"value": "feminine"
+"value": "masculine"
 }
 ],
 "pos": "noun"
@@ -26374,6 +26417,15 @@
 }
 ],
 "pos": "noun"
+},
+"citato": {
+"chips": [
+{
+"label": "Plural",
+"value": "citati"
+}
+],
+"pos": "adj"
 },
 "citazione": {
 "chips": [
@@ -26533,21 +26585,8 @@
 "cliente": {
 "chips": [
 {
-"label": "Gender",
-"value": "feminine"
-},
-{
 "label": "Plural",
 "value": "clienti"
-}
-],
-"pos": "noun"
-},
-"clienti": {
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
 }
 ],
 "pos": "noun"
@@ -27411,10 +27450,6 @@
 "collega": {
 "chips": [
 {
-"label": "Gender",
-"value": "feminine"
-},
-{
 "label": "Plural",
 "value": "colleghi"
 }
@@ -27747,15 +27782,6 @@
 ],
 "pos": "noun"
 },
-"color": {
-"chips": [
-{
-"label": "Gender",
-"value": "masculine"
-}
-],
-"pos": "noun"
-},
 "colore": {
 "chips": [
 {
@@ -27818,15 +27844,6 @@
 {
 "label": "Plural",
 "value": "colpevolezze"
-}
-],
-"pos": "noun"
-},
-"colpevoli": {
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
 }
 ],
 "pos": "noun"
@@ -29230,6 +29247,15 @@
 ],
 "pos": "noun"
 },
+"compatibile": {
+"chips": [
+{
+"label": "Plural",
+"value": "compatibili"
+}
+],
+"pos": "adj"
+},
 "compenso": {
 "chips": [
 {
@@ -30002,21 +30028,8 @@
 "complice": {
 "chips": [
 {
-"label": "Gender",
-"value": "feminine"
-},
-{
 "label": "Plural",
 "value": "complici"
-}
-],
-"pos": "noun"
-},
-"complici": {
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
 }
 ],
 "pos": "noun"
@@ -30428,6 +30441,19 @@
 }
 ],
 "pos": "verb"
+},
+"compratore": {
+"chips": [
+{
+"label": "Gender",
+"value": "masculine"
+},
+{
+"label": "Plural",
+"value": "compratori"
+}
+],
+"pos": "noun"
 },
 "comprendere": {
 "charts": [
@@ -31357,6 +31383,15 @@
 ],
 "pos": "noun"
 },
+"concreto": {
+"chips": [
+{
+"label": "Plural",
+"value": "concreti"
+}
+],
+"pos": "adj"
+},
 "condanna": {
 "chips": [
 {
@@ -32155,6 +32190,19 @@
 }
 ],
 "pos": "adj"
+},
+"confezione": {
+"chips": [
+{
+"label": "Gender",
+"value": "feminine"
+},
+{
+"label": "Plural",
+"value": "confezioni"
+}
+],
+"pos": "noun"
 },
 "confidenza": {
 "chips": [
@@ -33346,10 +33394,6 @@
 "consigliere": {
 "chips": [
 {
-"label": "Gender",
-"value": "feminine"
-},
-{
 "label": "Plural",
 "value": "consiglieri"
 }
@@ -33369,6 +33413,15 @@
 ],
 "pos": "noun"
 },
+"consolato": {
+"chips": [
+{
+"label": "Plural",
+"value": "consolati"
+}
+],
+"pos": "adj"
+},
 "console": {
 "chips": [
 {
@@ -33384,10 +33437,6 @@
 },
 "consulente": {
 "chips": [
-{
-"label": "Gender",
-"value": "feminine"
-},
 {
 "label": "Plural",
 "value": "consulenti"
@@ -35348,6 +35397,15 @@
 ],
 "pos": "noun"
 },
+"corone": {
+"chips": [
+{
+"label": "Gender",
+"value": "feminine"
+}
+],
+"pos": "noun"
+},
 "corpi": {
 "chips": [
 {
@@ -36203,6 +36261,15 @@
 ],
 "pos": "noun"
 },
+"coyote": {
+"chips": [
+{
+"label": "Gender",
+"value": "masculine"
+}
+],
+"pos": "noun"
+},
 "cranio": {
 "chips": [
 {
@@ -36872,6 +36939,15 @@
 ],
 "pos": "adj"
 },
+"cricket": {
+"chips": [
+{
+"label": "Gender",
+"value": "masculine"
+}
+],
+"pos": "noun"
+},
 "criminale": {
 "chips": [
 {
@@ -36880,15 +36956,6 @@
 }
 ],
 "pos": "adj"
-},
-"criminali": {
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
-}
-],
-"pos": "noun"
 },
 "crimine": {
 "chips": [
@@ -37935,10 +38002,6 @@
 "custode": {
 "chips": [
 {
-"label": "Gender",
-"value": "feminine"
-},
-{
 "label": "Plural",
 "value": "custodi"
 }
@@ -38002,6 +38065,15 @@
 {
 "label": "Plural",
 "value": "dannate"
+}
+],
+"pos": "noun"
+},
+"dannate": {
+"chips": [
+{
+"label": "Gender",
+"value": "feminine"
 }
 ],
 "pos": "noun"
@@ -38512,15 +38584,6 @@
 {
 "label": "Plural",
 "value": "debolezze"
-}
-],
-"pos": "noun"
-},
-"deboli": {
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
 }
 ],
 "pos": "noun"
@@ -39048,21 +39111,8 @@
 "delinquente": {
 "chips": [
 {
-"label": "Gender",
-"value": "feminine"
-},
-{
 "label": "Plural",
 "value": "delinquenti"
-}
-],
-"pos": "noun"
-},
-"delinquenti": {
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
 }
 ],
 "pos": "noun"
@@ -39205,10 +39255,6 @@
 },
 "dentista": {
 "chips": [
-{
-"label": "Gender",
-"value": "feminine"
-},
 {
 "label": "Plural",
 "value": "dentisti"
@@ -39938,15 +39984,6 @@
 ],
 "pos": "adj"
 },
-"detective": {
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
-}
-],
-"pos": "noun"
-},
 "detenuti": {
 "chips": [
 {
@@ -40151,6 +40188,19 @@
 ],
 "pos": "adj"
 },
+"determinazione": {
+"chips": [
+{
+"label": "Gender",
+"value": "feminine"
+},
+{
+"label": "Plural",
+"value": "determinazioni"
+}
+],
+"pos": "noun"
+},
 "detonatore": {
 "chips": [
 {
@@ -40214,15 +40264,6 @@
 "pos": "adj"
 },
 "di": {
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
-}
-],
-"pos": "noun"
-},
-"dia": {
 "chips": [
 {
 "label": "Gender",
@@ -41231,10 +41272,6 @@
 "dilettante": {
 "chips": [
 {
-"label": "Gender",
-"value": "feminine"
-},
-{
 "label": "Plural",
 "value": "dilettanti"
 }
@@ -41924,6 +41961,15 @@
 ],
 "pos": "noun"
 },
+"diplomatico": {
+"chips": [
+{
+"label": "Plural",
+"value": "diplomatici"
+}
+],
+"pos": "adj"
+},
 "dire": {
 "charts": [
 {
@@ -42162,15 +42208,6 @@
 }
 ],
 "pos": "adj"
-},
-"dirigenti": {
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
-}
-],
-"pos": "noun"
 },
 "dirigere": {
 "charts": [
@@ -43382,6 +43419,166 @@
 ],
 "pos": "adj"
 },
+"distrarre": {
+"charts": [
+{
+"rows": [
+[
+"io",
+"distràggo"
+],
+[
+"tu",
+"distrài"
+],
+[
+"lui/lei",
+"distràe"
+],
+[
+"noi",
+"distraiàmo"
+],
+[
+"voi",
+"distraéte"
+],
+[
+"loro",
+"distràggono"
+]
+],
+"title": "Present"
+},
+{
+"rows": [
+[
+"io",
+"distraévo"
+],
+[
+"tu",
+"distraévi"
+],
+[
+"lui/lei",
+"distraéva"
+],
+[
+"noi",
+"distraevàmo"
+],
+[
+"voi",
+"distraevàte"
+],
+[
+"loro",
+"distraévano"
+]
+],
+"title": "Imperfect"
+},
+{
+"rows": [
+[
+"io",
+"distrarrò"
+],
+[
+"tu",
+"distrarrài"
+],
+[
+"lui/lei",
+"distrarrà"
+],
+[
+"noi",
+"distrarrémo"
+],
+[
+"voi",
+"distrarréte"
+],
+[
+"loro",
+"distrarrànno"
+]
+],
+"title": "Future"
+},
+{
+"rows": [
+[
+"io",
+"distràssi"
+],
+[
+"tu",
+"distraésti"
+],
+[
+"lui/lei",
+"distràsse"
+],
+[
+"noi",
+"distraémmo"
+],
+[
+"voi",
+"distraéste"
+],
+[
+"loro",
+"distràssero"
+]
+],
+"title": "Passato remoto"
+},
+{
+"rows": [
+[
+"io",
+"distràgga"
+],
+[
+"tu",
+"distràgga"
+],
+[
+"lui/lei",
+"distràgga"
+],
+[
+"noi",
+"distraiàmo"
+],
+[
+"voi",
+"distraiàte"
+],
+[
+"loro",
+"distràggano"
+]
+],
+"title": "Subjunctive (present)"
+}
+],
+"chips": [
+{
+"label": "Gerund",
+"value": "distraèndo"
+},
+{
+"label": "Past participle",
+"value": "distràtto"
+}
+],
+"pos": "verb"
+},
 "distratto": {
 "chips": [
 {
@@ -44552,6 +44749,19 @@
 }
 ],
 "pos": "verb"
+},
+"divieto": {
+"chips": [
+{
+"label": "Gender",
+"value": "masculine"
+},
+{
+"label": "Plural",
+"value": "divieti"
+}
+],
+"pos": "noun"
 },
 "divino": {
 "chips": [
@@ -46216,6 +46426,15 @@
 ],
 "pos": "noun"
 },
+"duecento": {
+"chips": [
+{
+"label": "Gender",
+"value": "masculine"
+}
+],
+"pos": "noun"
+},
 "duello": {
 "chips": [
 {
@@ -46411,6 +46630,15 @@
 ],
 "pos": "adj"
 },
+"dvd": {
+"chips": [
+{
+"label": "Gender",
+"value": "masculine"
+}
+],
+"pos": "noun"
+},
 "dì": {
 "chips": [
 {
@@ -46421,15 +46649,6 @@
 "pos": "noun"
 },
 "e": {
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
-}
-],
-"pos": "noun"
-},
-"e-mail": {
 "chips": [
 {
 "label": "Gender",
@@ -46542,10 +46761,6 @@
 },
 "eco": {
 "chips": [
-{
-"label": "Gender",
-"value": "feminine"
-},
 {
 "label": "Plural",
 "value": "echi"
@@ -46675,6 +46890,166 @@
 }
 ],
 "pos": "noun"
+},
+"effettuare": {
+"charts": [
+{
+"rows": [
+[
+"io",
+"effèttuo"
+],
+[
+"tu",
+"effèttui"
+],
+[
+"lui/lei",
+"effèttua"
+],
+[
+"noi",
+"effettuiàmo"
+],
+[
+"voi",
+"effettuàte"
+],
+[
+"loro",
+"effèttuano"
+]
+],
+"title": "Present"
+},
+{
+"rows": [
+[
+"io",
+"effettuàvo"
+],
+[
+"tu",
+"effettuàvi"
+],
+[
+"lui/lei",
+"effettuàva"
+],
+[
+"noi",
+"effettuavàmo"
+],
+[
+"voi",
+"effettuavàte"
+],
+[
+"loro",
+"effettuàvano"
+]
+],
+"title": "Imperfect"
+},
+{
+"rows": [
+[
+"io",
+"effettuerò"
+],
+[
+"tu",
+"effettuerài"
+],
+[
+"lui/lei",
+"effettuerà"
+],
+[
+"noi",
+"effettuerémo"
+],
+[
+"voi",
+"effettueréte"
+],
+[
+"loro",
+"effettuerànno"
+]
+],
+"title": "Future"
+},
+{
+"rows": [
+[
+"io",
+"effettuài"
+],
+[
+"tu",
+"effettuàsti"
+],
+[
+"lui/lei",
+"effettuò"
+],
+[
+"noi",
+"effettuàmmo"
+],
+[
+"voi",
+"effettuàste"
+],
+[
+"loro",
+"effettuàrono"
+]
+],
+"title": "Passato remoto"
+},
+{
+"rows": [
+[
+"io",
+"effèttui"
+],
+[
+"tu",
+"effèttui"
+],
+[
+"lui/lei",
+"effèttui"
+],
+[
+"noi",
+"effettuiàmo"
+],
+[
+"voi",
+"effettuiàte"
+],
+[
+"loro",
+"effèttuino"
+]
+],
+"title": "Subjunctive (present)"
+}
+],
+"chips": [
+{
+"label": "Gerund",
+"value": "effettuàndo"
+},
+{
+"label": "Past participle",
+"value": "effettuàto"
+}
+],
+"pos": "verb"
 },
 "efficace": {
 "chips": [
@@ -47080,15 +47455,6 @@
 {
 "label": "Plural",
 "value": "else"
-}
-],
-"pos": "noun"
-},
-"email": {
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
 }
 ],
 "pos": "noun"
@@ -47845,6 +48211,15 @@
 ],
 "pos": "noun"
 },
+"equivoco": {
+"chips": [
+{
+"label": "Plural",
+"value": "equivoci"
+}
+],
+"pos": "adj"
+},
 "era": {
 "chips": [
 {
@@ -47882,10 +48257,6 @@
 },
 "erede": {
 "chips": [
-{
-"label": "Gender",
-"value": "feminine"
-},
 {
 "label": "Plural",
 "value": "eredi"
@@ -49701,15 +50072,6 @@
 ],
 "pos": "verb"
 },
-"esse": {
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
-}
-],
-"pos": "noun"
-},
 "essenza": {
 "chips": [
 {
@@ -50492,15 +50854,6 @@
 ],
 "pos": "adj"
 },
-"eta": {
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
-}
-],
-"pos": "noun"
-},
 "eternità": {
 "chips": [
 {
@@ -50523,7 +50876,11 @@
 "chips": [
 {
 "label": "Gender",
-"value": "feminine"
+"value": "masculine"
+},
+{
+"label": "Plural",
+"value": "eteri"
 }
 ],
 "pos": "noun"
@@ -51153,15 +51510,6 @@
 ],
 "pos": "noun"
 },
-"ex": {
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
-}
-],
-"pos": "noun"
-},
 "extra": {
 "chips": [
 {
@@ -51626,10 +51974,6 @@
 "fan": {
 "chips": [
 {
-"label": "Gender",
-"value": "feminine"
-},
-{
 "label": "Plural",
 "value": "fans"
 }
@@ -51874,6 +52218,19 @@
 }
 ],
 "pos": "verb"
+},
+"fardello": {
+"chips": [
+{
+"label": "Gender",
+"value": "masculine"
+},
+{
+"label": "Plural",
+"value": "fardelli"
+}
+],
+"pos": "noun"
 },
 "fare": {
 "charts": [
@@ -53538,6 +53895,15 @@
 ],
 "pos": "adj"
 },
+"ferri": {
+"chips": [
+{
+"label": "Gender",
+"value": "masculine"
+}
+],
+"pos": "noun"
+},
 "ferro": {
 "chips": [
 {
@@ -54325,19 +54691,6 @@
 ],
 "pos": "noun"
 },
-"figata": {
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
-},
-{
-"label": "Plural",
-"value": "figate"
-}
-],
-"pos": "noun"
-},
 "fighi": {
 "chips": [
 {
@@ -54391,6 +54744,19 @@
 ],
 "pos": "noun"
 },
+"figliola": {
+"chips": [
+{
+"label": "Gender",
+"value": "feminine"
+},
+{
+"label": "Plural",
+"value": "figliole"
+}
+],
+"pos": "noun"
+},
 "figliolo": {
 "chips": [
 {
@@ -54403,15 +54769,6 @@
 }
 ],
 "pos": "noun"
-},
-"figo": {
-"chips": [
-{
-"label": "Plural",
-"value": "fighi"
-}
-],
-"pos": "adj"
 },
 "figura": {
 "chips": [
@@ -54679,15 +55036,6 @@
 {
 "label": "Plural",
 "value": "filosofie"
-}
-],
-"pos": "noun"
-},
-"fin": {
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
 }
 ],
 "pos": "noun"
@@ -55540,6 +55888,15 @@
 ],
 "pos": "verb"
 },
+"fiscale": {
+"chips": [
+{
+"label": "Plural",
+"value": "fiscali"
+}
+],
+"pos": "adj"
+},
 "fischio": {
 "chips": [
 {
@@ -55828,6 +56185,166 @@
 ],
 "pos": "noun"
 },
+"flirtare": {
+"charts": [
+{
+"rows": [
+[
+"io",
+"flìrto"
+],
+[
+"tu",
+"flìrti"
+],
+[
+"lui/lei",
+"flìrta"
+],
+[
+"noi",
+"flirtiàmo"
+],
+[
+"voi",
+"flirtàte"
+],
+[
+"loro",
+"flìrtano"
+]
+],
+"title": "Present"
+},
+{
+"rows": [
+[
+"io",
+"flirtàvo"
+],
+[
+"tu",
+"flirtàvi"
+],
+[
+"lui/lei",
+"flirtàva"
+],
+[
+"noi",
+"flirtavàmo"
+],
+[
+"voi",
+"flirtavàte"
+],
+[
+"loro",
+"flirtàvano"
+]
+],
+"title": "Imperfect"
+},
+{
+"rows": [
+[
+"io",
+"flirterò"
+],
+[
+"tu",
+"flirterài"
+],
+[
+"lui/lei",
+"flirterà"
+],
+[
+"noi",
+"flirterémo"
+],
+[
+"voi",
+"flirteréte"
+],
+[
+"loro",
+"flirterànno"
+]
+],
+"title": "Future"
+},
+{
+"rows": [
+[
+"io",
+"flirtài"
+],
+[
+"tu",
+"flirtàsti"
+],
+[
+"lui/lei",
+"flirtò"
+],
+[
+"noi",
+"flirtàmmo"
+],
+[
+"voi",
+"flirtàste"
+],
+[
+"loro",
+"flirtàrono"
+]
+],
+"title": "Passato remoto"
+},
+{
+"rows": [
+[
+"io",
+"flìrti"
+],
+[
+"tu",
+"flìrti"
+],
+[
+"lui/lei",
+"flìrti"
+],
+[
+"noi",
+"flirtiàmo"
+],
+[
+"voi",
+"flirtiàte"
+],
+[
+"loro",
+"flìrtino"
+]
+],
+"title": "Subjunctive (present)"
+}
+],
+"chips": [
+{
+"label": "Gerund",
+"value": "flirtàndo"
+},
+{
+"label": "Past participle",
+"value": "flirtàto"
+}
+],
+"pos": "verb"
+},
 "flora": {
 "chips": [
 {
@@ -55950,15 +56467,6 @@
 ],
 "pos": "noun"
 },
-"folli": {
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
-}
-],
-"pos": "noun"
-},
 "follia": {
 "chips": [
 {
@@ -55968,6 +56476,28 @@
 {
 "label": "Plural",
 "value": "follie"
+}
+],
+"pos": "noun"
+},
+"fonda": {
+"chips": [
+{
+"label": "Gender",
+"value": "feminine"
+},
+{
+"label": "Plural",
+"value": "fonde"
+}
+],
+"pos": "noun"
+},
+"fondamenta": {
+"chips": [
+{
+"label": "Gender",
+"value": "feminine"
 }
 ],
 "pos": "noun"
@@ -56653,6 +57183,166 @@
 ],
 "pos": "noun"
 },
+"forzare": {
+"charts": [
+{
+"rows": [
+[
+"io",
+"fòrzo"
+],
+[
+"tu",
+"fòrzi"
+],
+[
+"lui/lei",
+"fòrza"
+],
+[
+"noi",
+"forziàmo"
+],
+[
+"voi",
+"forzàte"
+],
+[
+"loro",
+"fòrzano"
+]
+],
+"title": "Present"
+},
+{
+"rows": [
+[
+"io",
+"forzàvo"
+],
+[
+"tu",
+"forzàvi"
+],
+[
+"lui/lei",
+"forzàva"
+],
+[
+"noi",
+"forzavàmo"
+],
+[
+"voi",
+"forzavàte"
+],
+[
+"loro",
+"forzàvano"
+]
+],
+"title": "Imperfect"
+},
+{
+"rows": [
+[
+"io",
+"forzerò"
+],
+[
+"tu",
+"forzerài"
+],
+[
+"lui/lei",
+"forzerà"
+],
+[
+"noi",
+"forzerémo"
+],
+[
+"voi",
+"forzeréte"
+],
+[
+"loro",
+"forzerànno"
+]
+],
+"title": "Future"
+},
+{
+"rows": [
+[
+"io",
+"forzài"
+],
+[
+"tu",
+"forzàsti"
+],
+[
+"lui/lei",
+"forzò"
+],
+[
+"noi",
+"forzàmmo"
+],
+[
+"voi",
+"forzàste"
+],
+[
+"loro",
+"forzàrono"
+]
+],
+"title": "Passato remoto"
+},
+{
+"rows": [
+[
+"io",
+"fòrzi"
+],
+[
+"tu",
+"fòrzi"
+],
+[
+"lui/lei",
+"fòrzi"
+],
+[
+"noi",
+"forziàmo"
+],
+[
+"voi",
+"forziàte"
+],
+[
+"loro",
+"fòrzino"
+]
+],
+"title": "Subjunctive (present)"
+}
+],
+"chips": [
+{
+"label": "Gerund",
+"value": "forzàndo"
+},
+{
+"label": "Past participle",
+"value": "forzàto"
+}
+],
+"pos": "verb"
+},
 "forzato": {
 "chips": [
 {
@@ -56990,6 +57680,15 @@
 ],
 "pos": "noun"
 },
+"francesco": {
+"chips": [
+{
+"label": "Plural",
+"value": "franceschi"
+}
+],
+"pos": "adj"
+},
 "francese": {
 "chips": [
 {
@@ -56998,15 +57697,6 @@
 }
 ],
 "pos": "adj"
-},
-"francesi": {
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
-}
-],
-"pos": "noun"
 },
 "franco": {
 "chips": [
@@ -57035,6 +57725,19 @@
 {
 "label": "Gender",
 "value": "feminine"
+}
+],
+"pos": "noun"
+},
+"fratellanza": {
+"chips": [
+{
+"label": "Gender",
+"value": "feminine"
+},
+{
+"label": "Plural",
+"value": "fratellanze"
 }
 ],
 "pos": "noun"
@@ -57575,6 +58278,15 @@
 {
 "label": "Plural",
 "value": "frequenze"
+}
+],
+"pos": "noun"
+},
+"freschi": {
+"chips": [
+{
+"label": "Gender",
+"value": "masculine"
 }
 ],
 "pos": "noun"
@@ -58146,6 +58858,15 @@
 ],
 "pos": "adj"
 },
+"funerali": {
+"chips": [
+{
+"label": "Gender",
+"value": "masculine"
+}
+],
+"pos": "noun"
+},
 "funghi": {
 "chips": [
 {
@@ -58495,6 +59216,15 @@
 ],
 "pos": "adj"
 },
+"futuri": {
+"chips": [
+{
+"label": "Gender",
+"value": "masculine"
+}
+],
+"pos": "noun"
+},
 "futuro": {
 "chips": [
 {
@@ -58652,25 +59382,29 @@
 ],
 "pos": "noun"
 },
+"gamberi": {
+"chips": [
+{
+"label": "Gender",
+"value": "masculine"
+}
+],
+"pos": "noun"
+},
 "gamma": {
 "chips": [
 {
 "label": "Gender",
 "value": "feminine"
+},
+{
+"label": "Plural",
+"value": "gamme"
 }
 ],
 "pos": "noun"
 },
 "gang": {
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
-}
-],
-"pos": "noun"
-},
-"gangster": {
 "chips": [
 {
 "label": "Gender",
@@ -58945,15 +59679,6 @@
 {
 "label": "Plural",
 "value": "gatti"
-}
-],
-"pos": "noun"
-},
-"gay": {
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
 }
 ],
 "pos": "noun"
@@ -59666,15 +60391,6 @@
 ],
 "pos": "adj"
 },
-"gi": {
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
-}
-],
-"pos": "noun"
-},
 "giacca": {
 "chips": [
 {
@@ -59714,15 +60430,6 @@
 }
 ],
 "pos": "adj"
-},
-"giapponesi": {
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
-}
-],
-"pos": "noun"
 },
 "giardiniere": {
 "chips": [
@@ -59803,7 +60510,7 @@
 "chips": [
 {
 "label": "Gender",
-"value": "feminine"
+"value": "masculine"
 },
 {
 "label": "Plural",
@@ -60107,10 +60814,6 @@
 "giornalista": {
 "chips": [
 {
-"label": "Gender",
-"value": "feminine"
-},
-{
 "label": "Plural",
 "value": "giornalisti"
 }
@@ -60187,6 +60890,15 @@
 }
 ],
 "pos": "noun"
+},
+"giovanile": {
+"chips": [
+{
+"label": "Plural",
+"value": "giovanili"
+}
+],
+"pos": "adj"
 },
 "giovanotto": {
 "chips": [
@@ -60401,6 +61113,19 @@
 ],
 "pos": "adj"
 },
+"giretto": {
+"chips": [
+{
+"label": "Gender",
+"value": "masculine"
+},
+{
+"label": "Plural",
+"value": "giretti"
+}
+],
+"pos": "noun"
+},
 "giri": {
 "chips": [
 {
@@ -60432,15 +61157,6 @@
 {
 "label": "Plural",
 "value": "gite"
-}
-],
-"pos": "noun"
-},
-"giu": {
-"chips": [
-{
-"label": "Gender",
-"value": "masculine"
 }
 ],
 "pos": "noun"
@@ -60642,10 +61358,6 @@
 },
 "giudice": {
 "chips": [
-{
-"label": "Gender",
-"value": "feminine"
-},
 {
 "label": "Plural",
 "value": "giudici"
@@ -61787,10 +62499,6 @@
 "grande": {
 "chips": [
 {
-"label": "Gender",
-"value": "feminine"
-},
-{
 "label": "Plural",
 "value": "grandi"
 }
@@ -61814,7 +62522,7 @@
 "chips": [
 {
 "label": "Gender",
-"value": "feminine"
+"value": "masculine"
 }
 ],
 "pos": "noun"
@@ -61948,6 +62656,15 @@
 "pos": "noun"
 },
 "grazie": {
+"chips": [
+{
+"label": "Gender",
+"value": "masculine"
+}
+],
+"pos": "noun"
+},
+"greci": {
 "chips": [
 {
 "label": "Gender",
@@ -62151,7 +62868,7 @@
 "chips": [
 {
 "label": "Gender",
-"value": "feminine"
+"value": "masculine"
 },
 {
 "label": "Plural",
@@ -62651,15 +63368,6 @@
 ],
 "pos": "verb"
 },
-"guardaroba": {
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
-}
-],
-"pos": "noun"
-},
 "guardia": {
 "chips": [
 {
@@ -63155,7 +63863,7 @@
 ],
 "pos": "noun"
 },
-"hacker": {
+"hall": {
 "chips": [
 {
 "label": "Gender",
@@ -63164,11 +63872,11 @@
 ],
 "pos": "noun"
 },
-"hall": {
+"halloween": {
 "chips": [
 {
 "label": "Gender",
-"value": "feminine"
+"value": "masculine"
 }
 ],
 "pos": "noun"
@@ -63223,6 +63931,19 @@
 {
 "label": "Gender",
 "value": "feminine"
+}
+],
+"pos": "noun"
+},
+"ia": {
+"chips": [
+{
+"label": "Gender",
+"value": "feminine"
+},
+{
+"label": "Plural",
+"value": "IA"
 }
 ],
 "pos": "noun"
@@ -63469,10 +64190,6 @@
 },
 "idiota": {
 "chips": [
-{
-"label": "Gender",
-"value": "feminine"
-},
 {
 "label": "Plural",
 "value": "idioti"
@@ -63772,6 +64489,15 @@
 }
 ],
 "pos": "noun"
+},
+"imbattuto": {
+"chips": [
+{
+"label": "Plural",
+"value": "imbattuti"
+}
+],
+"pos": "adj"
 },
 "imbecille": {
 "chips": [
@@ -66366,6 +67092,15 @@
 ],
 "pos": "noun"
 },
+"indispensabile": {
+"chips": [
+{
+"label": "Plural",
+"value": "indispensabili"
+}
+],
+"pos": "adj"
+},
 "indistinto": {
 "chips": [
 {
@@ -68051,6 +68786,19 @@
 ],
 "pos": "adj"
 },
+"ingiustizia": {
+"chips": [
+{
+"label": "Gender",
+"value": "feminine"
+},
+{
+"label": "Plural",
+"value": "ingiustizie"
+}
+],
+"pos": "noun"
+},
 "ingiusto": {
 "chips": [
 {
@@ -68068,15 +68816,6 @@
 }
 ],
 "pos": "adj"
-},
-"inglesi": {
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
-}
-],
-"pos": "noun"
 },
 "ingredienti": {
 "chips": [
@@ -68410,15 +69149,6 @@
 ],
 "pos": "adj"
 },
-"innocenti": {
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
-}
-],
-"pos": "noun"
-},
 "innocenza": {
 "chips": [
 {
@@ -68484,15 +69214,6 @@
 }
 ],
 "pos": "adj"
-},
-"insegnanti": {
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
-}
-],
-"pos": "noun"
 },
 "insegnare": {
 "charts": [
@@ -69257,6 +69978,15 @@
 }
 ],
 "pos": "noun"
+},
+"intellettuale": {
+"chips": [
+{
+"label": "Plural",
+"value": "intellettuali"
+}
+],
+"pos": "adj"
 },
 "intelligence": {
 "chips": [
@@ -70324,6 +71054,15 @@
 ],
 "pos": "verb"
 },
+"interventi": {
+"chips": [
+{
+"label": "Gender",
+"value": "masculine"
+}
+],
+"pos": "noun"
+},
 "intervento": {
 "chips": [
 {
@@ -71354,15 +72093,6 @@
 ],
 "pos": "noun"
 },
-"iris": {
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
-}
-],
-"pos": "noun"
-},
 "irlandese": {
 "chips": [
 {
@@ -71371,15 +72101,6 @@
 }
 ],
 "pos": "adj"
-},
-"irlandesi": {
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
-}
-],
-"pos": "noun"
 },
 "ironia": {
 "chips": [
@@ -71451,6 +72172,19 @@
 }
 ],
 "pos": "adj"
+},
+"iscrizione": {
+"chips": [
+{
+"label": "Gender",
+"value": "feminine"
+},
+{
+"label": "Plural",
+"value": "iscrizioni"
+}
+],
+"pos": "noun"
 },
 "isola": {
 "chips": [
@@ -71677,15 +72411,6 @@
 {
 "label": "Gender",
 "value": "masculine"
-}
-],
-"pos": "noun"
-},
-"kappa": {
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
 }
 ],
 "pos": "noun"
@@ -73196,15 +73921,6 @@
 ],
 "pos": "noun"
 },
-"leader": {
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
-}
-],
-"pos": "noun"
-},
 "leale": {
 "chips": [
 {
@@ -73759,6 +74475,19 @@
 ],
 "pos": "noun"
 },
+"lente": {
+"chips": [
+{
+"label": "Gender",
+"value": "feminine"
+},
+{
+"label": "Plural",
+"value": "lenti"
+}
+],
+"pos": "noun"
+},
 "lenti": {
 "chips": [
 {
@@ -73847,6 +74576,19 @@
 }
 ],
 "pos": "adj"
+},
+"letta": {
+"chips": [
+{
+"label": "Gender",
+"value": "feminine"
+},
+{
+"label": "Plural",
+"value": "lette"
+}
+],
+"pos": "noun"
 },
 "lettera": {
 "chips": [
@@ -75925,6 +76667,19 @@
 ],
 "pos": "adj"
 },
+"magistrato": {
+"chips": [
+{
+"label": "Gender",
+"value": "masculine"
+},
+{
+"label": "Plural",
+"value": "magistrati"
+}
+],
+"pos": "noun"
+},
 "maglia": {
 "chips": [
 {
@@ -76049,15 +76804,6 @@
 "pos": "noun"
 },
 "mais": {
-"chips": [
-{
-"label": "Gender",
-"value": "masculine"
-}
-],
-"pos": "noun"
-},
-"mal": {
 "chips": [
 {
 "label": "Gender",
@@ -76837,6 +77583,19 @@
 ],
 "pos": "verb"
 },
+"mangiata": {
+"chips": [
+{
+"label": "Gender",
+"value": "feminine"
+},
+{
+"label": "Plural",
+"value": "mangiate"
+}
+],
+"pos": "noun"
+},
 "mangiate": {
 "chips": [
 {
@@ -77372,15 +78131,6 @@
 ],
 "pos": "noun"
 },
-"mar": {
-"chips": [
-{
-"label": "Gender",
-"value": "masculine"
-}
-],
-"pos": "noun"
-},
 "maratona": {
 "chips": [
 {
@@ -77689,11 +78439,33 @@
 ],
 "pos": "noun"
 },
+"margine": {
+"chips": [
+{
+"label": "Gender",
+"value": "masculine"
+},
+{
+"label": "Plural",
+"value": "margini"
+}
+],
+"pos": "noun"
+},
 "mari": {
 "chips": [
 {
 "label": "Gender",
 "value": "masculine"
+}
+],
+"pos": "noun"
+},
+"maria": {
+"chips": [
+{
+"label": "Gender",
+"value": "feminine"
 }
 ],
 "pos": "noun"
@@ -79048,15 +79820,6 @@
 ],
 "pos": "noun"
 },
-"merito": {
-"chips": [
-{
-"label": "Plural",
-"value": "meriti"
-}
-],
-"pos": "adj"
-},
 "merlino": {
 "chips": [
 {
@@ -79145,10 +79908,6 @@
 {
 "label": "Gender",
 "value": "feminine"
-},
-{
-"label": "Plural",
-"value": "messi"
 }
 ],
 "pos": "noun"
@@ -79158,6 +79917,19 @@
 {
 "label": "Gender",
 "value": "masculine"
+}
+],
+"pos": "noun"
+},
+"messicana": {
+"chips": [
+{
+"label": "Gender",
+"value": "feminine"
+},
+{
+"label": "Plural",
+"value": "messicane"
 }
 ],
 "pos": "noun"
@@ -79861,15 +80633,6 @@
 ],
 "pos": "noun"
 },
-"mi": {
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
-}
-],
-"pos": "noun"
-},
 "mica": {
 "chips": [
 {
@@ -79909,7 +80672,7 @@
 "chips": [
 {
 "label": "Gender",
-"value": "feminine"
+"value": "masculine"
 },
 {
 "label": "Plural",
@@ -80175,6 +80938,19 @@
 ],
 "pos": "noun"
 },
+"miliardario": {
+"chips": [
+{
+"label": "Gender",
+"value": "masculine"
+},
+{
+"label": "Plural",
+"value": "miliardari"
+}
+],
+"pos": "noun"
+},
 "miliardi": {
 "chips": [
 {
@@ -80359,10 +81135,6 @@
 "minore": {
 "chips": [
 {
-"label": "Gender",
-"value": "feminine"
-},
-{
 "label": "Plural",
 "value": "minori"
 }
@@ -80377,15 +81149,6 @@
 }
 ],
 "pos": "adj"
-},
-"minori": {
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
-}
-],
-"pos": "noun"
 },
 "minuti": {
 "chips": [
@@ -81122,6 +81885,15 @@
 ],
 "pos": "verb"
 },
+"mollo": {
+"chips": [
+{
+"label": "Plural",
+"value": "molli"
+}
+],
+"pos": "adj"
+},
 "molo": {
 "chips": [
 {
@@ -81578,15 +82350,6 @@
 ],
 "pos": "adj"
 },
-"mortali": {
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
-}
-],
-"pos": "noun"
-},
 "morte": {
 "chips": [
 {
@@ -81596,15 +82359,6 @@
 {
 "label": "Plural",
 "value": "morti"
-}
-],
-"pos": "noun"
-},
-"morti": {
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
 }
 ],
 "pos": "noun"
@@ -82488,10 +83242,6 @@
 "musicista": {
 "chips": [
 {
-"label": "Gender",
-"value": "feminine"
-},
-{
 "label": "Plural",
 "value": "musicisti"
 }
@@ -83349,6 +84099,15 @@
 ],
 "pos": "noun"
 },
+"ne": {
+"chips": [
+{
+"label": "Gender",
+"value": "masculine"
+}
+],
+"pos": "noun"
+},
 "nebbia": {
 "chips": [
 {
@@ -83579,6 +84338,19 @@
 }
 ],
 "pos": "adj"
+},
+"negligenza": {
+"chips": [
+{
+"label": "Gender",
+"value": "feminine"
+},
+{
+"label": "Plural",
+"value": "negligenze"
+}
+],
+"pos": "noun"
 },
 "negozi": {
 "chips": [
@@ -83878,11 +84650,11 @@
 ],
 "pos": "noun"
 },
-"ni": {
+"newton": {
 "chips": [
 {
 "label": "Gender",
-"value": "feminine"
+"value": "masculine"
 }
 ],
 "pos": "noun"
@@ -83930,21 +84702,8 @@
 "nipote": {
 "chips": [
 {
-"label": "Gender",
-"value": "feminine"
-},
-{
 "label": "Plural",
 "value": "nipoti"
-}
-],
-"pos": "noun"
-},
-"nipoti": {
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
 }
 ],
 "pos": "noun"
@@ -84648,6 +85407,19 @@
 ],
 "pos": "adj"
 },
+"nova": {
+"chips": [
+{
+"label": "Gender",
+"value": "feminine"
+},
+{
+"label": "Plural",
+"value": "nove"
+}
+],
+"pos": "noun"
+},
 "nove": {
 "chips": [
 {
@@ -85011,166 +85783,6 @@
 }
 ],
 "pos": "noun"
-},
-"obbedire": {
-"charts": [
-{
-"rows": [
-[
-"io",
-"obbedìsco"
-],
-[
-"tu",
-"obbedìsci"
-],
-[
-"lui/lei",
-"obbedìsce"
-],
-[
-"noi",
-"obbediàmo"
-],
-[
-"voi",
-"obbedìte"
-],
-[
-"loro",
-"obbedìscono"
-]
-],
-"title": "Present"
-},
-{
-"rows": [
-[
-"io",
-"obbedìvo"
-],
-[
-"tu",
-"obbedìvi"
-],
-[
-"lui/lei",
-"obbedìva"
-],
-[
-"noi",
-"obbedivàmo"
-],
-[
-"voi",
-"obbedivàte"
-],
-[
-"loro",
-"obbedìvano"
-]
-],
-"title": "Imperfect"
-},
-{
-"rows": [
-[
-"io",
-"obbedirò"
-],
-[
-"tu",
-"obbedirài"
-],
-[
-"lui/lei",
-"obbedirà"
-],
-[
-"noi",
-"obbedirémo"
-],
-[
-"voi",
-"obbediréte"
-],
-[
-"loro",
-"obbedirànno"
-]
-],
-"title": "Future"
-},
-{
-"rows": [
-[
-"io",
-"obbedìi"
-],
-[
-"tu",
-"obbedìsti"
-],
-[
-"lui/lei",
-"obbedì"
-],
-[
-"noi",
-"obbedìmmo"
-],
-[
-"voi",
-"obbedìste"
-],
-[
-"loro",
-"obbedìrono"
-]
-],
-"title": "Passato remoto"
-},
-{
-"rows": [
-[
-"io",
-"obbedìsca"
-],
-[
-"tu",
-"obbedìsca"
-],
-[
-"lui/lei",
-"obbedìsca"
-],
-[
-"noi",
-"obbediàmo"
-],
-[
-"voi",
-"obbediàte"
-],
-[
-"loro",
-"obbedìscano"
-]
-],
-"title": "Subjunctive (present)"
-}
-],
-"chips": [
-{
-"label": "Gerund",
-"value": "obbedèndo"
-},
-{
-"label": "Past participle",
-"value": "obbedìto"
-}
-],
-"pos": "verb"
 },
 "obbligato": {
 "chips": [
@@ -85681,6 +86293,15 @@
 ],
 "pos": "noun"
 },
+"oculare": {
+"chips": [
+{
+"label": "Plural",
+"value": "oculari"
+}
+],
+"pos": "adj"
+},
 "odi": {
 "chips": [
 {
@@ -86142,6 +86763,15 @@
 ],
 "pos": "noun"
 },
+"olandese": {
+"chips": [
+{
+"label": "Plural",
+"value": "olandesi"
+}
+],
+"pos": "adj"
+},
 "olimpiadi": {
 "chips": [
 {
@@ -86230,15 +86860,6 @@
 ],
 "pos": "noun"
 },
-"omega": {
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
-}
-],
-"pos": "noun"
-},
 "ometto": {
 "chips": [
 {
@@ -86254,10 +86875,6 @@
 },
 "omicida": {
 "chips": [
-{
-"label": "Gender",
-"value": "feminine"
-},
 {
 "label": "Plural",
 "value": "omicidi"
@@ -87200,7 +87817,7 @@
 "chips": [
 {
 "label": "Gender",
-"value": "feminine"
+"value": "masculine"
 },
 {
 "label": "Plural",
@@ -87899,15 +88516,6 @@
 ],
 "pos": "adj"
 },
-"ospiti": {
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
-}
-],
-"pos": "noun"
-},
 "ossa": {
 "chips": [
 {
@@ -88129,7 +88737,7 @@
 "chips": [
 {
 "label": "Gender",
-"value": "feminine"
+"value": "masculine"
 },
 {
 "label": "Plural",
@@ -88187,6 +88795,15 @@
 {
 "label": "Plural",
 "value": "ostili"
+}
+],
+"pos": "adj"
+},
+"ottavo": {
+"chips": [
+{
+"label": "Plural",
+"value": "ottavi"
 }
 ],
 "pos": "adj"
@@ -88432,6 +89049,15 @@
 {
 "label": "Plural",
 "value": "pacchetti"
+}
+],
+"pos": "noun"
+},
+"pacchi": {
+"chips": [
+{
+"label": "Gender",
+"value": "masculine"
 }
 ],
 "pos": "noun"
@@ -88842,6 +89468,19 @@
 ],
 "pos": "noun"
 },
+"pala": {
+"chips": [
+{
+"label": "Gender",
+"value": "feminine"
+},
+{
+"label": "Plural",
+"value": "pale"
+}
+],
+"pos": "noun"
+},
 "palazzo": {
 "chips": [
 {
@@ -89043,6 +89682,15 @@
 {
 "label": "Plural",
 "value": "pance"
+}
+],
+"pos": "noun"
+},
+"panda": {
+"chips": [
+{
+"label": "Gender",
+"value": "masculine"
 }
 ],
 "pos": "noun"
@@ -89302,6 +89950,19 @@
 ],
 "pos": "noun"
 },
+"paranoia": {
+"chips": [
+{
+"label": "Gender",
+"value": "feminine"
+},
+{
+"label": "Plural",
+"value": "paranoie"
+}
+],
+"pos": "noun"
+},
 "paranoico": {
 "chips": [
 {
@@ -89540,10 +90201,6 @@
 "parente": {
 "chips": [
 {
-"label": "Gender",
-"value": "feminine"
-},
-{
 "label": "Plural",
 "value": "parenti"
 }
@@ -89754,15 +90411,6 @@
 ],
 "pos": "noun"
 },
-"pari": {
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
-}
-],
-"pos": "noun"
-},
 "parlamento": {
 "chips": [
 {
@@ -89954,6 +90602,15 @@
 {
 "label": "Plural",
 "value": "parole"
+}
+],
+"pos": "noun"
+},
+"parolacce": {
+"chips": [
+{
+"label": "Gender",
+"value": "feminine"
 }
 ],
 "pos": "noun"
@@ -90165,6 +90822,19 @@
 }
 ],
 "pos": "verb"
+},
+"partecipazione": {
+"chips": [
+{
+"label": "Gender",
+"value": "feminine"
+},
+{
+"label": "Plural",
+"value": "partecipazioni"
+}
+],
+"pos": "noun"
 },
 "partenza": {
 "chips": [
@@ -90415,15 +91085,6 @@
 ],
 "pos": "adj"
 },
-"partner": {
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
-}
-],
-"pos": "noun"
-},
 "parto": {
 "chips": [
 {
@@ -90614,7 +91275,7 @@
 },
 {
 "label": "Plural",
-"value": "pasque"
+"value": "Pasque"
 }
 ],
 "pos": "noun"
@@ -91212,15 +91873,6 @@
 }
 ],
 "pos": "adj"
-},
-"pazienti": {
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
-}
-],
-"pos": "noun"
 },
 "pazienza": {
 "chips": [
@@ -92119,15 +92771,6 @@
 }
 ],
 "pos": "adj"
-},
-"perdenti": {
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
-}
-],
-"pos": "noun"
 },
 "perdere": {
 "charts": [
@@ -93170,10 +93813,6 @@
 "persa": {
 "chips": [
 {
-"label": "Gender",
-"value": "feminine"
-},
-{
 "label": "Plural",
 "value": "persi"
 }
@@ -93463,6 +94102,19 @@
 }
 ],
 "pos": "verb"
+},
+"pescatore": {
+"chips": [
+{
+"label": "Gender",
+"value": "masculine"
+},
+{
+"label": "Plural",
+"value": "pescatori"
+}
+],
+"pos": "noun"
 },
 "pesce": {
 "chips": [
@@ -94607,24 +95259,6 @@
 ],
 "pos": "adj"
 },
-"pierre": {
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
-}
-],
-"pos": "noun"
-},
-"pieta": {
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
-}
-],
-"pos": "noun"
-},
 "pietra": {
 "chips": [
 {
@@ -94715,10 +95349,6 @@
 },
 "pilota": {
 "chips": [
-{
-"label": "Gender",
-"value": "feminine"
-},
 {
 "label": "Plural",
 "value": "piloti"
@@ -95312,6 +95942,15 @@
 }
 ],
 "pos": "noun"
+},
+"plausibile": {
+"chips": [
+{
+"label": "Plural",
+"value": "plausibili"
+}
+],
+"pos": "adj"
 },
 "plotone": {
 "chips": [
@@ -96363,6 +97002,19 @@
 ],
 "pos": "noun"
 },
+"pos": {
+"chips": [
+{
+"label": "Gender",
+"value": "masculine"
+},
+{
+"label": "Plural",
+"value": "POS"
+}
+],
+"pos": "noun"
+},
 "posa": {
 "chips": [
 {
@@ -97296,6 +97948,15 @@
 {
 "label": "Plural",
 "value": "precauzioni"
+}
+],
+"pos": "noun"
+},
+"precauzioni": {
+"chips": [
+{
+"label": "Gender",
+"value": "feminine"
 }
 ],
 "pos": "noun"
@@ -98441,6 +99102,166 @@
 {
 "label": "Past participle",
 "value": "présosi"
+}
+],
+"pos": "verb"
+},
+"prenotare": {
+"charts": [
+{
+"rows": [
+[
+"io",
+"prenòto"
+],
+[
+"tu",
+"prenòti"
+],
+[
+"lui/lei",
+"prenòta"
+],
+[
+"noi",
+"prenotiàmo"
+],
+[
+"voi",
+"prenotàte"
+],
+[
+"loro",
+"prenòtano"
+]
+],
+"title": "Present"
+},
+{
+"rows": [
+[
+"io",
+"prenotàvo"
+],
+[
+"tu",
+"prenotàvi"
+],
+[
+"lui/lei",
+"prenotàva"
+],
+[
+"noi",
+"prenotavàmo"
+],
+[
+"voi",
+"prenotavàte"
+],
+[
+"loro",
+"prenotàvano"
+]
+],
+"title": "Imperfect"
+},
+{
+"rows": [
+[
+"io",
+"prenoterò"
+],
+[
+"tu",
+"prenoterài"
+],
+[
+"lui/lei",
+"prenoterà"
+],
+[
+"noi",
+"prenoterémo"
+],
+[
+"voi",
+"prenoteréte"
+],
+[
+"loro",
+"prenoterànno"
+]
+],
+"title": "Future"
+},
+{
+"rows": [
+[
+"io",
+"prenotài"
+],
+[
+"tu",
+"prenotàsti"
+],
+[
+"lui/lei",
+"prenotò"
+],
+[
+"noi",
+"prenotàmmo"
+],
+[
+"voi",
+"prenotàste"
+],
+[
+"loro",
+"prenotàrono"
+]
+],
+"title": "Passato remoto"
+},
+{
+"rows": [
+[
+"io",
+"prenòti"
+],
+[
+"tu",
+"prenòti"
+],
+[
+"lui/lei",
+"prenòti"
+],
+[
+"noi",
+"prenotiàmo"
+],
+[
+"voi",
+"prenotiàte"
+],
+[
+"loro",
+"prenòtino"
+]
+],
+"title": "Subjunctive (present)"
+}
+],
+"chips": [
+{
+"label": "Gerund",
+"value": "prenotàndo"
+},
+{
+"label": "Past participle",
+"value": "prenotàto"
 }
 ],
 "pos": "verb"
@@ -99706,15 +100527,6 @@
 ],
 "pos": "adj"
 },
-"presenti": {
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
-}
-],
-"pos": "noun"
-},
 "presentimento": {
 "chips": [
 {
@@ -99762,10 +100574,6 @@
 "preside": {
 "chips": [
 {
-"label": "Gender",
-"value": "feminine"
-},
-{
 "label": "Plural",
 "value": "presidi"
 }
@@ -99774,10 +100582,6 @@
 },
 "presidente": {
 "chips": [
-{
-"label": "Gender",
-"value": "feminine"
-},
 {
 "label": "Plural",
 "value": "presidenti"
@@ -100406,6 +101210,15 @@
 }
 ],
 "pos": "adj"
+},
+"preziosi": {
+"chips": [
+{
+"label": "Gender",
+"value": "masculine"
+}
+],
+"pos": "noun"
 },
 "prezioso": {
 "chips": [
@@ -101165,15 +101978,6 @@
 {
 "label": "Plural",
 "value": "produzioni"
-}
-],
-"pos": "noun"
-},
-"prof": {
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
 }
 ],
 "pos": "noun"
@@ -102359,10 +103163,6 @@
 "protagonista": {
 "chips": [
 {
-"label": "Gender",
-"value": "feminine"
-},
-{
 "label": "Plural",
 "value": "protagonisti"
 }
@@ -102560,6 +103360,19 @@
 ],
 "pos": "adj"
 },
+"protettore": {
+"chips": [
+{
+"label": "Gender",
+"value": "masculine"
+},
+{
+"label": "Plural",
+"value": "protettori"
+}
+],
+"pos": "noun"
+},
 "protezione": {
 "chips": [
 {
@@ -102569,6 +103382,15 @@
 {
 "label": "Plural",
 "value": "protezioni"
+}
+],
+"pos": "noun"
+},
+"protocolli": {
+"chips": [
+{
+"label": "Gender",
+"value": "masculine"
 }
 ],
 "pos": "noun"
@@ -102959,19 +103781,6 @@
 ],
 "pos": "adj"
 },
-"provincia": {
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
-},
-{
-"label": "Plural",
-"value": "province"
-}
-],
-"pos": "noun"
-},
 "provino": {
 "chips": [
 {
@@ -103187,10 +103996,6 @@
 },
 "psichiatra": {
 "chips": [
-{
-"label": "Gender",
-"value": "feminine"
-},
 {
 "label": "Plural",
 "value": "psichiatri"
@@ -104217,19 +105022,6 @@
 ],
 "pos": "noun"
 },
-"puzza": {
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
-},
-{
-"label": "Plural",
-"value": "puzze"
-}
-],
-"pos": "noun"
-},
 "puzzi": {
 "chips": [
 {
@@ -104368,15 +105160,6 @@
 {
 "label": "Plural",
 "value": "quarte"
-}
-],
-"pos": "noun"
-},
-"quartier": {
-"chips": [
-{
-"label": "Gender",
-"value": "masculine"
 }
 ],
 "pos": "noun"
@@ -105960,10 +106743,6 @@
 "rappresentante": {
 "chips": [
 {
-"label": "Gender",
-"value": "feminine"
-},
-{
 "label": "Plural",
 "value": "rappresentanti"
 }
@@ -107368,10 +108147,6 @@
 "regista": {
 "chips": [
 {
-"label": "Gender",
-"value": "feminine"
-},
-{
 "label": "Plural",
 "value": "registi"
 }
@@ -107909,15 +108684,6 @@
 {
 "label": "Plural",
 "value": "reparti"
-}
-],
-"pos": "noun"
-},
-"reporter": {
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
 }
 ],
 "pos": "noun"
@@ -109011,7 +109777,7 @@
 "chips": [
 {
 "label": "Gender",
-"value": "feminine"
+"value": "masculine"
 }
 ],
 "pos": "noun"
@@ -115623,6 +116389,19 @@
 ],
 "pos": "noun"
 },
+"riservatezza": {
+"chips": [
+{
+"label": "Gender",
+"value": "feminine"
+},
+{
+"label": "Plural",
+"value": "riservatezze"
+}
+],
+"pos": "noun"
+},
 "riservato": {
 "chips": [
 {
@@ -119019,6 +119798,15 @@
 ],
 "pos": "noun"
 },
+"sabine": {
+"chips": [
+{
+"label": "Gender",
+"value": "feminine"
+}
+],
+"pos": "noun"
+},
 "sacca": {
 "chips": [
 {
@@ -120110,7 +120898,7 @@
 "chips": [
 {
 "label": "Gender",
-"value": "feminine"
+"value": "masculine"
 }
 ],
 "pos": "noun"
@@ -120767,6 +121555,15 @@
 {
 "label": "Plural",
 "value": "satelliti"
+}
+],
+"pos": "noun"
+},
+"satelliti": {
+"chips": [
+{
+"label": "Gender",
+"value": "masculine"
 }
 ],
 "pos": "noun"
@@ -121743,6 +122540,19 @@
 ],
 "pos": "noun"
 },
+"scampo": {
+"chips": [
+{
+"label": "Gender",
+"value": "masculine"
+},
+{
+"label": "Plural",
+"value": "scampi"
+}
+],
+"pos": "noun"
+},
 "scandalo": {
 "chips": [
 {
@@ -121969,6 +122779,15 @@
 {
 "label": "Gender",
 "value": "feminine"
+}
+],
+"pos": "noun"
+},
+"scarafaggi": {
+"chips": [
+{
+"label": "Gender",
+"value": "masculine"
 }
 ],
 "pos": "noun"
@@ -123274,6 +124093,15 @@
 }
 ],
 "pos": "adj"
+},
+"schiaffi": {
+"chips": [
+{
+"label": "Gender",
+"value": "masculine"
+}
+],
+"pos": "noun"
 },
 "schiaffo": {
 "chips": [
@@ -124988,6 +125816,166 @@
 ],
 "pos": "noun"
 },
+"scordare": {
+"charts": [
+{
+"rows": [
+[
+"io",
+"scòrdo"
+],
+[
+"tu",
+"scòrdi"
+],
+[
+"lui/lei",
+"scòrda"
+],
+[
+"noi",
+"scordiàmo"
+],
+[
+"voi",
+"scordàte"
+],
+[
+"loro",
+"scòrdano"
+]
+],
+"title": "Present"
+},
+{
+"rows": [
+[
+"io",
+"scordàvo"
+],
+[
+"tu",
+"scordàvi"
+],
+[
+"lui/lei",
+"scordàva"
+],
+[
+"noi",
+"scordavàmo"
+],
+[
+"voi",
+"scordavàte"
+],
+[
+"loro",
+"scordàvano"
+]
+],
+"title": "Imperfect"
+},
+{
+"rows": [
+[
+"io",
+"scorderò"
+],
+[
+"tu",
+"scorderài"
+],
+[
+"lui/lei",
+"scorderà"
+],
+[
+"noi",
+"scorderémo"
+],
+[
+"voi",
+"scorderéte"
+],
+[
+"loro",
+"scorderànno"
+]
+],
+"title": "Future"
+},
+{
+"rows": [
+[
+"io",
+"scordài"
+],
+[
+"tu",
+"scordàsti"
+],
+[
+"lui/lei",
+"scordò"
+],
+[
+"noi",
+"scordàmmo"
+],
+[
+"voi",
+"scordàste"
+],
+[
+"loro",
+"scordàrono"
+]
+],
+"title": "Passato remoto"
+},
+{
+"rows": [
+[
+"io",
+"scòrdi"
+],
+[
+"tu",
+"scòrdi"
+],
+[
+"lui/lei",
+"scòrdi"
+],
+[
+"noi",
+"scordiàmo"
+],
+[
+"voi",
+"scordiàte"
+],
+[
+"loro",
+"scòrdino"
+]
+],
+"title": "Subjunctive (present)"
+}
+],
+"chips": [
+{
+"label": "Gerund",
+"value": "scordàndo"
+},
+{
+"label": "Past participle",
+"value": "scordàto"
+}
+],
+"pos": "verb"
+},
 "scordato": {
 "chips": [
 {
@@ -125241,15 +126229,6 @@
 {
 "label": "Plural",
 "value": "scotte"
-}
-],
-"pos": "noun"
-},
-"scout": {
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
 }
 ],
 "pos": "noun"
@@ -125941,6 +126920,15 @@
 ],
 "pos": "noun"
 },
+"se": {
+"chips": [
+{
+"label": "Gender",
+"value": "masculine"
+}
+],
+"pos": "noun"
+},
 "secca": {
 "chips": [
 {
@@ -126613,15 +127601,6 @@
 ],
 "pos": "adj"
 },
-"seguaci": {
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
-}
-],
-"pos": "noun"
-},
 "seguente": {
 "chips": [
 {
@@ -127091,15 +128070,6 @@
 }
 ],
 "pos": "adj"
-},
-"semplici": {
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
-}
-],
-"pos": "noun"
 },
 "senato": {
 "chips": [
@@ -127773,15 +128743,6 @@
 }
 ],
 "pos": "adj"
-},
-"senzatetto": {
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
-}
-],
-"pos": "noun"
 },
 "separare": {
 "charts": [
@@ -129508,7 +130469,7 @@
 "chips": [
 {
 "label": "Gender",
-"value": "feminine"
+"value": "masculine"
 },
 {
 "label": "Plural",
@@ -129914,15 +130875,6 @@
 ],
 "pos": "noun"
 },
-"single": {
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
-}
-],
-"pos": "noun"
-},
 "singolo": {
 "chips": [
 {
@@ -129963,6 +130915,19 @@
 ],
 "pos": "noun"
 },
+"sintomo": {
+"chips": [
+{
+"label": "Gender",
+"value": "masculine"
+},
+{
+"label": "Plural",
+"value": "sintomi"
+}
+],
+"pos": "noun"
+},
 "sire": {
 "chips": [
 {
@@ -129990,6 +130955,19 @@
 {
 "label": "Gender",
 "value": "feminine"
+}
+],
+"pos": "noun"
+},
+"siringa": {
+"chips": [
+{
+"label": "Gender",
+"value": "feminine"
+},
+{
+"label": "Plural",
+"value": "siringhe"
 }
 ],
 "pos": "noun"
@@ -130572,7 +131550,25 @@
 ],
 "pos": "noun"
 },
+"sms": {
+"chips": [
+{
+"label": "Gender",
+"value": "masculine"
+}
+],
+"pos": "noun"
+},
 "snob": {
+"chips": [
+{
+"label": "Gender",
+"value": "masculine"
+}
+],
+"pos": "noun"
+},
+"so": {
 "chips": [
 {
 "label": "Gender",
@@ -131741,15 +132737,6 @@
 {
 "label": "Plural",
 "value": "somme"
-}
-],
-"pos": "noun"
-},
-"son": {
-"chips": [
-{
-"label": "Gender",
-"value": "masculine"
 }
 ],
 "pos": "noun"
@@ -133122,6 +134109,15 @@
 ],
 "pos": "adj"
 },
+"sottoposto": {
+"chips": [
+{
+"label": "Plural",
+"value": "sottoposti"
+}
+],
+"pos": "adj"
+},
 "sottotitoli": {
 "chips": [
 {
@@ -133161,6 +134157,15 @@
 }
 ],
 "pos": "noun"
+},
+"sovrano": {
+"chips": [
+{
+"label": "Plural",
+"value": "sovrani"
+}
+],
+"pos": "adj"
 },
 "sovrintendente": {
 "chips": [
@@ -133415,6 +134420,15 @@
 {
 "label": "Gender",
 "value": "masculine"
+}
+],
+"pos": "noun"
+},
+"spagnola": {
+"chips": [
+{
+"label": "Gender",
+"value": "feminine"
 }
 ],
 "pos": "noun"
@@ -134104,10 +135118,6 @@
 "specialista": {
 "chips": [
 {
-"label": "Gender",
-"value": "feminine"
-},
-{
 "label": "Plural",
 "value": "specialisti"
 }
@@ -134122,6 +135132,15 @@
 }
 ],
 "pos": "noun"
+},
+"specializzato": {
+"chips": [
+{
+"label": "Plural",
+"value": "specializzati"
+}
+],
+"pos": "adj"
 },
 "specie": {
 "chips": [
@@ -135548,6 +136567,15 @@
 ],
 "pos": "noun"
 },
+"spine": {
+"chips": [
+{
+"label": "Gender",
+"value": "feminine"
+}
+],
+"pos": "noun"
+},
 "spingere": {
 "charts": [
 {
@@ -135807,10 +136835,6 @@
 },
 "spogliarellista": {
 "chips": [
-{
-"label": "Gender",
-"value": "feminine"
-},
 {
 "label": "Plural",
 "value": "spogliarellisti"
@@ -136634,6 +137658,166 @@
 ],
 "pos": "noun"
 },
+"sputare": {
+"charts": [
+{
+"rows": [
+[
+"io",
+"spùto"
+],
+[
+"tu",
+"spùti"
+],
+[
+"lui/lei",
+"spùta"
+],
+[
+"noi",
+"sputiàmo"
+],
+[
+"voi",
+"sputàte"
+],
+[
+"loro",
+"spùtano"
+]
+],
+"title": "Present"
+},
+{
+"rows": [
+[
+"io",
+"sputàvo"
+],
+[
+"tu",
+"sputàvi"
+],
+[
+"lui/lei",
+"sputàva"
+],
+[
+"noi",
+"sputavàmo"
+],
+[
+"voi",
+"sputavàte"
+],
+[
+"loro",
+"sputàvano"
+]
+],
+"title": "Imperfect"
+},
+{
+"rows": [
+[
+"io",
+"sputerò"
+],
+[
+"tu",
+"sputerài"
+],
+[
+"lui/lei",
+"sputerà"
+],
+[
+"noi",
+"sputerémo"
+],
+[
+"voi",
+"sputeréte"
+],
+[
+"loro",
+"sputerànno"
+]
+],
+"title": "Future"
+},
+{
+"rows": [
+[
+"io",
+"sputài"
+],
+[
+"tu",
+"sputàsti"
+],
+[
+"lui/lei",
+"sputò"
+],
+[
+"noi",
+"sputàmmo"
+],
+[
+"voi",
+"sputàste"
+],
+[
+"loro",
+"sputàrono"
+]
+],
+"title": "Passato remoto"
+},
+{
+"rows": [
+[
+"io",
+"spùti"
+],
+[
+"tu",
+"spùti"
+],
+[
+"lui/lei",
+"spùti"
+],
+[
+"noi",
+"sputiàmo"
+],
+[
+"voi",
+"sputiàte"
+],
+[
+"loro",
+"spùtino"
+]
+],
+"title": "Subjunctive (present)"
+}
+],
+"chips": [
+{
+"label": "Gerund",
+"value": "sputàndo"
+},
+{
+"label": "Past participle",
+"value": "sputàto"
+}
+],
+"pos": "verb"
+},
 "squadra": {
 "chips": [
 {
@@ -137073,6 +138257,15 @@
 ],
 "pos": "noun"
 },
+"stagista": {
+"chips": [
+{
+"label": "Plural",
+"value": "stagisti"
+}
+],
+"pos": "noun"
+},
 "stagno": {
 "chips": [
 {
@@ -137433,10 +138626,6 @@
 },
 "stazione": {
 "chips": [
-{
-"label": "Gender",
-"value": "feminine"
-},
 {
 "label": "Plural",
 "value": "stazioni"
@@ -138121,15 +139310,6 @@
 ],
 "pos": "noun"
 },
-"strizzacervelli": {
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
-}
-],
-"pos": "noun"
-},
 "stronza": {
 "chips": [
 {
@@ -138607,15 +139787,6 @@
 {
 "label": "Plural",
 "value": "stupri"
-}
-],
-"pos": "noun"
-},
-"sub": {
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
 }
 ],
 "pos": "noun"
@@ -139152,6 +140323,166 @@
 }
 ],
 "pos": "noun"
+},
+"sudare": {
+"charts": [
+{
+"rows": [
+[
+"io",
+"sùdo"
+],
+[
+"tu",
+"sùdi"
+],
+[
+"lui/lei",
+"sùda"
+],
+[
+"noi",
+"sudiàmo"
+],
+[
+"voi",
+"sudàte"
+],
+[
+"loro",
+"sùdano"
+]
+],
+"title": "Present"
+},
+{
+"rows": [
+[
+"io",
+"sudàvo"
+],
+[
+"tu",
+"sudàvi"
+],
+[
+"lui/lei",
+"sudàva"
+],
+[
+"noi",
+"sudavàmo"
+],
+[
+"voi",
+"sudavàte"
+],
+[
+"loro",
+"sudàvano"
+]
+],
+"title": "Imperfect"
+},
+{
+"rows": [
+[
+"io",
+"suderò"
+],
+[
+"tu",
+"suderài"
+],
+[
+"lui/lei",
+"suderà"
+],
+[
+"noi",
+"suderémo"
+],
+[
+"voi",
+"suderéte"
+],
+[
+"loro",
+"suderànno"
+]
+],
+"title": "Future"
+},
+{
+"rows": [
+[
+"io",
+"sudài"
+],
+[
+"tu",
+"sudàsti"
+],
+[
+"lui/lei",
+"sudò"
+],
+[
+"noi",
+"sudàmmo"
+],
+[
+"voi",
+"sudàste"
+],
+[
+"loro",
+"sudàrono"
+]
+],
+"title": "Passato remoto"
+},
+{
+"rows": [
+[
+"io",
+"sùdi"
+],
+[
+"tu",
+"sùdi"
+],
+[
+"lui/lei",
+"sùdi"
+],
+[
+"noi",
+"sudiàmo"
+],
+[
+"voi",
+"sudiàte"
+],
+[
+"loro",
+"sùdino"
+]
+],
+"title": "Subjunctive (present)"
+}
+],
+"chips": [
+{
+"label": "Gerund",
+"value": "sudàndo"
+},
+{
+"label": "Past participle",
+"value": "sudàto"
+}
+],
+"pos": "verb"
 },
 "sudore": {
 "chips": [
@@ -141197,19 +142528,6 @@
 ],
 "pos": "noun"
 },
-"talento": {
-"chips": [
-{
-"label": "Gender",
-"value": "masculine"
-},
-{
-"label": "Plural",
-"value": "talenti"
-}
-],
-"pos": "noun"
-},
 "tali": {
 "chips": [
 {
@@ -141352,10 +142670,6 @@
 },
 "tassista": {
 "chips": [
-{
-"label": "Gender",
-"value": "feminine"
-},
 {
 "label": "Plural",
 "value": "tassisti"
@@ -141512,6 +142826,15 @@
 {
 "label": "Plural",
 "value": "tazze"
+}
+],
+"pos": "noun"
+},
+"tazze": {
+"chips": [
+{
+"label": "Gender",
+"value": "feminine"
 }
 ],
 "pos": "noun"
@@ -141961,6 +143284,19 @@
 }
 ],
 "pos": "adj"
+},
+"televisore": {
+"chips": [
+{
+"label": "Gender",
+"value": "masculine"
+},
+{
+"label": "Plural",
+"value": "televisori"
+}
+],
+"pos": "noun"
 },
 "tema": {
 "chips": [
@@ -143086,15 +144422,20 @@
 "terapista": {
 "chips": [
 {
-"label": "Gender",
-"value": "feminine"
-},
-{
 "label": "Plural",
 "value": "terapisti"
 }
 ],
 "pos": "noun"
+},
+"terminale": {
+"chips": [
+{
+"label": "Plural",
+"value": "terminali"
+}
+],
+"pos": "adj"
 },
 "terminare": {
 "charts": [
@@ -143738,12 +145079,21 @@
 ],
 "pos": "verb"
 },
-"teste": {
+"testata": {
 "chips": [
 {
 "label": "Gender",
 "value": "feminine"
 },
+{
+"label": "Plural",
+"value": "testate"
+}
+],
+"pos": "noun"
+},
+"teste": {
+"chips": [
 {
 "label": "Plural",
 "value": "testi"
@@ -143760,12 +145110,17 @@
 ],
 "pos": "noun"
 },
-"testimone": {
+"testicoli": {
 "chips": [
 {
 "label": "Gender",
-"value": "feminine"
+"value": "masculine"
+}
+],
+"pos": "noun"
 },
+"testimone": {
+"chips": [
 {
 "label": "Plural",
 "value": "testimoni"
@@ -143777,7 +145132,7 @@
 "chips": [
 {
 "label": "Gender",
-"value": "feminine"
+"value": "masculine"
 }
 ],
 "pos": "noun"
@@ -144055,6 +145410,19 @@
 }
 ],
 "pos": "adj"
+},
+"timone": {
+"chips": [
+{
+"label": "Gender",
+"value": "masculine"
+},
+{
+"label": "Plural",
+"value": "timoni"
+}
+],
+"pos": "noun"
 },
 "timore": {
 "chips": [
@@ -144933,6 +146301,15 @@
 ],
 "pos": "verb"
 },
+"toilette": {
+"chips": [
+{
+"label": "Gender",
+"value": "feminine"
+}
+],
+"pos": "noun"
+},
 "tomba": {
 "chips": [
 {
@@ -144951,6 +146328,15 @@
 {
 "label": "Gender",
 "value": "feminine"
+}
+],
+"pos": "noun"
+},
+"tommy": {
+"chips": [
+{
+"label": "Gender",
+"value": "masculine"
 }
 ],
 "pos": "noun"
@@ -145007,6 +146393,15 @@
 }
 ],
 "pos": "noun"
+},
+"tonto": {
+"chips": [
+{
+"label": "Plural",
+"value": "tonti"
+}
+],
+"pos": "adj"
 },
 "top": {
 "chips": [
@@ -145890,10 +147285,6 @@
 },
 "trafficante": {
 "chips": [
-{
-"label": "Gender",
-"value": "feminine"
-},
 {
 "label": "Plural",
 "value": "trafficanti"
@@ -147842,6 +149233,19 @@
 ],
 "pos": "noun"
 },
+"travestito": {
+"chips": [
+{
+"label": "Gender",
+"value": "masculine"
+},
+{
+"label": "Plural",
+"value": "travestiti"
+}
+],
+"pos": "noun"
+},
 "tre": {
 "chips": [
 {
@@ -148728,19 +150132,6 @@
 ],
 "pos": "noun"
 },
-"trovero": {
-"chips": [
-{
-"label": "Gender",
-"value": "masculine"
-},
-{
-"label": "Plural",
-"value": "troveri"
-}
-],
-"pos": "noun"
-},
 "trucchi": {
 "chips": [
 {
@@ -148952,20 +150343,20 @@
 ],
 "pos": "noun"
 },
+"tv": {
+"chips": [
+{
+"label": "Gender",
+"value": "feminine"
+}
+],
+"pos": "noun"
+},
 "tè": {
 "chips": [
 {
 "label": "Gender",
 "value": "masculine"
-}
-],
-"pos": "noun"
-},
-"u": {
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
 }
 ],
 "pos": "noun"
@@ -150344,7 +151735,7 @@
 "chips": [
 {
 "label": "Gender",
-"value": "feminine"
+"value": "masculine"
 },
 {
 "label": "Plural",
@@ -151177,15 +152568,6 @@
 }
 ],
 "pos": "adj"
-},
-"val": {
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
-}
-],
-"pos": "noun"
 },
 "valentine": {
 "chips": [
@@ -152430,6 +153812,166 @@
 ],
 "pos": "noun"
 },
+"vendicare": {
+"charts": [
+{
+"rows": [
+[
+"io",
+"véndico"
+],
+[
+"tu",
+"véndichi"
+],
+[
+"lui/lei",
+"véndica"
+],
+[
+"noi",
+"vendichiàmo"
+],
+[
+"voi",
+"vendicàte"
+],
+[
+"loro",
+"véndicano"
+]
+],
+"title": "Present"
+},
+{
+"rows": [
+[
+"io",
+"vendicàvo"
+],
+[
+"tu",
+"vendicàvi"
+],
+[
+"lui/lei",
+"vendicàva"
+],
+[
+"noi",
+"vendicavàmo"
+],
+[
+"voi",
+"vendicavàte"
+],
+[
+"loro",
+"vendicàvano"
+]
+],
+"title": "Imperfect"
+},
+{
+"rows": [
+[
+"io",
+"vendicherò"
+],
+[
+"tu",
+"vendicherài"
+],
+[
+"lui/lei",
+"vendicherà"
+],
+[
+"noi",
+"vendicherémo"
+],
+[
+"voi",
+"vendicheréte"
+],
+[
+"loro",
+"vendicherànno"
+]
+],
+"title": "Future"
+},
+{
+"rows": [
+[
+"io",
+"vendicài"
+],
+[
+"tu",
+"vendicàsti"
+],
+[
+"lui/lei",
+"vendicò"
+],
+[
+"noi",
+"vendicàmmo"
+],
+[
+"voi",
+"vendicàste"
+],
+[
+"loro",
+"vendicàrono"
+]
+],
+"title": "Passato remoto"
+},
+{
+"rows": [
+[
+"io",
+"véndichi"
+],
+[
+"tu",
+"véndichi"
+],
+[
+"lui/lei",
+"véndichi"
+],
+[
+"noi",
+"vendichiàmo"
+],
+[
+"voi",
+"vendichiàte"
+],
+[
+"loro",
+"véndichino"
+]
+],
+"title": "Subjunctive (present)"
+}
+],
+"chips": [
+{
+"label": "Gerund",
+"value": "vendicàndo"
+},
+{
+"label": "Past participle",
+"value": "vendicàto"
+}
+],
+"pos": "verb"
+},
 "vendicarsi": {
 "charts": [
 {
@@ -152944,6 +154486,19 @@
 ],
 "pos": "noun"
 },
+"veranda": {
+"chips": [
+{
+"label": "Gender",
+"value": "feminine"
+},
+{
+"label": "Plural",
+"value": "verande"
+}
+],
+"pos": "noun"
+},
 "verbale": {
 "chips": [
 {
@@ -153023,6 +154578,166 @@
 }
 ],
 "pos": "noun"
+},
+"vergognarsi": {
+"charts": [
+{
+"rows": [
+[
+"io",
+"mi vergógno"
+],
+[
+"tu",
+"ti vergógni"
+],
+[
+"lui/lei",
+"si vergógna"
+],
+[
+"noi",
+"ci vergogniàmo"
+],
+[
+"voi",
+"vi vergognàte"
+],
+[
+"loro",
+"si vergógnano"
+]
+],
+"title": "Present"
+},
+{
+"rows": [
+[
+"io",
+"mi vergognàvo"
+],
+[
+"tu",
+"ti vergognàvi"
+],
+[
+"lui/lei",
+"si vergognàva"
+],
+[
+"noi",
+"ci vergognavàmo"
+],
+[
+"voi",
+"vi vergognavàte"
+],
+[
+"loro",
+"si vergognàvano"
+]
+],
+"title": "Imperfect"
+},
+{
+"rows": [
+[
+"io",
+"mi vergognerò"
+],
+[
+"tu",
+"ti vergognerài"
+],
+[
+"lui/lei",
+"si vergognerà"
+],
+[
+"noi",
+"ci vergognerémo"
+],
+[
+"voi",
+"vi vergogneréte"
+],
+[
+"loro",
+"si vergognerànno"
+]
+],
+"title": "Future"
+},
+{
+"rows": [
+[
+"io",
+"mi vergognài"
+],
+[
+"tu",
+"ti vergognàsti"
+],
+[
+"lui/lei",
+"si vergognò"
+],
+[
+"noi",
+"ci vergognàmmo"
+],
+[
+"voi",
+"vi vergognàste"
+],
+[
+"loro",
+"si vergognàrono"
+]
+],
+"title": "Passato remoto"
+},
+{
+"rows": [
+[
+"io",
+"mi vergógni"
+],
+[
+"tu",
+"ti vergógni"
+],
+[
+"lui/lei",
+"si vergógni"
+],
+[
+"noi",
+"ci vergogniàmo"
+],
+[
+"voi",
+"vi vergogniàte"
+],
+[
+"loro",
+"si vergógnino"
+]
+],
+"title": "Subjunctive (present)"
+}
+],
+"chips": [
+{
+"label": "Gerund",
+"value": "vergognàndosi"
+},
+{
+"label": "Past participle",
+"value": "vergognàtosi"
+}
+],
+"pos": "verb"
 },
 "veri": {
 "chips": [
@@ -153821,15 +155536,6 @@
 ],
 "pos": "noun"
 },
-"vice": {
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
-}
-],
-"pos": "noun"
-},
 "vicenda": {
 "chips": [
 {
@@ -154273,19 +155979,6 @@
 {
 "label": "Plural",
 "value": "vinchi"
-}
-],
-"pos": "noun"
-},
-"vino": {
-"chips": [
-{
-"label": "Gender",
-"value": "masculine"
-},
-{
-"label": "Plural",
-"value": "vini"
 }
 ],
 "pos": "noun"
@@ -154762,6 +156455,15 @@
 }
 ],
 "pos": "adj"
+},
+"vitamine": {
+"chips": [
+{
+"label": "Gender",
+"value": "feminine"
+}
+],
+"pos": "noun"
 },
 "vite": {
 "chips": [
@@ -156333,15 +158035,6 @@
 ],
 "pos": "noun"
 },
-"week-end": {
-"chips": [
-{
-"label": "Gender",
-"value": "masculine"
-}
-],
-"pos": "noun"
-},
 "weekend": {
 "chips": [
 {
@@ -156514,15 +158207,6 @@
 {
 "label": "Plural",
 "value": "zoccole"
-}
-],
-"pos": "noun"
-},
-"zombie": {
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
 }
 ],
 "pos": "noun"

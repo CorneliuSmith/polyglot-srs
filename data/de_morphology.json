@@ -73,6 +73,54 @@
 ],
 "pos": "verb"
 },
+"abbiegen": {
+"charts": [
+{
+"rows": [
+[
+"ich",
+"biege ab"
+],
+[
+"du",
+"biegst ab"
+],
+[
+"er/sie/es",
+"biegt ab"
+],
+[
+"wir",
+"biegen ab"
+],
+[
+"ihr",
+"biegt ab"
+],
+[
+"sie",
+"biegen ab"
+]
+],
+"title": "Present"
+}
+],
+"chips": [
+{
+"label": "Präteritum",
+"value": "bog ab"
+},
+{
+"label": "Partizip II",
+"value": "abgebogen"
+},
+{
+"label": "Auxiliary",
+"value": "haben"
+}
+],
+"pos": "verb"
+},
 "abbrechen": {
 "charts": [
 {
@@ -121,19 +169,15 @@
 ],
 "pos": "verb"
 },
-"abdruck": {
+"abdrücken": {
 "chips": [
 {
 "label": "Article",
-"value": "der"
+"value": "das"
 },
 {
 "label": "Genitive",
-"value": "Abdruckes"
-},
-{
-"label": "Plural",
-"value": "Abdrücke"
+"value": "Abdrückens"
 }
 ],
 "pos": "noun"
@@ -1754,6 +1798,23 @@
 ],
 "pos": "noun"
 },
+"abzeichen": {
+"chips": [
+{
+"label": "Article",
+"value": "das"
+},
+{
+"label": "Genitive",
+"value": "Abzeichens"
+},
+{
+"label": "Plural",
+"value": "Abzeichen"
+}
+],
+"pos": "noun"
+},
 "abziehen": {
 "charts": [
 {
@@ -2026,23 +2087,6 @@
 ],
 "pos": "verb"
 },
-"adoption": {
-"chips": [
-{
-"label": "Article",
-"value": "die"
-},
-{
-"label": "Genitive",
-"value": "Adoption"
-},
-{
-"label": "Plural",
-"value": "Adoptionen"
-}
-],
-"pos": "noun"
-},
 "adrenalin": {
 "chips": [
 {
@@ -2086,7 +2130,7 @@
 "chips": [
 {
 "label": "Article",
-"value": "das"
+"value": "der"
 },
 {
 "label": "Genitive",
@@ -2613,10 +2657,6 @@
 "alias": {
 "chips": [
 {
-"label": "Article",
-"value": "das"
-},
-{
 "label": "Genitive",
 "value": "Alias"
 },
@@ -2646,10 +2686,6 @@
 },
 "alien": {
 "chips": [
-{
-"label": "Article",
-"value": "das"
-},
 {
 "label": "Genitive",
 "value": "Aliens"
@@ -2751,6 +2787,15 @@
 ],
 "pos": "noun"
 },
+"alliierten": {
+"chips": [
+{
+"label": "Article",
+"value": "der"
+}
+],
+"pos": "noun"
+},
 "alpha": {
 "chips": [
 {
@@ -2764,23 +2809,6 @@
 {
 "label": "Plural",
 "value": "Alphas"
-}
-],
-"pos": "noun"
-},
-"alptraum": {
-"chips": [
-{
-"label": "Article",
-"value": "der"
-},
-{
-"label": "Genitive",
-"value": "Alptraumes"
-},
-{
-"label": "Plural",
-"value": "Alpträume"
 }
 ],
 "pos": "noun"
@@ -2975,6 +3003,23 @@
 {
 "label": "Plural",
 "value": "Amerikaner"
+}
+],
+"pos": "noun"
+},
+"amerikanerin": {
+"chips": [
+{
+"label": "Article",
+"value": "die"
+},
+{
+"label": "Genitive",
+"value": "Amerikanerin"
+},
+{
+"label": "Plural",
+"value": "Amerikanerinnen"
 }
 ],
 "pos": "noun"
@@ -3185,15 +3230,6 @@
 }
 ],
 "pos": "verb"
-},
-"anbetracht": {
-"chips": [
-{
-"label": "Article",
-"value": "der"
-}
-],
-"pos": "noun"
 },
 "anbieten": {
 "charts": [
@@ -4727,6 +4763,54 @@
 ],
 "pos": "verb"
 },
+"anmelden": {
+"charts": [
+{
+"rows": [
+[
+"ich",
+"melde an"
+],
+[
+"du",
+"meldest an"
+],
+[
+"er/sie/es",
+"meldet an"
+],
+[
+"wir",
+"melden an"
+],
+[
+"ihr",
+"meldet an"
+],
+[
+"sie",
+"melden an"
+]
+],
+"title": "Present"
+}
+],
+"chips": [
+{
+"label": "Präteritum",
+"value": "meldete an"
+},
+{
+"label": "Partizip II",
+"value": "angemeldet"
+},
+{
+"label": "Auxiliary",
+"value": "haben"
+}
+],
+"pos": "verb"
+},
 "annahme": {
 "chips": [
 {
@@ -4995,6 +5079,23 @@
 ],
 "pos": "noun"
 },
+"ansage": {
+"chips": [
+{
+"label": "Article",
+"value": "die"
+},
+{
+"label": "Genitive",
+"value": "Ansage"
+},
+{
+"label": "Plural",
+"value": "Ansagen"
+}
+],
+"pos": "noun"
+},
 "anschauen": {
 "charts": [
 {
@@ -5217,6 +5318,23 @@
 {
 "label": "Article",
 "value": "die"
+}
+],
+"pos": "noun"
+},
+"ansprache": {
+"chips": [
+{
+"label": "Article",
+"value": "die"
+},
+{
+"label": "Genitive",
+"value": "Ansprache"
+},
+{
+"label": "Plural",
+"value": "Ansprachen"
 }
 ],
 "pos": "noun"
@@ -5897,23 +6015,6 @@
 ],
 "pos": "noun"
 },
-"anzahlung": {
-"chips": [
-{
-"label": "Article",
-"value": "die"
-},
-{
-"label": "Genitive",
-"value": "Anzahlung"
-},
-{
-"label": "Plural",
-"value": "Anzahlungen"
-}
-],
-"pos": "noun"
-},
 "anzeichen": {
 "chips": [
 {
@@ -6130,7 +6231,7 @@
 "chips": [
 {
 "label": "Article",
-"value": "das"
+"value": "der"
 },
 {
 "label": "Genitive",
@@ -6773,23 +6874,6 @@
 ],
 "pos": "noun"
 },
-"arzt": {
-"chips": [
-{
-"label": "Article",
-"value": "der"
-},
-{
-"label": "Genitive",
-"value": "Arztes"
-},
-{
-"label": "Plural",
-"value": "Ärzte"
-}
-],
-"pos": "noun"
-},
 "as": {
 "chips": [
 {
@@ -6892,7 +6976,7 @@
 "chips": [
 {
 "label": "Article",
-"value": "das"
+"value": "der"
 },
 {
 "label": "Genitive",
@@ -7013,6 +7097,23 @@
 {
 "label": "Plural",
 "value": "Atmosphären"
+}
+],
+"pos": "noun"
+},
+"atmung": {
+"chips": [
+{
+"label": "Article",
+"value": "die"
+},
+{
+"label": "Genitive",
+"value": "Atmung"
+},
+{
+"label": "Plural",
+"value": "Atmungen"
 }
 ],
 "pos": "noun"
@@ -7340,6 +7441,19 @@
 }
 ],
 "pos": "verb"
+},
+"auffällig": {
+"chips": [
+{
+"label": "Comparative",
+"value": "auffälliger"
+},
+{
+"label": "Superlative",
+"value": "am auffälligsten"
+}
+],
+"pos": "adj"
 },
 "aufführung": {
 "chips": [
@@ -7710,6 +7824,23 @@
 }
 ],
 "pos": "verb"
+},
+"aufklärung": {
+"chips": [
+{
+"label": "Article",
+"value": "die"
+},
+{
+"label": "Genitive",
+"value": "Aufklärung"
+},
+{
+"label": "Plural",
+"value": "Aufklärungen"
+}
+],
+"pos": "noun"
 },
 "auflegen": {
 "charts": [
@@ -8302,6 +8433,19 @@
 ],
 "pos": "verb"
 },
+"aufsehen": {
+"chips": [
+{
+"label": "Article",
+"value": "das"
+},
+{
+"label": "Genitive",
+"value": "Aufsehens"
+}
+],
+"pos": "noun"
+},
 "aufsetzen": {
 "chips": [
 {
@@ -8719,6 +8863,23 @@
 {
 "label": "Plural",
 "value": "Aufträge"
+}
+],
+"pos": "noun"
+},
+"auftraggeber": {
+"chips": [
+{
+"label": "Article",
+"value": "der"
+},
+{
+"label": "Genitive",
+"value": "Auftraggebers"
+},
+{
+"label": "Plural",
+"value": "Auftraggeber"
 }
 ],
 "pos": "noun"
@@ -9209,6 +9370,23 @@
 {
 "label": "Plural",
 "value": "Auktionen"
+}
+],
+"pos": "noun"
+},
+"aurora": {
+"chips": [
+{
+"label": "Article",
+"value": "die"
+},
+{
+"label": "Genitive",
+"value": "Aurora"
+},
+{
+"label": "Plural",
+"value": "Auroras"
 }
 ],
 "pos": "noun"
@@ -11046,6 +11224,54 @@
 ],
 "pos": "verb"
 },
+"ausstellen": {
+"charts": [
+{
+"rows": [
+[
+"ich",
+"stelle aus"
+],
+[
+"du",
+"stellst aus"
+],
+[
+"er/sie/es",
+"stellt aus"
+],
+[
+"wir",
+"stellen aus"
+],
+[
+"ihr",
+"stellt aus"
+],
+[
+"sie",
+"stellen aus"
+]
+],
+"title": "Present"
+}
+],
+"chips": [
+{
+"label": "Präteritum",
+"value": "stellte aus"
+},
+{
+"label": "Partizip II",
+"value": "ausgestellt"
+},
+{
+"label": "Auxiliary",
+"value": "haben"
+}
+],
+"pos": "verb"
+},
 "ausstellung": {
 "chips": [
 {
@@ -11219,23 +11445,6 @@
 ],
 "pos": "verb"
 },
-"ausweis": {
-"chips": [
-{
-"label": "Article",
-"value": "der"
-},
-{
-"label": "Genitive",
-"value": "Ausweises"
-},
-{
-"label": "Plural",
-"value": "Ausweise"
-}
-],
-"pos": "noun"
-},
 "auswendig": {
 "chips": [
 {
@@ -11401,23 +11610,6 @@
 {
 "label": "Plural",
 "value": "Autos"
-}
-],
-"pos": "noun"
-},
-"autobahn": {
-"chips": [
-{
-"label": "Article",
-"value": "die"
-},
-{
-"label": "Genitive",
-"value": "Autobahn"
-},
-{
-"label": "Plural",
-"value": "Autobahnen"
 }
 ],
 "pos": "noun"
@@ -11656,7 +11848,7 @@
 "chips": [
 {
 "label": "Article",
-"value": "das"
+"value": "der"
 },
 {
 "label": "Genitive",
@@ -11833,23 +12025,6 @@
 ],
 "pos": "noun"
 },
-"badezimmer": {
-"chips": [
-{
-"label": "Article",
-"value": "das"
-},
-{
-"label": "Genitive",
-"value": "Badezimmers"
-},
-{
-"label": "Plural",
-"value": "Badezimmer"
-}
-],
-"pos": "noun"
-},
 "bahn": {
 "chips": [
 {
@@ -11889,23 +12064,6 @@
 {
 "label": "Article",
 "value": "das"
-}
-],
-"pos": "noun"
-},
-"balkon": {
-"chips": [
-{
-"label": "Article",
-"value": "der"
-},
-{
-"label": "Genitive",
-"value": "Balkons"
-},
-{
-"label": "Plural",
-"value": "Balkone"
 }
 ],
 "pos": "noun"
@@ -12089,6 +12247,23 @@
 ],
 "pos": "noun"
 },
+"bann": {
+"chips": [
+{
+"label": "Article",
+"value": "der"
+},
+{
+"label": "Genitive",
+"value": "Bannes"
+},
+{
+"label": "Plural",
+"value": "Banne"
+}
+],
+"pos": "noun"
+},
 "bar": {
 "chips": [
 {
@@ -12119,23 +12294,6 @@
 {
 "label": "Plural",
 "value": "Bargelder"
-}
-],
-"pos": "noun"
-},
-"barkeeper": {
-"chips": [
-{
-"label": "Article",
-"value": "der"
-},
-{
-"label": "Genitive",
-"value": "Barkeepers"
-},
-{
-"label": "Plural",
-"value": "Barkeeper"
 }
 ],
 "pos": "noun"
@@ -12314,7 +12472,7 @@
 "chips": [
 {
 "label": "Article",
-"value": "das"
+"value": "der"
 },
 {
 "label": "Genitive",
@@ -12388,7 +12546,7 @@
 "chips": [
 {
 "label": "Article",
-"value": "das"
+"value": "der"
 },
 {
 "label": "Genitive",
@@ -12405,7 +12563,7 @@
 "chips": [
 {
 "label": "Article",
-"value": "das"
+"value": "der"
 },
 {
 "label": "Genitive",
@@ -12587,6 +12745,54 @@
 ],
 "pos": "noun"
 },
+"beantragen": {
+"charts": [
+{
+"rows": [
+[
+"ich",
+"beantrage"
+],
+[
+"du",
+"beantragst"
+],
+[
+"er/sie/es",
+"beantragt"
+],
+[
+"wir",
+"beantragen"
+],
+[
+"ihr",
+"beantragt"
+],
+[
+"sie",
+"beantragen"
+]
+],
+"title": "Present"
+}
+],
+"chips": [
+{
+"label": "Präteritum",
+"value": "beantragte"
+},
+{
+"label": "Partizip II",
+"value": "beantragt"
+},
+{
+"label": "Auxiliary",
+"value": "haben"
+}
+],
+"pos": "verb"
+},
 "beantworten": {
 "charts": [
 {
@@ -12687,7 +12893,7 @@
 "chips": [
 {
 "label": "Article",
-"value": "das"
+"value": "der"
 },
 {
 "label": "Genitive",
@@ -17148,6 +17354,19 @@
 ],
 "pos": "verb"
 },
+"beschuss": {
+"chips": [
+{
+"label": "Article",
+"value": "der"
+},
+{
+"label": "Genitive",
+"value": "Beschusses"
+}
+],
+"pos": "noun"
+},
 "beschwerde": {
 "chips": [
 {
@@ -19393,6 +19612,23 @@
 ],
 "pos": "noun"
 },
+"bewerbung": {
+"chips": [
+{
+"label": "Article",
+"value": "die"
+},
+{
+"label": "Genitive",
+"value": "Bewerbung"
+},
+{
+"label": "Plural",
+"value": "Bewerbungen"
+}
+],
+"pos": "noun"
+},
 "bewirken": {
 "charts": [
 {
@@ -19440,23 +19676,6 @@
 }
 ],
 "pos": "verb"
-},
-"bewohner": {
-"chips": [
-{
-"label": "Article",
-"value": "der"
-},
-{
-"label": "Genitive",
-"value": "Bewohners"
-},
-{
-"label": "Plural",
-"value": "Bewohner"
-}
-],
-"pos": "noun"
 },
 "bewundern": {
 "charts": [
@@ -19951,7 +20170,7 @@
 "chips": [
 {
 "label": "Article",
-"value": "das"
+"value": "die"
 },
 {
 "label": "Genitive",
@@ -20374,7 +20593,7 @@
 "chips": [
 {
 "label": "Article",
-"value": "das"
+"value": "der"
 },
 {
 "label": "Genitive",
@@ -20400,6 +20619,23 @@
 {
 "label": "Plural",
 "value": "Bisschen"
+}
+],
+"pos": "noun"
+},
+"bissen": {
+"chips": [
+{
+"label": "Article",
+"value": "der"
+},
+{
+"label": "Genitive",
+"value": "Bissens"
+},
+{
+"label": "Plural",
+"value": "Bissen"
 }
 ],
 "pos": "noun"
@@ -20498,23 +20734,6 @@
 }
 ],
 "pos": "adj"
-},
-"bißchen": {
-"chips": [
-{
-"label": "Article",
-"value": "das"
-},
-{
-"label": "Genitive",
-"value": "Bißchens"
-},
-{
-"label": "Plural",
-"value": "Bißchen"
-}
-],
-"pos": "noun"
 },
 "blas": {
 "chips": [
@@ -20996,6 +21215,19 @@
 ],
 "pos": "verb"
 },
+"blog": {
+"chips": [
+{
+"label": "Genitive",
+"value": "Blogs"
+},
+{
+"label": "Plural",
+"value": "Blogs"
+}
+],
+"pos": "noun"
+},
 "blond": {
 "chips": [
 {
@@ -21025,19 +21257,6 @@
 }
 ],
 "pos": "noun"
-},
-"bloss": {
-"chips": [
-{
-"label": "Comparative",
-"value": "blosser"
-},
-{
-"label": "Superlative",
-"value": "am blossesten"
-}
-],
-"pos": "adj"
 },
 "bloß": {
 "chips": [
@@ -21069,7 +21288,7 @@
 "chips": [
 {
 "label": "Article",
-"value": "das"
+"value": "die"
 },
 {
 "label": "Genitive",
@@ -21215,6 +21434,19 @@
 ],
 "pos": "noun"
 },
+"blutig": {
+"chips": [
+{
+"label": "Comparative",
+"value": "blutiger"
+},
+{
+"label": "Superlative",
+"value": "am blutigsten"
+}
+],
+"pos": "adj"
+},
 "blutung": {
 "chips": [
 {
@@ -21318,7 +21550,7 @@
 "chips": [
 {
 "label": "Article",
-"value": "das"
+"value": "der"
 },
 {
 "label": "Genitive",
@@ -21748,23 +21980,6 @@
 ],
 "pos": "noun"
 },
-"boulevard": {
-"chips": [
-{
-"label": "Article",
-"value": "der"
-},
-{
-"label": "Genitive",
-"value": "Boulevards"
-},
-{
-"label": "Plural",
-"value": "Boulevards"
-}
-],
-"pos": "noun"
-},
 "box": {
 "chips": [
 {
@@ -22054,7 +22269,7 @@
 "chips": [
 {
 "label": "Article",
-"value": "das"
+"value": "die"
 },
 {
 "label": "Genitive",
@@ -22252,6 +22467,23 @@
 }
 ],
 "pos": "verb"
+},
+"brenner": {
+"chips": [
+{
+"label": "Article",
+"value": "der"
+},
+{
+"label": "Genitive",
+"value": "Brenners"
+},
+{
+"label": "Plural",
+"value": "Brenner"
+}
+],
+"pos": "noun"
 },
 "brett": {
 "chips": [
@@ -22467,7 +22699,7 @@
 "chips": [
 {
 "label": "Article",
-"value": "das"
+"value": "der"
 },
 {
 "label": "Genitive",
@@ -22501,7 +22733,7 @@
 "chips": [
 {
 "label": "Article",
-"value": "das"
+"value": "der"
 },
 {
 "label": "Genitive",
@@ -23135,6 +23367,23 @@
 ],
 "pos": "noun"
 },
+"bäckerei": {
+"chips": [
+{
+"label": "Article",
+"value": "die"
+},
+{
+"label": "Genitive",
+"value": "Bäckerei"
+},
+{
+"label": "Plural",
+"value": "Bäckereien"
+}
+],
+"pos": "noun"
+},
 "bänder": {
 "chips": [
 {
@@ -23204,7 +23453,7 @@
 "chips": [
 {
 "label": "Article",
-"value": "das"
+"value": "der"
 },
 {
 "label": "Genitive",
@@ -23368,23 +23617,6 @@
 ],
 "pos": "verb"
 },
-"caesar": {
-"chips": [
-{
-"label": "Article",
-"value": "der"
-},
-{
-"label": "Genitive",
-"value": "Caesaren"
-},
-{
-"label": "Plural",
-"value": "Caesaren"
-}
-],
-"pos": "noun"
-},
 "cafeteria": {
 "chips": [
 {
@@ -23500,23 +23732,6 @@
 ],
 "pos": "noun"
 },
-"casino": {
-"chips": [
-{
-"label": "Article",
-"value": "das"
-},
-{
-"label": "Genitive",
-"value": "Casinos"
-},
-{
-"label": "Plural",
-"value": "Casinos"
-}
-],
-"pos": "noun"
-},
 "cd": {
 "chips": [
 {
@@ -23598,15 +23813,6 @@
 {
 "label": "Plural",
 "value": "Champions"
-}
-],
-"pos": "noun"
-},
-"chan": {
-"chips": [
-{
-"label": "Article",
-"value": "der"
 }
 ],
 "pos": "noun"
@@ -23853,10 +24059,6 @@
 },
 "chili": {
 "chips": [
-{
-"label": "Article",
-"value": "das"
-},
 {
 "label": "Genitive",
 "value": "Chilis"
@@ -24107,23 +24309,6 @@
 ],
 "pos": "noun"
 },
-"cognac": {
-"chips": [
-{
-"label": "Article",
-"value": "der"
-},
-{
-"label": "Genitive",
-"value": "Cognacs"
-},
-{
-"label": "Plural",
-"value": "Cognacs"
-}
-],
-"pos": "noun"
-},
 "cola": {
 "chips": [
 {
@@ -24141,23 +24326,6 @@
 ],
 "pos": "noun"
 },
-"college": {
-"chips": [
-{
-"label": "Article",
-"value": "das"
-},
-{
-"label": "Genitive",
-"value": "Colleges"
-},
-{
-"label": "Plural",
-"value": "Colleges"
-}
-],
-"pos": "noun"
-},
 "colonel": {
 "chips": [
 {
@@ -24171,23 +24339,6 @@
 {
 "label": "Plural",
 "value": "Colonels"
-}
-],
-"pos": "noun"
-},
-"computer": {
-"chips": [
-{
-"label": "Article",
-"value": "der"
-},
-{
-"label": "Genitive",
-"value": "Computers"
-},
-{
-"label": "Plural",
-"value": "Computer"
 }
 ],
 "pos": "noun"
@@ -24276,10 +24427,6 @@
 "county": {
 "chips": [
 {
-"label": "Article",
-"value": "das"
-},
-{
 "label": "Genitive",
 "value": "Countys"
 },
@@ -24346,6 +24493,15 @@
 {
 "label": "Plural",
 "value": "Cowboys"
+}
+],
+"pos": "noun"
+},
+"cowboys": {
+"chips": [
+{
+"label": "Article",
+"value": "der"
 }
 ],
 "pos": "noun"
@@ -24764,19 +24920,6 @@
 ],
 "pos": "verb"
 },
-"data": {
-"chips": [
-{
-"label": "Article",
-"value": "das"
-},
-{
-"label": "Plural",
-"value": "Data"
-}
-],
-"pos": "noun"
-},
 "date": {
 "chips": [
 {
@@ -24936,7 +25079,7 @@
 "chips": [
 {
 "label": "Article",
-"value": "das"
+"value": "der"
 },
 {
 "label": "Genitive",
@@ -25409,23 +25552,6 @@
 ],
 "pos": "noun"
 },
-"depp": {
-"chips": [
-{
-"label": "Article",
-"value": "der"
-},
-{
-"label": "Genitive",
-"value": "Deppen"
-},
-{
-"label": "Plural",
-"value": "Deppen"
-}
-],
-"pos": "noun"
-},
 "depression": {
 "chips": [
 {
@@ -25744,6 +25870,23 @@
 ],
 "pos": "noun"
 },
+"dialog": {
+"chips": [
+{
+"label": "Article",
+"value": "der"
+},
+{
+"label": "Genitive",
+"value": "Dialoges"
+},
+{
+"label": "Plural",
+"value": "Dialoge"
+}
+],
+"pos": "noun"
+},
 "diamanten": {
 "chips": [
 {
@@ -25843,7 +25986,7 @@
 "chips": [
 {
 "label": "Article",
-"value": "das"
+"value": "der"
 },
 {
 "label": "Genitive",
@@ -26585,7 +26728,7 @@
 "chips": [
 {
 "label": "Article",
-"value": "das"
+"value": "die"
 },
 {
 "label": "Genitive",
@@ -26611,23 +26754,6 @@
 {
 "label": "Plural",
 "value": "Dosen"
-}
-],
-"pos": "noun"
-},
-"dr.": {
-"chips": [
-{
-"label": "Article",
-"value": "der"
-},
-{
-"label": "Genitive",
-"value": "Dr."
-},
-{
-"label": "Plural",
-"value": "Dres."
 }
 ],
 "pos": "noun"
@@ -26962,23 +27088,6 @@
 ],
 "pos": "adj"
 },
-"drink": {
-"chips": [
-{
-"label": "Article",
-"value": "der"
-},
-{
-"label": "Genitive",
-"value": "Drinks"
-},
-{
-"label": "Plural",
-"value": "Drinks"
-}
-],
-"pos": "noun"
-},
 "drinks": {
 "chips": [
 {
@@ -26990,10 +27099,6 @@
 },
 "drittel": {
 "chips": [
-{
-"label": "Article",
-"value": "das"
-},
 {
 "label": "Genitive",
 "value": "Drittels"
@@ -27328,10 +27433,6 @@
 "dschungel": {
 "chips": [
 {
-"label": "Article",
-"value": "das"
-},
-{
 "label": "Genitive",
 "value": "Dschungels"
 },
@@ -27497,23 +27598,6 @@
 {
 "label": "Plural",
 "value": "Dummheiten"
-}
-],
-"pos": "noun"
-},
-"dummkopf": {
-"chips": [
-{
-"label": "Article",
-"value": "der"
-},
-{
-"label": "Genitive",
-"value": "Dummkopfes"
-},
-{
-"label": "Plural",
-"value": "Dummköpfe"
 }
 ],
 "pos": "noun"
@@ -28643,7 +28727,7 @@
 "chips": [
 {
 "label": "Article",
-"value": "das"
+"value": "der"
 },
 {
 "label": "Genitive",
@@ -28652,6 +28736,23 @@
 {
 "label": "Plural",
 "value": "Ehemänner"
+}
+],
+"pos": "noun"
+},
+"ehering": {
+"chips": [
+{
+"label": "Article",
+"value": "der"
+},
+{
+"label": "Genitive",
+"value": "Eherings"
+},
+{
+"label": "Plural",
+"value": "Eheringe"
 }
 ],
 "pos": "noun"
@@ -28715,6 +28816,19 @@
 }
 ],
 "pos": "noun"
+},
+"ehrgeizig": {
+"chips": [
+{
+"label": "Comparative",
+"value": "ehrgeiziger"
+},
+{
+"label": "Superlative",
+"value": "am ehrgeizigsten"
+}
+],
+"pos": "adj"
 },
 "ehrlich": {
 "chips": [
@@ -28876,6 +28990,15 @@
 {
 "label": "Superlative",
 "value": "am eifersüchtigsten"
+}
+],
+"pos": "adj"
+},
+"eigen": {
+"chips": [
+{
+"label": "Comparative",
+"value": "eigner"
 }
 ],
 "pos": "adj"
@@ -29078,6 +29201,23 @@
 }
 ],
 "pos": "verb"
+},
+"einbildung": {
+"chips": [
+{
+"label": "Article",
+"value": "die"
+},
+{
+"label": "Genitive",
+"value": "Einbildung"
+},
+{
+"label": "Plural",
+"value": "Einbildungen"
+}
+],
+"pos": "noun"
 },
 "einbrechen": {
 "charts": [
@@ -29537,6 +29677,23 @@
 }
 ],
 "pos": "verb"
+},
+"eingeweide": {
+"chips": [
+{
+"label": "Article",
+"value": "das"
+},
+{
+"label": "Genitive",
+"value": "Eingeweides"
+},
+{
+"label": "Plural",
+"value": "Eingeweide"
+}
+],
+"pos": "noun"
 },
 "eingreifen": {
 "charts": [
@@ -30152,6 +30309,54 @@
 {
 "label": "Partizip II",
 "value": "eingepackt"
+},
+{
+"label": "Auxiliary",
+"value": "haben"
+}
+],
+"pos": "verb"
+},
+"einreichen": {
+"charts": [
+{
+"rows": [
+[
+"ich",
+"reiche ein"
+],
+[
+"du",
+"reichst ein"
+],
+[
+"er/sie/es",
+"reicht ein"
+],
+[
+"wir",
+"reichen ein"
+],
+[
+"ihr",
+"reicht ein"
+],
+[
+"sie",
+"reichen ein"
+]
+],
+"title": "Present"
+}
+],
+"chips": [
+{
+"label": "Präteritum",
+"value": "reichte ein"
+},
+{
+"label": "Partizip II",
+"value": "eingereicht"
 },
 {
 "label": "Auxiliary",
@@ -30877,23 +31082,6 @@
 ],
 "pos": "noun"
 },
-"einwohner": {
-"chips": [
-{
-"label": "Article",
-"value": "der"
-},
-{
-"label": "Genitive",
-"value": "Einwohners"
-},
-{
-"label": "Plural",
-"value": "Einwohner"
-}
-],
-"pos": "noun"
-},
 "einzelhaft": {
 "chips": [
 {
@@ -30903,15 +31091,6 @@
 {
 "label": "Genitive",
 "value": "Einzelhaft"
-}
-],
-"pos": "noun"
-},
-"einzelne": {
-"chips": [
-{
-"label": "Article",
-"value": "das"
 }
 ],
 "pos": "noun"
@@ -31054,28 +31233,11 @@
 ],
 "pos": "adj"
 },
-"el": {
-"chips": [
-{
-"label": "Article",
-"value": "der"
-},
-{
-"label": "Genitive",
-"value": "ELs"
-},
-{
-"label": "Plural",
-"value": "EL"
-}
-],
-"pos": "noun"
-},
 "elefant": {
 "chips": [
 {
 "label": "Article",
-"value": "das"
+"value": "der"
 },
 {
 "label": "Genitive",
@@ -31240,23 +31402,6 @@
 {
 "label": "Plural",
 "value": "Eltern"
-}
-],
-"pos": "noun"
-},
-"em": {
-"chips": [
-{
-"label": "Article",
-"value": "die"
-},
-{
-"label": "Genitive",
-"value": "EM"
-},
-{
-"label": "Plural",
-"value": "EMs"
 }
 ],
 "pos": "noun"
@@ -31608,6 +31753,23 @@
 ],
 "pos": "adj"
 },
+"engagement": {
+"chips": [
+{
+"label": "Article",
+"value": "das"
+},
+{
+"label": "Genitive",
+"value": "Engagements"
+},
+{
+"label": "Plural",
+"value": "Engagements"
+}
+],
+"pos": "noun"
+},
 "engagieren": {
 "charts": [
 {
@@ -31690,7 +31852,7 @@
 "chips": [
 {
 "label": "Article",
-"value": "das"
+"value": "der"
 },
 {
 "label": "Genitive",
@@ -31897,7 +32059,7 @@
 "chips": [
 {
 "label": "Article",
-"value": "das"
+"value": "die"
 },
 {
 "label": "Genitive",
@@ -34626,23 +34788,6 @@
 ],
 "pos": "verb"
 },
-"erpressung": {
-"chips": [
-{
-"label": "Article",
-"value": "die"
-},
-{
-"label": "Genitive",
-"value": "Erpressung"
-},
-{
-"label": "Plural",
-"value": "Erpressungen"
-}
-],
-"pos": "noun"
-},
 "erraten": {
 "charts": [
 {
@@ -35278,19 +35423,6 @@
 }
 ],
 "pos": "verb"
-},
-"erstaunlich": {
-"chips": [
-{
-"label": "Comparative",
-"value": "erstaunlicher"
-},
-{
-"label": "Superlative",
-"value": "am erstaunlichsten"
-}
-],
-"pos": "adj"
 },
 "erste": {
 "chips": [
@@ -35954,6 +36086,23 @@
 ],
 "pos": "verb"
 },
+"erwägung": {
+"chips": [
+{
+"label": "Article",
+"value": "die"
+},
+{
+"label": "Genitive",
+"value": "Erwägung"
+},
+{
+"label": "Plural",
+"value": "Erwägungen"
+}
+],
+"pos": "noun"
+},
 "erwähnen": {
 "charts": [
 {
@@ -36262,7 +36411,7 @@
 "chips": [
 {
 "label": "Article",
-"value": "das"
+"value": "der"
 },
 {
 "label": "Genitive",
@@ -36383,6 +36532,23 @@
 {
 "label": "Plural",
 "value": "Etwas"
+}
+],
+"pos": "noun"
+},
+"eule": {
+"chips": [
+{
+"label": "Article",
+"value": "die"
+},
+{
+"label": "Genitive",
+"value": "Eule"
+},
+{
+"label": "Plural",
+"value": "Eulen"
 }
 ],
 "pos": "noun"
@@ -36533,40 +36699,6 @@
 ],
 "pos": "noun"
 },
-"ex-frau": {
-"chips": [
-{
-"label": "Article",
-"value": "die"
-},
-{
-"label": "Genitive",
-"value": "Ex-Frau"
-},
-{
-"label": "Plural",
-"value": "Ex-Frauen"
-}
-],
-"pos": "noun"
-},
-"ex-mann": {
-"chips": [
-{
-"label": "Article",
-"value": "der"
-},
-{
-"label": "Genitive",
-"value": "Ex-Mannes"
-},
-{
-"label": "Plural",
-"value": "Ex-Männer"
-}
-],
-"pos": "noun"
-},
 "exakt": {
 "chips": [
 {
@@ -36580,7 +36712,24 @@
 ],
 "pos": "adj"
 },
-"exemplar": {
+"exfrau": {
+"chips": [
+{
+"label": "Article",
+"value": "die"
+},
+{
+"label": "Genitive",
+"value": "Exfrau"
+},
+{
+"label": "Plural",
+"value": "Exfrauen"
+}
+],
+"pos": "noun"
+},
+"exil": {
 "chips": [
 {
 "label": "Article",
@@ -36588,11 +36737,11 @@
 },
 {
 "label": "Genitive",
-"value": "Exemplars"
+"value": "Exils"
 },
 {
 "label": "Plural",
-"value": "Exemplare"
+"value": "Exile"
 }
 ],
 "pos": "noun"
@@ -36915,7 +37064,7 @@
 "chips": [
 {
 "label": "Article",
-"value": "das"
+"value": "die"
 },
 {
 "label": "Genitive",
@@ -37094,10 +37243,6 @@
 "fakt": {
 "chips": [
 {
-"label": "Article",
-"value": "das"
-},
-{
 "label": "Genitive",
 "value": "Fakts"
 },
@@ -37112,7 +37257,7 @@
 "chips": [
 {
 "label": "Article",
-"value": "das"
+"value": "der"
 },
 {
 "label": "Genitive",
@@ -37436,23 +37581,6 @@
 ],
 "pos": "noun"
 },
-"farmer": {
-"chips": [
-{
-"label": "Article",
-"value": "der"
-},
-{
-"label": "Genitive",
-"value": "Farmers"
-},
-{
-"label": "Plural",
-"value": "Farmer"
-}
-],
-"pos": "noun"
-},
 "fass": {
 "chips": [
 {
@@ -37733,23 +37861,6 @@
 {
 "label": "Plural",
 "value": "Feiern"
-}
-],
-"pos": "noun"
-},
-"feierabend": {
-"chips": [
-{
-"label": "Article",
-"value": "der"
-},
-{
-"label": "Genitive",
-"value": "Feierabends"
-},
-{
-"label": "Plural",
-"value": "Feierabende"
 }
 ],
 "pos": "noun"
@@ -38082,6 +38193,15 @@
 {
 "label": "Plural",
 "value": "Fernen"
+}
+],
+"pos": "noun"
+},
+"fernen": {
+"chips": [
+{
+"label": "Article",
+"value": "die"
 }
 ],
 "pos": "noun"
@@ -39094,7 +39214,7 @@
 "chips": [
 {
 "label": "Article",
-"value": "das"
+"value": "der"
 },
 {
 "label": "Genitive",
@@ -39228,7 +39348,7 @@
 "chips": [
 {
 "label": "Article",
-"value": "das"
+"value": "der"
 },
 {
 "label": "Genitive",
@@ -39431,7 +39551,7 @@
 "chips": [
 {
 "label": "Article",
-"value": "das"
+"value": "die"
 },
 {
 "label": "Genitive",
@@ -39474,6 +39594,23 @@
 {
 "label": "Plural",
 "value": "Flecken"
+}
+],
+"pos": "noun"
+},
+"fledermaus": {
+"chips": [
+{
+"label": "Article",
+"value": "die"
+},
+{
+"label": "Genitive",
+"value": "Fledermaus"
+},
+{
+"label": "Plural",
+"value": "Fledermäuse"
 }
 ],
 "pos": "noun"
@@ -39811,6 +39948,23 @@
 ],
 "pos": "noun"
 },
+"floss": {
+"chips": [
+{
+"label": "Article",
+"value": "das"
+},
+{
+"label": "Genitive",
+"value": "Flosses"
+},
+{
+"label": "Plural",
+"value": "Flösse"
+}
+],
+"pos": "noun"
+},
 "flotte": {
 "chips": [
 {
@@ -39934,7 +40088,7 @@
 "chips": [
 {
 "label": "Article",
-"value": "das"
+"value": "der"
 },
 {
 "label": "Genitive",
@@ -40016,7 +40170,7 @@
 "chips": [
 {
 "label": "Article",
-"value": "das"
+"value": "der"
 },
 {
 "label": "Genitive",
@@ -40849,7 +41003,7 @@
 "chips": [
 {
 "label": "Article",
-"value": "das"
+"value": "die"
 },
 {
 "label": "Genitive",
@@ -41404,7 +41558,7 @@
 "chips": [
 {
 "label": "Article",
-"value": "das"
+"value": "der"
 },
 {
 "label": "Genitive",
@@ -41473,6 +41627,23 @@
 ],
 "pos": "adj"
 },
+"freundlichkeit": {
+"chips": [
+{
+"label": "Article",
+"value": "die"
+},
+{
+"label": "Genitive",
+"value": "Freundlichkeit"
+},
+{
+"label": "Plural",
+"value": "Freundlichkeiten"
+}
+],
+"pos": "noun"
+},
 "freundschaft": {
 "chips": [
 {
@@ -41486,23 +41657,6 @@
 {
 "label": "Plural",
 "value": "Freundschaften"
-}
-],
-"pos": "noun"
-},
-"friede": {
-"chips": [
-{
-"label": "Article",
-"value": "der"
-},
-{
-"label": "Genitive",
-"value": "Friedens"
-},
-{
-"label": "Plural",
-"value": "Frieden"
 }
 ],
 "pos": "noun"
@@ -41709,7 +41863,7 @@
 "chips": [
 {
 "label": "Article",
-"value": "das"
+"value": "der"
 },
 {
 "label": "Genitive",
@@ -41799,6 +41953,36 @@
 ],
 "pos": "adj"
 },
+"frühe": {
+"chips": [
+{
+"label": "Article",
+"value": "die"
+},
+{
+"label": "Genitive",
+"value": "Frühe"
+}
+],
+"pos": "noun"
+},
+"frühjahr": {
+"chips": [
+{
+"label": "Article",
+"value": "das"
+},
+{
+"label": "Genitive",
+"value": "Frühjahrs"
+},
+{
+"label": "Plural",
+"value": "Frühjahre"
+}
+],
+"pos": "noun"
+},
 "frühling": {
 "chips": [
 {
@@ -41885,7 +42069,7 @@
 "chips": [
 {
 "label": "Article",
-"value": "das"
+"value": "der"
 },
 {
 "label": "Genitive",
@@ -42057,7 +42241,7 @@
 "chips": [
 {
 "label": "Article",
-"value": "das"
+"value": "der"
 },
 {
 "label": "Genitive",
@@ -42731,7 +42915,7 @@
 "chips": [
 {
 "label": "Article",
-"value": "das"
+"value": "die"
 },
 {
 "label": "Genitive",
@@ -42842,7 +43026,7 @@
 "chips": [
 {
 "label": "Article",
-"value": "das"
+"value": "die"
 },
 {
 "label": "Genitive",
@@ -42992,7 +43176,7 @@
 "chips": [
 {
 "label": "Article",
-"value": "das"
+"value": "der"
 },
 {
 "label": "Genitive",
@@ -43026,7 +43210,7 @@
 "chips": [
 {
 "label": "Article",
-"value": "das"
+"value": "die"
 },
 {
 "label": "Genitive",
@@ -44180,6 +44364,19 @@
 ],
 "pos": "noun"
 },
+"geheimnisvoll": {
+"chips": [
+{
+"label": "Comparative",
+"value": "geheimnisvoller"
+},
+{
+"label": "Superlative",
+"value": "am geheimnisvollsten"
+}
+],
+"pos": "adj"
+},
 "gehen": {
 "charts": [
 {
@@ -44309,6 +44506,19 @@
 }
 ],
 "pos": "verb"
+},
+"gehorsam": {
+"chips": [
+{
+"label": "Article",
+"value": "der"
+},
+{
+"label": "Genitive",
+"value": "Gehorsams"
+}
+],
+"pos": "noun"
 },
 "gehör": {
 "chips": [
@@ -45061,6 +45271,23 @@
 {
 "label": "Plural",
 "value": "Generatoren"
+}
+],
+"pos": "noun"
+},
+"genesung": {
+"chips": [
+{
+"label": "Article",
+"value": "die"
+},
+{
+"label": "Genitive",
+"value": "Genesung"
+},
+{
+"label": "Plural",
+"value": "Genesungen"
 }
 ],
 "pos": "noun"
@@ -45908,6 +46135,23 @@
 ],
 "pos": "adj"
 },
+"geschöpf": {
+"chips": [
+{
+"label": "Article",
+"value": "das"
+},
+{
+"label": "Genitive",
+"value": "Geschöpfes"
+},
+{
+"label": "Plural",
+"value": "Geschöpfe"
+}
+],
+"pos": "noun"
+},
 "geschützt": {
 "chips": [
 {
@@ -46019,23 +46263,6 @@
 ],
 "pos": "noun"
 },
-"gespräch": {
-"chips": [
-{
-"label": "Article",
-"value": "das"
-},
-{
-"label": "Genitive",
-"value": "Gespräches"
-},
-{
-"label": "Plural",
-"value": "Gespräche"
-}
-],
-"pos": "noun"
-},
 "gestalt": {
 "chips": [
 {
@@ -46118,7 +46345,7 @@
 "chips": [
 {
 "label": "Article",
-"value": "das"
+"value": "der"
 },
 {
 "label": "Genitive",
@@ -46894,23 +47121,6 @@
 ],
 "pos": "noun"
 },
-"girl": {
-"chips": [
-{
-"label": "Article",
-"value": "das"
-},
-{
-"label": "Genitive",
-"value": "Girls"
-},
-{
-"label": "Plural",
-"value": "Girls"
-}
-],
-"pos": "noun"
-},
 "girls": {
 "chips": [
 {
@@ -47153,7 +47363,7 @@
 "chips": [
 {
 "label": "Article",
-"value": "das"
+"value": "die"
 },
 {
 "label": "Genitive",
@@ -47510,7 +47720,7 @@
 "chips": [
 {
 "label": "Article",
-"value": "das"
+"value": "der"
 },
 {
 "label": "Genitive",
@@ -47903,6 +48113,15 @@
 ],
 "pos": "noun"
 },
+"griffen": {
+"chips": [
+{
+"label": "Article",
+"value": "der"
+}
+],
+"pos": "noun"
+},
 "grill": {
 "chips": [
 {
@@ -48171,7 +48390,7 @@
 "chips": [
 {
 "label": "Article",
-"value": "das"
+"value": "die"
 },
 {
 "label": "Genitive",
@@ -48205,7 +48424,7 @@
 "chips": [
 {
 "label": "Article",
-"value": "das"
+"value": "der"
 },
 {
 "label": "Genitive",
@@ -48231,11 +48450,28 @@
 ],
 "pos": "adj"
 },
+"großzügigkeit": {
+"chips": [
+{
+"label": "Article",
+"value": "die"
+},
+{
+"label": "Genitive",
+"value": "Großzügigkeit"
+},
+{
+"label": "Plural",
+"value": "Großzügigkeiten"
+}
+],
+"pos": "noun"
+},
 "grube": {
 "chips": [
 {
 "label": "Article",
-"value": "das"
+"value": "die"
 },
 {
 "label": "Genitive",
@@ -48312,7 +48548,7 @@
 "chips": [
 {
 "label": "Article",
-"value": "das"
+"value": "die"
 },
 {
 "label": "Genitive",
@@ -48342,7 +48578,7 @@
 "chips": [
 {
 "label": "Article",
-"value": "das"
+"value": "der"
 },
 {
 "label": "Genitive",
@@ -48449,6 +48685,23 @@
 }
 ],
 "pos": "verb"
+},
+"gründer": {
+"chips": [
+{
+"label": "Article",
+"value": "der"
+},
+{
+"label": "Genitive",
+"value": "Gründers"
+},
+{
+"label": "Plural",
+"value": "Gründer"
+}
+],
+"pos": "noun"
 },
 "gründlich": {
 "chips": [
@@ -48674,6 +48927,19 @@
 }
 ],
 "pos": "verb"
+},
+"gunst": {
+"chips": [
+{
+"label": "Article",
+"value": "die"
+},
+{
+"label": "Genitive",
+"value": "Gunst"
+}
+],
+"pos": "noun"
 },
 "gut": {
 "chips": [
@@ -48921,7 +49187,7 @@
 "chips": [
 {
 "label": "Article",
-"value": "das"
+"value": "der"
 },
 {
 "label": "Genitive",
@@ -49193,7 +49459,7 @@
 "chips": [
 {
 "label": "Article",
-"value": "das"
+"value": "der"
 },
 {
 "label": "Genitive",
@@ -49342,7 +49608,7 @@
 "chips": [
 {
 "label": "Article",
-"value": "das"
+"value": "der"
 },
 {
 "label": "Genitive",
@@ -49484,7 +49750,7 @@
 "chips": [
 {
 "label": "Article",
-"value": "das"
+"value": "der"
 },
 {
 "label": "Genitive",
@@ -49501,7 +49767,7 @@
 "chips": [
 {
 "label": "Article",
-"value": "das"
+"value": "die"
 },
 {
 "label": "Genitive",
@@ -49634,7 +49900,7 @@
 "chips": [
 {
 "label": "Article",
-"value": "das"
+"value": "der"
 },
 {
 "label": "Genitive",
@@ -49720,6 +49986,23 @@
 {
 "label": "Plural",
 "value": "Handwerke"
+}
+],
+"pos": "noun"
+},
+"handwerker": {
+"chips": [
+{
+"label": "Article",
+"value": "der"
+},
+{
+"label": "Genitive",
+"value": "Handwerkers"
+},
+{
+"label": "Plural",
+"value": "Handwerker"
 }
 ],
 "pos": "noun"
@@ -49814,7 +50097,7 @@
 "chips": [
 {
 "label": "Article",
-"value": "das"
+"value": "der"
 },
 {
 "label": "Genitive",
@@ -50004,7 +50287,7 @@
 "chips": [
 {
 "label": "Article",
-"value": "das"
+"value": "der"
 },
 {
 "label": "Genitive",
@@ -50187,23 +50470,6 @@
 ],
 "pos": "noun"
 },
-"hausmeister": {
-"chips": [
-{
-"label": "Article",
-"value": "der"
-},
-{
-"label": "Genitive",
-"value": "Hausmeisters"
-},
-{
-"label": "Plural",
-"value": "Hausmeister"
-}
-],
-"pos": "noun"
-},
 "haustier": {
 "chips": [
 {
@@ -50242,7 +50508,7 @@
 "chips": [
 {
 "label": "Article",
-"value": "das"
+"value": "die"
 },
 {
 "label": "Genitive",
@@ -51073,23 +51339,6 @@
 ],
 "pos": "verb"
 },
-"herausforderung": {
-"chips": [
-{
-"label": "Article",
-"value": "die"
-},
-{
-"label": "Genitive",
-"value": "Herausforderung"
-},
-{
-"label": "Plural",
-"value": "Herausforderungen"
-}
-],
-"pos": "noun"
-},
 "herb": {
 "chips": [
 {
@@ -51397,7 +51646,7 @@
 "chips": [
 {
 "label": "Article",
-"value": "das"
+"value": "der"
 },
 {
 "label": "Genitive",
@@ -51778,6 +52027,19 @@
 {
 "label": "Plural",
 "value": "Herzschläge"
+}
+],
+"pos": "noun"
+},
+"heu": {
+"chips": [
+{
+"label": "Article",
+"value": "das"
+},
+{
+"label": "Genitive",
+"value": "Heues"
 }
 ],
 "pos": "noun"
@@ -52458,6 +52720,54 @@
 ],
 "pos": "noun"
 },
+"hintergehen": {
+"charts": [
+{
+"rows": [
+[
+"ich",
+"hintergehe"
+],
+[
+"du",
+"hintergehst"
+],
+[
+"er/sie/es",
+"hintergeht"
+],
+[
+"wir",
+"hintergehen"
+],
+[
+"ihr",
+"hintergeht"
+],
+[
+"sie",
+"hintergehen"
+]
+],
+"title": "Present"
+}
+],
+"chips": [
+{
+"label": "Präteritum",
+"value": "hinterging"
+},
+{
+"label": "Partizip II",
+"value": "hintergangen"
+},
+{
+"label": "Auxiliary",
+"value": "haben"
+}
+],
+"pos": "verb"
+},
 "hintergrund": {
 "chips": [
 {
@@ -52742,7 +53052,7 @@
 "chips": [
 {
 "label": "Article",
-"value": "das"
+"value": "der"
 },
 {
 "label": "Genitive",
@@ -53156,23 +53466,6 @@
 ],
 "pos": "noun"
 },
-"horizont": {
-"chips": [
-{
-"label": "Article",
-"value": "der"
-},
-{
-"label": "Genitive",
-"value": "Horizonts"
-},
-{
-"label": "Plural",
-"value": "Horizonte"
-}
-],
-"pos": "noun"
-},
 "horn": {
 "chips": [
 {
@@ -53207,7 +53500,7 @@
 "chips": [
 {
 "label": "Article",
-"value": "das"
+"value": "die"
 },
 {
 "label": "Genitive",
@@ -53216,23 +53509,6 @@
 {
 "label": "Plural",
 "value": "Hosen"
-}
-],
-"pos": "noun"
-},
-"hospital": {
-"chips": [
-{
-"label": "Article",
-"value": "das"
-},
-{
-"label": "Genitive",
-"value": "Hospitals"
-},
-{
-"label": "Plural",
-"value": "Hospitale"
 }
 ],
 "pos": "noun"
@@ -53373,7 +53649,7 @@
 "chips": [
 {
 "label": "Article",
-"value": "das"
+"value": "der"
 },
 {
 "label": "Genitive",
@@ -53598,7 +53874,7 @@
 "chips": [
 {
 "label": "Article",
-"value": "das"
+"value": "die"
 },
 {
 "label": "Genitive",
@@ -53745,7 +54021,7 @@
 "chips": [
 {
 "label": "Article",
-"value": "das"
+"value": "der"
 },
 {
 "label": "Genitive",
@@ -53801,6 +54077,23 @@
 {
 "label": "Plural",
 "value": "Häftlinge"
+}
+],
+"pos": "noun"
+},
+"hähnchen": {
+"chips": [
+{
+"label": "Article",
+"value": "das"
+},
+{
+"label": "Genitive",
+"value": "Hähnchens"
+},
+{
+"label": "Plural",
+"value": "Hähnchen"
 }
 ],
 "pos": "noun"
@@ -54371,7 +54664,7 @@
 "chips": [
 {
 "label": "Article",
-"value": "das"
+"value": "die"
 },
 {
 "label": "Genitive",
@@ -54561,40 +54854,6 @@
 ],
 "pos": "noun"
 },
-"im": {
-"chips": [
-{
-"label": "Article",
-"value": "der"
-},
-{
-"label": "Genitive",
-"value": "IM"
-},
-{
-"label": "Plural",
-"value": "IM"
-}
-],
-"pos": "noun"
-},
-"image": {
-"chips": [
-{
-"label": "Article",
-"value": "das"
-},
-{
-"label": "Genitive",
-"value": "Images"
-},
-{
-"label": "Plural",
-"value": "Images"
-}
-],
-"pos": "noun"
-},
 "immun": {
 "chips": [
 {
@@ -54741,6 +55000,23 @@
 ],
 "pos": "noun"
 },
+"industrie": {
+"chips": [
+{
+"label": "Article",
+"value": "die"
+},
+{
+"label": "Genitive",
+"value": "Industrie"
+},
+{
+"label": "Plural",
+"value": "Industrien"
+}
+],
+"pos": "noun"
+},
 "infektion": {
 "chips": [
 {
@@ -54754,23 +55030,6 @@
 {
 "label": "Plural",
 "value": "Infektionen"
-}
-],
-"pos": "noun"
-},
-"info": {
-"chips": [
-{
-"label": "Article",
-"value": "die"
-},
-{
-"label": "Genitive",
-"value": "Info"
-},
-{
-"label": "Plural",
-"value": "Infos"
 }
 ],
 "pos": "noun"
@@ -54959,22 +55218,18 @@
 ],
 "pos": "noun"
 },
-"inspiration": {
+"instabil": {
 "chips": [
 {
-"label": "Article",
-"value": "die"
+"label": "Comparative",
+"value": "instabiler"
 },
 {
-"label": "Genitive",
-"value": "Inspiration"
-},
-{
-"label": "Plural",
-"value": "Inspirationen"
+"label": "Superlative",
+"value": "am instabilsten"
 }
 ],
-"pos": "noun"
+"pos": "adj"
 },
 "instinkt": {
 "chips": [
@@ -55337,23 +55592,6 @@
 ],
 "pos": "verb"
 },
-"investition": {
-"chips": [
-{
-"label": "Article",
-"value": "die"
-},
-{
-"label": "Genitive",
-"value": "Investition"
-},
-{
-"label": "Plural",
-"value": "Investitionen"
-}
-],
-"pos": "noun"
-},
 "iren": {
 "chips": [
 {
@@ -55526,19 +55764,6 @@
 ],
 "pos": "noun"
 },
-"is": {
-"chips": [
-{
-"label": "Article",
-"value": "die"
-},
-{
-"label": "Genitive",
-"value": "IS"
-}
-],
-"pos": "noun"
-},
 "italiener": {
 "chips": [
 {
@@ -55592,10 +55817,6 @@
 },
 "jade": {
 "chips": [
-{
-"label": "Article",
-"value": "der"
-},
 {
 "label": "Genitive",
 "value": "Jades"
@@ -56239,7 +56460,7 @@
 "chips": [
 {
 "label": "Article",
-"value": "das"
+"value": "der"
 },
 {
 "label": "Genitive",
@@ -56508,7 +56729,7 @@
 "chips": [
 {
 "label": "Article",
-"value": "das"
+"value": "der"
 },
 {
 "label": "Genitive",
@@ -56551,6 +56772,23 @@
 {
 "label": "Plural",
 "value": "Kaiser"
+}
+],
+"pos": "noun"
+},
+"kaiserin": {
+"chips": [
+{
+"label": "Article",
+"value": "die"
+},
+{
+"label": "Genitive",
+"value": "Kaiserin"
+},
+{
+"label": "Plural",
+"value": "Kaiserinnen"
 }
 ],
 "pos": "noun"
@@ -56619,6 +56857,19 @@
 ],
 "pos": "adj"
 },
+"kaltblütig": {
+"chips": [
+{
+"label": "Comparative",
+"value": "kaltblütiger"
+},
+{
+"label": "Superlative",
+"value": "am kaltblütigsten"
+}
+],
+"pos": "adj"
+},
 "kamera": {
 "chips": [
 {
@@ -56656,10 +56907,6 @@
 "kamin": {
 "chips": [
 {
-"label": "Article",
-"value": "das"
-},
-{
 "label": "Genitive",
 "value": "Kamins"
 },
@@ -56674,7 +56921,7 @@
 "chips": [
 {
 "label": "Article",
-"value": "das"
+"value": "die"
 },
 {
 "label": "Genitive",
@@ -56939,7 +57186,7 @@
 "chips": [
 {
 "label": "Article",
-"value": "das"
+"value": "die"
 },
 {
 "label": "Genitive",
@@ -57192,7 +57439,7 @@
 "chips": [
 {
 "label": "Article",
-"value": "das"
+"value": "der"
 },
 {
 "label": "Genitive",
@@ -57294,7 +57541,7 @@
 "chips": [
 {
 "label": "Article",
-"value": "das"
+"value": "die"
 },
 {
 "label": "Genitive",
@@ -57510,7 +57757,7 @@
 "chips": [
 {
 "label": "Article",
-"value": "das"
+"value": "die"
 },
 {
 "label": "Genitive",
@@ -57590,10 +57837,6 @@
 },
 "keks": {
 "chips": [
-{
-"label": "Article",
-"value": "das"
-},
 {
 "label": "Genitive",
 "value": "Kekses"
@@ -57867,7 +58110,7 @@
 "chips": [
 {
 "label": "Article",
-"value": "das"
+"value": "die"
 },
 {
 "label": "Genitive",
@@ -57883,10 +58126,6 @@
 "ketchup": {
 "chips": [
 {
-"label": "Article",
-"value": "das"
-},
-{
 "label": "Genitive",
 "value": "Ketchups"
 },
@@ -57901,7 +58140,7 @@
 "chips": [
 {
 "label": "Article",
-"value": "das"
+"value": "die"
 },
 {
 "label": "Genitive",
@@ -58126,23 +58365,6 @@
 ],
 "pos": "noun"
 },
-"killer": {
-"chips": [
-{
-"label": "Article",
-"value": "der"
-},
-{
-"label": "Genitive",
-"value": "Killers"
-},
-{
-"label": "Plural",
-"value": "Killer"
-}
-],
-"pos": "noun"
-},
 "kilo": {
 "chips": [
 {
@@ -58162,10 +58384,6 @@
 },
 "kilometer": {
 "chips": [
-{
-"label": "Article",
-"value": "das"
-},
 {
 "label": "Genitive",
 "value": "Kilometers"
@@ -58199,23 +58417,6 @@
 {
 "label": "Article",
 "value": "das"
-}
-],
-"pos": "noun"
-},
-"kindergarten": {
-"chips": [
-{
-"label": "Article",
-"value": "der"
-},
-{
-"label": "Genitive",
-"value": "Kindergartens"
-},
-{
-"label": "Plural",
-"value": "Kindergärten"
 }
 ],
 "pos": "noun"
@@ -58379,7 +58580,7 @@
 "chips": [
 {
 "label": "Article",
-"value": "das"
+"value": "die"
 },
 {
 "label": "Genitive",
@@ -58413,7 +58614,7 @@
 "chips": [
 {
 "label": "Article",
-"value": "das"
+"value": "die"
 },
 {
 "label": "Genitive",
@@ -58529,7 +58730,7 @@
 "chips": [
 {
 "label": "Article",
-"value": "das"
+"value": "die"
 },
 {
 "label": "Genitive",
@@ -58941,6 +59142,23 @@
 {
 "label": "Plural",
 "value": "Klaviere"
+}
+],
+"pos": "noun"
+},
+"klebeband": {
+"chips": [
+{
+"label": "Article",
+"value": "das"
+},
+{
+"label": "Genitive",
+"value": "Klebebandes"
+},
+{
+"label": "Plural",
+"value": "Klebebänder"
 }
 ],
 "pos": "noun"
@@ -59597,23 +59815,6 @@
 ],
 "pos": "noun"
 },
-"klub": {
-"chips": [
-{
-"label": "Article",
-"value": "der"
-},
-{
-"label": "Genitive",
-"value": "Klubs"
-},
-{
-"label": "Plural",
-"value": "Klubs"
-}
-],
-"pos": "noun"
-},
 "klug": {
 "chips": [
 {
@@ -59696,7 +59897,7 @@
 "chips": [
 {
 "label": "Article",
-"value": "das"
+"value": "der"
 },
 {
 "label": "Genitive",
@@ -60128,6 +60329,23 @@
 ],
 "pos": "noun"
 },
+"kobra": {
+"chips": [
+{
+"label": "Article",
+"value": "die"
+},
+{
+"label": "Genitive",
+"value": "Kobra"
+},
+{
+"label": "Plural",
+"value": "Kobras"
+}
+],
+"pos": "noun"
+},
 "koch": {
 "chips": [
 {
@@ -60432,6 +60650,23 @@
 ],
 "pos": "noun"
 },
+"komma": {
+"chips": [
+{
+"label": "Article",
+"value": "das"
+},
+{
+"label": "Genitive",
+"value": "Kommas"
+},
+{
+"label": "Plural",
+"value": "Kommas"
+}
+],
+"pos": "noun"
+},
 "kommandant": {
 "chips": [
 {
@@ -60544,23 +60779,6 @@
 {
 "label": "Plural",
 "value": "Kommissare"
-}
-],
-"pos": "noun"
-},
-"kommission": {
-"chips": [
-{
-"label": "Article",
-"value": "die"
-},
-{
-"label": "Genitive",
-"value": "Kommission"
-},
-{
-"label": "Plural",
-"value": "Kommissionen"
 }
 ],
 "pos": "noun"
@@ -60706,6 +60924,19 @@
 }
 ],
 "pos": "adj"
+},
+"kompromiss": {
+"chips": [
+{
+"label": "Genitive",
+"value": "Kompromisses"
+},
+{
+"label": "Plural",
+"value": "Kompromisse"
+}
+],
+"pos": "noun"
 },
 "komödie": {
 "chips": [
@@ -61227,7 +61458,7 @@
 "chips": [
 {
 "label": "Article",
-"value": "das"
+"value": "der"
 },
 {
 "label": "Genitive",
@@ -61572,6 +61803,54 @@
 }
 ],
 "pos": "noun"
+},
+"krallen": {
+"charts": [
+{
+"rows": [
+[
+"ich",
+"kralle"
+],
+[
+"du",
+"krallst"
+],
+[
+"er/sie/es",
+"krallt"
+],
+[
+"wir",
+"krallen"
+],
+[
+"ihr",
+"krallt"
+],
+[
+"sie",
+"krallen"
+]
+],
+"title": "Present"
+}
+],
+"chips": [
+{
+"label": "Präteritum",
+"value": "krallte"
+},
+{
+"label": "Partizip II",
+"value": "gekrallt"
+},
+{
+"label": "Auxiliary",
+"value": "haben"
+}
+],
+"pos": "verb"
 },
 "kram": {
 "chips": [
@@ -62300,23 +62579,6 @@
 ],
 "pos": "noun"
 },
-"kristall": {
-"chips": [
-{
-"label": "Article",
-"value": "der"
-},
-{
-"label": "Genitive",
-"value": "Kristalles"
-},
-{
-"label": "Plural",
-"value": "Kristalle"
-}
-],
-"pos": "noun"
-},
 "kritik": {
 "chips": [
 {
@@ -62351,7 +62613,7 @@
 "chips": [
 {
 "label": "Article",
-"value": "das"
+"value": "die"
 },
 {
 "label": "Genitive",
@@ -62368,7 +62630,7 @@
 "chips": [
 {
 "label": "Article",
-"value": "das"
+"value": "der"
 },
 {
 "label": "Genitive",
@@ -62424,7 +62686,7 @@
 "chips": [
 {
 "label": "Article",
-"value": "das"
+"value": "der"
 },
 {
 "label": "Genitive",
@@ -62458,7 +62720,7 @@
 "chips": [
 {
 "label": "Article",
-"value": "das"
+"value": "die"
 },
 {
 "label": "Genitive",
@@ -62549,6 +62811,15 @@
 {
 "label": "Plural",
 "value": "Kulturen"
+}
+],
+"pos": "noun"
+},
+"kulturen": {
+"chips": [
+{
+"label": "Article",
+"value": "die"
 }
 ],
 "pos": "noun"
@@ -62668,6 +62939,15 @@
 ],
 "pos": "noun"
 },
+"kurse": {
+"chips": [
+{
+"label": "Article",
+"value": "der"
+}
+],
+"pos": "noun"
+},
 "kurve": {
 "chips": [
 {
@@ -62732,7 +63012,7 @@
 "chips": [
 {
 "label": "Article",
-"value": "das"
+"value": "der"
 },
 {
 "label": "Genitive",
@@ -62749,7 +63029,7 @@
 "chips": [
 {
 "label": "Article",
-"value": "das"
+"value": "die"
 },
 {
 "label": "Genitive",
@@ -63191,7 +63471,7 @@
 "chips": [
 {
 "label": "Article",
-"value": "das"
+"value": "die"
 },
 {
 "label": "Genitive",
@@ -63329,23 +63609,6 @@
 }
 ],
 "pos": "verb"
-},
-"kündigung": {
-"chips": [
-{
-"label": "Article",
-"value": "die"
-},
-{
-"label": "Genitive",
-"value": "Kündigung"
-},
-{
-"label": "Plural",
-"value": "Kündigungen"
-}
-],
-"pos": "noun"
 },
 "künstler": {
 "chips": [
@@ -63498,15 +63761,6 @@
 {
 "label": "Plural",
 "value": "Küstenwachen"
-}
-],
-"pos": "noun"
-},
-"l": {
-"chips": [
-{
-"label": "Article",
-"value": "der"
 }
 ],
 "pos": "noun"
@@ -63893,7 +64147,7 @@
 "chips": [
 {
 "label": "Article",
-"value": "das"
+"value": "die"
 },
 {
 "label": "Genitive",
@@ -64231,7 +64485,7 @@
 "chips": [
 {
 "label": "Article",
-"value": "das"
+"value": "der"
 },
 {
 "label": "Genitive",
@@ -64246,10 +64500,6 @@
 },
 "laptop": {
 "chips": [
-{
-"label": "Article",
-"value": "das"
-},
 {
 "label": "Genitive",
 "value": "Laptops"
@@ -65230,6 +65480,23 @@
 ],
 "pos": "noun"
 },
+"leichenschauhaus": {
+"chips": [
+{
+"label": "Article",
+"value": "das"
+},
+{
+"label": "Genitive",
+"value": "Leichenschauhauses"
+},
+{
+"label": "Plural",
+"value": "Leichenschauhäuser"
+}
+],
+"pos": "noun"
+},
 "leichnam": {
 "chips": [
 {
@@ -65631,7 +65898,7 @@
 "chips": [
 {
 "label": "Article",
-"value": "das"
+"value": "die"
 },
 {
 "label": "Genitive",
@@ -65725,6 +65992,23 @@
 }
 ],
 "pos": "verb"
+},
+"lenkrad": {
+"chips": [
+{
+"label": "Article",
+"value": "das"
+},
+{
+"label": "Genitive",
+"value": "Lenkrades"
+},
+{
+"label": "Plural",
+"value": "Lenkräder"
+}
+],
+"pos": "noun"
 },
 "leo": {
 "chips": [
@@ -66015,10 +66299,6 @@
 "leute": {
 "chips": [
 {
-"label": "Article",
-"value": "das"
-},
-{
 "label": "Plural",
 "value": "Leute"
 }
@@ -66044,10 +66324,6 @@
 },
 "level": {
 "chips": [
-{
-"label": "Article",
-"value": "das"
-},
 {
 "label": "Genitive",
 "value": "Levels"
@@ -66402,10 +66678,6 @@
 "like": {
 "chips": [
 {
-"label": "Article",
-"value": "das"
-},
-{
 "label": "Genitive",
 "value": "Likes"
 },
@@ -66425,23 +66697,6 @@
 {
 "label": "Genitive",
 "value": "Lilas"
-}
-],
-"pos": "noun"
-},
-"limo": {
-"chips": [
-{
-"label": "Article",
-"value": "die"
-},
-{
-"label": "Genitive",
-"value": "Limo"
-},
-{
-"label": "Plural",
-"value": "Limos"
 }
 ],
 "pos": "noun"
@@ -66673,10 +66928,6 @@
 "liter": {
 "chips": [
 {
-"label": "Article",
-"value": "das"
-},
-{
 "label": "Genitive",
 "value": "Liters"
 },
@@ -66717,23 +66968,6 @@
 {
 "label": "Plural",
 "value": "Lizenzen"
-}
-],
-"pos": "noun"
-},
-"lkw": {
-"chips": [
-{
-"label": "Article",
-"value": "der"
-},
-{
-"label": "Genitive",
-"value": "LKWs"
-},
-{
-"label": "Plural",
-"value": "LKW"
 }
 ],
 "pos": "noun"
@@ -66884,6 +67118,23 @@
 ],
 "pos": "noun"
 },
+"logbuch": {
+"chips": [
+{
+"label": "Article",
+"value": "das"
+},
+{
+"label": "Genitive",
+"value": "Logbuches"
+},
+{
+"label": "Plural",
+"value": "Logbücher"
+}
+],
+"pos": "noun"
+},
 "logik": {
 "chips": [
 {
@@ -66978,6 +67229,23 @@
 {
 "label": "Plural",
 "value": "Lords"
+}
+],
+"pos": "noun"
+},
+"lordschaft": {
+"chips": [
+{
+"label": "Article",
+"value": "die"
+},
+{
+"label": "Genitive",
+"value": "Lordschaft"
+},
+{
+"label": "Plural",
+"value": "Lordschaften"
 }
 ],
 "pos": "noun"
@@ -67329,7 +67597,7 @@
 "chips": [
 {
 "label": "Article",
-"value": "das"
+"value": "die"
 },
 {
 "label": "Genitive",
@@ -67385,23 +67653,6 @@
 {
 "label": "Genitive",
 "value": "Lulu"
-}
-],
-"pos": "noun"
-},
-"lunch": {
-"chips": [
-{
-"label": "Article",
-"value": "der"
-},
-{
-"label": "Genitive",
-"value": "Lunches"
-},
-{
-"label": "Plural",
-"value": "Lunches"
 }
 ],
 "pos": "noun"
@@ -67665,7 +67916,7 @@
 "chips": [
 {
 "label": "Article",
-"value": "das"
+"value": "der"
 },
 {
 "label": "Genitive",
@@ -67937,19 +68188,6 @@
 {
 "label": "Plural",
 "value": "Lügnerinnen"
-}
-],
-"pos": "noun"
-},
-"m": {
-"chips": [
-{
-"label": "Article",
-"value": "die"
-},
-{
-"label": "Genitive",
-"value": "M"
 }
 ],
 "pos": "noun"
@@ -68575,7 +68813,7 @@
 "chips": [
 {
 "label": "Article",
-"value": "das"
+"value": "der"
 },
 {
 "label": "Genitive",
@@ -68609,7 +68847,7 @@
 "chips": [
 {
 "label": "Article",
-"value": "das"
+"value": "der"
 },
 {
 "label": "Genitive",
@@ -69096,7 +69334,7 @@
 "chips": [
 {
 "label": "Article",
-"value": "das"
+"value": "die"
 },
 {
 "label": "Genitive",
@@ -69160,7 +69398,7 @@
 "chips": [
 {
 "label": "Article",
-"value": "das"
+"value": "die"
 },
 {
 "label": "Genitive",
@@ -69731,7 +69969,7 @@
 "chips": [
 {
 "label": "Article",
-"value": "das"
+"value": "der"
 },
 {
 "label": "Genitive",
@@ -70035,10 +70273,6 @@
 "meter": {
 "chips": [
 {
-"label": "Article",
-"value": "das"
-},
-{
 "label": "Genitive",
 "value": "Meters"
 },
@@ -70096,6 +70330,23 @@
 {
 "label": "Plural",
 "value": "Metropolen"
+}
+],
+"pos": "noun"
+},
+"metzger": {
+"chips": [
+{
+"label": "Article",
+"value": "der"
+},
+{
+"label": "Genitive",
+"value": "Metzgers"
+},
+{
+"label": "Plural",
+"value": "Metzger"
 }
 ],
 "pos": "noun"
@@ -70251,23 +70502,6 @@
 {
 "label": "Plural",
 "value": "Mieter"
-}
-],
-"pos": "noun"
-},
-"mikro": {
-"chips": [
-{
-"label": "Article",
-"value": "das"
-},
-{
-"label": "Genitive",
-"value": "Mikros"
-},
-{
-"label": "Plural",
-"value": "Mikros"
 }
 ],
 "pos": "noun"
@@ -71308,23 +71542,6 @@
 ],
 "pos": "noun"
 },
-"mittagspause": {
-"chips": [
-{
-"label": "Article",
-"value": "die"
-},
-{
-"label": "Genitive",
-"value": "Mittagspause"
-},
-{
-"label": "Plural",
-"value": "Mittagspausen"
-}
-],
-"pos": "noun"
-},
 "mitte": {
 "chips": [
 {
@@ -71389,6 +71606,23 @@
 }
 ],
 "pos": "verb"
+},
+"mitteilung": {
+"chips": [
+{
+"label": "Article",
+"value": "die"
+},
+{
+"label": "Genitive",
+"value": "Mitteilung"
+},
+{
+"label": "Plural",
+"value": "Mitteilungen"
+}
+],
+"pos": "noun"
 },
 "mittel": {
 "chips": [
@@ -71463,15 +71697,6 @@
 {
 "label": "Plural",
 "value": "Mittwoche"
-}
-],
-"pos": "noun"
-},
-"mm": {
-"chips": [
-{
-"label": "Article",
-"value": "die"
 }
 ],
 "pos": "noun"
@@ -71641,10 +71866,6 @@
 },
 "monat": {
 "chips": [
-{
-"label": "Article",
-"value": "das"
-},
 {
 "label": "Genitive",
 "value": "Monates"
@@ -72002,23 +72223,6 @@
 ],
 "pos": "noun"
 },
-"mulder": {
-"chips": [
-{
-"label": "Article",
-"value": "die"
-},
-{
-"label": "Genitive",
-"value": "Mulder"
-},
-{
-"label": "Plural",
-"value": "Muldern"
-}
-],
-"pos": "noun"
-},
 "mum": {
 "chips": [
 {
@@ -72053,7 +72257,7 @@
 "chips": [
 {
 "label": "Article",
-"value": "das"
+"value": "der"
 },
 {
 "label": "Genitive",
@@ -72109,23 +72313,6 @@
 {
 "label": "Plural",
 "value": "Muschis"
-}
-],
-"pos": "noun"
-},
-"museum": {
-"chips": [
-{
-"label": "Article",
-"value": "das"
-},
-{
-"label": "Genitive",
-"value": "Museums"
-},
-{
-"label": "Plural",
-"value": "Museen"
 }
 ],
 "pos": "noun"
@@ -72198,7 +72385,7 @@
 "chips": [
 {
 "label": "Article",
-"value": "das"
+"value": "der"
 },
 {
 "label": "Genitive",
@@ -72224,7 +72411,7 @@
 "chips": [
 {
 "label": "Article",
-"value": "das"
+"value": "die"
 },
 {
 "label": "Genitive",
@@ -72250,19 +72437,6 @@
 {
 "label": "Plural",
 "value": "Muttis"
-}
-],
-"pos": "noun"
-},
-"muß": {
-"chips": [
-{
-"label": "Article",
-"value": "das"
-},
-{
-"label": "Genitive",
-"value": "Muß"
 }
 ],
 "pos": "noun"
@@ -72417,23 +72591,6 @@
 {
 "label": "Plural",
 "value": "Märtyrer"
-}
-],
-"pos": "noun"
-},
-"märz": {
-"chips": [
-{
-"label": "Article",
-"value": "der"
-},
-{
-"label": "Genitive",
-"value": "März"
-},
-{
-"label": "Plural",
-"value": "Märze"
 }
 ],
 "pos": "noun"
@@ -72644,7 +72801,7 @@
 "chips": [
 {
 "label": "Article",
-"value": "das"
+"value": "der"
 },
 {
 "label": "Genitive",
@@ -72774,7 +72931,7 @@
 "chips": [
 {
 "label": "Article",
-"value": "das"
+"value": "die"
 },
 {
 "label": "Genitive",
@@ -73528,7 +73685,7 @@
 "chips": [
 {
 "label": "Article",
-"value": "das"
+"value": "die"
 },
 {
 "label": "Genitive",
@@ -73691,7 +73848,7 @@
 "chips": [
 {
 "label": "Article",
-"value": "das"
+"value": "der"
 },
 {
 "label": "Genitive",
@@ -74117,19 +74274,6 @@
 }
 ],
 "pos": "noun"
-},
-"new": {
-"chips": [
-{
-"label": "Comparative",
-"value": "newer"
-},
-{
-"label": "Superlative",
-"value": "am newesten"
-}
-],
-"pos": "adj"
 },
 "news": {
 "chips": [
@@ -74637,15 +74781,6 @@
 ],
 "pos": "noun"
 },
-"nu": {
-"chips": [
-{
-"label": "Article",
-"value": "das"
-}
-],
-"pos": "noun"
-},
 "nudeln": {
 "charts": [
 {
@@ -74749,7 +74884,7 @@
 "chips": [
 {
 "label": "Article",
-"value": "das"
+"value": "die"
 },
 {
 "label": "Genitive",
@@ -75045,54 +75180,6 @@
 ],
 "pos": "noun"
 },
-"nützen": {
-"charts": [
-{
-"rows": [
-[
-"ich",
-"nütze"
-],
-[
-"du",
-"nützt"
-],
-[
-"er/sie/es",
-"nützt"
-],
-[
-"wir",
-"nützen"
-],
-[
-"ihr",
-"nützt"
-],
-[
-"sie",
-"nützen"
-]
-],
-"title": "Present"
-}
-],
-"chips": [
-{
-"label": "Präteritum",
-"value": "nützte"
-},
-{
-"label": "Partizip II",
-"value": "genützt"
-},
-{
-"label": "Auxiliary",
-"value": "haben"
-}
-],
-"pos": "verb"
-},
 "nützlich": {
 "chips": [
 {
@@ -75165,6 +75252,19 @@
 }
 ],
 "pos": "noun"
+},
+"oberflächlich": {
+"chips": [
+{
+"label": "Comparative",
+"value": "oberflächlicher"
+},
+{
+"label": "Superlative",
+"value": "am oberflächlichsten"
+}
+],
+"pos": "adj"
 },
 "oberst": {
 "chips": [
@@ -75248,7 +75348,7 @@
 "chips": [
 {
 "label": "Article",
-"value": "das"
+"value": "der"
 },
 {
 "label": "Genitive",
@@ -75454,23 +75554,6 @@
 {
 "label": "Plural",
 "value": "Onkel"
-}
-],
-"pos": "noun"
-},
-"op": {
-"chips": [
-{
-"label": "Article",
-"value": "die"
-},
-{
-"label": "Genitive",
-"value": "OP"
-},
-{
-"label": "Plural",
-"value": "OPs"
 }
 ],
 "pos": "noun"
@@ -75682,6 +75765,23 @@
 ],
 "pos": "adj"
 },
+"orangensaft": {
+"chips": [
+{
+"label": "Article",
+"value": "der"
+},
+{
+"label": "Genitive",
+"value": "Orangensaftes"
+},
+{
+"label": "Plural",
+"value": "Orangensäfte"
+}
+],
+"pos": "noun"
+},
 "orbit": {
 "chips": [
 {
@@ -75858,6 +75958,19 @@
 ],
 "pos": "adj"
 },
+"originell": {
+"chips": [
+{
+"label": "Comparative",
+"value": "origineller"
+},
+{
+"label": "Superlative",
+"value": "am originellsten"
+}
+],
+"pos": "adj"
+},
 "ort": {
 "chips": [
 {
@@ -75932,6 +76045,23 @@
 {
 "label": "Genitive",
 "value": "Ostens"
+}
+],
+"pos": "noun"
+},
+"ostern": {
+"chips": [
+{
+"label": "Article",
+"value": "das"
+},
+{
+"label": "Genitive",
+"value": "Ostern"
+},
+{
+"label": "Plural",
+"value": "Ostern"
 }
 ],
 "pos": "noun"
@@ -76011,10 +76141,6 @@
 },
 "pack": {
 "chips": [
-{
-"label": "Article",
-"value": "das"
-},
 {
 "label": "Genitive",
 "value": "Packs"
@@ -76176,6 +76302,23 @@
 ],
 "pos": "noun"
 },
+"panne": {
+"chips": [
+{
+"label": "Article",
+"value": "die"
+},
+{
+"label": "Genitive",
+"value": "Panne"
+},
+{
+"label": "Plural",
+"value": "Pannen"
+}
+],
+"pos": "noun"
+},
 "panzer": {
 "chips": [
 {
@@ -76274,23 +76417,6 @@
 ],
 "pos": "noun"
 },
-"papst": {
-"chips": [
-{
-"label": "Article",
-"value": "der"
-},
-{
-"label": "Genitive",
-"value": "Papstes"
-},
-{
-"label": "Plural",
-"value": "Päpste"
-}
-],
-"pos": "noun"
-},
 "parade": {
 "chips": [
 {
@@ -76340,10 +76466,6 @@
 },
 "pardon": {
 "chips": [
-{
-"label": "Article",
-"value": "das"
-},
 {
 "label": "Genitive",
 "value": "Pardons"
@@ -76917,23 +77039,6 @@
 ],
 "pos": "noun"
 },
-"paß": {
-"chips": [
-{
-"label": "Article",
-"value": "der"
-},
-{
-"label": "Genitive",
-"value": "Passes"
-},
-{
-"label": "Plural",
-"value": "Pässe"
-}
-],
-"pos": "noun"
-},
 "pech": {
 "chips": [
 {
@@ -77272,6 +77377,23 @@
 ],
 "pos": "noun"
 },
+"pfanne": {
+"chips": [
+{
+"label": "Article",
+"value": "die"
+},
+{
+"label": "Genitive",
+"value": "Pfanne"
+},
+{
+"label": "Plural",
+"value": "Pfannen"
+}
+],
+"pos": "noun"
+},
 "pfannkuchen": {
 "chips": [
 {
@@ -77327,7 +77449,7 @@
 "chips": [
 {
 "label": "Article",
-"value": "das"
+"value": "die"
 },
 {
 "label": "Genitive",
@@ -77626,23 +77748,6 @@
 {
 "label": "Plural",
 "value": "Pfunde"
-}
-],
-"pos": "noun"
-},
-"phantasie": {
-"chips": [
-{
-"label": "Article",
-"value": "die"
-},
-{
-"label": "Genitive",
-"value": "Phantasie"
-},
-{
-"label": "Plural",
-"value": "Phantasien"
 }
 ],
 "pos": "noun"
@@ -78178,10 +78283,6 @@
 },
 "plastik": {
 "chips": [
-{
-"label": "Article",
-"value": "das"
-},
 {
 "label": "Genitive",
 "value": "Plastiks"
@@ -78737,10 +78838,6 @@
 },
 "pony": {
 "chips": [
-{
-"label": "Article",
-"value": "das"
-},
 {
 "label": "Genitive",
 "value": "Ponys"
@@ -79322,23 +79419,6 @@
 ],
 "pos": "noun"
 },
-"prinzessin": {
-"chips": [
-{
-"label": "Article",
-"value": "die"
-},
-{
-"label": "Genitive",
-"value": "Prinzessin"
-},
-{
-"label": "Plural",
-"value": "Prinzessinnen"
-}
-],
-"pos": "noun"
-},
 "prinzip": {
 "chips": [
 {
@@ -79731,7 +79811,7 @@
 "chips": [
 {
 "label": "Article",
-"value": "das"
+"value": "der"
 },
 {
 "label": "Genitive",
@@ -79924,6 +80004,23 @@
 {
 "label": "Plural",
 "value": "Prostituierte"
+}
+],
+"pos": "noun"
+},
+"protest": {
+"chips": [
+{
+"label": "Article",
+"value": "der"
+},
+{
+"label": "Genitive",
+"value": "Protestes"
+},
+{
+"label": "Plural",
+"value": "Proteste"
 }
 ],
 "pos": "noun"
@@ -80370,10 +80467,6 @@
 "pub": {
 "chips": [
 {
-"label": "Article",
-"value": "das"
-},
-{
 "label": "Genitive",
 "value": "Pubs"
 },
@@ -80435,23 +80528,6 @@
 ],
 "pos": "noun"
 },
-"pulli": {
-"chips": [
-{
-"label": "Article",
-"value": "der"
-},
-{
-"label": "Genitive",
-"value": "Pullis"
-},
-{
-"label": "Plural",
-"value": "Pullis"
-}
-],
-"pos": "noun"
-},
 "pullover": {
 "chips": [
 {
@@ -80499,6 +80575,23 @@
 {
 "label": "Plural",
 "value": "Pulver"
+}
+],
+"pos": "noun"
+},
+"pumpe": {
+"chips": [
+{
+"label": "Article",
+"value": "die"
+},
+{
+"label": "Genitive",
+"value": "Pumpe"
+},
+{
+"label": "Plural",
+"value": "Pumpen"
 }
 ],
 "pos": "noun"
@@ -80555,7 +80648,7 @@
 "chips": [
 {
 "label": "Article",
-"value": "das"
+"value": "der"
 },
 {
 "label": "Genitive",
@@ -80620,7 +80713,7 @@
 "chips": [
 {
 "label": "Article",
-"value": "das"
+"value": "die"
 },
 {
 "label": "Genitive",
@@ -81117,23 +81210,6 @@
 ],
 "pos": "verb"
 },
-"ra": {
-"chips": [
-{
-"label": "Article",
-"value": "der"
-},
-{
-"label": "Genitive",
-"value": "RA"
-},
-{
-"label": "Plural",
-"value": "RAe"
-}
-],
-"pos": "noun"
-},
 "rabbi": {
 "chips": [
 {
@@ -81184,10 +81260,6 @@
 "radar": {
 "chips": [
 {
-"label": "Article",
-"value": "das"
-},
-{
 "label": "Genitive",
 "value": "Radars"
 },
@@ -81214,6 +81286,19 @@
 }
 ],
 "pos": "noun"
+},
+"raffiniert": {
+"chips": [
+{
+"label": "Comparative",
+"value": "raffinierter"
+},
+{
+"label": "Superlative",
+"value": "am raffiniertesten"
+}
+],
+"pos": "adj"
 },
 "rahmen": {
 "chips": [
@@ -81316,54 +81401,6 @@
 }
 ],
 "pos": "noun"
-},
-"rangehen": {
-"charts": [
-{
-"rows": [
-[
-"ich",
-"gehe ran"
-],
-[
-"du",
-"gehst ran"
-],
-[
-"er/sie/es",
-"geht ran"
-],
-[
-"wir",
-"gehen ran"
-],
-[
-"ihr",
-"geht ran"
-],
-[
-"sie",
-"gehen ran"
-]
-],
-"title": "Present"
-}
-],
-"chips": [
-{
-"label": "Präteritum",
-"value": "ging ran"
-},
-{
-"label": "Partizip II",
-"value": "rangegangen"
-},
-{
-"label": "Auxiliary",
-"value": "sein"
-}
-],
-"pos": "verb"
 },
 "rasch": {
 "chips": [
@@ -81883,54 +81920,6 @@
 ],
 "pos": "noun"
 },
-"rausfinden": {
-"charts": [
-{
-"rows": [
-[
-"ich",
-"finde raus"
-],
-[
-"du",
-"findest raus"
-],
-[
-"er/sie/es",
-"findet raus"
-],
-[
-"wir",
-"finden raus"
-],
-[
-"ihr",
-"findet raus"
-],
-[
-"sie",
-"finden raus"
-]
-],
-"title": "Present"
-}
-],
-"chips": [
-{
-"label": "Präteritum",
-"value": "fand raus"
-},
-{
-"label": "Partizip II",
-"value": "rausgefunden"
-},
-{
-"label": "Auxiliary",
-"value": "haben"
-}
-],
-"pos": "verb"
-},
 "rausgehen": {
 "charts": [
 {
@@ -81975,102 +81964,6 @@
 {
 "label": "Auxiliary",
 "value": "sein"
-}
-],
-"pos": "verb"
-},
-"raushalten": {
-"charts": [
-{
-"rows": [
-[
-"ich",
-"halte raus"
-],
-[
-"du",
-"hältst raus"
-],
-[
-"er/sie/es",
-"hält raus"
-],
-[
-"wir",
-"halten raus"
-],
-[
-"ihr",
-"haltet raus"
-],
-[
-"sie",
-"halten raus"
-]
-],
-"title": "Present"
-}
-],
-"chips": [
-{
-"label": "Präteritum",
-"value": "hielt raus"
-},
-{
-"label": "Partizip II",
-"value": "rausgehalten"
-},
-{
-"label": "Auxiliary",
-"value": "haben"
-}
-],
-"pos": "verb"
-},
-"rausholen": {
-"charts": [
-{
-"rows": [
-[
-"ich",
-"hole raus"
-],
-[
-"du",
-"holst raus"
-],
-[
-"er/sie/es",
-"holt raus"
-],
-[
-"wir",
-"holen raus"
-],
-[
-"ihr",
-"holt raus"
-],
-[
-"sie",
-"holen raus"
-]
-],
-"title": "Present"
-}
-],
-"chips": [
-{
-"label": "Präteritum",
-"value": "holte raus"
-},
-{
-"label": "Partizip II",
-"value": "rausgeholt"
-},
-{
-"label": "Auxiliary",
-"value": "haben"
 }
 ],
 "pos": "verb"
@@ -82219,54 +82112,6 @@
 ],
 "pos": "verb"
 },
-"rauswerfen": {
-"charts": [
-{
-"rows": [
-[
-"ich",
-"werfe raus"
-],
-[
-"du",
-"wirfst raus"
-],
-[
-"er/sie/es",
-"wirft raus"
-],
-[
-"wir",
-"werfen raus"
-],
-[
-"ihr",
-"werft raus"
-],
-[
-"sie",
-"werfen raus"
-]
-],
-"title": "Present"
-}
-],
-"chips": [
-{
-"label": "Präteritum",
-"value": "warf raus"
-},
-{
-"label": "Partizip II",
-"value": "rausgeworfen"
-},
-{
-"label": "Auxiliary",
-"value": "haben"
-}
-],
-"pos": "verb"
-},
 "raven": {
 "charts": [
 {
@@ -82402,6 +82247,23 @@
 {
 "label": "Article",
 "value": "die"
+}
+],
+"pos": "noun"
+},
+"reaktor": {
+"chips": [
+{
+"label": "Article",
+"value": "der"
+},
+{
+"label": "Genitive",
+"value": "Reaktors"
+},
+{
+"label": "Plural",
+"value": "Reaktoren"
 }
 ],
 "pos": "noun"
@@ -83573,54 +83435,6 @@
 ],
 "pos": "verb"
 },
-"reinlegen": {
-"charts": [
-{
-"rows": [
-[
-"ich",
-"lege rein"
-],
-[
-"du",
-"legst rein"
-],
-[
-"er/sie/es",
-"legt rein"
-],
-[
-"wir",
-"legen rein"
-],
-[
-"ihr",
-"legt rein"
-],
-[
-"sie",
-"legen rein"
-]
-],
-"title": "Present"
-}
-],
-"chips": [
-{
-"label": "Präteritum",
-"value": "legte rein"
-},
-{
-"label": "Partizip II",
-"value": "reingelegt"
-},
-{
-"label": "Auxiliary",
-"value": "haben"
-}
-],
-"pos": "verb"
-},
 "reinziehen": {
 "charts": [
 {
@@ -83924,6 +83738,19 @@
 ],
 "pos": "adj"
 },
+"relevant": {
+"chips": [
+{
+"label": "Comparative",
+"value": "relevanter"
+},
+{
+"label": "Superlative",
+"value": "am relevantesten"
+}
+],
+"pos": "adj"
+},
 "religion": {
 "chips": [
 {
@@ -83937,6 +83764,23 @@
 {
 "label": "Plural",
 "value": "Religionen"
+}
+],
+"pos": "noun"
+},
+"ren": {
+"chips": [
+{
+"label": "Article",
+"value": "das"
+},
+{
+"label": "Genitive",
+"value": "Rens"
+},
+{
+"label": "Plural",
+"value": "Rene"
 }
 ],
 "pos": "noun"
@@ -84686,7 +84530,7 @@
 "chips": [
 {
 "label": "Article",
-"value": "das"
+"value": "der"
 },
 {
 "label": "Genitive",
@@ -84781,7 +84625,7 @@
 "chips": [
 {
 "label": "Article",
-"value": "das"
+"value": "der"
 },
 {
 "label": "Genitive",
@@ -84883,7 +84727,7 @@
 "chips": [
 {
 "label": "Article",
-"value": "das"
+"value": "der"
 },
 {
 "label": "Genitive",
@@ -85085,7 +84929,7 @@
 "chips": [
 {
 "label": "Article",
-"value": "das"
+"value": "die"
 },
 {
 "label": "Genitive",
@@ -85316,19 +85160,6 @@
 }
 ],
 "pos": "verb"
-},
-"ruh": {
-"chips": [
-{
-"label": "Article",
-"value": "die"
-},
-{
-"label": "Genitive",
-"value": "Ruh"
-}
-],
-"pos": "noun"
 },
 "ruhe": {
 "chips": [
@@ -85635,6 +85466,23 @@
 ],
 "pos": "verb"
 },
+"run": {
+"chips": [
+{
+"label": "Article",
+"value": "der"
+},
+{
+"label": "Genitive",
+"value": "Runs"
+},
+{
+"label": "Plural",
+"value": "Runs"
+}
+],
+"pos": "noun"
+},
 "rund": {
 "chips": [
 {
@@ -85760,23 +85608,6 @@
 }
 ],
 "pos": "verb"
-},
-"russ": {
-"chips": [
-{
-"label": "Article",
-"value": "der"
-},
-{
-"label": "Genitive",
-"value": "Russes"
-},
-{
-"label": "Plural",
-"value": "Russe"
-}
-],
-"pos": "noun"
 },
 "russe": {
 "chips": [
@@ -86221,7 +86052,7 @@
 "chips": [
 {
 "label": "Article",
-"value": "das"
+"value": "die"
 },
 {
 "label": "Genitive",
@@ -86260,7 +86091,7 @@
 "chips": [
 {
 "label": "Article",
-"value": "das"
+"value": "der"
 },
 {
 "label": "Genitive",
@@ -86666,10 +86497,6 @@
 "sandwich": {
 "chips": [
 {
-"label": "Article",
-"value": "das"
-},
-{
 "label": "Genitive",
 "value": "Sandwichs"
 },
@@ -87059,7 +86886,7 @@
 "chips": [
 {
 "label": "Article",
-"value": "das"
+"value": "die"
 },
 {
 "label": "Genitive",
@@ -87395,7 +87222,7 @@
 "chips": [
 {
 "label": "Article",
-"value": "das"
+"value": "der"
 },
 {
 "label": "Genitive",
@@ -88924,10 +88751,6 @@
 "schlamassel": {
 "chips": [
 {
-"label": "Article",
-"value": "das"
-},
-{
 "label": "Genitive",
 "value": "Schlamassels"
 },
@@ -89024,7 +88847,7 @@
 "chips": [
 {
 "label": "Article",
-"value": "das"
+"value": "die"
 },
 {
 "label": "Genitive",
@@ -89650,7 +89473,7 @@
 "chips": [
 {
 "label": "Article",
-"value": "das"
+"value": "der"
 },
 {
 "label": "Genitive",
@@ -89751,6 +89574,54 @@
 {
 "label": "Partizip II",
 "value": "geschmissen"
+},
+{
+"label": "Auxiliary",
+"value": "haben"
+}
+],
+"pos": "verb"
+},
+"schmelzen": {
+"charts": [
+{
+"rows": [
+[
+"ich",
+"schmelze"
+],
+[
+"du",
+"schmilzt"
+],
+[
+"er/sie/es",
+"schmilzt"
+],
+[
+"wir",
+"schmelzen"
+],
+[
+"ihr",
+"schmelzt"
+],
+[
+"sie",
+"schmelzen"
+]
+],
+"title": "Present"
+}
+],
+"chips": [
+{
+"label": "Präteritum",
+"value": "schmolz"
+},
+{
+"label": "Partizip II",
+"value": "geschmolzen"
 },
 {
 "label": "Auxiliary",
@@ -90109,7 +89980,7 @@
 "chips": [
 {
 "label": "Article",
-"value": "das"
+"value": "die"
 },
 {
 "label": "Genitive",
@@ -90638,23 +90509,6 @@
 ],
 "pos": "noun"
 },
-"schreibtisch": {
-"chips": [
-{
-"label": "Article",
-"value": "der"
-},
-{
-"label": "Genitive",
-"value": "Schreibtisches"
-},
-{
-"label": "Plural",
-"value": "Schreibtische"
-}
-],
-"pos": "noun"
-},
 "schreien": {
 "charts": [
 {
@@ -90839,7 +90693,7 @@
 "chips": [
 {
 "label": "Article",
-"value": "das"
+"value": "der"
 },
 {
 "label": "Genitive",
@@ -91243,6 +91097,23 @@
 ],
 "pos": "noun"
 },
+"schwarm": {
+"chips": [
+{
+"label": "Article",
+"value": "der"
+},
+{
+"label": "Genitive",
+"value": "Schwarmes"
+},
+{
+"label": "Plural",
+"value": "Schwärme"
+}
+],
+"pos": "noun"
+},
 "schwarz": {
 "chips": [
 {
@@ -91567,7 +91438,7 @@
 "chips": [
 {
 "label": "Article",
-"value": "das"
+"value": "die"
 },
 {
 "label": "Genitive",
@@ -91699,19 +91570,6 @@
 }
 ],
 "pos": "noun"
-},
-"schwindlig": {
-"chips": [
-{
-"label": "Comparative",
-"value": "schwindliger"
-},
-{
-"label": "Superlative",
-"value": "am schwindligsten"
-}
-],
-"pos": "adj"
 },
 "schwingen": {
 "charts": [
@@ -92159,7 +92017,11 @@
 "chips": [
 {
 "label": "Article",
-"value": "das"
+"value": "die"
+},
+{
+"label": "Genitive",
+"value": "Schöne"
 }
 ],
 "pos": "noun"
@@ -92453,23 +92315,6 @@
 ],
 "pos": "verb"
 },
-"se": {
-"chips": [
-{
-"label": "Article",
-"value": "der"
-},
-{
-"label": "Genitive",
-"value": "SE"
-},
-{
-"label": "Plural",
-"value": "SE"
-}
-],
-"pos": "noun"
-},
 "sechs": {
 "chips": [
 {
@@ -92619,6 +92464,54 @@
 }
 ],
 "pos": "noun"
+},
+"segnen": {
+"charts": [
+{
+"rows": [
+[
+"ich",
+"segne"
+],
+[
+"du",
+"segnest"
+],
+[
+"er/sie/es",
+"segnet"
+],
+[
+"wir",
+"segnen"
+],
+[
+"ihr",
+"segnet"
+],
+[
+"sie",
+"segnen"
+]
+],
+"title": "Present"
+}
+],
+"chips": [
+{
+"label": "Präteritum",
+"value": "segnete"
+},
+{
+"label": "Partizip II",
+"value": "gesegnet"
+},
+{
+"label": "Auxiliary",
+"value": "haben"
+}
+],
+"pos": "verb"
 },
 "sehen": {
 "charts": [
@@ -93045,23 +92938,6 @@
 ],
 "pos": "noun"
 },
-"senator": {
-"chips": [
-{
-"label": "Article",
-"value": "der"
-},
-{
-"label": "Genitive",
-"value": "Senators"
-},
-{
-"label": "Plural",
-"value": "Senatoren"
-}
-],
-"pos": "noun"
-},
 "senatorin": {
 "chips": [
 {
@@ -93438,10 +93314,6 @@
 },
 "set": {
 "chips": [
-{
-"label": "Article",
-"value": "das"
-},
 {
 "label": "Genitive",
 "value": "Sets"
@@ -93894,6 +93766,23 @@
 ],
 "pos": "adj"
 },
+"sichtkontakt": {
+"chips": [
+{
+"label": "Article",
+"value": "der"
+},
+{
+"label": "Genitive",
+"value": "Sichtkontaktes"
+},
+{
+"label": "Plural",
+"value": "Sichtkontakte"
+}
+],
+"pos": "noun"
+},
 "sieben": {
 "charts": [
 {
@@ -94073,10 +93962,6 @@
 },
 "silvester": {
 "chips": [
-{
-"label": "Article",
-"value": "das"
-},
 {
 "label": "Genitive",
 "value": "Silvesters"
@@ -94425,6 +94310,23 @@
 ],
 "pos": "noun"
 },
+"ski": {
+"chips": [
+{
+"label": "Article",
+"value": "der"
+},
+{
+"label": "Genitive",
+"value": "Skis"
+},
+{
+"label": "Plural",
+"value": "Skier"
+}
+],
+"pos": "noun"
+},
 "sklave": {
 "chips": [
 {
@@ -94491,10 +94393,6 @@
 },
 "sms": {
 "chips": [
-{
-"label": "Article",
-"value": "das"
-},
 {
 "label": "Genitive",
 "value": "SMS"
@@ -94578,7 +94476,7 @@
 "chips": [
 {
 "label": "Article",
-"value": "das"
+"value": "der"
 },
 {
 "label": "Genitive",
@@ -94784,6 +94682,19 @@
 ],
 "pos": "adj"
 },
+"sonderlich": {
+"chips": [
+{
+"label": "Comparative",
+"value": "sonderlicher"
+},
+{
+"label": "Superlative",
+"value": "am sonderlichsten"
+}
+],
+"pos": "adj"
+},
 "sondern": {
 "charts": [
 {
@@ -94964,7 +94875,7 @@
 "chips": [
 {
 "label": "Article",
-"value": "das"
+"value": "die"
 },
 {
 "label": "Genitive",
@@ -95231,23 +95142,6 @@
 ],
 "pos": "verb"
 },
-"spass": {
-"chips": [
-{
-"label": "Article",
-"value": "der"
-},
-{
-"label": "Genitive",
-"value": "Spasses"
-},
-{
-"label": "Plural",
-"value": "Spässe"
-}
-],
-"pos": "noun"
-},
 "spazieren": {
 "charts": [
 {
@@ -95317,7 +95211,7 @@
 "chips": [
 {
 "label": "Article",
-"value": "das"
+"value": "der"
 },
 {
 "label": "Genitive",
@@ -95588,7 +95482,7 @@
 "chips": [
 {
 "label": "Article",
-"value": "das"
+"value": "der"
 },
 {
 "label": "Genitive",
@@ -95730,23 +95624,6 @@
 {
 "label": "Plural",
 "value": "Spikes"
-}
-],
-"pos": "noun"
-},
-"spind": {
-"chips": [
-{
-"label": "Article",
-"value": "der"
-},
-{
-"label": "Genitive",
-"value": "Spindes"
-},
-{
-"label": "Plural",
-"value": "Spinde"
 }
 ],
 "pos": "noun"
@@ -95988,6 +95865,40 @@
 ],
 "pos": "noun"
 },
+"sportler": {
+"chips": [
+{
+"label": "Article",
+"value": "der"
+},
+{
+"label": "Genitive",
+"value": "Sportlers"
+},
+{
+"label": "Plural",
+"value": "Sportler"
+}
+],
+"pos": "noun"
+},
+"spot": {
+"chips": [
+{
+"label": "Article",
+"value": "der"
+},
+{
+"label": "Genitive",
+"value": "Spots"
+},
+{
+"label": "Plural",
+"value": "Spots"
+}
+],
+"pos": "noun"
+},
 "sprache": {
 "chips": [
 {
@@ -96200,6 +96111,19 @@
 ],
 "pos": "verb"
 },
+"sprit": {
+"chips": [
+{
+"label": "Article",
+"value": "der"
+},
+{
+"label": "Genitive",
+"value": "Sprits"
+}
+],
+"pos": "noun"
+},
 "spritze": {
 "chips": [
 {
@@ -96269,7 +96193,7 @@
 "chips": [
 {
 "label": "Article",
-"value": "das"
+"value": "der"
 },
 {
 "label": "Genitive",
@@ -96587,7 +96511,7 @@
 "chips": [
 {
 "label": "Article",
-"value": "das"
+"value": "die"
 },
 {
 "label": "Genitive",
@@ -96647,23 +96571,6 @@
 {
 "label": "Plural",
 "value": "Stähle"
-}
-],
-"pos": "noun"
-},
-"stall": {
-"chips": [
-{
-"label": "Article",
-"value": "der"
-},
-{
-"label": "Genitive",
-"value": "Stalles"
-},
-{
-"label": "Plural",
-"value": "Ställe"
 }
 ],
 "pos": "noun"
@@ -97133,7 +97040,7 @@
 "chips": [
 {
 "label": "Article",
-"value": "das"
+"value": "der"
 },
 {
 "label": "Genitive",
@@ -97627,6 +97534,23 @@
 ],
 "pos": "noun"
 },
+"stellvertreter": {
+"chips": [
+{
+"label": "Article",
+"value": "der"
+},
+{
+"label": "Genitive",
+"value": "Stellvertreters"
+},
+{
+"label": "Plural",
+"value": "Stellvertreter"
+}
+],
+"pos": "noun"
+},
 "sterben": {
 "charts": [
 {
@@ -97679,7 +97603,7 @@
 "chips": [
 {
 "label": "Article",
-"value": "das"
+"value": "der"
 },
 {
 "label": "Genitive",
@@ -97783,6 +97707,23 @@
 ],
 "pos": "verb"
 },
+"steuerung": {
+"chips": [
+{
+"label": "Article",
+"value": "die"
+},
+{
+"label": "Genitive",
+"value": "Steuerung"
+},
+{
+"label": "Plural",
+"value": "Steuerungen"
+}
+],
+"pos": "noun"
+},
 "steven": {
 "chips": [
 {
@@ -97821,7 +97762,7 @@
 "chips": [
 {
 "label": "Article",
-"value": "das"
+"value": "der"
 },
 {
 "label": "Genitive",
@@ -98002,6 +97943,54 @@
 {
 "label": "Partizip II",
 "value": "gestillt"
+},
+{
+"label": "Auxiliary",
+"value": "haben"
+}
+],
+"pos": "verb"
+},
+"stillhalten": {
+"charts": [
+{
+"rows": [
+[
+"ich",
+"halte still"
+],
+[
+"du",
+"hältst still"
+],
+[
+"er/sie/es",
+"hält still"
+],
+[
+"wir",
+"halten still"
+],
+[
+"ihr",
+"haltet still"
+],
+[
+"sie",
+"halten still"
+]
+],
+"title": "Present"
+}
+],
+"chips": [
+{
+"label": "Präteritum",
+"value": "hielt still"
+},
+{
+"label": "Partizip II",
+"value": "stillgehalten"
 },
 {
 "label": "Auxiliary",
@@ -98251,23 +98240,6 @@
 ],
 "pos": "adj"
 },
-"stop": {
-"chips": [
-{
-"label": "Article",
-"value": "der"
-},
-{
-"label": "Genitive",
-"value": "Stops"
-},
-{
-"label": "Plural",
-"value": "Stops"
-}
-],
-"pos": "noun"
-},
 "stopfen": {
 "charts": [
 {
@@ -98402,7 +98374,7 @@
 "chips": [
 {
 "label": "Article",
-"value": "das"
+"value": "der"
 },
 {
 "label": "Genitive",
@@ -98479,6 +98451,54 @@
 }
 ],
 "pos": "noun"
+},
+"strafen": {
+"charts": [
+{
+"rows": [
+[
+"ich",
+"strafe"
+],
+[
+"du",
+"strafst"
+],
+[
+"er/sie/es",
+"straft"
+],
+[
+"wir",
+"strafen"
+],
+[
+"ihr",
+"straft"
+],
+[
+"sie",
+"strafen"
+]
+],
+"title": "Present"
+}
+],
+"chips": [
+{
+"label": "Präteritum",
+"value": "strafte"
+},
+{
+"label": "Partizip II",
+"value": "gestraft"
+},
+{
+"label": "Auxiliary",
+"value": "haben"
+}
+],
+"pos": "verb"
 },
 "straftat": {
 "chips": [
@@ -98600,7 +98620,7 @@
 "chips": [
 {
 "label": "Article",
-"value": "das"
+"value": "die"
 },
 {
 "label": "Genitive",
@@ -98634,7 +98654,7 @@
 "chips": [
 {
 "label": "Article",
-"value": "das"
+"value": "die"
 },
 {
 "label": "Genitive",
@@ -98894,7 +98914,7 @@
 "chips": [
 {
 "label": "Article",
-"value": "das"
+"value": "der"
 },
 {
 "label": "Genitive",
@@ -99036,7 +99056,7 @@
 "chips": [
 {
 "label": "Article",
-"value": "das"
+"value": "der"
 },
 {
 "label": "Genitive",
@@ -99358,7 +99378,7 @@
 "chips": [
 {
 "label": "Article",
-"value": "das"
+"value": "die"
 },
 {
 "label": "Genitive",
@@ -100032,7 +100052,7 @@
 "chips": [
 {
 "label": "Article",
-"value": "das"
+"value": "die"
 },
 {
 "label": "Genitive",
@@ -100044,6 +100064,54 @@
 }
 ],
 "pos": "noun"
+},
+"surfen": {
+"charts": [
+{
+"rows": [
+[
+"ich",
+"surfe"
+],
+[
+"du",
+"surfst"
+],
+[
+"er/sie/es",
+"surft"
+],
+[
+"wir",
+"surfen"
+],
+[
+"ihr",
+"surft"
+],
+[
+"sie",
+"surfen"
+]
+],
+"title": "Present"
+}
+],
+"chips": [
+{
+"label": "Präteritum",
+"value": "surfte"
+},
+{
+"label": "Partizip II",
+"value": "gesurft"
+},
+{
+"label": "Auxiliary",
+"value": "haben"
+}
+],
+"pos": "verb"
 },
 "sushi": {
 "chips": [
@@ -100139,7 +100207,7 @@
 "chips": [
 {
 "label": "Article",
-"value": "das"
+"value": "der"
 },
 {
 "label": "Genitive",
@@ -100500,7 +100568,7 @@
 "chips": [
 {
 "label": "Article",
-"value": "das"
+"value": "die"
 },
 {
 "label": "Genitive",
@@ -100517,7 +100585,7 @@
 "chips": [
 {
 "label": "Article",
-"value": "das"
+"value": "der"
 },
 {
 "label": "Genitive",
@@ -100939,7 +101007,7 @@
 "chips": [
 {
 "label": "Article",
-"value": "das"
+"value": "die"
 },
 {
 "label": "Genitive",
@@ -101057,10 +101125,6 @@
 "tattoo": {
 "chips": [
 {
-"label": "Article",
-"value": "das"
-},
-{
 "label": "Genitive",
 "value": "Tattoos"
 },
@@ -101088,7 +101152,7 @@
 "chips": [
 {
 "label": "Article",
-"value": "das"
+"value": "die"
 },
 {
 "label": "Genitive",
@@ -101278,10 +101342,6 @@
 "taxi": {
 "chips": [
 {
-"label": "Article",
-"value": "das"
-},
-{
 "label": "Genitive",
 "value": "Taxis"
 },
@@ -101343,23 +101403,6 @@
 ],
 "pos": "noun"
 },
-"techniker": {
-"chips": [
-{
-"label": "Article",
-"value": "der"
-},
-{
-"label": "Genitive",
-"value": "Technikers"
-},
-{
-"label": "Plural",
-"value": "Techniker"
-}
-],
-"pos": "noun"
-},
 "technologie": {
 "chips": [
 {
@@ -101373,23 +101416,6 @@
 {
 "label": "Plural",
 "value": "Technologien"
-}
-],
-"pos": "noun"
-},
-"teddy": {
-"chips": [
-{
-"label": "Article",
-"value": "der"
-},
-{
-"label": "Genitive",
-"value": "Teddys"
-},
-{
-"label": "Plural",
-"value": "Teddys"
 }
 ],
 "pos": "noun"
@@ -101695,7 +101721,7 @@
 "chips": [
 {
 "label": "Article",
-"value": "das"
+"value": "der"
 },
 {
 "label": "Genitive",
@@ -101802,23 +101828,6 @@
 {
 "label": "Plural",
 "value": "Teppiche"
-}
-],
-"pos": "noun"
-},
-"tequila": {
-"chips": [
-{
-"label": "Article",
-"value": "der"
-},
-{
-"label": "Genitive",
-"value": "Tequilas"
-},
-{
-"label": "Plural",
-"value": "Tequilas"
 }
 ],
 "pos": "noun"
@@ -102033,6 +102042,15 @@
 ],
 "pos": "noun"
 },
+"texte": {
+"chips": [
+{
+"label": "Article",
+"value": "der"
+}
+],
+"pos": "noun"
+},
 "that": {
 "chips": [
 {
@@ -102097,6 +102115,40 @@
 {
 "label": "Plural",
 "value": "Theorien"
+}
+],
+"pos": "noun"
+},
+"therapeut": {
+"chips": [
+{
+"label": "Article",
+"value": "der"
+},
+{
+"label": "Genitive",
+"value": "Therapeuten"
+},
+{
+"label": "Plural",
+"value": "Therapeuten"
+}
+],
+"pos": "noun"
+},
+"therapeutin": {
+"chips": [
+{
+"label": "Article",
+"value": "die"
+},
+{
+"label": "Genitive",
+"value": "Therapeutin"
+},
+{
+"label": "Plural",
+"value": "Therapeutinnen"
 }
 ],
 "pos": "noun"
@@ -102379,7 +102431,7 @@
 "chips": [
 {
 "label": "Article",
-"value": "das"
+"value": "der"
 },
 {
 "label": "Genitive",
@@ -102456,7 +102508,7 @@
 "chips": [
 {
 "label": "Article",
-"value": "das"
+"value": "die"
 },
 {
 "label": "Genitive",
@@ -102696,7 +102748,7 @@
 "chips": [
 {
 "label": "Article",
-"value": "das"
+"value": "der"
 },
 {
 "label": "Genitive",
@@ -103036,7 +103088,7 @@
 "chips": [
 {
 "label": "Article",
-"value": "das"
+"value": "der"
 },
 {
 "label": "Genitive",
@@ -103834,7 +103886,7 @@
 "chips": [
 {
 "label": "Article",
-"value": "das"
+"value": "der"
 },
 {
 "label": "Genitive",
@@ -103843,6 +103895,23 @@
 {
 "label": "Plural",
 "value": "Tropfen"
+}
+],
+"pos": "noun"
+},
+"trophäe": {
+"chips": [
+{
+"label": "Article",
+"value": "die"
+},
+{
+"label": "Genitive",
+"value": "Trophäe"
+},
+{
+"label": "Plural",
+"value": "Trophäen"
 }
 ],
 "pos": "noun"
@@ -104234,10 +104303,6 @@
 "tunnel": {
 "chips": [
 {
-"label": "Article",
-"value": "das"
-},
-{
 "label": "Genitive",
 "value": "Tunnels"
 },
@@ -104252,7 +104317,7 @@
 "chips": [
 {
 "label": "Article",
-"value": "das"
+"value": "der"
 },
 {
 "label": "Genitive",
@@ -104549,28 +104614,11 @@
 "chips": [
 {
 "label": "Article",
-"value": "das"
-},
-{
-"label": "Genitive",
-"value": "Tür"
-},
-{
-"label": "Plural",
-"value": "Türen"
-}
-],
-"pos": "noun"
-},
-"türe": {
-"chips": [
-{
-"label": "Article",
 "value": "die"
 },
 {
 "label": "Genitive",
-"value": "Türe"
+"value": "Tür"
 },
 {
 "label": "Plural",
@@ -105370,6 +105418,19 @@
 ],
 "pos": "noun"
 },
+"unangebracht": {
+"chips": [
+{
+"label": "Comparative",
+"value": "unangebrachter"
+},
+{
+"label": "Superlative",
+"value": "am unangebrachtesten"
+}
+],
+"pos": "adj"
+},
 "unangenehm": {
 "chips": [
 {
@@ -105426,6 +105487,15 @@
 ],
 "pos": "noun"
 },
+"unbekannter": {
+"chips": [
+{
+"label": "Article",
+"value": "die"
+}
+],
+"pos": "noun"
+},
 "unberechenbar": {
 "chips": [
 {
@@ -105448,6 +105518,19 @@
 {
 "label": "Superlative",
 "value": "am unbesorgtesten"
+}
+],
+"pos": "adj"
+},
+"unerhört": {
+"chips": [
+{
+"label": "Comparative",
+"value": "unerhörter"
+},
+{
+"label": "Superlative",
+"value": "am unerhörtesten"
 }
 ],
 "pos": "adj"
@@ -106934,10 +107017,6 @@
 "urin": {
 "chips": [
 {
-"label": "Article",
-"value": "das"
-},
-{
 "label": "Genitive",
 "value": "Urins"
 }
@@ -107180,7 +107259,7 @@
 "chips": [
 {
 "label": "Article",
-"value": "das"
+"value": "die"
 },
 {
 "label": "Genitive",
@@ -107386,23 +107465,6 @@
 }
 ],
 "pos": "verb"
-},
-"veranstaltung": {
-"chips": [
-{
-"label": "Article",
-"value": "die"
-},
-{
-"label": "Genitive",
-"value": "Veranstaltung"
-},
-{
-"label": "Plural",
-"value": "Veranstaltungen"
-}
-],
-"pos": "noun"
 },
 "verantworten": {
 "charts": [
@@ -113524,23 +113586,6 @@
 ],
 "pos": "verb"
 },
-"verwendung": {
-"chips": [
-{
-"label": "Article",
-"value": "die"
-},
-{
-"label": "Genitive",
-"value": "Verwendung"
-},
-{
-"label": "Plural",
-"value": "Verwendungen"
-}
-],
-"pos": "noun"
-},
 "verwickelt": {
 "chips": [
 {
@@ -113841,6 +113886,23 @@
 ],
 "pos": "noun"
 },
+"verzögerung": {
+"chips": [
+{
+"label": "Article",
+"value": "die"
+},
+{
+"label": "Genitive",
+"value": "Verzögerung"
+},
+{
+"label": "Plural",
+"value": "Verzögerungen"
+}
+],
+"pos": "noun"
+},
 "verändern": {
 "charts": [
 {
@@ -114091,10 +114153,6 @@
 "viertel": {
 "chips": [
 {
-"label": "Article",
-"value": "das"
-},
-{
 "label": "Genitive",
 "value": "Viertels"
 },
@@ -114124,10 +114182,6 @@
 },
 "virus": {
 "chips": [
-{
-"label": "Article",
-"value": "das"
-},
 {
 "label": "Genitive",
 "value": "Virus"
@@ -114194,7 +114248,7 @@
 "chips": [
 {
 "label": "Article",
-"value": "das"
+"value": "der"
 },
 {
 "label": "Genitive",
@@ -114849,6 +114903,23 @@
 ],
 "pos": "verb"
 },
+"vorlesung": {
+"chips": [
+{
+"label": "Article",
+"value": "die"
+},
+{
+"label": "Genitive",
+"value": "Vorlesung"
+},
+{
+"label": "Plural",
+"value": "Vorlesungen"
+}
+],
+"pos": "noun"
+},
 "vormachen": {
 "charts": [
 {
@@ -115130,23 +115201,6 @@
 }
 ],
 "pos": "adj"
-},
-"vorsitzende": {
-"chips": [
-{
-"label": "Article",
-"value": "die"
-},
-{
-"label": "Genitive",
-"value": "Vorsitzender"
-},
-{
-"label": "Plural",
-"value": "Vorsitzende"
-}
-],
-"pos": "noun"
 },
 "vorsitzender": {
 "chips": [
@@ -115728,7 +115782,7 @@
 "chips": [
 {
 "label": "Article",
-"value": "das"
+"value": "der"
 },
 {
 "label": "Genitive",
@@ -115964,7 +116018,7 @@
 "chips": [
 {
 "label": "Article",
-"value": "das"
+"value": "der"
 },
 {
 "label": "Genitive",
@@ -116063,7 +116117,7 @@
 "chips": [
 {
 "label": "Article",
-"value": "das"
+"value": "die"
 },
 {
 "label": "Genitive",
@@ -116472,7 +116526,7 @@
 "chips": [
 {
 "label": "Article",
-"value": "das"
+"value": "der"
 },
 {
 "label": "Genitive",
@@ -116523,7 +116577,7 @@
 "chips": [
 {
 "label": "Article",
-"value": "das"
+"value": "der"
 },
 {
 "label": "Genitive",
@@ -117507,19 +117561,6 @@
 }
 ],
 "pos": "noun"
-},
-"weiss": {
-"chips": [
-{
-"label": "Comparative",
-"value": "weisser"
-},
-{
-"label": "Superlative",
-"value": "am weissesten"
-}
-],
-"pos": "adj"
 },
 "weit": {
 "chips": [
@@ -118658,6 +118699,23 @@
 ],
 "pos": "noun"
 },
+"whirlpool": {
+"chips": [
+{
+"label": "Article",
+"value": "der"
+},
+{
+"label": "Genitive",
+"value": "Whirlpools"
+},
+{
+"label": "Plural",
+"value": "Whirlpools"
+}
+],
+"pos": "noun"
+},
 "whiskey": {
 "chips": [
 {
@@ -118751,6 +118809,54 @@
 }
 ],
 "pos": "adj"
+},
+"widersetzen": {
+"charts": [
+{
+"rows": [
+[
+"ich",
+"widersetze"
+],
+[
+"du",
+"widersetzt"
+],
+[
+"er/sie/es",
+"widersetzt"
+],
+[
+"wir",
+"widersetzen"
+],
+[
+"ihr",
+"widersetzt"
+],
+[
+"sie",
+"widersetzen"
+]
+],
+"title": "Present"
+}
+],
+"chips": [
+{
+"label": "Präteritum",
+"value": "widersetzte"
+},
+{
+"label": "Partizip II",
+"value": "widersetzt"
+},
+{
+"label": "Auxiliary",
+"value": "haben"
+}
+],
+"pos": "verb"
 },
 "widersprechen": {
 "charts": [
@@ -119603,6 +119709,23 @@
 ],
 "pos": "noun"
 },
+"wisch": {
+"chips": [
+{
+"label": "Article",
+"value": "der"
+},
+{
+"label": "Genitive",
+"value": "Wisches"
+},
+{
+"label": "Plural",
+"value": "Wische"
+}
+],
+"pos": "noun"
+},
 "wissen": {
 "charts": [
 {
@@ -119736,7 +119859,7 @@
 "chips": [
 {
 "label": "Article",
-"value": "das"
+"value": "die"
 },
 {
 "label": "Genitive",
@@ -119912,7 +120035,7 @@
 "chips": [
 {
 "label": "Article",
-"value": "das"
+"value": "der"
 },
 {
 "label": "Genitive",
@@ -119929,7 +120052,7 @@
 "chips": [
 {
 "label": "Article",
-"value": "das"
+"value": "die"
 },
 {
 "label": "Genitive",
@@ -120216,10 +120339,6 @@
 "wurm": {
 "chips": [
 {
-"label": "Article",
-"value": "das"
-},
-{
 "label": "Genitive",
 "value": "Wurmes"
 },
@@ -120251,7 +120370,7 @@
 "chips": [
 {
 "label": "Article",
-"value": "das"
+"value": "die"
 },
 {
 "label": "Genitive",
@@ -120630,10 +120749,6 @@
 "yard": {
 "chips": [
 {
-"label": "Article",
-"value": "das"
-},
-{
 "label": "Genitive",
 "value": "Yard"
 },
@@ -120656,21 +120771,8 @@
 "yoga": {
 "chips": [
 {
-"label": "Article",
-"value": "das"
-},
-{
 "label": "Genitive",
 "value": "Yogas"
-}
-],
-"pos": "noun"
-},
-"z.": {
-"chips": [
-{
-"label": "Article",
-"value": "die"
 }
 ],
 "pos": "noun"
@@ -120740,11 +120842,28 @@
 ],
 "pos": "verb"
 },
+"zahlung": {
+"chips": [
+{
+"label": "Article",
+"value": "die"
+},
+{
+"label": "Genitive",
+"value": "Zahlung"
+},
+{
+"label": "Plural",
+"value": "Zahlungen"
+}
+],
+"pos": "noun"
+},
 "zahn": {
 "chips": [
 {
 "label": "Article",
-"value": "das"
+"value": "der"
 },
 {
 "label": "Genitive",
@@ -121152,6 +121271,23 @@
 ],
 "pos": "noun"
 },
+"zeitmaschine": {
+"chips": [
+{
+"label": "Article",
+"value": "die"
+},
+{
+"label": "Genitive",
+"value": "Zeitmaschine"
+},
+{
+"label": "Plural",
+"value": "Zeitmaschinen"
+}
+],
+"pos": "noun"
+},
 "zeitplan": {
 "chips": [
 {
@@ -121199,6 +121335,15 @@
 {
 "label": "Plural",
 "value": "Zeitschriften"
+}
+],
+"pos": "noun"
+},
+"zeitschriften": {
+"chips": [
+{
+"label": "Article",
+"value": "die"
 }
 ],
 "pos": "noun"
@@ -121282,10 +121427,6 @@
 },
 "zentimeter": {
 "chips": [
-{
-"label": "Article",
-"value": "das"
-},
 {
 "label": "Genitive",
 "value": "Zentimeters"
@@ -121912,10 +122053,6 @@
 },
 "zimmerservice": {
 "chips": [
-{
-"label": "Article",
-"value": "das"
-},
 {
 "label": "Genitive",
 "value": "Zimmerservices"
@@ -122626,7 +122763,7 @@
 "chips": [
 {
 "label": "Article",
-"value": "das"
+"value": "die"
 },
 {
 "label": "Genitive",
@@ -123485,6 +123622,23 @@
 ],
 "pos": "verb"
 },
+"zusammenbruch": {
+"chips": [
+{
+"label": "Article",
+"value": "der"
+},
+{
+"label": "Genitive",
+"value": "Zusammenbruches"
+},
+{
+"label": "Plural",
+"value": "Zusammenbrüche"
+}
+],
+"pos": "noun"
+},
 "zusammenhalten": {
 "charts": [
 {
@@ -124142,7 +124296,7 @@
 "chips": [
 {
 "label": "Article",
-"value": "das"
+"value": "der"
 },
 {
 "label": "Genitive",
@@ -124160,6 +124314,23 @@
 {
 "label": "Article",
 "value": "die"
+}
+],
+"pos": "noun"
+},
+"zwilling": {
+"chips": [
+{
+"label": "Article",
+"value": "der"
+},
+{
+"label": "Genitive",
+"value": "Zwillinges"
+},
+{
+"label": "Plural",
+"value": "Zwillinge"
 }
 ],
 "pos": "noun"
@@ -124225,23 +124396,6 @@
 {
 "label": "Plural",
 "value": "Zwischenfälle"
-}
-],
-"pos": "noun"
-},
-"zwischenzeit": {
-"chips": [
-{
-"label": "Article",
-"value": "die"
-},
-{
-"label": "Genitive",
-"value": "Zwischenzeit"
-},
-{
-"label": "Plural",
-"value": "Zwischenzeiten"
 }
 ],
 "pos": "noun"
@@ -124341,6 +124495,19 @@
 }
 ],
 "pos": "noun"
+},
+"zärtlich": {
+"chips": [
+{
+"label": "Comparative",
+"value": "zärtlicher"
+},
+{
+"label": "Superlative",
+"value": "am zärtlichsten"
+}
+],
+"pos": "adj"
 },
 "zögern": {
 "charts": [
@@ -124642,6 +124809,23 @@
 {
 "label": "Article",
 "value": "der"
+}
+],
+"pos": "noun"
+},
+"ära": {
+"chips": [
+{
+"label": "Article",
+"value": "die"
+},
+{
+"label": "Genitive",
+"value": "Ära"
+},
+{
+"label": "Plural",
+"value": "Ären"
 }
 ],
 "pos": "noun"

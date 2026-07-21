@@ -1,13 +1,4 @@
 {
-"ά": {
-"chips": [
-{
-"label": "Gender",
-"value": "neuter"
-}
-],
-"pos": "noun"
-},
 "άγαλμα": {
 "charts": [
 {
@@ -191,6 +182,15 @@
 "title": "Declension"
 }
 ],
+"chips": [
+{
+"label": "Gender",
+"value": "masculine"
+}
+],
+"pos": "noun"
+},
+"άγιε": {
 "chips": [
 {
 "label": "Gender",
@@ -2226,6 +2226,47 @@
 ],
 "pos": "noun"
 },
+"άφεση": {
+"charts": [
+{
+"columns": [
+"",
+"Singular",
+"Plural"
+],
+"rows": [
+[
+"Nom.",
+"άφεση",
+"αφέσεις"
+],
+[
+"Gen.",
+"άφεσης",
+"αφέσεων"
+],
+[
+"Acc.",
+"άφεση",
+"αφέσεις"
+],
+[
+"Voc.",
+"άφεση",
+"αφέσεις"
+]
+],
+"title": "Declension"
+}
+],
+"chips": [
+{
+"label": "Gender",
+"value": "feminine"
+}
+],
+"pos": "noun"
+},
 "άφιξη": {
 "charts": [
 {
@@ -2577,6 +2618,15 @@
 {
 "label": "Gender",
 "value": "feminine"
+}
+],
+"pos": "noun"
+},
+"έθιμα": {
+"chips": [
+{
+"label": "Gender",
+"value": "neuter"
 }
 ],
 "pos": "noun"
@@ -3828,15 +3878,6 @@
 ],
 "pos": "noun"
 },
-"ένορκοι": {
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
-}
-],
-"pos": "noun"
-},
 "ένορκος": {
 "charts": [
 {
@@ -3868,12 +3909,6 @@
 ]
 ],
 "title": "Declension"
-}
-],
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
 }
 ],
 "pos": "noun"
@@ -3927,12 +3962,6 @@
 ]
 ],
 "title": "Declension"
-}
-],
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
 }
 ],
 "pos": "noun"
@@ -4859,24 +4888,6 @@
 ],
 "pos": "noun"
 },
-"έφηβο": {
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
-}
-],
-"pos": "noun"
-},
-"έφηβοι": {
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
-}
-],
-"pos": "noun"
-},
 "έφηβος": {
 "charts": [
 {
@@ -5135,7 +5146,7 @@
 "chips": [
 {
 "label": "Gender",
-"value": "neuter"
+"value": "masculine"
 }
 ],
 "pos": "noun"
@@ -5214,6 +5225,15 @@
 "title": "Declension"
 }
 ],
+"chips": [
+{
+"label": "Gender",
+"value": "neuter"
+}
+],
+"pos": "noun"
+},
+"ήπατος": {
 "chips": [
 {
 "label": "Gender",
@@ -5550,15 +5570,6 @@
 "pos": "noun"
 },
 "α": {
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
-}
-],
-"pos": "noun"
-},
-"α.": {
 "chips": [
 {
 "label": "Gender",
@@ -6072,11 +6083,43 @@
 ],
 "pos": "noun"
 },
-"αα": {
+"αίτιο": {
+"charts": [
+{
+"columns": [
+"",
+"Singular",
+"Plural"
+],
+"rows": [
+[
+"Nom.",
+"αίτιο",
+"αίτια"
+],
+[
+"Gen.",
+"αιτίου",
+"αιτίων"
+],
+[
+"Acc.",
+"αίτιο",
+"αίτια"
+],
+[
+"Voc.",
+"αίτιο",
+"αίτια"
+]
+],
+"title": "Declension"
+}
+],
 "chips": [
 {
 "label": "Gender",
-"value": "masculine"
+"value": "neuter"
 }
 ],
 "pos": "noun"
@@ -6543,6 +6586,15 @@
 ],
 "pos": "noun"
 },
+"αγαπημένου": {
+"chips": [
+{
+"label": "Gender",
+"value": "masculine"
+}
+],
+"pos": "noun"
+},
 "αγαπημένους": {
 "chips": [
 {
@@ -6655,6 +6707,15 @@
 ],
 "pos": "verb"
 },
+"αγγεία": {
+"chips": [
+{
+"label": "Gender",
+"value": "neuter"
+}
+],
+"pos": "noun"
+},
 "αγγελία": {
 "charts": [
 {
@@ -6727,12 +6788,6 @@
 ]
 ],
 "title": "Declension"
-}
-],
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
 }
 ],
 "pos": "noun"
@@ -6915,6 +6970,15 @@
 {
 "label": "Gender",
 "value": "feminine"
+}
+],
+"pos": "noun"
+},
+"αγκάθια": {
+"chips": [
+{
+"label": "Gender",
+"value": "neuter"
 }
 ],
 "pos": "noun"
@@ -7770,88 +7834,6 @@
 ],
 "pos": "noun"
 },
-"αδέρφι": {
-"charts": [
-{
-"columns": [
-"",
-"Singular",
-"Plural"
-],
-"rows": [
-[
-"Nom.",
-"αδέρφι",
-"αδέρφια"
-],
-[
-"Gen.",
-"αδερφιού",
-"αδερφιών"
-],
-[
-"Acc.",
-"αδέρφι",
-"αδέρφια"
-],
-[
-"Voc.",
-"αδέρφι",
-"αδέρφια"
-]
-],
-"title": "Declension"
-}
-],
-"chips": [
-{
-"label": "Gender",
-"value": "neuter"
-}
-],
-"pos": "noun"
-},
-"αδέρφια": {
-"charts": [
-{
-"columns": [
-"",
-"Singular",
-"Plural"
-],
-"rows": [
-[
-"Nom.",
-"—",
-"αδέρφια"
-],
-[
-"Gen.",
-"—",
-"αδερφιών"
-],
-[
-"Acc.",
-"—",
-"αδέρφια"
-],
-[
-"Voc.",
-"—",
-"αδέρφια"
-]
-],
-"title": "Declension"
-}
-],
-"chips": [
-{
-"label": "Gender",
-"value": "neuter"
-}
-],
-"pos": "noun"
-},
 "αδίκημα": {
 "charts": [
 {
@@ -8147,47 +8129,6 @@
 ],
 "pos": "noun"
 },
-"αδερφή": {
-"charts": [
-{
-"columns": [
-"",
-"Singular",
-"Plural"
-],
-"rows": [
-[
-"Nom.",
-"αδερφή",
-"αδερφές"
-],
-[
-"Gen.",
-"αδερφής",
-"αδερφών"
-],
-[
-"Acc.",
-"αδερφή",
-"αδερφές"
-],
-[
-"Voc.",
-"αδερφή",
-"αδερφές"
-]
-],
-"title": "Declension"
-}
-],
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
-}
-],
-"pos": "noun"
-},
 "αδερφής": {
 "chips": [
 {
@@ -8274,7 +8215,7 @@
 ],
 "pos": "noun"
 },
-"αδερφός": {
+"αδιάβροχο": {
 "charts": [
 {
 "columns": [
@@ -8285,23 +8226,23 @@
 "rows": [
 [
 "Nom.",
-"αδερφός",
-"αδερφοί"
+"αδιάβροχο",
+"αδιάβροχα"
 ],
 [
 "Gen.",
-"αδερφού",
-"αδερφών"
+"αδιάβροχου",
+"αδιάβροχων"
 ],
 [
 "Acc.",
-"αδερφό",
-"αδερφούς"
+"αδιάβροχο",
+"αδιάβροχα"
 ],
 [
 "Voc.",
-"αδερφέ",
-"αδερφοί"
+"αδιάβροχο",
+"αδιάβροχα"
 ]
 ],
 "title": "Declension"
@@ -8310,7 +8251,7 @@
 "chips": [
 {
 "label": "Gender",
-"value": "masculine"
+"value": "neuter"
 }
 ],
 "pos": "noun"
@@ -8632,6 +8573,15 @@
 ],
 "pos": "noun"
 },
+"αεραγωγό": {
+"chips": [
+{
+"label": "Gender",
+"value": "masculine"
+}
+],
+"pos": "noun"
+},
 "αεροδρομίου": {
 "chips": [
 {
@@ -8846,6 +8796,41 @@
 {
 "label": "Gender",
 "value": "neuter"
+}
+],
+"pos": "noun"
+},
+"αεροσυνοδός": {
+"charts": [
+{
+"columns": [
+"",
+"Singular",
+"Plural"
+],
+"rows": [
+[
+"Nom.",
+"αεροσυνοδός",
+"αεροσυνοδοί"
+],
+[
+"Gen.",
+"αεροσυνοδού",
+"αεροσυνοδών"
+],
+[
+"Acc.",
+"αεροσυνοδό",
+"αεροσυνοδούς"
+],
+[
+"Voc.",
+"αεροσυνοδέ",
+"αεροσυνοδοί"
+]
+],
+"title": "Declension"
 }
 ],
 "pos": "noun"
@@ -9223,6 +9208,15 @@
 ],
 "pos": "noun"
 },
+"αιδεσιμότατο": {
+"chips": [
+{
+"label": "Gender",
+"value": "masculine"
+}
+],
+"pos": "noun"
+},
 "αιδεσιμότατος": {
 "charts": [
 {
@@ -9495,6 +9489,47 @@
 "Voc.",
 "αισιοδοξία",
 "—"
+]
+],
+"title": "Declension"
+}
+],
+"chips": [
+{
+"label": "Gender",
+"value": "feminine"
+}
+],
+"pos": "noun"
+},
+"αισιόδοξη": {
+"charts": [
+{
+"columns": [
+"",
+"Singular",
+"Plural"
+],
+"rows": [
+[
+"Nom.",
+"αισιόδοξη",
+"αισιόδοξες"
+],
+[
+"Gen.",
+"αισιόδοξης",
+"—"
+],
+[
+"Acc.",
+"αισιόδοξη",
+"αισιόδοξες"
+],
+[
+"Voc.",
+"αισιόδοξη",
+"αισιόδοξες"
 ]
 ],
 "title": "Declension"
@@ -9945,6 +9980,47 @@
 {
 "label": "Gender",
 "value": "neuter"
+}
+],
+"pos": "noun"
+},
+"ακμή": {
+"charts": [
+{
+"columns": [
+"",
+"Singular",
+"Plural"
+],
+"rows": [
+[
+"Nom.",
+"ακμή",
+"ακμές"
+],
+[
+"Gen.",
+"ακμής",
+"ακμών"
+],
+[
+"Acc.",
+"ακμή",
+"ακμές"
+],
+[
+"Voc.",
+"ακμή",
+"ακμές"
+]
+],
+"title": "Declension"
+}
+],
+"chips": [
+{
+"label": "Gender",
+"value": "feminine"
 }
 ],
 "pos": "noun"
@@ -11599,47 +11675,6 @@
 ],
 "pos": "noun"
 },
-"αμερικάνος": {
-"charts": [
-{
-"columns": [
-"",
-"Singular",
-"Plural"
-],
-"rows": [
-[
-"Nom.",
-"Αμερικάνος",
-"Αμερικάνοι"
-],
-[
-"Gen.",
-"Αμερικάνου",
-"Αμερικάνων"
-],
-[
-"Acc.",
-"Αμερικάνο",
-"Αμερικάνους"
-],
-[
-"Voc.",
-"Αμερικάνε",
-"Αμερικάνοι"
-]
-],
-"title": "Declension"
-}
-],
-"chips": [
-{
-"label": "Gender",
-"value": "masculine"
-}
-],
-"pos": "noun"
-},
 "αμερικάνους": {
 "chips": [
 {
@@ -12112,6 +12147,47 @@
 ],
 "pos": "noun"
 },
+"αμφισβήτηση": {
+"charts": [
+{
+"columns": [
+"",
+"Singular",
+"Plural"
+],
+"rows": [
+[
+"Nom.",
+"αμφισβήτηση",
+"αμφισβητήσεις"
+],
+[
+"Gen.",
+"αμφισβήτησης",
+"αμφισβητήσεων"
+],
+[
+"Acc.",
+"αμφισβήτηση",
+"αμφισβητήσεις"
+],
+[
+"Voc.",
+"αμφισβήτηση",
+"αμφισβητήσεις"
+]
+],
+"title": "Declension"
+}
+],
+"chips": [
+{
+"label": "Gender",
+"value": "feminine"
+}
+],
+"pos": "noun"
+},
 "αμφισβητώ": {
 "charts": [
 {
@@ -12356,6 +12432,47 @@
 ],
 "pos": "noun"
 },
+"ανάκτηση": {
+"charts": [
+{
+"columns": [
+"",
+"Singular",
+"Plural"
+],
+"rows": [
+[
+"Nom.",
+"ανάκτηση",
+"ανακτήσεις"
+],
+[
+"Gen.",
+"ανάκτησης",
+"ανακτήσεων"
+],
+[
+"Acc.",
+"ανάκτηση",
+"ανακτήσεις"
+],
+[
+"Voc.",
+"ανάκτηση",
+"ανακτήσεις"
+]
+],
+"title": "Declension"
+}
+],
+"chips": [
+{
+"label": "Gender",
+"value": "feminine"
+}
+],
+"pos": "noun"
+},
 "ανάληψη": {
 "charts": [
 {
@@ -12475,47 +12592,6 @@
 "Voc.",
 "ανάμειξη",
 "αναμείξεις"
-]
-],
-"title": "Declension"
-}
-],
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
-}
-],
-"pos": "noun"
-},
-"ανάμιξη": {
-"charts": [
-{
-"columns": [
-"",
-"Singular",
-"Plural"
-],
-"rows": [
-[
-"Nom.",
-"ανάμιξη",
-"αναμίξεις"
-],
-[
-"Gen.",
-"ανάμιξης",
-"αναμίξεων"
-],
-[
-"Acc.",
-"ανάμιξη",
-"αναμίξεις"
-],
-[
-"Voc.",
-"ανάμιξη",
-"αναμίξεις"
 ]
 ],
 "title": "Declension"
@@ -13384,19 +13460,6 @@
 ],
 "pos": "noun"
 },
-"αναζητώ": {
-"chips": [
-{
-"label": "Aorist",
-"value": "αναζήτησα"
-},
-{
-"label": "Passive",
-"value": "αναζητούμαι"
-}
-],
-"pos": "verb"
-},
 "αναισθησία": {
 "charts": [
 {
@@ -13953,6 +14016,15 @@
 ],
 "pos": "noun"
 },
+"αναμένω": {
+"chips": [
+{
+"label": "Aorist",
+"value": "ανέμεινα"
+}
+],
+"pos": "verb"
+},
 "αναμέτρηση": {
 "charts": [
 {
@@ -14135,6 +14207,15 @@
 ],
 "pos": "noun"
 },
+"ανανά": {
+"chips": [
+{
+"label": "Gender",
+"value": "masculine"
+}
+],
+"pos": "noun"
+},
 "αναπαράσταση": {
 "charts": [
 {
@@ -14204,6 +14285,56 @@
 "Voc.",
 "αναπαραγωγή",
 "αναπαραγωγές"
+]
+],
+"title": "Declension"
+}
+],
+"chips": [
+{
+"label": "Gender",
+"value": "feminine"
+}
+],
+"pos": "noun"
+},
+"αναπαραγωγής": {
+"chips": [
+{
+"label": "Gender",
+"value": "feminine"
+}
+],
+"pos": "noun"
+},
+"αναπηρία": {
+"charts": [
+{
+"columns": [
+"",
+"Singular",
+"Plural"
+],
+"rows": [
+[
+"Nom.",
+"αναπηρία",
+"αναπηρίες"
+],
+[
+"Gen.",
+"αναπηρίας",
+"αναπηριών"
+],
+[
+"Acc.",
+"αναπηρία",
+"αναπηρίες"
+],
+[
+"Voc.",
+"αναπηρία",
+"αναπηρίες"
 ]
 ],
 "title": "Declension"
@@ -14544,6 +14675,47 @@
 "pos": "noun"
 },
 "αναστολής": {
+"chips": [
+{
+"label": "Gender",
+"value": "feminine"
+}
+],
+"pos": "noun"
+},
+"αναστροφή": {
+"charts": [
+{
+"columns": [
+"",
+"Singular",
+"Plural"
+],
+"rows": [
+[
+"Nom.",
+"αναστροφή",
+"αναστροφές"
+],
+[
+"Gen.",
+"αναστροφής",
+"αναστροφών"
+],
+[
+"Acc.",
+"αναστροφή",
+"αναστροφές"
+],
+[
+"Voc.",
+"αναστροφή",
+"αναστροφές"
+]
+],
+"title": "Declension"
+}
+],
 "chips": [
 {
 "label": "Gender",
@@ -14946,6 +15118,47 @@
 ],
 "pos": "noun"
 },
+"ανδρεία": {
+"charts": [
+{
+"columns": [
+"",
+"Singular",
+"Plural"
+],
+"rows": [
+[
+"Nom.",
+"ανδρεία",
+"ανδρείες"
+],
+[
+"Gen.",
+"ανδρείας",
+"—"
+],
+[
+"Acc.",
+"ανδρεία",
+"ανδρείες"
+],
+[
+"Voc.",
+"ανδρεία",
+"ανδρείες"
+]
+],
+"title": "Declension"
+}
+],
+"chips": [
+{
+"label": "Gender",
+"value": "feminine"
+}
+],
+"pos": "noun"
+},
 "ανδρών": {
 "chips": [
 {
@@ -15244,7 +15457,7 @@
 ],
 "pos": "verb"
 },
-"ανηψιά": {
+"ανθρωπάκι": {
 "charts": [
 {
 "columns": [
@@ -15255,23 +15468,18 @@
 "rows": [
 [
 "Nom.",
-"ανηψιά",
-"ανηψιές"
-],
-[
-"Gen.",
-"ανηψιάς",
-"ανηψιών"
+"ανθρωπάκι",
+"ανθρωπάκια"
 ],
 [
 "Acc.",
-"ανηψιά",
-"ανηψιές"
+"ανθρωπάκι",
+"ανθρωπάκια"
 ],
 [
 "Voc.",
-"ανηψιά",
-"ανηψιές"
+"ανθρωπάκι",
+"ανθρωπάκια"
 ]
 ],
 "title": "Declension"
@@ -15280,48 +15488,7 @@
 "chips": [
 {
 "label": "Gender",
-"value": "feminine"
-}
-],
-"pos": "noun"
-},
-"ανηψιός": {
-"charts": [
-{
-"columns": [
-"",
-"Singular",
-"Plural"
-],
-"rows": [
-[
-"Nom.",
-"ανηψιός",
-"ανηψιοί"
-],
-[
-"Gen.",
-"ανηψιού",
-"ανηψιών"
-],
-[
-"Acc.",
-"ανηψιό",
-"ανηψιούς"
-],
-[
-"Voc.",
-"ανηψιέ",
-"ανηψιοί"
-]
-],
-"title": "Declension"
-}
-],
-"chips": [
-{
-"label": "Gender",
-"value": "masculine"
+"value": "neuter"
 }
 ],
 "pos": "noun"
@@ -16319,24 +16486,6 @@
 ],
 "pos": "noun"
 },
-"αντίπαλο": {
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
-}
-],
-"pos": "noun"
-},
-"αντίπαλοι": {
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
-}
-],
-"pos": "noun"
-},
 "αντίπαλος": {
 "charts": [
 {
@@ -16368,12 +16517,6 @@
 ]
 ],
 "title": "Declension"
-}
-],
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
 }
 ],
 "pos": "noun"
@@ -16511,6 +16654,47 @@
 "pos": "noun"
 },
 "αντίστροφα": {
+"chips": [
+{
+"label": "Gender",
+"value": "neuter"
+}
+],
+"pos": "noun"
+},
+"αντίτιμο": {
+"charts": [
+{
+"columns": [
+"",
+"Singular",
+"Plural"
+],
+"rows": [
+[
+"Nom.",
+"αντίτιμο",
+"αντίτιμα"
+],
+[
+"Gen.",
+"αντίτιμου",
+"αντίτιμων"
+],
+[
+"Acc.",
+"αντίτιμο",
+"αντίτιμα"
+],
+[
+"Voc.",
+"αντίτιμο",
+"αντίτιμα"
+]
+],
+"title": "Declension"
+}
+],
 "chips": [
 {
 "label": "Gender",
@@ -16851,6 +17035,47 @@
 ],
 "pos": "noun"
 },
+"αντηλιακό": {
+"charts": [
+{
+"columns": [
+"",
+"Singular",
+"Plural"
+],
+"rows": [
+[
+"Nom.",
+"αντηλιακό",
+"αντηλιακά"
+],
+[
+"Gen.",
+"αντηλιακού",
+"αντηλιακών"
+],
+[
+"Acc.",
+"αντηλιακό",
+"αντηλιακά"
+],
+[
+"Voc.",
+"αντηλιακό",
+"αντηλιακά"
+]
+],
+"title": "Declension"
+}
+],
+"chips": [
+{
+"label": "Gender",
+"value": "neuter"
+}
+],
+"pos": "noun"
+},
 "αντιβιοτικά": {
 "chips": [
 {
@@ -17122,15 +17347,6 @@
 ],
 "pos": "noun"
 },
-"αντιπάλους": {
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
-}
-],
-"pos": "noun"
-},
 "αντιπαράθεση": {
 "charts": [
 {
@@ -17272,24 +17488,6 @@
 ],
 "pos": "noun"
 },
-"αντιπρόεδρε": {
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
-}
-],
-"pos": "noun"
-},
-"αντιπρόεδρο": {
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
-}
-],
-"pos": "noun"
-},
 "αντιπρόεδρος": {
 "charts": [
 {
@@ -17321,12 +17519,6 @@
 ]
 ],
 "title": "Declension"
-}
-],
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
 }
 ],
 "pos": "noun"
@@ -17362,12 +17554,6 @@
 ]
 ],
 "title": "Declension"
-}
-],
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
 }
 ],
 "pos": "noun"
@@ -17414,6 +17600,15 @@
 "title": "Declension"
 }
 ],
+"chips": [
+{
+"label": "Gender",
+"value": "feminine"
+}
+],
+"pos": "noun"
+},
+"αντλίες": {
 "chips": [
 {
 "label": "Gender",
@@ -17477,6 +17672,47 @@
 {
 "label": "Gender",
 "value": "masculine"
+}
+],
+"pos": "noun"
+},
+"ανυπακοή": {
+"charts": [
+{
+"columns": [
+"",
+"Singular",
+"Plural"
+],
+"rows": [
+[
+"Nom.",
+"ανυπακοή",
+"—"
+],
+[
+"Gen.",
+"ανυπακοής",
+"—"
+],
+[
+"Acc.",
+"ανυπακοή",
+"—"
+],
+[
+"Voc.",
+"ανυπακοή",
+"—"
+]
+],
+"title": "Declension"
+}
+],
+"chips": [
+{
+"label": "Gender",
+"value": "feminine"
 }
 ],
 "pos": "noun"
@@ -18261,15 +18497,6 @@
 ],
 "pos": "verb"
 },
-"απαγωγέα": {
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
-}
-],
-"pos": "noun"
-},
 "απαγωγέας": {
 "charts": [
 {
@@ -18301,12 +18528,6 @@
 ]
 ],
 "title": "Declension"
-}
-],
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
 }
 ],
 "pos": "noun"
@@ -18362,15 +18583,6 @@
 "pos": "noun"
 },
 "απαγωγής": {
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
-}
-],
-"pos": "noun"
-},
-"απαγωγείς": {
 "chips": [
 {
 "label": "Gender",
@@ -18566,19 +18778,6 @@
 }
 ],
 "pos": "noun"
-},
-"απαντώ": {
-"chips": [
-{
-"label": "Aorist",
-"value": "απάντησα"
-},
-{
-"label": "Passive",
-"value": "απαντώμαι"
-}
-],
-"pos": "verb"
 },
 "απασχόληση": {
 "charts": [
@@ -19176,6 +19375,50 @@
 ],
 "pos": "noun"
 },
+"απογοητεύω": {
+"charts": [
+{
+"rows": [
+[
+"εγώ",
+"απογοητεύω"
+],
+[
+"εσύ",
+"απογοητεύεις"
+],
+[
+"αυτός/-ή",
+"απογοητεύει"
+],
+[
+"εμείς",
+"απογοητεύουμε"
+],
+[
+"εσείς",
+"απογοητεύετε"
+],
+[
+"αυτοί",
+"απογοητεύουν"
+]
+],
+"title": "Present"
+}
+],
+"chips": [
+{
+"label": "Aorist",
+"value": "απογοήτευσα"
+},
+{
+"label": "Passive",
+"value": "απογοητεύομαι"
+}
+],
+"pos": "verb"
+},
 "απογραφή": {
 "charts": [
 {
@@ -19390,6 +19633,15 @@
 "pos": "noun"
 },
 "αποθήκες": {
+"chips": [
+{
+"label": "Gender",
+"value": "feminine"
+}
+],
+"pos": "noun"
+},
+"αποθήκευσης": {
 "chips": [
 {
 "label": "Gender",
@@ -20057,6 +20309,47 @@
 ],
 "pos": "noun"
 },
+"αποσμητικό": {
+"charts": [
+{
+"columns": [
+"",
+"Singular",
+"Plural"
+],
+"rows": [
+[
+"Nom.",
+"αποσμητικό",
+"αποσμητικά"
+],
+[
+"Gen.",
+"αποσμητικού",
+"αποσμητικών"
+],
+[
+"Acc.",
+"αποσμητικό",
+"αποσμητικά"
+],
+[
+"Voc.",
+"αποσμητικό",
+"αποσμητικά"
+]
+],
+"title": "Declension"
+}
+],
+"chips": [
+{
+"label": "Gender",
+"value": "neuter"
+}
+],
+"pos": "noun"
+},
 "αποστάσεις": {
 "chips": [
 {
@@ -20338,6 +20631,15 @@
 ],
 "pos": "noun"
 },
+"αποτυχίας": {
+"chips": [
+{
+"label": "Gender",
+"value": "feminine"
+}
+],
+"pos": "noun"
+},
 "αποτυχίες": {
 "chips": [
 {
@@ -20425,6 +20727,15 @@
 {
 "label": "Gender",
 "value": "feminine"
+}
+],
+"pos": "noun"
+},
+"αποφάγια": {
+"chips": [
+{
+"label": "Gender",
+"value": "neuter"
 }
 ],
 "pos": "noun"
@@ -20853,12 +21164,6 @@
 ]
 ],
 "title": "Declension"
-}
-],
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
 }
 ],
 "pos": "noun"
@@ -21497,12 +21802,6 @@
 "title": "Declension"
 }
 ],
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
-}
-],
 "pos": "noun"
 },
 "απόψεις": {
@@ -21547,6 +21846,15 @@
 "title": "Declension"
 }
 ],
+"chips": [
+{
+"label": "Gender",
+"value": "feminine"
+}
+],
+"pos": "noun"
+},
+"απώλειας": {
 "chips": [
 {
 "label": "Gender",
@@ -21927,15 +22235,6 @@
 ],
 "pos": "noun"
 },
-"αριθ.": {
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
-}
-],
-"pos": "noun"
-},
 "αριθμοί": {
 "chips": [
 {
@@ -21996,6 +22295,15 @@
 "title": "Declension"
 }
 ],
+"chips": [
+{
+"label": "Gender",
+"value": "masculine"
+}
+],
+"pos": "noun"
+},
+"αριθμών": {
 "chips": [
 {
 "label": "Gender",
@@ -22076,12 +22384,6 @@
 ]
 ],
 "title": "Declension"
-}
-],
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
 }
 ],
 "pos": "noun"
@@ -22753,6 +23055,15 @@
 ],
 "pos": "noun"
 },
+"αρτηρίες": {
+"chips": [
+{
+"label": "Gender",
+"value": "feminine"
+}
+],
+"pos": "noun"
+},
 "αρχές": {
 "chips": [
 {
@@ -23002,15 +23313,6 @@
 ],
 "pos": "noun"
 },
-"αρχηγέ": {
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
-}
-],
-"pos": "noun"
-},
 "αρχηγείο": {
 "charts": [
 {
@@ -23048,42 +23350,6 @@
 {
 "label": "Gender",
 "value": "neuter"
-}
-],
-"pos": "noun"
-},
-"αρχηγοί": {
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
-}
-],
-"pos": "noun"
-},
-"αρχηγού": {
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
-}
-],
-"pos": "noun"
-},
-"αρχηγούς": {
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
-}
-],
-"pos": "noun"
-},
-"αρχηγό": {
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
 }
 ],
 "pos": "noun"
@@ -23201,12 +23467,6 @@
 ]
 ],
 "title": "Declension"
-}
-],
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
 }
 ],
 "pos": "noun"
@@ -23493,6 +23753,15 @@
 ],
 "pos": "noun"
 },
+"ασημικά": {
+"chips": [
+{
+"label": "Gender",
+"value": "neuter"
+}
+],
+"pos": "noun"
+},
 "ασθένεια": {
 "charts": [
 {
@@ -23583,12 +23852,6 @@
 ]
 ],
 "title": "Declension"
-}
-],
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
 }
 ],
 "pos": "noun"
@@ -24160,33 +24423,6 @@
 ],
 "pos": "noun"
 },
-"αστυνόμε": {
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
-}
-],
-"pos": "noun"
-},
-"αστυνόμο": {
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
-}
-],
-"pos": "noun"
-},
-"αστυνόμοι": {
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
-}
-],
-"pos": "noun"
-},
 "αστυνόμος": {
 "charts": [
 {
@@ -24218,21 +24454,6 @@
 ]
 ],
 "title": "Declension"
-}
-],
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
-}
-],
-"pos": "noun"
-},
-"αστυφύλακα": {
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
 }
 ],
 "pos": "noun"
@@ -24268,12 +24489,6 @@
 ]
 ],
 "title": "Declension"
-}
-],
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
 }
 ],
 "pos": "noun"
@@ -24691,15 +24906,6 @@
 ],
 "pos": "noun"
 },
-"ατμ": {
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
-}
-],
-"pos": "noun"
-},
 "ατμό": {
 "chips": [
 {
@@ -24746,6 +24952,15 @@
 {
 "label": "Gender",
 "value": "feminine"
+}
+],
+"pos": "noun"
+},
+"ατού": {
+"chips": [
+{
+"label": "Gender",
+"value": "neuter"
 }
 ],
 "pos": "noun"
@@ -25000,6 +25215,47 @@
 ],
 "pos": "noun"
 },
+"αυθεντία": {
+"charts": [
+{
+"columns": [
+"",
+"Singular",
+"Plural"
+],
+"rows": [
+[
+"Nom.",
+"αυθεντία",
+"αυθεντίες"
+],
+[
+"Gen.",
+"αυθεντίας",
+"αυθεντιών"
+],
+[
+"Acc.",
+"αυθεντία",
+"αυθεντίες"
+],
+[
+"Voc.",
+"αυθεντία",
+"αυθεντίες"
+]
+],
+"title": "Declension"
+}
+],
+"chips": [
+{
+"label": "Gender",
+"value": "feminine"
+}
+],
+"pos": "noun"
+},
 "αυλή": {
 "charts": [
 {
@@ -25055,47 +25311,6 @@
 {
 "label": "Gender",
 "value": "feminine"
-}
-],
-"pos": "noun"
-},
-"αυτί": {
-"charts": [
-{
-"columns": [
-"",
-"Singular",
-"Plural"
-],
-"rows": [
-[
-"Nom.",
-"αυτί",
-"αυτιά"
-],
-[
-"Gen.",
-"αυτιού",
-"αυτιών"
-],
-[
-"Acc.",
-"αυτί",
-"αυτιά"
-],
-[
-"Voc.",
-"αυτί",
-"αυτιά"
-]
-],
-"title": "Declension"
-}
-],
-"chips": [
-{
-"label": "Gender",
-"value": "neuter"
 }
 ],
 "pos": "noun"
@@ -25427,6 +25642,15 @@
 ],
 "pos": "noun"
 },
+"αυτοκτονίες": {
+"chips": [
+{
+"label": "Gender",
+"value": "feminine"
+}
+],
+"pos": "noun"
+},
 "αυτοκόλλητο": {
 "charts": [
 {
@@ -25672,12 +25896,6 @@
 ]
 ],
 "title": "Declension"
-}
-],
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
 }
 ],
 "pos": "noun"
@@ -26331,15 +26549,6 @@
 ],
 "pos": "noun"
 },
-"αύριο": {
-"chips": [
-{
-"label": "Gender",
-"value": "neuter"
-}
-],
-"pos": "noun"
-},
 "β": {
 "chips": [
 {
@@ -26512,6 +26721,15 @@
 "pos": "noun"
 },
 "βάλτους": {
+"chips": [
+{
+"label": "Gender",
+"value": "masculine"
+}
+],
+"pos": "noun"
+},
+"βάρβαρο": {
 "chips": [
 {
 "label": "Gender",
@@ -27133,47 +27351,6 @@
 ],
 "pos": "noun"
 },
-"βίλα": {
-"charts": [
-{
-"columns": [
-"",
-"Singular",
-"Plural"
-],
-"rows": [
-[
-"Nom.",
-"βίλα",
-"βίλες"
-],
-[
-"Gen.",
-"βίλας",
-"βιλών"
-],
-[
-"Acc.",
-"βίλα",
-"βίλες"
-],
-[
-"Voc.",
-"βίλα",
-"βίλες"
-]
-],
-"title": "Declension"
-}
-],
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
-}
-],
-"pos": "noun"
-},
 "βίντεο": {
 "charts": [
 {
@@ -27248,6 +27425,15 @@
 "title": "Declension"
 }
 ],
+"chips": [
+{
+"label": "Gender",
+"value": "neuter"
+}
+],
+"pos": "noun"
+},
+"βαγόνια": {
 "chips": [
 {
 "label": "Gender",
@@ -28115,6 +28301,47 @@
 "pos": "noun"
 },
 "βασιλικό": {
+"chips": [
+{
+"label": "Gender",
+"value": "masculine"
+}
+],
+"pos": "noun"
+},
+"βασιλικός": {
+"charts": [
+{
+"columns": [
+"",
+"Singular",
+"Plural"
+],
+"rows": [
+[
+"Nom.",
+"βασιλικός",
+"βασιλικοί"
+],
+[
+"Gen.",
+"βασιλικού",
+"βασιλικών"
+],
+[
+"Acc.",
+"βασιλικό",
+"βασιλικούς"
+],
+[
+"Voc.",
+"βασιλικέ",
+"βασιλικοί"
+]
+],
+"title": "Declension"
+}
+],
 "chips": [
 {
 "label": "Gender",
@@ -29721,52 +29948,7 @@
 ],
 "pos": "verb"
 },
-"βοηθέ": {
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
-}
-],
-"pos": "noun"
-},
 "βοηθειών": {
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
-}
-],
-"pos": "noun"
-},
-"βοηθοί": {
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
-}
-],
-"pos": "noun"
-},
-"βοηθού": {
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
-}
-],
-"pos": "noun"
-},
-"βοηθούς": {
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
-}
-],
-"pos": "noun"
-},
-"βοηθό": {
 "chips": [
 {
 "label": "Gender",
@@ -29808,26 +29990,7 @@
 "title": "Declension"
 }
 ],
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
-}
-],
 "pos": "noun"
-},
-"βοηθώ": {
-"chips": [
-{
-"label": "Aorist",
-"value": "βοήθησα"
-},
-{
-"label": "Passive",
-"value": "βοηθούμαι"
-}
-],
-"pos": "verb"
 },
 "βολή": {
 "charts": [
@@ -29870,6 +30033,24 @@
 ],
 "pos": "noun"
 },
+"βολτ": {
+"chips": [
+{
+"label": "Gender",
+"value": "neuter"
+}
+],
+"pos": "noun"
+},
+"βομβαρδιστικά": {
+"chips": [
+{
+"label": "Gender",
+"value": "neuter"
+}
+],
+"pos": "noun"
+},
 "βομβιστής": {
 "charts": [
 {
@@ -29907,6 +30088,88 @@
 {
 "label": "Gender",
 "value": "masculine"
+}
+],
+"pos": "noun"
+},
+"βοοειδή": {
+"charts": [
+{
+"columns": [
+"",
+"Singular",
+"Plural"
+],
+"rows": [
+[
+"Nom.",
+"—",
+"βοοειδή"
+],
+[
+"Gen.",
+"—",
+"βοοειδών"
+],
+[
+"Acc.",
+"—",
+"βοοειδή"
+],
+[
+"Voc.",
+"—",
+"βοοειδή"
+]
+],
+"title": "Declension"
+}
+],
+"chips": [
+{
+"label": "Gender",
+"value": "neuter"
+}
+],
+"pos": "noun"
+},
+"βορειοδυτικά": {
+"charts": [
+{
+"columns": [
+"",
+"Singular",
+"Plural"
+],
+"rows": [
+[
+"Nom.",
+"—",
+"βορειοδυτικά"
+],
+[
+"Gen.",
+"—",
+"βορειοδυτικών"
+],
+[
+"Acc.",
+"—",
+"βορειοδυτικά"
+],
+[
+"Voc.",
+"—",
+"βορειοδυτικά"
+]
+],
+"title": "Declension"
+}
+],
+"chips": [
+{
+"label": "Gender",
+"value": "neuter"
 }
 ],
 "pos": "noun"
@@ -29992,12 +30255,6 @@
 ]
 ],
 "title": "Declension"
-}
-],
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
 }
 ],
 "pos": "noun"
@@ -30217,15 +30474,6 @@
 "title": "Declension"
 }
 ],
-"chips": [
-{
-"label": "Gender",
-"value": "neuter"
-}
-],
-"pos": "noun"
-},
-"βράδι": {
 "chips": [
 {
 "label": "Gender",
@@ -30678,6 +30926,15 @@
 ],
 "pos": "noun"
 },
+"βρακιά": {
+"chips": [
+{
+"label": "Gender",
+"value": "neuter"
+}
+],
+"pos": "noun"
+},
 "βραχιόλι": {
 "charts": [
 {
@@ -30910,6 +31167,15 @@
 {
 "label": "Gender",
 "value": "feminine"
+}
+],
+"pos": "noun"
+},
+"βρυκόλακες": {
+"chips": [
+{
+"label": "Gender",
+"value": "masculine"
 }
 ],
 "pos": "noun"
@@ -31382,15 +31648,6 @@
 ],
 "pos": "noun"
 },
-"γάμμα": {
-"chips": [
-{
-"label": "Gender",
-"value": "neuter"
-}
-],
-"pos": "noun"
-},
 "γάμο": {
 "chips": [
 {
@@ -31682,6 +31939,47 @@
 {
 "label": "Gender",
 "value": "neuter"
+}
+],
+"pos": "noun"
+},
+"γέμιση": {
+"charts": [
+{
+"columns": [
+"",
+"Singular",
+"Plural"
+],
+"rows": [
+[
+"Nom.",
+"γέμιση",
+"γεμίσεις"
+],
+[
+"Gen.",
+"γέμισης",
+"γεμίσεων"
+],
+[
+"Acc.",
+"γέμιση",
+"γεμίσεις"
+],
+[
+"Voc.",
+"γέμιση",
+"γεμίσεις"
+]
+],
+"title": "Declension"
+}
+],
+"chips": [
+{
+"label": "Gender",
+"value": "feminine"
 }
 ],
 "pos": "noun"
@@ -32258,6 +32556,50 @@
 ],
 "pos": "noun"
 },
+"γαμάω": {
+"charts": [
+{
+"rows": [
+[
+"εγώ",
+"γαμάω"
+],
+[
+"εσύ",
+"γαμάς"
+],
+[
+"αυτός/-ή",
+"γαμάει"
+],
+[
+"εμείς",
+"γαμάμε"
+],
+[
+"εσείς",
+"γαμάτε"
+],
+[
+"αυτοί",
+"γαμάνε"
+]
+],
+"title": "Present"
+}
+],
+"chips": [
+{
+"label": "Aorist",
+"value": "γάμησα"
+},
+{
+"label": "Passive",
+"value": "γαμιέμαι"
+}
+],
+"pos": "verb"
+},
 "γαμήσι": {
 "charts": [
 {
@@ -32309,6 +32651,47 @@
 "pos": "noun"
 },
 "γαμιόληδες": {
+"chips": [
+{
+"label": "Gender",
+"value": "masculine"
+}
+],
+"pos": "noun"
+},
+"γαμιόλης": {
+"charts": [
+{
+"columns": [
+"",
+"Singular",
+"Plural"
+],
+"rows": [
+[
+"Nom.",
+"γαμιόλης",
+"γαμιόληδες"
+],
+[
+"Gen.",
+"γαμιόλη",
+"γαμιόληδων"
+],
+[
+"Acc.",
+"γαμιόλη",
+"γαμιόληδες"
+],
+[
+"Voc.",
+"γαμιόλη",
+"γαμιόληδες"
+]
+],
+"title": "Declension"
+}
+],
 "chips": [
 {
 "label": "Gender",
@@ -33333,6 +33716,15 @@
 ],
 "pos": "noun"
 },
+"γερμανών": {
+"chips": [
+{
+"label": "Gender",
+"value": "masculine"
+}
+],
+"pos": "noun"
+},
 "γερουσία": {
 "charts": [
 {
@@ -33374,7 +33766,7 @@
 ],
 "pos": "noun"
 },
-"γερουσιαστή": {
+"γερουσίας": {
 "chips": [
 {
 "label": "Gender",
@@ -33414,12 +33806,6 @@
 ]
 ],
 "title": "Declension"
-}
-],
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
 }
 ],
 "pos": "noun"
@@ -33511,6 +33897,15 @@
 {
 "label": "Gender",
 "value": "neuter"
+}
+],
+"pos": "noun"
+},
+"γεύσεις": {
+"chips": [
+{
+"label": "Gender",
+"value": "feminine"
 }
 ],
 "pos": "noun"
@@ -33806,51 +34201,6 @@
 ],
 "pos": "noun"
 },
-"γιατρέ": {
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
-}
-],
-"pos": "noun"
-},
-"γιατροί": {
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
-}
-],
-"pos": "noun"
-},
-"γιατρού": {
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
-}
-],
-"pos": "noun"
-},
-"γιατρούς": {
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
-}
-],
-"pos": "noun"
-},
-"γιατρό": {
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
-}
-],
-"pos": "noun"
-},
 "γιατρός": {
 "charts": [
 {
@@ -33884,12 +34234,6 @@
 "title": "Declension"
 }
 ],
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
-}
-],
 "pos": "noun"
 },
 "γιε": {
@@ -33897,15 +34241,6 @@
 {
 "label": "Gender",
 "value": "masculine"
-}
-],
-"pos": "noun"
-},
-"γιεν": {
-"chips": [
-{
-"label": "Gender",
-"value": "neuter"
 }
 ],
 "pos": "noun"
@@ -34404,47 +34739,6 @@
 ],
 "pos": "noun"
 },
-"γλέντι": {
-"charts": [
-{
-"columns": [
-"",
-"Singular",
-"Plural"
-],
-"rows": [
-[
-"Nom.",
-"γλέντι",
-"γλέντια"
-],
-[
-"Gen.",
-"γλεντιού",
-"γλεντιών"
-],
-[
-"Acc.",
-"γλέντι",
-"γλέντια"
-],
-[
-"Voc.",
-"γλέντι",
-"γλέντια"
-]
-],
-"title": "Declension"
-}
-],
-"chips": [
-{
-"label": "Gender",
-"value": "neuter"
-}
-],
-"pos": "noun"
-},
 "γλυκά": {
 "chips": [
 {
@@ -34930,15 +35224,6 @@
 ],
 "pos": "noun"
 },
-"γονέων": {
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
-}
-],
-"pos": "noun"
-},
 "γονίδια": {
 "chips": [
 {
@@ -34985,56 +35270,6 @@
 {
 "label": "Gender",
 "value": "neuter"
-}
-],
-"pos": "noun"
-},
-"γονείς": {
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
-}
-],
-"pos": "noun"
-},
-"γονιός": {
-"charts": [
-{
-"columns": [
-"",
-"Singular",
-"Plural"
-],
-"rows": [
-[
-"Nom.",
-"γονιός",
-"γονιοί"
-],
-[
-"Gen.",
-"γονιού",
-"γονιών"
-],
-[
-"Acc.",
-"γονιό",
-"γονιούς"
-],
-[
-"Voc.",
-"γονιέ",
-"γονιοί"
-]
-],
-"title": "Declension"
-}
-],
-"chips": [
-{
-"label": "Gender",
-"value": "masculine"
 }
 ],
 "pos": "noun"
@@ -35596,6 +35831,15 @@
 ],
 "pos": "noun"
 },
+"γρίφους": {
+"chips": [
+{
+"label": "Gender",
+"value": "masculine"
+}
+],
+"pos": "noun"
+},
 "γραβάτα": {
 "charts": [
 {
@@ -35705,15 +35949,6 @@
 ],
 "pos": "noun"
 },
-"γραμματέα": {
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
-}
-],
-"pos": "noun"
-},
 "γραμματέας": {
 "charts": [
 {
@@ -35747,53 +35982,6 @@
 "title": "Declension"
 }
 ],
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
-}
-],
-"pos": "noun"
-},
-"γραμματοκιβώτιο": {
-"charts": [
-{
-"columns": [
-"",
-"Singular",
-"Plural"
-],
-"rows": [
-[
-"Nom.",
-"γραμματοκιβώτιο",
-"γραμματοκιβώτια"
-],
-[
-"Gen.",
-"γραμματοκιβωτίου",
-"γραμματοκιβωτίων"
-],
-[
-"Acc.",
-"γραμματοκιβώτιο",
-"γραμματοκιβώτια"
-],
-[
-"Voc.",
-"γραμματοκιβώτιο",
-"γραμματοκιβώτια"
-]
-],
-"title": "Declension"
-}
-],
-"chips": [
-{
-"label": "Gender",
-"value": "neuter"
-}
-],
 "pos": "noun"
 },
 "γραμματόσημα": {
@@ -35806,6 +35994,47 @@
 "pos": "noun"
 },
 "γραπτά": {
+"chips": [
+{
+"label": "Gender",
+"value": "neuter"
+}
+],
+"pos": "noun"
+},
+"γραπτό": {
+"charts": [
+{
+"columns": [
+"",
+"Singular",
+"Plural"
+],
+"rows": [
+[
+"Nom.",
+"γραπτό",
+"γραπτά"
+],
+[
+"Gen.",
+"γραπτού",
+"γραπτών"
+],
+[
+"Acc.",
+"γραπτό",
+"γραπτά"
+],
+[
+"Voc.",
+"γραπτό",
+"γραπτά"
+]
+],
+"title": "Declension"
+}
+],
 "chips": [
 {
 "label": "Gender",
@@ -35896,39 +36125,7 @@
 ],
 "pos": "noun"
 },
-"γρατσουνιά": {
-"charts": [
-{
-"columns": [
-"",
-"Singular",
-"Plural"
-],
-"rows": [
-[
-"Nom.",
-"γρατσουνιά",
-"γρατσουνιές"
-],
-[
-"Gen.",
-"γρατσουνιάς",
-"γρατσουνιών"
-],
-[
-"Acc.",
-"γρατσουνιά",
-"γρατσουνιές"
-],
-[
-"Voc.",
-"γρατσουνιά",
-"γρατσουνιές"
-]
-],
-"title": "Declension"
-}
-],
+"γραφές": {
 "chips": [
 {
 "label": "Gender",
@@ -36869,11 +37066,11 @@
 ],
 "pos": "noun"
 },
-"δ": {
+"γύψο": {
 "chips": [
 {
 "label": "Gender",
-"value": "feminine"
+"value": "masculine"
 }
 ],
 "pos": "noun"
@@ -36970,47 +37167,6 @@
 "pos": "noun"
 },
 "δάκτυλα": {
-"chips": [
-{
-"label": "Gender",
-"value": "neuter"
-}
-],
-"pos": "noun"
-},
-"δάκτυλο": {
-"charts": [
-{
-"columns": [
-"",
-"Singular",
-"Plural"
-],
-"rows": [
-[
-"Nom.",
-"δάκτυλο",
-"δάκτυλα"
-],
-[
-"Gen.",
-"δακτύλου",
-"δακτύλων"
-],
-[
-"Acc.",
-"δάκτυλο",
-"δάκτυλα"
-],
-[
-"Voc.",
-"δάκτυλο",
-"δάκτυλα"
-]
-],
-"title": "Declension"
-}
-],
 "chips": [
 {
 "label": "Gender",
@@ -37550,24 +37706,6 @@
 ],
 "pos": "noun"
 },
-"δήμαρχε": {
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
-}
-],
-"pos": "noun"
-},
-"δήμαρχο": {
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
-}
-],
-"pos": "noun"
-},
 "δήμαρχος": {
 "charts": [
 {
@@ -37599,12 +37737,6 @@
 ]
 ],
 "title": "Declension"
-}
-],
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
 }
 ],
 "pos": "noun"
@@ -37696,15 +37828,6 @@
 {
 "label": "Gender",
 "value": "neuter"
-}
-],
-"pos": "noun"
-},
-"δίδυμοι": {
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
 }
 ],
 "pos": "noun"
@@ -38344,47 +38467,6 @@
 ],
 "pos": "noun"
 },
-"δακτυλίδι": {
-"charts": [
-{
-"columns": [
-"",
-"Singular",
-"Plural"
-],
-"rows": [
-[
-"Nom.",
-"δακτυλίδι",
-"δακτυλίδια"
-],
-[
-"Gen.",
-"δακτυλιδιού",
-"δακτυλιδιών"
-],
-[
-"Acc.",
-"δακτυλίδι",
-"δακτυλίδια"
-],
-[
-"Voc.",
-"δακτυλίδι",
-"δακτυλίδια"
-]
-],
-"title": "Declension"
-}
-],
-"chips": [
-{
-"label": "Gender",
-"value": "neuter"
-}
-],
-"pos": "noun"
-},
 "δασκάλα": {
 "charts": [
 {
@@ -38422,6 +38504,15 @@
 {
 "label": "Gender",
 "value": "feminine"
+}
+],
+"pos": "noun"
+},
+"δασκάλου": {
+"chips": [
+{
+"label": "Gender",
+"value": "masculine"
 }
 ],
 "pos": "noun"
@@ -38919,15 +39010,6 @@
 ],
 "pos": "noun"
 },
-"δεκανέα": {
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
-}
-],
-"pos": "noun"
-},
 "δεκανέας": {
 "charts": [
 {
@@ -38961,10 +39043,13 @@
 "title": "Declension"
 }
 ],
+"pos": "noun"
+},
+"δελτία": {
 "chips": [
 {
 "label": "Gender",
-"value": "feminine"
+"value": "neuter"
 }
 ],
 "pos": "noun"
@@ -39383,6 +39468,15 @@
 ],
 "pos": "noun"
 },
+"δευτερολέπτου": {
+"chips": [
+{
+"label": "Gender",
+"value": "neuter"
+}
+],
+"pos": "noun"
+},
 "δευτερόλεπτα": {
 "chips": [
 {
@@ -39586,56 +39680,6 @@
 ],
 "pos": "noun"
 },
-"δημάρχου": {
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
-}
-],
-"pos": "noun"
-},
-"δημαρχείο": {
-"charts": [
-{
-"columns": [
-"",
-"Singular",
-"Plural"
-],
-"rows": [
-[
-"Nom.",
-"δημαρχείο",
-"δημαρχεία"
-],
-[
-"Gen.",
-"δημαρχείου",
-"δημαρχείων"
-],
-[
-"Acc.",
-"δημαρχείο",
-"δημαρχεία"
-],
-[
-"Voc.",
-"δημαρχείο",
-"δημαρχεία"
-]
-],
-"title": "Declension"
-}
-],
-"chips": [
-{
-"label": "Gender",
-"value": "neuter"
-}
-],
-"pos": "noun"
-},
 "δημητριακά": {
 "charts": [
 {
@@ -39727,15 +39771,6 @@
 ],
 "pos": "noun"
 },
-"δημιουργό": {
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
-}
-],
-"pos": "noun"
-},
 "δημιουργός": {
 "charts": [
 {
@@ -39767,12 +39802,6 @@
 ]
 ],
 "title": "Declension"
-}
-],
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
 }
 ],
 "pos": "noun"
@@ -39963,12 +39992,6 @@
 "title": "Declension"
 }
 ],
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
-}
-],
 "pos": "noun"
 },
 "δημοσιογράφους": {
@@ -40013,6 +40036,15 @@
 "title": "Declension"
 }
 ],
+"chips": [
+{
+"label": "Gender",
+"value": "feminine"
+}
+],
+"pos": "noun"
+},
+"δημοσκοπήσεις": {
 "chips": [
 {
 "label": "Gender",
@@ -40294,15 +40326,6 @@
 ],
 "pos": "noun"
 },
-"διάδοχο": {
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
-}
-],
-"pos": "noun"
-},
 "διάδοχος": {
 "charts": [
 {
@@ -40334,12 +40357,6 @@
 ]
 ],
 "title": "Declension"
-}
-],
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
 }
 ],
 "pos": "noun"
@@ -40709,47 +40726,6 @@
 "pos": "noun"
 },
 "διάολο": {
-"chips": [
-{
-"label": "Gender",
-"value": "masculine"
-}
-],
-"pos": "noun"
-},
-"διάολος": {
-"charts": [
-{
-"columns": [
-"",
-"Singular",
-"Plural"
-],
-"rows": [
-[
-"Nom.",
-"διάολος",
-"διάολοι"
-],
-[
-"Gen.",
-"διαόλου",
-"διαόλων"
-],
-[
-"Acc.",
-"διάολο",
-"διαόλους"
-],
-[
-"Voc.",
-"διάολε",
-"διάολοι"
-]
-],
-"title": "Declension"
-}
-],
 "chips": [
 {
 "label": "Gender",
@@ -41292,6 +41268,15 @@
 ],
 "pos": "noun"
 },
+"διαγράμματα": {
+"chips": [
+{
+"label": "Gender",
+"value": "neuter"
+}
+],
+"pos": "noun"
+},
 "διαγωνισμού": {
 "chips": [
 {
@@ -41741,6 +41726,15 @@
 ],
 "pos": "verb"
 },
+"διαιτητή": {
+"chips": [
+{
+"label": "Gender",
+"value": "masculine"
+}
+],
+"pos": "noun"
+},
 "διαιτητής": {
 "charts": [
 {
@@ -41899,19 +41893,6 @@
 }
 ],
 "pos": "noun"
-},
-"διακρίνω": {
-"chips": [
-{
-"label": "Aorist",
-"value": "διέκρινα"
-},
-{
-"label": "Passive",
-"value": "διακρίνομαι"
-}
-],
-"pos": "verb"
 },
 "διακρίσεις": {
 "chips": [
@@ -42178,6 +42159,15 @@
 ],
 "pos": "noun"
 },
+"διαμάχες": {
+"chips": [
+{
+"label": "Gender",
+"value": "feminine"
+}
+],
+"pos": "noun"
+},
 "διαμάχη": {
 "charts": [
 {
@@ -42260,6 +42250,15 @@
 ],
 "pos": "noun"
 },
+"διαμαντιών": {
+"chips": [
+{
+"label": "Gender",
+"value": "neuter"
+}
+],
+"pos": "noun"
+},
 "διαμαρτυρία": {
 "charts": [
 {
@@ -42302,6 +42301,15 @@
 "pos": "noun"
 },
 "διαμερίσματα": {
+"chips": [
+{
+"label": "Gender",
+"value": "neuter"
+}
+],
+"pos": "noun"
+},
+"διαμερίσματος": {
 "chips": [
 {
 "label": "Gender",
@@ -42438,6 +42446,47 @@
 {
 "label": "Gender",
 "value": "feminine"
+}
+],
+"pos": "noun"
+},
+"διαρρήκτης": {
+"charts": [
+{
+"columns": [
+"",
+"Singular",
+"Plural"
+],
+"rows": [
+[
+"Nom.",
+"διαρρήκτης",
+"διαρρήκτες"
+],
+[
+"Gen.",
+"διαρρήκτη",
+"διαρρηκτών"
+],
+[
+"Acc.",
+"διαρρήκτη",
+"διαρρήκτες"
+],
+[
+"Voc.",
+"διαρρήκτη",
+"διαρρήκτες"
+]
+],
+"title": "Declension"
+}
+],
+"chips": [
+{
+"label": "Gender",
+"value": "masculine"
 }
 ],
 "pos": "noun"
@@ -43485,12 +43534,6 @@
 "title": "Declension"
 }
 ],
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
-}
-],
 "pos": "noun"
 },
 "διευθυντά": {
@@ -43865,24 +43908,6 @@
 ],
 "pos": "noun"
 },
-"δικαστές": {
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
-}
-],
-"pos": "noun"
-},
-"δικαστή": {
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
-}
-],
-"pos": "noun"
-},
 "δικαστήρια": {
 "chips": [
 {
@@ -43966,12 +43991,6 @@
 "title": "Declension"
 }
 ],
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
-}
-],
 "pos": "noun"
 },
 "δικαστηρίου": {
@@ -44041,12 +44060,6 @@
 ]
 ],
 "title": "Declension"
-}
-],
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
 }
 ],
 "pos": "noun"
@@ -44726,12 +44739,6 @@
 "title": "Declension"
 }
 ],
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
-}
-],
 "pos": "noun"
 },
 "δολοφόνου": {
@@ -45164,15 +45171,6 @@
 ],
 "pos": "noun"
 },
-"δρ": {
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
-}
-],
-"pos": "noun"
-},
 "δράκο": {
 "chips": [
 {
@@ -45450,6 +45448,15 @@
 ],
 "pos": "noun"
 },
+"δραστηριότητας": {
+"chips": [
+{
+"label": "Gender",
+"value": "feminine"
+}
+],
+"pos": "noun"
+},
 "δραστηριότητες": {
 "chips": [
 {
@@ -45714,6 +45721,47 @@
 {
 "label": "Gender",
 "value": "neuter"
+}
+],
+"pos": "noun"
+},
+"δυναστεία": {
+"charts": [
+{
+"columns": [
+"",
+"Singular",
+"Plural"
+],
+"rows": [
+[
+"Nom.",
+"δυναστεία",
+"δυναστείες"
+],
+[
+"Gen.",
+"δυναστείας",
+"δυναστειών"
+],
+[
+"Acc.",
+"δυναστεία",
+"δυναστείες"
+],
+[
+"Voc.",
+"δυναστεία",
+"δυναστείες"
+]
+],
+"title": "Declension"
+}
+],
+"chips": [
+{
+"label": "Gender",
+"value": "feminine"
 }
 ],
 "pos": "noun"
@@ -47110,6 +47158,47 @@
 ],
 "pos": "verb"
 },
+"εγγόνι": {
+"charts": [
+{
+"columns": [
+"",
+"Singular",
+"Plural"
+],
+"rows": [
+[
+"Nom.",
+"εγγόνι",
+"εγγόνια"
+],
+[
+"Gen.",
+"εγγονιού",
+"εγγονιών"
+],
+[
+"Acc.",
+"εγγόνι",
+"εγγόνια"
+],
+[
+"Voc.",
+"εγγόνι",
+"εγγόνια"
+]
+],
+"title": "Declension"
+}
+],
+"chips": [
+{
+"label": "Gender",
+"value": "neuter"
+}
+],
+"pos": "noun"
+},
 "εγγόνια": {
 "chips": [
 {
@@ -47390,15 +47479,6 @@
 ],
 "pos": "noun"
 },
-"εγκληματία": {
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
-}
-],
-"pos": "noun"
-},
 "εγκληματίας": {
 "charts": [
 {
@@ -47430,21 +47510,6 @@
 ]
 ],
 "title": "Declension"
-}
-],
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
-}
-],
-"pos": "noun"
-},
-"εγκληματίες": {
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
 }
 ],
 "pos": "noun"
@@ -47612,47 +47677,6 @@
 "Voc.",
 "εγχείρηση",
 "εγχειρήσεις"
-]
-],
-"title": "Declension"
-}
-],
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
-}
-],
-"pos": "noun"
-},
-"εγχείριση": {
-"charts": [
-{
-"columns": [
-"",
-"Singular",
-"Plural"
-],
-"rows": [
-[
-"Nom.",
-"εγχείριση",
-"εγχειρίσεις"
-],
-[
-"Gen.",
-"εγχείρισης",
-"εγχειρίσεων"
-],
-[
-"Acc.",
-"εγχείριση",
-"εγχειρίσεις"
-],
-[
-"Voc.",
-"εγχείριση",
-"εγχειρίσεις"
 ]
 ],
 "title": "Declension"
@@ -47889,53 +47913,6 @@
 "title": "Declension"
 }
 ],
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
-}
-],
-"pos": "noun"
-},
-"ειδικότητα": {
-"charts": [
-{
-"columns": [
-"",
-"Singular",
-"Plural"
-],
-"rows": [
-[
-"Nom.",
-"ειδικότητα",
-"ειδικότητες"
-],
-[
-"Gen.",
-"ειδικότητας",
-"ειδικοτήτων"
-],
-[
-"Acc.",
-"ειδικότητα",
-"ειδικότητες"
-],
-[
-"Voc.",
-"ειδικότητα",
-"ειδικότητες"
-]
-],
-"title": "Declension"
-}
-],
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
-}
-],
 "pos": "noun"
 },
 "ειδικών": {
@@ -47984,6 +47961,47 @@
 {
 "label": "Gender",
 "value": "feminine"
+}
+],
+"pos": "noun"
+},
+"ειδύλλιο": {
+"charts": [
+{
+"columns": [
+"",
+"Singular",
+"Plural"
+],
+"rows": [
+[
+"Nom.",
+"ειδύλλιο",
+"ειδύλλια"
+],
+[
+"Gen.",
+"ειδυλλίου",
+"ειδυλλίων"
+],
+[
+"Acc.",
+"ειδύλλιο",
+"ειδύλλια"
+],
+[
+"Voc.",
+"ειδύλλιο",
+"ειδύλλια"
+]
+],
+"title": "Declension"
+}
+],
+"chips": [
+{
+"label": "Gender",
+"value": "neuter"
 }
 ],
 "pos": "noun"
@@ -48238,15 +48256,6 @@
 ],
 "pos": "noun"
 },
-"εισαγγελέα": {
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
-}
-],
-"pos": "noun"
-},
 "εισαγγελέας": {
 "charts": [
 {
@@ -48278,12 +48287,6 @@
 ]
 ],
 "title": "Declension"
-}
-],
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
 }
 ],
 "pos": "noun"
@@ -48329,6 +48332,15 @@
 ],
 "pos": "noun"
 },
+"εισαγωγής": {
+"chips": [
+{
+"label": "Gender",
+"value": "feminine"
+}
+],
+"pos": "noun"
+},
 "εισβολή": {
 "charts": [
 {
@@ -48362,6 +48374,15 @@
 "title": "Declension"
 }
 ],
+"chips": [
+{
+"label": "Gender",
+"value": "feminine"
+}
+],
+"pos": "noun"
+},
+"εισβολής": {
 "chips": [
 {
 "label": "Gender",
@@ -48470,6 +48491,15 @@
 ],
 "pos": "noun"
 },
+"εκατομμυρίου": {
+"chips": [
+{
+"label": "Gender",
+"value": "neuter"
+}
+],
+"pos": "noun"
+},
 "εκατομμυρίων": {
 "chips": [
 {
@@ -48510,12 +48540,6 @@
 ]
 ],
 "title": "Declension"
-}
-],
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
 }
 ],
 "pos": "noun"
@@ -49399,12 +49423,6 @@
 ]
 ],
 "title": "Declension"
-}
-],
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
 }
 ],
 "pos": "noun"
@@ -50391,6 +50409,15 @@
 ],
 "pos": "noun"
 },
+"εμβόλια": {
+"chips": [
+{
+"label": "Gender",
+"value": "neuter"
+}
+],
+"pos": "noun"
+},
 "εμβόλιο": {
 "charts": [
 {
@@ -50663,6 +50690,15 @@
 ],
 "pos": "noun"
 },
+"εμπορεύματα": {
+"chips": [
+{
+"label": "Gender",
+"value": "neuter"
+}
+],
+"pos": "noun"
+},
 "εμπορικά": {
 "chips": [
 {
@@ -50841,15 +50877,6 @@
 {
 "label": "Gender",
 "value": "neuter"
-}
-],
-"pos": "noun"
-},
-"εμπόρους": {
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
 }
 ],
 "pos": "noun"
@@ -51222,6 +51249,47 @@
 ],
 "pos": "noun"
 },
+"ενδοχώρα": {
+"charts": [
+{
+"columns": [
+"",
+"Singular",
+"Plural"
+],
+"rows": [
+[
+"Nom.",
+"ενδοχώρα",
+"ενδοχώρες"
+],
+[
+"Gen.",
+"ενδοχώρας",
+"ενδοχωρών"
+],
+[
+"Acc.",
+"ενδοχώρα",
+"ενδοχώρες"
+],
+[
+"Voc.",
+"ενδοχώρα",
+"ενδοχώρες"
+]
+],
+"title": "Declension"
+}
+],
+"chips": [
+{
+"label": "Gender",
+"value": "feminine"
+}
+],
+"pos": "noun"
+},
 "ενεργοποίηση": {
 "charts": [
 {
@@ -51538,6 +51606,47 @@
 {
 "label": "Gender",
 "value": "neuter"
+}
+],
+"pos": "noun"
+},
+"ενοικίαση": {
+"charts": [
+{
+"columns": [
+"",
+"Singular",
+"Plural"
+],
+"rows": [
+[
+"Nom.",
+"ενοικίαση",
+"ενοικιάσεις"
+],
+[
+"Gen.",
+"ενοικίασης",
+"ενοικιάσεων"
+],
+[
+"Acc.",
+"ενοικίαση",
+"ενοικιάσεις"
+],
+[
+"Voc.",
+"ενοικίαση",
+"ενοικιάσεις"
+]
+],
+"title": "Declension"
+}
+],
+"chips": [
+{
+"label": "Gender",
+"value": "feminine"
 }
 ],
 "pos": "noun"
@@ -51991,6 +52100,47 @@
 {
 "label": "Gender",
 "value": "neuter"
+}
+],
+"pos": "noun"
+},
+"εξάρτηση": {
+"charts": [
+{
+"columns": [
+"",
+"Singular",
+"Plural"
+],
+"rows": [
+[
+"Nom.",
+"εξάρτηση",
+"εξαρτήσεις"
+],
+[
+"Gen.",
+"εξάρτησης",
+"εξαρτήσεων"
+],
+[
+"Acc.",
+"εξάρτηση",
+"εξαρτήσεις"
+],
+[
+"Voc.",
+"εξάρτηση",
+"εξαρτήσεις"
+]
+],
+"title": "Declension"
+}
+],
+"chips": [
+{
+"label": "Gender",
+"value": "feminine"
 }
 ],
 "pos": "noun"
@@ -53935,6 +54085,15 @@
 ],
 "pos": "noun"
 },
+"επίσκοπο": {
+"chips": [
+{
+"label": "Gender",
+"value": "masculine"
+}
+],
+"pos": "noun"
+},
 "επίσκοπος": {
 "charts": [
 {
@@ -54026,15 +54185,6 @@
 ],
 "pos": "noun"
 },
-"επαγγελματία": {
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
-}
-],
-"pos": "noun"
-},
 "επαγγελματίας": {
 "charts": [
 {
@@ -54066,21 +54216,6 @@
 ]
 ],
 "title": "Declension"
-}
-],
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
-}
-],
-"pos": "noun"
-},
-"επαγγελματίες": {
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
 }
 ],
 "pos": "noun"
@@ -54354,6 +54489,47 @@
 }
 ],
 "pos": "verb"
+},
+"επανεκκίνηση": {
+"charts": [
+{
+"columns": [
+"",
+"Singular",
+"Plural"
+],
+"rows": [
+[
+"Nom.",
+"επανεκκίνηση",
+"επανεκκινήσεις"
+],
+[
+"Gen.",
+"επανεκκίνησης",
+"επανεκκινήσεων"
+],
+[
+"Acc.",
+"επανεκκίνηση",
+"επανεκκινήσεις"
+],
+[
+"Voc.",
+"επανεκκίνηση",
+"επανεκκινήσεις"
+]
+],
+"title": "Declension"
+}
+],
+"chips": [
+{
+"label": "Gender",
+"value": "feminine"
+}
+],
+"pos": "noun"
 },
 "επανορθώσεις": {
 "chips": [
@@ -55259,15 +55435,6 @@
 ],
 "pos": "verb"
 },
-"επικεφαλής": {
-"chips": [
-{
-"label": "Gender",
-"value": "neuter"
-}
-],
-"pos": "noun"
-},
 "επικοινωνία": {
 "charts": [
 {
@@ -55719,6 +55886,47 @@
 ],
 "pos": "noun"
 },
+"επισκεπτήριο": {
+"charts": [
+{
+"columns": [
+"",
+"Singular",
+"Plural"
+],
+"rows": [
+[
+"Nom.",
+"επισκεπτήριο",
+"επισκεπτήρια"
+],
+[
+"Gen.",
+"επισκεπτηρίου",
+"επισκεπτηρίων"
+],
+[
+"Acc.",
+"επισκεπτήριο",
+"επισκεπτήρια"
+],
+[
+"Voc.",
+"επισκεπτήριο",
+"επισκεπτήρια"
+]
+],
+"title": "Declension"
+}
+],
+"chips": [
+{
+"label": "Gender",
+"value": "neuter"
+}
+],
+"pos": "noun"
+},
 "επισκεπτών": {
 "chips": [
 {
@@ -55778,11 +55986,37 @@
 ],
 "pos": "noun"
 },
-"επισμηναγέ": {
-"chips": [
+"επισμηναγός": {
+"charts": [
 {
-"label": "Gender",
-"value": "feminine"
+"columns": [
+"",
+"Singular",
+"Plural"
+],
+"rows": [
+[
+"Nom.",
+"επισμηναγός",
+"επισμηναγοί"
+],
+[
+"Gen.",
+"επισμηναγού",
+"επισμηναγών"
+],
+[
+"Acc.",
+"επισμηναγό",
+"επισμηναγούς"
+],
+[
+"Voc.",
+"επισμηναγέ",
+"επισμηναγοί"
+]
+],
+"title": "Declension"
 }
 ],
 "pos": "noun"
@@ -55936,12 +56170,6 @@
 ]
 ],
 "title": "Declension"
-}
-],
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
 }
 ],
 "pos": "noun"
@@ -56503,21 +56731,6 @@
 "title": "Declension"
 }
 ],
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
-}
-],
-"pos": "noun"
-},
-"επιχειρηματίες": {
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
-}
-],
 "pos": "noun"
 },
 "εποχές": {
@@ -56678,12 +56891,6 @@
 ]
 ],
 "title": "Declension"
-}
-],
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
 }
 ],
 "pos": "noun"
@@ -57528,6 +57735,47 @@
 ],
 "pos": "noun"
 },
+"ερπετό": {
+"charts": [
+{
+"columns": [
+"",
+"Singular",
+"Plural"
+],
+"rows": [
+[
+"Nom.",
+"ερπετό",
+"ερπετά"
+],
+[
+"Gen.",
+"ερπετού",
+"ερπετών"
+],
+[
+"Acc.",
+"ερπετό",
+"ερπετά"
+],
+[
+"Voc.",
+"ερπετό",
+"ερπετά"
+]
+],
+"title": "Declension"
+}
+],
+"chips": [
+{
+"label": "Gender",
+"value": "neuter"
+}
+],
+"pos": "noun"
+},
 "ερωμένη": {
 "charts": [
 {
@@ -57665,15 +57913,6 @@
 {
 "label": "Gender",
 "value": "feminine"
-}
-],
-"pos": "noun"
-},
-"εσπρέσο": {
-"chips": [
-{
-"label": "Gender",
-"value": "neuter"
 }
 ],
 "pos": "noun"
@@ -57824,88 +58063,6 @@
 {
 "label": "Gender",
 "value": "neuter"
-}
-],
-"pos": "noun"
-},
-"εσώρουχο": {
-"charts": [
-{
-"columns": [
-"",
-"Singular",
-"Plural"
-],
-"rows": [
-[
-"Nom.",
-"εσώρουχο",
-"εσώρουχα"
-],
-[
-"Gen.",
-"εσωρούχου",
-"εσωρούχων"
-],
-[
-"Acc.",
-"εσώρουχο",
-"εσώρουχα"
-],
-[
-"Voc.",
-"εσώρουχο",
-"εσώρουχα"
-]
-],
-"title": "Declension"
-}
-],
-"chips": [
-{
-"label": "Gender",
-"value": "neuter"
-}
-],
-"pos": "noun"
-},
-"εταιρία": {
-"charts": [
-{
-"columns": [
-"",
-"Singular",
-"Plural"
-],
-"rows": [
-[
-"Nom.",
-"εταιρία",
-"εταιρίες"
-],
-[
-"Gen.",
-"εταιρίας",
-"εταιριών"
-],
-[
-"Acc.",
-"εταιρία",
-"εταιρίες"
-],
-[
-"Voc.",
-"εταιρία",
-"εταιρίες"
-]
-],
-"title": "Declension"
-}
-],
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
 }
 ],
 "pos": "noun"
@@ -58304,15 +58461,6 @@
 ],
 "pos": "noun"
 },
-"ευγενή": {
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
-}
-],
-"pos": "noun"
-},
 "ευγενής": {
 "charts": [
 {
@@ -58344,21 +58492,6 @@
 ]
 ],
 "title": "Declension"
-}
-],
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
-}
-],
-"pos": "noun"
-},
-"ευγενείς": {
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
 }
 ],
 "pos": "noun"
@@ -59098,6 +59231,15 @@
 ],
 "pos": "noun"
 },
+"εφημερίδων": {
+"chips": [
+{
+"label": "Gender",
+"value": "feminine"
+}
+],
+"pos": "noun"
+},
 "εφιάλτες": {
 "chips": [
 {
@@ -59412,6 +59554,15 @@
 "title": "Declension"
 }
 ],
+"chips": [
+{
+"label": "Gender",
+"value": "feminine"
+}
+],
+"pos": "noun"
+},
+"ζάχαρης": {
 "chips": [
 {
 "label": "Gender",
@@ -59834,50 +59985,6 @@
 ],
 "pos": "noun"
 },
-"ζηλεύω": {
-"charts": [
-{
-"rows": [
-[
-"εγώ",
-"ζηλεύω"
-],
-[
-"εσύ",
-"ζηλεύεις"
-],
-[
-"αυτός/-ή",
-"ζηλεύει"
-],
-[
-"εμείς",
-"ζηλεύουμε"
-],
-[
-"εσείς",
-"ζηλεύετε"
-],
-[
-"αυτοί",
-"ζηλεύουν"
-]
-],
-"title": "Present"
-}
-],
-"chips": [
-{
-"label": "Aorist",
-"value": "ζήλεψα"
-},
-{
-"label": "Passive",
-"value": "ζηλεύομαι"
-}
-],
-"pos": "verb"
-},
 "ζημιά": {
 "charts": [
 {
@@ -60211,12 +60318,6 @@
 ]
 ],
 "title": "Declension"
-}
-],
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
 }
 ],
 "pos": "noun"
@@ -60842,33 +60943,6 @@
 ],
 "pos": "noun"
 },
-"ηθοποιοί": {
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
-}
-],
-"pos": "noun"
-},
-"ηθοποιούς": {
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
-}
-],
-"pos": "noun"
-},
-"ηθοποιό": {
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
-}
-],
-"pos": "noun"
-},
 "ηθοποιός": {
 "charts": [
 {
@@ -60902,24 +60976,9 @@
 "title": "Declension"
 }
 ],
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
-}
-],
 "pos": "noun"
 },
 "ηθών": {
-"chips": [
-{
-"label": "Gender",
-"value": "neuter"
-}
-],
-"pos": "noun"
-},
-"ηλίου": {
 "chips": [
 {
 "label": "Gender",
@@ -61115,6 +61174,47 @@
 "Voc.",
 "ηλιαχτίδα",
 "ηλιαχτίδες"
+]
+],
+"title": "Declension"
+}
+],
+"chips": [
+{
+"label": "Gender",
+"value": "feminine"
+}
+],
+"pos": "noun"
+},
+"ηλιθιότητα": {
+"charts": [
+{
+"columns": [
+"",
+"Singular",
+"Plural"
+],
+"rows": [
+[
+"Nom.",
+"ηλιθιότητα",
+"ηλιθιότητες"
+],
+[
+"Gen.",
+"ηλιθιότητας",
+"ηλιθιοτήτων"
+],
+[
+"Acc.",
+"ηλιθιότητα",
+"ηλιθιότητες"
+],
+[
+"Voc.",
+"ηλιθιότητα",
+"ηλιθιότητες"
 ]
 ],
 "title": "Declension"
@@ -62514,6 +62614,50 @@
 ],
 "pos": "noun"
 },
+"θέτω": {
+"charts": [
+{
+"rows": [
+[
+"εγώ",
+"θέτω"
+],
+[
+"εσύ",
+"θέτεις"
+],
+[
+"αυτός/-ή",
+"θέτει"
+],
+[
+"εμείς",
+"θέτουμε"
+],
+[
+"εσείς",
+"θέτετε"
+],
+[
+"αυτοί",
+"θέτουν"
+]
+],
+"title": "Present"
+}
+],
+"chips": [
+{
+"label": "Aorist",
+"value": "έθεσα"
+},
+{
+"label": "Passive",
+"value": "τίθεμαι"
+}
+],
+"pos": "verb"
+},
 "θήκη": {
 "charts": [
 {
@@ -62858,6 +63002,15 @@
 ],
 "pos": "noun"
 },
+"θεάματος": {
+"chips": [
+{
+"label": "Gender",
+"value": "neuter"
+}
+],
+"pos": "noun"
+},
 "θεάτρου": {
 "chips": [
 {
@@ -63022,47 +63175,6 @@
 {
 "label": "Gender",
 "value": "masculine"
-}
-],
-"pos": "noun"
-},
-"θεια": {
-"charts": [
-{
-"columns": [
-"",
-"Singular",
-"Plural"
-],
-"rows": [
-[
-"Nom.",
-"θεια",
-"θειες"
-],
-[
-"Gen.",
-"θειας",
-"θειων"
-],
-[
-"Acc.",
-"θεια",
-"θειες"
-],
-[
-"Voc.",
-"θεια",
-"θειες"
-]
-],
-"title": "Declension"
-}
-],
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
 }
 ],
 "pos": "noun"
@@ -63920,6 +64032,15 @@
 {
 "label": "Gender",
 "value": "masculine"
+}
+],
+"pos": "noun"
+},
+"θρίλερ": {
+"chips": [
+{
+"label": "Gender",
+"value": "neuter"
 }
 ],
 "pos": "noun"
@@ -64800,12 +64921,6 @@
 "title": "Declension"
 }
 ],
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
-}
-],
 "pos": "noun"
 },
 "ιδέα": {
@@ -65249,15 +65364,6 @@
 ],
 "pos": "noun"
 },
-"ιερέα": {
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
-}
-],
-"pos": "noun"
-},
 "ιερέας": {
 "charts": [
 {
@@ -65289,12 +65395,6 @@
 ]
 ],
 "title": "Declension"
-}
-],
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
 }
 ],
 "pos": "noun"
@@ -65332,15 +65432,6 @@
 "title": "Declension"
 }
 ],
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
-}
-],
-"pos": "noun"
-},
-"ιερείς": {
 "chips": [
 {
 "label": "Gender",
@@ -65639,6 +65730,47 @@
 ],
 "pos": "noun"
 },
+"ινδός": {
+"charts": [
+{
+"columns": [
+"",
+"Singular",
+"Plural"
+],
+"rows": [
+[
+"Nom.",
+"Ινδός",
+"Ινδοί"
+],
+[
+"Gen.",
+"Ινδού",
+"Ινδών"
+],
+[
+"Acc.",
+"Ινδό",
+"Ινδούς"
+],
+[
+"Voc.",
+"Ινδέ",
+"Ινδοί"
+]
+],
+"title": "Declension"
+}
+],
+"chips": [
+{
+"label": "Gender",
+"value": "masculine"
+}
+],
+"pos": "noun"
+},
 "ινστιτούτο": {
 "charts": [
 {
@@ -65672,15 +65804,6 @@
 "title": "Declension"
 }
 ],
-"chips": [
-{
-"label": "Gender",
-"value": "neuter"
-}
-],
-"pos": "noun"
-},
-"ιντερνέτ": {
 "chips": [
 {
 "label": "Gender",
@@ -66171,6 +66294,15 @@
 ],
 "pos": "noun"
 },
+"ιστοσελίδες": {
+"chips": [
+{
+"label": "Gender",
+"value": "feminine"
+}
+],
+"pos": "noun"
+},
 "ιστός": {
 "charts": [
 {
@@ -66585,47 +66717,6 @@
 ],
 "pos": "noun"
 },
-"κάθαρμα": {
-"charts": [
-{
-"columns": [
-"",
-"Singular",
-"Plural"
-],
-"rows": [
-[
-"Nom.",
-"κάθαρμα",
-"καθάρματα"
-],
-[
-"Gen.",
-"καθάρματος",
-"καθαρμάτων"
-],
-[
-"Acc.",
-"κάθαρμα",
-"καθάρματα"
-],
-[
-"Voc.",
-"κάθαρμα",
-"καθάρματα"
-]
-],
-"title": "Declension"
-}
-],
-"chips": [
-{
-"label": "Gender",
-"value": "neuter"
-}
-],
-"pos": "noun"
-},
 "κάθισμα": {
 "charts": [
 {
@@ -66708,6 +66799,47 @@
 "Voc.",
 "κάλεσμα",
 "καλέσματα"
+]
+],
+"title": "Declension"
+}
+],
+"chips": [
+{
+"label": "Gender",
+"value": "neuter"
+}
+],
+"pos": "noun"
+},
+"κάλιο": {
+"charts": [
+{
+"columns": [
+"",
+"Singular",
+"Plural"
+],
+"rows": [
+[
+"Nom.",
+"κάλιο",
+"κάλια"
+],
+[
+"Gen.",
+"καλίου",
+"καλίων"
+],
+[
+"Acc.",
+"κάλιο",
+"κάλια"
+],
+[
+"Voc.",
+"κάλιο",
+"κάλια"
 ]
 ],
 "title": "Declension"
@@ -67084,15 +67216,6 @@
 ],
 "pos": "noun"
 },
-"κάρι": {
-"chips": [
-{
-"label": "Gender",
-"value": "neuter"
-}
-],
-"pos": "noun"
-},
 "κάρο": {
 "charts": [
 {
@@ -67334,15 +67457,6 @@
 ],
 "pos": "noun"
 },
-"κάτοικοι": {
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
-}
-],
-"pos": "noun"
-},
 "κάτοικος": {
 "charts": [
 {
@@ -67374,12 +67488,6 @@
 ]
 ],
 "title": "Declension"
-}
-],
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
 }
 ],
 "pos": "noun"
@@ -68746,15 +68854,6 @@
 ],
 "pos": "noun"
 },
-"καθηγητή": {
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
-}
-],
-"pos": "noun"
-},
 "καθηγητής": {
 "charts": [
 {
@@ -69028,6 +69127,46 @@
 ],
 "pos": "noun"
 },
+"καθυστερώ": {
+"charts": [
+{
+"rows": [
+[
+"εγώ",
+"καθυστερώ"
+],
+[
+"εσύ",
+"καθυστερείς"
+],
+[
+"αυτός/-ή",
+"καθυστερεί"
+],
+[
+"εμείς",
+"καθυστερούμε"
+],
+[
+"εσείς",
+"καθυστερείτε"
+],
+[
+"αυτοί",
+"καθυστερούν"
+]
+],
+"title": "Present"
+}
+],
+"chips": [
+{
+"label": "Aorist",
+"value": "καθυστέρησα"
+}
+],
+"pos": "verb"
+},
 "καιροί": {
 "chips": [
 {
@@ -69270,12 +69409,6 @@
 "title": "Declension"
 }
 ],
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
-}
-],
 "pos": "noun"
 },
 "κακού": {
@@ -69506,6 +69639,15 @@
 "title": "Declension"
 }
 ],
+"chips": [
+{
+"label": "Gender",
+"value": "neuter"
+}
+],
+"pos": "noun"
+},
+"καλαμποκιού": {
 "chips": [
 {
 "label": "Gender",
@@ -69950,47 +70092,6 @@
 {
 "label": "Gender",
 "value": "masculine"
-}
-],
-"pos": "noun"
-},
-"καλόγρια": {
-"charts": [
-{
-"columns": [
-"",
-"Singular",
-"Plural"
-],
-"rows": [
-[
-"Nom.",
-"καλόγρια",
-"καλόγριες"
-],
-[
-"Gen.",
-"καλόγριας",
-"καλογριών"
-],
-[
-"Acc.",
-"καλόγρια",
-"καλόγριες"
-],
-[
-"Voc.",
-"καλόγρια",
-"καλόγριες"
-]
-],
-"title": "Declension"
-}
-],
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
 }
 ],
 "pos": "noun"
@@ -70684,6 +70785,50 @@
 ],
 "pos": "noun"
 },
+"κανονίζω": {
+"charts": [
+{
+"rows": [
+[
+"εγώ",
+"κανονίζω"
+],
+[
+"εσύ",
+"κανονίζεις"
+],
+[
+"αυτός/-ή",
+"κανονίζει"
+],
+[
+"εμείς",
+"κανονίζουμε"
+],
+[
+"εσείς",
+"κανονίζετε"
+],
+[
+"αυτοί",
+"κανονίζουν"
+]
+],
+"title": "Present"
+}
+],
+"chips": [
+{
+"label": "Aorist",
+"value": "κανόνισα"
+},
+{
+"label": "Passive",
+"value": "κανονίζομαι"
+}
+],
+"pos": "verb"
+},
 "κανονισμός": {
 "charts": [
 {
@@ -71082,7 +71227,7 @@
 "chips": [
 {
 "label": "Gender",
-"value": "neuter"
+"value": "masculine"
 }
 ],
 "pos": "noun"
@@ -71992,47 +72137,6 @@
 ],
 "pos": "noun"
 },
-"κασέτα": {
-"charts": [
-{
-"columns": [
-"",
-"Singular",
-"Plural"
-],
-"rows": [
-[
-"Nom.",
-"κασέτα",
-"κασέτες"
-],
-[
-"Gen.",
-"κασέτας",
-"κασετών"
-],
-[
-"Acc.",
-"κασέτα",
-"κασέτες"
-],
-[
-"Voc.",
-"κασέτα",
-"κασέτες"
-]
-],
-"title": "Declension"
-}
-],
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
-}
-],
-"pos": "noun"
-},
 "κασκόλ": {
 "chips": [
 {
@@ -72114,12 +72218,6 @@
 ]
 ],
 "title": "Declension"
-}
-],
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
 }
 ],
 "pos": "noun"
@@ -72798,6 +72896,15 @@
 ],
 "pos": "noun"
 },
+"κατέχω": {
+"chips": [
+{
+"label": "Passive",
+"value": "κατέχομαι"
+}
+],
+"pos": "verb"
+},
 "κατήγορος": {
 "charts": [
 {
@@ -72829,12 +72936,6 @@
 ]
 ],
 "title": "Declension"
-}
-],
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
 }
 ],
 "pos": "noun"
@@ -73256,6 +73357,15 @@
 ],
 "pos": "noun"
 },
+"καταρράκτη": {
+"chips": [
+{
+"label": "Gender",
+"value": "masculine"
+}
+],
+"pos": "noun"
+},
 "κατασκήνωση": {
 "charts": [
 {
@@ -73347,47 +73457,6 @@
 ],
 "pos": "noun"
 },
-"κατασκοπεία": {
-"charts": [
-{
-"columns": [
-"",
-"Singular",
-"Plural"
-],
-"rows": [
-[
-"Nom.",
-"κατασκοπεία",
-"—"
-],
-[
-"Gen.",
-"κατασκοπείας",
-"—"
-],
-[
-"Acc.",
-"κατασκοπεία",
-"—"
-],
-[
-"Voc.",
-"κατασκοπεία",
-"—"
-]
-],
-"title": "Declension"
-}
-],
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
-}
-],
-"pos": "noun"
-},
 "καταστάσεις": {
 "chips": [
 {
@@ -73405,6 +73474,50 @@
 }
 ],
 "pos": "noun"
+},
+"καταστρέφω": {
+"charts": [
+{
+"rows": [
+[
+"εγώ",
+"καταστρέφω"
+],
+[
+"εσύ",
+"καταστρέφεις"
+],
+[
+"αυτός/-ή",
+"καταστρέφει"
+],
+[
+"εμείς",
+"καταστρέφουμε"
+],
+[
+"εσείς",
+"καταστρέφετε"
+],
+[
+"αυτοί",
+"καταστρέφουν"
+]
+],
+"title": "Present"
+}
+],
+"chips": [
+{
+"label": "Aorist",
+"value": "κατέστρεψα"
+},
+{
+"label": "Passive",
+"value": "καταστρέφομαι"
+}
+],
+"pos": "verb"
 },
 "καταστροφή": {
 "charts": [
@@ -73581,47 +73694,6 @@
 {
 "label": "Gender",
 "value": "neuter"
-}
-],
-"pos": "noun"
-},
-"καταχώρηση": {
-"charts": [
-{
-"columns": [
-"",
-"Singular",
-"Plural"
-],
-"rows": [
-[
-"Nom.",
-"καταχώρηση",
-"καταχωρήσεις"
-],
-[
-"Gen.",
-"καταχώρησης",
-"καταχωρήσεων"
-],
-[
-"Acc.",
-"καταχώρηση",
-"καταχωρήσεις"
-],
-[
-"Voc.",
-"καταχώρηση",
-"καταχωρήσεις"
-]
-],
-"title": "Declension"
-}
-],
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
 }
 ],
 "pos": "noun"
@@ -74312,47 +74384,6 @@
 "pos": "noun"
 },
 "καυγάδες": {
-"chips": [
-{
-"label": "Gender",
-"value": "masculine"
-}
-],
-"pos": "noun"
-},
-"καυγάς": {
-"charts": [
-{
-"columns": [
-"",
-"Singular",
-"Plural"
-],
-"rows": [
-[
-"Nom.",
-"καυγάς",
-"καυγάδες"
-],
-[
-"Gen.",
-"καυγά",
-"καυγάδων"
-],
-[
-"Acc.",
-"καυγά",
-"καυγάδες"
-],
-[
-"Voc.",
-"καυγά",
-"καυγάδες"
-]
-],
-"title": "Declension"
-}
-],
 "chips": [
 {
 "label": "Gender",
@@ -75163,6 +75194,15 @@
 ],
 "pos": "noun"
 },
+"κεφαλής": {
+"chips": [
+{
+"label": "Gender",
+"value": "feminine"
+}
+],
+"pos": "noun"
+},
 "κεφαλιού": {
 "chips": [
 {
@@ -75244,12 +75284,6 @@
 ]
 ],
 "title": "Declension"
-}
-],
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
 }
 ],
 "pos": "noun"
@@ -75335,12 +75369,6 @@
 ]
 ],
 "title": "Declension"
-}
-],
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
 }
 ],
 "pos": "noun"
@@ -76070,6 +76098,15 @@
 ],
 "pos": "noun"
 },
+"κλίμακας": {
+"chips": [
+{
+"label": "Gender",
+"value": "feminine"
+}
+],
+"pos": "noun"
+},
 "κλίση": {
 "charts": [
 {
@@ -76408,47 +76445,6 @@
 ],
 "pos": "noun"
 },
-"κληρονομιά": {
-"charts": [
-{
-"columns": [
-"",
-"Singular",
-"Plural"
-],
-"rows": [
-[
-"Nom.",
-"κληρονομιά",
-"κληρονομιές"
-],
-[
-"Gen.",
-"κληρονομιάς",
-"κληρονομιών"
-],
-[
-"Acc.",
-"κληρονομιά",
-"κληρονομιές"
-],
-[
-"Voc.",
-"κληρονομιά",
-"κληρονομιές"
-]
-],
-"title": "Declension"
-}
-],
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
-}
-],
-"pos": "noun"
-},
 "κληρονόμος": {
 "charts": [
 {
@@ -76480,12 +76476,6 @@
 ]
 ],
 "title": "Declension"
-}
-],
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
 }
 ],
 "pos": "noun"
@@ -76809,6 +76799,47 @@
 "Voc.",
 "κοιλιά",
 "κοιλιές"
+]
+],
+"title": "Declension"
+}
+],
+"chips": [
+{
+"label": "Gender",
+"value": "feminine"
+}
+],
+"pos": "noun"
+},
+"κοιλότητα": {
+"charts": [
+{
+"columns": [
+"",
+"Singular",
+"Plural"
+],
+"rows": [
+[
+"Nom.",
+"κοιλότητα",
+"κοιλότητες"
+],
+[
+"Gen.",
+"κοιλότητας",
+"κοιλοτήτων"
+],
+[
+"Acc.",
+"κοιλότητα",
+"κοιλότητες"
+],
+[
+"Voc.",
+"κοιλότητα",
+"κοιλότητες"
 ]
 ],
 "title": "Declension"
@@ -77346,47 +77377,6 @@
 ],
 "pos": "noun"
 },
-"κολλέγιο": {
-"charts": [
-{
-"columns": [
-"",
-"Singular",
-"Plural"
-],
-"rows": [
-[
-"Nom.",
-"κολλέγιο",
-"κολλέγια"
-],
-[
-"Gen.",
-"κολλεγίου",
-"κολλεγίων"
-],
-[
-"Acc.",
-"κολλέγιο",
-"κολλέγια"
-],
-[
-"Voc.",
-"κολλέγιο",
-"κολλέγια"
-]
-],
-"title": "Declension"
-}
-],
-"chips": [
-{
-"label": "Gender",
-"value": "neuter"
-}
-],
-"pos": "noun"
-},
 "κολλητός": {
 "chips": [
 {
@@ -77474,6 +77464,47 @@
 {
 "label": "Gender",
 "value": "feminine"
+}
+],
+"pos": "noun"
+},
+"κομήτης": {
+"charts": [
+{
+"columns": [
+"",
+"Singular",
+"Plural"
+],
+"rows": [
+[
+"Nom.",
+"κομήτης",
+"κομήτες"
+],
+[
+"Gen.",
+"κομήτη",
+"κομητών"
+],
+[
+"Acc.",
+"κομήτη",
+"κομήτες"
+],
+[
+"Voc.",
+"κομήτη",
+"κομήτες"
+]
+],
+"title": "Declension"
+}
+],
+"chips": [
+{
+"label": "Gender",
+"value": "masculine"
 }
 ],
 "pos": "noun"
@@ -77874,6 +77905,47 @@
 {
 "label": "Gender",
 "value": "feminine"
+}
+],
+"pos": "noun"
+},
+"κοντάρι": {
+"charts": [
+{
+"columns": [
+"",
+"Singular",
+"Plural"
+],
+"rows": [
+[
+"Nom.",
+"κοντάρι",
+"κοντάρια"
+],
+[
+"Gen.",
+"κονταριού",
+"κονταριών"
+],
+[
+"Acc.",
+"κοντάρι",
+"κοντάρια"
+],
+[
+"Voc.",
+"κοντάρι",
+"κοντάρια"
+]
+],
+"title": "Declension"
+}
+],
+"chips": [
+{
+"label": "Gender",
+"value": "neuter"
 }
 ],
 "pos": "noun"
@@ -79257,15 +79329,6 @@
 ],
 "pos": "noun"
 },
-"κουνάω": {
-"chips": [
-{
-"label": "Aorist",
-"value": "κούνησα"
-}
-],
-"pos": "verb"
-},
 "κουνέλι": {
 "charts": [
 {
@@ -79790,47 +79853,6 @@
 "pos": "noun"
 },
 "κουτσομπολιά": {
-"chips": [
-{
-"label": "Gender",
-"value": "neuter"
-}
-],
-"pos": "noun"
-},
-"κουτσομπολιό": {
-"charts": [
-{
-"columns": [
-"",
-"Singular",
-"Plural"
-],
-"rows": [
-[
-"Nom.",
-"κουτσομπολιό",
-"κουτσομπολιά"
-],
-[
-"Gen.",
-"κουτσομπολιού",
-"κουτσομπολιών"
-],
-[
-"Acc.",
-"κουτσομπολιό",
-"κουτσομπολιά"
-],
-[
-"Voc.",
-"κουτσομπολιό",
-"κουτσομπολιά"
-]
-],
-"title": "Declension"
-}
-],
 "chips": [
 {
 "label": "Gender",
@@ -81626,47 +81648,6 @@
 ],
 "pos": "noun"
 },
-"κτήριο": {
-"charts": [
-{
-"columns": [
-"",
-"Singular",
-"Plural"
-],
-"rows": [
-[
-"Nom.",
-"κτήριο",
-"κτήρια"
-],
-[
-"Gen.",
-"κτηρίου",
-"κτηρίων"
-],
-[
-"Acc.",
-"κτήριο",
-"κτήρια"
-],
-[
-"Voc.",
-"κτήριο",
-"κτήρια"
-]
-],
-"title": "Declension"
-}
-],
-"chips": [
-{
-"label": "Gender",
-"value": "neuter"
-}
-],
-"pos": "noun"
-},
 "κτίριο": {
 "charts": [
 {
@@ -81708,15 +81689,6 @@
 ],
 "pos": "noun"
 },
-"κτηνίατρο": {
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
-}
-],
-"pos": "noun"
-},
 "κτηνίατρος": {
 "charts": [
 {
@@ -81748,12 +81720,6 @@
 ]
 ],
 "title": "Declension"
-}
-],
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
 }
 ],
 "pos": "noun"
@@ -82089,6 +82055,47 @@
 "Voc.",
 "κυνηγέ",
 "κυνηγοί"
+]
+],
+"title": "Declension"
+}
+],
+"chips": [
+{
+"label": "Gender",
+"value": "masculine"
+}
+],
+"pos": "noun"
+},
+"κυνικός": {
+"charts": [
+{
+"columns": [
+"",
+"Singular",
+"Plural"
+],
+"rows": [
+[
+"Nom.",
+"κυνικός",
+"κυνικοί"
+],
+[
+"Gen.",
+"κυνικού",
+"κυνικών"
+],
+[
+"Acc.",
+"κυνικό",
+"κυνικούς"
+],
+[
+"Voc.",
+"κυνικέ",
+"κυνικοί"
 ]
 ],
 "title": "Declension"
@@ -83660,6 +83667,15 @@
 ],
 "pos": "noun"
 },
+"κόσμων": {
+"chips": [
+{
+"label": "Gender",
+"value": "masculine"
+}
+],
+"pos": "noun"
+},
 "κόστος": {
 "charts": [
 {
@@ -84333,15 +84349,6 @@
 {
 "label": "Gender",
 "value": "neuter"
-}
-],
-"pos": "noun"
-},
-"λ.": {
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
 }
 ],
 "pos": "noun"
@@ -85063,7 +85070,74 @@
 ],
 "pos": "noun"
 },
-"λίθο": {
+"λίθος": {
+"charts": [
+{
+"columns": [
+"",
+"Singular",
+"Plural"
+],
+"rows": [
+[
+"Nom.",
+"λίθος",
+"λίθοι"
+],
+[
+"Gen.",
+"λίθου",
+"λίθων"
+],
+[
+"Acc.",
+"λίθο",
+"λίθους"
+],
+[
+"Voc.",
+"λίθε",
+"λίθοι"
+]
+],
+"title": "Declension"
+}
+],
+"pos": "noun"
+},
+"λίμα": {
+"charts": [
+{
+"columns": [
+"",
+"Singular",
+"Plural"
+],
+"rows": [
+[
+"Nom.",
+"λίμα",
+"λίμες"
+],
+[
+"Gen.",
+"λίμας",
+"λιμών"
+],
+[
+"Acc.",
+"λίμα",
+"λίμες"
+],
+[
+"Voc.",
+"λίμα",
+"λίμες"
+]
+],
+"title": "Declension"
+}
+],
 "chips": [
 {
 "label": "Gender",
@@ -85960,47 +86034,6 @@
 ],
 "pos": "noun"
 },
-"λαός": {
-"charts": [
-{
-"columns": [
-"",
-"Singular",
-"Plural"
-],
-"rows": [
-[
-"Nom.",
-"λαός",
-"λαοί"
-],
-[
-"Gen.",
-"λαού",
-"λαών"
-],
-[
-"Acc.",
-"λαό",
-"λαούς"
-],
-[
-"Voc.",
-"λαέ",
-"λαοί"
-]
-],
-"title": "Declension"
-}
-],
-"chips": [
-{
-"label": "Gender",
-"value": "masculine"
-}
-],
-"pos": "noun"
-},
 "λεία": {
 "charts": [
 {
@@ -86172,12 +86205,6 @@
 ]
 ],
 "title": "Declension"
-}
-],
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
 }
 ],
 "pos": "noun"
@@ -86969,47 +86996,6 @@
 ],
 "pos": "noun"
 },
-"λιακάδα": {
-"charts": [
-{
-"columns": [
-"",
-"Singular",
-"Plural"
-],
-"rows": [
-[
-"Nom.",
-"λιακάδα",
-"λιακάδες"
-],
-[
-"Gen.",
-"λιακάδας",
-"λιακάδων"
-],
-[
-"Acc.",
-"λιακάδα",
-"λιακάδες"
-],
-[
-"Voc.",
-"λιακάδα",
-"λιακάδες"
-]
-],
-"title": "Declension"
-}
-],
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
-}
-],
-"pos": "noun"
-},
 "λιβάδι": {
 "charts": [
 {
@@ -87615,47 +87601,6 @@
 ],
 "pos": "noun"
 },
-"λογότυπο": {
-"charts": [
-{
-"columns": [
-"",
-"Singular",
-"Plural"
-],
-"rows": [
-[
-"Nom.",
-"λογότυπο",
-"λογότυπα"
-],
-[
-"Gen.",
-"λογοτύπου",
-"λογοτύπων"
-],
-[
-"Acc.",
-"λογότυπο",
-"λογότυπα"
-],
-[
-"Voc.",
-"λογότυπο",
-"λογότυπα"
-]
-],
-"title": "Declension"
-}
-],
-"chips": [
-{
-"label": "Gender",
-"value": "neuter"
-}
-],
-"pos": "noun"
-},
 "λουκάνικα": {
 "chips": [
 {
@@ -87698,6 +87643,15 @@
 "title": "Declension"
 }
 ],
+"chips": [
+{
+"label": "Gender",
+"value": "neuter"
+}
+],
+"pos": "noun"
+},
+"λουλουδιών": {
 "chips": [
 {
 "label": "Gender",
@@ -87871,30 +87825,6 @@
 "title": "Declension"
 }
 ],
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
-}
-],
-"pos": "noun"
-},
-"λοχαγέ": {
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
-}
-],
-"pos": "noun"
-},
-"λοχαγό": {
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
-}
-],
 "pos": "noun"
 },
 "λοχαγός": {
@@ -87928,12 +87858,6 @@
 ]
 ],
 "title": "Declension"
-}
-],
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
 }
 ],
 "pos": "noun"
@@ -88129,6 +88053,47 @@
 {
 "label": "Gender",
 "value": "masculine"
+}
+],
+"pos": "noun"
+},
+"λόγχη": {
+"charts": [
+{
+"columns": [
+"",
+"Singular",
+"Plural"
+],
+"rows": [
+[
+"Nom.",
+"λόγχη",
+"λόγχες"
+],
+[
+"Gen.",
+"λόγχης",
+"λογχών"
+],
+[
+"Acc.",
+"λόγχη",
+"λόγχες"
+],
+[
+"Voc.",
+"λόγχη",
+"λόγχες"
+]
+],
+"title": "Declension"
+}
+],
+"chips": [
+{
+"label": "Gender",
+"value": "feminine"
 }
 ],
 "pos": "noun"
@@ -88824,6 +88789,15 @@
 ],
 "pos": "noun"
 },
+"μάζες": {
+"chips": [
+{
+"label": "Gender",
+"value": "feminine"
+}
+],
+"pos": "noun"
+},
 "μάθημα": {
 "charts": [
 {
@@ -88907,15 +88881,6 @@
 "pos": "noun"
 },
 "μάνας": {
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
-}
-],
-"pos": "noun"
-},
-"μάνατζερ": {
 "chips": [
 {
 "label": "Gender",
@@ -89074,15 +89039,6 @@
 ],
 "pos": "noun"
 },
-"μάρτυρα": {
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
-}
-],
-"pos": "noun"
-},
 "μάρτυρας": {
 "charts": [
 {
@@ -89114,21 +89070,6 @@
 ]
 ],
 "title": "Declension"
-}
-],
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
-}
-],
-"pos": "noun"
-},
-"μάρτυρες": {
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
 }
 ],
 "pos": "noun"
@@ -89827,47 +89768,6 @@
 }
 ],
 "pos": "verb"
-},
-"μέρα": {
-"charts": [
-{
-"columns": [
-"",
-"Singular",
-"Plural"
-],
-"rows": [
-[
-"Nom.",
-"μέρα",
-"μέρες"
-],
-[
-"Gen.",
-"μέρας",
-"μερών"
-],
-[
-"Acc.",
-"μέρα",
-"μέρες"
-],
-[
-"Voc.",
-"μέρα",
-"μέρες"
-]
-],
-"title": "Declension"
-}
-],
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
-}
-],
-"pos": "noun"
 },
 "μέρας": {
 "chips": [
@@ -91927,6 +91827,15 @@
 ],
 "pos": "noun"
 },
+"μαριχουάνας": {
+"chips": [
+{
+"label": "Gender",
+"value": "feminine"
+}
+],
+"pos": "noun"
+},
 "μαρμελάδα": {
 "charts": [
 {
@@ -92087,15 +91996,6 @@
 {
 "label": "Gender",
 "value": "neuter"
-}
-],
-"pos": "noun"
-},
-"μαρτύρων": {
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
 }
 ],
 "pos": "noun"
@@ -93132,6 +93032,47 @@
 ],
 "pos": "noun"
 },
+"μεσίτης": {
+"charts": [
+{
+"columns": [
+"",
+"Singular",
+"Plural"
+],
+"rows": [
+[
+"Nom.",
+"μεσίτης",
+"μεσίτες"
+],
+[
+"Gen.",
+"μεσίτη",
+"μεσιτών"
+],
+[
+"Acc.",
+"μεσίτη",
+"μεσίτες"
+],
+[
+"Voc.",
+"μεσίτη",
+"μεσίτες"
+]
+],
+"title": "Declension"
+}
+],
+"chips": [
+{
+"label": "Gender",
+"value": "masculine"
+}
+],
+"pos": "noun"
+},
 "μεσαίωνα": {
 "chips": [
 {
@@ -93424,6 +93365,56 @@
 {
 "label": "Gender",
 "value": "neuter"
+}
+],
+"pos": "noun"
+},
+"μετάλλων": {
+"chips": [
+{
+"label": "Gender",
+"value": "neuter"
+}
+],
+"pos": "noun"
+},
+"μετάνοια": {
+"charts": [
+{
+"columns": [
+"",
+"Singular",
+"Plural"
+],
+"rows": [
+[
+"Nom.",
+"μετάνοια",
+"μετάνοιες"
+],
+[
+"Gen.",
+"μετάνοιας",
+"—"
+],
+[
+"Acc.",
+"μετάνοια",
+"μετάνοιες"
+],
+[
+"Voc.",
+"μετάνοια",
+"μετάνοιες"
+]
+],
+"title": "Declension"
+}
+],
+"chips": [
+{
+"label": "Gender",
+"value": "feminine"
 }
 ],
 "pos": "noun"
@@ -94161,6 +94152,15 @@
 ],
 "pos": "noun"
 },
+"μετρητή": {
+"chips": [
+{
+"label": "Gender",
+"value": "masculine"
+}
+],
+"pos": "noun"
+},
 "μετρό": {
 "chips": [
 {
@@ -94580,12 +94580,6 @@
 "title": "Declension"
 }
 ],
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
-}
-],
 "pos": "noun"
 },
 "μηχανισμός": {
@@ -94625,6 +94619,15 @@
 {
 "label": "Gender",
 "value": "masculine"
+}
+],
+"pos": "noun"
+},
+"μηχανών": {
+"chips": [
+{
+"label": "Gender",
+"value": "feminine"
 }
 ],
 "pos": "noun"
@@ -94876,6 +94879,47 @@
 }
 ],
 "pos": "verb"
+},
+"μισθοδοσία": {
+"charts": [
+{
+"columns": [
+"",
+"Singular",
+"Plural"
+],
+"rows": [
+[
+"Nom.",
+"μισθοδοσία",
+"μισθοδοσίες"
+],
+[
+"Gen.",
+"μισθοδοσίας",
+"μισθοδοσιών"
+],
+[
+"Acc.",
+"μισθοδοσία",
+"μισθοδοσίες"
+],
+[
+"Voc.",
+"μισθοδοσία",
+"μισθοδοσίες"
+]
+],
+"title": "Declension"
+}
+],
+"chips": [
+{
+"label": "Gender",
+"value": "feminine"
+}
+],
+"pos": "noun"
 },
 "μισθούς": {
 "chips": [
@@ -95167,6 +95211,15 @@
 {
 "label": "Gender",
 "value": "feminine"
+}
+],
+"pos": "noun"
+},
+"μοβ": {
+"chips": [
+{
+"label": "Gender",
+"value": "neuter"
 }
 ],
 "pos": "noun"
@@ -95857,7 +95910,7 @@
 ],
 "pos": "noun"
 },
-"μοτοσικλέτα": {
+"μοτοσυκλέτα": {
 "charts": [
 {
 "columns": [
@@ -95868,23 +95921,23 @@
 "rows": [
 [
 "Nom.",
-"μοτοσικλέτα",
-"μοτοσικλέτες"
+"μοτοσυκλέτα",
+"μοτοσυκλέτες"
 ],
 [
 "Gen.",
-"μοτοσικλέτας",
-"μοτοσικλετών"
+"μοτοσυκλέτας",
+"μοτοσυκλετών"
 ],
 [
 "Acc.",
-"μοτοσικλέτα",
-"μοτοσικλέτες"
+"μοτοσυκλέτα",
+"μοτοσυκλέτες"
 ],
 [
 "Voc.",
-"μοτοσικλέτα",
-"μοτοσικλέτες"
+"μοτοσυκλέτα",
+"μοτοσυκλέτες"
 ]
 ],
 "title": "Declension"
@@ -96116,33 +96169,6 @@
 ],
 "pos": "noun"
 },
-"μουσικοί": {
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
-}
-],
-"pos": "noun"
-},
-"μουσικούς": {
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
-}
-],
-"pos": "noun"
-},
-"μουσικό": {
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
-}
-],
-"pos": "noun"
-},
 "μουσικός": {
 "charts": [
 {
@@ -96176,10 +96202,54 @@
 "title": "Declension"
 }
 ],
+"pos": "noun"
+},
+"μουσουλμάνοι": {
 "chips": [
 {
 "label": "Gender",
-"value": "feminine"
+"value": "masculine"
+}
+],
+"pos": "noun"
+},
+"μουσουλμάνος": {
+"charts": [
+{
+"columns": [
+"",
+"Singular",
+"Plural"
+],
+"rows": [
+[
+"Nom.",
+"μουσουλμάνος",
+"μουσουλμάνοι"
+],
+[
+"Gen.",
+"μουσουλμάνου",
+"μουσουλμάνων"
+],
+[
+"Acc.",
+"μουσουλμάνο",
+"μουσουλμάνους"
+],
+[
+"Voc.",
+"μουσουλμάνε",
+"μουσουλμάνοι"
+]
+],
+"title": "Declension"
+}
+],
+"chips": [
+{
+"label": "Gender",
+"value": "masculine"
 }
 ],
 "pos": "noun"
@@ -97411,6 +97481,15 @@
 ],
 "pos": "noun"
 },
+"μπαχαρικά": {
+"chips": [
+{
+"label": "Gender",
+"value": "neuter"
+}
+],
+"pos": "noun"
+},
 "μπελά": {
 "chips": [
 {
@@ -98201,47 +98280,6 @@
 ],
 "pos": "noun"
 },
-"μπύρα": {
-"charts": [
-{
-"columns": [
-"",
-"Singular",
-"Plural"
-],
-"rows": [
-[
-"Nom.",
-"μπύρα",
-"μπύρες"
-],
-[
-"Gen.",
-"μπύρας",
-"μπυρών"
-],
-[
-"Acc.",
-"μπύρα",
-"μπύρες"
-],
-[
-"Voc.",
-"μπύρα",
-"μπύρες"
-]
-],
-"title": "Declension"
-}
-],
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
-}
-],
-"pos": "noun"
-},
 "μπύρας": {
 "chips": [
 {
@@ -98365,6 +98403,47 @@
 {
 "label": "Gender",
 "value": "neuter"
+}
+],
+"pos": "noun"
+},
+"μυθολογία": {
+"charts": [
+{
+"columns": [
+"",
+"Singular",
+"Plural"
+],
+"rows": [
+[
+"Nom.",
+"μυθολογία",
+"μυθολογίες"
+],
+[
+"Gen.",
+"μυθολογίας",
+"μυθολογιών"
+],
+[
+"Acc.",
+"μυθολογία",
+"μυθολογίες"
+],
+[
+"Voc.",
+"μυθολογία",
+"μυθολογίες"
+]
+],
+"title": "Declension"
+}
+],
+"chips": [
+{
+"label": "Gender",
+"value": "feminine"
 }
 ],
 "pos": "noun"
@@ -98622,15 +98701,6 @@
 ],
 "pos": "noun"
 },
-"μωβ": {
-"chips": [
-{
-"label": "Gender",
-"value": "neuter"
-}
-],
-"pos": "noun"
-},
 "μωρά": {
 "chips": [
 {
@@ -98840,6 +98910,47 @@
 ],
 "pos": "noun"
 },
+"μόσχευμα": {
+"charts": [
+{
+"columns": [
+"",
+"Singular",
+"Plural"
+],
+"rows": [
+[
+"Nom.",
+"μόσχευμα",
+"μοσχεύματα"
+],
+[
+"Gen.",
+"μοσχεύματος",
+"μοσχευμάτων"
+],
+[
+"Acc.",
+"μόσχευμα",
+"μοσχεύματα"
+],
+[
+"Voc.",
+"μόσχευμα",
+"μοσχεύματα"
+]
+],
+"title": "Declension"
+}
+],
+"chips": [
+{
+"label": "Gender",
+"value": "neuter"
+}
+],
+"pos": "noun"
+},
 "μότο": {
 "chips": [
 {
@@ -99018,6 +99129,15 @@
 "pos": "noun"
 },
 "νάνο": {
+"chips": [
+{
+"label": "Gender",
+"value": "masculine"
+}
+],
+"pos": "noun"
+},
+"νάνοι": {
 "chips": [
 {
 "label": "Gender",
@@ -99317,15 +99437,6 @@
 ],
 "pos": "noun"
 },
-"ναζί": {
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
-}
-],
-"pos": "noun"
-},
 "ναι": {
 "chips": [
 {
@@ -99375,12 +99486,6 @@
 ]
 ],
 "title": "Declension"
-}
-],
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
 }
 ],
 "pos": "noun"
@@ -99667,65 +99772,6 @@
 ],
 "pos": "noun"
 },
-"ναύαρχε": {
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
-}
-],
-"pos": "noun"
-},
-"ναύαρχο": {
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
-}
-],
-"pos": "noun"
-},
-"ναύαρχος": {
-"charts": [
-{
-"columns": [
-"",
-"Singular",
-"Plural"
-],
-"rows": [
-[
-"Nom.",
-"ναύαρχος",
-"ναύαρχοι"
-],
-[
-"Gen.",
-"ναυάρχου",
-"ναυάρχων"
-],
-[
-"Acc.",
-"ναύαρχο",
-"ναυάρχους"
-],
-[
-"Voc.",
-"ναύαρχε",
-"ναύαρχοι"
-]
-],
-"title": "Declension"
-}
-],
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
-}
-],
-"pos": "noun"
-},
 "ναύτης": {
 "charts": [
 {
@@ -99863,47 +99909,6 @@
 "Voc.",
 "νεκροταφείο",
 "νεκροταφεία"
-]
-],
-"title": "Declension"
-}
-],
-"chips": [
-{
-"label": "Gender",
-"value": "neuter"
-}
-],
-"pos": "noun"
-},
-"νεκροτομείο": {
-"charts": [
-{
-"columns": [
-"",
-"Singular",
-"Plural"
-],
-"rows": [
-[
-"Nom.",
-"νεκροτομείο",
-"νεκροτομεία"
-],
-[
-"Gen.",
-"νεκροτομείου",
-"νεκροτομείων"
-],
-[
-"Acc.",
-"νεκροτομείο",
-"νεκροτομεία"
-],
-[
-"Voc.",
-"νεκροτομείο",
-"νεκροτομεία"
 ]
 ],
 "title": "Declension"
@@ -100063,47 +100068,6 @@
 {
 "label": "Gender",
 "value": "neuter"
-}
-],
-"pos": "noun"
-},
-"νεράιδα": {
-"charts": [
-{
-"columns": [
-"",
-"Singular",
-"Plural"
-],
-"rows": [
-[
-"Nom.",
-"νεράιδα",
-"νεράιδες"
-],
-[
-"Gen.",
-"νεράιδας",
-"νεράιδων"
-],
-[
-"Acc.",
-"νεράιδα",
-"νεράιδες"
-],
-[
-"Voc.",
-"νεράιδα",
-"νεράιδες"
-]
-],
-"title": "Declension"
-}
-],
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
 }
 ],
 "pos": "noun"
@@ -100598,15 +100562,6 @@
 ],
 "pos": "noun"
 },
-"νοιάζει": {
-"chips": [
-{
-"label": "Passive",
-"value": "νοιάζομαι"
-}
-],
-"pos": "verb"
-},
 "νοιάζομαι": {
 "chips": [
 {
@@ -100660,46 +100615,6 @@
 }
 ],
 "pos": "noun"
-},
-"νοιώθω": {
-"charts": [
-{
-"rows": [
-[
-"εγώ",
-"νιώθω"
-],
-[
-"εσύ",
-"νιώθεις"
-],
-[
-"αυτός/-ή",
-"νιώθει"
-],
-[
-"εμείς",
-"νιώθουμε"
-],
-[
-"εσείς",
-"νιώθετε"
-],
-[
-"αυτοί",
-"νιώθουν"
-]
-],
-"title": "Present"
-}
-],
-"chips": [
-{
-"label": "Aorist",
-"value": "ένοιωσα"
-}
-],
-"pos": "verb"
 },
 "νομίζω": {
 "charts": [
@@ -101355,24 +101270,6 @@
 ],
 "pos": "noun"
 },
-"ντεντέκτιβ": {
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
-}
-],
-"pos": "noun"
-},
-"ντετέκτιβ": {
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
-}
-],
-"pos": "noun"
-},
 "ντο": {
 "chips": [
 {
@@ -101472,21 +101369,6 @@
 ]
 ],
 "title": "Declension"
-}
-],
-"chips": [
-{
-"label": "Gender",
-"value": "neuter"
-}
-],
-"pos": "noun"
-},
-"ντουζ": {
-"chips": [
-{
-"label": "Gender",
-"value": "neuter"
 }
 ],
 "pos": "noun"
@@ -102203,47 +102085,6 @@
 ],
 "pos": "noun"
 },
-"νύκτα": {
-"charts": [
-{
-"columns": [
-"",
-"Singular",
-"Plural"
-],
-"rows": [
-[
-"Nom.",
-"νύκτα",
-"νύκτες"
-],
-[
-"Gen.",
-"νύκτας",
-"νυκτών"
-],
-[
-"Acc.",
-"νύκτα",
-"νύκτες"
-],
-[
-"Voc.",
-"νύκτα",
-"νύκτες"
-]
-],
-"title": "Declension"
-}
-],
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
-}
-],
-"pos": "noun"
-},
 "νύφη": {
 "charts": [
 {
@@ -102399,47 +102240,6 @@
 {
 "label": "Gender",
 "value": "feminine"
-}
-],
-"pos": "noun"
-},
-"ξάδελφος": {
-"charts": [
-{
-"columns": [
-"",
-"Singular",
-"Plural"
-],
-"rows": [
-[
-"Nom.",
-"ξάδελφος",
-"ξάδελφοι"
-],
-[
-"Gen.",
-"ξάδελφου",
-"ξάδελφων"
-],
-[
-"Acc.",
-"ξάδελφο",
-"ξάδελφους"
-],
-[
-"Voc.",
-"ξάδελφε",
-"ξάδελφοι"
-]
-],
-"title": "Declension"
-}
-],
-"chips": [
-{
-"label": "Gender",
-"value": "masculine"
 }
 ],
 "pos": "noun"
@@ -102733,47 +102533,6 @@
 ],
 "pos": "noun"
 },
-"ξαδέλφη": {
-"charts": [
-{
-"columns": [
-"",
-"Singular",
-"Plural"
-],
-"rows": [
-[
-"Nom.",
-"ξαδέλφη",
-"ξαδέλφες"
-],
-[
-"Gen.",
-"ξαδέλφης",
-"ξαδέλφων"
-],
-[
-"Acc.",
-"ξαδέλφη",
-"ξαδέλφες"
-],
-[
-"Voc.",
-"ξαδέλφη",
-"ξαδέλφες"
-]
-],
-"title": "Declension"
-}
-],
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
-}
-],
-"pos": "noun"
-},
 "ξαδέλφια": {
 "charts": [
 {
@@ -102874,6 +102633,15 @@
 {
 "label": "Passive",
 "value": "ξαναβλέπομαι"
+}
+],
+"pos": "verb"
+},
+"ξαναλέω": {
+"chips": [
+{
+"label": "Aorist",
+"value": "ξανάπα"
 }
 ],
 "pos": "verb"
@@ -103103,6 +102871,50 @@
 ],
 "pos": "verb"
 },
+"ξεχωρίζω": {
+"charts": [
+{
+"rows": [
+[
+"εγώ",
+"ξεχωρίζω"
+],
+[
+"εσύ",
+"ξεχωρίζεις"
+],
+[
+"αυτός/-ή",
+"ξεχωρίζει"
+],
+[
+"εμείς",
+"ξεχωρίζουμε"
+],
+[
+"εσείς",
+"ξεχωρίζετε"
+],
+[
+"αυτοί",
+"ξεχωρίζουν"
+]
+],
+"title": "Present"
+}
+],
+"chips": [
+{
+"label": "Aorist",
+"value": "ξεχώρισα"
+},
+{
+"label": "Passive",
+"value": "ξεχωρίζομαι"
+}
+],
+"pos": "verb"
+},
 "ξημέρωμα": {
 "charts": [
 {
@@ -103172,6 +102984,47 @@
 "Voc.",
 "ξηρά",
 "—"
+]
+],
+"title": "Declension"
+}
+],
+"chips": [
+{
+"label": "Gender",
+"value": "feminine"
+}
+],
+"pos": "noun"
+},
+"ξηρασία": {
+"charts": [
+{
+"columns": [
+"",
+"Singular",
+"Plural"
+],
+"rows": [
+[
+"Nom.",
+"ξηρασία",
+"ξηρασίες"
+],
+[
+"Gen.",
+"ξηρασίας",
+"ξηρασιών"
+],
+[
+"Acc.",
+"ξηρασία",
+"ξηρασίες"
+],
+[
+"Voc.",
+"ξηρασία",
+"ξηρασίες"
 ]
 ],
 "title": "Declension"
@@ -103360,47 +103213,6 @@
 ],
 "pos": "noun"
 },
-"ξωτικό": {
-"charts": [
-{
-"columns": [
-"",
-"Singular",
-"Plural"
-],
-"rows": [
-[
-"Nom.",
-"ξωτικό",
-"ξωτικά"
-],
-[
-"Gen.",
-"ξωτικού",
-"ξωτικών"
-],
-[
-"Acc.",
-"ξωτικό",
-"ξωτικά"
-],
-[
-"Voc.",
-"ξωτικό",
-"ξωτικά"
-]
-],
-"title": "Declension"
-}
-],
-"chips": [
-{
-"label": "Gender",
-"value": "neuter"
-}
-],
-"pos": "noun"
-},
 "ξόρκι": {
 "charts": [
 {
@@ -103460,6 +103272,15 @@
 ],
 "pos": "noun"
 },
+"ξύλου": {
+"chips": [
+{
+"label": "Gender",
+"value": "neuter"
+}
+],
+"pos": "noun"
+},
 "ξύρισμα": {
 "charts": [
 {
@@ -103488,6 +103309,47 @@
 "Voc.",
 "ξύρισμα",
 "ξυρίσματα"
+]
+],
+"title": "Declension"
+}
+],
+"chips": [
+{
+"label": "Gender",
+"value": "neuter"
+}
+],
+"pos": "noun"
+},
+"οίδημα": {
+"charts": [
+{
+"columns": [
+"",
+"Singular",
+"Plural"
+],
+"rows": [
+[
+"Nom.",
+"οίδημα",
+"οιδήματα"
+],
+[
+"Gen.",
+"οιδήματος",
+"οιδημάτων"
+],
+[
+"Acc.",
+"οίδημα",
+"οιδήματα"
+],
+[
+"Voc.",
+"οίδημα",
+"οιδήματα"
 ]
 ],
 "title": "Declension"
@@ -103619,16 +103481,39 @@
 ],
 "pos": "noun"
 },
-"οδηγοί": {
-"chips": [
+"οδηγία": {
+"charts": [
 {
-"label": "Gender",
-"value": "feminine"
+"columns": [
+"",
+"Singular",
+"Plural"
+],
+"rows": [
+[
+"Nom.",
+"οδηγία",
+"οδηγίες"
+],
+[
+"Gen.",
+"οδηγίας",
+"οδηγιών"
+],
+[
+"Acc.",
+"οδηγία",
+"οδηγίες"
+],
+[
+"Voc.",
+"οδηγία",
+"οδηγίες"
+]
+],
+"title": "Declension"
 }
 ],
-"pos": "noun"
-},
-"οδηγούς": {
 "chips": [
 {
 "label": "Gender",
@@ -103668,12 +103553,6 @@
 ]
 ],
 "title": "Declension"
-}
-],
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
 }
 ],
 "pos": "noun"
@@ -103722,15 +103601,6 @@
 ],
 "pos": "verb"
 },
-"οδοντίατρο": {
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
-}
-],
-"pos": "noun"
-},
 "οδοντίατρος": {
 "charts": [
 {
@@ -103762,12 +103632,6 @@
 ]
 ],
 "title": "Declension"
-}
-],
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
 }
 ],
 "pos": "noun"
@@ -104269,12 +104133,6 @@
 "title": "Declension"
 }
 ],
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
-}
-],
 "pos": "noun"
 },
 "οικοτροφείο": {
@@ -104355,6 +104213,47 @@
 {
 "label": "Gender",
 "value": "neuter"
+}
+],
+"pos": "noun"
+},
+"οιωνός": {
+"charts": [
+{
+"columns": [
+"",
+"Singular",
+"Plural"
+],
+"rows": [
+[
+"Nom.",
+"οιωνός",
+"οιωνοί"
+],
+[
+"Gen.",
+"οιωνού",
+"οιωνών"
+],
+[
+"Acc.",
+"οιωνό",
+"οιωνούς"
+],
+[
+"Voc.",
+"οιωνέ",
+"οιωνοί"
+]
+],
+"title": "Declension"
+}
+],
+"chips": [
+{
+"label": "Gender",
+"value": "masculine"
 }
 ],
 "pos": "noun"
@@ -104509,7 +104408,7 @@
 ],
 "pos": "noun"
 },
-"ομήρους": {
+"ομάδων": {
 "chips": [
 {
 "label": "Gender",
@@ -105008,6 +104907,15 @@
 ],
 "pos": "noun"
 },
+"ονείρου": {
+"chips": [
+{
+"label": "Gender",
+"value": "neuter"
+}
+],
+"pos": "noun"
+},
 "ονείρων": {
 "chips": [
 {
@@ -105389,12 +105297,6 @@
 "title": "Declension"
 }
 ],
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
-}
-],
 "pos": "noun"
 },
 "οπτική": {
@@ -105705,6 +105607,47 @@
 }
 ],
 "pos": "verb"
+},
+"ορμή": {
+"charts": [
+{
+"columns": [
+"",
+"Singular",
+"Plural"
+],
+"rows": [
+[
+"Nom.",
+"ορμή",
+"ορμές"
+],
+[
+"Gen.",
+"ορμής",
+"ορμών"
+],
+[
+"Acc.",
+"ορμή",
+"ορμές"
+],
+[
+"Voc.",
+"ορμή",
+"ορμές"
+]
+],
+"title": "Declension"
+}
+],
+"chips": [
+{
+"label": "Gender",
+"value": "feminine"
+}
+],
+"pos": "noun"
 },
 "οροφή": {
 "charts": [
@@ -106947,47 +106890,6 @@
 ],
 "pos": "noun"
 },
-"πένα": {
-"charts": [
-{
-"columns": [
-"",
-"Singular",
-"Plural"
-],
-"rows": [
-[
-"Nom.",
-"πένα",
-"πένες"
-],
-[
-"Gen.",
-"πένας",
-"πενών"
-],
-[
-"Acc.",
-"πένα",
-"πένες"
-],
-[
-"Voc.",
-"πένα",
-"πένες"
-]
-],
-"title": "Declension"
-}
-],
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
-}
-],
-"pos": "noun"
-},
 "πένθος": {
 "charts": [
 {
@@ -107937,47 +107839,6 @@
 }
 ],
 "pos": "verb"
-},
-"παίχτης": {
-"charts": [
-{
-"columns": [
-"",
-"Singular",
-"Plural"
-],
-"rows": [
-[
-"Nom.",
-"παίχτης",
-"παίχτες"
-],
-[
-"Gen.",
-"παίχτη",
-"παιχτών"
-],
-[
-"Acc.",
-"παίχτη",
-"παίχτες"
-],
-[
-"Voc.",
-"παίχτη",
-"παίχτες"
-]
-],
-"title": "Declension"
-}
-],
-"chips": [
-{
-"label": "Gender",
-"value": "masculine"
-}
-],
-"pos": "noun"
 },
 "παγάκια": {
 "chips": [
@@ -110102,6 +109963,47 @@
 ],
 "pos": "noun"
 },
+"παράπτωμα": {
+"charts": [
+{
+"columns": [
+"",
+"Singular",
+"Plural"
+],
+"rows": [
+[
+"Nom.",
+"παράπτωμα",
+"παραπτώματα"
+],
+[
+"Gen.",
+"παραπτώματος",
+"παραπτωμάτων"
+],
+[
+"Acc.",
+"παράπτωμα",
+"παραπτώματα"
+],
+[
+"Voc.",
+"παράπτωμα",
+"παραπτώματα"
+]
+],
+"title": "Declension"
+}
+],
+"chips": [
+{
+"label": "Gender",
+"value": "neuter"
+}
+],
+"pos": "noun"
+},
 "παράρτημα": {
 "charts": [
 {
@@ -110739,12 +110641,6 @@
 "title": "Declension"
 }
 ],
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
-}
-],
 "pos": "noun"
 },
 "παραδέχομαι": {
@@ -110812,6 +110708,15 @@
 }
 ],
 "pos": "verb"
+},
+"παραδείγματα": {
+"chips": [
+{
+"label": "Gender",
+"value": "neuter"
+}
+],
+"pos": "noun"
 },
 "παραδείσου": {
 "chips": [
@@ -111588,6 +111493,47 @@
 ],
 "pos": "noun"
 },
+"παρενέργεια": {
+"charts": [
+{
+"columns": [
+"",
+"Singular",
+"Plural"
+],
+"rows": [
+[
+"Nom.",
+"παρενέργεια",
+"παρενέργειες"
+],
+[
+"Gen.",
+"παρενέργειας",
+"παρενεργειών"
+],
+[
+"Acc.",
+"παρενέργεια",
+"παρενέργειες"
+],
+[
+"Voc.",
+"παρενέργεια",
+"παρενέργειες"
+]
+],
+"title": "Declension"
+}
+],
+"chips": [
+{
+"label": "Gender",
+"value": "feminine"
+}
+],
+"pos": "noun"
+},
 "παρενόχληση": {
 "charts": [
 {
@@ -112241,6 +112187,15 @@
 {
 "label": "Gender",
 "value": "feminine"
+}
+],
+"pos": "noun"
+},
+"πασκάλ": {
+"chips": [
+{
+"label": "Gender",
+"value": "neuter"
 }
 ],
 "pos": "noun"
@@ -112939,43 +112894,11 @@
 ],
 "pos": "noun"
 },
-"πεζοδρόμιο": {
-"charts": [
-{
-"columns": [
-"",
-"Singular",
-"Plural"
-],
-"rows": [
-[
-"Nom.",
-"πεζοδρόμιο",
-"πεζοδρόμια"
-],
-[
-"Gen.",
-"πεζοδρομίου",
-"πεζοδρομίων"
-],
-[
-"Acc.",
-"πεζοδρόμιο",
-"πεζοδρόμια"
-],
-[
-"Voc.",
-"πεζοδρόμιο",
-"πεζοδρόμια"
-]
-],
-"title": "Declension"
-}
-],
+"πεδιάδες": {
 "chips": [
 {
 "label": "Gender",
-"value": "neuter"
+"value": "feminine"
 }
 ],
 "pos": "noun"
@@ -113226,6 +113149,47 @@
 }
 ],
 "pos": "verb"
+},
+"πειραματόζωο": {
+"charts": [
+{
+"columns": [
+"",
+"Singular",
+"Plural"
+],
+"rows": [
+[
+"Nom.",
+"πειραματόζωο",
+"πειραματόζωα"
+],
+[
+"Gen.",
+"πειραματόζωου",
+"πειραματόζωων"
+],
+[
+"Acc.",
+"πειραματόζωο",
+"πειραματόζωα"
+],
+[
+"Voc.",
+"πειραματόζωο",
+"πειραματόζωα"
+]
+],
+"title": "Declension"
+}
+],
+"chips": [
+{
+"label": "Gender",
+"value": "neuter"
+}
+],
+"pos": "noun"
 },
 "πειρατές": {
 "chips": [
@@ -113528,6 +113492,47 @@
 "Voc.",
 "περίθαλψη",
 "περιθάλψεις"
+]
+],
+"title": "Declension"
+}
+],
+"chips": [
+{
+"label": "Gender",
+"value": "feminine"
+}
+],
+"pos": "noun"
+},
+"περίληψη": {
+"charts": [
+{
+"columns": [
+"",
+"Singular",
+"Plural"
+],
+"rows": [
+[
+"Nom.",
+"περίληψη",
+"περιλήψεις"
+],
+[
+"Gen.",
+"περίληψης",
+"περιλήψεων"
+],
+[
+"Acc.",
+"περίληψη",
+"περιλήψεις"
+],
+[
+"Voc.",
+"περίληψη",
+"περιλήψεις"
 ]
 ],
 "title": "Declension"
@@ -114162,47 +114167,6 @@
 ],
 "pos": "verb"
 },
-"περιοδεία": {
-"charts": [
-{
-"columns": [
-"",
-"Singular",
-"Plural"
-],
-"rows": [
-[
-"Nom.",
-"περιοδεία",
-"περιοδείες"
-],
-[
-"Gen.",
-"περιοδείας",
-"περιοδειών"
-],
-[
-"Acc.",
-"περιοδεία",
-"περιοδείες"
-],
-[
-"Voc.",
-"περιοδεία",
-"περιοδείες"
-]
-],
-"title": "Declension"
-}
-],
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
-}
-],
-"pos": "noun"
-},
 "περιοδικά": {
 "chips": [
 {
@@ -114431,6 +114395,47 @@
 "pos": "noun"
 },
 "περιπέτειες": {
+"chips": [
+{
+"label": "Gender",
+"value": "feminine"
+}
+],
+"pos": "noun"
+},
+"περιποίηση": {
+"charts": [
+{
+"columns": [
+"",
+"Singular",
+"Plural"
+],
+"rows": [
+[
+"Nom.",
+"περιποίηση",
+"περιποιήσεις"
+],
+[
+"Gen.",
+"περιποίησης",
+"περιποιήσεων"
+],
+[
+"Acc.",
+"περιποίηση",
+"περιποιήσεις"
+],
+[
+"Voc.",
+"περιποίηση",
+"περιποιήσεις"
+]
+],
+"title": "Declension"
+}
+],
 "chips": [
 {
 "label": "Gender",
@@ -115271,47 +115276,6 @@
 ],
 "pos": "verb"
 },
-"πηγούνι": {
-"charts": [
-{
-"columns": [
-"",
-"Singular",
-"Plural"
-],
-"rows": [
-[
-"Nom.",
-"πηγούνι",
-"πηγούνια"
-],
-[
-"Gen.",
-"πηγουνιού",
-"πηγουνιών"
-],
-[
-"Acc.",
-"πηγούνι",
-"πηγούνια"
-],
-[
-"Voc.",
-"πηγούνι",
-"πηγούνια"
-]
-],
-"title": "Declension"
-}
-],
-"chips": [
-{
-"label": "Gender",
-"value": "neuter"
-}
-],
-"pos": "noun"
-},
 "πηδάλιο": {
 "charts": [
 {
@@ -115716,12 +115680,6 @@
 ]
 ],
 "title": "Declension"
-}
-],
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
 }
 ],
 "pos": "noun"
@@ -116198,6 +116156,15 @@
 ],
 "pos": "noun"
 },
+"πιτσουνάκια": {
+"chips": [
+{
+"label": "Gender",
+"value": "neuter"
+}
+],
+"pos": "noun"
+},
 "πιόνι": {
 "charts": [
 {
@@ -116231,6 +116198,15 @@
 "title": "Declension"
 }
 ],
+"chips": [
+{
+"label": "Gender",
+"value": "neuter"
+}
+],
+"pos": "noun"
+},
+"πιόνια": {
 "chips": [
 {
 "label": "Gender",
@@ -116688,6 +116664,15 @@
 ],
 "pos": "noun"
 },
+"πλακάκια": {
+"chips": [
+{
+"label": "Gender",
+"value": "neuter"
+}
+],
+"pos": "noun"
+},
 "πλανήτες": {
 "chips": [
 {
@@ -116739,6 +116724,15 @@
 "title": "Declension"
 }
 ],
+"chips": [
+{
+"label": "Gender",
+"value": "masculine"
+}
+],
+"pos": "noun"
+},
+"πλανητών": {
 "chips": [
 {
 "label": "Gender",
@@ -117573,12 +117567,6 @@
 "title": "Declension"
 }
 ],
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
-}
-],
 "pos": "noun"
 },
 "πλοίο": {
@@ -117721,12 +117709,6 @@
 ]
 ],
 "title": "Declension"
-}
-],
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
 }
 ],
 "pos": "noun"
@@ -118404,24 +118386,6 @@
 ],
 "pos": "noun"
 },
-"πολίτες": {
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
-}
-],
-"pos": "noun"
-},
-"πολίτη": {
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
-}
-],
-"pos": "noun"
-},
 "πολίτης": {
 "charts": [
 {
@@ -118453,12 +118417,6 @@
 ]
 ],
 "title": "Declension"
-}
-],
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
 }
 ],
 "pos": "noun"
@@ -118684,33 +118642,6 @@
 ],
 "pos": "noun"
 },
-"πολιτικοί": {
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
-}
-],
-"pos": "noun"
-},
-"πολιτικούς": {
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
-}
-],
-"pos": "noun"
-},
-"πολιτικό": {
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
-}
-],
-"pos": "noun"
-},
 "πολιτικός": {
 "charts": [
 {
@@ -118742,12 +118673,6 @@
 ]
 ],
 "title": "Declension"
-}
-],
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
 }
 ],
 "pos": "noun"
@@ -118816,15 +118741,6 @@
 {
 "label": "Gender",
 "value": "masculine"
-}
-],
-"pos": "noun"
-},
-"πολιτών": {
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
 }
 ],
 "pos": "noun"
@@ -118994,6 +118910,15 @@
 "title": "Declension"
 }
 ],
+"chips": [
+{
+"label": "Gender",
+"value": "feminine"
+}
+],
+"pos": "noun"
+},
+"πολυτελείας": {
 "chips": [
 {
 "label": "Gender",
@@ -119509,47 +119434,6 @@
 ],
 "pos": "noun"
 },
-"πορτραίτο": {
-"charts": [
-{
-"columns": [
-"",
-"Singular",
-"Plural"
-],
-"rows": [
-[
-"Nom.",
-"πορτρέτο",
-"πορτρέτα"
-],
-[
-"Gen.",
-"πορτρέτου",
-"πορτρέτων"
-],
-[
-"Acc.",
-"πορτρέτο",
-"πορτρέτα"
-],
-[
-"Voc.",
-"πορτρέτο",
-"πορτρέτα"
-]
-],
-"title": "Declension"
-}
-],
-"chips": [
-{
-"label": "Gender",
-"value": "neuter"
-}
-],
-"pos": "noun"
-},
 "ποσοστό": {
 "charts": [
 {
@@ -119791,47 +119675,6 @@
 ],
 "pos": "noun"
 },
-"ποταμός": {
-"charts": [
-{
-"columns": [
-"",
-"Singular",
-"Plural"
-],
-"rows": [
-[
-"Nom.",
-"ποταμός",
-"ποταμοί"
-],
-[
-"Gen.",
-"ποταμού",
-"ποταμών"
-],
-[
-"Acc.",
-"ποταμό",
-"ποταμούς"
-],
-[
-"Voc.",
-"ποταμέ",
-"ποταμοί"
-]
-],
-"title": "Declension"
-}
-],
-"chips": [
-{
-"label": "Gender",
-"value": "masculine"
-}
-],
-"pos": "noun"
-},
 "ποτηράκι": {
 "charts": [
 {
@@ -119901,6 +119744,15 @@
 "title": "Declension"
 }
 ],
+"chips": [
+{
+"label": "Gender",
+"value": "neuter"
+}
+],
+"pos": "noun"
+},
+"ποτών": {
 "chips": [
 {
 "label": "Gender",
@@ -120081,6 +119933,15 @@
 "pos": "noun"
 },
 "πουλιά": {
+"chips": [
+{
+"label": "Gender",
+"value": "neuter"
+}
+],
+"pos": "noun"
+},
+"πουλιού": {
 "chips": [
 {
 "label": "Gender",
@@ -120667,12 +120528,6 @@
 "title": "Declension"
 }
 ],
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
-}
-],
 "pos": "noun"
 },
 "πρήξιμο": {
@@ -121048,47 +120903,6 @@
 ],
 "pos": "noun"
 },
-"πρεζόνι": {
-"charts": [
-{
-"columns": [
-"",
-"Singular",
-"Plural"
-],
-"rows": [
-[
-"Nom.",
-"πρεζόνι",
-"πρεζόνια"
-],
-[
-"Gen.",
-"πρεζονιού",
-"πρεζονιών"
-],
-[
-"Acc.",
-"πρεζόνι",
-"πρεζόνια"
-],
-[
-"Voc.",
-"πρεζόνι",
-"πρεζόνια"
-]
-],
-"title": "Declension"
-}
-],
-"chips": [
-{
-"label": "Gender",
-"value": "neuter"
-}
-],
-"pos": "noun"
-},
 "πρεμιέρα": {
 "charts": [
 {
@@ -121253,15 +121067,6 @@
 ],
 "pos": "noun"
 },
-"προέδρου": {
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
-}
-],
-"pos": "noun"
-},
 "προέλευση": {
 "charts": [
 {
@@ -121340,47 +121145,6 @@
 {
 "label": "Gender",
 "value": "feminine"
-}
-],
-"pos": "noun"
-},
-"προαίσθημα": {
-"charts": [
-{
-"columns": [
-"",
-"Singular",
-"Plural"
-],
-"rows": [
-[
-"Nom.",
-"προαίσθημα",
-"προαισθήματα"
-],
-[
-"Gen.",
-"προαισθήματος",
-"προαισθημάτων"
-],
-[
-"Acc.",
-"προαίσθημα",
-"προαισθήματα"
-],
-[
-"Voc.",
-"προαίσθημα",
-"προαισθήματα"
-]
-],
-"title": "Declension"
-}
-],
-"chips": [
-{
-"label": "Gender",
-"value": "neuter"
 }
 ],
 "pos": "noun"
@@ -121608,6 +121372,15 @@
 {
 "label": "Gender",
 "value": "neuter"
+}
+],
+"pos": "noun"
+},
+"προγραμματισμό": {
+"chips": [
+{
+"label": "Gender",
+"value": "masculine"
 }
 ],
 "pos": "noun"
@@ -123652,6 +123425,15 @@
 ],
 "pos": "noun"
 },
+"προτιμήσεις": {
+"chips": [
+{
+"label": "Gender",
+"value": "feminine"
+}
+],
+"pos": "noun"
+},
 "προφήτες": {
 "chips": [
 {
@@ -124234,12 +124016,6 @@
 "title": "Declension"
 }
 ],
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
-}
-],
 "pos": "noun"
 },
 "πρωινά": {
@@ -124370,6 +124146,47 @@
 {
 "label": "Gender",
 "value": "masculine"
+}
+],
+"pos": "noun"
+},
+"πρωταθλήτρια": {
+"charts": [
+{
+"columns": [
+"",
+"Singular",
+"Plural"
+],
+"rows": [
+[
+"Nom.",
+"πρωταθλήτρια",
+"πρωταθλήτριες"
+],
+[
+"Gen.",
+"πρωταθλήτριας",
+"πρωταθλητριών"
+],
+[
+"Acc.",
+"πρωταθλήτρια",
+"πρωταθλήτριες"
+],
+[
+"Voc.",
+"πρωταθλήτρια",
+"πρωταθλήτριες"
+]
+],
+"title": "Declension"
+}
+],
+"chips": [
+{
+"label": "Gender",
+"value": "feminine"
 }
 ],
 "pos": "noun"
@@ -124843,15 +124660,6 @@
 ],
 "pos": "noun"
 },
-"πρόεδρο": {
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
-}
-],
-"pos": "noun"
-},
 "πρόεδρος": {
 "charts": [
 {
@@ -124883,12 +124691,6 @@
 ]
 ],
 "title": "Declension"
-}
-],
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
 }
 ],
 "pos": "noun"
@@ -125371,15 +125173,6 @@
 ],
 "pos": "noun"
 },
-"πρύτανη": {
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
-}
-],
-"pos": "noun"
-},
 "πρύτανης": {
 "charts": [
 {
@@ -125411,21 +125204,6 @@
 ]
 ],
 "title": "Declension"
-}
-],
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
-}
-],
-"pos": "noun"
-},
-"πτέραρχε": {
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
 }
 ],
 "pos": "noun"
@@ -125684,12 +125462,6 @@
 ]
 ],
 "title": "Declension"
-}
-],
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
 }
 ],
 "pos": "noun"
@@ -126123,6 +125895,15 @@
 "pos": "noun"
 },
 "πυροβολισμοί": {
+"chips": [
+{
+"label": "Gender",
+"value": "masculine"
+}
+],
+"pos": "noun"
+},
+"πυροβολισμού": {
 "chips": [
 {
 "label": "Gender",
@@ -126757,6 +126538,47 @@
 ],
 "pos": "noun"
 },
+"πόντος": {
+"charts": [
+{
+"columns": [
+"",
+"Singular",
+"Plural"
+],
+"rows": [
+[
+"Nom.",
+"πόντος",
+"πόντοι"
+],
+[
+"Gen.",
+"πόντου",
+"πόντων"
+],
+[
+"Acc.",
+"πόντο",
+"πόντους"
+],
+[
+"Voc.",
+"πόντε",
+"πόντοι"
+]
+],
+"title": "Declension"
+}
+],
+"chips": [
+{
+"label": "Gender",
+"value": "masculine"
+}
+],
+"pos": "noun"
+},
 "πόρνη": {
 "charts": [
 {
@@ -127066,6 +126888,15 @@
 ],
 "pos": "noun"
 },
+"πύργου": {
+"chips": [
+{
+"label": "Gender",
+"value": "masculine"
+}
+],
+"pos": "noun"
+},
 "πύργους": {
 "chips": [
 {
@@ -127121,15 +126952,6 @@
 {
 "label": "Gender",
 "value": "feminine"
-}
-],
-"pos": "noun"
-},
-"ρ.": {
-"chips": [
-{
-"label": "Gender",
-"value": "neuter"
 }
 ],
 "pos": "noun"
@@ -127728,7 +127550,7 @@
 ],
 "pos": "noun"
 },
-"ρεπόρτερ": {
+"ρεσεψιόν": {
 "chips": [
 {
 "label": "Gender",
@@ -127737,11 +127559,11 @@
 ],
 "pos": "noun"
 },
-"ρεσεψιόν": {
+"ρεσιτάλ": {
 "chips": [
 {
 "label": "Gender",
-"value": "feminine"
+"value": "neuter"
 }
 ],
 "pos": "noun"
@@ -127895,15 +127717,6 @@
 ],
 "pos": "verb"
 },
-"ρο": {
-"chips": [
-{
-"label": "Gender",
-"value": "neuter"
-}
-],
-"pos": "noun"
-},
 "ροή": {
 "charts": [
 {
@@ -127945,7 +127758,57 @@
 ],
 "pos": "noun"
 },
+"ροδάκινο": {
+"charts": [
+{
+"columns": [
+"",
+"Singular",
+"Plural"
+],
+"rows": [
+[
+"Nom.",
+"ροδάκινο",
+"ροδάκινα"
+],
+[
+"Gen.",
+"ροδακίνου",
+"ροδακίνων"
+],
+[
+"Acc.",
+"ροδάκινο",
+"ροδάκινα"
+],
+[
+"Voc.",
+"ροδάκινο",
+"ροδάκινα"
+]
+],
+"title": "Declension"
+}
+],
+"chips": [
+{
+"label": "Gender",
+"value": "neuter"
+}
+],
+"pos": "noun"
+},
 "ροκ": {
+"chips": [
+{
+"label": "Gender",
+"value": "neuter"
+}
+],
+"pos": "noun"
+},
+"ρολογιού": {
 "chips": [
 {
 "label": "Gender",
@@ -129566,6 +129429,15 @@
 ],
 "pos": "noun"
 },
+"σαγόνια": {
+"chips": [
+{
+"label": "Gender",
+"value": "neuter"
+}
+],
+"pos": "noun"
+},
 "σακάκι": {
 "charts": [
 {
@@ -130900,6 +130772,15 @@
 ],
 "pos": "noun"
 },
+"σημείου": {
+"chips": [
+{
+"label": "Gender",
+"value": "neuter"
+}
+],
+"pos": "noun"
+},
 "σημείωμα": {
 "charts": [
 {
@@ -131037,6 +130918,47 @@
 {
 "label": "Gender",
 "value": "feminine"
+}
+],
+"pos": "noun"
+},
+"σθένος": {
+"charts": [
+{
+"columns": [
+"",
+"Singular",
+"Plural"
+],
+"rows": [
+[
+"Nom.",
+"σθένος",
+"σθένη"
+],
+[
+"Gen.",
+"σθένους",
+"σθενών"
+],
+[
+"Acc.",
+"σθένος",
+"σθένη"
+],
+[
+"Voc.",
+"σθένος",
+"σθένη"
+]
+],
+"title": "Declension"
+}
+],
+"chips": [
+{
+"label": "Gender",
+"value": "neuter"
 }
 ],
 "pos": "noun"
@@ -131223,19 +131145,6 @@
 ],
 "pos": "noun"
 },
-"σιχαίνομαι": {
-"chips": [
-{
-"label": "Aorist",
-"value": "σιχάθηκα"
-},
-{
-"label": "Passive",
-"value": "σιχαίνεται"
-}
-],
-"pos": "verb"
-},
 "σιωπή": {
 "charts": [
 {
@@ -131368,47 +131277,6 @@
 ],
 "pos": "noun"
 },
-"σκάνδαλο": {
-"charts": [
-{
-"columns": [
-"",
-"Singular",
-"Plural"
-],
-"rows": [
-[
-"Nom.",
-"σκάνδαλο",
-"σκάνδαλα"
-],
-[
-"Gen.",
-"σκανδάλου",
-"σκανδάλων"
-],
-[
-"Acc.",
-"σκάνδαλο",
-"σκάνδαλα"
-],
-[
-"Voc.",
-"σκάνδαλο",
-"σκάνδαλα"
-]
-],
-"title": "Declension"
-}
-],
-"chips": [
-{
-"label": "Gender",
-"value": "neuter"
-}
-],
-"pos": "noun"
-},
 "σκάφη": {
 "charts": [
 {
@@ -131499,19 +131367,6 @@
 }
 ],
 "pos": "noun"
-},
-"σκέπτομαι": {
-"chips": [
-{
-"label": "Aorist",
-"value": "σκέφθηκα"
-},
-{
-"label": "Passive",
-"value": "σκέπτεται"
-}
-],
-"pos": "verb"
 },
 "σκέφτομαι": {
 "chips": [
@@ -132140,6 +131995,47 @@
 ],
 "pos": "noun"
 },
+"σκιάχτρο": {
+"charts": [
+{
+"columns": [
+"",
+"Singular",
+"Plural"
+],
+"rows": [
+[
+"Nom.",
+"σκιάχτρο",
+"σκιάχτρα"
+],
+[
+"Gen.",
+"σκιάχτρου",
+"σκιάχτρων"
+],
+[
+"Acc.",
+"σκιάχτρο",
+"σκιάχτρα"
+],
+[
+"Voc.",
+"σκιάχτρο",
+"σκιάχτρα"
+]
+],
+"title": "Declension"
+}
+],
+"chips": [
+{
+"label": "Gender",
+"value": "neuter"
+}
+],
+"pos": "noun"
+},
 "σκιές": {
 "chips": [
 {
@@ -132304,47 +132200,6 @@
 "Voc.",
 "σκληρότητα",
 "—"
-]
-],
-"title": "Declension"
-}
-],
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
-}
-],
-"pos": "noun"
-},
-"σκοινί": {
-"charts": [
-{
-"columns": [
-"",
-"Singular",
-"Plural"
-],
-"rows": [
-[
-"Nom.",
-"σκοινί",
-"σκοινιά"
-],
-[
-"Gen.",
-"σκοινιού",
-"σκοινιών"
-],
-[
-"Acc.",
-"σκοινί",
-"σκοινιά"
-],
-[
-"Voc.",
-"σκοινί",
-"σκοινιά"
 ]
 ],
 "title": "Declension"
@@ -132594,6 +132449,15 @@
 {
 "label": "Gender",
 "value": "neuter"
+}
+],
+"pos": "noun"
+},
+"σκοτωμοί": {
+"chips": [
+{
+"label": "Gender",
+"value": "masculine"
 }
 ],
 "pos": "noun"
@@ -133028,47 +132892,6 @@
 ],
 "pos": "noun"
 },
-"σκότος": {
-"charts": [
-{
-"columns": [
-"",
-"Singular",
-"Plural"
-],
-"rows": [
-[
-"Nom.",
-"Σκότος",
-"Σκότοι"
-],
-[
-"Gen.",
-"Σκότου",
-"Σκότων"
-],
-[
-"Acc.",
-"Σκότο",
-"Σκότους"
-],
-[
-"Voc.",
-"Σκότε",
-"Σκότοι"
-]
-],
-"title": "Declension"
-}
-],
-"chips": [
-{
-"label": "Gender",
-"value": "masculine"
-}
-],
-"pos": "noun"
-},
 "σκύλα": {
 "charts": [
 {
@@ -133102,6 +132925,15 @@
 "title": "Declension"
 }
 ],
+"chips": [
+{
+"label": "Gender",
+"value": "feminine"
+}
+],
+"pos": "noun"
+},
+"σκύλας": {
 "chips": [
 {
 "label": "Gender",
@@ -133265,12 +133097,6 @@
 "title": "Declension"
 }
 ],
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
-}
-],
 "pos": "noun"
 },
 "σμήνος": {
@@ -133310,15 +133136,6 @@
 {
 "label": "Gender",
 "value": "neuter"
-}
-],
-"pos": "noun"
-},
-"σμηναγέ": {
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
 }
 ],
 "pos": "noun"
@@ -133621,6 +133438,15 @@
 {
 "label": "Gender",
 "value": "neuter"
+}
+],
+"pos": "noun"
+},
+"σοφά": {
+"chips": [
+{
+"label": "Gender",
+"value": "masculine"
 }
 ],
 "pos": "noun"
@@ -134402,6 +134228,56 @@
 ],
 "pos": "noun"
 },
+"σπιτιών": {
+"chips": [
+{
+"label": "Gender",
+"value": "neuter"
+}
+],
+"pos": "noun"
+},
+"σπλήνα": {
+"charts": [
+{
+"columns": [
+"",
+"Singular",
+"Plural"
+],
+"rows": [
+[
+"Nom.",
+"σπλήνα",
+"σπλήνες"
+],
+[
+"Gen.",
+"σπλήνας",
+"σπληνών"
+],
+[
+"Acc.",
+"σπλήνα",
+"σπλήνες"
+],
+[
+"Voc.",
+"σπλήνα",
+"σπλήνες"
+]
+],
+"title": "Declension"
+}
+],
+"chips": [
+{
+"label": "Gender",
+"value": "feminine"
+}
+],
+"pos": "noun"
+},
 "σπορ": {
 "chips": [
 {
@@ -134818,6 +134694,47 @@
 ],
 "pos": "noun"
 },
+"στέρνο": {
+"charts": [
+{
+"columns": [
+"",
+"Singular",
+"Plural"
+],
+"rows": [
+[
+"Nom.",
+"στέρνο",
+"στέρνα"
+],
+[
+"Gen.",
+"στέρνου",
+"στέρνων"
+],
+[
+"Acc.",
+"στέρνο",
+"στέρνα"
+],
+[
+"Voc.",
+"στέρνο",
+"στέρνα"
+]
+],
+"title": "Declension"
+}
+],
+"chips": [
+{
+"label": "Gender",
+"value": "neuter"
+}
+],
+"pos": "noun"
+},
 "στήθος": {
 "charts": [
 {
@@ -134896,6 +134813,47 @@
 {
 "label": "Gender",
 "value": "feminine"
+}
+],
+"pos": "noun"
+},
+"στήριγμα": {
+"charts": [
+{
+"columns": [
+"",
+"Singular",
+"Plural"
+],
+"rows": [
+[
+"Nom.",
+"στήριγμα",
+"στηρίγματα"
+],
+[
+"Gen.",
+"στηρίγματος",
+"στηριγμάτων"
+],
+[
+"Acc.",
+"στήριγμα",
+"στηρίγματα"
+],
+[
+"Voc.",
+"στήριγμα",
+"στηρίγματα"
+]
+],
+"title": "Declension"
+}
+],
+"chips": [
+{
+"label": "Gender",
+"value": "neuter"
 }
 ],
 "pos": "noun"
@@ -135235,6 +135193,42 @@
 ],
 "pos": "noun"
 },
+"σταυροδρόμι": {
+"charts": [
+{
+"columns": [
+"",
+"Singular",
+"Plural"
+],
+"rows": [
+[
+"Nom.",
+"σταυροδρόμι",
+"σταυροδρόμια"
+],
+[
+"Acc.",
+"σταυροδρόμι",
+"σταυροδρόμια"
+],
+[
+"Voc.",
+"σταυροδρόμι",
+"σταυροδρόμια"
+]
+],
+"title": "Declension"
+}
+],
+"chips": [
+{
+"label": "Gender",
+"value": "neuter"
+}
+],
+"pos": "noun"
+},
 "σταυροφορία": {
 "charts": [
 {
@@ -135516,6 +135510,50 @@
 }
 ],
 "pos": "noun"
+},
+"στηρίζω": {
+"charts": [
+{
+"rows": [
+[
+"εγώ",
+"στηρίζω"
+],
+[
+"εσύ",
+"στηρίζεις"
+],
+[
+"αυτός/-ή",
+"στηρίζει"
+],
+[
+"εμείς",
+"στηρίζουμε"
+],
+[
+"εσείς",
+"στηρίζετε"
+],
+[
+"αυτοί",
+"στηρίζουν"
+]
+],
+"title": "Present"
+}
+],
+"chips": [
+{
+"label": "Aorist",
+"value": "στήριξα"
+},
+{
+"label": "Passive",
+"value": "στηρίζομαι"
+}
+],
+"pos": "verb"
 },
 "στιγμές": {
 "chips": [
@@ -135998,15 +136036,6 @@
 ],
 "pos": "noun"
 },
-"στρατηγέ": {
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
-}
-],
-"pos": "noun"
-},
 "στρατηγική": {
 "charts": [
 {
@@ -136057,24 +136086,6 @@
 ],
 "pos": "noun"
 },
-"στρατηγού": {
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
-}
-],
-"pos": "noun"
-},
-"στρατηγό": {
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
-}
-],
-"pos": "noun"
-},
 "στρατηγός": {
 "charts": [
 {
@@ -136106,12 +136117,6 @@
 ]
 ],
 "title": "Declension"
-}
-],
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
 }
 ],
 "pos": "noun"
@@ -136876,12 +136881,6 @@
 "title": "Declension"
 }
 ],
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
-}
-],
 "pos": "noun"
 },
 "συγγνώμη": {
@@ -136925,15 +136924,6 @@
 ],
 "pos": "noun"
 },
-"συγγραφέα": {
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
-}
-],
-"pos": "noun"
-},
 "συγγραφέας": {
 "charts": [
 {
@@ -136967,15 +136957,41 @@
 "title": "Declension"
 }
 ],
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
-}
-],
 "pos": "noun"
 },
-"συγγραφείς": {
+"συγκάλυψη": {
+"charts": [
+{
+"columns": [
+"",
+"Singular",
+"Plural"
+],
+"rows": [
+[
+"Nom.",
+"συγκάλυψη",
+"συγκαλύψεις"
+],
+[
+"Gen.",
+"συγκάλυψης",
+"συγκαλύψεων"
+],
+[
+"Acc.",
+"συγκάλυψη",
+"συγκαλύψεις"
+],
+[
+"Voc.",
+"συγκάλυψη",
+"συγκαλύψεις"
+]
+],
+"title": "Declension"
+}
+],
 "chips": [
 {
 "label": "Gender",
@@ -137015,12 +137031,6 @@
 ]
 ],
 "title": "Declension"
-}
-],
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
 }
 ],
 "pos": "noun"
@@ -137594,19 +137604,6 @@
 }
 ],
 "pos": "noun"
-},
-"συζητώ": {
-"chips": [
-{
-"label": "Aorist",
-"value": "συζήτησα"
-},
-{
-"label": "Passive",
-"value": "συζητούμαι"
-}
-],
-"pos": "verb"
 },
 "συκώτι": {
 "charts": [
@@ -138590,6 +138587,47 @@
 ],
 "pos": "noun"
 },
+"συμφωνητικό": {
+"charts": [
+{
+"columns": [
+"",
+"Singular",
+"Plural"
+],
+"rows": [
+[
+"Nom.",
+"συμφωνητικό",
+"συμφωνητικά"
+],
+[
+"Gen.",
+"συμφωνητικού",
+"συμφωνητικών"
+],
+[
+"Acc.",
+"συμφωνητικό",
+"συμφωνητικά"
+],
+[
+"Voc.",
+"συμφωνητικό",
+"συμφωνητικά"
+]
+],
+"title": "Declension"
+}
+],
+"chips": [
+{
+"label": "Gender",
+"value": "neuter"
+}
+],
+"pos": "noun"
+},
 "συμφωνώ": {
 "charts": [
 {
@@ -138674,12 +138712,6 @@
 ]
 ],
 "title": "Declension"
-}
-],
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
 }
 ],
 "pos": "noun"
@@ -138970,12 +139002,6 @@
 ]
 ],
 "title": "Declension"
-}
-],
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
 }
 ],
 "pos": "noun"
@@ -139694,10 +139720,13 @@
 "title": "Declension"
 }
 ],
+"pos": "noun"
+},
+"συνεχές": {
 "chips": [
 {
 "label": "Gender",
-"value": "feminine"
+"value": "neuter"
 }
 ],
 "pos": "noun"
@@ -139903,15 +139932,6 @@
 ],
 "pos": "noun"
 },
-"συνοδό": {
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
-}
-],
-"pos": "noun"
-},
 "συνοδός": {
 "charts": [
 {
@@ -139943,12 +139963,6 @@
 ]
 ],
 "title": "Declension"
-}
-],
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
 }
 ],
 "pos": "noun"
@@ -140117,24 +140131,6 @@
 ],
 "pos": "noun"
 },
-"συνταγματάρχα": {
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
-}
-],
-"pos": "noun"
-},
-"συνταγματάρχη": {
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
-}
-],
-"pos": "noun"
-},
 "συνταγματάρχης": {
 "charts": [
 {
@@ -140166,12 +140162,6 @@
 ]
 ],
 "title": "Declension"
-}
-],
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
 }
 ],
 "pos": "noun"
@@ -140207,12 +140197,6 @@
 ]
 ],
 "title": "Declension"
-}
-],
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
 }
 ],
 "pos": "noun"
@@ -140350,15 +140334,6 @@
 "title": "Declension"
 }
 ],
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
-}
-],
-"pos": "noun"
-},
-"συντρόφους": {
 "chips": [
 {
 "label": "Gender",
@@ -141248,6 +141223,47 @@
 ],
 "pos": "verb"
 },
+"σχεδιασμός": {
+"charts": [
+{
+"columns": [
+"",
+"Singular",
+"Plural"
+],
+"rows": [
+[
+"Nom.",
+"σχεδιασμός",
+"σχεδιασμοί"
+],
+[
+"Gen.",
+"σχεδιασμού",
+"σχεδιασμών"
+],
+[
+"Acc.",
+"σχεδιασμό",
+"σχεδιασμούς"
+],
+[
+"Voc.",
+"σχεδιασμέ",
+"σχεδιασμοί"
+]
+],
+"title": "Declension"
+}
+],
+"chips": [
+{
+"label": "Gender",
+"value": "masculine"
+}
+],
+"pos": "noun"
+},
 "σχεδιαστής": {
 "charts": [
 {
@@ -141766,15 +141782,6 @@
 ],
 "pos": "noun"
 },
-"σως": {
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
-}
-],
-"pos": "noun"
-},
 "σωτήρας": {
 "charts": [
 {
@@ -142090,12 +142097,6 @@
 "title": "Declension"
 }
 ],
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
-}
-],
 "pos": "noun"
 },
 "σύλληψη": {
@@ -142263,12 +142264,6 @@
 "title": "Declension"
 }
 ],
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
-}
-],
 "pos": "noun"
 },
 "σύμμαχος": {
@@ -142302,12 +142297,6 @@
 ]
 ],
 "title": "Declension"
-}
-],
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
 }
 ],
 "pos": "noun"
@@ -142790,15 +142779,6 @@
 ],
 "pos": "noun"
 },
-"σύνορα": {
-"chips": [
-{
-"label": "Gender",
-"value": "neuter"
-}
-],
-"pos": "noun"
-},
 "σύνταγμα": {
 "charts": [
 {
@@ -142881,33 +142861,6 @@
 ],
 "pos": "noun"
 },
-"σύντροφε": {
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
-}
-],
-"pos": "noun"
-},
-"σύντροφο": {
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
-}
-],
-"pos": "noun"
-},
-"σύντροφοι": {
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
-}
-],
-"pos": "noun"
-},
 "σύντροφος": {
 "charts": [
 {
@@ -142939,12 +142892,6 @@
 ]
 ],
 "title": "Declension"
-}
-],
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
 }
 ],
 "pos": "noun"
@@ -143027,47 +142974,6 @@
 {
 "label": "Gender",
 "value": "neuter"
-}
-],
-"pos": "noun"
-},
-"σύσκεψη": {
-"charts": [
-{
-"columns": [
-"",
-"Singular",
-"Plural"
-],
-"rows": [
-[
-"Nom.",
-"σύσκεψη",
-"συσκέψεις"
-],
-[
-"Gen.",
-"σύσκεψης",
-"συσκέψεων"
-],
-[
-"Acc.",
-"σύσκεψη",
-"συσκέψεις"
-],
-[
-"Voc.",
-"σύσκεψη",
-"συσκέψεις"
-]
-],
-"title": "Declension"
-}
-],
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
 }
 ],
 "pos": "noun"
@@ -144126,12 +144032,6 @@
 "title": "Declension"
 }
 ],
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
-}
-],
 "pos": "noun"
 },
 "ταινία": {
@@ -144394,12 +144294,6 @@
 "title": "Declension"
 }
 ],
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
-}
-],
 "pos": "noun"
 },
 "ταμείο": {
@@ -144538,6 +144432,47 @@
 ],
 "pos": "noun"
 },
+"ταξιαρχία": {
+"charts": [
+{
+"columns": [
+"",
+"Singular",
+"Plural"
+],
+"rows": [
+[
+"Nom.",
+"ταξιαρχία",
+"ταξιαρχίες"
+],
+[
+"Gen.",
+"ταξιαρχίας",
+"ταξιαρχιών"
+],
+[
+"Acc.",
+"ταξιαρχία",
+"ταξιαρχίες"
+],
+[
+"Voc.",
+"ταξιαρχία",
+"ταξιαρχίες"
+]
+],
+"title": "Declension"
+}
+],
+"chips": [
+{
+"label": "Gender",
+"value": "feminine"
+}
+],
+"pos": "noun"
+},
 "ταξιδεύω": {
 "charts": [
 {
@@ -144577,6 +144512,47 @@
 }
 ],
 "pos": "verb"
+},
+"ταξιδιώτης": {
+"charts": [
+{
+"columns": [
+"",
+"Singular",
+"Plural"
+],
+"rows": [
+[
+"Nom.",
+"ταξιδιώτης",
+"ταξιδιώτες"
+],
+[
+"Gen.",
+"ταξιδιώτη",
+"ταξιδιωτών"
+],
+[
+"Acc.",
+"ταξιδιώτη",
+"ταξιδιώτες"
+],
+[
+"Voc.",
+"ταξιδιώτη",
+"ταξιδιώτες"
+]
+],
+"title": "Declension"
+}
+],
+"chips": [
+{
+"label": "Gender",
+"value": "masculine"
+}
+],
+"pos": "noun"
 },
 "ταξιτζής": {
 "charts": [
@@ -144964,12 +144940,6 @@
 ]
 ],
 "title": "Declension"
-}
-],
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
 }
 ],
 "pos": "noun"
@@ -145950,6 +145920,47 @@
 ],
 "pos": "noun"
 },
+"τζαμί": {
+"charts": [
+{
+"columns": [
+"",
+"Singular",
+"Plural"
+],
+"rows": [
+[
+"Nom.",
+"τζαμί",
+"τζαμιά"
+],
+[
+"Gen.",
+"τζαμιού",
+"τζαμιών"
+],
+[
+"Acc.",
+"τζαμί",
+"τζαμιά"
+],
+[
+"Voc.",
+"τζαμί",
+"τζαμιά"
+]
+],
+"title": "Declension"
+}
+],
+"chips": [
+{
+"label": "Gender",
+"value": "neuter"
+}
+],
+"pos": "noun"
+},
 "τζετ": {
 "chips": [
 {
@@ -146394,47 +146405,6 @@
 ],
 "pos": "noun"
 },
-"τηλεόραση": {
-"charts": [
-{
-"columns": [
-"",
-"Singular",
-"Plural"
-],
-"rows": [
-[
-"Nom.",
-"τηλεόραση",
-"τηλεοράσεις"
-],
-[
-"Gen.",
-"τηλεόρασης",
-"τηλεοράσεων"
-],
-[
-"Acc.",
-"τηλεόραση",
-"τηλεοράσεις"
-],
-[
-"Voc.",
-"τηλεόραση",
-"τηλεοράσεις"
-]
-],
-"title": "Declension"
-}
-],
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
-}
-],
-"pos": "noun"
-},
 "τιμές": {
 "chips": [
 {
@@ -146694,6 +146664,15 @@
 ],
 "pos": "noun"
 },
+"τοίχου": {
+"chips": [
+{
+"label": "Gender",
+"value": "masculine"
+}
+],
+"pos": "noun"
+},
 "τοίχους": {
 "chips": [
 {
@@ -146827,6 +146806,15 @@
 "title": "Declension"
 }
 ],
+"chips": [
+{
+"label": "Gender",
+"value": "feminine"
+}
+],
+"pos": "noun"
+},
+"τοξίνες": {
 "chips": [
 {
 "label": "Gender",
@@ -146976,11 +146964,43 @@
 ],
 "pos": "noun"
 },
-"τοστ": {
+"τορπίλη": {
+"charts": [
+{
+"columns": [
+"",
+"Singular",
+"Plural"
+],
+"rows": [
+[
+"Nom.",
+"τορπίλη",
+"τορπίλες"
+],
+[
+"Gen.",
+"τορπίλης",
+"τορπιλών"
+],
+[
+"Acc.",
+"τορπίλη",
+"τορπίλες"
+],
+[
+"Voc.",
+"τορπίλη",
+"τορπίλες"
+]
+],
+"title": "Declension"
+}
+],
 "chips": [
 {
 "label": "Gender",
-"value": "neuter"
+"value": "feminine"
 }
 ],
 "pos": "noun"
@@ -147841,47 +147861,6 @@
 ],
 "pos": "noun"
 },
-"τραίνο": {
-"charts": [
-{
-"columns": [
-"",
-"Singular",
-"Plural"
-],
-"rows": [
-[
-"Nom.",
-"τραίνο",
-"τραίνα"
-],
-[
-"Gen.",
-"τραίνου",
-"τραίνων"
-],
-[
-"Acc.",
-"τραίνο",
-"τραίνα"
-],
-[
-"Voc.",
-"τραίνο",
-"τραίνα"
-]
-],
-"title": "Declension"
-}
-],
-"chips": [
-{
-"label": "Gender",
-"value": "neuter"
-}
-],
-"pos": "noun"
-},
 "τραβάω": {
 "charts": [
 {
@@ -147925,15 +147904,6 @@
 }
 ],
 "pos": "verb"
-},
-"τραβεστί": {
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
-}
-],
-"pos": "noun"
 },
 "τραγουδάω": {
 "charts": [
@@ -148170,6 +148140,15 @@
 ],
 "pos": "noun"
 },
+"τραμ": {
+"chips": [
+{
+"label": "Gender",
+"value": "neuter"
+}
+],
+"pos": "noun"
+},
 "τραπέζι": {
 "charts": [
 {
@@ -148387,21 +148366,6 @@
 ]
 ],
 "title": "Declension"
-}
-],
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
-}
-],
-"pos": "noun"
-},
-"τραυματίες": {
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
 }
 ],
 "pos": "noun"
@@ -148723,88 +148687,6 @@
 ],
 "pos": "noun"
 },
-"τρομοκράτης": {
-"charts": [
-{
-"columns": [
-"",
-"Singular",
-"Plural"
-],
-"rows": [
-[
-"Nom.",
-"τρομοκράτης",
-"τρομοκράτες"
-],
-[
-"Gen.",
-"τρομοκράτη",
-"τρομοκρατών"
-],
-[
-"Acc.",
-"τρομοκράτη",
-"τρομοκράτες"
-],
-[
-"Voc.",
-"τρομοκράτη",
-"τρομοκράτες"
-]
-],
-"title": "Declension"
-}
-],
-"chips": [
-{
-"label": "Gender",
-"value": "masculine"
-}
-],
-"pos": "noun"
-},
-"τρομοκρατία": {
-"charts": [
-{
-"columns": [
-"",
-"Singular",
-"Plural"
-],
-"rows": [
-[
-"Nom.",
-"τρομοκρατία",
-"—"
-],
-[
-"Gen.",
-"τρομοκρατίας",
-"—"
-],
-[
-"Acc.",
-"τρομοκρατία",
-"—"
-],
-[
-"Voc.",
-"τρομοκρατία",
-"—"
-]
-],
-"title": "Declension"
-}
-],
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
-}
-],
-"pos": "noun"
-},
 "τρομοκρατίας": {
 "chips": [
 {
@@ -148956,15 +148838,6 @@
 "pos": "noun"
 },
 "τροφής": {
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
-}
-],
-"pos": "noun"
-},
-"τροφίμων": {
 "chips": [
 {
 "label": "Gender",
@@ -149988,6 +149861,15 @@
 ],
 "pos": "noun"
 },
+"τσουνάμι": {
+"chips": [
+{
+"label": "Gender",
+"value": "neuter"
+}
+],
+"pos": "noun"
+},
 "τσούλα": {
 "charts": [
 {
@@ -150021,6 +149903,15 @@
 "title": "Declension"
 }
 ],
+"chips": [
+{
+"label": "Gender",
+"value": "feminine"
+}
+],
+"pos": "noun"
+},
+"τσούλες": {
 "chips": [
 {
 "label": "Gender",
@@ -150193,6 +150084,15 @@
 {
 "label": "Gender",
 "value": "masculine"
+}
+],
+"pos": "noun"
+},
+"τόξα": {
+"chips": [
+{
+"label": "Gender",
+"value": "neuter"
 }
 ],
 "pos": "noun"
@@ -150506,47 +150406,6 @@
 ],
 "pos": "noun"
 },
-"υγειά": {
-"charts": [
-{
-"columns": [
-"",
-"Singular",
-"Plural"
-],
-"rows": [
-[
-"Nom.",
-"υγειά",
-"υγειές"
-],
-[
-"Gen.",
-"υγειάς",
-"υγειών"
-],
-[
-"Acc.",
-"υγειά",
-"υγειές"
-],
-[
-"Voc.",
-"υγειά",
-"υγειές"
-]
-],
-"title": "Declension"
-}
-],
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
-}
-],
-"pos": "noun"
-},
 "υγιεινή": {
 "charts": [
 {
@@ -150788,47 +150647,6 @@
 ],
 "pos": "noun"
 },
-"υιός": {
-"charts": [
-{
-"columns": [
-"",
-"Singular",
-"Plural"
-],
-"rows": [
-[
-"Nom.",
-"υιός",
-"υιοί"
-],
-[
-"Gen.",
-"υιού",
-"υιών"
-],
-[
-"Acc.",
-"υιό",
-"υιούς"
-],
-[
-"Voc.",
-"υιέ",
-"υιοί"
-]
-],
-"title": "Declension"
-}
-],
-"chips": [
-{
-"label": "Gender",
-"value": "masculine"
-}
-],
-"pos": "noun"
-},
 "υλικά": {
 "chips": [
 {
@@ -150888,24 +150706,6 @@
 ],
 "pos": "noun"
 },
-"υπάλληλο": {
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
-}
-],
-"pos": "noun"
-},
-"υπάλληλοι": {
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
-}
-],
-"pos": "noun"
-},
 "υπάλληλος": {
 "charts": [
 {
@@ -150937,12 +150737,6 @@
 ]
 ],
 "title": "Declension"
-}
-],
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
 }
 ],
 "pos": "noun"
@@ -150996,16 +150790,39 @@
 ],
 "pos": "noun"
 },
-"υπαλλήλους": {
-"chips": [
+"υπακοή": {
+"charts": [
 {
-"label": "Gender",
-"value": "feminine"
+"columns": [
+"",
+"Singular",
+"Plural"
+],
+"rows": [
+[
+"Nom.",
+"υπακοή",
+"—"
+],
+[
+"Gen.",
+"υπακοής",
+"—"
+],
+[
+"Acc.",
+"υπακοή",
+"—"
+],
+[
+"Voc.",
+"υπακοή",
+"—"
+]
+],
+"title": "Declension"
 }
 ],
-"pos": "noun"
-},
-"υπαλλήλων": {
 "chips": [
 {
 "label": "Gender",
@@ -151173,47 +150990,6 @@
 "Voc.",
 "υπερβολή",
 "υπερβολές"
-]
-],
-"title": "Declension"
-}
-],
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
-}
-],
-"pos": "noun"
-},
-"υπερηφάνεια": {
-"charts": [
-{
-"columns": [
-"",
-"Singular",
-"Plural"
-],
-"rows": [
-[
-"Nom.",
-"υπερηφάνεια",
-"—"
-],
-[
-"Gen.",
-"υπερηφάνειας",
-"—"
-],
-[
-"Acc.",
-"υπερηφάνεια",
-"—"
-],
-[
-"Voc.",
-"υπερηφάνεια",
-"—"
 ]
 ],
 "title": "Declension"
@@ -151973,24 +151749,6 @@
 ],
 "pos": "noun"
 },
-"υπολοχαγέ": {
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
-}
-],
-"pos": "noun"
-},
-"υπολοχαγό": {
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
-}
-],
-"pos": "noun"
-},
 "υπολοχαγός": {
 "charts": [
 {
@@ -152022,12 +151780,6 @@
 ]
 ],
 "title": "Declension"
-}
-],
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
 }
 ],
 "pos": "noun"
@@ -152073,15 +151825,6 @@
 ],
 "pos": "noun"
 },
-"υποπλοίαρχε": {
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
-}
-],
-"pos": "noun"
-},
 "υποπλοίαρχος": {
 "charts": [
 {
@@ -152115,12 +151858,6 @@
 "title": "Declension"
 }
 ],
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
-}
-],
 "pos": "noun"
 },
 "υποπτεύομαι": {
@@ -152135,15 +151872,6 @@
 }
 ],
 "pos": "verb"
-},
-"υποσμηναγέ": {
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
-}
-],
-"pos": "noun"
 },
 "υποστήριξη": {
 "charts": [
@@ -152289,15 +152017,6 @@
 ],
 "pos": "noun"
 },
-"υπουργέ": {
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
-}
-],
-"pos": "noun"
-},
 "υπουργείο": {
 "charts": [
 {
@@ -152348,24 +152067,6 @@
 ],
 "pos": "noun"
 },
-"υπουργού": {
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
-}
-],
-"pos": "noun"
-},
-"υπουργό": {
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
-}
-],
-"pos": "noun"
-},
 "υπουργός": {
 "charts": [
 {
@@ -152397,12 +152098,6 @@
 ]
 ],
 "title": "Declension"
-}
-],
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
 }
 ],
 "pos": "noun"
@@ -152573,12 +152268,6 @@
 ]
 ],
 "title": "Declension"
-}
-],
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
 }
 ],
 "pos": "noun"
@@ -152759,6 +152448,47 @@
 ],
 "pos": "noun"
 },
+"υπόδειγμα": {
+"charts": [
+{
+"columns": [
+"",
+"Singular",
+"Plural"
+],
+"rows": [
+[
+"Nom.",
+"υπόδειγμα",
+"υποδείγματα"
+],
+[
+"Gen.",
+"υποδείγματος",
+"υποδειγμάτων"
+],
+[
+"Acc.",
+"υπόδειγμα",
+"υποδείγματα"
+],
+[
+"Voc.",
+"υπόδειγμα",
+"υποδείγματα"
+]
+],
+"title": "Declension"
+}
+],
+"chips": [
+{
+"label": "Gender",
+"value": "neuter"
+}
+],
+"pos": "noun"
+},
 "υπόθεση": {
 "charts": [
 {
@@ -152837,47 +152567,6 @@
 "Voc.",
 "υπόλοιπο",
 "υπόλοιπα"
-]
-],
-"title": "Declension"
-}
-],
-"chips": [
-{
-"label": "Gender",
-"value": "neuter"
-}
-],
-"pos": "noun"
-},
-"υπόστεγο": {
-"charts": [
-{
-"columns": [
-"",
-"Singular",
-"Plural"
-],
-"rows": [
-[
-"Nom.",
-"υπόστεγο",
-"υπόστεγα"
-],
-[
-"Gen.",
-"υπόστεγου",
-"υπόστεγων"
-],
-[
-"Acc.",
-"υπόστεγο",
-"υπόστεγα"
-],
-[
-"Voc.",
-"υπόστεγο",
-"υπόστεγα"
 ]
 ],
 "title": "Declension"
@@ -153136,15 +152825,6 @@
 ],
 "pos": "noun"
 },
-"φ.": {
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
-}
-],
-"pos": "noun"
-},
 "φάκελος": {
 "charts": [
 {
@@ -153314,47 +152994,6 @@
 {
 "label": "Gender",
 "value": "neuter"
-}
-],
-"pos": "noun"
-},
-"φάρμα": {
-"charts": [
-{
-"columns": [
-"",
-"Singular",
-"Plural"
-],
-"rows": [
-[
-"Nom.",
-"φάρμα",
-"φάρμες"
-],
-[
-"Gen.",
-"φάρμας",
-"—"
-],
-[
-"Acc.",
-"φάρμα",
-"φάρμες"
-],
-[
-"Voc.",
-"φάρμα",
-"φάρμες"
-]
-],
-"title": "Declension"
-}
-],
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
 }
 ],
 "pos": "noun"
@@ -153628,6 +153267,15 @@
 {
 "label": "Gender",
 "value": "feminine"
+}
+],
+"pos": "noun"
+},
+"φέρετρα": {
+"chips": [
+{
+"label": "Gender",
+"value": "neuter"
 }
 ],
 "pos": "noun"
@@ -154378,6 +154026,47 @@
 ],
 "pos": "noun"
 },
+"φανέλα": {
+"charts": [
+{
+"columns": [
+"",
+"Singular",
+"Plural"
+],
+"rows": [
+[
+"Nom.",
+"φανέλα",
+"φανέλες"
+],
+[
+"Gen.",
+"φανέλας",
+"φανελών"
+],
+[
+"Acc.",
+"φανέλα",
+"φανέλες"
+],
+[
+"Voc.",
+"φανέλα",
+"φανέλες"
+]
+],
+"title": "Declension"
+}
+],
+"chips": [
+{
+"label": "Gender",
+"value": "feminine"
+}
+],
+"pos": "noun"
+},
 "φαντάζομαι": {
 "chips": [
 {
@@ -154687,6 +154376,47 @@
 ],
 "pos": "noun"
 },
+"φατρία": {
+"charts": [
+{
+"columns": [
+"",
+"Singular",
+"Plural"
+],
+"rows": [
+[
+"Nom.",
+"φατρία",
+"φατρίες"
+],
+[
+"Gen.",
+"φατρίας",
+"φατριών"
+],
+[
+"Acc.",
+"φατρία",
+"φατρίες"
+],
+[
+"Voc.",
+"φατρία",
+"φατρίες"
+]
+],
+"title": "Declension"
+}
+],
+"chips": [
+{
+"label": "Gender",
+"value": "feminine"
+}
+],
+"pos": "noun"
+},
 "φεγγάρι": {
 "charts": [
 {
@@ -154828,15 +154558,6 @@
 "title": "Declension"
 }
 ],
-"chips": [
-{
-"label": "Gender",
-"value": "neuter"
-}
-],
-"pos": "noun"
-},
-"φι": {
 "chips": [
 {
 "label": "Gender",
@@ -155568,12 +155289,6 @@
 "title": "Declension"
 }
 ],
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
-}
-],
 "pos": "noun"
 },
 "φιστίκια": {
@@ -155713,47 +155428,6 @@
 {
 "label": "Gender",
 "value": "feminine"
-}
-],
-"pos": "noun"
-},
-"φλυτζάνι": {
-"charts": [
-{
-"columns": [
-"",
-"Singular",
-"Plural"
-],
-"rows": [
-[
-"Nom.",
-"φλυτζάνι",
-"φλυτζάνια"
-],
-[
-"Gen.",
-"φλυτζανιού",
-"φλυτζανιών"
-],
-[
-"Acc.",
-"φλυτζάνι",
-"φλυτζάνια"
-],
-[
-"Voc.",
-"φλυτζάνι",
-"φλυτζάνια"
-]
-],
-"title": "Declension"
-}
-],
-"chips": [
-{
-"label": "Gender",
-"value": "neuter"
 }
 ],
 "pos": "noun"
@@ -156484,6 +156158,15 @@
 {
 "label": "Gender",
 "value": "neuter"
+}
+],
+"pos": "noun"
+},
+"φράκτη": {
+"chips": [
+{
+"label": "Gender",
+"value": "masculine"
 }
 ],
 "pos": "noun"
@@ -157302,47 +156985,6 @@
 ],
 "pos": "noun"
 },
-"φτώχεια": {
-"charts": [
-{
-"columns": [
-"",
-"Singular",
-"Plural"
-],
-"rows": [
-[
-"Nom.",
-"φτώχεια",
-"φτώχειες"
-],
-[
-"Gen.",
-"φτώχειας",
-"—"
-],
-[
-"Acc.",
-"φτώχεια",
-"φτώχειες"
-],
-[
-"Voc.",
-"φτώχεια",
-"φτώχειες"
-]
-],
-"title": "Declension"
-}
-],
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
-}
-],
-"pos": "noun"
-},
 "φυγάς": {
 "charts": [
 {
@@ -157701,6 +157343,88 @@
 ],
 "pos": "noun"
 },
+"φυματίωση": {
+"charts": [
+{
+"columns": [
+"",
+"Singular",
+"Plural"
+],
+"rows": [
+[
+"Nom.",
+"φυματίωση",
+"—"
+],
+[
+"Gen.",
+"φυματίωσης",
+"—"
+],
+[
+"Acc.",
+"φυματίωση",
+"—"
+],
+[
+"Voc.",
+"φυματίωση",
+"—"
+]
+],
+"title": "Declension"
+}
+],
+"chips": [
+{
+"label": "Gender",
+"value": "neuter"
+}
+],
+"pos": "noun"
+},
+"φυσαλίδα": {
+"charts": [
+{
+"columns": [
+"",
+"Singular",
+"Plural"
+],
+"rows": [
+[
+"Nom.",
+"φυσαλίδα",
+"φυσαλίδες"
+],
+[
+"Gen.",
+"φυσαλίδας",
+"φυσαλίδων"
+],
+[
+"Acc.",
+"φυσαλίδα",
+"φυσαλίδες"
+],
+[
+"Voc.",
+"φυσαλίδα",
+"φυσαλίδες"
+]
+],
+"title": "Declension"
+}
+],
+"chips": [
+{
+"label": "Gender",
+"value": "feminine"
+}
+],
+"pos": "noun"
+},
 "φυσική": {
 "charts": [
 {
@@ -157751,24 +157475,6 @@
 ],
 "pos": "noun"
 },
-"φυσικού": {
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
-}
-],
-"pos": "noun"
-},
-"φυσικό": {
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
-}
-],
-"pos": "noun"
-},
 "φυσικός": {
 "charts": [
 {
@@ -157800,53 +157506,6 @@
 ]
 ],
 "title": "Declension"
-}
-],
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
-}
-],
-"pos": "noun"
-},
-"φυστικοβούτυρο": {
-"charts": [
-{
-"columns": [
-"",
-"Singular",
-"Plural"
-],
-"rows": [
-[
-"Nom.",
-"φυστικοβούτυρο",
-"φυστικοβούτυρα"
-],
-[
-"Gen.",
-"φυστικοβουτύρου",
-"φυστικοβουτύρων"
-],
-[
-"Acc.",
-"φυστικοβούτυρο",
-"φυστικοβούτυρα"
-],
-[
-"Voc.",
-"φυστικοβούτυρο",
-"φυστικοβούτυρα"
-]
-],
-"title": "Declension"
-}
-],
-"chips": [
-{
-"label": "Gender",
-"value": "neuter"
 }
 ],
 "pos": "noun"
@@ -158204,12 +157863,6 @@
 ]
 ],
 "title": "Declension"
-}
-],
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
 }
 ],
 "pos": "noun"
@@ -158627,15 +158280,6 @@
 ],
 "pos": "noun"
 },
-"φύλακα": {
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
-}
-],
-"pos": "noun"
-},
 "φύλακας": {
 "charts": [
 {
@@ -158667,21 +158311,6 @@
 ]
 ],
 "title": "Declension"
-}
-],
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
-}
-],
-"pos": "noun"
-},
-"φύλακες": {
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
 }
 ],
 "pos": "noun"
@@ -158832,15 +158461,6 @@
 {
 "label": "Gender",
 "value": "neuter"
-}
-],
-"pos": "noun"
-},
-"χάκερ": {
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
 }
 ],
 "pos": "noun"
@@ -159252,6 +158872,47 @@
 ],
 "pos": "noun"
 },
+"χάσμα": {
+"charts": [
+{
+"columns": [
+"",
+"Singular",
+"Plural"
+],
+"rows": [
+[
+"Nom.",
+"χάσμα",
+"χάσματα"
+],
+[
+"Gen.",
+"χάσματος",
+"χασμάτων"
+],
+[
+"Acc.",
+"χάσμα",
+"χάσματα"
+],
+[
+"Voc.",
+"χάσμα",
+"χάσματα"
+]
+],
+"title": "Declension"
+}
+],
+"chips": [
+{
+"label": "Gender",
+"value": "neuter"
+}
+],
+"pos": "noun"
+},
 "χέρι": {
 "charts": [
 {
@@ -159298,6 +158959,47 @@
 {
 "label": "Gender",
 "value": "neuter"
+}
+],
+"pos": "noun"
+},
+"χέστης": {
+"charts": [
+{
+"columns": [
+"",
+"Singular",
+"Plural"
+],
+"rows": [
+[
+"Nom.",
+"χέστης",
+"χέστες"
+],
+[
+"Gen.",
+"χέστη",
+"χεστών"
+],
+[
+"Acc.",
+"χέστη",
+"χέστες"
+],
+[
+"Voc.",
+"χέστη",
+"χέστες"
+]
+],
+"title": "Declension"
+}
+],
+"chips": [
+{
+"label": "Gender",
+"value": "masculine"
 }
 ],
 "pos": "noun"
@@ -159969,6 +159671,50 @@
 ],
 "pos": "noun"
 },
+"χαρίζω": {
+"charts": [
+{
+"rows": [
+[
+"εγώ",
+"χαρίζω"
+],
+[
+"εσύ",
+"χαρίζεις"
+],
+[
+"αυτός/-ή",
+"χαρίζει"
+],
+[
+"εμείς",
+"χαρίζουμε"
+],
+[
+"εσείς",
+"χαρίζετε"
+],
+[
+"αυτοί",
+"χαρίζουν"
+]
+],
+"title": "Present"
+}
+],
+"chips": [
+{
+"label": "Aorist",
+"value": "χάρισα"
+},
+{
+"label": "Passive",
+"value": "χαρίζομαι"
+}
+],
+"pos": "verb"
+},
 "χαρακτήρα": {
 "chips": [
 {
@@ -160179,6 +159925,47 @@
 "pos": "noun"
 },
 "χαρτονομίσματα": {
+"chips": [
+{
+"label": "Gender",
+"value": "neuter"
+}
+],
+"pos": "noun"
+},
+"χαρτονόμισμα": {
+"charts": [
+{
+"columns": [
+"",
+"Singular",
+"Plural"
+],
+"rows": [
+[
+"Nom.",
+"χαρτονόμισμα",
+"χαρτονομίσματα"
+],
+[
+"Gen.",
+"χαρτονομίσματος",
+"χαρτονομισμάτων"
+],
+[
+"Acc.",
+"χαρτονόμισμα",
+"χαρτονομίσματα"
+],
+[
+"Voc.",
+"χαρτονόμισμα",
+"χαρτονομίσματα"
+]
+],
+"title": "Declension"
+}
+],
 "chips": [
 {
 "label": "Gender",
@@ -160686,12 +160473,6 @@
 ]
 ],
 "title": "Declension"
-}
-],
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
 }
 ],
 "pos": "noun"
@@ -161386,12 +161167,6 @@
 "title": "Declension"
 }
 ],
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
-}
-],
 "pos": "noun"
 },
 "χορό": {
@@ -161776,47 +161551,6 @@
 {
 "label": "Gender",
 "value": "feminine"
-}
-],
-"pos": "noun"
-},
-"χρηματοκιβώτιο": {
-"charts": [
-{
-"columns": [
-"",
-"Singular",
-"Plural"
-],
-"rows": [
-[
-"Nom.",
-"χρηματοκιβώτιο",
-"χρηματοκιβώτια"
-],
-[
-"Gen.",
-"χρηματοκιβωτίου",
-"χρηματοκιβωτίων"
-],
-[
-"Acc.",
-"χρηματοκιβώτιο",
-"χρηματοκιβώτια"
-],
-[
-"Voc.",
-"χρηματοκιβώτιο",
-"χρηματοκιβώτια"
-]
-],
-"title": "Declension"
-}
-],
-"chips": [
-{
-"label": "Gender",
-"value": "neuter"
 }
 ],
 "pos": "noun"
@@ -162711,6 +162445,15 @@
 ],
 "pos": "noun"
 },
+"χωρών": {
+"chips": [
+{
+"label": "Gender",
+"value": "feminine"
+}
+],
+"pos": "noun"
+},
 "χόμπι": {
 "chips": [
 {
@@ -163164,6 +162907,15 @@
 ],
 "pos": "noun"
 },
+"ψήφοι": {
+"chips": [
+{
+"label": "Gender",
+"value": "feminine"
+}
+],
+"pos": "noun"
+},
 "ψήφος": {
 "charts": [
 {
@@ -163405,6 +163157,15 @@
 ],
 "pos": "noun"
 },
+"ψεύδους": {
+"chips": [
+{
+"label": "Gender",
+"value": "neuter"
+}
+],
+"pos": "noun"
+},
 "ψεύτες": {
 "chips": [
 {
@@ -163492,6 +163253,47 @@
 "Voc.",
 "ψεύτρα",
 "ψεύτρες"
+]
+],
+"title": "Declension"
+}
+],
+"chips": [
+{
+"label": "Gender",
+"value": "feminine"
+}
+],
+"pos": "noun"
+},
+"ψησταριά": {
+"charts": [
+{
+"columns": [
+"",
+"Singular",
+"Plural"
+],
+"rows": [
+[
+"Nom.",
+"ψησταριά",
+"ψησταριές"
+],
+[
+"Gen.",
+"ψησταριάς",
+"ψησταριών"
+],
+[
+"Acc.",
+"ψησταριά",
+"ψησταριές"
+],
+[
+"Voc.",
+"ψησταριά",
+"ψησταριές"
 ]
 ],
 "title": "Declension"
@@ -163764,12 +163566,6 @@
 "title": "Declension"
 }
 ],
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
-}
-],
 "pos": "noun"
 },
 "ψυχαγωγία": {
@@ -164027,15 +163823,6 @@
 ],
 "pos": "noun"
 },
-"ψυχολόγο": {
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
-}
-],
-"pos": "noun"
-},
 "ψυχολόγος": {
 "charts": [
 {
@@ -164067,12 +163854,6 @@
 ]
 ],
 "title": "Declension"
-}
-],
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
 }
 ],
 "pos": "noun"
@@ -164123,6 +163904,15 @@
 {
 "label": "Gender",
 "value": "feminine"
+}
+],
+"pos": "noun"
+},
+"ψωμάκια": {
+"chips": [
+{
+"label": "Gender",
+"value": "neuter"
 }
 ],
 "pos": "noun"
@@ -164259,6 +164049,15 @@
 ],
 "pos": "noun"
 },
+"ωκεανούς": {
+"chips": [
+{
+"label": "Gender",
+"value": "masculine"
+}
+],
+"pos": "noun"
+},
 "ωκεανό": {
 "chips": [
 {
@@ -164305,15 +164104,6 @@
 {
 "label": "Gender",
 "value": "masculine"
-}
-],
-"pos": "noun"
-},
-"ωμέγα": {
-"chips": [
-{
-"label": "Gender",
-"value": "neuter"
 }
 ],
 "pos": "noun"
@@ -164418,24 +164208,6 @@
 ],
 "pos": "noun"
 },
-"όμηρο": {
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
-}
-],
-"pos": "noun"
-},
-"όμηροι": {
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
-}
-],
-"pos": "noun"
-},
 "όμηρος": {
 "charts": [
 {
@@ -164467,12 +164239,6 @@
 ]
 ],
 "title": "Declension"
-}
-],
-"chips": [
-{
-"label": "Gender",
-"value": "feminine"
 }
 ],
 "pos": "noun"
@@ -164609,43 +164375,11 @@
 ],
 "pos": "noun"
 },
-"όπιο": {
-"charts": [
-{
-"columns": [
-"",
-"Singular",
-"Plural"
-],
-"rows": [
-[
-"Nom.",
-"όπιο",
-"—"
-],
-[
-"Gen.",
-"οπίου",
-"—"
-],
-[
-"Acc.",
-"όπιο",
-"—"
-],
-[
-"Voc.",
-"όπιο",
-"—"
-]
-],
-"title": "Declension"
-}
-],
+"όπερας": {
 "chips": [
 {
 "label": "Gender",
-"value": "neuter"
+"value": "feminine"
 }
 ],
 "pos": "noun"
@@ -165314,6 +165048,47 @@
 ],
 "pos": "noun"
 },
+"ύδατα": {
+"charts": [
+{
+"columns": [
+"",
+"Singular",
+"Plural"
+],
+"rows": [
+[
+"Nom.",
+"—",
+"ύδατα"
+],
+[
+"Gen.",
+"—",
+"υδάτων"
+],
+[
+"Acc.",
+"—",
+"ύδατα"
+],
+[
+"Voc.",
+"—",
+"ύδατα"
+]
+],
+"title": "Declension"
+}
+],
+"chips": [
+{
+"label": "Gender",
+"value": "neuter"
+}
+],
+"pos": "noun"
+},
 "ύλη": {
 "charts": [
 {
@@ -165529,6 +165304,15 @@
 "title": "Declension"
 }
 ],
+"chips": [
+{
+"label": "Gender",
+"value": "masculine"
+}
+],
+"pos": "noun"
+},
+"ύφαλο": {
 "chips": [
 {
 "label": "Gender",

@@ -195,3 +195,32 @@ class TestStripNominalChips:
     def test_none_and_empty_are_safe(self):
         assert strip_nominal_chips(None, "prep") is None
         assert strip_nominal_chips({}, "prep") == {}
+
+
+class TestHeadwordGenderMarker:
+    """The gender letter must come from the HEADWORD, not from feminine
+    equivalents / diminutives listed inside parentheses (beta report:
+    'il cane' labeled feminine because its expansion mentions canìna f)."""
+
+    def test_marker_outside_parens_wins(self):
+        from backend.services.seeder.morphology_charts import _headword_gender_marker
+        exp = ("cane m (plural cani, feminine cagna, diminutive canìno m "
+               "or canìna f or cagnétta f)")
+        assert _headword_gender_marker(exp) == "m"
+
+    def test_greek_romanization_paren_is_skipped(self):
+        from backend.services.seeder.morphology_charts import _headword_gender_marker
+        assert _headword_gender_marker("σκύλος • (skýlos) m (plural σκύλοι)") == "m"
+
+    def test_german_neuter_diminutive_does_not_leak(self):
+        from backend.services.seeder.morphology_charts import _headword_gender_marker
+        exp = "Becher m (strong, genitive Bechers, plural Becher, diminutive Becherchen n)"
+        assert _headword_gender_marker(exp) == "m"
+
+    def test_common_gender_returns_none(self):
+        from backend.services.seeder.morphology_charts import _headword_gender_marker
+        assert _headword_gender_marker("artista m or f (plural artisti)") is None
+
+    def test_no_marker_returns_none(self):
+        from backend.services.seeder.morphology_charts import _headword_gender_marker
+        assert _headword_gender_marker("correr (first-person singular presente corro)") is None

@@ -195,7 +195,10 @@ describe('LearnPage (teach-before-quiz)', () => {
     expect(screen.queryByText(/✓ Correct/)).toBeNull()
   })
 
-  it('keeps the card out of reviews until the check is answered correctly', async () => {
+  it('a wrong answer reveals the word and unlocks moving on — unconfirmed', async () => {
+    // Beta report: vocab lessons trapped you until you got it right. Now a
+    // wrong attempt shows the answer and lets you move on; the card simply
+    // never enters reviews (it will be re-taught next session).
     mockLearn.mockResolvedValue({
       added: 1,
       items: ['uc-1'],
@@ -204,14 +207,22 @@ describe('LearnPage (teach-before-quiz)', () => {
     renderPage()
     await screen.findByText(/1 of 1/)
 
+    const startBtnBefore = screen.getByRole('button', { name: /start reviewing/i }) as HTMLButtonElement
+    expect(startBtnBefore.disabled).toBe(true)
+
     mockValidate.mockResolvedValue({ answer_result: 'wrong', feedback: null })
     fireEvent.change(screen.getByRole('textbox'), { target: { value: 'eres' } })
     fireEvent.click(screen.getByRole('button', { name: /check answer/i }))
 
-    expect(await screen.findByText(/not quite/i)).toBeDefined()
+    const alert = await screen.findByRole('alert')
+    expect(alert.textContent).toMatch(/not quite/i)
+    // …the correct answer is revealed…
+    expect(alert.textContent).toContain(grammarLesson.quiz.answer)
+    // …the card is NOT confirmed into reviews…
     expect(mockConfirm).not.toHaveBeenCalled()
+    // …but the learner is no longer trapped.
     const startBtn = screen.getByRole('button', { name: /start reviewing/i }) as HTMLButtonElement
-    expect(startBtn.disabled).toBe(true)
+    expect(startBtn.disabled).toBe(false)
   })
 
   it('passes the vocabulary card type from the query string', async () => {
