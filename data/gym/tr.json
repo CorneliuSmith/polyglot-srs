@@ -1,0 +1,122 @@
+{
+  "language": "tr",
+  "_note": "The Gym manifest (WP25a): which grammar points act as selectable form categories, grouped into picker columns. 'point' must match the grammar point title exactly (resolved to ids at request time). 'usage' is the plain-language hover explanation; 'example' is a short illustration. 'nonstandard': forms hidden behind the 'include non-standard words' toggle.",
+  "columns": [
+    {
+      "kind": "verbs",
+      "label": "Verb tenses & moods",
+      "entries": [
+        {
+          "point": "Present continuous (-iyor)",
+          "label": "Present continuous",
+          "usage": "Happening now: -iyor.",
+          "example": "Şu an geliyorum."
+        },
+        {
+          "point": "Aorist / geniş zaman (-ir)",
+          "label": "Aorist",
+          "usage": "General truths and habits.",
+          "example": "Her gün gelirim."
+        },
+        {
+          "point": "Past tense (-di)",
+          "label": "Past (-di)",
+          "usage": "A witnessed finished past.",
+          "example": "Dün geldim."
+        },
+        {
+          "point": "Evidential past (-miş)",
+          "label": "Evidential (-miş)",
+          "usage": "Reported / inferred past.",
+          "example": "Gelmiş."
+        },
+        {
+          "point": "Future tense (-ecek)",
+          "label": "Future",
+          "usage": "What will happen.",
+          "example": "Yarın geleceğim."
+        },
+        {
+          "point": "Ability (-ebil)",
+          "label": "Ability",
+          "usage": "can: -ebil.",
+          "example": "Yüzebilirim."
+        },
+        {
+          "point": "Necessity (-meli)",
+          "label": "Necessity",
+          "usage": "must / should: -meli.",
+          "example": "Gitmeliyim."
+        },
+        {
+          "point": "Conditional (-se)",
+          "label": "Conditional",
+          "usage": "if: -se.",
+          "example": "Gelsen iyi olur."
+        },
+        {
+          "point": "Passive voice (-il / -in)",
+          "label": "Passive",
+          "usage": "The action done to the subject.",
+          "example": "Kapı açıldı.",
+          "nonstandard": true
+        },
+        {
+          "point": "Causative (-dir / -t)",
+          "label": "Causative",
+          "usage": "make someone do.",
+          "example": "Yazdırdım.",
+          "nonstandard": true
+        }
+      ]
+    },
+    {
+      "kind": "nouns",
+      "label": "Cases",
+      "entries": [
+        {
+          "point": "Accusative case (-ı / -i / -u / -ü)",
+          "label": "Accusative",
+          "usage": "The specific direct object.",
+          "example": "Kitabı okudum."
+        },
+        {
+          "point": "Dative case (-e / -a)",
+          "label": "Dative",
+          "usage": "to / toward.",
+          "example": "Okula gidiyorum."
+        },
+        {
+          "point": "Locative case (-de / -da)",
+          "label": "Locative",
+          "usage": "at / in / on.",
+          "example": "Evdeyim."
+        },
+        {
+          "point": "Ablative case (-den / -dan)",
+          "label": "Ablative",
+          "usage": "from.",
+          "example": "İstanbul'dan geldim."
+        },
+        {
+          "point": "Genitive + possessed (-in … -i)",
+          "label": "Genitive + possessed",
+          "usage": "X's Y — the possessive pairing.",
+          "example": "evin kapısı"
+        },
+        {
+          "point": "Possessive suffixes (-im, -in, -i…)",
+          "label": "Possessive suffixes",
+          "usage": "my/your/his attached to the noun.",
+          "example": "evim, evin"
+        },
+        {
+          "point": "Plural (-ler / -lar)",
+          "label": "Plural",
+          "usage": "Noun plural by vowel harmony.",
+          "example": "evler, kitaplar"
+        }
+      ]
+    }
+  ]
+}

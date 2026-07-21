@@ -1246,6 +1246,19 @@ Also folds in: the "all accounts" tile (every account listable,
 including never-active — previously invisible in every activity
 window).
 
+### WP25(e) — Gym manifests for the inflected languages (owner, 2026-07-20)
+The Gym shipped with manifests for ru + ko only, so every OTHER language
+showed "doesn't bend its words enough to need a gym" — the empty state was
+correct (no manifest) but read as broken. Authored manifests for the ten
+inflected languages: **es, fr, it, ca, ro** (Verb tenses & moods |
+Agreement/Cases), **de** (verbs | the four cases), **tr** (verbs |
+agglutinative cases), **el** (verbs | cases & agreement), **ar** (verb
+forms II–X + tense/mood | nouns, plurals, iḍāfa), **hi** (tenses & aspect |
+oblique/postpositions/possession). 141 form categories total; every
+`point` verified against the live DB (exact title + has drills). Irregular/
+advanced forms carry the `nonstandard` flag. Deferred: sw/xh noun-class
+concords and yo/ha (low-resource — native review before a Gym).
+
 ### WP29 — Personal decks + Reader-add robustness (owner, 2026-07-20)
 **(a) Personal decks — DONE.** Learner-named folders over personal cloze
 cards (the Tutor/Reader mints). `personal_decks` table + `personal_deck_id`

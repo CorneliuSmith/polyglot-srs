@@ -1,0 +1,108 @@
+{
+  "language": "it",
+  "_note": "The Gym manifest (WP25a): which grammar points act as selectable form categories, grouped into picker columns. 'point' must match the grammar point title exactly (resolved to ids at request time). 'usage' is the plain-language hover explanation; 'example' is a short illustration. 'nonstandard': forms hidden behind the 'include non-standard words' toggle.",
+  "columns": [
+    {
+      "kind": "verbs",
+      "label": "Verb tenses & moods",
+      "entries": [
+        {
+          "point": "Present tense of -are verbs",
+          "label": "Present -are",
+          "usage": "Now or regularly, -are verbs.",
+          "example": "Io parlo italiano."
+        },
+        {
+          "point": "-ere and -ire verbs (prendere, dormire, finire)",
+          "label": "Present -ere/-ire",
+          "usage": "Now or regularly, -ere and -ire verbs.",
+          "example": "Prendo il treno."
+        },
+        {
+          "point": "Passato prossimo with avere",
+          "label": "Passato prossimo (avere)",
+          "usage": "A finished past with avere.",
+          "example": "Ho mangiato una mela."
+        },
+        {
+          "point": "Passato prossimo with essere",
+          "label": "Passato prossimo (essere)",
+          "usage": "Past with essere — motion and reflexives.",
+          "example": "È partita presto."
+        },
+        {
+          "point": "The imperfect (l'imperfetto)",
+          "label": "Imperfect",
+          "usage": "The ongoing or habitual past.",
+          "example": "Giocavo sempre."
+        },
+        {
+          "point": "The future (il futuro semplice)",
+          "label": "Future",
+          "usage": "What will happen.",
+          "example": "Domani mangerò tardi."
+        },
+        {
+          "point": "The conditional (il condizionale)",
+          "label": "Conditional",
+          "usage": "What would happen.",
+          "example": "Vorrei partire."
+        },
+        {
+          "point": "The subjunctive (il congiuntivo)",
+          "label": "Subjunctive",
+          "usage": "After che — wish, doubt, opinion.",
+          "example": "Penso che tu venga."
+        },
+        {
+          "point": "The imperative (parla! non parlare!)",
+          "label": "Imperative",
+          "usage": "Commands.",
+          "example": "Parla più forte!"
+        },
+        {
+          "point": "Stare + gerundio (sto mangiando)",
+          "label": "Progressive",
+          "usage": "Happening right now.",
+          "example": "Sto mangiando adesso."
+        }
+      ]
+    },
+    {
+      "kind": "agreement",
+      "label": "Agreement",
+      "entries": [
+        {
+          "point": "Definite articles (il / la / i / le)",
+          "label": "Definite article",
+          "usage": "il/lo/la/i/gli/le.",
+          "example": "il libro, gli amici"
+        },
+        {
+          "point": "Indefinite articles (un / una / uno)",
+          "label": "Indefinite article",
+          "usage": "un/uno/una.",
+          "example": "un cane, uno studente"
+        },
+        {
+          "point": "Adjective agreement",
+          "label": "Adjectives",
+          "usage": "Adjectives match gender and number.",
+          "example": "una macchina rossa"
+        },
+        {
+          "point": "Articulated prepositions (del, al, nel, sul…)",
+          "label": "Articulated prepositions",
+          "usage": "preposition + article fused.",
+          "example": "del pane, nel bosco"
+        },
+        {
+          "point": "Possessives & demonstratives (il mio, questo…)",
+          "label": "Possessive/demonstrative",
+          "usage": "il mio, questo/quello.",
+          "example": "il mio libro, questa sera"
+        }
+      ]
+    }
+  ]
+}
