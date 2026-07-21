@@ -1,0 +1,115 @@
+{
+  "language": "nl",
+  "_note": "The Gym manifest (WP25a): which grammar points act as selectable form categories, grouped into picker columns. 'point' must match the grammar point title exactly (resolved to ids at request time). 'usage' is the plain-language hover explanation; 'example' is a short illustration. 'nonstandard': forms hidden behind the 'include non-standard words' toggle.",
+  "columns": [
+    {
+      "kind": "verbs",
+      "label": "Verb tenses & moods",
+      "entries": [
+        {
+          "point": "Present tense: stem, stem+t, infinitive",
+          "label": "Present",
+          "usage": "Now or regularly.",
+          "example": "Ik speel voetbal."
+        },
+        {
+          "point": "Zijn — present (ben, bent, is, zijn)",
+          "label": "zijn (present)",
+          "usage": "'to be'.",
+          "example": "Ik ben moe."
+        },
+        {
+          "point": "Hebben — present (heb, hebt, heeft)",
+          "label": "hebben (present)",
+          "usage": "'to have'.",
+          "example": "Ik heb tijd."
+        },
+        {
+          "point": "The perfect: heb gewerkt, ben gegaan",
+          "label": "Perfect",
+          "usage": "Finished past with hebben/zijn.",
+          "example": "Ik heb gewerkt."
+        },
+        {
+          "point": "Imperfect: werkte, speelde",
+          "label": "Imperfect",
+          "usage": "The narrative/written past.",
+          "example": "Ik speelde vaak buiten."
+        },
+        {
+          "point": "Future: gaan + infinitive, zullen",
+          "label": "Future",
+          "usage": "What will happen.",
+          "example": "Ik ga morgen komen."
+        },
+        {
+          "point": "Modal verbs: kunnen, moeten, mogen, willen",
+          "label": "Modal verbs",
+          "usage": "can/must/may/want + infinitive.",
+          "example": "Ik kan zwemmen."
+        },
+        {
+          "point": "The imperative",
+          "label": "Imperative",
+          "usage": "Commands.",
+          "example": "Kom hier!"
+        },
+        {
+          "point": "Progressive: aan het + infinitive, zitten te",
+          "label": "Progressive",
+          "usage": "Happening right now.",
+          "example": "Ik ben aan het eten."
+        },
+        {
+          "point": "Separable verbs: opstaan → ik sta op",
+          "label": "Separable verbs",
+          "usage": "The prefix splits off to the end.",
+          "example": "Ik sta om zeven uur op.",
+          "nonstandard": true
+        }
+      ]
+    },
+    {
+      "kind": "agreement",
+      "label": "Agreement",
+      "entries": [
+        {
+          "point": "De and het: the two genders",
+          "label": "De / het",
+          "usage": "The two article genders.",
+          "example": "de man, het huis"
+        },
+        {
+          "point": "Adjectives: the -e rule",
+          "label": "Adjective -e",
+          "usage": "When the adjective takes -e.",
+          "example": "een rode auto, het rode huis"
+        },
+        {
+          "point": "Plurals: -en and -s",
+          "label": "Plurals",
+          "usage": "Noun plural forms.",
+          "example": "boek → boeken, auto → auto's"
+        },
+        {
+          "point": "Possessives: mijn, jouw, zijn, haar…",
+          "label": "Possessives",
+          "usage": "my/your/his/her.",
+          "example": "mijn broer, haar boek"
+        },
+        {
+          "point": "Comparative and superlative: -er, -st",
+          "label": "Comparative",
+          "usage": "-er / -st.",
+          "example": "groot → groter → grootst"
+        },
+        {
+          "point": "Diminutives: -je, -tje, -pje",
+          "label": "Diminutives",
+          "usage": "The -je ending (little / cute).",
+          "example": "huis → huisje"
+        }
+      ]
+    }
+  ]
+}
