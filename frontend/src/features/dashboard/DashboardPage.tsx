@@ -197,6 +197,7 @@ export default function DashboardPage() {
   const dailyLearnGoal = usePrefsStore((s) => s.dailyLearnGoal)
   const [learnOpen, setLearnOpen] = useState(false)
   const [reviewOpen, setReviewOpen] = useState(false)
+  const [navOpen, setNavOpen] = useState(false)
   const [showTour, setShowTour] = useState(false)
   const [showWhatsNew, setShowWhatsNew] = useState(false)
   const whatsNewSeen = usePrefsStore((s) => s.whatsNewSeen)
@@ -301,72 +302,50 @@ export default function DashboardPage() {
     return <Navigate to="/onboarding" replace />
   }
 
+  // Top-level destinations. Rendered inline on desktop and inside a collapsible
+  // menu on phones, where a single row of them overflowed the viewport.
+  const navItems: { label: string; to: string }[] = [
+    { label: 'Decks', to: '/decks' },
+    { label: 'Tutor', to: '/tutor' },
+    { label: 'Read', to: '/read' },
+    ...(hasGym ? [{ label: 'Gym', to: '/gym' }] : []),
+    { label: 'Search', to: '/search' },
+    { label: 'Account', to: '/account' },
+  ]
+
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-gray-50 overflow-x-hidden">
       <div className="max-w-2xl mx-auto px-4 py-8 space-y-6">
-        {/* Header */}
-        <div className="flex items-center justify-between">
+        {/* Header. On phones the full row of destinations overflowed the
+            viewport (the source of the "shaky", clipped layout), so the
+            nav links collapse behind a menu button below md and only the
+            title + utility icons stay on the bar. */}
+        <div className="flex items-center justify-between gap-2">
           <h1 className="text-2xl font-bold text-gray-900">Dashboard</h1>
-          <div className="flex items-center gap-4">
-            <button
-              type="button"
-              onClick={() => navigate('/decks')}
-              aria-label="Decks"
-              className="text-sm text-gray-500 hover:text-lang"
-            >
-              Decks
-            </button>
-            <button
-              type="button"
-              onClick={() => navigate('/tutor')}
-              aria-label="Tutor"
-              className="text-sm text-gray-500 hover:text-lang"
-            >
-              Tutor
-            </button>
-            <button
-              type="button"
-              onClick={() => navigate('/read')}
-              aria-label="Read"
-              className="text-sm text-gray-500 hover:text-lang"
-            >
-              Read
-            </button>
-            {hasGym && (
-              <button
-                type="button"
-                onClick={() => navigate('/gym')}
-                aria-label="Gym"
-                className="text-sm text-gray-500 hover:text-lang"
-              >
-                Gym
-              </button>
-            )}
-            <button
-              type="button"
-              onClick={() => navigate('/search')}
-              aria-label="Search"
-              className="text-sm text-gray-500 hover:text-lang"
-            >
-              Search
-            </button>
-            <button
-              type="button"
-              onClick={() => navigate('/account')}
-              aria-label="Account"
-              className="text-sm text-gray-500 hover:text-lang"
-            >
-              Account
-            </button>
+          <div className="flex items-center gap-3 sm:gap-4">
+            {/* Desktop inline nav */}
+            <nav className="hidden md:flex items-center gap-4">
+              {navItems.map((item) => (
+                <button
+                  key={item.to}
+                  type="button"
+                  onClick={() => navigate(item.to)}
+                  aria-label={item.label}
+                  className="text-sm text-gray-500 hover:text-lang"
+                >
+                  {item.label}
+                </button>
+              ))}
+            </nav>
             {/* Utility cluster, set apart from navigation: announcements
                 and the tour are ABOUT the app, not places in it. */}
-            <span aria-hidden className="h-4 w-px bg-gray-200" />
+            <span aria-hidden className="hidden md:block h-4 w-px bg-gray-200" />
             <button
               type="button"
               onClick={() => setShowWhatsNew(true)}
               aria-label="What's new"
               title="What's new"
-              className="relative w-7 h-7 rounded-full border border-gray-200 text-gray-400 hover:text-lang hover:border-lang/40 text-xs leading-none"
+              className="relative w-9 h-9 md:w-7 md:h-7 flex items-center justify-center rounded-full border border-gray-200 text-gray-400 hover:text-lang hover:border-lang/40 text-sm md:text-xs leading-none"
             >
               🔔
               {unseenCount > 0 && (
@@ -383,12 +362,47 @@ export default function DashboardPage() {
               onClick={() => setShowTour(true)}
               aria-label="Take the feature tour"
               title="Take the tour"
-              className="w-7 h-7 rounded-full border border-gray-200 text-gray-400 hover:text-lang hover:border-lang/40 text-xs leading-none"
+              className="w-9 h-9 md:w-7 md:h-7 flex items-center justify-center rounded-full border border-gray-200 text-gray-400 hover:text-lang hover:border-lang/40 text-sm md:text-xs leading-none"
             >
               ?
             </button>
+            {/* Mobile-only menu toggle for the destinations above */}
+            <button
+              type="button"
+              onClick={() => setNavOpen((v) => !v)}
+              aria-label="Menu"
+              aria-expanded={navOpen}
+              title="Menu"
+              className={`md:hidden w-9 h-9 flex items-center justify-center rounded-full border text-base leading-none transition-colors ${
+                navOpen
+                  ? 'border-lang/40 bg-lang-soft text-lang'
+                  : 'border-gray-200 text-gray-500 hover:text-lang hover:border-lang/40'
+              }`}
+            >
+              <span aria-hidden>☰</span>
+            </button>
           </div>
         </div>
+
+        {/* Mobile nav dropdown */}
+        {navOpen && (
+          <nav className="md:hidden bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
+            {navItems.map((item) => (
+              <button
+                key={item.to}
+                type="button"
+                onClick={() => {
+                  setNavOpen(false)
+                  navigate(item.to)
+                }}
+                className="w-full text-left px-4 py-3 text-sm font-medium text-gray-700 hover:bg-gray-50 border-t border-gray-100 first:border-t-0"
+                style={{ minHeight: '44px' }}
+              >
+                {item.label}
+              </button>
+            ))}
+          </nav>
+        )}
 
         {showTour && <Walkthrough onClose={() => setShowTour(false)} />}
         {showWhatsNew && <WhatsNewPanel onClose={() => setShowWhatsNew(false)} />}

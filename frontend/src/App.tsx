@@ -1,4 +1,4 @@
-import { useEffect } from 'react'
+import { lazy, Suspense, useEffect } from 'react'
 import {
   createBrowserRouter,
   RouterProvider,
@@ -6,29 +6,35 @@ import {
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { supabase } from './lib/supabase'
 import { useAuthStore } from './stores/authStore'
-import LoginPage from './features/auth/LoginPage'
-import ResetPasswordPage from './features/auth/ResetPasswordPage'
-import DashboardPage from './features/dashboard/DashboardPage'
-import ReviewSessionPage from './features/review/ReviewSessionPage'
-import LearnPage from './features/review/LearnPage'
-import TutorPage from './features/tutor/TutorPage'
-import ReaderPage from './features/reader/ReaderPage'
-import LettersPage from './features/letters/LettersPage'
-import GymPage from './features/gym/GymPage'
-import NotesPage from './features/notes/NotesPage'
-import OnboardingPage from './features/onboarding/OnboardingPage'
-import WelcomePage from './features/onboarding/WelcomePage'
-import SettingsPage from './features/settings/SettingsPage'
-import GrammarPathPage from './features/curriculum/GrammarPathPage'
-import ContributorPage from './features/contribute/ContributorPage'
-import TermsPage from './features/legal/TermsPage'
 import ErrorScreen from './components/ErrorScreen'
-import SearchPage from './features/search/SearchPage'
-import DecksPage from './features/decks/DecksPage'
-import DeckDetailPage from './features/decks/DeckDetailPage'
 import ProtectedRoute from './components/ProtectedRoute'
 import ThemeApplier from './components/ThemeApplier'
 import LanguageThemeApplier from './components/LanguageThemeApplier'
+
+// Route code-splitting (mobile perf): each page becomes its own chunk that
+// loads on demand, so landing on the Dashboard no longer downloads the
+// Tutor, Reader, Gym, Contributor, and on-screen-keyboard code up front.
+// This is the single biggest first-load win on a cellular connection —
+// the eager bundle was ~940 kB, most of it never touched on the Dashboard.
+const LoginPage = lazy(() => import('./features/auth/LoginPage'))
+const ResetPasswordPage = lazy(() => import('./features/auth/ResetPasswordPage'))
+const DashboardPage = lazy(() => import('./features/dashboard/DashboardPage'))
+const ReviewSessionPage = lazy(() => import('./features/review/ReviewSessionPage'))
+const LearnPage = lazy(() => import('./features/review/LearnPage'))
+const TutorPage = lazy(() => import('./features/tutor/TutorPage'))
+const ReaderPage = lazy(() => import('./features/reader/ReaderPage'))
+const LettersPage = lazy(() => import('./features/letters/LettersPage'))
+const GymPage = lazy(() => import('./features/gym/GymPage'))
+const NotesPage = lazy(() => import('./features/notes/NotesPage'))
+const OnboardingPage = lazy(() => import('./features/onboarding/OnboardingPage'))
+const WelcomePage = lazy(() => import('./features/onboarding/WelcomePage'))
+const SettingsPage = lazy(() => import('./features/settings/SettingsPage'))
+const GrammarPathPage = lazy(() => import('./features/curriculum/GrammarPathPage'))
+const ContributorPage = lazy(() => import('./features/contribute/ContributorPage'))
+const TermsPage = lazy(() => import('./features/legal/TermsPage'))
+const SearchPage = lazy(() => import('./features/search/SearchPage'))
+const DecksPage = lazy(() => import('./features/decks/DecksPage'))
+const DeckDetailPage = lazy(() => import('./features/decks/DeckDetailPage'))
 
 // Cached data renders INSTANTLY on navigation; anything stale refreshes in
 // the background instead of blanking the page behind a spinner. Writes
@@ -115,8 +121,23 @@ function AppInner() {
     <>
       <ThemeApplier />
       <LanguageThemeApplier />
-      <RouterProvider router={router} />
+      <Suspense fallback={<RouteFallback />}>
+        <RouterProvider router={router} />
+      </Suspense>
     </>
+  )
+}
+
+/** Shown for the brief moment a lazily-loaded route chunk is fetching. */
+function RouteFallback() {
+  return (
+    <div className="min-h-screen bg-gray-50 flex items-center justify-center">
+      <div
+        className="h-8 w-8 rounded-full border-2 border-gray-200 border-t-lang animate-spin"
+        role="status"
+        aria-label="Loading"
+      />
+    </div>
   )
 }
 
