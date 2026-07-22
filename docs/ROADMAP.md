@@ -1246,6 +1246,20 @@ Also folds in: the "all accounts" tile (every account listable,
 including never-active — previously invisible in every activity
 window).
 
+### WP36 — Gym: base-form hint + full chart on a miss (owner, 2026-07-22)
+Two Gym learnability adds, both riding the WP25c data already on cram cards
+(`chart_word` = the lemma resolved by lemmatizing the answer; `morphology` =
+the paradigm). (1) A new **"Base form"** hint leads the graduated disclosure
+on Gym cards — you're drilling "given this word, produce this form", so the
+dictionary/lemma word (infinitive, nominative singular, …) is the cue you
+work FROM, not a last resort. It only appears when a card carries a lemma
+(i.e. in the Gym), so normal reviews are unchanged. (2) After a **miss**, the
+full conjugation/declension chart now **opens automatically** (was a manual
+"Peek at the chart" toggle) and the toggle relabels to "See the full chart" —
+the moment you get a form wrong is exactly when you want the whole paradigm.
+Frontend-only: `hintLayers.ts` gains a `base` field (fed from `chart_word`),
+ReviewSessionPage auto-opens the chart on a wrong/`wrong_form` cram result.
+
 ### WP35 — Learn interleaves grammar + vocab when both are queued (owner, 2026-07-22)
 Extends WP33: a session was still one card type. Now the Learn tile sends
 `type=both` when the queue has BOTH grammar and vocab decks with items left,
