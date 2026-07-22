@@ -1246,6 +1246,21 @@ Also folds in: the "all accounts" tile (every account listable,
 including never-active — previously invisible in every activity
 window).
 
+### WP33 — Learn round-robins across the queued decks (owner, 2026-07-22)
+The unscoped Learn tile drained the lowest level first: a flat
+`ORDER BY frequency_rank LIMIT batch_size` pulled the globally most-frequent
+(all A1) words until A1 emptied, so higher queued decks never advanced. Now
+`add_learn_batch` / `add_grammar_learn_batch` rank candidates within each
+level (`row_number() OVER (PARTITION BY level …)`) and emit them `ORDER BY rn,
+level` — the Nth item of every queued deck before the (N+1)th, so all
+subscribed decks progress together. Frequency/display_order still orders
+within a deck, and a deck-scoped learn (a `level` is passed) is unchanged.
+The dashboard Learn tile now goes unscoped (no `level`) to trigger the
+round-robin; deck rows still learn one deck. The daily goal stays soft — the
+batch just changes WHICH new items it draws, and keeps cycling past the goal.
+Integration-tested against real Postgres (even level split for vocab +
+grammar; scoped learn stays single-level).
+
 ### WP32 — Suggest-on-decks + vocab review surface (owner, 2026-07-21)
 Extends WP31's votable change-request engine to two places it was missing.
 (1) The inline **Suggest a change** affordance now appears on the **deck

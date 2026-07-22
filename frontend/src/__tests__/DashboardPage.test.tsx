@@ -224,13 +224,16 @@ describe('Dashboard tiles', () => {
     ])
   })
 
-  it('the Learn tile starts the next queued deck with items left', async () => {
+  it('the Learn tile draws from the whole queue (unscoped) so the backend round-robins', async () => {
     renderDashboard()
     fireEvent.click(
       await screen.findByRole('button', { name: /learned today/i }),
     )
+    // Type comes from the next queued deck with items left (grammar); no level
+    // is passed, so the batch round-robins across every subscribed grammar deck
+    // instead of draining deck-1 first.
     await waitFor(() =>
-      expect(mockNavigate).toHaveBeenCalledWith('/learn?type=grammar&level=A1'),
+      expect(mockNavigate).toHaveBeenCalledWith('/learn?type=grammar'),
     )
   })
 

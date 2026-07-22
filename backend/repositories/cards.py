@@ -460,27 +460,47 @@ async def add_learn_batch(
     # language; otherwise membership means vocabulary.level = list.level.
     # DISTINCT guards against duplicates when multiple subscribed lists
     # match the same word (would violate user_cards' unique constraint).
+    #
+    # Round-robin across the queued level decks: rank candidates within each
+    # level by frequency, then take the Nth of every level before the (N+1)th,
+    # so all subscribed decks advance together instead of the lowest level
+    # draining first (owner request — the daily goal is soft; this just changes
+    # WHICH new items a batch draws). Frequency still orders within a level, so
+    # a deck-scoped learn (single level) is unchanged plain-frequency order.
     vocab_rows = await conn.fetch(
         """
-        SELECT DISTINCT v.id, v.frequency_rank
-        FROM vocabulary v
-        JOIN content_lists cl
-               ON v.language_id = cl.language_id
-              AND cl.list_type = 'vocabulary'
-              AND (cl.level IS NULL OR cl.level = v.level)
-        JOIN user_content_subscriptions ucs
-               ON cl.id = ucs.content_list_id
-              AND ucs.user_id = $1
-        WHERE v.language_id = $2
-          AND ($4::text IS NULL OR v.level = $4)
-          -- exclude items already in the deck, EXCEPT suspended never-reviewed
-          -- ones: those are abandoned walkthroughs waiting to be re-taught
-          AND v.id NOT IN (
-              SELECT card_id FROM user_cards
-              WHERE user_id = $1 AND card_type = 'vocabulary'
-                AND NOT (is_suspended AND repetitions = 0)
-          )
-        ORDER BY v.frequency_rank ASC NULLS LAST
+        WITH candidates AS (
+            SELECT DISTINCT v.id AS id, v.level AS level,
+                            v.frequency_rank AS frequency_rank
+            FROM vocabulary v
+            JOIN content_lists cl
+                   ON v.language_id = cl.language_id
+                  AND cl.list_type = 'vocabulary'
+                  AND (cl.level IS NULL OR cl.level = v.level)
+            JOIN user_content_subscriptions ucs
+                   ON cl.id = ucs.content_list_id
+                  AND ucs.user_id = $1
+            WHERE v.language_id = $2
+              AND ($4::text IS NULL OR v.level = $4)
+              -- exclude items already in the deck, EXCEPT suspended
+              -- never-reviewed ones: abandoned walkthroughs to be re-taught
+              AND v.id NOT IN (
+                  SELECT card_id FROM user_cards
+                  WHERE user_id = $1 AND card_type = 'vocabulary'
+                    AND NOT (is_suspended AND repetitions = 0)
+              )
+        ),
+        ranked AS (
+            SELECT id, level,
+                   row_number() OVER (
+                       PARTITION BY level
+                       ORDER BY frequency_rank ASC NULLS LAST, id
+                   ) AS rn
+            FROM candidates
+        )
+        SELECT id
+        FROM ranked
+        ORDER BY rn ASC, level ASC NULLS LAST
         LIMIT $3
         """,
         user_id,
@@ -542,33 +562,50 @@ async def add_grammar_learn_batch(
     user is subscribed to (matched by level), and inserts grammar user_cards
     due immediately. When *level* is given, only that deck's points qualify.
     """
+    # Round-robin across the queued grammar level decks (see add_learn_batch):
+    # take the Nth point of every level before the (N+1)th, display_order
+    # within a level. A deck-scoped learn (single level) is unchanged order.
     rows = await conn.fetch(
         """
-        SELECT DISTINCT gp.id, gp.display_order
-        FROM grammar_points gp
-        JOIN languages l ON gp.language_id = l.id
-        JOIN content_lists cl
-               ON gp.language_id = cl.language_id
-              AND cl.list_type = 'grammar'
-              AND (cl.level IS NULL OR cl.level = gp.level)
-        JOIN user_content_subscriptions ucs
-               ON cl.id = ucs.content_list_id
-              AND ucs.user_id = $1
-        WHERE gp.language_id = $2
-          -- review policy: strict = reviewed only; ai_ok = also AI-passed
-          AND (gp.reviewed = true
-               OR (l.grammar_review_policy = 'ai_ok' AND gp.ai_check_status = 'pass'))
-          -- a point with no drills has nothing to quiz — never learnable
-          AND EXISTS (
-              SELECT 1 FROM drill_sentences ds WHERE ds.grammar_point_id = gp.id
-          )
-          AND ($4::text IS NULL OR gp.level = $4)
-          AND gp.id NOT IN (
-              SELECT card_id FROM user_cards
-              WHERE user_id = $1 AND card_type = 'grammar'
-                AND NOT (is_suspended AND repetitions = 0)
-          )
-        ORDER BY gp.display_order ASC
+        WITH candidates AS (
+            SELECT DISTINCT gp.id AS id, gp.level AS level,
+                            gp.display_order AS display_order
+            FROM grammar_points gp
+            JOIN languages l ON gp.language_id = l.id
+            JOIN content_lists cl
+                   ON gp.language_id = cl.language_id
+                  AND cl.list_type = 'grammar'
+                  AND (cl.level IS NULL OR cl.level = gp.level)
+            JOIN user_content_subscriptions ucs
+                   ON cl.id = ucs.content_list_id
+                  AND ucs.user_id = $1
+            WHERE gp.language_id = $2
+              -- review policy: strict = reviewed only; ai_ok = also AI-passed
+              AND (gp.reviewed = true
+                   OR (l.grammar_review_policy = 'ai_ok'
+                       AND gp.ai_check_status = 'pass'))
+              -- a point with no drills has nothing to quiz — never learnable
+              AND EXISTS (
+                  SELECT 1 FROM drill_sentences ds WHERE ds.grammar_point_id = gp.id
+              )
+              AND ($4::text IS NULL OR gp.level = $4)
+              AND gp.id NOT IN (
+                  SELECT card_id FROM user_cards
+                  WHERE user_id = $1 AND card_type = 'grammar'
+                    AND NOT (is_suspended AND repetitions = 0)
+              )
+        ),
+        ranked AS (
+            SELECT id, level,
+                   row_number() OVER (
+                       PARTITION BY level
+                       ORDER BY display_order ASC, id
+                   ) AS rn
+            FROM candidates
+        )
+        SELECT id
+        FROM ranked
+        ORDER BY rn ASC, level ASC NULLS LAST
         LIMIT $3
         """,
         user_id,

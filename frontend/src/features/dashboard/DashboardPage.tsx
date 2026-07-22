@@ -286,13 +286,16 @@ export default function DashboardPage() {
     navigate('/review')
   }
 
-  // The Learn tile STARTS a session — the next queued deck with items left,
-  // in deck order (Bunpro's learn-queue behavior). With nothing queued it
-  // opens the deck panel instead, so the learner can add one.
+  // The Learn tile STARTS a session drawing from the WHOLE queue: it goes
+  // unscoped (no level), so the backend round-robins new items across every
+  // subscribed deck of that type — all queued decks advance together instead
+  // of the lowest level draining first. The type is taken from the next
+  // queued deck with items left; deck rows still learn one specific deck via
+  // handleLearnDeck. With nothing queued it opens the deck panel to add one.
   const handleLearnStart = () => {
     const next = visibleDecks.find((d) => d.subscribed && d.learned < d.total)
     if (next) {
-      void handleLearnDeck(next)
+      navigate(`/learn?type=${next.list_type}`)
     } else {
       setLearnOpen(true)
     }
