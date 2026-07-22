@@ -1246,6 +1246,20 @@ Also folds in: the "all accounts" tile (every account listable,
 including never-active — previously invisible in every activity
 window).
 
+### WP35 — Learn interleaves grammar + vocab when both are queued (owner, 2026-07-22)
+Extends WP33: a session was still one card type. Now the Learn tile sends
+`type=both` when the queue has BOTH grammar and vocab decks with items left,
+and the new `add_mixed_learn_batch` interleaves them — each type ranked
+round-robin across its own level decks (WP33), then the two lists zipped
+grammar-first to batch_size (falls back to whichever type has content, so it's
+always safe unscoped). Refactor: the two per-type selects and the suspended
+insert are now shared helpers, so vocab/grammar/mixed batches share one code
+path. Frontend: `get_card_details_bulk` already returns mixed lessons; LearnPage
+takes the label and answer-grading type from each lesson's own `card_type`
+(a grammar card in a mixed session grades as grammar). Integration-tested
+against real Postgres: 6-item batch alternates g,v,g,v,g,v; a single-type
+queue still fills.
+
 ### WP34 — Onboarding: optional test + mobile fit (owner, 2026-07-22)
 Beta feedback: the placement test felt forced, options were unresponsive, and
 the screens "slid all over" on mobile. Fixes: (1) the test is now clearly one

@@ -237,6 +237,22 @@ describe('Dashboard tiles', () => {
     )
   })
 
+  it('interleaves when both grammar and vocab have items left (type=both)', async () => {
+    mockDecks.mockResolvedValue([
+      { id: 'deck-1', list_type: 'grammar', level: 'A1', title: 'A1 Grammar',
+        total: 20, learned: 5, subscribed: true },
+      { id: 'deck-2', list_type: 'vocabulary', level: 'A1', title: 'A1 Vocab',
+        total: 30, learned: 10, subscribed: true },
+    ])
+    renderDashboard()
+    fireEvent.click(
+      await screen.findByRole('button', { name: /learned today/i }),
+    )
+    await waitFor(() =>
+      expect(mockNavigate).toHaveBeenCalledWith('/learn?type=both'),
+    )
+  })
+
   it('shows The Gym tile only when the language has form categories', async () => {
     const { getGymManifest } = await import('../api/gym')
     const mockGym = getGymManifest as ReturnType<typeof vi.fn>

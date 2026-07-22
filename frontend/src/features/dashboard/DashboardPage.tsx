@@ -293,12 +293,17 @@ export default function DashboardPage() {
   // queued deck with items left; deck rows still learn one specific deck via
   // handleLearnDeck. With nothing queued it opens the deck panel to add one.
   const handleLearnStart = () => {
-    const next = visibleDecks.find((d) => d.subscribed && d.learned < d.total)
-    if (next) {
-      navigate(`/learn?type=${next.list_type}`)
-    } else {
+    const queued = visibleDecks.filter((d) => d.subscribed && d.learned < d.total)
+    if (queued.length === 0) {
       setLearnOpen(true)
+      return
     }
+    // With both grammar and vocab queued, interleave them in one session;
+    // otherwise learn the one type that has items left.
+    const hasGrammar = queued.some((d) => d.list_type === 'grammar')
+    const hasVocab = queued.some((d) => d.list_type === 'vocabulary')
+    const type = hasGrammar && hasVocab ? 'both' : queued[0].list_type
+    navigate(`/learn?type=${type}`)
   }
 
   if (!onboardingLoading && onboarding && !onboarding.onboarded) {

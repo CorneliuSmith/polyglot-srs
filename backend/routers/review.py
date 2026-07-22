@@ -11,6 +11,7 @@ from backend.dependencies import get_current_user
 from backend.repositories.cards import (
     add_grammar_learn_batch,
     add_learn_batch,
+    add_mixed_learn_batch,
     confirm_learn_batch,
     get_card_detail,
     get_card_details_bulk,
@@ -424,10 +425,11 @@ async def learn(
     examples, references) so the client can PRESENT the material before the
     first quiz, instead of quizzing on something never seen.
     """
-    if body.card_type not in ("vocabulary", "grammar"):
+    # 'both' interleaves grammar + vocabulary in one session (whole queue).
+    if body.card_type not in ("vocabulary", "grammar", "both"):
         raise HTTPException(
             status_code=status.HTTP_422_UNPROCESSABLE_ENTITY,
-            detail="card_type must be 'vocabulary' or 'grammar'",
+            detail="card_type must be 'vocabulary', 'grammar', or 'both'",
         )
     async with rls_connection(user["id"]) as conn:
         # Read batch_size from user_profiles (default 5 if no row)
@@ -439,8 +441,9 @@ async def learn(
 
         # Learning from a specific deck is a deliberate act — subscribe the
         # user to that list if they weren't already (otherwise the batch
-        # query, which draws from subscriptions, would return nothing).
-        if body.level:
+        # query, which draws from subscriptions, would return nothing). Only
+        # single-type learns carry a level; 'both' always draws the queue.
+        if body.level and body.card_type in ("vocabulary", "grammar"):
             await conn.execute(
                 """
                 INSERT INTO user_content_subscriptions (user_id, content_list_id)
@@ -454,7 +457,11 @@ async def learn(
                 body.level,
             )
 
-        if body.card_type == "grammar":
+        if body.card_type == "both":
+            result = await add_mixed_learn_batch(
+                conn, user["id"], body.language_id, batch_size
+            )
+        elif body.card_type == "grammar":
             result = await add_grammar_learn_batch(
                 conn, user["id"], body.language_id, batch_size, body.level
             )
