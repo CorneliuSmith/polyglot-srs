@@ -105,6 +105,46 @@ async def list_grammar_points(
     ]
 
 
+async def list_vocab_items(
+    conn: asyncpg.Connection, language_id: str, support_locale: str | None = None
+) -> list[dict]:
+    """List a language's vocabulary for review: word, gloss, and how much
+    supporting content each entry carries (definition + example count), so a
+    reviewer can spot thin or missing entries at a glance. Mirrors
+    list_grammar_points; the change-request board is where fixes are proposed
+    and voted on (no direct vocab authoring surface yet)."""
+    rows = await conn.fetch(
+        """
+        SELECT v.id, v.word, v.reading, v.part_of_speech, v.level,
+               v.frequency_rank,
+               COALESCE(t.definition, t_en.definition) AS definition,
+               (SELECT count(*) FROM example_sentences es
+                 WHERE es.vocabulary_id = v.id) AS example_count
+        FROM vocabulary v
+        LEFT JOIN translations t
+               ON v.id = t.vocabulary_id AND t.locale = $2
+        LEFT JOIN translations t_en
+               ON v.id = t_en.vocabulary_id AND t_en.locale = 'en'
+        WHERE v.language_id = $1
+        ORDER BY v.frequency_rank ASC NULLS LAST, v.word ASC
+        """,
+        language_id, support_locale or "en",
+    )
+    return [
+        {
+            "id": str(r["id"]),
+            "word": r["word"],
+            "reading": r["reading"],
+            "part_of_speech": r["part_of_speech"],
+            "level": r["level"],
+            "frequency_rank": r["frequency_rank"],
+            "definition": r["definition"],
+            "example_count": r["example_count"],
+        }
+        for r in rows
+    ]
+
+
 async def get_point_for_check(
     conn: asyncpg.Connection, point_id: str
 ) -> dict | None:

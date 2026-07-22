@@ -120,6 +120,28 @@ class TestContributeEndpoints:
         assert resp.status_code == 200
         assert resp.json()["points"][0]["title"] == "Locative"
 
+    def test_list_vocab_requires_role(self, client):
+        with _roles([]):
+            resp = client.get(
+                "/api/contribute/vocab", params={"language_id": LANG},
+                headers=_auth_headers(),
+            )
+        assert resp.status_code == 403
+
+    def test_list_vocab_with_role(self, client):
+        with _roles([{"language_id": LANG, "role": "reviewer"}]), \
+             patch("backend.routers.contribute.list_vocab_items",
+                   new=AsyncMock(return_value=[
+                       {"id": POINT, "word": "hola", "definition": "hi",
+                        "level": "A1", "example_count": 2}
+                   ])):
+            resp = client.get(
+                "/api/contribute/vocab", params={"language_id": LANG},
+                headers=_auth_headers(),
+            )
+        assert resp.status_code == 200
+        assert resp.json()["items"][0]["word"] == "hola"
+
     def test_update_grammar_gated_by_point_language(self, client):
         # contributor for OTHER_LANG editing a LANG point -> 403
         with _roles([{"language_id": OTHER_LANG, "role": "contributor"}]), \

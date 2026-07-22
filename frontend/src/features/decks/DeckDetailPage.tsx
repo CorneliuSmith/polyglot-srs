@@ -13,6 +13,7 @@ import ExplanationView from '../../components/ExplanationView'
 import FormsPanel from '../../components/FormsPanel'
 import LanguageWrapper from '../../components/LanguageWrapper'
 import SpeakButton from '../../components/SpeakButton'
+import SuggestChange from '../contribute/SuggestChange'
 import { usePrefsStore } from '../../stores/prefsStore'
 import { getLanguages } from '../../api/profile'
 import type { DeckItem } from '../../api/review'
@@ -69,10 +70,12 @@ function FlagBox({ pointId }: { pointId: string }) {
 
 function GrammarRow({
   item,
+  languageId,
   languageCode,
   canContribute,
 }: {
   item: DeckItem
+  languageId: string | null
   languageCode: string
   canContribute: boolean
 }) {
@@ -133,6 +136,14 @@ function GrammarRow({
               </>
             )}
           </div>
+          {/* Inline votable suggestion, right on the deck (staff only). */}
+          <SuggestChange
+            languageId={languageId}
+            targetType="grammar_point"
+            targetId={item.id}
+            targetLabel={item.item}
+            defaultField="explanation"
+          />
         </div>
       )}
     </div>
@@ -141,9 +152,11 @@ function GrammarRow({
 
 function VocabRow({
   item,
+  languageId,
   languageCode,
 }: {
   item: DeckItem
+  languageId: string | null
   languageCode: string
 }) {
   const [open, setOpen] = useState(false)
@@ -200,6 +213,14 @@ function VocabRow({
               )}
             </>
           )}
+          {/* Inline votable suggestion, right on the deck (staff only). */}
+          <SuggestChange
+            languageId={languageId}
+            targetType="vocabulary"
+            targetId={item.id}
+            targetLabel={item.item}
+            defaultField="translation"
+          />
         </div>
       )}
     </div>
@@ -329,11 +350,17 @@ export default function DeckDetailPage() {
               <GrammarRow
                 key={item.id}
                 item={item}
+                languageId={activeLanguageId}
                 languageCode={languageCode}
                 canContribute={canContribute}
               />
             ) : (
-              <VocabRow key={item.id} item={item} languageCode={languageCode} />
+              <VocabRow
+                key={item.id}
+                item={item}
+                languageId={activeLanguageId}
+                languageCode={languageCode}
+              />
             ),
           )}
           {!isLoading && filtered.length === 0 && (

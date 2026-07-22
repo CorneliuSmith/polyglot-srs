@@ -13,6 +13,7 @@ import {
 import type { GrammarPointEdit } from '../../api/contribute'
 import { usePrefsStore } from '../../stores/prefsStore'
 import DrillsEditor from './DrillsEditor'
+import VocabReviewPanel from './VocabReviewPanel'
 import FeedbackPanel from './FeedbackPanel'
 import IssuesPanel from './IssuesPanel'
 import ChangeRequestsPanel from './ChangeRequestsPanel'
@@ -471,9 +472,13 @@ export default function ContributorPage() {
   const queryClient = useQueryClient()
   const activeLanguageId = usePrefsStore((s) => s.activeLanguageId)
   const [tab, setTab] = useState<WorkspaceTab>('contribute')
+  // Grammar points have a full authoring surface; vocab is browse + votable
+  // suggestions (WP32). The toggle scopes the Contribute/Review content list.
+  const [contentKind, setContentKind] = useState<'grammar' | 'vocab'>('grammar')
 
   const { data: languages = [] } = useQuery({ queryKey: ['languages'], queryFn: getLanguages })
   const language = languages.find((l) => l.id === activeLanguageId)
+  const languageCode = language?.code ?? 'en'
 
   const { data, isLoading, isError, error } = useQuery({
     queryKey: ['contribute-grammar', activeLanguageId],
@@ -494,7 +499,7 @@ export default function ContributorPage() {
       <div className="max-w-2xl mx-auto px-4 py-8 space-y-4">
         <div className="flex items-center justify-between">
           <h1 className="text-2xl font-bold text-gray-900">
-            Contribute · {language?.name ?? ''} grammar
+            Contribute · {language?.name ?? ''}
           </h1>
           <button
             type="button"
@@ -554,6 +559,34 @@ export default function ContributorPage() {
                 ))}
             </div>
 
+            {/* Content switch: grammar points vs vocabulary. Grammar keeps its
+                full authoring/approval surface; vocab is browse + votable
+                suggestions. Hidden on the Admin tab (controls, not content). */}
+            {tab !== 'admin' && (
+              <div
+                className="flex rounded-lg border border-gray-200 bg-white overflow-hidden text-sm w-fit"
+                role="tablist"
+                aria-label="Content type"
+              >
+                {(['grammar', 'vocab'] as const).map((k) => (
+                  <button
+                    key={k}
+                    type="button"
+                    role="tab"
+                    aria-selected={contentKind === k}
+                    onClick={() => setContentKind(k)}
+                    className={`px-4 py-1.5 font-medium capitalize transition-colors ${
+                      contentKind === k
+                        ? 'bg-lang text-lang-on'
+                        : 'text-gray-500 hover:bg-gray-50'
+                    }`}
+                  >
+                    {k}
+                  </button>
+                ))}
+              </div>
+            )}
+
             {tab === 'admin' && data.is_admin && (
               <>
                 <AnalyticsPanel />
@@ -593,17 +626,27 @@ export default function ContributorPage() {
                 )}
               </>
             )}
-            {tab === 'contribute' && (
+            {tab === 'contribute' && contentKind === 'grammar' && (
               <NewPointForm languageId={activeLanguageId} onCreated={refresh} />
+            )}
+
+            {/* Vocab review surface (WP32): browse + votable suggestions,
+                shown for both Contribute and Review when Vocab is selected. */}
+            {contentKind === 'vocab' && (
+              <VocabReviewPanel
+                languageId={activeLanguageId}
+                languageCode={languageCode}
+              />
             )}
           </>
         )}
 
-        {data && tab !== 'admin' && data.points.length === 0 && (
-          <p className="text-gray-500">No grammar points for this language yet.</p>
-        )}
+        {data && tab !== 'admin' && contentKind === 'grammar' &&
+          data.points.length === 0 && (
+            <p className="text-gray-500">No grammar points for this language yet.</p>
+          )}
 
-        {data && tab !== 'admin' &&
+        {data && tab !== 'admin' && contentKind === 'grammar' &&
           orderedPoints(data.points, focusPointId).map((point) => (
             <div
               key={point.id}

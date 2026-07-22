@@ -60,6 +60,7 @@ from backend.repositories.contributor import (
     list_review_notes,
     list_suggestions,
     list_translation_reviews,
+    list_vocab_items,
     reject_suggestion,
     resolve_feedback,
     resolve_review_note,
@@ -169,6 +170,33 @@ async def grammar_for_language(
         "can_contribute": can_contribute(roles, language_id),
         "review_policy": policy,
         "tutor_model": tutor_model,
+    }
+
+
+@router.get("/vocab")
+async def vocab_for_language(
+    language_id: str,
+    user: dict = Depends(get_current_user),
+):
+    """List a language's vocabulary for review (role-gated).
+
+    Read-only: the change-request board (target_type='vocabulary') is how
+    reviewers propose and vote on fixes — this just surfaces what's there so
+    they can spot thin or missing entries while browsing.
+    """
+    async with rls_connection(user["id"]) as conn:
+        roles = await get_roles(conn, user["id"])
+        if not can_contribute(roles, language_id):
+            raise HTTPException(
+                status_code=status.HTTP_403_FORBIDDEN,
+                detail="You don't have a contributor role for this language",
+            )
+        items = await list_vocab_items(conn, language_id)
+    return {
+        "items": items,
+        "is_admin": is_admin(roles),
+        "can_review": can_review(roles, language_id),
+        "can_contribute": can_contribute(roles, language_id),
     }
 
 

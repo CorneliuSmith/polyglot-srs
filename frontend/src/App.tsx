@@ -1,4 +1,4 @@
-import { lazy, Suspense, useEffect } from 'react'
+import { lazy, Suspense, useEffect, type ComponentType } from 'react'
 import {
   createBrowserRouter,
   RouterProvider,
@@ -16,25 +16,57 @@ import LanguageThemeApplier from './components/LanguageThemeApplier'
 // Tutor, Reader, Gym, Contributor, and on-screen-keyboard code up front.
 // This is the single biggest first-load win on a cellular connection —
 // the eager bundle was ~940 kB, most of it never touched on the Dashboard.
-const LoginPage = lazy(() => import('./features/auth/LoginPage'))
-const ResetPasswordPage = lazy(() => import('./features/auth/ResetPasswordPage'))
-const DashboardPage = lazy(() => import('./features/dashboard/DashboardPage'))
-const ReviewSessionPage = lazy(() => import('./features/review/ReviewSessionPage'))
-const LearnPage = lazy(() => import('./features/review/LearnPage'))
-const TutorPage = lazy(() => import('./features/tutor/TutorPage'))
-const ReaderPage = lazy(() => import('./features/reader/ReaderPage'))
-const LettersPage = lazy(() => import('./features/letters/LettersPage'))
-const GymPage = lazy(() => import('./features/gym/GymPage'))
-const NotesPage = lazy(() => import('./features/notes/NotesPage'))
-const OnboardingPage = lazy(() => import('./features/onboarding/OnboardingPage'))
-const WelcomePage = lazy(() => import('./features/onboarding/WelcomePage'))
-const SettingsPage = lazy(() => import('./features/settings/SettingsPage'))
-const GrammarPathPage = lazy(() => import('./features/curriculum/GrammarPathPage'))
-const ContributorPage = lazy(() => import('./features/contribute/ContributorPage'))
-const TermsPage = lazy(() => import('./features/legal/TermsPage'))
-const SearchPage = lazy(() => import('./features/search/SearchPage'))
-const DecksPage = lazy(() => import('./features/decks/DecksPage'))
-const DeckDetailPage = lazy(() => import('./features/decks/DeckDetailPage'))
+//
+// lazyWithRetry hardens that split for flaky mobile networks and mid-rollout
+// deploys: a chunk that fails to load is retried a couple of times, and only
+// a persistent failure (e.g. the hashed chunk no longer exists after a
+// deploy) triggers a single hard reload to pick up the new asset manifest —
+// far better than stranding the user on the route error screen. The reload
+// is guarded in sessionStorage so it can never loop.
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+function lazyWithRetry<T extends ComponentType<any>>(
+  factory: () => Promise<{ default: T }>,
+) {
+  return lazy(async () => {
+    try {
+      return await factory()
+    } catch (err) {
+      try {
+        // One quick retry covers a transient network blip.
+        return await factory()
+      } catch {
+        if (!sessionStorage.getItem('polyglot-chunk-reloaded')) {
+          sessionStorage.setItem('polyglot-chunk-reloaded', '1')
+          window.location.reload()
+          // Return a never-resolving module so Suspense holds the fallback
+          // through the reload instead of flashing the error boundary.
+          return new Promise<{ default: T }>(() => {})
+        }
+        throw err
+      }
+    }
+  })
+}
+
+const LoginPage = lazyWithRetry(() => import('./features/auth/LoginPage'))
+const ResetPasswordPage = lazyWithRetry(() => import('./features/auth/ResetPasswordPage'))
+const DashboardPage = lazyWithRetry(() => import('./features/dashboard/DashboardPage'))
+const ReviewSessionPage = lazyWithRetry(() => import('./features/review/ReviewSessionPage'))
+const LearnPage = lazyWithRetry(() => import('./features/review/LearnPage'))
+const TutorPage = lazyWithRetry(() => import('./features/tutor/TutorPage'))
+const ReaderPage = lazyWithRetry(() => import('./features/reader/ReaderPage'))
+const LettersPage = lazyWithRetry(() => import('./features/letters/LettersPage'))
+const GymPage = lazyWithRetry(() => import('./features/gym/GymPage'))
+const NotesPage = lazyWithRetry(() => import('./features/notes/NotesPage'))
+const OnboardingPage = lazyWithRetry(() => import('./features/onboarding/OnboardingPage'))
+const WelcomePage = lazyWithRetry(() => import('./features/onboarding/WelcomePage'))
+const SettingsPage = lazyWithRetry(() => import('./features/settings/SettingsPage'))
+const GrammarPathPage = lazyWithRetry(() => import('./features/curriculum/GrammarPathPage'))
+const ContributorPage = lazyWithRetry(() => import('./features/contribute/ContributorPage'))
+const TermsPage = lazyWithRetry(() => import('./features/legal/TermsPage'))
+const SearchPage = lazyWithRetry(() => import('./features/search/SearchPage'))
+const DecksPage = lazyWithRetry(() => import('./features/decks/DecksPage'))
+const DeckDetailPage = lazyWithRetry(() => import('./features/decks/DeckDetailPage'))
 
 // Cached data renders INSTANTLY on navigation; anything stale refreshes in
 // the background instead of blanking the page behind a spinner. Writes

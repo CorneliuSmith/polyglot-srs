@@ -128,11 +128,15 @@ export async function confirmLearnSession(
 }
 
 export async function getLearnDecks(languageId: string): Promise<LearnDeck[]> {
-  const response = await apiClient.get<{ decks: LearnDeck[] }>(
+  const response = await apiClient.get<{ decks: LearnDeck[] | null }>(
     '/api/review/decks',
     { params: { language_id: languageId } },
   )
-  return response.data.decks
+  // Coerce a null body/field to an empty list: a React Query `= []` default
+  // only catches `undefined`, so returning null here would crash callers
+  // that immediately `.filter`/`.find` on the result (the Decks page hitting
+  // the route error boundary on load).
+  return response.data?.decks ?? []
 }
 
 export async function resetDeckProgress(
