@@ -1246,6 +1246,21 @@ Also folds in: the "all accounts" tile (every account listable,
 including never-active — previously invisible in every activity
 window).
 
+### WP39 — Central task→model registry (owner, 2026-07-22)
+Model selection was scattered — config defaults, per-service literals, and CLI
+flags. `services/models.py` now maps every AI task to its model in one place
+(`TASK_MODELS` + `resolve_model(task, language_code, override)`), with the
+per-language admin override and the low-resource pin applied centrally.
+`resolve_tutor_model` delegates to it; the AI semantic check and the
+support-locale translator now resolve through it too (behavior-preserving —
+same models, one source of truth). Crucially it names the **generation** tasks
+— `grammar_maker` / `grammar_checker` / `sentence_maker` / `sentence_checker`
+(checker one tier up per §6, "never self-certify") — so the on-demand
+generation (Part C) and paid ingest (Part D) plug into the registry instead of
+hard-coding models. Batch seeders keep their explicit `--model` CLI control.
+Pure-logic unit tests (no key/DB). Deferred: an admin UI to set models
+per task (the registry is the data model it would drive).
+
 ### WP38 — Sentence origin/provenance tracker (owner, 2026-07-22)
 The prerequisite the owner named for paid ingest ("we'll need an origin
 tracker and a way to see that sentences are ours or changed"). Migration

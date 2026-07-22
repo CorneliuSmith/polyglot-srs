@@ -16,6 +16,7 @@ import json
 from anthropic import AsyncAnthropic
 
 from backend.config import get_settings
+from backend.services.models import resolve_model
 from backend.services.tutor import _load_skill
 
 _SCHEMA = {
@@ -68,7 +69,7 @@ async def semantic_check_point(
 
     client = AsyncAnthropic(api_key=settings.anthropic_api_key)
     response = await client.messages.create(
-        model=settings.tutor_summary_model,
+        model=resolve_model("semantic_check"),
         max_tokens=1024,
         system=(
             "You are a meticulous linguist reviewing beginner grammar content for "
