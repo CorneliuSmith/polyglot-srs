@@ -32,7 +32,11 @@ function LearnInner({ onLocaleChanged }: { onLocaleChanged: () => void }) {
   const navigate = useNavigate()
   const queryClient = useQueryClient()
   const [searchParams] = useSearchParams()
-  const cardType = searchParams.get('type') === 'grammar' ? 'grammar' : 'vocabulary'
+  // 'both' interleaves grammar + vocabulary in one session; each lesson then
+  // carries its OWN type (lesson.card_type) for the label and answer grading.
+  const typeParam = searchParams.get('type')
+  const cardType =
+    typeParam === 'grammar' ? 'grammar' : typeParam === 'both' ? 'both' : 'vocabulary'
   // Deck-scoped learning: /learn?type=grammar&level=A1 draws only from that
   // deck (and queues it if it wasn't queued yet).
   const level = searchParams.get('level') ?? undefined
@@ -238,7 +242,9 @@ function LearnInner({ onLocaleChanged }: { onLocaleChanged: () => void }) {
         user_input: finalInput,
         correct_answer: lesson.quiz.answer,
         card_context: {
-          card_type: cardType,
+          // Per-lesson type: a grammar card in a mixed session must be
+          // graded as grammar, not the session's default.
+          card_type: lesson.card_type === 'grammar' ? 'grammar' : 'vocabulary',
           morphology: lesson.quiz.morphology ?? {},
           alternatives: lesson.quiz.alternatives ?? [],
         },
@@ -272,7 +278,7 @@ function LearnInner({ onLocaleChanged }: { onLocaleChanged: () => void }) {
       <div className="max-w-xl mx-auto px-4 py-8 space-y-4">
         <div className="flex items-center justify-between">
           <p className="text-sm text-gray-500">
-            New {cardType === 'grammar' ? 'grammar' : 'vocabulary'} ·{' '}
+            New {lesson.card_type === 'grammar' ? 'grammar' : 'vocabulary'} ·{' '}
             {lessonIndex + 1} of {lessons.length}
           </p>
           <span className="flex items-center gap-3">

@@ -496,4 +496,35 @@ describe('ReviewSessionPage — Gym chart peek (WP25c)', () => {
     await waitFor(() => screen.getByRole('textbox'))
     expect(screen.queryByText(/peek at the chart/i)).toBeNull()
   })
+
+  it('the leading hint is the Base form — the lemma being drilled', async () => {
+    // hintLevel 1 = one hint revealed; for a Gym card that first layer is the
+    // base form (the dictionary word you conjugate FROM).
+    mockUsePrefsStore.mockImplementation(
+      (selector: (s: Record<string, unknown>) => unknown) =>
+        selector({
+          activeLanguageId: 'lang-123',
+          listeningMode: false,
+          hintLevel: 1,
+          qwertyTranslit: {},
+        }),
+    )
+    renderCram()
+    await screen.findByRole('textbox')
+    // The base-form hint renders below the drill, labelled and carrying слушать.
+    expect(await screen.findByText('Base form')).toBeDefined()
+  })
+
+  it('opens the full chart automatically after a miss', async () => {
+    mockValidateAnswer.mockResolvedValueOnce({ answer_result: 'wrong', feedback: null })
+    renderCram()
+    const input = await screen.findByRole('textbox')
+    fireEvent.change(input, { target: { value: 'wrongword' } })
+    fireEvent.keyDown(input, { key: 'Enter' })
+    // No peek click needed — the paradigm appears on its own after the miss,
+    // and the toggle flips to "Hide the chart".
+    await waitFor(() => expect(screen.getByTestId('gym-chart')).toBeDefined())
+    expect(screen.getByText('слушаешь')).toBeDefined()
+    expect(screen.getByRole('button', { name: /hide the chart/i })).toBeDefined()
+  })
 })

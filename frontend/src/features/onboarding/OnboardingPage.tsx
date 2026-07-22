@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useQuery, useMutation } from '@tanstack/react-query'
 import { getLanguages } from '../../api/profile'
@@ -17,6 +17,17 @@ import type { Language } from '../../api/types'
 type Step = 'language' | 'method' | 'placement' | 'confirm' | 'plan'
 
 const CEFR_LEVELS = ['A1', 'A2', 'B1', 'B2', 'C1', 'C2'] as const
+
+// Four visible stages for the progress bar (placement and confirm share the
+// "level" stage — the learner is settling on a level either way).
+const STAGE_OF: Record<Step, number> = {
+  language: 0,
+  method: 1,
+  placement: 2,
+  confirm: 2,
+  plan: 3,
+}
+const STAGES = 4
 
 export default function OnboardingPage() {
   const navigate = useNavigate()
@@ -44,11 +55,13 @@ export default function OnboardingPage() {
 
   const { data: languages = [] } = useQuery({ queryKey: ['languages'], queryFn: getLanguages })
 
-  // Skip onboarding entirely if the user has already finished it.
+  // Skip onboarding entirely if the user has already finished it. Done in an
+  // effect, never during render — navigating mid-render warns and can wedge
+  // the page (part of the "options not working" report).
   const { data: statusData } = useQuery({ queryKey: ['onboarding-status'], queryFn: getOnboardingStatus })
-  if (statusData?.onboarded) {
-    navigate('/', { replace: true })
-  }
+  useEffect(() => {
+    if (statusData?.onboarded) navigate('/', { replace: true })
+  }, [statusData?.onboarded, navigate])
 
   const nextMutation = useMutation({
     mutationFn: (h: { id: string; input: string }[]) =>
@@ -79,6 +92,12 @@ export default function OnboardingPage() {
     nextMutation.mutate(newHistory)
   }
 
+  const startPlacement = () => {
+    setHistory([])
+    setCurrentItem(null)
+    nextMutation.mutate([])
+  }
+
   const finishMutation = useMutation({
     mutationFn: () =>
       completeOnboarding({ languageId: language!.id, level, planScope }),
@@ -95,12 +114,52 @@ export default function OnboardingPage() {
     setStep('method')
   }
 
+  // Back always walks one stage toward the start, so the flow never feels
+  // like a one-way trap.
+  const goBack = () => {
+    if (step === 'method') setStep('language')
+    else if (step === 'placement' || step === 'confirm') setStep('method')
+    else if (step === 'plan') setStep('confirm')
+  }
+
+  const stage = STAGE_OF[step]
+
   return (
-    <div className="min-h-screen bg-gray-50">
-      <div className="max-w-xl mx-auto px-4 py-10 space-y-6">
-        <header>
-          <h1 className="text-2xl font-bold text-gray-900">Welcome — let's set you up</h1>
-          <p className="text-sm text-gray-500">A minute now and your reviews are ready to go.</p>
+    <div className="min-h-screen bg-gray-50 overflow-x-hidden">
+      <div className="max-w-xl mx-auto px-4 py-8 space-y-6">
+        <header className="space-y-4">
+          {/* Back + progress: a clear way out of every step. */}
+          <div className="flex items-center gap-3">
+            <button
+              type="button"
+              onClick={goBack}
+              disabled={step === 'language'}
+              aria-label="Back"
+              className="shrink-0 w-9 h-9 flex items-center justify-center rounded-full border border-gray-200 text-gray-500 disabled:opacity-0 hover:bg-gray-50 active:bg-gray-100"
+            >
+              <span aria-hidden>←</span>
+            </button>
+            <div
+              className="flex-1 h-1.5 bg-gray-100 rounded-full overflow-hidden"
+              role="progressbar"
+              aria-valuenow={stage + 1}
+              aria-valuemin={1}
+              aria-valuemax={STAGES}
+            >
+              <div
+                className="h-full bg-lang rounded-full transition-[width] duration-300"
+                style={{ width: `${((stage + 1) / STAGES) * 100}%` }}
+              />
+            </div>
+          </div>
+          <div>
+            <h1 className="text-2xl font-bold text-gray-900">
+              Welcome — let&apos;s set you up
+            </h1>
+            <p className="text-sm text-gray-500">
+              A minute now and your reviews are ready to go.
+            </p>
+          </div>
         </header>
 
         {step === 'language' && (
@@ -112,8 +171,7 @@ export default function OnboardingPage() {
                   key={lang.id}
                   type="button"
                   onClick={() => pickLanguage(lang)}
-                  className="rounded-xl border border-gray-200 bg-white px-4 py-3 text-left text-sm font-medium text-gray-800 hover:border-lang/50 hover:bg-lang-soft"
-                  style={{ minHeight: '44px' }}
+                  className="min-h-12 rounded-xl border border-gray-200 bg-white px-4 py-3 text-left text-sm font-medium text-gray-800 break-words hover:border-lang/50 hover:bg-lang-soft active:bg-lang-soft"
                 >
                   {lang.name}
                 </button>
@@ -127,31 +185,44 @@ export default function OnboardingPage() {
             <h2 className="font-semibold text-gray-800">
               How much {language.name} do you already know?
             </h2>
+            {/* Three clear paths — the test is one option, never a gate. */}
             <button
               type="button"
               onClick={() => {
                 setLevel('A1')
                 setStep('confirm')
               }}
-              className="w-full rounded-xl border border-gray-200 bg-white px-4 py-3 text-left hover:border-lang/50 hover:bg-lang-soft"
+              className="w-full min-h-12 rounded-xl border border-gray-200 bg-white px-4 py-3 text-left hover:border-lang/50 hover:bg-lang-soft active:bg-lang-soft"
             >
-              <span className="block text-sm font-semibold text-gray-800">I'm new to it</span>
+              <span className="block text-sm font-semibold text-gray-800">I&apos;m brand new</span>
               <span className="block text-xs text-gray-500">Start from the beginning (A1)</span>
             </button>
             <button
               type="button"
               onClick={() => {
-                setHistory([])
-                nextMutation.mutate([])
+                setLevel('A1')
+                setStep('confirm')
               }}
-              disabled={nextMutation.isPending}
-              className="w-full rounded-xl border border-gray-200 bg-white px-4 py-3 text-left hover:border-lang/50 hover:bg-lang-soft disabled:opacity-50"
+              className="w-full min-h-12 rounded-xl border border-gray-200 bg-white px-4 py-3 text-left hover:border-lang/50 hover:bg-lang-soft active:bg-lang-soft"
             >
               <span className="block text-sm font-semibold text-gray-800">
-                {nextMutation.isPending ? 'Loading…' : 'Take a quick placement check'}
+                I know some — I&apos;ll pick my level
               </span>
               <span className="block text-xs text-gray-500">
-                A few questions that adapt to your answers — most people finish in 5–8
+                Choose your starting level yourself, no test
+              </span>
+            </button>
+            <button
+              type="button"
+              onClick={startPlacement}
+              disabled={nextMutation.isPending}
+              className="w-full min-h-12 rounded-xl border border-gray-200 bg-white px-4 py-3 text-left hover:border-lang/50 hover:bg-lang-soft active:bg-lang-soft disabled:opacity-50"
+            >
+              <span className="block text-sm font-semibold text-gray-800">
+                {nextMutation.isPending ? 'Loading…' : 'Test my level (optional)'}
+              </span>
+              <span className="block text-xs text-gray-500">
+                A few questions that adapt to your answers — most finish in 5–8
               </span>
             </button>
           </section>
@@ -159,12 +230,12 @@ export default function OnboardingPage() {
 
         {step === 'placement' && language && currentItem && (
           <section className="space-y-4">
-            <div className="flex items-center justify-between">
+            <div className="flex items-center justify-between gap-2">
               <h2 className="font-semibold text-gray-800">
-                Answer in {language.name} — or skip
+                Answer in {language.name}
               </h2>
-              <span className="text-xs text-gray-400">
-                Question {history.length + 1} · adapts to your answers (max {maxItems})
+              <span className="shrink-0 text-xs text-gray-400 tabular-nums">
+                {history.length + 1} / {maxItems}
               </span>
             </div>
             <div className="rounded-xl border border-gray-100 bg-white p-4 space-y-2">
@@ -180,36 +251,37 @@ export default function OnboardingPage() {
               )}
               <LanguageWrapper languageCode={language.code}>
                 {/* Real form: some Android IMEs never emit a usable Enter
-                    keydown, but the action key always submits a form. */}
+                    keydown, but the action key always submits a form. No
+                    autoFocus — on phones it springs the keyboard open and
+                    scrolls the page out from under the learner. */}
                 <form
                   onSubmit={(e) => {
                     e.preventDefault()
                     if (curInput.trim()) submitAnswer(curInput)
                   }}
                 >
-                <input
-                  autoFocus
-                  autoCapitalize="none"
-                  autoCorrect="off"
-                  autoComplete="off"
-                  spellCheck={false}
-                  enterKeyHint="go"
-                  value={curInput}
-                  onChange={(e) => {
-                    const v = isTranslitEnabled(language.code, qwertyTranslit)
-                      ? convertTranslit(language.code, e.target.value)
-                      : e.target.value
-                    setCurInput(v)
-                  }}
-                  onKeyDown={(e) => {
-                    if (e.key === 'Enter' && !e.nativeEvent.isComposing && curInput.trim()) {
-                      e.preventDefault()
-                      submitAnswer(curInput)
-                    }
-                  }}
-                  aria-label={currentItem.prompt}
-                  className="mt-1 w-full rounded-lg border border-gray-300 px-3 py-2 text-sm"
-                />
+                  <input
+                    autoCapitalize="none"
+                    autoCorrect="off"
+                    autoComplete="off"
+                    spellCheck={false}
+                    enterKeyHint="go"
+                    value={curInput}
+                    onChange={(e) => {
+                      const v = isTranslitEnabled(language.code, qwertyTranslit)
+                        ? convertTranslit(language.code, e.target.value)
+                        : e.target.value
+                      setCurInput(v)
+                    }}
+                    onKeyDown={(e) => {
+                      if (e.key === 'Enter' && !e.nativeEvent.isComposing && curInput.trim()) {
+                        e.preventDefault()
+                        submitAnswer(curInput)
+                      }
+                    }}
+                    aria-label={currentItem.prompt}
+                    className="mt-1 w-full rounded-lg border border-gray-300 px-3 py-2.5 text-base"
+                  />
                 </form>
               </LanguageWrapper>
             </div>
@@ -218,8 +290,7 @@ export default function OnboardingPage() {
                 type="button"
                 onClick={() => submitAnswer(curInput)}
                 disabled={!curInput.trim() || nextMutation.isPending}
-                className="bg-lang hover:bg-lang-dark disabled:opacity-50 text-lang-on font-semibold rounded-xl px-5 py-2.5 text-sm"
-                style={{ minHeight: '44px' }}
+                className="flex-1 min-h-12 bg-lang hover:bg-lang-dark active:bg-lang-dark disabled:opacity-50 text-lang-on font-semibold rounded-xl px-5 text-sm"
               >
                 {nextMutation.isPending ? 'Checking…' : 'Next'}
               </button>
@@ -227,12 +298,22 @@ export default function OnboardingPage() {
                 type="button"
                 onClick={() => submitAnswer('')}
                 disabled={nextMutation.isPending}
-                className="rounded-xl border border-gray-300 px-5 py-2.5 text-sm text-gray-600 hover:bg-gray-50 disabled:opacity-50"
-                style={{ minHeight: '44px' }}
+                className="min-h-12 rounded-xl border border-gray-300 px-5 text-sm text-gray-600 hover:bg-gray-50 active:bg-gray-100 disabled:opacity-50"
               >
-                Skip
+                I don&apos;t know
               </button>
             </div>
+            {/* Escape hatch: the test is never a trap. */}
+            <button
+              type="button"
+              onClick={() => {
+                setLevel('A1')
+                setStep('confirm')
+              }}
+              className="block w-full text-center text-xs text-gray-400 hover:text-lang"
+            >
+              Skip the test — I&apos;ll pick my level
+            </button>
           </section>
         )}
 
@@ -240,13 +321,13 @@ export default function OnboardingPage() {
           <section className="space-y-4">
             <h2 className="font-semibold text-gray-800">Start {language.name} at this level</h2>
             <p className="text-sm text-gray-500">
-              We'll queue grammar and vocabulary at this level and below. You can change it later.
+              We&apos;ll queue grammar and vocabulary at this level and below. You can change it later.
             </p>
             <select
               value={level}
               onChange={(e) => setLevel(e.target.value)}
               aria-label="Starting level"
-              className="w-full rounded-lg border border-gray-300 px-3 py-2 text-sm bg-white"
+              className="w-full min-h-12 rounded-lg border border-gray-300 px-3 py-2 text-base bg-white"
             >
               {CEFR_LEVELS.map((l) => (
                 <option key={l} value={l}>{l}</option>
@@ -255,8 +336,7 @@ export default function OnboardingPage() {
             <button
               type="button"
               onClick={() => setStep('plan')}
-              className="w-full bg-lang hover:bg-lang-dark disabled:opacity-50 text-lang-on font-semibold rounded-xl px-6 py-3 text-sm"
-              style={{ minHeight: '44px' }}
+              className="w-full min-h-12 bg-lang hover:bg-lang-dark active:bg-lang-dark disabled:opacity-50 text-lang-on font-semibold rounded-xl px-6 text-sm"
             >
               Continue
             </button>
@@ -275,7 +355,7 @@ export default function OnboardingPage() {
               onClick={() => setPlanScope('single')}
               aria-pressed={planScope === 'single'}
               className={
-                'w-full rounded-xl border px-4 py-3 text-left ' +
+                'w-full min-h-12 rounded-xl border px-4 py-3 text-left active:bg-lang-soft ' +
                 (planScope === 'single'
                   ? 'border-lang bg-lang-soft'
                   : 'border-gray-200 bg-white hover:border-lang/50')
@@ -295,7 +375,7 @@ export default function OnboardingPage() {
               onClick={() => setPlanScope('all')}
               aria-pressed={planScope === 'all'}
               className={
-                'w-full rounded-xl border px-4 py-3 text-left ' +
+                'w-full min-h-12 rounded-xl border px-4 py-3 text-left active:bg-lang-soft ' +
                 (planScope === 'all'
                   ? 'border-lang bg-lang-soft'
                   : 'border-gray-200 bg-white hover:border-lang/50')
@@ -311,15 +391,14 @@ export default function OnboardingPage() {
               </span>
             </button>
             <p className="text-xs text-gray-400">
-              Billing hasn't launched yet — early accounts keep full access to
+              Billing hasn&apos;t launched yet — early accounts keep full access to
               their choice for free, and keep their price when plans go live.
             </p>
             <button
               type="button"
               onClick={() => finishMutation.mutate()}
               disabled={finishMutation.isPending}
-              className="w-full bg-lang hover:bg-lang-dark disabled:opacity-50 text-lang-on font-semibold rounded-xl px-6 py-3 text-sm"
-              style={{ minHeight: '44px' }}
+              className="w-full min-h-12 bg-lang hover:bg-lang-dark active:bg-lang-dark disabled:opacity-50 text-lang-on font-semibold rounded-xl px-6 text-sm"
             >
               {finishMutation.isPending ? 'Setting up…' : 'Start learning'}
             </button>

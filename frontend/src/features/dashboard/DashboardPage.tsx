@@ -286,16 +286,24 @@ export default function DashboardPage() {
     navigate('/review')
   }
 
-  // The Learn tile STARTS a session — the next queued deck with items left,
-  // in deck order (Bunpro's learn-queue behavior). With nothing queued it
-  // opens the deck panel instead, so the learner can add one.
+  // The Learn tile STARTS a session drawing from the WHOLE queue: it goes
+  // unscoped (no level), so the backend round-robins new items across every
+  // subscribed deck of that type — all queued decks advance together instead
+  // of the lowest level draining first. The type is taken from the next
+  // queued deck with items left; deck rows still learn one specific deck via
+  // handleLearnDeck. With nothing queued it opens the deck panel to add one.
   const handleLearnStart = () => {
-    const next = visibleDecks.find((d) => d.subscribed && d.learned < d.total)
-    if (next) {
-      void handleLearnDeck(next)
-    } else {
+    const queued = visibleDecks.filter((d) => d.subscribed && d.learned < d.total)
+    if (queued.length === 0) {
       setLearnOpen(true)
+      return
     }
+    // With both grammar and vocab queued, interleave them in one session;
+    // otherwise learn the one type that has items left.
+    const hasGrammar = queued.some((d) => d.list_type === 'grammar')
+    const hasVocab = queued.some((d) => d.list_type === 'vocabulary')
+    const type = hasGrammar && hasVocab ? 'both' : queued[0].list_type
+    navigate(`/learn?type=${type}`)
   }
 
   if (!onboardingLoading && onboarding && !onboarding.onboarded) {

@@ -437,6 +437,183 @@ def _grammar_card(r: asyncpg.Record, stats: dict[str, tuple[int, int]]) -> dict:
     }
 
 
+def _interleave_typed(
+    grammar_ids: list, vocab_ids: list, limit: int
+) -> list[tuple[str, object]]:
+    """Round-robin a grammar and a vocab candidate list into one ordered list
+    of (card_type, id), grammar first each round. When one type runs out the
+    other keeps filling, so a lopsided queue still reaches *limit* if it can."""
+    out: list[tuple[str, object]] = []
+    i = 0
+    while len(out) < limit and (i < len(grammar_ids) or i < len(vocab_ids)):
+        if i < len(grammar_ids):
+            out.append(("grammar", grammar_ids[i]))
+            if len(out) >= limit:
+                break
+        if i < len(vocab_ids):
+            out.append(("vocabulary", vocab_ids[i]))
+            if len(out) >= limit:
+                break
+        i += 1
+    return out
+
+
+async def _select_vocab_candidate_ids(
+    conn: asyncpg.Connection,
+    user_id: str,
+    language_id: str,
+    batch_size: int,
+    level: str | None,
+) -> list:
+    """Vocabulary the user hasn't started, ranked round-robin across the queued
+    level decks (Nth of every level before the (N+1)th; frequency within a
+    level). DISTINCT guards against a word matching several subscribed lists.
+    With *level* set, it's just that deck in frequency order."""
+    rows = await conn.fetch(
+        """
+        WITH candidates AS (
+            SELECT DISTINCT v.id AS id, v.level AS level,
+                            v.frequency_rank AS frequency_rank
+            FROM vocabulary v
+            JOIN content_lists cl
+                   ON v.language_id = cl.language_id
+                  AND cl.list_type = 'vocabulary'
+                  AND (cl.level IS NULL OR cl.level = v.level)
+            JOIN user_content_subscriptions ucs
+                   ON cl.id = ucs.content_list_id
+                  AND ucs.user_id = $1
+            WHERE v.language_id = $2
+              AND ($4::text IS NULL OR v.level = $4)
+              -- exclude items already in the deck, EXCEPT suspended
+              -- never-reviewed ones: abandoned walkthroughs to be re-taught
+              AND v.id NOT IN (
+                  SELECT card_id FROM user_cards
+                  WHERE user_id = $1 AND card_type = 'vocabulary'
+                    AND NOT (is_suspended AND repetitions = 0)
+              )
+        ),
+        ranked AS (
+            SELECT id, level,
+                   row_number() OVER (
+                       PARTITION BY level
+                       ORDER BY frequency_rank ASC NULLS LAST, id
+                   ) AS rn
+            FROM candidates
+        )
+        SELECT id
+        FROM ranked
+        ORDER BY rn ASC, level ASC NULLS LAST
+        LIMIT $3
+        """,
+        user_id,
+        language_id,
+        batch_size,
+        level,
+    )
+    return [r["id"] for r in rows]
+
+
+async def _select_grammar_candidate_ids(
+    conn: asyncpg.Connection,
+    user_id: str,
+    language_id: str,
+    batch_size: int,
+    level: str | None,
+) -> list:
+    """Grammar points the user hasn't started, ranked round-robin across the
+    queued level decks (display_order within a level), honoring the review
+    policy and skipping points with no drills."""
+    rows = await conn.fetch(
+        """
+        WITH candidates AS (
+            SELECT DISTINCT gp.id AS id, gp.level AS level,
+                            gp.display_order AS display_order
+            FROM grammar_points gp
+            JOIN languages l ON gp.language_id = l.id
+            JOIN content_lists cl
+                   ON gp.language_id = cl.language_id
+                  AND cl.list_type = 'grammar'
+                  AND (cl.level IS NULL OR cl.level = gp.level)
+            JOIN user_content_subscriptions ucs
+                   ON cl.id = ucs.content_list_id
+                  AND ucs.user_id = $1
+            WHERE gp.language_id = $2
+              -- review policy: strict = reviewed only; ai_ok = also AI-passed
+              AND (gp.reviewed = true
+                   OR (l.grammar_review_policy = 'ai_ok'
+                       AND gp.ai_check_status = 'pass'))
+              -- a point with no drills has nothing to quiz — never learnable
+              AND EXISTS (
+                  SELECT 1 FROM drill_sentences ds WHERE ds.grammar_point_id = gp.id
+              )
+              AND ($4::text IS NULL OR gp.level = $4)
+              AND gp.id NOT IN (
+                  SELECT card_id FROM user_cards
+                  WHERE user_id = $1 AND card_type = 'grammar'
+                    AND NOT (is_suspended AND repetitions = 0)
+              )
+        ),
+        ranked AS (
+            SELECT id, level,
+                   row_number() OVER (
+                       PARTITION BY level
+                       ORDER BY display_order ASC, id
+                   ) AS rn
+            FROM candidates
+        )
+        SELECT id
+        FROM ranked
+        ORDER BY rn ASC, level ASC NULLS LAST
+        LIMIT $3
+        """,
+        user_id,
+        language_id,
+        batch_size,
+        level,
+    )
+    return [r["id"] for r in rows]
+
+
+async def _insert_learn_cards(
+    conn: asyncpg.Connection,
+    user_id: str,
+    language_id: str,
+    typed_ids: list[tuple[str, object]],
+) -> dict:
+    """Insert new user_cards SUSPENDED, in the given order — they enter the
+    review queue only when the learner finishes the lesson walkthrough
+    (confirm_learn_batch), so an abandoned page leaks nothing.
+
+    ON CONFLICT: two learn calls racing (e.g. React StrictMode double-firing)
+    can both select the same candidates; the WHERE keeps the update to
+    re-teachable rows so an active card is never re-suspended. *typed_ids* is
+    a list of (card_type, card_id) so a mixed grammar+vocab batch keeps its
+    interleaved order."""
+    inserted_ids: list[str] = []
+    for card_type, card_id in typed_ids:
+        row = await conn.fetchrow(
+            """
+            INSERT INTO user_cards
+                (user_id, language_id, card_type, card_id,
+                 ease_factor, interval, repetitions, streak, lapses,
+                 next_review, is_suspended)
+            VALUES
+                ($1, $2, $4, $3, 2.5, 0, 0, 0, 0, now(), true)
+            ON CONFLICT (user_id, card_type, card_id) DO UPDATE
+                SET is_suspended = true
+                WHERE user_cards.is_suspended AND user_cards.repetitions = 0
+            RETURNING id
+            """,
+            user_id,
+            language_id,
+            card_id,
+            card_type,
+        )
+        if row is not None:
+            inserted_ids.append(str(row["id"]))
+    return {"added": len(inserted_ids), "items": inserted_ids}
+
+
 async def add_learn_batch(
     conn: asyncpg.Connection,
     user_id: str,
@@ -446,86 +623,19 @@ async def add_learn_batch(
 ) -> dict:
     """Add a batch of new vocabulary cards to user_cards from subscribed lists.
 
-    Selects vocabulary the user has not yet learned, ordered by frequency_rank
-    ASC (most frequent first), limited to batch_size.  Cards are inserted with
-    default SRS values and next_review = now() so they are immediately due.
-    When *level* is given, the batch draws only from that CEFR level (a
-    specific deck) instead of everything subscribed.
+    Selects vocabulary the user has not yet learned (round-robin across the
+    queued level decks), inserts each suspended, due now. When *level* is
+    given, the batch draws only from that CEFR level (a specific deck).
 
     Returns:
         {"added": int, "items": list[str]}  — count and list of new user_card IDs
     """
-    # Select candidate vocabulary IDs the user hasn't started yet.
-    # Content lists are level-based: a NULL-level list covers the whole
-    # language; otherwise membership means vocabulary.level = list.level.
-    # DISTINCT guards against duplicates when multiple subscribed lists
-    # match the same word (would violate user_cards' unique constraint).
-    vocab_rows = await conn.fetch(
-        """
-        SELECT DISTINCT v.id, v.frequency_rank
-        FROM vocabulary v
-        JOIN content_lists cl
-               ON v.language_id = cl.language_id
-              AND cl.list_type = 'vocabulary'
-              AND (cl.level IS NULL OR cl.level = v.level)
-        JOIN user_content_subscriptions ucs
-               ON cl.id = ucs.content_list_id
-              AND ucs.user_id = $1
-        WHERE v.language_id = $2
-          AND ($4::text IS NULL OR v.level = $4)
-          -- exclude items already in the deck, EXCEPT suspended never-reviewed
-          -- ones: those are abandoned walkthroughs waiting to be re-taught
-          AND v.id NOT IN (
-              SELECT card_id FROM user_cards
-              WHERE user_id = $1 AND card_type = 'vocabulary'
-                AND NOT (is_suspended AND repetitions = 0)
-          )
-        ORDER BY v.frequency_rank ASC NULLS LAST
-        LIMIT $3
-        """,
-        user_id,
-        language_id,
-        batch_size,
-        level,
+    ids = await _select_vocab_candidate_ids(
+        conn, user_id, language_id, batch_size, level
     )
-
-    if not vocab_rows:
-        return {"added": 0, "items": []}
-
-    vocab_ids = [r["id"] for r in vocab_rows]
-
-    # Insert new user_cards SUSPENDED: they enter the review queue only when
-    # the learner finishes the lesson walkthrough (confirm_learn_batch). If
-    # the page never loads, nothing leaks into reviews.
-    # ON CONFLICT: two concurrent learn calls (e.g. React StrictMode
-    # double-firing the mutation) can both select the same candidates; the
-    # WHERE keeps the update to re-teachable rows so an active card is never
-    # re-suspended.
-    inserted_ids = []
-    for vocab_id in vocab_ids:
-        row = await conn.fetchrow(
-            """
-            INSERT INTO user_cards
-                (user_id, language_id, card_type, card_id,
-                 ease_factor, interval, repetitions, streak, lapses,
-                 next_review, is_suspended)
-            VALUES
-                ($1, $2, 'vocabulary', $3,
-                 2.5, 0, 0, 0, 0,
-                 now(), true)
-            ON CONFLICT (user_id, card_type, card_id) DO UPDATE
-                SET is_suspended = true
-                WHERE user_cards.is_suspended AND user_cards.repetitions = 0
-            RETURNING id
-            """,
-            user_id,
-            language_id,
-            vocab_id,
-        )
-        if row is not None:
-            inserted_ids.append(str(row["id"]))
-
-    return {"added": len(inserted_ids), "items": inserted_ids}
+    return await _insert_learn_cards(
+        conn, user_id, language_id, [("vocabulary", i) for i in ids]
+    )
 
 
 async def add_grammar_learn_batch(
@@ -537,73 +647,39 @@ async def add_grammar_learn_batch(
 ) -> dict:
     """Add a batch of new grammar cards from the user's subscribed grammar lists.
 
-    Mirrors add_learn_batch but for grammar_points: selects points the user
-    hasn't started, ordered by display_order, from grammar content lists the
-    user is subscribed to (matched by level), and inserts grammar user_cards
-    due immediately. When *level* is given, only that deck's points qualify.
+    Mirrors add_learn_batch but for grammar_points: round-robin across the
+    queued level decks (display_order within a level), inserted suspended and
+    due. When *level* is given, only that deck's points qualify.
     """
-    rows = await conn.fetch(
-        """
-        SELECT DISTINCT gp.id, gp.display_order
-        FROM grammar_points gp
-        JOIN languages l ON gp.language_id = l.id
-        JOIN content_lists cl
-               ON gp.language_id = cl.language_id
-              AND cl.list_type = 'grammar'
-              AND (cl.level IS NULL OR cl.level = gp.level)
-        JOIN user_content_subscriptions ucs
-               ON cl.id = ucs.content_list_id
-              AND ucs.user_id = $1
-        WHERE gp.language_id = $2
-          -- review policy: strict = reviewed only; ai_ok = also AI-passed
-          AND (gp.reviewed = true
-               OR (l.grammar_review_policy = 'ai_ok' AND gp.ai_check_status = 'pass'))
-          -- a point with no drills has nothing to quiz — never learnable
-          AND EXISTS (
-              SELECT 1 FROM drill_sentences ds WHERE ds.grammar_point_id = gp.id
-          )
-          AND ($4::text IS NULL OR gp.level = $4)
-          AND gp.id NOT IN (
-              SELECT card_id FROM user_cards
-              WHERE user_id = $1 AND card_type = 'grammar'
-                AND NOT (is_suspended AND repetitions = 0)
-          )
-        ORDER BY gp.display_order ASC
-        LIMIT $3
-        """,
-        user_id,
-        language_id,
-        batch_size,
-        level,
+    ids = await _select_grammar_candidate_ids(
+        conn, user_id, language_id, batch_size, level
     )
-    if not rows:
-        return {"added": 0, "items": []}
+    return await _insert_learn_cards(
+        conn, user_id, language_id, [("grammar", i) for i in ids]
+    )
 
-    # Same suspended-until-confirmed + racing-learn-call handling as
-    # add_learn_batch.
-    inserted_ids = []
-    for r in rows:
-        row = await conn.fetchrow(
-            """
-            INSERT INTO user_cards
-                (user_id, language_id, card_type, card_id,
-                 ease_factor, interval, repetitions, streak, lapses,
-                 next_review, is_suspended)
-            VALUES
-                ($1, $2, 'grammar', $3, 2.5, 0, 0, 0, 0, now(), true)
-            ON CONFLICT (user_id, card_type, card_id) DO UPDATE
-                SET is_suspended = true
-                WHERE user_cards.is_suspended AND user_cards.repetitions = 0
-            RETURNING id
-            """,
-            user_id,
-            language_id,
-            r["id"],
-        )
-        if row is not None:
-            inserted_ids.append(str(row["id"]))
 
-    return {"added": len(inserted_ids), "items": inserted_ids}
+async def add_mixed_learn_batch(
+    conn: asyncpg.Connection,
+    user_id: str,
+    language_id: str,
+    batch_size: int,
+) -> dict:
+    """Add a batch that INTERLEAVES new grammar and vocabulary (owner request:
+    when both are queued, teach them together rather than one type per
+    session). Each type is ranked round-robin across its own queued level
+    decks; the two lists are then interleaved grammar-first per round to
+    batch_size total. If only one type has anything queued this degrades to
+    that type's normal batch, so it is always safe to call unscoped.
+    """
+    grammar_ids = await _select_grammar_candidate_ids(
+        conn, user_id, language_id, batch_size, None
+    )
+    vocab_ids = await _select_vocab_candidate_ids(
+        conn, user_id, language_id, batch_size, None
+    )
+    typed = _interleave_typed(grammar_ids, vocab_ids, batch_size)
+    return await _insert_learn_cards(conn, user_id, language_id, typed)
 
 
 async def confirm_learn_batch(

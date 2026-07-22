@@ -16,6 +16,7 @@ import pytest
 from backend.repositories.cards import (
     add_grammar_learn_batch,
     add_learn_batch,
+    add_mixed_learn_batch,
     confirm_learn_batch,
     get_card_detail,
     get_due_cards,
@@ -210,6 +211,207 @@ async def test_vocab_learn_and_due_flow(pool):
         assert any(c["correct_answer"] == "casa" for c in due)
         detail = await get_card_detail(conn, due[0]["id"])
     assert detail["definition"] == "house"
+
+
+async def test_vocab_learn_round_robins_across_queued_levels(pool):
+    """An unscoped learn batch spread across several queued level decks takes
+    the Nth word of every level before the (N+1)th — so all decks advance
+    together instead of the lowest level draining first (owner request)."""
+    lang = await _language(pool, "rr_vocab")
+    user = await _new_user(pool, "rr@vocab")
+    # Three levels, five words each, distinct frequency ranks so ordering is
+    # deterministic. A1 words are the globally most-frequent — under the old
+    # flat-frequency pooling they'd have filled the whole batch.
+    levels = {"A1": range(1, 6), "A2": range(100, 105), "B1": range(200, 205)}
+    async with pool.privileged_connection() as conn:
+        for level, ranks in levels.items():
+            for r in ranks:
+                await conn.execute(
+                    "INSERT INTO vocabulary (language_id, word, frequency_rank, level) "
+                    "VALUES ($1, $2, $3, $4)",
+                    lang, f"{level}-{r}", r, level,
+                )
+            list_id = await conn.fetchval(
+                "INSERT INTO content_lists (language_id, list_type, level, title) "
+                "VALUES ($1, 'vocabulary', $2, $3) RETURNING id",
+                lang, level, f"{level} vocab",
+            )
+            await conn.execute(
+                "INSERT INTO user_content_subscriptions (user_id, content_list_id) "
+                "VALUES ($1, $2)", user, list_id,
+            )
+
+    async with pool.rls_connection(user) as conn:
+        result = await add_learn_batch(conn, user, lang, 6)  # 2 rounds × 3 levels
+        assert result["added"] == 6
+        rows = await conn.fetch(
+            """
+            SELECT v.level, v.word
+            FROM user_cards uc JOIN vocabulary v ON uc.card_id = v.id
+            WHERE uc.id = ANY($1::uuid[])
+            """,
+            result["items"],
+        )
+    by_level = {}
+    for row in rows:
+        by_level.setdefault(row["level"], []).append(row["word"])
+    # Every queued deck contributed evenly, and within a deck the most
+    # frequent words came first.
+    assert {lvl: len(w) for lvl, w in by_level.items()} == {"A1": 2, "A2": 2, "B1": 2}
+    assert set(by_level["A1"]) == {"A1-1", "A1-2"}
+    assert set(by_level["A2"]) == {"A2-100", "A2-101"}
+    assert set(by_level["B1"]) == {"B1-200", "B1-201"}
+
+
+async def test_grammar_learn_round_robins_across_queued_levels(pool):
+    """Same round-robin for grammar points across queued level decks."""
+    lang = await _language(pool, "rr_gram")
+    user = await _new_user(pool, "rr@gram")
+    async with pool.privileged_connection() as conn:
+        for level, base in (("A1", 1), ("A2", 100)):
+            for i in range(3):
+                pid = await conn.fetchval(
+                    "INSERT INTO grammar_points "
+                    "(language_id, title, level, display_order, reviewed) "
+                    "VALUES ($1, $2, $3, $4, true) RETURNING id",
+                    lang, f"{level}-pt{i}", level, base + i,
+                )
+                await conn.execute(
+                    "INSERT INTO drill_sentences "
+                    "(grammar_point_id, sentence, answer, display_order) "
+                    "VALUES ($1, '{{answer}} x', 'y', 1)", pid,
+                )
+            list_id = await conn.fetchval(
+                "INSERT INTO content_lists (language_id, list_type, level, title) "
+                "VALUES ($1, 'grammar', $2, $3) RETURNING id",
+                lang, level, f"{level} grammar",
+            )
+            await conn.execute(
+                "INSERT INTO user_content_subscriptions (user_id, content_list_id) "
+                "VALUES ($1, $2)", user, list_id,
+            )
+
+    async with pool.rls_connection(user) as conn:
+        result = await add_grammar_learn_batch(conn, user, lang, 4)  # 2 rounds × 2 levels
+        assert result["added"] == 4
+        rows = await conn.fetch(
+            """
+            SELECT gp.level FROM user_cards uc
+            JOIN grammar_points gp ON uc.card_id = gp.id
+            WHERE uc.id = ANY($1::uuid[])
+            """,
+            result["items"],
+        )
+    counts = {}
+    for row in rows:
+        counts[row["level"]] = counts.get(row["level"], 0) + 1
+    assert counts == {"A1": 2, "A2": 2}
+
+
+async def test_mixed_learn_interleaves_grammar_and_vocab(pool):
+    """When both types are queued, an unscoped 'both' batch alternates grammar
+    and vocab (owner request) — 3 of each in a 6-item batch, grammar first."""
+    lang = await _language(pool, "mix1")
+    user = await _new_user(pool, "mix@learn")
+    async with pool.privileged_connection() as conn:
+        # 4 vocab (A1) + 4 grammar (A1), each subscribed.
+        for r in range(1, 5):
+            await conn.execute(
+                "INSERT INTO vocabulary (language_id, word, frequency_rank, level) "
+                "VALUES ($1, $2, $3, 'A1')", lang, f"w{r}", r,
+            )
+            pid = await conn.fetchval(
+                "INSERT INTO grammar_points "
+                "(language_id, title, level, display_order, reviewed) "
+                "VALUES ($1, $2, 'A1', $3, true) RETURNING id", lang, f"g{r}", r,
+            )
+            await conn.execute(
+                "INSERT INTO drill_sentences "
+                "(grammar_point_id, sentence, answer, display_order) "
+                "VALUES ($1, '{{answer}} z', 'a', 1)", pid,
+            )
+        for lt in ("vocabulary", "grammar"):
+            lid = await conn.fetchval(
+                "INSERT INTO content_lists (language_id, list_type, level, title) "
+                "VALUES ($1, $2, 'A1', $3) RETURNING id", lang, lt, f"A1 {lt}",
+            )
+            await conn.execute(
+                "INSERT INTO user_content_subscriptions (user_id, content_list_id) "
+                "VALUES ($1, $2)", user, lid,
+            )
+
+    async with pool.rls_connection(user) as conn:
+        result = await add_mixed_learn_batch(conn, user, lang, 6)
+        assert result["added"] == 6
+        rows = await conn.fetch(
+            "SELECT uc.id, uc.card_type FROM user_cards uc "
+            "WHERE uc.id = ANY($1::uuid[])", result["items"],
+        )
+    kinds = {str(r["id"]): r["card_type"] for r in rows}
+    # result["items"] preserves the interleave order: g, v, g, v, g, v.
+    order = [kinds[i] for i in result["items"]]
+    assert order == ["grammar", "vocabulary"] * 3
+
+
+async def test_mixed_learn_falls_back_to_one_type(pool):
+    """'both' with only vocab queued still fills the batch from vocab."""
+    lang = await _language(pool, "mix2")
+    user = await _new_user(pool, "mix2@learn")
+    async with pool.privileged_connection() as conn:
+        for r in range(1, 4):
+            await conn.execute(
+                "INSERT INTO vocabulary (language_id, word, frequency_rank, level) "
+                "VALUES ($1, $2, $3, 'A1')", lang, f"w{r}", r,
+            )
+        lid = await conn.fetchval(
+            "INSERT INTO content_lists (language_id, list_type, level, title) "
+            "VALUES ($1, 'vocabulary', 'A1', 'A1 vocab') RETURNING id", lang,
+        )
+        await conn.execute(
+            "INSERT INTO user_content_subscriptions (user_id, content_list_id) "
+            "VALUES ($1, $2)", user, lid,
+        )
+    async with pool.rls_connection(user) as conn:
+        result = await add_mixed_learn_batch(conn, user, lang, 5)
+        rows = await conn.fetch(
+            "SELECT card_type FROM user_cards WHERE id = ANY($1::uuid[])",
+            result["items"],
+        )
+    assert result["added"] == 3
+    assert {r["card_type"] for r in rows} == {"vocabulary"}
+
+
+async def test_deck_scoped_learn_stays_single_level(pool):
+    """Passing a level scopes the batch to that one deck (unchanged behavior):
+    round-robin degrades to plain frequency order within the level."""
+    lang = await _language(pool, "rr_scoped")
+    user = await _new_user(pool, "rr@scoped")
+    async with pool.privileged_connection() as conn:
+        for level, ranks in (("A1", range(1, 4)), ("A2", range(100, 103))):
+            for r in ranks:
+                await conn.execute(
+                    "INSERT INTO vocabulary (language_id, word, frequency_rank, level) "
+                    "VALUES ($1, $2, $3, $4)", lang, f"{level}-{r}", r, level,
+                )
+            list_id = await conn.fetchval(
+                "INSERT INTO content_lists (language_id, list_type, level, title) "
+                "VALUES ($1, 'vocabulary', $2, $3) RETURNING id",
+                lang, level, f"{level} vocab",
+            )
+            await conn.execute(
+                "INSERT INTO user_content_subscriptions (user_id, content_list_id) "
+                "VALUES ($1, $2)", user, list_id,
+            )
+
+    async with pool.rls_connection(user) as conn:
+        result = await add_learn_batch(conn, user, lang, 2, level="A2")
+        rows = await conn.fetch(
+            "SELECT v.level, v.word FROM user_cards uc "
+            "JOIN vocabulary v ON uc.card_id = v.id WHERE uc.id = ANY($1::uuid[])",
+            result["items"],
+        )
+    assert {row["level"] for row in rows} == {"A2"}
+    assert {row["word"] for row in rows} == {"A2-100", "A2-101"}
 
 
 async def test_concurrent_learn_calls_are_idempotent(pool):

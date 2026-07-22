@@ -131,6 +131,18 @@ function ReviewSessionInner({
   // "Hidden initially" means hidden on EVERY card, not just the first.
   useEffect(() => setChartOpen(false), [session.currentIndex])
 
+  // Gym: after a MISS, open the full chart automatically — the moment a
+  // learner gets a conjugation/declension wrong is exactly when they want to
+  // see the whole paradigm they should have drawn from.
+  const missed =
+    session.validationResult?.answer_result === 'wrong' ||
+    session.validationResult?.answer_result === 'wrong_form'
+  useEffect(() => {
+    if (cram && missed && (session.phase === 'feedback' || session.phase === 'rating')) {
+      setChartOpen(true)
+    }
+  }, [cram, missed, session.phase])
+
   const qwertyTranslit = usePrefsStore((s) => s.qwertyTranslit)
 
   // English cards render definitions/translations in the learner's support
@@ -344,7 +356,9 @@ function ReviewSessionInner({
   // non-Latin scripts, word-by-word gloss first for unfamiliar-syntax
   // languages, translation before the morphology recipe everywhere — the
   // recipe stays last because it all but spells out the answer.
-  const layers = hintLayersFor(card.language_code, card)
+  // chart_word is the lemma the Gym drill exercises — expose it as the
+  // leading "Base form" hint (see hintLayers.ts).
+  const layers = hintLayersFor(card.language_code, { ...card, base: card.chart_word })
   const maxHint = layers.length
   const revealedLayers =
     session.phase !== 'answering' ? layers : layers.slice(0, Math.min(hintLevel, maxHint))
@@ -536,7 +550,9 @@ function ReviewSessionInner({
               >
                 {chartOpen
                   ? 'Hide the chart'
-                  : `Peek at the chart${card.chart_word ? ` — ${card.chart_word}` : ''}`}
+                  : `${missed && !answering ? 'See the full chart' : 'Peek at the chart'}${
+                      card.chart_word ? ` — ${card.chart_word}` : ''
+                    }`}
               </button>
               {chartOpen && (
                 <div className="mt-3 text-left" data-testid="gym-chart">

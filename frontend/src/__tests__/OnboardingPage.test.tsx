@@ -59,7 +59,7 @@ describe('OnboardingPage', () => {
     renderPage()
 
     fireEvent.click(await screen.findByRole('button', { name: 'Spanish' }))
-    fireEvent.click(await screen.findByRole('button', { name: /i'm new to it/i }))
+    fireEvent.click(await screen.findByRole('button', { name: /brand new/i }))
     fireEvent.click(await screen.findByRole('button', { name: /continue/i }))
     fireEvent.click(await screen.findByRole('button', { name: /start learning/i }))
 
@@ -88,16 +88,16 @@ describe('OnboardingPage', () => {
     renderPage()
 
     fireEvent.click(await screen.findByRole('button', { name: 'Spanish' }))
-    fireEvent.click(await screen.findByRole('button', { name: /take a quick placement/i }))
+    fireEvent.click(await screen.findByRole('button', { name: /test my level/i }))
 
     // First item appears alone; answering it fetches the next.
     const first = await screen.findByLabelText('la ____ roja')
     fireEvent.change(first, { target: { value: 'casa' } })
     fireEvent.click(screen.getByRole('button', { name: /^next$/i }))
 
-    // Second item; skip it (counts as wrong server-side).
+    // Second item; "I don't know" submits it blank (counts as wrong server-side).
     await screen.findByLabelText('hello')
-    fireEvent.click(screen.getByRole('button', { name: /skip/i }))
+    fireEvent.click(screen.getByRole('button', { name: /i don't know/i }))
 
     // Server says done — the estimate is preselected on the confirm step.
     const select = (await screen.findByLabelText('Starting level')) as HTMLSelectElement
@@ -123,10 +123,42 @@ describe('OnboardingPage', () => {
     renderPage()
 
     fireEvent.click(await screen.findByRole('button', { name: 'Spanish' }))
-    fireEvent.click(await screen.findByRole('button', { name: /take a quick placement/i }))
+    fireEvent.click(await screen.findByRole('button', { name: /test my level/i }))
 
     const select = (await screen.findByLabelText('Starting level')) as HTMLSelectElement
     expect(select.value).toBe('A1')
+  })
+
+  it('self-pick path: "I know some" goes straight to the level chooser, no test', async () => {
+    renderPage()
+    fireEvent.click(await screen.findByRole('button', { name: 'Spanish' }))
+    fireEvent.click(await screen.findByRole('button', { name: /i know some/i }))
+    // Lands on the level chooser without ever calling the placement endpoint.
+    expect(await screen.findByLabelText('Starting level')).toBeDefined()
+    expect(mockNext).not.toHaveBeenCalled()
+  })
+
+  it('placement is escapable: "Skip the test" drops to the level chooser', async () => {
+    mockNext.mockResolvedValueOnce({
+      available: true, done: false,
+      item: { id: 'i1', kind: 'vocabulary', level: 'A1', prompt: 'hola', translation: null },
+      asked: 0, max_items: 12,
+    })
+    renderPage()
+    fireEvent.click(await screen.findByRole('button', { name: 'Spanish' }))
+    fireEvent.click(await screen.findByRole('button', { name: /test my level/i }))
+    await screen.findByLabelText('hola')
+    fireEvent.click(screen.getByRole('button', { name: /skip the test/i }))
+    expect(await screen.findByLabelText('Starting level')).toBeDefined()
+  })
+
+  it('the back button returns to the previous step', async () => {
+    renderPage()
+    fireEvent.click(await screen.findByRole('button', { name: 'Spanish' }))
+    // On the method step now; go back to language selection.
+    await screen.findByRole('button', { name: /brand new/i })
+    fireEvent.click(screen.getByRole('button', { name: /^back$/i }))
+    expect(await screen.findByText(/which language do you want to learn/i)).toBeDefined()
   })
 
   it('redirects away if already onboarded', async () => {

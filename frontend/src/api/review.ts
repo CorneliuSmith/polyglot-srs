@@ -106,7 +106,7 @@ export async function submitCardFeedback(
 
 export async function startLearnSession(
   languageId: string,
-  cardType: 'vocabulary' | 'grammar' = 'vocabulary',
+  cardType: 'vocabulary' | 'grammar' | 'both' = 'vocabulary',
   level?: string,
 ): Promise<LearnResponse> {
   const response = await apiClient.post<LearnResponse>('/api/review/learn', {

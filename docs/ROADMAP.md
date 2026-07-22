@@ -1246,6 +1246,64 @@ Also folds in: the "all accounts" tile (every account listable,
 including never-active — previously invisible in every activity
 window).
 
+### WP36 — Gym: base-form hint + full chart on a miss (owner, 2026-07-22)
+Two Gym learnability adds, both riding the WP25c data already on cram cards
+(`chart_word` = the lemma resolved by lemmatizing the answer; `morphology` =
+the paradigm). (1) A new **"Base form"** hint leads the graduated disclosure
+on Gym cards — you're drilling "given this word, produce this form", so the
+dictionary/lemma word (infinitive, nominative singular, …) is the cue you
+work FROM, not a last resort. It only appears when a card carries a lemma
+(i.e. in the Gym), so normal reviews are unchanged. (2) After a **miss**, the
+full conjugation/declension chart now **opens automatically** (was a manual
+"Peek at the chart" toggle) and the toggle relabels to "See the full chart" —
+the moment you get a form wrong is exactly when you want the whole paradigm.
+Frontend-only: `hintLayers.ts` gains a `base` field (fed from `chart_word`),
+ReviewSessionPage auto-opens the chart on a wrong/`wrong_form` cram result.
+
+### WP35 — Learn interleaves grammar + vocab when both are queued (owner, 2026-07-22)
+Extends WP33: a session was still one card type. Now the Learn tile sends
+`type=both` when the queue has BOTH grammar and vocab decks with items left,
+and the new `add_mixed_learn_batch` interleaves them — each type ranked
+round-robin across its own level decks (WP33), then the two lists zipped
+grammar-first to batch_size (falls back to whichever type has content, so it's
+always safe unscoped). Refactor: the two per-type selects and the suspended
+insert are now shared helpers, so vocab/grammar/mixed batches share one code
+path. Frontend: `get_card_details_bulk` already returns mixed lessons; LearnPage
+takes the label and answer-grading type from each lesson's own `card_type`
+(a grammar card in a mixed session grades as grammar). Integration-tested
+against real Postgres: 6-item batch alternates g,v,g,v,g,v; a single-type
+queue still fills.
+
+### WP34 — Onboarding: optional test + mobile fit (owner, 2026-07-22)
+Beta feedback: the placement test felt forced, options were unresponsive, and
+the screens "slid all over" on mobile. Fixes: (1) the test is now clearly one
+of three paths on the method step — "I'm brand new", "I know some — I'll pick
+my level" (self-select, no test), "Test my level (optional)" — plus a "Skip
+the test — I'll pick my level" escape hatch mid-placement, so it's never a
+gate. (2) The mid-render `navigate()` on an already-onboarded status moved to
+an effect (rendering-phase navigation warns and could wedge the page — the
+"options not working" report). (3) Mobile: dropped `autoFocus` on the
+placement input (it sprang the keyboard and scrolled the page — the
+"sliding"), added `overflow-x-hidden`, a back button + progress bar on every
+step, consistent `min-h-12` tap targets with `active:` feedback, and 16px
+inputs (no iOS zoom-scroll). Verified at 390px: language grid (all 22 names
+fit, incl. "Jamaican Patois") and method step, no horizontal overflow.
+
+### WP33 — Learn round-robins across the queued decks (owner, 2026-07-22)
+The unscoped Learn tile drained the lowest level first: a flat
+`ORDER BY frequency_rank LIMIT batch_size` pulled the globally most-frequent
+(all A1) words until A1 emptied, so higher queued decks never advanced. Now
+`add_learn_batch` / `add_grammar_learn_batch` rank candidates within each
+level (`row_number() OVER (PARTITION BY level …)`) and emit them `ORDER BY rn,
+level` — the Nth item of every queued deck before the (N+1)th, so all
+subscribed decks progress together. Frequency/display_order still orders
+within a deck, and a deck-scoped learn (a `level` is passed) is unchanged.
+The dashboard Learn tile now goes unscoped (no `level`) to trigger the
+round-robin; deck rows still learn one deck. The daily goal stays soft — the
+batch just changes WHICH new items it draws, and keeps cycling past the goal.
+Integration-tested against real Postgres (even level split for vocab +
+grammar; scoped learn stays single-level).
+
 ### WP32 — Suggest-on-decks + vocab review surface (owner, 2026-07-21)
 Extends WP31's votable change-request engine to two places it was missing.
 (1) The inline **Suggest a change** affordance now appears on the **deck

@@ -11,11 +11,17 @@
  *    how the sentence is BUILT — then the translation, then the recipe.
  *  - Everything else: translation (the lexical cue), then the recipe.
  *
- * Layers a card doesn't carry (no gloss authored yet, no transliteration)
- * are skipped, so the dots always match what's actually available.
+ * The Gym adds one more, ALWAYS first when present: the **base form** — the
+ * dictionary/lemma of the word being drilled (infinitive, nominative
+ * singular, …). Inflection practice is "given this word, produce this form",
+ * so the base form is the cue you work FROM, not a last resort.
+ *
+ * Layers a card doesn't carry (no gloss authored yet, no transliteration, no
+ * base form outside the Gym) are skipped, so the dots always match what's
+ * actually available.
  */
 
-export type HintLayerField = 'transliteration' | 'gloss' | 'translation' | 'hint'
+export type HintLayerField = 'base' | 'transliteration' | 'gloss' | 'translation' | 'hint'
 
 const SCRIPT_FIRST: HintLayerField[] = ['transliteration', 'gloss', 'translation', 'hint']
 const GLOSS_FIRST: HintLayerField[] = ['gloss', 'translation', 'hint']
@@ -34,6 +40,8 @@ const LAYER_ORDER: Record<string, HintLayerField[]> = {
 }
 
 export interface HintLayerSource {
+  /** Dictionary/lemma form the drill exercises — Gym cards only. */
+  base?: string | null
   transliteration?: string | null
   gloss?: string | null
   translation?: string | null
@@ -47,15 +55,17 @@ export interface HintLayer {
 }
 
 const LABELS: Record<HintLayerField, string> = {
+  base: 'Base form',
   transliteration: 'Reading',
   gloss: 'Word by word',
   translation: 'Translation',
   hint: 'Hint',
 }
 
-/** The ordered hint layers this card can actually reveal. */
+/** The ordered hint layers this card can actually reveal. Base form (when the
+ * card carries one — i.e. in the Gym) always leads. */
 export function hintLayersFor(languageCode: string, card: HintLayerSource): HintLayer[] {
-  const order = LAYER_ORDER[languageCode] ?? DEFAULT_ORDER
+  const order: HintLayerField[] = ['base', ...(LAYER_ORDER[languageCode] ?? DEFAULT_ORDER)]
   return order
     .filter((field) => (card[field] ?? '').toString().trim().length > 0)
     .map((field) => ({ field, label: LABELS[field], text: card[field] as string }))
