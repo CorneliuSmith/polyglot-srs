@@ -286,10 +286,11 @@ async def create_grammar_point(
 
 
 async def list_drills(conn: asyncpg.Connection, point_id: str) -> list[dict]:
-    """List a grammar point's drill sentences for editing."""
+    """List a grammar point's drill sentences for editing, with provenance."""
     rows = await conn.fetch(
         """
-        SELECT id, sentence, answer, translation, hint, display_order
+        SELECT id, sentence, answer, translation, hint, display_order,
+               source, is_modified
         FROM drill_sentences
         WHERE grammar_point_id = $1
         ORDER BY display_order ASC
@@ -304,6 +305,8 @@ async def list_drills(conn: asyncpg.Connection, point_id: str) -> list[dict]:
             "translation": r["translation"],
             "hint": r["hint"],
             "display_order": r["display_order"],
+            "source": r["source"],
+            "is_modified": r["is_modified"],
         }
         for r in rows
     ]
@@ -322,11 +325,14 @@ async def add_drill(
         "SELECT COALESCE(MAX(display_order), 0) + 1 FROM drill_sentences WHERE grammar_point_id = $1",
         point_id,
     )
+    # A drill added by hand in the app is ours — tag it 'human' so it's never
+    # mistaken for seed or imported content.
     drill_id = await conn.fetchval(
         """
         INSERT INTO drill_sentences
-            (grammar_point_id, sentence, answer, translation, hint, display_order)
-        VALUES ($1, $2, $3, $4, $5, $6)
+            (grammar_point_id, sentence, answer, translation, hint, display_order,
+             source)
+        VALUES ($1, $2, $3, $4, $5, $6, 'human')
         RETURNING id
         """,
         point_id, sentence, answer, translation or None, hint or None, next_order,
@@ -345,17 +351,22 @@ async def update_drill(
     answer: str,
     translation: str | None,
     hint: str | None,
+    modified_by: str | None = None,
 ) -> bool:
     """Edit a live drill (privileged). The edit de-certifies the point —
     reviewed flips false so a SECOND reviewer must re-approve before
-    learners see the change (nobody self-certifies an edit)."""
+    learners see the change (nobody self-certifies an edit) — and stamps
+    provenance (is_modified / modified_by / modified_at) so an edited row is
+    always distinguishable from its imported or seed original."""
     result = await conn.execute(
         """
         UPDATE drill_sentences
-        SET sentence = $3, answer = $4, translation = $5, hint = $6
+        SET sentence = $3, answer = $4, translation = $5, hint = $6,
+            is_modified = true, modified_by = $7, modified_at = now()
         WHERE id = $1 AND grammar_point_id = $2
         """,
         drill_id, point_id, sentence, answer, translation or None, hint or None,
+        modified_by,
     )
     if not result.endswith("1"):
         return False

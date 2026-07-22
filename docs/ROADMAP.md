@@ -1246,6 +1246,49 @@ Also folds in: the "all accounts" tile (every account listable,
 including never-active — previously invisible in every activity
 window).
 
+### WP39 — Central task→model registry (owner, 2026-07-22)
+Model selection was scattered — config defaults, per-service literals, and CLI
+flags. `services/models.py` now maps every AI task to its model in one place
+(`TASK_MODELS` + `resolve_model(task, language_code, override)`), with the
+per-language admin override and the low-resource pin applied centrally.
+`resolve_tutor_model` delegates to it; the AI semantic check and the
+support-locale translator now resolve through it too (behavior-preserving —
+same models, one source of truth). Crucially it names the **generation** tasks
+— `grammar_maker` / `grammar_checker` / `sentence_maker` / `sentence_checker`
+(checker one tier up per §6, "never self-certify") — so the on-demand
+generation (Part C) and paid ingest (Part D) plug into the registry instead of
+hard-coding models. Batch seeders keep their explicit `--model` CLI control.
+Pure-logic unit tests (no key/DB). Deferred: an admin UI to set models
+per task (the registry is the data model it would drive).
+
+### WP38 — Sentence origin/provenance tracker (owner, 2026-07-22)
+The prerequisite the owner named for paid ingest ("we'll need an origin
+tracker and a way to see that sentences are ours or changed"). Migration
+`20260813000000_sentence_provenance` adds `source` / `origin_detail` /
+`is_modified` / `modified_by` / `modified_at` to `drill_sentences`, and the
+change-tracking columns to `example_sentences` (which already had `source` +
+`license`). `source` convention: seed (curriculum) · human (added in-app) · ai
+(future generation) · tatoeba / kaikki / imported (external). App-added drills
+now tag `source='human'`; editing a live drill stamps `is_modified` +
+who/when. The contributor drill editor badges each row — **ours** / the source
+name / **edited** (edited wins, since a changed row is what a reviewer most
+needs to spot). This is the foundation for the maker-checker generation (Part
+C) and paid ingest (Part D): generated and hand-edited content stays
+distinguishable from seed and imports. Integration-tested against real
+Postgres (source tags + edit stamp).
+
+### WP37 — Gym: choose how many questions; more than 3/form (owner, 2026-07-22)
+"Three per form is not a gym." `get_cram_cards` was hard-capped at
+`per_point=3`. It now takes an optional total `count`: the session round-robins
+across the chosen forms and draws that many drills — up to every one authored,
+capped at 100 — so a form's full drill set is reachable. The Gym gains a "How
+many questions?" picker (10/20/30/50 presets + a custom field). The
+Related/point crams pass no count and keep the small default, so only the Gym
+changes. When the chosen forms can't supply the request, the picker says so and
+caps at what exists — and flags that on-demand generation is coming (and may
+cost tokens), the seam for the maker-checker/RAG follow-up (Parts B–D).
+Integration-tested: count draws >3 and caps at the authored total.
+
 ### WP36 — Gym: base-form hint + full chart on a miss (owner, 2026-07-22)
 Two Gym learnability adds, both riding the WP25c data already on cram cards
 (`chart_word` = the lemma resolved by lemmatizing the answer; `morphology` =

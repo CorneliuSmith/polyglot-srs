@@ -14,6 +14,10 @@ build/
 .venv/
 venv/
 env/
+# uv writes this when the repo is run through `uv` locally; the project's
+# canonical dep management is pyproject.toml + pip (see CI), so it's a local
+# artifact, not a tracked lockfile.
+uv.lock
 
 # Environment variables
 .env

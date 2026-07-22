@@ -22,6 +22,7 @@ import json
 from anthropic import AsyncAnthropic
 
 from backend.config import get_settings
+from backend.services.models import resolve_model
 
 _MAKER_SCHEMA = {
     "type": "object",
@@ -110,7 +111,7 @@ async def make_glosses(target_language: str, items: list[dict],
         for it in items
     )
     resp = await _client().messages.create(
-        model=model or settings.tutor_summary_model,
+        model=model or resolve_model("translate"),
         max_tokens=4096,
         system=(
             f"You are a professional lexicographer translating English headwords "
@@ -144,7 +145,7 @@ async def check_glosses(target_language: str, items: list[dict],
         for it in items
     )
     resp = await _client().messages.create(
-        model=model or settings.tutor_summary_model,
+        model=model or resolve_model("translate"),
         max_tokens=4096,
         system=(
             f"You are a strict bilingual reviewer checking English→{target_language} "
@@ -215,7 +216,7 @@ async def review_definitions(target_language: str, items: list[dict],
         f'{it["i"]}. "{it["word"]}" — {it["definition"]}' for it in items
     )
     resp = await _client().messages.create(
-        model=model or settings.tutor_summary_model,
+        model=model or resolve_model("translate"),
         max_tokens=4096,
         system=(
             f"You review flash-card definitions for learners of {target_language}. "

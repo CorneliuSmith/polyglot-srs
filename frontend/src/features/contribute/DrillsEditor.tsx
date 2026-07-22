@@ -7,6 +7,39 @@ function errorMessage(err: unknown): string {
   return detail ?? 'Could not save the sentence.'
 }
 
+/** A one-glance provenance badge: is this sentence ours, imported, generated,
+ * or since edited? "edited" wins — a changed row is the thing reviewers most
+ * need to spot. */
+function ProvenanceBadge({ source, isModified }: { source?: string; isModified?: boolean }) {
+  let label: string
+  let tone: string
+  if (isModified) {
+    label = 'edited'
+    tone = 'bg-amber-100 text-amber-700'
+  } else if (source === 'ai') {
+    label = 'AI'
+    tone = 'bg-lang-soft text-lang'
+  } else if (source && source !== 'seed' && source !== 'human') {
+    label = source // tatoeba / kaikki / imported
+    tone = 'bg-gray-100 text-gray-500'
+  } else {
+    label = 'ours'
+    tone = 'bg-green-100 text-green-700'
+  }
+  return (
+    <span
+      className={`ml-2 align-middle rounded px-1.5 py-0.5 text-[10px] uppercase tracking-wide ${tone}`}
+      title={
+        isModified
+          ? 'Edited by us — awaiting re-review'
+          : `Source: ${source ?? 'seed'}`
+      }
+    >
+      {label}
+    </span>
+  )
+}
+
 /**
  * Lazy-loaded editor for a grammar point's fill-in-the-blank drill sentences.
  * Adding a drill is NLP-validated server-side, so the error message surfaces
@@ -172,6 +205,7 @@ export default function DrillsEditor({
                 <div>
                   <span className="font-mono">{d.sentence}</span>
                   <span className="text-gray-500"> → {d.answer}</span>
+                  <ProvenanceBadge source={d.source} isModified={d.is_modified} />
                   {d.translation && (
                     <span className="block text-xs text-gray-400">{d.translation}</span>
                   )}

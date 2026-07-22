@@ -536,7 +536,7 @@ async def edit_drill(
     async with privileged_connection() as conn:
         ok = await update_drill(
             conn, drill_id, point_id, body.sentence, answer,
-            body.translation, body.hint,
+            body.translation, body.hint, modified_by=user["id"],
         )
         if not ok:
             raise HTTPException(status_code=404, detail="Drill not found")

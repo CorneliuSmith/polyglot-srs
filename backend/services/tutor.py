@@ -31,6 +31,10 @@ from typing import Any
 from anthropic import AsyncAnthropic
 
 from backend.config import get_settings
+from backend.services.models import (  # noqa: F401  (LOW_RESOURCE_LANGUAGES re-exported)
+    LOW_RESOURCE_LANGUAGES,
+    resolve_model,
+)
 
 MAX_HISTORY_MESSAGES = 40
 MAX_MESSAGE_CHARS = 4000
@@ -51,23 +55,16 @@ MAX_TOOL_ITERATIONS = 4
 # stronger (costlier) model is worth it — the §6 model guide's low-resource
 # set. The admin's per-language override (languages.tutor_model) always wins;
 # this only picks the DEFAULT when no override is set.
-LOW_RESOURCE_LANGUAGES = frozenset({"mi", "sw", "yo", "ha", "xh", "ar"})
-
-
 def resolve_tutor_model(language_code: str, override: str | None = None) -> str:
-    """The model a tutor turn runs on.
+    """The model a tutor turn runs on — delegates to the central task->model
+    registry (services/models.py).
 
-    Priority: admin per-language override > low-resource default > global
-    default. Cost context: Sonnet-tier is ~40% of Opus per token and handles
-    high-resource coaching well; low-resource languages pin the stronger
-    model because errors there damage the differentiator.
+    Priority: admin per-language override > low-resource pin > global default.
+    Cost context: Sonnet-tier is ~40% of Opus per token and handles
+    high-resource coaching well; low-resource languages pin the stronger model
+    because errors there damage the differentiator.
     """
-    if override:
-        return override
-    settings = get_settings()
-    if language_code in LOW_RESOURCE_LANGUAGES:
-        return settings.tutor_model_low_resource
-    return settings.tutor_model
+    return resolve_model("tutor_chat", language_code, override)
 
 
 SKILLS_DIR = Path(__file__).parent / "tutor_skills"
