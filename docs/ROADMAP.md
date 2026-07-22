@@ -1246,6 +1246,21 @@ Also folds in: the "all accounts" tile (every account listable,
 including never-active — previously invisible in every activity
 window).
 
+### WP34 — Onboarding: optional test + mobile fit (owner, 2026-07-22)
+Beta feedback: the placement test felt forced, options were unresponsive, and
+the screens "slid all over" on mobile. Fixes: (1) the test is now clearly one
+of three paths on the method step — "I'm brand new", "I know some — I'll pick
+my level" (self-select, no test), "Test my level (optional)" — plus a "Skip
+the test — I'll pick my level" escape hatch mid-placement, so it's never a
+gate. (2) The mid-render `navigate()` on an already-onboarded status moved to
+an effect (rendering-phase navigation warns and could wedge the page — the
+"options not working" report). (3) Mobile: dropped `autoFocus` on the
+placement input (it sprang the keyboard and scrolled the page — the
+"sliding"), added `overflow-x-hidden`, a back button + progress bar on every
+step, consistent `min-h-12` tap targets with `active:` feedback, and 16px
+inputs (no iOS zoom-scroll). Verified at 390px: language grid (all 22 names
+fit, incl. "Jamaican Patois") and method step, no horizontal overflow.
+
 ### WP33 — Learn round-robins across the queued decks (owner, 2026-07-22)
 The unscoped Learn tile drained the lowest level first: a flat
 `ORDER BY frequency_rank LIMIT batch_size` pulled the globally most-frequent
