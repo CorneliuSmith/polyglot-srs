@@ -59,6 +59,20 @@ describe('DrillsEditor', () => {
     })
   })
 
+  it('badges each drill by provenance (ours / imported / edited)', async () => {
+    mockGetDrills.mockResolvedValue([
+      { id: 'd1', sentence: 'A {{answer}}.', answer: 'x', translation: null, hint: null, display_order: 1, source: 'seed', is_modified: false },
+      { id: 'd2', sentence: 'B {{answer}}.', answer: 'y', translation: null, hint: null, display_order: 2, source: 'tatoeba', is_modified: false },
+      { id: 'd3', sentence: 'C {{answer}}.', answer: 'z', translation: null, hint: null, display_order: 3, source: 'seed', is_modified: true },
+    ])
+    renderEditor()
+    fireEvent.click(screen.getByRole('button', { name: /edit sentences/i }))
+    // seed → "ours"; tatoeba → its source; an edited row → "edited" (wins).
+    expect(await screen.findByText('ours')).toBeDefined()
+    expect(screen.getByText('tatoeba')).toBeDefined()
+    expect(screen.getByText('edited')).toBeDefined()
+  })
+
   it('shows the server validation message when a drill is rejected', async () => {
     mockGetDrills.mockResolvedValue([])
     mockAddDrill.mockRejectedValue({

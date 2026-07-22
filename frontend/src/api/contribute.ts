@@ -339,6 +339,9 @@ export interface Drill {
   translation: string | null
   hint: string | null
   display_order: number
+  // Provenance: where it came from and whether we've edited it since.
+  source?: string
+  is_modified?: boolean
 }
 
 export async function createGrammarPoint(input: {

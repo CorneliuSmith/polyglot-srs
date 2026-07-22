@@ -308,6 +308,38 @@ async def test_grammar_learn_round_robins_across_queued_levels(pool):
     assert counts == {"A1": 2, "A2": 2}
 
 
+async def test_drill_provenance_tracks_source_and_edits(pool):
+    """Provenance (WP38): seeded drills read as 'seed', app-added ones as
+    'human', and an edit stamps is_modified so a changed row is always
+    distinguishable from its original."""
+    from backend.repositories.contributor import add_drill, list_drills, update_drill
+
+    lang = await _language(pool, "prov1")
+    editor = await _new_user(pool, "editor@prov")
+    async with pool.privileged_connection() as conn:
+        pid = str(await conn.fetchval(
+            "INSERT INTO grammar_points (language_id, title, level) "
+            "VALUES ($1, 'P', 'A1') RETURNING id", lang,
+        ))
+        seed_id = str(await conn.fetchval(
+            "INSERT INTO drill_sentences (grammar_point_id, sentence, answer) "
+            "VALUES ($1, '{{answer}} x', 'a') RETURNING id", pid,
+        ))
+        human_id = await add_drill(conn, pid, "{{answer}} y", "b", None, None)
+
+        drills = {d["id"]: d for d in await list_drills(conn, pid)}
+        assert drills[seed_id]["source"] == "seed"
+        assert drills[seed_id]["is_modified"] is False
+        assert drills[human_id]["source"] == "human"
+
+        ok = await update_drill(
+            conn, seed_id, pid, "{{answer}} z", "c", None, None, modified_by=editor,
+        )
+        assert ok
+        after = {d["id"]: d for d in await list_drills(conn, pid)}
+        assert after[seed_id]["is_modified"] is True
+
+
 async def test_mixed_learn_interleaves_grammar_and_vocab(pool):
     """When both types are queued, an unscoped 'both' batch alternates grammar
     and vocab (owner request) — 3 of each in a 6-item batch, grammar first."""

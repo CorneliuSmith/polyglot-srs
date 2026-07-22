@@ -1246,6 +1246,22 @@ Also folds in: the "all accounts" tile (every account listable,
 including never-active — previously invisible in every activity
 window).
 
+### WP38 — Sentence origin/provenance tracker (owner, 2026-07-22)
+The prerequisite the owner named for paid ingest ("we'll need an origin
+tracker and a way to see that sentences are ours or changed"). Migration
+`20260813000000_sentence_provenance` adds `source` / `origin_detail` /
+`is_modified` / `modified_by` / `modified_at` to `drill_sentences`, and the
+change-tracking columns to `example_sentences` (which already had `source` +
+`license`). `source` convention: seed (curriculum) · human (added in-app) · ai
+(future generation) · tatoeba / kaikki / imported (external). App-added drills
+now tag `source='human'`; editing a live drill stamps `is_modified` +
+who/when. The contributor drill editor badges each row — **ours** / the source
+name / **edited** (edited wins, since a changed row is what a reviewer most
+needs to spot). This is the foundation for the maker-checker generation (Part
+C) and paid ingest (Part D): generated and hand-edited content stays
+distinguishable from seed and imports. Integration-tested against real
+Postgres (source tags + edit stamp).
+
 ### WP37 — Gym: choose how many questions; more than 3/form (owner, 2026-07-22)
 "Three per form is not a gym." `get_cram_cards` was hard-capped at
 `per_point=3`. It now takes an optional total `count`: the session round-robins
