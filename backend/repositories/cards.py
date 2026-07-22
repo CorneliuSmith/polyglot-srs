@@ -1281,6 +1281,7 @@ async def get_cram_cards(
     point_ids: list[str],
     per_point: int = 3,
     support_locale: str | None = None,
+    count: int | None = None,
 ) -> list[dict]:
     """Ungraded practice cards for a set of grammar points (WP13f Quick-Cram).
 
@@ -1328,15 +1329,46 @@ async def get_cram_cards(
     )
     today = datetime.now(UTC).date().isoformat()
     now = datetime.now(UTC)
-    cards: list[dict] = []
+
+    # Per point, a seeded shuffle of ALL its drill indices — stable within a
+    # day (a mid-cram reload keeps the same set), fresh tomorrow.
+    per_point_order: list[tuple] = []  # (row, [drill indices])
     for r in rows:
         sentences = r["sentences"] or []
         if not sentences:
             continue
-        rng = random.Random(f"{r['point_id']}:{today}")
-        picks = rng.sample(range(len(sentences)), min(per_point, len(sentences)))
-        for i in sorted(picks):
-            cards.append({
+        order = list(range(len(sentences)))
+        random.Random(f"{r['point_id']}:{today}").shuffle(order)
+        per_point_order.append((r, order))
+
+    # Choose the (point, drill) pairs. With an explicit *count* the session
+    # round-robins across the chosen forms and draws as many drills as it needs
+    # — up to every one authored — so a real Gym set isn't capped at three per
+    # form. Without count, keep the classic per_point sample.
+    selected: list[tuple] = []  # (row, drill index)
+    if count is not None:
+        target = max(1, min(count, 100))
+        depth = 0
+        while len(selected) < target and per_point_order:
+            progressed = False
+            for r, order in per_point_order:
+                if depth < len(order):
+                    selected.append((r, order[depth]))
+                    progressed = True
+                    if len(selected) >= target:
+                        break
+            if not progressed:
+                break  # every form exhausted before reaching the target
+            depth += 1
+    else:
+        for r, order in per_point_order:
+            for i in order[: min(per_point, len(order))]:
+                selected.append((r, i))
+
+    cards: list[dict] = []
+    for r, i in selected:
+        sentences = r["sentences"]
+        cards.append({
                 "id": f"cram-{r['point_id']}-{i}",
                 "card_type": "grammar",
                 "card_id": str(r["point_id"]),

@@ -94,16 +94,19 @@ describe('GymPage', () => {
     expect(screen.queryByText('Going on foot')).toBeNull()
     fireEvent.click(screen.getByRole('button', { name: /past/i }))
     fireEvent.click(screen.getByRole('button', { name: /start training/i }))
-    expect(mockNavigate).toHaveBeenCalledWith('/cram?points=p-past&mix=1')
+    // Default count of 20 rides along in the URL.
+    expect(mockNavigate).toHaveBeenCalledWith('/cram?points=p-past&mix=1&count=20')
   })
 
-  it('starts a mixed cram session with every selected form', async () => {
+  it('starts a mixed cram session with every selected form and chosen count', async () => {
     renderPage()
     await screen.findByText('Verbs')
     fireEvent.click(screen.getByRole('button', { name: /present/i }))
     fireEvent.click(screen.getByRole('button', { name: /accusative/i }))
+    // Choose 30 questions instead of the default.
+    fireEvent.click(screen.getByRole('button', { name: /^30$/ }))
     fireEvent.click(
-      screen.getByRole('button', { name: /start training · 2 forms/i }),
+      screen.getByRole('button', { name: /start training · 30 questions/i }),
     )
     await waitFor(() => expect(mockNavigate).toHaveBeenCalled())
     const url = mockNavigate.mock.calls[0][0] as string
@@ -111,6 +114,7 @@ describe('GymPage', () => {
     expect(url).toContain('p-present')
     expect(url).toContain('p-acc')
     expect(url).toContain('mix=1')
+    expect(url).toContain('count=30')
   })
 
   it('explains when a language has nothing to train', async () => {

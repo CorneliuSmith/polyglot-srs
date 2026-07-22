@@ -402,7 +402,7 @@ describe('ReviewSessionPage — Quick Cram (WP13f)', () => {
   it('drills the requested points and NEVER submits a review', async () => {
     renderCram()
     await waitFor(() => screen.getByRole('textbox'))
-    expect(mockGetCramCards).toHaveBeenCalledWith(['p1', 'p2'])
+    expect(mockGetCramCards).toHaveBeenCalledWith(['p1', 'p2'], undefined)
     expect(mockGetDueCards).not.toHaveBeenCalled()
     expect(screen.getByText(/quick cram · not recorded/i)).toBeDefined()
 

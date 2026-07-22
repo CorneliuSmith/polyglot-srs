@@ -121,13 +121,17 @@ MAX_CRAM_POINTS = 12
 @router.get("/cram")
 async def cram(
     point_ids: str,
+    count: int | None = None,
     user: dict = Depends(get_current_user),
 ):
     """Quick-Cram (WP13f): ungraded practice cards for a set of grammar points.
 
     *point_ids* is a comma-separated list (an item plus its Related set).
-    Nothing here touches SRS state — the cards carry synthetic ids the
-    submit endpoint would reject, and the client never calls it in cram mode.
+    *count* (Gym) is the total number of questions the learner asked for — the
+    session round-robins across the chosen forms and draws that many drills
+    (capped at what's authored, up to 100). Omitted for the Related/point crams,
+    which keep the small default. Nothing here touches SRS state — the cards
+    carry synthetic ids the submit endpoint would reject.
     """
     import uuid as _uuid
 
@@ -147,7 +151,9 @@ async def cram(
         ) from None
     async with rls_connection(user["id"]) as conn:
         support = await _support_locale(conn, user["id"])
-        return await get_cram_cards(conn, ids, support_locale=support)
+        return await get_cram_cards(
+            conn, ids, support_locale=support, count=count
+        )
 
 
 @router.get("/card/{card_id}/detail")

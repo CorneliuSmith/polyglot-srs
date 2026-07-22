@@ -1306,6 +1306,15 @@ async def test_cram_and_search_respect_review_policy(pool):
         assert {c["card_id"] for c in cards} == {approved}
         assert len(cards) == 3
 
+        # With an explicit count (the Gym picker), it draws MORE than three
+        # per form — up to every authored drill — and caps at what exists.
+        big = await get_cram_cards(conn, [approved, draft], count=5)
+        assert len(big) == 5
+        assert {c["card_id"] for c in big} == {approved}
+        # Asking for more than exists returns everything, not an error.
+        capped = await get_cram_cards(conn, [approved, draft], count=50)
+        assert len(capped) == 5
+
         results = await search_content(conn, user, lang, "locative")
         assert [g["title"] for g in results["grammar"]] == ["Locative case"]
         assert results["grammar"][0]["learned"] is False

@@ -1246,6 +1246,18 @@ Also folds in: the "all accounts" tile (every account listable,
 including never-active — previously invisible in every activity
 window).
 
+### WP37 — Gym: choose how many questions; more than 3/form (owner, 2026-07-22)
+"Three per form is not a gym." `get_cram_cards` was hard-capped at
+`per_point=3`. It now takes an optional total `count`: the session round-robins
+across the chosen forms and draws that many drills — up to every one authored,
+capped at 100 — so a form's full drill set is reachable. The Gym gains a "How
+many questions?" picker (10/20/30/50 presets + a custom field). The
+Related/point crams pass no count and keep the small default, so only the Gym
+changes. When the chosen forms can't supply the request, the picker says so and
+caps at what exists — and flags that on-demand generation is coming (and may
+cost tokens), the seam for the maker-checker/RAG follow-up (Parts B–D).
+Integration-tested: count draws >3 and caps at the authored total.
+
 ### WP36 — Gym: base-form hint + full chart on a miss (owner, 2026-07-22)
 Two Gym learnability adds, both riding the WP25c data already on cram cards
 (`chart_word` = the lemma resolved by lemmatizing the answer; `morphology` =

@@ -16,6 +16,8 @@ import { usePrefsStore } from '../../stores/prefsStore'
  * categories that break or sit outside the regular patterns.
  */
 const MAX_SELECTED = 12 // the cram endpoint's point cap
+const COUNT_OPTIONS = [10, 20, 30, 50] as const
+const MAX_COUNT = 100 // the cram endpoint's hard cap
 
 function sortFamiliarFirst(entries: GymEntry[]): GymEntry[] {
   return [...entries].sort((a, b) => Number(b.familiar) - Number(a.familiar))
@@ -26,6 +28,7 @@ export default function GymPage() {
   const activeLanguageId = usePrefsStore((s) => s.activeLanguageId)
   const [selected, setSelected] = useState<Set<string>>(new Set())
   const [nonstandard, setNonstandard] = useState(false)
+  const [count, setCount] = useState<number>(20)
 
   const { data, isLoading } = useQuery({
     queryKey: ['gym-manifest', activeLanguageId],
@@ -59,9 +62,17 @@ export default function GymPage() {
     }
   }
 
+  // How many drills the chosen forms can actually supply right now — the
+  // session caps here (generating beyond this is a planned follow-up).
+  const available = columns
+    .flatMap((c) => c.entries)
+    .filter((e) => selected.has(e.point_id))
+    .reduce((sum, e) => sum + (e.drills || 0), 0)
+  const short = selected.size > 0 && count > available
+
   const start = () => {
     if (selected.size === 0) return
-    navigate(`/cram?points=${[...selected].join(',')}&mix=1`)
+    navigate(`/cram?points=${[...selected].join(',')}&mix=1&count=${count}`)
   }
 
   return (
@@ -171,6 +182,57 @@ export default function GymPage() {
               })}
             </div>
 
+            {/* How many questions — a real gym isn't three reps. */}
+            <div className="bg-white rounded-2xl border border-gray-100 p-4 space-y-2">
+              <div className="flex flex-wrap items-center gap-x-3 gap-y-2">
+                <span className="text-sm font-medium text-gray-700">
+                  How many questions?
+                </span>
+                <div className="flex rounded-lg border border-gray-200 overflow-hidden text-sm">
+                  {COUNT_OPTIONS.map((n) => (
+                    <button
+                      key={n}
+                      type="button"
+                      onClick={() => setCount(n)}
+                      aria-pressed={count === n}
+                      className={`px-3 py-1.5 tabular-nums transition-colors ${
+                        count === n
+                          ? 'bg-lang text-lang-on'
+                          : 'bg-white text-gray-600 hover:bg-gray-50'
+                      }`}
+                      style={{ minHeight: '40px' }}
+                    >
+                      {n}
+                    </button>
+                  ))}
+                </div>
+                <label className="flex items-center gap-1.5 text-sm text-gray-500">
+                  <span className="sr-only">Custom count</span>
+                  or
+                  <input
+                    type="number"
+                    min={1}
+                    max={MAX_COUNT}
+                    value={count}
+                    onChange={(e) => {
+                      const v = Math.round(Number(e.target.value))
+                      if (Number.isFinite(v)) setCount(Math.max(1, Math.min(MAX_COUNT, v)))
+                    }}
+                    aria-label="Number of questions"
+                    className="w-16 rounded-lg border border-gray-200 px-2 py-1.5 text-sm tabular-nums"
+                  />
+                </label>
+              </div>
+              {short && (
+                <p className="text-xs text-amber-600">
+                  These forms have {available} question{available === 1 ? '' : 's'} to
+                  draw from — you&apos;ll get {available} this round. Pick more forms for
+                  a bigger set. (Generating fresh sentences on demand is coming — it may
+                  use your tokens.)
+                </p>
+              )}
+            </div>
+
             <div className="flex flex-wrap items-center justify-between gap-3">
               {hasNonstandard ? (
                 <label className="flex items-center gap-2 text-sm text-gray-600 select-none">
@@ -194,7 +256,7 @@ export default function GymPage() {
               >
                 {selected.size === 0
                   ? 'Pick at least one form'
-                  : `Start training · ${selected.size} form${selected.size === 1 ? '' : 's'}`}
+                  : `Start training · ${Math.min(count, available || count)} question${Math.min(count, available || count) === 1 ? '' : 's'}`}
               </button>
             </div>
           </>
