@@ -373,6 +373,90 @@ async def test_generated_drills_persist_as_ai_provenance(pool):
     assert all(d["source"] == "ai" for d in drills)
 
 
+async def test_generated_examples_fill_gaps_and_skip_covered_words(pool):
+    """End-to-end (WP42): the admin generation run fills a word that has NO
+    example sentences (dev-mock), tagging them source='ai'; a word already AT
+    target is skipped entirely — the idempotency/coin-saving guarantee that
+    makes it safe to hand the button a paid key."""
+    from types import SimpleNamespace
+    from unittest.mock import patch
+
+    from backend.repositories.contributor import generation_coverage
+    from backend.services import generation_admin
+
+    lang = await _language(pool, "gen2")
+    async with pool.privileged_connection() as conn:
+        gap = str(await conn.fetchval(
+            "INSERT INTO vocabulary (language_id, word, frequency_rank, level) "
+            "VALUES ($1, 'gato', 1, 'A1') RETURNING id", lang,
+        ))
+        await conn.execute(
+            "INSERT INTO translations (vocabulary_id, locale, definition) "
+            "VALUES ($1, 'en', 'cat')", gap,
+        )
+        # A second word that ALREADY has 3 imported examples — above target.
+        covered = str(await conn.fetchval(
+            "INSERT INTO vocabulary (language_id, word, frequency_rank, level) "
+            "VALUES ($1, 'perro', 2, 'A1') RETURNING id", lang,
+        ))
+        for i in range(3):
+            await conn.execute(
+                "INSERT INTO example_sentences (language_id, vocabulary_id, "
+                "sentence, source) VALUES ($1, $2, $3, 'tatoeba')",
+                lang, covered, f"El perro numero {i} corre.",
+            )
+
+        # Coverage sees exactly ONE word without examples.
+        cov = {r["language_code"]: r for r in await generation_coverage(conn)}
+        assert cov["gen2"]["vocab_no_examples"] == 1
+
+        with patch(
+            "backend.services.generate.get_settings",
+            return_value=SimpleNamespace(tutor_dev_mock=True, anthropic_api_key=""),
+        ):
+            result = await generation_admin.run_generation(
+                conn, kind="vocab", language_id=lang, language_code="es",
+                language_name="Spanish", target_per_item=3, max_items=10,
+            )
+        # Only the gap word was processed; the covered word was never touched.
+        assert result["items_processed"] == 1
+        assert result["sentences_persisted"] >= 1
+        # Generated examples land tagged 'ai' AND unreviewed (the WP42 gate) —
+        # hidden from learners until a human approves them.
+        gap_rows = await conn.fetch(
+            "SELECT source, reviewed FROM example_sentences WHERE vocabulary_id = $1",
+            gap,
+        )
+        assert gap_rows and all(
+            r["source"] == "ai" and r["reviewed"] is False for r in gap_rows
+        )
+        # The covered word still has exactly its 3 imported examples — untouched.
+        covered_rows = await conn.fetch(
+            "SELECT source FROM example_sentences WHERE vocabulary_id = $1", covered
+        )
+        assert [r["source"] for r in covered_rows] == ["tatoeba"] * 3
+
+        # Approving one flips it to reviewed=true (now servable); rejecting
+        # deletes. review_example only ever touches a pending 'ai' row.
+        from backend.repositories.contributor import (
+            list_pending_examples,
+            review_example,
+        )
+        pend = await list_pending_examples(conn, lang)
+        assert len(pend) >= 2 and all(p["word"] == "gato" for p in pend)
+        assert await review_example(conn, pend[0]["id"], approve=True) is True
+        assert await review_example(conn, pend[1]["id"], approve=False) is True
+        rows = await conn.fetch(
+            "SELECT id, reviewed FROM example_sentences WHERE vocabulary_id = $1",
+            gap,
+        )
+        # the approved row is now reviewed; the rejected row was deleted
+        assert any(r["reviewed"] for r in rows)
+        assert all(str(r["id"]) != pend[1]["id"] for r in rows)
+        # re-reviewing an already-decided row is a no-op (idempotent gate)
+        assert await review_example(conn, pend[0]["id"], approve=True) is False
+
+
 async def test_mixed_learn_interleaves_grammar_and_vocab(pool):
     """When both types are queued, an unscoped 'both' batch alternates grammar
     and vocab (owner request) — 3 of each in a 6-item batch, grammar first."""

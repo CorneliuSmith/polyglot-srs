@@ -30,6 +30,15 @@ vi.mock('../api/contribute', () => ({
   getReviewNotes: vi.fn(() => Promise.resolve([])),
   resolveReviewNote: vi.fn(() => Promise.resolve()),
   setLanguageTutorModel: vi.fn(() => Promise.resolve()),
+  getGenerationCoverage: vi.fn(() =>
+    Promise.resolve({
+      available: false, coverage: [], recommended_next: [],
+      limits: { max_items: 100, max_per_item: 10 },
+    }),
+  ),
+  runGeneration: vi.fn(),
+  getPendingExamples: vi.fn(() => Promise.resolve([])),
+  reviewExample: vi.fn(),
   TUTOR_MODELS: ['claude-opus-4-8', 'claude-sonnet-5'],
   getTutorUsage: vi.fn(() =>
     Promise.resolve({ days: 30, rows: [], total_messages: 0, total_est_cost_usd: 0 }),

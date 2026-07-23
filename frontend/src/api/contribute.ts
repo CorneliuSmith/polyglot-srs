@@ -597,3 +597,119 @@ export function canSuggestForLanguage(
         (r.language_id === null || r.language_id === languageId)),
   )
 }
+
+// ── Admin content generation panel (WP42) ──────────────────────────────────
+
+export interface GenerationCoverageRow {
+  language_id: string
+  language_code: string
+  language_name: string
+  vocab_total: number
+  vocab_no_examples: number
+  grammar_total: number
+  grammar_no_drills: number
+  ai_examples: number
+  pending_examples: number
+  ai_drills: number
+  low_resource: boolean
+  sentence_model: string
+  grammar_model: string
+  unfilled: number
+}
+
+export interface GenerationCoverage {
+  available: boolean
+  coverage: GenerationCoverageRow[]
+  recommended_next: {
+    language_id: string
+    language_code: string
+    language_name: string
+    unfilled: number
+    low_resource: boolean
+  }[]
+  limits: { max_items: number; max_per_item: number }
+}
+
+export interface GenerationDryRun {
+  dry_run: true
+  kind: string
+  model: string
+  target_per_item: number
+  items_to_process: number
+  sentences_to_attempt: number
+  est_cost_usd: number
+}
+
+export interface GenerationResult {
+  dry_run: false
+  kind: string
+  language_code: string
+  language_name: string
+  model: string
+  target_per_item: number
+  items_processed: number
+  sentences_attempted: number
+  sentences_accepted: number
+  sentences_persisted: number
+  duplicates_skipped: number
+  est_cost_usd: number
+}
+
+export async function getGenerationCoverage(): Promise<GenerationCoverage> {
+  const response = await apiClient.get<GenerationCoverage>(
+    '/api/contribute/admin/generation/coverage',
+  )
+  return response.data
+}
+
+export async function runGeneration(params: {
+  languageId: string
+  languageCode: string
+  kind: 'vocab' | 'grammar'
+  targetPerItem: number
+  maxItems: number
+  dryRun: boolean
+}): Promise<GenerationDryRun | GenerationResult> {
+  const response = await apiClient.post('/api/contribute/admin/generation/run', {
+    language_id: params.languageId,
+    language_code: params.languageCode,
+    kind: params.kind,
+    target_per_item: params.targetPerItem,
+    max_items: params.maxItems,
+    dry_run: params.dryRun,
+  })
+  return response.data
+}
+
+export interface PendingExample {
+  id: string
+  sentence: string
+  translation: string | null
+  origin_detail: string | null
+  word: string
+  vocabulary_id: string
+}
+
+/** Generated example sentences awaiting review for a language — hidden from
+ * learners until approved (WP42 gate). */
+export async function getPendingExamples(
+  languageId: string,
+  limit = 50,
+): Promise<PendingExample[]> {
+  const response = await apiClient.get<{ pending: PendingExample[] }>(
+    '/api/contribute/admin/generation/pending',
+    { params: { language_id: languageId, limit } },
+  )
+  return response.data.pending
+}
+
+/** Approve (→ served to learners) or reject (→ deleted) a pending example. */
+export async function reviewExample(
+  exampleId: string,
+  approve: boolean,
+): Promise<void> {
+  await apiClient.post(
+    `/api/contribute/admin/generation/examples/${exampleId}/review`,
+    { approve },
+  )
+}

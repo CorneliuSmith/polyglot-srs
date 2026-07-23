@@ -30,6 +30,7 @@ from anthropic import AsyncAnthropic
 from backend.config import get_settings
 from backend.services.drills import validate_drill
 from backend.services.models import resolve_model
+from backend.services.nlp import get_nlp
 
 _DRILL_SCHEMA = {
     "type": "object",
@@ -184,4 +185,181 @@ async def generate_drills(
     verdict; the caller persists them (source='ai')."""
     made = await make_drills(point, n, language, maker_model)
     checked = await check_drills(language_code, made)
+    return [c for c in checked if c["accepted"]]
+
+
+# ---------------------------------------------------------------------------
+# Vocabulary EXAMPLE sentences (same maker–checker shape as the drills above).
+#
+# Where a drill teaches a grammar FORM, a vocab example simply has to USE the
+# target word naturally — so the checker's core gate is word-presence: the
+# generated sentence must actually contain an inflected form of the word.
+# Prefer the language's NLP backend (lemmatize each token); fall back to a
+# whole-word surface match for languages with no backend — the low-density
+# case this feature most serves (owner: "maker checker for the low density
+# languages … where sentences … are saved and ingested").
+# ---------------------------------------------------------------------------
+
+_EXAMPLE_SCHEMA = {
+    "type": "object",
+    "properties": {
+        "examples": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "sentence": {
+                        "type": "string",
+                        "description": "A natural sentence in the target "
+                        "language that USES the target word.",
+                    },
+                    "translation": {"type": "string"},
+                },
+                "required": ["sentence", "translation"],
+                "additionalProperties": False,
+            },
+        }
+    },
+    "required": ["examples"],
+    "additionalProperties": False,
+}
+
+# A usable example is a real sentence, not a fragment or a wall of text.
+MIN_EXAMPLE_LEN = 6
+MAX_EXAMPLE_LEN = 240
+
+
+def _mock_examples(word: dict, n: int) -> list[dict]:
+    """Deterministic candidates for dev/testing. The first deliberately OMITS
+    the target word (fails the word-presence gate) so the reject path is
+    exercised, mirroring _mock_drills."""
+    surface = (word.get("word") or "palabra").strip()
+    out = [{
+        "sentence": "This filler sentence never uses the target at all.",
+        "translation": "Filler with no target word.",
+    }]
+    for i in range(1, n):
+        out.append({
+            "sentence": f"Aquí está {surface} en la oración {i}.",
+            "translation": f"Here is the word in sentence {i}.",
+        })
+    return out[:n]
+
+
+async def make_examples(
+    word: dict, n: int, language: str, model: str | None = None
+) -> list[dict]:
+    """Draft N candidate example sentences that use a vocabulary word.
+
+    *word*: {word, part_of_speech, definition, examples: [existing sentences]}.
+    Returns raw candidates (unverified) — always run check_examples() first.
+    """
+    settings = get_settings()
+    if getattr(settings, "tutor_dev_mock", False):
+        return _mock_examples(word, n)
+    existing = "\n".join(f"  - {s}" for s in (word.get("examples") or [])[:6])
+    client = AsyncAnthropic(api_key=settings.anthropic_api_key)
+    resp = await client.messages.create(
+        model=model or resolve_model("sentence_maker", language),
+        max_tokens=2048,
+        system=(
+            f"You write natural example sentences in {language} for a vocabulary "
+            f"flashcard app. Produce {n} NEW sentences that each USE the target "
+            f'word "{word.get("word")}" ({word.get("part_of_speech") or "word"}, '
+            f'meaning: {word.get("definition") or "n/a"}). Rules, strictly: every '
+            f"sentence must actually contain the target word (any correct "
+            f"inflection is fine); keep each natural, everyday, and unambiguous; "
+            f"vary the context; give a natural English translation. Do not repeat "
+            f"the existing examples."
+        ),
+        messages=[{
+            "role": "user",
+            "content": (
+                f"Target word: {word.get('word')}\n"
+                f"Part of speech: {word.get('part_of_speech') or '(unknown)'}\n"
+                f"Meaning: {word.get('definition') or '(none)'}\n"
+                f"Existing examples (do not repeat):\n{existing or '  (none)'}"
+            ),
+        }],
+        output_config={"format": {"type": "json_schema", "schema": _EXAMPLE_SCHEMA}},
+    )
+    text = next((b.text for b in resp.content if b.type == "text"), "{}")
+    try:
+        return json.loads(text).get("examples", [])
+    except (json.JSONDecodeError, TypeError):
+        return []
+
+
+def _contains_word(language_code: str, sentence: str, lemma: str) -> bool:
+    """The generated sentence actually USES the target word — the core
+    correctness gate for a vocab example. Whole-word surface match first (cheap,
+    and all a backend-less low-density language gets); then, if a backend is
+    registered, lemmatize each token / check the morphological family so an
+    inflected form still counts."""
+    lemma_n = (lemma or "").strip().lower()
+    if not lemma_n:
+        return False
+    tokens = re.findall(r"[^\W\d_]+", sentence or "", re.UNICODE)
+    lower_tokens = {t.lower() for t in tokens}
+    if lemma_n in lower_tokens:
+        return True
+    try:
+        nlp = get_nlp(language_code)
+    except Exception:
+        return False  # no backend: surface match was the only chance
+    for tok in tokens:
+        try:
+            if nlp.lemmatize(tok).lower() == lemma_n:
+                return True
+        except Exception:
+            continue
+    try:
+        family = {w.lower() for w in nlp.get_morphological_family(lemma_n)}
+        if family & lower_tokens:
+            return True
+    except Exception:
+        pass
+    return False
+
+
+async def check_example(
+    language_code: str, cand: dict, lemma: str
+) -> tuple[bool, str]:
+    """Verify one candidate example. Returns (accepted, reason)."""
+    sentence = (cand.get("sentence") or "").strip()
+    translation = (cand.get("translation") or "").strip()
+    if not sentence:
+        return False, "missing sentence"
+    if not translation:
+        return False, "missing translation"
+    if not (MIN_EXAMPLE_LEN <= len(sentence) <= MAX_EXAMPLE_LEN):
+        return False, "sentence length out of range"
+    if not _contains_word(language_code, sentence, lemma):
+        return False, "sentence does not use the target word"
+    return True, "ok"
+
+
+async def check_examples(
+    language_code: str, candidates: list[dict], lemma: str
+) -> list[dict]:
+    """Run every candidate through check_example, tagging accepted/reason."""
+    out = []
+    for cand in candidates:
+        accepted, reason = await check_example(language_code, cand, lemma)
+        out.append({**cand, "accepted": accepted, "reason": reason})
+    return out
+
+
+async def generate_examples(
+    word: dict,
+    n: int,
+    language: str,
+    language_code: str,
+    maker_model: str | None = None,
+) -> list[dict]:
+    """Maker then checker for vocab example sentences. Returns the candidates
+    that PASSED; the caller persists them (source='ai')."""
+    lemma = word.get("lemma") or word.get("word") or ""
+    made = await make_examples(word, n, language, maker_model)
+    checked = await check_examples(language_code, made, lemma)
     return [c for c in checked if c["accepted"]]

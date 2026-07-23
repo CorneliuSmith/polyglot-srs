@@ -59,3 +59,50 @@ async def test_generate_drills_drops_the_bad_candidate():
     assert len(passed) == 3  # 4 drafted, the leaking first one rejected
     assert all(p["accepted"] for p in passed)
     assert all(not generate._leaks(p["sentence"], p["answer"]) for p in passed)
+
+
+# ---------------------------------------------------------------------------
+# Vocabulary example generation (WP42)
+# ---------------------------------------------------------------------------
+
+
+async def test_make_examples_returns_candidates_in_mock():
+    with patch("backend.services.generate.get_settings", return_value=_mock_settings()):
+        made = await generate.make_examples({"word": "gato"}, 4, "Spanish")
+    assert len(made) == 4
+    assert all("sentence" in c and "translation" in c for c in made)
+
+
+def test_contains_word_surface_match_no_backend():
+    # A language with no NLP backend still gets a whole-word surface check.
+    assert generate._contains_word("es", "El gato duerme aquí.", "gato") is True
+    assert generate._contains_word("es", "No hay nada aquí.", "gato") is False
+    # substring is NOT a match — must be a whole word
+    assert generate._contains_word("es", "El gatito duerme.", "gato") is False
+
+
+@pytest.mark.parametrize(
+    "cand,ok,reason_contains",
+    [
+        ({"sentence": "El gato duerme.", "translation": "The cat sleeps."}, True, "ok"),
+        ({"sentence": "El gato duerme.", "translation": ""}, False, "translation"),
+        ({"sentence": "", "translation": "x"}, False, "missing sentence"),
+        ({"sentence": "No aparece.", "translation": "Absent."}, False, "target word"),
+        ({"sentence": "gato.", "translation": "cat"}, False, "length"),
+    ],
+)
+async def test_check_example_guards(cand, ok, reason_contains):
+    accepted, reason = await generate.check_example("es", cand, "gato")
+    assert accepted is ok
+    assert reason_contains in reason
+
+
+async def test_generate_examples_drops_the_wordless_candidate():
+    # The mock's first candidate omits the target word; generate_examples must
+    # return only the ones that actually use it.
+    with patch("backend.services.generate.get_settings", return_value=_mock_settings()):
+        passed = await generate.generate_examples(
+            {"word": "gato", "definition": "cat"}, 4, "Spanish", "es"
+        )
+    assert len(passed) == 3  # 4 drafted, the wordless first one rejected
+    assert all(generate._contains_word("es", p["sentence"], "gato") for p in passed)

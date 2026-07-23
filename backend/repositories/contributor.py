@@ -353,6 +353,280 @@ async def add_drill(
     return str(drill_id)
 
 
+async def get_vocab_generation_context(
+    conn: asyncpg.Connection, vocabulary_id: str
+) -> dict | None:
+    """A word's context for the example-sentence generator: its surface + lemma,
+    part of speech, English definition, language, and a few existing example
+    sentences as style. None if the word doesn't exist."""
+    row = await conn.fetchrow(
+        """
+        SELECT v.word, v.part_of_speech, v.morphology, v.language_id,
+               l.code AS language_code, l.name AS language_name,
+               (SELECT t.definition FROM translations t
+                 WHERE t.vocabulary_id = v.id AND t.locale = 'en' LIMIT 1)
+                 AS definition
+        FROM vocabulary v
+        JOIN languages l ON v.language_id = l.id
+        WHERE v.id = $1
+        """,
+        vocabulary_id,
+    )
+    if row is None:
+        return None
+    examples = await conn.fetch(
+        "SELECT sentence FROM example_sentences WHERE vocabulary_id = $1 "
+        "ORDER BY difficulty_rank NULLS LAST LIMIT 6",
+        vocabulary_id,
+    )
+    morph = row["morphology"]
+    if isinstance(morph, str):
+        try:
+            morph = json.loads(morph)
+        except (json.JSONDecodeError, TypeError):
+            morph = {}
+    lemma = (morph or {}).get("lemma") or row["word"]
+    return {
+        "vocabulary_id": str(vocabulary_id),
+        "word": row["word"],
+        "lemma": lemma,
+        "part_of_speech": row["part_of_speech"],
+        "definition": row["definition"],
+        "language_id": str(row["language_id"]),
+        "language_code": row["language_code"],
+        "language_name": row["language_name"],
+        "examples": [e["sentence"] for e in examples],
+    }
+
+
+async def add_example_sentence(
+    conn: asyncpg.Connection,
+    vocabulary_id: str,
+    language_id: str,
+    sentence: str,
+    translation: str | None,
+    source: str = "human",
+    origin_detail: str | None = None,
+) -> str | None:
+    """Insert a vocabulary example sentence (privileged), tagged with provenance
+    (WP38): 'ai' for a generated one with the model in *origin_detail*. Returns
+    the new row id, or None if an identical sentence already exists for the word
+    (the UNIQUE(vocabulary_id, sentence) guard — generation never duplicates).
+
+    Generated ('ai') examples land reviewed=false — hidden from learners until a
+    human approves them (the WP42 review gate); seed/imported/human examples are
+    trusted content and go in reviewed=true."""
+    # Generated content waits for human review; everything else is trusted.
+    reviewed = source != "ai"
+    # Generated translations are English glosses; the uniqueness key includes
+    # translation_locale (WP: support_locale), so dedupe on all three.
+    row_id = await conn.fetchval(
+        """
+        INSERT INTO example_sentences
+            (language_id, vocabulary_id, sentence, translation, translation_locale,
+             source, origin_detail, reviewed)
+        VALUES ($1, $2, $3, $4, 'en', $5, $6, $7)
+        ON CONFLICT (vocabulary_id, sentence, translation_locale) DO NOTHING
+        RETURNING id
+        """,
+        language_id, vocabulary_id, sentence, translation or None,
+        source, origin_detail, reviewed,
+    )
+    return str(row_id) if row_id is not None else None
+
+
+# ---------------------------------------------------------------------------
+# Content-generation coverage + gap lists (WP42, admin generation panel).
+#
+# "Coverage" is how much of a language's curriculum has example/drill
+# sentences at all; the gap lists drive an IDEMPOTENT fill — only items still
+# under target are ever handed to the (paid) generator, so a re-run after a
+# completed pass finds nothing and spends nothing.
+# ---------------------------------------------------------------------------
+
+
+async def generation_coverage(conn: asyncpg.Connection) -> list[dict]:
+    """Per-language content coverage for the admin generation panel: how many
+    words/points exist, how many still have NO example/drill, and how much
+    'ai'-sourced content is already in the pool. One row per language."""
+    rows = await conn.fetch(
+        """
+        SELECT l.id, l.code, l.name,
+          (SELECT count(*) FROM vocabulary v WHERE v.language_id = l.id)
+            AS vocab_total,
+          (SELECT count(*) FROM vocabulary v WHERE v.language_id = l.id
+             AND NOT EXISTS (SELECT 1 FROM example_sentences es
+                              WHERE es.vocabulary_id = v.id))
+            AS vocab_no_examples,
+          (SELECT count(*) FROM grammar_points gp WHERE gp.language_id = l.id)
+            AS grammar_total,
+          (SELECT count(*) FROM grammar_points gp WHERE gp.language_id = l.id
+             AND NOT EXISTS (SELECT 1 FROM drill_sentences ds
+                              WHERE ds.grammar_point_id = gp.id))
+            AS grammar_no_drills,
+          (SELECT count(*) FROM example_sentences es
+             JOIN vocabulary v ON es.vocabulary_id = v.id
+            WHERE v.language_id = l.id AND es.source = 'ai')
+            AS ai_examples,
+          (SELECT count(*) FROM example_sentences es
+             JOIN vocabulary v ON es.vocabulary_id = v.id
+            WHERE v.language_id = l.id AND es.source = 'ai'
+              AND es.reviewed = false)
+            AS pending_examples,
+          (SELECT count(*) FROM drill_sentences ds
+             JOIN grammar_points gp ON ds.grammar_point_id = gp.id
+            WHERE gp.language_id = l.id AND ds.source = 'ai')
+            AS ai_drills
+        FROM languages l
+        ORDER BY l.name
+        """
+    )
+    return [
+        {
+            "language_id": str(r["id"]),
+            "language_code": r["code"],
+            "language_name": r["name"],
+            "vocab_total": r["vocab_total"],
+            "vocab_no_examples": r["vocab_no_examples"],
+            "grammar_total": r["grammar_total"],
+            "grammar_no_drills": r["grammar_no_drills"],
+            "ai_examples": r["ai_examples"],
+            "pending_examples": r["pending_examples"],
+            "ai_drills": r["ai_drills"],
+        }
+        for r in rows
+    ]
+
+
+async def list_pending_examples(
+    conn: asyncpg.Connection, language_id: str, limit: int = 50
+) -> list[dict]:
+    """Generated example sentences awaiting human review for a language (WP42
+    gate): the sentence, its word, translation, and the model that made it."""
+    rows = await conn.fetch(
+        """
+        SELECT es.id, es.sentence, es.translation, es.origin_detail,
+               v.word, v.id AS vocabulary_id
+        FROM example_sentences es
+        JOIN vocabulary v ON es.vocabulary_id = v.id
+        WHERE v.language_id = $1 AND es.source = 'ai' AND es.reviewed = false
+        ORDER BY es.created_at ASC
+        LIMIT $2
+        """,
+        language_id, limit,
+    )
+    return [
+        {
+            "id": str(r["id"]),
+            "sentence": r["sentence"],
+            "translation": r["translation"],
+            "origin_detail": r["origin_detail"],
+            "word": r["word"],
+            "vocabulary_id": str(r["vocabulary_id"]),
+        }
+        for r in rows
+    ]
+
+
+async def review_example(
+    conn: asyncpg.Connection, example_id: str, approve: bool
+) -> bool:
+    """Approve (reviewed → true, now served to learners) or reject (deleted) a
+    pending generated example. Only ever touches an unreviewed 'ai' row, so it
+    can't disturb seed/imported/human content. Returns True if a row changed."""
+    if approve:
+        result = await conn.execute(
+            "UPDATE example_sentences SET reviewed = true "
+            "WHERE id = $1 AND source = 'ai' AND reviewed = false",
+            example_id,
+        )
+    else:
+        result = await conn.execute(
+            "DELETE FROM example_sentences "
+            "WHERE id = $1 AND source = 'ai' AND reviewed = false",
+            example_id,
+        )
+    return result.rsplit(" ", 1)[-1] == "1"
+
+
+async def vocab_needing_examples(
+    conn: asyncpg.Connection,
+    language_id: str,
+    min_examples: int,
+    limit: int,
+) -> list[dict]:
+    """Words with FEWER than *min_examples* example sentences, commonest first
+    (frequency_rank) so generation fills the highest-value gaps. Each row
+    carries the context the generator needs."""
+    rows = await conn.fetch(
+        """
+        SELECT v.id, v.word, v.part_of_speech, v.morphology,
+               (SELECT t.definition FROM translations t
+                 WHERE t.vocabulary_id = v.id AND t.locale = 'en' LIMIT 1)
+                 AS definition,
+               (SELECT count(*) FROM example_sentences es
+                 WHERE es.vocabulary_id = v.id) AS example_count
+        FROM vocabulary v
+        WHERE v.language_id = $1
+          AND (SELECT count(*) FROM example_sentences es
+                WHERE es.vocabulary_id = v.id) < $2
+        ORDER BY v.frequency_rank NULLS LAST, v.word
+        LIMIT $3
+        """,
+        language_id, min_examples, limit,
+    )
+    out = []
+    for r in rows:
+        morph = r["morphology"]
+        if isinstance(morph, str):
+            try:
+                morph = json.loads(morph)
+            except (json.JSONDecodeError, TypeError):
+                morph = {}
+        out.append({
+            "vocabulary_id": str(r["id"]),
+            "word": r["word"],
+            "lemma": (morph or {}).get("lemma") or r["word"],
+            "part_of_speech": r["part_of_speech"],
+            "definition": r["definition"],
+            "example_count": r["example_count"],
+        })
+    return out
+
+
+async def points_needing_drills(
+    conn: asyncpg.Connection,
+    language_id: str,
+    min_drills: int,
+    limit: int,
+) -> list[dict]:
+    """Grammar points with FEWER than *min_drills* drills, in curriculum order
+    (display_order). Each row carries the context the drill generator needs."""
+    rows = await conn.fetch(
+        """
+        SELECT gp.id, gp.title, gp.explanation,
+               (SELECT count(*) FROM drill_sentences ds
+                 WHERE ds.grammar_point_id = gp.id) AS drill_count
+        FROM grammar_points gp
+        WHERE gp.language_id = $1
+          AND (SELECT count(*) FROM drill_sentences ds
+                WHERE ds.grammar_point_id = gp.id) < $2
+        ORDER BY gp.display_order, gp.title
+        LIMIT $3
+        """,
+        language_id, min_drills, limit,
+    )
+    return [
+        {
+            "point_id": str(r["id"]),
+            "title": r["title"],
+            "explanation": r["explanation"],
+            "drill_count": r["drill_count"],
+        }
+        for r in rows
+    ]
+
+
 async def update_drill(
     conn: asyncpg.Connection,
     drill_id: str,

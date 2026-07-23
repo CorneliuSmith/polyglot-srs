@@ -22,6 +22,7 @@ import RolesPanel from './RolesPanel'
 import AccountsPanel from './AccountsPanel'
 import AnalyticsPanel from './AnalyticsPanel'
 import EngagementPanel from './EngagementPanel'
+import GenerationPanel from './GenerationPanel'
 import TranslationReviewsPanel from './TranslationReviewsPanel'
 import { useAuthStore } from '../../stores/authStore'
 import {
@@ -591,6 +592,7 @@ export default function ContributorPage() {
               <>
                 <AnalyticsPanel />
                 <EngagementPanel />
+                <GenerationPanel />
                 <TranslationReviewsPanel />
                 <AccountsPanel languages={languages} selfId={selfId} />
                 <RolesPanel languages={languages} />

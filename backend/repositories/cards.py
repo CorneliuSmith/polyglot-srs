@@ -118,6 +118,7 @@ async def get_due_cards(
             FROM example_sentences es
             WHERE es.vocabulary_id = v.id
               AND es.translation_locale = $3
+              AND es.reviewed
         ) ex ON true
         LEFT JOIN LATERAL (
             SELECT rl.prompt_sentence
@@ -887,6 +888,7 @@ async def get_card_details_bulk(
             FROM example_sentences
             WHERE vocabulary_id = ANY($1::uuid[])
               AND translation_locale = $2
+              AND reviewed
             ORDER BY difficulty_rank ASC NULLS LAST
             """,
             vocab_ids,
@@ -1150,6 +1152,7 @@ async def get_card_detail(
             FROM example_sentences
             WHERE vocabulary_id = $1
               AND translation_locale = $2
+              AND reviewed
             ORDER BY difficulty_rank ASC NULLS LAST
             LIMIT 5
             """,
@@ -1690,6 +1693,7 @@ async def get_vocab_item(
         SELECT sentence, translation
         FROM example_sentences
         WHERE vocabulary_id = $1 AND translation_locale = $2
+          AND reviewed
         ORDER BY difficulty_rank ASC NULLS LAST
         LIMIT 5
         """,
