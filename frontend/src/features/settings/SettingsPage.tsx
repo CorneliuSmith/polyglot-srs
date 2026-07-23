@@ -12,6 +12,7 @@ import {
 import { getDashboardStats } from '../../api/dashboard'
 import { usePrefsStore } from '../../stores/prefsStore'
 import type { Theme } from '../../stores/prefsStore'
+import RecoSettings from '../recommendations/RecoSettings'
 import { supabase } from '../../lib/supabase'
 import LanguagePicker from '../../components/LanguagePicker'
 import { getGrammarForLanguage } from '../../api/contribute'
@@ -448,6 +449,8 @@ export default function SettingsPage() {
             </button>
           </div>
         </section>
+
+        <RecoSettings />
 
         <section className="bg-white rounded-2xl shadow-sm border border-gray-100 p-5 space-y-3">
           <div className="flex items-start justify-between gap-4">

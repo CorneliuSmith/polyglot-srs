@@ -13,6 +13,7 @@ import { getMyRoles } from '../../api/contribute'
 import { getOnboardingStatus } from '../../api/onboarding'
 import { getLanguages } from '../../api/profile'
 import { lettersFor } from '../letters/lettersData'
+import { getRecommendations } from '../../api/recommendations'
 import { usePrefsStore } from '../../stores/prefsStore'
 import LanguagePicker from '../../components/LanguagePicker'
 import CEFRProgress from './CEFRProgress'
@@ -234,6 +235,18 @@ export default function DashboardPage() {
     retry: false,
   })
   const hasGym = (gymManifest?.columns.length ?? 0) > 0
+
+  // Recommendations card (tutor+): a small, non-obtrusive pointer, only when
+  // the feature is on, the account is entitled, and there's actually a batch.
+  const { data: recoState } = useQuery({
+    queryKey: ['recommendations', activeLanguageId],
+    queryFn: () => getRecommendations(activeLanguageId!),
+    enabled: !!activeLanguageId,
+    retry: false,
+  })
+  const showRecoCard =
+    !!recoState?.enabled && recoState.entitled && recoState.batches.length > 0
+  const latestReco = recoState?.batches[0]
 
   const { data: stats, isLoading } = useQuery({
     queryKey: ['dashboard', activeLanguageId],
@@ -685,6 +698,27 @@ export default function DashboardPage() {
           </span>
           <span aria-hidden className="text-lang">→</span>
         </button>
+
+        {/* Recommendations (tutor+): non-obtrusive — only shows once there's a
+            weekly pick list to look at. */}
+        {showRecoCard && (
+          <button
+            type="button"
+            onClick={() => navigate('/recommendations')}
+            className="w-full bg-white hover:bg-gray-50 text-gray-800 font-semibold rounded-xl px-6 py-3 text-sm border border-gray-200 transition-colors text-left flex items-center justify-between"
+            style={{ minHeight: '44px' }}
+          >
+            <span>
+              Recommended for you
+              <span className="block text-xs font-normal text-gray-500">
+                {latestReco
+                  ? `${latestReco.items.length} pick${latestReco.items.length === 1 ? '' : 's'} to stretch your ${''}reading, watching & listening`
+                  : 'Books, films, series & podcasts at your level'}
+              </span>
+            </span>
+            <span aria-hidden className="text-lang">→</span>
+          </button>
+        )}
 
         {/* Learn from your own text */}
         <button

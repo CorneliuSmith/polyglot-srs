@@ -56,6 +56,7 @@ const LearnPage = lazyWithRetry(() => import('./features/review/LearnPage'))
 const TutorPage = lazyWithRetry(() => import('./features/tutor/TutorPage'))
 const ReaderPage = lazyWithRetry(() => import('./features/reader/ReaderPage'))
 const LettersPage = lazyWithRetry(() => import('./features/letters/LettersPage'))
+const RecommendationsPage = lazyWithRetry(() => import('./features/recommendations/RecommendationsPage'))
 const GymPage = lazyWithRetry(() => import('./features/gym/GymPage'))
 const NotesPage = lazyWithRetry(() => import('./features/notes/NotesPage'))
 const OnboardingPage = lazyWithRetry(() => import('./features/onboarding/OnboardingPage'))
@@ -119,6 +120,7 @@ const router = createBrowserRouter([
       { path: '/tutor', element: <TutorPage /> },
       { path: '/read', element: <ReaderPage /> },
       { path: '/letters', element: <LettersPage /> },
+      { path: '/recommendations', element: <RecommendationsPage /> },
       { path: '/gym', element: <GymPage /> },
       { path: '/notes', element: <NotesPage /> },
       { path: '/contribute', element: <ContributorPage /> },
