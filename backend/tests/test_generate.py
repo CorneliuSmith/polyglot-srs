@@ -73,12 +73,13 @@ async def test_make_examples_returns_candidates_in_mock():
     assert all("sentence" in c and "translation" in c for c in made)
 
 
-def test_contains_word_surface_match_no_backend():
-    # A language with no NLP backend still gets a whole-word surface check.
-    assert generate._contains_word("es", "El gato duerme aquí.", "gato") is True
-    assert generate._contains_word("es", "No hay nada aquí.", "gato") is False
+async def test_contains_word_surface_match_no_backend():
+    # A language with no NLP backend (and no Apertium configured) still gets a
+    # whole-word surface check.
+    assert await generate._contains_word("es", "El gato duerme aquí.", "gato") is True
+    assert await generate._contains_word("es", "No hay nada aquí.", "gato") is False
     # substring is NOT a match — must be a whole word
-    assert generate._contains_word("es", "El gatito duerme.", "gato") is False
+    assert await generate._contains_word("es", "El gatito duerme.", "gato") is False
 
 
 @pytest.mark.parametrize(
@@ -105,4 +106,21 @@ async def test_generate_examples_drops_the_wordless_candidate():
             {"word": "gato", "definition": "cat"}, 4, "Spanish", "es"
         )
     assert len(passed) == 3  # 4 drafted, the wordless first one rejected
-    assert all(generate._contains_word("es", p["sentence"], "gato") for p in passed)
+    for p in passed:
+        assert await generate._contains_word("es", p["sentence"], "gato")
+
+
+async def test_contains_word_uses_apertium_when_no_backend():
+    # A backend-less language: an inflected form ('anakimbia' for lemma
+    # 'kimbia') isn't a surface match, but Apertium rescues it.
+    with patch("backend.services.generate.get_nlp", side_effect=ValueError), \
+         patch("backend.services.generate.apertium_available", return_value=True), \
+         patch("backend.services.generate.analyze_lemmas",
+               new=AsyncMock(return_value={"kimbia", "mbwa"})):
+        assert await generate._contains_word("sw", "Mbwa anakimbia leo.", "kimbia")
+    # Apertium finds nothing useful -> the surface match still stands (fails).
+    with patch("backend.services.generate.get_nlp", side_effect=ValueError), \
+         patch("backend.services.generate.apertium_available", return_value=True), \
+         patch("backend.services.generate.analyze_lemmas",
+               new=AsyncMock(return_value=set())):
+        assert not await generate._contains_word("sw", "Mbwa analala leo.", "kimbia")

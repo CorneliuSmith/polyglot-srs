@@ -153,8 +153,17 @@ The checker's core rule is: **the sentence must actually use the target word.**
 Net effect: **accept-rates on backend-less languages will be lower**, and you
 may need a couple of runs (idempotent, so that's fine) to reach target. This is
 intentional — better to drop a sentence than serve one that doesn't teach the
-word. If a language turns out to matter a lot, adding an NLP backend for it
-raises the accept-rate.
+word.
+
+**To raise accept-rates on those languages**, point `APERTIUM_API_URL` at an
+[Apertium-APy](https://apertium.org/apy) server (public or self-hosted). The
+checker then asks Apertium whether a token is an inflected form of the target
+word, so inflected forms count instead of being rejected. It's opt-in and
+fail-safe (unset or unreachable = today's surface-match behavior), and currently
+mapped for the languages Apertium ships analyzers for (e.g. `sw`, `ar`; see
+`backend/services/apertium.py` to add more). For a language with neither a local
+NLP backend nor an Apertium mode, adding a local backend is still the strongest
+fix.
 
 ---
 
