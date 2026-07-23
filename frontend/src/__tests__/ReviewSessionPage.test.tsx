@@ -435,6 +435,20 @@ describe('ReviewSessionPage — Quick Cram (WP13f)', () => {
       expect(screen.getByText(/nothing to cram/i)).toBeDefined()
     })
   })
+
+  it('distinguishes the word audio from the full-sentence audio on feedback', async () => {
+    renderCram()
+    await waitFor(() => screen.getByRole('textbox'))
+    const input = screen.getByRole('textbox')
+    fireEvent.change(input, { target: { value: 'goes' } })
+    fireEvent.keyDown(input, { key: 'Enter' })
+    await waitFor(() => screen.getByTestId('feedback-panel'))
+    // The word-pronunciation control and the whole-sentence control are now
+    // labelled differently instead of two identical speaker icons.
+    expect(screen.getByText('Hear the word')).toBeDefined()
+    expect(screen.getByLabelText(/hear the full sentence/i)).toBeDefined()
+    expect(screen.getByText('sentence')).toBeDefined()
+  })
 })
 
 describe('ReviewSessionPage — Gym chart peek (WP25c)', () => {

@@ -18,7 +18,7 @@ import { finalizeInput } from '../keyboards/translit'
 import { hintLayersFor } from './hintLayers'
 import SpeakButton from '../../components/SpeakButton'
 import FormsPanel from '../../components/FormsPanel'
-import { TTS_LANGUAGES } from '../../api/audio'
+import { TTS_LANGUAGES, prefetchTTS } from '../../api/audio'
 import { hasKeyboardLayout } from '../keyboards/OnScreenKeyboard'
 import type { KeyboardLanguage } from '../keyboards/OnScreenKeyboard'
 
@@ -221,6 +221,20 @@ function ReviewSessionInner({
 
   // "Hidden initially" means hidden on EVERY card, not just the first.
   useEffect(() => setChartOpen(false), [session.currentIndex])
+
+  // Warm the TTS cache for the current card so the feedback-screen audio (the
+  // answer word and the full sentence) plays the instant it's clicked instead
+  // of lagging on first synthesis. Prefetch only fetches — never plays — so
+  // running it while the answer is still hidden can't leak it aloud.
+  useEffect(() => {
+    const c = session.currentCard
+    if (!c) return
+    const full = c.sentence.includes('{{answer}}')
+      ? c.sentence.replace('{{answer}}', c.correct_answer)
+      : c.correct_answer
+    prefetchTTS(c.language_code, full)
+    prefetchTTS(c.language_code, c.correct_answer)
+  }, [session.currentCard])
 
   // Gym: after a MISS, open the full chart automatically — the moment a
   // learner gets a conjugation/declension wrong is exactly when they want to
@@ -844,7 +858,22 @@ function ReviewSessionInner({
                 <div
                   className={`flex items-center gap-2 bg-white rounded-2xl border-2 px-3 py-1.5 shadow-sm ${resultStyles}`}
                 >
-                  <SpeakButton text={completedSentence} languageCode={card.language_code} />
+                  <span className="flex items-center gap-1 text-gray-400">
+                    <SpeakButton
+                      text={completedSentence}
+                      languageCode={card.language_code}
+                      label={
+                        completedSentence === card.correct_answer
+                          ? `Hear "${card.correct_answer}"`
+                          : 'Hear the full sentence'
+                      }
+                    />
+                    {/* Distinguish this from the word audio above — this speaker
+                        plays the whole sentence, that one just the answer word. */}
+                    {completedSentence !== card.correct_answer && (
+                      <span className="text-[11px] tracking-wide">sentence</span>
+                    )}
+                  </span>
                   <span className="flex-1 text-center font-semibold">
                     {card.correct_answer}
                   </span>
