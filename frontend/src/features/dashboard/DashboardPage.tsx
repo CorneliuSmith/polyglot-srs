@@ -25,6 +25,7 @@ import Walkthrough from '../onboarding/Walkthrough'
 import WhatsNewPanel from '../announcements/WhatsNewPanel'
 import { unseenWhatsNew } from '../announcements/whatsNew'
 import InstallPrompt from '../../components/InstallPrompt'
+import LearningTip from '../tips/LearningTip'
 import type { LearnDeck } from '../../api/types'
 
 /** One Bunpro-style deck row. Two affordances, deliberately separated:
@@ -426,6 +427,9 @@ export default function DashboardPage() {
           </label>
           <LanguagePicker />
         </div>
+
+        {/* Learning tip (throttled to ~once a day; off in Settings) */}
+        <LearningTip context="dashboard" />
 
         {/* Letters & Sounds (beta request): the alphabet with pronunciation,
             right under the language and before the study tiles. Hidden for

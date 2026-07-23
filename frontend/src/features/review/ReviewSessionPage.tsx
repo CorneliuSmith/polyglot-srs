@@ -19,6 +19,7 @@ import { hintLayersFor } from './hintLayers'
 import SpeakButton from '../../components/SpeakButton'
 import FormsPanel from '../../components/FormsPanel'
 import { TTS_LANGUAGES, prefetchTTS } from '../../api/audio'
+import LearningTip from '../tips/LearningTip'
 import { hasKeyboardLayout } from '../keyboards/OnScreenKeyboard'
 import type { KeyboardLanguage } from '../keyboards/OnScreenKeyboard'
 
@@ -657,6 +658,12 @@ function ReviewSessionInner({
             style={{ width: `${((session.currentIndex) / cards.length) * 100}%` }}
           />
         </div>
+
+        {/* A learning tip at the very start of a session (throttled, off in
+            Settings). Only on the first card so it never interrupts the flow. */}
+        {session.currentIndex === 0 && (
+          <LearningTip context="session" />
+        )}
 
         {/* Card area */}
         <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-6 md:p-8">

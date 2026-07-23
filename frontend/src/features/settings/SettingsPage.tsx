@@ -62,6 +62,8 @@ export default function SettingsPage() {
   const setSessionSize = usePrefsStore((s) => s.setSessionSize)
   const accentsOptional = usePrefsStore((s) => s.accentsOptional)
   const setAccentsOptional = usePrefsStore((s) => s.setAccentsOptional)
+  const learningTipsEnabled = usePrefsStore((s) => s.learningTipsEnabled)
+  const setLearningTipsEnabled = usePrefsStore((s) => s.setLearningTipsEnabled)
   const dailyLearnGoal = usePrefsStore((s) => s.dailyLearnGoal)
   const setDailyLearnGoal = usePrefsStore((s) => s.setDailyLearnGoal)
 
@@ -443,6 +445,37 @@ export default function SettingsPage() {
                 className={
                   'inline-block h-5 w-5 transform rounded-full bg-white transition-transform ' +
                   (accentsOptional ? 'translate-x-5' : 'translate-x-1')
+                }
+              />
+            </button>
+          </div>
+        </section>
+
+        <section className="bg-white rounded-2xl shadow-sm border border-gray-100 p-5 space-y-3">
+          <div className="flex items-start justify-between gap-4">
+            <div>
+              <h2 className="font-semibold text-gray-800">Learning tips</h2>
+              <p className="text-xs text-gray-500">
+                Occasional evidence-based study nudges — how to practise, why the
+                schedule works — shown at most about once a day. Turn them off
+                here to never see them.
+              </p>
+            </div>
+            <button
+              type="button"
+              role="switch"
+              aria-checked={learningTipsEnabled}
+              aria-label="Learning tips"
+              onClick={() => setLearningTipsEnabled(!learningTipsEnabled)}
+              className={
+                'relative shrink-0 inline-flex h-6 w-11 items-center rounded-full transition-colors ' +
+                (learningTipsEnabled ? 'bg-lang' : 'bg-gray-300')
+              }
+            >
+              <span
+                className={
+                  'inline-block h-5 w-5 transform rounded-full bg-white transition-transform ' +
+                  (learningTipsEnabled ? 'translate-x-5' : 'translate-x-1')
                 }
               />
             </button>
