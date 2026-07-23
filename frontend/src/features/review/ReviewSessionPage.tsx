@@ -2,7 +2,7 @@ import { useState, useRef, useEffect } from 'react'
 import { useNavigate, useSearchParams } from 'react-router-dom'
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query'
 import { getCramCards, getDueCards, validateAnswer, submitReview } from '../../api/review'
-import { recordGymAttempt } from '../../api/gym'
+import { recordGymAttempt, generateGymDrills } from '../../api/gym'
 import { getLanguages, getProfile, updateProfile } from '../../api/profile'
 import type { DueCard } from '../../api/types'
 import { usePrefsStore } from '../../stores/prefsStore'
@@ -21,6 +21,29 @@ import FormsPanel from '../../components/FormsPanel'
 import { TTS_LANGUAGES } from '../../api/audio'
 import { hasKeyboardLayout } from '../keyboards/OnScreenKeyboard'
 import type { KeyboardLanguage } from '../keyboards/OnScreenKeyboard'
+
+/** The one place a learner ever waits in the Gym: shown only if they out-run
+ * background generation (a thin form + a fast learner). The fresh drills are
+ * moments away — this is a brief hand-off, not a dead end. */
+function CramTopUp({ label }: { label: string }) {
+  return (
+    <div
+      className="min-h-screen bg-gray-50 flex items-center justify-center px-4"
+      data-testid="cram-topup"
+    >
+      <div className="text-center space-y-3">
+        <div
+          className="mx-auto h-6 w-6 animate-spin rounded-full border-2 border-lang border-t-transparent"
+          aria-hidden
+        />
+        <p className="text-gray-700">{label}</p>
+        <p className="text-xs text-gray-400">
+          Brand-new sentences, just for you — a moment while they&apos;re drafted.
+        </p>
+      </div>
+    </div>
+  )
+}
 
 /**
  * The review session — and, with `cram`, its ungraded twin (WP13f):
@@ -64,6 +87,11 @@ function ReviewSessionInner({
   // round-robin across the chosen forms (not the old 3-per-form cap).
   const cramCountRaw = cram ? Number(searchParams.get('count')) : NaN
   const cramCount = Number.isFinite(cramCountRaw) && cramCountRaw > 0 ? cramCountRaw : undefined
+  // The Gym passes gen=1 when the learner opted into fresh variations: the
+  // session serves the seeded corpus immediately and drafts new drills in the
+  // background, weaving them in as they land (no wait up front). The learner
+  // only pauses on a "drafting…" screen if they out-run generation.
+  const genRequested = cram && searchParams.get('gen') === '1'
   // Grammar Only / Vocab Only sessions (dashboard Review tile expansion).
   const typeParam = searchParams.get('type')
   const reviewType =
@@ -132,6 +160,64 @@ function ReviewSessionInner({
   }, [fetched, cards])
 
   const session = useReviewSession(cards ?? [])
+
+  // Background generation (WP41): with gen=1 the Gym asked for fresh drills.
+  // We kick off generation once, in the background, while the learner works
+  // through the seeded set — then splice the new drills into the live deck as
+  // they land. `genSettled` is true the moment generation can add nothing more
+  // (produced its batch, or failed / was rejected), so the end-of-session
+  // "drafting…" wait knows when to give up and show the real summary.
+  const [genSettled, setGenSettled] = useState(!genRequested)
+  const genStarted = useRef(false)
+  const generateMutation = useMutation({
+    mutationFn: () => generateGymDrills(cramPoints.split(',')),
+    onSuccess: async (res) => {
+      try {
+        if (res.generated > 0) {
+          // Re-draw the pool (now including the learner's fresh, unseen drills)
+          // and weave in the ones not already in this session. Cap to what was
+          // just generated so the deck grows by the new batch, not the corpus.
+          const refreshed = await getCramCards(cramPoints.split(','), 100)
+          setCards((prev) => {
+            if (!prev) return prev
+            const have = new Set(
+              prev.map((c) => c.drill_id).filter(Boolean) as string[],
+            )
+            let novel = refreshed.filter(
+              (c) => c.drill_id && !have.has(c.drill_id),
+            )
+            novel = novel.slice(0, res.generated)
+            if (cramMix) {
+              for (let i = novel.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1))
+                ;[novel[i], novel[j]] = [novel[j], novel[i]]
+              }
+            }
+            return novel.length ? [...prev, ...novel] : prev
+          })
+        }
+      } finally {
+        setGenSettled(true)
+      }
+    },
+    // Out of allowance / generation off / any failure: carry on with the
+    // seeded set — the session must never hang on a background top-up.
+    onError: () => setGenSettled(true),
+  })
+  // Start once the seeded snapshot is in place — the append reads `cards`, so
+  // generation must not resolve before there's a deck to weave into.
+  useEffect(() => {
+    if (genRequested && !genStarted.current && cramPoints.length > 0 && cards !== null) {
+      genStarted.current = true
+      generateMutation.mutate()
+    }
+  }, [genRequested, cramPoints, cards, generateMutation])
+
+  // Fresh drills appended after the deck was exhausted leave the session stuck
+  // on 'summary' with a valid current card — flow straight into them.
+  useEffect(() => {
+    if (session.phase === 'summary' && session.currentCard) session.resume()
+  }, [session.phase, session.currentCard, session])
 
   // "Hidden initially" means hidden on EVERY card, not just the first.
   useEffect(() => setChartOpen(false), [session.currentIndex])
@@ -332,7 +418,14 @@ function ReviewSessionInner({
     )
   }
 
-  if (session.phase === 'summary' || session.isComplete) {
+  // End of the current deck. If a background top-up is still in flight, the
+  // learner out-ran generation — hold on a brief "drafting…" screen (the only
+  // place they ever wait) rather than ending; the fresh drills are about to
+  // land and resume() will flow straight into them. Otherwise it's a real finish.
+  if (!session.currentCard) {
+    if (genRequested && !genSettled) {
+      return <CramTopUp label="Drafting a few fresh sentences…" />
+    }
     return (
       <div>
         {saveErrorCount > 0 && (
@@ -364,6 +457,12 @@ function ReviewSessionInner({
         />
       </div>
     )
+  }
+
+  // A top-up landed after we'd hit the end: resume() (an effect) flips us back
+  // to answering next tick — show the hand-off, not a one-frame stray summary.
+  if (session.phase === 'summary') {
+    return <CramTopUp label="Loading fresh drills…" />
   }
 
   const card = session.currentCard

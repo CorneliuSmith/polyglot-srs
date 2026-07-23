@@ -15,6 +15,7 @@ vi.mock('../api/review', () => ({
 
 vi.mock('../api/gym', () => ({
   recordGymAttempt: vi.fn(() => Promise.resolve()),
+  generateGymDrills: vi.fn(),
 }))
 
 // Mock the prefs store
@@ -31,7 +32,10 @@ vi.mock('../components/SpeakButton', () => ({
 }))
 
 import { getCramCards, getDueCards, validateAnswer, submitReview } from '../api/review'
+import { generateGymDrills } from '../api/gym'
 import { usePrefsStore } from '../stores/prefsStore'
+
+const mockGenerateGymDrills = generateGymDrills as ReturnType<typeof vi.fn>
 
 const mockGetDueCards = getDueCards as ReturnType<typeof vi.fn>
 const mockGetCramCards = getCramCards as ReturnType<typeof vi.fn>
@@ -531,5 +535,94 @@ describe('ReviewSessionPage — Gym chart peek (WP25c)', () => {
     await waitFor(() => expect(screen.getByTestId('gym-chart')).toBeDefined())
     expect(screen.getByText('слушаешь')).toBeDefined()
     expect(screen.getByRole('button', { name: /hide the chart/i })).toBeDefined()
+  })
+})
+
+describe('ReviewSessionPage — background generation (WP41)', () => {
+  const d1: DueCard = { ...testCard, id: 'cram-p-0', drill_id: 'd1' }
+  const d2: DueCard = {
+    ...testCard,
+    id: 'cram-p-1',
+    drill_id: 'd2',
+    sentence: 'They {{answer}} home.',
+  }
+
+  function renderGen() {
+    const queryClient = new QueryClient({
+      defaultOptions: { queries: { retry: false }, mutations: { retry: false } },
+    })
+    return render(
+      <QueryClientProvider client={queryClient}>
+        <MemoryRouter initialEntries={['/cram?points=p1&mix=1&count=20&gen=1']}>
+          <ReviewSessionPage cram />
+        </MemoryRouter>
+      </QueryClientProvider>,
+    )
+  }
+
+  async function answerCurrent() {
+    const input = await screen.findByRole('textbox')
+    fireEvent.change(input, { target: { value: 'goes' } })
+    fireEvent.keyDown(input, { key: 'Enter' })
+    await waitFor(() => screen.getByTestId('feedback-panel'))
+    fireEvent.click(screen.getByRole('button', { name: /continue/i }))
+  }
+
+  beforeEach(() => {
+    vi.clearAllMocks()
+    mockUsePrefsStore.mockImplementation(
+      (selector: (s: { activeLanguageId: string }) => unknown) =>
+        selector({ activeLanguageId: 'lang-123' }),
+    )
+    mockValidateAnswer.mockResolvedValue(mockValidateResponse)
+    mockSubmitReview.mockResolvedValue(mockSubmitResponse)
+  })
+
+  it('kicks off generation in the background for the chosen points', async () => {
+    mockGetCramCards.mockResolvedValue([d1])
+    mockGenerateGymDrills.mockResolvedValue({
+      generated: 0, charged: 0, remaining: 5, unlimited: false,
+    })
+    renderGen()
+    await waitFor(() =>
+      expect(mockGenerateGymDrills).toHaveBeenCalledWith(['p1']),
+    )
+  })
+
+  it('weaves a freshly generated drill into the live session', async () => {
+    // First fetch serves the seeded set; the post-generation re-draw (count 100)
+    // returns the same drill plus the new one, which gets appended.
+    mockGetCramCards.mockResolvedValueOnce([d1]).mockResolvedValue([d1, d2])
+    mockGenerateGymDrills.mockResolvedValue({
+      generated: 1, charged: 1, remaining: 4, unlimited: false,
+    })
+    renderGen()
+    // Answer the one seeded drill…
+    await answerCurrent()
+    // …and instead of ending, the session flows into the appended fresh drill
+    // (the cloze blank splits the sentence, so match its trailing fragment).
+    await waitFor(() => expect(screen.getByText(/home\./i)).toBeDefined())
+    expect(screen.queryByText('Session Complete')).toBeNull()
+    // Finishing the fresh drill ends the session for real.
+    await answerCurrent()
+    await waitFor(() => expect(screen.getByText('Session Complete')).toBeDefined())
+  })
+
+  it('shows the drafting wait only when the learner out-runs generation', async () => {
+    mockGetCramCards.mockResolvedValue([d1])
+    // Generation still in flight when the learner finishes the seeded drill.
+    mockGenerateGymDrills.mockReturnValue(new Promise(() => {}))
+    renderGen()
+    await answerCurrent()
+    await waitFor(() => expect(screen.getByTestId('cram-topup')).toBeDefined())
+    expect(screen.queryByText('Session Complete')).toBeNull()
+  })
+
+  it('falls through to the summary when generation fails', async () => {
+    mockGetCramCards.mockResolvedValue([d1])
+    mockGenerateGymDrills.mockRejectedValue({ response: { status: 402 } })
+    renderGen()
+    await answerCurrent()
+    await waitFor(() => expect(screen.getByText('Session Complete')).toBeDefined())
   })
 })

@@ -23,6 +23,7 @@ export interface ReviewSessionState {
   rate: (answerResult: string) => void
   retry: () => void
   advance: () => void
+  resume: () => void
   elapsedMs: () => number
 }
 
@@ -101,6 +102,16 @@ export function useReviewSession(cards: DueCard[]): ReviewSessionState {
     cardStartTime.current = Date.now()
   }, [])
 
+  // Cram only: cards can be appended after the deck was exhausted (background
+  // generation lands more drills). currentIndex already points at the fresh
+  // card, but the phase is stuck on 'summary' — drop back to answering so the
+  // session flows straight into the new questions without a remount.
+  const resume = useCallback(() => {
+    setPhase('answering')
+    setValidationResultState(null)
+    cardStartTime.current = Date.now()
+  }, [])
+
   const elapsedMs = useCallback(() => {
     return Date.now() - cardStartTime.current
   }, [])
@@ -119,6 +130,7 @@ export function useReviewSession(cards: DueCard[]): ReviewSessionState {
     rate,
     retry,
     advance,
+    resume,
     elapsedMs,
   }
 }
