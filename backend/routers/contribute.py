@@ -41,6 +41,7 @@ from backend.repositories.contributor import (
     delete_drill,
     entity_language,
     find_user_by_email,
+    generation_coverage,
     get_feedback_language,
     get_language_policy,
     get_language_tutor_model,
@@ -77,6 +78,14 @@ from backend.repositories.contributor import (
 from backend.repositories.pool import privileged_connection, rls_connection
 from backend.repositories.tutor import aggregate_tutor_usage, set_tutor_access
 from backend.services.drills import validate_drill
+from backend.services.generate import generation_available
+from backend.services.generation_admin import (
+    MAX_ITEMS_PER_RUN,
+    MAX_PER_ITEM,
+    plan_run,
+    run_generation,
+)
+from backend.services.models import LOW_RESOURCE_LANGUAGES, resolve_model
 from backend.services.rate_limit import ai_review_limiter
 from backend.services.semantic_check import ai_available, semantic_check_point
 from backend.services.tutor_costs import estimate_cost_usd
@@ -302,6 +311,121 @@ async def tutor_usage_overview(
             sum(r["est_cost_usd"] for r in priced), 4
         ),
     }
+
+
+# ---------------------------------------------------------------------------
+# Content generation panel (WP42, admin-only): fill example/drill gaps with the
+# deployed key. Coverage + model recs + "what next", then idempotent runs with
+# a dry-run cost preview.
+# ---------------------------------------------------------------------------
+
+
+def _next_language_score(row: dict) -> int:
+    """Rank for "which languages to do next": total unfilled items, so the
+    biggest gaps float up. Low-resource languages get a boost (they're the
+    reason the paid pipeline exists) — see the endpoint for the tie-break."""
+    return row["vocab_no_examples"] + row["grammar_no_drills"]
+
+
+@router.get("/admin/generation/coverage")
+async def generation_coverage_overview(user: dict = Depends(get_current_user)):
+    """Per-language content coverage, the model each generation task would use,
+    and a ranked "do next" list (admin-only, WP42).
+
+    The recommendation sorts by unfilled items, with low-resource languages
+    (which the registry pins to a stronger model) prioritized on ties — those
+    are the ones the paid pipeline is really for.
+    """
+    await _require_admin(user["id"])
+    async with privileged_connection() as conn:
+        rows = await generation_coverage(conn)
+    for r in rows:
+        code = r["language_code"]
+        r["low_resource"] = code in LOW_RESOURCE_LANGUAGES
+        r["sentence_model"] = resolve_model("sentence_maker", code)
+        r["grammar_model"] = resolve_model("grammar_maker", code)
+        r["unfilled"] = _next_language_score(r)
+    # Biggest gap first; on a tie, low-resource wins (it should be done sooner).
+    ranked = sorted(
+        rows, key=lambda r: (r["unfilled"], r["low_resource"]), reverse=True
+    )
+    next_up = [
+        {
+            "language_id": r["language_id"],
+            "language_code": r["language_code"],
+            "language_name": r["language_name"],
+            "unfilled": r["unfilled"],
+            "low_resource": r["low_resource"],
+        }
+        for r in ranked
+        if r["unfilled"] > 0
+    ][:5]
+    return {
+        "available": generation_available(),
+        "coverage": rows,
+        "recommended_next": next_up,
+        "limits": {"max_items": MAX_ITEMS_PER_RUN, "max_per_item": MAX_PER_ITEM},
+    }
+
+
+class GenerationRunRequest(BaseModel):
+    language_id: str
+    language_code: str
+    kind: str = Field(pattern="^(vocab|grammar)$")
+    target_per_item: int = Field(default=3, ge=1, le=MAX_PER_ITEM)
+    max_items: int = Field(default=25, ge=1, le=MAX_ITEMS_PER_RUN)
+    dry_run: bool = True
+
+
+@router.post("/admin/generation/run")
+async def generation_run(
+    body: GenerationRunRequest,
+    user: dict = Depends(get_current_user),
+):
+    """Fill a language's example/drill gaps (admin-only, WP42).
+
+    dry_run (the default) resolves the work-list and a cost ESTIMATE without
+    calling the model, so the bill is visible before it's paid. With
+    dry_run=false it runs maker→checker→persist for each gap item; the run is
+    idempotent (only under-target items are touched, inserts dedupe), so a
+    re-run continues rather than duplicating — no wasted spend.
+    """
+    await _require_admin(user["id"])
+    if not body.dry_run and not generation_available():
+        raise HTTPException(
+            status_code=status.HTTP_503_SERVICE_UNAVAILABLE,
+            detail="Generation needs ANTHROPIC_API_KEY (or dev-mock) on the server.",
+        )
+    # Confirm the language exists and get its display name for the maker prompt.
+    async with privileged_connection() as conn:
+        lang = await conn.fetchrow(
+            "SELECT code, name FROM languages WHERE id = $1", body.language_id
+        )
+        if lang is None or lang["code"] != body.language_code:
+            raise HTTPException(
+                status_code=status.HTTP_404_NOT_FOUND, detail="Unknown language."
+            )
+        if body.dry_run:
+            plan = await plan_run(
+                conn,
+                kind=body.kind,
+                language_id=body.language_id,
+                language_code=body.language_code,
+                target_per_item=body.target_per_item,
+                max_items=body.max_items,
+            )
+            plan.pop("_items", None)
+            return {"dry_run": True, **plan}
+        result = await run_generation(
+            conn,
+            kind=body.kind,
+            language_id=body.language_id,
+            language_code=body.language_code,
+            language_name=lang["name"],
+            target_per_item=body.target_per_item,
+            max_items=body.max_items,
+        )
+    return {"dry_run": False, **result}
 
 
 @router.get("/engagement")

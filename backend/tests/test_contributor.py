@@ -1422,3 +1422,153 @@ class TestChangeRequests:
             )
         assert resp.status_code == 200
         assert resp.json()["status"] == "accepted"
+
+
+# ── admin content-generation panel (WP42) ──────────────────────────────────
+
+from contextlib import asynccontextmanager as _acm  # noqa: E402
+
+LANG_ID = "11111111-1111-1111-1111-111111111111"
+
+
+def _priv_yielding(conn):
+    @_acm
+    async def _cm():
+        yield conn
+    return patch("backend.routers.contribute.privileged_connection", _cm)
+
+
+_COVERAGE_ROWS = [
+    {"language_id": LANG_ID, "language_code": "sw", "language_name": "Swahili",
+     "vocab_total": 100, "vocab_no_examples": 80, "grammar_total": 20,
+     "grammar_no_drills": 5, "ai_examples": 0, "ai_drills": 0},
+    {"language_id": "22222222-2222-2222-2222-222222222222", "language_code": "es",
+     "language_name": "Spanish", "vocab_total": 500, "vocab_no_examples": 10,
+     "grammar_total": 40, "grammar_no_drills": 0, "ai_examples": 3, "ai_drills": 1},
+]
+
+
+class TestGenerationCoverage:
+    def test_requires_admin(self, client):
+        with _roles([{"language_id": LANG_ID, "role": "contributor"}]):
+            resp = client.get(
+                "/api/contribute/admin/generation/coverage", headers=_auth_headers()
+            )
+        assert resp.status_code == 403
+
+    def test_admin_gets_recs_and_ranked_next(self, client):
+        with _roles([{"language_id": None, "role": "admin"}]), \
+             patch("backend.routers.contribute.generation_coverage",
+                   new=AsyncMock(return_value=[dict(r) for r in _COVERAGE_ROWS])):
+            resp = client.get(
+                "/api/contribute/admin/generation/coverage", headers=_auth_headers()
+            )
+        assert resp.status_code == 200
+        body = resp.json()
+        # every language row carries its resolved models + low-resource flag
+        sw = next(r for r in body["coverage"] if r["language_code"] == "sw")
+        assert sw["low_resource"] is True
+        assert sw["sentence_model"] and sw["grammar_model"]
+        assert sw["unfilled"] == 85  # 80 vocab + 5 grammar
+        # Swahili (85 unfilled) ranks ahead of Spanish (10) in "do next"
+        assert body["recommended_next"][0]["language_code"] == "sw"
+        assert body["limits"]["max_per_item"] >= 1
+
+
+class TestGenerationRun:
+    def test_requires_admin(self, client):
+        with _roles([{"language_id": LANG_ID, "role": "reviewer"}]):
+            resp = client.post(
+                "/api/contribute/admin/generation/run",
+                json={"language_id": LANG_ID, "language_code": "sw", "kind": "vocab"},
+                headers=_auth_headers(),
+            )
+        assert resp.status_code == 403
+
+    def test_dry_run_previews_without_generating(self, client):
+        conn = AsyncMock()
+        conn.fetchrow = AsyncMock(return_value={"code": "sw", "name": "Swahili"})
+        plan = {"kind": "vocab", "model": "claude-x", "target_per_item": 3,
+                "items_to_process": 40, "sentences_to_attempt": 120,
+                "est_cost_usd": 0.42, "_items": [1, 2, 3]}
+        with _roles([{"language_id": None, "role": "admin"}]), \
+             _priv_yielding(conn), \
+             patch("backend.routers.contribute.plan_run",
+                   new=AsyncMock(return_value=dict(plan))) as mock_plan, \
+             patch("backend.routers.contribute.run_generation",
+                   new=AsyncMock()) as mock_run:
+            resp = client.post(
+                "/api/contribute/admin/generation/run",
+                json={"language_id": LANG_ID, "language_code": "sw",
+                      "kind": "vocab", "dry_run": True},
+                headers=_auth_headers(),
+            )
+        assert resp.status_code == 200
+        body = resp.json()
+        assert body["dry_run"] is True
+        assert body["est_cost_usd"] == 0.42
+        assert "_items" not in body            # internal work-list is stripped
+        mock_run.assert_not_awaited()          # nothing generated on a dry run
+        mock_plan.assert_awaited_once()
+
+    def test_real_run_503_when_key_absent(self, client):
+        conn = AsyncMock()
+        conn.fetchrow = AsyncMock(return_value={"code": "sw", "name": "Swahili"})
+        with _roles([{"language_id": None, "role": "admin"}]), \
+             _priv_yielding(conn), \
+             patch("backend.routers.contribute.generation_available",
+                   return_value=False):
+            resp = client.post(
+                "/api/contribute/admin/generation/run",
+                json={"language_id": LANG_ID, "language_code": "sw",
+                      "kind": "vocab", "dry_run": False},
+                headers=_auth_headers(),
+            )
+        assert resp.status_code == 503
+
+    def test_real_run_reports_analysis(self, client):
+        conn = AsyncMock()
+        conn.fetchrow = AsyncMock(return_value={"code": "sw", "name": "Swahili"})
+        analysis = {"kind": "vocab", "language_code": "sw", "model": "claude-x",
+                    "items_processed": 25, "sentences_accepted": 70,
+                    "sentences_persisted": 68, "duplicates_skipped": 2,
+                    "est_cost_usd": 0.31}
+        with _roles([{"language_id": None, "role": "admin"}]), \
+             _priv_yielding(conn), \
+             patch("backend.routers.contribute.generation_available",
+                   return_value=True), \
+             patch("backend.routers.contribute.run_generation",
+                   new=AsyncMock(return_value=dict(analysis))):
+            resp = client.post(
+                "/api/contribute/admin/generation/run",
+                json={"language_id": LANG_ID, "language_code": "sw",
+                      "kind": "vocab", "dry_run": False},
+                headers=_auth_headers(),
+            )
+        assert resp.status_code == 200
+        body = resp.json()
+        assert body["dry_run"] is False
+        assert body["sentences_persisted"] == 68
+
+    def test_unknown_language_404(self, client):
+        conn = AsyncMock()
+        conn.fetchrow = AsyncMock(return_value=None)
+        with _roles([{"language_id": None, "role": "admin"}]), \
+             _priv_yielding(conn):
+            resp = client.post(
+                "/api/contribute/admin/generation/run",
+                json={"language_id": LANG_ID, "language_code": "sw",
+                      "kind": "vocab", "dry_run": True},
+                headers=_auth_headers(),
+            )
+        assert resp.status_code == 404
+
+    def test_rejects_bad_kind(self, client):
+        with _roles([{"language_id": None, "role": "admin"}]):
+            resp = client.post(
+                "/api/contribute/admin/generation/run",
+                json={"language_id": LANG_ID, "language_code": "sw",
+                      "kind": "nonsense", "dry_run": True},
+                headers=_auth_headers(),
+            )
+        assert resp.status_code == 422
