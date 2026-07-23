@@ -435,6 +435,42 @@ async def test_grammar_generation_thickens_cells_balanced(pool):
         assert result["sentences_persisted"] == len(gen)
 
 
+async def test_gym_progress_accumulates_and_is_isolated(pool):
+    """Adaptive Gym: recording attempts folds into per-drill stats (streak
+    resets on a miss, wrong_form tracked), and RLS keeps each learner's history
+    to themselves."""
+    from backend.repositories.gym import get_gym_progress, record_gym_attempt
+
+    lang = await _language(pool, "gymp")
+    a = await _new_user(pool, "gym-a@x")
+    b = await _new_user(pool, "gym-b@x")
+    async with pool.privileged_connection() as conn:
+        pid = str(await conn.fetchval(
+            "INSERT INTO grammar_points (language_id, title, level) "
+            "VALUES ($1, 'P', 'A1') RETURNING id", lang,
+        ))
+        drill = str(await conn.fetchval(
+            "INSERT INTO drill_sentences (grammar_point_id, sentence, answer, cell) "
+            "VALUES ($1, 'x {{answer}}', 'y', 'yo') RETURNING id", pid,
+        ))
+
+    async with pool.rls_connection(a) as conn:
+        await record_gym_attempt(conn, a, drill, "correct", used_hint=False)
+        await record_gym_attempt(conn, a, drill, "correct", used_hint=False)
+        await record_gym_attempt(conn, a, drill, "wrong_form", used_hint=False)
+        prog = await get_gym_progress(conn, a, [drill])
+    s = prog[drill]
+    assert s["seen"] == 3
+    assert s["misses"] == 1 and s["wrong_form"] == 1
+    assert s["streak"] == 0            # the miss reset the 2-clean streak
+
+    # B has no history for the same drill, and cannot see A's row.
+    async with pool.rls_connection(b) as conn:
+        assert await get_gym_progress(conn, b, [drill]) == {}
+        rows = await conn.fetch("SELECT count(*) AS n FROM gym_progress")
+    assert rows[0]["n"] == 0           # RLS hides A's row from B
+
+
 async def test_generated_examples_fill_gaps_and_skip_covered_words(pool):
     """End-to-end (WP42): the admin generation run fills a word that has NO
     example sentences (dev-mock), tagging them source='ai'; a word already AT
