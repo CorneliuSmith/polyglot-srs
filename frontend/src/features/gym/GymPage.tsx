@@ -268,11 +268,11 @@ export default function GymPage() {
               )}
               {short && generate && (
                 <p className="text-xs text-amber-600">
-                  Only {available} ready for this session. We&apos;ll draft a few fresh
-                  ones — they go to a reviewer first, so they grow the corpus for
-                  next time rather than this run. Uses your tutor allowance: about
-                  one message per form (up to 3), and it stops early if you&apos;re
-                  low so it never overdraws.
+                  Only {available} ready — we&apos;ll draft a few fresh ones so you get
+                  a bigger set right now. They&apos;re yours immediately; a reviewer
+                  later approves the good ones for everyone. Uses your tutor
+                  allowance: about one message per form (up to 3), and it stops
+                  early if you&apos;re low so it never overdraws.
                 </p>
               )}
 
@@ -286,12 +286,12 @@ export default function GymPage() {
                   className="mt-0.5 rounded border-gray-300"
                 />
                 <span>
-                  Help grow this form when it runs thin
+                  Generate fresh variations when a form runs thin
                   <span className="block text-xs text-gray-400">
-                    Drafts a few new drills for the forms you picked. They&apos;re
-                    checked, then wait for a reviewer before joining the corpus —
-                    so they enrich future sessions, not this one. Spends a little of
-                    your tutor allowance (about one message per form).
+                    Drafts a few new drills for the forms you picked — you drill
+                    them right away. They stay yours until a reviewer approves the
+                    good ones into the shared corpus. Spends a little of your tutor
+                    allowance (about one message per form).
                   </span>
                 </span>
               </label>

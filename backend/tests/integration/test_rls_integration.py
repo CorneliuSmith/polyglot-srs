@@ -499,6 +499,48 @@ async def test_generated_drills_gated_until_reviewed(pool):
         assert await review_drill(conn, pending[0]["id"], approve=True) is False
 
 
+async def test_on_demand_drill_is_private_to_owner_until_reviewed(pool):
+    """A learner's on-demand generated drill (created_by = them, reviewed=false)
+    shows in THEIR Gym right away, but not in anyone else's, until a reviewer
+    approves it for everyone."""
+    from backend.repositories.cards import get_cram_cards
+    from backend.repositories.contributor import add_drill, review_drill
+
+    lang = await _language(pool, "priv")
+    a = await _new_user(pool, "priv-a@x")
+    b = await _new_user(pool, "priv-b@x")
+    async with pool.privileged_connection() as conn:
+        pid = str(await conn.fetchval(
+            "INSERT INTO grammar_points (language_id, title, level, reviewed) "
+            "VALUES ($1, 'P', 'A1', true) RETURNING id", lang,
+        ))
+        await conn.execute(
+            "INSERT INTO drill_sentences (grammar_point_id, sentence, answer, "
+            "cell, source) VALUES ($1, 'SEED {{answer}} here', 'y', 'yo', 'seed')",
+            pid,
+        )
+        mine = await add_drill(
+            conn, pid, "MINE {{answer}} only", "z", None, None,
+            source="ai", origin_detail="m", decertify=False, cell="tú",
+            created_by=a,
+        )
+
+    async def sentences_for(user_id):
+        async with pool.rls_connection(user_id) as conn:
+            cards = await get_cram_cards(conn, [pid])
+        return " | ".join(c["sentence"] for c in cards)
+
+    # Owner A sees their private drill; B (and the shared corpus) does not.
+    assert "MINE" in await sentences_for(a)
+    b_before = await sentences_for(b)
+    assert "MINE" not in b_before and "SEED" in b_before
+
+    # A reviewer approves it → now everyone sees it.
+    async with pool.privileged_connection() as conn:
+        assert await review_drill(conn, mine, approve=True) is True
+    assert "MINE" in await sentences_for(b)
+
+
 async def test_gym_progress_accumulates_and_is_isolated(pool):
     """Adaptive Gym: recording attempts folds into per-drill stats (streak
     resets on a miss, wrong_form tracked), and RLS keeps each learner's history

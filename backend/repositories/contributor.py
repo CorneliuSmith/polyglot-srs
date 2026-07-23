@@ -323,6 +323,7 @@ async def add_drill(
     origin_detail: str | None = None,
     decertify: bool = True,
     cell: str | None = None,
+    created_by: str | None = None,
 ) -> str:
     """Insert a drill sentence (privileged). *source* tags provenance (WP38):
     'human' for a drill added by hand (the default — never mistaken for
@@ -345,12 +346,12 @@ async def add_drill(
         """
         INSERT INTO drill_sentences
             (grammar_point_id, sentence, answer, translation, hint, display_order,
-             source, origin_detail, cell, reviewed)
-        VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10)
+             source, origin_detail, cell, reviewed, created_by)
+        VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11)
         RETURNING id
         """,
         point_id, sentence, answer, translation or None, hint or None, next_order,
-        source, origin_detail, cell, reviewed,
+        source, origin_detail, cell, reviewed, created_by,
     )
     if decertify:
         await conn.execute(

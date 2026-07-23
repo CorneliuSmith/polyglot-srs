@@ -140,7 +140,7 @@ describe('GymPage', () => {
     renderPage()
     await screen.findByText('Verbs')
     fireEvent.click(screen.getByRole('button', { name: /present/i })) // 12 < 20
-    fireEvent.click(screen.getByLabelText(/help grow this form/i))
+    fireEvent.click(screen.getByLabelText(/generate fresh variations/i))
     fireEvent.click(screen.getByRole('button', { name: /start training/i }))
     await waitFor(() => expect(mockGenerate).toHaveBeenCalledWith(['p-present']))
     await waitFor(() => expect(mockNavigate).toHaveBeenCalled())
@@ -152,7 +152,7 @@ describe('GymPage', () => {
     renderPage()
     await screen.findByText('Verbs')
     fireEvent.click(screen.getByRole('button', { name: /present/i }))
-    fireEvent.click(screen.getByLabelText(/help grow this form/i))
+    fireEvent.click(screen.getByLabelText(/generate fresh variations/i))
     fireEvent.click(screen.getByRole('button', { name: /start training/i }))
     await waitFor(() => expect(mockNavigate).toHaveBeenCalled())
     expect(

@@ -1363,7 +1363,11 @@ async def get_cram_cards(
             FROM drill_sentences ds
             LEFT JOIN drill_hint_translations dht
                    ON dht.drill_id = ds.id AND dht.locale = $2
-            WHERE ds.grammar_point_id = gp.id AND ds.reviewed
+            WHERE ds.grammar_point_id = gp.id
+              -- Gym: reviewed drills are shared corpus; a learner also gets the
+              -- drills they generated on demand (created_by = them), private to
+              -- them until a reviewer approves them for all.
+              AND (ds.reviewed OR ds.created_by = auth.uid())
         ) d ON true
         WHERE gp.id = ANY($1::uuid[])
           AND (gp.reviewed = true

@@ -228,10 +228,14 @@ async def gym_generate(
                 GYM_GEN_PER_POINT, ctx["language_name"], ctx["language_code"],
             )
             for d in drills:
+                # created_by = the requester: they get these drills in their own
+                # Gym right away, but they stay private to them until a reviewer
+                # approves them for everyone.
                 await add_drill(
                     conn, ctx["point_id"], d["sentence"], d["answer"],
                     d.get("translation"), d.get("hint"),
                     source="ai", origin_detail=model, decertify=False,
+                    created_by=user["id"],
                 )
                 generated += 1
             # One message per form topped up (regardless of drill yield).
