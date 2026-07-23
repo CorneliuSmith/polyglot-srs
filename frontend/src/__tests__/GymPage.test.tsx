@@ -136,28 +136,28 @@ describe('GymPage', () => {
     expect(mockGenerate).not.toHaveBeenCalled()
   })
 
-  it('generates fresh variations when opted in and short, then starts', async () => {
+  it('opts into generation by passing gen=1 and hands off immediately', async () => {
     renderPage()
     await screen.findByText('Verbs')
     fireEvent.click(screen.getByRole('button', { name: /present/i })) // 12 < 20
-    fireEvent.click(screen.getByLabelText(/generate fresh variations/i))
+    fireEvent.click(screen.getByLabelText(/weave in fresh/i))
     fireEvent.click(screen.getByRole('button', { name: /start training/i }))
-    await waitFor(() => expect(mockGenerate).toHaveBeenCalledWith(['p-present']))
     await waitFor(() => expect(mockNavigate).toHaveBeenCalled())
-    expect(mockNavigate.mock.calls[0][0]).toContain('count=20')
+    const url = mockNavigate.mock.calls[0][0] as string
+    expect(url).toContain('gen=1')
+    expect(url).toContain('count=20')
+    // The page never blocks on generation — that lifecycle moved to the
+    // cram session, which drafts in the background.
+    expect(mockGenerate).not.toHaveBeenCalled()
   })
 
-  it('still starts the session when generation fails (allowance spent)', async () => {
-    mockGenerate.mockRejectedValue({ response: { status: 402 } })
+  it('omits gen from the URL when the toggle stays off', async () => {
     renderPage()
     await screen.findByText('Verbs')
     fireEvent.click(screen.getByRole('button', { name: /present/i }))
-    fireEvent.click(screen.getByLabelText(/generate fresh variations/i))
     fireEvent.click(screen.getByRole('button', { name: /start training/i }))
     await waitFor(() => expect(mockNavigate).toHaveBeenCalled())
-    expect(
-      await screen.findByText(/out of tutor messages/i),
-    ).toBeDefined()
+    expect(mockNavigate.mock.calls[0][0]).not.toContain('gen=1')
   })
 
   it('explains when a language has nothing to train', async () => {

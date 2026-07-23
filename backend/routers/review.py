@@ -29,6 +29,7 @@ from backend.repositories.cards import (
 )
 from backend.repositories.contributor import add_drill
 from backend.repositories.fsrs_weights import get_effective_params
+from backend.repositories.gym import record_gym_attempt
 from backend.repositories.pool import privileged_connection, rls_connection
 from backend.repositories.review import add_card_feedback, insert_review_log
 from backend.repositories.tutor import log_tutor_usage
@@ -158,7 +159,7 @@ async def cram(
     async with rls_connection(user["id"]) as conn:
         support = await _support_locale(conn, user["id"])
         return await get_cram_cards(
-            conn, ids, support_locale=support, count=count
+            conn, ids, support_locale=support, count=count, user_id=user["id"]
         )
 
 
@@ -180,11 +181,13 @@ async def gym_generate(
     user: dict = Depends(get_current_user),
 ):
     """Learner-triggered: generate a few EXTRA drill variations for the chosen
-    Gym forms, drawing ONE message from the learner's tutor allowance (WP41).
+    Gym forms, drawing from the learner's tutor allowance (WP41).
 
-    Generated drills are verified (maker-checker), tagged source='ai', and
-    added to the shared pool WITHOUT de-certifying the form (so generating
-    never hides what you're drilling). A human still vets 'ai' drills later.
+    Cost scales with the work: ONE message per FORM topped up (not per drill),
+    capped to what the allowance actually covers so a run can never overdraw —
+    if you ask for 3 forms with 2 messages left, we top up 2 and stop. Generated
+    drills are verified (maker-checker), tagged source='ai', and added to the
+    shared pool WITHOUT de-certifying the form. A human still vets 'ai' drills.
     """
     if not generation_available():
         raise HTTPException(
@@ -206,8 +209,15 @@ async def gym_generate(
     allowance = await get_allowance(user["id"], language_id)
     reject_if_unavailable(allowance)
 
+    # Cost = one message per form, but never spend more than what's left.
+    if allowance["unlimited"]:
+        contexts = contexts[:GYM_GEN_MAX_POINTS]
+    else:
+        contexts = contexts[: min(len(contexts), allowance["remaining"])]
+
     model = resolve_model("grammar_maker", contexts[0]["language_code"])
     generated = 0
+    charged = 0
     async with privileged_connection() as conn:
         for ctx in contexts:
             drills = await generate_drills(
@@ -219,21 +229,51 @@ async def gym_generate(
                 GYM_GEN_PER_POINT, ctx["language_name"], ctx["language_code"],
             )
             for d in drills:
+                # created_by = the requester: they get these drills in their own
+                # Gym right away, but they stay private to them until a reviewer
+                # approves them for everyone.
                 await add_drill(
                     conn, ctx["point_id"], d["sentence"], d["answer"],
                     d.get("translation"), d.get("hint"),
                     source="ai", origin_detail=model, decertify=False,
+                    created_by=user["id"],
                 )
                 generated += 1
-        # One message spent, regardless of how many drills the batch yielded.
-        await log_tutor_usage(conn, user["id"], language_id, model, kind="gym_gen")
+            # One message per form topped up (regardless of drill yield).
+            await log_tutor_usage(conn, user["id"], language_id, model, kind="gym_gen")
+            charged += 1
 
-    remaining = None if allowance["unlimited"] else max(0, allowance["remaining"] - 1)
+    remaining = (
+        None if allowance["unlimited"]
+        else max(0, allowance["remaining"] - charged)
+    )
     return {
         "generated": generated,
+        "charged": charged,
         "remaining": remaining,
         "unlimited": allowance["unlimited"],
     }
+
+
+class GymAttemptRequest(BaseModel):
+    drill_id: str
+    answer_result: str
+    used_hint: bool = False
+
+
+@router.post("/gym/attempt")
+async def gym_attempt(
+    body: GymAttemptRequest,
+    user: dict = Depends(get_current_user),
+):
+    """Record one Gym answer into the learner's per-drill history (adaptive
+    selection). Ungraded — this never touches the SRS schedule. Best-effort:
+    an unknown drill_id simply no-ops via the FK/RLS."""
+    async with rls_connection(user["id"]) as conn:
+        await record_gym_attempt(
+            conn, user["id"], body.drill_id, body.answer_result, body.used_hint
+        )
+    return {"ok": True}
 
 
 @router.get("/card/{card_id}/detail")

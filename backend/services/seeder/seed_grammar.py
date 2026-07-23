@@ -307,13 +307,13 @@ class GrammarSeeder:
                         """
                         INSERT INTO drill_sentences
                             (grammar_point_id, sentence, answer, translation, hint,
-                             gloss, transliteration, display_order)
-                        VALUES ($1, $2, $3, $4, $5, $6, $7, $8)
+                             gloss, transliteration, display_order, cell)
+                        VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9)
                         RETURNING id
                         """,
                         gp_id, d["sentence"], d["answer"], d["translation"],
                         d["hint"], d.get("gloss"), d.get("transliteration"),
-                        d["display_order"],
+                        d["display_order"], d.get("cell"),
                     )
                     for locale, ht in (d.get("hint_translations") or {}).items():
                         await conn.execute(

@@ -373,6 +373,210 @@ async def test_generated_drills_persist_as_ai_provenance(pool):
     assert all(d["source"] == "ai" for d in drills)
 
 
+async def test_grammar_generation_thickens_cells_balanced(pool):
+    """WP thickness: the admin grammar run fills each THIN paradigm cell up to
+    target (dev-mock), tagging every generated drill with its cell — and leaves
+    cells already at target untouched, so thickening stays balanced."""
+    from types import SimpleNamespace
+    from unittest.mock import AsyncMock, patch
+
+    from backend.services import generation_admin
+
+    lang = await _language(pool, "thick")
+    async with pool.privileged_connection() as conn:
+        pid = str(await conn.fetchval(
+            "INSERT INTO grammar_points (language_id, title, level) "
+            "VALUES ($1, 'Present -ar', 'A1') RETURNING id", lang,
+        ))
+        # Seed unbalanced: yo=2, tú=2 (thin vs target 4), él=4 (at target).
+        for cell, k in (("yo", 2), ("tú", 2), ("él", 4)):
+            for i in range(k):
+                await conn.execute(
+                    "INSERT INTO drill_sentences (grammar_point_id, sentence, "
+                    "answer, cell, source) VALUES ($1, $2, $3, $4, 'seed')",
+                    pid, f"{cell} {{{{answer}}}} {i}.", f"a{i}", cell,
+                )
+
+        async def counts():
+            rows = await conn.fetch(
+                "SELECT cell, count(*) n FROM drill_sentences "
+                "WHERE grammar_point_id = $1 GROUP BY cell", pid,
+            )
+            return {r["cell"]: r["n"] for r in rows}
+
+        before = await counts()
+        assert before == {"yo": 2, "tú": 2, "él": 4}
+
+        with patch(
+            "backend.services.generate.get_settings",
+            return_value=SimpleNamespace(tutor_dev_mock=True, anthropic_api_key=""),
+        ), patch(
+            "backend.services.generate.validate_drill",
+            new=AsyncMock(return_value=True),
+        ):
+            result = await generation_admin.run_generation(
+                conn, kind="grammar", language_id=lang, language_code="es",
+                language_name="Spanish", target_per_item=4, max_items=10,
+            )
+
+        after = await counts()
+        # thin cells grew; the at-target cell was untouched
+        assert after["yo"] > before["yo"]
+        assert after["tú"] > before["tú"]
+        assert after["él"] == 4
+        # every generated drill is tagged 'ai' AND carries its cell
+        gen = await conn.fetch(
+            "SELECT cell, source FROM drill_sentences "
+            "WHERE grammar_point_id = $1 AND source = 'ai'", pid,
+        )
+        assert gen and all(g["source"] == "ai" and g["cell"] in ("yo", "tú")
+                           for g in gen)
+        assert result["items_processed"] == 1
+        assert result["sentences_persisted"] == len(gen)
+
+
+async def test_generated_drills_gated_until_reviewed(pool):
+    """Generated grammar drills land pending (reviewed=false) — excluded from
+    the learner-facing pool — until a reviewer approves them into the corpus;
+    rejecting deletes them."""
+    from types import SimpleNamespace
+    from unittest.mock import AsyncMock, patch
+
+    from backend.repositories.contributor import (
+        list_pending_drills,
+        review_drill,
+    )
+    from backend.services import generation_admin
+
+    lang = await _language(pool, "dgate")
+    async with pool.privileged_connection() as conn:
+        pid = str(await conn.fetchval(
+            "INSERT INTO grammar_points (language_id, title, level) "
+            "VALUES ($1, 'P', 'A1') RETURNING id", lang,
+        ))
+        # Two reviewed seed drills for one cell (below target 4 → thin).
+        for i in range(2):
+            await conn.execute(
+                "INSERT INTO drill_sentences (grammar_point_id, sentence, answer, "
+                "cell, source) VALUES ($1, $2, 'a', 'yo', 'seed')",
+                pid, f"seed {{{{answer}}}} {i}",
+            )
+
+        async def reviewed_count():
+            return await conn.fetchval(
+                "SELECT count(*) FROM drill_sentences "
+                "WHERE grammar_point_id = $1 AND reviewed", pid,
+            )
+
+        assert await reviewed_count() == 2
+
+        with patch(
+            "backend.services.generate.get_settings",
+            return_value=SimpleNamespace(tutor_dev_mock=True, anthropic_api_key=""),
+        ), patch(
+            "backend.services.generate.validate_drill",
+            new=AsyncMock(return_value=True),
+        ):
+            await generation_admin.run_generation(
+                conn, kind="grammar", language_id=lang, language_code="es",
+                language_name="Spanish", target_per_item=5, max_items=10,
+            )
+
+        # Generated drills exist but are pending → NOT in the reviewed pool.
+        assert await reviewed_count() == 2
+        pending = await list_pending_drills(conn, lang)
+        assert pending and all(p["cell"] == "yo" for p in pending)
+
+        # Approve one → it joins the corpus; reject another → it's gone.
+        assert await review_drill(conn, pending[0]["id"], approve=True) is True
+        assert await review_drill(conn, pending[1]["id"], approve=False) is True
+        assert await reviewed_count() == 3          # the approved one is now live
+        gone = await conn.fetchval(
+            "SELECT count(*) FROM drill_sentences WHERE id = $1", pending[1]["id"]
+        )
+        assert gone == 0                             # the rejected one was deleted
+        # re-reviewing a decided drill is a no-op (idempotent gate)
+        assert await review_drill(conn, pending[0]["id"], approve=True) is False
+
+
+async def test_on_demand_drill_is_private_to_owner_until_reviewed(pool):
+    """A learner's on-demand generated drill (created_by = them, reviewed=false)
+    shows in THEIR Gym right away, but not in anyone else's, until a reviewer
+    approves it for everyone."""
+    from backend.repositories.cards import get_cram_cards
+    from backend.repositories.contributor import add_drill, review_drill
+
+    lang = await _language(pool, "priv")
+    a = await _new_user(pool, "priv-a@x")
+    b = await _new_user(pool, "priv-b@x")
+    async with pool.privileged_connection() as conn:
+        pid = str(await conn.fetchval(
+            "INSERT INTO grammar_points (language_id, title, level, reviewed) "
+            "VALUES ($1, 'P', 'A1', true) RETURNING id", lang,
+        ))
+        await conn.execute(
+            "INSERT INTO drill_sentences (grammar_point_id, sentence, answer, "
+            "cell, source) VALUES ($1, 'SEED {{answer}} here', 'y', 'yo', 'seed')",
+            pid,
+        )
+        mine = await add_drill(
+            conn, pid, "MINE {{answer}} only", "z", None, None,
+            source="ai", origin_detail="m", decertify=False, cell="tú",
+            created_by=a,
+        )
+
+    async def sentences_for(user_id):
+        async with pool.rls_connection(user_id) as conn:
+            cards = await get_cram_cards(conn, [pid])
+        return " | ".join(c["sentence"] for c in cards)
+
+    # Owner A sees their private drill; B (and the shared corpus) does not.
+    assert "MINE" in await sentences_for(a)
+    b_before = await sentences_for(b)
+    assert "MINE" not in b_before and "SEED" in b_before
+
+    # A reviewer approves it → now everyone sees it.
+    async with pool.privileged_connection() as conn:
+        assert await review_drill(conn, mine, approve=True) is True
+    assert "MINE" in await sentences_for(b)
+
+
+async def test_gym_progress_accumulates_and_is_isolated(pool):
+    """Adaptive Gym: recording attempts folds into per-drill stats (streak
+    resets on a miss, wrong_form tracked), and RLS keeps each learner's history
+    to themselves."""
+    from backend.repositories.gym import get_gym_progress, record_gym_attempt
+
+    lang = await _language(pool, "gymp")
+    a = await _new_user(pool, "gym-a@x")
+    b = await _new_user(pool, "gym-b@x")
+    async with pool.privileged_connection() as conn:
+        pid = str(await conn.fetchval(
+            "INSERT INTO grammar_points (language_id, title, level) "
+            "VALUES ($1, 'P', 'A1') RETURNING id", lang,
+        ))
+        drill = str(await conn.fetchval(
+            "INSERT INTO drill_sentences (grammar_point_id, sentence, answer, cell) "
+            "VALUES ($1, 'x {{answer}}', 'y', 'yo') RETURNING id", pid,
+        ))
+
+    async with pool.rls_connection(a) as conn:
+        await record_gym_attempt(conn, a, drill, "correct", used_hint=False)
+        await record_gym_attempt(conn, a, drill, "correct", used_hint=False)
+        await record_gym_attempt(conn, a, drill, "wrong_form", used_hint=False)
+        prog = await get_gym_progress(conn, a, [drill])
+    s = prog[drill]
+    assert s["seen"] == 3
+    assert s["misses"] == 1 and s["wrong_form"] == 1
+    assert s["streak"] == 0            # the miss reset the 2-clean streak
+
+    # B has no history for the same drill, and cannot see A's row.
+    async with pool.rls_connection(b) as conn:
+        assert await get_gym_progress(conn, b, [drill]) == {}
+        rows = await conn.fetch("SELECT count(*) AS n FROM gym_progress")
+    assert rows[0]["n"] == 0           # RLS hides A's row from B
+
+
 async def test_generated_examples_fill_gaps_and_skip_covered_words(pool):
     """End-to-end (WP42): the admin generation run fills a word that has NO
     example sentences (dev-mock), tagging them source='ai'; a word already AT

@@ -183,7 +183,7 @@ async def get_curriculum_point(
     read_refs = await get_read_ref_keys(conn, grammar_point_id)
     drills = await conn.fetch(
         "SELECT sentence, answer, translation, hint FROM drill_sentences "
-        "WHERE grammar_point_id = $1 ORDER BY display_order ASC",
+        "WHERE grammar_point_id = $1 AND reviewed ORDER BY display_order ASC",
         grammar_point_id,
     )
     references = []

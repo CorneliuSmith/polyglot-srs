@@ -257,7 +257,7 @@
           "sentence": "Он {{answer}} по-английски.",
           "answer": "говорит",
           "translation": "He speaks English.",
-          "hint": "to speak (he)",
+          "hint": "говорить, он/она",
           "display_order": 3,
           "transliteration": "On ___ po-anglijski.",
           "cell": "3sg"
@@ -293,7 +293,7 @@
           "sentence": "Я {{answer}} по-испански.",
           "answer": "говорю",
           "translation": "I speak Spanish.",
-          "hint": "to speak (I)",
+          "hint": "говорить, я",
           "cell": "1sg",
           "display_order": 7,
           "transliteration": "Ya ___ po-ispanski."
@@ -302,7 +302,7 @@
           "sentence": "Ты {{answer}} газету?",
           "answer": "читаешь",
           "translation": "Are you reading the newspaper?",
-          "hint": "to read (you, informal)",
+          "hint": "читать, ты",
           "cell": "2sg",
           "display_order": 8,
           "transliteration": "Ty' ___ gazetu?"
@@ -311,7 +311,7 @@
           "sentence": "Она {{answer}} в школе.",
           "answer": "работает",
           "translation": "She works at a school.",
-          "hint": "to work (she)",
+          "hint": "работать, он/она",
           "cell": "3sg",
           "display_order": 9,
           "transliteration": "Ona ___ v shkole."
@@ -320,7 +320,7 @@
           "sentence": "Мы {{answer}} музыку.",
           "answer": "слушаем",
           "translation": "We are listening to music.",
-          "hint": "to listen (we)",
+          "hint": "слушать, мы",
           "cell": "1pl",
           "display_order": 10,
           "transliteration": "My' ___ muzy'ku."
@@ -329,7 +329,7 @@
           "sentence": "Вы {{answer}} в Москве?",
           "answer": "живёте",
           "translation": "Do you live in Moscow?",
-          "hint": "to live, you (plural)",
+          "hint": "жить, вы",
           "cell": "2pl",
           "display_order": 11,
           "transliteration": "Vy' ___ v Moskve?"
@@ -338,7 +338,7 @@
           "sentence": "Они {{answer}} по-русски.",
           "answer": "говорят",
           "translation": "They speak Russian.",
-          "hint": "to speak (they)",
+          "hint": "говорить, они",
           "cell": "3pl",
           "display_order": 12,
           "transliteration": "Oni ___ po-russki."
@@ -797,7 +797,7 @@
           "answer": "было",
           "translation": "That was a long time ago.",
           "transliteration": "E'to ___ davno.",
-          "hint": "to be, past — neuter",
+          "hint": "быть, оно",
           "cell": "n",
           "display_order": 7
         },
@@ -805,7 +805,7 @@
           "sentence": "Утром {{answer}} холодно.",
           "answer": "было",
           "translation": "In the morning it was cold.",
-          "hint": "to be + past, neuter 'it'",
+          "hint": "быть, оно",
           "cell": "n",
           "display_order": 8,
           "transliteration": "Utrom ___ holodno."

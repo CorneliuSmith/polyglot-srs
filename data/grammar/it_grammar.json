@@ -458,7 +458,7 @@
           "sentence": "Io {{answer}} studente.",
           "answer": "sono",
           "translation": "I am a student.",
-          "hint": "to be (I)",
+          "hint": "essere, io",
           "display_order": 1,
           "cell": "io"
         },
@@ -466,7 +466,7 @@
           "sentence": "Tu {{answer}} molto alto.",
           "answer": "sei",
           "translation": "You are very tall.",
-          "hint": "to be, you (informal)",
+          "hint": "essere, tu",
           "display_order": 2,
           "cell": "tu"
         },
@@ -474,7 +474,7 @@
           "sentence": "Lei {{answer}} professoressa.",
           "answer": "è",
           "translation": "She is a teacher.",
-          "hint": "to be (she)",
+          "hint": "essere, lui/lei",
           "display_order": 3,
           "cell": "lui/lei"
         },
@@ -482,7 +482,7 @@
           "sentence": "Noi {{answer}} amici.",
           "answer": "siamo",
           "translation": "We are friends.",
-          "hint": "to be (we)",
+          "hint": "essere, noi",
           "display_order": 4,
           "cell": "noi"
         },
@@ -490,7 +490,7 @@
           "sentence": "Voi {{answer}} italiani?",
           "answer": "siete",
           "translation": "Are you (all) Italian?",
-          "hint": "to be, you (plural)",
+          "hint": "essere, voi",
           "display_order": 5,
           "cell": "voi"
         },
@@ -498,7 +498,7 @@
           "sentence": "Loro {{answer}} a casa.",
           "answer": "sono",
           "translation": "They are at home.",
-          "hint": "to be (they)",
+          "hint": "essere, loro",
           "display_order": 6,
           "cell": "loro"
         },
@@ -506,7 +506,7 @@
           "sentence": "Io {{answer}} di Napoli.",
           "answer": "sono",
           "translation": "I am from Naples.",
-          "hint": "to be (I)",
+          "hint": "essere, io",
           "cell": "io",
           "display_order": 7
         },
@@ -514,7 +514,7 @@
           "sentence": "Tu {{answer}} medico?",
           "answer": "sei",
           "translation": "Are you a doctor?",
-          "hint": "to be (you, informal)",
+          "hint": "essere, tu",
           "cell": "tu",
           "display_order": 8
         },
@@ -522,7 +522,7 @@
           "sentence": "Mio padre {{answer}} ingegnere.",
           "answer": "è",
           "translation": "My father is an engineer.",
-          "hint": "to be (he)",
+          "hint": "essere, lui/lei",
           "cell": "lui/lei",
           "display_order": 9
         },
@@ -530,7 +530,7 @@
           "sentence": "Noi {{answer}} pronti.",
           "answer": "siamo",
           "translation": "We are ready.",
-          "hint": "to be (we)",
+          "hint": "essere, noi",
           "cell": "noi",
           "display_order": 10
         },
@@ -538,7 +538,7 @@
           "sentence": "Voi {{answer}} molto gentili.",
           "answer": "siete",
           "translation": "You (all) are very kind.",
-          "hint": "to be (you all)",
+          "hint": "essere, voi",
           "cell": "voi",
           "display_order": 11
         },
@@ -546,7 +546,7 @@
           "sentence": "I miei genitori {{answer}} di Torino.",
           "answer": "sono",
           "translation": "My parents are from Turin.",
-          "hint": "to be (they)",
+          "hint": "essere, loro",
           "cell": "loro",
           "display_order": 12
         }
@@ -588,7 +588,7 @@
           "sentence": "Io {{answer}} vent'anni.",
           "answer": "ho",
           "translation": "I am twenty years old.",
-          "hint": "to have (I)",
+          "hint": "avere, io",
           "display_order": 1,
           "cell": "io"
         },
@@ -596,7 +596,7 @@
           "sentence": "Tu {{answer}} fame?",
           "answer": "hai",
           "translation": "Are you hungry?",
-          "hint": "to have, you (informal)",
+          "hint": "avere, tu",
           "display_order": 2,
           "cell": "tu"
         },
@@ -604,7 +604,7 @@
           "sentence": "Lei {{answer}} un gatto.",
           "answer": "ha",
           "translation": "She has a cat.",
-          "hint": "to have (she)",
+          "hint": "avere, lui/lei",
           "display_order": 3,
           "cell": "lui/lei"
         },
@@ -612,7 +612,7 @@
           "sentence": "Noi {{answer}} una domanda.",
           "answer": "abbiamo",
           "translation": "We have a question.",
-          "hint": "to have (we)",
+          "hint": "avere, noi",
           "display_order": 4,
           "cell": "noi"
         },
@@ -620,7 +620,7 @@
           "sentence": "Voi {{answer}} ragione.",
           "answer": "avete",
           "translation": "You (all) are right.",
-          "hint": "to have, you (plural)",
+          "hint": "avere, voi",
           "display_order": 5,
           "cell": "voi"
         },
@@ -628,7 +628,7 @@
           "sentence": "Loro {{answer}} sete.",
           "answer": "hanno",
           "translation": "They are thirsty.",
-          "hint": "to have (they)",
+          "hint": "avere, loro",
           "display_order": 6,
           "cell": "loro"
         },
@@ -636,7 +636,7 @@
           "sentence": "Io {{answer}} due sorelle.",
           "answer": "ho",
           "translation": "I have two sisters.",
-          "hint": "to have (I)",
+          "hint": "avere, io",
           "cell": "io",
           "display_order": 7
         },
@@ -644,7 +644,7 @@
           "sentence": "Tu {{answer}} una penna?",
           "answer": "hai",
           "translation": "Do you have a pen?",
-          "hint": "to have (you, informal)",
+          "hint": "avere, tu",
           "cell": "tu",
           "display_order": 8
         },
@@ -652,7 +652,7 @@
           "sentence": "Mio fratello {{answer}} un cane.",
           "answer": "ha",
           "translation": "My brother has a dog.",
-          "hint": "to have (he)",
+          "hint": "avere, lui/lei",
           "cell": "lui/lei",
           "display_order": 9
         },
@@ -660,7 +660,7 @@
           "sentence": "Noi {{answer}} tempo oggi.",
           "answer": "abbiamo",
           "translation": "We have time today.",
-          "hint": "to have (we)",
+          "hint": "avere, noi",
           "cell": "noi",
           "display_order": 10
         },
@@ -668,7 +668,7 @@
           "sentence": "Voi {{answer}} figli?",
           "answer": "avete",
           "translation": "Do you (all) have children?",
-          "hint": "to have (you all)",
+          "hint": "avere, voi",
           "cell": "voi",
           "display_order": 11
         },
@@ -676,7 +676,7 @@
           "sentence": "Loro {{answer}} una casa grande.",
           "answer": "hanno",
           "translation": "They have a big house.",
-          "hint": "to have (they)",
+          "hint": "avere, loro",
           "cell": "loro",
           "display_order": 12
         }
@@ -718,7 +718,7 @@
           "sentence": "Noi {{answer}} italiano.",
           "answer": "parliamo",
           "translation": "We speak Italian.",
-          "hint": "to speak (we)",
+          "hint": "parlare, noi",
           "display_order": 1,
           "cell": "noi"
         },
@@ -726,7 +726,7 @@
           "sentence": "Lei {{answer}} in un ufficio.",
           "answer": "lavora",
           "translation": "She works in an office.",
-          "hint": "to work (she)",
+          "hint": "lavorare, lui/lei",
           "display_order": 2,
           "cell": "lui/lei"
         },
@@ -734,7 +734,7 @@
           "sentence": "Tu {{answer}} il cioccolato?",
           "answer": "ami",
           "translation": "Do you love chocolate?",
-          "hint": "to love, you (informal)",
+          "hint": "amare, tu",
           "display_order": 3,
           "cell": "tu"
         },
@@ -742,7 +742,7 @@
           "sentence": "Loro {{answer}} a calcio.",
           "answer": "giocano",
           "translation": "They play football.",
-          "hint": "to play (they)",
+          "hint": "giocare, loro",
           "display_order": 4,
           "cell": "loro"
         },
@@ -750,7 +750,7 @@
           "sentence": "Voi {{answer}} a Roma?",
           "answer": "abitate",
           "translation": "Do you (all) live in Rome?",
-          "hint": "to live, you (plural)",
+          "hint": "abitare, voi",
           "display_order": 5,
           "cell": "voi"
         },
@@ -758,7 +758,7 @@
           "sentence": "Io {{answer}} il pane.",
           "answer": "compro",
           "translation": "I buy the bread.",
-          "hint": "to buy (I)",
+          "hint": "comprare, io",
           "display_order": 6,
           "cell": "io"
         },
@@ -766,7 +766,7 @@
           "sentence": "Io {{answer}} in ospedale.",
           "answer": "lavoro",
           "translation": "I work in a hospital.",
-          "hint": "to work (I)",
+          "hint": "lavorare, io",
           "cell": "io",
           "display_order": 7
         },
@@ -774,7 +774,7 @@
           "sentence": "Tu {{answer}} a che ora?",
           "answer": "arrivi",
           "translation": "What time do you arrive?",
-          "hint": "to arrive (you, informal)",
+          "hint": "arrivare, tu",
           "cell": "tu",
           "display_order": 8
         },
@@ -782,7 +782,7 @@
           "sentence": "Lui {{answer}} la cena.",
           "answer": "prepara",
           "translation": "He prepares dinner.",
-          "hint": "to prepare (he)",
+          "hint": "preparare, lui/lei",
           "cell": "lui/lei",
           "display_order": 9
         },
@@ -790,7 +790,7 @@
           "sentence": "Noi {{answer}} la radio.",
           "answer": "ascoltiamo",
           "translation": "We listen to the radio.",
-          "hint": "to listen (we)",
+          "hint": "ascoltare, noi",
           "cell": "noi",
           "display_order": 10
         },
@@ -798,7 +798,7 @@
           "sentence": "Voi {{answer}} lo spagnolo?",
           "answer": "studiate",
           "translation": "Do you (all) study Spanish?",
-          "hint": "to study (you all)",
+          "hint": "studiare, voi",
           "cell": "voi",
           "display_order": 11
         },
@@ -806,7 +806,7 @@
           "sentence": "I bambini {{answer}} in giardino.",
           "answer": "giocano",
           "translation": "The children play in the garden.",
-          "hint": "to play (they)",
+          "hint": "giocare, loro",
           "cell": "loro",
           "display_order": 12
         }
@@ -848,7 +848,7 @@
           "sentence": "Io {{answer}} il treno alle otto.",
           "answer": "prendo",
           "translation": "I take the train at eight.",
-          "hint": "to take (I)",
+          "hint": "prendere, io",
           "display_order": 1,
           "cell": "io"
         },
@@ -856,7 +856,7 @@
           "sentence": "Noi {{answer}} una lettera.",
           "answer": "scriviamo",
           "translation": "We are writing a letter.",
-          "hint": "to write (we)",
+          "hint": "scrivere, noi",
           "display_order": 2,
           "cell": "noi"
         },
@@ -864,7 +864,7 @@
           "sentence": "Loro {{answer}} molto.",
           "answer": "dormono",
           "translation": "They sleep a lot.",
-          "hint": "to sleep (they)",
+          "hint": "dormire, loro",
           "display_order": 3,
           "cell": "loro"
         },
@@ -872,7 +872,7 @@
           "sentence": "Lei {{answer}} il lavoro alle sei.",
           "answer": "finisce",
           "translation": "She finishes work at six.",
-          "hint": "to finish, she (-isc- type)",
+          "hint": "finire, lui/lei",
           "display_order": 4,
           "cell": "lui/lei"
         },
@@ -880,7 +880,7 @@
           "sentence": "Tu {{answer}} la musica?",
           "answer": "senti",
           "translation": "Do you hear the music?",
-          "hint": "to hear, you (informal)",
+          "hint": "sentire, tu",
           "display_order": 5,
           "cell": "tu"
         },
@@ -888,7 +888,7 @@
           "sentence": "Voi {{answer}} un dolce?",
           "answer": "preferite",
           "translation": "Do you (all) prefer a dessert?",
-          "hint": "to prefer, you (plural)",
+          "hint": "preferire, voi",
           "display_order": 6,
           "cell": "voi"
         },
@@ -896,7 +896,7 @@
           "sentence": "Io {{answer}} molte lettere.",
           "answer": "scrivo",
           "translation": "I write many letters.",
-          "hint": "to write (I)",
+          "hint": "scrivere, io",
           "cell": "io",
           "display_order": 7
         },
@@ -904,7 +904,7 @@
           "sentence": "Tu {{answer}} il caffè?",
           "answer": "prendi",
           "translation": "Are you having coffee?",
-          "hint": "to take (you, informal)",
+          "hint": "prendere, tu",
           "cell": "tu",
           "display_order": 8
         },
@@ -912,7 +912,7 @@
           "sentence": "Lei {{answer}} fino a tardi.",
           "answer": "dorme",
           "translation": "She sleeps until late.",
-          "hint": "to sleep (she)",
+          "hint": "dormire, lui/lei",
           "cell": "lui/lei",
           "display_order": 9
         },
@@ -920,7 +920,7 @@
           "sentence": "Noi {{answer}} il lavoro alle cinque.",
           "answer": "finiamo",
           "translation": "We finish work at five.",
-          "hint": "to finish (we)",
+          "hint": "finire, noi",
           "cell": "noi",
           "display_order": 10
         },
@@ -928,7 +928,7 @@
           "sentence": "Voi {{answer}} il rumore?",
           "answer": "sentite",
           "translation": "Do you (all) hear the noise?",
-          "hint": "to hear (you all)",
+          "hint": "sentire, voi",
           "cell": "voi",
           "display_order": 11
         },
@@ -936,7 +936,7 @@
           "sentence": "Loro {{answer}} il giornale.",
           "answer": "leggono",
           "translation": "They read the newspaper.",
-          "hint": "to read (they)",
+          "hint": "leggere, loro",
           "cell": "loro",
           "display_order": 12
         }
@@ -2342,7 +2342,7 @@
           "sentence": "{{answer}} la finestra, per favore! (tu)",
           "answer": "apri",
           "translation": "Open the window, please!",
-          "hint": "open! — to one person (tu)",
+          "hint": "aprire, tu",
           "cell": "tu",
           "display_order": 1
         },
@@ -2350,7 +2350,7 @@
           "sentence": "{{answer}} più piano, il bambino dorme. (tu)",
           "answer": "parla",
           "translation": "Speak more quietly, the child is sleeping.",
-          "hint": "speak! — to one person (tu)",
+          "hint": "parlare, tu",
           "cell": "tu",
           "display_order": 2
         },

@@ -713,3 +713,35 @@ export async function reviewExample(
     { approve },
   )
 }
+
+// ── Generated-drill review gate (Contributor › Review) ─────────────────────
+
+export interface PendingDrill {
+  id: string
+  sentence: string
+  answer: string
+  translation: string | null
+  hint: string | null
+  cell: string | null
+  origin_detail: string | null
+  point_title: string
+  point_id: string
+}
+
+/** Generated grammar drills awaiting review for a language — hidden from
+ * learners until approved. */
+export async function getPendingDrills(languageId: string): Promise<PendingDrill[]> {
+  const response = await apiClient.get<{ pending: PendingDrill[] }>(
+    '/api/contribute/review/generated-drills',
+    { params: { language_id: languageId } },
+  )
+  return response.data.pending
+}
+
+/** Approve (→ permanent corpus) or reject (→ deleted) a pending generated drill. */
+export async function reviewDrill(drillId: string, approve: boolean): Promise<void> {
+  await apiClient.post(
+    `/api/contribute/review/generated-drills/${drillId}/review`,
+    { approve },
+  )
+}

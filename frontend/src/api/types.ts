@@ -9,6 +9,9 @@ export interface DueCard {
   id: string
   card_type: 'grammar' | 'vocabulary' | 'personal'
   card_id: string
+  // Real drill_sentences.id on Gym/cram grammar cards — lets the Gym record
+  // per-drill practice history for adaptive selection. Absent elsewhere.
+  drill_id?: string | null
   sentence: string
   correct_answer: string
   hint?: string | null

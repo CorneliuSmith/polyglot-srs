@@ -180,13 +180,14 @@ class TestGymGenerateEndpoint:
         assert resp.status_code == 200
         body = resp.json()
         assert body["generated"] == 2          # both drills persisted
+        assert body["charged"] == 1            # one form topped up -> one message
         assert body["remaining"] == 16         # 17 - 1 message drawn
         assert body["unlimited"] is False
         assert mock_add.await_count == 2
         # the added drills are tagged 'ai' and DON'T de-certify the form
         assert mock_add.await_args.kwargs["source"] == "ai"
         assert mock_add.await_args.kwargs["decertify"] is False
-        # exactly ONE message is charged regardless of drill count
+        # one message per FORM (here a single form), not per drill
         mock_log.assert_awaited_once()
         assert mock_log.await_args.kwargs["kind"] == "gym_gen"
 
@@ -258,6 +259,7 @@ def _point_row(point_id: str, n_drills: int, code: str = "tr") -> dict:
         "point_id": point_id,
         "title": "Locative case",
         "language_code": code,
+        "drill_ids": [f"{point_id[:-2]}{i:02d}" for i in range(n_drills)],
         "sentences": [f"S{i} {{{{answer}}}}." for i in range(n_drills)],
         "answers": [f"a{i}" for i in range(n_drills)],
         "hints": [None] * n_drills,
@@ -478,3 +480,29 @@ class TestLikeEscape:
         assert _like_escape("100%") == "100\\%"
         assert _like_escape("a_b") == "a\\_b"
         assert _like_escape("back\\slash") == "back\\\\slash"
+
+
+class TestGymAttemptEndpoint:
+    DRILL = "cccccccc-cccc-cccc-cccc-cccccccccccc"
+
+    def test_requires_auth(self, client):
+        assert client.post(
+            "/api/review/gym/attempt",
+            json={"drill_id": self.DRILL, "answer_result": "correct"},
+        ).status_code == 401
+
+    def test_records_attempt(self, client):
+        with patch("backend.routers.review.record_gym_attempt",
+                   new=AsyncMock()) as mock_rec:
+            resp = client.post(
+                "/api/review/gym/attempt",
+                json={"drill_id": self.DRILL, "answer_result": "wrong_form",
+                      "used_hint": True},
+                headers=_auth_headers(),
+            )
+        assert resp.status_code == 200
+        assert resp.json() == {"ok": True}
+        # (conn, user_id, drill_id, answer_result, used_hint)
+        assert mock_rec.await_args.args[2] == self.DRILL
+        assert mock_rec.await_args.args[3] == "wrong_form"
+        assert mock_rec.await_args.args[4] is True

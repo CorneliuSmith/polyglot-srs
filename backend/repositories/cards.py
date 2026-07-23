@@ -11,7 +11,10 @@ from datetime import UTC, datetime
 import asyncpg
 
 from backend.repositories.curriculum import get_read_ref_keys, resolve_related
+from backend.repositories.gym import get_gym_progress
 from backend.services.extract import ANSWER_MARKER, make_cloze
+from backend.services.gym_manifest import nonstandard_point_titles
+from backend.services.gym_weight import drill_weight
 from backend.services.references import clean_references
 from backend.services.srs_stages import stage_for
 
@@ -184,7 +187,7 @@ async def get_due_cards(
             FROM drill_sentences ds
             LEFT JOIN drill_hint_translations dht
                    ON dht.drill_id = ds.id AND dht.locale = $3
-            WHERE ds.grammar_point_id = gp.id
+            WHERE ds.grammar_point_id = gp.id AND ds.reviewed
         ) d ON true
         LEFT JOIN LATERAL (
             SELECT rl.prompt_sentence
@@ -939,7 +942,7 @@ async def get_card_details_bulk(
             FROM drill_sentences ds
             LEFT JOIN drill_hint_translations dht
                    ON dht.drill_id = ds.id AND dht.locale = $2
-            WHERE ds.grammar_point_id = ANY($1::uuid[])
+            WHERE ds.grammar_point_id = ANY($1::uuid[]) AND ds.reviewed
             ORDER BY ds.display_order ASC
             """,
             grammar_ids,
@@ -1234,7 +1237,7 @@ async def get_card_detail(
         FROM drill_sentences ds
         LEFT JOIN drill_hint_translations dht
                ON dht.drill_id = ds.id AND dht.locale = $2
-        WHERE ds.grammar_point_id = $1
+        WHERE ds.grammar_point_id = $1 AND ds.reviewed
         ORDER BY ds.display_order ASC
         LIMIT 5
         """,
@@ -1302,6 +1305,13 @@ async def get_generation_context(
         "ORDER BY display_order ASC LIMIT 6",
         point_id,
     )
+    # Per-cell drill counts drive BALANCED thickening — generate for the cells
+    # that are thin, not the ones already covered. Empty for non-paradigm points.
+    cell_rows = await conn.fetch(
+        "SELECT cell, count(*) AS n FROM drill_sentences "
+        "WHERE grammar_point_id = $1 AND cell IS NOT NULL GROUP BY cell",
+        point_id,
+    )
     return {
         "point_id": str(point_id),
         "title": row["title"],
@@ -1310,6 +1320,7 @@ async def get_generation_context(
         "language_code": row["language_code"],
         "language_name": row["language_name"],
         "examples": [d["sentence"] for d in drills],
+        "cell_counts": {r["cell"]: r["n"] for r in cell_rows},
     }
 
 
@@ -1319,6 +1330,7 @@ async def get_cram_cards(
     per_point: int = 3,
     support_locale: str | None = None,
     count: int | None = None,
+    user_id: str | None = None,
 ) -> list[dict]:
     """Ungraded practice cards for a set of grammar points (WP13f Quick-Cram).
 
@@ -1338,12 +1350,14 @@ async def get_cram_cards(
             gp.id    AS point_id,
             gp.title AS title,
             l.code   AS language_code,
+            d.drill_ids,
             d.sentences, d.answers, d.hints, d.translations,
             d.glosses, d.transliterations
         FROM grammar_points gp
         JOIN languages l ON gp.language_id = l.id
         LEFT JOIN LATERAL (
             SELECT
+                array_agg(ds.id          ORDER BY ds.display_order, ds.id) AS drill_ids,
                 array_agg(ds.sentence    ORDER BY ds.display_order, ds.id) AS sentences,
                 array_agg(ds.answer      ORDER BY ds.display_order, ds.id) AS answers,
                 array_agg(COALESCE(dht.hint, ds.hint)
@@ -1356,6 +1370,10 @@ async def get_cram_cards(
             LEFT JOIN drill_hint_translations dht
                    ON dht.drill_id = ds.id AND dht.locale = $2
             WHERE ds.grammar_point_id = gp.id
+              -- Gym: reviewed drills are shared corpus; a learner also gets the
+              -- drills they generated on demand (created_by = them), private to
+              -- them until a reviewer approves them for all.
+              AND (ds.reviewed OR ds.created_by = auth.uid())
         ) d ON true
         WHERE gp.id = ANY($1::uuid[])
           AND (gp.reviewed = true
@@ -1367,46 +1385,62 @@ async def get_cram_cards(
     today = datetime.now(UTC).date().isoformat()
     now = datetime.now(UTC)
 
-    # Per point, a seeded shuffle of ALL its drill indices — stable within a
-    # day (a mid-cram reload keeps the same set), fresh tomorrow.
-    per_point_order: list[tuple] = []  # (row, [drill indices])
-    for r in rows:
-        sentences = r["sentences"] or []
-        if not sentences:
-            continue
-        order = list(range(len(sentences)))
-        random.Random(f"{r['point_id']}:{today}").shuffle(order)
-        per_point_order.append((r, order))
+    # Adaptive weighting (WP): score each candidate drill from the learner's
+    # per-drill history so struggled / unseen / long-unseen drills surface and
+    # cleanly-mastered ones fade. Deterministic within a day (a mid-cram reload
+    # keeps the same set); adapts across sessions as the history grows. With no
+    # user_id, every drill scores as unseen → uniform selection (old behaviour).
+    all_drill_ids = [
+        str(did) for r in rows for did in (r["drill_ids"] or []) if did is not None
+    ]
+    progress = (
+        await get_gym_progress(conn, user_id, all_drill_ids)
+        if user_id and all_drill_ids
+        else {}
+    )
+    rng = random.Random(f"{user_id}:{today}")
 
-    # Choose the (point, drill) pairs. With an explicit *count* the session
-    # round-robins across the chosen forms and draws as many drills as it needs
-    # — up to every one authored — so a real Gym set isn't capped at three per
-    # form. Without count, keep the classic per_point sample.
+    def _priority(r: asyncpg.Record, i: int) -> float:
+        drill_ids = r["drill_ids"] or []
+        did = str(drill_ids[i]) if i < len(drill_ids) and drill_ids[i] else None
+        # A point the manifest marks non-standard is an irregular form category
+        # (verbs of motion, etc.) — its drills get the irregular boost so they
+        # surface more, and float back up when the learner keeps failing them.
+        irregular = r["title"] in nonstandard_point_titles(r["language_code"])
+        weight = drill_weight(
+            progress.get(did) if did else None, is_irregular=irregular
+        )
+        # Efraimidis–Spirakis weighted sampling without replacement: a higher
+        # weight makes a higher key more likely, so top-k favours heavy drills
+        # while keeping variety.
+        return rng.random() ** (1.0 / max(weight, 1e-6))
+
+    # Choose the (point, drill) pairs. With an explicit *count* the whole set is
+    # weight-ranked across the chosen forms and drawn up to every one authored —
+    # a real Gym set isn't capped at three per form. Without count, keep the
+    # per_point cap, weight-ranked within each form.
     selected: list[tuple] = []  # (row, drill index)
     if count is not None:
         target = max(1, min(count, 100))
-        depth = 0
-        while len(selected) < target and per_point_order:
-            progressed = False
-            for r, order in per_point_order:
-                if depth < len(order):
-                    selected.append((r, order[depth]))
-                    progressed = True
-                    if len(selected) >= target:
-                        break
-            if not progressed:
-                break  # every form exhausted before reaching the target
-            depth += 1
+        candidates = [
+            (r, i) for r in rows for i in range(len(r["sentences"] or []))
+        ]
+        candidates.sort(key=lambda ri: _priority(ri[0], ri[1]), reverse=True)
+        selected = candidates[:target]
     else:
-        for r, order in per_point_order:
-            for i in order[: min(per_point, len(order))]:
-                selected.append((r, i))
+        for r in rows:
+            idxs = list(range(len(r["sentences"] or [])))
+            idxs.sort(key=lambda i: _priority(r, i), reverse=True)
+            selected.extend((r, i) for i in idxs[: min(per_point, len(idxs))])
 
     cards: list[dict] = []
     for r, i in selected:
         sentences = r["sentences"]
         cards.append({
                 "id": f"cram-{r['point_id']}-{i}",
+                # Real drill row id — lets the Gym record per-drill practice
+                # history (adaptive weighting). None only for legacy rows.
+                "drill_id": str(r["drill_ids"][i]) if r["drill_ids"] else None,
                 "card_type": "grammar",
                 "card_id": str(r["point_id"]),
                 "title": r["title"],

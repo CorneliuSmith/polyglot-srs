@@ -230,6 +230,7 @@ async def sample_placement_items(
             WHERE gp.language_id = $1
               AND gp.level IS NOT NULL
               AND gp.reviewed = true
+              AND ds.reviewed
               AND ds.sentence LIKE '%' || $3 || '%'
         ) ranked
         WHERE rn <= $2

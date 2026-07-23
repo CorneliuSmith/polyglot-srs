@@ -322,10 +322,14 @@ async def add_drill(
     source: str = "human",
     origin_detail: str | None = None,
     decertify: bool = True,
+    cell: str | None = None,
+    created_by: str | None = None,
 ) -> str:
     """Insert a drill sentence (privileged). *source* tags provenance (WP38):
     'human' for a drill added by hand (the default — never mistaken for
     seed/import), 'ai' for a generated one, with the model in *origin_detail*.
+    *cell* is the paradigm cell the drill exercises (for balanced generation and
+    the adaptive gym); None for non-paradigm drills.
 
     A hand edit de-certifies the point (reviewed → false) so a second reviewer
     re-approves. Gym on-demand generation passes decertify=False: the generated
@@ -335,16 +339,19 @@ async def add_drill(
         "SELECT COALESCE(MAX(display_order), 0) + 1 FROM drill_sentences WHERE grammar_point_id = $1",
         point_id,
     )
+    # Generated ('ai') drills wait for review before learners see them; seed/
+    # human/imported drills are trusted and go in visible.
+    reviewed = source != "ai"
     drill_id = await conn.fetchval(
         """
         INSERT INTO drill_sentences
             (grammar_point_id, sentence, answer, translation, hint, display_order,
-             source, origin_detail)
-        VALUES ($1, $2, $3, $4, $5, $6, $7, $8)
+             source, origin_detail, cell, reviewed, created_by)
+        VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11)
         RETURNING id
         """,
         point_id, sentence, answer, translation or None, hint or None, next_order,
-        source, origin_detail,
+        source, origin_detail, cell, reviewed, created_by,
     )
     if decertify:
         await conn.execute(
@@ -549,6 +556,61 @@ async def review_example(
     return result.rsplit(" ", 1)[-1] == "1"
 
 
+async def list_pending_drills(
+    conn: asyncpg.Connection, language_id: str, limit: int = 50
+) -> list[dict]:
+    """Generated grammar drills awaiting review for a language (WP gate): the
+    cloze sentence, answer, its form (cell), the point it belongs to, and the
+    model that made it — for the Contributor › Review 'Generated drills' panel."""
+    rows = await conn.fetch(
+        """
+        SELECT ds.id, ds.sentence, ds.answer, ds.translation, ds.hint, ds.cell,
+               ds.origin_detail, gp.title AS point_title, gp.id AS point_id
+        FROM drill_sentences ds
+        JOIN grammar_points gp ON ds.grammar_point_id = gp.id
+        WHERE gp.language_id = $1 AND ds.source = 'ai' AND ds.reviewed = false
+        ORDER BY gp.display_order, ds.created_at ASC
+        LIMIT $2
+        """,
+        language_id, limit,
+    )
+    return [
+        {
+            "id": str(r["id"]),
+            "sentence": r["sentence"],
+            "answer": r["answer"],
+            "translation": r["translation"],
+            "hint": r["hint"],
+            "cell": r["cell"],
+            "origin_detail": r["origin_detail"],
+            "point_title": r["point_title"],
+            "point_id": str(r["point_id"]),
+        }
+        for r in rows
+    ]
+
+
+async def review_drill(
+    conn: asyncpg.Connection, drill_id: str, approve: bool
+) -> bool:
+    """Approve (reviewed → true, now served to learners as permanent corpus) or
+    reject (deleted) a pending generated drill. Only ever touches an unreviewed
+    'ai' row. Returns True if a row changed."""
+    if approve:
+        result = await conn.execute(
+            "UPDATE drill_sentences SET reviewed = true "
+            "WHERE id = $1 AND source = 'ai' AND reviewed = false",
+            drill_id,
+        )
+    else:
+        result = await conn.execute(
+            "DELETE FROM drill_sentences "
+            "WHERE id = $1 AND source = 'ai' AND reviewed = false",
+            drill_id,
+        )
+    return result.rsplit(" ", 1)[-1] == "1"
+
+
 async def vocab_needing_examples(
     conn: asyncpg.Connection,
     language_id: str,
@@ -590,6 +652,50 @@ async def vocab_needing_examples(
             "part_of_speech": r["part_of_speech"],
             "definition": r["definition"],
             "example_count": r["example_count"],
+        })
+    return out
+
+
+async def points_with_thin_cells(
+    conn: asyncpg.Connection,
+    language_id: str,
+    target_per_cell: int,
+    limit: int,
+) -> list[dict]:
+    """Paradigm points that have at least one cell BELOW *target_per_cell*, with
+    their per-cell drill counts — the work-list for balanced thickening. Points
+    with no cells (non-paradigm) are excluded; they thicken via
+    points_needing_drills instead."""
+    rows = await conn.fetch(
+        """
+        WITH cc AS (
+            SELECT grammar_point_id AS pid, cell, count(*) AS n
+            FROM drill_sentences
+            WHERE cell IS NOT NULL
+            GROUP BY grammar_point_id, cell
+        )
+        SELECT gp.id, gp.title, gp.explanation,
+               jsonb_object_agg(cc.cell, cc.n) AS cell_counts
+        FROM grammar_points gp
+        JOIN cc ON cc.pid = gp.id
+        WHERE gp.language_id = $1
+        GROUP BY gp.id, gp.title, gp.explanation, gp.display_order
+        HAVING min(cc.n) < $2
+        ORDER BY gp.display_order, gp.title
+        LIMIT $3
+        """,
+        language_id, target_per_cell, limit,
+    )
+    out = []
+    for r in rows:
+        cc = r["cell_counts"]
+        if isinstance(cc, str):
+            cc = json.loads(cc)
+        out.append({
+            "point_id": str(r["id"]),
+            "title": r["title"],
+            "explanation": r["explanation"],
+            "cell_counts": cc or {},
         })
     return out
 

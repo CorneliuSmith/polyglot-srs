@@ -93,11 +93,14 @@ def _mock_drills(point: dict, n: int) -> list[dict]:
 
 
 async def make_drills(
-    point: dict, n: int, language: str, model: str | None = None
+    point: dict, n: int, language: str, model: str | None = None,
+    cell: str | None = None,
 ) -> list[dict]:
     """Draft N candidate drills for a grammar point.
 
     *point*: {title, explanation, examples: [existing drill sentences]}.
+    *cell*: when set, every drill must exercise THAT paradigm cell (e.g. the
+    "vosotros" form) so thickening stays balanced instead of piling on one cell.
     Returns raw candidate dicts (unverified) — always run them through
     check_drills() before storing.
     """
@@ -105,6 +108,9 @@ async def make_drills(
     if getattr(settings, "tutor_dev_mock", False):
         return _mock_drills(point, n)
     examples = "\n".join(f"  - {s}" for s in (point.get("examples") or [])[:6])
+    cell_rule = (
+        f" EVERY drill must exercise the '{cell}' form specifically." if cell else ""
+    )
     client = AsyncAnthropic(api_key=settings.anthropic_api_key)
     resp = await client.messages.create(
         model=model or resolve_model("grammar_maker", language),
@@ -112,20 +118,21 @@ async def make_drills(
         system=(
             f"You author fill-in-the-blank grammar drills in {language} for a "
             f"spaced-repetition app. Produce {n} NEW drills for the grammar point "
-            f'"{point.get("title")}". Vary the person, tense, and vocabulary; keep '
-            f"each natural and unambiguous. Rules, strictly: the sentence contains "
-            f"the literal token {{{{answer}}}} exactly once where the target form "
-            f"goes; the answer is a SINGLE word/word-form; the answer must NOT "
-            f"appear anywhere else in the visible sentence; the hint must NOT "
-            f"contain the answer; give a natural English translation. Do not repeat "
-            f"the example sentences."
+            f'"{point.get("title")}".{cell_rule} Vary the vocabulary and sentence '
+            f"frame; keep each natural and unambiguous. Rules, strictly: the "
+            f"sentence contains the literal token {{{{answer}}}} exactly once where "
+            f"the target form goes; the answer is a SINGLE word/word-form; the "
+            f"answer must NOT appear anywhere else in the visible sentence; the "
+            f"hint must NOT contain the answer; give a natural English translation. "
+            f"Do not repeat the example sentences."
         ),
         messages=[{
             "role": "user",
             "content": (
                 f"Grammar point: {point.get('title')}\n"
                 f"Explanation: {point.get('explanation') or '(none)'}\n"
-                f"Existing drills (do not repeat):\n{examples or '  (none)'}"
+                + (f"Target form (cell): {cell}\n" if cell else "")
+                + f"Existing drills (do not repeat):\n{examples or '  (none)'}"
             ),
         }],
         output_config={"format": {"type": "json_schema", "schema": _DRILL_SCHEMA}},
@@ -181,10 +188,12 @@ async def generate_drills(
     language: str,
     language_code: str,
     maker_model: str | None = None,
+    cell: str | None = None,
 ) -> list[dict]:
     """Maker then checker. Returns the candidates that PASSED, each carrying its
-    verdict; the caller persists them (source='ai')."""
-    made = await make_drills(point, n, language, maker_model)
+    verdict; the caller persists them (source='ai'). When *cell* is set, the
+    drills all exercise that paradigm cell (balanced thickening)."""
+    made = await make_drills(point, n, language, maker_model, cell=cell)
     checked = await check_drills(language_code, made)
     return [c for c in checked if c["accepted"]]
 

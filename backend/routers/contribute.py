@@ -58,6 +58,7 @@ from backend.repositories.contributor import (
     list_drills,
     list_feedback,
     list_grammar_points,
+    list_pending_drills,
     list_pending_examples,
     list_review_notes,
     list_suggestions,
@@ -67,6 +68,7 @@ from backend.repositories.contributor import (
     resolve_feedback,
     resolve_review_note,
     resolve_translation_review,
+    review_drill,
     review_example,
     revoke_role,
     save_ai_check,
@@ -463,6 +465,71 @@ async def generation_review_example(
         raise HTTPException(
             status_code=status.HTTP_404_NOT_FOUND,
             detail="No pending generated example with that id.",
+        )
+    return {"approved": body.approve}
+
+
+# ---------------------------------------------------------------------------
+# Generated-drill review gate (Contributor › Review tab, reviewer-accessible).
+# Generated grammar drills land pending; a reviewer approves them into the
+# corpus or rejects them. Parallel to the vocab example gate above, but exposed
+# to reviewers (not admin-only) since it lives in the Review workspace.
+# ---------------------------------------------------------------------------
+
+
+@router.get("/review/generated-drills")
+async def review_generated_drills(
+    language_id: str,
+    limit: int = 50,
+    user: dict = Depends(get_current_user),
+):
+    """Generated grammar drills awaiting review for a language — hidden from
+    learners until approved here (reviewer or admin for the language)."""
+    async with rls_connection(user["id"]) as conn:
+        roles = await get_roles(conn, user["id"])
+    if not can_review(roles, language_id):
+        raise HTTPException(
+            status_code=status.HTTP_403_FORBIDDEN,
+            detail="Only a reviewer or admin for this language can review drills",
+        )
+    limit = max(1, min(limit, 200))
+    async with privileged_connection() as conn:
+        return {"pending": await list_pending_drills(conn, language_id, limit)}
+
+
+class DrillReviewRequest(BaseModel):
+    approve: bool
+
+
+@router.post("/review/generated-drills/{drill_id}/review")
+async def review_generated_drill(
+    drill_id: str,
+    body: DrillReviewRequest,
+    user: dict = Depends(get_current_user),
+):
+    """Approve (→ permanent corpus, served to learners) or reject (→ deleted) a
+    pending generated drill (reviewer or admin for its language). 404 if it
+    isn't a pending 'ai' row."""
+    async with rls_connection(user["id"]) as conn:
+        roles = await get_roles(conn, user["id"])
+        lang = await conn.fetchval(
+            "SELECT gp.language_id FROM drill_sentences ds "
+            "JOIN grammar_points gp ON ds.grammar_point_id = gp.id "
+            "WHERE ds.id = $1", drill_id,
+        )
+    if lang is None:
+        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="No such drill.")
+    if not can_review(roles, str(lang)):
+        raise HTTPException(
+            status_code=status.HTTP_403_FORBIDDEN,
+            detail="Only a reviewer or admin for this language can review drills",
+        )
+    async with privileged_connection() as conn:
+        changed = await review_drill(conn, drill_id, body.approve)
+    if not changed:
+        raise HTTPException(
+            status_code=status.HTTP_404_NOT_FOUND,
+            detail="No pending generated drill with that id.",
         )
     return {"approved": body.approve}
 

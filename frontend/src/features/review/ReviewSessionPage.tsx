@@ -2,6 +2,7 @@ import { useState, useRef, useEffect } from 'react'
 import { useNavigate, useSearchParams } from 'react-router-dom'
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query'
 import { getCramCards, getDueCards, validateAnswer, submitReview } from '../../api/review'
+import { recordGymAttempt, generateGymDrills } from '../../api/gym'
 import { getLanguages, getProfile, updateProfile } from '../../api/profile'
 import type { DueCard } from '../../api/types'
 import { usePrefsStore } from '../../stores/prefsStore'
@@ -20,6 +21,29 @@ import FormsPanel from '../../components/FormsPanel'
 import { TTS_LANGUAGES } from '../../api/audio'
 import { hasKeyboardLayout } from '../keyboards/OnScreenKeyboard'
 import type { KeyboardLanguage } from '../keyboards/OnScreenKeyboard'
+
+/** The one place a learner ever waits in the Gym: shown only if they out-run
+ * background generation (a thin form + a fast learner). The fresh drills are
+ * moments away — this is a brief hand-off, not a dead end. */
+function CramTopUp({ label }: { label: string }) {
+  return (
+    <div
+      className="min-h-screen bg-gray-50 flex items-center justify-center px-4"
+      data-testid="cram-topup"
+    >
+      <div className="text-center space-y-3">
+        <div
+          className="mx-auto h-6 w-6 animate-spin rounded-full border-2 border-lang border-t-transparent"
+          aria-hidden
+        />
+        <p className="text-gray-700">{label}</p>
+        <p className="text-xs text-gray-400">
+          Brand-new sentences, just for you — a moment while they&apos;re drafted.
+        </p>
+      </div>
+    </div>
+  )
+}
 
 /**
  * The review session — and, with `cram`, its ungraded twin (WP13f):
@@ -63,6 +87,11 @@ function ReviewSessionInner({
   // round-robin across the chosen forms (not the old 3-per-form cap).
   const cramCountRaw = cram ? Number(searchParams.get('count')) : NaN
   const cramCount = Number.isFinite(cramCountRaw) && cramCountRaw > 0 ? cramCountRaw : undefined
+  // The Gym passes gen=1 when the learner opted into fresh variations: the
+  // session serves the seeded corpus immediately and drafts new drills in the
+  // background, weaving them in as they land (no wait up front). The learner
+  // only pauses on a "drafting…" screen if they out-run generation.
+  const genRequested = cram && searchParams.get('gen') === '1'
   // Grammar Only / Vocab Only sessions (dashboard Review tile expansion).
   const typeParam = searchParams.get('type')
   const reviewType =
@@ -132,6 +161,64 @@ function ReviewSessionInner({
 
   const session = useReviewSession(cards ?? [])
 
+  // Background generation (WP41): with gen=1 the Gym asked for fresh drills.
+  // We kick off generation once, in the background, while the learner works
+  // through the seeded set — then splice the new drills into the live deck as
+  // they land. `genSettled` is true the moment generation can add nothing more
+  // (produced its batch, or failed / was rejected), so the end-of-session
+  // "drafting…" wait knows when to give up and show the real summary.
+  const [genSettled, setGenSettled] = useState(!genRequested)
+  const genStarted = useRef(false)
+  const generateMutation = useMutation({
+    mutationFn: () => generateGymDrills(cramPoints.split(',')),
+    onSuccess: async (res) => {
+      try {
+        if (res.generated > 0) {
+          // Re-draw the pool (now including the learner's fresh, unseen drills)
+          // and weave in the ones not already in this session. Cap to what was
+          // just generated so the deck grows by the new batch, not the corpus.
+          const refreshed = await getCramCards(cramPoints.split(','), 100)
+          setCards((prev) => {
+            if (!prev) return prev
+            const have = new Set(
+              prev.map((c) => c.drill_id).filter(Boolean) as string[],
+            )
+            let novel = refreshed.filter(
+              (c) => c.drill_id && !have.has(c.drill_id),
+            )
+            novel = novel.slice(0, res.generated)
+            if (cramMix) {
+              for (let i = novel.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1))
+                ;[novel[i], novel[j]] = [novel[j], novel[i]]
+              }
+            }
+            return novel.length ? [...prev, ...novel] : prev
+          })
+        }
+      } finally {
+        setGenSettled(true)
+      }
+    },
+    // Out of allowance / generation off / any failure: carry on with the
+    // seeded set — the session must never hang on a background top-up.
+    onError: () => setGenSettled(true),
+  })
+  // Start once the seeded snapshot is in place — the append reads `cards`, so
+  // generation must not resolve before there's a deck to weave into.
+  useEffect(() => {
+    if (genRequested && !genStarted.current && cramPoints.length > 0 && cards !== null) {
+      genStarted.current = true
+      generateMutation.mutate()
+    }
+  }, [genRequested, cramPoints, cards, generateMutation])
+
+  // Fresh drills appended after the deck was exhausted leave the session stuck
+  // on 'summary' with a valid current card — flow straight into them.
+  useEffect(() => {
+    if (session.phase === 'summary' && session.currentCard) session.resume()
+  }, [session.phase, session.currentCard, session])
+
   // "Hidden initially" means hidden on EVERY card, not just the first.
   useEffect(() => setChartOpen(false), [session.currentIndex])
 
@@ -175,6 +262,18 @@ function ReviewSessionInner({
       setLastInput(variables.user_input)
       session.setValidationResult(result)
       setUserInput('')
+      // Gym only: fold this answer into the learner's per-drill history so
+      // selection can adapt. Fire-and-forget; ungraded, never blocks the UI.
+      // used_hint reflects whether optional help was on when they answered
+      // (the baseline prompt is always free and never counts).
+      const answered = session.currentCard
+      if (cram && answered?.drill_id) {
+        void recordGymAttempt(
+          answered.drill_id,
+          result.answer_result,
+          hintLevel > 0,
+        ).catch(() => {})
+      }
     },
     // A failed check used to die silently — the arrow stayed white and
     // nothing explained why the answer wouldn't grade (beta report).
@@ -319,7 +418,14 @@ function ReviewSessionInner({
     )
   }
 
-  if (session.phase === 'summary' || session.isComplete) {
+  // End of the current deck. If a background top-up is still in flight, the
+  // learner out-ran generation — hold on a brief "drafting…" screen (the only
+  // place they ever wait) rather than ending; the fresh drills are about to
+  // land and resume() will flow straight into them. Otherwise it's a real finish.
+  if (!session.currentCard) {
+    if (genRequested && !genSettled) {
+      return <CramTopUp label="Drafting a few fresh sentences…" />
+    }
     return (
       <div>
         {saveErrorCount > 0 && (
@@ -353,6 +459,12 @@ function ReviewSessionInner({
     )
   }
 
+  // A top-up landed after we'd hit the end: resume() (an effect) flips us back
+  // to answering next tick — show the hand-off, not a one-frame stray summary.
+  if (session.phase === 'summary') {
+    return <CramTopUp label="Loading fresh drills…" />
+  }
+
   const card = session.currentCard
   if (!card) return null
 
@@ -363,9 +475,26 @@ function ReviewSessionInner({
   // chart_word is the lemma the Gym drill exercises — expose it as the
   // leading "Base form" hint (see hintLayers.ts).
   const layers = hintLayersFor(card.language_code, { ...card, base: card.chart_word })
-  const maxHint = layers.length
+  // In the GYM the drill's authored hint IS the prompt — the base form + person
+  // to produce ("preparar, tú"). It's present for every conjugation drill
+  // (unlike chart_word, which needs an NLP backend), so it's shown ALWAYS in its
+  // own slot and never counts as a hint. That leaves the OPTIONAL layers each
+  // carrying distinct help — translation (meaning), reading (pronunciation),
+  // word-by-word (structure) — behind the Hint button, which feeds the adaptive
+  // "hint dependence" signal. The full chart stays the deepest reveal (on miss).
+  // Graded review keeps the original layered behaviour.
+  const baseText = cram ? card.hint || card.chart_word || '' : ''
+  const baseLayer = baseText
+    ? { field: 'base' as const, label: 'Prompt', text: baseText }
+    : undefined
+  const optionalLayers = cram
+    ? layers.filter((l) => l.field !== 'base' && l.field !== 'hint')
+    : layers
+  const maxHint = optionalLayers.length
   const revealedLayers =
-    session.phase !== 'answering' ? layers : layers.slice(0, Math.min(hintLevel, maxHint))
+    session.phase !== 'answering'
+      ? optionalLayers
+      : optionalLayers.slice(0, Math.min(hintLevel, maxHint))
   const topHint = revealedLayers.find((l) => l.field === 'hint')
   const answering = session.phase === 'answering'
   const result = session.validationResult?.answer_result
@@ -393,8 +522,12 @@ function ReviewSessionInner({
   // revealed as the cue; transliteration/gloss layers would spell the whole
   // sentence out, so those stay hidden until grading.
   const gappedSentence = card.sentence.split('{{answer}}').join('…')
+  // In the Gym the hint is already the always-shown baseline below, so don't
+  // also float it above as the listening cue (that would double it).
   const listeningCue =
-    listening && answering ? layers.find((l) => l.field === 'hint') : undefined
+    listening && answering && !baseLayer
+      ? layers.find((l) => l.field === 'hint')
+      : undefined
   const shownTopHint = topHint ?? listeningCue
   const belowLayers = revealedLayers.filter(
     (l) =>
@@ -523,6 +656,16 @@ function ReviewSessionInner({
             result={session.phase !== 'answering' ? result : null}
             hideSentence={listening && session.phase === 'answering'}
           />
+
+          {/* Baseline PROMPT (Gym): the dictionary form + person you conjugate
+              FROM — always shown in its own slot, never a "hint". */}
+          {baseLayer && (
+            <div className="mt-3 text-center" data-testid="baseline-prompt">
+              <span className="inline-block rounded-full bg-lang-soft text-lang px-3 py-1 text-sm font-medium">
+                {baseLayer.text}
+              </span>
+            </div>
+          )}
 
           {belowLayers.length > 0 && (
             <div className="mt-4 space-y-1 text-center">
