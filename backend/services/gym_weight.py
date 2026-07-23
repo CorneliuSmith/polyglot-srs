@@ -9,7 +9,9 @@ without a migration.
 Factors, and how they move the weight:
   * unseen              -> high (novelty; you haven't practised it yet)
   * misses / wrong-form -> up  (a real FORM error counts more than a typo)
-  * hint dependence     -> up  (right, but only with the hint = shaky)
+  * hint dependence     -> up  (right, but only after revealing OPTIONAL help —
+                                the always-shown baseline prompt is the question,
+                                not a hint, so it never feeds this signal)
   * time since last seen-> up  (forgetting curve; recent drills fade)
   * mastery streak      -> down (clean, no-hint corrects = learned)
   * irregular form      -> up   (worth extra reps)

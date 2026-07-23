@@ -497,22 +497,23 @@ describe('ReviewSessionPage — Gym chart peek (WP25c)', () => {
     expect(screen.queryByText(/peek at the chart/i)).toBeNull()
   })
 
-  it('the leading hint is the Base form — the lemma being drilled', async () => {
-    // hintLevel 1 = one hint revealed; for a Gym card that first layer is the
-    // base form (the dictionary word you conjugate FROM).
+  it('shows the Base form prompt always — no hint press needed', async () => {
+    // The base form is the PROMPT for a Gym conjugation drill (the dictionary
+    // word you conjugate FROM), so it's always visible in its own slot, even
+    // with no hints revealed (hintLevel 0) — revealing it is not a hint.
     mockUsePrefsStore.mockImplementation(
       (selector: (s: Record<string, unknown>) => unknown) =>
         selector({
           activeLanguageId: 'lang-123',
           listeningMode: false,
-          hintLevel: 1,
+          hintLevel: 0,
           qwertyTranslit: {},
         }),
     )
     renderCram()
     await screen.findByRole('textbox')
-    // The base-form hint renders below the drill, labelled and carrying слушать.
-    expect(await screen.findByText('Base form')).toBeDefined()
+    // The baseline prompt renders below the drill with no hint press.
+    expect(await screen.findByTestId('baseline-prompt')).toBeDefined()
   })
 
   it('opens the full chart automatically after a miss', async () => {

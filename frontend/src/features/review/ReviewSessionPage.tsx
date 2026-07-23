@@ -363,9 +363,18 @@ function ReviewSessionInner({
   // chart_word is the lemma the Gym drill exercises — expose it as the
   // leading "Base form" hint (see hintLayers.ts).
   const layers = hintLayersFor(card.language_code, { ...card, base: card.chart_word })
-  const maxHint = layers.length
+  // The base form is the PROMPT, not a hint: for a Gym conjugation drill "given
+  // this dictionary word, produce this form" is the question itself, so it's
+  // always shown in its own slot and never counts as leaning on a hint. Only
+  // the OPTIONAL layers (translation, reading, recipe) sit behind the Hint
+  // button and feed the adaptive "hint dependence" signal.
+  const baseLayer = layers.find((l) => l.field === 'base')
+  const optionalLayers = layers.filter((l) => l.field !== 'base')
+  const maxHint = optionalLayers.length
   const revealedLayers =
-    session.phase !== 'answering' ? layers : layers.slice(0, Math.min(hintLevel, maxHint))
+    session.phase !== 'answering'
+      ? optionalLayers
+      : optionalLayers.slice(0, Math.min(hintLevel, maxHint))
   const topHint = revealedLayers.find((l) => l.field === 'hint')
   const answering = session.phase === 'answering'
   const result = session.validationResult?.answer_result
@@ -523,6 +532,16 @@ function ReviewSessionInner({
             result={session.phase !== 'answering' ? result : null}
             hideSentence={listening && session.phase === 'answering'}
           />
+
+          {/* Baseline PROMPT (Gym): the dictionary form + person you conjugate
+              FROM — always shown in its own slot, never a "hint". */}
+          {baseLayer && (
+            <div className="mt-3 text-center" data-testid="baseline-prompt">
+              <span className="inline-block rounded-full bg-lang-soft text-lang px-3 py-1 text-sm font-medium">
+                {baseLayer.text}
+              </span>
+            </div>
+          )}
 
           {belowLayers.length > 0 && (
             <div className="mt-4 space-y-1 text-center">
