@@ -142,6 +142,8 @@ def client():
          patch("backend.services.reader.get_settings", return_value=FakeSettings()), \
          patch("backend.routers.reader.rls_connection", fake_conn), \
          patch("backend.routers.reader.privileged_connection", fake_conn), \
+         patch("backend.services.allowance.get_settings", return_value=FakeSettings()), \
+         patch("backend.services.allowance.rls_connection", fake_conn), \
          patch("backend.routers.tutor.rls_connection", fake_conn):
         app = create_app()
         with TestClient(app, raise_server_exceptions=True) as c:
