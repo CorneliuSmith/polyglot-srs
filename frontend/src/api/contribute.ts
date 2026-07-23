@@ -609,6 +609,7 @@ export interface GenerationCoverageRow {
   grammar_total: number
   grammar_no_drills: number
   ai_examples: number
+  pending_examples: number
   ai_drills: number
   low_resource: boolean
   sentence_model: string
@@ -678,4 +679,37 @@ export async function runGeneration(params: {
     dry_run: params.dryRun,
   })
   return response.data
+}
+
+export interface PendingExample {
+  id: string
+  sentence: string
+  translation: string | null
+  origin_detail: string | null
+  word: string
+  vocabulary_id: string
+}
+
+/** Generated example sentences awaiting review for a language — hidden from
+ * learners until approved (WP42 gate). */
+export async function getPendingExamples(
+  languageId: string,
+  limit = 50,
+): Promise<PendingExample[]> {
+  const response = await apiClient.get<{ pending: PendingExample[] }>(
+    '/api/contribute/admin/generation/pending',
+    { params: { language_id: languageId, limit } },
+  )
+  return response.data.pending
+}
+
+/** Approve (→ served to learners) or reject (→ deleted) a pending example. */
+export async function reviewExample(
+  exampleId: string,
+  approve: boolean,
+): Promise<void> {
+  await apiClient.post(
+    `/api/contribute/admin/generation/examples/${exampleId}/review`,
+    { approve },
+  )
 }

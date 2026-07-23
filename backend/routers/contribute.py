@@ -58,6 +58,7 @@ from backend.repositories.contributor import (
     list_drills,
     list_feedback,
     list_grammar_points,
+    list_pending_examples,
     list_review_notes,
     list_suggestions,
     list_translation_reviews,
@@ -66,6 +67,7 @@ from backend.repositories.contributor import (
     resolve_feedback,
     resolve_review_note,
     resolve_translation_review,
+    review_example,
     revoke_role,
     save_ai_check,
     save_explanation,
@@ -426,6 +428,43 @@ async def generation_run(
             max_items=body.max_items,
         )
     return {"dry_run": False, **result}
+
+
+@router.get("/admin/generation/pending")
+async def generation_pending(
+    language_id: str,
+    limit: int = 50,
+    user: dict = Depends(get_current_user),
+):
+    """Generated example sentences awaiting review for a language (admin-only,
+    WP42 gate). These are hidden from learners until approved here."""
+    await _require_admin(user["id"])
+    limit = max(1, min(limit, 200))
+    async with privileged_connection() as conn:
+        return {"pending": await list_pending_examples(conn, language_id, limit)}
+
+
+class ExampleReviewRequest(BaseModel):
+    approve: bool
+
+
+@router.post("/admin/generation/examples/{example_id}/review")
+async def generation_review_example(
+    example_id: str,
+    body: ExampleReviewRequest,
+    user: dict = Depends(get_current_user),
+):
+    """Approve (→ served to learners) or reject (→ deleted) a pending generated
+    example (admin-only, WP42 gate). 404 if it isn't a pending 'ai' row."""
+    await _require_admin(user["id"])
+    async with privileged_connection() as conn:
+        changed = await review_example(conn, example_id, body.approve)
+    if not changed:
+        raise HTTPException(
+            status_code=status.HTTP_404_NOT_FOUND,
+            detail="No pending generated example with that id.",
+        )
+    return {"approved": body.approve}
 
 
 @router.get("/engagement")

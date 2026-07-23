@@ -416,20 +416,45 @@ async def test_generated_examples_fill_gaps_and_skip_covered_words(pool):
         ):
             result = await generation_admin.run_generation(
                 conn, kind="vocab", language_id=lang, language_code="es",
-                language_name="Spanish", target_per_item=2, max_items=10,
+                language_name="Spanish", target_per_item=3, max_items=10,
             )
         # Only the gap word was processed; the covered word was never touched.
         assert result["items_processed"] == 1
         assert result["sentences_persisted"] >= 1
+        # Generated examples land tagged 'ai' AND unreviewed (the WP42 gate) —
+        # hidden from learners until a human approves them.
         gap_rows = await conn.fetch(
-            "SELECT source FROM example_sentences WHERE vocabulary_id = $1", gap
+            "SELECT source, reviewed FROM example_sentences WHERE vocabulary_id = $1",
+            gap,
         )
-        assert gap_rows and all(r["source"] == "ai" for r in gap_rows)
+        assert gap_rows and all(
+            r["source"] == "ai" and r["reviewed"] is False for r in gap_rows
+        )
         # The covered word still has exactly its 3 imported examples — untouched.
         covered_rows = await conn.fetch(
             "SELECT source FROM example_sentences WHERE vocabulary_id = $1", covered
         )
         assert [r["source"] for r in covered_rows] == ["tatoeba"] * 3
+
+        # Approving one flips it to reviewed=true (now servable); rejecting
+        # deletes. review_example only ever touches a pending 'ai' row.
+        from backend.repositories.contributor import (
+            list_pending_examples,
+            review_example,
+        )
+        pend = await list_pending_examples(conn, lang)
+        assert len(pend) >= 2 and all(p["word"] == "gato" for p in pend)
+        assert await review_example(conn, pend[0]["id"], approve=True) is True
+        assert await review_example(conn, pend[1]["id"], approve=False) is True
+        rows = await conn.fetch(
+            "SELECT id, reviewed FROM example_sentences WHERE vocabulary_id = $1",
+            gap,
+        )
+        # the approved row is now reviewed; the rejected row was deleted
+        assert any(r["reviewed"] for r in rows)
+        assert all(str(r["id"]) != pend[1]["id"] for r in rows)
+        # re-reviewing an already-decided row is a no-op (idempotent gate)
+        assert await review_example(conn, pend[0]["id"], approve=True) is False
 
 
 async def test_mixed_learn_interleaves_grammar_and_vocab(pool):

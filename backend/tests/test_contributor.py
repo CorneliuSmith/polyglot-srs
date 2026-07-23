@@ -1441,10 +1441,12 @@ def _priv_yielding(conn):
 _COVERAGE_ROWS = [
     {"language_id": LANG_ID, "language_code": "sw", "language_name": "Swahili",
      "vocab_total": 100, "vocab_no_examples": 80, "grammar_total": 20,
-     "grammar_no_drills": 5, "ai_examples": 0, "ai_drills": 0},
+     "grammar_no_drills": 5, "ai_examples": 0, "pending_examples": 0,
+     "ai_drills": 0},
     {"language_id": "22222222-2222-2222-2222-222222222222", "language_code": "es",
      "language_name": "Spanish", "vocab_total": 500, "vocab_no_examples": 10,
-     "grammar_total": 40, "grammar_no_drills": 0, "ai_examples": 3, "ai_drills": 1},
+     "grammar_total": 40, "grammar_no_drills": 0, "ai_examples": 3,
+     "pending_examples": 2, "ai_drills": 1},
 ]
 
 
@@ -1572,3 +1574,72 @@ class TestGenerationRun:
                 headers=_auth_headers(),
             )
         assert resp.status_code == 422
+
+
+class TestGenerationReviewGate:
+    EX = "aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa"
+
+    def test_pending_requires_admin(self, client):
+        with _roles([{"language_id": LANG_ID, "role": "contributor"}]):
+            resp = client.get(
+                "/api/contribute/admin/generation/pending",
+                params={"language_id": LANG_ID}, headers=_auth_headers(),
+            )
+        assert resp.status_code == 403
+
+    def test_admin_lists_pending(self, client):
+        rows = [{"id": EX_ID, "sentence": "Mbwa anakimbia.",
+                 "translation": "The dog runs.", "origin_detail": "claude-x",
+                 "word": "mbwa", "vocabulary_id": "v-1"}
+                for EX_ID in ("aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa",)]
+        with _roles([{"language_id": None, "role": "admin"}]), \
+             patch("backend.routers.contribute.list_pending_examples",
+                   new=AsyncMock(return_value=rows)):
+            resp = client.get(
+                "/api/contribute/admin/generation/pending",
+                params={"language_id": LANG_ID}, headers=_auth_headers(),
+            )
+        assert resp.status_code == 200
+        assert resp.json()["pending"][0]["word"] == "mbwa"
+
+    def test_approve_marks_reviewed(self, client):
+        with _roles([{"language_id": None, "role": "admin"}]), \
+             patch("backend.routers.contribute.review_example",
+                   new=AsyncMock(return_value=True)) as mock_rev:
+            resp = client.post(
+                f"/api/contribute/admin/generation/examples/{self.EX}/review",
+                json={"approve": True}, headers=_auth_headers(),
+            )
+        assert resp.status_code == 200
+        assert resp.json()["approved"] is True
+        assert mock_rev.await_args.args[2] is True  # approve flag
+
+    def test_reject_deletes(self, client):
+        with _roles([{"language_id": None, "role": "admin"}]), \
+             patch("backend.routers.contribute.review_example",
+                   new=AsyncMock(return_value=True)) as mock_rev:
+            resp = client.post(
+                f"/api/contribute/admin/generation/examples/{self.EX}/review",
+                json={"approve": False}, headers=_auth_headers(),
+            )
+        assert resp.status_code == 200
+        assert resp.json()["approved"] is False
+        assert mock_rev.await_args.args[2] is False
+
+    def test_review_404_when_not_pending(self, client):
+        with _roles([{"language_id": None, "role": "admin"}]), \
+             patch("backend.routers.contribute.review_example",
+                   new=AsyncMock(return_value=False)):
+            resp = client.post(
+                f"/api/contribute/admin/generation/examples/{self.EX}/review",
+                json={"approve": True}, headers=_auth_headers(),
+            )
+        assert resp.status_code == 404
+
+    def test_review_requires_admin(self, client):
+        with _roles([{"language_id": LANG_ID, "role": "reviewer"}]):
+            resp = client.post(
+                f"/api/contribute/admin/generation/examples/{self.EX}/review",
+                json={"approve": True}, headers=_auth_headers(),
+            )
+        assert resp.status_code == 403

@@ -413,22 +413,24 @@ async def add_example_sentence(
     the new row id, or None if an identical sentence already exists for the word
     (the UNIQUE(vocabulary_id, sentence) guard — generation never duplicates).
 
-    Unlike a drill edit, adding an example does not gate anything: examples are
-    supplementary, so a generated one simply carries source='ai' for later
-    review rather than de-certifying the word."""
+    Generated ('ai') examples land reviewed=false — hidden from learners until a
+    human approves them (the WP42 review gate); seed/imported/human examples are
+    trusted content and go in reviewed=true."""
+    # Generated content waits for human review; everything else is trusted.
+    reviewed = source != "ai"
     # Generated translations are English glosses; the uniqueness key includes
     # translation_locale (WP: support_locale), so dedupe on all three.
     row_id = await conn.fetchval(
         """
         INSERT INTO example_sentences
             (language_id, vocabulary_id, sentence, translation, translation_locale,
-             source, origin_detail)
-        VALUES ($1, $2, $3, $4, 'en', $5, $6)
+             source, origin_detail, reviewed)
+        VALUES ($1, $2, $3, $4, 'en', $5, $6, $7)
         ON CONFLICT (vocabulary_id, sentence, translation_locale) DO NOTHING
         RETURNING id
         """,
         language_id, vocabulary_id, sentence, translation or None,
-        source, origin_detail,
+        source, origin_detail, reviewed,
     )
     return str(row_id) if row_id is not None else None
 
@@ -466,6 +468,11 @@ async def generation_coverage(conn: asyncpg.Connection) -> list[dict]:
              JOIN vocabulary v ON es.vocabulary_id = v.id
             WHERE v.language_id = l.id AND es.source = 'ai')
             AS ai_examples,
+          (SELECT count(*) FROM example_sentences es
+             JOIN vocabulary v ON es.vocabulary_id = v.id
+            WHERE v.language_id = l.id AND es.source = 'ai'
+              AND es.reviewed = false)
+            AS pending_examples,
           (SELECT count(*) FROM drill_sentences ds
              JOIN grammar_points gp ON ds.grammar_point_id = gp.id
             WHERE gp.language_id = l.id AND ds.source = 'ai')
@@ -484,10 +491,62 @@ async def generation_coverage(conn: asyncpg.Connection) -> list[dict]:
             "grammar_total": r["grammar_total"],
             "grammar_no_drills": r["grammar_no_drills"],
             "ai_examples": r["ai_examples"],
+            "pending_examples": r["pending_examples"],
             "ai_drills": r["ai_drills"],
         }
         for r in rows
     ]
+
+
+async def list_pending_examples(
+    conn: asyncpg.Connection, language_id: str, limit: int = 50
+) -> list[dict]:
+    """Generated example sentences awaiting human review for a language (WP42
+    gate): the sentence, its word, translation, and the model that made it."""
+    rows = await conn.fetch(
+        """
+        SELECT es.id, es.sentence, es.translation, es.origin_detail,
+               v.word, v.id AS vocabulary_id
+        FROM example_sentences es
+        JOIN vocabulary v ON es.vocabulary_id = v.id
+        WHERE v.language_id = $1 AND es.source = 'ai' AND es.reviewed = false
+        ORDER BY es.created_at ASC
+        LIMIT $2
+        """,
+        language_id, limit,
+    )
+    return [
+        {
+            "id": str(r["id"]),
+            "sentence": r["sentence"],
+            "translation": r["translation"],
+            "origin_detail": r["origin_detail"],
+            "word": r["word"],
+            "vocabulary_id": str(r["vocabulary_id"]),
+        }
+        for r in rows
+    ]
+
+
+async def review_example(
+    conn: asyncpg.Connection, example_id: str, approve: bool
+) -> bool:
+    """Approve (reviewed → true, now served to learners) or reject (deleted) a
+    pending generated example. Only ever touches an unreviewed 'ai' row, so it
+    can't disturb seed/imported/human content. Returns True if a row changed."""
+    if approve:
+        result = await conn.execute(
+            "UPDATE example_sentences SET reviewed = true "
+            "WHERE id = $1 AND source = 'ai' AND reviewed = false",
+            example_id,
+        )
+    else:
+        result = await conn.execute(
+            "DELETE FROM example_sentences "
+            "WHERE id = $1 AND source = 'ai' AND reviewed = false",
+            example_id,
+        )
+    return result.rsplit(" ", 1)[-1] == "1"
 
 
 async def vocab_needing_examples(

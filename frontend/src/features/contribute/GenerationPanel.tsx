@@ -2,6 +2,8 @@ import { useMemo, useState } from 'react'
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
 import {
   getGenerationCoverage,
+  getPendingExamples,
+  reviewExample,
   runGeneration,
   type GenerationDryRun,
   type GenerationResult,
@@ -64,6 +66,22 @@ export default function GenerationPanel() {
           ? 'The server has no Anthropic key configured — generation is unavailable here.'
           : 'Generation failed. Please try again.',
       )
+    },
+  })
+
+  const { data: pending } = useQuery({
+    queryKey: ['generation-pending', selectedId],
+    queryFn: () => getPendingExamples(selectedId),
+    enabled: !!selectedId,
+    retry: false,
+  })
+
+  const reviewMutation = useMutation({
+    mutationFn: ({ id, approve }: { id: string; approve: boolean }) =>
+      reviewExample(id, approve),
+    onSuccess: () => {
+      qc.invalidateQueries({ queryKey: ['generation-pending', selectedId] })
+      qc.invalidateQueries({ queryKey: ['generation-coverage'] })
     },
   })
 
@@ -153,6 +171,7 @@ export default function GenerationPanel() {
               <th className="py-1 font-medium text-right">Vocab w/o ex.</th>
               <th className="py-1 font-medium text-right">Grammar w/o drills</th>
               <th className="py-1 font-medium text-right">AI so far</th>
+              <th className="py-1 font-medium text-right">Pending</th>
             </tr>
           </thead>
           <tbody>
@@ -180,6 +199,13 @@ export default function GenerationPanel() {
                 </td>
                 <td className="py-1 text-right tabular-nums text-gray-400">
                   {r.ai_examples + r.ai_drills}
+                </td>
+                <td className="py-1 text-right tabular-nums">
+                  {r.pending_examples > 0 ? (
+                    <span className="text-amber-600">{r.pending_examples}</span>
+                  ) : (
+                    <span className="text-gray-300">0</span>
+                  )}
                 </td>
               </tr>
             ))}
@@ -288,6 +314,56 @@ export default function GenerationPanel() {
               {error}
             </p>
           )}
+        </div>
+      )}
+
+      {/* Review gate: generated examples are hidden from learners until an
+          admin approves them here. Reject deletes. */}
+      {selected && pending && pending.length > 0 && (
+        <div className="rounded-xl border border-amber-200 bg-amber-50/50 p-3 space-y-2">
+          <div className="text-xs font-medium text-amber-800">
+            {pending.length} generated example{pending.length === 1 ? '' : 's'}{' '}
+            awaiting review — hidden from learners until you approve.
+          </div>
+          <ul className="space-y-1.5">
+            {pending.map((p) => (
+              <li
+                key={p.id}
+                className="flex items-start justify-between gap-2 rounded-lg bg-white border border-gray-100 px-2.5 py-1.5"
+              >
+                <div className="min-w-0">
+                  <div className="text-xs text-gray-800">
+                    <span className="font-medium">{p.word}</span> · {p.sentence}
+                  </div>
+                  {p.translation && (
+                    <div className="text-[11px] text-gray-400">{p.translation}</div>
+                  )}
+                </div>
+                <div className="flex shrink-0 gap-1">
+                  <button
+                    type="button"
+                    onClick={() =>
+                      reviewMutation.mutate({ id: p.id, approve: true })
+                    }
+                    disabled={reviewMutation.isPending}
+                    className="rounded-md bg-green-600 text-white px-2 py-1 text-[11px] hover:bg-green-700 disabled:opacity-40"
+                  >
+                    Approve
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() =>
+                      reviewMutation.mutate({ id: p.id, approve: false })
+                    }
+                    disabled={reviewMutation.isPending}
+                    className="rounded-md border border-gray-200 text-gray-600 px-2 py-1 text-[11px] hover:bg-gray-50 disabled:opacity-40"
+                  >
+                    Reject
+                  </button>
+                </div>
+              </li>
+            ))}
+          </ul>
         </div>
       )}
     </div>

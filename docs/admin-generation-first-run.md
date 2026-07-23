@@ -19,8 +19,9 @@ cost money or surprise learners.
    run, leave target/each at 3.
 5. Click **Preview cost** (free — no model call). Sanity-check the number.
 6. Click **Generate now**, confirm the dialog.
-7. Read the result line, then go **look at the sentences it made** for that
-   language before you scale up.
+7. In the **"awaiting review"** list that appears, **Approve** the good
+   sentences (they go live to learners) and **Reject** the rest. Nothing
+   reaches learners until you approve it.
 
 ---
 
@@ -103,31 +104,39 @@ numbers.
 > Done: processed 5, saved **12** new examples (1 duplicate skipped) —
 > est. ~$0.04. They're tagged "ai" and await review.
 
-- **saved** = sentences that passed the checker and were written.
+- **saved** = sentences that passed the checker and were written **as pending**.
 - **duplicates skipped** = the checker produced a sentence already in the pool;
   the idempotency guard dropped it (no harm, no extra learner content).
 - If **saved is 0**, see [Troubleshooting](#troubleshooting).
 
+Those saved examples now appear in the **"awaiting review"** list just below the
+run controls. **Nothing reaches learners until you approve it there.**
+
 ---
 
-## ⚠️ Generated content goes live immediately
+## Generated vocab examples wait for your review
 
-There is **no second human-approval step** before learners see this content:
+Generated **example sentences** do **not** reach learners automatically. Each
+one lands **`reviewed = false`** — hidden from the reader, word examples, and
+first-check quiz — and shows up in the panel's **"awaiting review"** list under
+the language. There you:
 
-- **Vocab example sentences** are a content table with no review gate — once a
-  sentence passes the automated maker-checker, it's **served to learners right
-  away** (in the reader, word examples, and first-check quiz).
-- **Grammar drills** generated for an **already-published** point are likewise
-  live under that point.
+- **Approve** → the sentence flips to reviewed and is served to learners.
+- **Reject** → the sentence is deleted.
 
-The **`source = 'ai'`** tag is for **audit and rollback**, not a pre-publication
-hold. So the automated checker *is* your quality gate. That's why the first-run
-advice is: **generate a small batch, then actually read the sentences** for that
-language before scaling up.
+So the flow is: **generate → read the pending list → approve the good ones,
+reject the rest.** The automated maker-checker is the first filter; your review
+is the publish gate. The **"Pending"** column in the coverage table shows how
+many are waiting per language.
 
-If you'd rather generated content wait for a human to approve it before learners
-see it, that's a small follow-up (add a `reviewed` flag to `example_sentences`
-and filter the serving query) — ask and I'll wire it.
+> **Grammar drills are different.** A generated drill on an *already-published*
+> grammar point is live immediately (drills don't have a per-row review flag
+> yet). If you want the same wait-for-review gate on drills, say so and I'll add
+> it. For now, treat a grammar run as publishing directly.
+
+Everything generated also carries **`source = 'ai'`** with the model in
+`origin_detail`, so it's always distinguishable and easy to
+[roll back](#rolling-back-a-batch-if-you-dont-like-the-output).
 
 ---
 
@@ -222,11 +231,12 @@ WHERE source = 'ai' AND vocabulary_id IN (
 1. Pick **one** low-resource language from "Suggested next".
 2. **vocab**, target/each **3**, **max items 5**.
 3. **Preview cost** → **Generate now**.
-4. Open the **Vocab** review panel for that language and **read the 5 words'
-   new sentences**. Check they're natural and actually use the word.
-5. Happy? Re-run with **max items 25–50**, then move to the next language.
-   Not happy? [Roll back](#rolling-back-a-batch-if-you-dont-like-the-output)
-   and tell me what was wrong so I can tune the prompt.
+4. In the **"awaiting review"** list that appears, **read each sentence** —
+   check it's natural and actually uses the word. **Approve** the good ones
+   (they go live), **Reject** the rest (deleted).
+5. Happy with the quality? Re-run with **max items 25–50**, then move to the
+   next language. Consistently bad? Tell me what was wrong so I can tune the
+   maker prompt.
 
 ---
 

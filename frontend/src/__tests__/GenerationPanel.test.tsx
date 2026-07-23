@@ -7,11 +7,20 @@ vi.mock('../api/contribute', async (orig) => ({
   ...(await orig<typeof import('../api/contribute')>()),
   getGenerationCoverage: vi.fn(),
   runGeneration: vi.fn(),
+  getPendingExamples: vi.fn(),
+  reviewExample: vi.fn(),
 }))
 
-import { getGenerationCoverage, runGeneration } from '../api/contribute'
+import {
+  getGenerationCoverage,
+  runGeneration,
+  getPendingExamples,
+  reviewExample,
+} from '../api/contribute'
 const mockCoverage = getGenerationCoverage as ReturnType<typeof vi.fn>
 const mockRun = runGeneration as ReturnType<typeof vi.fn>
+const mockPending = getPendingExamples as ReturnType<typeof vi.fn>
+const mockReview = reviewExample as ReturnType<typeof vi.fn>
 
 const COVERAGE = {
   available: true,
@@ -19,14 +28,14 @@ const COVERAGE = {
     {
       language_id: 'l-sw', language_code: 'sw', language_name: 'Swahili',
       vocab_total: 100, vocab_no_examples: 80, grammar_total: 20,
-      grammar_no_drills: 5, ai_examples: 0, ai_drills: 0, low_resource: true,
+      grammar_no_drills: 5, ai_examples: 0, pending_examples: 0, ai_drills: 0, low_resource: true,
       sentence_model: 'claude-opus-4-8', grammar_model: 'claude-opus-4-8',
       unfilled: 85,
     },
     {
       language_id: 'l-es', language_code: 'es', language_name: 'Spanish',
       vocab_total: 500, vocab_no_examples: 10, grammar_total: 40,
-      grammar_no_drills: 0, ai_examples: 3, ai_drills: 1, low_resource: false,
+      grammar_no_drills: 0, ai_examples: 3, pending_examples: 0, ai_drills: 1, low_resource: false,
       sentence_model: 'claude-sonnet-5', grammar_model: 'claude-sonnet-5',
       unfilled: 10,
     },
@@ -51,6 +60,8 @@ describe('GenerationPanel', () => {
   beforeEach(() => {
     vi.clearAllMocks()
     mockCoverage.mockResolvedValue(COVERAGE)
+    mockPending.mockResolvedValue([])
+    mockReview.mockResolvedValue(undefined)
   })
 
   it('shows coverage, model rec, and defaults to the top suggested language', async () => {
@@ -101,6 +112,21 @@ describe('GenerationPanel', () => {
     await screen.findByText(/content generation/i)
     fireEvent.click(screen.getByRole('button', { name: /generate now/i }))
     expect(mockRun).not.toHaveBeenCalled()
+  })
+
+  it('lists pending generated examples and approves one', async () => {
+    mockPending.mockResolvedValue([
+      {
+        id: 'ex-1', sentence: 'Mbwa anakimbia.', translation: 'The dog runs.',
+        origin_detail: 'claude-opus-4-8', word: 'mbwa', vocabulary_id: 'v-1',
+      },
+    ])
+    renderPanel()
+    await screen.findByText(/content generation/i)
+    expect(await screen.findByText(/awaiting review/i)).toBeDefined()
+    expect(screen.getByText(/Mbwa anakimbia/)).toBeDefined()
+    fireEvent.click(screen.getByRole('button', { name: /approve/i }))
+    await waitFor(() => expect(mockReview).toHaveBeenCalledWith('ex-1', true))
   })
 
   it('disables real generation when the server has no key', async () => {

@@ -37,6 +37,8 @@ vi.mock('../api/contribute', () => ({
     }),
   ),
   runGeneration: vi.fn(),
+  getPendingExamples: vi.fn(() => Promise.resolve([])),
+  reviewExample: vi.fn(),
   TUTOR_MODELS: ['claude-opus-4-8', 'claude-sonnet-5'],
   getTutorUsage: vi.fn(() =>
     Promise.resolve({ days: 30, rows: [], total_messages: 0, total_est_cost_usd: 0 }),
