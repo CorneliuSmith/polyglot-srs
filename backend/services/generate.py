@@ -28,6 +28,7 @@ import re
 from anthropic import AsyncAnthropic
 
 from backend.config import get_settings
+from backend.services.apertium import analyze_lemmas, apertium_available
 from backend.services.drills import validate_drill
 from backend.services.models import resolve_model
 from backend.services.nlp import get_nlp
@@ -290,12 +291,14 @@ async def make_examples(
         return []
 
 
-def _contains_word(language_code: str, sentence: str, lemma: str) -> bool:
+async def _contains_word(language_code: str, sentence: str, lemma: str) -> bool:
     """The generated sentence actually USES the target word — the core
-    correctness gate for a vocab example. Whole-word surface match first (cheap,
-    and all a backend-less low-density language gets); then, if a backend is
-    registered, lemmatize each token / check the morphological family so an
-    inflected form still counts."""
+    correctness gate for a vocab example. In order of cost:
+      1. whole-word surface match (cheap; all a backend-less language gets),
+      2. the local NLP backend (lemmatize each token / morphological family) so
+         an inflected form counts,
+      3. failing (2) for a backend-less language, an optional Apertium call
+         (WP42) — the opt-in way to still accept an inflected form there."""
     lemma_n = (lemma or "").strip().lower()
     if not lemma_n:
         return False
@@ -306,19 +309,26 @@ def _contains_word(language_code: str, sentence: str, lemma: str) -> bool:
     try:
         nlp = get_nlp(language_code)
     except Exception:
-        return False  # no backend: surface match was the only chance
-    for tok in tokens:
+        nlp = None
+    if nlp is not None:
+        for tok in tokens:
+            try:
+                if nlp.lemmatize(tok).lower() == lemma_n:
+                    return True
+            except Exception:
+                continue
         try:
-            if nlp.lemmatize(tok).lower() == lemma_n:
+            family = {w.lower() for w in nlp.get_morphological_family(lemma_n)}
+            if family & lower_tokens:
                 return True
         except Exception:
-            continue
-    try:
-        family = {w.lower() for w in nlp.get_morphological_family(lemma_n)}
-        if family & lower_tokens:
-            return True
-    except Exception:
-        pass
+            pass
+        return False
+    # No local backend: ask Apertium if it's configured for this language. This
+    # is what lets an inflected form count on a backend-less low-resource
+    # language; unset/unsupported/errored -> empty set -> surface match stands.
+    if apertium_available(language_code):
+        return lemma_n in await analyze_lemmas(language_code, sentence)
     return False
 
 
@@ -334,7 +344,7 @@ async def check_example(
         return False, "missing translation"
     if not (MIN_EXAMPLE_LEN <= len(sentence) <= MAX_EXAMPLE_LEN):
         return False, "sentence length out of range"
-    if not _contains_word(language_code, sentence, lemma):
+    if not await _contains_word(language_code, sentence, lemma):
         return False, "sentence does not use the target word"
     return True, "ok"
 

@@ -51,6 +51,11 @@ class Settings(BaseSettings):
     tutor_model_low_resource: str = "claude-opus-4-8"
     # Cheaper model for the off-the-hot-path session summarizer / memory extractor.
     tutor_summary_model: str = "claude-sonnet-5"
+    # Optional Apertium-APy server (public https://apertium.org/apy or self-
+    # hosted). When set, the generation checker uses it to verify that a
+    # generated sentence uses an INFLECTED form of the target word on languages
+    # with no local NLP backend. Empty = surface-match only (today's behavior).
+    apertium_api_url: str = ""
     # Optional Redis for distributed rate limiting across workers. Empty = the
     # in-memory per-process limiter (fine for a single worker / dev).
     redis_url: str = ""
