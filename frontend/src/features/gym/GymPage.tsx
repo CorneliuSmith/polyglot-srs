@@ -150,7 +150,12 @@ export default function GymPage() {
                         <div key={e.point_id} className="relative group">
                           <button
                             type="button"
-                            onClick={() => toggle(e.point_id)}
+                            onClick={(ev) => {
+                              toggle(e.point_id)
+                              // Release focus so the focus-within preview doesn't
+                              // stay open over the entry below after a click/tap.
+                              ev.currentTarget.blur()
+                            }}
                             aria-pressed={selected.has(e.point_id)}
                             className={
                               'w-full rounded-xl border px-3 py-2 text-left text-sm transition-colors ' +

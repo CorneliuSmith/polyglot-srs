@@ -160,6 +160,11 @@ function ReviewSessionInner({
   }, [fetched, cards])
 
   const session = useReviewSession(cards ?? [])
+  // Live current-index for the background-generation callback below (which runs
+  // long after it was created): it must not weave fresh drills into slots the
+  // learner has already passed.
+  const currentIndexRef = useRef(0)
+  currentIndexRef.current = session.currentIndex
 
   // Background generation (WP41): with gen=1 the Gym asked for fresh drills.
   // We kick off generation once, in the background, while the learner works
@@ -175,25 +180,42 @@ function ReviewSessionInner({
       try {
         if (res.generated > 0) {
           // Re-draw the pool (now including the learner's fresh, unseen drills)
-          // and weave in the ones not already in this session. Cap to what was
-          // just generated so the deck grows by the new batch, not the corpus.
+          // and weave in the ones not already in this session, capped to what
+          // was just generated so we add roughly the fresh batch, not the corpus.
           const refreshed = await getCramCards(cramPoints.split(','), 100)
           setCards((prev) => {
             if (!prev) return prev
             const have = new Set(
               prev.map((c) => c.drill_id).filter(Boolean) as string[],
             )
-            let novel = refreshed.filter(
-              (c) => c.drill_id && !have.has(c.drill_id),
-            )
-            novel = novel.slice(0, res.generated)
+            const novel = refreshed
+              .filter((c) => c.drill_id && !have.has(c.drill_id))
+              .slice(0, res.generated)
             if (cramMix) {
               for (let i = novel.length - 1; i > 0; i--) {
                 const j = Math.floor(Math.random() * (i + 1))
                 ;[novel[i], novel[j]] = [novel[j], novel[i]]
               }
             }
-            return novel.length ? [...prev, ...novel] : prev
+            if (!novel.length) return prev
+            // Keep the session at the count the learner asked for. If the seeded
+            // set fell short, fill the gap up to the target; otherwise weave the
+            // fresh drills in by REPLACING upcoming (not-yet-seen) cards from the
+            // end — opting in changes WHICH questions appear, not HOW MANY.
+            const target = cramCount ?? prev.length
+            const next = [...prev]
+            let ni = 0
+            while (next.length < target && ni < novel.length) {
+              next.push(novel[ni++])
+            }
+            for (
+              let i = next.length - 1;
+              i > currentIndexRef.current && ni < novel.length;
+              i--
+            ) {
+              next[i] = novel[ni++]
+            }
+            return next
           })
         }
       } finally {

@@ -622,6 +622,36 @@ describe('ReviewSessionPage — background generation (WP41)', () => {
     await waitFor(() => expect(screen.getByText('Session Complete')).toBeDefined())
   })
 
+  it('keeps the session at the requested count — weaves in, never extends', async () => {
+    // Not short: two seeded cards for a count of two. A freshly generated drill
+    // must REPLACE an upcoming card, not push the session to three — the learner
+    // asked for two. Reaching the summary after exactly two answers proves it.
+    const a = { ...testCard, id: 'cram-a', drill_id: 'a', sentence: 'Card A {{answer}}.' }
+    const b = { ...testCard, id: 'cram-b', drill_id: 'b', sentence: 'Card B {{answer}}.' }
+    const c = { ...testCard, id: 'cram-c', drill_id: 'c', sentence: 'Card C {{answer}}.' }
+    mockGetCramCards.mockResolvedValueOnce([a, b]).mockResolvedValue([a, b, c])
+    mockGenerateGymDrills.mockResolvedValue({
+      generated: 1, charged: 1, remaining: 4, unlimited: false,
+    })
+    render(
+      <QueryClientProvider
+        client={new QueryClient({
+          defaultOptions: { queries: { retry: false }, mutations: { retry: false } },
+        })}
+      >
+        <MemoryRouter initialEntries={['/cram?points=p1&mix=1&count=2&gen=1']}>
+          <ReviewSessionPage cram />
+        </MemoryRouter>
+      </QueryClientProvider>,
+    )
+    await answerCurrent()
+    await answerCurrent()
+    // If generation had extended the deck to three, a third card would still be
+    // showing here instead of the summary.
+    await waitFor(() => expect(screen.getByText('Session Complete')).toBeDefined())
+    expect(screen.getByTestId('cards-reviewed').textContent).toContain('2')
+  })
+
   it('shows the drafting wait only when the learner out-runs generation', async () => {
     mockGetCramCards.mockResolvedValue([d1])
     // Generation still in flight when the learner finishes the seeded drill.
