@@ -159,7 +159,7 @@ async def cram(
     async with rls_connection(user["id"]) as conn:
         support = await _support_locale(conn, user["id"])
         return await get_cram_cards(
-            conn, ids, support_locale=support, count=count
+            conn, ids, support_locale=support, count=count, user_id=user["id"]
         )
 
 

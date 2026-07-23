@@ -11,7 +11,9 @@ from datetime import UTC, datetime
 import asyncpg
 
 from backend.repositories.curriculum import get_read_ref_keys, resolve_related
+from backend.repositories.gym import get_gym_progress
 from backend.services.extract import ANSWER_MARKER, make_cloze
+from backend.services.gym_weight import drill_weight
 from backend.services.references import clean_references
 from backend.services.srs_stages import stage_for
 
@@ -1327,6 +1329,7 @@ async def get_cram_cards(
     per_point: int = 3,
     support_locale: str | None = None,
     count: int | None = None,
+    user_id: str | None = None,
 ) -> list[dict]:
     """Ungraded practice cards for a set of grammar points (WP13f Quick-Cram).
 
@@ -1346,6 +1349,7 @@ async def get_cram_cards(
             gp.id    AS point_id,
             gp.title AS title,
             l.code   AS language_code,
+            d.drill_ids,
             d.sentences, d.answers, d.hints, d.translations,
             d.glosses, d.transliterations
         FROM grammar_points gp
@@ -1380,40 +1384,47 @@ async def get_cram_cards(
     today = datetime.now(UTC).date().isoformat()
     now = datetime.now(UTC)
 
-    # Per point, a seeded shuffle of ALL its drill indices — stable within a
-    # day (a mid-cram reload keeps the same set), fresh tomorrow.
-    per_point_order: list[tuple] = []  # (row, [drill indices])
-    for r in rows:
-        sentences = r["sentences"] or []
-        if not sentences:
-            continue
-        order = list(range(len(sentences)))
-        random.Random(f"{r['point_id']}:{today}").shuffle(order)
-        per_point_order.append((r, order))
+    # Adaptive weighting (WP): score each candidate drill from the learner's
+    # per-drill history so struggled / unseen / long-unseen drills surface and
+    # cleanly-mastered ones fade. Deterministic within a day (a mid-cram reload
+    # keeps the same set); adapts across sessions as the history grows. With no
+    # user_id, every drill scores as unseen → uniform selection (old behaviour).
+    all_drill_ids = [
+        str(did) for r in rows for did in (r["drill_ids"] or []) if did is not None
+    ]
+    progress = (
+        await get_gym_progress(conn, user_id, all_drill_ids)
+        if user_id and all_drill_ids
+        else {}
+    )
+    rng = random.Random(f"{user_id}:{today}")
 
-    # Choose the (point, drill) pairs. With an explicit *count* the session
-    # round-robins across the chosen forms and draws as many drills as it needs
-    # — up to every one authored — so a real Gym set isn't capped at three per
-    # form. Without count, keep the classic per_point sample.
+    def _priority(r: asyncpg.Record, i: int) -> float:
+        drill_ids = r["drill_ids"] or []
+        did = str(drill_ids[i]) if i < len(drill_ids) and drill_ids[i] else None
+        weight = drill_weight(progress.get(did) if did else None)
+        # Efraimidis–Spirakis weighted sampling without replacement: a higher
+        # weight makes a higher key more likely, so top-k favours heavy drills
+        # while keeping variety.
+        return rng.random() ** (1.0 / max(weight, 1e-6))
+
+    # Choose the (point, drill) pairs. With an explicit *count* the whole set is
+    # weight-ranked across the chosen forms and drawn up to every one authored —
+    # a real Gym set isn't capped at three per form. Without count, keep the
+    # per_point cap, weight-ranked within each form.
     selected: list[tuple] = []  # (row, drill index)
     if count is not None:
         target = max(1, min(count, 100))
-        depth = 0
-        while len(selected) < target and per_point_order:
-            progressed = False
-            for r, order in per_point_order:
-                if depth < len(order):
-                    selected.append((r, order[depth]))
-                    progressed = True
-                    if len(selected) >= target:
-                        break
-            if not progressed:
-                break  # every form exhausted before reaching the target
-            depth += 1
+        candidates = [
+            (r, i) for r in rows for i in range(len(r["sentences"] or []))
+        ]
+        candidates.sort(key=lambda ri: _priority(ri[0], ri[1]), reverse=True)
+        selected = candidates[:target]
     else:
-        for r, order in per_point_order:
-            for i in order[: min(per_point, len(order))]:
-                selected.append((r, i))
+        for r in rows:
+            idxs = list(range(len(r["sentences"] or [])))
+            idxs.sort(key=lambda i: _priority(r, i), reverse=True)
+            selected.extend((r, i) for i in idxs[: min(per_point, len(idxs))])
 
     cards: list[dict] = []
     for r, i in selected:
@@ -1422,7 +1433,7 @@ async def get_cram_cards(
                 "id": f"cram-{r['point_id']}-{i}",
                 # Real drill row id — lets the Gym record per-drill practice
                 # history (adaptive weighting). None only for legacy rows.
-                "drill_id": str(r["drill_ids"][i]) if r.get("drill_ids") else None,
+                "drill_id": str(r["drill_ids"][i]) if r["drill_ids"] else None,
                 "card_type": "grammar",
                 "card_id": str(r["point_id"]),
                 "title": r["title"],

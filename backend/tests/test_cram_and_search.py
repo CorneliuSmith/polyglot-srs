@@ -259,6 +259,7 @@ def _point_row(point_id: str, n_drills: int, code: str = "tr") -> dict:
         "point_id": point_id,
         "title": "Locative case",
         "language_code": code,
+        "drill_ids": [f"{point_id[:-2]}{i:02d}" for i in range(n_drills)],
         "sentences": [f"S{i} {{{{answer}}}}." for i in range(n_drills)],
         "answers": [f"a{i}" for i in range(n_drills)],
         "hints": [None] * n_drills,
