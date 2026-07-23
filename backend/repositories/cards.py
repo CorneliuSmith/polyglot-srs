@@ -1276,6 +1276,40 @@ async def get_card_detail(
     }
 
 
+async def get_generation_context(
+    conn: asyncpg.Connection, point_id: str
+) -> dict | None:
+    """A grammar point's context for the drill generator (Part C / Gym): its
+    title, explanation, language, and a few existing drills as style examples.
+    None if the point doesn't exist."""
+    row = await conn.fetchrow(
+        """
+        SELECT gp.title, gp.explanation, gp.language_id,
+               l.code AS language_code, l.name AS language_name
+        FROM grammar_points gp
+        JOIN languages l ON gp.language_id = l.id
+        WHERE gp.id = $1
+        """,
+        point_id,
+    )
+    if row is None:
+        return None
+    drills = await conn.fetch(
+        "SELECT sentence FROM drill_sentences WHERE grammar_point_id = $1 "
+        "ORDER BY display_order ASC LIMIT 6",
+        point_id,
+    )
+    return {
+        "point_id": str(point_id),
+        "title": row["title"],
+        "explanation": row["explanation"],
+        "language_id": str(row["language_id"]),
+        "language_code": row["language_code"],
+        "language_name": row["language_name"],
+        "examples": [d["sentence"] for d in drills],
+    }
+
+
 async def get_cram_cards(
     conn: asyncpg.Connection,
     point_ids: list[str],

@@ -108,6 +108,147 @@ class TestCramEndpoint:
 
 
 # ---------------------------------------------------------------------------
+# POST /api/review/gym/generate (WP41: learner-triggered on-demand generation)
+# ---------------------------------------------------------------------------
+
+
+def _gen_ctx(point_id: str, code: str = "tr") -> dict:
+    return {
+        "point_id": point_id,
+        "title": "Locative case",
+        "explanation": "Add -de/-da to a noun.",
+        "language_id": LANG,
+        "language_code": code,
+        "language_name": "Turkish",
+        "examples": ["Ev{{answer}}yim."],
+    }
+
+
+_GEN_DRILLS = [
+    {"sentence": " Okul{{answer}}yim.", "answer": "dayim",
+     "translation": "I am at school.", "hint": "school"},
+    {"sentence": "Bahçe{{answer}}sin.", "answer": "desin",
+     "translation": "You are in the garden.", "hint": "garden"},
+]
+
+
+@asynccontextmanager
+async def _fake_privileged():
+    yield AsyncMock()
+
+
+def _patch_gym_gen(*, contexts=None, allowance=None):
+    """Patch the whole gym/generate collaborator chain to no-ops."""
+    if contexts is None:
+        contexts = [_gen_ctx(POINT_A)]
+    if allowance is None:
+        allowance = {"tier": "free", "unlimited": False, "limit": 20,
+                     "used": 3, "remaining": 17, "resets_at": "2026-08-01T00:00:00"}
+
+    async def _ctx(conn, pid):
+        return next((c for c in contexts if c["point_id"] == pid), None)
+
+    return (
+        patch("backend.routers.review.generation_available", return_value=True),
+        patch("backend.routers.review.get_generation_context", new=_ctx),
+        patch("backend.routers.review.get_allowance",
+              new=AsyncMock(return_value=allowance)),
+        patch("backend.routers.review.generate_drills",
+              new=AsyncMock(return_value=list(_GEN_DRILLS))),
+        patch("backend.routers.review.add_drill", new=AsyncMock()),
+        patch("backend.routers.review.log_tutor_usage", new=AsyncMock()),
+        patch("backend.routers.review.privileged_connection", _fake_privileged),
+        patch("backend.routers.review.resolve_model", return_value="claude-x"),
+    )
+
+
+class TestGymGenerateEndpoint:
+    def test_requires_auth(self, client):
+        assert client.post(
+            "/api/review/gym/generate", json={"point_ids": [POINT_A]}
+        ).status_code == 401
+
+    def test_generates_and_draws_one_message(self, client):
+        p = _patch_gym_gen()
+        with p[0], p[1], p[2], p[3], p[4] as mock_add, \
+             p[5] as mock_log, p[6], p[7]:
+            resp = client.post(
+                "/api/review/gym/generate",
+                json={"point_ids": [POINT_A]},
+                headers=_auth_headers(),
+            )
+        assert resp.status_code == 200
+        body = resp.json()
+        assert body["generated"] == 2          # both drills persisted
+        assert body["remaining"] == 16         # 17 - 1 message drawn
+        assert body["unlimited"] is False
+        assert mock_add.await_count == 2
+        # the added drills are tagged 'ai' and DON'T de-certify the form
+        assert mock_add.await_args.kwargs["source"] == "ai"
+        assert mock_add.await_args.kwargs["decertify"] is False
+        # exactly ONE message is charged regardless of drill count
+        mock_log.assert_awaited_once()
+        assert mock_log.await_args.kwargs["kind"] == "gym_gen"
+
+    def test_503_when_generation_disabled(self, client):
+        with patch("backend.routers.review.generation_available",
+                   return_value=False):
+            resp = client.post(
+                "/api/review/gym/generate",
+                json={"point_ids": [POINT_A]},
+                headers=_auth_headers(),
+            )
+        assert resp.status_code == 503
+
+    def test_402_when_allowance_exhausted(self, client):
+        spent = {"tier": "free", "unlimited": False, "limit": 20,
+                 "used": 20, "remaining": 0, "resets_at": "2026-08-01T00:00:00"}
+        p = _patch_gym_gen(allowance=spent)
+        with p[0], p[1], p[2], p[3], p[4] as mock_add, p[5], p[6], p[7]:
+            resp = client.post(
+                "/api/review/gym/generate",
+                json={"point_ids": [POINT_A]},
+                headers=_auth_headers(),
+            )
+        assert resp.status_code == 402
+        assert resp.json()["detail"]["code"] == "allowance_exhausted"
+        mock_add.assert_not_awaited()          # nothing spent when blocked
+
+    def test_404_when_no_valid_points(self, client):
+        p = _patch_gym_gen(contexts=[])        # get_generation_context finds none
+        with p[0], p[1], p[2], p[3], p[4], p[5], p[6], p[7]:
+            resp = client.post(
+                "/api/review/gym/generate",
+                json={"point_ids": [POINT_A]},
+                headers=_auth_headers(),
+            )
+        assert resp.status_code == 404
+
+    def test_caps_points_per_call(self, client):
+        ids = [POINT_A, POINT_B,
+               "44444444-4444-4444-4444-444444444444",
+               "55555555-5555-5555-5555-555555555555"]
+        seen = []
+
+        async def _ctx(conn, pid):
+            seen.append(pid)
+            return _gen_ctx(pid)
+
+        p = _patch_gym_gen()
+        with p[0], patch("backend.routers.review.get_generation_context", new=_ctx), \
+             p[2], p[3], p[4], p[5], p[6], p[7]:
+            resp = client.post(
+                "/api/review/gym/generate",
+                json={"point_ids": ids},
+                headers=_auth_headers(),
+            )
+        assert resp.status_code == 200
+        # only the first GYM_GEN_MAX_POINTS forms are ever looked up
+        from backend.routers.review import GYM_GEN_MAX_POINTS
+        assert len(seen) == GYM_GEN_MAX_POINTS
+
+
+# ---------------------------------------------------------------------------
 # get_cram_cards (drill picking, seeded rotation, DueCard shape)
 # ---------------------------------------------------------------------------
 
