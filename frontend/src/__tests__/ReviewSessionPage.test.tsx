@@ -13,6 +13,10 @@ vi.mock('../api/review', () => ({
   submitReview: vi.fn(),
 }))
 
+vi.mock('../api/gym', () => ({
+  recordGymAttempt: vi.fn(() => Promise.resolve()),
+}))
+
 // Mock the prefs store
 vi.mock('../stores/prefsStore', () => ({
   usePrefsStore: vi.fn(() => 'lang-123'),

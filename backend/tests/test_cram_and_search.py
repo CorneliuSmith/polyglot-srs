@@ -479,3 +479,29 @@ class TestLikeEscape:
         assert _like_escape("100%") == "100\\%"
         assert _like_escape("a_b") == "a\\_b"
         assert _like_escape("back\\slash") == "back\\\\slash"
+
+
+class TestGymAttemptEndpoint:
+    DRILL = "cccccccc-cccc-cccc-cccc-cccccccccccc"
+
+    def test_requires_auth(self, client):
+        assert client.post(
+            "/api/review/gym/attempt",
+            json={"drill_id": self.DRILL, "answer_result": "correct"},
+        ).status_code == 401
+
+    def test_records_attempt(self, client):
+        with patch("backend.routers.review.record_gym_attempt",
+                   new=AsyncMock()) as mock_rec:
+            resp = client.post(
+                "/api/review/gym/attempt",
+                json={"drill_id": self.DRILL, "answer_result": "wrong_form",
+                      "used_hint": True},
+                headers=_auth_headers(),
+            )
+        assert resp.status_code == 200
+        assert resp.json() == {"ok": True}
+        # (conn, user_id, drill_id, answer_result, used_hint)
+        assert mock_rec.await_args.args[2] == self.DRILL
+        assert mock_rec.await_args.args[3] == "wrong_form"
+        assert mock_rec.await_args.args[4] is True

@@ -55,3 +55,17 @@ export async function generateGymDrills(
   )
   return response.data
 }
+
+/** Record one Gym answer into the learner's per-drill history (adaptive
+ * selection). Ungraded — never touches the SRS schedule. Fire-and-forget. */
+export async function recordGymAttempt(
+  drillId: string,
+  answerResult: string,
+  usedHint: boolean,
+): Promise<void> {
+  await apiClient.post('/api/review/gym/attempt', {
+    drill_id: drillId,
+    answer_result: answerResult,
+    used_hint: usedHint,
+  })
+}

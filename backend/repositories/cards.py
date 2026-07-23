@@ -1352,6 +1352,7 @@ async def get_cram_cards(
         JOIN languages l ON gp.language_id = l.id
         LEFT JOIN LATERAL (
             SELECT
+                array_agg(ds.id          ORDER BY ds.display_order, ds.id) AS drill_ids,
                 array_agg(ds.sentence    ORDER BY ds.display_order, ds.id) AS sentences,
                 array_agg(ds.answer      ORDER BY ds.display_order, ds.id) AS answers,
                 array_agg(COALESCE(dht.hint, ds.hint)
@@ -1419,6 +1420,9 @@ async def get_cram_cards(
         sentences = r["sentences"]
         cards.append({
                 "id": f"cram-{r['point_id']}-{i}",
+                # Real drill row id — lets the Gym record per-drill practice
+                # history (adaptive weighting). None only for legacy rows.
+                "drill_id": str(r["drill_ids"][i]) if r.get("drill_ids") else None,
                 "card_type": "grammar",
                 "card_id": str(r["point_id"]),
                 "title": r["title"],

@@ -29,6 +29,7 @@ from backend.repositories.cards import (
 )
 from backend.repositories.contributor import add_drill
 from backend.repositories.fsrs_weights import get_effective_params
+from backend.repositories.gym import record_gym_attempt
 from backend.repositories.pool import privileged_connection, rls_connection
 from backend.repositories.review import add_card_feedback, insert_review_log
 from backend.repositories.tutor import log_tutor_usage
@@ -252,6 +253,27 @@ async def gym_generate(
         "remaining": remaining,
         "unlimited": allowance["unlimited"],
     }
+
+
+class GymAttemptRequest(BaseModel):
+    drill_id: str
+    answer_result: str
+    used_hint: bool = False
+
+
+@router.post("/gym/attempt")
+async def gym_attempt(
+    body: GymAttemptRequest,
+    user: dict = Depends(get_current_user),
+):
+    """Record one Gym answer into the learner's per-drill history (adaptive
+    selection). Ungraded — this never touches the SRS schedule. Best-effort:
+    an unknown drill_id simply no-ops via the FK/RLS."""
+    async with rls_connection(user["id"]) as conn:
+        await record_gym_attempt(
+            conn, user["id"], body.drill_id, body.answer_result, body.used_hint
+        )
+    return {"ok": True}
 
 
 @router.get("/card/{card_id}/detail")

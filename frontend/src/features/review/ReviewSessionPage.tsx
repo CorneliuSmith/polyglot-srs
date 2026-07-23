@@ -2,6 +2,7 @@ import { useState, useRef, useEffect } from 'react'
 import { useNavigate, useSearchParams } from 'react-router-dom'
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query'
 import { getCramCards, getDueCards, validateAnswer, submitReview } from '../../api/review'
+import { recordGymAttempt } from '../../api/gym'
 import { getLanguages, getProfile, updateProfile } from '../../api/profile'
 import type { DueCard } from '../../api/types'
 import { usePrefsStore } from '../../stores/prefsStore'
@@ -175,6 +176,18 @@ function ReviewSessionInner({
       setLastInput(variables.user_input)
       session.setValidationResult(result)
       setUserInput('')
+      // Gym only: fold this answer into the learner's per-drill history so
+      // selection can adapt. Fire-and-forget; ungraded, never blocks the UI.
+      // used_hint reflects whether optional help was on when they answered
+      // (the baseline prompt is always free and never counts).
+      const answered = session.currentCard
+      if (cram && answered?.drill_id) {
+        void recordGymAttempt(
+          answered.drill_id,
+          result.answer_result,
+          hintLevel > 0,
+        ).catch(() => {})
+      }
     },
     // A failed check used to die silently — the arrow stayed white and
     // nothing explained why the answer wouldn't grade (beta report).
