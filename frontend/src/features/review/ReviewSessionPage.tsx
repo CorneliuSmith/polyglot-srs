@@ -363,13 +363,21 @@ function ReviewSessionInner({
   // chart_word is the lemma the Gym drill exercises — expose it as the
   // leading "Base form" hint (see hintLayers.ts).
   const layers = hintLayersFor(card.language_code, { ...card, base: card.chart_word })
-  // The base form is the PROMPT, not a hint: for a Gym conjugation drill "given
-  // this dictionary word, produce this form" is the question itself, so it's
-  // always shown in its own slot and never counts as leaning on a hint. Only
-  // the OPTIONAL layers (translation, reading, recipe) sit behind the Hint
-  // button and feed the adaptive "hint dependence" signal.
-  const baseLayer = layers.find((l) => l.field === 'base')
-  const optionalLayers = layers.filter((l) => l.field !== 'base')
+  // In the GYM the drill's authored hint IS the prompt — the base form + person
+  // to produce ("preparar, tú"). It's present for every conjugation drill
+  // (unlike chart_word, which needs an NLP backend), so it's shown ALWAYS in its
+  // own slot and never counts as a hint. That leaves the OPTIONAL layers each
+  // carrying distinct help — translation (meaning), reading (pronunciation),
+  // word-by-word (structure) — behind the Hint button, which feeds the adaptive
+  // "hint dependence" signal. The full chart stays the deepest reveal (on miss).
+  // Graded review keeps the original layered behaviour.
+  const baseText = cram ? card.hint || card.chart_word || '' : ''
+  const baseLayer = baseText
+    ? { field: 'base' as const, label: 'Prompt', text: baseText }
+    : undefined
+  const optionalLayers = cram
+    ? layers.filter((l) => l.field !== 'base' && l.field !== 'hint')
+    : layers
   const maxHint = optionalLayers.length
   const revealedLayers =
     session.phase !== 'answering'
@@ -402,8 +410,12 @@ function ReviewSessionInner({
   // revealed as the cue; transliteration/gloss layers would spell the whole
   // sentence out, so those stay hidden until grading.
   const gappedSentence = card.sentence.split('{{answer}}').join('…')
+  // In the Gym the hint is already the always-shown baseline below, so don't
+  // also float it above as the listening cue (that would double it).
   const listeningCue =
-    listening && answering ? layers.find((l) => l.field === 'hint') : undefined
+    listening && answering && !baseLayer
+      ? layers.find((l) => l.field === 'hint')
+      : undefined
   const shownTopHint = topHint ?? listeningCue
   const belowLayers = revealedLayers.filter(
     (l) =>
