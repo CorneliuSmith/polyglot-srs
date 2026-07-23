@@ -17,6 +17,50 @@ export interface WhatsNewEntry {
 
 export const WHATS_NEW: WhatsNewEntry[] = [
   {
+    id: 'language-facts-2026-07',
+    date: 'July 2026',
+    title: 'Things to know about this language 🌍',
+    body:
+      'A one-minute primer on the language you’re studying — its family, ' +
+      'where it’s spoken, how its sentences are built, a short history, and ' +
+      'what makes it distinctive. Right next to Letters & Sounds on your ' +
+      'dashboard.',
+    link: '/about',
+    linkLabel: 'Read about your language',
+  },
+  {
+    id: 'gym-adaptive-2026-07',
+    date: 'July 2026',
+    title: 'The Gym adapts to you 🎯',
+    body:
+      'The Gym now learns from how you answer: forms you keep missing (and ' +
+      'irregulars) come back more often, forms you’ve nailed fade. Opt into ' +
+      'fresh sentences and it drafts brand-new drills in the background and ' +
+      'weaves them into your set — no waiting.',
+    link: '/gym',
+    linkLabel: 'Open the Gym',
+  },
+  {
+    id: 'learning-tips-2026-07',
+    date: 'July 2026',
+    title: 'Learning tips 💡',
+    body:
+      'Occasional, evidence-based nudges on how to study — read aloud, trust ' +
+      'the spacing, mix it up — shown at most about once a day. Not for you? ' +
+      'One switch in Settings turns them off.',
+    link: '/account',
+    linkLabel: 'Manage tips',
+  },
+  {
+    id: 'review-audio-2026-07',
+    date: 'July 2026',
+    title: 'Clearer, faster review audio 🔊',
+    body:
+      'After you answer, the “word” and “full sentence” buttons are now ' +
+      'labelled apart, and both clips are pre-loaded so they play the instant ' +
+      'you tap — no more waiting on the sound.',
+  },
+  {
     id: 'korean-2026-07',
     date: 'July 2026',
     title: 'Korean 🇰🇷',
