@@ -269,7 +269,8 @@ export default function GymPage() {
               {short && generate && (
                 <p className="text-xs text-amber-600">
                   Only {available} ready — we&apos;ll generate a few fresh ones to fill
-                  the gap. That spends one of your tutor messages.
+                  the gap. This uses your tutor allowance: about one message per form
+                  (up to 3), and it stops early if you&apos;re low so it never overdraws.
                 </p>
               )}
 
@@ -286,7 +287,9 @@ export default function GymPage() {
                   Generate fresh variations when a form runs thin
                   <span className="block text-xs text-gray-400">
                     Draws on your own past sentences for variety and, if needed,
-                    makes a few new ones — this uses one of your tutor messages.
+                    makes a few new ones. This spends your tutor message allowance —
+                    roughly one message per form topped up — so you&apos;re always
+                    trading a little of your allowance for a bigger, fresher set.
                   </span>
                 </span>
               </label>

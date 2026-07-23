@@ -34,8 +34,9 @@ export async function getGymManifest(languageId: string): Promise<GymManifest> {
 export interface GymGenerateResult {
   /** Drills added to the shared pool this call. */
   generated: number
-  /** Tutor-message allowance left after the one message this drew, or
-   * null when the account is unlimited. */
+  /** Messages actually drawn — one per form topped up (varies with the run). */
+  charged: number
+  /** Tutor-message allowance left after this run, or null when unlimited. */
   remaining: number | null
   unlimited: boolean
 }

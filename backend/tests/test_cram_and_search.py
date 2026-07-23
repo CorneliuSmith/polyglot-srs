@@ -180,13 +180,14 @@ class TestGymGenerateEndpoint:
         assert resp.status_code == 200
         body = resp.json()
         assert body["generated"] == 2          # both drills persisted
+        assert body["charged"] == 1            # one form topped up -> one message
         assert body["remaining"] == 16         # 17 - 1 message drawn
         assert body["unlimited"] is False
         assert mock_add.await_count == 2
         # the added drills are tagged 'ai' and DON'T de-certify the form
         assert mock_add.await_args.kwargs["source"] == "ai"
         assert mock_add.await_args.kwargs["decertify"] is False
-        # exactly ONE message is charged regardless of drill count
+        # one message per FORM (here a single form), not per drill
         mock_log.assert_awaited_once()
         assert mock_log.await_args.kwargs["kind"] == "gym_gen"
 

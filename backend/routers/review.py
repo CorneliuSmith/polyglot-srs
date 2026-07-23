@@ -180,11 +180,13 @@ async def gym_generate(
     user: dict = Depends(get_current_user),
 ):
     """Learner-triggered: generate a few EXTRA drill variations for the chosen
-    Gym forms, drawing ONE message from the learner's tutor allowance (WP41).
+    Gym forms, drawing from the learner's tutor allowance (WP41).
 
-    Generated drills are verified (maker-checker), tagged source='ai', and
-    added to the shared pool WITHOUT de-certifying the form (so generating
-    never hides what you're drilling). A human still vets 'ai' drills later.
+    Cost scales with the work: ONE message per FORM topped up (not per drill),
+    capped to what the allowance actually covers so a run can never overdraw —
+    if you ask for 3 forms with 2 messages left, we top up 2 and stop. Generated
+    drills are verified (maker-checker), tagged source='ai', and added to the
+    shared pool WITHOUT de-certifying the form. A human still vets 'ai' drills.
     """
     if not generation_available():
         raise HTTPException(
@@ -206,8 +208,15 @@ async def gym_generate(
     allowance = await get_allowance(user["id"], language_id)
     reject_if_unavailable(allowance)
 
+    # Cost = one message per form, but never spend more than what's left.
+    if allowance["unlimited"]:
+        contexts = contexts[:GYM_GEN_MAX_POINTS]
+    else:
+        contexts = contexts[: min(len(contexts), allowance["remaining"])]
+
     model = resolve_model("grammar_maker", contexts[0]["language_code"])
     generated = 0
+    charged = 0
     async with privileged_connection() as conn:
         for ctx in contexts:
             drills = await generate_drills(
@@ -225,12 +234,17 @@ async def gym_generate(
                     source="ai", origin_detail=model, decertify=False,
                 )
                 generated += 1
-        # One message spent, regardless of how many drills the batch yielded.
-        await log_tutor_usage(conn, user["id"], language_id, model, kind="gym_gen")
+            # One message per form topped up (regardless of drill yield).
+            await log_tutor_usage(conn, user["id"], language_id, model, kind="gym_gen")
+            charged += 1
 
-    remaining = None if allowance["unlimited"] else max(0, allowance["remaining"] - 1)
+    remaining = (
+        None if allowance["unlimited"]
+        else max(0, allowance["remaining"] - charged)
+    )
     return {
         "generated": generated,
+        "charged": charged,
         "remaining": remaining,
         "unlimited": allowance["unlimited"],
     }
