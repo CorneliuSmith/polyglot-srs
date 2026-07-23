@@ -338,16 +338,19 @@ async def add_drill(
         "SELECT COALESCE(MAX(display_order), 0) + 1 FROM drill_sentences WHERE grammar_point_id = $1",
         point_id,
     )
+    # Generated ('ai') drills wait for review before learners see them; seed/
+    # human/imported drills are trusted and go in visible.
+    reviewed = source != "ai"
     drill_id = await conn.fetchval(
         """
         INSERT INTO drill_sentences
             (grammar_point_id, sentence, answer, translation, hint, display_order,
-             source, origin_detail, cell)
-        VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9)
+             source, origin_detail, cell, reviewed)
+        VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10)
         RETURNING id
         """,
         point_id, sentence, answer, translation or None, hint or None, next_order,
-        source, origin_detail, cell,
+        source, origin_detail, cell, reviewed,
     )
     if decertify:
         await conn.execute(
@@ -548,6 +551,61 @@ async def review_example(
             "DELETE FROM example_sentences "
             "WHERE id = $1 AND source = 'ai' AND reviewed = false",
             example_id,
+        )
+    return result.rsplit(" ", 1)[-1] == "1"
+
+
+async def list_pending_drills(
+    conn: asyncpg.Connection, language_id: str, limit: int = 50
+) -> list[dict]:
+    """Generated grammar drills awaiting review for a language (WP gate): the
+    cloze sentence, answer, its form (cell), the point it belongs to, and the
+    model that made it — for the Contributor › Review 'Generated drills' panel."""
+    rows = await conn.fetch(
+        """
+        SELECT ds.id, ds.sentence, ds.answer, ds.translation, ds.hint, ds.cell,
+               ds.origin_detail, gp.title AS point_title, gp.id AS point_id
+        FROM drill_sentences ds
+        JOIN grammar_points gp ON ds.grammar_point_id = gp.id
+        WHERE gp.language_id = $1 AND ds.source = 'ai' AND ds.reviewed = false
+        ORDER BY gp.display_order, ds.created_at ASC
+        LIMIT $2
+        """,
+        language_id, limit,
+    )
+    return [
+        {
+            "id": str(r["id"]),
+            "sentence": r["sentence"],
+            "answer": r["answer"],
+            "translation": r["translation"],
+            "hint": r["hint"],
+            "cell": r["cell"],
+            "origin_detail": r["origin_detail"],
+            "point_title": r["point_title"],
+            "point_id": str(r["point_id"]),
+        }
+        for r in rows
+    ]
+
+
+async def review_drill(
+    conn: asyncpg.Connection, drill_id: str, approve: bool
+) -> bool:
+    """Approve (reviewed → true, now served to learners as permanent corpus) or
+    reject (deleted) a pending generated drill. Only ever touches an unreviewed
+    'ai' row. Returns True if a row changed."""
+    if approve:
+        result = await conn.execute(
+            "UPDATE drill_sentences SET reviewed = true "
+            "WHERE id = $1 AND source = 'ai' AND reviewed = false",
+            drill_id,
+        )
+    else:
+        result = await conn.execute(
+            "DELETE FROM drill_sentences "
+            "WHERE id = $1 AND source = 'ai' AND reviewed = false",
+            drill_id,
         )
     return result.rsplit(" ", 1)[-1] == "1"
 

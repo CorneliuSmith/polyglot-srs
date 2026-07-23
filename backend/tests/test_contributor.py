@@ -1643,3 +1643,86 @@ class TestGenerationReviewGate:
                 json={"approve": True}, headers=_auth_headers(),
             )
         assert resp.status_code == 403
+
+
+def _rls_yielding(conn):
+    @_acm
+    async def _cm(user_id):
+        yield conn
+    return patch("backend.routers.contribute.rls_connection", _cm)
+
+
+class TestGeneratedDrillReview:
+    DRILL = "bbbbbbbb-bbbb-bbbb-bbbb-bbbbbbbbbbbb"
+
+    def test_pending_requires_reviewer(self, client):
+        with _roles([{"language_id": LANG_ID, "role": "contributor"}]):
+            resp = client.get(
+                "/api/contribute/review/generated-drills",
+                params={"language_id": LANG_ID}, headers=_auth_headers(),
+            )
+        assert resp.status_code == 403
+
+    def test_reviewer_lists_pending(self, client):
+        rows = [{"id": "d1", "sentence": "x {{answer}}", "answer": "y",
+                 "translation": None, "hint": "h", "cell": "yo",
+                 "origin_detail": "m", "point_title": "P", "point_id": "p1"}]
+        with _roles([{"language_id": LANG_ID, "role": "reviewer"}]), \
+             patch("backend.routers.contribute.list_pending_drills",
+                   new=AsyncMock(return_value=rows)):
+            resp = client.get(
+                "/api/contribute/review/generated-drills",
+                params={"language_id": LANG_ID}, headers=_auth_headers(),
+            )
+        assert resp.status_code == 200
+        assert resp.json()["pending"][0]["cell"] == "yo"
+
+    def test_approve_drill(self, client):
+        conn = AsyncMock()
+        conn.fetchval = AsyncMock(return_value=LANG_ID)
+        with _roles([{"language_id": LANG_ID, "role": "reviewer"}]), \
+             _rls_yielding(conn), \
+             patch("backend.routers.contribute.review_drill",
+                   new=AsyncMock(return_value=True)) as mock_rev:
+            resp = client.post(
+                f"/api/contribute/review/generated-drills/{self.DRILL}/review",
+                json={"approve": True}, headers=_auth_headers(),
+            )
+        assert resp.status_code == 200
+        assert resp.json()["approved"] is True
+        assert mock_rev.await_args.args[2] is True
+
+    def test_reject_drill(self, client):
+        conn = AsyncMock()
+        conn.fetchval = AsyncMock(return_value=LANG_ID)
+        with _roles([{"language_id": LANG_ID, "role": "reviewer"}]), \
+             _rls_yielding(conn), \
+             patch("backend.routers.contribute.review_drill",
+                   new=AsyncMock(return_value=True)) as mock_rev:
+            resp = client.post(
+                f"/api/contribute/review/generated-drills/{self.DRILL}/review",
+                json={"approve": False}, headers=_auth_headers(),
+            )
+        assert resp.status_code == 200
+        assert mock_rev.await_args.args[2] is False
+
+    def test_review_404_when_drill_missing(self, client):
+        conn = AsyncMock()
+        conn.fetchval = AsyncMock(return_value=None)   # no such drill
+        with _roles([{"language_id": None, "role": "admin"}]), _rls_yielding(conn):
+            resp = client.post(
+                f"/api/contribute/review/generated-drills/{self.DRILL}/review",
+                json={"approve": True}, headers=_auth_headers(),
+            )
+        assert resp.status_code == 404
+
+    def test_review_403_for_non_reviewer(self, client):
+        conn = AsyncMock()
+        conn.fetchval = AsyncMock(return_value=LANG_ID)
+        with _roles([{"language_id": LANG_ID, "role": "contributor"}]), \
+             _rls_yielding(conn):
+            resp = client.post(
+                f"/api/contribute/review/generated-drills/{self.DRILL}/review",
+                json={"approve": True}, headers=_auth_headers(),
+            )
+        assert resp.status_code == 403

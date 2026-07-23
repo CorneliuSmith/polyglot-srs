@@ -22,6 +22,7 @@ import RolesPanel from './RolesPanel'
 import AccountsPanel from './AccountsPanel'
 import AnalyticsPanel from './AnalyticsPanel'
 import EngagementPanel from './EngagementPanel'
+import GeneratedDrillsPanel from './GeneratedDrillsPanel'
 import GenerationPanel from './GenerationPanel'
 import TranslationReviewsPanel from './TranslationReviewsPanel'
 import { useAuthStore } from '../../stores/authStore'
@@ -611,6 +612,11 @@ export default function ContributorPage() {
             )}
             {tab === 'review' && (
               <>
+                {/* Generated grammar drills awaiting review (reviewers/admins):
+                    approve into the corpus or reject. Hidden when none pending. */}
+                {(data.can_review ?? data.is_admin) && (
+                  <GeneratedDrillsPanel languageId={activeLanguageId} />
+                )}
                 {/* Change requests: everyone with a role sees and votes;
                     only admins accept/reject (server-enforced). */}
                 <ChangeRequestsPanel languageId={activeLanguageId} />

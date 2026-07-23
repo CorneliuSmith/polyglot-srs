@@ -435,6 +435,70 @@ async def test_grammar_generation_thickens_cells_balanced(pool):
         assert result["sentences_persisted"] == len(gen)
 
 
+async def test_generated_drills_gated_until_reviewed(pool):
+    """Generated grammar drills land pending (reviewed=false) — excluded from
+    the learner-facing pool — until a reviewer approves them into the corpus;
+    rejecting deletes them."""
+    from types import SimpleNamespace
+    from unittest.mock import AsyncMock, patch
+
+    from backend.repositories.contributor import (
+        list_pending_drills,
+        review_drill,
+    )
+    from backend.services import generation_admin
+
+    lang = await _language(pool, "dgate")
+    async with pool.privileged_connection() as conn:
+        pid = str(await conn.fetchval(
+            "INSERT INTO grammar_points (language_id, title, level) "
+            "VALUES ($1, 'P', 'A1') RETURNING id", lang,
+        ))
+        # Two reviewed seed drills for one cell (below target 4 → thin).
+        for i in range(2):
+            await conn.execute(
+                "INSERT INTO drill_sentences (grammar_point_id, sentence, answer, "
+                "cell, source) VALUES ($1, $2, 'a', 'yo', 'seed')",
+                pid, f"seed {{{{answer}}}} {i}",
+            )
+
+        async def reviewed_count():
+            return await conn.fetchval(
+                "SELECT count(*) FROM drill_sentences "
+                "WHERE grammar_point_id = $1 AND reviewed", pid,
+            )
+
+        assert await reviewed_count() == 2
+
+        with patch(
+            "backend.services.generate.get_settings",
+            return_value=SimpleNamespace(tutor_dev_mock=True, anthropic_api_key=""),
+        ), patch(
+            "backend.services.generate.validate_drill",
+            new=AsyncMock(return_value=True),
+        ):
+            await generation_admin.run_generation(
+                conn, kind="grammar", language_id=lang, language_code="es",
+                language_name="Spanish", target_per_item=5, max_items=10,
+            )
+
+        # Generated drills exist but are pending → NOT in the reviewed pool.
+        assert await reviewed_count() == 2
+        pending = await list_pending_drills(conn, lang)
+        assert pending and all(p["cell"] == "yo" for p in pending)
+
+        # Approve one → it joins the corpus; reject another → it's gone.
+        assert await review_drill(conn, pending[0]["id"], approve=True) is True
+        assert await review_drill(conn, pending[1]["id"], approve=False) is True
+        assert await reviewed_count() == 3          # the approved one is now live
+        gone = await conn.fetchval(
+            "SELECT count(*) FROM drill_sentences WHERE id = $1", pending[1]["id"]
+        )
+        assert gone == 0                             # the rejected one was deleted
+        # re-reviewing a decided drill is a no-op (idempotent gate)
+        assert await review_drill(conn, pending[0]["id"], approve=True) is False
+
+
 async def test_gym_progress_accumulates_and_is_isolated(pool):
     """Adaptive Gym: recording attempts folds into per-drill stats (streak
     resets on a miss, wrong_form tracked), and RLS keeps each learner's history

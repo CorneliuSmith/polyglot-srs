@@ -184,7 +184,7 @@ async def get_due_cards(
             FROM drill_sentences ds
             LEFT JOIN drill_hint_translations dht
                    ON dht.drill_id = ds.id AND dht.locale = $3
-            WHERE ds.grammar_point_id = gp.id
+            WHERE ds.grammar_point_id = gp.id AND ds.reviewed
         ) d ON true
         LEFT JOIN LATERAL (
             SELECT rl.prompt_sentence
@@ -939,7 +939,7 @@ async def get_card_details_bulk(
             FROM drill_sentences ds
             LEFT JOIN drill_hint_translations dht
                    ON dht.drill_id = ds.id AND dht.locale = $2
-            WHERE ds.grammar_point_id = ANY($1::uuid[])
+            WHERE ds.grammar_point_id = ANY($1::uuid[]) AND ds.reviewed
             ORDER BY ds.display_order ASC
             """,
             grammar_ids,
@@ -1234,7 +1234,7 @@ async def get_card_detail(
         FROM drill_sentences ds
         LEFT JOIN drill_hint_translations dht
                ON dht.drill_id = ds.id AND dht.locale = $2
-        WHERE ds.grammar_point_id = $1
+        WHERE ds.grammar_point_id = $1 AND ds.reviewed
         ORDER BY ds.display_order ASC
         LIMIT 5
         """,
@@ -1363,7 +1363,7 @@ async def get_cram_cards(
             FROM drill_sentences ds
             LEFT JOIN drill_hint_translations dht
                    ON dht.drill_id = ds.id AND dht.locale = $2
-            WHERE ds.grammar_point_id = gp.id
+            WHERE ds.grammar_point_id = gp.id AND ds.reviewed
         ) d ON true
         WHERE gp.id = ANY($1::uuid[])
           AND (gp.reviewed = true

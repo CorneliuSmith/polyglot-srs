@@ -268,14 +268,16 @@ export default function GymPage() {
               )}
               {short && generate && (
                 <p className="text-xs text-amber-600">
-                  Only {available} ready — we&apos;ll generate a few fresh ones to fill
-                  the gap. This uses your tutor allowance: about one message per form
-                  (up to 3), and it stops early if you&apos;re low so it never overdraws.
+                  Only {available} ready for this session. We&apos;ll draft a few fresh
+                  ones — they go to a reviewer first, so they grow the corpus for
+                  next time rather than this run. Uses your tutor allowance: about
+                  one message per form (up to 3), and it stops early if you&apos;re
+                  low so it never overdraws.
                 </p>
               )}
 
-              {/* WP41: opt-in generation. Warn BEFORE they commit — the toggle
-                  itself carries the cost note ("let them know early"). */}
+              {/* Opt-in generation. Warn BEFORE they commit — the toggle itself
+                  carries the cost + review note ("let them know early"). */}
               <label className="flex items-start gap-2 pt-1 text-sm text-gray-600 select-none">
                 <input
                   type="checkbox"
@@ -284,12 +286,12 @@ export default function GymPage() {
                   className="mt-0.5 rounded border-gray-300"
                 />
                 <span>
-                  Generate fresh variations when a form runs thin
+                  Help grow this form when it runs thin
                   <span className="block text-xs text-gray-400">
-                    Draws on your own past sentences for variety and, if needed,
-                    makes a few new ones. This spends your tutor message allowance —
-                    roughly one message per form topped up — so you&apos;re always
-                    trading a little of your allowance for a bigger, fresher set.
+                    Drafts a few new drills for the forms you picked. They&apos;re
+                    checked, then wait for a reviewer before joining the corpus —
+                    so they enrich future sessions, not this one. Spends a little of
+                    your tutor allowance (about one message per form).
                   </span>
                 </span>
               </label>
