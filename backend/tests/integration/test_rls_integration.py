@@ -373,6 +373,68 @@ async def test_generated_drills_persist_as_ai_provenance(pool):
     assert all(d["source"] == "ai" for d in drills)
 
 
+async def test_grammar_generation_thickens_cells_balanced(pool):
+    """WP thickness: the admin grammar run fills each THIN paradigm cell up to
+    target (dev-mock), tagging every generated drill with its cell — and leaves
+    cells already at target untouched, so thickening stays balanced."""
+    from types import SimpleNamespace
+    from unittest.mock import AsyncMock, patch
+
+    from backend.services import generation_admin
+
+    lang = await _language(pool, "thick")
+    async with pool.privileged_connection() as conn:
+        pid = str(await conn.fetchval(
+            "INSERT INTO grammar_points (language_id, title, level) "
+            "VALUES ($1, 'Present -ar', 'A1') RETURNING id", lang,
+        ))
+        # Seed unbalanced: yo=2, tú=2 (thin vs target 4), él=4 (at target).
+        for cell, k in (("yo", 2), ("tú", 2), ("él", 4)):
+            for i in range(k):
+                await conn.execute(
+                    "INSERT INTO drill_sentences (grammar_point_id, sentence, "
+                    "answer, cell, source) VALUES ($1, $2, $3, $4, 'seed')",
+                    pid, f"{cell} {{{{answer}}}} {i}.", f"a{i}", cell,
+                )
+
+        async def counts():
+            rows = await conn.fetch(
+                "SELECT cell, count(*) n FROM drill_sentences "
+                "WHERE grammar_point_id = $1 GROUP BY cell", pid,
+            )
+            return {r["cell"]: r["n"] for r in rows}
+
+        before = await counts()
+        assert before == {"yo": 2, "tú": 2, "él": 4}
+
+        with patch(
+            "backend.services.generate.get_settings",
+            return_value=SimpleNamespace(tutor_dev_mock=True, anthropic_api_key=""),
+        ), patch(
+            "backend.services.generate.validate_drill",
+            new=AsyncMock(return_value=True),
+        ):
+            result = await generation_admin.run_generation(
+                conn, kind="grammar", language_id=lang, language_code="es",
+                language_name="Spanish", target_per_item=4, max_items=10,
+            )
+
+        after = await counts()
+        # thin cells grew; the at-target cell was untouched
+        assert after["yo"] > before["yo"]
+        assert after["tú"] > before["tú"]
+        assert after["él"] == 4
+        # every generated drill is tagged 'ai' AND carries its cell
+        gen = await conn.fetch(
+            "SELECT cell, source FROM drill_sentences "
+            "WHERE grammar_point_id = $1 AND source = 'ai'", pid,
+        )
+        assert gen and all(g["source"] == "ai" and g["cell"] in ("yo", "tú")
+                           for g in gen)
+        assert result["items_processed"] == 1
+        assert result["sentences_persisted"] == len(gen)
+
+
 async def test_generated_examples_fill_gaps_and_skip_covered_words(pool):
     """End-to-end (WP42): the admin generation run fills a word that has NO
     example sentences (dev-mock), tagging them source='ai'; a word already AT

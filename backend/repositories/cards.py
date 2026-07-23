@@ -1302,6 +1302,13 @@ async def get_generation_context(
         "ORDER BY display_order ASC LIMIT 6",
         point_id,
     )
+    # Per-cell drill counts drive BALANCED thickening — generate for the cells
+    # that are thin, not the ones already covered. Empty for non-paradigm points.
+    cell_rows = await conn.fetch(
+        "SELECT cell, count(*) AS n FROM drill_sentences "
+        "WHERE grammar_point_id = $1 AND cell IS NOT NULL GROUP BY cell",
+        point_id,
+    )
     return {
         "point_id": str(point_id),
         "title": row["title"],
@@ -1310,6 +1317,7 @@ async def get_generation_context(
         "language_code": row["language_code"],
         "language_name": row["language_name"],
         "examples": [d["sentence"] for d in drills],
+        "cell_counts": {r["cell"]: r["n"] for r in cell_rows},
     }
 
 

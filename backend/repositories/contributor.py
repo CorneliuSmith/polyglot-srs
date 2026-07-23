@@ -322,10 +322,13 @@ async def add_drill(
     source: str = "human",
     origin_detail: str | None = None,
     decertify: bool = True,
+    cell: str | None = None,
 ) -> str:
     """Insert a drill sentence (privileged). *source* tags provenance (WP38):
     'human' for a drill added by hand (the default — never mistaken for
     seed/import), 'ai' for a generated one, with the model in *origin_detail*.
+    *cell* is the paradigm cell the drill exercises (for balanced generation and
+    the adaptive gym); None for non-paradigm drills.
 
     A hand edit de-certifies the point (reviewed → false) so a second reviewer
     re-approves. Gym on-demand generation passes decertify=False: the generated
@@ -339,12 +342,12 @@ async def add_drill(
         """
         INSERT INTO drill_sentences
             (grammar_point_id, sentence, answer, translation, hint, display_order,
-             source, origin_detail)
-        VALUES ($1, $2, $3, $4, $5, $6, $7, $8)
+             source, origin_detail, cell)
+        VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9)
         RETURNING id
         """,
         point_id, sentence, answer, translation or None, hint or None, next_order,
-        source, origin_detail,
+        source, origin_detail, cell,
     )
     if decertify:
         await conn.execute(
@@ -590,6 +593,50 @@ async def vocab_needing_examples(
             "part_of_speech": r["part_of_speech"],
             "definition": r["definition"],
             "example_count": r["example_count"],
+        })
+    return out
+
+
+async def points_with_thin_cells(
+    conn: asyncpg.Connection,
+    language_id: str,
+    target_per_cell: int,
+    limit: int,
+) -> list[dict]:
+    """Paradigm points that have at least one cell BELOW *target_per_cell*, with
+    their per-cell drill counts — the work-list for balanced thickening. Points
+    with no cells (non-paradigm) are excluded; they thicken via
+    points_needing_drills instead."""
+    rows = await conn.fetch(
+        """
+        WITH cc AS (
+            SELECT grammar_point_id AS pid, cell, count(*) AS n
+            FROM drill_sentences
+            WHERE cell IS NOT NULL
+            GROUP BY grammar_point_id, cell
+        )
+        SELECT gp.id, gp.title, gp.explanation,
+               jsonb_object_agg(cc.cell, cc.n) AS cell_counts
+        FROM grammar_points gp
+        JOIN cc ON cc.pid = gp.id
+        WHERE gp.language_id = $1
+        GROUP BY gp.id, gp.title, gp.explanation, gp.display_order
+        HAVING min(cc.n) < $2
+        ORDER BY gp.display_order, gp.title
+        LIMIT $3
+        """,
+        language_id, target_per_cell, limit,
+    )
+    out = []
+    for r in rows:
+        cc = r["cell_counts"]
+        if isinstance(cc, str):
+            cc = json.loads(cc)
+        out.append({
+            "point_id": str(r["id"]),
+            "title": r["title"],
+            "explanation": r["explanation"],
+            "cell_counts": cc or {},
         })
     return out
 

@@ -24,7 +24,7 @@ import asyncpg
 from backend.repositories.contributor import (
     add_drill,
     add_example_sentence,
-    points_needing_drills,
+    points_with_thin_cells,
     vocab_needing_examples,
 )
 from backend.services.generate import generate_drills, generate_examples
@@ -69,11 +69,16 @@ async def plan_run(
         # each item needs (target - it_has) more; that's what the maker drafts
         to_make = sum(max(0, target_per_item - i["example_count"]) for i in items)
     elif kind == "grammar":
-        items = await points_needing_drills(
+        # Cell-aware: target_per_item is the target drills PER paradigm cell, so
+        # thickening a conjugation form stays balanced across persons.
+        items = await points_with_thin_cells(
             conn, language_id, target_per_item, max_items
         )
         model = resolve_model("grammar_maker", language_code)
-        to_make = sum(max(0, target_per_item - i["drill_count"]) for i in items)
+        to_make = sum(
+            max(0, target_per_item - n)
+            for it in items for n in it["cell_counts"].values()
+        )
     else:
         raise ValueError(f"unknown generation kind: {kind!r}")
 
@@ -128,36 +133,45 @@ async def run_generation(
             passed = await generate_examples(
                 item, need, language_name, language_code, maker_model=model
             )
-        else:
-            need = max(0, target - item["drill_count"])
-            if need == 0:
-                continue
-            point = {
-                "title": item["title"],
-                "explanation": item["explanation"],
-                "examples": [],
-            }
-            passed = await generate_drills(
-                point, need, language_name, language_code, maker_model=model
-            )
-        items_touched += 1
-        accepted += len(passed)
-        for cand in passed:
-            if kind == "vocab":
+            accepted += len(passed)
+            for cand in passed:
                 row_id = await add_example_sentence(
                     conn, item["vocabulary_id"], language_id,
                     cand["sentence"], cand.get("translation"),
                     source="ai", origin_detail=model,
                 )
-            else:
-                row_id = await add_drill(
-                    conn, item["point_id"], cand["sentence"], cand["answer"],
-                    cand.get("translation"), cand.get("hint"),
-                    source="ai", origin_detail=model, decertify=False,
+                if row_id:
+                    persisted += 1
+            items_touched += 1
+        else:
+            # Grammar: fill each thin cell up to target, balanced.
+            point = {
+                "title": item["title"],
+                "explanation": item["explanation"],
+                "examples": [],
+            }
+            touched = False
+            for cell, have in item["cell_counts"].items():
+                need = max(0, target - have)
+                if need == 0:
+                    continue
+                touched = True
+                passed = await generate_drills(
+                    point, need, language_name, language_code,
+                    maker_model=model, cell=cell,
                 )
-                row_id = row_id or None
-            if row_id:
-                persisted += 1
+                accepted += len(passed)
+                for cand in passed:
+                    row_id = await add_drill(
+                        conn, item["point_id"], cand["sentence"], cand["answer"],
+                        cand.get("translation"), cand.get("hint"),
+                        source="ai", origin_detail=model, decertify=False,
+                        cell=cell,
+                    )
+                    if row_id:
+                        persisted += 1
+            if touched:
+                items_touched += 1
 
     # accepted = candidates that cleared the checker; persisted = those actually
     # written (accepted minus any that collided with an existing sentence, the
