@@ -432,7 +432,7 @@
           "sentence": "Eu {{answer}} student.",
           "answer": "sunt",
           "translation": "I am a student.",
-          "hint": "to be (I)",
+          "hint": "a fi, eu",
           "display_order": 1,
           "cell": "eu"
         },
@@ -440,7 +440,7 @@
           "sentence": "Tu {{answer}} foarte înalt.",
           "answer": "ești",
           "translation": "You are very tall.",
-          "hint": "to be, you (informal)",
+          "hint": "a fi, tu",
           "display_order": 2,
           "cell": "tu"
         },
@@ -448,7 +448,7 @@
           "sentence": "Ea {{answer}} profesoară.",
           "answer": "este",
           "translation": "She is a teacher.",
-          "hint": "to be (she)",
+          "hint": "a fi, el/ea",
           "display_order": 3,
           "cell": "el/ea"
         },
@@ -456,7 +456,7 @@
           "sentence": "Noi {{answer}} prieteni.",
           "answer": "suntem",
           "translation": "We are friends.",
-          "hint": "to be (we)",
+          "hint": "a fi, noi",
           "display_order": 4,
           "cell": "noi"
         },
@@ -464,7 +464,7 @@
           "sentence": "Voi {{answer}} români?",
           "answer": "sunteți",
           "translation": "Are you (all) Romanian?",
-          "hint": "to be, you (plural)",
+          "hint": "a fi, voi",
           "display_order": 5,
           "cell": "voi"
         },
@@ -472,7 +472,7 @@
           "sentence": "Ei {{answer}} acasă.",
           "answer": "sunt",
           "translation": "They are at home.",
-          "hint": "to be (they)",
+          "hint": "a fi, ei",
           "display_order": 6,
           "cell": "ei"
         },
@@ -480,7 +480,7 @@
           "sentence": "Eu {{answer}} din Iași.",
           "answer": "sunt",
           "translation": "I am from Iași.",
-          "hint": "to be (I)",
+          "hint": "a fi, eu",
           "cell": "eu",
           "display_order": 7
         },
@@ -488,7 +488,7 @@
           "sentence": "Tu {{answer}} medic?",
           "answer": "ești",
           "translation": "Are you a doctor?",
-          "hint": "to be (you, informal)",
+          "hint": "a fi, tu",
           "cell": "tu",
           "display_order": 8
         },
@@ -496,7 +496,7 @@
           "sentence": "Tatăl meu {{answer}} inginer.",
           "answer": "este",
           "translation": "My father is an engineer.",
-          "hint": "to be (he)",
+          "hint": "a fi, el/ea",
           "cell": "el/ea",
           "display_order": 9
         },
@@ -504,7 +504,7 @@
           "sentence": "Noi {{answer}} gata.",
           "answer": "suntem",
           "translation": "We are ready.",
-          "hint": "to be (we)",
+          "hint": "a fi, noi",
           "cell": "noi",
           "display_order": 10
         },
@@ -512,7 +512,7 @@
           "sentence": "Voi {{answer}} obosiți?",
           "answer": "sunteți",
           "translation": "Are you (all) tired?",
-          "hint": "to be (you all)",
+          "hint": "a fi, voi",
           "cell": "voi",
           "display_order": 11
         },
@@ -520,7 +520,7 @@
           "sentence": "Părinții mei {{answer}} din Brașov.",
           "answer": "sunt",
           "translation": "My parents are from Brașov.",
-          "hint": "to be (they)",
+          "hint": "a fi, ei",
           "cell": "ei",
           "display_order": 12
         }
@@ -562,7 +562,7 @@
           "sentence": "Eu {{answer}} douăzeci de ani.",
           "answer": "am",
           "translation": "I am twenty years old.",
-          "hint": "to have (I)",
+          "hint": "a avea, eu",
           "display_order": 1,
           "cell": "eu"
         },
@@ -570,7 +570,7 @@
           "sentence": "Tu {{answer}} o pisică?",
           "answer": "ai",
           "translation": "Do you have a cat?",
-          "hint": "to have, you (informal)",
+          "hint": "a avea, tu",
           "display_order": 2,
           "cell": "tu"
         },
@@ -578,7 +578,7 @@
           "sentence": "Ea {{answer}} o întrebare.",
           "answer": "are",
           "translation": "She has a question.",
-          "hint": "to have (she)",
+          "hint": "a avea, el/ea",
           "display_order": 3,
           "cell": "el/ea"
         },
@@ -586,7 +586,7 @@
           "sentence": "Noi {{answer}} timp.",
           "answer": "avem",
           "translation": "We have time.",
-          "hint": "to have (we)",
+          "hint": "a avea, noi",
           "display_order": 4,
           "cell": "noi"
         },
@@ -594,7 +594,7 @@
           "sentence": "Voi {{answer}} dreptate.",
           "answer": "aveți",
           "translation": "You (all) are right.",
-          "hint": "to have, you (plural)",
+          "hint": "a avea, voi",
           "display_order": 5,
           "cell": "voi"
         },
@@ -602,7 +602,7 @@
           "sentence": "Ei {{answer}} o casă la munte.",
           "answer": "au",
           "translation": "They have a house in the mountains.",
-          "hint": "to have (they)",
+          "hint": "a avea, ei",
           "display_order": 6,
           "cell": "ei"
         },
@@ -610,7 +610,7 @@
           "sentence": "Eu {{answer}} două surori.",
           "answer": "am",
           "translation": "I have two sisters.",
-          "hint": "to have (I)",
+          "hint": "a avea, eu",
           "cell": "eu",
           "display_order": 7
         },
@@ -618,7 +618,7 @@
           "sentence": "Tu {{answer}} un stilou?",
           "answer": "ai",
           "translation": "Do you have a pen?",
-          "hint": "to have (you, informal)",
+          "hint": "a avea, tu",
           "cell": "tu",
           "display_order": 8
         },
@@ -626,7 +626,7 @@
           "sentence": "Fratele meu {{answer}} un câine.",
           "answer": "are",
           "translation": "My brother has a dog.",
-          "hint": "to have (he)",
+          "hint": "a avea, el/ea",
           "cell": "el/ea",
           "display_order": 9
         },
@@ -634,7 +634,7 @@
           "sentence": "Noi {{answer}} o casă mică.",
           "answer": "avem",
           "translation": "We have a small house.",
-          "hint": "to have (we)",
+          "hint": "a avea, noi",
           "cell": "noi",
           "display_order": 10
         },
@@ -642,7 +642,7 @@
           "sentence": "Voi {{answer}} copii?",
           "answer": "aveți",
           "translation": "Do you (all) have children?",
-          "hint": "to have (you all)",
+          "hint": "a avea, voi",
           "cell": "voi",
           "display_order": 11
         },
@@ -650,7 +650,7 @@
           "sentence": "Ei {{answer}} mulți prieteni.",
           "answer": "au",
           "translation": "They have many friends.",
-          "hint": "to have (they)",
+          "hint": "a avea, ei",
           "cell": "ei",
           "display_order": 12
         }
@@ -692,7 +692,7 @@
           "sentence": "Eu {{answer}} într-un birou.",
           "answer": "lucrez",
           "translation": "I work in an office.",
-          "hint": "to work, I (-ez type)",
+          "hint": "a lucra, eu",
           "display_order": 1,
           "cell": "eu"
         },
@@ -700,7 +700,7 @@
           "sentence": "Tu {{answer}} muzică în fiecare zi?",
           "answer": "asculți",
           "translation": "Do you listen to music every day?",
-          "hint": "to listen, you (informal)",
+          "hint": "a asculta, tu",
           "display_order": 2,
           "cell": "tu"
         },
@@ -708,7 +708,7 @@
           "sentence": "Ea {{answer}} frumos.",
           "answer": "cântă",
           "translation": "She sings beautifully.",
-          "hint": "to sing (she)",
+          "hint": "a cânta, el/ea",
           "display_order": 3,
           "cell": "el/ea"
         },
@@ -716,7 +716,7 @@
           "sentence": "Ei {{answer}} fotbal.",
           "answer": "joacă",
           "translation": "They play football.",
-          "hint": "to play (they)",
+          "hint": "a juca, ei",
           "display_order": 4,
           "cell": "ei"
         },
@@ -724,7 +724,7 @@
           "sentence": "Voi {{answer}} în casă.",
           "answer": "intrați",
           "translation": "You (all) are entering the house.",
-          "hint": "to enter, you (plural)",
+          "hint": "a intra, voi",
           "display_order": 5,
           "cell": "voi"
         },
@@ -732,7 +732,7 @@
           "sentence": "Eu {{answer}} pâine.",
           "answer": "cumpăr",
           "translation": "I am buying bread.",
-          "hint": "to buy (I)",
+          "hint": "a cumpăra, eu",
           "display_order": 6,
           "cell": "eu"
         },
@@ -740,7 +740,7 @@
           "sentence": "Noi {{answer}} împreună.",
           "answer": "lucrăm",
           "translation": "We work together.",
-          "hint": "to work (we)",
+          "hint": "a lucra, noi",
           "cell": "noi",
           "display_order": 7
         },
@@ -748,7 +748,7 @@
           "sentence": "Tu {{answer}} prea repede!",
           "answer": "lucrezi",
           "translation": "You work too fast!",
-          "hint": "to work (you, informal)",
+          "hint": "a lucra, tu",
           "cell": "tu",
           "display_order": 8
         },
@@ -756,7 +756,7 @@
           "sentence": "El {{answer}} muzică veche.",
           "answer": "ascultă",
           "translation": "He listens to old music.",
-          "hint": "to listen (he)",
+          "hint": "a asculta, el/ea",
           "cell": "el/ea",
           "display_order": 9
         },
@@ -764,7 +764,7 @@
           "sentence": "Noi {{answer}} seara.",
           "answer": "lucrăm",
           "translation": "We work in the evening.",
-          "hint": "to work (we)",
+          "hint": "a lucra, noi",
           "cell": "noi",
           "display_order": 10
         },
@@ -772,7 +772,7 @@
           "sentence": "Voi {{answer}} des aici?",
           "answer": "intrați",
           "translation": "Do you (all) come in here often?",
-          "hint": "to enter (you all)",
+          "hint": "a intra, voi",
           "cell": "voi",
           "display_order": 11
         },
@@ -780,7 +780,7 @@
           "sentence": "Ei {{answer}} tenis.",
           "answer": "joacă",
           "translation": "They play tennis.",
-          "hint": "to play (they)",
+          "hint": "a juca, ei",
           "cell": "ei",
           "display_order": 12
         }
@@ -822,7 +822,7 @@
           "sentence": "Eu {{answer}} la școală.",
           "answer": "merg",
           "translation": "I go to school.",
-          "hint": "to go (I)",
+          "hint": "a merge, eu",
           "display_order": 1,
           "cell": "eu"
         },
@@ -830,7 +830,7 @@
           "sentence": "Noi {{answer}} o scrisoare.",
           "answer": "scriem",
           "translation": "We are writing a letter.",
-          "hint": "to write (we)",
+          "hint": "a scrie, noi",
           "display_order": 2,
           "cell": "noi"
         },
@@ -838,7 +838,7 @@
           "sentence": "Ei {{answer}} mult.",
           "answer": "dorm",
           "translation": "They sleep a lot.",
-          "hint": "to sleep (they)",
+          "hint": "a dormi, ei",
           "display_order": 3,
           "cell": "ei"
         },
@@ -846,7 +846,7 @@
           "sentence": "Ea {{answer}} o carte.",
           "answer": "citește",
           "translation": "She is reading a book.",
-          "hint": "to read, she (-esc type)",
+          "hint": "a citi, el/ea",
           "display_order": 4,
           "cell": "el/ea"
         },
@@ -854,7 +854,7 @@
           "sentence": "Tu {{answer}} muzica?",
           "answer": "auzi",
           "translation": "Do you hear the music?",
-          "hint": "to hear, you (informal)",
+          "hint": "a auzi, tu",
           "display_order": 5,
           "cell": "tu"
         },
@@ -862,7 +862,7 @@
           "sentence": "Voi {{answer}} marea de aici?",
           "answer": "vedeți",
           "translation": "Do you (all) see the sea from here?",
-          "hint": "to see, you (plural)",
+          "hint": "a vedea, voi",
           "display_order": 6,
           "cell": "voi"
         },
@@ -870,7 +870,7 @@
           "sentence": "Eu {{answer}} un email.",
           "answer": "scriu",
           "translation": "I am writing an email.",
-          "hint": "to write (I)",
+          "hint": "a scrie, eu",
           "cell": "eu",
           "display_order": 7
         },
@@ -878,7 +878,7 @@
           "sentence": "Tu {{answer}} cafea dimineața?",
           "answer": "bei",
           "translation": "Do you drink coffee in the morning?",
-          "hint": "to drink (you, informal)",
+          "hint": "a bea, tu",
           "cell": "tu",
           "display_order": 8
         },
@@ -886,7 +886,7 @@
           "sentence": "Ea {{answer}} bine de aici.",
           "answer": "vede",
           "translation": "She sees well from here.",
-          "hint": "to see (she)",
+          "hint": "a vedea, el/ea",
           "cell": "el/ea",
           "display_order": 9
         },
@@ -894,7 +894,7 @@
           "sentence": "Noi {{answer}} la piață.",
           "answer": "mergem",
           "translation": "We are going to the market.",
-          "hint": "to go (we)",
+          "hint": "a merge, noi",
           "cell": "noi",
           "display_order": 10
         },
@@ -902,7 +902,7 @@
           "sentence": "Voi {{answer}} până târziu?",
           "answer": "dormiți",
           "translation": "Do you (all) sleep late?",
-          "hint": "to sleep (you all)",
+          "hint": "a dormi, voi",
           "cell": "voi",
           "display_order": 11
         },
@@ -910,7 +910,7 @@
           "sentence": "Ei {{answer}} ziarul.",
           "answer": "citesc",
           "translation": "They read the newspaper.",
-          "hint": "to read (they)",
+          "hint": "a citi, ei",
           "cell": "ei",
           "display_order": 12
         }
@@ -2027,7 +2027,7 @@
           "sentence": "{{answer}} fereastra, te rog!",
           "answer": "deschide",
           "translation": "Open the window, please!",
-          "hint": "open! — to one person",
+          "hint": "a deschide, tu",
           "cell": "tu",
           "display_order": 1
         },
@@ -2035,7 +2035,7 @@
           "sentence": "{{answer}} mai încet, copilul doarme.",
           "answer": "vorbește",
           "translation": "Speak more quietly, the child is sleeping.",
-          "hint": "speak! — to one person",
+          "hint": "a vorbi, tu",
           "cell": "tu",
           "display_order": 2
         },
@@ -2043,7 +2043,7 @@
           "sentence": "Copii, {{answer}} cărțile la pagina zece!",
           "answer": "deschideți",
           "translation": "Children, open your books to page ten!",
-          "hint": "open! — to a group",
+          "hint": "a deschide, voi",
           "cell": "voi",
           "display_order": 3
         },
@@ -2051,7 +2051,7 @@
           "sentence": "{{answer}} atenți când traversați strada!",
           "answer": "fiți",
           "translation": "Be careful when you cross the street!",
-          "hint": "be! — to a group",
+          "hint": "a fi, voi",
           "cell": "voi",
           "display_order": 4
         },

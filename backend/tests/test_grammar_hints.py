@@ -2,10 +2,12 @@
 Gym "baseline" cue, so it must be in the TARGET language ("<infinitive>,
 <person>"), not an English gloss ("to work (she)", "yo form of ser").
 
-Spanish was cleaned (the language the bug was reported on) and is locked here.
-Other languages carry the same authoring debt; this test measures it and prints
-a report so it can be worked down, but only *fails* on the cleaned languages and
-on any INCREASE elsewhere.
+The languages whose base form is an infinitive (Romance/Germanic) or a
+lemmatizable citation form (Russian) were cleaned to "<base>, <person>" and are
+locked here. The four still-English languages are HELD on purpose: ar (Semitic —
+no infinitive; hints describe the prefix), el (Greek cites the 1sg present, not
+an infinitive), tr (agglutinative), xh (Bantu). Their base-form model is
+different and needs a native/LLM pass, so they're reported, not failed.
 """
 from __future__ import annotations
 
@@ -16,8 +18,11 @@ import re
 # An English gloss where a target-language "<base>, <person>" cue belongs.
 _ENGLISH_HINT = re.compile(r"\bto\s+[a-z]+\b|\bform of\b", re.I)
 
-# Languages verified clean — these must stay at zero (regression guard).
-_CLEAN = {"es"}
+# Languages converted to target-language "<base>, <person>" — must stay at zero.
+_CLEAN = {"es", "fr", "it", "ca", "ro", "de", "ru"}
+
+# Held on purpose (base form isn't a derivable infinitive): reported, not failed.
+_HELD = {"ar", "el", "tr", "xh"}
 
 
 def _english_conjugation_hints(code: str) -> list[tuple[str, str, str]]:
@@ -54,8 +59,9 @@ def test_report_conjugation_hint_debt_across_languages():
         if n:
             report[code] = n
     if report:
-        print("\nEnglish conjugation-hint debt (target-language cue missing):")
+        print("\nEnglish conjugation-hint debt (held for a native/LLM pass):")
         for code, n in sorted(report.items(), key=lambda kv: -kv[1]):
             print(f"  {code}: {n}")
-    # The cleaned languages must not appear.
+    # The cleaned languages must not appear; only the held set may remain.
     assert not (_CLEAN & report.keys()), report
+    assert report.keys() <= _HELD, f"unexpected debt outside the held set: {report}"
