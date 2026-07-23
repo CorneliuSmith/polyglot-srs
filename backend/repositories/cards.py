@@ -13,6 +13,7 @@ import asyncpg
 from backend.repositories.curriculum import get_read_ref_keys, resolve_related
 from backend.repositories.gym import get_gym_progress
 from backend.services.extract import ANSWER_MARKER, make_cloze
+from backend.services.gym_manifest import nonstandard_point_titles
 from backend.services.gym_weight import drill_weight
 from backend.services.references import clean_references
 from backend.services.srs_stages import stage_for
@@ -1402,7 +1403,13 @@ async def get_cram_cards(
     def _priority(r: asyncpg.Record, i: int) -> float:
         drill_ids = r["drill_ids"] or []
         did = str(drill_ids[i]) if i < len(drill_ids) and drill_ids[i] else None
-        weight = drill_weight(progress.get(did) if did else None)
+        # A point the manifest marks non-standard is an irregular form category
+        # (verbs of motion, etc.) — its drills get the irregular boost so they
+        # surface more, and float back up when the learner keeps failing them.
+        irregular = r["title"] in nonstandard_point_titles(r["language_code"])
+        weight = drill_weight(
+            progress.get(did) if did else None, is_irregular=irregular
+        )
         # Efraimidis–Spirakis weighted sampling without replacement: a higher
         # weight makes a higher key more likely, so top-k favours heavy drills
         # while keeping variety.

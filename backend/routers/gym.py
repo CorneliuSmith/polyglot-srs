@@ -11,25 +11,15 @@ point ids to GET /api/review/cram — ungraded, nothing touches SRS state.
 """
 from __future__ import annotations
 
-import json
 import uuid
 
 from fastapi import APIRouter, Depends, HTTPException, status
 
 from backend.dependencies import get_current_user
 from backend.repositories.pool import rls_connection
-from backend.services.seeder.base import DATA_DIR
+from backend.services.gym_manifest import load_manifest as _load_manifest
 
 router = APIRouter()
-
-GYM_DIR = DATA_DIR / "gym"
-
-
-def _load_manifest(code: str) -> dict | None:
-    path = GYM_DIR / f"{code}.json"
-    if not path.exists():
-        return None
-    return json.loads(path.read_text(encoding="utf-8"))
 
 
 @router.get("/manifest")
