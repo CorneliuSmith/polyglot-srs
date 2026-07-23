@@ -19,6 +19,7 @@ from backend.repositories.cards import (
     get_deck_items,
     get_deck_preview,
     get_due_cards,
+    get_generation_context,
     get_learn_decks,
     get_vocab_item,
     reset_deck_progress,
@@ -26,9 +27,12 @@ from backend.repositories.cards import (
     set_deck_subscription,
     update_card_srs,
 )
+from backend.repositories.contributor import add_drill
 from backend.repositories.fsrs_weights import get_effective_params
-from backend.repositories.pool import rls_connection
+from backend.repositories.pool import privileged_connection, rls_connection
 from backend.repositories.review import add_card_feedback, insert_review_log
+from backend.repositories.tutor import log_tutor_usage
+from backend.services.allowance import get_allowance, reject_if_unavailable
 from backend.services.fsrs import (
     AnswerResult,
     CardState,
@@ -36,6 +40,8 @@ from backend.services.fsrs import (
     map_answer_to_quality,
     map_answer_to_rating,
 )
+from backend.services.generate import generate_drills, generation_available
+from backend.services.models import resolve_model
 from backend.services.nlp import validate_answer_async
 
 router = APIRouter()
@@ -154,6 +160,80 @@ async def cram(
         return await get_cram_cards(
             conn, ids, support_locale=support, count=count
         )
+
+
+class GymGenerateRequest(BaseModel):
+    point_ids: list[str] = Field(min_length=1)
+
+
+# Limits (owner: "try to limit them"): one generate call tops up a few forms
+# with a handful of drills each and costs ONE message from the learner's
+# allowance — on-demand variety is cheap and bounded, not a firehose. The
+# baseline seeded corpus (forms x multiple drills = hundreds) is the main path.
+GYM_GEN_MAX_POINTS = 3
+GYM_GEN_PER_POINT = 4
+
+
+@router.post("/gym/generate")
+async def gym_generate(
+    body: GymGenerateRequest,
+    user: dict = Depends(get_current_user),
+):
+    """Learner-triggered: generate a few EXTRA drill variations for the chosen
+    Gym forms, drawing ONE message from the learner's tutor allowance (WP41).
+
+    Generated drills are verified (maker-checker), tagged source='ai', and
+    added to the shared pool WITHOUT de-certifying the form (so generating
+    never hides what you're drilling). A human still vets 'ai' drills later.
+    """
+    if not generation_available():
+        raise HTTPException(
+            status_code=status.HTTP_503_SERVICE_UNAVAILABLE,
+            detail="On-demand generation isn't enabled.",
+        )
+    ids = list(dict.fromkeys(body.point_ids))[:GYM_GEN_MAX_POINTS]
+
+    async with rls_connection(user["id"]) as conn:
+        contexts = [
+            c for c in [await get_generation_context(conn, pid) for pid in ids] if c
+        ]
+    if not contexts:
+        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="No such forms.")
+
+    language_id = contexts[0]["language_id"]
+    # Draws the learner's allowance — reject early when it's exhausted, before
+    # spending anything (the UI warns before it ever gets here).
+    allowance = await get_allowance(user["id"], language_id)
+    reject_if_unavailable(allowance)
+
+    model = resolve_model("grammar_maker", contexts[0]["language_code"])
+    generated = 0
+    async with privileged_connection() as conn:
+        for ctx in contexts:
+            drills = await generate_drills(
+                {
+                    "title": ctx["title"],
+                    "explanation": ctx["explanation"],
+                    "examples": ctx["examples"],
+                },
+                GYM_GEN_PER_POINT, ctx["language_name"], ctx["language_code"],
+            )
+            for d in drills:
+                await add_drill(
+                    conn, ctx["point_id"], d["sentence"], d["answer"],
+                    d.get("translation"), d.get("hint"),
+                    source="ai", origin_detail=model, decertify=False,
+                )
+                generated += 1
+        # One message spent, regardless of how many drills the batch yielded.
+        await log_tutor_usage(conn, user["id"], language_id, model, kind="gym_gen")
+
+    remaining = None if allowance["unlimited"] else max(0, allowance["remaining"] - 1)
+    return {
+        "generated": generated,
+        "remaining": remaining,
+        "unlimited": allowance["unlimited"],
+    }
 
 
 @router.get("/card/{card_id}/detail")

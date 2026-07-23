@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useQuery } from '@tanstack/react-query'
-import { getGymManifest } from '../../api/gym'
+import { getGymManifest, generateGymDrills } from '../../api/gym'
 import type { GymEntry } from '../../api/gym'
 import { usePrefsStore } from '../../stores/prefsStore'
 
@@ -29,6 +29,12 @@ export default function GymPage() {
   const [selected, setSelected] = useState<Set<string>>(new Set())
   const [nonstandard, setNonstandard] = useState(false)
   const [count, setCount] = useState<number>(20)
+  // WP41: opt-in on-demand generation. OFF by default — the seeded corpus
+  // (forms × many sentences) is the main path; this tops up variety and
+  // spends a tutor message, so the learner turns it on knowingly.
+  const [generate, setGenerate] = useState(false)
+  const [generating, setGenerating] = useState(false)
+  const [genError, setGenError] = useState<string | null>(null)
 
   const { data, isLoading } = useQuery({
     queryKey: ['gym-manifest', activeLanguageId],
@@ -70,9 +76,39 @@ export default function GymPage() {
     .reduce((sum, e) => sum + (e.drills || 0), 0)
   const short = selected.size > 0 && count > available
 
-  const start = () => {
-    if (selected.size === 0) return
+  const goToCram = () =>
     navigate(`/cram?points=${[...selected].join(',')}&mix=1&count=${count}`)
+
+  const start = async () => {
+    if (selected.size === 0 || generating) return
+    // Only spend a message when we're actually short and the learner opted in;
+    // otherwise the seeded pool already covers the requested count.
+    if (generate && short) {
+      setGenerating(true)
+      setGenError(null)
+      try {
+        await generateGymDrills([...selected])
+      } catch (err: unknown) {
+        const status = (err as { response?: { status?: number } })?.response
+          ?.status
+        setGenerating(false)
+        if (status === 402) {
+          setGenError(
+            "You're out of tutor messages for now — starting with the sentences we already have.",
+          )
+        } else if (status === 503) {
+          setGenError(
+            'Fresh generation is off right now — starting with what we have.',
+          )
+        } else {
+          setGenError('Could not generate more — starting with what we have.')
+        }
+        goToCram()
+        return
+      }
+      setGenerating(false)
+    }
+    goToCram()
   }
 
   return (
@@ -223,14 +259,38 @@ export default function GymPage() {
                   />
                 </label>
               </div>
-              {short && (
+              {short && !generate && (
                 <p className="text-xs text-amber-600">
                   These forms have {available} question{available === 1 ? '' : 's'} to
-                  draw from — you&apos;ll get {available} this round. Pick more forms for
-                  a bigger set. (Generating fresh sentences on demand is coming — it may
-                  use your tokens.)
+                  draw from — you&apos;ll get {available} this round. Pick more forms, or
+                  turn on fresh variations below to top up.
                 </p>
               )}
+              {short && generate && (
+                <p className="text-xs text-amber-600">
+                  Only {available} ready — we&apos;ll generate a few fresh ones to fill
+                  the gap. That spends one of your tutor messages.
+                </p>
+              )}
+
+              {/* WP41: opt-in generation. Warn BEFORE they commit — the toggle
+                  itself carries the cost note ("let them know early"). */}
+              <label className="flex items-start gap-2 pt-1 text-sm text-gray-600 select-none">
+                <input
+                  type="checkbox"
+                  checked={generate}
+                  onChange={(e) => setGenerate(e.target.checked)}
+                  className="mt-0.5 rounded border-gray-300"
+                />
+                <span>
+                  Generate fresh variations when a form runs thin
+                  <span className="block text-xs text-gray-400">
+                    Draws on your own past sentences for variety and, if needed,
+                    makes a few new ones — this uses one of your tutor messages.
+                  </span>
+                </span>
+              </label>
+              {genError && <p className="text-xs text-amber-600">{genError}</p>}
             </div>
 
             <div className="flex flex-wrap items-center justify-between gap-3">
@@ -250,13 +310,15 @@ export default function GymPage() {
               <button
                 type="button"
                 onClick={start}
-                disabled={selected.size === 0}
+                disabled={selected.size === 0 || generating}
                 className="bg-lang hover:bg-lang-dark disabled:opacity-40 text-lang-on font-semibold rounded-xl px-6 py-3 text-sm"
                 style={{ minHeight: '44px' }}
               >
-                {selected.size === 0
-                  ? 'Pick at least one form'
-                  : `Start training · ${Math.min(count, available || count)} question${Math.min(count, available || count) === 1 ? '' : 's'}`}
+                {generating
+                  ? 'Generating…'
+                  : selected.size === 0
+                    ? 'Pick at least one form'
+                    : `Start training · ${Math.min(count, available || count)} question${Math.min(count, available || count) === 1 ? '' : 's'}`}
               </button>
             </div>
           </>

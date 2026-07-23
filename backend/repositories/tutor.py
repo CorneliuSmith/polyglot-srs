@@ -15,16 +15,17 @@ import asyncpg
 async def count_tutor_messages(
     conn: asyncpg.Connection, user_id: str, since
 ) -> int:
-    """Answered tutor messages this user has used since *since* (allowances).
+    """Messages this user has spent from their allowance since *since*.
 
-    Only kind='chat' rows count — 'summary' rows are the operator's cost
-    accounting for the post-session summarizer, part of a message the
-    learner already spent.
+    Counted kinds draw the pool: 'chat' (a tutor turn) and 'gym_gen' (a Gym
+    on-demand generation, WP41). 'summary' rows are the operator's cost
+    accounting for the post-session summarizer — part of a message already
+    spent — and never count.
     """
     n = await conn.fetchval(
         """
         SELECT count(*) FROM tutor_usage
-        WHERE user_id = $1 AND created_at >= $2 AND kind = 'chat'
+        WHERE user_id = $1 AND created_at >= $2 AND kind IN ('chat', 'gym_gen')
         """,
         user_id, since,
     )

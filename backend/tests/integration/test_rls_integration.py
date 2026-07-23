@@ -340,6 +340,39 @@ async def test_drill_provenance_tracks_source_and_edits(pool):
         assert after[seed_id]["is_modified"] is True
 
 
+async def test_generated_drills_persist_as_ai_provenance(pool):
+    """End-to-end (Part C): the maker-checker generator (dev-mock) produces
+    verified drills; persisting them via add_drill(source='ai') tags them so
+    they read as generated, not seed/human."""
+    from types import SimpleNamespace
+    from unittest.mock import AsyncMock, patch
+
+    from backend.repositories.contributor import add_drill, list_drills
+    from backend.services import generate
+
+    lang = await _language(pool, "gen1")
+    async with pool.privileged_connection() as conn:
+        pid = str(await conn.fetchval(
+            "INSERT INTO grammar_points (language_id, title, level) "
+            "VALUES ($1, 'P', 'A1') RETURNING id", lang,
+        ))
+        with patch(
+            "backend.services.generate.get_settings",
+            return_value=SimpleNamespace(tutor_dev_mock=True, anthropic_api_key=""),
+        ), patch(
+            "backend.services.generate.validate_drill", new=AsyncMock(return_value=True)
+        ):
+            passed = await generate.generate_drills({"title": "P"}, 3, "Spanish", "es")
+        for d in passed:
+            await add_drill(
+                conn, pid, d["sentence"], d["answer"], d["translation"], d["hint"],
+                source="ai", origin_detail="claude-mock",
+            )
+        drills = await list_drills(conn, pid)
+    assert drills  # at least one candidate survived the checker
+    assert all(d["source"] == "ai" for d in drills)
+
+
 async def test_mixed_learn_interleaves_grammar_and_vocab(pool):
     """When both types are queued, an unscoped 'both' batch alternates grammar
     and vocab (owner request) — 3 of each in a 6-item batch, grammar first."""

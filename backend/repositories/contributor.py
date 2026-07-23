@@ -319,27 +319,37 @@ async def add_drill(
     answer: str,
     translation: str | None,
     hint: str | None,
+    source: str = "human",
+    origin_detail: str | None = None,
+    decertify: bool = True,
 ) -> str:
-    """Insert a drill sentence (privileged). Adding a drill marks the point unreviewed."""
+    """Insert a drill sentence (privileged). *source* tags provenance (WP38):
+    'human' for a drill added by hand (the default — never mistaken for
+    seed/import), 'ai' for a generated one, with the model in *origin_detail*.
+
+    A hand edit de-certifies the point (reviewed → false) so a second reviewer
+    re-approves. Gym on-demand generation passes decertify=False: the generated
+    drills are tagged 'ai' for later review, but the point stays visible so
+    generating extra variations never hides the form the learner is drilling."""
     next_order = await conn.fetchval(
         "SELECT COALESCE(MAX(display_order), 0) + 1 FROM drill_sentences WHERE grammar_point_id = $1",
         point_id,
     )
-    # A drill added by hand in the app is ours — tag it 'human' so it's never
-    # mistaken for seed or imported content.
     drill_id = await conn.fetchval(
         """
         INSERT INTO drill_sentences
             (grammar_point_id, sentence, answer, translation, hint, display_order,
-             source)
-        VALUES ($1, $2, $3, $4, $5, $6, 'human')
+             source, origin_detail)
+        VALUES ($1, $2, $3, $4, $5, $6, $7, $8)
         RETURNING id
         """,
         point_id, sentence, answer, translation or None, hint or None, next_order,
+        source, origin_detail,
     )
-    await conn.execute(
-        "UPDATE grammar_points SET reviewed = false WHERE id = $1", point_id
-    )
+    if decertify:
+        await conn.execute(
+            "UPDATE grammar_points SET reviewed = false WHERE id = $1", point_id
+        )
     return str(drill_id)
 
 

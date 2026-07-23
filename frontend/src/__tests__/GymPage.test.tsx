@@ -9,7 +9,10 @@ vi.mock('react-router-dom', async (orig) => ({
   ...(await orig<typeof import('react-router-dom')>()),
   useNavigate: () => mockNavigate,
 }))
-vi.mock('../api/gym', () => ({ getGymManifest: vi.fn() }))
+vi.mock('../api/gym', () => ({
+  getGymManifest: vi.fn(),
+  generateGymDrills: vi.fn(),
+}))
 vi.mock('../stores/prefsStore', () => ({
   usePrefsStore: vi.fn(
     (selector: (s: Record<string, unknown>) => unknown) =>
@@ -17,8 +20,9 @@ vi.mock('../stores/prefsStore', () => ({
   ),
 }))
 
-import { getGymManifest } from '../api/gym'
+import { getGymManifest, generateGymDrills } from '../api/gym'
 const mockManifest = getGymManifest as ReturnType<typeof vi.fn>
+const mockGenerate = generateGymDrills as ReturnType<typeof vi.fn>
 
 const MANIFEST = {
   columns: [
@@ -62,6 +66,11 @@ describe('GymPage', () => {
   beforeEach(() => {
     vi.clearAllMocks()
     mockManifest.mockResolvedValue(MANIFEST)
+    mockGenerate.mockResolvedValue({
+      generated: 4,
+      remaining: 15,
+      unlimited: false,
+    })
   })
 
   it('renders columns, familiar-first, with hover previews in the DOM', async () => {
@@ -115,6 +124,40 @@ describe('GymPage', () => {
     expect(url).toContain('p-acc')
     expect(url).toContain('mix=1')
     expect(url).toContain('count=30')
+  })
+
+  it('does NOT generate when the toggle is off, even if short', async () => {
+    renderPage()
+    await screen.findByText('Verbs')
+    // p-present has 12 drills; default count 20 → short, but toggle is off.
+    fireEvent.click(screen.getByRole('button', { name: /present/i }))
+    fireEvent.click(screen.getByRole('button', { name: /start training/i }))
+    await waitFor(() => expect(mockNavigate).toHaveBeenCalled())
+    expect(mockGenerate).not.toHaveBeenCalled()
+  })
+
+  it('generates fresh variations when opted in and short, then starts', async () => {
+    renderPage()
+    await screen.findByText('Verbs')
+    fireEvent.click(screen.getByRole('button', { name: /present/i })) // 12 < 20
+    fireEvent.click(screen.getByLabelText(/generate fresh variations/i))
+    fireEvent.click(screen.getByRole('button', { name: /start training/i }))
+    await waitFor(() => expect(mockGenerate).toHaveBeenCalledWith(['p-present']))
+    await waitFor(() => expect(mockNavigate).toHaveBeenCalled())
+    expect(mockNavigate.mock.calls[0][0]).toContain('count=20')
+  })
+
+  it('still starts the session when generation fails (allowance spent)', async () => {
+    mockGenerate.mockRejectedValue({ response: { status: 402 } })
+    renderPage()
+    await screen.findByText('Verbs')
+    fireEvent.click(screen.getByRole('button', { name: /present/i }))
+    fireEvent.click(screen.getByLabelText(/generate fresh variations/i))
+    fireEvent.click(screen.getByRole('button', { name: /start training/i }))
+    await waitFor(() => expect(mockNavigate).toHaveBeenCalled())
+    expect(
+      await screen.findByText(/out of tutor messages/i),
+    ).toBeDefined()
   })
 
   it('explains when a language has nothing to train', async () => {

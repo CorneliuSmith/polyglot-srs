@@ -1246,6 +1246,24 @@ Also folds in: the "all accounts" tile (every account listable,
 including never-active — previously invisible in every activity
 window).
 
+### WP40 — Part C: maker-checker drill generation (core, owner, 2026-07-23)
+The generation core the last several WPs set up (provenance WP38, model
+registry WP39, the offline-morphology checker probe). `services/generate.py`:
+a **maker** drafts N new fill-in-the-blank drills for a grammar point (title +
+explanation + existing drills as style), then a **checker** verifies every
+candidate against the SAME bar a human edit clears — blank present,
+single-token answer that doesn't leak into the visible frame, hint doesn't
+reveal it, and the NLP answerability gate (`validate_drill`). Whatever fails is
+dropped, never stored. Accepted drills persist via `add_drill(source='ai',
+origin_detail=<model>)` (WP38) with `reviewed=false`, so a human still gates
+them in (§6: never self-certify). Models resolve through the registry
+(`grammar_maker` / `grammar_checker`), and — like `services/translate.py` — a
+`TUTOR_DEV_MOCK` path makes the whole pipeline testable with **no API key**
+(8 unit tests + an end-to-end integration test: generate → persist → reads
+back as `source='ai'`). Deferred (the parts that need the key or a product
+decision): the learner-facing "generate more" trigger in the Gym and its token
+allowance, sentence (vocab) generation, and prompt tuning against a live model.
+
 ### WP39 — Central task→model registry (owner, 2026-07-22)
 Model selection was scattered — config defaults, per-service literals, and CLI
 flags. `services/models.py` now maps every AI task to its model in one place

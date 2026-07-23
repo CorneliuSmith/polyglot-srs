@@ -112,6 +112,8 @@ def client():
          patch("backend.main.get_settings", return_value=FakeSettings()), \
          patch("backend.dependencies.get_settings", return_value=FakeSettings()), \
          patch("backend.routers.tutor.get_settings", return_value=FakeSettings()), \
+         patch("backend.services.allowance.get_settings", return_value=FakeSettings()), \
+         patch("backend.services.allowance.rls_connection", _fake_rls_connection), \
          patch("backend.routers.tutor.rls_connection", _fake_rls_connection):
         app = create_app()
         with TestClient(app, raise_server_exceptions=True) as c:
@@ -463,10 +465,10 @@ class TestTutorChatEndpoint:
         paid.tutor_free_access = False
         p1, p2, p3, p4 = _patch_chat_repos()
         with p1, p2, p3, p4, \
-             patch("backend.routers.tutor.get_settings", return_value=paid), \
-             patch("backend.routers.tutor.has_tutor_entitlement",
+             patch("backend.services.allowance.get_settings", return_value=paid), \
+             patch("backend.services.allowance.has_tutor_entitlement",
                    new=AsyncMock(return_value=False)), \
-             patch("backend.routers.tutor.count_tutor_messages",
+             patch("backend.services.allowance.count_tutor_messages",
                    new=AsyncMock(return_value=5)), \
              patch("backend.routers.tutor.log_tutor_usage",
                    new=AsyncMock()) as mock_log, \
@@ -486,10 +488,10 @@ class TestTutorChatEndpoint:
     def test_free_tier_blocked_at_monthly_limit(self, client):
         paid = FakeSettings()
         paid.tutor_free_access = False
-        with patch("backend.routers.tutor.get_settings", return_value=paid), \
-             patch("backend.routers.tutor.has_tutor_entitlement",
+        with patch("backend.services.allowance.get_settings", return_value=paid), \
+             patch("backend.services.allowance.has_tutor_entitlement",
                    new=AsyncMock(return_value=False)), \
-             patch("backend.routers.tutor.count_tutor_messages",
+             patch("backend.services.allowance.count_tutor_messages",
                    new=AsyncMock(return_value=20)):
             resp = client.post("/api/tutor/chat", json=_chat_body(), headers=_auth_headers())
         assert resp.status_code == 402
@@ -502,10 +504,10 @@ class TestTutorChatEndpoint:
     def test_plus_tier_blocked_at_daily_fair_use_cap(self, client):
         paid = FakeSettings()
         paid.tutor_free_access = False
-        with patch("backend.routers.tutor.get_settings", return_value=paid), \
-             patch("backend.routers.tutor.has_tutor_entitlement",
+        with patch("backend.services.allowance.get_settings", return_value=paid), \
+             patch("backend.services.allowance.has_tutor_entitlement",
                    new=AsyncMock(return_value=True)), \
-             patch("backend.routers.tutor.count_tutor_messages",
+             patch("backend.services.allowance.count_tutor_messages",
                    new=AsyncMock(return_value=50)):
             resp = client.post("/api/tutor/chat", json=_chat_body(), headers=_auth_headers())
         assert resp.status_code == 402
@@ -524,15 +526,15 @@ class TestTutorChatEndpoint:
                                   (None, "free", 20)):
             p1, p2, p3, p4 = _patch_chat_repos()
             with p1, p2, p3, p4, \
-                 patch("backend.routers.tutor.get_settings", return_value=paid), \
-                 patch("backend.routers.tutor.get_tutor_access",
+                 patch("backend.services.allowance.get_settings", return_value=paid), \
+                 patch("backend.services.allowance.get_tutor_access",
                        new=AsyncMock(return_value={
                            "access": "default", "daily_cap": None,
                            "plan_scope": plan,
                        })), \
-                 patch("backend.routers.tutor.has_tutor_entitlement",
+                 patch("backend.services.allowance.has_tutor_entitlement",
                        new=AsyncMock(return_value=False)), \
-                 patch("backend.routers.tutor.count_tutor_messages",
+                 patch("backend.services.allowance.count_tutor_messages",
                        new=AsyncMock(return_value=1)), \
                  patch("backend.routers.tutor.log_tutor_usage", new=AsyncMock()), \
                  patch("backend.routers.tutor.tutor_chat",
@@ -548,7 +550,7 @@ class TestTutorChatEndpoint:
     def test_blocked_account_403_even_in_free_access_mode(self, client):
         # The admin block wins over EVERYTHING, including the operator's
         # TUTOR_FREE_ACCESS demo bypass (FakeSettings has it on).
-        with patch("backend.routers.tutor.get_tutor_access",
+        with patch("backend.services.allowance.get_tutor_access",
                    new=AsyncMock(return_value={"access": "blocked", "daily_cap": None})):
             resp = client.post("/api/tutor/chat", json=_chat_body(), headers=_auth_headers())
         assert resp.status_code == 403
@@ -561,10 +563,10 @@ class TestTutorChatEndpoint:
         paid.tutor_free_access = False
         p1, p2, p3, p4 = _patch_chat_repos()
         with p1, p2, p3, p4, \
-             patch("backend.routers.tutor.get_settings", return_value=paid), \
-             patch("backend.routers.tutor.get_tutor_access",
+             patch("backend.services.allowance.get_settings", return_value=paid), \
+             patch("backend.services.allowance.get_tutor_access",
                    new=AsyncMock(return_value={"access": "enabled", "daily_cap": 10})), \
-             patch("backend.routers.tutor.count_tutor_messages",
+             patch("backend.services.allowance.count_tutor_messages",
                    new=AsyncMock(return_value=4)), \
              patch("backend.routers.tutor.log_tutor_usage", new=AsyncMock()), \
              patch("backend.routers.tutor.tutor_chat",
@@ -579,10 +581,10 @@ class TestTutorChatEndpoint:
     def test_granted_account_blocked_at_its_cap(self, client):
         paid = FakeSettings()
         paid.tutor_free_access = False
-        with patch("backend.routers.tutor.get_settings", return_value=paid), \
-             patch("backend.routers.tutor.get_tutor_access",
+        with patch("backend.services.allowance.get_settings", return_value=paid), \
+             patch("backend.services.allowance.get_tutor_access",
                    new=AsyncMock(return_value={"access": "enabled", "daily_cap": 10})), \
-             patch("backend.routers.tutor.count_tutor_messages",
+             patch("backend.services.allowance.count_tutor_messages",
                    new=AsyncMock(return_value=10)):
             resp = client.post("/api/tutor/chat", json=_chat_body(), headers=_auth_headers())
         assert resp.status_code == 402
@@ -702,10 +704,10 @@ class TestTutorChatStream:
     def test_stream_blocked_when_allowance_exhausted(self, client):
         paid = FakeSettings()
         paid.tutor_free_access = False
-        with patch("backend.routers.tutor.get_settings", return_value=paid), \
-             patch("backend.routers.tutor.has_tutor_entitlement",
+        with patch("backend.services.allowance.get_settings", return_value=paid), \
+             patch("backend.services.allowance.has_tutor_entitlement",
                    new=AsyncMock(return_value=False)), \
-             patch("backend.routers.tutor.count_tutor_messages",
+             patch("backend.services.allowance.count_tutor_messages",
                    new=AsyncMock(return_value=20)):
             resp = client.post(
                 "/api/tutor/chat/stream", json=_chat_body(), headers=_auth_headers()
@@ -846,10 +848,10 @@ class TestTutorStatus:
     def test_free_tier_status_shows_meter(self, client):
         paid = FakeSettings()
         paid.tutor_free_access = False
-        with patch("backend.routers.tutor.get_settings", return_value=paid), \
-             patch("backend.routers.tutor.has_tutor_entitlement",
+        with patch("backend.services.allowance.get_settings", return_value=paid), \
+             patch("backend.services.allowance.has_tutor_entitlement",
                    new=AsyncMock(return_value=False)), \
-             patch("backend.routers.tutor.count_tutor_messages",
+             patch("backend.services.allowance.count_tutor_messages",
                    new=AsyncMock(return_value=7)):
             resp = client.get(
                 "/api/tutor/status",
