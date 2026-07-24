@@ -745,3 +745,39 @@ export async function reviewDrill(drillId: string, approve: boolean): Promise<vo
     { approve },
   )
 }
+
+export interface VocabExample {
+  id: string
+  sentence: string
+  translation: string | null
+  source: string
+  reviewed: boolean
+  is_modified: boolean
+}
+
+/** Every example sentence for a word — for the reviewer's inline editor. */
+export async function getVocabExamples(
+  vocabularyId: string,
+): Promise<VocabExample[]> {
+  const response = await apiClient.get<{ examples: VocabExample[] }>(
+    `/api/contribute/review/vocab/${vocabularyId}/examples`,
+  )
+  return response.data.examples
+}
+
+/** Reviewer edit of an example sentence's text/translation. */
+export async function editExampleSentence(
+  exampleId: string,
+  sentence: string,
+  translation: string | null,
+): Promise<void> {
+  await apiClient.put(`/api/contribute/review/examples/${exampleId}`, {
+    sentence,
+    translation,
+  })
+}
+
+/** Reviewer delete of an example sentence. */
+export async function deleteExampleSentence(exampleId: string): Promise<void> {
+  await apiClient.delete(`/api/contribute/review/examples/${exampleId}`)
+}

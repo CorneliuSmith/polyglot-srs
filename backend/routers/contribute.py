@@ -39,6 +39,8 @@ from backend.repositories.contributor import (
     create_grammar_point,
     delete_account,
     delete_drill,
+    delete_example_sentence,
+    edit_example_sentence,
     entity_language,
     find_user_by_email,
     generation_coverage,
@@ -63,6 +65,7 @@ from backend.repositories.contributor import (
     list_review_notes,
     list_suggestions,
     list_translation_reviews,
+    list_vocab_examples,
     list_vocab_items,
     reject_suggestion,
     resolve_feedback,
@@ -532,6 +535,81 @@ async def review_generated_drill(
             detail="No pending generated drill with that id.",
         )
     return {"approved": body.approve}
+
+
+async def _example_language(conn, example_id: str):
+    return await conn.fetchval(
+        "SELECT language_id FROM example_sentences WHERE id = $1", example_id
+    )
+
+
+@router.get("/review/vocab/{vocabulary_id}/examples")
+async def review_vocab_examples(
+    vocabulary_id: str, user: dict = Depends(get_current_user)
+):
+    """Every example sentence for a word, for a reviewer to view and edit
+    inline (reviewer or admin for the word's language)."""
+    async with rls_connection(user["id"]) as conn:
+        roles = await get_roles(conn, user["id"])
+        lang = await conn.fetchval(
+            "SELECT language_id FROM vocabulary WHERE id = $1", vocabulary_id
+        )
+    if lang is None:
+        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="No such word.")
+    if not can_review(roles, str(lang)):
+        raise HTTPException(
+            status_code=status.HTTP_403_FORBIDDEN,
+            detail="Only a reviewer or admin for this language can edit examples",
+        )
+    async with privileged_connection() as conn:
+        return {"examples": await list_vocab_examples(conn, vocabulary_id)}
+
+
+class ExampleEditRequest(BaseModel):
+    sentence: str = Field(min_length=1, max_length=500)
+    translation: str | None = Field(default=None, max_length=500)
+
+
+async def _require_example_reviewer(user_id: str, example_id: str):
+    async with rls_connection(user_id) as conn:
+        roles = await get_roles(conn, user_id)
+        lang = await _example_language(conn, example_id)
+    if lang is None:
+        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="No such example.")
+    if not can_review(roles, str(lang)):
+        raise HTTPException(
+            status_code=status.HTTP_403_FORBIDDEN,
+            detail="Only a reviewer or admin for this language can edit examples",
+        )
+
+
+@router.put("/review/examples/{example_id}")
+async def edit_review_example(
+    example_id: str,
+    body: ExampleEditRequest,
+    user: dict = Depends(get_current_user),
+):
+    """Reviewer edit of an example sentence's text/translation."""
+    await _require_example_reviewer(user["id"], example_id)
+    async with privileged_connection() as conn:
+        changed = await edit_example_sentence(
+            conn, example_id, body.sentence.strip(),
+            (body.translation or "").strip() or None, user["id"],
+        )
+    if not changed:
+        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="No such example.")
+    return {"ok": True}
+
+
+@router.delete("/review/examples/{example_id}")
+async def delete_review_example(
+    example_id: str, user: dict = Depends(get_current_user)
+):
+    """Reviewer delete of an example sentence."""
+    await _require_example_reviewer(user["id"], example_id)
+    async with privileged_connection() as conn:
+        changed = await delete_example_sentence(conn, example_id)
+    return {"ok": changed}
 
 
 @router.get("/engagement")

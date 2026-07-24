@@ -556,6 +556,60 @@ async def review_example(
     return result.rsplit(" ", 1)[-1] == "1"
 
 
+async def list_vocab_examples(
+    conn: asyncpg.Connection, vocabulary_id: str
+) -> list[dict]:
+    """Every example sentence for a word — for the reviewer's inline editor.
+    Pending ('ai', reviewed=false) rows come first so they're easy to act on."""
+    rows = await conn.fetch(
+        "SELECT id, sentence, translation, source, reviewed, is_modified "
+        "FROM example_sentences WHERE vocabulary_id = $1 "
+        "ORDER BY reviewed, id",
+        vocabulary_id,
+    )
+    return [
+        {
+            "id": str(r["id"]),
+            "sentence": r["sentence"],
+            "translation": r["translation"],
+            "source": r["source"],
+            "reviewed": r["reviewed"],
+            "is_modified": r["is_modified"],
+        }
+        for r in rows
+    ]
+
+
+async def edit_example_sentence(
+    conn: asyncpg.Connection,
+    example_id: str,
+    sentence: str,
+    translation: str | None,
+    editor_id: str,
+) -> bool:
+    """Reviewer edit of an example sentence: update the text/translation and
+    stamp the provenance (is_modified + who + when). Returns True if a row
+    changed."""
+    result = await conn.execute(
+        "UPDATE example_sentences "
+        "SET sentence = $2, translation = $3, "
+        "    is_modified = true, modified_by = $4, modified_at = now() "
+        "WHERE id = $1",
+        example_id, sentence, translation or None, editor_id,
+    )
+    return result.rsplit(" ", 1)[-1] == "1"
+
+
+async def delete_example_sentence(
+    conn: asyncpg.Connection, example_id: str
+) -> bool:
+    """Reviewer delete of an example sentence. Returns True if a row was removed."""
+    result = await conn.execute(
+        "DELETE FROM example_sentences WHERE id = $1", example_id
+    )
+    return result.rsplit(" ", 1)[-1] == "1"
+
+
 async def list_pending_drills(
     conn: asyncpg.Connection, language_id: str, limit: int = 50
 ) -> list[dict]:
