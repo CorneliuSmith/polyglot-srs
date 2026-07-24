@@ -4,17 +4,21 @@ import {
   getVocabExamples,
   editExampleSentence,
   deleteExampleSentence,
+  recommend,
   type VocabExample,
 } from '../../api/contribute'
 import LanguageWrapper from '../../components/LanguageWrapper'
+import { RecoSummary } from './GeneratedDrillsPanel'
 
 function ExampleRow({
   ex,
   languageCode,
+  canPublish,
   onChanged,
 }: {
   ex: VocabExample
   languageCode: string
+  canPublish: boolean
   onChanged: () => void
 }) {
   const [editing, setEditing] = useState(false)
@@ -31,6 +35,11 @@ function ExampleRow({
   })
   const del = useMutation({
     mutationFn: () => deleteExampleSentence(ex.id),
+    onSuccess: onChanged,
+  })
+  const rec = useMutation({
+    mutationFn: (approve: boolean) =>
+      recommend('example', ex.id, approve ? 'approve' : 'reject'),
     onSuccess: onChanged,
   })
 
@@ -99,6 +108,7 @@ function ExampleRow({
           )}
           <span className="text-gray-400">{ex.source}</span>
         </span>
+        <RecoSummary tally={ex.recommendations} />
       </div>
       <div className="flex items-center gap-2 shrink-0 text-xs">
         <button
@@ -108,16 +118,38 @@ function ExampleRow({
         >
           Edit
         </button>
-        <button
-          type="button"
-          onClick={() => {
-            if (window.confirm('Delete this example sentence?')) del.mutate()
-          }}
-          disabled={del.isPending}
-          className="text-gray-400 hover:text-red-600"
-        >
-          Delete
-        </button>
+        {canPublish ? (
+          <button
+            type="button"
+            onClick={() => {
+              if (window.confirm('Delete this example sentence?')) del.mutate()
+            }}
+            disabled={del.isPending}
+            className="text-gray-400 hover:text-red-600"
+          >
+            Delete
+          </button>
+        ) : (
+          // Trial reviewers can't delete; they leave an advisory recommendation.
+          <>
+            <button
+              type="button"
+              onClick={() => rec.mutate(true)}
+              disabled={rec.isPending}
+              className="text-green-700 hover:underline"
+            >
+              Rec ✓
+            </button>
+            <button
+              type="button"
+              onClick={() => rec.mutate(false)}
+              disabled={rec.isPending}
+              className="text-gray-500 hover:text-red-600"
+            >
+              Rec ✗
+            </button>
+          </>
+        )}
       </div>
     </li>
   )
@@ -146,17 +178,19 @@ export default function ExamplesEditor({
     queryClient.invalidateQueries({ queryKey: ['vocab-examples', vocabularyId] })
 
   if (isLoading) return <p className="text-xs text-gray-400">Loading examples…</p>
-  if (!data || data.length === 0) {
+  const examples = data?.examples ?? []
+  if (examples.length === 0) {
     return <p className="text-xs text-gray-400">No example sentences yet.</p>
   }
 
   return (
     <ul className="divide-y divide-gray-50" data-testid="examples-editor">
-      {data.map((ex) => (
+      {examples.map((ex) => (
         <ExampleRow
           key={ex.id}
           ex={ex}
           languageCode={languageCode}
+          canPublish={data?.can_publish ?? false}
           onChanged={onChanged}
         />
       ))}

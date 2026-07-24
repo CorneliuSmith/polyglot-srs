@@ -54,8 +54,10 @@ export default function RolesPanel({ languages }: { languages: Language[] }) {
       <div>
         <h2 className="text-sm font-semibold text-gray-800">Roles</h2>
         <p className="text-xs text-gray-500">
-          Contributors draft; reviewers approve for their language; admins do
-          everything. Learners need no role.
+          Contributors draft; trial reviewers view the queue and recommend
+          (advisory, no publishing); reviewers approve for their language;
+          admins do everything. Promote a trial reviewer by granting them the
+          reviewer role once they’ve shown they’re active. Learners need no role.
         </p>
       </div>
 
@@ -118,6 +120,7 @@ export default function RolesPanel({ languages }: { languages: Language[] }) {
           className="rounded-lg border border-gray-300 px-2 py-1.5 text-sm"
         >
           <option value="contributor">Contributor</option>
+          <option value="trial_reviewer">Trial reviewer (advisory)</option>
           <option value="reviewer">Reviewer</option>
           <option value="admin">Admin</option>
         </select>

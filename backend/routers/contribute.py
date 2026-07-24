@@ -25,6 +25,7 @@ from backend.repositories.change_requests import (
 )
 from backend.repositories.contributor import (
     add_drill,
+    add_recommendation,
     add_review_note,
     admin_cohorts,
     admin_engagement,
@@ -35,6 +36,7 @@ from backend.repositories.contributor import (
     approve_suggestion,
     can_contribute,
     can_review,
+    can_trial_review,
     create_auth_user,
     create_grammar_point,
     delete_account,
@@ -67,6 +69,7 @@ from backend.repositories.contributor import (
     list_translation_reviews,
     list_vocab_examples,
     list_vocab_items,
+    recommendations_for_targets,
     reject_suggestion,
     resolve_feedback,
     resolve_review_note,
@@ -80,6 +83,7 @@ from backend.repositories.contributor import (
     set_language_policy,
     set_language_tutor_model,
     submit_suggestion,
+    trial_reviewer_activity,
     update_drill,
 )
 from backend.repositories.pool import privileged_connection, rls_connection
@@ -150,7 +154,7 @@ class RoleGrant(BaseModel):
     language_id: str | None = None
     role: str
 
-VALID_ROLES = ("contributor", "reviewer", "admin")
+VALID_ROLES = ("contributor", "trial_reviewer", "reviewer", "admin")
 
 
 @router.get("/roles")
@@ -181,6 +185,8 @@ async def grammar_for_language(
         "points": points,
         "is_admin": is_admin(roles),
         "can_review": can_review(roles, language_id),
+        # Trial reviewers can open the queue and recommend, but not publish.
+        "can_trial_review": can_trial_review(roles, language_id),
         # Contributors have all reviewer permissions on the change-request
         # board (raise + vote); only admins accept/reject.
         "can_contribute": can_contribute(roles, language_id),
@@ -487,17 +493,24 @@ async def review_generated_drills(
     user: dict = Depends(get_current_user),
 ):
     """Generated grammar drills awaiting review for a language — hidden from
-    learners until approved here (reviewer or admin for the language)."""
+    learners until approved. Reviewers/admins publish; trial reviewers view and
+    recommend. Each item carries its advisory-recommendation tally."""
     async with rls_connection(user["id"]) as conn:
         roles = await get_roles(conn, user["id"])
-    if not can_review(roles, language_id):
+    if not can_trial_review(roles, language_id):
         raise HTTPException(
             status_code=status.HTTP_403_FORBIDDEN,
-            detail="Only a reviewer or admin for this language can review drills",
+            detail="Only a reviewer or trial reviewer for this language can review drills",
         )
     limit = max(1, min(limit, 200))
     async with privileged_connection() as conn:
-        return {"pending": await list_pending_drills(conn, language_id, limit)}
+        pending = await list_pending_drills(conn, language_id, limit)
+        recos = await recommendations_for_targets(
+            conn, "drill", [d["id"] for d in pending]
+        )
+    for d in pending:
+        d["recommendations"] = recos.get(d["id"])
+    return {"pending": pending, "can_publish": can_review(roles, language_id)}
 
 
 class DrillReviewRequest(BaseModel):
@@ -547,8 +560,9 @@ async def _example_language(conn, example_id: str):
 async def review_vocab_examples(
     vocabulary_id: str, user: dict = Depends(get_current_user)
 ):
-    """Every example sentence for a word, for a reviewer to view and edit
-    inline (reviewer or admin for the word's language)."""
+    """Every example sentence for a word — viewable and curatable by reviewers
+    and trial reviewers for the word's language. Each carries its advisory tally.
+    """
     async with rls_connection(user["id"]) as conn:
         roles = await get_roles(conn, user["id"])
         lang = await conn.fetchval(
@@ -556,13 +570,19 @@ async def review_vocab_examples(
         )
     if lang is None:
         raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="No such word.")
-    if not can_review(roles, str(lang)):
+    if not can_trial_review(roles, str(lang)):
         raise HTTPException(
             status_code=status.HTTP_403_FORBIDDEN,
-            detail="Only a reviewer or admin for this language can edit examples",
+            detail="Only a reviewer or trial reviewer for this language can view examples",
         )
     async with privileged_connection() as conn:
-        return {"examples": await list_vocab_examples(conn, vocabulary_id)}
+        examples = await list_vocab_examples(conn, vocabulary_id)
+        recos = await recommendations_for_targets(
+            conn, "example", [e["id"] for e in examples]
+        )
+    for e in examples:
+        e["recommendations"] = recos.get(e["id"])
+    return {"examples": examples, "can_publish": can_review(roles, str(lang))}
 
 
 class ExampleEditRequest(BaseModel):
@@ -570,16 +590,19 @@ class ExampleEditRequest(BaseModel):
     translation: str | None = Field(default=None, max_length=500)
 
 
-async def _require_example_reviewer(user_id: str, example_id: str):
+async def _require_example_role(user_id: str, example_id: str, *, publish: bool):
+    """Gate an example action. publish=True needs a full reviewer (delete);
+    publish=False allows trial reviewers too (view/curate)."""
     async with rls_connection(user_id) as conn:
         roles = await get_roles(conn, user_id)
         lang = await _example_language(conn, example_id)
     if lang is None:
         raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="No such example.")
-    if not can_review(roles, str(lang)):
+    allowed = can_review(roles, str(lang)) if publish else can_trial_review(roles, str(lang))
+    if not allowed:
         raise HTTPException(
             status_code=status.HTTP_403_FORBIDDEN,
-            detail="Only a reviewer or admin for this language can edit examples",
+            detail="You don't have review access for this language",
         )
 
 
@@ -589,8 +612,8 @@ async def edit_review_example(
     body: ExampleEditRequest,
     user: dict = Depends(get_current_user),
 ):
-    """Reviewer edit of an example sentence's text/translation."""
-    await _require_example_reviewer(user["id"], example_id)
+    """Curate an example sentence's text/translation (reviewer or trial reviewer)."""
+    await _require_example_role(user["id"], example_id, publish=False)
     async with privileged_connection() as conn:
         changed = await edit_example_sentence(
             conn, example_id, body.sentence.strip(),
@@ -605,11 +628,74 @@ async def edit_review_example(
 async def delete_review_example(
     example_id: str, user: dict = Depends(get_current_user)
 ):
-    """Reviewer delete of an example sentence."""
-    await _require_example_reviewer(user["id"], example_id)
+    """Delete an example sentence (full reviewer / admin only)."""
+    await _require_example_role(user["id"], example_id, publish=True)
     async with privileged_connection() as conn:
         changed = await delete_example_sentence(conn, example_id)
     return {"ok": changed}
+
+
+# ---------------------------------------------------------------------------
+# Advisory recommendations (trial reviewers) + trial-reviewer activity.
+# ---------------------------------------------------------------------------
+
+
+class RecommendRequest(BaseModel):
+    target_type: str  # 'drill' | 'example'
+    target_id: str
+    recommendation: str  # 'approve' | 'reject'
+    note: str = Field(default="", max_length=2000)
+
+
+async def _recommend_target_language(conn, target_type: str, target_id: str):
+    if target_type == "drill":
+        return await conn.fetchval(
+            "SELECT gp.language_id FROM drill_sentences ds "
+            "JOIN grammar_points gp ON ds.grammar_point_id = gp.id "
+            "WHERE ds.id = $1", target_id,
+        )
+    if target_type == "example":
+        return await conn.fetchval(
+            "SELECT language_id FROM example_sentences WHERE id = $1", target_id
+        )
+    return None
+
+
+@router.post("/review/recommend")
+async def recommend(body: RecommendRequest, user: dict = Depends(get_current_user)):
+    """A trial reviewer's advisory approve/reject on a pending item. Never
+    publishes — a full reviewer still decides."""
+    if body.target_type not in ("drill", "example"):
+        raise HTTPException(status_code=status.HTTP_422_UNPROCESSABLE_ENTITY, detail="bad target_type")
+    if body.recommendation not in ("approve", "reject"):
+        raise HTTPException(status_code=status.HTTP_422_UNPROCESSABLE_ENTITY, detail="bad recommendation")
+    async with rls_connection(user["id"]) as conn:
+        roles = await get_roles(conn, user["id"])
+        lang = await _recommend_target_language(conn, body.target_type, body.target_id)
+    if lang is None:
+        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="No such item.")
+    if not can_trial_review(roles, str(lang)):
+        raise HTTPException(
+            status_code=status.HTTP_403_FORBIDDEN,
+            detail="Only a reviewer or trial reviewer for this language can recommend",
+        )
+    async with privileged_connection() as conn:
+        await add_recommendation(
+            conn, user["id"], str(lang), body.target_type, body.target_id,
+            body.recommendation, body.note.strip(),
+        )
+    return {"ok": True}
+
+
+@router.get("/review/trial-reviewers")
+async def list_trial_reviewers(
+    language_id: str, user: dict = Depends(get_current_user)
+):
+    """Trial reviewers for a language and their activity, so an admin can decide
+    who to promote to a full reviewer (admin-only)."""
+    await _require_admin(user["id"])
+    async with privileged_connection() as conn:
+        return {"reviewers": await trial_reviewer_activity(conn, language_id)}
 
 
 @router.get("/engagement")

@@ -539,7 +539,9 @@ export default function ContributorPage() {
                   // Contributors have all reviewer permissions on the
                   // change-request board, so they get the Review tab too.
                   ['review', 'Review',
-                    (data.can_review ?? data.is_admin) || (data.can_contribute ?? false)],
+                    (data.can_review ?? data.is_admin) ||
+                    (data.can_contribute ?? false) ||
+                    (data.can_trial_review ?? false)],
                   ['admin', 'Admin', data.is_admin],
                 ] as [WorkspaceTab, string, boolean][]
               )
@@ -613,9 +615,10 @@ export default function ContributorPage() {
             )}
             {tab === 'review' && (
               <>
-                {/* Generated grammar drills awaiting review (reviewers/admins):
-                    approve into the corpus or reject. Hidden when none pending. */}
-                {(data.can_review ?? data.is_admin) && (
+                {/* Generated grammar drills awaiting review. Full reviewers
+                    approve/reject; trial reviewers recommend. Hidden when none
+                    pending. */}
+                {(data.can_trial_review ?? false) && (
                   <GeneratedDrillsPanel languageId={activeLanguageId} />
                 )}
                 {/* Gym corpus, browsable by form category — view/edit the drills
@@ -651,7 +654,7 @@ export default function ContributorPage() {
               <VocabReviewPanel
                 languageId={activeLanguageId}
                 languageCode={languageCode}
-                canEdit={data.can_review ?? data.is_admin}
+                canEdit={data.can_trial_review ?? false}
               />
             )}
           </>

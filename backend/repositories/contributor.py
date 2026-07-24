@@ -62,6 +62,19 @@ def can_review(roles: list[dict], language_id: str) -> bool:
     )
 
 
+def can_trial_review(roles: list[dict], language_id: str) -> bool:
+    """True if the user may VIEW and RECOMMEND on the review queue for
+    *language_id* — trial reviewers (advisory only), plus everyone who can
+    already publish (reviewers, admins). Does NOT grant publish power."""
+    if can_review(roles, language_id):
+        return True
+    return any(
+        r["role"] == "trial_reviewer"
+        and (r["language_id"] is None or r["language_id"] == language_id)
+        for r in roles
+    )
+
+
 async def list_grammar_points(
     conn: asyncpg.Connection, language_id: str
 ) -> list[dict]:
@@ -608,6 +621,97 @@ async def delete_example_sentence(
         "DELETE FROM example_sentences WHERE id = $1", example_id
     )
     return result.rsplit(" ", 1)[-1] == "1"
+
+
+async def add_recommendation(
+    conn: asyncpg.Connection,
+    recommender_id: str,
+    language_id: str,
+    target_type: str,
+    target_id: str,
+    recommendation: str,
+    note: str = "",
+) -> None:
+    """Record (or update) a trial reviewer's advisory approve/reject on a
+    pending item. Never publishes — a full reviewer still makes the call."""
+    await conn.execute(
+        """
+        INSERT INTO review_recommendations
+            (recommender_id, language_id, target_type, target_id, recommendation, note)
+        VALUES ($1, $2, $3, $4, $5, $6)
+        ON CONFLICT (recommender_id, target_type, target_id) DO UPDATE SET
+            recommendation = EXCLUDED.recommendation,
+            note = EXCLUDED.note,
+            created_at = now()
+        """,
+        recommender_id, language_id, target_type, target_id, recommendation, note,
+    )
+
+
+async def recommendations_for_targets(
+    conn: asyncpg.Connection, target_type: str, target_ids: list[str]
+) -> dict[str, dict]:
+    """Advisory-recommendation summary per target id: {approve, reject, notes}.
+    Lets a full reviewer see what the trial reviewers think before acting."""
+    if not target_ids:
+        return {}
+    rows = await conn.fetch(
+        """
+        SELECT rr.target_id,
+               count(*) FILTER (WHERE rr.recommendation = 'approve') AS approve,
+               count(*) FILTER (WHERE rr.recommendation = 'reject')  AS reject,
+               array_remove(array_agg(NULLIF(rr.note, '')), NULL)    AS notes
+        FROM review_recommendations rr
+        WHERE rr.target_type = $1 AND rr.target_id = ANY($2::uuid[])
+        GROUP BY rr.target_id
+        """,
+        target_type, target_ids,
+    )
+    return {
+        str(r["target_id"]): {
+            "approve": int(r["approve"]),
+            "reject": int(r["reject"]),
+            "notes": list(r["notes"] or []),
+        }
+        for r in rows
+    }
+
+
+async def trial_reviewer_activity(
+    conn: asyncpg.Connection, language_id: str
+) -> list[dict]:
+    """Trial reviewers for a language and how much they've done — recommendations
+    made and content edited — so an admin can decide who to promote."""
+    rows = await conn.fetch(
+        """
+        SELECT cr.user_id,
+               u.email,
+               (SELECT count(*) FROM review_recommendations rr
+                 WHERE rr.recommender_id = cr.user_id
+                   AND rr.language_id = cr.language_id)          AS recommendations,
+               (SELECT count(*) FROM example_sentences es
+                 WHERE es.modified_by = cr.user_id
+                   AND es.language_id = cr.language_id)          AS edits,
+               (SELECT max(rr.created_at) FROM review_recommendations rr
+                 WHERE rr.recommender_id = cr.user_id)           AS last_active
+        FROM contributor_roles cr
+        JOIN auth.users u ON u.id = cr.user_id
+        WHERE cr.role = 'trial_reviewer'
+          AND (cr.language_id = $1 OR cr.language_id IS NULL)
+        ORDER BY recommendations DESC, u.email
+        """,
+        language_id,
+    )
+    return [
+        {
+            "user_id": str(r["user_id"]),
+            "email": r["email"],
+            "recommendations": int(r["recommendations"]),
+            "edits": int(r["edits"]),
+            "last_active": r["last_active"].isoformat() if r["last_active"] else None,
+        }
+        for r in rows
+    ]
 
 
 async def list_pending_drills(
