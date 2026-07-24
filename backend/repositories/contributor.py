@@ -2028,18 +2028,20 @@ async def admin_engagement_user_detail(
 async def sentences_needing_locale(
     conn: asyncpg.Connection, language_id: str, locale: str, limit: int
 ) -> list[dict]:
-    """Reviewed English-locale example sentences with NO translation yet in
-    *locale* — the idempotent gap-list for generating support-locale sentence
-    translations (a non-English speaker learning English). Returns each distinct
-    sentence with its word's id so a new locale row can be inserted."""
+    """Reviewed example sentences with NO translation yet in *locale* — the
+    idempotent gap-list for generating support-locale sentence translations (a
+    non-English speaker learning English). English-course sentences are stored
+    per support locale (one row each), so the English text is taken from ANY
+    existing reviewed row for the sentence, not a specific locale. Returns each
+    distinct sentence with its word's id so a new locale row can be inserted."""
     rows = await conn.fetch(
         """
         SELECT DISTINCT es.vocabulary_id, es.sentence
         FROM example_sentences es
         JOIN vocabulary v ON es.vocabulary_id = v.id
         WHERE v.language_id = $1
-          AND es.translation_locale = 'en'
           AND es.reviewed
+          AND es.translation_locale <> $2
           AND NOT EXISTS (
               SELECT 1 FROM example_sentences e2
               WHERE e2.vocabulary_id = es.vocabulary_id

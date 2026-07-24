@@ -118,25 +118,21 @@ async def get_due_cards(
                           ORDER BY es.difficulty_rank ASC NULLS LAST, es.id) AS glosses,
                 array_agg(es.transliteration
                           ORDER BY es.difficulty_rank ASC NULLS LAST, es.id) AS transliterations
-            FROM (
-                -- One row per sentence: prefer the learner's support locale,
-                -- fall back to the English translation/description when absent.
-                SELECT DISTINCT ON (e.sentence)
-                       e.sentence, e.translation, e.gloss, e.transliteration,
-                       e.difficulty_rank, e.id
-                FROM example_sentences e
-                WHERE e.vocabulary_id = v.id
-                  AND e.translation_locale IN ($3, 'en')
-                  -- Learners see reviewed content; a language whose policy is
-                  -- 'ai_ok' (admin toggle) also serves verified AI content
-                  -- without waiting for human sign-off. (Column is historically
-                  -- named for grammar; it now governs all AI content.)
-                  AND (e.reviewed
-                       OR e.language_id IN (
-                           SELECT id FROM languages
-                            WHERE grammar_review_policy = 'ai_ok'))
-                ORDER BY e.sentence, (e.translation_locale = $3) DESC
-            ) es
+            FROM example_sentences es
+            WHERE es.vocabulary_id = v.id
+              -- Serve the sentence whose translation is in the learner's
+              -- effective locale (the support locale on the English course,
+              -- else English). No cross-locale fallback: an English-course
+              -- learner never sees a translation in some other random language.
+              AND es.translation_locale = $3
+              -- Learners see reviewed content; a language whose policy is
+              -- 'ai_ok' (admin toggle) also serves verified AI content
+              -- without waiting for human sign-off. (Column is historically
+              -- named for grammar; it now governs all AI content.)
+              AND (es.reviewed
+                   OR es.language_id IN (
+                       SELECT id FROM languages
+                        WHERE grammar_review_policy = 'ai_ok'))
         ) ex ON true
         LEFT JOIN LATERAL (
             SELECT rl.prompt_sentence
@@ -918,17 +914,12 @@ async def get_card_details_bulk(
         for e in await conn.fetch(
             """
             SELECT vocabulary_id, sentence, translation, gloss, transliteration
-            FROM (
-                SELECT DISTINCT ON (vocabulary_id, sentence)
-                       vocabulary_id, sentence, translation, gloss,
-                       transliteration, difficulty_rank
-                FROM example_sentences
-                WHERE vocabulary_id = ANY($1::uuid[])
-                  AND translation_locale IN ($2, 'en')
-                  AND reviewed
-                -- Prefer the support locale, fall back to English per sentence.
-                ORDER BY vocabulary_id, sentence, (translation_locale = $2) DESC
-            ) e
+            FROM example_sentences
+            WHERE vocabulary_id = ANY($1::uuid[])
+              -- Serve only the learner's effective-locale translation; no
+              -- fallback to a different (random-language) row.
+              AND translation_locale = $2
+              AND reviewed
             ORDER BY difficulty_rank ASC NULLS LAST
             """,
             vocab_ids,
@@ -1194,16 +1185,13 @@ async def get_card_detail(
         )
         examples = await conn.fetch(
             """
-            SELECT sentence, translation FROM (
-                SELECT DISTINCT ON (sentence) sentence, translation, difficulty_rank
-                FROM example_sentences
-                WHERE vocabulary_id = $1
-                  AND translation_locale IN ($2, 'en')
-                  AND reviewed
-                -- Prefer the learner's support locale; fall back to the English
-                -- translation/description when that locale has none for a sentence.
-                ORDER BY sentence, (translation_locale = $2) DESC
-            ) e
+            SELECT sentence, translation
+            FROM example_sentences
+            WHERE vocabulary_id = $1
+              -- Only the learner's effective-locale translation; never a
+              -- fallback to a different (random-language) row.
+              AND translation_locale = $2
+              AND reviewed
             ORDER BY difficulty_rank ASC NULLS LAST
             LIMIT 5
             """,
