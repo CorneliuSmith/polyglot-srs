@@ -87,12 +87,20 @@ export default function GeneratedDrillsPanel({
               </div>
               <div className="text-sm text-gray-800">
                 {d.sentence.replace('{{answer}}', `【${d.answer}】`)}
+                {d.flagged && (
+                  <span className="ml-2 align-middle rounded bg-red-50 text-red-600 px-1.5 py-0.5 text-[10px] uppercase tracking-wide">
+                    flagged
+                  </span>
+                )}
               </div>
               {d.translation && (
                 <div className="text-[11px] text-gray-400">{d.translation}</div>
               )}
               {d.hint && (
                 <div className="text-[11px] text-gray-400">hint: {d.hint}</div>
+              )}
+              {d.flagged && d.flag_reason && (
+                <div className="text-[11px] text-red-500">⚠ {d.flag_reason}</div>
               )}
               <RecoSummary tally={d.recommendations} />
             </div>

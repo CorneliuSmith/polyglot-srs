@@ -6,6 +6,7 @@ import { getReviewInbox, type ReviewInboxCounts } from '../../api/contribute'
 const QUEUES: { key: keyof ReviewInboxCounts; label: string; hint: string }[] = [
   { key: 'grammar_pending', label: 'Grammar points', hint: 'Contribute · pending review' },
   { key: 'pending_drills', label: 'Generated drills', hint: 'Generated drills panel' },
+  { key: 'flagged_drills', label: 'Flagged drills', hint: 'Point drills · flagged' },
   { key: 'pending_examples', label: 'Generated examples', hint: 'Word examples' },
   { key: 'flagged_examples', label: 'Flagged examples', hint: 'Word examples · flagged' },
   { key: 'translation_suggestions', label: 'Translation fixes', hint: 'Word examples · suggested' },

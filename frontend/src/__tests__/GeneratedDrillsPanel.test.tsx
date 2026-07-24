@@ -76,6 +76,17 @@ describe('GeneratedDrillsPanel', () => {
     expect(mockReview).not.toHaveBeenCalled()
   })
 
+  it('shows a flagged chip and reason on a recheck-flagged drill', async () => {
+    mockPending.mockResolvedValue({
+      pending: [{ ...DRILL, flagged: true, flag_reason: 'too simple to teach the form' }],
+      can_publish: true,
+    })
+    renderPanel()
+    await screen.findByTestId('generated-drills')
+    expect(screen.getByText(/flagged/i)).toBeDefined()
+    expect(screen.getByText(/too simple to teach the form/i)).toBeDefined()
+  })
+
   it('shows the recommendation tally to a full reviewer', async () => {
     mockPending.mockResolvedValue({
       pending: [{ ...DRILL, recommendations: { approve: 2, reject: 1, notes: [] } }],
