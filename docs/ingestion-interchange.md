@@ -99,9 +99,10 @@ seed the loadable subset now and fill the rest later.
 
 ## Versioning
 
-Interchange documents carry a `schema_version` (currently **0.3.0** — it added
-vocabulary `level_source`; 0.2.0 added `A0`, `gym`, `pitfalls`, and
-`prerequisites`). When a migration changes one of the controlled values above,
-the corresponding constant in the extractor's `enums.py` is updated and the
-version is bumped — so a mismatch is visible rather than silently loading wrong
-data.
+Interchange documents carry a `schema_version` (currently **0.4.0** — it added
+`extraction_model`, provenance metadata naming the model that produced the
+document, which the seeders ignore; 0.3.0 added vocabulary `level_source`; 0.2.0
+added `A0`, `gym`, `pitfalls`, and `prerequisites`). When a migration changes one
+of the controlled values above, the corresponding constant in the extractor's
+`enums.py` is updated and the version is bumped — so a mismatch is visible rather
+than silently loading wrong data.
