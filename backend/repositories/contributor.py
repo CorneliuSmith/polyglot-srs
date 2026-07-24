@@ -1118,28 +1118,43 @@ async def trial_reviewer_activity(
 # ---------------------------------------------------------------------------
 # Trial-reviewer feedback prompt: occasionally nudge a trial reviewer to judge
 # one real pending item before they use the dashboard. Their answer is recorded
-# as an advisory recommendation (add_recommendation). The state table just
-# rate-limits the nudge to ~once a day per user.
+# as an advisory recommendation (add_recommendation).
+#
+# The cadence is ADAPTIVE and self-explaining: each real answer schedules the
+# next check-in further out (they "earn" quiet by contributing), a skip brings
+# it back soon (so skipping can't buy the long gap), and a brand-new trial
+# reviewer is nudged on their first dashboard visit.
 # ---------------------------------------------------------------------------
 
+# First real answer → 2 days; each further answer adds a day, capped at 2 weeks.
+_PROMPT_BASE_HOURS = 48
+_PROMPT_STEP_HOURS = 24
+_PROMPT_MAX_HOURS = 24 * 14
+# A skip comes back the same day-ish — it satisfies the nudge but earns no quiet.
+_PROMPT_SKIP_HOURS = 8
 
-async def trial_prompt_due(
-    conn: asyncpg.Connection, user_id: str, cooldown_hours: int
-) -> bool:
-    """True if this trial reviewer hasn't answered a prompt within the cooldown
-    (or ever) — i.e. it's time to nudge them again."""
-    row = await conn.fetchval(
+
+def _next_prompt_hours(answered: int, gave_feedback: bool) -> int:
+    """Hours until the next nudge. *answered* is the running count of real
+    answers AFTER this one; skips don't grow the gap."""
+    if not gave_feedback:
+        return _PROMPT_SKIP_HOURS
+    grown = _PROMPT_BASE_HOURS + _PROMPT_STEP_HOURS * max(0, answered - 1)
+    return min(grown, _PROMPT_MAX_HOURS)
+
+
+async def trial_prompt_due(conn: asyncpg.Connection, user_id: str) -> bool:
+    """True if it's time to nudge this trial reviewer — no scheduled next
+    check-in yet (never answered), or that time has passed."""
+    scheduled = await conn.fetchval(
         """
-        SELECT last_answered_at
-        FROM trial_review_prompt_state
-        WHERE user_id = $1
-          AND last_answered_at > now() - make_interval(hours => $2)
+        SELECT 1 FROM trial_review_prompt_state
+        WHERE user_id = $1 AND next_prompt_at > now()
         """,
-        user_id, cooldown_hours,
+        user_id,
     )
-    # A row only comes back when a recent answer exists → NOT due. No row (never
-    # answered, or answered long ago) → due.
-    return row is None
+    # A row means a future check-in is scheduled → NOT due yet.
+    return scheduled is None
 
 
 async def pick_review_prompt(
@@ -1223,20 +1238,35 @@ async def pick_review_prompt(
 
 
 async def record_trial_prompt_answer(
-    conn: asyncpg.Connection, user_id: str
-) -> None:
-    """Stamp that the trial reviewer answered a prompt now — resets the cooldown
-    and counts engagement (privileged)."""
-    await conn.execute(
+    conn: asyncpg.Connection, user_id: str, *, gave_feedback: bool
+) -> str:
+    """Stamp the answer and schedule the next check-in (privileged). Real
+    feedback pushes it further out (they earn quiet); a skip brings it back
+    soon. Returns the next_prompt_at ISO timestamp so the UI can tell them when
+    they'll next be asked."""
+    prior = await conn.fetchval(
+        "SELECT prompts_answered FROM trial_review_prompt_state WHERE user_id = $1",
+        user_id,
+    ) or 0
+    answered_after = prior + (1 if gave_feedback else 0)
+    hours = _next_prompt_hours(answered_after, gave_feedback)
+    ans_inc = 1 if gave_feedback else 0
+    skip_inc = 0 if gave_feedback else 1
+    row = await conn.fetchrow(
         """
-        INSERT INTO trial_review_prompt_state (user_id, last_answered_at, prompts_answered)
-        VALUES ($1, now(), 1)
+        INSERT INTO trial_review_prompt_state
+            (user_id, last_answered_at, prompts_answered, prompts_skipped, next_prompt_at)
+        VALUES ($1, now(), $2, $3, now() + make_interval(hours => $4))
         ON CONFLICT (user_id) DO UPDATE SET
             last_answered_at = now(),
-            prompts_answered = trial_review_prompt_state.prompts_answered + 1
+            prompts_answered = trial_review_prompt_state.prompts_answered + $2,
+            prompts_skipped  = trial_review_prompt_state.prompts_skipped + $3,
+            next_prompt_at   = now() + make_interval(hours => $4)
+        RETURNING next_prompt_at
         """,
-        user_id,
+        user_id, ans_inc, skip_inc, hours,
     )
+    return row["next_prompt_at"].isoformat()
 
 
 async def list_pending_drills(

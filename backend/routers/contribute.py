@@ -622,10 +622,6 @@ async def review_inbox(
     }
 
 
-# How often a trial reviewer is nudged, at most. Roughly once a day.
-TRIAL_PROMPT_COOLDOWN_HOURS = 20
-
-
 def _trial_scope(roles: list[dict]) -> tuple[bool, list[str]]:
     """The languages a user can be prompted about as a *trial reviewer*: (all,
     [ids]). all=True when they hold a global trial_reviewer grant."""
@@ -648,7 +644,7 @@ async def review_prompt(user: dict = Depends(get_current_user)):
         return {"due": False}
     all_langs, ids = _trial_scope(roles)
     async with privileged_connection() as conn:
-        if not await trial_prompt_due(conn, user["id"], TRIAL_PROMPT_COOLDOWN_HOURS):
+        if not await trial_prompt_due(conn, user["id"]):
             return {"due": False}
         prompt = await pick_review_prompt(
             conn, user["id"], all_languages=all_langs, language_ids=ids
@@ -682,14 +678,17 @@ async def review_prompt_answer(
             status_code=status.HTTP_403_FORBIDDEN,
             detail="You can't review this language.",
         )
+    gave_feedback = body.recommendation in ("approve", "reject")
     async with privileged_connection() as conn:
-        if body.recommendation in ("approve", "reject"):
+        if gave_feedback:
             await add_recommendation(
                 conn, user["id"], body.language_id,
                 body.target_type, body.target_id, body.recommendation, body.note,
             )
-        await record_trial_prompt_answer(conn, user["id"])
-    return {"ok": True}
+        next_prompt_at = await record_trial_prompt_answer(
+            conn, user["id"], gave_feedback=gave_feedback
+        )
+    return {"ok": True, "next_prompt_at": next_prompt_at}
 
 
 @router.get("/review/generated-drills")
