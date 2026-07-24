@@ -82,7 +82,7 @@ export function safePrompt(text: string, answer: string | null | undefined): str
   if (split && RECIPE_TAIL.test(split[2])) base = split[1].trim()
   const ans = (answer ?? '').trim().toLowerCase()
   if (ans) {
-    const tokens = base.toLowerCase().match(/\p{L}+/gu) ?? []
+    const tokens: string[] = base.toLowerCase().match(/\p{L}+/gu) ?? []
     if (tokens.includes(ans)) return ''
   }
   return base
