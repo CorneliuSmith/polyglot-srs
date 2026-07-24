@@ -1394,9 +1394,14 @@ async def get_cram_cards(
     curriculum. Drill choice is seeded per (point, day): a reload mid-cram
     keeps the same set, tomorrow's cram varies.
 
-    Hints/translations prefer the *support_locale* row when one exists
-    (WP17: only English drills carry them, so the join simply misses and
-    falls back to the authored text everywhere else).
+    The Gym is a fixed BASELINE practice: the drill HINT/cue is always the
+    authored text (English for the English course) and never swapped to a
+    reference-locale translation — even when the learner has picked one. Those
+    machine hints ("to speak" → "пользоваться языком") were low quality, and the
+    owner's rule is that choosing a reference language must not change the gym
+    baseline. The sentence *translation* still shows in the learner's locale
+    (it's the meaning aid, and the only sensible language for it). Localized
+    hints still apply in the graded Learn/Review flow, just not here.
     """
     rows = await conn.fetch(
         """
@@ -1414,7 +1419,8 @@ async def get_cram_cards(
                 array_agg(ds.id          ORDER BY ds.display_order, ds.id) AS drill_ids,
                 array_agg(ds.sentence    ORDER BY ds.display_order, ds.id) AS sentences,
                 array_agg(ds.answer      ORDER BY ds.display_order, ds.id) AS answers,
-                array_agg(COALESCE(dht.hint, ds.hint)
+                -- Gym baseline: the authored hint, never the reference-locale one.
+                array_agg(ds.hint
                           ORDER BY ds.display_order, ds.id) AS hints,
                 array_agg(COALESCE(dht.translation, ds.translation)
                           ORDER BY ds.display_order, ds.id) AS translations,
