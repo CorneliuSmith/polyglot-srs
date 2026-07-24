@@ -470,6 +470,50 @@ async def add_example_sentence(
 # ---------------------------------------------------------------------------
 
 
+async def review_inbox_counts(
+    conn: asyncpg.Connection, language_id: str
+) -> dict:
+    """One roll-up of everything awaiting review action for a language — the
+    unified Review Inbox. Each key is a queue the existing panels already act
+    on; this just answers 'what needs attention, and how much' in one query."""
+    row = await conn.fetchrow(
+        """
+        SELECT
+          (SELECT count(*) FROM grammar_points gp
+            WHERE gp.language_id = $1 AND gp.reviewed = false
+              AND COALESCE(gp.explanation, '') <> '') AS grammar_pending,
+          (SELECT count(*) FROM drill_sentences ds
+             JOIN grammar_points gp ON ds.grammar_point_id = gp.id
+            WHERE gp.language_id = $1 AND ds.source = 'ai'
+              AND ds.reviewed = false) AS pending_drills,
+          (SELECT count(*) FROM example_sentences es
+             JOIN vocabulary v ON es.vocabulary_id = v.id
+            WHERE v.language_id = $1 AND es.source = 'ai'
+              AND es.reviewed = false) AS pending_examples,
+          (SELECT count(*) FROM example_sentences es
+             JOIN vocabulary v ON es.vocabulary_id = v.id
+            WHERE v.language_id = $1 AND es.flagged = true) AS flagged_examples,
+          (SELECT count(*) FROM example_sentences es
+             JOIN vocabulary v ON es.vocabulary_id = v.id
+            WHERE v.language_id = $1
+              AND es.suggested_translation IS NOT NULL) AS translation_suggestions,
+          (SELECT count(*) FROM vocabulary v
+            WHERE v.language_id = $1 AND v.level_source = 'ai') AS ai_levels,
+          (SELECT count(*) FROM card_change_requests
+            WHERE language_id = $1 AND status = 'open') AS change_requests,
+          (SELECT count(*) FROM content_suggestions cs
+            WHERE cs.language_id = $1 AND cs.status = 'pending') AS suggestions,
+          (SELECT count(*) FROM point_review_notes n
+             JOIN grammar_points gp ON n.grammar_point_id = gp.id
+            WHERE gp.language_id = $1 AND n.status = 'open') AS notes,
+          (SELECT count(*) FROM card_feedback f
+            WHERE f.language_id = $1 AND f.status = 'open') AS feedback
+        """,
+        language_id,
+    )
+    return {k: int(row[k]) for k in row.keys()}
+
+
 async def generation_coverage(conn: asyncpg.Connection) -> list[dict]:
     """Per-language content coverage for the admin generation panel: how many
     words/points exist, how many still have NO example/drill, and how much

@@ -86,6 +86,7 @@ from backend.repositories.contributor import (
     review_drill,
     review_example,
     review_examples_bulk,
+    review_inbox_counts,
     revoke_role,
     save_ai_check,
     save_explanation,
@@ -517,6 +518,29 @@ async def generation_bulk_review_examples(
 # corpus or rejects them. Parallel to the vocab example gate above, but exposed
 # to reviewers (not admin-only) since it lives in the Review workspace.
 # ---------------------------------------------------------------------------
+
+
+@router.get("/review/inbox")
+async def review_inbox(
+    language_id: str,
+    user: dict = Depends(get_current_user),
+):
+    """One roll-up of everything awaiting review action for a language — the
+    unified Review Inbox at the top of the Review workspace. Open to anyone who
+    can trial-review the language; it only counts, it doesn't act."""
+    async with rls_connection(user["id"]) as conn:
+        roles = await get_roles(conn, user["id"])
+    if not can_trial_review(roles, language_id):
+        raise HTTPException(
+            status_code=status.HTTP_403_FORBIDDEN,
+            detail="Only a reviewer or trial reviewer for this language can view the inbox",
+        )
+    async with privileged_connection() as conn:
+        counts = await review_inbox_counts(conn, language_id)
+    return {
+        "counts": counts,
+        "can_publish": can_review(roles, language_id),
+    }
 
 
 @router.get("/review/generated-drills")
