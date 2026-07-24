@@ -15,7 +15,7 @@ import CardFeedback from './CardFeedback'
 import SessionSummary from './SessionSummary'
 import OnScreenKeyboard from '../keyboards/OnScreenKeyboard'
 import { finalizeInput } from '../keyboards/translit'
-import { hintLayersFor } from './hintLayers'
+import { hintLayersFor, safePrompt } from './hintLayers'
 import SpeakButton from '../../components/SpeakButton'
 import FormsPanel from '../../components/FormsPanel'
 import { TTS_LANGUAGES, prefetchTTS } from '../../api/audio'
@@ -520,7 +520,13 @@ function ReviewSessionInner({
   // word-by-word (structure) — behind the Hint button, which feeds the adaptive
   // "hint dependence" signal. The full chart stays the deepest reveal (on miss).
   // Graded review keeps the original layered behaviour.
-  const baseText = cram ? card.hint || card.chart_word || '' : ''
+  //
+  // But the prompt must never GIVE the answer. Some authored hints spell it out
+  // ("to watch — add -es" → watches) or are the base form itself ("to speak" →
+  // speak). Strip a trailing spelling recipe, then blank the prompt entirely if
+  // it still contains the answer as a whole word (a base-form drill) — the
+  // learner recalls it from the sentence + the optional meaning hint instead.
+  const baseText = cram ? safePrompt(card.hint || card.chart_word || '', card.correct_answer) : ''
   const baseLayer = baseText
     ? { field: 'base' as const, label: 'Prompt', text: baseText }
     : undefined
