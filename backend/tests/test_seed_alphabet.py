@@ -1,5 +1,8 @@
 """Alphabet deck data integrity for the five non-Latin scripts."""
 
+import json
+
+from backend.services.seeder import seed_alphabet
 from backend.services.seeder.seed_alphabet import (
     ALPHABETS,
     ARABIC,
@@ -7,6 +10,7 @@ from backend.services.seeder.seed_alphabet import (
     HINDI,
     RUSSIAN,
     THAI,
+    _load_file_alphabet,
 )
 
 
@@ -32,3 +36,27 @@ class TestAlphabetData:
 
     def test_all_six_scripts(self):
         assert set(ALPHABETS) == {"ru", "el", "ar", "hi", "th", "ko"}
+
+
+class TestFileAlphabet:
+    """A checked-in data/alphabet/{code}.json (e.g. from the extractor)
+    overrides / supplies an alphabet without editing this module."""
+
+    def test_loads_from_file(self, tmp_path, monkeypatch):
+        monkeypatch.setattr(seed_alphabet, "ALPHABET_DIR", tmp_path)
+        (tmp_path / "zz.json").write_text(
+            json.dumps({
+                "language": "zz",
+                "letters": [
+                    {"letter": "Ɓ", "romanization": "b", "sound": "'b' as in boy"},
+                    {"letter": "  ", "romanization": "x", "sound": "skip me"},  # no letter
+                ],
+            }),
+            encoding="utf-8",
+        )
+        letters = _load_file_alphabet("zz")
+        assert letters == [("Ɓ", "b", "'b' as in boy")]  # blank-letter row dropped
+
+    def test_missing_file_returns_none(self, tmp_path, monkeypatch):
+        monkeypatch.setattr(seed_alphabet, "ALPHABET_DIR", tmp_path)
+        assert _load_file_alphabet("nope") is None

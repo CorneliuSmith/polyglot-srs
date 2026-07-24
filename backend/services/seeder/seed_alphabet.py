@@ -15,12 +15,36 @@ from __future__ import annotations
 
 import argparse
 import asyncio
+import json
 import logging
 import os
 
 import asyncpg
 
+from .base import DATA_DIR
+
 logger = logging.getLogger("seed_alphabet")
+
+# An extractor (extra-agent) can drop a data/alphabet/{code}.json artifact —
+# {"language": code, "letters": [{"letter", "romanization", "sound"}]} — for a
+# script we don't ship hardcoded. When present it takes precedence, so a
+# speaker-reviewed alphabet from a document seeds without touching this file.
+ALPHABET_DIR = DATA_DIR / "alphabet"
+
+
+def _load_file_alphabet(code: str) -> list[tuple[str, str, str]] | None:
+    path = ALPHABET_DIR / f"{code}.json"
+    if not path.exists():
+        return None
+    data = json.loads(path.read_text(encoding="utf-8"))
+    letters: list[tuple[str, str, str]] = []
+    for e in data.get("letters", []):
+        letter = str(e.get("letter") or "").strip()
+        rom = str(e.get("romanization") or "").strip()
+        sound = str(e.get("sound") or "").strip()
+        if letter:
+            letters.append((letter, rom, sound))
+    return letters or None
 
 # (letter, romanization, sound-for-an-English-speaker)
 RUSSIAN = [
@@ -172,9 +196,13 @@ ALPHABETS: dict[str, list[tuple[str, str, str]]] = {
 
 
 async def seed(db_url: str, code: str) -> int:
-    letters = ALPHABETS.get(code)
+    # A checked-in artifact wins over the hardcoded table.
+    letters = _load_file_alphabet(code) or ALPHABETS.get(code)
     if not letters:
-        logger.warning("no alphabet data for %s (ru, el available)", code)
+        logger.warning(
+            "no alphabet data for %s (hardcoded: %s; or add data/alphabet/%s.json)",
+            code, ", ".join(sorted(ALPHABETS)), code,
+        )
         return 0
     conn = await asyncpg.connect(db_url)
     try:
@@ -218,7 +246,7 @@ async def seed(db_url: str, code: str) -> int:
                 ON CONFLICT (vocabulary_id, locale)
                     DO UPDATE SET definition = EXCLUDED.definition
                 """,
-                vid, f"{rom} — {sound}",
+                vid, f"{rom} — {sound}" if sound else (rom or letter),
             )
             n += 1
         logger.info("OK %s: seeded %d letters", code, n)
@@ -228,8 +256,14 @@ async def seed(db_url: str, code: str) -> int:
 
 
 async def main() -> None:
+    file_codes = (
+        {f.stem for f in ALPHABET_DIR.glob("*.json")} if ALPHABET_DIR.exists() else set()
+    )
     p = argparse.ArgumentParser(description="Seed an Alphabet deck")
-    p.add_argument("--language", "-l", required=True, choices=sorted(ALPHABETS))
+    p.add_argument(
+        "--language", "-l", required=True,
+        choices=sorted(set(ALPHABETS) | file_codes),
+    )
     p.add_argument("--db-url", default=os.environ.get("DATABASE_URL"))
     args = p.parse_args()
     logging.basicConfig(level=logging.INFO, format="%(name)s | %(message)s")

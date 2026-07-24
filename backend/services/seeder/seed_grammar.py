@@ -57,6 +57,22 @@ logger = logging.getLogger("seed_grammar")
 VALID_SOURCES = {"contributor", "ai", "wiktionary", "pending"}
 
 
+def _clean_prerequisites(raw) -> list[str]:
+    """Sanitize the authored `prerequisites` list — titles of points that must
+    be learned first. Resolved to grammar_point ids at load time; a title that
+    doesn't resolve is simply dropped (same tolerance as `related`)."""
+    if not isinstance(raw, list):
+        return []
+    out: list[str] = []
+    seen: set[str] = set()
+    for t in raw:
+        title = str(t or "").strip()
+        if title and title not in seen:
+            seen.add(title)
+            out.append(title)
+    return out
+
+
 class GrammarSeeder:
     """Loads a grammar curriculum JSON for one language into the DB."""
 
@@ -139,6 +155,7 @@ class GrammarSeeder:
                 "display_order": int(p.get("display_order") or 0),
                 "references": clean_references(p.get("references")),
                 "related": clean_related(p.get("related")),
+                "prerequisites": _clean_prerequisites(p.get("prerequisites")),
                 "drills": drills,
             })
         self._attach_hint_translations(points)
@@ -269,6 +286,10 @@ class GrammarSeeder:
             count = 0
             hint_rows = 0
             expl_rows = 0
+            # Prerequisites reference other points by title; resolve to ids only
+            # after every point in this file has an id (a point may depend on a
+            # later one). Collected here, applied in one pass below.
+            pending_prereqs: list[tuple] = []
             for point in data["points"]:
                 gp_id = await conn.fetchval(
                     """
@@ -342,12 +363,32 @@ class GrammarSeeder:
                         gp_id, locale, et["explanation"], et["reviewed"],
                     )
                     expl_rows += 1
+                if point.get("prerequisites"):
+                    pending_prereqs.append((gp_id, point["prerequisites"]))
                 count += 1
+
+            # Resolve prerequisite titles → ids now that every point (this
+            # file's plus any already in the DB) has one. Re-seeding replaces
+            # the array, so it stays idempotent; unresolved titles are dropped.
+            prereq_rows = 0
+            if pending_prereqs:
+                rows = await conn.fetch(
+                    "SELECT id, title FROM grammar_points WHERE language_id = $1",
+                    language_id,
+                )
+                id_by_title = {r["title"]: r["id"] for r in rows}
+                for gp_id, titles in pending_prereqs:
+                    ids = [id_by_title[t] for t in titles if t in id_by_title]
+                    await conn.execute(
+                        "UPDATE grammar_points SET prerequisites = $2 WHERE id = $1",
+                        gp_id, ids,
+                    )
+                    prereq_rows += len(ids)
 
             logger.info(
                 "Loaded %d grammar points for %s (%d hint rows, %d "
-                "explanation rows)",
-                count, self.language_code, hint_rows, expl_rows,
+                "explanation rows, %d prerequisite links)",
+                count, self.language_code, hint_rows, expl_rows, prereq_rows,
             )
             return count
         finally:

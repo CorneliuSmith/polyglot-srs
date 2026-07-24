@@ -16,26 +16,42 @@ contributor would hand-author.
 
 | Interchange section | Seed file it emits | Reader in this repo |
 | --- | --- | --- |
-| `grammar[]` — points, inflection charts, drills | `data/grammar/{code}_grammar.json` | `backend/services/seeder/seed_grammar.py` |
+| `grammar[]` — points, charts, drills, **prerequisites** | `data/grammar/{code}_grammar.json` | `backend/services/seeder/seed_grammar.py` |
 | grammar drill `hint_translations` | `data/grammar/{code}_drill_hints.{locale}.json` | `seed_grammar.py` (`_attach_hint_translations`) |
 | `vocabulary[]` — word, translations, morphology | `data/{code}_vocabulary.csv` | `backend/services/seeder/csv_importer.py` |
 | `sentences[]` — example sentences per word | `data/sentences/{code}_sentences.tsv` | `backend/services/seeder/seed_sentences.py` |
+| grammar `gym` — form-category picker entries | `data/gym/{code}.json` | `backend/routers/gym.py` (read live) |
+| vocabulary at level `A0` — alphabet letters | `data/alphabet/{code}.json` | `backend/services/seeder/seed_alphabet.py` |
+| grammar `pitfalls` — common learner errors | `backend/services/tutor_skills/{code}/ERRORS.extracted.md` | review artifact (fold into `ERRORS.md` by hand) |
 
 Once the files are in place, seeding is the usual path — no new tooling:
 
 ```bash
-python -m backend.services.seeder.seed_grammar  --language {code} --db-url "$DATABASE_URL"
+python -m backend.services.seeder.seed_grammar   --language {code} --db-url "$DATABASE_URL"  # incl. prerequisites
 python -m backend.services.seeder.run --file data/{code}_vocabulary.csv --language {code}
 python -m backend.services.seeder.seed_sentences --language {code} --db-url "$DATABASE_URL"
+python -m backend.services.seeder.seed_alphabet  --language {code} --db-url "$DATABASE_URL"  # if data/alphabet/{code}.json present
 ```
+
+The Gym reads `data/gym/{code}.json` at request time (no seeding step). `ERRORS.extracted.md`
+is a **review artifact**, not seeded — a human folds it into the tutor's `ERRORS.md`.
 
 ## The contract the extractor mirrors
 
 The interchange model deliberately reuses *our* controlled values, so a document
 that validates on the extractor side loads here without translation:
 
-- **CEFR levels** — `A1`–`C2` (the `CHECK` on `grammar_points`/`vocabulary`).
+- **CEFR levels** — `A1`–`C2` on grammar; vocabulary also allows **`A0`** for
+  alphabet cards (the `CHECK` widened in `alphabet_level.sql`). The CSV importer
+  still only accepts `A1`–`C2`, so A0 letters are emitted to
+  `data/alphabet/{code}.json` (consumed by `seed_alphabet.py`), never the CSV.
 - **Part of speech** — the `VALID_POS` set in `seeder/validators.py`.
+- **Prerequisites** — a grammar point may list the *titles* of points to learn
+  first; `seed_grammar.load` resolves them to `grammar_points.prerequisites`
+  ids in a second pass (unresolved titles are dropped, like `related`).
+- **Gym form-categories** — a point whose chart is a drillable paradigm may
+  carry `gym` (column + label + usage + example), lowered to the
+  `data/gym/{code}.json` manifest `gym.py` reads.
 - **Cloze marker** — every grammar drill sentence contains `{{answer}}`, with the
   inflected `answer` stored explicitly (`drill_sentences.answer`).
 - **Paradigm coverage** — a grammar point tagged with a paradigm has **≥ 2
@@ -61,7 +77,8 @@ seed the loadable subset now and fill the rest later.
 
 ## Versioning
 
-Interchange documents carry a `schema_version`. When a migration changes one of
+Interchange documents carry a `schema_version` (currently **0.2.0** — it added
+`A0`, `gym`, `pitfalls`, and `prerequisites`). When a migration changes one of
 the controlled values above, the corresponding constant in the extractor's
 `enums.py` is updated and the version is bumped — so a mismatch is visible rather
 than silently loading wrong data.
