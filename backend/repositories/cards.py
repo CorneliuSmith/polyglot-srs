@@ -121,7 +121,14 @@ async def get_due_cards(
             FROM example_sentences es
             WHERE es.vocabulary_id = v.id
               AND es.translation_locale = $3
-              AND es.reviewed
+              -- Learners see reviewed content; a language whose policy is
+              -- 'ai_ok' (admin toggle) also serves verified AI content without
+              -- waiting for human sign-off. (Column is historically named for
+              -- grammar; it now governs all AI content for the language.)
+              AND (es.reviewed
+                   OR es.language_id IN (
+                       SELECT id FROM languages
+                        WHERE grammar_review_policy = 'ai_ok'))
         ) ex ON true
         LEFT JOIN LATERAL (
             SELECT rl.prompt_sentence
@@ -187,7 +194,11 @@ async def get_due_cards(
             FROM drill_sentences ds
             LEFT JOIN drill_hint_translations dht
                    ON dht.drill_id = ds.id AND dht.locale = $3
-            WHERE ds.grammar_point_id = gp.id AND ds.reviewed
+            WHERE ds.grammar_point_id = gp.id
+              AND (ds.reviewed
+                   OR gp.language_id IN (
+                       SELECT id FROM languages
+                        WHERE grammar_review_policy = 'ai_ok'))
         ) d ON true
         LEFT JOIN LATERAL (
             SELECT rl.prompt_sentence
@@ -942,7 +953,13 @@ async def get_card_details_bulk(
             FROM drill_sentences ds
             LEFT JOIN drill_hint_translations dht
                    ON dht.drill_id = ds.id AND dht.locale = $2
-            WHERE ds.grammar_point_id = ANY($1::uuid[]) AND ds.reviewed
+            WHERE ds.grammar_point_id = ANY($1::uuid[])
+              AND (ds.reviewed
+                   OR EXISTS (SELECT 1 FROM grammar_points gp2
+                               WHERE gp2.id = ds.grammar_point_id
+                                 AND gp2.language_id IN (
+                                     SELECT id FROM languages
+                                      WHERE grammar_review_policy = 'ai_ok')))
             ORDER BY ds.display_order ASC
             """,
             grammar_ids,
@@ -1237,7 +1254,13 @@ async def get_card_detail(
         FROM drill_sentences ds
         LEFT JOIN drill_hint_translations dht
                ON dht.drill_id = ds.id AND dht.locale = $2
-        WHERE ds.grammar_point_id = $1 AND ds.reviewed
+        WHERE ds.grammar_point_id = $1
+          AND (ds.reviewed
+               OR EXISTS (SELECT 1 FROM grammar_points gp2
+                           WHERE gp2.id = ds.grammar_point_id
+                             AND gp2.language_id IN (
+                                 SELECT id FROM languages
+                                  WHERE grammar_review_policy = 'ai_ok')))
         ORDER BY ds.display_order ASC
         LIMIT 5
         """,
@@ -1372,8 +1395,12 @@ async def get_cram_cards(
             WHERE ds.grammar_point_id = gp.id
               -- Gym: reviewed drills are shared corpus; a learner also gets the
               -- drills they generated on demand (created_by = them), private to
-              -- them until a reviewer approves them for all.
-              AND (ds.reviewed OR ds.created_by = auth.uid())
+              -- them until a reviewer approves them for all. A language whose
+              -- policy is 'ai_ok' serves verified AI drills to everyone.
+              AND (ds.reviewed OR ds.created_by = auth.uid()
+                   OR gp.language_id IN (
+                       SELECT id FROM languages
+                        WHERE grammar_review_policy = 'ai_ok'))
         ) d ON true
         WHERE gp.id = ANY($1::uuid[])
           AND (gp.reviewed = true

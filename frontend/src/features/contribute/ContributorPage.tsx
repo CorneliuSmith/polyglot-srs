@@ -426,11 +426,11 @@ export function ReviewPolicyControl({
   })
   return (
     <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-4 text-sm">
-      <div className="font-semibold text-gray-700 mb-1">Review policy (admin)</div>
+      <div className="font-semibold text-gray-700 mb-1">AI content policy (admin)</div>
       <p className="text-xs text-gray-500 mb-2">
         {policy === 'strict'
-          ? 'Strict: learners only see grammar a human has approved.'
-          : 'Open: learners also see AI-passed grammar, labelled “pending expert review”, until approved.'}
+          ? 'Strict: learners only see content a human has approved. AI-generated grammar, drills, and example sentences stay hidden until a reviewer signs off.'
+          : 'Open: learners also see verified AI content — grammar, drills, and example sentences — without waiting for a human to approve each one. Good for preview testing; switch back to Strict to hide unreviewed AI content again.'}
       </p>
       <div className="flex gap-2">
         {(['strict', 'ai_ok'] as const).map((p) => (
