@@ -171,8 +171,11 @@ These do **not** publish anything. They feed the one reviewer's decision:
   *does* publish can weigh it.
 - **Content suggestions** (`content_suggestions`) — proposed definition /
   usage-note edits, approved or rejected by a reviewer.
-- **Point review notes** (`point_review_notes`) — freeform "look at this"
-  notes parked on a grammar point, resolved by a reviewer.
+- **Review notes** (`point_review_notes`) — freeform "look at this" notes
+  parked on a **grammar point or a vocabulary word** ("this gloss is
+  regional", "the B1 level looks high"), filed from the card's *Flag an issue*
+  box (grammar list / vocab card) and resolved by a reviewer. They collect in
+  the amber **Open issues** panel, each tagged *grammar* or *word*.
 
 ---
 
