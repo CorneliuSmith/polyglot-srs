@@ -432,212 +432,420 @@ export interface SyntaxExample {
   rtl?: boolean
 }
 
-/** Representative flag emoji for where the language is spoken (a light visual
- * cue, not an exhaustive list). Kept modest — 1–3 per language. */
-export const LANGUAGE_FLAGS: Record<string, string> = {
-  es: '🇪🇸 🇲🇽 🇦🇷', fr: '🇫🇷 🇨🇦 🇸🇳', de: '🇩🇪 🇦🇹 🇨🇭', it: '🇮🇹',
-  ca: '🇦🇩 🇪🇸', pt: '🇧🇷 🇵🇹 🇦🇴', ro: '🇷🇴 🇲🇩', tr: '🇹🇷 🇨🇾',
-  sw: '🇹🇿 🇰🇪 🇺🇬', yo: '🇳🇬 🇧🇯', ha: '🇳🇬 🇳🇪', xh: '🇿🇦', mi: '🇳🇿',
-  jam: '🇯🇲', en: '🇬🇧 🇺🇸', nl: '🇳🇱 🇧🇪 🇸🇷', ru: '🇷🇺', el: '🇬🇷 🇨🇾',
-  ar: '🇪🇬 🇸🇦 🇲🇦', hi: '🇮🇳', th: '🇹🇭', ko: '🇰🇷',
-}
-
-export function flagsFor(code: string | undefined | null): string {
-  return (code && LANGUAGE_FLAGS[code]) || ''
-}
-
-/** One glossed example per language, chosen to show its characteristic word
- * order. Rendered under "How sentences are built" on the About page. */
+/** Glossed examples per language, chosen to show its characteristic word order
+ * and a couple of distinctive constructions. Rendered under "How sentences are
+ * built" on the About page. */
 export const LANGUAGE_SYNTAX: Record<string, SyntaxExample[]> = {
-  es: [{
-    sentence: 'El niño come una manzana.',
-    words: [
-      { w: 'El', g: 'the' }, { w: 'niño', g: 'boy' }, { w: 'come', g: 'eats' },
-      { w: 'una', g: 'a' }, { w: 'manzana', g: 'apple' },
-    ],
-    translation: 'The boy eats an apple.',
-    note: 'Subject–Verb–Object; the article agrees with the noun.',
-  }],
-  fr: [{
-    sentence: 'Le garçon mange une pomme.',
-    words: [
-      { w: 'Le', g: 'the' }, { w: 'garçon', g: 'boy' }, { w: 'mange', g: 'eats' },
-      { w: 'une', g: 'a' }, { w: 'pomme', g: 'apple' },
-    ],
-    translation: 'The boy eats an apple.',
-  }],
-  de: [{
-    sentence: 'Heute esse ich einen Apfel.',
-    words: [
-      { w: 'Heute', g: 'today' }, { w: 'esse', g: 'eat' }, { w: 'ich', g: 'I' },
-      { w: 'einen', g: 'an' }, { w: 'Apfel', g: 'apple' },
-    ],
-    translation: 'Today I eat an apple.',
-    note: "The verb 'esse' sits SECOND, pushing the subject 'ich' after it.",
-  }],
-  it: [{
-    sentence: 'Il ragazzo mangia una mela.',
-    words: [
-      { w: 'Il', g: 'the' }, { w: 'ragazzo', g: 'boy' }, { w: 'mangia', g: 'eats' },
-      { w: 'una', g: 'a' }, { w: 'mela', g: 'apple' },
-    ],
-    translation: 'The boy eats an apple.',
-  }],
-  ca: [{
-    sentence: 'El nen menja una poma.',
-    words: [
-      { w: 'El', g: 'the' }, { w: 'nen', g: 'boy' }, { w: 'menja', g: 'eats' },
-      { w: 'una', g: 'a' }, { w: 'poma', g: 'apple' },
-    ],
-    translation: 'The boy eats an apple.',
-  }],
-  pt: [{
-    sentence: 'O menino come uma maçã.',
-    words: [
-      { w: 'O', g: 'the' }, { w: 'menino', g: 'boy' }, { w: 'come', g: 'eats' },
-      { w: 'uma', g: 'a' }, { w: 'maçã', g: 'apple' },
-    ],
-    translation: 'The boy eats an apple.',
-  }],
-  ro: [{
-    sentence: 'Băiatul mănâncă un măr.',
-    words: [
-      { w: 'Băiatul', g: 'boy-the' }, { w: 'mănâncă', g: 'eats' },
-      { w: 'un', g: 'an' }, { w: 'măr', g: 'apple' },
-    ],
-    translation: 'The boy eats an apple.',
-    note: "'Băiatul' = 'boy-the' — the article -ul is glued to the end of the noun.",
-  }],
-  tr: [{
-    sentence: 'Çocuk elmayı yedi.',
-    words: [
-      { w: 'Çocuk', g: 'child' }, { w: 'elmayı', g: 'apple-(object)' },
-      { w: 'yedi', g: 'ate' },
-    ],
-    translation: 'The child ate the apple.',
-    note: "Verb last (SOV); the ending -yı marks 'apple' as the definite object.",
-  }],
-  sw: [{
-    sentence: 'Mtoto anasoma kitabu.',
-    words: [
-      { w: 'Mtoto', g: 'child' }, { w: 'anasoma', g: 's/he-is-reading' },
-      { w: 'kitabu', g: 'book' },
-    ],
-    translation: 'The child is reading a book.',
-    note: "'a-na-soma' fuses subject + tense + verb into one word.",
-  }],
-  yo: [{
-    sentence: 'Adé ra bàtà.',
-    words: [{ w: 'Adé', g: 'Ade' }, { w: 'ra', g: 'bought' }, { w: 'bàtà', g: 'shoes' }],
-    translation: 'Ade bought shoes.',
-    note: 'Word order is a fixed SVO; tone (not endings) does the grammatical work.',
-  }],
-  ha: [{
-    sentence: 'Yaro ya sayi doya.',
-    words: [
-      { w: 'Yaro', g: 'boy' }, { w: 'ya', g: 'he-(did)' }, { w: 'sayi', g: 'buy' },
-      { w: 'doya', g: 'yam' },
-    ],
-    translation: 'The boy bought a yam.',
-    note: "'ya' carries 'he' + completed action, right before the verb.",
-  }],
-  xh: [{
-    sentence: 'Umntwana ufunda incwadi.',
-    words: [
-      { w: 'Umntwana', g: 'child' }, { w: 'ufunda', g: 's/he-reads' },
-      { w: 'incwadi', g: 'book' },
-    ],
-    translation: 'The child reads a book.',
-    note: 'Noun-class prefixes (um-, in-) thread agreement through the sentence.',
-  }],
-  mi: [{
-    sentence: 'Kei te kai te tamaiti i te āporo.',
-    words: [
-      { w: 'Kei te kai', g: 'is-eating' }, { w: 'te', g: 'the' },
-      { w: 'tamaiti', g: 'child' }, { w: 'i te', g: '(object) the' },
-      { w: 'āporo', g: 'apple' },
-    ],
-    translation: 'The child is eating the apple.',
-    note: "Verb-FIRST (VSO); the particle 'i' marks the object.",
-  }],
-  jam: [{
-    sentence: 'Mi a nyam di food.',
-    words: [
-      { w: 'Mi', g: 'I' }, { w: 'a', g: '(ongoing)' }, { w: 'nyam', g: 'eat' },
-      { w: 'di', g: 'the' }, { w: 'food', g: 'food' },
-    ],
-    translation: "I'm eating the food.",
-    note: "'a' is a particle for ongoing action — the verb itself never changes.",
-  }],
-  en: [{
-    sentence: 'The dog chased the cat.',
-    words: [
-      { w: 'The', g: 'the' }, { w: 'dog', g: 'dog' }, { w: 'chased', g: 'chased' },
-      { w: 'the', g: 'the' }, { w: 'cat', g: 'cat' },
-    ],
-    translation: 'The dog chased the cat.',
-    note: 'Swap the nouns and the meaning flips — order alone marks who did what.',
-  }],
-  nl: [{
-    sentence: 'Vandaag koop ik brood.',
-    words: [
-      { w: 'Vandaag', g: 'today' }, { w: 'koop', g: 'buy' }, { w: 'ik', g: 'I' },
-      { w: 'brood', g: 'bread' },
-    ],
-    translation: 'Today I buy bread.',
-    note: "Verb second, like German: 'koop' comes before the subject 'ik'.",
-  }],
-  ru: [{
-    sentence: 'Мальчик читает книгу.',
-    words: [
-      { w: 'Мальчик', g: 'boy' }, { w: 'читает', g: 'reads' },
-      { w: 'книгу', g: 'book-(object)' },
-    ],
-    translation: 'The boy reads a book.',
-    note: "'книгу' is the accusative of 'книга' — the case, not the position, marks the object, so the words can reorder freely.",
-  }],
-  el: [{
-    sentence: 'Ο άντρας διαβάζει το βιβλίο.',
-    words: [
-      { w: 'Ο', g: 'the' }, { w: 'άντρας', g: 'man' }, { w: 'διαβάζει', g: 'reads' },
-      { w: 'το', g: 'the' }, { w: 'βιβλίο', g: 'book' },
-    ],
-    translation: 'The man reads the book.',
-  }],
-  ar: [{
-    sentence: 'يقرأ الولد الكتاب.',
-    words: [
-      { w: 'يقرأ', g: 'reads' }, { w: 'الولد', g: 'the-boy' },
-      { w: 'الكتاب', g: 'the-book' },
-    ],
-    translation: 'The boy reads the book.',
-    note: 'Classical Arabic leads with the verb (VSO); read right to left.',
-    rtl: true,
-  }],
-  hi: [{
-    sentence: 'लड़का किताब पढ़ता है।',
-    words: [
-      { w: 'लड़का', g: 'boy' }, { w: 'किताब', g: 'book' }, { w: 'पढ़ता', g: 'reads' },
-      { w: 'है', g: 'is' },
-    ],
-    translation: 'The boy reads a book.',
-    note: "Verb last (SOV); the sentence closes with 'है' (is).",
-  }],
-  th: [{
-    sentence: 'เด็กกินข้าว',
-    words: [{ w: 'เด็ก', g: 'child' }, { w: 'กิน', g: 'eat' }, { w: 'ข้าว', g: 'rice' }],
-    translation: 'The child eats rice.',
-    note: 'Isolating: no word ever changes form; there are no spaces between words.',
-  }],
-  ko: [{
-    sentence: '아이가 책을 읽어요.',
-    words: [
-      { w: '아이가', g: 'child-(subject)' }, { w: '책을', g: 'book-(object)' },
-      { w: '읽어요', g: 'reads' },
-    ],
-    translation: 'The child reads a book.',
-    note: "Verb last; '-가' marks the subject and '-을' the object.",
-  }],
+  es: [
+    {
+      sentence: 'El niño come una manzana.',
+      words: [
+        { w: 'El', g: 'the' }, { w: 'niño', g: 'boy' }, { w: 'come', g: 'eats' },
+        { w: 'una', g: 'a' }, { w: 'manzana', g: 'apple' },
+      ],
+      translation: 'The boy eats an apple.',
+      note: 'Subject–Verb–Object; the article agrees with the noun.',
+    },
+    {
+      sentence: '¿Hablas español?',
+      words: [{ w: '¿Hablas', g: '(you)-speak' }, { w: 'español?', g: 'Spanish' }],
+      translation: 'Do you speak Spanish?',
+      note: "No word for 'you' — the ending -as already means it (pro-drop).",
+    },
+  ],
+  fr: [
+    {
+      sentence: 'Le garçon mange une pomme.',
+      words: [
+        { w: 'Le', g: 'the' }, { w: 'garçon', g: 'boy' }, { w: 'mange', g: 'eats' },
+        { w: 'une', g: 'a' }, { w: 'pomme', g: 'apple' },
+      ],
+      translation: 'The boy eats an apple.',
+    },
+    {
+      sentence: 'Je ne mange pas de viande.',
+      words: [
+        { w: 'Je', g: 'I' }, { w: 'ne', g: '(not)' }, { w: 'mange', g: 'eat' },
+        { w: 'pas', g: '(not)' }, { w: 'de', g: 'any' }, { w: 'viande', g: 'meat' },
+      ],
+      translation: "I don't eat meat.",
+      note: 'Negation wraps the verb in two pieces: ne … pas.',
+    },
+  ],
+  de: [
+    {
+      sentence: 'Heute esse ich einen Apfel.',
+      words: [
+        { w: 'Heute', g: 'today' }, { w: 'esse', g: 'eat' }, { w: 'ich', g: 'I' },
+        { w: 'einen', g: 'an' }, { w: 'Apfel', g: 'apple' },
+      ],
+      translation: 'Today I eat an apple.',
+      note: "The verb 'esse' sits SECOND, pushing the subject 'ich' after it.",
+    },
+    {
+      sentence: 'Ich weiß, dass er heute kommt.',
+      words: [
+        { w: 'Ich', g: 'I' }, { w: 'weiß', g: 'know' }, { w: 'dass', g: 'that' },
+        { w: 'er', g: 'he' }, { w: 'heute', g: 'today' }, { w: 'kommt', g: 'comes' },
+      ],
+      translation: 'I know that he is coming today.',
+      note: "In a subordinate clause the verb 'kommt' jumps to the very end.",
+    },
+  ],
+  it: [
+    {
+      sentence: 'Il ragazzo mangia una mela.',
+      words: [
+        { w: 'Il', g: 'the' }, { w: 'ragazzo', g: 'boy' }, { w: 'mangia', g: 'eats' },
+        { w: 'una', g: 'a' }, { w: 'mela', g: 'apple' },
+      ],
+      translation: 'The boy eats an apple.',
+    },
+    {
+      sentence: 'Lo vedo.',
+      words: [{ w: 'Lo', g: 'him' }, { w: 'vedo', g: '(I)-see' }],
+      translation: 'I see him.',
+      note: "The object pronoun 'lo' comes before the verb; the subject is dropped.",
+    },
+  ],
+  ca: [
+    {
+      sentence: 'El nen menja una poma.',
+      words: [
+        { w: 'El', g: 'the' }, { w: 'nen', g: 'boy' }, { w: 'menja', g: 'eats' },
+        { w: 'una', g: 'a' }, { w: 'poma', g: 'apple' },
+      ],
+      translation: 'The boy eats an apple.',
+    },
+    {
+      sentence: 'No en tinc.',
+      words: [{ w: 'No', g: '(not)' }, { w: 'en', g: 'of-it' }, { w: 'tinc', g: '(I)-have' }],
+      translation: "I don't have any.",
+      note: "The weak pronoun 'en' stands in for 'of it' and clusters around the verb.",
+    },
+  ],
+  pt: [
+    {
+      sentence: 'O menino come uma maçã.',
+      words: [
+        { w: 'O', g: 'the' }, { w: 'menino', g: 'boy' }, { w: 'come', g: 'eats' },
+        { w: 'uma', g: 'a' }, { w: 'maçã', g: 'apple' },
+      ],
+      translation: 'The boy eats an apple.',
+    },
+    {
+      sentence: 'É importante estudarmos.',
+      words: [
+        { w: 'É', g: '(it)-is' }, { w: 'importante', g: 'important' },
+        { w: 'estudarmos', g: '(for-us)-to-study' },
+      ],
+      translation: "It's important for us to study.",
+      note: "The infinitive takes a personal ending -mos — the personal infinitive, unique to Portuguese.",
+    },
+  ],
+  ro: [
+    {
+      sentence: 'Băiatul mănâncă un măr.',
+      words: [
+        { w: 'Băiatul', g: 'boy-the' }, { w: 'mănâncă', g: 'eats' },
+        { w: 'un', g: 'an' }, { w: 'măr', g: 'apple' },
+      ],
+      translation: 'The boy eats an apple.',
+      note: "'Băiatul' = 'boy-the' — the article -ul is glued to the end of the noun.",
+    },
+    {
+      sentence: 'Cartea este pe masă.',
+      words: [
+        { w: 'Cartea', g: 'book-the' }, { w: 'este', g: 'is' }, { w: 'pe', g: 'on' },
+        { w: 'masă', g: 'table' },
+      ],
+      translation: 'The book is on the table.',
+      note: "Again the article rides on the end: 'Cartea' = 'book-the'.",
+    },
+  ],
+  tr: [
+    {
+      sentence: 'Çocuk elmayı yedi.',
+      words: [
+        { w: 'Çocuk', g: 'child' }, { w: 'elmayı', g: 'apple-(object)' },
+        { w: 'yedi', g: 'ate' },
+      ],
+      translation: 'The child ate the apple.',
+      note: "Verb last (SOV); the ending -yı marks 'apple' as the definite object.",
+    },
+    {
+      sentence: 'Evlerimizde.',
+      words: [
+        { w: 'Ev', g: 'house' }, { w: '-ler', g: '(plural)' },
+        { w: '-imiz', g: 'our' }, { w: '-de', g: 'in' },
+      ],
+      translation: 'In our houses.',
+      note: 'One word = four English words, built by stacking suffixes (agglutination).',
+    },
+  ],
+  sw: [
+    {
+      sentence: 'Mtoto anasoma kitabu.',
+      words: [
+        { w: 'Mtoto', g: 'child' }, { w: 'anasoma', g: 's/he-is-reading' },
+        { w: 'kitabu', g: 'book' },
+      ],
+      translation: 'The child is reading a book.',
+      note: "'a-na-soma' fuses subject + tense + verb into one word.",
+    },
+    {
+      sentence: 'Vitabu vyangu viwili.',
+      words: [
+        { w: 'Vitabu', g: 'books' }, { w: 'vyangu', g: 'my' }, { w: 'viwili', g: 'two' },
+      ],
+      translation: 'my two books',
+      note: "The class marker vi- repeats on every word that agrees with 'books'.",
+    },
+  ],
+  yo: [
+    {
+      sentence: 'Adé ra bàtà.',
+      words: [{ w: 'Adé', g: 'Ade' }, { w: 'ra', g: 'bought' }, { w: 'bàtà', g: 'shoes' }],
+      translation: 'Ade bought shoes.',
+      note: 'Word order is a fixed SVO; tone (not endings) does the grammatical work.',
+    },
+    {
+      sentence: 'Ó mú ìwé wá.',
+      words: [
+        { w: 'Ó', g: 'he' }, { w: 'mú', g: 'took' }, { w: 'ìwé', g: 'book' },
+        { w: 'wá', g: 'came' },
+      ],
+      translation: 'He brought the book.',
+      note: "Two verbs in a row (mú … wá, 'take … come') together mean 'bring' — a serial verb.",
+    },
+  ],
+  ha: [
+    {
+      sentence: 'Yaro ya sayi doya.',
+      words: [
+        { w: 'Yaro', g: 'boy' }, { w: 'ya', g: 'he-(did)' }, { w: 'sayi', g: 'buy' },
+        { w: 'doya', g: 'yam' },
+      ],
+      translation: 'The boy bought a yam.',
+      note: "'ya' carries 'he' + completed action, right before the verb.",
+    },
+    {
+      sentence: 'Yarinya ta tafi.',
+      words: [
+        { w: 'Yarinya', g: 'girl' }, { w: 'ta', g: 'she-(did)' }, { w: 'tafi', g: 'go' },
+      ],
+      translation: 'The girl went.',
+      note: "'ta' marks a feminine subject; 'ya' would be masculine.",
+    },
+  ],
+  xh: [
+    {
+      sentence: 'Umntwana ufunda incwadi.',
+      words: [
+        { w: 'Umntwana', g: 'child' }, { w: 'ufunda', g: 's/he-reads' },
+        { w: 'incwadi', g: 'book' },
+      ],
+      translation: 'The child reads a book.',
+      note: 'Noun-class prefixes (um-, in-) thread agreement through the sentence.',
+    },
+    {
+      sentence: 'Abantwana bafunda.',
+      words: [{ w: 'Abantwana', g: 'children' }, { w: 'bafunda', g: 'they-read' }],
+      translation: 'The children read.',
+      note: 'Plural prefix aba- on the noun, echoed by ba- on the verb.',
+    },
+  ],
+  mi: [
+    {
+      sentence: 'Kei te kai te tamaiti i te āporo.',
+      words: [
+        { w: 'Kei te kai', g: 'is-eating' }, { w: 'te', g: 'the' },
+        { w: 'tamaiti', g: 'child' }, { w: 'i te', g: '(object) the' },
+        { w: 'āporo', g: 'apple' },
+      ],
+      translation: 'The child is eating the apple.',
+      note: "Verb-FIRST (VSO); the particle 'i' marks the object.",
+    },
+    {
+      sentence: 'He tangata ia.',
+      words: [{ w: 'He', g: 'a' }, { w: 'tangata', g: 'person' }, { w: 'ia', g: 'he' }],
+      translation: 'He is a person.',
+      note: "No verb 'to be' — the words simply sit together.",
+    },
+  ],
+  jam: [
+    {
+      sentence: 'Mi a nyam di food.',
+      words: [
+        { w: 'Mi', g: 'I' }, { w: 'a', g: '(ongoing)' }, { w: 'nyam', g: 'eat' },
+        { w: 'di', g: 'the' }, { w: 'food', g: 'food' },
+      ],
+      translation: "I'm eating the food.",
+      note: "'a' is a particle for ongoing action — the verb itself never changes.",
+    },
+    {
+      sentence: 'Mi did nyam di food.',
+      words: [
+        { w: 'Mi', g: 'I' }, { w: 'did', g: '(past)' }, { w: 'nyam', g: 'eat' },
+        { w: 'di', g: 'the' }, { w: 'food', g: 'food' },
+      ],
+      translation: 'I ate the food.',
+      note: "'did' sets the past — swap the particle, and the verb 'nyam' stays put.",
+    },
+  ],
+  en: [
+    {
+      sentence: 'The dog chased the cat.',
+      words: [
+        { w: 'The', g: 'the' }, { w: 'dog', g: 'dog' }, { w: 'chased', g: 'chased' },
+        { w: 'the', g: 'the' }, { w: 'cat', g: 'cat' },
+      ],
+      translation: 'The dog chased the cat.',
+      note: 'Swap the nouns and the meaning flips — order alone marks who did what.',
+    },
+    {
+      sentence: 'She looked after the kids.',
+      words: [
+        { w: 'She', g: 'she' }, { w: 'looked', g: 'looked' }, { w: 'after', g: 'after' },
+        { w: 'the', g: 'the' }, { w: 'kids', g: 'kids' },
+      ],
+      translation: 'She cared for the kids.',
+      note: "'look after' = care for — a phrasal verb whose parts add up to a new meaning.",
+    },
+  ],
+  nl: [
+    {
+      sentence: 'Vandaag koop ik brood.',
+      words: [
+        { w: 'Vandaag', g: 'today' }, { w: 'koop', g: 'buy' }, { w: 'ik', g: 'I' },
+        { w: 'brood', g: 'bread' },
+      ],
+      translation: 'Today I buy bread.',
+      note: "Verb second, like German: 'koop' comes before the subject 'ik'.",
+    },
+    {
+      sentence: 'Ik weet dat hij komt.',
+      words: [
+        { w: 'Ik', g: 'I' }, { w: 'weet', g: 'know' }, { w: 'dat', g: 'that' },
+        { w: 'hij', g: 'he' }, { w: 'komt', g: 'comes' },
+      ],
+      translation: 'I know that he is coming.',
+      note: "Also like German: 'komt' moves to the end of the subordinate clause.",
+    },
+  ],
+  ru: [
+    {
+      sentence: 'Мальчик читает книгу.',
+      words: [
+        { w: 'Мальчик', g: 'boy' }, { w: 'читает', g: 'reads' },
+        { w: 'книгу', g: 'book-(object)' },
+      ],
+      translation: 'The boy reads a book.',
+      note: "'книгу' is the accusative of 'книга' — the case, not the position, marks the object, so the words can reorder freely.",
+    },
+    {
+      sentence: 'Я прочитал письмо.',
+      words: [
+        { w: 'Я', g: 'I' }, { w: 'прочитал', g: 'read-(completed)' },
+        { w: 'письмо', g: 'letter' },
+      ],
+      translation: 'I read the letter (and finished it).',
+      note: "The perfective 'прочитал' says the action was completed; its imperfective pair 'читал' would describe the process.",
+    },
+  ],
+  el: [
+    {
+      sentence: 'Ο άντρας διαβάζει το βιβλίο.',
+      words: [
+        { w: 'Ο', g: 'the' }, { w: 'άντρας', g: 'man' }, { w: 'διαβάζει', g: 'reads' },
+        { w: 'το', g: 'the' }, { w: 'βιβλίο', g: 'book' },
+      ],
+      translation: 'The man reads the book.',
+    },
+    {
+      sentence: 'Βλέπω τον άντρα.',
+      words: [
+        { w: 'Βλέπω', g: '(I)-see' }, { w: 'τον', g: 'the-(object)' },
+        { w: 'άντρα', g: 'man' },
+      ],
+      translation: 'I see the man.',
+      note: 'The article shifts for case: τον (accusative) vs. ο (nominative).',
+    },
+  ],
+  ar: [
+    {
+      sentence: 'يقرأ الولد الكتاب.',
+      words: [
+        { w: 'يقرأ', g: 'reads' }, { w: 'الولد', g: 'the-boy' },
+        { w: 'الكتاب', g: 'the-book' },
+      ],
+      translation: 'The boy reads the book.',
+      note: 'Classical Arabic leads with the verb (VSO); read right to left.',
+      rtl: true,
+    },
+    {
+      sentence: 'الكتاب جديد.',
+      words: [{ w: 'الكتاب', g: 'the-book' }, { w: 'جديد', g: 'new' }],
+      translation: 'The book is new.',
+      note: "No verb 'to be' in the present — just 'the book' + 'new'.",
+      rtl: true,
+    },
+  ],
+  hi: [
+    {
+      sentence: 'लड़का किताब पढ़ता है।',
+      words: [
+        { w: 'लड़का', g: 'boy' }, { w: 'किताब', g: 'book' }, { w: 'पढ़ता', g: 'reads' },
+        { w: 'है', g: 'is' },
+      ],
+      translation: 'The boy reads a book.',
+      note: "Verb last (SOV); the sentence closes with 'है' (is).",
+    },
+    {
+      sentence: 'लड़का घर में है।',
+      words: [
+        { w: 'लड़का', g: 'boy' }, { w: 'घर', g: 'house' }, { w: 'में', g: 'in' },
+        { w: 'है', g: 'is' },
+      ],
+      translation: 'The boy is in the house.',
+      note: "'में' (in) comes AFTER the noun — a postposition, not a preposition.",
+    },
+  ],
+  th: [
+    {
+      sentence: 'เด็กกินข้าว',
+      words: [{ w: 'เด็ก', g: 'child' }, { w: 'กิน', g: 'eat' }, { w: 'ข้าว', g: 'rice' }],
+      translation: 'The child eats rice.',
+      note: 'Isolating: no word ever changes form; there are no spaces between words.',
+    },
+    {
+      sentence: 'หนังสือสามเล่ม',
+      words: [
+        { w: 'หนังสือ', g: 'book' }, { w: 'สาม', g: 'three' }, { w: 'เล่ม', g: '(classifier)' },
+      ],
+      translation: 'three books',
+      note: 'Counting needs a classifier — เล่ม for books and other flat, bound things.',
+    },
+  ],
+  ko: [
+    {
+      sentence: '아이가 책을 읽어요.',
+      words: [
+        { w: '아이가', g: 'child-(subject)' }, { w: '책을', g: 'book-(object)' },
+        { w: '읽어요', g: 'reads' },
+      ],
+      translation: 'The child reads a book.',
+      note: "Verb last; '-가' marks the subject and '-을' the object.",
+    },
+    {
+      sentence: '저는 학생이에요.',
+      words: [
+        { w: '저는', g: 'I-(topic)' }, { w: '학생이에요', g: 'am-a-student' },
+      ],
+      translation: 'I am a student.',
+      note: "'-는' marks the topic; the verb 'to be' fuses onto the noun 학생 (student).",
+    },
+  ],
 }
 
 export function syntaxFor(code: string | undefined | null): SyntaxExample[] {
