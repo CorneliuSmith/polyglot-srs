@@ -55,11 +55,18 @@ async def _seed_file(
         vocab_id = id_by_word.get(row["word"].lower())
         if not vocab_id:
             continue
+        # A row may carry its own provenance (e.g. an extractor-authored 'ai'
+        # example); otherwise it inherits the file's default source. An 'ai' row
+        # lands reviewed=false — hidden from learners until a reviewer approves
+        # it, matching add_example_sentence(source='ai').
+        row_source = row["source"] or source
+        reviewed = row_source != "ai"
         args.append((
             lang_id, vocab_id, row["sentence"], row["translation"],
-            row["rank"], source, license_, row["gloss"],
+            row["rank"], row_source, license_, row["gloss"],
             row["transliteration"]
             or (romanize(row["sentence"]) if romanize else None),
+            reviewed,
         ))
 
     before = await conn.fetchval(
@@ -70,8 +77,8 @@ async def _seed_file(
             """
             INSERT INTO example_sentences
                 (language_id, vocabulary_id, sentence, translation,
-                 difficulty_rank, source, license, gloss, transliteration)
-            VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9)
+                 difficulty_rank, source, license, gloss, transliteration, reviewed)
+            VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10)
             ON CONFLICT (vocabulary_id, sentence, translation_locale)
                 DO NOTHING
             """,
@@ -98,6 +105,7 @@ def _read_rows(path):
                 "rank": int(rank_raw) if rank_raw.isdigit() else 1,
                 "gloss": (row.get("gloss") or "").strip() or None,
                 "transliteration": (row.get("transliteration") or "").strip(),
+                "source": (row.get("source") or "").strip().lower() or None,
             }
 
 
