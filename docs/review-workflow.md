@@ -81,14 +81,22 @@ written review notes** on a card — but they cannot publish or delete.
 (Notes are exactly where their judgement shows, which is what you promote
 on.) Promote a trial reviewer to reviewer once you trust that judgement.
 
-To keep trial reviewers engaged, the **dashboard nudges them**: at most once
-a day, opening the dashboard shows a blocking check-in with one real pending
-item (a generated drill or example in a language they can trial-review) and
-asks them to judge it — *Looks good* / *Needs work* records an advisory
-recommendation, *I can't tell* satisfies the nudge without a vote. It's
-rate-limited server-side (`trial_review_prompt_state`), only appears for
-trial reviewers (never admins/full reviewers), and skips silently when
-there's nothing pending to ask about. Grant either role
+To keep trial reviewers engaged, the **dashboard nudges them**: opening the
+dashboard occasionally shows a blocking check-in with one real pending item
+(a generated drill or example in a language they can trial-review) and asks
+them to judge it — *Looks good* / *Needs work* records an advisory
+recommendation, *I can't tell* satisfies the nudge without a vote.
+
+The cadence is **adaptive and self-explaining** (`trial_review_prompt_state`):
+a brand-new trial reviewer is asked on their first visit; each real answer
+schedules the next check-in further out (first answer ~2 days, then +1 day
+each, capped at ~2 weeks), while a skip brings it back within hours — so
+skipping can't buy the long gap. The modal says so up front ("the more you
+help, the less often we'll ask") and the confirmation tells them exactly when
+they'll next be asked. It only appears for trial reviewers (never admins/full
+reviewers) and skips silently when there's nothing pending to ask about. Tune
+the numbers via `_PROMPT_BASE_HOURS` / `_PROMPT_STEP_HOURS` /
+`_PROMPT_MAX_HOURS` / `_PROMPT_SKIP_HOURS` in `repositories/contributor.py`. Grant either role
 from **Contribute → Roles** (admins) or **Manage accounts** (both panels
 offer `trial_reviewer` and `reviewer`).
 

@@ -54,7 +54,7 @@ async def test_prompt_pick_cooldown_and_record(pool):
 
     async with pool.privileged_connection() as conn:
         # Never answered → due.
-        assert await trial_prompt_due(conn, trial, 20) is True
+        assert await trial_prompt_due(conn, trial) is True
 
         # Scoped to `lang` only → picks the lang drill, not the other-language one.
         prompt = await pick_review_prompt(
@@ -65,12 +65,13 @@ async def test_prompt_pick_cooldown_and_record(pool):
         assert prompt["target_id"] == drill
         assert prompt["language_id"] == lang
 
-        # Answer it → recommendation recorded + cooldown set.
+        # Answer it → recommendation recorded + next check-in scheduled out.
         await add_recommendation(conn, trial, lang, "drill", drill, "approve", "reads well")
-        await record_trial_prompt_answer(conn, trial)
+        nxt = await record_trial_prompt_answer(conn, trial, gave_feedback=True)
+        assert nxt  # ISO timestamp of the next check-in
 
-        # Within cooldown now → not due.
-        assert await trial_prompt_due(conn, trial, 20) is False
+        # A future check-in is scheduled → not due.
+        assert await trial_prompt_due(conn, trial) is False
 
         # And the drill they judged is no longer offered (dedupe on prior vote).
         again = await pick_review_prompt(

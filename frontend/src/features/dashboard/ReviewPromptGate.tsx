@@ -27,10 +27,20 @@ export default function ReviewPromptGate() {
   return <PromptModal prompt={data.prompt} />
 }
 
+/** "in about 3 days" / "later today" from an ISO timestamp. */
+function untilPhrase(iso: string): string {
+  const ms = new Date(iso).getTime() - Date.now()
+  if (!Number.isFinite(ms) || ms <= 0) return 'soon'
+  const days = Math.round(ms / 86_400_000)
+  if (days >= 1) return `in about ${days} day${days === 1 ? '' : 's'}`
+  const hours = Math.max(1, Math.round(ms / 3_600_000))
+  return `in about ${hours} hour${hours === 1 ? '' : 's'}`
+}
+
 function PromptModal({ prompt }: { prompt: ReviewPrompt }) {
   const qc = useQueryClient()
   const [note, setNote] = useState('')
-  const [done, setDone] = useState(false)
+  const [done, setDone] = useState<{ next: string; voted: boolean } | null>(null)
   const { data: languages = [] } = useQuery({
     queryKey: ['languages'],
     queryFn: getLanguages,
@@ -46,8 +56,9 @@ function PromptModal({ prompt }: { prompt: ReviewPrompt }) {
         languageId: prompt.language_id,
         recommendation,
         note: note.trim(),
-      }),
-    onSuccess: () => setDone(true),
+      }).then((res) => ({ res, recommendation })),
+    onSuccess: ({ res, recommendation }) =>
+      setDone({ next: res.next_prompt_at, voted: recommendation !== 'skip' }),
   })
 
   // Fill the {{answer}} blank so the reviewer reads the whole drill.
@@ -66,9 +77,15 @@ function PromptModal({ prompt }: { prompt: ReviewPrompt }) {
       <div className="w-full max-w-md rounded-2xl bg-white p-5 shadow-xl space-y-3">
         {done ? (
           <div className="space-y-3 text-center">
-            <p className="text-sm font-semibold text-gray-800">Thanks — that helps.</p>
+            <p className="text-sm font-semibold text-gray-800">
+              {done.voted ? 'Thanks — that helps.' : 'No problem.'}
+            </p>
             <p className="text-xs text-gray-500">
-              Your call goes to the reviewers weighing this card.
+              {done.voted
+                ? 'Your call goes to the reviewers weighing this card. '
+                : "We'll pick a different card next time. "}
+              We'll check back <b>{untilPhrase(done.next)}</b>
+              {done.voted ? ' — the more you help, the less often we ask.' : '.'}
             </p>
             <button
               type="button"
@@ -85,6 +102,10 @@ function PromptModal({ prompt }: { prompt: ReviewPrompt }) {
                 Quick reviewer check-in
               </p>
               <p className="mt-0.5 text-sm text-gray-700">{prompt.question}</p>
+              <p className="mt-0.5 text-[11px] text-gray-400">
+                One card before you dive in. The more you help, the less often
+                we'll ask.
+              </p>
             </div>
 
             <div className="rounded-xl border border-gray-100 bg-gray-50 px-3 py-2.5">

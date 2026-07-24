@@ -848,21 +848,23 @@ export async function getReviewPrompt(): Promise<{ due: boolean; prompt?: Review
 }
 
 /** Record the trial reviewer's answer: approve/reject (an advisory vote) or
- * skip ("can't tell"). Either way the nudge is satisfied for today. */
+ * skip ("can't tell"). Returns when they'll next be nudged — real feedback
+ * pushes it further out; a skip brings it back sooner. */
 export async function answerReviewPrompt(body: {
   targetType: 'drill' | 'example'
   targetId: string
   languageId: string
   recommendation: 'approve' | 'reject' | 'skip'
   note?: string
-}): Promise<void> {
-  await apiClient.post('/api/contribute/review/prompt/answer', {
+}): Promise<{ next_prompt_at: string }> {
+  const response = await apiClient.post('/api/contribute/review/prompt/answer', {
     target_type: body.targetType,
     target_id: body.targetId,
     language_id: body.languageId,
     recommendation: body.recommendation,
     note: body.note ?? '',
   })
+  return response.data
 }
 
 /** One roll-up of everything awaiting review action for a language. Each key

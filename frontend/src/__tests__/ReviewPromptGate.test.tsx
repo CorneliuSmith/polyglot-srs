@@ -5,7 +5,9 @@ import ReviewPromptGate from '../features/dashboard/ReviewPromptGate'
 
 vi.mock('../api/contribute', () => ({
   getReviewPrompt: vi.fn(),
-  answerReviewPrompt: vi.fn(() => Promise.resolve()),
+  answerReviewPrompt: vi.fn(() =>
+    Promise.resolve({ next_prompt_at: '2026-08-01T00:00:00Z' }),
+  ),
 }))
 vi.mock('../api/profile', () => ({
   getLanguages: vi.fn(() => Promise.resolve([{ id: 'l-sw', code: 'sw', name: 'Swahili', rtl: false }])),
@@ -60,6 +62,8 @@ describe('ReviewPromptGate', () => {
       ),
     )
     expect(await screen.findByText(/thanks/i)).toBeDefined()
+    // Tells them contributing earns a longer gap.
+    expect(screen.getByText(/less often/i)).toBeDefined()
     // Dismiss after answering removes the gate.
     fireEvent.click(screen.getByRole('button', { name: /continue to dashboard/i }))
     await waitFor(() => expect(screen.queryByTestId('review-prompt-gate')).toBeNull())

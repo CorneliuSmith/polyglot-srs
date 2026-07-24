@@ -1681,6 +1681,23 @@ class TestGenerationRecheck:
         assert resp.status_code == 503
 
 
+def test_prompt_cadence_grows_with_feedback_and_skip_is_short():
+    from backend.repositories.contributor import (
+        _PROMPT_MAX_HOURS,
+        _next_prompt_hours,
+    )
+    # A skip is always short — it can't buy the long quiet.
+    assert _next_prompt_hours(0, gave_feedback=False) == 8
+    assert _next_prompt_hours(50, gave_feedback=False) == 8
+    # Real feedback: first answer 2 days, then grows a day each, capped at 2 wks.
+    assert _next_prompt_hours(1, gave_feedback=True) == 48
+    assert _next_prompt_hours(2, gave_feedback=True) == 72
+    assert _next_prompt_hours(100, gave_feedback=True) == _PROMPT_MAX_HOURS
+    # More feedback → never a shorter gap.
+    seq = [_next_prompt_hours(n, gave_feedback=True) for n in range(1, 20)]
+    assert seq == sorted(seq)
+
+
 class TestReviewPrompt:
     DRILL = "dddddddd-dddd-dddd-dddd-dddddddddddd"
 
@@ -1734,7 +1751,7 @@ class TestReviewPrompt:
              patch("backend.routers.contribute.add_recommendation",
                    new=AsyncMock()) as mock_rec, \
              patch("backend.routers.contribute.record_trial_prompt_answer",
-                   new=AsyncMock()) as mock_record:
+                   new=AsyncMock(return_value="2026-08-01T00:00:00+00:00")) as mock_record:
             resp = client.post(
                 "/api/contribute/review/prompt/answer",
                 json={"target_type": "drill", "target_id": self.DRILL,
@@ -1752,7 +1769,7 @@ class TestReviewPrompt:
              patch("backend.routers.contribute.add_recommendation",
                    new=AsyncMock()) as mock_rec, \
              patch("backend.routers.contribute.record_trial_prompt_answer",
-                   new=AsyncMock()) as mock_record:
+                   new=AsyncMock(return_value="2026-08-01T00:00:00+00:00")) as mock_record:
             resp = client.post(
                 "/api/contribute/review/prompt/answer",
                 json={"target_type": "drill", "target_id": self.DRILL,
