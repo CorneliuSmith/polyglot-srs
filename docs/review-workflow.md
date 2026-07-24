@@ -109,6 +109,11 @@ sentences (`-k vocab --recheck`) **and grammar drills**
 All of this output lands as `source = 'ai'`, `reviewed = false` — **still
 behind the human gate**. The checker never publishes; it only prepares work.
 
+The recheck runs from the CLI *or* from the **admin generation panel**
+(Contribute → Admin → Content generation → **Recheck now**, with a dry-run
+**Preview recheck** cost estimate first). The panel's `vocab` / `grammar`
+toggle picks the corpus, exactly like the CLI's `-k` flag.
+
 ### 2. The semantic check (manual, advisory, on demand)
 
 On a grammar point **or a vocabulary word**, a reviewer can click **"Run AI

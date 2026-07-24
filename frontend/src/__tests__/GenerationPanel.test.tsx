@@ -7,6 +7,7 @@ vi.mock('../api/contribute', async (orig) => ({
   ...(await orig<typeof import('../api/contribute')>()),
   getGenerationCoverage: vi.fn(),
   runGeneration: vi.fn(),
+  runRecheck: vi.fn(),
   getPendingExamples: vi.fn(),
   reviewExample: vi.fn(),
   reviewExamplesBulk: vi.fn(),
@@ -15,12 +16,14 @@ vi.mock('../api/contribute', async (orig) => ({
 import {
   getGenerationCoverage,
   runGeneration,
+  runRecheck,
   getPendingExamples,
   reviewExample,
   reviewExamplesBulk,
 } from '../api/contribute'
 const mockCoverage = getGenerationCoverage as ReturnType<typeof vi.fn>
 const mockRun = runGeneration as ReturnType<typeof vi.fn>
+const mockRecheck = runRecheck as ReturnType<typeof vi.fn>
 const mockPending = getPendingExamples as ReturnType<typeof vi.fn>
 const mockReview = reviewExample as ReturnType<typeof vi.fn>
 
@@ -146,6 +149,36 @@ describe('GenerationPanel', () => {
     await screen.findByText(/awaiting review/i)
     fireEvent.click(screen.getByRole('button', { name: /approve all/i }))
     await waitFor(() => expect(bulk).toHaveBeenCalledWith('l-sw', true))
+  })
+
+  it('rechecks existing content for real after confirm, reporting flags + alternatives', async () => {
+    vi.spyOn(window, 'confirm').mockReturnValue(true)
+    mockRecheck.mockResolvedValue({
+      dry_run: false, kind: 'vocab', model: 'claude-opus-4-8',
+      items_audited: 40, flagged: 3, alternatives_generated: 5, est_cost_usd: 0.22,
+    })
+    renderPanel()
+    await screen.findByText(/content generation/i)
+    fireEvent.click(screen.getByRole('button', { name: /recheck now/i }))
+    await waitFor(() => expect(mockRecheck).toHaveBeenCalled())
+    expect(mockRecheck.mock.calls[0][0].dryRun).toBe(false)
+    // Default selection is Swahili + vocab kind.
+    expect(mockRecheck.mock.calls[0][0].kind).toBe('vocab')
+    expect(await screen.findByText(/flagged/i)).toBeDefined()
+    expect(screen.getByText(/generated/i)).toBeDefined()
+  })
+
+  it('previews a recheck without auditing for real', async () => {
+    mockRecheck.mockResolvedValue({
+      dry_run: true, kind: 'vocab', model: 'claude-opus-4-8',
+      items_to_audit: 40, units_to_audit: 120, est_cost_usd: 0.18,
+    })
+    renderPanel()
+    await screen.findByText(/content generation/i)
+    fireEvent.click(screen.getByRole('button', { name: /preview recheck/i }))
+    await waitFor(() => expect(mockRecheck).toHaveBeenCalled())
+    expect(mockRecheck.mock.calls[0][0].dryRun).toBe(true)
+    expect(await screen.findByText(/~\$0\.18/)).toBeDefined()
   })
 
   it('disables real generation when the server has no key', async () => {

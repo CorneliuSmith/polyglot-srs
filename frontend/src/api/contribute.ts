@@ -708,6 +708,48 @@ export async function runGeneration(params: {
   return response.data
 }
 
+/** Recheck (quality-audit) of EXISTING content — vocab examples or grammar
+ * drills. Shape is normalized across both corpora. */
+export interface RecheckDryRun {
+  dry_run: true
+  kind: string
+  model: string
+  items_to_audit: number
+  units_to_audit: number
+  est_cost_usd: number
+}
+
+export interface RecheckResult {
+  dry_run: false
+  kind: string
+  model: string
+  items_audited: number
+  flagged: number
+  alternatives_generated: number
+  est_cost_usd: number
+}
+
+/** Audit existing example sentences (vocab) or drills (grammar): flag the bad
+ * ones for review and top each item back up to target with alternatives. */
+export async function runRecheck(params: {
+  languageId: string
+  languageCode: string
+  kind: 'vocab' | 'grammar'
+  targetPerItem: number
+  maxItems: number
+  dryRun: boolean
+}): Promise<RecheckDryRun | RecheckResult> {
+  const response = await apiClient.post('/api/contribute/admin/generation/recheck', {
+    language_id: params.languageId,
+    language_code: params.languageCode,
+    kind: params.kind,
+    target_per_item: params.targetPerItem,
+    max_items: params.maxItems,
+    dry_run: params.dryRun,
+  })
+  return response.data
+}
+
 export interface PendingExample {
   id: string
   sentence: string

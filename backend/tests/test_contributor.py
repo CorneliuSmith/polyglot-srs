@@ -1576,6 +1576,111 @@ class TestGenerationRun:
         assert resp.status_code == 422
 
 
+class TestGenerationRecheck:
+    def test_requires_admin(self, client):
+        with _roles([{"language_id": LANG_ID, "role": "reviewer"}]):
+            resp = client.post(
+                "/api/contribute/admin/generation/recheck",
+                json={"language_id": LANG_ID, "language_code": "sw", "kind": "grammar"},
+                headers=_auth_headers(),
+            )
+        assert resp.status_code == 403
+
+    def test_dry_run_previews_drills_normalized(self, client):
+        conn = AsyncMock()
+        conn.fetchrow = AsyncMock(return_value={"code": "sw", "name": "Swahili"})
+        plan = {"kind": "recheck_drills", "model": "claude-x",
+                "points_to_audit": 12, "drills_to_audit": 48,
+                "est_cost_usd": 0.19, "_items": [1, 2]}
+        with _roles([{"language_id": None, "role": "admin"}]), \
+             _priv_yielding(conn), \
+             patch("backend.routers.contribute.plan_recheck_drills",
+                   new=AsyncMock(return_value=dict(plan))) as mock_plan, \
+             patch("backend.routers.contribute.recheck_drills",
+                   new=AsyncMock()) as mock_run:
+            resp = client.post(
+                "/api/contribute/admin/generation/recheck",
+                json={"language_id": LANG_ID, "language_code": "sw",
+                      "kind": "grammar", "dry_run": True},
+                headers=_auth_headers(),
+            )
+        assert resp.status_code == 200
+        body = resp.json()
+        assert body["dry_run"] is True
+        # Normalized keys map from the drill-specific plan.
+        assert body["items_to_audit"] == 12
+        assert body["units_to_audit"] == 48
+        assert "_items" not in body
+        mock_run.assert_not_awaited()
+        mock_plan.assert_awaited_once()
+
+    def test_real_recheck_reports_flags_and_alternatives(self, client):
+        conn = AsyncMock()
+        conn.fetchrow = AsyncMock(return_value={"code": "sw", "name": "Swahili"})
+        result = {"kind": "recheck_drills", "model": "claude-x",
+                  "points_audited": 12, "drills_flagged": 3,
+                  "alternatives_generated": 7, "est_cost_usd": 0.21}
+        with _roles([{"language_id": None, "role": "admin"}]), \
+             _priv_yielding(conn), \
+             patch("backend.routers.contribute.generation_available",
+                   return_value=True), \
+             patch("backend.routers.contribute.recheck_drills",
+                   new=AsyncMock(return_value=dict(result))):
+            resp = client.post(
+                "/api/contribute/admin/generation/recheck",
+                json={"language_id": LANG_ID, "language_code": "sw",
+                      "kind": "grammar", "dry_run": False},
+                headers=_auth_headers(),
+            )
+        assert resp.status_code == 200
+        body = resp.json()
+        assert body["dry_run"] is False
+        assert body["items_audited"] == 12
+        assert body["flagged"] == 3
+        assert body["alternatives_generated"] == 7
+
+    def test_vocab_recheck_dispatches_examples(self, client):
+        conn = AsyncMock()
+        conn.fetchrow = AsyncMock(return_value={"code": "sw", "name": "Swahili"})
+        result = {"kind": "recheck", "model": "claude-x",
+                  "words_audited": 30, "sentences_flagged": 4,
+                  "alternatives_generated": 9, "est_cost_usd": 0.15}
+        with _roles([{"language_id": None, "role": "admin"}]), \
+             _priv_yielding(conn), \
+             patch("backend.routers.contribute.generation_available",
+                   return_value=True), \
+             patch("backend.routers.contribute.recheck_examples",
+                   new=AsyncMock(return_value=dict(result))) as mock_ex, \
+             patch("backend.routers.contribute.recheck_drills",
+                   new=AsyncMock()) as mock_dr:
+            resp = client.post(
+                "/api/contribute/admin/generation/recheck",
+                json={"language_id": LANG_ID, "language_code": "sw",
+                      "kind": "vocab", "dry_run": False},
+                headers=_auth_headers(),
+            )
+        assert resp.status_code == 200
+        body = resp.json()
+        assert body["items_audited"] == 30 and body["flagged"] == 4
+        mock_ex.assert_awaited_once()
+        mock_dr.assert_not_awaited()
+
+    def test_real_recheck_503_when_key_absent(self, client):
+        conn = AsyncMock()
+        conn.fetchrow = AsyncMock(return_value={"code": "sw", "name": "Swahili"})
+        with _roles([{"language_id": None, "role": "admin"}]), \
+             _priv_yielding(conn), \
+             patch("backend.routers.contribute.generation_available",
+                   return_value=False):
+            resp = client.post(
+                "/api/contribute/admin/generation/recheck",
+                json={"language_id": LANG_ID, "language_code": "sw",
+                      "kind": "grammar", "dry_run": False},
+                headers=_auth_headers(),
+            )
+        assert resp.status_code == 503
+
+
 class TestGenerationReviewGate:
     EX = "aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa"
 
