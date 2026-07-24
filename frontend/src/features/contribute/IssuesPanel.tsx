@@ -41,7 +41,10 @@ export default function IssuesPanel({
             <div className="flex items-start gap-2">
               <div className="flex-1">
                 <span className="font-medium text-gray-900">
-                  {n.point_title}
+                  {n.entity_label ?? n.point_title}
+                </span>
+                <span className="ml-1 rounded bg-amber-100 text-amber-700 px-1.5 py-0.5 text-[10px] uppercase tracking-wide">
+                  {n.entity_type === 'vocab' ? 'word' : 'grammar'}
                 </span>
                 {n.level && (
                   <span className="ml-1 text-xs text-gray-400">{n.level}</span>

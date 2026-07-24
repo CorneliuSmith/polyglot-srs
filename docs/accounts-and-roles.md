@@ -110,9 +110,10 @@ The API equivalents are `GET /api/contribute/roles/all`,
    language set to `ai_ok` (admin toggle) surfaces AI-passed drafts.
 3. **Flag an issue (optional)** — for problems a reviewer can't or
    shouldn't fix on the spot ("this is the Ibadan form", "tone marks look
-   doubtful"), every point has a *Flag an issue* box. Open issues collect
-   in the amber **Open issues** panel at the top of the Contribute page —
-   visible to everyone with a role for the language, resolvable by its
+   doubtful"), every grammar point **and every vocabulary word** has a
+   *Flag an issue* box (trial reviewers can file these too). Open issues
+   collect in the amber **Open issues** panel — visible to everyone with a
+   role for the language, tagged *grammar* or *word*, resolvable by its
    reviewers and admins once addressed.
 4. **Approve** — a reviewer for that language (or an admin) clicks
    *Approve (linguist sign-off)*. `reviewed = true`, `reviewed_by` = them,

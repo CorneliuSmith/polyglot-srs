@@ -74,7 +74,11 @@ export async function getVocabForLanguage(
 
 export interface ReviewNote {
   id: string
-  grammar_point_id: string
+  grammar_point_id: string | null
+  vocabulary_id: string | null
+  entity_type: 'grammar' | 'vocab'
+  entity_label: string
+  // Kept for the existing grammar UI; mirrors entity_label.
   point_title: string
   level: string | null
   note: string
@@ -85,6 +89,11 @@ export interface ReviewNote {
 
 export async function flagPointIssue(pointId: string, note: string): Promise<void> {
   await apiClient.post(`/api/contribute/grammar/${pointId}/notes`, { note })
+}
+
+/** File a reviewer note against a vocabulary word (advisory; publishes nothing). */
+export async function flagVocabIssue(vocabularyId: string, note: string): Promise<void> {
+  await apiClient.post(`/api/contribute/vocab/${vocabularyId}/notes`, { note })
 }
 
 export async function getReviewNotes(

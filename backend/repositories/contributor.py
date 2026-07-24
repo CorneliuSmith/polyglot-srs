@@ -250,6 +250,14 @@ async def get_point_language(conn: asyncpg.Connection, point_id: str) -> str | N
     return str(lid) if lid else None
 
 
+async def get_vocab_language(conn: asyncpg.Connection, vocabulary_id: str) -> str | None:
+    """Return the language_id of a vocabulary word, or None if it doesn't exist."""
+    lid = await conn.fetchval(
+        "SELECT language_id FROM vocabulary WHERE id = $1", vocabulary_id
+    )
+    return str(lid) if lid else None
+
+
 async def get_point_language_and_code(
     conn: asyncpg.Connection, point_id: str
 ) -> tuple[str, str] | None:
@@ -504,8 +512,10 @@ async def review_inbox_counts(
           (SELECT count(*) FROM content_suggestions cs
             WHERE cs.language_id = $1 AND cs.status = 'pending') AS suggestions,
           (SELECT count(*) FROM point_review_notes n
-             JOIN grammar_points gp ON n.grammar_point_id = gp.id
-            WHERE gp.language_id = $1 AND n.status = 'open') AS notes,
+             LEFT JOIN grammar_points gp ON n.grammar_point_id = gp.id
+             LEFT JOIN vocabulary v ON n.vocabulary_id = v.id
+            WHERE COALESCE(gp.language_id, v.language_id) = $1
+              AND n.status = 'open') AS notes,
           (SELECT count(*) FROM card_feedback f
             WHERE f.language_id = $1 AND f.status = 'open') AS feedback
         """,
@@ -1477,7 +1487,8 @@ async def add_review_note(
     author_id: str,
     note: str,
 ) -> str:
-    """File a reviewer note against a point (privileged, after role check)."""
+    """File a reviewer note against a grammar point (privileged, after role
+    check)."""
     return str(await conn.fetchval(
         """
         INSERT INTO point_review_notes (grammar_point_id, author_id, note)
@@ -1488,21 +1499,46 @@ async def add_review_note(
     ))
 
 
+async def add_vocab_review_note(
+    conn: asyncpg.Connection,
+    vocabulary_id: str,
+    author_id: str,
+    note: str,
+) -> str:
+    """File a reviewer note against a vocabulary word (privileged, after role
+    check). Same table as grammar notes — the entity is the vocab word."""
+    return str(await conn.fetchval(
+        """
+        INSERT INTO point_review_notes (vocabulary_id, author_id, note)
+        VALUES ($1, $2, $3)
+        RETURNING id
+        """,
+        vocabulary_id, author_id, note,
+    ))
+
+
 async def list_review_notes(
     conn: asyncpg.Connection,
     language_id: str,
     *,
     include_resolved: bool = False,
 ) -> list[dict]:
-    """Reviewer notes for a language's points, newest first (privileged)."""
+    """Reviewer notes for a language — grammar-point AND vocabulary notes,
+    newest first (privileged). Each row carries an entity_type and a human
+    entity_label (the point title or the word)."""
     rows = await conn.fetch(
         """
-        SELECT n.id, n.grammar_point_id, gp.title AS point_title, gp.level,
-               n.note, n.status, n.created_at, u.email AS author_email
+        SELECT n.id, n.grammar_point_id, n.vocabulary_id,
+               n.note, n.status, n.created_at, u.email AS author_email,
+               CASE WHEN n.grammar_point_id IS NOT NULL
+                    THEN 'grammar' ELSE 'vocab' END AS entity_type,
+               COALESCE(gp.title, v.word) AS entity_label,
+               gp.level AS level
         FROM point_review_notes n
-        JOIN grammar_points gp ON gp.id = n.grammar_point_id
+        LEFT JOIN grammar_points gp ON gp.id = n.grammar_point_id
+        LEFT JOIN vocabulary v ON v.id = n.vocabulary_id
         JOIN auth.users u ON u.id = n.author_id
-        WHERE gp.language_id = $1
+        WHERE COALESCE(gp.language_id, v.language_id) = $1
           AND ($2 OR n.status = 'open')
         ORDER BY n.created_at DESC
         LIMIT 200
@@ -1512,8 +1548,16 @@ async def list_review_notes(
     return [
         {
             "id": str(r["id"]),
-            "grammar_point_id": str(r["grammar_point_id"]),
-            "point_title": r["point_title"],
+            "grammar_point_id": (
+                str(r["grammar_point_id"]) if r["grammar_point_id"] else None
+            ),
+            "vocabulary_id": (
+                str(r["vocabulary_id"]) if r["vocabulary_id"] else None
+            ),
+            "entity_type": r["entity_type"],
+            "entity_label": r["entity_label"],
+            # Kept for backward compatibility with the existing grammar UI.
+            "point_title": r["entity_label"],
             "level": r["level"],
             "note": r["note"],
             "status": r["status"],
@@ -1527,12 +1571,14 @@ async def list_review_notes(
 async def get_note_language(
     conn: asyncpg.Connection, note_id: str
 ) -> str | None:
-    """The language a note belongs to (for the resolve role check)."""
+    """The language a note belongs to (for the resolve role check) — resolves
+    through whichever entity (grammar point or vocab word) the note targets."""
     row = await conn.fetchval(
         """
-        SELECT gp.language_id
+        SELECT COALESCE(gp.language_id, v.language_id)
         FROM point_review_notes n
-        JOIN grammar_points gp ON gp.id = n.grammar_point_id
+        LEFT JOIN grammar_points gp ON gp.id = n.grammar_point_id
+        LEFT JOIN vocabulary v ON v.id = n.vocabulary_id
         WHERE n.id = $1
         """,
         note_id,

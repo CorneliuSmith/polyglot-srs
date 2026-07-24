@@ -1,10 +1,69 @@
 import { useMemo, useState } from 'react'
-import { useQuery } from '@tanstack/react-query'
-import { getVocabForLanguage } from '../../api/contribute'
+import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
+import { flagVocabIssue, getVocabForLanguage } from '../../api/contribute'
 import type { VocabItemEdit } from '../../api/contribute'
 import LanguageWrapper from '../../components/LanguageWrapper'
 import SuggestChange from './SuggestChange'
 import ExamplesEditor from './ExamplesEditor'
+
+/** "Flag an issue" on a word — an advisory reviewer note, the vocab twin of
+ * the grammar-point note box. Open to trial reviewers; publishes nothing. */
+function VocabNoteBox({ vocabularyId, languageId }: { vocabularyId: string; languageId: string }) {
+  const queryClient = useQueryClient()
+  const [open, setOpen] = useState(false)
+  const [note, setNote] = useState('')
+  const flagMutation = useMutation({
+    mutationFn: () => flagVocabIssue(vocabularyId, note.trim()),
+    onSuccess: () => {
+      setNote('')
+      setOpen(false)
+      queryClient.invalidateQueries({ queryKey: ['review-notes', languageId] })
+    },
+  })
+  if (!open) {
+    return (
+      <button
+        type="button"
+        onClick={() => setOpen(true)}
+        className="text-xs text-amber-700 hover:underline"
+      >
+        Flag an issue
+      </button>
+    )
+  }
+  return (
+    <div className="w-full space-y-2">
+      <textarea
+        value={note}
+        onChange={(e) => setNote(e.target.value)}
+        rows={2}
+        placeholder="What's wrong or doubtful about this word? (visible to reviewers and the admin)"
+        aria-label="Issue description"
+        className="w-full rounded-lg border border-amber-300 px-3 py-2 text-sm"
+      />
+      <div className="flex gap-2">
+        <button
+          type="button"
+          onClick={() => flagMutation.mutate()}
+          disabled={note.trim().length < 3 || flagMutation.isPending}
+          className="bg-amber-600 hover:bg-amber-700 disabled:opacity-50 text-white font-semibold rounded-lg px-3 py-1.5 text-xs"
+        >
+          {flagMutation.isPending ? 'Flagging…' : 'File issue'}
+        </button>
+        <button
+          type="button"
+          onClick={() => {
+            setNote('')
+            setOpen(false)
+          }}
+          className="text-gray-500 hover:text-gray-700 text-xs"
+        >
+          Cancel
+        </button>
+      </div>
+    </div>
+  )
+}
 
 /** One vocab entry: word, gloss, and its supporting-content counts, with an
  * inline votable suggestion. Thin entries (no definition / no examples) are
@@ -84,6 +143,8 @@ function VocabRow({
             targetLabel={item.word}
             defaultField="translation"
           />
+          {/* Reviewers/trial reviewers can park an advisory note on the word. */}
+          {canEdit && <VocabNoteBox vocabularyId={item.id} languageId={languageId} />}
         </div>
       )}
     </div>

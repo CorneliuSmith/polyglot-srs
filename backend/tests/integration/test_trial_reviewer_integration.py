@@ -3,9 +3,14 @@ from __future__ import annotations
 
 from backend.repositories.contributor import (
     add_recommendation,
+    add_review_note,
+    add_vocab_review_note,
     can_review,
     can_trial_review,
+    get_note_language,
+    list_review_notes,
     recommendations_for_targets,
+    resolve_review_note,
     trial_reviewer_activity,
 )
 
@@ -86,3 +91,35 @@ async def test_recommendations_tally_and_activity(pool):
         by_email = {a["email"]: a for a in activity}
         assert by_email["alice-trial@t"]["recommendations"] == 1
         assert by_email["bob-trial@t"]["recommendations"] == 1
+
+
+async def test_review_notes_cover_grammar_and_vocab(pool):
+    lang = await _language(pool, "nvo")
+    author = await _user(pool, "note-author@t")
+    async with pool.privileged_connection() as conn:
+        point = str(await conn.fetchval(
+            "INSERT INTO grammar_points (language_id, title, reviewed, display_order) "
+            "VALUES ($1, 'Cases', true, 1) RETURNING id", lang,
+        ))
+        word = str(await conn.fetchval(
+            "INSERT INTO vocabulary (language_id, word, level) "
+            "VALUES ($1, 'chai', 'A1') RETURNING id", lang,
+        ))
+
+        g_note = await add_review_note(conn, point, author, "tone marks look off")
+        v_note = await add_vocab_review_note(conn, word, author, "gloss is regional")
+
+        # Both surface in one language-scoped list, tagged by entity.
+        notes = await list_review_notes(conn, lang)
+        by_type = {n["entity_type"]: n for n in notes}
+        assert by_type["grammar"]["entity_label"] == "Cases"
+        assert by_type["vocab"]["entity_label"] == "chai"
+
+        # A vocab note resolves through the vocab word's language.
+        assert await get_note_language(conn, v_note) == lang
+        assert await resolve_review_note(conn, v_note, author) is True
+        assert g_note != v_note
+
+        # Resolved note drops from the default (open-only) list.
+        open_notes = await list_review_notes(conn, lang)
+        assert {n["entity_type"] for n in open_notes} == {"grammar"}

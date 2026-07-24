@@ -33,6 +33,7 @@ from backend.repositories.contributor import (
     add_drill,
     add_recommendation,
     add_review_note,
+    add_vocab_review_note,
     admin_cohorts,
     admin_engagement,
     admin_engagement_user_detail,
@@ -63,6 +64,7 @@ from backend.repositories.contributor import (
     get_point_language_and_code,
     get_roles,
     get_suggestion,
+    get_vocab_language,
     grant_role,
     is_admin,
     list_accounts,
@@ -1369,6 +1371,32 @@ async def flag_point_issue(
         )
     async with privileged_connection() as conn:
         note_id = await add_review_note(conn, point_id, user["id"], body.note.strip())
+    return {"id": note_id}
+
+
+@router.post("/vocab/{vocabulary_id}/notes")
+async def flag_vocab_issue(
+    vocabulary_id: str,
+    body: NewReviewNote,
+    user: dict = Depends(get_current_user),
+):
+    """File a reviewer note against a vocabulary word — the same advisory
+    middle ground grammar points have. Open to trial reviewers; publishes
+    nothing."""
+    async with rls_connection(user["id"]) as conn:
+        roles = await get_roles(conn, user["id"])
+        language_id = await get_vocab_language(conn, vocabulary_id)
+    if language_id is None:
+        raise HTTPException(status_code=404, detail="Vocabulary word not found")
+    if not (can_trial_review(roles, language_id) or can_contribute(roles, language_id)):
+        raise HTTPException(
+            status_code=status.HTTP_403_FORBIDDEN,
+            detail="You need a contributor, trial-reviewer, or reviewer role for this language",
+        )
+    async with privileged_connection() as conn:
+        note_id = await add_vocab_review_note(
+            conn, vocabulary_id, user["id"], body.note.strip()
+        )
     return {"id": note_id}
 
 
