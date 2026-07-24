@@ -111,7 +111,23 @@ python -m backend.services.seeder.generate_content -l sw -k definitions --dry-ru
 python -m backend.services.seeder.generate_content -l sw -k definitions --max 200
 ```
 
-### 5. Quality-recheck existing sentences — `-k vocab --recheck`
+### 5. Translate sentences into a support locale — `-k translations`
+
+For a **non-English speaker learning English**, translate existing English
+example sentences into their language (`--locale`). New locale rows land
+`source='ai'`, `reviewed=false` (gated) — and until each is approved, the
+learner keeps seeing the **English fallback** (no blank sentences). English
+course only (`-l en`, non-English `--locale`).
+
+```bash
+python -m backend.services.seeder.generate_content -l en -k translations --locale ru --max 200
+```
+
+> Serving already prefers the learner's `support_locale` per sentence and falls
+> back to English when a locale translation is missing — so this pipeline just
+> raises coverage over time.
+
+### 6. Quality-recheck existing sentences — `-k vocab --recheck`
 
 Audits the sentences a word **already has** with an LLM judge, rather than only
 filling gaps. For each word it:

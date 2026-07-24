@@ -427,30 +427,34 @@ async def add_example_sentence(
     translation: str | None,
     source: str = "human",
     origin_detail: str | None = None,
+    translation_locale: str = "en",
 ) -> str | None:
     """Insert a vocabulary example sentence (privileged), tagged with provenance
     (WP38): 'ai' for a generated one with the model in *origin_detail*. Returns
     the new row id, or None if an identical sentence already exists for the word
-    (the UNIQUE(vocabulary_id, sentence) guard — generation never duplicates).
+    in the same locale (the UNIQUE(vocabulary_id, sentence, translation_locale)
+    guard — generation never duplicates).
+
+    *translation_locale* is the language the *translation* is written in ('en'
+    by default). A support-locale translation of an English sentence reuses the
+    same sentence text with a different locale — a distinct row.
 
     Generated ('ai') examples land reviewed=false — hidden from learners until a
     human approves them (the WP42 review gate); seed/imported/human examples are
     trusted content and go in reviewed=true."""
     # Generated content waits for human review; everything else is trusted.
     reviewed = source != "ai"
-    # Generated translations are English glosses; the uniqueness key includes
-    # translation_locale (WP: support_locale), so dedupe on all three.
     row_id = await conn.fetchval(
         """
         INSERT INTO example_sentences
             (language_id, vocabulary_id, sentence, translation, translation_locale,
              source, origin_detail, reviewed)
-        VALUES ($1, $2, $3, $4, 'en', $5, $6, $7)
+        VALUES ($1, $2, $3, $4, $5, $6, $7, $8)
         ON CONFLICT (vocabulary_id, sentence, translation_locale) DO NOTHING
         RETURNING id
         """,
         language_id, vocabulary_id, sentence, translation or None,
-        source, origin_detail, reviewed,
+        translation_locale, source, origin_detail, reviewed,
     )
     return str(row_id) if row_id is not None else None
 
@@ -2021,6 +2025,37 @@ async def admin_engagement_user_detail(
 
 
 # ── Translation review queue (what the AI maker-checker wouldn't apply) ───
+async def sentences_needing_locale(
+    conn: asyncpg.Connection, language_id: str, locale: str, limit: int
+) -> list[dict]:
+    """Reviewed English-locale example sentences with NO translation yet in
+    *locale* — the idempotent gap-list for generating support-locale sentence
+    translations (a non-English speaker learning English). Returns each distinct
+    sentence with its word's id so a new locale row can be inserted."""
+    rows = await conn.fetch(
+        """
+        SELECT DISTINCT es.vocabulary_id, es.sentence
+        FROM example_sentences es
+        JOIN vocabulary v ON es.vocabulary_id = v.id
+        WHERE v.language_id = $1
+          AND es.translation_locale = 'en'
+          AND es.reviewed
+          AND NOT EXISTS (
+              SELECT 1 FROM example_sentences e2
+              WHERE e2.vocabulary_id = es.vocabulary_id
+                AND e2.sentence = es.sentence
+                AND e2.translation_locale = $2)
+        ORDER BY es.vocabulary_id
+        LIMIT $3
+        """,
+        language_id, locale, limit,
+    )
+    return [
+        {"vocabulary_id": str(r["vocabulary_id"]), "sentence": r["sentence"]}
+        for r in rows
+    ]
+
+
 async def vocab_needing_definition(
     conn: asyncpg.Connection, language_id: str, locale: str, limit: int
 ) -> list[dict]:

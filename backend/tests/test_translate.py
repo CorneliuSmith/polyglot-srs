@@ -63,6 +63,30 @@ class TestTranslate:
         assert by_word["run"]["gloss"] == "[run]"
 
 
+class TestSentenceTranslations:
+    @pytest.mark.asyncio
+    async def test_maker_translates_each_sentence(self):
+        s, b = _mock()
+        items = [{"i": 0, "sentence": "The dog barks."},
+                 {"i": 1, "sentence": "It is 7:45."}]
+        with s, b:
+            out = await tr.make_sentence_translations("Russian", items)
+        assert out == {0: "[Russian] The dog barks.", 1: "[Russian] It is 7:45."}
+
+    @pytest.mark.asyncio
+    async def test_generate_routes_reject_vs_store(self):
+        s, b = _mock()
+        items = [{"i": 0, "sentence": "The dog barks."},
+                 {"i": 1, "sentence": "It is 7:45."}]
+        with s, b:
+            res = await tr.generate_sentence_translations("Russian", items)
+        # mock checker rejects the first, passes the rest
+        assert res[0]["verdict"] == "reject" and res[0]["translation"] == ""
+        assert res[1]["verdict"] == "ok"
+        assert res[1]["translation"] == "[Russian] It is 7:45."
+        assert res[1]["sentence"] == "It is 7:45."
+
+
 class TestReviewDefinitions:
     @pytest.mark.asyncio
     async def test_mock_keeps_definitions(self):
