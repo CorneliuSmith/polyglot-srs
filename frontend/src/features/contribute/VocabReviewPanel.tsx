@@ -4,6 +4,7 @@ import { getVocabForLanguage } from '../../api/contribute'
 import type { VocabItemEdit } from '../../api/contribute'
 import LanguageWrapper from '../../components/LanguageWrapper'
 import SuggestChange from './SuggestChange'
+import ExamplesEditor from './ExamplesEditor'
 
 /** One vocab entry: word, gloss, and its supporting-content counts, with an
  * inline votable suggestion. Thin entries (no definition / no examples) are
@@ -12,10 +13,12 @@ function VocabRow({
   item,
   languageId,
   languageCode,
+  canEdit,
 }: {
   item: VocabItemEdit
   languageId: string
   languageCode: string
+  canEdit: boolean
 }) {
   const [open, setOpen] = useState(false)
   const thin = !item.definition || item.example_count === 0
@@ -58,9 +61,22 @@ function VocabRow({
               <span className="text-gray-400"> · rank #{item.frequency_rank}</span>
             )}
           </p>
-          <p className={item.example_count === 0 ? 'text-amber-600' : undefined}>
-            {item.example_count} example {item.example_count === 1 ? 'sentence' : 'sentences'}
-          </p>
+          <div>
+            <p className={item.example_count === 0 ? 'text-amber-600' : undefined}>
+              {item.example_count} example{' '}
+              {item.example_count === 1 ? 'sentence' : 'sentences'}
+            </p>
+            {/* Reviewers see and edit the actual sentences inline; everyone can
+                still suggest a change below. */}
+            {canEdit && (
+              <div className="mt-1 rounded-lg bg-gray-50 border border-gray-100 px-3 py-2">
+                <ExamplesEditor
+                  vocabularyId={item.id}
+                  languageCode={languageCode}
+                />
+              </div>
+            )}
+          </div>
           <SuggestChange
             languageId={languageId}
             targetType="vocabulary"
@@ -84,9 +100,11 @@ function VocabRow({
 export default function VocabReviewPanel({
   languageId,
   languageCode,
+  canEdit = false,
 }: {
   languageId: string
   languageCode: string
+  canEdit?: boolean
 }) {
   const [search, setSearch] = useState('')
   const [level, setLevel] = useState<string>('all')
@@ -159,6 +177,7 @@ export default function VocabReviewPanel({
             item={item}
             languageId={languageId}
             languageCode={languageCode}
+            canEdit={canEdit}
           />
         ))}
         {filtered.length === 0 && (

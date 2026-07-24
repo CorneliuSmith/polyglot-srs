@@ -651,6 +651,7 @@ export default function ContributorPage() {
               <VocabReviewPanel
                 languageId={activeLanguageId}
                 languageCode={languageCode}
+                canEdit={data.can_review ?? data.is_admin}
               />
             )}
           </>
