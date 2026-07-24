@@ -86,9 +86,9 @@ export default function FeedbackPanel({
           <SpeakButton
             text={correctAnswer}
             languageCode={languageCode}
-            label={`Hear "${correctAnswer}"`}
+            label={`Hear the word "${correctAnswer}"`}
           />
-          <span className="opacity-70">Hear it</span>
+          <span className="opacity-70">Hear the word</span>
         </div>
       )}
     </div>

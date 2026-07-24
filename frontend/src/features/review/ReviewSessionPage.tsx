@@ -18,7 +18,8 @@ import { finalizeInput } from '../keyboards/translit'
 import { hintLayersFor } from './hintLayers'
 import SpeakButton from '../../components/SpeakButton'
 import FormsPanel from '../../components/FormsPanel'
-import { TTS_LANGUAGES } from '../../api/audio'
+import { TTS_LANGUAGES, prefetchTTS } from '../../api/audio'
+import LearningTip from '../tips/LearningTip'
 import { hasKeyboardLayout } from '../keyboards/OnScreenKeyboard'
 import type { KeyboardLanguage } from '../keyboards/OnScreenKeyboard'
 
@@ -160,6 +161,11 @@ function ReviewSessionInner({
   }, [fetched, cards])
 
   const session = useReviewSession(cards ?? [])
+  // Live current-index for the background-generation callback below (which runs
+  // long after it was created): it must not weave fresh drills into slots the
+  // learner has already passed.
+  const currentIndexRef = useRef(0)
+  currentIndexRef.current = session.currentIndex
 
   // Background generation (WP41): with gen=1 the Gym asked for fresh drills.
   // We kick off generation once, in the background, while the learner works
@@ -175,25 +181,42 @@ function ReviewSessionInner({
       try {
         if (res.generated > 0) {
           // Re-draw the pool (now including the learner's fresh, unseen drills)
-          // and weave in the ones not already in this session. Cap to what was
-          // just generated so the deck grows by the new batch, not the corpus.
+          // and weave in the ones not already in this session, capped to what
+          // was just generated so we add roughly the fresh batch, not the corpus.
           const refreshed = await getCramCards(cramPoints.split(','), 100)
           setCards((prev) => {
             if (!prev) return prev
             const have = new Set(
               prev.map((c) => c.drill_id).filter(Boolean) as string[],
             )
-            let novel = refreshed.filter(
-              (c) => c.drill_id && !have.has(c.drill_id),
-            )
-            novel = novel.slice(0, res.generated)
+            const novel = refreshed
+              .filter((c) => c.drill_id && !have.has(c.drill_id))
+              .slice(0, res.generated)
             if (cramMix) {
               for (let i = novel.length - 1; i > 0; i--) {
                 const j = Math.floor(Math.random() * (i + 1))
                 ;[novel[i], novel[j]] = [novel[j], novel[i]]
               }
             }
-            return novel.length ? [...prev, ...novel] : prev
+            if (!novel.length) return prev
+            // Keep the session at the count the learner asked for. If the seeded
+            // set fell short, fill the gap up to the target; otherwise weave the
+            // fresh drills in by REPLACING upcoming (not-yet-seen) cards from the
+            // end — opting in changes WHICH questions appear, not HOW MANY.
+            const target = cramCount ?? prev.length
+            const next = [...prev]
+            let ni = 0
+            while (next.length < target && ni < novel.length) {
+              next.push(novel[ni++])
+            }
+            for (
+              let i = next.length - 1;
+              i > currentIndexRef.current && ni < novel.length;
+              i--
+            ) {
+              next[i] = novel[ni++]
+            }
+            return next
           })
         }
       } finally {
@@ -221,6 +244,20 @@ function ReviewSessionInner({
 
   // "Hidden initially" means hidden on EVERY card, not just the first.
   useEffect(() => setChartOpen(false), [session.currentIndex])
+
+  // Warm the TTS cache for the current card so the feedback-screen audio (the
+  // answer word and the full sentence) plays the instant it's clicked instead
+  // of lagging on first synthesis. Prefetch only fetches — never plays — so
+  // running it while the answer is still hidden can't leak it aloud.
+  useEffect(() => {
+    const c = session.currentCard
+    if (!c) return
+    const full = c.sentence.includes('{{answer}}')
+      ? c.sentence.replace('{{answer}}', c.correct_answer)
+      : c.correct_answer
+    prefetchTTS(c.language_code, full)
+    prefetchTTS(c.language_code, c.correct_answer)
+  }, [session.currentCard])
 
   // Gym: after a MISS, open the full chart automatically — the moment a
   // learner gets a conjugation/declension wrong is exactly when they want to
@@ -622,6 +659,12 @@ function ReviewSessionInner({
           />
         </div>
 
+        {/* A learning tip at the very start of a session (throttled, off in
+            Settings). Only on the first card so it never interrupts the flow. */}
+        {session.currentIndex === 0 && (
+          <LearningTip context="session" />
+        )}
+
         {/* Card area */}
         <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-6 md:p-8">
           {shownTopHint && (
@@ -844,7 +887,22 @@ function ReviewSessionInner({
                 <div
                   className={`flex items-center gap-2 bg-white rounded-2xl border-2 px-3 py-1.5 shadow-sm ${resultStyles}`}
                 >
-                  <SpeakButton text={completedSentence} languageCode={card.language_code} />
+                  <span className="flex items-center gap-1 text-gray-400">
+                    <SpeakButton
+                      text={completedSentence}
+                      languageCode={card.language_code}
+                      label={
+                        completedSentence === card.correct_answer
+                          ? `Hear "${card.correct_answer}"`
+                          : 'Hear the full sentence'
+                      }
+                    />
+                    {/* Distinguish this from the word audio above — this speaker
+                        plays the whole sentence, that one just the answer word. */}
+                    {completedSentence !== card.correct_answer && (
+                      <span className="text-[11px] tracking-wide">sentence</span>
+                    )}
+                  </span>
                   <span className="flex-1 text-center font-semibold">
                     {card.correct_answer}
                   </span>

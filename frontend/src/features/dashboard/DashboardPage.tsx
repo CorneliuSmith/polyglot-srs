@@ -14,6 +14,7 @@ import { getOnboardingStatus } from '../../api/onboarding'
 import { getLanguages } from '../../api/profile'
 import { lettersFor } from '../letters/lettersData'
 import { getRecommendations } from '../../api/recommendations'
+import { factsFor } from '../about/languageFacts'
 import { usePrefsStore } from '../../stores/prefsStore'
 import LanguagePicker from '../../components/LanguagePicker'
 import CEFRProgress from './CEFRProgress'
@@ -25,6 +26,7 @@ import Walkthrough from '../onboarding/Walkthrough'
 import WhatsNewPanel from '../announcements/WhatsNewPanel'
 import { unseenWhatsNew } from '../announcements/whatsNew'
 import InstallPrompt from '../../components/InstallPrompt'
+import LearningTip from '../tips/LearningTip'
 import type { LearnDeck } from '../../api/types'
 
 /** One Bunpro-style deck row. Two affordances, deliberately separated:
@@ -225,6 +227,7 @@ export default function DashboardPage() {
     (l) => l.id === activeLanguageId,
   )?.code
   const hasLetters = !!lettersFor(activeLanguageCode)
+  const hasFacts = !!factsFor(activeLanguageCode)
 
   // The Gym tile shows only when this language has form categories to
   // train (empty manifest = uninflected language, no tile).
@@ -438,6 +441,9 @@ export default function DashboardPage() {
           <LanguagePicker />
         </div>
 
+        {/* Learning tip (throttled to ~once a day; off in Settings) */}
+        <LearningTip context="dashboard" />
+
         {/* Letters & Sounds (beta request): the alphabet with pronunciation,
             right under the language and before the study tiles. Hidden for
             languages with no letter guide. */}
@@ -459,18 +465,22 @@ export default function DashboardPage() {
           </button>
         )}
 
-        {/* The Gym (WP25): only for languages with forms to train. */}
-        {hasGym && (
+        {/* Things to know about this language: a one-minute orientation —
+            family, reach, word order, history, what's distinctive. Sits with
+            Letters & Sounds as the reference pair (the Gym moved down to the
+            practice destinations). */}
+        {hasFacts && (
           <button
             type="button"
-            onClick={() => navigate('/gym')}
-            className="w-full bg-white hover:bg-gray-50 text-gray-800 font-semibold rounded-xl px-6 py-3 text-sm border border-gray-200 transition-colors text-left flex items-center justify-between"
+            onClick={() => navigate('/about')}
+            disabled={!activeLanguageId}
+            className="w-full bg-white hover:bg-gray-50 disabled:opacity-50 text-gray-800 font-semibold rounded-xl px-6 py-3 text-sm border border-gray-200 transition-colors text-left flex items-center justify-between"
             style={{ minHeight: '44px' }}
           >
             <span>
-              The Gym
+              Things to know about this language
               <span className="block text-xs font-normal text-gray-500">
-                Pick a tense or case and drill it — conjugations, declensions, reps
+                Its family, where it’s spoken, word order, and what makes it unique
               </span>
             </span>
             <span aria-hidden className="text-lang">→</span>
@@ -664,6 +674,25 @@ export default function DashboardPage() {
           </span>
           <span aria-hidden className="text-lang">→</span>
         </button>
+
+        {/* The Gym (WP25): only for languages with forms to train. Grouped here
+            with Grammar path and the Tutor as a practice destination. */}
+        {hasGym && (
+          <button
+            type="button"
+            onClick={() => navigate('/gym')}
+            className="w-full bg-white hover:bg-gray-50 text-gray-800 font-semibold rounded-xl px-6 py-3 text-sm border border-gray-200 transition-colors text-left flex items-center justify-between"
+            style={{ minHeight: '44px' }}
+          >
+            <span>
+              The Gym
+              <span className="block text-xs font-normal text-gray-500">
+                Pick a tense or case and drill it — conjugations, declensions, reps
+              </span>
+            </span>
+            <span aria-hidden className="text-lang">→</span>
+          </button>
+        )}
 
         {/* AI Tutor */}
         <button

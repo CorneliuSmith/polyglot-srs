@@ -1,5 +1,6 @@
 import { create } from 'zustand'
 import { persist } from 'zustand/middleware'
+import { allTipsSeen } from '../features/tips/tips'
 
 export type Theme = 'system' | 'light' | 'dark'
 
@@ -52,6 +53,15 @@ interface PrefsState {
   // Drives the unseen-count badge on the dashboard.
   whatsNewSeen: string[]
   markWhatsNewSeen: (ids: string[]) => void
+  // Learning tips (evidence-based study nudges). Default ON. seenTipIds avoids
+  // repeats until the whole set has been seen (then it resets and cycles);
+  // lastTipShownAt throttles them to ~once a day regardless of how often the
+  // learner opens the app.
+  learningTipsEnabled: boolean
+  setLearningTipsEnabled: (on: boolean) => void
+  seenTipIds: string[]
+  lastTipShownAt: number
+  recordTipShown: (id: string) => void
 }
 
 export const usePrefsStore = create<PrefsState>()(
@@ -84,6 +94,22 @@ export const usePrefsStore = create<PrefsState>()(
         set((s) => ({
           whatsNewSeen: Array.from(new Set([...s.whatsNewSeen, ...ids])),
         })),
+      learningTipsEnabled: true,
+      setLearningTipsEnabled: (on) => set({ learningTipsEnabled: on }),
+      seenTipIds: [],
+      lastTipShownAt: 0,
+      recordTipShown: (id) =>
+        set((s) => {
+          const seen = s.seenTipIds.includes(id)
+            ? s.seenTipIds
+            : [...s.seenTipIds, id]
+          // Once every tip has been seen, clear the list so the rotation starts
+          // fresh instead of repeating at random forever.
+          return {
+            seenTipIds: allTipsSeen(seen) ? [] : seen,
+            lastTipShownAt: Date.now(),
+          }
+        }),
     }),
     {
       name: 'polyglot-prefs',

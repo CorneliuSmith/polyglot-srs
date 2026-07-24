@@ -15,8 +15,8 @@ describe('Walkthrough', () => {
     const onClose = vi.fn()
     render(<Walkthrough onClose={onClose} />)
     expect(screen.getByText(/quick tour/i)).toBeDefined()
-    // step to the tutor slide
-    for (let n = 0; n < 3; n++) fireEvent.click(screen.getByText('Next'))
+    // step to the tutor slide (welcome, get-to-know, learn/review, gym, tutor)
+    for (let n = 0; n < 4; n++) fireEvent.click(screen.getByText('Next'))
     expect(screen.getByText(/Practice vs\. Reference/i)).toBeDefined()
     expect(screen.getByText(/nothing saved/i)).toBeDefined()
   })
@@ -24,7 +24,7 @@ describe('Walkthrough', () => {
   it('"don\'t show again" (default on) persists dismissal via Get started', () => {
     const onClose = vi.fn()
     render(<Walkthrough onClose={onClose} />)
-    for (let n = 0; n < 5; n++) fireEvent.click(screen.getByText('Next'))
+    for (let n = 0; n < 6; n++) fireEvent.click(screen.getByText('Next'))
     fireEvent.click(screen.getByText('Get started'))
     expect(setWalkthroughDone).toHaveBeenCalledWith(true)
     expect(onClose).toHaveBeenCalled()

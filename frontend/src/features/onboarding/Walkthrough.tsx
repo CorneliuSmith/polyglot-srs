@@ -11,12 +11,19 @@ const SLIDES: Slide[] = [
   {
     icon: '👋',
     title: 'Welcome — here’s the quick tour',
-    body: 'Five things worth knowing before you dive in. Swipe through, then get learning. You can reopen this any time from the “?” on your dashboard.',
+    body: 'A quick swipe through what’s here, then get learning. You can reopen this any time from the “?” on your dashboard.',
   },
   {
     icon: '🔤',
-    title: 'Letters & Sounds',
-    body: 'New to the script? Start here. Every letter, its variants, and how to say it — right on your dashboard. Especially handy for Russian, Arabic, Greek, Hindi, and Thai.',
+    title: 'Get to know your language',
+    body: (
+      <>
+        <b>Letters &amp; Sounds</b> walks you through the script — every letter and
+        how to say it (handy for Russian, Arabic, Greek, Hindi, Thai). Right
+        beside it, <b>Things to know about this language</b> is a one-minute
+        primer on its family, word order, history, and what makes it unique.
+      </>
+    ),
   },
   {
     icon: '🌱',
@@ -26,6 +33,18 @@ const SLIDES: Slide[] = [
         <b>Learn</b> introduces new words and grammar. <b>Review</b> brings them
         back right before you’d forget — that spacing is what moves them into
         long-term memory. Learn a little, then let Review do the heavy lifting.
+      </>
+    ),
+  },
+  {
+    icon: '🏋️',
+    title: 'The Gym',
+    body: (
+      <>
+        Drill the forms your language bends — a tense, a case — in a mixed set.
+        It <b>adapts</b>: the forms you miss come back more, the ones you’ve
+        mastered fade. Turn on <b>fresh sentences</b> and it drafts brand-new
+        drills in the background and weaves them in as you go.
       </>
     ),
   },
