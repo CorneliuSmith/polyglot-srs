@@ -96,6 +96,11 @@ function ExampleRow({
           <span className="block text-xs text-gray-500">{ex.translation}</span>
         )}
         <span className="mt-0.5 flex items-center gap-1.5 text-[10px] uppercase tracking-wide">
+          {ex.flagged && (
+            <span className="rounded bg-red-50 text-red-600 px-1.5 py-0.5">
+              flagged
+            </span>
+          )}
           {!ex.reviewed && (
             <span className="rounded bg-amber-50 text-amber-600 px-1.5 py-0.5">
               pending review
@@ -108,6 +113,11 @@ function ExampleRow({
           )}
           <span className="text-gray-400">{ex.source}</span>
         </span>
+        {ex.flagged && ex.flag_reason && (
+          <span className="mt-0.5 block text-xs text-red-500">
+            ⚠ {ex.flag_reason} — edit to fix, or delete.
+          </span>
+        )}
         <RecoSummary tally={ex.recommendations} />
       </div>
       <div className="flex items-center gap-2 shrink-0 text-xs">

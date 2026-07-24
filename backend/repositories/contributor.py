@@ -575,9 +575,10 @@ async def list_vocab_examples(
     """Every example sentence for a word — for the reviewer's inline editor.
     Pending ('ai', reviewed=false) rows come first so they're easy to act on."""
     rows = await conn.fetch(
-        "SELECT id, sentence, translation, source, reviewed, is_modified "
+        "SELECT id, sentence, translation, source, reviewed, is_modified, "
+        "       flagged, flag_reason "
         "FROM example_sentences WHERE vocabulary_id = $1 "
-        "ORDER BY reviewed, id",
+        "ORDER BY flagged DESC, reviewed, id",
         vocabulary_id,
     )
     return [
@@ -588,6 +589,8 @@ async def list_vocab_examples(
             "source": r["source"],
             "reviewed": r["reviewed"],
             "is_modified": r["is_modified"],
+            "flagged": r["flagged"],
+            "flag_reason": r["flag_reason"],
         }
         for r in rows
     ]
@@ -601,16 +604,96 @@ async def edit_example_sentence(
     editor_id: str,
 ) -> bool:
     """Reviewer edit of an example sentence: update the text/translation and
-    stamp the provenance (is_modified + who + when). Returns True if a row
-    changed."""
+    stamp the provenance (is_modified + who + when). Clears any quality flag —
+    an edited sentence has been addressed. Returns True if a row changed."""
     result = await conn.execute(
         "UPDATE example_sentences "
         "SET sentence = $2, translation = $3, "
-        "    is_modified = true, modified_by = $4, modified_at = now() "
+        "    is_modified = true, modified_by = $4, modified_at = now(), "
+        "    flagged = false, flag_reason = NULL "
         "WHERE id = $1",
         example_id, sentence, translation or None, editor_id,
     )
     return result.rsplit(" ", 1)[-1] == "1"
+
+
+async def flag_example_sentence(
+    conn: asyncpg.Connection, example_id: str, reason: str
+) -> bool:
+    """Mark an example sentence as failing the quality audit (--recheck), with a
+    short reason for the reviewer. Idempotent — only flips an unflagged row so a
+    re-run doesn't overwrite a reason a human is already acting on. Returns True
+    if a row changed."""
+    result = await conn.execute(
+        "UPDATE example_sentences SET flagged = true, flag_reason = $2 "
+        "WHERE id = $1 AND flagged = false",
+        example_id, (reason or "flagged by quality audit")[:500],
+    )
+    return result.rsplit(" ", 1)[-1] == "1"
+
+
+async def backfill_example_translation(
+    conn: asyncpg.Connection, example_id: str, translation: str
+) -> bool:
+    """Fill in a MISSING translation the audit produced. Only ever writes when
+    the row's translation is currently absent, so it never clobbers a human's.
+    Returns True if a row changed."""
+    text = (translation or "").strip()
+    if not text:
+        return False
+    result = await conn.execute(
+        "UPDATE example_sentences SET translation = $2 "
+        "WHERE id = $1 AND (translation IS NULL OR btrim(translation) = '')",
+        example_id, text,
+    )
+    return result.rsplit(" ", 1)[-1] == "1"
+
+
+async def vocab_with_examples(
+    conn: asyncpg.Connection, language_id: str, limit: int
+) -> list[dict]:
+    """Words that HAVE at least one example sentence, each with its current
+    sentences — the work-list for a quality recheck. Commonest words first so a
+    bounded run audits the highest-traffic content. Already-flagged sentences
+    are excluded from the judged set (a human is handling them), but still count
+    against coverage via list order."""
+    rows = await conn.fetch(
+        """
+        SELECT v.id AS vocabulary_id, v.word, v.part_of_speech,
+               (SELECT t.definition FROM translations t
+                 WHERE t.vocabulary_id = v.id AND t.locale = 'en' LIMIT 1)
+                 AS definition,
+               (SELECT count(*) FROM example_sentences es
+                 WHERE es.vocabulary_id = v.id AND es.flagged = false)
+                 AS good_count
+        FROM vocabulary v
+        WHERE v.language_id = $1
+          AND EXISTS (SELECT 1 FROM example_sentences es
+                       WHERE es.vocabulary_id = v.id AND es.flagged = false)
+        ORDER BY v.frequency_rank NULLS LAST, v.word
+        LIMIT $2
+        """,
+        language_id, limit,
+    )
+    out = []
+    for r in rows:
+        sents = await conn.fetch(
+            "SELECT id, sentence, translation FROM example_sentences "
+            "WHERE vocabulary_id = $1 AND flagged = false ORDER BY id",
+            r["vocabulary_id"],
+        )
+        out.append({
+            "vocabulary_id": str(r["vocabulary_id"]),
+            "word": r["word"],
+            "part_of_speech": r["part_of_speech"],
+            "definition": r["definition"],
+            "examples": [
+                {"id": str(s["id"]), "sentence": s["sentence"],
+                 "translation": s["translation"]}
+                for s in sents
+            ],
+        })
+    return out
 
 
 async def delete_example_sentence(

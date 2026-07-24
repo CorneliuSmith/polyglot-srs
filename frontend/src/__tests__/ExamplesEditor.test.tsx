@@ -64,4 +64,16 @@ describe('ExamplesEditor', () => {
     renderEditor()
     expect(await screen.findByText(/no example sentences yet/i)).toBeDefined()
   })
+
+  it('surfaces a flagged sentence with its audit reason', async () => {
+    mockGet.mockResolvedValue({ can_publish: true, examples: [
+      { id: 'e1', sentence: 'Rare zin hier.', translation: null,
+        source: 'human', reviewed: true, is_modified: false,
+        flagged: true, flag_reason: 'unnatural phrasing' },
+    ] })
+    renderEditor()
+    await screen.findByText('Rare zin hier.')
+    expect(screen.getByText(/^flagged$/i)).toBeDefined()
+    expect(screen.getByText(/unnatural phrasing/i)).toBeDefined()
+  })
 })

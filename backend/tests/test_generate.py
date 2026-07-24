@@ -110,6 +110,53 @@ async def test_generate_examples_drops_the_wordless_candidate():
         assert await generate._contains_word("es", p["sentence"], "gato")
 
 
+# ---------------------------------------------------------------------------
+# Quality audit of existing sentences + English descriptions (recheck)
+# ---------------------------------------------------------------------------
+
+
+async def test_make_examples_english_uses_description_gloss():
+    # For English the translation slot carries a plain-English description, not
+    # a redundant echo — the mock reflects that via the gloss wording.
+    with patch("backend.services.generate.get_settings", return_value=_mock_settings()):
+        en = await generate.make_examples({"word": "run"}, 3, "English", "en")
+        es = await generate.make_examples({"word": "gato"}, 3, "Spanish", "es")
+    assert any("simpler words" in c["translation"].lower() for c in en[1:])
+    assert all("simpler words" not in c["translation"].lower() for c in es[1:])
+
+
+async def test_audit_examples_flags_bad_and_backfills_missing():
+    sentences = [
+        {"sentence": "A perfectly fine sentence.", "translation": "Fine."},
+        {"sentence": "This one is bad somehow.", "translation": ""},
+        {"sentence": "Good but untranslated here.", "translation": ""},
+    ]
+    with patch("backend.services.generate.get_settings", return_value=_mock_settings()):
+        verdicts = await generate.audit_examples(
+            {"word": "x"}, sentences, "Spanish", "es"
+        )
+    assert [v["ok"] for v in verdicts] == [True, False, True]
+    # A bad sentence isn't given a backfill translation…
+    assert verdicts[1]["translation"] == ""
+    # …a good-but-untranslated one is.
+    assert verdicts[2]["translation"].startswith("Translation:")
+
+
+async def test_audit_examples_english_backfill_is_a_description():
+    sentences = [{"sentence": "The dog runs fast today.", "translation": ""}]
+    with patch("backend.services.generate.get_settings", return_value=_mock_settings()):
+        verdicts = await generate.audit_examples(
+            {"word": "run"}, sentences, "English", "en"
+        )
+    assert verdicts[0]["ok"] is True
+    assert verdicts[0]["translation"].startswith("Description:")
+
+
+async def test_audit_examples_empty_is_noop():
+    with patch("backend.services.generate.get_settings", return_value=_mock_settings()):
+        assert await generate.audit_examples({"word": "x"}, [], "English", "en") == []
+
+
 async def test_contains_word_uses_apertium_when_no_backend():
     # A backend-less language: an inflected form ('anakimbia' for lemma
     # 'kimbia') isn't a surface match, but Apertium rescues it.

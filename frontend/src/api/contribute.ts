@@ -808,6 +808,8 @@ export interface VocabExample {
   source: string
   reviewed: boolean
   is_modified: boolean
+  flagged?: boolean
+  flag_reason?: string | null
   recommendations?: RecoTally | null
 }
 
