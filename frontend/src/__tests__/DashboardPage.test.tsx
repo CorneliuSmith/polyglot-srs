@@ -107,6 +107,7 @@ vi.mock('../api/review', () => ({
 vi.mock('../api/dashboard', () => ({ getDashboardStats: vi.fn() }))
 vi.mock('../api/contribute', () => ({
   getMyRoles: vi.fn(() => Promise.resolve({ roles: [] })),
+  getReviewPrompt: vi.fn(() => Promise.resolve({ due: false })),
 }))
 vi.mock('../api/onboarding', () => ({
   getOnboardingStatus: vi.fn(() => Promise.resolve({ onboarded: true })),
