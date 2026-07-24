@@ -290,6 +290,10 @@ async def make_examples(
     if getattr(settings, "tutor_dev_mock", False):
         return _mock_examples(word, n, language_code)
     existing = "\n".join(f"  - {s}" for s in (word.get("examples") or [])[:6])
+    level = (word.get("level") or "").strip()
+    level_rule = (
+        f" Pitch them for a CEFR {level} learner." if level else ""
+    )
     client = AsyncAnthropic(api_key=settings.anthropic_api_key)
     resp = await client.messages.create(
         model=model or resolve_model("sentence_maker", language),
@@ -298,11 +302,14 @@ async def make_examples(
             f"You write natural example sentences in {language} for a vocabulary "
             f"flashcard app. Produce {n} NEW sentences that each USE the target "
             f'word "{word.get("word")}" ({word.get("part_of_speech") or "word"}, '
-            f'meaning: {word.get("definition") or "n/a"}). Rules, strictly: every '
-            f"sentence must actually contain the target word (any correct "
-            f"inflection is fine); keep each natural, everyday, and unambiguous; "
-            f"vary the context; {_translation_rule(language_code)}. Do not repeat "
-            f"the existing examples."
+            f'meaning: {word.get("definition") or "n/a"}).{level_rule} Rules, '
+            f"strictly: every sentence must actually contain the target word (any "
+            f"correct inflection is fine); keep each natural, everyday, and "
+            f"unambiguous; each must be genuinely USEFUL for a learner — a "
+            f"complete, contextful sentence that shows how the word is really "
+            f"used, NOT a trivial fragment, a bare label, or a stilted textbook "
+            f"line; vary the context; {_translation_rule(language_code)}. Do not "
+            f"repeat the existing examples."
         ),
         messages=[{
             "role": "user",
@@ -434,20 +441,30 @@ _AUDIT_SCHEMA = {
                     "ok": {
                         "type": "boolean",
                         "description": "True if the sentence is natural, correct, "
-                        "uses the target word, and its translation (if any) is "
-                        "accurate.",
+                        "uses the target word, AND is complex/useful enough to "
+                        "teach a learner something at its level. False for a "
+                        "trivial, stilted, or low-value sentence.",
                     },
                     "reason": {
                         "type": "string",
-                        "description": "Short reason when ok is false; empty when ok.",
+                        "description": "Short reason when ok is false (say if it's "
+                        "a correctness problem or a too-simple/low-value one); "
+                        "empty when ok.",
+                    },
+                    "translation_ok": {
+                        "type": "boolean",
+                        "description": "True if the sentence's CURRENT translation "
+                        "is present, accurate, and genuinely helpful to a learner. "
+                        "False if it is missing, wrong, or unhelpful.",
                     },
                     "translation": {
                         "type": "string",
-                        "description": "A translation/description to fill in ONLY "
-                        "when the sentence has none; otherwise empty.",
+                        "description": "Your recommended translation/description "
+                        "for the sentence. Used to fill a missing one, or as a "
+                        "suggested replacement when translation_ok is false.",
                     },
                 },
-                "required": ["index", "ok", "reason", "translation"],
+                "required": ["index", "ok", "reason", "translation_ok", "translation"],
                 "additionalProperties": False,
             },
         }
@@ -458,26 +475,36 @@ _AUDIT_SCHEMA = {
 
 
 def _mock_audit(sentences: list[dict], language_code: str | None) -> list[dict]:
-    """Deterministic verdicts for dev/testing. A sentence whose text contains
-    the token 'bad' (case-insensitive) is rejected, so a test controls exactly
-    which rows get flagged; any sentence lacking a translation is backfilled."""
+    """Deterministic verdicts for dev/testing. A sentence containing 'bad' is
+    rejected on correctness; one containing 'simple' is rejected as too
+    trivial/low-value (the complexity flag). A missing translation is filled; a
+    present one containing 'vague' is judged unhelpful and a replacement
+    suggested. Lets a test drive every path from the sentence/translation text."""
     describe = _is_english(language_code)
+    tr_label = "description" if describe else "translation"
     out = []
     for i, s in enumerate(sentences):
         text = (s.get("sentence") or "")
-        ok = "bad" not in text.lower()
-        needs_tr = not (s.get("translation") or "").strip()
-        fill = ""
-        if needs_tr and ok:
-            fill = (
-                f"Description: {text[:60]}" if describe
-                else f"Translation: {text[:60]}"
-            )
+        low = text.lower()
+        if "bad" in low:
+            ok, reason = False, "flagged by quality audit"
+        elif "simple" in low:
+            ok, reason = False, "too simple to be useful for a learner"
+        else:
+            ok, reason = True, ""
+        tr = (s.get("translation") or "").strip()
+        tr_present = bool(tr)
+        tr_weak = "vague" in tr.lower()
+        translation_ok = tr_present and not tr_weak
+        if not tr_present:
+            rec = f"{'Description' if describe else 'Translation'}: {text[:60]}"
+        elif tr_weak:
+            rec = f"Clearer {tr_label}: {text[:60]}"
+        else:
+            rec = ""
         out.append({
-            "index": i,
-            "ok": ok,
-            "reason": "" if ok else "flagged by quality audit",
-            "translation": fill,
+            "index": i, "ok": ok, "reason": reason,
+            "translation_ok": translation_ok, "translation": rec,
         })
     return out
 
@@ -488,14 +515,18 @@ async def audit_examples(
     language: str,
     language_code: str,
     model: str | None = None,
+    level: str | None = None,
 ) -> list[dict]:
     """LLM quality judge over a word's EXISTING sentences.
 
-    *sentences*: [{sentence, translation}] in order. Returns a verdict per
-    sentence, aligned by list position: {index, ok, reason, translation}. The
-    `translation` is a suggested fill used ONLY when the sentence had none (an
-    English sentence gets a plain-English description). Never mutates the DB —
-    the caller flags/backfills from these verdicts.
+    *sentences*: [{sentence, translation}] in order. *level*: the word's CEFR
+    level, so "too simple" is judged relative to it. Returns a verdict per
+    sentence, aligned by list position:
+      {index, ok, reason, translation_ok, translation}
+    `ok` covers correctness AND usefulness/complexity (a trivial or stilted
+    sentence fails). `translation_ok` rates the CURRENT translation; `translation`
+    is the recommended text — used to fill a missing one or as a suggested
+    replacement for a weak one. Never mutates the DB — the caller acts on these.
     """
     if not sentences:
         return []
@@ -513,6 +544,11 @@ async def audit_examples(
         if _is_english(language_code)
         else "a natural English translation"
     )
+    level_rule = (
+        f" The word's level is CEFR {level}; judge 'too simple' relative to it "
+        f"(a bare label like \"It is 7:45.\" or a stilted line like \"It is I.\" "
+        f"teaches little even to a beginner)." if (level or "").strip() else ""
+    )
     client = AsyncAnthropic(api_key=settings.anthropic_api_key)
     resp = await client.messages.create(
         model=model or resolve_model("sentence_checker", language),
@@ -521,13 +557,15 @@ async def audit_examples(
             f"You are a strict reviewer of {language} example sentences for the "
             f'vocabulary word "{word.get("word")}" '
             f'(meaning: {word.get("definition") or "n/a"}). For EACH numbered '
-            f"sentence, judge whether it is natural, grammatical, actually uses "
-            f"the target word (any correct inflection), and — when a translation "
-            f"is present — whether that translation is accurate. Set ok=false with "
-            f"a short reason for any that fail. When a sentence's translation is "
-            f"'(none)', supply {fill_rule} in the translation field; otherwise "
-            f"leave translation empty. Return exactly one verdict per sentence, "
-            f"keyed by its [index]."
+            f"sentence, set ok=false (with a short reason) if it is unnatural, "
+            f"ungrammatical, does not use the target word, OR is too trivial / "
+            f"low-value to teach a learner anything useful.{level_rule} Separately, "
+            f"rate its CURRENT translation: set translation_ok=false if the "
+            f"translation is missing, inaccurate, or unhelpful. Always put your "
+            f"recommended text in the translation field — for a missing one, "
+            f"{fill_rule}; for a weak one, a clearer replacement; if the current "
+            f"translation is already good, you may leave translation empty. "
+            f"Return exactly one verdict per sentence, keyed by its [index]."
         ),
         messages=[{"role": "user", "content": listing}],
         output_config={"format": {"type": "json_schema", "schema": _AUDIT_SCHEMA}},
@@ -548,6 +586,7 @@ async def audit_examples(
             "index": i,
             "ok": bool(v.get("ok", True)),
             "reason": (v.get("reason") or "").strip(),
+            "translation_ok": bool(v.get("translation_ok", True)),
             "translation": (v.get("translation") or "").strip(),
         })
     return out

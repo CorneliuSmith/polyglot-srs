@@ -810,6 +810,8 @@ export interface VocabExample {
   is_modified: boolean
   flagged?: boolean
   flag_reason?: string | null
+  suggested_translation?: string | null
+  suggestion_reason?: string | null
   recommendations?: RecoTally | null
 }
 
@@ -843,6 +845,20 @@ export async function editExampleSentence(
 /** Reviewer delete of an example sentence. */
 export async function deleteExampleSentence(exampleId: string): Promise<void> {
   await apiClient.delete(`/api/contribute/review/examples/${exampleId}`)
+}
+
+/** Apply the recheck's suggested translation to the live one (full reviewer). */
+export async function acceptExampleTranslation(exampleId: string): Promise<void> {
+  await apiClient.post(
+    `/api/contribute/review/examples/${exampleId}/translation/accept`,
+  )
+}
+
+/** Discard the recheck's suggested translation, keeping the current one. */
+export async function dismissExampleTranslation(exampleId: string): Promise<void> {
+  await apiClient.post(
+    `/api/contribute/review/examples/${exampleId}/translation/dismiss`,
+  )
 }
 
 export interface AiLeveledWord {

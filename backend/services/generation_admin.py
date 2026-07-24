@@ -27,6 +27,7 @@ from backend.repositories.contributor import (
     backfill_example_translation,
     flag_example_sentence,
     points_with_thin_cells,
+    suggest_example_translation,
     vocab_needing_examples,
     vocab_with_examples,
 )
@@ -253,14 +254,15 @@ async def recheck_examples(
     audit_model = plan["model"]
     maker_model = resolve_model("sentence_maker", language_code)
 
-    words_audited = flagged = backfilled = alternatives = 0
+    words_audited = flagged = backfilled = suggested = alternatives = 0
     for word in items:
         sentences = word["examples"]
         if not sentences:
             continue
         words_audited += 1
         verdicts = await audit_examples(
-            word, sentences, language_name, language_code, model=audit_model
+            word, sentences, language_name, language_code,
+            model=audit_model, level=word.get("level"),
         )
         good = 0
         for sent, verdict in zip(sentences, verdicts):
@@ -269,11 +271,25 @@ async def recheck_examples(
                     flagged += 1
                 continue
             good += 1
-            if verdict["translation"] and not (sent["translation"] or "").strip():
-                if await backfill_example_translation(
+            existing = (sent["translation"] or "").strip()
+            if not existing:
+                # Missing translation → fill in place (nothing to overwrite).
+                if verdict["translation"] and await backfill_example_translation(
                     conn, sent["id"], verdict["translation"]
                 ):
                     backfilled += 1
+            elif (
+                not verdict["translation_ok"]
+                and verdict["translation"]
+                and verdict["translation"] != existing
+            ):
+                # Present but weak → propose a replacement for reviewer sign-off,
+                # never overwrite a possibly human-authored translation.
+                if await suggest_example_translation(
+                    conn, sent["id"], verdict["translation"],
+                    verdict["reason"] or "translation could be clearer or more useful",
+                ):
+                    suggested += 1
 
         # Heal back to target with fresh, verified alternatives.
         need = max(0, target - good)
@@ -300,6 +316,7 @@ async def recheck_examples(
         "sentences_audited": plan["sentences_to_audit"],
         "sentences_flagged": flagged,
         "translations_backfilled": backfilled,
+        "translations_suggested": suggested,
         "alternatives_generated": alternatives,
         "est_cost_usd": plan["est_cost_usd"],
     }

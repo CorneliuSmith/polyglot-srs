@@ -7,14 +7,18 @@ vi.mock('../api/contribute', () => ({
   getVocabExamples: vi.fn(),
   editExampleSentence: vi.fn(() => Promise.resolve()),
   deleteExampleSentence: vi.fn(() => Promise.resolve()),
+  acceptExampleTranslation: vi.fn(() => Promise.resolve()),
+  dismissExampleTranslation: vi.fn(() => Promise.resolve()),
 }))
 
 import {
   getVocabExamples,
   editExampleSentence,
+  acceptExampleTranslation,
 } from '../api/contribute'
 const mockGet = getVocabExamples as ReturnType<typeof vi.fn>
 const mockEdit = editExampleSentence as ReturnType<typeof vi.fn>
+const mockAccept = acceptExampleTranslation as ReturnType<typeof vi.fn>
 
 function renderEditor() {
   const qc = new QueryClient({
@@ -75,5 +79,33 @@ describe('ExamplesEditor', () => {
     await screen.findByText('Rare zin hier.')
     expect(screen.getByText(/^flagged$/i)).toBeDefined()
     expect(screen.getByText(/unnatural phrasing/i)).toBeDefined()
+  })
+
+  it('shows a suggested translation and lets a reviewer accept it', async () => {
+    mockGet.mockResolvedValue({ can_publish: true, examples: [
+      { id: 'e1', sentence: 'De hond blaft luid.', translation: 'dog thing',
+        source: 'human', reviewed: true, is_modified: false,
+        suggested_translation: 'The dog barks loudly.',
+        suggestion_reason: 'current translation is vague' },
+    ] })
+    renderEditor()
+    await screen.findByText('De hond blaft luid.')
+    expect(screen.getByText(/The dog barks loudly\./)).toBeDefined()
+    expect(screen.getByText(/current translation is vague/i)).toBeDefined()
+    fireEvent.click(screen.getByRole('button', { name: /^accept$/i }))
+    await waitFor(() => expect(mockAccept).toHaveBeenCalledWith('e1'))
+  })
+
+  it('hides accept/dismiss from trial reviewers', async () => {
+    mockGet.mockResolvedValue({ can_publish: false, examples: [
+      { id: 'e1', sentence: 'De hond blaft luid.', translation: 'dog thing',
+        source: 'human', reviewed: true, is_modified: false,
+        suggested_translation: 'The dog barks loudly.',
+        suggestion_reason: 'vague' },
+    ] })
+    renderEditor()
+    await screen.findByText('De hond blaft luid.')
+    expect(screen.queryByRole('button', { name: /^accept$/i })).toBeNull()
+    expect(screen.getByText(/awaiting a reviewer/i)).toBeDefined()
   })
 })

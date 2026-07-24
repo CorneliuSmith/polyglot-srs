@@ -136,9 +136,8 @@ async def test_audit_examples_flags_bad_and_backfills_missing():
             {"word": "x"}, sentences, "Spanish", "es"
         )
     assert [v["ok"] for v in verdicts] == [True, False, True]
-    # A bad sentence isn't given a backfill translation…
-    assert verdicts[1]["translation"] == ""
-    # …a good-but-untranslated one is.
+    # A good-but-untranslated sentence gets a backfill translation (the caller
+    # ignores whatever the judge returns for a flagged row, so only this matters).
     assert verdicts[2]["translation"].startswith("Translation:")
 
 
@@ -155,6 +154,44 @@ async def test_audit_examples_english_backfill_is_a_description():
 async def test_audit_examples_empty_is_noop():
     with patch("backend.services.generate.get_settings", return_value=_mock_settings()):
         assert await generate.audit_examples({"word": "x"}, [], "English", "en") == []
+
+
+async def test_audit_examples_flags_too_simple_sentences():
+    # A 'simple' sentence is flagged on complexity even though it's grammatical.
+    sentences = [
+        {"sentence": "A rich, contextful sentence.", "translation": "Fine."},
+        {"sentence": "This one is simple.", "translation": "x."},
+    ]
+    with patch("backend.services.generate.get_settings", return_value=_mock_settings()):
+        verdicts = await generate.audit_examples(
+            {"word": "x"}, sentences, "Spanish", "es"
+        )
+    assert verdicts[0]["ok"] is True
+    assert verdicts[1]["ok"] is False
+    assert "simple" in verdicts[1]["reason"].lower()
+
+
+async def test_audit_examples_suggests_replacement_for_weak_translation():
+    # A present-but-weak ('vague') translation is judged unhelpful and a clearer
+    # replacement recommended, without the sentence itself being flagged.
+    sentences = [{"sentence": "El gato duerme mucho.", "translation": "vague thing"}]
+    with patch("backend.services.generate.get_settings", return_value=_mock_settings()):
+        verdicts = await generate.audit_examples(
+            {"word": "gato"}, sentences, "Spanish", "es"
+        )
+    assert verdicts[0]["ok"] is True
+    assert verdicts[0]["translation_ok"] is False
+    assert verdicts[0]["translation"].startswith("Clearer translation:")
+
+
+async def test_audit_examples_good_translation_needs_no_suggestion():
+    sentences = [{"sentence": "El gato duerme mucho.", "translation": "The cat sleeps a lot."}]
+    with patch("backend.services.generate.get_settings", return_value=_mock_settings()):
+        verdicts = await generate.audit_examples(
+            {"word": "gato"}, sentences, "Spanish", "es"
+        )
+    assert verdicts[0]["translation_ok"] is True
+    assert verdicts[0]["translation"] == ""
 
 
 async def test_contains_word_uses_apertium_when_no_backend():

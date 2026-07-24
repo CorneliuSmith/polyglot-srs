@@ -576,9 +576,10 @@ async def list_vocab_examples(
     Pending ('ai', reviewed=false) rows come first so they're easy to act on."""
     rows = await conn.fetch(
         "SELECT id, sentence, translation, source, reviewed, is_modified, "
-        "       flagged, flag_reason "
+        "       flagged, flag_reason, suggested_translation, suggestion_reason "
         "FROM example_sentences WHERE vocabulary_id = $1 "
-        "ORDER BY flagged DESC, reviewed, id",
+        "ORDER BY flagged DESC, (suggested_translation IS NOT NULL) DESC, "
+        "         reviewed, id",
         vocabulary_id,
     )
     return [
@@ -591,6 +592,8 @@ async def list_vocab_examples(
             "is_modified": r["is_modified"],
             "flagged": r["flagged"],
             "flag_reason": r["flag_reason"],
+            "suggested_translation": r["suggested_translation"],
+            "suggestion_reason": r["suggestion_reason"],
         }
         for r in rows
     ]
@@ -604,15 +607,67 @@ async def edit_example_sentence(
     editor_id: str,
 ) -> bool:
     """Reviewer edit of an example sentence: update the text/translation and
-    stamp the provenance (is_modified + who + when). Clears any quality flag —
-    an edited sentence has been addressed. Returns True if a row changed."""
+    stamp the provenance (is_modified + who + when). Clears any quality flag and
+    pending translation suggestion — an edited sentence has been addressed.
+    Returns True if a row changed."""
     result = await conn.execute(
         "UPDATE example_sentences "
         "SET sentence = $2, translation = $3, "
         "    is_modified = true, modified_by = $4, modified_at = now(), "
-        "    flagged = false, flag_reason = NULL "
+        "    flagged = false, flag_reason = NULL, "
+        "    suggested_translation = NULL, suggestion_reason = NULL "
         "WHERE id = $1",
         example_id, sentence, translation or None, editor_id,
+    )
+    return result.rsplit(" ", 1)[-1] == "1"
+
+
+async def suggest_example_translation(
+    conn: asyncpg.Connection, example_id: str, suggestion: str, reason: str
+) -> bool:
+    """Record the audit's PROPOSED better translation/description (--recheck),
+    without touching the live translation. Idempotent — only writes when no
+    suggestion is pending, so a re-run doesn't clobber one a human is weighing.
+    Returns True if a row changed."""
+    text = (suggestion or "").strip()
+    if not text:
+        return False
+    result = await conn.execute(
+        "UPDATE example_sentences "
+        "SET suggested_translation = $2, suggestion_reason = $3 "
+        "WHERE id = $1 AND suggested_translation IS NULL",
+        example_id, text, (reason or "translation could be clearer")[:500],
+    )
+    return result.rsplit(" ", 1)[-1] == "1"
+
+
+async def accept_example_translation(
+    conn: asyncpg.Connection, example_id: str, editor_id: str
+) -> bool:
+    """Reviewer accepts a suggested translation: apply it to the live
+    translation (stamped as a modification) and clear the suggestion. Returns
+    True if a suggestion was applied."""
+    result = await conn.execute(
+        "UPDATE example_sentences "
+        "SET translation = suggested_translation, "
+        "    is_modified = true, modified_by = $2, modified_at = now(), "
+        "    suggested_translation = NULL, suggestion_reason = NULL "
+        "WHERE id = $1 AND suggested_translation IS NOT NULL",
+        example_id, editor_id,
+    )
+    return result.rsplit(" ", 1)[-1] == "1"
+
+
+async def dismiss_example_translation(
+    conn: asyncpg.Connection, example_id: str
+) -> bool:
+    """Reviewer dismisses a suggested translation, keeping the current one.
+    Returns True if a suggestion was cleared."""
+    result = await conn.execute(
+        "UPDATE example_sentences "
+        "SET suggested_translation = NULL, suggestion_reason = NULL "
+        "WHERE id = $1 AND suggested_translation IS NOT NULL",
+        example_id,
     )
     return result.rsplit(" ", 1)[-1] == "1"
 
@@ -659,7 +714,7 @@ async def vocab_with_examples(
     against coverage via list order."""
     rows = await conn.fetch(
         """
-        SELECT v.id AS vocabulary_id, v.word, v.part_of_speech,
+        SELECT v.id AS vocabulary_id, v.word, v.part_of_speech, v.level,
                (SELECT t.definition FROM translations t
                  WHERE t.vocabulary_id = v.id AND t.locale = 'en' LIMIT 1)
                  AS definition,
@@ -686,6 +741,7 @@ async def vocab_with_examples(
             "vocabulary_id": str(r["vocabulary_id"]),
             "word": r["word"],
             "part_of_speech": r["part_of_speech"],
+            "level": r["level"],
             "definition": r["definition"],
             "examples": [
                 {"id": str(s["id"]), "sentence": s["sentence"],

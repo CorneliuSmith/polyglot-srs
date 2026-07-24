@@ -120,8 +120,10 @@ async def _run_recheck(conn, lang, args) -> None:
     )
     print(json.dumps({"dry_run": False, **result}, indent=2, default=str))
     print(
-        "\nFlagged sentences are marked for reviewers (Contributor › Review) — "
-        "not deleted. New alternatives are pending review (source='ai')."
+        "\nFlagged sentences (weak or too simple) are marked for reviewers "
+        "(Contributor › Review) — not deleted. Weak translations get a suggested "
+        "replacement to accept/dismiss. New alternatives are pending review "
+        "(source='ai')."
     )
 
 
