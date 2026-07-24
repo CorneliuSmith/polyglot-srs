@@ -365,7 +365,7 @@ async def list_drills(conn: asyncpg.Connection, point_id: str) -> list[dict]:
     rows = await conn.fetch(
         """
         SELECT id, sentence, answer, translation, hint, display_order,
-               source, is_modified
+               source, is_modified, flagged, flag_reason
         FROM drill_sentences
         WHERE grammar_point_id = $1
         ORDER BY display_order ASC
@@ -382,6 +382,8 @@ async def list_drills(conn: asyncpg.Connection, point_id: str) -> list[dict]:
             "display_order": r["display_order"],
             "source": r["source"],
             "is_modified": r["is_modified"],
+            "flagged": r["flagged"],
+            "flag_reason": r["flag_reason"],
         }
         for r in rows
     ]
@@ -547,6 +549,9 @@ async def review_inbox_counts(
              JOIN grammar_points gp ON ds.grammar_point_id = gp.id
             WHERE gp.language_id = $1 AND ds.source = 'ai'
               AND ds.reviewed = false) AS pending_drills,
+          (SELECT count(*) FROM drill_sentences ds
+             JOIN grammar_points gp ON ds.grammar_point_id = gp.id
+            WHERE gp.language_id = $1 AND ds.flagged = true) AS flagged_drills,
           (SELECT count(*) FROM example_sentences es
              JOIN vocabulary v ON es.vocabulary_id = v.id
             WHERE v.language_id = $1 AND es.source = 'ai'
@@ -873,6 +878,35 @@ async def flag_example_sentence(
     return changed
 
 
+async def flag_drill(
+    conn: asyncpg.Connection, drill_id: str, reason: str,
+    actor_id: str | None = None,
+) -> bool:
+    """Mark a drill as failing the quality audit (--recheck), with a short reason
+    for the reviewer — the drill twin of flag_example_sentence. Idempotent: only
+    flips an unflagged row. Returns True if a row changed. *actor_id* is None for
+    the automated CLI recheck."""
+    clean = (reason or "flagged by quality audit")[:500]
+    result = await conn.execute(
+        "UPDATE drill_sentences SET flagged = true, flag_reason = $2 "
+        "WHERE id = $1 AND flagged = false",
+        drill_id, clean,
+    )
+    changed = result.rsplit(" ", 1)[-1] == "1"
+    if changed:
+        lang = await conn.fetchval(
+            "SELECT gp.language_id FROM drill_sentences ds "
+            "JOIN grammar_points gp ON ds.grammar_point_id = gp.id WHERE ds.id = $1",
+            drill_id,
+        )
+        await log_change(
+            conn, entity_type="drill", entity_id=drill_id,
+            actor_id=actor_id, action="flagged",
+            language_id=str(lang) if lang else None, note=clean,
+        )
+    return changed
+
+
 async def backfill_example_translation(
     conn: asyncpg.Connection, example_id: str, translation: str
 ) -> bool:
@@ -933,6 +967,48 @@ async def vocab_with_examples(
                 {"id": str(s["id"]), "sentence": s["sentence"],
                  "translation": s["translation"]}
                 for s in sents
+            ],
+        })
+    return out
+
+
+async def points_with_drills(
+    conn: asyncpg.Connection, language_id: str, limit: int
+) -> list[dict]:
+    """Grammar points that HAVE at least one unflagged drill, each with its
+    current drills — the work-list for a drill quality recheck. Mirrors
+    vocab_with_examples. Already-flagged drills are excluded from the judged set
+    (a human is handling them)."""
+    rows = await conn.fetch(
+        """
+        SELECT gp.id AS point_id, gp.title, gp.explanation, gp.level
+        FROM grammar_points gp
+        WHERE gp.language_id = $1
+          AND EXISTS (SELECT 1 FROM drill_sentences ds
+                       WHERE ds.grammar_point_id = gp.id AND ds.flagged = false)
+        ORDER BY gp.display_order, gp.title
+        LIMIT $2
+        """,
+        language_id, limit,
+    )
+    out = []
+    for r in rows:
+        drills = await conn.fetch(
+            "SELECT id, sentence, answer, translation, hint, cell "
+            "FROM drill_sentences "
+            "WHERE grammar_point_id = $1 AND flagged = false ORDER BY id",
+            r["point_id"],
+        )
+        out.append({
+            "point_id": str(r["point_id"]),
+            "title": r["title"],
+            "explanation": r["explanation"],
+            "level": r["level"],
+            "drills": [
+                {"id": str(d["id"]), "sentence": d["sentence"],
+                 "answer": d["answer"], "translation": d["translation"],
+                 "hint": d["hint"], "cell": d["cell"]}
+                for d in drills
             ],
         })
     return out
@@ -1048,7 +1124,8 @@ async def list_pending_drills(
     rows = await conn.fetch(
         """
         SELECT ds.id, ds.sentence, ds.answer, ds.translation, ds.hint, ds.cell,
-               ds.origin_detail, gp.title AS point_title, gp.id AS point_id
+               ds.origin_detail, ds.flagged, ds.flag_reason,
+               gp.title AS point_title, gp.id AS point_id
         FROM drill_sentences ds
         JOIN grammar_points gp ON ds.grammar_point_id = gp.id
         WHERE gp.language_id = $1 AND ds.source = 'ai' AND ds.reviewed = false
@@ -1066,6 +1143,8 @@ async def list_pending_drills(
             "hint": r["hint"],
             "cell": r["cell"],
             "origin_detail": r["origin_detail"],
+            "flagged": r["flagged"],
+            "flag_reason": r["flag_reason"],
             "point_title": r["point_title"],
             "point_id": str(r["point_id"]),
         }

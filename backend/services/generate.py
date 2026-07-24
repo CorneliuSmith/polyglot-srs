@@ -590,3 +590,131 @@ async def audit_examples(
             "translation": (v.get("translation") or "").strip(),
         })
     return out
+
+
+# ---------------------------------------------------------------------------
+# Quality AUDIT of EXISTING drills (the --recheck path for grammar). Mirrors
+# audit_examples: a judge rules each of a point's drills ok/not-ok; the caller
+# FLAGS the rejects for a human and heals the point back to target with fresh
+# generated alternatives. Drills are cloze sentences — the dimension is
+# correctness + usefulness of the sentence, not a separate translation quality.
+# ---------------------------------------------------------------------------
+
+_DRILL_AUDIT_SCHEMA = {
+    "type": "object",
+    "properties": {
+        "verdicts": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "index": {
+                        "type": "integer",
+                        "description": "The 0-based index of the drill judged.",
+                    },
+                    "ok": {
+                        "type": "boolean",
+                        "description": "True if the drill is natural and correct, "
+                        "the answer is the right form for its blank, AND it is "
+                        "worth teaching. False for an ungrammatical, mis-keyed, or "
+                        "trivially low-value drill.",
+                    },
+                    "reason": {
+                        "type": "string",
+                        "description": "Short reason when ok is false (name the "
+                        "problem: wrong answer, unnatural sentence, or too simple); "
+                        "empty when ok.",
+                    },
+                },
+                "required": ["index", "ok", "reason"],
+                "additionalProperties": False,
+            },
+        }
+    },
+    "required": ["verdicts"],
+    "additionalProperties": False,
+}
+
+
+def _mock_audit_drills(drills: list[dict]) -> list[dict]:
+    """Deterministic verdicts for dev/testing, mirroring _mock_audit: a drill
+    whose sentence contains 'bad' is rejected on correctness, 'simple' as too
+    trivial; everything else passes. Lets a test drive both flag paths."""
+    out = []
+    for i, d in enumerate(drills):
+        low = (d.get("sentence") or "").lower()
+        if "bad" in low:
+            ok, reason = False, "flagged by quality audit"
+        elif "simple" in low:
+            ok, reason = False, "too simple to teach the form"
+        else:
+            ok, reason = True, ""
+        out.append({"index": i, "ok": ok, "reason": reason})
+    return out
+
+
+async def audit_drills(
+    point: dict,
+    drills: list[dict],
+    language: str,
+    language_code: str,
+    model: str | None = None,
+    level: str | None = None,
+) -> list[dict]:
+    """LLM quality judge over a grammar point's EXISTING drills.
+
+    *drills*: [{sentence, answer, translation, hint}] in order. Returns a verdict
+    per drill aligned by position: {index, ok, reason}. `ok` covers correctness
+    (natural, right answer for the blank) AND usefulness (not trivial). Never
+    mutates the DB — the caller flags the rejects and heals to target.
+    """
+    if not drills:
+        return []
+    settings = get_settings()
+    if getattr(settings, "tutor_dev_mock", False):
+        return _mock_audit_drills(drills)
+
+    listing = "\n".join(
+        f"[{i}] sentence: {d.get('sentence') or ''}\n"
+        f"    answer: {d.get('answer') or ''}"
+        f"    translation: {d.get('translation') or '(none)'}"
+        for i, d in enumerate(drills)
+    )
+    level_rule = (
+        f" The point's level is CEFR {level}; judge 'too simple' relative to it."
+        if (level or "").strip() else ""
+    )
+    client = AsyncAnthropic(api_key=settings.anthropic_api_key)
+    resp = await client.messages.create(
+        model=model or resolve_model("sentence_checker", language),
+        max_tokens=2048,
+        system=(
+            f"You are a strict reviewer of {language} fill-in-the-blank grammar "
+            f'drills for the point "{point.get("title")}" '
+            f'(explanation: {point.get("explanation") or "n/a"}). Each drill is a '
+            f"sentence with a {{answer}} blank plus the expected answer. For EACH "
+            f"numbered drill, set ok=false (with a short reason) if the sentence is "
+            f"unnatural or ungrammatical, the answer is not the exactly correct "
+            f"form for the blank, OR it is too trivial / low-value to teach the "
+            f"form.{level_rule} Return exactly one verdict per drill, keyed by its "
+            f"[index]."
+        ),
+        messages=[{"role": "user", "content": listing}],
+        output_config={"format": {"type": "json_schema", "schema": _DRILL_AUDIT_SCHEMA}},
+    )
+    text = next((b.text for b in resp.content if b.type == "text"), "{}")
+    try:
+        verdicts = json.loads(text).get("verdicts", [])
+    except (json.JSONDecodeError, TypeError):
+        return []
+    # Never flag a drill the judge didn't actually rule on: default missing → ok.
+    by_index = {v.get("index"): v for v in verdicts if isinstance(v, dict)}
+    out = []
+    for i in range(len(drills)):
+        v = by_index.get(i, {})
+        out.append({
+            "index": i,
+            "ok": bool(v.get("ok", True)),
+            "reason": (v.get("reason") or "").strip(),
+        })
+    return out

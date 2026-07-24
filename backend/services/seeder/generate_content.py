@@ -62,7 +62,9 @@ from backend.services.define import definitions_available, generate_definitions
 from backend.services.generate import generation_available
 from backend.services.generation_admin import (
     plan_recheck,
+    plan_recheck_drills,
     plan_run,
+    recheck_drills,
     recheck_examples,
     run_generation,
 )
@@ -236,12 +238,14 @@ async def _run_translations(conn, lang, args) -> None:
 
 
 async def _run_recheck(conn, lang, args) -> None:
-    """Quality-audit EXISTING example sentences: an LLM judge flags bad ones for
-    reviewers, missing translations are backfilled, and each word is topped back
-    up to --target with fresh alternatives (source='ai', pending review)."""
+    """Quality-audit EXISTING content: an LLM judge flags bad items for reviewers
+    and each item is topped back up to --target with fresh alternatives
+    (source='ai', pending review). `-k grammar` audits drills; anything else
+    audits vocab example sentences."""
     lang_id = str(lang["id"])
+    drills = args.kind == "grammar"
     if args.dry_run:
-        plan = await plan_recheck(
+        plan = await (plan_recheck_drills if drills else plan_recheck)(
             conn, language_id=lang_id, language_code=lang["code"],
             max_items=args.max,
         )
@@ -251,21 +255,23 @@ async def _run_recheck(conn, lang, args) -> None:
     if not generation_available():
         print("ERROR: real recheck needs ANTHROPIC_API_KEY (or TUTOR_DEV_MOCK=1).")
         return
+    unit = "drills" if drills else "example sentences"
+    per = "point" if drills else "word"
     print(
-        f"Rechecking {lang['name']} example sentences "
-        f"(target {args.target} good per word, up to {args.max} words)…"
+        f"Rechecking {lang['name']} {unit} "
+        f"(target {args.target} good per {per}, up to {args.max} {per}s)…"
     )
-    result = await recheck_examples(
+    recheck = recheck_drills if drills else recheck_examples
+    result = await recheck(
         conn, language_id=lang_id, language_code=lang["code"],
         language_name=lang["name"], target_per_item=args.target,
         max_items=args.max,
     )
     print(json.dumps({"dry_run": False, **result}, indent=2, default=str))
     print(
-        "\nFlagged sentences (weak or too simple) are marked for reviewers "
-        "(Contributor › Review) — not deleted. Weak translations get a suggested "
-        "replacement to accept/dismiss. New alternatives are pending review "
-        "(source='ai')."
+        "\nFlagged items (weak or too simple) are marked for reviewers "
+        "(Contributor › Review) — not deleted. New alternatives are pending "
+        "review (source='ai')."
     )
 
 

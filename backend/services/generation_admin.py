@@ -25,13 +25,16 @@ from backend.repositories.contributor import (
     add_drill,
     add_example_sentence,
     backfill_example_translation,
+    flag_drill,
     flag_example_sentence,
+    points_with_drills,
     points_with_thin_cells,
     suggest_example_translation,
     vocab_needing_examples,
     vocab_with_examples,
 )
 from backend.services.generate import (
+    audit_drills,
     audit_examples,
     generate_drills,
     generate_examples,
@@ -317,6 +320,108 @@ async def recheck_examples(
         "sentences_flagged": flagged,
         "translations_backfilled": backfilled,
         "translations_suggested": suggested,
+        "alternatives_generated": alternatives,
+        "est_cost_usd": plan["est_cost_usd"],
+    }
+
+
+async def plan_recheck_drills(
+    conn: asyncpg.Connection,
+    *,
+    language_id: str,
+    language_code: str,
+    max_items: int,
+) -> dict:
+    """Resolve the drill-recheck work-list + cost estimate WITHOUT calling the
+    model. One judge call per point (all its drills at once)."""
+    max_items = _clamp(max_items, 1, MAX_ITEMS_PER_RUN)
+    items = await points_with_drills(conn, language_id, max_items)
+    model = resolve_model("sentence_checker", language_code)
+    drills = sum(len(p["drills"]) for p in items)
+    est_cost = estimate_cost_usd(
+        model,
+        input_tokens=_EST_INPUT_TOKENS_PER_ITEM * len(items),
+        output_tokens=_EST_OUTPUT_TOKENS_PER_SENTENCE * drills,
+    )
+    return {
+        "kind": "recheck_drills",
+        "model": model,
+        "points_to_audit": len(items),
+        "drills_to_audit": drills,
+        "est_cost_usd": est_cost,
+        "_items": items,
+    }
+
+
+async def recheck_drills(
+    conn: asyncpg.Connection,
+    *,
+    language_id: str,
+    language_code: str,
+    language_name: str,
+    target_per_item: int,
+    max_items: int,
+) -> dict:
+    """Audit EXISTING drills and heal each point back to target — the drill twin
+    of recheck_examples.
+
+    For every point with drills: run the LLM judge over its current drills, FLAG
+    the ones it rejects (left for a human), then draft fresh alternatives
+    (maker→checker) so the point still has *target* good drills. New alternatives
+    land reviewed=false. Idempotent: flagged drills are excluded from the audited
+    set on a re-run, and inserts dedupe on the sentence text.
+    """
+    target = _clamp(target_per_item, 1, MAX_PER_ITEM)
+    plan = await plan_recheck_drills(
+        conn, language_id=language_id, language_code=language_code,
+        max_items=max_items,
+    )
+    items = plan.pop("_items")
+    audit_model = plan["model"]
+    maker_model = resolve_model("grammar_maker", language_code)
+
+    points_audited = flagged = alternatives = 0
+    for point in items:
+        drills = point["drills"]
+        if not drills:
+            continue
+        points_audited += 1
+        verdicts = await audit_drills(
+            point, drills, language_name, language_code,
+            model=audit_model, level=point.get("level"),
+        )
+        good = 0
+        for drill, verdict in zip(drills, verdicts):
+            if not verdict["ok"]:
+                if await flag_drill(conn, drill["id"], verdict["reason"]):
+                    flagged += 1
+                continue
+            good += 1
+
+        # Heal back to target with fresh, verified alternatives.
+        need = max(0, target - good)
+        if need:
+            passed = await generate_drills(
+                point, need, language_name, language_code, maker_model=maker_model
+            )
+            for cand in passed:
+                row_id = await add_drill(
+                    conn, point["point_id"], cand["sentence"], cand["answer"],
+                    cand.get("translation"), cand.get("hint"),
+                    source="ai", origin_detail=maker_model, decertify=False,
+                )
+                if row_id:
+                    alternatives += 1
+
+    return {
+        "kind": "recheck_drills",
+        "language_code": language_code,
+        "language_name": language_name,
+        "model": audit_model,
+        "target_per_item": target,
+        "points_audited": points_audited,
+        "drills_audited": plan["drills_to_audit"],
+        "drills_flagged": flagged,
         "alternatives_generated": alternatives,
         "est_cost_usd": plan["est_cost_usd"],
     }
