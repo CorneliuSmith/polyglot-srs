@@ -76,6 +76,14 @@ that validates on the extractor side loads here without translation:
   vocabulary (`seed`/`human`/`ai`/`tatoeba`/`kaikki`/`imported`) plus an
   `origin_detail` naming the document, so imported content stays distinguishable
   from ours (migration `20260813000000_sentence_provenance.sql`).
+- **Example-sentence review gate** — the sentences TSV may carry an optional
+  `source` column. `seed_sentences` honors it per row (absent → the file default,
+  `curated`), and a row with `source='ai'` is loaded **`reviewed=false`** — hidden
+  from learners until a reviewer approves it, the same gate as
+  `add_example_sentence(source='ai')` (`20260814000000_example_review_gate.sql`).
+  The extractor uses this for `--original-sentences`: example sentences it
+  re-authors (to avoid copying a copyrighted source) arrive as pending-review AI
+  content, not shown-by-default.
 
 ## "Fill the gaps"
 
