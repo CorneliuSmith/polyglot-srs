@@ -94,14 +94,17 @@ People say "AI review" to mean two different things. They are separate:
 The maker-checker generator (`services/generate.py`, `translate.py`,
 `define.py`, driven by `scripts/generate_content.py`) runs a **checker pass
 on every item it makes** before it's even stored. A sentence that fails the
-checker isn't saved. The `--recheck` flag additionally audits *existing*
-example sentences and can:
+checker isn't saved. The `--recheck` flag additionally audits *existing* content — vocab example
+sentences (`-k vocab --recheck`) **and grammar drills**
+(`-k grammar --recheck`) — and can:
 
-- **flag** a bad sentence (`example_sentences.flagged = true` + a
-  `flag_reason`) — the red "flagged" chip a reviewer sees;
-- **suggest** a better translation (`suggested_translation` +
-  `suggestion_reason`) — the Accept/Dismiss box on the example;
-- **generate alternatives** and mark them pending review.
+- **flag** a bad item (`flagged = true` + a `flag_reason` on
+  `example_sentences` / `drill_sentences`) — the red "flagged" chip a
+  reviewer sees on the example or drill;
+- **suggest** a better translation on an example (`suggested_translation` +
+  `suggestion_reason`) — the Accept/Dismiss box;
+- **generate alternatives** to heal the item back to target, marked pending
+  review.
 
 All of this output lands as `source = 'ai'`, `reviewed = false` — **still
 behind the human gate**. The checker never publishes; it only prepares work.
@@ -149,6 +152,7 @@ It counts (via `review_inbox_counts()`, `GET /review/inbox`):
 |---|---|---|
 | Grammar points | drafted, pending review | Contribute list |
 | Generated drills | AI drills awaiting approval | Generated drills panel |
+| Flagged drills | `--recheck` flagged as bad | Point drills (flagged chip) |
 | Generated examples | AI example sentences pending | Word examples |
 | Flagged examples | `--recheck` flagged as bad | Word examples (flagged chip) |
 | Translation fixes | suggested-translation boxes | Word examples (Accept/Dismiss) |

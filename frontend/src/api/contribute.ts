@@ -366,6 +366,9 @@ export interface Drill {
   // Provenance: where it came from and whether we've edited it since.
   source?: string
   is_modified?: boolean
+  // Quality-audit flag (--recheck): set when the judge rejected this drill.
+  flagged?: boolean
+  flag_reason?: string | null
 }
 
 export async function createGrammarPoint(input: {
@@ -769,6 +772,8 @@ export interface PendingDrill {
   hint: string | null
   cell: string | null
   origin_detail: string | null
+  flagged?: boolean
+  flag_reason?: string | null
   point_title: string
   point_id: string
   recommendations?: RecoTally | null
@@ -785,6 +790,7 @@ export interface PendingDrillsResult {
 export interface ReviewInboxCounts {
   grammar_pending: number
   pending_drills: number
+  flagged_drills: number
   pending_examples: number
   flagged_examples: number
   translation_suggestions: number

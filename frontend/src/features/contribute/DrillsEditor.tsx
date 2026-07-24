@@ -206,8 +206,18 @@ export default function DrillsEditor({
                   <span className="font-mono">{d.sentence}</span>
                   <span className="text-gray-500"> → {d.answer}</span>
                   <ProvenanceBadge source={d.source} isModified={d.is_modified} />
+                  {d.flagged && (
+                    <span className="ml-2 align-middle rounded bg-red-50 text-red-600 px-1.5 py-0.5 text-[10px] uppercase tracking-wide">
+                      flagged
+                    </span>
+                  )}
                   {d.translation && (
                     <span className="block text-xs text-gray-400">{d.translation}</span>
+                  )}
+                  {d.flagged && d.flag_reason && (
+                    <span className="block text-xs text-red-500">
+                      ⚠ {d.flag_reason} — edit to fix, or delete.
+                    </span>
                   )}
                 </div>
                 <span className="flex gap-2 shrink-0">

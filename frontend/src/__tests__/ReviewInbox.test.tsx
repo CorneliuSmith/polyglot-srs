@@ -11,7 +11,7 @@ import { getReviewInbox } from '../api/contribute'
 const mockGet = getReviewInbox as ReturnType<typeof vi.fn>
 
 const ZERO = {
-  grammar_pending: 0, pending_drills: 0, pending_examples: 0,
+  grammar_pending: 0, pending_drills: 0, flagged_drills: 0, pending_examples: 0,
   flagged_examples: 0, translation_suggestions: 0, ai_levels: 0,
   change_requests: 0, suggestions: 0, notes: 0, feedback: 0,
 }
@@ -32,12 +32,13 @@ describe('ReviewInbox', () => {
 
   it('shows only the non-empty queues with their counts and a total', async () => {
     mockGet.mockResolvedValue({
-      counts: { ...ZERO, flagged_examples: 3, change_requests: 2 },
+      counts: { ...ZERO, flagged_drills: 1, flagged_examples: 3, change_requests: 2 },
       can_publish: true,
     })
     renderInbox()
     expect(await screen.findByTestId('review-inbox')).toBeDefined()
-    expect(screen.getByText(/5 awaiting/)).toBeDefined()
+    expect(screen.getByText(/6 awaiting/)).toBeDefined()
+    expect(screen.getByText('Flagged drills')).toBeDefined()
     expect(screen.getByText('Flagged examples')).toBeDefined()
     expect(screen.getByText('Change requests')).toBeDefined()
     // Empty queues are not rendered.
