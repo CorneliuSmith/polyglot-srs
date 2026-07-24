@@ -63,3 +63,4 @@ data/raw/
 data/ru_words.tsv
 data/ru_translations.tsv
 node_modules/
+backups/

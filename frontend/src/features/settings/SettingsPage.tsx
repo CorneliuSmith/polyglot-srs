@@ -18,9 +18,7 @@ import LanguagePicker from '../../components/LanguagePicker'
 import { getGrammarForLanguage } from '../../api/contribute'
 import AccountsPanel from '../contribute/AccountsPanel'
 import RolesPanel from '../contribute/RolesPanel'
-import IssuesPanel from '../contribute/IssuesPanel'
-import FeedbackPanel from '../contribute/FeedbackPanel'
-import SuggestionsPanel from '../contribute/SuggestionsPanel'
+import ReviewQueue from '../contribute/ReviewQueue'
 import AnalyticsPanel from '../contribute/AnalyticsPanel'
 import EngagementPanel from '../contribute/EngagementPanel'
 import TranslationReviewsPanel from '../contribute/TranslationReviewsPanel'
@@ -249,11 +247,7 @@ export default function SettingsPage() {
         )}
 
         {tab === 'review' && activeLanguageId && (
-          <>
-            {canReview && <SuggestionsPanel languageId={activeLanguageId} />}
-            <IssuesPanel languageId={activeLanguageId} canResolve={canReview} />
-            <FeedbackPanel languageId={activeLanguageId} />
-          </>
+          <ReviewQueue languageId={activeLanguageId} canReview={canReview} />
         )}
 
         {tab === 'admin' && activeLanguageId && isAdmin && (
