@@ -11,6 +11,7 @@ import {
 } from '../../api/contribute'
 import LanguageWrapper from '../../components/LanguageWrapper'
 import { RecoSummary } from './GeneratedDrillsPanel'
+import CardHistory from './CardHistory'
 
 function ExampleRow({
   ex,
@@ -163,6 +164,7 @@ function ExampleRow({
           </div>
         )}
         <RecoSummary tally={ex.recommendations} />
+        <CardHistory entityType="example_sentence" entityId={ex.id} />
       </div>
       <div className="flex items-center gap-2 shrink-0 text-xs">
         <button

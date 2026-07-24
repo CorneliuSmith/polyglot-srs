@@ -861,6 +861,44 @@ export async function deleteExampleSentence(exampleId: string): Promise<void> {
   await apiClient.delete(`/api/contribute/review/examples/${exampleId}`)
 }
 
+// ── Content audit log + rollback ───────────────────────────────────────────
+
+export interface ContentChange {
+  id: string
+  entity_type: string
+  entity_id: string
+  action: string
+  field: string | null
+  before: Record<string, unknown> | null
+  after: Record<string, unknown> | null
+  note: string | null
+  actor_id: string | null
+  actor_email: string | null
+  created_at: string | null
+  revertible: boolean
+}
+
+export interface ContentHistory {
+  changes: ContentChange[]
+  can_revert: boolean
+}
+
+/** The change timeline for one card (who did what, when, before/after). */
+export async function getContentHistory(
+  entityType: string,
+  entityId: string,
+): Promise<ContentHistory> {
+  const response = await apiClient.get<ContentHistory>(
+    `/api/contribute/review/history/${entityType}/${entityId}`,
+  )
+  return response.data
+}
+
+/** Roll a logged change back to its prior value (full reviewer/admin). */
+export async function revertContentChange(logId: string): Promise<void> {
+  await apiClient.post(`/api/contribute/review/revert/${logId}`)
+}
+
 /** Apply the recheck's suggested translation to the live one (full reviewer). */
 export async function acceptExampleTranslation(exampleId: string): Promise<void> {
   await apiClient.post(

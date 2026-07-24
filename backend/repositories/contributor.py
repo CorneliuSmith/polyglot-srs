@@ -11,6 +11,7 @@ import json
 
 import asyncpg
 
+from backend.repositories.audit import log_change
 from backend.services.references import clean_references
 from backend.services.seeder.morphology_charts import strip_nominal_chips
 
@@ -553,11 +554,16 @@ async def list_pending_examples(
 
 
 async def review_example(
-    conn: asyncpg.Connection, example_id: str, approve: bool
+    conn: asyncpg.Connection, example_id: str, approve: bool,
+    actor_id: str | None = None,
 ) -> bool:
     """Approve (reviewed → true, now served to learners) or reject (deleted) a
     pending generated example. Only ever touches an unreviewed 'ai' row, so it
     can't disturb seed/imported/human content. Returns True if a row changed."""
+    row = await conn.fetchrow(
+        "SELECT language_id, sentence, translation FROM example_sentences WHERE id = $1",
+        example_id,
+    )
     if approve:
         result = await conn.execute(
             "UPDATE example_sentences SET reviewed = true "
@@ -570,7 +576,17 @@ async def review_example(
             "WHERE id = $1 AND source = 'ai' AND reviewed = false",
             example_id,
         )
-    return result.rsplit(" ", 1)[-1] == "1"
+    changed = result.rsplit(" ", 1)[-1] == "1"
+    if changed and row:
+        await log_change(
+            conn, entity_type="example_sentence", entity_id=example_id,
+            actor_id=actor_id, action="approved" if approve else "rejected",
+            language_id=str(row["language_id"]),
+            # A rejected example is deleted; keep its content so the log stays
+            # meaningful (it is not restorable — no 'before' snapshot).
+            note=None if approve else f"deleted: {row['sentence']}",
+        )
+    return changed
 
 
 async def review_examples_bulk(
@@ -648,6 +664,10 @@ async def edit_example_sentence(
     stamp the provenance (is_modified + who + when). Clears any quality flag and
     pending translation suggestion — an edited sentence has been addressed.
     Returns True if a row changed."""
+    prev = await conn.fetchrow(
+        "SELECT language_id, sentence, translation FROM example_sentences WHERE id = $1",
+        example_id,
+    )
     result = await conn.execute(
         "UPDATE example_sentences "
         "SET sentence = $2, translation = $3, "
@@ -657,7 +677,16 @@ async def edit_example_sentence(
         "WHERE id = $1",
         example_id, sentence, translation or None, editor_id,
     )
-    return result.rsplit(" ", 1)[-1] == "1"
+    changed = result.rsplit(" ", 1)[-1] == "1"
+    if changed and prev:
+        await log_change(
+            conn, entity_type="example_sentence", entity_id=example_id,
+            actor_id=editor_id, action="edited",
+            language_id=str(prev["language_id"]),
+            before={"sentence": prev["sentence"], "translation": prev["translation"]},
+            after={"sentence": sentence, "translation": translation or None},
+        )
+    return changed
 
 
 async def suggest_example_translation(
@@ -711,18 +740,30 @@ async def dismiss_example_translation(
 
 
 async def flag_example_sentence(
-    conn: asyncpg.Connection, example_id: str, reason: str
+    conn: asyncpg.Connection, example_id: str, reason: str,
+    actor_id: str | None = None,
 ) -> bool:
     """Mark an example sentence as failing the quality audit (--recheck), with a
     short reason for the reviewer. Idempotent — only flips an unflagged row so a
     re-run doesn't overwrite a reason a human is already acting on. Returns True
-    if a row changed."""
+    if a row changed. *actor_id* is None for the automated CLI recheck."""
+    clean = (reason or "flagged by quality audit")[:500]
     result = await conn.execute(
         "UPDATE example_sentences SET flagged = true, flag_reason = $2 "
         "WHERE id = $1 AND flagged = false",
-        example_id, (reason or "flagged by quality audit")[:500],
+        example_id, clean,
     )
-    return result.rsplit(" ", 1)[-1] == "1"
+    changed = result.rsplit(" ", 1)[-1] == "1"
+    if changed:
+        lang = await conn.fetchval(
+            "SELECT language_id FROM example_sentences WHERE id = $1", example_id
+        )
+        await log_change(
+            conn, entity_type="example_sentence", entity_id=example_id,
+            actor_id=actor_id, action="flagged",
+            language_id=str(lang) if lang else None, note=clean,
+        )
+    return changed
 
 
 async def backfill_example_translation(
@@ -926,11 +967,17 @@ async def list_pending_drills(
 
 
 async def review_drill(
-    conn: asyncpg.Connection, drill_id: str, approve: bool
+    conn: asyncpg.Connection, drill_id: str, approve: bool,
+    actor_id: str | None = None,
 ) -> bool:
     """Approve (reviewed → true, now served to learners as permanent corpus) or
     reject (deleted) a pending generated drill. Only ever touches an unreviewed
     'ai' row. Returns True if a row changed."""
+    ctx = await conn.fetchrow(
+        "SELECT gp.language_id, ds.sentence FROM drill_sentences ds "
+        "JOIN grammar_points gp ON ds.grammar_point_id = gp.id WHERE ds.id = $1",
+        drill_id,
+    )
     if approve:
         result = await conn.execute(
             "UPDATE drill_sentences SET reviewed = true "
@@ -943,7 +990,15 @@ async def review_drill(
             "WHERE id = $1 AND source = 'ai' AND reviewed = false",
             drill_id,
         )
-    return result.rsplit(" ", 1)[-1] == "1"
+    changed = result.rsplit(" ", 1)[-1] == "1"
+    if changed and ctx:
+        await log_change(
+            conn, entity_type="drill", entity_id=drill_id, actor_id=actor_id,
+            action="approved" if approve else "rejected",
+            language_id=str(ctx["language_id"]),
+            note=None if approve else f"deleted: {ctx['sentence']}",
+        )
+    return changed
 
 
 async def vocab_needing_level(
@@ -1036,15 +1091,29 @@ async def ensure_vocab_content_list(
 
 
 async def confirm_vocab_level(
-    conn: asyncpg.Connection, vocabulary_id: str, level: str
+    conn: asyncpg.Connection, vocabulary_id: str, level: str,
+    actor_id: str | None = None,
 ) -> bool:
     """A reviewer confirms (or adjusts) a provisional AI level — marks it curated
     so it's trusted and no longer flagged. Also its final deck placement."""
+    prev = await conn.fetchrow(
+        "SELECT language_id, level, level_source FROM vocabulary WHERE id = $1",
+        vocabulary_id,
+    )
     result = await conn.execute(
         "UPDATE vocabulary SET level = $2, level_source = 'curated' WHERE id = $1",
         vocabulary_id, level,
     )
-    return result.rsplit(" ", 1)[-1] == "1"
+    changed = result.rsplit(" ", 1)[-1] == "1"
+    if changed and prev:
+        await log_change(
+            conn, entity_type="vocabulary", entity_id=vocabulary_id,
+            actor_id=actor_id, action="level_confirmed", field="level",
+            language_id=str(prev["language_id"]),
+            before={"level": prev["level"], "level_source": prev["level_source"]},
+            after={"level": level, "level_source": "curated"},
+        )
+    return changed
 
 
 async def vocab_needing_examples(
@@ -1184,6 +1253,12 @@ async def update_drill(
     learners see the change (nobody self-certifies an edit) — and stamps
     provenance (is_modified / modified_by / modified_at) so an edited row is
     always distinguishable from its imported or seed original."""
+    prev = await conn.fetchrow(
+        "SELECT ds.sentence, ds.answer, ds.translation, ds.hint, gp.language_id "
+        "FROM drill_sentences ds JOIN grammar_points gp "
+        "ON ds.grammar_point_id = gp.id WHERE ds.id = $1",
+        drill_id,
+    )
     result = await conn.execute(
         """
         UPDATE drill_sentences
@@ -1199,6 +1274,15 @@ async def update_drill(
     await conn.execute(
         "UPDATE grammar_points SET reviewed = false WHERE id = $1", point_id
     )
+    if prev:
+        await log_change(
+            conn, entity_type="drill", entity_id=drill_id, actor_id=modified_by,
+            action="edited", language_id=str(prev["language_id"]),
+            before={"sentence": prev["sentence"], "answer": prev["answer"],
+                    "translation": prev["translation"], "hint": prev["hint"]},
+            after={"sentence": sentence, "answer": answer,
+                   "translation": translation or None, "hint": hint or None},
+        )
     return True
 
 
@@ -1220,6 +1304,11 @@ async def save_explanation(
 ) -> bool:
     """Save a contributor explanation + references (privileged). Pending review."""
     refs = clean_references(references)
+    prev = await conn.fetchrow(
+        "SELECT language_id, explanation, culture_note, reference_links "
+        "FROM grammar_points WHERE id = $1",
+        point_id,
+    )
     result = await conn.execute(
         """
         UPDATE grammar_points
@@ -1234,7 +1323,26 @@ async def save_explanation(
         point_id, explanation, culture_note, submitted_by,
         json.dumps(refs, ensure_ascii=False),
     )
-    return result.endswith("1")
+    if not result.endswith("1"):
+        return False
+    if prev:
+        await log_change(
+            conn, entity_type="grammar_point", entity_id=point_id,
+            actor_id=submitted_by, action="edited", field="explanation",
+            language_id=str(prev["language_id"]),
+            before={"explanation": prev["explanation"],
+                    "culture_note": prev["culture_note"],
+                    "reference_links": _loads_json(prev["reference_links"])},
+            after={"explanation": explanation,
+                   "culture_note": culture_note or None,
+                   "reference_links": refs},
+        )
+    return True
+
+
+def _loads_json(v):
+    """asyncpg returns jsonb as a str; a NULL comes back as None."""
+    return json.loads(v) if isinstance(v, str) else v
 
 
 async def approve_explanation(
@@ -1245,6 +1353,9 @@ async def approve_explanation(
     Marks the point reviewed and stamps who/when — this is the required
     semantic check that gates whether learners ever see the content.
     """
+    lang = await conn.fetchval(
+        "SELECT language_id FROM grammar_points WHERE id = $1", point_id
+    )
     result = await conn.execute(
         """
         UPDATE grammar_points
@@ -1253,7 +1364,16 @@ async def approve_explanation(
         """,
         point_id, reviewer_id,
     )
-    return result.endswith("1")
+    if not result.endswith("1"):
+        return False
+    await log_change(
+        conn, entity_type="grammar_point", entity_id=point_id,
+        actor_id=reviewer_id, action="approved",
+        language_id=str(lang) if lang else None,
+        # A revert of an approval sends it back to pending review.
+        before={"reviewed": False}, after={"reviewed": True},
+    )
+    return True
 
 
 async def list_feedback(
