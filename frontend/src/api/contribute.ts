@@ -36,6 +36,7 @@ export async function getGrammarForLanguage(
   points: GrammarPointEdit[]
   is_admin: boolean
   can_review: boolean
+  can_trial_review?: boolean
   can_contribute: boolean
   review_policy: string
   tutor_model?: string | null
@@ -266,7 +267,11 @@ export async function getEngagement(days = 30): Promise<Engagement> {
   return response.data
 }
 
-export type GrantableRole = 'contributor' | 'reviewer' | 'admin'
+export type GrantableRole =
+  | 'contributor'
+  | 'trial_reviewer'
+  | 'reviewer'
+  | 'admin'
 
 export interface RoleGrantRow {
   user_id: string
@@ -716,6 +721,13 @@ export async function reviewExample(
 
 // ── Generated-drill review gate (Contributor › Review) ─────────────────────
 
+/** Advisory-recommendation tally left by trial reviewers on a pending item. */
+export interface RecoTally {
+  approve: number
+  reject: number
+  notes: string[]
+}
+
 export interface PendingDrill {
   id: string
   sentence: string
@@ -726,16 +738,25 @@ export interface PendingDrill {
   origin_detail: string | null
   point_title: string
   point_id: string
+  recommendations?: RecoTally | null
+}
+
+export interface PendingDrillsResult {
+  pending: PendingDrill[]
+  /** True for full reviewers/admins (can publish); false for trial reviewers. */
+  can_publish: boolean
 }
 
 /** Generated grammar drills awaiting review for a language — hidden from
  * learners until approved. */
-export async function getPendingDrills(languageId: string): Promise<PendingDrill[]> {
-  const response = await apiClient.get<{ pending: PendingDrill[] }>(
+export async function getPendingDrills(
+  languageId: string,
+): Promise<PendingDrillsResult> {
+  const response = await apiClient.get<PendingDrillsResult>(
     '/api/contribute/review/generated-drills',
     { params: { language_id: languageId } },
   )
-  return response.data.pending
+  return response.data
 }
 
 /** Approve (→ permanent corpus) or reject (→ deleted) a pending generated drill. */
@@ -746,6 +767,40 @@ export async function reviewDrill(drillId: string, approve: boolean): Promise<vo
   )
 }
 
+/** Trial reviewer's advisory approve/reject on a pending drill or example. */
+export async function recommend(
+  targetType: 'drill' | 'example',
+  targetId: string,
+  recommendation: 'approve' | 'reject',
+  note = '',
+): Promise<void> {
+  await apiClient.post('/api/contribute/review/recommend', {
+    target_type: targetType,
+    target_id: targetId,
+    recommendation,
+    note,
+  })
+}
+
+export interface TrialReviewer {
+  user_id: string
+  email: string
+  recommendations: number
+  edits: number
+  last_active: string | null
+}
+
+/** Trial reviewers for a language + their activity (admin). */
+export async function getTrialReviewers(
+  languageId: string,
+): Promise<TrialReviewer[]> {
+  const response = await apiClient.get<{ reviewers: TrialReviewer[] }>(
+    '/api/contribute/review/trial-reviewers',
+    { params: { language_id: languageId } },
+  )
+  return response.data.reviewers
+}
+
 export interface VocabExample {
   id: string
   sentence: string
@@ -753,16 +808,22 @@ export interface VocabExample {
   source: string
   reviewed: boolean
   is_modified: boolean
+  recommendations?: RecoTally | null
+}
+
+export interface VocabExamplesResult {
+  examples: VocabExample[]
+  can_publish: boolean
 }
 
 /** Every example sentence for a word — for the reviewer's inline editor. */
 export async function getVocabExamples(
   vocabularyId: string,
-): Promise<VocabExample[]> {
-  const response = await apiClient.get<{ examples: VocabExample[] }>(
+): Promise<VocabExamplesResult> {
+  const response = await apiClient.get<VocabExamplesResult>(
     `/api/contribute/review/vocab/${vocabularyId}/examples`,
   )
-  return response.data.examples
+  return response.data
 }
 
 /** Reviewer edit of an example sentence's text/translation. */

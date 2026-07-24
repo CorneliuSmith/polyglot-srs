@@ -185,6 +185,8 @@ async def grammar_for_language(
         "points": points,
         "is_admin": is_admin(roles),
         "can_review": can_review(roles, language_id),
+        # Trial reviewers can open the queue and recommend, but not publish.
+        "can_trial_review": can_trial_review(roles, language_id),
         # Contributors have all reviewer permissions on the change-request
         # board (raise + vote); only admins accept/reject.
         "can_contribute": can_contribute(roles, language_id),

@@ -31,12 +31,12 @@ describe('ExamplesEditor', () => {
   beforeEach(() => vi.clearAllMocks())
 
   it('shows the sentences and a pending badge for unreviewed ones', async () => {
-    mockGet.mockResolvedValue([
+    mockGet.mockResolvedValue({ can_publish: true, examples: [
       { id: 'e1', sentence: 'De hond blaft.', translation: 'The dog barks.',
         source: 'human', reviewed: true, is_modified: false },
       { id: 'e2', sentence: 'Een nieuwe zin.', translation: null,
         source: 'ai', reviewed: false, is_modified: false },
-    ])
+    ] })
     renderEditor()
     expect(await screen.findByText('De hond blaft.')).toBeDefined()
     expect(screen.getByText('Een nieuwe zin.')).toBeDefined()
@@ -44,10 +44,10 @@ describe('ExamplesEditor', () => {
   })
 
   it('lets a reviewer edit a sentence inline', async () => {
-    mockGet.mockResolvedValue([
+    mockGet.mockResolvedValue({ can_publish: true, examples: [
       { id: 'e1', sentence: 'De hond blaft.', translation: 'The dog barks.',
         source: 'human', reviewed: true, is_modified: false },
-    ])
+    ] })
     renderEditor()
     await screen.findByText('De hond blaft.')
     fireEvent.click(screen.getByRole('button', { name: /edit/i }))
@@ -60,7 +60,7 @@ describe('ExamplesEditor', () => {
   })
 
   it('shows an empty message when the word has no examples', async () => {
-    mockGet.mockResolvedValue([])
+    mockGet.mockResolvedValue({ can_publish: true, examples: [] })
     renderEditor()
     expect(await screen.findByText(/no example sentences yet/i)).toBeDefined()
   })
