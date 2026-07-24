@@ -56,6 +56,7 @@ Roles live in `contributor_roles` (user, role, optional `language_id` scope;
 | Draft explanations, create points, add/delete drills | | ✅ | | ✅ | ✅ |
 | **View** the review queue / Review Inbox | | | ✅ | ✅ | ✅ |
 | **Recommend** (advisory ✓/✗) on pending items | | | ✅ | ✅ | ✅ |
+| **File a review note** on a card (advisory) | | ✅ | ✅ | ✅ | ✅ |
 | **Approve** → flips `reviewed = true`, exposes to learners | | | | ✅ | ✅ |
 | Edit / delete published content | | | | ✅ | ✅ |
 | **Roll back** a logged change | | | | ✅ | ✅ |
@@ -74,9 +75,11 @@ exactly:
   trial reviewers for that language. Grants *view + recommend*, never
   publish.
 
-A **trial reviewer** is the on-ramp: they see everything a reviewer sees and
-leave advisory recommendations, but they cannot publish or delete. Promote a
-trial reviewer to reviewer once you trust their judgement. Grant either role
+A **trial reviewer** is the on-ramp: they reach the Review workspace, see
+everything a reviewer sees, leave advisory ✓/✗ recommendations, and **file
+written review notes** on a card — but they cannot publish or delete.
+(Notes are exactly where their judgement shows, which is what you promote
+on.) Promote a trial reviewer to reviewer once you trust that judgement. Grant either role
 from **Contribute → Roles** (admins) or **Manage accounts** (both panels
 offer `trial_reviewer` and `reviewer`).
 

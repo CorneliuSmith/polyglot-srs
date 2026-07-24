@@ -73,7 +73,7 @@ never need a grant.
 |---|---|---|
 | *(learner)* | — | study: reviews, learn, notes, tutor, feedback |
 | `contributor` | one language or all (`language_id NULL`) | draft grammar explanations, create points, add/delete NLP-validated drills, see learner feedback. Drafts stay invisible to learners. |
-| `trial_reviewer` | one language or all | **view** the review queue / Review Inbox and leave **advisory** ✓/✗ recommendations — the on-ramp to reviewer. Cannot publish, edit, or delete. |
+| `trial_reviewer` | one language or all | reach the Review workspace, **view** the review queue / Review Inbox, leave **advisory** ✓/✗ recommendations, and **file written review notes** on a card — the on-ramp to reviewer. Cannot publish, edit, or delete. |
 | `reviewer` | one language or all | everything a contributor can, **plus approve** — the human sign-off that flips `reviewed = true` and exposes content to learners (`reviewed_by` records who). Also edits/deletes published content and **rolls back** logged changes. |
 | `admin` | global | everything: approve anywhere, grant/revoke roles, set per-language review policy (`strict` / `ai_ok`), run generation, view the per-language audit feed, admin panels |
 

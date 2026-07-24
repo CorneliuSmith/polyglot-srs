@@ -164,6 +164,31 @@ describe('ContributorPage', () => {
     })
   })
 
+  it('gives a pure trial reviewer the Review surface (no Contribute tab) and lets them file a note', async () => {
+    mockGetGrammar.mockResolvedValue({
+      is_admin: false, can_review: false, can_contribute: false,
+      can_trial_review: true, points: [basePoint], review_policy: 'strict',
+    })
+    mockFlag.mockResolvedValue(undefined)
+    renderPage()
+
+    // Not forbidden — the point loads for a trial reviewer.
+    expect(await screen.findByText('Locative case')).toBeDefined()
+    // No Contribute tab (nothing to draft); the Review tab is present.
+    expect(screen.queryByRole('tab', { name: 'Contribute' })).toBeNull()
+    expect(screen.getByRole('tab', { name: 'Review' })).toBeDefined()
+
+    // They can file an advisory review note.
+    fireEvent.click(screen.getByRole('button', { name: /flag an issue/i }))
+    fireEvent.change(screen.getByLabelText(/issue description/i), {
+      target: { value: 'This drill reads oddly' },
+    })
+    fireEvent.click(screen.getByRole('button', { name: /file issue/i }))
+    await waitFor(() =>
+      expect(mockFlag).toHaveBeenCalledWith('p1', 'This drill reads oddly'),
+    )
+  })
+
   it('admin sets a per-language tutor model', async () => {
     const { setLanguageTutorModel } = await import('../api/contribute')
     const mockSetModel = setLanguageTutorModel as ReturnType<typeof vi.fn>

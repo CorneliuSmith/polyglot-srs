@@ -181,13 +181,15 @@ async def grammar_for_language(
     language_id: str,
     user: dict = Depends(get_current_user),
 ):
-    """List a language's grammar points for editing (role-gated)."""
+    """List a language's grammar points for editing/review (role-gated).
+    Trial reviewers can load it too — they review the queue and file notes;
+    the returned can_* flags scope what the UI lets them actually do."""
     async with rls_connection(user["id"]) as conn:
         roles = await get_roles(conn, user["id"])
-        if not can_contribute(roles, language_id):
+        if not (can_contribute(roles, language_id) or can_trial_review(roles, language_id)):
             raise HTTPException(
                 status_code=status.HTTP_403_FORBIDDEN,
-                detail="You don't have a contributor role for this language",
+                detail="You need a contributor, trial-reviewer, or reviewer role for this language",
             )
         points = await list_grammar_points(conn, language_id)
         policy = await get_language_policy(conn, language_id)
@@ -1352,16 +1354,18 @@ async def flag_point_issue(
     user: dict = Depends(get_current_user),
 ):
     """File a reviewer note against a point — the middle ground between
-    fixing it yourself and silently not approving."""
+    fixing it yourself and silently not approving. Open to trial reviewers too:
+    a written note is exactly where their judgement shows, and it publishes
+    nothing."""
     async with rls_connection(user["id"]) as conn:
         roles = await get_roles(conn, user["id"])
         language_id = await get_point_language(conn, point_id)
     if language_id is None:
         raise HTTPException(status_code=404, detail="Grammar point not found")
-    if not can_contribute(roles, language_id):
+    if not (can_trial_review(roles, language_id) or can_contribute(roles, language_id)):
         raise HTTPException(
             status_code=status.HTTP_403_FORBIDDEN,
-            detail="You don't have a contributor role for this language",
+            detail="You need a contributor, trial-reviewer, or reviewer role for this language",
         )
     async with privileged_connection() as conn:
         note_id = await add_review_note(conn, point_id, user["id"], body.note.strip())
@@ -1374,13 +1378,14 @@ async def review_notes(
     include_resolved: bool = False,
     user: dict = Depends(get_current_user),
 ):
-    """List reviewer notes for a language (role-gated)."""
+    """List reviewer notes for a language (role-gated). Trial reviewers can
+    read them too, since they can now file them."""
     async with rls_connection(user["id"]) as conn:
         roles = await get_roles(conn, user["id"])
-    if not can_contribute(roles, language_id):
+    if not (can_trial_review(roles, language_id) or can_contribute(roles, language_id)):
         raise HTTPException(
             status_code=status.HTTP_403_FORBIDDEN,
-            detail="You don't have a contributor role for this language",
+            detail="You need a contributor, trial-reviewer, or reviewer role for this language",
         )
     async with privileged_connection() as conn:
         notes = await list_review_notes(
