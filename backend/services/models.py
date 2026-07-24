@@ -30,6 +30,9 @@ TASK_MODELS: dict[str, str] = {
     "tutor_summary": "tutor_summary_model",
     "semantic_check": "tutor_summary_model",
     "translate": "tutor_summary_model",
+    # Weekly immersion recommendations: reasoning + real-world knowledge matter,
+    # so it rides the stronger chat model.
+    "recommend": "tutor_model",
     "grammar_maker": "tutor_model",
     "grammar_checker": "tutor_model_low_resource",
     "sentence_maker": "tutor_model",
