@@ -6,7 +6,10 @@ from backend.repositories.contributor import (
     add_example_sentence,
     delete_example_sentence,
     edit_example_sentence,
+    flag_example_sentence,
+    list_pending_examples,
     list_vocab_examples,
+    review_examples_bulk,
 )
 
 from .conftest import requires_db
@@ -75,3 +78,38 @@ async def test_list_edit_delete_example(pool):
         assert await list_vocab_examples(conn, vocab) == []
         # Deleting again is a no-op.
         assert await delete_example_sentence(conn, eid) is False
+
+
+async def test_bulk_review_examples(pool):
+    lang = await _language(pool, "blk")
+    vocab = await _vocab(pool, lang, "kat")
+
+    async with pool.privileged_connection() as conn:
+        # Three AI (pending) + one human (already live).
+        ok1 = await add_example_sentence(conn, vocab, lang, "AI een.", "one", source="ai")
+        ok2 = await add_example_sentence(conn, vocab, lang, "AI twee.", "two", source="ai")
+        flagged = await add_example_sentence(
+            conn, vocab, lang, "AI drie.", "three", source="ai"
+        )
+        await add_example_sentence(conn, vocab, lang, "Mens vier.", "four", source="human")
+        await flag_example_sentence(conn, flagged, "too simple")
+
+        # Bulk approve skips the flagged one.
+        changed = await review_examples_bulk(conn, lang, approve=True)
+        assert changed == 2
+        pending = await list_pending_examples(conn, lang)
+        assert [p["id"] for p in pending] == [flagged]  # only the flagged one remains
+
+        # The two approved are now live; the human one was never pending.
+        live = await conn.fetchval(
+            "SELECT count(*) FROM example_sentences "
+            "WHERE vocabulary_id = $1 AND reviewed = true",
+            vocab,
+        )
+        assert live == 3  # ok1, ok2, human
+        assert {ok1, ok2}  # (ids exist)
+
+        # Bulk reject clears whatever pending remains (the flagged one).
+        removed = await review_examples_bulk(conn, lang, approve=False)
+        assert removed == 1
+        assert await list_pending_examples(conn, lang) == []

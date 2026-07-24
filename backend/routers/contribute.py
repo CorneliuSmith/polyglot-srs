@@ -80,6 +80,7 @@ from backend.repositories.contributor import (
     resolve_translation_review,
     review_drill,
     review_example,
+    review_examples_bulk,
     revoke_role,
     save_ai_check,
     save_explanation,
@@ -480,6 +481,29 @@ async def generation_review_example(
             detail="No pending generated example with that id.",
         )
     return {"approved": body.approve}
+
+
+class BulkExampleReviewRequest(BaseModel):
+    language_id: str
+    approve: bool
+    # When approving, skip any sentence a recheck has flagged as bad.
+    only_unflagged: bool = True
+
+
+@router.post("/admin/generation/examples/bulk-review")
+async def generation_bulk_review_examples(
+    body: BulkExampleReviewRequest,
+    user: dict = Depends(get_current_user),
+):
+    """Approve or reject EVERY pending generated example for a language at once
+    (admin-only). Clears the review queue without dropping the human gate.
+    Returns how many rows changed."""
+    await _require_admin(user["id"])
+    async with privileged_connection() as conn:
+        changed = await review_examples_bulk(
+            conn, body.language_id, body.approve, body.only_unflagged
+        )
+    return {"approved": body.approve, "changed": changed}
 
 
 # ---------------------------------------------------------------------------

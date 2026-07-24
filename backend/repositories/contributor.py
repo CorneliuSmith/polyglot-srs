@@ -569,6 +569,40 @@ async def review_example(
     return result.rsplit(" ", 1)[-1] == "1"
 
 
+async def review_examples_bulk(
+    conn: asyncpg.Connection,
+    language_id: str,
+    approve: bool,
+    only_unflagged: bool = True,
+) -> int:
+    """Approve or reject EVERY pending ('ai', reviewed=false) example for a
+    language in one shot — the queue-clearing action. Only ever touches
+    unreviewed 'ai' rows, so seed/human content is untouched. When approving,
+    *only_unflagged* skips any row a recheck has flagged (don't bulk-publish a
+    known-bad one). Returns the number of rows changed."""
+    flag_clause = " AND es.flagged = false" if (only_unflagged and approve) else ""
+    if approve:
+        result = await conn.execute(
+            f"""
+            UPDATE example_sentences es SET reviewed = true
+            FROM vocabulary v
+            WHERE es.vocabulary_id = v.id AND v.language_id = $1
+              AND es.source = 'ai' AND es.reviewed = false{flag_clause}
+            """,
+            language_id,
+        )
+    else:
+        result = await conn.execute(
+            """
+            DELETE FROM example_sentences es USING vocabulary v
+            WHERE es.vocabulary_id = v.id AND v.language_id = $1
+              AND es.source = 'ai' AND es.reviewed = false
+            """,
+            language_id,
+        )
+    return int(result.rsplit(" ", 1)[-1])
+
+
 async def list_vocab_examples(
     conn: asyncpg.Connection, vocabulary_id: str
 ) -> list[dict]:

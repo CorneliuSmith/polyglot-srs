@@ -4,6 +4,7 @@ import {
   getGenerationCoverage,
   getPendingExamples,
   reviewExample,
+  reviewExamplesBulk,
   runGeneration,
   type GenerationDryRun,
   type GenerationResult,
@@ -79,6 +80,14 @@ export default function GenerationPanel() {
   const reviewMutation = useMutation({
     mutationFn: ({ id, approve }: { id: string; approve: boolean }) =>
       reviewExample(id, approve),
+    onSuccess: () => {
+      qc.invalidateQueries({ queryKey: ['generation-pending', selectedId] })
+      qc.invalidateQueries({ queryKey: ['generation-coverage'] })
+    },
+  })
+
+  const bulkMutation = useMutation({
+    mutationFn: (approve: boolean) => reviewExamplesBulk(selectedId, approve),
     onSuccess: () => {
       qc.invalidateQueries({ queryKey: ['generation-pending', selectedId] })
       qc.invalidateQueries({ queryKey: ['generation-coverage'] })
@@ -321,9 +330,45 @@ export default function GenerationPanel() {
           admin approves them here. Reject deletes. */}
       {selected && pending && pending.length > 0 && (
         <div className="rounded-xl border border-amber-200 bg-amber-50/50 p-3 space-y-2">
-          <div className="text-xs font-medium text-amber-800">
-            {pending.length} generated example{pending.length === 1 ? '' : 's'}{' '}
-            awaiting review — hidden from learners until you approve.
+          <div className="flex items-start justify-between gap-2">
+            <div className="text-xs font-medium text-amber-800">
+              {pending.length} generated example{pending.length === 1 ? '' : 's'}{' '}
+              awaiting review — hidden from learners until you approve.
+            </div>
+            <div className="flex shrink-0 gap-1">
+              <button
+                type="button"
+                onClick={() => {
+                  if (
+                    window.confirm(
+                      `Approve all pending ${selected.language_name} examples? ` +
+                        'Flagged ones are skipped. They go live to learners.',
+                    )
+                  )
+                    bulkMutation.mutate(true)
+                }}
+                disabled={bulkMutation.isPending}
+                className="rounded-md bg-green-600 text-white px-2 py-1 text-[11px] font-medium hover:bg-green-700 disabled:opacity-40"
+              >
+                Approve all
+              </button>
+              <button
+                type="button"
+                onClick={() => {
+                  if (
+                    window.confirm(
+                      `Reject (delete) all ${pending.length} pending ` +
+                        `${selected.language_name} examples? This cannot be undone.`,
+                    )
+                  )
+                    bulkMutation.mutate(false)
+                }}
+                disabled={bulkMutation.isPending}
+                className="rounded-md border border-gray-200 text-gray-600 px-2 py-1 text-[11px] hover:bg-gray-50 disabled:opacity-40"
+              >
+                Reject all
+              </button>
+            </div>
           </div>
           <ul className="space-y-1.5">
             {pending.map((p) => (
