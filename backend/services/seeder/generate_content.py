@@ -24,6 +24,11 @@ Usage:
 
   # Fill each thin grammar cell to 2 drills (up to 100 points):
   python -m backend.services.seeder.generate_content -l en -k grammar --target 2 --max 100
+
+  # Quality-audit EXISTING English sentences: an LLM judge flags bad ones for
+  # review, backfills missing translations, and tops each word back up to 3
+  # good sentences with fresh alternatives (up to 100 words):
+  python -m backend.services.seeder.generate_content -l en -k vocab --recheck --target 3 --max 100
 """
 from __future__ import annotations
 
@@ -40,7 +45,12 @@ from backend.repositories.contributor import (
 )
 from backend.repositories.pool import close_pool, init_pool, privileged_connection
 from backend.services.generate import generation_available
-from backend.services.generation_admin import plan_run, run_generation
+from backend.services.generation_admin import (
+    plan_recheck,
+    plan_run,
+    recheck_examples,
+    run_generation,
+)
 from backend.services.level_estimate import estimate_levels
 
 logger = logging.getLogger("generate_content")
@@ -83,6 +93,40 @@ async def _run_levels(conn, lang, args) -> None:
     )
 
 
+async def _run_recheck(conn, lang, args) -> None:
+    """Quality-audit EXISTING example sentences: an LLM judge flags bad ones for
+    reviewers, missing translations are backfilled, and each word is topped back
+    up to --target with fresh alternatives (source='ai', pending review)."""
+    lang_id = str(lang["id"])
+    if args.dry_run:
+        plan = await plan_recheck(
+            conn, language_id=lang_id, language_code=lang["code"],
+            max_items=args.max,
+        )
+        plan.pop("_items", None)
+        print(json.dumps({"dry_run": True, **plan}, indent=2, default=str))
+        return
+    if not generation_available():
+        print("ERROR: real recheck needs ANTHROPIC_API_KEY (or TUTOR_DEV_MOCK=1).")
+        return
+    print(
+        f"Rechecking {lang['name']} example sentences "
+        f"(target {args.target} good per word, up to {args.max} words)…"
+    )
+    result = await recheck_examples(
+        conn, language_id=lang_id, language_code=lang["code"],
+        language_name=lang["name"], target_per_item=args.target,
+        max_items=args.max,
+    )
+    print(json.dumps({"dry_run": False, **result}, indent=2, default=str))
+    print(
+        "\nFlagged sentences (weak or too simple) are marked for reviewers "
+        "(Contributor › Review) — not deleted. Weak translations get a suggested "
+        "replacement to accept/dismiss. New alternatives are pending review "
+        "(source='ai')."
+    )
+
+
 async def _run(args: argparse.Namespace) -> None:
     async with privileged_connection() as conn:
         lang = await conn.fetchrow(
@@ -95,6 +139,10 @@ async def _run(args: argparse.Namespace) -> None:
 
         if args.kind == "levels":
             await _run_levels(conn, lang, args)
+            return
+
+        if args.recheck:
+            await _run_recheck(conn, lang, args)
             return
 
         if args.dry_run:
@@ -147,10 +195,18 @@ async def main() -> None:
         help="maximum gap items to touch in this run",
     )
     parser.add_argument(
+        "--recheck", action="store_true",
+        help="vocab only: LLM-audit EXISTING sentences, flag bad ones for "
+        "review, backfill missing translations, top each word back up to "
+        "--target with fresh alternatives",
+    )
+    parser.add_argument(
         "--dry-run", action="store_true",
         help="resolve the work-list and cost estimate only; no model call",
     )
     args = parser.parse_args()
+    if args.recheck and args.kind != "vocab":
+        parser.error("--recheck applies to -k vocab only")
     logging.basicConfig(level=logging.INFO, format="%(name)s | %(message)s")
 
     settings = get_settings()

@@ -24,6 +24,7 @@ from backend.repositories.change_requests import (
     resolve_request,
 )
 from backend.repositories.contributor import (
+    accept_example_translation,
     add_drill,
     add_recommendation,
     add_review_note,
@@ -43,6 +44,7 @@ from backend.repositories.contributor import (
     delete_account,
     delete_drill,
     delete_example_sentence,
+    dismiss_example_translation,
     edit_example_sentence,
     entity_language,
     find_user_by_email,
@@ -634,6 +636,34 @@ async def delete_review_example(
     await _require_example_role(user["id"], example_id, publish=True)
     async with privileged_connection() as conn:
         changed = await delete_example_sentence(conn, example_id)
+    return {"ok": changed}
+
+
+@router.post("/review/examples/{example_id}/translation/accept")
+async def accept_example_translation_suggestion(
+    example_id: str, user: dict = Depends(get_current_user)
+):
+    """Apply the audit's suggested translation to the live one (full reviewer)."""
+    await _require_example_role(user["id"], example_id, publish=True)
+    async with privileged_connection() as conn:
+        changed = await accept_example_translation(conn, example_id, user["id"])
+    if not changed:
+        raise HTTPException(
+            status_code=status.HTTP_404_NOT_FOUND,
+            detail="No pending translation suggestion.",
+        )
+    return {"ok": True}
+
+
+@router.post("/review/examples/{example_id}/translation/dismiss")
+async def dismiss_example_translation_suggestion(
+    example_id: str, user: dict = Depends(get_current_user)
+):
+    """Discard the audit's suggested translation, keeping the current one
+    (full reviewer)."""
+    await _require_example_role(user["id"], example_id, publish=True)
+    async with privileged_connection() as conn:
+        changed = await dismiss_example_translation(conn, example_id)
     return {"ok": changed}
 
 

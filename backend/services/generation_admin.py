@@ -24,10 +24,18 @@ import asyncpg
 from backend.repositories.contributor import (
     add_drill,
     add_example_sentence,
+    backfill_example_translation,
+    flag_example_sentence,
     points_with_thin_cells,
+    suggest_example_translation,
     vocab_needing_examples,
+    vocab_with_examples,
 )
-from backend.services.generate import generate_drills, generate_examples
+from backend.services.generate import (
+    audit_examples,
+    generate_drills,
+    generate_examples,
+)
 from backend.services.models import resolve_model
 from backend.services.tutor_costs import estimate_cost_usd
 
@@ -187,5 +195,128 @@ async def run_generation(
         "sentences_accepted": accepted,
         "sentences_persisted": persisted,
         "duplicates_skipped": accepted - persisted,
+        "est_cost_usd": plan["est_cost_usd"],
+    }
+
+
+async def plan_recheck(
+    conn: asyncpg.Connection,
+    *,
+    language_id: str,
+    language_code: str,
+    max_items: int,
+) -> dict:
+    """Resolve the recheck work-list + a cost estimate WITHOUT calling the model.
+    The audit is one judge call per word (all its sentences at once)."""
+    max_items = _clamp(max_items, 1, MAX_ITEMS_PER_RUN)
+    items = await vocab_with_examples(conn, language_id, max_items)
+    model = resolve_model("sentence_checker", language_code)
+    sentences = sum(len(w["examples"]) for w in items)
+    est_cost = estimate_cost_usd(
+        model,
+        input_tokens=_EST_INPUT_TOKENS_PER_ITEM * len(items),
+        output_tokens=_EST_OUTPUT_TOKENS_PER_SENTENCE * sentences,
+    )
+    return {
+        "kind": "recheck",
+        "model": model,
+        "words_to_audit": len(items),
+        "sentences_to_audit": sentences,
+        "est_cost_usd": est_cost,
+        "_items": items,
+    }
+
+
+async def recheck_examples(
+    conn: asyncpg.Connection,
+    *,
+    language_id: str,
+    language_code: str,
+    language_name: str,
+    target_per_item: int,
+    max_items: int,
+) -> dict:
+    """Audit EXISTING example sentences and heal each word back to target.
+
+    For every word with examples: run the LLM judge over its current sentences;
+    FLAG the ones it rejects (left for a human), BACKFILL a missing translation
+    on the ones it keeps, then draft fresh alternatives (maker→checker) so the
+    word still has *target* good sentences. New alternatives land reviewed=false.
+    Idempotent: flagged rows are excluded from the audited set on a re-run, and
+    alternative inserts dedupe on the sentence text.
+    """
+    target = _clamp(target_per_item, 1, MAX_PER_ITEM)
+    plan = await plan_recheck(
+        conn, language_id=language_id, language_code=language_code,
+        max_items=max_items,
+    )
+    items = plan.pop("_items")
+    audit_model = plan["model"]
+    maker_model = resolve_model("sentence_maker", language_code)
+
+    words_audited = flagged = backfilled = suggested = alternatives = 0
+    for word in items:
+        sentences = word["examples"]
+        if not sentences:
+            continue
+        words_audited += 1
+        verdicts = await audit_examples(
+            word, sentences, language_name, language_code,
+            model=audit_model, level=word.get("level"),
+        )
+        good = 0
+        for sent, verdict in zip(sentences, verdicts):
+            if not verdict["ok"]:
+                if await flag_example_sentence(conn, sent["id"], verdict["reason"]):
+                    flagged += 1
+                continue
+            good += 1
+            existing = (sent["translation"] or "").strip()
+            if not existing:
+                # Missing translation → fill in place (nothing to overwrite).
+                if verdict["translation"] and await backfill_example_translation(
+                    conn, sent["id"], verdict["translation"]
+                ):
+                    backfilled += 1
+            elif (
+                not verdict["translation_ok"]
+                and verdict["translation"]
+                and verdict["translation"] != existing
+            ):
+                # Present but weak → propose a replacement for reviewer sign-off,
+                # never overwrite a possibly human-authored translation.
+                if await suggest_example_translation(
+                    conn, sent["id"], verdict["translation"],
+                    verdict["reason"] or "translation could be clearer or more useful",
+                ):
+                    suggested += 1
+
+        # Heal back to target with fresh, verified alternatives.
+        need = max(0, target - good)
+        if need:
+            passed = await generate_examples(
+                word, need, language_name, language_code, maker_model=maker_model
+            )
+            for cand in passed:
+                row_id = await add_example_sentence(
+                    conn, word["vocabulary_id"], language_id,
+                    cand["sentence"], cand.get("translation"),
+                    source="ai", origin_detail=maker_model,
+                )
+                if row_id:
+                    alternatives += 1
+
+    return {
+        "kind": "recheck",
+        "language_code": language_code,
+        "language_name": language_name,
+        "model": audit_model,
+        "target_per_item": target,
+        "words_audited": words_audited,
+        "sentences_audited": plan["sentences_to_audit"],
+        "sentences_flagged": flagged,
+        "translations_backfilled": backfilled,
+        "translations_suggested": suggested,
+        "alternatives_generated": alternatives,
         "est_cost_usd": plan["est_cost_usd"],
     }

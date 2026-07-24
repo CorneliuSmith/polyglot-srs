@@ -4,6 +4,8 @@ import {
   getVocabExamples,
   editExampleSentence,
   deleteExampleSentence,
+  acceptExampleTranslation,
+  dismissExampleTranslation,
   recommend,
   type VocabExample,
 } from '../../api/contribute'
@@ -40,6 +42,14 @@ function ExampleRow({
   const rec = useMutation({
     mutationFn: (approve: boolean) =>
       recommend('example', ex.id, approve ? 'approve' : 'reject'),
+    onSuccess: onChanged,
+  })
+  const acceptTr = useMutation({
+    mutationFn: () => acceptExampleTranslation(ex.id),
+    onSuccess: onChanged,
+  })
+  const dismissTr = useMutation({
+    mutationFn: () => dismissExampleTranslation(ex.id),
     onSuccess: onChanged,
   })
 
@@ -96,6 +106,11 @@ function ExampleRow({
           <span className="block text-xs text-gray-500">{ex.translation}</span>
         )}
         <span className="mt-0.5 flex items-center gap-1.5 text-[10px] uppercase tracking-wide">
+          {ex.flagged && (
+            <span className="rounded bg-red-50 text-red-600 px-1.5 py-0.5">
+              flagged
+            </span>
+          )}
           {!ex.reviewed && (
             <span className="rounded bg-amber-50 text-amber-600 px-1.5 py-0.5">
               pending review
@@ -108,6 +123,45 @@ function ExampleRow({
           )}
           <span className="text-gray-400">{ex.source}</span>
         </span>
+        {ex.flagged && ex.flag_reason && (
+          <span className="mt-0.5 block text-xs text-red-500">
+            ⚠ {ex.flag_reason} — edit to fix, or delete.
+          </span>
+        )}
+        {ex.suggested_translation && (
+          <div className="mt-1 rounded-lg bg-indigo-50 border border-indigo-100 px-2 py-1.5 text-xs">
+            <span className="block text-indigo-700">
+              Suggested translation: <span className="font-medium">{ex.suggested_translation}</span>
+            </span>
+            {ex.suggestion_reason && (
+              <span className="block text-indigo-400">{ex.suggestion_reason}</span>
+            )}
+            <div className="mt-1 flex items-center gap-3">
+              {canPublish ? (
+                <>
+                  <button
+                    type="button"
+                    onClick={() => acceptTr.mutate()}
+                    disabled={acceptTr.isPending}
+                    className="text-indigo-700 font-semibold hover:underline"
+                  >
+                    Accept
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => dismissTr.mutate()}
+                    disabled={dismissTr.isPending}
+                    className="text-gray-500 hover:text-gray-700"
+                  >
+                    Dismiss
+                  </button>
+                </>
+              ) : (
+                <span className="text-indigo-400">Awaiting a reviewer.</span>
+              )}
+            </div>
+          </div>
+        )}
         <RecoSummary tally={ex.recommendations} />
       </div>
       <div className="flex items-center gap-2 shrink-0 text-xs">
