@@ -36,6 +36,12 @@ python -m backend.services.seeder.seed_alphabet  --language {code} --db-url "$DA
 The Gym reads `data/gym/{code}.json` at request time (no seeding step). `ERRORS.extracted.md`
 is a **review artifact**, not seeded — a human folds it into the tutor's `ERRORS.md`.
 
+Because these seeders **upsert by natural key**, re-running them is idempotent —
+loading the same file twice updates in place rather than duplicating. The
+extractor leans on that: it keeps an audit trail of every extraction run and can
+re-emit these exact files and re-run the seeders at any time (`extra-agent-repush`),
+so recovering from an interrupted seed or a reset checkout needs no re-extraction.
+
 ## The contract the extractor mirrors
 
 The interchange model deliberately reuses *our* controlled values, so a document
