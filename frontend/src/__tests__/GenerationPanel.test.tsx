@@ -9,6 +9,7 @@ vi.mock('../api/contribute', async (orig) => ({
   runGeneration: vi.fn(),
   getPendingExamples: vi.fn(),
   reviewExample: vi.fn(),
+  reviewExamplesBulk: vi.fn(),
 }))
 
 import {
@@ -16,6 +17,7 @@ import {
   runGeneration,
   getPendingExamples,
   reviewExample,
+  reviewExamplesBulk,
 } from '../api/contribute'
 const mockCoverage = getGenerationCoverage as ReturnType<typeof vi.fn>
 const mockRun = runGeneration as ReturnType<typeof vi.fn>
@@ -125,8 +127,25 @@ describe('GenerationPanel', () => {
     await screen.findByText(/content generation/i)
     expect(await screen.findByText(/awaiting review/i)).toBeDefined()
     expect(screen.getByText(/Mbwa anakimbia/)).toBeDefined()
-    fireEvent.click(screen.getByRole('button', { name: /approve/i }))
+    // Exact "Approve" — the per-row button, not the "Approve all" bulk action.
+    fireEvent.click(screen.getByRole('button', { name: /^approve$/i }))
     await waitFor(() => expect(mockReview).toHaveBeenCalledWith('ex-1', true))
+  })
+
+  it('bulk-approves all pending examples for the language', async () => {
+    vi.spyOn(window, 'confirm').mockReturnValue(true)
+    mockPending.mockResolvedValue([
+      {
+        id: 'ex-1', sentence: 'Mbwa anakimbia.', translation: 'The dog runs.',
+        origin_detail: 'm', word: 'mbwa', vocabulary_id: 'v-1',
+      },
+    ])
+    const bulk = reviewExamplesBulk as ReturnType<typeof vi.fn>
+    bulk.mockResolvedValue(1)
+    renderPanel()
+    await screen.findByText(/awaiting review/i)
+    fireEvent.click(screen.getByRole('button', { name: /approve all/i }))
+    await waitFor(() => expect(bulk).toHaveBeenCalledWith('l-sw', true))
   })
 
   it('disables real generation when the server has no key', async () => {

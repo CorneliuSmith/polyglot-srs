@@ -427,30 +427,34 @@ async def add_example_sentence(
     translation: str | None,
     source: str = "human",
     origin_detail: str | None = None,
+    translation_locale: str = "en",
 ) -> str | None:
     """Insert a vocabulary example sentence (privileged), tagged with provenance
     (WP38): 'ai' for a generated one with the model in *origin_detail*. Returns
     the new row id, or None if an identical sentence already exists for the word
-    (the UNIQUE(vocabulary_id, sentence) guard — generation never duplicates).
+    in the same locale (the UNIQUE(vocabulary_id, sentence, translation_locale)
+    guard — generation never duplicates).
+
+    *translation_locale* is the language the *translation* is written in ('en'
+    by default). A support-locale translation of an English sentence reuses the
+    same sentence text with a different locale — a distinct row.
 
     Generated ('ai') examples land reviewed=false — hidden from learners until a
     human approves them (the WP42 review gate); seed/imported/human examples are
     trusted content and go in reviewed=true."""
     # Generated content waits for human review; everything else is trusted.
     reviewed = source != "ai"
-    # Generated translations are English glosses; the uniqueness key includes
-    # translation_locale (WP: support_locale), so dedupe on all three.
     row_id = await conn.fetchval(
         """
         INSERT INTO example_sentences
             (language_id, vocabulary_id, sentence, translation, translation_locale,
              source, origin_detail, reviewed)
-        VALUES ($1, $2, $3, $4, 'en', $5, $6, $7)
+        VALUES ($1, $2, $3, $4, $5, $6, $7, $8)
         ON CONFLICT (vocabulary_id, sentence, translation_locale) DO NOTHING
         RETURNING id
         """,
         language_id, vocabulary_id, sentence, translation or None,
-        source, origin_detail, reviewed,
+        translation_locale, source, origin_detail, reviewed,
     )
     return str(row_id) if row_id is not None else None
 
@@ -567,6 +571,40 @@ async def review_example(
             example_id,
         )
     return result.rsplit(" ", 1)[-1] == "1"
+
+
+async def review_examples_bulk(
+    conn: asyncpg.Connection,
+    language_id: str,
+    approve: bool,
+    only_unflagged: bool = True,
+) -> int:
+    """Approve or reject EVERY pending ('ai', reviewed=false) example for a
+    language in one shot — the queue-clearing action. Only ever touches
+    unreviewed 'ai' rows, so seed/human content is untouched. When approving,
+    *only_unflagged* skips any row a recheck has flagged (don't bulk-publish a
+    known-bad one). Returns the number of rows changed."""
+    flag_clause = " AND es.flagged = false" if (only_unflagged and approve) else ""
+    if approve:
+        result = await conn.execute(
+            f"""
+            UPDATE example_sentences es SET reviewed = true
+            FROM vocabulary v
+            WHERE es.vocabulary_id = v.id AND v.language_id = $1
+              AND es.source = 'ai' AND es.reviewed = false{flag_clause}
+            """,
+            language_id,
+        )
+    else:
+        result = await conn.execute(
+            """
+            DELETE FROM example_sentences es USING vocabulary v
+            WHERE es.vocabulary_id = v.id AND v.language_id = $1
+              AND es.source = 'ai' AND es.reviewed = false
+            """,
+            language_id,
+        )
+    return int(result.rsplit(" ", 1)[-1])
 
 
 async def list_vocab_examples(
@@ -1987,6 +2025,111 @@ async def admin_engagement_user_detail(
 
 
 # ── Translation review queue (what the AI maker-checker wouldn't apply) ───
+async def sentences_needing_locale(
+    conn: asyncpg.Connection, language_id: str, locale: str, limit: int
+) -> list[dict]:
+    """Reviewed English-locale example sentences with NO translation yet in
+    *locale* — the idempotent gap-list for generating support-locale sentence
+    translations (a non-English speaker learning English). Returns each distinct
+    sentence with its word's id so a new locale row can be inserted."""
+    rows = await conn.fetch(
+        """
+        SELECT DISTINCT es.vocabulary_id, es.sentence
+        FROM example_sentences es
+        JOIN vocabulary v ON es.vocabulary_id = v.id
+        WHERE v.language_id = $1
+          AND es.translation_locale = 'en'
+          AND es.reviewed
+          AND NOT EXISTS (
+              SELECT 1 FROM example_sentences e2
+              WHERE e2.vocabulary_id = es.vocabulary_id
+                AND e2.sentence = es.sentence
+                AND e2.translation_locale = $2)
+        ORDER BY es.vocabulary_id
+        LIMIT $3
+        """,
+        language_id, locale, limit,
+    )
+    return [
+        {"vocabulary_id": str(r["vocabulary_id"]), "sentence": r["sentence"]}
+        for r in rows
+    ]
+
+
+async def vocab_needing_definition(
+    conn: asyncpg.Connection, language_id: str, locale: str, limit: int
+) -> list[dict]:
+    """Words in a language with NO definition in *locale* and no pending review
+    for it — the idempotent gap-list for the definitions generator. Commonest
+    words first; each carries an example sentence for sense disambiguation."""
+    rows = await conn.fetch(
+        """
+        SELECT v.id, v.word, v.part_of_speech,
+               (SELECT es.sentence FROM example_sentences es
+                 WHERE es.vocabulary_id = v.id
+                 ORDER BY es.difficulty_rank NULLS LAST LIMIT 1) AS example
+        FROM vocabulary v
+        WHERE v.language_id = $1
+          AND NOT EXISTS (SELECT 1 FROM translations t
+                           WHERE t.vocabulary_id = v.id AND t.locale = $2)
+          AND NOT EXISTS (SELECT 1 FROM translation_reviews r
+                           WHERE r.vocabulary_id = v.id AND r.locale = $2
+                             AND r.status = 'pending')
+        ORDER BY v.frequency_rank NULLS LAST, v.word
+        LIMIT $3
+        """,
+        language_id, locale, limit,
+    )
+    return [
+        {
+            "vocabulary_id": str(r["id"]), "word": r["word"],
+            "part_of_speech": r["part_of_speech"], "example": r["example"],
+        }
+        for r in rows
+    ]
+
+
+async def apply_definition(
+    conn: asyncpg.Connection, vocabulary_id: str, locale: str, definition: str
+) -> bool:
+    """Write a definition straight to the served `translations` table (the
+    ai_ok path, or a reviewer's approval). Upserts on (vocabulary_id, locale).
+    Returns True when a definition was written."""
+    text = (definition or "").strip()
+    if not text:
+        return False
+    await conn.execute(
+        """
+        INSERT INTO translations (vocabulary_id, locale, definition)
+        VALUES ($1, $2, $3)
+        ON CONFLICT (vocabulary_id, locale)
+            DO UPDATE SET definition = EXCLUDED.definition
+        """,
+        vocabulary_id, locale, text,
+    )
+    return True
+
+
+async def queue_definition_review(
+    conn: asyncpg.Connection, vocabulary_id: str, locale: str,
+    proposed: str, reason: str,
+) -> bool:
+    """Queue an AI definition for a human (the gated path): reviewers approve it
+    into `translations` via resolve_translation_review. Upserts the pending row
+    on (vocabulary_id, locale). Returns True."""
+    await conn.execute(
+        """
+        INSERT INTO translation_reviews (vocabulary_id, locale, proposed, reason, status)
+        VALUES ($1, $2, $3, $4, 'pending')
+        ON CONFLICT (vocabulary_id, locale) DO UPDATE SET
+            proposed = EXCLUDED.proposed, reason = EXCLUDED.reason,
+            status = 'pending', created_at = now()
+        """,
+        vocabulary_id, locale, (proposed or "").strip() or None, (reason or "")[:2000],
+    )
+    return True
+
+
 async def list_translation_reviews(
     conn: asyncpg.Connection, status_filter: str = "pending"
 ) -> list[dict]:

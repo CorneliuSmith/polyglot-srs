@@ -719,6 +719,20 @@ export async function reviewExample(
   )
 }
 
+/** Approve or reject EVERY pending generated example for a language at once.
+ * When approving, flagged sentences are skipped by default. Returns the count. */
+export async function reviewExamplesBulk(
+  languageId: string,
+  approve: boolean,
+  onlyUnflagged = true,
+): Promise<number> {
+  const response = await apiClient.post<{ approved: boolean; changed: number }>(
+    '/api/contribute/admin/generation/examples/bulk-review',
+    { language_id: languageId, approve, only_unflagged: onlyUnflagged },
+  )
+  return response.data.changed
+}
+
 // ── Generated-drill review gate (Contributor › Review) ─────────────────────
 
 /** Advisory-recommendation tally left by trial reviewers on a pending item. */

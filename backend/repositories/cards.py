@@ -118,17 +118,25 @@ async def get_due_cards(
                           ORDER BY es.difficulty_rank ASC NULLS LAST, es.id) AS glosses,
                 array_agg(es.transliteration
                           ORDER BY es.difficulty_rank ASC NULLS LAST, es.id) AS transliterations
-            FROM example_sentences es
-            WHERE es.vocabulary_id = v.id
-              AND es.translation_locale = $3
-              -- Learners see reviewed content; a language whose policy is
-              -- 'ai_ok' (admin toggle) also serves verified AI content without
-              -- waiting for human sign-off. (Column is historically named for
-              -- grammar; it now governs all AI content for the language.)
-              AND (es.reviewed
-                   OR es.language_id IN (
-                       SELECT id FROM languages
-                        WHERE grammar_review_policy = 'ai_ok'))
+            FROM (
+                -- One row per sentence: prefer the learner's support locale,
+                -- fall back to the English translation/description when absent.
+                SELECT DISTINCT ON (e.sentence)
+                       e.sentence, e.translation, e.gloss, e.transliteration,
+                       e.difficulty_rank, e.id
+                FROM example_sentences e
+                WHERE e.vocabulary_id = v.id
+                  AND e.translation_locale IN ($3, 'en')
+                  -- Learners see reviewed content; a language whose policy is
+                  -- 'ai_ok' (admin toggle) also serves verified AI content
+                  -- without waiting for human sign-off. (Column is historically
+                  -- named for grammar; it now governs all AI content.)
+                  AND (e.reviewed
+                       OR e.language_id IN (
+                           SELECT id FROM languages
+                            WHERE grammar_review_policy = 'ai_ok'))
+                ORDER BY e.sentence, (e.translation_locale = $3) DESC
+            ) es
         ) ex ON true
         LEFT JOIN LATERAL (
             SELECT rl.prompt_sentence
@@ -910,10 +918,17 @@ async def get_card_details_bulk(
         for e in await conn.fetch(
             """
             SELECT vocabulary_id, sentence, translation, gloss, transliteration
-            FROM example_sentences
-            WHERE vocabulary_id = ANY($1::uuid[])
-              AND translation_locale = $2
-              AND reviewed
+            FROM (
+                SELECT DISTINCT ON (vocabulary_id, sentence)
+                       vocabulary_id, sentence, translation, gloss,
+                       transliteration, difficulty_rank
+                FROM example_sentences
+                WHERE vocabulary_id = ANY($1::uuid[])
+                  AND translation_locale IN ($2, 'en')
+                  AND reviewed
+                -- Prefer the support locale, fall back to English per sentence.
+                ORDER BY vocabulary_id, sentence, (translation_locale = $2) DESC
+            ) e
             ORDER BY difficulty_rank ASC NULLS LAST
             """,
             vocab_ids,
@@ -1179,11 +1194,16 @@ async def get_card_detail(
         )
         examples = await conn.fetch(
             """
-            SELECT sentence, translation
-            FROM example_sentences
-            WHERE vocabulary_id = $1
-              AND translation_locale = $2
-              AND reviewed
+            SELECT sentence, translation FROM (
+                SELECT DISTINCT ON (sentence) sentence, translation, difficulty_rank
+                FROM example_sentences
+                WHERE vocabulary_id = $1
+                  AND translation_locale IN ($2, 'en')
+                  AND reviewed
+                -- Prefer the learner's support locale; fall back to the English
+                -- translation/description when that locale has none for a sentence.
+                ORDER BY sentence, (translation_locale = $2) DESC
+            ) e
             ORDER BY difficulty_rank ASC NULLS LAST
             LIMIT 5
             """,

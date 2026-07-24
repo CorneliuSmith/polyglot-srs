@@ -42,17 +42,18 @@ export ANTHROPIC_API_KEY="sk-ant-…"           # real runs only
 
 ```
 python -m backend.services.seeder.generate_content \
-  -l <lang-code> -k <vocab|grammar|levels> [--recheck] \
-  [--target N] [--max N] [--dry-run]
+  -l <lang-code> -k <vocab|grammar|levels|definitions> [--recheck] \
+  [--target N] [--max N] [--locale <code>] [--dry-run]
 ```
 
 | Flag | Meaning | Default |
 |---|---|---|
 | `-l, --language` | language code, e.g. `en`, `sw` | required |
-| `-k, --kind` | `vocab` · `grammar` · `levels` | required |
+| `-k, --kind` | `vocab` · `grammar` · `levels` · `definitions` | required |
 | `--recheck` | vocab only — audit **existing** sentences (see below) | off |
 | `--target` | example sentences per word / drills per grammar cell / good sentences per word (recheck) | 3 |
 | `--max` | max gap items (or words) touched in one run | 200 |
+| `--locale` | definitions only — locale the definition is written IN | `en` |
 | `--dry-run` | work-list + cost estimate only; no model call | off |
 
 ---
@@ -90,7 +91,43 @@ confirmed.
 python -m backend.services.seeder.generate_content -l sw -k levels --max 200
 ```
 
-### 4. Quality-recheck existing sentences — `-k vocab --recheck`
+### 4. Fill missing word definitions — `-k definitions`
+
+Maker-checks a **definition** for words that have none (low-density languages
+especially). Writes the definition in `--locale` (English by default). Owner's
+rule for a concept the locale lacks a word for: **explain it in that locale; if
+even that isn't possible, give the English explanation.**
+
+**Gated:** definitions land in the **translation-review queue** for a human
+(approve them in Contributor → Review), *unless* the language's policy is
+`ai_ok`, in which case checker-passed ones apply directly and only rejects
+queue. Idempotent — words already defined or already queued are skipped.
+
+```bash
+# Preview the gap
+python -m backend.services.seeder.generate_content -l sw -k definitions --dry-run
+
+# Fill missing English definitions for Swahili words (up to 200)
+python -m backend.services.seeder.generate_content -l sw -k definitions --max 200
+```
+
+### 5. Translate sentences into a support locale — `-k translations`
+
+For a **non-English speaker learning English**, translate existing English
+example sentences into their language (`--locale`). New locale rows land
+`source='ai'`, `reviewed=false` (gated) — and until each is approved, the
+learner keeps seeing the **English fallback** (no blank sentences). English
+course only (`-l en`, non-English `--locale`).
+
+```bash
+python -m backend.services.seeder.generate_content -l en -k translations --locale ru --max 200
+```
+
+> Serving already prefers the learner's `support_locale` per sentence and falls
+> back to English when a locale translation is missing — so this pipeline just
+> raises coverage over time.
+
+### 6. Quality-recheck existing sentences — `-k vocab --recheck`
 
 Audits the sentences a word **already has** with an LLM judge, rather than only
 filling gaps. For each word it:
