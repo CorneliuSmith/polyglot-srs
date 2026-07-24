@@ -62,6 +62,32 @@ const LABELS: Record<HintLayerField, string> = {
   hint: 'Hint',
 }
 
+/**
+ * The always-shown Gym prompt must never GIVE the answer. Two authored-hint
+ * faults leak it:
+ *   1. a spelled-out recipe — "to watch — add -es" (→ watches),
+ *      "to study — y changes to -ies" (→ studies);
+ *   2. the base form itself equalling the answer — "to speak" (→ speak).
+ * Strip a trailing recipe clause, then blank the prompt entirely if it still
+ * contains the answer as a whole word. Legitimate cues ("preparar, tú",
+ * "go — past") are left untouched. The learner recalls a blanked one from the
+ * sentence plus the optional meaning hint.
+ */
+const RECIPE_TAIL = /\b(add|drop|changes?|becomes?|remove)\b|→|->|(?:^|\s)[-–][^\s-]/iu
+
+export function safePrompt(text: string, answer: string | null | undefined): string {
+  let base = (text ?? '').trim()
+  if (!base) return ''
+  const split = base.match(/^(.*?)\s+[—–-]\s+(.+)$/u)
+  if (split && RECIPE_TAIL.test(split[2])) base = split[1].trim()
+  const ans = (answer ?? '').trim().toLowerCase()
+  if (ans) {
+    const tokens = base.toLowerCase().match(/\p{L}+/gu) ?? []
+    if (tokens.includes(ans)) return ''
+  }
+  return base
+}
+
 /** The ordered hint layers this card can actually reveal. Base form (when the
  * card carries one — i.e. in the Gym) always leads. */
 export function hintLayersFor(languageCode: string, card: HintLayerSource): HintLayer[] {
