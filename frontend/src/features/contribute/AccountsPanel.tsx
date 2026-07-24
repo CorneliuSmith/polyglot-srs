@@ -134,6 +134,7 @@ function RolesCell({
             className="rounded border border-gray-300 bg-white px-1.5 py-1 text-xs"
           >
             <option value="contributor">Contributor</option>
+            <option value="trial_reviewer">Trial reviewer (advisory)</option>
             <option value="reviewer">Reviewer</option>
             <option value="admin">Admin</option>
           </select>
