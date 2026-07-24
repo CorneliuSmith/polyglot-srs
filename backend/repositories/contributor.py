@@ -131,6 +131,7 @@ async def list_vocab_items(
         """
         SELECT v.id, v.word, v.reading, v.part_of_speech, v.level,
                v.frequency_rank,
+               v.ai_check_status, v.ai_check_notes,
                COALESCE(t.definition, t_en.definition) AS definition,
                (SELECT count(*) FROM example_sentences es
                  WHERE es.vocabulary_id = v.id) AS example_count
@@ -154,9 +155,61 @@ async def list_vocab_items(
             "frequency_rank": r["frequency_rank"],
             "definition": r["definition"],
             "example_count": r["example_count"],
+            "ai_check_status": r["ai_check_status"],
+            "ai_check_notes": r["ai_check_notes"],
         }
         for r in rows
     ]
+
+
+async def get_vocab_for_check(
+    conn: asyncpg.Connection, vocabulary_id: str
+) -> dict | None:
+    """Load a vocab word + its definition and example sentences for the AI
+    semantic review (privileged). Mirrors get_point_for_check."""
+    v = await conn.fetchrow(
+        """
+        SELECT v.word, l.code AS language_code,
+               COALESCE(t.definition, t_en.definition) AS definition
+        FROM vocabulary v
+        JOIN languages l ON v.language_id = l.id
+        LEFT JOIN translations t ON v.id = t.vocabulary_id AND t.locale = l.code
+        LEFT JOIN translations t_en ON v.id = t_en.vocabulary_id AND t_en.locale = 'en'
+        WHERE v.id = $1
+        """,
+        vocabulary_id,
+    )
+    if v is None:
+        return None
+    examples = await conn.fetch(
+        """
+        SELECT sentence, translation
+        FROM example_sentences WHERE vocabulary_id = $1
+        ORDER BY difficulty_rank ASC NULLS LAST
+        LIMIT 20
+        """,
+        vocabulary_id,
+    )
+    return {
+        "word": v["word"],
+        "definition": v["definition"],
+        "language_code": v["language_code"],
+        "examples": [dict(e) for e in examples],
+    }
+
+
+async def save_vocab_ai_check(
+    conn: asyncpg.Connection, vocabulary_id: str, status: str, notes: str
+) -> None:
+    """Persist the AI semantic-check verdict on a vocab word (privileged)."""
+    await conn.execute(
+        """
+        UPDATE vocabulary
+        SET ai_check_status = $2, ai_check_notes = NULLIF($3, ''), ai_checked_at = now()
+        WHERE id = $1
+        """,
+        vocabulary_id, status, notes,
+    )
 
 
 async def get_point_for_check(

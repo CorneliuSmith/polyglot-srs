@@ -1,6 +1,6 @@
 import { useMemo, useState } from 'react'
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
-import { flagVocabIssue, getVocabForLanguage } from '../../api/contribute'
+import { flagVocabIssue, getVocabForLanguage, runVocabAiCheck } from '../../api/contribute'
 import type { VocabItemEdit } from '../../api/contribute'
 import LanguageWrapper from '../../components/LanguageWrapper'
 import SuggestChange from './SuggestChange'
@@ -73,13 +73,21 @@ function VocabRow({
   languageId,
   languageCode,
   canEdit,
+  canRunCheck,
 }: {
   item: VocabItemEdit
   languageId: string
   languageCode: string
   canEdit: boolean
+  canRunCheck: boolean
 }) {
+  const queryClient = useQueryClient()
   const [open, setOpen] = useState(false)
+  const aiCheck = useMutation({
+    mutationFn: () => runVocabAiCheck(item.id),
+    onSuccess: () =>
+      queryClient.invalidateQueries({ queryKey: ['contribute-vocab', languageId] }),
+  })
   const thin = !item.definition || item.example_count === 0
   return (
     <div className="border-t border-gray-100 first:border-t-0">
@@ -143,6 +151,36 @@ function VocabRow({
             targetLabel={item.word}
             defaultField="translation"
           />
+          {/* Advisory AI semantic check — accurate gloss? natural examples?
+              Visible to all reviewers; only contributors/admins can run it. */}
+          {canEdit && (item.ai_check_status || canRunCheck) && (
+            <div className="rounded-lg bg-gray-50 border border-gray-100 px-3 py-2 text-xs space-y-1">
+              <div className="flex items-center gap-2">
+                <span className="font-medium text-gray-600">AI check</span>
+                {item.ai_check_status === 'pass' && (
+                  <span className="rounded-full px-2 py-0.5 bg-green-100 text-green-800">pass</span>
+                )}
+                {item.ai_check_status === 'concerns' && (
+                  <span className="rounded-full px-2 py-0.5 bg-amber-100 text-amber-800">concerns</span>
+                )}
+                {!item.ai_check_status && <span className="text-gray-400">not run</span>}
+                {canRunCheck && (
+                  <button
+                    type="button"
+                    onClick={() => aiCheck.mutate()}
+                    disabled={aiCheck.isPending}
+                    className="ml-auto text-lang hover:underline disabled:opacity-50"
+                  >
+                    {aiCheck.isPending ? 'Checking…' : 'Run AI check'}
+                  </button>
+                )}
+              </div>
+              {item.ai_check_notes && (
+                <p className="text-gray-600 whitespace-pre-wrap">{item.ai_check_notes}</p>
+              )}
+              {aiCheck.isError && <span className="text-red-500">AI check unavailable</span>}
+            </div>
+          )}
           {/* Reviewers/trial reviewers can park an advisory note on the word. */}
           {canEdit && <VocabNoteBox vocabularyId={item.id} languageId={languageId} />}
         </div>
@@ -239,6 +277,7 @@ export default function VocabReviewPanel({
             languageId={languageId}
             languageCode={languageCode}
             canEdit={canEdit}
+            canRunCheck={(data?.can_contribute ?? false) || (data?.is_admin ?? false)}
           />
         ))}
         {filtered.length === 0 && (

@@ -56,6 +56,8 @@ export interface VocabItemEdit {
   frequency_rank: number | null
   definition: string | null
   example_count: number
+  ai_check_status: 'pass' | 'concerns' | null
+  ai_check_notes: string | null
 }
 
 export async function getVocabForLanguage(
@@ -343,6 +345,14 @@ export async function runAiCheck(
   pointId: string,
 ): Promise<{ status: 'pass' | 'concerns'; notes: string }> {
   const response = await apiClient.post(`/api/contribute/grammar/${pointId}/ai-check`)
+  return response.data
+}
+
+/** Run the advisory AI semantic review on a vocab word. */
+export async function runVocabAiCheck(
+  vocabularyId: string,
+): Promise<{ status: 'pass' | 'concerns'; notes: string }> {
+  const response = await apiClient.post(`/api/contribute/vocab/${vocabularyId}/ai-check`)
   return response.data
 }
 
