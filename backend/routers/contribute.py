@@ -16,6 +16,11 @@ from fastapi import APIRouter, Depends, HTTPException, status
 from pydantic import BaseModel, Field
 
 from backend.dependencies import get_current_user
+from backend.repositories.audit import (
+    list_entity_changes,
+    list_recent_changes,
+    revert_change,
+)
 from backend.repositories.change_requests import (
     cast_vote,
     create_request,
@@ -474,7 +479,7 @@ async def generation_review_example(
     example (admin-only, WP42 gate). 404 if it isn't a pending 'ai' row."""
     await _require_admin(user["id"])
     async with privileged_connection() as conn:
-        changed = await review_example(conn, example_id, body.approve)
+        changed = await review_example(conn, example_id, body.approve, actor_id=user["id"])
     if not changed:
         raise HTTPException(
             status_code=status.HTTP_404_NOT_FOUND,
@@ -569,7 +574,7 @@ async def review_generated_drill(
             detail="Only a reviewer or admin for this language can review drills",
         )
     async with privileged_connection() as conn:
-        changed = await review_drill(conn, drill_id, body.approve)
+        changed = await review_drill(conn, drill_id, body.approve, actor_id=user["id"])
     if not changed:
         raise HTTPException(
             status_code=status.HTTP_404_NOT_FOUND,
@@ -801,10 +806,105 @@ async def set_vocab_level(
             detail="Only a reviewer or admin for this language can confirm levels",
         )
     async with privileged_connection() as conn:
-        changed = await confirm_vocab_level(conn, vocabulary_id, body.level)
+        changed = await confirm_vocab_level(conn, vocabulary_id, body.level, actor_id=user["id"])
     if not changed:
         raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="No such word.")
     return {"ok": True}
+
+
+# ---------------------------------------------------------------------------
+# Content audit log + rollback (review-workflow solidification).
+# ---------------------------------------------------------------------------
+
+_ENTITY_LANG_SQL = {
+    "grammar_point": "SELECT language_id FROM grammar_points WHERE id = $1",
+    "drill": ("SELECT gp.language_id FROM drill_sentences ds "
+              "JOIN grammar_points gp ON ds.grammar_point_id = gp.id WHERE ds.id = $1"),
+    "example_sentence": "SELECT language_id FROM example_sentences WHERE id = $1",
+    "vocabulary": "SELECT language_id FROM vocabulary WHERE id = $1",
+    "translation": ("SELECT v.language_id FROM translations t "
+                    "JOIN vocabulary v ON t.vocabulary_id = v.id WHERE t.id = $1"),
+}
+
+
+async def _entity_language(conn, entity_type: str, entity_id: str):
+    sql = _ENTITY_LANG_SQL.get(entity_type)
+    if not sql:
+        return None
+    try:
+        return await conn.fetchval(sql, entity_id)
+    except Exception:  # noqa: BLE001 - bad id shape → treat as not found
+        return None
+
+
+@router.get("/review/history/{entity_type}/{entity_id}")
+async def content_history(
+    entity_type: str, entity_id: str, user: dict = Depends(get_current_user)
+):
+    """The change timeline for one card — who did what, when, before/after.
+    Viewable by any reviewer/trial reviewer for the card's language."""
+    async with rls_connection(user["id"]) as conn:
+        roles = await get_roles(conn, user["id"])
+        lang = await _entity_language(conn, entity_type, entity_id)
+    if lang is None:
+        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="No such card.")
+    if not can_trial_review(roles, str(lang)):
+        raise HTTPException(
+            status_code=status.HTTP_403_FORBIDDEN,
+            detail="You don't have review access for this language",
+        )
+    async with privileged_connection() as conn:
+        changes = await list_entity_changes(conn, entity_type, entity_id)
+    return {"changes": changes, "can_revert": can_review(roles, str(lang))}
+
+
+@router.post("/review/revert/{log_id}")
+async def revert_content_change(
+    log_id: str, user: dict = Depends(get_current_user)
+):
+    """Roll a logged edit back to its prior value (full reviewer/admin for the
+    card's language). The rollback is itself logged."""
+    async with privileged_connection() as conn:
+        entry = await conn.fetchrow(
+            "SELECT entity_type, entity_id FROM content_change_log WHERE id = $1",
+            log_id,
+        )
+        if not entry:
+            raise HTTPException(
+                status_code=status.HTTP_404_NOT_FOUND, detail="No such change."
+            )
+        lang = await _entity_language(
+            conn, entry["entity_type"], str(entry["entity_id"])
+        )
+    async with rls_connection(user["id"]) as conn:
+        roles = await get_roles(conn, user["id"])
+    if lang is None or not can_review(roles, str(lang)):
+        raise HTTPException(
+            status_code=status.HTTP_403_FORBIDDEN,
+            detail="Only a reviewer or admin for this language can roll back",
+        )
+    async with privileged_connection() as conn:
+        outcome = await revert_change(conn, log_id, user["id"])
+    if outcome != "ok":
+        raise HTTPException(
+            status_code=status.HTTP_400_BAD_REQUEST,
+            detail={"not_found": "No such change.",
+                    "no_snapshot": "This change has nothing to roll back to.",
+                    "not_revertible": "This change can't be rolled back."}.get(
+                outcome, outcome),
+        )
+    return {"ok": True}
+
+
+@router.get("/admin/audit")
+async def admin_audit_feed(
+    language_id: str | None = None, user: dict = Depends(get_current_user)
+):
+    """Recent content changes across a language (or everything) — admin feed."""
+    await _require_admin(user["id"])
+    async with privileged_connection() as conn:
+        changes = await list_recent_changes(conn, language_id)
+    return {"changes": changes}
 
 
 @router.get("/engagement")
