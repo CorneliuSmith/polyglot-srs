@@ -50,7 +50,7 @@ python -m backend.services.seeder.generate_content \
 |---|---|---|
 | `-l, --language` | language code, e.g. `en`, `sw` | required |
 | `-k, --kind` | `vocab` · `grammar` · `levels` · `definitions` | required |
-| `--recheck` | vocab only — audit **existing** sentences (see below) | off |
+| `--recheck` | audit **existing** content (see below): `-k vocab` audits example sentences, `-k grammar` audits drills | off |
 | `--target` | example sentences per word / drills per grammar cell / good sentences per word (recheck) | 3 |
 | `--max` | max gap items (or words) touched in one run | 200 |
 | `--locale` | definitions only — locale the definition is written IN | `en` |
@@ -127,10 +127,13 @@ python -m backend.services.seeder.generate_content -l en -k translations --local
 > back to English when a locale translation is missing — so this pipeline just
 > raises coverage over time.
 
-### 6. Quality-recheck existing sentences — `-k vocab --recheck`
+### 6. Quality-recheck existing content — `--recheck`
 
-Audits the sentences a word **already has** with an LLM judge, rather than only
-filling gaps. For each word it:
+Audits content that **already exists** with an LLM judge, rather than only
+filling gaps. `-k vocab` audits a word's example sentences; `-k grammar` audits
+a point's drills.
+
+For **`-k vocab --recheck`**, each word:
 
 - **Flags** sentences that are wrong, unnatural, don't use the word, **or are
   too simple / low-value** for a learner (judged relative to the word's CEFR
@@ -142,16 +145,32 @@ filling gaps. For each word it:
 - **Tops the word back up** to `--target` good sentences with fresh, verified
   alternatives.
 
+For **`-k grammar --recheck`**, each point:
+
+- **Flags** drills that are ungrammatical, mis-keyed (the answer isn't the
+  right form for the blank), **or too trivial** to teach the form — marked for
+  a reviewer, **not deleted**.
+- **Tops the point back up** to `--target` good drills with fresh, verified
+  alternatives.
+
 ```bash
-# Dry run first — words to audit + cost estimate
+# Dry run first — items to audit + cost estimate (vocab shown; swap -k grammar for drills)
 python -m backend.services.seeder.generate_content -l en -k vocab --recheck --dry-run
 
-# Audit existing English sentences, heal each word back to 3 good ones (≤100 words)
+# Audit existing English example sentences, heal each word back to 3 good ones (≤100 words)
 python -m backend.services.seeder.generate_content -l en -k vocab --recheck --target 3 --max 100
+
+# Audit existing English drills, heal each point back to 3 good ones (≤100 points)
+python -m backend.services.seeder.generate_content -l en -k grammar --recheck --target 3 --max 100
 ```
 
-Requires the `example_sentences` flagging + suggestion columns (migrations
-`20260821…` and `20260822…`).
+Admins can also run either recheck from the UI — **Contribute → Admin →
+Content generation → Recheck now** (with a dry-run **Preview recheck**); the
+`vocab`/`grammar` toggle picks the corpus.
+
+Requires the flagging/suggestion columns: `example_sentences` (migrations
+`20260821…`, `20260822…`) for vocab, and `drill_sentences` (migration
+`20260826…`) for drills.
 
 ---
 
@@ -176,8 +195,8 @@ Open the word in **Contributor → Review** (the inline **ExamplesEditor**):
 - **Recheck** excludes already-flagged rows and won't overwrite a pending
   suggestion, so a re-run converges.
 - Only the **maker** is billed; the mechanical checker is offline. The LLM
-  **recheck judge** is one call per word (all its sentences at once) and is
-  priced in the `--dry-run` estimate.
+  **recheck judge** is one call per item — all of a word's sentences, or all of
+  a point's drills, at once — and is priced in the `--dry-run` estimate.
 
 ---
 
