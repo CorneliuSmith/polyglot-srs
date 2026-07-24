@@ -1756,7 +1756,11 @@ async def test_english_support_locale_localizes_cards(pool):
 async def test_english_drill_hints_localize(pool):
     """WP17: grammar drill hint/translation prefer the learner's support
     locale via drill_hint_translations, falling back per drill to the
-    authored English — across reviews, lessons, card detail, and cram."""
+    authored English — across reviews, lessons, and card detail.
+
+    The GYM is the deliberate exception: its HINT is always the authored
+    baseline (never the reference-locale hint), while its sentence translation
+    still localizes. See the cram assertions below."""
     from backend.repositories.cards import (
         get_card_detail,
         get_card_details_bulk,
@@ -1829,10 +1833,13 @@ async def test_english_drill_hints_localize(pool):
         detail = await get_card_detail(conn, cards["es"], support_locale="es")
         assert detail["examples"][0]["hint"] == "go — pasado"
 
-        # Quick-cram.
+        # Quick-cram (the Gym): the HINT is always the authored baseline, even
+        # with a support locale chosen — the machine hints were poor and the
+        # baseline must not change here. The sentence translation still localizes.
         cram = {c["card_id"]: c for c in
                 await get_cram_cards(conn, [p_es, p_en], support_locale="es")}
-        assert cram[p_es]["hint"] == "go — pasado"
+        assert cram[p_es]["hint"] == "go — past"          # baseline, NOT localized
+        assert cram[p_es]["translation"] == "El pasado de go."  # translation localizes
         assert cram[p_en]["hint"] == "the indefinite article"
 
 
