@@ -761,6 +761,35 @@ export interface PendingDrillsResult {
   can_publish: boolean
 }
 
+/** One roll-up of everything awaiting review action for a language. Each key
+ * is a queue an existing panel already acts on. */
+export interface ReviewInboxCounts {
+  grammar_pending: number
+  pending_drills: number
+  pending_examples: number
+  flagged_examples: number
+  translation_suggestions: number
+  ai_levels: number
+  change_requests: number
+  suggestions: number
+  notes: number
+  feedback: number
+}
+
+export interface ReviewInbox {
+  counts: ReviewInboxCounts
+  can_publish: boolean
+}
+
+/** The unified Review Inbox counts for a language. */
+export async function getReviewInbox(languageId: string): Promise<ReviewInbox> {
+  const response = await apiClient.get<ReviewInbox>(
+    '/api/contribute/review/inbox',
+    { params: { language_id: languageId } },
+  )
+  return response.data
+}
+
 /** Generated grammar drills awaiting review for a language — hidden from
  * learners until approved. */
 export async function getPendingDrills(

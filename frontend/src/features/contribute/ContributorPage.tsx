@@ -23,6 +23,7 @@ import AccountsPanel from './AccountsPanel'
 import AnalyticsPanel from './AnalyticsPanel'
 import EngagementPanel from './EngagementPanel'
 import GeneratedDrillsPanel from './GeneratedDrillsPanel'
+import ReviewInbox from './ReviewInbox'
 import GymDrillsPanel from './GymDrillsPanel'
 import AiLevelsPanel from './AiLevelsPanel'
 import GenerationPanel from './GenerationPanel'
@@ -616,6 +617,9 @@ export default function ContributorPage() {
             )}
             {tab === 'review' && (
               <>
+                {/* One roll-up of everything awaiting review action, above the
+                    individual queue panels. */}
+                <ReviewInbox languageId={activeLanguageId} />
                 {/* Generated grammar drills awaiting review. Full reviewers
                     approve/reject; trial reviewers recommend. Hidden when none
                     pending. */}
