@@ -435,6 +435,20 @@ describe('ReviewSessionPage — Quick Cram (WP13f)', () => {
       expect(screen.getByText(/nothing to cram/i)).toBeDefined()
     })
   })
+
+  it('distinguishes the word audio from the full-sentence audio on feedback', async () => {
+    renderCram()
+    await waitFor(() => screen.getByRole('textbox'))
+    const input = screen.getByRole('textbox')
+    fireEvent.change(input, { target: { value: 'goes' } })
+    fireEvent.keyDown(input, { key: 'Enter' })
+    await waitFor(() => screen.getByTestId('feedback-panel'))
+    // The word-pronunciation control and the whole-sentence control are now
+    // labelled differently instead of two identical speaker icons.
+    expect(screen.getByText('Hear the word')).toBeDefined()
+    expect(screen.getByLabelText(/hear the full sentence/i)).toBeDefined()
+    expect(screen.getByText('sentence')).toBeDefined()
+  })
 })
 
 describe('ReviewSessionPage — Gym chart peek (WP25c)', () => {
@@ -606,6 +620,36 @@ describe('ReviewSessionPage — background generation (WP41)', () => {
     // Finishing the fresh drill ends the session for real.
     await answerCurrent()
     await waitFor(() => expect(screen.getByText('Session Complete')).toBeDefined())
+  })
+
+  it('keeps the session at the requested count — weaves in, never extends', async () => {
+    // Not short: two seeded cards for a count of two. A freshly generated drill
+    // must REPLACE an upcoming card, not push the session to three — the learner
+    // asked for two. Reaching the summary after exactly two answers proves it.
+    const a = { ...testCard, id: 'cram-a', drill_id: 'a', sentence: 'Card A {{answer}}.' }
+    const b = { ...testCard, id: 'cram-b', drill_id: 'b', sentence: 'Card B {{answer}}.' }
+    const c = { ...testCard, id: 'cram-c', drill_id: 'c', sentence: 'Card C {{answer}}.' }
+    mockGetCramCards.mockResolvedValueOnce([a, b]).mockResolvedValue([a, b, c])
+    mockGenerateGymDrills.mockResolvedValue({
+      generated: 1, charged: 1, remaining: 4, unlimited: false,
+    })
+    render(
+      <QueryClientProvider
+        client={new QueryClient({
+          defaultOptions: { queries: { retry: false }, mutations: { retry: false } },
+        })}
+      >
+        <MemoryRouter initialEntries={['/cram?points=p1&mix=1&count=2&gen=1']}>
+          <ReviewSessionPage cram />
+        </MemoryRouter>
+      </QueryClientProvider>,
+    )
+    await answerCurrent()
+    await answerCurrent()
+    // If generation had extended the deck to three, a third card would still be
+    // showing here instead of the summary.
+    await waitFor(() => expect(screen.getByText('Session Complete')).toBeDefined())
+    expect(screen.getByTestId('cards-reviewed').textContent).toContain('2')
   })
 
   it('shows the drafting wait only when the learner out-runs generation', async () => {
