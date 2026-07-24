@@ -1,10 +1,8 @@
 import { describe, it, expect } from 'vitest'
 import {
   LANGUAGE_FACTS,
-  LANGUAGE_FLAGS,
   LANGUAGE_SYNTAX,
   factsFor,
-  flagsFor,
   syntaxFor,
 } from '../features/about/languageFacts'
 import { LETTERS } from '../features/letters/lettersData'
@@ -38,25 +36,21 @@ describe('languageFacts', () => {
     expect(factsFor('es')).not.toBeNull()
   })
 
-  it('every language has a glossed syntax example and flags', () => {
+  it('every language has multiple complete glossed syntax examples', () => {
     for (const code of Object.keys(LANGUAGE_FACTS)) {
       const ex = LANGUAGE_SYNTAX[code]
-      expect(ex?.length, `missing syntax for ${code}`).toBeGreaterThanOrEqual(1)
+      expect(ex?.length, `${code} needs ≥2 examples`).toBeGreaterThanOrEqual(2)
       for (const e of ex) {
         expect(e.words.length, `${code} words`).toBeGreaterThanOrEqual(2)
         expect(e.words.every((w) => w.w.trim() && w.g.trim())).toBe(true)
         expect(e.translation.trim(), `${code} translation`).toBeTruthy()
       }
-      expect(LANGUAGE_FLAGS[code]?.trim(), `missing flags for ${code}`).toBeTruthy()
     }
   })
 
-  it('syntaxFor / flagsFor are null-safe', () => {
+  it('syntaxFor is null-safe', () => {
     expect(syntaxFor(undefined)).toEqual([])
     expect(syntaxFor('zz')).toEqual([])
-    expect(syntaxFor('de').length).toBeGreaterThan(0)
-    expect(flagsFor(null)).toBe('')
-    expect(flagsFor('ja')).toBe('')
-    expect(flagsFor('es')).toContain('🇪🇸')
+    expect(syntaxFor('de').length).toBeGreaterThanOrEqual(2)
   })
 })

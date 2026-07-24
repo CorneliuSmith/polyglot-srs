@@ -2,12 +2,7 @@ import { useQuery } from '@tanstack/react-query'
 import { useNavigate } from 'react-router-dom'
 import { getLanguages } from '../../api/profile'
 import { usePrefsStore } from '../../stores/prefsStore'
-import {
-  factsFor,
-  flagsFor,
-  syntaxFor,
-  type SyntaxExample,
-} from './languageFacts'
+import { factsFor, syntaxFor, type SyntaxExample } from './languageFacts'
 
 /** An interlinear example: each word stacked over its gloss, then the natural
  * translation. Shows how the word order actually works, not just names it. */
@@ -49,7 +44,6 @@ export default function LanguageAboutPage() {
 
   const language = languages.find((l) => l.id === activeLanguageId)
   const facts = factsFor(language?.code)
-  const flags = flagsFor(language?.code)
   const syntax = syntaxFor(language?.code)
   const name = language?.name ?? 'this language'
 
@@ -84,20 +78,9 @@ export default function LanguageAboutPage() {
 
         {facts && (
           <>
-            {/* Title + one-line hook, with representative flags */}
+            {/* Title + one-line hook */}
             <div className="bg-white rounded-2xl border border-gray-100 shadow-sm p-5">
-              <div className="flex items-start justify-between gap-3">
-                <h2 className="text-2xl font-bold text-gray-900">{name}</h2>
-                {flags && (
-                  <span
-                    className="text-xl leading-none shrink-0"
-                    aria-label="Where it’s spoken"
-                    title="Where it’s spoken"
-                  >
-                    {flags}
-                  </span>
-                )}
-              </div>
+              <h2 className="text-2xl font-bold text-gray-900">{name}</h2>
               <p className="mt-1 text-sm text-gray-600">{facts.tagline}</p>
             </div>
 
