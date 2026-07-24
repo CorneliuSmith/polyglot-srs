@@ -37,6 +37,7 @@ from backend.repositories.contributor import (
     can_contribute,
     can_review,
     can_trial_review,
+    confirm_vocab_level,
     create_auth_user,
     create_grammar_point,
     delete_account,
@@ -58,6 +59,7 @@ from backend.repositories.contributor import (
     grant_role,
     is_admin,
     list_accounts,
+    list_ai_leveled_vocab,
     list_all_roles,
     list_drills,
     list_feedback,
@@ -696,6 +698,59 @@ async def list_trial_reviewers(
     await _require_admin(user["id"])
     async with privileged_connection() as conn:
         return {"reviewers": await trial_reviewer_activity(conn, language_id)}
+
+
+@router.get("/review/ai-levels")
+async def review_ai_levels(
+    language_id: str, user: dict = Depends(get_current_user)
+):
+    """Words carrying a provisional AI-estimated CEFR level, for a reviewer to
+    confirm or adjust. Confirming also finalises the word's deck placement."""
+    async with rls_connection(user["id"]) as conn:
+        roles = await get_roles(conn, user["id"])
+    if not can_trial_review(roles, language_id):
+        raise HTTPException(
+            status_code=status.HTTP_403_FORBIDDEN,
+            detail="Only a reviewer or trial reviewer for this language can view this",
+        )
+    async with privileged_connection() as conn:
+        words = await list_ai_leveled_vocab(conn, language_id)
+    return {"words": words, "can_publish": can_review(roles, language_id)}
+
+
+class VocabLevelRequest(BaseModel):
+    level: str
+
+
+@router.post("/review/vocab/{vocabulary_id}/level")
+async def set_vocab_level(
+    vocabulary_id: str,
+    body: VocabLevelRequest,
+    user: dict = Depends(get_current_user),
+):
+    """Confirm or adjust a word's CEFR level — marks it curated (trusted) and
+    finalises its deck. Full reviewers/admins only."""
+    if body.level not in ("A1", "A2", "B1", "B2", "C1", "C2"):
+        raise HTTPException(
+            status_code=status.HTTP_422_UNPROCESSABLE_ENTITY, detail="bad level"
+        )
+    async with rls_connection(user["id"]) as conn:
+        roles = await get_roles(conn, user["id"])
+        lang = await conn.fetchval(
+            "SELECT language_id FROM vocabulary WHERE id = $1", vocabulary_id
+        )
+    if lang is None:
+        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="No such word.")
+    if not can_review(roles, str(lang)):
+        raise HTTPException(
+            status_code=status.HTTP_403_FORBIDDEN,
+            detail="Only a reviewer or admin for this language can confirm levels",
+        )
+    async with privileged_connection() as conn:
+        changed = await confirm_vocab_level(conn, vocabulary_id, body.level)
+    if not changed:
+        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="No such word.")
+    return {"ok": True}
 
 
 @router.get("/engagement")

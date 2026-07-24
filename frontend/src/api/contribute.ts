@@ -842,3 +842,36 @@ export async function editExampleSentence(
 export async function deleteExampleSentence(exampleId: string): Promise<void> {
   await apiClient.delete(`/api/contribute/review/examples/${exampleId}`)
 }
+
+export interface AiLeveledWord {
+  id: string
+  word: string
+  level: string | null
+  part_of_speech: string | null
+  definition: string | null
+}
+
+export interface AiLevelsResult {
+  words: AiLeveledWord[]
+  can_publish: boolean
+}
+
+/** Words carrying a provisional AI-estimated CEFR level, for a reviewer to
+ * confirm or adjust. */
+export async function getAiLevels(languageId: string): Promise<AiLevelsResult> {
+  const response = await apiClient.get<AiLevelsResult>(
+    '/api/contribute/review/ai-levels',
+    { params: { language_id: languageId } },
+  )
+  return response.data
+}
+
+/** Confirm or adjust a word's CEFR level → marks it curated (also its deck). */
+export async function confirmVocabLevel(
+  vocabularyId: string,
+  level: string,
+): Promise<void> {
+  await apiClient.post(`/api/contribute/review/vocab/${vocabularyId}/level`, {
+    level,
+  })
+}

@@ -24,6 +24,7 @@ import AnalyticsPanel from './AnalyticsPanel'
 import EngagementPanel from './EngagementPanel'
 import GeneratedDrillsPanel from './GeneratedDrillsPanel'
 import GymDrillsPanel from './GymDrillsPanel'
+import AiLevelsPanel from './AiLevelsPanel'
 import GenerationPanel from './GenerationPanel'
 import TranslationReviewsPanel from './TranslationReviewsPanel'
 import { useAuthStore } from '../../stores/authStore'
@@ -620,6 +621,11 @@ export default function ContributorPage() {
                     pending. */}
                 {(data.can_trial_review ?? false) && (
                   <GeneratedDrillsPanel languageId={activeLanguageId} />
+                )}
+                {/* Words the model gave a provisional CEFR level — confirm to
+                    finalise the level and the deck placement. */}
+                {(data.can_trial_review ?? false) && (
+                  <AiLevelsPanel languageId={activeLanguageId} />
                 )}
                 {/* Gym corpus, browsable by form category — view/edit the drills
                     the Gym serves, not just the ones pending review above. */}

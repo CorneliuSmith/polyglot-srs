@@ -499,6 +499,13 @@ async def _select_vocab_candidate_ids(
                   AND ucs.user_id = $1
             WHERE v.language_id = $2
               AND ($4::text IS NULL OR v.level = $4)
+              -- A provisional AI-estimated level stays out of the learnable
+              -- pool until a reviewer confirms it — unless the language's
+              -- policy is 'ai_ok' (same gate as generated drills/examples).
+              AND (v.level_source <> 'ai'
+                   OR EXISTS (SELECT 1 FROM languages lp
+                               WHERE lp.id = v.language_id
+                                 AND lp.grammar_review_policy = 'ai_ok'))
               -- exclude items already in the deck, EXCEPT suspended
               -- never-reviewed ones: abandoned walkthroughs to be re-taught
               AND v.id NOT IN (
@@ -760,6 +767,10 @@ async def get_learn_decks(
                 FROM vocabulary v
                 WHERE v.language_id = cl.language_id
                   AND (cl.level IS NULL OR v.level = cl.level)
+                  AND (v.level_source <> 'ai'
+                       OR EXISTS (SELECT 1 FROM languages lp
+                                   WHERE lp.id = v.language_id
+                                     AND lp.grammar_review_policy = 'ai_ok'))
             ) END AS total,
             CASE WHEN cl.list_type = 'grammar' THEN (
                 SELECT COUNT(*)
@@ -1633,6 +1644,10 @@ async def get_deck_preview(
                    ON v.id = t.vocabulary_id AND t.locale = 'en'
             WHERE v.language_id = $1
               AND ($2::text IS NULL OR v.level = $2)
+              AND (v.level_source <> 'ai'
+                   OR EXISTS (SELECT 1 FROM languages lp
+                               WHERE lp.id = v.language_id
+                                 AND lp.grammar_review_policy = 'ai_ok'))
             ORDER BY v.frequency_rank ASC NULLS LAST, v.word
             LIMIT $3
             """,
@@ -1702,6 +1717,10 @@ async def get_deck_items(
                    ON v.id = t_en.vocabulary_id AND t_en.locale = 'en'
             WHERE v.language_id = $1
               AND ($2::text IS NULL OR v.level = $2)
+              AND (v.level_source <> 'ai'
+                   OR EXISTS (SELECT 1 FROM languages lp
+                               WHERE lp.id = v.language_id
+                                 AND lp.grammar_review_policy = 'ai_ok'))
             ORDER BY v.frequency_rank ASC NULLS LAST, v.word
             LIMIT $3
             """,
