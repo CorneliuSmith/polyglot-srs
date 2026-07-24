@@ -109,8 +109,8 @@ class BaseSeeder(ABC):
             count = 0
             for start in range(0, len(records), chunk_size):
                 chunk = records[start:start + chunk_size]
-                words, readings, poses, levels_col, ranks, morphs = (
-                    [], [], [], [], [], []
+                words, readings, poses, levels_col, ranks, morphs, sources = (
+                    [], [], [], [], [], [], []
                 )
                 for rec in chunk:
                     morphology = rec.get("morphology", "{}")
@@ -122,22 +122,33 @@ class BaseSeeder(ABC):
                     levels_col.append(rec.get("level"))
                     ranks.append(rec.get("frequency_rank"))
                     morphs.append(morphology)
+                    sources.append(rec.get("level_source"))
 
+                # level_source: a record without one lowers to the objective
+                # 'frequency' default (COALESCE). On reseed we never downgrade a
+                # 'curated' level (a reviewer confirmed it) back to 'frequency'
+                # or 'ai' — that confirmation must survive re-seeding, exactly
+                # like `alternatives` above.
                 id_rows = await conn.fetch("""
-                    INSERT INTO vocabulary (language_id, word, reading, part_of_speech, level, frequency_rank, morphology)
-                    SELECT $1, u.word, u.reading, u.pos, u.level, u.rank, u.morphology::jsonb
+                    INSERT INTO vocabulary (language_id, word, reading, part_of_speech, level, frequency_rank, morphology, level_source)
+                    SELECT $1, u.word, u.reading, u.pos, u.level, u.rank, u.morphology::jsonb,
+                           COALESCE(u.level_source, 'frequency')
                     FROM UNNEST($2::text[], $3::text[], $4::text[], $5::text[],
-                                $6::int[], $7::text[])
-                         AS u(word, reading, pos, level, rank, morphology)
+                                $6::int[], $7::text[], $8::text[])
+                         AS u(word, reading, pos, level, rank, morphology, level_source)
                     ON CONFLICT (language_id, word) DO UPDATE SET
                         reading = EXCLUDED.reading,
                         part_of_speech = EXCLUDED.part_of_speech,
                         level = EXCLUDED.level,
                         frequency_rank = EXCLUDED.frequency_rank,
-                        morphology = EXCLUDED.morphology
+                        morphology = EXCLUDED.morphology,
+                        level_source = CASE
+                            WHEN vocabulary.level_source = 'curated' THEN 'curated'
+                            ELSE EXCLUDED.level_source
+                        END
                     RETURNING id, word
                 """, self.language_id, words, readings, poses, levels_col,
-                    ranks, morphs)
+                    ranks, morphs, sources)
                 id_by_word = {r["word"]: r["id"] for r in id_rows}
 
                 t_ids, t_locales, t_defs = [], [], []

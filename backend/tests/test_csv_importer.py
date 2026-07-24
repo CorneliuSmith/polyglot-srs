@@ -232,6 +232,27 @@ class TestCSVImporterValidate:
             _, errors = imp.validate(rows)
             assert not any(e.column == "level" for e in errors), f"Valid level '{level}' was rejected"
 
+    # --- level_source validation (optional column) ---
+
+    def test_invalid_level_source_rejected(self):
+        imp = self._imp()
+        rows = [{"word": "cat", "definition": "a mammal", "level_source": "guess"}]
+        _, errors = imp.validate(rows)
+        assert any(e.column == "level_source" for e in errors)
+
+    def test_valid_level_sources_accepted(self):
+        imp = self._imp()
+        for src in ("frequency", "curated", "ai"):
+            rows = [{"word": "cat", "definition": "a mammal", "level_source": src}]
+            _, errors = imp.validate(rows)
+            assert not any(e.column == "level_source" for e in errors), src
+
+    def test_absent_level_source_is_fine(self):
+        imp = self._imp()
+        rows = [{"word": "cat", "definition": "a mammal"}]
+        _, errors = imp.validate(rows)
+        assert not any(e.column == "level_source" for e in errors)
+
     # --- frequency_rank validation ---
 
     def test_negative_frequency_rank_fails(self):
@@ -482,3 +503,17 @@ class TestCSVImporterTransform:
         imp = make_importer("en", str(csv_file))
         records = await imp.transform()
         assert records[0]["level"] == "C2"
+
+    @pytest.mark.asyncio
+    async def test_level_source_passes_through_and_defaults_none(self, tmp_path):
+        csv_file = tmp_path / "vocab.csv"
+        csv_file.write_text(
+            "word,definition,level,level_source\n"
+            "casa,house,A1,\n"          # stated level, no source → None (loader defaults to 'frequency')
+            "rareza,rarity,C1,ai\n",   # provisional AI-estimated level
+            encoding="utf-8",
+        )
+        imp = make_importer("en", str(csv_file))
+        by_word = {r["word"]: r for r in await imp.transform()}
+        assert by_word["casa"]["level_source"] is None
+        assert by_word["rareza"]["level_source"] == "ai"
