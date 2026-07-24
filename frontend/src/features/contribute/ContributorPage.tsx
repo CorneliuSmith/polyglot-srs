@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useNavigate, useSearchParams } from 'react-router-dom'
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query'
 import { getLanguages } from '../../api/profile'
@@ -495,6 +495,13 @@ export default function ContributorPage() {
   const refresh = () =>
     queryClient.invalidateQueries({ queryKey: ['contribute-grammar', activeLanguageId] })
 
+  // A pure trial reviewer has no Contribute tab; land them on Review instead
+  // of a tab they can't see.
+  const canContribute = (data?.can_contribute ?? false) || (data?.is_admin ?? false)
+  useEffect(() => {
+    if (data && tab === 'contribute' && !canContribute) setTab('review')
+  }, [data, tab, canContribute])
+
   // A 403 means the user has no contributor role for this language.
   const forbidden =
     isError && (error as { response?: { status?: number } })?.response?.status === 403
@@ -537,7 +544,9 @@ export default function ContributorPage() {
             >
               {(
                 [
-                  ['contribute', 'Contribute', true],
+                  // Drafting surface — contributors and admins only. A pure
+                  // trial reviewer has no Contribute tab (nothing to draft).
+                  ['contribute', 'Contribute', (data.can_contribute ?? false) || data.is_admin],
                   // Contributors have all reviewer permissions on the
                   // change-request board, so they get the Review tab too.
                   ['review', 'Review',
