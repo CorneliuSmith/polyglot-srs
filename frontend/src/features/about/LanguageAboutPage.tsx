@@ -2,7 +2,39 @@ import { useQuery } from '@tanstack/react-query'
 import { useNavigate } from 'react-router-dom'
 import { getLanguages } from '../../api/profile'
 import { usePrefsStore } from '../../stores/prefsStore'
-import { factsFor } from './languageFacts'
+import {
+  factsFor,
+  flagsFor,
+  syntaxFor,
+  type SyntaxExample,
+} from './languageFacts'
+
+/** An interlinear example: each word stacked over its gloss, then the natural
+ * translation. Shows how the word order actually works, not just names it. */
+function GlossedExample({ example }: { example: SyntaxExample }) {
+  return (
+    <div className="rounded-xl bg-gray-50 border border-gray-100 p-3">
+      <div
+        className="flex flex-wrap gap-x-4 gap-y-2"
+        dir={example.rtl ? 'rtl' : 'ltr'}
+      >
+        {example.words.map((word, i) => (
+          <div key={i} className="flex flex-col">
+            <span className="text-sm text-gray-900">{word.w}</span>
+            <span className="text-[11px] text-gray-400">{word.g}</span>
+          </div>
+        ))}
+      </div>
+      <p className="mt-2 text-sm text-gray-700">
+        <span aria-hidden className="text-gray-400">→ </span>
+        {example.translation}
+      </p>
+      {example.note && (
+        <p className="mt-1 text-xs text-gray-500">{example.note}</p>
+      )}
+    </div>
+  )
+}
 
 /**
  * "Things to know about this language" — a one-minute orientation to the active
@@ -17,6 +49,8 @@ export default function LanguageAboutPage() {
 
   const language = languages.find((l) => l.id === activeLanguageId)
   const facts = factsFor(language?.code)
+  const flags = flagsFor(language?.code)
+  const syntax = syntaxFor(language?.code)
   const name = language?.name ?? 'this language'
 
   const rows: { label: string; value: string }[] = facts
@@ -25,7 +59,6 @@ export default function LanguageAboutPage() {
         { label: 'Speakers', value: facts.speakers },
         { label: 'Where it’s spoken', value: facts.whereSpoken },
         { label: 'Writing system', value: facts.writingSystem },
-        { label: 'Word order', value: facts.wordOrder },
       ]
     : []
 
@@ -51,9 +84,20 @@ export default function LanguageAboutPage() {
 
         {facts && (
           <>
-            {/* Title + one-line hook */}
+            {/* Title + one-line hook, with representative flags */}
             <div className="bg-white rounded-2xl border border-gray-100 shadow-sm p-5">
-              <h2 className="text-2xl font-bold text-gray-900">{name}</h2>
+              <div className="flex items-start justify-between gap-3">
+                <h2 className="text-2xl font-bold text-gray-900">{name}</h2>
+                {flags && (
+                  <span
+                    className="text-xl leading-none shrink-0"
+                    aria-label="Where it’s spoken"
+                    title="Where it’s spoken"
+                  >
+                    {flags}
+                  </span>
+                )}
+              </div>
               <p className="mt-1 text-sm text-gray-600">{facts.tagline}</p>
             </div>
 
@@ -73,6 +117,26 @@ export default function LanguageAboutPage() {
                   <span className="text-sm text-gray-700">{row.value}</span>
                 </div>
               ))}
+            </section>
+
+            {/* How sentences are built — word order + a glossed example */}
+            <section
+              className="bg-white rounded-2xl border border-gray-100 shadow-sm p-4"
+              data-testid="about-syntax"
+            >
+              <h3 className="text-xs uppercase tracking-wide text-gray-400 mb-2">
+                How sentences are built
+              </h3>
+              <p className="text-sm text-gray-700 leading-relaxed">
+                {facts.wordOrder}
+              </p>
+              {syntax.length > 0 && (
+                <div className="mt-3 space-y-3">
+                  {syntax.map((example) => (
+                    <GlossedExample key={example.sentence} example={example} />
+                  ))}
+                </div>
+              )}
             </section>
 
             {/* History */}

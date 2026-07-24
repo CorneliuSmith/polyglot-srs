@@ -409,3 +409,237 @@ export const LANGUAGE_FACTS: Record<string, LanguageFacts> = {
 export function factsFor(code: string | undefined | null): LanguageFacts | null {
   return (code && LANGUAGE_FACTS[code]) || null
 }
+
+/**
+ * A single interlinear example: the sentence, a word-by-word gloss, and a
+ * natural translation — so a learner can SEE how the word order actually works,
+ * not just read that it's "SOV". `note` calls out what the example demonstrates
+ * (verb position, a case ending, a fused verb…). `rtl` renders the words
+ * right-to-left (Arabic).
+ */
+export interface GlossedWord {
+  /** The word as written in the language. */
+  w: string
+  /** Its word-by-word gloss (kept short). */
+  g: string
+}
+
+export interface SyntaxExample {
+  sentence: string
+  words: GlossedWord[]
+  translation: string
+  note?: string
+  rtl?: boolean
+}
+
+/** Representative flag emoji for where the language is spoken (a light visual
+ * cue, not an exhaustive list). Kept modest — 1–3 per language. */
+export const LANGUAGE_FLAGS: Record<string, string> = {
+  es: '🇪🇸 🇲🇽 🇦🇷', fr: '🇫🇷 🇨🇦 🇸🇳', de: '🇩🇪 🇦🇹 🇨🇭', it: '🇮🇹',
+  ca: '🇦🇩 🇪🇸', pt: '🇧🇷 🇵🇹 🇦🇴', ro: '🇷🇴 🇲🇩', tr: '🇹🇷 🇨🇾',
+  sw: '🇹🇿 🇰🇪 🇺🇬', yo: '🇳🇬 🇧🇯', ha: '🇳🇬 🇳🇪', xh: '🇿🇦', mi: '🇳🇿',
+  jam: '🇯🇲', en: '🇬🇧 🇺🇸', nl: '🇳🇱 🇧🇪 🇸🇷', ru: '🇷🇺', el: '🇬🇷 🇨🇾',
+  ar: '🇪🇬 🇸🇦 🇲🇦', hi: '🇮🇳', th: '🇹🇭', ko: '🇰🇷',
+}
+
+export function flagsFor(code: string | undefined | null): string {
+  return (code && LANGUAGE_FLAGS[code]) || ''
+}
+
+/** One glossed example per language, chosen to show its characteristic word
+ * order. Rendered under "How sentences are built" on the About page. */
+export const LANGUAGE_SYNTAX: Record<string, SyntaxExample[]> = {
+  es: [{
+    sentence: 'El niño come una manzana.',
+    words: [
+      { w: 'El', g: 'the' }, { w: 'niño', g: 'boy' }, { w: 'come', g: 'eats' },
+      { w: 'una', g: 'a' }, { w: 'manzana', g: 'apple' },
+    ],
+    translation: 'The boy eats an apple.',
+    note: 'Subject–Verb–Object; the article agrees with the noun.',
+  }],
+  fr: [{
+    sentence: 'Le garçon mange une pomme.',
+    words: [
+      { w: 'Le', g: 'the' }, { w: 'garçon', g: 'boy' }, { w: 'mange', g: 'eats' },
+      { w: 'une', g: 'a' }, { w: 'pomme', g: 'apple' },
+    ],
+    translation: 'The boy eats an apple.',
+  }],
+  de: [{
+    sentence: 'Heute esse ich einen Apfel.',
+    words: [
+      { w: 'Heute', g: 'today' }, { w: 'esse', g: 'eat' }, { w: 'ich', g: 'I' },
+      { w: 'einen', g: 'an' }, { w: 'Apfel', g: 'apple' },
+    ],
+    translation: 'Today I eat an apple.',
+    note: "The verb 'esse' sits SECOND, pushing the subject 'ich' after it.",
+  }],
+  it: [{
+    sentence: 'Il ragazzo mangia una mela.',
+    words: [
+      { w: 'Il', g: 'the' }, { w: 'ragazzo', g: 'boy' }, { w: 'mangia', g: 'eats' },
+      { w: 'una', g: 'a' }, { w: 'mela', g: 'apple' },
+    ],
+    translation: 'The boy eats an apple.',
+  }],
+  ca: [{
+    sentence: 'El nen menja una poma.',
+    words: [
+      { w: 'El', g: 'the' }, { w: 'nen', g: 'boy' }, { w: 'menja', g: 'eats' },
+      { w: 'una', g: 'a' }, { w: 'poma', g: 'apple' },
+    ],
+    translation: 'The boy eats an apple.',
+  }],
+  pt: [{
+    sentence: 'O menino come uma maçã.',
+    words: [
+      { w: 'O', g: 'the' }, { w: 'menino', g: 'boy' }, { w: 'come', g: 'eats' },
+      { w: 'uma', g: 'a' }, { w: 'maçã', g: 'apple' },
+    ],
+    translation: 'The boy eats an apple.',
+  }],
+  ro: [{
+    sentence: 'Băiatul mănâncă un măr.',
+    words: [
+      { w: 'Băiatul', g: 'boy-the' }, { w: 'mănâncă', g: 'eats' },
+      { w: 'un', g: 'an' }, { w: 'măr', g: 'apple' },
+    ],
+    translation: 'The boy eats an apple.',
+    note: "'Băiatul' = 'boy-the' — the article -ul is glued to the end of the noun.",
+  }],
+  tr: [{
+    sentence: 'Çocuk elmayı yedi.',
+    words: [
+      { w: 'Çocuk', g: 'child' }, { w: 'elmayı', g: 'apple-(object)' },
+      { w: 'yedi', g: 'ate' },
+    ],
+    translation: 'The child ate the apple.',
+    note: "Verb last (SOV); the ending -yı marks 'apple' as the definite object.",
+  }],
+  sw: [{
+    sentence: 'Mtoto anasoma kitabu.',
+    words: [
+      { w: 'Mtoto', g: 'child' }, { w: 'anasoma', g: 's/he-is-reading' },
+      { w: 'kitabu', g: 'book' },
+    ],
+    translation: 'The child is reading a book.',
+    note: "'a-na-soma' fuses subject + tense + verb into one word.",
+  }],
+  yo: [{
+    sentence: 'Adé ra bàtà.',
+    words: [{ w: 'Adé', g: 'Ade' }, { w: 'ra', g: 'bought' }, { w: 'bàtà', g: 'shoes' }],
+    translation: 'Ade bought shoes.',
+    note: 'Word order is a fixed SVO; tone (not endings) does the grammatical work.',
+  }],
+  ha: [{
+    sentence: 'Yaro ya sayi doya.',
+    words: [
+      { w: 'Yaro', g: 'boy' }, { w: 'ya', g: 'he-(did)' }, { w: 'sayi', g: 'buy' },
+      { w: 'doya', g: 'yam' },
+    ],
+    translation: 'The boy bought a yam.',
+    note: "'ya' carries 'he' + completed action, right before the verb.",
+  }],
+  xh: [{
+    sentence: 'Umntwana ufunda incwadi.',
+    words: [
+      { w: 'Umntwana', g: 'child' }, { w: 'ufunda', g: 's/he-reads' },
+      { w: 'incwadi', g: 'book' },
+    ],
+    translation: 'The child reads a book.',
+    note: 'Noun-class prefixes (um-, in-) thread agreement through the sentence.',
+  }],
+  mi: [{
+    sentence: 'Kei te kai te tamaiti i te āporo.',
+    words: [
+      { w: 'Kei te kai', g: 'is-eating' }, { w: 'te', g: 'the' },
+      { w: 'tamaiti', g: 'child' }, { w: 'i te', g: '(object) the' },
+      { w: 'āporo', g: 'apple' },
+    ],
+    translation: 'The child is eating the apple.',
+    note: "Verb-FIRST (VSO); the particle 'i' marks the object.",
+  }],
+  jam: [{
+    sentence: 'Mi a nyam di food.',
+    words: [
+      { w: 'Mi', g: 'I' }, { w: 'a', g: '(ongoing)' }, { w: 'nyam', g: 'eat' },
+      { w: 'di', g: 'the' }, { w: 'food', g: 'food' },
+    ],
+    translation: "I'm eating the food.",
+    note: "'a' is a particle for ongoing action — the verb itself never changes.",
+  }],
+  en: [{
+    sentence: 'The dog chased the cat.',
+    words: [
+      { w: 'The', g: 'the' }, { w: 'dog', g: 'dog' }, { w: 'chased', g: 'chased' },
+      { w: 'the', g: 'the' }, { w: 'cat', g: 'cat' },
+    ],
+    translation: 'The dog chased the cat.',
+    note: 'Swap the nouns and the meaning flips — order alone marks who did what.',
+  }],
+  nl: [{
+    sentence: 'Vandaag koop ik brood.',
+    words: [
+      { w: 'Vandaag', g: 'today' }, { w: 'koop', g: 'buy' }, { w: 'ik', g: 'I' },
+      { w: 'brood', g: 'bread' },
+    ],
+    translation: 'Today I buy bread.',
+    note: "Verb second, like German: 'koop' comes before the subject 'ik'.",
+  }],
+  ru: [{
+    sentence: 'Мальчик читает книгу.',
+    words: [
+      { w: 'Мальчик', g: 'boy' }, { w: 'читает', g: 'reads' },
+      { w: 'книгу', g: 'book-(object)' },
+    ],
+    translation: 'The boy reads a book.',
+    note: "'книгу' is the accusative of 'книга' — the case, not the position, marks the object, so the words can reorder freely.",
+  }],
+  el: [{
+    sentence: 'Ο άντρας διαβάζει το βιβλίο.',
+    words: [
+      { w: 'Ο', g: 'the' }, { w: 'άντρας', g: 'man' }, { w: 'διαβάζει', g: 'reads' },
+      { w: 'το', g: 'the' }, { w: 'βιβλίο', g: 'book' },
+    ],
+    translation: 'The man reads the book.',
+  }],
+  ar: [{
+    sentence: 'يقرأ الولد الكتاب.',
+    words: [
+      { w: 'يقرأ', g: 'reads' }, { w: 'الولد', g: 'the-boy' },
+      { w: 'الكتاب', g: 'the-book' },
+    ],
+    translation: 'The boy reads the book.',
+    note: 'Classical Arabic leads with the verb (VSO); read right to left.',
+    rtl: true,
+  }],
+  hi: [{
+    sentence: 'लड़का किताब पढ़ता है।',
+    words: [
+      { w: 'लड़का', g: 'boy' }, { w: 'किताब', g: 'book' }, { w: 'पढ़ता', g: 'reads' },
+      { w: 'है', g: 'is' },
+    ],
+    translation: 'The boy reads a book.',
+    note: "Verb last (SOV); the sentence closes with 'है' (is).",
+  }],
+  th: [{
+    sentence: 'เด็กกินข้าว',
+    words: [{ w: 'เด็ก', g: 'child' }, { w: 'กิน', g: 'eat' }, { w: 'ข้าว', g: 'rice' }],
+    translation: 'The child eats rice.',
+    note: 'Isolating: no word ever changes form; there are no spaces between words.',
+  }],
+  ko: [{
+    sentence: '아이가 책을 읽어요.',
+    words: [
+      { w: '아이가', g: 'child-(subject)' }, { w: '책을', g: 'book-(object)' },
+      { w: '읽어요', g: 'reads' },
+    ],
+    translation: 'The child reads a book.',
+    note: "Verb last; '-가' marks the subject and '-을' the object.",
+  }],
+}
+
+export function syntaxFor(code: string | undefined | null): SyntaxExample[] {
+  return (code && LANGUAGE_SYNTAX[code]) || []
+}
