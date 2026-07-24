@@ -64,6 +64,7 @@ from backend.repositories.contributor import (
     get_point_language_and_code,
     get_roles,
     get_suggestion,
+    get_vocab_for_check,
     get_vocab_language,
     grant_role,
     is_admin,
@@ -92,6 +93,7 @@ from backend.repositories.contributor import (
     revoke_role,
     save_ai_check,
     save_explanation,
+    save_vocab_ai_check,
     set_account_plan,
     set_language_policy,
     set_language_tutor_model,
@@ -111,7 +113,11 @@ from backend.services.generation_admin import (
 )
 from backend.services.models import LOW_RESOURCE_LANGUAGES, resolve_model
 from backend.services.rate_limit import ai_review_limiter
-from backend.services.semantic_check import ai_available, semantic_check_point
+from backend.services.semantic_check import (
+    ai_available,
+    semantic_check_point,
+    semantic_check_vocab,
+)
 from backend.services.tutor_costs import estimate_cost_usd
 
 logger = logging.getLogger(__name__)
@@ -1233,6 +1239,45 @@ async def ai_check(
     )
     async with privileged_connection() as conn:
         await save_ai_check(conn, point_id, result["status"], result["notes"])
+    return result
+
+
+@router.post("/vocab/{vocabulary_id}/ai-check")
+async def vocab_ai_check(
+    vocabulary_id: str,
+    user: dict = Depends(get_current_user),
+):
+    """Run the advisory AI semantic review on a vocab word and store its
+    verdict — the vocab twin of the grammar-point AI check."""
+    if not ai_available():
+        raise HTTPException(
+            status_code=status.HTTP_503_SERVICE_UNAVAILABLE,
+            detail="AI review is not configured on this server",
+        )
+    if not await ai_review_limiter.allow(user["id"]):
+        raise HTTPException(
+            status_code=status.HTTP_429_TOO_MANY_REQUESTS,
+            detail="Too many AI checks — try again in a minute.",
+        )
+    async with rls_connection(user["id"]) as conn:
+        roles = await get_roles(conn, user["id"])
+        language_id = await get_vocab_language(conn, vocabulary_id)
+        if language_id is None:
+            raise HTTPException(status_code=404, detail="Vocabulary word not found")
+        if not can_contribute(roles, language_id):
+            raise HTTPException(
+                status_code=status.HTTP_403_FORBIDDEN,
+                detail="You don't have a contributor role for this language",
+            )
+        vocab = await get_vocab_for_check(conn, vocabulary_id)
+    if vocab is None:
+        raise HTTPException(status_code=404, detail="Vocabulary word not found")
+
+    result = await semantic_check_vocab(
+        vocab["language_code"], vocab["word"], vocab["definition"], vocab["examples"]
+    )
+    async with privileged_connection() as conn:
+        await save_vocab_ai_check(conn, vocabulary_id, result["status"], result["notes"])
     return result
 
 

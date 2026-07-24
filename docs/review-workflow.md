@@ -108,13 +108,19 @@ behind the human gate**. The checker never publishes; it only prepares work.
 
 ### 2. The semantic check (manual, advisory, on demand)
 
-On a grammar point, a reviewer can click **"Run AI check"**. That calls
-`services/semantic_check.py`, which returns a verdict stored on the point:
+On a grammar point **or a vocabulary word**, a reviewer can click **"Run AI
+check"**. That calls `services/semantic_check.py`
+(`semantic_check_point` / `semantic_check_vocab`), which returns a verdict
+stored on the entity:
 
-- `grammar_points.ai_check_status` = `pass` or `concerns`
-- `grammar_points.ai_check_notes` = the model's reasoning
+- `ai_check_status` = `pass` or `concerns` (on `grammar_points` / `vocabulary`)
+- `ai_check_notes` = the model's reasoning
 
-You see it in the **PointEditor → "Checks" box**. It is purely advisory —
+For grammar it checks the explanation and every drill; for a word it checks
+the definition/gloss and every example sentence. You see it in the
+**PointEditor → "Checks" box** (grammar) or the vocab card's **"AI check"
+box**. Only contributors/admins can *run* it (it costs an API call); any
+reviewer can *see* the result. It is purely advisory —
 a second opinion to help the human decide. Under the default `strict`
 policy it changes nothing about what learners see; it does **not** approve
 anything. **Where do concerns show up?** Right on the point in the Review

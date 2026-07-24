@@ -88,11 +88,60 @@ async def semantic_check_point(
         }],
         output_config={"format": {"type": "json_schema", "schema": _SCHEMA}},
     )
+    return _parse_verdict(response)
+
+
+async def semantic_check_vocab(
+    language_code: str,
+    word: str,
+    definition: str | None,
+    examples: list[dict],
+) -> dict:
+    """Run an AI linguist review of a vocabulary word — the vocab twin of
+    semantic_check_point. Checks the definition is accurate and each example
+    sentence is natural and uses the word correctly. Returns {status, notes}."""
+    settings = get_settings()
+    if getattr(settings, "tutor_dev_mock", False):
+        return _mock_check()
+
+    brief = _load_skill(language_code) or f"Language code: {language_code}."
+    examples_text = "\n".join(
+        f"- {e.get('sentence')}"
+        + (f"  ({e.get('translation')})" if e.get("translation") else "")
+        for e in examples
+    ) or "(no example sentences)"
+
+    client = AsyncAnthropic(api_key=settings.anthropic_api_key)
+    response = await client.messages.create(
+        model=resolve_model("semantic_check"),
+        max_tokens=1024,
+        system=(
+            "You are a meticulous linguist reviewing a beginner vocabulary entry "
+            "for correctness. Verify the definition/gloss is accurate for the "
+            "word, and that each example sentence is natural, grammatical, and "
+            "actually uses the word correctly. Report 'concerns' if anything is "
+            "wrong, naming the specific item and the fix.\n\n" + brief
+        ),
+        messages=[{
+            "role": "user",
+            "content": (
+                f"Word: {word}\n"
+                f"Definition: {definition or '(none provided)'}\n"
+                f"Example sentences:\n{examples_text}"
+            ),
+        }],
+        output_config={"format": {"type": "json_schema", "schema": _SCHEMA}},
+    )
+    return _parse_verdict(response)
+
+
+def _parse_verdict(response) -> dict:
+    """Extract the {status, notes} verdict from a model response, failing safe
+    to 'concerns' so an unparseable review still reaches the human reviewer."""
     text = next((b.text for b in response.content if b.type == "text"), "{}")
     try:
         data = json.loads(text)
     except (json.JSONDecodeError, TypeError):
-        # Fail safe: if we can't parse a verdict, flag for the human reviewer.
         return {"status": "concerns", "notes": "AI review could not be parsed; needs human review."}
     status = data.get("status")
     if status not in ("pass", "concerns"):
