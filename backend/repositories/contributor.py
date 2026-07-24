@@ -1115,6 +1115,130 @@ async def trial_reviewer_activity(
     ]
 
 
+# ---------------------------------------------------------------------------
+# Trial-reviewer feedback prompt: occasionally nudge a trial reviewer to judge
+# one real pending item before they use the dashboard. Their answer is recorded
+# as an advisory recommendation (add_recommendation). The state table just
+# rate-limits the nudge to ~once a day per user.
+# ---------------------------------------------------------------------------
+
+
+async def trial_prompt_due(
+    conn: asyncpg.Connection, user_id: str, cooldown_hours: int
+) -> bool:
+    """True if this trial reviewer hasn't answered a prompt within the cooldown
+    (or ever) — i.e. it's time to nudge them again."""
+    row = await conn.fetchval(
+        """
+        SELECT last_answered_at
+        FROM trial_review_prompt_state
+        WHERE user_id = $1
+          AND last_answered_at > now() - make_interval(hours => $2)
+        """,
+        user_id, cooldown_hours,
+    )
+    # A row only comes back when a recent answer exists → NOT due. No row (never
+    # answered, or answered long ago) → due.
+    return row is None
+
+
+async def pick_review_prompt(
+    conn: asyncpg.Connection,
+    user_id: str,
+    *,
+    all_languages: bool,
+    language_ids: list[str],
+) -> dict | None:
+    """Pick ONE pending item for this trial reviewer to judge — a generated
+    drill first, else a generated example — in a language they can trial-review
+    and haven't already recommended on. Returns a prompt payload, or None if
+    there's nothing to ask about."""
+    if not all_languages and not language_ids:
+        return None
+    lang_ids = None if all_languages else language_ids
+
+    drill = await conn.fetchrow(
+        """
+        SELECT ds.id, ds.sentence, ds.answer, ds.translation,
+               gp.language_id, gp.title AS context
+        FROM drill_sentences ds
+        JOIN grammar_points gp ON ds.grammar_point_id = gp.id
+        WHERE ds.source = 'ai' AND ds.reviewed = false AND ds.flagged = false
+          AND ($2::uuid[] IS NULL OR gp.language_id = ANY($2::uuid[]))
+          AND NOT EXISTS (
+            SELECT 1 FROM review_recommendations rr
+             WHERE rr.recommender_id = $1
+               AND rr.target_type = 'drill' AND rr.target_id = ds.id)
+        ORDER BY ds.created_at
+        LIMIT 1
+        """,
+        user_id, lang_ids,
+    )
+    if drill is not None:
+        return {
+            "target_type": "drill",
+            "target_id": str(drill["id"]),
+            "language_id": str(drill["language_id"]),
+            "context": drill["context"],
+            "sentence": drill["sentence"],
+            "answer": drill["answer"],
+            "translation": drill["translation"],
+            "word": None,
+            "question": "Is this a correct, natural drill you'd approve for learners?",
+        }
+
+    example = await conn.fetchrow(
+        """
+        SELECT es.id, es.sentence, es.translation, es.language_id,
+               v.word AS context
+        FROM example_sentences es
+        JOIN vocabulary v ON es.vocabulary_id = v.id
+        WHERE es.source = 'ai' AND es.reviewed = false AND es.flagged = false
+          AND ($2::uuid[] IS NULL OR es.language_id = ANY($2::uuid[]))
+          AND NOT EXISTS (
+            SELECT 1 FROM review_recommendations rr
+             WHERE rr.recommender_id = $1
+               AND rr.target_type = 'example' AND rr.target_id = es.id)
+        ORDER BY es.created_at
+        LIMIT 1
+        """,
+        user_id, lang_ids,
+    )
+    if example is not None:
+        return {
+            "target_type": "example",
+            "target_id": str(example["id"]),
+            "language_id": str(example["language_id"]),
+            "context": example["context"],
+            "sentence": example["sentence"],
+            "answer": None,
+            "translation": example["translation"],
+            "word": example["context"],
+            "question": (
+                f"Does this sentence use “{example['context']}” correctly "
+                f"and read naturally?"
+            ),
+        }
+    return None
+
+
+async def record_trial_prompt_answer(
+    conn: asyncpg.Connection, user_id: str
+) -> None:
+    """Stamp that the trial reviewer answered a prompt now — resets the cooldown
+    and counts engagement (privileged)."""
+    await conn.execute(
+        """
+        INSERT INTO trial_review_prompt_state (user_id, last_answered_at, prompts_answered)
+        VALUES ($1, now(), 1)
+        ON CONFLICT (user_id) DO UPDATE SET
+            last_answered_at = now(),
+            prompts_answered = trial_review_prompt_state.prompts_answered + 1
+        """,
+        user_id,
+    )
+
+
 async def list_pending_drills(
     conn: asyncpg.Connection, language_id: str, limit: int = 50
 ) -> list[dict]:

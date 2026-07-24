@@ -1681,6 +1681,110 @@ class TestGenerationRecheck:
         assert resp.status_code == 503
 
 
+class TestReviewPrompt:
+    DRILL = "dddddddd-dddd-dddd-dddd-dddddddddddd"
+
+    def test_not_due_for_non_trial_reviewer(self, client):
+        # A plain contributor is never nudged.
+        with _roles([{"language_id": LANG_ID, "role": "contributor"}]):
+            resp = client.get("/api/contribute/review/prompt", headers=_auth_headers())
+        assert resp.status_code == 200
+        assert resp.json() == {"due": False}
+
+    def test_not_due_for_admin(self, client):
+        with _roles([{"language_id": None, "role": "admin"}]):
+            resp = client.get("/api/contribute/review/prompt", headers=_auth_headers())
+        assert resp.json() == {"due": False}
+
+    def test_returns_prompt_when_trial_reviewer_and_due(self, client):
+        conn = AsyncMock()
+        prompt = {"target_type": "drill", "target_id": self.DRILL,
+                  "language_id": LANG_ID, "context": "Present",
+                  "sentence": "Yeye {{answer}} chai.", "answer": "anakunywa",
+                  "translation": "She drinks tea.", "word": None,
+                  "question": "Is this a correct, natural drill?"}
+        with _roles([{"language_id": LANG_ID, "role": "trial_reviewer"}]), \
+             _priv_yielding(conn), \
+             patch("backend.routers.contribute.trial_prompt_due",
+                   new=AsyncMock(return_value=True)), \
+             patch("backend.routers.contribute.pick_review_prompt",
+                   new=AsyncMock(return_value=prompt)):
+            resp = client.get("/api/contribute/review/prompt", headers=_auth_headers())
+        assert resp.status_code == 200
+        body = resp.json()
+        assert body["due"] is True
+        assert body["prompt"]["target_id"] == self.DRILL
+
+    def test_not_due_within_cooldown(self, client):
+        conn = AsyncMock()
+        with _roles([{"language_id": LANG_ID, "role": "trial_reviewer"}]), \
+             _priv_yielding(conn), \
+             patch("backend.routers.contribute.trial_prompt_due",
+                   new=AsyncMock(return_value=False)), \
+             patch("backend.routers.contribute.pick_review_prompt",
+                   new=AsyncMock()) as mock_pick:
+            resp = client.get("/api/contribute/review/prompt", headers=_auth_headers())
+        assert resp.json() == {"due": False}
+        mock_pick.assert_not_awaited()  # no work picked when not due
+
+    def test_answer_approve_records_recommendation(self, client):
+        conn = AsyncMock()
+        with _roles([{"language_id": LANG_ID, "role": "trial_reviewer"}]), \
+             _priv_yielding(conn), \
+             patch("backend.routers.contribute.add_recommendation",
+                   new=AsyncMock()) as mock_rec, \
+             patch("backend.routers.contribute.record_trial_prompt_answer",
+                   new=AsyncMock()) as mock_record:
+            resp = client.post(
+                "/api/contribute/review/prompt/answer",
+                json={"target_type": "drill", "target_id": self.DRILL,
+                      "language_id": LANG_ID, "recommendation": "approve"},
+                headers=_auth_headers(),
+            )
+        assert resp.status_code == 200
+        mock_rec.assert_awaited_once()
+        mock_record.assert_awaited_once()
+
+    def test_answer_skip_records_no_recommendation_but_resets_cooldown(self, client):
+        conn = AsyncMock()
+        with _roles([{"language_id": LANG_ID, "role": "trial_reviewer"}]), \
+             _priv_yielding(conn), \
+             patch("backend.routers.contribute.add_recommendation",
+                   new=AsyncMock()) as mock_rec, \
+             patch("backend.routers.contribute.record_trial_prompt_answer",
+                   new=AsyncMock()) as mock_record:
+            resp = client.post(
+                "/api/contribute/review/prompt/answer",
+                json={"target_type": "drill", "target_id": self.DRILL,
+                      "language_id": LANG_ID, "recommendation": "skip"},
+                headers=_auth_headers(),
+            )
+        assert resp.status_code == 200
+        mock_rec.assert_not_awaited()      # skip casts no vote
+        mock_record.assert_awaited_once()  # but the nudge is satisfied
+
+    def test_answer_requires_review_role_for_language(self, client):
+        with _roles([{"language_id": LANG_ID, "role": "trial_reviewer"}]):
+            resp = client.post(
+                "/api/contribute/review/prompt/answer",
+                json={"target_type": "drill", "target_id": self.DRILL,
+                      "language_id": "ffffffff-ffff-ffff-ffff-ffffffffffff",
+                      "recommendation": "approve"},
+                headers=_auth_headers(),
+            )
+        assert resp.status_code == 403
+
+    def test_answer_rejects_bad_recommendation(self, client):
+        with _roles([{"language_id": LANG_ID, "role": "trial_reviewer"}]):
+            resp = client.post(
+                "/api/contribute/review/prompt/answer",
+                json={"target_type": "drill", "target_id": self.DRILL,
+                      "language_id": LANG_ID, "recommendation": "maybe"},
+                headers=_auth_headers(),
+            )
+        assert resp.status_code == 422
+
+
 class TestGenerationReviewGate:
     EX = "aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa"
 

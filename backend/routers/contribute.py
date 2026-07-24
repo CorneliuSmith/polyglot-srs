@@ -81,7 +81,9 @@ from backend.repositories.contributor import (
     list_translation_reviews,
     list_vocab_examples,
     list_vocab_items,
+    pick_review_prompt,
     recommendations_for_targets,
+    record_trial_prompt_answer,
     reject_suggestion,
     resolve_feedback,
     resolve_review_note,
@@ -98,6 +100,7 @@ from backend.repositories.contributor import (
     set_language_policy,
     set_language_tutor_model,
     submit_suggestion,
+    trial_prompt_due,
     trial_reviewer_activity,
     update_drill,
 )
@@ -617,6 +620,76 @@ async def review_inbox(
         "counts": counts,
         "can_publish": can_review(roles, language_id),
     }
+
+
+# How often a trial reviewer is nudged, at most. Roughly once a day.
+TRIAL_PROMPT_COOLDOWN_HOURS = 20
+
+
+def _trial_scope(roles: list[dict]) -> tuple[bool, list[str]]:
+    """The languages a user can be prompted about as a *trial reviewer*: (all,
+    [ids]). all=True when they hold a global trial_reviewer grant."""
+    trial = [r for r in roles if r["role"] == "trial_reviewer"]
+    all_langs = any(r["language_id"] is None for r in trial)
+    ids = [r["language_id"] for r in trial if r["language_id"]]
+    return all_langs, ids
+
+
+@router.get("/review/prompt")
+async def review_prompt(user: dict = Depends(get_current_user)):
+    """A forced-feedback nudge for TRIAL reviewers: occasionally (rate-limited to
+    ~once a day) return one real pending item for them to judge before they use
+    the dashboard. Returns {due: false} for anyone not eligible or not yet due,
+    or when there's nothing pending to ask about. Admins/full-only reviewers are
+    never nudged."""
+    async with rls_connection(user["id"]) as conn:
+        roles = await get_roles(conn, user["id"])
+    if is_admin(roles) or not any(r["role"] == "trial_reviewer" for r in roles):
+        return {"due": False}
+    all_langs, ids = _trial_scope(roles)
+    async with privileged_connection() as conn:
+        if not await trial_prompt_due(conn, user["id"], TRIAL_PROMPT_COOLDOWN_HOURS):
+            return {"due": False}
+        prompt = await pick_review_prompt(
+            conn, user["id"], all_languages=all_langs, language_ids=ids
+        )
+    if prompt is None:
+        return {"due": False}
+    return {"due": True, "prompt": prompt}
+
+
+class ReviewPromptAnswer(BaseModel):
+    target_type: str = Field(pattern="^(drill|example)$")
+    target_id: str
+    language_id: str
+    # 'skip' = "I can't tell" — still satisfies the nudge, records no vote.
+    recommendation: str = Field(pattern="^(approve|reject|skip)$")
+    note: str = Field(default="", max_length=1000)
+
+
+@router.post("/review/prompt/answer")
+async def review_prompt_answer(
+    body: ReviewPromptAnswer,
+    user: dict = Depends(get_current_user),
+):
+    """Record a trial reviewer's answer to the dashboard nudge. approve/reject
+    become an advisory recommendation (publishes nothing); skip records nothing.
+    Either way the cooldown resets so they aren't nudged again today."""
+    async with rls_connection(user["id"]) as conn:
+        roles = await get_roles(conn, user["id"])
+    if not can_trial_review(roles, body.language_id):
+        raise HTTPException(
+            status_code=status.HTTP_403_FORBIDDEN,
+            detail="You can't review this language.",
+        )
+    async with privileged_connection() as conn:
+        if body.recommendation in ("approve", "reject"):
+            await add_recommendation(
+                conn, user["id"], body.language_id,
+                body.target_type, body.target_id, body.recommendation, body.note,
+            )
+        await record_trial_prompt_answer(conn, user["id"])
+    return {"ok": True}
 
 
 @router.get("/review/generated-drills")

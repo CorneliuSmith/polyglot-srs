@@ -23,6 +23,7 @@ import ActivityChart from './ActivityChart'
 import StageTiles from './StageTiles'
 import ProfileCard from './ProfileCard'
 import Walkthrough from '../onboarding/Walkthrough'
+import ReviewPromptGate from './ReviewPromptGate'
 import WhatsNewPanel from '../announcements/WhatsNewPanel'
 import { unseenWhatsNew } from '../announcements/whatsNew'
 import InstallPrompt from '../../components/InstallPrompt'
@@ -339,6 +340,9 @@ export default function DashboardPage() {
 
   return (
     <div className="min-h-screen bg-gray-50 overflow-x-hidden">
+      {/* Occasional forced-feedback nudge for trial reviewers (self-gates:
+          renders nothing unless one is due). */}
+      <ReviewPromptGate />
       <div className="max-w-2xl mx-auto px-4 py-8 space-y-6">
         {/* Header. On phones the full row of destinations overflowed the
             viewport (the source of the "shaky", clipped layout), so the

@@ -827,6 +827,44 @@ export interface PendingDrillsResult {
   can_publish: boolean
 }
 
+/** The dashboard forced-feedback nudge for trial reviewers: one real pending
+ * item to judge. */
+export interface ReviewPrompt {
+  target_type: 'drill' | 'example'
+  target_id: string
+  language_id: string
+  context: string
+  sentence: string
+  answer: string | null
+  translation: string | null
+  word: string | null
+  question: string
+}
+
+/** Returns a nudge when one is due for a trial reviewer, else {due:false}. */
+export async function getReviewPrompt(): Promise<{ due: boolean; prompt?: ReviewPrompt }> {
+  const response = await apiClient.get('/api/contribute/review/prompt')
+  return response.data
+}
+
+/** Record the trial reviewer's answer: approve/reject (an advisory vote) or
+ * skip ("can't tell"). Either way the nudge is satisfied for today. */
+export async function answerReviewPrompt(body: {
+  targetType: 'drill' | 'example'
+  targetId: string
+  languageId: string
+  recommendation: 'approve' | 'reject' | 'skip'
+  note?: string
+}): Promise<void> {
+  await apiClient.post('/api/contribute/review/prompt/answer', {
+    target_type: body.targetType,
+    target_id: body.targetId,
+    language_id: body.languageId,
+    recommendation: body.recommendation,
+    note: body.note ?? '',
+  })
+}
+
 /** One roll-up of everything awaiting review action for a language. Each key
  * is a queue an existing panel already acts on. */
 export interface ReviewInboxCounts {

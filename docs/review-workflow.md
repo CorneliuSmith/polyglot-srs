@@ -79,7 +79,16 @@ A **trial reviewer** is the on-ramp: they reach the Review workspace, see
 everything a reviewer sees, leave advisory ✓/✗ recommendations, and **file
 written review notes** on a card — but they cannot publish or delete.
 (Notes are exactly where their judgement shows, which is what you promote
-on.) Promote a trial reviewer to reviewer once you trust that judgement. Grant either role
+on.) Promote a trial reviewer to reviewer once you trust that judgement.
+
+To keep trial reviewers engaged, the **dashboard nudges them**: at most once
+a day, opening the dashboard shows a blocking check-in with one real pending
+item (a generated drill or example in a language they can trial-review) and
+asks them to judge it — *Looks good* / *Needs work* records an advisory
+recommendation, *I can't tell* satisfies the nudge without a vote. It's
+rate-limited server-side (`trial_review_prompt_state`), only appears for
+trial reviewers (never admins/full reviewers), and skips silently when
+there's nothing pending to ask about. Grant either role
 from **Contribute → Roles** (admins) or **Manage accounts** (both panels
 offer `trial_reviewer` and `reviewer`).
 
