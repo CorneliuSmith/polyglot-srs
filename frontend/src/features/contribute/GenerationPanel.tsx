@@ -6,8 +6,11 @@ import {
   reviewExample,
   reviewExamplesBulk,
   runGeneration,
+  runRecheck,
   type GenerationDryRun,
   type GenerationResult,
+  type RecheckDryRun,
+  type RecheckResult,
 } from '../../api/contribute'
 
 /** Admin content-generation panel (WP42): fill example-sentence and drill gaps
@@ -30,6 +33,8 @@ export default function GenerationPanel() {
   const [preview, setPreview] = useState<GenerationDryRun | null>(null)
   const [result, setResult] = useState<GenerationResult | null>(null)
   const [error, setError] = useState<string | null>(null)
+  const [recheckPreview, setRecheckPreview] = useState<RecheckDryRun | null>(null)
+  const [recheckResult, setRecheckResult] = useState<RecheckResult | null>(null)
 
   const rows = data?.coverage ?? []
   // Default the selector to the top "do next" language once data lands.
@@ -66,6 +71,38 @@ export default function GenerationPanel() {
         status === 503
           ? 'The server has no Anthropic key configured — generation is unavailable here.'
           : 'Generation failed. Please try again.',
+      )
+    },
+  })
+
+  const recheckMutation = useMutation({
+    mutationFn: (dryRun: boolean) =>
+      runRecheck({
+        languageId: selectedId,
+        languageCode: selected!.language_code,
+        kind,
+        targetPerItem: target,
+        maxItems,
+        dryRun,
+      }),
+    onSuccess: (res) => {
+      setError(null)
+      if (res.dry_run) {
+        setRecheckPreview(res)
+        setRecheckResult(null)
+      } else {
+        setRecheckResult(res)
+        setRecheckPreview(null)
+        qc.invalidateQueries({ queryKey: ['generation-coverage'] })
+        qc.invalidateQueries({ queryKey: ['generation-pending', selectedId] })
+      }
+    },
+    onError: (err: unknown) => {
+      const status = (err as { response?: { status?: number } })?.response?.status
+      setError(
+        status === 503
+          ? 'The server has no Anthropic key configured — recheck is unavailable here.'
+          : 'Recheck failed. Please try again.',
       )
     },
   })
@@ -121,6 +158,24 @@ export default function GenerationPanel() {
     )
       return
     mutation.mutate(false)
+  }
+
+  const auditUnit = kind === 'vocab' ? 'example sentences' : 'drills'
+  const doRecheckPreview = () => {
+    setRecheckResult(null)
+    recheckMutation.mutate(true)
+  }
+  const doRecheck = () => {
+    const cost = recheckPreview ? ` (~$${recheckPreview.est_cost_usd.toFixed(2)})` : ''
+    if (
+      !window.confirm(
+        `Recheck existing ${selected?.language_name} ${auditUnit} now${cost}? ` +
+          'An AI judge flags bad ones for review and tops each item back up to ' +
+          'target with alternatives. Uses the server key and spends real credit.',
+      )
+    )
+      return
+    recheckMutation.mutate(false)
   }
 
   return (
@@ -237,6 +292,8 @@ export default function GenerationPanel() {
                   onClick={() => {
                     setKind(k)
                     setPreview(null)
+                    setRecheckPreview(null)
+                    setRecheckResult(null)
                   }}
                   aria-pressed={kind === k}
                   className={`px-3 py-1 capitalize transition-colors ${
@@ -323,6 +380,52 @@ export default function GenerationPanel() {
               {error}
             </p>
           )}
+
+          {/* Recheck: quality-audit EXISTING content (not gap-fill). Flags bad
+              items for review and heals each back to target. */}
+          <div className="mt-2 border-t border-gray-100 pt-2 space-y-2" data-testid="recheck-controls">
+            <div className="text-xs text-gray-500">
+              Recheck existing <b>{auditUnit}</b> — audit for quality, flag the
+              bad ones for review, top each back up to target.
+            </div>
+            <div className="flex flex-wrap items-center gap-2">
+              <button
+                type="button"
+                onClick={doRecheckPreview}
+                disabled={recheckMutation.isPending}
+                className="rounded-lg border border-gray-200 px-3 py-1.5 text-gray-700 hover:bg-gray-50 disabled:opacity-40"
+              >
+                {recheckMutation.isPending ? 'Working…' : 'Preview recheck'}
+              </button>
+              <button
+                type="button"
+                onClick={doRecheck}
+                disabled={recheckMutation.isPending || !data.available}
+                className="rounded-lg border border-amber-300 bg-amber-50 text-amber-800 px-3 py-1.5 font-semibold hover:bg-amber-100 disabled:opacity-40"
+              >
+                Recheck now
+              </button>
+            </div>
+            {recheckPreview && (
+              <p className="text-xs text-gray-600">
+                Would audit <b>{recheckPreview.items_to_audit}</b>{' '}
+                {kind === 'vocab' ? 'words' : 'points'} (
+                <b>{recheckPreview.units_to_audit}</b> {auditUnit}) — est.{' '}
+                <b>~${recheckPreview.est_cost_usd.toFixed(2)}</b>.
+              </p>
+            )}
+            {recheckResult && (
+              <p className="text-xs text-green-700" role="status">
+                Rechecked {recheckResult.items_audited}{' '}
+                {kind === 'vocab' ? 'words' : 'points'}: flagged{' '}
+                <b>{recheckResult.flagged}</b> for review, generated{' '}
+                <b>{recheckResult.alternatives_generated}</b> alternative
+                {recheckResult.alternatives_generated === 1 ? '' : 's'} · est. ~$
+                {recheckResult.est_cost_usd.toFixed(2)}. Flagged items show in the
+                Review tab; alternatives are tagged “ai” and await review.
+              </p>
+            )}
+          </div>
         </div>
       )}
 

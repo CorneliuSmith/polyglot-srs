@@ -108,7 +108,11 @@ from backend.services.generate import generation_available
 from backend.services.generation_admin import (
     MAX_ITEMS_PER_RUN,
     MAX_PER_ITEM,
+    plan_recheck,
+    plan_recheck_drills,
     plan_run,
+    recheck_drills,
+    recheck_examples,
     run_generation,
 )
 from backend.services.models import LOW_RESOURCE_LANGUAGES, resolve_model
@@ -460,6 +464,68 @@ async def generation_run(
             max_items=body.max_items,
         )
     return {"dry_run": False, **result}
+
+
+@router.post("/admin/generation/recheck")
+async def generation_recheck(
+    body: GenerationRunRequest,
+    user: dict = Depends(get_current_user),
+):
+    """Quality-audit EXISTING content (admin-only, WP42): an LLM judge flags the
+    bad/too-simple items for reviewers (never deletes) and tops each item back
+    up to target with fresh alternatives. `kind` picks the corpus — vocab
+    example sentences or grammar drills. Same dry-run cost preview as generate.
+    Returns a shape normalized across both corpora so the panel renders one UI.
+    """
+    await _require_admin(user["id"])
+    if not body.dry_run and not generation_available():
+        raise HTTPException(
+            status_code=status.HTTP_503_SERVICE_UNAVAILABLE,
+            detail="Recheck needs ANTHROPIC_API_KEY (or dev-mock) on the server.",
+        )
+    drills = body.kind == "grammar"
+    async with privileged_connection() as conn:
+        lang = await conn.fetchrow(
+            "SELECT code, name FROM languages WHERE id = $1", body.language_id
+        )
+        if lang is None or lang["code"] != body.language_code:
+            raise HTTPException(
+                status_code=status.HTTP_404_NOT_FOUND, detail="Unknown language."
+            )
+        if body.dry_run:
+            plan = await (plan_recheck_drills if drills else plan_recheck)(
+                conn,
+                language_id=body.language_id,
+                language_code=body.language_code,
+                max_items=body.max_items,
+            )
+            plan.pop("_items", None)
+            return {
+                "dry_run": True,
+                "kind": body.kind,
+                "model": plan["model"],
+                "items_to_audit": plan.get("points_to_audit", plan.get("words_to_audit", 0)),
+                "units_to_audit": plan.get("drills_to_audit", plan.get("sentences_to_audit", 0)),
+                "est_cost_usd": plan["est_cost_usd"],
+            }
+        recheck = recheck_drills if drills else recheck_examples
+        result = await recheck(
+            conn,
+            language_id=body.language_id,
+            language_code=body.language_code,
+            language_name=lang["name"],
+            target_per_item=body.target_per_item,
+            max_items=body.max_items,
+        )
+    return {
+        "dry_run": False,
+        "kind": body.kind,
+        "model": result["model"],
+        "items_audited": result.get("points_audited", result.get("words_audited", 0)),
+        "flagged": result.get("drills_flagged", result.get("sentences_flagged", 0)),
+        "alternatives_generated": result["alternatives_generated"],
+        "est_cost_usd": result["est_cost_usd"],
+    }
 
 
 @router.get("/admin/generation/pending")
