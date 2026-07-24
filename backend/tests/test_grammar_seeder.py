@@ -12,7 +12,7 @@ import pytest
 from fastapi.testclient import TestClient
 
 from backend.main import create_app
-from backend.services.seeder.seed_grammar import GrammarSeeder
+from backend.services.seeder.seed_grammar import GrammarSeeder, _clean_prerequisites
 
 TEST_SECRET = "test-jwt-secret-for-unit-tests-32bytes"
 TEST_USER_ID = "550e8400-e29b-41d4-a716-446655440000"
@@ -34,6 +34,18 @@ class TestGrammarTransform:
             for d in p["drills"]:
                 assert "{{answer}}" in d["sentence"]
                 assert d["answer"]
+
+    def test_prerequisites_cleaned(self):
+        # Titles of points to learn first; stripped, de-duped, junk dropped.
+        assert _clean_prerequisites(["  A ", "A", "", "B"]) == ["A", "B"]
+        assert _clean_prerequisites(None) == []
+
+    def test_transform_carries_prerequisites_key(self):
+        data = GrammarSeeder("fake://db", "ru").transform()
+        # Every point exposes a prerequisites list (empty unless the curriculum
+        # file declares one) — the load step resolves titles to ids.
+        for p in data["points"]:
+            assert isinstance(p["prerequisites"], list)
 
     def test_real_curriculum_includes_references(self):
         data = GrammarSeeder("fake://db", "ru").transform()
