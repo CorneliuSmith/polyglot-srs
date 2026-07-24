@@ -46,33 +46,40 @@ async def _card(pool, language_id: str, vocab_id: str) -> str:
         ))
 
 
-async def test_support_locale_prefers_then_falls_back(pool):
+async def test_support_locale_serves_only_that_locale(pool):
+    """English-course example sentences are stored one row per support locale.
+    A learner sees ONLY the row in their locale — never a different-language
+    translation (the "random translations" bug) and never a meaningless
+    English→English one."""
     lang = await _english(pool)
     vocab = await _word(pool, lang, "arrange")
     card = await _card(pool, lang, vocab)
 
     async with pool.privileged_connection() as conn:
+        # The sentence exists with Greek and Swahili translations, but NOT Russian.
         await add_example_sentence(
             conn, vocab, lang, "Please arrange the books.",
-            "To put in order.", source="human",  # 'en' description
+            "Το ταξινομείς;", source="human", translation_locale="el",
+        )
+        await add_example_sentence(
+            conn, vocab, lang, "Please arrange the books.",
+            "Panga vitabu.", source="human", translation_locale="sw",
         )
 
-        # Russian learner, no ru translation yet → falls back to the English one.
+        # Russian learner: no ru row → the word shows NO example (never the
+        # Greek/Swahili one).
         detail = await get_card_detail(conn, card, support_locale="ru")
-        assert detail["examples"][0]["translation"] == "To put in order."
+        assert detail["examples"] == []
 
-        # Add the Russian translation of the same sentence → it's now preferred.
+        # Add the Russian translation → now the sentence shows, in Russian.
         await add_example_sentence(
             conn, vocab, lang, "Please arrange the books.",
             "Пожалуйста, расставьте книги.", source="human",
             translation_locale="ru",
         )
         detail = await get_card_detail(conn, card, support_locale="ru")
+        assert detail["examples"][0]["sentence"] == "Please arrange the books."
         assert detail["examples"][0]["translation"] == "Пожалуйста, расставьте книги."
-
-        # An English learner with no support locale still sees English.
-        detail_en = await get_card_detail(conn, card, support_locale=None)
-        assert detail_en["examples"][0]["translation"] == "To put in order."
 
 
 async def test_generate_locale_translations(pool, monkeypatch):
