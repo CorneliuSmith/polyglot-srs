@@ -51,6 +51,14 @@ that validates on the extractor side loads here without translation:
   alphabet cards (the `CHECK` widened in `alphabet_level.sql`). The CSV importer
   still only accepts `A1`–`C2`, so A0 letters are emitted to
   `data/alphabet/{code}.json` (consumed by `seed_alphabet.py`), never the CSV.
+- **Level provenance** — the vocabulary CSV may carry an optional `level_source`
+  column (`frequency` | `curated` | `ai`, migration
+  `20260820000000_vocab_level_source.sql`). The extractor only sets it to `ai`,
+  for a level its `--fill` pass *generated* — so a provisional AI estimate is
+  gated out of learners' decks (Strict) and routed through a reviewer, exactly
+  like generated drills. A level taken from the document leaves it blank, and the
+  importer lowers that to the objective `frequency` default. A reviewer's
+  `curated` confirmation survives re-seeding (the loader never downgrades it).
 - **Part of speech** — the `VALID_POS` set in `seeder/validators.py`.
 - **Prerequisites** — a grammar point may list the *titles* of points to learn
   first; `seed_grammar.load` resolves them to `grammar_points.prerequisites`
@@ -83,8 +91,9 @@ seed the loadable subset now and fill the rest later.
 
 ## Versioning
 
-Interchange documents carry a `schema_version` (currently **0.2.0** — it added
-`A0`, `gym`, `pitfalls`, and `prerequisites`). When a migration changes one of
-the controlled values above, the corresponding constant in the extractor's
-`enums.py` is updated and the version is bumped — so a mismatch is visible rather
-than silently loading wrong data.
+Interchange documents carry a `schema_version` (currently **0.3.0** — it added
+vocabulary `level_source`; 0.2.0 added `A0`, `gym`, `pitfalls`, and
+`prerequisites`). When a migration changes one of the controlled values above,
+the corresponding constant in the extractor's `enums.py` is updated and the
+version is bumped — so a mismatch is visible rather than silently loading wrong
+data.

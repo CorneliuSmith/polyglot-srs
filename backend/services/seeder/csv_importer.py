@@ -5,6 +5,7 @@ from pathlib import Path
 
 from .base import BaseSeeder
 from .validators import (
+    VALID_LEVEL_SOURCES,
     VALID_LEVELS,
     VALID_POS,
     ValidationError,
@@ -93,6 +94,17 @@ class CSVImporter(BaseSeeder):
                     )
                 )
 
+            # --- level_source validation (optional) ---
+            level_source = row.get("level_source", "").strip().lower()
+            if level_source and level_source not in VALID_LEVEL_SOURCES:
+                row_errors.append(
+                    ValidationError(
+                        i, "level_source", level_source,
+                        f"invalid level_source. Must be one of: "
+                        f"{', '.join(sorted(VALID_LEVEL_SOURCES))}",
+                    )
+                )
+
             # --- frequency_rank validation ---
             freq = row.get("frequency_rank", "").strip()
             if freq:
@@ -164,11 +176,17 @@ class CSVImporter(BaseSeeder):
             level_raw = (row.get("level") or "").strip().upper()
             level = level_raw or self.rank_to_level(freq_rank)
 
+            # Optional level provenance. Absent → None, so the loader falls back
+            # to the objective 'frequency' default (unchanged from before this
+            # column existed). 'ai' marks a provisional, model-estimated level.
+            level_source = (row.get("level_source") or "").strip().lower() or None
+
             records.append({
                 "word": row["word"].strip(),
                 "reading": (row.get("reading") or "").strip() or None,
                 "pos": (row.get("pos") or "").strip().lower() or None,
                 "level": level or None,
+                "level_source": level_source,
                 "frequency_rank": freq_rank,
                 "morphology": json.dumps(morphology, ensure_ascii=False) if morphology else "{}",
                 "translations": translations,

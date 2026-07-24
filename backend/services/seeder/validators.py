@@ -22,6 +22,10 @@ VALID_POS = {
     "preposition", "conjunction", "pronoun", "interjection",
 }
 VALID_LEVELS = {"A1", "A2", "B1", "B2", "C1", "C2"}
+# How a word's CEFR level was decided (vocabulary.level_source). An optional CSV
+# column: 'ai' marks a provisional, model-estimated level (gated until a reviewer
+# confirms); absent lowers to the objective 'frequency' default.
+VALID_LEVEL_SOURCES = {"frequency", "curated", "ai"}
 
 SCRIPT_VALIDATORS = {
     "ar": ("Arabic", ARABIC_PATTERN),
