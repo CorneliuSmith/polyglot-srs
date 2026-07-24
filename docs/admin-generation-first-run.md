@@ -6,6 +6,9 @@ language's example sentences and grammar drills with the Anthropic key.
 Read the two ⚠️ callouts before your first real run — they're the ones that
 cost money or surprise learners.
 
+> Prefer the terminal, or want to **quality-recheck existing sentences**? See
+> the CLI reference: [`content-generation-cli.md`](./content-generation-cli.md).
+
 ---
 
 ## TL;DR (the 60-second version)
