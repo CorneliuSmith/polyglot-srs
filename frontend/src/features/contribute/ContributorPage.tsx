@@ -23,6 +23,7 @@ import AccountsPanel from './AccountsPanel'
 import AnalyticsPanel from './AnalyticsPanel'
 import EngagementPanel from './EngagementPanel'
 import GeneratedDrillsPanel from './GeneratedDrillsPanel'
+import GymDrillsPanel from './GymDrillsPanel'
 import GenerationPanel from './GenerationPanel'
 import TranslationReviewsPanel from './TranslationReviewsPanel'
 import { useAuthStore } from '../../stores/authStore'
@@ -617,6 +618,12 @@ export default function ContributorPage() {
                 {(data.can_review ?? data.is_admin) && (
                   <GeneratedDrillsPanel languageId={activeLanguageId} />
                 )}
+                {/* Gym corpus, browsable by form category — view/edit the drills
+                    the Gym serves, not just the ones pending review above. */}
+                <GymDrillsPanel
+                  languageId={activeLanguageId}
+                  canEdit={data.can_review ?? data.is_admin}
+                />
                 {/* Change requests: everyone with a role sees and votes;
                     only admins accept/reject (server-enforced). */}
                 <ChangeRequestsPanel languageId={activeLanguageId} />
