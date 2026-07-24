@@ -73,8 +73,13 @@ never need a grant.
 |---|---|---|
 | *(learner)* | — | study: reviews, learn, notes, tutor, feedback |
 | `contributor` | one language or all (`language_id NULL`) | draft grammar explanations, create points, add/delete NLP-validated drills, see learner feedback. Drafts stay invisible to learners. |
-| `reviewer` | one language or all | everything a contributor can, **plus approve** — the human sign-off that flips `reviewed = true` and exposes content to learners (`reviewed_by` records who) |
-| `admin` | global | everything: approve anywhere, grant/revoke roles, set per-language review policy (`strict` / `ai_ok`), admin panels |
+| `trial_reviewer` | one language or all | **view** the review queue / Review Inbox and leave **advisory** ✓/✗ recommendations — the on-ramp to reviewer. Cannot publish, edit, or delete. |
+| `reviewer` | one language or all | everything a contributor can, **plus approve** — the human sign-off that flips `reviewed = true` and exposes content to learners (`reviewed_by` records who). Also edits/deletes published content and **rolls back** logged changes. |
+| `admin` | global | everything: approve anywhere, grant/revoke roles, set per-language review policy (`strict` / `ai_ok`), run generation, view the per-language audit feed, admin panels |
+
+Grant `trial_reviewer` / `reviewer` from either **Contribute → Roles** or
+**Manage accounts** (both panels offer them). Promote a trial reviewer to
+reviewer once you trust their judgement.
 
 ## Bootstrapping the first admin (you)
 
@@ -115,3 +120,15 @@ The API equivalents are `GET /api/contribute/roles/all`,
 
 Learner **feedback** on cards flows to the same page (Feedback panel) for
 contributors to triage and resolve.
+
+There is **one** approval by **one** reviewer — no consensus vote gates
+publishing. Change-request votes and trial-reviewer recommendations are
+advisory inputs to that reviewer, not a gate. Every mutation is written to
+`content_change_log` with a before/after snapshot, and a reviewer/admin can
+**roll back** any logged change (the rollback is itself audited). Reviewers
+find everything awaiting them in the **Review Inbox** at the top of the
+Review tab.
+
+**For the full picture** — the two kinds of "AI review", where flagged
+concerns show up, the Review Inbox, and audit/rollback — see
+**[review-workflow.md](review-workflow.md)**.
