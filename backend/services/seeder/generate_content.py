@@ -33,11 +33,54 @@ import json
 import logging
 
 from backend.config import get_settings
+from backend.repositories.contributor import (
+    ensure_vocab_content_list,
+    set_vocab_ai_level,
+    vocab_needing_level,
+)
 from backend.repositories.pool import close_pool, init_pool, privileged_connection
 from backend.services.generate import generation_available
 from backend.services.generation_admin import plan_run, run_generation
+from backend.services.level_estimate import estimate_levels
 
 logger = logging.getLogger("generate_content")
+
+
+async def _run_levels(conn, lang, args) -> None:
+    """AI-estimate a CEFR level for words that have none, so they can enter a
+    deck (level_source='ai', pending a reviewer's confirm)."""
+    words = await vocab_needing_level(conn, str(lang["id"]), args.max)
+    if not words:
+        print(f"No un-leveled {lang['name']} words — nothing to do.")
+        return
+    if args.dry_run:
+        print(json.dumps({
+            "dry_run": True, "kind": "levels",
+            "words_without_level": len(words),
+        }, indent=2))
+        return
+    if not generation_available():
+        print("ERROR: real estimation needs ANTHROPIC_API_KEY (or TUTOR_DEV_MOCK=1).")
+        return
+    print(f"Estimating levels for {len(words)} {lang['name']} words…")
+    levels = await estimate_levels(words, lang["name"], lang["code"])
+    applied = 0
+    for w in words:
+        level = levels.get(w["word"])
+        if not level:
+            continue
+        if await set_vocab_ai_level(conn, w["vocabulary_id"], level):
+            await ensure_vocab_content_list(conn, str(lang["id"]), level, lang["code"])
+            applied += 1
+    print(json.dumps({
+        "dry_run": False, "kind": "levels",
+        "words_without_level": len(words), "levels_applied": applied,
+    }, indent=2))
+    print(
+        "\nEstimated levels are provisional (level_source='ai'). Confirm them in "
+        "Contributor › Review; under Strict policy they stay out of learners' "
+        "decks until confirmed."
+    )
 
 
 async def _run(args: argparse.Namespace) -> None:
@@ -49,6 +92,10 @@ async def _run(args: argparse.Namespace) -> None:
             print(f"ERROR: no language with code {args.language!r}.")
             return
         lang_id = str(lang["id"])
+
+        if args.kind == "levels":
+            await _run_levels(conn, lang, args)
+            return
 
         if args.dry_run:
             plan = await plan_run(
@@ -88,7 +135,9 @@ async def main() -> None:
         description="Maker-checker generation for example sentences / drills."
     )
     parser.add_argument("--language", "-l", required=True, help="language code, e.g. en")
-    parser.add_argument("--kind", "-k", choices=["vocab", "grammar"], required=True)
+    parser.add_argument(
+        "--kind", "-k", choices=["vocab", "grammar", "levels"], required=True,
+    )
     parser.add_argument(
         "--target", type=int, default=3,
         help="target example sentences per word (vocab) / drills per grammar cell",

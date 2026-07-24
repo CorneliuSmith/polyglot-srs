@@ -769,6 +769,107 @@ async def review_drill(
     return result.rsplit(" ", 1)[-1] == "1"
 
 
+async def vocab_needing_level(
+    conn: asyncpg.Connection, language_id: str, limit: int = 500
+) -> list[dict]:
+    """Words with no CEFR level yet (no frequency rank to band from) — the gap an
+    AI level estimate fills so they can enter a deck. Each row carries the word
+    and its English gloss for the estimator's context."""
+    rows = await conn.fetch(
+        """
+        SELECT v.id, v.word, v.part_of_speech,
+               (SELECT t.definition FROM translations t
+                 WHERE t.vocabulary_id = v.id AND t.locale = 'en' LIMIT 1)
+                 AS definition
+        FROM vocabulary v
+        WHERE v.language_id = $1 AND v.level IS NULL
+        ORDER BY v.frequency_rank NULLS LAST, v.word
+        LIMIT $2
+        """,
+        language_id, limit,
+    )
+    return [
+        {
+            "vocabulary_id": str(r["id"]),
+            "word": r["word"],
+            "part_of_speech": r["part_of_speech"],
+            "definition": r["definition"],
+        }
+        for r in rows
+    ]
+
+
+async def set_vocab_ai_level(
+    conn: asyncpg.Connection, vocabulary_id: str, level: str
+) -> bool:
+    """Store an AI-estimated CEFR level (level_source='ai', provisional). Only
+    touches rows that still have no level, so it never overwrites a real one."""
+    result = await conn.execute(
+        "UPDATE vocabulary SET level = $2, level_source = 'ai' "
+        "WHERE id = $1 AND level IS NULL",
+        vocabulary_id, level,
+    )
+    return result.rsplit(" ", 1)[-1] == "1"
+
+
+async def list_ai_leveled_vocab(
+    conn: asyncpg.Connection, language_id: str, limit: int = 200
+) -> list[dict]:
+    """Words carrying a provisional AI level, for a reviewer to confirm/adjust."""
+    rows = await conn.fetch(
+        """
+        SELECT v.id, v.word, v.level, v.part_of_speech,
+               (SELECT t.definition FROM translations t
+                 WHERE t.vocabulary_id = v.id AND t.locale = 'en' LIMIT 1)
+                 AS definition
+        FROM vocabulary v
+        WHERE v.language_id = $1 AND v.level_source = 'ai'
+        ORDER BY v.level, v.word
+        LIMIT $2
+        """,
+        language_id, limit,
+    )
+    return [
+        {
+            "id": str(r["id"]),
+            "word": r["word"],
+            "level": r["level"],
+            "part_of_speech": r["part_of_speech"],
+            "definition": r["definition"],
+        }
+        for r in rows
+    ]
+
+
+async def ensure_vocab_content_list(
+    conn: asyncpg.Connection, language_id: str, level: str, language_code: str = ""
+) -> None:
+    """Make sure a subscribable vocab deck exists for this level — a newly
+    leveled word at a level that had none otherwise wouldn't surface anywhere
+    (decks resolve dynamically by level). Mirrors the seeder."""
+    await conn.execute(
+        """
+        INSERT INTO content_lists (language_id, list_type, level, title, description)
+        VALUES ($1, 'vocabulary', $2, $3, $4)
+        ON CONFLICT (language_id, list_type, level) DO NOTHING
+        """,
+        language_id, level, f"{level} Vocabulary",
+        f"Frequency-ranked {language_code} vocabulary ({level}).",
+    )
+
+
+async def confirm_vocab_level(
+    conn: asyncpg.Connection, vocabulary_id: str, level: str
+) -> bool:
+    """A reviewer confirms (or adjusts) a provisional AI level — marks it curated
+    so it's trusted and no longer flagged. Also its final deck placement."""
+    result = await conn.execute(
+        "UPDATE vocabulary SET level = $2, level_source = 'curated' WHERE id = $1",
+        vocabulary_id, level,
+    )
+    return result.rsplit(" ", 1)[-1] == "1"
+
+
 async def vocab_needing_examples(
     conn: asyncpg.Connection,
     language_id: str,

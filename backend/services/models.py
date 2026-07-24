@@ -33,6 +33,9 @@ TASK_MODELS: dict[str, str] = {
     # Weekly immersion recommendations: reasoning + real-world knowledge matter,
     # so it rides the stronger chat model.
     "recommend": "tutor_model",
+    # CEFR level estimation for un-ranked vocab: a judgement call, pinned strong
+    # on low-resource languages where the model is least reliable.
+    "level_estimate": "tutor_model",
     "grammar_maker": "tutor_model",
     "grammar_checker": "tutor_model_low_resource",
     "sentence_maker": "tutor_model",
@@ -43,7 +46,7 @@ TASK_MODELS: dict[str, str] = {
 # where the error cost is highest). Checkers already use the stronger model;
 # summary/translate stay on the configured default regardless of language.
 _LOW_RESOURCE_PINNED = frozenset(
-    {"tutor_chat", "reader", "grammar_maker", "sentence_maker"}
+    {"tutor_chat", "reader", "grammar_maker", "sentence_maker", "level_estimate"}
 )
 
 
