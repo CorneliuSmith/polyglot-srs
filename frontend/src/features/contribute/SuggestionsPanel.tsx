@@ -1,11 +1,17 @@
+import { useState } from 'react'
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query'
 import { getSuggestions, approveSuggestion, rejectSuggestion } from '../../api/contribute'
-import type { Suggestion, SuggestionFields } from '../../api/contribute'
+import type { Suggestion, SuggestionFields, SuggestionSource } from '../../api/contribute'
 
-/** Reviewer queue: contributor-proposed card edits, each shown as a current →
- * proposed diff. Approve applies it to the live card; reject discards it. */
+/** Reviewer queue: proposed card edits, each shown as a current → proposed
+ * diff. Approve applies it to the live card; decline discards it. Proposals
+ * come from two places — a contributor, or a document re-seed (the extractor
+ * proposing values for a word a human already curated, rather than overwriting
+ * it). Doc-sourced ones are badged and filterable, since they cost model spend
+ * and admin tracks how often they land. */
 export default function SuggestionsPanel({ languageId }: { languageId: string }) {
   const queryClient = useQueryClient()
+  const [source, setSource] = useState<SuggestionSource | 'all'>('all')
 
   const { data: items = [] } = useQuery({
     queryKey: ['suggestions', languageId],
@@ -27,6 +33,10 @@ export default function SuggestionsPanel({ languageId }: { languageId: string })
 
   if (items.length === 0) return null
 
+  const docCount = items.filter((s: Suggestion) => s.source === 'extraction').length
+  const shown =
+    source === 'all' ? items : items.filter((s: Suggestion) => s.source === source)
+
   const FIELDS: [keyof SuggestionFields, string][] = [
     ['definition', 'Definition'],
     ['part_of_speech', 'Part of speech'],
@@ -36,16 +46,51 @@ export default function SuggestionsPanel({ languageId }: { languageId: string })
     ['culture_note', 'Culture note'],
   ]
 
+  const filterChip = (value: SuggestionSource | 'all', label: string, count: number) => (
+    <button
+      type="button"
+      onClick={() => setSource(value)}
+      aria-pressed={source === value}
+      className={
+        'rounded-full px-2.5 py-0.5 text-xs transition-colors ' +
+        (source === value
+          ? 'bg-lang text-white'
+          : 'bg-gray-100 text-gray-600 hover:bg-gray-200')
+      }
+    >
+      {label} ({count})
+    </button>
+  )
+
   return (
     <div className="bg-white rounded-2xl shadow-sm border border-lang/30 p-4 space-y-3" data-testid="suggestions">
-      <h2 className="text-sm font-semibold text-lang-dark">
-        Suggested edits ({items.length})
-      </h2>
-      {items.map((s: Suggestion) => (
+      <div className="flex items-center justify-between gap-2 flex-wrap">
+        <h2 className="text-sm font-semibold text-lang-dark">
+          Suggested edits ({items.length})
+        </h2>
+        {docCount > 0 && (
+          <div className="flex gap-1.5">
+            {filterChip('all', 'All', items.length)}
+            {filterChip('extraction', 'AI · doc', docCount)}
+            {filterChip('contributor', 'Contributor', items.length - docCount)}
+          </div>
+        )}
+      </div>
+      {shown.map((s: Suggestion) => (
         <div key={s.id} className="border-t border-gray-100 pt-2 text-sm">
           <div className="flex items-baseline justify-between gap-2">
             <span className="font-medium text-gray-800">{s.card_title ?? s.entity_id}</span>
-            <span className="text-xs text-gray-400">{s.entity_type}</span>
+            <span className="flex items-center gap-1.5">
+              {s.source === 'extraction' && (
+                <span
+                  className="rounded-full bg-amber-100 text-amber-700 px-1.5 py-0.5 text-[10px] font-semibold"
+                  title={s.origin ?? 'Proposed by a document re-seed'}
+                >
+                  AI · doc
+                </span>
+              )}
+              <span className="text-xs text-gray-400">{s.entity_type}</span>
+            </span>
           </div>
           <div className="mt-1 space-y-1">
             {FIELDS.filter(([k]) => s.proposed[k] !== undefined).map(([k, label]) => (

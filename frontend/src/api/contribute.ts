@@ -517,6 +517,8 @@ export interface SuggestionFields {
   culture_note?: string
 }
 
+export type SuggestionSource = 'contributor' | 'extraction'
+
 export interface Suggestion {
   id: string
   entity_type: SuggestEntity
@@ -526,7 +528,19 @@ export interface Suggestion {
   proposed: SuggestionFields
   note: string | null
   status: string
+  source: SuggestionSource
+  origin: string | null
   created_at: string | null
+}
+
+/** Acceptance stats for doc-sourced (extraction) AI vocab recommendations. */
+export interface SuggestionMetrics {
+  total: number
+  pending: number
+  approved: number
+  rejected: number
+  resolved: number
+  acceptance_rate: number | null
 }
 
 export async function submitSuggestion(input: {
@@ -539,11 +553,26 @@ export async function submitSuggestion(input: {
   return res.data
 }
 
-export async function getSuggestions(languageId: string): Promise<Suggestion[]> {
+export async function getSuggestions(
+  languageId: string,
+  source?: SuggestionSource,
+): Promise<Suggestion[]> {
   const res = await apiClient.get('/api/contribute/suggestions', {
-    params: { language_id: languageId },
+    params: { language_id: languageId, ...(source ? { source } : {}) },
   })
   return res.data.suggestions
+}
+
+/** Admin: acceptance rate of doc-sourced AI recommendations (optionally scoped
+ * to one language). They cost real model spend, so admin tracks how often they
+ * land. */
+export async function getSuggestionMetrics(
+  languageId?: string,
+): Promise<SuggestionMetrics> {
+  const res = await apiClient.get('/api/contribute/admin/suggestions/metrics', {
+    params: languageId ? { language_id: languageId } : {},
+  })
+  return res.data
 }
 
 export async function approveSuggestion(id: string): Promise<void> {

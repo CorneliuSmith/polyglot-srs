@@ -18,6 +18,7 @@ import FeedbackPanel from './FeedbackPanel'
 import IssuesPanel from './IssuesPanel'
 import ChangeRequestsPanel from './ChangeRequestsPanel'
 import SuggestionsPanel from './SuggestionsPanel'
+import SuggestionMetricsPanel from './SuggestionMetricsPanel'
 import RolesPanel from './RolesPanel'
 import AccountsPanel from './AccountsPanel'
 import AnalyticsPanel from './AnalyticsPanel'
@@ -607,6 +608,7 @@ export default function ContributorPage() {
               <>
                 <AnalyticsPanel />
                 <EngagementPanel />
+                <SuggestionMetricsPanel />
                 <GenerationPanel />
                 <TranslationReviewsPanel />
                 <AccountsPanel languages={languages} selfId={selfId} />
