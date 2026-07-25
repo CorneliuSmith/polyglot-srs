@@ -305,7 +305,7 @@ describe('ContributorPage', () => {
     )
   })
 
-  it('admin enables the tutor for an account with a daily cap', async () => {
+  it('admin enables the tutor for an account with a monthly cap', async () => {
     const { listAccounts, listAllRoles, setTutorAccess } =
       await import('../api/contribute')
     const mockSetTutor = setTutorAccess as ReturnType<typeof vi.fn>
@@ -329,7 +329,7 @@ describe('ContributorPage', () => {
     )) as HTMLSelectElement
     expect(select.value).toBe('enabled')
     const cap = screen.getByLabelText(
-      /tutor daily message cap for friend@x\.com/i,
+      /tutor monthly message cap for friend@x\.com/i,
     ) as HTMLInputElement
     expect(cap.value).toBe('10')
 

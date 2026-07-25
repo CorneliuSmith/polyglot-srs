@@ -1,17 +1,20 @@
 """Tutor router — AI tutoring grounded in the user's study data and memory.
 
-Access model (flat tiers, never billed per message):
-  free accounts  — a monthly message allowance to genuinely try the tutor
-  plus accounts  — flat subscription with a generous DAILY fair-use cap
+Access model (flat tiers, never billed per message). EVERY tier is a
+per-calendar-month message pool — no daily walls:
+  free accounts  — a monthly allowance to genuinely try the tutor
+  plan / Tutor+  — larger monthly pools (included with a plan, or the
+                   Tutor+ add-on's heavy-use pool)
   operator mode  — TUTOR_FREE_ACCESS=true bypasses limits entirely (demos)
 Allowances are shown openly in the UI (/status returns the meter).
 
 On top of the tiers sits the admin's per-account override (WP15b):
   blocked — tutor off for this account; wins over everything, including
             the operator bypass (403, code tutor_blocked).
-  enabled — tutor on regardless of billing, with a per-day message cap
-            (tutor_daily_cap, defaulting to the plus tier's daily number)
-            so letting a friend try it has a bounded API cost.
+  enabled — tutor on regardless of billing, with a per-MONTH message cap
+            (the tutor_daily_cap column, kept for compatibility but now
+            monthly; blank = the Tutor+ monthly pool) so letting a friend
+            try it has a bounded API cost.
 """
 
 from __future__ import annotations

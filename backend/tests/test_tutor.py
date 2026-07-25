@@ -43,7 +43,7 @@ class FakeSettings:
     tutor_free_monthly_messages = 20
     tutor_single_monthly_messages = 100
     tutor_all_monthly_messages = 300
-    tutor_plus_daily_messages = 50
+    tutor_plus_monthly_messages = 1000
     tutor_model_low_resource = "claude-opus-4-8"
 
 
@@ -501,20 +501,20 @@ class TestTutorChatEndpoint:
         assert detail["limit"] == 20
         assert detail["resets_at"]  # the UI can say exactly when
 
-    def test_plus_tier_blocked_at_daily_fair_use_cap(self, client):
+    def test_plus_tier_blocked_at_monthly_fair_use_cap(self, client):
         paid = FakeSettings()
         paid.tutor_free_access = False
         with patch("backend.services.allowance.get_settings", return_value=paid), \
              patch("backend.services.allowance.has_tutor_entitlement",
                    new=AsyncMock(return_value=True)), \
              patch("backend.services.allowance.count_tutor_messages",
-                   new=AsyncMock(return_value=50)):
+                   new=AsyncMock(return_value=1000)):
             resp = client.post("/api/tutor/chat", json=_chat_body(), headers=_auth_headers())
         assert resp.status_code == 402
         detail = resp.json()["detail"]
         assert detail["code"] == "allowance_exhausted"
-        assert detail["tier"] == "plus"        # not an upsell — resets tomorrow
-        assert detail["limit"] == 50
+        assert detail["tier"] == "plus"        # fair-use pool, resets on the 1st
+        assert detail["limit"] == 1000
 
     def test_plan_scaled_monthly_allowances(self, client):
         # A language plan includes a monthly tutor allowance: all 300,
@@ -557,7 +557,7 @@ class TestTutorChatEndpoint:
         assert resp.json()["detail"]["code"] == "tutor_blocked"
 
     def test_granted_account_chats_under_its_cap(self, client):
-        # "Let a friend try the tutor, 10 messages a day": no entitlement,
+        # "Let a friend try the tutor, 10 messages a month": no entitlement,
         # free-access off, but the admin grant carries its own allowance.
         paid = FakeSettings()
         paid.tutor_free_access = False

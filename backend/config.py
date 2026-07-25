@@ -71,17 +71,20 @@ class Settings(BaseSettings):
     tutor_free_access: bool = True
     # Tutor allowances — counted in MESSAGES (the unit learners understand),
     # never billed per message. Pricing is flat per tier; these caps are
-    # cost protection and are shown openly in the UI.
-    #   free (no plan):   per calendar month (a real taste of the tutor)
-    #   single plan:      per calendar month, included with the plan
-    #   all plan:         per calendar month, included with the plan
-    #   Tutor+ add-on:    per day (fair use on the flat add-on price)
+    # cost protection and are shown openly in the UI. EVERY tier is a per-
+    # calendar-month pool — one mental model, no daily walls, and a heavy study
+    # day never locks anyone out (it just draws down the month).
+    #   free (no plan):   a real taste of the tutor
+    #   single plan:      included with the plan
+    #   all plan:         included with the plan
+    #   Tutor+ add-on:    the heavy-use pool for power users
     # Sized so worst-case Sonnet-5 COGS stays a small share of each price
-    # point (~$0.01–0.02/message: 100/mo ≈ $1.50, 300/mo ≈ $4.50).
+    # point (~$0.01–0.02/message: 100/mo ≈ $1.50, 300/mo ≈ $4.50,
+    # 1000/mo ≈ $15 worst-case — route scaffolded turns to Haiku to halve it).
     tutor_free_monthly_messages: int = 20
     tutor_single_monthly_messages: int = 100
     tutor_all_monthly_messages: int = 300
-    tutor_plus_daily_messages: int = 50
+    tutor_plus_monthly_messages: int = 1000
 
     # Stripe billing for the tutor add-on. Empty secret disables checkout.
     stripe_secret_key: str = ""

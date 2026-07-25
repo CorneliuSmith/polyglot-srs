@@ -405,9 +405,9 @@ export default function TutorPage() {
           </div>
         )}
 
-        {/* Allowance meter — flat pricing, so the cap is always visible.
-            free/single/all are MONTHLY (included with the plan); plus/granted
-            are the DAILY fair-use tiers (Tutor+ add-on / admin grant). */}
+        {/* Allowance meter — flat pricing, so the cap is always visible. Every
+            tier is a MONTHLY pool; plus/granted (Tutor+ add-on / admin grant)
+            just get a much larger one. */}
         {allowance && !allowance.unlimited && !exhausted && (
           <p className="text-xs text-gray-400 mb-3" data-testid="tutor-allowance">
             {['free', 'single', 'all'].includes(allowance.tier) ? (
@@ -422,13 +422,13 @@ export default function TutorPage() {
                 >
                   Tutor+
                 </button>{' '}
-                is a flat price — never per message — with a daily fair-use cap
-                instead.
+                is a flat price — never per message — with a much larger monthly
+                pool.
               </>
             ) : (
               <>
                 Tutor+ · {allowance.remaining} of {allowance.limit} messages left
-                today (fair use — resets daily, your price never changes).
+                this month (fair use — your price never changes).
               </>
             )}
           </p>
@@ -498,8 +498,8 @@ export default function TutorPage() {
                 </p>
                 <p className="text-gray-500">
                   Tutor+ is a <strong>flat price</strong>: you’re never charged
-                  per message. It swaps the monthly allowance for a generous
-                  daily fair-use cap that resets every day.
+                  per message. It swaps this allowance for a much larger monthly
+                  fair-use pool.
                 </p>
                 <button
                   type="button"
@@ -520,9 +520,9 @@ export default function TutorPage() {
               </>
             ) : (
               <p>
-                You’ve reached today’s fair-use cap of {allowance.limit}{' '}
-                messages. It resets tomorrow — nothing extra to pay, your
-                price never changes with usage.
+                You’ve reached this month’s fair-use pool of {allowance.limit}{' '}
+                messages. It resets on {resetDay(allowance.resets_at)} — nothing
+                extra to pay, your price never changes with usage.
               </p>
             )}
           </div>

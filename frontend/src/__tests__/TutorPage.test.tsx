@@ -108,11 +108,11 @@ describe('TutorPage', () => {
     expect(screen.getByPlaceholderText(/message your tutor/i)).toBeDefined()
   })
 
-  it('plus tier shows the daily fair-use meter', async () => {
+  it('plus tier shows the monthly fair-use meter', async () => {
     mockGetTutorStatus.mockResolvedValue(statusWith(plusAllowance(93)))
     renderPage()
     const meter = await screen.findByTestId('tutor-allowance')
-    expect(meter.textContent).toContain('93 of 100 messages left today')
+    expect(meter.textContent).toContain('93 of 100 messages left this month')
     expect(meter.textContent).toContain('your price never changes')
   })
 
@@ -136,11 +136,11 @@ describe('TutorPage', () => {
     Object.defineProperty(window, 'location', { value: original, writable: true })
   })
 
-  it('exhausted plus tier explains the daily reset without an upsell', async () => {
+  it('exhausted plus tier explains the monthly reset without an upsell', async () => {
     mockGetTutorStatus.mockResolvedValue(statusWith(plusAllowance(0)))
     renderPage()
     const panel = await screen.findByTestId('tutor-exhausted')
-    expect(panel.textContent).toContain('resets tomorrow')
+    expect(panel.textContent).toContain('this month’s fair-use pool')
     expect(panel.textContent).toContain('price never changes')
     expect(screen.queryByRole('button', { name: /get plus/i })).toBeNull()
   })
