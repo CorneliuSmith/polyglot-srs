@@ -2090,6 +2090,31 @@ SUGGESTION_FIELDS = {
     "grammar": ("function_note", "explanation", "culture_note"),
 }
 
+# content_suggestions uses entity_type 'vocabulary'/'grammar'; the audit log's
+# CHECK constraint names the grammar entity 'grammar_point'. Map when logging.
+_AUDIT_ENTITY = {"vocabulary": "vocabulary", "grammar": "grammar_point"}
+
+
+def reseed_vocab_proposal(record: dict, current: dict) -> dict:
+    """The part of a re-seed record that DIFFERS from a live *curated* vocab
+    card, shaped as a content_suggestions proposal ({part_of_speech?,
+    definition?}). Returns {} when the reseed proposes nothing new, so a reseed
+    that merely re-confirms the card makes no noise suggestion.
+
+    Only the fields a CSV seed can carry and a reviewer may suggest are
+    compared: part_of_speech and the English definition. (usage_note is a
+    contributor-only field; the seed never sets it.)"""
+    proposed: dict = {}
+    new_pos = (record.get("pos") or "").strip()
+    cur_pos = (current.get("part_of_speech") or "").strip()
+    if new_pos and new_pos != cur_pos:
+        proposed["part_of_speech"] = new_pos
+    new_def = ((record.get("translations") or {}).get("en") or "").strip()
+    cur_def = (current.get("definition") or "").strip()
+    if new_def and new_def != cur_def:
+        proposed["definition"] = new_def
+    return proposed
+
 
 async def entity_language(
     conn: asyncpg.Connection, entity_type: str, entity_id: str
@@ -2161,20 +2186,79 @@ async def _current_fields(
             "explanation": r["explanation"], "culture_note": r["culture_note"]}
 
 
+async def create_extraction_suggestion(
+    conn: asyncpg.Connection,
+    language_id: str,
+    entity_id: str,
+    proposed: dict,
+    *,
+    origin: str = "document re-seed",
+    current: dict | None = None,
+) -> str | None:
+    """Stash a doc re-seed's proposed values for a CURATED vocab card as a
+    pending suggestion instead of overwriting the reviewer's work. System
+    authored (no auth user), marked source='extraction' so admin metrics can
+    track how often these are accepted.
+
+    Idempotent per card: a repeated reseed refreshes the single pending
+    extraction row (partial unique index) rather than piling up duplicates. The
+    prior values are recorded to the audit log so a reviewer can always see what
+    the reseed would have changed. Returns the suggestion id, or None when
+    there is nothing new to propose."""
+    allowed = SUGGESTION_FIELDS["vocabulary"]
+    clean = {
+        k: v.strip()
+        for k, v in proposed.items()
+        if k in allowed and isinstance(v, str) and v.strip()
+    }
+    if not clean:
+        return None
+    row = await conn.fetchrow(
+        """
+        INSERT INTO content_suggestions
+            (language_id, entity_type, entity_id, author_id, proposed,
+             source, origin)
+        VALUES ($1, 'vocabulary', $2, NULL, $3, 'extraction', $4)
+        ON CONFLICT (entity_type, entity_id)
+            WHERE source = 'extraction' AND status = 'pending'
+            DO UPDATE SET proposed = EXCLUDED.proposed,
+                          origin = EXCLUDED.origin,
+                          created_at = now()
+        RETURNING id
+        """,
+        language_id, entity_id, json.dumps(clean, ensure_ascii=False), origin,
+    )
+    sid = str(row["id"])
+    before = {k: (current or {}).get(k) for k in clean} if current else None
+    await log_change(
+        conn, entity_type="vocabulary", entity_id=str(entity_id),
+        action="suggested", language_id=str(language_id),
+        before=before, after=clean, note=origin,
+    )
+    return sid
+
+
 async def list_suggestions(
-    conn: asyncpg.Connection, language_id: str, status_filter: str = "pending"
+    conn: asyncpg.Connection,
+    language_id: str,
+    status_filter: str = "pending",
+    source: str | None = None,
 ) -> list[dict]:
-    """Pending suggestions for a language, each with current vs proposed."""
+    """Pending suggestions for a language, each with current vs proposed.
+
+    *source* optionally narrows to one origin ('contributor' | 'extraction') so
+    the reviewer can page just the doc-sourced AI recommendations."""
     rows = await conn.fetch(
         """
         SELECT s.id, s.entity_type, s.entity_id, s.proposed, s.note,
-               s.status, s.created_at
+               s.status, s.source, s.origin, s.created_at
         FROM content_suggestions s
         WHERE s.language_id = $1 AND s.status = $2
+          AND ($3::text IS NULL OR s.source = $3)
         ORDER BY s.created_at ASC
         LIMIT 100
         """,
-        language_id, status_filter,
+        language_id, status_filter, source,
     )
     out = []
     for r in rows:
@@ -2191,6 +2275,8 @@ async def list_suggestions(
             "proposed": proposed,
             "note": r["note"],
             "status": r["status"],
+            "source": r["source"],
+            "origin": r["origin"],
             "created_at": r["created_at"].isoformat() if r["created_at"] else None,
         })
     return out
@@ -2199,8 +2285,8 @@ async def list_suggestions(
 async def get_suggestion(conn: asyncpg.Connection, suggestion_id: str) -> dict | None:
     """Raw suggestion row (for the router's language + status checks)."""
     r = await conn.fetchrow(
-        "SELECT id, language_id, entity_type, entity_id, proposed, status "
-        "FROM content_suggestions WHERE id = $1", suggestion_id,
+        "SELECT id, language_id, entity_type, entity_id, proposed, status, "
+        "source, origin FROM content_suggestions WHERE id = $1", suggestion_id,
     )
     if not r:
         return None
@@ -2209,7 +2295,8 @@ async def get_suggestion(conn: asyncpg.Connection, suggestion_id: str) -> dict |
         proposed = json.loads(proposed)
     return {"id": str(r["id"]), "language_id": str(r["language_id"]),
             "entity_type": r["entity_type"], "entity_id": str(r["entity_id"]),
-            "proposed": proposed, "status": r["status"]}
+            "proposed": proposed, "status": r["status"],
+            "source": r["source"], "origin": r["origin"]}
 
 
 async def _apply_to_entity(
@@ -2249,6 +2336,11 @@ async def _apply_to_entity(
                 """,
                 entity_id, fields["definition"],
             )
+        # An approved human edit makes this a human-owned card: mark it curated
+        # so a later doc re-seed routes to the suggestion queue instead of
+        # overwriting the reviewer's work.
+        await conn.execute(
+            "UPDATE vocabulary SET curated = true WHERE id = $1", entity_id)
     else:  # grammar
         cols = [k for k in ("function_note", "explanation", "culture_note")
                 if k in fields]
@@ -2263,10 +2355,13 @@ async def _apply_to_entity(
 async def approve_suggestion(
     conn: asyncpg.Connection, suggestion_id: str, reviewer_id: str
 ) -> bool:
-    """Apply a pending suggestion to the card and mark it approved."""
+    """Apply a pending suggestion to the card and mark it approved. Records the
+    prior values to the audit log (before/after) so the change is reviewable
+    and revertible."""
     s = await get_suggestion(conn, suggestion_id)
     if not s or s["status"] != "pending":
         return False
+    before = await _current_fields(conn, s["entity_type"], s["entity_id"])
     async with conn.transaction():
         await _apply_to_entity(conn, s["entity_type"], s["entity_id"], s["proposed"])
         await conn.execute(
@@ -2277,6 +2372,15 @@ async def approve_suggestion(
             """,
             suggestion_id, reviewer_id,
         )
+        await log_change(
+            conn,
+            entity_type=_AUDIT_ENTITY.get(s["entity_type"], s["entity_type"]),
+            entity_id=str(s["entity_id"]), actor_id=reviewer_id,
+            action="approved", language_id=str(s["language_id"]),
+            before={k: before.get(k) for k in s["proposed"]},
+            after=dict(s["proposed"]),
+            note=f"{s.get('source') or 'contributor'} suggestion",
+        )
     return True
 
 
@@ -2284,7 +2388,11 @@ async def reject_suggestion(
     conn: asyncpg.Connection, suggestion_id: str, reviewer_id: str,
     review_note: str | None,
 ) -> bool:
-    """Mark a pending suggestion rejected (nothing is applied)."""
+    """Mark a pending suggestion rejected (nothing is applied). Logs the
+    rejected proposal so a dismissed AI recommendation stays reviewable."""
+    s = await get_suggestion(conn, suggestion_id)
+    if not s or s["status"] != "pending":
+        return False
     result = await conn.execute(
         """
         UPDATE content_suggestions
@@ -2294,7 +2402,50 @@ async def reject_suggestion(
         """,
         suggestion_id, reviewer_id, (review_note or "").strip() or None,
     )
-    return result.endswith("1")
+    ok = result.endswith("1")
+    if ok:
+        await log_change(
+            conn,
+            entity_type=_AUDIT_ENTITY.get(s["entity_type"], s["entity_type"]),
+            entity_id=str(s["entity_id"]), actor_id=reviewer_id,
+            action="rejected", language_id=str(s["language_id"]),
+            after=dict(s["proposed"]),
+            note=(review_note or "").strip()
+            or f"{s.get('source') or 'contributor'} suggestion",
+        )
+    return ok
+
+
+async def extraction_suggestion_metrics(
+    conn: asyncpg.Connection, language_id: str | None = None
+) -> dict:
+    """Acceptance stats for doc-sourced (extraction) vocab suggestions — how
+    often these comparatively expensive AI recommendations get accepted. Admin
+    metric; filter to one language or across all."""
+    row = await conn.fetchrow(
+        """
+        SELECT
+          count(*)                                     AS total,
+          count(*) FILTER (WHERE status = 'pending')   AS pending,
+          count(*) FILTER (WHERE status = 'approved')  AS approved,
+          count(*) FILTER (WHERE status = 'rejected')  AS rejected
+        FROM content_suggestions
+        WHERE source = 'extraction'
+          AND ($1::uuid IS NULL OR language_id = $1)
+        """,
+        language_id,
+    )
+    approved = row["approved"] or 0
+    rejected = row["rejected"] or 0
+    resolved = approved + rejected
+    return {
+        "total": row["total"] or 0,
+        "pending": row["pending"] or 0,
+        "approved": approved,
+        "rejected": rejected,
+        "resolved": resolved,
+        "acceptance_rate": (approved / resolved) if resolved else None,
+    }
 
 
 async def admin_engagement_users(

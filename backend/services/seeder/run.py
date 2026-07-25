@@ -48,7 +48,13 @@ async def main():
         seeder = CSVImporter(args.db_url, args.language, args.file)
         try:
             count = await seeder.run()
-            print(f"OK {seeder.language_code}: {count} words loaded from {args.file}")
+            msg = f"OK {seeder.language_code}: {count} words loaded from {args.file}"
+            if seeder.suggested_curated:
+                msg += (
+                    f"; {seeder.suggested_curated} curated word(s) routed to the "
+                    "review suggestion queue (not overwritten)"
+                )
+            print(msg)
         except Exception as e:
             print(f"FAIL {seeder.language_code}: {e}")
         return

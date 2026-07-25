@@ -20,6 +20,10 @@ class CSVImporter(BaseSeeder):
     records to the inherited BaseSeeder.load() UPSERT path.
     """
 
+    # This is the extractor's re-seed path: protect human-curated cards by
+    # routing their re-seed diffs to the suggestion queue (Option B).
+    protect_curated = True
+
     def __init__(self, db_url: str, language_code: str, file_path: str):
         super().__init__(db_url)
         self._language_code = language_code

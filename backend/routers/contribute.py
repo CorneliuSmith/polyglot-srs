@@ -53,6 +53,7 @@ from backend.repositories.contributor import (
     dismiss_example_translation,
     edit_example_sentence,
     entity_language,
+    extraction_suggestion_metrics,
     find_user_by_email,
     generation_coverage,
     get_feedback_language,
@@ -1744,9 +1745,13 @@ async def create_suggestion(
 @router.get("/suggestions")
 async def suggestions_queue(
     language_id: str,
+    source: str | None = None,
     user: dict = Depends(get_current_user),
 ):
-    """Pending suggestions for a language (reviewer/admin only)."""
+    """Pending suggestions for a language (reviewer/admin only). Pass
+    ?source=extraction to page only the doc-sourced AI recommendations."""
+    if source is not None and source not in ("contributor", "extraction"):
+        raise HTTPException(status_code=422, detail="Invalid source")
     async with rls_connection(user["id"]) as conn:
         roles = await get_roles(conn, user["id"])
     if not can_review(roles, language_id):
@@ -1755,8 +1760,21 @@ async def suggestions_queue(
             detail="You don't have a reviewer role for this language",
         )
     async with privileged_connection() as conn:
-        items = await list_suggestions(conn, language_id)
+        items = await list_suggestions(conn, language_id, source=source)
     return {"suggestions": items}
+
+
+@router.get("/admin/suggestions/metrics")
+async def suggestion_metrics(
+    language_id: str | None = None,
+    user: dict = Depends(get_current_user),
+):
+    """Acceptance rate of doc-sourced (extraction) AI vocab recommendations —
+    they cost real model spend, so admin tracks how often they land (admin-only,
+    optionally scoped to one language)."""
+    await _require_admin(user["id"])
+    async with privileged_connection() as conn:
+        return await extraction_suggestion_metrics(conn, language_id)
 
 
 @router.post("/suggestions/{suggestion_id}/approve")

@@ -20,10 +20,18 @@ class BaseSeeder(ABC):
     The load() and run() methods are provided by this base class.
     """
 
+    # When True, a re-seed does NOT overwrite a vocabulary card a human has
+    # curated; the model's proposed values are stashed as a pending
+    # content_suggestion the reviewer can accept or dismiss (Option B). Only the
+    # doc-import path (CSVImporter, fed by the extractor) opts in — the objective
+    # frequency-corpus seeders keep overwriting as before.
+    protect_curated: bool = False
+
     def __init__(self, db_url: str):
         self.db_url = db_url
         self.logger = logging.getLogger(self.__class__.__name__)
         self.language_id: str | None = None  # set during load
+        self.suggested_curated = 0  # curated words routed to the suggestion queue
 
     @property
     @abstractmethod
@@ -70,6 +78,61 @@ class BaseSeeder(ABC):
                 f"Merged morphology charts for {merged} of {len(records)} words"
             )
 
+    async def _route_curated(
+        self, conn: "asyncpg.Connection", records: list[dict]
+    ) -> list[dict]:
+        """Split re-seed records: a word a human has curated is never
+        overwritten — its differing values become a pending suggestion — so the
+        returned list is only the words safe to UPSERT. Requires
+        ``self.language_id`` to be set."""
+        from backend.repositories.contributor import (
+            create_extraction_suggestion,
+            reseed_vocab_proposal,
+        )
+
+        words = [rec["word"] for rec in records]
+        curated_rows = await conn.fetch(
+            """
+            SELECT v.id, v.word, v.part_of_speech,
+                   (SELECT t.definition FROM translations t
+                     WHERE t.vocabulary_id = v.id AND t.locale = 'en' LIMIT 1)
+                     AS definition
+            FROM vocabulary v
+            WHERE v.language_id = $1 AND v.curated = true
+              AND v.word = ANY($2::text[])
+            """,
+            self.language_id, words,
+        )
+        curated = {
+            r["word"]: {"id": r["id"], "part_of_speech": r["part_of_speech"],
+                        "definition": r["definition"]}
+            for r in curated_rows
+        }
+        if not curated:
+            return records
+
+        safe: list[dict] = []
+        for rec in records:
+            cur = curated.get(rec["word"])
+            if cur is None:
+                safe.append(rec)  # new or non-curated word → normal upsert
+                continue
+            proposal = reseed_vocab_proposal(rec, cur)
+            if proposal:
+                await create_extraction_suggestion(
+                    conn, self.language_id, str(cur["id"]), proposal,
+                    origin=f"document re-seed ({self.language_code})",
+                    current=cur,
+                )
+                self.suggested_curated += 1
+            # Either way the curated card is left untouched (not upserted).
+        if self.suggested_curated:
+            self.logger.info(
+                f"Routed {self.suggested_curated} curated word(s) to the "
+                f"suggestion queue instead of overwriting"
+            )
+        return safe
+
     async def load(self, records: list[dict]) -> int:
         """UPSERT records into vocabulary + translations tables. Returns count."""
         self._merge_morphology_charts(records)
@@ -97,6 +160,12 @@ class BaseSeeder(ABC):
             )
             if not self.language_id:
                 raise ValueError(f"Language '{self.language_code}' not found in DB")
+
+            # Option B: on the doc-import path, don't overwrite human-curated
+            # cards. Route their re-seed diffs to the suggestion queue and drop
+            # them from the upsert set (the reviewer decides what goes live).
+            if self.protect_curated:
+                records = await self._route_curated(conn, records)
 
             # Batched UNNEST upserts: corpus-scale seeds are 10k words plus
             # tens of thousands of translations, and one round trip per row

@@ -42,6 +42,19 @@ extractor leans on that: it keeps an audit trail of every extraction run and can
 re-emit these exact files and re-run the seeders at any time (`extra-agent-repush`),
 so recovering from an interrupted seed or a reset checkout needs no re-extraction.
 
+**Curated words are never overwritten.** The vocabulary import path
+(`CSVImporter`) protects any card a human has curated (`vocabulary.curated`, set
+when a reviewer confirms a level or approves an edit; migration
+`20260827000000_extraction_reseed_suggestions.sql`). Rather than overwrite such a
+card, a re-seed stashes only its **differing** values (POS, English definition)
+as a **pending `content_suggestion`** (`source='extraction'`) the reviewer can
+accept or dismiss — the same queue as a contributor-proposed edit, at most one
+pending row per card. The prior values are written to `content_change_log` so the
+change stays reviewable/revertible, and admin tracks how often these
+comparatively expensive doc-sourced recommendations land
+(`GET /contribute/admin/suggestions/metrics`). A re-seed that matches the card
+proposes nothing. New and non-curated words upsert as before.
+
 ## The contract the extractor mirrors
 
 The interchange model deliberately reuses *our* controlled values, so a document
