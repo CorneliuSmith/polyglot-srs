@@ -40,7 +40,7 @@ class FakeSettings:
     tutor_free_monthly_messages = 20
     tutor_single_monthly_messages = 100
     tutor_all_monthly_messages = 300
-    tutor_plus_daily_messages = 50
+    tutor_plus_monthly_messages = 1000
 
 
 def _auth_headers() -> dict:

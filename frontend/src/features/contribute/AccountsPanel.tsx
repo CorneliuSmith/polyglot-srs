@@ -167,7 +167,7 @@ function RolesCell({
 }
 
 /** Per-account tutor override: Default (tiers decide) / Enabled with a
- * daily message cap (bounded API cost for trials) / Blocked. */
+ * monthly message cap (bounded API cost for trials) / Blocked. */
 function TutorCell({ account }: { account: AdminAccount }) {
   const queryClient = useQueryClient()
   const [cap, setCap] = useState<string>(
@@ -210,9 +210,9 @@ function TutorCell({ account }: { account: AdminAccount }) {
           onBlur={() =>
             mutation.mutate({ access: 'enabled', dailyCap: parsedCap() })
           }
-          placeholder="cap/day"
-          aria-label={`Tutor daily message cap for ${account.email}`}
-          title="Max tutor messages per day (blank = the plus tier's daily number)"
+          placeholder="cap/mo"
+          aria-label={`Tutor monthly message cap for ${account.email}`}
+          title="Max tutor messages per month (blank = the Tutor+ monthly pool)"
           className="w-20 rounded border border-gray-300 bg-white px-2 py-1 text-xs"
           inputMode="numeric"
         />
