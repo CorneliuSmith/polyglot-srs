@@ -43,34 +43,28 @@ async def get_allowance(user_id: str, language_id: str) -> dict:
                 "tier": "unlimited", "unlimited": True, "entitled": True,
                 "limit": None, "used": 0, "remaining": None, "resets_at": None,
             }
+        # One window for everyone: the calendar month. No daily walls — a heavy
+        # study day just draws down the month's pool.
+        window_start = now.replace(day=1, hour=0, minute=0, second=0, microsecond=0)
+        resets_at = (window_start + timedelta(days=32)).replace(day=1)
         if override["access"] == "enabled":
-            window_start = now.replace(hour=0, minute=0, second=0, microsecond=0)
-            resets_at = window_start + timedelta(days=1)
-            limit = override["daily_cap"] or settings.tutor_plus_daily_messages
+            # Admin per-account grant. `daily_cap` is the stored column name; it
+            # now caps messages PER MONTH like every other tier.
+            limit = override["daily_cap"] or settings.tutor_plus_monthly_messages
             tier = "granted"
+        elif await has_tutor_entitlement(conn, user_id, language_id):
+            # Tutor+ add-on — the heavy-use monthly pool.
+            limit = settings.tutor_plus_monthly_messages
+            tier = "plus"
+        elif override.get("plan_scope") == "all":
+            limit = settings.tutor_all_monthly_messages
+            tier = "all"
+        elif override.get("plan_scope") == "single":
+            limit = settings.tutor_single_monthly_messages
+            tier = "single"
         else:
-            entitled = await has_tutor_entitlement(conn, user_id, language_id)
-            if entitled:
-                window_start = now.replace(hour=0, minute=0, second=0, microsecond=0)
-                resets_at = window_start + timedelta(days=1)
-                limit = settings.tutor_plus_daily_messages
-                tier = "plus"
-            else:
-                # A MONTHLY allowance included with the language plan
-                # (all > single > no plan).
-                window_start = now.replace(
-                    day=1, hour=0, minute=0, second=0, microsecond=0
-                )
-                resets_at = (window_start + timedelta(days=32)).replace(day=1)
-                if override.get("plan_scope") == "all":
-                    limit = settings.tutor_all_monthly_messages
-                    tier = "all"
-                elif override.get("plan_scope") == "single":
-                    limit = settings.tutor_single_monthly_messages
-                    tier = "single"
-                else:
-                    limit = settings.tutor_free_monthly_messages
-                    tier = "free"
+            limit = settings.tutor_free_monthly_messages
+            tier = "free"
         used = await count_tutor_messages(conn, user_id, window_start)
     return {
         "tier": tier, "unlimited": False, "entitled": tier in ("plus", "granted"),

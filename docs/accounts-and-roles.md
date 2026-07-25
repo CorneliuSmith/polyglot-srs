@@ -43,20 +43,25 @@ are shown openly in the UI (a meter on the tutor page, an honest panel when
 a cap is hit). Users are never charged per message, and the SRS itself —
 reviews, learning, all content — is **never** paywalled.
 
-| Tier | Price | SRS | AI tutor |
+Every tier is a **per-calendar-month pool** — one mental model, no daily
+walls, so a heavy study day just draws down the month.
+
+| Tier | Price | SRS | AI tutor (monthly pool) |
 |---|---|---|---|
-| **Free** (every sign-up) | $0 | everything, forever | **20 messages / month** — a real trial, resets on the 1st |
-| **Plus** (per-language Stripe subscription) | flat monthly price | everything | **100 messages / day** fair-use cap, resets daily |
+| **Free** (every sign-up) | $0 | everything, forever | **20 messages / month** — a real trial |
+| **Single-language plan** | flat | everything | **100 / month** included |
+| **All-languages plan** | flat | everything | **300 / month** included |
+| **Tutor+ add-on** | flat | everything | **1,000 / month** fair-use pool (power users) |
 | Operator mode (`TUTOR_FREE_ACCESS=true`) | — | — | unlimited (demos/dev; default until Stripe is live) |
 
 Limits are counted in **messages** (the unit people understand), configured
-via `TUTOR_FREE_MONTHLY_MESSAGES` / `TUTOR_PLUS_DAILY_MESSAGES`. Every
-answered message is logged to `tutor_usage` (per-user, RLS-protected), which
-doubles as the operator's cost-monitoring feed (token columns reserved,
-WP9b). Hitting a cap returns a structured `402` with the tier, the limit,
-and the exact reset time — the UI turns that into "resets on August 1"
-plus an upgrade button (free) or "resets tomorrow, nothing extra to pay"
-(Plus). A brisk per-minute rate limiter rides on top to stop scripted abuse.
+via `TUTOR_FREE_MONTHLY_MESSAGES` / `TUTOR_SINGLE_MONTHLY_MESSAGES` /
+`TUTOR_ALL_MONTHLY_MESSAGES` / `TUTOR_PLUS_MONTHLY_MESSAGES`. Every answered
+message is logged to `tutor_usage` (per-user, RLS-protected), which doubles as
+the operator's cost-monitoring feed. Hitting a pool returns a structured `402`
+with the tier, the limit, and the exact reset time — the UI turns that into
+"resets on August 1" (all tiers reset on the 1st). A brisk per-minute rate
+limiter rides on top to stop scripted abuse.
 
 Why this shape: metered AI billing punishes exactly the engaged learners the
 product wants, and invisible caps feel like fraud. A flat price with a
