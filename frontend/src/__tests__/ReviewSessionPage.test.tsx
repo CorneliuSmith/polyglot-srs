@@ -11,6 +11,7 @@ vi.mock('../api/review', () => ({
   getCramCards: vi.fn(),
   validateAnswer: vi.fn(),
   submitReview: vi.fn(),
+  markCardKnown: vi.fn(),
 }))
 
 vi.mock('../api/gym', () => ({
@@ -31,7 +32,7 @@ vi.mock('../components/SpeakButton', () => ({
   ),
 }))
 
-import { getCramCards, getDueCards, validateAnswer, submitReview } from '../api/review'
+import { getCramCards, getDueCards, markCardKnown, validateAnswer, submitReview } from '../api/review'
 import { generateGymDrills } from '../api/gym'
 import { usePrefsStore } from '../stores/prefsStore'
 
@@ -41,6 +42,7 @@ const mockGetDueCards = getDueCards as ReturnType<typeof vi.fn>
 const mockGetCramCards = getCramCards as ReturnType<typeof vi.fn>
 const mockValidateAnswer = validateAnswer as ReturnType<typeof vi.fn>
 const mockSubmitReview = submitReview as ReturnType<typeof vi.fn>
+const mockMarkCardKnown = markCardKnown as ReturnType<typeof vi.fn>
 const mockUsePrefsStore = usePrefsStore as unknown as ReturnType<typeof vi.fn>
 
 const testCard: DueCard = {
@@ -195,6 +197,37 @@ describe('ReviewSessionPage', () => {
         time_taken_ms: expect.any(Number),
       })
     })
+  })
+
+  it('Skip moves on without grading — nothing validated or submitted', async () => {
+    mockGetDueCards.mockResolvedValue([
+      { ...testCard, id: 'c1', sentence: 'First {{answer}}.' },
+      { ...testCard, id: 'c2', sentence: 'Second {{answer}}.' },
+    ])
+    renderWithProviders(<ReviewSessionPage />)
+    await waitFor(() => screen.getByText(/First/))
+    fireEvent.click(screen.getByRole('button', { name: /skip/i }))
+    expect(screen.getByText(/Second/)).toBeDefined()
+    expect(mockValidateAnswer).not.toHaveBeenCalled()
+    expect(mockSubmitReview).not.toHaveBeenCalled()
+    // Skipping the last card ends the session.
+    fireEvent.click(screen.getByRole('button', { name: /skip/i }))
+    await waitFor(() => expect(screen.getByText('Session Complete')).toBeDefined())
+  })
+
+  it('Mark-as-known retires the card server-side and advances', async () => {
+    vi.spyOn(window, 'confirm').mockReturnValue(true)
+    mockMarkCardKnown.mockResolvedValue(undefined)
+    mockGetDueCards.mockResolvedValue([
+      { ...testCard, id: 'c1', sentence: 'First {{answer}}.' },
+      { ...testCard, id: 'c2', sentence: 'Second {{answer}}.' },
+    ])
+    renderWithProviders(<ReviewSessionPage />)
+    await waitFor(() => screen.getByText(/First/))
+    fireEvent.click(screen.getByRole('button', { name: /i know this/i }))
+    await waitFor(() => expect(mockMarkCardKnown).toHaveBeenCalledWith('c1'))
+    await waitFor(() => expect(screen.getByText(/Second/)).toBeDefined())
+    expect(mockSubmitReview).not.toHaveBeenCalled()
   })
 
   it('a wrong judgement offers Bunpro-style re-entry without recording a grade', async () => {

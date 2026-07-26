@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
 import {
@@ -41,6 +41,10 @@ export default function ReaderPage() {
   // Guess flow: which token is being guessed, and what's been revealed.
   const [guessing, setGuessing] = useState<{ s: number; t: number } | null>(null)
   const [guessText, setGuessText] = useState('')
+  // Second-chance guessing: the first committed guess is held (not revealed) so
+  // the learner re-reads the context and refines it once before the meaning shows.
+  const [guessAttempt, setGuessAttempt] = useState(0)
+  const [firstGuess, setFirstGuess] = useState('')
   const [revealed, setRevealed] = useState<Set<string>>(new Set())
   // Assisted stage: tapped word gloss + shown translations/explanations.
   const [peeked, setPeeked] = useState<{ s: number; t: number } | null>(null)
@@ -134,11 +138,32 @@ export default function ReaderPage() {
 
   const key = (s: number, t: number) => `${s}:${t}`
 
-  const commitGuess = () => {
+  // Switching to a different word mid-guess starts its two tries fresh.
+  useEffect(() => {
+    setGuessAttempt(0)
+    setFirstGuess('')
+  }, [guessing?.s, guessing?.t])
+
+  const revealGuess = () => {
     if (!guessing) return
     setRevealed((prev) => new Set(prev).add(key(guessing.s, guessing.t)))
     setGuessing(null)
     setGuessText('')
+    setGuessAttempt(0)
+    setFirstGuess('')
+  }
+
+  const commitGuess = () => {
+    if (!guessing) return
+    // First real guess never auto-reveals: hold it, send the learner back to
+    // the sentence for one more read, then the second submit shows the meaning.
+    if (guessAttempt === 0 && guessText.trim()) {
+      setFirstGuess(guessText.trim())
+      setGuessText('')
+      setGuessAttempt(1)
+      return
+    }
+    revealGuess()
   }
 
   const renderToken = (
@@ -401,13 +426,21 @@ export default function ReaderPage() {
                 className="bg-white rounded-2xl shadow-sm border border-amber-200 p-4 space-y-2"
                 data-testid="guess-panel"
               >
-                <p className="text-sm text-gray-700">
-                  What do you think{' '}
-                  <span className="font-semibold">
-                    {reading.sentences[guessing.s].tokens[guessing.t].t.replace(/[.,;:!?¿¡«»""]+$/u, '')}
-                  </span>{' '}
-                  means here?
-                </p>
+                {guessAttempt === 0 ? (
+                  <p className="text-sm text-gray-700">
+                    What do you think{' '}
+                    <span className="font-semibold">
+                      {reading.sentences[guessing.s].tokens[guessing.t].t.replace(/[.,;:!?¿¡«»""]+$/u, '')}
+                    </span>{' '}
+                    means here?
+                  </p>
+                ) : (
+                  <p className="text-sm text-gray-700" data-testid="second-chance">
+                    You said <span className="font-semibold">“{firstGuess}”</span>.
+                    Read the sentence once more — does it still fit? One more
+                    guess, then the meaning.
+                  </p>
+                )}
                 <form
                   onSubmit={(e) => {
                     e.preventDefault()
@@ -418,7 +451,11 @@ export default function ReaderPage() {
                   <input
                     value={guessText}
                     onChange={(e) => setGuessText(e.target.value)}
-                    placeholder="Your guess — from the context"
+                    placeholder={
+                      guessAttempt === 0
+                        ? 'Your guess — from the context'
+                        : 'Refine it — or stand by your first guess'
+                    }
                     autoFocus
                     className="flex-1 rounded-lg border border-gray-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-lang bg-white"
                   />
@@ -427,11 +464,24 @@ export default function ReaderPage() {
                     className="rounded-lg bg-lang hover:bg-lang-dark text-lang-on px-4 py-2 text-sm font-semibold"
                     style={{ minHeight: '44px' }}
                   >
-                    Reveal
+                    {guessAttempt === 0 && guessText.trim() ? 'Lock it in' : 'Reveal'}
                   </button>
                 </form>
                 <p className="text-[11px] text-gray-400">
-                  No idea? Guess anyway — that's the exercise.
+                  {guessAttempt === 0 ? (
+                    <>
+                      No idea? Guess anyway — that&apos;s the exercise. Two tries,
+                      then the meaning shows.
+                    </>
+                  ) : (
+                    <button
+                      type="button"
+                      onClick={revealGuess}
+                      className="underline hover:text-gray-600"
+                    >
+                      Standing by my first guess — show the meaning
+                    </button>
+                  )}
                 </p>
               </div>
             )}
