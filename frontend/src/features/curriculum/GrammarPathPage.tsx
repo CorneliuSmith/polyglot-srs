@@ -24,6 +24,7 @@ export default function GrammarPathPage() {
   const queryClient = useQueryClient()
   const [searchParams] = useSearchParams()
   const activeLanguageId = usePrefsStore((s) => s.activeLanguageId)
+  const showTashkeel = usePrefsStore((s) => s.showTashkeel)
   // Deep link from search (WP13g): /grammar?point=<id> opens that point.
   const [openPointId, setOpenPointId] = useState<string | null>(
     searchParams.get('point'),
@@ -171,7 +172,9 @@ export default function GrammarPathPage() {
                                 </LanguageWrapper>
                                 <SpeakButton text={ex.sentence} languageCode={languageCode} />
                               </span>
-                              {ex.reading && (
+                              {/* Arabic readings carry tashkeel — hidden when
+                                  the short-vowels setting is off. */}
+                              {ex.reading && (languageCode !== 'ar' || showTashkeel) && (
                                 <span className="block text-gray-400 text-xs italic">
                                   {ex.reading}
                                 </span>

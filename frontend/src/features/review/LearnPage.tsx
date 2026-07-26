@@ -42,6 +42,7 @@ function LearnInner({ onLocaleChanged }: { onLocaleChanged: () => void }) {
   const level = searchParams.get('level') ?? undefined
   const activeLanguageId = usePrefsStore((s) => s.activeLanguageId)
   const qwertyTranslit = usePrefsStore((s) => s.qwertyTranslit)
+  const showTashkeel = usePrefsStore((s) => s.showTashkeel)
   const [lessonIndex, setLessonIndex] = useState(0)
 
   const { data: languages = [] } = useQuery({ queryKey: ['languages'], queryFn: getLanguages })
@@ -318,7 +319,9 @@ function LearnInner({ onLocaleChanged }: { onLocaleChanged: () => void }) {
                 <LanguageWrapper languageCode={languageCode}>
                   <h1 className="text-2xl font-bold text-gray-900">{lesson.title}</h1>
                 </LanguageWrapper>
-                {lesson.reading && (
+                {/* Arabic readings are the tashkeel-vocalized form — the
+                    account-level short-vowels toggle hides them. */}
+                {lesson.reading && (languageCode !== 'ar' || showTashkeel) && (
                   <p className="text-sm text-gray-500 mt-0.5">{lesson.reading}</p>
                 )}
                 {lesson.part_of_speech && (

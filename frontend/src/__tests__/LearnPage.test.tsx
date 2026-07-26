@@ -23,6 +23,7 @@ vi.mock('../stores/prefsStore', () => ({ usePrefsStore: vi.fn(() => 'lang-es') }
 
 import { confirmLearnSession, startLearnSession, validateAnswer } from '../api/review'
 import { getLanguages } from '../api/profile'
+import { usePrefsStore } from '../stores/prefsStore'
 
 const mockLearn = startLearnSession as ReturnType<typeof vi.fn>
 const mockConfirm = confirmLearnSession as ReturnType<typeof vi.fn>
@@ -256,5 +257,46 @@ describe('LearnPage (teach-before-quiz)', () => {
     mockLearn.mockResolvedValue({ added: 0, items: [], lessons: [] })
     renderPage()
     expect(await screen.findByText(/nothing new to learn/i)).toBeDefined()
+  })
+
+  it('Arabic vocalized reading follows the short-vowels setting', async () => {
+    // Real-selector store mock: the tashkeel gate needs showTashkeel and an
+    // Arabic active language at the same time.
+    const state: Record<string, unknown> = {
+      activeLanguageId: 'lang-ar',
+      qwertyTranslit: {},
+      setQwertyTranslit: vi.fn(),
+      showTashkeel: false,
+      hintLevel: 9,
+      listeningMode: false,
+      accentsOptional: false,
+    }
+    const mockPrefs = usePrefsStore as unknown as ReturnType<typeof vi.fn>
+    mockPrefs.mockImplementation((sel: (s: unknown) => unknown) => sel(state))
+    mockGetLanguages.mockResolvedValue([
+      { id: 'lang-ar', code: 'ar', name: 'Arabic', rtl: true },
+    ])
+    const arLesson = {
+      ...vocabLesson,
+      title: 'كتب',
+      reading: 'كَتَبَ',
+      quiz: { ...vocabLesson.quiz, answer: 'كتب' },
+    }
+    mockLearn.mockResolvedValue({ added: 1, items: ['uc-2'], lessons: [arLesson] })
+
+    // OFF: the bare word shows, the vocalized form does not.
+    const view = renderPage('/learn?type=vocabulary')
+    await screen.findByText(/1 of 1/)
+    expect(screen.getByText('كتب')).toBeDefined()
+    expect(screen.queryByText('كَتَبَ')).toBeNull()
+    view.unmount()
+
+    // ON (the default): the vocalized form appears under the word.
+    state.showTashkeel = true
+    renderPage('/learn?type=vocabulary')
+    await screen.findByText(/1 of 1/)
+    expect(screen.getByText('كَتَبَ')).toBeDefined()
+
+    mockPrefs.mockImplementation(() => 'lang-es')
   })
 })

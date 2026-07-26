@@ -20,15 +20,22 @@ vi.mock('../api/profile', () => ({
     Promise.resolve([
       { id: 'lang-es', code: 'es', name: 'Spanish', rtl: false },
       { id: 'lang-en', code: 'en', name: 'English', rtl: false },
+      { id: 'lang-ar', code: 'ar', name: 'Arabic', rtl: true },
+      { id: 'lang-ru', code: 'ru', name: 'Russian', rtl: false },
     ]),
   ),
 }))
 vi.mock('../api/dashboard', () => ({ getDashboardStats: vi.fn() }))
-const { signOut, mockSetTheme, mockSetSessionSize, mockSetDailyLearnGoal } = vi.hoisted(() => ({
+const {
+  signOut, mockSetTheme, mockSetSessionSize, mockSetDailyLearnGoal,
+  mockSetShowTashkeel, mockSetQwertyTranslit,
+} = vi.hoisted(() => ({
   mockSetDailyLearnGoal: vi.fn(),
   signOut: vi.fn(() => Promise.resolve({ error: null })),
   mockSetTheme: vi.fn(),
   mockSetSessionSize: vi.fn(),
+  mockSetShowTashkeel: vi.fn(),
+  mockSetQwertyTranslit: vi.fn(),
 }))
 vi.mock('../stores/prefsStore', () => ({
   usePrefsStore: vi.fn(
@@ -44,6 +51,10 @@ vi.mock('../stores/prefsStore', () => ({
         setAccentsOptional: vi.fn(),
         dailyLearnGoal: 20,
         setDailyLearnGoal: mockSetDailyLearnGoal,
+        qwertyTranslit: {},
+        setQwertyTranslit: mockSetQwertyTranslit,
+        showTashkeel: true,
+        setShowTashkeel: mockSetShowTashkeel,
       }),
   ),
 }))
@@ -190,6 +201,48 @@ describe('SettingsPage', () => {
     renderPage()
     expect(await screen.findByText('All languages')).toBeDefined()
     expect(screen.queryByRole('button', { name: /upgrade/i })).toBeNull()
+  })
+
+  it('hides the language-specific section for Latin-script languages', async () => {
+    renderPage()
+    await screen.findByText('Daily learn goal') // page settled
+    expect(screen.queryByTestId('language-specific')).toBeNull()
+  })
+
+  it('Arabic gets tashkeel + QWERTY toggles in Arabic options', async () => {
+    mockPrefsActiveLanguageId = 'lang-ar'
+    renderPage()
+    const section = await screen.findByTestId('language-specific')
+    expect(within(section).getByText('Arabic options')).toBeDefined()
+
+    const tashkeel = within(section).getByRole('switch', {
+      name: /short vowels/i,
+    })
+    // Default ON — vocalized forms show until the learner opts out.
+    expect(tashkeel.getAttribute('aria-checked')).toBe('true')
+    fireEvent.click(tashkeel)
+    expect(mockSetShowTashkeel).toHaveBeenCalledWith(false)
+
+    const qwerty = within(section).getByRole('switch', {
+      name: /qwerty/i,
+    })
+    expect(qwerty.getAttribute('aria-checked')).toBe('true')
+    fireEvent.click(qwerty)
+    expect(mockSetQwertyTranslit).toHaveBeenCalledWith('ar', false)
+  })
+
+  it('Russian gets the QWERTY toggle but no tashkeel toggle', async () => {
+    mockPrefsActiveLanguageId = 'lang-ru'
+    renderPage()
+    const section = await screen.findByTestId('language-specific')
+    expect(within(section).getByText('Russian options')).toBeDefined()
+    expect(
+      within(section).queryByRole('switch', { name: /short vowels/i }),
+    ).toBeNull()
+    fireEvent.click(
+      within(section).getByRole('switch', { name: /qwerty/i }),
+    )
+    expect(mockSetQwertyTranslit).toHaveBeenCalledWith('ru', false)
   })
 
   it('signs out', async () => {
