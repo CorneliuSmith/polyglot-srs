@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import { Headphones } from 'lucide-react'
 import { useNavigate } from 'react-router-dom'
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
 import {
@@ -427,7 +428,7 @@ export default function ReaderPage() {
                         className="rounded-xl bg-lang hover:bg-lang-dark text-lang-on font-semibold px-5 py-2.5 text-sm"
                         style={{ minHeight: '44px' }}
                       >
-                        🎧 Listen first
+                        <Headphones aria-hidden className="mr-1.5 inline h-4 w-4 align-[-2px]" />Listen first
                       </button>
                       <button
                         type="button"

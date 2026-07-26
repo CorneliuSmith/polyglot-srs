@@ -1,4 +1,5 @@
 import { useCallback, useEffect, useRef, useState } from 'react'
+import { Star } from 'lucide-react'
 import { useNavigate } from 'react-router-dom'
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query'
 import { getLanguages } from '../../api/profile'
@@ -332,7 +333,7 @@ export default function TutorPage() {
             data-testid="mastery-suggestions"
           >
             <p className="text-xs font-semibold text-amber-900">
-              ⭐ Your tutor thinks you already know these
+              <Star aria-hidden className="mr-1 inline h-3.5 w-3.5 align-[-2px] fill-amber-400 text-amber-400" />Your tutor thinks you already know these
             </p>
             <p className="text-[11px] text-amber-800/80">
               Agree, and the card's next review moves about a month out —

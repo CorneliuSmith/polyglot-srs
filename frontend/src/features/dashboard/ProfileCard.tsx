@@ -1,3 +1,4 @@
+import { Flame } from 'lucide-react'
 import type { DashboardProfile } from '../../api/types'
 
 const DAY_LETTERS = ['S', 'M', 'T', 'W', 'T', 'F', 'S']
@@ -27,7 +28,11 @@ export default function ProfileCard({
                   }`}
                   aria-label={d.studied ? 'studied' : 'not studied'}
                 >
-                  {d.studied ? '🔥' : '·'}
+                  {d.studied ? (
+                    <Flame aria-hidden className="h-4 w-4 text-orange-500" fill="currentColor" />
+                  ) : (
+                    '·'
+                  )}
                 </span>
                 <span className="text-[10px] text-gray-400">
                   {DAY_LETTERS[day.getUTCDay()]}

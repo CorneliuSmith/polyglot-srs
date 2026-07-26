@@ -82,11 +82,3 @@ export const MEDIA_TYPE_LABELS: Record<string, string> = {
   podcast: 'Podcast',
   music: 'Music',
 }
-
-export const MEDIA_TYPE_ICONS: Record<string, string> = {
-  book: '📖',
-  film: '🎬',
-  series: '📺',
-  podcast: '🎧',
-  music: '🎵',
-}

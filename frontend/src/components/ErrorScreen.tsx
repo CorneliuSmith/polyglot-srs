@@ -1,4 +1,5 @@
 import { useEffect } from 'react'
+import { Frown } from 'lucide-react'
 import { useRouteError } from 'react-router-dom'
 import { reportError } from '../lib/sentry'
 
@@ -16,7 +17,7 @@ export default function ErrorScreen() {
   return (
     <div className="min-h-screen bg-gray-50 flex items-center justify-center px-4">
       <div className="text-center space-y-4 max-w-sm">
-        <p className="text-3xl">😵</p>
+        <Frown aria-hidden className="mx-auto h-10 w-10 text-gray-300" strokeWidth={1.5} />
         <h1 className="text-lg font-semibold text-gray-800">
           Something went wrong
         </h1>
