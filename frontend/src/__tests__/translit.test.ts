@@ -108,6 +108,9 @@ describe('helpers', () => {
     expect(hasTranslit('ru')).toBe(true)
     expect(hasTranslit('ar')).toBe(true)
     expect(hasTranslit('el')).toBe(true)
+    expect(hasTranslit('hi')).toBe(true)
+    expect(hasTranslit('th')).toBe(true)
+    expect(hasTranslit('ko')).toBe(true)
     expect(hasTranslit('es')).toBe(false)
     expect(hasTranslit('tr')).toBe(false)
   })
@@ -124,7 +127,7 @@ describe('helpers', () => {
   })
 
   it('every supported language ships a key guide', () => {
-    for (const code of ['ru', 'ar', 'el']) {
+    for (const code of ['ru', 'ar', 'el', 'hi', 'th', 'ko']) {
       expect(translitGuide(code).length).toBeGreaterThan(4)
     }
     expect(translitGuide('es')).toEqual([])

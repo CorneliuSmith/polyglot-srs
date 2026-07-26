@@ -24,7 +24,7 @@ const mockGetLanguages = getLanguages as ReturnType<typeof vi.fn>
 
 const ALL_CODES = [
   'ar', 'ca', 'de', 'el', 'en', 'es', 'fr', 'ha', 'hi', 'it', 'jam',
-  'mi', 'nl', 'pt', 'ro', 'ru', 'sw', 'th', 'tr', 'xh', 'yo',
+  'ko', 'mi', 'nl', 'pt', 'ro', 'ru', 'sw', 'th', 'tr', 'xh', 'yo',
 ]
 
 describe('Letters & Sounds data', () => {
@@ -49,7 +49,7 @@ describe('Letters & Sounds data', () => {
   })
 
   it('the script languages carry typing keys', () => {
-    for (const code of ['ru', 'el', 'ar', 'hi']) {
+    for (const code of ['ru', 'el', 'ar', 'hi', 'th', 'ko']) {
       const withRoman = LETTERS[code].sections
         .flatMap((s) => s.rows)
         .filter((r) => r.roman)

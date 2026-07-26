@@ -46,7 +46,9 @@ vi.mock('simple-keyboard-layouts/build/layouts/arabic', () => ({
 }))
 
 // Import component after mocks are set up
-const { default: OnScreenKeyboard } = await import('../features/keyboards/OnScreenKeyboard')
+const { default: OnScreenKeyboard, hasKeyboardLayout } = await import(
+  '../features/keyboards/OnScreenKeyboard'
+)
 
 describe('OnScreenKeyboard', () => {
   beforeEach(() => {
@@ -92,6 +94,45 @@ describe('OnScreenKeyboard', () => {
       expect(json).toContain(ch)
     }
     expect(json).not.toContain('.com')
+  })
+
+  it('Hindi, Thai and Korean all have layouts (owner request)', () => {
+    for (const code of ['hi', 'th', 'ko'] as const) {
+      expect(hasKeyboardLayout(code), code).toBe(true)
+    }
+  })
+
+  it('the Hindi layout carries Devanagari consonants and matras', () => {
+    render(<OnScreenKeyboard languageCode="hi" onKeyPress={() => {}} />)
+    const json = screen
+      .getByTestId('keyboard-mock')
+      .getAttribute('data-layout-json')!
+    // consonants, the vowel signs that ride on them, and the halant.
+    for (const ch of ['क', 'म', 'न', 'ा', 'ि', 'ी', '्']) {
+      expect(json, ch).toContain(ch)
+    }
+  })
+
+  it('the Thai layout carries consonants, vowel signs and tone marks', () => {
+    render(<OnScreenKeyboard languageCode="th" onKeyPress={() => {}} />)
+    const json = screen
+      .getByTestId('keyboard-mock')
+      .getAttribute('data-layout-json')!
+    for (const ch of ['ก', 'ม', 'า', 'ิ', 'ุ', 'เ', '่', '้']) {
+      expect(json, ch).toContain(ch)
+    }
+  })
+
+  it('the Korean layout carries jamo for the caller to compose', () => {
+    render(<OnScreenKeyboard languageCode="ko" onKeyPress={() => {}} />)
+    const json = screen
+      .getByTestId('keyboard-mock')
+      .getAttribute('data-layout-json')!
+    // Conjoining jamo (U+1100 initials / U+1161 medials) — composeScript
+    // turns the run into syllable blocks at the insertion point.
+    for (const ch of ['\u1100', '\u1102', '\u1161', '\u1175']) {
+      expect(json, ch).toContain(ch)
+    }
   })
 
   it('shift switches layers one-shot; lock is sticky', () => {

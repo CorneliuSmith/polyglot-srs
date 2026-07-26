@@ -6,9 +6,11 @@ import arabicLayout from 'simple-keyboard-layouts/build/layouts/arabic'
 import turkishLayout from 'simple-keyboard-layouts/build/layouts/turkish'
 import greekLayout from 'simple-keyboard-layouts/build/layouts/greek'
 import thaiLayout from 'simple-keyboard-layouts/build/layouts/thai'
+import hindiLayout from 'simple-keyboard-layouts/build/layouts/hindi'
+import koreanLayout from 'simple-keyboard-layouts/build/layouts/korean'
 
 export type KeyboardLanguage =
-  | 'ru' | 'ar' | 'tr' | 'el' | 'yo' | 'ha'
+  | 'ru' | 'ar' | 'tr' | 'el' | 'yo' | 'ha' | 'th' | 'hi' | 'ko'
   | 'es' | 'it' | 'fr' | 'de' | 'ca' | 'mi' | 'pt' | 'ro'
 
 /** Languages that get an on-screen keyboard. Everything else (en, sw, xh —
@@ -102,6 +104,10 @@ const LAYOUTS: Record<string, { default: string[] } | { [k: string]: string[] }>
   ro: withAccents('ă â î ș ț'),
   el: greekLayout.layout,
   th: thaiLayout.layout,
+  hi: hindiLayout.layout,
+  // Korean keys are conjoining JAMO, not finished syllables — the callers
+  // run every insert through composeScript('ko', …) so ᄒ+ᅡ+ᄂ becomes 한.
+  ko: koreanLayout.layout,
 }
 
 export default function OnScreenKeyboard({

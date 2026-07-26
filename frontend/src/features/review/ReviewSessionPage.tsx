@@ -27,7 +27,7 @@ import SuggestChange from '../contribute/SuggestChange'
 import CardFeedback from './CardFeedback'
 import SessionSummary from './SessionSummary'
 import OnScreenKeyboard from '../keyboards/OnScreenKeyboard'
-import { finalizeInput } from '../keyboards/translit'
+import { composeScript, finalizeInput } from '../keyboards/translit'
 import { hintLayersFor, safePrompt } from './hintLayers'
 import SpeakButton from '../../components/SpeakButton'
 import FormsPanel from '../../components/FormsPanel'
@@ -433,22 +433,29 @@ function ReviewSessionInner({
   }, [session.phase, session.validationResult, submitMutation.isPending])
 
   const handleKeyboardKeyPress = (key: string) => {
+    // Hangul keys are jamo that must fuse into syllable blocks; every other
+    // script passes through composeScript untouched.
+    const compose = (value: string) => composeScript(card.language_code, value)
     const input = inputRef.current
     if (!input) {
       // If no ref available, just append
-      setUserInput((prev) => prev + key)
+      setUserInput((prev) => compose(prev + key))
       return
     }
 
     const start = input.selectionStart ?? input.value.length
     const end = input.selectionEnd ?? input.value.length
-    const newValue = input.value.slice(0, start) + key + input.value.slice(end)
-    setUserInput(newValue)
+    const typed = input.value.slice(0, start) + key
+    const composed = compose(typed)
+    setUserInput(composed + input.value.slice(end))
 
-    // Restore cursor position after React re-render
+    // Restore cursor position after React re-render. Composition can SHORTEN
+    // the text (three jamo become one block), so the caret follows the
+    // composed prefix rather than the raw keypress length.
+    const caret = composed.length
     requestAnimationFrame(() => {
       input.focus()
-      input.setSelectionRange(start + key.length, start + key.length)
+      input.setSelectionRange(caret, caret)
     })
   }
 
