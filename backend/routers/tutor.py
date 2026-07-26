@@ -30,12 +30,11 @@ from pydantic import BaseModel, Field
 from backend.config import get_settings
 from backend.dependencies import get_current_user
 from backend.repositories.pool import rls_connection
+from backend.repositories.assessment import get_assessment_summary
 from backend.repositories.tutor import (
     create_mastery_suggestions,
     get_language_profile,
-    get_study_stats,
     get_user_profile,
-    get_weak_areas,
     list_mastery_suggestions,
     list_tutor_sessions,
     log_tutor_session,
@@ -156,15 +155,21 @@ async def chat(
         )
 
     async with rls_connection(user["id"]) as conn:
-        weak_areas = await get_weak_areas(conn, user["id"], body.language_id)
-        study_stats = await get_study_stats(conn, user["id"], body.language_id)
         user_profile = await get_user_profile(conn, user["id"])
         lang = await get_language_profile(conn, user["id"], body.language_id)
+        # The 'full' assessment tier — the tutor gets the deepest cut of the
+        # learner: weak-area detail, study stats, level, known words.
+        assessment = await get_assessment_summary(
+            conn, user["id"], body.language_id, depth="full",
+            language_profile=lang["profile"],
+        )
         # WP15a: admin per-language override; else the language-tier default
         # (low-resource languages pin the stronger model — §6 model guide).
         override_model = await conn.fetchval(
             "SELECT tutor_model FROM languages WHERE id = $1", body.language_id
         )
+    weak_areas = assessment["weak_areas"]
+    study_stats = assessment["study_stats"]
     model = resolve_tutor_model(body.language_code, override_model)
 
     try:
@@ -273,13 +278,17 @@ async def chat_stream(
         )
 
     async with rls_connection(user["id"]) as conn:
-        weak_areas = await get_weak_areas(conn, user["id"], body.language_id)
-        study_stats = await get_study_stats(conn, user["id"], body.language_id)
         user_profile = await get_user_profile(conn, user["id"])
         lang = await get_language_profile(conn, user["id"], body.language_id)
+        assessment = await get_assessment_summary(
+            conn, user["id"], body.language_id, depth="full",
+            language_profile=lang["profile"],
+        )
         override_model = await conn.fetchval(
             "SELECT tutor_model FROM languages WHERE id = $1", body.language_id
         )
+    weak_areas = assessment["weak_areas"]
+    study_stats = assessment["study_stats"]
     model = resolve_tutor_model(body.language_code, override_model)
 
     async def event_source():

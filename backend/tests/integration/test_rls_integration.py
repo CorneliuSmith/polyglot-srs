@@ -577,6 +577,50 @@ async def test_gym_progress_accumulates_and_is_isolated(pool):
     assert rows[0]["n"] == 0           # RLS hides A's row from B
 
 
+async def test_form_struggles_rollup_targets_missed_cells(pool):
+    """The 'forms' assessment tier: gym history rolls up per cell, worst
+    first, and only cells with misses appear — so on-demand generation aims
+    at what THIS learner gets wrong."""
+    from backend.repositories.assessment import (
+        get_form_struggles,
+        pick_struggling_cell,
+    )
+    from backend.repositories.gym import record_gym_attempt
+
+    lang = await _language(pool, "gymf")
+    a = await _new_user(pool, "gym-f@x")
+    async with pool.privileged_connection() as conn:
+        pid = str(await conn.fetchval(
+            "INSERT INTO grammar_points (language_id, title, level) "
+            "VALUES ($1, 'Present -ar', 'A1') RETURNING id", lang,
+        ))
+        d_yo = str(await conn.fetchval(
+            "INSERT INTO drill_sentences (grammar_point_id, sentence, answer, cell) "
+            "VALUES ($1, 'yo {{answer}}', 'preparo', 'yo') RETURNING id", pid,
+        ))
+        d_vos = str(await conn.fetchval(
+            "INSERT INTO drill_sentences (grammar_point_id, sentence, answer, cell) "
+            "VALUES ($1, 'vosotros {{answer}}', 'preparáis', 'vosotros') RETURNING id", pid,
+        ))
+
+    async with pool.rls_connection(a) as conn:
+        # yo: clean. vosotros: missed twice out of three.
+        await record_gym_attempt(conn, a, d_yo, "correct", used_hint=False)
+        await record_gym_attempt(conn, a, d_vos, "wrong_form", used_hint=False)
+        await record_gym_attempt(conn, a, d_vos, "wrong", used_hint=True)
+        await record_gym_attempt(conn, a, d_vos, "correct", used_hint=False)
+        struggles = await get_form_struggles(conn, a, [pid])
+
+    assert list(struggles) == [pid]
+    cells = struggles[pid]
+    # Only the missed cell shows up; the clean 'yo' cell is absent.
+    assert [c["cell"] for c in cells] == ["vosotros"]
+    assert cells[0]["seen"] == 3 and cells[0]["misses"] == 2
+    assert cells[0]["wrong_form"] == 1 and cells[0]["hint_used"] == 1
+    # And it clears the evidence bar for targeting.
+    assert pick_struggling_cell(cells) == "vosotros"
+
+
 async def test_generated_examples_fill_gaps_and_skip_covered_words(pool):
     """End-to-end (WP42): the admin generation run fills a word that has NO
     example sentences (dev-mock), tagging them source='ai'; a word already AT
