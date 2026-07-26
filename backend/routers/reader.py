@@ -15,19 +15,15 @@ from fastapi import APIRouter, Depends, HTTPException, status
 from pydantic import BaseModel, Field
 
 from backend.dependencies import get_current_user
+from backend.repositories.assessment import get_assessment_summary
 from backend.repositories.pool import privileged_connection, rls_connection
 from backend.repositories.reader import (
-    get_learner_model,
     get_reading,
     list_readings,
     log_grammar_gaps,
     save_reading,
 )
-from backend.repositories.tutor import (
-    get_language_profile,
-    get_weak_areas,
-    log_tutor_usage,
-)
+from backend.repositories.tutor import log_tutor_usage
 from backend.routers.tutor import _get_allowance, _reject_if_unavailable
 from backend.services.rate_limit import tutor_chat_limiter
 from backend.services.reader import (
@@ -45,6 +41,10 @@ class GenerateRequest(BaseModel):
     language_id: str
     language_code: str = Field(min_length=2, max_length=8)
     topic: str = Field(min_length=1, max_length=MAX_TOPIC_CHARS)
+    # Per-text options (bounded): how long, whose voice, how hard.
+    length: str = Field(default="medium", pattern="^(short|medium|long)$")
+    voice: str = Field(default="any", pattern="^(any|first|third|dialogue)$")
+    complexity: str = Field(default="level", pattern="^(easier|level|stretch)$")
 
 
 class ExplainRequest(BaseModel):
@@ -78,28 +78,28 @@ async def generate(
         )
 
     async with rls_connection(user["id"]) as conn:
-        learner = await get_learner_model(conn, user["id"], body.language_id)
-        # The tutor's Active Focus and weak items feed re-exposure.
-        weak = await get_weak_areas(conn, user["id"], body.language_id, limit=6)
-        lang_profile = await get_language_profile(conn, user["id"], body.language_id)
+        # The 'reading' assessment tier: level, known words/structures, weak
+        # words, and Active Focus — what level-locking a text needs, no more.
+        learner = await get_assessment_summary(
+            conn, user["id"], body.language_id, depth="reading"
+        )
         gloss_locale = await _support_gloss_locale(
             conn, user["id"], body.language_code
         )
         override_model = await conn.fetchval(
             "SELECT tutor_model FROM languages WHERE id = $1", body.language_id
         )
-    learner["weak_words"] = [w.get("word") for w in weak if w.get("word")]
-    learner["focus"] = [
-        f.get("structure")
-        for f in (lang_profile["profile"].get("_active_focus") or [])
-        if isinstance(f, dict) and f.get("structure")
-    ]
     model = resolve_tutor_model(body.language_code, override_model)
 
     try:
         reading, usage = await generate_reading(
             body.language_code, body.topic.strip(), learner,
             gloss_locale=gloss_locale, model=model,
+            options={
+                "length": body.length,
+                "voice": body.voice,
+                "complexity": body.complexity,
+            },
         )
     except ValueError as exc:
         logger.error("Reading generation invalid: %s", exc)

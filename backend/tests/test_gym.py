@@ -130,11 +130,11 @@ class TestGymManifest:
     def test_resolves_points_and_drops_missing_ones(self):
         rows = [
             {"id": POINT_ID, "title": "Present tense", "level": "A1",
-             "drills": 12, "familiar": True},
+             "drills": 12, "done": 5, "familiar": True},
             # "Accusative case" resolves too; "Missing point" does not.
             {"id": "44444444-4444-4444-4444-444444444444",
              "title": "Accusative case", "level": "A1",
-             "drills": 18, "familiar": False},
+             "drills": 18, "done": 0, "familiar": False},
         ]
         ps = _client(_conn(rows=rows))
         with ps[0], ps[1], ps[2], ps[3], ps[4], \
@@ -155,6 +155,8 @@ class TestGymManifest:
         assert verbs[0]["point_id"] == POINT_ID
         assert verbs[0]["familiar"] is True
         assert verbs[0]["drills"] == 12
+        # Set completion for THIS learner — the picker shows done/total.
+        assert verbs[0]["done"] == 5
         assert verbs[0]["usage"] == "now and habits"
         nouns = cols[1]["entries"]
         assert nouns[0]["nonstandard"] is True

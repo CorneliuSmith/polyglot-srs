@@ -208,3 +208,48 @@ async def test_contains_word_uses_apertium_when_no_backend():
          patch("backend.services.generate.analyze_lemmas",
                new=AsyncMock(return_value=set())):
         assert not await generate._contains_word("sw", "Mbwa analala leo.", "kimbia")
+
+
+# ---------------------------------------------------------------------------
+# Grammar-point overlap judge (owner, 2026-07-26)
+# ---------------------------------------------------------------------------
+
+
+async def test_audit_overlap_mock_flags_shared_title_tokens():
+    points = [
+        {"id": "p1", "title": "Present tense of -ar verbs", "level": "A1"},
+        {"id": "p2", "title": "The present tense", "level": "A1"},
+        {"id": "p3", "title": "Noun gender", "level": "A1"},
+    ]
+    with patch("backend.services.generate.get_settings", return_value=_mock_settings()):
+        pairs = await generate.audit_overlap(points, "Spanish", "es")
+    assert pairs == [
+        {"a": 0, "b": 1, "verdict": "partial",
+         "reason": "[dev mock] titles share 'present'"},
+    ]
+
+
+async def test_audit_overlap_needs_two_points():
+    with patch("backend.services.generate.get_settings", return_value=_mock_settings()):
+        assert await generate.audit_overlap(
+            [{"id": "p1", "title": "Solo point"}], "Spanish", "es"
+        ) == []
+
+
+async def test_audit_overlap_validates_and_canonicalizes_pairs():
+    # Malformed judge output must be dropped, never guessed at; a reversed
+    # pair is canonicalized to a < b.
+    raw = [
+        {"a": 1, "b": 0, "verdict": "duplicate", "reason": "same thing"},  # reversed
+        {"a": 0, "b": 0, "verdict": "duplicate", "reason": "self"},        # self-pair
+        {"a": 0, "b": 9, "verdict": "duplicate", "reason": "range"},       # out of range
+        {"a": 0, "b": 1, "verdict": "identical", "reason": "bad verdict"},
+        "not a dict",
+    ]
+    points = [{"title": "x"}, {"title": "y"}]
+    with patch("backend.services.generate.get_settings", return_value=_mock_settings()), \
+         patch("backend.services.generate._mock_audit_overlap", return_value=raw):
+        pairs = await generate.audit_overlap(points, "Spanish", "es")
+    assert pairs == [
+        {"a": 0, "b": 1, "verdict": "duplicate", "reason": "same thing"},
+    ]

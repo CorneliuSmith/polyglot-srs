@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import { Smartphone } from 'lucide-react'
 import { usePrefsStore } from '../stores/prefsStore'
 
 interface BeforeInstallPromptEvent extends Event {
@@ -50,7 +51,7 @@ export default function InstallPrompt() {
       className="flex items-center gap-3 rounded-2xl border border-lang/30 bg-lang-soft px-4 py-3 text-sm"
       data-testid="install-prompt"
     >
-      <span className="text-xl" aria-hidden="true">📱</span>
+      <Smartphone aria-hidden className="h-6 w-6 shrink-0 text-lang" strokeWidth={1.75} />
       <div className="flex-1 text-gray-700">
         {installEvent ? (
           <>

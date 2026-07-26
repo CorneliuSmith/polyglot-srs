@@ -107,6 +107,12 @@ export async function submitCardFeedback(
   await apiClient.post(`/api/review/card/${cardId}/feedback`, { message })
 }
 
+/** Retire a card the learner already knows: it stops appearing in reviews
+ * (suspended with history intact — reversible via Settings → reset). */
+export async function markCardKnown(cardId: string): Promise<void> {
+  await apiClient.post(`/api/review/card/${cardId}/known`)
+}
+
 export async function startLearnSession(
   languageId: string,
   cardType: 'vocabulary' | 'grammar' | 'both' = 'vocabulary',

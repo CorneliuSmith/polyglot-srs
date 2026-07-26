@@ -397,3 +397,48 @@ async def test_decks_requires_auth(client):
         "/api/review/decks", params={"language_id": TEST_LANGUAGE_ID}
     )
     assert resp.status_code in (401, 403)
+
+
+@pytest.mark.asyncio
+async def test_mark_known_retires_card_with_history_floor(client):
+    """Mark-as-known suspends the card and floors repetitions at 1, landing it
+    in the deliberate suspended-WITH-history bucket (never resurrected by
+    learn's teach gate, excluded from every queue)."""
+    with patch("backend.routers.review.rls_connection") as mock_rls:
+        conn = AsyncMock()
+        conn.execute = AsyncMock(return_value="UPDATE 1")
+        mock_rls.return_value.__aenter__ = AsyncMock(return_value=conn)
+        mock_rls.return_value.__aexit__ = AsyncMock(return_value=False)
+
+        resp = client.post(
+            "/api/review/card/11111111-1111-1111-1111-111111111111/known",
+            headers=_auth_headers(),
+        )
+
+    assert resp.status_code == 200
+    assert resp.json() == {"known": True}
+    sql = conn.execute.await_args.args[0]
+    assert "is_suspended = true" in sql
+    assert "GREATEST(repetitions, 1)" in sql
+
+
+@pytest.mark.asyncio
+async def test_mark_known_unknown_card_404(client):
+    # RLS scopes user_cards to the owner: someone else's card id updates 0 rows.
+    with patch("backend.routers.review.rls_connection") as mock_rls:
+        conn = AsyncMock()
+        conn.execute = AsyncMock(return_value="UPDATE 0")
+        mock_rls.return_value.__aenter__ = AsyncMock(return_value=conn)
+        mock_rls.return_value.__aexit__ = AsyncMock(return_value=False)
+
+        resp = client.post(
+            "/api/review/card/11111111-1111-1111-1111-111111111111/known",
+            headers=_auth_headers(),
+        )
+    assert resp.status_code == 404
+
+
+@pytest.mark.asyncio
+async def test_mark_known_requires_auth(client):
+    resp = client.post("/api/review/card/x/known")
+    assert resp.status_code in (401, 403)

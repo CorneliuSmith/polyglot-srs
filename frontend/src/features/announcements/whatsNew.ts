@@ -19,7 +19,7 @@ export const WHATS_NEW: WhatsNewEntry[] = [
   {
     id: 'language-facts-2026-07',
     date: 'July 2026',
-    title: 'Things to know about this language 🌍',
+    title: 'Things to know about this language',
     body:
       'A one-minute primer on the language you’re studying — its family, ' +
       'where it’s spoken, how its sentences are built, a short history, and ' +
@@ -31,7 +31,7 @@ export const WHATS_NEW: WhatsNewEntry[] = [
   {
     id: 'gym-adaptive-2026-07',
     date: 'July 2026',
-    title: 'The Gym adapts to you 🎯',
+    title: 'The Gym adapts to you',
     body:
       'The Gym now learns from how you answer: forms you keep missing (and ' +
       'irregulars) come back more often, forms you’ve nailed fade. Opt into ' +
@@ -43,7 +43,7 @@ export const WHATS_NEW: WhatsNewEntry[] = [
   {
     id: 'learning-tips-2026-07',
     date: 'July 2026',
-    title: 'Learning tips 💡',
+    title: 'Learning tips',
     body:
       'Occasional, evidence-based nudges on how to study — read aloud, trust ' +
       'the spacing, mix it up — shown at most about once a day. Not for you? ' +
@@ -54,7 +54,7 @@ export const WHATS_NEW: WhatsNewEntry[] = [
   {
     id: 'review-audio-2026-07',
     date: 'July 2026',
-    title: 'Clearer, faster review audio 🔊',
+    title: 'Clearer, faster review audio',
     body:
       'After you answer, the “word” and “full sentence” buttons are now ' +
       'labelled apart, and both clips are pre-loaded so they play the instant ' +
@@ -63,7 +63,7 @@ export const WHATS_NEW: WhatsNewEntry[] = [
   {
     id: 'korean-2026-07',
     date: 'July 2026',
-    title: 'Korean 🇰🇷',
+    title: 'Korean',
     body:
       'Language #20 is live: 7,000 words, a 40-point grammar path from ' +
       'particles to honorifics, Hangul in Letters & Sounds, neural audio, ' +
@@ -74,7 +74,7 @@ export const WHATS_NEW: WhatsNewEntry[] = [
   {
     id: 'gym-2026-07',
     date: 'July 2026',
-    title: 'The Gym 🏋️',
+    title: 'The Gym',
     body:
       'Pick the forms you want to train — past tense, accusative, ' +
       'whatever your language has — and drill them in a mixed bag. ' +

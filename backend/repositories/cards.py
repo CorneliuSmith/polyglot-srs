@@ -12,6 +12,7 @@ import asyncpg
 
 from backend.repositories.curriculum import get_read_ref_keys, resolve_related
 from backend.repositories.gym import get_gym_progress
+from backend.services.cell_glosses import cell_gloss
 from backend.services.extract import ANSWER_MARKER, make_cloze
 from backend.services.gym_manifest import nonstandard_point_titles
 from backend.services.gym_weight import drill_weight
@@ -1399,7 +1400,7 @@ async def get_cram_cards(
             l.code   AS language_code,
             d.drill_ids,
             d.sentences, d.answers, d.hints, d.translations,
-            d.glosses, d.transliterations
+            d.glosses, d.transliterations, d.cells, d.lemmas
         FROM grammar_points gp
         JOIN languages l ON gp.language_id = l.id
         LEFT JOIN LATERAL (
@@ -1413,7 +1414,9 @@ async def get_cram_cards(
                 array_agg(COALESCE(dht.translation, ds.translation)
                           ORDER BY ds.display_order, ds.id) AS translations,
                 array_agg(ds.gloss       ORDER BY ds.display_order, ds.id) AS glosses,
-                array_agg(ds.transliteration ORDER BY ds.display_order, ds.id) AS transliterations
+                array_agg(ds.transliteration ORDER BY ds.display_order, ds.id) AS transliterations,
+                array_agg(ds.cell        ORDER BY ds.display_order, ds.id) AS cells,
+                array_agg(ds.lemma       ORDER BY ds.display_order, ds.id) AS lemmas
             FROM drill_sentences ds
             LEFT JOIN drill_hint_translations dht
                    ON dht.drill_id = ds.id AND dht.locale = $2
@@ -1502,6 +1505,10 @@ async def get_cram_cards(
                 "translation": r["translations"][i],
                 "gloss": r["glosses"][i],
                 "transliteration": r["transliterations"][i],
+                # Paradigm cell + authored dictionary form — the raw material
+                # for the standardized baseline built after chart attach.
+                "cell": r["cells"][i] if r["cells"] else None,
+                "lemma": r["lemmas"][i] if r["lemmas"] else None,
                 "morphology": None,
                 "alternatives": None,
                 "language_code": r["language_code"],
@@ -1517,7 +1524,69 @@ async def get_cram_cards(
     # Interleave points instead of drilling one point three times in a row.
     random.Random(today).shuffle(cards)
     await attach_cram_charts(conn, cards)
+    # Standardized baseline, built AFTER charts so it can use the chart word's
+    # native-language gloss. The frontend still leak-guards it via safePrompt.
+    for card in cards:
+        card["baseline"] = _gym_baseline(card)
     return cards
+
+
+# Mirror of the frontend's safePrompt recipe detection (hintLayers.ts): a
+# dash-tail that spells out the answer's construction is stripped from the
+# baseline word part.
+_RECIPE_TAIL = re.compile(
+    r"\b(add|drop|changes?|becomes?|remove)\b|→|->|(?:^|\s)[-–][^\s-]",
+    re.IGNORECASE,
+)
+_HINT_DASH = re.compile(r"^(.*?)\s+[—–-]\s+(.+)$")
+
+
+def _split_hint(hint: str | None) -> tuple[str, str]:
+    """An authored hint's (word part, form tail). Strips a trailing spelling
+    recipe ("to watch — add -es" → "to watch"), then splits legacy
+    "lemma, person" authoring ("preparar, tú" → ("preparar", "tú"))."""
+    base = (hint or "").strip()
+    m = _HINT_DASH.match(base)
+    if m and _RECIPE_TAIL.search(m.group(2)):
+        base = m.group(1).strip()
+    word, _, tail = base.partition(",")
+    return word.strip(), tail.strip()
+
+
+def _gym_baseline(card: dict) -> str:
+    """The standardized Gym baseline: "base (form; gloss)".
+
+    The Gym is PRACTICE, not recall — the learner is HANDED the word and asked
+    to produce the form, so the base stays in the TARGET language and the form
+    label carries the native-language explanation:
+
+        preparar (tú; you, singular)
+        дом (m.sg; masculine singular)
+
+      base: the drill's stored lemma, else the chart word, else the authored
+            hint's word part (legacy rows).
+      form: the drill's paradigm cell, else the hint's comma tail
+            ("preparar, tú" authoring). Glossed via cell_glosses when the
+            label is explainable; unexplainable cells (articles, particles,
+            suffixes) render as plain "base (form)".
+
+    Description-style hints with no word ("indefinite article") pass through
+    unchanged — they ARE the baseline. The frontend still runs the result
+    through safePrompt, so a baseline can never leak the answer.
+    """
+    hint_word, hint_tail = _split_hint(card.get("hint"))
+    base = (
+        (card.get("lemma") or "").strip()
+        or (card.get("chart_word") or "").strip()
+        or hint_word
+    )
+    form = (card.get("cell") or "").strip() or hint_tail
+    if not base:
+        return ""
+    if not form:
+        return base
+    gloss = cell_gloss(card.get("language_code"), form)
+    return f"{base} ({form}; {gloss})" if gloss else f"{base} ({form})"
 
 
 def _chartable(morphology) -> object | None:
@@ -1555,17 +1624,28 @@ async def attach_cram_charts(conn: asyncpg.Connection, cards: list[dict]) -> Non
         if card.get("morphology") is not None:
             continue
         lang = card.get("language_code")
+        if not lang:
+            continue
+        candidates: list[str] = []
+        # The authored dictionary form (new drills store it) and the hint's
+        # word part (legacy "preparar, tú" authoring) are DIRECT chart keys —
+        # no lemmatizer needed, so they lead. English-gloss hints ("to live")
+        # are multi-word and skipped; they'd never match target vocabulary.
+        stored = (card.get("lemma") or "").strip().lower()
+        if stored:
+            candidates.append(stored)
+        hint_word, _tail = _split_hint(card.get("hint"))
+        hw = hint_word.lower()
+        if hw and " " not in hw and hw not in candidates:
+            candidates.append(hw)
         tokens = [
             t for t in re.findall(r"[^\W\d_]+", card.get("correct_answer") or "")
             if len(t) > 2
         ]
-        if not lang or not tokens:
-            continue
         try:
             nlp = get_nlp(lang)
         except ValueError:
             nlp = None
-        candidates: list[str] = []
         for t in tokens:
             low = t.lower()
             if nlp is not None:
@@ -1577,6 +1657,8 @@ async def attach_cram_charts(conn: asyncpg.Connection, cards: list[dict]) -> Non
                     candidates.append(lemma)
             if low not in candidates:
                 candidates.append(low)
+        if not candidates:
+            continue
         plans.append((card, candidates))
         wanted.setdefault(lang, set()).update(candidates)
 

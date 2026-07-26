@@ -1,12 +1,25 @@
 import { useState, useRef, useEffect } from 'react'
-import { useNavigate, useSearchParams } from 'react-router-dom'
+import { Headphones, Settings as SettingsIcon, Undo2 } from 'lucide-react'
+import { useLocation, useNavigate, useSearchParams } from 'react-router-dom'
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query'
-import { getCramCards, getDueCards, validateAnswer, submitReview } from '../../api/review'
+import {
+  getCramCards,
+  getDueCards,
+  markCardKnown,
+  submitReview,
+  validateAnswer,
+} from '../../api/review'
 import { recordGymAttempt, generateGymDrills } from '../../api/gym'
 import { getLanguages, getProfile, updateProfile } from '../../api/profile'
 import type { DueCard } from '../../api/types'
 import { usePrefsStore } from '../../stores/prefsStore'
 import { useReviewSession } from './useReviewSession'
+import {
+  clearSnapshot,
+  readSnapshot,
+  saveSnapshot,
+  snapshotKey,
+} from './sessionSnapshot'
 import DrillCard from './DrillCard'
 import FeedbackPanel from './FeedbackPanel'
 import ReviewDetail from './ReviewDetail'
@@ -153,14 +166,34 @@ function ReviewSessionInner({
         },
   )
 
+  // A settings round-trip parks the session in sessionStorage (keyed by this
+  // exact URL); coming back restores deck + position instead of refetching —
+  // including any background-generated Gym drills, which exist nowhere else.
+  const location = useLocation()
+  const parkKey = snapshotKey(location.pathname, location.search)
+  const [parked] = useState(() => readSnapshot(parkKey))
+
   // Snapshot the deck at session start — refetches and cache invalidations
   // (tab focus, summary cleanup) can't make cards appear/disappear mid-run.
-  const [cards, setCards] = useState<DueCard[] | null>(null)
+  const [cards, setCards] = useState<DueCard[] | null>(parked?.cards ?? null)
   useEffect(() => {
     if (fetched && cards === null) setCards(fetched)
   }, [fetched, cards])
 
-  const session = useReviewSession(cards ?? [])
+  const session = useReviewSession(
+    cards ?? [],
+    parked
+      ? { index: parked.index, results: parked.results, requeued: parked.requeued }
+      : undefined,
+  )
+  // The parking spot is single-use: consumed on restore, rewritten on the next
+  // settings hop, and cleared for good once the session reaches its summary.
+  useEffect(() => {
+    if (parked) clearSnapshot(parkKey)
+  }, [parked, parkKey])
+  useEffect(() => {
+    if (session.phase === 'summary') clearSnapshot(parkKey)
+  }, [session.phase, parkKey])
   // Live current-index for the background-generation callback below (which runs
   // long after it was created): it must not weave fresh drills into slots the
   // learner has already passed.
@@ -324,6 +357,16 @@ function ReviewSessionInner({
     mutationFn: submitReview,
     onError: () => {
       setSaveErrorCount((n) => n + 1)
+    },
+  })
+
+  // "I know this — retire": suspend the card server-side, then move on.
+  // Dashboard/due counts refetch to reflect the smaller queue.
+  const knownMutation = useMutation({
+    mutationFn: (cardId: string) => markCardKnown(cardId),
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ['dashboard'] })
+      session.advance()
     },
   })
 
@@ -526,7 +569,12 @@ function ReviewSessionInner({
   // speak). Strip a trailing spelling recipe, then blank the prompt entirely if
   // it still contains the answer as a whole word (a base-form drill) — the
   // learner recalls it from the sentence + the optional meaning hint instead.
-  const baseText = cram ? safePrompt(card.hint || card.chart_word || '', card.correct_answer) : ''
+  // Prefer the server-built standardized baseline ("word (form)"); legacy
+  // cards without one fall back to the raw hint / chart word. Either way the
+  // leak guard runs last — the prompt must never contain the answer.
+  const baseText = cram
+    ? safePrompt(card.baseline || card.hint || card.chart_word || '', card.correct_answer)
+    : ''
   const baseLayer = baseText
     ? { field: 'base' as const, label: 'Prompt', text: baseText }
     : undefined
@@ -603,7 +651,11 @@ function ReviewSessionInner({
         <div className="flex items-center justify-between">
           <button
             type="button"
-            onClick={() => navigate('/')}
+            onClick={() => {
+              // A deliberate exit abandons the session — nothing to come back to.
+              clearSnapshot(parkKey)
+              navigate('/')
+            }}
             aria-label="Exit session"
             className="text-xl leading-none text-gray-400 hover:text-lang"
           >
@@ -616,8 +668,27 @@ function ReviewSessionInner({
             <button type="button" onClick={() => navigate('/tutor')} className="hover:text-lang">
               Tutor
             </button>
-            <button type="button" onClick={() => navigate('/account')} aria-label="Account" className="hover:text-lang">
-              ⚙
+            <button
+              type="button"
+              onClick={() => {
+                // Park the live session so Settings' "Back to session" (or the
+                // browser's back button) restores it exactly where it stands.
+                if (cards && session.phase !== 'summary') {
+                  saveSnapshot(parkKey, {
+                    cards,
+                    index: session.currentIndex,
+                    results: session.results,
+                    requeued: session.requeued,
+                  })
+                }
+                navigate('/account', {
+                  state: { from: location.pathname + location.search },
+                })
+              }}
+              aria-label="Account"
+              className="hover:text-lang"
+            >
+              <SettingsIcon aria-hidden className="h-[18px] w-[18px]" />
             </button>
           </div>
         </div>
@@ -818,9 +889,41 @@ function ReviewSessionInner({
                     : 'border-gray-200 text-gray-400 hover:text-lang'
                 }`}
               >
-                🎧 Listening {listening ? 'on' : 'off'}
+                <Headphones aria-hidden className="mr-1 inline h-3.5 w-3.5 align-[-2px]" />Listening {listening ? 'on' : 'off'}
               </button>
             )}
+            {/* Card escape hatches: defer without grading, or retire a card
+                the learner genuinely already knows (graded reviews only —
+                cram cards are synthetic and have nothing to retire). */}
+            <div className="flex items-center justify-center gap-5 pt-1 text-xs text-gray-400">
+              <button
+                type="button"
+                onClick={() => session.advance()}
+                className="hover:text-lang"
+                title="Move on without answering — the card stays scheduled"
+              >
+                Skip →
+              </button>
+              {!cram && (
+                <button
+                  type="button"
+                  onClick={() => {
+                    if (
+                      window.confirm(
+                        'Retire this card? It stops appearing in reviews. ' +
+                          'You can undo with a progress reset in Settings.',
+                      )
+                    )
+                      knownMutation.mutate(card.id)
+                  }}
+                  disabled={knownMutation.isPending}
+                  className="hover:text-lang disabled:opacity-50"
+                  title="I already know this — stop scheduling it"
+                >
+                  I know this — retire
+                </button>
+              )}
+            </div>
           </div>
         )}
 
@@ -933,7 +1036,7 @@ function ReviewSessionInner({
                     }}
                     className="text-xs text-gray-400 hover:text-lang"
                   >
-                    ↺ Undo
+                    <Undo2 aria-hidden className="mr-0.5 inline h-3.5 w-3.5 align-[-2px]" />Undo
                   </button>
                   {(session.validationResult.answer_result === 'correct' ||
                     session.validationResult.answer_result === 'correct_sloppy') && (

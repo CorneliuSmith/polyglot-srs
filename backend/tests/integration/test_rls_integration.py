@@ -577,6 +577,102 @@ async def test_gym_progress_accumulates_and_is_isolated(pool):
     assert rows[0]["n"] == 0           # RLS hides A's row from B
 
 
+async def test_set_learner_level_reseats_deck_subscriptions(pool):
+    """Kate's bug: placement wrote A1 subscriptions once and nothing could
+    change them. set_learner_level has SET semantics — raising subscribes the
+    missing decks, lowering removes the ones above — and never touches cards."""
+    from backend.repositories.onboarding import (
+        complete_onboarding,
+        set_learner_level,
+    )
+
+    lang = await _language(pool, "lvl")
+    user = await _new_user(pool, "level-kate@x")
+    async with pool.privileged_connection() as conn:
+        for level in ("A1", "A2", "B1", "B2"):
+            for list_type in ("grammar", "vocabulary"):
+                await conn.execute(
+                    "INSERT INTO content_lists (language_id, list_type, level, title) "
+                    "VALUES ($1, $2, $3, $4)",
+                    lang, list_type, level, f"{level} {list_type}",
+                )
+
+    async def subscribed_levels():
+        async with pool.privileged_connection() as conn:
+            rows = await conn.fetch(
+                """
+                SELECT DISTINCT cl.level FROM user_content_subscriptions ucs
+                JOIN content_lists cl ON cl.id = ucs.content_list_id
+                WHERE ucs.user_id = $1 AND cl.language_id = $2
+                ORDER BY cl.level
+                """,
+                user, lang,
+            )
+        return [r["level"] for r in rows]
+
+    # Placement said A1 (wrongly) — only A1 decks feed Learn.
+    async with pool.rls_connection(user) as conn:
+        await complete_onboarding(conn, user, lang, "A1")
+    assert await subscribed_levels() == ["A1"]
+
+    # She's actually B1: raising re-seats everything at/below B1.
+    async with pool.rls_connection(user) as conn:
+        result = await set_learner_level(conn, user, lang, "B1")
+    assert await subscribed_levels() == ["A1", "A2", "B1"]
+    assert result["subscribed"] == 4  # A2 + B1, grammar + vocab
+    assert result["unsubscribed"] == 0
+
+    # Lowering removes the decks above the new level (cards untouched).
+    async with pool.rls_connection(user) as conn:
+        result = await set_learner_level(conn, user, lang, "A2")
+    assert await subscribed_levels() == ["A1", "A2"]
+    assert result["unsubscribed"] == 2  # the B1 pair
+
+
+async def test_form_struggles_rollup_targets_missed_cells(pool):
+    """The 'forms' assessment tier: gym history rolls up per cell, worst
+    first, and only cells with misses appear — so on-demand generation aims
+    at what THIS learner gets wrong."""
+    from backend.repositories.assessment import (
+        get_form_struggles,
+        pick_struggling_cell,
+    )
+    from backend.repositories.gym import record_gym_attempt
+
+    lang = await _language(pool, "gymf")
+    a = await _new_user(pool, "gym-f@x")
+    async with pool.privileged_connection() as conn:
+        pid = str(await conn.fetchval(
+            "INSERT INTO grammar_points (language_id, title, level) "
+            "VALUES ($1, 'Present -ar', 'A1') RETURNING id", lang,
+        ))
+        d_yo = str(await conn.fetchval(
+            "INSERT INTO drill_sentences (grammar_point_id, sentence, answer, cell) "
+            "VALUES ($1, 'yo {{answer}}', 'preparo', 'yo') RETURNING id", pid,
+        ))
+        d_vos = str(await conn.fetchval(
+            "INSERT INTO drill_sentences (grammar_point_id, sentence, answer, cell) "
+            "VALUES ($1, 'vosotros {{answer}}', 'preparáis', 'vosotros') RETURNING id", pid,
+        ))
+
+    async with pool.rls_connection(a) as conn:
+        # yo: clean. vosotros: missed twice out of three.
+        await record_gym_attempt(conn, a, d_yo, "correct", used_hint=False)
+        await record_gym_attempt(conn, a, d_vos, "wrong_form", used_hint=False)
+        await record_gym_attempt(conn, a, d_vos, "wrong", used_hint=True)
+        await record_gym_attempt(conn, a, d_vos, "correct", used_hint=False)
+        struggles = await get_form_struggles(conn, a, [pid])
+
+    assert list(struggles) == [pid]
+    cells = struggles[pid]
+    # Only the missed cell shows up; the clean 'yo' cell is absent.
+    assert [c["cell"] for c in cells] == ["vosotros"]
+    assert cells[0]["seen"] == 3 and cells[0]["misses"] == 2
+    assert cells[0]["wrong_form"] == 1 and cells[0]["hint_used"] == 1
+    # And it clears the evidence bar for targeting.
+    assert pick_struggling_cell(cells) == "vosotros"
+
+
 async def test_generated_examples_fill_gaps_and_skip_covered_words(pool):
     """End-to-end (WP42): the admin generation run fills a word that has NO
     example sentences (dev-mock), tagging them source='ai'; a word already AT

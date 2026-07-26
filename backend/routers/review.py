@@ -27,6 +27,10 @@ from backend.repositories.cards import (
     set_deck_subscription,
     update_card_srs,
 )
+from backend.repositories.assessment import (
+    get_form_struggles,
+    pick_struggling_cell,
+)
 from backend.repositories.contributor import add_drill
 from backend.repositories.fsrs_weights import get_effective_params
 from backend.repositories.gym import record_gym_attempt
@@ -200,6 +204,10 @@ async def gym_generate(
         contexts = [
             c for c in [await get_generation_context(conn, pid) for pid in ids] if c
         ]
+        # The 'forms' assessment tier: which cells THIS learner keeps
+        # missing, per point — generation targets those instead of drilling
+        # blind.
+        struggles = await get_form_struggles(conn, user["id"], ids)
     if not contexts:
         raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="No such forms.")
 
@@ -220,6 +228,11 @@ async def gym_generate(
     charged = 0
     async with privileged_connection() as conn:
         for ctx in contexts:
+            # Aim at the learner's weakest evidenced cell for this point;
+            # with no evidence, stay cell-agnostic (varied forms).
+            weak_cell = pick_struggling_cell(
+                struggles.get(str(ctx["point_id"]), [])
+            )
             drills = await generate_drills(
                 {
                     "title": ctx["title"],
@@ -227,6 +240,7 @@ async def gym_generate(
                     "examples": ctx["examples"],
                 },
                 GYM_GEN_PER_POINT, ctx["language_name"], ctx["language_code"],
+                cell=weak_cell,
             )
             for d in drills:
                 # created_by = the requester: they get these drills in their own
@@ -236,7 +250,8 @@ async def gym_generate(
                     conn, ctx["point_id"], d["sentence"], d["answer"],
                     d.get("translation"), d.get("hint"),
                     source="ai", origin_detail=model, decertify=False,
-                    created_by=user["id"],
+                    created_by=user["id"], lemma=d.get("lemma"),
+                    cell=weak_cell,
                 )
                 generated += 1
             # One message per form topped up (regardless of drill yield).
@@ -295,6 +310,33 @@ async def card_detail(
             detail="Card not found",
         )
     return detail
+
+
+@router.post("/card/{card_id}/known")
+async def mark_card_known(
+    card_id: str,
+    user: dict = Depends(get_current_user),
+):
+    """Retire a card the learner already knows: suspend it with history intact
+    so it leaves every queue (due, dashboard counts, learn) without deleting
+    anything. repetitions is floored at 1 so the row lands in the deliberate
+    "suspended WITH history" bucket — distinct from learn's teach-gate
+    suspension (repetitions = 0), which learn is allowed to resurrect.
+    Reversible via Settings → reset progress."""
+    async with rls_connection(user["id"]) as conn:
+        result = await conn.execute(
+            """
+            UPDATE user_cards
+            SET is_suspended = true, repetitions = GREATEST(repetitions, 1)
+            WHERE id = $1
+            """,
+            card_id,
+        )
+    if not result.endswith("1"):
+        raise HTTPException(
+            status_code=status.HTTP_404_NOT_FOUND, detail="Card not found"
+        )
+    return {"known": True}
 
 
 @router.post("/card/{card_id}/feedback")

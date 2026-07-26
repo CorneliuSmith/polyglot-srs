@@ -30,13 +30,13 @@ const MANIFEST = {
       kind: 'verbs', label: 'Verbs',
       entries: [
         { point_id: 'p-present', label: 'Present', usage: 'now and habits',
-          example: 'Я читаю. — I read.', level: 'A1', drills: 12,
+          example: 'Я читаю. — I read.', level: 'A1', drills: 12, done: 4,
           nonstandard: false, familiar: false },
         { point_id: 'p-past', label: 'Past', usage: 'what happened',
-          example: 'Она была…', level: 'A1', drills: 10,
+          example: 'Она была…', level: 'A1', drills: 10, done: 0,
           nonstandard: false, familiar: true },
         { point_id: 'p-motion', label: 'Going on foot', usage: 'two walk verbs',
-          example: 'Я иду…', level: 'A2', drills: 14,
+          example: 'Я иду…', level: 'A2', drills: 14, done: 14,
           nonstandard: true, familiar: false },
       ],
     },
@@ -44,7 +44,7 @@ const MANIFEST = {
       kind: 'nouns', label: 'Nouns',
       entries: [
         { point_id: 'p-acc', label: 'Accusative (what)', usage: 'the object',
-          example: 'Я читаю книгу.', level: 'A1', drills: 18,
+          example: 'Я читаю книгу.', level: 'A1', drills: 18, done: 2,
           nonstandard: false, familiar: false },
       ],
     },
@@ -88,6 +88,18 @@ describe('GymPage', () => {
     // hover preview content is rendered (revealed on hover/focus via CSS)
     expect(screen.getByText('now and habits')).toBeDefined()
     expect(screen.getByText('Я читаю. — I read.')).toBeDefined()
+  })
+
+  it('shows set completion (done/total) on each form, not lifetime totals', async () => {
+    renderPage()
+    await screen.findByText('Verbs')
+    // Present: 4 of its 12 drills practised by THIS learner.
+    expect(screen.getByText('4/12')).toBeDefined()
+    // Untouched and fully-practised sets read the same shape.
+    expect(screen.getByText('0/10')).toBeDefined()
+    expect(
+      screen.getByTitle("You've practised 4 of 12 drills in this set"),
+    ).toBeDefined()
   })
 
   it('hides non-standard forms until the toggle, and deselects on untoggle', async () => {

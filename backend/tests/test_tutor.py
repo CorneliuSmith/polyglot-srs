@@ -411,9 +411,11 @@ def _chat_body(**overrides):
 def _patch_chat_repos():
     """Patch the DB reads the chat endpoint performs."""
     lang = {"profile": {}, "session_summary": ""}
+    # The 'full' assessment tier bundles weak areas + study stats.
+    assessment = {"weak_areas": [], "study_stats": {}}
     return (
-        patch("backend.routers.tutor.get_weak_areas", new=AsyncMock(return_value=[])),
-        patch("backend.routers.tutor.get_study_stats", new=AsyncMock(return_value={})),
+        patch("backend.routers.tutor.get_assessment_summary",
+              new=AsyncMock(return_value=assessment)),
         patch("backend.routers.tutor.get_user_profile", new=AsyncMock(return_value={})),
         patch("backend.routers.tutor.get_language_profile", new=AsyncMock(return_value=lang)),
     )
@@ -424,8 +426,8 @@ class TestTutorChatEndpoint:
         assert client.post("/api/tutor/chat", json=_chat_body()).status_code == 401
 
     def test_happy_path(self, client):
-        p1, p2, p3, p4 = _patch_chat_repos()
-        with p1, p2, p3, p4, patch(
+        p1, p2, p3 = _patch_chat_repos()
+        with p1, p2, p3, patch(
             "backend.routers.tutor.tutor_chat",
             new=AsyncMock(return_value=("Let's drill -da/-de!", [], _SOME_USAGE)),
         ) as mock_chat:
@@ -438,9 +440,9 @@ class TestTutorChatEndpoint:
         assert mock_chat.await_args.args[0] == "tr"
 
     def test_persists_remembered_notes(self, client):
-        p1, p2, p3, p4 = _patch_chat_repos()
+        p1, p2, p3 = _patch_chat_repos()
         remembered = [{"scope": "global", "key": "native_language", "value": "English"}]
-        with p1, p2, p3, p4, patch(
+        with p1, p2, p3, patch(
             "backend.routers.tutor.tutor_chat",
             new=AsyncMock(return_value=("ok", remembered, _SOME_USAGE)),
         ), patch(
@@ -463,8 +465,8 @@ class TestTutorChatEndpoint:
         monthly message allowance, and the reply reports the meter."""
         paid = FakeSettings()
         paid.tutor_free_access = False
-        p1, p2, p3, p4 = _patch_chat_repos()
-        with p1, p2, p3, p4, \
+        p1, p2, p3 = _patch_chat_repos()
+        with p1, p2, p3, \
              patch("backend.services.allowance.get_settings", return_value=paid), \
              patch("backend.services.allowance.has_tutor_entitlement",
                    new=AsyncMock(return_value=False)), \
@@ -524,8 +526,8 @@ class TestTutorChatEndpoint:
         for plan, tier, limit in (("all", "all", 300),
                                   ("single", "single", 100),
                                   (None, "free", 20)):
-            p1, p2, p3, p4 = _patch_chat_repos()
-            with p1, p2, p3, p4, \
+            p1, p2, p3 = _patch_chat_repos()
+            with p1, p2, p3, \
                  patch("backend.services.allowance.get_settings", return_value=paid), \
                  patch("backend.services.allowance.get_tutor_access",
                        new=AsyncMock(return_value={
@@ -561,8 +563,8 @@ class TestTutorChatEndpoint:
         # free-access off, but the admin grant carries its own allowance.
         paid = FakeSettings()
         paid.tutor_free_access = False
-        p1, p2, p3, p4 = _patch_chat_repos()
-        with p1, p2, p3, p4, \
+        p1, p2, p3 = _patch_chat_repos()
+        with p1, p2, p3, \
              patch("backend.services.allowance.get_settings", return_value=paid), \
              patch("backend.services.allowance.get_tutor_access",
                    new=AsyncMock(return_value={"access": "enabled", "daily_cap": 10})), \
@@ -596,9 +598,9 @@ class TestTutorChatEndpoint:
     def test_reference_mode_never_writes_memory(self, client):
         # WP18c: even if the model calls `remember` on a reference question,
         # nothing is persisted.
-        p1, p2, p3, p4 = _patch_chat_repos()
+        p1, p2, p3 = _patch_chat_repos()
         remembered = [{"scope": "global", "key": "x", "value": "y"}]
-        with p1, p2, p3, p4, patch(
+        with p1, p2, p3, patch(
             "backend.routers.tutor.tutor_chat",
             new=AsyncMock(return_value=("answer", remembered, _SOME_USAGE)),
         ) as mock_chat, patch(
@@ -640,8 +642,8 @@ class TestTutorChatStream:
 
         mock_settings = FakeSettings()
         mock_settings.tutor_dev_mock = True
-        p1, p2, p3, p4 = _patch_chat_repos()
-        with p1, p2, p3, p4, \
+        p1, p2, p3 = _patch_chat_repos()
+        with p1, p2, p3, \
              patch("backend.routers.tutor.get_settings", return_value=mock_settings), \
              patch("backend.services.tutor.get_settings", return_value=mock_settings), \
              patch("backend.routers.tutor.log_tutor_usage", new=AsyncMock()) as mock_log:
@@ -682,8 +684,8 @@ class TestTutorChatStream:
             yield {"type": "done", "reply": "hi", "remembered": [],
                    "usage": _SOME_USAGE}
 
-        p1, p2, p3, p4 = _patch_chat_repos()
-        with p1, p2, p3, p4, \
+        p1, p2, p3 = _patch_chat_repos()
+        with p1, p2, p3, \
              patch("backend.routers.tutor.STREAM_HEARTBEAT_SECONDS", 0.02), \
              patch("backend.routers.tutor.tutor_chat_stream", slow_stream), \
              patch("backend.routers.tutor.log_tutor_usage", new=AsyncMock()):
@@ -1102,8 +1104,8 @@ class TestDevMock:
         with patch("backend.routers.tutor.get_settings", return_value=_MockSettings()), \
              patch.object(tutor_mod, "get_settings", return_value=_MockSettings()), \
              patch.object(tutor_mod, "AsyncAnthropic", side_effect=AssertionError), \
-             patch("backend.routers.tutor.get_weak_areas", new=AsyncMock(return_value=[])), \
-             patch("backend.routers.tutor.get_study_stats", new=AsyncMock(return_value={})), \
+             patch("backend.routers.tutor.get_assessment_summary",
+                   new=AsyncMock(return_value={"weak_areas": [], "study_stats": {}})), \
              patch("backend.routers.tutor.get_user_profile", new=AsyncMock(return_value={})), \
              patch("backend.routers.tutor.get_language_profile",
                    new=AsyncMock(return_value={"profile": {}, "session_summary": ""})):
@@ -1226,13 +1228,13 @@ class TestMasteryRepository:
 
 class TestMasteryEndpoints:
     def test_chat_records_stars_separately_from_profile_notes(self, client):
-        p1, p2, p3, p4 = _patch_chat_repos()
+        p1, p2, p3 = _patch_chat_repos()
         remembered = [
             {"scope": "language", "key": "topic", "value": "travel"},
             {"scope": "_mastery", "key": "grammar", "value": "Locative case",
              "evidence": "used it twice"},
         ]
-        with p1, p2, p3, p4, patch(
+        with p1, p2, p3, patch(
             "backend.routers.tutor.tutor_chat",
             new=AsyncMock(return_value=("ok", remembered, _SOME_USAGE)),
         ), patch(
@@ -1257,11 +1259,11 @@ class TestMasteryEndpoints:
         assert saved_profile == {"topic": "travel"}
 
     def test_reference_mode_never_stars(self, client):
-        p1, p2, p3, p4 = _patch_chat_repos()
+        p1, p2, p3 = _patch_chat_repos()
         remembered = [
             {"scope": "_mastery", "key": "grammar", "value": "X", "evidence": "e"},
         ]
-        with p1, p2, p3, p4, patch(
+        with p1, p2, p3, patch(
             "backend.routers.tutor.tutor_chat",
             new=AsyncMock(return_value=("ok", remembered, _SOME_USAGE)),
         ), patch(

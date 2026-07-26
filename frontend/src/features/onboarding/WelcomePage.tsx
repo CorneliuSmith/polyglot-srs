@@ -1,4 +1,13 @@
 import { useEffect } from 'react'
+import {
+  BookOpen,
+  FolderOpen,
+  Inbox,
+  Languages,
+  MessagesSquare,
+  Route,
+} from 'lucide-react'
+import type { LucideIcon } from 'lucide-react'
 import { useNavigate } from 'react-router-dom'
 import { usePrefsStore } from '../../stores/prefsStore'
 
@@ -9,48 +18,48 @@ import { usePrefsStore } from '../../stores/prefsStore'
 
 const TOOLS: {
   route: string
-  emoji: string
+  icon: LucideIcon
   name: string
   blurb: string
 }[] = [
   {
     route: '/',
-    emoji: '📬',
+    icon: Inbox,
     name: 'Reviews',
     blurb:
       'Your daily queue, on the dashboard. A few minutes here every day is the whole game — each card comes back right before you would forget it.',
   },
   {
     route: '/grammar',
-    emoji: '🛤️',
+    icon: Route,
     name: 'Grammar Path',
     blurb:
       'The full grammar of your language, A1 to C2, in order. Read a point, then drill it in real sentences until it sticks.',
   },
   {
     route: '/tutor',
-    emoji: '💬',
+    icon: MessagesSquare,
     name: 'AI Tutor',
     blurb:
       'Conversation practice that knows your cards. It steers toward your weak spots and can flag cards you clearly already know.',
   },
   {
     route: '/read',
-    emoji: '📖',
+    icon: BookOpen,
     name: 'The Reader',
     blurb:
       'Short readings matched to your level. Tap any word to look it up and save it as a card.',
   },
   {
     route: '/letters',
-    emoji: '🔤',
+    icon: Languages,
     name: 'Letters & Sounds',
     blurb:
       'The alphabet and pronunciation of your language, with audio for every letter and sound.',
   },
   {
     route: '/decks',
-    emoji: '🗂️',
+    icon: FolderOpen,
     name: 'Decks & Search',
     blurb:
       'Browse every vocabulary and grammar deck from A1 to C2, cram any set, or search for anything.',
@@ -89,7 +98,7 @@ export default function WelcomePage() {
               style={{ minHeight: '44px' }}
             >
               <span className="flex items-start gap-3">
-                <span aria-hidden className="text-xl leading-6">{tool.emoji}</span>
+                <tool.icon aria-hidden className="mt-0.5 h-5 w-5 shrink-0 text-lang" strokeWidth={1.75} />
                 <span>
                   <span className="block text-sm font-semibold text-gray-800">
                     {tool.name}

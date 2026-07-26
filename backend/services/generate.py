@@ -54,10 +54,19 @@ _DRILL_SCHEMA = {
                     "translation": {"type": "string"},
                     "hint": {
                         "type": "string",
-                        "description": "A short cue that does NOT contain the answer.",
+                        "description": "The ENGLISH dictionary-form gloss of the "
+                        "word the blank exercises — e.g. 'to prepare', 'house'. "
+                        "Nothing else: no recipe, no form name, and never the "
+                        "answer itself.",
+                    },
+                    "lemma": {
+                        "type": "string",
+                        "description": "The dictionary form (lemma) of the word "
+                        "the blank exercises, in the TARGET language — e.g. "
+                        "'preparar' for a drill whose answer is 'preparas'.",
                     },
                 },
-                "required": ["sentence", "answer", "translation", "hint"],
+                "required": ["sentence", "answer", "translation", "hint", "lemma"],
                 "additionalProperties": False,
             },
         }
@@ -81,6 +90,7 @@ def _mock_drills(point: dict, n: int) -> list[dict]:
         "answer": "gato",
         "translation": "The word cat here.",
         "hint": "a pet",
+        "lemma": "gato",
     }]
     for i in range(1, n):
         out.append({
@@ -88,6 +98,7 @@ def _mock_drills(point: dict, n: int) -> list[dict]:
             "answer": f"palabra{i}",
             "translation": f"Mock translation {i}.",
             "hint": "a cue that hides the answer",
+            "lemma": f"palabra{i}",
         })
     return out[:n]
 
@@ -123,7 +134,10 @@ async def make_drills(
             f"sentence contains the literal token {{{{answer}}}} exactly once where "
             f"the target form goes; the answer is a SINGLE word/word-form; the "
             f"answer must NOT appear anywhere else in the visible sentence; the "
-            f"hint must NOT contain the answer; give a natural English translation. "
+            f"hint is EXACTLY the English dictionary-form gloss of the word the "
+            f"blank exercises (e.g. 'to prepare') — no recipes, no form names, "
+            f"never the answer; the lemma is that word's dictionary form in "
+            f"{language}; give a natural English translation. "
             f"Do not repeat the example sentences."
         ),
         messages=[{
@@ -716,5 +730,142 @@ async def audit_drills(
             "index": i,
             "ok": bool(v.get("ok", True)),
             "reason": (v.get("reason") or "").strip(),
+        })
+    return out
+
+
+# ---------------------------------------------------------------------------
+# Grammar-point OVERLAP judge (owner, 2026-07-26): runs alongside the
+# recheck. Looks at a language's syllabus and reports pairs of points that
+# teach substantially the same thing, for a human to merge or keep.
+# ---------------------------------------------------------------------------
+
+_OVERLAP_VERDICTS = ("duplicate", "subsumes", "partial")
+
+_OVERLAP_SCHEMA = {
+    "type": "object",
+    "properties": {
+        "pairs": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "a": {"type": "integer",
+                          "description": "0-based index of the first point."},
+                    "b": {"type": "integer",
+                          "description": "0-based index of the second point."},
+                    "verdict": {
+                        "type": "string",
+                        "enum": list(_OVERLAP_VERDICTS),
+                        "description": "duplicate = same content; subsumes = "
+                        "one fully contains the other; partial = enough shared "
+                        "territory to confuse learners.",
+                    },
+                    "reason": {
+                        "type": "string",
+                        "description": "One short sentence naming WHAT they "
+                        "both teach.",
+                    },
+                },
+                "required": ["a", "b", "verdict", "reason"],
+                "additionalProperties": False,
+            },
+        }
+    },
+    "required": ["pairs"],
+    "additionalProperties": False,
+}
+
+
+def _mock_audit_overlap(points: list[dict]) -> list[dict]:
+    """Deterministic overlap pairs for dev/testing: two points overlap when
+    their titles share a word of 5+ letters (case-insensitive). Lets a test
+    seed 'Present tense of -ar verbs' / 'The present tense' and get a flag."""
+    def tokens(p):
+        return {
+            t for t in re.split(r"\W+", (p.get("title") or "").lower())
+            if len(t) >= 5
+        }
+    out = []
+    for i in range(len(points)):
+        for j in range(i + 1, len(points)):
+            shared = tokens(points[i]) & tokens(points[j])
+            if shared:
+                out.append({
+                    "a": i, "b": j, "verdict": "partial",
+                    "reason": f"[dev mock] titles share '{sorted(shared)[0]}'",
+                })
+    return out
+
+
+async def audit_overlap(
+    points: list[dict],
+    language: str,
+    language_code: str,
+    model: str | None = None,
+) -> list[dict]:
+    """LLM judge over a group of grammar points: which PAIRS overlap?
+
+    *points*: [{title, function_note, level}] in order. Returns
+    [{a, b, verdict, reason}] with a < b, both in range, verdict validated —
+    anything malformed is dropped, never guessed. Never mutates the DB; the
+    caller records the pairs for review.
+    """
+    if len(points) < 2:
+        return []
+    settings = get_settings()
+    if getattr(settings, "tutor_dev_mock", False):
+        raw = _mock_audit_overlap(points)
+    else:
+        listing = "\n".join(
+            f"[{i}] ({p.get('level') or '?'}) {p.get('title') or ''}"
+            + (f" — {p.get('function_note')}" if p.get("function_note") else "")
+            for i, p in enumerate(points)
+        )
+        client = AsyncAnthropic(api_key=settings.anthropic_api_key)
+        resp = await client.messages.create(
+            model=model or resolve_model("grammar_checker", language_code),
+            max_tokens=2048,
+            system=(
+                f"You audit the {language} grammar syllabus of a language "
+                f"course for OVERLAP: pairs of points that teach substantially "
+                f"the same thing, which waste review time and confuse "
+                f"learners. Report ONLY real overlap — duplicate (same "
+                f"content), subsumes (one fully contains the other), or "
+                f"partial (significant shared territory). Points that are "
+                f"merely related, contrastive (ser vs estar), sequenced "
+                f"(present before past), or prerequisites are NOT overlap. "
+                f"When unsure, do not report the pair."
+            ),
+            messages=[{"role": "user", "content": listing}],
+            output_config={
+                "format": {"type": "json_schema", "schema": _OVERLAP_SCHEMA}
+            },
+        )
+        text = next((b.text for b in resp.content if b.type == "text"), "{}")
+        try:
+            raw = json.loads(text).get("pairs", [])
+        except (json.JSONDecodeError, TypeError):
+            return []
+
+    # Validate hard: indices in range, a != b (canonicalized a < b), known
+    # verdict. A malformed pair is dropped, never guessed at.
+    out = []
+    n = len(points)
+    for p in raw:
+        if not isinstance(p, dict):
+            continue
+        a, b = p.get("a"), p.get("b")
+        if not (isinstance(a, int) and isinstance(b, int)):
+            continue
+        if a == b or not (0 <= a < n and 0 <= b < n):
+            continue
+        if p.get("verdict") not in _OVERLAP_VERDICTS:
+            continue
+        lo, hi = (a, b) if a < b else (b, a)
+        out.append({
+            "a": lo, "b": hi,
+            "verdict": p["verdict"],
+            "reason": (p.get("reason") or "").strip(),
         })
     return out

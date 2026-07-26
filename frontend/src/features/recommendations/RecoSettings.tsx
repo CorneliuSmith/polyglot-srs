@@ -12,9 +12,12 @@ const GENRES = [
   'Fiction', 'Non-fiction', 'Sci-fi & fantasy', 'Mystery & thriller',
   'Romance', 'History', 'Comedy', 'Drama', 'Documentary',
   'News & current affairs', 'Science & tech', 'True crime',
-  'Sports', 'Kids & family', 'Music', 'Travel & food',
+  'Sports', 'Kids & family', 'Travel & food',
+  // Music genres (music is a media TYPE below; these steer which music).
+  'Pop', 'Rock & indie', 'Hip-hop & rap', 'Folk & acoustic',
+  'Electronic', 'Jazz & soul',
 ]
-const MEDIA = ['book', 'film', 'series', 'podcast']
+const MEDIA = ['book', 'film', 'series', 'podcast', 'music']
 
 /**
  * Recommendations settings: the on/off switch plus the interest profile used to

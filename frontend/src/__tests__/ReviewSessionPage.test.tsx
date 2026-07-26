@@ -11,6 +11,7 @@ vi.mock('../api/review', () => ({
   getCramCards: vi.fn(),
   validateAnswer: vi.fn(),
   submitReview: vi.fn(),
+  markCardKnown: vi.fn(),
 }))
 
 vi.mock('../api/gym', () => ({
@@ -31,7 +32,7 @@ vi.mock('../components/SpeakButton', () => ({
   ),
 }))
 
-import { getCramCards, getDueCards, validateAnswer, submitReview } from '../api/review'
+import { getCramCards, getDueCards, markCardKnown, validateAnswer, submitReview } from '../api/review'
 import { generateGymDrills } from '../api/gym'
 import { usePrefsStore } from '../stores/prefsStore'
 
@@ -41,6 +42,7 @@ const mockGetDueCards = getDueCards as ReturnType<typeof vi.fn>
 const mockGetCramCards = getCramCards as ReturnType<typeof vi.fn>
 const mockValidateAnswer = validateAnswer as ReturnType<typeof vi.fn>
 const mockSubmitReview = submitReview as ReturnType<typeof vi.fn>
+const mockMarkCardKnown = markCardKnown as ReturnType<typeof vi.fn>
 const mockUsePrefsStore = usePrefsStore as unknown as ReturnType<typeof vi.fn>
 
 const testCard: DueCard = {
@@ -195,6 +197,37 @@ describe('ReviewSessionPage', () => {
         time_taken_ms: expect.any(Number),
       })
     })
+  })
+
+  it('Skip moves on without grading — nothing validated or submitted', async () => {
+    mockGetDueCards.mockResolvedValue([
+      { ...testCard, id: 'c1', sentence: 'First {{answer}}.' },
+      { ...testCard, id: 'c2', sentence: 'Second {{answer}}.' },
+    ])
+    renderWithProviders(<ReviewSessionPage />)
+    await waitFor(() => screen.getByText(/First/))
+    fireEvent.click(screen.getByRole('button', { name: /skip/i }))
+    expect(screen.getByText(/Second/)).toBeDefined()
+    expect(mockValidateAnswer).not.toHaveBeenCalled()
+    expect(mockSubmitReview).not.toHaveBeenCalled()
+    // Skipping the last card ends the session.
+    fireEvent.click(screen.getByRole('button', { name: /skip/i }))
+    await waitFor(() => expect(screen.getByText('Session Complete')).toBeDefined())
+  })
+
+  it('Mark-as-known retires the card server-side and advances', async () => {
+    vi.spyOn(window, 'confirm').mockReturnValue(true)
+    mockMarkCardKnown.mockResolvedValue(undefined)
+    mockGetDueCards.mockResolvedValue([
+      { ...testCard, id: 'c1', sentence: 'First {{answer}}.' },
+      { ...testCard, id: 'c2', sentence: 'Second {{answer}}.' },
+    ])
+    renderWithProviders(<ReviewSessionPage />)
+    await waitFor(() => screen.getByText(/First/))
+    fireEvent.click(screen.getByRole('button', { name: /i know this/i }))
+    await waitFor(() => expect(mockMarkCardKnown).toHaveBeenCalledWith('c1'))
+    await waitFor(() => expect(screen.getByText(/Second/)).toBeDefined())
+    expect(mockSubmitReview).not.toHaveBeenCalled()
   })
 
   it('a wrong judgement offers Bunpro-style re-entry without recording a grade', async () => {
@@ -434,6 +467,37 @@ describe('ReviewSessionPage — Quick Cram (WP13f)', () => {
     await waitFor(() => {
       expect(screen.getByText(/nothing to cram/i)).toBeDefined()
     })
+  })
+
+  it('restores a parked session (settings round-trip) at its exact position', async () => {
+    // A snapshot parked by the ⚙ hop: two cards, the first already answered.
+    sessionStorage.setItem(
+      'review-session:/cram?points=p1,p2',
+      JSON.stringify({
+        cards: [
+          { ...cramCard, id: 'cram-a', sentence: 'First {{answer}}.' },
+          { ...cramCard, id: 'cram-b', sentence: 'Second {{answer}}.' },
+        ],
+        index: 1,
+        results: [{ cardId: 'cram-a', answerResult: 'correct', timeTakenMs: 800 }],
+        requeued: [],
+        savedAt: Date.now(),
+      }),
+    )
+    try {
+      renderCram()
+      // Resumes on card 2 of 2 — no refetched deck replaces the parked one.
+      await waitFor(() => {
+        expect(screen.getByText('Card 2 of 2')).toBeDefined()
+      })
+      expect(screen.getByText(/Second/)).toBeDefined()
+      // The parking spot is single-use: consumed on restore.
+      expect(
+        sessionStorage.getItem('review-session:/cram?points=p1,p2'),
+      ).toBeNull()
+    } finally {
+      sessionStorage.clear()
+    }
   })
 
   it('distinguishes the word audio from the full-sentence audio on feedback', async () => {

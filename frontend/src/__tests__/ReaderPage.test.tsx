@@ -70,13 +70,59 @@ async function generate() {
   const input = await screen.findByPlaceholderText(/street food/i)
   fireEvent.change(input, { target: { value: 'cats' } })
   fireEvent.click(screen.getByRole('button', { name: /write it/i }))
+  // TTS language → the text is held back behind the listen-first prompt.
+  await screen.findByTestId('listen-first')
+  fireEvent.click(screen.getByRole('button', { name: /show me the text/i }))
   await screen.findByText('El gato')
 }
 
 describe('ReaderPage (WP21)', () => {
   beforeEach(() => vi.clearAllMocks())
 
-  it('stage 1 forces guessing: only new words tappable, gloss after a guess', async () => {
+  it('text options shape the request: length, style, challenge', async () => {
+    mockGenerate.mockResolvedValue({
+      id: 'r-1', reading, level: 'A1', allowance: { unlimited: true },
+    })
+    renderPage()
+    const input = await screen.findByPlaceholderText(/street food/i)
+    fireEvent.change(input, { target: { value: 'cats' } })
+    fireEvent.click(screen.getByRole('button', { name: /^short$/i }))
+    fireEvent.click(screen.getByRole('button', { name: /^dialogue$/i }))
+    fireEvent.click(screen.getByRole('button', { name: /^stretch$/i }))
+    fireEvent.click(screen.getByRole('button', { name: /write it/i }))
+    await screen.findByTestId('listen-first')
+    expect(mockGenerate).toHaveBeenCalledWith('lang-es', 'es', 'cats', {
+      length: 'short',
+      voice: 'dialogue',
+      complexity: 'stretch',
+    })
+  })
+
+  it('listen-first holds the text back until the learner chooses', async () => {
+    mockGenerate.mockResolvedValue({
+      id: 'r-1', reading, level: 'A1', allowance: { unlimited: true },
+    })
+    renderPage()
+    const input = await screen.findByPlaceholderText(/street food/i)
+    fireEvent.change(input, { target: { value: 'cats' } })
+    fireEvent.click(screen.getByRole('button', { name: /write it/i }))
+
+    // The text is NOT shown — the choice comes first.
+    await screen.findByTestId('listen-first')
+    expect(screen.queryByText('El gato')).toBeNull()
+
+    // Ear mode: numbered play-only lines, text still hidden.
+    fireEvent.click(screen.getByRole('button', { name: /listen first/i }))
+    expect(await screen.findByTestId('listen-lines')).toBeDefined()
+    expect(screen.queryByText('El gato')).toBeNull()
+
+    // Reveal → normal guess stage.
+    fireEvent.click(screen.getByRole('button', { name: /show the text/i }))
+    expect(await screen.findByText('El gato')).toBeDefined()
+    expect(screen.getByTestId('guess-banner')).toBeDefined()
+  })
+
+  it('stage 1 forces guessing: two tries before the gloss ever shows', async () => {
     await generate()
     expect(screen.getByTestId('guess-banner')).toBeDefined()
     // Known words are plain text, not buttons.
@@ -90,6 +136,34 @@ describe('ReaderPage (WP21)', () => {
     fireEvent.change(screen.getByPlaceholderText(/your guess/i), {
       target: { value: 'window?' },
     })
+    // First guess NEVER auto-reveals — it's locked in for a second thought.
+    fireEvent.click(screen.getByRole('button', { name: /lock it in/i }))
+    expect(await screen.findByTestId('second-chance')).toBeDefined()
+    expect(screen.getByText(/“window\?”/)).toBeDefined()
+    expect(screen.queryByText(/\(window\)/)).toBeNull()
+    // Second submit reveals.
+    fireEvent.click(screen.getByRole('button', { name: /reveal/i }))
+    expect(await screen.findByText(/\(window\)/)).toBeDefined()
+  })
+
+  it('the second chance can be waived: standing by the first guess reveals', async () => {
+    await generate()
+    fireEvent.click(screen.getByRole('button', { name: 'ventana.' }))
+    await screen.findByTestId('guess-panel')
+    fireEvent.change(screen.getByPlaceholderText(/your guess/i), {
+      target: { value: 'door' },
+    })
+    fireEvent.click(screen.getByRole('button', { name: /lock it in/i }))
+    fireEvent.click(
+      await screen.findByRole('button', { name: /standing by my first guess/i }),
+    )
+    expect(await screen.findByText(/\(window\)/)).toBeDefined()
+  })
+
+  it('an empty guess (just show me) reveals without the second-chance loop', async () => {
+    await generate()
+    fireEvent.click(screen.getByRole('button', { name: 'ventana.' }))
+    await screen.findByTestId('guess-panel')
     fireEvent.click(screen.getByRole('button', { name: /reveal/i }))
     expect(await screen.findByText(/\(window\)/)).toBeDefined()
   })
@@ -116,14 +190,14 @@ describe('ReaderPage (WP21)', () => {
     fireEvent.click(
       screen.getByRole('button', { name: /unlock translations/i }),
     )
-    fireEvent.click(screen.getByRole('button', { name: /explain the grammar/i }))
+    fireEvent.click(screen.getAllByRole('button', { name: /^grammar$/i })[0])
     expect(await screen.findByTestId('sentence-explanation')).toBeDefined()
     expect(mockExplain).toHaveBeenCalledWith('r-1', 0)
 
-    // Hide-able (owner feedback) — and toggling never refetches.
-    fireEvent.click(screen.getByRole('button', { name: /hide explanation/i }))
+    // Hide-able (owner feedback) — the same pill toggles, never refetches.
+    fireEvent.click(screen.getAllByRole('button', { name: /^grammar$/i })[0])
     expect(screen.queryByTestId('sentence-explanation')).toBeNull()
-    fireEvent.click(screen.getByRole('button', { name: /show explanation/i }))
+    fireEvent.click(screen.getAllByRole('button', { name: /^grammar$/i })[0])
     expect(screen.getByTestId('sentence-explanation')).toBeDefined()
     expect(mockExplain).toHaveBeenCalledTimes(1)
 

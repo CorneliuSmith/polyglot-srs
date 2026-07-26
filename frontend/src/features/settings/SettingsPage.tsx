@@ -1,8 +1,9 @@
 import { useState } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { useLocation, useNavigate } from 'react-router-dom'
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query'
 import { getLanguages, getProfile, updateProfile } from '../../api/profile'
-import { resetProgress } from '../../api/review'
+import { getLearnDecks, resetProgress } from '../../api/review'
+import { setLearnerLevel } from '../../api/onboarding'
 import {
   formatPrice,
   getPlanPrices,
@@ -12,6 +13,7 @@ import {
 import { getDashboardStats } from '../../api/dashboard'
 import { usePrefsStore } from '../../stores/prefsStore'
 import type { Theme } from '../../stores/prefsStore'
+import { hasTranslit } from '../keyboards/translit'
 import RecoSettings from '../recommendations/RecoSettings'
 import { supabase } from '../../lib/supabase'
 import LanguagePicker from '../../components/LanguagePicker'
@@ -44,6 +46,15 @@ export function localToUtcHour(local: number): number {
 
 const BATCH_SIZES = [3, 5, 10, 15, 20]
 const SESSION_SIZES = [10, 20, 50, 100]
+const CEFR_LEVELS = ['A1', 'A2', 'B1', 'B2', 'C1', 'C2']
+
+// Script names for the language-specific section's copy.
+const SCRIPT_NAME: Record<string, string> = {
+  ru: 'Cyrillic',
+  ar: 'Arabic script',
+  el: 'Greek',
+  hi: 'Devanagari',
+}
 
 const THEMES: { value: Theme; label: string }[] = [
   { value: 'system', label: 'System' },
@@ -53,6 +64,7 @@ const THEMES: { value: Theme; label: string }[] = [
 
 export default function SettingsPage() {
   const navigate = useNavigate()
+  const location = useLocation()
   const queryClient = useQueryClient()
   const activeLanguageId = usePrefsStore((s) => s.activeLanguageId)
   const theme = usePrefsStore((s) => s.theme)
@@ -65,6 +77,10 @@ export default function SettingsPage() {
   const setLearningTipsEnabled = usePrefsStore((s) => s.setLearningTipsEnabled)
   const dailyLearnGoal = usePrefsStore((s) => s.dailyLearnGoal)
   const setDailyLearnGoal = usePrefsStore((s) => s.setDailyLearnGoal)
+  const qwertyTranslit = usePrefsStore((s) => s.qwertyTranslit)
+  const setQwertyTranslit = usePrefsStore((s) => s.setQwertyTranslit)
+  const showTashkeel = usePrefsStore((s) => s.showTashkeel)
+  const setShowTashkeel = usePrefsStore((s) => s.setShowTashkeel)
 
   const { data: profile } = useQuery({ queryKey: ['profile'], queryFn: getProfile })
   const { data: languages = [] } = useQuery({ queryKey: ['languages'], queryFn: getLanguages })
@@ -138,6 +154,31 @@ export default function SettingsPage() {
     onSuccess: () => queryClient.invalidateQueries(),
   })
 
+  // Your level = the highest deck level currently feeding Learn. Derived
+  // from deck subscriptions because that IS the level system — there's no
+  // separate stored level.
+  const { data: decks = [] } = useQuery({
+    queryKey: ['learn-decks', activeLanguageId],
+    queryFn: () => getLearnDecks(activeLanguageId!),
+    enabled: !!activeLanguageId,
+  })
+  const currentLevel = decks
+    .filter((d) => d.subscribed && d.level)
+    .reduce<string | null>(
+      (top, d) =>
+        top === null || CEFR_LEVELS.indexOf(d.level!) > CEFR_LEVELS.indexOf(top)
+          ? d.level!
+          : top,
+      null,
+    )
+  const levelMutation = useMutation({
+    mutationFn: (level: string) => setLearnerLevel(activeLanguageId!, level),
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ['learn-decks'] })
+      queryClient.invalidateQueries({ queryKey: ['dashboard'] })
+    },
+  })
+
   const activeLanguage = languages.find((l) => l.id === activeLanguageId)
 
   const handleResetLanguage = () => {
@@ -180,18 +221,34 @@ export default function SettingsPage() {
     navigate('/login', { replace: true })
   }
 
+  // Set when an exercise session's ⚙ brought us here — its full URL
+  // (path + query), so "Back to session" restores the parked session.
+  const fromSession = (location.state as { from?: string } | null)?.from
+
   return (
     <div className="min-h-screen bg-gray-50">
       <div className="max-w-xl mx-auto px-4 py-8 space-y-6">
         <div className="flex items-center justify-between">
           <h1 className="text-2xl font-bold text-gray-900">Account</h1>
-          <button
-            type="button"
-            onClick={() => navigate('/')}
-            className="text-sm text-lang hover:underline"
-          >
-            ← Dashboard
-          </button>
+          {/* Arrived mid-exercise? Lead back INTO the parked session (the
+              session page restores its snapshot); plain visits go home. */}
+          {fromSession ? (
+            <button
+              type="button"
+              onClick={() => navigate(fromSession)}
+              className="text-sm font-semibold text-lang hover:underline"
+            >
+              ← Back to session
+            </button>
+          ) : (
+            <button
+              type="button"
+              onClick={() => navigate('/')}
+              className="text-sm text-lang hover:underline"
+            >
+              ← Dashboard
+            </button>
+          )}
         </div>
 
         {/* Role tabs: Learner is always present; the rest appear by role. */}
@@ -277,6 +334,57 @@ export default function SettingsPage() {
           <h2 className="font-semibold text-gray-800">Active language</h2>
           <LanguagePicker />
         </section>
+
+        {/* Your level (beta report: a misplaced learner was stuck with A1
+            content and couldn't find any way to change it — placement's
+            "you can change it later" promise now lives here). */}
+        {activeLanguageId && (
+          <section
+            className="bg-white rounded-2xl shadow-sm border border-gray-100 p-5 space-y-3"
+            data-testid="level-section"
+          >
+            <h2 className="font-semibold text-gray-800">Your level</h2>
+            <p className="text-xs text-gray-500">
+              Sets which decks feed Learn — grammar and vocabulary at this
+              level and below. Placement got it wrong? Fix it here any time.
+              Cards you've already learned are never removed.
+            </p>
+            <div className="flex flex-wrap gap-2">
+              {CEFR_LEVELS.map((l) => (
+                <button
+                  key={l}
+                  type="button"
+                  onClick={() => levelMutation.mutate(l)}
+                  disabled={levelMutation.isPending}
+                  aria-pressed={currentLevel === l}
+                  className={
+                    'rounded-lg px-4 py-2 text-sm font-medium border ' +
+                    (currentLevel === l
+                      ? 'bg-lang text-white border-lang'
+                      : 'bg-white text-gray-700 border-gray-300 hover:bg-gray-50')
+                  }
+                  style={{ minHeight: '44px' }}
+                >
+                  {l}
+                </button>
+              ))}
+            </div>
+            {levelMutation.isSuccess && (
+              <p className="text-xs text-green-700">
+                Level set to {levelMutation.data.level} —{' '}
+                {levelMutation.data.subscribed} deck
+                {levelMutation.data.subscribed === 1 ? '' : 's'} added
+                {levelMutation.data.unsubscribed > 0
+                  ? `, ${levelMutation.data.unsubscribed} removed`
+                  : ''}
+                . Learn will draw from them right away.
+              </p>
+            )}
+            {levelMutation.isError && (
+              <p className="text-xs text-red-500">Couldn't save — try again.</p>
+            )}
+          </section>
+        )}
 
         <section className="bg-white rounded-2xl shadow-sm border border-gray-100 p-5 space-y-3">
           <h2 className="font-semibold text-gray-800">New here?</h2>
@@ -445,6 +553,99 @@ export default function SettingsPage() {
             </button>
           </div>
         </section>
+
+        {/* Language-specific options (beta request: these belong in account
+            learning settings, not buried in exercise UIs). Only shown for
+            languages that have any — non-Latin scripts today. */}
+        {activeLanguage && hasTranslit(activeLanguage.code) && (
+          <section
+            className="bg-white rounded-2xl shadow-sm border border-gray-100 p-5 space-y-4"
+            data-testid="language-specific"
+          >
+            <div>
+              <h2 className="font-semibold text-gray-800">
+                {activeLanguage.name} options
+              </h2>
+              <p className="text-xs text-gray-500">
+                Settings that only apply when studying {activeLanguage.name}.
+              </p>
+            </div>
+
+            {activeLanguage.code === 'ar' && (
+              <div className="flex items-start justify-between gap-4">
+                <div>
+                  <h3 className="text-sm font-medium text-gray-800">
+                    Short vowels (tashkeel)
+                  </h3>
+                  <p className="text-xs text-gray-500">
+                    Show the fully vocalized form — كَتَبَ — under new words.
+                    Turn off to practise reading bare script, the way native
+                    materials are written.
+                  </p>
+                </div>
+                <button
+                  type="button"
+                  role="switch"
+                  aria-checked={showTashkeel}
+                  aria-label="Short vowels (tashkeel)"
+                  onClick={() => setShowTashkeel(!showTashkeel)}
+                  className={
+                    'relative shrink-0 inline-flex h-6 w-11 items-center rounded-full transition-colors ' +
+                    (showTashkeel ? 'bg-lang' : 'bg-gray-300')
+                  }
+                >
+                  <span
+                    className={
+                      'inline-block h-5 w-5 transform rounded-full bg-white transition-transform ' +
+                      (showTashkeel ? 'translate-x-5' : 'translate-x-1')
+                    }
+                  />
+                </button>
+              </div>
+            )}
+
+            <div className="flex items-start justify-between gap-4">
+              <div>
+                <h3 className="text-sm font-medium text-gray-800">
+                  Type with QWERTY letters
+                </h3>
+                <p className="text-xs text-gray-500">
+                  Answers typed in Latin letters convert to{' '}
+                  {SCRIPT_NAME[activeLanguage.code] ?? 'the target script'} as
+                  you type. Turn off if you have a real{' '}
+                  {activeLanguage.name} keyboard.
+                </p>
+              </div>
+              <button
+                type="button"
+                role="switch"
+                aria-checked={qwertyTranslit[activeLanguage.code] ?? true}
+                aria-label="Type with QWERTY letters"
+                onClick={() =>
+                  setQwertyTranslit(
+                    activeLanguage.code,
+                    !(qwertyTranslit[activeLanguage.code] ?? true),
+                  )
+                }
+                className={
+                  'relative shrink-0 inline-flex h-6 w-11 items-center rounded-full transition-colors ' +
+                  ((qwertyTranslit[activeLanguage.code] ?? true)
+                    ? 'bg-lang'
+                    : 'bg-gray-300')
+                }
+              >
+                <span
+                  className={
+                    'inline-block h-5 w-5 transform rounded-full bg-white transition-transform ' +
+                    ((qwertyTranslit[activeLanguage.code] ?? true)
+                      ? 'translate-x-5'
+                      : 'translate-x-1')
+                  }
+                />
+              </button>
+            </div>
+          </section>
+        )}
 
         <RecoSettings />
 

@@ -1,8 +1,14 @@
 import { useQuery } from '@tanstack/react-query'
-import { getSuggestions, getReviewNotes, getFeedback } from '../../api/contribute'
+import {
+  getFeedback,
+  getOverlaps,
+  getReviewNotes,
+  getSuggestions,
+} from '../../api/contribute'
 import SuggestionsPanel from './SuggestionsPanel'
 import IssuesPanel from './IssuesPanel'
 import FeedbackPanel from './FeedbackPanel'
+import OverlapsPanel from './OverlapsPanel'
 
 /**
  * The reviewer's queue: suggested edits, reported card issues, and card
@@ -32,19 +38,26 @@ export default function ReviewQueue({
     queryKey: ['feedback', languageId],
     queryFn: () => getFeedback(languageId),
   })
+  const overlaps = useQuery({
+    queryKey: ['overlaps', languageId],
+    queryFn: () => getOverlaps(languageId),
+    retry: false,
+  })
 
   const loading =
     (canReview && suggestions.isLoading) || notes.isLoading || feedback.isLoading
   const total =
     (canReview ? suggestions.data?.length ?? 0 : 0) +
     (notes.data?.length ?? 0) +
-    (feedback.data?.length ?? 0)
+    (feedback.data?.length ?? 0) +
+    (overlaps.data?.length ?? 0)
 
   return (
     <>
       {canReview && <SuggestionsPanel languageId={languageId} />}
       <IssuesPanel languageId={languageId} canResolve={canReview} />
       <FeedbackPanel languageId={languageId} />
+      <OverlapsPanel languageId={languageId} canResolve={canReview} />
 
       {!loading && total === 0 && (
         <div

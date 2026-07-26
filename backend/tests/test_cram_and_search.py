@@ -137,7 +137,7 @@ async def _fake_privileged():
     yield AsyncMock()
 
 
-def _patch_gym_gen(*, contexts=None, allowance=None):
+def _patch_gym_gen(*, contexts=None, allowance=None, struggles=None):
     """Patch the whole gym/generate collaborator chain to no-ops."""
     if contexts is None:
         contexts = [_gen_ctx(POINT_A)]
@@ -159,6 +159,8 @@ def _patch_gym_gen(*, contexts=None, allowance=None):
         patch("backend.routers.review.log_tutor_usage", new=AsyncMock()),
         patch("backend.routers.review.privileged_connection", _fake_privileged),
         patch("backend.routers.review.resolve_model", return_value="claude-x"),
+        patch("backend.routers.review.get_form_struggles",
+              new=AsyncMock(return_value=struggles or {})),
     )
 
 
@@ -171,7 +173,7 @@ class TestGymGenerateEndpoint:
     def test_generates_and_draws_one_message(self, client):
         p = _patch_gym_gen()
         with p[0], p[1], p[2], p[3], p[4] as mock_add, \
-             p[5] as mock_log, p[6], p[7]:
+             p[5] as mock_log, p[6], p[7], p[8]:
             resp = client.post(
                 "/api/review/gym/generate",
                 json={"point_ids": [POINT_A]},
@@ -191,6 +193,41 @@ class TestGymGenerateEndpoint:
         mock_log.assert_awaited_once()
         assert mock_log.await_args.kwargs["kind"] == "gym_gen"
 
+    def test_targets_the_learners_struggling_cell(self, client):
+        # The 'forms' assessment tier: with evidenced misses on one cell,
+        # generation aims every new drill at THAT form and tags it so.
+        struggles = {POINT_A: [
+            {"cell": "vosotros", "seen": 6, "misses": 3,
+             "wrong_form": 2, "hint_used": 1},
+        ]}
+        p = _patch_gym_gen(struggles=struggles)
+        with p[0], p[1], p[2], p[3] as mock_gen, p[4] as mock_add, \
+             p[5], p[6], p[7], p[8]:
+            resp = client.post(
+                "/api/review/gym/generate",
+                json={"point_ids": [POINT_A]},
+                headers=_auth_headers(),
+            )
+        assert resp.status_code == 200
+        assert mock_gen.await_args.kwargs["cell"] == "vosotros"
+        assert mock_add.await_args.kwargs["cell"] == "vosotros"
+
+    def test_no_struggle_evidence_stays_cell_agnostic(self, client):
+        # One slip is noise (misses < 2) — generation keeps varied forms.
+        struggles = {POINT_A: [
+            {"cell": "yo", "seen": 4, "misses": 1,
+             "wrong_form": 1, "hint_used": 0},
+        ]}
+        p = _patch_gym_gen(struggles=struggles)
+        with p[0], p[1], p[2], p[3] as mock_gen, p[4], p[5], p[6], p[7], p[8]:
+            resp = client.post(
+                "/api/review/gym/generate",
+                json={"point_ids": [POINT_A]},
+                headers=_auth_headers(),
+            )
+        assert resp.status_code == 200
+        assert mock_gen.await_args.kwargs["cell"] is None
+
     def test_503_when_generation_disabled(self, client):
         with patch("backend.routers.review.generation_available",
                    return_value=False):
@@ -205,7 +242,7 @@ class TestGymGenerateEndpoint:
         spent = {"tier": "free", "unlimited": False, "limit": 20,
                  "used": 20, "remaining": 0, "resets_at": "2026-08-01T00:00:00"}
         p = _patch_gym_gen(allowance=spent)
-        with p[0], p[1], p[2], p[3], p[4] as mock_add, p[5], p[6], p[7]:
+        with p[0], p[1], p[2], p[3], p[4] as mock_add, p[5], p[6], p[7], p[8]:
             resp = client.post(
                 "/api/review/gym/generate",
                 json={"point_ids": [POINT_A]},
@@ -217,7 +254,7 @@ class TestGymGenerateEndpoint:
 
     def test_404_when_no_valid_points(self, client):
         p = _patch_gym_gen(contexts=[])        # get_generation_context finds none
-        with p[0], p[1], p[2], p[3], p[4], p[5], p[6], p[7]:
+        with p[0], p[1], p[2], p[3], p[4], p[5], p[6], p[7], p[8]:
             resp = client.post(
                 "/api/review/gym/generate",
                 json={"point_ids": [POINT_A]},
@@ -237,7 +274,7 @@ class TestGymGenerateEndpoint:
 
         p = _patch_gym_gen()
         with p[0], patch("backend.routers.review.get_generation_context", new=_ctx), \
-             p[2], p[3], p[4], p[5], p[6], p[7]:
+             p[2], p[3], p[4], p[5], p[6], p[7], p[8]:
             resp = client.post(
                 "/api/review/gym/generate",
                 json={"point_ids": ids},
@@ -266,6 +303,8 @@ def _point_row(point_id: str, n_drills: int, code: str = "tr") -> dict:
         "translations": [f"t{i}" for i in range(n_drills)],
         "glosses": [None] * n_drills,
         "transliterations": [None] * n_drills,
+        "cells": [None] * n_drills,
+        "lemmas": [None] * n_drills,
     }
 
 

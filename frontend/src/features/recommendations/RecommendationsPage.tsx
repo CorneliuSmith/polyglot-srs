@@ -1,4 +1,13 @@
 import { useEffect, useRef } from 'react'
+import {
+  BookOpen,
+  Film,
+  Headphones,
+  Music,
+  Sparkles,
+  Tv,
+} from 'lucide-react'
+import type { LucideIcon } from 'lucide-react'
 import { useNavigate } from 'react-router-dom'
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query'
 import { usePrefsStore } from '../../stores/prefsStore'
@@ -6,10 +15,17 @@ import {
   getRecommendations,
   refreshRecommendations,
   MEDIA_TYPE_LABELS,
-  MEDIA_TYPE_ICONS,
   type RecoBatch,
   type RecoItem,
 } from '../../api/recommendations'
+
+const MEDIA_TYPE_ICONS: Record<string, LucideIcon> = {
+  book: BookOpen,
+  film: Film,
+  series: Tv,
+  podcast: Headphones,
+  music: Music,
+}
 
 function formatDate(iso: string): string {
   const d = new Date(iso)
@@ -19,15 +35,20 @@ function formatDate(iso: string): string {
 }
 
 function RecoCard({ item }: { item: RecoItem }) {
-  const icon = MEDIA_TYPE_ICONS[item.type] ?? '✨'
+  const Icon = MEDIA_TYPE_ICONS[item.type] ?? Sparkles
   const label = MEDIA_TYPE_LABELS[item.type] ?? item.type
   return (
     <div className="bg-white rounded-2xl border border-gray-100 shadow-sm p-4">
       <div className="flex items-center gap-2 mb-1">
-        <span aria-hidden className="text-lg">{icon}</span>
+        <Icon aria-hidden className="h-4 w-4 text-lang" strokeWidth={1.75} />
         <span className="text-[11px] uppercase tracking-wide text-gray-400">
           {label}
         </span>
+        {item.genre && (
+          <span className="rounded-full bg-gray-100 text-gray-500 text-[11px] px-2 py-0.5">
+            {item.genre}
+          </span>
+        )}
         {item.level && (
           <span className="ml-auto shrink-0 rounded-full bg-lang-soft text-lang-dark text-[11px] font-medium px-2 py-0.5">
             {item.level}

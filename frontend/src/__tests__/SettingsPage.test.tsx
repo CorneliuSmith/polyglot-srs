@@ -20,15 +20,22 @@ vi.mock('../api/profile', () => ({
     Promise.resolve([
       { id: 'lang-es', code: 'es', name: 'Spanish', rtl: false },
       { id: 'lang-en', code: 'en', name: 'English', rtl: false },
+      { id: 'lang-ar', code: 'ar', name: 'Arabic', rtl: true },
+      { id: 'lang-ru', code: 'ru', name: 'Russian', rtl: false },
     ]),
   ),
 }))
 vi.mock('../api/dashboard', () => ({ getDashboardStats: vi.fn() }))
-const { signOut, mockSetTheme, mockSetSessionSize, mockSetDailyLearnGoal } = vi.hoisted(() => ({
+const {
+  signOut, mockSetTheme, mockSetSessionSize, mockSetDailyLearnGoal,
+  mockSetShowTashkeel, mockSetQwertyTranslit,
+} = vi.hoisted(() => ({
   mockSetDailyLearnGoal: vi.fn(),
   signOut: vi.fn(() => Promise.resolve({ error: null })),
   mockSetTheme: vi.fn(),
   mockSetSessionSize: vi.fn(),
+  mockSetShowTashkeel: vi.fn(),
+  mockSetQwertyTranslit: vi.fn(),
 }))
 vi.mock('../stores/prefsStore', () => ({
   usePrefsStore: vi.fn(
@@ -44,11 +51,19 @@ vi.mock('../stores/prefsStore', () => ({
         setAccentsOptional: vi.fn(),
         dailyLearnGoal: 20,
         setDailyLearnGoal: mockSetDailyLearnGoal,
+        qwertyTranslit: {},
+        setQwertyTranslit: mockSetQwertyTranslit,
+        showTashkeel: true,
+        setShowTashkeel: mockSetShowTashkeel,
       }),
   ),
 }))
 vi.mock('../lib/supabase', () => ({ supabase: { auth: { signOut } } }))
-vi.mock('../api/review', () => ({ resetProgress: vi.fn() }))
+vi.mock('../api/review', () => ({
+  resetProgress: vi.fn(),
+  getLearnDecks: vi.fn(() => Promise.resolve([])),
+}))
+vi.mock('../api/onboarding', () => ({ setLearnerLevel: vi.fn() }))
 vi.mock('../api/billing', async (orig) => ({
   ...(await orig<typeof import('../api/billing')>()),
   getPlanPrices: vi.fn(() => Promise.resolve({ single: null, all: null })),
@@ -58,12 +73,15 @@ vi.mock('../api/billing', async (orig) => ({
 
 import { getProfile, updateProfile } from '../api/profile'
 import { getDashboardStats } from '../api/dashboard'
-import { resetProgress } from '../api/review'
+import { getLearnDecks, resetProgress } from '../api/review'
+import { setLearnerLevel } from '../api/onboarding'
 
 const mockGetProfile = getProfile as ReturnType<typeof vi.fn>
 const mockUpdate = updateProfile as ReturnType<typeof vi.fn>
 const mockStats = getDashboardStats as ReturnType<typeof vi.fn>
 const mockReset = resetProgress as ReturnType<typeof vi.fn>
+const mockDecks = getLearnDecks as ReturnType<typeof vi.fn>
+const mockSetLevel = setLearnerLevel as ReturnType<typeof vi.fn>
 
 function renderPage() {
   const queryClient = new QueryClient({ defaultOptions: { queries: { retry: false } } })
@@ -190,6 +208,76 @@ describe('SettingsPage', () => {
     renderPage()
     expect(await screen.findByText('All languages')).toBeDefined()
     expect(screen.queryByRole('button', { name: /upgrade/i })).toBeNull()
+  })
+
+  it('shows the current level from deck subscriptions and changes it (Kate)', async () => {
+    // Kate's bug: placed A1, stuck at A1, no visible way out. The Your-level
+    // section derives the level from subscribed decks and re-seats them.
+    mockDecks.mockResolvedValue([
+      { id: 'd1', list_type: 'grammar', level: 'A1', title: 'A1 Grammar', subscribed: true, total: 10, learned: 3 },
+      { id: 'd2', list_type: 'vocabulary', level: 'A1', title: 'A1 Vocab', subscribed: true, total: 10, learned: 3 },
+      { id: 'd3', list_type: 'grammar', level: 'B1', title: 'B1 Grammar', subscribed: false, total: 10, learned: 0 },
+    ])
+    mockSetLevel.mockResolvedValue({ level: 'B1', subscribed: 4, unsubscribed: 0 })
+    renderPage()
+    const section = await screen.findByTestId('level-section')
+    // Highest subscribed deck level = A1 → its pill is pressed.
+    await waitFor(() =>
+      expect(
+        within(section).getByRole('button', { name: 'A1' }).getAttribute('aria-pressed'),
+      ).toBe('true'),
+    )
+    expect(
+      within(section).getByRole('button', { name: 'B1' }).getAttribute('aria-pressed'),
+    ).toBe('false')
+
+    fireEvent.click(within(section).getByRole('button', { name: 'B1' }))
+    await waitFor(() =>
+      expect(mockSetLevel).toHaveBeenCalledWith('lang-es', 'B1'),
+    )
+    expect(await within(section).findByText(/4 decks added/i)).toBeDefined()
+  })
+
+  it('hides the language-specific section for Latin-script languages', async () => {
+    renderPage()
+    await screen.findByText('Daily learn goal') // page settled
+    expect(screen.queryByTestId('language-specific')).toBeNull()
+  })
+
+  it('Arabic gets tashkeel + QWERTY toggles in Arabic options', async () => {
+    mockPrefsActiveLanguageId = 'lang-ar'
+    renderPage()
+    const section = await screen.findByTestId('language-specific')
+    expect(within(section).getByText('Arabic options')).toBeDefined()
+
+    const tashkeel = within(section).getByRole('switch', {
+      name: /short vowels/i,
+    })
+    // Default ON — vocalized forms show until the learner opts out.
+    expect(tashkeel.getAttribute('aria-checked')).toBe('true')
+    fireEvent.click(tashkeel)
+    expect(mockSetShowTashkeel).toHaveBeenCalledWith(false)
+
+    const qwerty = within(section).getByRole('switch', {
+      name: /qwerty/i,
+    })
+    expect(qwerty.getAttribute('aria-checked')).toBe('true')
+    fireEvent.click(qwerty)
+    expect(mockSetQwertyTranslit).toHaveBeenCalledWith('ar', false)
+  })
+
+  it('Russian gets the QWERTY toggle but no tashkeel toggle', async () => {
+    mockPrefsActiveLanguageId = 'lang-ru'
+    renderPage()
+    const section = await screen.findByTestId('language-specific')
+    expect(within(section).getByText('Russian options')).toBeDefined()
+    expect(
+      within(section).queryByRole('switch', { name: /short vowels/i }),
+    ).toBeNull()
+    fireEvent.click(
+      within(section).getByRole('switch', { name: /qwerty/i }),
+    )
+    expect(mockSetQwertyTranslit).toHaveBeenCalledWith('ru', false)
   })
 
   it('signs out', async () => {
