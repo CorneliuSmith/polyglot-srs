@@ -33,15 +33,24 @@ export interface ReadingSummary {
   new_word_count: number
 }
 
+/** Bounded per-text options: how long, whose voice, how hard. */
+export interface ReadingOptions {
+  length: 'short' | 'medium' | 'long'
+  voice: 'any' | 'first' | 'third' | 'dialogue'
+  complexity: 'easier' | 'level' | 'stretch'
+}
+
 export async function generateReading(
   languageId: string,
   languageCode: string,
   topic: string,
+  options?: Partial<ReadingOptions>,
 ): Promise<{ id: string; reading: Omit<Reading, 'id' | 'topic'>; level: string; allowance: TutorAllowance }> {
   const response = await apiClient.post('/api/reader/generate', {
     language_id: languageId,
     language_code: languageCode,
     topic,
+    ...options,
   })
   return response.data
 }

@@ -260,3 +260,42 @@ class TestShelfEndpoints:
                 headers=_auth_headers(),
             )
         assert resp.status_code == 422
+
+
+def test_system_prompt_honours_text_options():
+    """Each per-text option maps to one explicit prompt rule; unknown values
+    fall back to the defaults instead of leaking into the prompt."""
+    from backend.services.reader import _system_prompt
+
+    learner = {"level": "B1"}
+    base = _system_prompt("es", "en", learner)
+    assert "150–250" in base
+
+    shaped = _system_prompt(
+        "es", "en", learner,
+        {"length": "short", "voice": "dialogue", "complexity": "stretch"},
+    )
+    assert "80–120" in shaped
+    assert "DIALOGUE" in shaped
+    assert "Stretch" in shaped
+
+    longer = _system_prompt("es", "en", learner, {"length": "long", "voice": "first"})
+    assert "300–400" in longer and "FIRST person" in longer
+
+    bogus = _system_prompt("es", "en", learner, {"length": "epic", "voice": "ghost"})
+    assert "150–250" in bogus  # silently back to defaults
+
+
+@pytest.mark.asyncio
+async def test_generate_rejects_bad_option(client):
+    resp = client.post(
+        "/api/reader/generate",
+        json={
+            "language_id": TEST_LANGUAGE_ID,
+            "language_code": "es",
+            "topic": "cats",
+            "length": "epic",
+        },
+        headers=_auth_headers(),
+    )
+    assert resp.status_code == 422

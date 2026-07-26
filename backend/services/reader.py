@@ -77,7 +77,38 @@ READING_TOOL: dict[str, Any] = {
 }
 
 
-def _system_prompt(language_code: str, gloss_locale: str, learner: dict) -> str:
+# Per-text options: each maps to ONE explicit prompt rule. Bounded lengths so
+# "long" can't run away with tokens.
+_LENGTH_RULE = {
+    "short": "Write 80–120 words",
+    "medium": "Write 150–250 words",
+    "long": "Write 300–400 words",
+}
+_VOICE_RULE = {
+    "first": " Write in the FIRST person — the narrator is an 'I' telling "
+             "their own story.",
+    "third": " Write in the THIRD person.",
+    "dialogue": " Write it as a DIALOGUE between two named speakers — every "
+                "sentence is one speaker's line with the name attached, "
+                "natural back-and-forth.",
+}
+_COMPLEXITY_RULE = {
+    "easier": " Ease off: noticeably shorter, simpler sentences than typical "
+              "for this level.",
+    "stretch": " Stretch: slightly more complex sentences than typical for "
+               "this level — a subordinate clause here and there — while "
+               "staying fully comprehensible.",
+}
+
+
+def _system_prompt(
+    language_code: str, gloss_locale: str, learner: dict,
+    options: dict | None = None,
+) -> str:
+    opts = options or {}
+    length_rule = _LENGTH_RULE.get(opts.get("length") or "", _LENGTH_RULE["medium"])
+    voice_rule = _VOICE_RULE.get(opts.get("voice") or "", "")
+    complexity_rule = _COMPLEXITY_RULE.get(opts.get("complexity") or "", "")
     known_words = ", ".join(learner.get("known_words") or [])
     structures = "; ".join(learner.get("learned_structures") or [])
     weak = ", ".join(learner.get("weak_words") or [])
@@ -87,8 +118,9 @@ def _system_prompt(language_code: str, gloss_locale: str, learner: dict) -> str:
 PolyglotSRS, a spaced-repetition language app. Target language: \
 {language_code}. The learner's level: {level}.
 
-Write 150–250 words on the requested topic — natural, warm, factually \
-grounded prose, never a vocabulary exercise dressed as a text.
+{length_rule} on the requested topic — natural, warm, factually \
+grounded prose, never a vocabulary exercise dressed as a \
+text.{voice_rule}{complexity_rule}
 
 HARD CONSTRAINTS:
 - Grammar: use ONLY structures the learner has learned: {structures or "the absolute basics (present tense, simple sentences)"}.
@@ -168,6 +200,7 @@ async def generate_reading(
     learner: dict,
     gloss_locale: str = "en",
     model: str | None = None,
+    options: dict | None = None,
 ) -> tuple[dict, dict[str, int]]:
     """Generate one reading. Returns (reading, usage token counts)."""
     settings = get_settings()
@@ -183,7 +216,7 @@ async def generate_reading(
     response = await client.messages.create(
         model=model,
         max_tokens=8192,
-        system=_system_prompt(language_code, gloss_locale, learner),
+        system=_system_prompt(language_code, gloss_locale, learner, options),
         messages=[{
             "role": "user",
             "content": f"Please write me something to read about: {topic}",

@@ -79,6 +79,25 @@ async function generate() {
 describe('ReaderPage (WP21)', () => {
   beforeEach(() => vi.clearAllMocks())
 
+  it('text options shape the request: length, style, challenge', async () => {
+    mockGenerate.mockResolvedValue({
+      id: 'r-1', reading, level: 'A1', allowance: { unlimited: true },
+    })
+    renderPage()
+    const input = await screen.findByPlaceholderText(/street food/i)
+    fireEvent.change(input, { target: { value: 'cats' } })
+    fireEvent.click(screen.getByRole('button', { name: /^short$/i }))
+    fireEvent.click(screen.getByRole('button', { name: /^dialogue$/i }))
+    fireEvent.click(screen.getByRole('button', { name: /^stretch$/i }))
+    fireEvent.click(screen.getByRole('button', { name: /write it/i }))
+    await screen.findByTestId('listen-first')
+    expect(mockGenerate).toHaveBeenCalledWith('lang-es', 'es', 'cats', {
+      length: 'short',
+      voice: 'dialogue',
+      complexity: 'stretch',
+    })
+  })
+
   it('listen-first holds the text back until the learner chooses', async () => {
     mockGenerate.mockResolvedValue({
       id: 'r-1', reading, level: 'A1', allowance: { unlimited: true },

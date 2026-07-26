@@ -7,7 +7,7 @@ import {
   getReading,
   getReadings,
 } from '../../api/reader'
-import type { Reading, ReaderSentence } from '../../api/reader'
+import type { Reading, ReaderSentence, ReadingOptions } from '../../api/reader'
 import { createPersonalCard } from '../../api/notes'
 import { getLanguages } from '../../api/profile'
 import { usePrefsStore } from '../../stores/prefsStore'
@@ -39,6 +39,10 @@ export default function ReaderPage() {
   const language = languages.find((l) => l.id === activeLanguageId)
 
   const [topic, setTopic] = useState('')
+  // Per-text options (bounded): length, narrative voice, difficulty nudge.
+  const [textOptions, setTextOptions] = useState<ReadingOptions>({
+    length: 'medium', voice: 'any', complexity: 'level',
+  })
   const [reading, setReading] = useState<Reading | null>(null)
   const [stage, setStage] = useState<Stage>('guess')
   // Listen-first: whether they took the ear-training option before reading.
@@ -84,7 +88,7 @@ export default function ReaderPage() {
 
   const generateMutation = useMutation({
     mutationFn: () =>
-      generateReading(activeLanguageId!, language!.code, topic.trim()),
+      generateReading(activeLanguageId!, language!.code, topic.trim(), textOptions),
     onSuccess: (res) => {
       resetReadingState()
       // TTS languages: hold the text back and offer ear-first immersion.
@@ -291,6 +295,64 @@ export default function ReaderPage() {
                 >
                   {generateMutation.isPending ? 'Writing…' : 'Write it'}
                 </button>
+              </div>
+              {/* Shape the text: three bounded choices, one pill row each. */}
+              <div className="space-y-1.5" data-testid="text-options">
+                {(
+                  [
+                    {
+                      name: 'length' as const,
+                      label: 'Length',
+                      choices: [
+                        ['short', 'Short'],
+                        ['medium', 'Medium'],
+                        ['long', 'Long'],
+                      ],
+                    },
+                    {
+                      name: 'voice' as const,
+                      label: 'Style',
+                      choices: [
+                        ['any', 'Any'],
+                        ['first', 'I-narrator'],
+                        ['third', 'Third person'],
+                        ['dialogue', 'Dialogue'],
+                      ],
+                    },
+                    {
+                      name: 'complexity' as const,
+                      label: 'Challenge',
+                      choices: [
+                        ['easier', 'Easier'],
+                        ['level', 'My level'],
+                        ['stretch', 'Stretch'],
+                      ],
+                    },
+                  ]
+                ).map((group) => (
+                  <div key={group.name} className="flex flex-wrap items-center gap-1.5">
+                    <span className="w-16 text-[11px] uppercase tracking-wide text-gray-400">
+                      {group.label}
+                    </span>
+                    {group.choices.map(([value, label]) => (
+                      <button
+                        key={value}
+                        type="button"
+                        aria-pressed={textOptions[group.name] === value}
+                        onClick={() =>
+                          setTextOptions((prev) => ({ ...prev, [group.name]: value }))
+                        }
+                        className={`rounded-full border px-2.5 py-1 text-[11px] transition-colors ${
+                          textOptions[group.name] === value
+                            ? 'border-lang/40 bg-lang-soft text-lang font-medium'
+                            : 'border-gray-200 text-gray-500 hover:border-lang/50 hover:text-lang'
+                        }`}
+                      >
+                        {label}
+                      </button>
+                    ))}
+                  </div>
+                ))}
               </div>
               {generateMutation.isError && (
                 <p className="text-xs text-red-600" role="alert">
