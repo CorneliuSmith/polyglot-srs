@@ -129,3 +129,34 @@ async def test_overlap_audit_writes_change_log_for_both_points(pool, monkeypatch
             lang,
         )
     assert {r["eid"] for r in rows} == {a, b}
+
+
+async def test_schema_check_is_clean_on_a_fully_migrated_db(pool):
+    """The drift detector must report OK against the real, fully-migrated
+    schema — otherwise its warnings are noise nobody will trust."""
+    from backend.services.schema_check import find_schema_drift
+
+    async with pool.privileged_connection() as conn:
+        drift = await find_schema_drift(conn)
+    assert drift["initialized"] is True
+    assert drift["missing"] == [], drift["missing"]
+    assert drift["ok"] is True
+
+
+async def test_schema_check_names_the_migration_for_a_missing_column(pool, tmp_path):
+    """The incident shape: code expects a column the DB lacks. The report
+    names the object AND the migration that adds it (this is what turns a
+    bare 500 into an actionable message)."""
+    from backend.services.schema_check import find_schema_drift
+
+    (tmp_path / "20260901000000_pretend_feature.sql").write_text(
+        "ALTER TABLE drill_sentences ADD COLUMN IF NOT EXISTS not_deployed_yet TEXT;\n"
+        "CREATE TABLE pretend_table (id UUID PRIMARY KEY);\n",
+        encoding="utf-8",
+    )
+    async with pool.privileged_connection() as conn:
+        drift = await find_schema_drift(conn, tmp_path)
+    assert drift["ok"] is False
+    assert drift["missing_migrations"] == ["20260901000000_pretend_feature.sql"]
+    assert any("drill_sentences.not_deployed_yet" in m for m in drift["missing"])
+    assert any("pretend_table" in m for m in drift["missing"])

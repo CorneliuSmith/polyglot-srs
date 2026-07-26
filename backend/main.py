@@ -78,6 +78,40 @@ def create_app() -> FastAPI:
 
         nlp_task = asyncio.create_task(_load_nlp())
 
+        # Schema-drift check (post-incident): a deploy whose migrations
+        # weren't applied used to surface only as a bare 500 from whichever
+        # endpoint touched the new column. Say it plainly at boot instead.
+        # Off the startup path and never fatal — diagnostics only.
+        async def _check_schema() -> None:
+            log = logging.getLogger(__name__)
+            try:
+                from backend.repositories.pool import privileged_connection
+                from backend.services.schema_check import find_schema_drift
+
+                async with privileged_connection() as conn:
+                    drift = await find_schema_drift(conn)
+            except Exception as exc:  # noqa: BLE001
+                log.warning("Schema check could not run: %s", exc)
+                return
+            if drift["ok"]:
+                return
+            if not drift["initialized"]:
+                log.error(
+                    "DATABASE IS EMPTY — no migrations have been applied. "
+                    "Run supabase/migrations/*.sql before serving traffic."
+                )
+                return
+            log.error(
+                "SCHEMA IS BEHIND THE CODE — %d object(s) missing. Apply these "
+                "migrations: %s. Endpoints touching them will fail with 500 "
+                "until then. Missing: %s",
+                len(drift["missing"]),
+                ", ".join(drift["missing_migrations"]),
+                "; ".join(drift["missing"][:20]),
+            )
+
+        schema_task = asyncio.create_task(_check_schema())
+
         # Opt-in email review reminders: an in-process 15-minute sweep.
         # getattr default False so test FakeSettings (which lack the flag)
         # never start the loop.
@@ -87,6 +121,7 @@ def create_app() -> FastAPI:
             reminder_task = asyncio.create_task(reminder_loop())
         yield
         nlp_task.cancel()
+        schema_task.cancel()
         if reminder_task is not None:
             reminder_task.cancel()
         await close_pool()
@@ -116,6 +151,24 @@ def create_app() -> FastAPI:
     @_app.get("/api/health")
     async def health():
         return {"status": "ok"}
+
+    @_app.get("/api/health/schema")
+    async def health_schema():
+        """Is the database schema in step with this build?
+
+        Answers the "why is one endpoint 500ing after a deploy" question
+        directly: lists the objects the code expects but the DB lacks, and
+        the migration file that adds each. Migration filenames are already
+        public in the repo, so there's nothing sensitive to leak here.
+        """
+        from backend.repositories.pool import privileged_connection
+        from backend.services.schema_check import find_schema_drift
+
+        try:
+            async with privileged_connection() as conn:
+                return await find_schema_drift(conn)
+        except Exception as exc:  # noqa: BLE001
+            return {"ok": False, "error": f"{type(exc).__name__}: {exc}"}
 
     # Belt-and-suspenders: some platform health checks default to "/". The
     # API otherwise has no root route (404 reads as unhealthy). Cheap 200 so
