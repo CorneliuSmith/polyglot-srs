@@ -436,6 +436,37 @@ describe('ReviewSessionPage — Quick Cram (WP13f)', () => {
     })
   })
 
+  it('restores a parked session (settings round-trip) at its exact position', async () => {
+    // A snapshot parked by the ⚙ hop: two cards, the first already answered.
+    sessionStorage.setItem(
+      'review-session:/cram?points=p1,p2',
+      JSON.stringify({
+        cards: [
+          { ...cramCard, id: 'cram-a', sentence: 'First {{answer}}.' },
+          { ...cramCard, id: 'cram-b', sentence: 'Second {{answer}}.' },
+        ],
+        index: 1,
+        results: [{ cardId: 'cram-a', answerResult: 'correct', timeTakenMs: 800 }],
+        requeued: [],
+        savedAt: Date.now(),
+      }),
+    )
+    try {
+      renderCram()
+      // Resumes on card 2 of 2 — no refetched deck replaces the parked one.
+      await waitFor(() => {
+        expect(screen.getByText('Card 2 of 2')).toBeDefined()
+      })
+      expect(screen.getByText(/Second/)).toBeDefined()
+      // The parking spot is single-use: consumed on restore.
+      expect(
+        sessionStorage.getItem('review-session:/cram?points=p1,p2'),
+      ).toBeNull()
+    } finally {
+      sessionStorage.clear()
+    }
+  })
+
   it('distinguishes the word audio from the full-sentence audio on feedback', async () => {
     renderCram()
     await waitFor(() => screen.getByRole('textbox'))

@@ -9,12 +9,21 @@ export interface SessionResult {
   timeTakenMs: number
 }
 
+/** Where to pick a parked session back up (the settings round-trip). */
+export interface SessionResume {
+  index: number
+  results: SessionResult[]
+  requeued: DueCard[]
+}
+
 export interface ReviewSessionState {
   currentCard: DueCard | null
   currentIndex: number
   phase: ReviewPhase
   validationResult: ValidateAnswerResponse | null
   results: SessionResult[]
+  /** Missed cards queued for re-drill — exposed so a snapshot can park them. */
+  requeued: DueCard[]
   isComplete: boolean
   accuracy: number
   totalTimeMs: number
@@ -27,15 +36,21 @@ export interface ReviewSessionState {
   elapsedMs: () => number
 }
 
-export function useReviewSession(cards: DueCard[]): ReviewSessionState {
-  const [currentIndex, setCurrentIndex] = useState(0)
+export function useReviewSession(
+  cards: DueCard[],
+  restore?: SessionResume,
+): ReviewSessionState {
+  // A parked session (settings round-trip) restores its position, its recorded
+  // results, and its re-drill queue — always back into 'answering' (mid-card
+  // validation state is deliberately not parked).
+  const [currentIndex, setCurrentIndex] = useState(restore?.index ?? 0)
   const [phase, setPhase] = useState<ReviewPhase>('answering')
   const [validationResult, setValidationResultState] =
     useState<ValidateAnswerResponse | null>(null)
-  const [results, setResults] = useState<SessionResult[]>([])
+  const [results, setResults] = useState<SessionResult[]>(restore?.results ?? [])
   // Missed cards are appended here and re-drilled before the session ends,
   // so a session only completes once everything has been produced correctly.
-  const [requeued, setRequeued] = useState<DueCard[]>([])
+  const [requeued, setRequeued] = useState<DueCard[]>(restore?.requeued ?? [])
   const cardStartTime = useRef<number>(Date.now())
 
   const deck = [...cards, ...requeued]
@@ -122,6 +137,7 @@ export function useReviewSession(cards: DueCard[]): ReviewSessionState {
     phase,
     validationResult,
     results,
+    requeued,
     isComplete,
     accuracy,
     totalTimeMs,
