@@ -27,7 +27,7 @@ async def _lang(pool, code: str) -> str:
 
 
 async def test_lemma_anchored_chart_and_standardized_baseline(pool):
-    lang = await _lang(pool, "gb1")
+    lang = await _lang(pool, "es")
     async with pool.privileged_connection() as conn:
         point = str(await conn.fetchval(
             "INSERT INTO grammar_points (language_id, title, level, reviewed, display_order) "
@@ -56,11 +56,12 @@ async def test_lemma_anchored_chart_and_standardized_baseline(pool):
 
     assert len(cards) == 1
     card = cards[0]
-    # Chart attached via the stored lemma — no NLP backend for 'gb1' exists.
+    # Chart attached via the stored lemma (direct vocab lookup).
     assert card["morphology"] is not None
     assert card["chart_word"] == "preparar"
     # Standardized baseline: native-language word + the drill's cell.
-    assert card["baseline"] == "to prepare (tú)"
+    # Practice, not recall: target-language base + explained cell.
+    assert card["baseline"] == "preparar (tú; you, singular)"
     assert card["cell"] == "tú"
 
 
