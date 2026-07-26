@@ -60,13 +60,35 @@ describe('Korean (Hangul) transliteration', () => {
     expect(typeWord('ko', 'uisa')).toBe('의사')
   })
 
-  it('leaves a lone consonant pending while typing, resolves on submit', () => {
-    // Mid-word the trailing consonant has no vowel yet, so it stays Latin
-    // rather than committing to a wrong block.
-    const midTyping = convertTranslit('ko', 'han') // h-a-n typed so far
-    expect(midTyping).toBe('한')
+  it('holds a just-typed trailing consonant pending, settles it on submit', () => {
+    // It is genuinely undecided: "ba"+"p" could close 밥 or open 바포. So it
+    // stays Latin until the next keystroke or submit decides — committing it
+    // early is what used to flip the aspiration.
+    expect(convertTranslit('ko', 'han')).toBe('하n')
+    expect(finalizeTranslit('ko', 'han')).toBe('한')
     expect(convertTranslit('ko', 'g')).toBe('g')
     expect(finalizeTranslit('ko', 'g')).toBe('ㄱ')
+  })
+
+  it('a lax final stays lax when the next syllable opens (owner report)', () => {
+    // The bug: the final's romanization was re-read in initial position, so
+    // ㄱ/ㄷ/ㅂ came back as the ASPIRATED ㅋ/ㅌ/ㅍ.
+    expect(typeWord('ko', 'gada')).toBe('가다')      // was 가타
+    expect(typeWord('ko', 'guga')).toBe('구가')      // was 구카
+    expect(typeWord('ko', 'baba')).toBe('바바')      // was 바파
+    expect(typeWord('ko', 'hanguga')).toBe('한구가')
+    // …while a genuinely aspirated initial after a closed syllable is kept.
+    expect(typeWord('ko', 'bapo')).toBe('바포')
+    expect(typeWord('ko', 'hanguka')).toBe('한구카')
+  })
+
+  it('round-trips finals that romanization cannot spell', () => {
+    // An aspirated final (부엌) and a stacked one (없) must survive a
+    // conversion pass untouched.
+    for (const word of ['부엌', '없다', '옷', '밥', '국아', '한글']) {
+      expect(convertTranslit('ko', word), word).toBe(word)
+      expect(finalizeTranslit('ko', word), word).toBe(word)
+    }
   })
 
   it('is idempotent on already-composed Hangul', () => {
