@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { useLocation, useNavigate } from 'react-router-dom'
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query'
 import { getLanguages, getProfile, updateProfile } from '../../api/profile'
 import { resetProgress } from '../../api/review'
@@ -53,6 +53,7 @@ const THEMES: { value: Theme; label: string }[] = [
 
 export default function SettingsPage() {
   const navigate = useNavigate()
+  const location = useLocation()
   const queryClient = useQueryClient()
   const activeLanguageId = usePrefsStore((s) => s.activeLanguageId)
   const theme = usePrefsStore((s) => s.theme)
@@ -180,18 +181,34 @@ export default function SettingsPage() {
     navigate('/login', { replace: true })
   }
 
+  // Set when an exercise session's ⚙ brought us here — its full URL
+  // (path + query), so "Back to session" restores the parked session.
+  const fromSession = (location.state as { from?: string } | null)?.from
+
   return (
     <div className="min-h-screen bg-gray-50">
       <div className="max-w-xl mx-auto px-4 py-8 space-y-6">
         <div className="flex items-center justify-between">
           <h1 className="text-2xl font-bold text-gray-900">Account</h1>
-          <button
-            type="button"
-            onClick={() => navigate('/')}
-            className="text-sm text-lang hover:underline"
-          >
-            ← Dashboard
-          </button>
+          {/* Arrived mid-exercise? Lead back INTO the parked session (the
+              session page restores its snapshot); plain visits go home. */}
+          {fromSession ? (
+            <button
+              type="button"
+              onClick={() => navigate(fromSession)}
+              className="text-sm font-semibold text-lang hover:underline"
+            >
+              ← Back to session
+            </button>
+          ) : (
+            <button
+              type="button"
+              onClick={() => navigate('/')}
+              className="text-sm text-lang hover:underline"
+            >
+              ← Dashboard
+            </button>
+          )}
         </div>
 
         {/* Role tabs: Learner is always present; the rest appear by role. */}

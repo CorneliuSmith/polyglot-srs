@@ -1,5 +1,5 @@
 import { useState, useRef, useEffect } from 'react'
-import { useNavigate, useSearchParams } from 'react-router-dom'
+import { useLocation, useNavigate, useSearchParams } from 'react-router-dom'
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query'
 import { getCramCards, getDueCards, validateAnswer, submitReview } from '../../api/review'
 import { recordGymAttempt, generateGymDrills } from '../../api/gym'
@@ -7,6 +7,12 @@ import { getLanguages, getProfile, updateProfile } from '../../api/profile'
 import type { DueCard } from '../../api/types'
 import { usePrefsStore } from '../../stores/prefsStore'
 import { useReviewSession } from './useReviewSession'
+import {
+  clearSnapshot,
+  readSnapshot,
+  saveSnapshot,
+  snapshotKey,
+} from './sessionSnapshot'
 import DrillCard from './DrillCard'
 import FeedbackPanel from './FeedbackPanel'
 import ReviewDetail from './ReviewDetail'
@@ -153,14 +159,34 @@ function ReviewSessionInner({
         },
   )
 
+  // A settings round-trip parks the session in sessionStorage (keyed by this
+  // exact URL); coming back restores deck + position instead of refetching —
+  // including any background-generated Gym drills, which exist nowhere else.
+  const location = useLocation()
+  const parkKey = snapshotKey(location.pathname, location.search)
+  const [parked] = useState(() => readSnapshot(parkKey))
+
   // Snapshot the deck at session start — refetches and cache invalidations
   // (tab focus, summary cleanup) can't make cards appear/disappear mid-run.
-  const [cards, setCards] = useState<DueCard[] | null>(null)
+  const [cards, setCards] = useState<DueCard[] | null>(parked?.cards ?? null)
   useEffect(() => {
     if (fetched && cards === null) setCards(fetched)
   }, [fetched, cards])
 
-  const session = useReviewSession(cards ?? [])
+  const session = useReviewSession(
+    cards ?? [],
+    parked
+      ? { index: parked.index, results: parked.results, requeued: parked.requeued }
+      : undefined,
+  )
+  // The parking spot is single-use: consumed on restore, rewritten on the next
+  // settings hop, and cleared for good once the session reaches its summary.
+  useEffect(() => {
+    if (parked) clearSnapshot(parkKey)
+  }, [parked, parkKey])
+  useEffect(() => {
+    if (session.phase === 'summary') clearSnapshot(parkKey)
+  }, [session.phase, parkKey])
   // Live current-index for the background-generation callback below (which runs
   // long after it was created): it must not weave fresh drills into slots the
   // learner has already passed.
@@ -608,7 +634,11 @@ function ReviewSessionInner({
         <div className="flex items-center justify-between">
           <button
             type="button"
-            onClick={() => navigate('/')}
+            onClick={() => {
+              // A deliberate exit abandons the session — nothing to come back to.
+              clearSnapshot(parkKey)
+              navigate('/')
+            }}
             aria-label="Exit session"
             className="text-xl leading-none text-gray-400 hover:text-lang"
           >
@@ -621,7 +651,26 @@ function ReviewSessionInner({
             <button type="button" onClick={() => navigate('/tutor')} className="hover:text-lang">
               Tutor
             </button>
-            <button type="button" onClick={() => navigate('/account')} aria-label="Account" className="hover:text-lang">
+            <button
+              type="button"
+              onClick={() => {
+                // Park the live session so Settings' "Back to session" (or the
+                // browser's back button) restores it exactly where it stands.
+                if (cards && session.phase !== 'summary') {
+                  saveSnapshot(parkKey, {
+                    cards,
+                    index: session.currentIndex,
+                    results: session.results,
+                    requeued: session.requeued,
+                  })
+                }
+                navigate('/account', {
+                  state: { from: location.pathname + location.search },
+                })
+              }}
+              aria-label="Account"
+              className="hover:text-lang"
+            >
               ⚙
             </button>
           </div>
