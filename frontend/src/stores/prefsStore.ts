@@ -26,6 +26,11 @@ interface PrefsState {
   // learners with a real native keyboard opt out.
   qwertyTranslit: Record<string, boolean>
   setQwertyTranslit: (code: string, on: boolean) => void
+  // Arabic short vowels (tashkeel): show the fully vocalized form (كَتَبَ)
+  // under new words. Default ON — learners meet every word vocalized first;
+  // turning it off practises reading bare script like native materials.
+  showTashkeel: boolean
+  setShowTashkeel: (on: boolean) => void
   // Listening mode (WP19a): cloze drills play the audio and hide the
   // sentence — the learner types the missing word by ear. Persisted like
   // hintLevel: the chosen mode carries across cards and sessions.
@@ -79,6 +84,8 @@ export const usePrefsStore = create<PrefsState>()(
       qwertyTranslit: {},
       setQwertyTranslit: (code, on) =>
         set((s) => ({ qwertyTranslit: { ...s.qwertyTranslit, [code]: on } })),
+      showTashkeel: true,
+      setShowTashkeel: (on) => set({ showTashkeel: on }),
       listeningMode: false,
       setListeningMode: (on) => set({ listeningMode: on }),
       accentsOptional: false,

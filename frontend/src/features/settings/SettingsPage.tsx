@@ -12,6 +12,7 @@ import {
 import { getDashboardStats } from '../../api/dashboard'
 import { usePrefsStore } from '../../stores/prefsStore'
 import type { Theme } from '../../stores/prefsStore'
+import { hasTranslit } from '../keyboards/translit'
 import RecoSettings from '../recommendations/RecoSettings'
 import { supabase } from '../../lib/supabase'
 import LanguagePicker from '../../components/LanguagePicker'
@@ -45,6 +46,14 @@ export function localToUtcHour(local: number): number {
 const BATCH_SIZES = [3, 5, 10, 15, 20]
 const SESSION_SIZES = [10, 20, 50, 100]
 
+// Script names for the language-specific section's copy.
+const SCRIPT_NAME: Record<string, string> = {
+  ru: 'Cyrillic',
+  ar: 'Arabic script',
+  el: 'Greek',
+  hi: 'Devanagari',
+}
+
 const THEMES: { value: Theme; label: string }[] = [
   { value: 'system', label: 'System' },
   { value: 'light', label: 'Light' },
@@ -66,6 +75,10 @@ export default function SettingsPage() {
   const setLearningTipsEnabled = usePrefsStore((s) => s.setLearningTipsEnabled)
   const dailyLearnGoal = usePrefsStore((s) => s.dailyLearnGoal)
   const setDailyLearnGoal = usePrefsStore((s) => s.setDailyLearnGoal)
+  const qwertyTranslit = usePrefsStore((s) => s.qwertyTranslit)
+  const setQwertyTranslit = usePrefsStore((s) => s.setQwertyTranslit)
+  const showTashkeel = usePrefsStore((s) => s.showTashkeel)
+  const setShowTashkeel = usePrefsStore((s) => s.setShowTashkeel)
 
   const { data: profile } = useQuery({ queryKey: ['profile'], queryFn: getProfile })
   const { data: languages = [] } = useQuery({ queryKey: ['languages'], queryFn: getLanguages })
@@ -462,6 +475,99 @@ export default function SettingsPage() {
             </button>
           </div>
         </section>
+
+        {/* Language-specific options (beta request: these belong in account
+            learning settings, not buried in exercise UIs). Only shown for
+            languages that have any — non-Latin scripts today. */}
+        {activeLanguage && hasTranslit(activeLanguage.code) && (
+          <section
+            className="bg-white rounded-2xl shadow-sm border border-gray-100 p-5 space-y-4"
+            data-testid="language-specific"
+          >
+            <div>
+              <h2 className="font-semibold text-gray-800">
+                {activeLanguage.name} options
+              </h2>
+              <p className="text-xs text-gray-500">
+                Settings that only apply when studying {activeLanguage.name}.
+              </p>
+            </div>
+
+            {activeLanguage.code === 'ar' && (
+              <div className="flex items-start justify-between gap-4">
+                <div>
+                  <h3 className="text-sm font-medium text-gray-800">
+                    Short vowels (tashkeel)
+                  </h3>
+                  <p className="text-xs text-gray-500">
+                    Show the fully vocalized form — كَتَبَ — under new words.
+                    Turn off to practise reading bare script, the way native
+                    materials are written.
+                  </p>
+                </div>
+                <button
+                  type="button"
+                  role="switch"
+                  aria-checked={showTashkeel}
+                  aria-label="Short vowels (tashkeel)"
+                  onClick={() => setShowTashkeel(!showTashkeel)}
+                  className={
+                    'relative shrink-0 inline-flex h-6 w-11 items-center rounded-full transition-colors ' +
+                    (showTashkeel ? 'bg-lang' : 'bg-gray-300')
+                  }
+                >
+                  <span
+                    className={
+                      'inline-block h-5 w-5 transform rounded-full bg-white transition-transform ' +
+                      (showTashkeel ? 'translate-x-5' : 'translate-x-1')
+                    }
+                  />
+                </button>
+              </div>
+            )}
+
+            <div className="flex items-start justify-between gap-4">
+              <div>
+                <h3 className="text-sm font-medium text-gray-800">
+                  Type with QWERTY letters
+                </h3>
+                <p className="text-xs text-gray-500">
+                  Answers typed in Latin letters convert to{' '}
+                  {SCRIPT_NAME[activeLanguage.code] ?? 'the target script'} as
+                  you type. Turn off if you have a real{' '}
+                  {activeLanguage.name} keyboard.
+                </p>
+              </div>
+              <button
+                type="button"
+                role="switch"
+                aria-checked={qwertyTranslit[activeLanguage.code] ?? true}
+                aria-label="Type with QWERTY letters"
+                onClick={() =>
+                  setQwertyTranslit(
+                    activeLanguage.code,
+                    !(qwertyTranslit[activeLanguage.code] ?? true),
+                  )
+                }
+                className={
+                  'relative shrink-0 inline-flex h-6 w-11 items-center rounded-full transition-colors ' +
+                  ((qwertyTranslit[activeLanguage.code] ?? true)
+                    ? 'bg-lang'
+                    : 'bg-gray-300')
+                }
+              >
+                <span
+                  className={
+                    'inline-block h-5 w-5 transform rounded-full bg-white transition-transform ' +
+                    ((qwertyTranslit[activeLanguage.code] ?? true)
+                      ? 'translate-x-5'
+                      : 'translate-x-1')
+                  }
+                />
+              </button>
+            </div>
+          </section>
+        )}
 
         <RecoSettings />
 
