@@ -2,13 +2,15 @@ import apiClient from './client'
 
 /** One media pick in a weekly batch. */
 export interface RecoItem {
-  type: string // book | film | series | podcast
+  type: string // book | film | series | podcast | music
   title: string
   creator?: string
   year?: string
   blurb: string
   why: string
   level: string
+  /** The work's genre — 'crime drama', 'indie folk', 'true crime'. */
+  genre?: string
 }
 
 /** A generated batch, kept in the history. */
@@ -78,6 +80,7 @@ export const MEDIA_TYPE_LABELS: Record<string, string> = {
   film: 'Film',
   series: 'Series',
   podcast: 'Podcast',
+  music: 'Music',
 }
 
 export const MEDIA_TYPE_ICONS: Record<string, string> = {
@@ -85,4 +88,5 @@ export const MEDIA_TYPE_ICONS: Record<string, string> = {
   film: '🎬',
   series: '📺',
   podcast: '🎧',
+  music: '🎵',
 }

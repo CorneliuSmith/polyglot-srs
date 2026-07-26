@@ -17,7 +17,7 @@ from anthropic import AsyncAnthropic
 from backend.config import get_settings
 from backend.services.models import resolve_model
 
-MEDIA_TYPES = ("book", "film", "series", "podcast")
+MEDIA_TYPES = ("book", "film", "series", "podcast", "music")
 
 _RECO_SCHEMA = {
     "type": "object",
@@ -31,7 +31,8 @@ _RECO_SCHEMA = {
                     "title": {"type": "string"},
                     "creator": {
                         "type": "string",
-                        "description": "Author, director, showrunner, or host.",
+                        "description": "Author, director, showrunner, host, "
+                        "or artist/band.",
                     },
                     "year": {"type": "string"},
                     "blurb": {
@@ -46,6 +47,11 @@ _RECO_SCHEMA = {
                     "level": {
                         "type": "string",
                         "description": "The CEFR band it suits, e.g. 'A2–B1'.",
+                    },
+                    "genre": {
+                        "type": "string",
+                        "description": "The work's genre — 'crime drama', "
+                        "'indie folk', 'true crime'. Short.",
                     },
                 },
                 "required": ["type", "title", "blurb", "why", "level"],
@@ -88,6 +94,13 @@ def _mock_recs(language_name: str, media_types: list[str]) -> list[dict]:
             "why": "Trains your ear on natural rhythm at your level.",
             "level": "A2",
         },
+        "music": {
+            "type": "music", "title": f"A {language_name} singer-songwriter",
+            "creator": "A lyric-forward artist", "year": "—",
+            "blurb": "Clear diction, lyric-forward songs.",
+            "why": "Song lyrics repeat core vocabulary naturally.",
+            "level": "A2–B1", "genre": "indie folk",
+        },
     }
     return [catalogue[t] for t in types if t in catalogue][:4] or [catalogue["book"]]
 
@@ -120,7 +133,7 @@ async def generate_recommendations(
         max_tokens=1500,
         system=(
             f"You recommend authentic {language_name} media — books, films, "
-            f"series, and podcasts — for a language learner to immerse in beyond "
+            f"series, podcasts, and music — for a language learner to immerse in beyond "
             f"their app. Recommend only REAL, verifiable works that genuinely "
             f"exist in {language_name} (or are widely available dubbed/translated "
             f"into it); never invent titles. Calibrate difficulty to the "
@@ -128,8 +141,10 @@ async def generate_recommendations(
             f"stretch without drowning. Match their stated interests and genres. "
             f"Give 3–4 picks, spread across the requested media types. For each: "
             f"a short blurb of what it is, a sentence on why it fits THIS learner "
-            f"(their interests and level), and the CEFR band it suits. Keep it "
-            f"appealing and specific — not generic textbook fare."
+            f"(their interests and level), the CEFR band it suits, and its genre. "
+            f"For music, favour artists with clear diction and lyric-forward "
+            f"songs — lyrics are the learning material. Keep it appealing and "
+            f"specific — not generic textbook fare."
         ),
         messages=[{
             "role": "user",

@@ -28,6 +28,11 @@ function RecoCard({ item }: { item: RecoItem }) {
         <span className="text-[11px] uppercase tracking-wide text-gray-400">
           {label}
         </span>
+        {item.genre && (
+          <span className="rounded-full bg-gray-100 text-gray-500 text-[11px] px-2 py-0.5">
+            {item.genre}
+          </span>
+        )}
         {item.level && (
           <span className="ml-auto shrink-0 rounded-full bg-lang-soft text-lang-dark text-[11px] font-medium px-2 py-0.5">
             {item.level}
