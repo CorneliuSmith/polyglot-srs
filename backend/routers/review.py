@@ -8,6 +8,10 @@ from fastapi import APIRouter, Depends, HTTPException, status
 from pydantic import BaseModel, Field
 
 from backend.dependencies import get_current_user
+from backend.repositories.assessment import (
+    get_form_struggles,
+    pick_struggling_cell,
+)
 from backend.repositories.cards import (
     add_grammar_learn_batch,
     add_learn_batch,
@@ -26,10 +30,6 @@ from backend.repositories.cards import (
     reset_language_progress,
     set_deck_subscription,
     update_card_srs,
-)
-from backend.repositories.assessment import (
-    get_form_struggles,
-    pick_struggling_cell,
 )
 from backend.repositories.contributor import add_drill
 from backend.repositories.fsrs_weights import get_effective_params

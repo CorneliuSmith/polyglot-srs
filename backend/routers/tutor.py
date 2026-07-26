@@ -29,8 +29,8 @@ from pydantic import BaseModel, Field
 
 from backend.config import get_settings
 from backend.dependencies import get_current_user
-from backend.repositories.pool import rls_connection
 from backend.repositories.assessment import get_assessment_summary
+from backend.repositories.pool import rls_connection
 from backend.repositories.tutor import (
     create_mastery_suggestions,
     get_language_profile,

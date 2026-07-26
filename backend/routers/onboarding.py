@@ -5,6 +5,7 @@ from __future__ import annotations
 from fastapi import APIRouter, Depends, HTTPException, status
 from pydantic import BaseModel, Field
 
+from backend.config import get_settings
 from backend.dependencies import get_current_user
 from backend.repositories.onboarding import (
     CEFR_ORDER,
@@ -24,7 +25,6 @@ from backend.repositories.tutor import (
     log_tutor_usage,
     upsert_language_profile,
 )
-from backend.config import get_settings
 from backend.services.models import resolve_model
 from backend.services.nlp import validate_answer_async
 from backend.services.nlp.base import AnswerResult
