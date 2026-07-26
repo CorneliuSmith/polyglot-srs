@@ -1,7 +1,13 @@
 import { useState, useRef, useEffect } from 'react'
 import { useLocation, useNavigate, useSearchParams } from 'react-router-dom'
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query'
-import { getCramCards, getDueCards, validateAnswer, submitReview } from '../../api/review'
+import {
+  getCramCards,
+  getDueCards,
+  markCardKnown,
+  submitReview,
+  validateAnswer,
+} from '../../api/review'
 import { recordGymAttempt, generateGymDrills } from '../../api/gym'
 import { getLanguages, getProfile, updateProfile } from '../../api/profile'
 import type { DueCard } from '../../api/types'
@@ -350,6 +356,16 @@ function ReviewSessionInner({
     mutationFn: submitReview,
     onError: () => {
       setSaveErrorCount((n) => n + 1)
+    },
+  })
+
+  // "I know this — retire": suspend the card server-side, then move on.
+  // Dashboard/due counts refetch to reflect the smaller queue.
+  const knownMutation = useMutation({
+    mutationFn: (cardId: string) => markCardKnown(cardId),
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ['dashboard'] })
+      session.advance()
     },
   })
 
@@ -875,6 +891,38 @@ function ReviewSessionInner({
                 🎧 Listening {listening ? 'on' : 'off'}
               </button>
             )}
+            {/* Card escape hatches: defer without grading, or retire a card
+                the learner genuinely already knows (graded reviews only —
+                cram cards are synthetic and have nothing to retire). */}
+            <div className="flex items-center justify-center gap-5 pt-1 text-xs text-gray-400">
+              <button
+                type="button"
+                onClick={() => session.advance()}
+                className="hover:text-lang"
+                title="Move on without answering — the card stays scheduled"
+              >
+                Skip →
+              </button>
+              {!cram && (
+                <button
+                  type="button"
+                  onClick={() => {
+                    if (
+                      window.confirm(
+                        'Retire this card? It stops appearing in reviews. ' +
+                          'You can undo with a progress reset in Settings.',
+                      )
+                    )
+                      knownMutation.mutate(card.id)
+                  }}
+                  disabled={knownMutation.isPending}
+                  className="hover:text-lang disabled:opacity-50"
+                  title="I already know this — stop scheduling it"
+                >
+                  I know this — retire
+                </button>
+              )}
+            </div>
           </div>
         )}
 

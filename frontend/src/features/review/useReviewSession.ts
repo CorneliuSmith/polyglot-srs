@@ -110,12 +110,20 @@ export function useReviewSession(
     setValidationResultState(null)
   }, [])
 
+  // Move on without recording anything (Skip, or after retiring a card).
+  // Skipping the last card ends the session like rating it would.
   const advance = useCallback(() => {
-    setCurrentIndex((i) => i + 1)
-    setPhase('answering')
+    const next = currentIndex + 1
+    setCurrentIndex(next)
+    if (next >= deck.length) {
+      setPhase('summary')
+    } else {
+      setPhase('answering')
+    }
     setValidationResultState(null)
     cardStartTime.current = Date.now()
-  }, [])
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [currentIndex, deck.length])
 
   // Cram only: cards can be appended after the deck was exhausted (background
   // generation lands more drills). currentIndex already points at the fresh

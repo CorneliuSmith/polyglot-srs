@@ -297,6 +297,33 @@ async def card_detail(
     return detail
 
 
+@router.post("/card/{card_id}/known")
+async def mark_card_known(
+    card_id: str,
+    user: dict = Depends(get_current_user),
+):
+    """Retire a card the learner already knows: suspend it with history intact
+    so it leaves every queue (due, dashboard counts, learn) without deleting
+    anything. repetitions is floored at 1 so the row lands in the deliberate
+    "suspended WITH history" bucket — distinct from learn's teach-gate
+    suspension (repetitions = 0), which learn is allowed to resurrect.
+    Reversible via Settings → reset progress."""
+    async with rls_connection(user["id"]) as conn:
+        result = await conn.execute(
+            """
+            UPDATE user_cards
+            SET is_suspended = true, repetitions = GREATEST(repetitions, 1)
+            WHERE id = $1
+            """,
+            card_id,
+        )
+    if not result.endswith("1"):
+        raise HTTPException(
+            status_code=status.HTTP_404_NOT_FOUND, detail="Card not found"
+        )
+    return {"known": True}
+
+
 @router.post("/card/{card_id}/feedback")
 async def submit_card_feedback(
     card_id: str,

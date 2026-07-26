@@ -76,7 +76,7 @@ async function generate() {
 describe('ReaderPage (WP21)', () => {
   beforeEach(() => vi.clearAllMocks())
 
-  it('stage 1 forces guessing: only new words tappable, gloss after a guess', async () => {
+  it('stage 1 forces guessing: two tries before the gloss ever shows', async () => {
     await generate()
     expect(screen.getByTestId('guess-banner')).toBeDefined()
     // Known words are plain text, not buttons.
@@ -90,6 +90,34 @@ describe('ReaderPage (WP21)', () => {
     fireEvent.change(screen.getByPlaceholderText(/your guess/i), {
       target: { value: 'window?' },
     })
+    // First guess NEVER auto-reveals — it's locked in for a second thought.
+    fireEvent.click(screen.getByRole('button', { name: /lock it in/i }))
+    expect(await screen.findByTestId('second-chance')).toBeDefined()
+    expect(screen.getByText(/“window\?”/)).toBeDefined()
+    expect(screen.queryByText(/\(window\)/)).toBeNull()
+    // Second submit reveals.
+    fireEvent.click(screen.getByRole('button', { name: /reveal/i }))
+    expect(await screen.findByText(/\(window\)/)).toBeDefined()
+  })
+
+  it('the second chance can be waived: standing by the first guess reveals', async () => {
+    await generate()
+    fireEvent.click(screen.getByRole('button', { name: 'ventana.' }))
+    await screen.findByTestId('guess-panel')
+    fireEvent.change(screen.getByPlaceholderText(/your guess/i), {
+      target: { value: 'door' },
+    })
+    fireEvent.click(screen.getByRole('button', { name: /lock it in/i }))
+    fireEvent.click(
+      await screen.findByRole('button', { name: /standing by my first guess/i }),
+    )
+    expect(await screen.findByText(/\(window\)/)).toBeDefined()
+  })
+
+  it('an empty guess (just show me) reveals without the second-chance loop', async () => {
+    await generate()
+    fireEvent.click(screen.getByRole('button', { name: 'ventana.' }))
+    await screen.findByTestId('guess-panel')
     fireEvent.click(screen.getByRole('button', { name: /reveal/i }))
     expect(await screen.findByText(/\(window\)/)).toBeDefined()
   })
