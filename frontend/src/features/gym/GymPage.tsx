@@ -176,6 +176,15 @@ export default function GymPage() {
                                     known
                                   </span>
                                 )}
+                                {/* Set completion: how many of this form's
+                                    drills YOU have practised — not lifetime
+                                    attempt totals. */}
+                                <span
+                                  className="tabular-nums"
+                                  title={`You've practised ${e.done ?? 0} of ${e.drills} drills in this set`}
+                                >
+                                  {e.done ?? 0}/{e.drills}
+                                </span>
                                 {e.level}
                               </span>
                             </span>

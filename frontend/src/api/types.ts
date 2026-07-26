@@ -25,6 +25,10 @@ export interface DueCard {
   morphology: Record<string, unknown> | null
   chart_word?: string | null
   chart_usage_note?: string | null
+  // Gym/cram only: the paradigm cell this drill exercises, and the server-built
+  // standardized baseline — "word (form)", native-language word where known.
+  cell?: string | null
+  baseline?: string | null
   alternatives: string[] | null
   language_code: string
   ease_factor: number

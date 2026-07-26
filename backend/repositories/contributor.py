@@ -401,12 +401,15 @@ async def add_drill(
     decertify: bool = True,
     cell: str | None = None,
     created_by: str | None = None,
+    lemma: str | None = None,
 ) -> str:
     """Insert a drill sentence (privileged). *source* tags provenance (WP38):
     'human' for a drill added by hand (the default — never mistaken for
     seed/import), 'ai' for a generated one, with the model in *origin_detail*.
     *cell* is the paradigm cell the drill exercises (for balanced generation and
-    the adaptive gym); None for non-paradigm drills.
+    the adaptive gym); None for non-paradigm drills. *lemma* is the dictionary
+    form of the word the blank exercises — it anchors the Gym's chart lookup
+    and standardized baseline; None for legacy/hand-added rows.
 
     A hand edit de-certifies the point (reviewed → false) so a second reviewer
     re-approves. Gym on-demand generation passes decertify=False: the generated
@@ -423,12 +426,12 @@ async def add_drill(
         """
         INSERT INTO drill_sentences
             (grammar_point_id, sentence, answer, translation, hint, display_order,
-             source, origin_detail, cell, reviewed, created_by)
-        VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11)
+             source, origin_detail, cell, reviewed, created_by, lemma)
+        VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12)
         RETURNING id
         """,
         point_id, sentence, answer, translation or None, hint or None, next_order,
-        source, origin_detail, cell, reviewed, created_by,
+        source, origin_detail, cell, reviewed, created_by, lemma or None,
     )
     if decertify:
         await conn.execute(

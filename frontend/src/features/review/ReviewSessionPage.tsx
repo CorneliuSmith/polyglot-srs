@@ -526,7 +526,12 @@ function ReviewSessionInner({
   // speak). Strip a trailing spelling recipe, then blank the prompt entirely if
   // it still contains the answer as a whole word (a base-form drill) — the
   // learner recalls it from the sentence + the optional meaning hint instead.
-  const baseText = cram ? safePrompt(card.hint || card.chart_word || '', card.correct_answer) : ''
+  // Prefer the server-built standardized baseline ("word (form)"); legacy
+  // cards without one fall back to the raw hint / chart word. Either way the
+  // leak guard runs last — the prompt must never contain the answer.
+  const baseText = cram
+    ? safePrompt(card.baseline || card.hint || card.chart_word || '', card.correct_answer)
+    : ''
   const baseLayer = baseText
     ? { field: 'base' as const, label: 'Prompt', text: baseText }
     : undefined

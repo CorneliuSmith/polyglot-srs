@@ -59,8 +59,22 @@ async def gym_manifest(
         rows = await conn.fetch(
             """
             SELECT gp.id, gp.title, gp.level,
+                   -- Count only drills a session can actually SERVE this
+                   -- learner (same visibility gate as cram) — an authored-but-
+                   -- unreviewed pile must not inflate the picker.
                    (SELECT count(*) FROM drill_sentences ds
-                     WHERE ds.grammar_point_id = gp.id) AS drills,
+                     WHERE ds.grammar_point_id = gp.id
+                       AND (ds.reviewed OR ds.created_by = $3
+                            OR l.grammar_review_policy = 'ai_ok')) AS drills,
+                   -- How many of THOSE this learner has already practised —
+                   -- the picker shows set completion, not lifetime attempts.
+                   (SELECT count(*) FROM drill_sentences ds
+                     JOIN gym_progress gpx
+                       ON gpx.drill_id = ds.id AND gpx.user_id = $3
+                     WHERE ds.grammar_point_id = gp.id
+                       AND gpx.seen > 0
+                       AND (ds.reviewed OR ds.created_by = $3
+                            OR l.grammar_review_policy = 'ai_ok')) AS done,
                    EXISTS (SELECT 1 FROM user_cards uc
                             WHERE uc.user_id = $3
                               AND uc.card_type = 'grammar'
@@ -91,6 +105,7 @@ async def gym_manifest(
                 "example": e.get("example"),
                 "level": r["level"],
                 "drills": r["drills"],
+                "done": r["done"],
                 "nonstandard": bool(e.get("nonstandard")),
                 "familiar": r["familiar"],
             })

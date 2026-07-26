@@ -236,7 +236,7 @@ async def gym_generate(
                     conn, ctx["point_id"], d["sentence"], d["answer"],
                     d.get("translation"), d.get("hint"),
                     source="ai", origin_detail=model, decertify=False,
-                    created_by=user["id"],
+                    created_by=user["id"], lemma=d.get("lemma"),
                 )
                 generated += 1
             # One message per form topped up (regardless of drill yield).
