@@ -15,6 +15,7 @@ const QUEUES: { key: keyof ReviewInboxCounts; label: string; hint: string }[] = 
   { key: 'suggestions', label: 'Content suggestions', hint: 'Suggestions panel' },
   { key: 'notes', label: 'Review notes', hint: 'Point review notes' },
   { key: 'feedback', label: 'Learner feedback', hint: 'Feedback panel' },
+  { key: 'overlaps', label: 'Overlapping points', hint: 'Overlaps panel' },
 ]
 
 /**

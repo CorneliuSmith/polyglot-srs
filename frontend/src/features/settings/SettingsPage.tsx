@@ -2,7 +2,8 @@ import { useState } from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query'
 import { getLanguages, getProfile, updateProfile } from '../../api/profile'
-import { resetProgress } from '../../api/review'
+import { getLearnDecks, resetProgress } from '../../api/review'
+import { setLearnerLevel } from '../../api/onboarding'
 import {
   formatPrice,
   getPlanPrices,
@@ -45,6 +46,7 @@ export function localToUtcHour(local: number): number {
 
 const BATCH_SIZES = [3, 5, 10, 15, 20]
 const SESSION_SIZES = [10, 20, 50, 100]
+const CEFR_LEVELS = ['A1', 'A2', 'B1', 'B2', 'C1', 'C2']
 
 // Script names for the language-specific section's copy.
 const SCRIPT_NAME: Record<string, string> = {
@@ -150,6 +152,31 @@ export default function SettingsPage() {
   const resetMutation = useMutation({
     mutationFn: (languageId?: string) => resetProgress(languageId),
     onSuccess: () => queryClient.invalidateQueries(),
+  })
+
+  // Your level = the highest deck level currently feeding Learn. Derived
+  // from deck subscriptions because that IS the level system — there's no
+  // separate stored level.
+  const { data: decks = [] } = useQuery({
+    queryKey: ['learn-decks', activeLanguageId],
+    queryFn: () => getLearnDecks(activeLanguageId!),
+    enabled: !!activeLanguageId,
+  })
+  const currentLevel = decks
+    .filter((d) => d.subscribed && d.level)
+    .reduce<string | null>(
+      (top, d) =>
+        top === null || CEFR_LEVELS.indexOf(d.level!) > CEFR_LEVELS.indexOf(top)
+          ? d.level!
+          : top,
+      null,
+    )
+  const levelMutation = useMutation({
+    mutationFn: (level: string) => setLearnerLevel(activeLanguageId!, level),
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ['learn-decks'] })
+      queryClient.invalidateQueries({ queryKey: ['dashboard'] })
+    },
   })
 
   const activeLanguage = languages.find((l) => l.id === activeLanguageId)
@@ -307,6 +334,57 @@ export default function SettingsPage() {
           <h2 className="font-semibold text-gray-800">Active language</h2>
           <LanguagePicker />
         </section>
+
+        {/* Your level (beta report: a misplaced learner was stuck with A1
+            content and couldn't find any way to change it — placement's
+            "you can change it later" promise now lives here). */}
+        {activeLanguageId && (
+          <section
+            className="bg-white rounded-2xl shadow-sm border border-gray-100 p-5 space-y-3"
+            data-testid="level-section"
+          >
+            <h2 className="font-semibold text-gray-800">Your level</h2>
+            <p className="text-xs text-gray-500">
+              Sets which decks feed Learn — grammar and vocabulary at this
+              level and below. Placement got it wrong? Fix it here any time.
+              Cards you've already learned are never removed.
+            </p>
+            <div className="flex flex-wrap gap-2">
+              {CEFR_LEVELS.map((l) => (
+                <button
+                  key={l}
+                  type="button"
+                  onClick={() => levelMutation.mutate(l)}
+                  disabled={levelMutation.isPending}
+                  aria-pressed={currentLevel === l}
+                  className={
+                    'rounded-lg px-4 py-2 text-sm font-medium border ' +
+                    (currentLevel === l
+                      ? 'bg-lang text-white border-lang'
+                      : 'bg-white text-gray-700 border-gray-300 hover:bg-gray-50')
+                  }
+                  style={{ minHeight: '44px' }}
+                >
+                  {l}
+                </button>
+              ))}
+            </div>
+            {levelMutation.isSuccess && (
+              <p className="text-xs text-green-700">
+                Level set to {levelMutation.data.level} —{' '}
+                {levelMutation.data.subscribed} deck
+                {levelMutation.data.subscribed === 1 ? '' : 's'} added
+                {levelMutation.data.unsubscribed > 0
+                  ? `, ${levelMutation.data.unsubscribed} removed`
+                  : ''}
+                . Learn will draw from them right away.
+              </p>
+            )}
+            {levelMutation.isError && (
+              <p className="text-xs text-red-500">Couldn't save — try again.</p>
+            )}
+          </section>
+        )}
 
         <section className="bg-white rounded-2xl shadow-sm border border-gray-100 p-5 space-y-3">
           <h2 className="font-semibold text-gray-800">New here?</h2>

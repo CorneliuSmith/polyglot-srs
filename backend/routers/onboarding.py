@@ -15,6 +15,7 @@ from backend.repositories.onboarding import (
     get_placement_answers,
     get_status,
     sample_placement_items,
+    set_learner_level,
 )
 from backend.repositories.pool import rls_connection
 from backend.services.nlp import validate_answer_async
@@ -40,6 +41,11 @@ class ScorePlacement(BaseModel):
 
 class AdaptiveHistory(BaseModel):
     history: list[PlacementAnswer] = Field(default_factory=list, max_length=32)
+
+
+class SetLevel(BaseModel):
+    language_id: str
+    level: str
 
 
 class CompleteOnboarding(BaseModel):
@@ -195,6 +201,28 @@ async def score_placement(
         "estimated_level": estimated,
         "per_level": {lvl: {"correct": c, "total": t} for lvl, (c, t) in per_level.items()},
     }
+
+
+@router.put("/level")
+async def set_level(
+    body: SetLevel,
+    user: dict = Depends(get_current_user),
+):
+    """Change the learner's level after onboarding (Settings → Your level).
+
+    Re-seats which decks feed Learn with SET semantics: raising the level
+    adds the missing decks, lowering removes the ones above it. Cards
+    already learned and their history are never touched.
+    """
+    if body.level not in CEFR_ORDER:
+        raise HTTPException(
+            status_code=status.HTTP_422_UNPROCESSABLE_ENTITY,
+            detail=f"level must be one of {list(CEFR_ORDER)}",
+        )
+    async with rls_connection(user["id"]) as conn:
+        return await set_learner_level(
+            conn, user["id"], body.language_id, body.level
+        )
 
 
 @router.post("/complete")

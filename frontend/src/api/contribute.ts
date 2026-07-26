@@ -779,6 +779,72 @@ export async function runRecheck(params: {
   return response.data
 }
 
+// ── Grammar-point overlap audit ────────────────────────────────────────────
+
+export interface OverlapPoint {
+  id: string
+  title: string
+  level: string | null
+}
+
+export interface OverlapPair {
+  id: string
+  verdict: 'duplicate' | 'subsumes' | 'partial'
+  reason: string | null
+  status: string
+  created_at: string
+  point_a: OverlapPoint
+  point_b: OverlapPoint
+}
+
+/** Scan the grammar syllabus for overlapping points (admin). Dry-run gives
+ * the work-list size and cost estimate without calling the model. */
+export async function runOverlapAudit(params: {
+  languageId: string
+  languageCode: string
+  dryRun: boolean
+}): Promise<{
+  dry_run: boolean
+  model: string
+  points_to_audit?: number
+  judge_calls?: number
+  points_audited?: number
+  pairs_reported?: number
+  pairs_flagged?: number
+  est_cost_usd: number
+}> {
+  const response = await apiClient.post(
+    '/api/contribute/admin/generation/overlap',
+    {
+      language_id: params.languageId,
+      language_code: params.languageCode,
+      dry_run: params.dryRun,
+    },
+  )
+  return response.data
+}
+
+/** Open overlap pairs awaiting a reviewer's verdict. */
+export async function getOverlaps(languageId: string): Promise<OverlapPair[]> {
+  const response = await apiClient.get<{ overlaps: OverlapPair[] }>(
+    '/api/contribute/review/overlaps',
+    { params: { language_id: languageId } },
+  )
+  return response.data.overlaps
+}
+
+/** Reviewer verdict on an overlap pair. */
+export async function resolveOverlap(
+  overlapId: string,
+  status: 'merged' | 'distinct' | 'dismissed',
+): Promise<{ resolved: boolean }> {
+  const response = await apiClient.post(
+    `/api/contribute/review/overlaps/${overlapId}/resolve`,
+    { status },
+  )
+  return response.data
+}
+
 export interface PendingExample {
   id: string
   sentence: string
@@ -910,6 +976,7 @@ export interface ReviewInboxCounts {
   suggestions: number
   notes: number
   feedback: number
+  overlaps: number
 }
 
 export interface ReviewInbox {

@@ -128,6 +128,31 @@ class TestOnboarding:
         }, headers=_auth_headers())
         assert resp.status_code == 422
 
+    def test_set_level_reseats_decks(self, client):
+        # Beta report (Kate): misplaced at A1, no way out. The level is
+        # changeable any time via PUT /level with set semantics.
+        with patch("backend.routers.onboarding.set_learner_level",
+                   new=AsyncMock(return_value={"level": "B1",
+                                               "subscribed": 4,
+                                               "unsubscribed": 0})) as mock_set:
+            resp = client.put("/api/onboarding/level", json={
+                "language_id": LANG, "level": "B1",
+            }, headers=_auth_headers())
+        assert resp.status_code == 200
+        assert resp.json() == {"level": "B1", "subscribed": 4, "unsubscribed": 0}
+        assert mock_set.await_args.args[3] == "B1"
+
+    def test_set_level_rejects_bad_level(self, client):
+        resp = client.put("/api/onboarding/level", json={
+            "language_id": LANG, "level": "native",
+        }, headers=_auth_headers())
+        assert resp.status_code == 422
+
+    def test_set_level_requires_auth(self, client):
+        assert client.put("/api/onboarding/level", json={
+            "language_id": LANG, "level": "B1",
+        }).status_code == 401
+
 
 class TestPlainPromptFilter:
     """Placement prompts must read like flashcards, not a linguistics glossary

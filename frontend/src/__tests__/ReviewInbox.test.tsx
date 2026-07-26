@@ -13,7 +13,7 @@ const mockGet = getReviewInbox as ReturnType<typeof vi.fn>
 const ZERO = {
   grammar_pending: 0, pending_drills: 0, flagged_drills: 0, pending_examples: 0,
   flagged_examples: 0, translation_suggestions: 0, ai_levels: 0,
-  change_requests: 0, suggestions: 0, notes: 0, feedback: 0,
+  change_requests: 0, suggestions: 0, notes: 0, feedback: 0, overlaps: 0,
 }
 
 function renderInbox() {

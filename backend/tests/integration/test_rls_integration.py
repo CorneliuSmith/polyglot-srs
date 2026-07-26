@@ -577,6 +577,58 @@ async def test_gym_progress_accumulates_and_is_isolated(pool):
     assert rows[0]["n"] == 0           # RLS hides A's row from B
 
 
+async def test_set_learner_level_reseats_deck_subscriptions(pool):
+    """Kate's bug: placement wrote A1 subscriptions once and nothing could
+    change them. set_learner_level has SET semantics — raising subscribes the
+    missing decks, lowering removes the ones above — and never touches cards."""
+    from backend.repositories.onboarding import (
+        complete_onboarding,
+        set_learner_level,
+    )
+
+    lang = await _language(pool, "lvl")
+    user = await _new_user(pool, "level-kate@x")
+    async with pool.privileged_connection() as conn:
+        for level in ("A1", "A2", "B1", "B2"):
+            for list_type in ("grammar", "vocabulary"):
+                await conn.execute(
+                    "INSERT INTO content_lists (language_id, list_type, level, title) "
+                    "VALUES ($1, $2, $3, $4)",
+                    lang, list_type, level, f"{level} {list_type}",
+                )
+
+    async def subscribed_levels():
+        async with pool.privileged_connection() as conn:
+            rows = await conn.fetch(
+                """
+                SELECT DISTINCT cl.level FROM user_content_subscriptions ucs
+                JOIN content_lists cl ON cl.id = ucs.content_list_id
+                WHERE ucs.user_id = $1 AND cl.language_id = $2
+                ORDER BY cl.level
+                """,
+                user, lang,
+            )
+        return [r["level"] for r in rows]
+
+    # Placement said A1 (wrongly) — only A1 decks feed Learn.
+    async with pool.rls_connection(user) as conn:
+        await complete_onboarding(conn, user, lang, "A1")
+    assert await subscribed_levels() == ["A1"]
+
+    # She's actually B1: raising re-seats everything at/below B1.
+    async with pool.rls_connection(user) as conn:
+        result = await set_learner_level(conn, user, lang, "B1")
+    assert await subscribed_levels() == ["A1", "A2", "B1"]
+    assert result["subscribed"] == 4  # A2 + B1, grammar + vocab
+    assert result["unsubscribed"] == 0
+
+    # Lowering removes the decks above the new level (cards untouched).
+    async with pool.rls_connection(user) as conn:
+        result = await set_learner_level(conn, user, lang, "A2")
+    assert await subscribed_levels() == ["A1", "A2"]
+    assert result["unsubscribed"] == 2  # the B1 pair
+
+
 async def test_form_struggles_rollup_targets_missed_cells(pool):
     """The 'forms' assessment tier: gym history rolls up per cell, worst
     first, and only cells with misses appear — so on-demand generation aims

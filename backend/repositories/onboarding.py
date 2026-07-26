@@ -358,3 +358,55 @@ async def complete_onboarding(
         language_id,
     )
     return {"subscribed": subscribed, "active_language_id": language_id, "level": level}
+
+
+async def set_learner_level(
+    conn: asyncpg.Connection,
+    user_id: str,
+    language_id: str,
+    level: str,
+) -> dict:
+    """Re-seat the learner's level for one language, any time after
+    onboarding (owner bug report: a misplaced learner had no way out —
+    "only A1 questions", no setting to change it).
+
+    SET semantics, unlike complete_onboarding's additive-only subscribe:
+    grammar/vocabulary decks at/below *level* are subscribed, decks strictly
+    above it are unsubscribed. Learned cards and review history are never
+    touched — unsubscribing only stops NEW cards from that deck (the same
+    guarantee set_deck_subscription documents).
+    """
+    levels = set(levels_at_or_below(level))
+    rows = await conn.fetch(
+        """
+        SELECT id, level FROM content_lists
+        WHERE language_id = $1
+          AND list_type IN ('grammar', 'vocabulary')
+        """,
+        language_id,
+    )
+    keep = [r["id"] for r in rows if r["level"] is None or r["level"] in levels]
+    above = [r["id"] for r in rows if r["level"] is not None and r["level"] not in levels]
+
+    subscribed = 0
+    for list_id in keep:
+        result = await conn.execute(
+            "INSERT INTO user_content_subscriptions (user_id, content_list_id) "
+            "VALUES ($1, $2) ON CONFLICT (user_id, content_list_id) DO NOTHING",
+            user_id,
+            list_id,
+        )
+        if result.endswith(" 1"):
+            subscribed += 1
+
+    unsubscribed = 0
+    if above:
+        result = await conn.execute(
+            "DELETE FROM user_content_subscriptions "
+            "WHERE user_id = $1 AND content_list_id = ANY($2::uuid[])",
+            user_id,
+            above,
+        )
+        unsubscribed = int(result.split()[-1])
+
+    return {"level": level, "subscribed": subscribed, "unsubscribed": unsubscribed}

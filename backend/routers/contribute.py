@@ -87,6 +87,8 @@ from backend.repositories.contributor import (
     record_trial_prompt_answer,
     reject_suggestion,
     resolve_feedback,
+    list_overlaps,
+    resolve_overlap,
     resolve_review_note,
     resolve_translation_review,
     review_drill,
@@ -112,12 +114,14 @@ from backend.services.generate import generation_available
 from backend.services.generation_admin import (
     MAX_ITEMS_PER_RUN,
     MAX_PER_ITEM,
+    plan_overlap,
     plan_recheck,
     plan_recheck_drills,
     plan_run,
     recheck_drills,
     recheck_examples,
     run_generation,
+    run_overlap_audit,
 )
 from backend.services.models import LOW_RESOURCE_LANGUAGES, resolve_model
 from backend.services.rate_limit import ai_review_limiter
@@ -530,6 +534,102 @@ async def generation_recheck(
         "alternatives_generated": result["alternatives_generated"],
         "est_cost_usd": result["est_cost_usd"],
     }
+
+
+class OverlapAuditRequest(BaseModel):
+    language_id: str
+    language_code: str
+    dry_run: bool = True
+
+
+@router.post("/admin/generation/overlap")
+async def generation_overlap(
+    body: OverlapAuditRequest,
+    user: dict = Depends(get_current_user),
+):
+    """Scan a language's grammar syllabus for OVERLAPPING points (admin-only):
+    pairs that teach substantially the same thing become open review rows for
+    a human to merge, keep, or dismiss. Nothing is merged automatically. Same
+    dry-run cost preview as generate/recheck; idempotent — re-runs only add
+    pairs that aren't already open.
+    """
+    await _require_admin(user["id"])
+    if not body.dry_run and not generation_available():
+        raise HTTPException(
+            status_code=status.HTTP_503_SERVICE_UNAVAILABLE,
+            detail="The overlap audit needs ANTHROPIC_API_KEY (or dev-mock) on the server.",
+        )
+    async with privileged_connection() as conn:
+        lang = await conn.fetchrow(
+            "SELECT code, name FROM languages WHERE id = $1", body.language_id
+        )
+        if lang is None or lang["code"] != body.language_code:
+            raise HTTPException(
+                status_code=status.HTTP_404_NOT_FOUND, detail="Unknown language."
+            )
+        if body.dry_run:
+            plan = await plan_overlap(
+                conn,
+                language_id=body.language_id,
+                language_code=body.language_code,
+            )
+            plan.pop("_groups", None)
+            return {"dry_run": True, **plan}
+        result = await run_overlap_audit(
+            conn,
+            language_id=body.language_id,
+            language_code=body.language_code,
+            language_name=lang["name"],
+        )
+    return {"dry_run": False, **result}
+
+
+@router.get("/review/overlaps")
+async def review_overlaps(
+    language_id: str,
+    user: dict = Depends(get_current_user),
+):
+    """Open overlap pairs for the review panel (trial reviewers can look)."""
+    async with rls_connection(user["id"]) as conn:
+        roles = await get_roles(conn, user["id"])
+    if not can_trial_review(roles, language_id):
+        raise HTTPException(
+            status_code=status.HTTP_403_FORBIDDEN,
+            detail="Reviewer access required",
+        )
+    async with privileged_connection() as conn:
+        overlaps = await list_overlaps(conn, language_id, status="open")
+    return {"overlaps": overlaps}
+
+
+class OverlapResolution(BaseModel):
+    status: str = Field(pattern="^(merged|distinct|dismissed)$")
+
+
+@router.post("/review/overlaps/{overlap_id}/resolve")
+async def review_overlap_resolve(
+    overlap_id: str,
+    body: OverlapResolution,
+    user: dict = Depends(get_current_user),
+):
+    """Reviewer verdict on an overlap pair (full reviewers/admins only):
+    merged (content fixed), distinct (fine as two points), or dismissed."""
+    async with rls_connection(user["id"]) as conn:
+        roles = await get_roles(conn, user["id"])
+    async with privileged_connection() as conn:
+        language_id = await conn.fetchval(
+            "SELECT language_id::text FROM grammar_point_overlaps WHERE id = $1",
+            overlap_id,
+        )
+        if language_id is None:
+            raise HTTPException(status_code=404, detail="No such overlap flag")
+        if not can_review(roles, language_id):
+            raise HTTPException(
+                status_code=status.HTTP_403_FORBIDDEN,
+                detail="Only a reviewer for this language or an admin can resolve overlaps",
+            )
+        ok = await resolve_overlap(conn, overlap_id, body.status, user["id"])
+    return {"resolved": ok}
 
 
 @router.get("/admin/generation/pending")

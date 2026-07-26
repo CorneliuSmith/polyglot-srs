@@ -8,11 +8,13 @@ vi.mock('../api/contribute', () => ({
   getSuggestions: vi.fn(),
   getReviewNotes: vi.fn(),
   getFeedback: vi.fn(),
+  getOverlaps: vi.fn(() => Promise.resolve([])),
   // Referenced by the child panels' imports.
   approveSuggestion: vi.fn(),
   rejectSuggestion: vi.fn(),
   resolveReviewNote: vi.fn(),
   resolveFeedback: vi.fn(),
+  resolveOverlap: vi.fn(),
 }))
 
 import { getSuggestions, getReviewNotes, getFeedback } from '../api/contribute'
