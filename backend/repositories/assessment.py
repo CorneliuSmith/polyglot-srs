@@ -19,7 +19,7 @@ from __future__ import annotations
 
 import asyncpg
 
-from backend.repositories.reader import get_learner_model
+from backend.repositories.reader import CEFR_ORDER, get_learner_model
 from backend.repositories.tutor import (
     get_language_profile,
     get_study_stats,
@@ -34,6 +34,11 @@ _FULL_WEAK_LIMIT = 12
 # A cell only counts as a "struggle" once there's real evidence — a single
 # slip on a form seen once is noise, not a pattern.
 _MIN_CELL_MISSES = 2
+
+# Below this many cards, the level derived from learned cards is mostly the
+# cold-start default — a writing-sample baseline (onboarding) outranks it.
+# Past it, earned card evidence wins.
+_BASELINE_CARD_CUTOFF = 50
 
 
 async def get_form_struggles(
@@ -108,6 +113,18 @@ async def get_assessment_summary(
         language_profile = (
             await get_language_profile(conn, user_id, language_id)
         )["profile"]
+
+    # Writing-sample priming (owner): a fresh account's card-derived level is
+    # just the A1 cold start; until enough cards exist, the onboarding
+    # writing baseline lifts it so the Tutor/Reader start at the learner's
+    # real level instead of talking down to them.
+    baseline = (language_profile.get("_writing_baseline") or {}).get("level")
+    if (
+        baseline in CEFR_ORDER
+        and summary.get("known_count", 0) < _BASELINE_CARD_CUTOFF
+        and CEFR_ORDER.index(baseline) > CEFR_ORDER.index(summary["level"])
+    ):
+        summary["level"] = baseline
 
     summary["weak_words"] = [w.get("word") for w in weak if w.get("word")]
     summary["focus"] = [

@@ -118,6 +118,46 @@ class TestAssessmentSummary:
         mock_profile.assert_not_awaited()
         assert out["focus"] == ["cases"]
 
+    def test_writing_baseline_lifts_a_cold_start_level(self):
+        # Fresh account: card-derived level is the A1 cold start, but the
+        # onboarding writing sample said B1 — the tiers serve B1.
+        p1, p2, p3, p4 = _tier_patches()
+        with patch(
+            "backend.repositories.assessment.get_learner_model",
+            new=AsyncMock(return_value={
+                "known_words": [], "learned_structures": [],
+                "level": "A1", "known_count": 3,
+            }),
+        ), p2, p3, p4:
+            out = asyncio.run(
+                get_assessment_summary(
+                    AsyncMock(), USER, LANG, depth="reading",
+                    language_profile={"_writing_baseline": {"level": "B1"}},
+                )
+            )
+        del p1
+        assert out["level"] == "B1"
+
+    def test_earned_card_evidence_outranks_the_baseline(self):
+        # Plenty of cards: the level the cards demonstrate wins, and a
+        # baseline never LOWERS an earned level either way.
+        p1, p2, p3, p4 = _tier_patches()
+        with patch(
+            "backend.repositories.assessment.get_learner_model",
+            new=AsyncMock(return_value={
+                "known_words": ["x"], "learned_structures": [],
+                "level": "B2", "known_count": 200,
+            }),
+        ), p2, p3, p4:
+            out = asyncio.run(
+                get_assessment_summary(
+                    AsyncMock(), USER, LANG, depth="reading",
+                    language_profile={"_writing_baseline": {"level": "C1"}},
+                )
+            )
+        del p1
+        assert out["level"] == "B2"
+
     def test_unknown_depth_raises(self):
         import pytest
 

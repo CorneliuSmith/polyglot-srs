@@ -18,8 +18,18 @@ from backend.repositories.onboarding import (
     set_learner_level,
 )
 from backend.repositories.pool import rls_connection
+from backend.repositories.tutor import (
+    get_language_profile,
+    has_tutor_entitlement,
+    log_tutor_usage,
+    upsert_language_profile,
+)
+from backend.config import get_settings
+from backend.services.models import resolve_model
 from backend.services.nlp import validate_answer_async
 from backend.services.nlp.base import AnswerResult
+from backend.services.rate_limit import tutor_chat_limiter
+from backend.services.writing_baseline import MAX_SAMPLE_CHARS, assess_writing
 
 router = APIRouter()
 
@@ -201,6 +211,98 @@ async def score_placement(
         "estimated_level": estimated,
         "per_level": {lvl: {"correct": c, "total": t} for lvl, (c, t) in per_level.items()},
     }
+
+
+class WritingSample(BaseModel):
+    language_id: str
+    language_code: str = Field(min_length=2, max_length=8)
+    text: str = Field(min_length=1, max_length=MAX_SAMPLE_CHARS)
+
+
+async def _writing_assessment_available(conn, user_id: str, language_id: str) -> bool:
+    """Token guard (owner): the writing assessment spends a model call, so
+    it's only offered to accounts with a tutor entitlement (paid or
+    owner-granted) — or in dev-mock, where no key is spent."""
+    settings = get_settings()
+    if getattr(settings, "tutor_dev_mock", False):
+        return True
+    if not settings.anthropic_api_key:
+        return False
+    return await has_tutor_entitlement(conn, user_id, language_id)
+
+
+@router.get("/writing-sample/availability")
+async def writing_sample_availability(
+    language_id: str,
+    user: dict = Depends(get_current_user),
+):
+    """Whether the optional write-something baseline is offered to this
+    account (drives whether onboarding shows the textarea at all)."""
+    async with rls_connection(user["id"]) as conn:
+        available = await _writing_assessment_available(
+            conn, user["id"], language_id
+        )
+    return {"available": available}
+
+
+@router.post("/writing-sample")
+async def writing_sample(
+    body: WritingSample,
+    user: dict = Depends(get_current_user),
+):
+    """Assess an optional free-writing sample and use it as the level
+    baseline (owner request): one small model call returns a CEFR estimate,
+    an encouraging note, and up to 3 focus structures. The result also
+    PRIMES the tutor's language profile (_writing_baseline + Active Focus),
+    which the assessment tiers feed to the Tutor and Reader — so the AI
+    surfaces start at the learner's level instead of cold at A1."""
+    async with rls_connection(user["id"]) as conn:
+        if not await _writing_assessment_available(
+            conn, user["id"], body.language_id
+        ):
+            raise HTTPException(
+                status_code=status.HTTP_403_FORBIDDEN,
+                detail="The writing assessment isn't available on this account.",
+            )
+        language_name = await conn.fetchval(
+            "SELECT name FROM languages WHERE id = $1", body.language_id
+        )
+    if language_name is None:
+        raise HTTPException(status_code=404, detail="Unknown language.")
+    if not await tutor_chat_limiter.allow(user["id"]):
+        raise HTTPException(
+            status_code=status.HTTP_429_TOO_MANY_REQUESTS,
+            detail="Too many requests — slow down a moment.",
+        )
+
+    result, usage = await assess_writing(
+        body.language_code, language_name, body.text
+    )
+
+    async with rls_connection(user["id"]) as conn:
+        lang = await get_language_profile(conn, user["id"], body.language_id)
+        profile = lang["profile"]
+        profile["_writing_baseline"] = {
+            "level": result["level"],
+            "notes": result["notes"],
+        }
+        # Seed Active Focus from the sample only when the tutor hasn't set
+        # its own yet — the tutor's live judgement always outranks a
+        # one-shot baseline.
+        if result["focus"] and not profile.get("_active_focus"):
+            profile["_active_focus"] = [
+                {"structure": s, "reason": "from your writing sample"}
+                for s in result["focus"]
+            ]
+        await upsert_language_profile(
+            conn, user["id"], body.language_id, profile
+        )
+        await log_tutor_usage(
+            conn, user["id"], body.language_id,
+            resolve_model("semantic_check", body.language_code),
+            usage=usage, kind="writing_baseline",
+        )
+    return result
 
 
 @router.put("/level")

@@ -79,6 +79,39 @@ export async function scorePlacement(
   return response.data
 }
 
+/** Whether the optional write-something level baseline is offered (token
+ * guard: entitled/paid accounts or dev-mock only). */
+export async function getWritingAvailability(
+  languageId: string,
+): Promise<{ available: boolean }> {
+  const response = await apiClient.get(
+    '/api/onboarding/writing-sample/availability',
+    { params: { language_id: languageId } },
+  )
+  return response.data
+}
+
+export interface WritingAssessment {
+  level: string
+  notes: string
+  focus: string[]
+}
+
+/** Assess a short free-writing sample: returns a CEFR estimate + note, and
+ * primes the tutor/reader with the result server-side. */
+export async function assessWritingSample(
+  languageId: string,
+  languageCode: string,
+  text: string,
+): Promise<WritingAssessment> {
+  const response = await apiClient.post('/api/onboarding/writing-sample', {
+    language_id: languageId,
+    language_code: languageCode,
+    text,
+  })
+  return response.data
+}
+
 /** Change the learner's level any time (Settings → Your level). SET
  * semantics server-side: decks at/below the level are queued, decks above
  * it are unqueued; learned cards are never touched. */

@@ -18,6 +18,8 @@ vi.mock('../api/onboarding', () => ({
   getOnboardingStatus: vi.fn(),
   placementNext: vi.fn(),
   completeOnboarding: vi.fn(),
+  getWritingAvailability: vi.fn(() => Promise.resolve({ available: false })),
+  assessWritingSample: vi.fn(),
 }))
 const mockSetActive = vi.fn()
 vi.mock('../stores/prefsStore', () => ({
@@ -127,6 +129,51 @@ describe('OnboardingPage', () => {
 
     const select = (await screen.findByLabelText('Starting level')) as HTMLSelectElement
     expect(select.value).toBe('A1')
+  })
+
+  it('writing baseline (when offered): assessment suggests the level', async () => {
+    const { getWritingAvailability, assessWritingSample } = await import(
+      '../api/onboarding'
+    )
+    ;(getWritingAvailability as ReturnType<typeof vi.fn>).mockResolvedValue({
+      available: true,
+    })
+    ;(assessWritingSample as ReturnType<typeof vi.fn>).mockResolvedValue({
+      level: 'B1',
+      notes: 'Solid past-tense narration already.',
+      focus: ['subjunctive'],
+    })
+    renderPage()
+    fireEvent.click(await screen.findByRole('button', { name: 'Spanish' }))
+    fireEvent.click(await screen.findByRole('button', { name: /i know some/i }))
+
+    const box = await screen.findByTestId('writing-baseline')
+    fireEvent.change(screen.getByLabelText('Writing sample'), {
+      target: { value: 'Ayer fui al mercado y compré fruta.' },
+    })
+    fireEvent.click(screen.getByRole('button', { name: /suggest my level/i }))
+    expect(await screen.findByTestId('writing-verdict')).toBeDefined()
+    expect(box.textContent).toContain('B1')
+    expect(assessWritingSample).toHaveBeenCalledWith(
+      'lang-es', 'es', 'Ayer fui al mercado y compré fruta.',
+    )
+
+    // One tap adopts the suggestion into the level select.
+    fireEvent.click(screen.getByRole('button', { name: /start at b1/i }))
+    const select = screen.getByLabelText('Starting level') as HTMLSelectElement
+    expect(select.value).toBe('B1')
+  })
+
+  it('writing baseline is absent for accounts the server does not offer it to', async () => {
+    const { getWritingAvailability } = await import('../api/onboarding')
+    ;(getWritingAvailability as ReturnType<typeof vi.fn>).mockResolvedValue({
+      available: false,
+    })
+    renderPage()
+    fireEvent.click(await screen.findByRole('button', { name: 'Spanish' }))
+    fireEvent.click(await screen.findByRole('button', { name: /i know some/i }))
+    await screen.findByLabelText('Starting level')
+    expect(screen.queryByTestId('writing-baseline')).toBeNull()
   })
 
   it('self-pick path: "I know some" goes straight to the level chooser, no test', async () => {
