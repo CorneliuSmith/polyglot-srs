@@ -45,6 +45,10 @@ class GenerateRequest(BaseModel):
     language_id: str
     language_code: str = Field(min_length=2, max_length=8)
     topic: str = Field(min_length=1, max_length=MAX_TOPIC_CHARS)
+    # Per-text options (bounded): how long, whose voice, how hard.
+    length: str = Field(default="medium", pattern="^(short|medium|long)$")
+    voice: str = Field(default="any", pattern="^(any|first|third|dialogue)$")
+    complexity: str = Field(default="level", pattern="^(easier|level|stretch)$")
 
 
 class ExplainRequest(BaseModel):
@@ -100,6 +104,11 @@ async def generate(
         reading, usage = await generate_reading(
             body.language_code, body.topic.strip(), learner,
             gloss_locale=gloss_locale, model=model,
+            options={
+                "length": body.length,
+                "voice": body.voice,
+                "complexity": body.complexity,
+            },
         )
     except ValueError as exc:
         logger.error("Reading generation invalid: %s", exc)
