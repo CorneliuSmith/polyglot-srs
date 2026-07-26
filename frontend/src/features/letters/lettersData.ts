@@ -23,6 +23,13 @@ export interface LetterRow {
 export interface LetterSection {
   title: string
   note?: string
+  /** Joining scripts (Arabic): render each row's char in its four positional
+   * shapes — alone, start, middle, end — using joiner shaping. Rows must be
+   * single letters. */
+  positions?: boolean
+  /** Scripts whose italic/cursive shapes diverge from print (Russian т → m):
+   * render an italic twin next to the upright letter. */
+  italics?: boolean
   rows: LetterRow[]
 }
 

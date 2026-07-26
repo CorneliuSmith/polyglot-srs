@@ -13,6 +13,18 @@ import { lettersFor } from './lettersData'
  * and a plain-English description of the sound. Scripts (ru/el/ar/hi) show
  * their full inventories with the QWERTY typing key.
  */
+
+// Positional shaping for joining scripts (Arabic): a zero-width joiner on
+// either side makes the font itself draw the start/middle/end form — no
+// presentation-form tables needed, and non-joining letters (ا د ر…) simply
+// keep their true shapes.
+const ZWJ = '\u200D'
+const POSITION_SHAPES: { label: string; wrap: (c: string) => string }[] = [
+  { label: 'alone', wrap: (c) => c },
+  { label: 'start', wrap: (c) => c + ZWJ },
+  { label: 'middle', wrap: (c) => ZWJ + c + ZWJ },
+  { label: 'end', wrap: (c) => ZWJ + c },
+]
 export default function LettersPage() {
   const navigate = useNavigate()
   // The LIVE active language comes from the prefs store (same source the
@@ -67,11 +79,44 @@ export default function LettersPage() {
             <ul className="divide-y divide-gray-50">
               {section.rows.map((row) => (
                 <li key={row.char + row.example} className="py-2 flex items-center gap-3">
-                  <LanguageWrapper languageCode={code ?? 'en'}>
-                    <span className="block min-w-[3.5rem] text-xl font-semibold text-lang-dark text-center">
-                      {row.char}
+                  {section.positions ? (
+                    // The four positional shapes, right-to-left like the
+                    // script itself: alone · start · middle · end.
+                    <span
+                      dir="rtl"
+                      className="flex shrink-0 gap-1"
+                      data-testid="letter-positions"
+                    >
+                      {POSITION_SHAPES.map((shape) => (
+                        <span
+                          key={shape.label}
+                          className="flex flex-col items-center min-w-[2.1rem]"
+                        >
+                          <LanguageWrapper languageCode={code ?? 'en'}>
+                            <span className="text-xl font-semibold text-lang-dark leading-6">
+                              {shape.wrap(row.char)}
+                            </span>
+                          </LanguageWrapper>
+                          <span className="text-[9px] text-gray-400">
+                            {shape.label}
+                          </span>
+                        </span>
+                      ))}
                     </span>
-                  </LanguageWrapper>
+                  ) : (
+                    <LanguageWrapper languageCode={code ?? 'en'}>
+                      <span className="block min-w-[3.5rem] text-xl font-semibold text-lang-dark text-center">
+                        {row.char}
+                        {section.italics && (
+                          // The same letter in italics — the shape shift IS
+                          // the lesson (т → m-like, и → u-like).
+                          <span className="italic ml-2" data-testid="italic-twin">
+                            {row.char}
+                          </span>
+                        )}
+                      </span>
+                    </LanguageWrapper>
+                  )}
                   {row.roman && (
                     <span className="shrink-0 rounded bg-lang-soft px-1.5 py-0.5 text-[10px] font-mono text-lang-dark">
                       {row.roman}
