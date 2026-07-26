@@ -1246,6 +1246,41 @@ Also folds in: the "all accounts" tile (every account listable,
 including never-active — previously invisible in every activity
 window).
 
+### WP43 — Content quality sweep: recheck the live corpus (owner, 2026-07-26)
+Owner: "many words/sentences are broken — I may need help doing this later."
+The tooling is DONE (WP40 generation core, recheck flags, admin **Recheck**
+panel, CLI `--recheck`); this WP is the **run**, per language: (1) apply any
+pending migrations first — as of writing 20260823…20260829, latest
+`drill_lemma`, which the recheck writes into; (2)
+`python backend/services/seeder/generate_content.py -l <code> -k vocab
+--recheck --dry-run` to size the work-list and cost with zero spend; (3) drop
+`--dry-run` to run — LLM-audits existing sentences, flags bad ones, backfills
+missing translations, tops each word back up to target; (4) drills recheck
+from the admin panel; (5) human pass over flagged/fresh content in
+Contributor → Review (nothing ships without it, §6). Needs production
+`DATABASE_URL` + `ANTHROPIC_API_KEY`. Runbook:
+docs/content-generation-cli.md. **Effort:** S–M per language batch (mostly
+review time). **Model:** registry defaults.
+
+### WP44 — App-chrome translation (i18n): es → ar (RTL) → pt (owner, 2026-07-26)
+Post-stable — deliberately parked until feature churn slows, because
+translation is a permanent tax: every string shipped afterward is a key × N
+locales. Demand is already proven in-product (`support_locale` exists because
+Spanish/Arabic speakers study English here through chrome they can't fully
+read). Scope: **learner surfaces only** (dashboard, learn/review, reader,
+gym, tutor chrome, settings, onboarding) via react-i18next; contributor/admin
+tools stay English. Pipeline: LLM first-draft locale files through the same
+maker-checker pattern as content generation, human sign-off by the reviewer
+workforce via PRs. Sequence: **Spanish** first (largest cohort, LTR, nearly
+free), then **Arabic** — carries the RTL chrome pass (dir=rtl at root,
+Tailwind logical properties, mirrored chevrons; the single biggest line
+item), then **Portuguese**. UI locale defaults from `support_locale`/browser,
+overridable in Settings. Card CONTENT localization is a separate, already-
+working system (multi-locale sentence translations + WP22 support-locale
+definitions) — do not entangle the two.
+**Effort:** ~1 week extraction + ~1 week RTL, then small marginal cost per
+locale. **Model:** Sonnet drafts, reviewer-gated.
+
 ### WP40 — Part C: maker-checker drill generation (core, owner, 2026-07-23)
 The generation core the last several WPs set up (provenance WP38, model
 registry WP39, the offline-morphology checker probe). `services/generate.py`:
