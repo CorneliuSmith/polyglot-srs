@@ -59,7 +59,11 @@ vi.mock('../stores/prefsStore', () => ({
   ),
 }))
 vi.mock('../lib/supabase', () => ({ supabase: { auth: { signOut } } }))
-vi.mock('../api/review', () => ({ resetProgress: vi.fn() }))
+vi.mock('../api/review', () => ({
+  resetProgress: vi.fn(),
+  getLearnDecks: vi.fn(() => Promise.resolve([])),
+}))
+vi.mock('../api/onboarding', () => ({ setLearnerLevel: vi.fn() }))
 vi.mock('../api/billing', async (orig) => ({
   ...(await orig<typeof import('../api/billing')>()),
   getPlanPrices: vi.fn(() => Promise.resolve({ single: null, all: null })),
@@ -69,12 +73,15 @@ vi.mock('../api/billing', async (orig) => ({
 
 import { getProfile, updateProfile } from '../api/profile'
 import { getDashboardStats } from '../api/dashboard'
-import { resetProgress } from '../api/review'
+import { getLearnDecks, resetProgress } from '../api/review'
+import { setLearnerLevel } from '../api/onboarding'
 
 const mockGetProfile = getProfile as ReturnType<typeof vi.fn>
 const mockUpdate = updateProfile as ReturnType<typeof vi.fn>
 const mockStats = getDashboardStats as ReturnType<typeof vi.fn>
 const mockReset = resetProgress as ReturnType<typeof vi.fn>
+const mockDecks = getLearnDecks as ReturnType<typeof vi.fn>
+const mockSetLevel = setLearnerLevel as ReturnType<typeof vi.fn>
 
 function renderPage() {
   const queryClient = new QueryClient({ defaultOptions: { queries: { retry: false } } })
@@ -201,6 +208,34 @@ describe('SettingsPage', () => {
     renderPage()
     expect(await screen.findByText('All languages')).toBeDefined()
     expect(screen.queryByRole('button', { name: /upgrade/i })).toBeNull()
+  })
+
+  it('shows the current level from deck subscriptions and changes it (Kate)', async () => {
+    // Kate's bug: placed A1, stuck at A1, no visible way out. The Your-level
+    // section derives the level from subscribed decks and re-seats them.
+    mockDecks.mockResolvedValue([
+      { id: 'd1', list_type: 'grammar', level: 'A1', title: 'A1 Grammar', subscribed: true, total: 10, learned: 3 },
+      { id: 'd2', list_type: 'vocabulary', level: 'A1', title: 'A1 Vocab', subscribed: true, total: 10, learned: 3 },
+      { id: 'd3', list_type: 'grammar', level: 'B1', title: 'B1 Grammar', subscribed: false, total: 10, learned: 0 },
+    ])
+    mockSetLevel.mockResolvedValue({ level: 'B1', subscribed: 4, unsubscribed: 0 })
+    renderPage()
+    const section = await screen.findByTestId('level-section')
+    // Highest subscribed deck level = A1 → its pill is pressed.
+    await waitFor(() =>
+      expect(
+        within(section).getByRole('button', { name: 'A1' }).getAttribute('aria-pressed'),
+      ).toBe('true'),
+    )
+    expect(
+      within(section).getByRole('button', { name: 'B1' }).getAttribute('aria-pressed'),
+    ).toBe('false')
+
+    fireEvent.click(within(section).getByRole('button', { name: 'B1' }))
+    await waitFor(() =>
+      expect(mockSetLevel).toHaveBeenCalledWith('lang-es', 'B1'),
+    )
+    expect(await within(section).findByText(/4 decks added/i)).toBeDefined()
   })
 
   it('hides the language-specific section for Latin-script languages', async () => {

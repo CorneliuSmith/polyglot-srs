@@ -27,8 +27,10 @@ from backend.repositories.contributor import (
     backfill_example_translation,
     flag_drill,
     flag_example_sentence,
+    points_for_overlap_audit,
     points_with_drills,
     points_with_thin_cells,
+    record_overlap,
     suggest_example_translation,
     vocab_needing_examples,
     vocab_with_examples,
@@ -36,6 +38,7 @@ from backend.repositories.contributor import (
 from backend.services.generate import (
     audit_drills,
     audit_examples,
+    audit_overlap,
     generate_drills,
     generate_examples,
 )
@@ -424,5 +427,111 @@ async def recheck_drills(
         "drills_audited": plan["drills_to_audit"],
         "drills_flagged": flagged,
         "alternatives_generated": alternatives,
+        "est_cost_usd": plan["est_cost_usd"],
+    }
+
+
+# ---------------------------------------------------------------------------
+# Grammar-point OVERLAP audit (owner, 2026-07-26) — runs alongside the
+# recheck. The judge sees the syllabus per level band and reports pairs that
+# teach substantially the same thing; each pair becomes an open review row
+# (grammar_point_overlaps), never an automatic merge.
+# ---------------------------------------------------------------------------
+
+# Overlap hides within and next to a level, not across the whole ladder —
+# judging A1 against C2 wastes tokens on pairs that can't overlap. Points are
+# batched per level TOGETHER WITH the next level up, so boundary drift
+# (an A2 point re-teaching an A1 one) is still caught.
+_OVERLAP_LEVELS = ["A1", "A2", "B1", "B2", "C1", "C2"]
+
+
+def _overlap_groups(points: list[dict]) -> list[list[dict]]:
+    by_level: dict[str, list[dict]] = {}
+    for p in points:
+        by_level.setdefault(p.get("level") or "?", []).append(p)
+    groups = []
+    ladder = _OVERLAP_LEVELS + ["?"]
+    for i, level in enumerate(ladder):
+        cohort = list(by_level.get(level, []))
+        if not cohort:
+            continue
+        if i + 1 < len(ladder):
+            cohort += by_level.get(ladder[i + 1], [])
+        if len(cohort) >= 2:
+            groups.append(cohort)
+    return groups
+
+
+async def plan_overlap(
+    conn: asyncpg.Connection,
+    *,
+    language_id: str,
+    language_code: str,
+) -> dict:
+    """Resolve the overlap work-list + cost estimate WITHOUT calling the
+    model: one judge call per level band."""
+    points = await points_for_overlap_audit(conn, language_id)
+    groups = _overlap_groups(points)
+    model = resolve_model("grammar_checker", language_code)
+    est_cost = estimate_cost_usd(
+        model,
+        # Each group call carries its titles (~30 tokens each) + instructions;
+        # output is a short pair list.
+        input_tokens=sum(300 + 30 * len(g) for g in groups),
+        output_tokens=120 * len(groups),
+    )
+    return {
+        "kind": "overlap",
+        "model": model,
+        "points_to_audit": len(points),
+        "judge_calls": len(groups),
+        "est_cost_usd": est_cost,
+        "_groups": groups,
+    }
+
+
+async def run_overlap_audit(
+    conn: asyncpg.Connection,
+    *,
+    language_id: str,
+    language_code: str,
+    language_name: str,
+) -> dict:
+    """Judge every level band and record the overlapping pairs for review.
+
+    Idempotent: record_overlap dedupes against the open-pair unique index, so
+    a re-run only adds pairs that are new (or were previously resolved and
+    have drifted back). Nothing is merged or deleted here — reviewers decide.
+    """
+    plan = await plan_overlap(
+        conn, language_id=language_id, language_code=language_code
+    )
+    groups = plan.pop("_groups")
+    model = plan["model"]
+
+    pairs_reported = flagged = 0
+    for group in groups:
+        pairs = await audit_overlap(
+            group, language_name, language_code, model=model
+        )
+        pairs_reported += len(pairs)
+        for pair in pairs:
+            created = await record_overlap(
+                conn, language_id,
+                group[pair["a"]]["id"], group[pair["b"]]["id"],
+                pair["verdict"], pair["reason"], detected_by=model,
+            )
+            if created:
+                flagged += 1
+
+    return {
+        "kind": "overlap",
+        "language_code": language_code,
+        "language_name": language_name,
+        "model": model,
+        "points_audited": plan["points_to_audit"],
+        "judge_calls": plan["judge_calls"],
+        "pairs_reported": pairs_reported,
+        "pairs_flagged": flagged,
         "est_cost_usd": plan["est_cost_usd"],
     }

@@ -79,6 +79,20 @@ export async function scorePlacement(
   return response.data
 }
 
+/** Change the learner's level any time (Settings → Your level). SET
+ * semantics server-side: decks at/below the level are queued, decks above
+ * it are unqueued; learned cards are never touched. */
+export async function setLearnerLevel(
+  languageId: string,
+  level: string,
+): Promise<{ level: string; subscribed: number; unsubscribed: number }> {
+  const response = await apiClient.put('/api/onboarding/level', {
+    language_id: languageId,
+    level,
+  })
+  return response.data
+}
+
 export async function completeOnboarding(input: {
   languageId: string
   level: string

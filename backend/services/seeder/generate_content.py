@@ -61,12 +61,14 @@ from backend.repositories.pool import close_pool, init_pool, privileged_connecti
 from backend.services.define import definitions_available, generate_definitions
 from backend.services.generate import generation_available
 from backend.services.generation_admin import (
+    plan_overlap,
     plan_recheck,
     plan_recheck_drills,
     plan_run,
     recheck_drills,
     recheck_examples,
     run_generation,
+    run_overlap_audit,
 )
 from backend.services.level_estimate import estimate_levels
 from backend.services.translate import (
@@ -275,6 +277,35 @@ async def _run_recheck(conn, lang, args) -> None:
     )
 
 
+async def _run_overlap(conn, lang, args) -> None:
+    """Scan the grammar syllabus for OVERLAPPING points — pairs that teach
+    substantially the same thing. Each pair becomes an open review row; a
+    human merges, keeps, or dismisses (nothing is merged automatically).
+    Runs happily alongside a recheck — it reads the syllabus, not the
+    sentences."""
+    lang_id = str(lang["id"])
+    if args.dry_run:
+        plan = await plan_overlap(
+            conn, language_id=lang_id, language_code=lang["code"]
+        )
+        plan.pop("_groups", None)
+        print(json.dumps({"dry_run": True, **plan}, indent=2, default=str))
+        return
+    if not generation_available():
+        print("ERROR: the overlap audit needs ANTHROPIC_API_KEY (or TUTOR_DEV_MOCK=1).")
+        return
+    print(f"Scanning {lang['name']} grammar points for overlap…")
+    result = await run_overlap_audit(
+        conn, language_id=lang_id, language_code=lang["code"],
+        language_name=lang["name"],
+    )
+    print(json.dumps({"dry_run": False, **result}, indent=2, default=str))
+    print(
+        "\nOverlapping pairs are open review rows (Contributor › Review › "
+        "Overlaps) — nothing was merged or deleted."
+    )
+
+
 async def _run(args: argparse.Namespace) -> None:
     async with privileged_connection() as conn:
         lang = await conn.fetchrow(
@@ -295,6 +326,10 @@ async def _run(args: argparse.Namespace) -> None:
 
         if args.kind == "translations":
             await _run_translations(conn, lang, args)
+            return
+
+        if args.kind == "overlap":
+            await _run_overlap(conn, lang, args)
             return
 
         if args.recheck:
@@ -341,7 +376,8 @@ async def main() -> None:
     parser.add_argument("--language", "-l", required=True, help="language code, e.g. en")
     parser.add_argument(
         "--kind", "-k",
-        choices=["vocab", "grammar", "levels", "definitions", "translations"],
+        choices=["vocab", "grammar", "levels", "definitions", "translations",
+                 "overlap"],
         required=True,
     )
     parser.add_argument(
@@ -367,8 +403,10 @@ async def main() -> None:
         help="resolve the work-list and cost estimate only; no model call",
     )
     args = parser.parse_args()
-    if args.recheck and args.kind != "vocab":
-        parser.error("--recheck applies to -k vocab only")
+    # --recheck audits vocab example sentences OR grammar drills (_run_recheck
+    # handles both; the old vocab-only guard contradicted the docs).
+    if args.recheck and args.kind not in ("vocab", "grammar"):
+        parser.error("--recheck applies to -k vocab or -k grammar")
     if args.kind == "translations":
         if args.locale == "en":
             parser.error("-k translations needs a non-English --locale (e.g. --locale ru)")

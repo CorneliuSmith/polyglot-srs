@@ -168,6 +168,33 @@ Admins can also run either recheck from the UI — **Contribute → Admin →
 Content generation → Recheck now** (with a dry-run **Preview recheck**); the
 `vocab`/`grammar` toggle picks the corpus.
 
+### 7. Flag overlapping grammar points — `-k overlap`
+
+Runs happily **alongside a recheck** (it reads the syllabus, not the
+sentences): an LLM judge scans a language's grammar points per level band
+(each level together with the next one up, so boundary drift is caught) and
+reports **pairs that teach substantially the same thing** — duplicate,
+subsumes, or partial. Every reported pair becomes an **open review row**;
+nothing is ever merged or deleted automatically. Related-but-distinct points
+(contrasts like ser/estar, sequels like present→past) are explicitly not
+overlap.
+
+```bash
+# Dry run — points to judge, judge calls, cost estimate
+python -m backend.services.seeder.generate_content -l es -k overlap --dry-run
+
+# Scan for real; pairs land in Contributor → Review → Overlapping grammar points
+python -m backend.services.seeder.generate_content -l es -k overlap
+```
+
+Idempotent: a pair that's already open is never re-flagged, so re-running
+(or running for every language after a recheck) only adds what's new. A
+reviewer resolves each pair as **merged** (they folded the content
+together by editing the points), **keep both**, or **not an overlap**;
+resolved pairs can be re-flagged by a later scan if the content drifts back
+together. Admin UI: **Content generation → Scan now** under the recheck
+controls.
+
 Requires the flagging/suggestion columns: `example_sentences` (migrations
 `20260821…`, `20260822…`) for vocab, and `drill_sentences` (migration
 `20260826…`) for drills.

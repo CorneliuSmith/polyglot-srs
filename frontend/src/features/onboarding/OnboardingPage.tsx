@@ -321,7 +321,9 @@ export default function OnboardingPage() {
           <section className="space-y-4">
             <h2 className="font-semibold text-gray-800">Start {language.name} at this level</h2>
             <p className="text-sm text-gray-500">
-              We&apos;ll queue grammar and vocabulary at this level and below. You can change it later.
+              We&apos;ll queue grammar and vocabulary at this level and below.
+              Not sure? Pick the higher one — you can change it any time in
+              Account &rarr; Your level.
             </p>
             <select
               value={level}

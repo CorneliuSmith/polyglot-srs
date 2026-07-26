@@ -6,6 +6,7 @@ import {
   reviewExample,
   reviewExamplesBulk,
   runGeneration,
+  runOverlapAudit,
   runRecheck,
   type GenerationDryRun,
   type GenerationResult,
@@ -35,6 +36,7 @@ export default function GenerationPanel() {
   const [error, setError] = useState<string | null>(null)
   const [recheckPreview, setRecheckPreview] = useState<RecheckDryRun | null>(null)
   const [recheckResult, setRecheckResult] = useState<RecheckResult | null>(null)
+  const [overlapNote, setOverlapNote] = useState<string | null>(null)
 
   const rows = data?.coverage ?? []
   // Default the selector to the top "do next" language once data lands.
@@ -103,6 +105,40 @@ export default function GenerationPanel() {
         status === 503
           ? 'The server has no Anthropic key configured — recheck is unavailable here.'
           : 'Recheck failed. Please try again.',
+      )
+    },
+  })
+
+  const overlapMutation = useMutation({
+    mutationFn: (dryRun: boolean) =>
+      runOverlapAudit({
+        languageId: selectedId,
+        languageCode: selected!.language_code,
+        dryRun,
+      }),
+    onSuccess: (res) => {
+      setError(null)
+      if (res.dry_run) {
+        setOverlapNote(
+          `Would judge ${res.points_to_audit} points in ${res.judge_calls} ` +
+            `call${res.judge_calls === 1 ? '' : 's'} - est. ~$${res.est_cost_usd.toFixed(2)}.`,
+        )
+      } else {
+        setOverlapNote(
+          `Scanned ${res.points_audited} points: flagged ` +
+            `${res.pairs_flagged} overlapping pair${res.pairs_flagged === 1 ? '' : 's'} ` +
+            `for review (Review tab, Overlaps).`,
+        )
+        qc.invalidateQueries({ queryKey: ['review-inbox'] })
+        qc.invalidateQueries({ queryKey: ['overlaps'] })
+      }
+    },
+    onError: (err: unknown) => {
+      const status = (err as { response?: { status?: number } })?.response?.status
+      setError(
+        status === 503
+          ? 'The server has no Anthropic key configured - the overlap audit is unavailable here.'
+          : 'Overlap audit failed. Please try again.',
       )
     },
   })
@@ -425,6 +461,45 @@ export default function GenerationPanel() {
                 Review tab; alternatives are tagged “ai” and await review.
               </p>
             )}
+
+            {/* Overlap audit: runs alongside the recheck — flags pairs of
+                grammar points that teach the same thing. */}
+            <div className="border-t border-gray-100 pt-2 space-y-2" data-testid="overlap-controls">
+              <div className="text-xs text-gray-500">
+                Scan for <b>overlapping grammar points</b> — pairs that teach
+                substantially the same thing become review items. Nothing is
+                merged automatically.
+              </div>
+              <div className="flex flex-wrap items-center gap-2">
+                <button
+                  type="button"
+                  onClick={() => { setOverlapNote(null); overlapMutation.mutate(true) }}
+                  disabled={overlapMutation.isPending}
+                  className="rounded-lg border border-gray-200 px-3 py-1.5 text-gray-700 hover:bg-gray-50 disabled:opacity-40"
+                >
+                  {overlapMutation.isPending ? 'Working…' : 'Preview overlap scan'}
+                </button>
+                <button
+                  type="button"
+                  onClick={() => {
+                    if (
+                      window.confirm(
+                        `Scan ${selected?.language_name} grammar points for overlap now? ` +
+                          'Uses the server key and spends real credit.',
+                      )
+                    )
+                      overlapMutation.mutate(false)
+                  }}
+                  disabled={overlapMutation.isPending || !data.available}
+                  className="rounded-lg border border-amber-300 bg-amber-50 text-amber-800 px-3 py-1.5 font-semibold hover:bg-amber-100 disabled:opacity-40"
+                >
+                  Scan now
+                </button>
+              </div>
+              {overlapNote && (
+                <p className="text-xs text-gray-600" role="status">{overlapNote}</p>
+              )}
+            </div>
           </div>
         </div>
       )}

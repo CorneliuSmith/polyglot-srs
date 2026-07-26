@@ -578,7 +578,9 @@ async def review_inbox_counts(
             WHERE COALESCE(gp.language_id, v.language_id) = $1
               AND n.status = 'open') AS notes,
           (SELECT count(*) FROM card_feedback f
-            WHERE f.language_id = $1 AND f.status = 'open') AS feedback
+            WHERE f.language_id = $1 AND f.status = 'open') AS feedback,
+          (SELECT count(*) FROM grammar_point_overlaps o
+            WHERE o.language_id = $1 AND o.status = 'open') AS overlaps
         """,
         language_id,
     )
@@ -908,6 +910,132 @@ async def flag_drill(
             language_id=str(lang) if lang else None, note=clean,
         )
     return changed
+
+
+# ---------------------------------------------------------------------------
+# Grammar-point overlap flags (owner, 2026-07-26): pairs of points that teach
+# substantially the same thing, detected by the audit judge, resolved by a
+# human — merged, kept distinct, or dismissed.
+# ---------------------------------------------------------------------------
+
+OVERLAP_RESOLUTIONS = ("merged", "distinct", "dismissed")
+
+
+async def points_for_overlap_audit(
+    conn: asyncpg.Connection, language_id: str
+) -> list[dict]:
+    """A language's whole grammar syllabus, in path order, for the overlap
+    judge: id + the identity fields the judge compares (title, function note,
+    level). Explanations stay out — titles + can-do lines are what learners
+    see side by side, and they keep the judge call bounded."""
+    rows = await conn.fetch(
+        """
+        SELECT id, title, function_note, level
+        FROM grammar_points
+        WHERE language_id = $1
+        ORDER BY level NULLS LAST, display_order, title
+        """,
+        language_id,
+    )
+    return [
+        {
+            "id": str(r["id"]),
+            "title": r["title"],
+            "function_note": r["function_note"],
+            "level": r["level"],
+        }
+        for r in rows
+    ]
+
+
+async def record_overlap(
+    conn: asyncpg.Connection,
+    language_id: str,
+    point_a_id: str,
+    point_b_id: str,
+    verdict: str,
+    reason: str | None,
+    detected_by: str | None = None,
+) -> bool:
+    """Record one overlap pair for review. The pair is canonicalized in SQL
+    (LEAST/GREATEST on the uuids) and deduped against the open-pair unique
+    index, so re-running the audit never stacks duplicate flags. Returns True
+    when a new row was created; both points get a change-log entry."""
+    clean = (reason or "")[:500] or None
+    result = await conn.execute(
+        """
+        INSERT INTO grammar_point_overlaps
+            (language_id, point_a_id, point_b_id, verdict, reason, detected_by)
+        VALUES ($1, LEAST($2::uuid, $3::uuid), GREATEST($2::uuid, $3::uuid),
+                $4, $5, $6)
+        ON CONFLICT (point_a_id, point_b_id) WHERE status = 'open' DO NOTHING
+        """,
+        language_id, point_a_id, point_b_id, verdict, clean, detected_by,
+    )
+    created = result.endswith(" 1")
+    if created:
+        for pid in (point_a_id, point_b_id):
+            await log_change(
+                conn, entity_type="grammar_point", entity_id=pid,
+                actor_id=None, action="overlap_flagged",
+                language_id=language_id, note=f"{verdict}: {clean or ''}"[:500],
+            )
+    return created
+
+
+async def list_overlaps(
+    conn: asyncpg.Connection, language_id: str, status: str = "open"
+) -> list[dict]:
+    """Overlap pairs for the review panel, both titles resolved."""
+    rows = await conn.fetch(
+        """
+        SELECT o.id, o.verdict, o.reason, o.status, o.created_at,
+               o.point_a_id, ga.title AS point_a_title, ga.level AS point_a_level,
+               o.point_b_id, gb.title AS point_b_title, gb.level AS point_b_level
+        FROM grammar_point_overlaps o
+        JOIN grammar_points ga ON o.point_a_id = ga.id
+        JOIN grammar_points gb ON o.point_b_id = gb.id
+        WHERE o.language_id = $1 AND o.status = $2
+        ORDER BY o.created_at DESC, ga.title
+        """,
+        language_id, status,
+    )
+    return [
+        {
+            "id": str(r["id"]),
+            "verdict": r["verdict"],
+            "reason": r["reason"],
+            "status": r["status"],
+            "created_at": r["created_at"].isoformat(),
+            "point_a": {"id": str(r["point_a_id"]), "title": r["point_a_title"],
+                        "level": r["point_a_level"]},
+            "point_b": {"id": str(r["point_b_id"]), "title": r["point_b_title"],
+                        "level": r["point_b_level"]},
+        }
+        for r in rows
+    ]
+
+
+async def resolve_overlap(
+    conn: asyncpg.Connection,
+    overlap_id: str,
+    status: str,
+    actor_id: str | None,
+) -> bool:
+    """Reviewer verdict on an overlap pair: merged (they fixed the content),
+    distinct (real but fine as two points), or dismissed (judge was wrong).
+    Only open pairs resolve; returns True if a row changed."""
+    if status not in OVERLAP_RESOLUTIONS:
+        raise ValueError(f"status must be one of {OVERLAP_RESOLUTIONS}")
+    result = await conn.execute(
+        """
+        UPDATE grammar_point_overlaps
+        SET status = $2, resolved_by = $3, resolved_at = now()
+        WHERE id = $1 AND status = 'open'
+        """,
+        overlap_id, status, actor_id,
+    )
+    return result.endswith(" 1")
 
 
 async def backfill_example_translation(
