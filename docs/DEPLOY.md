@@ -201,6 +201,21 @@ list lives in ROADMAP WP10.
 
 ## Troubleshooting
 
+- **One feature 500s after a deploy and the rest works** — almost always a
+  **migration you haven't applied**: the new code reads a column the live
+  database doesn't have yet. Ask the app directly:
+
+  ```bash
+  curl -s https://<backend>/api/health/schema | jq
+  # {"ok": false, "missing_migrations": ["20260829000000_drill_lemma.sql"],
+  #  "missing": ["drill_sentences.lemma (from 20260829000000_drill_lemma.sql)"]}
+  ```
+
+  Apply the named files (`psql "$DATABASE_URL" -f supabase/migrations/<name>`)
+  in filename order and the endpoint recovers with no redeploy. The same
+  report is logged as an `ERROR` line at every boot, so check the startup
+  logs too. *Real example:* the Gym's `/api/review/cram` returned 500 for
+  days because `20260829000000_drill_lemma.sql` was never applied.
 - **Frontend loads, every API call fails / CORS errors in the console** —
   `CORS_ORIGINS` must be a JSON array containing the exact frontend origin
   (scheme + host, no trailing slash, no path). Redeploy the backend after
