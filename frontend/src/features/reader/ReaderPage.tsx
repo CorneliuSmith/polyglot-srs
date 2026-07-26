@@ -13,9 +13,12 @@ import { getLanguages } from '../../api/profile'
 import { usePrefsStore } from '../../stores/prefsStore'
 import LanguageWrapper from '../../components/LanguageWrapper'
 import SpeakButton from '../../components/SpeakButton'
+import { TTS_LANGUAGES } from '../../api/audio'
 import ExplanationView from '../../components/ExplanationView'
 
-type Stage = 'guess' | 'assisted'
+// 'listen' (TTS languages, new texts only): the text stays hidden and the
+// learner may train their ear sentence-by-sentence before reading.
+type Stage = 'listen' | 'guess' | 'assisted'
 
 /**
  * WP21 — The Reader. The learner names a topic; the app writes a text at
@@ -38,6 +41,8 @@ export default function ReaderPage() {
   const [topic, setTopic] = useState('')
   const [reading, setReading] = useState<Reading | null>(null)
   const [stage, setStage] = useState<Stage>('guess')
+  // Listen-first: whether they took the ear-training option before reading.
+  const [earMode, setEarMode] = useState(false)
   // Guess flow: which token is being guessed, and what's been revealed.
   const [guessing, setGuessing] = useState<{ s: number; t: number } | null>(null)
   const [guessText, setGuessText] = useState('')
@@ -65,6 +70,7 @@ export default function ReaderPage() {
 
   const resetReadingState = () => {
     setStage('guess')
+    setEarMode(false)
     setGuessing(null)
     setGuessText('')
     setRevealed(new Set())
@@ -81,6 +87,8 @@ export default function ReaderPage() {
       generateReading(activeLanguageId!, language!.code, topic.trim()),
     onSuccess: (res) => {
       resetReadingState()
+      // TTS languages: hold the text back and offer ear-first immersion.
+      if (TTS_LANGUAGES.has(language!.code)) setStage('listen')
       setReading({ ...res.reading, id: res.id, topic: topic.trim() } as Reading)
       queryClient.invalidateQueries({ queryKey: ['readings'] })
     },
@@ -334,6 +342,80 @@ export default function ReaderPage() {
               </div>
             )}
 
+            {/* Listen-first (TTS languages): the text is HELD BACK — ear
+                training before eyes is the closest thing to immersion. */}
+            {stage === 'listen' && (
+              <div
+                className="bg-white rounded-2xl shadow-sm border border-gray-100 p-6 space-y-4"
+                data-testid="listen-first"
+              >
+                {!earMode ? (
+                  <>
+                    <h2 className="text-lg font-bold text-gray-900">
+                      Your text is ready — ears first?
+                    </h2>
+                    <p className="text-sm text-gray-600">
+                      Listening before you see the words trains real
+                      comprehension. You can reveal the text at any point.
+                    </p>
+                    <div className="flex flex-wrap gap-2">
+                      <button
+                        type="button"
+                        onClick={() => setEarMode(true)}
+                        className="rounded-xl bg-lang hover:bg-lang-dark text-lang-on font-semibold px-5 py-2.5 text-sm"
+                        style={{ minHeight: '44px' }}
+                      >
+                        🎧 Listen first
+                      </button>
+                      <button
+                        type="button"
+                        onClick={() => setStage('guess')}
+                        className="rounded-xl border border-gray-300 bg-white hover:bg-gray-50 text-gray-700 font-semibold px-5 py-2.5 text-sm"
+                        style={{ minHeight: '44px' }}
+                      >
+                        Show me the text
+                      </button>
+                    </div>
+                  </>
+                ) : (
+                  <>
+                    <p className="text-sm text-gray-600">
+                      Play each line and picture what's happening. When
+                      you've had a listen, reveal the text and read for real.
+                    </p>
+                    <ol className="space-y-2" data-testid="listen-lines">
+                      {reading.sentences.map((sentence, sIdx) => (
+                        <li
+                          key={sIdx}
+                          className="flex items-center gap-3 rounded-xl border border-gray-100 bg-gray-50 px-3 py-2"
+                        >
+                          <span className="text-xs tabular-nums text-gray-400 w-6">
+                            {sIdx + 1}.
+                          </span>
+                          <SpeakButton
+                            text={sentence.text}
+                            languageCode={language.code}
+                          />
+                          <span className="text-xs text-gray-300 select-none">
+                            ································
+                          </span>
+                        </li>
+                      ))}
+                    </ol>
+                    <button
+                      type="button"
+                      onClick={() => setStage('guess')}
+                      className="w-full rounded-xl bg-lang hover:bg-lang-dark text-lang-on font-semibold px-6 py-3 text-sm"
+                      style={{ minHeight: '44px' }}
+                    >
+                      Show the text →
+                    </button>
+                  </>
+                )}
+              </div>
+            )}
+
+            {stage !== 'listen' && (
             <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-6 space-y-4">
               <LanguageWrapper languageCode={language.code}>
                 <h2 className="text-xl font-bold text-gray-900">
@@ -349,17 +431,22 @@ export default function ReaderPage() {
                         {sentence.tokens.map((_tok, tIdx) =>
                           renderToken(sentence, sIdx, tIdx),
                         )}
-                        {stage === 'assisted' && (
-                          <SpeakButton
-                            text={sentence.text}
-                            languageCode={language.code}
-                          />
-                        )}
+                        <SpeakButton
+                          text={sentence.text}
+                          languageCode={language.code}
+                        />
                       </span>
+                      {/* Per-sentence help: two stable toggle pills, and ONE
+                          combined panel underneath — labelled sections instead
+                          of loose links and scattered boxes. */}
                       {stage === 'assisted' && (
-                        <div className="text-xs text-gray-400 space-x-3">
+                        <div
+                          className="mt-1 flex items-center gap-1.5"
+                          data-testid="sentence-actions"
+                        >
                           <button
                             type="button"
+                            aria-pressed={openTranslations.has(sIdx)}
                             onClick={() =>
                               setOpenTranslations((prev) => {
                                 const next = new Set(prev)
@@ -368,14 +455,19 @@ export default function ReaderPage() {
                                 return next
                               })
                             }
-                            className="hover:text-lang"
+                            className={`rounded-full border px-2.5 py-1 text-[11px] transition-colors ${
+                              openTranslations.has(sIdx)
+                                ? 'border-lang/40 bg-lang-soft text-lang'
+                                : 'border-gray-200 text-gray-500 hover:border-lang/50 hover:text-lang'
+                            }`}
                           >
-                            {openTranslations.has(sIdx)
-                              ? 'Hide translation'
-                              : 'Translation'}
+                            Translation
                           </button>
                           <button
                             type="button"
+                            aria-pressed={
+                              !!explanations[sIdx] && shownExplanations.has(sIdx)
+                            }
                             onClick={() => {
                               if (!explanations[sIdx]) {
                                 explainMutation.mutate(sIdx)
@@ -389,30 +481,44 @@ export default function ReaderPage() {
                               })
                             }}
                             disabled={explainMutation.isPending}
-                            className="hover:text-lang disabled:opacity-50"
+                            className={`rounded-full border px-2.5 py-1 text-[11px] transition-colors disabled:opacity-50 ${
+                              explanations[sIdx] && shownExplanations.has(sIdx)
+                                ? 'border-lang/40 bg-lang-soft text-lang'
+                                : 'border-gray-200 text-gray-500 hover:border-lang/50 hover:text-lang'
+                            }`}
                           >
-                            {!explanations[sIdx]
-                              ? 'Explain the grammar'
-                              : shownExplanations.has(sIdx)
-                                ? 'Hide explanation'
-                                : 'Show explanation'}
+                            {explainMutation.isPending &&
+                            explainMutation.variables === sIdx
+                              ? 'Explaining…'
+                              : 'Grammar'}
                           </button>
                         </div>
                       )}
-                      {stage === 'assisted' && openTranslations.has(sIdx) && (
-                        <p className="text-sm text-gray-500">
-                          {sentence.translation}
-                        </p>
-                      )}
-                      {explanations[sIdx] && shownExplanations.has(sIdx) && (
+                      {((stage === 'assisted' && openTranslations.has(sIdx)) ||
+                        (explanations[sIdx] && shownExplanations.has(sIdx))) && (
                         <div
-                          className="bg-gray-50 border border-gray-100 rounded-lg p-3 mt-1"
-                          data-testid="sentence-explanation"
+                          className="mt-1.5 rounded-xl bg-gray-50 border border-gray-100 p-3 space-y-2"
+                          data-testid="sentence-help"
                         >
-                          <ExplanationView
-                            text={explanations[sIdx]}
-                            className="text-sm text-gray-600"
-                          />
+                          {stage === 'assisted' && openTranslations.has(sIdx) && (
+                            <p className="text-sm text-gray-600">
+                              <span className="mr-2 text-[10px] uppercase tracking-wide text-gray-400">
+                                Translation
+                              </span>
+                              {sentence.translation}
+                            </p>
+                          )}
+                          {explanations[sIdx] && shownExplanations.has(sIdx) && (
+                            <div data-testid="sentence-explanation">
+                              <span className="block text-[10px] uppercase tracking-wide text-gray-400 mb-1">
+                                Grammar
+                              </span>
+                              <ExplanationView
+                                text={explanations[sIdx]}
+                                className="text-sm text-gray-600"
+                              />
+                            </div>
+                          )}
                         </div>
                       )}
                     </div>
@@ -420,6 +526,7 @@ export default function ReaderPage() {
                 </div>
               </LanguageWrapper>
             </div>
+            )}
 
             {guessing && (
               <div
