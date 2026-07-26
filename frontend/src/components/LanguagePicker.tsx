@@ -64,7 +64,7 @@ export default function LanguagePicker() {
           value={lang.id}
           disabled={!!lockedTo && lang.id !== lockedTo}
         >
-          {languageTheme(lang.code).emoji} {lang.name}
+          {lang.name}
           {lockedTo && lang.id !== lockedTo ? ' — All-Languages plan' : ''}
         </option>
       ))}

@@ -1,4 +1,5 @@
 import { useState, useRef, useEffect } from 'react'
+import { Headphones, Settings as SettingsIcon, Undo2 } from 'lucide-react'
 import { useLocation, useNavigate, useSearchParams } from 'react-router-dom'
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query'
 import {
@@ -687,7 +688,7 @@ function ReviewSessionInner({
               aria-label="Account"
               className="hover:text-lang"
             >
-              ⚙
+              <SettingsIcon aria-hidden className="h-[18px] w-[18px]" />
             </button>
           </div>
         </div>
@@ -888,7 +889,7 @@ function ReviewSessionInner({
                     : 'border-gray-200 text-gray-400 hover:text-lang'
                 }`}
               >
-                🎧 Listening {listening ? 'on' : 'off'}
+                <Headphones aria-hidden className="mr-1 inline h-3.5 w-3.5 align-[-2px]" />Listening {listening ? 'on' : 'off'}
               </button>
             )}
             {/* Card escape hatches: defer without grading, or retire a card
@@ -1035,7 +1036,7 @@ function ReviewSessionInner({
                     }}
                     className="text-xs text-gray-400 hover:text-lang"
                   >
-                    ↺ Undo
+                    <Undo2 aria-hidden className="mr-0.5 inline h-3.5 w-3.5 align-[-2px]" />Undo
                   </button>
                   {(session.validationResult.answer_result === 'correct' ||
                     session.validationResult.answer_result === 'correct_sloppy') && (

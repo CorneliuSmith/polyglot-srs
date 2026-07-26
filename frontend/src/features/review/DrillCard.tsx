@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { Headphones } from 'lucide-react'
 import LanguageWrapper from '../../components/LanguageWrapper'
 import { useTranslit } from '../keyboards/useTranslit'
 import { convertTranslit, translitGuide } from '../keyboards/translit'
@@ -199,7 +200,7 @@ export default function DrillCard({
         data-testid="listening-drill"
       >
         <p className="text-sm text-gray-400 text-center">
-          🎧 Listen — the pause is the missing word
+          <Headphones aria-hidden className="mr-1 inline h-4 w-4 align-[-2px]" />Listen — the pause is the missing word
         </p>
         <p
           className="text-lg text-gray-300 text-center tracking-widest select-none"

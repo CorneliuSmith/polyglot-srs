@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { Zap } from 'lucide-react'
 import { useNavigate } from 'react-router-dom'
 import { useQuery } from '@tanstack/react-query'
 import { getCardDetail } from '../../api/review'
@@ -343,7 +344,7 @@ export default function ReviewDetail({ cardId, cardType, languageCode, stats }: 
                       }
                       className="text-sm text-lang hover:underline"
                     >
-                      ⚡ Quick cram this + related (nothing recorded)
+                      <Zap aria-hidden className="mr-1 inline h-3.5 w-3.5 align-[-2px]" />Quick cram this + related (nothing recorded)
                     </button>
                   )}
                 </>

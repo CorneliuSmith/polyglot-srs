@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import { Lightbulb } from 'lucide-react'
 import { usePrefsStore } from '../../stores/prefsStore'
 import { pickTip, type TipContext } from './tips'
 
@@ -49,7 +50,7 @@ export default function LearningTip({ context }: { context: TipContext }) {
         ×
       </button>
       <p className="text-sm font-semibold text-lang-dark">
-        <span aria-hidden className="mr-1">💡</span>
+        <Lightbulb aria-hidden className="mr-1 inline h-4 w-4 align-[-2px]" />
         {tip.title}
       </p>
       <p className="mt-1 text-sm text-gray-600">{tip.body}</p>

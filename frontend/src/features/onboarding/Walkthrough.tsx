@@ -1,20 +1,30 @@
 import { useState } from 'react'
+import {
+  BookOpen,
+  Dumbbell,
+  GraduationCap,
+  Hand,
+  Languages,
+  PenLine,
+  Sprout,
+} from 'lucide-react'
+import type { LucideIcon } from 'lucide-react'
 import { usePrefsStore } from '../../stores/prefsStore'
 
 interface Slide {
-  icon: string
+  icon: LucideIcon
   title: string
   body: React.ReactNode
 }
 
 const SLIDES: Slide[] = [
   {
-    icon: '👋',
+    icon: Hand,
     title: 'Welcome — here’s the quick tour',
     body: 'A quick swipe through what’s here, then get learning. You can reopen this any time from the “?” on your dashboard.',
   },
   {
-    icon: '🔤',
+    icon: Languages,
     title: 'Get to know your language',
     body: (
       <>
@@ -26,7 +36,7 @@ const SLIDES: Slide[] = [
     ),
   },
   {
-    icon: '🌱',
+    icon: Sprout,
     title: 'Learn vs. Review',
     body: (
       <>
@@ -37,7 +47,7 @@ const SLIDES: Slide[] = [
     ),
   },
   {
-    icon: '🏋️',
+    icon: Dumbbell,
     title: 'The Gym',
     body: (
       <>
@@ -49,7 +59,7 @@ const SLIDES: Slide[] = [
     ),
   },
   {
-    icon: '🧑‍🏫',
+    icon: GraduationCap,
     title: 'AI Tutor — Practice vs. Reference',
     body: (
       <>
@@ -61,12 +71,12 @@ const SLIDES: Slide[] = [
     ),
   },
   {
-    icon: '📖',
+    icon: BookOpen,
     title: 'Read',
     body: 'Read short passages graded to your level and tap any word for its meaning — the fastest way to turn vocabulary into real reading.',
   },
   {
-    icon: '✍️',
+    icon: PenLine,
     title: 'Bring your own text',
     body: 'Paste something you actually want to read into the Reader — a song, an article, a message — and study the words that matter to you.',
   },
@@ -103,7 +113,11 @@ export default function Walkthrough({ onClose }: { onClose: () => void }) {
           ×
         </button>
         <div className="px-6 pt-7 pb-5 text-center min-h-56 flex flex-col items-center justify-center">
-          <div className="text-5xl mb-3" aria-hidden="true">{slide.icon}</div>
+          <slide.icon
+            aria-hidden
+            className="mb-3 h-12 w-12 text-lang"
+            strokeWidth={1.5}
+          />
           <h2 className="text-xl font-bold text-gray-900 mb-2">{slide.title}</h2>
           <p className="text-gray-600 leading-relaxed">{slide.body}</p>
         </div>

@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import { Zap } from 'lucide-react'
 import ExplanationView from '../../components/ExplanationView'
 import { useNavigate, useSearchParams } from 'react-router-dom'
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query'
@@ -213,7 +214,7 @@ export default function GrammarPathPage() {
                             }
                             className="text-sm text-lang hover:underline"
                           >
-                            ⚡ Quick cram this + related (nothing recorded)
+                            <Zap aria-hidden className="mr-1 inline h-3.5 w-3.5 align-[-2px]" />Quick cram this + related (nothing recorded)
                           </button>
                         </>
                       )}

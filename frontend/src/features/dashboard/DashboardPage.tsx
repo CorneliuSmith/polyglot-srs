@@ -1,4 +1,6 @@
 import { useEffect, useState } from 'react'
+import { Bell, BookOpen, Dumbbell, Menu, MessagesSquare } from 'lucide-react'
+import type { LucideIcon } from 'lucide-react'
 import { Link, Navigate, useNavigate } from 'react-router-dom'
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
 import { getDashboardStats } from '../../api/dashboard'
@@ -35,14 +37,14 @@ import type { LearnDeck } from '../../api/types'
  * Learn/Review command center with the same visual weight, so the features
  * are discovered by SEEING them. */
 function FeatureTile({
-  glyph,
+  icon: Icon,
   label,
   caption,
   testId,
   onClick,
   disabled = false,
 }: {
-  glyph: string
+  icon: LucideIcon
   label: string
   caption: string
   testId: string
@@ -58,7 +60,7 @@ function FeatureTile({
       className="rounded-2xl border-2 border-lang/20 bg-white hover:border-lang hover:bg-lang-soft/40 disabled:opacity-50 p-3 text-center transition-colors"
       style={{ minHeight: '44px' }}
     >
-      <span aria-hidden className="block text-2xl leading-none">{glyph}</span>
+      <Icon aria-hidden className="mx-auto h-7 w-7 text-lang" strokeWidth={1.75} />
       <span className="block mt-1.5 text-sm font-bold text-gray-900">{label}</span>
       <span className="block mt-0.5 text-[11px] leading-tight text-gray-500">
         {caption}
@@ -412,7 +414,7 @@ export default function DashboardPage() {
               title="What's new"
               className="relative w-9 h-9 md:w-7 md:h-7 flex items-center justify-center rounded-full border border-gray-200 text-gray-400 hover:text-lang hover:border-lang/40 text-sm md:text-xs leading-none"
             >
-              🔔
+              <Bell aria-hidden className="h-4 w-4 md:h-3.5 md:w-3.5" />
               {unseenCount > 0 && (
                 <span
                   data-testid="whats-new-badge"
@@ -444,7 +446,7 @@ export default function DashboardPage() {
                   : 'border-gray-200 text-gray-500 hover:text-lang hover:border-lang/40'
               }`}
             >
-              <span aria-hidden>☰</span>
+              <Menu aria-hidden className="h-4 w-4" />
             </button>
           </div>
         </div>
@@ -682,7 +684,7 @@ export default function DashboardPage() {
             >
               {hasGym && (
                 <FeatureTile
-                  glyph="🏋️"
+                  icon={Dumbbell}
                   label="Gym"
                   caption="Drill tenses & cases"
                   testId="tile-gym"
@@ -690,7 +692,7 @@ export default function DashboardPage() {
                 />
               )}
               <FeatureTile
-                glyph="📖"
+                icon={BookOpen}
                 label="Read"
                 caption="A story at your level"
                 testId="tile-read"
@@ -698,7 +700,7 @@ export default function DashboardPage() {
                 disabled={!activeLanguageId}
               />
               <FeatureTile
-                glyph="💬"
+                icon={MessagesSquare}
                 label="Tutor"
                 caption="Coaching on your gaps"
                 testId="tile-tutor"
