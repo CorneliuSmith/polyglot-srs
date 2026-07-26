@@ -1,11 +1,12 @@
 /**
  * QWERTY transliteration input ("type privet, get привет").
  *
- * For the non-Latin-script languages a learner without a Russian/Arabic/Greek
- * keyboard can type standard romanization on QWERTY and the answer blank
- * converts as they type. Schemes follow the common conventions
- * (translit.ru-style for Russian, chat-alphabet digits for Arabic, Greeklish
- * for Greek) and every mapping is viewable in the in-app key guide.
+ * For the non-Latin-script languages a learner without a native keyboard can
+ * type standard romanization on QWERTY and the answer blank converts as they
+ * type. Schemes follow each language's common convention (translit.ru-style
+ * for Russian, chat-alphabet digits for Arabic, Greeklish for Greek, and
+ * IME-style romanization for the three ASSEMBLING scripts — Devanagari, Thai
+ * and Hangul); every mapping is viewable in the in-app key guide.
  *
  * Design:
  *  - `convertTranslit` runs over the WHOLE input value on every keystroke.
@@ -17,9 +18,16 @@
  *    final → long letter), so a vowel at the end of the input stays Latin
  *    until the next keystroke decides its fate; `finalizeTranslit` resolves
  *    it at submit time.
+ *  - The assembling scripts (hi/th/ko) can't substitute letter-for-letter:
+ *    each decodes the field back to a phonetic string and re-encodes it, so
+ *    a syllable re-forms correctly as it grows ("ka" → का on the next
+ *    keystroke). A trailing consonant with nothing to attach to stays
+ *    pending (Latin) until `finalizeTranslit`.
+ *  - `composeScript` is the on-screen-keyboard counterpart: those keys insert
+ *    raw glyphs, which only Hangul needs fusing into blocks.
  */
 
-export const TRANSLIT_LANGS = ['ru', 'ar', 'el', 'hi'] as const
+export const TRANSLIT_LANGS = ['ru', 'ar', 'el', 'hi', 'th', 'ko'] as const
 
 export function hasTranslit(code: string): boolean {
   return (TRANSLIT_LANGS as readonly string[]).includes(code)
@@ -354,6 +362,323 @@ function convertHi(text: string, finalize: boolean): string {
   return encodeHi(decodeHi(text), finalize)
 }
 
+// ── Korean (Hangul) ──────────────────────────────────────────────────────────
+// Hangul is ASSEMBLED, not spelled: an initial (L), a medial vowel (V), and an
+// optional final (T) fuse into one syllable block by arithmetic —
+//   block = 0xAC00 + (L * 21 + V) * 28 + T
+// Both entry paths land here. The QWERTY scheme romanizes ("hanguk" → 한국),
+// and the on-screen keyboard emits CONJOINING jamo (U+1100 ᄀ, U+1161 ᅡ) which
+// render as loose marks until composed — so composeScript() runs the field
+// through the same encoder after every keypress.
+
+const KO_L = ['ㄱ','ㄲ','ㄴ','ㄷ','ㄸ','ㄹ','ㅁ','ㅂ','ㅃ','ㅅ','ㅆ','ㅇ','ㅈ','ㅉ','ㅊ','ㅋ','ㅌ','ㅍ','ㅎ']
+const KO_V = ['ㅏ','ㅐ','ㅑ','ㅒ','ㅓ','ㅔ','ㅕ','ㅖ','ㅗ','ㅘ','ㅙ','ㅚ','ㅛ','ㅜ','ㅝ','ㅞ','ㅟ','ㅠ','ㅡ','ㅢ','ㅣ']
+// Finals: index 0 is "no final". Only the single-jamo finals are typeable;
+// the stacked ones (ㄳ ㄵ …) decode but are never assembled from romanization.
+const KO_T = ['','ㄱ','ㄲ','ㄳ','ㄴ','ㄵ','ㄶ','ㄷ','ㄹ','ㄺ','ㄻ','ㄼ','ㄽ','ㄾ','ㄿ','ㅀ','ㅁ','ㅂ','ㅄ','ㅅ','ㅆ','ㅇ','ㅈ','ㅊ','ㅋ','ㅌ','ㅍ','ㅎ']
+
+const KO_SYL_BASE = 0xac00
+const KO_SYL_LAST = 0xd7a3
+const KO_SILENT_L = KO_L.indexOf('ㅇ') // the placeholder initial for a bare vowel
+
+/** Conjoining jamo (what the on-screen keyboard emits) → the compatibility
+ * jamo the tables use. U+1100.. initials, U+1161.. medials, U+11A8.. finals. */
+function koNormalizeJamo(ch: string): string {
+  const c = ch.codePointAt(0) ?? 0
+  if (c >= 0x1100 && c <= 0x1112) return KO_L[c - 0x1100]
+  if (c >= 0x1161 && c <= 0x1175) return KO_V[c - 0x1161]
+  if (c >= 0x11a8 && c <= 0x11c2) return KO_T[c - 0x11a8 + 1]
+  return ch
+}
+
+// Typing scheme. Aspirates are the plain Latin stops (k t p ch), the lax
+// series is voiced (g d b j), and doubling tenses them (kk tt pp ss jj) —
+// the convention every Korean romanization IME uses.
+const KO_CONS: [string, string][] = [
+  ['kk','ㄲ'], ['gg','ㄲ'], ['tt','ㄸ'], ['dd','ㄸ'], ['pp','ㅃ'], ['bb','ㅃ'],
+  ['ss','ㅆ'], ['jj','ㅉ'], ['ch','ㅊ'], ['ng','ㅇ'],
+  ['g','ㄱ'], ['n','ㄴ'], ['d','ㄷ'], ['r','ㄹ'], ['l','ㄹ'], ['m','ㅁ'],
+  ['b','ㅂ'], ['s','ㅅ'], ['j','ㅈ'], ['k','ㅋ'], ['t','ㅌ'], ['p','ㅍ'],
+  ['h','ㅎ'],
+]
+const KO_VOW: [string, string][] = [
+  ['yeo','ㅕ'], ['yae','ㅒ'], ['wae','ㅙ'],
+  ['ya','ㅑ'], ['ye','ㅖ'], ['yo','ㅛ'], ['yu','ㅠ'],
+  ['eo','ㅓ'], ['eu','ㅡ'], ['ae','ㅐ'], ['oe','ㅚ'], ['ui','ㅢ'],
+  ['wa','ㅘ'], ['wo','ㅝ'], ['we','ㅞ'], ['wi','ㅟ'],
+  ['a','ㅏ'], ['e','ㅔ'], ['i','ㅣ'], ['o','ㅗ'], ['u','ㅜ'],
+]
+const KO_VOWEL_START = /[aeiouwy]/
+
+// Romanization is ASYMMETRIC by position: the lax stops are voiced as an
+// initial (g d b) and voiceless as a final (k t p) — "hanguk" ends in ㄱ, not
+// the aspirated ㅋ that a plain 'k' means at the start of a syllable.
+const KO_FINAL: Record<string, string> = {
+  k: 'ㄱ', g: 'ㄱ', kk: 'ㄲ', gg: 'ㄲ', n: 'ㄴ', t: 'ㄷ', d: 'ㄷ',
+  l: 'ㄹ', r: 'ㄹ', m: 'ㅁ', p: 'ㅂ', b: 'ㅂ', s: 'ㅅ', ss: 'ㅆ',
+  ng: 'ㅇ', j: 'ㅈ', ch: 'ㅊ', h: 'ㅎ',
+}
+// …so decoding a final has to invert THAT map, not the initial one.
+const KO_FINAL_REV: Record<string, string> = {
+  'ㄱ': 'k', 'ㄲ': 'kk', 'ㄴ': 'n', 'ㄷ': 't', 'ㄹ': 'l', 'ㅁ': 'm',
+  'ㅂ': 'p', 'ㅅ': 's', 'ㅆ': 'ss', 'ㅇ': 'ng', 'ㅈ': 'j', 'ㅊ': 'ch',
+  'ㅋ': 'k', 'ㅌ': 't', 'ㅍ': 'p', 'ㅎ': 'h',
+}
+
+const KO_CONS_REV: Record<string, string> = {}
+for (const [lat, jamo] of KO_CONS) if (!(jamo in KO_CONS_REV)) KO_CONS_REV[jamo] = lat
+const KO_VOW_REV: Record<string, string> = {}
+for (const [lat, jamo] of KO_VOW) if (!(jamo in KO_VOW_REV)) KO_VOW_REV[jamo] = lat
+
+/** Hangul → the phonetic string the encoder round-trips. A silent initial ㅇ
+ * decodes to nothing (its vowel re-seats it); a FINAL ㅇ decodes to "ng". */
+function decodeKo(text: string): string {
+  let out = ''
+  for (const raw of Array.from(text)) {
+    const ch = koNormalizeJamo(raw)
+    const code = ch.codePointAt(0) ?? 0
+    if (code >= KO_SYL_BASE && code <= KO_SYL_LAST) {
+      const n = code - KO_SYL_BASE
+      const l = KO_L[Math.floor(n / 588)]
+      const v = KO_V[Math.floor((n % 588) / 28)]
+      const t = KO_T[n % 28]
+      out += (l === 'ㅇ' ? '' : KO_CONS_REV[l] ?? '')
+      out += KO_VOW_REV[v] ?? ''
+      if (t) out += KO_FINAL_REV[t] ?? KO_CONS_REV[t] ?? ''
+      continue
+    }
+    if (ch in KO_VOW_REV) { out += KO_VOW_REV[ch]; continue }
+    if (ch in KO_CONS_REV) { out += ch === 'ㅇ' ? 'ng' : KO_CONS_REV[ch]; continue }
+    out += raw // passthrough: Latin still pending, spaces, punctuation
+  }
+  return out
+}
+
+type KoTok = { t: 'c' | 'v' | 'o'; lat: string; jamo: string }
+
+function tokenizeKo(phon: string): KoTok[] {
+  const toks: KoTok[] = []
+  let i = 0
+  while (i < phon.length) {
+    let matched = false
+    for (const [seq, jamo] of KO_CONS) {
+      if (phon.slice(i, i + seq.length) !== seq) continue
+      // "ng" is the final ㅇ — but in "hanguk" the n ends one syllable and the
+      // g opens the next, so refuse the digraph when a vowel follows it.
+      if (seq === 'ng' && KO_VOWEL_START.test(phon[i + 2] ?? '')) continue
+      toks.push({ t: 'c', lat: seq, jamo })
+      i += seq.length
+      matched = true
+      break
+    }
+    if (matched) continue
+    for (const [seq, jamo] of KO_VOW) {
+      if (phon.slice(i, i + seq.length) !== seq) continue
+      toks.push({ t: 'v', lat: seq, jamo })
+      i += seq.length
+      matched = true
+      break
+    }
+    if (matched) continue
+    toks.push({ t: 'o', lat: phon[i], jamo: phon[i] })
+    i++
+  }
+  return toks
+}
+
+function koBlock(l: string, v: string, t: string): string {
+  const li = KO_L.indexOf(l)
+  const vi = KO_V.indexOf(v)
+  const ti = t ? KO_T.indexOf(t) : 0
+  if (li < 0 || vi < 0 || ti < 0) return l + v + t
+  return String.fromCodePoint(KO_SYL_BASE + (li * 21 + vi) * 28 + ti)
+}
+
+/** Phonetic → Hangul blocks. A consonant with no vowel yet stays pending
+ * (Latin while typing, the bare jamo once finalized) — the same contract the
+ * Hindi encoder uses. */
+function encodeKo(phon: string, finalize: boolean): string {
+  const toks = tokenizeKo(phon)
+  let out = ''
+  let i = 0
+  while (i < toks.length) {
+    const tok = toks[i]
+    if (tok.t === 'o') { out += tok.jamo; i++; continue }
+
+    let initial: string | null = null
+    if (tok.t === 'c') {
+      const next = toks[i + 1]
+      if (!next || next.t !== 'v') {
+        // No vowel to seat it: pending until the next keystroke decides.
+        out += finalize ? tok.jamo : tok.lat
+        i++
+        continue
+      }
+      initial = tok.jamo
+      i++
+    }
+    const vowel = toks[i].jamo // guaranteed 'v' here
+    i++
+    // A following consonant closes THIS syllable only when it isn't the
+    // initial of the next one (i.e. no vowel comes after it).
+    let final = ''
+    const c1 = toks[i]
+    if (c1 && c1.t === 'c') {
+      const asFinal = KO_FINAL[c1.lat] ?? c1.jamo
+      if (KO_T.includes(asFinal)) {
+        const c2 = toks[i + 1]
+        if (!c2 || c2.t !== 'v') {
+          final = asFinal
+          i++
+        }
+      }
+    }
+    out += koBlock(initial ?? KO_L[KO_SILENT_L], vowel, final)
+  }
+  return out
+}
+
+function convertKo(text: string, finalize: boolean): string {
+  return encodeKo(decodeKo(text), finalize)
+}
+
+// ── Thai ─────────────────────────────────────────────────────────────────────
+// Thai vowels WRAP their consonant — before it, after it, above, below, or on
+// several sides at once — so each vowel is stored as a TEMPLATE with `_` where
+// the initial consonant goes ("e" → "เ_", "ia" → "เ_ีย"). Tone marks (typed as
+// digits 1-4) sit directly on the initial, i.e. immediately after `_`.
+
+const TH_CONS: [string, string][] = [
+  ['kh','ข'], ['ch','ช'], ['th','ท'], ['ph','พ'], ['ng','ง'],
+  ['k','ก'], ['j','จ'], ['s','ส'], ['y','ย'], ['d','ด'], ['t','ต'],
+  ['n','น'], ['b','บ'], ['p','ป'], ['f','ฟ'], ['m','ม'], ['r','ร'],
+  ['l','ล'], ['w','ว'], ['h','ห'],
+]
+// Longest romanization first; the template's `_` is the initial consonant.
+const TH_VOW: [string, string][] = [
+  ['uea','เ_ือ'], ['oe','เ_อ'], ['ia','เ_ีย'], ['ua','_ัว'],
+  ['ae','แ_'], ['ao','เ_า'], ['ai','ไ_'], ['am','_ำ'], ['or','_อ'],
+  ['ue','_ือ'], ['aa','_า'], ['ii','_ี'], ['uu','_ู'],
+  ['a','_ะ'], ['i','_ิ'], ['u','_ุ'], ['e','เ_'], ['o','โ_'],
+]
+const TH_TONES: Record<string, string> = { '1': '่', '2': '้', '3': '๊', '4': '๋' }
+const TH_CARRIER = 'อ' // seats a vowel with no consonant of its own
+
+const TH_CONS_REV: Record<string, string> = {}
+for (const [lat, th] of TH_CONS) if (!(th in TH_CONS_REV)) TH_CONS_REV[th] = lat
+const TH_TONE_REV: Record<string, string> = {}
+for (const [digit, mark] of Object.entries(TH_TONES)) TH_TONE_REV[mark] = digit
+// Decode tries the longest rendered template first so "เ_ีย" wins over "เ_".
+const TH_VOW_BY_LEN = [...TH_VOW].sort((a, b) => b[1].length - a[1].length)
+
+/** Thai → the phonetic string the encoder round-trips. Templates are matched
+ * with `_` as a single-consonant wildcard (plus an optional tone mark), which
+ * is what makes the wrapped vowels invertible. */
+function decodeTh(text: string): string {
+  let out = ''
+  let i = 0
+  while (i < text.length) {
+    let matched = false
+    for (const [lat, template] of TH_VOW_BY_LEN) {
+      const [before, after] = template.split('_')
+      if (text.slice(i, i + before.length) !== before) continue
+      let j = i + before.length
+      const cons = text[j]
+      // The slot holds a real consonant or the bare carrier (a vowel with no
+      // consonant of its own) — the carrier romanizes to nothing and the
+      // encoder puts it back.
+      if (!cons || !(cons in TH_CONS_REV || cons === TH_CARRIER)) continue
+      j += 1
+      let tone = ''
+      if (text[j] && text[j] in TH_TONE_REV) { tone = TH_TONE_REV[text[j]]; j += 1 }
+      if (text.slice(j, j + after.length) !== after) continue
+      out += (cons === TH_CARRIER ? '' : TH_CONS_REV[cons]) + lat + tone
+      i = j + after.length
+      matched = true
+      break
+    }
+    if (matched) continue
+    const ch = text[i]
+    if (ch === TH_CARRIER) { i++; continue } // stray carrier: re-added on encode
+    if (ch in TH_CONS_REV) { out += TH_CONS_REV[ch]; i++; continue }
+    if (ch in TH_TONE_REV) { out += TH_TONE_REV[ch]; i++; continue }
+    out += ch // passthrough
+    i++
+  }
+  return out
+}
+
+type ThTok = { t: 'c' | 'v' | 'tone' | 'o'; lat: string; out: string }
+
+function tokenizeTh(phon: string): ThTok[] {
+  const toks: ThTok[] = []
+  let i = 0
+  while (i < phon.length) {
+    let matched = false
+    for (const [seq, th] of TH_CONS) {
+      if (phon.slice(i, i + seq.length) !== seq) continue
+      toks.push({ t: 'c', lat: seq, out: th })
+      i += seq.length
+      matched = true
+      break
+    }
+    if (matched) continue
+    for (const [seq, template] of TH_VOW) {
+      if (phon.slice(i, i + seq.length) !== seq) continue
+      toks.push({ t: 'v', lat: seq, out: template })
+      i += seq.length
+      matched = true
+      break
+    }
+    if (matched) continue
+    const ch = phon[i]
+    toks.push({ t: ch in TH_TONES ? 'tone' : 'o', lat: ch, out: TH_TONES[ch] ?? ch })
+    i++
+  }
+  return toks
+}
+
+/** Phonetic → Thai. Each syllable is [consonant] vowel [tone] [final]; the
+ * vowel's template decides where the consonant actually lands. A trailing
+ * consonant with no vowel stays pending, as in the Hindi/Korean encoders. */
+function encodeTh(phon: string, finalize: boolean): string {
+  const toks = tokenizeTh(phon)
+  let out = ''
+  let i = 0
+  while (i < toks.length) {
+    const tok = toks[i]
+    if (tok.t === 'o' || tok.t === 'tone') { out += tok.out; i++; continue }
+
+    let initial: string | null = null
+    if (tok.t === 'c') {
+      const next = toks[i + 1]
+      if (!next || next.t !== 'v') {
+        out += finalize ? tok.out : tok.lat
+        i++
+        continue
+      }
+      initial = tok.out
+      i++
+    }
+    const template = toks[i].out
+    i++
+    let tone = ''
+    if (toks[i]?.t === 'tone') { tone = toks[i].out; i++ }
+    out += template.replace('_', (initial ?? TH_CARRIER) + tone)
+    // A consonant that isn't opening the next syllable closes this one.
+    const c1 = toks[i]
+    if (c1 && c1.t === 'c' && toks[i + 1]?.t !== 'v') {
+      out += c1.out
+      i++
+    }
+  }
+  return out
+}
+
+function convertTh(text: string, finalize: boolean): string {
+  return encodeTh(decodeTh(text), finalize)
+}
+
 // ── Public API ───────────────────────────────────────────────────────────────
 
 /** Convert as-you-type. Idempotent on already-converted text. */
@@ -367,9 +692,23 @@ export function convertTranslit(code: string, text: string): string {
       return convertAr(text, false)
     case 'hi':
       return convertHi(text, false)
+    case 'th':
+      return convertTh(text, false)
+    case 'ko':
+      return convertKo(text, false)
     default:
       return text
   }
+}
+
+/** Assemble typed units into their composed glyphs.
+ *
+ * The on-screen keyboard inserts raw glyphs straight into the field, bypassing
+ * the QWERTY path — fine for alphabets, broken for Hangul, whose keys are
+ * jamo that must fuse into syllable blocks (ᄒ ᅡ ᄂ → 한). Keyboard handlers
+ * run their result through here; every other script is returned untouched. */
+export function composeScript(code: string, text: string): string {
+  return code === 'ko' ? convertKo(text, true) : text
 }
 
 /** Resolve anything left pending (Arabic trailing vowels, Hindi trailing
@@ -377,6 +716,8 @@ export function convertTranslit(code: string, text: string): string {
 export function finalizeTranslit(code: string, text: string): string {
   if (code === 'ar') return convertAr(text, true)
   if (code === 'hi') return convertHi(text, true)
+  if (code === 'th') return convertTh(text, true)
+  if (code === 'ko') return convertKo(text, true)
   return convertTranslit(code, text)
 }
 
@@ -442,6 +783,30 @@ export function translitGuide(code: string): GuideRow[] {
         { keys: 'a aa i ii u uu', out: 'अ आ इ ई उ ऊ', note: 'double a vowel to lengthen (raam → राम)' },
         { keys: 'e o ai au ri', out: 'ए ओ ऐ औ ऋ' },
         { keys: 'namaste', out: 'नमस्ते', note: 'consonants join automatically; M = ं (anusvara)' },
+      ]
+    case 'th':
+      return [
+        { keys: 'k j d t b p f m n r l w s y h', out: 'ก จ ด ต บ ป ฟ ม น ร ล ว ส ย ห' },
+        { keys: 'kh ch th ph ng', out: 'ข ช ท พ ง', note: 'add h for the breathy pair' },
+        { keys: 'a aa i ii u uu', out: 'ะ า ิ ี ุ ู', note: 'double a vowel to lengthen' },
+        { keys: 'e ae o or oe', out: 'เ- แ- โ- -อ เ-อ' },
+        { keys: 'ai ao am ia ua uea', out: 'ไ- เ-า -ำ เ-ีย -ัว เ-ือ' },
+        { keys: '1 2 3 4', out: '่ ้ ๊ ๋', note: 'tone marks — type the digit after the vowel' },
+        { keys: 'maa', out: 'มา', note: 'the vowel wraps itself around the consonant' },
+        { keys: 'maa2', out: 'ม้า', note: 'máa (horse) — the tone mark lands on the м' },
+        { keys: 'khaao', out: 'เขา', note: 'a leading vowel writes BEFORE the consonant you say it after' },
+      ]
+    case 'ko':
+      return [
+        { keys: 'g n d r m b s j h', out: 'ㄱ ㄴ ㄷ ㄹ ㅁ ㅂ ㅅ ㅈ ㅎ' },
+        { keys: 'k t p ch', out: 'ㅋ ㅌ ㅍ ㅊ', note: 'the plain stops are the ASPIRATED ones' },
+        { keys: 'kk tt pp ss jj', out: 'ㄲ ㄸ ㅃ ㅆ ㅉ', note: 'double it for the tense set' },
+        { keys: 'a eo o u eu i', out: 'ㅏ ㅓ ㅗ ㅜ ㅡ ㅣ' },
+        { keys: 'ae e ya yeo yo yu', out: 'ㅐ ㅔ ㅑ ㅕ ㅛ ㅠ' },
+        { keys: 'wa wo wi oe ui', out: 'ㅘ ㅝ ㅟ ㅚ ㅢ' },
+        { keys: 'ng', out: 'ㅇ', note: 'the final ㅇ (sarang → 사랑); a word-initial vowel gets it free' },
+        { keys: 'hanguk', out: '한국', note: 'letters stack into blocks by themselves' },
+        { keys: 'an', out: '안', note: 'a bare vowel is seated on ㅇ automatically' },
       ]
     default:
       return []

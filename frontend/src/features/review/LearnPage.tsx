@@ -12,7 +12,7 @@ import DrillCard from './DrillCard'
 import SuggestChange from '../contribute/SuggestChange'
 import OnScreenKeyboard, { hasKeyboardLayout } from '../keyboards/OnScreenKeyboard'
 import type { KeyboardLanguage } from '../keyboards/OnScreenKeyboard'
-import { finalizeInput } from '../keyboards/translit'
+import { composeScript, finalizeInput } from '../keyboards/translit'
 import type { Lesson, ValidateAnswerResponse } from '../../api/types'
 
 /**
@@ -98,7 +98,7 @@ function LearnInner({ onLocaleChanged }: { onLocaleChanged: () => void }) {
   const [missedCards, setMissedCards] = useState<Set<string>>(new Set())
   const [quizInput, setQuizInput] = useState('')
   const [quizResult, setQuizResult] = useState<ValidateAnswerResponse | null>(null)
-  // On-screen keyboard for non-Latin scripts (ru/ar/el/th) — same access the
+  // On-screen keyboard for non-Latin scripts (ru/ar/el/th/hi/ko) — same access the
   // review session has (beta report: alphabet languages had no keyboard while
   // learning). Types the target script straight into the answer.
   const inputRef = useRef<HTMLInputElement>(null)
@@ -109,7 +109,9 @@ function LearnInner({ onLocaleChanged }: { onLocaleChanged: () => void }) {
     const input = inputRef.current
     if (!input) {
       setQuizInput((prev) =>
-        replaceBackspace ? prev.slice(0, -1) : prev + insert,
+        replaceBackspace
+          ? prev.slice(0, -1)
+          : composeScript(languageCode, prev + insert),
       )
       return
     }
@@ -124,10 +126,13 @@ function LearnInner({ onLocaleChanged }: { onLocaleChanged: () => void }) {
       })
       return
     }
-    setQuizInput(input.value.slice(0, start) + insert + input.value.slice(end))
+    // Hangul jamo must fuse into syllable blocks; other scripts pass through.
+    const composed = composeScript(languageCode, input.value.slice(0, start) + insert)
+    setQuizInput(composed + input.value.slice(end))
+    const caret = composed.length
     requestAnimationFrame(() => {
       input.focus()
-      input.setSelectionRange(start + insert.length, start + insert.length)
+      input.setSelectionRange(caret, caret)
     })
   }
 

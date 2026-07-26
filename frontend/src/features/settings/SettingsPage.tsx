@@ -54,6 +54,8 @@ const SCRIPT_NAME: Record<string, string> = {
   ar: 'Arabic script',
   el: 'Greek',
   hi: 'Devanagari',
+  th: 'Thai script',
+  ko: 'Hangul',
 }
 
 const THEMES: { value: Theme; label: string }[] = [
