@@ -1399,7 +1399,7 @@ async def get_cram_cards(
             l.code   AS language_code,
             d.drill_ids,
             d.sentences, d.answers, d.hints, d.translations,
-            d.glosses, d.transliterations
+            d.glosses, d.transliterations, d.cells, d.lemmas
         FROM grammar_points gp
         JOIN languages l ON gp.language_id = l.id
         LEFT JOIN LATERAL (
@@ -1413,7 +1413,9 @@ async def get_cram_cards(
                 array_agg(COALESCE(dht.translation, ds.translation)
                           ORDER BY ds.display_order, ds.id) AS translations,
                 array_agg(ds.gloss       ORDER BY ds.display_order, ds.id) AS glosses,
-                array_agg(ds.transliteration ORDER BY ds.display_order, ds.id) AS transliterations
+                array_agg(ds.transliteration ORDER BY ds.display_order, ds.id) AS transliterations,
+                array_agg(ds.cell        ORDER BY ds.display_order, ds.id) AS cells,
+                array_agg(ds.lemma       ORDER BY ds.display_order, ds.id) AS lemmas
             FROM drill_sentences ds
             LEFT JOIN drill_hint_translations dht
                    ON dht.drill_id = ds.id AND dht.locale = $2
@@ -1502,6 +1504,10 @@ async def get_cram_cards(
                 "translation": r["translations"][i],
                 "gloss": r["glosses"][i],
                 "transliteration": r["transliterations"][i],
+                # Paradigm cell + authored dictionary form — the raw material
+                # for the standardized baseline built after chart attach.
+                "cell": r["cells"][i] if r["cells"] else None,
+                "lemma": r["lemmas"][i] if r["lemmas"] else None,
                 "morphology": None,
                 "alternatives": None,
                 "language_code": r["language_code"],
@@ -1517,7 +1523,74 @@ async def get_cram_cards(
     # Interleave points instead of drilling one point three times in a row.
     random.Random(today).shuffle(cards)
     await attach_cram_charts(conn, cards)
+    # Standardized baseline, built AFTER charts so it can use the chart word's
+    # native-language gloss. The frontend still leak-guards it via safePrompt.
+    for card in cards:
+        card["baseline"] = _gym_baseline(card)
     return cards
+
+
+# Mirror of the frontend's safePrompt recipe detection (hintLayers.ts): a
+# dash-tail that spells out the answer's construction is stripped from the
+# baseline word part.
+_RECIPE_TAIL = re.compile(
+    r"\b(add|drop|changes?|becomes?|remove)\b|→|->|(?:^|\s)[-–][^\s-]",
+    re.IGNORECASE,
+)
+_HINT_DASH = re.compile(r"^(.*?)\s+[—–-]\s+(.+)$")
+
+
+def _split_hint(hint: str | None) -> tuple[str, str]:
+    """An authored hint's (word part, form tail). Strips a trailing spelling
+    recipe ("to watch — add -es" → "to watch"), then splits legacy
+    "lemma, person" authoring ("preparar, tú" → ("preparar", "tú"))."""
+    base = (hint or "").strip()
+    m = _HINT_DASH.match(base)
+    if m and _RECIPE_TAIL.search(m.group(2)):
+        base = m.group(1).strip()
+    word, _, tail = base.partition(",")
+    return word.strip(), tail.strip()
+
+
+def _short_gloss(definition: str | None) -> str | None:
+    """A definition's first sense, short enough to be a baseline word —
+    "to prepare; to get ready" → "to prepare". None when it wouldn't read as
+    a cue (empty or a run-on)."""
+    if not definition:
+        return None
+    seg = definition.split(";")[0].strip()
+    return seg if 0 < len(seg) <= 48 else None
+
+
+def _gym_baseline(card: dict) -> str:
+    """The standardized Gym baseline: "word (form)".
+
+    One shape for every drill — the word being exercised, in the learner's
+    NATIVE language wherever we know it, plus the form to produce:
+
+      word: the authored hint's word part (already an English gloss for most
+            authored/AI drills). When that word is just the target-language
+            dictionary form ("preparar, tú" authoring), upgrade it to the
+            chart word's English gloss. Fall back chart_gloss → chart_word →
+            lemma when there's no hint at all.
+      form: the drill's paradigm cell; else the hint's comma tail.
+
+    Description-style hints with no word ("indefinite article") pass through
+    unchanged — they ARE the baseline. The frontend still runs the result
+    through safePrompt, so a baseline can never leak the answer.
+    """
+    hint_word, hint_tail = _split_hint(card.get("hint"))
+    gloss = (card.get("chart_gloss") or "").strip()
+    chart_word = (card.get("chart_word") or "").strip()
+    lemma = (card.get("lemma") or "").strip()
+    target_forms = {w.lower() for w in (chart_word, lemma) if w}
+    word = hint_word or gloss or chart_word or lemma
+    if gloss and hint_word and hint_word.lower() in target_forms:
+        word = gloss
+    form = (card.get("cell") or "").strip() or hint_tail
+    if not word:
+        return ""
+    return f"{word} ({form})" if form else word
 
 
 def _chartable(morphology) -> object | None:
@@ -1555,17 +1628,28 @@ async def attach_cram_charts(conn: asyncpg.Connection, cards: list[dict]) -> Non
         if card.get("morphology") is not None:
             continue
         lang = card.get("language_code")
+        if not lang:
+            continue
+        candidates: list[str] = []
+        # The authored dictionary form (new drills store it) and the hint's
+        # word part (legacy "preparar, tú" authoring) are DIRECT chart keys —
+        # no lemmatizer needed, so they lead. English-gloss hints ("to live")
+        # are multi-word and skipped; they'd never match target vocabulary.
+        stored = (card.get("lemma") or "").strip().lower()
+        if stored:
+            candidates.append(stored)
+        hint_word, _tail = _split_hint(card.get("hint"))
+        hw = hint_word.lower()
+        if hw and " " not in hw and hw not in candidates:
+            candidates.append(hw)
         tokens = [
             t for t in re.findall(r"[^\W\d_]+", card.get("correct_answer") or "")
             if len(t) > 2
         ]
-        if not lang or not tokens:
-            continue
         try:
             nlp = get_nlp(lang)
         except ValueError:
             nlp = None
-        candidates: list[str] = []
         for t in tokens:
             low = t.lower()
             if nlp is not None:
@@ -1577,6 +1661,8 @@ async def attach_cram_charts(conn: asyncpg.Connection, cards: list[dict]) -> Non
                     candidates.append(lemma)
             if low not in candidates:
                 candidates.append(low)
+        if not candidates:
+            continue
         plans.append((card, candidates))
         wanted.setdefault(lang, set()).update(candidates)
 
@@ -1587,9 +1673,12 @@ async def attach_cram_charts(conn: asyncpg.Connection, cards: list[dict]) -> Non
     for lang, words in wanted.items():
         rows = await conn.fetch(
             """
-            SELECT v.word, v.morphology, v.usage_note
+            SELECT v.word, v.morphology, v.usage_note,
+                   t.definition AS definition
             FROM vocabulary v
             JOIN languages l ON v.language_id = l.id
+            LEFT JOIN translations t
+                   ON t.vocabulary_id = v.id AND t.locale = 'en'
             WHERE l.code = $1
               AND lower(v.word) = ANY($2::text[])
               AND v.morphology IS NOT NULL
@@ -1606,6 +1695,9 @@ async def attach_cram_charts(conn: asyncpg.Connection, cards: list[dict]) -> Non
                 "word": word,
                 "morphology": m,
                 "usage_note": r.get("usage_note"),
+                # Native-language gloss of the chart word — lets the baseline
+                # upgrade a bare target-language lemma to English.
+                "gloss": _short_gloss(r.get("definition")),
             })
 
     for card, candidates in plans:
@@ -1615,6 +1707,7 @@ async def attach_cram_charts(conn: asyncpg.Connection, cards: list[dict]) -> Non
                 card["morphology"] = hit["morphology"]
                 card["chart_word"] = hit["word"]
                 card["chart_usage_note"] = hit["usage_note"]
+                card["chart_gloss"] = hit["gloss"]
                 break
 
 

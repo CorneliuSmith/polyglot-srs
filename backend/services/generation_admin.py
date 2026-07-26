@@ -177,7 +177,7 @@ async def run_generation(
                         conn, item["point_id"], cand["sentence"], cand["answer"],
                         cand.get("translation"), cand.get("hint"),
                         source="ai", origin_detail=model, decertify=False,
-                        cell=cell,
+                        cell=cell, lemma=cand.get("lemma"),
                     )
                     if row_id:
                         persisted += 1
@@ -409,6 +409,7 @@ async def recheck_drills(
                     conn, point["point_id"], cand["sentence"], cand["answer"],
                     cand.get("translation"), cand.get("hint"),
                     source="ai", origin_detail=maker_model, decertify=False,
+                    lemma=cand.get("lemma"),
                 )
                 if row_id:
                     alternatives += 1

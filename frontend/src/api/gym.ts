@@ -7,6 +7,9 @@ export interface GymEntry {
   example: string | null
   level: string | null
   drills: number
+  /** How many of those drills THIS learner has already practised (set
+   * completion for the picker — not lifetime attempt totals). */
+  done: number
   nonstandard: boolean
   familiar: boolean
 }

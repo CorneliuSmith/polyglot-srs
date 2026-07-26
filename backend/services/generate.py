@@ -54,10 +54,19 @@ _DRILL_SCHEMA = {
                     "translation": {"type": "string"},
                     "hint": {
                         "type": "string",
-                        "description": "A short cue that does NOT contain the answer.",
+                        "description": "The ENGLISH dictionary-form gloss of the "
+                        "word the blank exercises — e.g. 'to prepare', 'house'. "
+                        "Nothing else: no recipe, no form name, and never the "
+                        "answer itself.",
+                    },
+                    "lemma": {
+                        "type": "string",
+                        "description": "The dictionary form (lemma) of the word "
+                        "the blank exercises, in the TARGET language — e.g. "
+                        "'preparar' for a drill whose answer is 'preparas'.",
                     },
                 },
-                "required": ["sentence", "answer", "translation", "hint"],
+                "required": ["sentence", "answer", "translation", "hint", "lemma"],
                 "additionalProperties": False,
             },
         }
@@ -81,6 +90,7 @@ def _mock_drills(point: dict, n: int) -> list[dict]:
         "answer": "gato",
         "translation": "The word cat here.",
         "hint": "a pet",
+        "lemma": "gato",
     }]
     for i in range(1, n):
         out.append({
@@ -88,6 +98,7 @@ def _mock_drills(point: dict, n: int) -> list[dict]:
             "answer": f"palabra{i}",
             "translation": f"Mock translation {i}.",
             "hint": "a cue that hides the answer",
+            "lemma": f"palabra{i}",
         })
     return out[:n]
 
@@ -123,7 +134,10 @@ async def make_drills(
             f"sentence contains the literal token {{{{answer}}}} exactly once where "
             f"the target form goes; the answer is a SINGLE word/word-form; the "
             f"answer must NOT appear anywhere else in the visible sentence; the "
-            f"hint must NOT contain the answer; give a natural English translation. "
+            f"hint is EXACTLY the English dictionary-form gloss of the word the "
+            f"blank exercises (e.g. 'to prepare') — no recipes, no form names, "
+            f"never the answer; the lemma is that word's dictionary form in "
+            f"{language}; give a natural English translation. "
             f"Do not repeat the example sentences."
         ),
         messages=[{

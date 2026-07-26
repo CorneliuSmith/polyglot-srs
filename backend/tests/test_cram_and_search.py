@@ -266,6 +266,8 @@ def _point_row(point_id: str, n_drills: int, code: str = "tr") -> dict:
         "translations": [f"t{i}" for i in range(n_drills)],
         "glosses": [None] * n_drills,
         "transliterations": [None] * n_drills,
+        "cells": [None] * n_drills,
+        "lemmas": [None] * n_drills,
     }
 
 
