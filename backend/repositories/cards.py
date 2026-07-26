@@ -12,6 +12,7 @@ import asyncpg
 
 from backend.repositories.curriculum import get_read_ref_keys, resolve_related
 from backend.repositories.gym import get_gym_progress
+from backend.services.cell_glosses import cell_gloss
 from backend.services.extract import ANSWER_MARKER, make_cloze
 from backend.services.gym_manifest import nonstandard_point_titles
 from backend.services.gym_weight import drill_weight
@@ -1552,45 +1553,40 @@ def _split_hint(hint: str | None) -> tuple[str, str]:
     return word.strip(), tail.strip()
 
 
-def _short_gloss(definition: str | None) -> str | None:
-    """A definition's first sense, short enough to be a baseline word —
-    "to prepare; to get ready" → "to prepare". None when it wouldn't read as
-    a cue (empty or a run-on)."""
-    if not definition:
-        return None
-    seg = definition.split(";")[0].strip()
-    return seg if 0 < len(seg) <= 48 else None
-
-
 def _gym_baseline(card: dict) -> str:
-    """The standardized Gym baseline: "word (form)".
+    """The standardized Gym baseline: "base (form; gloss)".
 
-    One shape for every drill — the word being exercised, in the learner's
-    NATIVE language wherever we know it, plus the form to produce:
+    The Gym is PRACTICE, not recall — the learner is HANDED the word and asked
+    to produce the form, so the base stays in the TARGET language and the form
+    label carries the native-language explanation:
 
-      word: the authored hint's word part (already an English gloss for most
-            authored/AI drills). When that word is just the target-language
-            dictionary form ("preparar, tú" authoring), upgrade it to the
-            chart word's English gloss. Fall back chart_gloss → chart_word →
-            lemma when there's no hint at all.
-      form: the drill's paradigm cell; else the hint's comma tail.
+        preparar (tú; you, singular)
+        дом (m.sg; masculine singular)
+
+      base: the drill's stored lemma, else the chart word, else the authored
+            hint's word part (legacy rows).
+      form: the drill's paradigm cell, else the hint's comma tail
+            ("preparar, tú" authoring). Glossed via cell_glosses when the
+            label is explainable; unexplainable cells (articles, particles,
+            suffixes) render as plain "base (form)".
 
     Description-style hints with no word ("indefinite article") pass through
     unchanged — they ARE the baseline. The frontend still runs the result
     through safePrompt, so a baseline can never leak the answer.
     """
     hint_word, hint_tail = _split_hint(card.get("hint"))
-    gloss = (card.get("chart_gloss") or "").strip()
-    chart_word = (card.get("chart_word") or "").strip()
-    lemma = (card.get("lemma") or "").strip()
-    target_forms = {w.lower() for w in (chart_word, lemma) if w}
-    word = hint_word or gloss or chart_word or lemma
-    if gloss and hint_word and hint_word.lower() in target_forms:
-        word = gloss
+    base = (
+        (card.get("lemma") or "").strip()
+        or (card.get("chart_word") or "").strip()
+        or hint_word
+    )
     form = (card.get("cell") or "").strip() or hint_tail
-    if not word:
+    if not base:
         return ""
-    return f"{word} ({form})" if form else word
+    if not form:
+        return base
+    gloss = cell_gloss(card.get("language_code"), form)
+    return f"{base} ({form}; {gloss})" if gloss else f"{base} ({form})"
 
 
 def _chartable(morphology) -> object | None:
@@ -1673,12 +1669,9 @@ async def attach_cram_charts(conn: asyncpg.Connection, cards: list[dict]) -> Non
     for lang, words in wanted.items():
         rows = await conn.fetch(
             """
-            SELECT v.word, v.morphology, v.usage_note,
-                   t.definition AS definition
+            SELECT v.word, v.morphology, v.usage_note
             FROM vocabulary v
             JOIN languages l ON v.language_id = l.id
-            LEFT JOIN translations t
-                   ON t.vocabulary_id = v.id AND t.locale = 'en'
             WHERE l.code = $1
               AND lower(v.word) = ANY($2::text[])
               AND v.morphology IS NOT NULL
@@ -1695,9 +1688,6 @@ async def attach_cram_charts(conn: asyncpg.Connection, cards: list[dict]) -> Non
                 "word": word,
                 "morphology": m,
                 "usage_note": r.get("usage_note"),
-                # Native-language gloss of the chart word — lets the baseline
-                # upgrade a bare target-language lemma to English.
-                "gloss": _short_gloss(r.get("definition")),
             })
 
     for card, candidates in plans:
@@ -1707,7 +1697,6 @@ async def attach_cram_charts(conn: asyncpg.Connection, cards: list[dict]) -> Non
                 card["morphology"] = hit["morphology"]
                 card["chart_word"] = hit["word"]
                 card["chart_usage_note"] = hit["usage_note"]
-                card["chart_gloss"] = hit["gloss"]
                 break
 
 
