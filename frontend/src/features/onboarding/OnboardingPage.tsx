@@ -3,11 +3,13 @@ import { useNavigate } from 'react-router-dom'
 import { useQuery, useMutation } from '@tanstack/react-query'
 import { getLanguages } from '../../api/profile'
 import {
+  assessWritingSample,
   completeOnboarding,
   getOnboardingStatus,
+  getWritingAvailability,
   placementNext,
 } from '../../api/onboarding'
-import type { PlacementItem } from '../../api/onboarding'
+import type { PlacementItem, WritingAssessment } from '../../api/onboarding'
 import { usePrefsStore } from '../../stores/prefsStore'
 import LanguageWrapper from '../../components/LanguageWrapper'
 import { formatPrice, getPlanPrices } from '../../api/billing'
@@ -44,6 +46,22 @@ export default function OnboardingPage() {
   const [maxItems, setMaxItems] = useState(12)
   const [level, setLevel] = useState('A1')
   const [planScope, setPlanScope] = useState<'single' | 'all'>('single')
+  // Optional writing baseline (owner request): write a sentence or two "to
+  // the best of your ability" and one small model call suggests the level.
+  // Offered only when the server says so (entitled accounts / testing).
+  const [sample, setSample] = useState('')
+  const [assessment, setAssessment] = useState<WritingAssessment | null>(null)
+  const { data: writingOffer } = useQuery({
+    queryKey: ['writing-availability', language?.id],
+    queryFn: () => getWritingAvailability(language!.id),
+    enabled: !!language,
+    retry: false,
+  })
+  const assessMutation = useMutation({
+    mutationFn: () =>
+      assessWritingSample(language!.id, language!.code, sample.trim()),
+    onSuccess: (res) => setAssessment(res),
+  })
   // Live Stripe prices (never hardcoded); null until billing is configured.
   const { data: planPrices } = useQuery({
     queryKey: ['plan-prices'],
@@ -335,6 +353,71 @@ export default function OnboardingPage() {
                 <option key={l} value={l}>{l}</option>
               ))}
             </select>
+
+            {/* Optional writing baseline: a sentence of real production beats
+                multiple choice. Only offered when the server allows the model
+                call (entitled accounts / testing) — the token guard. */}
+            {writingOffer?.available && (
+              <div
+                className="rounded-xl border border-gray-200 bg-white p-3 space-y-2"
+                data-testid="writing-baseline"
+              >
+                <p className="text-sm font-medium text-gray-800">
+                  Not sure? Write a little {language.name} (optional)
+                </p>
+                <p className="text-xs text-gray-500">
+                  A sentence or two, to the best of your ability — anything at
+                  all. We'll suggest a starting level from it.
+                </p>
+                <LanguageWrapper languageCode={language.code}>
+                  <textarea
+                    value={sample}
+                    onChange={(e) => setSample(e.target.value)}
+                    maxLength={500}
+                    rows={3}
+                    aria-label="Writing sample"
+                    className="w-full rounded-lg border border-gray-300 px-3 py-2 text-base"
+                  />
+                </LanguageWrapper>
+                <button
+                  type="button"
+                  onClick={() => assessMutation.mutate()}
+                  disabled={!sample.trim() || assessMutation.isPending}
+                  className="rounded-lg border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50 disabled:opacity-50"
+                  style={{ minHeight: '44px' }}
+                >
+                  {assessMutation.isPending ? 'Reading it…' : 'Suggest my level'}
+                </button>
+                {assessMutation.isError && (
+                  <p className="text-xs text-red-500">
+                    Couldn't assess that — pick your level above instead.
+                  </p>
+                )}
+                {assessment && (
+                  <div
+                    className="rounded-lg bg-lang-soft p-3 space-y-1.5"
+                    data-testid="writing-verdict"
+                  >
+                    <p className="text-sm text-gray-800">
+                      Your writing looks about <b>{assessment.level}</b>.
+                    </p>
+                    {assessment.notes && (
+                      <p className="text-xs text-gray-600">{assessment.notes}</p>
+                    )}
+                    {assessment.level !== level && (
+                      <button
+                        type="button"
+                        onClick={() => setLevel(assessment.level)}
+                        className="rounded-lg bg-lang hover:bg-lang-dark text-lang-on px-3 py-1.5 text-xs font-semibold"
+                      >
+                        Start at {assessment.level}
+                      </button>
+                    )}
+                  </div>
+                )}
+              </div>
+            )}
+
             <button
               type="button"
               onClick={() => setStep('plan')}

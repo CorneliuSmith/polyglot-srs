@@ -154,6 +154,105 @@ class TestOnboarding:
         }).status_code == 401
 
 
+class _WritingSettings:
+    """Router-level settings for the writing endpoints."""
+    def __init__(self, dev_mock=False, key=""):
+        self.tutor_dev_mock = dev_mock
+        self.anthropic_api_key = key
+
+
+class TestWritingSample:
+    """Owner token guard: the write-something baseline only spends a model
+    call for entitled accounts (paid/granted) — or dev-mock testing."""
+
+    def test_availability_true_in_dev_mock(self, client):
+        with patch("backend.routers.onboarding.get_settings",
+                   return_value=_WritingSettings(dev_mock=True)):
+            resp = client.get(
+                "/api/onboarding/writing-sample/availability",
+                params={"language_id": LANG}, headers=_auth_headers(),
+            )
+        assert resp.status_code == 200
+        assert resp.json()["available"] is True
+
+    def test_availability_false_without_entitlement(self, client):
+        with patch("backend.routers.onboarding.get_settings",
+                   return_value=_WritingSettings(key="sk-real")), \
+             patch("backend.routers.onboarding.has_tutor_entitlement",
+                   new=AsyncMock(return_value=False)):
+            resp = client.get(
+                "/api/onboarding/writing-sample/availability",
+                params={"language_id": LANG}, headers=_auth_headers(),
+            )
+        assert resp.json()["available"] is False
+
+    def test_post_rejected_when_unavailable(self, client):
+        with patch("backend.routers.onboarding.get_settings",
+                   return_value=_WritingSettings(key="sk-real")), \
+             patch("backend.routers.onboarding.has_tutor_entitlement",
+                   new=AsyncMock(return_value=False)):
+            resp = client.post("/api/onboarding/writing-sample", json={
+                "language_id": LANG, "language_code": "es",
+                "text": "Hola, me llamo Kate.",
+            }, headers=_auth_headers())
+        assert resp.status_code == 403
+
+    def test_post_assesses_and_primes_the_profile(self, client):
+        upserts = {}
+
+        async def fake_upsert(conn, user_id, language_id, profile):
+            upserts["profile"] = profile
+
+        with patch("backend.routers.onboarding.get_settings",
+                   return_value=_WritingSettings(dev_mock=True)), \
+             patch("backend.services.writing_baseline.get_settings",
+                   return_value=_WritingSettings(dev_mock=True)), \
+             patch("backend.routers.onboarding.get_language_profile",
+                   new=AsyncMock(return_value={"profile": {}, "session_summary": ""})), \
+             patch("backend.routers.onboarding.upsert_language_profile",
+                   new=fake_upsert), \
+             patch("backend.routers.onboarding.log_tutor_usage",
+                   new=AsyncMock()) as mock_usage:
+            # DB conn is an AsyncMock: language-name lookup returns a Mock,
+            # which is fine (only used in the judge prompt / not in dev-mock).
+            resp = client.post("/api/onboarding/writing-sample", json={
+                "language_id": LANG, "language_code": "es",
+                "text": "Ayer fui al mercado y compré mucha fruta fresca",
+            }, headers=_auth_headers())
+        assert resp.status_code == 200
+        body = resp.json()
+        assert body["level"] == "A2"  # dev-mock band for a mid-length sample
+        # The result primed the tutor language profile for the assessment
+        # tiers: baseline level + seeded Active Focus.
+        primed = upserts["profile"]
+        assert primed["_writing_baseline"]["level"] == "A2"
+        assert primed["_active_focus"][0]["structure"]
+        mock_usage.assert_awaited_once()
+        assert mock_usage.await_args.kwargs["kind"] == "writing_baseline"
+
+    def test_post_never_overwrites_tutor_set_focus(self, client):
+        existing = {"_active_focus": [{"structure": "ser vs estar"}]}
+        upserts = {}
+
+        async def fake_upsert(conn, user_id, language_id, profile):
+            upserts["profile"] = profile
+
+        with patch("backend.routers.onboarding.get_settings",
+                   return_value=_WritingSettings(dev_mock=True)), \
+             patch("backend.services.writing_baseline.get_settings",
+                   return_value=_WritingSettings(dev_mock=True)), \
+             patch("backend.routers.onboarding.get_language_profile",
+                   new=AsyncMock(return_value={"profile": existing, "session_summary": ""})), \
+             patch("backend.routers.onboarding.upsert_language_profile",
+                   new=fake_upsert), \
+             patch("backend.routers.onboarding.log_tutor_usage", new=AsyncMock()):
+            resp = client.post("/api/onboarding/writing-sample", json={
+                "language_id": LANG, "language_code": "es", "text": "Hola",
+            }, headers=_auth_headers())
+        assert resp.status_code == 200
+        assert upserts["profile"]["_active_focus"] == [{"structure": "ser vs estar"}]
+
+
 class TestPlainPromptFilter:
     """Placement prompts must read like flashcards, not a linguistics glossary
     (beta feedback: 'too much grammar vocab')."""
