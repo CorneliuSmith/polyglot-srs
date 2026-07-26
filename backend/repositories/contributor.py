@@ -434,6 +434,12 @@ async def add_drill(
         await conn.execute(
             "UPDATE grammar_points SET reviewed = false WHERE id = $1", point_id
         )
+    if source == "human":
+        # A hand-added drill makes this a human-owned point: a later doc
+        # re-seed must route through the suggestion queue, not overwrite it.
+        await conn.execute(
+            "UPDATE grammar_points SET curated = true WHERE id = $1", point_id
+        )
     return str(drill_id)
 
 
@@ -1314,7 +1320,8 @@ async def review_drill(
     reject (deleted) a pending generated drill. Only ever touches an unreviewed
     'ai' row. Returns True if a row changed."""
     ctx = await conn.fetchrow(
-        "SELECT gp.language_id, ds.sentence FROM drill_sentences ds "
+        "SELECT gp.language_id, gp.id AS point_id, ds.sentence "
+        "FROM drill_sentences ds "
         "JOIN grammar_points gp ON ds.grammar_point_id = gp.id WHERE ds.id = $1",
         drill_id,
     )
@@ -1331,6 +1338,12 @@ async def review_drill(
             drill_id,
         )
     changed = result.rsplit(" ", 1)[-1] == "1"
+    if changed and ctx:
+        # A reviewer decision over this point's drills is human curation.
+        await conn.execute(
+            "UPDATE grammar_points SET curated = true WHERE id = $1",
+            ctx["point_id"],
+        )
     if changed and ctx:
         await log_change(
             conn, entity_type="drill", entity_id=drill_id, actor_id=actor_id,
@@ -1612,7 +1625,8 @@ async def update_drill(
     if not result.endswith("1"):
         return False
     await conn.execute(
-        "UPDATE grammar_points SET reviewed = false WHERE id = $1", point_id
+        "UPDATE grammar_points SET reviewed = false, curated = true WHERE id = $1",
+        point_id,
     )
     if prev:
         await log_change(
@@ -1627,11 +1641,21 @@ async def update_drill(
 
 
 async def delete_drill(conn: asyncpg.Connection, drill_id: str) -> bool:
-    """Delete a drill sentence (privileged)."""
+    """Delete a drill sentence (privileged). A human pruning drills is curation:
+    the parent point is marked curated so a re-seed doesn't resurrect the drill
+    by overwriting the set."""
+    point_id = await conn.fetchval(
+        "SELECT grammar_point_id FROM drill_sentences WHERE id = $1", drill_id
+    )
     result = await conn.execute(
         "DELETE FROM drill_sentences WHERE id = $1", drill_id
     )
-    return result.endswith("1")
+    ok = result.endswith("1")
+    if ok and point_id:
+        await conn.execute(
+            "UPDATE grammar_points SET curated = true WHERE id = $1", point_id
+        )
+    return ok
 
 
 async def save_explanation(
@@ -1657,6 +1681,7 @@ async def save_explanation(
             reference_links = $5::jsonb,
             explanation_source = 'contributor',
             reviewed = false,
+            curated = true,
             explanation_submitted_by = $4
         WHERE id = $1
         """,
@@ -1699,7 +1724,7 @@ async def approve_explanation(
     result = await conn.execute(
         """
         UPDATE grammar_points
-        SET reviewed = true, reviewed_by = $2, reviewed_at = now()
+        SET reviewed = true, curated = true, reviewed_by = $2, reviewed_at = now()
         WHERE id = $1
         """,
         point_id, reviewer_id,
@@ -2095,6 +2120,26 @@ SUGGESTION_FIELDS = {
 _AUDIT_ENTITY = {"vocabulary": "vocabulary", "grammar": "grammar_point"}
 
 
+def reseed_grammar_proposal(point: dict, current: dict) -> dict:
+    """The part of a re-seed grammar point that DIFFERS from a live *curated*
+    card, shaped as a content_suggestions proposal ({function_note?,
+    explanation?, culture_note?}). Returns {} when the reseed proposes nothing
+    new. *point* is a seed-file point dict (its one-liner is under "function");
+    *current* is the live row's values. Blank incoming values never propose
+    blanking a field a human wrote."""
+    proposed: dict = {}
+    pairs = (
+        ("function_note", (point.get("function") or "").strip()),
+        ("explanation", (point.get("explanation") or "").strip()),
+        ("culture_note", (point.get("culture_note") or "").strip()),
+    )
+    for field, new in pairs:
+        cur = (current.get(field) or "").strip()
+        if new and new != cur:
+            proposed[field] = new
+    return proposed
+
+
 def reseed_vocab_proposal(record: dict, current: dict) -> dict:
     """The part of a re-seed record that DIFFERS from a live *curated* vocab
     card, shaped as a content_suggestions proposal ({part_of_speech?,
@@ -2192,20 +2237,21 @@ async def create_extraction_suggestion(
     entity_id: str,
     proposed: dict,
     *,
+    entity_type: str = "vocabulary",
     origin: str = "document re-seed",
     current: dict | None = None,
 ) -> str | None:
-    """Stash a doc re-seed's proposed values for a CURATED vocab card as a
-    pending suggestion instead of overwriting the reviewer's work. System
-    authored (no auth user), marked source='extraction' so admin metrics can
-    track how often these are accepted.
+    """Stash a doc re-seed's proposed values for a CURATED card (vocabulary or
+    grammar) as a pending suggestion instead of overwriting the reviewer's work.
+    System authored (no auth user), marked source='extraction' so admin metrics
+    can track how often these are accepted.
 
     Idempotent per card: a repeated reseed refreshes the single pending
     extraction row (partial unique index) rather than piling up duplicates. The
     prior values are recorded to the audit log so a reviewer can always see what
     the reseed would have changed. Returns the suggestion id, or None when
     there is nothing new to propose."""
-    allowed = SUGGESTION_FIELDS["vocabulary"]
+    allowed = SUGGESTION_FIELDS[entity_type]
     clean = {
         k: v.strip()
         for k, v in proposed.items()
@@ -2218,7 +2264,7 @@ async def create_extraction_suggestion(
         INSERT INTO content_suggestions
             (language_id, entity_type, entity_id, author_id, proposed,
              source, origin)
-        VALUES ($1, 'vocabulary', $2, NULL, $3, 'extraction', $4)
+        VALUES ($1, $2, $3, NULL, $4, 'extraction', $5)
         ON CONFLICT (entity_type, entity_id)
             WHERE source = 'extraction' AND status = 'pending'
             DO UPDATE SET proposed = EXCLUDED.proposed,
@@ -2226,12 +2272,14 @@ async def create_extraction_suggestion(
                           created_at = now()
         RETURNING id
         """,
-        language_id, entity_id, json.dumps(clean, ensure_ascii=False), origin,
+        language_id, entity_type, entity_id,
+        json.dumps(clean, ensure_ascii=False), origin,
     )
     sid = str(row["id"])
     before = {k: (current or {}).get(k) for k in clean} if current else None
     await log_change(
-        conn, entity_type="vocabulary", entity_id=str(entity_id),
+        conn, entity_type=_AUDIT_ENTITY.get(entity_type, entity_type),
+        entity_id=str(entity_id),
         action="suggested", language_id=str(language_id),
         before=before, after=clean, note=origin,
     )
@@ -2350,6 +2398,10 @@ async def _apply_to_entity(
                 f"UPDATE grammar_points SET {sets} WHERE id = $1",
                 entity_id, *[fields[c] for c in cols],
             )
+        # An approved human edit makes this a human-owned point — later doc
+        # re-seeds route to the suggestion queue instead of overwriting.
+        await conn.execute(
+            "UPDATE grammar_points SET curated = true WHERE id = $1", entity_id)
 
 
 async def approve_suggestion(

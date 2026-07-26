@@ -55,6 +55,19 @@ comparatively expensive doc-sourced recommendations land
 (`GET /contribute/admin/suggestions/metrics`). A re-seed that matches the card
 proposes nothing. New and non-curated words upsert as before.
 
+**Curated grammar is protected the same way — and drills diff-sync in place**
+(migration `20260828000000_grammar_curated.sql`). `grammar_points.curated` is set
+by any human touch (saving/approving an explanation, adding/editing/reviewing/
+deleting drills, approving a suggestion); a re-seed never overwrites a curated
+point — text diffs land as pending `content_suggestions` (`entity_type='grammar'`,
+`source='extraction'`) and new drills insert `source='ai'`/`reviewed=false` into
+the pending-drills queue. For every point, curated or not, drills are no longer
+deleted and rebuilt: rows are matched by `(sentence, answer)` and updated **in
+place**, so drill ids — and each learner's `gym_progress` (ON DELETE CASCADE) —
+survive re-seeding; only stale, untouched seed rows are removed. Newly created
+points log `action='seeded'` to `content_change_log`, so the admin audit feed
+doubles as an import digest.
+
 ## The contract the extractor mirrors
 
 The interchange model deliberately reuses *our* controlled values, so a document

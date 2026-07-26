@@ -5,7 +5,11 @@ populates grammar_points (with explanation, culture note, provenance), their
 fill-in-the-blank drill_sentences (sentence + answer + translation + hint),
 and a grammar content_list per level so the points are subscribable and
 learnable. Re-running updates in place (UPSERT by language + title; drills are
-replaced).
+diff-synced by (sentence, answer) — matched rows keep their ids so learners'
+gym_progress survives, and human-touched drills are never deleted). A point a
+human has curated (approved/edited in the app) is never overwritten: its text
+diffs go to the content_suggestions review queue and its new drills land
+reviewed=false in the pending-drills queue.
 
 Curriculum file shape:
     {
@@ -27,8 +31,8 @@ hint/translation in a learner's support language:
       "points": {"<point title>": {"<drill sentence>": {
           "hint": "...", "translation": "..."}}}
     }
-Entries are keyed by the drill's exact sentence — drills get fresh ids on
-every reseed (delete + insert), so the sentence is the only stable key. A
+Entries are keyed by the drill's exact sentence — the stable natural key
+(drill ids now survive a reseed, but the sentence key stays the contract). A
 key that no longer matches a drill fails the seed loudly: it means the
 drill was reworded and the translation needs re-drafting, not silent loss.
 
@@ -55,6 +59,58 @@ GRAMMAR_DIR = DATA_DIR / "grammar"
 logger = logging.getLogger("seed_grammar")
 
 VALID_SOURCES = {"contributor", "ai", "wiktionary", "pending"}
+
+
+def plan_drill_sync(
+    existing: list[dict], incoming: list[dict], *, protect: bool = False
+) -> dict:
+    """Decide how a point's live drills change on re-seed. Pure, so the policy
+    is testable without a DB.
+
+    *existing*: live rows (dicts with id, sentence, answer, source, is_modified,
+    flagged). *incoming*: the seed file's drill dicts. Matching is by the
+    natural key (sentence, answer) — the same key the hint-translation files
+    rely on.
+
+    Returns {"update": [(row, drill)], "insert": [drill], "delete": [row]}.
+
+    Normal mode: matches update IN PLACE (the row id — and with it each
+    learner's gym_progress — survives), new drills insert, and only stale rows
+    that are pure untouched seed content (source='seed', not human-modified,
+    not flagged) are deleted. A human-added, human-edited, flagged, or
+    pending-'ai' drill is never deleted by a re-seed.
+
+    Protect mode (curated point): additive only — genuinely new drills are
+    returned to insert (the caller lands them reviewed=false for the pending
+    queue); nothing is updated or deleted.
+    """
+    # Dedupe incoming by key (a merged multi-chunk extraction can repeat one).
+    seen: set[tuple] = set()
+    deduped: list[dict] = []
+    for d in incoming:
+        key = (d["sentence"], d["answer"])
+        if key not in seen:
+            seen.add(key)
+            deduped.append(d)
+
+    by_key = {(r["sentence"], r["answer"]): r for r in existing}
+    plan: dict = {"update": [], "insert": [], "delete": []}
+    for d in deduped:
+        row = by_key.get((d["sentence"], d["answer"]))
+        if row is None:
+            plan["insert"].append(d)
+        elif not protect:
+            plan["update"].append((row, d))
+    if not protect:
+        incoming_keys = {(d["sentence"], d["answer"]) for d in deduped}
+        plan["delete"] = [
+            r for (k, r) in by_key.items()
+            if k not in incoming_keys
+            and r.get("source") == "seed"
+            and not r.get("is_modified")
+            and not r.get("flagged")
+        ]
+    return plan
 
 
 def _clean_prerequisites(raw) -> list[str]:
@@ -283,59 +339,100 @@ class GrammarSeeder:
                     lst.get("description"),
                 )
 
+            # Curated points are human-owned: the re-seed never overwrites them
+            # (text diffs go to the suggestion queue) and never deletes their
+            # drills. Same protection vocabulary already has (Option B).
+            from backend.repositories.contributor import (  # noqa: PLC0415
+                create_extraction_suggestion,
+                reseed_grammar_proposal,
+            )
+            from backend.repositories.audit import log_change  # noqa: PLC0415
+
+            curated_rows = await conn.fetch(
+                "SELECT id, title, function_note, explanation, culture_note "
+                "FROM grammar_points WHERE language_id = $1 AND curated = true",
+                language_id,
+            )
+            curated_by_title = {r["title"]: r for r in curated_rows}
+
             count = 0
             hint_rows = 0
             expl_rows = 0
+            new_points = 0
+            suggested = 0
+            drills_updated = drills_inserted = drills_deleted = 0
+            drills_pending = 0
+            origin = f"document re-seed ({self.language_code})"
             # Prerequisites reference other points by title; resolve to ids only
             # after every point in this file has an id (a point may depend on a
             # later one). Collected here, applied in one pass below.
             pending_prereqs: list[tuple] = []
             for point in data["points"]:
-                gp_id = await conn.fetchval(
-                    """
-                    INSERT INTO grammar_points
-                        (language_id, title, function_note, explanation, culture_note,
-                         level, display_order, explanation_source, reviewed, reference_links,
-                         related)
-                    VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10::jsonb, $11::jsonb)
-                    ON CONFLICT (language_id, title) DO UPDATE SET
-                        function_note = EXCLUDED.function_note,
-                        explanation = EXCLUDED.explanation,
-                        culture_note = EXCLUDED.culture_note,
-                        level = EXCLUDED.level,
-                        display_order = EXCLUDED.display_order,
-                        explanation_source = EXCLUDED.explanation_source,
-                        reviewed = EXCLUDED.reviewed,
-                        reference_links = EXCLUDED.reference_links,
-                        related = EXCLUDED.related
-                    RETURNING id
-                    """,
-                    language_id, point["title"], point.get("function"),
-                    point["explanation"], point["culture_note"], point["level"],
-                    point["display_order"], point["source"], point["reviewed"],
-                    json.dumps(point.get("references") or [], ensure_ascii=False),
-                    json.dumps(point.get("related") or [], ensure_ascii=False),
-                )
-                # Replace drills so re-seeding is idempotent. The delete
-                # cascades to drill_hint_translations, so locale rows are
-                # rebuilt from the hint files right here — they can't be
-                # stranded on ids that no longer exist.
-                await conn.execute(
-                    "DELETE FROM drill_sentences WHERE grammar_point_id = $1", gp_id
-                )
-                for d in point["drills"]:
-                    drill_id = await conn.fetchval(
+                cur = curated_by_title.get(point["title"])
+                protect = cur is not None
+                if protect:
+                    gp_id = cur["id"]
+                    proposal = reseed_grammar_proposal(point, dict(cur))
+                    if proposal:
+                        await create_extraction_suggestion(
+                            conn, language_id, str(gp_id), proposal,
+                            entity_type="grammar", origin=origin,
+                            current={k: cur[k] for k in proposal},
+                        )
+                        suggested += 1
+                else:
+                    row = await conn.fetchrow(
                         """
-                        INSERT INTO drill_sentences
-                            (grammar_point_id, sentence, answer, translation, hint,
-                             gloss, transliteration, display_order, cell)
-                        VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9)
-                        RETURNING id
+                        INSERT INTO grammar_points
+                            (language_id, title, function_note, explanation, culture_note,
+                             level, display_order, explanation_source, reviewed, reference_links,
+                             related)
+                        VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10::jsonb, $11::jsonb)
+                        ON CONFLICT (language_id, title) DO UPDATE SET
+                            function_note = EXCLUDED.function_note,
+                            explanation = EXCLUDED.explanation,
+                            culture_note = EXCLUDED.culture_note,
+                            level = EXCLUDED.level,
+                            display_order = EXCLUDED.display_order,
+                            explanation_source = EXCLUDED.explanation_source,
+                            reviewed = EXCLUDED.reviewed,
+                            reference_links = EXCLUDED.reference_links,
+                            related = EXCLUDED.related
+                        RETURNING id, (xmax = 0) AS inserted
                         """,
-                        gp_id, d["sentence"], d["answer"], d["translation"],
-                        d["hint"], d.get("gloss"), d.get("transliteration"),
-                        d["display_order"], d.get("cell"),
+                        language_id, point["title"], point.get("function"),
+                        point["explanation"], point["culture_note"], point["level"],
+                        point["display_order"], point["source"], point["reviewed"],
+                        json.dumps(point.get("references") or [], ensure_ascii=False),
+                        json.dumps(point.get("related") or [], ensure_ascii=False),
                     )
+                    gp_id = row["id"]
+                    if row["inserted"]:
+                        new_points += 1
+                        # Actor NULL = system: the admin audit feed doubles as
+                        # an import digest of what each seed run added.
+                        await log_change(
+                            conn, entity_type="grammar_point",
+                            entity_id=str(gp_id), action="seeded",
+                            language_id=str(language_id), note=origin,
+                        )
+
+                # Diff-sync drills in place of the old delete-and-rebuild:
+                # matched rows update IN PLACE, so drill ids — and each
+                # learner's gym_progress (ON DELETE CASCADE) — survive a
+                # re-seed. Human-touched drills are never deleted; on a curated
+                # point nothing is deleted or updated, and new drills land
+                # source='ai'/reviewed=false in the pending-drills queue.
+                existing = [
+                    dict(r) for r in await conn.fetch(
+                        "SELECT id, sentence, answer, source, is_modified, flagged "
+                        "FROM drill_sentences WHERE grammar_point_id = $1", gp_id,
+                    )
+                ]
+                sync = plan_drill_sync(existing, point["drills"], protect=protect)
+
+                async def _write_hints(drill_id, d):
+                    n = 0
                     for locale, ht in (d.get("hint_translations") or {}).items():
                         await conn.execute(
                             """
@@ -346,25 +443,75 @@ class GrammarSeeder:
                             drill_id, locale, ht["hint"], ht["translation"],
                             ht["reviewed"],
                         )
-                        hint_rows += 1
-                # WP22: localized explanations upsert by (point, locale).
-                for locale, et in (
-                    point.get("explanation_translations") or {}
-                ).items():
+                        n += 1
+                    return n
+
+                for row, d in sync["update"]:
                     await conn.execute(
                         """
-                        INSERT INTO explanation_translations
-                            (grammar_point_id, locale, explanation, reviewed)
-                        VALUES ($1, $2, $3, $4)
-                        ON CONFLICT (grammar_point_id, locale) DO UPDATE SET
-                            explanation = EXCLUDED.explanation,
-                            reviewed = EXCLUDED.reviewed
+                        UPDATE drill_sentences
+                        SET translation = $2, hint = $3, gloss = $4,
+                            transliteration = $5, display_order = $6, cell = $7
+                        WHERE id = $1
                         """,
-                        gp_id, locale, et["explanation"], et["reviewed"],
+                        row["id"], d["translation"], d["hint"], d.get("gloss"),
+                        d.get("transliteration"), d["display_order"], d.get("cell"),
                     )
-                    expl_rows += 1
-                if point.get("prerequisites"):
-                    pending_prereqs.append((gp_id, point["prerequisites"]))
+                    await conn.execute(
+                        "DELETE FROM drill_hint_translations WHERE drill_id = $1",
+                        row["id"],
+                    )
+                    hint_rows += await _write_hints(row["id"], d)
+                    drills_updated += 1
+                for d in sync["insert"]:
+                    drill_id = await conn.fetchval(
+                        """
+                        INSERT INTO drill_sentences
+                            (grammar_point_id, sentence, answer, translation, hint,
+                             gloss, transliteration, display_order, cell,
+                             source, reviewed, origin_detail)
+                        VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12)
+                        RETURNING id
+                        """,
+                        gp_id, d["sentence"], d["answer"], d["translation"],
+                        d["hint"], d.get("gloss"), d.get("transliteration"),
+                        d["display_order"], d.get("cell"),
+                        "ai" if protect else "seed",
+                        not protect,  # curated additions wait for review
+                        origin if protect else None,
+                    )
+                    hint_rows += await _write_hints(drill_id, d)
+                    drills_inserted += 1
+                    if protect:
+                        drills_pending += 1
+                if sync["delete"]:
+                    await conn.execute(
+                        "DELETE FROM drill_sentences WHERE id = ANY($1::uuid[])",
+                        [r["id"] for r in sync["delete"]],
+                    )
+                    drills_deleted += len(sync["delete"])
+
+                if not protect:
+                    # WP22: localized explanations upsert by (point, locale).
+                    # Skipped for curated points — they mirror the main text,
+                    # which the human owns.
+                    for locale, et in (
+                        point.get("explanation_translations") or {}
+                    ).items():
+                        await conn.execute(
+                            """
+                            INSERT INTO explanation_translations
+                                (grammar_point_id, locale, explanation, reviewed)
+                            VALUES ($1, $2, $3, $4)
+                            ON CONFLICT (grammar_point_id, locale) DO UPDATE SET
+                                explanation = EXCLUDED.explanation,
+                                reviewed = EXCLUDED.reviewed
+                            """,
+                            gp_id, locale, et["explanation"], et["reviewed"],
+                        )
+                        expl_rows += 1
+                    if point.get("prerequisites"):
+                        pending_prereqs.append((gp_id, point["prerequisites"]))
                 count += 1
 
             # Resolve prerequisite titles → ids now that every point (this
@@ -386,10 +533,19 @@ class GrammarSeeder:
                     prereq_rows += len(ids)
 
             logger.info(
-                "Loaded %d grammar points for %s (%d hint rows, %d "
-                "explanation rows, %d prerequisite links)",
-                count, self.language_code, hint_rows, expl_rows, prereq_rows,
+                "Loaded %d grammar points for %s (%d new, %d hint rows, %d "
+                "explanation rows, %d prerequisite links); drills: %d updated "
+                "in place, %d inserted, %d deleted",
+                count, self.language_code, new_points, hint_rows, expl_rows,
+                prereq_rows, drills_updated, drills_inserted, drills_deleted,
             )
+            if suggested or drills_pending:
+                logger.info(
+                    "Protected %d curated point(s): %d text change(s) routed to "
+                    "the review suggestion queue, %d new drill(s) pending review "
+                    "(not overwritten)",
+                    len(curated_by_title), suggested, drills_pending,
+                )
             return count
         finally:
             await conn.close()
