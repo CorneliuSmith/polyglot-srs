@@ -68,6 +68,19 @@ export const russianLetters: LanguageLetters = {
         { char: 'ъ', roman: "''", example: 'объект', sound: 'hard sign — a tiny break between prefix and root' },
       ],
     },
+    {
+      title: 'Print vs italics (and handwriting)',
+      note: 'Typed Cyrillic has two faces. In italics — and even more in handwriting — several letters turn into shapes that look like DIFFERENT Latin letters. Same letter, same sound: compare each upright/italic pair.',
+      italics: true,
+      rows: [
+        { char: 'т', roman: 't', example: 'там', sound: "italic т becomes an m-shape — still 't'" },
+        { char: 'и', roman: 'i', example: 'мир', sound: "italic и becomes a u-shape — still 'ee'" },
+        { char: 'й', roman: 'j', example: 'мой', sound: 'italic й is that u-shape with the curve mark on top' },
+        { char: 'п', roman: 'p', example: 'папа', sound: "italic п becomes an n-shape — still 'p'" },
+        { char: 'д', roman: 'd', example: 'да', sound: "italic д becomes a g-shape — still 'd'" },
+        { char: 'г', roman: 'g', example: 'год', sound: "italic г becomes a backwards s — still 'g'" },
+      ],
+    },
   ],
 }
 
@@ -139,6 +152,7 @@ export const arabicLetters: LanguageLetters = {
     },
     {
       title: 'Long vowels and glides',
+      positions: true,
       rows: [
         { char: 'ا', roman: 'aa', example: 'باب', sound: "long 'aa' as in father" },
         { char: 'و', roman: 'w/uu', example: 'نور', sound: "'w', or long 'oo' as in boot" },
@@ -147,6 +161,8 @@ export const arabicLetters: LanguageLetters = {
     },
     {
       title: 'Letters English has',
+      note: 'Each letter shown in all four positions: alone, and joined at the start, middle, and end of a word.',
+      positions: true,
       rows: [
         { char: 'ب', roman: 'b', example: 'بيت', sound: "'b' as in bat" },
         { char: 'ت', roman: 't', example: 'تفاح', sound: "'t' as in top" },
@@ -169,6 +185,7 @@ export const arabicLetters: LanguageLetters = {
     {
       title: 'The new sounds',
       note: 'Made deeper in the throat than anything in English — listen and copy.',
+      positions: true,
       rows: [
         { char: 'ح', roman: 'H / 7', example: 'حب', sound: "breathy 'h' from deep in the throat — fogging a mirror, harder" },
         { char: 'خ', roman: 'kh / 5', example: 'خبز', sound: "'ch' of Scottish loch" },
@@ -181,6 +198,7 @@ export const arabicLetters: LanguageLetters = {
     {
       title: 'The emphatic four',
       note: "Heavier twins of t/d/s/z — the tongue cups back and the whole word darkens.",
+      positions: true,
       rows: [
         { char: 'ص', roman: 'S', example: 'صباح', sound: "heavy 's'" },
         { char: 'ض', roman: 'D', example: 'ضوء', sound: "heavy 'd'" },
