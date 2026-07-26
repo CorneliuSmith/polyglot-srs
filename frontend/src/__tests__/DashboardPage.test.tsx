@@ -254,20 +254,31 @@ describe('Dashboard tiles', () => {
     )
   })
 
-  it('shows The Gym tile only when the language has form categories', async () => {
+  it('shows the Gym tile only when the language has form categories', async () => {
     const { getGymManifest } = await import('../api/gym')
     const mockGym = getGymManifest as ReturnType<typeof vi.fn>
     renderDashboard()
     await screen.findByText(/learned today/i)
-    expect(screen.queryByText('The Gym')).toBeNull()
+    expect(screen.queryByTestId('tile-gym')).toBeNull()
 
     cleanup()
     mockGym.mockResolvedValue({
       columns: [{ kind: 'verbs', label: 'Verbs', entries: [{}] }],
     })
     renderDashboard()
-    fireEvent.click(await screen.findByRole('button', { name: /the gym/i }))
+    fireEvent.click(await screen.findByTestId('tile-gym'))
     expect(mockNavigate).toHaveBeenCalledWith('/gym')
+  })
+
+  it('Read and Tutor are first-class tiles beside the command center', async () => {
+    renderDashboard()
+    await screen.findByText(/learned today/i)
+    // Distinctive destination tiles — not buried link-list rows.
+    expect(screen.getByTestId('feature-tiles')).toBeDefined()
+    fireEvent.click(screen.getByTestId('tile-read'))
+    expect(mockNavigate).toHaveBeenCalledWith('/read')
+    fireEvent.click(screen.getByTestId('tile-tutor'))
+    expect(mockNavigate).toHaveBeenCalledWith('/tutor')
   })
 
   it('the Learn tile shows daily-goal progress, not the whole queue', async () => {

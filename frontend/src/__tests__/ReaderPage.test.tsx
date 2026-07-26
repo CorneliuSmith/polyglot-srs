@@ -70,11 +70,38 @@ async function generate() {
   const input = await screen.findByPlaceholderText(/street food/i)
   fireEvent.change(input, { target: { value: 'cats' } })
   fireEvent.click(screen.getByRole('button', { name: /write it/i }))
+  // TTS language → the text is held back behind the listen-first prompt.
+  await screen.findByTestId('listen-first')
+  fireEvent.click(screen.getByRole('button', { name: /show me the text/i }))
   await screen.findByText('El gato')
 }
 
 describe('ReaderPage (WP21)', () => {
   beforeEach(() => vi.clearAllMocks())
+
+  it('listen-first holds the text back until the learner chooses', async () => {
+    mockGenerate.mockResolvedValue({
+      id: 'r-1', reading, level: 'A1', allowance: { unlimited: true },
+    })
+    renderPage()
+    const input = await screen.findByPlaceholderText(/street food/i)
+    fireEvent.change(input, { target: { value: 'cats' } })
+    fireEvent.click(screen.getByRole('button', { name: /write it/i }))
+
+    // The text is NOT shown — the choice comes first.
+    await screen.findByTestId('listen-first')
+    expect(screen.queryByText('El gato')).toBeNull()
+
+    // Ear mode: numbered play-only lines, text still hidden.
+    fireEvent.click(screen.getByRole('button', { name: /listen first/i }))
+    expect(await screen.findByTestId('listen-lines')).toBeDefined()
+    expect(screen.queryByText('El gato')).toBeNull()
+
+    // Reveal → normal guess stage.
+    fireEvent.click(screen.getByRole('button', { name: /show the text/i }))
+    expect(await screen.findByText('El gato')).toBeDefined()
+    expect(screen.getByTestId('guess-banner')).toBeDefined()
+  })
 
   it('stage 1 forces guessing: two tries before the gloss ever shows', async () => {
     await generate()
@@ -144,14 +171,14 @@ describe('ReaderPage (WP21)', () => {
     fireEvent.click(
       screen.getByRole('button', { name: /unlock translations/i }),
     )
-    fireEvent.click(screen.getByRole('button', { name: /explain the grammar/i }))
+    fireEvent.click(screen.getAllByRole('button', { name: /^grammar$/i })[0])
     expect(await screen.findByTestId('sentence-explanation')).toBeDefined()
     expect(mockExplain).toHaveBeenCalledWith('r-1', 0)
 
-    // Hide-able (owner feedback) — and toggling never refetches.
-    fireEvent.click(screen.getByRole('button', { name: /hide explanation/i }))
+    // Hide-able (owner feedback) — the same pill toggles, never refetches.
+    fireEvent.click(screen.getAllByRole('button', { name: /^grammar$/i })[0])
     expect(screen.queryByTestId('sentence-explanation')).toBeNull()
-    fireEvent.click(screen.getByRole('button', { name: /show explanation/i }))
+    fireEvent.click(screen.getAllByRole('button', { name: /^grammar$/i })[0])
     expect(screen.getByTestId('sentence-explanation')).toBeDefined()
     expect(mockExplain).toHaveBeenCalledTimes(1)
 

@@ -30,6 +30,43 @@ import InstallPrompt from '../../components/InstallPrompt'
 import LearningTip from '../tips/LearningTip'
 import type { LearnDeck } from '../../api/types'
 
+/** A first-class practice-destination tile (Gym / Read / Tutor). Users have
+ * shown they don't read buried link lists — these sit right under the
+ * Learn/Review command center with the same visual weight, so the features
+ * are discovered by SEEING them. */
+function FeatureTile({
+  glyph,
+  label,
+  caption,
+  testId,
+  onClick,
+  disabled = false,
+}: {
+  glyph: string
+  label: string
+  caption: string
+  testId: string
+  onClick: () => void
+  disabled?: boolean
+}) {
+  return (
+    <button
+      type="button"
+      onClick={onClick}
+      disabled={disabled}
+      data-testid={testId}
+      className="rounded-2xl border-2 border-lang/20 bg-white hover:border-lang hover:bg-lang-soft/40 disabled:opacity-50 p-3 text-center transition-colors"
+      style={{ minHeight: '44px' }}
+    >
+      <span aria-hidden className="block text-2xl leading-none">{glyph}</span>
+      <span className="block mt-1.5 text-sm font-bold text-gray-900">{label}</span>
+      <span className="block mt-0.5 text-[11px] leading-tight text-gray-500">
+        {caption}
+      </span>
+    </button>
+  )
+}
+
 /** One Bunpro-style deck row. Two affordances, deliberately separated:
  * the Learn button STARTS learning from this deck (auto-adding it to the
  * queue if needed), and the chevron expands the deck's management panel —
@@ -637,6 +674,39 @@ export default function DashboardPage() {
               </div>
             )}
 
+            {/* Practice & immersion destinations — same visual weight as the
+                command center, right where the eye already is. */}
+            <div
+              className={`grid gap-3 ${hasGym ? 'grid-cols-3' : 'grid-cols-2'}`}
+              data-testid="feature-tiles"
+            >
+              {hasGym && (
+                <FeatureTile
+                  glyph="🏋️"
+                  label="Gym"
+                  caption="Drill tenses & cases"
+                  testId="tile-gym"
+                  onClick={() => navigate('/gym')}
+                />
+              )}
+              <FeatureTile
+                glyph="📖"
+                label="Read"
+                caption="A story at your level"
+                testId="tile-read"
+                onClick={() => navigate('/read')}
+                disabled={!activeLanguageId}
+              />
+              <FeatureTile
+                glyph="💬"
+                label="Tutor"
+                caption="Coaching on your gaps"
+                testId="tile-tutor"
+                onClick={() => navigate('/tutor')}
+                disabled={!activeLanguageId}
+              />
+            </div>
+
             {stats.forecast && <ForecastStrip forecast={stats.forecast} />}
             {stats.activity && <ActivityChart activity={stats.activity} />}
             {stats.stages && <StageTiles stages={stats.stages} />}
@@ -679,58 +749,8 @@ export default function DashboardPage() {
           <span aria-hidden className="text-lang">→</span>
         </button>
 
-        {/* The Gym (WP25): only for languages with forms to train. Grouped here
-            with Grammar path and the Tutor as a practice destination. */}
-        {hasGym && (
-          <button
-            type="button"
-            onClick={() => navigate('/gym')}
-            className="w-full bg-white hover:bg-gray-50 text-gray-800 font-semibold rounded-xl px-6 py-3 text-sm border border-gray-200 transition-colors text-left flex items-center justify-between"
-            style={{ minHeight: '44px' }}
-          >
-            <span>
-              The Gym
-              <span className="block text-xs font-normal text-gray-500">
-                Pick a tense or case and drill it — conjugations, declensions, reps
-              </span>
-            </span>
-            <span aria-hidden className="text-lang">→</span>
-          </button>
-        )}
-
-        {/* AI Tutor */}
-        <button
-          type="button"
-          onClick={() => navigate('/tutor')}
-          disabled={!activeLanguageId}
-          className="w-full bg-white hover:bg-gray-50 disabled:opacity-50 text-gray-800 font-semibold rounded-xl px-6 py-3 text-sm border border-gray-200 transition-colors text-left flex items-center justify-between"
-          style={{ minHeight: '44px' }}
-        >
-          <span>
-            Practice with AI Tutor
-            <span className="block text-xs font-normal text-gray-500">
-              Coaching on the words you keep missing
-            </span>
-          </span>
-          <span aria-hidden className="text-lang">→</span>
-        </button>
-
-        {/* The Reader (WP21) */}
-        <button
-          type="button"
-          onClick={() => navigate('/read')}
-          disabled={!activeLanguageId}
-          className="w-full bg-white hover:bg-gray-50 disabled:opacity-50 text-gray-800 font-semibold rounded-xl px-6 py-3 text-sm border border-gray-200 transition-colors text-left flex items-center justify-between"
-          style={{ minHeight: '44px' }}
-        >
-          <span>
-            Read about anything
-            <span className="block text-xs font-normal text-gray-500">
-              A text written at your level, on your topic
-            </span>
-          </span>
-          <span aria-hidden className="text-lang">→</span>
-        </button>
+        {/* Gym / Tutor / Reader now live as first-class tiles beside the
+            command center above — no buried link list to not-read. */}
 
         {/* Recommendations (tutor+): non-obtrusive — only shows once there's a
             weekly pick list to look at. */}
