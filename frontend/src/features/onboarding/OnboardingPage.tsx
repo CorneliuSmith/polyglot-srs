@@ -13,6 +13,7 @@ import type { PlacementItem, WritingAssessment } from '../../api/onboarding'
 import { usePrefsStore } from '../../stores/prefsStore'
 import LanguageWrapper from '../../components/LanguageWrapper'
 import { formatPrice, getPlanPrices } from '../../api/billing'
+import { visibleLanguages } from '../../lib/languages'
 import { convertTranslit, finalizeInput, isTranslitEnabled } from '../keyboards/translit'
 import type { Language } from '../../api/types'
 
@@ -71,7 +72,9 @@ export default function OnboardingPage() {
   const singlePrice = formatPrice(planPrices?.single ?? null)
   const allPrice = formatPrice(planPrices?.all ?? null)
 
-  const { data: languages = [] } = useQuery({ queryKey: ['languages'], queryFn: getLanguages })
+  const { data: allLanguages = [] } = useQuery({ queryKey: ['languages'], queryFn: getLanguages })
+  // A language an admin has hidden doesn't offer itself to new learners.
+  const languages = visibleLanguages(allLanguages)
 
   // Skip onboarding entirely if the user has already finished it. Done in an
   // effect, never during render — navigating mid-render warns and can wedge

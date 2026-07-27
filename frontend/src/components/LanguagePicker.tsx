@@ -4,6 +4,7 @@ import { useQuery } from '@tanstack/react-query'
 import { getLanguages, getProfile, updateProfile } from '../api/profile'
 import { usePrefsStore } from '../stores/prefsStore'
 import { languageTheme } from '../lib/languageColors'
+import { visibleLanguages } from '../lib/languages'
 import CircleFlag from './CircleFlag'
 
 /** The active-language picker. A custom listbox rather than a native
@@ -14,11 +15,14 @@ export default function LanguagePicker() {
   const activeLanguageId = usePrefsStore((s) => s.activeLanguageId)
   const setActiveLanguageId = usePrefsStore((s) => s.setActiveLanguageId)
 
-  const { data: languages = [] } = useQuery({
+  const { data: allLanguages = [] } = useQuery({
     queryKey: ['languages'],
     queryFn: getLanguages,
     staleTime: Infinity, // the language list never changes mid-session
   })
+  // Admin-hidden languages stay out of this picker — except the one already
+  // active, so a language hidden after someone starts it never strands them.
+  const languages = visibleLanguages(allLanguages, activeLanguageId)
   const { data: profile } = useQuery({ queryKey: ['profile'], queryFn: getProfile })
   // A Single-language plan is locked to its licensed language.
   const lockedTo =

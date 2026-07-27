@@ -23,6 +23,7 @@ import RolesPanel from './RolesPanel'
 import AccountsPanel from './AccountsPanel'
 import AnalyticsPanel from './AnalyticsPanel'
 import EngagementPanel from './EngagementPanel'
+import LanguageVisibilityPanel from './LanguageVisibilityPanel'
 import GeneratedDrillsPanel from './GeneratedDrillsPanel'
 import ReviewInbox from './ReviewInbox'
 import GymDrillsPanel from './GymDrillsPanel'
@@ -616,6 +617,7 @@ export default function ContributorPage() {
               <>
                 <AnalyticsPanel />
                 <EngagementPanel />
+                <LanguageVisibilityPanel />
                 <SuggestionMetricsPanel />
                 <GenerationPanel />
                 <TranslationReviewsPanel />

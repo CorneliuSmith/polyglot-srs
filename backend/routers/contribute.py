@@ -107,6 +107,7 @@ from backend.repositories.contributor import (
     trial_reviewer_activity,
     update_drill,
 )
+from backend.repositories.languages import set_language_visibility
 from backend.repositories.pool import privileged_connection, rls_connection
 from backend.repositories.tutor import aggregate_tutor_usage, set_tutor_access
 from backend.services.drills import validate_drill
@@ -283,6 +284,28 @@ async def update_language_policy(
     async with privileged_connection() as conn:
         await set_language_policy(conn, body.language_id, body.policy)
     return {"policy": body.policy}
+
+
+class LanguageVisibilityUpdate(BaseModel):
+    language_id: str
+    is_visible: bool
+
+
+@router.post("/language-visibility")
+async def update_language_visibility(
+    body: LanguageVisibilityUpdate,
+    user: dict = Depends(get_current_user),
+):
+    """Show/hide a language in learner-facing pickers (admin-only, owner:
+    "I should be able to set which languages are visible"). Hiding never
+    touches content or access — admins/contributors keep reaching the
+    language through the admin language-management panel regardless."""
+    await _require_admin(user["id"])
+    async with privileged_connection() as conn:
+        ok = await set_language_visibility(conn, body.language_id, body.is_visible)
+    if not ok:
+        raise HTTPException(status_code=404, detail="Unknown language")
+    return {"is_visible": body.is_visible}
 
 
 class TutorModelUpdate(BaseModel):

@@ -22,6 +22,7 @@ import LanguagePicker from '../../components/LanguagePicker'
 import { getGrammarForLanguage } from '../../api/contribute'
 import AccountsPanel from '../contribute/AccountsPanel'
 import GenerationPanel from '../contribute/GenerationPanel'
+import LanguageVisibilityPanel from '../contribute/LanguageVisibilityPanel'
 import RolesPanel from '../contribute/RolesPanel'
 import ReviewQueue from '../contribute/ReviewQueue'
 import AnalyticsPanel from '../contribute/AnalyticsPanel'
@@ -327,6 +328,7 @@ export default function SettingsPage() {
           <>
             <AnalyticsPanel />
             <EngagementPanel />
+            <LanguageVisibilityPanel />
             {/* The content "feeds" — generate, recheck, overlap scan, chart
                 backfill — live here too, not just on /contribute, so they're
                 findable from either admin surface. */}

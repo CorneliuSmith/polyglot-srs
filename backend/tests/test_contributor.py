@@ -491,6 +491,41 @@ class TestReviewPolicy:
         assert resp.json()["tutor_model"] == "claude-sonnet-5"
 
 
+class TestLanguageVisibility:
+    def test_set_requires_admin(self, client):
+        with _roles([{"language_id": LANG, "role": "contributor"}]):
+            resp = client.post(
+                "/api/contribute/language-visibility",
+                json={"language_id": LANG, "is_visible": False},
+                headers=_auth_headers(),
+            )
+        assert resp.status_code == 403
+
+    def test_hide_as_admin(self, client):
+        with _roles([{"language_id": None, "role": "admin"}]), \
+             patch("backend.routers.contribute.set_language_visibility",
+                   new=AsyncMock(return_value=True)) as mock_set:
+            resp = client.post(
+                "/api/contribute/language-visibility",
+                json={"language_id": LANG, "is_visible": False},
+                headers=_auth_headers(),
+            )
+        assert resp.status_code == 200
+        assert resp.json() == {"is_visible": False}
+        mock_set.assert_awaited_once_with(mock_set.await_args.args[0], LANG, False)
+
+    def test_unknown_language_404(self, client):
+        with _roles([{"language_id": None, "role": "admin"}]), \
+             patch("backend.routers.contribute.set_language_visibility",
+                   new=AsyncMock(return_value=False)):
+            resp = client.post(
+                "/api/contribute/language-visibility",
+                json={"language_id": LANG, "is_visible": True},
+                headers=_auth_headers(),
+            )
+        assert resp.status_code == 404
+
+
 class TestTutorModelPicker:
     def test_set_requires_admin(self, client):
         with _roles([{"language_id": LANG, "role": "reviewer"}]):

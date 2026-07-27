@@ -3,6 +3,10 @@ export interface Language {
   code: string
   name: string
   rtl: boolean
+  /** Admin-controlled (Settings > Admin): hidden languages stay out of
+   * onboarding/the language picker for everyone but never lose content or
+   * access — see lib/languages.ts's visibleLanguages(). */
+  is_visible: boolean
 }
 
 export interface DueCard {

@@ -324,6 +324,17 @@ export async function setLanguagePolicy(
   })
 }
 
+/** Show/hide a language in learner-facing pickers (admin-only). */
+export async function setLanguageVisibility(
+  languageId: string,
+  isVisible: boolean,
+): Promise<void> {
+  await apiClient.post('/api/contribute/language-visibility', {
+    language_id: languageId,
+    is_visible: isVisible,
+  })
+}
+
 export async function saveGrammarExplanation(
   pointId: string,
   explanation: string,
