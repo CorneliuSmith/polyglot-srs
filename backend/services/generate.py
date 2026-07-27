@@ -81,6 +81,27 @@ def generation_available() -> bool:
     return bool(settings.anthropic_api_key) or getattr(settings, "tutor_dev_mock", False)
 
 
+def _add_usage(usage_out: dict | None, resp) -> None:
+    """Accumulate a response's token usage into *usage_out* (when the caller
+    passed one). Learner-triggered runs (Gym on-demand) log their charge to
+    tutor_usage — without this the admin cost panel showed those rows as 0/0
+    tokens and $0.00, silently under-stating the real bill."""
+    if usage_out is None:
+        return
+    usage = getattr(resp, "usage", None)
+    if usage is None:
+        return
+    for field, key in (
+        ("input_tokens", "input_tokens"),
+        ("output_tokens", "output_tokens"),
+        ("cache_creation_input_tokens", "cache_write_tokens"),
+        ("cache_read_input_tokens", "cache_read_tokens"),
+    ):
+        n = getattr(usage, field, None)
+        if isinstance(n, int):
+            usage_out[key] = (usage_out.get(key) or 0) + n
+
+
 def _mock_drills(point: dict, n: int) -> list[dict]:
     """Deterministic candidates for dev/testing. The first is deliberately
     malformed (answer leaks into the frame) so the checker's reject path is
@@ -105,7 +126,7 @@ def _mock_drills(point: dict, n: int) -> list[dict]:
 
 async def make_drills(
     point: dict, n: int, language: str, model: str | None = None,
-    cell: str | None = None,
+    cell: str | None = None, usage_out: dict | None = None,
 ) -> list[dict]:
     """Draft N candidate drills for a grammar point.
 
@@ -151,6 +172,7 @@ async def make_drills(
         }],
         output_config={"format": {"type": "json_schema", "schema": _DRILL_SCHEMA}},
     )
+    _add_usage(usage_out, resp)
     text = next((b.text for b in resp.content if b.type == "text"), "{}")
     try:
         return json.loads(text).get("drills", [])
@@ -203,11 +225,15 @@ async def generate_drills(
     language_code: str,
     maker_model: str | None = None,
     cell: str | None = None,
+    usage_out: dict | None = None,
 ) -> list[dict]:
     """Maker then checker. Returns the candidates that PASSED, each carrying its
     verdict; the caller persists them (source='ai'). When *cell* is set, the
-    drills all exercise that paradigm cell (balanced thickening)."""
-    made = await make_drills(point, n, language, maker_model, cell=cell)
+    drills all exercise that paradigm cell (balanced thickening). *usage_out*,
+    when given, accumulates the maker call's token usage (the checker is
+    offline) so the caller can log real cost."""
+    made = await make_drills(point, n, language, maker_model, cell=cell,
+                             usage_out=usage_out)
     checked = await check_drills(language_code, made)
     return [c for c in checked if c["accepted"]]
 
@@ -820,7 +846,8 @@ def _mock_chart(item: dict) -> dict:
 
 
 async def make_chart(
-    item: dict, language: str, model: str | None = None
+    item: dict, language: str, model: str | None = None,
+    usage_out: dict | None = None,
 ) -> dict | None:
     """Draft the full paradigm chart(s) for the word behind one drill answer.
 
@@ -869,6 +896,7 @@ async def make_chart(
         }],
         output_config={"format": {"type": "json_schema", "schema": _CHART_SCHEMA}},
     )
+    _add_usage(usage_out, resp)
     text = next((b.text for b in resp.content if b.type == "text"), "{}")
     try:
         parsed = json.loads(text)
@@ -919,12 +947,14 @@ def check_chart(cand: dict, answer: str) -> tuple[bool, str]:
 
 
 async def generate_chart(
-    item: dict, language: str, language_code: str, maker_model: str | None = None
+    item: dict, language: str, language_code: str, maker_model: str | None = None,
+    usage_out: dict | None = None,
 ) -> dict | None:
     """Maker then checker for one drill answer's paradigm chart. Returns the
     verified candidate ({lemma, part_of_speech, usage_note, charts}) or None
-    when the maker's chart failed verification."""
-    cand = await make_chart(item, language, maker_model)
+    when the maker's chart failed verification. *usage_out*, when given,
+    accumulates the maker call's token usage for real cost logging."""
+    cand = await make_chart(item, language, maker_model, usage_out=usage_out)
     if cand is None:
         return None
     accepted, _reason = check_chart(cand, (item.get("answer") or "").strip())

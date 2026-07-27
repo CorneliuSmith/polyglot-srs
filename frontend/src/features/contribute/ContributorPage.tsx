@@ -79,7 +79,16 @@ export function TutorModelControl({
 }
 
 /** Admin-only tutor cost monitor (WP9b): token rollups across ALL languages,
- * priced at list rates — the data behind per-language model choices. */
+ * priced at list rates — the data behind per-language model choices. Rows are
+ * per (language, model, KIND) — chat vs Gym generation vs summaries — which
+ * is why a language/model pair can appear more than once. */
+const USAGE_KIND_LABEL: Record<string, string> = {
+  chat: 'Chat',
+  gym_gen: 'Gym drills',
+  gym_chart: 'Gym charts',
+  summary: 'Summaries',
+}
+
 export function TutorCostsPanel() {
   const { data } = useQuery({
     queryKey: ['tutor-usage'],
@@ -113,6 +122,7 @@ export function TutorCostsPanel() {
           <thead>
             <tr className="text-left text-gray-500">
               <th className="py-1 font-medium">Language</th>
+              <th className="py-1 font-medium">Kind</th>
               <th className="py-1 font-medium">Model</th>
               <th className="py-1 font-medium text-right">Msgs</th>
               <th className="py-1 font-medium text-right">Tokens in/out</th>
@@ -122,11 +132,9 @@ export function TutorCostsPanel() {
           <tbody>
             {data.rows.map((row, i) => (
               <tr key={i} className="border-t border-gray-50 text-gray-700">
-                <td className="py-1">
-                  {row.language_name ?? '—'}
-                  {row.kind === 'summary' && (
-                    <span className="text-gray-400"> (summaries)</span>
-                  )}
+                <td className="py-1">{row.language_name ?? '—'}</td>
+                <td className="py-1 text-gray-500">
+                  {USAGE_KIND_LABEL[row.kind] ?? row.kind}
                 </td>
                 <td className="py-1 font-mono text-[11px]">{row.model ?? '—'}</td>
                 <td className="py-1 text-right">{row.messages}</td>

@@ -248,6 +248,9 @@ async def gym_generate(
             weak_cell = pick_struggling_cell(
                 struggles.get(str(ctx["point_id"]), [])
             )
+            # Real token usage rides into tutor_usage so the admin cost panel
+            # prices these rows instead of showing 0/0.
+            gen_usage: dict = {}
             drills = await generate_drills(
                 {
                     "title": ctx["title"],
@@ -255,7 +258,7 @@ async def gym_generate(
                     "examples": ctx["examples"],
                 },
                 GYM_GEN_PER_POINT, ctx["language_name"], ctx["language_code"],
-                cell=weak_cell,
+                cell=weak_cell, usage_out=gen_usage,
             )
             for d in drills:
                 # created_by = the requester: they get these drills in their own
@@ -275,7 +278,10 @@ async def gym_generate(
                     "point_title": ctx["title"],
                 })
             # One message per form topped up (regardless of drill yield).
-            await log_tutor_usage(conn, user["id"], language_id, model, kind="gym_gen")
+            await log_tutor_usage(
+                conn, user["id"], language_id, model,
+                usage=gen_usage or None, kind="gym_gen",
+            )
             charged += 1
 
         # Charts for the new words (WP45): a fresh drill may exercise a word
@@ -314,15 +320,18 @@ async def gym_generate(
         for item in chart_items[:GYM_CHART_MAX_PER_CALL]:
             if chart_budget is not None and chart_budget <= 0:
                 break
+            chart_usage: dict = {}
             try:
                 cand = await generate_chart(
                     item, contexts[0]["language_name"],
                     contexts[0]["language_code"], maker_model=model,
+                    usage_out=chart_usage,
                 )
             except Exception:  # noqa: BLE001 — charts are extra, never fail the top-up
                 break
             await log_tutor_usage(
-                conn, user["id"], language_id, model, kind="gym_chart"
+                conn, user["id"], language_id, model,
+                usage=chart_usage or None, kind="gym_chart",
             )
             charged += 1
             if chart_budget is not None:

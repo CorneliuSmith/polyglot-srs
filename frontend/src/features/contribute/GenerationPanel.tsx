@@ -5,6 +5,7 @@ import {
   getPendingExamples,
   reviewExample,
   reviewExamplesBulk,
+  runChartForms,
   runGeneration,
   runOverlapAudit,
   runRecheck,
@@ -37,6 +38,7 @@ export default function GenerationPanel() {
   const [recheckPreview, setRecheckPreview] = useState<RecheckDryRun | null>(null)
   const [recheckResult, setRecheckResult] = useState<RecheckResult | null>(null)
   const [overlapNote, setOverlapNote] = useState<string | null>(null)
+  const [formsNote, setFormsNote] = useState<string | null>(null)
 
   const rows = data?.coverage ?? []
   // Default the selector to the top "do next" language once data lands.
@@ -139,6 +141,41 @@ export default function GenerationPanel() {
         status === 503
           ? 'The server has no Anthropic key configured - the overlap audit is unavailable here.'
           : 'Overlap audit failed. Please try again.',
+      )
+    },
+  })
+
+  const formsMutation = useMutation({
+    mutationFn: (dryRun: boolean) =>
+      runChartForms({
+        languageId: selectedId,
+        languageCode: selected!.language_code,
+        maxItems,
+        dryRun,
+      }),
+    onSuccess: (res) => {
+      setError(null)
+      if (res.dry_run) {
+        setFormsNote(
+          `Scanned ${res.answers_scanned} distinct answers: ` +
+            `${res.charts_to_attempt} without a chart — est. ~$${res.est_cost_usd.toFixed(2)}.`,
+        )
+      } else {
+        const stored = (res.words_created ?? 0) + (res.words_updated ?? 0)
+        setFormsNote(
+          `Attempted ${res.charts_attempted} chart${res.charts_attempted === 1 ? '' : 's'}: ` +
+            `stored ${stored} (${res.words_created} new word${res.words_created === 1 ? '' : 's'}), ` +
+            `rejected ${res.charts_rejected}. Charts show in the Gym immediately — ` +
+            're-run until 0 remain.',
+        )
+      }
+    },
+    onError: (err: unknown) => {
+      const status = (err as { response?: { status?: number } })?.response?.status
+      setError(
+        status === 503
+          ? 'The server has no Anthropic key configured - chart generation is unavailable here.'
+          : 'Chart generation failed. Please try again.',
       )
     },
   })
@@ -498,6 +535,47 @@ export default function GenerationPanel() {
               </div>
               {overlapNote && (
                 <p className="text-xs text-gray-600" role="status">{overlapNote}</p>
+              )}
+            </div>
+
+            {/* Chart backfill (WP45): a paradigm chart for every drill answer
+                the Gym cannot resolve — verified by containment (the drill's
+                own answer must appear in the chart), so no review queue. */}
+            <div className="border-t border-gray-100 pt-2 space-y-2" data-testid="forms-controls">
+              <div className="text-xs text-gray-500">
+                Backfill <b>Gym reference charts</b> — write the missing
+                conjugation/declension table for every question whose word has
+                none. Self-verified (the question&apos;s own answer must appear
+                in the chart), so charts go live immediately.
+              </div>
+              <div className="flex flex-wrap items-center gap-2">
+                <button
+                  type="button"
+                  onClick={() => { setFormsNote(null); formsMutation.mutate(true) }}
+                  disabled={formsMutation.isPending}
+                  className="rounded-lg border border-gray-200 px-3 py-1.5 text-gray-700 hover:bg-gray-50 disabled:opacity-40"
+                >
+                  {formsMutation.isPending ? 'Working…' : 'Preview chart backfill'}
+                </button>
+                <button
+                  type="button"
+                  onClick={() => {
+                    if (
+                      window.confirm(
+                        `Generate missing ${selected?.language_name} charts now ` +
+                          `(up to ${maxItems})? Uses the server key and spends real credit.`,
+                      )
+                    )
+                      formsMutation.mutate(false)
+                  }}
+                  disabled={formsMutation.isPending || !data.available}
+                  className="rounded-lg border border-amber-300 bg-amber-50 text-amber-800 px-3 py-1.5 font-semibold hover:bg-amber-100 disabled:opacity-40"
+                >
+                  Backfill now
+                </button>
+              </div>
+              {formsNote && (
+                <p className="text-xs text-gray-600" role="status">{formsNote}</p>
               )}
             </div>
           </div>

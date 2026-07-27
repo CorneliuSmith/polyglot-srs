@@ -82,7 +82,9 @@ export default function GymDrillsPanel({
                 </button>
                 {open && (
                   <div className="px-3 pb-3 border-t border-gray-100">
-                    <DrillsEditor pointId={e.point_id} canEdit={canEdit} />
+                    {/* defaultOpen: the user just expanded this form — the
+                        drills must appear NOW, not behind a second click. */}
+                    <DrillsEditor pointId={e.point_id} canEdit={canEdit} defaultOpen />
                   </div>
                 )}
               </div>

@@ -824,6 +824,39 @@ export async function runOverlapAudit(params: {
   return response.data
 }
 
+/** Backfill Gym reference charts (admin, WP45): for every drill answer the
+ * Gym's chart lookup cannot resolve, generate the word's paradigm chart —
+ * verified by requiring the drill's own answer to appear in it. Dry-run
+ * gives the work-list size and cost estimate without calling the model. */
+export async function runChartForms(params: {
+  languageId: string
+  languageCode: string
+  maxItems: number
+  dryRun: boolean
+}): Promise<{
+  dry_run: boolean
+  model: string
+  answers_scanned: number
+  charts_to_attempt?: number
+  charts_attempted?: number
+  charts_rejected?: number
+  words_created?: number
+  words_updated?: number
+  already_charted_skipped?: number
+  est_cost_usd: number
+}> {
+  const response = await apiClient.post(
+    '/api/contribute/admin/generation/forms',
+    {
+      language_id: params.languageId,
+      language_code: params.languageCode,
+      max_items: params.maxItems,
+      dry_run: params.dryRun,
+    },
+  )
+  return response.data
+}
+
 /** Open overlap pairs awaiting a reviewer's verdict. */
 export async function getOverlaps(languageId: string): Promise<OverlapPair[]> {
   const response = await apiClient.get<{ overlaps: OverlapPair[] }>(
