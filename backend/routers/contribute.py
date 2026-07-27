@@ -12,6 +12,7 @@ import re
 import uuid
 from datetime import UTC, datetime, timedelta
 
+import asyncpg
 from fastapi import APIRouter, Depends, HTTPException, status
 from pydantic import BaseModel, Field
 
@@ -301,8 +302,17 @@ async def update_language_visibility(
     touches content or access — admins/contributors keep reaching the
     language through the admin language-management panel regardless."""
     await _require_admin(user["id"])
-    async with privileged_connection() as conn:
-        ok = await set_language_visibility(conn, body.language_id, body.is_visible)
+    try:
+        async with privileged_connection() as conn:
+            ok = await set_language_visibility(conn, body.language_id, body.is_visible)
+    except asyncpg.exceptions.UndefinedColumnError:
+        raise HTTPException(
+            status_code=503,
+            detail=(
+                "Language visibility needs migration 20260831 applied — "
+                "check /api/health/schema"
+            ),
+        )
     if not ok:
         raise HTTPException(status_code=404, detail="Unknown language")
     return {"is_visible": body.is_visible}

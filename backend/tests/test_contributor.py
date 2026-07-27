@@ -525,6 +525,26 @@ class TestLanguageVisibility:
             )
         assert resp.status_code == 404
 
+    def test_missing_migration_503_not_500(self, client):
+        # Prod schema without 20260831: a clear 503 naming the migration,
+        # not a bare UndefinedColumnError 500.
+        import asyncpg
+
+        with _roles([{"language_id": None, "role": "admin"}]), \
+             patch("backend.routers.contribute.set_language_visibility",
+                   new=AsyncMock(
+                       side_effect=asyncpg.exceptions.UndefinedColumnError(
+                           "column \"is_visible\" does not exist"
+                       )
+                   )):
+            resp = client.post(
+                "/api/contribute/language-visibility",
+                json={"language_id": LANG, "is_visible": False},
+                headers=_auth_headers(),
+            )
+        assert resp.status_code == 503
+        assert "20260831" in resp.json()["detail"]
+
 
 class TestTutorModelPicker:
     def test_set_requires_admin(self, client):
