@@ -733,4 +733,40 @@ describe('ReviewSessionPage — background generation (WP41)', () => {
     await answerCurrent()
     await waitFor(() => expect(screen.getByText('Session Complete')).toBeDefined())
   })
+
+  it('gives up the wait after the ceiling and serves existing questions', async () => {
+    // Generation hangs. After GEN_WAIT_MS the session must top up with
+    // EXISTING drills from the same forms instead of holding the learner.
+    vi.useFakeTimers({ shouldAdvanceTime: true })
+    try {
+      mockGetCramCards.mockResolvedValueOnce([d1]).mockResolvedValue([d1, d2])
+      mockGenerateGymDrills.mockReturnValue(new Promise(() => {}))
+      renderGen()
+      await answerCurrent()
+      await waitFor(() => expect(screen.getByTestId('cram-topup')).toBeDefined())
+      await vi.advanceTimersByTimeAsync(9000)
+      // The existing (not generated) drill d2 arrives and the session resumes.
+      await waitFor(() => expect(screen.getByText(/home\./i)).toBeDefined())
+      expect(screen.queryByTestId('cram-topup')).toBeNull()
+    } finally {
+      vi.useRealTimers()
+    }
+  })
+
+  it('ends the wait at the ceiling even when nothing else exists', async () => {
+    vi.useFakeTimers({ shouldAdvanceTime: true })
+    try {
+      mockGetCramCards.mockResolvedValue([d1]) // the re-draw finds nothing new
+      mockGenerateGymDrills.mockReturnValue(new Promise(() => {}))
+      renderGen()
+      await answerCurrent()
+      await waitFor(() => expect(screen.getByTestId('cram-topup')).toBeDefined())
+      await vi.advanceTimersByTimeAsync(9000)
+      await waitFor(() =>
+        expect(screen.getByText('Session Complete')).toBeDefined(),
+      )
+    } finally {
+      vi.useRealTimers()
+    }
+  })
 })
