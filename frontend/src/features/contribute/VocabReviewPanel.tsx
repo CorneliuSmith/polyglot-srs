@@ -244,6 +244,21 @@ export default function VocabReviewPanel({
       </div>
     )
   }
+  // A failed load must never masquerade as an empty language — that reads as
+  // "no content" when the real story is usually a server behind on database
+  // migrations (the /api/health/schema check names the missing ones).
+  if (isError) {
+    return (
+      <div
+        className="bg-white rounded-2xl border border-amber-200 p-6 text-sm text-amber-800"
+        role="alert"
+      >
+        Couldn’t load this language’s vocabulary — the server hit an error.
+        If this persists, check <code>/api/health/schema</code>: a database
+        that’s behind on migrations breaks this list.
+      </div>
+    )
+  }
 
   return (
     <div className="space-y-3" data-testid="vocab-review">

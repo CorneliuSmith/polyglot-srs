@@ -209,10 +209,11 @@ describe('LearnPage (teach-before-quiz)', () => {
     expect(screen.queryByText(/✓ Correct/)).toBeNull()
   })
 
-  it('a wrong answer reveals the word and unlocks moving on — unconfirmed', async () => {
-    // Beta report: vocab lessons trapped you until you got it right. Now a
-    // wrong attempt shows the answer and lets you move on; the card simply
-    // never enters reviews (it will be re-taught next session).
+  it('first miss nudges a retry without revealing; second miss reveals', async () => {
+    // Owner: the lesson above the quiz holds everything needed, so the FIRST
+    // wrong answer gets a fading "try again" toast, not the answer. A second
+    // miss reveals as before, and moving on stays unlocked either way (the
+    // card simply never enters reviews — it will be re-taught next session).
     mockLearn.mockResolvedValue({
       added: 1,
       items: ['uc-1'],
@@ -228,15 +229,25 @@ describe('LearnPage (teach-before-quiz)', () => {
     fireEvent.change(screen.getByRole('textbox'), { target: { value: 'eres' } })
     fireEvent.click(screen.getByRole('button', { name: /check answer/i }))
 
-    const alert = await screen.findByRole('alert')
-    expect(alert.textContent).toMatch(/not quite/i)
-    // …the correct answer is revealed…
-    expect(alert.textContent).toContain(grammarLesson.quiz.answer)
+    // First miss: the toast invites a retry; the answer stays hidden.
+    const toast = await screen.findByTestId('retry-toast')
+    expect(toast.textContent).toMatch(/try again/i)
+    expect(screen.queryByRole('alert')).toBeNull()
+    expect(document.body.textContent).not.toContain(
+      `the answer is ${grammarLesson.quiz.answer}`,
+    )
     // …the card is NOT confirmed into reviews…
     expect(mockConfirm).not.toHaveBeenCalled()
-    // …but the learner is no longer trapped.
+    // …but the learner is not trapped even on the first miss.
     const startBtn = screen.getByRole('button', { name: /start reviewing/i }) as HTMLButtonElement
     expect(startBtn.disabled).toBe(false)
+
+    // Second miss: reveal, so nobody is ever stuck guessing.
+    fireEvent.change(screen.getByRole('textbox'), { target: { value: 'era' } })
+    fireEvent.click(screen.getByRole('button', { name: /check answer/i }))
+    const alert = await screen.findByRole('alert')
+    expect(alert.textContent).toMatch(/not quite/i)
+    expect(alert.textContent).toContain(grammarLesson.quiz.answer)
   })
 
   it('passes the vocabulary card type from the query string', async () => {

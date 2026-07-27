@@ -122,3 +122,15 @@ body {
 .dark .simple-keyboard.hg-theme-default .hg-button.hg-activeButton {
   background: var(--color-gray-200);
 }
+
+/* Learn's first-miss nudge: pops in, holds while the learner reads, fades
+   itself out (the component unmounts it right after the animation ends). */
+@keyframes learn-retry-toast {
+  0% { opacity: 0; transform: translateY(8px); }
+  8% { opacity: 1; transform: translateY(0); }
+  80% { opacity: 1; }
+  100% { opacity: 0; }
+}
+.learn-retry-toast {
+  animation: learn-retry-toast 3.5s ease forwards;
+}

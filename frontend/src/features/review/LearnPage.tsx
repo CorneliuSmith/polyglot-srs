@@ -98,6 +98,19 @@ function LearnInner({ onLocaleChanged }: { onLocaleChanged: () => void }) {
   const [missedCards, setMissedCards] = useState<Set<string>>(new Set())
   const [quizInput, setQuizInput] = useState('')
   const [quizResult, setQuizResult] = useState<ValidateAnswerResponse | null>(null)
+  // First miss on a card: don't reveal the answer — everything needed to get
+  // it right is in the examples ABOVE the quiz, so a fading nudge invites a
+  // retry instead (owner, 2026-07-27). A second miss reveals as before, so
+  // nobody is ever stuck. (Hooks live up here, before the early returns.)
+  const [wrongTries, setWrongTries] = useState(0)
+  const [retryToast, setRetryToast] = useState(false)
+  const retryTimer = useRef<number | null>(null)
+  useEffect(
+    () => () => {
+      if (retryTimer.current) window.clearTimeout(retryTimer.current)
+    },
+    [],
+  )
   // On-screen keyboard for non-Latin scripts (ru/ar/el/th/hi/ko) — same access the
   // review session has (beta report: alphabet languages had no keyboard while
   // learning). Types the target script straight into the answer.
@@ -236,6 +249,8 @@ function LearnInner({ onLocaleChanged }: { onLocaleChanged: () => void }) {
     setLessonIndex(i)
     setQuizInput('')
     setQuizResult(null)
+    setWrongTries(0)
+    setRetryToast(false)
   }
 
   const handleCheck = () => {
@@ -273,6 +288,16 @@ function LearnInner({ onLocaleChanged }: { onLocaleChanged: () => void }) {
             confirmMutation.mutate([lesson.card_id])
           } else {
             setMissedCards((prev) => new Set(prev).add(lesson.card_id))
+            const tries = wrongTries + 1
+            setWrongTries(tries)
+            if (tries === 1) {
+              setRetryToast(true)
+              if (retryTimer.current) window.clearTimeout(retryTimer.current)
+              retryTimer.current = window.setTimeout(
+                () => setRetryToast(false),
+                3500,
+              )
+            }
           }
         },
       },
@@ -507,16 +532,32 @@ function LearnInner({ onLocaleChanged }: { onLocaleChanged: () => void }) {
                     Added to your reviews.
                   </p>
                 )}
+                {/* First miss: the fading toast below invites a retry with no
+                    reveal — the examples above hold the answer. From the
+                    second miss on, reveal so nobody is stuck. */}
                 {!currentPassed &&
                   quizResult &&
                   quizResult.answer_result !== 'correct' &&
-                  quizResult.answer_result !== 'correct_sloppy' && (
+                  quizResult.answer_result !== 'correct_sloppy' &&
+                  wrongTries >= 2 && (
                     <p className="mt-3 text-sm text-red-600 text-center" role="alert">
                       Not quite — the answer is <b>{lesson.quiz.answer}</b>.
                       Try again, or move on and this one will be re-taught
                       next time.
                     </p>
                   )}
+                {retryToast && (
+                  <div
+                    className="pointer-events-none fixed inset-x-0 bottom-24 z-40 flex justify-center px-4"
+                    data-testid="retry-toast"
+                    role="status"
+                  >
+                    <div className="learn-retry-toast rounded-xl bg-gray-900/90 px-4 py-2.5 text-sm text-white shadow-lg">
+                      Not quite — everything you need is in the examples
+                      above. Try again!
+                    </div>
+                  </div>
+                )}
               </div>
             )}
 

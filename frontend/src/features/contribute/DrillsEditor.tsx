@@ -49,13 +49,18 @@ function ProvenanceBadge({ source, isModified }: { source?: string; isModified?:
 export default function DrillsEditor({
   pointId,
   canEdit = false,
+  defaultOpen = false,
 }: {
   pointId: string
   /** reviewer/admin: unlocks in-place editing of live drills */
   canEdit?: boolean
+  /** Start expanded — for hosts (the Gym drills panel) where the user already
+   * clicked to open this point and a second "Edit sentences" click would just
+   * look like the drills are missing. */
+  defaultOpen?: boolean
 }) {
   const queryClient = useQueryClient()
-  const [open, setOpen] = useState(false)
+  const [open, setOpen] = useState(defaultOpen)
   const [sentence, setSentence] = useState('')
   const [answer, setAnswer] = useState('')
   const [translation, setTranslation] = useState('')
