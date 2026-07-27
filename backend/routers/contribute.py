@@ -75,6 +75,7 @@ from backend.repositories.contributor import (
     list_drills,
     list_feedback,
     list_grammar_points,
+    list_overlaps,
     list_pending_drills,
     list_pending_examples,
     list_review_notes,
@@ -87,7 +88,6 @@ from backend.repositories.contributor import (
     record_trial_prompt_answer,
     reject_suggestion,
     resolve_feedback,
-    list_overlaps,
     resolve_overlap,
     resolve_review_note,
     resolve_translation_review,
@@ -114,12 +114,14 @@ from backend.services.generate import generation_available
 from backend.services.generation_admin import (
     MAX_ITEMS_PER_RUN,
     MAX_PER_ITEM,
+    plan_forms,
     plan_overlap,
     plan_recheck,
     plan_recheck_drills,
     plan_run,
     recheck_drills,
     recheck_examples,
+    run_forms,
     run_generation,
     run_overlap_audit,
 )
@@ -534,6 +536,59 @@ async def generation_recheck(
         "alternatives_generated": result["alternatives_generated"],
         "est_cost_usd": result["est_cost_usd"],
     }
+
+
+class ChartFormsRequest(BaseModel):
+    language_id: str
+    language_code: str
+    max_items: int = Field(default=25, ge=1, le=MAX_ITEMS_PER_RUN)
+    dry_run: bool = True
+
+
+@router.post("/admin/generation/forms")
+async def generation_forms(
+    body: ChartFormsRequest,
+    user: dict = Depends(get_current_user),
+):
+    """Backfill Gym morphology CHARTS (admin-only, WP45): for every drill
+    answer the Gym's chart lookup cannot resolve, generate the word's paradigm
+    chart — verified by requiring the drill's own (known-true) answer to
+    appear in it. Verified charts land on the vocabulary row, created if the
+    word was missing. Idempotent: the work-list only ever contains answers
+    still without a chart, and existing charts are never overwritten. Same
+    dry-run cost preview as the other runs.
+    """
+    await _require_admin(user["id"])
+    if not body.dry_run and not generation_available():
+        raise HTTPException(
+            status_code=status.HTTP_503_SERVICE_UNAVAILABLE,
+            detail="Chart generation needs ANTHROPIC_API_KEY (or dev-mock) on the server.",
+        )
+    async with privileged_connection() as conn:
+        lang = await conn.fetchrow(
+            "SELECT code, name FROM languages WHERE id = $1", body.language_id
+        )
+        if lang is None or lang["code"] != body.language_code:
+            raise HTTPException(
+                status_code=status.HTTP_404_NOT_FOUND, detail="Unknown language."
+            )
+        if body.dry_run:
+            plan = await plan_forms(
+                conn,
+                language_id=body.language_id,
+                language_code=body.language_code,
+                max_items=body.max_items,
+            )
+            plan.pop("_items", None)
+            return {"dry_run": True, **plan}
+        result = await run_forms(
+            conn,
+            language_id=body.language_id,
+            language_code=body.language_code,
+            language_name=lang["name"],
+            max_items=body.max_items,
+        )
+    return {"dry_run": False, **result}
 
 
 class OverlapAuditRequest(BaseModel):

@@ -283,11 +283,11 @@ export default function GymPage() {
                 <span>
                   Weave in fresh, new sentences
                   <span className="block text-xs text-gray-400">
-                    Drafts brand-new drills for the forms you picked and mixes
-                    them into this session in the background — you never wait up
-                    front. They stay yours until a reviewer approves the good ones
-                    into the shared corpus. Spends a little of your tutor
-                    allowance (about one message per form).
+                    Writes brand-new questions for the forms you picked — with
+                    their reference charts — and mixes them into this session in
+                    the background, so you never wait up front. They stay yours
+                    until an expert approves the good ones for everyone. Counts
+                    toward your monthly usage.
                   </span>
                 </span>
               </label>

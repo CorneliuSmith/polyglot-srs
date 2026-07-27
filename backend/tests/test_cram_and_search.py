@@ -262,6 +262,111 @@ class TestGymGenerateEndpoint:
             )
         assert resp.status_code == 404
 
+    def test_charts_made_for_new_words_before_returning(self, client):
+        # WP45: a fresh drill exercising a word no chart covers gets its chart
+        # inside the SAME request (so the re-fetch delivers chart-complete
+        # cards), charged one message per word from the same allowance.
+        p = _patch_gym_gen()
+        chart = {"lemma": "okul", "part_of_speech": "noun",
+                 "usage_note": None, "charts": [{"title": "Cases",
+                                                 "rows": [["loc", "dayim"]]}]}
+        with p[0], p[1], p[2], p[3], p[4], p[5] as mock_log, p[6], p[7], p[8], \
+             patch("backend.routers.review._chart_form_index",
+                   new=AsyncMock(return_value={})), \
+             patch("backend.routers.review._reset_chart_form_index"), \
+             patch("backend.routers.review.generate_chart",
+                   new=AsyncMock(return_value=chart)) as mock_chart, \
+             patch("backend.routers.review.upsert_vocabulary_charts",
+                   new=AsyncMock(return_value=("vid", "created"))) as mock_upsert:
+            resp = client.post(
+                "/api/review/gym/generate",
+                json={"point_ids": [POINT_A]},
+                headers=_auth_headers(),
+            )
+        assert resp.status_code == 200
+        body = resp.json()
+        # Two drills with two distinct new answers -> two charts, each charged.
+        assert body["generated"] == 2
+        assert body["charts"] == 2
+        assert body["charged"] == 3            # 1 form top-up + 2 charts
+        assert body["remaining"] == 14         # 17 - 3
+        assert mock_chart.await_count == 2
+        assert mock_upsert.await_count == 2
+        kinds = [c.kwargs["kind"] for c in mock_log.await_args_list]
+        assert kinds == ["gym_gen", "gym_chart", "gym_chart"]
+
+    def test_already_charted_answers_spend_nothing_extra(self, client):
+        # Both answers resolve in the reverse form index -> no chart calls,
+        # no extra charges.
+        from backend.repositories.cards import _form_key
+        index = {_form_key("dayim"): "okul", _form_key("desin"): "bahçe"}
+        p = _patch_gym_gen()
+        with p[0], p[1], p[2], p[3], p[4], p[5], p[6], p[7], p[8], \
+             patch("backend.routers.review._chart_form_index",
+                   new=AsyncMock(return_value=index)), \
+             patch("backend.routers.review._reset_chart_form_index"), \
+             patch("backend.routers.review.generate_chart",
+                   new=AsyncMock()) as mock_chart:
+            resp = client.post(
+                "/api/review/gym/generate",
+                json={"point_ids": [POINT_A]},
+                headers=_auth_headers(),
+            )
+        assert resp.status_code == 200
+        body = resp.json()
+        assert body["charts"] == 0
+        assert body["charged"] == 1
+        mock_chart.assert_not_awaited()
+
+    def test_chart_spend_never_exceeds_the_allowance(self, client):
+        # 2 messages left: the form top-up takes 1, so only ONE chart fits —
+        # the second new word is left for a later run, never an overdraw.
+        tight = {"tier": "free", "unlimited": False, "limit": 20,
+                 "used": 18, "remaining": 2, "resets_at": "2026-08-01T00:00:00"}
+        chart = {"lemma": "okul", "part_of_speech": "noun",
+                 "usage_note": None, "charts": [{"title": "Cases",
+                                                 "rows": [["loc", "dayim"]]}]}
+        p = _patch_gym_gen(allowance=tight)
+        with p[0], p[1], p[2], p[3], p[4], p[5], p[6], p[7], p[8], \
+             patch("backend.routers.review._chart_form_index",
+                   new=AsyncMock(return_value={})), \
+             patch("backend.routers.review._reset_chart_form_index"), \
+             patch("backend.routers.review.generate_chart",
+                   new=AsyncMock(return_value=chart)) as mock_chart, \
+             patch("backend.routers.review.upsert_vocabulary_charts",
+                   new=AsyncMock(return_value=("vid", "created"))):
+            resp = client.post(
+                "/api/review/gym/generate",
+                json={"point_ids": [POINT_A]},
+                headers=_auth_headers(),
+            )
+        assert resp.status_code == 200
+        body = resp.json()
+        assert mock_chart.await_count == 1
+        assert body["charged"] == 2
+        assert body["remaining"] == 0
+
+    def test_rejected_chart_never_persists(self, client):
+        # The containment checker said no -> nothing stored; the card simply
+        # shows no chart (the Gym's normal bare state, not a broken one).
+        p = _patch_gym_gen()
+        with p[0], p[1], p[2], p[3], p[4], p[5], p[6], p[7], p[8], \
+             patch("backend.routers.review._chart_form_index",
+                   new=AsyncMock(return_value={})), \
+             patch("backend.routers.review._reset_chart_form_index"), \
+             patch("backend.routers.review.generate_chart",
+                   new=AsyncMock(return_value=None)), \
+             patch("backend.routers.review.upsert_vocabulary_charts",
+                   new=AsyncMock()) as mock_upsert:
+            resp = client.post(
+                "/api/review/gym/generate",
+                json={"point_ids": [POINT_A]},
+                headers=_auth_headers(),
+            )
+        assert resp.status_code == 200
+        assert resp.json()["charts"] == 0
+        mock_upsert.assert_not_awaited()
+
     def test_caps_points_per_call(self, client):
         ids = [POINT_A, POINT_B,
                "44444444-4444-4444-4444-444444444444",

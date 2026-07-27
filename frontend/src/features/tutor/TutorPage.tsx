@@ -13,6 +13,7 @@ import {
   streamTutorMessage,
 } from '../../api/tutor'
 import type { TutorAllowance, TutorMessage, TutorMode } from '../../api/tutor'
+import UsageMeter from '../../components/UsageMeter'
 import { usePrefsStore } from '../../stores/prefsStore'
 
 // Summarize into memory after this long without activity.
@@ -199,7 +200,7 @@ export default function TutorPage() {
       <div className="min-h-screen bg-gray-50 flex items-center justify-center px-4">
         <div className="text-center space-y-4">
           <p className="text-xl text-gray-700">
-            The AI tutor isn’t available for {language.name} yet.
+            The tutor isn’t available for {language.name} yet.
           </p>
           <button
             type="button"
@@ -406,33 +407,27 @@ export default function TutorPage() {
           </div>
         )}
 
-        {/* Allowance meter — flat pricing, so the cap is always visible. Every
-            tier is a MONTHLY pool; plus/granted (Tutor+ add-on / admin grant)
-            just get a much larger one. */}
+        {/* Usage meter — Claude-style (owner): a percentage of the monthly
+            pool and a reset date, never message counts or model plumbing.
+            Every tier is a MONTHLY pool; plus/granted just get a much larger
+            one. Flat pricing, so drawing it down never costs extra. */}
         {allowance && !allowance.unlimited && !exhausted && (
-          <p className="text-xs text-gray-400 mb-3" data-testid="tutor-allowance">
-            {['free', 'single', 'all'].includes(allowance.tier) ? (
-              <>
-                {allowance.remaining} of {allowance.limit}{' '}
-                {allowance.tier === 'free' ? 'free ' : 'included '}messages left
-                this month.{' '}
+          <div className="mb-3" data-testid="tutor-allowance">
+            <UsageMeter allowance={allowance} />
+            {['free', 'single', 'all'].includes(allowance.tier) && (
+              <p className="mt-1 text-xs text-gray-400">
                 <button
                   type="button"
                   onClick={() => subscribeMutation.mutate()}
                   className="text-lang hover:underline"
                 >
-                  Tutor+
+                  Plus
                 </button>{' '}
-                is a flat price — never per message — with a much larger monthly
-                pool.
-              </>
-            ) : (
-              <>
-                Tutor+ · {allowance.remaining} of {allowance.limit} messages left
-                this month (fair use — your price never changes).
-              </>
+                is a flat price with far more monthly usage — never a charge
+                for what you use.
+              </p>
             )}
-          </p>
+          </div>
         )}
 
         {/* Messages */}
@@ -493,14 +488,12 @@ export default function TutorPage() {
             {['free', 'single', 'all'].includes(allowance.tier) ? (
               <>
                 <p>
-                  You’ve used this month’s {allowance.limit}{' '}
-                  {allowance.tier === 'free' ? 'free' : 'included'} tutor
-                  messages — they come back on {resetDay(allowance.resets_at)}.
+                  You’ve used all of this month’s usage — it refreshes on{' '}
+                  {resetDay(allowance.resets_at)}.
                 </p>
                 <p className="text-gray-500">
-                  Tutor+ is a <strong>flat price</strong>: you’re never charged
-                  per message. It swaps this allowance for a much larger monthly
-                  fair-use pool.
+                  Plus is a <strong>flat price</strong> with far more monthly
+                  usage — you’re never charged for what you use.
                 </p>
                 <button
                   type="button"
@@ -521,9 +514,9 @@ export default function TutorPage() {
               </>
             ) : (
               <p>
-                You’ve reached this month’s fair-use pool of {allowance.limit}{' '}
-                messages. It resets on {resetDay(allowance.resets_at)} — nothing
-                extra to pay, your price never changes with usage.
+                You’ve reached this month’s usage limit. It refreshes on{' '}
+                {resetDay(allowance.resets_at)} — nothing extra to pay, your
+                price never changes with usage.
               </p>
             )}
           </div>

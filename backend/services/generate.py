@@ -735,6 +735,210 @@ async def audit_drills(
 
 
 # ---------------------------------------------------------------------------
+# Morphology CHART generation (-k forms, WP45 track 3).
+#
+# The Gym shows a word's conjugation/declension chart when the drill's answer
+# resolves to a chartable vocabulary row. Eleven languages have no chart data
+# at all, and even in charted languages many drill answers belong to words the
+# offline kaikki build never covered. This maker fills those holes per drill
+# answer: the LLM produces the word's paradigm table(s), and the checker holds
+# one uniquely strong card — the drill's answer IS a known-true form of the
+# word, so any chart that doesn't contain it is provably wrong and dropped.
+# Charts are data (tables), not prose, so there is no separate human review
+# gate; the containment proof is the gate.
+# ---------------------------------------------------------------------------
+
+_CHART_SCHEMA = {
+    "type": "object",
+    "properties": {
+        "lemma": {
+            "type": "string",
+            "description": "The dictionary form (headword) of the word the "
+            "given inflected form belongs to, in the target language.",
+        },
+        "part_of_speech": {
+            "type": "string",
+            "description": "noun / verb / adjective / …",
+        },
+        "usage_note": {
+            "type": "string",
+            "description": "One short optional note a learner needs (e.g. "
+            "gender, irregularity). Empty string if nothing notable.",
+        },
+        "charts": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "title": {
+                        "type": "string",
+                        "description": "The paradigm's name, e.g. 'Present', "
+                        "'Past', 'Declension'.",
+                    },
+                    "rows": {
+                        "type": "array",
+                        "items": {
+                            "type": "array",
+                            "items": {"type": "string"},
+                            "minItems": 2,
+                            "maxItems": 2,
+                            "description": "[cell label, inflected form]",
+                        },
+                    },
+                },
+                "required": ["title", "rows"],
+                "additionalProperties": False,
+            },
+        },
+    },
+    "required": ["lemma", "part_of_speech", "usage_note", "charts"],
+    "additionalProperties": False,
+}
+
+# Sanity bounds so a runaway response can't store a junk blob.
+_MAX_CHARTS_PER_WORD = 12
+_MAX_ROWS_PER_CHART = 40
+
+
+def _mock_chart(item: dict) -> dict:
+    """Deterministic chart for dev/testing. Contains the drill's answer form
+    (so the containment gate passes) — unless the answer contains 'bad', which
+    yields a chart WITHOUT it so the reject path is exercised, mirroring the
+    other mocks in this module."""
+    answer = (item.get("answer") or "").strip()
+    lemma = (item.get("lemma") or "").strip() or f"{answer}r"
+    if "bad" in answer.lower():
+        rows = [["yo", "otraforma"], ["tú", "formadistinta"]]
+    else:
+        rows = [["yo", lemma], ["tú", answer]]
+    return {
+        "lemma": lemma,
+        "part_of_speech": "verb",
+        "usage_note": "",
+        "charts": [{"title": "Present (mock)", "rows": rows}],
+    }
+
+
+async def make_chart(
+    item: dict, language: str, model: str | None = None
+) -> dict | None:
+    """Draft the full paradigm chart(s) for the word behind one drill answer.
+
+    *item*: {answer, lemma?, hint?, sentence?, point_title?} — the drill that
+    proves the form exists. Returns the raw candidate (unverified) — always
+    run check_chart() before storing.
+    """
+    settings = get_settings()
+    if getattr(settings, "tutor_dev_mock", False):
+        return _mock_chart(item)
+    context_bits = []
+    if item.get("lemma"):
+        context_bits.append(f"Stored dictionary form: {item['lemma']}")
+    if item.get("hint"):
+        context_bits.append(f"Drill hint (English gloss): {item['hint']}")
+    if item.get("sentence"):
+        context_bits.append(f"Drill sentence: {item['sentence']}")
+    if item.get("point_title"):
+        context_bits.append(f"Grammar point: {item['point_title']}")
+    client = AsyncAnthropic(api_key=settings.anthropic_api_key)
+    resp = await client.messages.create(
+        model=model or resolve_model("grammar_maker", language),
+        max_tokens=2048,
+        system=(
+            f"You are an expert in {language} morphology writing inflection "
+            f"charts for a language-learning app. Given one attested inflected "
+            f"form from a drill, identify the word it belongs to and produce "
+            f"its paradigm chart(s) — the tables a learner would see in a "
+            f"textbook (e.g. a verb's main tenses, a noun's declension/plural, "
+            f"an adjective's agreement forms). Rules, strictly: the lemma is "
+            f"the word's dictionary form, a single word; every chart row is "
+            f"[cell label, form] with labels in the conventional order; the "
+            f"given form MUST appear somewhere in the charts exactly as a "
+            f"correct cell (this is verified — a chart without it is "
+            f"discarded); include only forms you are certain of; if the word "
+            f"is uninflectable, return a single small chart of its invariant "
+            f"form(s). Keep cell labels short ({language} pronouns / case "
+            f"names as a textbook would print them)."
+        ),
+        messages=[{
+            "role": "user",
+            "content": (
+                f"Attested form: {item.get('answer')}\n"
+                + "\n".join(context_bits)
+            ),
+        }],
+        output_config={"format": {"type": "json_schema", "schema": _CHART_SCHEMA}},
+    )
+    text = next((b.text for b in resp.content if b.type == "text"), "{}")
+    try:
+        parsed = json.loads(text)
+    except (json.JSONDecodeError, TypeError):
+        return None
+    return parsed if isinstance(parsed, dict) else None
+
+
+def check_chart(cand: dict, answer: str) -> tuple[bool, str]:
+    """Verify one chart candidate. The decisive gate: the drill's answer is a
+    KNOWN-TRUE form of the word, so the generated chart must contain it (up to
+    the same stress-mark folding the Gym's lookup uses) or it is wrong.
+    Returns (accepted, reason)."""
+    # Imported here: services must not import repositories at module load.
+    from backend.repositories.cards import _chart_form_keys, _form_key
+
+    if not isinstance(cand, dict):
+        return False, "malformed response"
+    lemma = (cand.get("lemma") or "").strip()
+    if not lemma:
+        return False, "missing lemma"
+    if " " in lemma:
+        return False, "lemma is not a single word"
+    charts = cand.get("charts")
+    if not isinstance(charts, list) or not charts:
+        return False, "no charts"
+    if len(charts) > _MAX_CHARTS_PER_WORD:
+        return False, "too many charts"
+    for chart in charts:
+        if not isinstance(chart, dict) or not (chart.get("title") or "").strip():
+            return False, "chart missing title"
+        rows = chart.get("rows")
+        if not isinstance(rows, list) or not rows:
+            return False, "chart has no rows"
+        if len(rows) > _MAX_ROWS_PER_CHART:
+            return False, "chart has too many rows"
+        for row in rows:
+            if (
+                not isinstance(row, list) or len(row) != 2
+                or not all(isinstance(c, str) for c in row)
+                or not row[1].strip()
+            ):
+                return False, "malformed chart row"
+    key = _form_key(answer)
+    if key and key not in _chart_form_keys({"charts": charts}):
+        return False, "chart does not contain the drill's attested form"
+    return True, "ok"
+
+
+async def generate_chart(
+    item: dict, language: str, language_code: str, maker_model: str | None = None
+) -> dict | None:
+    """Maker then checker for one drill answer's paradigm chart. Returns the
+    verified candidate ({lemma, part_of_speech, usage_note, charts}) or None
+    when the maker's chart failed verification."""
+    cand = await make_chart(item, language, maker_model)
+    if cand is None:
+        return None
+    accepted, _reason = check_chart(cand, (item.get("answer") or "").strip())
+    if not accepted:
+        return None
+    return {
+        "lemma": cand["lemma"].strip(),
+        "part_of_speech": (cand.get("part_of_speech") or "").strip() or None,
+        "usage_note": (cand.get("usage_note") or "").strip() or None,
+        "charts": cand["charts"],
+    }
+
+
+# ---------------------------------------------------------------------------
 # Grammar-point OVERLAP judge (owner, 2026-07-26): runs alongside the
 # recheck. Looks at a language's syllabus and reports pairs of points that
 # teach substantially the same thing, for a human to merge or keep.

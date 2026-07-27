@@ -42,14 +42,14 @@ export ANTHROPIC_API_KEY="sk-ant-…"           # real runs only
 
 ```
 python -m backend.services.seeder.generate_content \
-  -l <lang-code> -k <vocab|grammar|levels|definitions> [--recheck] \
-  [--target N] [--max N] [--locale <code>] [--dry-run]
+  -l <lang-code> -k <vocab|grammar|levels|definitions|translations|overlap|forms> \
+  [--recheck] [--target N] [--max N] [--locale <code>] [--dry-run]
 ```
 
 | Flag | Meaning | Default |
 |---|---|---|
 | `-l, --language` | language code, e.g. `en`, `sw` | required |
-| `-k, --kind` | `vocab` · `grammar` · `levels` · `definitions` | required |
+| `-k, --kind` | `vocab` · `grammar` · `levels` · `definitions` · `translations` · `overlap` · `forms` | required |
 | `--recheck` | audit **existing** content (see below): `-k vocab` audits example sentences, `-k grammar` audits drills | off |
 | `--target` | example sentences per word / drills per grammar cell / good sentences per word (recheck) | 3 |
 | `--max` | max gap items (or words) touched in one run | 200 |
@@ -198,6 +198,41 @@ controls.
 Requires the flagging/suggestion columns: `example_sentences` (migrations
 `20260821…`, `20260822…`) for vocab, and `drill_sentences` (migration
 `20260826…`) for drills.
+
+### 8. Backfill Gym morphology charts — `-k forms` (WP45)
+
+The Gym shows a word's conjugation/declension **chart** when the drill's
+answer resolves to a chartable vocabulary row. Eleven languages have no chart
+data at all, and even charted languages miss the words the offline
+morphology build never covered. This mode closes those holes from the drills
+themselves:
+
+1. **Work-list** — every distinct drill answer the Gym's chart lookup cannot
+   resolve (word missing from vocabulary, or its row has no chart tables).
+2. **Maker** — the LLM produces the word's paradigm chart(s): lemma, part of
+   speech, `[cell label, form]` rows, exactly what the Gym renders.
+3. **Checker** — containment: the drill's answer **is a known-true form** of
+   the word, so a generated chart that doesn't contain it (stress-mark
+   folding applied) is provably wrong and dropped. Charts are data, not
+   prose, so this proof is the gate — no separate human review queue.
+4. **Persist** — the chart lands on the word's vocabulary row, **creating the
+   row if the word was missing** (the dominant gap). Existing chart tables
+   (the offline kaikki build) are **never overwritten**.
+
+```bash
+# Dry run — unresolved answers, charts to attempt, cost estimate
+python -m backend.services.seeder.generate_content -l ko -k forms --dry-run
+
+# Generate for real (capped per run; re-run until charts_to_attempt is 0)
+python -m backend.services.seeder.generate_content -l ko -k forms --max 100
+```
+
+Idempotent: the work-list only ever contains answers still without a chart,
+and a word whose stored `lemma` already resolves to a charted row is excluded
+up front — repeated runs converge to zero. Charts show in the Gym
+immediately. Admin API: `POST /api/contribute/admin/generation/forms`.
+Provenance: each write is a `charts_generated` entry in the content change
+log with the model in the note.
 
 ---
 

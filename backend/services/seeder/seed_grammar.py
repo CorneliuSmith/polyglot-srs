@@ -342,11 +342,11 @@ class GrammarSeeder:
             # Curated points are human-owned: the re-seed never overwrites them
             # (text diffs go to the suggestion queue) and never deletes their
             # drills. Same protection vocabulary already has (Option B).
+            from backend.repositories.audit import log_change  # noqa: PLC0415
             from backend.repositories.contributor import (  # noqa: PLC0415
                 create_extraction_suggestion,
                 reseed_grammar_proposal,
             )
-            from backend.repositories.audit import log_change  # noqa: PLC0415
 
             curated_rows = await conn.fetch(
                 "SELECT id, title, function_note, explanation, culture_note "

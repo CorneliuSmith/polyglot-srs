@@ -37,7 +37,11 @@ export async function getGymManifest(languageId: string): Promise<GymManifest> {
 export interface GymGenerateResult {
   /** Drills added to the shared pool this call. */
   generated: number
-  /** Messages actually drawn — one per form topped up (varies with the run). */
+  /** Reference charts created for new words those drills exercise — made
+   * before this call returns, so the refreshed cards arrive chart-complete. */
+  charts: number
+  /** Messages actually drawn — one per form topped up, plus one per new word
+   * charted (varies with the run). */
   charged: number
   /** Tutor-message allowance left after this run, or null when unlimited. */
   remaining: number | null

@@ -37,6 +37,11 @@ Usage:
   # Translate existing English example sentences into a support locale (for a
   # non-English speaker learning English), gated for review:
   python -m backend.services.seeder.generate_content -l en -k translations --locale ru --max 200
+
+  # Backfill Gym morphology CHARTS (WP45): for each drill answer that resolves
+  # to no chart, generate the word's paradigm table — verified by requiring
+  # the drill's own answer to appear in it. Re-run until 0 remain:
+  python -m backend.services.seeder.generate_content -l ko -k forms --max 100
 """
 from __future__ import annotations
 
@@ -61,12 +66,14 @@ from backend.repositories.pool import close_pool, init_pool, privileged_connecti
 from backend.services.define import definitions_available, generate_definitions
 from backend.services.generate import generation_available
 from backend.services.generation_admin import (
+    plan_forms,
     plan_overlap,
     plan_recheck,
     plan_recheck_drills,
     plan_run,
     recheck_drills,
     recheck_examples,
+    run_forms,
     run_generation,
     run_overlap_audit,
 )
@@ -306,6 +313,40 @@ async def _run_overlap(conn, lang, args) -> None:
     )
 
 
+async def _run_forms(conn, lang, args) -> None:
+    """Backfill morphology CHARTS (WP45): for every drill answer the Gym's
+    chart lookup cannot resolve, the LLM produces the word's paradigm chart,
+    verified by containment — the drill's answer is a known-true form, so a
+    chart without it is rejected. Verified charts land on the vocabulary row
+    (created if the word was missing); existing charts are never overwritten."""
+    lang_id = str(lang["id"])
+    if args.dry_run:
+        plan = await plan_forms(
+            conn, language_id=lang_id, language_code=lang["code"],
+            max_items=args.max,
+        )
+        plan.pop("_items", None)
+        print(json.dumps({"dry_run": True, **plan}, indent=2, default=str))
+        return
+    if not generation_available():
+        print("ERROR: chart generation needs ANTHROPIC_API_KEY (or TUTOR_DEV_MOCK=1).")
+        return
+    print(
+        f"Generating charts for unresolved {lang['name']} drill answers "
+        f"(up to {args.max})…"
+    )
+    result = await run_forms(
+        conn, language_id=lang_id, language_code=lang["code"],
+        language_name=lang["name"], max_items=args.max,
+    )
+    print(json.dumps({"dry_run": False, **result}, indent=2, default=str))
+    print(
+        "\nCharts show in the Gym immediately (they're verified by containing "
+        "the drill's own answer, not prose needing review). Re-run until "
+        "charts_to_attempt reaches 0 — each run is capped and idempotent."
+    )
+
+
 async def _run(args: argparse.Namespace) -> None:
     async with privileged_connection() as conn:
         lang = await conn.fetchrow(
@@ -330,6 +371,10 @@ async def _run(args: argparse.Namespace) -> None:
 
         if args.kind == "overlap":
             await _run_overlap(conn, lang, args)
+            return
+
+        if args.kind == "forms":
+            await _run_forms(conn, lang, args)
             return
 
         if args.recheck:
@@ -377,7 +422,7 @@ async def main() -> None:
     parser.add_argument(
         "--kind", "-k",
         choices=["vocab", "grammar", "levels", "definitions", "translations",
-                 "overlap"],
+                 "overlap", "forms"],
         required=True,
     )
     parser.add_argument(

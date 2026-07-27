@@ -361,7 +361,7 @@ export default function ReaderPage() {
                 </p>
               )}
               <p className="text-[11px] text-gray-400">
-                Uses one tutor message per text.
+                Each new text counts toward your monthly usage.
               </p>
             </form>
 

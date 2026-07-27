@@ -8,7 +8,15 @@ from fastapi import APIRouter, Depends, HTTPException, status
 from pydantic import BaseModel, Field
 
 from backend.dependencies import get_current_user
+from backend.repositories.assessment import (
+    get_form_struggles,
+    pick_struggling_cell,
+)
 from backend.repositories.cards import (
+    _chart_form_index,
+    _form_key,
+    _reset_chart_form_index,
+    _word_tokens,
     add_grammar_learn_batch,
     add_learn_batch,
     add_mixed_learn_batch,
@@ -27,11 +35,7 @@ from backend.repositories.cards import (
     set_deck_subscription,
     update_card_srs,
 )
-from backend.repositories.assessment import (
-    get_form_struggles,
-    pick_struggling_cell,
-)
-from backend.repositories.contributor import add_drill
+from backend.repositories.contributor import add_drill, upsert_vocabulary_charts
 from backend.repositories.fsrs_weights import get_effective_params
 from backend.repositories.gym import record_gym_attempt
 from backend.repositories.pool import privileged_connection, rls_connection
@@ -45,7 +49,11 @@ from backend.services.fsrs import (
     map_answer_to_quality,
     map_answer_to_rating,
 )
-from backend.services.generate import generate_drills, generation_available
+from backend.services.generate import (
+    generate_chart,
+    generate_drills,
+    generation_available,
+)
 from backend.services.models import resolve_model
 from backend.services.nlp import validate_answer_async
 
@@ -177,6 +185,12 @@ class GymGenerateRequest(BaseModel):
 # baseline seeded corpus (forms x multiple drills = hundreds) is the main path.
 GYM_GEN_MAX_POINTS = 3
 GYM_GEN_PER_POINT = 4
+# Charts for the NEW words those drills exercise (WP45): made inside the same
+# request so the frontend's post-generate re-fetch delivers every fresh card
+# with its chart already attached — no chart ever pops in mid-exercise. One
+# message per word attempted, drawn from the same allowance, capped so a
+# single call stays bounded.
+GYM_CHART_MAX_PER_CALL = 3
 
 
 @router.post("/gym/generate")
@@ -226,6 +240,7 @@ async def gym_generate(
     model = resolve_model("grammar_maker", contexts[0]["language_code"])
     generated = 0
     charged = 0
+    new_drills: list[dict] = []
     async with privileged_connection() as conn:
         for ctx in contexts:
             # Aim at the learner's weakest evidenced cell for this point;
@@ -254,9 +269,76 @@ async def gym_generate(
                     cell=weak_cell,
                 )
                 generated += 1
+                new_drills.append({
+                    "answer": d["answer"], "lemma": d.get("lemma"),
+                    "hint": d.get("hint"), "sentence": d["sentence"],
+                    "point_title": ctx["title"],
+                })
             # One message per form topped up (regardless of drill yield).
             await log_tutor_usage(conn, user["id"], language_id, model, kind="gym_gen")
             charged += 1
+
+        # Charts for the new words (WP45): a fresh drill may exercise a word
+        # no chart anywhere covers — chart it NOW, before this request
+        # returns, so the re-fetch that delivers these drills carries the
+        # chart on the card. Verified by containment (the drill's answer must
+        # appear in the chart) and charged like a form top-up: one message
+        # per word attempted, never past the allowance, capped per call.
+        charts_added = 0
+        chart_items: list[dict] = []
+        try:
+            _reset_chart_form_index()
+            index = await _chart_form_index(conn, contexts[0]["language_code"])
+        except Exception:  # noqa: BLE001 — charts are extra, never fail the top-up
+            index = None
+        if index is not None:
+            seen_words: set[str] = set()
+            for d in new_drills:
+                tokens = [t for t in _word_tokens(d["answer"]) if len(t) > 2]
+                if not tokens:
+                    continue
+                if any(_form_key(t) in index for t in tokens):
+                    continue  # a chart already covers this answer
+                lemma_key = _form_key((d.get("lemma") or "").strip())
+                if lemma_key and lemma_key in index:
+                    continue  # the word is charted; only this form is absent
+                key = lemma_key or _form_key(max(tokens, key=len))
+                if key in seen_words:
+                    continue
+                seen_words.add(key)
+                chart_items.append(d)
+        chart_budget = (
+            None if allowance["unlimited"]
+            else max(0, allowance["remaining"] - charged)
+        )
+        for item in chart_items[:GYM_CHART_MAX_PER_CALL]:
+            if chart_budget is not None and chart_budget <= 0:
+                break
+            try:
+                cand = await generate_chart(
+                    item, contexts[0]["language_name"],
+                    contexts[0]["language_code"], maker_model=model,
+                )
+            except Exception:  # noqa: BLE001 — charts are extra, never fail the top-up
+                break
+            await log_tutor_usage(
+                conn, user["id"], language_id, model, kind="gym_chart"
+            )
+            charged += 1
+            if chart_budget is not None:
+                chart_budget -= 1
+            if cand is None:
+                continue  # checker rejected — the card just shows no chart
+            _vid, upsert_status = await upsert_vocabulary_charts(
+                conn, language_id, cand["lemma"], cand["part_of_speech"],
+                cand["charts"], cand["usage_note"], origin_detail=model,
+            )
+            if upsert_status in ("created", "updated"):
+                charts_added += 1
+        if charts_added:
+            # The serving lookup must see the new charts on the very next
+            # fetch — drop the cached reverse index.
+            _reset_chart_form_index()
 
     remaining = (
         None if allowance["unlimited"]
@@ -265,6 +347,7 @@ async def gym_generate(
     return {
         "generated": generated,
         "charged": charged,
+        "charts": charts_added,
         "remaining": remaining,
         "unlimited": allowance["unlimited"],
     }

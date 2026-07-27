@@ -163,9 +163,9 @@ export default function RecommendationsPage() {
         {/* On but not entitled → tutor+ upsell. */}
         {data?.enabled && !data.entitled && (
           <div className="bg-white rounded-2xl border border-gray-100 shadow-sm p-5 text-sm text-gray-600 space-y-2">
-            <p className="font-medium text-gray-800">A tutor+ feature</p>
+            <p className="font-medium text-gray-800">A Plus feature</p>
             <p>
-              Personalized recommendations are part of tutor+. Upgrade for this
+              Personalized recommendations are part of Plus. Upgrade for this
               language to get a fresh, level-matched pick list every week.
             </p>
           </div>
@@ -189,7 +189,7 @@ export default function RecommendationsPage() {
 
         {data?.enabled && data.entitled && refreshStatus === 402 && (
           <p className="text-sm text-amber-600">
-            Recommendations need a tutor+ subscription for this language.
+            Recommendations need a Plus subscription for this language.
           </p>
         )}
 

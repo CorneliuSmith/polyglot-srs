@@ -39,7 +39,7 @@ const TOOLS: {
   {
     route: '/tutor',
     icon: MessagesSquare,
-    name: 'AI Tutor',
+    name: 'Tutor',
     blurb:
       'Conversation practice that knows your cards. It steers toward your weak spots and can flag cards you clearly already know.',
   },

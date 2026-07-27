@@ -7,11 +7,12 @@ export interface TutorMessage {
 }
 
 /**
- * The message allowance for the caller's tier. Pricing is flat — the cap is
- * fair-use cost protection, shown openly, never a billing meter.
+ * The monthly usage pool for the caller's tier. Pricing is flat — the cap is
+ * fair-use cost protection, surfaced only as the Claude-style percentage
+ * meter (components/UsageMeter), never a billing meter.
  */
 export interface TutorAllowance {
-  tier: 'free' | 'plus' | 'unlimited'
+  tier: 'free' | 'single' | 'all' | 'plus' | 'granted' | 'unlimited' | 'blocked'
   unlimited: boolean
   entitled: boolean
   limit: number | null

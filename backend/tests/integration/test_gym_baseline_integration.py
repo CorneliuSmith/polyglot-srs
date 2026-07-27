@@ -86,3 +86,70 @@ async def test_baseline_without_chart_still_standardizes(pool):
     assert card["morphology"] is None  # nothing chartable — toggle stays hidden
     # Recipe stripped, cell appended: one shape everywhere.
     assert card["baseline"] == "to watch (he/she)"
+
+
+async def test_chart_found_from_the_answer_when_there_is_no_lemma(pool):
+    """The ordinary seeded-drill case, which used to show no chart at all:
+    the drill stores NO lemma, its hint is an English gloss, and the language
+    has no real lemmatizer. The answer's own form appears inside the chart, so
+    that is what we look it up by."""
+    from backend.repositories.cards import (
+        _reset_chart_form_index,
+        attach_cram_charts,
+    )
+
+    _reset_chart_form_index()
+    lang = await _lang(pool, "pt")
+    chart = {
+        "charts": [{
+            "title": "Presente",
+            "columns": ["", "forma"],
+            # Note the stress mark: the drill answer has none.
+            "rows": [["eu", "moro"], ["tu", "moras"], ["ele", "mora"]],
+        }],
+    }
+    async with pool.privileged_connection() as conn:
+        await conn.execute(
+            "INSERT INTO vocabulary (language_id, word, frequency_rank, level, morphology) "
+            "VALUES ($1, 'morar', 1, 'A1', $2::jsonb)",
+            lang, json.dumps(chart, ensure_ascii=False),
+        )
+
+    card = {
+        "language_code": "pt",
+        "correct_answer": "moras",   # inflected form, not the headword
+        "hint": "to live (you)",     # English gloss — never a chart key
+        "lemma": None,               # seeded drills have none
+        "morphology": None,
+    }
+    async with pool.privileged_connection() as conn:
+        await attach_cram_charts(conn, [card])
+    assert card["morphology"] is not None
+    assert card["chart_word"] == "morar"
+    _reset_chart_form_index()
+
+
+async def test_answer_lookup_does_not_invent_charts(pool):
+    """A word with no chart anywhere still yields no chart — the fallback
+    must not attach something merely similar."""
+    from backend.repositories.cards import (
+        _reset_chart_form_index,
+        attach_cram_charts,
+    )
+
+    _reset_chart_form_index()
+    lang = await _lang(pool, "pt2")
+    async with pool.privileged_connection() as conn:
+        await conn.execute(
+            "INSERT INTO vocabulary (language_id, word, frequency_rank, level) "
+            "VALUES ($1, 'gato', 1, 'A1')",
+            lang,
+        )
+    card = {
+        "language_code": "pt2", "correct_answer": "gatos",
+        "hint": "cat", "lemma": None, "morphology": None,
+    }
+    async with pool.privileged_connection() as conn:
+        await attach_cram_charts(conn, [card])
+    assert card["morphology"] is None
+    _reset_chart_form_index()

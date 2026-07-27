@@ -6,6 +6,7 @@ import hashlib
 import json
 import random
 import re
+import unicodedata
 from datetime import UTC, datetime
 
 import asyncpg
@@ -1606,6 +1607,108 @@ def _chartable(morphology) -> object | None:
     return morphology
 
 
+def _form_key(word: str) -> str:
+    """Comparison key for a word form: lowercase, letters only, combining
+    marks dropped. The charts carry stress marks the drills don't ("жи́ли" vs
+    "жили"), so a raw string compare misses."""
+    decomposed = unicodedata.normalize("NFD", word.lower())
+    return "".join(
+        ch for ch in decomposed
+        if not unicodedata.combining(ch) and (ch.isalpha() or ch == "'")
+    )
+
+
+def _word_tokens(text: str) -> list[str]:
+    """Word tokens with combining marks removed BEFORE splitting. Python's
+    \\w excludes combining marks, so a stressed chart form like "жи́ли" would
+    otherwise split into "жи" + "ли" and never match anything."""
+    stripped = "".join(
+        ch for ch in unicodedata.normalize("NFD", text or "")
+        if not unicodedata.combining(ch)
+    )
+    return re.findall(r"[^\W\d_]+", stripped)
+
+
+def _chart_form_keys(morphology) -> set[str]:
+    """Every inflected form printed inside a chart, as comparison keys."""
+    parsed = morphology
+    if isinstance(parsed, str):
+        try:
+            parsed = json.loads(parsed)
+        except (json.JSONDecodeError, TypeError):
+            return set()
+    if not isinstance(parsed, dict):
+        return set()
+    keys: set[str] = set()
+    for chart in parsed.get("charts") or []:
+        if not isinstance(chart, dict):
+            continue
+        for row in chart.get("rows") or []:
+            if not isinstance(row, list):
+                continue
+            for cell in row:
+                for token in _word_tokens(str(cell)):
+                    key = _form_key(token)
+                    if len(key) > 1:
+                        keys.add(key)
+    return keys
+
+
+# Per-language "inflected form → headword" index, built from the charts
+# themselves. Bounded: the Gym is used one language at a time, and a stale
+# index only costs a missed chart (never a wrong one) until the process
+# recycles.
+_FORM_INDEX: dict[str, dict[str, str]] = {}
+_FORM_INDEX_MAX_LANGS = 3
+
+
+async def _chart_form_index(
+    conn: asyncpg.Connection, language_code: str
+) -> dict[str, str]:
+    """Map every form appearing in a language's charts to its headword.
+
+    This is the reverse of lemmatization, and it's what makes charts work at
+    all for most languages: a seeded drill stores no lemma, its hint is often
+    an English gloss, and ten languages have no real lemmatizer (their
+    "lemmatize" only folds accents). The charts, however, already list the
+    exact inflected forms the drills use — so we look the answer up in them.
+    """
+    cached = _FORM_INDEX.get(language_code)
+    if cached is not None:
+        return cached
+    rows = await conn.fetch(
+        """
+        SELECT v.word, v.morphology
+        FROM vocabulary v
+        JOIN languages l ON v.language_id = l.id
+        WHERE l.code = $1 AND v.morphology IS NOT NULL
+        """,
+        language_code,
+    )
+    index: dict[str, str] = {}
+    for r in rows:
+        word = r.get("word")
+        if not word:
+            continue
+        morph = r.get("morphology")
+        if _chartable(morph) is None:
+            continue
+        # The headword itself first, then its forms; earlier words win so the
+        # mapping is stable across requests.
+        for key in (_form_key(word), *sorted(_chart_form_keys(morph))):
+            if key and key not in index:
+                index[key] = word
+    if len(_FORM_INDEX) >= _FORM_INDEX_MAX_LANGS:
+        _FORM_INDEX.pop(next(iter(_FORM_INDEX)), None)
+    _FORM_INDEX[language_code] = index
+    return index
+
+
+def _reset_chart_form_index() -> None:
+    """Test hook — drop the cached indexes."""
+    _FORM_INDEX.clear()
+
+
 async def attach_cram_charts(conn: asyncpg.Connection, cards: list[dict]) -> None:
     """WP25(c): give each Gym drill the chart of the word it exercises.
 
@@ -1620,6 +1723,7 @@ async def attach_cram_charts(conn: asyncpg.Connection, cards: list[dict]) -> Non
     # Candidate dictionary forms per card, batched into one query per language.
     wanted: dict[str, set[str]] = {}
     plans: list[tuple[dict, list[str]]] = []
+    by_language_tokens: dict[str, list[tuple[dict, list[str]]]] = {}
     for card in cards:
         if card.get("morphology") is not None:
             continue
@@ -1639,7 +1743,7 @@ async def attach_cram_charts(conn: asyncpg.Connection, cards: list[dict]) -> Non
         if hw and " " not in hw and hw not in candidates:
             candidates.append(hw)
         tokens = [
-            t for t in re.findall(r"[^\W\d_]+", card.get("correct_answer") or "")
+            t for t in _word_tokens(card.get("correct_answer") or "")
             if len(t) > 2
         ]
         try:
@@ -1661,6 +1765,9 @@ async def attach_cram_charts(conn: asyncpg.Connection, cards: list[dict]) -> Non
             continue
         plans.append((card, candidates))
         wanted.setdefault(lang, set()).update(candidates)
+        # Remember the raw answer tokens too: if none of the candidates above
+        # resolve, the reverse form index gets a turn below.
+        by_language_tokens.setdefault(lang, []).append((card, tokens))
 
     if not wanted:
         return
@@ -1690,14 +1797,70 @@ async def attach_cram_charts(conn: asyncpg.Connection, cards: list[dict]) -> Non
                 "usage_note": r.get("usage_note"),
             })
 
+    def _apply(card: dict, hit: dict) -> None:
+        card["morphology"] = hit["morphology"]
+        card["chart_word"] = hit["word"]
+        card["chart_usage_note"] = hit["usage_note"]
+
+    unresolved: dict[str, list[tuple[dict, list[str]]]] = {}
     for card, candidates in plans:
         for cand in candidates:
             hit = forms.get((card["language_code"], cand))
             if hit is not None:
-                card["morphology"] = hit["morphology"]
-                card["chart_word"] = hit["word"]
-                card["chart_usage_note"] = hit["usage_note"]
+                _apply(card, hit)
                 break
+    for lang, entries in by_language_tokens.items():
+        misses = [e for e in entries if e[0].get("morphology") is None]
+        if misses:
+            unresolved[lang] = misses
+
+    # Second pass: look the drill's own surface answer up in the charts. This
+    # is what covers the ordinary case — no stored lemma, an English hint, and
+    # a language whose lemmatizer only folds accents.
+    for lang, entries in unresolved.items():
+        try:
+            index = await _chart_form_index(conn, lang)
+        except Exception:  # noqa: BLE001 — charts are extra, never fail cram
+            continue
+        if not index:
+            continue
+        headwords = {
+            index[key]
+            for _card, tokens in entries
+            for key in (_form_key(t) for t in tokens)
+            if key in index
+        }
+        if not headwords:
+            continue
+        rows = await conn.fetch(
+            """
+            SELECT v.word, v.morphology, v.usage_note
+            FROM vocabulary v
+            JOIN languages l ON v.language_id = l.id
+            WHERE l.code = $1
+              AND v.word = ANY($2::text[])
+              AND v.morphology IS NOT NULL
+            """,
+            lang,
+            sorted(headwords),
+        )
+        found: dict[str, dict] = {}
+        for r in rows:
+            word = r.get("word")
+            m = _chartable(r.get("morphology"))
+            if word and m is not None:
+                found[word] = {
+                    "word": word,
+                    "morphology": m,
+                    "usage_note": r.get("usage_note"),
+                }
+        for card, tokens in entries:
+            for token in tokens:
+                head = index.get(_form_key(token))
+                hit = found.get(head) if head else None
+                if hit is not None:
+                    _apply(card, hit)
+                    break
 
 
 async def get_deck_preview(

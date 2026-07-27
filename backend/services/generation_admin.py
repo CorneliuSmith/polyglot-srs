@@ -21,10 +21,17 @@ from __future__ import annotations
 
 import asyncpg
 
+from backend.repositories.cards import (
+    _chart_form_index,
+    _form_key,
+    _reset_chart_form_index,
+    _word_tokens,
+)
 from backend.repositories.contributor import (
     add_drill,
     add_example_sentence,
     backfill_example_translation,
+    drill_answers_for_charts,
     flag_drill,
     flag_example_sentence,
     points_for_overlap_audit,
@@ -32,6 +39,7 @@ from backend.repositories.contributor import (
     points_with_thin_cells,
     record_overlap,
     suggest_example_translation,
+    upsert_vocabulary_charts,
     vocab_needing_examples,
     vocab_with_examples,
 )
@@ -39,6 +47,7 @@ from backend.services.generate import (
     audit_drills,
     audit_examples,
     audit_overlap,
+    generate_chart,
     generate_drills,
     generate_examples,
 )
@@ -427,6 +436,147 @@ async def recheck_drills(
         "drills_audited": plan["drills_to_audit"],
         "drills_flagged": flagged,
         "alternatives_generated": alternatives,
+        "est_cost_usd": plan["est_cost_usd"],
+    }
+
+
+# ---------------------------------------------------------------------------
+# Morphology CHART backfill (-k forms, WP45 track 3). The Gym's chart lookup
+# resolves a drill's answer through the reverse form index built from the
+# charts themselves; every answer that DOESN'T resolve is a hole — either the
+# word is missing from vocabulary entirely, or its row has no chart tables.
+# This run has the LLM produce the paradigm chart for each such word, verified
+# by containment: the drill's answer is a known-true form, so a chart that
+# doesn't contain it is rejected (services/generate.check_chart). Verified
+# charts are upserted onto the vocabulary row (created if absent); existing
+# charts are never overwritten, which is also what makes re-runs idempotent.
+# ---------------------------------------------------------------------------
+
+# A chart call carries the drill context; the response is a full paradigm
+# table, much bigger than a sentence. Generous, so the preview never
+# under-states the bill.
+_EST_INPUT_TOKENS_PER_CHART = 500
+_EST_OUTPUT_TOKENS_PER_CHART = 700
+
+
+def _forms_dedupe_key(item: dict) -> str:
+    """One chart covers all of a word's forms — collapse work items that name
+    the same word (stored lemma when the drill has one, else the answer's
+    folded key)."""
+    lemma = (item.get("lemma") or "").strip().lower()
+    if lemma:
+        return f"l:{lemma}"
+    tokens = _word_tokens(item.get("answer") or "")
+    return f"a:{_form_key(max(tokens, key=len))}" if tokens else "a:"
+
+
+async def plan_forms(
+    conn: asyncpg.Connection,
+    *,
+    language_id: str,
+    language_code: str,
+    max_items: int,
+) -> dict:
+    """Resolve the chart work-list + cost estimate WITHOUT calling the model:
+    distinct drill answers whose forms the Gym's chart lookup cannot resolve."""
+    max_items = _clamp(max_items, 1, MAX_ITEMS_PER_RUN)
+    answers = await drill_answers_for_charts(conn, language_id)
+    # The index may be cached from before this run's own writes — rebuild it so
+    # the work-list reflects the database as it is now.
+    _reset_chart_form_index()
+    index = await _chart_form_index(conn, language_code)
+
+    items: list[dict] = []
+    seen: set[str] = set()
+    for a in answers:
+        tokens = [t for t in _word_tokens(a["answer"]) if len(t) > 2]
+        if not tokens:
+            continue
+        if any(_form_key(t) in index for t in tokens):
+            continue  # the Gym already finds a chart for this answer
+        lemma_key = _form_key((a.get("lemma") or "").strip())
+        if lemma_key and lemma_key in index:
+            # The word already carries charts (they just lack this form). The
+            # upsert never overwrites existing charts, so generating here
+            # could never store anything — attempting it is pure waste, and
+            # excluding it is what makes repeated runs converge to zero.
+            continue
+        key = _forms_dedupe_key(a)
+        if key in seen:
+            continue
+        seen.add(key)
+        items.append(a)
+        if len(items) >= max_items:
+            break
+
+    model = resolve_model("grammar_maker", language_code)
+    est_cost = estimate_cost_usd(
+        model,
+        input_tokens=_EST_INPUT_TOKENS_PER_CHART * len(items),
+        output_tokens=_EST_OUTPUT_TOKENS_PER_CHART * len(items),
+    )
+    return {
+        "kind": "forms",
+        "model": model,
+        "answers_scanned": len(answers),
+        "charts_to_attempt": len(items),
+        "est_cost_usd": est_cost,
+        "_items": items,
+    }
+
+
+async def run_forms(
+    conn: asyncpg.Connection,
+    *,
+    language_id: str,
+    language_code: str,
+    language_name: str,
+    max_items: int,
+) -> dict:
+    """Generate + verify + persist a paradigm chart per unresolved drill
+    answer. Safe to re-run: the work-list only ever contains answers still
+    without a chart, and the upsert never overwrites existing chart tables."""
+    plan = await plan_forms(
+        conn, language_id=language_id, language_code=language_code,
+        max_items=max_items,
+    )
+    items = plan.pop("_items")
+    model = plan["model"]
+
+    rejected = created = updated = skipped = 0
+    for item in items:
+        cand = await generate_chart(
+            item, language_name, language_code, maker_model=model
+        )
+        if cand is None:
+            rejected += 1
+            continue
+        _vid, status = await upsert_vocabulary_charts(
+            conn, language_id, cand["lemma"], cand["part_of_speech"],
+            cand["charts"], cand["usage_note"], origin_detail=model,
+        )
+        if status == "created":
+            created += 1
+        elif status == "updated":
+            updated += 1
+        else:
+            # The word already carries charts that simply lack this form (the
+            # kaikki tables stay authoritative), or an identical insert raced.
+            skipped += 1
+    # New charts must be visible to the Gym's cached reverse index immediately.
+    _reset_chart_form_index()
+
+    return {
+        "kind": "forms",
+        "language_code": language_code,
+        "language_name": language_name,
+        "model": model,
+        "answers_scanned": plan["answers_scanned"],
+        "charts_attempted": len(items),
+        "charts_rejected": rejected,
+        "words_created": created,
+        "words_updated": updated,
+        "already_charted_skipped": skipped,
         "est_cost_usd": plan["est_cost_usd"],
     }
 

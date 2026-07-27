@@ -397,6 +397,10 @@ function koNormalizeJamo(ch: string): string {
 const KO_CONS: [string, string][] = [
   ['kk','ㄲ'], ['gg','ㄲ'], ['tt','ㄸ'], ['dd','ㄸ'], ['pp','ㅃ'], ['bb','ㅃ'],
   ['ss','ㅆ'], ['jj','ㅉ'], ['ch','ㅊ'], ['ng','ㅇ'],
+  // kh/th/ph are the same aspirates as bare k/t/p. They exist so that an
+  // aspirated FINAL (rare: 부엌, 빛) has a spelling that decodes and
+  // re-encodes back to ㅋ/ㅌ/ㅍ instead of collapsing to ㄱ/ㄷ/ㅂ.
+  ['kh','ㅋ'], ['th','ㅌ'], ['ph','ㅍ'],
   ['g','ㄱ'], ['n','ㄴ'], ['d','ㄷ'], ['r','ㄹ'], ['l','ㄹ'], ['m','ㅁ'],
   ['b','ㅂ'], ['s','ㅅ'], ['j','ㅈ'], ['k','ㅋ'], ['t','ㅌ'], ['p','ㅍ'],
   ['h','ㅎ'],
@@ -417,12 +421,7 @@ const KO_FINAL: Record<string, string> = {
   k: 'ㄱ', g: 'ㄱ', kk: 'ㄲ', gg: 'ㄲ', n: 'ㄴ', t: 'ㄷ', d: 'ㄷ',
   l: 'ㄹ', r: 'ㄹ', m: 'ㅁ', p: 'ㅂ', b: 'ㅂ', s: 'ㅅ', ss: 'ㅆ',
   ng: 'ㅇ', j: 'ㅈ', ch: 'ㅊ', h: 'ㅎ',
-}
-// …so decoding a final has to invert THAT map, not the initial one.
-const KO_FINAL_REV: Record<string, string> = {
-  'ㄱ': 'k', 'ㄲ': 'kk', 'ㄴ': 'n', 'ㄷ': 't', 'ㄹ': 'l', 'ㅁ': 'm',
-  'ㅂ': 'p', 'ㅅ': 's', 'ㅆ': 'ss', 'ㅇ': 'ng', 'ㅈ': 'j', 'ㅊ': 'ch',
-  'ㅋ': 'k', 'ㅌ': 't', 'ㅍ': 'p', 'ㅎ': 'h',
+  kh: 'ㅋ', th: 'ㅌ', ph: 'ㅍ',
 }
 
 const KO_CONS_REV: Record<string, string> = {}
@@ -430,8 +429,13 @@ for (const [lat, jamo] of KO_CONS) if (!(jamo in KO_CONS_REV)) KO_CONS_REV[jamo]
 const KO_VOW_REV: Record<string, string> = {}
 for (const [lat, jamo] of KO_VOW) if (!(jamo in KO_VOW_REV)) KO_VOW_REV[jamo] = lat
 
-/** Hangul → the phonetic string the encoder round-trips. A silent initial ㅇ
- * decodes to nothing (its vowel re-seats it); a FINAL ㅇ decodes to "ng". */
+/** Hangul → the string the encoder re-assembles: every syllable is exploded
+ * into its JAMO, never back into romanization.
+ *
+ * Round-tripping through romanization is what made ㄱ/ㄷ/ㅂ finals flip to
+ * ㅋ/ㅌ/ㅍ when the next keystroke moved them into an initial slot ("gada"
+ * typed 가타). Carrying the jamo itself is lossless in both directions and
+ * keeps the aspirated finals (부엌) and stacked ones (없) intact too. */
 function decodeKo(text: string): string {
   let out = ''
   for (const raw of Array.from(text)) {
@@ -439,28 +443,42 @@ function decodeKo(text: string): string {
     const code = ch.codePointAt(0) ?? 0
     if (code >= KO_SYL_BASE && code <= KO_SYL_LAST) {
       const n = code - KO_SYL_BASE
-      const l = KO_L[Math.floor(n / 588)]
-      const v = KO_V[Math.floor((n % 588) / 28)]
-      const t = KO_T[n % 28]
-      out += (l === 'ㅇ' ? '' : KO_CONS_REV[l] ?? '')
-      out += KO_VOW_REV[v] ?? ''
-      if (t) out += KO_FINAL_REV[t] ?? KO_CONS_REV[t] ?? ''
+      out += KO_L[Math.floor(n / 588)]
+      // Vowels go back to ROMANIZATION: unlike consonants they are
+      // unambiguous in that direction, and it's what lets a vowel still grow
+      // across keystrokes — ㅔ + "u" has to become ㅡ ("hangeul" → 한글),
+      // which a committed jamo could never do.
+      out += KO_VOW_REV[KO_V[Math.floor((n % 588) / 28)]] ?? ''
+      out += KO_T[n % 28] // '' when the syllable is open
       continue
     }
-    if (ch in KO_VOW_REV) { out += KO_VOW_REV[ch]; continue }
-    if (ch in KO_CONS_REV) { out += ch === 'ㅇ' ? 'ng' : KO_CONS_REV[ch]; continue }
-    out += raw // passthrough: Latin still pending, spaces, punctuation
+    // Standalone jamo: vowels romanize (same reason), consonants stay jamo.
+    out += KO_VOW_REV[ch] ?? ch
   }
   return out
 }
 
-type KoTok = { t: 'c' | 'v' | 'o'; lat: string; jamo: string }
+// `committed` marks a unit that already exists as Hangul on screen, so the
+// encoder must place it rather than hold it back as pending Latin.
+type KoTok = { t: 'c' | 'v' | 'o'; lat: string; jamo: string; committed?: boolean }
 
 function tokenizeKo(phon: string): KoTok[] {
   const toks: KoTok[] = []
   let i = 0
   while (i < phon.length) {
     let matched = false
+    // Jamo carried over from decode (or typed on the on-screen keyboard).
+    const jamo = phon[i]
+    if (KO_V.includes(jamo)) {
+      toks.push({ t: 'v', lat: jamo, jamo, committed: true })
+      i++
+      continue
+    }
+    if (KO_L.includes(jamo) || KO_T.includes(jamo)) {
+      toks.push({ t: 'c', lat: jamo, jamo, committed: true })
+      i++
+      continue
+    }
     for (const [seq, jamo] of KO_CONS) {
       if (phon.slice(i, i + seq.length) !== seq) continue
       // "ng" is the final ㅇ — but in "hanguk" the n ends one syllable and the
@@ -524,10 +542,14 @@ function encodeKo(phon: string, finalize: boolean): string {
     let final = ''
     const c1 = toks[i]
     if (c1 && c1.t === 'c') {
-      const asFinal = KO_FINAL[c1.lat] ?? c1.jamo
-      if (KO_T.includes(asFinal)) {
-        const c2 = toks[i + 1]
-        if (!c2 || c2.t !== 'v') {
+      const asFinal = c1.committed ? c1.jamo : KO_FINAL[c1.lat] ?? c1.jamo
+      const c2 = toks[i + 1]
+      if (KO_T.includes(asFinal) && (!c2 || c2.t !== 'v')) {
+        // A just-typed consonant at the very END is still ambiguous — it
+        // could close this syllable or open the next one, and committing it
+        // as a final would decide the aspiration wrongly ("bapo" → 바보).
+        // Hold it pending; the next keystroke (or submit) settles it.
+        if (c2 || c1.committed || finalize) {
           final = asFinal
           i++
         }

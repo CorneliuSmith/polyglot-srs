@@ -36,6 +36,22 @@ import LearningTip from '../tips/LearningTip'
 import { hasKeyboardLayout } from '../keyboards/OnScreenKeyboard'
 import type { KeyboardLanguage } from '../keyboards/OnScreenKeyboard'
 
+/** UX dials for background Gym generation (owner, 2026-07-27).
+ *
+ * GEN_MAX_SHARE — at most this share of a session is SWAPPED for freshly
+ * generated drills; the rest stays existing material. One number to shift
+ * the mix if generated content should feature more or less. (Filling a
+ * short deck up to the learner's requested count is exempt — reaching the
+ * goal always beats the mix.)
+ *
+ * GEN_WAIT_MS — nobody stares at the end-of-deck wait longer than this. If
+ * generation still hasn't landed, the session tops up with EXISTING
+ * questions from the same forms (they still meet the goal) and moves on;
+ * fresh drills that land later only ever swap upcoming, not-yet-seen slots.
+ */
+const GEN_MAX_SHARE = 0.5
+const GEN_WAIT_MS = 8000
+
 /** The one place a learner ever waits in the Gym: shown only if they out-run
  * background generation (a thin form + a fast learner). The fresh drills are
  * moments away — this is a brief hand-off, not a dead end. */
@@ -222,9 +238,12 @@ function ReviewSessionInner({
             const have = new Set(
               prev.map((c) => c.drill_id).filter(Boolean) as string[],
             )
+            const target = cramCount ?? prev.length
+            // Unseen drills from the re-draw: enough to fill a short deck to
+            // the target AND deliver the fresh batch, never the whole corpus.
             const novel = refreshed
               .filter((c) => c.drill_id && !have.has(c.drill_id))
-              .slice(0, res.generated)
+              .slice(0, Math.max(res.generated, target - prev.length))
             if (cramMix) {
               for (let i = novel.length - 1; i > 0; i--) {
                 const j = Math.floor(Math.random() * (i + 1))
@@ -233,21 +252,28 @@ function ReviewSessionInner({
             }
             if (!novel.length) return prev
             // Keep the session at the count the learner asked for. If the seeded
-            // set fell short, fill the gap up to the target; otherwise weave the
-            // fresh drills in by REPLACING upcoming (not-yet-seen) cards from the
-            // end — opting in changes WHICH questions appear, not HOW MANY.
-            const target = cramCount ?? prev.length
+            // set fell short, fill the gap up to the target first — reaching the
+            // goal beats any mix preference. Then weave fresh drills in by
+            // REPLACING upcoming (not-yet-seen) cards from the end — opting in
+            // changes WHICH questions appear, not HOW MANY — with the swapped
+            // share capped by the GEN_MAX_SHARE dial.
             const next = [...prev]
             let ni = 0
             while (next.length < target && ni < novel.length) {
               next.push(novel[ni++])
             }
+            const swapCap = Math.max(
+              0,
+              Math.min(res.generated, Math.ceil(target * GEN_MAX_SHARE)) - ni,
+            )
+            let swapped = 0
             for (
               let i = next.length - 1;
-              i > currentIndexRef.current && ni < novel.length;
+              i > currentIndexRef.current && ni < novel.length && swapped < swapCap;
               i--
             ) {
               next[i] = novel[ni++]
+              swapped++
             }
             return next
           })
@@ -268,6 +294,45 @@ function ReviewSessionInner({
       generateMutation.mutate()
     }
   }, [genRequested, cramPoints, cards, generateMutation])
+
+  // The wait has a ceiling (owner): if the learner exhausts the deck and
+  // generation still hasn't landed after GEN_WAIT_MS, stop waiting — top the
+  // session up with EXISTING questions from the same forms (they still meet
+  // the goal) and show the summary if even those run dry. Generation landing
+  // later is still welcome: its weave only ever touches upcoming slots.
+  const [genTimedOut, setGenTimedOut] = useState(false)
+  const fallbackStarted = useRef(false)
+  const waitingForGen = genRequested && !genSettled && !session.currentCard
+  useEffect(() => {
+    if (!waitingForGen || genTimedOut) return
+    const t = window.setTimeout(() => setGenTimedOut(true), GEN_WAIT_MS)
+    return () => window.clearTimeout(t)
+  }, [waitingForGen, genTimedOut])
+  useEffect(() => {
+    if (!genTimedOut || fallbackStarted.current) return
+    fallbackStarted.current = true
+    ;(async () => {
+      try {
+        const refreshed = await getCramCards(cramPoints.split(','), 100)
+        setCards((prev) => {
+          if (!prev) return prev
+          const have = new Set(
+            prev.map((c) => c.drill_id).filter(Boolean) as string[],
+          )
+          const extra = refreshed.filter(
+            (c) => c.drill_id && !have.has(c.drill_id),
+          )
+          const target = cramCount ?? prev.length
+          if (prev.length >= target || !extra.length) return prev
+          return [...prev, ...extra.slice(0, target - prev.length)]
+        })
+      } catch {
+        // Nothing to add — the wait still ends.
+      } finally {
+        setGenSettled(true)
+      }
+    })()
+  }, [genTimedOut, cramPoints, cramCount])
 
   // Fresh drills appended after the deck was exhausted leave the session stuck
   // on 'summary' with a valid current card — flow straight into them.
