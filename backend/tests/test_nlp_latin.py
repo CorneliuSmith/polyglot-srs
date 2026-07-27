@@ -6,9 +6,14 @@ from backend.services.nlp.latin_base import (
     CatalanNLP,
     FrenchNLP,
     GermanNLP,
+    HebrewNLP,
+    IndonesianNLP,
     ItalianNLP,
+    LatinNLP,
     MaoriNLP,
+    PersianNLP,
     SpanishNLP,
+    TagalogNLP,
     fold_diacritics,
 )
 
@@ -96,3 +101,102 @@ class TestOtherRomance:
     def test_no_aspect_partner(self):
         for cls in (FrenchNLP, ItalianNLP, CatalanNLP, SpanishNLP, GermanNLP, MaoriNLP):
             assert cls().get_aspect_partner("x") is None
+
+
+class TestLatin:
+    @pytest.fixture
+    def nlp(self):
+        return LatinNLP()
+
+    def test_macron_omitted_is_sloppy(self, nlp):
+        result, _ = nlp.check_answer("regina", "rēgīna")
+        assert result == AnswerResult.CORRECT_SLOPPY
+
+    def test_exact_match(self, nlp):
+        result, _ = nlp.check_answer("puella", "puella")
+        assert result == AnswerResult.CORRECT
+
+    def test_wrong_word(self, nlp):
+        result, _ = nlp.check_answer("puer", "puella")
+        assert result == AnswerResult.WRONG
+
+    def test_no_article_stripped(self, nlp):
+        assert nlp.normalize("puella") == "puella"
+
+
+class TestIndonesian:
+    @pytest.fixture
+    def nlp(self):
+        return IndonesianNLP()
+
+    def test_exact_match(self, nlp):
+        result, _ = nlp.check_answer("rumah", "rumah")
+        assert result == AnswerResult.CORRECT
+
+    def test_wrong_word(self, nlp):
+        result, _ = nlp.check_answer("mobil", "rumah")
+        assert result == AnswerResult.WRONG
+
+    def test_case_insensitive(self, nlp):
+        result, _ = nlp.check_answer("Rumah", "rumah")
+        assert result == AnswerResult.CORRECT
+
+
+class TestTagalog:
+    @pytest.fixture
+    def nlp(self):
+        return TagalogNLP()
+
+    def test_exact_match(self, nlp):
+        result, _ = nlp.check_answer("bahay", "bahay")
+        assert result == AnswerResult.CORRECT
+
+    def test_wrong_word(self, nlp):
+        result, _ = nlp.check_answer("aso", "bahay")
+        assert result == AnswerResult.WRONG
+
+    def test_particle_not_stripped(self, nlp):
+        # ang/ng/sa are case markers, not articles — must NOT be eaten
+        assert nlp.normalize("ang bahay") == "ang bahay"
+
+
+class TestHebrew:
+    @pytest.fixture
+    def nlp(self):
+        return HebrewNLP()
+
+    def test_niqqud_omitted_is_sloppy(self, nlp):
+        # בַּיִת (bayit, "house") with niqqud vs. plain בית
+        result, _ = nlp.check_answer("בית", "בַּיִת")
+        assert result == AnswerResult.CORRECT_SLOPPY
+
+    def test_exact_match(self, nlp):
+        result, _ = nlp.check_answer("שלום", "שלום")
+        assert result == AnswerResult.CORRECT
+
+    def test_wrong_word(self, nlp):
+        result, _ = nlp.check_answer("ספר", "בית")
+        assert result == AnswerResult.WRONG
+
+    def test_no_article_stripped(self, nlp):
+        # the ה is fused onto the word, not a separable "the "
+        assert nlp.normalize("הבית") == "הבית"
+
+
+class TestPersian:
+    @pytest.fixture
+    def nlp(self):
+        return PersianNLP()
+
+    def test_harakat_omitted_is_sloppy(self, nlp):
+        # سَلام (salām with a fatha) vs. plain سلام
+        result, _ = nlp.check_answer("سلام", "سَلام")
+        assert result == AnswerResult.CORRECT_SLOPPY
+
+    def test_exact_match(self, nlp):
+        result, _ = nlp.check_answer("کتاب", "کتاب")
+        assert result == AnswerResult.CORRECT
+
+    def test_wrong_word(self, nlp):
+        result, _ = nlp.check_answer("خانه", "کتاب")
+        assert result == AnswerResult.WRONG

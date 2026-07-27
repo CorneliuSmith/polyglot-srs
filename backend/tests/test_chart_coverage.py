@@ -31,6 +31,7 @@ CHARTED_LANGUAGES = {
 UNCHARTED_LANGUAGES = {
     "sw", "xh", "yo",                    # builder emits chips only
     "nl", "hi", "ko", "th", "ha", "mi",  # no builder registered
+    "la", "id", "tl", "he", "fa",        # no builder registered (WP76 draft tier)
     "en", "jam",                         # no source dump
 }
 

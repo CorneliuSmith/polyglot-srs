@@ -1,0 +1,268 @@
+{
+  "language": "tl",
+  "lists": [
+    {
+      "level": "A1",
+      "title": "Tagalog A1 Grammar Path",
+      "description": "First Tagalog: the ang/ng/sa marker system, actor-focus verbs with -um-, the na linker, the mga plural marker, may/wala existence and possession, and hindi negation."
+    }
+  ],
+  "points": [
+    {
+      "title": "The ang phrase marks the sentence's topic",
+      "level": "A1",
+      "function": "Identify what the sentence is 'about'",
+      "source": "ai",
+      "reviewed": false,
+      "display_order": 1,
+      "explanation": "Tagalog doesn't have a fixed \"subject\" the way English does. Instead, one noun phrase — marked by ang — is the TOPIC: the participant the sentence is \"about,\" chosen by which role the verb's affix highlights. Kumain ang bata (\"The child ate\") marks the eater (bata) as topic because kumain is an actor-focus verb.",
+      "drills": [
+        {
+          "sentence": "Kumain {{answer}} bata.",
+          "answer": "ang",
+          "translation": "The child ate.",
+          "hint": "ang — marks the actor as the topic, since kumain is actor-focus",
+          "display_order": 1
+        },
+        {
+          "sentence": "Uminom {{answer}} lalaki.",
+          "answer": "ang",
+          "translation": "The man drank.",
+          "hint": "ang — the drinker is the topic here",
+          "display_order": 2
+        },
+        {
+          "sentence": "Pumunta {{answer}} babae.",
+          "answer": "ang",
+          "translation": "The woman went.",
+          "hint": "ang — marks the topic noun phrase",
+          "display_order": 3
+        }
+      ]
+    },
+    {
+      "title": "ng marks a non-topic actor, object, or possessor",
+      "level": "A1",
+      "function": "Mark a noun that isn't the topic",
+      "source": "ai",
+      "reviewed": false,
+      "display_order": 2,
+      "explanation": "ng (pronounced \"nang\") marks a noun phrase that ISN'T the topic — often the object when the actor is topic, or a possessor: Kumain ang bata ng pagkain (\"The child ate [some] food\") marks pagkain with ng because it's the object, not the topic. The same ng also shows possession: bahay ng kaibigan (\"friend's house\").",
+      "drills": [
+        {
+          "sentence": "Kumain ang bata {{answer}} pagkain.",
+          "answer": "ng",
+          "translation": "The child ate (some) food.",
+          "hint": "ng — marks the object, since it isn't the topic here",
+          "display_order": 1
+        },
+        {
+          "sentence": "Bahay {{answer}} kaibigan.",
+          "answer": "ng",
+          "translation": "friend's house",
+          "hint": "ng — also marks a possessor: \"house OF friend\"",
+          "display_order": 2
+        },
+        {
+          "sentence": "Aklat {{answer}} bata.",
+          "answer": "ng",
+          "translation": "the child's book",
+          "hint": "ng — possessor marker",
+          "display_order": 3
+        }
+      ]
+    },
+    {
+      "title": "sa marks location, direction, or a specific place",
+      "level": "A1",
+      "function": "Say where something happens",
+      "source": "ai",
+      "reviewed": false,
+      "display_order": 3,
+      "explanation": "sa introduces location or direction — \"in,\" \"at,\" \"to\": Pumunta ang bata sa bahay (\"The child went to the house\"). It's also used for definite/specific places and times.",
+      "drills": [
+        {
+          "sentence": "Pumunta ang bata {{answer}} bahay.",
+          "answer": "sa",
+          "translation": "The child went to the house.",
+          "hint": "sa — marks the destination",
+          "display_order": 1
+        },
+        {
+          "sentence": "Uminom ang lalaki {{answer}} bahay.",
+          "answer": "sa",
+          "translation": "The man drank at the house.",
+          "hint": "sa — marks the location",
+          "display_order": 2
+        },
+        {
+          "sentence": "Kumain kami {{answer}} lungsod.",
+          "answer": "sa",
+          "translation": "We ate in the city.",
+          "hint": "sa — marks the location",
+          "display_order": 3
+        }
+      ]
+    },
+    {
+      "title": "Actor-focus verbs with the -um- infix",
+      "level": "A1",
+      "function": "Build actor-focus verbs from a root",
+      "source": "ai",
+      "reviewed": false,
+      "display_order": 4,
+      "explanation": "Many Tagalog action verbs form their actor-focus version by inserting -um- right after the root's first consonant: kain (\"eat\") → kumain; bili (\"buy\") → bumili. If the root starts with a vowel, -um- simply attaches to the front instead: inom (\"drink\") → uminom.",
+      "drills": [
+        {
+          "sentence": "{{answer}} ang bata ng pagkain.",
+          "answer": "kumain",
+          "translation": "The child ate (some) food.",
+          "hint": "ate — kain + -um- infix after the first consonant",
+          "display_order": 1
+        },
+        {
+          "sentence": "{{answer}} ang lalaki ng tubig.",
+          "answer": "uminom",
+          "translation": "The man drank (some) water.",
+          "hint": "drank — inom + -um-, attaches to the front since the root starts with a vowel",
+          "display_order": 2
+        },
+        {
+          "sentence": "{{answer}} ang babae ng aklat.",
+          "answer": "bumili",
+          "translation": "The woman bought a book.",
+          "hint": "bought — bili + -um- infix",
+          "display_order": 3
+        }
+      ]
+    },
+    {
+      "title": "The linker na",
+      "level": "A1",
+      "function": "Connect a describing word to what it describes",
+      "source": "ai",
+      "reviewed": false,
+      "display_order": 5,
+      "explanation": "na links a describing word to what it describes, in either order — noun + na + adjective: bata na mabuti (\"a good child\"). In fast speech na often shortens to -ng and attaches to the previous word if it ends in a vowel (batang mabuti), but na is the safe default to write.",
+      "drills": [
+        {
+          "sentence": "bata {{answer}} mabuti",
+          "answer": "na",
+          "translation": "a good child",
+          "hint": "na — links the noun to the adjective that follows",
+          "display_order": 1
+        },
+        {
+          "sentence": "bahay {{answer}} malaki",
+          "answer": "na",
+          "translation": "a big house",
+          "hint": "na — the linker between noun and adjective",
+          "display_order": 2
+        },
+        {
+          "sentence": "kaibigan {{answer}} masaya",
+          "answer": "na",
+          "translation": "a happy friend",
+          "hint": "na — linker",
+          "display_order": 3
+        }
+      ]
+    },
+    {
+      "title": "mga marks the plural",
+      "level": "A1",
+      "function": "Make a noun plural",
+      "source": "ai",
+      "reviewed": false,
+      "display_order": 6,
+      "explanation": "Tagalog nouns don't change form for plural — instead, the particle mga (pronounced \"mah-NGA\") goes right before the noun: bata (\"child\") → mga bata (\"children\"); bahay (\"house\") → mga bahay (\"houses\").",
+      "drills": [
+        {
+          "sentence": "{{answer}} bata",
+          "answer": "mga",
+          "translation": "children",
+          "hint": "mga — plural marker, placed before the noun",
+          "display_order": 1
+        },
+        {
+          "sentence": "{{answer}} bahay",
+          "answer": "mga",
+          "translation": "houses",
+          "hint": "mga — same marker makes any noun plural",
+          "display_order": 2
+        },
+        {
+          "sentence": "{{answer}} aklat",
+          "answer": "mga",
+          "translation": "books",
+          "hint": "mga — plural marker",
+          "display_order": 3
+        }
+      ]
+    },
+    {
+      "title": "Existence and possession: may and wala",
+      "level": "A1",
+      "function": "Say that something exists, or that you have it",
+      "source": "ai",
+      "reviewed": false,
+      "display_order": 7,
+      "explanation": "may states that something exists or that someone has something: May pagkain ako, literally \"there-is food I,\" means \"I have food.\" Its negative wala says the opposite: Wala pagkain ako would be \"I have no food.\"",
+      "drills": [
+        {
+          "sentence": "{{answer}} pagkain ako.",
+          "answer": "may",
+          "translation": "I have food.",
+          "hint": "may — states existence/possession; \"ako\" (I) follows the noun",
+          "display_order": 1
+        },
+        {
+          "sentence": "{{answer}} bahay sila.",
+          "answer": "may",
+          "translation": "They have a house.",
+          "hint": "may — existence/possession marker",
+          "display_order": 2
+        },
+        {
+          "sentence": "{{answer}} pagkain ako.",
+          "answer": "wala",
+          "translation": "I have no food.",
+          "hint": "wala — the negative of may",
+          "display_order": 3
+        }
+      ]
+    },
+    {
+      "title": "hindi negates verbs and adjectives",
+      "level": "A1",
+      "function": "Say what isn't true or didn't happen",
+      "source": "ai",
+      "reviewed": false,
+      "display_order": 8,
+      "explanation": "hindi is the general negator for verbs and adjectives — placed right before what it negates: Hindi kumain ang bata (\"The child didn't eat\"), Hindi malaki ang bahay (\"The house isn't big\").",
+      "drills": [
+        {
+          "sentence": "{{answer}} kumain ang bata.",
+          "answer": "hindi",
+          "translation": "The child didn't eat.",
+          "hint": "hindi — negates the verb, placed right before it",
+          "display_order": 1
+        },
+        {
+          "sentence": "{{answer}} malaki ang bahay.",
+          "answer": "hindi",
+          "translation": "The house isn't big.",
+          "hint": "hindi — negates the adjective",
+          "display_order": 2
+        },
+        {
+          "sentence": "{{answer}} masaya ang bata.",
+          "answer": "hindi",
+          "translation": "The child isn't happy.",
+          "hint": "hindi — general negator",
+          "display_order": 3
+        }
+      ]
+    }
+  ]
+}

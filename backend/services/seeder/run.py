@@ -18,7 +18,7 @@ async def main():
         "--language", "-l",
         choices=["ru", "ar", "en", "sw", "tr", "yo", "ha", "xh",
                  "es", "it", "fr", "de", "ca", "mi", "ro", "el", "pt", "hi",
-                 "jam", "nl", "th", "ko", "all"],
+                 "jam", "nl", "th", "ko", "la", "id", "tl", "he", "fa", "all"],
         default="all",
         help="Language to seed (default: all)",
     )

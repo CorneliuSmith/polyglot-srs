@@ -111,7 +111,10 @@ export default function DrillCard({
 
 
   // Resolve direction: languageCode takes precedence, fall back to legacy dir prop
-  const resolvedDir = languageCode === 'ar' ? 'rtl' : dir ?? 'ltr'
+  const resolvedDir =
+    languageCode === 'ar' || languageCode === 'he' || languageCode === 'fa'
+      ? 'rtl'
+      : dir ?? 'ltr'
 
   const handleChange = (raw: string) => {
     onChange(translit.enabled ? convertTranslit(languageCode, raw) : raw)

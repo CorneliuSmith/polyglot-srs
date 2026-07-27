@@ -1587,6 +1587,46 @@ Revised-Romanization readings (native-reviewer era), en_drill_hints.ko
 + English-from-Korean gating (next WP17 batch), ko morphology charts
 for FormsPanel/Gym chart peek (charts generator has no ko rules yet).
 
+### WP76 — Five new languages: Hebrew, Latin, Persian, Indonesian, Tagalog (owner, 2026-07-27)
+Owner: "add hebrew, latin, persian, indonesian and tagalog. Make sure all
+features are included in all." Registered all five as first-class
+languages — draft tier ('ai_ok', reviewed:false, same as hi/jam/nl/th/ko —
+no live ANTHROPIC_API_KEY was available to run the generic corpus
+pipeline, so content was hand-authored at a deliberately smaller starter
+scale instead of the ~700-word/40-point precedent). Each language got: a
+`languages` row (he/fa marked `rtl:true`), an `AccentFoldingNLP` subclass
+(`backend/services/nlp/latin_base.py` — he/fa fold niqqud/harakat the same
+way Spanish folds á, since both are Unicode combining marks), a 90-word
+`data/{code}_frequency.tsv` starter vocab (pronouns, question words, core
+verbs/nouns/adjectives, numbers 1–10), an 8-point/24-drill A1
+`data/grammar/{code}_grammar.json` (case marking + the zero copula for
+Hebrew, root-and-binyan verbs deferred past A1; Perso-Arabic SOV + را
+object marking + the mostly-unwritten ezafe for Persian; the case/
+declension pair + adjective agreement for Latin; verb-never-conjugates +
+meN- voice prefixes for Indonesian; the ang/ng/sa focus-trigger system +
+-um- actor-focus verbs for Tagalog), a hand-drawn circle flag (he/la/ir/
+id/ph.svg — Persian mapped to Iran, Indonesian/Tagalog to their national
+flags, Latin to the Vatican's gold/white split since no living vernacular
+substitutes), a `languageColors` theme, full `languageFacts`/`syntaxFor`
+entries, RTL wiring in `LanguageWrapper`/`DrillCard` (previously
+hardcoded to `=== 'ar'`, now also covers `'he'`/`'fa'`), and a full tutor
+skill bundle (SKILL.md + REFERENCE.md + ERRORS.md — REFERENCE.md is
+generated straight from each grammar file's point titles so it can never
+drift from the curriculum). `seed_latin.py`'s `SEEDERS` dict and
+`run.py`'s `--language` choices cover all five.
+**Deferred (tracked, not silently dropped):** on-screen keyboards +
+transliteration (`useTranslit`/`translit.ts` have no he/la/fa/id/tl
+mappings yet), Letters & Sounds guides (`lettersData.ts` — he and fa
+scripts especially would benefit), TTS voices (no Azure voice wired for
+any of the five), morphology/Gym charts (added to
+`UNCHARTED_LANGUAGES` in `test_chart_coverage.py` alongside nl/hi/ko/th/
+ha/mi — no chart builder registered), script validators, and the corpus-
+scale vocab/grammar expansion up to the ~700-word/40-point precedent
+once a real `ANTHROPIC_API_KEY` + native-reviewer pass is available.
+`LOW_RESOURCE_LANGUAGES`/tutor-model pin: not added — these aren't
+flagged as accuracy-critical low-resource languages the way sw/yo/ha/xh/
+mi/ar are; revisit once content scale grows.
+
 ## 6. Model selection guide
 
 | Task type | Model | Why |

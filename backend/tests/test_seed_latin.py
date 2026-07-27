@@ -30,7 +30,10 @@ class TestSpanishSeeder:
         assert SpanishSeeder.language_code == "es"
 
     def test_all_registered(self):
-        assert set(SEEDERS) == {"es", "it", "fr", "de", "ca", "mi", "ro", "el", "pt", "nl"}
+        assert set(SEEDERS) == {
+            "es", "it", "fr", "de", "ca", "mi", "ro", "el", "pt", "nl",
+            "la", "id", "tl", "he", "fa",
+        }
 
     def test_records_lowercased_and_deduped(self, records):
         words = [r["word"] for r in records]
