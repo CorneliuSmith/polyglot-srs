@@ -207,7 +207,7 @@
       "source": "ai",
       "reviewed": false,
       "display_order": 7,
-      "explanation": "may states that something exists or that someone has something: May pagkain ako, literally \"there-is food I,\" means \"I have food.\" Its negative wala says the opposite: Wala pagkain ako would be \"I have no food.\"",
+      "explanation": "may states that something exists or that someone has something: May pagkain ako, literally \"there-is food I,\" means \"I have food.\" Its negative wala works a little differently — it needs the linker -ng on the pronoun: Wala akong pagkain (\"I have no food\"), not \"wala pagkain ako.\"",
       "drills": [
         {
           "sentence": "{{answer}} pagkain ako.",
@@ -224,10 +224,10 @@
           "display_order": 2
         },
         {
-          "sentence": "{{answer}} pagkain ako.",
+          "sentence": "{{answer}} akong pagkain.",
           "answer": "wala",
           "translation": "I have no food.",
-          "hint": "wala — the negative of may",
+          "hint": "wala — the negative of may; note the pronoun takes the -ng linker (akong)",
           "display_order": 3
         }
       ]
