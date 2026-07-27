@@ -11,9 +11,11 @@ import {
 import type { Reading, ReaderSentence, ReadingOptions } from '../../api/reader'
 import { createPersonalCard } from '../../api/notes'
 import { getLanguages } from '../../api/profile'
+import { getUsageAllowance } from '../../api/tutor'
 import { usePrefsStore } from '../../stores/prefsStore'
 import LanguageWrapper from '../../components/LanguageWrapper'
 import SpeakButton from '../../components/SpeakButton'
+import UsageMeter from '../../components/UsageMeter'
 import { TTS_LANGUAGES } from '../../api/audio'
 import ExplanationView from '../../components/ExplanationView'
 
@@ -71,6 +73,15 @@ export default function ReaderPage() {
     queryKey: ['readings', activeLanguageId],
     queryFn: () => getReadings(activeLanguageId!),
     enabled: !!activeLanguageId && !reading,
+  })
+
+  // Every new text and every per-sentence explanation draws the same monthly
+  // usage pool the Tutor does — surface it here too (owner).
+  const { data: usage } = useQuery({
+    queryKey: ['usage-allowance', activeLanguageId],
+    queryFn: () => getUsageAllowance(activeLanguageId!),
+    enabled: !!activeLanguageId,
+    retry: false,
   })
 
   const resetReadingState = () => {
@@ -363,6 +374,7 @@ export default function ReaderPage() {
               <p className="text-[11px] text-gray-400">
                 Each new text counts toward your monthly usage.
               </p>
+              <UsageMeter allowance={usage?.allowance} />
             </form>
 
             {shelf.length > 0 && (

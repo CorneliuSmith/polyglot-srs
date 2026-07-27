@@ -66,6 +66,18 @@ export async function getTutorSessions(
   return response.data.sessions
 }
 
+/** The usage-pool meter alone, independent of tutor-persona availability —
+ * for surfaces (Gym, Reader) that draw the same monthly pool without
+ * offering a tutor persona for every language. See UsageMeter. */
+export async function getUsageAllowance(
+  languageId: string,
+): Promise<{ available: boolean; allowance: TutorAllowance | null }> {
+  const response = await apiClient.get('/api/tutor/allowance', {
+    params: { language_id: languageId },
+  })
+  return response.data
+}
+
 export async function getTutorStatus(
   languageId: string,
   languageCode: string,

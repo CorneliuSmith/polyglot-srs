@@ -1,0 +1,268 @@
+{
+  "language": "la",
+  "lists": [
+    {
+      "level": "A1",
+      "title": "Latin A1 Grammar Path",
+      "description": "First Latin: the nominative/accusative case pair, the first and second declensions, the irregular verb sum, first-conjugation present tense, adjective agreement, the two-way preposition in, and why word order is flexible."
+    }
+  ],
+  "points": [
+    {
+      "title": "Nominative and accusative: subject and direct object",
+      "level": "A1",
+      "function": "Tell who does the action from who or what receives it",
+      "source": "ai",
+      "reviewed": false,
+      "display_order": 1,
+      "explanation": "Latin marks a noun's job in the sentence with its ENDING, not its position. The subject (who's doing it) takes the nominative case; the direct object (what's acted on) takes the accusative. Puella becomes puellam when it's the object: Puella puerum amat (\"The girl loves the boy\") vs. Puer puellam amat (\"The boy loves the girl\") — swap the endings and the meaning flips, even if you also swap the word order.",
+      "drills": [
+        {
+          "sentence": "Puella {{answer}} videt.",
+          "answer": "puerum",
+          "translation": "The girl sees the boy.",
+          "hint": "boy, accusative — direct object",
+          "display_order": 1
+        },
+        {
+          "sentence": "Dominus {{answer}} habet.",
+          "answer": "aquam",
+          "translation": "The master has water.",
+          "hint": "water, accusative",
+          "display_order": 2
+        },
+        {
+          "sentence": "Puer {{answer}} amat.",
+          "answer": "insulam",
+          "translation": "The boy loves the island.",
+          "hint": "island, accusative",
+          "display_order": 3
+        }
+      ]
+    },
+    {
+      "title": "First declension nouns: -a / -ae feminine",
+      "level": "A1",
+      "function": "Recognize and form the most common noun pattern",
+      "source": "ai",
+      "reviewed": false,
+      "display_order": 2,
+      "explanation": "Most first-declension nouns are feminine and end -a in the nominative singular (puella, aqua, terra, insula). The genitive singular ends -ae, which gives the whole declension its name and means \"of the ___\": puellae = \"of the girl\" / \"the girl's.\" The accusative singular ends -am: puella → puellam.",
+      "drills": [
+        {
+          "sentence": "{{answer}} in insula habitat.",
+          "answer": "puella",
+          "translation": "The girl lives on the island.",
+          "hint": "girl, nominative subject",
+          "display_order": 1
+        },
+        {
+          "sentence": "Nomen {{answer}} est Iulia.",
+          "answer": "puellae",
+          "translation": "The girl's name is Julia.",
+          "hint": "girl, genitive — \"of the girl\"",
+          "display_order": 2
+        },
+        {
+          "sentence": "Aquam et {{answer}} habeo.",
+          "answer": "terram",
+          "translation": "I have water and land.",
+          "hint": "land, accusative",
+          "display_order": 3
+        }
+      ]
+    },
+    {
+      "title": "Second declension nouns: -us masculine and -um neuter",
+      "level": "A1",
+      "function": "Learn the other core noun pattern",
+      "source": "ai",
+      "reviewed": false,
+      "display_order": 3,
+      "explanation": "Second-declension nouns end -us (masculine, like dominus) or -um (neuter, like bellum) in the nominative. Neuter nouns are special: their nominative and accusative forms are IDENTICAL — bellum stays bellum whether it's the subject or the object. Only masculine and feminine nouns change shape between the two.",
+      "drills": [
+        {
+          "sentence": "{{answer}} magnum est.",
+          "answer": "bellum",
+          "translation": "The war is great.",
+          "hint": "war — neuter, same form for subject or object",
+          "display_order": 1
+        },
+        {
+          "sentence": "Puer {{answer}} videt.",
+          "answer": "bellum",
+          "translation": "The boy sees the war.",
+          "hint": "war — neuter object looks just like the subject form",
+          "display_order": 2
+        },
+        {
+          "sentence": "{{answer}} bonus est.",
+          "answer": "dominus",
+          "translation": "The master is good.",
+          "hint": "master, nominative -us",
+          "display_order": 3
+        }
+      ]
+    },
+    {
+      "title": "sum, esse — the irregular verb \"to be\"",
+      "level": "A1",
+      "function": "Say what something or someone IS",
+      "source": "ai",
+      "reviewed": false,
+      "display_order": 4,
+      "explanation": "Sum (\"I am\") is Latin's most irregular verb, just as \"to be\" is irregular in English: sum, es, est, sumus, estis, sunt. Sum takes no direct object — instead of an accusative, it links right back to the nominative: Puella bona est (\"The girl is good\"), not puellam.",
+      "drills": [
+        {
+          "sentence": "Puella bona {{answer}}.",
+          "answer": "est",
+          "translation": "The girl is good.",
+          "hint": "is — 3rd person singular of sum",
+          "display_order": 1
+        },
+        {
+          "sentence": "Nos boni {{answer}}.",
+          "answer": "sumus",
+          "translation": "We are good.",
+          "hint": "we are — 1st person plural of sum",
+          "display_order": 2
+        },
+        {
+          "sentence": "Tu bonus {{answer}}.",
+          "answer": "es",
+          "translation": "You are good.",
+          "hint": "you are — 2nd person singular of sum",
+          "display_order": 3
+        }
+      ]
+    },
+    {
+      "title": "First conjugation present tense (-are verbs)",
+      "level": "A1",
+      "function": "Conjugate the largest family of Latin verbs",
+      "source": "ai",
+      "reviewed": false,
+      "display_order": 5,
+      "explanation": "Verbs like amo (\"I love\") belong to the first conjugation, spotted by the -are infinitive (amare). The present tense endings are -o, -as, -at, -amus, -atis, -ant, added to the stem ama-: amo, amas, amat, amamus, amatis, amant. Because the ending already shows the person, Latin usually drops the pronoun.",
+      "drills": [
+        {
+          "sentence": "Puella puerum {{answer}}.",
+          "answer": "amat",
+          "translation": "The girl loves the boy.",
+          "hint": "loves — 3rd person singular",
+          "display_order": 1
+        },
+        {
+          "sentence": "{{answer}} insulam.",
+          "answer": "amo",
+          "translation": "I love the island.",
+          "hint": "I love — 1st person singular, no pronoun needed",
+          "display_order": 2
+        },
+        {
+          "sentence": "Nos terram {{answer}}.",
+          "answer": "amamus",
+          "translation": "We love the land.",
+          "hint": "we love — 1st person plural",
+          "display_order": 3
+        }
+      ]
+    },
+    {
+      "title": "Adjective-noun agreement",
+      "level": "A1",
+      "function": "Match adjective endings to the noun they describe",
+      "source": "ai",
+      "reviewed": false,
+      "display_order": 6,
+      "explanation": "Latin adjectives change their ending to match the noun's gender, number, and case: magnus (masculine), magna (feminine), and magnum (neuter) all mean \"big.\" Puella magna and dominus magnus both mean \"big,\" but the ending has to match the Latin noun, not the English word.",
+      "drills": [
+        {
+          "sentence": "Puella {{answer}} est.",
+          "answer": "magna",
+          "translation": "The girl is big.",
+          "hint": "big — feminine agreement with puella",
+          "display_order": 1
+        },
+        {
+          "sentence": "Dominus {{answer}} est.",
+          "answer": "magnus",
+          "translation": "The master is big.",
+          "hint": "big — masculine agreement with dominus",
+          "display_order": 2
+        },
+        {
+          "sentence": "Bellum {{answer}} est.",
+          "answer": "magnum",
+          "translation": "The war is big.",
+          "hint": "big — neuter agreement with bellum",
+          "display_order": 3
+        }
+      ]
+    },
+    {
+      "title": "Prepositions: in + accusative vs. in + ablative",
+      "level": "A1",
+      "function": "Choose the right case after \"in\"",
+      "source": "ai",
+      "reviewed": false,
+      "display_order": 7,
+      "explanation": "The preposition in changes meaning with the case that follows it: in + accusative means motion INTO (in insulam = \"into the island\"), while in + ablative means location IN or ON (in insula = \"on the island\"). Same preposition, different case, different meaning — a pattern Latin uses with several two-way prepositions.",
+      "drills": [
+        {
+          "sentence": "Puella in {{answer}} habitat.",
+          "answer": "insula",
+          "translation": "The girl lives on the island.",
+          "hint": "island, ablative — location, no -m ending",
+          "display_order": 1
+        },
+        {
+          "sentence": "Puer in {{answer}} venit.",
+          "answer": "insulam",
+          "translation": "The boy comes onto the island.",
+          "hint": "island, accusative — motion into/onto",
+          "display_order": 2
+        },
+        {
+          "sentence": "Aqua in {{answer}} est.",
+          "answer": "terra",
+          "translation": "The water is on the land.",
+          "hint": "land, ablative — location, not motion",
+          "display_order": 3
+        }
+      ]
+    },
+    {
+      "title": "Word order: Latin puts case marking to work",
+      "level": "A1",
+      "function": "Understand why word order is flexible in Latin",
+      "source": "ai",
+      "reviewed": false,
+      "display_order": 8,
+      "explanation": "Because endings — not position — show who does what, Latin word order is flexible for emphasis, though the neutral default is Subject-Object-Verb: Puella puerum amat, literally \"girl boy loves.\" Puerum puella amat and Amat puella puerum mean the same thing; only the endings, never the order, decide who loves whom.",
+      "drills": [
+        {
+          "sentence": "Puella puerum {{answer}}.",
+          "answer": "amat",
+          "translation": "The girl loves the boy. (default subject-object-verb order)",
+          "hint": "loves — verb comes last in the neutral order",
+          "display_order": 1
+        },
+        {
+          "sentence": "{{answer}} puella puerum.",
+          "answer": "amat",
+          "translation": "The girl loves the boy. (verb fronted for emphasis)",
+          "hint": "loves — same verb, moved to the front",
+          "display_order": 2
+        },
+        {
+          "sentence": "Puerum {{answer}} amat.",
+          "answer": "puella",
+          "translation": "The girl loves the boy. (object fronted)",
+          "hint": "girl — the subject can move without changing meaning, thanks to its ending",
+          "display_order": 3
+        }
+      ]
+    }
+  ]
+}

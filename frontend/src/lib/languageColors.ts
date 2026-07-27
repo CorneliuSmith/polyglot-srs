@@ -57,6 +57,17 @@ const THEMES: Record<string, LanguageTheme> = {
   th: { primary: '#A51931', dark: '#7A1224', accent: '#2D2A4A', soft: '#F8E8EB', on: '#FFFFFF' },
   // Taegukgi blue with the red as accent.
   ko: { primary: '#003478', dark: '#002357', accent: '#C60C30', soft: '#E6EDF6', on: '#FFFFFF' },
+  // Israel: Magen David blue, a warm Jerusalem-stone gold as accent.
+  he: { primary: '#0038B8', dark: '#00256E', accent: '#C9A227', soft: '#E7ECF9', on: '#FFFFFF' },
+  // Latin: no living-vernacular flag exists, so an imperial-Rome palette
+  // (deep red, laurel gold) stands in — see CircleFlag.tsx's la.svg note.
+  la: { primary: '#7B1113', dark: '#4A0A0B', accent: '#D4AF37', soft: '#F7EDE2', on: '#FFFFFF' },
+  // Iran: flag green with the flag red as accent.
+  fa: { primary: '#239F40', dark: '#1A7530', accent: '#DA0000', soft: '#E7F5EA', on: '#FFFFFF' },
+  // Indonesia: flag red with a batik gold accent (the flag is red/white only).
+  id: { primary: '#CE1126', dark: '#8E0B1A', accent: '#D4A017', soft: '#FBE9EC', on: '#FFFFFF' },
+  // Philippines: Katipunan blue with the sun's gold as accent.
+  tl: { primary: '#0038A8', dark: '#002569', accent: '#FCD116', soft: '#E6ECF8', on: '#FFFFFF' },
 }
 
 const FALLBACK: LanguageTheme = {

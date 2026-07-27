@@ -20,6 +20,11 @@ vi.mock('../stores/prefsStore', () => ({
   usePrefsStore: vi.fn(() => 'lang-es'),
 }))
 vi.mock('../components/SpeakButton', () => ({ default: () => null }))
+vi.mock('../api/tutor', () => ({
+  getUsageAllowance: vi.fn(() =>
+    Promise.resolve({ available: false, allowance: null }),
+  ),
+}))
 
 import { generateReading, explainSentence } from '../api/reader'
 import { createPersonalCard } from '../api/notes'
@@ -78,6 +83,19 @@ async function generate() {
 
 describe('ReaderPage (WP21)', () => {
   beforeEach(() => vi.clearAllMocks())
+
+  it('shows the usage meter next to the write-it form when AI is enabled', async () => {
+    const { getUsageAllowance } = await import('../api/tutor')
+    ;(getUsageAllowance as ReturnType<typeof vi.fn>).mockResolvedValue({
+      available: true,
+      allowance: {
+        tier: 'free', unlimited: false, entitled: false,
+        limit: 20, used: 10, remaining: 10, resets_at: '2026-08-01T00:00:00+00:00',
+      },
+    })
+    renderPage()
+    expect(await screen.findByTestId('usage-meter')).toBeDefined()
+  })
 
   it('text options shape the request: length, style, challenge', async () => {
     mockGenerate.mockResolvedValue({

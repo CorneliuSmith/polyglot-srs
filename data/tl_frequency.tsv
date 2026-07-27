@@ -1,0 +1,91 @@
+rank	word	pos	en
+1	ako	pron	I; first-person singular pronoun
+2	ikaw	pron	you (singular)
+3	siya	pron	he; she
+4	ang	particle	topic/subject marker
+5	ng	particle	possessive/object marker
+6	sa	particle	location/direction marker
+7	mga	particle	plural marker
+8	na	particle	already; now; also used as a linker
+9	at	conj	and
+10	pero	conj	but
+11	o	conj	or
+12	hindi	adv	no; not (negation)
+13	oo	intj	yes
+14	kami	pron	we (excluding the listener)
+15	tayo	pron	we (including the listener)
+16	kayo	pron	you (plural)
+17	sila	pron	they
+18	ito	pron	this
+19	iyan	pron	that (near the listener)
+20	kasi	conj	because
+21	dahil	conj	because; due to
+22	kung	conj	if
+23	ano	pron	what
+24	sino	pron	who
+25	saan	adv	where
+26	bakit	adv	why
+27	kailan	adv	when
+28	paano	adv	how
+29	may	particle	there is/are; to have (existential marker)
+30	wala	adv	there is not; none; to not have
+31	gusto	verb	to want; to like
+32	alam	verb	to know
+33	kumain	verb	to eat
+34	uminom	verb	to drink
+35	pumunta	verb	to go
+36	dumating	verb	to arrive; to come
+37	makita	verb	to see
+38	sabihin	verb	to say; to tell
+39	gawin	verb	to do; to make
+40	bigay	verb	to give
+41	matulog	verb	to sleep
+42	maglaro	verb	to play
+43	magtrabaho	verb	to work
+44	bumili	verb	to buy
+45	magbasa	verb	to read
+46	magsulat	verb	to write
+47	umuwi	verb	to go home
+48	bahay	noun	house
+49	tubig	noun	water
+50	pagkain	noun	food
+51	bata	noun	child
+52	lalaki	noun	man; boy
+53	babae	noun	woman; girl
+54	nanay	noun	mother
+55	tatay	noun	father
+56	araw	noun	day; sun
+57	gabi	noun	night
+58	taon	noun	year
+59	aklat	noun	book
+60	lungsod	noun	city
+61	bansa	noun	country
+62	pangalan	noun	name
+63	oras	noun	time; hour
+64	kaibigan	noun	friend
+65	kamay	noun	hand
+66	mata	noun	eye
+67	ulo	noun	head
+68	mabuti	adj	good
+69	maganda	adj	beautiful; good
+70	masama	adj	bad
+71	malaki	adj	big; large
+72	maliit	adj	small
+73	bago	adj	new
+74	luma	adj	old (of things)
+75	mahal	adj	dear; expensive; beloved
+76	mabilis	adj	fast; quick
+77	masaya	adj	happy
+78	malungkot	adj	sad
+79	isa	num	one
+80	dalawa	num	two
+81	tatlo	num	three
+82	apat	num	four
+83	lima	num	five
+84	anim	num	six
+85	pito	num	seven
+86	walo	num	eight
+87	siyam	num	nine
+88	sampu	num	ten
+89	salamat	intj	thank you
+90	pakiusap	intj	please; a polite request

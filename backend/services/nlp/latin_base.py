@@ -1,5 +1,11 @@
 """
-Shared NLP backends for Latin-script languages with diacritics.
+Shared NLP backends for Latin-script languages with diacritics — plus two
+non-Latin exceptions (Hebrew, Persian) that reuse the SAME mechanism for a
+different reason: their optional vowel points/harakat are Unicode combining
+marks too, so the shared diacritic-folding here absorbs them exactly like it
+absorbs a Spanish á or a German ü, letting an answer with or without them
+match. Article stripping doesn't apply to either — Hebrew's ה is fused onto
+the word (not a separable "the "), and Persian has no articles to strip.
 
 These languages (Spanish, Italian, French, Catalan, German, Māori) are
 well-documented but have no lightweight morphological analyzer bundled here,
@@ -101,3 +107,33 @@ class GermanNLP(AccentFoldingNLP):
 
 class MaoriNLP(AccentFoldingNLP):
     leading_articles = ("te ", "ngā ", "nga ", "he ")
+
+
+class LatinNLP(AccentFoldingNLP):
+    # No articles in Latin — puella alone can mean "girl," "a girl," or "the
+    # girl." Folding still helps: macrons (ā ē ī ō ū) are usually omitted in
+    # a learner's typed answer.
+    leading_articles = ()
+
+
+class IndonesianNLP(AccentFoldingNLP):
+    leading_articles = ()
+
+
+class TagalogNLP(AccentFoldingNLP):
+    # ang/ng/sa are case-marking particles, not articles like Spanish "el" —
+    # stripping them would eat a real word, so nothing is stripped here.
+    leading_articles = ()
+
+
+class HebrewNLP(AccentFoldingNLP):
+    """Folds niqqud (vowel points) — Unicode combining marks — so an answer
+    typed with or without them matches. No article stripping: Hebrew's ה is
+    fused onto the word itself, not a separable "the "."""
+    leading_articles = ()
+
+
+class PersianNLP(AccentFoldingNLP):
+    """Folds the optional Perso-Arabic vowel diacritics (harakat) the same
+    way. Persian has no articles to strip."""
+    leading_articles = ()

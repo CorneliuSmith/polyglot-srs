@@ -402,8 +402,96 @@ const ko: LanguageFacts = {
   ],
 }
 
+const he: LanguageFacts = {
+  tagline: 'A Semitic language revived from the page into everyday speech.',
+  family: 'Afro-Asiatic › Semitic (Northwest Semitic, Canaanite)',
+  speakers: '~9 million native, almost all in Israel.',
+  whereSpoken: 'Israel, and Jewish communities worldwide (liturgically since antiquity).',
+  writingSystem: 'The Hebrew abjad, written right to left. Vowels are normally unmarked; niqqud points show them in teaching texts, poetry, and prayer books.',
+  wordOrder: 'Subject–Verb–Object today (Biblical Hebrew favored Verb–Subject–Object).',
+  history:
+    'The Canaanite language of the Hebrew Bible, it survived as the language of Jewish law, liturgy, and scholarship for close to two millennia after ceasing to be anyone’s everyday tongue. Revived as a spoken vernacular starting in the late 19th century, it became Israel’s official language — one of history’s only successful full language revivals.',
+  unique: [
+    'Root-and-pattern morphology: three consonants carry the core meaning, and a word’s pattern shapes it — k-t-b gives katav (he wrote) and mikhtav (letter).',
+    'Ordinary writing carries no vowels at all — a fluent reader supplies them from context.',
+    'Verbs mark gender as well as person and number, even in the present tense.',
+    'A revived language: a real gap separates ancient Biblical Hebrew from the living Modern Hebrew spoken today.',
+  ],
+}
+
+const la: LanguageFacts = {
+  tagline: 'The classical language every Romance language grew from.',
+  family: 'Indo-European › Italic',
+  speakers: 'No native speakers today — studied worldwide, and still used liturgically.',
+  whereSpoken:
+    'No living community; it retains ceremonial and official status in Vatican City and the Catholic Church’s liturgy.',
+  writingSystem: 'The Latin alphabet — the direct ancestor of the one English uses. Left to right.',
+  wordOrder:
+    'Flexible: case endings mark each word’s grammatical role, so order is free for emphasis rather than fixed by grammar.',
+  history:
+    'The language of ancient Rome, it spread across the Mediterranean and Western Europe with the Roman Empire, then evolved locally into the Romance languages — Spanish, French, Italian, Portuguese, Romanian, and more — while continuing as the language of medieval scholarship, the Church, and science for centuries after Rome fell.',
+  unique: [
+    'Nouns decline through cases (nominative, genitive, dative, accusative, ablative, and a vestigial vocative) that mark their role in the sentence.',
+    'No articles at all — puella by itself can mean "girl," "a girl," or "the girl."',
+    'Verbs conjugate for person, number, tense, mood, and voice, often making the pronoun unnecessary.',
+    'The direct ancestor of the Romance languages — much of its vocabulary and grammar survives, transformed, in Spanish, French, Italian, Portuguese, and Romanian.',
+  ],
+}
+
+const fa: LanguageFacts = {
+  tagline: 'An Indo-European language written in a borrowed Semitic script.',
+  family: 'Indo-European › Indo-Iranian (Western Iranian)',
+  speakers: '~70 million native, plus closely related Dari and Tajik speakers.',
+  whereSpoken: 'Iran (Farsi/Persian), Afghanistan (Dari), and Tajikistan (Tajik).',
+  writingSystem: 'A modified Arabic script, written right to left; short vowels are usually left unwritten, as in Arabic.',
+  wordOrder: 'Subject–Object–Verb — unlike Arabic’s verb-first order.',
+  history:
+    'An Iranian language descended from Old Persian, the language of the Achaemenid Empire, through Middle Persian (Pahlavi). After the Islamic conquest it adopted the Arabic script and absorbed a large Arabic vocabulary, while keeping its own Indo-European grammar throughout — genetically it has nothing to do with Arabic despite the shared alphabet.',
+  unique: [
+    'Indo-European grammar wearing an Arabic-derived script — the two languages are not related, whatever the alphabet suggests.',
+    'No grammatical gender and no noun case system — unusually regular morphology for an Indo-European language.',
+    'The ezāfe: an unstressed, usually unwritten -e that links a noun to what follows it — an adjective, a possessor, another noun.',
+    'The verb comes last, and "to be" is often a light suffix fused onto the predicate rather than a separate word.',
+  ],
+}
+
+const id: LanguageFacts = {
+  tagline: 'A national language deliberately chosen to belong to everyone.',
+  family: 'Austronesian › Malayo-Polynesian (Malayic)',
+  speakers: '~270 million speakers across Indonesia, most as a highly fluent second language.',
+  whereSpoken: 'Indonesia, its national and official language across an archipelago of hundreds of local languages.',
+  writingSystem: 'The Latin alphabet, spelled phonetically with no diacritics in standard use. Left to right.',
+  wordOrder: 'Subject–Verb–Object.',
+  history:
+    'A standardized form of Malay, adopted as Indonesia’s unifying national language at independence specifically because it was nobody’s dominant ethnic mother tongue — a deliberate piece of language planning, and one of the most successful in history, across a country with hundreds of local languages.',
+  unique: [
+    'No verb conjugation at all — one verb form covers every person, number, and tense; separate words like sudah ("already") and akan ("will") carry the time.',
+    'Plurals are often made by simply doubling the word: buku (book) → buku-buku (books).',
+    'Layers of prefixes and suffixes reshape a root’s meaning and role: ajar (teach) → belajar (study) → mengajar (to teach) → pelajaran (lesson).',
+    'No grammatical gender, no articles, and pronouns that don’t change form for subject or object.',
+  ],
+}
+
+const tl: LanguageFacts = {
+  tagline: 'An Austronesian language that puts the verb first.',
+  family: 'Austronesian › Malayo-Polynesian (Philippine)',
+  speakers: '~28 million native speakers; understood by most of the Philippines’ 110 million people as Filipino.',
+  whereSpoken: 'The Philippines, centered on Manila and Luzon — nationwide as Filipino, one of the country’s two official languages.',
+  writingSystem: 'The Latin alphabet, spelled phonetically. Left to right. (Written in the Baybayin syllabary before Spanish colonization.)',
+  wordOrder: 'Verb-initial — the predicate opens the sentence, ahead of both the doer and what’s acted on.',
+  history:
+    'An Austronesian language of the Philippine islands, it became the basis for Filipino, the national language, at independence — one of two official languages alongside English, taught nationwide alongside dozens of the archipelago’s other living languages.',
+  unique: [
+    'Verb-first sentences: the verb usually opens the clause, with small particles (ang, ng, sa) marking who did what to what.',
+    'A "focus" system: the verb’s affix changes depending on whether the subject is the doer, the thing affected, the location, or something else — a hallmark of Philippine languages.',
+    'Extensive reduplication, like Indonesian: araw (day) → araw-araw (every day).',
+    'Centuries of Spanish and, more recently, English loanwords sit alongside its native Austronesian core.',
+  ],
+}
+
 export const LANGUAGE_FACTS: Record<string, LanguageFacts> = {
   es, fr, de, it, ca, pt, ro, tr, sw, yo, ha, xh, mi, jam, en, nl, ru, el, ar, hi, th, ko,
+  he, la, fa, id, tl,
 }
 
 export function factsFor(code: string | undefined | null): LanguageFacts | null {
@@ -844,6 +932,95 @@ export const LANGUAGE_SYNTAX: Record<string, SyntaxExample[]> = {
       ],
       translation: 'I am a student.',
       note: "'-는' marks the topic; the verb 'to be' fuses onto the noun 학생 (student).",
+    },
+  ],
+  he: [
+    {
+      sentence: 'הילד קורא ספר.',
+      words: [
+        { w: 'הילד', g: 'the-boy' }, { w: 'קורא', g: 'reads' }, { w: 'ספר', g: 'a-book' },
+      ],
+      translation: 'The boy reads a book.',
+      note: 'Subject–Verb–Object; read right to left.',
+      rtl: true,
+    },
+    {
+      sentence: 'הספר חדש.',
+      words: [{ w: 'הספר', g: 'the-book' }, { w: 'חדש', g: 'new' }],
+      translation: 'The book is new.',
+      note: "No verb 'to be' in the present — just 'the-book' + 'new'.",
+      rtl: true,
+    },
+  ],
+  la: [
+    {
+      sentence: 'Puella librum legit.',
+      words: [
+        { w: 'Puella', g: 'girl' }, { w: 'librum', g: 'book-(object)' }, { w: 'legit', g: 'reads' },
+      ],
+      translation: 'The girl reads the book.',
+      note: 'A common neutral order (Subject–Object–Verb), but case endings mean it could scramble freely.',
+    },
+    {
+      sentence: 'Liber novus est.',
+      words: [{ w: 'Liber', g: 'book' }, { w: 'novus', g: 'new' }, { w: 'est', g: 'is' }],
+      translation: 'The book is new.',
+      note: "No word for 'the' — liber alone can mean 'book,' 'a book,' or 'the book.'",
+    },
+  ],
+  fa: [
+    {
+      sentence: 'پسر کتاب می‌خواند.',
+      words: [
+        { w: 'پسر', g: 'boy' }, { w: 'کتاب', g: 'book' }, { w: 'می‌خواند', g: 'reads' },
+      ],
+      translation: 'The boy reads the book.',
+      note: 'Subject–Object–Verb — the verb comes last, unlike Arabic.',
+      rtl: true,
+    },
+    {
+      sentence: 'این کتاب خوب است.',
+      words: [
+        { w: 'این', g: 'this' }, { w: 'کتاب', g: 'book' }, { w: 'خوب', g: 'good' }, { w: 'است', g: 'is' },
+      ],
+      translation: 'This book is good.',
+      rtl: true,
+    },
+  ],
+  id: [
+    {
+      sentence: 'Anak itu membaca buku.',
+      words: [
+        { w: 'Anak', g: 'child' }, { w: 'itu', g: 'that/the' }, { w: 'membaca', g: 'reads' }, { w: 'buku', g: 'book' },
+      ],
+      translation: 'The child reads a book.',
+      note: "'Itu' (\"that\") trails the noun, doing the work of 'the.'",
+    },
+    {
+      sentence: 'Saya membeli buku-buku itu.',
+      words: [
+        { w: 'Saya', g: 'I' }, { w: 'membeli', g: 'bought' }, { w: 'buku-buku', g: 'books-(doubled)' }, { w: 'itu', g: 'those' },
+      ],
+      translation: 'I bought those books.',
+      note: "The plural is the word said twice: buku (book) → buku-buku (books). No verb tense marking either — context carries it.",
+    },
+  ],
+  tl: [
+    {
+      sentence: 'Kumain ang bata ng mansanas.',
+      words: [
+        { w: 'Kumain', g: 'ate' }, { w: 'ang bata', g: 'the-child' }, { w: 'ng mansanas', g: 'an-apple' },
+      ],
+      translation: 'The child ate an apple.',
+      note: 'Verb first — the doer and the thing acted on follow, marked by ang and ng.',
+    },
+    {
+      sentence: 'Naglalakad siya araw-araw.',
+      words: [
+        { w: 'Naglalakad', g: 'is-walking' }, { w: 'siya', g: 'he/she' }, { w: 'araw-araw', g: 'day-day' },
+      ],
+      translation: 'He/she walks every day.',
+      note: "Reduplication again: araw (day) doubled means 'every day.'",
     },
   ],
 }

@@ -1,0 +1,268 @@
+{
+  "language": "id",
+  "lists": [
+    {
+      "level": "A1",
+      "title": "Indonesian A1 Grammar Path",
+      "description": "First Indonesian: verbs that never conjugate, adjectives after the noun, tidak vs. bukan negation, possession by word order, plural reduplication, time markers before the verb, apakah questions, and the formal/inclusive pronoun splits."
+    }
+  ],
+  "points": [
+    {
+      "title": "Verbs don't conjugate",
+      "level": "A1",
+      "function": "Use one verb form for every subject and tense",
+      "source": "ai",
+      "reviewed": false,
+      "display_order": 1,
+      "explanation": "Indonesian verbs never change form for person, number, or tense — the same word mau means \"want,\" \"wants,\" and \"wanted,\" no matter who's speaking or when. Saya mau, kamu mau, dia mau, kami mau — same verb every time. Tense and aspect are shown by separate marker words instead of by changing the verb itself.",
+      "drills": [
+        {
+          "sentence": "Saya {{answer}} makan.",
+          "answer": "mau",
+          "translation": "I want to eat.",
+          "hint": "want — same form for every subject",
+          "display_order": 1
+        },
+        {
+          "sentence": "Kami {{answer}} makan.",
+          "answer": "mau",
+          "translation": "We want to eat.",
+          "hint": "want — unchanged, no conjugation for \"we\"",
+          "display_order": 2
+        },
+        {
+          "sentence": "Dia {{answer}} makan.",
+          "answer": "mau",
+          "translation": "He/she wants to eat.",
+          "hint": "want — unchanged, no -s ending like English",
+          "display_order": 3
+        }
+      ]
+    },
+    {
+      "title": "Adjectives follow the noun",
+      "level": "A1",
+      "function": "Put adjectives in the right place",
+      "source": "ai",
+      "reviewed": false,
+      "display_order": 2,
+      "explanation": "Indonesian adjectives come AFTER the noun they describe, the reverse of English: rumah besar, literally \"house big,\" means \"a big house,\" not \"big house.\" Buku baru = \"a new book,\" teman baik = \"a good friend.\"",
+      "drills": [
+        {
+          "sentence": "rumah {{answer}}",
+          "answer": "besar",
+          "translation": "a big house",
+          "hint": "big — placed after the noun",
+          "display_order": 1
+        },
+        {
+          "sentence": "buku {{answer}}",
+          "answer": "baru",
+          "translation": "a new book",
+          "hint": "new — after the noun, not before",
+          "display_order": 2
+        },
+        {
+          "sentence": "teman {{answer}}",
+          "answer": "baik",
+          "translation": "a good friend",
+          "hint": "good — adjective follows the noun",
+          "display_order": 3
+        }
+      ]
+    },
+    {
+      "title": "Negation: tidak vs. bukan",
+      "level": "A1",
+      "function": "Pick the right word for \"not\"",
+      "source": "ai",
+      "reviewed": false,
+      "display_order": 3,
+      "explanation": "Indonesian has two words for \"not,\" and they aren't interchangeable: tidak negates verbs and adjectives (tidak besar = \"not big\"), while bukan negates nouns and identity (bukan guru = \"not a teacher\"). Using the wrong one is a classic learner mix-up.",
+      "drills": [
+        {
+          "sentence": "Rumah ini {{answer}} besar.",
+          "answer": "tidak",
+          "translation": "This house isn't big.",
+          "hint": "not — negates the adjective besar",
+          "display_order": 1
+        },
+        {
+          "sentence": "Saya {{answer}} suka.",
+          "answer": "tidak",
+          "translation": "I don't like (it).",
+          "hint": "not — negates the verb suka",
+          "display_order": 2
+        },
+        {
+          "sentence": "Ini {{answer}} buku saya.",
+          "answer": "bukan",
+          "translation": "This isn't my book.",
+          "hint": "not — negates the noun/identity, not tidak",
+          "display_order": 3
+        }
+      ]
+    },
+    {
+      "title": "Possession by word order",
+      "level": "A1",
+      "function": "Show ownership with no possessive marker",
+      "source": "ai",
+      "reviewed": false,
+      "display_order": 4,
+      "explanation": "To show possession, Indonesian just places the owner right after the noun — no word for \"of\" and no apostrophe-s needed: rumah saya, literally \"house I,\" means \"my house.\" Buku dia = \"his/her book.\"",
+      "drills": [
+        {
+          "sentence": "rumah {{answer}}",
+          "answer": "saya",
+          "translation": "my house",
+          "hint": "my — just place the pronoun after the noun",
+          "display_order": 1
+        },
+        {
+          "sentence": "buku {{answer}}",
+          "answer": "dia",
+          "translation": "his/her book",
+          "hint": "his/her — no possessive marker needed",
+          "display_order": 2
+        },
+        {
+          "sentence": "teman {{answer}}",
+          "answer": "kita",
+          "translation": "our friend (yours and mine)",
+          "hint": "our — inclusive \"we,\" right after the noun",
+          "display_order": 3
+        }
+      ]
+    },
+    {
+      "title": "Plural by reduplication",
+      "level": "A1",
+      "function": "Make a noun plural by doubling it",
+      "source": "ai",
+      "reviewed": false,
+      "display_order": 5,
+      "explanation": "Indonesian often shows plurality by doubling the whole word: buku (\"book\") → buku-buku (\"books\"); anak (\"child\") → anak-anak (\"children\"). Reduplication isn't required everywhere — a number or context already makes plurality clear — but it's the classic native way to say \"many\" of something.",
+      "drills": [
+        {
+          "sentence": "Di rumah ada {{answer}}.",
+          "answer": "buku-buku",
+          "translation": "There are books at home.",
+          "hint": "books — double the word: buku becomes buku-buku",
+          "display_order": 1
+        },
+        {
+          "sentence": "Di kota ada {{answer}}.",
+          "answer": "anak-anak",
+          "translation": "There are children in the city.",
+          "hint": "children — double the word: anak becomes anak-anak",
+          "display_order": 2
+        },
+        {
+          "sentence": "Saya punya {{answer}}.",
+          "answer": "teman-teman",
+          "translation": "I have friends.",
+          "hint": "friends — double the word: teman becomes teman-teman (punya = \"to have\")",
+          "display_order": 3
+        }
+      ]
+    },
+    {
+      "title": "Time markers before the verb: sudah, belum, akan",
+      "level": "A1",
+      "function": "Show past, not-yet, and future without changing the verb",
+      "source": "ai",
+      "reviewed": false,
+      "display_order": 6,
+      "explanation": "Indonesian shows time with a marker word placed BEFORE the verb, since the verb itself never changes: sudah (\"already,\" for something done), belum (\"not yet\"), and akan (\"will,\" for the future). Saya sudah makan = \"I've already eaten\"; Saya belum makan = \"I haven't eaten yet\"; Saya akan makan = \"I will eat.\"",
+      "drills": [
+        {
+          "sentence": "Saya {{answer}} makan.",
+          "answer": "sudah",
+          "translation": "I have already eaten.",
+          "hint": "already — marks a completed action, before the verb",
+          "display_order": 1
+        },
+        {
+          "sentence": "Saya {{answer}} makan.",
+          "answer": "belum",
+          "translation": "I haven't eaten yet.",
+          "hint": "not yet — before the verb",
+          "display_order": 2
+        },
+        {
+          "sentence": "Saya {{answer}} makan.",
+          "answer": "akan",
+          "translation": "I will eat.",
+          "hint": "will — marks the future, before the verb",
+          "display_order": 3
+        }
+      ]
+    },
+    {
+      "title": "Yes/no questions with apakah",
+      "level": "A1",
+      "function": "Ask a yes/no question without reordering the sentence",
+      "source": "ai",
+      "reviewed": false,
+      "display_order": 7,
+      "explanation": "The easiest way to ask a yes/no question is to place apakah at the very front of the sentence — the word order after it doesn't change at all: Apakah kamu mau makan? (\"Do you want to eat?\"), literally \"[question] you want eat?\" In casual speech, apakah is often dropped and rising intonation alone signals the question.",
+      "drills": [
+        {
+          "sentence": "{{answer}} kamu mau makan?",
+          "answer": "apakah",
+          "translation": "Do you want to eat?",
+          "hint": "apakah — marks a yes/no question, placed at the very front",
+          "display_order": 1
+        },
+        {
+          "sentence": "{{answer}} dia suka buku ini?",
+          "answer": "apakah",
+          "translation": "Does he/she like this book?",
+          "hint": "apakah — question marker, no word order change follows",
+          "display_order": 2
+        },
+        {
+          "sentence": "{{answer}} ini rumah kamu?",
+          "answer": "apakah",
+          "translation": "Is this your house?",
+          "hint": "apakah — front-of-sentence question marker",
+          "display_order": 3
+        }
+      ]
+    },
+    {
+      "title": "Formal vs. informal \"you\"; inclusive vs. exclusive \"we\"",
+      "level": "A1",
+      "function": "Choose the pronoun that matches the social situation",
+      "source": "ai",
+      "reviewed": false,
+      "display_order": 8,
+      "explanation": "Indonesian pronouns encode social distinctions English doesn't: kamu is informal \"you,\" while anda is the formal, polite version used with strangers or in writing. \"We\" also splits in two: kita includes the person you're talking to, kami excludes them — a difference English simply doesn't mark.",
+      "drills": [
+        {
+          "sentence": "{{answer}} mau makan?",
+          "answer": "anda",
+          "translation": "Would you like to eat? (formal/polite)",
+          "hint": "you, formal/polite — used with strangers or in writing",
+          "display_order": 1
+        },
+        {
+          "sentence": "{{answer}} pergi ke rumah, bukan kamu.",
+          "answer": "kami",
+          "translation": "We (not you) are going home.",
+          "hint": "we, excluding the listener",
+          "display_order": 2
+        },
+        {
+          "sentence": "{{answer}} pergi ke kota.",
+          "answer": "kita",
+          "translation": "We (including you) are going to the city.",
+          "hint": "we, including the listener",
+          "display_order": 3
+        }
+      ]
+    }
+  ]
+}

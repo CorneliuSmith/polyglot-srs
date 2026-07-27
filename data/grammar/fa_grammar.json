@@ -1,0 +1,268 @@
+{
+  "language": "fa",
+  "lists": [
+    {
+      "level": "A1",
+      "title": "Persian A1 Grammar Path",
+      "description": "First Persian: pronouns with budan (\"to be\"), verb-final word order, personal verb endings, negation with na-/nemi-, adjectives after the noun, yes/no questions, the -ha plural, and the ra object marker."
+    }
+  ],
+  "points": [
+    {
+      "title": "Personal pronouns and budan (\"to be\")",
+      "level": "A1",
+      "function": "Say who/what something is",
+      "source": "ai",
+      "reviewed": false,
+      "display_order": 1,
+      "explanation": "Persian's \"to be\" changes with the subject just like English: man hastam (\"I am\"), to hasti (\"you are\"), oo ast (\"he/she/it is\"), ma hastim (\"we are\"). In casual speech ast often shortens to -e attached to the previous word, but the full است is standard written Persian.",
+      "drills": [
+        {
+          "sentence": "من {{answer}}.",
+          "answer": "هستم",
+          "translation": "I am.",
+          "hint": "am — 1st person singular of \"to be\"",
+          "display_order": 1
+        },
+        {
+          "sentence": "تو {{answer}}.",
+          "answer": "هستی",
+          "translation": "You are.",
+          "hint": "are — 2nd person singular of \"to be\"",
+          "display_order": 2
+        },
+        {
+          "sentence": "ما {{answer}}.",
+          "answer": "هستیم",
+          "translation": "We are.",
+          "hint": "are — 1st person plural of \"to be\"",
+          "display_order": 3
+        }
+      ]
+    },
+    {
+      "title": "Verb-final word order (SOV)",
+      "level": "A1",
+      "function": "Build a basic sentence in Persian order",
+      "source": "ai",
+      "reviewed": false,
+      "display_order": 2,
+      "explanation": "Persian sentences are Subject-Object-Verb: the verb comes LAST, unlike English's Subject-Verb-Object. Man chai mikhaham, literally \"I tea want,\" means \"I want tea.\" Whatever else is in the sentence, the conjugated verb sits at the very end.",
+      "drills": [
+        {
+          "sentence": "من چای {{answer}}.",
+          "answer": "می‌خواهم",
+          "translation": "I want tea.",
+          "hint": "want — the verb comes at the very end",
+          "display_order": 1
+        },
+        {
+          "sentence": "من خانه {{answer}}.",
+          "answer": "می‌بینم",
+          "translation": "I see the house.",
+          "hint": "see — verb-final position",
+          "display_order": 2
+        },
+        {
+          "sentence": "من نان {{answer}}.",
+          "answer": "می‌خورم",
+          "translation": "I eat bread.",
+          "hint": "eat — verb at the very end",
+          "display_order": 3
+        }
+      ]
+    },
+    {
+      "title": "Personal verb endings: -am, -i, -ad",
+      "level": "A1",
+      "function": "Conjugate a present-tense verb for its subject",
+      "source": "ai",
+      "reviewed": false,
+      "display_order": 3,
+      "explanation": "Persian present-tense verbs take personal endings on the stem: -am (I), -i (you), -ad (he/she/it), -im (we), -id (you pl.), -and (they). Mikonam (I do) shares the same pattern as miravam (I go) → miravi (you go) → miravad (he/she/it goes) — same stem, different ending.",
+      "drills": [
+        {
+          "sentence": "تو {{answer}}.",
+          "answer": "می‌روی",
+          "translation": "You go / You are going.",
+          "hint": "go — 2nd person singular, -ی ending",
+          "display_order": 1
+        },
+        {
+          "sentence": "او {{answer}}.",
+          "answer": "می‌رود",
+          "translation": "He/she goes.",
+          "hint": "goes — 3rd person singular, -د ending",
+          "display_order": 2
+        },
+        {
+          "sentence": "من {{answer}}.",
+          "answer": "می‌روم",
+          "translation": "I go / I'm going.",
+          "hint": "go — 1st person singular, -م ending",
+          "display_order": 3
+        }
+      ]
+    },
+    {
+      "title": "Negation with na- / nemi-",
+      "level": "A1",
+      "function": "Say what you don't do or don't want",
+      "source": "ai",
+      "reviewed": false,
+      "display_order": 4,
+      "explanation": "To negate a Persian verb, prefix نمی‌ (for the present tense) directly onto it: می‌دانم (\"I know\") → نمی‌دانم (\"I don't know\"); می‌خواهم (\"I want\") → نمی‌خواهم (\"I don't want\"). The negative prefix always attaches right before the verb.",
+      "drills": [
+        {
+          "sentence": "من {{answer}}.",
+          "answer": "نمی‌دانم",
+          "translation": "I don't know.",
+          "hint": "don't know — نمی‌ prefixed onto می‌دانم",
+          "display_order": 1
+        },
+        {
+          "sentence": "من {{answer}}.",
+          "answer": "نمی‌خواهم",
+          "translation": "I don't want (to).",
+          "hint": "don't want — نمی‌ prefixed onto می‌خواهم",
+          "display_order": 2
+        },
+        {
+          "sentence": "من {{answer}}.",
+          "answer": "نمی‌بینم",
+          "translation": "I don't see.",
+          "hint": "don't see — نمی‌ prefixed onto می‌بینم",
+          "display_order": 3
+        }
+      ]
+    },
+    {
+      "title": "Adjectives follow the noun",
+      "level": "A1",
+      "function": "Put adjectives in the right place",
+      "source": "ai",
+      "reviewed": false,
+      "display_order": 5,
+      "explanation": "Unlike English, Persian adjectives come AFTER the noun they describe: ketab khoob, literally \"book good,\" means \"a good book,\" not \"good book\" in English word order. There's a linking vowel between the two in speech (the ezafe), but with most consonant-final nouns like کتاب, nothing extra is written — the two words simply sit side by side.",
+      "drills": [
+        {
+          "sentence": "کتاب {{answer}}.",
+          "answer": "خوب",
+          "translation": "a good book",
+          "hint": "good — placed AFTER the noun, not before",
+          "display_order": 1
+        },
+        {
+          "sentence": "دوست {{answer}}.",
+          "answer": "خوب",
+          "translation": "a good friend",
+          "hint": "good — again, after the noun",
+          "display_order": 2
+        },
+        {
+          "sentence": "مرد {{answer}}.",
+          "answer": "بزرگ",
+          "translation": "a big man",
+          "hint": "big — adjective follows the noun",
+          "display_order": 3
+        }
+      ]
+    },
+    {
+      "title": "Yes/no questions: same word order, just a question mark",
+      "level": "A1",
+      "function": "Ask a yes/no question without reordering the sentence",
+      "source": "ai",
+      "reviewed": false,
+      "display_order": 6,
+      "explanation": "Persian doesn't invert word order or add a helper word to ask a yes/no question — spoken Persian just rises in pitch at the end, and written Persian adds a question mark: می‌روی؟ (\"Are you going?\") looks exactly like the statement می‌روی (\"You're going\") except for the ؟.",
+      "drills": [
+        {
+          "sentence": "تو {{answer}}؟",
+          "answer": "می‌روی",
+          "translation": "Are you going?",
+          "hint": "going — statement form, the question mark signals the question",
+          "display_order": 1
+        },
+        {
+          "sentence": "او {{answer}}؟",
+          "answer": "می‌رود",
+          "translation": "Is he/she going?",
+          "hint": "going — same form as the statement",
+          "display_order": 2
+        },
+        {
+          "sentence": "تو خوب {{answer}}؟",
+          "answer": "هستی",
+          "translation": "Are you well?",
+          "hint": "are — \"to be,\" unchanged in form; only the ؟ makes it a question",
+          "display_order": 3
+        }
+      ]
+    },
+    {
+      "title": "The plural suffix -ha",
+      "level": "A1",
+      "function": "Make a noun plural",
+      "source": "ai",
+      "reviewed": false,
+      "display_order": 7,
+      "explanation": "The plural suffix -hâ attaches to a noun to make it plural: ketab (\"book\") → ketab-hâ (\"books\"). It's often written joined to the noun with a thin connector, but many typed texts write it as a separate word instead — both are common. Persian doesn't require a plural marker on every noun the way English does: after a number, the noun stays singular (se ketab = \"three book,\" not \"three books\").",
+      "drills": [
+        {
+          "sentence": "کتاب {{answer}}.",
+          "answer": "ها",
+          "translation": "books",
+          "hint": "the plural suffix, often typed as a separate word",
+          "display_order": 1
+        },
+        {
+          "sentence": "خانه {{answer}}.",
+          "answer": "ها",
+          "translation": "houses",
+          "hint": "plural — same suffix",
+          "display_order": 2
+        },
+        {
+          "sentence": "دوست {{answer}}.",
+          "answer": "ها",
+          "translation": "friends",
+          "hint": "plural — same suffix",
+          "display_order": 3
+        }
+      ]
+    },
+    {
+      "title": "Ra marks a definite direct object",
+      "level": "A1",
+      "function": "Mark a direct object you already know about",
+      "source": "ai",
+      "reviewed": false,
+      "display_order": 8,
+      "explanation": "را is a postposition (it comes AFTER its noun) that marks a DEFINITE direct object — something specific you already know about: کتاب را می‌خوانم (\"I'm reading THE book\") vs. کتاب می‌خوانم (\"I'm reading a book / reading in general\"). An object left unmarked is indefinite or generic.",
+      "drills": [
+        {
+          "sentence": "کتاب {{answer}} می‌خواهم.",
+          "answer": "را",
+          "translation": "I want the book.",
+          "hint": "را — marks a definite direct object, placed after the noun",
+          "display_order": 1
+        },
+        {
+          "sentence": "خانه {{answer}} می‌بینم.",
+          "answer": "را",
+          "translation": "I see the house.",
+          "hint": "را — definite object marker",
+          "display_order": 2
+        },
+        {
+          "sentence": "غذا {{answer}} می‌خورم.",
+          "answer": "را",
+          "translation": "I'm eating the food.",
+          "hint": "را — definite object marker, after the noun",
+          "display_order": 3
+        }
+      ]
+    }
+  ]
+}

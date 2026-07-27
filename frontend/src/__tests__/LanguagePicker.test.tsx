@@ -128,4 +128,31 @@ describe('LanguagePicker (circle-flag listbox)', () => {
     renderPicker()
     expect(screen.getByLabelText(/loading languages/i)).toBeDefined()
   })
+
+  it('drops an admin-hidden language from the list, unless it is active', async () => {
+    mockLanguages.mockResolvedValue([
+      ...LANGS,
+      { id: 'lang-he', code: 'he', name: 'Hebrew', rtl: true, is_visible: false },
+    ])
+    renderPicker()
+    fireEvent.click(
+      await screen.findByRole('button', { name: /select active language/i }),
+    )
+    expect(screen.queryByRole('option', { name: /hebrew/i })).toBeNull()
+  })
+
+  it('keeps a hidden language visible if it is the one already active', async () => {
+    mockActiveId = 'lang-he'
+    mockLanguages.mockResolvedValue([
+      ...LANGS,
+      { id: 'lang-he', code: 'he', name: 'Hebrew', rtl: true, is_visible: false },
+    ])
+    renderPicker()
+    const trigger = await screen.findByRole('button', {
+      name: /select active language/i,
+    })
+    expect(trigger.textContent).toContain('Hebrew')
+    fireEvent.click(trigger)
+    expect(screen.getByRole('option', { name: /hebrew/i })).toBeDefined()
+  })
 })

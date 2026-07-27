@@ -6,16 +6,20 @@ interface LanguageWrapperProps {
 }
 
 export default function LanguageWrapper({ children, languageCode }: LanguageWrapperProps) {
-  const isArabic = languageCode === 'ar'
+  // Persian shares Arabic's script (and Naskh renders it correctly), so it
+  // gets the same script treatment; Hebrew is RTL but a different script —
+  // direction only, default typeface.
+  const isArabicScript = languageCode === 'ar' || languageCode === 'fa'
+  const isRtl = isArabicScript || languageCode === 'he'
   // Devanagari's matras and conjunct stacks need air — same size/leading
   // treatment Arabic gets for its Naskh.
   const isDevanagari = languageCode === 'hi'
 
   return (
     <div
-      dir={isArabic ? 'rtl' : 'ltr'}
+      dir={isRtl ? 'rtl' : 'ltr'}
       className={clsx(
-        isArabic && "font-['Noto_Naskh_Arabic'] text-xl leading-loose",
+        isArabicScript && "font-['Noto_Naskh_Arabic'] text-xl leading-loose",
         isDevanagari && 'text-xl leading-loose',
       )}
     >

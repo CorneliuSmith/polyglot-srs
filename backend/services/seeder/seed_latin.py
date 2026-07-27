@@ -123,9 +123,35 @@ class GreekSeeder(_FrequencyTsvSeeder):
     freq_filename = "el_frequency.tsv"
 
 
+class LatinSeeder(_FrequencyTsvSeeder):
+    language_code = "la"
+    freq_filename = "la_frequency.tsv"
+
+
+class IndonesianSeeder(_FrequencyTsvSeeder):
+    language_code = "id"
+    freq_filename = "id_frequency.tsv"
+
+
+class TagalogSeeder(_FrequencyTsvSeeder):
+    language_code = "tl"
+    freq_filename = "tl_frequency.tsv"
+
+
+class HebrewSeeder(_FrequencyTsvSeeder):
+    language_code = "he"
+    freq_filename = "he_frequency.tsv"
+
+
+class PersianSeeder(_FrequencyTsvSeeder):
+    language_code = "fa"
+    freq_filename = "fa_frequency.tsv"
+
+
 SEEDERS = {
     "es": SpanishSeeder, "it": ItalianSeeder, "fr": FrenchSeeder,
     "de": GermanSeeder, "ca": CatalanSeeder, "mi": MaoriSeeder,
     "ro": RomanianSeeder, "el": GreekSeeder, "pt": PortugueseSeeder,
-    "nl": DutchSeeder,
+    "nl": DutchSeeder, "la": LatinSeeder, "id": IndonesianSeeder,
+    "tl": TagalogSeeder, "he": HebrewSeeder, "fa": PersianSeeder,
 }

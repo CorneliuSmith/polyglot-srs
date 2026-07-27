@@ -1,0 +1,268 @@
+{
+  "language": "he",
+  "lists": [
+    {
+      "level": "A1",
+      "title": "Hebrew A1 Grammar Path",
+      "description": "First Hebrew: pronoun gender, the zero copula in the present tense, adjective agreement, the ה־ definite article, present-tense verb agreement, negation with לא, existence with יש/אין, and possession with של."
+    }
+  ],
+  "points": [
+    {
+      "title": "Personal pronouns and grammatical gender",
+      "level": "A1",
+      "function": "Choose the right pronoun for gender and number",
+      "source": "ai",
+      "reviewed": false,
+      "display_order": 1,
+      "explanation": "Hebrew marks grammatical gender on second- and third-person pronouns (not first person): אתה (you, masculine) vs. את (you, feminine); הוא (he/it, masculine) vs. היא (she/it, masculine). Every noun has a gender too, and its pronoun must match.",
+      "drills": [
+        {
+          "sentence": "{{answer}} איש טוב.",
+          "answer": "הוא",
+          "translation": "He is a good man.",
+          "hint": "he — masculine pronoun, doubles as \"is\"",
+          "display_order": 1
+        },
+        {
+          "sentence": "{{answer}} אישה טובה.",
+          "answer": "היא",
+          "translation": "She is a good woman.",
+          "hint": "she — feminine pronoun; note טובה, the feminine form of \"good\"",
+          "display_order": 2
+        },
+        {
+          "sentence": "{{answer}} הולך הביתה?",
+          "answer": "אתה",
+          "translation": "Are you (m.) going home?",
+          "hint": "you — masculine singular, contrasts with feminine את",
+          "display_order": 3
+        }
+      ]
+    },
+    {
+      "title": "No verb \"to be\" in the present tense",
+      "level": "A1",
+      "function": "Build a sentence with no linking verb",
+      "source": "ai",
+      "reviewed": false,
+      "display_order": 2,
+      "explanation": "Hebrew has no present-tense verb for \"to be\" — the subject sits directly next to its predicate: אני רעב (\"I [am] hungry\"), הבית גדול (\"the-house [is] big\"). Where English needs is/am/are, Hebrew just needs the two words side by side.",
+      "drills": [
+        {
+          "sentence": "הבית {{answer}}.",
+          "answer": "גדול",
+          "translation": "The house is big.",
+          "hint": "big — no \"is\" needed, just place it after the subject",
+          "display_order": 1
+        },
+        {
+          "sentence": "אני {{answer}}.",
+          "answer": "טוב",
+          "translation": "I am good / fine.",
+          "hint": "good — again, no verb \"to be\"",
+          "display_order": 2
+        },
+        {
+          "sentence": "הילד {{answer}}.",
+          "answer": "קטן",
+          "translation": "The child is small.",
+          "hint": "small — the predicate follows the subject directly",
+          "display_order": 3
+        }
+      ]
+    },
+    {
+      "title": "Adjective gender agreement",
+      "level": "A1",
+      "function": "Match an adjective's ending to its noun's gender",
+      "source": "ai",
+      "reviewed": false,
+      "display_order": 3,
+      "explanation": "Hebrew adjectives agree in gender with the noun they describe. The feminine form usually adds ה־ to the masculine: טוב → טובה (good), קטן → קטנה (small). אישה טובה (\"a good woman\") but איש טוב (\"a good man\") — same word, different ending.",
+      "drills": [
+        {
+          "sentence": "האישה {{answer}}.",
+          "answer": "טובה",
+          "translation": "The woman is good.",
+          "hint": "good, feminine — add ה־ to טוב",
+          "display_order": 1
+        },
+        {
+          "sentence": "האיש {{answer}}.",
+          "answer": "טוב",
+          "translation": "The man is good.",
+          "hint": "good, masculine — the base form, no ה־",
+          "display_order": 2
+        },
+        {
+          "sentence": "הילדה {{answer}}.",
+          "answer": "קטנה",
+          "translation": "The girl is small.",
+          "hint": "small, feminine — add ה־ to קטן",
+          "display_order": 3
+        }
+      ]
+    },
+    {
+      "title": "The definite article ה־",
+      "level": "A1",
+      "function": "Say \"the\" in Hebrew",
+      "source": "ai",
+      "reviewed": false,
+      "display_order": 4,
+      "explanation": "Hebrew has no separate word for \"the\" — the definite article is the single letter ה attached directly to the front of the noun: בית (\"a house\") → הבית (\"the house\"). There is no word for \"a/an\" either — an unmarked noun is simply indefinite.",
+      "drills": [
+        {
+          "sentence": "{{answer}} גדול.",
+          "answer": "הבית",
+          "translation": "The house is big.",
+          "hint": "the house — ה־ prefixed directly onto בית",
+          "display_order": 1
+        },
+        {
+          "sentence": "{{answer}} טוב.",
+          "answer": "הספר",
+          "translation": "The book is good.",
+          "hint": "the book — ה־ prefixed onto ספר",
+          "display_order": 2
+        },
+        {
+          "sentence": "{{answer}} יפה.",
+          "answer": "העיר",
+          "translation": "The city is beautiful.",
+          "hint": "the city — ה־ prefixed onto עיר",
+          "display_order": 3
+        }
+      ]
+    },
+    {
+      "title": "Present-tense verbs change with gender and number",
+      "level": "A1",
+      "function": "Conjugate a present-tense verb for its subject",
+      "source": "ai",
+      "reviewed": false,
+      "display_order": 5,
+      "explanation": "A Hebrew present-tense verb has four forms, agreeing with the subject's gender and number: הולך (he goes, masc. sg.), הולכת (she goes, fem. sg.), הולכים (they go, masc./mixed pl.), הולכות (they go, fem. pl.). The same pattern applies to most present-tense verbs, like אוכל/אוכלת/אוכלים/אוכלות (\"eat\").",
+      "drills": [
+        {
+          "sentence": "היא {{answer}} הביתה.",
+          "answer": "הולכת",
+          "translation": "She is going home.",
+          "hint": "goes — feminine singular, add ת to הולך",
+          "display_order": 1
+        },
+        {
+          "sentence": "הם {{answer}} הביתה.",
+          "answer": "הולכים",
+          "translation": "They (m./mixed) are going home.",
+          "hint": "go — masculine plural, add ים",
+          "display_order": 2
+        },
+        {
+          "sentence": "הן {{answer}} הביתה.",
+          "answer": "הולכות",
+          "translation": "They (f.) are going home.",
+          "hint": "go — feminine plural, add ות",
+          "display_order": 3
+        }
+      ]
+    },
+    {
+      "title": "Negation with לא",
+      "level": "A1",
+      "function": "Say what isn't or doesn't happen",
+      "source": "ai",
+      "reviewed": false,
+      "display_order": 6,
+      "explanation": "To negate a present-tense sentence, put לא (\"not\") right before the predicate — no auxiliary verb needed: אני לא הולך (\"I'm not going\"), הבית לא גדול (\"the house isn't big\").",
+      "drills": [
+        {
+          "sentence": "אני {{answer}} רוצה.",
+          "answer": "לא",
+          "translation": "I don't want (to).",
+          "hint": "not — placed right before the verb",
+          "display_order": 1
+        },
+        {
+          "sentence": "הוא {{answer}} הולך.",
+          "answer": "לא",
+          "translation": "He isn't going.",
+          "hint": "not — before the verb, no auxiliary needed",
+          "display_order": 2
+        },
+        {
+          "sentence": "הבית {{answer}} קטן.",
+          "answer": "לא",
+          "translation": "The house isn't small.",
+          "hint": "not — before an adjective works the same way",
+          "display_order": 3
+        }
+      ]
+    },
+    {
+      "title": "Existence: יש and אין",
+      "level": "A1",
+      "function": "Say that something does or doesn't exist",
+      "source": "ai",
+      "reviewed": false,
+      "display_order": 7,
+      "explanation": "יש (\"there is/are\") and its negative אין (\"there isn't/aren't\") state that something exists — combined with ל־ (\"to\"), the same word means someone HAS something: יש לי בית, literally \"there-is to-me a-house\" = \"I have a house.\"",
+      "drills": [
+        {
+          "sentence": "{{answer}} בית גדול.",
+          "answer": "יש",
+          "translation": "There is a big house.",
+          "hint": "there is — states existence",
+          "display_order": 1
+        },
+        {
+          "sentence": "{{answer}} ספר טוב.",
+          "answer": "יש",
+          "translation": "There is a good book.",
+          "hint": "there is",
+          "display_order": 2
+        },
+        {
+          "sentence": "{{answer}} זמן.",
+          "answer": "אין",
+          "translation": "There isn't time.",
+          "hint": "there isn't — the negative of יש",
+          "display_order": 3
+        }
+      ]
+    },
+    {
+      "title": "Possession with של",
+      "level": "A1",
+      "function": "Say who something belongs to",
+      "source": "ai",
+      "reviewed": false,
+      "display_order": 8,
+      "explanation": "של (\"of / belonging to\") is the easiest way to show possession for a beginner: הבית של דוד (\"David's house\", literally \"the-house of David\").",
+      "drills": [
+        {
+          "sentence": "הבית {{answer}} דוד.",
+          "answer": "של",
+          "translation": "The house is David's / belongs to David.",
+          "hint": "of / belonging to",
+          "display_order": 1
+        },
+        {
+          "sentence": "הספר {{answer}} הילדה.",
+          "answer": "של",
+          "translation": "The book is the girl's.",
+          "hint": "of — links the book to its owner",
+          "display_order": 2
+        },
+        {
+          "sentence": "העיר {{answer}} המשפחה.",
+          "answer": "של",
+          "translation": "The city belongs to the family.",
+          "hint": "of / belonging to",
+          "display_order": 3
+        }
+      ]
+    }
+  ]
+}

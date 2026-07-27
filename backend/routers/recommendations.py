@@ -128,7 +128,7 @@ async def refresh_recommendations(
             return {"generated": False, "batch": batches[0] if batches else None}
 
         lang = await conn.fetchrow(
-            "SELECT code, name FROM languages WHERE id = $1", language_id
+            "SELECT code, name, tutor_model FROM languages WHERE id = $1", language_id
         )
         if not lang:
             raise HTTPException(
@@ -146,7 +146,9 @@ async def refresh_recommendations(
         )
 
     level = stats.get("highest_level_reached")
-    model = resolve_model("recommend", lang["code"])
+    # The admin's per-language model override (languages.tutor_model) —
+    # previously only tutor chat and the Reader threaded this through.
+    model = resolve_model("recommend", lang["code"], override=lang["tutor_model"])
     items = await generate_recommendations(
         language_name=lang["name"],
         language_code=lang["code"],

@@ -1,0 +1,91 @@
+rank	word	pos	en
+1	אני	pron	I; first-person singular pronoun
+2	אתה	pron	you; second-person masculine singular pronoun
+3	את	pron	you; second-person feminine singular pronoun
+4	הוא	pron	he; also used as present-tense copula "is" (masculine)
+5	היא	pron	she; also used as present-tense copula "is" (feminine)
+6	אנחנו	pron	we; first-person plural pronoun
+7	אתם	pron	you; second-person masculine plural pronoun
+8	הם	pron	they; masculine plural pronoun
+9	הן	pron	they; feminine plural pronoun
+10	מה	pron	what
+11	מי	pron	who
+12	איפה	adv	where
+13	למה	adv	why
+14	מתי	adv	when
+15	איך	adv	how
+16	כן	adv	yes
+17	לא	adv	no; not
+18	בבקשה	adv	please; you're welcome
+19	תודה	noun	thank you; thanks
+20	יש	particle	there is; there are
+21	אין	particle	there isn't; there aren't; no
+22	רוצה	verb	want; wants (present tense)
+23	יודע	verb	know; knows (present tense)
+24	רואה	verb	see; sees (present tense)
+25	הולך	verb	go; goes; walking (present tense)
+26	בא	verb	come; comes (present tense)
+27	אוכל	verb	eat; eats (present tense)
+28	שותה	verb	drink; drinks (present tense)
+29	אוהב	verb	love; like; loves; likes (present tense)
+30	אומר	verb	say; says (present tense)
+31	עושה	verb	do; make; does; makes (present tense)
+32	נותן	verb	give; gives (present tense)
+33	בית	noun	house; home
+34	מים	noun	water
+35	מאכל	noun	food; dish
+36	ילד	noun	child; boy
+37	ילדה	noun	girl
+38	איש	noun	man; person
+39	אישה	noun	woman; wife
+40	אמא	noun	mother; mom
+41	אבא	noun	father; dad
+42	יום	noun	day
+43	לילה	noun	night
+44	שנה	noun	year
+45	ספר	noun	book
+46	עיר	noun	city
+47	ארץ	noun	land; country
+48	שם	noun	name
+49	זמן	noun	time
+50	חבר	noun	friend
+51	טוב	adj	good
+52	רע	adj	bad
+53	גדול	adj	big; large
+54	קטן	adj	small; little
+55	חדש	adj	new
+56	ישן	adj	old (of things)
+57	יפה	adj	beautiful; pretty; nice
+58	אחד	num	one
+59	שתיים	num	two
+60	שלוש	num	three
+61	ארבע	num	four
+62	חמש	num	five
+63	שש	num	six
+64	שבע	num	seven
+65	שמונה	num	eight
+66	תשע	num	nine
+67	עשר	num	ten
+68	ו	conj	and
+69	אבל	conj	but
+70	או	conj	or
+71	כי	conj	because
+72	אם	conj	if
+73	ב	prep	in; at
+74	ל	prep	to; for
+75	על	prep	on; about
+76	עם	prep	with
+77	מ	prep	from
+78	של	prep	of; belonging to
+79	זה	pron	this; it (masculine)
+80	זאת	pron	this; it (feminine)
+81	גם	adv	also; too
+82	מאוד	adv	very
+83	עכשיו	adv	now
+84	היום	adv	today
+85	מחר	adv	tomorrow
+86	אתמול	adv	yesterday
+87	שלום	noun	hello; peace; goodbye
+88	בוקר	noun	morning
+89	ערב	noun	evening
+90	משפחה	noun	family

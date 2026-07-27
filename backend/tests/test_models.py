@@ -35,6 +35,25 @@ def test_explicit_override_wins():
         assert resolve_model("tutor_chat", "es", override="custom-model") == "custom-model"
 
 
+def test_override_is_ignored_for_checker_and_summary_fields():
+    # An admin's per-language override is the `tutor_model` FIELD's
+    # substitute only. Threading it uniformly into every resolve_model()
+    # call (as the generation-admin call sites now do) must never weaken a
+    # checker below its "one tier up" floor, or silently redirect a
+    # summary/translate/semantic-check task that has no override column.
+    with patch("backend.services.models.get_settings", return_value=_settings()):
+        assert resolve_model("grammar_checker", "es", override="weaker-model") == "opus"
+        assert resolve_model("sentence_checker", "es", override="weaker-model") == "opus"
+        assert resolve_model("tutor_summary", "es", override="weaker-model") == "summary"
+        assert resolve_model("translate", "es", override="weaker-model") == "summary"
+        assert resolve_model("semantic_check", "es", override="weaker-model") == "summary"
+        # Maker-tier tasks (field=tutor_model) DO honor it.
+        assert resolve_model("grammar_maker", "es", override="custom") == "custom"
+        assert resolve_model("sentence_maker", "es", override="custom") == "custom"
+        assert resolve_model("recommend", "es", override="custom") == "custom"
+        assert resolve_model("level_estimate", "es", override="custom") == "custom"
+
+
 def test_low_resource_pins_chat_reader_and_makers_only():
     with patch("backend.services.models.get_settings", return_value=_settings()):
         for lang in LOW_RESOURCE_LANGUAGES:

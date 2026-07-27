@@ -1,0 +1,91 @@
+rank	word	pos	en
+1	et	conj	and
+2	sum	verb	to be (I am)
+3	non	adv	not
+4	in	prep	in; into
+5	ad	prep	to; toward
+6	de	prep	from; concerning
+7	cum	prep	with
+8	ego	pron	I
+9	tu	pron	you (singular)
+10	is	pron	he; that
+11	nos	pron	we
+12	vos	pron	you (plural)
+13	hic	pron	this
+14	qui	pron	who; which
+15	quis	pron	who? (interrogative)
+16	ubi	adv	where
+17	cur	adv	why
+18	quando	adv	when
+19	sed	conj	but
+20	aut	conj	or
+21	si	conj	if
+22	quod	conj	because
+23	puella	noun	girl
+24	puer	noun	boy
+25	vir	noun	man
+26	femina	noun	woman
+27	dominus	noun	master; lord
+28	domina	noun	mistress; lady
+29	filius	noun	son
+30	filia	noun	daughter
+31	pater	noun	father
+32	mater	noun	mother
+33	frater	noun	brother
+34	soror	noun	sister
+35	amicus	noun	friend
+36	bellum	noun	war
+37	pax	noun	peace
+38	aqua	noun	water
+39	terra	noun	land; earth
+40	insula	noun	island
+41	via	noun	road; way
+42	domus	noun	house; home
+43	urbs	noun	city
+44	rex	noun	king
+45	deus	noun	god
+46	tempus	noun	time
+47	dies	noun	day
+48	nox	noun	night
+49	annus	noun	year
+50	verbum	noun	word
+51	liber	noun	book
+52	littera	noun	letter
+53	nomen	noun	name
+54	vita	noun	life
+55	mors	noun	death
+56	corpus	noun	body
+57	anima	noun	soul; spirit
+58	manus	noun	hand
+59	caput	noun	head
+60	oculus	noun	eye
+61	amo	verb	I love
+62	video	verb	I see
+63	habeo	verb	I have
+64	facio	verb	I do; I make
+65	dico	verb	I say
+66	do	verb	I give
+67	venio	verb	I come
+68	eo	verb	I go
+69	voco	verb	I call
+70	audio	verb	I hear
+71	scribo	verb	I write
+72	lego	verb	I read
+73	sedeo	verb	I sit
+74	sto	verb	I stand
+75	scio	verb	I know
+76	possum	verb	I am able; I can
+77	volo	verb	I want
+78	magnus	adj	big; great
+79	parvus	adj	small
+80	bonus	adj	good
+81	malus	adj	bad
+82	novus	adj	new
+83	vetus	adj	old
+84	multus	adj	much; many
+85	omnis	adj	all; every
+86	unus	num	one
+87	duo	num	two
+88	tres	num	three
+89	decem	num	ten
+90	centum	num	hundred

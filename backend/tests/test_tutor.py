@@ -877,6 +877,49 @@ class TestTutorStatus:
         assert resp.json() == {"available": False, "entitled": False, "allowance": None}
 
 
+class TestUsageAllowance:
+    """GET /api/tutor/allowance (owner, 2026-07-27): the meter alone, gated
+    on generation_available() — NOT available_tutors() — so Gym/Reader (which
+    don't require a tutor persona for the language) can show it too."""
+
+    def test_reports_the_meter_when_generation_is_available(self, client):
+        with patch("backend.services.generate.get_settings",
+                   return_value=FakeSettings()):
+            resp = client.get(
+                "/api/tutor/allowance",
+                params={"language_id": TEST_LANGUAGE_ID},
+                headers=_auth_headers(),
+            )
+        body = resp.json()
+        assert body["available"] is True
+        assert body["allowance"]["unlimited"] is True  # operator mode
+
+    def test_unavailable_when_no_key_and_no_dev_mock(self, client):
+        no_key = FakeSettings()
+        no_key.anthropic_api_key = ""
+        no_key.tutor_dev_mock = False
+        with patch("backend.services.generate.get_settings", return_value=no_key):
+            resp = client.get(
+                "/api/tutor/allowance",
+                params={"language_id": TEST_LANGUAGE_ID},
+                headers=_auth_headers(),
+            )
+        assert resp.json() == {"available": False, "allowance": None}
+
+    def test_available_even_for_a_language_with_no_tutor_persona(self, client):
+        # The decisive difference from /status: no available_tutors() check,
+        # so a language code is never even asked for.
+        with patch("backend.services.generate.get_settings",
+                   return_value=FakeSettings()):
+            resp = client.get(
+                "/api/tutor/allowance",
+                params={"language_id": TEST_LANGUAGE_ID},
+                headers=_auth_headers(),
+            )
+        assert resp.status_code == 200
+        assert resp.json()["available"] is True
+
+
 # ---------------------------------------------------------------------------
 # tutor_chat / summarize_session services (Anthropic client mocked)
 # ---------------------------------------------------------------------------

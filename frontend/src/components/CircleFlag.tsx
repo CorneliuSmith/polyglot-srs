@@ -6,14 +6,19 @@ import esFlag from '../assets/flags/es.svg'
 import frFlag from '../assets/flags/fr.svg'
 import gbFlag from '../assets/flags/gb.svg'
 import grFlag from '../assets/flags/gr.svg'
+import heFlag from '../assets/flags/he.svg'
+import idFlag from '../assets/flags/id.svg'
 import inFlag from '../assets/flags/in.svg'
+import irFlag from '../assets/flags/ir.svg'
 import itFlag from '../assets/flags/it.svg'
 import jmFlag from '../assets/flags/jm.svg'
 import krFlag from '../assets/flags/kr.svg'
+import laFlag from '../assets/flags/la.svg'
 import miFlag from '../assets/flags/mi.svg'
 import neFlag from '../assets/flags/ne.svg'
 import ngFlag from '../assets/flags/ng.svg'
 import nlFlag from '../assets/flags/nl.svg'
+import phFlag from '../assets/flags/ph.svg'
 import roFlag from '../assets/flags/ro.svg'
 import ruFlag from '../assets/flags/ru.svg'
 import saFlag from '../assets/flags/sa.svg'
@@ -25,10 +30,15 @@ import zaFlag from '../assets/flags/za.svg'
 /** Round flag per LANGUAGE code. Most are vendored HatScripts circle-flags
  * (see assets/flags/LICENSE.md); country choices mirror languageColors:
  * Catalan → Andorra, Portuguese → Brazil, Hausa → Niger (vs Yoruba's
- * Nigeria), Swahili → Tanzania, Arabic → Saudi Arabia. Māori is the
- * exception — mi.svg is the Tino Rangatiratanga (Māori sovereignty) flag,
- * hand-drawn in this circle-flag style, not a national-flag substitute.
- * Unknown codes fall back to a globe so the layout never breaks. */
+ * Nigeria), Swahili → Tanzania, Arabic → Saudi Arabia, Persian → Iran,
+ * Indonesian → Indonesia, Tagalog → Philippines. Two exceptions: mi.svg is
+ * the Tino Rangatiratanga (Māori sovereignty) flag, not a national-flag
+ * substitute; la.svg is the closest thing Latin has to a "home country" —
+ * Vatican City, where it retains official/ceremonial use — simplified to
+ * its gold/white split (no living vernacular exists to represent instead).
+ * he.svg/la.svg/ir.svg/id.svg/ph.svg are hand-drawn in this circle-flag
+ * style (not in the vendored HatScripts set). Unknown codes fall back to a
+ * globe so the layout never breaks. */
 const FLAG_BY_LANGUAGE: Record<string, string> = {
   es: esFlag,
   fr: frFlag,
@@ -52,6 +62,11 @@ const FLAG_BY_LANGUAGE: Record<string, string> = {
   hi: inFlag,
   th: thFlag,
   ko: krFlag,
+  he: heFlag,
+  la: laFlag,
+  fa: irFlag,
+  id: idFlag,
+  tl: phFlag,
 }
 
 export default function CircleFlag({

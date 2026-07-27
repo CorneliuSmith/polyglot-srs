@@ -59,11 +59,22 @@ def resolve_model(
     low-resource pin (for drafting/chat tasks) > the task's configured model.
     An unknown task falls back to the tutor chat model so a caller never gets
     an empty string.
+
+    *override* is a substitute for the `tutor_model` SETTING FIELD only — it
+    is silently ignored for a task whose field is `tutor_model_low_resource`
+    (a checker) or `tutor_summary_model` (summary/translate/semantic_check).
+    Admins have exactly one per-language override column
+    (`languages.tutor_model`), and passing it uniformly into every
+    resolve_model() call — including checkers — would let a maker-tier
+    override quietly weaken a checker below the "verify one tier up" floor
+    (§6: never self-certify). Gating on the field, not the task name, means
+    every caller can pass the same override in without needing to reason
+    about which tasks are safe to override.
     """
-    if override:
+    field = TASK_MODELS.get(task, "tutor_model")
+    if override and field == "tutor_model":
         return override
     settings = get_settings()
     if language_code in LOW_RESOURCE_LANGUAGES and task in _LOW_RESOURCE_PINNED:
         return settings.tutor_model_low_resource
-    field = TASK_MODELS.get(task, "tutor_model")
     return getattr(settings, field)

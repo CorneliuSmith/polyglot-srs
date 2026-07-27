@@ -1,0 +1,91 @@
+rank	word	pos	en
+1	saya	pron	I; me
+2	kamu	pron	you (informal)
+3	anda	pron	you (formal, polite)
+4	dia	pron	he; she
+5	kami	pron	we (excluding the listener)
+6	kita	pron	we (including the listener)
+7	mereka	pron	they
+8	ini	pron	this
+9	itu	pron	that
+10	apa	pron	what
+11	siapa	pron	who
+12	di mana	adv	where
+13	kenapa	adv	why
+14	kapan	adv	when
+15	bagaimana	adv	how
+16	berapa	pron	how much; how many
+17	ada	verb	there is/are; to exist; to have
+18	adalah	verb	to be (used to define or equate two things, not a general copula)
+19	mau	verb	to want
+20	ingin	verb	to want; to wish
+21	tahu	verb	to know (a fact)
+22	lihat	verb	to see; to look
+23	pergi	verb	to go
+24	datang	verb	to come
+25	pulang	verb	to go home; to return
+26	makan	verb	to eat
+27	minum	verb	to drink
+28	tidur	verb	to sleep
+29	suka	verb	to like
+30	cinta	verb	to love
+31	bilang	verb	to say; to tell (informal)
+32	buat	verb	to make; to do
+33	beri	verb	to give
+34	ambil	verb	to take
+35	beli	verb	to buy
+36	tolong	particle	please; to help
+37	terima kasih	phrase	thank you
+38	ya	particle	yes
+39	tidak	adv	no; not
+40	bukan	adv	not (negates nouns/identity)
+41	jangan	adv	don't
+42	sudah	adv	already
+43	belum	adv	not yet
+44	akan	adv	will (future marker)
+45	sangat	adv	very
+46	juga	adv	also; too
+47	dan	conj	and
+48	tapi	conj	but
+49	atau	conj	or
+50	karena	conj	because
+51	kalau	conj	if
+52	di	prep	in; at
+53	ke	prep	to
+54	dari	prep	from
+55	dengan	prep	with
+56	untuk	prep	for
+57	rumah	noun	house
+58	air	noun	water
+59	makanan	noun	food
+60	anak	noun	child
+61	laki-laki	noun	man; male
+62	perempuan	noun	woman; female
+63	ibu	noun	mother
+64	ayah	noun	father
+65	hari	noun	day
+66	malam	noun	night
+67	tahun	noun	year
+68	buku	noun	book
+69	kota	noun	city
+70	negara	noun	country
+71	nama	noun	name
+72	waktu	noun	time
+73	teman	noun	friend
+74	baik	adj	good
+75	buruk	adj	bad
+76	besar	adj	big
+77	kecil	adj	small
+78	baru	adj	new
+79	lama	adj	old (of things, duration); long
+80	cantik	adj	beautiful; pretty (of people)
+81	satu	num	one
+82	dua	num	two
+83	tiga	num	three
+84	empat	num	four
+85	lima	num	five
+86	enam	num	six
+87	tujuh	num	seven
+88	delapan	num	eight
+89	sembilan	num	nine
+90	sepuluh	num	ten

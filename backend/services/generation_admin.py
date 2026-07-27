@@ -34,6 +34,7 @@ from backend.repositories.contributor import (
     drill_answers_for_charts,
     flag_drill,
     flag_example_sentence,
+    get_language_tutor_model,
     points_for_overlap_audit,
     points_with_drills,
     points_with_thin_cells,
@@ -71,6 +72,16 @@ def _clamp(value: int, lo: int, hi: int) -> int:
     return max(lo, min(hi, value))
 
 
+async def _model_override(conn: asyncpg.Connection, language_id: str) -> str | None:
+    """The admin's per-language model override (languages.tutor_model), for
+    every resolve_model() call in this module — previously only tutor chat
+    and the Reader threaded this through, so an admin's override silently
+    had no effect on generation/recheck/overlap runs. Safe to pass into
+    checker-task calls too: resolve_model() only honors an override for the
+    'tutor_model' field, never a checker's 'tutor_model_low_resource'."""
+    return await get_language_tutor_model(conn, language_id)
+
+
 async def plan_run(
     conn: asyncpg.Connection,
     *,
@@ -84,11 +95,12 @@ async def plan_run(
     *kind* is 'vocab' or 'grammar'."""
     target_per_item = _clamp(target_per_item, 1, MAX_PER_ITEM)
     max_items = _clamp(max_items, 1, MAX_ITEMS_PER_RUN)
+    override = await _model_override(conn, language_id)
     if kind == "vocab":
         items = await vocab_needing_examples(
             conn, language_id, target_per_item, max_items
         )
-        model = resolve_model("sentence_maker", language_code)
+        model = resolve_model("sentence_maker", language_code, override=override)
         # each item needs (target - it_has) more; that's what the maker drafts
         to_make = sum(max(0, target_per_item - i["example_count"]) for i in items)
     elif kind == "grammar":
@@ -97,7 +109,7 @@ async def plan_run(
         items = await points_with_thin_cells(
             conn, language_id, target_per_item, max_items
         )
-        model = resolve_model("grammar_maker", language_code)
+        model = resolve_model("grammar_maker", language_code, override=override)
         to_make = sum(
             max(0, target_per_item - n)
             for it in items for n in it["cell_counts"].values()
@@ -225,7 +237,10 @@ async def plan_recheck(
     The audit is one judge call per word (all its sentences at once)."""
     max_items = _clamp(max_items, 1, MAX_ITEMS_PER_RUN)
     items = await vocab_with_examples(conn, language_id, max_items)
-    model = resolve_model("sentence_checker", language_code)
+    model = resolve_model(
+        "sentence_checker", language_code,
+        override=await _model_override(conn, language_id),
+    )
     sentences = sum(len(w["examples"]) for w in items)
     est_cost = estimate_cost_usd(
         model,
@@ -267,7 +282,10 @@ async def recheck_examples(
     )
     items = plan.pop("_items")
     audit_model = plan["model"]
-    maker_model = resolve_model("sentence_maker", language_code)
+    maker_model = resolve_model(
+        "sentence_maker", language_code,
+        override=await _model_override(conn, language_id),
+    )
 
     words_audited = flagged = backfilled = suggested = alternatives = 0
     for word in items:
@@ -348,7 +366,10 @@ async def plan_recheck_drills(
     model. One judge call per point (all its drills at once)."""
     max_items = _clamp(max_items, 1, MAX_ITEMS_PER_RUN)
     items = await points_with_drills(conn, language_id, max_items)
-    model = resolve_model("sentence_checker", language_code)
+    model = resolve_model(
+        "sentence_checker", language_code,
+        override=await _model_override(conn, language_id),
+    )
     drills = sum(len(p["drills"]) for p in items)
     est_cost = estimate_cost_usd(
         model,
@@ -390,7 +411,10 @@ async def recheck_drills(
     )
     items = plan.pop("_items")
     audit_model = plan["model"]
-    maker_model = resolve_model("grammar_maker", language_code)
+    maker_model = resolve_model(
+        "grammar_maker", language_code,
+        override=await _model_override(conn, language_id),
+    )
 
     points_audited = flagged = alternatives = 0
     for point in items:
@@ -509,7 +533,10 @@ async def plan_forms(
         if len(items) >= max_items:
             break
 
-    model = resolve_model("grammar_maker", language_code)
+    model = resolve_model(
+        "grammar_maker", language_code,
+        override=await _model_override(conn, language_id),
+    )
     est_cost = estimate_cost_usd(
         model,
         input_tokens=_EST_INPUT_TOKENS_PER_CHART * len(items),
@@ -622,7 +649,10 @@ async def plan_overlap(
     model: one judge call per level band."""
     points = await points_for_overlap_audit(conn, language_id)
     groups = _overlap_groups(points)
-    model = resolve_model("grammar_checker", language_code)
+    model = resolve_model(
+        "grammar_checker", language_code,
+        override=await _model_override(conn, language_id),
+    )
     est_cost = estimate_cost_usd(
         model,
         # Each group call carries its titles (~30 tokens each) + instructions;

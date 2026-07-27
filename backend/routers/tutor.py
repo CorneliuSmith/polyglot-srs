@@ -45,6 +45,7 @@ from backend.repositories.tutor import (
 )
 from backend.services.allowance import get_allowance as _get_allowance
 from backend.services.allowance import reject_if_unavailable as _reject_if_unavailable
+from backend.services.generate import generation_available
 from backend.services.rate_limit import tutor_chat_limiter
 from backend.services.tutor import (
     available_tutors,
@@ -132,6 +133,28 @@ async def tutor_status(
         "focus": focus,
         "mastery_suggestions": mastery,
     }
+
+
+@router.get("/allowance")
+async def usage_allowance(
+    language_id: str,
+    user: dict = Depends(get_current_user),
+):
+    """The caller's usage-pool meter alone (owner: "if users are AI enabled
+    they should be able to see their AI amounts... Tutor, Gym, Read").
+
+    Gym and Read draw the SAME monthly pool as the tutor but neither offers
+    a tutor persona for every language, so they can't use /status (gated on
+    available_tutors() — a per-language skill bundle, a narrower thing than
+    "does generation work here"). This is gated on the broad
+    generation_available() check instead — the same one Gym/Reader gate
+    their own generate buttons on — so the meter and the actions it
+    describes always agree on whether AI is available at all.
+    """
+    if not generation_available():
+        return {"available": False, "allowance": None}
+    allowance = await _get_allowance(user["id"], language_id)
+    return {"available": True, "allowance": allowance}
 
 
 @router.post("/chat")

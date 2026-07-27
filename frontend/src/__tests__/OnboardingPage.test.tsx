@@ -57,6 +57,16 @@ describe('OnboardingPage', () => {
     mockComplete.mockResolvedValue({ subscribed: 4, active_language_id: 'lang-es', level: 'A1' })
   })
 
+  it('does not offer a language an admin has hidden', async () => {
+    mockGetLanguages.mockResolvedValue([
+      { id: 'lang-es', code: 'es', name: 'Spanish', rtl: false },
+      { id: 'lang-he', code: 'he', name: 'Hebrew', rtl: true, is_visible: false },
+    ])
+    renderPage()
+    await screen.findByRole('button', { name: 'Spanish' })
+    expect(screen.queryByRole('button', { name: 'Hebrew' })).toBeNull()
+  })
+
   it('beginner path: pick language → "I\'m new" → start learning at A1', async () => {
     renderPage()
 
