@@ -21,6 +21,7 @@ import { supabase } from '../../lib/supabase'
 import LanguagePicker from '../../components/LanguagePicker'
 import { getGrammarForLanguage } from '../../api/contribute'
 import AccountsPanel from '../contribute/AccountsPanel'
+import GenerationPanel from '../contribute/GenerationPanel'
 import RolesPanel from '../contribute/RolesPanel'
 import ReviewQueue from '../contribute/ReviewQueue'
 import AnalyticsPanel from '../contribute/AnalyticsPanel'
@@ -326,6 +327,10 @@ export default function SettingsPage() {
           <>
             <AnalyticsPanel />
             <EngagementPanel />
+            {/* The content "feeds" — generate, recheck, overlap scan, chart
+                backfill — live here too, not just on /contribute, so they're
+                findable from either admin surface. */}
+            <GenerationPanel />
             <TranslationReviewsPanel />
             <AccountsPanel languages={languages} selfId={selfId} />
             <RolesPanel languages={languages} />
