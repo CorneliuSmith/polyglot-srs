@@ -13,6 +13,11 @@ vi.mock('../api/gym', () => ({
   getGymManifest: vi.fn(),
   generateGymDrills: vi.fn(),
 }))
+vi.mock('../api/tutor', () => ({
+  getUsageAllowance: vi.fn(() =>
+    Promise.resolve({ available: false, allowance: null }),
+  ),
+}))
 vi.mock('../stores/prefsStore', () => ({
   usePrefsStore: vi.fn(
     (selector: (s: Record<string, unknown>) => unknown) =>
@@ -161,6 +166,22 @@ describe('GymPage', () => {
     // The page never blocks on generation — that lifecycle moved to the
     // cram session, which drafts in the background.
     expect(mockGenerate).not.toHaveBeenCalled()
+  })
+
+  it('shows the usage meter once fresh sentences are toggled on', async () => {
+    const { getUsageAllowance } = await import('../api/tutor')
+    ;(getUsageAllowance as ReturnType<typeof vi.fn>).mockResolvedValue({
+      available: true,
+      allowance: {
+        tier: 'free', unlimited: false, entitled: false,
+        limit: 20, used: 5, remaining: 15, resets_at: '2026-08-01T00:00:00+00:00',
+      },
+    })
+    renderPage()
+    await screen.findByText('Verbs')
+    expect(screen.queryByTestId('usage-meter')).toBeNull()
+    fireEvent.click(screen.getByLabelText(/weave in fresh/i))
+    expect(await screen.findByTestId('usage-meter')).toBeDefined()
   })
 
   it('omits gen from the URL when the toggle stays off', async () => {

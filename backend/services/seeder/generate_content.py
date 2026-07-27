@@ -103,7 +103,12 @@ async def _run_levels(conn, lang, args) -> None:
         print("ERROR: real estimation needs ANTHROPIC_API_KEY (or TUTOR_DEV_MOCK=1).")
         return
     print(f"Estimating levels for {len(words)} {lang['name']} words…")
-    levels = await estimate_levels(words, lang["name"], lang["code"])
+    # The admin's per-language model override (languages.tutor_model) —
+    # previously only tutor chat and the Reader threaded this through.
+    override = await conn.fetchval(
+        "SELECT tutor_model FROM languages WHERE id = $1", lang["id"]
+    )
+    levels = await estimate_levels(words, lang["name"], lang["code"], model=override)
     applied = 0
     for w in words:
         level = levels.get(w["word"])

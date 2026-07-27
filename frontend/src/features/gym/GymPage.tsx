@@ -3,6 +3,8 @@ import { useNavigate } from 'react-router-dom'
 import { useQuery } from '@tanstack/react-query'
 import { getGymManifest } from '../../api/gym'
 import type { GymEntry } from '../../api/gym'
+import { getUsageAllowance } from '../../api/tutor'
+import UsageMeter from '../../components/UsageMeter'
 import { usePrefsStore } from '../../stores/prefsStore'
 
 /** The Gym (WP25): pick the FORMS to train — present, past perfect,
@@ -40,6 +42,15 @@ export default function GymPage() {
     queryKey: ['gym-manifest', activeLanguageId],
     queryFn: () => getGymManifest(activeLanguageId!),
     enabled: !!activeLanguageId,
+  })
+
+  // Fresh sentences (below) draw the same monthly usage pool the Tutor and
+  // Reader do — show the meter here too so it's never a surprise (owner).
+  const { data: usage } = useQuery({
+    queryKey: ['usage-allowance', activeLanguageId],
+    queryFn: () => getUsageAllowance(activeLanguageId!),
+    enabled: !!activeLanguageId,
+    retry: false,
   })
 
   const columns = data?.columns ?? []
@@ -291,6 +302,9 @@ export default function GymPage() {
                   </span>
                 </span>
               </label>
+              {generate && (
+                <UsageMeter allowance={usage?.allowance} className="max-w-xs" />
+              )}
             </div>
 
             <div className="flex flex-wrap items-center justify-between gap-3">

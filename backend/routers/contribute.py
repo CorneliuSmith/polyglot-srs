@@ -387,11 +387,19 @@ async def generation_coverage_overview(user: dict = Depends(get_current_user)):
     await _require_admin(user["id"])
     async with privileged_connection() as conn:
         rows = await generation_coverage(conn)
+        # Show the model a run would ACTUALLY use, including a per-language
+        # override — otherwise this panel displayed the override-ignoring
+        # default even though the override was live for that language.
+        overrides = {
+            r["language_id"]: await get_language_tutor_model(conn, r["language_id"])
+            for r in rows
+        }
     for r in rows:
         code = r["language_code"]
+        override = overrides.get(r["language_id"])
         r["low_resource"] = code in LOW_RESOURCE_LANGUAGES
-        r["sentence_model"] = resolve_model("sentence_maker", code)
-        r["grammar_model"] = resolve_model("grammar_maker", code)
+        r["sentence_model"] = resolve_model("sentence_maker", code, override=override)
+        r["grammar_model"] = resolve_model("grammar_maker", code, override=override)
         r["unfilled"] = _next_language_score(r)
     # Biggest gap first; on a tie, low-resource wins (it should be done sooner).
     ranked = sorted(

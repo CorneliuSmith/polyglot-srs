@@ -1459,7 +1459,12 @@ class TestGenerationCoverage:
         assert resp.status_code == 403
 
     def test_admin_gets_recs_and_ranked_next(self, client):
+        # No per-language model override on record — fetchval returns None,
+        # same as a real query against an un-set languages.tutor_model column.
+        conn = AsyncMock()
+        conn.fetchval = AsyncMock(return_value=None)
         with _roles([{"language_id": None, "role": "admin"}]), \
+             _priv_yielding(conn), \
              patch("backend.routers.contribute.generation_coverage",
                    new=AsyncMock(return_value=[dict(r) for r in _COVERAGE_ROWS])):
             resp = client.get(

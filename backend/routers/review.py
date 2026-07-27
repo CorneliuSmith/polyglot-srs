@@ -35,7 +35,11 @@ from backend.repositories.cards import (
     set_deck_subscription,
     update_card_srs,
 )
-from backend.repositories.contributor import add_drill, upsert_vocabulary_charts
+from backend.repositories.contributor import (
+    add_drill,
+    get_language_tutor_model,
+    upsert_vocabulary_charts,
+)
 from backend.repositories.fsrs_weights import get_effective_params
 from backend.repositories.gym import record_gym_attempt
 from backend.repositories.pool import privileged_connection, rls_connection
@@ -237,7 +241,14 @@ async def gym_generate(
     else:
         contexts = contexts[: min(len(contexts), allowance["remaining"])]
 
-    model = resolve_model("grammar_maker", contexts[0]["language_code"])
+    async with rls_connection(user["id"]) as conn:
+        # The admin's per-language model override (languages.tutor_model) —
+        # fetched here so it actually applies to Gym generation, not just
+        # tutor chat and the Reader (the two places it used to be threaded).
+        model_override = await get_language_tutor_model(conn, language_id)
+    model = resolve_model(
+        "grammar_maker", contexts[0]["language_code"], override=model_override
+    )
     generated = 0
     charged = 0
     new_drills: list[dict] = []

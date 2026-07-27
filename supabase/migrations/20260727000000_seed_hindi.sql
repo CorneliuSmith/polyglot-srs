@@ -9,6 +9,10 @@
 -- false (a native Hindi reviewer will see them flagged as drafts); a
 -- companion post-seed step marks their ai_check_status = 'pass' so they are
 -- studyable now. Vocabulary has no review gate and shows immediately.
+-- DO NOTHING, not DO UPDATE: this only sets the INITIAL policy for a language
+-- that doesn't exist yet. A re-apply (e.g. a migration-catchup run against a
+-- DB that was hand-migrated out of band) must never clobber an admin's later
+-- policy change back to 'ai_ok' — that silently undid real admin settings.
 INSERT INTO languages (code, name, rtl, grammar_review_policy)
 VALUES ('hi', 'Hindi', false, 'ai_ok')
-ON CONFLICT (code) DO UPDATE SET grammar_review_policy = EXCLUDED.grammar_review_policy;
+ON CONFLICT (code) DO NOTHING;

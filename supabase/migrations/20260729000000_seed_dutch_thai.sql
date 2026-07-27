@@ -7,7 +7,10 @@
 -- royal register. Both ship grammar_review_policy='ai_ok' with points
 -- reviewed=false + ai_check pass, same as the hi/jam draft precedent —
 -- native reviewers promote to strict at the reviewer-program milestone.
+-- DO NOTHING, not DO UPDATE: this only sets the INITIAL policy for a language
+-- that doesn't exist yet — a re-apply must never clobber an admin's later
+-- policy change back to 'ai_ok'.
 INSERT INTO languages (code, name, rtl, grammar_review_policy) VALUES
     ('nl', 'Dutch', false, 'ai_ok'),
     ('th', 'Thai',  false, 'ai_ok')
-ON CONFLICT (code) DO UPDATE SET grammar_review_policy = EXCLUDED.grammar_review_policy;
+ON CONFLICT (code) DO NOTHING;
