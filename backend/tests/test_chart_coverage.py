@@ -10,7 +10,6 @@ record what's missing so the gap is visible rather than folklore.
 from __future__ import annotations
 
 import json
-import re
 import unicodedata
 from pathlib import Path
 
@@ -85,7 +84,11 @@ class TestAnswerLookupCoverage:
 
     @staticmethod
     def _hit_rate(code: str) -> tuple[int, int]:
-        from backend.repositories.cards import _chart_form_keys, _form_key
+        from backend.repositories.cards import (
+            _chart_form_keys,
+            _form_key,
+            _word_tokens,
+        )
 
         charted = _charted_words(code)
         index: dict[str, str] = {}
@@ -105,16 +108,20 @@ class TestAnswerLookupCoverage:
                 if not answer:
                     continue
                 total += 1
-                tokens = [
-                    t for t in re.findall(r"[^\W\d_]+", answer) if len(t) > 2
-                ]
+                tokens = [t for t in _word_tokens(answer) if len(t) > 2]
                 if any(_form_key(t) in index for t in tokens):
                     hits += 1
         return hits, total
 
+    # Floors sit ~5pts under measured rates (2026-07: es 50, fr 47, ru 45,
+    # pt 45, de 39, ca 38, it 38, ar 35, ro 31, el 30, tr 22) — they catch a
+    # broken index, not data churn. The jump over the first measurement came
+    # from _word_tokens: stressed chart forms used to split at the combining
+    # mark and never enter the index.
     @pytest.mark.parametrize("code,floor_pct", [
-        ("es", 40), ("fr", 35), ("de", 30), ("ca", 30),
-        ("pt", 30), ("ro", 25), ("el", 25), ("tr", 15), ("ru", 20),
+        ("es", 45), ("fr", 40), ("de", 33), ("ca", 33), ("it", 33),
+        ("pt", 40), ("ro", 26), ("el", 25), ("tr", 17), ("ru", 40),
+        ("ar", 30),
     ])
     def test_answers_resolve_to_charts(self, code, floor_pct):
         hits, total = self._hit_rate(code)

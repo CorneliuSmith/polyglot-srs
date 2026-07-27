@@ -1618,6 +1618,17 @@ def _form_key(word: str) -> str:
     )
 
 
+def _word_tokens(text: str) -> list[str]:
+    """Word tokens with combining marks removed BEFORE splitting. Python's
+    \\w excludes combining marks, so a stressed chart form like "жи́ли" would
+    otherwise split into "жи" + "ли" and never match anything."""
+    stripped = "".join(
+        ch for ch in unicodedata.normalize("NFD", text or "")
+        if not unicodedata.combining(ch)
+    )
+    return re.findall(r"[^\W\d_]+", stripped)
+
+
 def _chart_form_keys(morphology) -> set[str]:
     """Every inflected form printed inside a chart, as comparison keys."""
     parsed = morphology
@@ -1636,7 +1647,7 @@ def _chart_form_keys(morphology) -> set[str]:
             if not isinstance(row, list):
                 continue
             for cell in row:
-                for token in re.findall(r"[^\W\d_]+", str(cell)):
+                for token in _word_tokens(str(cell)):
                     key = _form_key(token)
                     if len(key) > 1:
                         keys.add(key)
@@ -1732,7 +1743,7 @@ async def attach_cram_charts(conn: asyncpg.Connection, cards: list[dict]) -> Non
         if hw and " " not in hw and hw not in candidates:
             candidates.append(hw)
         tokens = [
-            t for t in re.findall(r"[^\W\d_]+", card.get("correct_answer") or "")
+            t for t in _word_tokens(card.get("correct_answer") or "")
             if len(t) > 2
         ]
         try:

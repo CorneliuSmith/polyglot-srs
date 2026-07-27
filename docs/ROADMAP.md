@@ -1263,14 +1263,24 @@ tables rather than chips only (sw verb concord×tense, Bantu noun classes) —
 then rebuild `data/yo_morphology.json`, which is an empty `{}`;
 (2) `scripts/refresh_seed_data.sh` never invokes `morphology_charts` and
 covers only 10 languages — wire it in, or charts silently never regenerate;
-(3) for en/jam (no kaikki dump) and any word the dumps miss, add an
-LLM chart producer — a `-k forms` kind in generate_content.py +
-generation_admin, maker-checked and reviewer-gated like every other
-generated artifact, since **nothing in the app can currently create a
-`charts` payload**. Coverage floors per language are pinned in
-backend/tests/test_chart_coverage.py; move a language from
-UNCHARTED_LANGUAGES to CHARTED_LANGUAGES as each lands. **Effort:** M per
-track. **Model:** registry defaults.
+(3) ✅ DONE (2026-07-27): the LLM chart producer — `-k forms` in
+generate_content.py + `plan_forms`/`run_forms` in generation_admin + `POST
+/admin/generation/forms`. Work-list = every distinct drill answer the Gym's
+chart lookup can't resolve; the checker is **containment** (the drill's
+answer is a known-true form, so a chart without it is rejected —
+services/generate.check_chart); verified charts upsert onto the vocabulary
+row (created if the word was missing), never overwriting kaikki-built
+tables. Runs are capped and converge to zero. This serves ALL languages
+including en/jam — tracks 1–2 remain worthwhile as the cheaper, broader
+bulk source (a kaikki rebuild charts thousands of words per language at no
+token cost; `-k forms` charts only the words drills actually exercise).
+Bonus fix while building it: `_word_tokens` in repositories/cards.py —
+stressed chart forms ("жи́ли") used to SPLIT at the combining mark and never
+enter the reverse index; fixing it lifted answer→chart hit rates again
+(notably ru 20%→45%, ar →35%; all floors re-pinned). Coverage
+floors per language are pinned in backend/tests/test_chart_coverage.py;
+move a language from UNCHARTED_LANGUAGES to CHARTED_LANGUAGES as each
+lands. **Effort:** M per remaining track. **Model:** registry defaults.
 
 ### WP43 — Content quality sweep: recheck the live corpus (owner, 2026-07-26)
 Owner: "many words/sentences are broken — I may need help doing this later."

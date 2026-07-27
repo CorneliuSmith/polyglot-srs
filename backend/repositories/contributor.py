@@ -3128,3 +3128,110 @@ async def admin_engagement(conn: asyncpg.Connection, days: int = 30) -> dict:
             for r in top_langs
         ],
     }
+
+
+# ---------------------------------------------------------------------------
+# Morphology chart backfill (-k forms, WP45 track 3): the work-list of drill
+# answers and the vocabulary upsert the generated charts land in.
+# ---------------------------------------------------------------------------
+
+
+async def drill_answers_for_charts(
+    conn: asyncpg.Connection, language_id: str
+) -> list[dict]:
+    """Every distinct drill answer in a language, with the context the chart
+    maker needs (stored lemma, hint, sentence, point title). Filtering down to
+    the answers that resolve to NO chart happens in the service — it needs the
+    reverse form index the Gym's lookup uses."""
+    rows = await conn.fetch(
+        """
+        SELECT DISTINCT ON (lower(ds.answer))
+               ds.answer, ds.lemma, ds.hint, ds.sentence,
+               gp.title AS point_title
+        FROM drill_sentences ds
+        JOIN grammar_points gp ON ds.grammar_point_id = gp.id
+        WHERE gp.language_id = $1
+          AND ds.answer IS NOT NULL AND btrim(ds.answer) <> ''
+          AND ds.flagged = false
+        ORDER BY lower(ds.answer), ds.created_at
+        """,
+        language_id,
+    )
+    return [dict(r) for r in rows]
+
+
+async def upsert_vocabulary_charts(
+    conn: asyncpg.Connection,
+    language_id: str,
+    word: str,
+    part_of_speech: str | None,
+    charts: list[dict],
+    usage_note: str | None,
+    origin_detail: str | None = None,
+) -> tuple[str | None, str]:
+    """Attach generated charts to *word*'s vocabulary row, creating the row if
+    the word isn't in vocabulary at all (the dominant chart-coverage gap).
+
+    NEVER overwrites existing charts — a row that already carries chart tables
+    (the offline kaikki build) stays authoritative, and re-running the
+    generator is a no-op for it. Returns (vocabulary_id, status) with status
+    'created' | 'updated' | 'skipped'.
+    """
+    row = await conn.fetchrow(
+        """
+        SELECT id, morphology, usage_note FROM vocabulary
+        WHERE language_id = $1 AND lower(word) = lower($2)
+        LIMIT 1
+        """,
+        language_id, word,
+    )
+    titles = [c.get("title") for c in charts]
+    if row is None:
+        vid = await conn.fetchval(
+            """
+            INSERT INTO vocabulary
+                (language_id, word, part_of_speech, morphology, usage_note)
+            VALUES ($1, $2, $3, $4::jsonb, $5)
+            ON CONFLICT (language_id, word) DO NOTHING
+            RETURNING id
+            """,
+            language_id, word, part_of_speech,
+            json.dumps({"charts": charts}), usage_note,
+        )
+        if vid is None:  # raced an identical insert — treat as already done
+            return None, "skipped"
+        await log_change(
+            conn, entity_type="vocabulary", entity_id=str(vid),
+            action="charts_generated", language_id=language_id,
+            after={"word": word, "charts": titles},
+            note=origin_detail,
+        )
+        return str(vid), "created"
+
+    morph = row["morphology"]
+    if isinstance(morph, str):
+        try:
+            morph = json.loads(morph)
+        except (json.JSONDecodeError, TypeError):
+            morph = {}
+    if not isinstance(morph, dict):
+        morph = {}
+    if morph.get("charts"):
+        return str(row["id"]), "skipped"
+    merged = {**morph, "charts": charts}
+    await conn.execute(
+        """
+        UPDATE vocabulary
+        SET morphology = $2::jsonb,
+            usage_note = COALESCE(usage_note, $3)
+        WHERE id = $1
+        """,
+        row["id"], json.dumps(merged), usage_note,
+    )
+    await log_change(
+        conn, entity_type="vocabulary", entity_id=str(row["id"]),
+        action="charts_generated", language_id=language_id,
+        after={"word": word, "charts": titles},
+        note=origin_detail,
+    )
+    return str(row["id"]), "updated"
