@@ -166,8 +166,9 @@ function RolesCell({
   )
 }
 
-/** Per-account tutor override: Default (tiers decide) / Enabled with a
- * monthly message cap (bounded API cost for trials) / Blocked. */
+/** Per-account monthly usage allotment (owner): Default (the plan decides) /
+ * Custom with a monthly cap (bounded API cost for trials, or a bumped
+ * allotment for a specific member) / Blocked. */
 function TutorCell({ account }: { account: AdminAccount }) {
   const queryClient = useQueryClient()
   const [cap, setCap] = useState<string>(
@@ -199,8 +200,8 @@ function TutorCell({ account }: { account: AdminAccount }) {
         aria-label={`Tutor access for ${account.email}`}
         className="rounded border border-gray-300 bg-white px-2 py-1 text-xs"
       >
-        <option value="default">Default (tier)</option>
-        <option value="enabled">Enabled</option>
+        <option value="default">Default (plan)</option>
+        <option value="enabled">Custom allotment</option>
         <option value="blocked">Blocked</option>
       </select>
       {account.tutor_access === 'enabled' && (
@@ -210,9 +211,9 @@ function TutorCell({ account }: { account: AdminAccount }) {
           onBlur={() =>
             mutation.mutate({ access: 'enabled', dailyCap: parsedCap() })
           }
-          placeholder="cap/mo"
-          aria-label={`Tutor monthly message cap for ${account.email}`}
-          title="Max tutor messages per month (blank = the Tutor+ monthly pool)"
+          placeholder="per month"
+          aria-label={`Monthly usage allotment for ${account.email}`}
+          title="Monthly usage allotment for this account (blank = the Plus monthly pool)"
           className="w-20 rounded border border-gray-300 bg-white px-2 py-1 text-xs"
           inputMode="numeric"
         />

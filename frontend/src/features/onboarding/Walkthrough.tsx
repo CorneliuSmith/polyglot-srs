@@ -60,7 +60,7 @@ const SLIDES: Slide[] = [
   },
   {
     icon: GraduationCap,
-    title: 'AI Tutor — Practice vs. Reference',
+    title: 'Tutor — Practice vs. Reference',
     body: (
       <>
         <b>Practice</b> drills you on the language and saves what you covered to

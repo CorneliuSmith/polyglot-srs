@@ -60,10 +60,10 @@ describe('RecommendationsPage', () => {
     expect(mockRefresh).not.toHaveBeenCalled()
   })
 
-  it('shows a tutor+ upsell when enabled but not entitled', async () => {
+  it('shows a Plus upsell when enabled but not entitled', async () => {
     mockGet.mockResolvedValue({ enabled: true, entitled: false, stale: true, batches: [] })
     renderPage()
-    expect(await screen.findByText(/tutor\+ feature/i)).toBeDefined()
+    expect(await screen.findByText(/Plus feature/i)).toBeDefined()
     // Never auto-generates without entitlement.
     expect(mockRefresh).not.toHaveBeenCalled()
   })

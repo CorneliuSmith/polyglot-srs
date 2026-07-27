@@ -25,7 +25,7 @@ describe('WelcomePage', () => {
     for (const name of [
       'Reviews',
       'Grammar Path',
-      'AI Tutor',
+      'Tutor',
       'The Reader',
       'Letters & Sounds',
       'Decks & Search',
@@ -36,7 +36,7 @@ describe('WelcomePage', () => {
 
   it('cards navigate to their feature', () => {
     renderPage()
-    fireEvent.click(screen.getByRole('button', { name: /AI Tutor/ }))
+    fireEvent.click(screen.getByRole('button', { name: /Tutor/ }))
     expect(mockNavigate).toHaveBeenCalledWith('/tutor')
     fireEvent.click(screen.getByRole('button', { name: /Letters & Sounds/ }))
     expect(mockNavigate).toHaveBeenCalledWith('/letters')

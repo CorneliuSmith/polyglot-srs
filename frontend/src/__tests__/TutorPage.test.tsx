@@ -98,22 +98,27 @@ describe('TutorPage', () => {
     expect(screen.queryByTestId('tutor-allowance')).toBeNull()
   })
 
-  it('free tier chats with a visible monthly meter — no paywall', async () => {
+  it('free tier chats with the usage meter — percentages, never counts', async () => {
+    // Claude-style (owner): usage is a percentage of the monthly pool with a
+    // reset date — raw message counts and model plumbing stay hidden.
     mockGetTutorStatus.mockResolvedValue(statusWith(freeAllowance(14)))
     renderPage()
     expect(await screen.findByText(/I’m your Turkish tutor/i)).toBeDefined()
     const meter = screen.getByTestId('tutor-allowance')
-    expect(meter.textContent).toContain('14 of 20 free messages')
-    expect(meter.textContent).toContain('never per message')
+    expect(meter.textContent).toContain('Monthly usage')
+    expect(meter.textContent).toContain('30% used') // 6 of 20 drawn
+    expect(meter.textContent).not.toContain('messages')
+    expect(meter.textContent).toContain('flat price') // the Plus line
     expect(screen.getByPlaceholderText(/message your tutor/i)).toBeDefined()
   })
 
-  it('plus tier shows the monthly fair-use meter', async () => {
+  it('plus tier shows the usage meter without an upsell', async () => {
     mockGetTutorStatus.mockResolvedValue(statusWith(plusAllowance(93)))
     renderPage()
     const meter = await screen.findByTestId('tutor-allowance')
-    expect(meter.textContent).toContain('93 of 100 messages left this month')
-    expect(meter.textContent).toContain('your price never changes')
+    expect(meter.textContent).toContain('7% used') // 7 of 100 drawn
+    expect(meter.textContent).toContain('Resets')
+    expect(meter.textContent).not.toContain('flat price')
   })
 
   it('exhausted free tier blocks input and offers flat-price Plus', async () => {
@@ -124,7 +129,7 @@ describe('TutorPage', () => {
     renderPage()
 
     const panel = await screen.findByTestId('tutor-exhausted')
-    expect(panel.textContent).toContain('free tutor messages')
+    expect(panel.textContent).toContain('all of this month’s usage')
     expect(panel.textContent).toContain('flat price')
     expect(screen.queryByPlaceholderText(/message your tutor/i)).toBeNull()
 
@@ -140,7 +145,7 @@ describe('TutorPage', () => {
     mockGetTutorStatus.mockResolvedValue(statusWith(plusAllowance(0)))
     renderPage()
     const panel = await screen.findByTestId('tutor-exhausted')
-    expect(panel.textContent).toContain('this month’s fair-use pool')
+    expect(panel.textContent).toContain('this month’s usage limit')
     expect(panel.textContent).toContain('price never changes')
     expect(screen.queryByRole('button', { name: /get plus/i })).toBeNull()
   })
@@ -172,8 +177,9 @@ describe('TutorPage', () => {
     expect(mockSendTutorMessage).toHaveBeenCalledWith('lang-tr', 'tr', [
       { role: 'user', content: 'Help me with -de' },
     ], 'practice')
+    // The reply's fresh allowance re-renders the meter: 7 of 20 drawn -> 35%.
     expect(screen.getByTestId('tutor-allowance').textContent).toContain(
-      '13 of 20',
+      '35% used',
     )
   })
 

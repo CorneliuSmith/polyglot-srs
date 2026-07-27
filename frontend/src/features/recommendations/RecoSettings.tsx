@@ -102,7 +102,7 @@ export default function RecoSettings() {
 
       {state && !state.entitled && (
         <p className="text-xs text-amber-600">
-          Receiving picks needs a tutor+ subscription for this language — you can
+          Receiving picks needs a Plus subscription for this language — you can
           still set up your profile now.
         </p>
       )}

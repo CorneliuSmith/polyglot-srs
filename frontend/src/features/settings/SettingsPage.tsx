@@ -11,6 +11,8 @@ import {
   startPlanCheckout,
 } from '../../api/billing'
 import { getDashboardStats } from '../../api/dashboard'
+import { getTutorStatus } from '../../api/tutor'
+import UsageMeter from '../../components/UsageMeter'
 import { usePrefsStore } from '../../stores/prefsStore'
 import type { Theme } from '../../stores/prefsStore'
 import { hasTranslit } from '../keyboards/translit'
@@ -116,6 +118,17 @@ export default function SettingsPage() {
     queryKey: ['plan-prices'],
     queryFn: getPlanPrices,
     staleTime: Infinity,
+  })
+  // Monthly usage for the Plan section — the Claude-style meter (owner):
+  // members with intelligent features see how much of their monthly usage
+  // they've drawn, never the machinery behind it.
+  const activeLanguageCode =
+    languages.find((l) => l.id === activeLanguageId)?.code ?? ''
+  const { data: tutorStatus } = useQuery({
+    queryKey: ['tutor-status', activeLanguageId],
+    queryFn: () => getTutorStatus(activeLanguageId!, activeLanguageCode),
+    enabled: !!activeLanguageId && !!activeLanguageCode,
+    retry: false,
   })
   const allPrice = formatPrice(planPrices?.all ?? null)
   const [billingUnavailable, setBillingUnavailable] = useState(false)
@@ -428,6 +441,9 @@ export default function SettingsPage() {
                   ? `Upgrade to All languages — ${allPrice}`
                   : 'Upgrade to All languages'}
             </button>
+          )}
+          {tutorStatus?.available && (
+            <UsageMeter allowance={tutorStatus.allowance} className="pt-1" />
           )}
           <button
             type="button"

@@ -329,7 +329,7 @@ describe('ContributorPage', () => {
     )) as HTMLSelectElement
     expect(select.value).toBe('enabled')
     const cap = screen.getByLabelText(
-      /tutor monthly message cap for friend@x\.com/i,
+      /monthly usage allotment for friend@x\.com/i,
     ) as HTMLInputElement
     expect(cap.value).toBe('10')
 
