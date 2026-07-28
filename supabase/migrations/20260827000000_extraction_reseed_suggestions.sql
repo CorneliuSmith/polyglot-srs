@@ -17,15 +17,20 @@
 --      is not a logged-in user) and mark them as doc-sourced so admin can track
 --      how often these comparatively expensive AI recommendations get accepted.
 
+-- Every statement below is guarded (IF NOT EXISTS / naturally idempotent):
+-- production received a partial hand-apply of this file before it was ever
+-- tracked, so a catch-up push must fill the gaps without dying on the parts
+-- that already landed. Same reason 20260828/20260830 are guarded.
+
 -- --- vocabulary: the human-owned signal -----------------------------------
 ALTER TABLE vocabulary
-    ADD COLUMN curated BOOLEAN NOT NULL DEFAULT false;
+    ADD COLUMN IF NOT EXISTS curated BOOLEAN NOT NULL DEFAULT false;
 
 -- Existing human-confirmed levels ARE human-owned cards — protect them now.
 UPDATE vocabulary SET curated = true WHERE level_source = 'curated';
 
 -- The reseed importer looks up curated words per language before each upsert.
-CREATE INDEX idx_vocabulary_curated
+CREATE INDEX IF NOT EXISTS idx_vocabulary_curated
     ON vocabulary (language_id) WHERE curated;
 
 -- --- content_suggestions: system-authored, doc-sourced proposals ----------
@@ -36,19 +41,19 @@ ALTER TABLE content_suggestions
 -- Where the proposal came from: a contributor (the existing flow) or an
 -- extraction re-seed (the new doc-sourced flow the metrics count).
 ALTER TABLE content_suggestions
-    ADD COLUMN source TEXT NOT NULL DEFAULT 'contributor'
+    ADD COLUMN IF NOT EXISTS source TEXT NOT NULL DEFAULT 'contributor'
         CHECK (source IN ('contributor', 'extraction'));
 
 -- Free-text provenance for an extraction proposal (e.g. 'document re-seed').
 ALTER TABLE content_suggestions
-    ADD COLUMN origin TEXT;
+    ADD COLUMN IF NOT EXISTS origin TEXT;
 
 -- Admin acceptance-rate metrics filter by (source, status).
-CREATE INDEX idx_content_suggestions_source_status
+CREATE INDEX IF NOT EXISTS idx_content_suggestions_source_status
     ON content_suggestions (source, status);
 
 -- At most one PENDING extraction proposal per card: a repeated reseed refreshes
 -- the existing pending row instead of piling up duplicates.
-CREATE UNIQUE INDEX idx_content_suggestions_one_pending_extraction
+CREATE UNIQUE INDEX IF NOT EXISTS idx_content_suggestions_one_pending_extraction
     ON content_suggestions (entity_type, entity_id)
     WHERE source = 'extraction' AND status = 'pending';
