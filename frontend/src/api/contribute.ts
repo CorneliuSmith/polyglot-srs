@@ -143,6 +143,28 @@ export const TUTOR_MODELS = [
   'claude-haiku-4-5-20251001',
 ] as const
 
+export interface LanguageReadiness {
+  id: string
+  code: string
+  name: string
+  is_visible: boolean
+  draft_points: number
+  pending_drills: number
+  pending_examples: number
+  /** Unreviewed CONTENT — what gates a first release. */
+  awaiting_review: number
+  /** Human-raised traffic (notes, change requests, feedback). */
+  open_reports: number
+}
+
+/** Per-language review backlog behind the release (visibility) decision. */
+export async function getLanguageReadiness(): Promise<LanguageReadiness[]> {
+  const response = await apiClient.get<{ languages: LanguageReadiness[] }>(
+    '/api/contribute/language-readiness',
+  )
+  return response.data?.languages ?? []
+}
+
 export async function setLanguageTutorModel(
   languageId: string,
   model: string | null,

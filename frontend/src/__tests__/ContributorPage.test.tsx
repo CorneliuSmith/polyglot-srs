@@ -42,6 +42,7 @@ vi.mock('../api/contribute', () => ({
   getPendingDrills: vi.fn(() => Promise.resolve([])),
   reviewDrill: vi.fn(),
   TUTOR_MODELS: ['claude-opus-4-8', 'claude-sonnet-5'],
+  getLanguageReadiness: vi.fn(() => Promise.resolve([])),
   getTutorUsage: vi.fn(() =>
     Promise.resolve({ days: 30, rows: [], total_messages: 0, total_est_cost_usd: 0 }),
   ),

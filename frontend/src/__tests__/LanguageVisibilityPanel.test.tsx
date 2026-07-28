@@ -6,7 +6,10 @@ import LanguageVisibilityPanel from '../features/contribute/LanguageVisibilityPa
 const { mockSetActive } = vi.hoisted(() => ({ mockSetActive: vi.fn() }))
 
 vi.mock('../api/profile', () => ({ getLanguages: vi.fn() }))
-vi.mock('../api/contribute', () => ({ setLanguageVisibility: vi.fn() }))
+vi.mock('../api/contribute', () => ({
+  setLanguageVisibility: vi.fn(),
+  getLanguageReadiness: vi.fn(() => Promise.resolve([])),
+}))
 vi.mock('../stores/prefsStore', () => ({
   usePrefsStore: vi.fn(
     (selector: (s: Record<string, unknown>) => unknown) =>
@@ -15,10 +18,23 @@ vi.mock('../stores/prefsStore', () => ({
 }))
 
 import { getLanguages } from '../api/profile'
-import { setLanguageVisibility } from '../api/contribute'
+import { getLanguageReadiness, setLanguageVisibility } from '../api/contribute'
 
 const mockGetLanguages = getLanguages as ReturnType<typeof vi.fn>
 const mockSetVisibility = setLanguageVisibility as ReturnType<typeof vi.fn>
+const mockReadiness = getLanguageReadiness as ReturnType<typeof vi.fn>
+
+const readinessRow = (id: string, awaiting: number) => ({
+  id,
+  code: id.slice(-2),
+  name: id,
+  is_visible: false,
+  draft_points: awaiting,
+  pending_drills: 0,
+  pending_examples: 0,
+  awaiting_review: awaiting,
+  open_reports: 0,
+})
 
 const LANGS = [
   { id: 'lang-es', code: 'es', name: 'Spanish', rtl: false, is_visible: true },
@@ -39,6 +55,7 @@ describe('LanguageVisibilityPanel', () => {
     vi.clearAllMocks()
     mockGetLanguages.mockResolvedValue(LANGS)
     mockSetVisibility.mockResolvedValue(undefined)
+    mockReadiness.mockResolvedValue([])
   })
 
   it('shows every language with its current visibility state', async () => {
@@ -64,5 +81,63 @@ describe('LanguageVisibilityPanel', () => {
     renderPanel()
     fireEvent.click(await screen.findByText('Hebrew'))
     expect(mockSetActive).toHaveBeenCalledWith('lang-he')
+  })
+
+  describe('release gate (owner: "released after review")', () => {
+    it('badges the outstanding review backlog per language', async () => {
+      mockReadiness.mockResolvedValue([
+        readinessRow('lang-he', 12),
+        { ...readinessRow('lang-es', 0), is_visible: true },
+      ])
+      renderPanel()
+      expect(await screen.findByText('12 to review')).toBeDefined()
+      expect(screen.getByText('Reviewed')).toBeDefined()
+    })
+
+    it('asks before releasing a language that still has unreviewed content', async () => {
+      mockReadiness.mockResolvedValue([readinessRow('lang-he', 12)])
+      const confirmSpy = vi.spyOn(window, 'confirm').mockReturnValue(false)
+      renderPanel()
+      await screen.findByText('12 to review')
+
+      fireEvent.click(screen.getByLabelText(/hebrew visible to learners/i))
+      expect(confirmSpy).toHaveBeenCalled()
+      expect(confirmSpy.mock.calls[0][0]).toMatch(/12 items awaiting review/i)
+      // Declined — the language stays hidden.
+      expect(mockSetVisibility).not.toHaveBeenCalled()
+
+      confirmSpy.mockRestore()
+    })
+
+    it('releases without asking once nothing is awaiting review', async () => {
+      mockReadiness.mockResolvedValue([readinessRow('lang-he', 0)])
+      const confirmSpy = vi.spyOn(window, 'confirm').mockReturnValue(true)
+      renderPanel()
+      await screen.findByText('Reviewed')
+
+      fireEvent.click(screen.getByLabelText(/hebrew visible to learners/i))
+      expect(confirmSpy).not.toHaveBeenCalled()
+      await waitFor(() =>
+        expect(mockSetVisibility).toHaveBeenCalledWith('lang-he', true),
+      )
+      confirmSpy.mockRestore()
+    })
+
+    it('never blocks UN-releasing a language', async () => {
+      // Pulling something back is always safe — only going live asks.
+      mockReadiness.mockResolvedValue([
+        { ...readinessRow('lang-es', 99), is_visible: true },
+      ])
+      const confirmSpy = vi.spyOn(window, 'confirm').mockReturnValue(true)
+      renderPanel()
+      await screen.findByText('99 to review')
+
+      fireEvent.click(screen.getByLabelText(/spanish visible to learners/i))
+      expect(confirmSpy).not.toHaveBeenCalled()
+      await waitFor(() =>
+        expect(mockSetVisibility).toHaveBeenCalledWith('lang-es', false),
+      )
+      confirmSpy.mockRestore()
+    })
   })
 })

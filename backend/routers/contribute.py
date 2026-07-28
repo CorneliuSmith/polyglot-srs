@@ -70,6 +70,7 @@ from backend.repositories.contributor import (
     get_vocab_language,
     grant_role,
     is_admin,
+    language_release_readiness,
     list_accounts,
     list_ai_leveled_vocab,
     list_all_roles,
@@ -334,6 +335,17 @@ async def update_language_visibility(
     if not ok:
         raise HTTPException(status_code=404, detail="Unknown language")
     return {"is_visible": body.is_visible}
+
+
+@router.get("/language-readiness")
+async def language_readiness(user: dict = Depends(get_current_user)):
+    """Per-language review backlog, for the release (visibility) decision.
+
+    Admin-only, like the visibility switch it annotates: it exposes the
+    unreviewed-content position of every language at once."""
+    await _require_admin(user["id"])
+    async with privileged_connection() as conn:
+        return {"languages": await language_release_readiness(conn)}
 
 
 class TutorModelUpdate(BaseModel):

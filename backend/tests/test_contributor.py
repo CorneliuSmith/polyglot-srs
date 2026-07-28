@@ -526,6 +526,29 @@ class TestLanguageVisibility:
             )
         assert resp.status_code == 404
 
+    def test_readiness_requires_admin(self, client):
+        # The release backlog is admin-only, like the switch it annotates.
+        with _roles([{"language_id": LANG, "role": "reviewer"}]):
+            resp = client.get(
+                "/api/contribute/language-readiness", headers=_auth_headers()
+            )
+        assert resp.status_code == 403
+
+    def test_readiness_lists_every_language(self, client):
+        rows = [{
+            "id": LANG, "code": "he", "name": "Hebrew", "is_visible": False,
+            "draft_points": 41, "pending_drills": 0, "pending_examples": 0,
+            "awaiting_review": 41, "open_reports": 2,
+        }]
+        with _roles([{"language_id": None, "role": "admin"}]), \
+             patch("backend.routers.contribute.language_release_readiness",
+                   new=AsyncMock(return_value=rows)):
+            resp = client.get(
+                "/api/contribute/language-readiness", headers=_auth_headers()
+            )
+        assert resp.status_code == 200
+        assert resp.json() == {"languages": rows}
+
     def test_missing_migration_503_not_500(self, client):
         # Prod schema without 20260831: a clear 503 naming the migration,
         # not a bare UndefinedColumnError 500.
