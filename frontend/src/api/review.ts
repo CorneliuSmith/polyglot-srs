@@ -113,6 +113,14 @@ export async function markCardKnown(cardId: string): Promise<void> {
   await apiClient.post(`/api/review/card/${cardId}/known`)
 }
 
+/** Reset ONE card's progress — the individual-card sibling of
+ * resetDeckProgress/resetProgress. Deletes its whole history; the card is a
+ * brand-new Learn candidate again immediately. Also how a mistaken "I
+ * already know this" gets undone. */
+export async function resetCardProgress(cardId: string): Promise<void> {
+  await apiClient.delete(`/api/review/card/${cardId}/progress`)
+}
+
 export async function startLearnSession(
   languageId: string,
   cardType: 'vocabulary' | 'grammar' | 'both' = 'vocabulary',
@@ -167,6 +175,12 @@ export async function resetProgress(
   return response.data
 }
 
+/** The caller's own progress on this item: 'new' (never learned), 'learning'
+ * (taught, awaiting the Learn first-check), 'known' (retired — marked
+ * already-known, either from Learn or Review), 'active' (in normal review
+ * rotation). */
+export type CardStatus = 'new' | 'learning' | 'known' | 'active'
+
 export interface DeckItem {
   id: string
   kind: 'grammar' | 'vocabulary'
@@ -174,6 +188,8 @@ export interface DeckItem {
   detail: string | null
   level: string | null
   reviewed: boolean
+  status: CardStatus
+  user_card_id: string | null
 }
 
 export interface DeckListing {
