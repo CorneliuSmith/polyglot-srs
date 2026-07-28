@@ -206,18 +206,44 @@ async def record_placement_attempt(
     even if the bookkeeping insert fails.
     """
     try:
-        await conn.execute(
+        attempt_id = await conn.fetchval(
             """
             INSERT INTO placement_attempts
-                (user_id, language_id, estimated_level, items_asked,
-                 per_level, missed_grammar_ids, missed_vocabulary_ids)
-            VALUES ($1, $2, $3, $4, $5::jsonb, $6::uuid[], $7::uuid[])
+                (user_id, language_id, estimated_level, items_asked, per_level)
+            VALUES ($1, $2, $3, $4, $5::jsonb)
+            RETURNING id
             """,
             user_id, language_id, estimated_level, items_asked,
             json.dumps(per_level or {}),
-            missed_grammar_ids or [],
-            missed_vocabulary_ids or [],
         )
+        # The snapshot is taken HERE, at the moment of the sitting, because
+        # this is the only moment the titles are guaranteed to be the ones
+        # the learner actually saw. Resolving them at read time would let a
+        # later rename or retirement rewrite what the test asked.
+        if missed_grammar_ids:
+            await conn.execute(
+                """
+                INSERT INTO placement_attempt_items
+                    (attempt_id, kind, drill_id, grammar_point_id,
+                     label, cell, level)
+                SELECT $1, 'grammar', ds.id, gp.id, gp.title, ds.cell, gp.level
+                FROM drill_sentences ds
+                JOIN grammar_points gp ON gp.id = ds.grammar_point_id
+                WHERE ds.id = ANY($2::uuid[])
+                """,
+                attempt_id, missed_grammar_ids,
+            )
+        if missed_vocabulary_ids:
+            await conn.execute(
+                """
+                INSERT INTO placement_attempt_items
+                    (attempt_id, kind, vocabulary_id, label, level)
+                SELECT $1, 'vocabulary', v.id, v.word, v.level
+                FROM vocabulary v
+                WHERE v.id = ANY($2::uuid[])
+                """,
+                attempt_id, missed_vocabulary_ids,
+            )
     except asyncpg.PostgresError:
         pass
 
@@ -246,8 +272,7 @@ async def get_placement_insight(
     """
     row = await conn.fetchrow(
         """
-        SELECT estimated_level, items_asked, per_level,
-               missed_grammar_ids, missed_vocabulary_ids, created_at
+        SELECT id, estimated_level, items_asked, per_level, created_at
         FROM placement_attempts
         WHERE user_id = $1 AND language_id = $2
         ORDER BY created_at DESC
@@ -305,29 +330,23 @@ async def get_placement_insight(
         except ValueError:
             pass
 
-    # Name the misses. A bare uuid tells a model nothing; the grammar point
-    # TITLE and the word itself are what a prompt can coach against.
-    missed_grammar = list(row["missed_grammar_ids"] or [])
-    missed_vocab = list(row["missed_vocabulary_ids"] or [])
-    if missed_grammar:
-        rows = await conn.fetch(
-            """
-            SELECT DISTINCT gp.title, gp.level
-            FROM drill_sentences ds
-            JOIN grammar_points gp ON ds.grammar_point_id = gp.id
-            WHERE ds.id = ANY($1::uuid[])
-            """,
-            missed_grammar,
-        )
-        insight["missed_structures"] = [
-            r["title"] for r in rows[:_MAX_INSIGHT_ITEMS]
-        ]
-    if missed_vocab:
-        rows = await conn.fetch(
-            "SELECT word FROM vocabulary WHERE id = ANY($1::uuid[])",
-            missed_vocab,
-        )
-        insight["missed_words"] = [r["word"] for r in rows[:_MAX_INSIGHT_ITEMS]]
+    # Name the misses, from the snapshot taken when the test was sat — a bare
+    # id tells a model nothing, and re-deriving the title now would let a
+    # later rename change what the learner is told they got wrong.
+    missed = await conn.fetch(
+        """
+        SELECT DISTINCT kind, label
+        FROM placement_attempt_items
+        WHERE attempt_id = $1 AND label IS NOT NULL
+        """,
+        row["id"],
+    )
+    structures = [r["label"] for r in missed if r["kind"] == "grammar"]
+    words = [r["label"] for r in missed if r["kind"] == "vocabulary"]
+    if structures:
+        insight["missed_structures"] = structures[:_MAX_INSIGHT_ITEMS]
+    if words:
+        insight["missed_words"] = words[:_MAX_INSIGHT_ITEMS]
     return insight
 
 
@@ -343,16 +362,19 @@ async def get_placement_form_misses(
     """
     if not point_ids:
         return {}
+    # Reads the snapshotted cell, so a drill retired since the sitting still
+    # tells the generator which form to aim at. An indexed join on
+    # grammar_point_id — the array version could only do an unindexed scan.
     rows = await conn.fetch(
         """
-        SELECT DISTINCT ON (ds.grammar_point_id)
-               ds.grammar_point_id::text AS point_id, ds.cell
-        FROM placement_attempts pa
-        JOIN drill_sentences ds ON ds.id = ANY(pa.missed_grammar_ids)
+        SELECT DISTINCT ON (i.grammar_point_id)
+               i.grammar_point_id::text AS point_id, i.cell
+        FROM placement_attempt_items i
+        JOIN placement_attempts pa ON pa.id = i.attempt_id
         WHERE pa.user_id = $1
-          AND ds.grammar_point_id = ANY($2::uuid[])
-          AND ds.cell IS NOT NULL
-        ORDER BY ds.grammar_point_id, pa.created_at DESC
+          AND i.grammar_point_id = ANY($2::uuid[])
+          AND i.cell IS NOT NULL
+        ORDER BY i.grammar_point_id, pa.created_at DESC
         """,
         user_id, point_ids,
     )

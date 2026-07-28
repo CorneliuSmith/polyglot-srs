@@ -13,6 +13,13 @@ import { VIEW_AS_LABEL, VIEW_AS_LEVELS, type ViewAsLevel } from '../lib/viewAs'
  * role-gated queries so the whole UI — nav, panels, buttons — settles into
  * what that level actually sees.
  *
+ * STICKY, and a single row at every width. The first version laid five chips
+ * out in a wrapping flex row in normal document flow: on a phone that took
+ * two lines, and it scrolled away the moment a learn session started, so
+ * "a toggle at the top of every page" was true only at the top of the page.
+ * A native <select> is one line at any width, gets the platform picker on
+ * mobile, and is keyboard- and screen-reader-navigable for free.
+ *
  * It is a PREVIEW, not a permission change: the downgrade only ever removes
  * capability client-side, and every privileged endpoint re-derives the
  * caller's real roles server-side. The bar stays visible (and loud) while a
@@ -48,58 +55,56 @@ export default function ViewAsBar() {
   return (
     <div
       data-testid="view-as-bar"
+      // z-40 keeps it under the app's modals (z-50) — a placement prompt or
+      // reviewer gate must still cover it.
       className={
-        previewing
-          ? 'bg-amber-500 text-amber-950'
-          : 'bg-gray-100 text-gray-600 border-b border-gray-200'
+        'sticky top-0 z-40 ' +
+        (previewing
+          ? 'bg-amber-500 text-amber-950 shadow-sm'
+          : 'bg-gray-100 text-gray-600 border-b border-gray-200')
       }
     >
-      <div className="max-w-3xl mx-auto px-4 py-1.5 flex flex-wrap items-center gap-x-2 gap-y-1 text-xs">
-        <span className="flex items-center gap-1.5 font-medium">
-          <Eye aria-hidden className="h-3.5 w-3.5" />
-          {previewing ? `Viewing as ${VIEW_AS_LABEL[viewAs]}` : 'View as'}
-        </span>
-        <div
-          role="group"
-          aria-label="Preview access level"
-          className="flex flex-wrap items-center gap-1"
+      <div className="max-w-3xl mx-auto px-4 py-1.5 flex items-center gap-2 text-xs">
+        <label
+          htmlFor="view-as-select"
+          className="flex shrink-0 items-center gap-1.5 font-medium"
         >
+          <Eye aria-hidden className="h-3.5 w-3.5" />
+          {previewing ? 'Viewing as' : 'View as'}
+        </label>
+        <select
+          id="view-as-select"
+          value={viewAs ?? ''}
+          onChange={(e) => choose((e.target.value || null) as ViewAsLevel | null)}
+          className={
+            'min-w-0 flex-1 rounded-full border px-2 py-1 font-semibold ' +
+            (previewing
+              ? 'border-amber-700/40 bg-white text-gray-900'
+              : 'border-gray-300 bg-white text-gray-800')
+          }
+        >
+          <option value="">Admin (you)</option>
+          {VIEW_AS_LEVELS.map((level) => (
+            <option key={level} value={level}>
+              {VIEW_AS_LABEL[level]}
+            </option>
+          ))}
+        </select>
+        {previewing && (
           <button
             type="button"
             onClick={() => choose(null)}
-            aria-pressed={!previewing}
-            className={`rounded-full px-2 py-0.5 transition-colors ${
-              !previewing
-                ? 'bg-white text-gray-900 font-semibold'
-                : 'bg-amber-400/60 hover:bg-amber-400'
-            }`}
+            className="shrink-0 rounded-full bg-amber-950 px-2.5 py-1 font-semibold text-amber-50 hover:bg-amber-900"
           >
-            Admin (you)
+            Exit preview
           </button>
-          {VIEW_AS_LEVELS.map((level) => (
-            <button
-              key={level}
-              type="button"
-              onClick={() => choose(level)}
-              aria-pressed={viewAs === level}
-              className={`rounded-full px-2 py-0.5 transition-colors ${
-                viewAs === level
-                  ? 'bg-white text-gray-900 font-semibold'
-                  : previewing
-                    ? 'bg-amber-400/60 hover:bg-amber-400'
-                    : 'bg-white/70 hover:bg-white border border-gray-200'
-              }`}
-            >
-              {VIEW_AS_LABEL[level]}
-            </button>
-          ))}
-        </div>
-        {previewing && (
-          <span className="ml-auto opacity-90">
-            Preview only — your real access is unchanged.
-          </span>
         )}
       </div>
+      {previewing && (
+        <p className="max-w-3xl mx-auto px-4 pb-1 text-[11px] leading-tight opacity-90">
+          Preview only — your real access is unchanged.
+        </p>
+      )}
     </div>
   )
 }

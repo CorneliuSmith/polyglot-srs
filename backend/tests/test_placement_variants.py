@@ -98,11 +98,11 @@ class TestPlacementVariants:
 class FakeInsightConn:
     """Enough asyncpg surface to exercise get_placement_insight's shaping."""
 
-    def __init__(self, latest=None, previous=None, titles=None, words=None):
+    def __init__(self, latest=None, previous=None, items=None):
         self.latest = latest
         self.previous = previous
-        self.titles = titles or []
-        self.words = words or []
+        # Snapshot rows from placement_attempt_items, not live content.
+        self.items = items or []
 
     async def fetchrow(self, query, *args):
         return self.latest
@@ -111,19 +111,18 @@ class FakeInsightConn:
         return self.previous
 
     async def fetch(self, query, *args):
-        return self.titles if "grammar_points" in query else self.words
+        return self.items
 
 
 def attempt(**over):
     from datetime import UTC, datetime
     base = {
+        "id": "attempt-1",
         "estimated_level": "B1",
         "items_asked": 7,
         "per_level": {"A1": {"correct": 3, "total": 3},
                       "A2": {"correct": 2, "total": 3},
                       "B1": {"correct": 1, "total": 3}},
-        "missed_grammar_ids": [],
-        "missed_vocabulary_ids": [],
         "created_at": datetime(2026, 7, 1, tzinfo=UTC),
     }
     return {**base, **over}
@@ -159,12 +158,14 @@ class TestPlacementInsight:
     async def test_names_the_missed_structures_and_words(self):
         from backend.repositories.onboarding import get_placement_insight
         conn = FakeInsightConn(
-            latest=attempt(missed_grammar_ids=["g1"], missed_vocabulary_ids=["v1"]),
-            titles=[{"title": "The subjunctive after querer", "level": "B1"}],
-            words=[{"word": "aunque"}],
+            latest=attempt(),
+            items=[
+                {"kind": "grammar", "label": "The subjunctive after querer"},
+                {"kind": "vocabulary", "label": "aunque"},
+            ],
         )
         out = await get_placement_insight(conn, "u", "l")
-        # A bare uuid coaches nobody — the title and the word do.
+        # A bare uuid coaches nobody — the snapshotted label does.
         assert out["missed_structures"] == ["The subjunctive after querer"]
         assert out["missed_words"] == ["aunque"]
 
@@ -198,3 +199,23 @@ class TestPlacementInsight:
             )), "u", "l"
         )
         assert out["held_levels"] == [] and out["struggled_levels"] == []
+
+    async def test_a_retired_drill_does_not_erase_the_finding(self):
+        """The point of snapshotting: the label lives on the attempt row, so
+        a reviewer retiring the drill that proved it (drill_id -> NULL) leaves
+        the coaching signal intact."""
+        from backend.repositories.onboarding import get_placement_insight
+        conn = FakeInsightConn(
+            latest=attempt(),
+            # drill_id is gone; the snapshot is not.
+            items=[{"kind": "grammar", "label": "The subjunctive after querer"}],
+        )
+        out = await get_placement_insight(conn, "u", "l")
+        assert out["missed_structures"] == ["The subjunctive after querer"]
+
+    async def test_unlabelled_rows_are_skipped(self):
+        from backend.repositories.onboarding import get_placement_insight
+        out = await get_placement_insight(
+            FakeInsightConn(latest=attempt(), items=[]), "u", "l"
+        )
+        assert "missed_structures" not in out and "missed_words" not in out
