@@ -331,11 +331,11 @@
           "display_order": 1
         },
         {
-          "sentence": "{{answer}} כאן?",
-          "answer": "אפשר",
-          "translation": "May we sit here? / Is it possible?",
-          "hint": "it is possible — an impersonal word that takes an infinitive after it",
-          "transliteration": "efshar kan?",
+          "sentence": "אפשר {{answer}} כאן?",
+          "answer": "לשבת",
+          "translation": "May we sit here?",
+          "hint": "to sit — the infinitive that follows the impersonal word for it is possible",
+          "transliteration": "efshar lashevet kan?",
           "display_order": 2
         },
         {
@@ -488,7 +488,7 @@
           "answer": "ישבנו",
           "translation": "We sat in a café.",
           "hint": "we sat — first person plural past",
-          "transliteration": "anachnu yashavnu bevet kafe.",
+          "transliteration": "anachnu yashavnu beveit kafe.",
           "display_order": 1
         },
         {
@@ -1034,11 +1034,11 @@
           "display_order": 4
         },
         {
-          "sentence": "הם {{answer}} על הטיול.",
+          "sentence": "הם {{answer}} לנו על הטיול.",
           "answer": "סיפרו",
           "translation": "They told us about the trip.",
           "hint": "told — third person plural past",
-          "transliteration": "hem sipru al hatiyul.",
+          "transliteration": "hem sipru lanu al hatiyul.",
           "display_order": 5
         }
       ]
@@ -1277,7 +1277,7 @@
           "answer": "אעזור",
           "translation": "If you want, I'll help you.",
           "hint": "I will help — first person singular future",
-          "transliteration": "im tirtse, ani ezor lekha.",
+          "transliteration": "im tirtse, ani eezor lekha.",
           "display_order": 3
         },
         {
@@ -1795,7 +1795,7 @@
           "answer": "באשר",
           "translation": "As for the budget, we'll discuss it tomorrow.",
           "hint": "as for — a frozen formal phrase built on that same relative word",
-          "transliteration": "beasher latakstsiv, nadun bo machar.",
+          "transliteration": "beasher lataktsiv, nadun bo machar.",
           "display_order": 4
         },
         {
