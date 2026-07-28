@@ -56,6 +56,34 @@ class TestValidateScript:
         err = validate_script("кот", "ar")
         assert err is not None
 
+    def test_hebrew_accepts_hebrew(self):
+        assert validate_script("שלום", "he") is None
+
+    def test_hebrew_accepts_niqqud_maqaf_and_geresh(self):
+        assert validate_script("בֵּן־אָדָם", "he") is None
+        assert validate_script("ג'ירפה", "he") is None  # loan-sound geresh
+
+    def test_hebrew_rejects_latin(self):
+        err = validate_script("shalom", "he")
+        assert err is not None and "non-Hebrew" in err
+
+    def test_farsi_accepts_persian(self):
+        assert validate_script("سلام", "fa") is None
+        assert validate_script("گچپژ", "fa") is None  # Persian-only letters
+
+    def test_farsi_accepts_zwnj(self):
+        # ZWNJ is essential Persian orthography (می‌روم)
+        assert validate_script("می‌روم", "fa") is None
+
+    def test_farsi_rejects_latin(self):
+        assert validate_script("salam", "fa") is not None
+
+    def test_latin_script_newcomers_are_unregistered(self):
+        # la/id/tl stay unchecked like es/fr — diacritics must pass.
+        assert validate_script("puellā", "la") is None
+        assert validate_script("señor", "tl") is None
+        assert validate_script("selamat", "id") is None
+
     def test_cyrillic_accepts_russian(self):
         assert validate_script("кошка", "ru") is None
 

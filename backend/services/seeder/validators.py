@@ -16,6 +16,15 @@ THAI_PATTERN = re.compile(r'^[\u0E00-\u0E7F\s\-]+$')
 HANGUL_PATTERN = re.compile(
     r'^[\uAC00-\uD7A3\u1100-\u11FF\u3130-\u318F\s\-]+$'
 )
+# Hebrew block (letters + niqqud + maqaf/geresh/gershayim all live in
+# U+0590\u201305FF); apostrophe for loan sounds (\u05D2'\u05D9\u05E8\u05E4\u05D4).
+HEBREW_PATTERN = re.compile(r"^[\u0590-\u05FF\s\-']+$")
+# Persian: the Arabic ranges (\u067E \u0686 \u0698 \u06AF are inside U+0600\u201306FF) plus ZWNJ \u2014
+# essential orthography (\u0645\u06CC\u200C\u0631\u0648\u0645), unlike Arabic where it never appears.
+FARSI_PATTERN = re.compile(
+    r'^[\u0600-\u06FF\u0750-\u077F\u08A0-\u08FF\uFB50-\uFDFF\uFE70-\uFEFF'
+    r'\u200C\s\u0640]+$'
+)
 
 VALID_POS = {
     "noun", "verb", "adj", "adv", "particle",
@@ -34,6 +43,11 @@ SCRIPT_VALIDATORS = {
     "hi": ("Devanagari", DEVANAGARI_PATTERN),
     "th": ("Thai", THAI_PATTERN),
     "ko": ("Hangul", HANGUL_PATTERN),
+    "he": ("Hebrew", HEBREW_PATTERN),
+    "fa": ("Perso-Arabic", FARSI_PATTERN),
+    # la/id/tl are Latin-script and deliberately unregistered, like es/fr/de:
+    # the strict ASCII Latin check would reject legitimate diacritics
+    # (Latin macrons ā/ē, Tagalog ñ), and unknown codes are always accepted.
 }
 
 
