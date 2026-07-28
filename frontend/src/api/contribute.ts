@@ -654,6 +654,14 @@ export interface ChangeRequest {
   issue: string
   suggestion: string | null
   status: string
+  /** Review Mode: the exact span the reviewer selected. */
+  quote?: string | null
+  quote_context?: {
+    source?: string
+    start?: number
+    end?: number
+    source_text?: string
+  }
   author_email: string | null
   score: number
   upvotes: number
@@ -670,6 +678,8 @@ export interface NewChangeRequest {
   field: string
   issue: string
   suggestion?: string | null
+  quote?: string | null
+  quote_context?: Record<string, unknown>
 }
 
 export async function createChangeRequest(body: NewChangeRequest): Promise<{ id: string }> {

@@ -111,6 +111,22 @@ export default function ChangeRequestsPanel({ languageId }: { languageId: string
                 “{r.target_label}”
               </p>
             )}
+            {/* Review Mode flags carry the exact words objected to. Shown
+                highlighted and above the issue, because on a long sentence
+                "unnatural" means nothing until you know WHICH clause. */}
+            {r.quote && (
+              <p
+                className="rounded bg-amber-50 border border-amber-200 px-2 py-1 text-sm text-gray-800"
+                data-testid="change-request-quote"
+              >
+                “{r.quote}”
+                {r.quote_context?.source && (
+                  <span className="ml-1 text-[11px] uppercase tracking-wide text-amber-700">
+                    · {r.quote_context.source}
+                  </span>
+                )}
+              </p>
+            )}
             <p className="text-sm text-gray-800">{r.issue}</p>
             {r.suggestion && (
               <p className="text-sm text-green-700">

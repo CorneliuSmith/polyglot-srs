@@ -1652,7 +1652,12 @@ async def vocab_ai_check(
     return result
 
 
-TARGET_TYPES = ("grammar_point", "drill", "vocabulary", "example_sentence", "other")
+# tutor_message / reading have no stable row id — the quote and its context
+# ARE the record, which is why target_id stays optional below.
+TARGET_TYPES = (
+    "grammar_point", "drill", "vocabulary", "example_sentence",
+    "tutor_message", "reading", "other",
+)
 FIELDS = ("sentence", "hint", "translation", "answer", "explanation", "other")
 
 
@@ -1664,6 +1669,9 @@ class NewChangeRequest(BaseModel):
     field: str = "other"
     issue: str = Field(min_length=1, max_length=2000)
     suggestion: str | None = Field(default=None, max_length=2000)
+    # Review Mode: the span the reviewer selected, plus where it sat.
+    quote: str | None = Field(default=None, max_length=2000)
+    quote_context: dict | None = None
 
 
 class VoteBody(BaseModel):
@@ -1699,6 +1707,8 @@ async def create_change_request(
             body.target_id, (body.target_label or "").strip() or None,
             body.field, body.issue.strip(),
             (body.suggestion or "").strip() or None,
+            quote=body.quote,
+            quote_context=body.quote_context,
         )
     return {"id": req_id}
 

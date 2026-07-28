@@ -2057,3 +2057,111 @@ class TestGeneratedDrillReview:
                 json={"approve": True}, headers=_auth_headers(),
             )
         assert resp.status_code == 403
+
+
+class TestReviewModeFlags:
+    """Review Mode (owner: reviewers are volunteers, so friction matters).
+
+    A flag names the exact span instead of a field from a dropdown, and now
+    reaches surfaces that have no stored row at all — tutor replies and
+    generated readings.
+    """
+
+    CR = "55555555-5555-5555-5555-555555555555"
+
+    def test_the_quote_and_its_context_are_persisted(self, client):
+        with _roles([{"language_id": LANG, "role": "reviewer"}]), \
+             patch("backend.routers.contribute.create_request",
+                   new=AsyncMock(return_value=self.CR)) as mock_create:
+            resp = client.post(
+                "/api/contribute/change-requests",
+                json={
+                    "language_id": LANG, "target_type": "drill",
+                    "field": "sentence", "issue": "Grammatical but not idiomatic",
+                    "quote": "come pescado",
+                    "quote_context": {
+                        "source": "learn", "start": 8, "end": 20,
+                        "source_text": "El gato come pescado.",
+                    },
+                },
+                headers=_auth_headers(),
+            )
+        assert resp.status_code == 201
+        kwargs = mock_create.await_args.kwargs
+        assert kwargs["quote"] == "come pescado"
+        assert kwargs["quote_context"]["source"] == "learn"
+        assert kwargs["quote_context"]["start"] == 8
+
+    def test_a_tutor_reply_is_flaggable_without_a_target_id(self, client):
+        """A tutor turn is never stored, so there is nothing to point at —
+        the quote IS the record."""
+        with _roles([{"language_id": LANG, "role": "reviewer"}]), \
+             patch("backend.routers.contribute.create_request",
+                   new=AsyncMock(return_value=self.CR)) as mock_create:
+            resp = client.post(
+                "/api/contribute/change-requests",
+                json={
+                    "language_id": LANG, "target_type": "tutor_message",
+                    "field": "other", "issue": "Incorrect",
+                    "quote": "el agua es fría",
+                    "quote_context": {"source": "tutor"},
+                },
+                headers=_auth_headers(),
+            )
+        assert resp.status_code == 201
+        # create_request(conn, author, language, target_type, target_id, …)
+        assert mock_create.await_args.args[3] == "tutor_message"
+        assert mock_create.await_args.args[4] is None  # target_id
+
+    def test_a_reading_is_flaggable(self, client):
+        with _roles([{"language_id": LANG, "role": "contributor"}]), \
+             patch("backend.routers.contribute.create_request",
+                   new=AsyncMock(return_value=self.CR)):
+            resp = client.post(
+                "/api/contribute/change-requests",
+                json={
+                    "language_id": LANG, "target_type": "reading",
+                    "field": "sentence", "issue": "Too hard or too easy",
+                    "quote": "una oración larguísima",
+                    "quote_context": {"source": "reader"},
+                },
+                headers=_auth_headers(),
+            )
+        assert resp.status_code == 201
+
+    def test_an_unknown_target_type_is_still_rejected(self, client):
+        with _roles([{"language_id": LANG, "role": "reviewer"}]):
+            resp = client.post(
+                "/api/contribute/change-requests",
+                json={
+                    "language_id": LANG, "target_type": "whatever",
+                    "field": "sentence", "issue": "x",
+                },
+                headers=_auth_headers(),
+            )
+        assert resp.status_code == 422
+
+    def test_a_learner_cannot_flag_even_with_a_quote(self, client):
+        """Review Mode is a UI affordance; the role check is server-side."""
+        with _roles([]):
+            resp = client.post(
+                "/api/contribute/change-requests",
+                json={
+                    "language_id": LANG, "target_type": "tutor_message",
+                    "field": "other", "issue": "Incorrect", "quote": "x",
+                },
+                headers=_auth_headers(),
+            )
+        assert resp.status_code == 403
+
+    def test_quote_is_optional_so_the_old_form_still_works(self, client):
+        with _roles([{"language_id": LANG, "role": "reviewer"}]), \
+             patch("backend.routers.contribute.create_request",
+                   new=AsyncMock(return_value=self.CR)) as mock_create:
+            resp = client.post(
+                "/api/contribute/change-requests",
+                json={"language_id": LANG, "field": "sentence", "issue": "wrong"},
+                headers=_auth_headers(),
+            )
+        assert resp.status_code == 201
+        assert mock_create.await_args.kwargs["quote"] is None

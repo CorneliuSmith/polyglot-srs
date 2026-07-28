@@ -15,6 +15,7 @@ import ExplanationView from '../../components/ExplanationView'
 import SpeakButton from '../../components/SpeakButton'
 import DrillCard from './DrillCard'
 import SuggestChange from '../contribute/SuggestChange'
+import Annotatable from '../contribute/Annotatable'
 import OnScreenKeyboard, { hasKeyboardLayout } from '../keyboards/OnScreenKeyboard'
 import type { KeyboardLanguage } from '../keyboards/OnScreenKeyboard'
 import { composeScript, finalizeInput } from '../keyboards/translit'
@@ -373,7 +374,18 @@ function LearnInner({ onLocaleChanged }: { onLocaleChanged: () => void }) {
         </div>
 
         {lesson && (
-          <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-6 space-y-4">
+          /* Review Mode wraps the WHOLE card, not each field: a reviewer can
+             then select any span — the word, a clause of the example, the
+             definition — and flag exactly that, instead of picking a field
+             name from a list and describing which part they meant. */
+          <Annotatable
+            languageId={activeLanguageId}
+            targetType={lesson.card_type === 'grammar' ? 'drill' : 'vocabulary'}
+            targetId={lesson.card_id}
+            targetLabel={lesson.title}
+            source="learn"
+            className="bg-white rounded-2xl shadow-sm border border-gray-100 p-6 space-y-4"
+          >
             <div className="flex items-start justify-between gap-2">
               <div>
                 <LanguageWrapper languageCode={languageCode}>
@@ -632,7 +644,7 @@ function LearnInner({ onLocaleChanged }: { onLocaleChanged: () => void }) {
                   : lesson.title
               }
             />
-          </div>
+          </Annotatable>
         )}
 
         <div className="flex items-center gap-3">
