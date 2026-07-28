@@ -43,6 +43,7 @@ from backend.repositories.contributor import (
 )
 from backend.repositories.fsrs_weights import get_effective_params
 from backend.repositories.gym import record_gym_attempt
+from backend.repositories.onboarding import get_placement_form_misses
 from backend.repositories.pool import privileged_connection, rls_connection
 from backend.repositories.review import add_card_feedback, insert_review_log
 from backend.repositories.tutor import log_tutor_usage
@@ -227,6 +228,10 @@ async def gym_generate(
         # missing, per point — generation targets those instead of drilling
         # blind.
         struggles = await get_form_struggles(conn, user["id"], ids)
+        # Cold start: a learner who has never used the Gym has NO gym_progress,
+        # so the line above returns nothing and generation aims at random. The
+        # forms they missed at placement are the only evidence that exists yet.
+        placement_cells = await get_placement_form_misses(conn, user["id"], ids)
     if not contexts:
         raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="No such forms.")
 
@@ -255,11 +260,12 @@ async def gym_generate(
     new_drills: list[dict] = []
     async with privileged_connection() as conn:
         for ctx in contexts:
-            # Aim at the learner's weakest evidenced cell for this point;
-            # with no evidence, stay cell-agnostic (varied forms).
+            # Aim at the learner's weakest evidenced cell for this point.
+            # Gym history first (repeated, recent, and about this surface),
+            # then the placement miss, then cell-agnostic if neither exists.
             weak_cell = pick_struggling_cell(
                 struggles.get(str(ctx["point_id"]), [])
-            )
+            ) or placement_cells.get(str(ctx["point_id"]))
             # Real token usage rides into tutor_usage so the admin cost panel
             # prices these rows instead of showing 0/0.
             gen_usage: dict = {}

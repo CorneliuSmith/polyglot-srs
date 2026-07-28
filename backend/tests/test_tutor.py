@@ -1377,3 +1377,32 @@ class TestMasteryEndpoints:
             headers=_auth_headers(),
         )
         assert resp.status_code == 422
+
+
+class TestPlacementInTutorContext:
+    """Owner: the tutor should have insight into test results."""
+
+    PLACEMENT = {
+        "level": "B2", "ceiling": "B1", "struggled_levels": ["B2"],
+        "missed_structures": ["Passive voice"], "trend": "improved",
+    }
+
+    def test_placement_reaches_the_learner_block(self):
+        text = build_system_blocks("tr", [], placement=self.PLACEMENT)[1]["text"]
+        assert "Placement test result" in text
+        assert "Passive voice" in text
+
+    def test_absent_placement_adds_nothing(self):
+        assert "Placement test result" not in build_system_blocks("tr", [])[1]["text"]
+
+    def test_placement_precedes_the_srs_block(self):
+        """A new account's SRS block is nearly empty; ordering placement first
+        stops the tutor opening at A1 with someone who just tested B2."""
+        text = build_system_blocks(
+            "tr", [], study_stats={"due_now": 4}, placement=self.PLACEMENT,
+        )[1]["text"]
+        assert text.index("Placement test result") < text.index("Study performance")
+
+    def test_placement_is_framed_as_a_starting_point(self):
+        text = build_system_blocks("tr", [], placement=self.PLACEMENT)[1]["text"]
+        assert "not a verdict" in text

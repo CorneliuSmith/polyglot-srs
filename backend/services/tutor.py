@@ -283,10 +283,25 @@ def _format_memory(
     session_summary: str | None,
     weak_areas: list[dict],
     study_stats: dict | None = None,
+    placement: dict | None = None,
 ) -> str:
     """Build the volatile learner-context block (memory + SRS data)."""
     parts: list[str] = []
 
+    if placement:
+        # Deliberately ABOVE the SRS block. On a new account the SRS block is
+        # nearly empty and the placement result is the only real evidence
+        # there is; ordering it first stops the tutor opening at A1 with
+        # someone who just tested B2.
+        parts.append(
+            "Placement test result (graded production, not self-reported — "
+            "the app's firmest read on this learner, and the ONLY signal that "
+            "says what they cannot yet do):\n"
+            + json.dumps(placement, ensure_ascii=False, indent=1)
+            + "\nTreat struggled_levels and missed_structures as the opening "
+            "agenda unless the SRS weak items below contradict them; a "
+            "placement months old is a starting point, not a verdict."
+        )
     if study_stats:
         parts.append(
             "Study performance in this language (from the app's SRS):\n"
@@ -351,6 +366,7 @@ def build_system_blocks(
     language_profile: dict | None = None,
     session_summary: str | None = None,
     study_stats: dict | None = None,
+    placement: dict | None = None,
     mode: str = "practice",
 ) -> list[dict[str, Any]]:
     """Build the system prompt blocks for a tutor conversation.
@@ -373,7 +389,7 @@ def build_system_blocks(
             "type": "text",
             "text": _format_memory(
                 user_profile, language_profile, session_summary,
-                weak_areas, study_stats,
+                weak_areas, study_stats, placement,
             )
             + (
                 "\n\nMODE: the learner flagged this as a REFERENCE question — "
@@ -586,6 +602,7 @@ async def tutor_chat(
     language_profile: dict | None = None,
     session_summary: str | None = None,
     study_stats: dict | None = None,
+    placement: dict | None = None,
     model: str | None = None,
     mode: str = "practice",
 ) -> tuple[str, list[dict], dict[str, int]]:
@@ -610,7 +627,7 @@ async def tutor_chat(
     client = AsyncAnthropic(api_key=settings.anthropic_api_key)
     system = build_system_blocks(
         language_code, weak_areas, user_profile, language_profile,
-        session_summary, study_stats, mode=mode,
+        session_summary, study_stats, placement, mode=mode,
     )
     convo: list[dict[str, Any]] = list(history)
     remembered: list[dict] = []
@@ -663,6 +680,7 @@ async def tutor_chat_stream(
     language_profile: dict | None = None,
     session_summary: str | None = None,
     study_stats: dict | None = None,
+    placement: dict | None = None,
     model: str | None = None,
     mode: str = "practice",
 ):
@@ -697,7 +715,7 @@ async def tutor_chat_stream(
     client = AsyncAnthropic(api_key=settings.anthropic_api_key)
     system = build_system_blocks(
         language_code, weak_areas, user_profile, language_profile,
-        session_summary, study_stats, mode=mode,
+        session_summary, study_stats, placement, mode=mode,
     )
     convo: list[dict[str, Any]] = list(history)
     remembered: list[dict] = []

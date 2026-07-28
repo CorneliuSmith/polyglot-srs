@@ -158,6 +158,9 @@ async def placement_next(
     pool_by_id = {it["id"]: it for it in pool}
     graded: list[tuple[dict, bool]] = []
     per_level: dict[str, list[int]] = {}
+    # Which items they got WRONG — the half of the result the app used to
+    # throw away, and the only thing that says what to work on.
+    missed: dict[str, list[str]] = {"grammar": [], "vocabulary": []}
     for entry in body.history:
         item = pool_by_id.get(entry.id)
         key = answers.get(entry.id)
@@ -178,6 +181,10 @@ async def placement_next(
         tally[1] += 1
         if correct:
             tally[0] += 1
+        else:
+            missed[key.get("kind") or item.get("kind") or "vocabulary"].append(
+                entry.id
+            )
 
     nxt = adaptive_next(pool, graded)
     if nxt is None:
@@ -188,6 +195,12 @@ async def placement_next(
             await record_placement_attempt(
                 conn, user["id"], language_id,
                 estimated_level=estimated, items_asked=len(graded),
+                per_level={
+                    lvl: {"correct": c, "total": t}
+                    for lvl, (c, t) in per_level.items()
+                },
+                missed_grammar_ids=missed["grammar"],
+                missed_vocabulary_ids=missed["vocabulary"],
             )
         return {
             "available": True, "done": True,
@@ -225,6 +238,7 @@ async def score_placement(
 
     # Tally correct/total per CEFR level using the language's NLP validator.
     per_level: dict[str, list[int]] = {}
+    missed: dict[str, list[str]] = {"grammar": [], "vocabulary": []}
     for answer in body.answers:
         item = answers.get(answer.id)
         if item is None or item["level"] is None:
@@ -242,6 +256,8 @@ async def score_placement(
         tally[1] += 1
         if result in _PASSING:
             tally[0] += 1
+        else:
+            missed[item.get("kind") or "vocabulary"].append(answer.id)
 
     estimated = estimate_level({lvl: (c, t) for lvl, (c, t) in per_level.items()})
     async with rls_connection(user["id"]) as conn:
@@ -249,6 +265,12 @@ async def score_placement(
         await record_placement_attempt(
             conn, user["id"], language_id,
             estimated_level=estimated, items_asked=len(body.answers),
+            per_level={
+                lvl: {"correct": c, "total": t}
+                for lvl, (c, t) in per_level.items()
+            },
+            missed_grammar_ids=missed["grammar"],
+            missed_vocabulary_ids=missed["vocabulary"],
         )
     return {
         "estimated_level": estimated,

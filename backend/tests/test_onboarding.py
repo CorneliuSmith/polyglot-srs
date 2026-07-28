@@ -464,3 +464,75 @@ class TestPlacementAttempts:
         assert resp.status_code == 200
         recorder.assert_awaited_once()
         assert recorder.await_args.kwargs["estimated_level"] == "A1"
+
+
+class TestPlacementEvidenceCapture:
+    """The verdict was never the useful half — what they got WRONG is what
+    the Gym/Tutor/Reader can act on, so it has to survive scoring."""
+
+    def test_adaptive_run_records_the_tally_and_the_misses(self, client):
+        recorder = AsyncMock()
+        pool = [
+            {"id": "g1", "kind": "grammar", "level": "B1",
+             "prompt": "___", "translation": None},
+            {"id": "v1", "kind": "vocabulary", "level": "A1",
+             "prompt": "one", "translation": None},
+        ] + _items(4)
+        answers = {
+            "g1": {"answer": "haya", "level": "B1", "kind": "grammar"},
+            "v1": {"answer": "uno", "level": "A1", "kind": "vocabulary"},
+        }
+
+        async def grade(code, given, expected, ctx):
+            ok = given == expected
+            return (AnswerResult.CORRECT if ok else AnswerResult.WRONG, None)
+
+        with patch("backend.routers.onboarding._language_code",
+                   new=AsyncMock(return_value="es")), \
+             patch("backend.routers.onboarding.sample_placement_items",
+                   new=AsyncMock(return_value=pool)), \
+             patch("backend.routers.onboarding.get_placement_answers",
+                   new=AsyncMock(return_value=answers)), \
+             patch("backend.routers.onboarding.validate_answer_async",
+                   new=AsyncMock(side_effect=grade)), \
+             patch("backend.routers.onboarding.adaptive_next", return_value=None), \
+             patch("backend.routers.onboarding.record_placement_attempt",
+                   new=recorder):
+            resp = client.post(f"/api/onboarding/placement/{LANG}/next", json={
+                "history": [
+                    {"id": "v1", "input": "uno"},      # right
+                    {"id": "g1", "input": "hubiera"},  # wrong
+                ],
+            }, headers=_auth_headers())
+
+        assert resp.status_code == 200
+        kwargs = recorder.await_args.kwargs
+        assert kwargs["per_level"] == {
+            "A1": {"correct": 1, "total": 1},
+            "B1": {"correct": 0, "total": 1},
+        }
+        # A missed DRILL and a missed WORD land in different buckets — they
+        # feed different halves of the insight.
+        assert kwargs["missed_grammar_ids"] == ["g1"]
+        assert kwargs["missed_vocabulary_ids"] == []
+
+    def test_batch_scoring_records_the_same_evidence(self, client):
+        recorder = AsyncMock()
+        answers = {
+            "v1": {"answer": "uno", "level": "A1", "kind": "vocabulary"},
+        }
+        with patch("backend.routers.onboarding._language_code",
+                   new=AsyncMock(return_value="es")), \
+             patch("backend.routers.onboarding.get_placement_answers",
+                   new=AsyncMock(return_value=answers)), \
+             patch("backend.routers.onboarding.validate_answer_async",
+                   new=AsyncMock(return_value=(AnswerResult.WRONG, None))), \
+             patch("backend.routers.onboarding.record_placement_attempt",
+                   new=recorder):
+            resp = client.post(f"/api/onboarding/placement/{LANG}", json={
+                "answers": [{"id": "v1", "input": "dos"}],
+            }, headers=_auth_headers())
+        assert resp.status_code == 200
+        kwargs = recorder.await_args.kwargs
+        assert kwargs["missed_vocabulary_ids"] == ["v1"]
+        assert kwargs["per_level"] == {"A1": {"correct": 0, "total": 1}}

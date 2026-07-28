@@ -9,6 +9,8 @@ already made, and wraps rather than emptying a small language's staircase.
 
 from __future__ import annotations
 
+import json
+
 import pytest
 
 from backend.repositories.onboarding import sample_placement_items
@@ -91,3 +93,108 @@ class TestPlacementVariants:
             ANSWER_MARKER not in it["prompt"]
             for it in items if it["kind"] == "grammar"
         )
+
+
+class FakeInsightConn:
+    """Enough asyncpg surface to exercise get_placement_insight's shaping."""
+
+    def __init__(self, latest=None, previous=None, titles=None, words=None):
+        self.latest = latest
+        self.previous = previous
+        self.titles = titles or []
+        self.words = words or []
+
+    async def fetchrow(self, query, *args):
+        return self.latest
+
+    async def fetchval(self, query, *args):
+        return self.previous
+
+    async def fetch(self, query, *args):
+        return self.titles if "grammar_points" in query else self.words
+
+
+def attempt(**over):
+    from datetime import UTC, datetime
+    base = {
+        "estimated_level": "B1",
+        "items_asked": 7,
+        "per_level": {"A1": {"correct": 3, "total": 3},
+                      "A2": {"correct": 2, "total": 3},
+                      "B1": {"correct": 1, "total": 3}},
+        "missed_grammar_ids": [],
+        "missed_vocabulary_ids": [],
+        "created_at": datetime(2026, 7, 1, tzinfo=UTC),
+    }
+    return {**base, **over}
+
+
+@pytest.mark.asyncio
+class TestPlacementInsight:
+    """Owner: the AI surfaces need the test's EVIDENCE, not just its verdict."""
+
+    async def test_never_placed_is_none(self):
+        from backend.repositories.onboarding import get_placement_insight
+        assert await get_placement_insight(FakeInsightConn(), "u", "l") is None
+
+    async def test_separates_levels_held_from_levels_failed(self):
+        from backend.repositories.onboarding import get_placement_insight
+        out = await get_placement_insight(
+            FakeInsightConn(latest=attempt()), "u", "l"
+        )
+        # A1 3/3 and A2 2/3 clear the 0.6 bar; B1 at 1/3 does not.
+        assert out["held_levels"] == ["A1", "A2"]
+        assert out["struggled_levels"] == ["B1"]
+        assert out["ceiling"] == "A2"
+
+    async def test_json_encoded_per_level_is_still_read(self):
+        """asyncpg hands back jsonb as text unless the codec is registered."""
+        from backend.repositories.onboarding import get_placement_insight
+        raw = json.dumps({"A1": {"correct": 3, "total": 3}})
+        out = await get_placement_insight(
+            FakeInsightConn(latest=attempt(per_level=raw)), "u", "l"
+        )
+        assert out["held_levels"] == ["A1"]
+
+    async def test_names_the_missed_structures_and_words(self):
+        from backend.repositories.onboarding import get_placement_insight
+        conn = FakeInsightConn(
+            latest=attempt(missed_grammar_ids=["g1"], missed_vocabulary_ids=["v1"]),
+            titles=[{"title": "The subjunctive after querer", "level": "B1"}],
+            words=[{"word": "aunque"}],
+        )
+        out = await get_placement_insight(conn, "u", "l")
+        # A bare uuid coaches nobody — the title and the word do.
+        assert out["missed_structures"] == ["The subjunctive after querer"]
+        assert out["missed_words"] == ["aunque"]
+
+    async def test_reports_movement_against_the_previous_attempt(self):
+        from backend.repositories.onboarding import get_placement_insight
+        up = await get_placement_insight(
+            FakeInsightConn(latest=attempt(), previous="A2"), "u", "l"
+        )
+        assert up["trend"] == "improved" and up["previous_level"] == "A2"
+        flat = await get_placement_insight(
+            FakeInsightConn(latest=attempt(), previous="B1"), "u", "l"
+        )
+        assert flat["trend"] == "steady"
+        down = await get_placement_insight(
+            FakeInsightConn(latest=attempt(), previous="C1"), "u", "l"
+        )
+        assert down["trend"] == "slipped"
+
+    async def test_a_first_attempt_has_no_trend(self):
+        from backend.repositories.onboarding import get_placement_insight
+        out = await get_placement_insight(
+            FakeInsightConn(latest=attempt()), "u", "l"
+        )
+        assert "trend" not in out
+
+    async def test_a_level_with_no_items_is_neither_held_nor_failed(self):
+        from backend.repositories.onboarding import get_placement_insight
+        out = await get_placement_insight(
+            FakeInsightConn(latest=attempt(
+                per_level={"C2": {"correct": 0, "total": 0}}
+            )), "u", "l"
+        )
+        assert out["held_levels"] == [] and out["struggled_levels"] == []

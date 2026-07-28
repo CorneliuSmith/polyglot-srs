@@ -7,6 +7,7 @@ language. All writes are RLS-scoped to the user.
 """
 from __future__ import annotations
 
+import json
 import re
 
 import asyncpg
@@ -191,20 +192,171 @@ async def record_placement_attempt(
     *,
     estimated_level: str | None,
     items_asked: int,
+    per_level: dict | None = None,
+    missed_grammar_ids: list[str] | None = None,
+    missed_vocabulary_ids: list[str] | None = None,
 ) -> None:
-    """Log a finished placement run. Best-effort: a learner who just sat the
-    test should still get their level even if the bookkeeping insert fails."""
+    """Log a finished placement run, verdict AND evidence.
+
+    The per-level tally and the missed items are what the AI surfaces read
+    (see get_placement_insight) — the CEFR letter alone only says where to
+    pitch, never what to work on.
+
+    Best-effort: a learner who just sat the test should still get their level
+    even if the bookkeeping insert fails.
+    """
     try:
         await conn.execute(
             """
             INSERT INTO placement_attempts
-                (user_id, language_id, estimated_level, items_asked)
-            VALUES ($1, $2, $3, $4)
+                (user_id, language_id, estimated_level, items_asked,
+                 per_level, missed_grammar_ids, missed_vocabulary_ids)
+            VALUES ($1, $2, $3, $4, $5::jsonb, $6::uuid[], $7::uuid[])
             """,
             user_id, language_id, estimated_level, items_asked,
+            json.dumps(per_level or {}),
+            missed_grammar_ids or [],
+            missed_vocabulary_ids or [],
         )
     except asyncpg.PostgresError:
         pass
+
+
+# Below this share correct, a level counts as NOT held — the same 0.6 the
+# estimator uses, so "struggled at B1" always agrees with the verdict.
+_HELD_THRESHOLD = 0.6
+# Enough for a prompt to act on; past this it's noise the model will ignore.
+_MAX_INSIGHT_ITEMS = 8
+
+
+async def get_placement_insight(
+    conn: asyncpg.Connection, user_id: str, language_id: str
+) -> dict | None:
+    """The latest placement result, resolved into things an AI surface can
+    act on. None when the learner has never placed in this language.
+
+    Returns the verdict, the ceiling the learner actually held, the levels
+    they fell down on, the named structures and words they got wrong, and the
+    movement since the previous attempt.
+
+    This is the only graded evidence about a BRAND NEW learner: no review log,
+    no gym_progress, nothing. It is also the only thing in the app that says
+    what someone can't do yet — the SRS only ever observes what they've been
+    shown.
+    """
+    row = await conn.fetchrow(
+        """
+        SELECT estimated_level, items_asked, per_level,
+               missed_grammar_ids, missed_vocabulary_ids, created_at
+        FROM placement_attempts
+        WHERE user_id = $1 AND language_id = $2
+        ORDER BY created_at DESC
+        LIMIT 1
+        """,
+        user_id, language_id,
+    )
+    if row is None:
+        return None
+    previous = await conn.fetchval(
+        """
+        SELECT estimated_level FROM placement_attempts
+        WHERE user_id = $1 AND language_id = $2
+        ORDER BY created_at DESC
+        OFFSET 1 LIMIT 1
+        """,
+        user_id, language_id,
+    )
+
+    per_level = row["per_level"] or {}
+    if isinstance(per_level, str):  # asyncpg returns jsonb as text unless cast
+        try:
+            per_level = json.loads(per_level)
+        except (TypeError, ValueError):
+            per_level = {}
+
+    held, struggled = [], []
+    for level, tally in per_level.items():
+        if not isinstance(tally, dict):
+            continue
+        total = tally.get("total") or 0
+        if total <= 0:
+            continue
+        share = (tally.get("correct") or 0) / total
+        (held if share >= _HELD_THRESHOLD else struggled).append(level)
+
+    ordered = [lv for lv in CEFR_ORDER if lv in held]
+    insight: dict = {
+        "level": row["estimated_level"],
+        "taken_at": row["created_at"].isoformat(),
+        "items_asked": row["items_asked"],
+        "ceiling": ordered[-1] if ordered else None,
+        "held_levels": ordered,
+        "struggled_levels": [lv for lv in CEFR_ORDER if lv in struggled],
+        "per_level": per_level,
+        "previous_level": previous,
+    }
+    if previous and row["estimated_level"]:
+        try:
+            step = (CEFR_ORDER.index(row["estimated_level"])
+                    - CEFR_ORDER.index(previous))
+            insight["trend"] = (
+                "improved" if step > 0 else "steady" if step == 0 else "slipped"
+            )
+        except ValueError:
+            pass
+
+    # Name the misses. A bare uuid tells a model nothing; the grammar point
+    # TITLE and the word itself are what a prompt can coach against.
+    missed_grammar = list(row["missed_grammar_ids"] or [])
+    missed_vocab = list(row["missed_vocabulary_ids"] or [])
+    if missed_grammar:
+        rows = await conn.fetch(
+            """
+            SELECT DISTINCT gp.title, gp.level
+            FROM drill_sentences ds
+            JOIN grammar_points gp ON ds.grammar_point_id = gp.id
+            WHERE ds.id = ANY($1::uuid[])
+            """,
+            missed_grammar,
+        )
+        insight["missed_structures"] = [
+            r["title"] for r in rows[:_MAX_INSIGHT_ITEMS]
+        ]
+    if missed_vocab:
+        rows = await conn.fetch(
+            "SELECT word FROM vocabulary WHERE id = ANY($1::uuid[])",
+            missed_vocab,
+        )
+        insight["missed_words"] = [r["word"] for r in rows[:_MAX_INSIGHT_ITEMS]]
+    return insight
+
+
+async def get_placement_form_misses(
+    conn: asyncpg.Connection, user_id: str, point_ids: list[str]
+) -> dict[str, str]:
+    """{grammar_point_id: cell} for forms this learner missed at placement.
+
+    The Gym's cold start: on day one gym_progress is empty, so drill
+    generation has no idea what to aim at and produces varied forms at random.
+    A placement miss on a drill IS evidence about that point's cell — the only
+    evidence available before the learner has used the Gym at all.
+    """
+    if not point_ids:
+        return {}
+    rows = await conn.fetch(
+        """
+        SELECT DISTINCT ON (ds.grammar_point_id)
+               ds.grammar_point_id::text AS point_id, ds.cell
+        FROM placement_attempts pa
+        JOIN drill_sentences ds ON ds.id = ANY(pa.missed_grammar_ids)
+        WHERE pa.user_id = $1
+          AND ds.grammar_point_id = ANY($2::uuid[])
+          AND ds.cell IS NOT NULL
+        ORDER BY ds.grammar_point_id, pa.created_at DESC
+        """,
+        user_id, point_ids,
+    )
+    return {r["point_id"]: r["cell"] for r in rows}
 
 
 # Dictionary-derived definitions for the MOST frequent words are exactly the
@@ -410,9 +562,12 @@ async def get_placement_answers(
         language_id,
         item_ids,
     )
+    # "kind" rides along so a caller scoring the answers can tell a missed
+    # DRILL from a missed WORD without re-querying — the two feed different
+    # halves of the placement insight (structures vs vocabulary).
     answers = {
         str(r["id"]): {
-            "answer": r["answer"], "level": r["level"],
+            "answer": r["answer"], "level": r["level"], "kind": "vocabulary",
             "alternatives": list(r["alternatives"] or []),
         }
         for r in vocab
@@ -420,7 +575,8 @@ async def get_placement_answers(
     answers.update(
         {
             str(r["id"]): {
-                "answer": r["answer"], "level": r["level"], "alternatives": [],
+                "answer": r["answer"], "level": r["level"], "kind": "grammar",
+                "alternatives": [],
             }
             for r in grammar
         }

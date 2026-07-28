@@ -204,6 +204,7 @@ async def chat(
             language_profile=lang["profile"],
             session_summary=lang["session_summary"],
             study_stats=study_stats,
+            placement=assessment.get("placement"),
             model=model,
             mode=body.mode,
         )
@@ -326,6 +327,7 @@ async def chat_stream(
             language_profile=lang["profile"],
             session_summary=lang["session_summary"],
             study_stats=study_stats,
+            placement=assessment.get("placement"),
             model=model,
             mode=body.mode,
         )

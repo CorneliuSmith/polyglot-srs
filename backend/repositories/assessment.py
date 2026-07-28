@@ -13,12 +13,18 @@ actually needs.
 
 Cards/reviews need no tier here: the SRS scheduler *is* the assessment —
 FSRS state and the review log drive card selection directly.
+
+Every tier is fed by the placement test where one exists. That result is the
+only evidence in the app of what a learner CANNOT do — the SRS observes only
+what it has already shown them — and on a new account it is the only graded
+evidence of any kind.
 """
 
 from __future__ import annotations
 
 import asyncpg
 
+from backend.repositories.onboarding import get_placement_insight
 from backend.repositories.reader import CEFR_ORDER, get_learner_model
 from backend.repositories.tutor import (
     get_language_profile,
@@ -114,17 +120,39 @@ async def get_assessment_summary(
             await get_language_profile(conn, user_id, language_id)
         )["profile"]
 
-    # Writing-sample priming (owner): a fresh account's card-derived level is
-    # just the A1 cold start; until enough cards exist, the onboarding
-    # writing baseline lifts it so the Tutor/Reader start at the learner's
-    # real level instead of talking down to them.
-    baseline = (language_profile.get("_writing_baseline") or {}).get("level")
-    if (
-        baseline in CEFR_ORDER
-        and summary.get("known_count", 0) < _BASELINE_CARD_CUTOFF
-        and CEFR_ORDER.index(baseline) > CEFR_ORDER.index(summary["level"])
-    ):
-        summary["level"] = baseline
+    # Cold-start priming: a fresh account's card-derived level is just the A1
+    # default. Two things can outrank it while the card evidence is thin —
+    # tried strongest first.
+    #
+    #   1. The placement test. Graded production across a CEFR staircase, and
+    #      the only evidence in the app of what the learner CANNOT do (the SRS
+    #      only ever observes what it has already shown them).
+    #   2. The onboarding writing sample. One model call on a couple of
+    #      sentences — real signal, but softer, so placement wins where both
+    #      exist.
+    #
+    # Past _BASELINE_CARD_CUTOFF cards, earned review evidence beats both:
+    # what someone did last week outranks a test they sat in March.
+    placement = await get_placement_insight(conn, user_id, language_id)
+    cold_start = summary.get("known_count", 0) < _BASELINE_CARD_CUTOFF
+    candidates = [
+        (placement or {}).get("level"),
+        (language_profile.get("_writing_baseline") or {}).get("level"),
+    ]
+    for candidate in candidates:
+        if (
+            cold_start
+            and candidate in CEFR_ORDER
+            and CEFR_ORDER.index(candidate) > CEFR_ORDER.index(summary["level"])
+        ):
+            summary["level"] = candidate
+            break
+
+    # The full placement read goes to the surfaces regardless of whether it
+    # moved the level — "held A1/A2, fell down at B1, missed the subjunctive"
+    # is actionable even when the level came from cards.
+    if placement:
+        summary["placement"] = placement
 
     summary["weak_words"] = [w.get("word") for w in weak if w.get("word")]
     summary["focus"] = [

@@ -101,6 +101,37 @@ _COMPLEXITY_RULE = {
 }
 
 
+def _placement_rule(placement: dict | None) -> str:
+    """Turn the placement result into a coverage instruction.
+
+    A reading text is the cheapest way to re-expose a structure someone got
+    wrong — it can carry it in context without ever looking like a drill. The
+    struggled level is the more useful half: it says where the ceiling is, so
+    the text can sit at it rather than under it.
+    """
+    if not placement:
+        return ""
+    bits: list[str] = []
+    struggled = placement.get("struggled_levels") or []
+    if struggled:
+        bits.append(
+            f"On a graded placement test they held {placement.get('ceiling') or 'A1'} "
+            f"but fell down at {', '.join(struggled)} — pitch at the ceiling, "
+            "not below it."
+        )
+    structures = placement.get("missed_structures") or []
+    if structures:
+        bits.append(
+            "They got these structures WRONG on that test: "
+            f"{'; '.join(structures)}. Work at least one into the text "
+            "naturally, in a context that makes it transparent."
+        )
+    words = placement.get("missed_words") or []
+    if words:
+        bits.append(f"Words they missed there: {', '.join(words)}.")
+    return ("\n- " + " ".join(bits)) if bits else ""
+
+
 def _system_prompt(
     language_code: str, gloss_locale: str, learner: dict,
     options: dict | None = None,
@@ -114,6 +145,7 @@ def _system_prompt(
     weak = ", ".join(learner.get("weak_words") or [])
     focus = "; ".join(learner.get("focus") or [])
     level = learner.get("level") or "A1"
+    placement = _placement_rule(learner.get("placement"))
     return f"""You write reading material for one specific learner inside \
 PolyglotSRS, a spaced-repetition language app. Target language: \
 {language_code}. The learner's level: {level}.
@@ -131,7 +163,7 @@ at this level. Each must appear in a context that makes its meaning \
 guessable without a dictionary. Mark them new:true in the tokens and list \
 them in new_words.
 - Where natural (never forced), re-expose these weak words: {weak or "(none)"} \
-and these focus structures: {focus or "(none)"}.
+and these focus structures: {focus or "(none)"}.{placement}
 
 Then call emit_reading. Token rules: tokens must cover each sentence's \
 words in order (punctuation attached to its word); every token carries a \
