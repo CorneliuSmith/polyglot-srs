@@ -19,11 +19,11 @@
 -- the former marks the point human-owned.
 
 ALTER TABLE grammar_points
-    ADD COLUMN curated BOOLEAN NOT NULL DEFAULT false;
+    ADD COLUMN IF NOT EXISTS curated BOOLEAN NOT NULL DEFAULT false;
 
 UPDATE grammar_points SET curated = true
  WHERE reviewed = true AND reviewed_by IS NOT NULL;
 
 -- The re-seed looks curated points up per language before touching anything.
-CREATE INDEX idx_grammar_points_curated
+CREATE INDEX IF NOT EXISTS idx_grammar_points_curated
     ON grammar_points (language_id) WHERE curated;

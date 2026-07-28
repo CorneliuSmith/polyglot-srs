@@ -8,7 +8,7 @@
 -- with its own lifecycle separate from `reviewed` (human sign-off) and
 -- `ai_check_status` (advisory correctness verdict).
 
-CREATE TABLE grammar_point_overlaps (
+CREATE TABLE IF NOT EXISTS grammar_point_overlaps (
     id           UUID        PRIMARY KEY DEFAULT gen_random_uuid(),
     language_id  UUID        NOT NULL REFERENCES languages(id) ON DELETE CASCADE,
     point_a_id   UUID        NOT NULL REFERENCES grammar_points(id) ON DELETE CASCADE,
@@ -29,11 +29,11 @@ CREATE TABLE grammar_point_overlaps (
 
 -- Re-run idempotency: one OPEN flag per pair; resolved pairs may be
 -- re-flagged later if the content drifts back together.
-CREATE UNIQUE INDEX idx_grammar_point_overlaps_open_pair
+CREATE UNIQUE INDEX IF NOT EXISTS idx_grammar_point_overlaps_open_pair
     ON grammar_point_overlaps (point_a_id, point_b_id)
     WHERE status = 'open';
 
-CREATE INDEX idx_grammar_point_overlaps_lang_status
+CREATE INDEX IF NOT EXISTS idx_grammar_point_overlaps_lang_status
     ON grammar_point_overlaps (language_id, status);
 
 -- Same trust model as point_review_notes / content_change_log: no
