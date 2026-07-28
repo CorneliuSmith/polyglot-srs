@@ -1,4 +1,13 @@
 import apiClient from './client'
+import { useViewAsStore } from '../stores/viewAsStore'
+import { downgradeFlags, downgradeRoles } from '../lib/viewAs'
+
+/** The admin "view as" preview is applied HERE, at the single boundary every
+ * role-gated surface already reads from, so no consumer needs to know it
+ * exists. It only ever removes capability (see lib/viewAs.ts) and the server
+ * re-derives real roles on every privileged call, so it cannot grant
+ * anything — it just answers "what does a contributor actually see?". */
+const currentViewAs = () => useViewAsStore.getState().viewAs
 
 export interface ContributorRole {
   language_id: string | null
@@ -25,9 +34,22 @@ export interface GrammarPointEdit {
   reviewed_at: string | null
 }
 
-export async function getMyRoles(): Promise<{ roles: ContributorRole[]; is_admin: boolean }> {
+export async function getMyRoles(): Promise<{
+  roles: ContributorRole[]
+  is_admin: boolean
+  /** Untouched by the "view as" preview — see ViewAsBar. */
+  real_is_admin?: boolean
+}> {
   const response = await apiClient.get('/api/contribute/roles')
-  return response.data
+  const viewAs = currentViewAs()
+  if (!viewAs) return response.data
+  return {
+    // real_is_admin rides through the spread deliberately: the bar that
+    // ends the preview must stay reachable while one is active.
+    ...response.data,
+    roles: downgradeRoles(response.data.roles ?? [], viewAs),
+    is_admin: false,
+  }
 }
 
 export async function getGrammarForLanguage(
@@ -45,7 +67,7 @@ export async function getGrammarForLanguage(
   const response = await apiClient.get('/api/contribute/grammar', {
     params: { language_id: languageId },
   })
-  return response.data
+  return downgradeFlags(response.data, currentViewAs())
 }
 
 export interface VocabItemEdit {

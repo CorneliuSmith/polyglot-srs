@@ -198,7 +198,16 @@ async def my_roles(user: dict = Depends(get_current_user)):
     """Return the caller's contributor roles (drives the contributor UI)."""
     async with rls_connection(user["id"]) as conn:
         roles = await get_roles(conn, user["id"])
-    return {"roles": roles, "is_admin": is_admin(roles)}
+    admin = is_admin(roles)
+    return {
+        "roles": roles,
+        "is_admin": admin,
+        # Same value, but never rewritten by the client-side "view as"
+        # preview — it's what decides whether to offer that switcher at all.
+        # (The preview downgrades `is_admin`; if the bar read that, turning
+        # the preview on would hide the control that turns it off.)
+        "real_is_admin": admin,
+    }
 
 
 @router.get("/grammar")

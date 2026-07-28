@@ -1,5 +1,6 @@
 import { Navigate, Outlet } from 'react-router-dom'
 import { useAuthStore } from '../stores/authStore'
+import ViewAsBar from './ViewAsBar'
 
 export default function ProtectedRoute() {
   const isAuthenticated = useAuthStore((s) => s.isAuthenticated)()
@@ -20,5 +21,14 @@ export default function ProtectedRoute() {
     return <Navigate to="/login" replace />
   }
 
-  return <Outlet />
+  // The admin "view as" switcher is the one piece of chrome above every
+  // authenticated page — this is the app's only shared authenticated shell,
+  // so it's the single place a global bar can live. It renders nothing at
+  // all for non-admins.
+  return (
+    <>
+      <ViewAsBar />
+      <Outlet />
+    </>
+  )
 }

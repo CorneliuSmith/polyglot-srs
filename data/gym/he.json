@@ -1,0 +1,280 @@
+{
+  "language": "he",
+  "_note": "The Gym manifest (WP25a): which grammar points act as selectable form categories, grouped into picker columns. 'point' must match the grammar point title exactly (resolved to ids at request time). 'usage' is the plain-language hover explanation; 'example' is a real drill sentence from that point. 'nonstandard': entries hidden behind the 'include non-standard words' toggle.",
+  "columns": [
+    {
+      "kind": "verbs",
+      "label": "Verb forms",
+      "entries": [
+        {
+          "point": "Present-tense verbs change with gender and number",
+          "label": "Present (pa'al)",
+          "usage": "Four forms for one tense: הולך, הולכת, הולכים, הולכות.",
+          "example": "היא הולכת הביתה. — She is going home."
+        },
+        {
+          "point": "Past tense pa'al: the singular persons",
+          "label": "Past (pa'al sg.)",
+          "usage": "Endings, not prefixes: כתבתי, כתבת, כתב, כתבה.",
+          "example": "אתמול כתבתי מכתב. — Yesterday I wrote a letter."
+        },
+        {
+          "point": "Past tense pa'al: the plural persons",
+          "label": "Past (pa'al pl.)",
+          "usage": "כתבנו for we, כתבתם for you, and one כתבו for they.",
+          "example": "הם אכלו פיצה. — They ate pizza."
+        },
+        {
+          "point": "Future tense pa'al",
+          "label": "Future (pa'al)",
+          "usage": "Prefixes take over: א for I, ת for you, י for he, נ for we.",
+          "example": "מחר אכתוב מכתב. — Tomorrow I will write a letter."
+        },
+        {
+          "point": "Infinitives after רוצה and אפשר",
+          "label": "Infinitive",
+          "usage": "The ל־ form that never changes, whoever the subject is.",
+          "example": "אני רוצה ללכת הביתה. — I want to go home."
+        },
+        {
+          "point": "Roots and binyanim: how the system works",
+          "label": "Root & binyan",
+          "usage": "One root, seven patterns: לובש, מלביש, מתלבש.",
+          "example": "אני מתלבש מהר בבוקר. — I get dressed quickly in the morning."
+        },
+        {
+          "point": "Present tense pi'el",
+          "label": "Present (pi'el)",
+          "usage": "מ־ plus an a-vowel: מדבר, מלמד, מבקש.",
+          "example": "היא מדברת עברית. — She speaks Hebrew."
+        },
+        {
+          "point": "Pi'el in the past and the future",
+          "label": "Pi'el past/future",
+          "usage": "The מ־ drops away: דיברתי, דיבר, אדבר, ידברו.",
+          "example": "אתמול דיברתי עם המנהל. — Yesterday I spoke with the manager."
+        },
+        {
+          "point": "Present tense hif'il",
+          "label": "Present (hif'il)",
+          "usage": "מ־ plus an i-vowel: מרגיש, מתחיל, מסביר.",
+          "example": "אני מרגיש טוב היום. — I feel good today."
+        },
+        {
+          "point": "Hif'il in the past and the future",
+          "label": "Hif'il past/future",
+          "usage": "ה־ in the past (הרגיש), ordinary prefixes in the future (ירגיש).",
+          "example": "המורה הסביר את הכלל. — The teacher explained the rule."
+        },
+        {
+          "point": "Hitpa'el: reflexive and reciprocal verbs",
+          "label": "Hitpa'el",
+          "usage": "מת־ in the present, הת־ in the past; the ת can swap places.",
+          "example": "הוא השתמש במילון. — He used a dictionary."
+        },
+        {
+          "point": "Nif'al: the middle and passive pattern",
+          "label": "Nif'al",
+          "usage": "נ־ throughout: נכנס, נפגשים, נשברה — things that happen to the subject.",
+          "example": "הכוס נשברה. — The glass broke."
+        },
+        {
+          "point": "Pu'al and huf'al: recognizing the passives",
+          "label": "Pu'al & huf'al",
+          "usage": "Passive-only patterns with an u-vowel: בוטלה, מסודר, מוזמן, הופסק.",
+          "example": "הטיסה בוטלה. — The flight was cancelled.",
+          "nonstandard": true
+        },
+        {
+          "point": "Idiomatic shifts between binyanim",
+          "label": "Binyan idioms",
+          "usage": "Same root, unpredictable meaning: ראה, הראה, נראה, נשבר לי.",
+          "example": "אתה נראה עייף היום. — You look tired today.",
+          "nonstandard": true
+        },
+        {
+          "point": "The vav-conversive in quotation and idiom",
+          "label": "Vav-conversive",
+          "usage": "Biblical tense-flipping that survives only in quotation and idiom.",
+          "example": "ויהי אור. — And there was light.",
+          "nonstandard": true
+        }
+      ]
+    },
+    {
+      "kind": "nouns",
+      "label": "Nouns & agreement",
+      "entries": [
+        {
+          "point": "Personal pronouns and grammatical gender",
+          "label": "Pronouns",
+          "usage": "אתה/את and הוא/היא — gender is marked on everything but I and we.",
+          "example": "היא אישה טובה. — She is a good woman."
+        },
+        {
+          "point": "The definite article ה־",
+          "label": "Definite article",
+          "usage": "One letter glued to the front; there is no word for a or an.",
+          "example": "הבית גדול. — The house is big."
+        },
+        {
+          "point": "Adjective gender agreement",
+          "label": "Adjective gender",
+          "usage": "The feminine usually adds ה־: טוב becomes טובה.",
+          "example": "האישה טובה. — The woman is good."
+        },
+        {
+          "point": "Noun and adjective plural agreement",
+          "label": "Plural agreement",
+          "usage": "ים־ and ות־ on the noun, and the adjective copies both gender and number.",
+          "example": "המחברות גדולות. — The notebooks are big."
+        },
+        {
+          "point": "Numbers and gender agreement",
+          "label": "Numbers",
+          "usage": "Two counting sets; the forms ending in ה are the masculine ones.",
+          "example": "יש לי שלושה ספרים. — I have three books."
+        },
+        {
+          "point": "Possession with של",
+          "label": "Possession של",
+          "usage": "The easy possessive: הבית של דוד.",
+          "example": "הבית של דוד. — The house is David's."
+        },
+        {
+          "point": "Possession with יש ל־",
+          "label": "יש לי (have)",
+          "usage": "No verb to have — יש plus a to-form does the job, אין for the negative.",
+          "example": "יש לנו כלב. — We have a dog."
+        },
+        {
+          "point": "Prepositions with pronoun endings",
+          "label": "Preposition endings",
+          "usage": "The preposition swallows its pronoun: לי, לך, לו, אצלי.",
+          "example": "הוא נתן לי ספר. — He gave me a book."
+        },
+        {
+          "point": "The construct state (smichut)",
+          "label": "Smichut",
+          "usage": "Two nouns side by side; only the last one takes the article.",
+          "example": "אכלתי עוגת שוקולד. — I ate a chocolate cake."
+        },
+        {
+          "point": "Verbal nouns (shem pe'ula)",
+          "label": "Verbal nouns",
+          "usage": "One action-noun shape per binyan: כתיבה, דיבור, הסבר.",
+          "example": "הליכה היא ספורט טוב. — Walking is good exercise."
+        },
+        {
+          "point": "Long construct chains",
+          "label": "Long chains",
+          "usage": "Three nouns deep, adjective only at the end: משרד ראש הממשלה.",
+          "example": "הוא עובד במשרד ראש הממשלה. — He works in the Prime Minister's Office.",
+          "nonstandard": true
+        }
+      ]
+    },
+    {
+      "kind": "constructions",
+      "label": "Constructions",
+      "entries": [
+        {
+          "point": "No verb \"to be\" in the present tense",
+          "label": "Zero copula",
+          "usage": "Subject and predicate sit side by side, with no is or are.",
+          "example": "הבית גדול. — The house is big."
+        },
+        {
+          "point": "Negation with לא",
+          "label": "Negation",
+          "usage": "לא goes straight in front of the verb or adjective.",
+          "example": "הוא לא הולך. — He isn't going."
+        },
+        {
+          "point": "Existence: יש and אין",
+          "label": "יש / אין",
+          "usage": "There is and there isn't, the base of the possession pattern too.",
+          "example": "יש בית גדול. — There is a big house."
+        },
+        {
+          "point": "Yes/no questions and question words",
+          "label": "Questions",
+          "usage": "Statement word order plus intonation; מה, מי, איפה, מתי, למה lead.",
+          "example": "איפה אתה גר? — Where do you live?"
+        },
+        {
+          "point": "The object marker את",
+          "label": "Object marker את",
+          "usage": "Flags a definite direct object; untranslatable, and never optional.",
+          "example": "אני רואה את הבית. — I see the house."
+        },
+        {
+          "point": "Object pronouns and their literary suffixed forms",
+          "label": "Object pronouns",
+          "usage": "אותי, אותו, אותם in speech; ראיתיו and its kin in print.",
+          "example": "פגשנו אותם אתמול. — We met them yesterday.",
+          "nonstandard": true
+        },
+        {
+          "point": "Relative clauses with ש־",
+          "label": "Relative ש־",
+          "usage": "One prefix for who, which and that — and it can never be dropped.",
+          "example": "האיש שגר כאן הוא רופא. — The man who lives here is a doctor."
+        },
+        {
+          "point": "Comparatives with יותר and הכי",
+          "label": "Comparison",
+          "usage": "יותר ... מ־ for more than, הכי for the top of the class.",
+          "example": "דן גבוה יותר מדנה. — Dan is taller than Dana."
+        },
+        {
+          "point": "Real conditionals with אם",
+          "label": "Conditionals (אם)",
+          "usage": "A condition that may come true — future tense in both halves.",
+          "example": "אם ירד גשם, נישאר בבית. — If it rains, we'll stay home."
+        },
+        {
+          "point": "Temporal clauses: כש־, לפני ש־, אחרי ש־",
+          "label": "Time clauses",
+          "usage": "Preposition plus ש־ before a clause; the ש drops before a plain noun.",
+          "example": "אכלתי לפני שיצאתי מהבית. — I ate before I left the house."
+        },
+        {
+          "point": "Unreal conditionals with אילו and לו",
+          "label": "Counterfactuals",
+          "usage": "אילו or לו with היה plus a present participle in both halves.",
+          "example": "אילו היה לי זמן, הייתי בא. — If I had time, I would come.",
+          "nonstandard": true
+        },
+        {
+          "point": "Indirect speech with ש־",
+          "label": "Reported speech",
+          "usage": "ש־ is obligatory, and the original tense is kept, not shifted back.",
+          "example": "הוא אמר שהוא עייף. — He said that he was tired.",
+          "nonstandard": true
+        },
+        {
+          "point": "Formal and colloquial register",
+          "label": "Register",
+          "usage": "אולם, בשל, בלבד in writing where speech says אבל, בגלל, רק.",
+          "example": "הכניסה למנויים בלבד. — Entry for subscribers only.",
+          "nonstandard": true
+        },
+        {
+          "point": "אשר beside everyday ש־",
+          "label": "Relative אשר",
+          "usage": "The free-standing relative of written Hebrew, especially before a preposition.",
+          "example": "הנושא אשר עליו דיברנו חשוב. — The topic we spoke about is important.",
+          "nonstandard": true
+        },
+        {
+          "point": "Switching register inside one text",
+          "label": "Register switching",
+          "usage": "בטרם and אין ב־ ... כדי beside quoted ש־, כי and בגלל.",
+          "example": "בטרם יצאנו, בדקנו את הכתובת. — Before we left, we checked the address.",
+          "nonstandard": true
+        }
+      ]
+    }
+  ]
+}
