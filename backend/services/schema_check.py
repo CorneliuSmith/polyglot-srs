@@ -42,6 +42,16 @@ _COLUMN_NAME = re.compile(
     r"ADD\s+COLUMN\s+(?:IF\s+NOT\s+EXISTS\s+)?([a-z_][a-z0-9_]*)",
     re.IGNORECASE,
 )
+# Retiring columns needs the SAME two-stage parse as adding them: capture the
+# whole ALTER body, then find every name in it. A single regex pass caught
+# only the FIRST column of `DROP COLUMN a, DROP COLUMN b`, so the second
+# lingered as a phantom expectation and the drift detector reported a column
+# a later migration had deliberately removed. Caught by CI, which runs the
+# detector against a real fully-migrated database.
+_DROP_COLUMN_NAME = re.compile(
+    r"DROP\s+COLUMN\s+(?:IF\s+EXISTS\s+)?([a-z_][a-z0-9_]*)",
+    re.IGNORECASE,
+)
 
 
 @dataclass(frozen=True)
@@ -82,12 +92,11 @@ def expected_objects(migrations_dir: Path | None = None) -> list[Expectation]:
         for table, body in _ADD_COLUMN.findall(sql):
             for column in _COLUMN_NAME.findall(body):
                 out.append(Expectation(path.name, table.lower(), column.lower()))
-        for table, column in re.findall(
-            r"ALTER\s+TABLE\s+(?:IF\s+EXISTS\s+)?(?:public\.)?([a-z_][a-z0-9_]*)"
-            r"[^;]*?DROP\s+COLUMN\s+(?:IF\s+EXISTS\s+)?([a-z_][a-z0-9_]*)",
-            sql, re.IGNORECASE | re.DOTALL,
-        ):
-            dropped.add((table.lower(), column.lower()))
+        # Same shape as _ADD_COLUMN above — one ALTER can retire several
+        # columns, and every one of them must stop being expected.
+        for table, body in _ADD_COLUMN.findall(sql):
+            for column in _DROP_COLUMN_NAME.findall(body):
+                dropped.add((table.lower(), column.lower()))
         for table in re.findall(
             r"DROP\s+TABLE\s+(?:IF\s+EXISTS\s+)?(?:public\.)?([a-z_][a-z0-9_]*)",
             sql, re.IGNORECASE,

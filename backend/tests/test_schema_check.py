@@ -65,6 +65,40 @@ class TestExpectedObjects:
         assert ("gone", None) not in objs
         assert ("t", None) in objs
 
+    def test_every_column_of_a_multi_column_drop_is_honoured(self, tmp_path):
+        """One ALTER can retire several columns. The first version of this
+        parser caught only the first, so the second lingered as a phantom
+        expectation and the drift detector reported a column a later
+        migration had deliberately removed — CI caught it against a real
+        fully-migrated database."""
+        _write(tmp_path, "0001.sql", "CREATE TABLE t (id UUID);")
+        _write(tmp_path, "0002.sql", """
+            ALTER TABLE t
+                ADD COLUMN IF NOT EXISTS keep TEXT,
+                ADD COLUMN IF NOT EXISTS a UUID[],
+                ADD COLUMN IF NOT EXISTS b UUID[];
+        """)
+        _write(tmp_path, "0003.sql", """
+            ALTER TABLE t
+                DROP COLUMN IF EXISTS a,
+                DROP COLUMN IF EXISTS b;
+        """)
+        objs = {(e.table, e.column) for e in expected_objects(tmp_path)}
+        assert ("t", "a") not in objs
+        assert ("t", "b") not in objs
+        # The column the migration kept is still expected.
+        assert ("t", "keep") in objs
+
+    def test_a_drop_does_not_retire_a_same_named_column_elsewhere(self, tmp_path):
+        _write(tmp_path, "0001.sql", "CREATE TABLE t (id UUID);")
+        _write(tmp_path, "0002.sql", "CREATE TABLE u (id UUID);")
+        _write(tmp_path, "0003.sql", "ALTER TABLE t ADD COLUMN note TEXT;")
+        _write(tmp_path, "0004.sql", "ALTER TABLE u ADD COLUMN note TEXT;")
+        _write(tmp_path, "0005.sql", "ALTER TABLE t DROP COLUMN IF EXISTS note;")
+        objs = {(e.table, e.column) for e in expected_objects(tmp_path)}
+        assert ("t", "note") not in objs
+        assert ("u", "note") in objs
+
     def test_missing_directory_is_not_an_error(self, tmp_path):
         assert expected_objects(tmp_path / "nope") == []
 
