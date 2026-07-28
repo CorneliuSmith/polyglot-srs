@@ -52,6 +52,7 @@ class FakeSettings:
     database_url = "postgresql://fake/db"
     environment = "test"
     cors_origins = []
+    tutor_model = "claude-sonnet-5"
 
 
 def _auth_headers() -> dict:
@@ -589,6 +590,27 @@ class TestTutorModelPicker:
                 headers=_auth_headers(),
             )
         assert resp.status_code == 422
+
+    def test_apply_to_all_languages(self, client):
+        # Fleet-wide apply (owner: re-setting the model per language, and again
+        # for each new language, read as the setting "resetting").
+        with _roles([{"language_id": None, "role": "admin"}]), \
+             patch("backend.routers.contribute.set_all_languages_tutor_model",
+                   new=AsyncMock(return_value=28)) as mock_all, \
+             patch("backend.routers.contribute.set_language_tutor_model",
+                   new=AsyncMock()) as mock_one:
+            resp = client.post(
+                "/api/contribute/language-tutor-model",
+                json={"language_id": LANG, "model": "claude-sonnet-5",
+                      "all_languages": True},
+                headers=_auth_headers(),
+            )
+        assert resp.status_code == 200
+        assert resp.json() == {
+            "tutor_model": "claude-sonnet-5", "languages_updated": 28,
+        }
+        mock_all.assert_awaited_once()
+        mock_one.assert_not_awaited()
 
 
 class TestTutorUsageOverview:

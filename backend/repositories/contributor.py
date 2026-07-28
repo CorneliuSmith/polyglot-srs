@@ -284,6 +284,19 @@ async def set_language_tutor_model(
     )
 
 
+async def set_all_languages_tutor_model(
+    conn: asyncpg.Connection, model: str | None
+) -> int:
+    """Set (or clear) the tutor model on EVERY language at once (admin).
+
+    Owner pain point: the per-language picker meant re-doing the same choice
+    for each language — and each newly added language arrived back at the
+    default. One fleet-wide apply replaces that ritual. Returns the number
+    of languages updated."""
+    result = await conn.execute("UPDATE languages SET tutor_model = $1", model)
+    return int(result.split()[-1])
+
+
 async def set_language_policy(
     conn: asyncpg.Connection, language_id: str, policy: str
 ) -> bool:

@@ -40,6 +40,7 @@ export async function getGrammarForLanguage(
   can_contribute: boolean
   review_policy: string
   tutor_model?: string | null
+  default_tutor_model?: string
 }> {
   const response = await apiClient.get('/api/contribute/grammar', {
     params: { language_id: languageId },
@@ -123,10 +124,12 @@ export const TUTOR_MODELS = [
 export async function setLanguageTutorModel(
   languageId: string,
   model: string | null,
+  allLanguages = false,
 ): Promise<void> {
   await apiClient.post('/api/contribute/language-tutor-model', {
     language_id: languageId,
     model,
+    all_languages: allLanguages,
   })
 }
 

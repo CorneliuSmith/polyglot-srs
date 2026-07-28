@@ -202,7 +202,11 @@ describe('ContributorPage', () => {
     expect(select.value).toBe('') // default (server setting)
     fireEvent.change(select, { target: { value: 'claude-sonnet-5' } })
     await waitFor(() => {
-      expect(mockSetModel).toHaveBeenCalledWith('lang-tr', 'claude-sonnet-5')
+      // Third arg is the fleet-wide flag — undefined here means "this
+      // language only" (the API default).
+      expect(mockSetModel).toHaveBeenCalledWith(
+        'lang-tr', 'claude-sonnet-5', undefined,
+      )
     })
   })
 

@@ -338,12 +338,15 @@ export default function SettingsPage() {
             <RolesPanel languages={languages} />
             <ReviewPolicyControl
               languageId={activeLanguageId}
+              languageName={activeLanguage?.name}
               policy={workspace?.review_policy ?? 'strict'}
               onChanged={workspaceRefresh}
             />
             <TutorModelControl
               languageId={activeLanguageId}
+              languageName={activeLanguage?.name}
               current={workspace?.tutor_model ?? null}
+              defaultModel={workspace?.default_tutor_model}
               onChanged={workspaceRefresh}
             />
             <TutorCostsPanel />

@@ -101,6 +101,7 @@ from backend.repositories.contributor import (
     save_explanation,
     save_vocab_ai_check,
     set_account_plan,
+    set_all_languages_tutor_model,
     set_language_policy,
     set_language_tutor_model,
     submit_suggestion,
@@ -229,7 +230,15 @@ async def grammar_for_language(
         "can_contribute": can_contribute(roles, language_id),
         "review_policy": policy,
         "tutor_model": tutor_model,
+        # What "Default" resolves to — shown in the admin picker so an unset
+        # override reads as the concrete model it uses, not a mystery.
+        "default_tutor_model": _default_tutor_model(),
     }
+
+
+def _default_tutor_model() -> str:
+    from backend.dependencies import get_settings  # noqa: PLC0415
+    return get_settings().tutor_model
 
 
 @router.get("/vocab")
@@ -321,6 +330,9 @@ async def update_language_visibility(
 class TutorModelUpdate(BaseModel):
     language_id: str
     model: str | None = None  # None resets to the global default
+    # Fleet-wide apply: one choice for every language (current and, until
+    # they're edited individually, a template admins re-run for new ones).
+    all_languages: bool = False
 
 
 # The models an admin may assign per language (WP15a). Order = strongest
@@ -352,6 +364,9 @@ async def update_language_tutor_model(
             detail="Only an admin can change the tutor model",
         )
     async with privileged_connection() as conn:
+        if body.all_languages:
+            updated = await set_all_languages_tutor_model(conn, body.model)
+            return {"tutor_model": body.model, "languages_updated": updated}
         await set_language_tutor_model(conn, body.language_id, body.model)
     return {"tutor_model": body.model}
 
