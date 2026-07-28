@@ -141,6 +141,72 @@ async def get_status(conn: asyncpg.Connection, user_id: str) -> dict:
     }
 
 
+async def placement_history(
+    conn: asyncpg.Connection, user_id: str, language_id: str
+) -> dict:
+    """What this learner has done with placement in THIS language.
+
+    Drives three things the app had no way to know before: whether to offer
+    the first-time placement prompt at all, what to show on a retake ("you
+    were A2 in March"), and which item variant to sample so a retake isn't
+    the same questions over again.
+    """
+    rows = await conn.fetch(
+        """
+        SELECT estimated_level, items_asked, created_at
+        FROM placement_attempts
+        WHERE user_id = $1 AND language_id = $2
+        ORDER BY created_at DESC
+        LIMIT 10
+        """,
+        user_id, language_id,
+    )
+    total = await conn.fetchval(
+        """
+        SELECT count(*) FROM placement_attempts
+        WHERE user_id = $1 AND language_id = $2
+        """,
+        user_id, language_id,
+    ) or 0
+    return {
+        "attempts": total,
+        "has_placed": total > 0,
+        "last_level": rows[0]["estimated_level"] if rows else None,
+        "last_taken_at": rows[0]["created_at"].isoformat() if rows else None,
+        "history": [
+            {
+                "estimated_level": r["estimated_level"],
+                "items_asked": r["items_asked"],
+                "taken_at": r["created_at"].isoformat(),
+            }
+            for r in rows
+        ],
+    }
+
+
+async def record_placement_attempt(
+    conn: asyncpg.Connection,
+    user_id: str,
+    language_id: str,
+    *,
+    estimated_level: str | None,
+    items_asked: int,
+) -> None:
+    """Log a finished placement run. Best-effort: a learner who just sat the
+    test should still get their level even if the bookkeeping insert fails."""
+    try:
+        await conn.execute(
+            """
+            INSERT INTO placement_attempts
+                (user_id, language_id, estimated_level, items_asked)
+            VALUES ($1, $2, $3, $4)
+            """,
+            user_id, language_id, estimated_level, items_asked,
+        )
+    except asyncpg.PostgresError:
+        pass
+
+
 # Dictionary-derived definitions for the MOST frequent words are exactly the
 # ones written in grammarese ("initial interrogative particle", "feminine
 # singular of o") — a beta tester rightly flagged that a placement test is no
@@ -163,13 +229,26 @@ def _plain_prompt(definition: str) -> bool:
 
 
 async def sample_placement_items(
-    conn: asyncpg.Connection, language_id: str, *, per_level: int = 3
+    conn: asyncpg.Connection,
+    language_id: str,
+    *,
+    per_level: int = 3,
+    variant: int = 0,
 ) -> list[dict]:
     """Sample graded placement prompts across vocabulary and grammar.
 
     Vocabulary items show an English definition (type the word); grammar items
     show a reviewed cloze sentence with a blank (type the missing form). Both
     pick the most representative items per CEFR level. Answers are not returned.
+
+    *variant* slides the per-level window down the ranked pool so a RETAKE
+    asks different questions (owner: "the test should change slightly to
+    better gauge their improvements"). Variant 0 is the original top-N — the
+    most frequent vocabulary and the earliest drills — so a first placement
+    is unchanged. Later variants step past those, and wrap around once the
+    pool runs out rather than returning nothing: a small language would
+    otherwise lose its whole staircase on a second attempt, and repeating an
+    item is far better than not placing at all.
     """
     # Over-fetch per level, then keep the first plain-language definitions —
     # frequency order is preserved, jargon rows just fall through.
@@ -193,17 +272,39 @@ async def sample_placement_items(
         ORDER BY level, rn
         """,
         language_id,
-        per_level * 8,
+        # Deep enough that a later variant still has unseen rows to walk to.
+        per_level * 8 * (variant + 1),
     )
     vocab: list = []
     taken: dict[str, int] = {}
+    # Variant N skips the N*per_level plain candidates a previous attempt
+    # would have used, so the learner meets new words.
+    skip_target = variant * per_level
+    skipped: dict[str, int] = {}
     for r in vocab_pool:
-        if taken.get(r["level"], 0) >= per_level:
+        lvl = r["level"]
+        if taken.get(lvl, 0) >= per_level:
             continue
         if not _plain_prompt(r["prompt"]):
             continue
-        taken[r["level"]] = taken.get(r["level"], 0) + 1
+        if skipped.get(lvl, 0) < skip_target:
+            skipped[lvl] = skipped.get(lvl, 0) + 1
+            continue
+        taken[lvl] = taken.get(lvl, 0) + 1
         vocab.append(r)
+    if variant:
+        # Wrap: a level whose pool ran out reuses its earlier items rather
+        # than dropping off the staircase entirely.
+        seen_ids = {r["id"] for r in vocab}
+        for r in vocab_pool:
+            lvl = r["level"]
+            if taken.get(lvl, 0) >= per_level:
+                continue
+            if r["id"] in seen_ids or not _plain_prompt(r["prompt"]):
+                continue
+            taken[lvl] = taken.get(lvl, 0) + 1
+            seen_ids.add(r["id"])
+            vocab.append(r)
     # A level whose every candidate is jargon still gets its plain-limit
     # fallback rows rather than vanishing from the staircase.
     for level in {r["level"] for r in vocab_pool}:
@@ -214,9 +315,9 @@ async def sample_placement_items(
                     taken[level] = taken.get(level, 0) + 1
                     if taken[level] >= per_level:
                         break
-    grammar = await conn.fetch(
+    grammar_pool = await conn.fetch(
         """
-        SELECT id, level, sentence, translation FROM (
+        SELECT id, level, sentence, translation, rn FROM (
             SELECT
                 ds.id,
                 gp.level,
@@ -237,9 +338,28 @@ async def sample_placement_items(
         ORDER BY level, rn
         """,
         language_id,
-        per_level,
+        # Reach far enough down each level that variant N has a fresh window.
+        per_level * (variant + 1),
         ANSWER_MARKER,
     )
+    # Grammar has no relevance score to fall through like vocabulary's jargon
+    # filter, so the window is a straight slice of the curriculum order:
+    # variant 0 takes drills 1..per_level, variant 1 takes the next per_level,
+    # and so on. Levels that run out wrap back to the start below.
+    lo = variant * per_level
+    grammar = [r for r in grammar_pool if lo < r["rn"] <= lo + per_level]
+    if variant:
+        g_taken: dict[str, int] = {}
+        for r in grammar:
+            g_taken[r["level"]] = g_taken.get(r["level"], 0) + 1
+        seen_ids = {r["id"] for r in grammar}
+        for r in grammar_pool:
+            lvl = r["level"]
+            if g_taken.get(lvl, 0) >= per_level or r["id"] in seen_ids:
+                continue
+            g_taken[lvl] = g_taken.get(lvl, 0) + 1
+            seen_ids.add(r["id"])
+            grammar.append(r)
 
     items = [
         {"id": str(r["id"]), "kind": "vocabulary", "level": r["level"],

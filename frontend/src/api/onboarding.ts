@@ -17,11 +17,44 @@ export interface PlacementItem {
 export interface PlacementResponse {
   available: boolean
   items: PlacementItem[]
+  /** 1 on a first placement, 2+ on a retake. */
+  attempt?: number
+  previous_level?: string | null
 }
 
 export interface PlacementScore {
   estimated_level: string
   per_level: Record<string, { correct: number; total: number }>
+  attempt?: number
+  previous_level?: string | null
+}
+
+export interface PlacementAttempt {
+  estimated_level: string | null
+  items_asked: number
+  taken_at: string
+}
+
+export interface PlacementHistory {
+  attempts: number
+  has_placed: boolean
+  last_level: string | null
+  last_taken_at: string | null
+  history: PlacementAttempt[]
+}
+
+/**
+ * Whether this learner has ever placed in this language. Drives the
+ * first-time offer (never placed → ask) and the retake entry in settings
+ * (placed → show the previous estimate to measure against).
+ */
+export async function getPlacementHistory(
+  languageId: string,
+): Promise<PlacementHistory> {
+  const response = await apiClient.get<PlacementHistory>(
+    `/api/onboarding/placement/${languageId}/history`,
+  )
+  return response.data
 }
 
 export interface CompleteResponse {
@@ -50,6 +83,8 @@ export interface PlacementNextResponse {
   max_items?: number
   estimated_level?: string | null
   per_level?: Record<string, { correct: number; total: number }>
+  attempt?: number
+  previous_level?: string | null
 }
 
 /**

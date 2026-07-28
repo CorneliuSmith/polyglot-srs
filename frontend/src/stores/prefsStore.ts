@@ -67,6 +67,13 @@ interface PrefsState {
   seenTipIds: string[]
   lastTipShownAt: number
   recordTipShown: (id: string) => void
+  // Language ids where the learner has waved off the first-time placement
+  // offer. Server-side attempt history says whether they've EVER placed;
+  // this says whether they've already said "not now" to being asked. Kept
+  // client-side on purpose — declining an offer isn't account state, and it
+  // shouldn't cost a write.
+  placementOfferDismissed: string[]
+  dismissPlacementOffer: (languageId: string) => void
 }
 
 export const usePrefsStore = create<PrefsState>()(
@@ -117,6 +124,13 @@ export const usePrefsStore = create<PrefsState>()(
             lastTipShownAt: Date.now(),
           }
         }),
+      placementOfferDismissed: [],
+      dismissPlacementOffer: (languageId) =>
+        set((s) => ({
+          placementOfferDismissed: s.placementOfferDismissed.includes(languageId)
+            ? s.placementOfferDismissed
+            : [...s.placementOfferDismissed, languageId],
+        })),
     }),
     {
       name: 'polyglot-prefs',

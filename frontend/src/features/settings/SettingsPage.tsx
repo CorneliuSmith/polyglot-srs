@@ -3,7 +3,8 @@ import { useLocation, useNavigate } from 'react-router-dom'
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query'
 import { getLanguages, getProfile, updateProfile } from '../../api/profile'
 import { getLearnDecks, resetProgress } from '../../api/review'
-import { setLearnerLevel } from '../../api/onboarding'
+import { getPlacementHistory, setLearnerLevel } from '../../api/onboarding'
+import PlacementTest from '../onboarding/PlacementTest'
 import {
   formatPrice,
   getPlanPrices,
@@ -195,6 +196,16 @@ export default function SettingsPage() {
       queryClient.invalidateQueries({ queryKey: ['dashboard'] })
     },
   })
+
+  // Placement history for this language — what the retake copy compares
+  // against ("you last placed at A2 in March").
+  const { data: placementInfo } = useQuery({
+    queryKey: ['placement-history', activeLanguageId],
+    queryFn: () => getPlacementHistory(activeLanguageId!),
+    enabled: !!activeLanguageId,
+    retry: false,
+  })
+  const [retaking, setRetaking] = useState(false)
 
   const activeLanguage = languages.find((l) => l.id === activeLanguageId)
 
@@ -407,6 +418,42 @@ export default function SettingsPage() {
             )}
             {levelMutation.isError && (
               <p className="text-xs text-red-500">Couldn't save — try again.</p>
+            )}
+
+            {/* Retake (owner request): the placement offer promises the test
+                can be taken any time, and this is where that promise is
+                kept. Picking a level by hand stays right above it — the test
+                is the guided way, never the only way. */}
+            <div className="pt-3 border-t border-gray-100 space-y-2">
+              <p className="text-xs text-gray-500">
+                {placementInfo?.has_placed
+                  ? `You last placed at ${placementInfo.last_level ?? '—'}${
+                      placementInfo.last_taken_at
+                        ? ` on ${new Date(placementInfo.last_taken_at).toLocaleDateString()}`
+                        : ''
+                    }. Take it again to see how far you've come — the questions
+                       change each time.`
+                  : `Not sure which level to pick? Take the short adaptive test
+                     and we'll suggest one. You can retake it any time.`}
+              </p>
+              <button
+                type="button"
+                onClick={() => setRetaking(true)}
+                disabled={!activeLanguage}
+                className="rounded-xl border border-gray-300 px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 disabled:opacity-50"
+                style={{ minHeight: '44px' }}
+                data-testid="retake-placement"
+              >
+                {placementInfo?.has_placed
+                  ? 'Retake the placement test'
+                  : 'Take the placement test'}
+              </button>
+            </div>
+            {retaking && activeLanguage && (
+              <PlacementTest
+                language={activeLanguage}
+                onClose={() => setRetaking(false)}
+              />
             )}
           </section>
         )}

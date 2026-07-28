@@ -126,6 +126,10 @@ vi.mock('../stores/prefsStore', () => ({
         installPromptDismissed: true,
         setInstallPromptDismissed: vi.fn(),
         whatsNewSeen: [],
+        // Placement already answered for this language — the dashboard's
+        // first-time offer stays out of these tiles' way.
+        placementOfferDismissed: ['lang-es'],
+        dismissPlacementOffer: vi.fn(),
       }),
   ),
 }))
