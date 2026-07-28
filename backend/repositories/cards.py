@@ -1921,6 +1921,19 @@ async def get_deck_preview(
     }
 
 
+def _card_status(is_suspended: bool | None, repetitions: int | None) -> str:
+    """Classify a (possibly absent) user_cards row for the deck browser.
+    Mirrors the is_suspended/repetitions discriminators the learn-candidate
+    queries and mark_card_known already rely on elsewhere in this module."""
+    if repetitions is None:
+        return "new"
+    if is_suspended and repetitions == 0:
+        return "learning"
+    if is_suspended:
+        return "known"
+    return "active"
+
+
 async def get_deck_items(
     conn: asyncpg.Connection,
     list_id: str,
@@ -1931,6 +1944,18 @@ async def get_deck_items(
     in path order with its id, so each row can expand into a detail view.
     Unlike get_deck_preview this is the whole deck, id included, and grammar
     rows carry their review state so reviewers can spot drafts.
+
+    Each item also carries the CALLER's own learner status (owner: cards
+    need to be individually resettable, which means the deck browser must
+    first show which ones have progress to reset):
+      - "new": no user_cards row yet.
+      - "learning": teach-gate pending (is_suspended AND repetitions = 0) —
+        taught but not yet confirmed with a correct first-check answer.
+      - "known": retired via mark_card_known (is_suspended, repetitions >= 1)
+        — either explicitly retired from Review, or skipped in Learn.
+      - "active": in the normal FSRS review rotation.
+    No explicit user_id filter on the join — RLS (user_cards_select_own)
+    already scopes it to the caller under rls_connection.
     """
     cl = await conn.fetchrow(
         "SELECT id, language_id, list_type, level, title FROM content_lists WHERE id = $1",
@@ -1942,9 +1967,12 @@ async def get_deck_items(
         rows = await conn.fetch(
             """
             SELECT gp.id, gp.title AS item, gp.function_note AS detail,
-                   gp.level, gp.reviewed
+                   gp.level, gp.reviewed, uc.id AS user_card_id,
+                   uc.is_suspended, uc.repetitions
             FROM grammar_points gp
             JOIN languages l ON gp.language_id = l.id
+            LEFT JOIN user_cards uc
+                   ON uc.card_id = gp.id AND uc.card_type = 'grammar'
             WHERE gp.language_id = $1
               AND ($2::text IS NULL OR gp.level = $2)
               AND (gp.reviewed = true
@@ -1958,7 +1986,9 @@ async def get_deck_items(
         items = [
             {"id": str(r["id"]), "kind": "grammar", "item": r["item"],
              "detail": r["detail"], "level": r["level"],
-             "reviewed": r["reviewed"]}
+             "reviewed": r["reviewed"],
+             "user_card_id": str(r["user_card_id"]) if r["user_card_id"] else None,
+             "status": _card_status(r["is_suspended"], r["repetitions"])}
             for r in rows
         ]
     else:
@@ -1968,12 +1998,15 @@ async def get_deck_items(
         rows = await conn.fetch(
             """
             SELECT v.id, v.word AS item,
-                   COALESCE(t.definition, t_en.definition) AS detail, v.level
+                   COALESCE(t.definition, t_en.definition) AS detail, v.level,
+                   uc.id AS user_card_id, uc.is_suspended, uc.repetitions
             FROM vocabulary v
             LEFT JOIN translations t
                    ON v.id = t.vocabulary_id AND t.locale = $4
             LEFT JOIN translations t_en
                    ON v.id = t_en.vocabulary_id AND t_en.locale = 'en'
+            LEFT JOIN user_cards uc
+                   ON uc.card_id = v.id AND uc.card_type = 'vocabulary'
             WHERE v.language_id = $1
               AND ($2::text IS NULL OR v.level = $2)
               AND (v.level_source <> 'ai'
@@ -1987,7 +2020,9 @@ async def get_deck_items(
         )
         items = [
             {"id": str(r["id"]), "kind": "vocabulary", "item": r["item"],
-             "detail": r["detail"], "level": r["level"], "reviewed": True}
+             "detail": r["detail"], "level": r["level"], "reviewed": True,
+             "user_card_id": str(r["user_card_id"]) if r["user_card_id"] else None,
+             "status": _card_status(r["is_suspended"], r["repetitions"])}
             for r in rows
         ]
     return {
@@ -2120,6 +2155,26 @@ async def reset_language_progress(
         user_id, language_id,
     )
     return {"cards_deleted": int(result.split()[-1])}
+
+
+async def reset_card_progress(conn: asyncpg.Connection, card_id: str) -> bool:
+    """Wipe ONE card's progress — the single-card sibling of
+    reset_deck_progress/reset_language_progress (owner: cards need to be
+    resettable individually, not just by nuking the whole deck).
+
+    Deletes the user_cards row outright (review_log cascades), the same
+    "gone means fresh start" semantics the deck/language resets use: the
+    card simply re-qualifies as a new Learn candidate next time. This is
+    also how a mistaken "I already know this" (mark_card_known) gets
+    undone — the card just needs to be met and taught again.
+
+    No explicit user_id filter: RLS (user_cards_delete_own) already scopes
+    the delete to the caller's own row, matching mark_card_known's style.
+    Returns False when the id doesn't exist (or isn't the caller's) so the
+    router can 404.
+    """
+    result = await conn.execute("DELETE FROM user_cards WHERE id = $1", card_id)
+    return result != "DELETE 0"
 
 
 async def set_deck_subscription(

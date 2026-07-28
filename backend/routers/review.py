@@ -30,6 +30,7 @@ from backend.repositories.cards import (
     get_generation_context,
     get_learn_decks,
     get_vocab_item,
+    reset_card_progress,
     reset_deck_progress,
     reset_language_progress,
     set_deck_subscription,
@@ -440,6 +441,25 @@ async def mark_card_known(
             status_code=status.HTTP_404_NOT_FOUND, detail="Card not found"
         )
     return {"known": True}
+
+
+@router.delete("/card/{card_id}/progress")
+async def reset_one_card(
+    card_id: str,
+    user: dict = Depends(get_current_user),
+):
+    """Reset a single card's progress (owner: cards need to be resettable
+    individually, not just by wiping a whole deck). Deletes the user_cards
+    row outright — same "gone = fresh start" semantics as the deck/language
+    reset, scoped to just this one card. Undoes a mistaken "I already know
+    this" (mark_card_known) just as well as any other progress."""
+    async with rls_connection(user["id"]) as conn:
+        ok = await reset_card_progress(conn, card_id)
+    if not ok:
+        raise HTTPException(
+            status_code=status.HTTP_404_NOT_FOUND, detail="Card not found"
+        )
+    return {"reset": True}
 
 
 @router.post("/card/{card_id}/feedback")

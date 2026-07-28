@@ -5,6 +5,7 @@ import {
   getDeckItems,
   getLearnDecks,
   getVocabItem,
+  resetCardProgress,
   setDeckSubscription,
 } from '../../api/review'
 import { getCurriculumPoint } from '../../api/curriculum'
@@ -16,7 +17,71 @@ import SpeakButton from '../../components/SpeakButton'
 import SuggestChange from '../contribute/SuggestChange'
 import { usePrefsStore } from '../../stores/prefsStore'
 import { getLanguages } from '../../api/profile'
-import type { DeckItem } from '../../api/review'
+import type { CardStatus, DeckItem } from '../../api/review'
+
+const STATUS_LABEL: Record<CardStatus, string> = {
+  new: 'New',
+  learning: 'Learning',
+  known: 'Known',
+  active: 'Active',
+}
+const STATUS_STYLE: Record<CardStatus, string> = {
+  new: '',
+  learning: 'bg-blue-50 text-blue-600',
+  known: 'bg-amber-50 text-amber-700',
+  active: 'bg-emerald-50 text-emerald-700',
+}
+
+/** Progress chip for the (always-visible) row header — purely informational,
+ * so it can sit inside the row's own toggle button without nesting one
+ * button inside another. Nothing renders for a never-learned card. */
+function StatusChip({ status }: { status: CardStatus }) {
+  if (status === 'new') return null
+  return (
+    <span
+      className={`text-[10px] uppercase tracking-wide rounded px-1.5 py-0.5 ${STATUS_STYLE[status]}`}
+    >
+      {STATUS_LABEL[status]}
+    </span>
+  )
+}
+
+/** Individual reset (owner: cards need to be resettable one at a time —
+ * including undoing a mistaken "I already know this"). Lives in the
+ * expanded panel, never in the row header (which is itself a button —
+ * nesting a real button inside it would be invalid HTML). Nothing renders
+ * for a never-learned card; there's no progress yet to reset. */
+function ResetCardButton({ item, deckId }: { item: DeckItem; deckId: string | undefined }) {
+  const queryClient = useQueryClient()
+  const resetMutation = useMutation({
+    mutationFn: () => resetCardProgress(item.user_card_id!),
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ['deck-items', deckId] })
+      queryClient.invalidateQueries({ queryKey: ['dashboard'] })
+      queryClient.invalidateQueries({ queryKey: ['due-cards'] })
+      queryClient.invalidateQueries({ queryKey: ['learn-decks'] })
+    },
+  })
+  if (item.status === 'new' || !item.user_card_id) return null
+  return (
+    <button
+      type="button"
+      onClick={() => {
+        if (
+          window.confirm(
+            `Reset "${item.item}"? This permanently deletes its progress and review history — it goes back to never-learned.`,
+          )
+        )
+          resetMutation.mutate()
+      }}
+      disabled={resetMutation.isPending}
+      className="text-gray-400 hover:text-red-600 disabled:opacity-50"
+      title="Delete this card's progress — it becomes a new card again"
+    >
+      {resetMutation.isSuccess ? 'Reset ✓' : 'Reset progress'}
+    </button>
+  )
+}
 
 /** Reviewer flag box: files the issue into the point's review notes. */
 function FlagBox({ pointId }: { pointId: string }) {
@@ -73,11 +138,13 @@ function GrammarRow({
   languageId,
   languageCode,
   canContribute,
+  deckId,
 }: {
   item: DeckItem
   languageId: string | null
   languageCode: string
   canContribute: boolean
+  deckId: string | undefined
 }) {
   const navigate = useNavigate()
   const [open, setOpen] = useState(false)
@@ -108,6 +175,7 @@ function GrammarRow({
               Draft
             </span>
           )}
+          <StatusChip status={item.status} />
           <span className="text-gray-300">{open ? '▴' : '▾'}</span>
         </span>
       </button>
@@ -135,6 +203,7 @@ function GrammarRow({
                 <FlagBox pointId={item.id} />
               </>
             )}
+            <ResetCardButton item={item} deckId={deckId} />
           </div>
           {/* Inline votable suggestion, right on the deck (staff only). */}
           <SuggestChange
@@ -154,10 +223,12 @@ function VocabRow({
   item,
   languageId,
   languageCode,
+  deckId,
 }: {
   item: DeckItem
   languageId: string | null
   languageCode: string
+  deckId: string | undefined
 }) {
   const [open, setOpen] = useState(false)
   const { data: detail, isLoading } = useQuery({
@@ -181,7 +252,10 @@ function VocabRow({
             <span className="block text-xs text-gray-500">{item.detail}</span>
           )}
         </span>
-        <span className="text-gray-300 shrink-0">{open ? '▴' : '▾'}</span>
+        <span className="flex items-center gap-2 shrink-0">
+          <StatusChip status={item.status} />
+          <span className="text-gray-300">{open ? '▴' : '▾'}</span>
+        </span>
       </button>
       {open && (
         <div className="px-4 pb-4 space-y-3">
@@ -213,6 +287,9 @@ function VocabRow({
               )}
             </>
           )}
+          <div className="text-xs">
+            <ResetCardButton item={item} deckId={deckId} />
+          </div>
           {/* Inline votable suggestion, right on the deck (staff only). */}
           <SuggestChange
             languageId={languageId}
@@ -353,6 +430,7 @@ export default function DeckDetailPage() {
                 languageId={activeLanguageId}
                 languageCode={languageCode}
                 canContribute={canContribute}
+                deckId={deckId}
               />
             ) : (
               <VocabRow
@@ -360,6 +438,7 @@ export default function DeckDetailPage() {
                 item={item}
                 languageId={activeLanguageId}
                 languageCode={languageCode}
+                deckId={deckId}
               />
             ),
           )}

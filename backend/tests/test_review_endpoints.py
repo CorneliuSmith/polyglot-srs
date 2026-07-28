@@ -442,3 +442,46 @@ async def test_mark_known_unknown_card_404(client):
 async def test_mark_known_requires_auth(client):
     resp = client.post("/api/review/card/x/known")
     assert resp.status_code in (401, 403)
+
+
+@pytest.mark.asyncio
+async def test_reset_one_card_deletes_the_row(client):
+    """Individual-card reset (owner: cards need to be resettable one at a
+    time, not just by wiping a whole deck) deletes just that user_cards row."""
+    with patch("backend.routers.review.rls_connection") as mock_rls:
+        conn = AsyncMock()
+        conn.execute = AsyncMock(return_value="DELETE 1")
+        mock_rls.return_value.__aenter__ = AsyncMock(return_value=conn)
+        mock_rls.return_value.__aexit__ = AsyncMock(return_value=False)
+
+        resp = client.delete(
+            "/api/review/card/11111111-1111-1111-1111-111111111111/progress",
+            headers=_auth_headers(),
+        )
+
+    assert resp.status_code == 200
+    assert resp.json() == {"reset": True}
+    sql = conn.execute.await_args.args[0]
+    assert "DELETE FROM user_cards" in sql
+
+
+@pytest.mark.asyncio
+async def test_reset_one_card_unknown_card_404(client):
+    # RLS scopes user_cards to the owner: someone else's card id deletes 0 rows.
+    with patch("backend.routers.review.rls_connection") as mock_rls:
+        conn = AsyncMock()
+        conn.execute = AsyncMock(return_value="DELETE 0")
+        mock_rls.return_value.__aenter__ = AsyncMock(return_value=conn)
+        mock_rls.return_value.__aexit__ = AsyncMock(return_value=False)
+
+        resp = client.delete(
+            "/api/review/card/11111111-1111-1111-1111-111111111111/progress",
+            headers=_auth_headers(),
+        )
+    assert resp.status_code == 404
+
+
+@pytest.mark.asyncio
+async def test_reset_one_card_requires_auth(client):
+    resp = client.delete("/api/review/card/x/progress")
+    assert resp.status_code in (401, 403)

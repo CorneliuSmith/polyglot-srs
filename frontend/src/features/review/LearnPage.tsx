@@ -1,7 +1,12 @@
 import { useState, useEffect, useRef } from 'react'
 import { useNavigate, useSearchParams } from 'react-router-dom'
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
-import { confirmLearnSession, startLearnSession, validateAnswer } from '../../api/review'
+import {
+  confirmLearnSession,
+  markCardKnown,
+  startLearnSession,
+  validateAnswer,
+} from '../../api/review'
 import { getLanguages, getProfile, updateProfile } from '../../api/profile'
 import { usePrefsStore } from '../../stores/prefsStore'
 import LanguageWrapper from '../../components/LanguageWrapper'
@@ -96,6 +101,13 @@ function LearnInner({ onLocaleChanged }: { onLocaleChanged: () => void }) {
   // grammar reviews) — the card just stays unconfirmed, so it is re-taught
   // in the next Learn session instead of entering reviews.
   const [missedCards, setMissedCards] = useState<Set<string>>(new Set())
+  // "I already know this" (owner): retires the card via the same
+  // mark-as-known endpoint Review uses, instead of forcing the drill.
+  // mark_card_known floors repetitions at 1 while leaving is_suspended
+  // true, which is exactly what exits it from the teach-gate bucket
+  // (is_suspended AND repetitions = 0) without ever confirming it into
+  // active reviews — a permanent skip, not a pass.
+  const [knownCards, setKnownCards] = useState<Set<string>>(new Set())
   const [quizInput, setQuizInput] = useState('')
   const [quizResult, setQuizResult] = useState<ValidateAnswerResponse | null>(null)
   // First miss on a card: don't reveal the answer — everything needed to get
@@ -158,6 +170,14 @@ function LearnInner({ onLocaleChanged }: { onLocaleChanged: () => void }) {
       queryClient.invalidateQueries({ queryKey: ['learn-decks'] })
     },
   })
+  const knownMutation = useMutation({
+    mutationFn: (cardId: string) => markCardKnown(cardId),
+    onSuccess: (_data, cardId) => {
+      setKnownCards((prev) => new Set(prev).add(cardId))
+      queryClient.invalidateQueries({ queryKey: ['dashboard'] })
+      queryClient.invalidateQueries({ queryKey: ['learn-decks'] })
+    },
+  })
 
   // Enter advances once the lesson's check is passed (or the lesson has no
   // check): the answer input is disabled at that point, so a document-level
@@ -168,7 +188,12 @@ function LearnInner({ onLocaleChanged }: { onLocaleChanged: () => void }) {
     const loadedLessons = learnQuery.data?.lessons ?? []
     const current = loadedLessons[lessonIndex]
     if (!current) return
-    if (current.quiz && !passedCards.has(current.card_id)) return
+    if (
+      current.quiz &&
+      !passedCards.has(current.card_id) &&
+      !knownCards.has(current.card_id)
+    )
+      return
     const last = lessonIndex >= loadedLessons.length - 1
     const onKeyDown = (e: KeyboardEvent) => {
       if (e.key !== 'Enter' || e.isComposing) return
@@ -184,7 +209,7 @@ function LearnInner({ onLocaleChanged }: { onLocaleChanged: () => void }) {
     document.addEventListener('keydown', onKeyDown)
     return () => document.removeEventListener('keydown', onKeyDown)
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [learnQuery.data, lessonIndex, passedCards])
+  }, [learnQuery.data, lessonIndex, passedCards, knownCards])
 
   if (learnQuery.isError) {
     return (
@@ -241,9 +266,14 @@ function LearnInner({ onLocaleChanged }: { onLocaleChanged: () => void }) {
   // Advancing requires passing this lesson's check (when it has one).
   const currentPassed = !lesson?.quiz || passedCards.has(lesson.card_id)
   const currentSloppy = !!lesson?.quiz && sloppyCards.has(lesson.card_id)
+  // "I already know this": a permanent skip, distinct from passing — the
+  // card is retired (mark_card_known), not queued for review.
+  const currentKnown = !!lesson?.quiz && knownCards.has(lesson.card_id)
   // Attempted-but-wrong also unlocks Next; the card stays unconfirmed.
   const currentAttempted =
-    currentPassed || (!!lesson?.quiz && missedCards.has(lesson.card_id))
+    currentPassed ||
+    currentKnown ||
+    (!!lesson?.quiz && missedCards.has(lesson.card_id))
 
   const goToLesson = (i: number) => {
     setLessonIndex(i)
@@ -458,7 +488,7 @@ function LearnInner({ onLocaleChanged }: { onLocaleChanged: () => void }) {
                     if (quizResult) setQuizResult(null)
                   }}
                   onSubmit={handleCheck}
-                  disabled={currentPassed || validateMutation.isPending}
+                  disabled={currentPassed || currentKnown || validateMutation.isPending}
                   languageCode={languageCode}
                   inputRef={inputRef}
                   result={
@@ -466,7 +496,9 @@ function LearnInner({ onLocaleChanged }: { onLocaleChanged: () => void }) {
                       ? currentSloppy
                         ? 'correct_sloppy'
                         : 'correct'
-                      : quizResult?.answer_result ?? null
+                      : currentKnown
+                        ? null
+                        : quizResult?.answer_result ?? null
                   }
                 />
                 {lesson.quiz.transliteration && (
@@ -484,7 +516,7 @@ function LearnInner({ onLocaleChanged }: { onLocaleChanged: () => void }) {
                     {lesson.quiz.translation}
                   </p>
                 )}
-                {!currentPassed && (
+                {!currentPassed && !currentKnown && (
                   <button
                     type="button"
                     onClick={handleCheck}
@@ -497,8 +529,32 @@ function LearnInner({ onLocaleChanged }: { onLocaleChanged: () => void }) {
                   </button>
                 )}
 
+                {/* Escape hatch: already know it, skip the drill entirely.
+                    Retires the card (mark_card_known) instead of forcing an
+                    answer — owner: "the ability to skip... mark it as done." */}
+                {!currentPassed && !currentKnown && (
+                  <p className="mt-2 text-center">
+                    <button
+                      type="button"
+                      onClick={() => {
+                        if (
+                          window.confirm(
+                            "Already know this? It will be marked done and won't be taught or reviewed again. You can undo this later by resetting the card in its deck.",
+                          )
+                        )
+                          knownMutation.mutate(lesson.card_id)
+                      }}
+                      disabled={knownMutation.isPending}
+                      className="text-xs text-gray-400 hover:text-lang disabled:opacity-50"
+                      title="Skip this drill — retire the card as already known"
+                    >
+                      I already know this — mark done
+                    </button>
+                  </p>
+                )}
+
                 {/* On-screen keyboard for non-Latin scripts, during answering */}
-                {!currentPassed && hasKeyboardLayout(languageCode) && (
+                {!currentPassed && !currentKnown && hasKeyboardLayout(languageCode) && (
                   <div className="mt-3 space-y-2">
                     <div className="flex justify-end">
                       <button
@@ -530,6 +586,11 @@ function LearnInner({ onLocaleChanged }: { onLocaleChanged: () => void }) {
                   <p className="mt-3 text-sm text-amber-700 text-center" role="status">
                     Almost — check the accents: <b>{lesson.quiz.answer}</b>.
                     Added to your reviews.
+                  </p>
+                )}
+                {currentKnown && (
+                  <p className="mt-3 text-sm text-gray-500 text-center" role="status">
+                    ✓ Marked as known — won't be taught or reviewed again
                   </p>
                 )}
                 {/* First miss: the fading toast below invites a retry with no

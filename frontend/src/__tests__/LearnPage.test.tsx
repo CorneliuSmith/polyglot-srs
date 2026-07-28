@@ -13,6 +13,7 @@ vi.mock('../api/review', () => ({
   startLearnSession: vi.fn(),
   confirmLearnSession: vi.fn(),
   validateAnswer: vi.fn(),
+  markCardKnown: vi.fn(),
 }))
 vi.mock('../api/profile', () => ({
   getLanguages: vi.fn(),
@@ -21,13 +22,19 @@ vi.mock('../api/profile', () => ({
 }))
 vi.mock('../stores/prefsStore', () => ({ usePrefsStore: vi.fn(() => 'lang-es') }))
 
-import { confirmLearnSession, startLearnSession, validateAnswer } from '../api/review'
+import {
+  confirmLearnSession,
+  markCardKnown,
+  startLearnSession,
+  validateAnswer,
+} from '../api/review'
 import { getLanguages } from '../api/profile'
 import { usePrefsStore } from '../stores/prefsStore'
 
 const mockLearn = startLearnSession as ReturnType<typeof vi.fn>
 const mockConfirm = confirmLearnSession as ReturnType<typeof vi.fn>
 const mockValidate = validateAnswer as ReturnType<typeof vi.fn>
+const mockKnown = markCardKnown as ReturnType<typeof vi.fn>
 const mockGetLanguages = getLanguages as ReturnType<typeof vi.fn>
 
 const grammarLesson = {
@@ -248,6 +255,51 @@ describe('LearnPage (teach-before-quiz)', () => {
     const alert = await screen.findByRole('alert')
     expect(alert.textContent).toMatch(/not quite/i)
     expect(alert.textContent).toContain(grammarLesson.quiz.answer)
+  })
+
+  it('"I already know this" retires the card without a quiz answer (owner request)', async () => {
+    mockLearn.mockResolvedValue({
+      added: 2,
+      items: ['uc-1', 'uc-2'],
+      lessons: [grammarLesson, vocabLesson],
+    })
+    mockKnown.mockResolvedValue(undefined)
+    const confirmSpy = vi.spyOn(window, 'confirm').mockReturnValue(true)
+    renderPage()
+    await screen.findByText(/1 of 2/)
+
+    // Next is locked until the card is resolved somehow.
+    const nextBtn = screen.getByRole('button', { name: /next/i }) as HTMLButtonElement
+    expect(nextBtn.disabled).toBe(true)
+
+    fireEvent.click(screen.getByRole('button', { name: /already know this/i }))
+    await waitFor(() => expect(mockKnown).toHaveBeenCalledWith('uc-1'))
+
+    // Retired, not queued: confirmLearnSession (the "passed" path) never fires.
+    expect(mockConfirm).not.toHaveBeenCalled()
+    expect(await screen.findByText(/marked as known/i)).toBeDefined()
+    expect(screen.queryByText(/added to your reviews/i)).toBeNull()
+
+    // The quiz input is disabled and Next unlocks, same as a real pass would.
+    expect((screen.getByRole('textbox') as HTMLInputElement).disabled).toBe(true)
+    expect((screen.getByRole('button', { name: /next/i }) as HTMLButtonElement).disabled).toBe(
+      false,
+    )
+
+    confirmSpy.mockRestore()
+  })
+
+  it('does not retire the card if the confirm dialog is declined', async () => {
+    mockLearn.mockResolvedValue({ added: 1, items: ['uc-1'], lessons: [grammarLesson] })
+    const confirmSpy = vi.spyOn(window, 'confirm').mockReturnValue(false)
+    renderPage()
+    await screen.findByText(/1 of 1/)
+
+    fireEvent.click(screen.getByRole('button', { name: /already know this/i }))
+    expect(mockKnown).not.toHaveBeenCalled()
+    expect(screen.getByRole('textbox')).toBeDefined()
+
+    confirmSpy.mockRestore()
   })
 
   it('passes the vocabulary card type from the query string', async () => {
