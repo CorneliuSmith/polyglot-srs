@@ -77,15 +77,17 @@ export default function GrammarPathPage() {
   const learnedCount = points.filter((p) => p.learned).length
   const languageCode = language?.code ?? 'en'
 
-  // The examples on this page are the ones a learner taps to hear. Warm them
-  // as the path loads so the first tap plays rather than waits.
+  // Warm the examples of the point the learner just opened — those are the
+  // ones with speaker buttons next to them. Deliberately keyed to `detail`
+  // and not the points list: the list endpoint returns no examples at all,
+  // so warming from it prefetched precisely nothing.
   useEffect(() => {
-    if (!languageCode || points.length === 0) return
+    if (!languageCode || !detail) return
     return prefetchTTSMany(
       languageCode,
-      points.flatMap((p) => (p.examples ?? []).map((e) => e.sentence)),
+      detail.examples.map((e) => e.sentence),
     )
-  }, [points, languageCode])
+  }, [detail, languageCode])
 
   return (
     <div className="min-h-screen bg-gray-50">

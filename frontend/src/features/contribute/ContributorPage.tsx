@@ -7,6 +7,7 @@ import {
   POLICY_LABELS,
   POLICY_HELP,
   normalizePolicy,
+  type PublishPolicy,
 } from '../../lib/publishPolicy'
 import {
   approveGrammar,
@@ -476,7 +477,7 @@ export function ReviewPolicyControl({
   onChanged: () => void
 }) {
   const mutation = useMutation({
-    mutationFn: (next: 'strict' | 'ai_ok') => setLanguagePolicy(languageId, next),
+    mutationFn: (next: PublishPolicy) => setLanguagePolicy(languageId, next),
     onSuccess: onChanged,
   })
 

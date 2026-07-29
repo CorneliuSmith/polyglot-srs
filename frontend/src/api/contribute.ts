@@ -1,6 +1,7 @@
 import apiClient from './client'
 import { useViewAsStore } from '../stores/viewAsStore'
 import { downgradeFlags, downgradeRoles } from '../lib/viewAs'
+import type { PublishPolicy } from '../lib/publishPolicy'
 
 /** The admin "view as" preview is applied HERE, at the single boundary every
  * role-gated surface already reads from, so no consumer needs to know it
@@ -366,7 +367,7 @@ export async function revokeRole(input: {
 
 export async function setLanguagePolicy(
   languageId: string,
-  policy: 'strict' | 'ai_ok',
+  policy: PublishPolicy,
 ): Promise<void> {
   await apiClient.post('/api/contribute/language-policy', {
     language_id: languageId,

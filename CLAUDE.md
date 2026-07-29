@@ -8,7 +8,12 @@ Finish a piece of work, verify it, push, open the PR, merge it.
 
 The bar for merging is unchanged by this:
 
-- Frontend `npx tsc --noEmit` clean and `npx vitest run` green.
+- Frontend `npm run build` clean and `npx vitest run` green. **`npm run build`,
+  not `npx tsc --noEmit`** — the build runs `tsc -b`, which type-checks the
+  whole project graph and catches errors `--noEmit` silently lets through.
+  A green `--noEmit` has already produced a red CI once: four real type
+  errors, including a prefetch reading a field that doesn't exist on the
+  type it was given, so it warmed nothing and nobody noticed.
 - Backend `.venv/bin/pytest backend/tests` at or better than the known
   baseline (see below), and `.venv/bin/ruff check backend/` clean.
 - CI green on the PR before merging. A red build is a reason to stop and fix,

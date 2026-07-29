@@ -147,7 +147,7 @@ function LearnInner({ onLocaleChanged }: { onLocaleChanged: () => void }) {
       [
         prefetchLesson.title,
         ...(prefetchLesson.examples ?? []).map((e) => e.sentence),
-      ].filter(Boolean),
+      ].filter((t): t is string => !!t),
     )
   }, [prefetchLesson, prefetchCode])
 
