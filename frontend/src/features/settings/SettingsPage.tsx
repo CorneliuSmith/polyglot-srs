@@ -26,6 +26,7 @@ import { canContributeWith, canReviewWith } from '../../lib/roleFlags'
 import { accentExampleFor } from '../../lib/accentExamples'
 import { useViewAsKey } from '../../stores/viewAsStore'
 import AccountsPanel from '../contribute/AccountsPanel'
+import PlanLimitsPanel from '../contribute/PlanLimitsPanel'
 import RoleGuide from '../contribute/RoleGuide'
 import FeedbackQueuePanel from '../contribute/FeedbackQueuePanel'
 import MyFeedback from '../feedback/MyFeedback'
@@ -417,6 +418,7 @@ export default function SettingsPage() {
             <GenerationPanel />
             <TranslationReviewsPanel />
             <AccountsPanel languages={languages} selfId={selfId} />
+            <PlanLimitsPanel />
             <RolesPanel languages={languages} />
             <ReviewPolicyControl
               languageId={activeLanguageId}

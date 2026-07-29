@@ -25,6 +25,7 @@ from backend.repositories.recommendations import (
 from backend.repositories.tutor import get_study_stats, log_tutor_usage
 from backend.services.allowance import get_allowance
 from backend.services.models import resolve_model
+from backend.services.rate_limit import reco_refresh_limiter
 from backend.services.recommend import MEDIA_TYPES, generate_recommendations
 
 router = APIRouter()
@@ -108,11 +109,23 @@ async def get_recommendations(
 
 @router.post("/{language_id}/refresh")
 async def refresh_recommendations(
-    language_id: str, user: dict = Depends(get_current_user)
+    language_id: str,
+    force: bool = False,
+    user: dict = Depends(get_current_user),
 ):
-    """Draft this week's batch — but only when it's actually due. Idempotent:
-    if a batch was made within the last week it's returned as-is, so a client
-    that fires this on load never double-generates or double-charges."""
+    """Draft a new batch.
+
+    Passively (force=False, what the client fires on every page load): only
+    when the last batch is at least a week old. Idempotent — a batch made
+    within the window is returned as-is, so loading the page never
+    double-generates or double-charges.
+
+    On demand (force=True, the "Get new recommendations now" button): drafts
+    immediately regardless of staleness, calibrated to the learner's CURRENT
+    progress/status the same way the weekly draft is — grounded in
+    get_study_stats each time, not cached. Rate-limited on its own
+    (reco_refresh_limiter) since staleness isn't there to cap the cost.
+    """
     _require_uuid(language_id)
 
     async with rls_connection(user["id"]) as conn:
@@ -122,8 +135,16 @@ async def refresh_recommendations(
                 status_code=status.HTTP_409_CONFLICT,
                 detail="Recommendations are turned off.",
             )
-        # Not due yet → return the current batch untouched (no model call).
-        if not await _is_stale(conn, user["id"], language_id):
+        if force:
+            if not await reco_refresh_limiter.allow(user["id"]):
+                raise HTTPException(
+                    status_code=status.HTTP_429_TOO_MANY_REQUESTS,
+                    detail="You've asked for a few fresh batches already — "
+                           "try again a bit later.",
+                )
+        # Not due yet, and not explicitly asked for → return the current
+        # batch untouched (no model call).
+        elif not await _is_stale(conn, user["id"], language_id):
             batches = await list_recommendations(conn, user["id"], language_id, limit=1)
             return {"generated": False, "batch": batches[0] if batches else None}
 

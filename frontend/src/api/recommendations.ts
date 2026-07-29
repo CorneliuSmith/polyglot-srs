@@ -64,13 +64,28 @@ export async function getRecommendations(languageId: string): Promise<RecoState>
   return data
 }
 
-/** Draft this week's batch if one is due (idempotent server-side). Throws 402
- * when the account isn't tutor+, 409 when the feature is off. */
+/**
+ * Draft a batch.
+ *
+ * Default (force=false) is the passive weekly draft the page fires on load —
+ * idempotent server-side, so it only spends a model call when a batch is
+ * actually due.
+ *
+ * force=true is the learner pressing "Get new picks": drafts immediately
+ * against their CURRENT level and progress, ignoring the weekly window. Has
+ * its own daily rate limit, so this can throw 429 where the passive call
+ * never does.
+ *
+ * Throws 402 when the account isn't tutor+, 409 when the feature is off.
+ */
 export async function refreshRecommendations(
   languageId: string,
+  force = false,
 ): Promise<RefreshResult> {
   const { data } = await apiClient.post<RefreshResult>(
     `/api/recommendations/${languageId}/refresh`,
+    null,
+    force ? { params: { force: true } } : undefined,
   )
   return data
 }

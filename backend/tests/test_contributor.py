@@ -2165,3 +2165,96 @@ class TestReviewModeFlags:
             )
         assert resp.status_code == 201
         assert mock_create.await_args.kwargs["quote"] is None
+
+
+# ── plan message limits: admin-configurable monthly allotments ─────────────
+# "Admins should be able to set token allocations for each type of account" —
+# the four tiers used to be a Settings/env constant, editable only by
+# redeploying. These endpoints let an admin change one at runtime.
+
+class TestPlanLimits:
+    def test_requires_admin(self, client):
+        with _roles([{"language_id": None, "role": "reviewer"}]):
+            resp = client.get("/api/contribute/plan-limits", headers=_auth_headers())
+        assert resp.status_code == 403
+
+    def test_returns_every_tier_even_before_any_admin_edit(self, client):
+        # No DB row for anything yet — every tier still comes back, filled
+        # in from the Settings/env default. The panel must never show blank.
+        conn = AsyncMock()
+        with _roles([{"language_id": None, "role": "admin"}]), \
+             _priv_yielding(conn), \
+             patch("backend.routers.contribute.get_plan_message_limits",
+                   new=AsyncMock(return_value=None)):
+            resp = client.get("/api/contribute/plan-limits", headers=_auth_headers())
+        assert resp.status_code == 200
+        limits = resp.json()["limits"]
+        assert set(limits) == {"free", "single", "all", "plus"}
+        assert all(isinstance(v, int) for v in limits.values())
+
+    def test_a_stored_override_wins_over_the_default(self, client):
+        conn = AsyncMock()
+        with _roles([{"language_id": None, "role": "admin"}]), \
+             _priv_yielding(conn), \
+             patch("backend.routers.contribute.get_plan_message_limits",
+                   new=AsyncMock(return_value={"free": 50})):
+            resp = client.get("/api/contribute/plan-limits", headers=_auth_headers())
+        assert resp.json()["limits"]["free"] == 50
+
+    def test_updates_one_tier(self, client):
+        conn = AsyncMock()
+        with _roles([{"language_id": None, "role": "admin"}]), \
+             _priv_yielding(conn), \
+             patch("backend.routers.contribute.set_plan_message_limit",
+                   new=AsyncMock(return_value=True)) as mock_set, \
+             patch("backend.routers.contribute.get_plan_message_limits",
+                   new=AsyncMock(return_value={"free": 50, "single": 100,
+                                                "all": 300, "plus": 1000})):
+            resp = client.put(
+                "/api/contribute/plan-limits/free",
+                json={"monthly_messages": 50},
+                headers=_auth_headers(),
+            )
+        assert resp.status_code == 200
+        assert resp.json()["limits"]["free"] == 50
+        assert mock_set.await_args.args[1:3] == ("free", 50)
+
+    def test_unknown_tier_is_rejected(self, client):
+        with _roles([{"language_id": None, "role": "admin"}]):
+            resp = client.put(
+                "/api/contribute/plan-limits/premium-deluxe",
+                json={"monthly_messages": 50},
+                headers=_auth_headers(),
+            )
+        assert resp.status_code == 422
+
+    def test_a_negative_allotment_is_rejected(self, client):
+        with _roles([{"language_id": None, "role": "admin"}]):
+            resp = client.put(
+                "/api/contribute/plan-limits/free",
+                json={"monthly_messages": -1},
+                headers=_auth_headers(),
+            )
+        assert resp.status_code == 422
+
+    def test_a_non_admin_cannot_change_it_even_with_a_role(self, client):
+        with _roles([{"language_id": None, "role": "contributor"}]):
+            resp = client.put(
+                "/api/contribute/plan-limits/plus",
+                json={"monthly_messages": 2000},
+                headers=_auth_headers(),
+            )
+        assert resp.status_code == 403
+
+    def test_missing_migration_reports_503_not_500(self, client):
+        conn = AsyncMock()
+        with _roles([{"language_id": None, "role": "admin"}]), \
+             _priv_yielding(conn), \
+             patch("backend.routers.contribute.set_plan_message_limit",
+                   new=AsyncMock(return_value=False)):
+            resp = client.put(
+                "/api/contribute/plan-limits/free",
+                json={"monthly_messages": 50},
+                headers=_auth_headers(),
+            )
+        assert resp.status_code == 503

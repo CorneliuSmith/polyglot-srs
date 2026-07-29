@@ -112,7 +112,14 @@ from backend.repositories.contributor import (
 )
 from backend.repositories.languages import set_language_visibility
 from backend.repositories.pool import privileged_connection, rls_connection
-from backend.repositories.tutor import aggregate_tutor_usage, set_tutor_access
+from backend.repositories.tutor import (
+    PLAN_TIERS,
+    aggregate_tutor_usage,
+    get_plan_message_limits,
+    set_plan_message_limit,
+    set_tutor_access,
+)
+from backend.services.allowance import effective_plan_limits
 from backend.services.drills import validate_drill
 from backend.services.generate import generation_available
 from backend.services.generation_admin import (
@@ -428,6 +435,50 @@ async def tutor_usage_overview(
             sum(r["est_cost_usd"] for r in priced), 4
         ),
     }
+
+
+class PlanLimitUpdate(BaseModel):
+    monthly_messages: int = Field(ge=0, le=1_000_000)
+
+
+@router.get("/plan-limits")
+async def plan_limits(user: dict = Depends(get_current_user)):
+    """The monthly message cap for each account type (admin-only). Every
+    tier is always present — a DB override where an admin has set one, the
+    Settings/env default otherwise — so the panel never shows a blank."""
+    await _require_admin(user["id"])
+    async with privileged_connection() as conn:
+        stored = await get_plan_message_limits(conn)
+    return {"limits": effective_plan_limits(stored)}
+
+
+@router.put("/plan-limits/{plan}")
+async def update_plan_limit(
+    plan: str,
+    body: PlanLimitUpdate,
+    user: dict = Depends(get_current_user),
+):
+    """Set one tier's monthly message allotment (admin-only). Takes effect
+    on every account's NEXT allowance check — nobody needs to be logged out
+    or a server restarted."""
+    await _require_admin(user["id"])
+    if plan not in PLAN_TIERS:
+        raise HTTPException(
+            status_code=status.HTTP_422_UNPROCESSABLE_ENTITY,
+            detail=f"plan must be one of {', '.join(PLAN_TIERS)}",
+        )
+    async with privileged_connection() as conn:
+        ok = await set_plan_message_limit(conn, plan, body.monthly_messages, user["id"])
+        if not ok:
+            raise HTTPException(
+                status_code=status.HTTP_503_SERVICE_UNAVAILABLE,
+                detail=(
+                    "Plan limits need migration 20260907 applied — "
+                    "check /api/health/schema"
+                ),
+            )
+        stored = await get_plan_message_limits(conn)
+    return {"limits": effective_plan_limits(stored)}
 
 
 # ---------------------------------------------------------------------------

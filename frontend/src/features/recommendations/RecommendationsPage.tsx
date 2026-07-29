@@ -100,7 +100,8 @@ export default function RecommendationsPage() {
   })
 
   const refresh = useMutation({
-    mutationFn: () => refreshRecommendations(activeLanguageId!),
+    mutationFn: (force: boolean) =>
+      refreshRecommendations(activeLanguageId!, force),
     onSuccess: () =>
       queryClient.invalidateQueries({
         queryKey: ['recommendations', activeLanguageId],
@@ -116,7 +117,7 @@ export default function RecommendationsPage() {
       !refresh.isPending && !fired.current
     ) {
       fired.current = true
-      refresh.mutate()
+      refresh.mutate(false)
     }
   }, [data, refresh])
 
@@ -190,6 +191,33 @@ export default function RecommendationsPage() {
         {data?.enabled && data.entitled && refreshStatus === 402 && (
           <p className="text-sm text-amber-600">
             Recommendations need a Plus subscription for this language.
+          </p>
+        )}
+
+        {/* Ask for picks NOW, rather than waiting out the weekly window.
+            Each draft reads current level and progress, so this is the
+            right move after finishing a level or shifting interests. */}
+        {data?.enabled && data.entitled && !drafting && refreshStatus !== 402 && (
+          <div className="flex flex-wrap items-center gap-3">
+            <button
+              type="button"
+              data-testid="reco-refresh-now"
+              onClick={() => refresh.mutate(true)}
+              className="rounded-lg bg-lang hover:bg-lang-dark text-lang-on font-semibold px-4 py-2 text-sm"
+              style={{ minHeight: '44px' }}
+            >
+              {batches.length === 0 ? 'Get my picks' : 'Get new picks'}
+            </button>
+            <span className="text-xs text-gray-500">
+              Matched to where you are right now.
+            </span>
+          </div>
+        )}
+
+        {refreshStatus === 429 && (
+          <p className="text-sm text-amber-600">
+            You’ve asked for a few fresh batches already — try again a bit
+            later.
           </p>
         )}
 

@@ -1278,3 +1278,32 @@ export async function confirmVocabLevel(
     level,
   })
 }
+
+// ── Plan message allotments (admin) ────────────────────────────────────────
+// The monthly message cap for each account type. Stored in the database, so
+// an admin can change one without a redeploy; every tier is always present in
+// the response (a Settings/env default fills in where no override is stored).
+
+export type PlanTier = 'free' | 'single' | 'all' | 'plus'
+
+export const PLAN_TIER_LABELS: Record<PlanTier, string> = {
+  free: 'Free',
+  single: 'Single language',
+  all: 'All languages',
+  plus: 'Plus (tutor add-on)',
+}
+
+export async function getPlanLimits(): Promise<Record<PlanTier, number>> {
+  const response = await apiClient.get('/api/contribute/plan-limits')
+  return response.data.limits
+}
+
+export async function setPlanLimit(
+  plan: PlanTier,
+  monthlyMessages: number,
+): Promise<Record<PlanTier, number>> {
+  const response = await apiClient.put(`/api/contribute/plan-limits/${plan}`, {
+    monthly_messages: monthlyMessages,
+  })
+  return response.data.limits
+}
