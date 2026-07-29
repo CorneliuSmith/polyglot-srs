@@ -16,6 +16,7 @@ import BlurReveal from '../../components/BlurReveal'
 import StageBadge from '../../components/StageBadge'
 import ResourceList from '../../components/ResourceList'
 import RelatedGrid from '../../components/RelatedGrid'
+import { useViewAsKey } from '../../stores/viewAsStore'
 
 export interface ReviewCardStats {
   repetitions: number
@@ -97,7 +98,7 @@ export default function ReviewDetail({ cardId, cardType, languageCode, stats }: 
     staleTime: 5 * 60 * 1000,
   })
   const { data: roleInfo } = useQuery({
-    queryKey: ['my-roles'],
+    queryKey: ['my-roles', useViewAsKey()],
     queryFn: getMyRoles,
     enabled: open,
     staleTime: 5 * 60 * 1000,

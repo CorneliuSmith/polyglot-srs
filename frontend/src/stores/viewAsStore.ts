@@ -19,3 +19,20 @@ export const useViewAsStore = create<ViewAsState>()(
     { name: 'polyglot-view-as' },
   ),
 )
+
+/**
+ * The preview level as a react-query cache-key segment.
+ *
+ * EVERY query whose response passes through downgradeRoles/downgradeFlags
+ * must carry this, because the downgrade happens inside the queryFn: two
+ * levels produce different data under one key, and react-query keeps serving
+ * the OLD level's answer for the whole refetch. That is what made "view as
+ * Contributor" show no Contribute tab while "view as Reviewer" showed all
+ * three — the tab bar was rendering the level you looked at previously, not
+ * the one you picked.
+ *
+ * Keying by level makes each preview its own cache entry: no stale window,
+ * and switching back is instant instead of a refetch.
+ */
+export const useViewAsKey = (): string =>
+  useViewAsStore((s) => s.viewAs) ?? 'real'

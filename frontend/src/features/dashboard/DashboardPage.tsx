@@ -32,6 +32,7 @@ import { unseenWhatsNew } from '../announcements/whatsNew'
 import InstallPrompt from '../../components/InstallPrompt'
 import LearningTip from '../tips/LearningTip'
 import type { LearnDeck } from '../../api/types'
+import { useViewAsKey } from '../../stores/viewAsStore'
 
 /** A first-class practice-destination tile (Gym / Read / Tutor). Users have
  * shown they don't read buried link lists — these sit right under the
@@ -313,7 +314,7 @@ export default function DashboardPage() {
 
   // Surfaces the Contribute link only to users who hold a contributor role.
   const { data: roleInfo } = useQuery({
-    queryKey: ['my-roles'],
+    queryKey: ['my-roles', useViewAsKey()],
     queryFn: getMyRoles,
     retry: false,
   })

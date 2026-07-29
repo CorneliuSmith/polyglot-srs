@@ -20,8 +20,13 @@ import { hasTranslit } from '../keyboards/translit'
 import RecoSettings from '../recommendations/RecoSettings'
 import { supabase } from '../../lib/supabase'
 import LanguagePicker from '../../components/LanguagePicker'
-import { getGrammarForLanguage } from '../../api/contribute'
+import LanguageWrapper from '../../components/LanguageWrapper'
+import { getGrammarForLanguage, getMyRoles } from '../../api/contribute'
+import { canContributeWith, canReviewWith } from '../../lib/roleFlags'
+import { accentExampleFor } from '../../lib/accentExamples'
+import { useViewAsKey } from '../../stores/viewAsStore'
 import AccountsPanel from '../contribute/AccountsPanel'
+import RoleGuide from '../contribute/RoleGuide'
 import GenerationPanel from '../contribute/GenerationPanel'
 import LanguageVisibilityPanel from '../contribute/LanguageVisibilityPanel'
 import RolesPanel from '../contribute/RolesPanel'
@@ -137,15 +142,28 @@ export default function SettingsPage() {
   // default; Contribute/Review/Admin appear for accounts that hold those
   // roles, so the panels sit here instead of on a separate page to scroll.
   const [tab, setTab] = useState<AccountTab>('learner')
+  const viewAsKey = useViewAsKey()
   const { data: workspace } = useQuery({
-    queryKey: ['contribute-grammar', activeLanguageId],
+    queryKey: ['contribute-grammar', activeLanguageId, viewAsKey],
     queryFn: () => getGrammarForLanguage(activeLanguageId!),
     enabled: !!activeLanguageId,
     retry: false,
   })
-  const canReview = workspace?.can_review ?? workspace?.is_admin ?? false
-  const isAdmin = workspace?.is_admin ?? false
-  const canContribute = workspace?.can_contribute ?? isAdmin
+  // Which TABS exist comes from the roles payload, not the workspace above:
+  // roles are tiny, cached app-wide, and already loaded by the time Account
+  // renders. Deriving the bar from the workspace meant a slow or failed
+  // grammar fetch silently hid Contribute/Review/Admin — which is how
+  // "view as Contributor" ended up showing a learner's page.
+  const { data: roleInfo } = useQuery({
+    queryKey: ['my-roles', viewAsKey],
+    queryFn: getMyRoles,
+    retry: false,
+    staleTime: 5 * 60 * 1000,
+  })
+  const roles = roleInfo?.roles ?? []
+  const isAdmin = roleInfo?.is_admin ?? false
+  const canReview = canReviewWith(roles, isAdmin, activeLanguageId)
+  const canContribute = canContributeWith(roles, isAdmin, activeLanguageId)
 
   const availableTabs = accountTabsFor({ canContribute, canReview, isAdmin })
   // Resolved during render, not in an effect, so the page is never blank for
@@ -250,6 +268,7 @@ export default function SettingsPage() {
   const [retaking, setRetaking] = useState(false)
 
   const activeLanguage = languages.find((l) => l.id === activeLanguageId)
+  const accentExample = accentExampleFor(activeLanguage?.code)
 
   const handleResetLanguage = () => {
     if (!activeLanguageId || !activeLanguage) return
@@ -352,6 +371,8 @@ export default function SettingsPage() {
         )}
 
         {activeTab === 'contribute' && activeLanguageId && (
+          <>
+          <RoleGuide role="contribute" />
           <section className="bg-white rounded-2xl shadow-sm border border-gray-100 p-5 space-y-3">
             <h2 className="font-semibold text-gray-800">Contribute</h2>
             <p className="text-xs text-gray-500">
@@ -366,14 +387,21 @@ export default function SettingsPage() {
               Open grammar editor
             </button>
           </section>
+          </>
         )}
 
         {activeTab === 'review' && activeLanguageId && (
-          <ReviewQueue languageId={activeLanguageId} canReview={canReview} />
+          <>
+            {/* A trial reviewer sees the queue but cannot publish — say so
+                up front rather than letting them find out by pressing. */}
+            <RoleGuide role={canReview ? 'review' : 'trial_review'} />
+            <ReviewQueue languageId={activeLanguageId} canReview={canReview} />
+          </>
         )}
 
         {activeTab === 'admin' && activeLanguageId && isAdmin && (
           <>
+            <RoleGuide role="admin" />
             <AnalyticsPanel />
             <EngagementPanel />
             <LanguageVisibilityPanel />
@@ -635,14 +663,30 @@ export default function SettingsPage() {
           </div>
         </section>
 
-        <section className="bg-white rounded-2xl shadow-sm border border-gray-100 p-5 space-y-3">
+        {/* Only for languages whose spelling actually carries marks, and
+            always shown with a pair from THAT language — a Spanish example
+            told an Arabic learner nothing, and the toggle did nothing at all
+            on Indonesian or Tagalog. */}
+        {accentExample && (
+        <section
+          className="bg-white rounded-2xl shadow-sm border border-gray-100 p-5 space-y-3"
+          data-testid="accents-optional"
+        >
           <div className="flex items-start justify-between gap-4">
             <div>
               <h2 className="font-semibold text-gray-800">Accents optional</h2>
               <p className="text-xs text-gray-500">
                 Count answers correct even when accents or diacritics are
-                missing — “quien” passes for “quién”. The right spelling still
-                shows, so you keep learning the marks.
+                missing — “
+                <LanguageWrapper languageCode={activeLanguage!.code}>
+                  <span>{accentExample.loose}</span>
+                </LanguageWrapper>
+                ” passes for “
+                <LanguageWrapper languageCode={activeLanguage!.code}>
+                  <span>{accentExample.strict}</span>
+                </LanguageWrapper>
+                ” ({accentExample.gloss}). The right spelling still shows, so
+                you keep learning the marks.
               </p>
             </div>
             <button
@@ -665,6 +709,7 @@ export default function SettingsPage() {
             </button>
           </div>
         </section>
+        )}
 
         {/* Language-specific options (beta request: these belong in account
             learning settings, not buried in exercise UIs). Only shown for

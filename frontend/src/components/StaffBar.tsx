@@ -3,6 +3,7 @@ import { SquarePen } from 'lucide-react'
 import { canSuggestForLanguage, getMyRoles } from '../api/contribute'
 import { usePrefsStore } from '../stores/prefsStore'
 import { useReviewModeStore } from '../stores/reviewModeStore'
+import { useViewAsKey } from '../stores/viewAsStore'
 import ViewAsBar from './ViewAsBar'
 
 /**
@@ -22,8 +23,12 @@ export default function StaffBar() {
   const reviewMode = useReviewModeStore((s) => s.reviewMode)
   const setReviewMode = useReviewModeStore((s) => s.setReviewMode)
 
+  // Keyed by preview level, NOT ViewAsBar's ['my-roles-real']. Sharing that
+  // entry meant Review Mode was decided by whichever level happened to fetch
+  // it first and then sat in cache for five minutes — so the strip stayed on
+  // (or off) no matter which role you previewed.
   const { data } = useQuery({
-    queryKey: ['my-roles-real'],
+    queryKey: ['my-roles', useViewAsKey()],
     queryFn: getMyRoles,
     retry: false,
     staleTime: 5 * 60 * 1000,

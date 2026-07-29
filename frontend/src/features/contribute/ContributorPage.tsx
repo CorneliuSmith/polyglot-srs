@@ -37,6 +37,7 @@ import {
   setLanguageTutorModel,
   TUTOR_MODELS,
 } from '../../api/contribute'
+import { useViewAsKey } from '../../stores/viewAsStore'
 
 /** Admin-only per-language tutor model override (WP15a). */
 export function TutorModelControl({
@@ -530,7 +531,7 @@ export default function ContributorPage() {
   const languageCode = language?.code ?? 'en'
 
   const { data, isLoading, isError, error } = useQuery({
-    queryKey: ['contribute-grammar', activeLanguageId],
+    queryKey: ['contribute-grammar', activeLanguageId, useViewAsKey()],
     queryFn: () => getGrammarForLanguage(activeLanguageId!),
     enabled: !!activeLanguageId,
     retry: false,

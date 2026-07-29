@@ -19,6 +19,7 @@ import SuggestChange from '../contribute/SuggestChange'
 import { usePrefsStore } from '../../stores/prefsStore'
 import { getLanguages } from '../../api/profile'
 import type { CardStatus, DeckItem } from '../../api/review'
+import { useViewAsKey } from '../../stores/viewAsStore'
 
 const STATUS_LABEL: Record<CardStatus, string> = {
   new: 'New',
@@ -342,7 +343,7 @@ export default function DeckDetailPage() {
   })
 
   const { data: roleInfo } = useQuery({
-    queryKey: ['my-roles'],
+    queryKey: ['my-roles', useViewAsKey()],
     queryFn: getMyRoles,
     retry: false,
   })
