@@ -38,6 +38,42 @@ import { useAuthStore } from '../../stores/authStore'
 
 type AccountTab = 'learner' | 'contribute' | 'review' | 'admin'
 
+const TAB_LABEL: Record<AccountTab, string> = {
+  learner: 'Learner',
+  contribute: 'Contribute',
+  review: 'Review',
+  admin: 'Admin',
+}
+
+/** The tabs an account can actually reach, weakest first.
+ *
+ * Learner is always there. Contribute is NOT admin-only — the bar used to be
+ * gated on `canReview || isAdmin`, which hid it from a plain contributor and
+ * left them no route to their own Contribute panel at all. */
+export function accountTabsFor(flags: {
+  canContribute: boolean
+  canReview: boolean
+  isAdmin: boolean
+}): AccountTab[] {
+  return [
+    'learner' as const,
+    ...(flags.canContribute ? (['contribute'] as const) : []),
+    ...(flags.canReview ? (['review'] as const) : []),
+    ...(flags.isAdmin ? (['admin'] as const) : []),
+  ]
+}
+
+/** The tab to actually render. The available set SHRINKS when an admin starts
+ * a "view as" preview, and a selection pointing at a tab that no longer
+ * exists rendered a completely blank page — every panel is gated on an exact
+ * match, so 'admin' under a Reviewer preview matched nothing. */
+export function resolveTab(
+  selected: AccountTab,
+  available: AccountTab[],
+): AccountTab {
+  return available.includes(selected) ? selected : 'learner'
+}
+
 // Reminder hours are stored in UTC; the picker shows the learner's local
 // hour. Rounded whole-hour conversion (half-hour zones shift by ≤30 min).
 export function utcToLocalHour(utc: number): number {
@@ -109,6 +145,12 @@ export default function SettingsPage() {
   })
   const canReview = workspace?.can_review ?? workspace?.is_admin ?? false
   const isAdmin = workspace?.is_admin ?? false
+  const canContribute = workspace?.can_contribute ?? isAdmin
+
+  const availableTabs = accountTabsFor({ canContribute, canReview, isAdmin })
+  // Resolved during render, not in an effect, so the page is never blank for
+  // even one frame while a preview is switching.
+  const activeTab = resolveTab(tab, availableTabs)
   const workspaceRefresh = () =>
     queryClient.invalidateQueries({ queryKey: ['contribute-grammar', activeLanguageId] })
   const { data: stats } = useQuery({
@@ -279,42 +321,37 @@ export default function SettingsPage() {
           )}
         </div>
 
-        {/* Role tabs: Learner is always present; the rest appear by role. */}
-        {(canReview || isAdmin) && (
+        {/* Role tabs: Learner is always present; the rest appear by role.
+            Shown whenever there is more than one — the old gate was
+            `canReview || isAdmin`, which hid the bar from a plain
+            CONTRIBUTOR and left them no way to reach their own Contribute
+            panel at all. */}
+        {availableTabs.length > 1 && (
           <div
             className="flex rounded-xl border border-gray-200 bg-white overflow-hidden text-sm"
             role="tablist"
             aria-label="Account sections"
           >
-            {(
-              [
-                ['learner', 'Learner', true],
-                ['contribute', 'Contribute', true],
-                ['review', 'Review', canReview],
-                ['admin', 'Admin', isAdmin],
-              ] as [AccountTab, string, boolean][]
-            )
-              .filter(([, , show]) => show)
-              .map(([key, label]) => (
-                <button
-                  key={key}
-                  type="button"
-                  role="tab"
-                  aria-selected={tab === key}
-                  onClick={() => setTab(key)}
-                  className={`flex-1 px-4 py-2 font-semibold transition-colors ${
-                    tab === key
-                      ? 'bg-lang text-lang-on'
-                      : 'text-gray-500 hover:bg-gray-50'
-                  }`}
-                >
-                  {label}
-                </button>
-              ))}
+            {availableTabs.map((key) => (
+              <button
+                key={key}
+                type="button"
+                role="tab"
+                aria-selected={activeTab === key}
+                onClick={() => setTab(key)}
+                className={`flex-1 px-4 py-2 font-semibold transition-colors ${
+                  activeTab === key
+                    ? 'bg-lang text-lang-on'
+                    : 'text-gray-500 hover:bg-gray-50'
+                }`}
+              >
+                {TAB_LABEL[key]}
+              </button>
+            ))}
           </div>
         )}
 
-        {tab === 'contribute' && activeLanguageId && (
+        {activeTab === 'contribute' && activeLanguageId && (
           <section className="bg-white rounded-2xl shadow-sm border border-gray-100 p-5 space-y-3">
             <h2 className="font-semibold text-gray-800">Contribute</h2>
             <p className="text-xs text-gray-500">
@@ -331,11 +368,11 @@ export default function SettingsPage() {
           </section>
         )}
 
-        {tab === 'review' && activeLanguageId && (
+        {activeTab === 'review' && activeLanguageId && (
           <ReviewQueue languageId={activeLanguageId} canReview={canReview} />
         )}
 
-        {tab === 'admin' && activeLanguageId && isAdmin && (
+        {activeTab === 'admin' && activeLanguageId && isAdmin && (
           <>
             <AnalyticsPanel />
             <EngagementPanel />
@@ -364,7 +401,7 @@ export default function SettingsPage() {
           </>
         )}
 
-        {tab === 'learner' && (
+        {activeTab === 'learner' && (
         <>
         <section className="bg-white rounded-2xl shadow-sm border border-gray-100 p-5 space-y-3">
           <h2 className="font-semibold text-gray-800">Active language</h2>
