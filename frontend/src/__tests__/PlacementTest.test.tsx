@@ -6,6 +6,10 @@ vi.mock('../api/onboarding', () => ({
   placementNext: vi.fn(),
   setLearnerLevel: vi.fn(),
 }))
+vi.mock('../api/health', () => ({
+  getSchemaHealth: vi.fn(() => Promise.resolve(null)),
+  pendingMigrationNote: vi.fn(() => null),
+}))
 vi.mock('../stores/prefsStore', () => ({
   usePrefsStore: vi.fn(
     (selector: (s: Record<string, unknown>) => unknown) =>
@@ -156,5 +160,30 @@ describe('PlacementTest escape hatches', () => {
     renderTest(onClose)
     fireEvent.click(await screen.findByRole('button', { name: /cancel/i }))
     expect(onClose).toHaveBeenCalled()
+  })
+})
+
+describe('PlacementTest names a pending migration instead of shrugging', () => {
+  it('shows which migration is missing when that is the cause', async () => {
+    const { pendingMigrationNote } = await import('../api/health')
+    ;(pendingMigrationNote as ReturnType<typeof vi.fn>).mockReturnValue(
+      'The database is behind this build — 20260902000000_placement_attempts.sql hasn\u2019t been applied yet.',
+    )
+    mockNext.mockRejectedValue(new Error('500'))
+    renderTest()
+    expect(
+      await screen.findByText(/20260902000000_placement_attempts\.sql/),
+    ).toBeDefined()
+    // Still escapable.
+    expect(screen.getByRole('button', { name: /close/i })).toBeDefined()
+    ;(pendingMigrationNote as ReturnType<typeof vi.fn>).mockReturnValue(null)
+  })
+
+  it('falls back to the generic message when the schema is fine', async () => {
+    mockNext.mockRejectedValue(new Error('network'))
+    renderTest()
+    expect(
+      await screen.findByText(/something went wrong reaching the server/i),
+    ).toBeDefined()
   })
 })

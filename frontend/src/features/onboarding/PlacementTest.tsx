@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { useMutation, useQueryClient } from '@tanstack/react-query'
 import { placementNext, setLearnerLevel } from '../../api/onboarding'
+import { getSchemaHealth, pendingMigrationNote } from '../../api/health'
 import type { PlacementItem } from '../../api/onboarding'
 import LanguageWrapper from '../../components/LanguageWrapper'
 import { usePrefsStore } from '../../stores/prefsStore'
@@ -54,6 +55,10 @@ export default function PlacementTest({
     { level: string | null; previous: string | null; asked: number } | null
   >(null)
   const [unavailable, setUnavailable] = useState(false)
+  // When the start fails, ask the server WHY rather than shrugging. A schema
+  // that is behind the build is the commonest cause and the app can already
+  // detect it — it just never told anyone.
+  const [cause, setCause] = useState<string | null>(null)
 
   const next = useMutation({
     mutationFn: (h: { id: string; input: string }[]) =>
@@ -77,6 +82,9 @@ export default function PlacementTest({
       setItem(res.item ?? null)
       setInput('')
       if (res.max_items) setMaxItems(res.max_items)
+    },
+    onError: async () => {
+      setCause(pendingMigrationNote(await getSchemaHealth()))
     },
   })
 
@@ -258,9 +266,15 @@ export default function PlacementTest({
               Couldn&apos;t start the test
             </p>
             <p className="text-xs text-gray-500">
-              Something went wrong reaching the server. You can pick your level
-              by hand above, and try the test again later.
+              {cause ??
+                'Something went wrong reaching the server. You can pick your level by hand above, and try the test again later.'}
             </p>
+            {cause && (
+              <p className="text-[11px] text-gray-400">
+                Your level can still be set by hand above. This clears once the
+                pending migrations are applied.
+              </p>
+            )}
             <div className="flex gap-2">
               <button
                 type="button"
