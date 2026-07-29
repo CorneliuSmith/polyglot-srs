@@ -2283,6 +2283,13 @@ async def create_auth_user(
     """
     try:
         async with conn.transaction():
+            # pgcrypto lives in `extensions` on Supabase and `public` on a
+            # plain Postgres. Naming both here means the crypt() call below
+            # resolves on either, instead of the query being the one thing
+            # that pins this app to Supabase. LOCAL: reverts at commit.
+            await conn.execute(
+                "SET LOCAL search_path = public, extensions"
+            )
             row = await conn.fetchrow(
                 """
                 INSERT INTO auth.users
@@ -2294,7 +2301,9 @@ async def create_auth_user(
                 VALUES
                     ('00000000-0000-0000-0000-000000000000', gen_random_uuid(),
                      'authenticated', 'authenticated', lower($1),
-                     extensions.crypt($2, extensions.gen_salt('bf')),
+                     -- Unqualified: the SET LOCAL search_path above puts
+                     -- both candidate schemas in scope.
+                     crypt($2, gen_salt('bf')),
                      now(), '{"provider": "email", "providers": ["email"]}',
                      '{}', now(), now(), '', '', '', '')
                 RETURNING id
