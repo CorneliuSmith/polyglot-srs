@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { useMutation, useQueryClient } from '@tanstack/react-query'
 import { placementNext, setLearnerLevel } from '../../api/onboarding'
 import { getSchemaHealth, pendingMigrationNote } from '../../api/health'
@@ -6,6 +6,8 @@ import type { PlacementItem } from '../../api/onboarding'
 import LanguageWrapper from '../../components/LanguageWrapper'
 import { usePrefsStore } from '../../stores/prefsStore'
 import { convertTranslit, finalizeInput, isTranslitEnabled } from '../keyboards/translit'
+import OnScreenKeyboard, { hasKeyboardLayout } from '../keyboards/OnScreenKeyboard'
+import type { KeyboardLanguage } from '../keyboards/OnScreenKeyboard'
 import type { Language } from '../../api/types'
 
 const CEFR_ORDER = ['A1', 'A2', 'B1', 'B2', 'C1', 'C2']
@@ -59,6 +61,14 @@ export default function PlacementTest({
   // that is behind the build is the commonest cause and the app can already
   // detect it — it just never told anyone.
   const [cause, setCause] = useState<string | null>(null)
+  // Learn and Review both offer the on-screen keyboard; placement did not,
+  // which meant a learner being asked to TYPE Persian had no way to produce
+  // the script at all on a phone. That doesn't measure their Persian — it
+  // measures whether they happen to have the keyboard installed, and marks
+  // them down for the difference. Open by default here, unlike in Learn: a
+  // first-time learner has no reason to know the button exists.
+  const [showKeyboard, setShowKeyboard] = useState(true)
+  const inputRef = useRef<HTMLInputElement>(null)
 
   const next = useMutation({
     mutationFn: (h: { id: string; input: string }[]) =>
@@ -211,6 +221,7 @@ export default function PlacementTest({
                   }}
                 >
                   <input
+                    ref={inputRef}
                     autoCapitalize="none"
                     autoCorrect="off"
                     autoComplete="off"
@@ -229,6 +240,29 @@ export default function PlacementTest({
                 </form>
               </LanguageWrapper>
             </div>
+            {hasKeyboardLayout(language.code) && (
+              <div className="space-y-2">
+                <div className="flex justify-end">
+                  <button
+                    type="button"
+                    onClick={() => setShowKeyboard((v) => !v)}
+                    className="rounded-lg border border-gray-200 px-3 py-1.5 text-xs text-gray-500 hover:text-gray-700"
+                    style={{ minHeight: '44px' }}
+                  >
+                    {showKeyboard ? 'Hide keyboard' : 'Show keyboard'}
+                  </button>
+                </div>
+                {showKeyboard && (
+                  <OnScreenKeyboard
+                    languageCode={language.code as KeyboardLanguage}
+                    onKeyPress={(key) => setInput((v) => v + key)}
+                    onEnter={() => input.trim() && submit(input)}
+                    onBackspace={() => setInput((v) => v.slice(0, -1))}
+                    inputRef={inputRef}
+                  />
+                )}
+              </div>
+            )}
             <div className="flex gap-2">
               <button
                 type="button"

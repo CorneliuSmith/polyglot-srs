@@ -187,3 +187,75 @@ describe('PlacementTest names a pending migration instead of shrugging', () => {
     ).toBeDefined()
   })
 })
+
+describe('PlacementTest input method', () => {
+  beforeEach(() => {
+    vi.clearAllMocks()
+    mockNext.mockResolvedValue({
+      available: true, done: false, asked: 0, max_items: 12,
+      item: { id: 'i1', kind: 'vocabulary', level: 'A2', prompt: 'water', translation: null },
+    })
+  })
+
+  it('every item is typed — there is no multiple choice', async () => {
+    renderTest()
+    expect(await screen.findByLabelText('water')).toBeDefined()
+    // The only way past an item is typing it or declaring you don't know.
+    expect(screen.getByRole('button', { name: /don.t know/i })).toBeDefined()
+  })
+
+  it('offers the on-screen keyboard for a non-Latin script', async () => {
+    // Placement asks the learner to TYPE the target language. Without this a
+    // Persian learner on a phone had no way to produce the script at all, so
+    // the test measured keyboard availability rather than knowledge.
+    render(
+      <QueryClientProvider
+        client={new QueryClient({ defaultOptions: { queries: { retry: false } } })}
+      >
+        <PlacementTest
+          language={{ id: 'lang-fa', code: 'fa', name: 'Persian', rtl: true, is_visible: true }}
+          onClose={vi.fn()}
+        />
+      </QueryClientProvider>,
+    )
+    await screen.findByLabelText('water')
+    expect(screen.getByTestId('on-screen-keyboard')).toBeDefined()
+    expect(screen.getByRole('button', { name: /hide keyboard/i })).toBeDefined()
+  })
+
+  it('does not offer one for a language that has no layout', async () => {
+    render(
+      <QueryClientProvider
+        client={new QueryClient({ defaultOptions: { queries: { retry: false } } })}
+      >
+        <PlacementTest
+          language={{ id: 'lang-en', code: 'en', name: 'English', rtl: false, is_visible: true }}
+          onClose={vi.fn()}
+        />
+      </QueryClientProvider>,
+    )
+    await screen.findByLabelText('water')
+    expect(screen.queryByTestId('on-screen-keyboard')).toBeNull()
+  })
+
+  it('keyboard presses reach the answer box', async () => {
+    render(
+      <QueryClientProvider
+        client={new QueryClient({ defaultOptions: { queries: { retry: false } } })}
+      >
+        <PlacementTest
+          language={{ id: 'lang-fa', code: 'fa', name: 'Persian', rtl: true, is_visible: true }}
+          onClose={vi.fn()}
+        />
+      </QueryClientProvider>,
+    )
+    await screen.findByLabelText('water')
+    const kb = screen.getByTestId('on-screen-keyboard')
+    const key = kb.querySelector('[data-skbtn="\u0628"]') as HTMLElement
+    expect(key, 'expected a Persian key').toBeTruthy()
+    fireEvent.mouseDown(key)
+    await waitFor(() =>
+      expect((screen.getByLabelText('water') as HTMLInputElement).value).toContain('\u0628'),
+    )
+  })
+})
