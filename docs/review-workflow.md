@@ -63,6 +63,12 @@ Roles live in `contributor_roles` (user, role, optional `language_id` scope;
 | Run generation, bulk-approve, set review policy | | | | | ✅ |
 | Grant/revoke roles, view the per-language audit feed | | | | | ✅ |
 
+> **Naming.** The stored role value is `trial_reviewer`; the UI calls it
+> **Tester**. The value sits in a CHECK constraint that existing grants
+> depend on, so it was not renamed. Grep for `trial_reviewer` in code,
+> look for "Tester" on screen.
+
+
 The three gate helpers in `backend/repositories/contributor.py` encode this
 exactly:
 
@@ -72,28 +78,28 @@ exactly:
 - `can_review(roles, language_id)` — admin anywhere; reviewer for that
   language. **This is the publish gate** and the rollback gate.
 - `can_trial_review(roles, language_id)` — anyone who can review, **plus**
-  trial reviewers for that language. Grants *view + recommend*, never
+  testers for that language. Grants *view + recommend*, never
   publish.
 
-A **trial reviewer** is the on-ramp: they reach the Review workspace, see
+A **tester** is the on-ramp: they reach the Review workspace, see
 everything a reviewer sees, leave advisory ✓/✗ recommendations, and **file
 written review notes** on a card — but they cannot publish or delete.
 (Notes are exactly where their judgement shows, which is what you promote
-on.) Promote a trial reviewer to reviewer once you trust that judgement.
+on.) Promote a tester to reviewer once you trust that judgement.
 
-To keep trial reviewers engaged, the **dashboard nudges them**: opening the
+To keep testers engaged, the **dashboard nudges them**: opening the
 dashboard occasionally shows a blocking check-in with one real pending item
 (a generated drill or example in a language they can trial-review) and asks
 them to judge it — *Looks good* / *Needs work* records an advisory
 recommendation, *I can't tell* satisfies the nudge without a vote.
 
 The cadence is **adaptive and self-explaining** (`trial_review_prompt_state`):
-a brand-new trial reviewer is asked on their first visit; each real answer
+a brand-new tester is asked on their first visit; each real answer
 schedules the next check-in further out (first answer ~2 days, then +1 day
 each, capped at ~2 weeks), while a skip brings it back within hours — so
 skipping can't buy the long gap. The modal says so up front ("the more you
 help, the less often we'll ask") and the confirmation tells them exactly when
-they'll next be asked. It only appears for trial reviewers (never admins/full
+they'll next be asked. It only appears for testers (never admins/full
 reviewers) and skips silently when there's nothing pending to ask about. Tune
 the numbers via `_PROMPT_BASE_HOURS` / `_PROMPT_STEP_HOURS` /
 `_PROMPT_MAX_HOURS` / `_PROMPT_SKIP_HOURS` in `repositories/contributor.py`. Grant either role
@@ -198,7 +204,7 @@ These do **not** publish anything. They feed the one reviewer's decision:
   raise "this card is wrong" with an issue + optional suggestion, and role
   holders vote (`card_change_request_votes`). Only an admin
   accepts/rejects (server-enforced). The votes are a signal, not a gate.
-- **Trial-reviewer recommendations** — a trial reviewer's ✓/✗ on a pending
+- **Tester recommendations** — a tester's ✓/✗ on a pending
   drill or example. Shown as a tally next to the item so the reviewer who
   *does* publish can weigh it.
 - **Content suggestions** (`content_suggestions`) — proposed definition /

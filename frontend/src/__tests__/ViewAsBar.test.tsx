@@ -44,7 +44,7 @@ describe('ViewAsBar', () => {
     renderBar()
     expect(await screen.findByTestId('view-as-bar')).toBeDefined()
     for (const label of [
-      'Admin (you)', 'Learner', 'Trial reviewer', 'Contributor', 'Reviewer',
+      'Admin (you)', 'Learner', 'Tester', 'Contributor', 'Reviewer',
     ]) {
       expect(screen.getByRole('option', { name: label }), label).toBeDefined()
     }

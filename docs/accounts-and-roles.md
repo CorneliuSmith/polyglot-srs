@@ -82,8 +82,14 @@ never need a grant.
 | `reviewer` | one language or all | everything a contributor can, **plus approve** — the human sign-off that flips `reviewed = true` and exposes content to learners (`reviewed_by` records who). Also edits/deletes published content and **rolls back** logged changes. |
 | `admin` | global | everything: approve anywhere, grant/revoke roles, set per-language review policy (`strict` / `ai_ok`), run generation, view the per-language audit feed, admin panels |
 
+> **Naming.** The stored role value is `trial_reviewer`; the UI calls it
+> **Tester**. The value sits in a CHECK constraint that existing grants
+> depend on, so it was not renamed. Grep for `trial_reviewer` in code,
+> look for "Tester" on screen.
+
+
 Grant `trial_reviewer` / `reviewer` from either **Contribute → Roles** or
-**Manage accounts** (both panels offer them). Promote a trial reviewer to
+**Manage accounts** (both panels offer them). Promote a tester to
 reviewer once you trust their judgement.
 
 ## Bootstrapping the first admin (you)
@@ -116,7 +122,7 @@ The API equivalents are `GET /api/contribute/roles/all`,
 3. **Flag an issue (optional)** — for problems a reviewer can't or
    shouldn't fix on the spot ("this is the Ibadan form", "tone marks look
    doubtful"), every grammar point **and every vocabulary word** has a
-   *Flag an issue* box (trial reviewers can file these too). Open issues
+   *Flag an issue* box (testers can file these too). Open issues
    collect in the amber **Open issues** panel — visible to everyone with a
    role for the language, tagged *grammar* or *word*, resolvable by its
    reviewers and admins once addressed.

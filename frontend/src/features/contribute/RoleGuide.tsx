@@ -78,7 +78,7 @@ const GUIDES: Record<GuideRole, Guide> = {
       {
         what: 'Read the advisory signals, then decide yourself',
         detail:
-          'The AI check (pass / concerns) and any trial-reviewer ' +
+          'The AI check (pass / concerns) and any tester ' +
           'recommendations are inputs, not votes. They do not approve ' +
           'anything and they are not always right.',
       },
@@ -94,7 +94,7 @@ const GUIDES: Record<GuideRole, Guide> = {
       'and change your mind, roll it back from the item’s history.',
   },
   trial_review: {
-    title: 'How trial reviewing works',
+    title: 'How testing works',
     lede:
       'You can see the whole queue and say what you think, but your ' +
       'recommendations do not publish anything — a full reviewer makes the ' +
@@ -133,7 +133,7 @@ const GUIDES: Record<GuideRole, Guide> = {
         what: 'People',
         detail:
           'Accounts creates, deletes and re-plans accounts; Roles grants ' +
-          'contributor, trial-reviewer and reviewer — scoped to one language ' +
+          'contributor, tester and reviewer — scoped to one language ' +
           'or all of them.',
       },
       {

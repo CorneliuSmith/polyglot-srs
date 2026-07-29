@@ -36,9 +36,19 @@ export const VIEW_AS_LEVELS = [
 
 export type ViewAsLevel = (typeof VIEW_AS_LEVELS)[number]
 
+/**
+ * What each level is CALLED in the UI. Note `trial_reviewer` displays as
+ * "Tester": the owner renamed the role, and the stored value stays
+ * `trial_reviewer` because it sits in a CHECK constraint
+ * (20260709000000_reviewer_role.sql) that every existing grant depends on.
+ * Renaming the value would be a migration with real rows behind it, for zero
+ * user-visible gain — so label and value diverge here on purpose. If you are
+ * grepping for the role in code, it is `trial_reviewer`; if you are looking
+ * for it on screen, it is "Tester".
+ */
 export const VIEW_AS_LABEL: Record<ViewAsLevel, string> = {
   learner: 'Learner',
-  trial_reviewer: 'Trial reviewer',
+  trial_reviewer: 'Tester',
   contributor: 'Contributor',
   reviewer: 'Reviewer',
 }

@@ -234,7 +234,7 @@ async def grammar_for_language(
         if not (can_contribute(roles, language_id) or can_trial_review(roles, language_id)):
             raise HTTPException(
                 status_code=status.HTTP_403_FORBIDDEN,
-                detail="You need a contributor, trial-reviewer, or reviewer role for this language",
+                detail="You need a contributor, tester, or reviewer role for this language",
             )
         points = await list_grammar_points(conn, language_id)
         policy = await get_language_policy(conn, language_id)
@@ -954,7 +954,7 @@ async def review_inbox(
     if not can_trial_review(roles, language_id):
         raise HTTPException(
             status_code=status.HTTP_403_FORBIDDEN,
-            detail="Only a reviewer or trial reviewer for this language can view the inbox",
+            detail="Only a reviewer or tester for this language can view the inbox",
         )
     async with privileged_connection() as conn:
         counts = await review_inbox_counts(conn, language_id)
@@ -1047,7 +1047,7 @@ async def review_generated_drills(
     if not can_trial_review(roles, language_id):
         raise HTTPException(
             status_code=status.HTTP_403_FORBIDDEN,
-            detail="Only a reviewer or trial reviewer for this language can review drills",
+            detail="Only a reviewer or tester for this language can review drills",
         )
     limit = max(1, min(limit, 200))
     async with privileged_connection() as conn:
@@ -1120,7 +1120,7 @@ async def review_vocab_examples(
     if not can_trial_review(roles, str(lang)):
         raise HTTPException(
             status_code=status.HTTP_403_FORBIDDEN,
-            detail="Only a reviewer or trial reviewer for this language can view examples",
+            detail="Only a reviewer or tester for this language can view examples",
         )
     async with privileged_connection() as conn:
         examples = await list_vocab_examples(conn, vocabulary_id)
@@ -1252,7 +1252,7 @@ async def recommend(body: RecommendRequest, user: dict = Depends(get_current_use
     if not can_trial_review(roles, str(lang)):
         raise HTTPException(
             status_code=status.HTTP_403_FORBIDDEN,
-            detail="Only a reviewer or trial reviewer for this language can recommend",
+            detail="Only a reviewer or tester for this language can recommend",
         )
     async with privileged_connection() as conn:
         await add_recommendation(
@@ -1284,7 +1284,7 @@ async def review_ai_levels(
     if not can_trial_review(roles, language_id):
         raise HTTPException(
             status_code=status.HTTP_403_FORBIDDEN,
-            detail="Only a reviewer or trial reviewer for this language can view this",
+            detail="Only a reviewer or tester for this language can view this",
         )
     async with privileged_connection() as conn:
         words = await list_ai_leveled_vocab(conn, language_id)
@@ -1902,7 +1902,7 @@ async def flag_point_issue(
     if not (can_trial_review(roles, language_id) or can_contribute(roles, language_id)):
         raise HTTPException(
             status_code=status.HTTP_403_FORBIDDEN,
-            detail="You need a contributor, trial-reviewer, or reviewer role for this language",
+            detail="You need a contributor, tester, or reviewer role for this language",
         )
     async with privileged_connection() as conn:
         note_id = await add_review_note(conn, point_id, user["id"], body.note.strip())
@@ -1926,7 +1926,7 @@ async def flag_vocab_issue(
     if not (can_trial_review(roles, language_id) or can_contribute(roles, language_id)):
         raise HTTPException(
             status_code=status.HTTP_403_FORBIDDEN,
-            detail="You need a contributor, trial-reviewer, or reviewer role for this language",
+            detail="You need a contributor, tester, or reviewer role for this language",
         )
     async with privileged_connection() as conn:
         note_id = await add_vocab_review_note(
@@ -1948,7 +1948,7 @@ async def review_notes(
     if not (can_trial_review(roles, language_id) or can_contribute(roles, language_id)):
         raise HTTPException(
             status_code=status.HTTP_403_FORBIDDEN,
-            detail="You need a contributor, trial-reviewer, or reviewer role for this language",
+            detail="You need a contributor, tester, or reviewer role for this language",
         )
     async with privileged_connection() as conn:
         notes = await list_review_notes(
