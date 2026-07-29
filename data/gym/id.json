@@ -1,0 +1,100 @@
+{
+  "language": "id",
+  "_note": "Indonesian has no person or tense conjugation, so the Gym drills the affix system instead — that IS the productive morphology. The meN-/peN- nasal alternation and the -kan/-i pair are the two things a learner has to automate before reading is possible.",
+  "columns": [
+    {
+      "label": "Verb affixes",
+      "entries": [
+        {
+          "point": "The meN- prefix: active transitive verbs",
+          "label": "meN- active",
+          "usage": "Nasal adapts to the root; p/t/k/s drop.",
+          "example": "baca → membaca"
+        },
+        {
+          "point": "The ber- prefix: intransitive and stative verbs",
+          "label": "ber- intransitive",
+          "usage": "No object. be- before r.",
+          "example": "renang → berenang"
+        },
+        {
+          "point": "The di- passive: putting the object first",
+          "label": "di- passive",
+          "usage": "Everyday word order, not formal.",
+          "example": "Buku itu dibaca."
+        },
+        {
+          "point": "The -kan suffix: causative and benefactive",
+          "label": "-kan",
+          "usage": "Cause it, or do it for someone.",
+          "example": "beli → membelikan"
+        },
+        {
+          "point": "The -i suffix: location and repetition",
+          "label": "-i",
+          "usage": "Object is a place or surface.",
+          "example": "duduk → menduduki"
+        },
+        {
+          "point": "The ter- prefix: accidental, stative, capable",
+          "label": "ter-",
+          "usage": "Accidental, resulting state, or capable.",
+          "example": "jatuh → terjatuh"
+        },
+        {
+          "point": "memper-: causatives on adjectives",
+          "label": "memper-",
+          "usage": "Make something more X.",
+          "example": "besar → memperbesar"
+        },
+        {
+          "point": "Passive type 1 and type 2",
+          "label": "Passive 1 vs 2",
+          "usage": "di- for third person; bare root for 1st/2nd.",
+          "example": "Buku itu saya baca."
+        }
+      ]
+    },
+    {
+      "label": "Noun & phrase forms",
+      "entries": [
+        {
+          "point": "peN- nouns: the doer",
+          "label": "peN- agent",
+          "usage": "Same nasal rule as meN-.",
+          "example": "tulis → penulis"
+        },
+        {
+          "point": "ke-...-an and per-...-an nouns",
+          "label": "ke-an / per-an",
+          "usage": "Abstractions and processes.",
+          "example": "bebas → kebebasan"
+        },
+        {
+          "point": "The se- prefix: one, same, whole",
+          "label": "se-",
+          "usage": "One, same-as, as…as, the whole of.",
+          "example": "besar → sebesar"
+        },
+        {
+          "point": "Comparison: lebih, daripada, paling, ter-",
+          "label": "Comparison",
+          "usage": "lebih … daripada; paling / ter-.",
+          "example": "lebih tinggi daripada"
+        },
+        {
+          "point": "Classifiers: orang, ekor, buah",
+          "label": "Classifiers",
+          "usage": "orang people, ekor animals, buah things.",
+          "example": "tiga orang guru"
+        },
+        {
+          "point": "Reduplication beyond the plural",
+          "label": "Reduplication",
+          "usage": "Casual, various, reciprocal — not only plural.",
+          "example": "jalan-jalan"
+        }
+      ]
+    }
+  ]
+}
