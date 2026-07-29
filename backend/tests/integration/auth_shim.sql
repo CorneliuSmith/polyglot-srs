@@ -6,7 +6,15 @@
 -- auth.uid() reads the user id from request.jwt.claims, exactly as Supabase
 -- does, so rls_connection's set_config('request.jwt.claims', ...) drives it.
 
-CREATE EXTENSION IF NOT EXISTS pgcrypto;  -- gen_random_uuid()
+-- pgcrypto goes in its OWN schema, mirroring where Supabase puts it. Two
+-- reasons: create_auth_user's crypt()/gen_salt() then resolve identically on
+-- both, and — less obviously — it keeps `public` free of dependent objects so
+-- a portable dump can DROP and recreate that schema on restore. With pgcrypto
+-- inside public, `DROP SCHEMA public` fails and the restore dies halfway.
+-- (gen_random_uuid() needs no extension at all on Postgres 13+; it is core.)
+CREATE SCHEMA IF NOT EXISTS extensions;
+CREATE EXTENSION IF NOT EXISTS pgcrypto WITH SCHEMA extensions;
+GRANT USAGE ON SCHEMA extensions TO PUBLIC;
 
 CREATE SCHEMA IF NOT EXISTS auth;
 

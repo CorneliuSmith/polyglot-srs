@@ -1,10 +1,67 @@
-# The database: reproducing it, and leaving Supabase
+# The database: getting your data out, and reproducing it
 
-Two questions this answers: **how do I stand up a copy?** and **how stuck am
-I on Supabase?**
+Three questions: **can I take my data with me?**, **how do I stand up a
+copy?**, and **how stuck am I on Supabase?**
 
-Short version: the schema and all content are portable today and tested that
-way in CI. Sign-in is not. That's the whole of it.
+Short version: your data comes out with one command and goes back in with
+another, onto any Postgres. That round trip runs in CI, so it is tested rather
+than promised. Sign-in is the one piece still tied to Supabase.
+
+---
+
+## Taking your data with you
+
+```bash
+# Everything you own: all of public, plus your users' rows.
+./scripts/backup_db.sh --portable
+
+# Put it anywhere — RDS, Neon, Fly, a container, a laptop.
+./scripts/restore_db.sh backups/polyglot-20260729-221521.sql.gz \
+    --into postgresql://user:pass@newhost:5432/polyglot --create
+```
+
+`restore_db.sh` applies the auth shim first, loads the dump, then verifies —
+including a check that no card is left pointing at a missing user. If that
+check ever fires the restore exits non-zero rather than leaving you a database
+that looks fine and is quietly missing people.
+
+### Why `--portable` and not just `pg_dump`
+
+A plain full dump of a Supabase database also contains Supabase's own schemas
+— `storage`, `realtime`, `vault`, `graphql`, `extensions`,
+`supabase_functions` — plus all ~15 of GoTrue's `auth` tables. None of that
+restores onto a stock Postgres, so such a backup only restores to *another
+Supabase*. That is the trap: it looks like a backup right up until the day you
+try to leave.
+
+The obvious correction — dump only `public` — is worse in a quieter way. Every
+`user_profiles`, `user_cards`, `review_log` and `notes` row has a foreign key
+to `auth.users(id)`. Drop those rows and the restore either fails outright or,
+with constraints deferred, leaves orphaned learner data.
+
+`--portable` takes exactly what this app owns: all of `public`, plus the
+`auth.users` **rows** (not GoTrue's other tables), emitted users-first so the
+foreign keys resolve on the way in.
+
+Two bugs were found by actually round-tripping this rather than reasoning
+about it: `--clean` emitted a `DROP SCHEMA public` that failed on a pgcrypto
+dependency, and `CREATE SCHEMA public` collided with the one every Postgres
+ships with. Both are fixed, and
+`backend/tests/integration/test_portability.py` now does the whole
+dump → restore → verify cycle on every CI run.
+
+### What's in the dump
+
+| | Where it comes from |
+|---|---|
+| Accounts (`auth.users` rows) | the dump — irreplaceable |
+| Learner data: cards, review history, notes, progress, placements | the dump — irreplaceable |
+| Roles, feedback, change requests | the dump — irreplaceable |
+| Content: vocabulary, grammar, drills, sentences | the dump, and also re-seedable from `data/` |
+
+Content is in there too, so a restore gives you a working app immediately —
+but content is the one part you could always rebuild from source with
+`setup_db.sh`. The learner data is the part that only exists in the dump.
 
 ---
 
@@ -134,7 +191,11 @@ working), then replace sign-in as a separate step.
 
 ## Backups
 
-`scripts/backup_db.sh` takes a `pg_dump`. Because there is nothing
-proprietary in the schema, that dump restores to any Postgres — which is the
-practical test of not being stuck: if your backup only restores to your
-vendor, you are stuck.
+`./scripts/backup_db.sh --portable` is the one to keep. A plain
+`./scripts/backup_db.sh` is a fuller snapshot and fine for restoring onto the
+same platform, but only `--portable` is guaranteed to land somewhere else.
+
+The practical test of not being stuck: if your backup only restores to your
+vendor, you are stuck. So restore one somewhere else occasionally — the
+scripts make it a two-minute exercise, and a backup nobody has ever restored
+is a hypothesis, not a backup.
