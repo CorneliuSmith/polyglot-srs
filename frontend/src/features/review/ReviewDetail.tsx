@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Zap } from 'lucide-react'
 import { useNavigate } from 'react-router-dom'
 import { useQuery } from '@tanstack/react-query'
@@ -11,6 +11,7 @@ import LanguageWrapper from '../../components/LanguageWrapper'
 import FormsPanel from '../../components/FormsPanel'
 import ExplanationView from '../../components/ExplanationView'
 import SpeakButton from '../../components/SpeakButton'
+import { prefetchTTSMany } from '../../api/audio'
 import BlurReveal from '../../components/BlurReveal'
 import StageBadge from '../../components/StageBadge'
 import ResourceList from '../../components/ResourceList'
@@ -113,6 +114,17 @@ export default function ReviewDetail({ cardId, cardType, languageCode, stats }: 
       ))
 
   const ownSentences = data?.your_sentences ?? []
+
+  // The panel is lazy, so this runs the moment the details land — which is
+  // still well before the learner has read down to the examples and reached
+  // for a speaker.
+  useEffect(() => {
+    if (!data || !languageCode) return
+    return prefetchTTSMany(languageCode, [
+      ...data.examples.map((ex) => ex.sentence),
+      ...(data.your_sentences ?? []).map((ex) => ex.sentence),
+    ])
+  }, [data, languageCode])
   // "Learning English from X": say which language the hints are in.
   const hintLanguage =
     data?.hint_locale && data.hint_locale !== 'en'

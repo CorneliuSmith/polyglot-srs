@@ -1,4 +1,4 @@
-import { useMemo, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
 import {
@@ -14,6 +14,7 @@ import ExplanationView from '../../components/ExplanationView'
 import FormsPanel from '../../components/FormsPanel'
 import LanguageWrapper from '../../components/LanguageWrapper'
 import SpeakButton from '../../components/SpeakButton'
+import { prefetchTTSMany } from '../../api/audio'
 import SuggestChange from '../contribute/SuggestChange'
 import { usePrefsStore } from '../../stores/prefsStore'
 import { getLanguages } from '../../api/profile'
@@ -236,6 +237,14 @@ function VocabRow({
     queryFn: () => getVocabItem(item.id),
     enabled: open,
   })
+
+  // The word first — it's the one with the speaker button next to it and the
+  // one a learner expanding a deck row actually wants to hear.
+  useEffect(() => {
+    if (!detail) return
+    return prefetchTTSMany(languageCode, [detail.word])
+  }, [detail, languageCode])
+
   return (
     <div className="border-t border-gray-100 first:border-t-0">
       <button

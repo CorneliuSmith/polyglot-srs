@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useQuery, useMutation } from '@tanstack/react-query'
 import { getLanguages } from '../../api/profile'
@@ -7,6 +7,7 @@ import type { ExtractedSentence } from '../../api/notes'
 import { usePrefsStore } from '../../stores/prefsStore'
 import LanguageWrapper from '../../components/LanguageWrapper'
 import SpeakButton from '../../components/SpeakButton'
+import { prefetchTTSMany } from '../../api/audio'
 
 interface Selection {
   sentence: string
@@ -27,6 +28,19 @@ export default function NotesPage() {
 
   const { data: languages = [] } = useQuery({ queryKey: ['languages'], queryFn: getLanguages })
   const language = languages.find((l) => l.id === activeLanguageId)
+
+  // Unlike curriculum text, a pasted passage is nobody else's cache hit — each
+  // sentence is a real synth against the learner's own rate limit. Still worth
+  // warming: this page exists to be read aloud sentence by sentence, and the
+  // queue backs off on its own if the passage is long enough to push back.
+  const languageCode = language?.code
+  useEffect(() => {
+    if (!sentences || !languageCode) return
+    return prefetchTTSMany(
+      languageCode,
+      sentences.map((s) => s.sentence),
+    )
+  }, [sentences, languageCode])
 
   const extractMutation = useMutation({
     mutationFn: () => extractText(activeLanguageId!, language!.code, text),
