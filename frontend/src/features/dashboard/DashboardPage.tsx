@@ -31,6 +31,7 @@ import WhatsNewPanel from '../announcements/WhatsNewPanel'
 import { unseenWhatsNew } from '../announcements/whatsNew'
 import InstallPrompt from '../../components/InstallPrompt'
 import LearningTip from '../tips/LearningTip'
+import FeedbackButton from '../feedback/FeedbackButton'
 import type { LearnDeck } from '../../api/types'
 import { useViewAsKey } from '../../stores/viewAsStore'
 
@@ -796,6 +797,12 @@ export default function DashboardPage() {
           </span>
           <span aria-hidden className="text-lang">→</span>
         </button>
+
+        {/* The general feedback channel. Deliberately on the home page and
+            not in Settings: everything else in the app can only report a
+            problem WITH A CARD, so anyone whose complaint was about the app
+            itself had nowhere to put it. */}
+        <FeedbackButton page="dashboard" />
 
         {/* Contributor link — only for users with a role */}
         {canContribute && (

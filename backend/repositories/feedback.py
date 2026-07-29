@@ -1,0 +1,135 @@
+"""General app feedback — the channel that is not about one card.
+
+Reads and writes `app_feedback`. Learner-facing calls run on an RLS
+connection (a user only ever touches their own rows); the triage calls run
+privileged, after the router has checked the caller is staff — the same
+pattern the contributor repositories use.
+"""
+from __future__ import annotations
+
+import asyncpg
+
+CATEGORIES = ("bug", "confusing", "content", "idea", "other")
+
+# Deployments that have not applied 20260906000000 yet: every feedback call
+# below degrades to "no channel" rather than 500ing the home page. The
+# dashboard renders the button from a capability flag, so a missing table
+# hides the feature instead of breaking the page it sits on.
+_MISSING = (asyncpg.exceptions.UndefinedTableError,)
+
+
+async def submit_feedback(
+    conn: asyncpg.Connection,
+    user_id: str,
+    *,
+    category: str,
+    message: str,
+    language_id: str | None = None,
+    page: str | None = None,
+) -> str | None:
+    """Record one piece of feedback. Returns its id, or None if the table
+    isn't there yet."""
+    try:
+        row = await conn.fetchrow(
+            """
+            INSERT INTO app_feedback (user_id, language_id, category, message, page)
+            VALUES ($1, $2::uuid, $3, $4, $5)
+            RETURNING id
+            """,
+            user_id, language_id, category, message.strip(), page,
+        )
+    except _MISSING:
+        return None
+    return str(row["id"])
+
+
+async def list_my_feedback(
+    conn: asyncpg.Connection, user_id: str, limit: int = 20
+) -> list[dict]:
+    """What this user has already sent — so the app can say "we got it"
+    rather than swallowing the message without trace."""
+    try:
+        rows = await conn.fetch(
+            """
+            SELECT id, category, message, page, status, admin_note, created_at
+            FROM app_feedback
+            WHERE user_id = $1
+            ORDER BY created_at DESC
+            LIMIT $2
+            """,
+            user_id, limit,
+        )
+    except _MISSING:
+        return []
+    return [dict(r) | {"id": str(r["id"])} for r in rows]
+
+
+async def list_feedback(
+    conn: asyncpg.Connection,
+    *,
+    status: str | None = None,
+    language_id: str | None = None,
+    limit: int = 100,
+) -> list[dict]:
+    """The triage list (privileged; router checks the role first).
+
+    Joins the reporter's email so staff can follow up — feedback you cannot
+    reply to is a suggestion box nailed shut.
+    """
+    try:
+        rows = await conn.fetch(
+            """
+            SELECT f.id, f.user_id, u.email, f.language_id, l.name AS language_name,
+                   f.category, f.message, f.page, f.status, f.admin_note, f.created_at
+            FROM app_feedback f
+            LEFT JOIN auth.users u ON u.id = f.user_id
+            LEFT JOIN languages  l ON l.id = f.language_id
+            WHERE ($1::text IS NULL OR f.status = $1)
+              AND ($2::uuid IS NULL OR f.language_id = $2::uuid)
+            ORDER BY
+                -- Open first: a triage list sorted purely by date buries the
+                -- thing that still needs doing under everything already done.
+                CASE f.status WHEN 'open' THEN 0 WHEN 'triaged' THEN 1 ELSE 2 END,
+                f.created_at DESC
+            LIMIT $3
+            """,
+            status, language_id, limit,
+        )
+    except _MISSING:
+        return []
+    return [
+        dict(r) | {"id": str(r["id"]), "user_id": str(r["user_id"])} for r in rows
+    ]
+
+
+async def count_open_feedback(conn: asyncpg.Connection) -> int:
+    try:
+        return await conn.fetchval(
+            "SELECT count(*) FROM app_feedback WHERE status = 'open'"
+        ) or 0
+    except _MISSING:
+        return 0
+
+
+async def set_feedback_status(
+    conn: asyncpg.Connection,
+    feedback_id: str,
+    *,
+    status: str,
+    admin_note: str | None = None,
+) -> bool:
+    """Triage one item. A None note leaves any existing note alone rather
+    than wiping it — closing something should not erase why."""
+    try:
+        result = await conn.execute(
+            """
+            UPDATE app_feedback
+            SET status = $2,
+                admin_note = COALESCE($3, admin_note)
+            WHERE id = $1::uuid
+            """,
+            feedback_id, status, admin_note,
+        )
+    except _MISSING:
+        return False
+    return result.endswith("1")

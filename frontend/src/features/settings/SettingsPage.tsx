@@ -27,6 +27,8 @@ import { accentExampleFor } from '../../lib/accentExamples'
 import { useViewAsKey } from '../../stores/viewAsStore'
 import AccountsPanel from '../contribute/AccountsPanel'
 import RoleGuide from '../contribute/RoleGuide'
+import FeedbackQueuePanel from '../contribute/FeedbackQueuePanel'
+import MyFeedback from '../feedback/MyFeedback'
 import GenerationPanel from '../contribute/GenerationPanel'
 import LanguageVisibilityPanel from '../contribute/LanguageVisibilityPanel'
 import RolesPanel from '../contribute/RolesPanel'
@@ -395,6 +397,10 @@ export default function SettingsPage() {
             {/* A trial reviewer sees the queue but cannot publish — say so
                 up front rather than letting them find out by pressing. */}
             <RoleGuide role={canReview ? 'review' : 'trial_review'} />
+            {/* User feedback sits WITH the content queue, not off in Admin:
+                most of what arrives is a content complaint, and the people
+                who can act on those are reviewers. */}
+            <FeedbackQueuePanel canTriage={isAdmin} />
             <ReviewQueue languageId={activeLanguageId} canReview={canReview} />
           </>
         )}
@@ -435,6 +441,9 @@ export default function SettingsPage() {
           <h2 className="font-semibold text-gray-800">Active language</h2>
           <LanguagePicker />
         </section>
+
+        {/* Renders nothing until you've actually sent something. */}
+        <MyFeedback />
 
         {/* Your level (beta report: a misplaced learner was stuck with A1
             content and couldn't find any way to change it — placement's
