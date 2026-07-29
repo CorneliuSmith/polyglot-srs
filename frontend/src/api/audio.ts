@@ -58,8 +58,22 @@ export async function getTTSUrl(
   } catch (err) {
     const status = (err as { response?: { status?: number } })?.response?.status
     if (status === 404) misses.add(key)
+    // 429 is "you are synthesizing too fast", never "this clip is bad" — so
+    // it must not be memoized as a miss, and the bulk queue must stop.
+    if (status === 429) noteThrottled()
     return null
   }
+}
+
+/** The backend rejects anything longer (MAX_TTS_CHARS) — skip rather than
+ *  spend a request earning a 422. */
+const MAX_TTS_CHARS = 300
+
+function prefetchable(languageCode: string, text: string): boolean {
+  if (!text || text.length > MAX_TTS_CHARS) return false
+  if (!TTS_LANGUAGES.has(languageCode)) return false
+  const key = `${languageCode} ${text}`
+  return !urlCache.has(key) && !misses.has(key)
 }
 
 /**
@@ -70,8 +84,87 @@ export async function getTTSUrl(
  * languages without a neural voice, or a clip already cached/missed.
  */
 export function prefetchTTS(languageCode: string, text: string): void {
-  if (!text || !TTS_LANGUAGES.has(languageCode)) return
-  const key = `${languageCode} ${text}`
-  if (urlCache.has(key) || misses.has(key)) return
+  if (!prefetchable(languageCode, text)) return
   void getTTSUrl(languageCode, text)
+}
+
+// ── Bulk prefetch ────────────────────────────────────────────────────────
+// A page full of speaker buttons (a reading, a grammar point's examples) used
+// to leave every one of them cold: the learner pressed play and waited on a
+// synth round trip. Warming them on load fixes that, but naively firing one
+// request per sentence is worse than the problem — the server rate-limits
+// synthesis at 30/min per user, so a long reading would trip it and the
+// buttons the learner actually pressed would be the ones that failed.
+//
+// So: one shared queue, low concurrency, and a hard stop on 429. Cache HITS
+// are not rate-limited server-side (the limiter sits after the cache lookup),
+// which is why this is cheap for curriculum text everyone shares and only
+// costs real quota for a learner's own generated reading.
+
+const PREFETCH_CONCURRENCY = 2
+type Job = { key: string; languageCode: string; text: string; cancelled: boolean }
+const queue: Job[] = []
+let active = 0
+/** Set when the server says we're going too fast; the queue drains no
+ *  further this session and clicks fall back to synthesizing on demand. */
+let throttled = false
+
+function pump(): void {
+  while (!throttled && active < PREFETCH_CONCURRENCY && queue.length > 0) {
+    const job = queue.shift()!
+    if (job.cancelled || !prefetchable(job.languageCode, job.text)) continue
+    active += 1
+    void getTTSUrl(job.languageCode, job.text)
+      .catch(() => undefined)
+      .finally(() => {
+        active -= 1
+        pump()
+      })
+  }
+}
+
+/** Told by getTTSUrl when the server pushes back, so the queue stops instead
+ *  of hammering a limiter it has already tripped. */
+export function noteThrottled(): void {
+  throttled = true
+  queue.length = 0
+}
+
+/**
+ * Warm every clip on a page, cheapest-first and politely.
+ *
+ * Returns a cancel function — call it on unmount so navigating away stops
+ * work for a page nobody is looking at any more. Order matters: pass the
+ * texts in the order the learner will meet them, because the queue drains in
+ * order and the first sentences are the ones most likely to be played.
+ */
+export function prefetchTTSMany(
+  languageCode: string,
+  texts: readonly string[],
+): () => void {
+  const jobs: Job[] = []
+  const seen = new Set<string>()
+  for (const text of texts) {
+    const key = `${languageCode} ${text}`
+    if (seen.has(key) || !prefetchable(languageCode, text)) continue
+    seen.add(key)
+    const job: Job = { key, languageCode, text, cancelled: false }
+    jobs.push(job)
+    queue.push(job)
+  }
+  pump()
+  return () => {
+    for (const job of jobs) job.cancelled = true
+  }
+}
+
+/** Test seam. Clears the memo caches as well as the queue: a reset that left
+ *  half the module state behind would silently make the NEXT test pass for
+ *  the wrong reason. */
+export function _resetPrefetchState(): void {
+  queue.length = 0
+  active = 0
+  throttled = false
+  urlCache.clear()
+  misses.clear()
 }

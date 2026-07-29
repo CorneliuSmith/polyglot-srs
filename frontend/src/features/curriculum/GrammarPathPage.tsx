@@ -4,6 +4,7 @@ import ExplanationView from '../../components/ExplanationView'
 import { useNavigate, useSearchParams } from 'react-router-dom'
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query'
 import { getLanguages } from '../../api/profile'
+import { prefetchTTSMany } from '../../api/audio'
 import { getCurriculum, getCurriculumPoint, learnPoint } from '../../api/curriculum'
 import type { CurriculumPoint } from '../../api/curriculum'
 import { usePrefsStore } from '../../stores/prefsStore'
@@ -75,6 +76,16 @@ export default function GrammarPathPage() {
   )
   const learnedCount = points.filter((p) => p.learned).length
   const languageCode = language?.code ?? 'en'
+
+  // The examples on this page are the ones a learner taps to hear. Warm them
+  // as the path loads so the first tap plays rather than waits.
+  useEffect(() => {
+    if (!languageCode || points.length === 0) return
+    return prefetchTTSMany(
+      languageCode,
+      points.flatMap((p) => (p.examples ?? []).map((e) => e.sentence)),
+    )
+  }, [points, languageCode])
 
   return (
     <div className="min-h-screen bg-gray-50">
