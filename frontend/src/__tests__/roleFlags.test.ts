@@ -96,3 +96,53 @@ describe('the Account tabs an admin sees while previewing', () => {
     }
   })
 })
+
+describe('contributor and trial_reviewer are siblings, not ranked', () => {
+  // The view-as list reads like a ladder, which invites "simplifying"
+  // KEPT_ROLES into a cumulative one. That would hand contributors review-queue
+  // access and trial reviewers the ability to edit content — neither of which
+  // the backend permits. These pin the disjointness.
+  const contributor = [{ language_id: ES, role: 'contributor' }]
+  const trialReviewer = [{ language_id: ES, role: 'trial_reviewer' }]
+
+  it('a contributor can write content but cannot open the review queue', () => {
+    expect(canContributeWith(contributor, false, ES)).toBe(true)
+    expect(canTrialReviewWith(contributor, false, ES)).toBe(false)
+  })
+
+  it('a trial reviewer can open the queue but cannot write content', () => {
+    expect(canTrialReviewWith(trialReviewer, false, ES)).toBe(true)
+    expect(canContributeWith(trialReviewer, false, ES)).toBe(false)
+  })
+
+  it('neither outranks the other — each can do something the other cannot', () => {
+    const contributorOnly =
+      canContributeWith(contributor, false, ES) &&
+      !canContributeWith(trialReviewer, false, ES)
+    const trialOnly =
+      canTrialReviewWith(trialReviewer, false, ES) &&
+      !canTrialReviewWith(contributor, false, ES)
+    expect(contributorOnly && trialOnly).toBe(true)
+  })
+
+  it('only reviewer subsumes both', () => {
+    const reviewer = [{ language_id: ES, role: 'reviewer' }]
+    expect(canContributeWith(reviewer, false, ES)).toBe(true)
+    expect(canTrialReviewWith(reviewer, false, ES)).toBe(true)
+    expect(canReviewWith(reviewer, false, ES)).toBe(true)
+  })
+
+  it('previewing as contributor does not smuggle in trial-reviewer powers', () => {
+    // The bug a cumulative ladder would introduce, guarded at the seam an
+    // admin actually exercises.
+    const roles = downgradeRoles([{ language_id: null, role: 'admin' }], 'contributor')
+    expect(canContributeWith(roles, false, ES)).toBe(true)
+    expect(canTrialReviewWith(roles, false, ES)).toBe(false)
+  })
+
+  it('previewing as trial reviewer does not smuggle in contributor powers', () => {
+    const roles = downgradeRoles([{ language_id: null, role: 'admin' }], 'trial_reviewer')
+    expect(canTrialReviewWith(roles, false, ES)).toBe(true)
+    expect(canContributeWith(roles, false, ES)).toBe(false)
+  })
+})
