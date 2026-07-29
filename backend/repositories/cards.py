@@ -134,7 +134,7 @@ async def get_due_cards(
               AND (es.reviewed
                    OR es.language_id IN (
                        SELECT id FROM languages
-                        WHERE grammar_review_policy = 'ai_ok'))
+                        WHERE grammar_review_policy IN ('ai_ok', 'all')))
         ) ex ON true
         LEFT JOIN LATERAL (
             SELECT rl.prompt_sentence
@@ -204,7 +204,7 @@ async def get_due_cards(
               AND (ds.reviewed
                    OR gp.language_id IN (
                        SELECT id FROM languages
-                        WHERE grammar_review_policy = 'ai_ok'))
+                        WHERE grammar_review_policy IN ('ai_ok', 'all')))
         ) d ON true
         LEFT JOIN LATERAL (
             SELECT rl.prompt_sentence
@@ -511,7 +511,7 @@ async def _select_vocab_candidate_ids(
               AND (v.level_source <> 'ai'
                    OR EXISTS (SELECT 1 FROM languages lp
                                WHERE lp.id = v.language_id
-                                 AND lp.grammar_review_policy = 'ai_ok'))
+                                 AND lp.grammar_review_policy IN ('ai_ok', 'all')))
               -- exclude items already in the deck, EXCEPT suspended
               -- never-reviewed ones: abandoned walkthroughs to be re-taught
               AND v.id NOT IN (
@@ -567,9 +567,11 @@ async def _select_grammar_candidate_ids(
                   AND ucs.user_id = $1
             WHERE gp.language_id = $2
               -- review policy: strict = reviewed only; ai_ok = also AI-passed
-              AND (gp.reviewed = true
-                   OR (l.grammar_review_policy = 'ai_ok'
-                       AND gp.ai_check_status = 'pass'))
+              AND (CASE l.grammar_review_policy
+                    WHEN 'all'  THEN true
+                    WHEN 'both' THEN (gp.reviewed AND gp.ai_check_status = 'pass')
+                    WHEN 'ai_ok' THEN (gp.reviewed OR gp.ai_check_status = 'pass')
+                    ELSE gp.reviewed END)
               -- a point with no drills has nothing to quiz — never learnable
               AND EXISTS (
                   SELECT 1 FROM drill_sentences ds WHERE ds.grammar_point_id = gp.id
@@ -761,9 +763,11 @@ async def get_learn_decks(
                 JOIN languages l ON gp.language_id = l.id
                 WHERE gp.language_id = cl.language_id
                   AND (cl.level IS NULL OR gp.level = cl.level)
-                  AND (gp.reviewed = true
-                       OR (l.grammar_review_policy = 'ai_ok'
-                           AND gp.ai_check_status = 'pass'))
+                  AND (CASE l.grammar_review_policy
+                    WHEN 'all'  THEN true
+                    WHEN 'both' THEN (gp.reviewed AND gp.ai_check_status = 'pass')
+                    WHEN 'ai_ok' THEN (gp.reviewed OR gp.ai_check_status = 'pass')
+                    ELSE gp.reviewed END)
                   AND EXISTS (
                       SELECT 1 FROM drill_sentences ds
                       WHERE ds.grammar_point_id = gp.id
@@ -776,7 +780,7 @@ async def get_learn_decks(
                   AND (v.level_source <> 'ai'
                        OR EXISTS (SELECT 1 FROM languages lp
                                    WHERE lp.id = v.language_id
-                                     AND lp.grammar_review_policy = 'ai_ok'))
+                                     AND lp.grammar_review_policy IN ('ai_ok', 'all')))
             ) END AS total,
             CASE WHEN cl.list_type = 'grammar' THEN (
                 SELECT COUNT(*)
@@ -978,7 +982,7 @@ async def get_card_details_bulk(
                                WHERE gp2.id = ds.grammar_point_id
                                  AND gp2.language_id IN (
                                      SELECT id FROM languages
-                                      WHERE grammar_review_policy = 'ai_ok')))
+                                      WHERE grammar_review_policy IN ('ai_ok', 'all'))))
             ORDER BY ds.display_order ASC
             """,
             grammar_ids,
@@ -1281,7 +1285,7 @@ async def get_card_detail(
                            WHERE gp2.id = ds.grammar_point_id
                              AND gp2.language_id IN (
                                  SELECT id FROM languages
-                                  WHERE grammar_review_policy = 'ai_ok')))
+                                  WHERE grammar_review_policy IN ('ai_ok', 'all'))))
         ORDER BY ds.display_order ASC
         LIMIT 5
         """,
@@ -1429,11 +1433,14 @@ async def get_cram_cards(
               AND (ds.reviewed OR ds.created_by = auth.uid()
                    OR gp.language_id IN (
                        SELECT id FROM languages
-                        WHERE grammar_review_policy = 'ai_ok'))
+                        WHERE grammar_review_policy IN ('ai_ok', 'all')))
         ) d ON true
         WHERE gp.id = ANY($1::uuid[])
-          AND (gp.reviewed = true
-               OR (l.grammar_review_policy = 'ai_ok' AND gp.ai_check_status = 'pass'))
+          AND (CASE l.grammar_review_policy
+                    WHEN 'all'  THEN true
+                    WHEN 'both' THEN (gp.reviewed AND gp.ai_check_status = 'pass')
+                    WHEN 'ai_ok' THEN (gp.reviewed OR gp.ai_check_status = 'pass')
+                    ELSE gp.reviewed END)
         """,
         point_ids,
         support_locale or "en",
@@ -1886,9 +1893,11 @@ async def get_deck_preview(
             JOIN languages l ON gp.language_id = l.id
             WHERE gp.language_id = $1
               AND ($2::text IS NULL OR gp.level = $2)
-              AND (gp.reviewed = true
-                   OR (l.grammar_review_policy = 'ai_ok'
-                       AND gp.ai_check_status = 'pass'))
+              AND (CASE l.grammar_review_policy
+                    WHEN 'all'  THEN true
+                    WHEN 'both' THEN (gp.reviewed AND gp.ai_check_status = 'pass')
+                    WHEN 'ai_ok' THEN (gp.reviewed OR gp.ai_check_status = 'pass')
+                    ELSE gp.reviewed END)
             ORDER BY gp.display_order ASC, gp.title
             LIMIT $3
             """,
@@ -1906,7 +1915,7 @@ async def get_deck_preview(
               AND (v.level_source <> 'ai'
                    OR EXISTS (SELECT 1 FROM languages lp
                                WHERE lp.id = v.language_id
-                                 AND lp.grammar_review_policy = 'ai_ok'))
+                                 AND lp.grammar_review_policy IN ('ai_ok', 'all')))
             ORDER BY v.frequency_rank ASC NULLS LAST, v.word
             LIMIT $3
             """,
@@ -1975,9 +1984,11 @@ async def get_deck_items(
                    ON uc.card_id = gp.id AND uc.card_type = 'grammar'
             WHERE gp.language_id = $1
               AND ($2::text IS NULL OR gp.level = $2)
-              AND (gp.reviewed = true
-                   OR (l.grammar_review_policy = 'ai_ok'
-                       AND gp.ai_check_status = 'pass'))
+              AND (CASE l.grammar_review_policy
+                    WHEN 'all'  THEN true
+                    WHEN 'both' THEN (gp.reviewed AND gp.ai_check_status = 'pass')
+                    WHEN 'ai_ok' THEN (gp.reviewed OR gp.ai_check_status = 'pass')
+                    ELSE gp.reviewed END)
             ORDER BY gp.display_order ASC, gp.title
             LIMIT $3
             """,
@@ -2012,7 +2023,7 @@ async def get_deck_items(
               AND (v.level_source <> 'ai'
                    OR EXISTS (SELECT 1 FROM languages lp
                                WHERE lp.id = v.language_id
-                                 AND lp.grammar_review_policy = 'ai_ok'))
+                                 AND lp.grammar_review_policy IN ('ai_ok', 'all')))
             ORDER BY v.frequency_rank ASC NULLS LAST, v.word
             LIMIT $3
             """,

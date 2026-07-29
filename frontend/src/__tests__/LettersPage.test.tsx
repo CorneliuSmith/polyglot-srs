@@ -18,9 +18,16 @@ vi.mock('../stores/prefsStore', () => ({
   ),
 }))
 
+vi.mock('../api/audio', async () => {
+  const actual = await vi.importActual<typeof import('../api/audio')>('../api/audio')
+  return { ...actual, prefetchTTSMany: vi.fn(() => () => undefined) }
+})
+
 import { getLanguages } from '../api/profile'
+import { prefetchTTSMany } from '../api/audio'
 
 const mockGetLanguages = getLanguages as ReturnType<typeof vi.fn>
+const mockPrefetch = prefetchTTSMany as ReturnType<typeof vi.fn>
 
 const ALL_CODES = [
   'ar', 'ca', 'de', 'el', 'en', 'es', 'fr', 'ha', 'hi', 'it', 'jam',
@@ -83,6 +90,7 @@ describe('Letters & Sounds data', () => {
 describe('LettersPage', () => {
   beforeEach(() => {
     mockActiveId = 'lang-es'
+    mockPrefetch.mockClear()
     mockGetLanguages.mockResolvedValue([
       { id: 'lang-es', code: 'es', name: 'Spanish', rtl: false },
       { id: 'lang-ar', code: 'ar', name: 'Arabic', rtl: true },
@@ -110,6 +118,29 @@ describe('LettersPage', () => {
     })
     expect(screen.getByText('ñ')).toBeDefined()
     expect(screen.getByText(/canyon/)).toBeDefined()
+  })
+
+  it('warms every example word so the speaker buttons play instantly', async () => {
+    renderPage()
+    await waitFor(() => expect(mockPrefetch).toHaveBeenCalled())
+    const [code, texts] = mockPrefetch.mock.calls[0]
+    expect(code).toBe('es')
+    const expected = LETTERS.es.sections.flatMap((s) => s.rows.map((r) => r.example))
+    expect(texts).toEqual(expected)
+    // In reading order: the rows on screen are ready before the tail.
+    expect(texts[0]).toBe(expected[0])
+  })
+
+  it('does not warm audio for a language with no neural voice', async () => {
+    mockGetLanguages.mockResolvedValue([
+      { id: 'lang-yo', code: 'yo', name: 'Yoruba', rtl: false },
+    ])
+    mockActiveId = 'lang-yo'
+    renderPage()
+    await waitFor(() => {
+      expect(screen.getAllByTestId('letters-section').length).toBeGreaterThan(0)
+    })
+    expect(mockPrefetch).not.toHaveBeenCalled()
   })
 
   it('Arabic rows show the four positional shapes with labels', async () => {

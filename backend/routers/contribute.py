@@ -46,6 +46,7 @@ from backend.repositories.contributor import (
     can_review,
     can_trial_review,
     confirm_vocab_level,
+    count_unchecked_points,
     create_auth_user,
     create_grammar_point,
     delete_account,
@@ -83,6 +84,7 @@ from backend.repositories.contributor import (
     list_review_notes,
     list_suggestions,
     list_translation_reviews,
+    list_unchecked_point_ids,
     list_vocab_examples,
     list_vocab_items,
     pick_review_prompt,
@@ -112,7 +114,14 @@ from backend.repositories.contributor import (
 )
 from backend.repositories.languages import set_language_visibility
 from backend.repositories.pool import privileged_connection, rls_connection
-from backend.repositories.tutor import aggregate_tutor_usage, set_tutor_access
+from backend.repositories.tutor import (
+    PLAN_TIERS,
+    aggregate_tutor_usage,
+    get_plan_message_limits,
+    set_plan_message_limit,
+    set_tutor_access,
+)
+from backend.services.allowance import effective_plan_limits
 from backend.services.drills import validate_drill
 from backend.services.generate import generation_available
 from backend.services.generation_admin import (
@@ -137,6 +146,7 @@ from backend.services.semantic_check import (
     semantic_check_vocab,
 )
 from backend.services.tutor_costs import estimate_cost_usd
+from backend.services.visibility import PUBLISH_POLICIES
 
 logger = logging.getLogger(__name__)
 router = APIRouter()
@@ -224,13 +234,17 @@ async def grammar_for_language(
         if not (can_contribute(roles, language_id) or can_trial_review(roles, language_id)):
             raise HTTPException(
                 status_code=status.HTTP_403_FORBIDDEN,
-                detail="You need a contributor, trial-reviewer, or reviewer role for this language",
+                detail="You need a contributor, tester, or reviewer role for this language",
             )
         points = await list_grammar_points(conn, language_id)
         policy = await get_language_policy(conn, language_id)
         tutor_model = await get_language_tutor_model(conn, language_id)
+        unchecked = await count_unchecked_points(conn, language_id)
     return {
         "points": points,
+        # Unreviewed AND never AI-checked: invisible to learners even under
+        # 'ai_ok' — the policy is one half of the gate, this is the other.
+        "unchecked_points": unchecked,
         "is_admin": is_admin(roles),
         "can_review": can_review(roles, language_id),
         # Trial reviewers can open the queue and recommend, but not publish.
@@ -289,10 +303,12 @@ async def update_language_policy(
     user: dict = Depends(get_current_user),
 ):
     """Set a language's grammar review policy (admin-only)."""
-    if body.policy not in ("strict", "ai_ok"):
+    # 'strict' still accepted: it is the stored legacy spelling of
+    # human_only and existing clients may send it.
+    if body.policy not in (*PUBLISH_POLICIES, "strict"):
         raise HTTPException(
             status_code=status.HTTP_422_UNPROCESSABLE_ENTITY,
-            detail="policy must be 'strict' or 'ai_ok'",
+            detail=f"policy must be one of {', '.join(PUBLISH_POLICIES)}",
         )
     async with rls_connection(user["id"]) as conn:
         roles = await get_roles(conn, user["id"])
@@ -430,6 +446,50 @@ async def tutor_usage_overview(
     }
 
 
+class PlanLimitUpdate(BaseModel):
+    monthly_messages: int = Field(ge=0, le=1_000_000)
+
+
+@router.get("/plan-limits")
+async def plan_limits(user: dict = Depends(get_current_user)):
+    """The monthly message cap for each account type (admin-only). Every
+    tier is always present — a DB override where an admin has set one, the
+    Settings/env default otherwise — so the panel never shows a blank."""
+    await _require_admin(user["id"])
+    async with privileged_connection() as conn:
+        stored = await get_plan_message_limits(conn)
+    return {"limits": effective_plan_limits(stored)}
+
+
+@router.put("/plan-limits/{plan}")
+async def update_plan_limit(
+    plan: str,
+    body: PlanLimitUpdate,
+    user: dict = Depends(get_current_user),
+):
+    """Set one tier's monthly message allotment (admin-only). Takes effect
+    on every account's NEXT allowance check — nobody needs to be logged out
+    or a server restarted."""
+    await _require_admin(user["id"])
+    if plan not in PLAN_TIERS:
+        raise HTTPException(
+            status_code=status.HTTP_422_UNPROCESSABLE_ENTITY,
+            detail=f"plan must be one of {', '.join(PLAN_TIERS)}",
+        )
+    async with privileged_connection() as conn:
+        ok = await set_plan_message_limit(conn, plan, body.monthly_messages, user["id"])
+        if not ok:
+            raise HTTPException(
+                status_code=status.HTTP_503_SERVICE_UNAVAILABLE,
+                detail=(
+                    "Plan limits need migration 20260907 applied — "
+                    "check /api/health/schema"
+                ),
+            )
+        stored = await get_plan_message_limits(conn)
+    return {"limits": effective_plan_limits(stored)}
+
+
 # ---------------------------------------------------------------------------
 # Content generation panel (WP42, admin-only): fill example/drill gaps with the
 # deployed key. Coverage + model recs + "what next", then idempotent runs with
@@ -551,6 +611,55 @@ async def generation_run(
             max_items=body.max_items,
         )
     return {"dry_run": False, **result}
+
+
+class AiCheckAllRequest(BaseModel):
+    language_id: str
+    # Batch size per request. The frontend loops until remaining hits zero,
+    # so a 41-point language is several ~20s requests rather than one that
+    # outlives the proxy timeout.
+    limit: int = Field(default=8, ge=1, le=10)
+
+
+@router.post("/admin/ai-check-run")
+async def ai_check_run(
+    body: AiCheckAllRequest,
+    user: dict = Depends(get_current_user),
+):
+    """Run the AI semantic check over the next batch of unchecked points
+    (admin-only). The same check as the per-point button — this exists
+    because a freshly seeded 'ai_ok' language has 40+ unchecked points, all
+    invisible to learners, and clicking through them one by one is not a
+    real workflow. Resumable by construction: each call takes the next
+    still-unchecked batch, so the frontend just calls until remaining == 0.
+    """
+    await _require_admin(user["id"])
+    if not ai_available():
+        raise HTTPException(
+            status_code=status.HTTP_503_SERVICE_UNAVAILABLE,
+            detail="AI review needs ANTHROPIC_API_KEY (or dev-mock) on the server.",
+        )
+    async with privileged_connection() as conn:
+        ids = await list_unchecked_point_ids(conn, body.language_id, body.limit)
+        passed = concerns = 0
+        for point_id in ids:
+            point = await get_point_for_check(conn, point_id)
+            if point is None:
+                continue
+            result = await semantic_check_point(
+                point["language_code"], point["title"],
+                point["explanation"], point["drills"],
+            )
+            await save_ai_check(conn, point_id, result["status"], result["notes"])
+            if result["status"] == "pass":
+                passed += 1
+            else:
+                concerns += 1
+        remaining = await count_unchecked_points(conn, body.language_id)
+    return {
+        "checked": len(ids), "passed": passed,
+        "concerns": concerns, "remaining": remaining,
+    }
 
 
 @router.post("/admin/generation/recheck")
@@ -845,7 +954,7 @@ async def review_inbox(
     if not can_trial_review(roles, language_id):
         raise HTTPException(
             status_code=status.HTTP_403_FORBIDDEN,
-            detail="Only a reviewer or trial reviewer for this language can view the inbox",
+            detail="Only a reviewer or tester for this language can view the inbox",
         )
     async with privileged_connection() as conn:
         counts = await review_inbox_counts(conn, language_id)
@@ -938,7 +1047,7 @@ async def review_generated_drills(
     if not can_trial_review(roles, language_id):
         raise HTTPException(
             status_code=status.HTTP_403_FORBIDDEN,
-            detail="Only a reviewer or trial reviewer for this language can review drills",
+            detail="Only a reviewer or tester for this language can review drills",
         )
     limit = max(1, min(limit, 200))
     async with privileged_connection() as conn:
@@ -1011,7 +1120,7 @@ async def review_vocab_examples(
     if not can_trial_review(roles, str(lang)):
         raise HTTPException(
             status_code=status.HTTP_403_FORBIDDEN,
-            detail="Only a reviewer or trial reviewer for this language can view examples",
+            detail="Only a reviewer or tester for this language can view examples",
         )
     async with privileged_connection() as conn:
         examples = await list_vocab_examples(conn, vocabulary_id)
@@ -1143,7 +1252,7 @@ async def recommend(body: RecommendRequest, user: dict = Depends(get_current_use
     if not can_trial_review(roles, str(lang)):
         raise HTTPException(
             status_code=status.HTTP_403_FORBIDDEN,
-            detail="Only a reviewer or trial reviewer for this language can recommend",
+            detail="Only a reviewer or tester for this language can recommend",
         )
     async with privileged_connection() as conn:
         await add_recommendation(
@@ -1175,7 +1284,7 @@ async def review_ai_levels(
     if not can_trial_review(roles, language_id):
         raise HTTPException(
             status_code=status.HTTP_403_FORBIDDEN,
-            detail="Only a reviewer or trial reviewer for this language can view this",
+            detail="Only a reviewer or tester for this language can view this",
         )
     async with privileged_connection() as conn:
         words = await list_ai_leveled_vocab(conn, language_id)
@@ -1793,7 +1902,7 @@ async def flag_point_issue(
     if not (can_trial_review(roles, language_id) or can_contribute(roles, language_id)):
         raise HTTPException(
             status_code=status.HTTP_403_FORBIDDEN,
-            detail="You need a contributor, trial-reviewer, or reviewer role for this language",
+            detail="You need a contributor, tester, or reviewer role for this language",
         )
     async with privileged_connection() as conn:
         note_id = await add_review_note(conn, point_id, user["id"], body.note.strip())
@@ -1817,7 +1926,7 @@ async def flag_vocab_issue(
     if not (can_trial_review(roles, language_id) or can_contribute(roles, language_id)):
         raise HTTPException(
             status_code=status.HTTP_403_FORBIDDEN,
-            detail="You need a contributor, trial-reviewer, or reviewer role for this language",
+            detail="You need a contributor, tester, or reviewer role for this language",
         )
     async with privileged_connection() as conn:
         note_id = await add_vocab_review_note(
@@ -1839,7 +1948,7 @@ async def review_notes(
     if not (can_trial_review(roles, language_id) or can_contribute(roles, language_id)):
         raise HTTPException(
             status_code=status.HTTP_403_FORBIDDEN,
-            detail="You need a contributor, trial-reviewer, or reviewer role for this language",
+            detail="You need a contributor, tester, or reviewer role for this language",
         )
     async with privileged_connection() as conn:
         notes = await list_review_notes(

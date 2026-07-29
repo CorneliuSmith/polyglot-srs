@@ -72,7 +72,7 @@ export default function GeneratedDrillsPanel({
       <p className="text-xs text-gray-500">
         {canPublish
           ? 'AI-generated grammar drills, hidden from learners until you approve them — approved drills become permanent corpus, rejected ones are deleted.'
-          : 'AI-generated grammar drills. As a trial reviewer you can recommend approve or reject; a full reviewer makes the final call.'}
+          : 'AI-generated grammar drills. As a tester you can recommend approve or reject; a full reviewer makes the final call.'}
       </p>
       <ul className="space-y-1.5">
         {pending.map((d) => (

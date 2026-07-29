@@ -16,6 +16,7 @@ import SpeakButton from '../../components/SpeakButton'
 import DrillCard from './DrillCard'
 import SuggestChange from '../contribute/SuggestChange'
 import Annotatable from '../contribute/Annotatable'
+import { prefetchTTSMany } from '../../api/audio'
 import OnScreenKeyboard, { hasKeyboardLayout } from '../keyboards/OnScreenKeyboard'
 import type { KeyboardLanguage } from '../keyboards/OnScreenKeyboard'
 import { composeScript, finalizeInput } from '../keyboards/translit'
@@ -129,6 +130,26 @@ function LearnInner({ onLocaleChanged }: { onLocaleChanged: () => void }) {
   // learning). Types the target script straight into the answer.
   const inputRef = useRef<HTMLInputElement>(null)
   const [showKeyboard, setShowKeyboard] = useState(true)
+
+  // Warm this card's audio as soon as it appears: the word itself first,
+  // then its examples, so the speaker plays instead of waiting on a synth
+  // round trip. Placed with the other hooks and ABOVE the loading/error
+  // early returns — a hook after a conditional return changes hook order
+  // between renders and React tears the component down.
+  const prefetchLesson = learnQuery.data?.lessons?.[lessonIndex]
+  const prefetchCode = language?.code
+  useEffect(() => {
+    if (!prefetchLesson || !prefetchCode) return
+    // `?? []`: a lesson with no examples is legitimate (a bare vocabulary
+    // card), and prefetching must never be what takes the page down.
+    return prefetchTTSMany(
+      prefetchCode,
+      [
+        prefetchLesson.title,
+        ...(prefetchLesson.examples ?? []).map((e) => e.sentence),
+      ].filter((t): t is string => !!t),
+    )
+  }, [prefetchLesson, prefetchCode])
 
   const typeIntoQuiz = (insert: string, replaceBackspace = false) => {
     setQuizResult(null)

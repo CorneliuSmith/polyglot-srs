@@ -118,3 +118,10 @@ tutor_chat_limiter = RateLimiter("tutor_chat", max_calls=20, per_seconds=60)
 tts_limiter = RateLimiter("tts", max_calls=30, per_seconds=60)
 # AI semantic review: heavier calls, tighter cap.
 ai_review_limiter = RateLimiter("ai_review", max_calls=10, per_seconds=60)
+# Recommendations: the passive weekly draft is already self-limiting (it only
+# fires once a batch is 7 days stale). This guards the EXPLICIT "get new
+# recommendations now" request a learner can make any time — without a cap a
+# tutor+ account could redraft indefinitely, each redraft being a real model
+# call. A learner who wants five fresh batches in one afternoon should still
+# be able to (mood/plans change), just not five hundred.
+reco_refresh_limiter = RateLimiter("reco_refresh", max_calls=5, per_seconds=86400)

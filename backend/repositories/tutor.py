@@ -11,6 +11,46 @@ import json
 
 import asyncpg
 
+PLAN_TIERS = ("free", "single", "all", "plus")
+
+
+async def get_plan_message_limits(conn: asyncpg.Connection) -> dict[str, int] | None:
+    """The admin-configurable monthly cap per plan tier, or None if migration
+    20260907 hasn't been applied yet — the caller falls back to Settings."""
+    try:
+        rows = await conn.fetch(
+            "SELECT plan, monthly_messages FROM plan_message_limits"
+        )
+    except asyncpg.exceptions.UndefinedTableError:
+        return None
+    limits = {r["plan"]: r["monthly_messages"] for r in rows}
+    # A tier with no row (e.g. added to PLAN_TIERS after this table was last
+    # seeded) is a caller concern, not this function's — it returns exactly
+    # what's stored, and get_allowance's dict lookup is what falls back.
+    return limits
+
+
+async def set_plan_message_limit(
+    conn: asyncpg.Connection, plan: str, monthly_messages: int, admin_id: str
+) -> bool:
+    """Admin-only (router enforces); UPSERT so a tier missing its seed row
+    (a table created after launch, or a hand-added tier) still saves.
+    Returns False (rather than raising) when migration 20260907 hasn't been
+    applied yet — the router turns that into a clear 503."""
+    try:
+        await conn.execute(
+            """
+            INSERT INTO plan_message_limits (plan, monthly_messages, updated_by, updated_at)
+            VALUES ($1, $2, $3, now())
+            ON CONFLICT (plan) DO UPDATE
+            SET monthly_messages = $2, updated_by = $3, updated_at = now()
+            """,
+            plan, monthly_messages, admin_id,
+        )
+    except asyncpg.exceptions.UndefinedTableError:
+        return False
+    return True
+
 
 async def count_tutor_messages(
     conn: asyncpg.Connection, user_id: str, since

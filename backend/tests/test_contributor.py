@@ -113,7 +113,9 @@ class TestContributeEndpoints:
              patch("backend.routers.contribute.get_language_policy",
                    new=AsyncMock(return_value="strict")), \
              patch("backend.routers.contribute.get_language_tutor_model",
-                   new=AsyncMock(return_value=None)):
+                   new=AsyncMock(return_value=None)), \
+             patch("backend.routers.contribute.count_unchecked_points",
+                   new=AsyncMock(return_value=0)):
             resp = client.get(
                 "/api/contribute/grammar", params={"language_id": LANG},
                 headers=_auth_headers(),
@@ -483,7 +485,9 @@ class TestReviewPolicy:
              patch("backend.routers.contribute.get_language_policy",
                    new=AsyncMock(return_value="ai_ok")), \
              patch("backend.routers.contribute.get_language_tutor_model",
-                   new=AsyncMock(return_value="claude-sonnet-5")):
+                   new=AsyncMock(return_value="claude-sonnet-5")), \
+             patch("backend.routers.contribute.count_unchecked_points",
+                   new=AsyncMock(return_value=0)):
             resp = client.get(
                 "/api/contribute/grammar", params={"language_id": LANG},
                 headers=_auth_headers(),
@@ -2165,3 +2169,182 @@ class TestReviewModeFlags:
             )
         assert resp.status_code == 201
         assert mock_create.await_args.kwargs["quote"] is None
+
+
+# ── plan message limits: admin-configurable monthly allotments ─────────────
+# "Admins should be able to set token allocations for each type of account" —
+# the four tiers used to be a Settings/env constant, editable only by
+# redeploying. These endpoints let an admin change one at runtime.
+
+class TestPlanLimits:
+    def test_requires_admin(self, client):
+        with _roles([{"language_id": None, "role": "reviewer"}]):
+            resp = client.get("/api/contribute/plan-limits", headers=_auth_headers())
+        assert resp.status_code == 403
+
+    def test_returns_every_tier_even_before_any_admin_edit(self, client):
+        # No DB row for anything yet — every tier still comes back, filled
+        # in from the Settings/env default. The panel must never show blank.
+        conn = AsyncMock()
+        with _roles([{"language_id": None, "role": "admin"}]), \
+             _priv_yielding(conn), \
+             patch("backend.routers.contribute.get_plan_message_limits",
+                   new=AsyncMock(return_value=None)):
+            resp = client.get("/api/contribute/plan-limits", headers=_auth_headers())
+        assert resp.status_code == 200
+        limits = resp.json()["limits"]
+        assert set(limits) == {"free", "single", "all", "plus"}
+        assert all(isinstance(v, int) for v in limits.values())
+
+    def test_a_stored_override_wins_over_the_default(self, client):
+        conn = AsyncMock()
+        with _roles([{"language_id": None, "role": "admin"}]), \
+             _priv_yielding(conn), \
+             patch("backend.routers.contribute.get_plan_message_limits",
+                   new=AsyncMock(return_value={"free": 50})):
+            resp = client.get("/api/contribute/plan-limits", headers=_auth_headers())
+        assert resp.json()["limits"]["free"] == 50
+
+    def test_updates_one_tier(self, client):
+        conn = AsyncMock()
+        with _roles([{"language_id": None, "role": "admin"}]), \
+             _priv_yielding(conn), \
+             patch("backend.routers.contribute.set_plan_message_limit",
+                   new=AsyncMock(return_value=True)) as mock_set, \
+             patch("backend.routers.contribute.get_plan_message_limits",
+                   new=AsyncMock(return_value={"free": 50, "single": 100,
+                                                "all": 300, "plus": 1000})):
+            resp = client.put(
+                "/api/contribute/plan-limits/free",
+                json={"monthly_messages": 50},
+                headers=_auth_headers(),
+            )
+        assert resp.status_code == 200
+        assert resp.json()["limits"]["free"] == 50
+        assert mock_set.await_args.args[1:3] == ("free", 50)
+
+    def test_unknown_tier_is_rejected(self, client):
+        with _roles([{"language_id": None, "role": "admin"}]):
+            resp = client.put(
+                "/api/contribute/plan-limits/premium-deluxe",
+                json={"monthly_messages": 50},
+                headers=_auth_headers(),
+            )
+        assert resp.status_code == 422
+
+    def test_a_negative_allotment_is_rejected(self, client):
+        with _roles([{"language_id": None, "role": "admin"}]):
+            resp = client.put(
+                "/api/contribute/plan-limits/free",
+                json={"monthly_messages": -1},
+                headers=_auth_headers(),
+            )
+        assert resp.status_code == 422
+
+    def test_a_non_admin_cannot_change_it_even_with_a_role(self, client):
+        with _roles([{"language_id": None, "role": "contributor"}]):
+            resp = client.put(
+                "/api/contribute/plan-limits/plus",
+                json={"monthly_messages": 2000},
+                headers=_auth_headers(),
+            )
+        assert resp.status_code == 403
+
+    def test_missing_migration_reports_503_not_500(self, client):
+        conn = AsyncMock()
+        with _roles([{"language_id": None, "role": "admin"}]), \
+             _priv_yielding(conn), \
+             patch("backend.routers.contribute.set_plan_message_limit",
+                   new=AsyncMock(return_value=False)):
+            resp = client.put(
+                "/api/contribute/plan-limits/free",
+                json={"monthly_messages": 50},
+                headers=_auth_headers(),
+            )
+        assert resp.status_code == 503
+
+
+# ── bulk AI check: the "Check all N now" button behind the policy panel ────
+# Owner-reported: they switched a language to 'ai_ok' and nothing appeared,
+# because Open only shows points with a stored 'pass' verdict and a freshly
+# seeded language has none. This endpoint produces those verdicts in batches.
+
+class TestAiCheckRun:
+    def test_requires_admin(self, client):
+        with _roles([{"language_id": LANG_ID, "role": "reviewer"}]):
+            resp = client.post(
+                "/api/contribute/admin/ai-check-run",
+                json={"language_id": LANG_ID},
+                headers=_auth_headers(),
+            )
+        assert resp.status_code == 403
+
+    def test_reports_503_when_ai_is_not_configured(self, client):
+        with _roles([{"language_id": None, "role": "admin"}]), \
+             patch("backend.routers.contribute.ai_available", return_value=False):
+            resp = client.post(
+                "/api/contribute/admin/ai-check-run",
+                json={"language_id": LANG_ID},
+                headers=_auth_headers(),
+            )
+        assert resp.status_code == 503
+
+    def test_checks_a_batch_and_reports_what_remains(self, client):
+        conn = AsyncMock()
+        verdicts = iter([
+            {"status": "pass", "notes": ""},
+            {"status": "concerns", "notes": "check the gloss"},
+        ])
+        with _roles([{"language_id": None, "role": "admin"}]), \
+             _priv_yielding(conn), \
+             patch("backend.routers.contribute.ai_available", return_value=True), \
+             patch("backend.routers.contribute.list_unchecked_point_ids",
+                   new=AsyncMock(return_value=["p1", "p2"])), \
+             patch("backend.routers.contribute.get_point_for_check",
+                   new=AsyncMock(return_value={
+                       "language_code": "he", "title": "T",
+                       "explanation": "E", "drills": [],
+                   })), \
+             patch("backend.routers.contribute.semantic_check_point",
+                   new=AsyncMock(side_effect=lambda *a: next(verdicts))), \
+             patch("backend.routers.contribute.save_ai_check",
+                   new=AsyncMock()) as save, \
+             patch("backend.routers.contribute.count_unchecked_points",
+                   new=AsyncMock(return_value=39)):
+            resp = client.post(
+                "/api/contribute/admin/ai-check-run",
+                json={"language_id": LANG_ID},
+                headers=_auth_headers(),
+            )
+        assert resp.status_code == 200
+        body = resp.json()
+        assert body == {"checked": 2, "passed": 1, "concerns": 1, "remaining": 39}
+        # Both verdicts were persisted — that's what flips visibility.
+        assert save.await_count == 2
+        assert save.await_args_list[0].args[1:] == ("p1", "pass", "")
+
+    def test_nothing_left_is_a_clean_zero(self, client):
+        conn = AsyncMock()
+        with _roles([{"language_id": None, "role": "admin"}]), \
+             _priv_yielding(conn), \
+             patch("backend.routers.contribute.ai_available", return_value=True), \
+             patch("backend.routers.contribute.list_unchecked_point_ids",
+                   new=AsyncMock(return_value=[])), \
+             patch("backend.routers.contribute.count_unchecked_points",
+                   new=AsyncMock(return_value=0)):
+            resp = client.post(
+                "/api/contribute/admin/ai-check-run",
+                json={"language_id": LANG_ID},
+                headers=_auth_headers(),
+            )
+        assert resp.json() == {"checked": 0, "passed": 0, "concerns": 0,
+                               "remaining": 0}
+
+    def test_batch_size_is_capped(self, client):
+        with _roles([{"language_id": None, "role": "admin"}]):
+            resp = client.post(
+                "/api/contribute/admin/ai-check-run",
+                json={"language_id": LANG_ID, "limit": 100},
+                headers=_auth_headers(),
+            )
+        assert resp.status_code == 422

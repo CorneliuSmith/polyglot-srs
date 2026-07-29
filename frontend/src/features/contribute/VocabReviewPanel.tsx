@@ -5,6 +5,7 @@ import type { VocabItemEdit } from '../../api/contribute'
 import LanguageWrapper from '../../components/LanguageWrapper'
 import SuggestChange from './SuggestChange'
 import ExamplesEditor from './ExamplesEditor'
+import { useViewAsKey } from '../../stores/viewAsStore'
 
 /** "Flag an issue" on a word — an advisory reviewer note, the vocab twin of
  * the grammar-point note box. Open to trial reviewers; publishes nothing. */
@@ -209,7 +210,7 @@ export default function VocabReviewPanel({
   const [level, setLevel] = useState<string>('all')
 
   const { data, isLoading, isError, error } = useQuery({
-    queryKey: ['contribute-vocab', languageId],
+    queryKey: ['contribute-vocab', languageId, useViewAsKey()],
     queryFn: () => getVocabForLanguage(languageId),
     enabled: !!languageId,
     retry: false,

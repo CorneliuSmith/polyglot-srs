@@ -15,12 +15,25 @@ The AI generator never overwrites contributor/reviewed content. A dev mock
 mode (TUTOR_DEV_MOCK) produces canned text so the panel can be populated and
 tested with no API key.
 
+A FOURTH step applies only to a language whose grammar_review_policy is
+'ai_ok' (the starter-scale languages — sw/mi/ha/xh/yo/hi/th/ko/he/la/fa/id/tl):
+the curriculum path only shows a point once reviewed=true OR ai_check_status
+='pass' (backend/repositories/curriculum.py). seed_grammar leaves every AI-
+authored point unreviewed, so nothing in that language is visible until
+something sets ai_check_status. The only endpoint that sets it
+(POST .../grammar/{id}/ai-check) checks one point at a time — --ai-check
+below is the bulk form of the exact same call, so a freshly seeded 40-point
+language does not need forty clicks in the Contribute editor before anyone
+can study it.
+
 CLI:
     # Generate AI explanations for grammar points that have none yet:
     python -m backend.services.seeder.generate_grammar --language ru --generate
     # Import hand-authored notes from a specialist:
     python -m backend.services.seeder.generate_grammar --language ru \
         --import-file data/ru_grammar_notes.json
+    # Make an 'ai_ok' language's points visible (bulk semantic check):
+    python -m backend.services.seeder.generate_grammar --language he --ai-check
 """
 from __future__ import annotations
 
@@ -32,6 +45,7 @@ import logging
 from anthropic import AsyncAnthropic
 
 from backend.config import get_settings
+from backend.services.semantic_check import ai_available, semantic_check_point
 from backend.services.tutor import _load_skill
 
 logger = logging.getLogger("generate_grammar")
@@ -215,6 +229,82 @@ async def generate_for_language(db_url: str, language_code: str) -> int:
         await conn.close()
 
 
+async def ai_check_language(
+    db_url: str, language_code: str, *, only_missing: bool = True
+) -> dict:
+    """Bulk-run the AI semantic review over every point in a language and
+    store the verdict — the same read-check-write as the single-point
+    'Run AI check' button, just looped.
+
+    For a language on 'ai_ok' policy this is what actually turns visibility
+    on: reviewed points are already studyable, but an unreviewed point stays
+    hidden until ai_check_status is set, and nothing sets it in bulk today.
+
+    only_missing=True (default) skips points already checked, so a partial
+    run — an API hiccup halfway through — can be re-run and only picks up
+    where it left off. Pass False to re-check everything, e.g. after an
+    explanation was rewritten.
+    """
+    import asyncpg
+
+    if not ai_available():
+        raise RuntimeError(
+            "AI review needs ANTHROPIC_API_KEY (or TUTOR_DEV_MOCK=1 for a "
+            "canned pass/pass run while wiring this up)."
+        )
+    conn = await asyncpg.connect(db_url)
+    try:
+        language_id = await conn.fetchval(
+            "SELECT id FROM languages WHERE code = $1", language_code
+        )
+        if not language_id:
+            raise ValueError(f"Language '{language_code}' not found in DB")
+        clause = "AND ai_check_status IS NULL" if only_missing else ""
+        points = await conn.fetch(
+            f"""
+            SELECT id, title, explanation
+            FROM grammar_points
+            WHERE language_id = $1 {clause}
+            ORDER BY level ASC NULLS LAST, display_order ASC
+            """,
+            language_id,
+        )
+        passed = concerns = 0
+        for p in points:
+            drills = await conn.fetch(
+                """
+                SELECT sentence, answer, translation
+                FROM drill_sentences WHERE grammar_point_id = $1
+                ORDER BY display_order ASC
+                """,
+                p["id"],
+            )
+            result = await semantic_check_point(
+                language_code, p["title"], p["explanation"],
+                [dict(d) for d in drills],
+            )
+            await conn.execute(
+                """
+                UPDATE grammar_points
+                SET ai_check_status = $2,
+                    ai_check_notes = NULLIF($3, ''),
+                    ai_checked_at = now()
+                WHERE id = $1
+                """,
+                p["id"], result["status"], result["notes"],
+            )
+            if result["status"] == "pass":
+                passed += 1
+            else:
+                concerns += 1
+            logger.info(
+                "%s: %s — %s", language_code, p["title"], result["status"]
+            )
+        return {"checked": len(points), "passed": passed, "concerns": concerns}
+    finally:
+        await conn.close()
+
+
 async def _main() -> None:
     import os
 
@@ -223,6 +313,16 @@ async def _main() -> None:
     parser.add_argument("--db-url", default=os.environ.get("DATABASE_URL"))
     parser.add_argument("--generate", action="store_true", help="AI-generate missing explanations")
     parser.add_argument("--import-file", help="Import contributor notes (JSON)")
+    parser.add_argument(
+        "--ai-check", action="store_true",
+        help="Bulk semantic-check every point — needed to make an 'ai_ok' "
+             "language's points visible after seeding",
+    )
+    parser.add_argument(
+        "--recheck-all", action="store_true",
+        help="With --ai-check: re-check points that already have a verdict "
+             "too, not just missing ones",
+    )
     args = parser.parse_args()
     logging.basicConfig(level=logging.INFO, format="%(name)s | %(message)s")
 
@@ -235,6 +335,16 @@ async def _main() -> None:
     if args.generate:
         n = await generate_for_language(args.db_url, args.language)
         print(f"Generated {n} AI explanations for {args.language}")
+    if args.ai_check:
+        result = await ai_check_language(
+            args.db_url, args.language, only_missing=not args.recheck_all
+        )
+        print(json.dumps(result, indent=2))
+        if result["checked"] == 0:
+            print(
+                "Nothing to check (or everything already has a verdict — "
+                "pass --recheck-all to redo it)."
+            )
 
 
 if __name__ == "__main__":

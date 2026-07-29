@@ -31,7 +31,10 @@ import WhatsNewPanel from '../announcements/WhatsNewPanel'
 import { unseenWhatsNew } from '../announcements/whatsNew'
 import InstallPrompt from '../../components/InstallPrompt'
 import LearningTip from '../tips/LearningTip'
+import FeedbackButton from '../feedback/FeedbackButton'
+import NewPicksPrompt from '../recommendations/NewPicksPrompt'
 import type { LearnDeck } from '../../api/types'
+import { useViewAsKey } from '../../stores/viewAsStore'
 
 /** A first-class practice-destination tile (Gym / Read / Tutor). Users have
  * shown they don't read buried link lists — these sit right under the
@@ -313,7 +316,7 @@ export default function DashboardPage() {
 
   // Surfaces the Contribute link only to users who hold a contributor role.
   const { data: roleInfo } = useQuery({
-    queryKey: ['my-roles'],
+    queryKey: ['my-roles', useViewAsKey()],
     queryFn: getMyRoles,
     retry: false,
   })
@@ -795,6 +798,16 @@ export default function DashboardPage() {
           </span>
           <span aria-hidden className="text-lang">→</span>
         </button>
+
+        {/* Weekly picks, surfaced instead of waiting to be remembered.
+            Renders nothing unless there's a batch the learner hasn't seen. */}
+        <NewPicksPrompt />
+
+        {/* The general feedback channel. Deliberately on the home page and
+            not in Settings: everything else in the app can only report a
+            problem WITH A CARD, so anyone whose complaint was about the app
+            itself had nowhere to put it. */}
+        <FeedbackButton page="dashboard" />
 
         {/* Contributor link — only for users with a role */}
         {canContribute && (

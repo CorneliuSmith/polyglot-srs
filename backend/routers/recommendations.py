@@ -20,11 +20,14 @@ from backend.repositories.recommendations import (
     insert_recommendation,
     latest_recommendation_at,
     list_recommendations,
+    mark_recommendations_seen,
+    unseen_batch,
     upsert_reco_profile,
 )
 from backend.repositories.tutor import get_study_stats, log_tutor_usage
 from backend.services.allowance import get_allowance
 from backend.services.models import resolve_model
+from backend.services.rate_limit import reco_refresh_limiter
 from backend.services.recommend import MEDIA_TYPES, generate_recommendations
 
 router = APIRouter()
@@ -85,6 +88,31 @@ async def _is_stale(conn, user_id: str, language_id: str) -> bool:
     return last is None or (datetime.now(UTC) - last) >= _FRESH_WINDOW
 
 
+@router.get("/{language_id}/unseen")
+async def unseen_recommendations(
+    language_id: str, user: dict = Depends(get_current_user)
+):
+    """The newest batch the learner hasn't looked at yet, if any.
+
+    Backs the once-a-week dashboard prompt: picks are generated weekly, but
+    until now the only way to find them was to remember to open the page, so
+    most batches were never seen at all.
+    """
+    _require_uuid(language_id)
+    async with rls_connection(user["id"]) as conn:
+        batch = await unseen_batch(conn, user["id"], language_id)
+    return {"batch": batch}
+
+
+@router.post("/seen")
+async def mark_seen(user: dict = Depends(get_current_user)):
+    """"I've seen my picks" — dismisses the prompt everywhere, not just on
+    the device it was dismissed on."""
+    async with rls_connection(user["id"]) as conn:
+        await mark_recommendations_seen(conn, user["id"])
+    return {"ok": True}
+
+
 @router.get("/{language_id}")
 async def get_recommendations(
     language_id: str, user: dict = Depends(get_current_user)
@@ -108,11 +136,23 @@ async def get_recommendations(
 
 @router.post("/{language_id}/refresh")
 async def refresh_recommendations(
-    language_id: str, user: dict = Depends(get_current_user)
+    language_id: str,
+    force: bool = False,
+    user: dict = Depends(get_current_user),
 ):
-    """Draft this week's batch — but only when it's actually due. Idempotent:
-    if a batch was made within the last week it's returned as-is, so a client
-    that fires this on load never double-generates or double-charges."""
+    """Draft a new batch.
+
+    Passively (force=False, what the client fires on every page load): only
+    when the last batch is at least a week old. Idempotent — a batch made
+    within the window is returned as-is, so loading the page never
+    double-generates or double-charges.
+
+    On demand (force=True, the "Get new recommendations now" button): drafts
+    immediately regardless of staleness, calibrated to the learner's CURRENT
+    progress/status the same way the weekly draft is — grounded in
+    get_study_stats each time, not cached. Rate-limited on its own
+    (reco_refresh_limiter) since staleness isn't there to cap the cost.
+    """
     _require_uuid(language_id)
 
     async with rls_connection(user["id"]) as conn:
@@ -122,8 +162,16 @@ async def refresh_recommendations(
                 status_code=status.HTTP_409_CONFLICT,
                 detail="Recommendations are turned off.",
             )
-        # Not due yet → return the current batch untouched (no model call).
-        if not await _is_stale(conn, user["id"], language_id):
+        if force:
+            if not await reco_refresh_limiter.allow(user["id"]):
+                raise HTTPException(
+                    status_code=status.HTTP_429_TOO_MANY_REQUESTS,
+                    detail="You've asked for a few fresh batches already — "
+                           "try again a bit later.",
+                )
+        # Not due yet, and not explicitly asked for → return the current
+        # batch untouched (no model call).
+        elif not await _is_stale(conn, user["id"], language_id):
             batches = await list_recommendations(conn, user["id"], language_id, limit=1)
             return {"generated": False, "batch": batches[0] if batches else None}
 

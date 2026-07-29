@@ -119,3 +119,60 @@ async def insert_recommendation(
         "level": row["level"],
         "created_at": row["created_at"].isoformat(),
     }
+
+
+async def mark_recommendations_seen(
+    conn: asyncpg.Connection, user_id: str
+) -> None:
+    """Stamp "the learner has now looked at their picks".
+
+    Drives the once-a-week in-app prompt: a batch created after this stamp is
+    one they haven't seen. Server-side rather than localStorage so dismissing
+    the prompt on a phone settles it on a laptop too.
+
+    Degrades to a no-op if migration 20260908 hasn't been applied — a missing
+    stamp column should cost the prompt, not the page it sits on.
+    """
+    try:
+        await conn.execute(
+            """
+            INSERT INTO media_reco_profile (user_id, last_seen_at)
+            VALUES ($1, now())
+            ON CONFLICT (user_id) DO UPDATE SET last_seen_at = now()
+            """,
+            user_id,
+        )
+    except asyncpg.exceptions.UndefinedColumnError:
+        return
+
+
+async def unseen_batch(
+    conn: asyncpg.Connection, user_id: str, language_id: str
+) -> dict | None:
+    """The learner's newest batch if they haven't looked since it was made,
+    else None. What the dashboard prompt renders from."""
+    try:
+        row = await conn.fetchrow(
+            """
+            SELECT r.id, r.items, r.level, r.created_at
+            FROM media_recommendations r
+            JOIN media_reco_profile p ON p.user_id = r.user_id
+            WHERE r.user_id = $1
+              AND r.language_id = $2
+              AND p.enabled
+              AND (p.last_seen_at IS NULL OR r.created_at > p.last_seen_at)
+            ORDER BY r.created_at DESC
+            LIMIT 1
+            """,
+            user_id, language_id,
+        )
+    except asyncpg.exceptions.UndefinedColumnError:
+        return None
+    if not row:
+        return None
+    return {
+        "id": str(row["id"]),
+        "items": _load_items(row["items"]),
+        "level": row["level"],
+        "created_at": row["created_at"].isoformat(),
+    }

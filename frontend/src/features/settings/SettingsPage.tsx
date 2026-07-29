@@ -20,8 +20,20 @@ import { hasTranslit } from '../keyboards/translit'
 import RecoSettings from '../recommendations/RecoSettings'
 import { supabase } from '../../lib/supabase'
 import LanguagePicker from '../../components/LanguagePicker'
-import { getGrammarForLanguage } from '../../api/contribute'
+import LanguageWrapper from '../../components/LanguageWrapper'
+import { getGrammarForLanguage, getMyRoles } from '../../api/contribute'
+import {
+  canContributeWith,
+  canReviewWith,
+  canTrialReviewWith,
+} from '../../lib/roleFlags'
+import { accentExampleFor } from '../../lib/accentExamples'
+import { useViewAsKey } from '../../stores/viewAsStore'
 import AccountsPanel from '../contribute/AccountsPanel'
+import PlanLimitsPanel from '../contribute/PlanLimitsPanel'
+import RoleGuide from '../contribute/RoleGuide'
+import FeedbackQueuePanel from '../contribute/FeedbackQueuePanel'
+import MyFeedback from '../feedback/MyFeedback'
 import GenerationPanel from '../contribute/GenerationPanel'
 import LanguageVisibilityPanel from '../contribute/LanguageVisibilityPanel'
 import RolesPanel from '../contribute/RolesPanel'
@@ -38,6 +50,54 @@ import { useAuthStore } from '../../stores/authStore'
 
 type AccountTab = 'learner' | 'contribute' | 'review' | 'admin'
 
+const TAB_LABEL: Record<AccountTab, string> = {
+  learner: 'Learner',
+  contribute: 'Contribute',
+  review: 'Review',
+  admin: 'Admin',
+}
+
+/** The tabs an account can actually reach.
+ *
+ * One question per tab, because the roles are not a ladder (see lib/viewAs.ts):
+ *
+ *   Contribute — canContribute. NOT admin-only; gating it on
+ *     `canReview || isAdmin` once hid it from every plain contributor and left
+ *     them no route to their own panel.
+ *   Review — canReview OR canTrialReview. Asking only canReview left trial
+ *     reviewers with nothing but the Learner tab, so the queue they exist to
+ *     work was unreachable and their guide panel rendered in a tab they could
+ *     not open. Publishing stays gated separately: ReviewQueue takes
+ *     canReview, so a trial reviewer sees the queue and recommends on it
+ *     without being able to publish.
+ *   Admin — isAdmin. */
+export function accountTabsFor(flags: {
+  canContribute: boolean
+  canReview: boolean
+  canTrialReview?: boolean
+  isAdmin: boolean
+}): AccountTab[] {
+  return [
+    'learner' as const,
+    ...(flags.canContribute ? (['contribute'] as const) : []),
+    ...(flags.canReview || flags.canTrialReview
+      ? (['review'] as const)
+      : []),
+    ...(flags.isAdmin ? (['admin'] as const) : []),
+  ]
+}
+
+/** The tab to actually render. The available set SHRINKS when an admin starts
+ * a "view as" preview, and a selection pointing at a tab that no longer
+ * exists rendered a completely blank page — every panel is gated on an exact
+ * match, so 'admin' under a Reviewer preview matched nothing. */
+export function resolveTab(
+  selected: AccountTab,
+  available: AccountTab[],
+): AccountTab {
+  return available.includes(selected) ? selected : 'learner'
+}
+
 // Reminder hours are stored in UTC; the picker shows the learner's local
 // hour. Rounded whole-hour conversion (half-hour zones shift by ≤30 min).
 export function utcToLocalHour(utc: number): number {
@@ -52,6 +112,11 @@ export function localToUtcHour(local: number): number {
 const BATCH_SIZES = [3, 5, 10, 15, 20]
 const SESSION_SIZES = [10, 20, 50, 100]
 const CEFR_LEVELS = ['A1', 'A2', 'B1', 'B2', 'C1', 'C2']
+
+// Index = Postgres EXTRACT(DOW): 0 = Sunday.
+const WEEKDAYS = [
+  'Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday',
+]
 
 // Script names for the language-specific section's copy.
 const SCRIPT_NAME: Record<string, string> = {
@@ -101,14 +166,38 @@ export default function SettingsPage() {
   // default; Contribute/Review/Admin appear for accounts that hold those
   // roles, so the panels sit here instead of on a separate page to scroll.
   const [tab, setTab] = useState<AccountTab>('learner')
+  const viewAsKey = useViewAsKey()
   const { data: workspace } = useQuery({
-    queryKey: ['contribute-grammar', activeLanguageId],
+    queryKey: ['contribute-grammar', activeLanguageId, viewAsKey],
     queryFn: () => getGrammarForLanguage(activeLanguageId!),
     enabled: !!activeLanguageId,
     retry: false,
   })
-  const canReview = workspace?.can_review ?? workspace?.is_admin ?? false
-  const isAdmin = workspace?.is_admin ?? false
+  // Which TABS exist comes from the roles payload, not the workspace above:
+  // roles are tiny, cached app-wide, and already loaded by the time Account
+  // renders. Deriving the bar from the workspace meant a slow or failed
+  // grammar fetch silently hid Contribute/Review/Admin — which is how
+  // "view as Contributor" ended up showing a learner's page.
+  const { data: roleInfo } = useQuery({
+    queryKey: ['my-roles', viewAsKey],
+    queryFn: getMyRoles,
+    retry: false,
+    staleTime: 5 * 60 * 1000,
+  })
+  const roles = roleInfo?.roles ?? []
+  const isAdmin = roleInfo?.is_admin ?? false
+  const canReview = canReviewWith(roles, isAdmin, activeLanguageId)
+  const canContribute = canContributeWith(roles, isAdmin, activeLanguageId)
+  // Separate from canReview on purpose: a trial reviewer reaches the queue
+  // but cannot publish from it.
+  const canTrialReview = canTrialReviewWith(roles, isAdmin, activeLanguageId)
+
+  const availableTabs = accountTabsFor({
+    canContribute, canReview, canTrialReview, isAdmin,
+  })
+  // Resolved during render, not in an effect, so the page is never blank for
+  // even one frame while a preview is switching.
+  const activeTab = resolveTab(tab, availableTabs)
   const workspaceRefresh = () =>
     queryClient.invalidateQueries({ queryKey: ['contribute-grammar', activeLanguageId] })
   const { data: stats } = useQuery({
@@ -139,8 +228,12 @@ export default function SettingsPage() {
   // Upgrade (single → all): dev-mock grants directly; real mode redirects
   // to Stripe Checkout. A 503 means billing isn't launched — say so.
   const reminderMutation = useMutation({
-    mutationFn: (patch: { reminder_opt_in?: boolean; reminder_hour_utc?: number }) =>
-      updateProfile(patch),
+    mutationFn: (patch: {
+      reminder_opt_in?: boolean
+      reminder_hour_utc?: number
+      weekly_digest_opt_in?: boolean
+      weekly_digest_dow?: number
+    }) => updateProfile(patch),
     onSuccess: () => queryClient.invalidateQueries({ queryKey: ['profile'] }),
   })
 
@@ -208,6 +301,7 @@ export default function SettingsPage() {
   const [retaking, setRetaking] = useState(false)
 
   const activeLanguage = languages.find((l) => l.id === activeLanguageId)
+  const accentExample = accentExampleFor(activeLanguage?.code)
 
   const handleResetLanguage = () => {
     if (!activeLanguageId || !activeLanguage) return
@@ -279,42 +373,39 @@ export default function SettingsPage() {
           )}
         </div>
 
-        {/* Role tabs: Learner is always present; the rest appear by role. */}
-        {(canReview || isAdmin) && (
+        {/* Role tabs: Learner is always present; the rest appear by role.
+            Shown whenever there is more than one — the old gate was
+            `canReview || isAdmin`, which hid the bar from a plain
+            CONTRIBUTOR and left them no way to reach their own Contribute
+            panel at all. */}
+        {availableTabs.length > 1 && (
           <div
             className="flex rounded-xl border border-gray-200 bg-white overflow-hidden text-sm"
             role="tablist"
             aria-label="Account sections"
           >
-            {(
-              [
-                ['learner', 'Learner', true],
-                ['contribute', 'Contribute', true],
-                ['review', 'Review', canReview],
-                ['admin', 'Admin', isAdmin],
-              ] as [AccountTab, string, boolean][]
-            )
-              .filter(([, , show]) => show)
-              .map(([key, label]) => (
-                <button
-                  key={key}
-                  type="button"
-                  role="tab"
-                  aria-selected={tab === key}
-                  onClick={() => setTab(key)}
-                  className={`flex-1 px-4 py-2 font-semibold transition-colors ${
-                    tab === key
-                      ? 'bg-lang text-lang-on'
-                      : 'text-gray-500 hover:bg-gray-50'
-                  }`}
-                >
-                  {label}
-                </button>
-              ))}
+            {availableTabs.map((key) => (
+              <button
+                key={key}
+                type="button"
+                role="tab"
+                aria-selected={activeTab === key}
+                onClick={() => setTab(key)}
+                className={`flex-1 px-4 py-2 font-semibold transition-colors ${
+                  activeTab === key
+                    ? 'bg-lang text-lang-on'
+                    : 'text-gray-500 hover:bg-gray-50'
+                }`}
+              >
+                {TAB_LABEL[key]}
+              </button>
+            ))}
           </div>
         )}
 
-        {tab === 'contribute' && activeLanguageId && (
+        {activeTab === 'contribute' && activeLanguageId && (
+          <>
+          <RoleGuide role="contribute" />
           <section className="bg-white rounded-2xl shadow-sm border border-gray-100 p-5 space-y-3">
             <h2 className="font-semibold text-gray-800">Contribute</h2>
             <p className="text-xs text-gray-500">
@@ -329,14 +420,25 @@ export default function SettingsPage() {
               Open grammar editor
             </button>
           </section>
+          </>
         )}
 
-        {tab === 'review' && activeLanguageId && (
-          <ReviewQueue languageId={activeLanguageId} canReview={canReview} />
-        )}
-
-        {tab === 'admin' && activeLanguageId && isAdmin && (
+        {activeTab === 'review' && activeLanguageId && (
           <>
+            {/* A trial reviewer sees the queue but cannot publish — say so
+                up front rather than letting them find out by pressing. */}
+            <RoleGuide role={canReview ? 'review' : 'trial_review'} />
+            {/* User feedback sits WITH the content queue, not off in Admin:
+                most of what arrives is a content complaint, and the people
+                who can act on those are reviewers. */}
+            <FeedbackQueuePanel canTriage={isAdmin} />
+            <ReviewQueue languageId={activeLanguageId} canReview={canReview} />
+          </>
+        )}
+
+        {activeTab === 'admin' && activeLanguageId && isAdmin && (
+          <>
+            <RoleGuide role="admin" />
             <AnalyticsPanel />
             <EngagementPanel />
             <LanguageVisibilityPanel />
@@ -346,11 +448,13 @@ export default function SettingsPage() {
             <GenerationPanel />
             <TranslationReviewsPanel />
             <AccountsPanel languages={languages} selfId={selfId} />
+            <PlanLimitsPanel />
             <RolesPanel languages={languages} />
             <ReviewPolicyControl
               languageId={activeLanguageId}
               languageName={activeLanguage?.name}
               policy={workspace?.review_policy ?? 'strict'}
+              uncheckedPoints={workspace?.unchecked_points ?? 0}
               onChanged={workspaceRefresh}
             />
             <TutorModelControl
@@ -364,12 +468,15 @@ export default function SettingsPage() {
           </>
         )}
 
-        {tab === 'learner' && (
+        {activeTab === 'learner' && (
         <>
         <section className="bg-white rounded-2xl shadow-sm border border-gray-100 p-5 space-y-3">
           <h2 className="font-semibold text-gray-800">Active language</h2>
           <LanguagePicker />
         </section>
+
+        {/* Renders nothing until you've actually sent something. */}
+        <MyFeedback />
 
         {/* Your level (beta report: a misplaced learner was stuck with A1
             content and couldn't find any way to change it — placement's
@@ -598,14 +705,30 @@ export default function SettingsPage() {
           </div>
         </section>
 
-        <section className="bg-white rounded-2xl shadow-sm border border-gray-100 p-5 space-y-3">
+        {/* Only for languages whose spelling actually carries marks, and
+            always shown with a pair from THAT language — a Spanish example
+            told an Arabic learner nothing, and the toggle did nothing at all
+            on Indonesian or Tagalog. */}
+        {accentExample && (
+        <section
+          className="bg-white rounded-2xl shadow-sm border border-gray-100 p-5 space-y-3"
+          data-testid="accents-optional"
+        >
           <div className="flex items-start justify-between gap-4">
             <div>
               <h2 className="font-semibold text-gray-800">Accents optional</h2>
               <p className="text-xs text-gray-500">
                 Count answers correct even when accents or diacritics are
-                missing — “quien” passes for “quién”. The right spelling still
-                shows, so you keep learning the marks.
+                missing — “
+                <LanguageWrapper languageCode={activeLanguage!.code}>
+                  <span>{accentExample.loose}</span>
+                </LanguageWrapper>
+                ” passes for “
+                <LanguageWrapper languageCode={activeLanguage!.code}>
+                  <span>{accentExample.strict}</span>
+                </LanguageWrapper>
+                ” ({accentExample.gloss}). The right spelling still shows, so
+                you keep learning the marks.
               </p>
             </div>
             <button
@@ -628,6 +751,7 @@ export default function SettingsPage() {
             </button>
           </div>
         </section>
+        )}
 
         {/* Language-specific options (beta request: these belong in account
             learning settings, not buried in exercise UIs). Only shown for
@@ -755,10 +879,17 @@ export default function SettingsPage() {
           </div>
         </section>
 
+        {/* Two INDEPENDENT email opt-ins, not a mode switch: the daily nudge
+            answers "is there work waiting?", the weekly digest answers "how
+            did my week go, and what should I do beyond the app?". A learner
+            can want either, both, or neither. */}
         <section className="bg-white rounded-2xl shadow-sm border border-gray-100 p-5 space-y-3">
-          <div className="flex items-start justify-between gap-4">
+          <h2 className="font-semibold text-gray-800">Email</h2>
+          <div className="flex items-start justify-between gap-4 border-t border-gray-100 pt-3">
             <div>
-              <h2 className="font-semibold text-gray-800">Email reminders</h2>
+              <h3 className="text-sm font-medium text-gray-800">
+                Daily reminder
+              </h3>
               <p className="text-xs text-gray-500">
                 One email a day when reviews are waiting — nothing on days with
                 no reviews due.
@@ -807,6 +938,59 @@ export default function SettingsPage() {
                 ))}
               </select>
               your time
+            </label>
+          )}
+
+          <div className="flex items-start justify-between gap-4 border-t border-gray-100 pt-3">
+            <div>
+              <h3 className="text-sm font-medium text-gray-800">
+                Weekly review
+              </h3>
+              <p className="text-xs text-gray-500">
+                Your week in one email — what you studied, how it went, and
+                that week's reading, watching and listening picks.
+              </p>
+            </div>
+            <button
+              type="button"
+              role="switch"
+              aria-checked={profile?.weekly_digest_opt_in ?? false}
+              aria-label="Weekly review email"
+              onClick={() =>
+                reminderMutation.mutate({
+                  weekly_digest_opt_in: !(profile?.weekly_digest_opt_in ?? false),
+                })
+              }
+              className={
+                'relative shrink-0 inline-flex h-6 w-11 items-center rounded-full transition-colors ' +
+                (profile?.weekly_digest_opt_in ? 'bg-lang' : 'bg-gray-300')
+              }
+            >
+              <span
+                className={
+                  'inline-block h-5 w-5 transform rounded-full bg-white transition-transform ' +
+                  (profile?.weekly_digest_opt_in ? 'translate-x-5' : 'translate-x-1')
+                }
+              />
+            </button>
+          </div>
+          {profile?.weekly_digest_opt_in && (
+            <label className="flex items-center gap-2 text-sm text-gray-700">
+              Send on
+              <select
+                value={profile?.weekly_digest_dow ?? 0}
+                onChange={(e) =>
+                  reminderMutation.mutate({
+                    weekly_digest_dow: Number(e.target.value),
+                  })
+                }
+                className="rounded-lg border border-gray-200 px-2 py-1 text-sm"
+                aria-label="Weekly review day"
+              >
+                {WEEKDAYS.map((label, i) => (
+                  <option key={i} value={i}>{label}</option>
+                ))}
+              </select>
             </label>
           )}
         </section>

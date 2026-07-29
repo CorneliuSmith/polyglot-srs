@@ -109,10 +109,43 @@ async def set_reference_read(
         )
 
 
+async def staff_sees_all(
+    conn: asyncpg.Connection, user_id: str, language_id: str | None
+) -> bool:
+    """True when this user reviews content for this language.
+
+    Reviewers, contributors, trial reviewers and admins see grammar their
+    learners cannot — that is the whole point of having reviewers. Work
+    lands, staff look at it, and only then does the publish policy let it
+    through to everyone else.
+
+    Degrades to False (learner view) if the roles table is unreachable: a
+    failure here must never accidentally expose unpublished content.
+    """
+    try:
+        return bool(await conn.fetchval(
+            """
+            SELECT EXISTS (
+                SELECT 1 FROM contributor_roles
+                WHERE user_id = $1
+                  AND role IN ('admin', 'reviewer', 'contributor', 'trial_reviewer')
+                  AND (role = 'admin' OR language_id IS NULL OR language_id = $2::uuid)
+            )
+            """,
+            user_id, language_id,
+        ))
+    except asyncpg.PostgresError:
+        return False
+
+
 async def get_curriculum(
     conn: asyncpg.Connection, user_id: str, language_id: str
 ) -> list[dict]:
-    """Return the ordered grammar path with the learner's status per point."""
+    """Return the ordered grammar path with the learner's status per point.
+
+    Staff for this language see every point, published or not — a reviewer
+    cannot review what the gate hides from them."""
+    staff = await staff_sees_all(conn, user_id, language_id)
     rows = await conn.fetch(
         """
         SELECT
@@ -131,12 +164,16 @@ async def get_curriculum(
         FROM grammar_points gp
         JOIN languages l ON gp.language_id = l.id
         WHERE gp.language_id = $2
-          AND (gp.reviewed = true
-               OR (l.grammar_review_policy = 'ai_ok' AND gp.ai_check_status = 'pass'))
+          AND ($3 OR CASE l.grammar_review_policy
+                    WHEN 'all'  THEN true
+                    WHEN 'both' THEN (gp.reviewed AND gp.ai_check_status = 'pass')
+                    WHEN 'ai_ok' THEN (gp.reviewed OR gp.ai_check_status = 'pass')
+                    ELSE gp.reviewed END)
         ORDER BY gp.level ASC NULLS LAST, gp.display_order ASC, gp.title ASC
         """,
         user_id,
         language_id,
+        staff,
     )
     return [
         {
@@ -156,7 +193,10 @@ async def get_curriculum(
 async def get_curriculum_point(
     conn: asyncpg.Connection, user_id: str, grammar_point_id: str
 ) -> dict | None:
-    """Full read view of one grammar point (lesson-page shape)."""
+    """Full read view of one grammar point (lesson-page shape).
+
+    Staff see unpublished points so they can open and review them."""
+    staff = await staff_sees_all(conn, user_id, None)
     gp = await conn.fetchrow(
         """
         SELECT gp.id, gp.language_id, l.code AS language_code,
@@ -171,11 +211,15 @@ async def get_curriculum_point(
         FROM grammar_points gp
         JOIN languages l ON gp.language_id = l.id
         WHERE gp.id = $2
-          AND (gp.reviewed = true
-               OR (l.grammar_review_policy = 'ai_ok' AND gp.ai_check_status = 'pass'))
+          AND ($3 OR CASE l.grammar_review_policy
+                    WHEN 'all'  THEN true
+                    WHEN 'both' THEN (gp.reviewed AND gp.ai_check_status = 'pass')
+                    WHEN 'ai_ok' THEN (gp.reviewed OR gp.ai_check_status = 'pass')
+                    ELSE gp.reviewed END)
         """,
         user_id,
         grammar_point_id,
+        staff,
     )
     if gp is None:
         return None
@@ -233,8 +277,11 @@ async def learn_point(
     row = await conn.fetchrow(
         """
         SELECT gp.language_id,
-               (gp.reviewed = true
-                OR (l.grammar_review_policy = 'ai_ok' AND gp.ai_check_status = 'pass'))
+               (CASE l.grammar_review_policy
+                    WHEN 'all'  THEN true
+                    WHEN 'both' THEN (gp.reviewed AND gp.ai_check_status = 'pass')
+                    WHEN 'ai_ok' THEN (gp.reviewed OR gp.ai_check_status = 'pass')
+                    ELSE gp.reviewed END)
                AS visible,
                EXISTS (
                    SELECT 1 FROM drill_sentences ds WHERE ds.grammar_point_id = gp.id
@@ -298,8 +345,11 @@ async def search_content(
               AND uc.card_type = 'grammar'
               AND uc.user_id = $3
         WHERE gp.language_id = $1
-          AND (gp.reviewed = true
-               OR (l.grammar_review_policy = 'ai_ok' AND gp.ai_check_status = 'pass'))
+          AND (CASE l.grammar_review_policy
+                    WHEN 'all'  THEN true
+                    WHEN 'both' THEN (gp.reviewed AND gp.ai_check_status = 'pass')
+                    WHEN 'ai_ok' THEN (gp.reviewed OR gp.ai_check_status = 'pass')
+                    ELSE gp.reviewed END)
           AND (gp.title ILIKE $2 OR gp.function_note ILIKE $2)
         ORDER BY gp.level NULLS LAST, gp.title
         LIMIT $4

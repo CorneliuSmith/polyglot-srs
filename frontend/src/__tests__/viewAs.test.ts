@@ -1,5 +1,6 @@
 import { describe, it, expect } from 'vitest'
 import {
+  VIEW_AS_LABEL,
   VIEW_AS_LEVELS,
   downgradeFlags,
   downgradeRoles,
@@ -150,5 +151,21 @@ describe('view-as for a PLAIN admin (the shape a real admin account has)', () =>
     expect(downgradeRoles(both, 'contributor')).toEqual([
       { language_id: null, role: 'contributor' },
     ])
+  })
+})
+
+describe('role naming', () => {
+  it('trial_reviewer is called "Tester" on screen', () => {
+    // Owner renamed the role. The stored value stays `trial_reviewer` because
+    // it lives in a CHECK constraint every existing grant depends on, so label
+    // and value diverge on purpose — this pins the label so a future grep for
+    // "Trial reviewer" that finds nothing isn't mistaken for a missing case.
+    expect(VIEW_AS_LABEL.trial_reviewer).toBe('Tester')
+  })
+
+  it('every level has a label, so none can render blank', () => {
+    for (const level of VIEW_AS_LEVELS) {
+      expect(VIEW_AS_LABEL[level]).toBeTruthy()
+    }
   })
 })

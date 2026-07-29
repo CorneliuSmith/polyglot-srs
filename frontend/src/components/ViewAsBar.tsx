@@ -45,8 +45,10 @@ export default function ViewAsBar() {
 
   const choose = (level: ViewAsLevel | null) => {
     setViewAs(level)
-    // Role-gated data is cached per query; drop it all so each surface
-    // re-derives against the new level.
+    // The level is part of every role-derived query key (see useViewAsKey),
+    // so switching already lands on a different cache entry rather than
+    // waiting on a refetch of the old one. This stays as a backstop for any
+    // query that derives from roles without saying so in its key.
     queryClient.invalidateQueries()
   }
 

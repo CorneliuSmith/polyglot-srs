@@ -1,0 +1,214 @@
+# PolyglotSRS — how it fits together
+
+Start here. This is the map: what the moving parts are, how data gets from a
+source file into a learner's screen, and where the decisions were made that
+you would otherwise have to reverse-engineer from code.
+
+Deeper documents live in `docs/`. This file links to them rather than
+repeating them.
+
+| If you want to… | Read |
+|---|---|
+| Understand who can see what, and why | [`docs/content-visibility.md`](docs/content-visibility.md) |
+| Get a language's content into the database | [`docs/seeding.md`](docs/seeding.md) |
+| Understand the review/approval flow | [`docs/review-workflow.md`](docs/review-workflow.md) |
+| Understand roles and accounts | [`docs/accounts-and-roles.md`](docs/accounts-and-roles.md) |
+| Run the AI content generators | [`docs/content-generation-cli.md`](docs/content-generation-cli.md) |
+| Deploy | [`docs/DEPLOY.md`](docs/DEPLOY.md) |
+
+---
+
+## The shape of the system
+
+```mermaid
+flowchart TB
+    subgraph src["Source data — files in this repo"]
+        FREQ["data/&lt;code&gt;_frequency.tsv<br/>word frequency lists"]
+        GRAM["data/grammar/&lt;code&gt;_grammar.json<br/>hand-authored curricula"]
+        GYM["data/gym/&lt;code&gt;.json<br/>Gym manifests"]
+    end
+
+    subgraph load["Loading — one-off commands, not migrations"]
+        MIG["supabase db push<br/><i>creates tables + language rows</i>"]
+        SEEDV["seeder.run<br/><i>vocabulary</i>"]
+        SEEDG["seeder.seed_grammar<br/><i>points + drills</i>"]
+        CHECK["generate_grammar --ai-check<br/><i>stores a review verdict</i>"]
+    end
+
+    subgraph db["Database"]
+        LANGS[("languages<br/><i>publish policy lives here</i>")]
+        POINTS[("grammar_points<br/>reviewed · ai_check_status")]
+        VOCAB[("vocabulary")]
+    end
+
+    GATE{{"Visibility gate<br/>services/visibility.py"}}
+    STAFF["Staff<br/>see everything"]
+    LEARN["Learners<br/>see what the policy allows"]
+
+    FREQ --> SEEDV --> VOCAB
+    GRAM --> SEEDG --> POINTS
+    GYM -.->|read at request time,<br/>never seeded| GATE
+    MIG --> LANGS
+    CHECK --> POINTS
+    LANGS --> GATE
+    POINTS --> GATE
+    VOCAB --> GATE
+    GATE --> STAFF
+    GATE --> LEARN
+```
+
+**The one thing that surprises everybody:** loading content is three separate
+commands, and `supabase db push` is only the first. A schema push creates the
+*language*; it does not create its *content*. See
+[`docs/seeding.md`](docs/seeding.md).
+
+---
+
+## Tracing one grammar point, source to screen
+
+Follow a single point end to end. Every arrow is a place it can stop.
+
+```mermaid
+sequenceDiagram
+    autonumber
+    participant F as data/grammar/he_grammar.json
+    participant S as seed_grammar
+    participant DB as grammar_points
+    participant R as AI check / human review
+    participant API as GET /api/curriculum/{lang}
+    participant U as Learner
+
+    F->>S: {title, level, drills, reviewed:false}
+    S->>DB: INSERT reviewed=false, ai_check_status=NULL
+    Note over DB: Exists in the database.<br/>Visible to NOBODY but staff.
+    R->>DB: ai_check_status='pass' (automated)
+    R->>DB: reviewed=true (a person)
+    API->>DB: SELECT … WHERE <visibility gate>
+    DB-->>API: rows the gate allows
+    API-->>U: the grammar path
+```
+
+### Where it can silently stop
+
+| Symptom | Cause | Check |
+|---|---|---|
+| Path is empty at every level | `seed_grammar` never ran | `SELECT count(*) FROM grammar_points WHERE language_id = …` |
+| Rows exist, path still empty | Nothing satisfies the publish policy | the query in [`docs/content-visibility.md`](docs/content-visibility.md) |
+| All vocabulary is A1 | Frequency list is a 90-word stub | `wc -l data/<code>_frequency.tsv` |
+| A language is missing entirely | `is_visible = false`, or migration not applied | `SELECT code, is_visible FROM languages` |
+
+---
+
+## Layers, and what each is allowed to do
+
+```mermaid
+flowchart LR
+    UI["frontend/src/features/**<br/><i>screens</i>"]
+    APIC["frontend/src/api/**<br/><i>one function per endpoint</i>"]
+    RT["backend/routers/**<br/><i>auth, validation, HTTP status</i>"]
+    SV["backend/services/**<br/><i>rules with no database</i>"]
+    RP["backend/repositories/**<br/><i>SQL, and only SQL</i>"]
+    PG[("Postgres + RLS")]
+
+    UI --> APIC --> RT --> RP --> PG
+    RT --> SV
+    RP --> SV
+```
+
+The rules that keep this honest:
+
+- **Routers** check who you are and reject bad input. They do not contain SQL.
+- **Repositories** contain SQL and nothing else. They take a connection and
+  are agnostic about who called them.
+- **Services** are pure logic — they can be unit-tested with no database and
+  no network. `visibility.py`, `allowance.py` and `digest.py` are all this
+  shape deliberately, so the rules they encode can be tested exhaustively.
+- **Two connection kinds**: `rls_connection(user_id)` for anything acting as
+  a user (Postgres row-level security enforces ownership), and
+  `privileged_connection()` for staff operations — used *only* after the
+  router has checked the caller's role.
+
+---
+
+## Decisions worth knowing about
+
+These are the ones that look arbitrary until you know why.
+
+### Content is gated by policy, not by a boolean
+
+Two independent signals — a human approval and an automated check — with a
+per-language setting deciding which combination reaches learners. Earlier
+this was a hardcoded `reviewed OR (policy='ai_ok' AND ai_check='pass')`
+copy-pasted into 21 queries, which is how a language could be switched to
+"Open" and still show nothing with no explanation anywhere. Now one
+definition in `services/visibility.py`.
+→ [`docs/content-visibility.md`](docs/content-visibility.md)
+
+### Unknown values fail closed
+
+`normalize_policy` maps anything unrecognised to the *strictest* setting. A
+typo, or a value written by a newer deploy, must never accidentally publish
+unreviewed content. The only safe direction for a visibility bug is "too
+little is visible".
+
+### Missing migrations degrade, they don't crash
+
+Endpoints that touch a new table or column catch `UndefinedTableError` /
+`UndefinedColumnError` and return a degraded answer rather than a 500. This
+came from a real outage: a deploy that shipped code before its migration took
+the entire app down instead of losing one feature. The profile endpoint (hit
+on every page load) and every feedback endpoint follow this pattern.
+`/api/health/schema` reports exactly which migrations are missing.
+
+### Learner progress survives re-seeding
+
+Seeders UPSERT and diff-sync rather than delete-and-recreate, so drill IDs
+stay stable and `user_cards` / `gym_progress` rows keep pointing at real
+content. Re-running a seeder is always safe.
+
+### Human-curated content is never overwritten
+
+If a person has edited a point in the app, a re-seed sends the file's version
+to the review queue instead of overwriting their work.
+
+### Anything AI-written is labelled as such
+
+`source`, `explanation_source` and `level_source` record provenance, so
+"where did this sentence come from?" is always answerable, and so the review
+queues can prioritise machine-written content.
+
+---
+
+## Background work
+
+Three loops run in-process from the app lifespan (`backend/main.py`). All are
+gated on `email_reminders_enabled`, never raise, and are cancelled on
+shutdown:
+
+| Loop | Every | Does |
+|---|---|---|
+| `reminder_loop` | 15 min | Daily "reviews are waiting" email, at the learner's chosen hour |
+| `digest_loop` | 1 hour | Weekly review email, carrying that week's recommendations |
+| `_check_schema` | once, at boot | Logs loudly if migrations are behind the code |
+
+Both email loops write their "last sent" stamp **only on an accepted
+delivery**, so a mail outage retries rather than silently skipping someone.
+
+---
+
+## Testing
+
+```bash
+# Frontend
+cd frontend && npx tsc --noEmit && npx vitest run
+
+# Backend — unit only
+.venv/bin/pytest backend/tests -q
+
+# Backend — including integration (needs a throwaway Postgres)
+INTEGRATION_DATABASE_URL=postgresql://… .venv/bin/pytest backend/tests -q
+```
+
+**Integration tests skip silently without `INTEGRATION_DATABASE_URL`.** A
+green run that says "1400 passed, 95 skipped" has not tested any SQL. Set the
+variable before trusting a result that involves a query.

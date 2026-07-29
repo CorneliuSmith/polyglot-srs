@@ -1,5 +1,5 @@
 import { describe, it, expect, vi, beforeEach } from 'vitest'
-import { render, screen, waitFor } from '@testing-library/react'
+import { render, screen, waitFor, fireEvent } from '@testing-library/react'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { MemoryRouter } from 'react-router-dom'
 import RecommendationsPage from '../features/recommendations/RecommendationsPage'
@@ -72,7 +72,54 @@ describe('RecommendationsPage', () => {
     mockGet.mockResolvedValue({ enabled: true, entitled: true, stale: true, batches: [] })
     mockRefresh.mockResolvedValue({ generated: true, batch })
     renderPage()
-    await waitFor(() => expect(mockRefresh).toHaveBeenCalledWith('lang-es'))
+    // force=false: the passive weekly draft, which the server no-ops when a
+    // batch isn't actually due.
+    await waitFor(() => expect(mockRefresh).toHaveBeenCalledWith('lang-es', false))
+  })
+
+  it('offers picks on demand, without waiting out the weekly window', async () => {
+    mockGet.mockResolvedValue({
+      enabled: true, entitled: true, stale: false, batches: [batch],
+    })
+    mockRefresh.mockResolvedValue({ generated: true, batch })
+    renderPage()
+
+    const button = await screen.findByTestId('reco-refresh-now')
+    fireEvent.click(button)
+    // force=true — bypasses staleness so the learner gets something now.
+    await waitFor(() =>
+      expect(mockRefresh).toHaveBeenCalledWith('lang-es', true),
+    )
+  })
+
+  it('invites a first batch rather than saying there is nothing', async () => {
+    mockGet.mockResolvedValue({
+      enabled: true, entitled: true, stale: false, batches: [],
+    })
+    renderPage()
+    expect(await screen.findByText('Get my picks')).toBeDefined()
+  })
+
+  it('offers no on-demand button without entitlement', async () => {
+    mockGet.mockResolvedValue({
+      enabled: true, entitled: false, stale: false, batches: [],
+    })
+    renderPage()
+    await screen.findByText(/Plus feature/i)
+    expect(screen.queryByTestId('reco-refresh-now')).toBeNull()
+  })
+
+  it('explains a rate-limited on-demand request instead of failing silently', async () => {
+    mockGet.mockResolvedValue({
+      enabled: true, entitled: true, stale: false, batches: [batch],
+    })
+    mockRefresh.mockRejectedValue({ response: { status: 429 } })
+    renderPage()
+
+    fireEvent.click(await screen.findByTestId('reco-refresh-now'))
+    expect(
+      await screen.findByText(/asked for a few fresh batches already/i),
+    ).toBeDefined()
   })
 
   it('renders the current batch and history', async () => {

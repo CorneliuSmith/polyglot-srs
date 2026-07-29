@@ -20,7 +20,12 @@ from anthropic import AsyncAnthropic
 from backend.config import get_settings
 from backend.services.models import resolve_model
 
-MAX_SAMPLE_CHARS = 500
+# A paragraph, not a sentence or two. 500 chars capped the sample below the
+# length at which real complexity shows up — subordination, tense contrast,
+# discourse connectives — so a C1 writer had no room to demonstrate C1 and
+# the judge was told to cap at B2 anyway. ~1500 is 200-250 words: enough for
+# a genuine paragraph, still one cheap call.
+MAX_SAMPLE_CHARS = 1500
 
 CEFR_LEVELS = ["A1", "A2", "B1", "B2", "C1", "C2"]
 
@@ -86,14 +91,22 @@ async def assess_writing(
         model=model or resolve_model("semantic_check", language_code),
         max_tokens=512,
         system=(
-            f"You place ONE short free-writing sample by a learner of "
+            f"You place ONE free-writing sample by a learner of "
             f"{language_name}. Judge only what the sample demonstrates: the "
             f"CEFR level of their strongest CORRECT production (not their "
             f"mistakes — a B1 writer with typos is still B1), one "
             f"encouraging English sentence about what they can already do, "
-            f"and up to 3 structures to focus on next. A tiny sample caps "
-            f"honestly at what it shows — never infer above B2 from a "
-            f"sentence or two."
+            f"and up to 3 structures to focus on next.\n\n"
+            f"Judge COMPLEXITY, not just correctness: subordination, tense "
+            f"and aspect contrast, discourse connectives, register control "
+            f"and idiom are what separate B2 from C1 and above. A learner "
+            f"who writes several clause types accurately across a paragraph "
+            f"is showing more than one who writes ten flawless simple "
+            f"sentences.\n\n"
+            f"Cap honestly at what the sample SHOWS. A sentence or two "
+            f"cannot demonstrate above B2 however clean it is — say so in "
+            f"the notes rather than inferring. A full paragraph that "
+            f"genuinely sustains complex structure may reach C1 or C2."
         ),
         messages=[{"role": "user", "content": text}],
         output_config={"format": {"type": "json_schema", "schema": _SCHEMA}},

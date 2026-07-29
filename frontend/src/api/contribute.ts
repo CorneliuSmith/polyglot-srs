@@ -1,6 +1,7 @@
 import apiClient from './client'
 import { useViewAsStore } from '../stores/viewAsStore'
 import { downgradeFlags, downgradeRoles } from '../lib/viewAs'
+import type { PublishPolicy } from '../lib/publishPolicy'
 
 /** The admin "view as" preview is applied HERE, at the single boundary every
  * role-gated surface already reads from, so no consumer needs to know it
@@ -61,6 +62,9 @@ export async function getGrammarForLanguage(
   can_trial_review?: boolean
   can_contribute: boolean
   review_policy: string
+  /** Unreviewed points with no AI-check verdict — invisible to learners
+   *  even under 'ai_ok', because the policy is only half the gate. */
+  unchecked_points?: number
   tutor_model?: string | null
   default_tutor_model?: string
 }> {
@@ -363,7 +367,7 @@ export async function revokeRole(input: {
 
 export async function setLanguagePolicy(
   languageId: string,
-  policy: 'strict' | 'ai_ok',
+  policy: PublishPolicy,
 ): Promise<void> {
   await apiClient.post('/api/contribute/language-policy', {
     language_id: languageId,
@@ -1277,4 +1281,44 @@ export async function confirmVocabLevel(
   await apiClient.post(`/api/contribute/review/vocab/${vocabularyId}/level`, {
     level,
   })
+}
+
+// ── Plan message allotments (admin) ────────────────────────────────────────
+// The monthly message cap for each account type. Stored in the database, so
+// an admin can change one without a redeploy; every tier is always present in
+// the response (a Settings/env default fills in where no override is stored).
+
+export type PlanTier = 'free' | 'single' | 'all' | 'plus'
+
+export const PLAN_TIER_LABELS: Record<PlanTier, string> = {
+  free: 'Free',
+  single: 'Single language',
+  all: 'All languages',
+  plus: 'Plus (tutor add-on)',
+}
+
+export async function getPlanLimits(): Promise<Record<PlanTier, number>> {
+  const response = await apiClient.get('/api/contribute/plan-limits')
+  return response.data.limits
+}
+
+export async function setPlanLimit(
+  plan: PlanTier,
+  monthlyMessages: number,
+): Promise<Record<PlanTier, number>> {
+  const response = await apiClient.put(`/api/contribute/plan-limits/${plan}`, {
+    monthly_messages: monthlyMessages,
+  })
+  return response.data.limits
+}
+
+/** One batch of the bulk AI check (admin). Call repeatedly until
+ *  `remaining` is 0 — each call takes the next still-unchecked points. */
+export async function runAiCheckBatch(
+  languageId: string,
+): Promise<{ checked: number; passed: number; concerns: number; remaining: number }> {
+  const response = await apiClient.post('/api/contribute/admin/ai-check-run', {
+    language_id: languageId,
+  })
+  return response.data
 }

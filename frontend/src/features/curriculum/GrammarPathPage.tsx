@@ -4,6 +4,7 @@ import ExplanationView from '../../components/ExplanationView'
 import { useNavigate, useSearchParams } from 'react-router-dom'
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query'
 import { getLanguages } from '../../api/profile'
+import { prefetchTTSMany } from '../../api/audio'
 import { getCurriculum, getCurriculumPoint, learnPoint } from '../../api/curriculum'
 import type { CurriculumPoint } from '../../api/curriculum'
 import { usePrefsStore } from '../../stores/prefsStore'
@@ -75,6 +76,18 @@ export default function GrammarPathPage() {
   )
   const learnedCount = points.filter((p) => p.learned).length
   const languageCode = language?.code ?? 'en'
+
+  // Warm the examples of the point the learner just opened — those are the
+  // ones with speaker buttons next to them. Deliberately keyed to `detail`
+  // and not the points list: the list endpoint returns no examples at all,
+  // so warming from it prefetched precisely nothing.
+  useEffect(() => {
+    if (!languageCode || !detail) return
+    return prefetchTTSMany(
+      languageCode,
+      detail.examples.map((e) => e.sentence),
+    )
+  }, [detail, languageCode])
 
   return (
     <div className="min-h-screen bg-gray-50">

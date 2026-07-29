@@ -2283,6 +2283,13 @@ async def create_auth_user(
     """
     try:
         async with conn.transaction():
+            # pgcrypto lives in `extensions` on Supabase and `public` on a
+            # plain Postgres. Naming both here means the crypt() call below
+            # resolves on either, instead of the query being the one thing
+            # that pins this app to Supabase. LOCAL: reverts at commit.
+            await conn.execute(
+                "SET LOCAL search_path = public, extensions"
+            )
             row = await conn.fetchrow(
                 """
                 INSERT INTO auth.users
@@ -2294,7 +2301,9 @@ async def create_auth_user(
                 VALUES
                     ('00000000-0000-0000-0000-000000000000', gen_random_uuid(),
                      'authenticated', 'authenticated', lower($1),
-                     extensions.crypt($2, extensions.gen_salt('bf')),
+                     -- Unqualified: the SET LOCAL search_path above puts
+                     -- both candidate schemas in scope.
+                     crypt($2, gen_salt('bf')),
                      now(), '{"provider": "email", "providers": ["email"]}',
                      '{}', now(), now(), '', '', '', '')
                 RETURNING id
@@ -3316,3 +3325,42 @@ async def upsert_vocabulary_charts(
         note=origin_detail,
     )
     return str(row["id"]), "updated"
+
+
+async def count_unchecked_points(
+    conn: asyncpg.Connection, language_id: str
+) -> int:
+    """Points invisible under 'ai_ok' policy: unreviewed AND never AI-checked.
+
+    This is the number the admin panel must show — the owner flipped the
+    policy to Open, saw nothing appear, and had no way to learn that the
+    other half of the visibility gate (a stored check verdict) was empty.
+    """
+    return await conn.fetchval(
+        """
+        SELECT count(*) FROM grammar_points
+        WHERE language_id = $1
+          AND reviewed = false
+          AND ai_check_status IS NULL
+        """,
+        language_id,
+    ) or 0
+
+
+async def list_unchecked_point_ids(
+    conn: asyncpg.Connection, language_id: str, limit: int
+) -> list[str]:
+    """The next batch for the bulk AI check, in curriculum order so the
+    early levels light up first while the tail is still being checked."""
+    rows = await conn.fetch(
+        """
+        SELECT id FROM grammar_points
+        WHERE language_id = $1
+          AND reviewed = false
+          AND ai_check_status IS NULL
+        ORDER BY level ASC NULLS LAST, display_order ASC
+        LIMIT $2
+        """,
+        language_id, limit,
+    )
+    return [str(r["id"]) for r in rows]

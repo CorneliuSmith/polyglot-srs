@@ -15,6 +15,7 @@ import {
   type FlagReasonId,
   type QuotedSpan,
 } from './selection'
+import { useViewAsKey } from '../../stores/viewAsStore'
 
 /**
  * Where to hang the popover: just under the selection when the browser can
@@ -90,7 +91,7 @@ export default function Annotatable({
   const [sent, setSent] = useState(false)
 
   const { data: rolesData } = useQuery({
-    queryKey: ['my-roles'],
+    queryKey: ['my-roles', useViewAsKey()],
     queryFn: getMyRoles,
     staleTime: 5 * 60 * 1000,
     enabled: reviewMode,

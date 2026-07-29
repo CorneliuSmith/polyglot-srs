@@ -14,6 +14,7 @@ import { getLanguages } from '../../api/profile'
 import { getUsageAllowance } from '../../api/tutor'
 import { usePrefsStore } from '../../stores/prefsStore'
 import LanguageWrapper from '../../components/LanguageWrapper'
+import { prefetchTTSMany } from '../../api/audio'
 import Annotatable from '../contribute/Annotatable'
 import SpeakButton from '../../components/SpeakButton'
 import UsageMeter from '../../components/UsageMeter'
@@ -63,6 +64,19 @@ export default function ReaderPage() {
   const [peeked, setPeeked] = useState<{ s: number; t: number } | null>(null)
   const [openTranslations, setOpenTranslations] = useState<Set<number>>(new Set())
   // Fetched once (it costs allowance), then freely shown/hidden.
+  // Warm every sentence's audio as soon as the reading arrives. A reading is
+  // a page of speaker buttons and the learner reads top to bottom, so the
+  // queue is fed in that order — by the time they reach sentence three it has
+  // usually been synthesized already. Cancelled on unmount so navigating away
+  // stops work nobody is waiting for.
+  useEffect(() => {
+    if (!reading || !language?.code) return
+    return prefetchTTSMany(
+      language.code,
+      reading.sentences.map((s) => s.text),
+    )
+  }, [reading, language?.code])
+
   const [explanations, setExplanations] = useState<Record<number, string>>({})
   const [shownExplanations, setShownExplanations] = useState<Set<number>>(
     new Set(),

@@ -5,6 +5,7 @@ import {
   createChangeRequest,
   getMyRoles,
 } from '../../api/contribute'
+import { useViewAsKey } from '../../stores/viewAsStore'
 
 const FIELDS = [
   { value: 'sentence', label: 'the sentence' },
@@ -35,7 +36,7 @@ export default function SuggestChange({
   defaultField?: string
 }) {
   const { data: rolesData } = useQuery({
-    queryKey: ['my-roles'],
+    queryKey: ['my-roles', useViewAsKey()],
     queryFn: getMyRoles,
     staleTime: 5 * 60 * 1000,
   })

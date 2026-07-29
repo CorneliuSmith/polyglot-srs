@@ -1,10 +1,11 @@
+import { useEffect } from 'react'
 import { useQuery } from '@tanstack/react-query'
 import { useNavigate } from 'react-router-dom'
 import { getLanguages } from '../../api/profile'
 import { usePrefsStore } from '../../stores/prefsStore'
 import SpeakButton from '../../components/SpeakButton'
 import LanguageWrapper from '../../components/LanguageWrapper'
-import { TTS_LANGUAGES } from '../../api/audio'
+import { TTS_LANGUAGES, prefetchTTSMany } from '../../api/audio'
 import { lettersFor } from './lettersData'
 
 /**
@@ -37,6 +38,19 @@ export default function LettersPage() {
   const code = language?.code
   const letters = lettersFor(code)
   const hasVoice = !!code && TTS_LANGUAGES.has(code)
+
+  // A whole alphabet of speaker buttons is the worst case for pressing play
+  // and waiting. Warm them in reading order, so the rows on screen are ready
+  // first and the tail arrives while the learner is still on the top of the
+  // page. Example words are shared curriculum text, so after the first
+  // learner on a language these are all CDN hits.
+  useEffect(() => {
+    if (!letters || !code || !hasVoice) return
+    return prefetchTTSMany(
+      code,
+      letters.sections.flatMap((s) => s.rows.map((r) => r.example)),
+    )
+  }, [letters, code, hasVoice])
 
   return (
     <div className="min-h-screen bg-gray-50">
