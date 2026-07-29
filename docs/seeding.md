@@ -16,12 +16,14 @@ page: the migration ran but the seeders did not.
 2. seeder.run          --language <code> vocabulary        (frequency list)
 3. seeder.seed_grammar --language <code> grammar_points + drill_sentences
                                           + one content_list per CEFR level
+4. generate_grammar    --language <code> --ai-check  (ai_ok languages ONLY —
+                                          see below; this is the step people miss)
 ```
 
-Steps 2 and 3 are idempotent — re-run them freely. They UPSERT, drill ids stay
-stable so learners' `gym_progress` survives, and anything a human has curated
-in the app is never overwritten: text diffs on a curated point go to the
-review queue instead.
+Steps 2–4 are idempotent — re-run them freely. They UPSERT, ids stay stable so
+learners' `gym_progress` survives, and anything a human has curated in the app
+is never overwritten: text diffs on a curated point go to the review queue
+instead.
 
 Step 1 first, always. The languages are rows created by migration
 (`20260901000000_seed_he_la_fa_id_tl.sql` for the five newest), and seeding a
@@ -31,18 +33,23 @@ language whose row does not exist fails with "language not found".
 
 ```bash
 export DATABASE_URL=postgresql://...
+export ANTHROPIC_API_KEY=...   # needed for step 4 only
 
-# everything, every language
+# steps 1-3 accept --language all; step 4 (generate_grammar) does not — loop it
 supabase db push
 python -m backend.services.seeder.run          --language all
 python -m backend.services.seeder.seed_grammar --language all
+for l in he la fa id tl sw mi ha xh yo hi th ko; do
+    python -m backend.services.seeder.generate_grammar --language "$l" --ai-check
+done
 
 # or one language at a time
-python -m backend.services.seeder.run          --language he
-python -m backend.services.seeder.seed_grammar --language he
+python -m backend.services.seeder.run             --language he
+python -m backend.services.seeder.seed_grammar     --language he
+python -m backend.services.seeder.generate_grammar --language he --ai-check
 ```
 
-Or use the wrapper, which runs both steps in order for each code:
+Or use the wrapper, which runs all three steps in order for each code:
 
 ```bash
 ./scripts/seed_language.sh he la fa id tl
@@ -66,6 +73,57 @@ GROUP BY 1, 2 ORDER BY 1, 2;
 ```
 
 No rows for a level means `seed_grammar` has not been run for it.
+
+## Why grammar STILL doesn't show, even after `seed_grammar` ran
+
+This is the trap: the query above can report `points = 41, levels = 6` and
+the grammar path can still render empty for learners. Two different gates
+sit between "the row exists" and "a learner can see it".
+
+`backend/repositories/curriculum.py` only returns a point when:
+
+```sql
+gp.reviewed = true
+OR (l.grammar_review_policy = 'ai_ok' AND gp.ai_check_status = 'pass')
+```
+
+`seed_grammar` writes every AI-authored point with `reviewed = false` (a
+human hasn't signed off on it) — that's true for every "draft tier"
+language: sw, mi, ha, xh, yo, hi, th, ko, and the five newest. Those
+languages are given `grammar_review_policy = 'ai_ok'` specifically so they
+can be visible WITHOUT a human reviewing all 40 points by hand — but that
+only works once `ai_check_status` is set to `'pass'`, and **nothing in the
+seed pipeline sets it.** The only thing that ever did was the "Run AI check"
+button in the Contribute editor — one point at a time, so a fresh 40-point
+language needed 40 clicks before anyone could study it. That's the gap: the
+tooling to do it in bulk didn't exist.
+
+It now does — `generate_grammar --ai-check` (step 4 above) runs the same
+semantic check the button does, looped over every point in the language, and
+stores the verdict. Needs `ANTHROPIC_API_KEY` (or `TUTOR_DEV_MOCK=1` for a
+canned pass, useful for testing the pipeline without spending anything). Safe
+to re-run — by default it only checks points with no verdict yet, so an
+interrupted run resumes instead of re-billing everything; pass
+`--recheck-all` to force a redo.
+
+```bash
+python -m backend.services.seeder.generate_grammar --language he --ai-check
+```
+
+Check whether this is actually the blocker:
+
+```sql
+SELECT l.code,
+       count(*) FILTER (WHERE gp.reviewed) AS reviewed,
+       count(*) FILTER (WHERE gp.ai_check_status = 'pass') AS ai_passed,
+       count(*) FILTER (WHERE NOT gp.reviewed AND gp.ai_check_status IS DISTINCT FROM 'pass') AS still_hidden
+FROM grammar_points gp JOIN languages l ON l.id = gp.language_id
+WHERE l.grammar_review_policy = 'ai_ok'
+GROUP BY 1 ORDER BY 1;
+```
+
+`still_hidden > 0` means those points exist in the database and are
+genuinely invisible to every learner until `--ai-check` runs.
 
 ## Why every word is A1 in the newest languages
 
