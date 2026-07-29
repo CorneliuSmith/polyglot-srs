@@ -115,15 +115,22 @@ describe('Annotatable (Review Mode)', () => {
     expect(source_text.slice(start, end)).toBe('come pescado')
   })
 
-  it('the corner flag needs no selection — the whole region is the quote', async () => {
+  it('the corner flag sends no quote — the whole item, named by its label', async () => {
+    // It used to dump the region's textContent, which has no separators: a
+    // card arrived at the board as "…subject–object–verbHow it works…".
     renderIt()
     await screen.findByTestId('annotatable')
     fireEvent.click(screen.getByRole('button', { name: /flag this text/i }))
-    await screen.findByTestId('flag-popover')
+    const popover = await screen.findByTestId('flag-popover')
+    expect(popover.textContent).toContain('This whole item')
     fireEvent.click(screen.getByRole('button', { name: 'Wrong' }))
 
     await waitFor(() => expect(mockCreate).toHaveBeenCalled())
-    expect(mockCreate.mock.calls[0][0].quote).toBe('El gato come pescado.')
+    const body = mockCreate.mock.calls[0][0]
+    expect(body.quote).toBeNull()
+    expect(body.quote_context.whole).toBe(true)
+    // target_label already carries a clean one-liner for the board.
+    expect(body.target_label).toBe('El gato come pescado.')
   })
 
   it('a note and a suggested fix ride along when the reviewer wants to explain', async () => {

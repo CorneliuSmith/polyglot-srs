@@ -1,0 +1,106 @@
+{
+  "language": "tl",
+  "_note": "Tagalog's paradigm is focus crossed with aspect: each verb has a completed, incompleted and contemplated form in every focus it takes. That grid is what the Gym exists to drill — it is the single hardest thing in the language and the most mechanical to practise.",
+  "columns": [
+    {
+      "label": "Focus",
+      "entries": [
+        {
+          "point": "Actor-focus verbs with the -um- infix",
+          "label": "-um- actor focus",
+          "usage": "Actor is the topic.",
+          "example": "kain → kumain"
+        },
+        {
+          "point": "mag- actor-focus verbs, beside -um-",
+          "label": "mag- actor focus",
+          "usage": "The other actor focus; pairs differ by root.",
+          "example": "luto → nagluto"
+        },
+        {
+          "point": "Object focus with -in",
+          "label": "-in object focus",
+          "usage": "The thing acted on is the topic.",
+          "example": "kain → kinain"
+        },
+        {
+          "point": "Locative focus with -an",
+          "label": "-an locative focus",
+          "usage": "Place or recipient is the topic.",
+          "example": "bili → binilhan"
+        },
+        {
+          "point": "i- focus: benefactive and instrument",
+          "label": "i- focus",
+          "usage": "Thing transferred or tool is the topic.",
+          "example": "bigay → ibinigay"
+        },
+        {
+          "point": "ma- and maka-: ability and the involuntary",
+          "label": "ma- / maka-",
+          "usage": "Ability, or something unintended.",
+          "example": "kita → nakita"
+        },
+        {
+          "point": "Causatives: magpa- and pa-...-in",
+          "label": "Causative",
+          "usage": "Have someone do it.",
+          "example": "luto → nagpaluto"
+        },
+        {
+          "point": "Reciprocal and social affixes",
+          "label": "Reciprocal",
+          "usage": "To each other; joining in with.",
+          "example": "kita → magkita"
+        }
+      ]
+    },
+    {
+      "label": "Aspect & markers",
+      "entries": [
+        {
+          "point": "Aspect: completed, incompleted, contemplated",
+          "label": "Three aspects",
+          "usage": "Not tense — where the action stands.",
+          "example": "kumain / kumakain / kakain"
+        },
+        {
+          "point": "Recent perfective: ka- + reduplication",
+          "label": "Recent perfective",
+          "usage": "Only just happened. Takes lang.",
+          "example": "kakakain lang"
+        },
+        {
+          "point": "ang pronouns",
+          "label": "ang pronouns",
+          "usage": "The topic slot.",
+          "example": "ako, ka, siya, tayo"
+        },
+        {
+          "point": "ng pronouns",
+          "label": "ng pronouns",
+          "usage": "Non-topic actor, and possessor.",
+          "example": "ko, mo, niya, namin"
+        },
+        {
+          "point": "sa pronouns and possession",
+          "label": "sa pronouns",
+          "usage": "Direction, recipient, emphatic owner.",
+          "example": "akin, iyo, kaniya"
+        },
+        {
+          "point": "Deictics: ito, iyan, iyon",
+          "label": "Deictics",
+          "usage": "Three degrees, by speaker and listener.",
+          "example": "ito / iyan / iyon"
+        },
+        {
+          "point": "ma- adjectives and the linker",
+          "label": "ma- adjectives",
+          "usage": "Linker -ng after a vowel, na after a consonant.",
+          "example": "magandang bahay"
+        }
+      ]
+    }
+  ]
+}

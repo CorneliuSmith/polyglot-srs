@@ -237,3 +237,27 @@ describe('OnScreenKeyboard', () => {
     expect(onKeyPress).not.toHaveBeenCalledWith('{bksp}')
   })
 })
+
+describe('layout hygiene (mobile)', () => {
+  it('no layout keeps a ".com @" row', async () => {
+    // Web junk in a language drill, and on a phone it costs a whole row of
+    // vertical space. Previously stripped only for ar/he/fa.
+    const mod = await import('../features/keyboards/OnScreenKeyboard')
+    const codes = [
+      'ru', 'ar', 'tr', 'el', 'th', 'hi', 'ko', 'he', 'fa',
+    ] as const
+    for (const code of codes) {
+      expect(mod.hasKeyboardLayout(code), code).toBe(true)
+    }
+    // The table is module-private; assert through the rendered keys instead.
+    const { render, screen } = await import('@testing-library/react')
+    for (const code of codes) {
+      const { unmount } = render(
+        <mod.default languageCode={code} onKeyPress={() => {}} />,
+      )
+      const kb = screen.getByTestId('on-screen-keyboard')
+      expect(kb.textContent, code).not.toContain('.com')
+      unmount()
+    }
+  })
+})

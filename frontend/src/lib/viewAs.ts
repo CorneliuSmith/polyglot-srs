@@ -30,12 +30,22 @@ const KEPT_ROLES: Record<ViewAsLevel, ReadonlySet<string>> = {
 }
 
 /**
- * Strip a real admin's roles down to what the previewed level would see.
+ * Recast a real admin's roles as what the previewed level would see.
  *
- * SECURITY: this is presentation only, and it only ever REMOVES roles — there
- * is no input that makes the returned list stronger than the one passed in.
- * Every privileged endpoint re-derives the caller's real roles server-side, so
- * a tampered store can hide buttons but can never grant access.
+ * Filtering alone does not work, and quietly produced the wrong answer for
+ * every level: an admin holds a single `admin` row and no `contributor` or
+ * `reviewer` rows, so `roles.filter(kept.has)` returned [] and EVERY preview
+ * collapsed to Learner. "View as contributor" showed the learner's app.
+ *
+ * So the previewed roles are synthesized over the scope the admin's authority
+ * already covers (per-language for a scoped admin, global for a global one).
+ *
+ * SECURITY: still cannot widen access. The synthesis branch is reachable only
+ * when the caller is REALLY an admin — someone who already outranks every
+ * level in VIEW_AS_LEVELS — so the result is always weaker than what they
+ * hold. A non-admin gets the plain filter, which can only remove. And every
+ * privileged endpoint re-derives the caller's real roles server-side, so a
+ * tampered store can hide buttons but can never grant access.
  */
 export function downgradeRoles(
   roles: ContributorRole[],
@@ -43,7 +53,24 @@ export function downgradeRoles(
 ): ContributorRole[] {
   if (!viewAs) return roles
   const kept = KEPT_ROLES[viewAs]
-  return roles.filter((r) => kept.has(r.role))
+  const real = roles.filter((r) => kept.has(r.role))
+
+  const adminScopes = roles
+    .filter((r) => r.role === 'admin')
+    .map((r) => r.language_id)
+  if (adminScopes.length === 0) return real
+
+  const seen = new Set(real.map((r) => `${r.language_id}:${r.role}`))
+  const out = [...real]
+  for (const language_id of adminScopes) {
+    for (const role of kept) {
+      const key = `${language_id}:${role}`
+      if (seen.has(key)) continue
+      seen.add(key)
+      out.push({ language_id, role })
+    }
+  }
+  return out
 }
 
 /** The capability flags the contributor workspace hands the UI. Same rule:

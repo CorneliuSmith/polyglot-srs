@@ -129,6 +129,29 @@ body {
   padding-right: env(safe-area-inset-right);
 }
 
+/* Dense scripts (Devanagari, Cyrillic, Arabic, Hebrew, Farsi) ship 13–14 keys
+   per row. react-simple-keyboard gives each key `width:20px; flex-grow:1` but
+   leaves `min-width:auto`, so a wide glyph sets a floor the row cannot shrink
+   past — and the theme's own `overflow:hidden` CLIPS the excess rather than
+   scrolling it. On a phone the last two or three keys simply vanished, with
+   nothing to indicate they existed (owner report, Hindi at 390px).
+   Measured: the Hindi top row overflowed by 21px at 390px and 91px at 320px;
+   both are 0 with these rules, and every key stays legible. */
+.simple-keyboard.hg-theme-default .hg-button {
+  min-width: 0;
+}
+@media (max-width: 480px) {
+  .simple-keyboard.hg-theme-default { padding: 3px; }
+  .simple-keyboard.hg-theme-default .hg-row:not(:last-child) { margin-bottom: 3px; }
+  .simple-keyboard.hg-theme-default .hg-row .hg-button:not(:last-child),
+  .simple-keyboard.hg-theme-default .hg-row .hg-button-container { margin-right: 2px; }
+  .simple-keyboard.hg-theme-default .hg-button {
+    padding: 2px;
+    font-size: 0.9rem;
+    height: 38px;
+  }
+}
+
 /* Dark mode: react-simple-keyboard ships light keys and inherits the page
    text color — on dark that was near-white letters on white keys, i.e.
    invisible (beta report). Restyle the keys to the dark card surface. */
