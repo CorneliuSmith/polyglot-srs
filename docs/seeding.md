@@ -13,7 +13,7 @@ page: the migration ran but the seeders did not.
 
 ```
 1. supabase db push                      creates the LANGUAGE ROW itself
-2. seeder.run          --language <code> vocabulary_items  (frequency list)
+2. seeder.run          --language <code> vocabulary        (frequency list)
 3. seeder.seed_grammar --language <code> grammar_points + drill_sentences
                                           + one content_list per CEFR level
 ```
@@ -118,7 +118,7 @@ The Gym needs no seeding at all — its manifests are read from
 ```sql
 -- one row per language, with what it actually has
 SELECT l.code,
-       (SELECT count(*) FROM vocabulary_items v WHERE v.language_id = l.id) AS words,
+       (SELECT count(*) FROM vocabulary       v WHERE v.language_id = l.id) AS words,
        (SELECT count(*) FROM grammar_points  g WHERE g.language_id = l.id) AS points,
        (SELECT count(DISTINCT g.level) FROM grammar_points g WHERE g.language_id = l.id) AS levels
 FROM languages l ORDER BY l.code;
