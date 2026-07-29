@@ -113,7 +113,9 @@ class TestContributeEndpoints:
              patch("backend.routers.contribute.get_language_policy",
                    new=AsyncMock(return_value="strict")), \
              patch("backend.routers.contribute.get_language_tutor_model",
-                   new=AsyncMock(return_value=None)):
+                   new=AsyncMock(return_value=None)), \
+             patch("backend.routers.contribute.count_unchecked_points",
+                   new=AsyncMock(return_value=0)):
             resp = client.get(
                 "/api/contribute/grammar", params={"language_id": LANG},
                 headers=_auth_headers(),
@@ -483,7 +485,9 @@ class TestReviewPolicy:
              patch("backend.routers.contribute.get_language_policy",
                    new=AsyncMock(return_value="ai_ok")), \
              patch("backend.routers.contribute.get_language_tutor_model",
-                   new=AsyncMock(return_value="claude-sonnet-5")):
+                   new=AsyncMock(return_value="claude-sonnet-5")), \
+             patch("backend.routers.contribute.count_unchecked_points",
+                   new=AsyncMock(return_value=0)):
             resp = client.get(
                 "/api/contribute/grammar", params={"language_id": LANG},
                 headers=_auth_headers(),
@@ -2258,3 +2262,89 @@ class TestPlanLimits:
                 headers=_auth_headers(),
             )
         assert resp.status_code == 503
+
+
+# ── bulk AI check: the "Check all N now" button behind the policy panel ────
+# Owner-reported: they switched a language to 'ai_ok' and nothing appeared,
+# because Open only shows points with a stored 'pass' verdict and a freshly
+# seeded language has none. This endpoint produces those verdicts in batches.
+
+class TestAiCheckRun:
+    def test_requires_admin(self, client):
+        with _roles([{"language_id": LANG_ID, "role": "reviewer"}]):
+            resp = client.post(
+                "/api/contribute/admin/ai-check-run",
+                json={"language_id": LANG_ID},
+                headers=_auth_headers(),
+            )
+        assert resp.status_code == 403
+
+    def test_reports_503_when_ai_is_not_configured(self, client):
+        with _roles([{"language_id": None, "role": "admin"}]), \
+             patch("backend.routers.contribute.ai_available", return_value=False):
+            resp = client.post(
+                "/api/contribute/admin/ai-check-run",
+                json={"language_id": LANG_ID},
+                headers=_auth_headers(),
+            )
+        assert resp.status_code == 503
+
+    def test_checks_a_batch_and_reports_what_remains(self, client):
+        conn = AsyncMock()
+        verdicts = iter([
+            {"status": "pass", "notes": ""},
+            {"status": "concerns", "notes": "check the gloss"},
+        ])
+        with _roles([{"language_id": None, "role": "admin"}]), \
+             _priv_yielding(conn), \
+             patch("backend.routers.contribute.ai_available", return_value=True), \
+             patch("backend.routers.contribute.list_unchecked_point_ids",
+                   new=AsyncMock(return_value=["p1", "p2"])), \
+             patch("backend.routers.contribute.get_point_for_check",
+                   new=AsyncMock(return_value={
+                       "language_code": "he", "title": "T",
+                       "explanation": "E", "drills": [],
+                   })), \
+             patch("backend.routers.contribute.semantic_check_point",
+                   new=AsyncMock(side_effect=lambda *a: next(verdicts))), \
+             patch("backend.routers.contribute.save_ai_check",
+                   new=AsyncMock()) as save, \
+             patch("backend.routers.contribute.count_unchecked_points",
+                   new=AsyncMock(return_value=39)):
+            resp = client.post(
+                "/api/contribute/admin/ai-check-run",
+                json={"language_id": LANG_ID},
+                headers=_auth_headers(),
+            )
+        assert resp.status_code == 200
+        body = resp.json()
+        assert body == {"checked": 2, "passed": 1, "concerns": 1, "remaining": 39}
+        # Both verdicts were persisted — that's what flips visibility.
+        assert save.await_count == 2
+        assert save.await_args_list[0].args[1:] == ("p1", "pass", "")
+
+    def test_nothing_left_is_a_clean_zero(self, client):
+        conn = AsyncMock()
+        with _roles([{"language_id": None, "role": "admin"}]), \
+             _priv_yielding(conn), \
+             patch("backend.routers.contribute.ai_available", return_value=True), \
+             patch("backend.routers.contribute.list_unchecked_point_ids",
+                   new=AsyncMock(return_value=[])), \
+             patch("backend.routers.contribute.count_unchecked_points",
+                   new=AsyncMock(return_value=0)):
+            resp = client.post(
+                "/api/contribute/admin/ai-check-run",
+                json={"language_id": LANG_ID},
+                headers=_auth_headers(),
+            )
+        assert resp.json() == {"checked": 0, "passed": 0, "concerns": 0,
+                               "remaining": 0}
+
+    def test_batch_size_is_capped(self, client):
+        with _roles([{"language_id": None, "role": "admin"}]):
+            resp = client.post(
+                "/api/contribute/admin/ai-check-run",
+                json={"language_id": LANG_ID, "limit": 100},
+                headers=_auth_headers(),
+            )
+        assert resp.status_code == 422

@@ -3,10 +3,17 @@ import { useNavigate, useSearchParams } from 'react-router-dom'
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query'
 import { getLanguages } from '../../api/profile'
 import {
+  PUBLISH_POLICIES,
+  POLICY_LABELS,
+  POLICY_HELP,
+  normalizePolicy,
+} from '../../lib/publishPolicy'
+import {
   approveGrammar,
   createGrammarPoint,
   getGrammarForLanguage,
   runAiCheck,
+  runAiCheckBatch,
   saveGrammarExplanation,
   setLanguagePolicy,
 } from '../../api/contribute'
@@ -458,44 +465,138 @@ export function ReviewPolicyControl({
   languageId,
   languageName,
   policy,
+  uncheckedPoints = 0,
   onChanged,
 }: {
   languageId: string
   languageName?: string
   policy: string
+  /** Points invisible under 'ai_ok' because no check verdict exists yet. */
+  uncheckedPoints?: number
   onChanged: () => void
 }) {
   const mutation = useMutation({
     mutationFn: (next: 'strict' | 'ai_ok') => setLanguagePolicy(languageId, next),
     onSuccess: onChanged,
   })
+
+  // The bulk check: loop batch requests until nothing is left, narrating
+  // progress. Owner-reported gap: they switched the policy to Open, nothing
+  // appeared, and the panel neither said why nor offered the fix — the
+  // check verdict is the other half of the visibility gate, and the only
+  // way to produce one was a per-point button, forty times.
+  const [checkProgress, setCheckProgress] = useState<string | null>(null)
+  const [checkError, setCheckError] = useState(false)
+  const bulkCheck = useMutation({
+    mutationFn: async () => {
+      setCheckError(false)
+      let done = 0
+      let concerns = 0
+      for (;;) {
+        const result = await runAiCheckBatch(languageId)
+        done += result.checked
+        concerns += result.concerns
+        if (result.remaining <= 0 || result.checked === 0) break
+        setCheckProgress(`Checked ${done} — ${result.remaining} to go…`)
+      }
+      return { done, concerns }
+    },
+    onSuccess: ({ concerns }) => {
+      setCheckProgress(
+        concerns > 0
+          ? `Done — ${concerns} point${concerns === 1 ? '' : 's'} flagged with concerns for review; the rest are now visible to learners.`
+          : 'Done — all points passed and are now visible to learners.',
+      )
+      onChanged()
+    },
+    onError: () => {
+      // Batches already checked stayed checked — a retry resumes.
+      setCheckError(true)
+      setCheckProgress(null)
+    },
+  })
+
   return (
     <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-4 text-sm">
       <div className="font-semibold text-gray-700 mb-1">
         AI content policy{languageName ? ` — ${languageName}` : ''} (admin)
       </div>
       <p className="text-xs text-gray-500 mb-2">
-        {policy === 'strict'
-          ? 'Strict: learners only see content a human has approved. AI-generated grammar, drills, and example sentences stay hidden until a reviewer signs off.'
-          : 'Open: learners also see verified AI content — grammar, drills, and example sentences — without waiting for a human to approve each one. Good for preview testing; switch back to Strict to hide unreviewed AI content again.'}
+        Where the line sits between what your reviewers can see and what your
+        learners can. Staff always see everything for this language — this
+        setting only decides what gets published past them.
       </p>
-      <div className="flex gap-2">
-        {(['strict', 'ai_ok'] as const).map((p) => (
-          <button
-            key={p}
-            type="button"
-            onClick={() => mutation.mutate(p)}
-            disabled={mutation.isPending || policy === p}
-            className={
-              policy === p
-                ? 'rounded-lg px-3 py-1.5 text-xs bg-lang text-white'
-                : 'rounded-lg px-3 py-1.5 text-xs border border-gray-300 text-gray-600 hover:bg-gray-50'
-            }
-          >
-            {p === 'strict' ? 'Strict' : 'Open (review later)'}
-          </button>
-        ))}
+      <div className="space-y-1.5">
+        {PUBLISH_POLICIES.map((p) => {
+          const active = normalizePolicy(policy) === p
+          return (
+            <button
+              key={p}
+              type="button"
+              onClick={() => mutation.mutate(p)}
+              disabled={mutation.isPending || active}
+              className={
+                'w-full rounded-lg border px-3 py-2 text-left ' +
+                (active
+                  ? 'border-lang bg-lang-soft'
+                  : 'border-gray-200 hover:bg-gray-50')
+              }
+            >
+              <span
+                className={
+                  'block text-xs font-semibold ' +
+                  (active ? 'text-lang-dark' : 'text-gray-700')
+                }
+              >
+                {POLICY_LABELS[p]}
+                {active && ' — current'}
+              </span>
+              <span className="block text-[11px] text-gray-500">
+                {POLICY_HELP[p]}
+              </span>
+            </button>
+          )
+        })}
       </div>
+
+      {policy === 'ai_ok' && uncheckedPoints > 0 && (
+        <div
+          className="mt-3 rounded-xl border border-amber-200 bg-amber-50 p-3 space-y-2"
+          data-testid="unchecked-warning"
+        >
+          <p className="text-xs text-amber-900">
+            <span className="font-semibold">
+              {uncheckedPoints} grammar point{uncheckedPoints === 1 ? '' : 's'}
+              {' '}are still hidden.
+            </span>{' '}
+            Open shows AI content that has <em>passed the automated check</em>,
+            and these haven’t been checked yet — the policy is only half the
+            gate. Run the check and they appear as each one passes.
+          </p>
+          <button
+            type="button"
+            onClick={() => {
+              setCheckProgress('Starting…')
+              bulkCheck.mutate()
+            }}
+            disabled={bulkCheck.isPending}
+            className="rounded-lg bg-amber-600 px-3 py-1.5 text-xs font-semibold text-white hover:bg-amber-700 disabled:opacity-50"
+          >
+            {bulkCheck.isPending ? 'Checking…' : `Check all ${uncheckedPoints} now`}
+          </button>
+        </div>
+      )}
+      {checkProgress && (
+        <p className="mt-2 text-xs text-gray-600" data-testid="check-progress">
+          {checkProgress}
+        </p>
+      )}
+      {checkError && (
+        <p className="mt-2 text-xs text-red-600">
+          The check stopped partway — everything already checked is saved, so
+          running it again picks up where it left off.
+        </p>
+      )}
     </div>
   )
 }
@@ -662,6 +763,7 @@ export default function ContributorPage() {
                   languageId={activeLanguageId}
                   languageName={language?.name}
                   policy={data.review_policy}
+                  uncheckedPoints={data.unchecked_points ?? 0}
                   onChanged={refresh}
                 />
                 <TutorModelControl

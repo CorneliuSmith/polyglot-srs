@@ -433,6 +433,7 @@ export default function SettingsPage() {
               languageId={activeLanguageId}
               languageName={activeLanguage?.name}
               policy={workspace?.review_policy ?? 'strict'}
+              uncheckedPoints={workspace?.unchecked_points ?? 0}
               onChanged={workspaceRefresh}
             />
             <TutorModelControl

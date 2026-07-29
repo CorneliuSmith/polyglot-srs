@@ -61,6 +61,9 @@ export async function getGrammarForLanguage(
   can_trial_review?: boolean
   can_contribute: boolean
   review_policy: string
+  /** Unreviewed points with no AI-check verdict — invisible to learners
+   *  even under 'ai_ok', because the policy is only half the gate. */
+  unchecked_points?: number
   tutor_model?: string | null
   default_tutor_model?: string
 }> {
@@ -1306,4 +1309,15 @@ export async function setPlanLimit(
     monthly_messages: monthlyMessages,
   })
   return response.data.limits
+}
+
+/** One batch of the bulk AI check (admin). Call repeatedly until
+ *  `remaining` is 0 — each call takes the next still-unchecked points. */
+export async function runAiCheckBatch(
+  languageId: string,
+): Promise<{ checked: number; passed: number; concerns: number; remaining: number }> {
+  const response = await apiClient.post('/api/contribute/admin/ai-check-run', {
+    language_id: languageId,
+  })
+  return response.data
 }

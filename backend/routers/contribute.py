@@ -46,6 +46,7 @@ from backend.repositories.contributor import (
     can_review,
     can_trial_review,
     confirm_vocab_level,
+    count_unchecked_points,
     create_auth_user,
     create_grammar_point,
     delete_account,
@@ -83,6 +84,7 @@ from backend.repositories.contributor import (
     list_review_notes,
     list_suggestions,
     list_translation_reviews,
+    list_unchecked_point_ids,
     list_vocab_examples,
     list_vocab_items,
     pick_review_prompt,
@@ -144,6 +146,7 @@ from backend.services.semantic_check import (
     semantic_check_vocab,
 )
 from backend.services.tutor_costs import estimate_cost_usd
+from backend.services.visibility import PUBLISH_POLICIES
 
 logger = logging.getLogger(__name__)
 router = APIRouter()
@@ -236,8 +239,12 @@ async def grammar_for_language(
         points = await list_grammar_points(conn, language_id)
         policy = await get_language_policy(conn, language_id)
         tutor_model = await get_language_tutor_model(conn, language_id)
+        unchecked = await count_unchecked_points(conn, language_id)
     return {
         "points": points,
+        # Unreviewed AND never AI-checked: invisible to learners even under
+        # 'ai_ok' — the policy is one half of the gate, this is the other.
+        "unchecked_points": unchecked,
         "is_admin": is_admin(roles),
         "can_review": can_review(roles, language_id),
         # Trial reviewers can open the queue and recommend, but not publish.
@@ -296,10 +303,12 @@ async def update_language_policy(
     user: dict = Depends(get_current_user),
 ):
     """Set a language's grammar review policy (admin-only)."""
-    if body.policy not in ("strict", "ai_ok"):
+    # 'strict' still accepted: it is the stored legacy spelling of
+    # human_only and existing clients may send it.
+    if body.policy not in (*PUBLISH_POLICIES, "strict"):
         raise HTTPException(
             status_code=status.HTTP_422_UNPROCESSABLE_ENTITY,
-            detail="policy must be 'strict' or 'ai_ok'",
+            detail=f"policy must be one of {', '.join(PUBLISH_POLICIES)}",
         )
     async with rls_connection(user["id"]) as conn:
         roles = await get_roles(conn, user["id"])
@@ -602,6 +611,55 @@ async def generation_run(
             max_items=body.max_items,
         )
     return {"dry_run": False, **result}
+
+
+class AiCheckAllRequest(BaseModel):
+    language_id: str
+    # Batch size per request. The frontend loops until remaining hits zero,
+    # so a 41-point language is several ~20s requests rather than one that
+    # outlives the proxy timeout.
+    limit: int = Field(default=8, ge=1, le=10)
+
+
+@router.post("/admin/ai-check-run")
+async def ai_check_run(
+    body: AiCheckAllRequest,
+    user: dict = Depends(get_current_user),
+):
+    """Run the AI semantic check over the next batch of unchecked points
+    (admin-only). The same check as the per-point button — this exists
+    because a freshly seeded 'ai_ok' language has 40+ unchecked points, all
+    invisible to learners, and clicking through them one by one is not a
+    real workflow. Resumable by construction: each call takes the next
+    still-unchecked batch, so the frontend just calls until remaining == 0.
+    """
+    await _require_admin(user["id"])
+    if not ai_available():
+        raise HTTPException(
+            status_code=status.HTTP_503_SERVICE_UNAVAILABLE,
+            detail="AI review needs ANTHROPIC_API_KEY (or dev-mock) on the server.",
+        )
+    async with privileged_connection() as conn:
+        ids = await list_unchecked_point_ids(conn, body.language_id, body.limit)
+        passed = concerns = 0
+        for point_id in ids:
+            point = await get_point_for_check(conn, point_id)
+            if point is None:
+                continue
+            result = await semantic_check_point(
+                point["language_code"], point["title"],
+                point["explanation"], point["drills"],
+            )
+            await save_ai_check(conn, point_id, result["status"], result["notes"])
+            if result["status"] == "pass":
+                passed += 1
+            else:
+                concerns += 1
+        remaining = await count_unchecked_points(conn, body.language_id)
+    return {
+        "checked": len(ids), "passed": passed,
+        "concerns": concerns, "remaining": remaining,
+    }
 
 
 @router.post("/admin/generation/recheck")

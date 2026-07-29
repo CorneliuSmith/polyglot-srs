@@ -65,7 +65,7 @@ async def gym_manifest(
                    (SELECT count(*) FROM drill_sentences ds
                      WHERE ds.grammar_point_id = gp.id
                        AND (ds.reviewed OR ds.created_by = $3
-                            OR l.grammar_review_policy = 'ai_ok')) AS drills,
+                            OR l.grammar_review_policy IN ('ai_ok', 'all'))) AS drills,
                    -- How many of THOSE this learner has already practised —
                    -- the picker shows set completion, not lifetime attempts.
                    (SELECT count(*) FROM drill_sentences ds
@@ -74,7 +74,7 @@ async def gym_manifest(
                      WHERE ds.grammar_point_id = gp.id
                        AND gpx.seen > 0
                        AND (ds.reviewed OR ds.created_by = $3
-                            OR l.grammar_review_policy = 'ai_ok')) AS done,
+                            OR l.grammar_review_policy IN ('ai_ok', 'all'))) AS done,
                    EXISTS (SELECT 1 FROM user_cards uc
                             WHERE uc.user_id = $3
                               AND uc.card_type = 'grammar'
@@ -83,9 +83,11 @@ async def gym_manifest(
             JOIN languages l ON l.id = gp.language_id
             WHERE gp.language_id = $1
               AND gp.title = ANY($2::text[])
-              AND (gp.reviewed = true
-                   OR (l.grammar_review_policy = 'ai_ok'
-                       AND gp.ai_check_status = 'pass'))
+              AND (CASE l.grammar_review_policy
+                    WHEN 'all'  THEN true
+                    WHEN 'both' THEN (gp.reviewed AND gp.ai_check_status = 'pass')
+                    WHEN 'ai_ok' THEN (gp.reviewed OR gp.ai_check_status = 'pass')
+                    ELSE gp.reviewed END)
             """,
             language_id, titles, user["id"],
         )
