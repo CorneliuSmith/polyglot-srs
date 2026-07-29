@@ -146,14 +146,12 @@ export default function Annotatable({
           type="button"
           aria-label="Flag this text for review"
           onClick={() => {
-            // No selection: the whole region is what's being flagged.
-            const whole = ref.current?.textContent?.trim() ?? ''
-            setSpan({
-              quote: whole.slice(0, 2000),
-              start: 0,
-              end: whole.length,
-              sourceText: whole.slice(0, 2000),
-            })
+            // No selection: the learner is flagging the whole item, not a
+            // span. Quoting the entire region back was actively unhelpful —
+            // textContent has no separators, so a card came out as
+            // "…subject–object–verbHow it worksHindi sentences…". The
+            // target's own label is what the board should show instead.
+            setSpan({ quote: '', start: 0, end: 0, sourceText: '' })
             setAnchor(null)
           }}
           className="absolute -top-2 -right-2 rounded-full bg-amber-500 p-1 text-white shadow hover:bg-amber-600"
@@ -225,12 +223,15 @@ function FlagPopover({
         field,
         issue: issueText(reason, note) || 'Flagged in review mode',
         suggestion: fix.trim() || null,
-        quote: span.quote,
+        // Empty quote = the whole item was flagged, not a span. The board
+        // falls back to target_label, which is already a clean one-liner.
+        quote: span.quote || null,
         quote_context: {
           source,
-          start: span.start,
-          end: span.end,
-          source_text: span.sourceText,
+          whole: !span.quote,
+          ...(span.quote
+            ? { start: span.start, end: span.end, source_text: span.sourceText }
+            : {}),
         },
       }),
     onSuccess: onDone,
@@ -249,7 +250,11 @@ function FlagPopover({
       }
     >
       <p className="mb-2 line-clamp-2 rounded bg-amber-50 px-2 py-1 text-xs text-gray-700">
-        &ldquo;{span.quote}&rdquo;
+        {span.quote
+          ? `“${span.quote}”`
+          : targetLabel
+            ? `This whole item — “${targetLabel}”`
+            : 'This whole item'}
       </p>
       <div className="flex flex-wrap gap-1.5">
         {FLAG_REASONS.map((r) => (

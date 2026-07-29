@@ -91,10 +91,21 @@ const arabicWithHarakat = {
   ],
 }
 
-// The stock Hebrew/Farsi layouts end with a ".com @" row — web junk in a
-// language drill (the Arabic layout gets the same treatment above). Drop it
-// and keep a plain space bar.
-const withoutWebRow = (rows: string[]) => [...rows.slice(0, -1), '{space}']
+// Most stock layouts end with a ".com @" row — web junk in a language drill,
+// and on a phone it costs a whole row of vertical space in a study session.
+// Conditional on the row actually BEING a web row: applied blindly this would
+// eat a real bottom row from any layout that doesn't ship one.
+const withoutWebRow = (rows: string[]) => {
+  const last = rows[rows.length - 1] ?? ''
+  if (!last.includes('.com') && !last.includes('@')) return rows
+  return [...rows.slice(0, -1), '{space}']
+}
+
+/** Apply withoutWebRow to every layer a layout defines. */
+const cleanLayout = (layout: Record<string, string[]>) =>
+  Object.fromEntries(
+    Object.entries(layout).map(([name, rows]) => [name, withoutWebRow(rows)]),
+  ) as Record<string, string[]>
 
 const hebrewNoWebRow = {
   default: withoutWebRow(hebrewLayout.layout.default),
@@ -114,9 +125,9 @@ const farsiWithZwnj = {
 }
 
 const LAYOUTS: Record<string, { default: string[] } | { [k: string]: string[] }> = {
-  ru: russianLayout.layout,
+  ru: cleanLayout(russianLayout.layout),
   ar: arabicWithHarakat,
-  tr: turkishLayout.layout,
+  tr: cleanLayout(turkishLayout.layout),
   yo: yorubaLayout,
   ha: hausaLayout,
   es: withAccents('á é í ó ú ñ ü ¿ ¡'),
@@ -131,14 +142,14 @@ const LAYOUTS: Record<string, { default: string[] } | { [k: string]: string[] }>
   la: withAccents('ā ē ī ō ū ȳ'),
   pt: withAccents('ã õ á é í ó ú â ê ô à ç'),
   ro: withAccents('ă â î ș ț'),
-  el: greekLayout.layout,
-  th: thaiLayout.layout,
-  hi: hindiLayout.layout,
+  el: cleanLayout(greekLayout.layout),
+  th: cleanLayout(thaiLayout.layout),
+  hi: cleanLayout(hindiLayout.layout),
   he: hebrewNoWebRow,
   fa: farsiWithZwnj,
   // Korean keys are conjoining JAMO, not finished syllables — the callers
   // run every insert through composeScript('ko', …) so ᄒ+ᅡ+ᄂ becomes 한.
-  ko: koreanLayout.layout,
+  ko: cleanLayout(koreanLayout.layout),
 }
 
 export default function OnScreenKeyboard({
