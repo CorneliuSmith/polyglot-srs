@@ -5,6 +5,8 @@ import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 vi.mock('../api/onboarding', () => ({
   placementNext: vi.fn(),
   setLearnerLevel: vi.fn(),
+  getWritingAvailability: vi.fn(() => Promise.resolve({ available: true })),
+  assessWritingSample: vi.fn(),
 }))
 vi.mock('../api/health', () => ({
   getSchemaHealth: vi.fn(() => Promise.resolve(null)),
@@ -18,10 +20,17 @@ vi.mock('../stores/prefsStore', () => ({
 }))
 
 import PlacementTest from '../features/onboarding/PlacementTest'
-import { placementNext, setLearnerLevel } from '../api/onboarding'
+import {
+  assessWritingSample,
+  getWritingAvailability,
+  placementNext,
+  setLearnerLevel,
+} from '../api/onboarding'
 
 const mockNext = placementNext as ReturnType<typeof vi.fn>
 const mockSetLevel = setLearnerLevel as ReturnType<typeof vi.fn>
+const mockAssess = assessWritingSample as ReturnType<typeof vi.fn>
+const mockWritingOffer = getWritingAvailability as ReturnType<typeof vi.fn>
 
 const LANGUAGE = {
   id: 'lang-la', code: 'la', name: 'Latin', rtl: false, is_visible: true,
@@ -257,5 +266,66 @@ describe('PlacementTest input method', () => {
     await waitFor(() =>
       expect((screen.getByLabelText('water') as HTMLInputElement).value).toContain('\u0628'),
     )
+  })
+})
+
+describe('PlacementTest written route', () => {
+  beforeEach(() => {
+    vi.clearAllMocks()
+    mockWritingOffer.mockResolvedValue({ available: true })
+    mockSetLevel.mockResolvedValue({ level: 'C1', subscribed: 0, unsubscribed: 0 })
+    mockNext.mockResolvedValue({
+      available: true, done: false, asked: 0, max_items: 12,
+      item: { id: 'i1', kind: 'vocabulary', level: 'A2', prompt: 'water', translation: null },
+    })
+  })
+
+  it('offers writing a paragraph as an alternative to the questions', async () => {
+    renderTest()
+    expect(await screen.findByText(/rather write a paragraph/i)).toBeDefined()
+  })
+
+  it('assesses the paragraph and offers the level it demonstrates', async () => {
+    // A paragraph shows complexity a per-item staircase cannot: the point is
+    // that a real C1 can reach C1 here.
+    mockAssess.mockResolvedValue({
+      level: 'C1',
+      notes: 'You sustain subordination across several clauses.',
+      focus: ['aspect contrast', 'discourse connectives'],
+    })
+    renderTest()
+    fireEvent.click(await screen.findByText(/rather write a paragraph/i))
+    const box = await screen.findByLabelText(/your latin writing/i)
+    fireEvent.change(box, { target: { value: 'Cum in urbem venissem, omnia mutata erant.' } })
+    fireEvent.click(screen.getByRole('button', { name: /assess my writing/i }))
+
+    expect(await screen.findByText(/looks about/i)).toBeDefined()
+    expect(screen.getByText(/subordination/i)).toBeDefined()
+    fireEvent.click(screen.getByRole('button', { name: /set me to C1/i }))
+    await waitFor(() => expect(mockSetLevel).toHaveBeenCalledWith('lang-la', 'C1'))
+  })
+
+  it('counts words, so the learner can see they have written enough', async () => {
+    renderTest()
+    fireEvent.click(await screen.findByText(/rather write a paragraph/i))
+    fireEvent.change(await screen.findByLabelText(/your latin writing/i), {
+      target: { value: 'una duo tria' },
+    })
+    expect(await screen.findByText('3 words')).toBeDefined()
+  })
+
+  it('can go back to the questions', async () => {
+    renderTest()
+    fireEvent.click(await screen.findByText(/rather write a paragraph/i))
+    fireEvent.click(await screen.findByRole('button', { name: /back to the questions/i }))
+    expect(await screen.findByLabelText('water')).toBeDefined()
+  })
+
+  it('stays hidden when the account is not offered the assessment', async () => {
+    // Token guard: the call costs a model request, so it is entitlement-gated.
+    mockWritingOffer.mockResolvedValue({ available: false })
+    renderTest()
+    await screen.findByLabelText('water')
+    expect(screen.queryByText(/rather write a paragraph/i)).toBeNull()
   })
 })

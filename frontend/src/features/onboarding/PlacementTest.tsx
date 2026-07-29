@@ -1,8 +1,13 @@
 import { useEffect, useRef, useState } from 'react'
-import { useMutation, useQueryClient } from '@tanstack/react-query'
-import { placementNext, setLearnerLevel } from '../../api/onboarding'
+import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
+import {
+  assessWritingSample,
+  getWritingAvailability,
+  placementNext,
+  setLearnerLevel,
+} from '../../api/onboarding'
 import { getSchemaHealth, pendingMigrationNote } from '../../api/health'
-import type { PlacementItem } from '../../api/onboarding'
+import type { PlacementItem, WritingAssessment } from '../../api/onboarding'
 import LanguageWrapper from '../../components/LanguageWrapper'
 import { usePrefsStore } from '../../stores/prefsStore'
 import { convertTranslit, finalizeInput, isTranslitEnabled } from '../keyboards/translit'
@@ -69,6 +74,25 @@ export default function PlacementTest({
   // first-time learner has no reason to know the button exists.
   const [showKeyboard, setShowKeyboard] = useState(true)
   const inputRef = useRef<HTMLInputElement>(null)
+
+  // The written route. The typed staircase measures recall item by item; a
+  // paragraph measures what the learner can actually BUILD — subordination,
+  // tense contrast, register — which is the only way a genuine C1 shows up.
+  // Offered here rather than only in signup, so it reaches every language a
+  // learner adds and every retake.
+  const [writing, setWriting] = useState(false)
+  const [sample, setSample] = useState('')
+  const [assessment, setAssessment] = useState<WritingAssessment | null>(null)
+  const { data: writingOffer } = useQuery({
+    queryKey: ['writing-availability', language.id],
+    queryFn: () => getWritingAvailability(language.id),
+    retry: false,
+  })
+  const assess = useMutation({
+    mutationFn: () =>
+      assessWritingSample(language.id, language.code, sample.trim()),
+    onSuccess: setAssessment,
+  })
 
   const next = useMutation({
     mutationFn: (h: { id: string; input: string }[]) =>
@@ -192,6 +216,89 @@ export default function PlacementTest({
               </p>
             )}
           </div>
+        ) : writing ? (
+          <div className="space-y-3" data-testid="placement-writing">
+            <p className="text-sm font-semibold text-gray-800">
+              Write a paragraph in {language.name}
+            </p>
+            <p className="text-xs text-gray-500">
+              Anything at all — what you did today, what you think about
+              something. Write as much as you comfortably can: the more you
+              build, the more accurately we can place you. Mistakes are fine
+              and are not counted against you.
+            </p>
+            <LanguageWrapper languageCode={language.code}>
+              <textarea
+                value={sample}
+                onChange={(e) => setSample(e.target.value)}
+                maxLength={1500}
+                rows={7}
+                aria-label={`Your ${language.name} writing`}
+                className="w-full rounded-lg border border-gray-300 px-3 py-2 text-base"
+              />
+            </LanguageWrapper>
+            <p className="text-right text-[11px] text-gray-400">
+              {sample.trim().split(/\s+/).filter(Boolean).length} words
+            </p>
+            {assessment ? (
+              <div className="rounded-lg bg-lang-soft p-3 space-y-2">
+                <p className="text-sm text-gray-800">
+                  Your writing looks about <b>{assessment.level}</b>.
+                </p>
+                {assessment.notes && (
+                  <p className="text-xs text-gray-600">{assessment.notes}</p>
+                )}
+                {assessment.focus.length > 0 && (
+                  <p className="text-xs text-gray-600">
+                    Worth working on next: {assessment.focus.join('; ')}.
+                  </p>
+                )}
+                <div className="flex gap-2 pt-1">
+                  <button
+                    type="button"
+                    onClick={() => apply.mutate(assessment.level)}
+                    disabled={apply.isPending}
+                    className="flex-1 rounded-xl bg-lang px-4 py-2.5 text-sm font-semibold text-lang-on hover:bg-lang-dark disabled:opacity-50"
+                    style={{ minHeight: '44px' }}
+                  >
+                    {apply.isPending
+                      ? 'Setting up…'
+                      : `Set me to ${assessment.level}`}
+                  </button>
+                  <button
+                    type="button"
+                    onClick={onClose}
+                    className="rounded-xl border border-gray-300 px-4 py-2.5 text-sm text-gray-600 hover:bg-gray-50"
+                    style={{ minHeight: '44px' }}
+                  >
+                    Keep my level
+                  </button>
+                </div>
+              </div>
+            ) : (
+              <button
+                type="button"
+                onClick={() => assess.mutate()}
+                disabled={!sample.trim() || assess.isPending}
+                className="w-full rounded-xl bg-lang px-4 py-2.5 text-sm font-semibold text-lang-on hover:bg-lang-dark disabled:opacity-40"
+                style={{ minHeight: '44px' }}
+              >
+                {assess.isPending ? 'Reading it…' : 'Assess my writing'}
+              </button>
+            )}
+            {assess.isError && (
+              <p className="text-xs text-red-500">
+                Couldn&apos;t assess that — try the questions instead.
+              </p>
+            )}
+            <button
+              type="button"
+              onClick={() => setWriting(false)}
+              className="block w-full text-center text-xs text-gray-400 hover:text-lang"
+            >
+              Back to the questions
+            </button>
+          </div>
         ) : item ? (
           <div className="space-y-4">
             <div className="flex items-center justify-between gap-2">
@@ -283,6 +390,15 @@ export default function PlacementTest({
                 I don&apos;t know
               </button>
             </div>
+            {writingOffer?.available && (
+              <button
+                type="button"
+                onClick={() => setWriting(true)}
+                className="block w-full text-center text-xs text-lang hover:underline"
+              >
+                Rather write a paragraph? It places you more accurately.
+              </button>
+            )}
             <button
               type="button"
               onClick={onClose}
