@@ -121,3 +121,40 @@ describe('PlacementTest', () => {
     expect(await screen.findByText(/not enough latin content/i)).toBeDefined()
   })
 })
+
+describe('PlacementTest escape hatches', () => {
+  beforeEach(() => {
+    vi.clearAllMocks()
+    mockSetLevel.mockResolvedValue({ level: 'B1', subscribed: 0, unsubscribed: 0 })
+  })
+
+  it('a failed start is closable — a modal with no way out is a trap', async () => {
+    // Owner report: "the popup does not disappear". The error state rendered
+    // a bare message with no button, behind a full-screen overlay.
+    mockNext.mockRejectedValue(new Error('500'))
+    const onClose = vi.fn()
+    renderTest(onClose)
+    expect(await screen.findByText(/couldn.t start the test/i)).toBeDefined()
+
+    fireEvent.click(screen.getByRole('button', { name: /close/i }))
+    expect(onClose).toHaveBeenCalled()
+  })
+
+  it('a failed start offers a retry without reopening the dialog', async () => {
+    mockNext.mockRejectedValue(new Error('500'))
+    renderTest()
+    await screen.findByText(/couldn.t start the test/i)
+    mockNext.mockClear()
+    fireEvent.click(screen.getByRole('button', { name: /try again/i }))
+    await waitFor(() => expect(mockNext).toHaveBeenCalledWith('lang-la', []))
+  })
+
+  it('is cancellable while still loading', async () => {
+    // A hung request must not trap the learner either.
+    mockNext.mockImplementation(() => new Promise(() => {}))
+    const onClose = vi.fn()
+    renderTest(onClose)
+    fireEvent.click(await screen.findByRole('button', { name: /cancel/i }))
+    expect(onClose).toHaveBeenCalled()
+  })
+})

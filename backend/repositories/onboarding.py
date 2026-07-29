@@ -20,6 +20,13 @@ CEFR_ORDER: tuple[str, ...] = ("A1", "A2", "B1", "B2", "C1", "C2")
 # Shown in a grammar cloze where the answer goes.
 _BLANK = "____"
 
+# What placement_history returns when the learner has never sat the test —
+# and, deliberately, when the table itself is not there yet.
+_NEVER_PLACED: dict = {
+    "attempts": 0, "has_placed": False,
+    "last_level": None, "last_taken_at": None, "history": [],
+}
+
 
 def levels_at_or_below(level: str) -> list[str]:
     """Return the CEFR levels up to and including *level* (A1..level)."""
@@ -152,23 +159,31 @@ async def placement_history(
     were A2 in March"), and which item variant to sample so a retake isn't
     the same questions over again.
     """
-    rows = await conn.fetch(
-        """
-        SELECT estimated_level, items_asked, created_at
-        FROM placement_attempts
-        WHERE user_id = $1 AND language_id = $2
-        ORDER BY created_at DESC
-        LIMIT 10
-        """,
-        user_id, language_id,
-    )
-    total = await conn.fetchval(
-        """
-        SELECT count(*) FROM placement_attempts
-        WHERE user_id = $1 AND language_id = $2
-        """,
-        user_id, language_id,
-    ) or 0
+    try:
+        rows = await conn.fetch(
+            """
+            SELECT estimated_level, items_asked, created_at
+            FROM placement_attempts
+            WHERE user_id = $1 AND language_id = $2
+            ORDER BY created_at DESC
+            LIMIT 10
+            """,
+            user_id, language_id,
+        )
+        total = await conn.fetchval(
+            """
+            SELECT count(*) FROM placement_attempts
+            WHERE user_id = $1 AND language_id = $2
+            """,
+            user_id, language_id,
+        ) or 0
+    except asyncpg.exceptions.UndefinedTableError:
+        # Migration 20260902 not applied yet. Every placement endpoint reads
+        # this first, so a 500 here takes the whole feature down — the test
+        # will not even start. Degrade to "never placed", which is the
+        # truthful answer on a database that has never recorded an attempt.
+        # /api/health/schema names the pending migration.
+        return _NEVER_PLACED.copy()
     return {
         "attempts": total,
         "has_placed": total > 0,
@@ -270,27 +285,33 @@ async def get_placement_insight(
     what someone can't do yet — the SRS only ever observes what they've been
     shown.
     """
-    row = await conn.fetchrow(
-        """
-        SELECT id, estimated_level, items_asked, per_level, created_at
-        FROM placement_attempts
-        WHERE user_id = $1 AND language_id = $2
-        ORDER BY created_at DESC
-        LIMIT 1
-        """,
-        user_id, language_id,
-    )
-    if row is None:
+    try:
+        row = await conn.fetchrow(
+            """
+            SELECT id, estimated_level, items_asked, per_level, created_at
+            FROM placement_attempts
+            WHERE user_id = $1 AND language_id = $2
+            ORDER BY created_at DESC
+            LIMIT 1
+            """,
+            user_id, language_id,
+        )
+        if row is None:
+            return None
+        previous = await conn.fetchval(
+            """
+            SELECT estimated_level FROM placement_attempts
+            WHERE user_id = $1 AND language_id = $2
+            ORDER BY created_at DESC
+            OFFSET 1 LIMIT 1
+            """,
+            user_id, language_id,
+        )
+    except asyncpg.exceptions.UndefinedTableError:
+        # Migration 20260902/20260904 not applied. The AI surfaces treat a
+        # missing insight as "never placed" already, so degrade rather than
+        # 500 the Tutor and Reader along with it.
         return None
-    previous = await conn.fetchval(
-        """
-        SELECT estimated_level FROM placement_attempts
-        WHERE user_id = $1 AND language_id = $2
-        ORDER BY created_at DESC
-        OFFSET 1 LIMIT 1
-        """,
-        user_id, language_id,
-    )
 
     per_level = row["per_level"] or {}
     if isinstance(per_level, str):  # asyncpg returns jsonb as text unless cast
@@ -365,19 +386,25 @@ async def get_placement_form_misses(
     # Reads the snapshotted cell, so a drill retired since the sitting still
     # tells the generator which form to aim at. An indexed join on
     # grammar_point_id — the array version could only do an unindexed scan.
-    rows = await conn.fetch(
-        """
-        SELECT DISTINCT ON (i.grammar_point_id)
-               i.grammar_point_id::text AS point_id, i.cell
-        FROM placement_attempt_items i
-        JOIN placement_attempts pa ON pa.id = i.attempt_id
-        WHERE pa.user_id = $1
-          AND i.grammar_point_id = ANY($2::uuid[])
-          AND i.cell IS NOT NULL
-        ORDER BY i.grammar_point_id, pa.created_at DESC
-        """,
-        user_id, point_ids,
-    )
+    try:
+        rows = await conn.fetch(
+            """
+            SELECT DISTINCT ON (i.grammar_point_id)
+                   i.grammar_point_id::text AS point_id, i.cell
+            FROM placement_attempt_items i
+            JOIN placement_attempts pa ON pa.id = i.attempt_id
+            WHERE pa.user_id = $1
+              AND i.grammar_point_id = ANY($2::uuid[])
+              AND i.cell IS NOT NULL
+            ORDER BY i.grammar_point_id, pa.created_at DESC
+            """,
+            user_id, point_ids,
+        )
+    except asyncpg.exceptions.UndefinedTableError:
+        # Migration 20260904 not applied. This only ever ADDS a cold-start
+        # hint for the Gym, so its absence costs nothing — but raising here
+        # would take down drill generation entirely.
+        return {}
     return {r["point_id"]: r["cell"] for r in rows}
 
 

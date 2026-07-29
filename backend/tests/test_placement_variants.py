@@ -11,6 +11,7 @@ from __future__ import annotations
 
 import json
 
+import asyncpg
 import pytest
 
 from backend.repositories.onboarding import sample_placement_items
@@ -219,3 +220,54 @@ class TestPlacementInsight:
             FakeInsightConn(latest=attempt(), items=[]), "u", "l"
         )
         assert "missed_structures" not in out and "missed_words" not in out
+
+
+class FakeMissingTableConn:
+    """A database where migration 20260902 has not been applied — exactly
+    what production looks like between a deploy and a db push."""
+
+    def _boom(self):
+        raise asyncpg.exceptions.UndefinedTableError(
+            'relation "placement_attempts" does not exist'
+        )
+
+    async def fetch(self, *a, **k):
+        self._boom()
+
+    async def fetchrow(self, *a, **k):
+        self._boom()
+
+    async def fetchval(self, *a, **k):
+        self._boom()
+
+    async def execute(self, *a, **k):
+        self._boom()
+
+
+@pytest.mark.asyncio
+class TestMissingPlacementTables:
+    """Owner report: "Couldn't start the test". Every placement endpoint reads
+    placement_history first, so an unapplied migration 500'd the whole feature
+    — the same failure shape as the is_visible outage."""
+
+    async def test_history_degrades_to_never_placed(self):
+        from backend.repositories.onboarding import placement_history
+        out = await placement_history(FakeMissingTableConn(), "u", "l")
+        assert out["has_placed"] is False and out["attempts"] == 0
+
+    async def test_insight_degrades_to_none(self):
+        from backend.repositories.onboarding import get_placement_insight
+        assert await get_placement_insight(FakeMissingTableConn(), "u", "l") is None
+
+    async def test_gym_cold_start_hint_degrades_to_empty(self):
+        from backend.repositories.onboarding import get_placement_form_misses
+        out = await get_placement_form_misses(FakeMissingTableConn(), "u", ["p1"])
+        assert out == {}
+
+    async def test_recording_an_attempt_never_raises(self):
+        from backend.repositories.onboarding import record_placement_attempt
+        # The learner still gets their level even if the bookkeeping can't run.
+        await record_placement_attempt(
+            FakeMissingTableConn(), "u", "l",
+            estimated_level="B1", items_asked=6,
+        )

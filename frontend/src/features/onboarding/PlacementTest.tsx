@@ -249,10 +249,49 @@ export default function PlacementTest({
               Stop the test
             </button>
           </div>
+        ) : next.isError ? (
+          // A modal with no way out is a trap. The first version rendered
+          // this message alone, so a failed start left the learner stuck
+          // behind an overlay with nothing to press (owner report).
+          <div className="space-y-3">
+            <p className="text-sm font-semibold text-gray-800">
+              Couldn&apos;t start the test
+            </p>
+            <p className="text-xs text-gray-500">
+              Something went wrong reaching the server. You can pick your level
+              by hand above, and try the test again later.
+            </p>
+            <div className="flex gap-2">
+              <button
+                type="button"
+                onClick={() => next.mutate([])}
+                className="flex-1 rounded-xl bg-lang px-4 py-2.5 text-sm font-semibold text-lang-on hover:bg-lang-dark"
+                style={{ minHeight: '44px' }}
+              >
+                Try again
+              </button>
+              <button
+                type="button"
+                onClick={onClose}
+                className="rounded-xl border border-gray-300 px-4 py-2.5 text-sm text-gray-600 hover:bg-gray-50"
+                style={{ minHeight: '44px' }}
+              >
+                Close
+              </button>
+            </div>
+          </div>
         ) : (
-          <p className="py-6 text-center text-sm text-gray-500">
-            {next.isError ? 'Couldn’t start the test — try again later.' : 'Loading…'}
-          </p>
+          <div className="space-y-3">
+            <p className="py-4 text-center text-sm text-gray-500">Loading…</p>
+            {/* Escapable while loading too — a hung request must not trap. */}
+            <button
+              type="button"
+              onClick={onClose}
+              className="block w-full text-center text-xs text-gray-400 hover:text-lang"
+            >
+              Cancel
+            </button>
+          </div>
         )}
       </div>
     </div>
