@@ -1,0 +1,60 @@
+# Working agreements
+
+## Shipping
+
+**Open a pull request and merge it by default.** Standing authorization from
+the owner — do not ask "shall I open a PR?" or "shall I merge?" each time.
+Finish a piece of work, verify it, push, open the PR, merge it.
+
+The bar for merging is unchanged by this:
+
+- Frontend `npx tsc --noEmit` clean and `npx vitest run` green.
+- Backend `.venv/bin/pytest backend/tests` at or better than the known
+  baseline (see below), and `.venv/bin/ruff check backend/` clean.
+- CI green on the PR before merging. A red build is a reason to stop and fix,
+  not to merge anyway — "merge by default" removes the question, not the
+  standard.
+
+Say so plainly if something is merged with a known gap, rather than letting
+the merge imply it was clean.
+
+### Known-failing backend tests (environment, not the code)
+
+16 tests fail on a clean checkout in this container and are NOT regressions:
+
+- `test_nlp_english.py` (5) — the spaCy English model isn't installed.
+- `test_tutor.py` (5), `test_audio.py` (3), `test_reader.py` (1),
+  `test_onboarding.py` (1), `test_contributor.py::TestAiCheck` (1) — need a
+  live `ANTHROPIC_API_KEY` / provider.
+
+Compare against this baseline before claiming a regression. When the count
+changes, find out why rather than assuming it's the same 16.
+
+### Running the full backend suite
+
+Integration tests skip silently without a database — that once hid ~79 tests
+and made a "1244 passing" report meaningless. Start both services first:
+
+```bash
+su postgres -c '/usr/lib/postgresql/16/bin/pg_ctl -D /var/tmp/pgtest -o "-p 5433" -l /var/tmp/pgtest.log start'
+redis-server --port 6380 --daemonize yes
+INTEGRATION_DATABASE_URL="postgresql://postgres@127.0.0.1:5433/postgres" \
+REDIS_URL="redis://127.0.0.1:6380/0" .venv/bin/pytest backend/tests -q
+```
+
+Postgres in this container gets reaped periodically. If a run produces a
+flood of connection errors, restart it and re-run — don't report the flood
+as a result.
+
+## Migrations
+
+Migrations are applied by the owner (`supabase db push`), not by this agent.
+Any code that reads a newly added table or column must degrade rather than
+crash when the migration hasn't landed yet — catch `UndefinedTableError` /
+`UndefinedColumnError` and fall back. This matters most for anything on a
+hot path: the profile endpoint is fetched on every page load, so an
+unguarded new column there takes down the whole app rather than one setting.
+The `is_visible` outage taught this once already.
+
+Seeded initial values use `ON CONFLICT DO NOTHING`, never `DO UPDATE` — a
+re-applied migration must not stomp a value an admin later changed.
