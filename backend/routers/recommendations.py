@@ -20,6 +20,8 @@ from backend.repositories.recommendations import (
     insert_recommendation,
     latest_recommendation_at,
     list_recommendations,
+    mark_recommendations_seen,
+    unseen_batch,
     upsert_reco_profile,
 )
 from backend.repositories.tutor import get_study_stats, log_tutor_usage
@@ -84,6 +86,31 @@ def _require_uuid(language_id: str) -> None:
 async def _is_stale(conn, user_id: str, language_id: str) -> bool:
     last = await latest_recommendation_at(conn, user_id, language_id)
     return last is None or (datetime.now(UTC) - last) >= _FRESH_WINDOW
+
+
+@router.get("/{language_id}/unseen")
+async def unseen_recommendations(
+    language_id: str, user: dict = Depends(get_current_user)
+):
+    """The newest batch the learner hasn't looked at yet, if any.
+
+    Backs the once-a-week dashboard prompt: picks are generated weekly, but
+    until now the only way to find them was to remember to open the page, so
+    most batches were never seen at all.
+    """
+    _require_uuid(language_id)
+    async with rls_connection(user["id"]) as conn:
+        batch = await unseen_batch(conn, user["id"], language_id)
+    return {"batch": batch}
+
+
+@router.post("/seen")
+async def mark_seen(user: dict = Depends(get_current_user)):
+    """"I've seen my picks" — dismisses the prompt everywhere, not just on
+    the device it was dismissed on."""
+    async with rls_connection(user["id"]) as conn:
+        await mark_recommendations_seen(conn, user["id"])
+    return {"ok": True}
 
 
 @router.get("/{language_id}")

@@ -117,14 +117,22 @@ def create_app() -> FastAPI:
         # getattr default False so test FakeSettings (which lack the flag)
         # never start the loop.
         reminder_task = None
+        digest_task = None
         if getattr(settings, "email_reminders_enabled", False):
             from backend.services.reminders import reminder_loop
             reminder_task = asyncio.create_task(reminder_loop())
+            # The weekly digest is a SEPARATE opt-in with its own hourly
+            # sweep, but it rides the same master switch: both are email, and
+            # an operator turning email off means all of it.
+            from backend.services.digest import digest_loop
+            digest_task = asyncio.create_task(digest_loop())
         yield
         nlp_task.cancel()
         schema_task.cancel()
         if reminder_task is not None:
             reminder_task.cancel()
+        if digest_task is not None:
+            digest_task.cancel()
         await close_pool()
 
     _app = FastAPI(title="PolyglotSRS", lifespan=lifespan)

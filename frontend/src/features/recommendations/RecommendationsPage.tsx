@@ -14,6 +14,7 @@ import { usePrefsStore } from '../../stores/prefsStore'
 import {
   getRecommendations,
   refreshRecommendations,
+  markRecommendationsSeen,
   MEDIA_TYPE_LABELS,
   type RecoBatch,
   type RecoItem,
@@ -120,6 +121,18 @@ export default function RecommendationsPage() {
       refresh.mutate(false)
     }
   }, [data, refresh])
+
+  // Reaching this page IS seeing the picks — clear the dashboard prompt so
+  // it can't nag about something already read. Once per mount; failure is
+  // silently fine, the prompt simply shows once more.
+  const marked = useRef(false)
+  useEffect(() => {
+    if (!marked.current && (data?.batches?.length ?? 0) > 0) {
+      marked.current = true
+      markRecommendationsSeen().catch(() => undefined)
+      queryClient.setQueryData(['recommendations-unseen', activeLanguageId], null)
+    }
+  }, [data, queryClient, activeLanguageId])
 
   const batches = data?.batches ?? []
   const drafting =

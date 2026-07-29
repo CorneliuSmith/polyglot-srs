@@ -233,6 +233,10 @@ export interface UserProfile {
   reminder_opt_in: boolean
   /** hour of the daily reminder, in UTC (client converts to local) */
   reminder_hour_utc: number
+  /** opt-in weekly round-up email, which carries that week's picks */
+  weekly_digest_opt_in: boolean
+  /** day to send it, 0 = Sunday … 6 = Saturday */
+  weekly_digest_dow: number
   created_at: string
   updated_at: string
 }
@@ -245,4 +249,6 @@ export interface ProfileUpdate {
   support_locale?: string
   reminder_opt_in?: boolean
   reminder_hour_utc?: number
+  weekly_digest_opt_in?: boolean
+  weekly_digest_dow?: number
 }

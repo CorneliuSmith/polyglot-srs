@@ -90,6 +90,22 @@ export async function refreshRecommendations(
   return data
 }
 
+/** The newest batch the learner hasn't looked at yet — backs the weekly
+ *  dashboard prompt. null when there's nothing new (or the feature is off). */
+export async function getUnseenRecommendations(
+  languageId: string,
+): Promise<RecoBatch | null> {
+  const { data } = await apiClient.get<{ batch: RecoBatch | null }>(
+    `/api/recommendations/${languageId}/unseen`,
+  )
+  return data.batch
+}
+
+/** Dismiss the prompt — server-side, so it settles on every device. */
+export async function markRecommendationsSeen(): Promise<void> {
+  await apiClient.post('/api/recommendations/seen')
+}
+
 export const MEDIA_TYPE_LABELS: Record<string, string> = {
   book: 'Book',
   film: 'Film',

@@ -97,6 +97,11 @@ const BATCH_SIZES = [3, 5, 10, 15, 20]
 const SESSION_SIZES = [10, 20, 50, 100]
 const CEFR_LEVELS = ['A1', 'A2', 'B1', 'B2', 'C1', 'C2']
 
+// Index = Postgres EXTRACT(DOW): 0 = Sunday.
+const WEEKDAYS = [
+  'Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday',
+]
+
 // Script names for the language-specific section's copy.
 const SCRIPT_NAME: Record<string, string> = {
   ru: 'Cyrillic',
@@ -202,8 +207,12 @@ export default function SettingsPage() {
   // Upgrade (single → all): dev-mock grants directly; real mode redirects
   // to Stripe Checkout. A 503 means billing isn't launched — say so.
   const reminderMutation = useMutation({
-    mutationFn: (patch: { reminder_opt_in?: boolean; reminder_hour_utc?: number }) =>
-      updateProfile(patch),
+    mutationFn: (patch: {
+      reminder_opt_in?: boolean
+      reminder_hour_utc?: number
+      weekly_digest_opt_in?: boolean
+      weekly_digest_dow?: number
+    }) => updateProfile(patch),
     onSuccess: () => queryClient.invalidateQueries({ queryKey: ['profile'] }),
   })
 
@@ -848,10 +857,17 @@ export default function SettingsPage() {
           </div>
         </section>
 
+        {/* Two INDEPENDENT email opt-ins, not a mode switch: the daily nudge
+            answers "is there work waiting?", the weekly digest answers "how
+            did my week go, and what should I do beyond the app?". A learner
+            can want either, both, or neither. */}
         <section className="bg-white rounded-2xl shadow-sm border border-gray-100 p-5 space-y-3">
-          <div className="flex items-start justify-between gap-4">
+          <h2 className="font-semibold text-gray-800">Email</h2>
+          <div className="flex items-start justify-between gap-4 border-t border-gray-100 pt-3">
             <div>
-              <h2 className="font-semibold text-gray-800">Email reminders</h2>
+              <h3 className="text-sm font-medium text-gray-800">
+                Daily reminder
+              </h3>
               <p className="text-xs text-gray-500">
                 One email a day when reviews are waiting — nothing on days with
                 no reviews due.
@@ -900,6 +916,59 @@ export default function SettingsPage() {
                 ))}
               </select>
               your time
+            </label>
+          )}
+
+          <div className="flex items-start justify-between gap-4 border-t border-gray-100 pt-3">
+            <div>
+              <h3 className="text-sm font-medium text-gray-800">
+                Weekly review
+              </h3>
+              <p className="text-xs text-gray-500">
+                Your week in one email — what you studied, how it went, and
+                that week's reading, watching and listening picks.
+              </p>
+            </div>
+            <button
+              type="button"
+              role="switch"
+              aria-checked={profile?.weekly_digest_opt_in ?? false}
+              aria-label="Weekly review email"
+              onClick={() =>
+                reminderMutation.mutate({
+                  weekly_digest_opt_in: !(profile?.weekly_digest_opt_in ?? false),
+                })
+              }
+              className={
+                'relative shrink-0 inline-flex h-6 w-11 items-center rounded-full transition-colors ' +
+                (profile?.weekly_digest_opt_in ? 'bg-lang' : 'bg-gray-300')
+              }
+            >
+              <span
+                className={
+                  'inline-block h-5 w-5 transform rounded-full bg-white transition-transform ' +
+                  (profile?.weekly_digest_opt_in ? 'translate-x-5' : 'translate-x-1')
+                }
+              />
+            </button>
+          </div>
+          {profile?.weekly_digest_opt_in && (
+            <label className="flex items-center gap-2 text-sm text-gray-700">
+              Send on
+              <select
+                value={profile?.weekly_digest_dow ?? 0}
+                onChange={(e) =>
+                  reminderMutation.mutate({
+                    weekly_digest_dow: Number(e.target.value),
+                  })
+                }
+                className="rounded-lg border border-gray-200 px-2 py-1 text-sm"
+                aria-label="Weekly review day"
+              >
+                {WEEKDAYS.map((label, i) => (
+                  <option key={i} value={i}>{label}</option>
+                ))}
+              </select>
             </label>
           )}
         </section>
