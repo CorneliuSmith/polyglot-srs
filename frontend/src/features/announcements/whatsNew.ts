@@ -17,6 +17,18 @@ export interface WhatsNewEntry {
 
 export const WHATS_NEW: WhatsNewEntry[] = [
   {
+    id: 'placement-retake-2026-07',
+    date: 'July 2026',
+    title: 'Place yourself in any language — and again later',
+    body:
+      'Starting a new language now offers a short adaptive test so your ' +
+      'queue fits you from day one instead of starting at A1. You can take ' +
+      'it, or retake it, any time from Settings → Your level — the questions ' +
+      'change each time, so a retake shows how far you’ve actually come.',
+    link: '/settings',
+    linkLabel: 'Take the placement test',
+  },
+  {
     id: 'language-facts-2026-07',
     date: 'July 2026',
     title: 'Things to know about this language',

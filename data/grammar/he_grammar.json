@@ -5,6 +5,31 @@
       "level": "A1",
       "title": "Hebrew A1 Grammar Path",
       "description": "First Hebrew: pronoun gender, the zero copula in the present tense, adjective agreement, the ה־ definite article, present-tense verb agreement, negation with לא, existence with יש/אין, and possession with של."
+    },
+    {
+      "level": "A2",
+      "title": "Hebrew A2 Grammar Path",
+      "description": "Past and future in the pa'al pattern, prepositions that swallow their pronoun, the object marker את, counting with the right gender, possession with יש לי, plural agreement, and the first steps into pi'el and hif'il."
+    },
+    {
+      "level": "B1",
+      "title": "Hebrew B1 Grammar Path",
+      "description": "The root-and-binyan system itself: pi'el and hif'il beyond the present, hitpa'el, the construct state, action nouns, real conditionals with אם, relative clauses with ש־, and comparison with יותר and הכי."
+    },
+    {
+      "level": "B2",
+      "title": "Hebrew B2 Grammar Path",
+      "description": "Nif'al, the pu'al and huf'al passives you meet in reading, counterfactual conditionals with אילו, time clauses built on ש־, reported speech without tense shift, and object pronouns."
+    },
+    {
+      "level": "C1",
+      "title": "Hebrew C1 Grammar Path",
+      "description": "Register: the connectors and prepositions that mark written Hebrew, אשר beside everyday ש־, and construct chains that run three nouns deep."
+    },
+    {
+      "level": "C2",
+      "title": "Hebrew C2 Grammar Path",
+      "description": "The vav-conversive as it survives in quotation and idiom, meaning shifts between binyanim that no rule predicts, and moving between registers inside a single text."
     }
   ],
   "points": [
@@ -22,6 +47,7 @@
           "answer": "הוא",
           "translation": "He is a good man.",
           "hint": "he — masculine pronoun, doubles as \"is\"",
+          "transliteration": "hu ish tov.",
           "display_order": 1
         },
         {
@@ -29,6 +55,7 @@
           "answer": "היא",
           "translation": "She is a good woman.",
           "hint": "she — feminine pronoun; note טובה, the feminine form of \"good\"",
+          "transliteration": "hi isha tova.",
           "display_order": 2
         },
         {
@@ -36,6 +63,7 @@
           "answer": "אתה",
           "translation": "Are you (m.) going home?",
           "hint": "you — masculine singular, contrasts with feminine את",
+          "transliteration": "ata holekh habayta?",
           "display_order": 3
         }
       ]
@@ -54,6 +82,7 @@
           "answer": "גדול",
           "translation": "The house is big.",
           "hint": "big — no \"is\" needed, just place it after the subject",
+          "transliteration": "habayit gadol.",
           "display_order": 1
         },
         {
@@ -61,6 +90,7 @@
           "answer": "טוב",
           "translation": "I am good / fine.",
           "hint": "good — again, no verb \"to be\"",
+          "transliteration": "ani tov.",
           "display_order": 2
         },
         {
@@ -68,6 +98,7 @@
           "answer": "קטן",
           "translation": "The child is small.",
           "hint": "small — the predicate follows the subject directly",
+          "transliteration": "hayeled katan.",
           "display_order": 3
         }
       ]
@@ -86,6 +117,7 @@
           "answer": "טובה",
           "translation": "The woman is good.",
           "hint": "good, feminine — add ה־ to טוב",
+          "transliteration": "haisha tova.",
           "display_order": 1
         },
         {
@@ -93,6 +125,7 @@
           "answer": "טוב",
           "translation": "The man is good.",
           "hint": "good, masculine — the base form, no ה־",
+          "transliteration": "haish tov.",
           "display_order": 2
         },
         {
@@ -100,6 +133,7 @@
           "answer": "קטנה",
           "translation": "The girl is small.",
           "hint": "small, feminine — add ה־ to קטן",
+          "transliteration": "hayalda ktana.",
           "display_order": 3
         }
       ]
@@ -118,6 +152,7 @@
           "answer": "הבית",
           "translation": "The house is big.",
           "hint": "the house — ה־ prefixed directly onto בית",
+          "transliteration": "habayit gadol.",
           "display_order": 1
         },
         {
@@ -125,6 +160,7 @@
           "answer": "הספר",
           "translation": "The book is good.",
           "hint": "the book — ה־ prefixed onto ספר",
+          "transliteration": "hasefer tov.",
           "display_order": 2
         },
         {
@@ -132,6 +168,7 @@
           "answer": "העיר",
           "translation": "The city is beautiful.",
           "hint": "the city — ה־ prefixed onto עיר",
+          "transliteration": "hair yafa.",
           "display_order": 3
         }
       ]
@@ -150,6 +187,7 @@
           "answer": "הולכת",
           "translation": "She is going home.",
           "hint": "goes — feminine singular, add ת to הולך",
+          "transliteration": "hi holekhet habayta.",
           "display_order": 1
         },
         {
@@ -157,6 +195,7 @@
           "answer": "הולכים",
           "translation": "They (m./mixed) are going home.",
           "hint": "go — masculine plural, add ים",
+          "transliteration": "hem holkhim habayta.",
           "display_order": 2
         },
         {
@@ -164,6 +203,7 @@
           "answer": "הולכות",
           "translation": "They (f.) are going home.",
           "hint": "go — feminine plural, add ות",
+          "transliteration": "hen holkhot habayta.",
           "display_order": 3
         }
       ]
@@ -182,6 +222,7 @@
           "answer": "לא",
           "translation": "I don't want (to).",
           "hint": "not — placed right before the verb",
+          "transliteration": "ani lo rotse.",
           "display_order": 1
         },
         {
@@ -189,6 +230,7 @@
           "answer": "לא",
           "translation": "He isn't going.",
           "hint": "not — before the verb, no auxiliary needed",
+          "transliteration": "hu lo holekh.",
           "display_order": 2
         },
         {
@@ -196,6 +238,7 @@
           "answer": "לא",
           "translation": "The house isn't small.",
           "hint": "not — before an adjective works the same way",
+          "transliteration": "habayit lo katan.",
           "display_order": 3
         }
       ]
@@ -214,6 +257,7 @@
           "answer": "יש",
           "translation": "There is a big house.",
           "hint": "there is — states existence",
+          "transliteration": "yesh bayit gadol.",
           "display_order": 1
         },
         {
@@ -221,6 +265,7 @@
           "answer": "יש",
           "translation": "There is a good book.",
           "hint": "there is",
+          "transliteration": "yesh sefer tov.",
           "display_order": 2
         },
         {
@@ -228,6 +273,7 @@
           "answer": "אין",
           "translation": "There isn't time.",
           "hint": "there isn't — the negative of יש",
+          "transliteration": "eyn zman.",
           "display_order": 3
         }
       ]
@@ -246,6 +292,7 @@
           "answer": "של",
           "translation": "The house is David's / belongs to David.",
           "hint": "of / belonging to",
+          "transliteration": "habayit shel david.",
           "display_order": 1
         },
         {
@@ -253,6 +300,7 @@
           "answer": "של",
           "translation": "The book is the girl's.",
           "hint": "of — links the book to its owner",
+          "transliteration": "hasefer shel hayalda.",
           "display_order": 2
         },
         {
@@ -260,7 +308,1707 @@
           "answer": "של",
           "translation": "The city belongs to the family.",
           "hint": "of / belonging to",
+          "transliteration": "hair shel hamishpacha.",
           "display_order": 3
+        }
+      ]
+    },
+    {
+      "title": "Infinitives after רוצה and אפשר",
+      "level": "A1",
+      "function": "Chain a second verb onto the first without conjugating it",
+      "source": "ai",
+      "reviewed": false,
+      "display_order": 9,
+      "explanation": "The Hebrew infinitive begins with ל־: ללכת (to go), לדבר (to speak), לקרוא (to read). After רוצה (\"want\"), צריך (\"need\"), יכול (\"can\") and the impersonal אפשר (\"it is possible\"), the second verb stays in this one unchanging form — only the first verb agrees with the subject.",
+      "drills": [
+        {
+          "sentence": "אני רוצה {{answer}} הביתה.",
+          "answer": "ללכת",
+          "translation": "I want to go home.",
+          "hint": "to go — the infinitive of the everyday verb for going and walking",
+          "transliteration": "ani rotse lalekhet habayta.",
+          "display_order": 1
+        },
+        {
+          "sentence": "אפשר {{answer}} כאן?",
+          "answer": "לשבת",
+          "translation": "May we sit here?",
+          "hint": "to sit — the infinitive that follows the impersonal word for it is possible",
+          "transliteration": "efshar lashevet kan?",
+          "display_order": 2
+        },
+        {
+          "sentence": "היא רוצה {{answer}} קפה.",
+          "answer": "לשתות",
+          "translation": "She wants to drink coffee.",
+          "hint": "to drink — infinitive, unchanged whoever the subject is",
+          "transliteration": "hi rotsa lishtot kafe.",
+          "display_order": 3
+        },
+        {
+          "sentence": "אנחנו צריכים {{answer}} עברית.",
+          "answer": "לדבר",
+          "translation": "We need to speak Hebrew.",
+          "hint": "to speak — only the first verb agrees with we",
+          "transliteration": "anachnu tsrikhim ledaber ivrit.",
+          "display_order": 4
+        },
+        {
+          "sentence": "הוא יכול {{answer}} את הספר.",
+          "answer": "לקרוא",
+          "translation": "He can read the book.",
+          "hint": "to read — the second verb after can stays in its base form",
+          "transliteration": "hu yakhol likro et hasefer.",
+          "display_order": 5
+        }
+      ]
+    },
+    {
+      "title": "Yes/no questions and question words",
+      "level": "A1",
+      "function": "Ask a question in Hebrew",
+      "source": "ai",
+      "reviewed": false,
+      "display_order": 10,
+      "explanation": "A yes/no question in spoken Hebrew keeps the word order of a statement — only the rising intonation changes (the particle האם belongs to formal writing). Questions that ask for information start with a question word: מה (what), מי (who), איפה (where), מתי (when), למה (why), איך (how), כמה (how much/many).",
+      "drills": [
+        {
+          "sentence": "{{answer}} אתה גר?",
+          "answer": "איפה",
+          "translation": "Where do you live?",
+          "hint": "where — asks about place",
+          "transliteration": "eyfo ata gar?",
+          "display_order": 1
+        },
+        {
+          "sentence": "{{answer}} זה?",
+          "answer": "מה",
+          "translation": "What is this?",
+          "hint": "what — asks about a thing",
+          "transliteration": "ma ze?",
+          "display_order": 2
+        },
+        {
+          "sentence": "{{answer}} האוטובוס מגיע?",
+          "answer": "מתי",
+          "translation": "When does the bus arrive?",
+          "hint": "when — asks about time",
+          "transliteration": "matay haotobus magia?",
+          "display_order": 3
+        },
+        {
+          "sentence": "{{answer}} זה עולה?",
+          "answer": "כמה",
+          "translation": "How much does it cost?",
+          "hint": "how much — asks about quantity or price",
+          "transliteration": "kama ze ole?",
+          "display_order": 4
+        },
+        {
+          "sentence": "{{answer}} אתה לא בא?",
+          "answer": "למה",
+          "translation": "Why aren't you coming?",
+          "hint": "why — asks for a reason",
+          "transliteration": "lama ata lo ba?",
+          "display_order": 5
+        },
+        {
+          "sentence": "{{answer}} מדבר עברית?",
+          "answer": "מי",
+          "translation": "Who speaks Hebrew?",
+          "hint": "who — asks about a person",
+          "transliteration": "mi medaber ivrit?",
+          "display_order": 6
+        }
+      ]
+    },
+    {
+      "title": "Past tense pa'al: the singular persons",
+      "level": "A2",
+      "function": "Put a basic verb into the past for one person",
+      "source": "ai",
+      "reviewed": false,
+      "display_order": 1,
+      "explanation": "The past tense marks its person with endings rather than prefixes. For the root כ־ת־ב in the plain pa'al pattern: כתבתי (I wrote), כתבת (you wrote — one spelling for masculine and feminine), כתב (he wrote), כתבה (she wrote). The third-person masculine form is the bare stem, which is why dictionaries list verbs under it.",
+      "drills": [
+        {
+          "sentence": "אתמול {{answer}} מכתב.",
+          "answer": "כתבתי",
+          "translation": "Yesterday I wrote a letter.",
+          "hint": "I wrote — first person singular, the same for men and women",
+          "transliteration": "etmol katavti mikhtav.",
+          "display_order": 1
+        },
+        {
+          "sentence": "הוא {{answer}} עברית בשנה שעברה.",
+          "answer": "למד",
+          "translation": "He studied Hebrew last year.",
+          "hint": "he studied — the bare stem, with no ending at all",
+          "transliteration": "hu lamad ivrit bashana sheavra.",
+          "display_order": 2
+        },
+        {
+          "sentence": "היא {{answer}} עברית בשנה שעברה.",
+          "answer": "למדה",
+          "translation": "She studied Hebrew last year.",
+          "hint": "she studied — feminine singular, the ending you also see on adjectives",
+          "transliteration": "hi lamda ivrit bashana sheavra.",
+          "display_order": 3
+        },
+        {
+          "sentence": "אתה {{answer}} את הספר?",
+          "answer": "קראת",
+          "translation": "Did you (m.) read the book?",
+          "hint": "you read — second person singular; the unvocalized spelling covers both genders",
+          "transliteration": "ata karata et hasefer?",
+          "display_order": 4
+        },
+        {
+          "sentence": "אני {{answer}} את השיר ברדיו.",
+          "answer": "שמעתי",
+          "translation": "I heard the song on the radio.",
+          "hint": "I heard — first person singular past",
+          "transliteration": "ani shamati et hashir baradio.",
+          "display_order": 5
+        }
+      ]
+    },
+    {
+      "title": "Past tense pa'al: the plural persons",
+      "level": "A2",
+      "function": "Put a basic verb into the past for several people",
+      "source": "ai",
+      "reviewed": false,
+      "display_order": 2,
+      "explanation": "The plural past endings continue the same system: כתבנו (we wrote), כתבתם / כתבתן (you plural, masculine / feminine — speech uses the masculine form for both), and כתבו (they wrote), a single form that covers masculine and feminine alike.",
+      "drills": [
+        {
+          "sentence": "אנחנו {{answer}} בבית קפה.",
+          "answer": "ישבנו",
+          "translation": "We sat in a café.",
+          "hint": "we sat — first person plural past",
+          "transliteration": "anachnu yashavnu beveit kafe.",
+          "display_order": 1
+        },
+        {
+          "sentence": "הם {{answer}} פיצה.",
+          "answer": "אכלו",
+          "translation": "They ate pizza.",
+          "hint": "they ate — one plural form serves both genders",
+          "transliteration": "hem akhlu pitsa.",
+          "display_order": 2
+        },
+        {
+          "sentence": "הן {{answer}} מוקדם.",
+          "answer": "הלכו",
+          "translation": "They (f.) left early.",
+          "hint": "they went — the ending is the same as for a masculine group",
+          "transliteration": "hen halkhu mukdam.",
+          "display_order": 3
+        },
+        {
+          "sentence": "אתם {{answer}} את המייל?",
+          "answer": "קראתם",
+          "translation": "Did you (pl.) read the email?",
+          "hint": "you read — second person plural past",
+          "transliteration": "atem kratem et hamail?",
+          "display_order": 4
+        },
+        {
+          "sentence": "אנחנו {{answer}} את הסרט אתמול.",
+          "answer": "ראינו",
+          "translation": "We saw the movie yesterday.",
+          "hint": "we saw — first person plural of a verb whose root ends in a weak letter",
+          "transliteration": "anachnu rainu et haseret etmol.",
+          "display_order": 5
+        }
+      ]
+    },
+    {
+      "title": "Future tense pa'al",
+      "level": "A2",
+      "function": "Say what will happen",
+      "source": "ai",
+      "reviewed": false,
+      "display_order": 3,
+      "explanation": "Where the past uses endings, the future uses prefixes: א for I, ת for you and for she, י for he, נ for we. So from כ־ת־ב: אכתוב, תכתוב, יכתוב, נכתוב, and יכתבו for they. Feminine forms add a י ending in the singular (תכתבי); the old feminine plural forms have been replaced by the masculine ones in speech.",
+      "drills": [
+        {
+          "sentence": "מחר {{answer}} מכתב.",
+          "answer": "אכתוב",
+          "translation": "Tomorrow I will write a letter.",
+          "hint": "I will write — the א prefix marks first person singular",
+          "transliteration": "machar ekhtov mikhtav.",
+          "display_order": 1
+        },
+        {
+          "sentence": "הוא {{answer}} עברית בשנה הבאה.",
+          "answer": "ילמד",
+          "translation": "He will study Hebrew next year.",
+          "hint": "he will study — the י prefix marks third person masculine",
+          "transliteration": "hu yilmad ivrit bashana habaa.",
+          "display_order": 2
+        },
+        {
+          "sentence": "אנחנו {{answer}} יחד מחר.",
+          "answer": "נלמד",
+          "translation": "We will study together tomorrow.",
+          "hint": "we will study — the נ prefix marks first person plural",
+          "transliteration": "anachnu nilmad yachad machar.",
+          "display_order": 3
+        },
+        {
+          "sentence": "את {{answer}} איתי?",
+          "answer": "תלכי",
+          "translation": "Will you (f.) go with me?",
+          "hint": "will you go — feminine singular future, with an extra ending",
+          "transliteration": "at telkhi iti?",
+          "display_order": 4
+        },
+        {
+          "sentence": "הם {{answer}} מחר בבוקר.",
+          "answer": "יבואו",
+          "translation": "They will come tomorrow morning.",
+          "hint": "they will come — third person plural future",
+          "transliteration": "hem yavou machar baboker.",
+          "display_order": 5
+        }
+      ]
+    },
+    {
+      "title": "Prepositions with pronoun endings",
+      "level": "A2",
+      "function": "Say to me, to him, at my place",
+      "source": "ai",
+      "reviewed": false,
+      "display_order": 4,
+      "explanation": "A Hebrew preposition does not stand in front of a separate pronoun — it swallows it. ל־ (\"to\") gives לי, לך, לו, לה, לנו, להם; אצל (\"at someone's place\") gives אצלי, אצלך, אצלו; and על, עם, ב־ and מ־ all behave the same way. The set of endings is nearly identical from preposition to preposition, so learning one gets you most of the others.",
+      "drills": [
+        {
+          "sentence": "הוא נתן {{answer}} ספר.",
+          "answer": "לי",
+          "translation": "He gave me a book.",
+          "hint": "to me — the little preposition for to, carrying a first person ending",
+          "transliteration": "hu natan li sefer.",
+          "display_order": 1
+        },
+        {
+          "sentence": "אמרתי {{answer}} שהכול בסדר.",
+          "answer": "לה",
+          "translation": "I told her that everything is fine.",
+          "hint": "to her — feminine third person ending",
+          "transliteration": "amarti la shehakol beseder.",
+          "display_order": 2
+        },
+        {
+          "sentence": "נפגשנו {{answer}} בערב.",
+          "answer": "אצלי",
+          "translation": "We met at my place in the evening.",
+          "hint": "at my place — the preposition for someone's home, with a first person ending",
+          "transliteration": "nifgashnu etsli baerev.",
+          "display_order": 3
+        },
+        {
+          "sentence": "אין {{answer}} זמן היום.",
+          "answer": "לו",
+          "translation": "He doesn't have time today.",
+          "hint": "to him — after the word for there isn't, it means he doesn't have",
+          "transliteration": "eyn lo zman hayom.",
+          "display_order": 4
+        },
+        {
+          "sentence": "אני מחכה {{answer}} בכניסה.",
+          "answer": "לך",
+          "translation": "I'm waiting for you at the entrance.",
+          "hint": "to you — masculine singular ending",
+          "transliteration": "ani mechake lekha baknisa.",
+          "display_order": 5
+        }
+      ]
+    },
+    {
+      "title": "The object marker את",
+      "level": "A2",
+      "function": "Mark a definite direct object",
+      "source": "ai",
+      "reviewed": false,
+      "display_order": 5,
+      "explanation": "When the direct object is definite — a proper name, a noun carrying ה־, or a possessed noun — Hebrew puts את in front of it. The word has no English translation of its own; it simply flags \"this is the object\". An indefinite object takes nothing: אני רואה בית (\"I see a house\") beside אני רואה את הבית (\"I see the house\").",
+      "drills": [
+        {
+          "sentence": "אני רואה {{answer}} הבית.",
+          "answer": "את",
+          "translation": "I see the house.",
+          "hint": "the untranslatable marker that stands before a definite object",
+          "transliteration": "ani roe et habayit.",
+          "display_order": 1
+        },
+        {
+          "sentence": "הוא אוהב {{answer}} דנה.",
+          "answer": "את",
+          "translation": "He loves Dana.",
+          "hint": "needed here because a personal name counts as definite",
+          "transliteration": "hu ohev et dana.",
+          "display_order": 2
+        },
+        {
+          "sentence": "קראנו {{answer}} הספר אתמול.",
+          "answer": "את",
+          "translation": "We read the book yesterday.",
+          "hint": "flags the object; it is never translated into English",
+          "transliteration": "karanu et hasefer etmol.",
+          "display_order": 3
+        },
+        {
+          "sentence": "אני מכיר {{answer}} המורה.",
+          "answer": "את",
+          "translation": "I know the teacher.",
+          "hint": "the marker required by the definite article on the next word",
+          "transliteration": "ani makir et hamore.",
+          "display_order": 4
+        },
+        {
+          "sentence": "היא לקחה {{answer}} המפתחות.",
+          "answer": "את",
+          "translation": "She took the keys.",
+          "hint": "the object flag, used with plural definites too",
+          "transliteration": "hi lakcha et hamaftechot.",
+          "display_order": 5
+        }
+      ]
+    },
+    {
+      "title": "Numbers and gender agreement",
+      "level": "A2",
+      "function": "Count nouns with the right form of the number",
+      "source": "ai",
+      "reviewed": false,
+      "display_order": 6,
+      "explanation": "Hebrew numbers come in two sets and must match the gender of what they count. Feminine nouns take אחת, שתיים, שלוש, ארבע, חמש; masculine nouns take אחד, שניים, שלושה, ארבעה, חמישה. Counterintuitively, the forms that end in ה are the masculine ones. Directly before a noun, שתיים and שניים shorten to שתי and שני.",
+      "drills": [
+        {
+          "sentence": "יש לי {{answer}} ספרים.",
+          "answer": "שלושה",
+          "translation": "I have three books.",
+          "hint": "three, masculine — the longer counting form",
+          "transliteration": "yesh li shlosha sfarim.",
+          "display_order": 1
+        },
+        {
+          "sentence": "יש לי {{answer}} מחברות.",
+          "answer": "שלוש",
+          "translation": "I have three notebooks.",
+          "hint": "three, feminine — the short form, with no ending",
+          "transliteration": "yesh li shalosh machbarot.",
+          "display_order": 2
+        },
+        {
+          "sentence": "אני צריך {{answer}} כרטיסים.",
+          "answer": "ארבעה",
+          "translation": "I need four tickets.",
+          "hint": "four, masculine — tickets is a masculine noun",
+          "transliteration": "ani tsarikh arbaa kartisim.",
+          "display_order": 3
+        },
+        {
+          "sentence": "קניתי {{answer}} עוגות.",
+          "answer": "ארבע",
+          "translation": "I bought four cakes.",
+          "hint": "four, feminine — cakes is a feminine noun",
+          "transliteration": "kaniti arba ugot.",
+          "display_order": 4
+        },
+        {
+          "sentence": "יש {{answer}} ילדים בכיתה.",
+          "answer": "חמישה",
+          "translation": "There are five children in the class.",
+          "hint": "five, masculine",
+          "transliteration": "yesh chamisha yeladim bakita.",
+          "display_order": 5
+        },
+        {
+          "sentence": "יש לנו {{answer}} דקות.",
+          "answer": "חמש",
+          "translation": "We have five minutes.",
+          "hint": "five, feminine — minutes is a feminine noun",
+          "transliteration": "yesh lanu chamesh dakot.",
+          "display_order": 6
+        }
+      ]
+    },
+    {
+      "title": "Possession with יש ל־",
+      "level": "A2",
+      "function": "Say what someone has",
+      "source": "ai",
+      "reviewed": false,
+      "display_order": 7,
+      "explanation": "Hebrew has no verb \"to have\". Possession is built from יש plus ל־ with a pronoun ending: יש לי (\"I have\", literally \"there is to me\"), יש לך, יש לו, יש לה, יש לנו, יש להם. The negative swaps יש for אין: אין לי זמן. What is owned stays an ordinary indefinite noun, so it takes no object marker.",
+      "drills": [
+        {
+          "sentence": "{{answer}} לי אח גדול.",
+          "answer": "יש",
+          "translation": "I have a big brother.",
+          "hint": "there is — together with the to-word it means to have",
+          "transliteration": "yesh li ach gadol.",
+          "display_order": 1
+        },
+        {
+          "sentence": "יש {{answer}} כלב.",
+          "answer": "לנו",
+          "translation": "We have a dog.",
+          "hint": "to us — first person plural ending",
+          "transliteration": "yesh lanu kelev.",
+          "display_order": 2
+        },
+        {
+          "sentence": "{{answer}} לי זמן היום.",
+          "answer": "אין",
+          "translation": "I don't have time today.",
+          "hint": "there isn't — the negative counterpart",
+          "transliteration": "eyn li zman hayom.",
+          "display_order": 3
+        },
+        {
+          "sentence": "יש {{answer}} שאלה?",
+          "answer": "לך",
+          "translation": "Do you have a question?",
+          "hint": "to you — masculine singular",
+          "transliteration": "yesh lekha sheela?",
+          "display_order": 4
+        },
+        {
+          "sentence": "יש {{answer}} בית בתל אביב.",
+          "answer": "להם",
+          "translation": "They have a house in Tel Aviv.",
+          "hint": "to them — third person plural",
+          "transliteration": "yesh lahem bayit betel aviv.",
+          "display_order": 5
+        }
+      ]
+    },
+    {
+      "title": "Noun and adjective plural agreement",
+      "level": "A2",
+      "function": "Make nouns plural and keep the adjective in step",
+      "source": "ai",
+      "reviewed": false,
+      "display_order": 8,
+      "explanation": "Masculine nouns usually take ים־ in the plural and feminine nouns ות־: ספר → ספרים, מחברת → מחברות. The adjective copies both gender and number, so the endings line up down the phrase: ספרים גדולים, מחברות גדולות. A few nouns take the \"wrong\" ending but keep their gender — שולחן is masculine and stays masculine as שולחנות, so it needs a masculine adjective.",
+      "drills": [
+        {
+          "sentence": "הספרים {{answer}}.",
+          "answer": "גדולים",
+          "translation": "The books are big.",
+          "hint": "big — masculine plural, matching the noun's ending",
+          "transliteration": "hasfarim gdolim.",
+          "display_order": 1
+        },
+        {
+          "sentence": "המחברות {{answer}}.",
+          "answer": "גדולות",
+          "translation": "The notebooks are big.",
+          "hint": "big — feminine plural",
+          "transliteration": "hamachbarot gdolot.",
+          "display_order": 2
+        },
+        {
+          "sentence": "הילדות {{answer}}.",
+          "answer": "קטנות",
+          "translation": "The girls are small.",
+          "hint": "small — feminine plural",
+          "transliteration": "hayeladot ktanot.",
+          "display_order": 3
+        },
+        {
+          "sentence": "יש לי חברים {{answer}}.",
+          "answer": "טובים",
+          "translation": "I have good friends.",
+          "hint": "good — masculine plural, following its noun",
+          "transliteration": "yesh li chaverim tovim.",
+          "display_order": 4
+        },
+        {
+          "sentence": "השולחנות {{answer}}.",
+          "answer": "גדולים",
+          "translation": "The tables are big.",
+          "hint": "big — the noun looks feminine in the plural but is masculine",
+          "transliteration": "hashulchanot gdolim.",
+          "display_order": 5
+        }
+      ]
+    },
+    {
+      "title": "Present tense pi'el",
+      "level": "A2",
+      "function": "Use the second verb pattern in the present",
+      "source": "ai",
+      "reviewed": false,
+      "display_order": 9,
+      "explanation": "Pi'el is the second big verb pattern, and its present tense is easy to spot: every form starts with מ־ and has an a-vowel in the middle — מדבר / מדברת / מדברים / מדברות (speak), מספר (tell), מבקש (ask for), מלמד (teach). Compare the plain pa'al הולך, which takes no prefix at all.",
+      "drills": [
+        {
+          "sentence": "אני {{answer}} עברית.",
+          "answer": "מדבר",
+          "translation": "I speak Hebrew. (said by a man)",
+          "hint": "speak — masculine singular; this pattern's present begins with מ",
+          "transliteration": "ani medaber ivrit.",
+          "display_order": 1
+        },
+        {
+          "sentence": "היא {{answer}} עברית.",
+          "answer": "מדברת",
+          "translation": "She speaks Hebrew.",
+          "hint": "speaks — feminine singular",
+          "transliteration": "hi medaberet ivrit.",
+          "display_order": 2
+        },
+        {
+          "sentence": "הם {{answer}} על העבודה.",
+          "answer": "מדברים",
+          "translation": "They are talking about work.",
+          "hint": "talk — masculine plural",
+          "transliteration": "hem medabrim al haavoda.",
+          "display_order": 3
+        },
+        {
+          "sentence": "המורה {{answer}} מתמטיקה.",
+          "answer": "מלמד",
+          "translation": "The teacher teaches mathematics.",
+          "hint": "teaches — masculine singular of the same pattern",
+          "transliteration": "hamore melamed matematika.",
+          "display_order": 4
+        },
+        {
+          "sentence": "אני {{answer}} עזרה.",
+          "answer": "מבקש",
+          "translation": "I am asking for help.",
+          "hint": "request — masculine singular",
+          "transliteration": "ani mevakesh ezra.",
+          "display_order": 5
+        }
+      ]
+    },
+    {
+      "title": "Present tense hif'il",
+      "level": "A2",
+      "function": "Use the causative verb pattern in the present",
+      "source": "ai",
+      "reviewed": false,
+      "display_order": 10,
+      "explanation": "Hif'il verbs also begin with מ־ in the present, but they carry an i-vowel before the last root letter: מרגיש (feel), מתחיל (begin), מסביר (explain), מזמין (order, invite). The other forms are regular: מרגישה, מרגישים, מרגישות. Many hif'il verbs are causative — \"make someone do\" — but plenty, like מרגיש, simply are what they are.",
+      "drills": [
+        {
+          "sentence": "אני {{answer}} טוב היום.",
+          "answer": "מרגיש",
+          "translation": "I feel good today.",
+          "hint": "feel — masculine singular",
+          "transliteration": "ani margish tov hayom.",
+          "display_order": 1
+        },
+        {
+          "sentence": "היא {{answer}} טוב היום.",
+          "answer": "מרגישה",
+          "translation": "She feels good today.",
+          "hint": "feels — feminine singular",
+          "transliteration": "hi margisha tov hayom.",
+          "display_order": 2
+        },
+        {
+          "sentence": "השיעור {{answer}} בשמונה.",
+          "answer": "מתחיל",
+          "translation": "The lesson begins at eight.",
+          "hint": "begins — masculine singular",
+          "transliteration": "hashiur matchil bishmone.",
+          "display_order": 3
+        },
+        {
+          "sentence": "המורה {{answer}} את הכלל.",
+          "answer": "מסביר",
+          "translation": "The teacher explains the rule.",
+          "hint": "explains — masculine singular",
+          "transliteration": "hamore masbir et haklal.",
+          "display_order": 4
+        },
+        {
+          "sentence": "אנחנו {{answer}} פיצה.",
+          "answer": "מזמינים",
+          "translation": "We are ordering pizza.",
+          "hint": "order — masculine plural",
+          "transliteration": "anachnu mazminim pitsa.",
+          "display_order": 5
+        }
+      ]
+    },
+    {
+      "title": "Roots and binyanim: how the system works",
+      "level": "B1",
+      "function": "Read a verb as a root plus a pattern",
+      "source": "ai",
+      "reviewed": false,
+      "display_order": 1,
+      "explanation": "Almost every Hebrew verb is a three-consonant root poured into one of seven patterns called binyanim, and the pattern — not the root — carries the grammatical flavour. From ל־ב־ש you get pa'al לובש (\"wears\"), hif'il מלביש (\"dresses someone else\"), and hitpa'el מתלבש (\"gets dressed\"). Recognizing the pattern lets you guess a new verb's meaning and conjugate it without learning it from scratch.",
+      "drills": [
+        {
+          "sentence": "הוא {{answer}} חולצה לבנה.",
+          "answer": "לובש",
+          "translation": "He is wearing a white shirt.",
+          "hint": "wears — the plain pattern of the root for clothing",
+          "transliteration": "hu lovesh chultsa levana.",
+          "display_order": 1
+        },
+        {
+          "sentence": "אמא {{answer}} את הילד.",
+          "answer": "מלבישה",
+          "translation": "Mom is dressing the child.",
+          "hint": "dresses someone else — the causative pattern, feminine singular",
+          "transliteration": "ima malbisha et hayeled.",
+          "display_order": 2
+        },
+        {
+          "sentence": "אני {{answer}} מהר בבוקר.",
+          "answer": "מתלבש",
+          "translation": "I get dressed quickly in the morning.",
+          "hint": "get dressed — the reflexive pattern, masculine singular",
+          "transliteration": "ani mitlabesh maher baboker.",
+          "display_order": 3
+        },
+        {
+          "sentence": "המורה {{answer}} עברית.",
+          "answer": "מלמד",
+          "translation": "The teacher teaches Hebrew.",
+          "hint": "teaches — the intensive pattern built on the root for learning",
+          "transliteration": "hamore melamed ivrit.",
+          "display_order": 4
+        },
+        {
+          "sentence": "התלמיד {{answer}} עברית.",
+          "answer": "לומד",
+          "translation": "The student studies Hebrew.",
+          "hint": "studies — the plain pattern of that same root",
+          "transliteration": "hatalmid lomed ivrit.",
+          "display_order": 5
+        }
+      ]
+    },
+    {
+      "title": "Pi'el in the past and the future",
+      "level": "B1",
+      "function": "Conjugate a pi'el verb outside the present",
+      "source": "ai",
+      "reviewed": false,
+      "display_order": 2,
+      "explanation": "The מ־ of the pi'el present belongs to the present only. In the past the stem takes the ordinary endings directly — דיברתי, דיברת, דיבר, דיברה, דיברנו, דיברו — and in the future it takes the ordinary prefixes: אדבר, תדבר, ידבר, נדבר, ידברו. The middle root letter is doubled in pronunciation, which is what makes the pattern sound distinct.",
+      "drills": [
+        {
+          "sentence": "אתמול {{answer}} עם המנהל.",
+          "answer": "דיברתי",
+          "translation": "Yesterday I spoke with the manager.",
+          "hint": "I spoke — first person singular past of this pattern",
+          "transliteration": "etmol dibarti im hamenahel.",
+          "display_order": 1
+        },
+        {
+          "sentence": "הוא {{answer}} לי סיפור ארוך.",
+          "answer": "סיפר",
+          "translation": "He told me a long story.",
+          "hint": "told — third person masculine singular past",
+          "transliteration": "hu siper li sipur arokh.",
+          "display_order": 2
+        },
+        {
+          "sentence": "מחר {{answer}} איתו על זה.",
+          "answer": "אדבר",
+          "translation": "Tomorrow I'll speak with him about it.",
+          "hint": "I will speak — the future prefix for first person singular",
+          "transliteration": "machar adaber ito al ze.",
+          "display_order": 3
+        },
+        {
+          "sentence": "היא {{answer}} את החדר.",
+          "answer": "ניקתה",
+          "translation": "She cleaned the room.",
+          "hint": "cleaned — feminine singular past of a verb whose root ends in a weak letter",
+          "transliteration": "hi nikta et hacheder.",
+          "display_order": 4
+        },
+        {
+          "sentence": "הם {{answer}} לנו על הטיול.",
+          "answer": "סיפרו",
+          "translation": "They told us about the trip.",
+          "hint": "told — third person plural past",
+          "transliteration": "hem sipru lanu al hatiyul.",
+          "display_order": 5
+        }
+      ]
+    },
+    {
+      "title": "Hif'il in the past and the future",
+      "level": "B1",
+      "function": "Conjugate a hif'il verb outside the present",
+      "source": "ai",
+      "reviewed": false,
+      "display_order": 3,
+      "explanation": "Hif'il keeps a ה־ at the front in the past: הרגשתי, הרגשת, הרגיש, הרגישה, הרגשנו, הרגישו. In the future that ה disappears and the ordinary prefixes take over: ארגיש, תרגיש, ירגיש, נרגיש, ירגישו. Notice that the long i-vowel of the present survives in the third person past and throughout the future.",
+      "drills": [
+        {
+          "sentence": "אתמול {{answer}} רע.",
+          "answer": "הרגשתי",
+          "translation": "Yesterday I felt bad.",
+          "hint": "I felt — first person singular past of this pattern",
+          "transliteration": "etmol hirgashti ra.",
+          "display_order": 1
+        },
+        {
+          "sentence": "הוא {{answer}} לעבוד בשמונה.",
+          "answer": "התחיל",
+          "translation": "He started working at eight.",
+          "hint": "started — third person masculine singular past",
+          "transliteration": "hu hitchil laavod bishmone.",
+          "display_order": 2
+        },
+        {
+          "sentence": "מחר {{answer}} טוב יותר.",
+          "answer": "תרגיש",
+          "translation": "Tomorrow you'll feel better.",
+          "hint": "you will feel — second person masculine singular future",
+          "transliteration": "machar targish tov yoter.",
+          "display_order": 3
+        },
+        {
+          "sentence": "המורה {{answer}} את הכלל.",
+          "answer": "הסביר",
+          "translation": "The teacher explained the rule.",
+          "hint": "explained — third person masculine singular past",
+          "transliteration": "hamore hisbir et haklal.",
+          "display_order": 4
+        },
+        {
+          "sentence": "הם {{answer}} את הכסף מחר.",
+          "answer": "יחזירו",
+          "translation": "They will return the money tomorrow.",
+          "hint": "they will give back — third person plural future",
+          "transliteration": "hem yachziru et hakesef machar.",
+          "display_order": 5
+        }
+      ]
+    },
+    {
+      "title": "Hitpa'el: reflexive and reciprocal verbs",
+      "level": "B1",
+      "function": "Say what someone does to themselves or to each other",
+      "source": "ai",
+      "reviewed": false,
+      "display_order": 4,
+      "explanation": "Hitpa'el covers actions done to oneself or to one another. Its present adds מת־ (מתלבש, מתרחץ, מתגעגע) and its past adds הת־ (התלבשתי, התלבש, התלבשה, התלבשו). When the root begins with a hissing letter, the ת swaps places with it: השתמש (\"used\"), not the expected התשמש.",
+      "drills": [
+        {
+          "sentence": "אני {{answer}} בבוקר.",
+          "answer": "מתלבש",
+          "translation": "I get dressed in the morning.",
+          "hint": "get dressed — present, masculine singular",
+          "transliteration": "ani mitlabesh baboker.",
+          "display_order": 1
+        },
+        {
+          "sentence": "היא {{answer}} מהר.",
+          "answer": "התלבשה",
+          "translation": "She got dressed quickly.",
+          "hint": "got dressed — past, feminine singular",
+          "transliteration": "hi hitlabsha maher.",
+          "display_order": 2
+        },
+        {
+          "sentence": "אני {{answer}} אליו מאוד.",
+          "answer": "מתגעגע",
+          "translation": "I miss him a lot.",
+          "hint": "miss — present, masculine singular of the same pattern",
+          "transliteration": "ani mitgaagea elav meod.",
+          "display_order": 3
+        },
+        {
+          "sentence": "הוא {{answer}} במילון.",
+          "answer": "השתמש",
+          "translation": "He used a dictionary.",
+          "hint": "used — here the ת has swapped places with the first root letter",
+          "transliteration": "hu hishtamesh bemilon.",
+          "display_order": 4
+        },
+        {
+          "sentence": "הם {{answer}} מוקדם.",
+          "answer": "התעוררו",
+          "translation": "They woke up early.",
+          "hint": "woke up — past, third person plural",
+          "transliteration": "hem hitoreru mukdam.",
+          "display_order": 5
+        }
+      ]
+    },
+    {
+      "title": "The construct state (smichut)",
+      "level": "B1",
+      "function": "Join two nouns without של",
+      "source": "ai",
+      "reviewed": false,
+      "display_order": 5,
+      "explanation": "Instead of של, two nouns can simply be set side by side: בית ספר (\"school\", literally \"house of book\"), עוגת שוקולד (\"chocolate cake\"), מיץ תפוזים (\"orange juice\"). The first noun takes a special construct shape — feminine ה־ becomes ת (עוגה → עוגת) and masculine plural ים־ becomes י־ (ספרים → ספרי). Only the final noun may carry the definite article: בית הספר.",
+      "drills": [
+        {
+          "sentence": "הילדים הולכים לבית {{answer}}.",
+          "answer": "הספר",
+          "translation": "The children are going to school.",
+          "hint": "the book — the second half of the compound, and the only part that takes the article",
+          "transliteration": "hayeladim holkhim leveit hasefer.",
+          "display_order": 1
+        },
+        {
+          "sentence": "אכלתי {{answer}} שוקולד.",
+          "answer": "עוגת",
+          "translation": "I ate a chocolate cake.",
+          "hint": "cake of — the construct shape, with the feminine ending changed to ת",
+          "transliteration": "akhalti ugat shokolad.",
+          "display_order": 2
+        },
+        {
+          "sentence": "{{answer}} הספר נמצא ברחוב הראשי.",
+          "answer": "בית",
+          "translation": "The school is on the main street.",
+          "hint": "house of — the first link of the compound that means school",
+          "transliteration": "beit hasefer nimtsa barchov harashi.",
+          "display_order": 3
+        },
+        {
+          "sentence": "הוא קרא את {{answer}} הילדים.",
+          "answer": "ספרי",
+          "translation": "He read the children's books.",
+          "hint": "books of — masculine plural in construct, with a shortened ending",
+          "transliteration": "hu kara et sifrey hayeladim.",
+          "display_order": 4
+        },
+        {
+          "sentence": "שתיתי {{answer}} תפוזים.",
+          "answer": "מיץ",
+          "translation": "I drank orange juice.",
+          "hint": "juice — the first noun of the compound; many masculine nouns look unchanged",
+          "transliteration": "shatiti mits tapuzim.",
+          "display_order": 5
+        }
+      ]
+    },
+    {
+      "title": "Verbal nouns (shem pe'ula)",
+      "level": "B1",
+      "function": "Name the activity a verb describes",
+      "source": "ai",
+      "reviewed": false,
+      "display_order": 6,
+      "explanation": "Each binyan has its own noun-of-action shape. Pa'al gives כתיבה (writing), הליכה (walking), אכילה (eating); pi'el gives דיבור (speaking) and טיול (a trip); hif'il gives הסבר (explanation) and הפסקה (a break); hitpa'el gives התלבשות. These are ordinary nouns with gender and plural, and they are the usual way to name an activity where English would use an -ing form.",
+      "drills": [
+        {
+          "sentence": "{{answer}} היא ספורט טוב.",
+          "answer": "הליכה",
+          "translation": "Walking is good exercise.",
+          "hint": "walking, as a noun — the pa'al action-noun shape",
+          "transliteration": "halikha hi sport tov.",
+          "display_order": 1
+        },
+        {
+          "sentence": "{{answer}} שלו ברורה מאוד.",
+          "answer": "הכתיבה",
+          "translation": "His writing is very clear.",
+          "hint": "the writing — the article plus the pa'al action noun",
+          "transliteration": "haktiva shelo brura meod.",
+          "display_order": 2
+        },
+        {
+          "sentence": "השיעור ממשיך אחרי {{answer}} קצרה.",
+          "answer": "הפסקה",
+          "translation": "The lesson continues after a short break.",
+          "hint": "a break — a feminine action noun from the causative pattern",
+          "transliteration": "hashiur mamshikh acharey hafsaka ktsara.",
+          "display_order": 3
+        },
+        {
+          "sentence": "הוא נתן לי {{answer}} טוב.",
+          "answer": "הסבר",
+          "translation": "He gave me a good explanation.",
+          "hint": "explanation — the action noun of the verb meaning to make clear",
+          "transliteration": "hu natan li hesber tov.",
+          "display_order": 4
+        },
+        {
+          "sentence": "{{answer}} בעברית קשה לי.",
+          "answer": "דיבור",
+          "translation": "Speaking Hebrew is hard for me.",
+          "hint": "speaking, as a noun — the pi'el action-noun shape",
+          "transliteration": "dibur beivrit kashe li.",
+          "display_order": 5
+        }
+      ]
+    },
+    {
+      "title": "Real conditionals with אם",
+      "level": "B1",
+      "function": "State a condition that may well come true",
+      "source": "ai",
+      "reviewed": false,
+      "display_order": 7,
+      "explanation": "For a condition that could really happen, Hebrew uses אם (\"if\") and puts the future tense in both halves — where English keeps the present in the if-clause: אם ירד גשם, נישאר בבית (\"If it rains, we'll stay home\"). A command can stand in the main clause instead. For general facts the present is fine in both halves.",
+      "drills": [
+        {
+          "sentence": "{{answer}} יהיה לי זמן, אבוא.",
+          "answer": "אם",
+          "translation": "If I have time, I'll come.",
+          "hint": "if — introduces a condition that may genuinely happen",
+          "transliteration": "im yihye li zman, avo.",
+          "display_order": 1
+        },
+        {
+          "sentence": "אם ירד גשם, {{answer}} בבית.",
+          "answer": "נישאר",
+          "translation": "If it rains, we'll stay home.",
+          "hint": "we will stay — the main clause takes the future too",
+          "transliteration": "im yered geshem, nishaer babayit.",
+          "display_order": 2
+        },
+        {
+          "sentence": "אם תרצה, אני {{answer}} לך.",
+          "answer": "אעזור",
+          "translation": "If you want, I'll help you.",
+          "hint": "I will help — first person singular future",
+          "transliteration": "im tirtse, ani eezor lekha.",
+          "display_order": 3
+        },
+        {
+          "sentence": "אם אתה עייף, {{answer}} לישון.",
+          "answer": "לך",
+          "translation": "If you're tired, go to sleep.",
+          "hint": "go — the masculine singular command form",
+          "transliteration": "im ata ayef, lekh lishon.",
+          "display_order": 4
+        },
+        {
+          "sentence": "{{answer}} לא תבוא, נתקשר אליך.",
+          "answer": "אם",
+          "translation": "If you don't come, we'll call you.",
+          "hint": "if — the ordinary word for a real condition",
+          "transliteration": "im lo tavo, nitkasher elekha.",
+          "display_order": 5
+        }
+      ]
+    },
+    {
+      "title": "Relative clauses with ש־",
+      "level": "B1",
+      "function": "Attach a clause to a noun",
+      "source": "ai",
+      "reviewed": false,
+      "display_order": 8,
+      "explanation": "One prefix, ש־, does the work of who, which and that, and it glues onto the following word: האיש שגר כאן (\"the man who lives here\"), הספר שקראתי (\"the book that I read\"). Unlike English, it can never be left out. When the noun is the object of a preposition, Hebrew repeats that preposition later with a pronoun ending: הבית שגרתי בו (\"the house I lived in\").",
+      "drills": [
+        {
+          "sentence": "האיש {{answer}} כאן הוא רופא.",
+          "answer": "שגר",
+          "translation": "The man who lives here is a doctor.",
+          "hint": "who lives — the relative prefix glued to the verb",
+          "transliteration": "haish shegar kan hu rofe.",
+          "display_order": 1
+        },
+        {
+          "sentence": "הספר {{answer}} היה מעניין.",
+          "answer": "שקראתי",
+          "translation": "The book I read was interesting.",
+          "hint": "that I read — the relative prefix on a past-tense verb",
+          "transliteration": "hasefer shekarati haya meanyen.",
+          "display_order": 2
+        },
+        {
+          "sentence": "זאת המסעדה {{answer}} בה אתמול.",
+          "answer": "שאכלנו",
+          "translation": "This is the restaurant we ate at yesterday.",
+          "hint": "that we ate — note that the preposition comes back later with an ending",
+          "transliteration": "zot hamisada sheakhalnu ba etmol.",
+          "display_order": 3
+        },
+        {
+          "sentence": "הילדה {{answer}} עברית גרה כאן.",
+          "answer": "שלומדת",
+          "translation": "The girl who studies Hebrew lives here.",
+          "hint": "who studies — feminine singular present with the relative prefix",
+          "transliteration": "hayalda shelomedet ivrit gara kan.",
+          "display_order": 4
+        },
+        {
+          "sentence": "זה הבית {{answer}} בו.",
+          "answer": "שגדלתי",
+          "translation": "This is the house I grew up in.",
+          "hint": "that I grew up — with the preposition echoed at the end",
+          "transliteration": "ze habayit shegadalti bo.",
+          "display_order": 5
+        }
+      ]
+    },
+    {
+      "title": "Comparatives with יותר and הכי",
+      "level": "B1",
+      "function": "Compare two things and pick the top one",
+      "source": "ai",
+      "reviewed": false,
+      "display_order": 9,
+      "explanation": "To compare, add יותר (\"more\") to the adjective and מ־ (\"than\") to what you compare with: דן גבוה יותר מדנה, or, just as common in speech, דן יותר גבוה מדנה. The superlative uses הכי (\"most\"): הוא הכי גבוה. פחות is \"less\", and formal writing prefers ביותר to הכי.",
+      "drills": [
+        {
+          "sentence": "דן גבוה {{answer}} מדנה.",
+          "answer": "יותר",
+          "translation": "Dan is taller than Dana.",
+          "hint": "more — the word that builds the comparative",
+          "transliteration": "dan gavoha yoter midana.",
+          "display_order": 1
+        },
+        {
+          "sentence": "הוא {{answer}} גבוה בכיתה.",
+          "answer": "הכי",
+          "translation": "He is the tallest in the class.",
+          "hint": "most — the everyday superlative word",
+          "transliteration": "hu hachi gavoha bakita.",
+          "display_order": 2
+        },
+        {
+          "sentence": "הספר הזה {{answer}} מעניין מהסרט.",
+          "answer": "יותר",
+          "translation": "This book is more interesting than the movie.",
+          "hint": "more — here it comes before the adjective",
+          "transliteration": "hasefer haze yoter meanyen mehaseret.",
+          "display_order": 3
+        },
+        {
+          "sentence": "היום קר {{answer}} מאתמול.",
+          "answer": "יותר",
+          "translation": "Today is colder than yesterday.",
+          "hint": "more — with the prefix for than on the following word",
+          "transliteration": "hayom kar yoter meetmol.",
+          "display_order": 4
+        },
+        {
+          "sentence": "זה {{answer}} יקר.",
+          "answer": "פחות",
+          "translation": "This one is less expensive.",
+          "hint": "less — the opposite of the comparative word",
+          "transliteration": "ze pachot yakar.",
+          "display_order": 5
+        }
+      ]
+    },
+    {
+      "title": "Nif'al: the middle and passive pattern",
+      "level": "B2",
+      "function": "Use the pattern for things that happen to the subject",
+      "source": "ai",
+      "reviewed": false,
+      "display_order": 1,
+      "explanation": "Nif'al is often the passive or middle counterpart of pa'al. Its present and past both begin with נ־ (נכנס, נפגש, נמצא; נכנסתי, נפגשנו), while the infinitive and future insert a ה: להיכנס, ייכנס. Many nif'al verbs are simply intransitive rather than passive — נגמר (\"ended\"), נשבר (\"broke\") — and the masculine singular present and past look identical.",
+      "drills": [
+        {
+          "sentence": "אנחנו {{answer}} בקפה בשש.",
+          "answer": "נפגשים",
+          "translation": "We meet at the café at six.",
+          "hint": "meet each other — present, masculine plural",
+          "transliteration": "anachnu nifgashim bakafe beshesh.",
+          "display_order": 1
+        },
+        {
+          "sentence": "הוא {{answer}} לחדר.",
+          "answer": "נכנס",
+          "translation": "He entered the room.",
+          "hint": "entered — masculine singular; the present and past forms are spelled alike",
+          "transliteration": "hu nikhnas lacheder.",
+          "display_order": 2
+        },
+        {
+          "sentence": "הכוס {{answer}}.",
+          "answer": "נשברה",
+          "translation": "The glass broke.",
+          "hint": "broke — past, feminine singular, with nobody doing the breaking",
+          "transliteration": "hakos nishbera.",
+          "display_order": 3
+        },
+        {
+          "sentence": "הסרט {{answer}} בעשר.",
+          "answer": "נגמר",
+          "translation": "The movie ended at ten.",
+          "hint": "ended — masculine singular of this pattern",
+          "transliteration": "haseret nigmar beeser.",
+          "display_order": 4
+        },
+        {
+          "sentence": "המפתחות {{answer}} על השולחן.",
+          "answer": "נמצאים",
+          "translation": "The keys are on the table.",
+          "hint": "are located — present, masculine plural, matching a masculine noun",
+          "transliteration": "hamaftechot nimtsaim al hashulchan.",
+          "display_order": 5
+        }
+      ]
+    },
+    {
+      "title": "Pu'al and huf'al: recognizing the passives",
+      "level": "B2",
+      "function": "Read the two patterns that exist only as passives",
+      "source": "ai",
+      "reviewed": false,
+      "display_order": 2,
+      "explanation": "Two binyanim have no active use at all. Pu'al is the passive of pi'el — present מסודר, מדובר, past סודר, בוטל (\"was cancelled\") — and huf'al is the passive of hif'il — present מוזמן, מוסבר, past הוזמן, הופסק. Both have a present starting with מ and an u-vowel, and neither has a subject doing the action; if the agent is named at all it arrives with על ידי.",
+      "drills": [
+        {
+          "sentence": "הטיסה {{answer}}.",
+          "answer": "בוטלה",
+          "translation": "The flight was cancelled.",
+          "hint": "was cancelled — past, feminine singular, passive of the intensive pattern",
+          "transliteration": "hatisa butla.",
+          "display_order": 1
+        },
+        {
+          "sentence": "החדר {{answer}}.",
+          "answer": "מסודר",
+          "translation": "The room is tidy.",
+          "hint": "tidied — present, masculine singular of that same passive",
+          "transliteration": "hacheder mesudar.",
+          "display_order": 2
+        },
+        {
+          "sentence": "אני {{answer}} לחתונה.",
+          "answer": "מוזמן",
+          "translation": "I am invited to the wedding.",
+          "hint": "invited — present, masculine singular, passive of the causative pattern",
+          "transliteration": "ani muzman lachatuna.",
+          "display_order": 3
+        },
+        {
+          "sentence": "השיעור {{answer}} באמצע.",
+          "answer": "הופסק",
+          "translation": "The lesson was stopped halfway through.",
+          "hint": "was stopped — past, masculine singular of that same passive",
+          "transliteration": "hashiur hufsak baemtsa.",
+          "display_order": 4
+        },
+        {
+          "sentence": "הכללים {{answer}} בשיעור.",
+          "answer": "הוסברו",
+          "translation": "The rules were explained in the lesson.",
+          "hint": "were explained — past, plural, passive of the causative pattern",
+          "transliteration": "haklalim husberu bashiur.",
+          "display_order": 5
+        }
+      ]
+    },
+    {
+      "title": "Unreal conditionals with אילו and לו",
+      "level": "B2",
+      "function": "Talk about what would happen if things were different",
+      "source": "ai",
+      "reviewed": false,
+      "display_order": 3,
+      "explanation": "For a condition contrary to fact, אם gives way to אילו or the shorter לו, and both halves use היה plus the present participle: אילו היה לי זמן, הייתי בא (\"If I had time, I would come\"). The same היה + present frame also carries \"used to\" and polite would-statements, so context decides which reading is meant.",
+      "drills": [
+        {
+          "sentence": "{{answer}} היה לי זמן, הייתי בא.",
+          "answer": "אילו",
+          "translation": "If I had time, I would come.",
+          "hint": "if, counterfactually — not the word used for a real condition",
+          "transliteration": "ilu haya li zman, hayiti ba.",
+          "display_order": 1
+        },
+        {
+          "sentence": "אילו היה לי כסף, {{answer}} קונה דירה.",
+          "answer": "הייתי",
+          "translation": "If I had money, I'd buy an apartment.",
+          "hint": "I was — the past of to be, which builds the conditional frame",
+          "transliteration": "ilu haya li kesef, hayiti kone dira.",
+          "display_order": 2
+        },
+        {
+          "sentence": "אילו ידעתי, הייתי {{answer}} לך.",
+          "answer": "אומר",
+          "translation": "If I had known, I would have told you.",
+          "hint": "saying — the present participle after the past of to be",
+          "transliteration": "ilu yadati, hayiti omer lekha.",
+          "display_order": 3
+        },
+        {
+          "sentence": "היא {{answer}} שמחה לעזור.",
+          "answer": "הייתה",
+          "translation": "She would be glad to help.",
+          "hint": "she was — feminine singular of the past of to be, here with a would-meaning",
+          "transliteration": "hi hayta smecha laazor.",
+          "display_order": 4
+        },
+        {
+          "sentence": "{{answer}} הייתי עשיר, הייתי מטייל בעולם.",
+          "answer": "לו",
+          "translation": "If I were rich, I'd travel the world.",
+          "hint": "the shorter counterfactual conjunction, common in writing",
+          "transliteration": "lu hayiti ashir, hayiti metayel baolam.",
+          "display_order": 5
+        }
+      ]
+    },
+    {
+      "title": "Temporal clauses: כש־, לפני ש־, אחרי ש־",
+      "level": "B2",
+      "function": "Anchor one event in time relative to another",
+      "source": "ai",
+      "reviewed": false,
+      "display_order": 4,
+      "explanation": "Time conjunctions are built from a preposition plus ש־: כש־ (\"when\"), לפני ש־ (\"before\"), אחרי ש־ (\"after\"), עד ש־ (\"until\"), מאז ש־ (\"since\"). The ש appears only before a clause — before a plain noun it drops away: לפני השיעור (\"before the lesson\") but לפני שהשיעור מתחיל (\"before the lesson starts\").",
+      "drills": [
+        {
+          "sentence": "{{answer}} הביתה, ירד גשם.",
+          "answer": "כשהגעתי",
+          "translation": "When I got home, it was raining.",
+          "hint": "when I arrived — the when-prefix glued onto a past verb",
+          "transliteration": "keshehigati habayta, yarad geshem.",
+          "display_order": 1
+        },
+        {
+          "sentence": "אכלתי לפני {{answer}} מהבית.",
+          "answer": "שיצאתי",
+          "translation": "I ate before I left the house.",
+          "hint": "that I went out — the linking form used after the word for before",
+          "transliteration": "akhalti lifney sheyatsati mehabayit.",
+          "display_order": 2
+        },
+        {
+          "sentence": "אחרי {{answer}} את הסרט, הלכנו לישון.",
+          "answer": "שראינו",
+          "translation": "After we saw the movie, we went to sleep.",
+          "hint": "that we saw — the linking form used after the word for after",
+          "transliteration": "acharey sherainu et haseret, halakhnu lishon.",
+          "display_order": 3
+        },
+        {
+          "sentence": "נחכה עד {{answer}} הגשם.",
+          "answer": "שייגמר",
+          "translation": "We'll wait until the rain stops.",
+          "hint": "that it will end — the future tense after the word for until",
+          "transliteration": "nechake ad sheyigamer hageshem.",
+          "display_order": 4
+        },
+        {
+          "sentence": "{{answer}} עייף, אני שותה קפה.",
+          "answer": "כשאני",
+          "translation": "When I'm tired, I drink coffee.",
+          "hint": "when I — the when-prefix attached straight to the pronoun",
+          "transliteration": "keshaani ayef, ani shote kafe.",
+          "display_order": 5
+        }
+      ]
+    },
+    {
+      "title": "Indirect speech with ש־",
+      "level": "B2",
+      "function": "Report what someone said",
+      "source": "ai",
+      "reviewed": false,
+      "display_order": 5,
+      "explanation": "Reported speech is introduced by ש־ (\"that\"), and unlike English \"that\" it can never be dropped: הוא אמר שהוא עייף. Hebrew also does not shift the tense backwards — the reported clause keeps the tense the speaker originally used, so הוא אמר שהוא בא is \"he said he was coming\". A reported yes/no question uses אם (\"whether\").",
+      "drills": [
+        {
+          "sentence": "הוא אמר {{answer}} עייף.",
+          "answer": "שהוא",
+          "translation": "He said that he was tired.",
+          "hint": "that he — the conjunction fused with the pronoun",
+          "transliteration": "hu amar shehu ayef.",
+          "display_order": 1
+        },
+        {
+          "sentence": "היא סיפרה {{answer}} מחר.",
+          "answer": "שתבוא",
+          "translation": "She said she would come tomorrow.",
+          "hint": "that she will come — the tense stays as it was originally spoken",
+          "transliteration": "hi sipra shetavo machar.",
+          "display_order": 2
+        },
+        {
+          "sentence": "שאלתי {{answer}} הוא רוצה לבוא.",
+          "answer": "אם",
+          "translation": "I asked whether he wanted to come.",
+          "hint": "whether — the same word used for a real condition",
+          "transliteration": "shaalti im hu rotse lavo.",
+          "display_order": 3
+        },
+        {
+          "sentence": "אני חושב {{answer}} צודקת.",
+          "answer": "שאת",
+          "translation": "I think you're right.",
+          "hint": "that you — the conjunction with a feminine singular pronoun",
+          "transliteration": "ani choshev sheat tsodeket.",
+          "display_order": 4
+        },
+        {
+          "sentence": "הם אמרו {{answer}} יודעים.",
+          "answer": "שלא",
+          "translation": "They said they didn't know.",
+          "hint": "that not — the conjunction plus the negation word",
+          "transliteration": "hem amru shelo yodim.",
+          "display_order": 5
+        }
+      ]
+    },
+    {
+      "title": "Object pronouns and their literary suffixed forms",
+      "level": "B2",
+      "function": "Say me, him, them as the object of a verb",
+      "source": "ai",
+      "reviewed": false,
+      "display_order": 6,
+      "explanation": "When the direct object is a pronoun, everyday Hebrew builds it on the object marker: אותי (me), אותך (you), אותו (him/it), אותה (her), אותנו (us), אותם (them). Literary and news Hebrew can instead fuse the pronoun onto the verb itself — ראיתיו for ראיתי אותו, מצאתיה for מצאתי אותה. Those suffixed forms are worth recognizing in print, but speech uses the separate ones.",
+      "drills": [
+        {
+          "sentence": "הוא ראה {{answer}} בשוק.",
+          "answer": "אותי",
+          "translation": "He saw me at the market.",
+          "hint": "me — the object marker carrying a first person ending",
+          "transliteration": "hu raa oti bashuk.",
+          "display_order": 1
+        },
+        {
+          "sentence": "אני מכיר {{answer}} היטב.",
+          "answer": "אותה",
+          "translation": "I know her well.",
+          "hint": "her — the object marker with a feminine third person ending",
+          "transliteration": "ani makir ota heytev.",
+          "display_order": 2
+        },
+        {
+          "sentence": "פגשנו {{answer}} אתמול.",
+          "answer": "אותם",
+          "translation": "We met them yesterday.",
+          "hint": "them — the plural object form",
+          "transliteration": "pagashnu otam etmol.",
+          "display_order": 3
+        },
+        {
+          "sentence": "{{answer}} אתמול בעיר.",
+          "answer": "ראיתיו",
+          "translation": "I saw him yesterday in town.",
+          "hint": "I saw him, in a single literary word — the pronoun is welded onto the verb",
+          "transliteration": "reitiv etmol bair.",
+          "display_order": 4
+        },
+        {
+          "sentence": "היא אוהבת {{answer}}.",
+          "answer": "אותך",
+          "translation": "She loves you.",
+          "hint": "you — the object form of the second person",
+          "transliteration": "hi ohevet otakh.",
+          "display_order": 5
+        }
+      ]
+    },
+    {
+      "title": "Formal and colloquial register",
+      "level": "C1",
+      "function": "Choose the connector that fits the situation",
+      "source": "ai",
+      "reviewed": false,
+      "display_order": 1,
+      "explanation": "Modern Hebrew keeps a visible gap between speech and the language of newspapers, notices and official prose. Where speech says אבל, בגלל and רק, careful writing prefers אולם or אך, בשל or מחמת, and בלבד. Formal Hebrew also keeps distinctions speech has dropped, such as the feminine plural future תלכנה. Using the high forms in casual conversation sounds as odd as the reverse.",
+      "drills": [
+        {
+          "sentence": "הישיבה בוטלה, {{answer}} ההודעה נשלחה מאוחר.",
+          "answer": "אולם",
+          "translation": "The meeting was cancelled; however, the notice was sent late.",
+          "hint": "however — the written counterpart of the everyday word for but",
+          "transliteration": "hayeshiva butla, ulam hahodaa nishlecha meuchar.",
+          "display_order": 1
+        },
+        {
+          "sentence": "הכניסה למנויים {{answer}}.",
+          "answer": "בלבד",
+          "translation": "Entry for subscribers only.",
+          "hint": "only — the formal word, which follows what it limits",
+          "transliteration": "haknisa limnuyim bilvad.",
+          "display_order": 2
+        },
+        {
+          "sentence": "הטיסה בוטלה {{answer}} מזג האוויר.",
+          "answer": "בשל",
+          "translation": "The flight was cancelled due to the weather.",
+          "hint": "due to — the written preposition; speech would use a different one",
+          "transliteration": "hatisa butla beshel mezeg haavir.",
+          "display_order": 3
+        },
+        {
+          "sentence": "{{answer}} השעה המאוחרת, המשכנו לעבוד.",
+          "answer": "למרות",
+          "translation": "Despite the late hour, we kept working.",
+          "hint": "despite — used directly before a noun in careful writing",
+          "transliteration": "lamrot hashaa hameucheret, hemshakhnu laavod.",
+          "display_order": 4
+        },
+        {
+          "sentence": "הוא לא הגיע, אף {{answer}}.",
+          "answer": "שהבטיח",
+          "translation": "He did not come, although he had promised.",
+          "hint": "that he promised — the clause form after the formal word for although",
+          "transliteration": "hu lo higia, af shehivtiach.",
+          "display_order": 5
+        }
+      ]
+    },
+    {
+      "title": "אשר beside everyday ש־",
+      "level": "C1",
+      "function": "Use the written-register relative word",
+      "source": "ai",
+      "reviewed": false,
+      "display_order": 2,
+      "explanation": "In careful writing the relative prefix ש־ can be replaced by the free-standing word אשר, which never fuses with what follows: הדוח אשר הוגש אתמול. It is the normal choice before a preposition in formal prose — הנושא אשר עליו דיברנו — and it is frozen into set phrases such as באשר ל־. Speech uses ש־ almost exclusively, and piling up אשר sounds stilted.",
+      "drills": [
+        {
+          "sentence": "הדוח {{answer}} הוגש אתמול ארוך מאוד.",
+          "answer": "אשר",
+          "translation": "The report submitted yesterday is very long.",
+          "hint": "which — the free-standing relative word of written Hebrew",
+          "transliteration": "hadoch asher hugash etmol arokh meod.",
+          "display_order": 1
+        },
+        {
+          "sentence": "הנושא {{answer}} עליו דיברנו חשוב.",
+          "answer": "אשר",
+          "translation": "The topic we spoke about is important.",
+          "hint": "which — before a preposition, formal prose prefers the separate word",
+          "transliteration": "hanose asher alav dibarnu chashuv.",
+          "display_order": 2
+        },
+        {
+          "sentence": "האיש {{answer}} כאן הוא שכן שלי.",
+          "answer": "שגר",
+          "translation": "The man who lives here is a neighbour of mine.",
+          "hint": "who lives — everyday speech glues the relative straight onto the verb",
+          "transliteration": "haish shegar kan hu shakhen sheli.",
+          "display_order": 3
+        },
+        {
+          "sentence": "{{answer}} לתקציב, נדון בו מחר.",
+          "answer": "באשר",
+          "translation": "As for the budget, we'll discuss it tomorrow.",
+          "hint": "as for — a frozen formal phrase built on that same relative word",
+          "transliteration": "beasher lataktsiv, nadun bo machar.",
+          "display_order": 4
+        },
+        {
+          "sentence": "ההחלטה {{answer}} התקבלה אמש פורסמה היום.",
+          "answer": "אשר",
+          "translation": "The decision taken last night was published today.",
+          "hint": "which — the formal relative, here inside a news sentence",
+          "transliteration": "hahachlata asher hitkabla emesh pursema hayom.",
+          "display_order": 5
+        }
+      ]
+    },
+    {
+      "title": "Long construct chains",
+      "level": "C1",
+      "function": "Read and build a chain of three or more nouns",
+      "source": "ai",
+      "reviewed": false,
+      "display_order": 3,
+      "explanation": "A construct chain can run several nouns deep, and only the very last link may carry the definite article: משרד ראש הממשלה (\"the Prime Minister's Office\"), דוח ועדת החקירה. No adjective can sit inside the chain — it waits until the end and agrees with whichever noun it modifies, which is why בית הספר החדש can mean either \"the new school\" or, in principle, \"the new book's house\". Speech often breaks a long chain up with של.",
+      "drills": [
+        {
+          "sentence": "הוא עובד במשרד ראש {{answer}}.",
+          "answer": "הממשלה",
+          "translation": "He works in the Prime Minister's Office.",
+          "hint": "the government — the last link, and the only one allowed the article",
+          "transliteration": "hu oved bemisrad rosh hamemshala.",
+          "display_order": 1
+        },
+        {
+          "sentence": "{{answer}} הספר החדש נפתח היום.",
+          "answer": "בית",
+          "translation": "The new school opened today.",
+          "hint": "house of — the first link of the compound meaning school",
+          "transliteration": "beit hasefer hechadash niftach hayom.",
+          "display_order": 2
+        },
+        {
+          "sentence": "קראנו את דוח ועדת {{answer}}.",
+          "answer": "החקירה",
+          "translation": "We read the report of the commission of inquiry.",
+          "hint": "the investigation — the final link of a three-noun chain",
+          "transliteration": "karanu et doch vaadat hachakira.",
+          "display_order": 3
+        },
+        {
+          "sentence": "עורך {{answer}} הגיע לפגישה.",
+          "answer": "הדין",
+          "translation": "The lawyer arrived at the meeting.",
+          "hint": "the law — the second half of the compound that means lawyer",
+          "transliteration": "orekh hadin higia lapgisha.",
+          "display_order": 4
+        },
+        {
+          "sentence": "תלמידי בית {{answer}} יצאו לטיול.",
+          "answer": "הספר",
+          "translation": "The school's pupils went on a trip.",
+          "hint": "the book — the closing link of a chain that begins with pupils",
+          "transliteration": "talmidey beit hasefer yatsu letiyul.",
+          "display_order": 5
+        }
+      ]
+    },
+    {
+      "title": "The vav-conversive in quotation and idiom",
+      "level": "C2",
+      "function": "Recognize the biblical tense system where it survives",
+      "source": "ai",
+      "reviewed": false,
+      "display_order": 1,
+      "explanation": "Biblical Hebrew flipped a verb's tense with a prefixed ו: ויאמר (\"and he said\") looks like a future but narrates the past, and והיה (\"and it shall be\") looks like a past but points forward. Modern Hebrew abandoned the system, yet the forms survive in quotation, liturgy, headlines and fixed idioms such as ויהי מה (\"come what may\"). Read them as vocabulary, not as a pattern you can extend.",
+      "drills": [
+        {
+          "sentence": "{{answer}} אור.",
+          "answer": "ויהי",
+          "translation": "And there was light.",
+          "hint": "and there was — a past narrated by a future-looking form",
+          "transliteration": "vayehi or.",
+          "display_order": 1
+        },
+        {
+          "sentence": "{{answer}} משה אל העם.",
+          "answer": "ויאמר",
+          "translation": "And Moses said to the people.",
+          "hint": "and he said — the classic narrative past with a prefixed vav",
+          "transliteration": "vayomer moshe el haam.",
+          "display_order": 2
+        },
+        {
+          "sentence": "{{answer}} ביום ההוא.",
+          "answer": "והיה",
+          "translation": "And it shall come to pass on that day.",
+          "hint": "and it will be — a past-shaped verb read as a future",
+          "transliteration": "vehaya bayom hahu.",
+          "display_order": 3
+        },
+        {
+          "sentence": "{{answer}} לרעך כמוך.",
+          "answer": "ואהבת",
+          "translation": "And you shall love your neighbour as yourself.",
+          "hint": "and you shall love — a past form with vav read as a command",
+          "transliteration": "veahavta lereakha kamokha.",
+          "display_order": 4
+        },
+        {
+          "sentence": "נמשיך בדרכנו, {{answer}} מה.",
+          "answer": "ויהי",
+          "translation": "We'll carry on, come what may.",
+          "hint": "let it be — the same frozen form, here inside a modern idiom",
+          "transliteration": "namshikh bedarkenu, vihi ma.",
+          "display_order": 5
+        }
+      ]
+    },
+    {
+      "title": "Idiomatic shifts between binyanim",
+      "level": "C2",
+      "function": "Handle roots whose meaning jumps unpredictably between patterns",
+      "source": "ai",
+      "reviewed": false,
+      "display_order": 2,
+      "explanation": "Once a root moves between binyanim the meaning can drift in ways no rule predicts, so each pairing has to be learned as vocabulary. From ר־א־ה: ראה (\"saw\"), הראה (\"showed\"), נראה (\"looked, seemed\"). From ח־ז־ר: חזר (\"came back\"), החזיר (\"gave back\"), חיזר (\"courted\"), plus the noun חזרה (\"rehearsal\"). Some pairings are outright idioms: נשבר לי is literally \"it broke to me\" and means \"I've had enough\".",
+      "drills": [
+        {
+          "sentence": "הוא {{answer}} לי את התמונה.",
+          "answer": "הראה",
+          "translation": "He showed me the picture.",
+          "hint": "showed — the causative counterpart of the verb for seeing",
+          "transliteration": "hu hera li et hatmuna.",
+          "display_order": 1
+        },
+        {
+          "sentence": "אתה {{answer}} עייף היום.",
+          "answer": "נראה",
+          "translation": "You look tired today.",
+          "hint": "look, seem — the middle-pattern form of that same root",
+          "transliteration": "ata nire ayef hayom.",
+          "display_order": 2
+        },
+        {
+          "sentence": "{{answer}} לי מהעבודה הזאת.",
+          "answer": "נשבר",
+          "translation": "I'm fed up with this job.",
+          "hint": "it broke — with a to-me phrase it becomes the idiom for being fed up",
+          "transliteration": "nishbar li mehaavoda hazot.",
+          "display_order": 3
+        },
+        {
+          "sentence": "הוא {{answer}} את הספר לספרייה.",
+          "answer": "החזיר",
+          "translation": "He returned the book to the library.",
+          "hint": "gave back — the causative of the verb for coming back",
+          "transliteration": "hu hechzir et hasefer lasifriya.",
+          "display_order": 4
+        },
+        {
+          "sentence": "השחקנים באו {{answer}}.",
+          "answer": "לחזרה",
+          "translation": "The actors came to the rehearsal.",
+          "hint": "to the rehearsal — a noun built on that same root",
+          "transliteration": "hasachkanim bau lachazara.",
+          "display_order": 5
+        }
+      ]
+    },
+    {
+      "title": "Switching register inside one text",
+      "level": "C2",
+      "function": "Move between written and spoken Hebrew as the text demands",
+      "source": "ai",
+      "reviewed": false,
+      "display_order": 3,
+      "explanation": "An educated writer changes register within a single paragraph, and the markers are grammatical rather than merely lexical: a formal sentence reaches for בטרם, בשל, אשר and the frame אין ב־ ... כדי, while a quoted line drops to ש־, בגלל and כי. The skill is matching the register to the moment — a news report that suddenly uses spoken connectors reads as sloppy, and a conversation full of בטרם reads as a parody.",
+      "drills": [
+        {
+          "sentence": "בטרם {{answer}}, בדקנו את הכתובת.",
+          "answer": "יצאנו",
+          "translation": "Before we left, we checked the address.",
+          "hint": "we went out — after the elevated word for before, with no linking particle",
+          "transliteration": "beterem yatsanu, badaknu et haktovet.",
+          "display_order": 1
+        },
+        {
+          "sentence": "אין בכך {{answer}} לשנות את ההחלטה.",
+          "answer": "כדי",
+          "translation": "That is not enough to change the decision.",
+          "hint": "in order to — part of a formal frame meaning is not sufficient to",
+          "transliteration": "eyn bekhakh kedey leshanot et hahachlata.",
+          "display_order": 2
+        },
+        {
+          "sentence": "הוא אמר {{answer}} בא כי הוא עייף.",
+          "answer": "שלא",
+          "translation": "He said he wasn't coming because he was tired.",
+          "hint": "that not — plain spoken register, with the everyday conjunctions",
+          "transliteration": "hu amar shelo ba ki hu ayef.",
+          "display_order": 3
+        },
+        {
+          "sentence": "ההחלטה התקבלה {{answer}} המצב הכלכלי.",
+          "answer": "בשל",
+          "translation": "The decision was taken owing to the economic situation.",
+          "hint": "owing to — the written causal preposition",
+          "transliteration": "hahachlata hitkabla beshel hamatsav hakalkali.",
+          "display_order": 4
+        },
+        {
+          "sentence": "לא באנו {{answer}} הגשם.",
+          "answer": "בגלל",
+          "translation": "We didn't come because of the rain.",
+          "hint": "because of — the everyday causal preposition",
+          "transliteration": "lo banu biglal hageshem.",
+          "display_order": 5
         }
       ]
     }

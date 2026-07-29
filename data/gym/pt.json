@@ -55,6 +55,18 @@
           "example": "Se eu falasse, entenderia."
         },
         {
+          "point": "Futuro do subjuntivo (quando eu falar, se eu quiser)",
+          "label": "Future subjunctive",
+          "usage": "Real future conditions: quando, se, assim que, enquanto.",
+          "example": "Quando você falar com ela, me avise."
+        },
+        {
+          "point": "Infinitivo pessoal (para fazermos)",
+          "label": "Personal infinitive",
+          "usage": "Infinitive that agrees with its own subject.",
+          "example": "É melhor partirmos cedo."
+        },
+        {
           "point": "The imperative (fala! / fale!)",
           "label": "Imperative",
           "usage": "Commands.",

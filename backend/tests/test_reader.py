@@ -299,3 +299,35 @@ async def test_generate_rejects_bad_option(client):
         headers=_auth_headers(),
     )
     assert resp.status_code == 422
+
+
+def test_system_prompt_carries_the_placement_result():
+    """Owner: Read should have insight into test results. A reading text is
+    the cheapest way to re-expose a structure someone got wrong."""
+    from backend.services.reader import _system_prompt
+
+    learner = {"level": "A1", "known_words": [], "learned_structures": []}
+    assert "fell down at" not in _system_prompt("es", "en", learner)
+
+    placed = {
+        **learner,
+        "placement": {
+            "ceiling": "A2",
+            "struggled_levels": ["B1"],
+            "missed_structures": ["The subjunctive after querer"],
+            "missed_words": ["aunque"],
+        },
+    }
+    prompt = _system_prompt("es", "en", placed)
+    assert "held A2" in prompt and "fell down at B1" in prompt
+    assert "The subjunctive after querer" in prompt
+    assert "aunque" in prompt
+
+
+def test_placement_rule_stays_silent_without_evidence():
+    """A placement that recorded only a level adds no instructions — an
+    empty 'they missed: (none)' line is noise the model would still weigh."""
+    from backend.services.reader import _placement_rule
+
+    assert _placement_rule(None) == ""
+    assert _placement_rule({"level": "B1", "struggled_levels": []}) == ""

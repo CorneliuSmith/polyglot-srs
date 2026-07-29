@@ -7,6 +7,7 @@ language. All writes are RLS-scoped to the user.
 """
 from __future__ import annotations
 
+import json
 import re
 
 import asyncpg
@@ -141,6 +142,245 @@ async def get_status(conn: asyncpg.Connection, user_id: str) -> dict:
     }
 
 
+async def placement_history(
+    conn: asyncpg.Connection, user_id: str, language_id: str
+) -> dict:
+    """What this learner has done with placement in THIS language.
+
+    Drives three things the app had no way to know before: whether to offer
+    the first-time placement prompt at all, what to show on a retake ("you
+    were A2 in March"), and which item variant to sample so a retake isn't
+    the same questions over again.
+    """
+    rows = await conn.fetch(
+        """
+        SELECT estimated_level, items_asked, created_at
+        FROM placement_attempts
+        WHERE user_id = $1 AND language_id = $2
+        ORDER BY created_at DESC
+        LIMIT 10
+        """,
+        user_id, language_id,
+    )
+    total = await conn.fetchval(
+        """
+        SELECT count(*) FROM placement_attempts
+        WHERE user_id = $1 AND language_id = $2
+        """,
+        user_id, language_id,
+    ) or 0
+    return {
+        "attempts": total,
+        "has_placed": total > 0,
+        "last_level": rows[0]["estimated_level"] if rows else None,
+        "last_taken_at": rows[0]["created_at"].isoformat() if rows else None,
+        "history": [
+            {
+                "estimated_level": r["estimated_level"],
+                "items_asked": r["items_asked"],
+                "taken_at": r["created_at"].isoformat(),
+            }
+            for r in rows
+        ],
+    }
+
+
+async def record_placement_attempt(
+    conn: asyncpg.Connection,
+    user_id: str,
+    language_id: str,
+    *,
+    estimated_level: str | None,
+    items_asked: int,
+    per_level: dict | None = None,
+    missed_grammar_ids: list[str] | None = None,
+    missed_vocabulary_ids: list[str] | None = None,
+) -> None:
+    """Log a finished placement run, verdict AND evidence.
+
+    The per-level tally and the missed items are what the AI surfaces read
+    (see get_placement_insight) — the CEFR letter alone only says where to
+    pitch, never what to work on.
+
+    Best-effort: a learner who just sat the test should still get their level
+    even if the bookkeeping insert fails.
+    """
+    try:
+        attempt_id = await conn.fetchval(
+            """
+            INSERT INTO placement_attempts
+                (user_id, language_id, estimated_level, items_asked, per_level)
+            VALUES ($1, $2, $3, $4, $5::jsonb)
+            RETURNING id
+            """,
+            user_id, language_id, estimated_level, items_asked,
+            json.dumps(per_level or {}),
+        )
+        # The snapshot is taken HERE, at the moment of the sitting, because
+        # this is the only moment the titles are guaranteed to be the ones
+        # the learner actually saw. Resolving them at read time would let a
+        # later rename or retirement rewrite what the test asked.
+        if missed_grammar_ids:
+            await conn.execute(
+                """
+                INSERT INTO placement_attempt_items
+                    (attempt_id, kind, drill_id, grammar_point_id,
+                     label, cell, level)
+                SELECT $1, 'grammar', ds.id, gp.id, gp.title, ds.cell, gp.level
+                FROM drill_sentences ds
+                JOIN grammar_points gp ON gp.id = ds.grammar_point_id
+                WHERE ds.id = ANY($2::uuid[])
+                """,
+                attempt_id, missed_grammar_ids,
+            )
+        if missed_vocabulary_ids:
+            await conn.execute(
+                """
+                INSERT INTO placement_attempt_items
+                    (attempt_id, kind, vocabulary_id, label, level)
+                SELECT $1, 'vocabulary', v.id, v.word, v.level
+                FROM vocabulary v
+                WHERE v.id = ANY($2::uuid[])
+                """,
+                attempt_id, missed_vocabulary_ids,
+            )
+    except asyncpg.PostgresError:
+        pass
+
+
+# Below this share correct, a level counts as NOT held — the same 0.6 the
+# estimator uses, so "struggled at B1" always agrees with the verdict.
+_HELD_THRESHOLD = 0.6
+# Enough for a prompt to act on; past this it's noise the model will ignore.
+_MAX_INSIGHT_ITEMS = 8
+
+
+async def get_placement_insight(
+    conn: asyncpg.Connection, user_id: str, language_id: str
+) -> dict | None:
+    """The latest placement result, resolved into things an AI surface can
+    act on. None when the learner has never placed in this language.
+
+    Returns the verdict, the ceiling the learner actually held, the levels
+    they fell down on, the named structures and words they got wrong, and the
+    movement since the previous attempt.
+
+    This is the only graded evidence about a BRAND NEW learner: no review log,
+    no gym_progress, nothing. It is also the only thing in the app that says
+    what someone can't do yet — the SRS only ever observes what they've been
+    shown.
+    """
+    row = await conn.fetchrow(
+        """
+        SELECT id, estimated_level, items_asked, per_level, created_at
+        FROM placement_attempts
+        WHERE user_id = $1 AND language_id = $2
+        ORDER BY created_at DESC
+        LIMIT 1
+        """,
+        user_id, language_id,
+    )
+    if row is None:
+        return None
+    previous = await conn.fetchval(
+        """
+        SELECT estimated_level FROM placement_attempts
+        WHERE user_id = $1 AND language_id = $2
+        ORDER BY created_at DESC
+        OFFSET 1 LIMIT 1
+        """,
+        user_id, language_id,
+    )
+
+    per_level = row["per_level"] or {}
+    if isinstance(per_level, str):  # asyncpg returns jsonb as text unless cast
+        try:
+            per_level = json.loads(per_level)
+        except (TypeError, ValueError):
+            per_level = {}
+
+    held, struggled = [], []
+    for level, tally in per_level.items():
+        if not isinstance(tally, dict):
+            continue
+        total = tally.get("total") or 0
+        if total <= 0:
+            continue
+        share = (tally.get("correct") or 0) / total
+        (held if share >= _HELD_THRESHOLD else struggled).append(level)
+
+    ordered = [lv for lv in CEFR_ORDER if lv in held]
+    insight: dict = {
+        "level": row["estimated_level"],
+        "taken_at": row["created_at"].isoformat(),
+        "items_asked": row["items_asked"],
+        "ceiling": ordered[-1] if ordered else None,
+        "held_levels": ordered,
+        "struggled_levels": [lv for lv in CEFR_ORDER if lv in struggled],
+        "per_level": per_level,
+        "previous_level": previous,
+    }
+    if previous and row["estimated_level"]:
+        try:
+            step = (CEFR_ORDER.index(row["estimated_level"])
+                    - CEFR_ORDER.index(previous))
+            insight["trend"] = (
+                "improved" if step > 0 else "steady" if step == 0 else "slipped"
+            )
+        except ValueError:
+            pass
+
+    # Name the misses, from the snapshot taken when the test was sat — a bare
+    # id tells a model nothing, and re-deriving the title now would let a
+    # later rename change what the learner is told they got wrong.
+    missed = await conn.fetch(
+        """
+        SELECT DISTINCT kind, label
+        FROM placement_attempt_items
+        WHERE attempt_id = $1 AND label IS NOT NULL
+        """,
+        row["id"],
+    )
+    structures = [r["label"] for r in missed if r["kind"] == "grammar"]
+    words = [r["label"] for r in missed if r["kind"] == "vocabulary"]
+    if structures:
+        insight["missed_structures"] = structures[:_MAX_INSIGHT_ITEMS]
+    if words:
+        insight["missed_words"] = words[:_MAX_INSIGHT_ITEMS]
+    return insight
+
+
+async def get_placement_form_misses(
+    conn: asyncpg.Connection, user_id: str, point_ids: list[str]
+) -> dict[str, str]:
+    """{grammar_point_id: cell} for forms this learner missed at placement.
+
+    The Gym's cold start: on day one gym_progress is empty, so drill
+    generation has no idea what to aim at and produces varied forms at random.
+    A placement miss on a drill IS evidence about that point's cell — the only
+    evidence available before the learner has used the Gym at all.
+    """
+    if not point_ids:
+        return {}
+    # Reads the snapshotted cell, so a drill retired since the sitting still
+    # tells the generator which form to aim at. An indexed join on
+    # grammar_point_id — the array version could only do an unindexed scan.
+    rows = await conn.fetch(
+        """
+        SELECT DISTINCT ON (i.grammar_point_id)
+               i.grammar_point_id::text AS point_id, i.cell
+        FROM placement_attempt_items i
+        JOIN placement_attempts pa ON pa.id = i.attempt_id
+        WHERE pa.user_id = $1
+          AND i.grammar_point_id = ANY($2::uuid[])
+          AND i.cell IS NOT NULL
+        ORDER BY i.grammar_point_id, pa.created_at DESC
+        """,
+        user_id, point_ids,
+    )
+    return {r["point_id"]: r["cell"] for r in rows}
+
+
 # Dictionary-derived definitions for the MOST frequent words are exactly the
 # ones written in grammarese ("initial interrogative particle", "feminine
 # singular of o") — a beta tester rightly flagged that a placement test is no
@@ -163,13 +403,26 @@ def _plain_prompt(definition: str) -> bool:
 
 
 async def sample_placement_items(
-    conn: asyncpg.Connection, language_id: str, *, per_level: int = 3
+    conn: asyncpg.Connection,
+    language_id: str,
+    *,
+    per_level: int = 3,
+    variant: int = 0,
 ) -> list[dict]:
     """Sample graded placement prompts across vocabulary and grammar.
 
     Vocabulary items show an English definition (type the word); grammar items
     show a reviewed cloze sentence with a blank (type the missing form). Both
     pick the most representative items per CEFR level. Answers are not returned.
+
+    *variant* slides the per-level window down the ranked pool so a RETAKE
+    asks different questions (owner: "the test should change slightly to
+    better gauge their improvements"). Variant 0 is the original top-N — the
+    most frequent vocabulary and the earliest drills — so a first placement
+    is unchanged. Later variants step past those, and wrap around once the
+    pool runs out rather than returning nothing: a small language would
+    otherwise lose its whole staircase on a second attempt, and repeating an
+    item is far better than not placing at all.
     """
     # Over-fetch per level, then keep the first plain-language definitions —
     # frequency order is preserved, jargon rows just fall through.
@@ -193,17 +446,39 @@ async def sample_placement_items(
         ORDER BY level, rn
         """,
         language_id,
-        per_level * 8,
+        # Deep enough that a later variant still has unseen rows to walk to.
+        per_level * 8 * (variant + 1),
     )
     vocab: list = []
     taken: dict[str, int] = {}
+    # Variant N skips the N*per_level plain candidates a previous attempt
+    # would have used, so the learner meets new words.
+    skip_target = variant * per_level
+    skipped: dict[str, int] = {}
     for r in vocab_pool:
-        if taken.get(r["level"], 0) >= per_level:
+        lvl = r["level"]
+        if taken.get(lvl, 0) >= per_level:
             continue
         if not _plain_prompt(r["prompt"]):
             continue
-        taken[r["level"]] = taken.get(r["level"], 0) + 1
+        if skipped.get(lvl, 0) < skip_target:
+            skipped[lvl] = skipped.get(lvl, 0) + 1
+            continue
+        taken[lvl] = taken.get(lvl, 0) + 1
         vocab.append(r)
+    if variant:
+        # Wrap: a level whose pool ran out reuses its earlier items rather
+        # than dropping off the staircase entirely.
+        seen_ids = {r["id"] for r in vocab}
+        for r in vocab_pool:
+            lvl = r["level"]
+            if taken.get(lvl, 0) >= per_level:
+                continue
+            if r["id"] in seen_ids or not _plain_prompt(r["prompt"]):
+                continue
+            taken[lvl] = taken.get(lvl, 0) + 1
+            seen_ids.add(r["id"])
+            vocab.append(r)
     # A level whose every candidate is jargon still gets its plain-limit
     # fallback rows rather than vanishing from the staircase.
     for level in {r["level"] for r in vocab_pool}:
@@ -214,9 +489,9 @@ async def sample_placement_items(
                     taken[level] = taken.get(level, 0) + 1
                     if taken[level] >= per_level:
                         break
-    grammar = await conn.fetch(
+    grammar_pool = await conn.fetch(
         """
-        SELECT id, level, sentence, translation FROM (
+        SELECT id, level, sentence, translation, rn FROM (
             SELECT
                 ds.id,
                 gp.level,
@@ -237,9 +512,28 @@ async def sample_placement_items(
         ORDER BY level, rn
         """,
         language_id,
-        per_level,
+        # Reach far enough down each level that variant N has a fresh window.
+        per_level * (variant + 1),
         ANSWER_MARKER,
     )
+    # Grammar has no relevance score to fall through like vocabulary's jargon
+    # filter, so the window is a straight slice of the curriculum order:
+    # variant 0 takes drills 1..per_level, variant 1 takes the next per_level,
+    # and so on. Levels that run out wrap back to the start below.
+    lo = variant * per_level
+    grammar = [r for r in grammar_pool if lo < r["rn"] <= lo + per_level]
+    if variant:
+        g_taken: dict[str, int] = {}
+        for r in grammar:
+            g_taken[r["level"]] = g_taken.get(r["level"], 0) + 1
+        seen_ids = {r["id"] for r in grammar}
+        for r in grammar_pool:
+            lvl = r["level"]
+            if g_taken.get(lvl, 0) >= per_level or r["id"] in seen_ids:
+                continue
+            g_taken[lvl] = g_taken.get(lvl, 0) + 1
+            seen_ids.add(r["id"])
+            grammar.append(r)
 
     items = [
         {"id": str(r["id"]), "kind": "vocabulary", "level": r["level"],
@@ -290,9 +584,12 @@ async def get_placement_answers(
         language_id,
         item_ids,
     )
+    # "kind" rides along so a caller scoring the answers can tell a missed
+    # DRILL from a missed WORD without re-querying — the two feed different
+    # halves of the placement insight (structures vs vocabulary).
     answers = {
         str(r["id"]): {
-            "answer": r["answer"], "level": r["level"],
+            "answer": r["answer"], "level": r["level"], "kind": "vocabulary",
             "alternatives": list(r["alternatives"] or []),
         }
         for r in vocab
@@ -300,7 +597,8 @@ async def get_placement_answers(
     answers.update(
         {
             str(r["id"]): {
-                "answer": r["answer"], "level": r["level"], "alternatives": [],
+                "answer": r["answer"], "level": r["level"], "kind": "grammar",
+                "alternatives": [],
             }
             for r in grammar
         }

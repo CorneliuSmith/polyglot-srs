@@ -15,6 +15,8 @@ from backend.repositories.onboarding import (
     estimate_level,
     get_placement_answers,
     get_status,
+    placement_history,
+    record_placement_attempt,
     sample_placement_items,
     set_learner_level,
 )
@@ -80,6 +82,20 @@ async def onboarding_status(user: dict = Depends(get_current_user)):
         return await get_status(conn, user["id"])
 
 
+@router.get("/placement/{language_id}/history")
+async def placement_history_for_language(
+    language_id: str, user: dict = Depends(get_current_user)
+):
+    """Has this learner placed in this language before, and how did it go?
+
+    The dashboard asks this the first time a learner opens a language: no
+    attempts means offer the test, attempts means show the retake entry in
+    settings with the previous estimate to compare against.
+    """
+    async with rls_connection(user["id"]) as conn:
+        return await placement_history(conn, user["id"], language_id)
+
+
 @router.get("/placement/{language_id}")
 async def get_placement(language_id: str, user: dict = Depends(get_current_user)):
     """Return placement prompts for a language, or signal self-report fallback.
@@ -88,11 +104,19 @@ async def get_placement(language_id: str, user: dict = Depends(get_current_user)
     target language. Answers are validated server-side on submit.
     """
     async with rls_connection(user["id"]) as conn:
-        items = await sample_placement_items(conn, language_id)
+        history = await placement_history(conn, user["id"], language_id)
+        items = await sample_placement_items(
+            conn, language_id, variant=history["attempts"]
+        )
     if len(items) < MIN_PLACEMENT_ITEMS:
         # Not enough graded content to place — let the client self-report.
         return {"available": False, "items": []}
-    return {"available": True, "items": items}
+    return {
+        "available": True,
+        "items": items,
+        "attempt": history["attempts"] + 1,
+        "previous_level": history["last_level"],
+    }
 
 
 @router.post("/placement/{language_id}/next")
@@ -115,7 +139,13 @@ async def placement_next(
             raise HTTPException(
                 status_code=status.HTTP_404_NOT_FOUND, detail="Language not found"
             )
-        pool = await sample_placement_items(conn, language_id)
+        # The variant is the count of FINISHED attempts, and an attempt is
+        # only recorded once the run completes — so every round of a single
+        # run samples the same pool, and the next run steps to fresh items.
+        history = await placement_history(conn, user["id"], language_id)
+        pool = await sample_placement_items(
+            conn, language_id, variant=history["attempts"]
+        )
         if len(pool) < MIN_PLACEMENT_ITEMS:
             return {
                 "available": False, "done": True,
@@ -128,6 +158,9 @@ async def placement_next(
     pool_by_id = {it["id"]: it for it in pool}
     graded: list[tuple[dict, bool]] = []
     per_level: dict[str, list[int]] = {}
+    # Which items they got WRONG — the half of the result the app used to
+    # throw away, and the only thing that says what to work on.
+    missed: dict[str, list[str]] = {"grammar": [], "vocabulary": []}
     for entry in body.history:
         item = pool_by_id.get(entry.id)
         key = answers.get(entry.id)
@@ -148,12 +181,27 @@ async def placement_next(
         tally[1] += 1
         if correct:
             tally[0] += 1
+        else:
+            missed[key.get("kind") or item.get("kind") or "vocabulary"].append(
+                entry.id
+            )
 
     nxt = adaptive_next(pool, graded)
     if nxt is None:
         estimated = estimate_level(
             {lvl: (c, t) for lvl, (c, t) in per_level.items()}
         )
+        async with rls_connection(user["id"]) as conn:
+            await record_placement_attempt(
+                conn, user["id"], language_id,
+                estimated_level=estimated, items_asked=len(graded),
+                per_level={
+                    lvl: {"correct": c, "total": t}
+                    for lvl, (c, t) in per_level.items()
+                },
+                missed_grammar_ids=missed["grammar"],
+                missed_vocabulary_ids=missed["vocabulary"],
+            )
         return {
             "available": True, "done": True,
             "estimated_level": estimated,
@@ -162,6 +210,8 @@ async def placement_next(
                 for lvl, (c, t) in per_level.items()
             },
             "asked": len(graded),
+            "attempt": history["attempts"] + 1,
+            "previous_level": history["last_level"],
         }
     return {
         "available": True, "done": False,
@@ -188,6 +238,7 @@ async def score_placement(
 
     # Tally correct/total per CEFR level using the language's NLP validator.
     per_level: dict[str, list[int]] = {}
+    missed: dict[str, list[str]] = {"grammar": [], "vocabulary": []}
     for answer in body.answers:
         item = answers.get(answer.id)
         if item is None or item["level"] is None:
@@ -205,11 +256,27 @@ async def score_placement(
         tally[1] += 1
         if result in _PASSING:
             tally[0] += 1
+        else:
+            missed[item.get("kind") or "vocabulary"].append(answer.id)
 
     estimated = estimate_level({lvl: (c, t) for lvl, (c, t) in per_level.items()})
+    async with rls_connection(user["id"]) as conn:
+        previous = await placement_history(conn, user["id"], language_id)
+        await record_placement_attempt(
+            conn, user["id"], language_id,
+            estimated_level=estimated, items_asked=len(body.answers),
+            per_level={
+                lvl: {"correct": c, "total": t}
+                for lvl, (c, t) in per_level.items()
+            },
+            missed_grammar_ids=missed["grammar"],
+            missed_vocabulary_ids=missed["vocabulary"],
+        )
     return {
         "estimated_level": estimated,
         "per_level": {lvl: {"correct": c, "total": t} for lvl, (c, t) in per_level.items()},
+        "attempt": previous["attempts"] + 1,
+        "previous_level": previous["last_level"],
     }
 
 

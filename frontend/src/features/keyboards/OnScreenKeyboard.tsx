@@ -8,9 +8,12 @@ import greekLayout from 'simple-keyboard-layouts/build/layouts/greek'
 import thaiLayout from 'simple-keyboard-layouts/build/layouts/thai'
 import hindiLayout from 'simple-keyboard-layouts/build/layouts/hindi'
 import koreanLayout from 'simple-keyboard-layouts/build/layouts/korean'
+import hebrewLayout from 'simple-keyboard-layouts/build/layouts/hebrew'
+import farsiLayout from 'simple-keyboard-layouts/build/layouts/farsi'
 
 export type KeyboardLanguage =
   | 'ru' | 'ar' | 'tr' | 'el' | 'yo' | 'ha' | 'th' | 'hi' | 'ko'
+  | 'he' | 'fa' | 'la'
   | 'es' | 'it' | 'fr' | 'de' | 'ca' | 'mi' | 'pt' | 'ro'
 
 /** Languages that get an on-screen keyboard. Everything else (en, sw, xh —
@@ -88,6 +91,28 @@ const arabicWithHarakat = {
   ],
 }
 
+// The stock Hebrew/Farsi layouts end with a ".com @" row — web junk in a
+// language drill (the Arabic layout gets the same treatment above). Drop it
+// and keep a plain space bar.
+const withoutWebRow = (rows: string[]) => [...rows.slice(0, -1), '{space}']
+
+const hebrewNoWebRow = {
+  default: withoutWebRow(hebrewLayout.layout.default),
+  shift: withoutWebRow(hebrewLayout.layout.shift),
+}
+
+// Persian needs the zero-width non-joiner (nim-fasele) that splits می‌ from
+// its verb — without it می‌روم can only be typed as می روم (wrong) or میروم
+// (wrong). It's Shift+Space on a physical Persian keyboard, i.e. invisible
+// here, so it gets its own labelled key.
+const ZWNJ = '‌'
+// A zero-width character draws an EMPTY keycap — label it so it's findable.
+const ZWNJ_DISPLAY: Record<string, string> = { [ZWNJ]: 'نیم‌فاصله' }
+const farsiWithZwnj = {
+  default: [...withoutWebRow(farsiLayout.layout.default).slice(0, -1), `${ZWNJ} {space}`],
+  shift: [...withoutWebRow(farsiLayout.layout.shift).slice(0, -1), `${ZWNJ} {space}`],
+}
+
 const LAYOUTS: Record<string, { default: string[] } | { [k: string]: string[] }> = {
   ru: russianLayout.layout,
   ar: arabicWithHarakat,
@@ -100,11 +125,17 @@ const LAYOUTS: Record<string, { default: string[] } | { [k: string]: string[] }>
   de: withAccents('ä ö ü ß'),
   ca: withAccents('à è é í ï ò ó ú ü ç'),
   mi: withAccents('ā ē ī ō ū'),
+  // Latin: macrons mark vowel length (rēgīna). Learners type them rarely
+  // and the NLP folds them anyway, but the Gym's declension drills read
+  // better when the marked forms are actually reachable.
+  la: withAccents('ā ē ī ō ū ȳ'),
   pt: withAccents('ã õ á é í ó ú â ê ô à ç'),
   ro: withAccents('ă â î ș ț'),
   el: greekLayout.layout,
   th: thaiLayout.layout,
   hi: hindiLayout.layout,
+  he: hebrewNoWebRow,
+  fa: farsiWithZwnj,
   // Korean keys are conjoining JAMO, not finished syllables — the callers
   // run every insert through composeScript('ko', …) so ᄒ+ᅡ+ᄂ becomes 한.
   ko: koreanLayout.layout,
@@ -168,7 +199,7 @@ export default function OnScreenKeyboard({
       <Keyboard
         layout={layout}
         layoutName={hasShiftLayer ? layoutName : 'default'}
-        display={HARAKAT_DISPLAY}
+        display={{ ...HARAKAT_DISPLAY, ...ZWNJ_DISPLAY }}
         mergeDisplay
         onKeyPress={handleKeyPress}
         theme="hg-theme-default"

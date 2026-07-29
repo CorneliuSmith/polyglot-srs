@@ -30,7 +30,13 @@
   --color-lang: var(--lang-primary);
   --color-lang-dark: var(--lang-primary-dark);
   --color-lang-accent: var(--lang-accent);
-  --color-lang-soft: var(--lang-soft);
+  /* Indirection so dark mode can swap the soft SURFACE without touching
+     --lang-soft itself: that one is written inline on <html> by
+     applyLanguageTheme, and an inline style beats any stylesheet rule, so
+     `.dark { --lang-soft: … }` could never win. --lang-soft-surface is
+     stylesheet-only, so `.dark` sets it freely and the pastel stays the
+     documented per-language fallback for light mode. */
+  --color-lang-soft: var(--lang-soft-surface, var(--lang-soft));
   --color-lang-on: var(--lang-on-primary);
   --color-stage-1: var(--lang-stage-1);
   --color-stage-1-on: var(--lang-stage-1-on);
@@ -70,6 +76,12 @@
   --color-gray-700: #cbd4e4;
   --color-gray-800: #dde4f0;
   --color-gray-900: #eef2f9;
+  /* --lang-soft is a LIGHT pastel. Surfaces built on it (learning tips,
+     culture notes, selected pills) put the remapped-light gray text above
+     on top, which on dark went light-on-light — owner: "notes are hard to
+     read generally in dark mode". Swap the surface for a dark, language-
+     tinted one so the same pairings stay readable in both themes. */
+  --lang-soft-surface: color-mix(in srgb, var(--lang-primary) 20%, #161c2a);
 }
 
 .dark .bg-white {
@@ -96,6 +108,16 @@
 }
 .dark .text-lang-dark {
   color: color-mix(in srgb, var(--lang-primary-dark) 40%, white);
+}
+/* Opacity variants compile to their OWN class (.text-lang-dark\/80), which
+   the plain overrides above never matched — so those labels kept the raw
+   deep flag color and went unreadable on the dark tip/culture surfaces.
+   Match every variant actually used in the app. */
+.dark .text-lang-dark\/80 {
+  color: color-mix(in srgb, var(--lang-primary-dark) 35%, white);
+}
+.dark .text-lang\/70 {
+  color: color-mix(in srgb, var(--lang-primary) 40%, white);
 }
 
 /* iOS notch / home-screen mode: keep content out from under the status

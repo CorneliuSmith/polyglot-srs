@@ -41,12 +41,25 @@ async def _fake_rls(user_id: str):
     yield AsyncMock()
 
 
+NEVER_PLACED = {
+    "attempts": 0, "has_placed": False,
+    "last_level": None, "last_taken_at": None, "history": [],
+}
+
+
 @pytest.fixture()
 def client():
+    # Placement attempt bookkeeping is stubbed to "never placed" by default —
+    # every endpoint here reads it, and the tests that care about it patch
+    # over these inside the test body.
     with patch("backend.main.init_pool", new=AsyncMock()), \
          patch("backend.main.close_pool", new=AsyncMock()), \
          patch("backend.main.get_settings", return_value=FakeSettings()), \
          patch("backend.dependencies.get_settings", return_value=FakeSettings()), \
+         patch("backend.routers.onboarding.placement_history",
+               new=AsyncMock(return_value=dict(NEVER_PLACED))), \
+         patch("backend.routers.onboarding.record_placement_attempt",
+               new=AsyncMock()), \
          patch("backend.routers.onboarding.rls_connection", _fake_rls):
         app = create_app()
         with TestClient(app, raise_server_exceptions=True) as c:
@@ -347,3 +360,179 @@ class TestPlacementAlternatives:
             }, headers=_auth_headers())
         assert resp.status_code == 200
         assert mock_v.await_args.args[3] == {"answer_alternatives": ["сделать"]}
+
+
+class TestPlacementAttempts:
+    """Owner: offer the test the FIRST time in a language, allow a retake any
+    time, and vary the retake so it measures improvement rather than memory."""
+
+    def test_history_endpoint_reports_never_placed(self, client):
+        resp = client.get(
+            f"/api/onboarding/placement/{LANG}/history", headers=_auth_headers()
+        )
+        assert resp.status_code == 200
+        assert resp.json() == NEVER_PLACED
+
+    def test_history_requires_auth(self, client):
+        assert client.get(
+            f"/api/onboarding/placement/{LANG}/history"
+        ).status_code == 401
+
+    def test_first_placement_samples_variant_zero(self, client):
+        sampler = AsyncMock(return_value=_items(6))
+        with patch("backend.routers.onboarding.sample_placement_items", new=sampler):
+            resp = client.get(
+                f"/api/onboarding/placement/{LANG}", headers=_auth_headers()
+            )
+        assert resp.status_code == 200
+        assert sampler.await_args.kwargs["variant"] == 0
+        assert resp.json()["attempt"] == 1
+
+    def test_retake_asks_a_different_variant(self, client):
+        placed = {**NEVER_PLACED, "attempts": 2, "has_placed": True,
+                  "last_level": "A2", "last_taken_at": "2026-03-01T00:00:00+00:00"}
+        sampler = AsyncMock(return_value=_items(6))
+        with patch("backend.routers.onboarding.placement_history",
+                   new=AsyncMock(return_value=placed)), \
+             patch("backend.routers.onboarding.sample_placement_items", new=sampler):
+            resp = client.get(
+                f"/api/onboarding/placement/{LANG}", headers=_auth_headers()
+            )
+        body = resp.json()
+        # Two attempts already done -> the third asks the third window.
+        assert sampler.await_args.kwargs["variant"] == 2
+        assert body["attempt"] == 3
+        assert body["previous_level"] == "A2"
+
+    def test_finishing_the_adaptive_test_records_an_attempt(self, client):
+        recorder = AsyncMock()
+        answers = {"a1": {"answer": "uno", "level": "A1"}}
+        pool = [{"id": "a1", "kind": "vocabulary", "level": "A1",
+                 "prompt": "one", "translation": None}] + _items(5)
+        with patch("backend.routers.onboarding._language_code",
+                   new=AsyncMock(return_value="es")), \
+             patch("backend.routers.onboarding.sample_placement_items",
+                   new=AsyncMock(return_value=pool)), \
+             patch("backend.routers.onboarding.get_placement_answers",
+                   new=AsyncMock(return_value=answers)), \
+             patch("backend.routers.onboarding.validate_answer_async",
+                   new=AsyncMock(return_value=(AnswerResult.CORRECT, None))), \
+             patch("backend.routers.onboarding.adaptive_next",
+                   return_value=None), \
+             patch("backend.routers.onboarding.record_placement_attempt",
+                   new=recorder):
+            resp = client.post(f"/api/onboarding/placement/{LANG}/next", json={
+                "history": [{"id": "a1", "input": "uno"}],
+            }, headers=_auth_headers())
+        assert resp.status_code == 200 and resp.json()["done"] is True
+        recorder.assert_awaited_once()
+        assert recorder.await_args.kwargs["items_asked"] == 1
+
+    def test_mid_test_rounds_record_nothing(self, client):
+        """Recording per ROUND would bump the variant mid-run and re-sample a
+        different pool under the learner's feet."""
+        recorder = AsyncMock()
+        pool = _items(12)
+        with patch("backend.routers.onboarding._language_code",
+                   new=AsyncMock(return_value="es")), \
+             patch("backend.routers.onboarding.sample_placement_items",
+                   new=AsyncMock(return_value=pool)), \
+             patch("backend.routers.onboarding.get_placement_answers",
+                   new=AsyncMock(return_value={})), \
+             patch("backend.routers.onboarding.record_placement_attempt",
+                   new=recorder):
+            resp = client.post(f"/api/onboarding/placement/{LANG}/next", json={
+                "history": [],
+            }, headers=_auth_headers())
+        assert resp.status_code == 200 and resp.json()["done"] is False
+        recorder.assert_not_awaited()
+
+    def test_scoring_the_batch_test_records_an_attempt(self, client):
+        recorder = AsyncMock()
+        answers = {"a1": {"answer": "uno", "level": "A1"}}
+        with patch("backend.routers.onboarding._language_code",
+                   new=AsyncMock(return_value="es")), \
+             patch("backend.routers.onboarding.get_placement_answers",
+                   new=AsyncMock(return_value=answers)), \
+             patch("backend.routers.onboarding.validate_answer_async",
+                   new=AsyncMock(return_value=(AnswerResult.CORRECT, None))), \
+             patch("backend.routers.onboarding.record_placement_attempt",
+                   new=recorder):
+            resp = client.post(f"/api/onboarding/placement/{LANG}", json={
+                "answers": [{"id": "a1", "input": "uno"}],
+            }, headers=_auth_headers())
+        assert resp.status_code == 200
+        recorder.assert_awaited_once()
+        assert recorder.await_args.kwargs["estimated_level"] == "A1"
+
+
+class TestPlacementEvidenceCapture:
+    """The verdict was never the useful half — what they got WRONG is what
+    the Gym/Tutor/Reader can act on, so it has to survive scoring."""
+
+    def test_adaptive_run_records_the_tally_and_the_misses(self, client):
+        recorder = AsyncMock()
+        pool = [
+            {"id": "g1", "kind": "grammar", "level": "B1",
+             "prompt": "___", "translation": None},
+            {"id": "v1", "kind": "vocabulary", "level": "A1",
+             "prompt": "one", "translation": None},
+        ] + _items(4)
+        answers = {
+            "g1": {"answer": "haya", "level": "B1", "kind": "grammar"},
+            "v1": {"answer": "uno", "level": "A1", "kind": "vocabulary"},
+        }
+
+        async def grade(code, given, expected, ctx):
+            ok = given == expected
+            return (AnswerResult.CORRECT if ok else AnswerResult.WRONG, None)
+
+        with patch("backend.routers.onboarding._language_code",
+                   new=AsyncMock(return_value="es")), \
+             patch("backend.routers.onboarding.sample_placement_items",
+                   new=AsyncMock(return_value=pool)), \
+             patch("backend.routers.onboarding.get_placement_answers",
+                   new=AsyncMock(return_value=answers)), \
+             patch("backend.routers.onboarding.validate_answer_async",
+                   new=AsyncMock(side_effect=grade)), \
+             patch("backend.routers.onboarding.adaptive_next", return_value=None), \
+             patch("backend.routers.onboarding.record_placement_attempt",
+                   new=recorder):
+            resp = client.post(f"/api/onboarding/placement/{LANG}/next", json={
+                "history": [
+                    {"id": "v1", "input": "uno"},      # right
+                    {"id": "g1", "input": "hubiera"},  # wrong
+                ],
+            }, headers=_auth_headers())
+
+        assert resp.status_code == 200
+        kwargs = recorder.await_args.kwargs
+        assert kwargs["per_level"] == {
+            "A1": {"correct": 1, "total": 1},
+            "B1": {"correct": 0, "total": 1},
+        }
+        # A missed DRILL and a missed WORD land in different buckets — they
+        # feed different halves of the insight.
+        assert kwargs["missed_grammar_ids"] == ["g1"]
+        assert kwargs["missed_vocabulary_ids"] == []
+
+    def test_batch_scoring_records_the_same_evidence(self, client):
+        recorder = AsyncMock()
+        answers = {
+            "v1": {"answer": "uno", "level": "A1", "kind": "vocabulary"},
+        }
+        with patch("backend.routers.onboarding._language_code",
+                   new=AsyncMock(return_value="es")), \
+             patch("backend.routers.onboarding.get_placement_answers",
+                   new=AsyncMock(return_value=answers)), \
+             patch("backend.routers.onboarding.validate_answer_async",
+                   new=AsyncMock(return_value=(AnswerResult.WRONG, None))), \
+             patch("backend.routers.onboarding.record_placement_attempt",
+                   new=recorder):
+            resp = client.post(f"/api/onboarding/placement/{LANG}", json={
+                "answers": [{"id": "v1", "input": "dos"}],
+            }, headers=_auth_headers())
+        assert resp.status_code == 200
+        kwargs = recorder.await_args.kwargs
+        assert kwargs["missed_vocabulary_ids"] == ["v1"]
+        assert kwargs["per_level"] == {"A1": {"correct": 0, "total": 1}}

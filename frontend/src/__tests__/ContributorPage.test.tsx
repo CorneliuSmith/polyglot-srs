@@ -42,6 +42,7 @@ vi.mock('../api/contribute', () => ({
   getPendingDrills: vi.fn(() => Promise.resolve([])),
   reviewDrill: vi.fn(),
   TUTOR_MODELS: ['claude-opus-4-8', 'claude-sonnet-5'],
+  getLanguageReadiness: vi.fn(() => Promise.resolve([])),
   getTutorUsage: vi.fn(() =>
     Promise.resolve({ days: 30, rows: [], total_messages: 0, total_est_cost_usd: 0 }),
   ),
@@ -202,7 +203,11 @@ describe('ContributorPage', () => {
     expect(select.value).toBe('') // default (server setting)
     fireEvent.change(select, { target: { value: 'claude-sonnet-5' } })
     await waitFor(() => {
-      expect(mockSetModel).toHaveBeenCalledWith('lang-tr', 'claude-sonnet-5')
+      // Third arg is the fleet-wide flag — undefined here means "this
+      // language only" (the API default).
+      expect(mockSetModel).toHaveBeenCalledWith(
+        'lang-tr', 'claude-sonnet-5', undefined,
+      )
     })
   })
 

@@ -1568,7 +1568,12 @@ async def test_placement_includes_grammar_cloze(pool):
     item = grammar_items[0]
     assert item["prompt"] == "la casa ____"  # the {{answer}} marker is blanked
     assert item["translation"] == "the red house"
-    assert answers[str(drill)] == {"answer": "roja", "level": "A2", "alternatives": []}
+    # `kind` rides along so a scorer can tell a missed DRILL from a missed
+    # WORD without re-querying — the two feed different halves of the
+    # placement insight (structures vs vocabulary).
+    assert answers[str(drill)] == {
+        "answer": "roja", "level": "A2", "kind": "grammar", "alternatives": [],
+    }
 
 
 async def test_vocab_seeder_creates_content_lists(pool):

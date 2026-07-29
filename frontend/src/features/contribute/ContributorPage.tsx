@@ -41,37 +41,67 @@ import {
 /** Admin-only per-language tutor model override (WP15a). */
 export function TutorModelControl({
   languageId,
+  languageName,
   current,
+  defaultModel,
   onChanged,
 }: {
   languageId: string
+  languageName?: string
   current: string | null
+  defaultModel?: string
   onChanged: () => void
 }) {
   const modelMutation = useMutation({
-    mutationFn: (model: string | null) => setLanguageTutorModel(languageId, model),
+    mutationFn: ({ model, all }: { model: string | null; all?: boolean }) =>
+      setLanguageTutorModel(languageId, model, all),
     onSuccess: onChanged,
   })
+  const appliedAll = modelMutation.isSuccess && modelMutation.variables?.all
   return (
     <div className="bg-white rounded-2xl border border-gray-100 p-4">
-      <h2 className="text-sm font-semibold text-gray-800">Tutor model</h2>
+      {/* The scope is in the title — this control looked global, so every
+          language switch read as the setting "resetting" (owner report). */}
+      <h2 className="text-sm font-semibold text-gray-800">
+        Tutor model{languageName ? ` — ${languageName}` : ''}
+      </h2>
       <p className="text-xs text-gray-500 mb-2">
-        Which Claude model powers this language's tutor. Default follows the
-        server setting; pick a cheaper model for high-resource languages,
-        the strongest for the low-resource ones.
+        Which Claude model powers the {languageName ?? 'active language'}{' '}
+        tutor. Each language has its own setting; newly added languages start
+        on the default. Pick a cheaper model for high-resource languages, the
+        strongest for the low-resource ones.
       </p>
       <select
         value={current ?? ''}
-        onChange={(e) => modelMutation.mutate(e.target.value || null)}
+        onChange={(e) => modelMutation.mutate({ model: e.target.value || null })}
         disabled={modelMutation.isPending}
         aria-label="Tutor model"
         className="rounded-lg border border-gray-300 px-2 py-1.5 text-sm bg-white"
       >
-        <option value="">Default (server setting)</option>
+        <option value="">
+          Default{defaultModel ? ` (${defaultModel})` : ' (server setting)'}
+        </option>
         {TUTOR_MODELS.map((m) => (
           <option key={m} value={m}>{m}</option>
         ))}
       </select>
+      <p className="mt-2 text-xs text-gray-400">
+        <button
+          type="button"
+          onClick={() => {
+            if (
+              window.confirm(
+                `Apply ${current ?? 'the default'} to ALL languages? This overwrites every language's tutor-model setting.`,
+              )
+            )
+              modelMutation.mutate({ model: current, all: true })
+          }}
+          disabled={modelMutation.isPending}
+          className="text-lang hover:underline disabled:opacity-50"
+        >
+          {appliedAll ? 'Applied to all languages ✓' : 'Apply this choice to all languages'}
+        </button>
+      </p>
       {modelMutation.isError && (
         <p className="text-xs text-red-500 mt-1">Couldn’t save — try again.</p>
       )}
@@ -425,10 +455,12 @@ function PointEditor({
 
 export function ReviewPolicyControl({
   languageId,
+  languageName,
   policy,
   onChanged,
 }: {
   languageId: string
+  languageName?: string
   policy: string
   onChanged: () => void
 }) {
@@ -438,7 +470,9 @@ export function ReviewPolicyControl({
   })
   return (
     <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-4 text-sm">
-      <div className="font-semibold text-gray-700 mb-1">AI content policy (admin)</div>
+      <div className="font-semibold text-gray-700 mb-1">
+        AI content policy{languageName ? ` — ${languageName}` : ''} (admin)
+      </div>
       <p className="text-xs text-gray-500 mb-2">
         {policy === 'strict'
           ? 'Strict: learners only see content a human has approved. AI-generated grammar, drills, and example sentences stay hidden until a reviewer signs off.'
@@ -625,12 +659,15 @@ export default function ContributorPage() {
                 <RolesPanel languages={languages} />
                 <ReviewPolicyControl
                   languageId={activeLanguageId}
+                  languageName={language?.name}
                   policy={data.review_policy}
                   onChanged={refresh}
                 />
                 <TutorModelControl
                   languageId={activeLanguageId}
+                  languageName={language?.name}
                   current={data.tutor_model ?? null}
+                  defaultModel={data.default_tutor_model}
                   onChanged={refresh}
                 />
                 <TutorCostsPanel />

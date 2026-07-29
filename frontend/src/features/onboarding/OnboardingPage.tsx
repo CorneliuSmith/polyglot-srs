@@ -36,6 +36,7 @@ export default function OnboardingPage() {
   const navigate = useNavigate()
   const setActiveLanguageId = usePrefsStore((s) => s.setActiveLanguageId)
   const qwertyTranslit = usePrefsStore((s) => s.qwertyTranslit)
+  const dismissPlacementOffer = usePrefsStore((s) => s.dismissPlacementOffer)
 
   const [step, setStep] = useState<Step>('language')
   const [language, setLanguage] = useState<Language | null>(null)
@@ -117,6 +118,15 @@ export default function OnboardingPage() {
     setHistory([])
     setCurrentItem(null)
     nextMutation.mutate([])
+  }
+
+  // Turning the test down here counts as an answer: the dashboard's
+  // first-time-in-this-language offer must not pop up seconds later asking
+  // the same question.
+  const declineTest = () => {
+    if (language) dismissPlacementOffer(language.id)
+    setLevel('A1')
+    setStep('confirm')
   }
 
   const finishMutation = useMutation({
@@ -209,10 +219,7 @@ export default function OnboardingPage() {
             {/* Three clear paths — the test is one option, never a gate. */}
             <button
               type="button"
-              onClick={() => {
-                setLevel('A1')
-                setStep('confirm')
-              }}
+              onClick={declineTest}
               className="w-full min-h-12 rounded-xl border border-gray-200 bg-white px-4 py-3 text-left hover:border-lang/50 hover:bg-lang-soft active:bg-lang-soft"
             >
               <span className="block text-sm font-semibold text-gray-800">I&apos;m brand new</span>
@@ -220,10 +227,7 @@ export default function OnboardingPage() {
             </button>
             <button
               type="button"
-              onClick={() => {
-                setLevel('A1')
-                setStep('confirm')
-              }}
+              onClick={declineTest}
               className="w-full min-h-12 rounded-xl border border-gray-200 bg-white px-4 py-3 text-left hover:border-lang/50 hover:bg-lang-soft active:bg-lang-soft"
             >
               <span className="block text-sm font-semibold text-gray-800">
@@ -327,10 +331,7 @@ export default function OnboardingPage() {
             {/* Escape hatch: the test is never a trap. */}
             <button
               type="button"
-              onClick={() => {
-                setLevel('A1')
-                setStep('confirm')
-              }}
+              onClick={declineTest}
               className="block w-full text-center text-xs text-gray-400 hover:text-lang"
             >
               Skip the test — I&apos;ll pick my level

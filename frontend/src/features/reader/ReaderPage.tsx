@@ -14,6 +14,7 @@ import { getLanguages } from '../../api/profile'
 import { getUsageAllowance } from '../../api/tutor'
 import { usePrefsStore } from '../../stores/prefsStore'
 import LanguageWrapper from '../../components/LanguageWrapper'
+import Annotatable from '../contribute/Annotatable'
 import SpeakButton from '../../components/SpeakButton'
 import UsageMeter from '../../components/UsageMeter'
 import { TTS_LANGUAGES } from '../../api/audio'
@@ -499,7 +500,20 @@ export default function ReaderPage() {
               </LanguageWrapper>
 
               <LanguageWrapper languageCode={language.code}>
-                <div className="text-lg leading-loose text-gray-900 space-y-3">
+                {/* One region for the whole reading rather than one per
+                    sentence: a reviewer can then select ACROSS sentences
+                    (owner: "the sentences (of multiple)"), and the tokens
+                    stay clickable instead of being buried under per-sentence
+                    flag buttons. */}
+                <Annotatable
+                  languageId={activeLanguageId}
+                  targetType="reading"
+                  targetId={reading.id}
+                  targetLabel={reading.title ?? null}
+                  field="sentence"
+                  source="reader"
+                  className="text-lg leading-loose text-gray-900 space-y-3"
+                >
                   {reading.sentences.map((sentence, sIdx) => (
                     <div key={sIdx}>
                       <span>
@@ -598,7 +612,7 @@ export default function ReaderPage() {
                       )}
                     </div>
                   ))}
-                </div>
+                </Annotatable>
               </LanguageWrapper>
             </div>
             )}

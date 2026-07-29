@@ -25,6 +25,7 @@ import ActivityChart from './ActivityChart'
 import StageTiles from './StageTiles'
 import ProfileCard from './ProfileCard'
 import Walkthrough from '../onboarding/Walkthrough'
+import PlacementOffer from '../onboarding/PlacementOffer'
 import ReviewPromptGate from './ReviewPromptGate'
 import WhatsNewPanel from '../announcements/WhatsNewPanel'
 import { unseenWhatsNew } from '../announcements/whatsNew'
@@ -382,6 +383,9 @@ export default function DashboardPage() {
       {/* Occasional forced-feedback nudge for trial reviewers (self-gates:
           renders nothing unless one is due). */}
       <ReviewPromptGate />
+      {/* First time in this language? Offer to place them (self-gates on the
+          server's per-language attempt history). */}
+      <PlacementOffer languageId={activeLanguageId} />
       <div className="max-w-2xl mx-auto px-4 py-8 space-y-6">
         {/* Header. On phones the full row of destinations overflowed the
             viewport (the source of the "shaky", clipped layout), so the

@@ -102,6 +102,52 @@ describe('OnScreenKeyboard', () => {
     }
   })
 
+  it('Hebrew, Persian and Latin all have layouts (owner request)', () => {
+    for (const code of ['he', 'fa', 'la'] as const) {
+      expect(hasKeyboardLayout(code), code).toBe(true)
+    }
+    // id/tl are plain Latin script — they use the device keyboard, and must
+    // never silently borrow another language's layout.
+    for (const code of ['id', 'tl'] as const) {
+      expect(hasKeyboardLayout(code), code).toBe(false)
+    }
+  })
+
+  it('the Hebrew layout carries the alphabet incl. final forms', () => {
+    render(<OnScreenKeyboard languageCode="he" onKeyPress={() => {}} />)
+    const json = screen
+      .getByTestId('keyboard-mock')
+      .getAttribute('data-layout-json')!
+    for (const ch of ['א', 'ב', 'ש', 'ת', 'ך', 'ם', 'ן', 'ף', 'ץ']) {
+      expect(json).toContain(ch)
+    }
+    expect(json).not.toContain('.com')
+  })
+
+  it('the Persian layout carries its four extra letters and a ZWNJ key', () => {
+    render(<OnScreenKeyboard languageCode="fa" onKeyPress={() => {}} />)
+    const json = screen
+      .getByTestId('keyboard-mock')
+      .getAttribute('data-layout-json')!
+    // پ چ ژ گ are exactly what Persian adds to the Arabic inventory.
+    for (const ch of ['پ', 'چ', 'ژ', 'گ']) {
+      expect(json).toContain(ch)
+    }
+    // Without the nim-fasele, می‌روم cannot be typed correctly at all.
+    expect(json).toContain('‌')
+    expect(json).not.toContain('.com')
+  })
+
+  it('the Latin layout offers macron vowels', () => {
+    render(<OnScreenKeyboard languageCode="la" onKeyPress={() => {}} />)
+    const json = screen
+      .getByTestId('keyboard-mock')
+      .getAttribute('data-layout-json')!
+    for (const ch of ['ā', 'ē', 'ī', 'ō', 'ū']) {
+      expect(json).toContain(ch)
+    }
+  })
+
   it('the Hindi layout carries Devanagari consonants and matras', () => {
     render(<OnScreenKeyboard languageCode="hi" onKeyPress={() => {}} />)
     const json = screen

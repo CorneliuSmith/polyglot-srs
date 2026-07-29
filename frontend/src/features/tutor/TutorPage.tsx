@@ -15,6 +15,7 @@ import {
 import type { TutorAllowance, TutorMessage, TutorMode } from '../../api/tutor'
 import UsageMeter from '../../components/UsageMeter'
 import { usePrefsStore } from '../../stores/prefsStore'
+import Annotatable from '../contribute/Annotatable'
 
 // Summarize into memory after this long without activity.
 const IDLE_MS = 3 * 60 * 1000
@@ -442,19 +443,33 @@ export default function TutorPage() {
               drill your weak spots.
             </div>
           )}
-          {messages.map((msg, i) => (
-            <div
-              key={i}
-              className={
-                msg.role === 'user'
-                  ? 'ml-8 bg-lang text-white rounded-2xl rounded-br-sm px-4 py-2.5 text-sm whitespace-pre-wrap'
-                  : 'mr-8 bg-white border border-gray-100 shadow-sm rounded-2xl rounded-bl-sm px-4 py-2.5 text-sm text-gray-800 whitespace-pre-wrap'
-              }
-            >
-              {/* dir=auto: tutor turns mix English explanations with RTL practice text */}
-              <span dir="auto">{msg.content}</span>
-            </div>
-          ))}
+          {messages.map((msg, i) =>
+            msg.role === 'user' ? (
+              <div
+                key={i}
+                className="ml-8 bg-lang text-white rounded-2xl rounded-br-sm px-4 py-2.5 text-sm whitespace-pre-wrap"
+              >
+                <span dir="auto">{msg.content}</span>
+              </div>
+            ) : (
+              /* Tutor turns are flaggable in Review Mode: a bad explanation or
+                 an unnatural example matters as much as a bad card, and until
+                 now there was no way to report one. Nothing here is stored
+                 content, so the quote and its context ARE the record. */
+              <Annotatable
+                key={i}
+                languageId={activeLanguageId}
+                targetType="tutor_message"
+                targetLabel={msg.content.slice(0, 200)}
+                field="other"
+                source="tutor"
+                className="mr-8 bg-white border border-gray-100 shadow-sm rounded-2xl rounded-bl-sm px-4 py-2.5 text-sm text-gray-800 whitespace-pre-wrap"
+              >
+                {/* dir=auto: tutor turns mix English explanations with RTL practice text */}
+                <span dir="auto">{msg.content}</span>
+              </Annotatable>
+            ),
+          )}
           {sendMutation.isPending && (
             <div className="mr-8 bg-white border border-gray-100 shadow-sm rounded-2xl rounded-bl-sm px-4 py-2.5 text-sm">
               {streamingText ? (

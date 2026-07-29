@@ -4,9 +4,10 @@
  * For the non-Latin-script languages a learner without a native keyboard can
  * type standard romanization on QWERTY and the answer blank converts as they
  * type. Schemes follow each language's common convention (translit.ru-style
- * for Russian, chat-alphabet digits for Arabic, Greeklish for Greek, and
- * IME-style romanization for the three ASSEMBLING scripts — Devanagari, Thai
- * and Hangul); every mapping is viewable in the in-app key guide.
+ * for Russian, chat-alphabet digits for Arabic, letter-name phonetics for
+ * Hebrew, "Finglish" for Persian, Greeklish for Greek, and IME-style
+ * romanization for the three ASSEMBLING scripts — Devanagari, Thai and
+ * Hangul); every mapping is viewable in the in-app key guide.
  *
  * Design:
  *  - `convertTranslit` runs over the WHOLE input value on every keystroke.
@@ -27,7 +28,7 @@
  *    raw glyphs, which only Hangul needs fusing into blocks.
  */
 
-export const TRANSLIT_LANGS = ['ru', 'ar', 'el', 'hi', 'th', 'ko'] as const
+export const TRANSLIT_LANGS = ['ru', 'ar', 'el', 'he', 'fa', 'hi', 'th', 'ko'] as const
 
 export function hasTranslit(code: string): boolean {
   return (TRANSLIT_LANGS as readonly string[]).includes(code)
@@ -226,6 +227,169 @@ function convertAr(rawText: string, finalizePending: boolean): string {
       continue
     }
     res += AR_SINGLE[ch] ?? ch
+    i++
+  }
+  return res
+}
+
+// ── Hebrew ───────────────────────────────────────────────────────────────────
+// Consonantal like Arabic, and the vowels behave the same way: unwritten in
+// the middle of a word, seated on א at the start. Modern ktiv male does spell
+// the long o/u with ו and long i with י, which is why only those carry a
+// letter medially — writing every vowel gives שאלומ for "shalom" instead of
+// שלום. Two Hebrew-specific mechanics on top:
+//   - FINAL FORMS: כ מ נ פ צ become ך ם ן ף ץ at a word's end.
+//   - final a/e is spelled ה (torah → תורה).
+// Both are deferred while the word is still growing, exactly as Arabic defers
+// its trailing vowel, and resolved by `finalize` at submit.
+
+const HE_MULTI: [string, string][] = [
+  ['sh', 'ש'], ['ts', 'צ'], ['tz', 'צ'], ['ch', 'ח'], ['kh', 'כ'],
+  ['th', 'ת'], ['ph', 'פ'], ['ee', 'י'], ['ii', 'י'], ['oo', 'ו'], ['uu', 'ו'],
+]
+
+const HE_SINGLE: Record<string, string> = {
+  b: 'ב', g: 'ג', d: 'ד', h: 'ה', v: 'ו', w: 'ו', z: 'ז', T: 'ט', y: 'י',
+  k: 'כ', l: 'ל', m: 'מ', n: 'נ', s: 'ס', p: 'פ', f: 'פ', q: 'ק', r: 'ר',
+  t: 'ת', c: 'צ', "'": 'ע',
+}
+
+/** Medial spelling: only the long o/u/i are written in ktiv male. */
+const HE_VOWEL_MEDIAL: Record<string, string> = { o: 'ו', u: 'ו' }
+/** Word-initial: every vowel takes an א seat, and i/o/u add their mater
+ *  (ish → איש, or → אור) — א alone would give אש, a different word. */
+const HE_VOWEL_INITIAL: Record<string, string> = {
+  a: 'א', e: 'א', i: 'אי', o: 'או', u: 'או',
+}
+/** Word-final spelling: a/e settle on ה, i on י, o/u on ו. */
+const HE_VOWEL_FINAL: Record<string, string> = {
+  a: 'ה', e: 'ה', i: 'י', o: 'ו', u: 'ו',
+}
+
+/** כ מ נ פ צ → ך ם ן ף ץ at the end of a word. */
+const HE_FINALS: Record<string, string> = {
+  'כ': 'ך', 'מ': 'ם', 'נ': 'ן', 'פ': 'ף', 'צ': 'ץ',
+}
+
+const HE_WORD_CHAR = /[A-Za-z'֐-׿]/
+
+function convertHe(rawText: string, finalize: boolean): string {
+  // Digraph completed across keystrokes: ס then h → ש.
+  let text = rawText
+  for (const [seq, rep] of [
+    ['סh', 'ש'], ['תh', 'ת'], ['כh', 'כ'], ['צh', 'צ'], ['חh', 'ח'],
+  ] as [string, string][]) {
+    text = text.split(seq).join(rep)
+  }
+  let res = ''
+  let i = 0
+  const wordChar = (ch?: string) => !!ch && HE_WORD_CHAR.test(ch)
+  while (i < text.length) {
+    let matched = false
+    for (const [seq, rep] of HE_MULTI) {
+      if (text.slice(i, i + seq.length).toLowerCase() === seq) {
+        res += rep
+        i += seq.length
+        matched = true
+        break
+      }
+    }
+    if (matched) continue
+    const ch = text[i]
+    const lower = ch.toLowerCase()
+    const prev = i > 0 ? text[i - 1] : undefined
+    if (lower in HE_VOWEL_FINAL && ch !== 'T') {
+      const next = text[i + 1]
+      if (!wordChar(prev)) {
+        res += HE_VOWEL_INITIAL[lower]
+      } else if (!wordChar(next)) {
+        // Trailing vowel: undecided until the next keystroke.
+        res += finalize ? HE_VOWEL_FINAL[lower] : ch
+      } else {
+        // Medial: only long o/u surface, as ו.
+        res += HE_VOWEL_MEDIAL[lower] ?? ''
+      }
+      i++
+      continue
+    }
+    res += HE_SINGLE[ch] ?? HE_SINGLE[lower] ?? ch
+    i++
+  }
+  // Final forms: fold a foldable letter that no word character follows. The
+  // very last character is only decided once `finalize` says so.
+  return res.replace(/[כמנפצ]/g, (m, idx: number) => {
+    const next = res[idx + 1]
+    if (next === undefined) return finalize ? HE_FINALS[m] : m
+    return HE_WORD_CHAR.test(next) ? m : HE_FINALS[m]
+  })
+}
+
+// ── Persian ("Finglish") ─────────────────────────────────────────────────────
+// Persian shares Arabic's script and its "short vowels aren't written" rule,
+// so the positional vowel logic is the same shape as convertAr's. What
+// differs: the four Persian-only letters (پ چ ژ گ), aa → آ word-initially,
+// and the ZWNJ (nim-fasele) that keeps می‌ attached-but-separate from its
+// verb — typed as a hyphen, since a zero-width character has no key.
+
+const FA_MULTI: [string, string][] = [
+  ['kh', 'خ'], ['gh', 'ق'], ['ch', 'چ'], ['sh', 'ش'], ['zh', 'ژ'],
+  ['aa', 'ا'], ['ee', 'ی'], ['ii', 'ی'], ['oo', 'و'], ['uu', 'و'],
+]
+
+const FA_SINGLE: Record<string, string> = {
+  b: 'ب', p: 'پ', t: 'ت', s: 'س', j: 'ج', h: 'ه', d: 'د', z: 'ز', r: 'ر',
+  f: 'ف', k: 'ک', g: 'گ', l: 'ل', m: 'م', n: 'ن', v: 'و', w: 'و', y: 'ی',
+  q: 'ق', "'": 'ع', '3': 'ع',
+}
+
+const FA_VOWEL_FINAL: Record<string, string> = {
+  a: 'ا', e: 'ه', i: 'ی', o: 'و', u: 'و',
+}
+
+const FA_ZWNJ = '‌'
+const FA_WORD_CHAR = /[A-Za-z'؀-ۿ]/
+
+function convertFa(rawText: string, finalizePending: boolean): string {
+  let text = rawText
+  for (const [seq, rep] of [
+    ['کh', 'خ'], ['گh', 'ق'], ['چh', 'چ'], ['سh', 'ش'], ['زh', 'ژ'],
+  ] as [string, string][]) {
+    text = text.split(seq).join(rep)
+  }
+  let res = ''
+  let i = 0
+  const wordChar = (ch?: string) => !!ch && FA_WORD_CHAR.test(ch)
+  while (i < text.length) {
+    const ch = text[i]
+    const prev = i > 0 ? text[i - 1] : undefined
+    if (ch === '-') {
+      res += FA_ZWNJ
+      i++
+      continue
+    }
+    let matched = false
+    for (const [seq, rep] of FA_MULTI) {
+      if (text.slice(i, i + seq.length).toLowerCase() === seq) {
+        // Word-initial long â takes the alef-madda seat: آب, not اب.
+        res += seq === 'aa' && !wordChar(prev) ? 'آ' : rep
+        i += seq.length
+        matched = true
+        break
+      }
+    }
+    if (matched) continue
+    if (ch.toLowerCase() in FA_VOWEL_FINAL) {
+      const next = text[i + 1]
+      if (!wordChar(prev)) {
+        res += 'ا' // word-initial vowel seat
+      } else if (!wordChar(next)) {
+        res += finalizePending ? FA_VOWEL_FINAL[ch.toLowerCase()] : ch
+      }
+      // medial short vowel: unwritten, as in Persian orthography
+      i++
+      continue
+    }
+    res += FA_SINGLE[ch] ?? FA_SINGLE[ch.toLowerCase()] ?? ch
     i++
   }
   return res
@@ -712,6 +876,10 @@ export function convertTranslit(code: string, text: string): string {
       return convertEl(text)
     case 'ar':
       return convertAr(text, false)
+    case 'he':
+      return convertHe(text, false)
+    case 'fa':
+      return convertFa(text, false)
     case 'hi':
       return convertHi(text, false)
     case 'th':
@@ -737,6 +905,8 @@ export function composeScript(code: string, text: string): string {
  * consonants) at submit time. */
 export function finalizeTranslit(code: string, text: string): string {
   if (code === 'ar') return convertAr(text, true)
+  if (code === 'he') return convertHe(text, true)
+  if (code === 'fa') return convertFa(text, true)
   if (code === 'hi') return convertHi(text, true)
   if (code === 'th') return convertTh(text, true)
   if (code === 'ko') return convertKo(text, true)
@@ -784,6 +954,27 @@ export function translitGuide(code: string): GuideRow[] {
         { keys: 'a i u (middle)', out: '—', note: 'short vowels are not written' },
         { keys: 'a i u (start)', out: 'ا', note: 'word-initial vowels sit on alif' },
         { keys: 'ah (end)', out: 'ة', note: 'taa marbuta (madrasah → مدرسة)' },
+      ]
+    case 'he':
+      return [
+        { keys: 'a b g d h v z y k l m n s p q r t', out: 'א ב ג ד ה ו ז י כ ל מ נ ס פ ק ר ת' },
+        { keys: 'sh ts / tz ch kh', out: 'ש צ ח כ' },
+        { keys: 'e', out: 'ע', note: 'ayin' },
+        { keys: 'T', out: 'ט', note: 'capital T = tet (t = tav)' },
+        { keys: 'o u v w', out: 'ו', note: 'vav does duty as o/u/v' },
+        { keys: 'i y', out: 'י' },
+        { keys: 'k m n p ts (end)', out: 'ך ם ן ף ץ', note: 'final forms appear automatically at the end of a word' },
+      ]
+    case 'fa':
+      return [
+        { keys: 'b p t s j d z r f k g l m n v y', out: 'ب پ ت س ج د ز ر ف ک گ ل م ن و ی' },
+        { keys: 'kh gh ch sh zh', out: 'خ ق چ ش ژ' },
+        { keys: 'h', out: 'ه' },
+        { keys: "' / 3", out: 'ع' },
+        { keys: 'aa (start)', out: 'آ', note: 'aab → آب' },
+        { keys: 'aa ii uu', out: 'ا ی و', note: 'double a vowel to write it long' },
+        { keys: 'a e o (middle)', out: '—', note: 'short vowels are not written' },
+        { keys: '-', out: '‌', note: 'nim-fasele (ZWNJ): mi-ravam → می‌روم' },
       ]
     case 'el':
       return [

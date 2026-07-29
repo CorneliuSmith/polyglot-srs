@@ -70,6 +70,7 @@ from backend.repositories.contributor import (
     get_vocab_language,
     grant_role,
     is_admin,
+    language_release_readiness,
     list_accounts,
     list_ai_leveled_vocab,
     list_all_roles,
@@ -101,6 +102,7 @@ from backend.repositories.contributor import (
     save_explanation,
     save_vocab_ai_check,
     set_account_plan,
+    set_all_languages_tutor_model,
     set_language_policy,
     set_language_tutor_model,
     submit_suggestion,
@@ -197,7 +199,16 @@ async def my_roles(user: dict = Depends(get_current_user)):
     """Return the caller's contributor roles (drives the contributor UI)."""
     async with rls_connection(user["id"]) as conn:
         roles = await get_roles(conn, user["id"])
-    return {"roles": roles, "is_admin": is_admin(roles)}
+    admin = is_admin(roles)
+    return {
+        "roles": roles,
+        "is_admin": admin,
+        # Same value, but never rewritten by the client-side "view as"
+        # preview — it's what decides whether to offer that switcher at all.
+        # (The preview downgrades `is_admin`; if the bar read that, turning
+        # the preview on would hide the control that turns it off.)
+        "real_is_admin": admin,
+    }
 
 
 @router.get("/grammar")
@@ -229,7 +240,15 @@ async def grammar_for_language(
         "can_contribute": can_contribute(roles, language_id),
         "review_policy": policy,
         "tutor_model": tutor_model,
+        # What "Default" resolves to — shown in the admin picker so an unset
+        # override reads as the concrete model it uses, not a mystery.
+        "default_tutor_model": _default_tutor_model(),
     }
+
+
+def _default_tutor_model() -> str:
+    from backend.dependencies import get_settings  # noqa: PLC0415
+    return get_settings().tutor_model
 
 
 @router.get("/vocab")
@@ -318,9 +337,23 @@ async def update_language_visibility(
     return {"is_visible": body.is_visible}
 
 
+@router.get("/language-readiness")
+async def language_readiness(user: dict = Depends(get_current_user)):
+    """Per-language review backlog, for the release (visibility) decision.
+
+    Admin-only, like the visibility switch it annotates: it exposes the
+    unreviewed-content position of every language at once."""
+    await _require_admin(user["id"])
+    async with privileged_connection() as conn:
+        return {"languages": await language_release_readiness(conn)}
+
+
 class TutorModelUpdate(BaseModel):
     language_id: str
     model: str | None = None  # None resets to the global default
+    # Fleet-wide apply: one choice for every language (current and, until
+    # they're edited individually, a template admins re-run for new ones).
+    all_languages: bool = False
 
 
 # The models an admin may assign per language (WP15a). Order = strongest
@@ -352,6 +385,9 @@ async def update_language_tutor_model(
             detail="Only an admin can change the tutor model",
         )
     async with privileged_connection() as conn:
+        if body.all_languages:
+            updated = await set_all_languages_tutor_model(conn, body.model)
+            return {"tutor_model": body.model, "languages_updated": updated}
         await set_language_tutor_model(conn, body.language_id, body.model)
     return {"tutor_model": body.model}
 
@@ -1616,7 +1652,12 @@ async def vocab_ai_check(
     return result
 
 
-TARGET_TYPES = ("grammar_point", "drill", "vocabulary", "example_sentence", "other")
+# tutor_message / reading have no stable row id — the quote and its context
+# ARE the record, which is why target_id stays optional below.
+TARGET_TYPES = (
+    "grammar_point", "drill", "vocabulary", "example_sentence",
+    "tutor_message", "reading", "other",
+)
 FIELDS = ("sentence", "hint", "translation", "answer", "explanation", "other")
 
 
@@ -1628,6 +1669,9 @@ class NewChangeRequest(BaseModel):
     field: str = "other"
     issue: str = Field(min_length=1, max_length=2000)
     suggestion: str | None = Field(default=None, max_length=2000)
+    # Review Mode: the span the reviewer selected, plus where it sat.
+    quote: str | None = Field(default=None, max_length=2000)
+    quote_context: dict | None = None
 
 
 class VoteBody(BaseModel):
@@ -1663,6 +1707,8 @@ async def create_change_request(
             body.target_id, (body.target_label or "").strip() or None,
             body.field, body.issue.strip(),
             (body.suggestion or "").strip() or None,
+            quote=body.quote,
+            quote_context=body.quote_context,
         )
     return {"id": req_id}
 

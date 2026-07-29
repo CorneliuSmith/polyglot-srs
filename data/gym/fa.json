@@ -1,0 +1,236 @@
+{
+  "language": "fa",
+  "_note": "The Gym manifest (WP25a): which grammar points act as selectable form categories, grouped into picker columns. 'point' must match the grammar point title exactly (resolved to ids at request time). 'usage' is the plain-language hover explanation; 'example' is a real drill sentence from that point. 'nonstandard': entries hidden behind the 'include non-standard words' toggle.",
+  "columns": [
+    {
+      "kind": "verbs",
+      "label": "Verb forms",
+      "entries": [
+        {
+          "point": "Personal verb endings: -am, -i, -ad",
+          "label": "Present",
+          "usage": "mi- plus the present stem plus -am, -i, -ad, -im, -id, -and.",
+          "example": "من می‌روم. — I go / I'm going."
+        },
+        {
+          "point": "Negation with na- / nemi-",
+          "label": "Negative present",
+          "usage": "nemi- straight onto the verb: nemidanam, nemikhaham.",
+          "example": "من نمی‌دانم. — I don't know."
+        },
+        {
+          "point": "The verb dashtan (\"to have\")",
+          "label": "dashtan (to have)",
+          "usage": "The one common verb with no mi- in the present: daram, dari, darad.",
+          "example": "من یک کتاب دارم. — I have a book."
+        },
+        {
+          "point": "Simple past: the past stem",
+          "label": "Simple past",
+          "usage": "Past stem plus endings, and nothing at all in the third singular.",
+          "example": "من دیروز به مدرسه رفتم. — I went to school yesterday."
+        },
+        {
+          "point": "Past negation with na-",
+          "label": "Negative past",
+          "usage": "na- on the past form, never nemi-: naraftam, nadidam.",
+          "example": "من دیروز به مدرسه نرفتم. — I didn't go to school yesterday."
+        },
+        {
+          "point": "Present perfect: rafte-am",
+          "label": "Perfect",
+          "usage": "Participle in -e plus the short forms of \"to be\": rafte-am.",
+          "example": "من این فیلم را دیده‌ام. — I have seen this film."
+        },
+        {
+          "point": "Habitual past: miraftam",
+          "label": "Habitual past",
+          "usage": "mi- on a past form: what used to happen or was happening.",
+          "example": "من هر روز به مدرسه می‌رفتم. — I used to go to school every day."
+        },
+        {
+          "point": "The subjunctive: beravam",
+          "label": "Subjunctive",
+          "usage": "be- plus the present stem, no mi-: after khastan, bayad, shayad.",
+          "example": "می‌خواهم به خانه بروم. — I want to go home."
+        },
+        {
+          "point": "Future with khaham raft",
+          "label": "Future",
+          "usage": "khaham/khahad plus the bare past stem — a written-register future.",
+          "example": "من فردا به تهران خواهم رفت. — I will go to Tehran tomorrow."
+        },
+        {
+          "point": "Past perfect: rafte budam",
+          "label": "Past perfect",
+          "usage": "Participle plus budam: the earlier of two past events.",
+          "example": "وقتی رسیدم، او رفته بود. — When I arrived, he had left."
+        },
+        {
+          "point": "Passive with shodan: neveshte shod",
+          "label": "Passive",
+          "usage": "Participle plus shodan, normally with no agent named.",
+          "example": "این نامه دیروز نوشته شد. — This letter was written yesterday.",
+          "nonstandard": true
+        },
+        {
+          "point": "Causatives in -andan (recognition)",
+          "label": "Causatives",
+          "usage": "-andan makes someone do it: khandandan, resandan, fahmandan.",
+          "example": "او مرا به خانه رساند. — He took me home.",
+          "nonstandard": true
+        },
+        {
+          "point": "Literary past forms: baraft, hami (recognition)",
+          "label": "Literary past",
+          "usage": "be- on a past verb and the particle hami — for reading older prose.",
+          "example": "شاه بگفت: چنین است. — The king said: it is so.",
+          "nonstandard": true
+        }
+      ]
+    },
+    {
+      "kind": "attachments",
+      "label": "Attachments",
+      "entries": [
+        {
+          "point": "Possession with ezafe: ketab-e man",
+          "label": "Ezafe",
+          "usage": "The unwritten -e that links a thing to its owner or adjective.",
+          "example": "این کتاب من است. — This is my book."
+        },
+        {
+          "point": "Possessive endings: -am, -at, -ash",
+          "label": "Possessive endings",
+          "usage": "The owner hung on the noun: ketabam, madarat, esmash.",
+          "example": "کتابم روی میز است. — My book is on the table."
+        },
+        {
+          "point": "Object pronoun clitics: didamash",
+          "label": "Object clitics",
+          "usage": "The same endings on a VERB mean me/you/him, not my/your/his.",
+          "example": "دیروز دیدمش. — I saw him yesterday."
+        },
+        {
+          "point": "The plural suffix -ha",
+          "label": "Plural -ha",
+          "usage": "The all-purpose plural — and it is dropped after a number.",
+          "example": "کتاب ها. — books"
+        },
+        {
+          "point": "Ra marks a definite direct object",
+          "label": "Object marker ra",
+          "usage": "Postposed ra marks a definite object; an unmarked one is generic.",
+          "example": "کتاب را می‌خواهم. — I want the book."
+        },
+        {
+          "point": "Comparatives and superlatives: -tar, -tarin",
+          "label": "Comparison",
+          "usage": "-tar follows its noun, -tarin goes in front of it.",
+          "example": "تهران از اصفهان بزرگ‌تر است. — Tehran is bigger than Isfahan."
+        },
+        {
+          "point": "Ezafe chains: dar-e khane-ye dustam",
+          "label": "Ezafe chains",
+          "usage": "Links stack, and only the last word is the real owner.",
+          "example": "در خانهٔ دوستم باز است. — My friend's house door is open."
+        },
+        {
+          "point": "Numbers and the counter ta",
+          "label": "Numbers & ta",
+          "usage": "Counter ta between number and noun; the noun stays singular.",
+          "example": "من سه تا کتاب دارم. — I have three books."
+        },
+        {
+          "point": "Arabic broken plurals in Persian (recognition)",
+          "label": "Broken plurals",
+          "usage": "Reshaped Arabic plurals in formal Persian: kotob, akhbar, olama.",
+          "example": "اخبار امروز مهم بود. — Today's news was important.",
+          "nonstandard": true
+        }
+      ]
+    },
+    {
+      "kind": "constructions",
+      "label": "Constructions",
+      "entries": [
+        {
+          "point": "Verb-final word order (SOV)",
+          "label": "Word order",
+          "usage": "Whatever else is in the sentence, the verb comes last.",
+          "example": "من چای می‌خواهم. — I want tea."
+        },
+        {
+          "point": "Question words in a full sentence",
+          "label": "Question words",
+          "usage": "koja, ki, chera stay where the answer would; nothing moves.",
+          "example": "تو کجا می‌روی؟ — Where are you going?"
+        },
+        {
+          "point": "Light-verb compounds: kar kardan, harf zadan",
+          "label": "Light verbs",
+          "usage": "Noun plus kardan/zadan/dadan; only the light verb conjugates.",
+          "example": "من در تهران کار می‌کنم. — I work in Tehran."
+        },
+        {
+          "point": "tavanestan: saying what you can do",
+          "label": "Can (tavanestan)",
+          "usage": "mitavanam plus a subjunctive — both verbs carry the person.",
+          "example": "من می‌توانم فارسی حرف بزنم. — I can speak Persian."
+        },
+        {
+          "point": "Conditionals type 1: agar + subjunctive",
+          "label": "Real conditionals",
+          "usage": "agar plus subjunctive, with an ordinary present in the result.",
+          "example": "اگر به تهران بروی، او را می‌بینی. — If you go to Tehran, you'll see him."
+        },
+        {
+          "point": "Relative clauses with ke",
+          "label": "Relative ke",
+          "usage": "ke covers who, which and that — and is never left out.",
+          "example": "کتابی که خواندم خوب بود. — The book I read was good."
+        },
+        {
+          "point": "Infinitives as nouns: raftan, khandan",
+          "label": "Infinitive as noun",
+          "usage": "raftan, khandan work as nouns, with ezafe, ra and prepositions.",
+          "example": "خواندن کتاب خوب است. — Reading books is good."
+        },
+        {
+          "point": "ta: purpose and until",
+          "label": "ta (so that / until)",
+          "usage": "Subjunctive after ta means \"so that\"; an indicative means \"until\".",
+          "example": "به تهران رفتم تا او را ببینم. — I went to Tehran to see him."
+        },
+        {
+          "point": "Indirect speech with ke",
+          "label": "Reported speech",
+          "usage": "ke introduces the report and the original tense is kept.",
+          "example": "او گفت که می‌آید. — He said he was coming.",
+          "nonstandard": true
+        },
+        {
+          "point": "Unreal conditionals: agar miraftam",
+          "label": "Unreal conditionals",
+          "usage": "Habitual past in both halves: if I had…, I would…",
+          "example": "اگر پول داشتم، این خانه را می‌خریدم. — If I had money, I would buy this house.",
+          "nonstandard": true
+        },
+        {
+          "point": "Written vs. colloquial Persian (recognition)",
+          "label": "Written vs. spoken",
+          "usage": "miravam/miram, mikhaham/mikham, an/un — recognize both, write one.",
+          "example": "من فردا به خانه می‌روم. — I'm going home tomorrow.",
+          "nonstandard": true
+        },
+        {
+          "point": "Formal and administrative register",
+          "label": "Formal register",
+          "usage": "gardid, namud, mibashad, jahat — the Persian of letters and forms.",
+          "example": "این نامه برای شما ارسال گردید. — This letter was sent to you.",
+          "nonstandard": true
+        }
+      ]
+    }
+  ]
+}

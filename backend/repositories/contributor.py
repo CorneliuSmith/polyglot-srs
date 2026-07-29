@@ -284,6 +284,19 @@ async def set_language_tutor_model(
     )
 
 
+async def set_all_languages_tutor_model(
+    conn: asyncpg.Connection, model: str | None
+) -> int:
+    """Set (or clear) the tutor model on EVERY language at once (admin).
+
+    Owner pain point: the per-language picker meant re-doing the same choice
+    for each language — and each newly added language arrived back at the
+    default. One fleet-wide apply replaces that ritual. Returns the number
+    of languages updated."""
+    result = await conn.execute("UPDATE languages SET tutor_model = $1", model)
+    return int(result.split()[-1])
+
+
 async def set_language_policy(
     conn: asyncpg.Connection, language_id: str, policy: str
 ) -> bool:
@@ -591,6 +604,74 @@ async def review_inbox_counts(
         language_id,
     )
     return {k: int(row[k]) for k in row.keys()}
+
+
+async def language_release_readiness(conn: asyncpg.Connection) -> list[dict]:
+    """Per-language "is this safe to release?" roll-up for the visibility panel.
+
+    Owner: "languages will need to be released after review." Visibility is
+    the release switch, so the switch has to say what's still unreviewed —
+    otherwise an admin flips a half-reviewed language live without knowing.
+    One row per language, whether or not it's currently visible.
+
+    `awaiting_review` is the number a reviewer would still have to act on:
+    draft grammar points and un-reviewed AI drills/examples. `open_reports`
+    is human-raised traffic (notes, change requests, learner feedback) —
+    counted separately because it doesn't gate a first release the way
+    unreviewed content does.
+    """
+    rows = await conn.fetch(
+        """
+        SELECT l.id, l.code, l.name, l.is_visible,
+          (SELECT count(*) FROM grammar_points gp
+            WHERE gp.language_id = l.id AND gp.reviewed = false
+              AND COALESCE(gp.explanation, '') <> '') AS draft_points,
+          (SELECT count(*) FROM drill_sentences ds
+             JOIN grammar_points gp ON ds.grammar_point_id = gp.id
+            WHERE gp.language_id = l.id AND ds.source = 'ai'
+              AND ds.reviewed = false) AS pending_drills,
+          (SELECT count(*) FROM example_sentences es
+             JOIN vocabulary v ON es.vocabulary_id = v.id
+            WHERE v.language_id = l.id AND es.source = 'ai'
+              AND es.reviewed = false) AS pending_examples,
+          (SELECT count(*) FROM point_review_notes n
+             LEFT JOIN grammar_points gp ON n.grammar_point_id = gp.id
+             LEFT JOIN vocabulary v ON n.vocabulary_id = v.id
+            WHERE COALESCE(gp.language_id, v.language_id) = l.id
+              AND n.status = 'open') AS open_notes,
+          (SELECT count(*) FROM card_change_requests cr
+            WHERE cr.language_id = l.id AND cr.status = 'open')
+            AS open_change_requests,
+          (SELECT count(*) FROM card_feedback f
+            WHERE f.language_id = l.id AND f.status = 'open') AS open_feedback
+        FROM languages l
+        ORDER BY l.name
+        """
+    )
+    out = []
+    for r in rows:
+        awaiting = (
+            int(r["draft_points"])
+            + int(r["pending_drills"])
+            + int(r["pending_examples"])
+        )
+        reports = (
+            int(r["open_notes"])
+            + int(r["open_change_requests"])
+            + int(r["open_feedback"])
+        )
+        out.append({
+            "id": str(r["id"]),
+            "code": r["code"],
+            "name": r["name"],
+            "is_visible": r["is_visible"],
+            "draft_points": int(r["draft_points"]),
+            "pending_drills": int(r["pending_drills"]),
+            "pending_examples": int(r["pending_examples"]),
+            "awaiting_review": awaiting,
+            "open_reports": reports,
+        })
+    return out
 
 
 async def generation_coverage(conn: asyncpg.Connection) -> list[dict]:

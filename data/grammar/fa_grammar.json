@@ -5,6 +5,31 @@
       "level": "A1",
       "title": "Persian A1 Grammar Path",
       "description": "First Persian: pronouns with budan (\"to be\"), verb-final word order, personal verb endings, negation with na-/nemi-, adjectives after the noun, yes/no questions, the -ha plural, and the ra object marker."
+    },
+    {
+      "level": "A2",
+      "title": "Persian A2 Grammar Path",
+      "description": "Talking about the past: the two-stem system, simple past and its na- negation, the present perfect, habitual past with mi-, comparatives in -tar, object clitics on the verb, question words, light-verb compounds, and counting with ta."
+    },
+    {
+      "level": "B1",
+      "title": "Persian B1 Grammar Path",
+      "description": "Saying what might, must, and will happen: the be- subjunctive after khastan, bayad and shayad, tavanestan, the written future with khaham, real conditionals with agar, relative and reported clauses with ke, stacked ezafe chains, and infinitives used as nouns."
+    },
+    {
+      "level": "B2",
+      "title": "Persian B2 Grammar Path",
+      "description": "Depth and distance: the past perfect, unreal conditionals in the habitual past, the shodan passive, causatives in -andan, ta for purpose and until, and the gap between written miravam and spoken miram."
+    },
+    {
+      "level": "C1",
+      "title": "Persian C1 Grammar Path",
+      "description": "Register at the top of the range: administrative Persian with gardid, namud and mibashad, Arabic broken plurals like kotob and olama, and the literary past forms that fill older prose."
+    },
+    {
+      "level": "C2",
+      "title": "Persian C2 Grammar Path",
+      "description": "Near-native control: the conventions of classical verse, idiom and light-verb nuance, and shifting register between deferential, neutral, and intimate Persian."
     }
   ],
   "points": [
@@ -22,21 +47,24 @@
           "answer": "هستم",
           "translation": "I am.",
           "hint": "am — 1st person singular of \"to be\"",
-          "display_order": 1
+          "display_order": 1,
+          "transliteration": "man hastam."
         },
         {
           "sentence": "تو {{answer}}.",
           "answer": "هستی",
           "translation": "You are.",
           "hint": "are — 2nd person singular of \"to be\"",
-          "display_order": 2
+          "display_order": 2,
+          "transliteration": "to hasti."
         },
         {
           "sentence": "ما {{answer}}.",
           "answer": "هستیم",
           "translation": "We are.",
           "hint": "are — 1st person plural of \"to be\"",
-          "display_order": 3
+          "display_order": 3,
+          "transliteration": "ma hastim."
         }
       ]
     },
@@ -54,21 +82,24 @@
           "answer": "می‌خواهم",
           "translation": "I want tea.",
           "hint": "want — the verb comes at the very end",
-          "display_order": 1
+          "display_order": 1,
+          "transliteration": "man chay mikhaham."
         },
         {
           "sentence": "من خانه {{answer}}.",
           "answer": "می‌بینم",
           "translation": "I see the house.",
           "hint": "see — verb-final position",
-          "display_order": 2
+          "display_order": 2,
+          "transliteration": "man khane mibinam."
         },
         {
           "sentence": "من نان {{answer}}.",
           "answer": "می‌خورم",
           "translation": "I eat bread.",
           "hint": "eat — verb at the very end",
-          "display_order": 3
+          "display_order": 3,
+          "transliteration": "man nan mikhoram."
         }
       ]
     },
@@ -86,21 +117,24 @@
           "answer": "می‌روی",
           "translation": "You go / You are going.",
           "hint": "go — 2nd person singular, -ی ending",
-          "display_order": 1
+          "display_order": 1,
+          "transliteration": "to miravi."
         },
         {
           "sentence": "او {{answer}}.",
           "answer": "می‌رود",
           "translation": "He/she goes.",
           "hint": "goes — 3rd person singular, -د ending",
-          "display_order": 2
+          "display_order": 2,
+          "transliteration": "u miravad."
         },
         {
           "sentence": "من {{answer}}.",
           "answer": "می‌روم",
           "translation": "I go / I'm going.",
           "hint": "go — 1st person singular, -م ending",
-          "display_order": 3
+          "display_order": 3,
+          "transliteration": "man miravam."
         }
       ]
     },
@@ -118,21 +152,24 @@
           "answer": "نمی‌دانم",
           "translation": "I don't know.",
           "hint": "don't know — نمی‌ prefixed onto می‌دانم",
-          "display_order": 1
+          "display_order": 1,
+          "transliteration": "man nemidanam."
         },
         {
           "sentence": "من {{answer}}.",
           "answer": "نمی‌خواهم",
           "translation": "I don't want (to).",
           "hint": "don't want — نمی‌ prefixed onto می‌خواهم",
-          "display_order": 2
+          "display_order": 2,
+          "transliteration": "man nemikhaham."
         },
         {
           "sentence": "من {{answer}}.",
           "answer": "نمی‌بینم",
           "translation": "I don't see.",
           "hint": "don't see — نمی‌ prefixed onto می‌بینم",
-          "display_order": 3
+          "display_order": 3,
+          "transliteration": "man nemibinam."
         }
       ]
     },
@@ -150,21 +187,24 @@
           "answer": "خوب",
           "translation": "a good book",
           "hint": "good — placed AFTER the noun, not before",
-          "display_order": 1
+          "display_order": 1,
+          "transliteration": "ketab-e khub."
         },
         {
           "sentence": "دوست {{answer}}.",
           "answer": "خوب",
           "translation": "a good friend",
           "hint": "good — again, after the noun",
-          "display_order": 2
+          "display_order": 2,
+          "transliteration": "dust-e khub."
         },
         {
           "sentence": "مرد {{answer}}.",
           "answer": "بزرگ",
           "translation": "a big man",
           "hint": "big — adjective follows the noun",
-          "display_order": 3
+          "display_order": 3,
+          "transliteration": "mard-e bozorg."
         }
       ]
     },
@@ -182,21 +222,24 @@
           "answer": "می‌روی",
           "translation": "Are you going?",
           "hint": "going — statement form, the question mark signals the question",
-          "display_order": 1
+          "display_order": 1,
+          "transliteration": "to miravi?"
         },
         {
           "sentence": "او {{answer}}؟",
           "answer": "می‌رود",
           "translation": "Is he/she going?",
           "hint": "going — same form as the statement",
-          "display_order": 2
+          "display_order": 2,
+          "transliteration": "u miravad?"
         },
         {
           "sentence": "تو خوب {{answer}}؟",
           "answer": "هستی",
           "translation": "Are you well?",
           "hint": "are — \"to be,\" unchanged in form; only the ؟ makes it a question",
-          "display_order": 3
+          "display_order": 3,
+          "transliteration": "to khub hasti?"
         }
       ]
     },
@@ -214,21 +257,24 @@
           "answer": "ها",
           "translation": "books",
           "hint": "the plural suffix, often typed as a separate word",
-          "display_order": 1
+          "display_order": 1,
+          "transliteration": "ketabha."
         },
         {
           "sentence": "خانه {{answer}}.",
           "answer": "ها",
           "translation": "houses",
           "hint": "plural — same suffix",
-          "display_order": 2
+          "display_order": 2,
+          "transliteration": "khaneha."
         },
         {
           "sentence": "دوست {{answer}}.",
           "answer": "ها",
           "translation": "friends",
           "hint": "plural — same suffix",
-          "display_order": 3
+          "display_order": 3,
+          "transliteration": "dustha."
         }
       ]
     },
@@ -245,22 +291,1700 @@
           "sentence": "کتاب {{answer}} می‌خواهم.",
           "answer": "را",
           "translation": "I want the book.",
-          "hint": "را — marks a definite direct object, placed after the noun",
-          "display_order": 1
+          "hint": "the definite object marker — a postposition, placed after the noun",
+          "display_order": 1,
+          "transliteration": "ketab ra mikhaham."
         },
         {
           "sentence": "خانه {{answer}} می‌بینم.",
           "answer": "را",
           "translation": "I see the house.",
-          "hint": "را — definite object marker",
-          "display_order": 2
+          "hint": "the definite object marker",
+          "display_order": 2,
+          "transliteration": "khane ra mibinam."
         },
         {
           "sentence": "غذا {{answer}} می‌خورم.",
           "answer": "را",
           "translation": "I'm eating the food.",
-          "hint": "را — definite object marker, after the noun",
+          "hint": "the definite object marker, standing after the noun",
+          "display_order": 3,
+          "transliteration": "ghaza ra mikhoram."
+        }
+      ]
+    },
+    {
+      "title": "Possession with ezafe: ketab-e man",
+      "level": "A1",
+      "function": "Say whose something is",
+      "source": "ai",
+      "reviewed": false,
+      "display_order": 9,
+      "explanation": "Persian links a thing to its owner with the ezafe, an unwritten -e vowel between the two words: کتاب من is read ketab-e man, \"the book of me\" = \"my book.\" Nothing is added in writing after a consonant — the words simply sit side by side, owner second. After a word ending in the silent ه the ezafe IS written, as a small hamza on top: خانهٔ من (khane-ye man, \"my house\").",
+      "drills": [
+        {
+          "sentence": "این کتاب {{answer}} است.",
+          "answer": "من",
+          "translation": "This is my book.",
+          "hint": "the pronoun for the owner — \"me,\" linked by the unwritten ezafe",
+          "transliteration": "in ketab-e man ast.",
+          "display_order": 1
+        },
+        {
+          "sentence": "این ماشین {{answer}} است.",
+          "answer": "او",
+          "translation": "This is his/her car.",
+          "hint": "the owner — \"him/her\"; the ezafe vowel is not written",
+          "transliteration": "in mashin-e u ast.",
+          "display_order": 2
+        },
+        {
+          "sentence": "این خانهٔ {{answer}} است.",
+          "answer": "ما",
+          "translation": "This is our house.",
+          "hint": "the owner — \"us\"; the ezafe is written on خانه as a hamza",
+          "transliteration": "in khane-ye ma ast.",
           "display_order": 3
+        },
+        {
+          "sentence": "این {{answer}} تو است.",
+          "answer": "دوست",
+          "translation": "This is your friend.",
+          "hint": "friend — the possessed thing comes FIRST, the owner second",
+          "transliteration": "in dust-e to ast.",
+          "display_order": 4
+        },
+        {
+          "sentence": "این دفتر {{answer}} است.",
+          "answer": "معلم",
+          "translation": "This is the teacher's notebook.",
+          "hint": "teacher — the owner can be a noun, not just a pronoun",
+          "transliteration": "in daftar-e moallem ast.",
+          "display_order": 5
+        }
+      ]
+    },
+    {
+      "title": "Possessive endings: -am, -at, -ash",
+      "level": "A1",
+      "function": "Attach the owner straight onto the noun",
+      "source": "ai",
+      "reviewed": false,
+      "display_order": 10,
+      "explanation": "Instead of a separate pronoun, Persian can hang the owner directly on the noun: -am (my), -at (your), -ash (his/her), -eman (our), -etan (your pl.), -eshan (their). کتاب becomes کتابم (ketabam, \"my book\"). It is the everyday equivalent of کتاب من. After the silent ه the ending is joined with a thin connector: خانه becomes خانه‌ام (khane-am).",
+      "drills": [
+        {
+          "sentence": "{{answer}} روی میز است.",
+          "answer": "کتابم",
+          "translation": "My book is on the table.",
+          "hint": "my book — noun plus the -am ending, written as one word",
+          "transliteration": "ketabam ruye miz ast.",
+          "display_order": 1
+        },
+        {
+          "sentence": "{{answer}} کجاست؟",
+          "answer": "مادرت",
+          "translation": "Where is your mother?",
+          "hint": "your mother — noun plus the -at ending",
+          "transliteration": "madarat kojast?",
+          "display_order": 2
+        },
+        {
+          "sentence": "{{answer}} علی است.",
+          "answer": "اسمش",
+          "translation": "His name is Ali.",
+          "hint": "his name — noun plus the -ash ending",
+          "transliteration": "esmash Ali ast.",
+          "display_order": 3
+        },
+        {
+          "sentence": "{{answer}} بزرگ است.",
+          "answer": "خانه‌ام",
+          "translation": "My house is big.",
+          "hint": "my house — after the silent ه the ending joins with a thin connector",
+          "transliteration": "khane-am bozorg ast.",
+          "display_order": 4
+        },
+        {
+          "sentence": "{{answer}} در تهران زندگی می‌کند.",
+          "answer": "دوستم",
+          "translation": "My friend lives in Tehran.",
+          "hint": "my friend — noun plus the -am ending",
+          "transliteration": "dustam dar Tehran zendegi mikonad.",
+          "display_order": 5
+        }
+      ]
+    },
+    {
+      "title": "The verb dashtan (\"to have\")",
+      "level": "A1",
+      "function": "Say what you have",
+      "source": "ai",
+      "reviewed": false,
+      "display_order": 11,
+      "explanation": "داشتن (\"to have\") is conjugated دارم، داری، دارد، داریم، دارید، دارند. It is one of the few verbs that takes NO می‌ prefix in the present — دارم, never می‌دارم. The negative is built with ن‌ on the front: ندارم (\"I don't have\").",
+      "drills": [
+        {
+          "sentence": "من یک کتاب {{answer}}.",
+          "answer": "دارم",
+          "translation": "I have a book.",
+          "hint": "have — 1st person singular, and no می prefix on this verb",
+          "transliteration": "man yek ketab daram.",
+          "display_order": 1
+        },
+        {
+          "sentence": "تو یک خواهر {{answer}}.",
+          "answer": "داری",
+          "translation": "You have a sister.",
+          "hint": "have — 2nd person singular",
+          "transliteration": "to yek khahar dari.",
+          "display_order": 2
+        },
+        {
+          "sentence": "او یک ماشین {{answer}}.",
+          "answer": "دارد",
+          "translation": "He/she has a car.",
+          "hint": "has — 3rd person singular",
+          "transliteration": "u yek mashin darad.",
+          "display_order": 3
+        },
+        {
+          "sentence": "ما وقت {{answer}}.",
+          "answer": "داریم",
+          "translation": "We have time.",
+          "hint": "have — 1st person plural",
+          "transliteration": "ma vaght darim.",
+          "display_order": 4
+        },
+        {
+          "sentence": "من پول {{answer}}.",
+          "answer": "ندارم",
+          "translation": "I don't have money.",
+          "hint": "don't have — the negative prefix ن, not نمی, on this verb",
+          "transliteration": "man pul nadaram.",
+          "display_order": 5
+        }
+      ]
+    },
+    {
+      "title": "Simple past: the past stem",
+      "level": "A2",
+      "function": "Say what happened",
+      "source": "ai",
+      "reviewed": false,
+      "display_order": 1,
+      "explanation": "The past tense is built on the past stem, which is the infinitive minus its final ن: رفتن → رفت, دیدن → دید, خوردن → خورد. Add the personal endings straight onto it: رفتم (I went), رفتی (you went), رفت (he/she went), رفتیم، رفتید، رفتند. Note that the third person singular takes NO ending at all — the bare stem رفت already means \"he went.\"",
+      "drills": [
+        {
+          "sentence": "من دیروز به مدرسه {{answer}}.",
+          "answer": "رفتم",
+          "translation": "I went to school yesterday.",
+          "hint": "went — past stem plus the 1st person singular ending",
+          "transliteration": "man diruz be madrese raftam.",
+          "display_order": 1
+        },
+        {
+          "sentence": "تو دیروز کجا {{answer}}؟",
+          "answer": "رفتی",
+          "translation": "Where did you go yesterday?",
+          "hint": "went — past stem plus the 2nd person singular ending",
+          "transliteration": "to diruz koja rafti?",
+          "display_order": 2
+        },
+        {
+          "sentence": "او به خانه {{answer}}.",
+          "answer": "رفت",
+          "translation": "He/she went home.",
+          "hint": "went — 3rd person singular, the bare past stem with no ending",
+          "transliteration": "u be khane raft.",
+          "display_order": 3
+        },
+        {
+          "sentence": "ما دیشب فیلم {{answer}}.",
+          "answer": "دیدیم",
+          "translation": "We saw a film last night.",
+          "hint": "saw — past stem of دیدن plus the 1st person plural ending",
+          "transliteration": "ma dishab film didim.",
+          "display_order": 4
+        },
+        {
+          "sentence": "من غذا {{answer}}.",
+          "answer": "خوردم",
+          "translation": "I ate.",
+          "hint": "ate — past stem of خوردن plus the 1st person singular ending",
+          "transliteration": "man ghaza khordam.",
+          "display_order": 5
+        }
+      ]
+    },
+    {
+      "title": "Two verb stems: present and past",
+      "level": "A2",
+      "function": "Pick the right stem for the tense",
+      "source": "ai",
+      "reviewed": false,
+      "display_order": 2,
+      "explanation": "Every Persian verb has TWO stems, and they often look nothing alike: رفتن has رو in the present (می‌روم) and رفت in the past (رفتم); گفتن has گو and گفت; دیدن has بین and دید; خواندن has خوان and خواند. The past stem is always predictable (infinitive minus ن); the present stem has to be learned with the verb. Once you have the pair, everything else follows.",
+      "drills": [
+        {
+          "sentence": "دیروز او را {{answer}}.",
+          "answer": "دیدم",
+          "translation": "I saw him yesterday.",
+          "hint": "saw — the PAST stem of دیدن with the 1st person ending",
+          "transliteration": "diruz u ra didam.",
+          "display_order": 1
+        },
+        {
+          "sentence": "هر روز او را {{answer}}.",
+          "answer": "می‌بینم",
+          "translation": "I see him every day.",
+          "hint": "see — the PRESENT stem of the same verb, with می",
+          "transliteration": "har ruz u ra mibinam.",
+          "display_order": 2
+        },
+        {
+          "sentence": "من به او {{answer}}.",
+          "answer": "گفتم",
+          "translation": "I told him.",
+          "hint": "told — the past stem of گفتن; the present stem is گو",
+          "transliteration": "man be u goftam.",
+          "display_order": 3
+        },
+        {
+          "sentence": "من هر روز کتاب {{answer}}.",
+          "answer": "می‌خوانم",
+          "translation": "I read a book every day.",
+          "hint": "read — the present stem of خواندن, with می",
+          "transliteration": "man har ruz ketab mikhanam.",
+          "display_order": 4
+        },
+        {
+          "sentence": "دیشب کتاب {{answer}}.",
+          "answer": "خواندم",
+          "translation": "Last night I read a book.",
+          "hint": "read — the past stem of the same verb",
+          "transliteration": "dishab ketab khandam.",
+          "display_order": 5
+        }
+      ]
+    },
+    {
+      "title": "Past negation with na-",
+      "level": "A2",
+      "function": "Say what didn't happen",
+      "source": "ai",
+      "reviewed": false,
+      "display_order": 3,
+      "explanation": "Past verbs are negated with ن‌ on the front — NOT with نمی‌, which belongs to the present: رفتم → نرفتم (\"I didn't go\"), دیدم → ندیدم (\"I didn't see\"). The prefix goes before the past stem and the endings stay exactly the same.",
+      "drills": [
+        {
+          "sentence": "من دیروز به مدرسه {{answer}}.",
+          "answer": "نرفتم",
+          "translation": "I didn't go to school yesterday.",
+          "hint": "didn't go — the ن prefix on the past form",
+          "transliteration": "man diruz be madrese naraftam.",
+          "display_order": 1
+        },
+        {
+          "sentence": "او را {{answer}}.",
+          "answer": "ندیدم",
+          "translation": "I didn't see him.",
+          "hint": "didn't see — ن plus the past of دیدن",
+          "transliteration": "u ra nadidam.",
+          "display_order": 2
+        },
+        {
+          "sentence": "ما چیزی {{answer}}.",
+          "answer": "نگفتیم",
+          "translation": "We didn't say anything.",
+          "hint": "didn't say — ن plus the past of گفتن, 1st person plural",
+          "transliteration": "ma chizi nagoftim.",
+          "display_order": 3
+        },
+        {
+          "sentence": "تو غذا {{answer}}؟",
+          "answer": "نخوردی",
+          "translation": "Didn't you eat?",
+          "hint": "didn't eat — ن plus the past of خوردن, 2nd person singular",
+          "transliteration": "to ghaza nakhordi?",
+          "display_order": 4
+        },
+        {
+          "sentence": "او دیشب {{answer}}.",
+          "answer": "نیامد",
+          "translation": "He didn't come last night.",
+          "hint": "didn't come — ن plus the past of آمدن",
+          "transliteration": "u dishab nayamad.",
+          "display_order": 5
+        }
+      ]
+    },
+    {
+      "title": "Present perfect: rafte-am",
+      "level": "A2",
+      "function": "Report something already done",
+      "source": "ai",
+      "reviewed": false,
+      "display_order": 4,
+      "explanation": "The present perfect pairs a past participle (past stem + ه: رفته، دیده، خورده) with short forms of \"to be\": رفته‌ام (I have gone), رفته‌ای، رفته است، رفته‌ایم، رفته‌اید، رفته‌اند. Like English \"I have seen,\" it reports a past event whose result still matters now — which is why it is the natural tense for \"have you ever…?\"",
+      "drills": [
+        {
+          "sentence": "من این فیلم را {{answer}}.",
+          "answer": "دیده‌ام",
+          "translation": "I have seen this film.",
+          "hint": "have seen — participle joined to the 1st person short form of \"to be\"",
+          "transliteration": "man in film ra dide-am.",
+          "display_order": 1
+        },
+        {
+          "sentence": "او به تهران {{answer}} است.",
+          "answer": "رفته",
+          "translation": "He has gone to Tehran.",
+          "hint": "gone — the participle; است carries the person here",
+          "transliteration": "u be Tehran rafte ast.",
+          "display_order": 2
+        },
+        {
+          "sentence": "ما این کتاب را {{answer}}.",
+          "answer": "خوانده‌ایم",
+          "translation": "We have read this book.",
+          "hint": "have read — participle of خواندن, 1st person plural",
+          "transliteration": "ma in ketab ra khande-im.",
+          "display_order": 3
+        },
+        {
+          "sentence": "تو تا حالا آنجا {{answer}}؟",
+          "answer": "رفته‌ای",
+          "translation": "Have you ever been there?",
+          "hint": "have been/gone — participle, 2nd person singular",
+          "transliteration": "to ta hala anja rafte-i?",
+          "display_order": 4
+        },
+        {
+          "sentence": "من تازه غذا {{answer}}.",
+          "answer": "خورده‌ام",
+          "translation": "I have just eaten.",
+          "hint": "have eaten — participle of خوردن, 1st person singular",
+          "transliteration": "man taze ghaza khorde-am.",
+          "display_order": 5
+        }
+      ]
+    },
+    {
+      "title": "Comparatives and superlatives: -tar, -tarin",
+      "level": "A2",
+      "function": "Compare two things, or pick the top one",
+      "source": "ai",
+      "reviewed": false,
+      "display_order": 5,
+      "explanation": "Add ‌تر for \"more\" and ‌ترین for \"most\": بزرگ → بزرگ‌تر (bigger), بزرگ‌ترین (biggest). The comparison partner follows از (\"than\"): تهران از اصفهان بزرگ‌تر است. Word order differs between the two: a comparative FOLLOWS its noun, but a superlative goes BEFORE it — بزرگ‌ترین شهر (\"the biggest city\"). خوب has the irregular pair بهتر / بهترین, written solid.",
+      "drills": [
+        {
+          "sentence": "این کتاب از آن کتاب {{answer}} است.",
+          "answer": "بهتر",
+          "translation": "This book is better than that book.",
+          "hint": "better — the irregular comparative of خوب",
+          "transliteration": "in ketab az an ketab behtar ast.",
+          "display_order": 1
+        },
+        {
+          "sentence": "تهران از اصفهان {{answer}} است.",
+          "answer": "بزرگ‌تر",
+          "translation": "Tehran is bigger than Isfahan.",
+          "hint": "bigger — adjective plus the comparative suffix",
+          "transliteration": "Tehran az Esfahan bozorgtar ast.",
+          "display_order": 2
+        },
+        {
+          "sentence": "برادرم از من {{answer}} است.",
+          "answer": "کوچک‌تر",
+          "translation": "My brother is younger than me.",
+          "hint": "smaller/younger — adjective plus the comparative suffix",
+          "transliteration": "baradaram az man kuchektar ast.",
+          "display_order": 3
+        },
+        {
+          "sentence": "او {{answer}} دوست من است.",
+          "answer": "بهترین",
+          "translation": "He is my best friend.",
+          "hint": "best — irregular superlative, standing BEFORE the noun",
+          "transliteration": "u behtarin dust-e man ast.",
+          "display_order": 4
+        },
+        {
+          "sentence": "این {{answer}} شهر ایران است.",
+          "answer": "بزرگ‌ترین",
+          "translation": "This is the biggest city in Iran.",
+          "hint": "biggest — superlative suffix, and it comes before the noun",
+          "transliteration": "in bozorgtarin shahr-e Iran ast.",
+          "display_order": 5
+        }
+      ]
+    },
+    {
+      "title": "Object pronoun clitics: didamash",
+      "level": "A2",
+      "function": "Recognize a pronoun object stuck on the verb",
+      "source": "ai",
+      "reviewed": false,
+      "display_order": 6,
+      "explanation": "Instead of او را دیدم, Persian often hangs the object pronoun straight on the verb: دیدمش (\"I saw him\"), دیدمت (\"I saw you\"), دیدیمش (\"we saw him\"). The endings are the same set as the possessives — ـم، ـت، ـش، ـمان، ـتان، ـشان — but here they mean me/you/him, not my/your/his. Word order tells you which: on a noun they possess, on a verb they are the object.",
+      "drills": [
+        {
+          "sentence": "دیروز {{answer}}.",
+          "answer": "دیدمش",
+          "translation": "I saw him yesterday.",
+          "hint": "I saw him — past verb with the 3rd person object stuck on the end",
+          "transliteration": "diruz didamash.",
+          "display_order": 1
+        },
+        {
+          "sentence": "من {{answer}}.",
+          "answer": "دیدمت",
+          "translation": "I saw you.",
+          "hint": "I saw you — same verb, 2nd person object clitic",
+          "transliteration": "man didamat.",
+          "display_order": 2
+        },
+        {
+          "sentence": "من دیشب {{answer}}.",
+          "answer": "خواندمش",
+          "translation": "I read it last night.",
+          "hint": "I read it — past of خواندن with the object clitic",
+          "transliteration": "man dishab khandamash.",
+          "display_order": 3
+        },
+        {
+          "sentence": "ما {{answer}}.",
+          "answer": "دیدیمش",
+          "translation": "We saw him.",
+          "hint": "we saw him — 1st person plural verb plus the object clitic",
+          "transliteration": "ma didimash.",
+          "display_order": 4
+        }
+      ]
+    },
+    {
+      "title": "Question words in a full sentence",
+      "level": "A2",
+      "function": "Ask what, where, when and why",
+      "source": "ai",
+      "reviewed": false,
+      "display_order": 7,
+      "explanation": "A Persian question word does not jump to the front the way English's does — it simply stands where the answer would stand, and the verb still comes last: تو کجا می‌روی؟ is literally \"you where go?\" The core set is کجا (where), کی (who; also when), چرا (why), چطور (how) and چه/چی (what), with چیست as the written \"what is…?\"",
+      "drills": [
+        {
+          "sentence": "تو {{answer}} می‌روی؟",
+          "answer": "کجا",
+          "translation": "Where are you going?",
+          "hint": "where — it stays in the middle; the verb is still last",
+          "transliteration": "to koja miravi?",
+          "display_order": 1
+        },
+        {
+          "sentence": "او {{answer}} نمی‌آید؟",
+          "answer": "چرا",
+          "translation": "Why isn't he coming?",
+          "hint": "why — placed before the verb, no reordering",
+          "transliteration": "u chera nemiayad?",
+          "display_order": 2
+        },
+        {
+          "sentence": "شما {{answer}} هستید؟",
+          "answer": "کی",
+          "translation": "Who are you?",
+          "hint": "who — one short word, before the verb",
+          "transliteration": "shoma ki hastid?",
+          "display_order": 3
+        },
+        {
+          "sentence": "این {{answer}}؟",
+          "answer": "چیست",
+          "translation": "What is this?",
+          "hint": "what is (it) — the written form that fuses \"what\" with \"is\"",
+          "transliteration": "in chist?",
+          "display_order": 4
+        },
+        {
+          "sentence": "حال شما {{answer}} است؟",
+          "answer": "چطور",
+          "translation": "How are you?",
+          "hint": "how — asking after someone's state",
+          "transliteration": "hal-e shoma chetor ast?",
+          "display_order": 5
+        }
+      ]
+    },
+    {
+      "title": "Habitual past: miraftam",
+      "level": "A2",
+      "function": "Say what you used to do",
+      "source": "ai",
+      "reviewed": false,
+      "display_order": 8,
+      "explanation": "Put می‌ on a simple past and you get the habitual or ongoing past — English \"used to go\" or \"was going\": رفتم (\"I went\") → می‌رفتم (\"I used to go\"). It is the tense for routines, backgrounds and descriptions in a story. The negative is نمی‌: نمی‌رفتم.",
+      "drills": [
+        {
+          "sentence": "من هر روز به مدرسه {{answer}}.",
+          "answer": "می‌رفتم",
+          "translation": "I used to go to school every day.",
+          "hint": "used to go — می on the past form, 1st person singular",
+          "transliteration": "man har ruz be madrese miraftam.",
+          "display_order": 1
+        },
+        {
+          "sentence": "او هر شب دیر {{answer}}.",
+          "answer": "می‌خوابید",
+          "translation": "He used to go to bed late every night.",
+          "hint": "used to sleep — می on the past of خوابیدن, 3rd person singular",
+          "transliteration": "u har shab dir mikhabid.",
+          "display_order": 2
+        },
+        {
+          "sentence": "ما هر تابستان به شمال {{answer}}.",
+          "answer": "می‌رفتیم",
+          "translation": "Every summer we used to go to the north.",
+          "hint": "used to go — 1st person plural of the same tense",
+          "transliteration": "ma har tabestan be shomal miraftim.",
+          "display_order": 3
+        },
+        {
+          "sentence": "تو هر روز او را {{answer}}.",
+          "answer": "می‌دیدی",
+          "translation": "You used to see him every day.",
+          "hint": "used to see — می on the past of دیدن, 2nd person singular",
+          "transliteration": "to har ruz u ra mididi.",
+          "display_order": 4
+        },
+        {
+          "sentence": "من آنجا کسی را {{answer}}.",
+          "answer": "نمی‌شناختم",
+          "translation": "I didn't know anyone there.",
+          "hint": "didn't know — the negative of this tense, on the past of شناختن",
+          "transliteration": "man anja kasi ra nemishenakhtam.",
+          "display_order": 5
+        }
+      ]
+    },
+    {
+      "title": "Light-verb compounds: kar kardan, harf zadan",
+      "level": "A2",
+      "function": "Use the compound verbs Persian builds everything from",
+      "source": "ai",
+      "reviewed": false,
+      "display_order": 9,
+      "explanation": "Most everyday Persian verbs are two pieces: a fixed noun or adjective plus a light verb — کار کردن (\"to work,\" literally \"work do\"), حرف زدن (\"to speak,\" \"word hit\"), گوش دادن (\"to listen,\" \"ear give\"), تماشا کردن (\"to watch\"). Only the light verb conjugates; the first piece never changes: کار می‌کنم، کار کردم، کار خواهم کرد.",
+      "drills": [
+        {
+          "sentence": "من در تهران کار {{answer}}.",
+          "answer": "می‌کنم",
+          "translation": "I work in Tehran.",
+          "hint": "do — only the light verb conjugates; کار stays put",
+          "transliteration": "man dar Tehran kar mikonam.",
+          "display_order": 1
+        },
+        {
+          "sentence": "او فارسی حرف {{answer}}.",
+          "answer": "می‌زند",
+          "translation": "He speaks Persian.",
+          "hint": "hits — the light verb of \"to speak,\" 3rd person singular",
+          "transliteration": "u farsi harf mizanad.",
+          "display_order": 2
+        },
+        {
+          "sentence": "ما به موسیقی گوش {{answer}}.",
+          "answer": "می‌دهیم",
+          "translation": "We listen to music.",
+          "hint": "give — the light verb of \"to listen,\" 1st person plural",
+          "transliteration": "ma be musighi gush midahim.",
+          "display_order": 3
+        },
+        {
+          "sentence": "من تلویزیون {{answer}} می‌کنم.",
+          "answer": "تماشا",
+          "translation": "I watch television.",
+          "hint": "the fixed noun half of the compound meaning \"to watch\"",
+          "transliteration": "man televizion tamasha mikonam.",
+          "display_order": 4
+        },
+        {
+          "sentence": "تو خیلی {{answer}} می‌کنی.",
+          "answer": "کار",
+          "translation": "You work a lot.",
+          "hint": "the fixed noun half of the compound meaning \"to work\"",
+          "transliteration": "to kheyli kar mikoni.",
+          "display_order": 5
+        }
+      ]
+    },
+    {
+      "title": "Numbers and the counter ta",
+      "level": "A2",
+      "function": "Count things the Persian way",
+      "source": "ai",
+      "reviewed": false,
+      "display_order": 10,
+      "explanation": "After a number the Persian noun stays SINGULAR: سه کتاب, literally \"three book.\" In ordinary speech and writing a counter تا usually sits between the number and the noun for countable things: سه تا کتاب. The numbers themselves are یک، دو، سه، چهار، پنج، شش، هفت، هشت، نه، ده.",
+      "drills": [
+        {
+          "sentence": "من سه {{answer}} کتاب دارم.",
+          "answer": "تا",
+          "translation": "I have three books.",
+          "hint": "the counter word between a number and its noun",
+          "transliteration": "man se ta ketab daram.",
+          "display_order": 1
+        },
+        {
+          "sentence": "او دو {{answer}} برادر دارد.",
+          "answer": "تا",
+          "translation": "He has two brothers.",
+          "hint": "the same counter word",
+          "transliteration": "u do ta baradar darad.",
+          "display_order": 2
+        },
+        {
+          "sentence": "من {{answer}} کتاب دارم.",
+          "answer": "پنج",
+          "translation": "I have five books.",
+          "hint": "five — and note the noun after it stays singular",
+          "transliteration": "man panj ketab daram.",
+          "display_order": 3
+        },
+        {
+          "sentence": "ما {{answer}} تا صندلی داریم.",
+          "answer": "چهار",
+          "translation": "We have four chairs.",
+          "hint": "four — the number before the counter",
+          "transliteration": "ma chahar ta sandali darim.",
+          "display_order": 4
+        },
+        {
+          "sentence": "من {{answer}} خواهر دارم.",
+          "answer": "دو",
+          "translation": "I have two sisters.",
+          "hint": "two — the noun after it is not pluralized",
+          "transliteration": "man do khahar daram.",
+          "display_order": 5
+        }
+      ]
+    },
+    {
+      "title": "The subjunctive: beravam",
+      "level": "B1",
+      "function": "Say what you want, must or might do",
+      "source": "ai",
+      "reviewed": false,
+      "display_order": 1,
+      "explanation": "For anything not presented as fact — a wish, an obligation, a possibility — Persian uses the subjunctive: بـ + present stem + endings, with NO می‌. رفتن gives بروم، بروی، برود. It follows می‌خواهم (\"I want to…\"), باید (\"must\"), شاید (\"maybe\") and similar: می‌خواهم بروم, باید بروم, شاید برود.",
+      "drills": [
+        {
+          "sentence": "می‌خواهم به خانه {{answer}}.",
+          "answer": "بروم",
+          "translation": "I want to go home.",
+          "hint": "go — subjunctive after \"I want\": بـ prefix, no می",
+          "transliteration": "mikhaham be khane beravam.",
+          "display_order": 1
+        },
+        {
+          "sentence": "باید فارسی یاد {{answer}}.",
+          "answer": "بگیرم",
+          "translation": "I have to learn Persian.",
+          "hint": "take — the light verb of \"to learn,\" in the subjunctive after باید",
+          "transliteration": "bayad farsi yad begiram.",
+          "display_order": 2
+        },
+        {
+          "sentence": "شاید فردا {{answer}}.",
+          "answer": "بیاید",
+          "translation": "Maybe he'll come tomorrow.",
+          "hint": "come — subjunctive of آمدن after شاید",
+          "transliteration": "shayad farda biayad.",
+          "display_order": 3
+        },
+        {
+          "sentence": "می‌خواهی چای {{answer}}؟",
+          "answer": "بخوری",
+          "translation": "Do you want to drink tea?",
+          "hint": "eat/drink — subjunctive of خوردن, 2nd person singular",
+          "transliteration": "mikhahi chay bekhori?",
+          "display_order": 4
+        },
+        {
+          "sentence": "باید این کتاب را {{answer}}.",
+          "answer": "بخوانی",
+          "translation": "You must read this book.",
+          "hint": "read — subjunctive of خواندن after باید",
+          "transliteration": "bayad in ketab ra bekhani.",
+          "display_order": 5
+        }
+      ]
+    },
+    {
+      "title": "Future with khaham raft",
+      "level": "B1",
+      "function": "Write about the future",
+      "source": "ai",
+      "reviewed": false,
+      "display_order": 2,
+      "explanation": "Formal and written Persian marks the future with خواهم/خواهی/خواهد/خواهیم/خواهید/خواهند followed by the SHORT infinitive — the bare past stem, unchanged for person: خواهم رفت (\"I will go\"), خواهد آمد (\"he will come\"). Everyday speech simply uses the present tense with a time word (فردا می‌روم), so this pattern belongs mostly to writing and formal registers.",
+      "drills": [
+        {
+          "sentence": "من فردا به تهران {{answer}} رفت.",
+          "answer": "خواهم",
+          "translation": "I will go to Tehran tomorrow.",
+          "hint": "will — the 1st person auxiliary; رفت stays bare after it",
+          "transliteration": "man farda be Tehran khaham raft.",
+          "display_order": 1
+        },
+        {
+          "sentence": "او فردا {{answer}} آمد.",
+          "answer": "خواهد",
+          "translation": "He will come tomorrow.",
+          "hint": "will — the 3rd person singular auxiliary",
+          "transliteration": "u farda khahad amad.",
+          "display_order": 2
+        },
+        {
+          "sentence": "ما این کتاب را {{answer}} خواند.",
+          "answer": "خواهیم",
+          "translation": "We will read this book.",
+          "hint": "will — the 1st person plural auxiliary",
+          "transliteration": "ma in ketab ra khahim khand.",
+          "display_order": 3
+        },
+        {
+          "sentence": "تو فردا کجا خواهی {{answer}}؟",
+          "answer": "رفت",
+          "translation": "Where will you go tomorrow?",
+          "hint": "go — the bare past stem after the auxiliary, with no ending",
+          "transliteration": "to farda koja khahi raft?",
+          "display_order": 4
+        },
+        {
+          "sentence": "من فردا تو را خواهم {{answer}}.",
+          "answer": "دید",
+          "translation": "I will see you tomorrow.",
+          "hint": "see — bare past stem, person is already on the auxiliary",
+          "transliteration": "man farda to ra khaham did.",
+          "display_order": 5
+        }
+      ]
+    },
+    {
+      "title": "Conditionals type 1: agar + subjunctive",
+      "level": "B1",
+      "function": "Talk about a real possibility",
+      "source": "ai",
+      "reviewed": false,
+      "display_order": 3,
+      "explanation": "For a condition that may well come true, اگر takes the SUBJUNCTIVE and the result clause stays in the ordinary present: اگر به تهران بروی، او را می‌بینی (\"if you go to Tehran, you'll see him\"). English uses a present tense in the if-clause; Persian uses the بـ form.",
+      "drills": [
+        {
+          "sentence": "اگر به تهران {{answer}}، او را می‌بینی.",
+          "answer": "بروی",
+          "translation": "If you go to Tehran, you'll see him.",
+          "hint": "go — subjunctive in the if-clause, 2nd person singular",
+          "transliteration": "agar be Tehran beravi, u ra mibini.",
+          "display_order": 1
+        },
+        {
+          "sentence": "اگر وقت داشته {{answer}}، به تو زنگ می‌زنم.",
+          "answer": "باشم",
+          "translation": "If I have time, I'll call you.",
+          "hint": "be — the subjunctive half of \"to have\" in a condition",
+          "transliteration": "agar vaght dashte basham, be to zang mizanam.",
+          "display_order": 2
+        },
+        {
+          "sentence": "اگر باران {{answer}}، نمی‌رویم.",
+          "answer": "بیاید",
+          "translation": "If it rains, we won't go.",
+          "hint": "come — subjunctive of آمدن; Persian says rain \"comes\"",
+          "transliteration": "agar baran biayad, nemiravim.",
+          "display_order": 3
+        },
+        {
+          "sentence": "اگر درس {{answer}}، قبول می‌شوی.",
+          "answer": "بخوانی",
+          "translation": "If you study, you'll pass.",
+          "hint": "read — subjunctive of خواندن, 2nd person singular",
+          "transliteration": "agar dars bekhani, ghabul mishavi.",
+          "display_order": 4
+        },
+        {
+          "sentence": "اگر {{answer}}، می‌آیم.",
+          "answer": "بتوانم",
+          "translation": "If I can, I'll come.",
+          "hint": "can — subjunctive of توانستن, 1st person singular",
+          "transliteration": "agar betavanam, miayam.",
+          "display_order": 5
+        }
+      ]
+    },
+    {
+      "title": "Relative clauses with ke",
+      "level": "B1",
+      "function": "Add a which/who clause to a noun",
+      "source": "ai",
+      "reviewed": false,
+      "display_order": 4,
+      "explanation": "که introduces every relative clause — it covers English who, which and that all at once, and it is never dropped. The noun it describes usually carries an indefinite ـی: مردی که دیدم (\"the man I saw\"), کتابی که خواندم (\"the book I read\"). The relative clause sits right after that noun, and its own verb still comes last.",
+      "drills": [
+        {
+          "sentence": "کتابی {{answer}} خواندم خوب بود.",
+          "answer": "که",
+          "translation": "The book I read was good.",
+          "hint": "the linker that opens the clause — never omitted, unlike English \"that\"",
+          "transliteration": "ketabi ke khandam khub bud.",
+          "display_order": 1
+        },
+        {
+          "sentence": "مردی که دیدم دوست من {{answer}}.",
+          "answer": "بود",
+          "translation": "The man I saw was my friend.",
+          "hint": "was — the main verb, after the relative clause closes",
+          "transliteration": "mardi ke didam dust-e man bud.",
+          "display_order": 2
+        },
+        {
+          "sentence": "خانه‌ای که در آن زندگی می‌کنم بزرگ {{answer}}.",
+          "answer": "است",
+          "translation": "The house I live in is big.",
+          "hint": "is — the main clause verb, at the very end",
+          "transliteration": "khane-i ke dar an zendegi mikonam bozorg ast.",
+          "display_order": 3
+        },
+        {
+          "sentence": "زنی {{answer}} آنجا نشسته معلم است.",
+          "answer": "که",
+          "translation": "The woman sitting over there is a teacher.",
+          "hint": "the relative linker after the indefinite noun",
+          "transliteration": "zani ke anja neshaste moallem ast.",
+          "display_order": 4
+        },
+        {
+          "sentence": "این همان کتابی است {{answer}} می‌خواستم.",
+          "answer": "که",
+          "translation": "This is the very book I wanted.",
+          "hint": "the relative linker; the noun before it carries the indefinite ـی",
+          "transliteration": "in haman ketabi ast ke mikhastam.",
+          "display_order": 5
+        }
+      ]
+    },
+    {
+      "title": "Indirect speech with ke",
+      "level": "B1",
+      "function": "Report what someone said",
+      "source": "ai",
+      "reviewed": false,
+      "display_order": 5,
+      "explanation": "Reported speech is introduced by که, and — unlike English — Persian does NOT shift the tense backwards. گفت که می‌آید is literally \"he said that he comes,\" but translates as \"he said he was coming.\" Keep the tense the speaker actually used and let که do the work.",
+      "drills": [
+        {
+          "sentence": "او گفت {{answer}} می‌آید.",
+          "answer": "که",
+          "translation": "He said he was coming.",
+          "hint": "the linker that opens reported speech",
+          "transliteration": "u goft ke miayad.",
+          "display_order": 1
+        },
+        {
+          "sentence": "او گفت که فردا {{answer}}.",
+          "answer": "می‌آید",
+          "translation": "He said he would come tomorrow.",
+          "hint": "comes — the tense stays as the speaker said it, no backshift",
+          "transliteration": "u goft ke farda miayad.",
+          "display_order": 2
+        },
+        {
+          "sentence": "من فکر می‌کنم {{answer}} او در خانه است.",
+          "answer": "که",
+          "translation": "I think he's at home.",
+          "hint": "the linker after a verb of thinking",
+          "transliteration": "man fekr mikonam ke u dar khane ast.",
+          "display_order": 3
+        },
+        {
+          "sentence": "او پرسید که من کجا {{answer}}.",
+          "answer": "هستم",
+          "translation": "He asked where I was.",
+          "hint": "am — present kept in the report, where English shifts to \"was\"",
+          "transliteration": "u porsid ke man koja hastam.",
+          "display_order": 4
+        },
+        {
+          "sentence": "گفتم که کتاب را {{answer}}.",
+          "answer": "خوانده‌ام",
+          "translation": "I said I had read the book.",
+          "hint": "have read — the perfect, again unshifted",
+          "transliteration": "goftam ke ketab ra khande-am.",
+          "display_order": 5
+        }
+      ]
+    },
+    {
+      "title": "Ezafe chains: dar-e khane-ye dustam",
+      "level": "B1",
+      "function": "Stack several linked nouns in a row",
+      "source": "ai",
+      "reviewed": false,
+      "display_order": 6,
+      "explanation": "Ezafe links can chain: در خانهٔ دوستم is dar-e khane-ye dustam, \"the door of the house of my friend.\" Each word in the chain carries an ezafe onto the next, and only the LAST element is the ultimate owner. Nothing is written after a consonant; after the silent ه the link appears as the hamza (خانهٔ), and after ا or و it appears as ی.",
+      "drills": [
+        {
+          "sentence": "در {{answer}} دوستم باز است.",
+          "answer": "خانهٔ",
+          "translation": "My friend's house door is open.",
+          "hint": "house — the middle link in the chain, carrying a written ezafe",
+          "transliteration": "dar-e khane-ye dustam baz ast.",
+          "display_order": 1
+        },
+        {
+          "sentence": "کتاب {{answer}} من روی میز است.",
+          "answer": "برادر",
+          "translation": "My brother's book is on the table.",
+          "hint": "brother — the middle link between the thing and its owner",
+          "transliteration": "ketab-e baradar-e man ruye miz ast.",
+          "display_order": 2
+        },
+        {
+          "sentence": "اسم {{answer}} من علی است.",
+          "answer": "پدر",
+          "translation": "My father's name is Ali.",
+          "hint": "father — the middle link of the chain",
+          "transliteration": "esm-e pedar-e man Ali ast.",
+          "display_order": 3
+        },
+        {
+          "sentence": "ماشین پدر {{answer}} قرمز است.",
+          "answer": "دوستم",
+          "translation": "My friend's father's car is red.",
+          "hint": "my friend — the last link, where the chain ends",
+          "transliteration": "mashin-e pedar-e dustam ghermez ast.",
+          "display_order": 4
+        },
+        {
+          "sentence": "رنگ {{answer}} خانه سفید است.",
+          "answer": "در",
+          "translation": "The colour of the house door is white.",
+          "hint": "door — the middle link between \"colour\" and \"house\"",
+          "transliteration": "rang-e dar-e khane sefid ast.",
+          "display_order": 5
+        }
+      ]
+    },
+    {
+      "title": "Infinitives as nouns: raftan, khandan",
+      "level": "B1",
+      "function": "Use a verb as the subject or object of a sentence",
+      "source": "ai",
+      "reviewed": false,
+      "display_order": 7,
+      "explanation": "The Persian infinitive (past stem + ن: رفتن، خواندن، نوشتن) doubles as a noun, covering English's \"-ing\" forms: خواندن کتاب خوب است (\"reading books is good\"), از رفتن می‌ترسم (\"I'm afraid of going\"). It takes ezafe, را and prepositions exactly like any other noun.",
+      "drills": [
+        {
+          "sentence": "{{answer}} کتاب خوب است.",
+          "answer": "خواندن",
+          "translation": "Reading books is good.",
+          "hint": "reading — the infinitive of the verb \"to read\", used as the subject",
+          "transliteration": "khandan-e ketab khub ast.",
+          "display_order": 1
+        },
+        {
+          "sentence": "{{answer}} به تهران سخت است.",
+          "answer": "رفتن",
+          "translation": "Going to Tehran is hard.",
+          "hint": "going — the infinitive as subject",
+          "transliteration": "raftan be Tehran sakht ast.",
+          "display_order": 2
+        },
+        {
+          "sentence": "{{answer}} فارسی آسان نیست.",
+          "answer": "نوشتن",
+          "translation": "Writing Persian isn't easy.",
+          "hint": "writing — the infinitive of the verb \"to write\", linked to فارسی by ezafe",
+          "transliteration": "neveshtan-e farsi asan nist.",
+          "display_order": 3
+        },
+        {
+          "sentence": "{{answer}} برای سلامتی خوب است.",
+          "answer": "دویدن",
+          "translation": "Running is good for your health.",
+          "hint": "running — the infinitive of the verb \"to run\"",
+          "transliteration": "davidan baraye salamati khub ast.",
+          "display_order": 4
+        },
+        {
+          "sentence": "او {{answer}} را دوست دارد.",
+          "answer": "خواندن",
+          "translation": "He likes reading.",
+          "hint": "reading — an infinitive can even take را as an object",
+          "transliteration": "u khandan ra dust darad.",
+          "display_order": 5
+        }
+      ]
+    },
+    {
+      "title": "tavanestan: saying what you can do",
+      "level": "B1",
+      "function": "Say what is and isn't possible",
+      "source": "ai",
+      "reviewed": false,
+      "display_order": 8,
+      "explanation": "توانستن (\"to be able\") is conjugated normally and is followed by a SUBJUNCTIVE, not an infinitive: می‌توانم بروم, literally \"I can I-go.\" Both verbs carry the person. The negative is نمی‌توانم, and the past is توانستم / نتوانستم.",
+      "drills": [
+        {
+          "sentence": "من {{answer}} فارسی حرف بزنم.",
+          "answer": "می‌توانم",
+          "translation": "I can speak Persian.",
+          "hint": "can — 1st person singular; the second verb stays subjunctive",
+          "transliteration": "man mitavanam farsi harf bezanam.",
+          "display_order": 1
+        },
+        {
+          "sentence": "او {{answer}} بیاید.",
+          "answer": "نمی‌تواند",
+          "translation": "He can't come.",
+          "hint": "can't — the negative, 3rd person singular",
+          "transliteration": "u nemitavanad biayad.",
+          "display_order": 2
+        },
+        {
+          "sentence": "می‌توانی به من کمک {{answer}}؟",
+          "answer": "کنی",
+          "translation": "Can you help me?",
+          "hint": "do — the light verb of \"to help,\" in the subjunctive",
+          "transliteration": "mitavani be man komak koni?",
+          "display_order": 3
+        },
+        {
+          "sentence": "ما می‌توانیم فردا {{answer}}.",
+          "answer": "برویم",
+          "translation": "We can go tomorrow.",
+          "hint": "go — subjunctive after \"we can,\" 1st person plural",
+          "transliteration": "ma mitavanim farda beravim.",
+          "display_order": 4
+        },
+        {
+          "sentence": "دیروز {{answer}} بیایم.",
+          "answer": "نتوانستم",
+          "translation": "I couldn't come yesterday.",
+          "hint": "couldn't — the negative past of this verb",
+          "transliteration": "diruz natavanestam biayam.",
+          "display_order": 5
+        }
+      ]
+    },
+    {
+      "title": "Past perfect: rafte budam",
+      "level": "B2",
+      "function": "Set one past event before another",
+      "source": "ai",
+      "reviewed": false,
+      "display_order": 1,
+      "explanation": "The past perfect is the participle plus the past of بودن: رفته بودم (\"I had gone\"), دیده بودی، خورده بود، رفته بودیم. It marks the earlier of two past events — وقتی رسیدم، او رفته بود (\"when I arrived, he had already left\").",
+      "drills": [
+        {
+          "sentence": "وقتی رسیدم، او {{answer}} بود.",
+          "answer": "رفته",
+          "translation": "When I arrived, he had left.",
+          "hint": "gone — the participle; بود carries the tense",
+          "transliteration": "vaghti residam, u rafte bud.",
+          "display_order": 1
+        },
+        {
+          "sentence": "من آن کتاب را پیشتر خوانده {{answer}}.",
+          "answer": "بودم",
+          "translation": "I had already read that book.",
+          "hint": "had — the past of بودن, 1st person singular",
+          "transliteration": "man an ketab ra pishtar khande budam.",
+          "display_order": 2
+        },
+        {
+          "sentence": "ما او را پیشتر {{answer}} بودیم.",
+          "answer": "دیده",
+          "translation": "We had seen him before.",
+          "hint": "seen — participle of دیدن",
+          "transliteration": "ma u ra pishtar dide budim.",
+          "display_order": 3
+        },
+        {
+          "sentence": "تو کجا رفته {{answer}}؟",
+          "answer": "بودی",
+          "translation": "Where had you gone?",
+          "hint": "had — 2nd person singular of بودن",
+          "transliteration": "to koja rafte budi?",
+          "display_order": 4
+        },
+        {
+          "sentence": "آنها غذا را خورده {{answer}}.",
+          "answer": "بودند",
+          "translation": "They had eaten the food.",
+          "hint": "had — 3rd person plural of بودن",
+          "transliteration": "anha ghaza ra khorde budand.",
+          "display_order": 5
+        }
+      ]
+    },
+    {
+      "title": "Unreal conditionals: agar miraftam",
+      "level": "B2",
+      "function": "Talk about what would have been",
+      "source": "ai",
+      "reviewed": false,
+      "display_order": 2,
+      "explanation": "For a condition contrary to fact, BOTH halves go into the habitual past (می‌ + past): اگر پول داشتم، این خانه را می‌خریدم — \"if I had money, I would buy this house.\" The same pattern also covers the past-unreal reading (\"if I had had money, I would have bought…\"); context decides which one English needs.",
+      "drills": [
+        {
+          "sentence": "اگر پول {{answer}}، این خانه را می‌خریدم.",
+          "answer": "داشتم",
+          "translation": "If I had money, I would buy this house.",
+          "hint": "had — the past of داشتن, which takes no می",
+          "transliteration": "agar pul dashtam, in khane ra mikharidam.",
+          "display_order": 1
+        },
+        {
+          "sentence": "اگر وقت داشتم، به تو زنگ {{answer}}.",
+          "answer": "می‌زدم",
+          "translation": "If I had time, I would call you.",
+          "hint": "would hit — the light verb of \"to call,\" in the habitual past",
+          "transliteration": "agar vaght dashtam, be to zang mizadam.",
+          "display_order": 2
+        },
+        {
+          "sentence": "اگر او می‌آمد، خوشحال {{answer}}.",
+          "answer": "می‌شدم",
+          "translation": "If he had come, I would have been happy.",
+          "hint": "would become — habitual past of شدن",
+          "transliteration": "agar u miamad, khoshhal mishodam.",
+          "display_order": 3
+        },
+        {
+          "sentence": "اگر تو {{answer}}، او را می‌دیدی.",
+          "answer": "می‌رفتی",
+          "translation": "If you had gone, you would have seen him.",
+          "hint": "had gone — habitual past, 2nd person singular",
+          "transliteration": "agar to mirafti, u ra mididi.",
+          "display_order": 4
+        },
+        {
+          "sentence": "اگر می‌دانستم، به تو {{answer}}.",
+          "answer": "می‌گفتم",
+          "translation": "If I had known, I would have told you.",
+          "hint": "would have told — habitual past of گفتن",
+          "transliteration": "agar midanestam, be to migoftam.",
+          "display_order": 5
+        }
+      ]
+    },
+    {
+      "title": "Passive with shodan: neveshte shod",
+      "level": "B2",
+      "function": "Say what was done, without saying who did it",
+      "source": "ai",
+      "reviewed": false,
+      "display_order": 3,
+      "explanation": "The passive is the past participle plus شدن: نوشته شد (\"it was written\"), ساخته شد (\"it was built\"), خوانده می‌شود (\"it is read\"). Persian uses it far less than English and normally leaves the agent out altogether — if you want to name the doer, an active sentence is the natural choice.",
+      "drills": [
+        {
+          "sentence": "این نامه دیروز {{answer}} شد.",
+          "answer": "نوشته",
+          "translation": "This letter was written yesterday.",
+          "hint": "written — the participle before شد",
+          "transliteration": "in name diruz neveshte shod.",
+          "display_order": 1
+        },
+        {
+          "sentence": "پنجره {{answer}} شد.",
+          "answer": "بسته",
+          "translation": "The window was closed.",
+          "hint": "closed — participle of بستن",
+          "transliteration": "panjere baste shod.",
+          "display_order": 2
+        },
+        {
+          "sentence": "این خانه ده سال پیش ساخته {{answer}}.",
+          "answer": "شد",
+          "translation": "This house was built ten years ago.",
+          "hint": "became — the auxiliary that carries the passive",
+          "transliteration": "in khane dah sal pish sakhte shod.",
+          "display_order": 3
+        },
+        {
+          "sentence": "این کتاب زیاد خوانده {{answer}}.",
+          "answer": "می‌شود",
+          "translation": "This book is read a lot.",
+          "hint": "is becoming — the present of the passive auxiliary",
+          "transliteration": "in ketab ziad khande mishavad.",
+          "display_order": 4
+        },
+        {
+          "sentence": "نامه‌ها {{answer}} شدند.",
+          "answer": "فرستاده",
+          "translation": "The letters were sent.",
+          "hint": "sent — participle of فرستادن",
+          "transliteration": "nameha ferestade shodand.",
+          "display_order": 5
+        }
+      ]
+    },
+    {
+      "title": "Causatives in -andan (recognition)",
+      "level": "B2",
+      "function": "Recognize \"make someone do it\" verbs",
+      "source": "ai",
+      "reviewed": false,
+      "display_order": 4,
+      "explanation": "Persian builds a causative by adding ـاندن to a present stem: خندیدن (\"to laugh\") → خنداندن (\"to make laugh\"), رسیدن (\"to arrive\") → رساندن (\"to bring/deliver\"), فهمیدن (\"to understand\") → فهماندن (\"to make understand\"), خوردن (\"to eat\") → خوراندن (\"to feed\"). The present stem ends in ـان: می‌رسانم. Not every verb has one — treat the forms as vocabulary to recognize.",
+      "drills": [
+        {
+          "sentence": "او مرا به خانه {{answer}}.",
+          "answer": "رساند",
+          "translation": "He took me home.",
+          "hint": "delivered — the causative of رسیدن, past tense",
+          "transliteration": "u mara be khane resand.",
+          "display_order": 1
+        },
+        {
+          "sentence": "او ما را {{answer}}.",
+          "answer": "می‌خنداند",
+          "translation": "He makes us laugh.",
+          "hint": "makes laugh — the causative of خندیدن, present",
+          "transliteration": "u ma ra mikhandanad.",
+          "display_order": 2
+        },
+        {
+          "sentence": "او این را به من {{answer}}.",
+          "answer": "فهماند",
+          "translation": "He made me understand this.",
+          "hint": "made understand — the causative of فهمیدن",
+          "transliteration": "u in ra be man fahmand.",
+          "display_order": 3
+        },
+        {
+          "sentence": "مادر به بچه غذا {{answer}}.",
+          "answer": "خوراند",
+          "translation": "The mother fed the child.",
+          "hint": "fed — the causative of خوردن",
+          "transliteration": "madar be bache ghaza khurand.",
+          "display_order": 4
+        },
+        {
+          "sentence": "من تو را به خانه {{answer}}.",
+          "answer": "می‌رسانم",
+          "translation": "I'll take you home.",
+          "hint": "deliver — the causative of رسیدن, 1st person present",
+          "transliteration": "man to ra be khane miresanam.",
+          "display_order": 5
+        }
+      ]
+    },
+    {
+      "title": "ta: purpose and until",
+      "level": "B2",
+      "function": "Join two clauses with \"so that\" or \"until\"",
+      "source": "ai",
+      "reviewed": false,
+      "display_order": 5,
+      "explanation": "تا does two jobs. With a following SUBJUNCTIVE it means \"in order to / so that\": به تهران رفتم تا او را ببینم. With an indicative — or a plain time phrase — it means \"until\": تا فردا صبر کن, منتظر ماندم تا او آمد. The mood of the second verb tells the two readings apart.",
+      "drills": [
+        {
+          "sentence": "به تهران رفتم {{answer}} او را ببینم.",
+          "answer": "تا",
+          "translation": "I went to Tehran to see him.",
+          "hint": "so that — the linker before a subjunctive",
+          "transliteration": "be Tehran raftam ta u ra bebinam.",
+          "display_order": 1
+        },
+        {
+          "sentence": "درس می‌خوانم تا قبول {{answer}}.",
+          "answer": "شوم",
+          "translation": "I'm studying so that I pass.",
+          "hint": "become — subjunctive of شدن after the purpose linker",
+          "transliteration": "dars mikhanam ta ghabul shavam.",
+          "display_order": 2
+        },
+        {
+          "sentence": "{{answer}} فردا صبر کن.",
+          "answer": "تا",
+          "translation": "Wait until tomorrow.",
+          "hint": "until — the same word before a time phrase",
+          "transliteration": "ta farda sabr kon.",
+          "display_order": 3
+        },
+        {
+          "sentence": "منتظر ماندم تا او {{answer}}.",
+          "answer": "آمد",
+          "translation": "I waited until he came.",
+          "hint": "came — a plain past here, so تا reads as \"until\"",
+          "transliteration": "montazer mandam ta u amad.",
+          "display_order": 4
+        },
+        {
+          "sentence": "زود بیا {{answer}} با هم برویم.",
+          "answer": "تا",
+          "translation": "Come early so we can go together.",
+          "hint": "so that — again followed by a subjunctive",
+          "transliteration": "zud bia ta ba ham beravim.",
+          "display_order": 5
+        }
+      ]
+    },
+    {
+      "title": "Written vs. colloquial Persian (recognition)",
+      "level": "B2",
+      "function": "Tell the written standard from the spoken form",
+      "source": "ai",
+      "reviewed": false,
+      "display_order": 6,
+      "explanation": "Written Persian and Tehrani speech differ systematically: می‌روم is said miram, می‌خواهم is mikham, می‌گوید is mige, آن is un, این is in, را is ro, است shrinks to a suffixed ـه. Everything here is written in the standard form — recognize the spoken equivalents when you hear them, but keep writing the full ones.",
+      "drills": [
+        {
+          "sentence": "من فردا به خانه {{answer}}.",
+          "answer": "می‌روم",
+          "translation": "I'm going home tomorrow.",
+          "hint": "the written standard for what is said \"miram\"",
+          "transliteration": "man farda be khane miravam.",
+          "display_order": 1
+        },
+        {
+          "sentence": "من چای {{answer}}.",
+          "answer": "می‌خواهم",
+          "translation": "I want tea.",
+          "hint": "the written standard for what is said \"mikham\"",
+          "transliteration": "man chay mikhaham.",
+          "display_order": 2
+        },
+        {
+          "sentence": "{{answer}} کتاب را خواندم.",
+          "answer": "آن",
+          "translation": "I read that book.",
+          "hint": "\"that\" — written in full, though it is said \"un\"",
+          "transliteration": "an ketab ra khandam.",
+          "display_order": 3
+        },
+        {
+          "sentence": "این خانه بزرگ {{answer}}.",
+          "answer": "است",
+          "translation": "This house is big.",
+          "hint": "\"is\" — the full written word, which speech reduces to a suffix",
+          "transliteration": "in khane bozorg ast.",
+          "display_order": 4
+        },
+        {
+          "sentence": "او به ما {{answer}}.",
+          "answer": "می‌گوید",
+          "translation": "He tells us.",
+          "hint": "the written standard for what is said \"mige\"",
+          "transliteration": "u be ma miguyad.",
+          "display_order": 5
+        }
+      ]
+    },
+    {
+      "title": "Formal and administrative register",
+      "level": "C1",
+      "function": "Read and write official Persian",
+      "source": "ai",
+      "reviewed": false,
+      "display_order": 1,
+      "explanation": "Official Persian has its own vocabulary for ordinary verbs: گردید or گشت for شد, نمود for کرد, می‌باشد for است, جهت for برای, and ایشان with a PLURAL verb for a single respected person. فرمودن replaces گفتن and کردن in polite requests: تکمیل فرمایید. Style guides criticize می‌باشد, but you will meet it constantly in letters and forms.",
+      "drills": [
+        {
+          "sentence": "این نامه برای شما ارسال {{answer}}.",
+          "answer": "گردید",
+          "translation": "This letter was sent to you.",
+          "hint": "became — the formal counterpart of شد",
+          "transliteration": "in name baraye shoma ersal gardid.",
+          "display_order": 1
+        },
+        {
+          "sentence": "ایشان در جلسه شرکت {{answer}}.",
+          "answer": "نمودند",
+          "translation": "He/she attended the meeting.",
+          "hint": "did — the formal counterpart of کردند, plural out of deference",
+          "transliteration": "ishan dar jalase sherkat namudand.",
+          "display_order": 2
+        },
+        {
+          "sentence": "این موضوع مهم {{answer}}.",
+          "answer": "می‌باشد",
+          "translation": "This matter is important.",
+          "hint": "is — the bureaucratic substitute for است",
+          "transliteration": "in mozu mohem mibashad.",
+          "display_order": 3
+        },
+        {
+          "sentence": "خواهشمند است فرم را تکمیل {{answer}}.",
+          "answer": "فرمایید",
+          "translation": "Please complete the form.",
+          "hint": "the polite verb that replaces کنید in requests",
+          "transliteration": "khaheshmand ast form ra takmil farmayid.",
+          "display_order": 4
+        },
+        {
+          "sentence": "{{answer}} اطلاعات بیشتر با ما تماس بگیرید.",
+          "answer": "جهت",
+          "translation": "For further information, contact us.",
+          "hint": "for — the formal preposition that replaces برای",
+          "transliteration": "jahat-e ettelaat-e bishtar ba ma tamas begirid.",
+          "display_order": 5
+        }
+      ]
+    },
+    {
+      "title": "Arabic broken plurals in Persian (recognition)",
+      "level": "C1",
+      "function": "Recognize the Arabic plurals used in formal Persian",
+      "source": "ai",
+      "reviewed": false,
+      "display_order": 2,
+      "explanation": "Alongside ـها, formal Persian keeps Arabic \"broken\" plurals, which reshape the word instead of adding a suffix: کتاب → کتب, عالم → علما, خبر → اخبار, نکته → نکات, مقاله → مقالات, عضو → اعضا, شخص → اشخاص. They belong to written and elevated style; the plain ـها plural is always available and often preferable.",
+      "drills": [
+        {
+          "sentence": "{{answer}} این نویسنده معروف است.",
+          "answer": "کتب",
+          "translation": "This writer's books are famous.",
+          "hint": "books — the Arabic plural of کتاب",
+          "transliteration": "kotob-e in nevisande maruf ast.",
+          "display_order": 1
+        },
+        {
+          "sentence": "{{answer}} امروز مهم بود.",
+          "answer": "اخبار",
+          "translation": "Today's news was important.",
+          "hint": "news — the Arabic plural of خبر",
+          "transliteration": "akhbar-e emruz mohem bud.",
+          "display_order": 2
+        },
+        {
+          "sentence": "{{answer}} دین در این جلسه بودند.",
+          "answer": "علمای",
+          "translation": "The religious scholars were at this meeting.",
+          "hint": "scholars — the Arabic plural of عالم, carrying an ezafe",
+          "transliteration": "olama-ye din dar in jalase budand.",
+          "display_order": 3
+        },
+        {
+          "sentence": "او {{answer}} زیادی نوشته است.",
+          "answer": "مقالات",
+          "translation": "He has written a great many articles.",
+          "hint": "articles — the Arabic plural of مقاله",
+          "transliteration": "u maghalat-e ziadi neveshte ast.",
+          "display_order": 4
+        },
+        {
+          "sentence": "{{answer}} این خانواده کم هستند.",
+          "answer": "اعضای",
+          "translation": "This family's members are few.",
+          "hint": "members — the Arabic plural of عضو, carrying an ezafe",
+          "transliteration": "azaye in khanevade kam hastand.",
+          "display_order": 5
+        }
+      ]
+    },
+    {
+      "title": "Literary past forms: baraft, hami (recognition)",
+      "level": "C1",
+      "function": "Read the past tense of older Persian prose",
+      "source": "ai",
+      "reviewed": false,
+      "display_order": 3,
+      "explanation": "Classical and literary Persian prefixes بـ to a plain past verb for narrative colour: برفت (\"he went\"), بگفت (\"he said\"), بدید (\"he saw\") — same meaning as رفت، گفت، دید, just an older register. The particle همی marks a continuous past where modern Persian would use می‌: همی رفت = می‌رفت. Both are for reading, not for writing modern prose.",
+      "drills": [
+        {
+          "sentence": "او {{answer}} و بازنگشت.",
+          "answer": "برفت",
+          "translation": "He went away and did not return.",
+          "hint": "went — the literary form of رفت, with its بـ prefix",
+          "transliteration": "u beraft va baznagasht.",
+          "display_order": 1
+        },
+        {
+          "sentence": "شاه {{answer}}: چنین است.",
+          "answer": "بگفت",
+          "translation": "The king said: it is so.",
+          "hint": "said — the literary form of گفت",
+          "transliteration": "shah begoft: chonin ast.",
+          "display_order": 2
+        },
+        {
+          "sentence": "او را {{answer}} و شناخت.",
+          "answer": "بدید",
+          "translation": "He saw him and recognized him.",
+          "hint": "saw — the literary form of دید",
+          "transliteration": "u ra bedid va shenakht.",
+          "display_order": 3
+        },
+        {
+          "sentence": "مرد {{answer}} و رفت.",
+          "answer": "برخاست",
+          "translation": "The man rose and left.",
+          "hint": "rose — a literary verb of standing up",
+          "transliteration": "mard barkhast va raft.",
+          "display_order": 4
+        },
+        {
+          "sentence": "او {{answer}} رفت.",
+          "answer": "همی",
+          "translation": "He went on and on.",
+          "hint": "the old continuous particle that modern Persian writes as a prefix",
+          "transliteration": "u hami raft.",
+          "display_order": 5
+        }
+      ]
+    },
+    {
+      "title": "Classical verse conventions (recognition)",
+      "level": "C2",
+      "function": "Read Persian poetry on its own terms",
+      "source": "ai",
+      "reviewed": false,
+      "display_order": 1,
+      "explanation": "Classical verse keeps forms that modern prose has dropped: بود is read bovad and can mean \"is\"; ز stands for از; ـند closes a plural predicate (پیکرند = \"they are one body\"); and word order bends freely to the metre. Two lines every Persian speaker knows: Ferdowsi's توانا بود هر که دانا بود (\"whoever is wise is strong\") and Saadi's بنی‌آدم اعضای یک پیکرند / که در آفرینش ز یک گوهرند.",
+      "drills": [
+        {
+          "sentence": "{{answer}} بود هر که دانا بود.",
+          "answer": "توانا",
+          "translation": "Whoever is wise is strong. (Ferdowsi)",
+          "hint": "strong/capable — the first word of the hemistich",
+          "transliteration": "tavana bovad har ke dana bovad.",
+          "display_order": 1
+        },
+        {
+          "sentence": "بنی‌آدم {{answer}} یک پیکرند.",
+          "answer": "اعضای",
+          "translation": "Human beings are the members of one body. (Saadi)",
+          "hint": "members — an Arabic plural carrying an ezafe",
+          "transliteration": "bani adam azaye yek peykarand.",
+          "display_order": 2
+        },
+        {
+          "sentence": "که در آفرینش ز یک {{answer}}.",
+          "answer": "گوهرند",
+          "translation": "for in creation they are of one essence. (Saadi)",
+          "hint": "they are of one jewel — noun plus the poetic plural predicate ending",
+          "transliteration": "ke dar afarinesh ze yek gowharand.",
+          "display_order": 3
+        },
+        {
+          "sentence": "او {{answer}} شهر رفت.",
+          "answer": "ز",
+          "translation": "He left the city. (poetic)",
+          "hint": "from — the one-letter poetic form of the ordinary preposition",
+          "transliteration": "u ze shahr raft.",
+          "display_order": 4
+        },
+        {
+          "sentence": "او دانا {{answer}}.",
+          "answer": "بود",
+          "translation": "He is wise. (verse)",
+          "hint": "is — read bovad in verse, where prose would use است",
+          "transliteration": "u dana bovad.",
+          "display_order": 5
+        }
+      ]
+    },
+    {
+      "title": "Idioms and light-verb nuance",
+      "level": "C2",
+      "function": "Say it the way Persian says it",
+      "source": "ai",
+      "reviewed": false,
+      "display_order": 2,
+      "explanation": "At this level the compound verbs stop being transparent. از دست دادن is \"to lose,\" not \"to give from the hand\"; دلم تنگ شده is \"I miss (someone),\" literally \"my heart has grown narrow\"; سر در آوردن (از) is \"to make sense of\"; دست به کار شدن is \"to get down to it\"; باور کردن is \"to believe.\" Learn each compound whole — the pieces will not add up.",
+      "drills": [
+        {
+          "sentence": "کتابم را از دست {{answer}}.",
+          "answer": "دادم",
+          "translation": "I lost my book.",
+          "hint": "gave — the light verb of the idiom meaning \"to lose\"",
+          "transliteration": "ketabam ra az dast dadam.",
+          "display_order": 1
+        },
+        {
+          "sentence": "دلم برای تو تنگ {{answer}}.",
+          "answer": "شده",
+          "translation": "I miss you.",
+          "hint": "become — the participle in the idiom \"my heart has grown narrow\"",
+          "transliteration": "delam baraye to tang shode.",
+          "display_order": 2
+        },
+        {
+          "sentence": "حرف او را باور {{answer}}.",
+          "answer": "نکردم",
+          "translation": "I didn't believe what he said.",
+          "hint": "didn't do — the negated light verb of \"to believe\"",
+          "transliteration": "harf-e u ra bavar nakardam.",
+          "display_order": 3
+        },
+        {
+          "sentence": "از این موضوع سر در {{answer}}.",
+          "answer": "نمی‌آورم",
+          "translation": "I can't make sense of this.",
+          "hint": "don't bring — the negated light verb of \"to figure out\"",
+          "transliteration": "az in mozu sar dar nemiavaram.",
+          "display_order": 4
+        },
+        {
+          "sentence": "او {{answer}} به کار شد.",
+          "answer": "دست",
+          "translation": "He got down to work.",
+          "hint": "hand — the fixed noun in the idiom for setting to work",
+          "transliteration": "u dast be kar shod.",
+          "display_order": 5
+        }
+      ]
+    },
+    {
+      "title": "Register shifting: deference and distance",
+      "level": "C2",
+      "function": "Move between polite, neutral and intimate Persian",
+      "source": "ai",
+      "reviewed": false,
+      "display_order": 3,
+      "explanation": "Persian grades politeness through the verb itself. Deferential: ایشان with a plural verb, فرمودن for گفتن, تشریف داشتن/آوردن for بودن/آمدن, بفرمایید as the all-purpose invitation. Neutral: شما plus a plural verb, ordinary vocabulary. Intimate: تو with a singular verb. The same message reshapes completely — چه فرمودید؟ / چه گفتید؟ / چی گفتی؟",
+      "drills": [
+        {
+          "sentence": "شما دیروز چه {{answer}}؟",
+          "answer": "فرمودید",
+          "translation": "What did you say yesterday? (deferential)",
+          "hint": "said — the deferential verb that replaces گفتید",
+          "transliteration": "shoma diruz che farmudid?",
+          "display_order": 1
+        },
+        {
+          "sentence": "{{answer}}، خواهش می‌کنم.",
+          "answer": "بفرمایید",
+          "translation": "Please, go ahead.",
+          "hint": "the all-purpose polite invitation, from the deferential verb",
+          "transliteration": "befarmayid, khahesh mikonam.",
+          "display_order": 2
+        },
+        {
+          "sentence": "شما کجا تشریف {{answer}}؟",
+          "answer": "دارید",
+          "translation": "Where are you? (deferential)",
+          "hint": "have — the second half of the polite phrase for \"to be present\"",
+          "transliteration": "shoma koja tashrif darid?",
+          "display_order": 3
+        },
+        {
+          "sentence": "ایشان فردا {{answer}}.",
+          "answer": "می‌آیند",
+          "translation": "He/she is coming tomorrow. (deferential)",
+          "hint": "come — plural verb for one respected person",
+          "transliteration": "ishan farda miayand.",
+          "display_order": 4
+        },
+        {
+          "sentence": "تو کجا {{answer}}؟",
+          "answer": "می‌روی",
+          "translation": "Where are you going? (intimate)",
+          "hint": "go — singular verb, the intimate register",
+          "transliteration": "to koja miravi?",
+          "display_order": 5
         }
       ]
     }

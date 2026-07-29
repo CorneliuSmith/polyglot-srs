@@ -6,6 +6,8 @@ pattern as review notes / grammar authoring).
 """
 from __future__ import annotations
 
+import json
+
 import asyncpg
 
 
@@ -19,18 +21,38 @@ async def create_request(
     field: str,
     issue: str,
     suggestion: str | None,
+    quote: str | None = None,
+    quote_context: dict | None = None,
 ) -> str:
+    """*quote* is the exact span a reviewer selected (Review Mode), and
+    *quote_context* the surface-specific detail — offsets, surrounding text,
+    which tutor message. Both are snapshots: a tutor reply is never stored,
+    and a card's quote has to outlive the edit it is asking for."""
     return str(await conn.fetchval(
         """
         INSERT INTO card_change_requests
             (author_id, language_id, target_type, target_id, target_label,
-             field, issue, suggestion)
-        VALUES ($1, $2, $3, $4, $5, $6, $7, $8)
+             field, issue, suggestion, quote, quote_context)
+        VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10::jsonb)
         RETURNING id
         """,
         author_id, language_id, target_type, target_id, target_label,
         field, issue, suggestion or None,
+        (quote or "").strip() or None,
+        json.dumps(quote_context or {}),
     ))
+
+
+def _as_dict(value) -> dict:
+    """asyncpg hands jsonb back as text unless a codec is registered."""
+    if isinstance(value, dict):
+        return value
+    if isinstance(value, str):
+        try:
+            return json.loads(value)
+        except (TypeError, ValueError):
+            return {}
+    return {}
 
 
 async def list_requests(
@@ -47,6 +69,7 @@ async def list_requests(
         """
         SELECT cr.id, cr.target_type, cr.target_id, cr.target_label,
                cr.field, cr.issue, cr.suggestion, cr.status,
+               cr.quote, cr.quote_context,
                cr.created_at, cr.author_id,
                au.email AS author_email,
                COALESCE(SUM(v.vote), 0)                                  AS score,
@@ -72,6 +95,10 @@ async def list_requests(
             "issue": r["issue"],
             "suggestion": r["suggestion"],
             "status": r["status"],
+            # The words the reviewer actually objected to — what the board
+            # shows, so triage never has to guess which clause was meant.
+            "quote": r["quote"],
+            "quote_context": _as_dict(r["quote_context"]),
             "author_email": r["author_email"],
             "score": int(r["score"]),
             "upvotes": int(r["upvotes"]),
