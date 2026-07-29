@@ -1,5 +1,6 @@
 """Publish policy + staff bypass, against a real database."""
 import pytest
+
 from backend.repositories.curriculum import get_curriculum
 from backend.tests.integration.conftest import requires_db
 
