@@ -22,7 +22,11 @@ import { supabase } from '../../lib/supabase'
 import LanguagePicker from '../../components/LanguagePicker'
 import LanguageWrapper from '../../components/LanguageWrapper'
 import { getGrammarForLanguage, getMyRoles } from '../../api/contribute'
-import { canContributeWith, canReviewWith } from '../../lib/roleFlags'
+import {
+  canContributeWith,
+  canReviewWith,
+  canTrialReviewWith,
+} from '../../lib/roleFlags'
 import { accentExampleFor } from '../../lib/accentExamples'
 import { useViewAsKey } from '../../stores/viewAsStore'
 import AccountsPanel from '../contribute/AccountsPanel'
@@ -53,20 +57,32 @@ const TAB_LABEL: Record<AccountTab, string> = {
   admin: 'Admin',
 }
 
-/** The tabs an account can actually reach, weakest first.
+/** The tabs an account can actually reach.
  *
- * Learner is always there. Contribute is NOT admin-only — the bar used to be
- * gated on `canReview || isAdmin`, which hid it from a plain contributor and
- * left them no route to their own Contribute panel at all. */
+ * One question per tab, because the roles are not a ladder (see lib/viewAs.ts):
+ *
+ *   Contribute — canContribute. NOT admin-only; gating it on
+ *     `canReview || isAdmin` once hid it from every plain contributor and left
+ *     them no route to their own panel.
+ *   Review — canReview OR canTrialReview. Asking only canReview left trial
+ *     reviewers with nothing but the Learner tab, so the queue they exist to
+ *     work was unreachable and their guide panel rendered in a tab they could
+ *     not open. Publishing stays gated separately: ReviewQueue takes
+ *     canReview, so a trial reviewer sees the queue and recommends on it
+ *     without being able to publish.
+ *   Admin — isAdmin. */
 export function accountTabsFor(flags: {
   canContribute: boolean
   canReview: boolean
+  canTrialReview?: boolean
   isAdmin: boolean
 }): AccountTab[] {
   return [
     'learner' as const,
     ...(flags.canContribute ? (['contribute'] as const) : []),
-    ...(flags.canReview ? (['review'] as const) : []),
+    ...(flags.canReview || flags.canTrialReview
+      ? (['review'] as const)
+      : []),
     ...(flags.isAdmin ? (['admin'] as const) : []),
   ]
 }
@@ -172,8 +188,13 @@ export default function SettingsPage() {
   const isAdmin = roleInfo?.is_admin ?? false
   const canReview = canReviewWith(roles, isAdmin, activeLanguageId)
   const canContribute = canContributeWith(roles, isAdmin, activeLanguageId)
+  // Separate from canReview on purpose: a trial reviewer reaches the queue
+  // but cannot publish from it.
+  const canTrialReview = canTrialReviewWith(roles, isAdmin, activeLanguageId)
 
-  const availableTabs = accountTabsFor({ canContribute, canReview, isAdmin })
+  const availableTabs = accountTabsFor({
+    canContribute, canReview, canTrialReview, isAdmin,
+  })
   // Resolved during render, not in an effect, so the page is never blank for
   // even one frame while a preview is switching.
   const activeTab = resolveTab(tab, availableTabs)

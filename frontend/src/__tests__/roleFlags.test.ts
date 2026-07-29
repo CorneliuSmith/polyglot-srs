@@ -58,12 +58,15 @@ describe('the Account tabs an admin sees while previewing', () => {
   // at all, while "view as Reviewer" showed all three tabs.
   const adminRoles = [{ language_id: null, role: 'admin' }]
 
-  const tabsFor = (level: 'learner' | 'contributor' | 'reviewer' | null) => {
+  const tabsFor = (
+    level: 'learner' | 'contributor' | 'trial_reviewer' | 'reviewer' | null,
+  ) => {
     const roles = downgradeRoles(adminRoles, level)
     const isAdmin = level === null
     return accountTabsFor({
       canContribute: canContributeWith(roles, isAdmin, ES),
       canReview: canReviewWith(roles, isAdmin, ES),
+      canTrialReview: canTrialReviewWith(roles, isAdmin, ES),
       isAdmin,
     })
   }
@@ -84,15 +87,31 @@ describe('the Account tabs an admin sees while previewing', () => {
     expect(tabsFor('learner')).toEqual(['learner'])
   })
 
-  it('every preview is a strict subset of the one above it', () => {
-    const learner = tabsFor('learner')
-    const contributor = tabsFor('contributor')
-    const reviewer = tabsFor('reviewer')
-    expect(contributor).toEqual(expect.arrayContaining(learner))
-    expect(reviewer).toEqual(expect.arrayContaining(contributor))
-    // And no preview ever reaches Admin.
-    for (const tabs of [learner, contributor, reviewer]) {
-      expect(tabs).not.toContain('admin')
+  it('as a trial reviewer: Learner and Review — the queue they exist to work', () => {
+    // Regression: accountTabsFor only asked canReview, so a trial reviewer got
+    // nothing but Learner. The queue was unreachable and their guide panel
+    // rendered inside a tab they could not open. Caught from a screenshot of
+    // the live preview, not from a test.
+    expect(tabsFor('trial_reviewer')).toEqual(['learner', 'review'])
+  })
+
+  it('a trial reviewer reaches Review WITHOUT Contribute', () => {
+    // The disjointness, at the tab layer: queue access must not imply the
+    // ability to draft content.
+    const tabs = tabsFor('trial_reviewer')
+    expect(tabs).toContain('review')
+    expect(tabs).not.toContain('contribute')
+  })
+
+  it('a contributor reaches Contribute WITHOUT Review', () => {
+    const tabs = tabsFor('contributor')
+    expect(tabs).toContain('contribute')
+    expect(tabs).not.toContain('review')
+  })
+
+  it('no preview ever reaches Admin', () => {
+    for (const level of ['learner', 'contributor', 'trial_reviewer', 'reviewer'] as const) {
+      expect(tabsFor(level)).not.toContain('admin')
     }
   })
 })
