@@ -2348,3 +2348,65 @@ class TestAiCheckRun:
                 headers=_auth_headers(),
             )
         assert resp.status_code == 422
+
+
+class TestAmbassadorEndpoints:
+    """The boundary that matters is the HTTP one. The predicate tests in
+    test_ambassador.py pin the logic; these pin that each route is wired to
+    the right predicate — which is where a role like this actually leaks."""
+
+    AMBASSADOR = [{"language_id": None, "role": "ambassador"}]
+
+    def test_an_ambassador_can_create_an_account(self, client):
+        with _roles(self.AMBASSADOR), patch(
+            "backend.routers.contribute.create_auth_user",
+            new=AsyncMock(return_value="new-user-id"),
+        ):
+            resp = client.post(
+                "/api/contribute/users",
+                json={"email": "new@example.com", "password": "a-long-password"},
+                headers=_auth_headers(),
+            )
+        assert resp.status_code == 200
+        assert resp.json()["email"] == "new@example.com"
+
+    def test_an_ambassador_cannot_read_the_roster(self, client):
+        # GET and POST live on the same path. Guarding the path instead of
+        # the method would hand over every learner's email and study volume.
+        with _roles(self.AMBASSADOR):
+            resp = client.get("/api/contribute/users", headers=_auth_headers())
+        assert resp.status_code == 403
+
+    def test_an_ambassador_cannot_grant_roles(self, client):
+        # The escalation: make an account, promote it to admin. Two moves,
+        # if this route were open.
+        with _roles(self.AMBASSADOR):
+            resp = client.post(
+                "/api/contribute/roles",
+                json={"email": "someone@example.com", "role": "admin"},
+                headers=_auth_headers(),
+            )
+        assert resp.status_code == 403
+
+    def test_a_learner_still_cannot_create_accounts(self, client):
+        with _roles([]):
+            resp = client.post(
+                "/api/contribute/users",
+                json={"email": "new@example.com", "password": "a-long-password"},
+                headers=_auth_headers(),
+            )
+        assert resp.status_code == 403
+
+    def test_the_roles_payload_advertises_the_capability(self, client):
+        # The Invite tab is drawn from this flag; without it the ambassador
+        # has the power and no way to reach it.
+        with _roles(self.AMBASSADOR):
+            resp = client.get("/api/contribute/roles", headers=_auth_headers())
+        assert resp.status_code == 200
+        assert resp.json()["can_add_accounts"] is True
+        assert resp.json()["is_admin"] is False
+
+    def test_a_contributor_is_not_advertised_the_capability(self, client):
+        with _roles([{"language_id": LANG, "role": "contributor"}]):
+            resp = client.get("/api/contribute/roles", headers=_auth_headers())
+        assert resp.json()["can_add_accounts"] is False

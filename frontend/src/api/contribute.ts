@@ -40,6 +40,10 @@ export async function getMyRoles(): Promise<{
   is_admin: boolean
   /** Untouched by the "view as" preview — see ViewAsBar. */
   real_is_admin?: boolean
+  /** May mint accounts: admin or ambassador. Answered by the server rather
+   *  than derived from `roles`, because an ambassador grant carries no
+   *  language scope for the client to reason about. */
+  can_add_accounts?: boolean
 }> {
   const response = await apiClient.get('/api/contribute/roles')
   const viewAs = currentViewAs()
@@ -50,6 +54,9 @@ export async function getMyRoles(): Promise<{
     ...response.data,
     roles: downgradeRoles(response.data.roles ?? [], viewAs),
     is_admin: false,
+    // Previewing as a learner must not leave the account-minting form on
+    // screen. The server still refuses; this stops the UI lying about it.
+    can_add_accounts: viewAs === 'ambassador',
   }
 }
 
@@ -333,6 +340,7 @@ export type GrantableRole =
   | 'contributor'
   | 'trial_reviewer'
   | 'reviewer'
+  | 'ambassador'
   | 'admin'
 
 export interface RoleGrantRow {

@@ -35,6 +35,23 @@ def is_admin(roles: list[dict]) -> bool:
     return any(r["role"] == "admin" for r in roles)
 
 
+def can_add_accounts(roles: list[dict]) -> bool:
+    """True if the user may CREATE accounts. Admins and ambassadors.
+
+    Takes no language_id, unlike every other predicate here, and that is the
+    point rather than an oversight: an account does not belong to a language,
+    so "ambassador for Spanish" cannot mean "may create Spanish accounts" —
+    there is no such object. A grant at any scope confers the same power, and
+    the Roles panel says so where an admin is choosing the scope.
+
+    Creating an account is the ONLY thing this grants. Listing accounts,
+    deleting them, granting roles and changing plans all stay admin-only —
+    the last of those especially, since an ambassador who could grant roles
+    would reach admin in two moves.
+    """
+    return is_admin(roles) or any(r["role"] == "ambassador" for r in roles)
+
+
 def can_contribute(roles: list[dict], language_id: str) -> bool:
     """True if the user may edit grammar for *language_id*.
 

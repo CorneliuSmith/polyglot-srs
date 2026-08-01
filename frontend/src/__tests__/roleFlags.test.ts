@@ -165,3 +165,72 @@ describe('contributor and trial_reviewer are siblings, not ranked', () => {
     expect(canContributeWith(roles, false, ES)).toBe(false)
   })
 })
+
+describe('the ambassador', () => {
+  // A third disjoint sibling: recruit, not write or check. Its whole value
+  // is the boundary, so these pin what it does NOT reach.
+  const ambassador = [{ language_id: null, role: 'ambassador' }]
+
+  it('gets an Invite tab and nothing else', () => {
+    expect(
+      accountTabsFor({
+        canContribute: false,
+        canReview: false,
+        canTrialReview: false,
+        canAddAccounts: true,
+        isAdmin: false,
+      }),
+    ).toEqual(['learner', 'invite'])
+  })
+
+  it('cannot edit content or open the review queue', () => {
+    expect(canContributeWith(ambassador, false, ES)).toBe(false)
+    expect(canReviewWith(ambassador, false, ES)).toBe(false)
+    expect(canTrialReviewWith(ambassador, false, ES)).toBe(false)
+  })
+
+  it('an admin keeps the full Admin tab instead of a second Invite one', () => {
+    // Admins already reach account creation through Admin; two doors to the
+    // same room is just clutter.
+    const tabs = accountTabsFor({
+      canContribute: true,
+      canReview: true,
+      canTrialReview: true,
+      canAddAccounts: true,
+      isAdmin: true,
+    })
+    expect(tabs).toContain('admin')
+    expect(tabs).not.toContain('invite')
+  })
+
+  it('a content role never gets the Invite tab', () => {
+    for (const flags of [
+      { canContribute: true, canReview: false, canTrialReview: false },
+      { canContribute: false, canReview: true, canTrialReview: true },
+    ]) {
+      expect(
+        accountTabsFor({ ...flags, canAddAccounts: false, isAdmin: false }),
+      ).not.toContain('invite')
+    }
+  })
+
+  it('previewing as ambassador does not smuggle in content powers', () => {
+    const roles = downgradeRoles(
+      [{ language_id: null, role: 'admin' }],
+      'ambassador',
+    )
+    expect(canContributeWith(roles, false, ES)).toBe(false)
+    expect(canTrialReviewWith(roles, false, ES)).toBe(false)
+    expect(canReviewWith(roles, false, ES)).toBe(false)
+  })
+
+  it('previewing as reviewer does not smuggle in account creation', () => {
+    // Reviewer subsumes the two CONTENT roles. It must not quietly pick up
+    // a third that has nothing to do with content.
+    const roles = downgradeRoles(
+      [{ language_id: null, role: 'admin' }],
+      'reviewer',
+    )
+    expect(roles.some((r) => r.role === 'ambassador')).toBe(false)
+  })
+})

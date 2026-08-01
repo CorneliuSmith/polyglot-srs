@@ -42,6 +42,7 @@ from backend.repositories.contributor import (
     admin_timeseries,
     approve_explanation,
     approve_suggestion,
+    can_add_accounts,
     can_contribute,
     can_review,
     can_trial_review,
@@ -203,7 +204,9 @@ class RoleGrant(BaseModel):
     language_id: str | None = None
     role: str
 
-VALID_ROLES = ("contributor", "trial_reviewer", "reviewer", "admin")
+VALID_ROLES = (
+    "contributor", "trial_reviewer", "reviewer", "ambassador", "admin",
+)
 
 
 @router.get("/roles")
@@ -215,6 +218,10 @@ async def my_roles(user: dict = Depends(get_current_user)):
     return {
         "roles": roles,
         "is_admin": admin,
+        # Ambassadors hold no language-scoped power, so the client cannot
+        # derive this from `roles` the way it derives contribute/review —
+        # it is a flat "may you mint accounts", answered here.
+        "can_add_accounts": can_add_accounts(roles),
         # Same value, but never rewritten by the client-side "view as"
         # preview — it's what decides whether to offer that switcher at all.
         # (The preview downgrades `is_admin`; if the bar read that, turning
@@ -2309,8 +2316,14 @@ async def create_account(
     body: NewAccount,
     user: dict = Depends(get_current_user),
 ):
-    """Create an account directly (admin-only) — the invite-only beta path:
-    public signup is disabled, so the admin mints email+password accounts.
+    """Create an account directly — the invite-only beta path: public signup
+    is disabled, so accounts are minted here.
+
+    Admins and AMBASSADORS. The sibling GET stays admin-only on purpose: it
+    returns every learner's email and study volume, and "add one person" is a
+    different power from "read the whole roster". Nothing else opens up —
+    role granting in particular stays admin-only, or an ambassador would
+    reach admin in two moves (make an account, promote it).
 
     DATABASE FIRST: this deploy's HTTP egress to *.supabase.co hangs (the
     old API-first order spent its whole gateway window waiting before the
@@ -2320,7 +2333,7 @@ async def create_account(
     (working) database connection. The admin API is kept as the backup for
     environments where the SQL path can't run.
     """
-    await _require_admin(user["id"])
+    await _require_account_creator(user["id"])
     try:
         async with privileged_connection() as conn:
             uid = await create_auth_user(conn, body.email, body.password)
@@ -2475,6 +2488,17 @@ async def _require_admin(user_id: str) -> None:
         raise HTTPException(
             status_code=status.HTTP_403_FORBIDDEN,
             detail="Only an admin can manage roles",
+        )
+
+
+async def _require_account_creator(user_id: str) -> None:
+    """Admins and ambassadors. Creation only — see can_add_accounts."""
+    async with rls_connection(user_id) as conn:
+        roles = await get_roles(conn, user_id)
+    if not can_add_accounts(roles):
+        raise HTTPException(
+            status_code=status.HTTP_403_FORBIDDEN,
+            detail="You need the admin or ambassador role to add accounts",
         )
 
 

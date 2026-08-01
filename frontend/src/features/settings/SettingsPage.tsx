@@ -33,6 +33,7 @@ import AccountsPanel from '../contribute/AccountsPanel'
 import PlanLimitsPanel from '../contribute/PlanLimitsPanel'
 import RoleGuide from '../contribute/RoleGuide'
 import FeedbackQueuePanel from '../contribute/FeedbackQueuePanel'
+import InvitePanel from '../contribute/InvitePanel'
 import MyFeedback from '../feedback/MyFeedback'
 import GenerationPanel from '../contribute/GenerationPanel'
 import LanguageVisibilityPanel from '../contribute/LanguageVisibilityPanel'
@@ -48,12 +49,16 @@ import {
 } from '../contribute/ContributorPage'
 import { useAuthStore } from '../../stores/authStore'
 
-type AccountTab = 'learner' | 'contribute' | 'review' | 'admin'
+type AccountTab = 'learner' | 'contribute' | 'review' | 'invite' | 'admin'
 
 const TAB_LABEL: Record<AccountTab, string> = {
   learner: 'Learner',
   contribute: 'Contribute',
   review: 'Review',
+  // Ambassadors get their own tab rather than a cut-down "Admin" one:
+  // calling it Admin for someone who can do exactly one admin thing
+  // misdescribes both the tab and the role.
+  invite: 'Invite',
   admin: 'Admin',
 }
 
@@ -75,6 +80,7 @@ export function accountTabsFor(flags: {
   canContribute: boolean
   canReview: boolean
   canTrialReview?: boolean
+  canAddAccounts?: boolean
   isAdmin: boolean
 }): AccountTab[] {
   return [
@@ -83,6 +89,9 @@ export function accountTabsFor(flags: {
     ...(flags.canReview || flags.canTrialReview
       ? (['review'] as const)
       : []),
+    // Admins reach account creation through Admin, which has the full
+    // panel; Invite is for the ambassador who has only this one power.
+    ...(flags.canAddAccounts && !flags.isAdmin ? (['invite'] as const) : []),
     ...(flags.isAdmin ? (['admin'] as const) : []),
   ]
 }
@@ -192,8 +201,9 @@ export default function SettingsPage() {
   // but cannot publish from it.
   const canTrialReview = canTrialReviewWith(roles, isAdmin, activeLanguageId)
 
+  const canAddAccounts = roleInfo?.can_add_accounts ?? false
   const availableTabs = accountTabsFor({
-    canContribute, canReview, canTrialReview, isAdmin,
+    canContribute, canReview, canTrialReview, canAddAccounts, isAdmin,
   })
   // Resolved during render, not in an effect, so the page is never blank for
   // even one frame while a preview is switching.
@@ -434,6 +444,13 @@ export default function SettingsPage() {
                 who can act on those are reviewers. */}
             <FeedbackQueuePanel canTriage={isAdmin} />
             <ReviewQueue languageId={activeLanguageId} canReview={canReview} />
+          </>
+        )}
+
+        {activeTab === 'invite' && canAddAccounts && !isAdmin && (
+          <>
+            <RoleGuide role="ambassador" />
+            <InvitePanel />
           </>
         )}
 

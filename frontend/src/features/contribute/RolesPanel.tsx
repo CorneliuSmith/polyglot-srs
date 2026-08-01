@@ -58,8 +58,10 @@ export default function RolesPanel({ languages }: { languages: Language[] }) {
           no publishing); reviewers approve for their language; admins do
           everything. Contributor and Tester are separate jobs, not a ladder —
           a contributor writes content but sees no queue, a tester works the
-          queue but writes nothing. Grant the reviewer role once someone has
-          shown they’re active. Learners need no role.
+          queue but writes nothing. Ambassadors only add accounts — nothing
+          else, and the role scope below is ignored for them, because an
+          account doesn’t belong to a language. Grant the reviewer role once
+          someone has shown they’re active. Learners need no role.
         </p>
       </div>
 
@@ -123,6 +125,7 @@ export default function RolesPanel({ languages }: { languages: Language[] }) {
         >
           <option value="contributor">Contributor</option>
           <option value="trial_reviewer">Tester (advisory)</option>
+          <option value="ambassador">Ambassador (adds accounts)</option>
           <option value="reviewer">Reviewer</option>
           <option value="admin">Admin</option>
         </select>
