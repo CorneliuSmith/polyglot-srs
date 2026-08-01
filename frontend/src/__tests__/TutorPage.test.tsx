@@ -9,7 +9,10 @@ vi.mock('../api/profile', () => ({
   getLanguages: vi.fn(),
 }))
 
-vi.mock('../api/tutor', () => ({
+vi.mock('../api/tutor', async () => ({
+  // TutorTurnError is a real class the page branches on with instanceof —
+  // stubbing it as undefined made every error path throw instead of render.
+  ...(await vi.importActual<typeof import('../api/tutor')>('../api/tutor')),
   getTutorStatus: vi.fn(),
   getTutorSessions: vi.fn(() => Promise.resolve([])),
   sendTutorMessage: vi.fn(),
@@ -33,6 +36,7 @@ import {
   streamTutorMessage,
   endTutorSession,
   resolveMasterySuggestion,
+  TutorTurnError,
 } from '../api/tutor'
 import { createCheckout } from '../api/billing'
 
@@ -367,5 +371,99 @@ describe('TutorPage mastery stars', () => {
     renderPage()
     await screen.findByText(/I’m your Turkish tutor/i)
     expect(screen.queryByTestId('mastery-suggestions')).toBeNull()
+  })
+})
+
+describe('a turn that never comes back', () => {
+  beforeEach(() => {
+    vi.clearAllMocks()
+    mockGetLanguages.mockResolvedValue([turkish])
+    mockEndTutorSession.mockResolvedValue(undefined)
+    mockGetTutorStatus.mockResolvedValue(statusWith(unlimited))
+  })
+
+  const sendSomething = async () => {
+    const input = await screen.findByPlaceholderText(/message your tutor/i)
+    fireEvent.change(input, { target: { value: "that's all for now" } })
+    fireEvent.keyDown(input, { key: 'Enter' })
+  }
+
+  it('offers a way out while the tutor is thinking', async () => {
+    // The server pings every 10s to survive the gateway timeout, which means
+    // a stalled turn looks exactly like a slow one — forever. Leaving the
+    // page was the only escape.
+    mockStreamTutorMessage.mockReturnValue(new Promise(() => {}))
+    renderPage()
+    await sendSomething()
+
+    expect(await screen.findByText(/thinking/i)).toBeDefined()
+    expect(screen.getByRole('button', { name: /^stop$/i })).toBeDefined()
+  })
+
+  it('gives the typed message back instead of swallowing it', async () => {
+    mockStreamTutorMessage.mockRejectedValue(
+      new TutorTurnError('The tutor stopped responding — try again.'),
+    )
+    renderPage()
+    await sendSomething()
+
+    // The message goes back in the box: it was never answered, and retyping
+    // a paragraph you already wrote is the wrong thing to ask of anyone.
+    await waitFor(() => {
+      const input = screen.getByPlaceholderText(
+        /message your tutor/i,
+      ) as HTMLTextAreaElement | HTMLInputElement
+      expect(input.value).toBe("that's all for now")
+    })
+    expect(await screen.findByRole('alert')).toBeDefined()
+  })
+
+  it('does not retry a turn the server already failed', async () => {
+    // A TutorTurnError is the server's verdict. Falling back to the plain
+    // endpoint spends a second billed model call to be told the same thing.
+    mockStreamTutorMessage.mockRejectedValue(new TutorTurnError('nope'))
+    renderPage()
+    await sendSomething()
+
+    await waitFor(() => expect(mockStreamTutorMessage).toHaveBeenCalled())
+    expect(mockSendTutorMessage).not.toHaveBeenCalled()
+  })
+
+  it('still falls back when the transport itself is unavailable', async () => {
+    // The old behaviour has to survive: a plain transport failure (no SSE in
+    // this browser) should still reach the non-streaming endpoint.
+    mockStreamTutorMessage.mockRejectedValue(new Error('no stream in jsdom'))
+    mockSendTutorMessage.mockResolvedValue({ reply: 'Görüşürüz!', allowance: null })
+    renderPage()
+    await sendSomething()
+
+    expect(await screen.findByText(/Görüşürüz/)).toBeDefined()
+  })
+})
+
+describe('reaching End session in a long conversation', () => {
+  beforeEach(() => {
+    vi.clearAllMocks()
+    mockGetLanguages.mockResolvedValue([turkish])
+    mockEndTutorSession.mockResolvedValue(undefined)
+    mockGetTutorStatus.mockResolvedValue(statusWith(unlimited))
+    mockStreamTutorMessage.mockRejectedValue(new Error('no stream in jsdom'))
+    mockSendTutorMessage.mockResolvedValue({ reply: 'Tamam.', allowance: null })
+  })
+
+  it('offers jump-to-top and jump-to-bottom once there is a conversation', async () => {
+    // "End session" is in the header. In a long chat that is a lot of manual
+    // scrolling away from where you are typing.
+    renderPage()
+    expect(screen.queryByRole('button', { name: /scroll to top/i })).toBeNull()
+
+    const input = await screen.findByPlaceholderText(/message your tutor/i)
+    fireEvent.change(input, { target: { value: 'Merhaba' } })
+    fireEvent.keyDown(input, { key: 'Enter' })
+
+    expect(
+      await screen.findByRole('button', { name: /scroll to top/i }),
+    ).toBeDefined()
+    expect(screen.getByRole('button', { name: /scroll to bottom/i })).toBeDefined()
   })
 })

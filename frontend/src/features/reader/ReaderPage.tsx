@@ -82,6 +82,8 @@ export default function ReaderPage() {
     new Set(),
   )
   const [addedWords, setAddedWords] = useState<Set<string>>(new Set())
+  // Which deck the last save went into, so the confirmation can say where.
+  const [savedDeck, setSavedDeck] = useState<string | null>(null)
   const [failedWords, setFailedWords] = useState<Set<string>>(new Set())
 
   const { data: shelf = [] } = useQuery({
@@ -159,8 +161,13 @@ export default function ReaderPage() {
         answer: w.word,
         translation: w.translation,
         gloss: w.gloss,
+        source: 'reading',
       }),
-    onSuccess: (_res, w) => {
+    onSuccess: (res, w) => {
+      // Name the deck. "Added to your reviews" was true but useless — the
+      // learner had no way to find the word again, and nothing on the Decks
+      // page showed it, so saving felt like it hadn't worked.
+      if (res.deck_name) setSavedDeck(res.deck_name)
       setAddedWords((prev) => new Set(prev).add(w.word))
       setFailedWords((prev) => {
         const next = new Set(prev)
@@ -169,6 +176,7 @@ export default function ReaderPage() {
       })
       queryClient.invalidateQueries({ queryKey: ['dashboard'] })
       queryClient.invalidateQueries({ queryKey: ['personal-cards'] })
+      queryClient.invalidateQueries({ queryKey: ['personal-decks'] })
     },
     onError: (_err, w) => {
       setFailedWords((prev) => new Set(prev).add(w.word))
@@ -715,6 +723,13 @@ export default function ReaderPage() {
                 <p className="text-xs uppercase tracking-wide text-gray-400">
                   New words from this text
                 </p>
+                {savedDeck && (
+                  <p className="text-xs text-gray-500" data-testid="saved-deck">
+                    Saved words go to your{' '}
+                    <span className="font-medium text-gray-700">{savedDeck}</span>{' '}
+                    deck — find them under Decks.
+                  </p>
+                )}
                 {reading.new_words.map((w) => (
                   <div
                     key={w.word}

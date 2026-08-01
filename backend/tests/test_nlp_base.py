@@ -105,17 +105,23 @@ class TestCheckAnswerPipeline:
         assert msg is not None
         assert "слышать" in msg and "слушать" in msg
 
-    def test_distant_wrong_stays_silent(self, nlp):
+    def test_distant_wrong_still_names_the_answer(self, nlp):
+        # Used to return None. "It just says wrong" was the complaint: the
+        # card a learner most needs the answer to was the one place we
+        # withheld it.
         result, msg = nlp.check_answer("gato", "biblioteca")
         assert result == AnswerResult.WRONG
-        assert msg is None
+        assert msg and "biblioteca" in msg
 
     def test_short_words_never_get_near_miss_feedback(self, nlp):
         # 'is' vs 'it' is not a near-miss worth coaching — too short to
-        # distinguish typo from guess.
+        # distinguish typo from guess. It still gets the plain answer, just
+        # not the "compare these two words" framing, which would be wrong
+        # here: they are not variants of each other.
         result, msg = nlp.check_answer("is", "it")
         assert result == AnswerResult.WRONG
-        assert msg is None
+        assert msg and "it" in msg
+        assert "different word" not in msg
 
     # The review/learn sessions send alternatives under "alternatives";
     # placement sends "answer_alternatives". Both must work (the mismatch
@@ -194,16 +200,16 @@ class TestCheckAnswerPipeline:
 
     # Layer 6: No match → WRONG
     def test_completely_wrong_answer_returns_wrong(self, nlp):
-        """Unrelated answer → WRONG with None message."""
+        """Unrelated answer → WRONG, and the message says what was wanted."""
         result, msg = nlp.check_answer("cat", "dog")
         assert result == AnswerResult.WRONG
-        assert msg is None
+        assert msg and "dog" in msg
 
     def test_empty_answer_that_differs_returns_wrong(self, nlp):
         """Input that normalizes to something else → WRONG."""
         result, msg = nlp.check_answer("xyz", "dog")
         assert result == AnswerResult.WRONG
-        assert msg is None
+        assert msg and "dog" in msg
 
 
 class TestAlternatives:

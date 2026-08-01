@@ -149,12 +149,34 @@ export function parseSSE(buffer: string): { events: TutorStreamEvent[]; rest: st
  * reply + allowance. Non-OK responses reject with an axios-shaped error
  * ({response: {status, data}}) so callers reuse their /chat handling.
  */
+/**
+ * The server said the turn failed, or the learner pressed Stop. Either way
+ * the caller must NOT retry on the non-streaming endpoint: the server already
+ * gave its verdict, and retrying spends a second full model call to be told
+ * the same thing (or, on Stop, to send a message the learner cancelled).
+ */
+export class TutorTurnError extends Error {
+  readonly aborted: boolean
+  constructor(message: string, aborted = false) {
+    super(message)
+    this.name = 'TutorTurnError'
+    this.aborted = aborted
+  }
+}
+
+/** No byte from the server for this long means the turn is dead. The server
+ * pings every 10s while the model thinks, so silence here is a broken
+ * connection, not a slow answer — without this the reader simply waits for a
+ * FIN that a dropped mobile connection never sends. */
+const STREAM_SILENCE_TIMEOUT_MS = 45_000
+
 export async function streamTutorMessage(
   languageId: string,
   languageCode: string,
   messages: TutorMessage[],
   onDelta: (textSoFar: string) => void,
   mode: TutorMode = 'practice',
+  signal?: AbortSignal,
 ): Promise<{ reply: string; allowance: TutorAllowance | null; starred: number }> {
   const { data: sessionData } = await supabase.auth.getSession()
   const token = sessionData.session?.access_token
@@ -171,6 +193,7 @@ export async function streamTutorMessage(
       messages,
       mode,
     }),
+    signal,
   })
   if (!resp.ok) {
     let data: unknown = null
@@ -187,29 +210,54 @@ export async function streamTutorMessage(
   const decoder = new TextDecoder()
   let buffer = ''
   let text = ''
-  for (;;) {
-    const { done, value } = await reader.read()
-    if (done) break
-    buffer += decoder.decode(value, { stream: true })
-    const { events, rest } = parseSSE(buffer)
-    buffer = rest
-    for (const event of events) {
-      if (event.type === 'delta') {
-        text += event.text
-        onDelta(text)
-      } else if (event.type === 'reset') {
-        text = ''
-        onDelta(text)
-      } else if (event.type === 'done') {
-        return {
-          reply: event.reply,
-          allowance: event.allowance ?? null,
-          starred: event.starred ?? 0,
+  try {
+    for (;;) {
+      // Race the read against a silence timer. Without it a connection that
+      // dies without closing (the phone changing networks mid-answer) leaves
+      // reader.read() pending forever and the UI stuck on "thinking".
+      let timer: ReturnType<typeof setTimeout> | undefined
+      const silence = new Promise<never>((_, reject) => {
+        timer = setTimeout(
+          () => reject(new TutorTurnError('The tutor stopped responding — try again.')),
+          STREAM_SILENCE_TIMEOUT_MS,
+        )
+      })
+      let chunk: ReadableStreamReadResult<Uint8Array>
+      try {
+        chunk = await Promise.race([reader.read(), silence])
+      } finally {
+        clearTimeout(timer)
+      }
+      if (chunk.done) break
+      buffer += decoder.decode(chunk.value, { stream: true })
+      const { events, rest } = parseSSE(buffer)
+      buffer = rest
+      for (const event of events) {
+        if (event.type === 'delta') {
+          text += event.text
+          onDelta(text)
+        } else if (event.type === 'reset') {
+          text = ''
+          onDelta(text)
+        } else if (event.type === 'done') {
+          return {
+            reply: event.reply,
+            allowance: event.allowance ?? null,
+            starred: event.starred ?? 0,
+          }
+        } else if (event.type === 'error') {
+          // The server's verdict, not a transport hiccup — don't retry.
+          throw new TutorTurnError(event.message)
         }
-      } else if (event.type === 'error') {
-        throw new Error(event.message)
       }
     }
+  } catch (err) {
+    if (signal?.aborted || (err as Error)?.name === 'AbortError') {
+      throw new TutorTurnError('Stopped.', true)
+    }
+    throw err
+  } finally {
+    reader.cancel().catch(() => {})
   }
   throw new Error('Stream ended without a done event')
 }

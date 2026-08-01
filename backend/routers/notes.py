@@ -6,6 +6,10 @@ the same SRS. All RLS-scoped to the owner.
 """
 from __future__ import annotations
 
+import logging
+from typing import Literal
+
+from asyncpg.exceptions import UndefinedColumnError, UndefinedTableError
 from fastapi import APIRouter, Depends, HTTPException, status
 from pydantic import BaseModel, Field
 
@@ -16,10 +20,13 @@ from backend.repositories.notes import (
     known_vocab,
     list_notes,
 )
+from backend.repositories.personal_decks import get_or_create_deck
 from backend.repositories.pool import rls_connection
 from backend.services.drills import validate_drill
 from backend.services.extract import classify_words, make_cloze, split_sentences, tokenize
 from backend.services.nlp import get_nlp
+
+logger = logging.getLogger(__name__)
 
 router = APIRouter()
 
@@ -47,6 +54,20 @@ class PersonalCardCreate(BaseModel):
     # only in an INFLECTED form in the sentence — the Reader lists dictionary
     # forms (başkent) while the text has başkenti, so a cloze can't be built.
     gloss: str = ""
+    # Where the card came from, so it can be filed somewhere the learner will
+    # find it. Free text is rejected — this names a deck, and an open field
+    # would let callers mint arbitrary decks on every save.
+    source: Literal["reading", "tutor", "notes"] = "notes"
+
+
+# Auto-filing destinations. Learners can rename these afterwards; the
+# get_or_create lookup is by name, so a renamed deck simply stops collecting
+# and the next save opens a fresh one under the original name.
+DECK_FOR_SOURCE = {
+    "reading": "From reading",
+    "tutor": "From the tutor",
+    "notes": "From my notes",
+}
 
 
 def _nlp_or_422(language_code: str):
@@ -123,9 +144,22 @@ async def create_card(body: PersonalCardCreate, user: dict = Depends(get_current
             status_code=status.HTTP_422_UNPROCESSABLE_ENTITY,
             detail="The answer must be a whole word in the sentence.",
         )
+    deck_name: str | None = DECK_FOR_SOURCE[body.source]
     async with rls_connection(user["id"]) as conn:
+        # Resolve the deck FIRST so the card is filed by its own insert.
+        # Best-effort: an unfiled card is still saved and still scheduled, so
+        # losing the folder must not fail the save the learner just made.
+        deck_id: str | None = None
+        try:
+            deck_id = await get_or_create_deck(
+                conn, user["id"], body.language_id, deck_name
+            )
+        except (UndefinedTableError, UndefinedColumnError):
+            # personal_decks migration hasn't landed — save, don't crash.
+            logger.warning("personal_decks unavailable; filing skipped")
+            deck_name = None
         card_id = await create_personal_card(
             conn, user["id"], body.language_id, stored_sentence, body.answer,
-            body.translation, body.note_id,
+            body.translation, body.note_id, deck_id,
         )
-    return {"id": card_id, "sentence": stored_sentence}
+    return {"id": card_id, "sentence": stored_sentence, "deck_name": deck_name}

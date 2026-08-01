@@ -212,7 +212,9 @@ class TestEnglishFullPipeline:
         """Completely wrong English word → WRONG."""
         result, msg = nlp.check_answer("cat", "dog")
         assert result == AnswerResult.WRONG
-        assert msg is None
+        # Every rejection names the expected answer now — the card a learner
+        # just failed is exactly when it is worth the most.
+        assert msg and "dog" in msg
 
     def test_alternatives_accepted_before_wrong(self, nlp):
         """British spelling alternative → CORRECT via alternatives list."""

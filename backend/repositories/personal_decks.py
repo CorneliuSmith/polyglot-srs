@@ -40,6 +40,36 @@ async def create_deck(
     ))
 
 
+async def get_or_create_deck(
+    conn: asyncpg.Connection, user_id: str, language_id: str, name: str
+) -> str:
+    """The deck called *name* for this learner+language, created if absent.
+
+    Cards minted from the Reader and the Tutor used to land with no deck at
+    all. They were saved and scheduled correctly, but every screen that
+    lists personal cards groups by deck, so the learner's own saved words
+    were invisible — indistinguishable from the save having failed.
+
+    Case-insensitive match so a learner who already made "From reading"
+    keeps using it rather than accumulating near-duplicates. Renaming or
+    deleting the deck later is fine: this only ever creates one when no
+    deck by that name exists, and a deleted deck's cards fall back to
+    unfiled rather than disappearing.
+    """
+    existing = await conn.fetchval(
+        """
+        SELECT id FROM personal_decks
+        WHERE language_id = $1 AND lower(name) = lower($2)
+        ORDER BY created_at ASC
+        LIMIT 1
+        """,
+        language_id, name,
+    )
+    if existing:
+        return str(existing)
+    return await create_deck(conn, user_id, language_id, name)
+
+
 async def rename_deck(conn: asyncpg.Connection, deck_id: str, name: str) -> bool:
     res = await conn.execute(
         "UPDATE personal_decks SET name = $2 WHERE id = $1", deck_id, name
