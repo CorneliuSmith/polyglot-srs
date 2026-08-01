@@ -47,6 +47,7 @@ from backend.repositories.contributor import (
     can_trial_review,
     confirm_vocab_level,
     count_unchecked_points,
+    count_unchecked_vocab,
     create_auth_user,
     create_grammar_point,
     delete_account,
@@ -85,6 +86,7 @@ from backend.repositories.contributor import (
     list_suggestions,
     list_translation_reviews,
     list_unchecked_point_ids,
+    list_unchecked_vocab_ids,
     list_vocab_examples,
     list_vocab_items,
     pick_review_prompt,
@@ -656,6 +658,74 @@ async def ai_check_run(
             else:
                 concerns += 1
         remaining = await count_unchecked_points(conn, body.language_id)
+    return {
+        "checked": len(ids), "passed": passed,
+        "concerns": concerns, "remaining": remaining,
+    }
+
+
+#: The bands a vocabulary run can be narrowed to.
+CEFR_LEVELS = ("A1", "A2", "B1", "B2", "C1", "C2")
+
+
+class VocabAiCheckAllRequest(BaseModel):
+    language_id: str
+    limit: int = Field(default=8, ge=1, le=10)
+    # Narrow to one CEFR band. A ten-thousand-word language is a long run;
+    # being able to say "A1 first, then A2" makes it something you can do in
+    # sittings instead of one commitment.
+    level: str | None = None
+
+
+@router.post("/admin/vocab-ai-check-run")
+async def vocab_ai_check_run(
+    body: VocabAiCheckAllRequest,
+    user: dict = Depends(get_current_user),
+):
+    """Bulk AI check over unchecked VOCABULARY (admin-only).
+
+    Grammar got this when a freshly-seeded language turned out to have 40+
+    points invisible behind the same two-part gate. Vocabulary has the
+    identical gate and three orders of magnitude more rows, and the only
+    tool for it was the per-word button — which is not a workflow, it is a
+    reason to give up.
+
+    Resumable by construction, exactly like the grammar runner: every call
+    takes the next still-unchecked batch, so a client loops until remaining
+    hits zero and an interrupted run costs nothing already paid for.
+    """
+    await _require_admin(user["id"])
+    if not ai_available():
+        raise HTTPException(
+            status_code=status.HTTP_503_SERVICE_UNAVAILABLE,
+            detail="AI review needs ANTHROPIC_API_KEY (or dev-mock) on the server.",
+        )
+    if body.level is not None and body.level not in CEFR_LEVELS:
+        raise HTTPException(
+            status_code=status.HTTP_422_UNPROCESSABLE_ENTITY,
+            detail=f"level must be one of {', '.join(CEFR_LEVELS)}",
+        )
+    async with privileged_connection() as conn:
+        ids = await list_unchecked_vocab_ids(
+            conn, body.language_id, body.limit, body.level
+        )
+        passed = concerns = 0
+        for vocab_id in ids:
+            vocab = await get_vocab_for_check(conn, vocab_id)
+            if vocab is None:
+                continue
+            result = await semantic_check_vocab(
+                vocab["language_code"], vocab["word"],
+                vocab["definition"], vocab["examples"],
+            )
+            await save_vocab_ai_check(
+                conn, vocab_id, result["status"], result["notes"]
+            )
+            if result["status"] == "pass":
+                passed += 1
+            else:
+                concerns += 1
+        remaining = await count_unchecked_vocab(conn, body.language_id)
     return {
         "checked": len(ids), "passed": passed,
         "concerns": concerns, "remaining": remaining,

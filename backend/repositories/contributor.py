@@ -3364,3 +3364,50 @@ async def list_unchecked_point_ids(
         language_id, limit,
     )
     return [str(r["id"]) for r in rows]
+
+
+async def count_unchecked_vocab(
+    conn: asyncpg.Connection, language_id: str
+) -> int:
+    """Vocabulary invisible under 'ai_ok': unreviewed AND never AI-checked.
+
+    The vocabulary twin of count_unchecked_points. Grammar got a bulk runner
+    when a freshly-seeded language turned out to have 40+ invisible points;
+    vocabulary has the same gate and ten thousand rows, and until now the
+    only way through it was the per-word button.
+    """
+    return await conn.fetchval(
+        """
+        SELECT count(*) FROM vocabulary
+        WHERE language_id = $1
+          AND reviewed = false
+          AND ai_check_status IS NULL
+        """,
+        language_id,
+    ) or 0
+
+
+async def list_unchecked_vocab_ids(
+    conn: asyncpg.Connection, language_id: str, limit: int, level: str | None = None
+) -> list[str]:
+    """The next batch for the bulk vocabulary AI check.
+
+    Frequency order within level, and levels in order, so the words a
+    beginner meets first become visible first while the C1/C2 tail is still
+    being checked — a run over ten thousand words is long enough that the
+    ordering is the difference between "usable after a minute" and "usable
+    when it finishes". *level* narrows to one CEFR band.
+    """
+    rows = await conn.fetch(
+        """
+        SELECT id FROM vocabulary
+        WHERE language_id = $1
+          AND reviewed = false
+          AND ai_check_status IS NULL
+          AND ($3::text IS NULL OR level = $3)
+        ORDER BY level ASC NULLS LAST, frequency_rank ASC NULLS LAST
+        LIMIT $2
+        """,
+        language_id, limit, level,
+    )
+    return [str(r["id"]) for r in rows]
