@@ -2505,9 +2505,12 @@ async def _require_account_creator(user_id: str) -> None:
 async def _resolve_role_target(body: RoleGrant) -> str:
     """The target user id from either an explicit id or an account email."""
     if body.role not in VALID_ROLES:
+        # Derived from VALID_ROLES rather than spelled out: the hardcoded
+        # version still said "contributor, reviewer, or admin" two roles
+        # after that stopped being true.
         raise HTTPException(
             status_code=status.HTTP_422_UNPROCESSABLE_ENTITY,
-            detail="role must be 'contributor', 'reviewer', or 'admin'",
+            detail=f"role must be one of: {', '.join(VALID_ROLES)}",
         )
     if body.user_id:
         return body.user_id
@@ -2540,11 +2543,27 @@ async def grant_contributor_role(
     body: RoleGrant,
     user: dict = Depends(get_current_user),
 ):
-    """Grant a contributor/reviewer/admin role (admin-only; by id or email)."""
+    """Grant a staff role (admin-only; by id or email)."""
     await _require_admin(user["id"])
     target = await _resolve_role_target(body)
-    async with privileged_connection() as conn:
-        await grant_role(conn, target, body.language_id, body.role)
+    try:
+        async with privileged_connection() as conn:
+            await grant_role(conn, target, body.language_id, body.role)
+    except asyncpg.exceptions.CheckViolationError:
+        # The role list here and the CHECK constraint on contributor_roles
+        # are two separate deploys: code ships first, `supabase db push`
+        # follows. In that window the UI offers a role the database will
+        # not store, and an unhandled violation surfaces as a bare 500 —
+        # "Something went wrong", with nothing pointing at the migration.
+        # This is the one place that can name the real cause.
+        raise HTTPException(
+            status_code=status.HTTP_503_SERVICE_UNAVAILABLE,
+            detail=(
+                f"The database doesn't accept the '{body.role}' role yet — "
+                "its migration hasn't been applied. Run `supabase db push`, "
+                "then grant it again. Other roles still work."
+            ),
+        ) from None
     return {"granted": True, "user_id": target}
 
 

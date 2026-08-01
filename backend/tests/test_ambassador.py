@@ -9,6 +9,9 @@ extra steps.
 """
 from __future__ import annotations
 
+from contextlib import asynccontextmanager
+from unittest.mock import AsyncMock
+
 from backend.repositories.contributor import (
     can_add_accounts,
     can_contribute,
@@ -16,6 +19,12 @@ from backend.repositories.contributor import (
     can_trial_review,
     is_admin,
 )
+
+
+@asynccontextmanager
+async def _fake_priv():
+    yield AsyncMock()
+
 
 LANG = "11111111-1111-1111-1111-111111111111"
 OTHER = "22222222-2222-2222-2222-222222222222"
@@ -107,3 +116,63 @@ class TestRoleIsGrantable:
 
         for role in VALID_ROLES:
             assert f"'{role}'" in sql, role
+
+
+class TestTheMigrationWindow:
+    """Code ships before `supabase db push` runs. In that window the UI
+    offers a role the CHECK constraint rejects, and the owner saw a bare
+    "Something went wrong" with nothing naming the cause.
+    """
+
+    def test_a_rejected_role_explains_the_missing_migration(self):
+        from unittest.mock import AsyncMock, patch
+
+        import asyncpg
+        import pytest
+        from fastapi import HTTPException
+
+        from backend.routers import contribute as mod
+
+        async def _boom(*a, **k):
+            raise asyncpg.exceptions.CheckViolationError("constraint")
+
+        async def _run():
+            with patch.object(mod, "_require_admin", new=AsyncMock()), \
+                 patch.object(mod, "_resolve_role_target",
+                              new=AsyncMock(return_value="uid")), \
+                 patch.object(mod, "privileged_connection", _fake_priv), \
+                 patch.object(mod, "grant_role", _boom):
+                await mod.grant_contributor_role(
+                    mod.RoleGrant(user_id="uid", role="ambassador"),
+                    user={"id": "admin-id"},
+                )
+
+        import asyncio
+
+        with pytest.raises(HTTPException) as exc:
+            asyncio.run(_run())
+        assert exc.value.status_code == 503
+        detail = exc.value.detail
+        # It must name the fix, not just fail politely.
+        assert "supabase db push" in detail
+        assert "ambassador" in detail
+
+    def test_the_validation_error_lists_the_real_roles(self):
+        """The hardcoded message still said "contributor, reviewer, or
+        admin" two roles after that stopped being true."""
+        import asyncio
+
+        import pytest
+        from fastapi import HTTPException
+
+        from backend.routers import contribute as mod
+
+        with pytest.raises(HTTPException) as exc:
+            asyncio.run(
+                mod._resolve_role_target(
+                    mod.RoleGrant(user_id="uid", role="wizard")
+                )
+            )
+        assert exc.value.status_code == 422
+        for role in mod.VALID_ROLES:
+            assert role in exc.value.detail
