@@ -3369,12 +3369,15 @@ async def list_unchecked_point_ids(
 async def count_unchecked_vocab(
     conn: asyncpg.Connection, language_id: str
 ) -> int:
-    """Vocabulary invisible under 'ai_ok': unreviewed AND never AI-checked.
+    """Vocabulary carrying no quality verdict yet: unreviewed AND unchecked.
 
-    The vocabulary twin of count_unchecked_points. Grammar got a bulk runner
-    when a freshly-seeded language turned out to have 40+ invisible points;
-    vocabulary has the same gate and ten thousand rows, and until now the
-    only way through it was the per-word button.
+    NOT a visibility count, unlike its grammar twin. The publish gate
+    (`reviewed OR ai_check_status = 'pass'`) applies to grammar points only —
+    every such clause in repositories/cards.py is `gp.`, never `v.`. What
+    gates a word is `level_source <> 'ai' OR policy IN ('ai_ok','all')`.
+
+    This is the size of the un-audited backlog: how many words no one and
+    nothing has judged, which is what the bulk checker works through.
     """
     return await conn.fetchval(
         """

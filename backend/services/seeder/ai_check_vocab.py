@@ -1,12 +1,21 @@
 """Bulk AI semantic check over a language's vocabulary.
 
-The vocabulary twin of `generate_grammar --ai-check`, and it exists for the
-same reason. Visibility under the 'ai_ok' publish policy needs TWO things —
-a human review OR a stored AI verdict — and seeding sets neither. Grammar hit
-this first, with 40-odd invisible points per language; vocabulary has the
-identical gate and ten thousand rows, where the per-word button in the
-contributor editor stops being a slow workflow and becomes a reason to give
-up.
+The vocabulary twin of `generate_grammar --ai-check` — but NOT for the same
+reason, and the difference matters enough to state up front.
+
+**This does not make vocabulary visible.** The two-part publish gate
+(`reviewed OR ai_check_status = 'pass'`) is applied to GRAMMAR POINTS only;
+every such clause in repositories/cards.py is `gp.`, never `v.`. The single
+gate on vocabulary is `level_source <> 'ai' OR policy IN ('ai_ok','all')` —
+a word whose CEFR level was AI-estimated waits for a reviewer or a permissive
+policy. Its `ai_check_status` is advisory metadata a reviewer reads, and
+nothing keys visibility off it.
+
+So what this is for: a quality signal at scale. It reads each word's gloss
+and examples and records whether they hold up, which is what routes bad
+cards into the review queue instead of waiting for a learner to hit one and
+report it. Worth running on a freshly seeded language; just don't run it
+expecting words to appear afterwards, because they are already there.
 
 Resumable by default: a run only picks up words with no verdict yet, so an
 interrupted run (an API hiccup, a laptop lid) can simply be re-run and costs

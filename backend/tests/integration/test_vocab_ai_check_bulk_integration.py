@@ -1,11 +1,12 @@
 """Bulk AI check over a language's vocabulary.
 
-Grammar got a bulk runner when a freshly-seeded language turned out to have
-40-odd points invisible behind the two-part visibility gate. Vocabulary has
-the identical gate and three orders of magnitude more rows, and the only tool
-was the per-word button (whose plumbing is covered in
-test_vocab_ai_check_integration.py) — not so much a slow workflow as a reason
-to give up.
+This is a QUALITY audit, not a visibility unlock — the distinction its
+grammar twin does not have. The `reviewed OR ai_check_status = 'pass'` publish
+gate applies to grammar points only; a vocabulary word is gated on
+`level_source <> 'ai'` alone, and nothing reads its ai_check_status to decide
+what a learner sees. What this buys is bad glosses and examples reaching the
+review queue at scale, instead of one at a time via the per-word button
+(whose plumbing is covered in test_vocab_ai_check_integration.py).
 
 The properties pinned here are the ones that make a ten-thousand-word run
 survivable: resumable, so an interrupted run costs nothing already paid for;
@@ -144,8 +145,9 @@ async def test_limit_sizes_a_first_run(pool, db_url):
 
 
 async def test_concerns_are_counted_separately(pool, db_url):
-    """A 'concerns' verdict does NOT publish the word — it routes to the
-    review queue. The split is how an operator knows how much landed there."""
+    """A 'concerns' verdict routes the word to the review queue. It does not
+    hide the word either — vocabulary visibility does not read this column at
+    all — so the split is purely how an operator sizes the review backlog."""
     lang = await _seed(pool, "vab7", [("aleph", "A1", 1)])
     with _mock_model("concerns"), _provider():
         stats = await ai_check_vocabulary(db_url, "vab7")

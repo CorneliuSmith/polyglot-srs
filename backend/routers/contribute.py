@@ -682,13 +682,14 @@ async def vocab_ai_check_run(
     body: VocabAiCheckAllRequest,
     user: dict = Depends(get_current_user),
 ):
-    """Bulk AI check over unchecked VOCABULARY (admin-only).
+    """Bulk AI quality check over unchecked VOCABULARY (admin-only).
 
-    Grammar got this when a freshly-seeded language turned out to have 40+
-    points invisible behind the same two-part gate. Vocabulary has the
-    identical gate and three orders of magnitude more rows, and the only
-    tool for it was the per-word button — which is not a workflow, it is a
-    reason to give up.
+    Unlike its grammar twin this does NOT change what learners can see: the
+    `reviewed OR ai_check_status = 'pass'` publish gate is applied to grammar
+    points only (every such clause in repositories/cards.py is `gp.`), while
+    a vocabulary word is gated on `level_source <> 'ai'` alone. This audits
+    glosses and examples at scale so bad cards reach the review queue instead
+    of a learner.
 
     Resumable by construction, exactly like the grammar runner: every call
     takes the next still-unchecked batch, so a client loops until remaining
