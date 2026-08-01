@@ -6,7 +6,7 @@ from pathlib import Path
 
 import asyncpg
 
-from backend.services.content_filter import is_explicit
+from backend.services.content_filter import is_explicit_gloss
 
 DATA_DIR = Path(__file__).resolve().parents[3] / "data"
 
@@ -258,7 +258,7 @@ class BaseSeeder(ABC):
                     # the next `seed_vocabulary` run.
                     explicit_ids = [
                         vid for vid, definition in zip(t_ids, t_defs)
-                        if is_explicit(definition)
+                        if is_explicit_gloss(definition)
                     ]
                     if explicit_ids:
                         try:

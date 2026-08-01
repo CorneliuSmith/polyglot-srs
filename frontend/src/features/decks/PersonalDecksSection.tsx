@@ -56,8 +56,28 @@ export default function PersonalDecksSection({ languageId }: { languageId: strin
     onSuccess: invalidate,
   })
 
-  // Personal decks only matter once the learner HAS personal cards.
-  if (cards.length === 0 && decks.length === 0) return null
+  // Empty used to render NOTHING — no heading, no explanation. Someone
+  // looking for their saved words found a Decks page with no sign the
+  // feature existed, which reads as "it's broken" rather than "you haven't
+  // saved anything yet". Say where these come from instead.
+  if (cards.length === 0 && decks.length === 0) {
+    return (
+      <section
+        data-testid="personal-decks-empty"
+        className="bg-white rounded-2xl shadow-sm border border-gray-100 p-5 space-y-1"
+      >
+        <h2 className="font-semibold text-gray-800">Your saved words</h2>
+        <p className="text-sm text-gray-600">
+          Words you save while reading, and cards the tutor makes for you,
+          collect here — filed into “From reading” and “From the tutor”.
+        </p>
+        <p className="text-xs text-gray-500">
+          Nothing saved yet. Open <span className="font-medium">Read</span> and
+          tap “Add to reviews” on a word you want to keep.
+        </p>
+      </section>
+    )
+  }
 
   const unfiled = cards.filter((c) => !c.deck_id)
   const groups: { id: string | null; name: string; cards: typeof cards }[] = [
