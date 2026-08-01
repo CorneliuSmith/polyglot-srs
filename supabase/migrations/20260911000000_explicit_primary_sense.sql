@@ -20,42 +20,71 @@
 -- stripped rather than mistaken for the whole sense. Mirrors
 -- backend/services/content_filter.py; the two must agree.
 --
--- Across the shipped frequency lists this releases 97 of 431 words.
+-- ---------------------------------------------------------------------------
+-- WHY THIS ONLY TOUCHES ALREADY-FLAGGED ROWS
 --
--- Safe to run whether or not anything has changed since 20260910: it
--- recomputes both columns from scratch rather than toggling them.
+-- The first version of this migration recomputed is_explicit for EVERY
+-- vocabulary row — an unconditional UPDATE over ~157k rows, each running a
+-- correlated regex against its translations, rewriting all of them (plus two
+-- partial indexes and the WAL) to change about a hundred. It hit Supabase's
+-- statement timeout and rolled back.
+--
+-- It never needed to look at more than the flagged rows. The new rule is a
+-- STRICT NARROWING of the old one:
+--
+--   * the primary sense is a substring of the whole gloss, so anything
+--     matching in the primary sense already matched "anywhere";
+--   * the "mild" guard only ever removes a match.
+--
+-- So the new true-set is a subset of the old one: no row that is currently
+-- false can become true, and the only work is unflagging. That relies on
+-- 20260910 having run first, which it always has — migrations apply in
+-- filename order, and this file sorts after it.
+--
+-- Idempotent: re-running finds nothing left to unflag.
 
--- Primary sense: everything before the first semicolon, minus a leading
--- "(label)". Postgres has no inline helper here, so it is spelled out.
-UPDATE vocabulary v SET is_explicit = COALESCE((
-    SELECT bool_or(
-        regexp_replace(split_part(t.definition, ';', 1), '^\s*\([^)]*\)\s*', '')
-        ~* ('\y(' ||
-            'whore|whores|whoring|whorehouse|whorehouses|' ||
-            'slut|sluts|slutty|prostitute|prostitutes|prostitution|' ||
-            'hooker|hookers|brothel|brothels|pimp|pimps|' ||
-            'fuck|fucks|fucked|fucking|fucker|fuckers|' ||
-            'shit|shits|shitty|shitting|bullshit|' ||
-            'cunt|cunts|twat|twats|bitch|bitches|bastard|bastards|' ||
-            'wanker|wankers|bollocks|arsehole|asshole|assholes|' ||
-            'dickhead|prick|pricks|dick|dicks|tits|titties|' ||
-            'blowjob|blowjobs|handjob|cum|jizz|wank|' ||
-            'masturbate|masturbation|masturbating|' ||
-            'porn|porno|pornography|pornographic|orgasm|orgasms|' ||
-            'faggot|faggots' ||
-          ')\y|vulgar|obscene|profanity|expletive|taboo word|swear ?word')
+-- Generous ceiling rather than the default. The work below is small, but a
+-- migration that silently depends on the server's timeout being big enough
+-- is how the first attempt failed.
+SET LOCAL statement_timeout = '5min';
+
+-- Vocabulary: unflag anything whose PRIMARY sense doesn't carry it.
+-- Only currently-flagged rows are examined (see above).
+UPDATE vocabulary v SET is_explicit = false
+WHERE v.is_explicit
+  AND NOT EXISTS (
+      SELECT 1
+      FROM translations t
+      WHERE t.vocabulary_id = v.id
+        -- Primary sense: up to the first semicolon, minus a leading
+        -- "(label)" so "(dated) cunt" is read as its sense, not its label.
+        AND regexp_replace(split_part(t.definition, ';', 1),
+                           '^\s*\([^)]*\)\s*', '')
+            ~* ('\y(' ||
+                'whore|whores|whoring|whorehouse|whorehouses|' ||
+                'slut|sluts|slutty|prostitute|prostitutes|prostitution|' ||
+                'hooker|hookers|brothel|brothels|pimp|pimps|' ||
+                'fuck|fucks|fucked|fucking|fucker|fuckers|' ||
+                'shit|shits|shitty|shitting|bullshit|' ||
+                'cunt|cunts|twat|twats|bitch|bitches|bastard|bastards|' ||
+                'wanker|wankers|bollocks|arsehole|asshole|assholes|' ||
+                'dickhead|prick|pricks|dick|dicks|tits|titties|' ||
+                'blowjob|blowjobs|handjob|cum|jizz|wank|' ||
+                'masturbate|masturbation|masturbating|' ||
+                'porn|porno|pornography|pornographic|orgasm|orgasms|' ||
+                'faggot|faggots' ||
+              ')\y|vulgar|obscene|profanity|expletive|taboo word|swear ?word')
         -- ...unless the lexicographer already said the sense is mild.
         AND t.definition !~* '\ymild(ly)?\y'
-    )
-    FROM translations t
-    WHERE t.vocabulary_id = v.id
-), false);
+  );
 
--- Sentences are prose, not sense lists: there is no "primary sense" of a
--- sentence, so they are still judged whole. The mild guard does not apply
--- either — a sentence is not labelled by a lexicographer.
-UPDATE example_sentences SET is_explicit =
-    coalesce(translation, '') ~* ('\y(' ||
+-- Example sentences are judged WHOLE — a sentence has no primary sense — so
+-- the rule for them is unchanged from 20260910 and their own flags stand.
+-- What does change is INHERITANCE: a sentence flagged only because its
+-- headword was flagged must be released when that headword is.
+UPDATE example_sentences es SET is_explicit = false
+WHERE es.is_explicit
+  AND coalesce(es.translation, '') !~* ('\y(' ||
         'whore|whores|whoring|whorehouse|whorehouses|' ||
         'slut|sluts|slutty|prostitute|prostitutes|prostitution|' ||
         'hooker|hookers|brothel|brothels|pimp|pimps|' ||
@@ -68,12 +97,8 @@ UPDATE example_sentences SET is_explicit =
         'masturbate|masturbation|masturbating|' ||
         'porn|porno|pornography|pornographic|orgasm|orgasms|' ||
         'faggot|faggots' ||
-      ')\y|vulgar|obscene|profanity|expletive|taboo word|swear ?word');
-
--- An explicit word's examples go with it, re-applied after the reset above.
-UPDATE example_sentences es SET is_explicit = true
-WHERE NOT es.is_explicit
-  AND EXISTS (
+      ')\y|vulgar|obscene|profanity|expletive|taboo word|swear ?word')
+  AND NOT EXISTS (
       SELECT 1 FROM vocabulary v
       WHERE v.id = es.vocabulary_id AND v.is_explicit
   );
