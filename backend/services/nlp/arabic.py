@@ -24,6 +24,7 @@ from __future__ import annotations
 import logging
 import re
 
+from backend.services.nlp.arabic_script import fold_arabic_script
 from backend.services.nlp.base import AnswerResult, BaseNLP
 
 logger = logging.getLogger(__name__)
@@ -138,6 +139,16 @@ class ArabicNLP(BaseNLP):
         text = normalize_alef_ar(text)
         text = text.replace(_TATWEEL, "")
         return text
+
+    def fold_lookalikes(self, text: str) -> str:
+        """Fold yeh/alef-maqsura, kaf, heh and presentation forms.
+
+        The failure this fixes: إلى ends in alef maqsura ى, phone keyboards
+        offer ي, and the two are the same shape at the end of a word. Every
+        learner typing that preposition — one of the commonest words in the
+        language — was marked wrong unless they pasted it.
+        """
+        return fold_arabic_script(text)
 
     def lemmatize(self, word: str) -> str:
         """Return the base/dictionary form of *word* using camel-tools.

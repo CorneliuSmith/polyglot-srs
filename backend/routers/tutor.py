@@ -20,6 +20,7 @@ On top of the tiers sits the admin's per-account override (WP15b):
 from __future__ import annotations
 
 import asyncio
+import contextlib
 import logging
 from uuid import UUID
 
@@ -65,6 +66,13 @@ router = APIRouter()
 # its first token. The stream endpoint emits a ping frame at this cadence
 # whenever the model is quiet; clients ignore unknown event types.
 STREAM_HEARTBEAT_SECONDS = 10.0
+
+# ...but a heartbeat that never stops is its own failure. If the model stalls
+# and never produces another event, the pings keep the connection healthy
+# forever and the client sits on "Tutor is thinking…" with no way out — the
+# heartbeat converted a crash into an infinite wait. Cap the silence: after
+# this long with nothing from the model, say so and close.
+STREAM_STALL_TIMEOUT_SECONDS = 120.0
 
 
 class ChatMessage(BaseModel):
@@ -335,6 +343,7 @@ async def chat_stream(
         # timeout, pinging while the model is quiet. asyncio.wait (not
         # wait_for) — cancelling __anext__ would kill the generator.
         next_task: asyncio.Task | None = None
+        silent_for = 0.0
         try:
             while True:
                 if next_task is None:
@@ -343,8 +352,37 @@ async def chat_stream(
                     {next_task}, timeout=STREAM_HEARTBEAT_SECONDS
                 )
                 if not done_set:
+                    silent_for += STREAM_HEARTBEAT_SECONDS
+                    if silent_for >= STREAM_STALL_TIMEOUT_SECONDS:
+                        logger.error(
+                            "Tutor stream stalled for %.0fs with no model "
+                            "output — closing (language=%s)",
+                            silent_for, body.language_code,
+                        )
+                        # Await the cancellation instead of firing and
+                        # forgetting: a pending task outliving this request
+                        # is exactly how "Task was destroyed but it is
+                        # pending" and cross-request loop errors start.
+                        next_task.cancel()
+                        with contextlib.suppress(
+                            asyncio.CancelledError, StopAsyncIteration, Exception
+                        ):
+                            await next_task
+                        yield (
+                            "data: "
+                            + _json.dumps({
+                                "type": "error",
+                                "message": (
+                                    "The tutor stopped responding. Your "
+                                    "message wasn't sent — try again."
+                                ),
+                            })
+                            + "\n\n"
+                        )
+                        return
                     yield 'data: {"type": "ping"}\n\n'
                     continue
+                silent_for = 0.0
                 task, next_task = next_task, None
                 try:
                     event = task.result()
@@ -434,6 +472,22 @@ async def chat_stream(
                 + _json.dumps({
                     "type": "error",
                     "message": "Tutor is temporarily unavailable",
+                })
+                + "\n\n"
+            )
+        except Exception as exc:  # noqa: BLE001
+            # Anything else — a database error while persisting the turn, a
+            # malformed event — used to escape the generator and close the
+            # stream mid-flight with no "error" frame. The client can't tell
+            # that apart from a truncated response, so it retried the whole
+            # turn on the non-streaming endpoint: a second full model call,
+            # billed, usually failing the same way. Always send a frame.
+            logger.exception("Tutor stream failed: %s", exc)
+            yield (
+                "data: "
+                + _json.dumps({
+                    "type": "error",
+                    "message": "The tutor hit an error — try again.",
                 })
                 + "\n\n"
             )

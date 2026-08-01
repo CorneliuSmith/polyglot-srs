@@ -219,4 +219,6 @@ class TestRussianFullPipeline:
         """Completely wrong word → WRONG."""
         result, msg = nlp.check_answer("кошка", "собака")
         assert result == AnswerResult.WRONG
-        assert msg is None
+        # Every rejection names the expected answer now — the card a learner
+        # just failed is exactly when it is worth the most.
+        assert msg and "собака" in msg

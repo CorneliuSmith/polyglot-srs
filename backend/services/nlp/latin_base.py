@@ -26,6 +26,7 @@ from __future__ import annotations
 
 import unicodedata
 
+from backend.services.nlp.arabic_script import fold_arabic_script
 from backend.services.nlp.base import BaseNLP
 
 
@@ -135,5 +136,16 @@ class HebrewNLP(AccentFoldingNLP):
 
 class PersianNLP(AccentFoldingNLP):
     """Folds the optional Perso-Arabic vowel diacritics (harakat) the same
-    way. Persian has no articles to strip."""
+    way. Persian has no articles to strip.
+
+    Persian took the worst of the typed-vs-pasted failure. iOS ships an
+    Arabic keyboard and not a Persian one by default, so learners type Arabic
+    kaf ك and yeh ي where Persian spells ک and ی — different codepoints,
+    identical on screen, and every answer containing one was rejected. The
+    ZWNJ that Persian puts inside ordinary words (می‌روم) is handled a layer
+    up, in check_answer, since it is invisible rather than merely look-alike.
+    """
     leading_articles = ()
+
+    def fold_lookalikes(self, text: str) -> str:
+        return fold_arabic_script(text)

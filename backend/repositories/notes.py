@@ -68,12 +68,21 @@ async def create_personal_card(
     answer: str,
     translation: str | None,
     note_id: str | None,
+    deck_id: str | None = None,
 ) -> str:
-    """Create a cloze card from the learner's text and queue it for review."""
+    """Create a cloze card from the learner's text and queue it for review.
+
+    Returns the **user_cards** id (the scheduling row), NOT the cloze id —
+    worth stating because file_card() keys on the cloze id, so handing it
+    this return value silently files nothing. Which is why *deck_id* is set
+    here at insert time rather than by a follow-up update.
+    """
     cloze_id = await conn.fetchval(
-        "INSERT INTO user_cloze_cards (user_id, language_id, sentence, answer, translation, note_id) "
-        "VALUES ($1, $2, $3, $4, $5, $6) RETURNING id",
+        "INSERT INTO user_cloze_cards "
+        "(user_id, language_id, sentence, answer, translation, note_id, personal_deck_id) "
+        "VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING id",
         user_id, language_id, sentence, answer, translation or None, note_id,
+        deck_id,
     )
     user_card_id = await conn.fetchval(
         """

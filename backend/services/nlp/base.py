@@ -45,6 +45,38 @@ _TYPOGRAPHY_MAP = str.maketrans({
 _TRAILING_PUNCT = ".,!?;:…。？！"
 _WRAPPING_QUOTES = (("'", "'"), ('"', '"'), ("«", "»"))
 
+# Characters that render as NOTHING. A learner cannot see whether they typed
+# one, so grading on them fails an answer that looks identical on screen to
+# the expected one — the purest form of "it works when I paste it and fails
+# when I type it".
+#
+# Persian is the worst hit: its keyboards insert ZWNJ inside ordinary words
+# (می‌روم), so a hand-typed answer and a copied one differ by an invisible
+# character and only the copy was accepted. Bidi controls arrive the same way
+# from RTL keyboards and clipboards. All of them come off BOTH sides, which
+# keeps equality intact, and the result grades CORRECT — there is nothing
+# here to coach a learner about.
+_INVISIBLE = dict.fromkeys(
+    [
+        0x00AD,  # soft hyphen
+        0x061C,  # Arabic letter mark
+        0x200B,  # zero-width space
+        0x200C,  # zero-width NON-joiner  (Persian می‌روم)
+        0x200D,  # zero-width joiner
+        0x200E,  # left-to-right mark
+        0x200F,  # right-to-left mark
+        0x2060,  # word joiner
+        0xFEFF,  # BOM / zero-width no-break space
+        *range(0x202A, 0x202F),  # bidi embedding/override controls
+        *range(0x2066, 0x206A),  # bidi isolates
+    ]
+)
+
+
+def _strip_invisible(text: str) -> str:
+    """Drop characters with no glyph — see _INVISIBLE."""
+    return text.translate(_INVISIBLE)
+
 
 def _strip_marks(text: str) -> str:
     """Fold combining marks: você -> voce, está -> esta, ё -> е."""
@@ -124,6 +156,17 @@ class BaseNLP(ABC):
             Normalized string.
         """
 
+    def fold_lookalikes(self, text: str) -> str:
+        """Collapse codepoints that render near-identically in this script.
+
+        Default: no folding. Override where a script has letters a learner
+        cannot tell apart on a phone screen and keyboards disagree about
+        (Arabic ى/ي, Persian ک vs Arabic ك). Used by a COACHING layer, so a
+        folded match is still flagged — the point is to say "check the letter
+        forms", not to pretend the letters are the same.
+        """
+        return text
+
     @abstractmethod
     def lemmatize(self, word: str) -> str:
         """Return the dictionary/base form of *word*.
@@ -202,11 +245,11 @@ class BaseNLP(ABC):
         # Then undo phone-keyboard typography: curly quotes map to straight on
         # BOTH sides (symmetric — equality is preserved), and keyboard-added
         # trailing punctuation / wrapping quotes come off the user's input.
-        user = unicodedata.normalize("NFC", user_input).translate(
-            _TYPOGRAPHY_MAP
+        user = _strip_invisible(
+            unicodedata.normalize("NFC", user_input).translate(_TYPOGRAPHY_MAP)
         ).strip()
-        correct = unicodedata.normalize("NFC", correct_answer).translate(
-            _TYPOGRAPHY_MAP
+        correct = _strip_invisible(
+            unicodedata.normalize("NFC", correct_answer).translate(_TYPOGRAPHY_MAP)
         ).strip()
         user = _undo_keyboard_typography(user, correct)
 
@@ -231,6 +274,22 @@ class BaseNLP(ABC):
                 AnswerResult.CORRECT_SLOPPY,
                 f"Almost — check the accents. Expected: {correct_answer}",
             )
+
+        # Layer 2.6: look-alike letters. Scripts where two codepoints render
+        # near-identically and phone keyboards disagree about which one to
+        # emit — Arabic ى/ي, Persian ک vs Arabic ك — were failing answers the
+        # learner had no way to see were different. Coached (amber), never
+        # silently equal: these ARE distinct letters and worth learning.
+        if norm_user:
+            folded_user = self.fold_lookalikes(norm_user)
+            folded_correct = self.fold_lookalikes(norm_correct)
+            if folded_user != norm_user or folded_correct != norm_correct:
+                if _strip_marks(folded_user) == _strip_marks(folded_correct):
+                    return (
+                        AnswerResult.CORRECT_SLOPPY,
+                        "Almost — check the letter forms. "
+                        f"Expected: {correct_answer}",
+                    )
 
         # Grammar drills test the FORM — "is" where "am" belongs is the very
         # thing being drilled, so lemma/family matches (layers 3–4) grade
@@ -307,4 +366,14 @@ class BaseNLP(ABC):
                 f"Close, but that's a different word — compare "
                 f"{user_input.strip()} with {correct_answer}.",
             )
-        return AnswerResult.WRONG, None
+        # Every rejection names the expected answer. Silence here read as a
+        # bug ("it just says wrong") and left the learner with nothing to
+        # learn from the card they'd just failed — the one moment the answer
+        # is worth the most.
+        typed = user_input.strip()
+        if not typed:
+            return AnswerResult.WRONG, f"Nothing entered. Expected: {correct_answer}"
+        return (
+            AnswerResult.WRONG,
+            f"Not quite — expected {correct_answer}, you wrote {typed}.",
+        )

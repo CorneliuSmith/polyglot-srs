@@ -770,3 +770,89 @@ describe('ReviewSessionPage — background generation (WP41)', () => {
     }
   })
 })
+
+describe('due counts after a review', () => {
+  beforeEach(() => {
+    vi.clearAllMocks()
+    mockUsePrefsStore.mockImplementation(
+      (selector: (s: { activeLanguageId: string }) => unknown) =>
+        selector({ activeLanguageId: 'lang-123' }),
+    )
+    mockGetDueCards.mockResolvedValue([testCard])
+    mockValidateAnswer.mockResolvedValue(mockValidateResponse)
+    mockSubmitReview.mockResolvedValue(mockSubmitResponse)
+  })
+
+  // The counts were only refreshed by the Finish button on the summary
+  // screen. Leave a session any other way — the back gesture, the tab bar, a
+  // tap straight to the dashboard — and the caches were still inside their
+  // 60s staleTime with refetchOnWindowFocus off, so the due number sat at its
+  // pre-session value with no event coming to correct it. That is the "major
+  // delay": not slow, just never told.
+  it('marks the dashboard and due counts stale as each card is submitted', async () => {
+    const queryClient = new QueryClient({
+      defaultOptions: {
+        queries: { retry: false },
+        mutations: { retry: false },
+      },
+    })
+    const invalidate = vi.spyOn(queryClient, 'invalidateQueries')
+    render(
+      <QueryClientProvider client={queryClient}>
+        <MemoryRouter>
+          <ReviewSessionPage />
+        </MemoryRouter>
+      </QueryClientProvider>,
+    )
+    await waitFor(() => screen.getByRole('textbox'))
+
+    const input = screen.getByRole('textbox')
+    fireEvent.change(input, { target: { value: 'goes' } })
+    fireEvent.keyDown(input, { key: 'Enter' })
+    await waitFor(() => screen.getByTestId('feedback-panel'))
+    fireEvent.click(screen.getByRole('button', { name: /continue/i }))
+
+    await waitFor(() => expect(mockSubmitReview).toHaveBeenCalled())
+    await waitFor(() => {
+      const keys = invalidate.mock.calls.map((c) => JSON.stringify(c[0]?.queryKey))
+      expect(keys).toContain('["dashboard"]')
+      expect(keys).toContain('["due-cards"]')
+    })
+  })
+
+  it('does not refetch mid-session — one request per card would be absurd', async () => {
+    // refetchType 'none' is what makes per-card invalidation affordable: it
+    // marks the caches stale so the NEXT screen fetches fresh, without firing
+    // a dashboard request after every single answer.
+    const queryClient = new QueryClient({
+      defaultOptions: {
+        queries: { retry: false },
+        mutations: { retry: false },
+      },
+    })
+    const invalidate = vi.spyOn(queryClient, 'invalidateQueries')
+    render(
+      <QueryClientProvider client={queryClient}>
+        <MemoryRouter>
+          <ReviewSessionPage />
+        </MemoryRouter>
+      </QueryClientProvider>,
+    )
+    await waitFor(() => screen.getByRole('textbox'))
+
+    const input = screen.getByRole('textbox')
+    fireEvent.change(input, { target: { value: 'goes' } })
+    fireEvent.keyDown(input, { key: 'Enter' })
+    await waitFor(() => screen.getByTestId('feedback-panel'))
+    fireEvent.click(screen.getByRole('button', { name: /continue/i }))
+
+    await waitFor(() => expect(mockSubmitReview).toHaveBeenCalled())
+    await waitFor(() => {
+      const dashboardCalls = invalidate.mock.calls.filter(
+        (c) => JSON.stringify(c[0]?.queryKey) === '["dashboard"]',
+      )
+      expect(dashboardCalls.length).toBeGreaterThan(0)
+      expect(dashboardCalls.every((c) => c[0]?.refetchType === 'none')).toBe(true)
+    })
+  })
+})

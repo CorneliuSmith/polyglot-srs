@@ -537,9 +537,32 @@ function convertHi(text: string, finalize: boolean): string {
 
 const KO_L = ['ㄱ','ㄲ','ㄴ','ㄷ','ㄸ','ㄹ','ㅁ','ㅂ','ㅃ','ㅅ','ㅆ','ㅇ','ㅈ','ㅉ','ㅊ','ㅋ','ㅌ','ㅍ','ㅎ']
 const KO_V = ['ㅏ','ㅐ','ㅑ','ㅒ','ㅓ','ㅔ','ㅕ','ㅖ','ㅗ','ㅘ','ㅙ','ㅚ','ㅛ','ㅜ','ㅝ','ㅞ','ㅟ','ㅠ','ㅡ','ㅢ','ㅣ']
-// Finals: index 0 is "no final". Only the single-jamo finals are typeable;
-// the stacked ones (ㄳ ㄵ …) decode but are never assembled from romanization.
+// Finals: index 0 is "no final".
 const KO_T = ['','ㄱ','ㄲ','ㄳ','ㄴ','ㄵ','ㄶ','ㄷ','ㄹ','ㄺ','ㄻ','ㄼ','ㄽ','ㄾ','ㄿ','ㅀ','ㅁ','ㅂ','ㅄ','ㅅ','ㅆ','ㅇ','ㅈ','ㅊ','ㅋ','ㅌ','ㅍ','ㅎ']
+
+// Eleven finals are STACKED — two consonants sharing one syllable's bottom
+// slot. They were decodable but never assemblable, so every word built on one
+// came out broken: 없 ("there isn't", about as common as Korean words get)
+// typed 업ㅅ, 앉 typed 안ㅈ, 닭 typed 달ㅋ. The trailing consonant simply fell
+// out of the block and sat beside it as a loose jamo.
+//
+// Splitting is the other half of the contract and is what makes it behave
+// like a real IME: a vowel after a stacked final steals the second consonant
+// away to open the next syllable (없 + ㅏ → 업사), which the assembly rule
+// below gets for free by refusing to stack when a vowel follows.
+const KO_COMPOUND_T: Record<string, string> = {
+  'ㄱㅅ': 'ㄳ',
+  'ㄴㅈ': 'ㄵ', 'ㄴㅎ': 'ㄶ',
+  'ㄹㄱ': 'ㄺ', 'ㄹㅁ': 'ㄻ', 'ㄹㅂ': 'ㄼ', 'ㄹㅅ': 'ㄽ',
+  'ㄹㅌ': 'ㄾ', 'ㄹㅍ': 'ㄿ', 'ㄹㅎ': 'ㅀ',
+  'ㅂㅅ': 'ㅄ',
+}
+/** The same table read backwards: a stacked final → its two jamo. decodeKo
+ * uses it so the encoder only ever sees atomic pieces, which is what lets a
+ * following vowel pull the second one off into the next syllable. */
+const KO_SPLIT_T: Record<string, string> = Object.fromEntries(
+  Object.entries(KO_COMPOUND_T).map(([pair, stacked]) => [stacked, pair]),
+)
 
 const KO_SYL_BASE = 0xac00
 const KO_SYL_LAST = 0xd7a3
@@ -613,11 +636,13 @@ function decodeKo(text: string): string {
       // across keystrokes — ㅔ + "u" has to become ㅡ ("hangeul" → 한글),
       // which a committed jamo could never do.
       out += KO_VOW_REV[KO_V[Math.floor((n % 588) / 28)]] ?? ''
-      out += KO_T[n % 28] // '' when the syllable is open
+      const t = KO_T[n % 28] // '' when the syllable is open
+      out += KO_SPLIT_T[t] ?? t
       continue
     }
     // Standalone jamo: vowels romanize (same reason), consonants stay jamo.
-    out += KO_VOW_REV[ch] ?? ch
+    const plain = KO_VOW_REV[ch] ?? ch
+    out += KO_SPLIT_T[plain] ?? plain
   }
   return out
 }
@@ -716,6 +741,19 @@ function encodeKo(phon: string, finalize: boolean): string {
         if (c2 || c1.committed || finalize) {
           final = asFinal
           i++
+          // A second consonant can stack onto it (ㅂ+ㅅ → ㅄ) — but only if
+          // no vowel follows, because a vowel claims that consonant as its
+          // own initial instead (없 + ㅏ is 업사, not 없아).
+          const d1 = toks[i]
+          const d2 = toks[i + 1]
+          if (d1 && d1.t === 'c' && (!d2 || d2.t !== 'v')) {
+            const stackWith = d1.committed ? d1.jamo : KO_FINAL[d1.lat] ?? d1.jamo
+            const stacked = KO_COMPOUND_T[final + stackWith]
+            if (stacked && (d2 || d1.committed || finalize)) {
+              final = stacked
+              i++
+            }
+          }
         }
       }
     }

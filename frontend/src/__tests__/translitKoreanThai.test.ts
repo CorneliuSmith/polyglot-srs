@@ -180,3 +180,58 @@ describe('Thai transliteration', () => {
     }
   })
 })
+
+/** On-screen keyboard path: it emits CONJOINING jamo, and composeScript runs
+ * the whole field through the encoder after every tap. */
+function tapJamo(keys: string[]): string {
+  let field = ''
+  for (const k of keys) field = composeScript('ko', field + k)
+  return finalizeTranslit('ko', field)
+}
+
+describe('Korean stacked (compound) finals', () => {
+  // Eleven finals hold TWO consonants in one syllable's bottom slot. They
+  // could be decoded but never assembled, so the second consonant fell out
+  // of the block and sat beside it — 없 came out 업ㅅ, 앉 came out 안ㅈ.
+  // 없 alone ("there isn't") is among the most-used words in the language.
+  it('assembles them from romanization', () => {
+    expect(typeWord('ko', 'eops')).toBe('없')  // ㅄ
+    expect(typeWord('ko', 'anj')).toBe('앉')   // ㄵ
+    expect(typeWord('ko', 'dalk')).toBe('닭')  // ㄺ
+    expect(typeWord('ko', 'salm')).toBe('삶')  // ㄻ
+  })
+
+  it('assembles them from on-screen jamo taps', () => {
+    expect(tapJamo(['ᄋ', 'ᅥ', 'ᄇ', 'ᄉ'])).toBe('없')
+    expect(tapJamo(['ᄋ', 'ᅡ', 'ᄂ', 'ᄌ'])).toBe('앉')
+    expect(tapJamo(['ᄃ', 'ᅡ', 'ᄅ', 'ᄀ'])).toBe('닭')
+  })
+
+  it('keeps the stack when the next syllable opens with a consonant', () => {
+    // 없어 — the ㅇ is a written initial, so both consonants stay put.
+    expect(tapJamo(['ᄋ', 'ᅥ', 'ᄇ', 'ᄉ', 'ᄋ', 'ᅥ'])).toBe('없어')
+  })
+
+  it('SPLITS the stack when a vowel follows, like a real IME', () => {
+    // A vowel claims the second consonant as its own initial: 없 + ㅏ is
+    // 업사, never 없아. Getting this wrong is what a naive "just stack them"
+    // implementation does, and it strands the vowel outside any block.
+    expect(tapJamo(['ᄋ', 'ᅥ', 'ᄇ', 'ᄉ', 'ᅡ'])).toBe('업사')
+  })
+
+  it('leaves single finals and open syllables alone', () => {
+    // The regression risk: every ordinary word runs through the same branch.
+    expect(typeWord('ko', 'hanguk')).toBe('한국')
+    expect(typeWord('ko', 'hangeul')).toBe('한글')
+    expect(typeWord('ko', 'gada')).toBe('가다')
+    expect(typeWord('ko', 'anta')).toBe('안타')
+    expect(tapJamo(['ᄒ', 'ᅡ', 'ᄂ', 'ᄀ', 'ᅮ', 'ᄀ'])).toBe('한국')
+  })
+
+  it('round-trips a stacked final that is already on screen', () => {
+    for (const word of ['없', '앉', '닭', '삶', '없어']) {
+      expect(convertTranslit('ko', word)).toBe(word)
+      expect(finalizeTranslit('ko', word)).toBe(word)
+    }
+  })
+})

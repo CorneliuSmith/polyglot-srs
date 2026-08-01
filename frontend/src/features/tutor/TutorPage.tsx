@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useRef, useState } from 'react'
-import { Star } from 'lucide-react'
+import { ArrowDown, ArrowUp, Star } from 'lucide-react'
 import { useNavigate } from 'react-router-dom'
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query'
 import { getLanguages } from '../../api/profile'
@@ -11,6 +11,7 @@ import {
   resolveMasterySuggestion,
   sendTutorMessage,
   streamTutorMessage,
+  TutorTurnError,
 } from '../../api/tutor'
 import type { TutorAllowance, TutorMessage, TutorMode } from '../../api/tutor'
 import UsageMeter from '../../components/UsageMeter'
@@ -46,6 +47,10 @@ export default function TutorPage() {
   const endedRef = useRef(false)
   const langRef = useRef<{ id: string; code: string } | null>(null)
   const idleTimer = useRef<ReturnType<typeof setTimeout> | null>(null)
+  // Live turn, so Stop can cancel it.
+  const abortRef = useRef<AbortController | null>(null)
+  // The scroll container, so the jump buttons have something to move.
+  const scrollRef = useRef<HTMLDivElement>(null)
   messagesRef.current = messages
 
   const { data: languages = [] } = useQuery({
@@ -118,15 +123,24 @@ export default function TutorPage() {
       // Stream when the transport allows it; fall back to the plain
       // endpoint on any transport failure (except allowance 402s, which
       // both endpoints report identically).
+      const controller = new AbortController()
+      abortRef.current = controller
       try {
         return await streamTutorMessage(
           activeLanguageId!, language!.code, history, setStreamingText, mode,
+          controller.signal,
         )
       } catch (err) {
         const status = (err as { response?: { status?: number } })?.response?.status
         if (status === 402) throw err
+        // A TutorTurnError is the server's answer (or the learner pressing
+        // Stop) — retrying it on the non-streaming endpoint spends a second
+        // full model call to be told the same thing.
+        if (err instanceof TutorTurnError) throw err
         setStreamingText(null)
         return sendTutorMessage(activeLanguageId!, language!.code, history, mode)
+      } finally {
+        abortRef.current = null
       }
     },
     onSuccess: ({ reply, allowance: fresh, starred }) => {
@@ -149,11 +163,27 @@ export default function TutorPage() {
         const base = allowanceRef.current
         if (base) setLiveAllowance({ ...base, remaining: 0, used: base.limit })
         setSendError(null)
+      } else if (err instanceof TutorTurnError) {
+        // Drop the unanswered message back into the box so a stalled or
+        // stopped turn doesn't lose what the learner typed.
+        setMessages((prev) => {
+          const last = prev[prev.length - 1]
+          if (last?.role === 'user') {
+            setInput((cur) => cur || last.content)
+            return prev.slice(0, -1)
+          }
+          return prev
+        })
+        setSendError(err.aborted ? null : err.message)
       } else {
         setSendError('The tutor could not respond. Check your connection and try again.')
       }
     },
   })
+
+  const handleStop = () => {
+    abortRef.current?.abort()
+  }
 
   useEffect(() => {
     // Optional chaining on the method too — jsdom doesn't implement it
@@ -225,7 +255,7 @@ export default function TutorPage() {
 
   return (
     <div className="min-h-screen bg-gray-50 flex flex-col">
-      <div className="max-w-2xl mx-auto w-full px-4 py-6 flex flex-col flex-1">
+      <div className="relative max-w-2xl mx-auto w-full px-4 py-6 flex flex-col flex-1">
         {/* Header */}
         <div className="flex items-center justify-between mb-4">
           <div>
@@ -433,7 +463,8 @@ export default function TutorPage() {
 
         {/* Messages */}
         <div
-          className="flex-1 overflow-y-auto space-y-3 pb-4"
+          ref={scrollRef}
+          className="relative flex-1 overflow-y-auto space-y-3 pb-4"
           data-testid="tutor-messages"
         >
           {messages.length === 0 && (
@@ -480,10 +511,53 @@ export default function TutorPage() {
               ) : (
                 <span className="text-gray-400">Tutor is thinking…</span>
               )}
+              {/* An escape hatch from a turn that isn't coming back. The
+                  server's heartbeat keeps the connection alive while the
+                  model thinks, which is right — but it also means a stalled
+                  turn looks exactly like a slow one, and there was no way
+                  out but to leave the page. */}
+              <button
+                type="button"
+                onClick={handleStop}
+                className="mt-1 block text-xs text-gray-400 hover:text-gray-600 hover:underline"
+              >
+                Stop
+              </button>
             </div>
           )}
           <div ref={bottomRef} />
         </div>
+
+        {/* "End session" lives in the header, so ending a long conversation
+            meant scrolling the whole thing back up by hand. These jump to
+            either end in one tap — up to finish, down to get back to where
+            you were typing. */}
+        {messages.length > 0 && (
+          <div className="pointer-events-none absolute right-5 bottom-28 z-10 flex flex-col gap-1.5">
+            <button
+              type="button"
+              aria-label="Scroll to top"
+              title="Back to the top (End session is up there)"
+              onClick={() =>
+                scrollRef.current?.scrollTo?.({ top: 0, behavior: 'smooth' })
+              }
+              className="pointer-events-auto flex h-9 w-9 items-center justify-center rounded-full border border-gray-200 bg-white/90 text-gray-500 shadow-sm backdrop-blur hover:text-gray-800"
+            >
+              <ArrowUp aria-hidden className="h-4 w-4" />
+            </button>
+            <button
+              type="button"
+              aria-label="Scroll to bottom"
+              title="Back to the latest message"
+              onClick={() =>
+                bottomRef.current?.scrollIntoView?.({ behavior: 'smooth' })
+              }
+              className="pointer-events-auto flex h-9 w-9 items-center justify-center rounded-full border border-gray-200 bg-white/90 text-gray-500 shadow-sm backdrop-blur hover:text-gray-800"
+            >
+              <ArrowDown aria-hidden className="h-4 w-4" />
+            </button>
+          </div>
+        )}
 
         {sendError && (
           <div

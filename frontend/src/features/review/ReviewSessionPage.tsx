@@ -420,6 +420,20 @@ function ReviewSessionInner({
   // fails, the review is lost server-side, so surface that to the user.
   const submitMutation = useMutation({
     mutationFn: submitReview,
+    onSuccess: () => {
+      // Counts were only refreshed by the Finish button on the summary
+      // screen. Leave a session any other way — back gesture, the tab, a
+      // tap through to the dashboard — and the caches were still inside
+      // their 60s staleTime with refetchOnWindowFocus off, so the due count
+      // sat at its pre-session value with no event coming to correct it.
+      //
+      // refetchType 'none' marks them stale WITHOUT firing a request per
+      // card: nothing refetches mid-session, and whatever the learner opens
+      // next fetches fresh instead of showing a stale number.
+      for (const key of [['dashboard'], ['due-cards'], ['learn-decks']]) {
+        queryClient.invalidateQueries({ queryKey: key, refetchType: 'none' })
+      }
+    },
     onError: () => {
       setSaveErrorCount((n) => n + 1)
     },
