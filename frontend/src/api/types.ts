@@ -237,6 +237,10 @@ export interface UserProfile {
   weekly_digest_opt_in: boolean
   /** day to send it, 0 = Sunday … 6 = Saturday */
   weekly_digest_dow: number
+  /** Show explicit vocabulary and sentences (slurs, strong profanity).
+   *  Off by default: the frequency lists come from subtitle corpora and
+   *  put Spanish *puta* at rank 505, so it reached a beginner unasked. */
+  allow_explicit_content: boolean
   created_at: string
   updated_at: string
 }
@@ -251,4 +255,5 @@ export interface ProfileUpdate {
   reminder_hour_utc?: number
   weekly_digest_opt_in?: boolean
   weekly_digest_dow?: number
+  allow_explicit_content?: boolean
 }
