@@ -36,11 +36,19 @@ function renderSection() {
 describe('PersonalDecksSection', () => {
   beforeEach(() => vi.clearAllMocks())
 
-  it('renders nothing when there are no decks and no personal cards', async () => {
+  it('explains itself when empty instead of vanishing', async () => {
+    // It used to render NOTHING at all — no heading, no hint. Someone came
+    // looking for their saved words, found a Decks page with no sign the
+    // feature existed, and reported it as missing. An empty state has to say
+    // where these cards come from.
     mockGetDecks.mockResolvedValue([])
     mockGetCards.mockResolvedValue([])
     renderSection()
-    await waitFor(() => expect(mockGetCards).toHaveBeenCalled())
+    expect(await screen.findByTestId('personal-decks-empty')).toBeDefined()
+    expect(screen.getByText(/your saved words/i)).toBeDefined()
+    // ...and points at the thing that creates them.
+    expect(screen.getByText(/Read/)).toBeDefined()
+    // The real list still stays out of the way until there is one.
     expect(screen.queryByTestId('personal-decks')).toBeNull()
   })
 

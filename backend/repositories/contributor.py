@@ -35,6 +35,23 @@ def is_admin(roles: list[dict]) -> bool:
     return any(r["role"] == "admin" for r in roles)
 
 
+def can_add_accounts(roles: list[dict]) -> bool:
+    """True if the user may CREATE accounts. Admins and ambassadors.
+
+    Takes no language_id, unlike every other predicate here, and that is the
+    point rather than an oversight: an account does not belong to a language,
+    so "ambassador for Spanish" cannot mean "may create Spanish accounts" —
+    there is no such object. A grant at any scope confers the same power, and
+    the Roles panel says so where an admin is choosing the scope.
+
+    Creating an account is the ONLY thing this grants. Listing accounts,
+    deleting them, granting roles and changing plans all stay admin-only —
+    the last of those especially, since an ambassador who could grant roles
+    would reach admin in two moves.
+    """
+    return is_admin(roles) or any(r["role"] == "ambassador" for r in roles)
+
+
 def can_contribute(roles: list[dict], language_id: str) -> bool:
     """True if the user may edit grammar for *language_id*.
 
@@ -3362,5 +3379,55 @@ async def list_unchecked_point_ids(
         LIMIT $2
         """,
         language_id, limit,
+    )
+    return [str(r["id"]) for r in rows]
+
+
+async def count_unchecked_vocab(
+    conn: asyncpg.Connection, language_id: str
+) -> int:
+    """Vocabulary carrying no quality verdict yet: unreviewed AND unchecked.
+
+    NOT a visibility count, unlike its grammar twin. The publish gate
+    (`reviewed OR ai_check_status = 'pass'`) applies to grammar points only —
+    every such clause in repositories/cards.py is `gp.`, never `v.`. What
+    gates a word is `level_source <> 'ai' OR policy IN ('ai_ok','all')`.
+
+    This is the size of the un-audited backlog: how many words no one and
+    nothing has judged, which is what the bulk checker works through.
+    """
+    return await conn.fetchval(
+        """
+        SELECT count(*) FROM vocabulary
+        WHERE language_id = $1
+          AND reviewed = false
+          AND ai_check_status IS NULL
+        """,
+        language_id,
+    ) or 0
+
+
+async def list_unchecked_vocab_ids(
+    conn: asyncpg.Connection, language_id: str, limit: int, level: str | None = None
+) -> list[str]:
+    """The next batch for the bulk vocabulary AI check.
+
+    Frequency order within level, and levels in order, so the words a
+    beginner meets first become visible first while the C1/C2 tail is still
+    being checked — a run over ten thousand words is long enough that the
+    ordering is the difference between "usable after a minute" and "usable
+    when it finishes". *level* narrows to one CEFR band.
+    """
+    rows = await conn.fetch(
+        """
+        SELECT id FROM vocabulary
+        WHERE language_id = $1
+          AND reviewed = false
+          AND ai_check_status IS NULL
+          AND ($3::text IS NULL OR level = $3)
+        ORDER BY level ASC NULLS LAST, frequency_rank ASC NULLS LAST
+        LIMIT $2
+        """,
+        language_id, limit, level,
     )
     return [str(r["id"]) for r in rows]

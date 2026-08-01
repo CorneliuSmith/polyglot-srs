@@ -42,11 +42,13 @@ from backend.repositories.contributor import (
     admin_timeseries,
     approve_explanation,
     approve_suggestion,
+    can_add_accounts,
     can_contribute,
     can_review,
     can_trial_review,
     confirm_vocab_level,
     count_unchecked_points,
+    count_unchecked_vocab,
     create_auth_user,
     create_grammar_point,
     delete_account,
@@ -85,6 +87,7 @@ from backend.repositories.contributor import (
     list_suggestions,
     list_translation_reviews,
     list_unchecked_point_ids,
+    list_unchecked_vocab_ids,
     list_vocab_examples,
     list_vocab_items,
     pick_review_prompt,
@@ -201,7 +204,9 @@ class RoleGrant(BaseModel):
     language_id: str | None = None
     role: str
 
-VALID_ROLES = ("contributor", "trial_reviewer", "reviewer", "admin")
+VALID_ROLES = (
+    "contributor", "trial_reviewer", "reviewer", "ambassador", "admin",
+)
 
 
 @router.get("/roles")
@@ -213,6 +218,10 @@ async def my_roles(user: dict = Depends(get_current_user)):
     return {
         "roles": roles,
         "is_admin": admin,
+        # Ambassadors hold no language-scoped power, so the client cannot
+        # derive this from `roles` the way it derives contribute/review —
+        # it is a flat "may you mint accounts", answered here.
+        "can_add_accounts": can_add_accounts(roles),
         # Same value, but never rewritten by the client-side "view as"
         # preview — it's what decides whether to offer that switcher at all.
         # (The preview downgrades `is_admin`; if the bar read that, turning
@@ -656,6 +665,75 @@ async def ai_check_run(
             else:
                 concerns += 1
         remaining = await count_unchecked_points(conn, body.language_id)
+    return {
+        "checked": len(ids), "passed": passed,
+        "concerns": concerns, "remaining": remaining,
+    }
+
+
+#: The bands a vocabulary run can be narrowed to.
+CEFR_LEVELS = ("A1", "A2", "B1", "B2", "C1", "C2")
+
+
+class VocabAiCheckAllRequest(BaseModel):
+    language_id: str
+    limit: int = Field(default=8, ge=1, le=10)
+    # Narrow to one CEFR band. A ten-thousand-word language is a long run;
+    # being able to say "A1 first, then A2" makes it something you can do in
+    # sittings instead of one commitment.
+    level: str | None = None
+
+
+@router.post("/admin/vocab-ai-check-run")
+async def vocab_ai_check_run(
+    body: VocabAiCheckAllRequest,
+    user: dict = Depends(get_current_user),
+):
+    """Bulk AI quality check over unchecked VOCABULARY (admin-only).
+
+    Unlike its grammar twin this does NOT change what learners can see: the
+    `reviewed OR ai_check_status = 'pass'` publish gate is applied to grammar
+    points only (every such clause in repositories/cards.py is `gp.`), while
+    a vocabulary word is gated on `level_source <> 'ai'` alone. This audits
+    glosses and examples at scale so bad cards reach the review queue instead
+    of a learner.
+
+    Resumable by construction, exactly like the grammar runner: every call
+    takes the next still-unchecked batch, so a client loops until remaining
+    hits zero and an interrupted run costs nothing already paid for.
+    """
+    await _require_admin(user["id"])
+    if not ai_available():
+        raise HTTPException(
+            status_code=status.HTTP_503_SERVICE_UNAVAILABLE,
+            detail="AI review needs ANTHROPIC_API_KEY (or dev-mock) on the server.",
+        )
+    if body.level is not None and body.level not in CEFR_LEVELS:
+        raise HTTPException(
+            status_code=status.HTTP_422_UNPROCESSABLE_ENTITY,
+            detail=f"level must be one of {', '.join(CEFR_LEVELS)}",
+        )
+    async with privileged_connection() as conn:
+        ids = await list_unchecked_vocab_ids(
+            conn, body.language_id, body.limit, body.level
+        )
+        passed = concerns = 0
+        for vocab_id in ids:
+            vocab = await get_vocab_for_check(conn, vocab_id)
+            if vocab is None:
+                continue
+            result = await semantic_check_vocab(
+                vocab["language_code"], vocab["word"],
+                vocab["definition"], vocab["examples"],
+            )
+            await save_vocab_ai_check(
+                conn, vocab_id, result["status"], result["notes"]
+            )
+            if result["status"] == "pass":
+                passed += 1
+            else:
+                concerns += 1
+        remaining = await count_unchecked_vocab(conn, body.language_id)
     return {
         "checked": len(ids), "passed": passed,
         "concerns": concerns, "remaining": remaining,
@@ -2238,8 +2316,14 @@ async def create_account(
     body: NewAccount,
     user: dict = Depends(get_current_user),
 ):
-    """Create an account directly (admin-only) — the invite-only beta path:
-    public signup is disabled, so the admin mints email+password accounts.
+    """Create an account directly — the invite-only beta path: public signup
+    is disabled, so accounts are minted here.
+
+    Admins and AMBASSADORS. The sibling GET stays admin-only on purpose: it
+    returns every learner's email and study volume, and "add one person" is a
+    different power from "read the whole roster". Nothing else opens up —
+    role granting in particular stays admin-only, or an ambassador would
+    reach admin in two moves (make an account, promote it).
 
     DATABASE FIRST: this deploy's HTTP egress to *.supabase.co hangs (the
     old API-first order spent its whole gateway window waiting before the
@@ -2249,7 +2333,7 @@ async def create_account(
     (working) database connection. The admin API is kept as the backup for
     environments where the SQL path can't run.
     """
-    await _require_admin(user["id"])
+    await _require_account_creator(user["id"])
     try:
         async with privileged_connection() as conn:
             uid = await create_auth_user(conn, body.email, body.password)
@@ -2404,6 +2488,17 @@ async def _require_admin(user_id: str) -> None:
         raise HTTPException(
             status_code=status.HTTP_403_FORBIDDEN,
             detail="Only an admin can manage roles",
+        )
+
+
+async def _require_account_creator(user_id: str) -> None:
+    """Admins and ambassadors. Creation only — see can_add_accounts."""
+    async with rls_connection(user_id) as conn:
+        roles = await get_roles(conn, user_id)
+    if not can_add_accounts(roles):
+        raise HTTPException(
+            status_code=status.HTTP_403_FORBIDDEN,
+            detail="You need the admin or ambassador role to add accounts",
         )
 
 

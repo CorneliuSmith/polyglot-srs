@@ -31,6 +31,7 @@ export const VIEW_AS_LEVELS = [
   'learner',
   'contributor',
   'trial_reviewer',
+  'ambassador',
   'reviewer',
 ] as const
 
@@ -49,6 +50,7 @@ export type ViewAsLevel = (typeof VIEW_AS_LEVELS)[number]
 export const VIEW_AS_LABEL: Record<ViewAsLevel, string> = {
   learner: 'Learner',
   trial_reviewer: 'Tester',
+  ambassador: 'Ambassador',
   contributor: 'Contributor',
   reviewer: 'Reviewer',
 }
@@ -63,7 +65,12 @@ const KEPT_ROLES: Record<ViewAsLevel, ReadonlySet<string>> = {
   // cannot draft.
   contributor: new Set(['contributor']),
   trial_reviewer: new Set(['trial_reviewer']),
-  // Reviewer is the only level that subsumes both, plus publishing.
+  // Ambassador is a THIRD disjoint sibling, not a rank: it grants account
+  // creation and nothing else, and reviewer does not subsume it — approving
+  // content has never implied minting logins.
+  ambassador: new Set(['ambassador']),
+  // Reviewer subsumes the two CONTENT roles, plus publishing. Not
+  // ambassador: see above.
   reviewer: new Set(['contributor', 'trial_reviewer', 'reviewer']),
 }
 

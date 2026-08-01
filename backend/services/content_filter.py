@@ -82,19 +82,67 @@ _QUALIFIER_RE = re.compile(
 )
 
 
-def is_explicit(*texts: str | None) -> bool:
-    """True if any of *texts* reads as explicit.
+#: A gloss that calls a sense mild is telling us not to filter it. Checked
+#: before the qualifier list, which would otherwise match the word
+#: "expletive" inside "(mild expletive)".
+_MILD_RE = re.compile(r"\bmild(ly)?\b", re.IGNORECASE)
 
-    Pass every English-side field you have — a vocabulary item's definition
-    and its part of speech, or a sentence and its translation. Any hit marks
-    the row.
+
+def _primary_sense(text: str) -> str:
+    """The first sense of a gloss.
+
+    Dictionary glosses lead with the primary sense and push the rest behind a
+    semicolon: "cursed; damned, freaking, fucking" is *maldito*, an extremely
+    common word whose first meaning is "cursed" — matching anywhere in the
+    string hid it from every Spanish learner over a register listed fourth.
+    Same for Hindi गंदगी, "filth, dirt; a vulgarity, expletive", which simply
+    means dirt, and Turkish *herif*, "comrade, colleague; a term of
+    contempt".
+
+    Only the leading sense decides. A word whose FIRST meaning is explicit is
+    an explicit word; one that merely has a crude sense somewhere is an
+    ordinary word people also swear with, and the whole point of erring
+    toward misses is that a wrongly-hidden word is invisible and unreportable.
+
+    Splitting on the semicolon only, NOT the parenthesis: a gloss often opens
+    with a register label — French *con* is "(dated) cunt, pussy" — and
+    treating that label as the whole primary sense threw the actual meaning
+    away and released a word nobody would call ordinary.
     """
-    for text in texts:
-        if not text:
+    head = re.split(r";", text, maxsplit=1)[0]
+    # Drop a leading register/usage label so the sense itself is what's read.
+    return re.sub(r"^\s*\([^)]*\)\s*", "", head)
+
+
+def _matches(text: str) -> bool:
+    return bool(_TERM_RE.search(text) or _QUALIFIER_RE.search(text))
+
+
+def is_explicit_gloss(*definitions: str | None) -> bool:
+    """True if a DICTIONARY GLOSS names an explicit word.
+
+    Judged on the leading sense only, and skipped entirely when the
+    lexicographer has already labelled the sense mild.
+    """
+    for text in definitions:
+        if not text or _MILD_RE.search(text):
             continue
-        if _TERM_RE.search(text) or _QUALIFIER_RE.search(text):
+        if _matches(_primary_sense(text)):
             return True
     return False
+
+
+def is_explicit_sentence(*texts: str | None) -> bool:
+    """True if a SENTENCE (or its translation) reads as explicit.
+
+    Judged whole. A sentence has no primary sense to lead with, and applying
+    the gloss rule to one lets "Nice weather today; fuck off." through on the
+    strength of its first clause — which a draft of this module did, and only
+    a test caught. Two functions rather than one with a flag, because the
+    call sites are the thing that knows which kind of text it holds, and the
+    SQL in migration 20260911 draws exactly the same distinction.
+    """
+    return any(_matches(t) for t in texts if t)
 
 
 #: The same rule as SQL, for the migration's backfill and for any query that

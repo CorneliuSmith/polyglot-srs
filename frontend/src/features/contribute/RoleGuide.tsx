@@ -16,7 +16,12 @@ import { BookOpen, ChevronDown, ChevronRight } from 'lucide-react'
  * tour, because the question comes back after a month away.
  */
 
-export type GuideRole = 'contribute' | 'review' | 'trial_review' | 'admin'
+export type GuideRole =
+  | 'contribute'
+  | 'review'
+  | 'trial_review'
+  | 'ambassador'
+  | 'admin'
 
 interface Guide {
   title: string
@@ -122,6 +127,37 @@ const GUIDES: Record<GuideRole, Guide> = {
     safety:
       'Nothing you do here changes what learners see, so there is no way to ' +
       'get it wrong in a way that matters.',
+  },
+  ambassador: {
+    title: 'How inviting works',
+    lede:
+      'Signup is invite-only, so someone has to make each account by hand. ' +
+      'That is the job — and it is the only thing this role can do.',
+    steps: [
+      {
+        what: 'Make the account',
+        detail:
+          'Enter their email and pick a starting password. The account ' +
+          'works immediately; there is no confirmation email to wait for.',
+      },
+      {
+        what: 'Hand over the password yourself',
+        detail:
+          'It is shown once, right after you create the account, and never ' +
+          'again — nothing emails it to them. Send it before you close the ' +
+          'page.',
+      },
+      {
+        what: 'Tell them to change it',
+        detail:
+          'You chose their password, so you know it. They can set their own ' +
+          'from Settings once they have signed in.',
+      },
+    ],
+    safety:
+      'You cannot see the account list, delete anyone, change plans or grant ' +
+      'roles — an admin does those. The worst you can do here is create an ' +
+      'account nobody uses.',
   },
   admin: {
     title: 'What lives in Admin',

@@ -135,7 +135,8 @@ function RolesCell({
           >
             <option value="contributor">Contributor</option>
             <option value="trial_reviewer">Tester (advisory)</option>
-            <option value="reviewer">Reviewer</option>
+            <option value="ambassador">Ambassador (adds accounts)</option>
+          <option value="reviewer">Reviewer</option>
             <option value="admin">Admin</option>
           </select>
           <select
