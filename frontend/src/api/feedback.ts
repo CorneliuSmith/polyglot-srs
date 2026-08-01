@@ -79,3 +79,22 @@ export async function triageFeedback(
     admin_note: adminNote?.trim() ? adminNote.trim() : null,
   })
 }
+
+export interface FeedbackSummary {
+  open_count: number
+  /** ISO timestamp of the newest item, or null when there is none. */
+  latest_at: string | null
+}
+
+/**
+ * The cheap "is anything waiting?" check the dashboard makes on load.
+ * Deliberately not getFeedbackQueue: that pulls every row, and the home page
+ * should not pay for a screen the learner may never open.
+ */
+export async function getFeedbackSummary(): Promise<FeedbackSummary> {
+  const response = await apiClient.get<FeedbackSummary>('/api/feedback/summary')
+  return {
+    open_count: response.data.open_count ?? 0,
+    latest_at: response.data.latest_at ?? null,
+  }
+}

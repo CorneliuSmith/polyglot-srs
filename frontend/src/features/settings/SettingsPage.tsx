@@ -233,6 +233,7 @@ export default function SettingsPage() {
       reminder_hour_utc?: number
       weekly_digest_opt_in?: boolean
       weekly_digest_dow?: number
+      allow_explicit_content?: boolean
     }) => updateProfile(patch),
     onSuccess: () => queryClient.invalidateQueries({ queryKey: ['profile'] }),
   })
@@ -752,6 +753,61 @@ export default function SettingsPage() {
           </div>
         </section>
         )}
+
+        {/* Explicit content. A learner reported meeting "whore" in their
+            vocabulary — nobody chose to teach it: the frequency lists are
+            built from subtitle corpora, and Spanish *puta* is rank 505, well
+            inside a beginner's first thousand words.
+
+            Off by default, and a setting rather than a deletion: these words
+            are frequent for a reason, adult learners reading real material
+            will meet them, and someone who asks for them should get them.
+            Arriving unannounced in week two is the part that was wrong. */}
+        <section
+          className="bg-white rounded-2xl shadow-sm border border-gray-100 p-5 space-y-3"
+          data-testid="explicit-content"
+        >
+          <div className="flex items-start justify-between gap-4">
+            <div>
+              <h2 className="font-semibold text-gray-800">
+                Explicit words and sentences
+              </h2>
+              <p className="text-xs text-gray-500">
+                Slurs and strong profanity are hidden from your cards, reading
+                and examples. They are genuinely common words — turn this on if
+                you want to learn them, and they will be taught like anything
+                else.
+              </p>
+            </div>
+            <button
+              type="button"
+              role="switch"
+              aria-checked={profile?.allow_explicit_content ?? false}
+              aria-label="Explicit words and sentences"
+              disabled={reminderMutation.isPending}
+              onClick={() =>
+                reminderMutation.mutate({
+                  allow_explicit_content: !(
+                    profile?.allow_explicit_content ?? false
+                  ),
+                })
+              }
+              className={
+                'relative shrink-0 inline-flex h-6 w-11 items-center rounded-full transition-colors ' +
+                (profile?.allow_explicit_content ? 'bg-lang' : 'bg-gray-300')
+              }
+            >
+              <span
+                className={
+                  'inline-block h-5 w-5 transform rounded-full bg-white transition-transform ' +
+                  (profile?.allow_explicit_content
+                    ? 'translate-x-5'
+                    : 'translate-x-1')
+                }
+              />
+            </button>
+          </div>
+        </section>
 
         {/* Language-specific options (beta request: these belong in account
             learning settings, not buried in exercise UIs). Only shown for

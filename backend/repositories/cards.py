@@ -489,7 +489,48 @@ async def _select_vocab_candidate_ids(
     """Vocabulary the user hasn't started, ranked round-robin across the queued
     level decks (Nth of every level before the (N+1)th; frequency within a
     level). DISTINCT guards against a word matching several subscribed lists.
-    With *level* set, it's just that deck in frequency order."""
+    With *level* set, it's just that deck in frequency order.
+
+    Explicit words are excluded unless the learner opted in. The preference
+    is read inside the query rather than passed down, so every caller of
+    every learn-batch variant gets the filter without threading a flag
+    through five signatures — and no future caller can forget it.
+    """
+    try:
+        return await _vocab_candidates(
+            conn, user_id, language_id, batch_size, level, explicit_filter=True
+        )
+    except asyncpg.exceptions.UndefinedColumnError:
+        # Migration 20260910 hasn't landed. Serve vocabulary rather than
+        # fail the session; nothing is marked explicit yet either, so the
+        # filter would have been a no-op regardless.
+        return await _vocab_candidates(
+            conn, user_id, language_id, batch_size, level, explicit_filter=False
+        )
+
+
+async def _vocab_candidates(
+    conn: asyncpg.Connection,
+    user_id: str,
+    language_id: str,
+    batch_size: int,
+    level: str | None,
+    *,
+    explicit_filter: bool,
+) -> list:
+    explicit_clause = (
+        """
+              -- Slurs and strong profanity are frequent (Spanish *puta* is
+              -- rank 505) and therefore reach beginners early. Hidden unless
+              -- the learner asked for them.
+              AND (NOT v.is_explicit
+                   OR EXISTS (SELECT 1 FROM user_profiles up
+                               WHERE up.id = $1
+                                 AND up.allow_explicit_content))
+        """
+        if explicit_filter
+        else ""
+    )
     rows = await conn.fetch(
         """
         WITH candidates AS (
@@ -519,6 +560,7 @@ async def _select_vocab_candidate_ids(
                   WHERE user_id = $1 AND card_type = 'vocabulary'
                     AND NOT (is_suspended AND repetitions = 0)
               )
+              {explicit_clause}
         ),
         ranked AS (
             SELECT id, level,
@@ -532,7 +574,7 @@ async def _select_vocab_candidate_ids(
         FROM ranked
         ORDER BY rn ASC, level ASC NULLS LAST
         LIMIT $3
-        """,
+        """.replace("{explicit_clause}", explicit_clause),
         user_id,
         language_id,
         batch_size,
@@ -856,6 +898,39 @@ async def update_card_srs(
     )
 
 
+# Example sentences carry their own explicit flag, because a perfectly
+# ordinary word can have a crude example: the harvested corpus attached
+# "Fucking whore." to *maldita*, which is just "damned". Filtering the
+# headword alone would have left that sentence on a card a learner keeps.
+#
+# Keyed on auth.uid() rather than a bind parameter: these run on RLS
+# connections that already carry the learner's identity, and threading a
+# user id into three unrelated signatures to say something the connection
+# already knows invites exactly one caller getting it wrong. auth.uid() is
+# provided by Supabase and by the shim in setup_db.sh, so it works on both.
+_EXPLICIT_EXAMPLE_SQL = (
+    " AND (NOT {alias}is_explicit"
+    "      OR EXISTS (SELECT 1 FROM user_profiles up"
+    "                  WHERE up.id = auth.uid()"
+    "                    AND up.allow_explicit_content))"
+)
+
+
+def _explicit_example_clause(alias: str = "") -> str:
+    return _EXPLICIT_EXAMPLE_SQL.format(alias=f"{alias}." if alias else "")
+
+
+async def _fetch_examples(conn, sql: str, *args, alias: str = ""):
+    """Run an example-sentence query with the explicit filter, falling back
+    to the unfiltered form when migration 20260910 hasn't been applied."""
+    try:
+        return await conn.fetch(
+            sql.replace("{explicit}", _explicit_example_clause(alias)), *args
+        )
+    except asyncpg.exceptions.UndefinedColumnError:
+        return await conn.fetch(sql.replace("{explicit}", ""), *args)
+
+
 async def get_card_details_bulk(
     conn: asyncpg.Connection, card_ids: list[str], support_locale: str | None = None
 ) -> dict[str, dict]:
@@ -917,7 +992,8 @@ async def get_card_details_bulk(
             eff_locale,
         ):
             vocab_by_id[v["id"]] = v
-        for e in await conn.fetch(
+        for e in await _fetch_examples(
+            conn,
             """
             SELECT vocabulary_id, sentence, translation, gloss, transliteration
             FROM example_sentences
@@ -926,6 +1002,7 @@ async def get_card_details_bulk(
               -- fallback to a different (random-language) row.
               AND translation_locale = $2
               AND reviewed
+              {explicit}
             ORDER BY difficulty_rank ASC NULLS LAST
             """,
             vocab_ids,
@@ -1189,7 +1266,8 @@ async def get_card_detail(
             card["card_id"],
             eff_locale,
         )
-        examples = await conn.fetch(
+        examples = await _fetch_examples(
+            conn,
             """
             SELECT sentence, translation
             FROM example_sentences
@@ -1198,6 +1276,7 @@ async def get_card_detail(
               -- fallback to a different (random-language) row.
               AND translation_locale = $2
               AND reviewed
+              {explicit}
             ORDER BY difficulty_rank ASC NULLS LAST
             LIMIT 5
             """,
@@ -2073,12 +2152,14 @@ async def get_vocab_item(
     # _effective_locale) — a Spanish word's sentences are translated to 'en'.
     eff = (support_locale if row["language_code"] == "en" and support_locale
            else "en")
-    examples = await conn.fetch(
+    examples = await _fetch_examples(
+        conn,
         """
         SELECT sentence, translation
         FROM example_sentences
         WHERE vocabulary_id = $1 AND translation_locale = $2
           AND reviewed
+          {explicit}
         ORDER BY difficulty_rank ASC NULLS LAST
         LIMIT 5
         """,

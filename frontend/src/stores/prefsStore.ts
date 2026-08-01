@@ -74,6 +74,13 @@ interface PrefsState {
   // shouldn't cost a write.
   placementOfferDismissed: string[]
   dismissPlacementOffer: (languageId: string) => void
+  // Newest feedback timestamp the staff member has already been shown a
+  // prompt for. Client-side like the walkthrough and the what's-new badge:
+  // "have I looked at this yet" is a per-person, per-device question, and
+  // making it account state would mean a write on every dashboard load and a
+  // migration for something a dismissed banner already answers.
+  feedbackSeenAt: string | null
+  markFeedbackSeen: (isoTimestamp: string | null) => void
 }
 
 export const usePrefsStore = create<PrefsState>()(
@@ -131,6 +138,8 @@ export const usePrefsStore = create<PrefsState>()(
             ? s.placementOfferDismissed
             : [...s.placementOfferDismissed, languageId],
         })),
+      feedbackSeenAt: null,
+      markFeedbackSeen: (isoTimestamp) => set({ feedbackSeenAt: isoTimestamp }),
     }),
     {
       name: 'polyglot-prefs',

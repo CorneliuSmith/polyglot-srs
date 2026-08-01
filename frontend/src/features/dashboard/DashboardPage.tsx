@@ -31,6 +31,7 @@ import WhatsNewPanel from '../announcements/WhatsNewPanel'
 import { unseenWhatsNew } from '../announcements/whatsNew'
 import InstallPrompt from '../../components/InstallPrompt'
 import LearningTip from '../tips/LearningTip'
+import FeedbackAlert from '../feedback/FeedbackAlert'
 import FeedbackButton from '../feedback/FeedbackButton'
 import NewPicksPrompt from '../recommendations/NewPicksPrompt'
 import type { LearnDeck } from '../../api/types'
@@ -492,6 +493,9 @@ export default function DashboardPage() {
         </div>
 
         {/* Learning tip (throttled to ~once a day; off in Settings) */}
+        {/* Staff only: something came in and nobody has closed it out. */}
+        <FeedbackAlert canSeeQueue={canContribute} />
+
         <LearningTip context="dashboard" />
 
         {/* Letters & Sounds (beta request): the alphabet with pronunciation,

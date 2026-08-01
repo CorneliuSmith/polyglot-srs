@@ -14,6 +14,7 @@ from backend.repositories.contributor import get_roles, is_admin
 from backend.repositories.feedback import (
     CATEGORIES,
     count_open_feedback,
+    feedback_summary,
     list_feedback,
     list_my_feedback,
     set_feedback_status,
@@ -99,6 +100,18 @@ async def my_feedback(user: dict = Depends(get_current_user)):
     """What I've already sent, and what came of it."""
     async with rls_connection(user["id"]) as conn:
         return {"feedback": await list_my_feedback(conn, user["id"])}
+
+
+@router.get("/summary")
+async def feedback_badge(user: dict = Depends(get_current_user)):
+    """Is there anything waiting? Two numbers, for the dashboard prompt.
+
+    Declared BEFORE the "" route on purpose — FastAPI matches in definition
+    order, and a later /summary would be shadowed by the queue handler.
+    """
+    await _require_staff(user["id"])
+    async with privileged_connection() as conn:
+        return await feedback_summary(conn)
 
 
 @router.get("")

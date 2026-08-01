@@ -60,6 +60,7 @@ const RecommendationsPage = lazyWithRetry(() => import('./features/recommendatio
 const LanguageAboutPage = lazyWithRetry(() => import('./features/about/LanguageAboutPage'))
 const GymPage = lazyWithRetry(() => import('./features/gym/GymPage'))
 const NotesPage = lazyWithRetry(() => import('./features/notes/NotesPage'))
+const FeedbackPage = lazyWithRetry(() => import('./features/feedback/FeedbackPage'))
 const OnboardingPage = lazyWithRetry(() => import('./features/onboarding/OnboardingPage'))
 const WelcomePage = lazyWithRetry(() => import('./features/onboarding/WelcomePage'))
 const SettingsPage = lazyWithRetry(() => import('./features/settings/SettingsPage'))
@@ -122,6 +123,9 @@ const router = createBrowserRouter([
       { path: '/read', element: <ReaderPage /> },
       { path: '/letters', element: <LettersPage /> },
       { path: '/recommendations', element: <RecommendationsPage /> },
+      // Staff triage. The panel already existed inside Settings → Admin;
+      // this gives it an address the dashboard alert can link to.
+      { path: '/feedback', element: <FeedbackPage /> },
       { path: '/about', element: <LanguageAboutPage /> },
       { path: '/gym', element: <GymPage /> },
       { path: '/notes', element: <NotesPage /> },

@@ -18,6 +18,21 @@ router = APIRouter()
 # defaulted when absent.
 _DIGEST_DEFAULTS = {"weekly_digest_opt_in": False, "weekly_digest_dow": 0}
 
+# Migration 20260910 (explicit content opt-in) is a SEPARATE migration, so
+# either may be applied without the other. Each optional column group is
+# therefore tried and dropped independently rather than as one bundle —
+# assuming they land together is how a "degrades gracefully" fallback
+# quietly stops degrading.
+_EXPLICIT_DEFAULTS = {"allow_explicit_content": False}
+
+#: Optional column groups, widest first. Each entry is
+#: (select fragment, defaults to substitute when the columns are absent).
+#: Tried in order, dropping one group at a time.
+_OPTIONAL_PROFILE_COLUMNS = (
+    (", weekly_digest_opt_in, weekly_digest_dow", _DIGEST_DEFAULTS),
+    (", allow_explicit_content", _EXPLICIT_DEFAULTS),
+)
+
 _UPSERT_SQL = """
     INSERT INTO user_profiles
         (id, batch_size, ui_language, active_language_id, support_locale,
@@ -61,6 +76,11 @@ class ProfileUpdate(BaseModel):
     # daily nudge, the weekly digest, both, or neither.
     weekly_digest_opt_in: bool | None = None
     weekly_digest_dow: int | None = Field(default=None, ge=0, le=6)
+    # Explicit vocabulary and sentences (slurs, strong profanity) are hidden
+    # unless this is on. Off by default — the frequency lists are built from
+    # subtitle corpora and put Spanish *puta* at rank 505, so a beginner met
+    # it without anyone choosing to teach it.
+    allow_explicit_content: bool | None = None
 
 
 @router.get("/me")
@@ -79,16 +99,27 @@ async def get_profile(user: dict = Depends(get_current_user)):
         "created_at, updated_at{extra} "
         "FROM user_profiles WHERE id = $1"
     )
+    # Try every optional group, then each smaller combination, ending with
+    # none. Whatever is missing comes back as its default, so a half-migrated
+    # database serves a complete profile instead of a 500 on every page load.
+    row = None
+    missing: dict = {}
     async with rls_connection(user["id"]) as conn:
-        try:
-            row = await conn.fetchrow(
-                base.format(extra=", weekly_digest_opt_in, weekly_digest_dow"),
-                user["id"],
-            )
-        except asyncpg.exceptions.UndefinedColumnError:
-            row = await conn.fetchrow(base.format(extra=""), user["id"])
-            if row is not None:
-                row = {**dict(row), **_DIGEST_DEFAULTS}
+        for drop in range(len(_OPTIONAL_PROFILE_COLUMNS) + 1):
+            groups = _OPTIONAL_PROFILE_COLUMNS[: len(_OPTIONAL_PROFILE_COLUMNS) - drop]
+            extra = "".join(frag for frag, _ in groups)
+            missing = {
+                k: v
+                for _, defaults in _OPTIONAL_PROFILE_COLUMNS[len(groups):]
+                for k, v in defaults.items()
+            }
+            try:
+                row = await conn.fetchrow(base.format(extra=extra), user["id"])
+                break
+            except asyncpg.exceptions.UndefinedColumnError:
+                continue
+    if row is not None and missing:
+        row = {**dict(row), **missing}
     if row is None:
         raise HTTPException(
             status_code=status.HTTP_404_NOT_FOUND,
@@ -133,42 +164,64 @@ async def upsert_profile(
                 detail="Your plan covers one language. Upgrade to All "
                        "Languages to switch.",
             )
+    base_args = (
+        user["id"],
+        body.batch_size,
+        body.ui_language,
+        body.active_language_id,
+        body.support_locale,
+        body.reminder_opt_in,
+        body.reminder_hour_utc,
+    )
+    digest_frag = {
+        "cols": ", weekly_digest_opt_in, weekly_digest_dow",
+        "vals": ", COALESCE($8, false), COALESCE($9, 0)",
+        "sets": (
+            "weekly_digest_opt_in = "
+            "COALESCE($8, user_profiles.weekly_digest_opt_in), "
+            "weekly_digest_dow = "
+            "COALESCE($9, user_profiles.weekly_digest_dow),"
+        ),
+        "ret": ", weekly_digest_opt_in, weekly_digest_dow",
+    }
+    explicit_frag = {
+        "cols": ", allow_explicit_content",
+        "vals": ", COALESCE($10, false)",
+        "sets": (
+            "allow_explicit_content = "
+            "COALESCE($10, user_profiles.allow_explicit_content),"
+        ),
+        "ret": ", allow_explicit_content",
+    }
+
+    def _merge(*parts: dict) -> dict:
+        return {k: "".join(p.get(k, "") for p in parts) for k in
+                ("cols", "vals", "sets", "ret")}
+
+    # Widest first, then narrower, ending with the columns every deploy has.
+    # Two independent migrations (20260908, 20260910) can be applied in
+    # either order or neither, so a settings write must not fail wholesale
+    # because one of them hasn't landed — the rest of the form still saves.
+    attempts = (
+        (_merge(digest_frag, explicit_frag),
+         (*base_args, body.weekly_digest_opt_in, body.weekly_digest_dow,
+          body.allow_explicit_content),
+         {}),
+        (_merge(digest_frag),
+         (*base_args, body.weekly_digest_opt_in, body.weekly_digest_dow),
+         _EXPLICIT_DEFAULTS),
+        (_merge(),
+         base_args,
+         {**_DIGEST_DEFAULTS, **_EXPLICIT_DEFAULTS}),
+    )
     async with rls_connection(user["id"]) as conn:
-        try:
-            row = await conn.fetchrow(
-                _UPSERT_SQL.format(
-                    cols=", weekly_digest_opt_in, weekly_digest_dow",
-                    vals=", COALESCE($8, false), COALESCE($9, 0)",
-                    sets=(
-                        "weekly_digest_opt_in = "
-                        "COALESCE($8, user_profiles.weekly_digest_opt_in), "
-                        "weekly_digest_dow = "
-                        "COALESCE($9, user_profiles.weekly_digest_dow),"
-                    ),
-                    ret=", weekly_digest_opt_in, weekly_digest_dow",
-                ),
-                user["id"],
-                body.batch_size,
-                body.ui_language,
-                body.active_language_id,
-                body.support_locale,
-                body.reminder_opt_in,
-                body.reminder_hour_utc,
-                body.weekly_digest_opt_in,
-                body.weekly_digest_dow,
-            )
-        except asyncpg.exceptions.UndefinedColumnError:
-            # Migration 20260908 not applied: save everything else rather
-            # than failing the whole settings write over one new toggle.
-            row = await conn.fetchrow(
-                _UPSERT_SQL.format(cols="", vals="", sets="", ret=""),
-                user["id"],
-                body.batch_size,
-                body.ui_language,
-                body.active_language_id,
-                body.support_locale,
-                body.reminder_opt_in,
-                body.reminder_hour_utc,
-            )
-            row = {**dict(row), **_DIGEST_DEFAULTS}
-    return dict(row)
+        for fragments, args, defaults in attempts:
+            try:
+                row = await conn.fetchrow(_UPSERT_SQL.format(**fragments), *args)
+                return {**dict(row), **defaults}
+            except asyncpg.exceptions.UndefinedColumnError:
+                continue
+    raise HTTPException(
+        status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
+        detail="Could not save the profile",
+    )

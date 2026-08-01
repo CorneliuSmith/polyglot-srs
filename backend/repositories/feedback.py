@@ -111,6 +111,31 @@ async def count_open_feedback(conn: asyncpg.Connection) -> int:
         return 0
 
 
+async def feedback_summary(conn: asyncpg.Connection) -> dict:
+    """How much is waiting, and when the newest arrived.
+
+    Deliberately two scalars rather than the list: the dashboard asks this on
+    every load to decide whether to show a prompt, and pulling the whole
+    triage queue to count it would make the home page pay for a screen the
+    learner may never open. *latest_at* is what lets the client tell "three
+    open items I already looked at" from "something new since I was last
+    here" without storing read state server-side.
+    """
+    try:
+        row = await conn.fetchrow(
+            "SELECT count(*) FILTER (WHERE status = 'open') AS open_count, "
+            "       max(created_at) AS latest_at "
+            "FROM app_feedback"
+        )
+    except _MISSING:
+        # Migration 20260906 not applied — no feedback table, nothing waiting.
+        return {"open_count": 0, "latest_at": None}
+    return {
+        "open_count": row["open_count"] or 0,
+        "latest_at": row["latest_at"].isoformat() if row["latest_at"] else None,
+    }
+
+
 async def set_feedback_status(
     conn: asyncpg.Connection,
     feedback_id: str,

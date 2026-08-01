@@ -6,6 +6,8 @@ from pathlib import Path
 
 import asyncpg
 
+from backend.services.content_filter import is_explicit
+
 DATA_DIR = Path(__file__).resolve().parents[3] / "data"
 
 
@@ -249,6 +251,30 @@ class BaseSeeder(ABC):
                         ON CONFLICT (vocabulary_id, locale) DO UPDATE SET
                             definition = EXCLUDED.definition
                     """, t_ids, t_locales, t_defs)
+                    # Mark explicit words as they load. The migration's
+                    # backfill only covers what was already in the database,
+                    # so without this the NEXT language seeded would ship its
+                    # slurs unflagged and visible — the exact bug, reopened by
+                    # the next `seed_vocabulary` run.
+                    explicit_ids = [
+                        vid for vid, definition in zip(t_ids, t_defs)
+                        if is_explicit(definition)
+                    ]
+                    if explicit_ids:
+                        try:
+                            await conn.execute(
+                                "UPDATE vocabulary SET is_explicit = true "
+                                "WHERE id = ANY($1::uuid[])",
+                                list(set(explicit_ids)),
+                            )
+                        except asyncpg.exceptions.UndefinedColumnError:
+                            # Migration 20260910 not applied yet — seeding
+                            # still succeeds; the backfill will catch these.
+                            self.logger.warning(
+                                "vocabulary.is_explicit missing; %d explicit "
+                                "words left unflagged until the migration runs",
+                                len(set(explicit_ids)),
+                            )
 
                 count += len(chunk)
                 self.logger.info(f"Loaded {count} records...")
