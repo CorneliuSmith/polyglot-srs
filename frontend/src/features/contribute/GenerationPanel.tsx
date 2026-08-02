@@ -291,8 +291,8 @@ export default function GenerationPanel() {
                 }`}
               >
                 {n.language_name}
-                <span className="ml-1 opacity-70 tabular-nums">{n.unfilled}</span>
-                {n.low_resource && <span className="ml-1">·low-res</span>}
+                <span className="ms-1 opacity-70 tabular-nums">{n.unfilled}</span>
+                {n.low_resource && <span className="ms-1">·low-res</span>}
               </button>
             ))}
           </div>
@@ -303,12 +303,12 @@ export default function GenerationPanel() {
       <div className="overflow-x-auto">
         <table className="w-full text-xs">
           <thead>
-            <tr className="text-left text-gray-500">
+            <tr className="text-start text-gray-500">
               <th className="py-1 font-medium">Language</th>
-              <th className="py-1 font-medium text-right">Vocab w/o ex.</th>
-              <th className="py-1 font-medium text-right">Grammar w/o drills</th>
-              <th className="py-1 font-medium text-right">AI so far</th>
-              <th className="py-1 font-medium text-right">Pending</th>
+              <th className="py-1 font-medium text-end">Vocab w/o ex.</th>
+              <th className="py-1 font-medium text-end">Grammar w/o drills</th>
+              <th className="py-1 font-medium text-end">AI so far</th>
+              <th className="py-1 font-medium text-end">Pending</th>
             </tr>
           </thead>
           <tbody>
@@ -325,19 +325,19 @@ export default function GenerationPanel() {
                 <td className="py-1">
                   {r.language_name}
                   {r.low_resource && (
-                    <span className="ml-1 text-[10px] text-lang">·low-res</span>
+                    <span className="ms-1 text-[10px] text-lang">·low-res</span>
                   )}
                 </td>
-                <td className="py-1 text-right tabular-nums">
+                <td className="py-1 text-end tabular-nums">
                   {r.vocab_no_examples}/{r.vocab_total}
                 </td>
-                <td className="py-1 text-right tabular-nums">
+                <td className="py-1 text-end tabular-nums">
                   {r.grammar_no_drills}/{r.grammar_total}
                 </td>
-                <td className="py-1 text-right tabular-nums text-gray-400">
+                <td className="py-1 text-end tabular-nums text-gray-400">
                   {r.ai_examples + r.ai_drills}
                 </td>
-                <td className="py-1 text-right tabular-nums">
+                <td className="py-1 text-end tabular-nums">
                   {r.pending_examples > 0 ? (
                     <span className="text-amber-600">{r.pending_examples}</span>
                   ) : (

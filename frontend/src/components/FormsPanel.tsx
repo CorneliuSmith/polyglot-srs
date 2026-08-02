@@ -68,7 +68,7 @@ export default function FormsPanel({
                 <tr className="bg-lang-soft">
                   <th
                     colSpan={chart.columns?.length ?? 2}
-                    className="text-left px-2 py-1 text-xs uppercase tracking-wide text-lang-dark"
+                    className="text-start px-2 py-1 text-xs uppercase tracking-wide text-lang-dark"
                   >
                     {chart.title}
                   </th>
@@ -76,7 +76,7 @@ export default function FormsPanel({
                 {chart.columns && (
                   <tr className="text-xs text-gray-400">
                     {chart.columns.map((col, j) => (
-                      <th key={j} className="text-left px-2 py-0.5 font-normal">
+                      <th key={j} className="text-start px-2 py-0.5 font-normal">
                         {col}
                       </th>
                     ))}

@@ -93,7 +93,7 @@ export default function SuggestChange({
 
   return (
     <div
-      className="mt-3 rounded-xl border border-gray-200 bg-white p-3 text-left space-y-2"
+      className="mt-3 rounded-xl border border-gray-200 bg-white p-3 text-start space-y-2"
       data-testid="suggest-change"
     >
       <label className="block text-xs text-gray-500">

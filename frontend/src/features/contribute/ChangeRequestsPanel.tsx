@@ -50,7 +50,7 @@ export default function ChangeRequestsPanel({ languageId }: { languageId: string
     <section className="space-y-3" data-testid="change-requests">
       <h2 className="font-semibold text-gray-800">
         Change requests
-        <span className="ml-2 text-xs font-normal text-gray-400">
+        <span className="ms-2 text-xs font-normal text-gray-400">
           suggestions from Learn &amp; Review — vote to prioritise
         </span>
       </h2>
@@ -121,7 +121,7 @@ export default function ChangeRequestsPanel({ languageId }: { languageId: string
               >
                 “{r.quote}”
                 {r.quote_context?.source && (
-                  <span className="ml-1 text-[11px] uppercase tracking-wide text-amber-700">
+                  <span className="ms-1 text-[11px] uppercase tracking-wide text-amber-700">
                     · {r.quote_context.source}
                   </span>
                 )}

@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next'
 import type { TutorAllowance } from '../api/tutor'
 
 /** Claude-style usage meter (owner, 2026-07-27): the intelligent features are
@@ -12,6 +13,7 @@ export default function UsageMeter({
   allowance: TutorAllowance | null | undefined
   className?: string
 }) {
+  const { t } = useTranslation()
   if (!allowance || allowance.unlimited || !allowance.limit) return null
   if (allowance.tier === 'blocked') return null
   const pct = Math.min(
@@ -29,8 +31,8 @@ export default function UsageMeter({
   return (
     <div className={className} data-testid="usage-meter">
       <div className="flex items-baseline justify-between text-xs text-gray-500">
-        <span>Monthly usage</span>
-        <span data-testid="usage-pct">{pct}% used</span>
+        <span>{t('usage.monthly')}</span>
+        <span data-testid="usage-pct">{t('usage.pctUsed', { pct })}</span>
       </div>
       <div
         className="mt-1 h-1.5 w-full rounded-full bg-gray-200 overflow-hidden"
@@ -38,7 +40,7 @@ export default function UsageMeter({
         aria-valuenow={pct}
         aria-valuemin={0}
         aria-valuemax={100}
-        aria-label="Monthly usage"
+        aria-label={t('usage.monthly')}
       >
         <div
           className={`h-full rounded-full ${barColor}`}
@@ -46,7 +48,7 @@ export default function UsageMeter({
         />
       </div>
       {resets && (
-        <p className="mt-1 text-xs text-gray-400">Resets {resets}</p>
+        <p className="mt-1 text-xs text-gray-400">{t('usage.resets', { date: resets })}</p>
       )}
     </div>
   )

@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from 'react'
+import { useTranslation } from 'react-i18next'
 import { useNavigate, useSearchParams } from 'react-router-dom'
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
 import {
@@ -37,6 +38,7 @@ export default function LearnPage() {
 
 function LearnInner({ onLocaleChanged }: { onLocaleChanged: () => void }) {
   const navigate = useNavigate()
+  const { t } = useTranslation()
   const queryClient = useQueryClient()
   const [searchParams] = useSearchParams()
   // 'both' interleaves grammar + vocabulary in one session; each lesson then
@@ -244,7 +246,7 @@ function LearnInner({ onLocaleChanged }: { onLocaleChanged: () => void }) {
             onClick={() => navigate('/')}
             className="text-lang hover:underline text-sm"
           >
-            ← Back to Dashboard
+            {t('common.backToDashboardLong')}
           </button>
         </div>
       </div>
@@ -275,7 +277,7 @@ function LearnInner({ onLocaleChanged }: { onLocaleChanged: () => void }) {
             onClick={() => navigate('/')}
             className="text-lang hover:underline text-sm"
           >
-            ← Back to Dashboard
+            {t('common.backToDashboardLong')}
           </button>
         </div>
       </div>
@@ -389,7 +391,7 @@ function LearnInner({ onLocaleChanged }: { onLocaleChanged: () => void }) {
               onClick={() => navigate('/')}
               className="text-sm text-lang hover:underline"
             >
-              ← Dashboard
+              {t('common.backToDashboard')}
             </button>
           </span>
         </div>
@@ -676,7 +678,7 @@ function LearnInner({ onLocaleChanged }: { onLocaleChanged: () => void }) {
               className="rounded-xl border border-gray-300 bg-white px-5 py-2.5 text-sm font-medium text-gray-700 hover:bg-gray-50"
               style={{ minHeight: '44px' }}
             >
-              ← Previous
+              {t('learnSession.previous')}
             </button>
           )}
           {isLast ? (
@@ -688,7 +690,7 @@ function LearnInner({ onLocaleChanged }: { onLocaleChanged: () => void }) {
               className="flex-1 bg-lang hover:bg-lang-dark disabled:opacity-50 text-lang-on font-semibold rounded-xl px-6 py-3 text-sm"
               style={{ minHeight: '44px' }}
             >
-              Start Reviewing
+              {t('learnSession.startReviewing')}
             </button>
           ) : (
             <button
@@ -699,7 +701,7 @@ function LearnInner({ onLocaleChanged }: { onLocaleChanged: () => void }) {
               className="flex-1 bg-lang hover:bg-lang-dark disabled:opacity-50 text-lang-on font-semibold rounded-xl px-6 py-3 text-sm"
               style={{ minHeight: '44px' }}
             >
-              Next →
+              {t('learnSession.next')}
             </button>
           )}
         </div>

@@ -13,6 +13,132 @@
     "whatsNew": "Novedades",
     "takeTour": "Hacer el recorrido"
   },
+  "common": {
+    "backToDashboard": "← Panel",
+    "backToDashboardLong": "← Volver al panel",
+    "loading": "Cargando…",
+    "grammar": "Gramática",
+    "vocab": "Vocabulario",
+    "today": "Hoy",
+    "todayLower": "hoy"
+  },
+  "days": {
+    "sun": "dom",
+    "mon": "lun",
+    "tue": "mar",
+    "wed": "mié",
+    "thu": "jue",
+    "fri": "vie",
+    "sat": "sáb"
+  },
+  "dashboard": {
+    "activeLanguage": "Idioma activo",
+    "lettersTitle": "Letras y sonidos",
+    "lettersSub": "Cada letra, sus variantes y cómo pronunciarlas",
+    "aboutTitle": "Cosas que saber sobre este idioma",
+    "aboutSub": "Su familia, dónde se habla, el orden de las palabras y qué lo hace único",
+    "learn": "Aprender",
+    "review": "Repasar",
+    "allReviews": "todos los repasos",
+    "newQueued": "elementos nuevos en cola",
+    "learnedTodayQueued": "aprendidos hoy · {{count}} en cola",
+    "goalDoneQueued": "meta diaria cumplida · {{count}} en cola",
+    "grammarOnly": "Solo gramática",
+    "vocabOnly": "Solo vocabulario",
+    "noDecks": "Aún no hay mazos para este idioma.",
+    "inQueue": "En cola",
+    "deckLearn": "Aprender",
+    "removeFromQueue": "Quitar de la cola",
+    "addToQueue": "Añadir a la cola",
+    "browseAll": "Ver todos los elementos →",
+    "resetProgress": "Restablecer progreso",
+    "resetConfirm": "¿Restablecer \"{{label}}\"? Esto borra permanentemente tu progreso Y tu historial de repaso de los {{count}} elementos de este mazo.",
+    "deckEmpty": "Este mazo está vacío.",
+    "gymCaption": "Practica tiempos y casos",
+    "readCaption": "Una historia a tu nivel",
+    "tutorCaption": "Refuerzo donde más lo necesitas",
+    "forecastTitle": "Previsión de repasos",
+    "activityTitle": "Actividad",
+    "twoWeeksAgo": "hace 2 semanas",
+    "cefrTitle": "Progreso MCER",
+    "streak_one": "Racha actual — {{count}} día",
+    "streak_other": "Racha actual — {{count}} días",
+    "grammarPathTitle": "Ruta de gramática",
+    "grammarPathSub": "Explora y lee cada punto gramatical en orden",
+    "recommendedTitle": "Recomendado para ti",
+    "recommendedSub": "Libros, películas, series y pódcast a tu nivel",
+    "recommendedPicks_one": "{{count}} sugerencia para ampliar tu lectura, cine y escucha",
+    "recommendedPicks_other": "{{count}} sugerencias para ampliar tu lectura, cine y escucha",
+    "ownTextTitle": "Aprende con tu propio texto",
+    "ownTextSub": "Convierte lo que leas en tarjetas de repaso",
+    "contribute": "Contribuye con notas de gramática →",
+    "progressTitle": "Progreso"
+  },
+  "stages": {
+    "beginner": "Principiante",
+    "adept": "Iniciado",
+    "seasoned": "Curtido",
+    "expert": "Experto",
+    "master": "Maestro",
+    "selfStudy": "Autoestudio",
+    "ghosts": "Fantasmas"
+  },
+  "usage": {
+    "monthly": "Uso mensual",
+    "pctUsed": "{{pct}} % usado",
+    "resets": "Se renueva el {{date}}"
+  },
+  "reader": {
+    "title": "Leer {{language}}",
+    "myReadings": "← Mis lecturas",
+    "promptTitle": "¿Sobre qué quieres leer?",
+    "promptPlaceholder": "p. ej. comida callejera en Ciudad de México, la historia del ajedrez…",
+    "writeIt": "Escríbelo",
+    "writing": "Escribiendo…",
+    "length": "Longitud",
+    "short": "Corto",
+    "medium": "Medio",
+    "long": "Largo",
+    "style": "Estilo",
+    "any": "Cualquiera",
+    "firstPerson": "En primera persona",
+    "thirdPerson": "En tercera persona",
+    "dialogue": "Diálogo",
+    "challenge": "Reto",
+    "easier": "Más fácil",
+    "myLevel": "Mi nivel",
+    "stretch": "Exigente",
+    "usageNote": "Cada texto nuevo cuenta para tu uso mensual.",
+    "subtitle": "Un texto escrito exactamente a tu nivel — con algunas palabras nuevas por descubrir"
+  },
+  "tutor": {
+    "title": "Tutor de {{language}}",
+    "practice": "Práctica",
+    "reference": "Consulta",
+    "practiceLine": "Práctica — el tutor te entrena y recuerda lo que habéis cubierto.",
+    "referenceLine": "Consulta — una respuesta rápida, sin ejercicios, sin guardar nada en tu perfil.",
+    "pastSessions": "Sesiones anteriores",
+    "hidePastSessions": "Ocultar sesiones anteriores",
+    "readLink": "Lectura →",
+    "subtitle": "Refuerzo basado en tu historial de repaso"
+  },
+  "gym": {
+    "title": "El Gimnasio",
+    "subtitle": "Elige las formas que quieres entrenar — pasa el cursor por una para ver cómo se usa. Tu sesión mezcla todo lo que elijas.",
+    "noForms": "Este idioma no flexiona sus palabras lo suficiente como para necesitar un gimnasio — aún no hay formas de conjugación o declinación que entrenar aquí.",
+    "pickOne": "Elige al menos una forma",
+    "startTraining_one": "Empezar a entrenar · {{count}} pregunta",
+    "startTraining_other": "Empezar a entrenar · {{count}} preguntas"
+  },
+  "learnSession": {
+    "startReviewing": "Empezar a repasar",
+    "next": "Siguiente →",
+    "previous": "← Anterior"
+  },
+  "search": {
+    "title": "Buscar",
+    "placeholder": "Busca gramática y vocabulario…"
+  },
   "login": {
     "privateBeta": "Beta privada: inicia sesión con la cuenta que creó tu administrador.",
     "signIn": "Iniciar sesión",
@@ -33,5 +159,25 @@
   },
   "switcher": {
     "label": "Idioma del sitio"
+  },
+  "letters": {
+    "noGuide": "Aún no hay guía de letras para este idioma."
+  },
+  "review": {
+    "loadingCards": "Cargando tarjetas…",
+    "noCram": "Nada que machacar aquí todavía — estos puntos no tienen ejercicios.",
+    "noDue": "¡No hay tarjetas pendientes! Vuelve más tarde.",
+    "backToDashboard": "Volver al panel",
+    "cramNote": "Solo práctica — no se registró nada.",
+    "hint": "Pista",
+    "showKeyboard": "Mostrar teclado",
+    "hideKeyboard": "Ocultar teclado",
+    "retire": "Ya me lo sé — retirar",
+    "retireConfirm": "¿Retirar esta tarjeta? Dejará de aparecer en los repasos. Puedes deshacerlo con un restablecimiento de progreso en Ajustes.",
+    "gotItWrong": "En realidad me equivoqué",
+    "sessionComplete": "Sesión completada",
+    "path": "Ruta",
+    "tutorLink": "Tutor",
+    "continue": "Continuar"
   }
 }

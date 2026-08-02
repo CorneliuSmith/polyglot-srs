@@ -155,7 +155,7 @@ export default function Annotatable({
             setSpan({ quote: '', start: 0, end: 0, sourceText: '' })
             setAnchor(null)
           }}
-          className="absolute -top-2 -right-2 rounded-full bg-amber-500 p-1 text-white shadow hover:bg-amber-600"
+          className="absolute -top-2 -end-2 rounded-full bg-amber-500 p-1 text-white shadow hover:bg-amber-600"
         >
           <Flag aria-hidden className="h-3 w-3" />
         </button>

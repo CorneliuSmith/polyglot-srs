@@ -1152,7 +1152,7 @@ export default function SettingsPage() {
               type="button"
               onClick={handleResetLanguage}
               disabled={!activeLanguageId || resetMutation.isPending}
-              className="rounded-lg px-4 py-2 text-sm font-medium border border-red-200 text-red-700 bg-white hover:bg-red-50 disabled:opacity-50 text-left"
+              className="rounded-lg px-4 py-2 text-sm font-medium border border-red-200 text-red-700 bg-white hover:bg-red-50 disabled:opacity-50 text-start"
               style={{ minHeight: '44px' }}
             >
               Reset {activeLanguage?.name ?? 'active language'} studies…
@@ -1161,7 +1161,7 @@ export default function SettingsPage() {
               type="button"
               onClick={handleResetAll}
               disabled={resetMutation.isPending}
-              className="rounded-lg px-4 py-2 text-sm font-medium border border-red-200 text-red-700 bg-white hover:bg-red-50 disabled:opacity-50 text-left"
+              className="rounded-lg px-4 py-2 text-sm font-medium border border-red-200 text-red-700 bg-white hover:bg-red-50 disabled:opacity-50 text-start"
               style={{ minHeight: '44px' }}
             >
               Reset ALL studies (every language)…

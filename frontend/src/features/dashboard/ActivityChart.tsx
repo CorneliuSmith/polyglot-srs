@@ -1,18 +1,20 @@
+import { useTranslation } from 'react-i18next'
 import type { ActivityDay } from '../../api/types'
 
 /** Reviews per day for the last two weeks, vocab vs grammar stacked. */
 export default function ActivityChart({ activity }: { activity: ActivityDay[] }) {
+  const { t } = useTranslation()
   const max = Math.max(1, ...activity.map((d) => d.vocab + d.grammar))
   return (
     <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-4">
       <div className="flex items-center justify-between mb-3">
-        <h2 className="text-xs uppercase tracking-wide text-gray-400">Activity</h2>
+        <h2 className="text-xs uppercase tracking-wide text-gray-400">{t('dashboard.activityTitle')}</h2>
         <div className="flex items-center gap-3 text-[10px] text-gray-500">
           <span className="flex items-center gap-1">
-            <span className="inline-block w-2 h-2 rounded-sm bg-lang" /> Vocab
+            <span className="inline-block w-2 h-2 rounded-sm bg-lang" /> {t('common.vocab')}
           </span>
           <span className="flex items-center gap-1">
-            <span className="inline-block w-2 h-2 rounded-sm bg-lang-accent border border-gray-200" /> Grammar
+            <span className="inline-block w-2 h-2 rounded-sm bg-lang-accent border border-gray-200" /> {t('common.grammar')}
           </span>
         </div>
       </div>
@@ -40,8 +42,8 @@ export default function ActivityChart({ activity }: { activity: ActivityDay[] })
         })}
       </div>
       <div className="flex justify-between mt-1 text-[10px] text-gray-400">
-        <span>2 weeks ago</span>
-        <span>today</span>
+        <span>{t('dashboard.twoWeeksAgo')}</span>
+        <span>{t('common.todayLower')}</span>
       </div>
     </div>
   )

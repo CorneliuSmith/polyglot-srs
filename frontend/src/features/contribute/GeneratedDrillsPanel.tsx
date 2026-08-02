@@ -83,12 +83,12 @@ export default function GeneratedDrillsPanel({
             <div className="min-w-0">
               <div className="text-xs text-gray-400">
                 {d.point_title}
-                {d.cell && <span className="ml-1 text-lang">· {d.cell}</span>}
+                {d.cell && <span className="ms-1 text-lang">· {d.cell}</span>}
               </div>
               <div className="text-sm text-gray-800">
                 {d.sentence.replace('{{answer}}', `【${d.answer}】`)}
                 {d.flagged && (
-                  <span className="ml-2 align-middle rounded bg-red-50 text-red-600 px-1.5 py-0.5 text-[10px] uppercase tracking-wide">
+                  <span className="ms-2 align-middle rounded bg-red-50 text-red-600 px-1.5 py-0.5 text-[10px] uppercase tracking-wide">
                     flagged
                   </span>
                 )}

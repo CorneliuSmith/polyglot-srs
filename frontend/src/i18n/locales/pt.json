@@ -13,6 +13,132 @@
     "whatsNew": "Novidades",
     "takeTour": "Fazer o tour"
   },
+  "common": {
+    "backToDashboard": "← Painel",
+    "backToDashboardLong": "← Voltar ao painel",
+    "loading": "Carregando…",
+    "grammar": "Gramática",
+    "vocab": "Vocabulário",
+    "today": "Hoje",
+    "todayLower": "hoje"
+  },
+  "days": {
+    "sun": "dom",
+    "mon": "seg",
+    "tue": "ter",
+    "wed": "qua",
+    "thu": "qui",
+    "fri": "sex",
+    "sat": "sáb"
+  },
+  "dashboard": {
+    "activeLanguage": "Idioma ativo",
+    "lettersTitle": "Letras e sons",
+    "lettersSub": "Cada letra, suas variantes e como pronunciá-las",
+    "aboutTitle": "O que saber sobre este idioma",
+    "aboutSub": "Sua família, onde é falado, a ordem das palavras e o que o torna único",
+    "learn": "Aprender",
+    "review": "Revisar",
+    "allReviews": "todas as revisões",
+    "newQueued": "itens novos na fila",
+    "learnedTodayQueued": "aprendidos hoje · {{count}} na fila",
+    "goalDoneQueued": "meta diária concluída · {{count}} na fila",
+    "grammarOnly": "Só gramática",
+    "vocabOnly": "Só vocabulário",
+    "noDecks": "Ainda não há baralhos para este idioma.",
+    "inQueue": "Na fila",
+    "deckLearn": "Aprender",
+    "removeFromQueue": "Remover da fila",
+    "addToQueue": "Adicionar à fila",
+    "browseAll": "Ver todos os itens →",
+    "resetProgress": "Redefinir progresso",
+    "resetConfirm": "Redefinir \"{{label}}\"? Isso apaga permanentemente seu progresso E seu histórico de revisão dos {{count}} itens deste baralho.",
+    "deckEmpty": "Este baralho está vazio.",
+    "gymCaption": "Treine tempos e casos",
+    "readCaption": "Uma história no seu nível",
+    "tutorCaption": "Reforço nas suas lacunas",
+    "forecastTitle": "Previsão de revisões",
+    "activityTitle": "Atividade",
+    "twoWeeksAgo": "2 semanas atrás",
+    "cefrTitle": "Progresso CEFR",
+    "streak_one": "Sequência atual — {{count}} dia",
+    "streak_other": "Sequência atual — {{count}} dias",
+    "grammarPathTitle": "Trilha de gramática",
+    "grammarPathSub": "Percorra e leia cada ponto gramatical em ordem",
+    "recommendedTitle": "Recomendado para você",
+    "recommendedSub": "Livros, filmes, séries e podcasts no seu nível",
+    "recommendedPicks_one": "{{count}} sugestão para ampliar sua leitura, filmes e escuta",
+    "recommendedPicks_other": "{{count}} sugestões para ampliar sua leitura, filmes e escuta",
+    "ownTextTitle": "Aprenda com seu próprio texto",
+    "ownTextSub": "Transforme o que você lê em cartões de revisão",
+    "contribute": "Contribua com notas de gramática →",
+    "progressTitle": "Progresso"
+  },
+  "stages": {
+    "beginner": "Iniciante",
+    "adept": "Aprendiz",
+    "seasoned": "Experiente",
+    "expert": "Especialista",
+    "master": "Mestre",
+    "selfStudy": "Autoestudo",
+    "ghosts": "Fantasmas"
+  },
+  "usage": {
+    "monthly": "Uso mensal",
+    "pctUsed": "{{pct}}% usado",
+    "resets": "Renova em {{date}}"
+  },
+  "reader": {
+    "title": "Ler {{language}}",
+    "myReadings": "← Minhas leituras",
+    "promptTitle": "Sobre o que você quer ler?",
+    "promptPlaceholder": "ex.: comida de rua na Cidade do México, a história do xadrez…",
+    "writeIt": "Escrever",
+    "writing": "Escrevendo…",
+    "length": "Tamanho",
+    "short": "Curto",
+    "medium": "Médio",
+    "long": "Longo",
+    "style": "Estilo",
+    "any": "Qualquer",
+    "firstPerson": "Em primeira pessoa",
+    "thirdPerson": "Em terceira pessoa",
+    "dialogue": "Diálogo",
+    "challenge": "Desafio",
+    "easier": "Mais fácil",
+    "myLevel": "Meu nível",
+    "stretch": "Desafiador",
+    "usageNote": "Cada texto novo conta para o seu uso mensal.",
+    "subtitle": "Um texto escrito exatamente no seu nível — com algumas palavras novas para decifrar"
+  },
+  "tutor": {
+    "title": "Tutor de {{language}}",
+    "practice": "Prática",
+    "reference": "Consulta",
+    "practiceLine": "Prática — o tutor treina você e lembra o que vocês cobriram.",
+    "referenceLine": "Consulta — uma resposta rápida, sem exercícios, nada é salvo no seu perfil.",
+    "pastSessions": "Sessões anteriores",
+    "hidePastSessions": "Ocultar sessões anteriores",
+    "readLink": "Leitura →",
+    "subtitle": "Reforço baseado no seu histórico de revisão"
+  },
+  "gym": {
+    "title": "O Ginásio",
+    "subtitle": "Escolha as formas para treinar — passe o cursor sobre uma para ver como é usada. Sua sessão mistura tudo o que você escolher.",
+    "noForms": "Este idioma flexiona pouco as palavras para precisar de um ginásio — ainda não há formas de conjugação ou declinação para treinar aqui.",
+    "pickOne": "Escolha pelo menos uma forma",
+    "startTraining_one": "Começar a treinar · {{count}} pergunta",
+    "startTraining_other": "Começar a treinar · {{count}} perguntas"
+  },
+  "learnSession": {
+    "startReviewing": "Começar a revisar",
+    "next": "Próximo →",
+    "previous": "← Anterior"
+  },
+  "search": {
+    "title": "Pesquisar",
+    "placeholder": "Pesquise gramática e vocabulário…"
+  },
   "login": {
     "privateBeta": "Beta privado — entre com a conta criada pelo seu administrador.",
     "signIn": "Entrar",
@@ -33,5 +159,25 @@
   },
   "switcher": {
     "label": "Idioma do site"
+  },
+  "letters": {
+    "noGuide": "Ainda não há guia de letras para este idioma."
+  },
+  "review": {
+    "loadingCards": "Carregando cartões…",
+    "noCram": "Nada para treinar aqui ainda — esses pontos não têm exercícios.",
+    "noDue": "Nenhum cartão pendente! Volte mais tarde.",
+    "backToDashboard": "Voltar ao painel",
+    "cramNote": "Só prática — nada foi registrado.",
+    "hint": "Dica",
+    "showKeyboard": "Mostrar teclado",
+    "hideKeyboard": "Ocultar teclado",
+    "retire": "Já sei este — aposentar",
+    "retireConfirm": "Aposentar este cartão? Ele deixa de aparecer nas revisões. Você pode desfazer com uma redefinição de progresso nas Configurações.",
+    "gotItWrong": "Na verdade eu errei",
+    "sessionComplete": "Sessão concluída",
+    "path": "Trilha",
+    "tutorLink": "Tutor",
+    "continue": "Continuar"
   }
 }

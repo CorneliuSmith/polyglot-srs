@@ -103,7 +103,7 @@ export default function LanguageVisibilityPanel() {
               <button
                 type="button"
                 onClick={() => setActiveLanguageId(lang.id)}
-                className="flex items-center gap-2 text-left hover:underline min-w-0"
+                className="flex items-center gap-2 text-start hover:underline min-w-0"
                 title={`Switch to ${lang.name}`}
               >
                 <CircleFlag code={lang.code} size={18} />

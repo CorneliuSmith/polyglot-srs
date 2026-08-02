@@ -94,7 +94,7 @@ export default function WelcomePage() {
               key={tool.route + tool.name}
               type="button"
               onClick={() => navigate(tool.route)}
-              className="w-full rounded-xl border border-gray-200 bg-white px-4 py-3 text-left hover:border-lang/50 hover:bg-lang-soft"
+              className="w-full rounded-xl border border-gray-200 bg-white px-4 py-3 text-start hover:border-lang/50 hover:bg-lang-soft"
               style={{ minHeight: '44px' }}
             >
               <span className="flex items-start gap-3">

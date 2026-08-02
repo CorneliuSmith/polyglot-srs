@@ -24,7 +24,7 @@ export default function BlurReveal({
       onClick={() => setRevealed((v) => !v)}
       aria-pressed={shown}
       title={shown ? undefined : 'Click to reveal'}
-      className={`text-left transition duration-150 ${
+      className={`text-start transition duration-150 ${
         shown ? '' : 'blur-sm select-none opacity-70 hover:opacity-90'
       } ${className}`}
     >

@@ -1,19 +1,20 @@
 import { useState } from 'react'
+import { useTranslation } from 'react-i18next'
 import type { StageName } from '../../api/types'
 
 // The five tiles walk through the active language's flag palette
 // (stage tokens are set by LanguageThemeApplier — see stageRamp).
 const MAIN_STAGES: { key: StageName; label: string; tone: string }[] = [
-  { key: 'beginner', label: 'Beginner', tone: 'bg-stage-1 text-stage-1-on' },
-  { key: 'adept', label: 'Adept', tone: 'bg-stage-2 text-stage-2-on' },
-  { key: 'seasoned', label: 'Seasoned', tone: 'bg-stage-3 text-stage-3-on' },
-  { key: 'expert', label: 'Expert', tone: 'bg-stage-4 text-stage-4-on' },
-  { key: 'master', label: 'Master', tone: 'bg-stage-5 text-stage-5-on' },
+  { key: 'beginner', label: 'stages.beginner', tone: 'bg-stage-1 text-stage-1-on' },
+  { key: 'adept', label: 'stages.adept', tone: 'bg-stage-2 text-stage-2-on' },
+  { key: 'seasoned', label: 'stages.seasoned', tone: 'bg-stage-3 text-stage-3-on' },
+  { key: 'expert', label: 'stages.expert', tone: 'bg-stage-4 text-stage-4-on' },
+  { key: 'master', label: 'stages.master', tone: 'bg-stage-5 text-stage-5-on' },
 ]
 
 const EXTRA_STAGES: { key: StageName; label: string }[] = [
-  { key: 'self_study', label: 'Self-Study' },
-  { key: 'ghost', label: 'Ghosts' },
+  { key: 'self_study', label: 'stages.selfStudy' },
+  { key: 'ghost', label: 'stages.ghosts' },
 ]
 
 /**
@@ -25,12 +26,13 @@ export default function StageTiles({
 }: {
   stages: Record<'vocab' | 'grammar', Record<StageName, number>>
 }) {
+  const { t } = useTranslation()
   const [kind, setKind] = useState<'grammar' | 'vocab'>('grammar')
   const counts = stages[kind]
   return (
     <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-4">
       <div className="flex items-center justify-between mb-3">
-        <h2 className="text-xs uppercase tracking-wide text-gray-400">Progress</h2>
+        <h2 className="text-xs uppercase tracking-wide text-gray-400">{t('dashboard.progressTitle')}</h2>
         <div className="flex rounded-lg border border-gray-200 overflow-hidden text-xs">
           {(['grammar', 'vocab'] as const).map((k) => (
             <button
@@ -41,7 +43,7 @@ export default function StageTiles({
                 kind === k ? 'bg-lang text-white' : 'bg-white text-gray-500 hover:bg-gray-50'
               }`}
             >
-              {k}
+              {k === 'grammar' ? t('common.grammar') : t('common.vocab')}
             </button>
           ))}
         </div>
@@ -52,7 +54,7 @@ export default function StageTiles({
         {MAIN_STAGES.map((s) => (
           <div key={s.key} className={`rounded-xl p-3 min-w-0 ${s.tone}`}>
             <span className="block text-[10px] uppercase tracking-wide opacity-80 truncate">
-              {s.label}
+              {t(s.label)}
             </span>
             <span className="block text-xl font-bold tabular-nums">
               {counts[s.key] ?? 0}
@@ -64,7 +66,7 @@ export default function StageTiles({
         {EXTRA_STAGES.map((s) => (
           <div key={s.key} className="rounded-xl p-3 bg-gray-100 text-gray-600">
             <span className="block text-[10px] uppercase tracking-wide opacity-80">
-              {s.label}
+              {t(s.label)}
             </span>
             <span className="block text-xl font-bold tabular-nums">
               {counts[s.key] ?? 0}

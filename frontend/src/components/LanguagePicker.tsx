@@ -129,7 +129,7 @@ export default function LanguagePicker() {
         aria-haspopup="listbox"
         aria-expanded={open}
         aria-label="Select active language"
-        className="w-full flex items-center gap-2.5 rounded-lg border border-gray-300 bg-white px-3 py-2 text-sm text-left focus:outline-none focus:ring-2 focus:ring-lang"
+        className="w-full flex items-center gap-2.5 rounded-lg border border-gray-300 bg-white px-3 py-2 text-sm text-start focus:outline-none focus:ring-2 focus:ring-lang"
         style={{ minHeight: '44px', borderLeft: `6px solid ${theme.primary}` }}
       >
         <CircleFlag code={active?.code} />

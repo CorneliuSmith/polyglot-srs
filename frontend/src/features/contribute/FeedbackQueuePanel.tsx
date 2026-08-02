@@ -62,7 +62,7 @@ function FeedbackRow({
           · {new Date(item.created_at).toLocaleDateString()}
         </span>
         {item.email && (
-          <span className="min-w-0 flex-1 truncate text-right text-gray-400">
+          <span className="min-w-0 flex-1 truncate text-end text-gray-400">
             {item.email}
           </span>
         )}
@@ -140,7 +140,7 @@ export default function FeedbackQueuePanel({
           <h2 className="font-semibold text-gray-800">
             Feedback
             {data && data.open_count > 0 && (
-              <span className="ml-2 rounded-full bg-amber-100 px-2 py-0.5 text-xs font-semibold text-amber-800">
+              <span className="ms-2 rounded-full bg-amber-100 px-2 py-0.5 text-xs font-semibold text-amber-800">
                 {data.open_count} open
               </span>
             )}

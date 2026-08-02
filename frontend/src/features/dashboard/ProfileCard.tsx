@@ -1,4 +1,5 @@
 import { Flame } from 'lucide-react'
+import { useTranslation } from 'react-i18next'
 import type { DashboardProfile } from '../../api/types'
 
 const DAY_LETTERS = ['S', 'M', 'T', 'W', 'T', 'F', 'S']
@@ -11,11 +12,12 @@ export default function ProfileCard({
   profile: DashboardProfile
   streakDays: number
 }) {
+  const { t } = useTranslation()
   return (
     <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-4 space-y-4">
       <div>
         <h2 className="text-xs uppercase tracking-wide text-gray-400 mb-2">
-          Current streak — {streakDays} {streakDays === 1 ? 'day' : 'days'}
+          {t('dashboard.streak', { count: streakDays })}
         </h2>
         <div className="flex items-center justify-between">
           {profile.week.map((d) => {
