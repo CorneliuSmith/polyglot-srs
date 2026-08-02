@@ -1,0 +1,37 @@
+{
+  "nav": {
+    "dashboard": "Главная",
+    "decks": "Колоды",
+    "tutor": "Репетитор",
+    "read": "Чтение",
+    "gym": "Тренажёр",
+    "search": "Поиск",
+    "account": "Аккаунт",
+    "menu": "Меню"
+  },
+  "header": {
+    "whatsNew": "Что нового",
+    "takeTour": "Экскурсия по приложению"
+  },
+  "login": {
+    "privateBeta": "Закрытая бета — войдите с аккаунтом, созданным для вас администратором.",
+    "signIn": "Войти",
+    "signUp": "Регистрация",
+    "resetIntro": "Введите почту вашего аккаунта — мы пришлём ссылку для выбора нового пароля.",
+    "email": "Эл. почта",
+    "password": "Пароль",
+    "passwordPlaceholderNew": "Не менее 6 символов",
+    "loading": "Загрузка…",
+    "sendResetLink": "Отправить ссылку",
+    "createAccount": "Создать аккаунт",
+    "backToSignIn": "← Назад ко входу",
+    "forgotPassword": "Забыли пароль?",
+    "orContinueWith": "или продолжить через",
+    "googleSignIn": "Войти через Google",
+    "agreePrefix": "Используя PolyglotSRS, вы принимаете",
+    "terms": "Условия обслуживания"
+  },
+  "switcher": {
+    "label": "Язык сайта"
+  }
+}

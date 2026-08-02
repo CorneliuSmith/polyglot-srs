@@ -1,6 +1,9 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import './index.css'
+// Side-effect import: initializes i18next (site-chrome language) before the
+// first render, including the document-level RTL flip for Arabic.
+import './i18n'
 import App from './App.tsx'
 import { initSentry } from './lib/sentry'
 

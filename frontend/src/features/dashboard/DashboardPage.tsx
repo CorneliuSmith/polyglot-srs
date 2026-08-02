@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import { Bell, BookOpen, Dumbbell, Menu, MessagesSquare } from 'lucide-react'
 import type { LucideIcon } from 'lucide-react'
 import { Link, Navigate, useNavigate } from 'react-router-dom'
+import { useTranslation } from 'react-i18next'
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
 import { getDashboardStats } from '../../api/dashboard'
 import { getGymManifest } from '../../api/gym'
@@ -19,6 +20,7 @@ import { getRecommendations } from '../../api/recommendations'
 import { factsFor } from '../about/languageFacts'
 import { usePrefsStore } from '../../stores/prefsStore'
 import LanguagePicker from '../../components/LanguagePicker'
+import UiLanguageSwitcher from '../../components/UiLanguageSwitcher'
 import CEFRProgress from './CEFRProgress'
 import ForecastStrip from './ForecastStrip'
 import ActivityChart from './ActivityChart'
@@ -239,6 +241,7 @@ function SkeletonCard() {
 
 export default function DashboardPage() {
   const navigate = useNavigate()
+  const { t } = useTranslation()
   const queryClient = useQueryClient()
   const activeLanguageId = usePrefsStore((s) => s.activeLanguageId)
   const walkthroughDone = usePrefsStore((s) => s.walkthroughDone)
@@ -374,12 +377,12 @@ export default function DashboardPage() {
   // Top-level destinations. Rendered inline on desktop and inside a collapsible
   // menu on phones, where a single row of them overflowed the viewport.
   const navItems: { label: string; to: string }[] = [
-    { label: 'Decks', to: '/decks' },
-    { label: 'Tutor', to: '/tutor' },
-    { label: 'Read', to: '/read' },
-    ...(hasGym ? [{ label: 'Gym', to: '/gym' }] : []),
-    { label: 'Search', to: '/search' },
-    { label: 'Account', to: '/account' },
+    { label: t('nav.decks'), to: '/decks' },
+    { label: t('nav.tutor'), to: '/tutor' },
+    { label: t('nav.read'), to: '/read' },
+    ...(hasGym ? [{ label: t('nav.gym'), to: '/gym' }] : []),
+    { label: t('nav.search'), to: '/search' },
+    { label: t('nav.account'), to: '/account' },
   ]
 
   return (
@@ -396,7 +399,7 @@ export default function DashboardPage() {
             nav links collapse behind a menu button below md and only the
             title + utility icons stay on the bar. */}
         <div className="flex items-center justify-between gap-2">
-          <h1 className="text-2xl font-bold text-gray-900">Dashboard</h1>
+          <h1 className="text-2xl font-bold text-gray-900">{t('nav.dashboard')}</h1>
           <div className="flex items-center gap-3 sm:gap-4">
             {/* Desktop inline nav */}
             <nav className="hidden md:flex items-center gap-4">
@@ -415,11 +418,12 @@ export default function DashboardPage() {
             {/* Utility cluster, set apart from navigation: announcements
                 and the tour are ABOUT the app, not places in it. */}
             <span aria-hidden className="hidden md:block h-4 w-px bg-gray-200" />
+            <UiLanguageSwitcher />
             <button
               type="button"
               onClick={() => setShowWhatsNew(true)}
-              aria-label="What's new"
-              title="What's new"
+              aria-label={t('header.whatsNew')}
+              title={t('header.whatsNew')}
               className="relative w-9 h-9 md:w-7 md:h-7 flex items-center justify-center rounded-full border border-gray-200 text-gray-400 hover:text-lang hover:border-lang/40 text-sm md:text-xs leading-none"
             >
               <Bell aria-hidden className="h-4 w-4 md:h-3.5 md:w-3.5" />
@@ -435,8 +439,8 @@ export default function DashboardPage() {
             <button
               type="button"
               onClick={() => setShowTour(true)}
-              aria-label="Take the feature tour"
-              title="Take the tour"
+              aria-label={t('header.takeTour')}
+              title={t('header.takeTour')}
               className="w-9 h-9 md:w-7 md:h-7 flex items-center justify-center rounded-full border border-gray-200 text-gray-400 hover:text-lang hover:border-lang/40 text-sm md:text-xs leading-none"
             >
               ?
@@ -445,9 +449,9 @@ export default function DashboardPage() {
             <button
               type="button"
               onClick={() => setNavOpen((v) => !v)}
-              aria-label="Menu"
+              aria-label={t('nav.menu')}
               aria-expanded={navOpen}
-              title="Menu"
+              title={t('nav.menu')}
               className={`md:hidden w-9 h-9 flex items-center justify-center rounded-full border text-base leading-none transition-colors ${
                 navOpen
                   ? 'border-lang/40 bg-lang-soft text-lang'

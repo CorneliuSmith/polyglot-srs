@@ -1,7 +1,9 @@
 import { useState } from 'react'
 import { Navigate } from 'react-router-dom'
+import { useTranslation } from 'react-i18next'
 import { supabase } from '../../lib/supabase'
 import { useAuthStore } from '../../stores/authStore'
+import UiLanguageSwitcher from '../../components/UiLanguageSwitcher'
 
 type Tab = 'signin' | 'signup'
 
@@ -11,6 +13,7 @@ type Tab = 'signin' | 'signup'
 const INVITE_ONLY = import.meta.env.VITE_INVITE_ONLY === 'true'
 
 export default function LoginPage() {
+  const { t } = useTranslation()
   const isAuthenticated = useAuthStore((s) => s.isAuthenticated)()
   const authLoading = useAuthStore((s) => s.loading)
   const [tab, setTab] = useState<Tab>('signin')
@@ -89,16 +92,18 @@ export default function LoginPage() {
   }
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-50 px-4">
+    <div className="relative min-h-screen flex items-center justify-center bg-gray-50 px-4">
+      {/* Signed-out users can still pick the site language (device-only;
+          it syncs to the account after sign-in). */}
+      <div className="absolute top-4 end-4">
+        <UiLanguageSwitcher />
+      </div>
       <div className="w-full max-w-sm bg-white rounded-2xl shadow-md p-8">
         <h1 className="text-2xl font-bold text-center mb-6 text-gray-900">
           Polyglot SRS
         </h1>
         {INVITE_ONLY && !resetMode && (
-          <p className="text-sm text-gray-500 mb-4">
-            Private beta — sign in with the account your admin created for
-            you.
-          </p>
+          <p className="text-sm text-gray-500 mb-4">{t('login.privateBeta')}</p>
         )}
 
         {/* Tabs — hidden entirely in invite-only beta (accounts are
@@ -115,7 +120,7 @@ export default function LoginPage() {
             }`}
             style={{ minHeight: '44px' }}
           >
-            Sign In
+            {t('login.signIn')}
           </button>
           <button
             type="button"
@@ -127,16 +132,13 @@ export default function LoginPage() {
             }`}
             style={{ minHeight: '44px' }}
           >
-            Sign Up
+            {t('login.signUp')}
           </button>
         </div>
         )}
 
         {resetMode && (
-          <p className="text-sm text-gray-600 mb-4">
-            Enter your account email and we’ll send you a link to choose a new
-            password.
-          </p>
+          <p className="text-sm text-gray-600 mb-4">{t('login.resetIntro')}</p>
         )}
 
         {/* Email/Password form */}
@@ -146,7 +148,7 @@ export default function LoginPage() {
         >
           <div>
             <label className="block text-sm font-medium text-gray-700 mb-1" htmlFor="email">
-              Email
+              {t('login.email')}
             </label>
             <input
               id="email"
@@ -164,7 +166,7 @@ export default function LoginPage() {
           {!resetMode && (
           <div>
             <label className="block text-sm font-medium text-gray-700 mb-1" htmlFor="password">
-              Password
+              {t('login.password')}
             </label>
             <input
               id="password"
@@ -174,7 +176,7 @@ export default function LoginPage() {
               onChange={(e) => setPassword(e.target.value)}
               className="w-full rounded-lg border border-gray-300 px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-lang focus:border-transparent"
               style={{ minHeight: '44px' }}
-              placeholder={tab === 'signup' ? 'At least 6 characters' : '••••••••'}
+              placeholder={tab === 'signup' ? t('login.passwordPlaceholderNew') : '••••••••'}
               autoComplete={tab === 'signin' ? 'current-password' : 'new-password'}
             />
           </div>
@@ -195,12 +197,12 @@ export default function LoginPage() {
             style={{ minHeight: '44px' }}
           >
             {loading
-              ? 'Loading…'
+              ? t('login.loading')
               : resetMode
-                ? 'Send reset link'
+                ? t('login.sendResetLink')
                 : tab === 'signin'
-                  ? 'Sign In'
-                  : 'Create Account'}
+                  ? t('login.signIn')
+                  : t('login.createAccount')}
           </button>
         </form>
 
@@ -211,7 +213,7 @@ export default function LoginPage() {
               onClick={() => { setResetMode(false); setError(null); setMessage(null) }}
               className="text-sm text-lang hover:underline"
             >
-              ← Back to sign in
+              {t('login.backToSignIn')}
             </button>
           ) : (
             tab === 'signin' && (
@@ -220,7 +222,7 @@ export default function LoginPage() {
                 onClick={() => { setResetMode(true); setError(null); setMessage(null) }}
                 className="text-sm text-lang hover:underline"
               >
-                Forgot password?
+                {t('login.forgotPassword')}
               </button>
             )
           )}
@@ -233,7 +235,7 @@ export default function LoginPage() {
             <div className="w-full border-t border-gray-200" />
           </div>
           <div className="relative flex justify-center text-xs text-gray-400">
-            <span className="bg-white px-2">or continue with</span>
+            <span className="bg-white px-2">{t('login.orContinueWith')}</span>
           </div>
         </div>
 
@@ -250,15 +252,15 @@ export default function LoginPage() {
             <path d="M3.964 10.71A5.41 5.41 0 0 1 3.682 9c0-.593.102-1.17.282-1.71V4.958H.957A8.996 8.996 0 0 0 0 9c0 1.452.348 2.827.957 4.042l3.007-2.332Z" fill="#FBBC05"/>
             <path d="M9 3.58c1.321 0 2.508.454 3.44 1.345l2.582-2.58C13.463.891 11.426 0 9 0A8.997 8.997 0 0 0 .957 4.958L3.964 6.29C4.672 4.163 6.656 3.58 9 3.58Z" fill="#EA4335"/>
           </svg>
-          Sign in with Google
+          {t('login.googleSignIn')}
         </button>
         </>
         )}
 
         <p className="mt-6 text-center text-xs text-gray-400">
-          By using PolyglotSRS you agree to the{' '}
+          {t('login.agreePrefix')}{' '}
           <a href="/terms" className="text-lang hover:underline">
-            Terms of Service
+            {t('login.terms')}
           </a>
           .
         </p>
