@@ -208,6 +208,32 @@ taught one by the chat next to them. That per-learner line sits in the
 language, and folding a per-user flag into it would silently fork the
 cache in two.
 
+### Support-locale translations fill themselves — by demand, never by matrix
+
+Content is authored against an **English spine** (every gloss, hint and
+explanation gets one English rendering, eagerly). Other support locales are
+**overlays**: per-locale rows that `COALESCE` over the English original, so
+0% coverage is a working state, not an error. Pre-translating everything
+into every locale would be millions of rows and an unpayable review debt —
+so nothing is ever pre-seeded.
+
+Instead, `services/auto_translate.py` runs an in-process sweep that spends
+only where three predicates all hold: an admin switched the course on
+(`languages.auto_translate_enabled`, default off, toggled in the
+language-management panel), a **real account** uses the (course, support
+locale) pair, and the word still lacks that locale's gloss. Work is ordered
+the way a learner meets it (A1 before C2, frequent before rare), capped per
+sweep (`auto_translate_words_per_cycle`), and goes through the same
+maker–checker as the manual CLI: approved glosses land in `translations`,
+rejected ones in `translation_reviews` for a human — never auto-applied.
+English is the pivot for non-English courses (the maker renders the word's
+English definition), which is what keeps the matrix linear instead of
+quadratic. The loop runs under no user account and draws from **no
+learner's usage allowance** — cost lands on the operator's API key, on the
+cheap translate-task model. Without the toggle migration it treats every
+course as off: the safe direction for this feature's degrade is "translate
+nothing".
+
 ### Anything AI-written is labelled as such
 
 `source`, `explanation_source` and `level_source` record provenance, so
@@ -218,14 +244,16 @@ queues can prioritise machine-written content.
 
 ## Background work
 
-Three loops run in-process from the app lifespan (`backend/main.py`). All are
-gated on `email_reminders_enabled`, never raise, and are cancelled on
-shutdown:
+Four loops run in-process from the app lifespan (`backend/main.py`). All
+never raise and are cancelled on shutdown; the email pair is gated on
+`email_reminders_enabled`, the translate loop on
+`auto_translate_loop_enabled` plus its per-language admin switch:
 
 | Loop | Every | Does |
 |---|---|---|
 | `reminder_loop` | 15 min | Daily "reviews are waiting" email, at the learner's chosen hour |
 | `digest_loop` | 1 hour | Weekly review email, carrying that week's recommendations |
+| `auto_translate_loop` | 15 min | Fills missing support-locale glosses for admin-enabled courses with live learners (see the decision above) |
 | `_check_schema` | once, at boot | Logs loudly if migrations are behind the code |
 
 Both email loops write their "last sent" stamp **only on an accepted

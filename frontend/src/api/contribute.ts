@@ -394,6 +394,18 @@ export async function setLanguageVisibility(
   })
 }
 
+/** Switch demand-driven support-locale translation for a course (admin-only).
+ * The loop only spends on (course, locale) pairs live accounts use. */
+export async function setLanguageAutoTranslate(
+  languageId: string,
+  enabled: boolean,
+): Promise<void> {
+  await apiClient.post('/api/contribute/language-auto-translate', {
+    language_id: languageId,
+    enabled,
+  })
+}
+
 export async function saveGrammarExplanation(
   pointId: string,
   explanation: string,

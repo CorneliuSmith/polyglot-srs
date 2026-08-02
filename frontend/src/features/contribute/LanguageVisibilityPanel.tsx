@@ -1,8 +1,19 @@
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query'
 import { getLanguages } from '../../api/profile'
-import { getLanguageReadiness, setLanguageVisibility } from '../../api/contribute'
+import {
+  getLanguageReadiness,
+  setLanguageAutoTranslate,
+  setLanguageVisibility,
+} from '../../api/contribute'
 import CircleFlag from '../../components/CircleFlag'
 import { usePrefsStore } from '../../stores/prefsStore'
+
+/** Same idiom as RolesPanel: surface the server's detail when there is one —
+ * here that's the 503 naming the not-yet-applied migration. */
+function extractDetail(err: unknown): string | undefined {
+  return (err as { response?: { data?: { detail?: string } } })?.response?.data
+    ?.detail
+}
 
 /** Admin control (owner): which languages show up in onboarding and the
  * language picker. Hiding a language never touches its content or access —
@@ -38,6 +49,17 @@ export default function LanguageVisibilityPanel() {
     },
   })
 
+  // Separate mutation so a failure here ("Could not save") can't be confused
+  // with a visibility failure, and so its error surfaces the server detail —
+  // the useful case is the 503 naming the missing migration.
+  const autoTranslateMutation = useMutation({
+    mutationFn: ({ id, enabled }: { id: string; enabled: boolean }) =>
+      setLanguageAutoTranslate(id, enabled),
+    onSuccess: () => {
+      qc.invalidateQueries({ queryKey: ['languages'] })
+    },
+  })
+
   /** Releasing (hidden → visible) with unreviewed content is the mistake
    * this panel exists to prevent, so it asks. Un-releasing never asks. */
   const requestChange = (id: string, name: string, visible: boolean) => {
@@ -67,7 +89,10 @@ export default function LanguageVisibilityPanel() {
         <p className="text-xs text-gray-500">
           Hidden languages stay out of onboarding and the language picker for
           everyone else — nothing is deleted. Click a name to switch your own
-          active language there, hidden or not.
+          active language there, hidden or not. Auto-translate fills missing
+          translations in learners&apos; own languages for that course — only
+          for language pairs real accounts use, with rejects going to the
+          review queue.
         </p>
       </div>
       <div className="divide-y divide-gray-100">
@@ -106,6 +131,24 @@ export default function LanguageVisibilityPanel() {
                     {r.open_reports} open
                   </span>
                 )}
+                <label
+                  className="flex items-center gap-2 text-xs text-gray-500"
+                  title="Fill missing translations in learners' own languages automatically — only for language pairs real accounts use. Rejected translations go to the review queue, and it never draws on a learner's usage allowance."
+                >
+                  Auto-translate
+                  <input
+                    type="checkbox"
+                    checked={lang.auto_translate_enabled ?? false}
+                    onChange={(e) =>
+                      autoTranslateMutation.mutate({
+                        id: lang.id,
+                        enabled: e.target.checked,
+                      })
+                    }
+                    aria-label={`${lang.name} automatic translation`}
+                    className="rounded border-gray-300"
+                  />
+                </label>
                 <label className="flex items-center gap-2 text-xs text-gray-500">
                   {lang.is_visible ? 'Visible' : 'Hidden'}
                   <input
@@ -125,6 +168,12 @@ export default function LanguageVisibilityPanel() {
       </div>
       {mutation.isError && (
         <p className="text-xs text-red-500">Could not save.</p>
+      )}
+      {autoTranslateMutation.isError && (
+        <p className="text-xs text-red-500">
+          {extractDetail(autoTranslateMutation.error) ??
+            'Could not change auto-translate.'}
+        </p>
       )}
     </div>
   )

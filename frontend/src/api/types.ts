@@ -7,6 +7,11 @@ export interface Language {
    * onboarding/the language picker for everyone but never lose content or
    * access — see lib/languages.ts's visibleLanguages(). */
   is_visible: boolean
+  /** Admin-controlled: when on, the backend loop auto-fills missing
+   * support-locale glosses for this course — but only for locales real
+   * accounts actually use. Optional like is_visible's degrade story:
+   * absent (older response) reads as off. */
+  auto_translate_enabled?: boolean
 }
 
 export interface DueCard {
