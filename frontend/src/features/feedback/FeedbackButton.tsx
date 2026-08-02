@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { useTranslation } from 'react-i18next'
 import { useMutation } from '@tanstack/react-query'
 import { MessageSquarePlus, X } from 'lucide-react'
 import {
@@ -29,6 +30,7 @@ import { usePrefsStore } from '../../stores/prefsStore'
  *     without acknowledgement trains people to stop using it.
  */
 export default function FeedbackButton({ page }: { page: string }) {
+  const { t } = useTranslation()
   const [open, setOpen] = useState(false)
   const [category, setCategory] = useState<FeedbackCategory>('bug')
   const [message, setMessage] = useState('')
@@ -60,7 +62,7 @@ export default function FeedbackButton({ page }: { page: string }) {
         style={{ minHeight: '44px' }}
       >
         <MessageSquarePlus aria-hidden className="h-4 w-4" />
-        Something broken or confusing? Tell us
+        {t('feedback.open')}
       </button>
     )
   }
@@ -72,16 +74,13 @@ export default function FeedbackButton({ page }: { page: string }) {
     >
       <div className="flex items-start justify-between gap-3">
         <div>
-          <h2 className="font-semibold text-gray-800">Send feedback</h2>
-          <p className="text-xs text-gray-500">
-            Anything at all — a bug, a confusing screen, a wrong sentence, an
-            idea. It goes straight to the people building this.
-          </p>
+          <h2 className="font-semibold text-gray-800">{t('feedback.title')}</h2>
+          <p className="text-xs text-gray-500">{t('feedback.desc')}</p>
         </div>
         <button
           type="button"
           onClick={close}
-          aria-label="Close feedback"
+          aria-label={t('feedback.closeAria')}
           className="shrink-0 text-gray-400 hover:text-gray-600"
         >
           <X aria-hidden className="h-4 w-4" />
@@ -91,15 +90,14 @@ export default function FeedbackButton({ page }: { page: string }) {
       {mutation.isSuccess ? (
         <div className="space-y-3">
           <p className="rounded-xl bg-emerald-50 px-3 py-2 text-sm text-emerald-800">
-            Sent — thank you. You can see it and any reply under Account →
-            Your feedback.
+            {t('feedback.sent')}
           </p>
           <button
             type="button"
             onClick={close}
             className="rounded-lg bg-lang px-4 py-2 text-sm font-semibold text-lang-on hover:bg-lang-dark"
           >
-            Done
+            {t('feedback.done')}
           </button>
         </div>
       ) : (
@@ -118,7 +116,7 @@ export default function FeedbackButton({ page }: { page: string }) {
                     : 'border-gray-300 bg-white text-gray-600 hover:bg-gray-50')
                 }
               >
-                {c.label}
+                {t(`feedback.categories.${c.value}`)}
               </button>
             ))}
           </div>
@@ -128,16 +126,13 @@ export default function FeedbackButton({ page }: { page: string }) {
             onChange={(e) => setMessage(e.target.value)}
             rows={4}
             maxLength={4000}
-            aria-label="Your feedback"
-            placeholder="What happened, and what did you expect instead?"
+            aria-label={t('feedback.yourFeedback')}
+            placeholder={t('feedback.placeholder')}
             className="w-full rounded-xl border border-gray-300 p-3 text-sm"
           />
 
           {mutation.isError && (
-            <p className="text-sm text-red-600">
-              That didn’t send. Your message is still here — try again in a
-              moment.
-            </p>
+            <p className="text-sm text-red-600">{t('feedback.sendError')}</p>
           )}
 
           <div className="flex items-center gap-3">
@@ -148,10 +143,10 @@ export default function FeedbackButton({ page }: { page: string }) {
               className="rounded-lg bg-lang px-4 py-2 text-sm font-semibold text-lang-on hover:bg-lang-dark disabled:opacity-50"
               style={{ minHeight: '44px' }}
             >
-              {mutation.isPending ? 'Sending…' : 'Send'}
+              {mutation.isPending ? t('feedback.sending') : t('feedback.send')}
             </button>
             <span className="text-[11px] text-gray-400">
-              We’ll include which screen you were on.
+              {t('feedback.screenNote')}
             </span>
           </div>
         </>

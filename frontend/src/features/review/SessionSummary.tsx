@@ -9,13 +9,6 @@ interface SessionSummaryProps {
   onFinish: () => void
 }
 
-function formatTime(ms: number): string {
-  const totalSeconds = Math.floor(ms / 1000)
-  const minutes = Math.floor(totalSeconds / 60)
-  const seconds = totalSeconds % 60
-  return `${minutes} min ${seconds} sec`
-}
-
 export default function SessionSummary({
   accuracy,
   totalTimeMs,
@@ -25,6 +18,11 @@ export default function SessionSummary({
 }: SessionSummaryProps) {
   const { t } = useTranslation()
   const percent = Math.round(accuracy * 100)
+
+  const totalSeconds = Math.floor(totalTimeMs / 1000)
+  const timeSpent = `${t('review.durationMin', {
+    count: Math.floor(totalSeconds / 60),
+  })} ${t('review.durationSec', { count: totalSeconds % 60 })}`
 
   let accuracyColor = 'text-red-600'
   if (percent >= 80) {
@@ -41,21 +39,21 @@ export default function SessionSummary({
 
         <div className="space-y-4">
           <div>
-            <p className="text-sm text-gray-500 mb-1">Accuracy</p>
+            <p className="text-sm text-gray-500 mb-1">{t('review.accuracy')}</p>
             <p className={`text-5xl font-bold ${accuracyColor}`} data-testid="accuracy">
               {percent}%
             </p>
           </div>
 
           <div>
-            <p className="text-sm text-gray-500 mb-1">Time Spent</p>
+            <p className="text-sm text-gray-500 mb-1">{t('review.timeSpent')}</p>
             <p className="text-xl font-semibold text-gray-800" data-testid="time-spent">
-              {formatTime(totalTimeMs)}
+              {timeSpent}
             </p>
           </div>
 
           <div>
-            <p className="text-sm text-gray-500 mb-1">Cards Reviewed</p>
+            <p className="text-sm text-gray-500 mb-1">{t('review.cardsReviewed')}</p>
             <p className="text-xl font-semibold text-gray-800" data-testid="cards-reviewed">
               {cardsReviewed}
             </p>

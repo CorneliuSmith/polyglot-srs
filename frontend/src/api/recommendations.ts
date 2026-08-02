@@ -106,10 +106,6 @@ export async function markRecommendationsSeen(): Promise<void> {
   await apiClient.post('/api/recommendations/seen')
 }
 
-export const MEDIA_TYPE_LABELS: Record<string, string> = {
-  book: 'Book',
-  film: 'Film',
-  series: 'Series',
-  podcast: 'Podcast',
-  music: 'Music',
-}
+/** The stable media-type ids a pick can carry. Display labels live in i18n
+ *  (`recos.mediaTypes.<id>`) and are resolved at render time. */
+export const MEDIA_TYPE_IDS = ['book', 'film', 'series', 'podcast', 'music'] as const

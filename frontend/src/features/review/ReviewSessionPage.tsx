@@ -58,6 +58,7 @@ const GEN_WAIT_MS = 8000
  * background generation (a thin form + a fast learner). The fresh drills are
  * moments away — this is a brief hand-off, not a dead end. */
 function CramTopUp({ label }: { label: string }) {
+  const { t } = useTranslation()
   return (
     <div
       className="min-h-screen bg-gray-50 flex items-center justify-center px-4"
@@ -70,7 +71,7 @@ function CramTopUp({ label }: { label: string }) {
         />
         <p className="text-gray-700">{label}</p>
         <p className="text-xs text-gray-400">
-          Brand-new sentences, just for you — a moment while they&apos;re drafted.
+          {t('review.cramTopupNote')}
         </p>
       </div>
     </div>
@@ -593,7 +594,7 @@ function ReviewSessionInner({
   // land and resume() will flow straight into them. Otherwise it's a real finish.
   if (!session.currentCard) {
     if (genRequested && !genSettled) {
-      return <CramTopUp label="Drafting a few fresh sentences…" />
+      return <CramTopUp label={t('review.draftingFresh')} />
     }
     return (
       <div>
@@ -602,9 +603,7 @@ function ReviewSessionInner({
             role="alert"
             className="max-w-2xl mx-auto mt-4 bg-red-50 border border-red-200 text-red-700 text-sm rounded-xl px-4 py-3"
           >
-            {saveErrorCount === 1
-              ? '1 review could not be saved and will reappear in a future session.'
-              : `${saveErrorCount} reviews could not be saved and will reappear in a future session.`}
+            {t('review.saveErrorEnd', { count: saveErrorCount })}
           </div>
         )}
         <SessionSummary
@@ -631,7 +630,7 @@ function ReviewSessionInner({
   // A top-up landed after we'd hit the end: resume() (an effect) flips us back
   // to answering next tick — show the hand-off, not a one-frame stray summary.
   if (session.phase === 'summary') {
-    return <CramTopUp label="Loading fresh drills…" />
+    return <CramTopUp label={t('review.loadingFreshDrills')} />
   }
 
   const card = session.currentCard
@@ -731,9 +730,7 @@ function ReviewSessionInner({
             role="alert"
             className="bg-red-50 border border-red-200 text-red-700 text-sm rounded-xl px-4 py-3"
           >
-            {saveErrorCount === 1
-              ? 'Your last review could not be saved. Check your connection — it will reappear in a future session.'
-              : `${saveErrorCount} reviews could not be saved. Check your connection — they will reappear in a future session.`}
+            {t('review.saveErrorLive', { count: saveErrorCount })}
           </div>
         )}
         {/* Session utility bar (Bunpro-style: exit, path, tutor, settings) */}
@@ -775,7 +772,7 @@ function ReviewSessionInner({
                   state: { from: location.pathname + location.search },
                 })
               }}
-              aria-label="Account"
+              aria-label={t('nav.account')}
               className="hover:text-lang"
             >
               <SettingsIcon aria-hidden className="h-[18px] w-[18px]" />
@@ -802,11 +799,11 @@ function ReviewSessionInner({
                   value={profile?.support_locale ?? 'en'}
                   onChange={(e) => localeMutation.mutate(e.target.value)}
                   disabled={localeMutation.isPending}
-                  aria-label="Translations language"
-                  title="Show definitions and translations in…"
+                  aria-label={t('review.translationsLanguage')}
+                  title={t('review.showTranslationsIn')}
                   className="text-xs rounded-lg border border-gray-200 bg-white px-2 py-1 text-gray-600"
                 >
-                  <option value="en">English</option>
+                  <option value="en">{t('review.english')}</option>
                   {languages
                     .filter((l) => l.code !== 'en')
                     .map((l) => (
@@ -816,7 +813,7 @@ function ReviewSessionInner({
                     ))}
                 </select>
               )}
-              <span className="capitalize">{card.card_type}</span>
+              <span>{t(`review.cardType.${card.card_type}`)}</span>
             </span>
           )}
         </div>
@@ -851,7 +848,7 @@ function ReviewSessionInner({
               <SpeakButton
                 text={gappedSentence}
                 languageCode={card.language_code}
-                label="Play the sentence"
+                label={t('review.playSentence')}
                 className="inline-flex items-center justify-center rounded-full border-2 border-lang/40 text-lang hover:bg-lang-soft p-4"
               />
             </div>
@@ -909,8 +906,8 @@ function ReviewSessionInner({
                 className="text-sm text-gray-400 hover:text-lang"
               >
                 {chartOpen
-                  ? 'Hide the chart'
-                  : `${missed && !answering ? 'See the full chart' : 'Peek at the chart'}${
+                  ? t('review.hideChart')
+                  : `${missed && !answering ? t('review.seeFullChart') : t('review.peekChart')}${
                       card.chart_word ? ` — ${card.chart_word}` : ''
                     }`}
               </button>
@@ -926,7 +923,7 @@ function ReviewSessionInner({
                     </p>
                   )}
                   <p className="mt-2 text-[11px] text-gray-300">
-                    Practice mode — peeking is allowed.
+                    {t('review.practiceModePeek')}
                   </p>
                 </div>
               )}
@@ -939,7 +936,7 @@ function ReviewSessionInner({
           <div className="space-y-2">
             <button
               type="button"
-              aria-label="Submit answer"
+              aria-label={t('review.submitAnswer')}
               onClick={handleSubmitAnswer}
               disabled={!userInput.trim() || validateMutation.isPending}
               className="w-full bg-white hover:bg-gray-50 disabled:opacity-40 text-gray-500 hover:text-lang rounded-2xl border-2 border-gray-300 px-6 py-2 text-2xl leading-none transition-colors touch-manipulation"
@@ -949,13 +946,13 @@ function ReviewSessionInner({
             </button>
             {checkFailed && (
               <p className="text-sm text-red-600 text-center" role="alert">
-                Couldn't check that answer — press → to try again.
+                {t('review.checkFailed')}
               </p>
             )}
             {maxHint > 0 && (
               <button
                 type="button"
-                aria-label="Show a hint"
+                aria-label={t('review.showHint')}
                 onClick={() => setHintLevel(hintLevel >= maxHint ? 0 : hintLevel + 1)}
                 className="flex items-center gap-2 text-sm text-gray-400 hover:text-lang"
               >
@@ -975,7 +972,7 @@ function ReviewSessionInner({
                 type="button"
                 aria-pressed={listening}
                 onClick={() => setListeningMode(!listeningMode)}
-                title="Hide the sentence and fill the blank by ear"
+                title={t('review.listeningTitle')}
                 className={`ms-auto text-sm rounded-full px-3 py-1 border transition ${
                   listening
                     ? 'border-lang/40 bg-lang-soft text-lang'
@@ -993,7 +990,7 @@ function ReviewSessionInner({
                 type="button"
                 onClick={() => session.advance()}
                 className="hover:text-lang"
-                title="Move on without answering — the card stays scheduled"
+                title={t('review.skipTitle')}
               >
                 {t('review.skip')}
               </button>
@@ -1010,7 +1007,7 @@ function ReviewSessionInner({
                   }}
                   disabled={knownMutation.isPending}
                   className="hover:text-lang disabled:opacity-50"
-                  title="I already know this — stop scheduling it"
+                  title={t('review.retireTitle')}
                 >
                   {t('review.retire')}
                 </button>
@@ -1094,14 +1091,14 @@ function ReviewSessionInner({
                       languageCode={card.language_code}
                       label={
                         completedSentence === card.correct_answer
-                          ? `Hear "${card.correct_answer}"`
-                          : 'Hear the full sentence'
+                          ? t('review.hearAnswer', { word: card.correct_answer })
+                          : t('review.hearFullSentence')
                       }
                     />
                     {/* Distinguish this from the word audio above — this speaker
                         plays the whole sentence, that one just the answer word. */}
                     {completedSentence !== card.correct_answer && (
-                      <span className="text-[11px] tracking-wide">sentence</span>
+                      <span className="text-[11px] tracking-wide">{t('review.sentenceTag')}</span>
                     )}
                   </span>
                   <span className="flex-1 text-center font-semibold">
@@ -1128,7 +1125,7 @@ function ReviewSessionInner({
                     }}
                     className="text-xs text-gray-400 hover:text-lang"
                   >
-                    <Undo2 aria-hidden className="me-0.5 inline h-3.5 w-3.5 align-[-2px]" />Undo
+                    <Undo2 aria-hidden className="me-0.5 inline h-3.5 w-3.5 align-[-2px]" />{t('review.undo')}
                   </button>
                   {(session.validationResult.answer_result === 'correct' ||
                     session.validationResult.answer_result === 'correct_sloppy') && (

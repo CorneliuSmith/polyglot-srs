@@ -1,21 +1,39 @@
 import { useEffect, useState } from 'react'
+import { useTranslation } from 'react-i18next'
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query'
 import { usePrefsStore } from '../../stores/prefsStore'
 import {
   getRecoProfile,
   getRecommendations,
   updateRecoProfile,
-  MEDIA_TYPE_LABELS,
 } from '../../api/recommendations'
 
-const GENRES = [
-  'Fiction', 'Non-fiction', 'Sci-fi & fantasy', 'Mystery & thriller',
-  'Romance', 'History', 'Comedy', 'Drama', 'Documentary',
-  'News & current affairs', 'Science & tech', 'True crime',
-  'Sports', 'Kids & family', 'Travel & food',
+/** `value` is what the saved profile stores and the server matches on —
+ * stable, never localized. `key` picks the display label from the catalog
+ * (recoSettings.genres.<key>) at render time. */
+const GENRES: { value: string; key: string }[] = [
+  { value: 'Fiction', key: 'fiction' },
+  { value: 'Non-fiction', key: 'nonFiction' },
+  { value: 'Sci-fi & fantasy', key: 'scifiFantasy' },
+  { value: 'Mystery & thriller', key: 'mysteryThriller' },
+  { value: 'Romance', key: 'romance' },
+  { value: 'History', key: 'history' },
+  { value: 'Comedy', key: 'comedy' },
+  { value: 'Drama', key: 'drama' },
+  { value: 'Documentary', key: 'documentary' },
+  { value: 'News & current affairs', key: 'news' },
+  { value: 'Science & tech', key: 'scienceTech' },
+  { value: 'True crime', key: 'trueCrime' },
+  { value: 'Sports', key: 'sports' },
+  { value: 'Kids & family', key: 'kidsFamily' },
+  { value: 'Travel & food', key: 'travelFood' },
   // Music genres (music is a media TYPE below; these steer which music).
-  'Pop', 'Rock & indie', 'Hip-hop & rap', 'Folk & acoustic',
-  'Electronic', 'Jazz & soul',
+  { value: 'Pop', key: 'pop' },
+  { value: 'Rock & indie', key: 'rockIndie' },
+  { value: 'Hip-hop & rap', key: 'hiphopRap' },
+  { value: 'Folk & acoustic', key: 'folkAcoustic' },
+  { value: 'Electronic', key: 'electronic' },
+  { value: 'Jazz & soul', key: 'jazzSoul' },
 ]
 const MEDIA = ['book', 'film', 'series', 'podcast', 'music']
 
@@ -26,6 +44,7 @@ const MEDIA = ['book', 'film', 'series', 'podcast', 'music']
  * themselves need tutor+; a note says so).
  */
 export default function RecoSettings() {
+  const { t } = useTranslation()
   const activeLanguageId = usePrefsStore((s) => s.activeLanguageId)
   const queryClient = useQueryClient()
 
@@ -74,17 +93,14 @@ export default function RecoSettings() {
     <section className="bg-white rounded-2xl shadow-sm border border-gray-100 p-5 space-y-4">
       <div className="flex items-start justify-between gap-4">
         <div>
-          <h2 className="font-semibold text-gray-800">Recommendations</h2>
-          <p className="text-xs text-gray-500">
-            Get the occasional book, film, series, or podcast in your target
-            language — picked for your level and interests, about once a week.
-          </p>
+          <h2 className="font-semibold text-gray-800">{t('recoSettings.title')}</h2>
+          <p className="text-xs text-gray-500">{t('recoSettings.desc')}</p>
         </div>
         <button
           type="button"
           role="switch"
           aria-checked={enabled}
-          aria-label="Recommendations"
+          aria-label={t('recoSettings.title')}
           onClick={() => { setEnabled((v) => !v); touch() }}
           className={
             'relative shrink-0 inline-flex h-6 w-11 items-center rounded-full transition-colors ' +
@@ -101,42 +117,41 @@ export default function RecoSettings() {
       </div>
 
       {state && !state.entitled && (
-        <p className="text-xs text-amber-600">
-          Receiving picks needs a Plus subscription for this language — you can
-          still set up your profile now.
-        </p>
+        <p className="text-xs text-amber-600">{t('recoSettings.needsPlus')}</p>
       )}
 
       {enabled && (
         <div className="space-y-4 pt-1">
           <div>
             <label className="block text-sm font-medium text-gray-700 mb-1">
-              About you
+              {t('recoSettings.aboutLabel')}
             </label>
             <textarea
               value={about}
               onChange={(e) => { setAbout(e.target.value); touch() }}
               maxLength={1000}
               rows={3}
-              placeholder="What do you like to read and watch? Hobbies, favourite authors or shows, topics you love…"
+              placeholder={t('recoSettings.aboutPlaceholder')}
               className="w-full rounded-xl border border-gray-200 px-3 py-2 text-sm focus:border-lang focus:outline-none"
             />
             <p className="mt-1 text-[11px] text-gray-400">
-              The more you share, the better the picks.
+              {t('recoSettings.aboutHint')}
             </p>
           </div>
 
           <div>
-            <p className="text-sm font-medium text-gray-700 mb-2">Genres</p>
+            <p className="text-sm font-medium text-gray-700 mb-2">
+              {t('recoSettings.genresTitle')}
+            </p>
             <div className="flex flex-wrap gap-2">
               {GENRES.map((g) => {
-                const on = genres.includes(g)
+                const on = genres.includes(g.value)
                 return (
                   <button
-                    key={g}
+                    key={g.value}
                     type="button"
                     aria-pressed={on}
-                    onClick={() => { setGenres((l) => toggleIn(l, g)); touch() }}
+                    onClick={() => { setGenres((l) => toggleIn(l, g.value)); touch() }}
                     className={
                       'rounded-full border px-3 py-1 text-xs transition-colors ' +
                       (on
@@ -144,7 +159,7 @@ export default function RecoSettings() {
                         : 'border-gray-200 text-gray-600 hover:border-lang/50')
                     }
                   >
-                    {g}
+                    {t(`recoSettings.genres.${g.key}`)}
                   </button>
                 )
               })}
@@ -153,7 +168,7 @@ export default function RecoSettings() {
 
           <div>
             <p className="text-sm font-medium text-gray-700 mb-2">
-              What to recommend
+              {t('recoSettings.mediaTitle')}
             </p>
             <div className="flex flex-wrap gap-2">
               {MEDIA.map((m) => {
@@ -171,13 +186,13 @@ export default function RecoSettings() {
                         : 'border-gray-200 text-gray-600 hover:border-lang/50')
                     }
                   >
-                    {MEDIA_TYPE_LABELS[m]}
+                    {t(`recoSettings.media.${m}`)}
                   </button>
                 )
               })}
             </div>
             <p className="mt-1 text-[11px] text-gray-400">
-              Leave all off to let us pick across everything.
+              {t('recoSettings.mediaHint')}
             </p>
           </div>
         </div>
@@ -191,10 +206,12 @@ export default function RecoSettings() {
             disabled={save.isPending}
             className="bg-lang hover:bg-lang-dark disabled:opacity-50 text-lang-on font-semibold rounded-xl px-4 py-2 text-sm"
           >
-            {save.isPending ? 'Saving…' : 'Save'}
+            {save.isPending ? t('recoSettings.saving') : t('recoSettings.save')}
           </button>
           {save.isError && (
-            <span className="text-xs text-amber-600">Couldn’t save — try again.</span>
+            <span className="text-xs text-amber-600">
+              {t('recoSettings.saveError')}
+            </span>
           )}
         </div>
       )}

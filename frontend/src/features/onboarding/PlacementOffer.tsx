@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { Trans, useTranslation } from 'react-i18next'
 import { useQuery } from '@tanstack/react-query'
 import { getPlacementHistory } from '../../api/onboarding'
 import { getLanguages } from '../../api/profile'
@@ -19,6 +20,7 @@ export default function PlacementOffer({
 }: {
   languageId: string | null
 }) {
+  const { t } = useTranslation()
   const dismissed = usePrefsStore((s) => s.placementOfferDismissed)
   const dismiss = usePrefsStore((s) => s.dismissPlacementOffer)
   const [testing, setTesting] = useState(false)
@@ -58,24 +60,21 @@ export default function PlacementOffer({
       className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 px-4"
       role="dialog"
       aria-modal="true"
-      aria-label={`Place your ${language.name}`}
+      aria-label={t('placement.offerDialogLabel', { language: language.name })}
       data-testid="placement-offer"
     >
       <div className="w-full max-w-md rounded-2xl bg-white p-5 shadow-xl space-y-3">
         <p className="text-xs uppercase tracking-wide text-lang font-semibold">
-          New to {language.name} here
+          {t('placement.offerKicker', { language: language.name })}
         </p>
         <h2 className="text-base font-semibold text-gray-900">
-          Want to find your starting level?
+          {t('placement.offerTitle')}
         </h2>
         <p className="text-sm text-gray-600">
-          A short test that adapts to your answers — most people finish in 5–8
-          questions. We&apos;ll use the result to queue grammar and vocabulary
-          that actually fits you, instead of starting you at A1 by default.
+          {t('placement.offerBody')}
         </p>
         <p className="text-xs text-gray-500">
-          Not now is fine — you can take it, and retake it, <b>any time</b> from
-          Settings &rarr; Your level.
+          <Trans i18nKey="placement.offerNotNow" components={{ b: <b /> }} />
         </p>
         <div className="flex gap-2">
           <button
@@ -84,7 +83,7 @@ export default function PlacementOffer({
             className="flex-1 rounded-xl bg-lang text-lang-on px-4 py-2.5 text-sm font-semibold hover:bg-lang-dark"
             style={{ minHeight: '44px' }}
           >
-            Take the test
+            {t('placement.takeTest')}
           </button>
           <button
             type="button"
@@ -92,7 +91,7 @@ export default function PlacementOffer({
             className="rounded-xl border border-gray-300 px-4 py-2.5 text-sm text-gray-600 hover:bg-gray-50"
             style={{ minHeight: '44px' }}
           >
-            Not now
+            {t('placement.notNow')}
           </button>
         </div>
       </div>

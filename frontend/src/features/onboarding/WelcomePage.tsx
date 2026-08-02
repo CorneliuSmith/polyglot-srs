@@ -9,6 +9,7 @@ import {
 } from 'lucide-react'
 import type { LucideIcon } from 'lucide-react'
 import { useNavigate } from 'react-router-dom'
+import { useTranslation } from 'react-i18next'
 import { usePrefsStore } from '../../stores/prefsStore'
 
 /** Post-placement walkthrough (beta request: "nothing popped up showing
@@ -19,55 +20,50 @@ import { usePrefsStore } from '../../stores/prefsStore'
 const TOOLS: {
   route: string
   icon: LucideIcon
-  name: string
-  blurb: string
+  nameKey: string
+  blurbKey: string
 }[] = [
   {
     route: '/',
     icon: Inbox,
-    name: 'Reviews',
-    blurb:
-      'Your daily queue, on the dashboard. A few minutes here every day is the whole game — each card comes back right before you would forget it.',
+    nameKey: 'welcome.reviewsName',
+    blurbKey: 'welcome.reviewsBlurb',
   },
   {
     route: '/grammar',
     icon: Route,
-    name: 'Grammar Path',
-    blurb:
-      'The full grammar of your language, A1 to C2, in order. Read a point, then drill it in real sentences until it sticks.',
+    nameKey: 'welcome.grammarPathName',
+    blurbKey: 'welcome.grammarPathBlurb',
   },
   {
     route: '/tutor',
     icon: MessagesSquare,
-    name: 'Tutor',
-    blurb:
-      'Conversation practice that knows your cards. It steers toward your weak spots and can flag cards you clearly already know.',
+    nameKey: 'welcome.tutorName',
+    blurbKey: 'welcome.tutorBlurb',
   },
   {
     route: '/read',
     icon: BookOpen,
-    name: 'The Reader',
-    blurb:
-      'Short readings matched to your level. Tap any word to look it up and save it as a card.',
+    nameKey: 'welcome.readerName',
+    blurbKey: 'welcome.readerBlurb',
   },
   {
     route: '/letters',
     icon: Languages,
-    name: 'Letters & Sounds',
-    blurb:
-      'The alphabet and pronunciation of your language, with audio for every letter and sound.',
+    nameKey: 'welcome.lettersName',
+    blurbKey: 'welcome.lettersBlurb',
   },
   {
     route: '/decks',
     icon: FolderOpen,
-    name: 'Decks & Search',
-    blurb:
-      'Browse every vocabulary and grammar deck from A1 to C2, cram any set, or search for anything.',
+    nameKey: 'welcome.decksName',
+    blurbKey: 'welcome.decksBlurb',
   },
 ]
 
 export default function WelcomePage() {
   const navigate = useNavigate()
+  const { t } = useTranslation()
   const setWalkthroughDone = usePrefsStore((s) => s.setWalkthroughDone)
 
   // This page IS the tour — don't also auto-open the slide modal the
@@ -81,17 +77,16 @@ export default function WelcomePage() {
     <div className="min-h-screen bg-gray-50">
       <div className="max-w-xl mx-auto px-4 py-10 space-y-6">
         <header>
-          <h1 className="text-2xl font-bold text-gray-900">Your toolkit</h1>
+          <h1 className="text-2xl font-bold text-gray-900">{t('welcome.title')}</h1>
           <p className="text-sm text-gray-500">
-            Everything in the app, one card each. Tap any of them to jump
-            straight in — or head to your dashboard and start reviewing.
+            {t('welcome.subtitle')}
           </p>
         </header>
 
         <div className="space-y-3">
           {TOOLS.map((tool) => (
             <button
-              key={tool.route + tool.name}
+              key={tool.route + tool.nameKey}
               type="button"
               onClick={() => navigate(tool.route)}
               className="w-full rounded-xl border border-gray-200 bg-white px-4 py-3 text-start hover:border-lang/50 hover:bg-lang-soft"
@@ -101,9 +96,9 @@ export default function WelcomePage() {
                 <tool.icon aria-hidden className="mt-0.5 h-5 w-5 shrink-0 text-lang" strokeWidth={1.75} />
                 <span>
                   <span className="block text-sm font-semibold text-gray-800">
-                    {tool.name}
+                    {t(tool.nameKey)}
                   </span>
-                  <span className="block text-xs text-gray-500">{tool.blurb}</span>
+                  <span className="block text-xs text-gray-500">{t(tool.blurbKey)}</span>
                 </span>
               </span>
             </button>
@@ -116,11 +111,11 @@ export default function WelcomePage() {
           className="w-full bg-lang hover:bg-lang-dark text-lang-on font-semibold rounded-xl px-6 py-3 text-sm"
           style={{ minHeight: '44px' }}
         >
-          Go to your dashboard
+          {t('welcome.goDashboard')}
         </button>
 
         <p className="text-xs text-gray-400 text-center">
-          You can reopen this tour any time from Settings.
+          {t('welcome.reopenNote')}
         </p>
       </div>
     </div>

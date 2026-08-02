@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import { Zap } from 'lucide-react'
+import { useTranslation } from 'react-i18next'
 import { useNavigate } from 'react-router-dom'
 import { useQuery } from '@tanstack/react-query'
 import { getCardDetail } from '../../api/review'
@@ -33,26 +34,27 @@ interface ReviewDetailProps {
 }
 
 function ProgressPanel({ progress }: { progress: CardProgress }) {
+  const { t, i18n } = useTranslation()
   const cells: { value: string; label: string }[] = [
-    { value: String(progress.times_studied), label: 'Times studied' },
+    { value: String(progress.times_studied), label: t('review.timesStudied') },
     {
       value:
         progress.accuracy != null ? `${Math.round(progress.accuracy * 100)}%` : '—',
-      label: 'Accuracy',
+      label: t('review.accuracy'),
     },
-    { value: String(progress.streak), label: 'Streak' },
-    { value: String(progress.misses), label: 'Misses' },
+    { value: String(progress.streak), label: t('review.streak') },
+    { value: String(progress.misses), label: t('review.misses') },
     {
       value: progress.first_studied
-        ? new Date(progress.first_studied).toLocaleDateString()
+        ? new Date(progress.first_studied).toLocaleDateString(i18n.language)
         : '—',
-      label: 'First studied',
+      label: t('review.firstStudied'),
     },
     {
       value: progress.next_review
-        ? new Date(progress.next_review).toLocaleDateString()
+        ? new Date(progress.next_review).toLocaleDateString(i18n.language)
         : '—',
-      label: 'Next review',
+      label: t('review.nextReview'),
     },
   ]
   return (
@@ -81,6 +83,7 @@ function ProgressPanel({ progress }: { progress: CardProgress }) {
  */
 export default function ReviewDetail({ cardId, cardType, languageCode, stats }: ReviewDetailProps) {
   const navigate = useNavigate()
+  const { t, i18n } = useTranslation()
   const [open, setOpen] = useState(false)
   const [showTranslations, setShowTranslations] = useState(false)
   const [editing, setEditing] = useState(false)
@@ -142,13 +145,13 @@ export default function ReviewDetail({ cardId, cardType, languageCode, stats }: 
         className="text-sm text-lang hover:underline touch-manipulation"
         style={{ minHeight: '44px' }}
       >
-        {open ? 'Hide info' : 'Show info'}
+        {open ? t('review.hideInfo') : t('review.showInfo')}
       </button>
 
       {open && (
         <div className="mt-2 space-y-4 text-sm" data-testid="review-detail">
-          {isLoading && <p className="text-gray-400">Loading…</p>}
-          {isError && <p className="text-red-500">Couldn’t load the details.</p>}
+          {isLoading && <p className="text-gray-400">{t('common.loading')}</p>}
+          {isError && <p className="text-red-500">{t('review.detailLoadError')}</p>}
 
           {data && (
             <>
@@ -169,7 +172,7 @@ export default function ReviewDetail({ cardId, cardType, languageCode, stats }: 
                 )}
                 {hintLanguage && (
                   <p className="mt-1 inline-block text-[11px] rounded-full px-2 py-0.5 bg-lang-soft text-lang">
-                    Hints in {hintLanguage}
+                    {t('review.hintsIn', { language: hintLanguage })}
                   </p>
                 )}
               </div>
@@ -185,7 +188,7 @@ export default function ReviewDetail({ cardId, cardType, languageCode, stats }: 
                         {stats.repetitions}
                       </span>
                       <span className="block text-[10px] uppercase tracking-wide text-gray-400">
-                        Times studied
+                        {t('review.timesStudied')}
                       </span>
                     </div>
                     <div>
@@ -193,7 +196,7 @@ export default function ReviewDetail({ cardId, cardType, languageCode, stats }: 
                         {stats.streak}
                       </span>
                       <span className="block text-[10px] uppercase tracking-wide text-gray-400">
-                        Streak
+                        {t('review.streak')}
                       </span>
                     </div>
                     <div>
@@ -201,17 +204,17 @@ export default function ReviewDetail({ cardId, cardType, languageCode, stats }: 
                         {stats.lapses}
                       </span>
                       <span className="block text-[10px] uppercase tracking-wide text-gray-400">
-                        Misses
+                        {t('review.misses')}
                       </span>
                     </div>
                     <div>
                       <span className="block text-base font-semibold text-gray-800">
                         {stats.next_review
-                          ? new Date(stats.next_review).toLocaleDateString()
+                          ? new Date(stats.next_review).toLocaleDateString(i18n.language)
                           : '—'}
                       </span>
                       <span className="block text-[10px] uppercase tracking-wide text-gray-400">
-                        Next review
+                        {t('review.nextReview')}
                       </span>
                     </div>
                   </div>
@@ -219,13 +222,13 @@ export default function ReviewDetail({ cardId, cardType, languageCode, stats }: 
               )}
               {data.card_type === 'grammar' && data.reviewed === false && (
                 <p className="inline-block text-xs rounded-full px-2 py-0.5 bg-gray-100 text-gray-500">
-                  Draft · pending expert review
+                  {t('review.draftPending')}
                 </p>
               )}
 
               {data.explanation && (
                 <div>
-                  <h3 className="font-semibold text-gray-700 mb-1">About</h3>
+                  <h3 className="font-semibold text-gray-700 mb-1">{t('review.about')}</h3>
                   <ExplanationView text={data.explanation} className="text-gray-700" />
                 </div>
               )}
@@ -239,7 +242,7 @@ export default function ReviewDetail({ cardId, cardType, languageCode, stats }: 
 
               {data.usage_note && (
                 <div>
-                  <h3 className="font-semibold text-gray-700 mb-1">Usage</h3>
+                  <h3 className="font-semibold text-gray-700 mb-1">{t('review.usage')}</h3>
                   <p className="text-gray-700 whitespace-pre-wrap">{data.usage_note}</p>
                 </div>
               )}
@@ -250,7 +253,7 @@ export default function ReviewDetail({ cardId, cardType, languageCode, stats }: 
                   onClick={() => setEditing(true)}
                   className="text-xs text-lang hover:underline"
                 >
-                  Suggest an edit
+                  {t('review.suggestEdit')}
                 </button>
               )}
               {editing && (
@@ -275,14 +278,14 @@ export default function ReviewDetail({ cardId, cardType, languageCode, stats }: 
               {data.examples.length > 0 && (
                 <div>
                   <div className="flex items-center justify-between mb-1">
-                    <h3 className="font-semibold text-gray-700">Examples</h3>
+                    <h3 className="font-semibold text-gray-700">{t('review.examples')}</h3>
                     <button
                       type="button"
                       onClick={() => setShowTranslations((v) => !v)}
                       aria-pressed={showTranslations}
                       className="text-xs text-lang hover:underline"
                     >
-                      {showTranslations ? 'Hide translations' : 'Show translations'}
+                      {showTranslations ? t('review.hideTranslations') : t('review.showTranslations')}
                     </button>
                   </div>
                   <ul className="space-y-2">
@@ -310,7 +313,7 @@ export default function ReviewDetail({ cardId, cardType, languageCode, stats }: 
 
               {ownSentences.length > 0 && (
                 <div>
-                  <h3 className="font-semibold text-gray-700 mb-1">Your sentences</h3>
+                  <h3 className="font-semibold text-gray-700 mb-1">{t('review.yourSentences')}</h3>
                   <ul className="space-y-2">
                     {ownSentences.map((ex, i) => (
                       <li key={i}>
@@ -336,7 +339,7 @@ export default function ReviewDetail({ cardId, cardType, languageCode, stats }: 
 
               {data.culture_note && (
                 <div className="bg-lang-soft border border-lang/20 rounded-lg p-3">
-                  <h3 className="font-semibold text-lang-dark mb-1">Culture note</h3>
+                  <h3 className="font-semibold text-lang-dark mb-1">{t('learnSession.cultureNote')}</h3>
                   <p className="text-lang-dark/80 whitespace-pre-wrap">{data.culture_note}</p>
                 </div>
               )}
@@ -357,7 +360,7 @@ export default function ReviewDetail({ cardId, cardType, languageCode, stats }: 
                       }
                       className="text-sm text-lang hover:underline"
                     >
-                      <Zap aria-hidden className="me-1 inline h-3.5 w-3.5 align-[-2px]" />Quick cram this + related (nothing recorded)
+                      <Zap aria-hidden className="me-1 inline h-3.5 w-3.5 align-[-2px]" />{t('review.quickCramRelated')}
                     </button>
                   )}
                 </>
@@ -376,7 +379,7 @@ export default function ReviewDetail({ cardId, cardType, languageCode, stats }: 
                 !data.definition &&
                 !data.usage_note &&
                 data.examples.length === 0 && (
-                  <p className="text-gray-400">No extra notes for this card yet.</p>
+                  <p className="text-gray-400">{t('review.noExtraNotes')}</p>
                 )}
             </>
           )}

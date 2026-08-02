@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { languageDisplayName } from '../../lib/languages'
 import UiLanguageSwitcher from '../../components/UiLanguageSwitcher'
-import { useTranslation } from 'react-i18next'
+import { Trans, useTranslation } from 'react-i18next'
 import { Headphones } from 'lucide-react'
 import { useNavigate } from 'react-router-dom'
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
@@ -243,7 +243,7 @@ export default function ReaderPage() {
                 ? 'border-green-400 text-green-800'
                 : 'border-amber-400 hover:bg-amber-50'
             } rounded-sm`}
-            title={isRevealed ? token.gloss : 'New word — tap to guess it'}
+            title={isRevealed ? token.gloss : t('reader.newWordTitle')}
           >
             {token.t}
           </button>
@@ -277,7 +277,7 @@ export default function ReaderPage() {
   if (!language) {
     return (
       <div className="min-h-screen bg-gray-50 flex items-center justify-center">
-        <p className="text-gray-500">Pick a language on the dashboard first.</p>
+        <p className="text-gray-500">{t('reader.pickLanguageFirst')}</p>
       </div>
     )
   }
@@ -395,7 +395,7 @@ export default function ReaderPage() {
               </div>
               {generateMutation.isError && (
                 <p className="text-xs text-red-600" role="alert">
-                  Couldn't write that one — try again, or a different topic.
+                  {t('reader.generateError')}
                 </p>
               )}
               <p className="text-[11px] text-gray-400">
@@ -420,7 +420,8 @@ export default function ReaderPage() {
                       {r.title}
                     </span>
                     <span className="text-xs text-gray-400">
-                      {r.topic} · {r.level ?? ''} · {r.new_word_count} new words
+                      {r.topic} · {r.level ?? ''} ·{' '}
+                      {t('reader.shelfNewWords', { count: r.new_word_count })}
                     </span>
                   </button>
                 ))}
@@ -436,11 +437,10 @@ export default function ReaderPage() {
                 className="rounded-xl border border-amber-200 bg-amber-50 px-4 py-3 text-xs text-amber-900"
                 data-testid="guess-banner"
               >
-                <span className="font-semibold">First pass: no translations.</span>{' '}
-                Words with a dotted underline are new — tap one, commit a
-                guess from the context, and only then see what it means. A
-                guess (even a wrong one) makes the word stick far better than
-                looking it up.
+                <Trans
+                  i18nKey="reader.guessBanner"
+                  components={{ b: <span className="font-semibold" /> }}
+                />
               </div>
             )}
 
@@ -454,11 +454,10 @@ export default function ReaderPage() {
                 {!earMode ? (
                   <>
                     <h2 className="text-lg font-bold text-gray-900">
-                      Your text is ready — ears first?
+                      {t('reader.listenTitle')}
                     </h2>
                     <p className="text-sm text-gray-600">
-                      Listening before you see the words trains real
-                      comprehension. You can reveal the text at any point.
+                      {t('reader.listenIntro')}
                     </p>
                     <div className="flex flex-wrap gap-2">
                       <button
@@ -467,7 +466,7 @@ export default function ReaderPage() {
                         className="rounded-xl bg-lang hover:bg-lang-dark text-lang-on font-semibold px-5 py-2.5 text-sm"
                         style={{ minHeight: '44px' }}
                       >
-                        <Headphones aria-hidden className="me-1.5 inline h-4 w-4 align-[-2px]" />Listen first
+                        <Headphones aria-hidden className="me-1.5 inline h-4 w-4 align-[-2px]" />{t('reader.listenFirst')}
                       </button>
                       <button
                         type="button"
@@ -475,15 +474,14 @@ export default function ReaderPage() {
                         className="rounded-xl border border-gray-300 bg-white hover:bg-gray-50 text-gray-700 font-semibold px-5 py-2.5 text-sm"
                         style={{ minHeight: '44px' }}
                       >
-                        Show me the text
+                        {t('reader.showMeText')}
                       </button>
                     </div>
                   </>
                 ) : (
                   <>
                     <p className="text-sm text-gray-600">
-                      Play each line and picture what's happening. When
-                      you've had a listen, reveal the text and read for real.
+                      {t('reader.listenLines')}
                     </p>
                     <ol className="space-y-2" data-testid="listen-lines">
                       {reading.sentences.map((sentence, sIdx) => (
@@ -510,7 +508,7 @@ export default function ReaderPage() {
                       className="w-full rounded-xl bg-lang hover:bg-lang-dark text-lang-on font-semibold px-6 py-3 text-sm"
                       style={{ minHeight: '44px' }}
                     >
-                      Show the text →
+                      {t('reader.showTextArrow')}
                     </button>
                   </>
                 )}
@@ -576,7 +574,7 @@ export default function ReaderPage() {
                                 : 'border-gray-200 text-gray-500 hover:border-lang/50 hover:text-lang'
                             }`}
                           >
-                            Translation
+                            {t('reader.translation')}
                           </button>
                           <button
                             type="button"
@@ -604,8 +602,8 @@ export default function ReaderPage() {
                           >
                             {explainMutation.isPending &&
                             explainMutation.variables === sIdx
-                              ? 'Explaining…'
-                              : 'Grammar'}
+                              ? t('reader.explaining')
+                              : t('common.grammar')}
                           </button>
                         </div>
                       )}
@@ -618,7 +616,7 @@ export default function ReaderPage() {
                           {stage === 'assisted' && openTranslations.has(sIdx) && (
                             <p className="text-sm text-gray-600">
                               <span className="me-2 text-[10px] uppercase tracking-wide text-gray-400">
-                                Translation
+                                {t('reader.translation')}
                               </span>
                               {sentence.translation}
                             </p>
@@ -626,7 +624,7 @@ export default function ReaderPage() {
                           {explanations[sIdx] && shownExplanations.has(sIdx) && (
                             <div data-testid="sentence-explanation">
                               <span className="block text-[10px] uppercase tracking-wide text-gray-400 mb-1">
-                                Grammar
+                                {t('common.grammar')}
                               </span>
                               <ExplanationView
                                 text={explanations[sIdx]}
@@ -650,17 +648,21 @@ export default function ReaderPage() {
               >
                 {guessAttempt === 0 ? (
                   <p className="text-sm text-gray-700">
-                    What do you think{' '}
-                    <span className="font-semibold">
-                      {reading.sentences[guessing.s].tokens[guessing.t].t.replace(/[.,;:!?¿¡«»""]+$/u, '')}
-                    </span>{' '}
-                    means here?
+                    <Trans
+                      i18nKey="reader.guessQuestion"
+                      values={{
+                        word: reading.sentences[guessing.s].tokens[guessing.t].t.replace(/[.,;:!?¿¡«»""]+$/u, ''),
+                      }}
+                      components={{ w: <span className="font-semibold" /> }}
+                    />
                   </p>
                 ) : (
                   <p className="text-sm text-gray-700" data-testid="second-chance">
-                    You said <span className="font-semibold">“{firstGuess}”</span>.
-                    Read the sentence once more — does it still fit? One more
-                    guess, then the meaning.
+                    <Trans
+                      i18nKey="reader.secondChance"
+                      values={{ guess: firstGuess }}
+                      components={{ g: <span className="font-semibold" /> }}
+                    />
                   </p>
                 )}
                 <form
@@ -675,8 +677,8 @@ export default function ReaderPage() {
                     onChange={(e) => setGuessText(e.target.value)}
                     placeholder={
                       guessAttempt === 0
-                        ? 'Your guess — from the context'
-                        : 'Refine it — or stand by your first guess'
+                        ? t('reader.guessPlaceholderFirst')
+                        : t('reader.guessPlaceholderSecond')
                     }
                     autoFocus
                     className="flex-1 rounded-lg border border-gray-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-lang bg-white"
@@ -686,22 +688,19 @@ export default function ReaderPage() {
                     className="rounded-lg bg-lang hover:bg-lang-dark text-lang-on px-4 py-2 text-sm font-semibold"
                     style={{ minHeight: '44px' }}
                   >
-                    {guessAttempt === 0 && guessText.trim() ? 'Lock it in' : 'Reveal'}
+                    {guessAttempt === 0 && guessText.trim() ? t('reader.lockItIn') : t('reader.reveal')}
                   </button>
                 </form>
                 <p className="text-[11px] text-gray-400">
                   {guessAttempt === 0 ? (
-                    <>
-                      No idea? Guess anyway — that&apos;s the exercise. Two tries,
-                      then the meaning shows.
-                    </>
+                    <>{t('reader.noIdea')}</>
                   ) : (
                     <button
                       type="button"
                       onClick={revealGuess}
                       className="underline hover:text-gray-600"
                     >
-                      Standing by my first guess — show the meaning
+                      {t('reader.standByGuess')}
                     </button>
                   )}
                 </p>
@@ -715,7 +714,7 @@ export default function ReaderPage() {
                 className="w-full rounded-xl border border-gray-300 bg-white hover:bg-gray-50 text-gray-700 font-semibold px-6 py-3 text-sm"
                 style={{ minHeight: '44px' }}
               >
-                I've read it once — unlock translations
+                {t('reader.unlockTranslations')}
               </button>
             )}
 
@@ -725,13 +724,15 @@ export default function ReaderPage() {
                 data-testid="new-words"
               >
                 <p className="text-xs uppercase tracking-wide text-gray-400">
-                  New words from this text
+                  {t('reader.newWordsTitle')}
                 </p>
                 {savedDeck && (
                   <p className="text-xs text-gray-500" data-testid="saved-deck">
-                    Saved words go to your{' '}
-                    <span className="font-medium text-gray-700">{savedDeck}</span>{' '}
-                    deck — find them under Decks.
+                    <Trans
+                      i18nKey="reader.savedDeckNote"
+                      values={{ deck: savedDeck }}
+                      components={{ d: <span className="font-medium text-gray-700" /> }}
+                    />
                   </p>
                 )}
                 {reading.new_words.map((w) => (
@@ -748,13 +749,13 @@ export default function ReaderPage() {
                         className="inline-flex items-center gap-1 text-xs font-semibold text-green-700"
                         data-testid="word-added"
                       >
-                        ✓ Added
+                        {t('reader.added')}
                       </span>
                     ) : (
                       <span className="flex items-center gap-2">
                         {failedWords.has(w.word) && (
                           <span className="text-xs text-red-600" role="alert">
-                            Couldn't add
+                            {t('reader.addFailed')}
                           </span>
                         )}
                         <button
@@ -778,10 +779,10 @@ export default function ReaderPage() {
                         >
                           {addWordMutation.isPending &&
                           addWordMutation.variables?.word === w.word
-                            ? 'Adding…'
+                            ? t('reader.adding')
                             : failedWords.has(w.word)
-                              ? 'Retry'
-                              : 'Add to reviews'}
+                              ? t('reader.retry')
+                              : t('reader.addToReviews')}
                         </button>
                       </span>
                     )}

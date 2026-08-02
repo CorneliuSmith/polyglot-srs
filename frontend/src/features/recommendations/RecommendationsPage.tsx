@@ -1,4 +1,5 @@
 import { useEffect, useRef } from 'react'
+import { useTranslation } from 'react-i18next'
 import UiLanguageSwitcher from '../../components/UiLanguageSwitcher'
 import {
   BookOpen,
@@ -16,7 +17,6 @@ import {
   getRecommendations,
   refreshRecommendations,
   markRecommendationsSeen,
-  MEDIA_TYPE_LABELS,
   type RecoBatch,
   type RecoItem,
 } from '../../api/recommendations'
@@ -29,16 +29,17 @@ const MEDIA_TYPE_ICONS: Record<string, LucideIcon> = {
   music: Music,
 }
 
-function formatDate(iso: string): string {
+function formatDate(iso: string, locale: string): string {
   const d = new Date(iso)
-  return d.toLocaleDateString(undefined, {
+  return d.toLocaleDateString(locale, {
     year: 'numeric', month: 'long', day: 'numeric',
   })
 }
 
 function RecoCard({ item }: { item: RecoItem }) {
+  const { t } = useTranslation()
   const Icon = MEDIA_TYPE_ICONS[item.type] ?? Sparkles
-  const label = MEDIA_TYPE_LABELS[item.type] ?? item.type
+  const label = t(`recos.mediaTypes.${item.type}`, { defaultValue: item.type })
   return (
     <div className="bg-white rounded-2xl border border-gray-100 shadow-sm p-4">
       <div className="flex items-center gap-2 mb-1">
@@ -66,7 +67,7 @@ function RecoCard({ item }: { item: RecoItem }) {
       <p className="mt-2 text-sm text-gray-700">{item.blurb}</p>
       {item.why && (
         <p className="mt-2 text-sm text-lang-dark bg-lang-soft/50 rounded-lg px-3 py-2">
-          <span className="font-medium">Why this fits you: </span>
+          <span className="font-medium">{t('recos.whyFits')}</span>
           {item.why}
         </p>
       )}
@@ -75,11 +76,14 @@ function RecoCard({ item }: { item: RecoItem }) {
 }
 
 function Batch({ batch, heading }: { batch: RecoBatch; heading: string }) {
+  const { i18n } = useTranslation()
   return (
     <section className="space-y-3" data-testid="reco-batch">
       <div className="flex items-baseline justify-between">
         <h2 className="text-sm font-semibold text-gray-700">{heading}</h2>
-        <span className="text-xs text-gray-400">{formatDate(batch.created_at)}</span>
+        <span className="text-xs text-gray-400">
+          {formatDate(batch.created_at, i18n.language)}
+        </span>
       </div>
       <div className="grid gap-3 sm:grid-cols-2">
         {batch.items.map((item, i) => (
@@ -92,6 +96,7 @@ function Batch({ batch, heading }: { batch: RecoBatch; heading: string }) {
 
 export default function RecommendationsPage() {
   const navigate = useNavigate()
+  const { t, i18n } = useTranslation()
   const activeLanguageId = usePrefsStore((s) => s.activeLanguageId)
   const queryClient = useQueryClient()
 
@@ -151,29 +156,27 @@ export default function RecommendationsPage() {
               onClick={() => navigate('/')}
               className="text-sm text-gray-500 hover:text-lang"
             >
-              ← Dashboard
+              {t('common.backToDashboard')}
             </button>
             <UiLanguageSwitcher />
           </span>
-          <h1 className="text-lg font-bold text-gray-900">Recommended for you</h1>
+          <h1 className="text-lg font-bold text-gray-900">{t('dashboard.recommendedTitle')}</h1>
         </div>
 
-        {isLoading && <p className="text-sm text-gray-400">Loading…</p>}
+        {isLoading && <p className="text-sm text-gray-400">{t('common.loading')}</p>}
 
         {/* Feature off → point to Settings. */}
         {data && !data.enabled && (
           <div className="bg-white rounded-2xl border border-gray-100 shadow-sm p-5 text-sm text-gray-600 space-y-3">
             <p>
-              Turn on recommendations to get the occasional book, film, series,
-              or podcast in your target language — picked for your level and
-              your interests.
+              {t('recos.turnOn')}
             </p>
             <button
               type="button"
               onClick={() => navigate('/account')}
               className="text-lang font-medium hover:underline"
             >
-              Set it up in Settings →
+              {t('recos.setUpSettings')}
             </button>
           </div>
         )}
@@ -181,10 +184,9 @@ export default function RecommendationsPage() {
         {/* On but not entitled → tutor+ upsell. */}
         {data?.enabled && !data.entitled && (
           <div className="bg-white rounded-2xl border border-gray-100 shadow-sm p-5 text-sm text-gray-600 space-y-2">
-            <p className="font-medium text-gray-800">A Plus feature</p>
+            <p className="font-medium text-gray-800">{t('recos.plusFeature')}</p>
             <p>
-              Personalized recommendations are part of Plus. Upgrade for this
-              language to get a fresh, level-matched pick list every week.
+              {t('recos.plusUpsell')}
             </p>
           </div>
         )}
@@ -200,14 +202,14 @@ export default function RecommendationsPage() {
               aria-hidden
             />
             <p className="text-sm text-gray-600">
-              Putting together this week’s picks for you…
+              {t('recos.drafting')}
             </p>
           </div>
         )}
 
         {data?.enabled && data.entitled && refreshStatus === 402 && (
           <p className="text-sm text-amber-600">
-            Recommendations need a Plus subscription for this language.
+            {t('recos.needPlus')}
           </p>
         )}
 
@@ -223,32 +225,35 @@ export default function RecommendationsPage() {
               className="rounded-lg bg-lang hover:bg-lang-dark text-lang-on font-semibold px-4 py-2 text-sm"
               style={{ minHeight: '44px' }}
             >
-              {batches.length === 0 ? 'Get my picks' : 'Get new picks'}
+              {batches.length === 0 ? t('recos.getMyPicks') : t('recos.getNewPicks')}
             </button>
             <span className="text-xs text-gray-500">
-              Matched to where you are right now.
+              {t('recos.matchedNow')}
             </span>
           </div>
         )}
 
         {refreshStatus === 429 && (
           <p className="text-sm text-amber-600">
-            You’ve asked for a few fresh batches already — try again a bit
-            later.
+            {t('recos.rateLimited')}
           </p>
         )}
 
         {/* This week + history. */}
         {batches.length > 0 && (
           <div className="space-y-8">
-            <Batch batch={batches[0]} heading="This week’s picks" />
+            <Batch batch={batches[0]} heading={t('recos.thisWeeksPicks')} />
             {batches.length > 1 && (
               <div className="space-y-6">
                 <h2 className="text-xs uppercase tracking-wide text-gray-400">
-                  Earlier recommendations
+                  {t('recos.earlier')}
                 </h2>
                 {batches.slice(1).map((b) => (
-                  <Batch key={b.id} batch={b} heading={formatDate(b.created_at)} />
+                  <Batch
+                    key={b.id}
+                    batch={b}
+                    heading={formatDate(b.created_at, i18n.language)}
+                  />
                 ))}
               </div>
             )}
@@ -258,7 +263,7 @@ export default function RecommendationsPage() {
         {data?.enabled && data.entitled && !drafting && batches.length === 0 &&
           refreshStatus !== 402 && (
             <p className="text-sm text-gray-500">
-              No recommendations yet — check back soon.
+              {t('recos.noneYet')}
             </p>
           )}
       </div>

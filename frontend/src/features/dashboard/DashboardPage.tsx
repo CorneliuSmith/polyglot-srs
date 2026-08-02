@@ -85,7 +85,7 @@ export function DeckRow({ deck, onLearn }: { deck: LearnDeck; onLearn: (d: Learn
   const { t } = useTranslation()
   const [open, setOpen] = useState(false)
   const pct = deck.total > 0 ? Math.round((deck.learned / deck.total) * 100) : 0
-  const label = `${deck.level ?? 'All'} · ${deck.list_type === 'grammar' ? t('common.grammar') : t('common.vocab')}`
+  const label = `${deck.level ?? t('dashboard.allLevel')} · ${deck.list_type === 'grammar' ? t('common.grammar') : t('common.vocab')}`
   const done = deck.total > 0 && deck.learned >= deck.total
 
   const subMutation = useMutation({
@@ -139,7 +139,7 @@ export function DeckRow({ deck, onLearn }: { deck: LearnDeck; onLearn: (d: Learn
               type="button"
               onClick={() => onLearn(deck)}
               disabled={done}
-              title={done ? 'Deck complete' : 'Start learning from this deck'}
+              title={done ? t('dashboard.deckComplete') : t('dashboard.startLearningDeck')}
               className="rounded-lg bg-lang hover:bg-lang-dark disabled:opacity-40 text-lang-on text-xs font-semibold px-3 py-1.5"
             >
               {t('dashboard.deckLearn')}
@@ -148,8 +148,8 @@ export function DeckRow({ deck, onLearn }: { deck: LearnDeck; onLearn: (d: Learn
               type="button"
               onClick={() => setOpen((v) => !v)}
               aria-expanded={open}
-              aria-label={`Deck options for ${label}`}
-              title="Add to queue, reset, or browse this deck"
+              aria-label={t('dashboard.deckOptionsFor', { label })}
+              title={t('dashboard.deckOptionsHint')}
               className={`rounded-lg border px-2 py-1.5 text-xs transition-colors ${
                 open
                   ? 'border-lang/40 bg-lang-soft text-lang'
@@ -180,7 +180,7 @@ export function DeckRow({ deck, onLearn }: { deck: LearnDeck; onLearn: (d: Learn
                   onClick={() => subMutation.mutate(false)}
                   disabled={subMutation.isPending}
                   className="text-gray-500 hover:text-red-600"
-                  title="Stops new cards from this deck. Cards you already learned keep their schedule."
+                  title={t('dashboard.removeFromQueueHint')}
                 >
                   {t('dashboard.removeFromQueue')}
                 </button>
@@ -203,7 +203,7 @@ export function DeckRow({ deck, onLearn }: { deck: LearnDeck; onLearn: (d: Learn
                   onClick={handleReset}
                   disabled={resetMutation.isPending}
                   className="text-gray-400 hover:text-red-600"
-                  title="Permanently deletes this deck's cards and their review history."
+                  title={t('dashboard.resetProgressHint')}
                 >
                   {t('dashboard.resetProgress')}
                 </button>
@@ -562,7 +562,7 @@ export default function DashboardPage() {
                   type="button"
                   onClick={handleLearnStart}
                   disabled={!activeLanguageId}
-                  title="Start learning new items from your queue"
+                  title={t('dashboard.learnStartHint')}
                   className="flex-1 min-w-0 text-start rounded-xl hover:bg-white/10 disabled:opacity-50 p-2 transition-colors"
                   style={{ minHeight: '44px' }}
                 >
@@ -597,8 +597,8 @@ export default function DashboardPage() {
                   type="button"
                   onClick={() => setLearnOpen((v) => !v)}
                   aria-expanded={learnOpen}
-                  aria-label="Learn queue decks"
-                  title="Choose and manage your learn decks"
+                  aria-label={t('dashboard.learnDecksAria')}
+                  title={t('dashboard.learnDecksHint')}
                   className={`self-center rounded-xl border border-white/25 px-2.5 py-2 text-sm transition-colors ${
                     learnOpen ? 'bg-white/20' : 'hover:bg-white/10'
                   }`}
@@ -617,7 +617,7 @@ export default function DashboardPage() {
                   type="button"
                   onClick={handleReview}
                   disabled={stats.due_count === 0}
-                  title="Review everything that's due"
+                  title={t('dashboard.reviewAllHint')}
                   className="flex-1 min-w-0 text-start rounded-xl hover:bg-black/10 disabled:opacity-50 p-2 transition-colors"
                   style={{ minHeight: '44px' }}
                 >
@@ -631,8 +631,8 @@ export default function DashboardPage() {
                   type="button"
                   onClick={() => setReviewOpen((v) => !v)}
                   aria-expanded={reviewOpen}
-                  aria-label="Review options"
-                  title="Grammar-only or vocab-only reviews"
+                  aria-label={t('dashboard.reviewOptionsAria')}
+                  title={t('dashboard.reviewOptionsHint')}
                   className={`self-center rounded-xl border border-lang-on/25 px-2.5 py-2 text-sm transition-colors ${
                     reviewOpen ? 'bg-black/15' : 'hover:bg-black/10'
                   }`}

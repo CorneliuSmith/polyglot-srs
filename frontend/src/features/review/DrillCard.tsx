@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { useTranslation } from 'react-i18next'
 import { Headphones } from 'lucide-react'
 import LanguageWrapper from '../../components/LanguageWrapper'
 import { useTranslit } from '../keyboards/useTranslit'
@@ -41,6 +42,7 @@ function TranslitControls({
   onToggle: () => void
 }) {
   const [showGuide, setShowGuide] = useState(false)
+  const { t } = useTranslation()
   return (
     <div className="mt-3 text-xs">
       <div className="flex items-center justify-center gap-3 text-gray-400">
@@ -48,14 +50,14 @@ function TranslitControls({
           type="button"
           onClick={onToggle}
           aria-pressed={enabled}
-          title="Type Latin letters and they convert to the target script"
+          title={t('review.qwertyTitle')}
           className={`rounded-full px-2 py-0.5 border transition ${
             enabled
               ? 'border-lang/30 bg-lang-soft text-lang'
               : 'border-gray-200 text-gray-400 hover:text-gray-600'
           }`}
         >
-          QWERTY {enabled ? 'on' : 'off'}
+          {enabled ? t('review.qwertyOn') : t('review.qwertyOff')}
         </button>
         {enabled && (
           <button
@@ -64,7 +66,7 @@ function TranslitControls({
             aria-expanded={showGuide}
             className="text-lang hover:underline"
           >
-            {showGuide ? 'Hide key guide' : 'Key guide'}
+            {showGuide ? t('review.hideKeyGuide') : t('review.keyGuide')}
           </button>
         )}
       </div>
@@ -104,6 +106,7 @@ export default function DrillCard({
   result,
   hideSentence = false,
 }: DrillCardProps) {
+  const { t } = useTranslation()
   const translit = useTranslit(languageCode)
   const hasMarker = sentence.includes('{{answer}}')
   const inputTone = (result && RESULT_INPUT_STYLES[result]) ||
@@ -171,7 +174,7 @@ export default function DrillCard({
             onChange={(e) => handleChange(e.target.value)}
             onKeyDown={handleKeyDown}
             disabled={disabled}
-            placeholder="Type the word…"
+            placeholder={t('review.typeTheWord')}
             className={`min-w-[200px] border-b-2 ${inputTone} outline-none text-xl text-center py-1 bg-transparent text-base touch-manipulation`}
             style={{ minHeight: '44px' }}
             dir={resolvedDir}
@@ -203,7 +206,7 @@ export default function DrillCard({
         data-testid="listening-drill"
       >
         <p className="text-sm text-gray-400 text-center">
-          <Headphones aria-hidden className="me-1 inline h-4 w-4 align-[-2px]" />Listen — the pause is the missing word
+          <Headphones aria-hidden className="me-1 inline h-4 w-4 align-[-2px]" />{t('review.listenPause')}
         </p>
         <p
           className="text-lg text-gray-300 text-center tracking-widest select-none"

@@ -1,10 +1,10 @@
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
+import { useTranslation } from 'react-i18next'
 import { useNavigate } from 'react-router-dom'
 import { Sparkles, X } from 'lucide-react'
 import {
   getUnseenRecommendations,
   markRecommendationsSeen,
-  MEDIA_TYPE_LABELS,
 } from '../../api/recommendations'
 import { usePrefsStore } from '../../stores/prefsStore'
 
@@ -24,6 +24,7 @@ import { usePrefsStore } from '../../stores/prefsStore'
  */
 export default function NewPicksPrompt() {
   const navigate = useNavigate()
+  const { t } = useTranslation()
   const queryClient = useQueryClient()
   const activeLanguageId = usePrefsStore((s) => s.activeLanguageId)
 
@@ -55,17 +56,16 @@ export default function NewPicksPrompt() {
         <Sparkles aria-hidden className="mt-0.5 h-4 w-4 shrink-0 text-lang" />
         <div className="min-w-0 flex-1">
           <h2 className="font-semibold text-gray-800">
-            This week’s picks are ready
+            {t('recos.picksReady')}
           </h2>
           <p className="text-xs text-gray-600">
-            {batch.items.length} thing{batch.items.length === 1 ? '' : 's'} to
-            read, watch or listen to — chosen for your level.
+            {t('recos.picksCount', { count: batch.items.length })}
           </p>
         </div>
         <button
           type="button"
           onClick={() => dismiss.mutate()}
-          aria-label="Dismiss this week’s picks"
+          aria-label={t('recos.dismissPicks')}
           className="shrink-0 text-gray-400 hover:text-gray-600"
         >
           <X aria-hidden className="h-4 w-4" />
@@ -76,14 +76,14 @@ export default function NewPicksPrompt() {
         {preview.map((item, i) => (
           <li key={i} className="text-sm text-gray-700">
             <span className="text-[11px] uppercase tracking-wide text-gray-400">
-              {MEDIA_TYPE_LABELS[item.type] ?? item.type}
+              {t(`recos.mediaTypes.${item.type}`, { defaultValue: item.type })}
             </span>{' '}
             <span className="font-medium">{item.title}</span>
           </li>
         ))}
         {batch.items.length > preview.length && (
           <li className="text-xs text-gray-500">
-            and {batch.items.length - preview.length} more
+            {t('recos.andMore', { count: batch.items.length - preview.length })}
           </li>
         )}
       </ul>
@@ -99,7 +99,7 @@ export default function NewPicksPrompt() {
         className="rounded-lg bg-lang px-4 py-2 text-sm font-semibold text-lang-on hover:bg-lang-dark"
         style={{ minHeight: '44px' }}
       >
-        See this week’s picks
+        {t('recos.seePicks')}
       </button>
     </section>
   )

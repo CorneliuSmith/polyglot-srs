@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { Trans, useTranslation } from 'react-i18next'
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
 import {
   createPersonalDeck,
@@ -16,6 +17,7 @@ import {
  * they fall back to "Unfiled".
  */
 export default function PersonalDecksSection({ languageId }: { languageId: string }) {
+  const { t } = useTranslation()
   const queryClient = useQueryClient()
   const [newName, setNewName] = useState('')
   const [openDeckId, setOpenDeckId] = useState<string | null>(null)
@@ -66,14 +68,15 @@ export default function PersonalDecksSection({ languageId }: { languageId: strin
         data-testid="personal-decks-empty"
         className="bg-white rounded-2xl shadow-sm border border-gray-100 p-5 space-y-1"
       >
-        <h2 className="font-semibold text-gray-800">Your saved words</h2>
+        <h2 className="font-semibold text-gray-800">{t('decks.savedWordsTitle')}</h2>
         <p className="text-sm text-gray-600">
-          Words you save while reading, and cards the tutor makes for you,
-          collect here — filed into “From reading” and “From the tutor”.
+          {t('decks.savedWordsExplain')}
         </p>
         <p className="text-xs text-gray-500">
-          Nothing saved yet. Open <span className="font-medium">Read</span> and
-          tap “Add to reviews” on a word you want to keep.
+          <Trans
+            i18nKey="decks.savedWordsHint"
+            components={{ read: <span className="font-medium" /> }}
+          />
         </p>
       </section>
     )
@@ -86,20 +89,16 @@ export default function PersonalDecksSection({ languageId }: { languageId: strin
       name: d.name,
       cards: cards.filter((c) => c.deck_id === d.id),
     })),
-    { id: null, name: 'Unfiled', cards: unfiled },
+    { id: null, name: t('decks.unfiled'), cards: unfiled },
   ]
 
   const handleRename = (id: string, current: string) => {
-    const name = window.prompt('Rename deck', current)?.trim()
+    const name = window.prompt(t('decks.renamePrompt'), current)?.trim()
     if (name && name !== current) renameMutation.mutate({ id, name })
   }
 
   const handleDelete = (id: string, name: string) => {
-    if (
-      window.confirm(
-        `Delete "${name}"? Its cards are kept — they just move back to Unfiled.`,
-      )
-    ) {
+    if (window.confirm(t('decks.deleteDeckConfirm', { name }))) {
       deleteMutation.mutate(id)
     }
   }
@@ -107,9 +106,9 @@ export default function PersonalDecksSection({ languageId }: { languageId: strin
   return (
     <section className="space-y-3" data-testid="personal-decks">
       <h2 className="font-semibold text-gray-800">
-        Personal decks
+        {t('decks.personalDecks')}
         <span className="ms-2 text-xs font-normal text-gray-400">
-          your words from the Tutor and the Reader
+          {t('decks.personalDecksSub')}
         </span>
       </h2>
 
@@ -125,7 +124,7 @@ export default function PersonalDecksSection({ languageId }: { languageId: strin
           type="text"
           value={newName}
           onChange={(e) => setNewName(e.target.value)}
-          placeholder="New deck name…"
+          placeholder={t('decks.newDeckPlaceholder')}
           maxLength={60}
           className="flex-1 rounded-xl border border-gray-200 bg-white px-3 py-2 text-sm outline-none focus:border-lang/50"
         />
@@ -134,7 +133,7 @@ export default function PersonalDecksSection({ languageId }: { languageId: strin
           disabled={!newName.trim() || createMutation.isPending}
           className="rounded-xl bg-lang hover:bg-lang-dark disabled:opacity-40 text-lang-on text-sm font-semibold px-4 py-2"
         >
-          Create
+          {t('decks.create')}
         </button>
       </form>
 
@@ -156,7 +155,7 @@ export default function PersonalDecksSection({ languageId }: { languageId: strin
                 >
                   {g.name}
                   <span className="ms-2 text-xs font-normal text-gray-400">
-                    {g.cards.length} {g.cards.length === 1 ? 'card' : 'cards'}
+                    {t('decks.cardCount', { count: g.cards.length })}
                   </span>
                 </button>
                 {g.id !== null && (
@@ -166,14 +165,14 @@ export default function PersonalDecksSection({ languageId }: { languageId: strin
                       onClick={() => handleRename(g.id!, g.name)}
                       className="text-xs text-gray-400 hover:text-lang"
                     >
-                      Rename
+                      {t('decks.rename')}
                     </button>
                     <button
                       type="button"
                       onClick={() => handleDelete(g.id!, g.name)}
                       className="text-xs text-gray-400 hover:text-red-600"
                     >
-                      Delete
+                      {t('decks.delete')}
                     </button>
                   </>
                 )}
@@ -182,7 +181,7 @@ export default function PersonalDecksSection({ languageId }: { languageId: strin
                 <ul className="border-t border-gray-100 px-4 py-2 divide-y divide-gray-50">
                   {g.cards.length === 0 && (
                     <li className="py-2 text-xs text-gray-400">
-                      Empty — file cards here from Unfiled.
+                      {t('decks.emptyDeckHint')}
                     </li>
                   )}
                   {g.cards.map((c) => (
@@ -203,10 +202,10 @@ export default function PersonalDecksSection({ languageId }: { languageId: strin
                             deckId: e.target.value || null,
                           })
                         }
-                        aria-label={`Deck for ${c.answer}`}
+                        aria-label={t('decks.deckFor', { answer: c.answer })}
                         className="text-xs rounded-lg border border-gray-200 bg-white px-2 py-1 text-gray-600"
                       >
-                        <option value="">Unfiled</option>
+                        <option value="">{t('decks.unfiled')}</option>
                         {decks.map((d) => (
                           <option key={d.id} value={d.id}>
                             {d.name}

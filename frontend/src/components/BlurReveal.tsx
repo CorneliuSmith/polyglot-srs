@@ -1,4 +1,5 @@
 import { useState, type ReactNode } from 'react'
+import { useTranslation } from 'react-i18next'
 
 /**
  * Blur-until-toggled text (Bunpro example lists): the translation (or
@@ -15,6 +16,7 @@ export default function BlurReveal({
   forceRevealed?: boolean
   className?: string
 }) {
+  const { t } = useTranslation()
   const [revealed, setRevealed] = useState(false)
   const shown = forceRevealed || revealed
 
@@ -23,7 +25,7 @@ export default function BlurReveal({
       type="button"
       onClick={() => setRevealed((v) => !v)}
       aria-pressed={shown}
-      title={shown ? undefined : 'Click to reveal'}
+      title={shown ? undefined : t('shared.clickToReveal')}
       className={`text-start transition duration-150 ${
         shown ? '' : 'blur-sm select-none opacity-70 hover:opacity-90'
       } ${className}`}

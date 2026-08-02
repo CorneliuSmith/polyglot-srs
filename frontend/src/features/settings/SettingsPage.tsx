@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { Trans, useTranslation } from 'react-i18next'
 import UiLanguageSwitcher from '../../components/UiLanguageSwitcher'
 import { useLocation, useNavigate } from 'react-router-dom'
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query'
@@ -52,16 +53,10 @@ import { useAuthStore } from '../../stores/authStore'
 
 type AccountTab = 'learner' | 'contribute' | 'review' | 'invite' | 'admin'
 
-const TAB_LABEL: Record<AccountTab, string> = {
-  learner: 'Learner',
-  contribute: 'Contribute',
-  review: 'Review',
-  // Ambassadors get their own tab rather than a cut-down "Admin" one:
-  // calling it Admin for someone who can do exactly one admin thing
-  // misdescribes both the tab and the role.
-  invite: 'Invite',
-  admin: 'Admin',
-}
+// Tab labels live in the catalog as settings.tabs.<key>. Ambassadors get
+// their own "Invite" tab rather than a cut-down "Admin" one: calling it
+// Admin for someone who can do exactly one admin thing misdescribes both
+// the tab and the role.
 
 /** The tabs an account can actually reach.
  *
@@ -123,28 +118,39 @@ const BATCH_SIZES = [3, 5, 10, 15, 20]
 const SESSION_SIZES = [10, 20, 50, 100]
 const CEFR_LEVELS = ['A1', 'A2', 'B1', 'B2', 'C1', 'C2']
 
-// Index = Postgres EXTRACT(DOW): 0 = Sunday.
-const WEEKDAYS = [
-  'Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday',
-]
+// Index = Postgres EXTRACT(DOW): 0 = Sunday. Key names only — the display
+// names come from the catalog (settings.weekdays.<key>) at render time.
+const WEEKDAY_KEYS = [
+  'sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday',
+] as const
 
-// Script names for the language-specific section's copy.
-const SCRIPT_NAME: Record<string, string> = {
-  ru: 'Cyrillic',
-  ar: 'Arabic script',
-  el: 'Greek',
-  hi: 'Devanagari',
-  th: 'Thai script',
-  ko: 'Hangul',
+// Languages with a named script in the catalog (settings.scripts.<code>) for
+// the language-specific section's copy; others fall back to
+// settings.scripts.fallback.
+const SCRIPT_CODES = new Set(['ru', 'ar', 'el', 'hi', 'th', 'ko'])
+
+// Labels come from the catalog (settings.theme.<value>) at render time.
+const THEMES: Theme[] = ['system', 'light', 'dark']
+
+/** One example word in the "Accents optional" copy, rendered in the target
+ * language's own script treatment. Used through <Trans>, which supplies the
+ * interpolated word as children. */
+function AccentWord({
+  code,
+  children,
+}: {
+  code: string
+  children?: React.ReactNode
+}) {
+  return (
+    <LanguageWrapper languageCode={code}>
+      <span>{children}</span>
+    </LanguageWrapper>
+  )
 }
 
-const THEMES: { value: Theme; label: string }[] = [
-  { value: 'system', label: 'System' },
-  { value: 'light', label: 'Light' },
-  { value: 'dark', label: 'Dark' },
-]
-
 export default function SettingsPage() {
+  const { t, i18n } = useTranslation()
   const navigate = useNavigate()
   const location = useLocation()
   const queryClient = useQueryClient()
@@ -319,7 +325,7 @@ export default function SettingsPage() {
     if (!activeLanguageId || !activeLanguage) return
     if (
       window.confirm(
-        `Reset ALL your ${activeLanguage.name} studies? This permanently deletes every ${activeLanguage.name} card and its review history. Your notes and personal sentences are kept.`,
+        t('settings.danger.resetLanguageConfirm', { name: activeLanguage.name }),
       )
     ) {
       resetMutation.mutate(activeLanguageId)
@@ -327,11 +333,7 @@ export default function SettingsPage() {
   }
 
   const handleResetAll = () => {
-    if (
-      window.confirm(
-        'Reset your studies for EVERY language? This permanently deletes all cards and all review history across all languages. Your notes and personal sentences are kept.',
-      )
-    ) {
+    if (window.confirm(t('settings.danger.resetAllConfirm'))) {
       resetMutation.mutate(undefined)
     }
   }
@@ -363,7 +365,7 @@ export default function SettingsPage() {
     <div className="min-h-screen bg-gray-50">
       <div className="max-w-xl mx-auto px-4 py-8 space-y-6">
         <div className="flex items-center justify-between">
-          <h1 className="text-2xl font-bold text-gray-900">Account</h1>
+          <h1 className="text-2xl font-bold text-gray-900">{t('settings.title')}</h1>
           {/* Arrived mid-exercise? Lead back INTO the parked session (the
               session page restores its snapshot); plain visits go home. */}
           {fromSession ? (
@@ -372,7 +374,7 @@ export default function SettingsPage() {
               onClick={() => navigate(fromSession)}
               className="text-sm font-semibold text-lang hover:underline"
             >
-              ← Back to session
+              {t('settings.backToSession')}
             </button>
           ) : (
             <span className="flex items-center gap-3">
@@ -382,7 +384,7 @@ export default function SettingsPage() {
                 onClick={() => navigate('/')}
                 className="text-sm text-lang hover:underline"
               >
-                ← Dashboard
+                {t('common.backToDashboard')}
               </button>
             </span>
           )}
@@ -397,7 +399,7 @@ export default function SettingsPage() {
           <div
             className="flex rounded-xl border border-gray-200 bg-white overflow-hidden text-sm"
             role="tablist"
-            aria-label="Account sections"
+            aria-label={t('settings.tabs.aria')}
           >
             {availableTabs.map((key) => (
               <button
@@ -412,7 +414,7 @@ export default function SettingsPage() {
                     : 'text-gray-500 hover:bg-gray-50'
                 }`}
               >
-                {TAB_LABEL[key]}
+                {t(`settings.tabs.${key}`)}
               </button>
             ))}
           </div>
@@ -493,7 +495,7 @@ export default function SettingsPage() {
         {activeTab === 'learner' && (
         <>
         <section className="bg-white rounded-2xl shadow-sm border border-gray-100 p-5 space-y-3">
-          <h2 className="font-semibold text-gray-800">Active language</h2>
+          <h2 className="font-semibold text-gray-800">{t('settings.activeLanguage')}</h2>
           <LanguagePicker />
         </section>
 
@@ -508,12 +510,8 @@ export default function SettingsPage() {
             className="bg-white rounded-2xl shadow-sm border border-gray-100 p-5 space-y-3"
             data-testid="level-section"
           >
-            <h2 className="font-semibold text-gray-800">Your level</h2>
-            <p className="text-xs text-gray-500">
-              Sets which decks feed Learn — grammar and vocabulary at this
-              level and below. Placement got it wrong? Fix it here any time.
-              Cards you've already learned are never removed.
-            </p>
+            <h2 className="font-semibold text-gray-800">{t('settings.level.title')}</h2>
+            <p className="text-xs text-gray-500">{t('settings.level.desc')}</p>
             <div className="flex flex-wrap gap-2">
               {CEFR_LEVELS.map((l) => (
                 <button
@@ -536,17 +534,20 @@ export default function SettingsPage() {
             </div>
             {levelMutation.isSuccess && (
               <p className="text-xs text-green-700">
-                Level set to {levelMutation.data.level} —{' '}
-                {levelMutation.data.subscribed} deck
-                {levelMutation.data.subscribed === 1 ? '' : 's'} added
-                {levelMutation.data.unsubscribed > 0
-                  ? `, ${levelMutation.data.unsubscribed} removed`
-                  : ''}
-                . Learn will draw from them right away.
+                {t('settings.level.setSuccess', {
+                  level: levelMutation.data.level,
+                  count: levelMutation.data.subscribed,
+                  removed:
+                    levelMutation.data.unsubscribed > 0
+                      ? t('settings.level.removedSuffix', {
+                          count: levelMutation.data.unsubscribed,
+                        })
+                      : '',
+                })}
               </p>
             )}
             {levelMutation.isError && (
-              <p className="text-xs text-red-500">Couldn't save — try again.</p>
+              <p className="text-xs text-red-500">{t('settings.level.saveError')}</p>
             )}
 
             {/* Retake (owner request): the placement offer promises the test
@@ -556,14 +557,17 @@ export default function SettingsPage() {
             <div className="pt-3 border-t border-gray-100 space-y-2">
               <p className="text-xs text-gray-500">
                 {placementInfo?.has_placed
-                  ? `You last placed at ${placementInfo.last_level ?? '—'}${
-                      placementInfo.last_taken_at
-                        ? ` on ${new Date(placementInfo.last_taken_at).toLocaleDateString()}`
-                        : ''
-                    }. Take it again to see how far you've come — the questions
-                       change each time.`
-                  : `Not sure which level to pick? Take the short adaptive test
-                     and we'll suggest one. You can retake it any time.`}
+                  ? placementInfo.last_taken_at
+                    ? t('settings.level.lastPlacedOn', {
+                        level: placementInfo.last_level ?? '—',
+                        date: new Date(
+                          placementInfo.last_taken_at,
+                        ).toLocaleDateString(i18n.language),
+                      })
+                    : t('settings.level.lastPlaced', {
+                        level: placementInfo.last_level ?? '—',
+                      })
+                  : t('settings.level.notPlaced')}
               </p>
               <button
                 type="button"
@@ -574,8 +578,8 @@ export default function SettingsPage() {
                 data-testid="retake-placement"
               >
                 {placementInfo?.has_placed
-                  ? 'Retake the placement test'
-                  : 'Take the placement test'}
+                  ? t('settings.level.retake')
+                  : t('settings.level.take')}
               </button>
             </div>
             {retaking && activeLanguage && (
@@ -588,31 +592,30 @@ export default function SettingsPage() {
         )}
 
         <section className="bg-white rounded-2xl shadow-sm border border-gray-100 p-5 space-y-3">
-          <h2 className="font-semibold text-gray-800">New here?</h2>
-          <p className="text-sm text-gray-600">
-            A one-card-per-feature tour of everything in the app.
-          </p>
+          <h2 className="font-semibold text-gray-800">{t('settings.tour.title')}</h2>
+          <p className="text-sm text-gray-600">{t('settings.tour.desc')}</p>
           <button
             type="button"
             onClick={() => navigate('/welcome')}
             className="rounded-xl border border-gray-300 px-4 py-2 text-sm text-gray-700 hover:bg-gray-50"
             style={{ minHeight: '44px' }}
           >
-            Show me around
+            {t('settings.tour.button')}
           </button>
         </section>
 
         <section className="bg-white rounded-2xl shadow-sm border border-gray-100 p-5 space-y-3">
-          <h2 className="font-semibold text-gray-800">Plan</h2>
+          <h2 className="font-semibold text-gray-800">{t('settings.plan.title')}</h2>
           <p className="text-sm text-gray-600">
             {profile?.plan_scope === 'single'
-              ? `Single language${
-                  languages.find((l) => l.id === profile?.plan_language_id)
-                    ?.name
-                    ? ` — ${languages.find((l) => l.id === profile?.plan_language_id)!.name}`
-                    : ''
-                }`
-              : 'All languages'}
+              ? languages.find((l) => l.id === profile?.plan_language_id)?.name
+                ? t('settings.plan.singleWithLanguage', {
+                    name: languages.find(
+                      (l) => l.id === profile?.plan_language_id,
+                    )!.name,
+                  })
+                : t('settings.plan.single')
+              : t('settings.plan.all')}
           </p>
           {profile?.plan_scope === 'single' && (
             <button
@@ -622,10 +625,10 @@ export default function SettingsPage() {
               className="rounded-lg bg-lang hover:bg-lang-dark text-lang-on px-4 py-2 text-sm font-semibold disabled:opacity-50"
             >
               {upgradeMutation.isPending
-                ? 'Opening…'
+                ? t('settings.plan.opening')
                 : allPrice
-                  ? `Upgrade to All languages — ${allPrice}`
-                  : 'Upgrade to All languages'}
+                  ? t('settings.plan.upgradeWithPrice', { price: allPrice })
+                  : t('settings.plan.upgrade')}
             </button>
           )}
           {tutorStatus?.available && (
@@ -637,22 +640,18 @@ export default function SettingsPage() {
             disabled={portalMutation.isPending}
             className="block text-xs text-lang hover:underline disabled:opacity-50"
           >
-            Manage billing
+            {t('settings.plan.manageBilling')}
           </button>
           {billingUnavailable && (
             <p className="text-xs text-gray-400">
-              Billing hasn't launched yet — early accounts keep their chosen
-              plan for free, and keep their price when it goes live.
+              {t('settings.plan.billingUnavailable')}
             </p>
           )}
         </section>
 
         <section className="bg-white rounded-2xl shadow-sm border border-gray-100 p-5 space-y-3">
-          <h2 className="font-semibold text-gray-800">Daily learn goal</h2>
-          <p className="text-xs text-gray-500">
-            What the Learn tile counts toward each day. A small goal keeps the
-            queue from feeling overwhelming — or show every queued card.
-          </p>
+          <h2 className="font-semibold text-gray-800">{t('settings.dailyGoal.title')}</h2>
+          <p className="text-xs text-gray-500">{t('settings.dailyGoal.desc')}</p>
           <div className="flex gap-2">
             {([20, 50, 0] as const).map((n) => (
               <button
@@ -668,17 +667,15 @@ export default function SettingsPage() {
                 }
                 style={{ minHeight: '44px' }}
               >
-                {n === 0 ? 'Whole queue' : n}
+                {n === 0 ? t('settings.dailyGoal.wholeQueue') : n}
               </button>
             ))}
           </div>
         </section>
 
         <section className="bg-white rounded-2xl shadow-sm border border-gray-100 p-5 space-y-3">
-          <h2 className="font-semibold text-gray-800">New cards per session</h2>
-          <p className="text-xs text-gray-500">
-            How many new words/grammar points to introduce each time you learn.
-          </p>
+          <h2 className="font-semibold text-gray-800">{t('settings.batch.title')}</h2>
+          <p className="text-xs text-gray-500">{t('settings.batch.desc')}</p>
           <div className="flex gap-2">
             {BATCH_SIZES.map((n) => (
               <button
@@ -701,11 +698,8 @@ export default function SettingsPage() {
         </section>
 
         <section className="bg-white rounded-2xl shadow-sm border border-gray-100 p-5 space-y-3">
-          <h2 className="font-semibold text-gray-800">Cards per review session</h2>
-          <p className="text-xs text-gray-500">
-            How many due cards each review session pulls. Anything left over
-            stays due for the next session.
-          </p>
+          <h2 className="font-semibold text-gray-800">{t('settings.sessionSize.title')}</h2>
+          <p className="text-xs text-gray-500">{t('settings.sessionSize.desc')}</p>
           <div className="flex gap-2">
             {SESSION_SIZES.map((n) => (
               <button
@@ -738,26 +732,27 @@ export default function SettingsPage() {
         >
           <div className="flex items-start justify-between gap-4">
             <div>
-              <h2 className="font-semibold text-gray-800">Accents optional</h2>
+              <h2 className="font-semibold text-gray-800">{t('settings.accents.title')}</h2>
               <p className="text-xs text-gray-500">
-                Count answers correct even when accents or diacritics are
-                missing — “
-                <LanguageWrapper languageCode={activeLanguage!.code}>
-                  <span>{accentExample.loose}</span>
-                </LanguageWrapper>
-                ” passes for “
-                <LanguageWrapper languageCode={activeLanguage!.code}>
-                  <span>{accentExample.strict}</span>
-                </LanguageWrapper>
-                ” ({accentExample.gloss}). The right spelling still shows, so
-                you keep learning the marks.
+                <Trans
+                  i18nKey="settings.accents.desc"
+                  values={{
+                    loose: accentExample.loose,
+                    strict: accentExample.strict,
+                    gloss: accentExample.gloss,
+                  }}
+                  components={{
+                    loose: <AccentWord code={activeLanguage!.code} />,
+                    strict: <AccentWord code={activeLanguage!.code} />,
+                  }}
+                />
               </p>
             </div>
             <button
               type="button"
               role="switch"
               aria-checked={accentsOptional}
-              aria-label="Accents optional"
+              aria-label={t('settings.accents.title')}
               onClick={() => setAccentsOptional(!accentsOptional)}
               className={
                 'relative shrink-0 inline-flex h-6 w-11 items-center rounded-full transition-colors ' +
@@ -791,20 +786,15 @@ export default function SettingsPage() {
           <div className="flex items-start justify-between gap-4">
             <div>
               <h2 className="font-semibold text-gray-800">
-                Explicit words and sentences
+                {t('settings.explicit.title')}
               </h2>
-              <p className="text-xs text-gray-500">
-                Slurs and strong profanity are hidden from your cards, reading
-                and examples. They are genuinely common words — turn this on if
-                you want to learn them, and they will be taught like anything
-                else.
-              </p>
+              <p className="text-xs text-gray-500">{t('settings.explicit.desc')}</p>
             </div>
             <button
               type="button"
               role="switch"
               aria-checked={profile?.allow_explicit_content ?? false}
-              aria-label="Explicit words and sentences"
+              aria-label={t('settings.explicit.title')}
               disabled={reminderMutation.isPending}
               onClick={() =>
                 reminderMutation.mutate({
@@ -840,10 +830,10 @@ export default function SettingsPage() {
           >
             <div>
               <h2 className="font-semibold text-gray-800">
-                {activeLanguage.name} options
+                {t('settings.langOptions.title', { name: activeLanguage.name })}
               </h2>
               <p className="text-xs text-gray-500">
-                Settings that only apply when studying {activeLanguage.name}.
+                {t('settings.langOptions.desc', { name: activeLanguage.name })}
               </p>
             </div>
 
@@ -851,19 +841,17 @@ export default function SettingsPage() {
               <div className="flex items-start justify-between gap-4">
                 <div>
                   <h3 className="text-sm font-medium text-gray-800">
-                    Short vowels (tashkeel)
+                    {t('settings.langOptions.tashkeelTitle')}
                   </h3>
                   <p className="text-xs text-gray-500">
-                    Show the fully vocalized form — كَتَبَ — under new words.
-                    Turn off to practise reading bare script, the way native
-                    materials are written.
+                    {t('settings.langOptions.tashkeelDesc')}
                   </p>
                 </div>
                 <button
                   type="button"
                   role="switch"
                   aria-checked={showTashkeel}
-                  aria-label="Short vowels (tashkeel)"
+                  aria-label={t('settings.langOptions.tashkeelTitle')}
                   onClick={() => setShowTashkeel(!showTashkeel)}
                   className={
                     'relative shrink-0 inline-flex h-6 w-11 items-center rounded-full transition-colors ' +
@@ -883,20 +871,22 @@ export default function SettingsPage() {
             <div className="flex items-start justify-between gap-4">
               <div>
                 <h3 className="text-sm font-medium text-gray-800">
-                  Type with QWERTY letters
+                  {t('settings.langOptions.qwertyTitle')}
                 </h3>
                 <p className="text-xs text-gray-500">
-                  Answers typed in Latin letters convert to{' '}
-                  {SCRIPT_NAME[activeLanguage.code] ?? 'the target script'} as
-                  you type. Turn off if you have a real{' '}
-                  {activeLanguage.name} keyboard.
+                  {t('settings.langOptions.qwertyDesc', {
+                    script: SCRIPT_CODES.has(activeLanguage.code)
+                      ? t(`settings.scripts.${activeLanguage.code}`)
+                      : t('settings.scripts.fallback'),
+                    name: activeLanguage.name,
+                  })}
                 </p>
               </div>
               <button
                 type="button"
                 role="switch"
                 aria-checked={qwertyTranslit[activeLanguage.code] ?? true}
-                aria-label="Type with QWERTY letters"
+                aria-label={t('settings.langOptions.qwertyTitle')}
                 onClick={() =>
                   setQwertyTranslit(
                     activeLanguage.code,
@@ -928,18 +918,14 @@ export default function SettingsPage() {
         <section className="bg-white rounded-2xl shadow-sm border border-gray-100 p-5 space-y-3">
           <div className="flex items-start justify-between gap-4">
             <div>
-              <h2 className="font-semibold text-gray-800">Learning tips</h2>
-              <p className="text-xs text-gray-500">
-                Occasional evidence-based study nudges — how to practise, why the
-                schedule works — shown at most about once a day. Turn them off
-                here to never see them.
-              </p>
+              <h2 className="font-semibold text-gray-800">{t('settings.tips.title')}</h2>
+              <p className="text-xs text-gray-500">{t('settings.tips.desc')}</p>
             </div>
             <button
               type="button"
               role="switch"
               aria-checked={learningTipsEnabled}
-              aria-label="Learning tips"
+              aria-label={t('settings.tips.title')}
               onClick={() => setLearningTipsEnabled(!learningTipsEnabled)}
               className={
                 'relative shrink-0 inline-flex h-6 w-11 items-center rounded-full transition-colors ' +
@@ -961,22 +947,21 @@ export default function SettingsPage() {
             did my week go, and what should I do beyond the app?". A learner
             can want either, both, or neither. */}
         <section className="bg-white rounded-2xl shadow-sm border border-gray-100 p-5 space-y-3">
-          <h2 className="font-semibold text-gray-800">Email</h2>
+          <h2 className="font-semibold text-gray-800">{t('settings.email.title')}</h2>
           <div className="flex items-start justify-between gap-4 border-t border-gray-100 pt-3">
             <div>
               <h3 className="text-sm font-medium text-gray-800">
-                Daily reminder
+                {t('settings.email.dailyTitle')}
               </h3>
               <p className="text-xs text-gray-500">
-                One email a day when reviews are waiting — nothing on days with
-                no reviews due.
+                {t('settings.email.dailyDesc')}
               </p>
             </div>
             <button
               type="button"
               role="switch"
               aria-checked={profile?.reminder_opt_in ?? false}
-              aria-label="Email reminders"
+              aria-label={t('settings.email.dailyAria')}
               onClick={() =>
                 reminderMutation.mutate({
                   reminder_opt_in: !(profile?.reminder_opt_in ?? false),
@@ -997,7 +982,7 @@ export default function SettingsPage() {
           </div>
           {profile?.reminder_opt_in && (
             <label className="flex items-center gap-2 text-sm text-gray-700">
-              Send around
+              {t('settings.email.sendAround')}
               <select
                 value={utcToLocalHour(profile?.reminder_hour_utc ?? 16)}
                 onChange={(e) =>
@@ -1006,7 +991,7 @@ export default function SettingsPage() {
                   })
                 }
                 className="rounded-lg border border-gray-200 px-2 py-1 text-sm"
-                aria-label="Reminder hour"
+                aria-label={t('settings.email.hourAria')}
               >
                 {Array.from({ length: 24 }, (_, h) => (
                   <option key={h} value={h}>
@@ -1014,25 +999,24 @@ export default function SettingsPage() {
                   </option>
                 ))}
               </select>
-              your time
+              {t('settings.email.yourTime')}
             </label>
           )}
 
           <div className="flex items-start justify-between gap-4 border-t border-gray-100 pt-3">
             <div>
               <h3 className="text-sm font-medium text-gray-800">
-                Weekly review
+                {t('settings.email.weeklyTitle')}
               </h3>
               <p className="text-xs text-gray-500">
-                Your week in one email — what you studied, how it went, and
-                that week's reading, watching and listening picks.
+                {t('settings.email.weeklyDesc')}
               </p>
             </div>
             <button
               type="button"
               role="switch"
               aria-checked={profile?.weekly_digest_opt_in ?? false}
-              aria-label="Weekly review email"
+              aria-label={t('settings.email.weeklyAria')}
               onClick={() =>
                 reminderMutation.mutate({
                   weekly_digest_opt_in: !(profile?.weekly_digest_opt_in ?? false),
@@ -1053,7 +1037,7 @@ export default function SettingsPage() {
           </div>
           {profile?.weekly_digest_opt_in && (
             <label className="flex items-center gap-2 text-sm text-gray-700">
-              Send on
+              {t('settings.email.sendOn')}
               <select
                 value={profile?.weekly_digest_dow ?? 0}
                 onChange={(e) =>
@@ -1062,10 +1046,10 @@ export default function SettingsPage() {
                   })
                 }
                 className="rounded-lg border border-gray-200 px-2 py-1 text-sm"
-                aria-label="Weekly review day"
+                aria-label={t('settings.email.dayAria')}
               >
-                {WEEKDAYS.map((label, i) => (
-                  <option key={i} value={i}>{label}</option>
+                {WEEKDAY_KEYS.map((day, i) => (
+                  <option key={i} value={i}>{t(`settings.weekdays.${day}`)}</option>
                 ))}
               </select>
             </label>
@@ -1074,19 +1058,16 @@ export default function SettingsPage() {
 
         {studyingEnglish && (
           <section className="bg-white rounded-2xl shadow-sm border border-gray-100 p-5 space-y-3">
-            <h2 className="font-semibold text-gray-800">Learning English from</h2>
-            <p className="text-xs text-gray-500">
-              Hints, definitions, and example-sentence translations appear in
-              this language instead of English.
-            </p>
+            <h2 className="font-semibold text-gray-800">{t('settings.support.title')}</h2>
+            <p className="text-xs text-gray-500">{t('settings.support.desc')}</p>
             <select
               value={profile?.support_locale ?? 'en'}
               onChange={(e) => supportMutation.mutate(e.target.value)}
               disabled={supportMutation.isPending}
-              aria-label="Learning English from"
+              aria-label={t('settings.support.title')}
               className="rounded-lg border border-gray-300 px-3 py-2 text-sm bg-white"
             >
-              <option value="en">English (definitions)</option>
+              <option value="en">{t('settings.support.englishOption')}</option>
               {languages
                 .filter((l) => l.code !== 'en')
                 .map((l) => (
@@ -1094,63 +1075,56 @@ export default function SettingsPage() {
                 ))}
             </select>
             {supportMutation.isError && (
-              <p className="text-xs text-red-500">Couldn’t save — try again.</p>
+              <p className="text-xs text-red-500">{t('settings.support.saveError')}</p>
             )}
           </section>
         )}
 
         <section className="bg-white rounded-2xl shadow-sm border border-gray-100 p-5 space-y-3">
-          <h2 className="font-semibold text-gray-800">Theme</h2>
-          <p className="text-xs text-gray-500">
-            System follows your device's light/dark preference.
-          </p>
+          <h2 className="font-semibold text-gray-800">{t('settings.theme.title')}</h2>
+          <p className="text-xs text-gray-500">{t('settings.theme.desc')}</p>
           <div className="flex gap-2">
-            {THEMES.map((t) => (
+            {THEMES.map((value) => (
               <button
-                key={t.value}
+                key={value}
                 type="button"
-                onClick={() => setTheme(t.value)}
-                aria-pressed={theme === t.value}
+                onClick={() => setTheme(value)}
+                aria-pressed={theme === value}
                 className={
                   'rounded-lg px-4 py-2 text-sm font-medium border ' +
-                  (theme === t.value
+                  (theme === value
                     ? 'bg-lang text-white border-lang'
                     : 'bg-white text-gray-700 border-gray-300 hover:bg-gray-50')
                 }
                 style={{ minHeight: '44px' }}
               >
-                {t.label}
+                {t(`settings.theme.${value}`)}
               </button>
             ))}
           </div>
         </section>
 
         <section className="bg-white rounded-2xl shadow-sm border border-gray-100 p-5">
-          <h2 className="font-semibold text-gray-800 mb-3">Your progress</h2>
+          <h2 className="font-semibold text-gray-800 mb-3">{t('settings.progress.title')}</h2>
           <div className="grid grid-cols-3 gap-3 text-center">
             <div>
               <div className="text-2xl font-bold text-lang">{stats?.due_count ?? 0}</div>
-              <div className="text-xs text-gray-500">due now</div>
+              <div className="text-xs text-gray-500">{t('settings.progress.dueNow')}</div>
             </div>
             <div>
               <div className="text-2xl font-bold text-lang">{stats?.streak_days ?? 0}</div>
-              <div className="text-xs text-gray-500">day streak</div>
+              <div className="text-xs text-gray-500">{t('settings.progress.dayStreak')}</div>
             </div>
             <div>
               <div className="text-2xl font-bold text-lang">{learned}</div>
-              <div className="text-xs text-gray-500">cards learned</div>
+              <div className="text-xs text-gray-500">{t('settings.progress.cardsLearned')}</div>
             </div>
           </div>
         </section>
 
         <section className="bg-white rounded-2xl shadow-sm border border-red-100 p-5 space-y-3">
-          <h2 className="font-semibold text-red-700">Danger zone</h2>
-          <p className="text-xs text-gray-500">
-            Resetting deletes cards and their full review history. It cannot
-            be undone. Notes and personal sentences are never deleted. To
-            reset a single deck, use its "Reset progress" link on the
-            dashboard.
-          </p>
+          <h2 className="font-semibold text-red-700">{t('settings.danger.title')}</h2>
+          <p className="text-xs text-gray-500">{t('settings.danger.desc')}</p>
           <div className="flex flex-col gap-2">
             <button
               type="button"
@@ -1159,7 +1133,11 @@ export default function SettingsPage() {
               className="rounded-lg px-4 py-2 text-sm font-medium border border-red-200 text-red-700 bg-white hover:bg-red-50 disabled:opacity-50 text-start"
               style={{ minHeight: '44px' }}
             >
-              Reset {activeLanguage?.name ?? 'active language'} studies…
+              {t('settings.danger.resetLanguage', {
+                name:
+                  activeLanguage?.name ??
+                  t('settings.danger.activeLanguageFallback'),
+              })}
             </button>
             <button
               type="button"
@@ -1168,11 +1146,13 @@ export default function SettingsPage() {
               className="rounded-lg px-4 py-2 text-sm font-medium border border-red-200 text-red-700 bg-white hover:bg-red-50 disabled:opacity-50 text-start"
               style={{ minHeight: '44px' }}
             >
-              Reset ALL studies (every language)…
+              {t('settings.danger.resetAll')}
             </button>
             {resetMutation.isSuccess && (
               <p className="text-xs text-green-700">
-                Progress reset ({resetMutation.data.cards_deleted} cards removed).
+                {t('settings.danger.resetDone', {
+                  count: resetMutation.data.cards_deleted,
+                })}
               </p>
             )}
           </div>
@@ -1183,12 +1163,12 @@ export default function SettingsPage() {
           onClick={handleSignOut}
           className="w-full text-sm text-red-600 hover:text-red-700 hover:underline py-2"
         >
-          Sign out
+          {t('settings.signOut')}
         </button>
 
         <p className="text-center text-xs text-gray-400">
           <a href="/terms" className="hover:text-lang hover:underline">
-            Terms of Service
+            {t('login.terms')}
           </a>
         </p>
         </>

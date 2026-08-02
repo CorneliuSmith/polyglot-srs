@@ -1,5 +1,6 @@
 import { useQuery } from '@tanstack/react-query'
 import { SquarePen } from 'lucide-react'
+import { useTranslation } from 'react-i18next'
 import { canSuggestForLanguage, getMyRoles } from '../api/contribute'
 import { usePrefsStore } from '../stores/prefsStore'
 import { useReviewModeStore } from '../stores/reviewModeStore'
@@ -19,6 +20,7 @@ import ViewAsBar from './ViewAsBar'
  * controls. Renders nothing at all for a plain learner.
  */
 export default function StaffBar() {
+  const { t } = useTranslation()
   const activeLanguageId = usePrefsStore((s) => s.activeLanguageId)
   const reviewMode = useReviewModeStore((s) => s.reviewMode)
   const setReviewMode = useReviewModeStore((s) => s.setReviewMode)
@@ -55,7 +57,7 @@ export default function StaffBar() {
         >
           <label className="max-w-3xl mx-auto flex items-center gap-2 px-4 py-1.5 text-xs">
             <SquarePen aria-hidden className="h-3.5 w-3.5 shrink-0" />
-            <span className="font-medium">Review mode</span>
+            <span className="font-medium">{t('staffBar.reviewMode')}</span>
             <input
               type="checkbox"
               checked={reviewMode}
@@ -63,9 +65,7 @@ export default function StaffBar() {
               className="h-4 w-4 accent-amber-600"
             />
             <span className="min-w-0 flex-1 truncate opacity-80">
-              {reviewMode
-                ? 'Select any text to flag it'
-                : 'Flag content as you study'}
+              {reviewMode ? t('staffBar.flagOn') : t('staffBar.flagOff')}
             </span>
           </label>
         </div>

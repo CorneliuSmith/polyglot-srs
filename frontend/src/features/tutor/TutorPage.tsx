@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useRef, useState } from 'react'
 import { languageDisplayName } from '../../lib/languages'
 import UiLanguageSwitcher from '../../components/UiLanguageSwitcher'
-import { useTranslation } from 'react-i18next'
+import { Trans, useTranslation } from 'react-i18next'
 import { ArrowDown, ArrowUp, Star } from 'lucide-react'
 import { useNavigate } from 'react-router-dom'
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query'
@@ -24,9 +24,9 @@ import Annotatable from '../contribute/Annotatable'
 // Summarize into memory after this long without activity.
 const IDLE_MS = 3 * 60 * 1000
 
-function resetDay(resetsAt: string | null): string {
-  if (!resetsAt) return 'soon'
-  return new Date(resetsAt).toLocaleDateString(undefined, {
+function resetDay(resetsAt: string | null, locale: string): string | null {
+  if (!resetsAt) return null
+  return new Date(resetsAt).toLocaleDateString(locale, {
     month: 'long',
     day: 'numeric',
   })
@@ -180,7 +180,7 @@ export default function TutorPage() {
         })
         setSendError(err.aborted ? null : err.message)
       } else {
-        setSendError('The tutor could not respond. Check your connection and try again.')
+        setSendError(t('tutor.sendError'))
       }
     },
   })
@@ -225,7 +225,7 @@ export default function TutorPage() {
   if (statusLoading || !language) {
     return (
       <div className="min-h-screen bg-gray-50 flex items-center justify-center">
-        <p className="text-gray-500">Loading tutor…</p>
+        <p className="text-gray-500">{t('tutor.loading')}</p>
       </div>
     )
   }
@@ -235,14 +235,16 @@ export default function TutorPage() {
       <div className="min-h-screen bg-gray-50 flex items-center justify-center px-4">
         <div className="text-center space-y-4">
           <p className="text-xl text-gray-700">
-            The tutor isn’t available for {language.name} yet.
+            {t('tutor.notAvailable', {
+              language: languageDisplayName(language.code, language.name, i18n.language),
+            })}
           </p>
           <button
             type="button"
             onClick={() => navigate('/')}
             className="text-lang hover:underline text-sm"
           >
-            Back to Dashboard
+            {t('review.backToDashboard')}
           </button>
         </div>
       </div>
@@ -275,7 +277,7 @@ export default function TutorPage() {
               onClick={handleEndSession}
               className="text-sm text-lang hover:underline"
             >
-              End session
+              {t('tutor.endSession')}
             </button>
           </span>
         </div>
@@ -285,7 +287,7 @@ export default function TutorPage() {
         <div className="flex flex-wrap items-center gap-2 mb-2 text-xs">
           <div
             role="group"
-            aria-label="Tutor mode"
+            aria-label={t('tutor.modeGroupAria')}
             className="inline-flex rounded-lg border border-gray-200 overflow-hidden"
           >
             <button
@@ -304,7 +306,7 @@ export default function TutorPage() {
               type="button"
               onClick={() => setMode('reference')}
               aria-pressed={mode === 'reference'}
-              title="Ask a quick question — no drills, nothing saved to your profile"
+              title={t('tutor.referenceTitle')}
               className={
                 mode === 'reference'
                   ? 'px-3 py-1 bg-lang text-lang-on font-semibold'
@@ -325,7 +327,7 @@ export default function TutorPage() {
           <button
             type="button"
             onClick={() => navigate('/read')}
-            title="A text written at your level, on your topic"
+            title={t('tutor.readLinkTitle')}
             className="text-gray-500 hover:text-lang"
           >
             {t('tutor.readLink')}
@@ -347,7 +349,7 @@ export default function TutorPage() {
             data-testid="active-focus"
           >
             <span className="text-[10px] uppercase tracking-wide text-gray-400">
-              Active focus
+              {t('tutor.activeFocus')}
             </span>
             {status!.focus!.map((f) => (
               <span
@@ -370,11 +372,10 @@ export default function TutorPage() {
             data-testid="mastery-suggestions"
           >
             <p className="text-xs font-semibold text-amber-900">
-              <Star aria-hidden className="me-1 inline h-3.5 w-3.5 align-[-2px] fill-amber-400 text-amber-400" />Your tutor thinks you already know these
+              <Star aria-hidden className="me-1 inline h-3.5 w-3.5 align-[-2px] fill-amber-400 text-amber-400" />{t('tutor.masteryTitle')}
             </p>
             <p className="text-[11px] text-amber-800/80">
-              Agree, and the card's next review moves about a month out —
-              nothing changes unless you say so.
+              {t('tutor.masteryExplain')}
             </p>
             {status!.mastery_suggestions!.map((s) => (
               <div
@@ -384,7 +385,7 @@ export default function TutorPage() {
                 <div className="min-w-0 text-sm">
                   <span className="font-medium text-gray-900">{s.item}</span>
                   <span className="ms-1.5 text-[10px] uppercase tracking-wide text-gray-400">
-                    {s.kind === 'grammar' ? 'grammar' : 'vocab'}
+                    {s.kind === 'grammar' ? t('tutor.kindGrammar') : t('tutor.kindVocab')}
                   </span>
                   {s.evidence && (
                     <p className="text-xs text-gray-600 mt-0.5">{s.evidence}</p>
@@ -400,7 +401,7 @@ export default function TutorPage() {
                     className="text-xs font-semibold rounded-lg bg-lang hover:bg-lang-dark text-lang-on px-2.5 py-1.5 disabled:opacity-50"
                     style={{ minHeight: '32px' }}
                   >
-                    I know it
+                    {t('tutor.iKnowIt')}
                   </button>
                   <button
                     type="button"
@@ -411,7 +412,7 @@ export default function TutorPage() {
                     className="text-xs rounded-lg border border-gray-300 bg-white text-gray-600 hover:text-lang px-2.5 py-1.5 disabled:opacity-50"
                     style={{ minHeight: '32px' }}
                   >
-                    Keep drilling
+                    {t('tutor.keepDrilling')}
                   </button>
                 </span>
               </div>
@@ -426,16 +427,16 @@ export default function TutorPage() {
           >
             {pastSessions.length === 0 && (
               <p className="text-xs text-gray-400">
-                No past sessions yet — they appear here after you end one.
+                {t('tutor.noPastSessions')}
               </p>
             )}
             {pastSessions.map((sess) => (
               <div key={sess.id} className="text-xs">
                 <p className="text-gray-400">
-                  {new Date(sess.created_at).toLocaleDateString(undefined, {
+                  {new Date(sess.created_at).toLocaleDateString(i18n.language, {
                     month: 'short', day: 'numeric',
                   })}{' '}
-                  · {sess.message_count} messages
+                  · {t('tutor.messages', { count: sess.message_count })}
                 </p>
                 <p className="text-gray-700">{sess.summary}</p>
               </div>
@@ -457,10 +458,9 @@ export default function TutorPage() {
                   onClick={() => subscribeMutation.mutate()}
                   className="text-lang hover:underline"
                 >
-                  Plus
+                  {t('tutor.plus')}
                 </button>{' '}
-                is a flat price with far more monthly usage — never a charge
-                for what you use.
+                {t('tutor.plusNote')}
               </p>
             )}
           </div>
@@ -474,9 +474,9 @@ export default function TutorPage() {
         >
           {messages.length === 0 && (
             <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-5 text-sm text-gray-600">
-              Hi! I’m your {language.name} tutor. I can see which words you’ve
-              been struggling with in your reviews. Say hello, or ask me to
-              drill your weak spots.
+              {t('tutor.greeting', {
+                language: languageDisplayName(language.code, language.name, i18n.language),
+              })}
             </div>
           )}
           {messages.map((msg, i) =>
@@ -514,7 +514,7 @@ export default function TutorPage() {
                   <span className="text-lang/70">▍</span>
                 </span>
               ) : (
-                <span className="text-gray-400">Tutor is thinking…</span>
+                <span className="text-gray-400">{t('tutor.thinking')}</span>
               )}
               {/* An escape hatch from a turn that isn't coming back. The
                   server's heartbeat keeps the connection alive while the
@@ -526,7 +526,7 @@ export default function TutorPage() {
                 onClick={handleStop}
                 className="mt-1 block text-xs text-gray-400 hover:text-gray-600 hover:underline"
               >
-                Stop
+                {t('tutor.stop')}
               </button>
             </div>
           )}
@@ -541,8 +541,8 @@ export default function TutorPage() {
           <div className="pointer-events-none absolute end-5 bottom-28 z-10 flex flex-col gap-1.5">
             <button
               type="button"
-              aria-label="Scroll to top"
-              title="Back to the top (End session is up there)"
+              aria-label={t('tutor.scrollTop')}
+              title={t('tutor.scrollTopTitle')}
               onClick={() =>
                 scrollRef.current?.scrollTo?.({ top: 0, behavior: 'smooth' })
               }
@@ -552,8 +552,8 @@ export default function TutorPage() {
             </button>
             <button
               type="button"
-              aria-label="Scroll to bottom"
-              title="Back to the latest message"
+              aria-label={t('tutor.scrollBottom')}
+              title={t('tutor.scrollBottomTitle')}
               onClick={() =>
                 bottomRef.current?.scrollIntoView?.({ behavior: 'smooth' })
               }
@@ -582,12 +582,15 @@ export default function TutorPage() {
             {['free', 'single', 'all'].includes(allowance.tier) ? (
               <>
                 <p>
-                  You’ve used all of this month’s usage — it refreshes on{' '}
-                  {resetDay(allowance.resets_at)}.
+                  {t('tutor.exhaustedFree', {
+                    date: resetDay(allowance.resets_at, i18n.language) ?? t('tutor.soon'),
+                  })}
                 </p>
                 <p className="text-gray-500">
-                  Plus is a <strong>flat price</strong> with far more monthly
-                  usage — you’re never charged for what you use.
+                  <Trans
+                    i18nKey="tutor.plusPitch"
+                    components={{ strong: <strong /> }}
+                  />
                 </p>
                 <button
                   type="button"
@@ -597,20 +600,22 @@ export default function TutorPage() {
                   style={{ minHeight: '44px' }}
                 >
                   {subscribeMutation.isPending
-                    ? 'Starting…'
-                    : `Get Plus for ${language.name}`}
+                    ? t('tutor.starting')
+                    : t('tutor.getPlus', {
+                        language: languageDisplayName(language.code, language.name, i18n.language),
+                      })}
                 </button>
                 {subscribeMutation.isError && (
                   <p className="text-xs text-red-500">
-                    Couldn’t start checkout — try again.
+                    {t('tutor.checkoutError')}
                   </p>
                 )}
               </>
             ) : (
               <p>
-                You’ve reached this month’s usage limit. It refreshes on{' '}
-                {resetDay(allowance.resets_at)} — nothing extra to pay, your
-                price never changes with usage.
+                {t('tutor.exhaustedPaid', {
+                  date: resetDay(allowance.resets_at, i18n.language) ?? t('tutor.soon'),
+                })}
               </p>
             )}
           </div>
@@ -633,7 +638,7 @@ export default function TutorPage() {
                 }
               }}
               enterKeyHint="send"
-              placeholder="Message your tutor…"
+              placeholder={t('tutor.inputPlaceholder')}
               dir={language.rtl ? 'auto' : 'ltr'}
               className="flex-1 rounded-xl border border-gray-300 px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-lang bg-white"
               style={{ minHeight: '44px' }}
@@ -644,7 +649,7 @@ export default function TutorPage() {
               className="bg-lang hover:bg-lang-dark disabled:opacity-50 text-lang-on font-semibold rounded-xl px-5 text-sm transition-colors"
               style={{ minHeight: '44px' }}
             >
-              Send
+              {t('tutor.send')}
             </button>
           </form>
         )}
