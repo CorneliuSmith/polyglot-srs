@@ -1,4 +1,6 @@
 import { useCallback, useEffect, useRef, useState } from 'react'
+import { languageDisplayName } from '../../lib/languages'
+import UiLanguageSwitcher from '../../components/UiLanguageSwitcher'
 import { useTranslation } from 'react-i18next'
 import { ArrowDown, ArrowUp, Star } from 'lucide-react'
 import { useNavigate } from 'react-router-dom'
@@ -32,7 +34,7 @@ function resetDay(resetsAt: string | null): string {
 
 export default function TutorPage() {
   const navigate = useNavigate()
-  const { t } = useTranslation()
+  const { t, i18n } = useTranslation()
   const queryClient = useQueryClient()
   const activeLanguageId = usePrefsStore((s) => s.activeLanguageId)
   const [messages, setMessages] = useState<TutorMessage[]>([])
@@ -262,17 +264,20 @@ export default function TutorPage() {
         <div className="flex items-center justify-between mb-4">
           <div>
             <h1 className="text-xl font-bold text-gray-900">
-              {t('tutor.title', { language: language.name })}
+              {t('tutor.title', { language: languageDisplayName(language.code, language.name, i18n.language) })}
             </h1>
             <p className="text-xs text-gray-500">{t('tutor.subtitle')}</p>
           </div>
-          <button
-            type="button"
-            onClick={handleEndSession}
-            className="text-sm text-lang hover:underline"
-          >
-            End session
-          </button>
+          <span className="flex items-center gap-3">
+            <UiLanguageSwitcher />
+            <button
+              type="button"
+              onClick={handleEndSession}
+              className="text-sm text-lang hover:underline"
+            >
+              End session
+            </button>
+          </span>
         </div>
 
         {/* Practice vs Reference (WP18c): reference questions get direct

@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from 'react'
+import UiLanguageSwitcher from '../../components/UiLanguageSwitcher'
 import { useTranslation } from 'react-i18next'
 import { useNavigate, useSearchParams } from 'react-router-dom'
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
@@ -386,6 +387,7 @@ function LearnInner({ onLocaleChanged }: { onLocaleChanged: () => void }) {
                   ))}
               </select>
             )}
+            <UiLanguageSwitcher />
             <button
               type="button"
               onClick={() => navigate('/')}

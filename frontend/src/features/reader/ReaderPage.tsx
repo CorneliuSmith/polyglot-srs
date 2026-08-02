@@ -1,4 +1,6 @@
 import { useEffect, useState } from 'react'
+import { languageDisplayName } from '../../lib/languages'
+import UiLanguageSwitcher from '../../components/UiLanguageSwitcher'
 import { useTranslation } from 'react-i18next'
 import { Headphones } from 'lucide-react'
 import { useNavigate } from 'react-router-dom'
@@ -35,7 +37,7 @@ type Stage = 'listen' | 'guess' | 'assisted'
  */
 export default function ReaderPage() {
   const navigate = useNavigate()
-  const { t } = useTranslation()
+  const { t, i18n } = useTranslation()
   const queryClient = useQueryClient()
   const activeLanguageId = usePrefsStore((s) => s.activeLanguageId)
 
@@ -286,17 +288,20 @@ export default function ReaderPage() {
         <div className="flex items-center justify-between">
           <div>
             <h1 className="text-xl font-bold text-gray-900">
-              {t('reader.title', { language: language.name })}
+              {t('reader.title', { language: languageDisplayName(language.code, language.name, i18n.language) })}
             </h1>
             <p className="text-xs text-gray-500">{t('reader.subtitle')}</p>
           </div>
-          <button
-            type="button"
-            onClick={() => (reading ? setReading(null) : navigate('/'))}
-            className="text-sm text-lang hover:underline"
-          >
-            {reading ? t('reader.myReadings') : t('common.backToDashboard')}
-          </button>
+          <span className="flex items-center gap-3">
+            <UiLanguageSwitcher />
+            <button
+              type="button"
+              onClick={() => (reading ? setReading(null) : navigate('/'))}
+              className="text-sm text-lang hover:underline"
+            >
+              {reading ? t('reader.myReadings') : t('common.backToDashboard')}
+            </button>
+          </span>
         </div>
 
         {!reading && (

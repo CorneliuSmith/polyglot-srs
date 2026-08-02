@@ -1,10 +1,11 @@
 import { useEffect, useRef, useState } from 'react'
+import { useTranslation } from 'react-i18next'
 import { ChevronDown } from 'lucide-react'
 import { useQuery } from '@tanstack/react-query'
 import { getLanguages, getProfile, updateProfile } from '../api/profile'
 import { usePrefsStore } from '../stores/prefsStore'
 import { languageTheme } from '../lib/languageColors'
-import { visibleLanguages } from '../lib/languages'
+import { visibleLanguages, languageDisplayName } from '../lib/languages'
 import CircleFlag from './CircleFlag'
 
 /** The active-language picker. A custom listbox rather than a native
@@ -12,6 +13,7 @@ import CircleFlag from './CircleFlag'
  * <option> can't render images. Keyboard support mirrors a native select:
  * Enter/Space/arrows open, arrows move, Enter picks, Escape closes. */
 export default function LanguagePicker() {
+  const { i18n } = useTranslation()
   const activeLanguageId = usePrefsStore((s) => s.activeLanguageId)
   const setActiveLanguageId = usePrefsStore((s) => s.setActiveLanguageId)
 
@@ -134,7 +136,7 @@ export default function LanguagePicker() {
       >
         <CircleFlag code={active?.code} />
         <span className="flex-1 truncate text-gray-900">
-          {active?.name ?? 'Choose a language'}
+          {active ? languageDisplayName(active.code, active.name, i18n.language) : 'Choose a language'}
         </span>
         <ChevronDown
           aria-hidden
@@ -179,7 +181,7 @@ export default function LanguagePicker() {
                   code={lang.code}
                   className={locked ? 'opacity-40 grayscale' : ''}
                 />
-                <span className="flex-1 truncate">{lang.name}</span>
+                <span className="flex-1 truncate">{languageDisplayName(lang.code, lang.name, i18n.language)}</span>
                 {selected && (
                   <span aria-hidden className="text-lang font-semibold">✓</span>
                 )}

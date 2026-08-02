@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import UiLanguageSwitcher from '../../components/UiLanguageSwitcher'
 import { useTranslation } from 'react-i18next'
 import { useNavigate } from 'react-router-dom'
 import { useQuery } from '@tanstack/react-query'
@@ -46,13 +47,16 @@ export default function SearchPage() {
           <h1 className="text-2xl font-bold text-gray-900">
             {t('search.title')} {language ? `· ${language.name}` : ''}
           </h1>
-          <button
-            type="button"
-            onClick={() => navigate('/')}
-            className="text-sm text-lang hover:underline"
-          >
-            {t('common.backToDashboard')}
-          </button>
+          <span className="flex items-center gap-3">
+            <UiLanguageSwitcher />
+            <button
+              type="button"
+              onClick={() => navigate('/')}
+              className="text-sm text-lang hover:underline"
+            >
+              {t('common.backToDashboard')}
+            </button>
+          </span>
         </div>
 
         <input

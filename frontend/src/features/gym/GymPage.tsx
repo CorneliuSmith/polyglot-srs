@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import UiLanguageSwitcher from '../../components/UiLanguageSwitcher'
 import { useTranslation } from 'react-i18next'
 import { useNavigate } from 'react-router-dom'
 import { useQuery } from '@tanstack/react-query'
@@ -112,13 +113,16 @@ export default function GymPage() {
             <h1 className="text-2xl font-bold text-gray-900">{t('gym.title')}</h1>
             <p className="text-sm text-gray-500">{t('gym.subtitle')}</p>
           </header>
-          <button
-            type="button"
-            onClick={() => navigate('/')}
-            className="text-sm text-lang hover:underline"
-          >
-            {t('common.backToDashboard')}
-          </button>
+          <span className="flex items-center gap-3">
+            <UiLanguageSwitcher />
+            <button
+              type="button"
+              onClick={() => navigate('/')}
+              className="text-sm text-lang hover:underline"
+            >
+              {t('common.backToDashboard')}
+            </button>
+          </span>
         </div>
 
         {isLoading && <p className="text-sm text-gray-400">{t('common.loading')}</p>}

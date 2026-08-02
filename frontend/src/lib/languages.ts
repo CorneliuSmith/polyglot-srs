@@ -14,3 +14,27 @@ export function visibleLanguages(
     (l) => l.is_visible !== false || l.id === activeLanguageId,
   )
 }
+
+/** The name of language *code* in the reader's UI language, via the
+ * browser's built-in CLDR names (Intl.DisplayNames) — "Turkish" becomes
+ * "turco"/"турецкий"/"التركية" with no authored data. English keeps the
+ * database name verbatim; unknown tags (e.g. "jam") and engines without
+ * the data fall back to the database name too. */
+export function languageDisplayName(
+  code: string,
+  fallback: string,
+  uiLanguage: string,
+): string {
+  const base = (uiLanguage ?? 'en').split('-')[0]
+  if (base === 'en') return fallback
+  try {
+    const name = new Intl.DisplayNames([base], { type: 'language' }).of(code)
+    if (name && name.toLowerCase() !== code.toLowerCase()) {
+      // Several locales return lowercase ("turco"); list context wants caps.
+      return name.charAt(0).toLocaleUpperCase(base) + name.slice(1)
+    }
+  } catch {
+    // Invalid tag or no CLDR data on this engine — the English name stands.
+  }
+  return fallback
+}
