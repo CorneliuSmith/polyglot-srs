@@ -8,6 +8,7 @@ const { mockSetActive } = vi.hoisted(() => ({ mockSetActive: vi.fn() }))
 vi.mock('../api/profile', () => ({ getLanguages: vi.fn() }))
 vi.mock('../api/contribute', () => ({
   setLanguageVisibility: vi.fn(),
+  setLanguageAutoTranslate: vi.fn(),
   getLanguageReadiness: vi.fn(() => Promise.resolve([])),
 }))
 vi.mock('../stores/prefsStore', () => ({
@@ -18,10 +19,15 @@ vi.mock('../stores/prefsStore', () => ({
 }))
 
 import { getLanguages } from '../api/profile'
-import { getLanguageReadiness, setLanguageVisibility } from '../api/contribute'
+import {
+  getLanguageReadiness,
+  setLanguageAutoTranslate,
+  setLanguageVisibility,
+} from '../api/contribute'
 
 const mockGetLanguages = getLanguages as ReturnType<typeof vi.fn>
 const mockSetVisibility = setLanguageVisibility as ReturnType<typeof vi.fn>
+const mockSetAutoTranslate = setLanguageAutoTranslate as ReturnType<typeof vi.fn>
 const mockReadiness = getLanguageReadiness as ReturnType<typeof vi.fn>
 
 const readinessRow = (id: string, awaiting: number) => ({
@@ -37,8 +43,10 @@ const readinessRow = (id: string, awaiting: number) => ({
 })
 
 const LANGS = [
-  { id: 'lang-es', code: 'es', name: 'Spanish', rtl: false, is_visible: true },
-  { id: 'lang-he', code: 'he', name: 'Hebrew', rtl: true, is_visible: false },
+  { id: 'lang-es', code: 'es', name: 'Spanish', rtl: false, is_visible: true,
+    auto_translate_enabled: false },
+  { id: 'lang-he', code: 'he', name: 'Hebrew', rtl: true, is_visible: false,
+    auto_translate_enabled: true },
 ]
 
 function renderPanel() {
@@ -62,9 +70,14 @@ describe('LanguageVisibilityPanel', () => {
     renderPanel()
     expect(await screen.findByText('Spanish')).toBeDefined()
     expect(screen.getByText('Hebrew')).toBeDefined()
-    const checkboxes = screen.getAllByRole('checkbox') as HTMLInputElement[]
-    expect(checkboxes[0].checked).toBe(true)
-    expect(checkboxes[1].checked).toBe(false)
+    const es = screen.getByLabelText(
+      /spanish visible to learners/i,
+    ) as HTMLInputElement
+    const he = screen.getByLabelText(
+      /hebrew visible to learners/i,
+    ) as HTMLInputElement
+    expect(es.checked).toBe(true)
+    expect(he.checked).toBe(false)
   })
 
   it('toggling a checkbox calls setLanguageVisibility', async () => {
@@ -75,6 +88,45 @@ describe('LanguageVisibilityPanel', () => {
     await waitFor(() =>
       expect(mockSetVisibility).toHaveBeenCalledWith('lang-he', true),
     )
+  })
+
+  it('shows the auto-translate switch state and toggles it', async () => {
+    mockSetAutoTranslate.mockResolvedValue(undefined)
+    renderPanel()
+    await screen.findByText('Spanish')
+    const es = screen.getByLabelText(
+      /spanish automatic translation/i,
+    ) as HTMLInputElement
+    const he = screen.getByLabelText(
+      /hebrew automatic translation/i,
+    ) as HTMLInputElement
+    expect(es.checked).toBe(false)
+    expect(he.checked).toBe(true)
+
+    fireEvent.click(es)
+    await waitFor(() =>
+      expect(mockSetAutoTranslate).toHaveBeenCalledWith('lang-es', true),
+    )
+    // The visibility endpoint is never touched by this switch.
+    expect(mockSetVisibility).not.toHaveBeenCalled()
+  })
+
+  it('surfaces the missing-migration 503 detail on the auto-translate switch', async () => {
+    mockSetAutoTranslate.mockRejectedValue({
+      response: {
+        data: {
+          detail:
+            'Automatic translation needs migration 20260913 applied — ' +
+            'run `supabase db push` (check /api/health/schema)',
+        },
+      },
+    })
+    renderPanel()
+    await screen.findByText('Spanish')
+    fireEvent.click(screen.getByLabelText(/spanish automatic translation/i))
+    expect(
+      await screen.findByText(/needs migration 20260913 applied/i),
+    ).toBeDefined()
   })
 
   it('clicking a language name switches the active language (the way in for admins)', async () => {

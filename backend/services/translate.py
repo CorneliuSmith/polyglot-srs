@@ -82,6 +82,38 @@ def _client() -> AsyncAnthropic:
     return AsyncAnthropic(api_key=get_settings().anthropic_api_key)
 
 
+def maker_system(target_language: str, source_language: str = "English") -> str:
+    """The maker's charter. Byte-identical to the original English-course
+    prompt when source_language is English; for any other course the English
+    definition stays the sense-disambiguator (the pivot), so the wording
+    names both languages explicitly."""
+    disambiguator = (
+        "the definition and example" if source_language == "English"
+        else "the English definition and example"
+    )
+    return (
+        f"You are a professional lexicographer translating {source_language} "
+        f"headwords into {target_language} for a language-learning app. For each "
+        f"numbered {source_language} word, give the single word or short phrase a "
+        f"native {target_language} speaker would use for THAT specific sense "
+        f"(use {disambiguator} to disambiguate). Match the part of "
+        f"speech. Output {target_language} only — no English, no explanations."
+    )
+
+
+def checker_system(target_language: str, source_language: str = "English") -> str:
+    """The checker's charter, generalized the same way as maker_system."""
+    return (
+        f"You are a strict bilingual reviewer checking "
+        f"{source_language}→{target_language} "
+        f"glosses for a learner app. For each item decide: 'ok' if the gloss is "
+        f"the correct sense, natural, and right part of speech; 'fixed' if it is "
+        f"close but you can correct it (put the correction in final); 'reject' if "
+        f"it is wrong-sense, unnatural, or you are unsure (final empty). Be "
+        f"conservative — reject rather than guess."
+    )
+
+
 def _mock_glosses(items: list[dict]) -> list[dict]:
     # deterministic stub: echo the English word tagged, so tests can assert flow
     return [{"i": it["i"], "gloss": f"[{it['word']}]"} for it in items]
@@ -100,8 +132,15 @@ def _mock_verdicts(items: list[dict]) -> list[dict]:
 
 
 async def make_glosses(target_language: str, items: list[dict],
-                       model: str | None = None) -> dict[int, str]:
-    """Maker: {i -> gloss} for each item {i, word, definition, pos, example}."""
+                       model: str | None = None, *,
+                       source_language: str = "English") -> dict[int, str]:
+    """Maker: {i -> gloss} for each item {i, word, definition, pos, example}.
+
+    *source_language* is the language the headwords are in. The default,
+    English, is the original English-course path; the auto-translate loop
+    passes the course language (e.g. "Spanish") and the pivot rule applies:
+    the English definition/example disambiguate which sense to render.
+    """
     settings = get_settings()
     if getattr(settings, "tutor_dev_mock", False):
         return {g["i"]: g["gloss"] for g in _mock_glosses(items)}
@@ -113,14 +152,7 @@ async def make_glosses(target_language: str, items: list[dict],
     resp = await _client().messages.create(
         model=model or resolve_model("translate"),
         max_tokens=4096,
-        system=(
-            f"You are a professional lexicographer translating English headwords "
-            f"into {target_language} for a language-learning app. For each "
-            f"numbered English word, give the single word or short phrase a "
-            f"native {target_language} speaker would use for THAT specific sense "
-            f"(use the definition and example to disambiguate). Match the part of "
-            f"speech. Output {target_language} only — no English, no explanations."
-        ),
+        system=maker_system(target_language, source_language),
         messages=[{"role": "user", "content": lines}],
         output_config={"format": {"type": "json_schema", "schema": _MAKER_SCHEMA}},
     )
@@ -134,27 +166,22 @@ async def make_glosses(target_language: str, items: list[dict],
 
 
 async def check_glosses(target_language: str, items: list[dict],
-                        model: str | None = None) -> dict[int, dict]:
+                        model: str | None = None, *,
+                        source_language: str = "English") -> dict[int, dict]:
     """Checker: {i -> {verdict, final, note}} for items {i, word, definition, gloss}."""
     settings = get_settings()
     if getattr(settings, "tutor_dev_mock", False):
         return {v["i"]: v for v in _mock_verdicts(items)}
     lines = "\n".join(
-        f'{it["i"]}. English "{it["word"]}" ({it.get("definition") or ""}) '
+        f'{it["i"]}. {source_language} "{it["word"]}" '
+        f'(English definition: {it.get("definition") or ""}) '
         f'→ proposed {target_language}: "{it["gloss"]}"'
         for it in items
     )
     resp = await _client().messages.create(
         model=model or resolve_model("translate"),
         max_tokens=4096,
-        system=(
-            f"You are a strict bilingual reviewer checking English→{target_language} "
-            f"glosses for a learner app. For each item decide: 'ok' if the gloss is "
-            f"the correct sense, natural, and right part of speech; 'fixed' if it is "
-            f"close but you can correct it (put the correction in final); 'reject' if "
-            f"it is wrong-sense, unnatural, or you are unsure (final empty). Be "
-            f"conservative — reject rather than guess."
-        ),
+        system=checker_system(target_language, source_language),
         messages=[{"role": "user", "content": lines}],
         output_config={"format": {"type": "json_schema", "schema": _CHECKER_SCHEMA}},
     )
@@ -175,16 +202,19 @@ async def check_glosses(target_language: str, items: list[dict],
 
 async def maker_check_batch(target_language: str, items: list[dict],
                             maker_model: str | None = None,
-                            checker_model: str | None = None) -> list[dict]:
+                            checker_model: str | None = None, *,
+                            source_language: str = "English") -> list[dict]:
     """Run maker then checker over a batch. Returns per-item results:
     {i, word, gloss, verdict, note} where gloss is the final to store (or '')."""
-    made = await make_glosses(target_language, items, maker_model)
+    made = await make_glosses(target_language, items, maker_model,
+                              source_language=source_language)
     checkable = [
         {**it, "gloss": made[it["i"]]} for it in items if it["i"] in made
     ]
     if not checkable:
         return []
-    verdicts = await check_glosses(target_language, checkable, checker_model)
+    verdicts = await check_glosses(target_language, checkable, checker_model,
+                                   source_language=source_language)
     results = []
     for it in checkable:
         v = verdicts.get(it["i"], {"verdict": "reject", "final": "", "note": "no verdict"})

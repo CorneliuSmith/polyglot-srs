@@ -115,7 +115,10 @@ from backend.repositories.contributor import (
     trial_reviewer_activity,
     update_drill,
 )
-from backend.repositories.languages import set_language_visibility
+from backend.repositories.languages import (
+    set_language_auto_translate,
+    set_language_visibility,
+)
 from backend.repositories.pool import privileged_connection, rls_connection
 from backend.repositories.tutor import (
     PLAN_TIERS,
@@ -360,6 +363,40 @@ async def update_language_visibility(
     if not ok:
         raise HTTPException(status_code=404, detail="Unknown language")
     return {"is_visible": body.is_visible}
+
+
+class AutoTranslateUpdate(BaseModel):
+    language_id: str
+    enabled: bool
+
+
+@router.post("/language-auto-translate")
+async def update_language_auto_translate(
+    body: AutoTranslateUpdate,
+    user: dict = Depends(get_current_user),
+):
+    """Switch demand-driven support-locale translation on/off for a learning
+    language (admin-only — enabling has a real API cost attached). While on,
+    the background loop fills missing glosses for (this course, locale) pairs
+    that real accounts use, through the maker–checker + review queue. It
+    spends the operator's Anthropic key, never a learner's allowance."""
+    await _require_admin(user["id"])
+    try:
+        async with privileged_connection() as conn:
+            ok = await set_language_auto_translate(
+                conn, body.language_id, body.enabled
+            )
+    except asyncpg.exceptions.UndefinedColumnError:
+        raise HTTPException(
+            status_code=503,
+            detail=(
+                "Automatic translation needs migration 20260913 applied — "
+                "run `supabase db push` (check /api/health/schema)"
+            ),
+        )
+    if not ok:
+        raise HTTPException(status_code=404, detail="Unknown language")
+    return {"auto_translate_enabled": body.enabled}
 
 
 @router.get("/language-readiness")

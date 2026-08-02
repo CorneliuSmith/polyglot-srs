@@ -126,6 +126,14 @@ def create_app() -> FastAPI:
             # an operator turning email off means all of it.
             from backend.services.digest import digest_loop
             digest_task = asyncio.create_task(digest_loop())
+        # Demand-driven support-locale translation. Same getattr-default-False
+        # trick: test FakeSettings never start it. The loop itself is inert
+        # unless an admin switched a language on AND live accounts use the
+        # pair — see services/auto_translate.py.
+        translate_task = None
+        if getattr(settings, "auto_translate_loop_enabled", False):
+            from backend.services.auto_translate import auto_translate_loop
+            translate_task = asyncio.create_task(auto_translate_loop())
         yield
         nlp_task.cancel()
         schema_task.cancel()
@@ -133,6 +141,8 @@ def create_app() -> FastAPI:
             reminder_task.cancel()
         if digest_task is not None:
             digest_task.cancel()
+        if translate_task is not None:
+            translate_task.cancel()
         await close_pool()
 
     _app = FastAPI(title="PolyglotSRS", lifespan=lifespan)
