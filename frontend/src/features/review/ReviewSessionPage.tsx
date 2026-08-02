@@ -1,4 +1,5 @@
 import { useState, useRef, useEffect } from 'react'
+import { useTranslation } from 'react-i18next'
 import { Headphones, Settings as SettingsIcon, Undo2 } from 'lucide-react'
 import { useLocation, useNavigate, useSearchParams } from 'react-router-dom'
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query'
@@ -106,6 +107,7 @@ function ReviewSessionInner({
   onLocaleChanged: () => void
 }) {
   const navigate = useNavigate()
+  const { t } = useTranslation()
   const queryClient = useQueryClient()
   const [searchParams] = useSearchParams()
   const cramPoints = cram ? (searchParams.get('points') ?? '') : ''
@@ -558,7 +560,7 @@ function ReviewSessionInner({
   if (isLoading || cards === null) {
     return (
       <div className="min-h-screen bg-gray-50 flex items-center justify-center">
-        <p className="text-gray-500">Loading cards…</p>
+        <p className="text-gray-500">{t('review.loadingCards')}</p>
       </div>
     )
   }
@@ -569,15 +571,15 @@ function ReviewSessionInner({
         <div className="text-center space-y-4">
           <p className="text-xl text-gray-700">
             {cram
-              ? 'Nothing to cram here yet — these points have no drills.'
-              : 'No cards due! Come back later.'}
+              ? t('review.noCram')
+              : t('review.noDue')}
           </p>
           <button
             type="button"
             onClick={() => navigate('/')}
             className="text-lang hover:underline text-sm touch-manipulation"
           >
-            Back to Dashboard
+            {t('review.backToDashboard')}
           </button>
         </div>
       </div>
@@ -608,7 +610,7 @@ function ReviewSessionInner({
           accuracy={session.accuracy}
           totalTimeMs={session.totalTimeMs}
           cardsReviewed={session.cardsReviewed}
-          note={cram ? 'Practice only — nothing was recorded.' : undefined}
+          note={cram ? t('review.cramNote') : undefined}
           onFinish={() => {
             if (!cram) {
               // The session changed due counts and deck progress — drop the
@@ -749,10 +751,10 @@ function ReviewSessionInner({
           </button>
           <div className="flex items-center gap-4 text-sm text-gray-400">
             <button type="button" onClick={() => navigate('/grammar')} className="hover:text-lang">
-              Path
+              {t('review.path')}
             </button>
             <button type="button" onClick={() => navigate('/tutor')} className="hover:text-lang">
-              Tutor
+              {t('review.tutorLink')}
             </button>
             <button
               type="button"
@@ -884,7 +886,7 @@ function ReviewSessionInner({
                       : 'text-xs text-gray-400'
                   }
                 >
-                  <span className="text-[10px] uppercase tracking-wide text-gray-300 mr-2">
+                  <span className="text-[10px] uppercase tracking-wide text-gray-300 me-2">
                     {l.label}
                   </span>
                   {l.text}
@@ -908,7 +910,7 @@ function ReviewSessionInner({
                     }`}
               </button>
               {chartOpen && (
-                <div className="mt-3 text-left" data-testid="gym-chart">
+                <div className="mt-3 text-start" data-testid="gym-chart">
                   <FormsPanel
                     morphology={card.morphology}
                     languageCode={card.language_code}
@@ -952,7 +954,7 @@ function ReviewSessionInner({
                 onClick={() => setHintLevel(hintLevel >= maxHint ? 0 : hintLevel + 1)}
                 className="flex items-center gap-2 text-sm text-gray-400 hover:text-lang"
               >
-                Hint
+                {t('review.hint')}
                 {Array.from({ length: maxHint }).map((_, i) => (
                   <span
                     key={i}
@@ -969,13 +971,13 @@ function ReviewSessionInner({
                 aria-pressed={listening}
                 onClick={() => setListeningMode(!listeningMode)}
                 title="Hide the sentence and fill the blank by ear"
-                className={`ml-auto text-sm rounded-full px-3 py-1 border transition ${
+                className={`ms-auto text-sm rounded-full px-3 py-1 border transition ${
                   listening
                     ? 'border-lang/40 bg-lang-soft text-lang'
                     : 'border-gray-200 text-gray-400 hover:text-lang'
                 }`}
               >
-                <Headphones aria-hidden className="mr-1 inline h-3.5 w-3.5 align-[-2px]" />Listening {listening ? 'on' : 'off'}
+                <Headphones aria-hidden className="me-1 inline h-3.5 w-3.5 align-[-2px]" />Listening {listening ? 'on' : 'off'}
               </button>
             )}
             {/* Card escape hatches: defer without grading, or retire a card
@@ -996,8 +998,7 @@ function ReviewSessionInner({
                   onClick={() => {
                     if (
                       window.confirm(
-                        'Retire this card? It stops appearing in reviews. ' +
-                          'You can undo with a progress reset in Settings.',
+                        t('review.retireConfirm'),
                       )
                     )
                       knownMutation.mutate(card.id)
@@ -1006,7 +1007,7 @@ function ReviewSessionInner({
                   className="hover:text-lang disabled:opacity-50"
                   title="I already know this — stop scheduling it"
                 >
-                  I know this — retire
+                  {t('review.retire')}
                 </button>
               )}
             </div>
@@ -1023,7 +1024,7 @@ function ReviewSessionInner({
                 className="text-xs text-gray-500 hover:text-gray-700 border border-gray-200 rounded-lg px-3 py-1.5 touch-manipulation"
                 style={{ minHeight: '44px' }}
               >
-                {showKeyboard ? 'Hide Keyboard' : 'Show Keyboard'}
+                {showKeyboard ? t('review.hideKeyboard') : t('review.showKeyboard')}
               </button>
             </div>
             {showKeyboard && (
@@ -1103,7 +1104,7 @@ function ReviewSessionInner({
                   </span>
                   <button
                     type="button"
-                    aria-label="Continue"
+                    aria-label={t('review.continue')}
                     onClick={() => handleRate(session.validationResult!.answer_result)}
                     disabled={submitMutation.isPending}
                     className="text-2xl leading-none px-2 text-gray-500 hover:text-lang disabled:opacity-50"
@@ -1122,7 +1123,7 @@ function ReviewSessionInner({
                     }}
                     className="text-xs text-gray-400 hover:text-lang"
                   >
-                    <Undo2 aria-hidden className="mr-0.5 inline h-3.5 w-3.5 align-[-2px]" />Undo
+                    <Undo2 aria-hidden className="me-0.5 inline h-3.5 w-3.5 align-[-2px]" />Undo
                   </button>
                   {(session.validationResult.answer_result === 'correct' ||
                     session.validationResult.answer_result === 'correct_sloppy') && (
@@ -1132,7 +1133,7 @@ function ReviewSessionInner({
                       disabled={submitMutation.isPending}
                       className="text-xs text-gray-400 hover:text-red-500"
                     >
-                      I actually got it wrong
+                      {t('review.gotItWrong')}
                     </button>
                   )}
                 </div>

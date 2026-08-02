@@ -96,7 +96,7 @@ function VocabRow({
         type="button"
         onClick={() => setOpen((v) => !v)}
         aria-expanded={open}
-        className="w-full px-4 py-3 text-left flex items-center justify-between gap-3 hover:bg-gray-50"
+        className="w-full px-4 py-3 text-start flex items-center justify-between gap-3 hover:bg-gray-50"
       >
         <span className="min-w-0">
           <LanguageWrapper languageCode={languageCode}>
@@ -170,7 +170,7 @@ function VocabRow({
                     type="button"
                     onClick={() => aiCheck.mutate()}
                     disabled={aiCheck.isPending}
-                    className="ml-auto text-lang hover:underline disabled:opacity-50"
+                    className="ms-auto text-lang hover:underline disabled:opacity-50"
                   >
                     {aiCheck.isPending ? 'Checking…' : 'Run AI check'}
                   </button>

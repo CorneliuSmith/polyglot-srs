@@ -1,3 +1,5 @@
+import { useTranslation } from 'react-i18next'
+
 interface SessionSummaryProps {
   accuracy: number
   totalTimeMs: number
@@ -21,6 +23,7 @@ export default function SessionSummary({
   note,
   onFinish,
 }: SessionSummaryProps) {
+  const { t } = useTranslation()
   const percent = Math.round(accuracy * 100)
 
   let accuracyColor = 'text-red-600'
@@ -33,7 +36,7 @@ export default function SessionSummary({
   return (
     <div className="min-h-screen bg-gray-50 flex items-center justify-center px-4">
       <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-8 max-w-sm w-full text-center space-y-6">
-        <h1 className="text-2xl font-bold text-gray-900">Session Complete</h1>
+        <h1 className="text-2xl font-bold text-gray-900">{t('review.sessionComplete')}</h1>
         {note && <p className="text-xs text-gray-500">{note}</p>}
 
         <div className="space-y-4">
@@ -65,7 +68,7 @@ export default function SessionSummary({
           className="w-full bg-lang hover:bg-lang-dark text-lang-on font-semibold rounded-xl px-6 py-3 text-sm transition-colors"
           style={{ minHeight: '44px' }}
         >
-          Back to Dashboard
+          {t('review.backToDashboard')}
         </button>
       </div>
     </div>

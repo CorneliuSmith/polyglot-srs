@@ -13,6 +13,132 @@
     "whatsNew": "What's new",
     "takeTour": "Take the tour"
   },
+  "common": {
+    "backToDashboard": "← Dashboard",
+    "backToDashboardLong": "← Back to Dashboard",
+    "loading": "Loading…",
+    "grammar": "Grammar",
+    "vocab": "Vocab",
+    "today": "Today",
+    "todayLower": "today"
+  },
+  "days": {
+    "sun": "Sun",
+    "mon": "Mon",
+    "tue": "Tue",
+    "wed": "Wed",
+    "thu": "Thu",
+    "fri": "Fri",
+    "sat": "Sat"
+  },
+  "dashboard": {
+    "activeLanguage": "Active Language",
+    "lettersTitle": "Letters & Sounds",
+    "lettersSub": "Every letter, its variants, and how to say them",
+    "aboutTitle": "Things to know about this language",
+    "aboutSub": "Its family, where it’s spoken, word order, and what makes it unique",
+    "learn": "Learn",
+    "review": "Review",
+    "allReviews": "all reviews",
+    "newQueued": "new items queued",
+    "learnedTodayQueued": "learned today · {{count}} queued",
+    "goalDoneQueued": "daily goal done · {{count}} queued",
+    "grammarOnly": "Grammar Only",
+    "vocabOnly": "Vocab Only",
+    "noDecks": "No decks for this language yet.",
+    "inQueue": "In queue",
+    "deckLearn": "Learn",
+    "removeFromQueue": "Remove from queue",
+    "addToQueue": "Add to queue",
+    "browseAll": "Browse all items →",
+    "resetProgress": "Reset progress",
+    "resetConfirm": "Reset \"{{label}}\"? This permanently deletes your progress AND review history for the {{count}} items in this deck.",
+    "deckEmpty": "This deck is empty.",
+    "gymCaption": "Drill tenses & cases",
+    "readCaption": "A story at your level",
+    "tutorCaption": "Coaching on your gaps",
+    "forecastTitle": "Review forecast",
+    "activityTitle": "Activity",
+    "twoWeeksAgo": "2 weeks ago",
+    "cefrTitle": "CEFR Progress",
+    "streak_one": "Current streak — {{count}} day",
+    "streak_other": "Current streak — {{count}} days",
+    "grammarPathTitle": "Grammar path",
+    "grammarPathSub": "Browse and read every grammar point in order",
+    "recommendedTitle": "Recommended for you",
+    "recommendedSub": "Books, films, series & podcasts at your level",
+    "recommendedPicks_one": "{{count}} pick to stretch your reading, watching & listening",
+    "recommendedPicks_other": "{{count}} picks to stretch your reading, watching & listening",
+    "ownTextTitle": "Learn from your own text",
+    "ownTextSub": "Turn anything you read into review cards",
+    "contribute": "Contribute grammar notes →",
+    "progressTitle": "Progress"
+  },
+  "stages": {
+    "beginner": "Beginner",
+    "adept": "Adept",
+    "seasoned": "Seasoned",
+    "expert": "Expert",
+    "master": "Master",
+    "selfStudy": "Self-Study",
+    "ghosts": "Ghosts"
+  },
+  "usage": {
+    "monthly": "Monthly usage",
+    "pctUsed": "{{pct}}% used",
+    "resets": "Resets {{date}}"
+  },
+  "reader": {
+    "title": "Read {{language}}",
+    "myReadings": "← My readings",
+    "promptTitle": "What do you want to read about?",
+    "promptPlaceholder": "e.g. street food in Mexico City, the history of chess…",
+    "writeIt": "Write it",
+    "writing": "Writing…",
+    "length": "Length",
+    "short": "Short",
+    "medium": "Medium",
+    "long": "Long",
+    "style": "Style",
+    "any": "Any",
+    "firstPerson": "I-narrator",
+    "thirdPerson": "Third person",
+    "dialogue": "Dialogue",
+    "challenge": "Challenge",
+    "easier": "Easier",
+    "myLevel": "My level",
+    "stretch": "Stretch",
+    "usageNote": "Each new text counts toward your monthly usage.",
+    "subtitle": "A text written at exactly your level — with a few new words to figure out"
+  },
+  "tutor": {
+    "title": "{{language}} Tutor",
+    "practice": "Practice",
+    "reference": "Reference",
+    "practiceLine": "Practice — the tutor drills you and remembers what you covered.",
+    "referenceLine": "Reference — a quick answer, no drills, nothing saved to your profile.",
+    "pastSessions": "Past sessions",
+    "hidePastSessions": "Hide past sessions",
+    "readLink": "Read →",
+    "subtitle": "Coaching based on your review history"
+  },
+  "gym": {
+    "title": "The Gym",
+    "subtitle": "Pick the forms to train — hover one to see how it's used. Your session mixes everything you pick.",
+    "noForms": "This language doesn't bend its words enough to need a gym — there are no conjugation or declension forms to train here yet.",
+    "pickOne": "Pick at least one form",
+    "startTraining_one": "Start training · {{count}} question",
+    "startTraining_other": "Start training · {{count}} questions"
+  },
+  "learnSession": {
+    "startReviewing": "Start Reviewing",
+    "next": "Next →",
+    "previous": "← Previous"
+  },
+  "search": {
+    "title": "Search",
+    "placeholder": "Search grammar and vocabulary…"
+  },
   "login": {
     "privateBeta": "Private beta — sign in with the account your admin created for you.",
     "signIn": "Sign In",
@@ -33,5 +159,25 @@
   },
   "switcher": {
     "label": "Site language"
+  },
+  "letters": {
+    "noGuide": "No letter guide for this language yet."
+  },
+  "review": {
+    "loadingCards": "Loading cards…",
+    "noCram": "Nothing to cram here yet — these points have no drills.",
+    "noDue": "No cards due! Come back later.",
+    "backToDashboard": "Back to Dashboard",
+    "cramNote": "Practice only — nothing was recorded.",
+    "hint": "Hint",
+    "showKeyboard": "Show Keyboard",
+    "hideKeyboard": "Hide Keyboard",
+    "retire": "I know this — retire",
+    "retireConfirm": "Retire this card? It stops appearing in reviews. You can undo with a progress reset in Settings.",
+    "gotItWrong": "I actually got it wrong",
+    "sessionComplete": "Session Complete",
+    "path": "Path",
+    "tutorLink": "Tutor",
+    "continue": "Continue"
   }
 }

@@ -31,3 +31,8 @@ Object.defineProperty(globalThis, 'localStorage', {
   writable: true,
   configurable: true,
 })
+
+// Initialize i18next once for every test: components using useTranslation
+// need a live instance, and jsdom's default en-US locale keeps every
+// English string byte-identical to the pre-i18n literals tests assert on.
+import '../i18n'

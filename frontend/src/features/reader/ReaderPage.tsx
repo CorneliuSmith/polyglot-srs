@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import { useTranslation } from 'react-i18next'
 import { Headphones } from 'lucide-react'
 import { useNavigate } from 'react-router-dom'
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
@@ -34,6 +35,7 @@ type Stage = 'listen' | 'guess' | 'assisted'
  */
 export default function ReaderPage() {
   const navigate = useNavigate()
+  const { t } = useTranslation()
   const queryClient = useQueryClient()
   const activeLanguageId = usePrefsStore((s) => s.activeLanguageId)
 
@@ -284,19 +286,16 @@ export default function ReaderPage() {
         <div className="flex items-center justify-between">
           <div>
             <h1 className="text-xl font-bold text-gray-900">
-              Read {language.name}
+              {t('reader.title', { language: language.name })}
             </h1>
-            <p className="text-xs text-gray-500">
-              A text written at exactly your level — with a few new words to
-              figure out
-            </p>
+            <p className="text-xs text-gray-500">{t('reader.subtitle')}</p>
           </div>
           <button
             type="button"
             onClick={() => (reading ? setReading(null) : navigate('/'))}
             className="text-sm text-lang hover:underline"
           >
-            {reading ? '← My readings' : '← Dashboard'}
+            {reading ? t('reader.myReadings') : t('common.backToDashboard')}
           </button>
         </div>
 
@@ -312,14 +311,14 @@ export default function ReaderPage() {
               className="bg-white rounded-2xl shadow-sm border border-gray-100 p-5 space-y-3"
             >
               <label className="block text-sm font-medium text-gray-700">
-                What do you want to read about?
+                {t('reader.promptTitle')}
               </label>
               <div className="flex gap-2">
                 <input
                   value={topic}
                   onChange={(e) => setTopic(e.target.value)}
                   maxLength={120}
-                  placeholder="e.g. street food in Mexico City, the history of chess…"
+                  placeholder={t('reader.promptPlaceholder')}
                   className="flex-1 rounded-lg border border-gray-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-lang bg-white"
                 />
                 <button
@@ -328,7 +327,7 @@ export default function ReaderPage() {
                   className="rounded-lg bg-lang hover:bg-lang-dark disabled:opacity-50 text-lang-on px-4 py-2 text-sm font-semibold"
                   style={{ minHeight: '44px' }}
                 >
-                  {generateMutation.isPending ? 'Writing…' : 'Write it'}
+                  {generateMutation.isPending ? t('reader.writing') : t('reader.writeIt')}
                 </button>
               </div>
               {/* Shape the text: three bounded choices, one pill row each. */}
@@ -337,30 +336,30 @@ export default function ReaderPage() {
                   [
                     {
                       name: 'length' as const,
-                      label: 'Length',
+                      label: t('reader.length'),
                       choices: [
-                        ['short', 'Short'],
-                        ['medium', 'Medium'],
-                        ['long', 'Long'],
+                        ['short', t('reader.short')],
+                        ['medium', t('reader.medium')],
+                        ['long', t('reader.long')],
                       ],
                     },
                     {
                       name: 'voice' as const,
-                      label: 'Style',
+                      label: t('reader.style'),
                       choices: [
-                        ['any', 'Any'],
-                        ['first', 'I-narrator'],
-                        ['third', 'Third person'],
-                        ['dialogue', 'Dialogue'],
+                        ['any', t('reader.any')],
+                        ['first', t('reader.firstPerson')],
+                        ['third', t('reader.thirdPerson')],
+                        ['dialogue', t('reader.dialogue')],
                       ],
                     },
                     {
                       name: 'complexity' as const,
-                      label: 'Challenge',
+                      label: t('reader.challenge'),
                       choices: [
-                        ['easier', 'Easier'],
-                        ['level', 'My level'],
-                        ['stretch', 'Stretch'],
+                        ['easier', t('reader.easier')],
+                        ['level', t('reader.myLevel')],
+                        ['stretch', t('reader.stretch')],
                       ],
                     },
                   ]
@@ -395,7 +394,7 @@ export default function ReaderPage() {
                 </p>
               )}
               <p className="text-[11px] text-gray-400">
-                Each new text counts toward your monthly usage.
+                {t('reader.usageNote')}
               </p>
               <UsageMeter allowance={usage?.allowance} />
             </form>
@@ -410,7 +409,7 @@ export default function ReaderPage() {
                     key={r.id}
                     type="button"
                     onClick={() => openMutation.mutate(r.id)}
-                    className="w-full text-left px-4 py-3 border-t border-gray-100 first:border-t-0 hover:bg-gray-50"
+                    className="w-full text-start px-4 py-3 border-t border-gray-100 first:border-t-0 hover:bg-gray-50"
                   >
                     <span className="text-sm font-medium text-gray-800 block">
                       {r.title}
@@ -463,7 +462,7 @@ export default function ReaderPage() {
                         className="rounded-xl bg-lang hover:bg-lang-dark text-lang-on font-semibold px-5 py-2.5 text-sm"
                         style={{ minHeight: '44px' }}
                       >
-                        <Headphones aria-hidden className="mr-1.5 inline h-4 w-4 align-[-2px]" />Listen first
+                        <Headphones aria-hidden className="me-1.5 inline h-4 w-4 align-[-2px]" />Listen first
                       </button>
                       <button
                         type="button"
@@ -613,7 +612,7 @@ export default function ReaderPage() {
                         >
                           {stage === 'assisted' && openTranslations.has(sIdx) && (
                             <p className="text-sm text-gray-600">
-                              <span className="mr-2 text-[10px] uppercase tracking-wide text-gray-400">
+                              <span className="me-2 text-[10px] uppercase tracking-wide text-gray-400">
                                 Translation
                               </span>
                               {sentence.translation}

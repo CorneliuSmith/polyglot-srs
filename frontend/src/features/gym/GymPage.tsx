@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { useTranslation } from 'react-i18next'
 import { useNavigate } from 'react-router-dom'
 import { useQuery } from '@tanstack/react-query'
 import { getGymManifest } from '../../api/gym'
@@ -27,6 +28,7 @@ function sortFamiliarFirst(entries: GymEntry[]): GymEntry[] {
 
 export default function GymPage() {
   const navigate = useNavigate()
+  const { t } = useTranslation()
   const activeLanguageId = usePrefsStore((s) => s.activeLanguageId)
   const [selected, setSelected] = useState<Set<string>>(new Set())
   const [nonstandard, setNonstandard] = useState(false)
@@ -107,27 +109,23 @@ export default function GymPage() {
       <div className="max-w-3xl mx-auto px-4 py-8 space-y-5">
         <div className="flex items-center justify-between">
           <header>
-            <h1 className="text-2xl font-bold text-gray-900">The Gym</h1>
-            <p className="text-sm text-gray-500">
-              Pick the forms to train — hover one to see how it's used. Your
-              session mixes everything you pick.
-            </p>
+            <h1 className="text-2xl font-bold text-gray-900">{t('gym.title')}</h1>
+            <p className="text-sm text-gray-500">{t('gym.subtitle')}</p>
           </header>
           <button
             type="button"
             onClick={() => navigate('/')}
             className="text-sm text-lang hover:underline"
           >
-            ← Dashboard
+            {t('common.backToDashboard')}
           </button>
         </div>
 
-        {isLoading && <p className="text-sm text-gray-400">Loading…</p>}
+        {isLoading && <p className="text-sm text-gray-400">{t('common.loading')}</p>}
 
         {!isLoading && columns.length === 0 && (
           <div className="bg-white rounded-2xl border border-gray-100 p-6 text-sm text-gray-500">
-            This language doesn't bend its words enough to need a gym — there
-            are no conjugation or declension forms to train here yet.
+            {t('gym.noForms')}
           </div>
         )}
 
@@ -169,7 +167,7 @@ export default function GymPage() {
                             }}
                             aria-pressed={selected.has(e.point_id)}
                             className={
-                              'w-full rounded-xl border px-3 py-2 text-left text-sm transition-colors ' +
+                              'w-full rounded-xl border px-3 py-2 text-start text-sm transition-colors ' +
                               (selected.has(e.point_id)
                                 ? 'border-lang bg-lang-soft text-gray-900'
                                 : 'border-gray-200 bg-white text-gray-700 hover:border-lang/50')
@@ -205,7 +203,7 @@ export default function GymPage() {
                           {(e.usage || e.example) && (
                             <div
                               role="tooltip"
-                              className="pointer-events-none absolute left-0 right-0 top-full z-10 mt-1 hidden rounded-xl border border-gray-200 bg-white p-3 text-xs shadow-lg group-hover:block group-focus-within:block"
+                              className="pointer-events-none absolute start-0 end-0 top-full z-10 mt-1 hidden rounded-xl border border-gray-200 bg-white p-3 text-xs shadow-lg group-hover:block group-focus-within:block"
                             >
                               {e.usage && (
                                 <p className="text-gray-600">{e.usage}</p>
@@ -329,10 +327,10 @@ export default function GymPage() {
                 style={{ minHeight: '44px' }}
               >
                 {selected.size === 0
-                  ? 'Pick at least one form'
+                  ? t('gym.pickOne')
                   : generate
-                    ? `Start training · ${count} question${count === 1 ? '' : 's'}`
-                    : `Start training · ${Math.min(count, available || count)} question${Math.min(count, available || count) === 1 ? '' : 's'}`}
+                    ? t('gym.startTraining', { count })
+                    : t('gym.startTraining', { count: Math.min(count, available || count) })}
               </button>
             </div>
           </>

@@ -13,6 +13,132 @@
     "whatsNew": "Nouveautés",
     "takeTour": "Faire la visite"
   },
+  "common": {
+    "backToDashboard": "← Tableau de bord",
+    "backToDashboardLong": "← Retour au tableau de bord",
+    "loading": "Chargement…",
+    "grammar": "Grammaire",
+    "vocab": "Vocabulaire",
+    "today": "Aujourd’hui",
+    "todayLower": "aujourd’hui"
+  },
+  "days": {
+    "sun": "dim",
+    "mon": "lun",
+    "tue": "mar",
+    "wed": "mer",
+    "thu": "jeu",
+    "fri": "ven",
+    "sat": "sam"
+  },
+  "dashboard": {
+    "activeLanguage": "Langue active",
+    "lettersTitle": "Lettres et sons",
+    "lettersSub": "Chaque lettre, ses variantes et leur prononciation",
+    "aboutTitle": "À savoir sur cette langue",
+    "aboutSub": "Sa famille, où on la parle, l’ordre des mots et ce qui la rend unique",
+    "learn": "Apprendre",
+    "review": "Réviser",
+    "allReviews": "toutes les révisions",
+    "newQueued": "nouveaux éléments en file",
+    "learnedTodayQueued": "appris aujourd’hui · {{count}} en file",
+    "goalDoneQueued": "objectif du jour atteint · {{count}} en file",
+    "grammarOnly": "Grammaire seule",
+    "vocabOnly": "Vocabulaire seul",
+    "noDecks": "Pas encore de paquets pour cette langue.",
+    "inQueue": "En file",
+    "deckLearn": "Apprendre",
+    "removeFromQueue": "Retirer de la file",
+    "addToQueue": "Ajouter à la file",
+    "browseAll": "Parcourir tous les éléments →",
+    "resetProgress": "Réinitialiser la progression",
+    "resetConfirm": "Réinitialiser « {{label}} » ? Cela supprime définitivement votre progression ET votre historique de révision pour les {{count}} éléments de ce paquet.",
+    "deckEmpty": "Ce paquet est vide.",
+    "gymCaption": "Entraînez temps et cas",
+    "readCaption": "Une histoire à votre niveau",
+    "tutorCaption": "Un coaching sur vos lacunes",
+    "forecastTitle": "Prévision des révisions",
+    "activityTitle": "Activité",
+    "twoWeeksAgo": "il y a 2 semaines",
+    "cefrTitle": "Progression CECR",
+    "streak_one": "Série en cours — {{count}} jour",
+    "streak_other": "Série en cours — {{count}} jours",
+    "grammarPathTitle": "Parcours de grammaire",
+    "grammarPathSub": "Parcourez et lisez chaque point de grammaire dans l’ordre",
+    "recommendedTitle": "Recommandé pour vous",
+    "recommendedSub": "Livres, films, séries et podcasts à votre niveau",
+    "recommendedPicks_one": "{{count}} suggestion pour enrichir vos lectures, films et écoutes",
+    "recommendedPicks_other": "{{count}} suggestions pour enrichir vos lectures, films et écoutes",
+    "ownTextTitle": "Apprenez avec votre propre texte",
+    "ownTextSub": "Transformez tout ce que vous lisez en cartes de révision",
+    "contribute": "Contribuer aux notes de grammaire →",
+    "progressTitle": "Progression"
+  },
+  "stages": {
+    "beginner": "Débutant",
+    "adept": "Initié",
+    "seasoned": "Aguerri",
+    "expert": "Expert",
+    "master": "Maître",
+    "selfStudy": "Autonome",
+    "ghosts": "Fantômes"
+  },
+  "usage": {
+    "monthly": "Utilisation mensuelle",
+    "pctUsed": "{{pct}} % utilisés",
+    "resets": "Réinitialisé le {{date}}"
+  },
+  "reader": {
+    "title": "Lire en {{language}}",
+    "myReadings": "← Mes lectures",
+    "promptTitle": "Sur quoi voulez-vous lire ?",
+    "promptPlaceholder": "p. ex. la cuisine de rue à Mexico, l’histoire des échecs…",
+    "writeIt": "Écrire",
+    "writing": "Rédaction…",
+    "length": "Longueur",
+    "short": "Court",
+    "medium": "Moyen",
+    "long": "Long",
+    "style": "Style",
+    "any": "Indifférent",
+    "firstPerson": "À la première personne",
+    "thirdPerson": "À la troisième personne",
+    "dialogue": "Dialogue",
+    "challenge": "Défi",
+    "easier": "Plus facile",
+    "myLevel": "Mon niveau",
+    "stretch": "Ambitieux",
+    "usageNote": "Chaque nouveau texte compte dans votre utilisation mensuelle.",
+    "subtitle": "Un texte écrit exactement à votre niveau — avec quelques mots nouveaux à deviner"
+  },
+  "tutor": {
+    "title": "Tuteur de {{language}}",
+    "practice": "Pratique",
+    "reference": "Référence",
+    "practiceLine": "Pratique — le tuteur vous entraîne et retient ce que vous avez couvert.",
+    "referenceLine": "Référence — une réponse rapide, sans exercices, rien n’est enregistré dans votre profil.",
+    "pastSessions": "Sessions passées",
+    "hidePastSessions": "Masquer les sessions passées",
+    "readLink": "Lecture →",
+    "subtitle": "Un coaching basé sur votre historique de révision"
+  },
+  "gym": {
+    "title": "La Gym",
+    "subtitle": "Choisissez les formes à travailler — survolez-en une pour voir son usage. Votre session mélange tout ce que vous choisissez.",
+    "noForms": "Cette langue fléchit trop peu ses mots pour avoir besoin d’une gym — il n’y a pas encore de formes de conjugaison ou de déclinaison à travailler ici.",
+    "pickOne": "Choisissez au moins une forme",
+    "startTraining_one": "Commencer · {{count}} question",
+    "startTraining_other": "Commencer · {{count}} questions"
+  },
+  "learnSession": {
+    "startReviewing": "Commencer la révision",
+    "next": "Suivant →",
+    "previous": "← Précédent"
+  },
+  "search": {
+    "title": "Recherche",
+    "placeholder": "Chercher dans la grammaire et le vocabulaire…"
+  },
   "login": {
     "privateBeta": "Bêta privée — connectez-vous avec le compte créé par votre administrateur.",
     "signIn": "Se connecter",
@@ -33,5 +159,25 @@
   },
   "switcher": {
     "label": "Langue du site"
+  },
+  "letters": {
+    "noGuide": "Pas encore de guide des lettres pour cette langue."
+  },
+  "review": {
+    "loadingCards": "Chargement des cartes…",
+    "noCram": "Rien à bachoter ici pour l’instant — ces points n’ont pas d’exercices.",
+    "noDue": "Aucune carte à réviser ! Revenez plus tard.",
+    "backToDashboard": "Retour au tableau de bord",
+    "cramNote": "Entraînement seulement — rien n’a été enregistré.",
+    "hint": "Indice",
+    "showKeyboard": "Afficher le clavier",
+    "hideKeyboard": "Masquer le clavier",
+    "retire": "Je le sais — retirer",
+    "retireConfirm": "Retirer cette carte ? Elle n’apparaîtra plus dans les révisions. Annulable via une réinitialisation de progression dans les réglages.",
+    "gotItWrong": "En fait je me suis trompé",
+    "sessionComplete": "Session terminée",
+    "path": "Parcours",
+    "tutorLink": "Tuteur",
+    "continue": "Continuer"
   }
 }

@@ -141,7 +141,7 @@ export default function GrammarPathPage() {
                       setOpenPointId(openPointId === point.id ? null : point.id)
                     }
                     aria-expanded={openPointId === point.id}
-                    className="w-full text-left px-4 py-3 flex items-center gap-3"
+                    className="w-full text-start px-4 py-3 flex items-center gap-3"
                     style={{ minHeight: '44px' }}
                   >
                     <span className="text-xs text-gray-400 w-5 shrink-0">{i + 1}</span>
@@ -227,7 +227,7 @@ export default function GrammarPathPage() {
                             }
                             className="text-sm text-lang hover:underline"
                           >
-                            <Zap aria-hidden className="mr-1 inline h-3.5 w-3.5 align-[-2px]" />Quick cram this + related (nothing recorded)
+                            <Zap aria-hidden className="me-1 inline h-3.5 w-3.5 align-[-2px]" />Quick cram this + related (nothing recorded)
                           </button>
                         </>
                       )}

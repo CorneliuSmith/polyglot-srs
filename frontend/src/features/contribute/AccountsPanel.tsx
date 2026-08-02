@@ -95,7 +95,7 @@ function RolesCell({
           return (
             <span
               key={`${g.role}-${g.language_id ?? 'all'}`}
-              className="inline-flex items-center gap-1 text-xs rounded-full pl-2 pr-1 py-0.5 bg-lang-soft text-lang-dark"
+              className="inline-flex items-center gap-1 text-xs rounded-full ps-2 pe-1 py-0.5 bg-lang-soft text-lang-dark"
             >
               <span className="capitalize">{g.role}</span>
               <span className="text-gray-400">· {scopeName(g)}</span>
@@ -319,7 +319,7 @@ function AccountRow({
       <td className="px-3 py-2">
         <TutorCell account={account} />
       </td>
-      <td className="px-3 py-2 text-right">
+      <td className="px-3 py-2 text-end">
         <button
           type="button"
           onClick={handleDelete}
@@ -485,7 +485,7 @@ export default function AccountsPanel({
           {!isLoading && (
             <table className="w-full text-sm" data-testid="accounts-table">
               <thead>
-                <tr className="text-left text-xs text-gray-400">
+                <tr className="text-start text-xs text-gray-400">
                   <th className="px-3 py-1 font-normal">Account</th>
                   <th className="px-3 py-1 font-normal">Activity</th>
                   <th className="px-3 py-1 font-normal">Plan</th>

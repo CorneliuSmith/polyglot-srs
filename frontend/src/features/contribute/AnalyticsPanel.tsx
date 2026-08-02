@@ -121,9 +121,9 @@ export default function AnalyticsPanel() {
           <div className="overflow-x-auto">
             <table className="w-full text-xs whitespace-nowrap">
               <thead>
-                <tr className="text-left text-gray-400 uppercase tracking-wide text-[10px]">
-                  <th className="py-1 pr-2">Joined week of</th>
-                  <th className="py-1 pr-2 text-right">Size</th>
+                <tr className="text-start text-gray-400 uppercase tracking-wide text-[10px]">
+                  <th className="py-1 pe-2">Joined week of</th>
+                  <th className="py-1 pe-2 text-end">Size</th>
                   {Array.from({ length: 8 }, (_, i) => (
                     <th key={i} className="py-1 px-1 text-center">w{i}</th>
                   ))}
@@ -132,8 +132,8 @@ export default function AnalyticsPanel() {
               <tbody>
                 {cohorts.map((c) => (
                   <tr key={c.cohort_week} className="border-t border-gray-50">
-                    <td className="py-1 pr-2 text-gray-700">{c.cohort_week}</td>
-                    <td className="py-1 pr-2 text-right tabular-nums text-gray-500">
+                    <td className="py-1 pe-2 text-gray-700">{c.cohort_week}</td>
+                    <td className="py-1 pe-2 text-end tabular-nums text-gray-500">
                       {c.size}
                     </td>
                     {c.returned.map((n, i) => {

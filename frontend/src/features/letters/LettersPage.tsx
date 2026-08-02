@@ -1,4 +1,5 @@
 import { useEffect } from 'react'
+import { useTranslation } from 'react-i18next'
 import { useQuery } from '@tanstack/react-query'
 import { useNavigate } from 'react-router-dom'
 import { getLanguages } from '../../api/profile'
@@ -28,6 +29,7 @@ const POSITION_SHAPES: { label: string; wrap: (c: string) => string }[] = [
 ]
 export default function LettersPage() {
   const navigate = useNavigate()
+  const { t } = useTranslation()
   // The LIVE active language comes from the prefs store (same source the
   // dashboard uses) — the cached profile query lagged a language switch,
   // so Russian/Turkish/Arabic letters leaked into the next language.
@@ -61,15 +63,13 @@ export default function LettersPage() {
             onClick={() => navigate('/')}
             className="text-sm text-gray-500 hover:text-lang"
           >
-            ← Dashboard
+            {t('common.backToDashboard')}
           </button>
-          <h1 className="text-lg font-bold text-gray-900">Letters &amp; Sounds</h1>
+          <h1 className="text-lg font-bold text-gray-900">{t('dashboard.lettersTitle')}</h1>
         </div>
 
         {!letters && (
-          <p className="text-sm text-gray-500">
-            No letter guide for this language yet.
-          </p>
+          <p className="text-sm text-gray-500">{t('letters.noGuide')}</p>
         )}
 
         {letters?.intro && (
@@ -124,7 +124,7 @@ export default function LettersPage() {
                         {section.italics && (
                           // The same letter in italics — the shape shift IS
                           // the lesson (т → m-like, и → u-like).
-                          <span className="italic ml-2" data-testid="italic-twin">
+                          <span className="italic ms-2" data-testid="italic-twin">
                             {row.char}
                           </span>
                         )}

@@ -1,4 +1,5 @@
 import { useCallback, useEffect, useRef, useState } from 'react'
+import { useTranslation } from 'react-i18next'
 import { ArrowDown, ArrowUp, Star } from 'lucide-react'
 import { useNavigate } from 'react-router-dom'
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query'
@@ -31,6 +32,7 @@ function resetDay(resetsAt: string | null): string {
 
 export default function TutorPage() {
   const navigate = useNavigate()
+  const { t } = useTranslation()
   const queryClient = useQueryClient()
   const activeLanguageId = usePrefsStore((s) => s.activeLanguageId)
   const [messages, setMessages] = useState<TutorMessage[]>([])
@@ -260,11 +262,9 @@ export default function TutorPage() {
         <div className="flex items-center justify-between mb-4">
           <div>
             <h1 className="text-xl font-bold text-gray-900">
-              {language.name} Tutor
+              {t('tutor.title', { language: language.name })}
             </h1>
-            <p className="text-xs text-gray-500">
-              Coaching based on your review history
-            </p>
+            <p className="text-xs text-gray-500">{t('tutor.subtitle')}</p>
           </div>
           <button
             type="button"
@@ -293,7 +293,7 @@ export default function TutorPage() {
                   : 'px-3 py-1 bg-white text-gray-500 hover:text-lang'
               }
             >
-              Practice
+              {t('tutor.practice')}
             </button>
             <button
               type="button"
@@ -306,7 +306,7 @@ export default function TutorPage() {
                   : 'px-3 py-1 bg-white text-gray-500 hover:text-lang'
               }
             >
-              Reference
+              {t('tutor.reference')}
             </button>
           </div>
           <button
@@ -315,7 +315,7 @@ export default function TutorPage() {
             aria-expanded={historyOpen}
             className="text-gray-500 hover:text-lang"
           >
-            {historyOpen ? 'Hide past sessions' : 'Past sessions'}
+            {historyOpen ? t('tutor.hidePastSessions') : t('tutor.pastSessions')}
           </button>
           <button
             type="button"
@@ -323,15 +323,15 @@ export default function TutorPage() {
             title="A text written at your level, on your topic"
             className="text-gray-500 hover:text-lang"
           >
-            Read →
+            {t('tutor.readLink')}
           </button>
         </div>
 
         {/* One-line explainer of the two modes (beta request). */}
         <p className="text-[11px] text-gray-400 mb-2">
           {mode === 'practice'
-            ? 'Practice — the tutor drills you and remembers what you covered.'
-            : 'Reference — a quick answer, no drills, nothing saved to your profile.'}
+            ? t('tutor.practiceLine')
+            : t('tutor.referenceLine')}
         </p>
 
         {/* Active Focus (WP18b): the structures the tutor is deliberately
@@ -365,7 +365,7 @@ export default function TutorPage() {
             data-testid="mastery-suggestions"
           >
             <p className="text-xs font-semibold text-amber-900">
-              <Star aria-hidden className="mr-1 inline h-3.5 w-3.5 align-[-2px] fill-amber-400 text-amber-400" />Your tutor thinks you already know these
+              <Star aria-hidden className="me-1 inline h-3.5 w-3.5 align-[-2px] fill-amber-400 text-amber-400" />Your tutor thinks you already know these
             </p>
             <p className="text-[11px] text-amber-800/80">
               Agree, and the card's next review moves about a month out —
@@ -378,7 +378,7 @@ export default function TutorPage() {
               >
                 <div className="min-w-0 text-sm">
                   <span className="font-medium text-gray-900">{s.item}</span>
-                  <span className="ml-1.5 text-[10px] uppercase tracking-wide text-gray-400">
+                  <span className="ms-1.5 text-[10px] uppercase tracking-wide text-gray-400">
                     {s.kind === 'grammar' ? 'grammar' : 'vocab'}
                   </span>
                   {s.evidence && (
@@ -478,7 +478,7 @@ export default function TutorPage() {
             msg.role === 'user' ? (
               <div
                 key={i}
-                className="ml-8 bg-lang text-white rounded-2xl rounded-br-sm px-4 py-2.5 text-sm whitespace-pre-wrap"
+                className="ms-8 bg-lang text-white rounded-2xl rounded-ee-sm px-4 py-2.5 text-sm whitespace-pre-wrap"
               >
                 <span dir="auto">{msg.content}</span>
               </div>
@@ -494,7 +494,7 @@ export default function TutorPage() {
                 targetLabel={msg.content.slice(0, 200)}
                 field="other"
                 source="tutor"
-                className="mr-8 bg-white border border-gray-100 shadow-sm rounded-2xl rounded-bl-sm px-4 py-2.5 text-sm text-gray-800 whitespace-pre-wrap"
+                className="me-8 bg-white border border-gray-100 shadow-sm rounded-2xl rounded-es-sm px-4 py-2.5 text-sm text-gray-800 whitespace-pre-wrap"
               >
                 {/* dir=auto: tutor turns mix English explanations with RTL practice text */}
                 <span dir="auto">{msg.content}</span>
@@ -502,7 +502,7 @@ export default function TutorPage() {
             ),
           )}
           {sendMutation.isPending && (
-            <div className="mr-8 bg-white border border-gray-100 shadow-sm rounded-2xl rounded-bl-sm px-4 py-2.5 text-sm">
+            <div className="me-8 bg-white border border-gray-100 shadow-sm rounded-2xl rounded-es-sm px-4 py-2.5 text-sm">
               {streamingText ? (
                 <span dir="auto" className="text-gray-800 whitespace-pre-wrap">
                   {streamingText}
@@ -533,7 +533,7 @@ export default function TutorPage() {
             either end in one tap — up to finish, down to get back to where
             you were typing. */}
         {messages.length > 0 && (
-          <div className="pointer-events-none absolute right-5 bottom-28 z-10 flex flex-col gap-1.5">
+          <div className="pointer-events-none absolute end-5 bottom-28 z-10 flex flex-col gap-1.5">
             <button
               type="button"
               aria-label="Scroll to top"

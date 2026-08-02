@@ -39,18 +39,18 @@ export default function LearningTip({ context }: { context: TipContext }) {
   return (
     <div
       data-testid="learning-tip"
-      className="relative rounded-2xl border border-lang/20 bg-lang-soft/60 px-4 py-3 pr-9"
+      className="relative rounded-2xl border border-lang/20 bg-lang-soft/60 px-4 py-3 pe-9"
     >
       <button
         type="button"
         onClick={() => setDismissed(true)}
         aria-label="Dismiss tip"
-        className="absolute top-2 right-2 h-6 w-6 rounded-full text-gray-400 hover:text-gray-600 hover:bg-white/60 leading-none"
+        className="absolute top-2 end-2 h-6 w-6 rounded-full text-gray-400 hover:text-gray-600 hover:bg-white/60 leading-none"
       >
         ×
       </button>
       <p className="text-sm font-semibold text-lang-dark">
-        <Lightbulb aria-hidden className="mr-1 inline h-4 w-4 align-[-2px]" />
+        <Lightbulb aria-hidden className="me-1 inline h-4 w-4 align-[-2px]" />
         {tip.title}
       </p>
       <p className="mt-1 text-sm text-gray-600">{tip.body}</p>

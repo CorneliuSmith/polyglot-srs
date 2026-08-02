@@ -86,7 +86,7 @@ export default function EngagementPanel() {
   }
 
   const tileClasses = (active: boolean) =>
-    'rounded-xl p-3 text-left transition-colors ' +
+    'rounded-xl p-3 text-start transition-colors ' +
     (active ? 'bg-lang-soft ring-1 ring-lang/40' : 'bg-gray-50 hover:bg-gray-100')
 
   const tile = (f: Filter, label: string, value: string | number, sub?: string) => (
@@ -139,13 +139,13 @@ export default function EngagementPanel() {
         <div className="mb-3 overflow-x-auto" data-testid="engagement-users">
           <table className="w-full text-xs whitespace-nowrap">
             <thead>
-              <tr className="text-left text-gray-400 uppercase tracking-wide text-[10px]">
-                <th className="py-1 pr-2">User</th>
-                <th className="py-1 pr-2">Last active</th>
-                <th className="py-1 pr-2 text-right">Reviews</th>
-                <th className="py-1 pr-2 text-right">Tutor</th>
-                <th className="py-1 pr-2 text-right">Reads</th>
-                <th className="py-1 pr-2 text-right">Cards</th>
+              <tr className="text-start text-gray-400 uppercase tracking-wide text-[10px]">
+                <th className="py-1 pe-2">User</th>
+                <th className="py-1 pe-2">Last active</th>
+                <th className="py-1 pe-2 text-end">Reviews</th>
+                <th className="py-1 pe-2 text-end">Tutor</th>
+                <th className="py-1 pe-2 text-end">Reads</th>
+                <th className="py-1 pe-2 text-end">Cards</th>
                 <th className="py-1">Langs</th>
               </tr>
             </thead>
@@ -159,22 +159,22 @@ export default function EngagementPanel() {
                     }
                     aria-expanded={expandedUser === u.id}
                   >
-                    <td className="py-1 pr-2 max-w-40 truncate">{u.email ?? u.id}</td>
-                    <td className="py-1 pr-2 text-gray-500">{relativeDay(u.last_active)}</td>
-                    <td className="py-1 pr-2 text-right tabular-nums">
+                    <td className="py-1 pe-2 max-w-40 truncate">{u.email ?? u.id}</td>
+                    <td className="py-1 pe-2 text-gray-500">{relativeDay(u.last_active)}</td>
+                    <td className="py-1 pe-2 text-end tabular-nums">
                       {u.reviews}
                       {u.review_minutes > 0 && (
                         <span className="text-gray-400"> · {u.review_minutes}m</span>
                       )}
                     </td>
-                    <td className="py-1 pr-2 text-right tabular-nums">{u.tutor_messages}</td>
-                    <td className="py-1 pr-2 text-right tabular-nums">{u.readings}</td>
-                    <td className="py-1 pr-2 text-right tabular-nums">{u.cards_total}</td>
+                    <td className="py-1 pe-2 text-end tabular-nums">{u.tutor_messages}</td>
+                    <td className="py-1 pe-2 text-end tabular-nums">{u.readings}</td>
+                    <td className="py-1 pe-2 text-end tabular-nums">{u.cards_total}</td>
                     <td className="py-1 text-gray-500">{u.languages.join(' ')}</td>
                   </tr>
                   {expandedUser === u.id && (
                     <tr data-testid="engagement-user-detail">
-                      <td colSpan={7} className="py-1 pl-4 bg-gray-50/60">
+                      <td colSpan={7} className="py-1 ps-4 bg-gray-50/60">
                         {!userLangs ? (
                           <span className="text-gray-400">Loading…</span>
                         ) : userLangs.length === 0 ? (
@@ -184,21 +184,21 @@ export default function EngagementPanel() {
                             <tbody>
                               {userLangs.map((l) => (
                                 <tr key={l.code} className="text-gray-600">
-                                  <td className="py-0.5 pr-2">{l.name}</td>
-                                  <td className="py-0.5 pr-2 text-right tabular-nums">
+                                  <td className="py-0.5 pe-2">{l.name}</td>
+                                  <td className="py-0.5 pe-2 text-end tabular-nums">
                                     {l.cards_total} cards
                                   </td>
-                                  <td className="py-0.5 pr-2 text-right tabular-nums">
+                                  <td className="py-0.5 pe-2 text-end tabular-nums">
                                     {l.reviews} reviews
                                     {l.review_minutes > 0 && ` · ${l.review_minutes}m`}
                                   </td>
-                                  <td className="py-0.5 pr-2 text-right tabular-nums">
+                                  <td className="py-0.5 pe-2 text-end tabular-nums">
                                     {l.tutor_messages} tutor
                                   </td>
-                                  <td className="py-0.5 pr-2 text-right tabular-nums">
+                                  <td className="py-0.5 pe-2 text-end tabular-nums">
                                     {l.readings} reads
                                   </td>
-                                  <td className="py-0.5 text-right text-gray-400">
+                                  <td className="py-0.5 text-end text-gray-400">
                                     last review {relativeDay(l.last_review)}
                                   </td>
                                 </tr>
@@ -243,10 +243,10 @@ export default function EngagementPanel() {
                   aria-pressed={filter?.kind === 'language' && filter.code === l.code}
                 >
                   <td className="py-1">{l.name}</td>
-                  <td className="py-1 text-right text-gray-500">
+                  <td className="py-1 text-end text-gray-500">
                     {l.learners} learner{l.learners === 1 ? '' : 's'}
                   </td>
-                  <td className="py-1 text-right text-gray-400">
+                  <td className="py-1 text-end text-gray-400">
                     {l.cards.toLocaleString()} cards
                   </td>
                 </tr>

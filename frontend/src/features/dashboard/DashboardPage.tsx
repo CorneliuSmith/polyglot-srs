@@ -82,9 +82,10 @@ function FeatureTile({
  * add/remove from queue, reset, browse, and a peek at the contents. */
 export function DeckRow({ deck, onLearn }: { deck: LearnDeck; onLearn: (d: LearnDeck) => void }) {
   const queryClient = useQueryClient()
+  const { t } = useTranslation()
   const [open, setOpen] = useState(false)
   const pct = deck.total > 0 ? Math.round((deck.learned / deck.total) * 100) : 0
-  const label = `${deck.level ?? 'All'} · ${deck.list_type === 'grammar' ? 'Grammar' : 'Vocab'}`
+  const label = `${deck.level ?? 'All'} · ${deck.list_type === 'grammar' ? t('common.grammar') : t('common.vocab')}`
   const done = deck.total > 0 && deck.learned >= deck.total
 
   const subMutation = useMutation({
@@ -104,7 +105,7 @@ export function DeckRow({ deck, onLearn }: { deck: LearnDeck; onLearn: (d: Learn
   const handleReset = () => {
     if (
       window.confirm(
-        `Reset "${label}"? This permanently deletes your progress AND review history for the ${deck.total} items in this deck.`,
+        t('dashboard.resetConfirm', { label, count: deck.total }),
       )
     ) {
       resetMutation.mutate()
@@ -120,13 +121,13 @@ export function DeckRow({ deck, onLearn }: { deck: LearnDeck; onLearn: (d: Learn
 
   return (
     <div className="border-t border-gray-100 first:border-t-0">
-      <div className="w-full text-left px-4 py-3">
+      <div className="w-full text-start px-4 py-3">
         <div className="flex items-center justify-between gap-3">
           <span className="text-sm font-medium text-gray-800">
             {label}
             {deck.subscribed && !done && (
-              <span className="ml-2 text-[10px] uppercase tracking-wide bg-lang-soft text-lang rounded px-1.5 py-0.5 align-middle">
-                In queue
+              <span className="ms-2 text-[10px] uppercase tracking-wide bg-lang-soft text-lang rounded px-1.5 py-0.5 align-middle">
+                {t('dashboard.inQueue')}
               </span>
             )}
           </span>
@@ -141,7 +142,7 @@ export function DeckRow({ deck, onLearn }: { deck: LearnDeck; onLearn: (d: Learn
               title={done ? 'Deck complete' : 'Start learning from this deck'}
               className="rounded-lg bg-lang hover:bg-lang-dark disabled:opacity-40 text-lang-on text-xs font-semibold px-3 py-1.5"
             >
-              Learn
+              {t('dashboard.deckLearn')}
             </button>
             <button
               type="button"
@@ -181,7 +182,7 @@ export function DeckRow({ deck, onLearn }: { deck: LearnDeck; onLearn: (d: Learn
                   className="text-gray-500 hover:text-red-600"
                   title="Stops new cards from this deck. Cards you already learned keep their schedule."
                 >
-                  Remove from queue
+                  {t('dashboard.removeFromQueue')}
                 </button>
               ) : (
                 <button
@@ -190,11 +191,11 @@ export function DeckRow({ deck, onLearn }: { deck: LearnDeck; onLearn: (d: Learn
                   disabled={subMutation.isPending}
                   className="text-lang hover:underline font-medium"
                 >
-                  Add to queue
+                  {t('dashboard.addToQueue')}
                 </button>
               )}
               <Link to={`/decks/${deck.id}`} className="text-gray-500 hover:text-lang">
-                Browse all items →
+                {t('dashboard.browseAll')}
               </Link>
               {deck.learned > 0 && (
                 <button
@@ -204,7 +205,7 @@ export function DeckRow({ deck, onLearn }: { deck: LearnDeck; onLearn: (d: Learn
                   className="text-gray-400 hover:text-red-600"
                   title="Permanently deletes this deck's cards and their review history."
                 >
-                  Reset progress
+                  {t('dashboard.resetProgress')}
                 </button>
               )}
             </div>
@@ -212,7 +213,7 @@ export function DeckRow({ deck, onLearn }: { deck: LearnDeck; onLearn: (d: Learn
               className="rounded-lg bg-gray-50 border border-gray-100 p-3 text-xs space-y-1"
               data-testid="deck-preview"
             >
-              {previewLoading && <p className="text-gray-400">Loading…</p>}
+              {previewLoading && <p className="text-gray-400">{t('common.loading')}</p>}
               {preview?.items.map((it, i) => (
                 <p key={i} className="text-gray-700">
                   <span className="font-medium">{it.item}</span>
@@ -220,7 +221,7 @@ export function DeckRow({ deck, onLearn }: { deck: LearnDeck; onLearn: (d: Learn
                 </p>
               ))}
               {preview && preview.items.length === 0 && (
-                <p className="text-gray-400">This deck is empty.</p>
+                <p className="text-gray-400">{t('dashboard.deckEmpty')}</p>
               )}
             </div>
           </div>
@@ -430,7 +431,7 @@ export default function DashboardPage() {
               {unseenCount > 0 && (
                 <span
                   data-testid="whats-new-badge"
-                  className="absolute -top-1.5 -right-1.5 min-w-4 h-4 rounded-full bg-lang text-white text-[10px] font-bold leading-4 text-center px-0.5"
+                  className="absolute -top-1.5 -end-1.5 min-w-4 h-4 rounded-full bg-lang text-white text-[10px] font-bold leading-4 text-center px-0.5"
                 >
                   {unseenCount}
                 </span>
@@ -474,7 +475,7 @@ export default function DashboardPage() {
                   setNavOpen(false)
                   navigate(item.to)
                 }}
-                className="w-full text-left px-4 py-3 text-sm font-medium text-gray-700 hover:bg-gray-50 border-t border-gray-100 first:border-t-0"
+                className="w-full text-start px-4 py-3 text-sm font-medium text-gray-700 hover:bg-gray-50 border-t border-gray-100 first:border-t-0"
                 style={{ minHeight: '44px' }}
               >
                 {item.label}
@@ -491,7 +492,7 @@ export default function DashboardPage() {
         {/* Language picker */}
         <div>
           <label className="block text-sm font-medium text-gray-700 mb-2">
-            Active Language
+            {t('dashboard.activeLanguage')}
           </label>
           <LanguagePicker />
         </div>
@@ -510,13 +511,13 @@ export default function DashboardPage() {
             type="button"
             onClick={() => navigate('/letters')}
             disabled={!activeLanguageId}
-            className="w-full bg-white hover:bg-gray-50 disabled:opacity-50 text-gray-800 font-semibold rounded-xl px-6 py-3 text-sm border border-gray-200 transition-colors text-left flex items-center justify-between"
+            className="w-full bg-white hover:bg-gray-50 disabled:opacity-50 text-gray-800 font-semibold rounded-xl px-6 py-3 text-sm border border-gray-200 transition-colors text-start flex items-center justify-between"
             style={{ minHeight: '44px' }}
           >
             <span>
-              Letters &amp; Sounds
+              {t('dashboard.lettersTitle')}
               <span className="block text-xs font-normal text-gray-500">
-                Every letter, its variants, and how to say them
+                {t('dashboard.lettersSub')}
               </span>
             </span>
             <span aria-hidden className="text-lang">→</span>
@@ -532,13 +533,13 @@ export default function DashboardPage() {
             type="button"
             onClick={() => navigate('/about')}
             disabled={!activeLanguageId}
-            className="w-full bg-white hover:bg-gray-50 disabled:opacity-50 text-gray-800 font-semibold rounded-xl px-6 py-3 text-sm border border-gray-200 transition-colors text-left flex items-center justify-between"
+            className="w-full bg-white hover:bg-gray-50 disabled:opacity-50 text-gray-800 font-semibold rounded-xl px-6 py-3 text-sm border border-gray-200 transition-colors text-start flex items-center justify-between"
             style={{ minHeight: '44px' }}
           >
             <span>
-              Things to know about this language
+              {t('dashboard.aboutTitle')}
               <span className="block text-xs font-normal text-gray-500">
-                Its family, where it’s spoken, word order, and what makes it unique
+                {t('dashboard.aboutSub')}
               </span>
             </span>
             <span aria-hidden className="text-lang">→</span>
@@ -562,11 +563,11 @@ export default function DashboardPage() {
                   onClick={handleLearnStart}
                   disabled={!activeLanguageId}
                   title="Start learning new items from your queue"
-                  className="flex-1 min-w-0 text-left rounded-xl hover:bg-white/10 disabled:opacity-50 p-2 transition-colors"
+                  className="flex-1 min-w-0 text-start rounded-xl hover:bg-white/10 disabled:opacity-50 p-2 transition-colors"
                   style={{ minHeight: '44px' }}
                 >
                   <span className="block text-sm font-semibold uppercase tracking-wide text-white/70">
-                    Learn
+                    {t('dashboard.learn')}
                   </span>
                   {/* Daily goal framing (beta request): "538 queued" was
                       overwhelming — show progress toward a small daily
@@ -581,14 +582,14 @@ export default function DashboardPage() {
                       </span>
                       <span className="block text-xs text-white/60 mt-1">
                         {stats.learned_today >= dailyLearnGoal
-                          ? `daily goal done · ${newAvailable} queued`
-                          : `learned today · ${newAvailable} queued`}
+                          ? t('dashboard.goalDoneQueued', { count: newAvailable })
+                          : t('dashboard.learnedTodayQueued', { count: newAvailable })}
                       </span>
                     </>
                   ) : (
                     <>
                       <span className="block text-3xl font-bold mt-1">{newAvailable}</span>
-                      <span className="block text-xs text-white/60 mt-1">new items queued</span>
+                      <span className="block text-xs text-white/60 mt-1">{t('dashboard.newQueued')}</span>
                     </>
                   )}
                 </button>
@@ -617,14 +618,14 @@ export default function DashboardPage() {
                   onClick={handleReview}
                   disabled={stats.due_count === 0}
                   title="Review everything that's due"
-                  className="flex-1 min-w-0 text-left rounded-xl hover:bg-black/10 disabled:opacity-50 p-2 transition-colors"
+                  className="flex-1 min-w-0 text-start rounded-xl hover:bg-black/10 disabled:opacity-50 p-2 transition-colors"
                   style={{ minHeight: '44px' }}
                 >
                   <span className="block text-sm font-semibold uppercase tracking-wide text-lang-on/70">
-                    Review
+                    {t('dashboard.review')}
                   </span>
                   <span className="block text-3xl font-bold mt-1">{stats.due_count}</span>
-                  <span className="block text-xs text-lang-on/70 mt-1">all reviews</span>
+                  <span className="block text-xs text-lang-on/70 mt-1">{t('dashboard.allReviews')}</span>
                 </button>
                 <button
                   type="button"
@@ -652,7 +653,7 @@ export default function DashboardPage() {
               <div className="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
                 {visibleDecks.length === 0 ? (
                   <p className="px-4 py-3 text-sm text-gray-500">
-                    No decks for this language yet.
+                    {t('dashboard.noDecks')}
                   </p>
                 ) : (
                   visibleDecks.map((deck) => (
@@ -670,8 +671,8 @@ export default function DashboardPage() {
               >
                 {(
                   [
-                    { label: 'Grammar Only', count: stats.due_grammar ?? 0, type: 'grammar' },
-                    { label: 'Vocab Only', count: stats.due_vocab ?? 0, type: 'vocabulary' },
+                    { label: t('dashboard.grammarOnly'), count: stats.due_grammar ?? 0, type: 'grammar' },
+                    { label: t('dashboard.vocabOnly'), count: stats.due_vocab ?? 0, type: 'vocabulary' },
                   ] as const
                 ).map((row) => (
                   <button
@@ -700,24 +701,24 @@ export default function DashboardPage() {
               {hasGym && (
                 <FeatureTile
                   icon={Dumbbell}
-                  label="Gym"
-                  caption="Drill tenses & cases"
+                  label={t('nav.gym')}
+                  caption={t('dashboard.gymCaption')}
                   testId="tile-gym"
                   onClick={() => navigate('/gym')}
                 />
               )}
               <FeatureTile
                 icon={BookOpen}
-                label="Read"
-                caption="A story at your level"
+                label={t('nav.read')}
+                caption={t('dashboard.readCaption')}
                 testId="tile-read"
                 onClick={() => navigate('/read')}
                 disabled={!activeLanguageId}
               />
               <FeatureTile
                 icon={MessagesSquare}
-                label="Tutor"
-                caption="Coaching on your gaps"
+                label={t('nav.tutor')}
+                caption={t('dashboard.tutorCaption')}
                 testId="tile-tutor"
                 onClick={() => navigate('/tutor')}
                 disabled={!activeLanguageId}
@@ -754,13 +755,13 @@ export default function DashboardPage() {
           type="button"
           onClick={() => navigate('/grammar')}
           disabled={!activeLanguageId}
-          className="w-full bg-white hover:bg-gray-50 disabled:opacity-50 text-gray-800 font-semibold rounded-xl px-6 py-3 text-sm border border-gray-200 transition-colors text-left flex items-center justify-between"
+          className="w-full bg-white hover:bg-gray-50 disabled:opacity-50 text-gray-800 font-semibold rounded-xl px-6 py-3 text-sm border border-gray-200 transition-colors text-start flex items-center justify-between"
           style={{ minHeight: '44px' }}
         >
           <span>
-            Grammar path
+            {t('dashboard.grammarPathTitle')}
             <span className="block text-xs font-normal text-gray-500">
-              Browse and read every grammar point in order
+              {t('dashboard.grammarPathSub')}
             </span>
           </span>
           <span aria-hidden className="text-lang">→</span>
@@ -775,15 +776,15 @@ export default function DashboardPage() {
           <button
             type="button"
             onClick={() => navigate('/recommendations')}
-            className="w-full bg-white hover:bg-gray-50 text-gray-800 font-semibold rounded-xl px-6 py-3 text-sm border border-gray-200 transition-colors text-left flex items-center justify-between"
+            className="w-full bg-white hover:bg-gray-50 text-gray-800 font-semibold rounded-xl px-6 py-3 text-sm border border-gray-200 transition-colors text-start flex items-center justify-between"
             style={{ minHeight: '44px' }}
           >
             <span>
-              Recommended for you
+              {t('dashboard.recommendedTitle')}
               <span className="block text-xs font-normal text-gray-500">
                 {latestReco
-                  ? `${latestReco.items.length} pick${latestReco.items.length === 1 ? '' : 's'} to stretch your ${''}reading, watching & listening`
-                  : 'Books, films, series & podcasts at your level'}
+                  ? t('dashboard.recommendedPicks', { count: latestReco.items.length })
+                  : t('dashboard.recommendedSub')}
               </span>
             </span>
             <span aria-hidden className="text-lang">→</span>
@@ -795,13 +796,13 @@ export default function DashboardPage() {
           type="button"
           onClick={() => navigate('/notes')}
           disabled={!activeLanguageId}
-          className="w-full bg-white hover:bg-gray-50 disabled:opacity-50 text-gray-800 font-semibold rounded-xl px-6 py-3 text-sm border border-gray-200 transition-colors text-left flex items-center justify-between"
+          className="w-full bg-white hover:bg-gray-50 disabled:opacity-50 text-gray-800 font-semibold rounded-xl px-6 py-3 text-sm border border-gray-200 transition-colors text-start flex items-center justify-between"
           style={{ minHeight: '44px' }}
         >
           <span>
-            Learn from your own text
+            {t('dashboard.ownTextTitle')}
             <span className="block text-xs font-normal text-gray-500">
-              Turn anything you read into review cards
+              {t('dashboard.ownTextSub')}
             </span>
           </span>
           <span aria-hidden className="text-lang">→</span>
@@ -822,9 +823,9 @@ export default function DashboardPage() {
           <button
             type="button"
             onClick={() => navigate('/contribute')}
-            className="w-full text-sm text-gray-500 hover:text-lang hover:underline text-left"
+            className="w-full text-sm text-gray-500 hover:text-lang hover:underline text-start"
           >
-            Contribute grammar notes →
+            {t('dashboard.contribute')}
           </button>
         )}
       </div>

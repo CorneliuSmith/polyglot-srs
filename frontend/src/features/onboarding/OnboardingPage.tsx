@@ -202,7 +202,7 @@ export default function OnboardingPage() {
                   key={lang.id}
                   type="button"
                   onClick={() => pickLanguage(lang)}
-                  className="min-h-12 rounded-xl border border-gray-200 bg-white px-4 py-3 text-left text-sm font-medium text-gray-800 break-words hover:border-lang/50 hover:bg-lang-soft active:bg-lang-soft"
+                  className="min-h-12 rounded-xl border border-gray-200 bg-white px-4 py-3 text-start text-sm font-medium text-gray-800 break-words hover:border-lang/50 hover:bg-lang-soft active:bg-lang-soft"
                 >
                   {lang.name}
                 </button>
@@ -220,7 +220,7 @@ export default function OnboardingPage() {
             <button
               type="button"
               onClick={declineTest}
-              className="w-full min-h-12 rounded-xl border border-gray-200 bg-white px-4 py-3 text-left hover:border-lang/50 hover:bg-lang-soft active:bg-lang-soft"
+              className="w-full min-h-12 rounded-xl border border-gray-200 bg-white px-4 py-3 text-start hover:border-lang/50 hover:bg-lang-soft active:bg-lang-soft"
             >
               <span className="block text-sm font-semibold text-gray-800">I&apos;m brand new</span>
               <span className="block text-xs text-gray-500">Start from the beginning (A1)</span>
@@ -228,7 +228,7 @@ export default function OnboardingPage() {
             <button
               type="button"
               onClick={declineTest}
-              className="w-full min-h-12 rounded-xl border border-gray-200 bg-white px-4 py-3 text-left hover:border-lang/50 hover:bg-lang-soft active:bg-lang-soft"
+              className="w-full min-h-12 rounded-xl border border-gray-200 bg-white px-4 py-3 text-start hover:border-lang/50 hover:bg-lang-soft active:bg-lang-soft"
             >
               <span className="block text-sm font-semibold text-gray-800">
                 I know some — I&apos;ll pick my level
@@ -241,7 +241,7 @@ export default function OnboardingPage() {
               type="button"
               onClick={startPlacement}
               disabled={nextMutation.isPending}
-              className="w-full min-h-12 rounded-xl border border-gray-200 bg-white px-4 py-3 text-left hover:border-lang/50 hover:bg-lang-soft active:bg-lang-soft disabled:opacity-50"
+              className="w-full min-h-12 rounded-xl border border-gray-200 bg-white px-4 py-3 text-start hover:border-lang/50 hover:bg-lang-soft active:bg-lang-soft disabled:opacity-50"
             >
               <span className="block text-sm font-semibold text-gray-800">
                 {nextMutation.isPending ? 'Loading…' : 'Test my level (optional)'}
@@ -444,7 +444,7 @@ export default function OnboardingPage() {
               onClick={() => setPlanScope('single')}
               aria-pressed={planScope === 'single'}
               className={
-                'w-full min-h-12 rounded-xl border px-4 py-3 text-left active:bg-lang-soft ' +
+                'w-full min-h-12 rounded-xl border px-4 py-3 text-start active:bg-lang-soft ' +
                 (planScope === 'single'
                   ? 'border-lang bg-lang-soft'
                   : 'border-gray-200 bg-white hover:border-lang/50')
@@ -464,7 +464,7 @@ export default function OnboardingPage() {
               onClick={() => setPlanScope('all')}
               aria-pressed={planScope === 'all'}
               className={
-                'w-full min-h-12 rounded-xl border px-4 py-3 text-left active:bg-lang-soft ' +
+                'w-full min-h-12 rounded-xl border px-4 py-3 text-start active:bg-lang-soft ' +
                 (planScope === 'all'
                   ? 'border-lang bg-lang-soft'
                   : 'border-gray-200 bg-white hover:border-lang/50')

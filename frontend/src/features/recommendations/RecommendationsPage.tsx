@@ -51,7 +51,7 @@ function RecoCard({ item }: { item: RecoItem }) {
           </span>
         )}
         {item.level && (
-          <span className="ml-auto shrink-0 rounded-full bg-lang-soft text-lang-dark text-[11px] font-medium px-2 py-0.5">
+          <span className="ms-auto shrink-0 rounded-full bg-lang-soft text-lang-dark text-[11px] font-medium px-2 py-0.5">
             {item.level}
           </span>
         )}

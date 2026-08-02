@@ -30,7 +30,7 @@ export default function WhatsNewPanel({ onClose }: { onClose: () => void }) {
           type="button"
           onClick={onClose}
           aria-label="Close what's new"
-          className="absolute top-2.5 right-3 text-gray-300 hover:text-gray-500 text-xl leading-none"
+          className="absolute top-2.5 end-3 text-gray-300 hover:text-gray-500 text-xl leading-none"
         >
           ×
         </button>
@@ -46,7 +46,7 @@ export default function WhatsNewPanel({ onClose }: { onClose: () => void }) {
                       new
                     </span>
                   )}
-                  <span className="ml-auto text-xs text-gray-400 whitespace-nowrap">
+                  <span className="ms-auto text-xs text-gray-400 whitespace-nowrap">
                     {entry.date}
                   </span>
                 </div>

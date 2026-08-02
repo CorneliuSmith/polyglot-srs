@@ -57,12 +57,12 @@ export default function GymDrillsPanel({
                   type="button"
                   onClick={() => setOpenId(open ? null : e.point_id)}
                   aria-expanded={open}
-                  className="w-full flex items-center justify-between gap-2 px-3 py-2 text-left text-sm hover:bg-gray-50"
+                  className="w-full flex items-center justify-between gap-2 px-3 py-2 text-start text-sm hover:bg-gray-50"
                 >
                   <span className="font-medium text-gray-800">
                     {e.label}
                     {e.nonstandard && (
-                      <span className="ml-2 text-[10px] uppercase tracking-wide text-amber-600">
+                      <span className="ms-2 text-[10px] uppercase tracking-wide text-amber-600">
                         non-standard
                       </span>
                     )}

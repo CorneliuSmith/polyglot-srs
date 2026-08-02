@@ -108,7 +108,7 @@ export default function Walkthrough({ onClose }: { onClose: () => void }) {
           type="button"
           onClick={finish}
           aria-label="Close tour"
-          className="absolute top-2.5 right-3 text-gray-300 hover:text-gray-500 text-xl leading-none"
+          className="absolute top-2.5 end-3 text-gray-300 hover:text-gray-500 text-xl leading-none"
         >
           ×
         </button>

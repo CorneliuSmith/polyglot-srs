@@ -28,7 +28,7 @@ function ProvenanceBadge({ source, isModified }: { source?: string; isModified?:
   }
   return (
     <span
-      className={`ml-2 align-middle rounded px-1.5 py-0.5 text-[10px] uppercase tracking-wide ${tone}`}
+      className={`ms-2 align-middle rounded px-1.5 py-0.5 text-[10px] uppercase tracking-wide ${tone}`}
       title={
         isModified
           ? 'Edited by us — awaiting re-review'
@@ -212,7 +212,7 @@ export default function DrillsEditor({
                   <span className="text-gray-500"> → {d.answer}</span>
                   <ProvenanceBadge source={d.source} isModified={d.is_modified} />
                   {d.flagged && (
-                    <span className="ml-2 align-middle rounded bg-red-50 text-red-600 px-1.5 py-0.5 text-[10px] uppercase tracking-wide">
+                    <span className="ms-2 align-middle rounded bg-red-50 text-red-600 px-1.5 py-0.5 text-[10px] uppercase tracking-wide">
                       flagged
                     </span>
                   )}

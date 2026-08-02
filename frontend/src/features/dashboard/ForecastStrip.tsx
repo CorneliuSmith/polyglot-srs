@@ -1,19 +1,21 @@
+import { useTranslation } from 'react-i18next'
 import type { ForecastDay } from '../../api/types'
 
-const DAY_LABELS = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']
+const DAY_KEYS = ['sun', 'mon', 'tue', 'wed', 'thu', 'fri', 'sat']
 
 /** Seven-day review forecast: when the queue refills, at a glance. */
 export default function ForecastStrip({ forecast }: { forecast: ForecastDay[] }) {
+  const { t } = useTranslation()
   const max = Math.max(1, ...forecast.map((d) => d.count))
   return (
     <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-4">
       <h2 className="text-xs uppercase tracking-wide text-gray-400 mb-3">
-        Review forecast
+        {t('dashboard.forecastTitle')}
       </h2>
       <div className="flex items-end justify-between gap-2" style={{ height: 72 }}>
         {forecast.map((d, i) => {
           const day = new Date(`${d.date}T00:00:00Z`)
-          const label = i === 0 ? 'Today' : DAY_LABELS[day.getUTCDay()]
+          const label = i === 0 ? t('common.today') : t(`days.${DAY_KEYS[day.getUTCDay()]}`)
           return (
             <div key={d.date} className="flex-1 flex flex-col items-center justify-end gap-1">
               <span className="text-[10px] tabular-nums text-gray-500">

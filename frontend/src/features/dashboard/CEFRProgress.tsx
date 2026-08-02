@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next'
 import type { CEFRLevelProgress } from '../../api/types'
 
 const CEFR_LEVELS = ['A1', 'A2', 'B1', 'B2', 'C1', 'C2']
@@ -7,10 +8,11 @@ interface CEFRProgressProps {
 }
 
 export default function CEFRProgress({ progress }: CEFRProgressProps) {
+  const { t } = useTranslation()
   return (
     <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-6">
       <h2 className="text-sm font-semibold text-gray-700 uppercase tracking-wide mb-4">
-        CEFR Progress
+        {t('dashboard.cefrTitle')}
       </h2>
       <div className="space-y-3">
         {CEFR_LEVELS.map((level) => {

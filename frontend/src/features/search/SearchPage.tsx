@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import { useTranslation } from 'react-i18next'
 import { useNavigate } from 'react-router-dom'
 import { useQuery } from '@tanstack/react-query'
 import { getLanguages } from '../../api/profile'
@@ -13,6 +14,7 @@ import LanguageWrapper from '../../components/LanguageWrapper'
  */
 export default function SearchPage() {
   const navigate = useNavigate()
+  const { t } = useTranslation()
   const activeLanguageId = usePrefsStore((s) => s.activeLanguageId)
   const [input, setInput] = useState('')
   const [query, setQuery] = useState('')
@@ -42,14 +44,14 @@ export default function SearchPage() {
       <div className="max-w-2xl mx-auto px-4 py-8 space-y-4">
         <div className="flex items-center justify-between">
           <h1 className="text-2xl font-bold text-gray-900">
-            Search {language ? `· ${language.name}` : ''}
+            {t('search.title')} {language ? `· ${language.name}` : ''}
           </h1>
           <button
             type="button"
             onClick={() => navigate('/')}
             className="text-sm text-lang hover:underline"
           >
-            ← Dashboard
+            {t('common.backToDashboard')}
           </button>
         </div>
 
@@ -57,8 +59,8 @@ export default function SearchPage() {
           autoFocus
           value={input}
           onChange={(e) => setInput(e.target.value)}
-          placeholder="Search grammar and vocabulary…"
-          aria-label="Search"
+          placeholder={t('search.placeholder')}
+          aria-label={t('search.title')}
           className="w-full rounded-2xl border border-gray-300 bg-white px-4 py-3 text-base shadow-sm focus:outline-none focus:ring-2 focus:ring-lang"
         />
 
@@ -83,7 +85,7 @@ export default function SearchPage() {
                   <button
                     type="button"
                     onClick={() => navigate(`/grammar?point=${hit.id}`)}
-                    className="w-full text-left bg-white rounded-xl shadow-sm border border-gray-100 px-4 py-3 flex items-center gap-3 hover:border-lang/40 transition"
+                    className="w-full text-start bg-white rounded-xl shadow-sm border border-gray-100 px-4 py-3 flex items-center gap-3 hover:border-lang/40 transition"
                     style={{ minHeight: '44px' }}
                   >
                     <span className="flex-1">

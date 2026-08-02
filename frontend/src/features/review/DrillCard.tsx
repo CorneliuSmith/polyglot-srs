@@ -70,18 +70,18 @@ function TranslitControls({
       </div>
       {enabled && showGuide && (
         <div
-          className="mt-2 mx-auto max-w-sm rounded-xl border border-gray-100 bg-gray-50 p-3 text-left"
+          className="mt-2 mx-auto max-w-sm rounded-xl border border-gray-100 bg-gray-50 p-3 text-start"
           data-testid="translit-guide"
         >
           <table className="w-full text-xs">
             <tbody>
               {translitGuide(languageCode).map((row) => (
                 <tr key={row.keys} className="align-top">
-                  <td className="pr-3 py-0.5 font-mono text-gray-600 whitespace-nowrap">
+                  <td className="pe-3 py-0.5 font-mono text-gray-600 whitespace-nowrap">
                     {row.keys}
                   </td>
                   <td className="py-0.5 text-gray-900">{row.out}</td>
-                  <td className="pl-2 py-0.5 text-gray-400">{row.note ?? ''}</td>
+                  <td className="ps-2 py-0.5 text-gray-400">{row.note ?? ''}</td>
                 </tr>
               ))}
             </tbody>
@@ -203,7 +203,7 @@ export default function DrillCard({
         data-testid="listening-drill"
       >
         <p className="text-sm text-gray-400 text-center">
-          <Headphones aria-hidden className="mr-1 inline h-4 w-4 align-[-2px]" />Listen — the pause is the missing word
+          <Headphones aria-hidden className="me-1 inline h-4 w-4 align-[-2px]" />Listen — the pause is the missing word
         </p>
         <p
           className="text-lg text-gray-300 text-center tracking-widest select-none"

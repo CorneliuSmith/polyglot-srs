@@ -160,13 +160,13 @@ export function TutorCostsPanel() {
       ) : (
         <table className="w-full text-xs">
           <thead>
-            <tr className="text-left text-gray-500">
+            <tr className="text-start text-gray-500">
               <th className="py-1 font-medium">Language</th>
               <th className="py-1 font-medium">Kind</th>
               <th className="py-1 font-medium">Model</th>
-              <th className="py-1 font-medium text-right">Msgs</th>
-              <th className="py-1 font-medium text-right">Tokens in/out</th>
-              <th className="py-1 font-medium text-right">Est. cost</th>
+              <th className="py-1 font-medium text-end">Msgs</th>
+              <th className="py-1 font-medium text-end">Tokens in/out</th>
+              <th className="py-1 font-medium text-end">Est. cost</th>
             </tr>
           </thead>
           <tbody>
@@ -177,13 +177,13 @@ export function TutorCostsPanel() {
                   {USAGE_KIND_LABEL[row.kind] ?? row.kind}
                 </td>
                 <td className="py-1 font-mono text-[11px]">{row.model ?? '—'}</td>
-                <td className="py-1 text-right">{row.messages}</td>
-                <td className="py-1 text-right">
+                <td className="py-1 text-end">{row.messages}</td>
+                <td className="py-1 text-end">
                   {fmtTokens(row.input_tokens + row.cache_write_tokens + row.cache_read_tokens)}
                   {' / '}
                   {fmtTokens(row.output_tokens)}
                 </td>
-                <td className="py-1 text-right">${row.est_cost_usd.toFixed(2)}</td>
+                <td className="py-1 text-end">${row.est_cost_usd.toFixed(2)}</td>
               </tr>
             ))}
           </tbody>
@@ -354,7 +354,7 @@ function PointEditor({
       <div className="flex items-center justify-between">
         <h2 className="font-semibold text-gray-900">
           {point.title}
-          {point.level && <span className="text-xs text-gray-400 ml-2">{point.level}</span>}
+          {point.level && <span className="text-xs text-gray-400 ms-2">{point.level}</span>}
         </h2>
         <span
           className={
@@ -537,7 +537,7 @@ export function ReviewPolicyControl({
               onClick={() => mutation.mutate(p)}
               disabled={mutation.isPending || active}
               className={
-                'w-full rounded-lg border px-3 py-2 text-left ' +
+                'w-full rounded-lg border px-3 py-2 text-start ' +
                 (active
                   ? 'border-lang bg-lang-soft'
                   : 'border-gray-200 hover:bg-gray-50')

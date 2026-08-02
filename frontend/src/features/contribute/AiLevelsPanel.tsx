@@ -27,7 +27,7 @@ function LevelRow({
       <div className="min-w-0">
         <span className="text-sm font-medium text-gray-800">{word.word}</span>
         {word.part_of_speech && (
-          <span className="ml-1 text-[11px] italic text-gray-400">
+          <span className="ms-1 text-[11px] italic text-gray-400">
             {word.part_of_speech}
           </span>
         )}

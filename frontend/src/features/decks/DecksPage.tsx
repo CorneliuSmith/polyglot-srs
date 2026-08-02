@@ -31,7 +31,7 @@ export default function DecksPage() {
       <button
         type="button"
         onClick={() => navigate(`/decks/${deck.id}`)}
-        className="text-left bg-white rounded-2xl shadow-sm border border-gray-100 p-4 hover:border-lang/40 transition-colors"
+        className="text-start bg-white rounded-2xl shadow-sm border border-gray-100 p-4 hover:border-lang/40 transition-colors"
       >
         <div className="flex items-center justify-between">
           <span className="inline-block rounded bg-lang text-lang-on text-xs font-bold px-2 py-1">

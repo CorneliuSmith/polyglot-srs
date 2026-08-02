@@ -357,7 +357,7 @@ export default function ReviewDetail({ cardId, cardType, languageCode, stats }: 
                       }
                       className="text-sm text-lang hover:underline"
                     >
-                      <Zap aria-hidden className="mr-1 inline h-3.5 w-3.5 align-[-2px]" />Quick cram this + related (nothing recorded)
+                      <Zap aria-hidden className="me-1 inline h-3.5 w-3.5 align-[-2px]" />Quick cram this + related (nothing recorded)
                     </button>
                   )}
                 </>

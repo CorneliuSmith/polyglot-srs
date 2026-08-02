@@ -108,7 +108,7 @@ export default function PersonalDecksSection({ languageId }: { languageId: strin
     <section className="space-y-3" data-testid="personal-decks">
       <h2 className="font-semibold text-gray-800">
         Personal decks
-        <span className="ml-2 text-xs font-normal text-gray-400">
+        <span className="ms-2 text-xs font-normal text-gray-400">
           your words from the Tutor and the Reader
         </span>
       </h2>
@@ -152,10 +152,10 @@ export default function PersonalDecksSection({ languageId }: { languageId: strin
                   type="button"
                   onClick={() => setOpenDeckId(open ? null : (g.id ?? 'unfiled'))}
                   aria-expanded={open}
-                  className="flex-1 text-left text-sm font-semibold text-gray-800"
+                  className="flex-1 text-start text-sm font-semibold text-gray-800"
                 >
                   {g.name}
-                  <span className="ml-2 text-xs font-normal text-gray-400">
+                  <span className="ms-2 text-xs font-normal text-gray-400">
                     {g.cards.length} {g.cards.length === 1 ? 'card' : 'cards'}
                   </span>
                 </button>

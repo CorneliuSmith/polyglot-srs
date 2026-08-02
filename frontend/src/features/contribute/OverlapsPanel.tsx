@@ -67,14 +67,14 @@ export default function OverlapsPanel({
               <span className="font-medium text-gray-800">
                 {o.point_a.title}
                 {o.point_a.level && (
-                  <span className="ml-1 text-[10px] text-gray-400">{o.point_a.level}</span>
+                  <span className="ms-1 text-[10px] text-gray-400">{o.point_a.level}</span>
                 )}
               </span>
               <span className="text-gray-400">vs</span>
               <span className="font-medium text-gray-800">
                 {o.point_b.title}
                 {o.point_b.level && (
-                  <span className="ml-1 text-[10px] text-gray-400">{o.point_b.level}</span>
+                  <span className="ms-1 text-[10px] text-gray-400">{o.point_b.level}</span>
                 )}
               </span>
               <span className="rounded-full bg-amber-100 text-amber-800 px-2 py-0.5 text-[10px] font-semibold">

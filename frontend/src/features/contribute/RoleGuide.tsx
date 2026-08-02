@@ -228,7 +228,7 @@ export default function RoleGuide({ role }: { role: GuideRole }) {
         type="button"
         onClick={toggle}
         aria-expanded={open}
-        className="flex w-full items-center gap-2 text-left"
+        className="flex w-full items-center gap-2 text-start"
         style={{ minHeight: '44px' }}
       >
         <BookOpen aria-hidden className="h-4 w-4 shrink-0 text-lang" />
