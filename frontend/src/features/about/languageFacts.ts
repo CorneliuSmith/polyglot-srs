@@ -494,8 +494,17 @@ export const LANGUAGE_FACTS: Record<string, LanguageFacts> = {
   he, la, fa, id, tl,
 }
 
-export function factsFor(code: string | undefined | null): LanguageFacts | null {
-  return (code && LANGUAGE_FACTS[code]) || null
+import { FACTS_L10N } from './factsL10n'
+
+/** Facts for *code*, preferring an overlay authored in the reader's UI
+ * language; English is the always-present fallback. */
+export function factsFor(
+  code: string | undefined | null,
+  uiLanguage?: string,
+): LanguageFacts | null {
+  if (!code) return null
+  const base = (uiLanguage ?? 'en').split('-')[0]
+  return FACTS_L10N[base]?.[code] ?? LANGUAGE_FACTS[code] ?? null
 }
 
 /**

@@ -88,7 +88,10 @@ describe('UiLanguageSwitcher', () => {
     fireEvent.click(screen.getByLabelText('Site language'))
     fireEvent.click(screen.getByText('Français'))
     await waitFor(() =>
-      expect(mockUpdateProfile).toHaveBeenCalledWith({ ui_language: 'fr' }),
+      expect(mockUpdateProfile).toHaveBeenCalledWith({
+        ui_language: 'fr',
+        support_locale: 'fr',
+      }),
     )
   })
 })

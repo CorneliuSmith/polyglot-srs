@@ -29,7 +29,7 @@ const POSITION_SHAPES: { label: string; wrap: (c: string) => string }[] = [
 ]
 export default function LettersPage() {
   const navigate = useNavigate()
-  const { t } = useTranslation()
+  const { t, i18n } = useTranslation()
   // The LIVE active language comes from the prefs store (same source the
   // dashboard uses) — the cached profile query lagged a language switch,
   // so Russian/Turkish/Arabic letters leaked into the next language.
@@ -38,7 +38,7 @@ export default function LettersPage() {
 
   const language = languages.find((l) => l.id === activeLanguageId)
   const code = language?.code
-  const letters = lettersFor(code)
+  const letters = lettersFor(code, i18n.language)
   const hasVoice = !!code && TTS_LANGUAGES.has(code)
 
   // A whole alphabet of speaker buttons is the worst case for pressing play
@@ -139,7 +139,7 @@ export default function LettersPage() {
                   <div className="flex-1 min-w-0">
                     <p className="text-sm text-gray-700">{row.sound}</p>
                     <p className="text-xs text-gray-400">
-                      as in <span className="text-gray-600">{row.example}</span>
+                      {t('letters.asIn')} <span className="text-gray-600">{row.example}</span>
                     </p>
                   </div>
                   {hasVoice && (

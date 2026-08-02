@@ -1,4 +1,5 @@
 import { useQuery } from '@tanstack/react-query'
+import { useTranslation } from 'react-i18next'
 import { useNavigate } from 'react-router-dom'
 import { getLanguages } from '../../api/profile'
 import { usePrefsStore } from '../../stores/prefsStore'
@@ -38,21 +39,22 @@ function GlossedExample({ example }: { example: SyntaxExample }) {
  */
 export default function LanguageAboutPage() {
   const navigate = useNavigate()
+  const { t, i18n } = useTranslation()
   // Live active language from prefs (the cached profile query lagged switches).
   const activeLanguageId = usePrefsStore((s) => s.activeLanguageId)
   const { data: languages = [] } = useQuery({ queryKey: ['languages'], queryFn: getLanguages })
 
   const language = languages.find((l) => l.id === activeLanguageId)
-  const facts = factsFor(language?.code)
+  const facts = factsFor(language?.code, i18n.language)
   const syntax = syntaxFor(language?.code)
   const name = language?.name ?? 'this language'
 
   const rows: { label: string; value: string }[] = facts
     ? [
-        { label: 'Language family', value: facts.family },
-        { label: 'Speakers', value: facts.speakers },
-        { label: 'Where it’s spoken', value: facts.whereSpoken },
-        { label: 'Writing system', value: facts.writingSystem },
+        { label: t('about.family'), value: facts.family },
+        { label: t('about.speakers'), value: facts.speakers },
+        { label: t('about.whereSpoken'), value: facts.whereSpoken },
+        { label: t('about.writingSystem'), value: facts.writingSystem },
       ]
     : []
 
@@ -65,9 +67,9 @@ export default function LanguageAboutPage() {
             onClick={() => navigate('/')}
             className="text-sm text-gray-500 hover:text-lang"
           >
-            ← Dashboard
+            {t('common.backToDashboard')}
           </button>
-          <h1 className="text-lg font-bold text-gray-900">Things to know</h1>
+          <h1 className="text-lg font-bold text-gray-900">{t('about.title')}</h1>
         </div>
 
         {!facts && (
@@ -108,7 +110,7 @@ export default function LanguageAboutPage() {
               data-testid="about-syntax"
             >
               <h3 className="text-xs uppercase tracking-wide text-gray-400 mb-2">
-                How sentences are built
+                {t('about.sentences')}
               </h3>
               <p className="text-sm text-gray-700 leading-relaxed">
                 {facts.wordOrder}
@@ -125,7 +127,7 @@ export default function LanguageAboutPage() {
             {/* History */}
             <section className="bg-white rounded-2xl border border-gray-100 shadow-sm p-4">
               <h3 className="text-xs uppercase tracking-wide text-gray-400 mb-2">
-                A short history
+                {t('about.history')}
               </h3>
               <p className="text-sm text-gray-700 leading-relaxed">{facts.history}</p>
             </section>
@@ -133,7 +135,7 @@ export default function LanguageAboutPage() {
             {/* What makes it unique */}
             <section className="bg-white rounded-2xl border border-gray-100 shadow-sm p-4">
               <h3 className="text-xs uppercase tracking-wide text-gray-400 mb-2">
-                What makes it unique
+                {t('about.unique')}
               </h3>
               <ul className="space-y-2">
                 {facts.unique.map((point) => (

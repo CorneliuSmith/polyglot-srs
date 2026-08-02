@@ -161,7 +161,8 @@
     "label": "Site language"
   },
   "letters": {
-    "noGuide": "No letter guide for this language yet."
+    "noGuide": "No letter guide for this language yet.",
+    "asIn": "as in"
   },
   "review": {
     "loadingCards": "Loading cards…",
@@ -179,5 +180,15 @@
     "path": "Path",
     "tutorLink": "Tutor",
     "continue": "Continue"
+  },
+  "about": {
+    "title": "Things to know",
+    "family": "Language family",
+    "speakers": "Speakers",
+    "whereSpoken": "Where it’s spoken",
+    "writingSystem": "Writing system",
+    "sentences": "How sentences are built",
+    "history": "A short history",
+    "unique": "What makes it unique"
   }
 }

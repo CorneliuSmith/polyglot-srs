@@ -161,7 +161,8 @@
     "label": "Idioma del sitio"
   },
   "letters": {
-    "noGuide": "Aún no hay guía de letras para este idioma."
+    "noGuide": "Aún no hay guía de letras para este idioma.",
+    "asIn": "como en"
   },
   "review": {
     "loadingCards": "Cargando tarjetas…",
@@ -179,5 +180,15 @@
     "path": "Ruta",
     "tutorLink": "Tutor",
     "continue": "Continuar"
+  },
+  "about": {
+    "title": "Cosas que saber",
+    "family": "Familia lingüística",
+    "speakers": "Hablantes",
+    "whereSpoken": "Dónde se habla",
+    "writingSystem": "Sistema de escritura",
+    "sentences": "Cómo se construyen las frases",
+    "history": "Una breve historia",
+    "unique": "Qué lo hace único"
   }
 }
