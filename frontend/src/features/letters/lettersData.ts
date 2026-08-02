@@ -618,6 +618,15 @@ export const LETTERS: Record<string, LanguageLetters> = {
   ko: koreanLetters,
 }
 
-export function lettersFor(code: string | undefined | null): LanguageLetters | null {
-  return (code && LETTERS[code]) || null
+import { LETTERS_L10N } from './lettersL10n'
+
+/** The guide for *code*, preferring an overlay authored in the reader's UI
+ * language (uiLanguage); English is the always-present fallback. */
+export function lettersFor(
+  code: string | undefined | null,
+  uiLanguage?: string,
+): LanguageLetters | null {
+  if (!code) return null
+  const base = (uiLanguage ?? 'en').split('-')[0]
+  return LETTERS_L10N[base]?.[code] ?? LETTERS[code] ?? null
 }

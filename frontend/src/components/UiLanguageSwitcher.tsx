@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
-import { useQuery } from '@tanstack/react-query'
+import { useQuery, useQueryClient } from '@tanstack/react-query'
 import { Globe } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
 import { getProfile, updateProfile } from '../api/profile'
@@ -37,6 +37,17 @@ export default function UiLanguageSwitcher() {
   const { i18n, t } = useTranslation()
   const [open, setOpen] = useState(false)
   const ref = useRef<HTMLDivElement>(null)
+  // The login page renders this switcher OUTSIDE any QueryClientProvider
+  // (nothing there needs react-query), and useQueryClient throws without
+  // one. The hook call stays unconditional — only the failure is absorbed;
+  // signed-out there is never a cache to invalidate anyway.
+  let queryClient: ReturnType<typeof useQueryClient> | null = null
+  try {
+    // eslint-disable-next-line react-hooks/rules-of-hooks
+    queryClient = useQueryClient()
+  } catch {
+    queryClient = null
+  }
   const isAuthenticated = useAuthStore((s) => s.isAuthenticated)
   const authed = isAuthenticated()
 
@@ -53,9 +64,15 @@ export default function UiLanguageSwitcher() {
     setOpen(false)
     applyUiLanguage(code)
     if (authed) {
+      // One switch changes BOTH the chrome and the cards: support_locale is
+      // what card queries COALESCE glosses on, so without it a Spanish UI
+      // still served English cards. Glosses fall back to English per word
+      // until the translation overlay for this pair fills in.
       // Best-effort account sync; the local switch already happened and a
       // failed write must not undo it.
-      updateProfile({ ui_language: code }).catch(() => {})
+      updateProfile({ ui_language: code, support_locale: code })
+        .then(() => queryClient?.invalidateQueries())
+        .catch(() => {})
     }
   }
 
