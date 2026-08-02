@@ -1,0 +1,37 @@
+{
+  "nav": {
+    "dashboard": "Panel",
+    "decks": "Mazos",
+    "tutor": "Tutor",
+    "read": "Lectura",
+    "gym": "Gimnasio",
+    "search": "Buscar",
+    "account": "Cuenta",
+    "menu": "Menú"
+  },
+  "header": {
+    "whatsNew": "Novedades",
+    "takeTour": "Hacer el recorrido"
+  },
+  "login": {
+    "privateBeta": "Beta privada: inicia sesión con la cuenta que creó tu administrador.",
+    "signIn": "Iniciar sesión",
+    "signUp": "Registrarse",
+    "resetIntro": "Introduce el correo de tu cuenta y te enviaremos un enlace para elegir una nueva contraseña.",
+    "email": "Correo electrónico",
+    "password": "Contraseña",
+    "passwordPlaceholderNew": "Al menos 6 caracteres",
+    "loading": "Cargando…",
+    "sendResetLink": "Enviar enlace de restablecimiento",
+    "createAccount": "Crear cuenta",
+    "backToSignIn": "← Volver a iniciar sesión",
+    "forgotPassword": "¿Olvidaste tu contraseña?",
+    "orContinueWith": "o continúa con",
+    "googleSignIn": "Iniciar sesión con Google",
+    "agreePrefix": "Al usar PolyglotSRS aceptas los",
+    "terms": "Términos del servicio"
+  },
+  "switcher": {
+    "label": "Idioma del sitio"
+  }
+}

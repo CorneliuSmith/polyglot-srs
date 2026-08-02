@@ -234,6 +234,21 @@ cheap translate-task model. Without the toggle migration it treats every
 course as off: the safe direction for this feature's degrade is "translate
 nothing".
 
+### The site's own language is a third locale concept — don't conflate them
+
+Three separate things carry a language code: the **course** (what you're
+learning), the **support locale** (what content is explained in —
+`support_locale`, the overlay system above), and now the **UI language** —
+what the chrome itself reads in (`frontend/src/i18n/`, persisted in
+`user_profiles.ui_language`). Detection order: explicit device choice →
+account's saved choice → the browser's preferred languages → English. The
+browser signal, not IP geolocation, on purpose: IP answers "what country",
+not "what language". The switcher is a globe listing each language's own
+name for itself (never country flags — which flag is Arabic?); picking
+Arabic flips the whole document to RTL. Catalogs are per-locale JSON under
+`i18n/locales/` — translated surfaces grow file by file, and untranslated
+strings simply stay English (i18next falls back per key).
+
 ### Anything AI-written is labelled as such
 
 `source`, `explanation_source` and `level_source` record provenance, so
