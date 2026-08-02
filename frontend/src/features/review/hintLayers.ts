@@ -54,12 +54,15 @@ export interface HintLayer {
   text: string
 }
 
+import i18n from '../../i18n'
+
+// i18n keys, resolved at call time so the labels follow the site language.
 const LABELS: Record<HintLayerField, string> = {
-  base: 'Base form',
-  transliteration: 'Reading',
-  gloss: 'Word by word',
-  translation: 'Translation',
-  hint: 'Hint',
+  base: 'review.layerBase',
+  transliteration: 'review.layerReading',
+  gloss: 'review.layerGloss',
+  translation: 'review.layerTranslation',
+  hint: 'review.layerHint',
 }
 
 /**
@@ -94,5 +97,5 @@ export function hintLayersFor(languageCode: string, card: HintLayerSource): Hint
   const order: HintLayerField[] = ['base', ...(LAYER_ORDER[languageCode] ?? DEFAULT_ORDER)]
   return order
     .filter((field) => (card[field] ?? '').toString().trim().length > 0)
-    .map((field) => ({ field, label: LABELS[field], text: card[field] as string }))
+    .map((field) => ({ field, label: i18n.t(LABELS[field]), text: card[field] as string }))
 }

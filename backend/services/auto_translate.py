@@ -36,7 +36,11 @@ import logging
 import asyncpg
 
 from backend.config import get_settings
-from backend.services.translate import maker_check_batch, translations_available
+from backend.services.translate import (
+    generate_sentence_translations,
+    maker_check_batch,
+    translations_available,
+)
 
 logger = logging.getLogger(__name__)
 
@@ -144,13 +148,114 @@ async def _apply(conn: asyncpg.Connection, locale: str,
     return applied, queued
 
 
+async def pending_drills(
+    conn: asyncpg.Connection, language_id: str, locale: str, limit: int
+) -> list[dict]:
+    """Drill sentences of the course with no *locale* row yet — the strings a
+    learner reads on every grammar card (the translation under the cloze and
+    the hint). A row with NULL fields counts as attempted: rejected renderings
+    are recorded as NULLs so the sweep converges instead of re-spending, and
+    the card COALESCEs to English exactly as before."""
+    rows = await conn.fetch(
+        f"""
+        SELECT ds.id, ds.sentence, ds.translation, ds.hint
+        FROM drill_sentences ds
+        JOIN grammar_points gp ON gp.id = ds.grammar_point_id
+        WHERE gp.language_id = $1
+          AND (ds.translation IS NOT NULL OR ds.hint IS NOT NULL)
+          AND NOT EXISTS (
+            SELECT 1 FROM drill_hint_translations dht
+             WHERE dht.drill_id = ds.id AND dht.locale = $2)
+        ORDER BY {_LEVEL_ORDER.replace('v.level', 'gp.level')} NULLS LAST,
+                 gp.display_order NULLS LAST, ds.display_order NULLS LAST, ds.id
+        LIMIT $3
+        """,
+        language_id, locale, limit,
+    )
+    return [dict(r) for r in rows]
+
+
+async def pending_explanations(
+    conn: asyncpg.Connection, language_id: str, locale: str, limit: int
+) -> list[dict]:
+    """Grammar points whose explanation has no *locale* rendering yet."""
+    rows = await conn.fetch(
+        f"""
+        SELECT gp.id, gp.explanation
+        FROM grammar_points gp
+        WHERE gp.language_id = $1
+          AND gp.explanation IS NOT NULL AND gp.explanation <> ''
+          AND NOT EXISTS (
+            SELECT 1 FROM explanation_translations et
+             WHERE et.grammar_point_id = gp.id AND et.locale = $2)
+        ORDER BY {_LEVEL_ORDER.replace('v.level', 'gp.level')} NULLS LAST,
+                 gp.display_order NULLS LAST, gp.id
+        LIMIT $3
+        """,
+        language_id, locale, limit,
+    )
+    return [dict(r) for r in rows]
+
+
+async def _translate_drills(conn, pair, rows) -> int:
+    """English drill translation + hint → the locale, one maker–checker pass
+    per field. Approved renderings are stored as draft rows (reviewed=false —
+    live immediately, the read path COALESCEs with no reviewed gate, and a
+    reviewer can amend later); rejected ones store NULL, which both records
+    the attempt and leaves the card on its English fallback."""
+    out: dict[str, dict] = {str(r["id"]): {"translation": None, "hint": None}
+                            for r in rows}
+    for field in ("translation", "hint"):
+        items = [{"i": i, "sentence": r[field]}
+                 for i, r in enumerate(rows) if r[field]]
+        if not items:
+            continue
+        results = await generate_sentence_translations(pair["locale_name"], items)
+        for res in results:
+            if res["translation"]:
+                out[str(rows[res["i"]]["id"])][field] = res["translation"]
+    applied = 0
+    for r in rows:
+        vals = out[str(r["id"])]
+        await conn.execute(
+            """INSERT INTO drill_hint_translations
+                   (drill_id, locale, hint, translation, reviewed)
+               VALUES ($1, $2, $3, $4, false)
+               ON CONFLICT (drill_id, locale) DO NOTHING""",
+            r["id"], pair["locale"], vals["hint"], vals["translation"])
+        if vals["translation"] or vals["hint"]:
+            applied += 1
+    return applied
+
+
+async def _translate_explanations(conn, pair, rows) -> int:
+    """Grammar explanations → the locale. The table requires NOT NULL text,
+    so only approved renderings are stored; a rejected one simply retries on
+    a later sweep (rare, and the budget caps the spend either way)."""
+    items = [{"i": i, "sentence": r["explanation"]} for i, r in enumerate(rows)]
+    results = await generate_sentence_translations(pair["locale_name"], items)
+    applied = 0
+    for res in results:
+        if not res["translation"]:
+            continue
+        await conn.execute(
+            """INSERT INTO explanation_translations
+                   (grammar_point_id, locale, explanation, reviewed)
+               VALUES ($1, $2, $3, false)
+               ON CONFLICT (grammar_point_id, locale) DO NOTHING""",
+            rows[res["i"]]["id"], pair["locale"], res["translation"])
+        applied += 1
+    return applied
+
+
 async def run_translation_cycle(conn: asyncpg.Connection) -> dict:
     """One sweep: spend the cycle's word budget across the live pairs.
 
     Returns {"pairs", "processed", "applied", "queued"} so the loop can log
     something meaningful (and tests can assert on it).
     """
-    stats = {"pairs": 0, "processed": 0, "applied": 0, "queued": 0}
+    stats = {"pairs": 0, "processed": 0, "applied": 0, "queued": 0,
+             "drills": 0, "explanations": 0}
     pairs = await discover_pairs(conn)
     if not pairs:
         return stats
@@ -184,6 +289,30 @@ async def run_translation_cycle(conn: asyncpg.Connection) -> dict:
             pair["language_code"], pair["locale"], applied, queued,
             pair["learners"],
         )
+
+    # Remaining budget flows into the other strings a card actually shows:
+    # drill translations/hints first (read on every grammar review), then
+    # grammar explanations (read once per point). Same demand rule — only
+    # live pairs, only missing rows.
+    for kind, fetch, translate, stat in (
+        ("drills", pending_drills, _translate_drills, "drills"),
+        ("explanations", pending_explanations, _translate_explanations,
+         "explanations"),
+    ):
+        for pair in pairs:
+            if budget <= 0:
+                break
+            rows = await fetch(conn, pair["language_id"], pair["locale"],
+                               min(budget, BATCH_SIZE))
+            if not rows:
+                continue
+            budget -= len(rows)
+            done = await translate(conn, pair, rows)
+            stats[stat] += done
+            stats["processed"] += len(rows)
+            logger.info("auto-translate %s→%s: %s %d/%d",
+                        pair["language_code"], pair["locale"], kind, done,
+                        len(rows))
     return stats
 
 
