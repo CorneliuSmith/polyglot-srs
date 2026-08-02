@@ -12,6 +12,7 @@ from datetime import UTC, datetime
 import asyncpg
 
 from backend.repositories.curriculum import get_read_ref_keys, resolve_related
+from backend.repositories.explicit_gate import fetch_explicit_gated
 from backend.repositories.gym import get_gym_progress
 from backend.services.cell_glosses import cell_gloss
 from backend.services.extract import ANSWER_MARKER, make_cloze
@@ -898,37 +899,11 @@ async def update_card_srs(
     )
 
 
-# Example sentences carry their own explicit flag, because a perfectly
-# ordinary word can have a crude example: the harvested corpus attached
-# "Fucking whore." to *maldita*, which is just "damned". Filtering the
-# headword alone would have left that sentence on a card a learner keeps.
-#
-# Keyed on auth.uid() rather than a bind parameter: these run on RLS
-# connections that already carry the learner's identity, and threading a
-# user id into three unrelated signatures to say something the connection
-# already knows invites exactly one caller getting it wrong. auth.uid() is
-# provided by Supabase and by the shim in setup_db.sh, so it works on both.
-_EXPLICIT_EXAMPLE_SQL = (
-    " AND (NOT {alias}is_explicit"
-    "      OR EXISTS (SELECT 1 FROM user_profiles up"
-    "                  WHERE up.id = auth.uid()"
-    "                    AND up.allow_explicit_content))"
-)
-
-
-def _explicit_example_clause(alias: str = "") -> str:
-    return _EXPLICIT_EXAMPLE_SQL.format(alias=f"{alias}." if alias else "")
-
-
-async def _fetch_examples(conn, sql: str, *args, alias: str = ""):
-    """Run an example-sentence query with the explicit filter, falling back
-    to the unfiltered form when migration 20260910 hasn't been applied."""
-    try:
-        return await conn.fetch(
-            sql.replace("{explicit}", _explicit_example_clause(alias)), *args
-        )
-    except asyncpg.exceptions.UndefinedColumnError:
-        return await conn.fetch(sql.replace("{explicit}", ""), *args)
+# The explicit-content gate lives in explicit_gate.py (curriculum.py needs
+# it too, and this module already imports from curriculum — the neutral
+# module breaks the cycle). The examples-only alias predates the
+# generalisation and means the same thing.
+_fetch_examples = fetch_explicit_gated
 
 
 async def get_card_details_bulk(
@@ -1983,7 +1958,8 @@ async def get_deck_preview(
             cl["language_id"], cl["level"], limit,
         )
     else:
-        rows = await conn.fetch(
+        rows = await fetch_explicit_gated(
+            conn,
             """
             SELECT v.word AS item, t.definition AS detail
             FROM vocabulary v
@@ -1995,10 +1971,12 @@ async def get_deck_preview(
                    OR EXISTS (SELECT 1 FROM languages lp
                                WHERE lp.id = v.language_id
                                  AND lp.grammar_review_policy IN ('ai_ok', 'all')))
+              {explicit}
             ORDER BY v.frequency_rank ASC NULLS LAST, v.word
             LIMIT $3
             """,
             cl["language_id"], cl["level"], limit,
+            alias="v",
         )
     return {
         "id": str(cl["id"]),
@@ -2085,7 +2063,8 @@ async def get_deck_items(
         # English decks browsed by a "from X" learner list definitions in X
         # (same rule as cards: the support locale only applies to English).
         eff = await _effective_locale(conn, str(cl["language_id"]), support_locale)
-        rows = await conn.fetch(
+        rows = await fetch_explicit_gated(
+            conn,
             """
             SELECT v.id, v.word AS item,
                    COALESCE(t.definition, t_en.definition) AS detail, v.level,
@@ -2103,10 +2082,12 @@ async def get_deck_items(
                    OR EXISTS (SELECT 1 FROM languages lp
                                WHERE lp.id = v.language_id
                                  AND lp.grammar_review_policy IN ('ai_ok', 'all')))
+              {explicit}
             ORDER BY v.frequency_rank ASC NULLS LAST, v.word
             LIMIT $3
             """,
             cl["language_id"], cl["level"], limit, eff,
+            alias="v",
         )
         items = [
             {"id": str(r["id"]), "kind": "vocabulary", "item": r["item"],

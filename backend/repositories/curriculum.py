@@ -12,6 +12,7 @@ import json
 
 import asyncpg
 
+from backend.repositories.explicit_gate import fetch_explicit_gated
 from backend.services.extract import ANSWER_MARKER
 from backend.services.readings import sentence_reading
 from backend.services.references import clean_references
@@ -356,7 +357,12 @@ async def search_content(
         """,
         language_id, pattern, user_id, limit,
     )
-    vocabulary = await conn.fetch(
+    # The explicit gate applies to search too — it would be a strange gate
+    # that hid a word from every listing while letting the learner type it
+    # into the search box and get the gloss anyway. Same clause and same
+    # missing-migration fallback as every other gated read.
+    vocabulary = await fetch_explicit_gated(
+        conn,
         """
         SELECT v.id, v.word, v.level, v.part_of_speech, t.definition,
                (uc.id IS NOT NULL) AS learned
@@ -369,10 +375,12 @@ async def search_content(
               AND uc.user_id = $3
         WHERE v.language_id = $1
           AND (v.word ILIKE $2 OR t.definition ILIKE $2)
+          {explicit}
         ORDER BY char_length(v.word) ASC, v.word
         LIMIT $4
         """,
         language_id, pattern, user_id, limit,
+        alias="v",
     )
     return {
         "grammar": [dict(r) for r in grammar],

@@ -25,6 +25,7 @@ import logging
 from uuid import UUID
 
 import anthropic
+import asyncpg
 from fastapi import APIRouter, Depends, HTTPException, status
 from pydantic import BaseModel, Field
 
@@ -199,6 +200,17 @@ async def chat(
         override_model = await conn.fetchval(
             "SELECT tutor_model FROM languages WHERE id = $1", body.language_id
         )
+        # The tutor honours the same explicit-content gate as the
+        # curriculum: a filtered learner's cards never show a slur, so the
+        # chat next to them shouldn't teach one. False when migration
+        # 20260910 hasn't landed — the gate has nothing to gate yet.
+        try:
+            allow_explicit = bool(await conn.fetchval(
+                "SELECT allow_explicit_content FROM user_profiles "
+                "WHERE id = $1", user["id"]
+            ))
+        except asyncpg.exceptions.UndefinedColumnError:
+            allow_explicit = False
     weak_areas = assessment["weak_areas"]
     study_stats = assessment["study_stats"]
     model = resolve_tutor_model(body.language_code, override_model)
@@ -215,6 +227,7 @@ async def chat(
             placement=assessment.get("placement"),
             model=model,
             mode=body.mode,
+            allow_explicit=allow_explicit,
         )
         if body.mode == "reference":
             remembered = []  # reference questions never write memory
@@ -319,6 +332,17 @@ async def chat_stream(
         override_model = await conn.fetchval(
             "SELECT tutor_model FROM languages WHERE id = $1", body.language_id
         )
+        # The tutor honours the same explicit-content gate as the
+        # curriculum: a filtered learner's cards never show a slur, so the
+        # chat next to them shouldn't teach one. False when migration
+        # 20260910 hasn't landed — the gate has nothing to gate yet.
+        try:
+            allow_explicit = bool(await conn.fetchval(
+                "SELECT allow_explicit_content FROM user_profiles "
+                "WHERE id = $1", user["id"]
+            ))
+        except asyncpg.exceptions.UndefinedColumnError:
+            allow_explicit = False
     weak_areas = assessment["weak_areas"]
     study_stats = assessment["study_stats"]
     model = resolve_tutor_model(body.language_code, override_model)
@@ -338,6 +362,7 @@ async def chat_stream(
             placement=assessment.get("placement"),
             model=model,
             mode=body.mode,
+            allow_explicit=allow_explicit,
         )
         # Heartbeat interleave: wait on the generator's next event with a
         # timeout, pinging while the model is quiet. asyncio.wait (not
