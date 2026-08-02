@@ -180,6 +180,25 @@ class TestBuildSystemBlocks:
         with pytest.raises(ValueError):
             build_system_blocks("zz", [])
 
+    def test_support_language_flags_the_volatile_block(self):
+        """A non-English support language must reach the tutor as an explicit
+        instruction — it's how a Spanish-support learner gets a tutor that
+        opens in Spanish instead of English."""
+        blocks = build_system_blocks("tr", [], support_language="Spanish")
+        text = blocks[1]["text"]
+        assert "SUPPORT LANGUAGE: Spanish" in text
+        assert "from your very first message" in text
+        # The stable block stays byte-identical across support languages —
+        # anything else would split the per-language prompt cache.
+        assert blocks[0] == build_system_blocks("tr", [])[0]
+
+    def test_english_support_is_the_silent_default(self):
+        for support in (None, "English"):
+            text = build_system_blocks(
+                "tr", [], support_language=support
+            )[1]["text"]
+            assert "SUPPORT LANGUAGE" not in text
+
 
 class TestTutorSkills:
     """WP15b: per-language skill bundles (SKILL.md core + on-demand

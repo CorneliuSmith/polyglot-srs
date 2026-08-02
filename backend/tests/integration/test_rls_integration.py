@@ -1944,6 +1944,74 @@ async def test_english_drill_hints_localize(pool):
         assert cram[p_en]["hint"] == "the indefinite article"
 
 
+async def test_non_english_courses_localize_by_support_locale(pool):
+    """The owner's real path: learning Turkish FROM Arabic. Card content on a
+    NON-English course must honour the support locale wherever an overlay row
+    exists — vocab gloss (translations), drill hint/translation
+    (drill_hint_translations) — and fall back per field to the authored
+    English where it doesn't. Before this rule, non-English courses pinned
+    to English and the auto-translate loop's output never rendered."""
+    from backend.repositories.cards import get_card_detail, get_due_cards
+
+    course = await _language(pool, "xnl")  # non-English course
+    async with pool.privileged_connection() as conn:
+        vid = str(await conn.fetchval(
+            "INSERT INTO vocabulary (language_id, word, level, frequency_rank) "
+            "VALUES ($1, 'su', 'A1', 1) RETURNING id", course,
+        ))
+        await conn.execute(
+            "INSERT INTO translations (vocabulary_id, locale, definition) "
+            "VALUES ($1, 'en', 'water'), ($1, 'ar', 'ماء')", vid,
+        )
+        gp = str(await conn.fetchval(
+            "INSERT INTO grammar_points (language_id, title, level, reviewed) "
+            "VALUES ($1, 'Locative', 'A1', true) RETURNING id", course,
+        ))
+        drill = str(await conn.fetchval(
+            "INSERT INTO drill_sentences (grammar_point_id, sentence, answer, "
+            "translation, hint, display_order) VALUES ($1, "
+            "'Su {{answer}}.', 'burada', 'The water is here.', "
+            "'where it is', 1) RETURNING id", gp,
+        ))
+        await conn.execute(
+            "INSERT INTO drill_hint_translations (drill_id, locale, hint, "
+            "translation) VALUES ($1, 'ar', 'أين هو', 'الماء هنا.')", drill,
+        )
+
+    user = await _new_user(pool, "learner@nonenlocale")
+    async with pool.privileged_connection() as conn:
+        vcard = str(await conn.fetchval(
+            "INSERT INTO user_cards (user_id, language_id, card_type, card_id, "
+            "next_review) VALUES ($1, $2, 'vocabulary', $3, now() - interval "
+            "'1h') RETURNING id", user, course, vid,
+        ))
+        gcard = str(await conn.fetchval(
+            "INSERT INTO user_cards (user_id, language_id, card_type, card_id, "
+            "next_review) VALUES ($1, $2, 'grammar', $3, now() - interval "
+            "'1h') RETURNING id", user, course, gp,
+        ))
+
+    async with pool.rls_connection(user) as conn:
+        due = {str(c["id"]): c for c in
+               await get_due_cards(conn, course, support_locale="ar")}
+        # Vocab gloss: the ar overlay row wins over the en pivot gloss.
+        assert due[vcard]["sentence"] == "ماء"
+        # Drill hint + translation come from the ar overlay.
+        assert due[gcard]["hint"] == "أين هو"
+        assert due[gcard]["translation"] == "الماء هنا."
+
+        # A locale with no overlays falls back to English field by field.
+        due = {str(c["id"]): c for c in
+               await get_due_cards(conn, course, support_locale="sw")}
+        assert due[vcard]["sentence"] == "water"
+        assert due[gcard]["hint"] == "where it is"
+
+        # Card detail honours it too.
+        detail = await get_card_detail(conn, vcard, support_locale="ar")
+        assert detail["definition"] == "ماء"
+        assert detail["hint_locale"] == "ar"
+
+
 async def test_tutor_session_log_rls(pool):
     """WP18a: the practice log is per-user — insert own, list own, and
     another user sees nothing."""
