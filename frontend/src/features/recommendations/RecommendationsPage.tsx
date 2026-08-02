@@ -1,4 +1,5 @@
 import { useEffect, useRef } from 'react'
+import UiLanguageSwitcher from '../../components/UiLanguageSwitcher'
 import {
   BookOpen,
   Film,
@@ -144,13 +145,16 @@ export default function RecommendationsPage() {
     <div className="min-h-screen bg-gray-50">
       <div className="max-w-2xl mx-auto px-4 py-8 space-y-6">
         <div className="flex items-center justify-between gap-3">
-          <button
-            type="button"
-            onClick={() => navigate('/')}
-            className="text-sm text-gray-500 hover:text-lang"
-          >
-            ← Dashboard
-          </button>
+          <span className="flex items-center gap-3">
+            <button
+              type="button"
+              onClick={() => navigate('/')}
+              className="text-sm text-gray-500 hover:text-lang"
+            >
+              ← Dashboard
+            </button>
+            <UiLanguageSwitcher />
+          </span>
           <h1 className="text-lg font-bold text-gray-900">Recommended for you</h1>
         </div>
 

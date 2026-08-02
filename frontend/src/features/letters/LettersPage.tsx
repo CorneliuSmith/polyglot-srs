@@ -1,4 +1,5 @@
 import { useEffect } from 'react'
+import UiLanguageSwitcher from '../../components/UiLanguageSwitcher'
 import { useTranslation } from 'react-i18next'
 import { useQuery } from '@tanstack/react-query'
 import { useNavigate } from 'react-router-dom'
@@ -58,13 +59,16 @@ export default function LettersPage() {
     <div className="min-h-screen bg-gray-50">
       <div className="max-w-2xl mx-auto px-4 py-8 space-y-6">
         <div className="flex items-center justify-between">
-          <button
-            type="button"
-            onClick={() => navigate('/')}
-            className="text-sm text-gray-500 hover:text-lang"
-          >
-            {t('common.backToDashboard')}
-          </button>
+          <span className="flex items-center gap-3">
+            <button
+              type="button"
+              onClick={() => navigate('/')}
+              className="text-sm text-gray-500 hover:text-lang"
+            >
+              {t('common.backToDashboard')}
+            </button>
+            <UiLanguageSwitcher />
+          </span>
           <h1 className="text-lg font-bold text-gray-900">{t('dashboard.lettersTitle')}</h1>
         </div>
 

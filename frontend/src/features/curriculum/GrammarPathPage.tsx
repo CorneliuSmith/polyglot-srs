@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import UiLanguageSwitcher from '../../components/UiLanguageSwitcher'
 import { Zap } from 'lucide-react'
 import ExplanationView from '../../components/ExplanationView'
 import { useNavigate, useSearchParams } from 'react-router-dom'
@@ -103,13 +104,16 @@ export default function GrammarPathPage() {
               </p>
             )}
           </div>
-          <button
-            type="button"
-            onClick={() => navigate('/')}
-            className="text-sm text-lang hover:underline"
-          >
-            ← Dashboard
-          </button>
+          <span className="flex items-center gap-3">
+            <UiLanguageSwitcher />
+            <button
+              type="button"
+              onClick={() => navigate('/')}
+              className="text-sm text-lang hover:underline"
+            >
+              ← Dashboard
+            </button>
+          </span>
         </div>
 
         {isLoading && <p className="text-gray-500">Loading the path…</p>}

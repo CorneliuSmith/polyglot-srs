@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import UiLanguageSwitcher from '../../components/UiLanguageSwitcher'
 import { useNavigate } from 'react-router-dom'
 import { useQuery, useMutation } from '@tanstack/react-query'
 import { getLanguages } from '../../api/profile'
@@ -95,9 +96,12 @@ export default function NotesPage() {
               Paste {language.name} text, then tap a word to turn its sentence into a card.
             </p>
           </div>
-          <button type="button" onClick={() => navigate('/')} className="text-sm text-lang hover:underline">
-            Dashboard
-          </button>
+          <span className="flex items-center gap-3">
+            <UiLanguageSwitcher />
+            <button type="button" onClick={() => navigate('/')} className="text-sm text-lang hover:underline">
+              Dashboard
+            </button>
+          </span>
         </div>
 
         <textarea

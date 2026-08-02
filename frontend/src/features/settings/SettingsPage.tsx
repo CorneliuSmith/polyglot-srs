@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import UiLanguageSwitcher from '../../components/UiLanguageSwitcher'
 import { useLocation, useNavigate } from 'react-router-dom'
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query'
 import { getLanguages, getProfile, updateProfile } from '../../api/profile'
@@ -374,13 +375,16 @@ export default function SettingsPage() {
               ← Back to session
             </button>
           ) : (
-            <button
-              type="button"
-              onClick={() => navigate('/')}
-              className="text-sm text-lang hover:underline"
-            >
-              ← Dashboard
-            </button>
+            <span className="flex items-center gap-3">
+              <UiLanguageSwitcher />
+              <button
+                type="button"
+                onClick={() => navigate('/')}
+                className="text-sm text-lang hover:underline"
+              >
+                ← Dashboard
+              </button>
+            </span>
           )}
         </div>
 

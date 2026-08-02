@@ -1,4 +1,5 @@
 import { useState, useRef, useEffect } from 'react'
+import UiLanguageSwitcher from '../../components/UiLanguageSwitcher'
 import { useTranslation } from 'react-i18next'
 import { Headphones, Settings as SettingsIcon, Undo2 } from 'lucide-react'
 import { useLocation, useNavigate, useSearchParams } from 'react-router-dom'
@@ -750,6 +751,7 @@ function ReviewSessionInner({
             ←
           </button>
           <div className="flex items-center gap-4 text-sm text-gray-400">
+            <UiLanguageSwitcher />
             <button type="button" onClick={() => navigate('/grammar')} className="hover:text-lang">
               {t('review.path')}
             </button>
