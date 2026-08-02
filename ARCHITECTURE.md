@@ -171,6 +171,43 @@ content. Re-running a seeder is always safe.
 If a person has edited a point in the app, a re-seed sends the file's version
 to the review queue instead of overwriting their work.
 
+### Explicit content is opt-in, and the gate is one clause
+
+The frequency lists come from subtitle corpora, which are honest about how
+people speak — Spanish *puta* is rank 505, inside a beginner's first
+thousand words. Rows carry `is_explicit` (on `vocabulary` and
+`example_sentences`, backfilled from the English gloss's **primary sense
+only**), and the learner's `allow_explicit_content` (off by default, toggled
+in Settings → "Explicit words and sentences") decides what they see. A
+setting, not a deletion: an adult who asks for these words is taught them.
+
+The enforcement mirrors the visibility lesson above: one clause, defined
+once in `repositories/explicit_gate.py`, used by *every* learner-facing
+read — Learn selection, card examples, deck preview, deck listing, and
+search. The first version gated only Learn, and the audit found what that
+narrowness invites: a filtered learner couldn't be taught the word but
+could open the A1 deck, or search for it, and read the gloss anyway. A gate
+that only covers the front door is a claim, not a gate. Staff surfaces
+deliberately bypass it — a reviewer deciding whether a flagged sentence
+should exist has to be able to see it.
+
+### The tutor has guardrails, and they ride in the system prompt
+
+Every other surface ships reviewed content; the tutor ships whatever the
+model says next, so its rules live where the conversation can't vote them
+away. The charter (`services/tutor.py`) pins scope (a language tutor and
+nothing else), refuses the translation loophole ("just translate this
+threat" is still writing a threat), resists persona/instruction-override
+requests, and drops the tutor persona entirely if a learner discloses
+being in danger.
+
+The explicit-content setting reaches the tutor too — the same flag the
+curriculum gate reads, so a learner whose cards never show a slur isn't
+taught one by the chat next to them. That per-learner line sits in the
+**volatile** prompt block on purpose: the charter block is cached per
+language, and folding a per-user flag into it would silently fork the
+cache in two.
+
 ### Anything AI-written is labelled as such
 
 `source`, `explanation_source` and `level_source` record provenance, so
