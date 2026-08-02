@@ -166,7 +166,8 @@ async def pending_drills(
           AND NOT EXISTS (
             SELECT 1 FROM drill_hint_translations dht
              WHERE dht.drill_id = ds.id AND dht.locale = $2)
-        ORDER BY {_LEVEL_ORDER.replace('v.level', 'gp.level')} NULLS LAST, ds.id
+        ORDER BY {_LEVEL_ORDER.replace('v.level', 'gp.level')} NULLS LAST,
+                 gp.display_order NULLS LAST, ds.display_order NULLS LAST, ds.id
         LIMIT $3
         """,
         language_id, locale, limit,
@@ -187,7 +188,8 @@ async def pending_explanations(
           AND NOT EXISTS (
             SELECT 1 FROM explanation_translations et
              WHERE et.grammar_point_id = gp.id AND et.locale = $2)
-        ORDER BY {_LEVEL_ORDER.replace('v.level', 'gp.level')} NULLS LAST, gp.id
+        ORDER BY {_LEVEL_ORDER.replace('v.level', 'gp.level')} NULLS LAST,
+                 gp.display_order NULLS LAST, gp.id
         LIMIT $3
         """,
         language_id, locale, limit,
