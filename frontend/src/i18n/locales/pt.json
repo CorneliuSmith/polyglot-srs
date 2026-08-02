@@ -133,7 +133,13 @@
   "learnSession": {
     "startReviewing": "Começar a revisar",
     "next": "Próximo →",
-    "previous": "← Anterior"
+    "previous": "← Anterior",
+    "newGrammarCounter": "Gramática nova · {{current}} de {{total}}",
+    "newVocabCounter": "Vocabulário novo · {{current}} de {{total}}",
+    "howItWorks": "Como funciona",
+    "inContext": "Em contexto",
+    "cultureNote": "Nota cultural",
+    "sources": "Fontes"
   },
   "search": {
     "title": "Pesquisar",
@@ -179,7 +185,20 @@
     "sessionComplete": "Sessão concluída",
     "path": "Trilha",
     "tutorLink": "Tutor",
-    "continue": "Continuar"
+    "continue": "Continuar",
+    "cardOf": "Cartão {{current}} de {{total}}",
+    "quickCram": "Revisão rápida · não registrada",
+    "skip": "Pular →",
+    "listeningOn": "Escuta ativada",
+    "listeningOff": "Escuta desativada",
+    "exitSession": "Sair da sessão",
+    "exitArrow": "←",
+    "layerPrompt": "Enunciado",
+    "layerBase": "Forma base",
+    "layerReading": "Leitura",
+    "layerGloss": "Palavra por palavra",
+    "layerTranslation": "Tradução",
+    "layerHint": "Dica"
   },
   "about": {
     "title": "O que saber",

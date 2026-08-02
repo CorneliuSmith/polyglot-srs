@@ -665,7 +665,7 @@ function ReviewSessionInner({
     ? safePrompt(card.baseline || card.hint || card.chart_word || '', card.correct_answer)
     : ''
   const baseLayer = baseText
-    ? { field: 'base' as const, label: 'Prompt', text: baseText }
+    ? { field: 'base' as const, label: t('review.layerPrompt'), text: baseText }
     : undefined
   const optionalLayers = cram
     ? layers.filter((l) => l.field !== 'base' && l.field !== 'hint')
@@ -745,10 +745,10 @@ function ReviewSessionInner({
               clearSnapshot(parkKey)
               navigate('/')
             }}
-            aria-label="Exit session"
+            aria-label={t('review.exitSession')}
             className="text-xl leading-none text-gray-400 hover:text-lang"
           >
-            ←
+            {t('review.exitArrow')}
           </button>
           <div className="flex items-center gap-4 text-sm text-gray-400">
             <UiLanguageSwitcher />
@@ -786,11 +786,14 @@ function ReviewSessionInner({
         {/* Progress */}
         <div className="flex items-center justify-between text-sm text-gray-500">
           <span>
-            Card {session.currentIndex + 1} of {cards.length}
+            {t('review.cardOf', {
+              current: session.currentIndex + 1,
+              total: cards.length,
+            })}
           </span>
           {cram ? (
             <span className="text-xs rounded-full px-2 py-0.5 bg-lang-soft text-lang font-semibold">
-              Quick Cram · not recorded
+              {t('review.quickCram')}
             </span>
           ) : (
             <span className="flex items-center gap-2">
@@ -979,7 +982,7 @@ function ReviewSessionInner({
                     : 'border-gray-200 text-gray-400 hover:text-lang'
                 }`}
               >
-                <Headphones aria-hidden className="me-1 inline h-3.5 w-3.5 align-[-2px]" />Listening {listening ? 'on' : 'off'}
+                <Headphones aria-hidden className="me-1 inline h-3.5 w-3.5 align-[-2px]" />{listening ? t('review.listeningOn') : t('review.listeningOff')}
               </button>
             )}
             {/* Card escape hatches: defer without grading, or retire a card
@@ -992,7 +995,7 @@ function ReviewSessionInner({
                 className="hover:text-lang"
                 title="Move on without answering — the card stays scheduled"
               >
-                Skip →
+                {t('review.skip')}
               </button>
               {!cram && (
                 <button

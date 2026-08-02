@@ -364,8 +364,15 @@ function LearnInner({ onLocaleChanged }: { onLocaleChanged: () => void }) {
       <div className="max-w-xl mx-auto px-4 py-8 space-y-4">
         <div className="flex items-center justify-between">
           <p className="text-sm text-gray-500">
-            New {lesson.card_type === 'grammar' ? 'grammar' : 'vocabulary'} ·{' '}
-            {lessonIndex + 1} of {lessons.length}
+            {lesson.card_type === 'grammar'
+              ? t('learnSession.newGrammarCounter', {
+                  current: lessonIndex + 1,
+                  total: lessons.length,
+                })
+              : t('learnSession.newVocabCounter', {
+                  current: lessonIndex + 1,
+                  total: lessons.length,
+                })}
           </p>
           <span className="flex items-center gap-3">
             {studyingEnglish && (
@@ -442,7 +449,7 @@ function LearnInner({ onLocaleChanged }: { onLocaleChanged: () => void }) {
             {lesson.explanation && (
               <div>
                 <span className="text-xs uppercase tracking-wide text-gray-400 block mb-1">
-                  How it works
+                  {t('learnSession.howItWorks')}
                 </span>
                 <ExplanationView text={lesson.explanation} />
               </div>
@@ -457,7 +464,7 @@ function LearnInner({ onLocaleChanged }: { onLocaleChanged: () => void }) {
             {lesson.examples.length > 0 && (
               <div>
                 <span className="text-xs uppercase tracking-wide text-gray-400 block mb-1">
-                  In context
+                  {t('learnSession.inContext')}
                 </span>
                 <ul className="space-y-2">
                   {lesson.examples.map((ex, i) => (
@@ -480,7 +487,7 @@ function LearnInner({ onLocaleChanged }: { onLocaleChanged: () => void }) {
             {lesson.culture_note && (
               <div className="bg-lang-soft border border-lang/20 rounded-lg p-3">
                 <span className="text-xs uppercase tracking-wide text-lang/70 block mb-1">
-                  Culture note
+                  {t('learnSession.cultureNote')}
                 </span>
                 <p className="text-sm text-lang-dark/80 whitespace-pre-wrap">
                   {lesson.culture_note}
@@ -491,7 +498,7 @@ function LearnInner({ onLocaleChanged }: { onLocaleChanged: () => void }) {
             {lesson.references.length > 0 && (
               <div>
                 <span className="text-xs uppercase tracking-wide text-gray-400 block mb-1">
-                  Sources
+                  {t('learnSession.sources')}
                 </span>
                 <ul className="space-y-1">
                   {lesson.references.map((ref, i) => (

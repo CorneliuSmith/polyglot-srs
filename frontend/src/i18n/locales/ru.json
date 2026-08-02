@@ -139,7 +139,13 @@
   "learnSession": {
     "startReviewing": "Начать повторение",
     "next": "Дальше →",
-    "previous": "← Назад"
+    "previous": "← Назад",
+    "newGrammarCounter": "Новая грамматика · {{current}} из {{total}}",
+    "newVocabCounter": "Новые слова · {{current}} из {{total}}",
+    "howItWorks": "Как это работает",
+    "inContext": "В контексте",
+    "cultureNote": "Культурная заметка",
+    "sources": "Источники"
   },
   "search": {
     "title": "Поиск",
@@ -185,7 +191,20 @@
     "sessionComplete": "Занятие завершено",
     "path": "Путь",
     "tutorLink": "Репетитор",
-    "continue": "Продолжить"
+    "continue": "Продолжить",
+    "cardOf": "Карточка {{current}} из {{total}}",
+    "quickCram": "Быстрый повтор · не записывается",
+    "skip": "Пропустить →",
+    "listeningOn": "Прослушивание вкл.",
+    "listeningOff": "Прослушивание выкл.",
+    "exitSession": "Выйти из занятия",
+    "exitArrow": "←",
+    "layerPrompt": "Задание",
+    "layerBase": "Начальная форма",
+    "layerReading": "Чтение",
+    "layerGloss": "Слово за словом",
+    "layerTranslation": "Перевод",
+    "layerHint": "Подсказка"
   },
   "about": {
     "title": "Что стоит знать",

@@ -196,3 +196,65 @@ async def test_the_cycle_budget_caps_spend(pool, monkeypatch):
             break
     else:  # pragma: no cover - loop failed to converge
         raise AssertionError("auto-translate cycle never drained")
+
+
+async def test_drills_and_explanations_fill_after_the_glosses(pool, monkeypatch):
+    """The strings a grammar card actually shows — the drill translation and
+    hint under the cloze, and the point's explanation — fill from the same
+    budget once glosses are done. The mock rejects the FIRST item of every
+    batch: a rejected drill rendering is recorded as a NULL row (attempted,
+    card keeps its English fallback, no re-spend), a rejected explanation is
+    simply retried later because that table requires non-null text."""
+    _mock_ai(monkeypatch)
+    course = await _lang(pool, "at6", "Drillish", auto=True)
+    await _lang(pool, "es2", "Spanish2", auto=False)
+    await _learner(pool, "es@at6", course, "es2")
+
+    async with pool.privileged_connection() as conn:
+        gp1 = await conn.fetchval(
+            "INSERT INTO grammar_points (language_id, title, level, reviewed, "
+            "display_order, explanation) VALUES ($1, 'P1', 'A1', true, 1, "
+            "'How the first point works.') RETURNING id", course)
+        gp2 = await conn.fetchval(
+            "INSERT INTO grammar_points (language_id, title, level, reviewed, "
+            "display_order, explanation) VALUES ($1, 'P2', 'A1', true, 2, "
+            "'How the second point works.') RETURNING id", course)
+        d1 = await conn.fetchval(
+            "INSERT INTO drill_sentences (grammar_point_id, sentence, answer, "
+            "source, reviewed, display_order, translation, hint) "
+            "VALUES ($1, 'Bu {{answer}}.', 'ev', 'ai', true, 1, "
+            "'This is a house.', 'the word for house') RETURNING id", gp1)
+        d2 = await conn.fetchval(
+            "INSERT INTO drill_sentences (grammar_point_id, sentence, answer, "
+            "source, reviewed, display_order, translation, hint) "
+            "VALUES ($1, 'O {{answer}}.', 'su', 'ai', true, 2, "
+            "'That is water.', 'the word for water') RETURNING id", gp2)
+
+    stats = await _cycle(pool)
+    assert stats["drills"] >= 1
+    assert stats["explanations"] == 1  # first of the batch rejected, retried later
+
+    async with pool.privileged_connection() as conn:
+        rows = {str(r["drill_id"]): r for r in await conn.fetch(
+            "SELECT drill_id, translation, hint, reviewed "
+            "FROM drill_hint_translations WHERE locale = 'es2'")}
+        # Both drills got a row — attempted is recorded either way.
+        assert set(rows) == {str(d1), str(d2)}
+        # Batch item 0 (d1) was rejected for both fields → NULL fallback row.
+        assert rows[str(d1)]["translation"] is None
+        # Item 1 (d2) carries the mock's rendering, stored as a live draft.
+        assert rows[str(d2)]["translation"] == "[Spanish2] That is water."
+        assert rows[str(d2)]["reviewed"] is False
+        ets = await conn.fetch(
+            "SELECT grammar_point_id, explanation FROM explanation_translations "
+            "WHERE locale = 'es2'")
+        # One of the two explanations stored (the batch's second item).
+        assert len(ets) == 1
+        assert str(ets[0]["grammar_point_id"]) in {str(gp1), str(gp2)}
+        assert ets[0]["explanation"].startswith("[Spanish2]")
+
+    # A second sweep re-touches only the rejected explanation — every drill
+    # already has its attempted row.
+    stats2 = await _cycle(pool)
+    assert stats2["drills"] == 0
+    assert stats2["processed"] == 1

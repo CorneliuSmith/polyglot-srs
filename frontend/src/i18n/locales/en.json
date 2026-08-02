@@ -133,7 +133,13 @@
   "learnSession": {
     "startReviewing": "Start Reviewing",
     "next": "Next →",
-    "previous": "← Previous"
+    "previous": "← Previous",
+    "newGrammarCounter": "New grammar · {{current}} of {{total}}",
+    "newVocabCounter": "New vocabulary · {{current}} of {{total}}",
+    "howItWorks": "How it works",
+    "inContext": "In context",
+    "cultureNote": "Culture note",
+    "sources": "Sources"
   },
   "search": {
     "title": "Search",
@@ -179,7 +185,20 @@
     "sessionComplete": "Session Complete",
     "path": "Path",
     "tutorLink": "Tutor",
-    "continue": "Continue"
+    "continue": "Continue",
+    "cardOf": "Card {{current}} of {{total}}",
+    "quickCram": "Quick Cram · not recorded",
+    "skip": "Skip →",
+    "listeningOn": "Listening on",
+    "listeningOff": "Listening off",
+    "exitSession": "Exit session",
+    "exitArrow": "←",
+    "layerPrompt": "Prompt",
+    "layerBase": "Base form",
+    "layerReading": "Reading",
+    "layerGloss": "Word by word",
+    "layerTranslation": "Translation",
+    "layerHint": "Hint"
   },
   "about": {
     "title": "Things to know",

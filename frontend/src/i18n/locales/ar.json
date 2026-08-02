@@ -142,7 +142,13 @@
   "learnSession": {
     "startReviewing": "ابدأ المراجعة",
     "next": "التالي ←",
-    "previous": "→ السابق"
+    "previous": "→ السابق",
+    "newGrammarCounter": "قواعد جديدة · {{current}} من {{total}}",
+    "newVocabCounter": "مفردات جديدة · {{current}} من {{total}}",
+    "howItWorks": "كيف تعمل",
+    "inContext": "في السياق",
+    "cultureNote": "ملاحظة ثقافية",
+    "sources": "المصادر"
   },
   "search": {
     "title": "البحث",
@@ -188,7 +194,20 @@
     "sessionComplete": "اكتملت الجلسة",
     "path": "المسار",
     "tutorLink": "المعلّم",
-    "continue": "متابعة"
+    "continue": "متابعة",
+    "cardOf": "البطاقة {{current}} من {{total}}",
+    "quickCram": "مراجعة سريعة · غير مسجلة",
+    "skip": "تخطّي ←",
+    "listeningOn": "الاستماع مفعّل",
+    "listeningOff": "الاستماع متوقف",
+    "exitSession": "إنهاء الجلسة",
+    "exitArrow": "→",
+    "layerPrompt": "السؤال",
+    "layerBase": "الصيغة الأساسية",
+    "layerReading": "النطق",
+    "layerGloss": "كلمة كلمة",
+    "layerTranslation": "الترجمة",
+    "layerHint": "تلميح"
   },
   "about": {
     "title": "أشياء تستحق المعرفة",
