@@ -7,6 +7,7 @@ import { getLanguages } from '../../api/profile'
 import { createPersonalCard, extractText, saveNote } from '../../api/notes'
 import type { ExtractedSentence } from '../../api/notes'
 import { usePrefsStore } from '../../stores/prefsStore'
+import { languageDisplayName } from '../../lib/languages'
 import LanguageWrapper from '../../components/LanguageWrapper'
 import SpeakButton from '../../components/SpeakButton'
 import { prefetchTTSMany } from '../../api/audio'
@@ -18,7 +19,7 @@ interface Selection {
 
 export default function NotesPage() {
   const navigate = useNavigate()
-  const { t } = useTranslation()
+  const { t, i18n } = useTranslation()
   const activeLanguageId = usePrefsStore((s) => s.activeLanguageId)
   const [text, setText] = useState('')
   const [sentences, setSentences] = useState<ExtractedSentence[] | null>(null)
@@ -95,7 +96,7 @@ export default function NotesPage() {
           <div>
             <h1 className="text-2xl font-bold text-gray-900">{t('dashboard.ownTextTitle')}</h1>
             <p className="text-xs text-gray-500">
-              {t('notes.subtitle', { language: language.name })}
+              {t('notes.subtitle', { language: languageDisplayName(language.code, language.name, i18n.language) })}
             </p>
           </div>
           <span className="flex items-center gap-3">
@@ -110,7 +111,7 @@ export default function NotesPage() {
           value={text}
           onChange={(e) => setText(e.target.value)}
           rows={5}
-          placeholder={t('notes.pastePlaceholder', { language: language.name })}
+          placeholder={t('notes.pastePlaceholder', { language: languageDisplayName(language.code, language.name, i18n.language) })}
           className="w-full rounded-xl border border-gray-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-lang"
         />
         <button

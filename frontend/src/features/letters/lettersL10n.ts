@@ -175,10 +175,20 @@ const turkishPt: LanguageLetters = {
   ],
 }
 
+// Full per-locale overlays (all 22 covered courses), authored in
+// lettersL10n.{locale}.ts. The tr* entries above were the originals and are
+// reused verbatim inside those files; spreading them last keeps them
+// authoritative should the two ever diverge.
+import { LETTERS_AR } from './lettersL10n.ar'
+import { LETTERS_ES } from './lettersL10n.es'
+import { LETTERS_FR } from './lettersL10n.fr'
+import { LETTERS_PT } from './lettersL10n.pt'
+import { LETTERS_RU } from './lettersL10n.ru'
+
 export const LETTERS_L10N: Record<string, Record<string, LanguageLetters>> = {
-  es: { tr: turkishEs },
-  ar: { tr: turkishAr },
-  ru: { tr: turkishRu },
-  fr: { tr: turkishFr },
-  pt: { tr: turkishPt },
+  es: { ...LETTERS_ES, tr: turkishEs },
+  ar: { ...LETTERS_AR, tr: turkishAr },
+  ru: { ...LETTERS_RU, tr: turkishRu },
+  fr: { ...LETTERS_FR, tr: turkishFr },
+  pt: { ...LETTERS_PT, tr: turkishPt },
 }

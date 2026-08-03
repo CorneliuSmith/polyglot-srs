@@ -14,7 +14,7 @@ import type { PlacementItem, WritingAssessment } from '../../api/onboarding'
 import { usePrefsStore } from '../../stores/prefsStore'
 import LanguageWrapper from '../../components/LanguageWrapper'
 import { formatPrice, getPlanPrices } from '../../api/billing'
-import { visibleLanguages } from '../../lib/languages'
+import { languageDisplayName, visibleLanguages } from '../../lib/languages'
 import { convertTranslit, finalizeInput, isTranslitEnabled } from '../keyboards/translit'
 import type { Language } from '../../api/types'
 
@@ -35,7 +35,7 @@ const STAGES = 4
 
 export default function OnboardingPage() {
   const navigate = useNavigate()
-  const { t } = useTranslation()
+  const { t, i18n } = useTranslation()
   const setActiveLanguageId = usePrefsStore((s) => s.setActiveLanguageId)
   const qwertyTranslit = usePrefsStore((s) => s.qwertyTranslit)
   const dismissPlacementOffer = usePrefsStore((s) => s.dismissPlacementOffer)
@@ -206,7 +206,7 @@ export default function OnboardingPage() {
                   onClick={() => pickLanguage(lang)}
                   className="min-h-12 rounded-xl border border-gray-200 bg-white px-4 py-3 text-start text-sm font-medium text-gray-800 break-words hover:border-lang/50 hover:bg-lang-soft active:bg-lang-soft"
                 >
-                  {lang.name}
+                  {languageDisplayName(lang.code, lang.name, i18n.language)}
                 </button>
               ))}
             </div>
@@ -216,7 +216,7 @@ export default function OnboardingPage() {
         {step === 'method' && language && (
           <section className="space-y-3">
             <h2 className="font-semibold text-gray-800">
-              {t('onboarding.howMuch', { language: language.name })}
+              {t('onboarding.howMuch', { language: languageDisplayName(language.code, language.name, i18n.language) })}
             </h2>
             {/* Three clear paths — the test is one option, never a gate. */}
             <button
@@ -259,7 +259,7 @@ export default function OnboardingPage() {
           <section className="space-y-4">
             <div className="flex items-center justify-between gap-2">
               <h2 className="font-semibold text-gray-800">
-                {t('placement.answerIn', { language: language.name })}
+                {t('placement.answerIn', { language: languageDisplayName(language.code, language.name, i18n.language) })}
               </h2>
               <span className="shrink-0 text-xs text-gray-400 tabular-nums">
                 {history.length + 1} / {maxItems}
@@ -343,7 +343,7 @@ export default function OnboardingPage() {
 
         {step === 'confirm' && language && (
           <section className="space-y-4">
-            <h2 className="font-semibold text-gray-800">{t('onboarding.startAtLevel', { language: language.name })}</h2>
+            <h2 className="font-semibold text-gray-800">{t('onboarding.startAtLevel', { language: languageDisplayName(language.code, language.name, i18n.language) })}</h2>
             <p className="text-sm text-gray-500">
               {t('onboarding.confirmHelp')}
             </p>
@@ -367,7 +367,7 @@ export default function OnboardingPage() {
                 data-testid="writing-baseline"
               >
                 <p className="text-sm font-medium text-gray-800">
-                  {t('onboarding.writingTitle', { language: language.name })}
+                  {t('onboarding.writingTitle', { language: languageDisplayName(language.code, language.name, i18n.language) })}
                 </p>
                 <p className="text-xs text-gray-500">
                   {t('onboarding.writingHelp')}
@@ -439,7 +439,7 @@ export default function OnboardingPage() {
           <section className="space-y-4">
             <h2 className="font-semibold text-gray-800">{t('onboarding.choosePlan')}</h2>
             <p className="text-sm text-gray-500">
-              {t('onboarding.planHelp', { language: language.name })}
+              {t('onboarding.planHelp', { language: languageDisplayName(language.code, language.name, i18n.language) })}
             </p>
             <button
               type="button"
@@ -453,7 +453,7 @@ export default function OnboardingPage() {
               }
             >
               <span className="block text-sm font-semibold text-gray-800">
-                {t('onboarding.singleOnly', { language: language.name })}
+                {t('onboarding.singleOnly', { language: languageDisplayName(language.code, language.name, i18n.language) })}
               </span>
               <span className="block text-xs text-gray-500">
                 {singlePrice

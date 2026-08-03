@@ -71,10 +71,23 @@ def _client(conn):
     )
 
 
-def _conn(code="ru", rows=None):
+def _conn(code="ru", rows=None, support_locale=None, label_rows=None):
     conn = AsyncMock()
-    conn.fetchval = AsyncMock(return_value=code)
-    conn.fetch = AsyncMock(return_value=rows or [])
+
+    async def fetchval(sql, *args):
+        # The manifest endpoint asks two scalars: the language code and the
+        # learner's support locale (the picker-label overlay language).
+        if "support_locale" in sql:
+            return support_locale
+        return code
+
+    async def fetch(sql, *args):
+        if "gym_label_translations" in sql:
+            return label_rows or []
+        return rows or []
+
+    conn.fetchval = AsyncMock(side_effect=fetchval)
+    conn.fetch = AsyncMock(side_effect=fetch)
     return conn
 
 
@@ -161,6 +174,40 @@ class TestGymManifest:
         nouns = cols[1]["entries"]
         assert nouns[0]["nonstandard"] is True
         assert nouns[0]["familiar"] is False
+
+    def test_labels_render_in_the_support_locale_with_english_fallback(self):
+        """Picker labels/usage overlay from gym_label_translations per entry;
+        entries without a row (or with NULL fields) keep the manifest's
+        English. The example line is course-language and never swaps."""
+        rows = [
+            {"id": POINT_ID, "title": "Present tense", "level": "A1",
+             "drills": 12, "done": 5, "familiar": True},
+            {"id": "44444444-4444-4444-4444-444444444444",
+             "title": "Accusative case", "level": "A1",
+             "drills": 18, "done": 0, "familiar": False},
+        ]
+        labels = [
+            {"point": "Present tense", "label": "Presente",
+             "usage_note": "ahora y hábitos"},
+        ]
+        ps = _client(_conn(rows=rows, support_locale="es", label_rows=labels))
+        with ps[0], ps[1], ps[2], ps[3], ps[4], \
+             patch("backend.routers.gym._load_manifest", return_value=MANIFEST):
+            app = create_app()
+            with TestClient(app) as client:
+                resp = client.get(
+                    "/api/gym/manifest",
+                    params={"language_id": LANG_ID},
+                    headers=_auth_headers(),
+                )
+        assert resp.status_code == 200
+        cols = resp.json()["columns"]
+        verbs = cols[0]["entries"]
+        assert verbs[0]["label"] == "Presente"
+        assert verbs[0]["usage"] == "ahora y hábitos"
+        # The noun point has no overlay row → manifest English stands.
+        nouns = cols[1]["entries"]
+        assert nouns[0]["label"] == MANIFEST["columns"][1]["entries"][0]["label"]
 
     def test_live_russian_manifest_parses(self):
         # The shipped data/gym/ru.json must load and declare the three

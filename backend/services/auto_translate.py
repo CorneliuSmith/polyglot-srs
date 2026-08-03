@@ -190,9 +190,11 @@ async def discover_pairs(conn: asyncpg.Connection) -> list[dict]:
 
     A pair exists only when a real account is learning the course WITH that
     support locale. English support is the always-present spine (nothing to
-    fill), and a locale equal to the course's own language would be a
-    self-translation — both excluded. Fails closed (empty) when the toggle
-    column's migration hasn't landed.
+    fill). The SELF-pair (learning Spanish with Spanish support) is a real
+    pair: the content is English text ABOUT the course language — hints,
+    explanations, titles — and a Spanish-UI learner wants it in Spanish.
+    Only word glosses become monolingual definitions, which is fine.
+    Fails closed (empty) when the toggle column's migration hasn't landed.
     """
     try:
         rows = await conn.fetch(
@@ -209,7 +211,6 @@ async def discover_pairs(conn: asyncpg.Connection) -> list[dict]:
             WHERE l.auto_translate_enabled
               AND p.support_locale IS NOT NULL
               AND p.support_locale <> 'en'
-              AND loc.code <> l.code
             GROUP BY l.id, l.code, l.name, loc.code, loc.name
             ORDER BY count(*) DESC, l.name, loc.code
             """
@@ -571,7 +572,7 @@ async def _translate_examples(conn, pair, rows) -> int:
 
 # Demand rows join back to their course language per kind; 'gym' points at
 # the language itself. Each query yields (ref_id, language_id) filtered to
-# languages with the toggle on and a locale that isn't the course's own.
+# languages with the toggle on; the self-pair is served like any other.
 _DEMAND_RESOLVERS = {
     "word": "JOIN vocabulary v ON v.id = d.ref_id "
             "JOIN languages l ON l.id = v.language_id",
@@ -605,7 +606,6 @@ async def _demand_batches(conn: asyncpg.Connection) -> list[dict]:
                 JOIN languages loc ON loc.code = d.locale
                 WHERE d.kind = $1
                   AND l.auto_translate_enabled
-                  AND loc.code <> l.code
                 GROUP BY d.ref_id, d.locale, l.id, l.code, l.name, loc.name
                 ORDER BY min(d.requested_at)
                 LIMIT $2

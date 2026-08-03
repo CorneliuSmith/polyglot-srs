@@ -30,6 +30,7 @@ import {
   canTrialReviewWith,
 } from '../../lib/roleFlags'
 import { accentExampleFor } from '../../lib/accentExamples'
+import { languageDisplayName } from '../../lib/languages'
 import { useViewAsKey } from '../../stores/viewAsStore'
 import AccountsPanel from '../contribute/AccountsPanel'
 import PlanLimitsPanel from '../contribute/PlanLimitsPanel'
@@ -325,7 +326,9 @@ export default function SettingsPage() {
     if (!activeLanguageId || !activeLanguage) return
     if (
       window.confirm(
-        t('settings.danger.resetLanguageConfirm', { name: activeLanguage.name }),
+        t('settings.danger.resetLanguageConfirm', {
+          name: languageDisplayName(activeLanguage.code, activeLanguage.name, i18n.language),
+        }),
       )
     ) {
       resetMutation.mutate(activeLanguageId)
@@ -830,10 +833,10 @@ export default function SettingsPage() {
           >
             <div>
               <h2 className="font-semibold text-gray-800">
-                {t('settings.langOptions.title', { name: activeLanguage.name })}
+                {t('settings.langOptions.title', { name: languageDisplayName(activeLanguage.code, activeLanguage.name, i18n.language) })}
               </h2>
               <p className="text-xs text-gray-500">
-                {t('settings.langOptions.desc', { name: activeLanguage.name })}
+                {t('settings.langOptions.desc', { name: languageDisplayName(activeLanguage.code, activeLanguage.name, i18n.language) })}
               </p>
             </div>
 
@@ -878,7 +881,7 @@ export default function SettingsPage() {
                     script: SCRIPT_CODES.has(activeLanguage.code)
                       ? t(`settings.scripts.${activeLanguage.code}`)
                       : t('settings.scripts.fallback'),
-                    name: activeLanguage.name,
+                    name: languageDisplayName(activeLanguage.code, activeLanguage.name, i18n.language),
                   })}
                 </p>
               </div>
@@ -1071,7 +1074,7 @@ export default function SettingsPage() {
               {languages
                 .filter((l) => l.code !== 'en')
                 .map((l) => (
-                  <option key={l.code} value={l.code}>{l.name}</option>
+                  <option key={l.code} value={l.code}>{languageDisplayName(l.code, l.name, i18n.language)}</option>
                 ))}
             </select>
             {supportMutation.isError && (
@@ -1134,9 +1137,9 @@ export default function SettingsPage() {
               style={{ minHeight: '44px' }}
             >
               {t('settings.danger.resetLanguage', {
-                name:
-                  activeLanguage?.name ??
-                  t('settings.danger.activeLanguageFallback'),
+                name: activeLanguage
+                  ? languageDisplayName(activeLanguage.code, activeLanguage.name, i18n.language)
+                  : t('settings.danger.activeLanguageFallback'),
               })}
             </button>
             <button

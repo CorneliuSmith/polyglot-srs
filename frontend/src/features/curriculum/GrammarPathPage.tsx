@@ -10,6 +10,7 @@ import { prefetchTTSMany } from '../../api/audio'
 import { getCurriculum, getCurriculumPoint, learnPoint } from '../../api/curriculum'
 import type { CurriculumPoint } from '../../api/curriculum'
 import { usePrefsStore } from '../../stores/prefsStore'
+import { languageDisplayName } from '../../lib/languages'
 import LanguageWrapper from '../../components/LanguageWrapper'
 import SpeakButton from '../../components/SpeakButton'
 import BlurReveal from '../../components/BlurReveal'
@@ -25,7 +26,7 @@ const LEVEL_ORDER = ['A1', 'A2', 'B1', 'B2', 'C1', 'C2']
  */
 export default function GrammarPathPage() {
   const navigate = useNavigate()
-  const { t } = useTranslation()
+  const { t, i18n } = useTranslation()
   const queryClient = useQueryClient()
   const [searchParams] = useSearchParams()
   const activeLanguageId = usePrefsStore((s) => s.activeLanguageId)
@@ -99,7 +100,7 @@ export default function GrammarPathPage() {
           <div>
             <h1 className="text-2xl font-bold text-gray-900">
               {language
-                ? t('path.title', { language: language.name })
+                ? t('path.title', { language: languageDisplayName(language.code, language.name, i18n.language) })
                 : t('dashboard.grammarPathTitle')}
             </h1>
             {points.length > 0 && (

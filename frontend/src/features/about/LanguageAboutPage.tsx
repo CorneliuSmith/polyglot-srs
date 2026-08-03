@@ -4,6 +4,7 @@ import { useTranslation } from 'react-i18next'
 import { useNavigate } from 'react-router-dom'
 import { getLanguages } from '../../api/profile'
 import { usePrefsStore } from '../../stores/prefsStore'
+import { languageDisplayName } from '../../lib/languages'
 import { factsFor, syntaxFor, type SyntaxExample } from './languageFacts'
 
 /** An interlinear example: each word stacked over its gloss, then the natural
@@ -48,7 +49,9 @@ export default function LanguageAboutPage() {
   const language = languages.find((l) => l.id === activeLanguageId)
   const facts = factsFor(language?.code, i18n.language)
   const syntax = syntaxFor(language?.code, i18n.language)
-  const name = language?.name ?? 'this language'
+  const name = language
+    ? languageDisplayName(language.code, language.name, i18n.language)
+    : 'this language'
 
   const rows: { label: string; value: string }[] = facts
     ? [

@@ -5,6 +5,7 @@ import { useNavigate } from 'react-router-dom'
 import { useQuery } from '@tanstack/react-query'
 import { getLanguages } from '../../api/profile'
 import { searchContent } from '../../api/curriculum'
+import { languageDisplayName } from '../../lib/languages'
 import { usePrefsStore } from '../../stores/prefsStore'
 import LanguageWrapper from '../../components/LanguageWrapper'
 
@@ -15,7 +16,7 @@ import LanguageWrapper from '../../components/LanguageWrapper'
  */
 export default function SearchPage() {
   const navigate = useNavigate()
-  const { t } = useTranslation()
+  const { t, i18n } = useTranslation()
   const activeLanguageId = usePrefsStore((s) => s.activeLanguageId)
   const [input, setInput] = useState('')
   const [query, setQuery] = useState('')
@@ -45,7 +46,7 @@ export default function SearchPage() {
       <div className="max-w-2xl mx-auto px-4 py-8 space-y-4">
         <div className="flex items-center justify-between">
           <h1 className="text-2xl font-bold text-gray-900">
-            {t('search.title')} {language ? `· ${language.name}` : ''}
+            {t('search.title')} {language ? `· ${languageDisplayName(language.code, language.name, i18n.language)}` : ''}
           </h1>
           <span className="flex items-center gap-3">
             <UiLanguageSwitcher />
@@ -76,7 +77,9 @@ export default function SearchPage() {
           <p className="text-sm text-gray-500">
             {t('search.noMatches', {
               query,
-              language: language?.name ?? t('search.thisLanguage'),
+              language: language
+                ? languageDisplayName(language.code, language.name, i18n.language)
+                : t('search.thisLanguage'),
             })}
           </p>
         )}

@@ -62,7 +62,7 @@ async def gym_manifest(
             "SELECT support_locale FROM user_profiles WHERE id = $1", user["id"]
         )
         labels_l10n: dict[str, dict] = {}
-        if locale and locale not in ("en", code):
+        if locale and locale != "en":
             try:
                 labels_l10n = {
                     r["point"]: r for r in await conn.fetch(
