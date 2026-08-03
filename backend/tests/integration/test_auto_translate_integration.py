@@ -349,3 +349,44 @@ async def test_demand_for_a_switched_off_course_is_ignored(pool, monkeypatch):
             "SELECT count(*) FROM grammar_point_translations "
             "WHERE grammar_point_id = $1", gp)
         assert n == 0
+
+
+async def test_learn_session_start_pretranslates_the_upcoming_queue(pool, monkeypatch):
+    """Starting a learn session queues demand for MORE than the session:
+    the next few sessions' worth of upcoming content goes in too, so by the
+    time those cards are learned — and long before they're reviewed — the
+    overlays already exist."""
+    from backend.repositories.cards import (
+        LEARN_LOOKAHEAD_SESSIONS,
+        add_learn_batch,
+    )
+
+    _mock_ai(monkeypatch)
+    course = await _lang(pool, "at10", "Aheadish", auto=True)
+    await _lang(pool, "es3", "Spanish3", auto=False)
+    uid = await _learner(pool, "ahead@at10", course, "es3")
+
+    async with pool.privileged_connection() as conn:
+        cl = await conn.fetchval(
+            "INSERT INTO content_lists (language_id, list_type, level, title) "
+            "VALUES ($1, 'vocabulary', 'A1', 'A1 Vocabulary') RETURNING id",
+            course)
+        await conn.execute(
+            "INSERT INTO user_content_subscriptions (user_id, content_list_id) "
+            "VALUES ($1, $2)", uid, cl)
+        for i in range(8):
+            await conn.execute(
+                "INSERT INTO vocabulary (language_id, word, level, "
+                "frequency_rank) VALUES ($1, $2, 'A1', $3)",
+                course, f"ahead{i}", i + 1)
+
+        batch = await add_learn_batch(conn, uid, course, batch_size=2)
+        assert batch["added"] == 2
+
+        # Demand covers the batch AND the lookahead — capped by content:
+        # min(8 available, 2 * (1 + LEARN_LOOKAHEAD_SESSIONS)).
+        expected = min(8, 2 * (1 + LEARN_LOOKAHEAD_SESSIONS))
+        n = await conn.fetchval(
+            "SELECT count(*) FROM translation_demand "
+            "WHERE kind = 'word' AND locale = 'es3'")
+        assert n == expected

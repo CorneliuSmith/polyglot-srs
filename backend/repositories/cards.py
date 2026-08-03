@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import hashlib
 import json
+import logging
 import random
 import re
 import unicodedata
@@ -21,6 +22,8 @@ from backend.services.gym_manifest import nonstandard_point_titles
 from backend.services.gym_weight import drill_weight
 from backend.services.references import clean_references
 from backend.services.srs_stages import stage_for
+
+logger = logging.getLogger(__name__)
 
 
 async def _effective_locale(
@@ -739,6 +742,44 @@ async def _insert_learn_cards(
     return {"added": len(inserted_ids), "items": inserted_ids}
 
 
+# How far ahead of the learner the translations run: when a learn session
+# starts, this session's content PLUS the next few sessions' worth is queued
+# for translation — so by the time those cards are learned (and long before
+# they come up for review) the locale overlays already exist.
+LEARN_LOOKAHEAD_SESSIONS = 3
+
+
+async def pretranslate_upcoming(
+    conn: asyncpg.Connection,
+    user_id: str,
+    language_id: str,
+    batch_size: int = 10,
+    level: str | None = None,
+) -> None:
+    """Queue translation demand for the content this learner is ABOUT to
+    meet: the same candidate selection the learn batch uses, over a span of
+    several sessions. Runs at learn-session start (and when a learner first
+    picks a course + support locale), ahead of any card actually rendering.
+    Never raises — pre-warming must not break the session it warms."""
+    try:
+        locale = await conn.fetchval(
+            "SELECT support_locale FROM user_profiles WHERE id = $1", user_id
+        )
+        if not locale or locale == "en":
+            return
+        span = max(batch_size, 1) * (1 + LEARN_LOOKAHEAD_SESSIONS)
+        vocab = await _select_vocab_candidate_ids(
+            conn, user_id, language_id, span, level
+        )
+        grammar = await _select_grammar_candidate_ids(
+            conn, user_id, language_id, span, level
+        )
+        await note_missing_content(conn, locale,
+                                   vocab_ids=vocab, grammar_ids=grammar)
+    except Exception as exc:  # noqa: BLE001 — never break the learn flow
+        logger.debug("pretranslate lookahead skipped: %s", exc)
+
+
 async def add_learn_batch(
     conn: asyncpg.Connection,
     user_id: str,
@@ -755,6 +796,7 @@ async def add_learn_batch(
     Returns:
         {"added": int, "items": list[str]}  — count and list of new user_card IDs
     """
+    await pretranslate_upcoming(conn, user_id, language_id, batch_size, level)
     ids = await _select_vocab_candidate_ids(
         conn, user_id, language_id, batch_size, level
     )
@@ -776,6 +818,7 @@ async def add_grammar_learn_batch(
     queued level decks (display_order within a level), inserted suspended and
     due. When *level* is given, only that deck's points qualify.
     """
+    await pretranslate_upcoming(conn, user_id, language_id, batch_size, level)
     ids = await _select_grammar_candidate_ids(
         conn, user_id, language_id, batch_size, level
     )
@@ -797,6 +840,7 @@ async def add_mixed_learn_batch(
     batch_size total. If only one type has anything queued this degrades to
     that type's normal batch, so it is always safe to call unscoped.
     """
+    await pretranslate_upcoming(conn, user_id, language_id, batch_size)
     grammar_ids = await _select_grammar_candidate_ids(
         conn, user_id, language_id, batch_size, None
     )

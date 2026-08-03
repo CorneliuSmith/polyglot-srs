@@ -7,6 +7,7 @@ from fastapi import APIRouter, Depends, HTTPException, status
 from pydantic import BaseModel, Field
 
 from backend.dependencies import get_current_user
+from backend.repositories.cards import pretranslate_upcoming
 from backend.repositories.pool import rls_connection
 
 router = APIRouter()
@@ -218,9 +219,18 @@ async def upsert_profile(
         for fragments, args, defaults in attempts:
             try:
                 row = await conn.fetchrow(_UPSERT_SQL.format(**fragments), *args)
-                return {**dict(row), **defaults}
             except asyncpg.exceptions.UndefinedColumnError:
                 continue
+            # A saved course + support locale is the earliest possible signal
+            # of what this learner will meet — queue their upcoming content
+            # for translation NOW, so even the first learn session (and every
+            # review after it) opens already localized. Never blocks the save.
+            if body.active_language_id and body.support_locale:
+                await pretranslate_upcoming(
+                    conn, user["id"], body.active_language_id,
+                    body.batch_size or 10,
+                )
+            return {**dict(row), **defaults}
     raise HTTPException(
         status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
         detail="Could not save the profile",

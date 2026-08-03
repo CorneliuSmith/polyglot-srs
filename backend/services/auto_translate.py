@@ -721,6 +721,11 @@ async def process_demand(conn: asyncpg.Connection, budget: int,
             stats["demand"] += n
             logger.info("auto-translate demand %s→%s: %s ×%d",
                         b["language_code"], b["locale"], kind, n)
+    # Demand that didn't fit this cycle's budget (a big lookahead, a busy
+    # hour) makes the loop go again promptly instead of sleeping a full
+    # sweep interval — the budget still caps each cycle's burst.
+    if any(await _demand_batches(conn)):
+        stats["demand_left"] = True
     return budget
 
 
@@ -834,6 +839,7 @@ async def auto_translate_loop() -> None:
 
     logger.info("auto-translate loop started (every %ds)", SWEEP_SECONDS)
     while True:
+        stats: dict = {}
         try:
             if translations_available():
                 async with privileged_connection() as conn:
@@ -844,6 +850,12 @@ async def auto_translate_loop() -> None:
             raise
         except Exception as exc:  # noqa: BLE001 — the loop must survive anything
             logger.warning("auto-translate sweep failed: %s", exc)
+            stats = {}
+        if stats.get("demand_left"):
+            # Outstanding demand: pace, then go again — don't leave a learner
+            # waiting out the sweep interval mid-session.
+            await asyncio.sleep(30)
+            continue
         try:
             await asyncio.wait_for(_wake.wait(), timeout=SWEEP_SECONDS)
             # Debounce: let a burst of reads finish recording before sweeping.
