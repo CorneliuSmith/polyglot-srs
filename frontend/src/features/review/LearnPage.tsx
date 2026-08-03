@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from 'react'
 import UiLanguageSwitcher from '../../components/UiLanguageSwitcher'
-import { useTranslation } from 'react-i18next'
+import { Trans, useTranslation } from 'react-i18next'
 import { useNavigate, useSearchParams } from 'react-router-dom'
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
 import {
@@ -240,8 +240,8 @@ function LearnInner({ onLocaleChanged }: { onLocaleChanged: () => void }) {
     return (
       <div className="min-h-screen bg-gray-50 flex items-center justify-center px-4">
         <div className="text-center space-y-4">
-          <p className="text-xl text-red-600">Failed to load new items.</p>
-          <p className="text-sm text-gray-500">Please try again later.</p>
+          <p className="text-xl text-red-600">{t('learnSession.loadFailed')}</p>
+          <p className="text-sm text-gray-500">{t('learnSession.tryAgainLater')}</p>
           <button
             type="button"
             onClick={() => navigate('/')}
@@ -257,7 +257,7 @@ function LearnInner({ onLocaleChanged }: { onLocaleChanged: () => void }) {
   if (!learnQuery.isSuccess) {
     return (
       <div className="min-h-screen bg-gray-50 flex items-center justify-center">
-        <p className="text-gray-500">Preparing your new items…</p>
+        <p className="text-gray-500">{t('learnSession.preparing')}</p>
       </div>
     )
   }
@@ -268,10 +268,9 @@ function LearnInner({ onLocaleChanged }: { onLocaleChanged: () => void }) {
     return (
       <div className="min-h-screen bg-gray-50 flex items-center justify-center px-4">
         <div className="text-center space-y-4">
-          <p className="text-xl text-gray-700">Nothing new to learn right now.</p>
+          <p className="text-xl text-gray-700">{t('learnSession.nothingNew')}</p>
           <p className="text-sm text-gray-500">
-            You've started everything available at your level — review what's due,
-            or raise your level in Settings.
+            {t('learnSession.nothingNewDetail')}
           </p>
           <button
             type="button"
@@ -380,11 +379,11 @@ function LearnInner({ onLocaleChanged }: { onLocaleChanged: () => void }) {
                 value={profile?.support_locale ?? 'en'}
                 onChange={(e) => localeMutation.mutate(e.target.value)}
                 disabled={localeMutation.isPending}
-                aria-label="Translations language"
-                title="Show definitions and explanations in…"
+                aria-label={t('review.translationsLanguage')}
+                title={t('learnSession.showExplanationsIn')}
                 className="text-xs rounded-lg border border-gray-200 bg-white px-2 py-1 text-gray-600"
               >
-                <option value="en">English</option>
+                <option value="en">{t('review.english')}</option>
                 {languages
                   .filter((l) => l.code !== 'en')
                   .map((l) => (
@@ -440,7 +439,7 @@ function LearnInner({ onLocaleChanged }: { onLocaleChanged: () => void }) {
             {lesson.definition && (
               <p className="text-gray-800">
                 <span className="text-xs uppercase tracking-wide text-gray-400 block">
-                  Meaning
+                  {t('learnSession.meaning')}
                 </span>
                 {lesson.definition}
               </p>
@@ -521,7 +520,7 @@ function LearnInner({ onLocaleChanged }: { onLocaleChanged: () => void }) {
             {lesson.quiz && (
               <div className="border-t border-gray-100 pt-4">
                 <span className="text-xs uppercase tracking-wide text-gray-400 block mb-3">
-                  Your turn
+                  {t('learnSession.yourTurn')}
                 </span>
                 <DrillCard
                   key={lesson.card_id}
@@ -566,7 +565,7 @@ function LearnInner({ onLocaleChanged }: { onLocaleChanged: () => void }) {
                     onClick={handleCheck}
                     disabled={!quizInput.trim() || validateMutation.isPending}
                     className="mt-3 w-full bg-white hover:bg-gray-50 disabled:opacity-40 text-gray-500 hover:text-lang rounded-2xl border-2 border-gray-300 px-6 py-2 text-2xl leading-none transition-colors"
-                    aria-label="Check answer"
+                    aria-label={t('learnSession.checkAnswer')}
                     style={{ minHeight: '44px' }}
                   >
                     {validateMutation.isPending ? '…' : '→'}
@@ -583,16 +582,16 @@ function LearnInner({ onLocaleChanged }: { onLocaleChanged: () => void }) {
                       onClick={() => {
                         if (
                           window.confirm(
-                            "Already know this? It will be marked done and won't be taught or reviewed again. You can undo this later by resetting the card in its deck.",
+                            t('learnSession.alreadyKnowConfirm'),
                           )
                         )
                           knownMutation.mutate(lesson.card_id)
                       }}
                       disabled={knownMutation.isPending}
                       className="text-xs text-gray-400 hover:text-lang disabled:opacity-50"
-                      title="Skip this drill — retire the card as already known"
+                      title={t('learnSession.skipDrillTitle')}
                     >
-                      I already know this — mark done
+                      {t('learnSession.alreadyKnowButton')}
                     </button>
                   </p>
                 )}
@@ -607,7 +606,7 @@ function LearnInner({ onLocaleChanged }: { onLocaleChanged: () => void }) {
                         className="text-xs text-gray-500 hover:text-gray-700 border border-gray-200 rounded-lg px-3 py-1.5 touch-manipulation"
                         style={{ minHeight: '44px' }}
                       >
-                        {showKeyboard ? 'Hide Keyboard' : 'Show Keyboard'}
+                        {showKeyboard ? t('review.hideKeyboard') : t('review.showKeyboard')}
                       </button>
                     </div>
                     {showKeyboard && (
@@ -623,18 +622,21 @@ function LearnInner({ onLocaleChanged }: { onLocaleChanged: () => void }) {
                 )}
                 {currentPassed && lesson.quiz && !currentSloppy && (
                   <p className="mt-3 text-sm text-green-700 text-center" role="status">
-                    ✓ Correct — added to your reviews
+                    {t('learnSession.correctAdded')}
                   </p>
                 )}
                 {currentPassed && lesson.quiz && currentSloppy && (
                   <p className="mt-3 text-sm text-amber-700 text-center" role="status">
-                    Almost — check the accents: <b>{lesson.quiz.answer}</b>.
-                    Added to your reviews.
+                    <Trans
+                      i18nKey="learnSession.almostAccents"
+                      values={{ answer: lesson.quiz.answer }}
+                      components={{ b: <b /> }}
+                    />
                   </p>
                 )}
                 {currentKnown && (
                   <p className="mt-3 text-sm text-gray-500 text-center" role="status">
-                    ✓ Marked as known — won't be taught or reviewed again
+                    {t('learnSession.markedKnown')}
                   </p>
                 )}
                 {/* First miss: the fading toast below invites a retry with no
@@ -646,9 +648,11 @@ function LearnInner({ onLocaleChanged }: { onLocaleChanged: () => void }) {
                   quizResult.answer_result !== 'correct_sloppy' &&
                   wrongTries >= 2 && (
                     <p className="mt-3 text-sm text-red-600 text-center" role="alert">
-                      Not quite — the answer is <b>{lesson.quiz.answer}</b>.
-                      Try again, or move on and this one will be re-taught
-                      next time.
+                      <Trans
+                        i18nKey="learnSession.notQuiteReveal"
+                        values={{ answer: lesson.quiz.answer }}
+                        components={{ b: <b /> }}
+                      />
                     </p>
                   )}
                 {retryToast && (
@@ -658,8 +662,7 @@ function LearnInner({ onLocaleChanged }: { onLocaleChanged: () => void }) {
                     role="status"
                   >
                     <div className="learn-retry-toast rounded-xl bg-gray-900/90 px-4 py-2.5 text-sm text-white shadow-lg">
-                      Not quite — everything you need is in the examples
-                      above. Try again!
+                      {t('learnSession.retryToast')}
                     </div>
                   </div>
                 )}
@@ -695,7 +698,7 @@ function LearnInner({ onLocaleChanged }: { onLocaleChanged: () => void }) {
               type="button"
               onClick={() => navigate('/review')}
               disabled={!currentAttempted}
-              title={currentAttempted ? undefined : 'Try the sentence above first'}
+              title={currentAttempted ? undefined : t('learnSession.tryFirst')}
               className="flex-1 bg-lang hover:bg-lang-dark disabled:opacity-50 text-lang-on font-semibold rounded-xl px-6 py-3 text-sm"
               style={{ minHeight: '44px' }}
             >
@@ -706,7 +709,7 @@ function LearnInner({ onLocaleChanged }: { onLocaleChanged: () => void }) {
               type="button"
               onClick={() => goToLesson(lessonIndex + 1)}
               disabled={!currentAttempted}
-              title={currentAttempted ? undefined : 'Try the sentence above first'}
+              title={currentAttempted ? undefined : t('learnSession.tryFirst')}
               className="flex-1 bg-lang hover:bg-lang-dark disabled:opacity-50 text-lang-on font-semibold rounded-xl px-6 py-3 text-sm"
               style={{ minHeight: '44px' }}
             >

@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useState } from 'react'
+import { useTranslation } from 'react-i18next'
 import { useNavigate, useParams } from 'react-router-dom'
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
 import {
@@ -21,11 +22,11 @@ import { getLanguages } from '../../api/profile'
 import type { CardStatus, DeckItem } from '../../api/review'
 import { useViewAsKey } from '../../stores/viewAsStore'
 
-const STATUS_LABEL: Record<CardStatus, string> = {
-  new: 'New',
-  learning: 'Learning',
-  known: 'Known',
-  active: 'Active',
+const STATUS_LABEL_KEY: Record<CardStatus, string> = {
+  new: 'decks.statusNew',
+  learning: 'decks.statusLearning',
+  known: 'decks.statusKnown',
+  active: 'decks.statusActive',
 }
 const STATUS_STYLE: Record<CardStatus, string> = {
   new: '',
@@ -38,12 +39,13 @@ const STATUS_STYLE: Record<CardStatus, string> = {
  * so it can sit inside the row's own toggle button without nesting one
  * button inside another. Nothing renders for a never-learned card. */
 function StatusChip({ status }: { status: CardStatus }) {
+  const { t } = useTranslation()
   if (status === 'new') return null
   return (
     <span
       className={`text-[10px] uppercase tracking-wide rounded px-1.5 py-0.5 ${STATUS_STYLE[status]}`}
     >
-      {STATUS_LABEL[status]}
+      {t(STATUS_LABEL_KEY[status])}
     </span>
   )
 }
@@ -54,6 +56,7 @@ function StatusChip({ status }: { status: CardStatus }) {
  * nesting a real button inside it would be invalid HTML). Nothing renders
  * for a never-learned card; there's no progress yet to reset. */
 function ResetCardButton({ item, deckId }: { item: DeckItem; deckId: string | undefined }) {
+  const { t } = useTranslation()
   const queryClient = useQueryClient()
   const resetMutation = useMutation({
     mutationFn: () => resetCardProgress(item.user_card_id!),
@@ -69,18 +72,14 @@ function ResetCardButton({ item, deckId }: { item: DeckItem; deckId: string | un
     <button
       type="button"
       onClick={() => {
-        if (
-          window.confirm(
-            `Reset "${item.item}"? This permanently deletes its progress and review history — it goes back to never-learned.`,
-          )
-        )
+        if (window.confirm(t('decks.resetCardConfirm', { item: item.item })))
           resetMutation.mutate()
       }}
       disabled={resetMutation.isPending}
       className="text-gray-400 hover:text-red-600 disabled:opacity-50"
-      title="Delete this card's progress — it becomes a new card again"
+      title={t('decks.resetCardTitle')}
     >
-      {resetMutation.isSuccess ? 'Reset ✓' : 'Reset progress'}
+      {resetMutation.isSuccess ? t('decks.resetDone') : t('dashboard.resetProgress')}
     </button>
   )
 }
@@ -149,6 +148,7 @@ function GrammarRow({
   deckId: string | undefined
 }) {
   const navigate = useNavigate()
+  const { t } = useTranslation()
   const [open, setOpen] = useState(false)
   const { data: detail, isLoading } = useQuery({
     queryKey: ['point-detail', item.id],
@@ -174,7 +174,7 @@ function GrammarRow({
         <span className="flex items-center gap-2 shrink-0">
           {!item.reviewed && (
             <span className="text-[10px] uppercase tracking-wide bg-amber-50 text-amber-600 rounded px-1.5 py-0.5">
-              Draft
+              {t('decks.draft')}
             </span>
           )}
           <StatusChip status={item.status} />
@@ -183,7 +183,7 @@ function GrammarRow({
       </button>
       {open && (
         <div className="px-4 pb-4 space-y-3">
-          {isLoading && <p className="text-xs text-gray-400">Loading…</p>}
+          {isLoading && <p className="text-xs text-gray-400">{t('common.loading')}</p>}
           {detail?.explanation && <ExplanationView text={detail.explanation} />}
           <div className="flex items-center gap-4 text-xs">
             <button
@@ -191,7 +191,7 @@ function GrammarRow({
               onClick={() => navigate(`/grammar?point=${item.id}`)}
               className="text-lang hover:underline"
             >
-              Open in grammar path
+              {t('decks.openInGrammarPath')}
             </button>
             {canContribute && (
               <>
@@ -232,6 +232,7 @@ function VocabRow({
   languageCode: string
   deckId: string | undefined
 }) {
+  const { t } = useTranslation()
   const [open, setOpen] = useState(false)
   const { data: detail, isLoading } = useQuery({
     queryKey: ['vocab-item', item.id],
@@ -269,7 +270,7 @@ function VocabRow({
       </button>
       {open && (
         <div className="px-4 pb-4 space-y-3">
-          {isLoading && <p className="text-xs text-gray-400">Loading…</p>}
+          {isLoading && <p className="text-xs text-gray-400">{t('common.loading')}</p>}
           {detail && (
             <>
               <p className="text-sm text-gray-700">
@@ -324,6 +325,7 @@ function VocabRow({
 export default function DeckDetailPage() {
   const { deckId } = useParams<{ deckId: string }>()
   const navigate = useNavigate()
+  const { t } = useTranslation()
   const queryClient = useQueryClient()
   const [search, setSearch] = useState('')
   const activeLanguageId = usePrefsStore((s) => s.activeLanguageId)
@@ -380,21 +382,21 @@ export default function DeckDetailPage() {
       <div className="max-w-2xl mx-auto px-4 py-8 space-y-4">
         <div className="flex items-center justify-between">
           <h1 className="text-2xl font-bold text-gray-900">
-            {listing?.title ?? 'Deck'}
+            {listing?.title ?? t('decks.deckFallback')}
           </h1>
           <button
             type="button"
             onClick={() => navigate('/decks')}
             className="text-sm text-lang hover:underline"
           >
-            ← All decks
+            {t('decks.allDecks')}
           </button>
         </div>
         {listing && (
           <p className="text-sm text-gray-500">
-            {listing.level ?? 'All levels'} ·{' '}
-            {listing.list_type === 'grammar' ? 'Grammar' : 'Vocabulary'} ·{' '}
-            {listing.items.length} items
+            {listing.level ?? t('decks.allLevels')} ·{' '}
+            {listing.list_type === 'grammar' ? t('common.grammar') : t('decks.vocabulary')} ·{' '}
+            {t('decks.itemCount', { count: listing.items.length })}
           </p>
         )}
 
@@ -402,8 +404,8 @@ export default function DeckDetailPage() {
           <input
             value={search}
             onChange={(e) => setSearch(e.target.value)}
-            placeholder="Search this deck"
-            aria-label="Search this deck"
+            placeholder={t('decks.searchThisDeck')}
+            aria-label={t('decks.searchThisDeck')}
             className="flex-1 rounded-lg border border-gray-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-lang bg-white"
           />
           {subscribed ? (
@@ -411,10 +413,10 @@ export default function DeckDetailPage() {
               type="button"
               onClick={() => subMutation.mutate(false)}
               disabled={subMutation.isPending}
-              title="In your learn queue — click to remove. Cards you already learned keep their schedule."
+              title={t('decks.inQueueTitle')}
               className="rounded-lg border border-lang/40 bg-lang-soft text-lang px-4 py-2 text-sm font-semibold disabled:opacity-50 hover:border-red-300 hover:bg-red-50 hover:text-red-700"
             >
-              ✓ In queue
+              {t('decks.inQueueButton')}
             </button>
           ) : (
             <button
@@ -423,14 +425,14 @@ export default function DeckDetailPage() {
               disabled={subMutation.isPending}
               className="rounded-lg bg-lang hover:bg-lang-dark text-lang-on px-4 py-2 text-sm font-semibold disabled:opacity-50"
             >
-              Add to queue
+              {t('dashboard.addToQueue')}
             </button>
           )}
         </div>
 
         <div className="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
           {isLoading && (
-            <p className="px-4 py-3 text-sm text-gray-400">Loading items…</p>
+            <p className="px-4 py-3 text-sm text-gray-400">{t('decks.loadingItems')}</p>
           )}
           {filtered.map((item) =>
             item.kind === 'grammar' ? (
@@ -453,7 +455,7 @@ export default function DeckDetailPage() {
             ),
           )}
           {!isLoading && filtered.length === 0 && (
-            <p className="px-4 py-3 text-sm text-gray-500">No items match.</p>
+            <p className="px-4 py-3 text-sm text-gray-500">{t('decks.noItemsMatch')}</p>
           )}
         </div>
       </div>

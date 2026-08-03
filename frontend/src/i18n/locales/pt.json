@@ -72,7 +72,27 @@
     "ownTextTitle": "Aprenda com seu próprio texto",
     "ownTextSub": "Transforme o que você lê em cartões de revisão",
     "contribute": "Contribua com notas de gramática →",
-    "progressTitle": "Progresso"
+    "progressTitle": "Progresso",
+    "deckComplete": "Baralho concluído",
+    "startLearningDeck": "Começar a aprender com este baralho",
+    "deckOptionsFor": "Opções do baralho {{label}}",
+    "deckOptionsHint": "Adicione à fila, redefina ou explore este baralho",
+    "removeFromQueueHint": "Interrompe os cartões novos deste baralho. Os cartões que você já aprendeu mantêm seu cronograma.",
+    "resetProgressHint": "Apaga permanentemente os cartões deste baralho e seu histórico de revisão.",
+    "learnStartHint": "Comece a aprender itens novos da sua fila",
+    "learnDecksAria": "Baralhos da fila de aprendizado",
+    "learnDecksHint": "Escolha e gerencie seus baralhos de aprendizado",
+    "reviewAllHint": "Revise tudo o que está pendente",
+    "reviewOptionsAria": "Opções de revisão",
+    "reviewOptionsHint": "Revisões só de gramática ou só de vocabulário",
+    "allLevel": "Todos",
+    "daysStudied": "Dias de estudo",
+    "lastSession": "Última sessão",
+    "itemsStudied": "Itens estudados",
+    "dayStudied": "estudado",
+    "dayNotStudied": "não estudado",
+    "activityDay": "{{date}}: {{vocab}} de vocabulário, {{grammar}} de gramática",
+    "levelProgress": "Progresso em {{level}}"
   },
   "stages": {
     "beginner": "Iniciante",
@@ -81,7 +101,9 @@
     "expert": "Especialista",
     "master": "Mestre",
     "selfStudy": "Autoestudo",
-    "ghosts": "Fantasmas"
+    "ghosts": "Fantasmas",
+    "ghost": "Fantasma",
+    "notStudied": "Não estudado"
   },
   "usage": {
     "monthly": "Uso mensal",
@@ -109,7 +131,37 @@
     "myLevel": "Meu nível",
     "stretch": "Desafiador",
     "usageNote": "Cada texto novo conta para o seu uso mensal.",
-    "subtitle": "Um texto escrito exatamente no seu nível — com algumas palavras novas para decifrar"
+    "subtitle": "Um texto escrito exatamente no seu nível — com algumas palavras novas para decifrar",
+    "pickLanguageFirst": "Escolha um idioma no painel primeiro.",
+    "newWordTitle": "Palavra nova — toque para adivinhar",
+    "generateError": "Não conseguimos escrever esse — tente de novo, ou escolha outro tema.",
+    "shelfNewWords_one": "{{count}} palavra nova",
+    "shelfNewWords_other": "{{count}} palavras novas",
+    "guessBanner": "<b>Primeira leitura: sem traduções.</b> As palavras com sublinhado pontilhado são novas — toque em uma, arrisque um palpite pelo contexto e só então veja o que ela significa. Um palpite (mesmo errado) fixa a palavra muito melhor do que consultar direto.",
+    "listenTitle": "Seu texto está pronto — ouvidos primeiro?",
+    "listenIntro": "Ouvir antes de ver as palavras treina a compreensão de verdade. Você pode revelar o texto a qualquer momento.",
+    "listenFirst": "Ouvir primeiro",
+    "showMeText": "Mostrar o texto",
+    "listenLines": "Toque cada linha e imagine o que está acontecendo. Depois de ouvir, revele o texto e leia de verdade.",
+    "showTextArrow": "Mostrar o texto →",
+    "translation": "Tradução",
+    "explaining": "Explicando…",
+    "guessQuestion": "O que você acha que <w>{{word}}</w> significa aqui?",
+    "secondChance": "Você disse <g>“{{guess}}”</g>. Leia a frase mais uma vez — ainda faz sentido? Mais um palpite, e então o significado.",
+    "guessPlaceholderFirst": "Seu palpite — pelo contexto",
+    "guessPlaceholderSecond": "Refine — ou mantenha seu primeiro palpite",
+    "lockItIn": "Confirmar",
+    "reveal": "Revelar",
+    "noIdea": "Sem ideia? Arrisque mesmo assim — o exercício é esse. Duas tentativas, e o significado aparece.",
+    "standByGuess": "Mantenho meu primeiro palpite — mostrar o significado",
+    "unlockTranslations": "Já li uma vez — liberar as traduções",
+    "newWordsTitle": "Palavras novas deste texto",
+    "savedDeckNote": "As palavras salvas vão para o seu baralho <d>{{deck}}</d> — encontre-as em Baralhos.",
+    "added": "✓ Adicionada",
+    "addFailed": "Não foi possível adicionar",
+    "adding": "Adicionando…",
+    "retry": "Tentar de novo",
+    "addToReviews": "Adicionar às revisões"
   },
   "tutor": {
     "title": "Tutor de {{language}}",
@@ -120,7 +172,42 @@
     "pastSessions": "Sessões anteriores",
     "hidePastSessions": "Ocultar sessões anteriores",
     "readLink": "Leitura →",
-    "subtitle": "Reforço baseado no seu histórico de revisão"
+    "subtitle": "Reforço baseado no seu histórico de revisão",
+    "loading": "Carregando o tutor…",
+    "notAvailable": "O tutor ainda não está disponível para {{language}}.",
+    "endSession": "Encerrar sessão",
+    "modeGroupAria": "Modo do tutor",
+    "referenceTitle": "Faça uma pergunta rápida — sem exercícios, nada é salvo no seu perfil",
+    "readLinkTitle": "Um texto escrito no seu nível, sobre o seu tema",
+    "activeFocus": "Foco ativo",
+    "masteryTitle": "Seu tutor acha que você já sabe estes",
+    "masteryExplain": "Concorde, e a próxima revisão do cartão é adiada cerca de um mês — nada muda a menos que você diga.",
+    "kindGrammar": "gramática",
+    "kindVocab": "vocabulário",
+    "iKnowIt": "Eu sei este",
+    "keepDrilling": "Continuar treinando",
+    "noPastSessions": "Ainda não há sessões anteriores — elas aparecem aqui depois que você encerra uma.",
+    "messages_one": "{{count}} mensagem",
+    "messages_other": "{{count}} mensagens",
+    "plus": "Plus",
+    "plusNote": "é um preço fixo com muito mais uso mensal — nunca uma cobrança pelo que você usa.",
+    "greeting": "Olá! Sou seu tutor de {{language}}. Consigo ver com quais palavras você tem tido dificuldade nas suas revisões. Diga um oi, ou peça para eu treinar seus pontos fracos.",
+    "thinking": "O tutor está pensando…",
+    "stop": "Parar",
+    "scrollTop": "Ir para o topo",
+    "scrollTopTitle": "Voltar ao topo (Encerrar sessão fica lá em cima)",
+    "scrollBottom": "Ir para o fim",
+    "scrollBottomTitle": "Voltar à mensagem mais recente",
+    "exhaustedFree": "Você usou todo o uso deste mês — ele renova em {{date}}.",
+    "plusPitch": "O Plus é um <strong>preço fixo</strong> com muito mais uso mensal — você nunca é cobrado pelo que usa.",
+    "starting": "Iniciando…",
+    "getPlus": "Assinar o Plus para {{language}}",
+    "checkoutError": "Não foi possível iniciar o checkout — tente de novo.",
+    "exhaustedPaid": "Você atingiu o limite de uso deste mês. Ele renova em {{date}} — nada extra a pagar, seu preço nunca muda com o uso.",
+    "inputPlaceholder": "Mensagem para seu tutor…",
+    "send": "Enviar",
+    "sendError": "O tutor não conseguiu responder. Verifique sua conexão e tente de novo.",
+    "soon": "em breve"
   },
   "gym": {
     "title": "O Ginásio",
@@ -128,7 +215,46 @@
     "noForms": "Este idioma flexiona pouco as palavras para precisar de um ginásio — ainda não há formas de conjugação ou declinação para treinar aqui.",
     "pickOne": "Escolha pelo menos uma forma",
     "startTraining_one": "Começar a treinar · {{count}} pergunta",
-    "startTraining_other": "Começar a treinar · {{count}} perguntas"
+    "startTraining_other": "Começar a treinar · {{count}} perguntas",
+    "alreadyInReviews": "Já nas suas revisões",
+    "known": "conhecido",
+    "drillsDoneTitle": "Você praticou {{done}} de {{total}} exercícios deste conjunto",
+    "howManyQuestions": "Quantas perguntas?",
+    "customCount": "Quantidade personalizada",
+    "or": "ou",
+    "numberOfQuestions": "Número de perguntas",
+    "short_one": "Estas formas têm {{count}} pergunta disponível — você recebe {{count}} nesta rodada. Escolha mais formas, ou ative as variações novas abaixo para completar.",
+    "short_other": "Estas formas têm {{count}} perguntas disponíveis — você recebe {{count}} nesta rodada. Escolha mais formas, ou ative as variações novas abaixo para completar.",
+    "generateNote": "Você começa de imediato com as frases que já temos — frases novinhas são redigidas em segundo plano e entram na sessão assim que ficam prontas, então boa parte deste conjunto será inédita para você.",
+    "generateNoteShort": "Você só faz uma breve pausa se for mais rápido que elas.",
+    "generateLabel": "Misturar frases novas e inéditas",
+    "generateSub": "Escreve perguntas totalmente novas para as formas que você escolheu — com suas tabelas de referência — e as mistura nesta sessão em segundo plano, então você nunca espera no início. Elas ficam só suas até um especialista aprovar as boas para todo mundo. Conta para o seu uso mensal.",
+    "includeNonstandard": "Incluir palavras não padrão",
+    "columns": {
+      "verbTensesMoods": "Tempos e modos verbais",
+      "verbs": "Verbos",
+      "verbForms": "Formas verbais",
+      "verbFormsTenses": "Formas e tempos verbais",
+      "verbTensesAspect": "Tempos verbais e aspecto",
+      "verbEndings": "Terminações verbais",
+      "verbAffixes": "Afixos verbais",
+      "nouns": "Substantivos",
+      "cases": "Casos",
+      "casesAgreement": "Casos e concordância",
+      "nounsAgreement": "Substantivos e concordância",
+      "nounsCases": "Substantivos e casos",
+      "nounAdjEndings": "Terminações de substantivos e adjetivos",
+      "nounPhraseForms": "Formas de substantivos e sintagmas",
+      "adjectives": "Adjetivos",
+      "agreement": "Concordância",
+      "aspectMarkers": "Aspecto e marcadores",
+      "attachments": "Anexos",
+      "connectors": "Conectivos",
+      "constructions": "Construções",
+      "focus": "Foco",
+      "forms": "Formas",
+      "particles": "Partículas"
+    }
   },
   "learnSession": {
     "startReviewing": "Começar a revisar",
@@ -139,11 +265,34 @@
     "howItWorks": "Como funciona",
     "inContext": "Em contexto",
     "cultureNote": "Nota cultural",
-    "sources": "Fontes"
+    "sources": "Fontes",
+    "loadFailed": "Falha ao carregar os itens novos.",
+    "tryAgainLater": "Tente novamente mais tarde.",
+    "preparing": "Preparando seus itens novos…",
+    "nothingNew": "Nada novo para aprender agora.",
+    "nothingNewDetail": "Você já começou tudo o que existe no seu nível — revise o que está pendente, ou aumente seu nível nas Configurações.",
+    "showExplanationsIn": "Mostrar definições e explicações em…",
+    "meaning": "Significado",
+    "yourTurn": "Sua vez",
+    "checkAnswer": "Verificar resposta",
+    "alreadyKnowConfirm": "Já sabe este? Ele será marcado como concluído e não será mais ensinado nem revisado. Você pode desfazer depois redefinindo o cartão no baralho dele.",
+    "skipDrillTitle": "Pular este exercício — aposentar o cartão como já conhecido",
+    "alreadyKnowButton": "Já sei este — marcar como concluído",
+    "correctAdded": "✓ Correto — adicionado às suas revisões",
+    "almostAccents": "Quase — confira os acentos: <b>{{answer}}</b>. Adicionado às suas revisões.",
+    "markedKnown": "✓ Marcado como conhecido — não será mais ensinado nem revisado",
+    "notQuiteReveal": "Não é bem isso — a resposta é <b>{{answer}}</b>. Tente de novo, ou siga em frente e este será reensinado na próxima vez.",
+    "retryToast": "Não é bem isso — tudo o que você precisa está nos exemplos acima. Tente de novo!",
+    "tryFirst": "Tente primeiro a frase acima"
   },
   "search": {
     "title": "Pesquisar",
-    "placeholder": "Pesquise gramática e vocabulário…"
+    "placeholder": "Pesquise gramática e vocabulário…",
+    "typeAtLeast": "Digite pelo menos 2 caracteres.",
+    "searching": "Pesquisando…",
+    "noMatches": "Nenhum resultado para “{{query}}” em {{language}}.",
+    "thisLanguage": "este idioma",
+    "inReviews": "Nas revisões ✓"
   },
   "login": {
     "privateBeta": "Beta privado — entre com a conta criada pelo seu administrador.",
@@ -198,7 +347,87 @@
     "layerReading": "Leitura",
     "layerGloss": "Palavra por palavra",
     "layerTranslation": "Tradução",
-    "layerHint": "Dica"
+    "layerHint": "Dica",
+    "cramTopupNote": "Frases novinhas, só para você — um instante enquanto são redigidas.",
+    "draftingFresh": "Redigindo algumas frases novas…",
+    "loadingFreshDrills": "Carregando exercícios novos…",
+    "saveErrorEnd_one": "{{count}} revisão não pôde ser salva e reaparecerá numa sessão futura.",
+    "saveErrorEnd_other": "{{count}} revisões não puderam ser salvas e reaparecerão numa sessão futura.",
+    "saveErrorLive_one": "Sua última revisão não pôde ser salva. Verifique sua conexão — ela reaparecerá numa sessão futura.",
+    "saveErrorLive_other": "{{count}} revisões não puderam ser salvas. Verifique sua conexão — elas reaparecerão numa sessão futura.",
+    "translationsLanguage": "Idioma das traduções",
+    "showTranslationsIn": "Mostrar definições e traduções em…",
+    "english": "Inglês",
+    "cardType": {
+      "grammar": "Gramática",
+      "vocabulary": "Vocabulário",
+      "personal": "Pessoal"
+    },
+    "hideChart": "Ocultar a tabela",
+    "seeFullChart": "Ver a tabela completa",
+    "peekChart": "Espiar a tabela",
+    "practiceModePeek": "Modo prática — espiar é permitido.",
+    "playSentence": "Reproduzir a frase",
+    "submitAnswer": "Enviar resposta",
+    "checkFailed": "Não foi possível verificar essa resposta — pressione → para tentar de novo.",
+    "showHint": "Mostrar uma dica",
+    "listeningTitle": "Oculte a frase e preencha a lacuna de ouvido",
+    "skipTitle": "Siga em frente sem responder — o cartão continua agendado",
+    "retireTitle": "Já sei este — parar de agendá-lo",
+    "hearAnswer": "Ouvir \"{{word}}\"",
+    "hearFullSentence": "Ouvir a frase completa",
+    "sentenceTag": "frase",
+    "undo": "Desfazer",
+    "timesStudied": "Vezes estudado",
+    "accuracy": "Precisão",
+    "streak": "Sequência",
+    "misses": "Erros",
+    "firstStudied": "Primeiro estudo",
+    "nextReview": "Próxima revisão",
+    "showInfo": "Mostrar informações",
+    "hideInfo": "Ocultar informações",
+    "detailLoadError": "Não foi possível carregar os detalhes.",
+    "hintsIn": "Dicas em {{language}}",
+    "draftPending": "Rascunho · aguardando revisão de especialista",
+    "about": "Sobre",
+    "usage": "Uso",
+    "suggestEdit": "Sugerir uma edição",
+    "examples": "Exemplos",
+    "showTranslations": "Mostrar traduções",
+    "hideTranslations": "Ocultar traduções",
+    "yourSentences": "Suas frases",
+    "quickCramRelated": "Revisão rápida deste + relacionados (nada é registrado)",
+    "noExtraNotes": "Ainda não há notas extras para este cartão.",
+    "feedbackCorrect": "Correto!",
+    "feedbackAlmost": "Quase!",
+    "feedbackWrongForm": "Forma errada",
+    "feedbackIncorrect": "Incorreto",
+    "wellDone": "Muito bem!",
+    "expected": "Esperado:",
+    "incorrectAnswerWas": "Incorreto. A resposta era:",
+    "yourAnswer": "Sua resposta:",
+    "hearTheWordLabel": "Ouvir a palavra \"{{word}}\"",
+    "hearTheWord": "Ouvir a palavra",
+    "qwertyTitle": "Digite letras latinas e elas se convertem para a escrita do idioma",
+    "qwertyOn": "QWERTY ativado",
+    "qwertyOff": "QWERTY desativado",
+    "keyGuide": "Guia de teclas",
+    "hideKeyGuide": "Ocultar guia de teclas",
+    "typeTheWord": "Digite a palavra…",
+    "listenPause": "Ouça — a pausa é a palavra que falta",
+    "feedbackThanks": "Obrigado — seu feedback foi enviado.",
+    "reportIssue": "Relatar um problema com este cartão",
+    "reportPlaceholder": "O que parece errado? (ex.: a resposta ou a tradução parece incorreta)",
+    "sending": "Enviando…",
+    "sendFeedback": "Enviar feedback",
+    "cancel": "Cancelar",
+    "couldNotSend": "Não foi possível enviar.",
+    "timeSpent": "Tempo gasto",
+    "cardsReviewed": "Cartões revisados",
+    "durationMin_one": "{{count}} min",
+    "durationMin_other": "{{count}} min",
+    "durationSec_one": "{{count}} seg",
+    "durationSec_other": "{{count}} seg"
   },
   "about": {
     "title": "O que saber",
@@ -209,5 +438,620 @@
     "sentences": "Como as frases são construídas",
     "history": "Uma breve história",
     "unique": "O que o torna único"
+  },
+  "staffBar": {
+    "reviewMode": "Modo de revisão",
+    "flagOn": "Selecione qualquer texto para sinalizá-lo",
+    "flagOff": "Sinalize conteúdo enquanto estuda"
+  },
+  "whatsNew": {
+    "title": "Novidades",
+    "close": "Fechar novidades",
+    "newBadge": "novo",
+    "tryIt": "Experimentar",
+    "entries": {
+      "placement-retake-2026-07": {
+        "date": "julho de 2026",
+        "title": "Descubra seu nível em qualquer idioma — e de novo mais tarde",
+        "body": "Começar um idioma novo agora oferece um teste adaptativo curto, para a sua fila combinar com você desde o primeiro dia em vez de começar no A1. Você pode fazê-lo, ou refazê-lo, a qualquer momento em Configurações → Seu nível — as perguntas mudam a cada vez, então refazer mostra o quanto você realmente avançou.",
+        "linkLabel": "Fazer o teste de nivelamento"
+      },
+      "language-facts-2026-07": {
+        "date": "julho de 2026",
+        "title": "O que saber sobre este idioma",
+        "body": "Uma introdução de um minuto ao idioma que você estuda — sua família, onde é falado, como as frases são construídas, uma breve história e o que o torna diferente. Bem ao lado de Letras e sons no seu painel.",
+        "linkLabel": "Ler sobre seu idioma"
+      },
+      "gym-adaptive-2026-07": {
+        "date": "julho de 2026",
+        "title": "O Ginásio se adapta a você",
+        "body": "O Ginásio agora aprende com o jeito que você responde: as formas que você continua errando (e as irregulares) voltam com mais frequência, as que você domina vão sumindo. Ative as frases novas e ele redige exercícios inéditos em segundo plano e os mistura no seu conjunto — sem espera.",
+        "linkLabel": "Abrir o Ginásio"
+      },
+      "learning-tips-2026-07": {
+        "date": "julho de 2026",
+        "title": "Dicas de aprendizado",
+        "body": "Lembretes ocasionais, com base em evidências, sobre como estudar — leia em voz alta, confie no espaçamento, varie — mostrados no máximo cerca de uma vez por dia. Não é para você? Um botão nas Configurações os desativa.",
+        "linkLabel": "Gerenciar dicas"
+      },
+      "review-audio-2026-07": {
+        "date": "julho de 2026",
+        "title": "Áudio de revisão mais claro e mais rápido",
+        "body": "Depois de responder, os botões de “palavra” e “frase completa” agora têm rótulos separados, e os dois clipes são pré-carregados para tocar no instante em que você toca — chega de esperar pelo som."
+      },
+      "korean-2026-07": {
+        "date": "julho de 2026",
+        "title": "Coreano",
+        "body": "O idioma nº 20 está no ar: 7.000 palavras, uma trilha de gramática com 40 pontos, das partículas aos honoríficos, o Hangul em Letras e sons, áudio neural, o tutor, a Leitura e seu próprio Ginásio. 한국어를 배워요!",
+        "linkLabel": "Adicionar coreano"
+      },
+      "gym-2026-07": {
+        "date": "julho de 2026",
+        "title": "O Ginásio",
+        "body": "Escolha as formas que você quer treinar — passado, acusativo, o que seu idioma tiver — e pratique tudo misturado. Travou no meio de uma pergunta? Espie a tabela de conjugação completa. Russo primeiro; mais idiomas estão a caminho.",
+        "linkLabel": "Abrir o Ginásio"
+      },
+      "listening-gap-2026-07": {
+        "date": "julho de 2026",
+        "title": "O modo de escuta marca a lacuna",
+        "body": "O áudio agora pausa onde a palavra que falta deveria estar, e o formato da frase mostra a lacuna — chega de adivinhar onde a palavra sumiu."
+      },
+      "daily-learn-goal-2026-07": {
+        "date": "julho de 2026",
+        "title": "Uma meta diária de aprendizado",
+        "body": "O bloco Aprender agora conta para uma pequena meta diária em vez de mostrar a fila inteira. Defina 20, 50 ou a fila completa nas Configurações.",
+        "linkLabel": "Mudar minha meta"
+      },
+      "email-reminders-2026-07": {
+        "date": "julho de 2026",
+        "title": "Lembretes de revisão por e-mail",
+        "body": "Ative um resumo diário do que espera por você — revisões pendentes, status da sequência, um clique de volta ao app.",
+        "linkLabel": "Ativar lembretes"
+      }
+    }
+  },
+  "tour": {
+    "ariaLabel": "Tour pelos recursos",
+    "close": "Fechar o tour",
+    "goToStep": "Ir para o passo {{step}}",
+    "dontShowAgain": "Não mostrar de novo",
+    "back": "Voltar",
+    "next": "Próximo",
+    "getStarted": "Começar",
+    "slides": {
+      "welcome": {
+        "title": "Boas-vindas — aqui vai o tour rápido",
+        "body": "Uma passada rápida pelo que existe aqui, e depois é só aprender. Você pode reabrir isto a qualquer momento pelo “?” no seu painel."
+      },
+      "language": {
+        "title": "Conheça seu idioma",
+        "body": "<b>Letras e sons</b> percorre a escrita com você — cada letra e como pronunciá-la (útil para russo, árabe, grego, hindi, tailandês). Logo ao lado, <b>O que saber sobre este idioma</b> é uma introdução de um minuto à sua família, ordem das palavras, história e o que o torna único."
+      },
+      "learnReview": {
+        "title": "Aprender vs. Revisar",
+        "body": "<b>Aprender</b> apresenta palavras e gramática novas. <b>Revisar</b> as traz de volta logo antes de você esquecer — é esse espaçamento que as leva à memória de longo prazo. Aprenda um pouco e deixe o Revisar fazer o trabalho pesado."
+      },
+      "gym": {
+        "title": "O Ginásio",
+        "body": "Treine as formas que seu idioma flexiona — um tempo, um caso — num conjunto misto. Ele <b>se adapta</b>: as formas que você erra voltam mais, as que você já domina vão sumindo. Ative as <b>frases novas</b> e ele redige exercícios inéditos em segundo plano e os mistura conforme você avança."
+      },
+      "tutor": {
+        "title": "Tutor — Prática vs. Consulta",
+        "body": "<b>Prática</b> treina você no idioma e salva o que vocês cobriram no seu perfil, para as lições se apoiarem umas nas outras. <b>Consulta</b> é para uma pergunta rápida — uma resposta direta, sem exercícios e nada salvo. Use Prática para estudar, Consulta para só perguntar."
+      },
+      "read": {
+        "title": "Leitura",
+        "body": "Leia trechos curtos graduados para o seu nível e toque em qualquer palavra para ver o significado — o caminho mais rápido para transformar vocabulário em leitura de verdade."
+      },
+      "ownText": {
+        "title": "Traga seu próprio texto",
+        "body": "Cole na Leitura algo que você realmente quer ler — uma música, um artigo, uma mensagem — e estude as palavras que importam para você."
+      }
+    }
+  },
+  "install": {
+    "appBody": "<b>Use o PolyglotSRS como um app</b> — revisões a um toque da sua tela inicial.",
+    "iosBody": "<b>Adicione à sua tela inicial:</b> toque em Compartilhar<share> ⎋ </share>e depois em “Adicionar à Tela de Início”.",
+    "install": "Instalar",
+    "dismiss": "Dispensar aviso de instalação"
+  },
+  "errorScreen": {
+    "title": "Algo deu errado",
+    "body": "Desculpe — essa página encontrou um erro. Recarregar costuma resolver, e seu progresso está salvo no servidor.",
+    "reload": "Recarregar o app"
+  },
+  "shared": {
+    "forms": "Formas",
+    "resources": "Recursos",
+    "online": "Online",
+    "offline": "Offline",
+    "markRead": "Marcar como lido",
+    "markUnread": "Marcar como não lido",
+    "pageAbbrev": "p. {{page}}",
+    "related": "Relacionados",
+    "clickToReveal": "Clique para revelar",
+    "playPronunciation": "Reproduzir pronúncia",
+    "loading": "Carregando"
+  },
+  "picker": {
+    "loadingLanguages": "Carregando idiomas",
+    "selectLanguage": "Selecionar idioma ativo",
+    "chooseLanguage": "Escolha um idioma",
+    "languages": "Idiomas",
+    "allLanguagesPlan": "Plano Todos os idiomas"
+  },
+  "tips": {
+    "footer": "Dica de aprendizado · desative-as nas Configurações",
+    "dismiss": "Dispensar dica",
+    "items": {
+      "read-aloud": {
+        "title": "Diga em voz alta",
+        "body": "Se puder, sussurre ou fale cada frase enquanto responde. Produzir uma palavra em voz alta a fixa muito mais do que lê-la em silêncio — é uma das vitórias mais simples do aprendizado."
+      },
+      "retrieval": {
+        "title": "O esforço para lembrar é o objetivo",
+        "body": "Puxar uma resposta da memória — mesmo quando você erra — a fortalece mais do que reler jamais conseguiria. Esse esforço logo antes de a resposta aparecer é onde o aprendizado acontece."
+      },
+      "shadow": {
+        "title": "Sombreie o áudio",
+        "body": "Toque uma frase e repita-a logo em seguida, copiando o ritmo e a melodia. Isso treina seu ouvido e sua boca ao mesmo tempo."
+      },
+      "generation": {
+        "title": "Digite, não apenas reconheça",
+        "body": "Produzir a resposta você mesmo supera escolhê-la numa lista — por isso os exercícios pedem que você escreva. O pouquinho de esforço extra compensa na hora de lembrar."
+      },
+      "mistakes": {
+        "title": "Respostas erradas são dados, não fracasso",
+        "body": "Cada erro diz ao app exatamente o que trazer de volta mais cedo. Errar e corrigir é como o cronograma se ajusta a você."
+      },
+      "spacing": {
+        "title": "Pouco e sempre supera maratonas",
+        "body": "Dez minutos concentrados por dia ensinam mais do que duas horas de estudo intensivo no fim de semana. Espaçar a prática é uma das descobertas mais confiáveis de toda a ciência do aprendizado."
+      },
+      "trust-schedule": {
+        "title": "Confie no cronograma",
+        "body": "As revisões voltam bem na hora em que você está prestes a esquecer. Retornar exatamente nesse limite é o que leva uma palavra à memória de longo prazo — então um dia calmo, com poucas revisões, é o sistema funcionando."
+      },
+      "consistency": {
+        "title": "Sequência vale mais que arrancada",
+        "body": "Aparecer todo dia, mesmo que rapidinho, mantém tudo aquecido. Perdeu um dia? É só retomar — um deslize não desfaz seu progresso."
+      },
+      "sleep": {
+        "title": "Deixe o sono trabalhar",
+        "body": "A memória se consolida enquanto você dorme. Uma sessão curta à noite, revisada de novo na manhã seguinte, fixa melhor do que os mesmos minutos emendados um atrás do outro."
+      },
+      "interleave": {
+        "title": "Varie",
+        "body": "Alternar entre tempos e temas — como o Ginásio faz — parece mais difícil do que treinar uma coisa só, mas constrói um conhecimento mais flexível e duradouro."
+      },
+      "elaborate": {
+        "title": "Dê significado às palavras",
+        "body": "Ligue uma palavra nova a uma imagem, uma historinha ou uma palavra que você já conhece. Quanto mais ganchos você der a uma palavra, mais fácil será encontrá-la depois."
+      },
+      "in-context": {
+        "title": "Aprenda palavras dentro de frases",
+        "body": "Uma palavra encontrada numa frase real traz junto sua gramática e suas companhias habituais — muito mais útil do que uma tradução solta."
+      }
+    }
+  },
+  "decks": {
+    "loadingDecks": "Carregando baralhos…",
+    "grammarDecks": "Baralhos de gramática",
+    "vocabularyDecks": "Baralhos de vocabulário",
+    "levelAll": "Todos",
+    "learnedRatio": "{{learned}} / {{total}} aprendidos",
+    "statusNew": "Novo",
+    "statusLearning": "Aprendendo",
+    "statusKnown": "Conhecido",
+    "statusActive": "Ativo",
+    "resetCardConfirm": "Redefinir \"{{item}}\"? Isso apaga permanentemente seu progresso e histórico de revisão — ele volta a nunca ter sido aprendido.",
+    "resetCardTitle": "Apagar o progresso deste cartão — ele volta a ser um cartão novo",
+    "resetDone": "Redefinido ✓",
+    "draft": "Rascunho",
+    "openInGrammarPath": "Abrir na trilha de gramática",
+    "deckFallback": "Baralho",
+    "allDecks": "← Todos os baralhos",
+    "allLevels": "Todos os níveis",
+    "vocabulary": "Vocabulário",
+    "itemCount_one": "{{count}} item",
+    "itemCount_other": "{{count}} itens",
+    "searchThisDeck": "Pesquisar neste baralho",
+    "inQueueTitle": "Na sua fila de aprendizado — clique para remover. Os cartões que você já aprendeu mantêm seu cronograma.",
+    "inQueueButton": "✓ Na fila",
+    "loadingItems": "Carregando itens…",
+    "noItemsMatch": "Nenhum item corresponde.",
+    "savedWordsTitle": "Suas palavras salvas",
+    "savedWordsExplain": "As palavras que você salva enquanto lê, e os cartões que o tutor cria para você, se reúnem aqui — organizados em “Da leitura” e “Do tutor”.",
+    "savedWordsHint": "Nada salvo ainda. Abra <read>Leitura</read> e toque em “Adicionar às revisões” numa palavra que você queira guardar.",
+    "personalDecks": "Baralhos pessoais",
+    "personalDecksSub": "suas palavras do Tutor e da Leitura",
+    "newDeckPlaceholder": "Nome do novo baralho…",
+    "create": "Criar",
+    "cardCount_one": "{{count}} cartão",
+    "cardCount_other": "{{count}} cartões",
+    "unfiled": "Não arquivados",
+    "rename": "Renomear",
+    "delete": "Excluir",
+    "renamePrompt": "Renomear baralho",
+    "deleteDeckConfirm": "Excluir \"{{name}}\"? Os cartões são mantidos — eles só voltam para Não arquivados.",
+    "emptyDeckHint": "Vazio — arquive cartões aqui a partir de Não arquivados.",
+    "deckFor": "Baralho de {{answer}}"
+  },
+  "notes": {
+    "pickLanguageFirst": "Escolha um idioma no painel primeiro.",
+    "subtitle": "Cole um texto em {{language}} e toque numa palavra para transformar a frase dela em um cartão.",
+    "pastePlaceholder": "Cole aqui um texto em {{language}}…",
+    "analyze": "Analisar",
+    "analyzing": "Analisando…",
+    "addedCards_one": "{{count}} cartão adicionado às suas revisões.",
+    "addedCards_other": "{{count}} cartões adicionados às suas revisões.",
+    "highlightHint": "As palavras novas estão destacadas. Toque em qualquer palavra para criar um cartão de preencher a lacuna.",
+    "newWord": "palavra nova",
+    "cardLine": "Cartão: <mono>{{sentence}}</mono>",
+    "blankWord": "Deixar em branco a palavra <answer>{{answer}}</answer>.",
+    "translationPlaceholder": "Tradução / nota (opcional)",
+    "addCard": "Adicionar cartão",
+    "adding": "Adicionando…",
+    "cancel": "Cancelar",
+    "addFailed": "Não foi possível adicionar — escolha outra palavra."
+  },
+  "path": {
+    "title": "Trilha de gramática de {{language}}",
+    "progress": "{{learned}} de {{total}} nas suas revisões",
+    "loading": "Carregando a trilha…",
+    "noneYet": "Ainda não há gramática publicada para este idioma.",
+    "noneYetSub": "Os pontos aparecem aqui depois de passarem pela revisão dos linguistas.",
+    "inReviews": "Nas revisões ✓",
+    "readingOnly": "Somente leitura",
+    "draftPending": "Rascunho · aguardando revisão de especialista",
+    "quickCram": "Revisão rápida deste + relacionados (nada é registrado)",
+    "addToReviews": "Adicionar às minhas revisões",
+    "adding": "Adicionando…",
+    "alreadyInReviews": "Já nas suas revisões — ele continuará voltando no seu cronograma FSRS.",
+    "otherLevel": "Outro"
+  },
+  "recos": {
+    "mediaTypes": {
+      "book": "Livro",
+      "film": "Filme",
+      "series": "Série",
+      "podcast": "Podcast",
+      "music": "Música"
+    },
+    "whyFits": "Por que combina com você: ",
+    "turnOn": "Ative as recomendações para receber de vez em quando um livro, filme, série ou podcast no idioma que você estuda — escolhidos para o seu nível e seus interesses.",
+    "setUpSettings": "Configure nas Configurações →",
+    "plusFeature": "Um recurso Plus",
+    "plusUpsell": "As recomendações personalizadas fazem parte do Plus. Assine para este idioma e receba toda semana uma lista de sugestões nova, no seu nível.",
+    "drafting": "Montando as sugestões desta semana para você…",
+    "needPlus": "As recomendações exigem uma assinatura Plus para este idioma.",
+    "getMyPicks": "Receber minhas sugestões",
+    "getNewPicks": "Receber sugestões novas",
+    "matchedNow": "Ajustadas a onde você está agora.",
+    "rateLimited": "Você já pediu algumas levas novas — tente de novo daqui a pouco.",
+    "thisWeeksPicks": "Sugestões desta semana",
+    "earlier": "Recomendações anteriores",
+    "noneYet": "Ainda não há recomendações — volte em breve.",
+    "picksReady": "As sugestões desta semana estão prontas",
+    "picksCount_one": "{{count}} coisa para ler, assistir ou ouvir — escolhida para o seu nível.",
+    "picksCount_other": "{{count}} coisas para ler, assistir ou ouvir — escolhidas para o seu nível.",
+    "dismissPicks": "Dispensar as sugestões desta semana",
+    "andMore_one": "e mais {{count}}",
+    "andMore_other": "e mais {{count}}",
+    "seePicks": "Ver as sugestões desta semana"
+  },
+  "onboarding": {
+    "back": "Voltar",
+    "title": "Boas-vindas — vamos preparar tudo",
+    "subtitle": "Um minuto agora e suas revisões ficam prontas.",
+    "whichLanguage": "Qual idioma você quer aprender?",
+    "howMuch": "Quanto de {{language}} você já sabe?",
+    "brandNew": "Estou começando do zero",
+    "brandNewSub": "Comece do início (A1)",
+    "knowSome": "Sei um pouco — vou escolher meu nível",
+    "knowSomeSub": "Escolha você mesmo seu nível inicial, sem teste",
+    "testMyLevel": "Testar meu nível (opcional)",
+    "testMyLevelSub": "Algumas perguntas que se adaptam às suas respostas — a maioria termina em 5–8",
+    "skipTest": "Pular o teste — vou escolher meu nível",
+    "startAtLevel": "Começar {{language}} neste nível",
+    "confirmHelp": "Colocaremos na fila gramática e vocabulário deste nível para baixo. Na dúvida? Escolha o mais alto — você pode mudar a qualquer momento em Conta → Seu nível.",
+    "startingLevelLabel": "Nível inicial",
+    "writingTitle": "Na dúvida? Escreva um pouco de {{language}} (opcional)",
+    "writingHelp": "Uma frase ou duas, do jeito que você conseguir — qualquer coisa. Sugeriremos um nível inicial a partir disso.",
+    "writingSampleLabel": "Amostra de escrita",
+    "suggestMyLevel": "Sugerir meu nível",
+    "assessError": "Não foi possível avaliar — escolha seu nível acima.",
+    "startAtSuggested": "Começar em {{level}}",
+    "continue": "Continuar",
+    "choosePlan": "Escolha seu plano",
+    "planHelp": "Estude só {{language}}, ou desbloqueie todos os idiomas. Você pode fazer upgrade a qualquer momento nas Configurações.",
+    "singleOnly": "Só {{language}}",
+    "singlePriced": "Um idioma — {{price}}",
+    "singleUnpriced": "Um idioma pelo preço menor",
+    "allLanguages": "Todos os idiomas",
+    "allPriced": "Todos os idiomas que oferecemos — {{price}}",
+    "allUnpriced": "Todos os idiomas que oferecemos, um só preço",
+    "billingNote": "A cobrança ainda não foi lançada — as contas antecipadas mantêm acesso completo à sua escolha de graça, e mantêm seu preço quando os planos entrarem no ar.",
+    "startLearning": "Começar a aprender"
+  },
+  "placement": {
+    "answerIn": "Responda em {{language}}",
+    "checking": "Verificando…",
+    "next": "Próximo",
+    "dontKnow": "Não sei",
+    "readingIt": "Lendo…",
+    "settingUp": "Preparando…",
+    "writingVerdict": "Sua escrita parece estar em torno de <b>{{level}}</b>.",
+    "dialogLabel": "Teste de nivelamento de {{language}}",
+    "unavailableTitle": "Ainda não há conteúdo de {{language}} suficiente para testar",
+    "unavailableHelp": "Vamos oferecer isto de novo quando o curso crescer. Enquanto isso, escolha seu nível em Configurações → Seu nível.",
+    "close": "Fechar",
+    "resultSummary": "Seu {{language}} parece estar em torno de <b>{{level}}</b>, com base em {{questions}}.",
+    "questionCount_one": "{{count}} pergunta",
+    "questionCount_other": "{{count}} perguntas",
+    "sameAsLast": "Igual à última vez ({{previous}}).",
+    "movedUp": "São {{levels}} acima de {{previous}} — bom trabalho.",
+    "movedDown": "São {{levels}} abaixo do seu último resultado ({{previous}}).",
+    "levelCount_one": "um nível",
+    "levelCount_other": "{{count}} níveis",
+    "applyHelp": "Definir isto coloca na fila gramática e vocabulário desse nível para baixo. Os cartões que você já aprendeu nunca são removidos.",
+    "setMeTo": "Definir meu nível como {{level}}",
+    "keepMyLevel": "Manter meu nível",
+    "applyError": "Não foi possível mudar seu nível — tente em Configurações → Seu nível.",
+    "writeParagraph": "Escreva um parágrafo em {{language}}",
+    "writingHelp": "Qualquer coisa — o que você fez hoje, o que pensa sobre algum assunto. Escreva o quanto conseguir com conforto: quanto mais você escrever, com mais precisão conseguimos definir seu nível. Erros são normais e não contam contra você.",
+    "writingLabel": "Sua escrita em {{language}}",
+    "wordCount_one": "{{count}} palavra",
+    "wordCount_other": "{{count}} palavras",
+    "focusNext": "Vale trabalhar em seguida: {{focus}}.",
+    "assessWriting": "Avaliar minha escrita",
+    "assessError": "Não foi possível avaliar — tente as perguntas.",
+    "backToQuestions": "Voltar às perguntas",
+    "showKeyboard": "Mostrar teclado",
+    "hideKeyboard": "Ocultar teclado",
+    "ratherWrite": "Prefere escrever um parágrafo? Ele define seu nível com mais precisão.",
+    "stopTest": "Parar o teste",
+    "startErrorTitle": "Não foi possível iniciar o teste",
+    "startErrorHelp": "Algo deu errado ao contatar o servidor. Você pode escolher seu nível manualmente acima e tentar o teste de novo mais tarde.",
+    "migrationNote": "Seu nível ainda pode ser definido manualmente acima. Este aviso some quando as migrações pendentes forem aplicadas.",
+    "tryAgain": "Tentar de novo",
+    "cancel": "Cancelar",
+    "offerDialogLabel": "Descubra seu nível de {{language}}",
+    "offerKicker": "Novo em {{language}} por aqui",
+    "offerTitle": "Quer descobrir seu nível inicial?",
+    "offerBody": "Um teste curto que se adapta às suas respostas — a maioria das pessoas termina em 5–8 perguntas. Usaremos o resultado para montar uma fila de gramática e vocabulário que realmente combina com você, em vez de começar no A1 por padrão.",
+    "offerNotNow": "Agora não? Tudo bem — você pode fazê-lo, e refazê-lo, <b>a qualquer momento</b> em Configurações → Seu nível.",
+    "takeTest": "Fazer o teste",
+    "notNow": "Agora não"
+  },
+  "welcome": {
+    "title": "Seu kit de ferramentas",
+    "subtitle": "Tudo o que há no app, um cartão para cada coisa. Toque em qualquer um deles para ir direto — ou vá ao seu painel e comece a revisar.",
+    "reviewsName": "Revisões",
+    "reviewsBlurb": "Sua fila diária, no painel. Alguns minutos aqui todo dia é o segredo — cada cartão volta logo antes de você esquecê-lo.",
+    "grammarPathName": "Trilha de gramática",
+    "grammarPathBlurb": "Toda a gramática do seu idioma, de A1 a C2, em ordem. Leia um ponto e depois treine-o em frases reais até fixar.",
+    "tutorName": "Tutor",
+    "tutorBlurb": "Prática de conversação que conhece seus cartões. Ela mira seus pontos fracos e pode sinalizar cartões que você claramente já sabe.",
+    "readerName": "Leitura",
+    "readerBlurb": "Leituras curtas no seu nível. Toque em qualquer palavra para consultá-la e salvá-la como cartão.",
+    "lettersName": "Letras e sons",
+    "lettersBlurb": "O alfabeto e a pronúncia do seu idioma, com áudio para cada letra e cada som.",
+    "decksName": "Baralhos e Pesquisa",
+    "decksBlurb": "Explore todos os baralhos de vocabulário e gramática de A1 a C2, treine qualquer conjunto ou pesquise o que quiser.",
+    "goDashboard": "Ir para o seu painel",
+    "reopenNote": "Você pode reabrir este tour a qualquer momento nas Configurações."
+  },
+  "settings": {
+    "title": "Conta",
+    "backToSession": "← Voltar à sessão",
+    "signOut": "Sair",
+    "tabs": {
+      "aria": "Seções da conta",
+      "learner": "Estudante",
+      "contribute": "Contribuir",
+      "review": "Revisão",
+      "invite": "Convidar",
+      "admin": "Admin"
+    },
+    "activeLanguage": "Idioma ativo",
+    "level": {
+      "title": "Seu nível",
+      "desc": "Define quais baralhos alimentam o Aprender — gramática e vocabulário deste nível para baixo. O nivelamento errou? Corrija aqui a qualquer momento. Os cartões que você já aprendeu nunca são removidos.",
+      "setSuccess_one": "Nível definido como {{level}} — {{count}} baralho adicionado{{removed}}. O Aprender já vai puxar dele.",
+      "setSuccess_other": "Nível definido como {{level}} — {{count}} baralhos adicionados{{removed}}. O Aprender já vai puxar deles.",
+      "removedSuffix_one": ", {{count}} removido",
+      "removedSuffix_other": ", {{count}} removidos",
+      "saveError": "Não foi possível salvar — tente de novo.",
+      "lastPlacedOn": "Seu último nivelamento foi {{level}}, em {{date}}. Refaça o teste para ver o quanto você avançou — as perguntas mudam a cada vez.",
+      "lastPlaced": "Seu último nivelamento foi {{level}}. Refaça o teste para ver o quanto você avançou — as perguntas mudam a cada vez.",
+      "notPlaced": "Não sabe qual nível escolher? Faça o teste adaptativo curto e sugeriremos um. Você pode refazê-lo a qualquer momento.",
+      "retake": "Refazer o teste de nivelamento",
+      "take": "Fazer o teste de nivelamento"
+    },
+    "tour": {
+      "title": "Novo por aqui?",
+      "desc": "Um tour com um cartão por recurso, cobrindo tudo o que há no app.",
+      "button": "Quero conhecer"
+    },
+    "plan": {
+      "title": "Plano",
+      "single": "Um idioma",
+      "singleWithLanguage": "Um idioma — {{name}}",
+      "all": "Todos os idiomas",
+      "opening": "Abrindo…",
+      "upgradeWithPrice": "Fazer upgrade para Todos os idiomas — {{price}}",
+      "upgrade": "Fazer upgrade para Todos os idiomas",
+      "manageBilling": "Gerenciar cobrança",
+      "billingUnavailable": "A cobrança ainda não foi lançada — as contas antecipadas mantêm o plano escolhido de graça, e mantêm seu preço quando ela entrar no ar."
+    },
+    "dailyGoal": {
+      "title": "Meta diária de aprendizado",
+      "desc": "Para o que o bloco Aprender conta a cada dia. Uma meta pequena evita que a fila pareça assustadora — ou mostre todos os cartões na fila.",
+      "wholeQueue": "Fila inteira"
+    },
+    "batch": {
+      "title": "Cartões novos por sessão",
+      "desc": "Quantas palavras/pontos gramaticais novos apresentar a cada vez que você aprende."
+    },
+    "sessionSize": {
+      "title": "Cartões por sessão de revisão",
+      "desc": "Quantos cartões pendentes cada sessão de revisão puxa. O que sobrar continua pendente para a próxima sessão."
+    },
+    "accents": {
+      "title": "Acentos opcionais",
+      "desc": "Considera as respostas corretas mesmo sem acentos ou diacríticos — “<loose>{{loose}}</loose>” vale por “<strict>{{strict}}</strict>” ({{gloss}}). A grafia certa ainda aparece, então você continua aprendendo os sinais."
+    },
+    "explicit": {
+      "title": "Palavras e frases explícitas",
+      "desc": "Insultos e palavrões pesados ficam ocultos dos seus cartões, leituras e exemplos. São palavras genuinamente comuns — ative se quiser aprendê-las, e elas serão ensinadas como qualquer outra."
+    },
+    "langOptions": {
+      "title": "Opções de {{name}}",
+      "desc": "Configurações que só se aplicam ao estudar {{name}}.",
+      "tashkeelTitle": "Vogais curtas (tashkeel)",
+      "tashkeelDesc": "Mostra a forma totalmente vocalizada — كَتَبَ — sob as palavras novas. Desative para praticar a leitura da escrita sem sinais, do jeito que os materiais nativos são escritos.",
+      "qwertyTitle": "Digitar com letras QWERTY",
+      "qwertyDesc": "As respostas digitadas em letras latinas se convertem para {{script}} enquanto você digita. Desative se você tiver um teclado de {{name}} de verdade."
+    },
+    "scripts": {
+      "ru": "cirílico",
+      "ar": "escrita árabe",
+      "el": "grego",
+      "hi": "devanágari",
+      "th": "escrita tailandesa",
+      "ko": "Hangul",
+      "fallback": "a escrita do idioma"
+    },
+    "tips": {
+      "title": "Dicas de aprendizado",
+      "desc": "Lembretes ocasionais de estudo com base em evidências — como praticar, por que o cronograma funciona — mostrados no máximo cerca de uma vez por dia. Desative aqui para nunca vê-los."
+    },
+    "email": {
+      "title": "E-mail",
+      "dailyTitle": "Lembrete diário",
+      "dailyDesc": "Um e-mail por dia quando há revisões esperando — nada nos dias sem revisões pendentes.",
+      "dailyAria": "Lembretes por e-mail",
+      "sendAround": "Enviar por volta de",
+      "yourTime": "seu horário",
+      "hourAria": "Hora do lembrete",
+      "weeklyTitle": "Resumo semanal",
+      "weeklyDesc": "Sua semana em um e-mail — o que você estudou, como foi, e as sugestões de leitura, filmes e escuta da semana.",
+      "weeklyAria": "E-mail de resumo semanal",
+      "sendOn": "Enviar em",
+      "dayAria": "Dia do resumo semanal"
+    },
+    "weekdays": {
+      "sunday": "Domingo",
+      "monday": "Segunda-feira",
+      "tuesday": "Terça-feira",
+      "wednesday": "Quarta-feira",
+      "thursday": "Quinta-feira",
+      "friday": "Sexta-feira",
+      "saturday": "Sábado"
+    },
+    "support": {
+      "title": "Aprendendo inglês a partir de",
+      "desc": "As dicas, definições e traduções das frases de exemplo aparecem neste idioma em vez de inglês.",
+      "englishOption": "Inglês (definições)",
+      "saveError": "Não foi possível salvar — tente de novo."
+    },
+    "theme": {
+      "title": "Tema",
+      "desc": "Sistema segue a preferência claro/escuro do seu dispositivo.",
+      "system": "Sistema",
+      "light": "Claro",
+      "dark": "Escuro"
+    },
+    "progress": {
+      "title": "Seu progresso",
+      "dueNow": "pendentes agora",
+      "dayStreak": "dias de sequência",
+      "cardsLearned": "cartões aprendidos"
+    },
+    "danger": {
+      "title": "Zona de perigo",
+      "desc": "Redefinir apaga os cartões e todo o histórico de revisão deles. Não pode ser desfeito. Notas e frases pessoais nunca são apagadas. Para redefinir um único baralho, use o link \"Redefinir progresso\" dele no painel.",
+      "resetLanguage": "Redefinir os estudos de {{name}}…",
+      "activeLanguageFallback": "idioma ativo",
+      "resetAll": "Redefinir TODOS os estudos (todos os idiomas)…",
+      "resetLanguageConfirm": "Redefinir TODOS os seus estudos de {{name}}? Isso apaga permanentemente cada cartão de {{name}} e seu histórico de revisão. Suas notas e frases pessoais são mantidas.",
+      "resetAllConfirm": "Redefinir seus estudos de TODOS os idiomas? Isso apaga permanentemente todos os cartões e todo o histórico de revisão em todos os idiomas. Suas notas e frases pessoais são mantidas.",
+      "resetDone_one": "Progresso redefinido ({{count}} cartão removido).",
+      "resetDone_other": "Progresso redefinido ({{count}} cartões removidos)."
+    }
+  },
+  "feedback": {
+    "open": "Algo quebrado ou confuso? Conte para a gente",
+    "title": "Enviar feedback",
+    "desc": "Qualquer coisa — um bug, uma tela confusa, uma frase errada, uma ideia. Vai direto para as pessoas que constroem isto.",
+    "closeAria": "Fechar feedback",
+    "sent": "Enviado — obrigado. Você pode vê-lo, e qualquer resposta, em Conta → Seu feedback.",
+    "done": "Concluído",
+    "categories": {
+      "bug": "Algo está quebrado",
+      "confusing": "Algo está confuso",
+      "content": "Uma palavra ou frase está errada",
+      "idea": "Tenho uma ideia",
+      "other": "Outra coisa"
+    },
+    "yourFeedback": "Seu feedback",
+    "placeholder": "O que aconteceu, e o que você esperava que acontecesse?",
+    "sendError": "Não foi enviado. Sua mensagem continua aqui — tente de novo em instantes.",
+    "sending": "Enviando…",
+    "send": "Enviar",
+    "screenNote": "Vamos incluir em qual tela você estava.",
+    "mine": {
+      "desc": "O que você nos enviou, e em que pé está.",
+      "status": {
+        "open": "Ainda não visto",
+        "triaged": "Em andamento",
+        "closed": "Resolvido"
+      }
+    }
+  },
+  "recoSettings": {
+    "title": "Recomendações",
+    "desc": "Receba de vez em quando um livro, filme, série ou podcast no idioma que você estuda — escolhido para o seu nível e seus interesses, cerca de uma vez por semana.",
+    "needsPlus": "Receber sugestões exige uma assinatura Plus para este idioma — você já pode montar seu perfil agora.",
+    "aboutLabel": "Sobre você",
+    "aboutPlaceholder": "O que você gosta de ler e assistir? Hobbies, autores ou séries favoritos, temas que você adora…",
+    "aboutHint": "Quanto mais você contar, melhores as sugestões.",
+    "genresTitle": "Gêneros",
+    "genres": {
+      "fiction": "Ficção",
+      "nonFiction": "Não ficção",
+      "scifiFantasy": "Ficção científica e fantasia",
+      "mysteryThriller": "Mistério e suspense",
+      "romance": "Romance",
+      "history": "História",
+      "comedy": "Comédia",
+      "drama": "Drama",
+      "documentary": "Documentário",
+      "news": "Notícias e atualidades",
+      "scienceTech": "Ciência e tecnologia",
+      "trueCrime": "True crime",
+      "sports": "Esportes",
+      "kidsFamily": "Infantil e família",
+      "travelFood": "Viagem e gastronomia",
+      "pop": "Pop",
+      "rockIndie": "Rock e indie",
+      "hiphopRap": "Hip-hop e rap",
+      "folkAcoustic": "Folk e acústico",
+      "electronic": "Eletrônica",
+      "jazzSoul": "Jazz e soul"
+    },
+    "mediaTitle": "O que recomendar",
+    "media": {
+      "book": "Livro",
+      "film": "Filme",
+      "series": "Série",
+      "podcast": "Podcast",
+      "music": "Música"
+    },
+    "mediaHint": "Deixe tudo desligado para escolhermos entre todas as opções.",
+    "saving": "Salvando…",
+    "save": "Salvar",
+    "saveError": "Não foi possível salvar — tente de novo."
   }
 }

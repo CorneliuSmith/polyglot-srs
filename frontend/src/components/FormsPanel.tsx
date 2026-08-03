@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next'
 import LanguageWrapper from './LanguageWrapper'
 
 interface Chip {
@@ -25,6 +26,7 @@ export default function FormsPanel({
   morphology: Record<string, unknown> | string | null
   languageCode: string
 }) {
+  const { t } = useTranslation()
   let m: Record<string, unknown> | null = null
   if (typeof morphology === 'string') {
     try {
@@ -41,7 +43,7 @@ export default function FormsPanel({
 
   return (
     <div data-testid="forms-panel">
-      <h3 className="font-semibold text-gray-700 mb-1">Forms</h3>
+      <h3 className="font-semibold text-gray-700 mb-1">{t('shared.forms')}</h3>
       {chips.length > 0 && (
         <div className="flex flex-wrap gap-1.5 mb-2">
           {chips.map((c, i) => (

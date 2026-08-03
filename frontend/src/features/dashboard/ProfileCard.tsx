@@ -2,7 +2,17 @@ import { Flame } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
 import type { DashboardProfile } from '../../api/types'
 
-const DAY_LETTERS = ['S', 'M', 'T', 'W', 'T', 'F', 'S']
+// Ordered Sun..Sat to match Date#getUTCDay(). The one-letter column labels
+// are derived from the translated day abbreviations' first character.
+const DAY_KEYS = [
+  'days.sun',
+  'days.mon',
+  'days.tue',
+  'days.wed',
+  'days.thu',
+  'days.fri',
+  'days.sat',
+]
 
 /** Streak flame week + study totals, Bunpro profile-card style. */
 export default function ProfileCard({
@@ -28,7 +38,7 @@ export default function ProfileCard({
                   className={`w-8 h-8 rounded-full flex items-center justify-center text-sm ${
                     d.studied ? 'bg-orange-100' : 'bg-gray-100'
                   }`}
-                  aria-label={d.studied ? 'studied' : 'not studied'}
+                  aria-label={d.studied ? t('dashboard.dayStudied') : t('dashboard.dayNotStudied')}
                 >
                   {d.studied ? (
                     <Flame aria-hidden className="h-4 w-4 text-orange-500" fill="currentColor" />
@@ -37,7 +47,7 @@ export default function ProfileCard({
                   )}
                 </span>
                 <span className="text-[10px] text-gray-400">
-                  {DAY_LETTERS[day.getUTCDay()]}
+                  {Array.from(t(DAY_KEYS[day.getUTCDay()]))[0]}
                 </span>
               </div>
             )
@@ -50,7 +60,7 @@ export default function ProfileCard({
             {profile.days_studied}
           </span>
           <span className="block text-[10px] uppercase tracking-wide text-lang/70">
-            Days studied
+            {t('dashboard.daysStudied')}
           </span>
         </div>
         <div className="rounded-xl bg-lang-soft p-3">
@@ -60,7 +70,7 @@ export default function ProfileCard({
               : '—'}
           </span>
           <span className="block text-[10px] uppercase tracking-wide text-lang/70">
-            Last session
+            {t('dashboard.lastSession')}
           </span>
         </div>
         <div className="rounded-xl bg-lang-soft p-3">
@@ -68,7 +78,7 @@ export default function ProfileCard({
             {profile.items_studied}
           </span>
           <span className="block text-[10px] uppercase tracking-wide text-lang/70">
-            Items studied
+            {t('dashboard.itemsStudied')}
           </span>
         </div>
       </div>

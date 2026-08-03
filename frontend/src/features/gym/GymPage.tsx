@@ -23,6 +23,34 @@ const MAX_SELECTED = 12 // the cram endpoint's point cap
 const COUNT_OPTIONS = [10, 20, 30, 50] as const
 const MAX_COUNT = 100 // the cram endpoint's hard cap
 
+// Column headers arrive from the API as a fixed English set — map each label
+// to its translation key; anything unrecognized renders verbatim.
+const COLUMN_LABEL_KEYS: Record<string, string> = {
+  'Verb tenses & moods': 'gym.columns.verbTensesMoods',
+  Verbs: 'gym.columns.verbs',
+  'Verb forms': 'gym.columns.verbForms',
+  'Verb forms & tenses': 'gym.columns.verbFormsTenses',
+  'Verb tenses & aspect': 'gym.columns.verbTensesAspect',
+  'Verb endings': 'gym.columns.verbEndings',
+  'Verb affixes': 'gym.columns.verbAffixes',
+  Nouns: 'gym.columns.nouns',
+  Cases: 'gym.columns.cases',
+  'Cases & agreement': 'gym.columns.casesAgreement',
+  'Nouns & agreement': 'gym.columns.nounsAgreement',
+  'Nouns & cases': 'gym.columns.nounsCases',
+  'Noun & adjective endings': 'gym.columns.nounAdjEndings',
+  'Noun & phrase forms': 'gym.columns.nounPhraseForms',
+  Adjectives: 'gym.columns.adjectives',
+  Agreement: 'gym.columns.agreement',
+  'Aspect & markers': 'gym.columns.aspectMarkers',
+  Attachments: 'gym.columns.attachments',
+  Connectors: 'gym.columns.connectors',
+  Constructions: 'gym.columns.constructions',
+  Focus: 'gym.columns.focus',
+  Forms: 'gym.columns.forms',
+  Particles: 'gym.columns.particles',
+}
+
 function sortFamiliarFirst(entries: GymEntry[]): GymEntry[] {
   return [...entries].sort((a, b) => Number(b.familiar) - Number(a.familiar))
 }
@@ -156,7 +184,9 @@ export default function GymPage() {
                     className="bg-white rounded-2xl border border-gray-100 p-4"
                   >
                     <h2 className="text-xs uppercase tracking-wide text-gray-400 mb-3">
-                      {col.label}
+                      {COLUMN_LABEL_KEYS[col.label]
+                        ? t(COLUMN_LABEL_KEYS[col.label])
+                        : col.label}
                     </h2>
                     <div className="space-y-2">
                       {entries.map((e) => (
@@ -184,9 +214,9 @@ export default function GymPage() {
                                 {e.familiar && (
                                   <span
                                     className="rounded-full bg-lang-soft text-lang px-1.5 py-0.5"
-                                    title="Already in your reviews"
+                                    title={t('gym.alreadyInReviews')}
                                   >
-                                    known
+                                    {t('gym.known')}
                                   </span>
                                 )}
                                 {/* Set completion: how many of this form's
@@ -194,7 +224,7 @@ export default function GymPage() {
                                     attempt totals. */}
                                 <span
                                   className="tabular-nums"
-                                  title={`You've practised ${e.done ?? 0} of ${e.drills} drills in this set`}
+                                  title={t('gym.drillsDoneTitle', { done: e.done ?? 0, total: e.drills })}
                                 >
                                   {e.done ?? 0}/{e.drills}
                                 </span>
@@ -229,7 +259,7 @@ export default function GymPage() {
             <div className="bg-white rounded-2xl border border-gray-100 p-4 space-y-2">
               <div className="flex flex-wrap items-center gap-x-3 gap-y-2">
                 <span className="text-sm font-medium text-gray-700">
-                  How many questions?
+                  {t('gym.howManyQuestions')}
                 </span>
                 <div className="flex rounded-lg border border-gray-200 overflow-hidden text-sm">
                   {COUNT_OPTIONS.map((n) => (
@@ -250,8 +280,8 @@ export default function GymPage() {
                   ))}
                 </div>
                 <label className="flex items-center gap-1.5 text-sm text-gray-500">
-                  <span className="sr-only">Custom count</span>
-                  or
+                  <span className="sr-only">{t('gym.customCount')}</span>
+                  {t('gym.or')}
                   <input
                     type="number"
                     min={1}
@@ -261,26 +291,19 @@ export default function GymPage() {
                       const v = Math.round(Number(e.target.value))
                       if (Number.isFinite(v)) setCount(Math.max(1, Math.min(MAX_COUNT, v)))
                     }}
-                    aria-label="Number of questions"
+                    aria-label={t('gym.numberOfQuestions')}
                     className="w-16 rounded-lg border border-gray-200 px-2 py-1.5 text-sm tabular-nums"
                   />
                 </label>
               </div>
               {short && !generate && (
                 <p className="text-xs text-amber-600">
-                  These forms have {available} question{available === 1 ? '' : 's'} to
-                  draw from — you&apos;ll get {available} this round. Pick more forms, or
-                  turn on fresh variations below to top up.
+                  {t('gym.short', { count: available })}
                 </p>
               )}
               {generate && (
                 <p className="text-xs text-emerald-700">
-                  You&apos;ll start on the sentences we already have right away —
-                  fresh new ones get drafted in the background and woven in as
-                  they&apos;re ready, so a good chunk of this set is brand new to
-                  you. {short
-                    ? "You'll only pause briefly if you out-run them."
-                    : ''}
+                  {t('gym.generateNote')} {short ? t('gym.generateNoteShort') : ''}
                 </p>
               )}
 
@@ -294,13 +317,9 @@ export default function GymPage() {
                   className="mt-0.5 rounded border-gray-300"
                 />
                 <span>
-                  Weave in fresh, new sentences
+                  {t('gym.generateLabel')}
                   <span className="block text-xs text-gray-400">
-                    Writes brand-new questions for the forms you picked — with
-                    their reference charts — and mixes them into this session in
-                    the background, so you never wait up front. They stay yours
-                    until an expert approves the good ones for everyone. Counts
-                    toward your monthly usage.
+                    {t('gym.generateSub')}
                   </span>
                 </span>
               </label>
@@ -318,7 +337,7 @@ export default function GymPage() {
                     onChange={(event) => toggleNonstandard(event.target.checked)}
                     className="rounded border-gray-300"
                   />
-                  Include non-standard words
+                  {t('gym.includeNonstandard')}
                 </label>
               ) : (
                 <span />

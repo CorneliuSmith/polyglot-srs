@@ -10,95 +10,27 @@ export type TipContext = 'dashboard' | 'session'
 
 export interface Tip {
   id: string
-  title: string
-  body: string
   /** Where this tip lands best. Used to gently prefer a fitting tip; a tip
    *  with no contexts can appear anywhere. */
   contexts?: TipContext[]
 }
 
+/** Tip copy lives in the i18n catalogs under `tips.items.<id>.{title,body}`,
+ * resolved at render time by LearningTip so it follows the site language —
+ * this module only carries ids and placement metadata. */
 export const TIPS: Tip[] = [
-  {
-    id: 'read-aloud',
-    title: 'Say it out loud',
-    body:
-      'If you can, whisper or speak each sentence as you answer. Producing a word aloud makes it far stickier than reading it silently — it’s one of the simplest wins in learning.',
-    contexts: ['session'],
-  },
-  {
-    id: 'retrieval',
-    title: 'The struggle to recall is the point',
-    body:
-      'Pulling an answer from memory — even when you get it wrong — strengthens it more than re-reading ever could. That effort right before the reveal is where the learning happens.',
-    contexts: ['session'],
-  },
-  {
-    id: 'shadow',
-    title: 'Shadow the audio',
-    body:
-      'Play a sentence and repeat it straight back, copying the rhythm and melody. It trains your ear and your mouth at the same time.',
-    contexts: ['session'],
-  },
-  {
-    id: 'generation',
-    title: 'Type it, don’t just recognise it',
-    body:
-      'Producing the answer yourself beats picking it from a list — that’s why the drills ask you to write it. The little bit of extra effort pays off in recall.',
-    contexts: ['session'],
-  },
-  {
-    id: 'mistakes',
-    title: 'Wrong answers are data, not failure',
-    body:
-      'Every miss tells the app exactly what to bring back sooner. Getting things wrong and correcting them is how the schedule tunes itself to you.',
-    contexts: ['session'],
-  },
-  {
-    id: 'spacing',
-    title: 'Short and often beats marathons',
-    body:
-      'Ten focused minutes a day teaches you more than a two-hour weekend cram. Spacing your practice out is one of the most reliable findings in all of learning science.',
-    contexts: ['dashboard'],
-  },
-  {
-    id: 'trust-schedule',
-    title: 'Trust the schedule',
-    body:
-      'Reviews come back just as you’re about to forget them. Returning right at that edge is what moves a word into long-term memory — so a quiet day of few reviews is the system working.',
-    contexts: ['dashboard'],
-  },
-  {
-    id: 'consistency',
-    title: 'A streak beats a burst',
-    body:
-      'Showing up daily, even briefly, keeps everything warm. Missed a day? Just pick back up — one lapse doesn’t undo your progress.',
-    contexts: ['dashboard'],
-  },
-  {
-    id: 'sleep',
-    title: 'Sleep on it',
-    body:
-      'Memory consolidates while you sleep. A short session in the evening, reviewed again the next morning, sticks better than the same minutes crammed back to back.',
-    contexts: ['dashboard'],
-  },
-  {
-    id: 'interleave',
-    title: 'Mix it up',
-    body:
-      'Jumping between tenses and topics — the way the Gym does — feels harder than drilling one thing, but it builds more flexible, longer-lasting knowledge.',
-  },
-  {
-    id: 'elaborate',
-    title: 'Make it mean something',
-    body:
-      'Tie a new word to an image, a little story, or a word you already know. The more hooks you give a word, the easier it is to find later.',
-  },
-  {
-    id: 'in-context',
-    title: 'Learn words inside sentences',
-    body:
-      'A word met in a real sentence brings its grammar and its usual company along with it — far more useful than a bare translation on its own.',
-  },
+  { id: 'read-aloud', contexts: ['session'] },
+  { id: 'retrieval', contexts: ['session'] },
+  { id: 'shadow', contexts: ['session'] },
+  { id: 'generation', contexts: ['session'] },
+  { id: 'mistakes', contexts: ['session'] },
+  { id: 'spacing', contexts: ['dashboard'] },
+  { id: 'trust-schedule', contexts: ['dashboard'] },
+  { id: 'consistency', contexts: ['dashboard'] },
+  { id: 'sleep', contexts: ['dashboard'] },
+  { id: 'interleave' },
+  { id: 'elaborate' },
+  { id: 'in-context' },
 ]
 
 const TIP_BY_ID = new Set(TIPS.map((t) => t.id))

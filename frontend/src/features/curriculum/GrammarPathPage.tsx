@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import { useTranslation } from 'react-i18next'
 import UiLanguageSwitcher from '../../components/UiLanguageSwitcher'
 import { Zap } from 'lucide-react'
 import ExplanationView from '../../components/ExplanationView'
@@ -24,6 +25,7 @@ const LEVEL_ORDER = ['A1', 'A2', 'B1', 'B2', 'C1', 'C2']
  */
 export default function GrammarPathPage() {
   const navigate = useNavigate()
+  const { t } = useTranslation()
   const queryClient = useQueryClient()
   const [searchParams] = useSearchParams()
   const activeLanguageId = usePrefsStore((s) => s.activeLanguageId)
@@ -96,11 +98,13 @@ export default function GrammarPathPage() {
         <div className="flex items-center justify-between">
           <div>
             <h1 className="text-2xl font-bold text-gray-900">
-              {language ? `${language.name} grammar path` : 'Grammar path'}
+              {language
+                ? t('path.title', { language: language.name })
+                : t('dashboard.grammarPathTitle')}
             </h1>
             {points.length > 0 && (
               <p className="text-sm text-gray-500">
-                {learnedCount} of {points.length} in your reviews
+                {t('path.progress', { learned: learnedCount, total: points.length })}
               </p>
             )}
           </div>
@@ -111,18 +115,18 @@ export default function GrammarPathPage() {
               onClick={() => navigate('/')}
               className="text-sm text-lang hover:underline"
             >
-              ← Dashboard
+              {t('common.backToDashboard')}
             </button>
           </span>
         </div>
 
-        {isLoading && <p className="text-gray-500">Loading the path…</p>}
+        {isLoading && <p className="text-gray-500">{t('path.loading')}</p>}
 
         {!isLoading && points.length === 0 && (
           <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-6 text-center">
-            <p className="text-gray-700">No grammar has been published for this language yet.</p>
+            <p className="text-gray-700">{t('path.noneYet')}</p>
             <p className="text-sm text-gray-500 mt-1">
-              Points appear here once they pass linguist review.
+              {t('path.noneYetSub')}
             </p>
           </div>
         )}
@@ -130,7 +134,7 @@ export default function GrammarPathPage() {
         {levels.map((level) => (
           <section key={level}>
             <h2 className="text-sm font-semibold text-gray-400 uppercase tracking-wide mb-2">
-              {level}
+              {level === 'Other' ? t('path.otherLevel') : level}
             </h2>
             <ol className="space-y-2">
               {byLevel.get(level)!.map((point, i) => (
@@ -161,16 +165,16 @@ export default function GrammarPathPage() {
                     </span>
                     {point.learned ? (
                       <span className="text-xs rounded-full px-2 py-0.5 bg-green-50 text-green-700">
-                        In reviews ✓
+                        {t('path.inReviews')}
                       </span>
                     ) : !point.learnable ? (
                       <span className="text-xs rounded-full px-2 py-0.5 bg-gray-100 text-gray-500">
-                        Reading only
+                        {t('path.readingOnly')}
                       </span>
                     ) : null}
                     {!point.reviewed && (
                       <span className="text-xs rounded-full px-2 py-0.5 bg-gray-100 text-gray-500">
-                        Draft · pending expert review
+                        {t('path.draftPending')}
                       </span>
                     )}
                   </button>
@@ -231,7 +235,7 @@ export default function GrammarPathPage() {
                             }
                             className="text-sm text-lang hover:underline"
                           >
-                            <Zap aria-hidden className="me-1 inline h-3.5 w-3.5 align-[-2px]" />Quick cram this + related (nothing recorded)
+                            <Zap aria-hidden className="me-1 inline h-3.5 w-3.5 align-[-2px]" />{t('path.quickCram')}
                           </button>
                         </>
                       )}
@@ -251,12 +255,12 @@ export default function GrammarPathPage() {
                           className="bg-lang hover:bg-lang-dark disabled:opacity-50 text-lang-on font-semibold rounded-xl px-5 py-2.5 text-sm"
                           style={{ minHeight: '44px' }}
                         >
-                          {learnMutation.isPending ? 'Adding…' : 'Add to my reviews'}
+                          {learnMutation.isPending ? t('path.adding') : t('path.addToReviews')}
                         </button>
                       )}
                       {detail.learned && (
                         <p className="text-xs text-green-700">
-                          Already in your reviews — it will keep coming back on its FSRS schedule.
+                          {t('path.alreadyInReviews')}
                         </p>
                       )}
                     </div>

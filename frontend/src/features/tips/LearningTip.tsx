@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import { Lightbulb } from 'lucide-react'
+import { useTranslation } from 'react-i18next'
 import { usePrefsStore } from '../../stores/prefsStore'
 import { pickTip, type TipContext } from './tips'
 
@@ -10,6 +11,7 @@ import { pickTip, type TipContext } from './tips'
  * dashboard and at the start of a session.
  */
 export default function LearningTip({ context }: { context: TipContext }) {
+  const { t } = useTranslation()
   const enabled = usePrefsStore((s) => s.learningTipsEnabled)
   const seenTipIds = usePrefsStore((s) => s.seenTipIds)
   const lastTipShownAt = usePrefsStore((s) => s.lastTipShownAt)
@@ -44,19 +46,17 @@ export default function LearningTip({ context }: { context: TipContext }) {
       <button
         type="button"
         onClick={() => setDismissed(true)}
-        aria-label="Dismiss tip"
+        aria-label={t('tips.dismiss')}
         className="absolute top-2 end-2 h-6 w-6 rounded-full text-gray-400 hover:text-gray-600 hover:bg-white/60 leading-none"
       >
         ×
       </button>
       <p className="text-sm font-semibold text-lang-dark">
         <Lightbulb aria-hidden className="me-1 inline h-4 w-4 align-[-2px]" />
-        {tip.title}
+        {t(`tips.items.${tip.id}.title`)}
       </p>
-      <p className="mt-1 text-sm text-gray-600">{tip.body}</p>
-      <p className="mt-1 text-[11px] text-gray-400">
-        Learning tip · turn these off in Settings
-      </p>
+      <p className="mt-1 text-sm text-gray-600">{t(`tips.items.${tip.id}.body`)}</p>
+      <p className="mt-1 text-[11px] text-gray-400">{t('tips.footer')}</p>
     </div>
   )
 }

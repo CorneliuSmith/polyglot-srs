@@ -1,4 +1,5 @@
 import { useNavigate } from 'react-router-dom'
+import { useTranslation } from 'react-i18next'
 import UiLanguageSwitcher from '../../components/UiLanguageSwitcher'
 import { useQuery } from '@tanstack/react-query'
 import { getLearnDecks } from '../../api/review'
@@ -14,6 +15,7 @@ import type { LearnDeck } from '../../api/types'
  */
 export default function DecksPage() {
   const navigate = useNavigate()
+  const { t } = useTranslation()
   const activeLanguageId = usePrefsStore((s) => s.activeLanguageId)
 
   const { data: decks = [], isLoading } = useQuery({
@@ -36,18 +38,18 @@ export default function DecksPage() {
       >
         <div className="flex items-center justify-between">
           <span className="inline-block rounded bg-lang text-lang-on text-xs font-bold px-2 py-1">
-            {deck.level ?? 'All'} ·{' '}
-            {deck.list_type === 'grammar' ? 'Grammar' : 'Vocab'}
+            {deck.level ?? t('decks.levelAll')} ·{' '}
+            {deck.list_type === 'grammar' ? t('common.grammar') : t('common.vocab')}
           </span>
           {deck.subscribed && (
             <span className="text-[10px] uppercase tracking-wide bg-lang-soft text-lang rounded px-1.5 py-0.5">
-              In queue
+              {t('dashboard.inQueue')}
             </span>
           )}
         </div>
         <p className="mt-3 text-sm font-semibold text-gray-800">{deck.title}</p>
         <p className="text-xs text-gray-500 mt-0.5">
-          {deck.learned} / {deck.total} learned
+          {t('decks.learnedRatio', { learned: deck.learned, total: deck.total })}
         </p>
         <div className="mt-2 w-full bg-gray-100 rounded-full h-1.5">
           <div
@@ -63,7 +65,7 @@ export default function DecksPage() {
     <div className="min-h-screen bg-gray-50">
       <div className="max-w-2xl mx-auto px-4 py-8 space-y-6">
         <div className="flex items-center justify-between">
-          <h1 className="text-2xl font-bold text-gray-900">Decks</h1>
+          <h1 className="text-2xl font-bold text-gray-900">{t('nav.decks')}</h1>
           <span className="flex items-center gap-3">
             <UiLanguageSwitcher />
             <button
@@ -71,18 +73,18 @@ export default function DecksPage() {
               onClick={() => navigate('/')}
               className="text-sm text-lang hover:underline"
             >
-              ← Dashboard
+              {t('common.backToDashboard')}
             </button>
           </span>
         </div>
 
         <LanguagePicker />
 
-        {isLoading && <p className="text-sm text-gray-400">Loading decks…</p>}
+        {isLoading && <p className="text-sm text-gray-400">{t('decks.loadingDecks')}</p>}
 
         {grammar.length > 0 && (
           <section className="space-y-3">
-            <h2 className="font-semibold text-gray-800">Grammar decks</h2>
+            <h2 className="font-semibold text-gray-800">{t('decks.grammarDecks')}</h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
               {grammar.map((d) => (
                 <DeckCard key={d.id} deck={d} />
@@ -93,7 +95,7 @@ export default function DecksPage() {
 
         {vocab.length > 0 && (
           <section className="space-y-3">
-            <h2 className="font-semibold text-gray-800">Vocabulary decks</h2>
+            <h2 className="font-semibold text-gray-800">{t('decks.vocabularyDecks')}</h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
               {vocab.map((d) => (
                 <DeckCard key={d.id} deck={d} />
@@ -103,7 +105,7 @@ export default function DecksPage() {
         )}
 
         {!isLoading && visible.length === 0 && (
-          <p className="text-sm text-gray-500">No decks for this language yet.</p>
+          <p className="text-sm text-gray-500">{t('dashboard.noDecks')}</p>
         )}
 
         {activeLanguageId && <PersonalDecksSection languageId={activeLanguageId} />}

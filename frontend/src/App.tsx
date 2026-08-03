@@ -4,6 +4,7 @@ import {
   RouterProvider,
 } from 'react-router-dom'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
+import { useTranslation } from 'react-i18next'
 import { supabase } from './lib/supabase'
 import { useAuthStore } from './stores/authStore'
 import ErrorScreen from './components/ErrorScreen'
@@ -170,12 +171,13 @@ function AppInner() {
 
 /** Shown for the brief moment a lazily-loaded route chunk is fetching. */
 function RouteFallback() {
+  const { t } = useTranslation()
   return (
     <div className="min-h-screen bg-gray-50 flex items-center justify-center">
       <div
         className="h-8 w-8 rounded-full border-2 border-gray-200 border-t-lang animate-spin"
         role="status"
-        aria-label="Loading"
+        aria-label={t('shared.loading')}
       />
     </div>
   )

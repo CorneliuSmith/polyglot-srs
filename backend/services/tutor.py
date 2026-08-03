@@ -128,8 +128,10 @@ ask the learner to produce language. Never lecture for more than a short \
 paragraph.
 - Correct errors by showing the contrast between what they said and the \
 target form, then have them retry a similar item.
-- Use English for explanations, the target language for practice. Calibrate \
-difficulty to the CEFR levels of their weak items.
+- Use the learner's support language for explanations — named under SUPPORT \
+LANGUAGE in your context below; English when none is named — and the target \
+language for practice. Calibrate difficulty to the CEFR levels of their \
+weak items.
 - Be encouraging but honest — name the pattern behind their errors when you \
 see one (e.g. "you keep missing the locative case").
 - Weak items with kind=grammar are PATTERNS, not words: drill them with \
@@ -390,6 +392,7 @@ def build_system_blocks(
     placement: dict | None = None,
     mode: str = "practice",
     allow_explicit: bool = False,
+    support_language: str | None = None,
 ) -> list[dict[str, Any]]:
     """Build the system prompt blocks for a tutor conversation.
 
@@ -401,6 +404,11 @@ def build_system_blocks(
     tutor honours the same gate as the curriculum. It lives in the VOLATILE
     block on purpose: it varies per learner, and folding it into block 0
     would split the per-language prompt cache in two.
+
+    *support_language* is the learner's chosen support language (from
+    support_locale) — the language the tutor explains IN, as opposed to the
+    one it teaches. Volatile block for the same cache reason as
+    allow_explicit. None or "English" means the English default.
     """
     brief = _load_skill(language_code)
     if brief is None:
@@ -429,6 +437,13 @@ def build_system_blocks(
                 "vocabulary. If they ask for it, say once that it sits "
                 "behind the explicit-content setting in Settings, offer a "
                 "neutral alternative, and move on."
+            )
+            + (
+                f"\n\nSUPPORT LANGUAGE: {support_language}. Greet, explain, "
+                "and converse in this language from your very first message — "
+                "practice content stays in the target language. Switch to "
+                "another support language only if the learner asks."
+                if support_language and support_language != "English" else ""
             )
             + (
                 "\n\nMODE: the learner flagged this as a REFERENCE question — "
@@ -645,6 +660,7 @@ async def tutor_chat(
     model: str | None = None,
     mode: str = "practice",
     allow_explicit: bool = False,
+    support_language: str | None = None,
 ) -> tuple[str, list[dict], dict[str, int]]:
     """Run one tutor turn.
 
@@ -668,7 +684,7 @@ async def tutor_chat(
     system = build_system_blocks(
         language_code, weak_areas, user_profile, language_profile,
         session_summary, study_stats, placement, mode=mode,
-        allow_explicit=allow_explicit,
+        allow_explicit=allow_explicit, support_language=support_language,
     )
     convo: list[dict[str, Any]] = list(history)
     remembered: list[dict] = []
@@ -725,6 +741,7 @@ async def tutor_chat_stream(
     model: str | None = None,
     mode: str = "practice",
     allow_explicit: bool = False,
+    support_language: str | None = None,
 ):
     """Streaming twin of tutor_chat (WP9d). Yields event dicts:
 
@@ -758,7 +775,7 @@ async def tutor_chat_stream(
     system = build_system_blocks(
         language_code, weak_areas, user_profile, language_profile,
         session_summary, study_stats, placement, mode=mode,
-        allow_explicit=allow_explicit,
+        allow_explicit=allow_explicit, support_language=support_language,
     )
     convo: list[dict[str, Any]] = list(history)
     remembered: list[dict] = []

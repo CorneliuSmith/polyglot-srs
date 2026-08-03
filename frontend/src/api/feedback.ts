@@ -2,7 +2,13 @@ import apiClient from './client'
 
 /** The five buckets on the send form. Kept short on purpose: a long taxonomy
  *  makes people stop and choose instead of typing, and triage only needs
- *  enough to route. */
+ *  enough to route.
+ *
+ *  `value` is the stable category ID stored with each report — never rename
+ *  one. Learner-facing components do NOT show `label`: they resolve the
+ *  display text via i18n at render time (`feedback.categories.<value>`).
+ *  `label` remains only as the English triage label for the staff feedback
+ *  queue, which is deliberately not localized. */
 export const FEEDBACK_CATEGORIES = [
   { value: 'bug', label: 'Something is broken' },
   { value: 'confusing', label: 'Something is confusing' },

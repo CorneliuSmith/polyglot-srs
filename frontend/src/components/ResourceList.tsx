@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { useTranslation } from 'react-i18next'
 import { useMutation } from '@tanstack/react-query'
 import { setReferenceRead } from '../api/curriculum'
 import type { ReferenceLink } from '../api/types'
@@ -25,6 +26,7 @@ export default function ResourceList({
   references: ReferenceLink[]
   readRefs?: string[]
 }) {
+  const { t } = useTranslation()
   const [read, setRead] = useState<Set<string>>(() => new Set(readRefs))
   const toggleMutation = useMutation({
     mutationFn: ({ key, next }: { key: string; next: boolean }) =>
@@ -53,8 +55,8 @@ export default function ResourceList({
         type="button"
         onClick={() => toggle(k)}
         aria-pressed={read.has(k)}
-        aria-label={read.has(k) ? 'Mark unread' : 'Mark read'}
-        title={read.has(k) ? 'Mark unread' : 'Mark read'}
+        aria-label={read.has(k) ? t('shared.markUnread') : t('shared.markRead')}
+        title={read.has(k) ? t('shared.markUnread') : t('shared.markRead')}
         className={`shrink-0 w-5 h-5 rounded-full border flex items-center justify-center text-[11px] leading-none transition ${
           read.has(k)
             ? 'bg-green-500 border-green-500 text-white'
@@ -95,7 +97,7 @@ export default function ResourceList({
                     <span className="text-gray-400">
                       {' — '}
                       {ref.book}
-                      {ref.page ? `, p. ${ref.page}` : ''}
+                      {ref.page ? `, ${t('shared.pageAbbrev', { page: ref.page })}` : ''}
                     </span>
                   </span>
                 )}
@@ -108,10 +110,10 @@ export default function ResourceList({
 
   return (
     <div>
-      <h3 className="font-semibold text-gray-700 mb-1">Resources</h3>
+      <h3 className="font-semibold text-gray-700 mb-1">{t('shared.resources')}</h3>
       <div className="space-y-2">
-        {group('Online', online)}
-        {group('Offline', offline)}
+        {group(t('shared.online'), online)}
+        {group(t('shared.offline'), offline)}
       </div>
     </div>
   )

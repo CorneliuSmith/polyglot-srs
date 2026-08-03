@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
+import { Trans, useTranslation } from 'react-i18next'
 import { useQuery, useMutation } from '@tanstack/react-query'
 import { getLanguages } from '../../api/profile'
 import {
@@ -34,6 +35,7 @@ const STAGES = 4
 
 export default function OnboardingPage() {
   const navigate = useNavigate()
+  const { t } = useTranslation()
   const setActiveLanguageId = usePrefsStore((s) => s.setActiveLanguageId)
   const qwertyTranslit = usePrefsStore((s) => s.qwertyTranslit)
   const dismissPlacementOffer = usePrefsStore((s) => s.dismissPlacementOffer)
@@ -165,7 +167,7 @@ export default function OnboardingPage() {
               type="button"
               onClick={goBack}
               disabled={step === 'language'}
-              aria-label="Back"
+              aria-label={t('onboarding.back')}
               className="shrink-0 w-9 h-9 flex items-center justify-center rounded-full border border-gray-200 text-gray-500 disabled:opacity-0 hover:bg-gray-50 active:bg-gray-100"
             >
               <span aria-hidden>←</span>
@@ -185,17 +187,17 @@ export default function OnboardingPage() {
           </div>
           <div>
             <h1 className="text-2xl font-bold text-gray-900">
-              Welcome — let&apos;s set you up
+              {t('onboarding.title')}
             </h1>
             <p className="text-sm text-gray-500">
-              A minute now and your reviews are ready to go.
+              {t('onboarding.subtitle')}
             </p>
           </div>
         </header>
 
         {step === 'language' && (
           <section className="space-y-3">
-            <h2 className="font-semibold text-gray-800">Which language do you want to learn?</h2>
+            <h2 className="font-semibold text-gray-800">{t('onboarding.whichLanguage')}</h2>
             <div className="grid grid-cols-2 gap-3">
               {languages.map((lang) => (
                 <button
@@ -214,7 +216,7 @@ export default function OnboardingPage() {
         {step === 'method' && language && (
           <section className="space-y-3">
             <h2 className="font-semibold text-gray-800">
-              How much {language.name} do you already know?
+              {t('onboarding.howMuch', { language: language.name })}
             </h2>
             {/* Three clear paths — the test is one option, never a gate. */}
             <button
@@ -222,8 +224,8 @@ export default function OnboardingPage() {
               onClick={declineTest}
               className="w-full min-h-12 rounded-xl border border-gray-200 bg-white px-4 py-3 text-start hover:border-lang/50 hover:bg-lang-soft active:bg-lang-soft"
             >
-              <span className="block text-sm font-semibold text-gray-800">I&apos;m brand new</span>
-              <span className="block text-xs text-gray-500">Start from the beginning (A1)</span>
+              <span className="block text-sm font-semibold text-gray-800">{t('onboarding.brandNew')}</span>
+              <span className="block text-xs text-gray-500">{t('onboarding.brandNewSub')}</span>
             </button>
             <button
               type="button"
@@ -231,10 +233,10 @@ export default function OnboardingPage() {
               className="w-full min-h-12 rounded-xl border border-gray-200 bg-white px-4 py-3 text-start hover:border-lang/50 hover:bg-lang-soft active:bg-lang-soft"
             >
               <span className="block text-sm font-semibold text-gray-800">
-                I know some — I&apos;ll pick my level
+                {t('onboarding.knowSome')}
               </span>
               <span className="block text-xs text-gray-500">
-                Choose your starting level yourself, no test
+                {t('onboarding.knowSomeSub')}
               </span>
             </button>
             <button
@@ -244,10 +246,10 @@ export default function OnboardingPage() {
               className="w-full min-h-12 rounded-xl border border-gray-200 bg-white px-4 py-3 text-start hover:border-lang/50 hover:bg-lang-soft active:bg-lang-soft disabled:opacity-50"
             >
               <span className="block text-sm font-semibold text-gray-800">
-                {nextMutation.isPending ? 'Loading…' : 'Test my level (optional)'}
+                {nextMutation.isPending ? t('common.loading') : t('onboarding.testMyLevel')}
               </span>
               <span className="block text-xs text-gray-500">
-                A few questions that adapt to your answers — most finish in 5–8
+                {t('onboarding.testMyLevelSub')}
               </span>
             </button>
           </section>
@@ -257,7 +259,7 @@ export default function OnboardingPage() {
           <section className="space-y-4">
             <div className="flex items-center justify-between gap-2">
               <h2 className="font-semibold text-gray-800">
-                Answer in {language.name}
+                {t('placement.answerIn', { language: language.name })}
               </h2>
               <span className="shrink-0 text-xs text-gray-400 tabular-nums">
                 {history.length + 1} / {maxItems}
@@ -317,7 +319,7 @@ export default function OnboardingPage() {
                 disabled={!curInput.trim() || nextMutation.isPending}
                 className="flex-1 min-h-12 bg-lang hover:bg-lang-dark active:bg-lang-dark disabled:opacity-50 text-lang-on font-semibold rounded-xl px-5 text-sm"
               >
-                {nextMutation.isPending ? 'Checking…' : 'Next'}
+                {nextMutation.isPending ? t('placement.checking') : t('placement.next')}
               </button>
               <button
                 type="button"
@@ -325,7 +327,7 @@ export default function OnboardingPage() {
                 disabled={nextMutation.isPending}
                 className="min-h-12 rounded-xl border border-gray-300 px-5 text-sm text-gray-600 hover:bg-gray-50 active:bg-gray-100 disabled:opacity-50"
               >
-                I don&apos;t know
+                {t('placement.dontKnow')}
               </button>
             </div>
             {/* Escape hatch: the test is never a trap. */}
@@ -334,23 +336,21 @@ export default function OnboardingPage() {
               onClick={declineTest}
               className="block w-full text-center text-xs text-gray-400 hover:text-lang"
             >
-              Skip the test — I&apos;ll pick my level
+              {t('onboarding.skipTest')}
             </button>
           </section>
         )}
 
         {step === 'confirm' && language && (
           <section className="space-y-4">
-            <h2 className="font-semibold text-gray-800">Start {language.name} at this level</h2>
+            <h2 className="font-semibold text-gray-800">{t('onboarding.startAtLevel', { language: language.name })}</h2>
             <p className="text-sm text-gray-500">
-              We&apos;ll queue grammar and vocabulary at this level and below.
-              Not sure? Pick the higher one — you can change it any time in
-              Account &rarr; Your level.
+              {t('onboarding.confirmHelp')}
             </p>
             <select
               value={level}
               onChange={(e) => setLevel(e.target.value)}
-              aria-label="Starting level"
+              aria-label={t('onboarding.startingLevelLabel')}
               className="w-full min-h-12 rounded-lg border border-gray-300 px-3 py-2 text-base bg-white"
             >
               {CEFR_LEVELS.map((l) => (
@@ -367,11 +367,10 @@ export default function OnboardingPage() {
                 data-testid="writing-baseline"
               >
                 <p className="text-sm font-medium text-gray-800">
-                  Not sure? Write a little {language.name} (optional)
+                  {t('onboarding.writingTitle', { language: language.name })}
                 </p>
                 <p className="text-xs text-gray-500">
-                  A sentence or two, to the best of your ability — anything at
-                  all. We'll suggest a starting level from it.
+                  {t('onboarding.writingHelp')}
                 </p>
                 <LanguageWrapper languageCode={language.code}>
                   <textarea
@@ -379,7 +378,7 @@ export default function OnboardingPage() {
                     onChange={(e) => setSample(e.target.value)}
                     maxLength={500}
                     rows={3}
-                    aria-label="Writing sample"
+                    aria-label={t('onboarding.writingSampleLabel')}
                     className="w-full rounded-lg border border-gray-300 px-3 py-2 text-base"
                   />
                 </LanguageWrapper>
@@ -390,11 +389,11 @@ export default function OnboardingPage() {
                   className="rounded-lg border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50 disabled:opacity-50"
                   style={{ minHeight: '44px' }}
                 >
-                  {assessMutation.isPending ? 'Reading it…' : 'Suggest my level'}
+                  {assessMutation.isPending ? t('placement.readingIt') : t('onboarding.suggestMyLevel')}
                 </button>
                 {assessMutation.isError && (
                   <p className="text-xs text-red-500">
-                    Couldn't assess that — pick your level above instead.
+                    {t('onboarding.assessError')}
                   </p>
                 )}
                 {assessment && (
@@ -403,7 +402,11 @@ export default function OnboardingPage() {
                     data-testid="writing-verdict"
                   >
                     <p className="text-sm text-gray-800">
-                      Your writing looks about <b>{assessment.level}</b>.
+                      <Trans
+                        i18nKey="placement.writingVerdict"
+                        values={{ level: assessment.level }}
+                        components={{ b: <b /> }}
+                      />
                     </p>
                     {assessment.notes && (
                       <p className="text-xs text-gray-600">{assessment.notes}</p>
@@ -414,7 +417,7 @@ export default function OnboardingPage() {
                         onClick={() => setLevel(assessment.level)}
                         className="rounded-lg bg-lang hover:bg-lang-dark text-lang-on px-3 py-1.5 text-xs font-semibold"
                       >
-                        Start at {assessment.level}
+                        {t('onboarding.startAtSuggested', { level: assessment.level })}
                       </button>
                     )}
                   </div>
@@ -427,17 +430,16 @@ export default function OnboardingPage() {
               onClick={() => setStep('plan')}
               className="w-full min-h-12 bg-lang hover:bg-lang-dark active:bg-lang-dark disabled:opacity-50 text-lang-on font-semibold rounded-xl px-6 text-sm"
             >
-              Continue
+              {t('onboarding.continue')}
             </button>
           </section>
         )}
 
         {step === 'plan' && language && (
           <section className="space-y-4">
-            <h2 className="font-semibold text-gray-800">Choose your plan</h2>
+            <h2 className="font-semibold text-gray-800">{t('onboarding.choosePlan')}</h2>
             <p className="text-sm text-gray-500">
-              Study just {language.name}, or unlock every language. You can
-              upgrade any time in Settings.
+              {t('onboarding.planHelp', { language: language.name })}
             </p>
             <button
               type="button"
@@ -451,12 +453,12 @@ export default function OnboardingPage() {
               }
             >
               <span className="block text-sm font-semibold text-gray-800">
-                {language.name} only
+                {t('onboarding.singleOnly', { language: language.name })}
               </span>
               <span className="block text-xs text-gray-500">
                 {singlePrice
-                  ? `One language — ${singlePrice}`
-                  : 'One language at the lower price'}
+                  ? t('onboarding.singlePriced', { price: singlePrice })
+                  : t('onboarding.singleUnpriced')}
               </span>
             </button>
             <button
@@ -471,17 +473,16 @@ export default function OnboardingPage() {
               }
             >
               <span className="block text-sm font-semibold text-gray-800">
-                All languages
+                {t('onboarding.allLanguages')}
               </span>
               <span className="block text-xs text-gray-500">
                 {allPrice
-                  ? `Every language we offer — ${allPrice}`
-                  : 'Every language we offer, one price'}
+                  ? t('onboarding.allPriced', { price: allPrice })
+                  : t('onboarding.allUnpriced')}
               </span>
             </button>
             <p className="text-xs text-gray-400">
-              Billing hasn&apos;t launched yet — early accounts keep full access to
-              their choice for free, and keep their price when plans go live.
+              {t('onboarding.billingNote')}
             </p>
             <button
               type="button"
@@ -489,7 +490,7 @@ export default function OnboardingPage() {
               disabled={finishMutation.isPending}
               className="w-full min-h-12 bg-lang hover:bg-lang-dark active:bg-lang-dark disabled:opacity-50 text-lang-on font-semibold rounded-xl px-6 text-sm"
             >
-              {finishMutation.isPending ? 'Setting up…' : 'Start learning'}
+              {finishMutation.isPending ? t('placement.settingUp') : t('onboarding.startLearning')}
             </button>
           </section>
         )}

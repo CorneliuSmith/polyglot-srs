@@ -9,82 +9,29 @@ import {
   Sprout,
 } from 'lucide-react'
 import type { LucideIcon } from 'lucide-react'
+import { Trans, useTranslation } from 'react-i18next'
 import { usePrefsStore } from '../../stores/prefsStore'
 
 interface Slide {
   icon: LucideIcon
-  title: string
-  body: React.ReactNode
+  /** i18n key segment: `tour.slides.<key>.{title,body}` */
+  key: string
 }
 
 const SLIDES: Slide[] = [
-  {
-    icon: Hand,
-    title: 'Welcome — here’s the quick tour',
-    body: 'A quick swipe through what’s here, then get learning. You can reopen this any time from the “?” on your dashboard.',
-  },
-  {
-    icon: Languages,
-    title: 'Get to know your language',
-    body: (
-      <>
-        <b>Letters &amp; Sounds</b> walks you through the script — every letter and
-        how to say it (handy for Russian, Arabic, Greek, Hindi, Thai). Right
-        beside it, <b>Things to know about this language</b> is a one-minute
-        primer on its family, word order, history, and what makes it unique.
-      </>
-    ),
-  },
-  {
-    icon: Sprout,
-    title: 'Learn vs. Review',
-    body: (
-      <>
-        <b>Learn</b> introduces new words and grammar. <b>Review</b> brings them
-        back right before you’d forget — that spacing is what moves them into
-        long-term memory. Learn a little, then let Review do the heavy lifting.
-      </>
-    ),
-  },
-  {
-    icon: Dumbbell,
-    title: 'The Gym',
-    body: (
-      <>
-        Drill the forms your language bends — a tense, a case — in a mixed set.
-        It <b>adapts</b>: the forms you miss come back more, the ones you’ve
-        mastered fade. Turn on <b>fresh sentences</b> and it drafts brand-new
-        drills in the background and weaves them in as you go.
-      </>
-    ),
-  },
-  {
-    icon: GraduationCap,
-    title: 'Tutor — Practice vs. Reference',
-    body: (
-      <>
-        <b>Practice</b> drills you on the language and saves what you covered to
-        your profile, so lessons build on each other. <b>Reference</b> is for a
-        quick question — a straight answer, no drills, and nothing saved. Use
-        Practice to study, Reference to just ask.
-      </>
-    ),
-  },
-  {
-    icon: BookOpen,
-    title: 'Read',
-    body: 'Read short passages graded to your level and tap any word for its meaning — the fastest way to turn vocabulary into real reading.',
-  },
-  {
-    icon: PenLine,
-    title: 'Bring your own text',
-    body: 'Paste something you actually want to read into the Reader — a song, an article, a message — and study the words that matter to you.',
-  },
+  { icon: Hand, key: 'welcome' },
+  { icon: Languages, key: 'language' },
+  { icon: Sprout, key: 'learnReview' },
+  { icon: Dumbbell, key: 'gym' },
+  { icon: GraduationCap, key: 'tutor' },
+  { icon: BookOpen, key: 'read' },
+  { icon: PenLine, key: 'ownText' },
 ]
 
 /** First-run feature tour: a dismissible slide-through of what the app does.
  * Opened automatically once, or on demand from Account. */
 export default function Walkthrough({ onClose }: { onClose: () => void }) {
+  const { t } = useTranslation()
   const setWalkthroughDone = usePrefsStore((s) => s.setWalkthroughDone)
   const [i, setI] = useState(0)
   const [dontShow, setDontShow] = useState(true)
@@ -101,13 +48,13 @@ export default function Walkthrough({ onClose }: { onClose: () => void }) {
       className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 p-4"
       role="dialog"
       aria-modal="true"
-      aria-label="Feature tour"
+      aria-label={t('tour.ariaLabel')}
     >
       <div className="w-full max-w-md rounded-2xl bg-white shadow-xl overflow-hidden relative">
         <button
           type="button"
           onClick={finish}
-          aria-label="Close tour"
+          aria-label={t('tour.close')}
           className="absolute top-2.5 end-3 text-gray-300 hover:text-gray-500 text-xl leading-none"
         >
           ×
@@ -118,8 +65,15 @@ export default function Walkthrough({ onClose }: { onClose: () => void }) {
             className="mb-3 h-12 w-12 text-lang"
             strokeWidth={1.5}
           />
-          <h2 className="text-xl font-bold text-gray-900 mb-2">{slide.title}</h2>
-          <p className="text-gray-600 leading-relaxed">{slide.body}</p>
+          <h2 className="text-xl font-bold text-gray-900 mb-2">
+            {t(`tour.slides.${slide.key}.title`)}
+          </h2>
+          <p className="text-gray-600 leading-relaxed">
+            <Trans
+              i18nKey={`tour.slides.${slide.key}.body`}
+              components={{ b: <b /> }}
+            />
+          </p>
         </div>
 
         {/* progress dots */}
@@ -128,7 +82,7 @@ export default function Walkthrough({ onClose }: { onClose: () => void }) {
             <button
               key={n}
               type="button"
-              aria-label={`Go to step ${n + 1}`}
+              aria-label={t('tour.goToStep', { step: n + 1 })}
               onClick={() => setI(n)}
               className={`h-2 rounded-full transition-all ${
                 n === i ? 'w-5 bg-lang' : 'w-2 bg-gray-200 hover:bg-gray-300'
@@ -145,7 +99,7 @@ export default function Walkthrough({ onClose }: { onClose: () => void }) {
               onChange={(e) => setDontShow(e.target.checked)}
               className="rounded border-gray-300"
             />
-            Don’t show again
+            {t('tour.dontShowAgain')}
           </label>
           <div className="flex items-center gap-2">
             {i > 0 && (
@@ -154,7 +108,7 @@ export default function Walkthrough({ onClose }: { onClose: () => void }) {
                 onClick={() => setI((n) => n - 1)}
                 className="rounded-lg px-3 py-1.5 text-sm text-gray-500 hover:bg-gray-100"
               >
-                Back
+                {t('tour.back')}
               </button>
             )}
             {last ? (
@@ -163,7 +117,7 @@ export default function Walkthrough({ onClose }: { onClose: () => void }) {
                 onClick={finish}
                 className="rounded-lg bg-lang px-4 py-1.5 text-sm font-semibold text-lang-on"
               >
-                Get started
+                {t('tour.getStarted')}
               </button>
             ) : (
               <button
@@ -171,7 +125,7 @@ export default function Walkthrough({ onClose }: { onClose: () => void }) {
                 onClick={() => setI((n) => n + 1)}
                 className="rounded-lg bg-lang px-4 py-1.5 text-sm font-semibold text-lang-on"
               >
-                Next
+                {t('tour.next')}
               </button>
             )}
           </div>

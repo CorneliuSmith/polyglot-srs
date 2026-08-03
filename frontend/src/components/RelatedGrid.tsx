@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next'
 import type { RelatedPoint } from '../api/types'
 import StageBadge from './StageBadge'
 
@@ -14,10 +15,11 @@ export default function RelatedGrid({
   /** when provided, tiles are clickable (e.g. opens the point in the path) */
   onOpen?: (id: string) => void
 }) {
+  const { t } = useTranslation()
   if (related.length === 0) return null
   return (
     <div>
-      <h3 className="font-semibold text-gray-700 mb-1">Related</h3>
+      <h3 className="font-semibold text-gray-700 mb-1">{t('shared.related')}</h3>
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
         {related.map((r) => {
           const body = (

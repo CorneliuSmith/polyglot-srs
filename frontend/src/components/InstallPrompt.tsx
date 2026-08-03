@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import { Smartphone } from 'lucide-react'
+import { Trans, useTranslation } from 'react-i18next'
 import { usePrefsStore } from '../stores/prefsStore'
 
 interface BeforeInstallPromptEvent extends Event {
@@ -29,6 +30,7 @@ function isIos(): boolean {
  *  - iOS Safari has no prompt API, so we show the Add-to-Home-Screen steps.
  * Hidden once installed (standalone) or dismissed (persisted). */
 export default function InstallPrompt() {
+  const { t } = useTranslation()
   const dismissed = usePrefsStore((s) => s.installPromptDismissed)
   const setDismissed = usePrefsStore((s) => s.setInstallPromptDismissed)
   const [installEvent, setInstallEvent] = useState<BeforeInstallPromptEvent | null>(null)
@@ -54,15 +56,12 @@ export default function InstallPrompt() {
       <Smartphone aria-hidden className="h-6 w-6 shrink-0 text-lang" strokeWidth={1.75} />
       <div className="flex-1 text-gray-700">
         {installEvent ? (
-          <>
-            <b>Use PolyglotSRS as an app</b> — reviews one tap from your home
-            screen.
-          </>
+          <Trans i18nKey="install.appBody" components={{ b: <b /> }} />
         ) : (
-          <>
-            <b>Add to your home screen:</b> tap Share
-            <span aria-hidden="true"> ⎋ </span>then “Add to Home Screen”.
-          </>
+          <Trans
+            i18nKey="install.iosBody"
+            components={{ b: <b />, share: <span aria-hidden="true" /> }}
+          />
         )}
       </div>
       {installEvent && (
@@ -74,13 +73,13 @@ export default function InstallPrompt() {
           }}
           className="rounded-lg bg-lang px-3 py-1.5 font-semibold text-lang-on"
         >
-          Install
+          {t('install.install')}
         </button>
       )}
       <button
         type="button"
         onClick={() => setDismissed(true)}
-        aria-label="Dismiss install prompt"
+        aria-label={t('install.dismiss')}
         className="text-gray-400 hover:text-gray-600 text-lg leading-none"
       >
         ×

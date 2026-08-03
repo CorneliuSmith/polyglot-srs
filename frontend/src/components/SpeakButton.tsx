@@ -1,4 +1,5 @@
 import { useRef, useState } from 'react'
+import { useTranslation } from 'react-i18next'
 import { getTTSUrl } from '../api/audio'
 import { useSpeech } from '../hooks/useSpeech'
 
@@ -27,6 +28,7 @@ export default function SpeakButton({
   label,
   className,
 }: SpeakButtonProps) {
+  const { t } = useTranslation()
   const { speak, speaking, supported } = useSpeech()
   const audioRef = useRef<HTMLAudioElement | null>(null)
   const [playing, setPlaying] = useState(false)
@@ -68,7 +70,7 @@ export default function SpeakButton({
     <button
       type="button"
       onClick={handlePlay}
-      aria-label={label ?? 'Play pronunciation'}
+      aria-label={label ?? t('shared.playPronunciation')}
       className={
         className ??
         `inline-flex items-center justify-center rounded p-1 hover:text-lang ${

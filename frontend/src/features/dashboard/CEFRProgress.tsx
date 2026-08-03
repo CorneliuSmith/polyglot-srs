@@ -27,7 +27,7 @@ export default function CEFRProgress({ progress }: CEFRProgressProps) {
                 aria-valuenow={pct}
                 aria-valuemin={0}
                 aria-valuemax={100}
-                aria-label={`${level} progress`}
+                aria-label={t('dashboard.levelProgress', { level })}
               >
                 <div
                   className="h-full bg-lang rounded-full transition-all duration-500"

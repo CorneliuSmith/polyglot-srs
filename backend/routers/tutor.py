@@ -104,6 +104,28 @@ def _tutor_configured() -> bool:
     )
 
 
+# The switcher's six UI languages, for when a support locale isn't also a
+# course in the languages table.
+_SUPPORT_NAMES = {
+    "ar": "Arabic", "es": "Spanish", "ru": "Russian",
+    "fr": "French", "pt": "Portuguese",
+}
+
+
+async def _support_language(conn, user_id: str) -> str | None:
+    """The learner's support language as an English name — the language the
+    tutor should explain IN (their card-gloss language). None → English."""
+    code = await conn.fetchval(
+        "SELECT support_locale FROM user_profiles WHERE id = $1", user_id
+    )
+    if not code or code == "en":
+        return None
+    name = await conn.fetchval(
+        "SELECT name FROM languages WHERE code = $1", code
+    )
+    return name or _SUPPORT_NAMES.get(code) or code
+
+
 def _require_configured(language_code: str) -> None:
     if not _tutor_configured():
         raise HTTPException(
@@ -211,6 +233,7 @@ async def chat(
             ))
         except asyncpg.exceptions.UndefinedColumnError:
             allow_explicit = False
+        support_language = await _support_language(conn, user["id"])
     weak_areas = assessment["weak_areas"]
     study_stats = assessment["study_stats"]
     model = resolve_tutor_model(body.language_code, override_model)
@@ -228,6 +251,7 @@ async def chat(
             model=model,
             mode=body.mode,
             allow_explicit=allow_explicit,
+            support_language=support_language,
         )
         if body.mode == "reference":
             remembered = []  # reference questions never write memory
@@ -343,6 +367,7 @@ async def chat_stream(
             ))
         except asyncpg.exceptions.UndefinedColumnError:
             allow_explicit = False
+        support_language = await _support_language(conn, user["id"])
     weak_areas = assessment["weak_areas"]
     study_stats = assessment["study_stats"]
     model = resolve_tutor_model(body.language_code, override_model)
@@ -363,6 +388,7 @@ async def chat_stream(
             model=model,
             mode=body.mode,
             allow_explicit=allow_explicit,
+            support_language=support_language,
         )
         # Heartbeat interleave: wait on the generator's next event with a
         # timeout, pinging while the model is quiet. asyncio.wait (not

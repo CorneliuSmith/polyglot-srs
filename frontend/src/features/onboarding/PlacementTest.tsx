@@ -1,4 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
+import { Trans, useTranslation } from 'react-i18next'
+import type { TFunction } from 'i18next'
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
 import {
   assessWritingSample,
@@ -19,18 +21,22 @@ const CEFR_ORDER = ['A1', 'A2', 'B1', 'B2', 'C1', 'C2']
 
 /** "up two levels" / "the same level" / "down one" — how a retake compares
  * to the last one, which is the whole reason the retake exists. */
-function movement(previous: string | null | undefined, now: string): string | null {
+function movement(
+  t: TFunction,
+  previous: string | null | undefined,
+  now: string,
+): string | null {
   if (!previous) return null
   const from = CEFR_ORDER.indexOf(previous)
   const to = CEFR_ORDER.indexOf(now)
   if (from < 0 || to < 0) return null
   const step = to - from
-  if (step === 0) return `Same as last time (${previous}).`
+  if (step === 0) return t('placement.sameAsLast', { previous })
   const n = Math.abs(step)
-  const levels = n === 1 ? 'one level' : `${n} levels`
+  const levels = t('placement.levelCount', { count: n })
   return step > 0
-    ? `That's ${levels} up from ${previous} — nice work.`
-    : `That's ${levels} below your last result (${previous}).`
+    ? t('placement.movedUp', { levels, previous })
+    : t('placement.movedDown', { levels, previous })
 }
 
 /**
@@ -52,6 +58,7 @@ export default function PlacementTest({
   onClose: () => void
 }) {
   const qc = useQueryClient()
+  const { t } = useTranslation()
   const qwertyTranslit = usePrefsStore((s) => s.qwertyTranslit)
 
   const [history, setHistory] = useState<{ id: string; input: string }[]>([])
@@ -151,18 +158,17 @@ export default function PlacementTest({
       className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 px-4"
       role="dialog"
       aria-modal="true"
-      aria-label={`${language.name} placement test`}
+      aria-label={t('placement.dialogLabel', { language: language.name })}
       data-testid="placement-test"
     >
       <div className="w-full max-w-md rounded-2xl bg-white p-5 shadow-xl space-y-4">
         {unavailable ? (
           <div className="space-y-3">
             <p className="text-sm font-semibold text-gray-800">
-              Not enough {language.name} content to test yet
+              {t('placement.unavailableTitle', { language: language.name })}
             </p>
             <p className="text-xs text-gray-500">
-              We&apos;ll offer this again once the course has grown. Pick your
-              level in Settings &rarr; Your level in the meantime.
+              {t('placement.unavailableHelp')}
             </p>
             <button
               type="button"
@@ -170,24 +176,29 @@ export default function PlacementTest({
               className="w-full rounded-xl bg-lang text-lang-on px-4 py-2.5 text-sm font-semibold hover:bg-lang-dark"
               style={{ minHeight: '44px' }}
             >
-              Close
+              {t('placement.close')}
             </button>
           </div>
         ) : result ? (
           <div className="space-y-3" data-testid="placement-result">
             <p className="text-sm text-gray-800">
-              Your {language.name} looks about{' '}
-              <b>{result.level ?? 'A1'}</b>, from {result.asked}{' '}
-              {result.asked === 1 ? 'question' : 'questions'}.
+              <Trans
+                i18nKey="placement.resultSummary"
+                values={{
+                  language: language.name,
+                  level: result.level ?? 'A1',
+                  questions: t('placement.questionCount', { count: result.asked }),
+                }}
+                components={{ b: <b /> }}
+              />
             </p>
-            {result.level && movement(result.previous, result.level) && (
+            {result.level && movement(t, result.previous, result.level) && (
               <p className="text-xs text-lang-dark font-medium">
-                {movement(result.previous, result.level)}
+                {movement(t, result.previous, result.level)}
               </p>
             )}
             <p className="text-xs text-gray-500">
-              Setting this queues grammar and vocabulary at that level and
-              below. Cards you&apos;ve already learned are never removed.
+              {t('placement.applyHelp')}
             </p>
             <div className="flex gap-2">
               <button
@@ -198,8 +209,8 @@ export default function PlacementTest({
                 style={{ minHeight: '44px' }}
               >
                 {apply.isPending
-                  ? 'Setting up…'
-                  : `Set me to ${result.level ?? 'A1'}`}
+                  ? t('placement.settingUp')
+                  : t('placement.setMeTo', { level: result.level ?? 'A1' })}
               </button>
               <button
                 type="button"
@@ -207,25 +218,22 @@ export default function PlacementTest({
                 className="rounded-xl border border-gray-300 px-4 py-2.5 text-sm text-gray-600 hover:bg-gray-50"
                 style={{ minHeight: '44px' }}
               >
-                Keep my level
+                {t('placement.keepMyLevel')}
               </button>
             </div>
             {apply.isError && (
               <p className="text-xs text-red-500">
-                Couldn&apos;t change your level — try Settings &rarr; Your level.
+                {t('placement.applyError')}
               </p>
             )}
           </div>
         ) : writing ? (
           <div className="space-y-3" data-testid="placement-writing">
             <p className="text-sm font-semibold text-gray-800">
-              Write a paragraph in {language.name}
+              {t('placement.writeParagraph', { language: language.name })}
             </p>
             <p className="text-xs text-gray-500">
-              Anything at all — what you did today, what you think about
-              something. Write as much as you comfortably can: the more you
-              build, the more accurately we can place you. Mistakes are fine
-              and are not counted against you.
+              {t('placement.writingHelp')}
             </p>
             <LanguageWrapper languageCode={language.code}>
               <textarea
@@ -233,24 +241,30 @@ export default function PlacementTest({
                 onChange={(e) => setSample(e.target.value)}
                 maxLength={1500}
                 rows={7}
-                aria-label={`Your ${language.name} writing`}
+                aria-label={t('placement.writingLabel', { language: language.name })}
                 className="w-full rounded-lg border border-gray-300 px-3 py-2 text-base"
               />
             </LanguageWrapper>
             <p className="text-end text-[11px] text-gray-400">
-              {sample.trim().split(/\s+/).filter(Boolean).length} words
+              {t('placement.wordCount', {
+                count: sample.trim().split(/\s+/).filter(Boolean).length,
+              })}
             </p>
             {assessment ? (
               <div className="rounded-lg bg-lang-soft p-3 space-y-2">
                 <p className="text-sm text-gray-800">
-                  Your writing looks about <b>{assessment.level}</b>.
+                  <Trans
+                    i18nKey="placement.writingVerdict"
+                    values={{ level: assessment.level }}
+                    components={{ b: <b /> }}
+                  />
                 </p>
                 {assessment.notes && (
                   <p className="text-xs text-gray-600">{assessment.notes}</p>
                 )}
                 {assessment.focus.length > 0 && (
                   <p className="text-xs text-gray-600">
-                    Worth working on next: {assessment.focus.join('; ')}.
+                    {t('placement.focusNext', { focus: assessment.focus.join('; ') })}
                   </p>
                 )}
                 <div className="flex gap-2 pt-1">
@@ -262,8 +276,8 @@ export default function PlacementTest({
                     style={{ minHeight: '44px' }}
                   >
                     {apply.isPending
-                      ? 'Setting up…'
-                      : `Set me to ${assessment.level}`}
+                      ? t('placement.settingUp')
+                      : t('placement.setMeTo', { level: assessment.level })}
                   </button>
                   <button
                     type="button"
@@ -271,7 +285,7 @@ export default function PlacementTest({
                     className="rounded-xl border border-gray-300 px-4 py-2.5 text-sm text-gray-600 hover:bg-gray-50"
                     style={{ minHeight: '44px' }}
                   >
-                    Keep my level
+                    {t('placement.keepMyLevel')}
                   </button>
                 </div>
               </div>
@@ -283,12 +297,12 @@ export default function PlacementTest({
                 className="w-full rounded-xl bg-lang px-4 py-2.5 text-sm font-semibold text-lang-on hover:bg-lang-dark disabled:opacity-40"
                 style={{ minHeight: '44px' }}
               >
-                {assess.isPending ? 'Reading it…' : 'Assess my writing'}
+                {assess.isPending ? t('placement.readingIt') : t('placement.assessWriting')}
               </button>
             )}
             {assess.isError && (
               <p className="text-xs text-red-500">
-                Couldn&apos;t assess that — try the questions instead.
+                {t('placement.assessError')}
               </p>
             )}
             <button
@@ -296,14 +310,14 @@ export default function PlacementTest({
               onClick={() => setWriting(false)}
               className="block w-full text-center text-xs text-gray-400 hover:text-lang"
             >
-              Back to the questions
+              {t('placement.backToQuestions')}
             </button>
           </div>
         ) : item ? (
           <div className="space-y-4">
             <div className="flex items-center justify-between gap-2">
               <h2 className="font-semibold text-gray-800">
-                Answer in {language.name}
+                {t('placement.answerIn', { language: language.name })}
               </h2>
               <span className="shrink-0 text-xs text-gray-400 tabular-nums">
                 {history.length + 1} / {maxItems}
@@ -356,7 +370,7 @@ export default function PlacementTest({
                     className="rounded-lg border border-gray-200 px-3 py-1.5 text-xs text-gray-500 hover:text-gray-700"
                     style={{ minHeight: '44px' }}
                   >
-                    {showKeyboard ? 'Hide keyboard' : 'Show keyboard'}
+                    {showKeyboard ? t('placement.hideKeyboard') : t('placement.showKeyboard')}
                   </button>
                 </div>
                 {showKeyboard && (
@@ -378,7 +392,7 @@ export default function PlacementTest({
                 className="flex-1 rounded-xl bg-lang text-lang-on px-5 py-2.5 text-sm font-semibold hover:bg-lang-dark disabled:opacity-50"
                 style={{ minHeight: '44px' }}
               >
-                {next.isPending ? 'Checking…' : 'Next'}
+                {next.isPending ? t('placement.checking') : t('placement.next')}
               </button>
               <button
                 type="button"
@@ -387,7 +401,7 @@ export default function PlacementTest({
                 className="rounded-xl border border-gray-300 px-4 py-2.5 text-sm text-gray-600 hover:bg-gray-50 disabled:opacity-50"
                 style={{ minHeight: '44px' }}
               >
-                I don&apos;t know
+                {t('placement.dontKnow')}
               </button>
             </div>
             {writingOffer?.available && (
@@ -396,7 +410,7 @@ export default function PlacementTest({
                 onClick={() => setWriting(true)}
                 className="block w-full text-center text-xs text-lang hover:underline"
               >
-                Rather write a paragraph? It places you more accurately.
+                {t('placement.ratherWrite')}
               </button>
             )}
             <button
@@ -404,7 +418,7 @@ export default function PlacementTest({
               onClick={onClose}
               className="block w-full text-center text-xs text-gray-400 hover:text-lang"
             >
-              Stop the test
+              {t('placement.stopTest')}
             </button>
           </div>
         ) : next.isError ? (
@@ -413,16 +427,14 @@ export default function PlacementTest({
           // behind an overlay with nothing to press (owner report).
           <div className="space-y-3">
             <p className="text-sm font-semibold text-gray-800">
-              Couldn&apos;t start the test
+              {t('placement.startErrorTitle')}
             </p>
             <p className="text-xs text-gray-500">
-              {cause ??
-                'Something went wrong reaching the server. You can pick your level by hand above, and try the test again later.'}
+              {cause ?? t('placement.startErrorHelp')}
             </p>
             {cause && (
               <p className="text-[11px] text-gray-400">
-                Your level can still be set by hand above. This clears once the
-                pending migrations are applied.
+                {t('placement.migrationNote')}
               </p>
             )}
             <div className="flex gap-2">
@@ -432,7 +444,7 @@ export default function PlacementTest({
                 className="flex-1 rounded-xl bg-lang px-4 py-2.5 text-sm font-semibold text-lang-on hover:bg-lang-dark"
                 style={{ minHeight: '44px' }}
               >
-                Try again
+                {t('placement.tryAgain')}
               </button>
               <button
                 type="button"
@@ -440,20 +452,20 @@ export default function PlacementTest({
                 className="rounded-xl border border-gray-300 px-4 py-2.5 text-sm text-gray-600 hover:bg-gray-50"
                 style={{ minHeight: '44px' }}
               >
-                Close
+                {t('placement.close')}
               </button>
             </div>
           </div>
         ) : (
           <div className="space-y-3">
-            <p className="py-4 text-center text-sm text-gray-500">Loading…</p>
+            <p className="py-4 text-center text-sm text-gray-500">{t('common.loading')}</p>
             {/* Escapable while loading too — a hung request must not trap. */}
             <button
               type="button"
               onClick={onClose}
               className="block w-full text-center text-xs text-gray-400 hover:text-lang"
             >
-              Cancel
+              {t('placement.cancel')}
             </button>
           </div>
         )}

@@ -27,17 +27,20 @@ async def _effective_locale(
 ) -> str:
     """The locale card content should render in.
 
-    English is the only language where the support locale applies — a
-    learner 'learning English FROM Spanish' wants Spanish definitions and
-    Spanish sentence translations. Every other target language keeps English
-    support (that's what its content carries).
+    Every course honours the learner's support locale — a learner studying
+    Turkish FROM Arabic wants Arabic glosses and Arabic drill translations
+    just as much as an English-from-Spanish learner wants Spanish ones.
+    Each localized field COALESCEs back to the authored English wherever
+    the overlay row hasn't been filled yet (the auto-translate loop fills
+    them on demand), so a missing translation degrades to English, never
+    to a blank card.
+
+    (conn/language_id are kept in the signature for call-site stability;
+    the old rule needed the course code, this one doesn't.)
     """
+    del conn, language_id
     if support_locale and support_locale != "en":
-        code = await conn.fetchval(
-            "SELECT code FROM languages WHERE id = $1", language_id
-        )
-        if code == "en":
-            return support_locale
+        return support_locale
     return "en"
 
 
@@ -62,9 +65,11 @@ async def get_due_cards(
       sentence = drill sentence with {{answer}} marker
       correct_answer = grammar_points.title (placeholder for Phase 4)
 
-    *support_locale* localizes ENGLISH cards ("learning English from X"):
-    definitions prefer that locale (falling back to the English definition)
-    and example sentences are the ones whose translation is in that locale.
+    *support_locale* localizes card content on every course: definitions,
+    drill hints/translations and explanations prefer that locale's overlay
+    row and fall back per field to the authored English; example sentences
+    prefer the row whose translation is in that locale, falling back per
+    sentence to the English-translated row.
 
     *card_type* scopes the session ("Grammar Only" / "Vocab Only" reviews):
     'grammar' returns grammar drills alone; 'vocabulary' returns vocabulary
@@ -113,29 +118,34 @@ async def get_due_cards(
                ON v.id = t_en.vocabulary_id AND t_en.locale = 'en'
         LEFT JOIN LATERAL (
             SELECT
-                array_agg(es.sentence
-                          ORDER BY es.difficulty_rank ASC NULLS LAST, es.id) AS sentences,
-                array_agg(es.translation
-                          ORDER BY es.difficulty_rank ASC NULLS LAST, es.id) AS translations,
-                array_agg(es.gloss
-                          ORDER BY es.difficulty_rank ASC NULLS LAST, es.id) AS glosses,
-                array_agg(es.transliteration
-                          ORDER BY es.difficulty_rank ASC NULLS LAST, es.id) AS transliterations
-            FROM example_sentences es
-            WHERE es.vocabulary_id = v.id
-              -- Serve the sentence whose translation is in the learner's
-              -- effective locale (the support locale on the English course,
-              -- else English). No cross-locale fallback: an English-course
-              -- learner never sees a translation in some other random language.
-              AND es.translation_locale = $3
-              -- Learners see reviewed content; a language whose policy is
-              -- 'ai_ok' (admin toggle) also serves verified AI content
-              -- without waiting for human sign-off. (Column is historically
-              -- named for grammar; it now governs all AI content.)
-              AND (es.reviewed
-                   OR es.language_id IN (
-                       SELECT id FROM languages
-                        WHERE grammar_review_policy IN ('ai_ok', 'all')))
+                array_agg(pes.sentence
+                          ORDER BY pes.difficulty_rank ASC NULLS LAST, pes.id) AS sentences,
+                array_agg(pes.translation
+                          ORDER BY pes.difficulty_rank ASC NULLS LAST, pes.id) AS translations,
+                array_agg(pes.gloss
+                          ORDER BY pes.difficulty_rank ASC NULLS LAST, pes.id) AS glosses,
+                array_agg(pes.transliteration
+                          ORDER BY pes.difficulty_rank ASC NULLS LAST, pes.id) AS transliterations
+            FROM (
+                -- One row per sentence: prefer the learner's-locale
+                -- translation, fall back to the English row when no locale
+                -- rendering exists yet. Never a third, random language.
+                SELECT DISTINCT ON (es.sentence)
+                       es.sentence, es.translation, es.gloss,
+                       es.transliteration, es.difficulty_rank, es.id
+                FROM example_sentences es
+                WHERE es.vocabulary_id = v.id
+                  AND es.translation_locale IN ($3, 'en')
+                  -- Learners see reviewed content; a language whose policy is
+                  -- 'ai_ok' (admin toggle) also serves verified AI content
+                  -- without waiting for human sign-off. (Column is historically
+                  -- named for grammar; it now governs all AI content.)
+                  AND (es.reviewed
+                       OR es.language_id IN (
+                           SELECT id FROM languages
+                            WHERE grammar_review_policy IN ('ai_ok', 'all')))
+                ORDER BY es.sentence, (es.translation_locale = $3) DESC
+            ) pes
         ) ex ON true
         LEFT JOIN LATERAL (
             SELECT rl.prompt_sentence
@@ -926,26 +936,14 @@ async def get_card_details_bulk(
     vocab_ids = [c["card_id"] for c in cards if c["card_type"] == "vocabulary"]
     grammar_ids = [c["card_id"] for c in cards if c["card_type"] == "grammar"]
 
-    # English is the only language whose content is localized by the support
-    # locale; resolve it per batch (all cards share a language in practice,
-    # but check the actual content to stay correct). Grammar counts too:
-    # drill hints/translations localize via drill_hint_translations (WP17).
-    eff_locale = "en"
-    if support_locale and support_locale != "en" and (vocab_ids or grammar_ids):
-        en_content = await conn.fetchval(
-            """
-            SELECT (SELECT count(*) FROM vocabulary v
-                    JOIN languages l ON v.language_id = l.id AND l.code = 'en'
-                    WHERE v.id = ANY($1::uuid[]))
-                 + (SELECT count(*) FROM grammar_points gp
-                    JOIN languages l ON gp.language_id = l.id AND l.code = 'en'
-                    WHERE gp.id = ANY($2::uuid[]))
-            """,
-            vocab_ids,
-            grammar_ids,
-        )
-        if en_content:
-            eff_locale = support_locale
+    # Every course localizes by the support locale (per-field fallback to
+    # the authored English wherever an overlay row hasn't been filled yet):
+    # definitions and explanations COALESCE, drill hints/translations go
+    # via drill_hint_translations (WP17), example sentences prefer the
+    # locale-translated row per sentence.
+    eff_locale = (
+        support_locale if support_locale and support_locale != "en" else "en"
+    )
 
     vocab_by_id: dict = {}
     vocab_examples: dict = {}
@@ -971,17 +969,25 @@ async def get_card_details_bulk(
             conn,
             """
             SELECT vocabulary_id, sentence, translation, gloss, transliteration
-            FROM example_sentences
-            WHERE vocabulary_id = ANY($1::uuid[])
-              -- Serve only the learner's effective-locale translation; no
-              -- fallback to a different (random-language) row.
-              AND translation_locale = $2
-              AND reviewed
-              {explicit}
+            FROM (
+                -- Prefer the learner's-locale translation of each sentence,
+                -- falling back to the English row — never a third language.
+                SELECT DISTINCT ON (es.vocabulary_id, es.sentence)
+                       es.vocabulary_id, es.sentence, es.translation,
+                       es.gloss, es.transliteration, es.difficulty_rank
+                FROM example_sentences es
+                WHERE es.vocabulary_id = ANY($1::uuid[])
+                  AND es.translation_locale IN ($2, 'en')
+                  AND es.reviewed
+                  {explicit}
+                ORDER BY es.vocabulary_id, es.sentence,
+                         (es.translation_locale = $2) DESC
+            ) pes
             ORDER BY difficulty_rank ASC NULLS LAST
             """,
             vocab_ids,
             eff_locale,
+            alias="es",
         ):
             bucket = vocab_examples.setdefault(e["vocabulary_id"], [])
             if len(bucket) < 5:
@@ -1245,18 +1251,24 @@ async def get_card_detail(
             conn,
             """
             SELECT sentence, translation
-            FROM example_sentences
-            WHERE vocabulary_id = $1
-              -- Only the learner's effective-locale translation; never a
-              -- fallback to a different (random-language) row.
-              AND translation_locale = $2
-              AND reviewed
-              {explicit}
+            FROM (
+                -- Prefer the learner's-locale translation per sentence,
+                -- falling back to the English row — never a third language.
+                SELECT DISTINCT ON (es.sentence)
+                       es.sentence, es.translation, es.difficulty_rank
+                FROM example_sentences es
+                WHERE es.vocabulary_id = $1
+                  AND es.translation_locale IN ($2, 'en')
+                  AND es.reviewed
+                  {explicit}
+                ORDER BY es.sentence, (es.translation_locale = $2) DESC
+            ) pes
             ORDER BY difficulty_rank ASC NULLS LAST
             LIMIT 5
             """,
             card["card_id"],
             eff_locale,
+            alias="es",
         )
         # The learner's OWN sentences with this word (from notes → cloze
         # cards), shown under Examples — RLS scopes them to this user.
@@ -1281,8 +1293,8 @@ async def get_card_detail(
             "definition": v["definition"] if v else None,
             "usage_note": v["usage_note"] if v else None,
             "morphology": v["morphology"] if v else None,
-            # Which language the hints/definitions are rendered in — 'en'
-            # unless this is an English card and a support locale is set.
+            # Which language the hints/definitions are rendered in — the
+            # learner's support locale when set (any course), else 'en'.
             "hint_locale": eff_locale,
             "explanation": None,
             "culture_note": None,
@@ -1304,8 +1316,8 @@ async def get_card_detail(
 
     # grammar
     # WP17/WP22: hint, translation, AND the explanation itself render in
-    # the learner's locale for English cards (same COALESCE rule as
-    # vocabulary definitions).
+    # the learner's locale on any course (same COALESCE rule as vocabulary
+    # definitions — English wherever the overlay hasn't been filled yet).
     eff_locale = await _effective_locale(conn, card["language_id"], support_locale)
     gp = await conn.fetchrow(
         """
@@ -2129,22 +2141,28 @@ async def get_vocab_item(
     )
     if row is None:
         return None
-    # Support locale only applies to English content (same rule as
-    # _effective_locale) — a Spanish word's sentences are translated to 'en'.
-    eff = (support_locale if row["language_code"] == "en" and support_locale
-           else "en")
+    # Same rule as _effective_locale: any course prefers the support
+    # locale's sentence rows, falling back per sentence to the English one.
+    eff = support_locale if support_locale and support_locale != "en" else "en"
     examples = await _fetch_examples(
         conn,
         """
         SELECT sentence, translation
-        FROM example_sentences
-        WHERE vocabulary_id = $1 AND translation_locale = $2
-          AND reviewed
-          {explicit}
+        FROM (
+            SELECT DISTINCT ON (es.sentence)
+                   es.sentence, es.translation, es.difficulty_rank
+            FROM example_sentences es
+            WHERE es.vocabulary_id = $1
+              AND es.translation_locale IN ($2, 'en')
+              AND es.reviewed
+              {explicit}
+            ORDER BY es.sentence, (es.translation_locale = $2) DESC
+        ) pes
         ORDER BY difficulty_rank ASC NULLS LAST
         LIMIT 5
         """,
         vocab_id, eff,
+        alias="es",
     )
     return {
         "id": str(row["id"]),

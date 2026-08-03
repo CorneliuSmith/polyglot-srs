@@ -69,19 +69,22 @@ export default function SearchPage() {
         />
 
         {query.length > 0 && query.length < 2 && (
-          <p className="text-sm text-gray-400">Type at least 2 characters.</p>
+          <p className="text-sm text-gray-400">{t('search.typeAtLeast')}</p>
         )}
-        {isFetching && <p className="text-sm text-gray-400">Searching…</p>}
+        {isFetching && <p className="text-sm text-gray-400">{t('search.searching')}</p>}
         {empty && !isFetching && (
           <p className="text-sm text-gray-500">
-            No matches for “{query}” in {language?.name ?? 'this language'}.
+            {t('search.noMatches', {
+              query,
+              language: language?.name ?? t('search.thisLanguage'),
+            })}
           </p>
         )}
 
         {data && data.grammar.length > 0 && (
           <section>
             <h2 className="text-sm font-semibold text-gray-400 uppercase tracking-wide mb-2">
-              Grammar
+              {t('common.grammar')}
             </h2>
             <ol className="space-y-2" data-testid="search-grammar">
               {data.grammar.map((hit) => (
@@ -120,7 +123,7 @@ export default function SearchPage() {
         {data && data.vocabulary.length > 0 && (
           <section>
             <h2 className="text-sm font-semibold text-gray-400 uppercase tracking-wide mb-2">
-              Vocabulary
+              {t('decks.vocabulary')}
             </h2>
             <ol className="space-y-2" data-testid="search-vocab">
               {data.vocabulary.map((hit) => (
@@ -144,7 +147,7 @@ export default function SearchPage() {
                   )}
                   {hit.learned && (
                     <span className="text-xs rounded-full px-2 py-0.5 bg-green-50 text-green-700">
-                      In reviews ✓
+                      {t('search.inReviews')}
                     </span>
                   )}
                 </li>

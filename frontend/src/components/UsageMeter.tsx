@@ -13,7 +13,7 @@ export default function UsageMeter({
   allowance: TutorAllowance | null | undefined
   className?: string
 }) {
-  const { t } = useTranslation()
+  const { t, i18n } = useTranslation()
   if (!allowance || allowance.unlimited || !allowance.limit) return null
   if (allowance.tier === 'blocked') return null
   const pct = Math.min(
@@ -21,7 +21,7 @@ export default function UsageMeter({
     Math.round(((allowance.used ?? 0) / allowance.limit) * 100),
   )
   const resets = allowance.resets_at
-    ? new Date(allowance.resets_at).toLocaleDateString(undefined, {
+    ? new Date(allowance.resets_at).toLocaleDateString(i18n.language, {
         month: 'long',
         day: 'numeric',
       })

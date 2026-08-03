@@ -13,7 +13,7 @@ import CircleFlag from './CircleFlag'
  * <option> can't render images. Keyboard support mirrors a native select:
  * Enter/Space/arrows open, arrows move, Enter picks, Escape closes. */
 export default function LanguagePicker() {
-  const { i18n } = useTranslation()
+  const { t, i18n } = useTranslation()
   const activeLanguageId = usePrefsStore((s) => s.activeLanguageId)
   const setActiveLanguageId = usePrefsStore((s) => s.setActiveLanguageId)
 
@@ -108,7 +108,7 @@ export default function LanguagePicker() {
       <div
         className="w-full rounded-lg border border-gray-300 bg-gray-100 px-3 py-2 text-sm text-gray-400 animate-pulse"
         style={{ minHeight: '44px' }}
-        aria-label="Loading languages"
+        aria-label={t('picker.loadingLanguages')}
       />
     )
   }
@@ -130,13 +130,13 @@ export default function LanguagePicker() {
         }}
         aria-haspopup="listbox"
         aria-expanded={open}
-        aria-label="Select active language"
+        aria-label={t('picker.selectLanguage')}
         className="w-full flex items-center gap-2.5 rounded-lg border border-gray-300 bg-white px-3 py-2 text-sm text-start focus:outline-none focus:ring-2 focus:ring-lang"
         style={{ minHeight: '44px', borderLeft: `6px solid ${theme.primary}` }}
       >
         <CircleFlag code={active?.code} />
         <span className="flex-1 truncate text-gray-900">
-          {active ? languageDisplayName(active.code, active.name, i18n.language) : 'Choose a language'}
+          {active ? languageDisplayName(active.code, active.name, i18n.language) : t('picker.chooseLanguage')}
         </span>
         <ChevronDown
           aria-hidden
@@ -148,7 +148,7 @@ export default function LanguagePicker() {
         <ul
           ref={listRef}
           role="listbox"
-          aria-label="Languages"
+          aria-label={t('picker.languages')}
           aria-activedescendant={`lang-option-${languages[highlighted]?.id}`}
           tabIndex={-1}
           onKeyDown={onListKeyDown}
@@ -187,7 +187,7 @@ export default function LanguagePicker() {
                 )}
                 {locked && (
                   <span className="text-[10px] text-gray-400">
-                    All-Languages plan
+                    {t('picker.allLanguagesPlan')}
                   </span>
                 )}
               </li>

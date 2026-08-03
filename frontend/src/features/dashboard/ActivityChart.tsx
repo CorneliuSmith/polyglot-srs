@@ -25,7 +25,11 @@ export default function ActivityChart({ activity }: { activity: ActivityDay[] })
             <div
               key={d.date}
               className="flex-1 flex flex-col items-center justify-end"
-              title={`${d.date}: ${d.vocab} vocab, ${d.grammar} grammar`}
+              title={t('dashboard.activityDay', {
+                date: d.date,
+                vocab: d.vocab,
+                grammar: d.grammar,
+              })}
             >
               <div className="w-full flex flex-col justify-end rounded-t overflow-hidden"
                    style={{ height: `${Math.max(total > 0 ? 6 : 2, (total / max) * 72)}px` }}>

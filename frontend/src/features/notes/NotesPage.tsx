@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import { Trans, useTranslation } from 'react-i18next'
 import UiLanguageSwitcher from '../../components/UiLanguageSwitcher'
 import { useNavigate } from 'react-router-dom'
 import { useQuery, useMutation } from '@tanstack/react-query'
@@ -17,6 +18,7 @@ interface Selection {
 
 export default function NotesPage() {
   const navigate = useNavigate()
+  const { t } = useTranslation()
   const activeLanguageId = usePrefsStore((s) => s.activeLanguageId)
   const [text, setText] = useState('')
   const [sentences, setSentences] = useState<ExtractedSentence[] | null>(null)
@@ -81,7 +83,7 @@ export default function NotesPage() {
   if (!language) {
     return (
       <div className="min-h-screen bg-gray-50 flex items-center justify-center">
-        <p className="text-gray-500">Pick a language on the dashboard first.</p>
+        <p className="text-gray-500">{t('notes.pickLanguageFirst')}</p>
       </div>
     )
   }
@@ -91,15 +93,15 @@ export default function NotesPage() {
       <div className="max-w-2xl mx-auto px-4 py-8 space-y-4">
         <div className="flex items-center justify-between">
           <div>
-            <h1 className="text-2xl font-bold text-gray-900">Learn from your own text</h1>
+            <h1 className="text-2xl font-bold text-gray-900">{t('dashboard.ownTextTitle')}</h1>
             <p className="text-xs text-gray-500">
-              Paste {language.name} text, then tap a word to turn its sentence into a card.
+              {t('notes.subtitle', { language: language.name })}
             </p>
           </div>
           <span className="flex items-center gap-3">
             <UiLanguageSwitcher />
             <button type="button" onClick={() => navigate('/')} className="text-sm text-lang hover:underline">
-              Dashboard
+              {t('nav.dashboard')}
             </button>
           </span>
         </div>
@@ -108,7 +110,7 @@ export default function NotesPage() {
           value={text}
           onChange={(e) => setText(e.target.value)}
           rows={5}
-          placeholder={`Paste ${language.name} text here…`}
+          placeholder={t('notes.pastePlaceholder', { language: language.name })}
           className="w-full rounded-xl border border-gray-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-lang"
         />
         <button
@@ -117,19 +119,19 @@ export default function NotesPage() {
           disabled={!text.trim() || extractMutation.isPending}
           className="bg-lang hover:bg-lang-dark disabled:opacity-50 text-lang-on font-semibold rounded-xl px-5 py-2.5 text-sm"
         >
-          {extractMutation.isPending ? 'Analyzing…' : 'Analyze'}
+          {extractMutation.isPending ? t('notes.analyzing') : t('notes.analyze')}
         </button>
 
         {addedCount > 0 && (
           <p className="text-sm text-green-700">
-            Added {addedCount} card{addedCount > 1 ? 's' : ''} to your reviews.
+            {t('notes.addedCards', { count: addedCount })}
           </p>
         )}
 
         {sentences && (
           <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-5 space-y-3">
             <p className="text-xs text-gray-400">
-              New words are highlighted. Tap any word to make a fill-in-the-blank card.
+              {t('notes.highlightHint')}
             </p>
             {sentences.map((s, i) => (
               <div key={i} className="leading-loose flex items-start gap-1">
@@ -141,7 +143,7 @@ export default function NotesPage() {
                       <button
                         key={j}
                         type="button"
-                        title={w.definition ?? (w.known ? '' : 'new word')}
+                        title={w.definition ?? (w.known ? '' : t('notes.newWord'))}
                         onClick={() => {
                           setSelection({ sentence: s.sentence, answer: w.word })
                           setTranslation('')
@@ -166,15 +168,23 @@ export default function NotesPage() {
         {selection && (
           <div className="bg-white rounded-2xl shadow-sm border border-lang/30 p-4 space-y-2">
             <p className="text-sm text-gray-700">
-              Card: <span className="font-mono">{selection.sentence}</span>
+              <Trans
+                i18nKey="notes.cardLine"
+                values={{ sentence: selection.sentence }}
+                components={{ mono: <span className="font-mono" /> }}
+              />
             </p>
             <p className="text-xs text-gray-500">
-              Blank the word <span className="font-semibold">{selection.answer}</span>.
+              <Trans
+                i18nKey="notes.blankWord"
+                values={{ answer: selection.answer }}
+                components={{ answer: <span className="font-semibold" /> }}
+              />
             </p>
             <input
               value={translation}
               onChange={(e) => setTranslation(e.target.value)}
-              placeholder="Translation / note (optional)"
+              placeholder={t('notes.translationPlaceholder')}
               className="w-full rounded-lg border border-gray-300 px-3 py-2 text-sm"
             />
             <div className="flex items-center gap-2">
@@ -184,14 +194,14 @@ export default function NotesPage() {
                 disabled={cardMutation.isPending}
                 className="bg-lang hover:bg-lang-dark disabled:opacity-50 text-lang-on rounded-lg px-4 py-2 text-sm"
               >
-                {cardMutation.isPending ? 'Adding…' : 'Add card'}
+                {cardMutation.isPending ? t('notes.adding') : t('notes.addCard')}
               </button>
               <button type="button" onClick={() => setSelection(null)} className="text-xs text-gray-400 hover:underline">
-                Cancel
+                {t('notes.cancel')}
               </button>
               {cardMutation.isError && (
                 <span className="text-xs text-red-500">
-                  Couldn’t add — pick a different word.
+                  {t('notes.addFailed')}
                 </span>
               )}
             </div>
