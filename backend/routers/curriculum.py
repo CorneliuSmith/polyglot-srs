@@ -47,11 +47,19 @@ async def search(
         return await search_content(conn, user["id"], language_id, q)
 
 
+async def _support_locale(conn, user_id: str) -> str | None:
+    row = await conn.fetchrow(
+        "SELECT support_locale FROM user_profiles WHERE id = $1", user_id
+    )
+    return row["support_locale"] if row else None
+
+
 @router.get("/{language_id}")
 async def curriculum(language_id: str, user: dict = Depends(get_current_user)):
     """The ordered grammar path for a language, with the learner's status."""
     async with rls_connection(user["id"]) as conn:
-        points = await get_curriculum(conn, user["id"], language_id)
+        locale = await _support_locale(conn, user["id"])
+        points = await get_curriculum(conn, user["id"], language_id, locale)
     return {"points": points}
 
 
@@ -61,7 +69,9 @@ async def curriculum_point(
 ):
     """Read one grammar point outside of reviews (the lesson-page view)."""
     async with rls_connection(user["id"]) as conn:
-        point = await get_curriculum_point(conn, user["id"], grammar_point_id)
+        locale = await _support_locale(conn, user["id"])
+        point = await get_curriculum_point(conn, user["id"], grammar_point_id,
+                                           locale)
     if point is None:
         raise HTTPException(
             status_code=status.HTTP_404_NOT_FOUND, detail="Grammar point not found"

@@ -320,6 +320,90 @@ async def generate_sentence_translations(
     return results
 
 
+_TEXT_SYSTEMS = {
+    # Short UI strings: grammar-point titles, Gym form labels and their
+    # one-line usage notes. The rule that matters: text already in the
+    # course language (endings like "-ar", articles like "(el / la)",
+    # example words) is quoted material, not English to translate.
+    "label": (
+        "You translate short English labels from a language-learning app into "
+        "{target}: grammar-point titles, form-category names, and one-line "
+        "usage notes about a course language. Keep them as short and plain as "
+        "the original. Anything that is course-language material rather than "
+        "English — verb endings like -ar, quoted words, bracketed forms like "
+        "(el / la) — must be copied unchanged. Use the grammatical terms a "
+        "{target}-speaking learner would meet in a textbook. Output {target} "
+        "only."
+    ),
+    # Prose: grammar explanations, culture notes, function notes.
+    "prose": (
+        "You translate short English explanations from a language-learning "
+        "app into {target}: grammar lessons, culture notes and usage notes "
+        "about a course language. Render the meaning in natural {target} at "
+        "the same length and register — plain, friendly, precise. Course-"
+        "language material inside the text (example words, endings, quoted "
+        "phrases) must be copied unchanged; grammatical terms should be the "
+        "ones a {target}-speaking learner would meet in a textbook. Output "
+        "{target} only."
+    ),
+}
+
+
+async def make_text_translations(
+    target_language: str, items: list[dict], kind: str = "prose",
+    model: str | None = None,
+) -> dict[int, str]:
+    """Maker: {i -> translation} of each English text into *target_language*
+    with a purpose-fit charter. items: {i, sentence}; kind: 'label'|'prose'."""
+    settings = get_settings()
+    if getattr(settings, "tutor_dev_mock", False):
+        return {t["i"]: t["translation"]
+                for t in _mock_sentence_translations(items, target_language)}
+    lines = "\n".join(f'{it["i"]}. {it["sentence"]}' for it in items)
+    resp = await _client().messages.create(
+        model=model or resolve_model("translate"),
+        max_tokens=4096,
+        system=_TEXT_SYSTEMS[kind].format(target=target_language),
+        messages=[{"role": "user", "content": lines}],
+        output_config={"format": {"type": "json_schema", "schema": _SENTENCE_MAKER_SCHEMA}},
+    )
+    text = next((b.text for b in resp.content if b.type == "text"), "{}")
+    try:
+        data = json.loads(text)
+    except (json.JSONDecodeError, TypeError):
+        return {}
+    return {t["i"]: (t.get("translation") or "").strip()
+            for t in data.get("translations", []) if (t.get("translation") or "").strip()}
+
+
+async def generate_text_translations(
+    target_language: str, items: list[dict], kind: str = "prose",
+    maker_model: str | None = None, checker_model: str | None = None,
+) -> list[dict]:
+    """Maker then checker for non-sentence texts (titles, labels, notes,
+    explanations). Same contract as generate_sentence_translations:
+    items {i, sentence} → {i, sentence, translation, verdict, note}."""
+    made = await make_text_translations(target_language, items, kind, maker_model)
+    checkable = [
+        {"i": it["i"], "word": it["sentence"], "sentence": it["sentence"],
+         "definition": "", "gloss": made[it["i"]]}
+        for it in items if it["i"] in made
+    ]
+    if not checkable:
+        return []
+    verdicts = await check_glosses(target_language, checkable, checker_model)
+    results = []
+    for it in checkable:
+        v = verdicts.get(it["i"], {"verdict": "reject", "final": "", "note": "no verdict"})
+        store = it["gloss"] if v["verdict"] == "ok" else v["final"]
+        results.append({
+            "i": it["i"], "sentence": it["sentence"],
+            "translation": store if v["verdict"] in ("ok", "fixed") else "",
+            "verdict": v["verdict"], "note": v["note"],
+        })
+    return results
+
+
 async def review_definitions(target_language: str, items: list[dict],
                              model: str | None = None) -> list[dict]:
     """Clarity pass over EXISTING card definitions/hints (not a translation).

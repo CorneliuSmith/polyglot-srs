@@ -140,20 +140,32 @@ async def staff_sees_all(
 
 
 async def get_curriculum(
-    conn: asyncpg.Connection, user_id: str, language_id: str
+    conn: asyncpg.Connection, user_id: str, language_id: str,
+    support_locale: str | None = None,
 ) -> list[dict]:
     """Return the ordered grammar path with the learner's status per point.
 
+    Titles and function notes render in the learner's support locale where
+    the overlay row exists (grammar_point_translations), English otherwise
+    — the same COALESCE rule as cards.
+
     Staff for this language see every point, published or not — a reviewer
     cannot review what the gate hides from them."""
+    from backend.repositories.cards import _gpt_sql, _table_exists
+
+    eff = support_locale if support_locale and support_locale != "en" else "en"
+    gpt = _gpt_sql(
+        eff != "en" and await _table_exists(conn, "grammar_point_translations"),
+        "$4",
+    )
     staff = await staff_sees_all(conn, user_id, language_id)
     rows = await conn.fetch(
-        """
+        f"""
         SELECT
             gp.id,
-            gp.title,
+            {gpt["title"]} AS title,
             gp.level,
-            gp.function_note,
+            {gpt["function_note"]} AS function_note,
             gp.reviewed,
             EXISTS (
                 SELECT 1 FROM drill_sentences ds WHERE ds.grammar_point_id = gp.id
@@ -164,6 +176,7 @@ async def get_curriculum(
             ) AS learned
         FROM grammar_points gp
         JOIN languages l ON gp.language_id = l.id
+        {gpt["join"]}
         WHERE gp.language_id = $2
           AND ($3 OR CASE l.grammar_review_policy
                     WHEN 'all'  THEN true
@@ -175,6 +188,7 @@ async def get_curriculum(
         user_id,
         language_id,
         staff,
+        *([eff] if gpt["join"] else []),
     )
     return [
         {
@@ -192,17 +206,37 @@ async def get_curriculum(
 
 
 async def get_curriculum_point(
-    conn: asyncpg.Connection, user_id: str, grammar_point_id: str
+    conn: asyncpg.Connection, user_id: str, grammar_point_id: str,
+    support_locale: str | None = None,
 ) -> dict | None:
-    """Full read view of one grammar point (lesson-page shape).
+    """Full read view of one grammar point (lesson-page shape), in the
+    learner's support locale where overlays exist (title/notes via
+    grammar_point_translations, explanation via explanation_translations),
+    English per field otherwise.
 
     Staff see unpublished points so they can open and review them."""
+    from backend.repositories.cards import _gpt_sql, _table_exists
+    from backend.services.auto_translate import note_missing_content
+
+    eff = support_locale if support_locale and support_locale != "en" else "en"
+    gpt = _gpt_sql(
+        eff != "en" and await _table_exists(conn, "grammar_point_translations"),
+        "$4",
+    )
+    expl = ("COALESCE(et.explanation, gp.explanation)" if eff != "en"
+            else "gp.explanation")
+    et_join = ("LEFT JOIN explanation_translations et "
+               "ON et.grammar_point_id = gp.id AND et.locale = $4"
+               if eff != "en" else "")
     staff = await staff_sees_all(conn, user_id, None)
     gp = await conn.fetchrow(
-        """
+        f"""
         SELECT gp.id, gp.language_id, l.code AS language_code,
-               gp.title, gp.level, gp.function_note,
-               gp.explanation, gp.culture_note, gp.reference_links, gp.related,
+               {gpt["title"]} AS title, gp.level,
+               {gpt["function_note"]} AS function_note,
+               {expl} AS explanation,
+               {gpt["culture_note"]} AS culture_note,
+               gp.reference_links, gp.related,
                gp.reviewed,
                EXISTS (
                    SELECT 1 FROM user_cards uc
@@ -211,6 +245,8 @@ async def get_curriculum_point(
                ) AS learned
         FROM grammar_points gp
         JOIN languages l ON gp.language_id = l.id
+        {gpt["join"]}
+        {et_join}
         WHERE gp.id = $2
           AND ($3 OR CASE l.grammar_review_policy
                     WHEN 'all'  THEN true
@@ -221,15 +257,25 @@ async def get_curriculum_point(
         user_id,
         grammar_point_id,
         staff,
+        *([eff] if eff != "en" else []),
     )
     if gp is None:
         return None
+    await note_missing_content(conn, eff, grammar_ids=[grammar_point_id])
     related = await resolve_related(conn, gp["language_id"], gp["related"])
     read_refs = await get_read_ref_keys(conn, grammar_point_id)
     drills = await conn.fetch(
-        "SELECT sentence, answer, translation, hint FROM drill_sentences "
-        "WHERE grammar_point_id = $1 AND reviewed ORDER BY display_order ASC",
-        grammar_point_id,
+        """
+        SELECT ds.sentence, ds.answer,
+               COALESCE(dht.translation, ds.translation) AS translation,
+               COALESCE(dht.hint, ds.hint) AS hint
+        FROM drill_sentences ds
+        LEFT JOIN drill_hint_translations dht
+               ON dht.drill_id = ds.id AND dht.locale = $2
+        WHERE ds.grammar_point_id = $1 AND ds.reviewed
+        ORDER BY ds.display_order ASC
+        """,
+        grammar_point_id, eff,
     )
     references = []
     if gp["reference_links"]:

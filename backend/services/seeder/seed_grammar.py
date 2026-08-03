@@ -425,13 +425,17 @@ class GrammarSeeder:
                 # source='ai'/reviewed=false in the pending-drills queue.
                 existing = [
                     dict(r) for r in await conn.fetch(
-                        "SELECT id, sentence, answer, source, is_modified, flagged "
+                        "SELECT id, sentence, answer, source, is_modified, "
+                        "flagged, translation, hint "
                         "FROM drill_sentences WHERE grammar_point_id = $1", gp_id,
                     )
                 ]
                 sync = plan_drill_sync(existing, point["drills"], protect=protect)
 
                 async def _write_hints(drill_id, d):
+                    # Seed-authored rows are authoritative for their locale
+                    # (upsert over a machine-filled draft); locales the seed
+                    # doesn't carry are left to the auto-translate loop.
                     n = 0
                     for locale, ht in (d.get("hint_translations") or {}).items():
                         await conn.execute(
@@ -439,6 +443,10 @@ class GrammarSeeder:
                             INSERT INTO drill_hint_translations
                                 (drill_id, locale, hint, translation, reviewed)
                             VALUES ($1, $2, $3, $4, $5)
+                            ON CONFLICT (drill_id, locale) DO UPDATE
+                              SET hint = EXCLUDED.hint,
+                                  translation = EXCLUDED.translation,
+                                  reviewed = EXCLUDED.reviewed
                             """,
                             drill_id, locale, ht["hint"], ht["translation"],
                             ht["reviewed"],
@@ -457,10 +465,19 @@ class GrammarSeeder:
                         row["id"], d["translation"], d["hint"], d.get("gloss"),
                         d.get("transliteration"), d["display_order"], d.get("cell"),
                     )
-                    await conn.execute(
-                        "DELETE FROM drill_hint_translations WHERE drill_id = $1",
-                        row["id"],
-                    )
+                    # Locale rows are renderings of the English translation
+                    # and hint — they go stale only when THOSE changed. A
+                    # re-seed that merely reorders or re-cells a drill must
+                    # not wipe machine-filled overlays (the loop would just
+                    # re-spend to restore them). Seed-authored locales upsert
+                    # either way.
+                    if (row.get("translation"), row.get("hint")) != (
+                        d["translation"], d["hint"]
+                    ):
+                        await conn.execute(
+                            "DELETE FROM drill_hint_translations WHERE drill_id = $1",
+                            row["id"],
+                        )
                     hint_rows += await _write_hints(row["id"], d)
                     drills_updated += 1
                 for d in sync["insert"]:

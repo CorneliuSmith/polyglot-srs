@@ -53,3 +53,23 @@ async def test_discover_pairs_fails_closed_without_the_migration():
     this feature's degrade is 'translate nothing', mirroring how visibility
     degrades toward 'show nothing unreviewed'."""
     assert await discover_pairs(_NoColumnConn()) == []
+
+
+class TestTextCharters:
+    """Titles/labels and explanations get purpose-fit prompts — an
+    explanation is a lesson and a title is a label, and neither should ride
+    through the example-sentence charter anymore."""
+
+    def test_label_charter_protects_course_language_material(self):
+        from backend.services.translate import _TEXT_SYSTEMS
+        s = _TEXT_SYSTEMS["label"].format(target="Spanish")
+        assert "Spanish" in s
+        assert "(el / la)" in s  # course-language material stays verbatim
+        assert "example sentences" not in s
+
+    def test_prose_charter_is_for_explanations_not_sentences(self):
+        from backend.services.translate import _TEXT_SYSTEMS
+        s = _TEXT_SYSTEMS["prose"].format(target="Arabic")
+        assert "Arabic" in s
+        assert "explanations" in s
+        assert "example sentences" not in s
