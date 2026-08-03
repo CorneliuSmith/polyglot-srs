@@ -15,6 +15,7 @@ import { recordGymAttempt, generateGymDrills } from '../../api/gym'
 import { getLanguages, getProfile, updateProfile } from '../../api/profile'
 import type { DueCard } from '../../api/types'
 import { usePrefsStore } from '../../stores/prefsStore'
+import { languageDisplayName } from '../../lib/languages'
 import { useReviewSession } from './useReviewSession'
 import {
   clearSnapshot,
@@ -109,7 +110,7 @@ function ReviewSessionInner({
   onLocaleChanged: () => void
 }) {
   const navigate = useNavigate()
-  const { t } = useTranslation()
+  const { t, i18n } = useTranslation()
   const queryClient = useQueryClient()
   const [searchParams] = useSearchParams()
   const cramPoints = cram ? (searchParams.get('points') ?? '') : ''
@@ -808,7 +809,7 @@ function ReviewSessionInner({
                     .filter((l) => l.code !== 'en')
                     .map((l) => (
                       <option key={l.code} value={l.code}>
-                        {l.name}
+                        {languageDisplayName(l.code, l.name, i18n.language)}
                       </option>
                     ))}
                 </select>

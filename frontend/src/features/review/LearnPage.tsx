@@ -11,6 +11,7 @@ import {
 } from '../../api/review'
 import { getLanguages, getProfile, updateProfile } from '../../api/profile'
 import { usePrefsStore } from '../../stores/prefsStore'
+import { languageDisplayName } from '../../lib/languages'
 import LanguageWrapper from '../../components/LanguageWrapper'
 import FormsPanel from '../../components/FormsPanel'
 import ExplanationView from '../../components/ExplanationView'
@@ -39,7 +40,7 @@ export default function LearnPage() {
 
 function LearnInner({ onLocaleChanged }: { onLocaleChanged: () => void }) {
   const navigate = useNavigate()
-  const { t } = useTranslation()
+  const { t, i18n } = useTranslation()
   const queryClient = useQueryClient()
   const [searchParams] = useSearchParams()
   // 'both' interleaves grammar + vocabulary in one session; each lesson then
@@ -388,7 +389,7 @@ function LearnInner({ onLocaleChanged }: { onLocaleChanged: () => void }) {
                   .filter((l) => l.code !== 'en')
                   .map((l) => (
                     <option key={l.code} value={l.code}>
-                      {l.name}
+                      {languageDisplayName(l.code, l.name, i18n.language)}
                     </option>
                   ))}
               </select>

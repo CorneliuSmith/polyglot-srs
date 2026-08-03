@@ -4,6 +4,7 @@ import { useQuery } from '@tanstack/react-query'
 import { getPlacementHistory } from '../../api/onboarding'
 import { getLanguages } from '../../api/profile'
 import { usePrefsStore } from '../../stores/prefsStore'
+import { languageDisplayName } from '../../lib/languages'
 import PlacementTest from './PlacementTest'
 
 /**
@@ -20,7 +21,7 @@ export default function PlacementOffer({
 }: {
   languageId: string | null
 }) {
-  const { t } = useTranslation()
+  const { t, i18n } = useTranslation()
   const dismissed = usePrefsStore((s) => s.placementOfferDismissed)
   const dismiss = usePrefsStore((s) => s.dismissPlacementOffer)
   const [testing, setTesting] = useState(false)
@@ -60,12 +61,12 @@ export default function PlacementOffer({
       className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 px-4"
       role="dialog"
       aria-modal="true"
-      aria-label={t('placement.offerDialogLabel', { language: language.name })}
+      aria-label={t('placement.offerDialogLabel', { language: languageDisplayName(language.code, language.name, i18n.language) })}
       data-testid="placement-offer"
     >
       <div className="w-full max-w-md rounded-2xl bg-white p-5 shadow-xl space-y-3">
         <p className="text-xs uppercase tracking-wide text-lang font-semibold">
-          {t('placement.offerKicker', { language: language.name })}
+          {t('placement.offerKicker', { language: languageDisplayName(language.code, language.name, i18n.language) })}
         </p>
         <h2 className="text-base font-semibold text-gray-900">
           {t('placement.offerTitle')}

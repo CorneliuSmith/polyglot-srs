@@ -53,16 +53,15 @@ class ExplainRequest(BaseModel):
 
 async def _support_gloss_locale(conn, user_id: str, language_code: str) -> str:
     """Glosses follow the same rule as card content since #186: every course
-    renders help in the learner's support locale (a Turkish-from-Arabic
-    reader wants Arabic glosses), except when that locale IS the course
-    language — glossing Spanish in Spanish helps nobody, so English."""
+    renders help in the learner's support locale — including the self-pair
+    (Spanish-from-Spanish gets monolingual Spanish glosses, the way a
+    learner's dictionary would)."""
+    del language_code
     row = await conn.fetchrow(
         "SELECT support_locale FROM user_profiles WHERE id = $1", user_id
     )
     locale = row["support_locale"] if row else None
-    if locale and locale != language_code:
-        return locale
-    return "en"
+    return locale or "en"
 
 
 @router.post("/generate")

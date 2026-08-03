@@ -12,6 +12,7 @@ import { getSchemaHealth, pendingMigrationNote } from '../../api/health'
 import type { PlacementItem, WritingAssessment } from '../../api/onboarding'
 import LanguageWrapper from '../../components/LanguageWrapper'
 import { usePrefsStore } from '../../stores/prefsStore'
+import { languageDisplayName } from '../../lib/languages'
 import { convertTranslit, finalizeInput, isTranslitEnabled } from '../keyboards/translit'
 import OnScreenKeyboard, { hasKeyboardLayout } from '../keyboards/OnScreenKeyboard'
 import type { KeyboardLanguage } from '../keyboards/OnScreenKeyboard'
@@ -58,7 +59,7 @@ export default function PlacementTest({
   onClose: () => void
 }) {
   const qc = useQueryClient()
-  const { t } = useTranslation()
+  const { t, i18n } = useTranslation()
   const qwertyTranslit = usePrefsStore((s) => s.qwertyTranslit)
 
   const [history, setHistory] = useState<{ id: string; input: string }[]>([])
@@ -158,14 +159,14 @@ export default function PlacementTest({
       className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 px-4"
       role="dialog"
       aria-modal="true"
-      aria-label={t('placement.dialogLabel', { language: language.name })}
+      aria-label={t('placement.dialogLabel', { language: languageDisplayName(language.code, language.name, i18n.language) })}
       data-testid="placement-test"
     >
       <div className="w-full max-w-md rounded-2xl bg-white p-5 shadow-xl space-y-4">
         {unavailable ? (
           <div className="space-y-3">
             <p className="text-sm font-semibold text-gray-800">
-              {t('placement.unavailableTitle', { language: language.name })}
+              {t('placement.unavailableTitle', { language: languageDisplayName(language.code, language.name, i18n.language) })}
             </p>
             <p className="text-xs text-gray-500">
               {t('placement.unavailableHelp')}
@@ -185,7 +186,7 @@ export default function PlacementTest({
               <Trans
                 i18nKey="placement.resultSummary"
                 values={{
-                  language: language.name,
+                  language: languageDisplayName(language.code, language.name, i18n.language),
                   level: result.level ?? 'A1',
                   questions: t('placement.questionCount', { count: result.asked }),
                 }}
@@ -230,7 +231,7 @@ export default function PlacementTest({
         ) : writing ? (
           <div className="space-y-3" data-testid="placement-writing">
             <p className="text-sm font-semibold text-gray-800">
-              {t('placement.writeParagraph', { language: language.name })}
+              {t('placement.writeParagraph', { language: languageDisplayName(language.code, language.name, i18n.language) })}
             </p>
             <p className="text-xs text-gray-500">
               {t('placement.writingHelp')}
@@ -241,7 +242,7 @@ export default function PlacementTest({
                 onChange={(e) => setSample(e.target.value)}
                 maxLength={1500}
                 rows={7}
-                aria-label={t('placement.writingLabel', { language: language.name })}
+                aria-label={t('placement.writingLabel', { language: languageDisplayName(language.code, language.name, i18n.language) })}
                 className="w-full rounded-lg border border-gray-300 px-3 py-2 text-base"
               />
             </LanguageWrapper>
@@ -317,7 +318,7 @@ export default function PlacementTest({
           <div className="space-y-4">
             <div className="flex items-center justify-between gap-2">
               <h2 className="font-semibold text-gray-800">
-                {t('placement.answerIn', { language: language.name })}
+                {t('placement.answerIn', { language: languageDisplayName(language.code, language.name, i18n.language) })}
               </h2>
               <span className="shrink-0 text-xs text-gray-400 tabular-nums">
                 {history.length + 1} / {maxItems}
