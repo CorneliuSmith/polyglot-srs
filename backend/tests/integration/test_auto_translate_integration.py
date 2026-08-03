@@ -109,12 +109,24 @@ async def test_english_course_fills_a_live_support_locale(pool, monkeypatch):
 
     stats = await _cycle(pool)
 
-    assert stats["processed"] == 2
+    assert stats["applied"] == 1
+    assert stats["queued"] == 1
     # Batch item 0 is the mock's designated reject → queued, never applied.
     assert await _queued(pool, w1, "pt")
     assert await _gloss(pool, w1, "pt") is None
     # Item 1 is approved → the pt overlay row exists (mock echoes "[word]").
     assert await _gloss(pool, w2, "pt") == "[gunwale]"
+    # The English course has a real Gym manifest (data/gym/en.json), so the
+    # same sweep also fills the pt picker labels — the "El Gimnasio shows
+    # 'Present -ar'" gap.
+    assert stats["gym_labels"] >= 1
+    async with pool.privileged_connection() as conn:
+        n = await conn.fetchval(
+            "SELECT count(*) FROM gym_label_translations "
+            "WHERE language_code = 'en' AND locale = 'pt'")
+    # Every manifest entry got a row; the mock-rejected first entry stores
+    # NULLs (attempted, English fallback) and isn't counted as applied.
+    assert n >= stats["gym_labels"]
 
 
 async def test_nothing_happens_while_the_switch_is_off(pool, monkeypatch):
@@ -258,3 +270,82 @@ async def test_drills_and_explanations_fill_after_the_glosses(pool, monkeypatch)
     stats2 = await _cycle(pool)
     assert stats2["drills"] == 0
     assert stats2["processed"] == 1
+
+
+async def test_demand_lane_beats_the_sweep_and_clears_itself(pool, monkeypatch):
+    """A card read that served English records demand; the next cycle
+    translates exactly those rows FIRST (any level — no waiting for the
+    A1-first ordering) and deletes the queue rows, approved or not."""
+    from backend.services.auto_translate import note_missing_content
+
+    _mock_ai(monkeypatch)
+    course = await _lang(pool, "at8", "Demandish", auto=True)
+    await _lang(pool, "fr2", "French2", auto=False)
+    await _learner(pool, "fr@at8", course, "fr2")
+
+    async with pool.privileged_connection() as conn:
+        # A C2 point: the breadth-first sweep would reach it LAST, so its
+        # translation appearing proves the demand lane ran.
+        gp = await conn.fetchval(
+            "INSERT INTO grammar_points (language_id, title, level, reviewed, "
+            "display_order, explanation, culture_note) "
+            "VALUES ($1, 'The aorist optative', 'C2', true, 99, "
+            "'Rare but real.', 'Poets love it.') RETURNING id", course)
+        # Filler the sweep would otherwise spend the whole cycle on.
+        for i in range(3):
+            await conn.execute(
+                "INSERT INTO vocabulary (language_id, word, level, "
+                "frequency_rank) VALUES ($1, $2, 'A1', $3)",
+                course, f"word{i}", i + 1)
+        await note_missing_content(conn, "fr2", grammar_ids=[gp])
+        pending = await conn.fetch(
+            "SELECT kind FROM translation_demand WHERE locale = 'fr2'")
+        # The detector mirrors pending_*: explanation + title/notes are
+        # missing (no drills exist for the point, so no drill demand).
+        assert sorted(r["kind"] for r in pending) == [
+            "explanation", "grammar_meta"]
+
+    stats = await _cycle(pool)
+    assert stats["demand"] >= 1
+
+    async with pool.privileged_connection() as conn:
+        gpt = await conn.fetchrow(
+            "SELECT title, culture_note FROM grammar_point_translations "
+            "WHERE grammar_point_id = $1 AND locale = 'fr2'", gp)
+        # Title was batch item 0 → mock-rejected → NULL (English fallback);
+        # the culture note is item 0 of ITS batch too. Both fields attempted,
+        # the row itself proves grammar_meta ran through the demand lane.
+        assert gpt is not None
+        et = await conn.fetchval(
+            "SELECT count(*) FROM explanation_translations "
+            "WHERE grammar_point_id = $1 AND locale = 'fr2'", gp)
+        assert et in (0, 1)  # rejected-or-stored; either way it was attempted
+        left = await conn.fetchval(
+            "SELECT count(*) FROM translation_demand WHERE locale = 'fr2'")
+        assert left == 0
+
+
+async def test_demand_for_a_switched_off_course_is_ignored(pool, monkeypatch):
+    """Demand is a priority lane, not a bypass: rows for a course whose
+    auto-translate toggle is off are never picked up (and cost nothing)."""
+    from backend.services.auto_translate import note_missing_content
+
+    _mock_ai(monkeypatch)
+    course = await _lang(pool, "at9", "Offish", auto=False)
+    await _lang(pool, "ru2", "Russian2", auto=False)
+
+    async with pool.privileged_connection() as conn:
+        gp = await conn.fetchval(
+            "INSERT INTO grammar_points (language_id, title, level, reviewed, "
+            "display_order, explanation) VALUES ($1, 'Point', 'A1', true, 1, "
+            "'Text.') RETURNING id", course)
+        await note_missing_content(conn, "ru2", grammar_ids=[gp])
+
+    stats = await _cycle(pool)
+    assert stats["demand"] == 0
+
+    async with pool.privileged_connection() as conn:
+        n = await conn.fetchval(
+            "SELECT count(*) FROM grammar_point_translations "
+            "WHERE grammar_point_id = $1", gp)
+        assert n == 0

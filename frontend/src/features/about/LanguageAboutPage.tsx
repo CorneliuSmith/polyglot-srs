@@ -47,7 +47,7 @@ export default function LanguageAboutPage() {
 
   const language = languages.find((l) => l.id === activeLanguageId)
   const facts = factsFor(language?.code, i18n.language)
-  const syntax = syntaxFor(language?.code)
+  const syntax = syntaxFor(language?.code, i18n.language)
   const name = language?.name ?? 'this language'
 
   const rows: { label: string; value: string }[] = facts

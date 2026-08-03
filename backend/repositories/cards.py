@@ -14,6 +14,7 @@ import asyncpg
 from backend.repositories.curriculum import get_read_ref_keys, resolve_related
 from backend.repositories.explicit_gate import fetch_explicit_gated
 from backend.repositories.gym import get_gym_progress
+from backend.services.auto_translate import note_missing_content
 from backend.services.cell_glosses import cell_gloss
 from backend.services.extract import ANSWER_MARKER, make_cloze
 from backend.services.gym_manifest import nonstandard_point_titles
@@ -42,6 +43,37 @@ async def _effective_locale(
     if support_locale and support_locale != "en":
         return support_locale
     return "en"
+
+
+# Per-process cache: whether an overlay table's migration has landed. Read
+# paths that join a new table must degrade to the un-joined query until the
+# owner applies the migration (the missing-migrations rule); to_regclass is
+# one cheap catalog lookup, cached after the first call.
+_TABLE_EXISTS: dict[str, bool] = {}
+
+
+async def _table_exists(conn: asyncpg.Connection, table: str) -> bool:
+    if table not in _TABLE_EXISTS:
+        _TABLE_EXISTS[table] = bool(
+            await conn.fetchval("SELECT to_regclass($1) IS NOT NULL", table)
+        )
+    return _TABLE_EXISTS[table]
+
+
+def _gpt_sql(has_gpt: bool, locale_param: str) -> dict[str, str]:
+    """SQL fragments for the grammar_point_translations overlay: a join and
+    per-field COALESCEs, collapsing to the plain columns until the table
+    exists."""
+    if has_gpt:
+        return {
+            "join": "LEFT JOIN grammar_point_translations gpt "
+                    f"ON gpt.grammar_point_id = gp.id AND gpt.locale = {locale_param}",
+            "title": "COALESCE(gpt.title, gp.title)",
+            "culture_note": "COALESCE(gpt.culture_note, gp.culture_note)",
+            "function_note": "COALESCE(gpt.function_note, gp.function_note)",
+        }
+    return {"join": "", "title": "gp.title", "culture_note": "gp.culture_note",
+            "function_note": "gp.function_note"}
 
 
 async def get_due_cards(
@@ -76,6 +108,7 @@ async def get_due_cards(
     plus personal cloze cards (the learner's own words live with vocab).
     """
     eff_locale = await _effective_locale(conn, language_id, support_locale)
+    gpt = _gpt_sql(await _table_exists(conn, "grammar_point_translations"), "$3")
     want_vocab = card_type in (None, "vocabulary")
     want_grammar = card_type in (None, "grammar")
     # -- Vocabulary cards ---------------------------------------------------
@@ -170,14 +203,14 @@ async def get_due_cards(
     # Fill-in-the-blank drills. All of a point's drills are fetched and each
     # appearance shows one at random, never the last-shown (same as vocab).
     grammar_rows = [] if not want_grammar else await conn.fetch(
-        """
+        f"""
         SELECT
             uc.id,
             uc.user_id,
             uc.language_id,
             uc.card_type,
             uc.card_id,
-            gp.title                        AS title,
+            {gpt["title"]}                  AS title,
             d.sentences                     AS drill_sentences,
             d.answers                       AS drill_answers,
             d.hints                         AS drill_hints,
@@ -195,6 +228,7 @@ async def get_due_cards(
         FROM user_cards uc
         JOIN grammar_points gp  ON uc.card_id = gp.id
         JOIN languages l        ON uc.language_id = l.id
+        {gpt["join"]}
         LEFT JOIN LATERAL (
             -- WP17: hint + translation prefer the learner's locale row
             -- (drill_hint_translations) and fall back to the authored
@@ -279,6 +313,14 @@ async def get_due_cards(
     # whole batch).
     stats = await _sentence_stats(
         conn, [str(r["id"]) for r in [*vocab_rows, *grammar_rows]]
+    )
+
+    # Anything this session serves with an English fallback becomes demand:
+    # the auto-translate loop wakes and fills it before its ordered sweep.
+    await note_missing_content(
+        conn, eff_locale,
+        vocab_ids=[r["card_id"] for r in vocab_rows],
+        grammar_ids=[r["card_id"] for r in grammar_rows],
     )
 
     # Merge and sort by next_review
@@ -1011,14 +1053,20 @@ async def get_card_details_bulk(
     grammar_examples: dict = {}
     grammar_quiz: dict = {}
     if grammar_ids:
+        gpt = _gpt_sql(
+            await _table_exists(conn, "grammar_point_translations"), "$2"
+        )
         for gp in await conn.fetch(
-            """
-            SELECT gp.id, gp.title, gp.function_note,
+            f"""
+            SELECT gp.id, {gpt["title"]} AS title,
+                   {gpt["function_note"]} AS function_note,
                    COALESCE(et.explanation, gp.explanation) AS explanation,
-                   gp.culture_note, gp.reference_links, gp.reviewed
+                   {gpt["culture_note"]} AS culture_note,
+                   gp.reference_links, gp.reviewed
             FROM grammar_points gp
             LEFT JOIN explanation_translations et
                    ON et.grammar_point_id = gp.id AND et.locale = $2
+            {gpt["join"]}
             WHERE gp.id = ANY($1::uuid[])
             """,
             grammar_ids,
@@ -1064,6 +1112,11 @@ async def get_card_details_bulk(
                     "transliteration": e["transliteration"],
                     "hint": e["hint"],
                 }
+
+    # Whatever this Learn batch had to serve in English becomes demand for
+    # the auto-translate loop.
+    await note_missing_content(conn, eff_locale,
+                               vocab_ids=vocab_ids, grammar_ids=grammar_ids)
 
     details: dict[str, dict] = {}
     for c in cards:
@@ -1270,6 +1323,8 @@ async def get_card_detail(
             eff_locale,
             alias="es",
         )
+        await note_missing_content(conn, eff_locale,
+                                   vocab_ids=[card["card_id"]])
         # The learner's OWN sentences with this word (from notes → cloze
         # cards), shown under Examples — RLS scopes them to this user.
         own = []
@@ -1319,20 +1374,24 @@ async def get_card_detail(
     # the learner's locale on any course (same COALESCE rule as vocabulary
     # definitions — English wherever the overlay hasn't been filled yet).
     eff_locale = await _effective_locale(conn, card["language_id"], support_locale)
+    gpt = _gpt_sql(await _table_exists(conn, "grammar_point_translations"), "$2")
     gp = await conn.fetchrow(
-        """
-        SELECT gp.title, gp.function_note,
+        f"""
+        SELECT {gpt["title"]} AS title, {gpt["function_note"]} AS function_note,
                COALESCE(et.explanation, gp.explanation) AS explanation,
-               gp.culture_note, gp.explanation_source, gp.reference_links,
+               {gpt["culture_note"]} AS culture_note,
+               gp.explanation_source, gp.reference_links,
                gp.related, gp.reviewed
         FROM grammar_points gp
         LEFT JOIN explanation_translations et
                ON et.grammar_point_id = gp.id AND et.locale = $2
+        {gpt["join"]}
         WHERE gp.id = $1
         """,
         card["card_id"],
         eff_locale,
     )
+    await note_missing_content(conn, eff_locale, grammar_ids=[card["card_id"]])
     related = (
         await resolve_related(conn, card["language_id"], gp["related"]) if gp else []
     )
@@ -1463,17 +1522,22 @@ async def get_cram_cards(
     (it's the meaning aid, and the only sensible language for it). Localized
     hints still apply in the graded Learn/Review flow, just not here.
     """
+    # gp.title stays the authored English (the manifest join key for the
+    # irregular-forms boost below); title_l10n is what the card displays.
+    gpt = _gpt_sql(await _table_exists(conn, "grammar_point_translations"), "$2")
     rows = await conn.fetch(
-        """
+        f"""
         SELECT
             gp.id    AS point_id,
             gp.title AS title,
+            {gpt["title"]} AS title_l10n,
             l.code   AS language_code,
             d.drill_ids,
             d.sentences, d.answers, d.hints, d.translations,
             d.glosses, d.transliterations, d.cells, d.lemmas
         FROM grammar_points gp
         JOIN languages l ON gp.language_id = l.id
+        {gpt["join"]}
         LEFT JOIN LATERAL (
             SELECT
                 array_agg(ds.id          ORDER BY ds.display_order, ds.id) AS drill_ids,
@@ -1510,6 +1574,10 @@ async def get_cram_cards(
         """,
         point_ids,
         support_locale or "en",
+    )
+    await note_missing_content(
+        conn, support_locale if support_locale and support_locale != "en" else None,
+        grammar_ids=list(point_ids),
     )
     today = datetime.now(UTC).date().isoformat()
     now = datetime.now(UTC)
@@ -1572,7 +1640,7 @@ async def get_cram_cards(
                 "drill_id": str(r["drill_ids"][i]) if r["drill_ids"] else None,
                 "card_type": "grammar",
                 "card_id": str(r["point_id"]),
-                "title": r["title"],
+                "title": r["title_l10n"] if "title_l10n" in r.keys() else r["title"],
                 "sentence": sentences[i],
                 "correct_answer": r["answers"][i],
                 "hint": r["hints"][i],
@@ -2042,15 +2110,21 @@ async def get_deck_items(
     if cl is None:
         return None
     if cl["list_type"] == "grammar":
+        eff = await _effective_locale(conn, str(cl["language_id"]), support_locale)
+        gpt = _gpt_sql(
+            await _table_exists(conn, "grammar_point_translations"), "$4"
+        )
         rows = await conn.fetch(
-            """
-            SELECT gp.id, gp.title AS item, gp.function_note AS detail,
+            f"""
+            SELECT gp.id, {gpt["title"]} AS item,
+                   {gpt["function_note"]} AS detail,
                    gp.level, gp.reviewed, uc.id AS user_card_id,
                    uc.is_suspended, uc.repetitions
             FROM grammar_points gp
             JOIN languages l ON gp.language_id = l.id
             LEFT JOIN user_cards uc
                    ON uc.card_id = gp.id AND uc.card_type = 'grammar'
+            {gpt["join"]}
             WHERE gp.language_id = $1
               AND ($2::text IS NULL OR gp.level = $2)
               AND (CASE l.grammar_review_policy
@@ -2061,8 +2135,10 @@ async def get_deck_items(
             ORDER BY gp.display_order ASC, gp.title
             LIMIT $3
             """,
-            cl["language_id"], cl["level"], limit,
+            cl["language_id"], cl["level"], limit, eff,
         )
+        await note_missing_content(conn, eff,
+                                   grammar_ids=[r["id"] for r in rows])
         items = [
             {"id": str(r["id"]), "kind": "grammar", "item": r["item"],
              "detail": r["detail"], "level": r["level"],
@@ -2101,6 +2177,8 @@ async def get_deck_items(
             cl["language_id"], cl["level"], limit, eff,
             alias="v",
         )
+        await note_missing_content(conn, eff,
+                                   vocab_ids=[r["id"] for r in rows])
         items = [
             {"id": str(r["id"]), "kind": "vocabulary", "item": r["item"],
              "detail": r["detail"], "level": r["level"], "reviewed": True,
@@ -2164,6 +2242,7 @@ async def get_vocab_item(
         vocab_id, eff,
         alias="es",
     )
+    await note_missing_content(conn, eff, vocab_ids=[vocab_id])
     return {
         "id": str(row["id"]),
         "word": row["word"],

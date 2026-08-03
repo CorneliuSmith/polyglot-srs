@@ -1034,6 +1034,15 @@ export const LANGUAGE_SYNTAX: Record<string, SyntaxExample[]> = {
   ],
 }
 
-export function syntaxFor(code: string | undefined | null): SyntaxExample[] {
-  return (code && LANGUAGE_SYNTAX[code]) || []
+import { SYNTAX_L10N } from './factsL10n'
+
+/** Glossed examples for *code*, preferring an overlay in the reader's UI
+ * language (same rule as factsFor); English is the fallback. */
+export function syntaxFor(
+  code: string | undefined | null,
+  uiLanguage?: string,
+): SyntaxExample[] {
+  if (!code) return []
+  const base = (uiLanguage ?? 'en').split('-')[0]
+  return SYNTAX_L10N[base]?.[code] ?? LANGUAGE_SYNTAX[code] ?? []
 }

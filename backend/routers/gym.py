@@ -13,10 +13,12 @@ from __future__ import annotations
 
 import uuid
 
+import asyncpg
 from fastapi import APIRouter, Depends, HTTPException, status
 
 from backend.dependencies import get_current_user
 from backend.repositories.pool import rls_connection
+from backend.services.auto_translate import note_demand
 from backend.services.gym_manifest import load_manifest as _load_manifest
 
 router = APIRouter()
@@ -51,6 +53,36 @@ async def gym_manifest(
         manifest = _load_manifest(code)
         if not manifest:
             return {"columns": []}
+
+        # Picker labels/usage lines render in the learner's support locale
+        # where a translation exists (gym_label_translations, filled by the
+        # auto-translate loop), falling back per entry to the manifest's
+        # English. `example` is course-language text and never swaps.
+        locale = await conn.fetchval(
+            "SELECT support_locale FROM user_profiles WHERE id = $1", user["id"]
+        )
+        labels_l10n: dict[str, dict] = {}
+        if locale and locale not in ("en", code):
+            try:
+                labels_l10n = {
+                    r["point"]: r for r in await conn.fetch(
+                        """SELECT point, label, usage_note
+                           FROM gym_label_translations
+                           WHERE language_code = $1 AND locale = $2""",
+                        code, locale,
+                    )
+                }
+            except asyncpg.exceptions.UndefinedTableError:
+                labels_l10n = {}
+            else:
+                # Anything the manifest has but the overlay doesn't becomes
+                # demand — the loop translates the whole picker in one batch.
+                manifest_points = {
+                    e["point"] for col in manifest.get("columns", [])
+                    for e in col.get("entries", [])
+                }
+                if manifest_points - set(labels_l10n):
+                    await note_demand(conn, "gym", [language_id], locale)
 
         titles = [
             e["point"] for col in manifest.get("columns", [])
@@ -100,10 +132,11 @@ async def gym_manifest(
             r = by_title.get(e["point"])
             if not r or not r["drills"]:
                 continue
+            t = labels_l10n.get(e["point"])
             entries.append({
                 "point_id": str(r["id"]),
-                "label": e["label"],
-                "usage": e.get("usage"),
+                "label": (t and t["label"]) or e["label"],
+                "usage": (t and t["usage_note"]) or e.get("usage"),
                 "example": e.get("example"),
                 "level": r["level"],
                 "drills": r["drills"],

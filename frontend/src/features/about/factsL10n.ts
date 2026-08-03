@@ -91,10 +91,31 @@ const trPt: LanguageFacts = {
   ],
 }
 
+// Full per-locale overlays (all courses), authored in factsL10n.{locale}.ts.
+// The tr* entries above were the originals and are reused verbatim inside
+// those files; spreading them last keeps them authoritative should the two
+// ever diverge.
+import { FACTS_AR, SYNTAX_AR } from './factsL10n.ar'
+import { FACTS_ES, SYNTAX_ES } from './factsL10n.es'
+import { FACTS_FR, SYNTAX_FR } from './factsL10n.fr'
+import { FACTS_PT, SYNTAX_PT } from './factsL10n.pt'
+import { FACTS_RU, SYNTAX_RU } from './factsL10n.ru'
+import type { SyntaxExample } from './languageFacts'
+
 export const FACTS_L10N: Record<string, Record<string, LanguageFacts>> = {
-  es: { tr: trEs },
-  ar: { tr: trAr },
-  ru: { tr: trRu },
-  fr: { tr: trFr },
-  pt: { tr: trPt },
+  es: { ...FACTS_ES, tr: trEs },
+  ar: { ...FACTS_AR, tr: trAr },
+  ru: { ...FACTS_RU, tr: trRu },
+  fr: { ...FACTS_FR, tr: trFr },
+  pt: { ...FACTS_PT, tr: trPt },
+}
+
+/** Glossed word-order examples, localized: same sentences and words as the
+ * base, with glosses/translations/notes in the reader's UI language. */
+export const SYNTAX_L10N: Record<string, Record<string, SyntaxExample[]>> = {
+  es: SYNTAX_ES,
+  ar: SYNTAX_AR,
+  ru: SYNTAX_RU,
+  fr: SYNTAX_FR,
+  pt: SYNTAX_PT,
 }
