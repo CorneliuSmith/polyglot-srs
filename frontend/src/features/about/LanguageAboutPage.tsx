@@ -1,4 +1,5 @@
 import { useQuery } from '@tanstack/react-query'
+import DirArrow from '../../components/DirArrow'
 import UiLanguageSwitcher from '../../components/UiLanguageSwitcher'
 import { useTranslation } from 'react-i18next'
 import { useNavigate } from 'react-router-dom'
@@ -24,8 +25,7 @@ function GlossedExample({ example }: { example: SyntaxExample }) {
         ))}
       </div>
       <p className="mt-2 text-sm text-gray-700">
-        <span aria-hidden className="text-gray-400">→ </span>
-        {example.translation}
+        <DirArrow className="text-gray-400" /> {example.translation}
       </p>
       {example.note && (
         <p className="mt-1 text-xs text-gray-500">{example.note}</p>

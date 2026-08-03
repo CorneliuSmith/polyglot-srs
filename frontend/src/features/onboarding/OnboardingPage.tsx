@@ -12,6 +12,7 @@ import {
 } from '../../api/onboarding'
 import type { PlacementItem, WritingAssessment } from '../../api/onboarding'
 import { usePrefsStore } from '../../stores/prefsStore'
+import DirArrow from '../../components/DirArrow'
 import LanguageWrapper from '../../components/LanguageWrapper'
 import { formatPrice, getPlanPrices } from '../../api/billing'
 import { languageDisplayName, visibleLanguages } from '../../lib/languages'
@@ -170,7 +171,7 @@ export default function OnboardingPage() {
               aria-label={t('onboarding.back')}
               className="shrink-0 w-9 h-9 flex items-center justify-center rounded-full border border-gray-200 text-gray-500 disabled:opacity-0 hover:bg-gray-50 active:bg-gray-100"
             >
-              <span aria-hidden>←</span>
+              <DirArrow dir="back" />
             </button>
             <div
               className="flex-1 h-1.5 bg-gray-100 rounded-full overflow-hidden"

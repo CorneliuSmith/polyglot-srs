@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useNavigate } from 'react-router-dom'
 import { usePrefsStore } from '../../stores/prefsStore'
+import DirArrow from '../../components/DirArrow'
 import { WHATS_NEW } from './whatsNew'
 
 /** The changelog modal: every entry, newest first, with a try-it link where
@@ -68,8 +69,7 @@ export default function WhatsNewPanel({ onClose }: { onClose: () => void }) {
                     }}
                     className="mt-1.5 text-sm font-medium text-lang hover:underline"
                   >
-                    {entry.linkLabel ?? t('whatsNew.tryIt')}{' '}
-                    →
+                    {entry.linkLabel ?? t('whatsNew.tryIt')} <DirArrow />
                   </button>
                 )}
               </li>
