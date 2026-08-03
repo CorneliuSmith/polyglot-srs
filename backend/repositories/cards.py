@@ -51,16 +51,22 @@ async def _effective_locale(
 # Per-process cache: whether an overlay table's migration has landed. Read
 # paths that join a new table must degrade to the un-joined query until the
 # owner applies the migration (the missing-migrations rule); to_regclass is
-# one cheap catalog lookup, cached after the first call.
+# one cheap catalog lookup that NEVER raises — which matters, because these
+# reads run inside one transaction and a thrown UndefinedTableError would
+# abort it and every query after it. Only presence is cached: a migration
+# applied while the app runs is picked up on the next probe, no restart.
 _TABLE_EXISTS: dict[str, bool] = {}
 
 
 async def _table_exists(conn: asyncpg.Connection, table: str) -> bool:
-    if table not in _TABLE_EXISTS:
-        _TABLE_EXISTS[table] = bool(
-            await conn.fetchval("SELECT to_regclass($1) IS NOT NULL", table)
-        )
-    return _TABLE_EXISTS[table]
+    if _TABLE_EXISTS.get(table):
+        return True
+    present = bool(
+        await conn.fetchval("SELECT to_regclass($1) IS NOT NULL", table)
+    )
+    if present:
+        _TABLE_EXISTS[table] = True
+    return present
 
 
 def _gpt_sql(has_gpt: bool, locale_param: str) -> dict[str, str]:

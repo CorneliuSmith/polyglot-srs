@@ -225,3 +225,87 @@ async def test_the_self_pair_localizes_too(pool, monkeypatch):
     not self-translations."""
     _mock_ai(monkeypatch)
     await _walkthrough(pool, "zz8", "zz8", "Zz8ish", "zz8")
+
+
+async def test_everything_degrades_when_the_migration_is_missing(pool, monkeypatch):
+    """The state production was actually in: migration 20260914 not applied.
+
+    Every connection here runs inside ONE transaction (pool.py), so a query
+    against a missing table doesn't just fail — it aborts the transaction
+    and every later query in the same request dies with it. That's how the
+    Gym vanished for locale-set learners and how whole sweeps died without
+    translating anything. This drops the three new tables (inside a rolled-
+    back savepoint) and drives every touched path: reads serve English, the
+    sweep still translates the old kinds, the Gym overlay yields {}, and —
+    the actual regression — the connection stays usable afterwards."""
+    from backend.repositories import cards as cards_repo
+    from backend.repositories.cards import pretranslate_upcoming
+    from backend.routers.gym import label_overlay
+    from backend.services.auto_translate import note_missing_content
+
+    _mock_ai(monkeypatch)
+    course = await _lang(pool, "dg1", "Degradish", auto=True)
+    await _lang(pool, "fr9", "French9", auto=False)
+    uid = await _learner(pool, "degrade@dg1", course, "fr9")
+    c = await _build_course(pool, course, uid, "dg1")
+
+    async with pool.privileged_connection() as conn:
+        sp = conn.transaction()
+        await sp.start()
+        try:
+            for t in ("translation_demand", "gym_label_translations",
+                      "grammar_point_translations"):
+                await conn.execute(f"DROP TABLE {t}")
+            # The positive cache would happily join a table we just dropped.
+            cards_repo._TABLE_EXISTS.clear()
+
+            # Learn start (incl. the pre-translate lookahead) must not blow up.
+            batch = await add_mixed_learn_batch(conn, uid, course, 4)
+            assert batch["added"] == 4
+            await pretranslate_upcoming(conn, uid, course, 4)
+
+            # Every read path serves the authored English, no exception.
+            details = await get_card_details_bulk(
+                conn, [str(i) for i in batch["items"]], "fr9")
+            assert "dg1 second point" in {d["title"] for d in details.values()}
+            await confirm_learn_batch(conn, uid,
+                                      [str(i) for i in batch["items"]])
+            due = await get_due_cards(conn, course, 20, "fr9")
+            gp2 = next(d for d in due if d["card_type"] == "grammar"
+                       and str(d["card_id"]) == c["points"][1])
+            assert gp2["hint"] == "the verb to see"
+            lesson = await get_curriculum_point(conn, uid, c["points"][1],
+                                               "fr9")
+            assert lesson["title"] == "dg1 second point"
+            cram = await get_cram_cards(conn, c["points"], per_point=1,
+                                        support_locale="fr9", user_id=uid)
+            assert cram
+
+            # Demand recording is a silent no-op, not a transaction poison.
+            await note_missing_content(conn, "fr9", vocab_ids=c["words"],
+                                       grammar_ids=c["points"])
+
+            # The Gym overlay degrades to English labels, not a 500.
+            manifest = {"columns": [{"entries": [{"point": "dg1 first point",
+                                                  "label": "P1"}]}]}
+            assert await label_overlay(conn, "dg1", "fr9", manifest,
+                                       course) == {}
+
+            # The sweep still translates the kinds whose tables exist.
+            stats = await run_translation_cycle(conn)
+            assert stats["applied"] >= 1 or stats["drills"] >= 1
+            assert stats["demand"] == 0
+            assert stats["grammar_meta"] == 0
+            assert stats["gym_labels"] == 0
+
+            # THE regression: the transaction survived all of the above.
+            assert await conn.fetchval("SELECT 1") == 1
+        finally:
+            await sp.rollback()
+            cards_repo._TABLE_EXISTS.clear()
+        # Tables are back and the outer transaction is healthy.
+        assert await conn.fetchval(
+            "SELECT to_regclass('translation_demand') IS NOT NULL")
+        await conn.execute(
+            "UPDATE languages SET auto_translate_enabled = false WHERE id = $1",
+            course)
