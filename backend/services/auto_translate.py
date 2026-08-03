@@ -60,9 +60,6 @@ DEMAND_LIMIT = 50
 # ---------------------------------------------------------------------------
 
 _wake = asyncio.Event()
-# Process-cached fail-closed marker: once the demand table is known missing
-# (migration not applied), reads stop paying for the failed INSERT.
-_demand_table_missing = False
 
 
 def kick() -> None:
@@ -70,28 +67,38 @@ def kick() -> None:
     _wake.set()
 
 
+async def table_present(conn, table: str) -> bool:
+    """Whether *table*'s migration has landed — probed with to_regclass,
+    which NEVER raises. This matters more than it looks: every pooled
+    connection here runs inside one transaction (pool.py), so a thrown
+    UndefinedTableError doesn't just fail its own query — it aborts the
+    transaction and every later query in the same request/sweep dies with
+    it. That took the whole Gym manifest down (and killed entire sweeps)
+    when the 20260914 migration wasn't applied yet. Probe first; never let
+    a query against a maybe-missing table reach the server."""
+    return bool(await conn.fetchval("SELECT to_regclass($1) IS NOT NULL", table))
+
+
 async def note_demand(conn, kind: str, ref_ids, locale: str | None) -> None:
     """Record that content was served with an English fallback for *locale*.
 
-    Fire-and-forget semantics: any failure (table not migrated yet, RLS
-    denies, anything) degrades to 'no demand recorded' — the sweep still
-    fills the row eventually. Never raises into the read path.
+    Fire-and-forget semantics: any failure degrades to 'no demand
+    recorded' — the sweep still fills the row eventually. Never raises
+    into the read path, and (see table_present) never poisons its
+    transaction either.
     """
-    global _demand_table_missing
     ids = [r for r in ref_ids if r]
-    if _demand_table_missing or not ids or not locale or locale == "en":
+    if not ids or not locale or locale == "en":
         return
     try:
+        if not await table_present(conn, "translation_demand"):
+            return
         await conn.execute(
             """INSERT INTO translation_demand (kind, ref_id, locale)
                SELECT $1, unnest($2::uuid[]), $3
                ON CONFLICT DO NOTHING""",
             kind, ids, locale,
         )
-    except (asyncpg.exceptions.UndefinedTableError,
-            asyncpg.exceptions.InsufficientPrivilegeError):
-        _demand_table_missing = True
-        return
     except Exception as exc:  # noqa: BLE001 — never break a card read
         logger.debug("translation demand not recorded: %s", exc)
         return
@@ -148,19 +155,25 @@ async def note_missing_content(
     """Record every English fallback a card read just served: missing glosses
     and example translations for *vocab_ids*, missing drill/explanation/
     title translations for *grammar_ids*. One cheap INSERT..SELECT per kind;
-    any failure degrades to 'no demand recorded'. Never raises."""
-    global _demand_table_missing
-    if _demand_table_missing or not locale or locale == "en":
+    any failure degrades to 'no demand recorded'. Never raises, never
+    poisons the read's transaction (see table_present)."""
+    if not locale or locale == "en":
         return
-    plan = []
-    if vocab_ids:
-        plan += [("word", vocab_ids), ("example", vocab_ids)]
-    if grammar_ids:
-        plan += [("drill", grammar_ids), ("explanation", grammar_ids),
-                 ("grammar_meta", grammar_ids)]
     recorded = 0
-    for kind, ids in plan:
-        try:
+    try:
+        if not await table_present(conn, "translation_demand"):
+            return
+        plan = []
+        if vocab_ids:
+            plan += [("word", vocab_ids), ("example", vocab_ids)]
+        if grammar_ids:
+            plan += [("drill", grammar_ids), ("explanation", grammar_ids)]
+            # The grammar_meta detector reads its own overlay table — same
+            # migration as translation_demand, but probe anyway so a partial
+            # application can't abort the read.
+            if await table_present(conn, "grammar_point_translations"):
+                plan += [("grammar_meta", grammar_ids)]
+        for kind, ids in plan:
             status = await conn.execute(
                 "INSERT INTO translation_demand (kind, ref_id, locale)"
                 + _DEMAND_DETECTORS[kind]
@@ -168,15 +181,8 @@ async def note_missing_content(
                 list(ids), locale,
             )
             recorded += int(status.rsplit(" ", 1)[-1] or 0)
-        except (asyncpg.exceptions.UndefinedTableError,
-                asyncpg.exceptions.InsufficientPrivilegeError) as exc:
-            if "translation_demand" in str(exc):
-                _demand_table_missing = True
-                return
-            # An overlay table this kind checks doesn't exist yet — the
-            # kind can't be served, so there is nothing to demand.
-        except Exception as exc:  # noqa: BLE001 — never break a card read
-            logger.debug("translation demand not recorded: %s", exc)
+    except Exception as exc:  # noqa: BLE001 — never break a card read
+        logger.debug("translation demand not recorded: %s", exc)
     if recorded:
         kick()
 
@@ -740,9 +746,18 @@ async def run_translation_cycle(conn: asyncpg.Connection) -> dict:
              "gym_labels": 0, "examples": 0, "demand": 0}
     budget = getattr(get_settings(), "auto_translate_words_per_cycle", 50)
 
+    # Which of the 20260914 tables exist yet. Probed (never thrown): the
+    # sweep runs inside one transaction, and a single UndefinedTableError
+    # would abort it and kill every kind — including the ones whose tables
+    # have been there for months.
+    have_demand = await table_present(conn, "translation_demand")
+    have_gpt = await table_present(conn, "grammar_point_translations")
+    have_gym = await table_present(conn, "gym_label_translations")
+
     # The demand lane first: rows learners just saw in English (any level,
     # any kind) beat the breadth-first sweep.
-    budget = await process_demand(conn, budget, stats)
+    if have_demand:
+        budget = await process_demand(conn, budget, stats)
 
     pairs = await discover_pairs(conn)
     if not pairs or budget <= 0:
@@ -781,22 +796,22 @@ async def run_translation_cycle(conn: asyncpg.Connection) -> dict:
     # drill translations/hints first (read on every grammar review), then
     # grammar explanations (read once per point). Same demand rule — only
     # live pairs, only missing rows.
-    for kind, fetch, translate, stat in (
+    kinds = [
         ("drills", pending_drills, _translate_drills, "drills"),
         ("explanations", pending_explanations, _translate_explanations,
          "explanations"),
-        ("grammar-meta", pending_grammar_meta, _translate_grammar_meta,
-         "grammar_meta"),
-        ("examples", pending_examples, _translate_examples, "examples"),
-    ):
+    ]
+    if have_gpt:
+        kinds.append(("grammar-meta", pending_grammar_meta,
+                      _translate_grammar_meta, "grammar_meta"))
+    kinds.append(("examples", pending_examples, _translate_examples,
+                  "examples"))
+    for kind, fetch, translate, stat in kinds:
         for pair in pairs:
             if budget <= 0:
                 break
-            try:
-                rows = await fetch(conn, pair["language_id"], pair["locale"],
-                                   min(budget, BATCH_SIZE))
-            except asyncpg.exceptions.UndefinedTableError:
-                break  # this kind's migration hasn't landed — skip the kind
+            rows = await fetch(conn, pair["language_id"], pair["locale"],
+                               min(budget, BATCH_SIZE))
             if not rows:
                 continue
             budget -= len(rows)
@@ -811,13 +826,10 @@ async def run_translation_cycle(conn: asyncpg.Connection) -> dict:
     # ever — small enough to ride outside the row budget's ordering but
     # still bounded by it.
     for pair in pairs:
-        if budget <= 0:
+        if not have_gym or budget <= 0:
             break
-        try:
-            rows = await pending_gym_labels(conn, pair["language_code"],
-                                            pair["locale"])
-        except asyncpg.exceptions.UndefinedTableError:
-            break
+        rows = await pending_gym_labels(conn, pair["language_code"],
+                                        pair["locale"])
         if not rows:
             continue
         rows = rows[:min(budget, BATCH_SIZE)]
