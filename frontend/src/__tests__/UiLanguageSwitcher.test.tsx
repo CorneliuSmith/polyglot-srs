@@ -82,6 +82,38 @@ describe('UiLanguageSwitcher', () => {
     await waitFor(() => expect(document.documentElement.dir).toBe('ltr'))
   })
 
+  // The menu hangs off the button's inline-end edge. On pages where the
+  // globe sits at the LEFT of a phone-width header (About: "← Panel ⊕")
+  // that ran it off-screen, clipping every name to "glish" / "pañol".
+  function openWithMenuBox(box: { left: number; right: number }) {
+    renderSwitcher()
+    fireEvent.click(screen.getByLabelText('Site language'))
+    const menu = screen.getByRole('menu')
+    menu.getBoundingClientRect = () =>
+      ({ ...box, width: box.right - box.left, top: 0, bottom: 40, height: 40,
+         x: box.left, y: 0, toJSON: () => ({}) }) as DOMRect
+    // Re-measure through the same path a rotation would take.
+    fireEvent(window, new Event('resize'))
+    return menu
+  }
+
+  it('a menu that would spill off the left edge is nudged back on screen', () => {
+    const menu = openWithMenuBox({ left: -60, right: 120 })
+    // 8px of breathing room from the edge: -60 → 8 is a 68px shift.
+    expect(menu.style.transform).toBe('translateX(68px)')
+  })
+
+  it('a menu that would spill off the right edge is pulled back too', () => {
+    // jsdom's viewport is 1024 wide.
+    const menu = openWithMenuBox({ left: 920, right: 1100 })
+    expect(menu.style.transform).toBe('translateX(-84px)')
+  })
+
+  it('a menu that already fits is left exactly where it was authored', () => {
+    const menu = openWithMenuBox({ left: 400, right: 580 })
+    expect(menu.style.transform).toBe('')
+  })
+
   it('signed in, the choice also writes the profile so it follows the user', async () => {
     mockAuthed.value = true
     renderSwitcher()

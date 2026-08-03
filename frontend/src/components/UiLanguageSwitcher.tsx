@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useLayoutEffect, useRef, useState } from 'react'
 import { useQuery, useQueryClient } from '@tanstack/react-query'
 import { Globe } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
@@ -33,10 +33,19 @@ function ProfileLanguageSync() {
   return null
 }
 
+/** Breathing room between the menu and the screen edge. */
+const VIEWPORT_MARGIN = 8
+
 export default function UiLanguageSwitcher() {
   const { i18n, t } = useTranslation()
   const [open, setOpen] = useState(false)
   const ref = useRef<HTMLDivElement>(null)
+  const menuRef = useRef<HTMLDivElement>(null)
+  // How far the menu has been nudged to stay on screen (see the layout
+  // effect). Mirrored in a ref so a re-measure can undo it and work from the
+  // menu's natural, unshifted position.
+  const shiftRef = useRef(0)
+  const [shift, setShift] = useState(0)
   // The login page renders this switcher OUTSIDE any QueryClientProvider
   // (nothing there needs react-query), and useQueryClient throws without
   // one. The hook call stays unconditional — only the failure is absorbed;
@@ -58,6 +67,43 @@ export default function UiLanguageSwitcher() {
     }
     document.addEventListener('mousedown', onDocClick)
     return () => document.removeEventListener('mousedown', onDocClick)
+  }, [open])
+
+  // Keep the open menu on screen. It hangs off the button's inline-end edge,
+  // which is right for a globe in the top-RIGHT of a header but ran the menu
+  // clean off the left of a phone screen on pages where the globe sits at
+  // the LEFT (the About page: "← Panel ⊕"), clipping every language name to
+  // "glish" / "pañol". Rather than hard-code a side per page, measure once
+  // on open and translate the menu back inside the viewport if it spills.
+  useLayoutEffect(() => {
+    if (!open) return
+    const fit = () => {
+      const menu = menuRef.current
+      if (!menu) return
+      const rect = menu.getBoundingClientRect()
+      // No measurable box (jsdom, hidden ancestor) — leave the authored
+      // position alone rather than nudge it on made-up numbers.
+      if (!rect.width) return
+      // Work from where the menu WOULD sit unshifted, so re-measuring after
+      // a rotation doesn't compound the previous correction.
+      const left = rect.left - shiftRef.current
+      const right = rect.right - shiftRef.current
+      const limit = window.innerWidth - VIEWPORT_MARGIN
+      let next = 0
+      if (left < VIEWPORT_MARGIN) next = VIEWPORT_MARGIN - left
+      else if (right > limit) next = limit - right
+      if (next !== shiftRef.current) {
+        shiftRef.current = next
+        setShift(next)
+      }
+    }
+    fit()
+    window.addEventListener('resize', fit)
+    return () => {
+      window.removeEventListener('resize', fit)
+      shiftRef.current = 0
+      setShift(0)
+    }
   }, [open])
 
   const choose = (code: string) => {
@@ -93,7 +139,9 @@ export default function UiLanguageSwitcher() {
         <div
           role="menu"
           aria-label={t('switcher.label')}
-          className="absolute end-0 mt-2 z-50 min-w-36 bg-white rounded-xl shadow-lg border border-gray-100 py-1"
+          ref={menuRef}
+          style={shift ? { transform: `translateX(${shift}px)` } : undefined}
+          className="absolute end-0 mt-2 z-50 min-w-36 max-w-[calc(100vw-1rem)] bg-white rounded-xl shadow-lg border border-gray-100 py-1"
         >
           {UI_LANGUAGES.map((lang) => (
             <button
