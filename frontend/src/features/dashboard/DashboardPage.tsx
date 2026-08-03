@@ -19,6 +19,7 @@ import { lettersFor } from '../letters/lettersData'
 import { getRecommendations } from '../../api/recommendations'
 import { factsFor } from '../about/languageFacts'
 import { usePrefsStore } from '../../stores/prefsStore'
+import DirArrow from '../../components/DirArrow'
 import LanguagePicker from '../../components/LanguagePicker'
 import UiLanguageSwitcher from '../../components/UiLanguageSwitcher'
 import CEFRProgress from './CEFRProgress'
@@ -520,7 +521,7 @@ export default function DashboardPage() {
                 {t('dashboard.lettersSub')}
               </span>
             </span>
-            <span aria-hidden className="text-lang">→</span>
+            <DirArrow className="text-lang" />
           </button>
         )}
 
@@ -542,7 +543,7 @@ export default function DashboardPage() {
                 {t('dashboard.aboutSub')}
               </span>
             </span>
-            <span aria-hidden className="text-lang">→</span>
+            <DirArrow className="text-lang" />
           </button>
         )}
 
@@ -764,7 +765,7 @@ export default function DashboardPage() {
               {t('dashboard.grammarPathSub')}
             </span>
           </span>
-          <span aria-hidden className="text-lang">→</span>
+          <DirArrow className="text-lang" />
         </button>
 
         {/* Gym / Tutor / Reader now live as first-class tiles beside the
@@ -787,7 +788,7 @@ export default function DashboardPage() {
                   : t('dashboard.recommendedSub')}
               </span>
             </span>
-            <span aria-hidden className="text-lang">→</span>
+            <DirArrow className="text-lang" />
           </button>
         )}
 
@@ -805,7 +806,7 @@ export default function DashboardPage() {
               {t('dashboard.ownTextSub')}
             </span>
           </span>
-          <span aria-hidden className="text-lang">→</span>
+          <DirArrow className="text-lang" />
         </button>
 
         {/* Weekly picks, surfaced instead of waiting to be remembered.
