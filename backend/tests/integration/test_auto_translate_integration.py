@@ -432,3 +432,60 @@ async def test_translation_status_names_the_actual_blocker(pool, monkeypatch):
     async with pool.privileged_connection() as conn:
         await conn.execute(
             "UPDATE languages SET auto_translate_enabled = false WHERE id = $1", on)
+
+
+async def test_status_counts_match_the_queues(pool, monkeypatch):
+    """The readout's backlog numbers must equal what the sweep would
+    actually pick up. They come from separate COUNT queries (a limited
+    fetch reports its own cap — a real 5,000-word backlog showed as a
+    frozen '1000'), so this pins the two against each other and fails if
+    the predicates ever drift apart."""
+    from backend.services.auto_translate import (
+        count_pending,
+        pending_drills,
+        pending_explanations,
+        pending_grammar_meta,
+        pending_words,
+        translation_status,
+    )
+
+    _mock_ai(monkeypatch)
+    course = await _lang(pool, "cnt", "Countish", auto=True)
+    await _lang(pool, "cn2", "Countlocale", auto=False)
+    uid = await _learner(pool, "cnt@cnt", course, "cn2")
+    for i in range(7):
+        await _word(pool, course, f"cntword{i}", i + 1, f"gloss {i}")
+
+    async with pool.privileged_connection() as conn:
+        for i in range(3):
+            gp = await conn.fetchval(
+                "INSERT INTO grammar_points (language_id, title, level, "
+                "reviewed, display_order, explanation) VALUES "
+                "($1, $2, 'A1', true, $3, 'How it works.') RETURNING id",
+                course, f"cnt point {i}", i)
+            await conn.execute(
+                "INSERT INTO drill_sentences (grammar_point_id, sentence, "
+                "answer, source, reviewed, display_order, translation, hint) "
+                "VALUES ($1, 'Mi {{answer}}.', 'x', 'seed', true, 1, "
+                "'I see it.', 'the verb') ", gp)
+
+        for kind, fn in (
+            ("words", pending_words), ("drills", pending_drills),
+            ("explanations", pending_explanations),
+            ("grammar_meta", pending_grammar_meta),
+        ):
+            queued = len(await fn(conn, course, "cn2", 10_000))
+            counted = await count_pending(conn, kind, course, "cn2")
+            assert counted == queued, f"{kind}: {counted} != {queued}"
+
+        st = await translation_status(conn)
+        pair = next(p for p in st["pairs"] if p["code"] == "cnt")
+        # Real counts, not a cap: 7 words and 3 of each grammar kind.
+        assert pair["pending"]["words"] == 7
+        assert pair["pending"]["drills"] == 3
+        assert pair["pending"]["explanations"] == 3
+
+        await conn.execute(
+            "UPDATE languages SET auto_translate_enabled = false WHERE id = $1",
+            course)
+    del uid

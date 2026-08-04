@@ -877,6 +877,60 @@ async def auto_translate_loop() -> None:
         _wake.clear()
 
 
+# Backlog counts for the admin readout. Separate COUNT queries rather than
+# len(pending_*(limit)) — a limited fetch reports its own cap, so a real
+# backlog of 5,000 showed as a permanently frozen "1000". The predicates
+# mirror each pending_* query exactly; test_status_counts_match_the_queues
+# fails if the two ever drift apart.
+_PENDING_COUNTS = {
+    "words": """
+        SELECT count(*) FROM vocabulary v
+        JOIN languages l ON l.id = v.language_id
+        WHERE v.language_id = $1
+          AND NOT EXISTS (SELECT 1 FROM translations t
+                           WHERE t.vocabulary_id = v.id AND t.locale = $2)
+          AND NOT EXISTS (SELECT 1 FROM translation_reviews r
+                           WHERE r.vocabulary_id = v.id AND r.locale = $2)
+          AND (l.code = 'en' OR EXISTS (
+                SELECT 1 FROM translations t
+                 WHERE t.vocabulary_id = v.id AND t.locale = 'en'))""",
+    "drills": """
+        SELECT count(*) FROM drill_sentences ds
+        JOIN grammar_points gp ON gp.id = ds.grammar_point_id
+        WHERE gp.language_id = $1
+          AND (ds.translation IS NOT NULL OR ds.hint IS NOT NULL)
+          AND NOT EXISTS (SELECT 1 FROM drill_hint_translations dht
+                           WHERE dht.drill_id = ds.id AND dht.locale = $2)""",
+    "explanations": """
+        SELECT count(*) FROM grammar_points gp
+        WHERE gp.language_id = $1
+          AND gp.explanation IS NOT NULL AND gp.explanation <> ''
+          AND NOT EXISTS (SELECT 1 FROM explanation_translations et
+                           WHERE et.grammar_point_id = gp.id
+                             AND et.locale = $2)""",
+    "grammar_meta": """
+        SELECT count(*) FROM grammar_points gp
+        WHERE gp.language_id = $1
+          AND NOT EXISTS (SELECT 1 FROM grammar_point_translations gpt
+                           WHERE gpt.grammar_point_id = gp.id
+                             AND gpt.locale = $2)""",
+    "examples": """
+        SELECT count(*) FROM example_sentences es
+        WHERE es.language_id = $1
+          AND es.translation_locale = 'en' AND es.reviewed
+          AND es.translation IS NOT NULL AND es.translation <> ''
+          AND NOT EXISTS (SELECT 1 FROM example_sentences es2
+                           WHERE es2.vocabulary_id = es.vocabulary_id
+                             AND es2.sentence = es.sentence
+                             AND es2.translation_locale = $2)""",
+}
+
+
+async def count_pending(conn, kind: str, language_id: str, locale: str) -> int:
+    """How many rows of *kind* still await translation for this pair."""
+    return int(await conn.fetchval(_PENDING_COUNTS[kind], language_id, locale))
+
+
 async def translation_status(conn: asyncpg.Connection) -> dict:
     """Why translation is (or isn't) happening — the admin readout.
 
@@ -923,14 +977,12 @@ async def translation_status(conn: asyncpg.Connection) -> dict:
     for pair in await discover_pairs(conn):
         lang_id, locale = pair["language_id"], pair["locale"]
         pending = {
-            "words": len(await pending_words(conn, lang_id, locale, 1000)),
-            "drills": len(await pending_drills(conn, lang_id, locale, 1000)),
-            "explanations": len(
-                await pending_explanations(conn, lang_id, locale, 1000)),
+            kind: await count_pending(conn, kind, lang_id, locale)
+            for kind in ("words", "drills", "explanations", "examples")
         }
         if status["migrations"]["grammar_point_translations"]:
-            pending["grammar_meta"] = len(
-                await pending_grammar_meta(conn, lang_id, locale, 1000))
+            pending["grammar_meta"] = await count_pending(
+                conn, "grammar_meta", lang_id, locale)
         if status["migrations"]["gym_label_translations"]:
             pending["gym_labels"] = len(
                 await pending_gym_labels(conn, pair["language_code"], locale))
