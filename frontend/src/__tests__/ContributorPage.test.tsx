@@ -12,6 +12,16 @@ vi.mock('../api/contribute', () => ({
   deleteAccount: vi.fn(),
   overridePlan: vi.fn(),
   getTranslationReviews: vi.fn(() => Promise.resolve([])),
+  getTranslationStatus: vi.fn(() =>
+    Promise.resolve({
+      provider_ready: true,
+      budget_per_cycle: 50,
+      sweep_seconds: 900,
+      migrations: {},
+      switched_off: [],
+      pairs: [],
+    }),
+  ),
   approveTranslationReview: vi.fn(),
   rejectTranslationReview: vi.fn(),
   getGrammarForLanguage: vi.fn(),

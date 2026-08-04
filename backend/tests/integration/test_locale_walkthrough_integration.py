@@ -309,3 +309,53 @@ async def test_everything_degrades_when_the_migration_is_missing(pool, monkeypat
         await conn.execute(
             "UPDATE languages SET auto_translate_enabled = false WHERE id = $1",
             course)
+
+
+async def test_portuguese_learning_spanish_fills_without_the_new_migration(
+    pool, monkeypatch,
+):
+    """The owner's live configuration: UI/support Portuguese, course Spanish,
+    auto-translate switched on, migration 20260914 NOT applied.
+
+    The three overlays a card actually reads — vocab gloss, drill
+    hint/translation, grammar explanation — all predate that migration, so
+    a sweep must fill them regardless. This pins that the loop does real
+    work in exactly that state (it used to die on the demand-queue query
+    before translating anything)."""
+    from backend.repositories import cards as cards_repo
+
+    _mock_ai(monkeypatch)
+    es = await _lang(pool, "es0", "Spanish0", auto=True)
+    await _lang(pool, "pt0", "Portuguese0", auto=False)
+    uid = await _learner(pool, "pt@es0", es, "pt0")
+    c = await _build_course(pool, es, uid, "es0")
+
+    async with pool.privileged_connection() as conn:
+        sp = conn.transaction()
+        await sp.start()
+        try:
+            for t in ("translation_demand", "gym_label_translations",
+                      "grammar_point_translations"):
+                await conn.execute(f"DROP TABLE {t}")
+            cards_repo._TABLE_EXISTS.clear()
+
+            stats = await run_translation_cycle(conn)
+            # Words, drills AND explanations each get real work done.
+            assert stats["applied"] >= 1, stats
+            assert stats["drills"] >= 1, stats
+            assert stats["explanations"] >= 1, stats
+
+            # And the learner's cards actually read Portuguese now.
+            batch = await add_mixed_learn_batch(conn, uid, es, 10)
+            details = await get_card_details_bulk(
+                conn, [str(i) for i in batch["items"]], "pt0")
+            defs = [d.get("definition") for d in details.values()
+                    if d["card_type"] == "vocabulary"]
+            assert "[es0domo]" in defs, defs
+            gp = [d for d in details.values() if d["card_type"] == "grammar"]
+            assert any(d["explanation"].startswith("[Portuguese0]") for d in gp)
+        finally:
+            await sp.rollback()
+            cards_repo._TABLE_EXISTS.clear()
+        await conn.execute(
+            "UPDATE languages SET auto_translate_enabled = false WHERE id = $1", es)

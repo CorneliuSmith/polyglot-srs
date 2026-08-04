@@ -7,6 +7,7 @@ import {
 } from '../../api/contribute'
 import CircleFlag from '../../components/CircleFlag'
 import { usePrefsStore } from '../../stores/prefsStore'
+import TranslationStatusPanel from './TranslationStatusPanel'
 
 /** Same idiom as RolesPanel: surface the server's detail when there is one —
  * here that's the 503 naming the not-yet-applied migration. */
@@ -175,6 +176,12 @@ export default function LanguageVisibilityPanel() {
             'Could not change auto-translate.'}
         </p>
       )}
+      <div className="pt-3 mt-1 border-t border-gray-100">
+        <p className="text-xs font-semibold text-gray-700 mb-2">
+          Automatic translation status
+        </p>
+        <TranslationStatusPanel />
+      </div>
     </div>
   )
 }
