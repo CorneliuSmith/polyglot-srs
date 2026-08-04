@@ -755,6 +755,53 @@ async def _insert_learn_cards(
 LEARN_LOOKAHEAD_SESSIONS = 3
 
 
+# A brand-new (course, locale) pair has NOTHING translated, so the first
+# session is the one most likely to stall. Queue a whole level's worth then,
+# rather than the usual few sessions.
+FIRST_RUN_SESSIONS = 10
+# When the learner's own queue is nearly spent, they're about to move up a
+# level — pull the next one in so the step up isn't a fresh English wall.
+NEXT_LEVEL_SESSIONS = 4
+_CEFR = ("A0", "A1", "A2", "B1", "B2", "C1", "C2")
+
+
+async def _next_level_ids(
+    conn: asyncpg.Connection, user_id: str, language_id: str, span: int,
+) -> tuple[list, list]:
+    """Candidates from the level ABOVE whatever the learner is working on.
+
+    Deliberately ignores subscriptions: the point is the level they haven't
+    reached yet, which by definition isn't queued. Queuing costs nothing on
+    its own — the loop's per-cycle budget is what caps spend — so this only
+    changes the ORDER work happens in, never the amount.
+    """
+    current = await conn.fetchval(
+        """
+        SELECT max(array_position($3::text[], cl.level))
+        FROM user_content_subscriptions ucs
+        JOIN content_lists cl ON cl.id = ucs.content_list_id
+        WHERE ucs.user_id = $1 AND cl.language_id = $2 AND cl.level IS NOT NULL
+        """,
+        user_id, language_id, list(_CEFR),
+    )
+    if not current or current >= len(_CEFR):
+        return [], []
+    nxt = _CEFR[current]  # array_position is 1-based, so this IS the next one
+    vocab = await conn.fetch(
+        """SELECT id FROM vocabulary
+            WHERE language_id = $1 AND level = $2
+            ORDER BY frequency_rank NULLS LAST LIMIT $3""",
+        language_id, nxt, span,
+    )
+    grammar = await conn.fetch(
+        """SELECT id FROM grammar_points
+            WHERE language_id = $1 AND level = $2
+            ORDER BY display_order NULLS LAST LIMIT $3""",
+        language_id, nxt, span,
+    )
+    return [r["id"] for r in vocab], [r["id"] for r in grammar]
+
+
 async def pretranslate_upcoming(
     conn: asyncpg.Connection,
     user_id: str,
@@ -763,27 +810,117 @@ async def pretranslate_upcoming(
     level: str | None = None,
 ) -> None:
     """Queue translation demand for the content this learner is ABOUT to
-    meet: the same candidate selection the learn batch uses, over a span of
-    several sessions. Runs at learn-session start (and when a learner first
-    picks a course + support locale), ahead of any card actually rendering.
-    Never raises — pre-warming must not break the session it warms."""
+    meet, ahead of any card rendering. Runs at learn-session start and when
+    a learner picks a course + support locale.
+
+    Three tiers of lookahead, all of which only REORDER the loop's work
+    (the per-cycle budget caps spend either way):
+      - the usual few sessions of their own queue;
+      - a whole level's worth on a pair with nothing translated yet, since
+        that first session is the one that would otherwise stall;
+      - the next CEFR level once their own queue runs low, so moving up a
+        level doesn't land them on a fresh wall of English.
+
+    Never raises — pre-warming must not break the session it warms.
+    """
     try:
         locale = await conn.fetchval(
             "SELECT support_locale FROM user_profiles WHERE id = $1", user_id
         )
         if not locale or locale == "en":
             return
-        span = max(batch_size, 1) * (1 + LEARN_LOOKAHEAD_SESSIONS)
+        batch = max(batch_size, 1)
+        first_run = not await conn.fetchval(
+            """SELECT EXISTS (SELECT 1 FROM translations t
+                               JOIN vocabulary v ON v.id = t.vocabulary_id
+                              WHERE v.language_id = $1 AND t.locale = $2)""",
+            language_id, locale,
+        )
+        sessions = FIRST_RUN_SESSIONS if first_run else 1 + LEARN_LOOKAHEAD_SESSIONS
+        span = batch * sessions
         vocab = await _select_vocab_candidate_ids(
             conn, user_id, language_id, span, level
         )
         grammar = await _select_grammar_candidate_ids(
             conn, user_id, language_id, span, level
         )
+        # Their own queue is nearly spent → they're about to move up.
+        if level is None and (len(vocab) < span or len(grammar) < span):
+            up_v, up_g = await _next_level_ids(
+                conn, user_id, language_id, batch * NEXT_LEVEL_SESSIONS
+            )
+            vocab, grammar = vocab + up_v, grammar + up_g
         await note_missing_content(conn, locale,
                                    vocab_ids=vocab, grammar_ids=grammar)
     except Exception as exc:  # noqa: BLE001 — never break the learn flow
         logger.debug("pretranslate lookahead skipped: %s", exc)
+
+
+# How much of a session must already read in the learner's language before
+# it's worth starting. Not 100%: the rest fills while they work through the
+# early cards, so holding out for a perfect session wastes their time.
+READY_ENOUGH = 0.6
+
+
+async def session_readiness(
+    conn: asyncpg.Connection, user_id: str, language_id: str,
+    batch_size: int = 10,
+) -> dict:
+    """How much of what this learner is about to see already reads in their
+    language — for the "you're first here" wait screen.
+
+    Reports the next LEARN batch and the due REVIEW queue separately, since
+    a learner can be ready for one and not the other. `ready_enough` is the
+    signal the UI actually acts on: start now, or offer to wait.
+    """
+    locale = await conn.fetchval(
+        "SELECT support_locale FROM user_profiles WHERE id = $1", user_id
+    )
+    out: dict = {"locale": locale, "threshold": READY_ENOUGH}
+    if not locale or locale == "en":
+        # Nothing to translate: English IS the content.
+        for key in ("learn", "review"):
+            out[key] = {"total": 0, "ready": 0, "pct": 1.0, "ready_enough": True}
+        return out
+
+    batch = max(batch_size, 1)
+    learn_v = await _select_vocab_candidate_ids(
+        conn, user_id, language_id, batch, None)
+    learn_g = await _select_grammar_candidate_ids(
+        conn, user_id, language_id, batch, None)
+    due = await conn.fetch(
+        """SELECT card_type, card_id FROM user_cards
+            WHERE user_id = $1 AND language_id = $2
+              AND next_review <= now() AND is_suspended = false
+            ORDER BY next_review LIMIT $3""",
+        user_id, language_id, batch,
+    )
+    review_v = [r["card_id"] for r in due if r["card_type"] == "vocabulary"]
+    review_g = [r["card_id"] for r in due if r["card_type"] == "grammar"]
+
+    for key, vocab_ids, grammar_ids in (
+        ("learn", learn_v, learn_g), ("review", review_v, review_g),
+    ):
+        total = len(vocab_ids) + len(grammar_ids)
+        ready = 0
+        if vocab_ids:
+            ready += int(await conn.fetchval(
+                """SELECT count(*) FROM translations
+                    WHERE vocabulary_id = ANY($1::uuid[]) AND locale = $2""",
+                list(vocab_ids), locale) or 0)
+        if grammar_ids:
+            # A grammar card's body is its explanation; that's what a
+            # learner reads first and what takes longest to render.
+            ready += int(await conn.fetchval(
+                """SELECT count(*) FROM explanation_translations
+                    WHERE grammar_point_id = ANY($1::uuid[]) AND locale = $2""",
+                list(grammar_ids), locale) or 0)
+        pct = 1.0 if total == 0 else ready / total
+        out[key] = {
+            "total": total, "ready": ready, "pct": round(pct, 3),
+            "ready_enough": total == 0 or pct >= READY_ENOUGH,
+        }
+    return out
 
 
 async def add_learn_batch(
