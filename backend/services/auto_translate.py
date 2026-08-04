@@ -789,6 +789,22 @@ async def run_translation_cycle(conn: asyncpg.Connection) -> dict:
     have_gpt = await table_present(conn, "grammar_point_translations")
     have_gym = await table_present(conn, "gym_label_translations")
 
+    # Repair translations produced BEFORE they were stored visibly. Those
+    # rows are not just hidden, they're stuck: pending_examples skips any
+    # sentence that already has a locale sibling, so the loop believes the
+    # work is done and never retries. Idempotent, and a no-op once the
+    # backfill migration lands (or after the first pass here) — but it means
+    # a learner sees their sentences without waiting on a db push.
+    try:
+        await conn.execute(
+            """UPDATE example_sentences SET reviewed = true
+                WHERE reviewed = false AND translation_locale <> 'en'
+                  AND (origin_detail LIKE 'auto_translate:%'
+                    OR origin_detail LIKE 'translate:%')"""
+        )
+    except Exception as exc:  # noqa: BLE001 — never break the sweep
+        logger.debug("sentence visibility repair skipped: %s", exc)
+
     # The demand lane first: rows learners just saw in English (any level,
     # any kind) beat the breadth-first sweep.
     if have_demand:

@@ -106,7 +106,11 @@ async def test_generate_locale_translations(pool, monkeypatch):
         args = SimpleNamespace(locale="ru", max=50, dry_run=False)
         await generate_content._run_translations(conn, lang_row, args)
 
-        # The mock rejects one and stores one ru row (source='ai', reviewed=false).
+        # The mock rejects one and stores one ru row. It lands reviewed=true:
+        # the English sentence was already approved and only its meaning line
+        # is re-worded, by the same maker-checker that fills word glosses.
+        # Stored unreviewed, it would be filtered out of every card read — a
+        # translation that exists and never reaches a learner.
         ru = await conn.fetch(
             "SELECT translation, source, reviewed FROM example_sentences "
             "WHERE vocabulary_id = $1 AND translation_locale = 'ru'",
@@ -114,4 +118,4 @@ async def test_generate_locale_translations(pool, monkeypatch):
         )
     assert len(ru) == 1
     assert ru[0]["translation"].startswith("[Russian] ")
-    assert ru[0]["source"] == "ai" and ru[0]["reviewed"] is False
+    assert ru[0]["source"] == "ai" and ru[0]["reviewed"] is True

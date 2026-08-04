@@ -177,14 +177,19 @@ function LearnInner({ onLocaleChanged }: { onLocaleChanged: () => void }) {
     )
   }, [prefetchLesson, prefetchCode])
 
-  // Live swap: a session started under-ready re-serves its lesson payloads
-  // on every advance, so content that lands mid-session renders in the
-  // learner's language without a restart. Best-effort — a failed refresh
-  // just leaves the English already on screen.
+  // Live swap: re-serve the lesson payloads on every advance while ANY of
+  // this session still reads in English, so content landing mid-session
+  // renders without a restart. Keyed on "not fully localized" rather than
+  // on the 60% start threshold — a session can clear that bar with its
+  // glosses done and every example sentence still English, and those are
+  // most of what a vocabulary card actually shows. Best-effort: a failed
+  // refresh just leaves the English already on screen.
+  const notFullyLocalized =
+    readinessQuery.data != null && readinessQuery.data.learn.pct < 1
   const [swapped, setSwapped] = useState<Record<string, Lesson>>({})
   const sessionItems = learnQuery.data?.items
   useEffect(() => {
-    if (!underReady || !sessionItems?.length) return
+    if (!notFullyLocalized || !sessionItems?.length) return
     let cancelled = false
     refreshLessons(sessionItems)
       .then((fresh) => {
@@ -195,7 +200,7 @@ function LearnInner({ onLocaleChanged }: { onLocaleChanged: () => void }) {
     return () => {
       cancelled = true
     }
-  }, [underReady, sessionItems, lessonIndex])
+  }, [notFullyLocalized, sessionItems, lessonIndex])
 
   const typeIntoQuiz = (insert: string, replaceBackspace = false) => {
     setQuizResult(null)

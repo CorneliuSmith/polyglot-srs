@@ -234,6 +234,9 @@ async def _run_translations(conn, lang, args) -> None:
                 conn, s["vocabulary_id"], lang_id, s["sentence"], r["translation"],
                 source="ai", origin_detail=f"translate:{locale}",
                 translation_locale=locale,
+                # The English source was already approved; only its meaning
+                # line is re-worded. Same rule as the background loop.
+                reviewed=True,
             )
             if row_id:
                 stored += 1

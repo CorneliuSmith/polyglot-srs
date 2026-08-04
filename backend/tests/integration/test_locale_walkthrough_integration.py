@@ -458,7 +458,8 @@ async def test_readiness_drives_the_wait_and_smart_loading_looks_ahead(
         st = await session_readiness(conn, uid, course, batch_size=10)
         assert st["locale"] == "rd2"
         assert st["threshold"] == READY_ENOUGH
-        assert st["learn"]["total"] == 4          # 2 words + 2 points
+        # 2 words scored twice (gloss + example meaning lines) + 2 points.
+        assert st["learn"]["total"] == 6
         assert st["learn"]["ready"] == 0
         assert st["learn"]["ready_enough"] is False
 
@@ -723,3 +724,65 @@ async def test_example_meaning_lines_reach_the_learner_not_just_the_database(
         await conn.execute(
             "UPDATE languages SET auto_translate_enabled = false WHERE id = $1",
             course)
+
+
+async def test_sentences_already_written_hidden_get_un_hidden(pool, monkeypatch):
+    """Translations produced BEFORE they were stored visibly must be repaired.
+
+    Those rows aren't merely hidden, they're stuck: pending_examples skips
+    any sentence that already has a locale sibling, so the loop believes the
+    work is done and never retries. A forward-only fix leaves a learner
+    staring at English no matter how many times they reload. The sweep
+    repairs them, so this does not wait on the backfill migration.
+    """
+    _mock_ai(monkeypatch)
+    course = await _lang(pool, "hid1", "Hiddenish", auto=True)
+    await _lang(pool, "hid2", "Hiddenlocale", auto=False)
+    uid = await _learner(pool, "hid@hid1", course, "hid2")
+    c = await _build_course(pool, course, uid, "hid1")
+
+    async with pool.privileged_connection() as conn:
+        await conn.execute(
+            "UPDATE languages SET grammar_review_policy = 'strict' WHERE id = $1",
+            course)
+        # Exactly the old state: a translation that exists but is invisible.
+        await conn.execute(
+            """INSERT INTO example_sentences
+                   (language_id, vocabulary_id, sentence, translation,
+                    translation_locale, source, origin_detail, reviewed)
+               SELECT $1, es.vocabulary_id, es.sentence, '[Hiddenlocale] old',
+                      'hid2', 'ai', 'auto_translate:hid2', false
+                 FROM example_sentences es
+                WHERE es.language_id = $1 AND es.translation_locale = 'en'""",
+            course)
+        hidden = await conn.fetchval(
+            "SELECT count(*) FROM example_sentences "
+            "WHERE language_id = $1 AND translation_locale = 'hid2' "
+            "AND reviewed = false", course)
+        assert hidden > 0, "test did not reproduce the stuck state"
+
+        # Stuck: the loop won't re-translate what already has a sibling.
+        from backend.services.auto_translate import pending_examples
+        assert await pending_examples(conn, course, "hid2", 50) == []
+
+    await _cycle(pool)
+
+    async with pool.privileged_connection() as conn:
+        assert await conn.fetchval(
+            "SELECT count(*) FROM example_sentences "
+            "WHERE language_id = $1 AND translation_locale = 'hid2' "
+            "AND reviewed = false", course) == 0
+
+        # And it reaches the card, on a strict-policy language.
+        batch = await add_mixed_learn_batch(conn, uid, course, 10)
+        card_ids = [str(i) for i in batch["items"]]
+        await confirm_learn_batch(conn, uid, card_ids)
+        due = await get_due_cards(conn, course, 20, "hid2")
+        shown = [d["translation"] for d in due
+                 if d["card_type"] == "vocabulary" and d.get("translation")]
+        assert any(t.startswith("[Hiddenlocale]") for t in shown), shown
+
+        await conn.execute(
+            "UPDATE languages SET auto_translate_enabled = false WHERE id = $1",
+            course)
+    del c

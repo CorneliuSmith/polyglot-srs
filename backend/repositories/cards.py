@@ -901,12 +901,33 @@ async def session_readiness(
     for key, vocab_ids, grammar_ids in (
         ("learn", learn_v, learn_g), ("review", review_v, review_g),
     ):
-        total = len(vocab_ids) + len(grammar_ids)
+        # A word counts twice: its gloss AND its example meaning lines. The
+        # sentences are most of what a learner READS on a vocabulary card, so
+        # scoring only glosses reported "ready" while every example was still
+        # English — which also meant the mid-session swap never fired.
+        total = len(vocab_ids) * 2 + len(grammar_ids)
         ready = 0
         if vocab_ids:
             ready += int(await conn.fetchval(
                 """SELECT count(*) FROM translations
                     WHERE vocabulary_id = ANY($1::uuid[]) AND locale = $2""",
+                list(vocab_ids), locale) or 0)
+            # Words with nothing left to translate — phrased as "no reviewed
+            # English example is missing its locale sibling" so a word that
+            # simply HAS no examples counts as done, rather than holding the
+            # score below 100% forever. Mirrors the demand detector exactly.
+            ready += int(await conn.fetchval(
+                """SELECT count(*) FROM unnest($1::uuid[]) AS w(id)
+                    WHERE NOT EXISTS (
+                        SELECT 1 FROM example_sentences es
+                         WHERE es.vocabulary_id = w.id
+                           AND es.translation_locale = 'en' AND es.reviewed
+                           AND es.translation IS NOT NULL AND es.translation <> ''
+                           AND NOT EXISTS (
+                               SELECT 1 FROM example_sentences es2
+                                WHERE es2.vocabulary_id = es.vocabulary_id
+                                  AND es2.sentence = es.sentence
+                                  AND es2.translation_locale = $2))""",
                 list(vocab_ids), locale) or 0)
         if grammar_ids:
             # A grammar card's body is its explanation; that's what a
