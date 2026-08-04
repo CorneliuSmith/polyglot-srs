@@ -541,3 +541,46 @@ async def test_the_level_above_is_queued_when_the_queue_runs_low(pool, monkeypat
         await conn.execute(
             "UPDATE languages SET auto_translate_enabled = false WHERE id = $1",
             course)
+
+
+async def test_the_wait_game_plays_the_session_being_waited_for(pool, monkeypatch):
+    """The game's pool is the upcoming batch's already-translated words —
+    not the learner's review history. That's what makes it work for someone
+    with no cards at all, which is precisely who sees this screen: a brand
+    new learner on a brand new pair. The pool also grows as the loop fills,
+    so the longer the wait the richer the game."""
+    from backend.repositories.cards import session_readiness
+
+    _mock_ai(monkeypatch)
+    course = await _lang(pool, "gm1", "Gameish", auto=True)
+    await _lang(pool, "gm2", "Gamelocale", auto=False)
+    uid = await _learner(pool, "game@gm1", course, "gm2")
+    c = await _build_course(pool, course, uid, "gm1")
+
+    async with pool.privileged_connection() as conn:
+        # Nothing translated: no pool, so the screen shows progress only —
+        # anything it could offer would be English, which is what the
+        # learner chose to wait out.
+        before = await session_readiness(conn, uid, course, batch_size=10)
+        assert before["pairs"] == []
+        # This learner has NO cards; the pool must not depend on having any.
+        assert await conn.fetchval(
+            "SELECT count(*) FROM user_cards WHERE user_id = $1", uid) == 0
+
+    await _cycle(pool)
+
+    async with pool.privileged_connection() as conn:
+        after = await session_readiness(conn, uid, course, batch_size=10)
+        assert after["pairs"], "no game pool after a translation cycle"
+        # Every pair is playable: a word AND a meaning, both non-empty.
+        for pair in after["pairs"]:
+            assert pair["word"] and pair["gloss"]
+        # The pool is drawn from the batch they are about to meet, so the
+        # words played are the words taught minutes later.
+        words = {p["word"] for p in after["pairs"]}
+        assert words <= {"gm1akvo", "gm1domo"}, words
+
+        await conn.execute(
+            "UPDATE languages SET auto_translate_enabled = false WHERE id = $1",
+            course)
+    del c

@@ -12,6 +12,17 @@ vi.mock('../api/review', () => ({
   validateAnswer: vi.fn(),
   submitReview: vi.fn(),
   markCardKnown: vi.fn(),
+  // These sessions already read in the learner's language, so the
+  // trailblazer wait never stands between them and their cards.
+  getSessionReadiness: vi.fn(() =>
+    Promise.resolve({
+      locale: null,
+      threshold: 0.6,
+      learn: { total: 0, ready: 0, pct: 1, ready_enough: true },
+      review: { total: 0, ready: 0, pct: 1, ready_enough: true },
+      pairs: [],
+    }),
+  ),
 }))
 
 vi.mock('../api/gym', () => ({

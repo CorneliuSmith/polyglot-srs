@@ -9,6 +9,8 @@ import type {
   SubmitReviewResponse,
   LearnDeck,
   LearnResponse,
+  Lesson,
+  SessionReadiness,
 } from './types'
 
 export async function getCardDetail(cardId: string): Promise<CardDetail> {
@@ -119,6 +121,27 @@ export async function markCardKnown(cardId: string): Promise<void> {
  * already know this" gets undone. */
 export async function resetCardProgress(cardId: string): Promise<void> {
   await apiClient.delete(`/api/review/card/${cardId}/progress`)
+}
+
+export async function getSessionReadiness(
+  languageId: string,
+  limit?: number,
+): Promise<SessionReadiness> {
+  const response = await apiClient.get<SessionReadiness>('/api/review/readiness', {
+    params: { language_id: languageId, ...(limit ? { limit } : {}) },
+  })
+  return response.data
+}
+
+/** Re-serve lesson payloads mid-session — the live swap. Whatever the
+ * translation loop has landed since the session started comes back in the
+ * learner's language. */
+export async function refreshLessons(cardIds: string[]): Promise<Lesson[]> {
+  const response = await apiClient.post<{ lessons: Lesson[] }>(
+    '/api/review/lessons/refresh',
+    { card_ids: cardIds },
+  )
+  return response.data.lessons
 }
 
 export async function startLearnSession(
