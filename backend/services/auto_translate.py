@@ -430,15 +430,32 @@ async def pending_examples(
     return [dict(r) for r in rows]
 
 
+def self_pair(pair) -> bool:
+    """Learning a language THROUGH itself (Spanish course, Spanish support).
+
+    Most kinds are better for it — a gloss becomes a monolingual learner's
+    dictionary entry, and hints/explanations/titles are English text ABOUT
+    the language that clearly should be Spanish. But a sentence TRANSLATION
+    is different: rendering "The house is big" into the course language
+    reproduces the drill sentence itself — with the blank filled in. That
+    hands over the answer. Those kinds stay on their English source here.
+    """
+    return pair["locale"] == pair["language_code"]
+
+
 async def _translate_drills(conn, pair, rows) -> int:
     """English drill translation + hint → the locale, one maker–checker pass
     per field. Approved renderings are stored as draft rows (reviewed=false —
     live immediately, the read path COALESCEs with no reviewed gate, and a
     reviewer can amend later); rejected ones store NULL, which both records
-    the attempt and leaves the card on its English fallback."""
+    the attempt and leaves the card on its English fallback.
+
+    On the self-pair only the HINT is rendered: the translation would spell
+    out the cloze answer (see self_pair)."""
     out: dict[str, dict] = {str(r["id"]): {"translation": None, "hint": None}
                             for r in rows}
-    for field in ("translation", "hint"):
+    fields = ("hint",) if self_pair(pair) else ("translation", "hint")
+    for field in fields:
         items = [{"i": i, "sentence": r[field]}
                  for i, r in enumerate(rows) if r[field]]
         if not items:
@@ -558,6 +575,8 @@ async def _translate_examples(conn, pair, rows) -> int:
     lane just makes sure the queue is FULL when they look."""
     from backend.repositories.contributor import add_example_sentence
 
+    if self_pair(pair):
+        return 0  # the rendering would just restate the sentence
     items = [{"i": i, "sentence": r["translation"]} for i, r in enumerate(rows)]
     results = await generate_sentence_translations(pair["locale_name"], items)
     applied = 0
@@ -708,8 +727,9 @@ async def process_demand(conn: asyncpg.Connection, budget: int,
                     conn, pair, rows)
                 n = len(rows)
         elif kind == "example":
-            rows = await pending_examples(conn, b["language_id"], b["locale"],
-                                          min(budget, BATCH_SIZE), ids)
+            rows = [] if self_pair(b) else await pending_examples(
+                conn, b["language_id"], b["locale"],
+                min(budget, BATCH_SIZE), ids)
             if rows:
                 stats["examples"] += await _translate_examples(conn, pair, rows)
                 n = len(rows)
@@ -810,6 +830,8 @@ async def run_translation_cycle(conn: asyncpg.Connection) -> dict:
         for pair in pairs:
             if budget <= 0:
                 break
+            if kind == "examples" and self_pair(pair):
+                continue
             rows = await fetch(conn, pair["language_id"], pair["locale"],
                                min(budget, BATCH_SIZE))
             if not rows:
