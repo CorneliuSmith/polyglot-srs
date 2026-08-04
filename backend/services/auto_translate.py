@@ -684,11 +684,19 @@ async def process_demand(conn: asyncpg.Connection, budget: int,
         if budget <= 0:
             break
         pair = b  # same keys the translators expect
-        kind, ids = b["kind"], b["ref_ids"][:BATCH_SIZE]
+        # Attempt only what this cycle can actually pay for, and clear only
+        # THAT slice. The remainder stays queued for the next pass instead
+        # of being deleted unprocessed — over-clearing dropped everything
+        # past the batch cap onto the breadth-first sweep, which is orders
+        # of magnitude slower and starves the low-priority kinds. That is
+        # what left one lesson's examples half in the learner's language
+        # and half in English, permanently.
+        take = min(budget, BATCH_SIZE)
+        kind, ids = b["kind"], b["ref_ids"][:take]
         n = 0
         if kind == "word":
             rows = await pending_words(conn, b["language_id"], b["locale"],
-                                       min(budget, BATCH_SIZE), ids)
+                                       take, ids)
             if rows:
                 items = [{"i": i, "word": r["word"], "pos": r["pos"],
                           "definition": r["definition"], "example": r["example"]}
@@ -706,14 +714,14 @@ async def process_demand(conn: asyncpg.Connection, budget: int,
                 n = len(rows)
         elif kind == "drill":
             rows = await pending_drills(conn, b["language_id"], b["locale"],
-                                        min(budget, BATCH_SIZE), ids)
+                                        take, ids)
             if rows:
                 stats["drills"] += await _translate_drills(conn, pair, rows)
                 n = len(rows)
         elif kind == "explanation":
             rows = await pending_explanations(conn, b["language_id"],
                                               b["locale"],
-                                              min(budget, BATCH_SIZE), ids)
+                                              take, ids)
             if rows:
                 stats["explanations"] += await _translate_explanations(
                     conn, pair, rows)
@@ -721,7 +729,7 @@ async def process_demand(conn: asyncpg.Connection, budget: int,
         elif kind == "grammar_meta":
             rows = await pending_grammar_meta(conn, b["language_id"],
                                               b["locale"],
-                                              min(budget, BATCH_SIZE), ids)
+                                              take, ids)
             if rows:
                 stats["grammar_meta"] += await _translate_grammar_meta(
                     conn, pair, rows)
@@ -729,7 +737,7 @@ async def process_demand(conn: asyncpg.Connection, budget: int,
         elif kind == "example":
             rows = [] if self_pair(b) else await pending_examples(
                 conn, b["language_id"], b["locale"],
-                min(budget, BATCH_SIZE), ids)
+                take, ids)
             if rows:
                 stats["examples"] += await _translate_examples(conn, pair, rows)
                 n = len(rows)
@@ -738,9 +746,9 @@ async def process_demand(conn: asyncpg.Connection, budget: int,
                                             b["locale"])
             if rows:
                 stats["gym_labels"] += await _translate_gym_labels(
-                    conn, pair, rows[:min(budget, BATCH_SIZE)])
-                n = min(len(rows), min(budget, BATCH_SIZE))
-        await _clear_demand(conn, kind, b["ref_ids"], b["locale"])
+                    conn, pair, rows[:take])
+                n = min(len(rows), take)
+        await _clear_demand(conn, kind, ids, b["locale"])
         if n:
             budget -= n
             stats["processed"] += n

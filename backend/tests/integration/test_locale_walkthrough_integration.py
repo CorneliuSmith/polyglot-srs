@@ -584,3 +584,70 @@ async def test_the_wait_game_plays_the_session_being_waited_for(pool, monkeypatc
             "UPDATE languages SET auto_translate_enabled = false WHERE id = $1",
             course)
     del c
+
+
+async def test_demand_beyond_the_cycle_cap_survives_to_the_next_pass(
+    pool, monkeypatch,
+):
+    """Demand the cycle couldn't pay for must stay QUEUED.
+
+    It used to be deleted wholesale after each pass: the lane attempted at
+    most BATCH_SIZE rows but cleared every ref_id in the batch, dropping the
+    rest onto the breadth-first sweep. That sweep runs orders of magnitude
+    slower and reaches the low-priority kinds last, which is how a single
+    lesson ended up with some example sentences in the learner's language
+    and the others stuck in English for good.
+    """
+    from backend.services.auto_translate import process_demand
+
+    _mock_ai(monkeypatch)
+    course = await _lang(pool, "cp1", "Capish", auto=True)
+    await _lang(pool, "cp2", "Caplocale", auto=False)
+    uid = await _learner(pool, "cap@cp1", course, "cp2")
+
+    async with pool.privileged_connection() as conn:
+        ids = []
+        for i in range(6):
+            vid = await conn.fetchval(
+                "INSERT INTO vocabulary (language_id, word, level, "
+                "frequency_rank) VALUES ($1, $2, 'A1', $3) RETURNING id",
+                course, f"cp1w{i}", i + 1)
+            await conn.execute(
+                "INSERT INTO translations (vocabulary_id, locale, definition) "
+                "VALUES ($1, 'en', 'thing')", vid)
+            await conn.execute(
+                "INSERT INTO translation_demand (kind, ref_id, locale) "
+                "VALUES ('word', $1, 'cp2')", vid)
+            ids.append(vid)
+
+        # A budget that covers only part of the queue.
+        stats = {"applied": 0, "queued": 0, "processed": 0, "demand": 0}
+        left = await process_demand(conn, 2, stats)
+
+        remaining = await conn.fetchval(
+            "SELECT count(*) FROM translation_demand "
+            "WHERE locale = 'cp2' AND kind = 'word'")
+        assert remaining == 4, f"unpaid demand was dropped: {remaining} left"
+        assert left == 0, left
+
+        # The next pass picks up exactly what was left, and converges.
+        await process_demand(conn, 50, stats)
+        assert await conn.fetchval(
+            "SELECT count(*) FROM translation_demand "
+            "WHERE locale = 'cp2' AND kind = 'word'") == 0
+
+        # Every word ends up resolved — glossed, or parked for a human.
+        settled = await conn.fetchval(
+            """SELECT count(*) FROM vocabulary v
+                WHERE v.id = ANY($1::uuid[])
+                  AND (EXISTS (SELECT 1 FROM translations t
+                                WHERE t.vocabulary_id = v.id AND t.locale = 'cp2')
+                    OR EXISTS (SELECT 1 FROM translation_reviews r
+                                WHERE r.vocabulary_id = v.id AND r.locale = 'cp2'))""",
+            ids)
+        assert settled == 6, settled
+
+        await conn.execute(
+            "UPDATE languages SET auto_translate_enabled = false WHERE id = $1",
+            course)
+    del uid
