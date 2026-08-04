@@ -30,6 +30,7 @@ from backend.repositories.cards import (
     get_generation_context,
     get_learn_decks,
     get_vocab_item,
+    pretranslate_upcoming,
     reset_card_progress,
     reset_deck_progress,
     reset_language_progress,
@@ -49,6 +50,7 @@ from backend.repositories.pool import privileged_connection, rls_connection
 from backend.repositories.review import add_card_feedback, insert_review_log
 from backend.repositories.tutor import log_tutor_usage
 from backend.services.allowance import get_allowance, reject_if_unavailable
+from backend.services.auto_translate import kick
 from backend.services.fsrs import (
     AnswerResult,
     CardState,
@@ -156,9 +158,45 @@ async def readiness(
     anything; the session is always startable in English.
     """
     async with rls_connection(user["id"]) as conn:
-        return await session_readiness(
+        state = await session_readiness(
             conn, user["id"], language_id, batch_size=max(1, min(limit, 100)),
         )
+        # Checking readiness IS demand: prime the queue for the batch being
+        # waited on and wake the loop, so the wait screen fills itself
+        # instead of hoping a sweep comes around. pretranslate never raises.
+        if not state["learn"]["ready_enough"] or not state["review"]["ready_enough"]:
+            await pretranslate_upcoming(
+                conn, user["id"], language_id, batch_size=max(1, min(limit, 100))
+            )
+            kick()
+    return state
+
+
+class RefreshLessonsRequest(BaseModel):
+    card_ids: list[str] = Field(max_length=50)
+
+
+@router.post("/lessons/refresh")
+async def refresh_lessons(
+    body: RefreshLessonsRequest,
+    user: dict = Depends(get_current_user),
+):
+    """Re-serve lesson payloads for cards already in a session — the live
+    swap. A session started in English (or at 60%) re-fetches on each lesson
+    advance; whatever the loop has translated since renders in the learner's
+    language, mid-session, without a restart."""
+    async with rls_connection(user["id"]) as conn:
+        support = await _support_locale(conn, user["id"])
+        details = await get_card_details_bulk(
+            conn, body.card_ids, support_locale=support
+        )
+    return {
+        "lessons": [
+            {"card_id": card_id, **details[card_id]}
+            for card_id in body.card_ids
+            if card_id in details
+        ]
+    }
 
 
 MAX_CRAM_POINTS = 12

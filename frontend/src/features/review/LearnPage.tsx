@@ -1,11 +1,13 @@
-import { useState, useEffect, useRef } from 'react'
+import { useState, useEffect, useRef, useCallback } from 'react'
 import UiLanguageSwitcher from '../../components/UiLanguageSwitcher'
 import { Trans, useTranslation } from 'react-i18next'
 import { useNavigate, useSearchParams } from 'react-router-dom'
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
 import {
   confirmLearnSession,
+  getSessionReadiness,
   markCardKnown,
+  refreshLessons,
   startLearnSession,
   validateAnswer,
 } from '../../api/review'
@@ -17,6 +19,7 @@ import FormsPanel from '../../components/FormsPanel'
 import ExplanationView from '../../components/ExplanationView'
 import SpeakButton from '../../components/SpeakButton'
 import DrillCard from './DrillCard'
+import TrailblazerWait from './TrailblazerWait'
 import SuggestChange from '../contribute/SuggestChange'
 import Annotatable from '../contribute/Annotatable'
 import { prefetchTTSMany } from '../../api/audio'
@@ -82,11 +85,30 @@ function LearnInner({ onLocaleChanged }: { onLocaleChanged: () => void }) {
   // screen while the request actually succeeded. The per-mount key means a
   // fresh visit fetches a fresh batch; Infinity stale/gc keeps this batch
   // stable for the lifetime of the walkthrough.
+  // Trailblazer gate: a session whose content hasn't been written in the
+  // learner's language yet is worth waiting a moment for — but never
+  // forced. Readiness is checked BEFORE the batch is drawn (the learn POST
+  // creates cards), and checking is itself what primes the queue server
+  // side. A failed check means "just start": the wait must never be what
+  // blocks a session.
+  const [startNow, setStartNow] = useState(false)
+  const readinessQuery = useQuery({
+    queryKey: ['session-readiness', activeLanguageId, 'learn', undefined],
+    queryFn: () => getSessionReadiness(activeLanguageId!),
+    enabled: !!activeLanguageId,
+    retry: 1,
+  })
+  const readinessSettled = readinessQuery.isSuccess || readinessQuery.isError
+  const underReady =
+    readinessQuery.data != null && !readinessQuery.data.learn.ready_enough
+  const gated = underReady && !startNow
+  const handleStart = useCallback(() => setStartNow(true), [])
+
   const [sessionKey] = useState(() => `${Date.now()}-${Math.random()}`)
   const learnQuery = useQuery({
     queryKey: ['learn-session', sessionKey],
     queryFn: () => startLearnSession(activeLanguageId!, cardType, level),
-    enabled: !!activeLanguageId,
+    enabled: !!activeLanguageId && readinessSettled && !gated,
     staleTime: Infinity,
     gcTime: Infinity,
     retry: false,
@@ -154,6 +176,26 @@ function LearnInner({ onLocaleChanged }: { onLocaleChanged: () => void }) {
       ].filter((t): t is string => !!t),
     )
   }, [prefetchLesson, prefetchCode])
+
+  // Live swap: a session started under-ready re-serves its lesson payloads
+  // on every advance, so content that lands mid-session renders in the
+  // learner's language without a restart. Best-effort — a failed refresh
+  // just leaves the English already on screen.
+  const [swapped, setSwapped] = useState<Record<string, Lesson>>({})
+  const sessionItems = learnQuery.data?.items
+  useEffect(() => {
+    if (!underReady || !sessionItems?.length) return
+    let cancelled = false
+    refreshLessons(sessionItems)
+      .then((fresh) => {
+        if (cancelled) return
+        setSwapped(Object.fromEntries(fresh.map((l) => [l.card_id, l])))
+      })
+      .catch(() => {})
+    return () => {
+      cancelled = true
+    }
+  }, [underReady, sessionItems, lessonIndex])
 
   const typeIntoQuiz = (insert: string, replaceBackspace = false) => {
     setQuizResult(null)
@@ -237,6 +279,19 @@ function LearnInner({ onLocaleChanged }: { onLocaleChanged: () => void }) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [learnQuery.data, lessonIndex, passedCards, knownCards])
 
+  if (gated && activeLanguageId) {
+    return (
+      <TrailblazerWait
+        languageId={activeLanguageId}
+        kind="learn"
+        onStart={handleStart}
+        localeName={
+          languages.find((l) => l.code === readinessQuery.data?.locale)?.name
+        }
+      />
+    )
+  }
+
   if (learnQuery.isError) {
     return (
       <div className="min-h-screen bg-gray-50 flex items-center justify-center px-4">
@@ -263,7 +318,8 @@ function LearnInner({ onLocaleChanged }: { onLocaleChanged: () => void }) {
     )
   }
 
-  const { added, lessons } = learnQuery.data
+  const { added, lessons: servedLessons } = learnQuery.data
+  const lessons = servedLessons.map((l) => swapped[l.card_id] ?? l)
 
   if (added === 0) {
     return (

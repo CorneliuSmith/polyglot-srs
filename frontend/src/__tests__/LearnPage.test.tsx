@@ -14,6 +14,18 @@ vi.mock('../api/review', () => ({
   confirmLearnSession: vi.fn(),
   validateAnswer: vi.fn(),
   markCardKnown: vi.fn(),
+  // The trailblazer gate runs before the batch is drawn. These sessions
+  // are already in the learner's language, so they never see the wait.
+  getSessionReadiness: vi.fn(() =>
+    Promise.resolve({
+      locale: null,
+      threshold: 0.6,
+      learn: { total: 0, ready: 0, pct: 1, ready_enough: true },
+      review: { total: 0, ready: 0, pct: 1, ready_enough: true },
+      pairs: [],
+    }),
+  ),
+  refreshLessons: vi.fn(() => Promise.resolve([])),
 }))
 vi.mock('../api/profile', () => ({
   getLanguages: vi.fn(),
@@ -24,7 +36,9 @@ vi.mock('../stores/prefsStore', () => ({ usePrefsStore: vi.fn(() => 'lang-es') }
 
 import {
   confirmLearnSession,
+  getSessionReadiness,
   markCardKnown,
+  refreshLessons,
   startLearnSession,
   validateAnswer,
 } from '../api/review'
@@ -36,6 +50,13 @@ const mockConfirm = confirmLearnSession as ReturnType<typeof vi.fn>
 const mockValidate = validateAnswer as ReturnType<typeof vi.fn>
 const mockKnown = markCardKnown as ReturnType<typeof vi.fn>
 const mockGetLanguages = getLanguages as ReturnType<typeof vi.fn>
+const mockReadiness = getSessionReadiness as ReturnType<typeof vi.fn>
+const mockRefresh = refreshLessons as ReturnType<typeof vi.fn>
+
+function readiness(pct: number, ready_enough: boolean) {
+  const lane = { total: 10, ready: Math.round(pct * 10), pct, ready_enough }
+  return { locale: 'pt', threshold: 0.6, learn: lane, review: lane, pairs: [] }
+}
 
 const grammarLesson = {
   card_id: 'uc-1',
@@ -100,6 +121,11 @@ describe('LearnPage (teach-before-quiz)', () => {
   beforeEach(() => {
     vi.clearAllMocks()
     mockGetLanguages.mockResolvedValue([{ id: 'lang-es', code: 'es', name: 'Spanish', rtl: false }])
+    // Ready by default, so only the tests that are ABOUT the wait see it.
+    // (clearAllMocks resets calls, not implementations — without this a
+    // gated test leaks its readiness into every test after it.)
+    mockReadiness.mockResolvedValue(readiness(1, true))
+    mockRefresh.mockResolvedValue([])
   })
 
   it('presents each new item as a lesson before the quiz', async () => {
@@ -320,6 +346,39 @@ describe('LearnPage (teach-before-quiz)', () => {
     mockLearn.mockResolvedValue({ added: 0, items: [], lessons: [] })
     renderPage()
     expect(await screen.findByText(/nothing new to learn/i)).toBeDefined()
+  })
+
+  it('holds an under-ready session behind the trailblazer wait, and never draws the batch until asked', async () => {
+    // The learn POST CREATES cards, so the gate must come first — drawing a
+    // batch the learner then abandons would strand it as suspended.
+    mockReadiness.mockResolvedValue(readiness(0.2, false))
+    mockLearn.mockResolvedValue({ added: 2, items: ['uc-1', 'uc-2'], lessons: [] })
+    renderPage()
+
+    await screen.findByText(/first here/i)
+    expect(mockLearn).not.toHaveBeenCalled()
+
+    fireEvent.click(screen.getByText(/Start in English/i))
+    await waitFor(() => expect(mockLearn).toHaveBeenCalled())
+  })
+
+  it('swaps content into the learner language mid-session, without a restart', async () => {
+    // A session started under-ready re-serves its payloads as the loop lands
+    // translations; the English already on screen is replaced in place.
+    mockReadiness.mockResolvedValue(readiness(0.2, false))
+    mockLearn.mockResolvedValue({
+      added: 1,
+      items: ['uc-1'],
+      lessons: [grammarLesson],
+    })
+    mockRefresh.mockResolvedValue([
+      { ...grammarLesson, title: '[Português] The verb ser' },
+    ])
+    renderPage()
+
+    fireEvent.click(await screen.findByText(/Start in English/i))
+    await waitFor(() => expect(mockRefresh).toHaveBeenCalledWith(['uc-1']))
+    await screen.findByText('[Português] The verb ser')
   })
 
   it('Arabic vocalized reading follows the short-vowels setting', async () => {

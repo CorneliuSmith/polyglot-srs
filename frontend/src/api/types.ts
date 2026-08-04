@@ -166,6 +166,24 @@ export interface LearnResponse {
   lessons: Lesson[]
 }
 
+/** One lane of session readiness: how much already reads in the learner's
+ * support language. `ready_enough` is what the UI acts on. */
+export interface ReadinessLane {
+  total: number
+  ready: number
+  pct: number
+  ready_enough: boolean
+}
+
+export interface SessionReadiness {
+  locale: string | null
+  threshold: number
+  learn: ReadinessLane
+  review: ReadinessLane
+  /** Already-translated words of the upcoming batch — the wait game's pool. */
+  pairs: { word: string; gloss: string }[]
+}
+
 export interface LearnDeck {
   id: string
   list_type: 'vocabulary' | 'grammar'

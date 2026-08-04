@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect } from 'react'
+import { useState, useRef, useEffect, useCallback } from 'react'
 import UiLanguageSwitcher from '../../components/UiLanguageSwitcher'
 import { useTranslation } from 'react-i18next'
 import { Headphones, Settings as SettingsIcon, Undo2 } from 'lucide-react'
@@ -7,6 +7,7 @@ import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query'
 import {
   getCramCards,
   getDueCards,
+  getSessionReadiness,
   markCardKnown,
   submitReview,
   validateAnswer,
@@ -16,6 +17,7 @@ import { getLanguages, getProfile, updateProfile } from '../../api/profile'
 import type { DueCard } from '../../api/types'
 import { usePrefsStore } from '../../stores/prefsStore'
 import { languageDisplayName } from '../../lib/languages'
+import TrailblazerWait from './TrailblazerWait'
 import { useReviewSession } from './useReviewSession'
 import {
   clearSnapshot,
@@ -155,6 +157,22 @@ function ReviewSessionInner({
   // the localized cards, instead of racing an invalidate + remount.
   const { data: profile } = useQuery({ queryKey: ['profile'], queryFn: getProfile })
   const supportLocale = profile?.support_locale ?? 'en'
+  // Trailblazer gate — reviews only. Cram draws from grammar points the
+  // learner picked, not a locale-backed queue, so it never waits.
+  const [startNow, setStartNow] = useState(false)
+  const readinessQuery = useQuery({
+    queryKey: ['session-readiness', activeLanguageId, 'review', sessionSize],
+    queryFn: () => getSessionReadiness(activeLanguageId!, sessionSize),
+    enabled: !!activeLanguageId && !cram,
+    retry: 1,
+  })
+  const gated =
+    !cram &&
+    !startNow &&
+    readinessQuery.data != null &&
+    !readinessQuery.data.review.ready_enough
+  const handleStart = useCallback(() => setStartNow(true), [])
+
   const { data: fetched, isLoading } = useQuery(
     cram
       ? {
@@ -177,6 +195,10 @@ function ReviewSessionInner({
       : {
           queryKey: ['due-cards', activeLanguageId, sessionSize, reviewType ?? 'all', supportLocale],
           queryFn: () => getDueCards(activeLanguageId!, sessionSize, reviewType),
+          // Deliberately NOT gated on readiness. Due cards already exist —
+          // fetching them is read-only and cheap, so the wait screen decides
+          // what to SHOW, never whether to load. (Gating the fetch stalled a
+          // mid-session language switch behind the new pair's readiness.)
           enabled: !!activeLanguageId,
           // A live session must never see its deck change under it, and a
           // NEW session must never flash the previous one's cached cards:
@@ -558,6 +580,20 @@ function ReviewSessionInner({
       input.focus()
       input.setSelectionRange(from, from)
     })
+  }
+
+  if (gated && activeLanguageId) {
+    return (
+      <TrailblazerWait
+        languageId={activeLanguageId}
+        kind="review"
+        limit={sessionSize}
+        onStart={handleStart}
+        localeName={
+          languages.find((l) => l.code === readinessQuery.data?.locale)?.name
+        }
+      />
+    )
   }
 
   if (isLoading || cards === null) {

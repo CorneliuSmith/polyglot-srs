@@ -1320,5 +1320,16 @@
     "oneSOwn": "Свой (one's own)",
     "have": "יש לי (have)",
     "vs": "에 vs 에서"
+  },
+  "trailblazer": {
+    "title": "You're first here",
+    "body": "Nobody has studied this in {{language}} yet. We're writing it now — you're the trailblazer.",
+    "bodyGeneric": "Nobody has studied this in your language yet. We're writing it now — you're the trailblazer.",
+    "progress": "{{pct}}% ready",
+    "waitAndPlay": "Wait & play",
+    "startInEnglish": "Start in English",
+    "gameHint": "Match while you wait — these are the words coming up.",
+    "matched": "{{count}} matched",
+    "firstWords": "The first words are on their way…"
   }
 }

@@ -1320,5 +1320,16 @@
     "oneSOwn": "Свой (son propre)",
     "have": "יש לי (avoir)",
     "vs": "에 vs 에서"
+  },
+  "trailblazer": {
+    "title": "Vous êtes le premier",
+    "body": "Personne n'a encore étudié ceci en {{language}}. Nous l'écrivons maintenant — vous ouvrez la voie.",
+    "bodyGeneric": "Personne n'a encore étudié ceci dans votre langue. Nous l'écrivons maintenant — vous ouvrez la voie.",
+    "progress": "{{pct}} % prêt",
+    "waitAndPlay": "Attendre et jouer",
+    "startInEnglish": "Commencer en anglais",
+    "gameHint": "Associez en attendant : ce sont les mots à venir.",
+    "matched": "{{count}} associés",
+    "firstWords": "Les premiers mots arrivent…"
   }
 }

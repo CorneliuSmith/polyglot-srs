@@ -1320,5 +1320,16 @@
     "oneSOwn": "Свой (próprio)",
     "have": "יש לי (ter)",
     "vs": "에 vs 에서"
+  },
+  "trailblazer": {
+    "title": "Você é o primeiro",
+    "body": "Ninguém estudou isto em {{language}} ainda. Estamos a escrever agora — você é o pioneiro.",
+    "bodyGeneric": "Ninguém estudou isto no seu idioma ainda. Estamos a escrever agora — você é o pioneiro.",
+    "progress": "{{pct}}% pronto",
+    "waitAndPlay": "Esperar e jogar",
+    "startInEnglish": "Começar em inglês",
+    "gameHint": "Combine enquanto espera — são as palavras que vêm a seguir.",
+    "matched": "{{count}} combinadas",
+    "firstWords": "As primeiras palavras estão a caminho…"
   }
 }

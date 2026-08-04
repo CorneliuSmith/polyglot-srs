@@ -920,6 +920,21 @@ async def session_readiness(
             "total": total, "ready": ready, "pct": round(pct, 3),
             "ready_enough": total == 0 or pct >= READY_ENOUGH,
         }
+
+    # The wait-screen game plays the words of the SESSION being waited for —
+    # whatever slice of it has already landed in the learner's language. The
+    # pool grows as the loop fills, so the game gets richer while they wait,
+    # and every match is a word they meet for real minutes later.
+    out["pairs"] = [
+        {"word": r["word"], "gloss": r["definition"]}
+        for r in await conn.fetch(
+            """SELECT v.word, t.definition FROM vocabulary v
+                JOIN translations t ON t.vocabulary_id = v.id
+                WHERE v.id = ANY($1::uuid[]) AND t.locale = $2
+                LIMIT 12""",
+            list(learn_v), locale)
+        if r["definition"]
+    ] if learn_v else []
     return out
 
 
