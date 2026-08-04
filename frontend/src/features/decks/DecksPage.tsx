@@ -4,6 +4,7 @@ import UiLanguageSwitcher from '../../components/UiLanguageSwitcher'
 import { useQuery } from '@tanstack/react-query'
 import { getLearnDecks } from '../../api/review'
 import { usePrefsStore } from '../../stores/prefsStore'
+import { deckTitle } from '../../lib/deckTitles'
 import LanguagePicker from '../../components/LanguagePicker'
 import PersonalDecksSection from './PersonalDecksSection'
 import type { LearnDeck } from '../../api/types'
@@ -47,7 +48,9 @@ export default function DecksPage() {
             </span>
           )}
         </div>
-        <p className="mt-3 text-sm font-semibold text-gray-800">{deck.title}</p>
+        <p className="mt-3 text-sm font-semibold text-gray-800">
+          {deckTitle(deck, t)}
+        </p>
         <p className="text-xs text-gray-500 mt-0.5">
           {t('decks.learnedRatio', { learned: deck.learned, total: deck.total })}
         </p>
