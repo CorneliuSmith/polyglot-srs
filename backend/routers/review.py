@@ -33,6 +33,7 @@ from backend.repositories.cards import (
     reset_card_progress,
     reset_deck_progress,
     reset_language_progress,
+    session_readiness,
     set_deck_subscription,
     update_card_srs,
 )
@@ -138,6 +139,26 @@ async def get_due(
             card_type=card_type,
         )
     return cards
+
+
+@router.get("/readiness")
+async def readiness(
+    language_id: str,
+    limit: int = 20,
+    user: dict = Depends(get_current_user),
+):
+    """How much of the learner's next session already reads in their own
+    language — what the "you're first here" screen is built on.
+
+    Returns learn and review separately, each with a `ready_enough` flag:
+    the session is worth starting once most of it has landed, because the
+    rest fills while they work through the early cards. Nothing here blocks
+    anything; the session is always startable in English.
+    """
+    async with rls_connection(user["id"]) as conn:
+        return await session_readiness(
+            conn, user["id"], language_id, batch_size=max(1, min(limit, 100)),
+        )
 
 
 MAX_CRAM_POINTS = 12

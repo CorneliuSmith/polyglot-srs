@@ -423,3 +423,121 @@ async def test_the_self_pair_never_translates_the_answer_away(pool, monkeypatch)
             "UPDATE languages SET auto_translate_enabled = false WHERE id = $1",
             course)
     del c
+
+
+async def test_readiness_drives_the_wait_and_smart_loading_looks_ahead(
+    pool, monkeypatch,
+):
+    """The "you're first here" screen's inputs.
+
+    Readiness reports how much of the NEXT session already reads in the
+    learner's language, so the UI can start at 60% rather than holding out
+    for a perfect session. And the lookahead is tiered: a pair with nothing
+    translated queues a whole level's worth (that first session is the one
+    that would otherwise stall), and a nearly-spent queue pulls in the level
+    above so moving up doesn't land on a fresh wall of English."""
+    from backend.repositories.cards import (
+        READY_ENOUGH,
+        pretranslate_upcoming,
+        session_readiness,
+    )
+
+    _mock_ai(monkeypatch)
+    course = await _lang(pool, "rd1", "Readyish", auto=True)
+    await _lang(pool, "rd2", "Readylocale", auto=False)
+    uid = await _learner(pool, "ready@rd1", course, "rd2")
+    c = await _build_course(pool, course, uid, "rd1")
+
+    async with pool.privileged_connection() as conn:
+        # Nothing translated yet → not ready, and the UI offers the wait.
+        st = await session_readiness(conn, uid, course, batch_size=10)
+        assert st["locale"] == "rd2"
+        assert st["threshold"] == READY_ENOUGH
+        assert st["learn"]["total"] == 4          # 2 words + 2 points
+        assert st["learn"]["ready"] == 0
+        assert st["learn"]["ready_enough"] is False
+
+        # First run on an untranslated pair queues far more than one session.
+        await conn.execute("DELETE FROM translation_demand WHERE locale = 'rd2'")
+        await pretranslate_upcoming(conn, uid, course, batch_size=1)
+        # batch_size=1, yet the whole course is queued — the first-run span
+        # is a level's worth, not one session's.
+        words = await conn.fetchval(
+            "SELECT count(*) FROM translation_demand "
+            "WHERE locale = 'rd2' AND kind = 'word'")
+        points = await conn.fetchval(
+            "SELECT count(*) FROM translation_demand "
+            "WHERE locale = 'rd2' AND kind = 'explanation'")
+        assert words == 2, words
+        assert points == 2, points
+
+    # Translate, then readiness should clear the bar.
+    await _cycle(pool)
+    async with pool.privileged_connection() as conn:
+        st = await session_readiness(conn, uid, course, batch_size=10)
+        assert st["learn"]["ready"] >= 1
+        assert st["learn"]["pct"] > 0
+
+        # An English-support learner never waits: their content IS English.
+        await conn.execute(
+            "UPDATE user_profiles SET support_locale = NULL WHERE id = $1", uid)
+        st_en = await session_readiness(conn, uid, course, batch_size=10)
+        assert st_en["learn"]["ready_enough"] is True
+        assert st_en["review"]["ready_enough"] is True
+
+        await conn.execute(
+            "UPDATE languages SET auto_translate_enabled = false WHERE id = $1",
+            course)
+    del c
+
+
+async def test_the_level_above_is_queued_when_the_queue_runs_low(pool, monkeypatch):
+    """Approaching a level boundary pulls the next level in — deliberately
+    ignoring subscriptions, since the whole point is content they have not
+    reached yet. Queuing only reorders the loop's work; the per-cycle budget
+    still caps what any of it costs."""
+    from backend.repositories.cards import pretranslate_upcoming
+
+    _mock_ai(monkeypatch)
+    course = await _lang(pool, "lv1", "Levelish", auto=True)
+    await _lang(pool, "lv2", "Levellocale", auto=False)
+    uid = await _learner(pool, "level@lv1", course, "lv2")
+
+    async with pool.privileged_connection() as conn:
+        deck = await conn.fetchval(
+            "INSERT INTO content_lists (language_id, list_type, level, title) "
+            "VALUES ($1, 'vocabulary', 'A1', 'A1 Vocabulary') RETURNING id",
+            course)
+        await conn.execute(
+            "INSERT INTO user_content_subscriptions (user_id, content_list_id) "
+            "VALUES ($1, $2)", uid, deck)
+        # One A1 word (their queue is nearly spent) and A2 words they have
+        # not subscribed to and cannot yet reach.
+        a1 = await conn.fetchval(
+            "INSERT INTO vocabulary (language_id, word, level, frequency_rank) "
+            "VALUES ($1, 'lv1uno', 'A1', 1) RETURNING id", course)
+        await conn.execute(
+            "INSERT INTO translations (vocabulary_id, locale, definition) "
+            "VALUES ($1, 'en', 'one')", a1)
+        a2_ids = []
+        for i in range(3):
+            vid = await conn.fetchval(
+                "INSERT INTO vocabulary (language_id, word, level, "
+                "frequency_rank) VALUES ($1, $2, 'A2', $3) RETURNING id",
+                course, f"lv1next{i}", i + 10)
+            await conn.execute(
+                "INSERT INTO translations (vocabulary_id, locale, definition) "
+                "VALUES ($1, 'en', 'next')", vid)
+            a2_ids.append(vid)
+
+        await pretranslate_upcoming(conn, uid, course, batch_size=5)
+
+        queued = {r["ref_id"] for r in await conn.fetch(
+            "SELECT ref_id FROM translation_demand "
+            "WHERE locale = 'lv2' AND kind = 'word'")}
+        assert a1 in queued, "their own A1 word was not queued"
+        assert queued & set(a2_ids), "the level above was not pulled in"
+
+        await conn.execute(
+            "UPDATE languages SET auto_translate_enabled = false WHERE id = $1",
+            course)
