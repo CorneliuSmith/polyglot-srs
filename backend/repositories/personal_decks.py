@@ -8,20 +8,30 @@ from __future__ import annotations
 
 import asyncpg
 
+# The 20260811 migration (personal_decks + the personal_deck_id column) may
+# not have landed. Every read here degrades to "no decks, everything
+# unfiled" rather than 500ing — an unguarded read took the whole section
+# down, so the learner saw no personal cards at all and no reason why.
+_MISSING = (asyncpg.exceptions.UndefinedTableError,
+            asyncpg.exceptions.UndefinedColumnError)
+
 
 async def list_decks(conn: asyncpg.Connection, language_id: str) -> list[dict]:
-    rows = await conn.fetch(
-        """
-        SELECT pd.id, pd.name, pd.created_at,
-               count(cc.id) AS card_count
-        FROM personal_decks pd
-        LEFT JOIN user_cloze_cards cc ON cc.personal_deck_id = pd.id
-        WHERE pd.language_id = $1
-        GROUP BY pd.id
-        ORDER BY pd.created_at ASC
-        """,
-        language_id,
-    )
+    try:
+        rows = await conn.fetch(
+            """
+            SELECT pd.id, pd.name, pd.created_at,
+                   count(cc.id) AS card_count
+            FROM personal_decks pd
+            LEFT JOIN user_cloze_cards cc ON cc.personal_deck_id = pd.id
+            WHERE pd.language_id = $1
+            GROUP BY pd.id
+            ORDER BY pd.created_at ASC
+            """,
+            language_id,
+        )
+    except _MISSING:
+        return []
     return [
         {"id": str(r["id"]), "name": r["name"], "card_count": r["card_count"]}
         for r in rows
@@ -87,16 +97,33 @@ async def list_personal_cards(
     conn: asyncpg.Connection, language_id: str
 ) -> list[dict]:
     """Every personal card for the language, with its filing state."""
-    rows = await conn.fetch(
-        """
-        SELECT cc.id, cc.answer, cc.sentence, cc.translation,
-               cc.personal_deck_id, cc.created_at
-        FROM user_cloze_cards cc
-        WHERE cc.language_id = $1
-        ORDER BY cc.created_at DESC
-        """,
-        language_id,
-    )
+    try:
+        rows = await conn.fetch(
+            """
+            SELECT cc.id, cc.answer, cc.sentence, cc.translation,
+                   cc.personal_deck_id, cc.created_at
+            FROM user_cloze_cards cc
+            WHERE cc.language_id = $1
+            ORDER BY cc.created_at DESC
+            """,
+            language_id,
+        )
+    except _MISSING:
+        # No filing column yet — still list the cards, all unfiled. Losing
+        # the folders is a smaller loss than losing every card.
+        rows = [
+            {**dict(r), "personal_deck_id": None}
+            for r in await conn.fetch(
+                """
+                SELECT cc.id, cc.answer, cc.sentence, cc.translation,
+                       cc.created_at
+                FROM user_cloze_cards cc
+                WHERE cc.language_id = $1
+                ORDER BY cc.created_at DESC
+                """,
+                language_id,
+            )
+        ]
     return [
         {
             "id": str(r["id"]),
@@ -130,3 +157,54 @@ async def file_card(
         card_id, deck_id,
     )
     return res.endswith(" 1")
+
+
+async def untranslated_cards(
+    conn: asyncpg.Connection, language_id: str, locale: str,
+) -> list[dict]:
+    """The learner's personal cards with no rendering in *locale* yet.
+
+    Private content, so this is never swept by the background loop — it
+    exists so the learner can be told how many of their own cards would be
+    translated, and what it costs, BEFORE anything is spent.
+    """
+    if not locale or locale == "en":
+        return []
+    try:
+        rows = await conn.fetch(
+            """
+            SELECT cc.id, cc.sentence, cc.answer, cc.translation
+            FROM user_cloze_cards cc
+            WHERE cc.language_id = $1
+              AND cc.translation IS NOT NULL AND cc.translation <> ''
+              AND NOT EXISTS (
+                SELECT 1 FROM user_cloze_card_translations t
+                 WHERE t.cloze_id = cc.id AND t.locale = $2)
+            ORDER BY cc.created_at DESC
+            """,
+            language_id, locale,
+        )
+    except _MISSING:
+        return []
+    return [dict(r) for r in rows]
+
+
+async def store_card_translations(
+    conn: asyncpg.Connection, rows: list[tuple[str, str]], locale: str,
+) -> int:
+    """Persist (cloze_id, translation) pairs. Idempotent per (card, locale)
+    so a retry after a partial failure never double-charges the learner for
+    work already paid for."""
+    stored = 0
+    for cloze_id, translation in rows:
+        if not translation:
+            continue
+        await conn.execute(
+            """INSERT INTO user_cloze_card_translations
+                   (cloze_id, locale, translation)
+               VALUES ($1, $2, $3)
+               ON CONFLICT (cloze_id, locale) DO NOTHING""",
+            cloze_id, locale, translation,
+        )
+        stored += 1
+    return stored

@@ -280,8 +280,11 @@ async def get_due_cards(
     )
 
     # -- Personal cloze cards (learner's own text) --------------------------
-    personal_rows = [] if not want_vocab else await conn.fetch(
-        """
+    # Guarded: the locale-overlay migration (20260917) may not have landed,
+    # and this is the review hot path — an unguarded read against a missing
+    # table aborts the whole pooled transaction, taking every other card
+    # down with it, not just the personal ones.
+    personal_sql = """
         SELECT
             uc.id,
             uc.user_id,
@@ -294,7 +297,11 @@ async def get_due_cards(
             -- store no authored cue, and one translation-only dot left the
             -- card unanswerable when the sentence had many candidates.
             cc.answer                       AS hint,
-            cc.translation                  AS translation,
+            -- The learner's own locale rendering when they've asked for one
+            -- (filled on demand from their allowance — the background loop
+            -- never sweeps private content), else the language the card was
+            -- minted in. LEFT JOIN, so a missing overlay is just a fallback.
+            COALESCE(cct.translation, cc.translation) AS translation,
             NULL::jsonb                     AS morphology,
             NULL::text[]                    AS alternatives,
             l.code                          AS language_code,
@@ -307,16 +314,48 @@ async def get_due_cards(
         FROM user_cards uc
         JOIN user_cloze_cards cc ON uc.card_id = cc.id
         JOIN languages l         ON uc.language_id = l.id
+        LEFT JOIN user_cloze_card_translations cct
+               ON cct.cloze_id = cc.id AND cct.locale = $3
         WHERE uc.language_id = $1
           AND uc.card_type = 'personal'
           AND uc.next_review <= now()
           AND uc.is_suspended = false
         ORDER BY uc.next_review ASC
         LIMIT $2
-        """,
-        language_id,
-        limit,
-    )
+    """
+    # Pre-migration form: the card's minted-language translation, no overlay.
+    # Spelled out rather than patched out of the string above — SQL surgery
+    # breaks silently the moment either query is reformatted.
+    personal_sql_no_overlay = """
+        SELECT
+            uc.id, uc.user_id, uc.language_id, uc.card_type, uc.card_id,
+            cc.sentence AS sentence,
+            cc.answer   AS correct_answer,
+            cc.answer   AS hint,
+            cc.translation AS translation,
+            NULL::jsonb  AS morphology,
+            NULL::text[] AS alternatives,
+            l.code       AS language_code,
+            uc.ease_factor, uc.interval, uc.repetitions,
+            uc.streak, uc.lapses, uc.next_review
+        FROM user_cards uc
+        JOIN user_cloze_cards cc ON uc.card_id = cc.id
+        JOIN languages l         ON uc.language_id = l.id
+        WHERE uc.language_id = $1
+          AND uc.card_type = 'personal'
+          AND uc.next_review <= now()
+          AND uc.is_suspended = false
+        ORDER BY uc.next_review ASC
+        LIMIT $2
+    """
+    personal_rows = []
+    if want_vocab:
+        try:
+            personal_rows = await conn.fetch(
+                personal_sql, language_id, limit, eff_locale)
+        except asyncpg.exceptions.UndefinedTableError:
+            personal_rows = await conn.fetch(
+                personal_sql_no_overlay, language_id, limit)
 
     # Per-sentence history for the gap-hunting rotation (one query for the
     # whole batch).

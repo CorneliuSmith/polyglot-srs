@@ -51,3 +51,32 @@ export async function getPersonalCards(languageId: string): Promise<PersonalCard
 export async function filePersonalCard(cardId: string, deckId: string | null): Promise<void> {
   await apiClient.patch(`/api/personal-decks/cards/${cardId}`, { deck_id: deckId })
 }
+
+export interface PersonalTranslationStatus {
+  locale: string | null
+  /** How many of the learner's own cards don't read in their language yet. */
+  pending: number
+  available: boolean
+  remaining: number | null
+  unlimited: boolean
+}
+
+/** Reports what translating would cost. Spends nothing. */
+export async function getPersonalTranslationStatus(
+  languageId: string,
+): Promise<PersonalTranslationStatus> {
+  const { data } = await apiClient.get('/api/personal-decks/translation-status', {
+    params: { language_id: languageId },
+  })
+  return data
+}
+
+/** Translates the learner's own cards, charged to THEIR allowance. */
+export async function translatePersonalCards(
+  languageId: string,
+): Promise<{ translated: number; charged: boolean }> {
+  const { data } = await apiClient.post('/api/personal-decks/translate', {
+    language_id: languageId,
+  })
+  return data
+}

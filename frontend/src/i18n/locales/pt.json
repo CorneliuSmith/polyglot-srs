@@ -678,7 +678,13 @@
     "deckFor": "Baralho de {{answer}}",
     "titleGrammar": "Trilha de gramática {{level}}",
     "titleVocab": "Vocabulário {{level}}",
-    "titleAlphabet": "Alfabeto"
+    "titleAlphabet": "Alfabeto",
+    "translateOffer": "{{count}} das suas próprias cartas ainda estão no idioma em que as guardou.",
+    "translateCost": "Traduzi-las usa uma mensagem da sua quota, tal como perguntar ao tutor. As suas cartas são privadas, por isso isto nunca é feito em segundo plano.",
+    "translateAction": "Traduzir as minhas cartas",
+    "translating": "A traduzir…",
+    "translateDone": "Foram traduzidas {{count}} das suas cartas.",
+    "translateFailed": "Não funcionou. A sua quota não foi cobrada."
   },
   "notes": {
     "pickLanguageFirst": "Escolha um idioma no painel primeiro.",

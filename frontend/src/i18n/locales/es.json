@@ -678,7 +678,13 @@
     "deckFor": "Mazo para {{answer}}",
     "titleGrammar": "Ruta de gramática {{level}}",
     "titleVocab": "Vocabulario {{level}}",
-    "titleAlphabet": "Alfabeto"
+    "titleAlphabet": "Alfabeto",
+    "translateOffer": "{{count}} de tus propias tarjetas siguen en el idioma en que las guardaste.",
+    "translateCost": "Traducirlas usa un mensaje de tu asignación, igual que preguntar al tutor. Tus tarjetas son privadas, así que esto nunca se hace en segundo plano.",
+    "translateAction": "Traducir mis tarjetas",
+    "translating": "Traduciendo…",
+    "translateDone": "Se tradujeron {{count}} tarjetas tuyas.",
+    "translateFailed": "No funcionó. No se cobró tu asignación."
   },
   "notes": {
     "pickLanguageFirst": "Primero elige un idioma en el panel.",
