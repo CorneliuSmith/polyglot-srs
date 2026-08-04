@@ -531,6 +531,7 @@ async def add_example_sentence(
     source: str = "human",
     origin_detail: str | None = None,
     translation_locale: str = "en",
+    reviewed: bool | None = None,
 ) -> str | None:
     """Insert a vocabulary example sentence (privileged), tagged with provenance
     (WP38): 'ai' for a generated one with the model in *origin_detail*. Returns
@@ -544,9 +545,17 @@ async def add_example_sentence(
 
     Generated ('ai') examples land reviewed=false — hidden from learners until a
     human approves them (the WP42 review gate); seed/imported/human examples are
-    trusted content and go in reviewed=true."""
+    trusted content and go in reviewed=true.
+
+    *reviewed* overrides that default, and exists for exactly one case: a
+    locale rendering of an English sentence a human ALREADY approved. The
+    sentence is unchanged and the meaning was signed off; only the wording of
+    the meaning line is new, and it came through the same maker-checker that
+    word glosses use — and those apply straight away. Left as None, the
+    ordinary gate applies, so AI-INVENTED sentences still wait for a human."""
     # Generated content waits for human review; everything else is trusted.
-    reviewed = source != "ai"
+    if reviewed is None:
+        reviewed = source != "ai"
     row_id = await conn.fetchval(
         """
         INSERT INTO example_sentences

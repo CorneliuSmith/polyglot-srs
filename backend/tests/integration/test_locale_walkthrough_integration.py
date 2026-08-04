@@ -192,7 +192,12 @@ async def _walkthrough(pool, code: str, locale_code: str, locale_name: str,
         vocab = await get_vocab_item(conn, c["words"][1], locale_code)
         assert vocab["definition"] == f"[{tag}domo]"
 
-        # ---- Example sentences: translated but PENDING (the review gate) --
+        # ---- Example sentences: translated AND shown ----------------------
+        # These used to land reviewed=false like AI-INVENTED content, so the
+        # card read filtered them out and a fully translated course still
+        # showed every example in English. The source sentence was already
+        # human-approved; only its meaning line is re-worded, by the same
+        # maker-checker that fills word glosses.
         ex = await conn.fetch(
             "SELECT translation, reviewed FROM example_sentences "
             "WHERE translation_locale = $1 AND language_id = $2", locale_code,
@@ -201,7 +206,7 @@ async def _walkthrough(pool, code: str, locale_code: str, locale_name: str,
             assert ex == [], "self-pair example siblings restate the sentence"
         else:
             assert ex, "locale sibling rows were not created"
-            assert all(r["reviewed"] is False for r in ex)
+            assert all(r["reviewed"] is True for r in ex)
             assert any(r["translation"].startswith(mark) for r in ex)
 
         # ---- The demand queue drained -------------------------------------
@@ -651,3 +656,70 @@ async def test_demand_beyond_the_cycle_cap_survives_to_the_next_pass(
             "UPDATE languages SET auto_translate_enabled = false WHERE id = $1",
             course)
     del uid
+
+
+async def test_example_meaning_lines_reach_the_learner_not_just_the_database(
+    pool, monkeypatch,
+):
+    """Sentence meaning lines must actually DISPLAY in the learner's language.
+
+    The loop translated them all along, but stored them like AI-invented
+    content: reviewed=false, which the card read filters out. So a learner
+    whose course was otherwise fully localized still read every example in
+    English, with nothing on screen saying anything was pending.
+
+    pending_examples only picks English sentences a human already approved,
+    so the sentence and its meaning are signed off — only the wording of the
+    meaning line is new, and it comes through the same maker-checker that
+    produces word glosses, which display immediately.
+
+    This language is on the STRICT review policy: the fix must not depend on
+    an admin loosening it.
+    """
+    _mock_ai(monkeypatch)
+    course = await _lang(pool, "xmp1", "Exampleish", auto=True)
+    await _lang(pool, "xmp2", "Examplelocale", auto=False)
+    uid = await _learner(pool, "xmp@xmp1", course, "xmp2")
+    c = await _build_course(pool, course, uid, "xmp1")
+
+    async with pool.privileged_connection() as conn:
+        await conn.execute(
+            "UPDATE languages SET grammar_review_policy = 'strict' WHERE id = $1",
+            course)
+        batch = await add_mixed_learn_batch(conn, uid, course, 10)
+        card_ids = [str(i) for i in batch["items"]]
+        await get_card_details_bulk(conn, card_ids, "xmp2")
+
+    await _cycle(pool)
+
+    async with pool.privileged_connection() as conn:
+        # Stored AND visible: the locale sibling is reviewed, so the read
+        # path's learner-facing filter keeps it.
+        sib = await conn.fetchrow(
+            """SELECT translation, reviewed FROM example_sentences
+                WHERE language_id = $1 AND translation_locale = 'xmp2'
+                LIMIT 1""", course)
+        assert sib is not None, "no locale sibling written"
+        assert sib["reviewed"] is True, "translation hidden behind the AI gate"
+        assert sib["translation"].startswith("[Examplelocale]")
+
+        # What the learner actually reads on the card.
+        await confirm_learn_batch(conn, uid, card_ids)
+        due = await get_due_cards(conn, course, 20, "xmp2")
+        vocab = [d for d in due if d["card_type"] == "vocabulary"]
+        shown = [d["translation"] for d in vocab if d.get("translation")]
+        assert shown, "no example meaning line served at all"
+        assert any(t.startswith("[Examplelocale]") for t in shown), shown
+
+        # The gate still holds for sentences the AI INVENTS.
+        from backend.repositories.contributor import add_example_sentence
+        invented = await add_example_sentence(
+            conn, c["words"][0], course, "xmp1 nova frazo", "A new sentence.",
+            source="ai", origin_detail="generate:test")
+        assert await conn.fetchval(
+            "SELECT reviewed FROM example_sentences WHERE id = $1", invented
+        ) is False
+
+        await conn.execute(
+            "UPDATE languages SET auto_translate_enabled = false WHERE id = $1",
+            course)
