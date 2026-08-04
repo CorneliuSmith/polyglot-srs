@@ -390,3 +390,45 @@ async def test_learn_session_start_pretranslates_the_upcoming_queue(pool, monkey
             "SELECT count(*) FROM translation_demand "
             "WHERE kind = 'word' AND locale = 'es3'")
         assert n == expected
+
+
+async def test_translation_status_names_the_actual_blocker(pool, monkeypatch):
+    """The admin readout: switched-off courses, migration state, provider,
+    and the real backlog per live pair."""
+    from backend.services.auto_translate import translation_status
+
+    _mock_ai(monkeypatch)
+    on = await _lang(pool, "ts1", "Onish", auto=True)
+    off = await _lang(pool, "ts2", "Offish", auto=False)
+    await _lang(pool, "ts3", "Localish", auto=False)
+    await _learner(pool, "on@ts1", on, "ts3")
+    await _learner(pool, "off@ts2", off, "ts3")
+    await _word(pool, on, "unum", 1, "one")
+    await _word(pool, on, "duo", 2, "two")
+
+    async with pool.privileged_connection() as conn:
+        st = await translation_status(conn)
+
+    assert st["provider_ready"] is True
+    assert st["migrations"]["translation_demand"] is True
+    # The switched-ON pair reports its real backlog…
+    pair = next(p for p in st["pairs"] if p["code"] == "ts1")
+    assert pair["locale"] == "ts3"
+    assert pair["learners"] == 1
+    assert pair["pending"]["words"] == 2
+    assert pair["filled"]["words"] == 0
+    # …and the switched-OFF course is named rather than silently absent.
+    assert any(o["code"] == "ts2" for o in st["switched_off"])
+    assert not any(p["code"] == "ts2" for p in st["pairs"])
+
+    # After a sweep the backlog moves and the filled count rises.
+    await _cycle(pool)
+    async with pool.privileged_connection() as conn:
+        st2 = await translation_status(conn)
+    pair2 = next(p for p in st2["pairs"] if p["code"] == "ts1")
+    assert pair2["pending"]["words"] < pair["pending"]["words"]
+    assert pair2["filled"]["words"] >= 1
+
+    async with pool.privileged_connection() as conn:
+        await conn.execute(
+            "UPDATE languages SET auto_translate_enabled = false WHERE id = $1", on)

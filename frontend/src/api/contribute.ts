@@ -396,6 +396,28 @@ export async function setLanguageVisibility(
 
 /** Switch demand-driven support-locale translation for a course (admin-only).
  * The loop only spends on (course, locale) pairs live accounts use. */
+export interface TranslationStatus {
+  provider_ready: boolean
+  budget_per_cycle: number
+  sweep_seconds: number
+  migrations: Record<string, boolean>
+  switched_off: { language: string; code: string; locale: string; learners: number }[]
+  pairs: {
+    language: string
+    code: string
+    locale: string
+    learners: number
+    pending: Record<string, number>
+    filled: Record<string, number>
+  }[]
+}
+
+/** Admin diagnostic: why automatic translation is or isn't running. */
+export async function getTranslationStatus(): Promise<TranslationStatus> {
+  const { data } = await apiClient.get('/api/contribute/translation-status')
+  return data
+}
+
 export async function setLanguageAutoTranslate(
   languageId: string,
   enabled: boolean,

@@ -365,6 +365,22 @@ async def update_language_visibility(
     return {"is_visible": body.is_visible}
 
 
+@router.get("/translation-status")
+async def translation_status_endpoint(user: dict = Depends(get_current_user)):
+    """Why automatic translation is or isn't running (admin-only).
+
+    Every way this feature can silently do nothing — provider key absent,
+    migration not applied, the course left switched off, or just a backlog
+    the per-cycle budget hasn't reached — looks identical from the app
+    ("still English"). This names the actual cause.
+    """
+    await _require_admin(user["id"])
+    from backend.services.auto_translate import translation_status
+
+    async with privileged_connection() as conn:
+        return await translation_status(conn)
+
+
 class AutoTranslateUpdate(BaseModel):
     language_id: str
     enabled: bool

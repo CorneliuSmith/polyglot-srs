@@ -875,3 +875,83 @@ async def auto_translate_loop() -> None:
         except TimeoutError:
             pass
         _wake.clear()
+
+
+async def translation_status(conn: asyncpg.Connection) -> dict:
+    """Why translation is (or isn't) happening — the admin readout.
+
+    Every failure mode of this feature is invisible from the app: a course
+    left switched off, a migration not applied, no provider key, or simply a
+    backlog the per-cycle budget hasn't reached yet. All four look identical
+    to a learner ("still English"), so this reports each one directly
+    instead of leaving it to be guessed at.
+    """
+    status: dict = {
+        "provider_ready": translations_available(),
+        "budget_per_cycle": getattr(
+            get_settings(), "auto_translate_words_per_cycle", 50),
+        "sweep_seconds": SWEEP_SECONDS,
+        "migrations": {},
+        "pairs": [],
+        "switched_off": [],
+    }
+    for table in ("translation_demand", "grammar_point_translations",
+                  "gym_label_translations"):
+        status["migrations"][table] = await table_present(conn, table)
+
+    # Learners whose course is switched OFF — the most common cause of
+    # "I turned it on and nothing happened" being about a different course.
+    try:
+        status["switched_off"] = [
+            dict(r) for r in await conn.fetch(
+                """
+                SELECT l.name AS language, l.code, p.support_locale AS locale,
+                       count(*) AS learners
+                FROM user_profiles p
+                JOIN languages l ON l.id = p.active_language_id
+                WHERE NOT l.auto_translate_enabled
+                  AND p.support_locale IS NOT NULL AND p.support_locale <> 'en'
+                GROUP BY l.name, l.code, p.support_locale
+                ORDER BY count(*) DESC
+                """
+            )
+        ]
+    except asyncpg.exceptions.UndefinedColumnError:
+        status["migrations"]["languages.auto_translate_enabled"] = False
+        return status
+
+    for pair in await discover_pairs(conn):
+        lang_id, locale = pair["language_id"], pair["locale"]
+        pending = {
+            "words": len(await pending_words(conn, lang_id, locale, 1000)),
+            "drills": len(await pending_drills(conn, lang_id, locale, 1000)),
+            "explanations": len(
+                await pending_explanations(conn, lang_id, locale, 1000)),
+        }
+        if status["migrations"]["grammar_point_translations"]:
+            pending["grammar_meta"] = len(
+                await pending_grammar_meta(conn, lang_id, locale, 1000))
+        if status["migrations"]["gym_label_translations"]:
+            pending["gym_labels"] = len(
+                await pending_gym_labels(conn, pair["language_code"], locale))
+        filled = await conn.fetchrow(
+            """
+            SELECT (SELECT count(*) FROM translations t
+                     JOIN vocabulary v ON v.id = t.vocabulary_id
+                    WHERE v.language_id = $1 AND t.locale = $2) AS words,
+                   (SELECT count(*) FROM drill_hint_translations dht
+                     JOIN drill_sentences ds ON ds.id = dht.drill_id
+                     JOIN grammar_points gp ON gp.id = ds.grammar_point_id
+                    WHERE gp.language_id = $1 AND dht.locale = $2) AS drills,
+                   (SELECT count(*) FROM explanation_translations et
+                     JOIN grammar_points gp ON gp.id = et.grammar_point_id
+                    WHERE gp.language_id = $1 AND et.locale = $2) AS explanations
+            """,
+            lang_id, locale,
+        )
+        status["pairs"].append({
+            "language": pair["language_name"], "code": pair["language_code"],
+            "locale": locale, "learners": pair["learners"],
+            "pending": pending, "filled": dict(filled),
+        })
+    return status
