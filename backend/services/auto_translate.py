@@ -569,10 +569,16 @@ async def _translate_gym_labels(conn, pair, rows) -> int:
 
 async def _translate_examples(conn, pair, rows) -> int:
     """Locale renderings of reviewed English example sentences, stored as
-    sibling example_sentences rows via the same helper the CLI uses — which
-    lands them reviewed=false, pending human approval (the WP42 gate).
-    Learners keep the English translation until a reviewer approves; this
-    lane just makes sure the queue is FULL when they look."""
+    sibling example_sentences rows via the same helper the CLI uses.
+
+    These land reviewed=true, unlike AI-generated sentences. pending_examples
+    only ever picks sources a human already approved, so the sentence and its
+    meaning are signed off — the loop rewrites the meaning LINE into the
+    learner's language through the same maker-checker that produces word
+    glosses, and those display immediately. Landing these unreviewed meant a
+    learner whose language was fully translated still read every example in
+    English, with no signal that anything was pending. The WP42 gate still
+    holds for sentences the AI invents."""
     from backend.repositories.contributor import add_example_sentence
 
     if self_pair(pair):
@@ -589,6 +595,7 @@ async def _translate_examples(conn, pair, rows) -> int:
             res["translation"], source="ai",
             origin_detail=f"auto_translate:{pair['locale']}",
             translation_locale=pair["locale"],
+            reviewed=True,  # the English source was already approved
         )
         if row_id:
             applied += 1
