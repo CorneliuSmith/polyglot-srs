@@ -101,6 +101,11 @@ async def _walkthrough(pool, code: str, locale_code: str, locale_name: str,
     uid = await _learner(pool, f"walk@{code}", course, locale_code)
     c = await _build_course(pool, course, uid, tag)
     mark = f"[{locale_name}]"
+    # Learning a language through itself: a sentence meaning-line rendered
+    # into the course language would restate the drill sentence with the
+    # blank filled, so those two kinds deliberately stay on their English
+    # source (see auto_translate.self_pair). Everything else localizes.
+    is_self = locale_code == code
 
     async with pool.privileged_connection() as conn:
         # ---- Learn session start: batch + details, English first ----------
@@ -146,7 +151,8 @@ async def _walkthrough(pool, code: str, locale_code: str, locale_name: str,
             if d["card_type"] == "grammar"
             and str(d["card_id"]) == c["points"][1])
         assert gp2_due["hint"] == f"{mark} the verb to see"
-        assert gp2_due["translation"] == f"{mark} I see it."
+        assert gp2_due["translation"] == (
+            "I see it." if is_self else f"{mark} I see it.")
 
         # ---- Card detail (the ⓘ view) -------------------------------------
         detail = await get_card_detail(conn, str(gp2_due["id"]), locale_code)
@@ -160,7 +166,8 @@ async def _walkthrough(pool, code: str, locale_code: str, locale_name: str,
         cram2 = next(x for x in cram
                      if str(x["card_id"]) == c["points"][1])
         assert cram2["title"] == f"{mark} {tag} second point"
-        assert cram2["translation"] == f"{mark} I see it."
+        assert cram2["translation"] == (
+            "I see it." if is_self else f"{mark} I see it.")
         # Owner's rule: the Gym HINT stays the authored baseline.
         assert cram2["hint"] == "the verb to see"
 
@@ -173,7 +180,8 @@ async def _walkthrough(pool, code: str, locale_code: str, locale_name: str,
         assert lesson["title"] == f"{mark} {tag} second point"
         assert lesson["explanation"].startswith(mark)
         assert lesson["culture_note"].startswith(mark)
-        assert lesson["examples"][0]["translation"] == f"{mark} I see it."
+        assert lesson["examples"][0]["translation"] == (
+            "I see it." if is_self else f"{mark} I see it.")
 
         # ---- Deck browser: items + vocab item -----------------------------
         gitems = await get_deck_items(conn, c["gdeck"], 50, locale_code)
@@ -189,9 +197,12 @@ async def _walkthrough(pool, code: str, locale_code: str, locale_name: str,
             "SELECT translation, reviewed FROM example_sentences "
             "WHERE translation_locale = $1 AND language_id = $2", locale_code,
             course)
-        assert ex, "locale sibling rows were not created"
-        assert all(r["reviewed"] is False for r in ex)
-        assert any(r["translation"].startswith(mark) for r in ex)
+        if is_self:
+            assert ex == [], "self-pair example siblings restate the sentence"
+        else:
+            assert ex, "locale sibling rows were not created"
+            assert all(r["reviewed"] is False for r in ex)
+            assert any(r["translation"].startswith(mark) for r in ex)
 
         # ---- The demand queue drained -------------------------------------
         # Everything translated stays quiet; only kinds whose first-of-batch
@@ -359,3 +370,56 @@ async def test_portuguese_learning_spanish_fills_without_the_new_migration(
             cards_repo._TABLE_EXISTS.clear()
         await conn.execute(
             "UPDATE languages SET auto_translate_enabled = false WHERE id = $1", es)
+
+
+async def test_the_self_pair_never_translates_the_answer_away(pool, monkeypatch):
+    """Spanish course, Spanish support: the drill's meaning-line must stay on
+    its English source.
+
+    Rendering "I see it." into the course language reproduces the drill
+    sentence with the blank filled — printing the answer directly under the
+    question. Hints and glosses have no such problem and still localize."""
+    from backend.services.auto_translate import self_pair
+
+    _mock_ai(monkeypatch)
+    course = await _lang(pool, "sp7", "Selfish7", auto=True)
+    uid = await _learner(pool, "self@sp7", course, "sp7")
+    c = await _build_course(pool, course, uid, "sp7")
+
+    assert self_pair({"locale": "sp7", "language_code": "sp7"}) is True
+    assert self_pair({"locale": "pt", "language_code": "sp7"}) is False
+
+    await _cycle(pool)
+
+    async with pool.privileged_connection() as conn:
+        rows = await conn.fetch(
+            """SELECT dht.hint, dht.translation
+                 FROM drill_hint_translations dht
+                 JOIN drill_sentences ds ON ds.id = dht.drill_id
+                 JOIN grammar_points gp ON gp.id = ds.grammar_point_id
+                WHERE gp.language_id = $1 AND dht.locale = 'sp7'""",
+            course)
+        assert rows, "drills were not attempted at all"
+        # No meaning-line was ever rendered into the course language…
+        assert all(r["translation"] is None for r in rows), [
+            r["translation"] for r in rows]
+        # …but the hint was (the second of the batch; the mock rejects #0).
+        assert any((r["hint"] or "").startswith("[Selfish7]") for r in rows)
+
+        # The card therefore still shows the authored English meaning-line.
+        due_batch = await add_mixed_learn_batch(conn, uid, course, 10)
+        await confirm_learn_batch(conn, uid, [str(i) for i in due_batch["items"]])
+        due = await get_due_cards(conn, course, 20, "sp7")
+        grammar = [d for d in due if d["card_type"] == "grammar"]
+        assert grammar and all(d["translation"] == "I see it." for d in grammar)
+
+        # And no self-locale example sibling was written either.
+        n = await conn.fetchval(
+            "SELECT count(*) FROM example_sentences WHERE language_id = $1 "
+            "AND translation_locale = 'sp7'", course)
+        assert n == 0
+
+        await conn.execute(
+            "UPDATE languages SET auto_translate_enabled = false WHERE id = $1",
+            course)
+    del c
