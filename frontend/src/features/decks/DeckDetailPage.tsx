@@ -11,6 +11,7 @@ import {
 } from '../../api/review'
 import { getCurriculumPoint } from '../../api/curriculum'
 import { getMyRoles, flagPointIssue } from '../../api/contribute'
+import { deckTitle } from '../../lib/deckTitles'
 import ExplanationView from '../../components/ExplanationView'
 import FormsPanel from '../../components/FormsPanel'
 import LanguageWrapper from '../../components/LanguageWrapper'
@@ -382,7 +383,7 @@ export default function DeckDetailPage() {
       <div className="max-w-2xl mx-auto px-4 py-8 space-y-4">
         <div className="flex items-center justify-between">
           <h1 className="text-2xl font-bold text-gray-900">
-            {listing?.title ?? t('decks.deckFallback')}
+            {listing ? deckTitle(listing, t) : t('decks.deckFallback')}
           </h1>
           <button
             type="button"

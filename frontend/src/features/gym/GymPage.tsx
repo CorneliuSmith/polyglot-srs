@@ -8,6 +8,7 @@ import type { GymEntry } from '../../api/gym'
 import { getUsageAllowance } from '../../api/tutor'
 import UsageMeter from '../../components/UsageMeter'
 import { usePrefsStore } from '../../stores/prefsStore'
+import { GYM_LABEL_KEYS } from './gymLabels'
 
 /** The Gym (WP25): pick the FORMS to train — present, past perfect,
  * accusative… — never individual words, then drill them through a mixed
@@ -49,6 +50,14 @@ const COLUMN_LABEL_KEYS: Record<string, string> = {
   Focus: 'gym.columns.focus',
   Forms: 'gym.columns.forms',
   Particles: 'gym.columns.particles',
+}
+
+/** A form label in the site language. Keys are the manifest's ENGLISH
+ * labels, so a label the API already localized (a language with DB label
+ * overlays) matches nothing here and passes through as-is. */
+function formLabel(label: string, t: (k: string) => string): string {
+  const key = GYM_LABEL_KEYS[label]
+  return key ? t(key) : label
 }
 
 function sortFamiliarFirst(entries: GymEntry[]): GymEntry[] {
@@ -209,7 +218,9 @@ export default function GymPage() {
                             style={{ minHeight: '44px' }}
                           >
                             <span className="flex items-center justify-between gap-2">
-                              <span className="font-medium">{e.label}</span>
+                              <span className="font-medium">
+                                {formLabel(e.label, t)}
+                              </span>
                               <span className="flex items-center gap-1 text-[10px] text-gray-400">
                                 {e.familiar && (
                                   <span
