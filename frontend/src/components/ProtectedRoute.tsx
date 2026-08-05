@@ -1,9 +1,20 @@
-import { Navigate, Outlet } from 'react-router-dom'
+import { useEffect } from 'react'
+import { Navigate, Outlet, useNavigate } from 'react-router-dom'
 import BottomNav from './BottomNav'
+import { initNative } from '../lib/native'
 import { useAuthStore } from '../stores/authStore'
 import StaffBar from './StaffBar'
 
 export default function ProtectedRoute() {
+  // Native shell wiring (status bar, Android Back, deep links, splash).
+  // A no-op in a browser, so the same bundle serves web, PWA and both
+  // native builds. Lives here because this is the app's only shared
+  // authenticated shell — the same reason StaffBar and BottomNav do.
+  const navigate = useNavigate()
+  useEffect(() => {
+    void initNative((to) => navigate(to))
+  }, [navigate])
+
   const isAuthenticated = useAuthStore((s) => s.isAuthenticated)()
   const loading = useAuthStore((s) => s.loading)
 
