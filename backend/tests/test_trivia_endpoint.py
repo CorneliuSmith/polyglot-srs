@@ -172,23 +172,31 @@ async def test_a_locale_with_no_baseline_falls_through_to_the_generator(client):
 async def test_a_thin_bank_grows_behind_the_learner(client):
     """The baseline is a floor, not a ceiling — twenty questions is under
     LOW_WATER, so the generator widens the corpus after the request is
-    answered rather than making anyone wait for it."""
+    answered rather than making anyone wait for it.
+
+    Asserted on the SCHEDULING rather than on generate_trivia having run:
+    the top-up is a fire-and-forget task, so whether it has got as far as
+    the model by the time the response comes back is a race. It failed in
+    CI on one interpreter and passed on another.
+    """
     conn = _conn_returning("ru")
     served = [{"id": "t1", "question": "q", "options": ["a", "b"],
                "answer_index": 0, "fact": "f"}]
+
+    async def _noop() -> None:
+        return None
+
+    top_up = MagicMock(side_effect=lambda _locale: _noop())
     rls, priv = _patch_pools(conn)
     with rls, priv, \
         patch("backend.routers.review.unseen_trivia", new=AsyncMock(return_value=served)), \
         patch("backend.routers.review.count_unseen", new=AsyncMock(return_value=20)), \
-        patch("backend.routers.review.existing_questions", new=AsyncMock(return_value=[])), \
-        patch("backend.routers.review.store_trivia", new=AsyncMock(return_value=0)), \
         patch("backend.routers.review.translations_available", return_value=True), \
-        patch("backend.routers.review.generate_trivia",
-              new=AsyncMock(return_value=[])) as gen:
+        patch("backend.routers.review._top_up_trivia", top_up):
         resp = client.get("/api/review/trivia", headers=_auth_headers())
 
     assert resp.json()["questions"] == served
-    gen.assert_awaited()
+    top_up.assert_called_once_with("ru")
 
 
 @pytest.mark.asyncio
