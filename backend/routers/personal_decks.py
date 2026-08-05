@@ -1,7 +1,8 @@
-"""Personal decks router — name and organize your own cards (owner request).
+"""Personal decks router — name, organize, write and delete your own cards.
 
-Decks are per-user folders over personal cloze cards (Tutor/Reader mints).
-Organization only: no learner-authored cards yet.
+Decks are per-user folders over personal cloze cards: mints from the Tutor
+and the Reader, plus cards the learner writes by hand. Their own material,
+so they can remove it too.
 """
 from __future__ import annotations
 
@@ -9,9 +10,12 @@ from fastapi import APIRouter, Depends, HTTPException, status
 from pydantic import BaseModel, Field
 
 from backend.dependencies import get_current_user
+from backend.repositories.notes import create_personal_card
 from backend.repositories.personal_decks import (
+    build_cloze,
     create_deck,
     delete_deck,
+    delete_personal_card,
     file_card,
     list_decks,
     list_personal_cards,
@@ -168,3 +172,51 @@ async def translate_cards(
                 resolve_model("translate"), kind="chat",
             )
     return {"translated": stored, "charged": bool(stored), "locale": locale}
+
+
+# Learner-authored cards (owner request). Decks started as organization only
+# — cards could be minted from the Tutor and the Reader but not written by
+# hand, and never removed. Both are now the learner's to control: it is
+# their own material.
+
+class CardCreate(BaseModel):
+    language_id: str
+    sentence: str = Field(min_length=1, max_length=500)
+    answer: str = Field(min_length=1, max_length=100)
+    translation: str = Field(default="", max_length=500)
+    deck_id: str | None = None
+
+
+@router.post("/cards", status_code=status.HTTP_201_CREATED)
+async def add_card(body: CardCreate, user: dict = Depends(get_current_user)):
+    """Write a cloze card by hand.
+
+    The learner types a normal sentence and the word to practise; the blank
+    is worked out here rather than asking them to type {{answer}}. A card
+    whose answer isn't in its sentence would render with nothing blanked —
+    the answer in plain sight — so that's refused with a reason instead of
+    being stored broken.
+    """
+    sentence = build_cloze(body.sentence.strip(), body.answer)
+    if sentence is None:
+        raise HTTPException(
+            status_code=status.HTTP_422_UNPROCESSABLE_ENTITY,
+            detail={"code": "answer_not_in_sentence"},
+        )
+    async with rls_connection(user["id"]) as conn:
+        card_id = await create_personal_card(
+            conn, user["id"], body.language_id, sentence, body.answer.strip(),
+            body.translation.strip() or None, None, body.deck_id,
+        )
+    return {"id": card_id}
+
+
+@router.delete("/cards/{card_id}")
+async def remove_card(card_id: str, user: dict = Depends(get_current_user)):
+    """Delete a personal card, scheduling row included."""
+    async with rls_connection(user["id"]) as conn:
+        if not await delete_personal_card(conn, card_id):
+            raise HTTPException(
+                status_code=status.HTTP_404_NOT_FOUND, detail="Card not found"
+            )
+    return {"ok": True}

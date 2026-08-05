@@ -720,7 +720,19 @@
     "translateAction": "ترجم بطاقاتي",
     "translating": "جارٍ الترجمة…",
     "translateDone": "تمت ترجمة {{count}} من بطاقاتك.",
-    "translateFailed": "لم تنجح العملية. لم تُخصم حصتك."
+    "translateFailed": "لم تنجح العملية. لم تُخصم حصتك.",
+    "cardAdd": "+ اكتب بطاقة",
+    "cardSave": "حفظ البطاقة",
+    "cardSentencePlaceholder": "جملة باللغة التي تتعلمها",
+    "cardAnswerPlaceholder": "الكلمة المراد التدرب عليها (يجب أن ترد في الجملة)",
+    "cardTranslationPlaceholder": "ما معناها (اختياري)",
+    "cardSentenceLabel": "الجملة",
+    "cardAnswerLabel": "الكلمة المراد التدرب عليها",
+    "cardTranslationLabel": "المعنى",
+    "cardBlankHint": "تُخفى الكلمة التي تختارها عند مراجعة البطاقة.",
+    "cardAnswerMissing": "هذه الكلمة ليست في الجملة، فلن يكون هناك ما يُخفى. تحقق من الإملاء.",
+    "cardDeleteConfirm": "حذف بطاقة «{{answer}}»؟",
+    "cardDeleteFor": "حذف بطاقة {{answer}}"
   },
   "notes": {
     "pickLanguageFirst": "اختر لغة من لوحة التحكم أولاً.",

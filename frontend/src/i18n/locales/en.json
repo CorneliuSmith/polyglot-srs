@@ -684,7 +684,19 @@
     "translateAction": "Translate my cards",
     "translating": "Translating…",
     "translateDone": "Translated {{count}} of your cards.",
-    "translateFailed": "That didn't work. Your allowance was not charged."
+    "translateFailed": "That didn't work. Your allowance was not charged.",
+    "cardAdd": "+ Write a card",
+    "cardSave": "Save card",
+    "cardSentencePlaceholder": "A sentence in the language you are learning",
+    "cardAnswerPlaceholder": "The word to practise (must appear in the sentence)",
+    "cardTranslationPlaceholder": "What it means (optional)",
+    "cardSentenceLabel": "Sentence",
+    "cardAnswerLabel": "Word to practise",
+    "cardTranslationLabel": "Meaning",
+    "cardBlankHint": "The word you choose is blanked out when you review the card.",
+    "cardAnswerMissing": "That word is not in the sentence, so there would be nothing to blank out. Check the spelling.",
+    "cardDeleteConfirm": "Delete the card for “{{answer}}”?",
+    "cardDeleteFor": "Delete the card for {{answer}}"
   },
   "notes": {
     "pickLanguageFirst": "Pick a language on the dashboard first.",
