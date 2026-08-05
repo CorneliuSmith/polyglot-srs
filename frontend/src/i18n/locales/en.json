@@ -1358,6 +1358,12 @@
     "startInEnglish": "Start in English",
     "gameHint": "Match while you wait — these are the words coming up.",
     "matched": "{{count}} matched",
-    "firstWords": "The first words are on their way…"
+    "firstWords": "The first words are on their way…",
+    "triviaHint": "While you wait — a little about language.",
+    "triviaScore": "{{count}} right",
+    "triviaRight": "Correct.",
+    "triviaWrong": "Not quite.",
+    "triviaNext": "Next question",
+    "stalled": "This is taking longer than it should. You can start in English and it will switch over as it lands."
   }
 }

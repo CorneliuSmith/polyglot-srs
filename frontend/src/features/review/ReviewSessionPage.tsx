@@ -589,9 +589,15 @@ function ReviewSessionInner({
         kind="review"
         limit={sessionSize}
         onStart={handleStart}
-        localeName={
-          languages.find((l) => l.code === readinessQuery.data?.locale)?.name
-        }
+        localeName={(() => {
+          // The DB name is English ("Spanish"), which read as a foreign word
+          // dropped into a Spanish sentence. Intl gives the endonym.
+          const code = readinessQuery.data?.locale
+          const row = languages.find((l) => l.code === code)
+          return code && row
+            ? languageDisplayName(code, row.name, i18n.language)
+            : undefined
+        })()}
       />
     )
   }

@@ -457,3 +457,110 @@ async def review_definitions(target_language: str, items: list[dict],
                     "definition": definition if verdict in ("ok", "fixed") else "",
                     "note": note})
     return out
+
+
+_TRIVIA_SCHEMA = {
+    "type": "object",
+    "properties": {
+        "questions": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "question": {"type": "string"},
+                    "options": {
+                        "type": "array",
+                        "items": {"type": "string"},
+                        "minItems": 3, "maxItems": 4,
+                    },
+                    "answer_index": {"type": "integer"},
+                    "fact": {
+                        "type": "string",
+                        "description": "One sentence of payoff shown after "
+                                       "answering — the part worth remembering.",
+                    },
+                },
+                "required": ["question", "options", "answer_index", "fact"],
+                "additionalProperties": False,
+            },
+        }
+    },
+    "required": ["questions"],
+    "additionalProperties": False,
+}
+
+_TRIVIA_SYSTEM = """You write short multiple-choice trivia about human \
+language: writing systems, etymology, language families, sounds, grammar \
+across languages, how many people speak what, and the odd surprising fact.
+
+Write ENTIRELY in {target}. Every question, every option and the fact must \
+be in {target} — this is read by someone who chose {target} as the language \
+they are comfortable in.
+
+Rules:
+- Exactly one option is correct, and answer_index points at it (0-based).
+- Wrong options must be plausible, not filler. No "none of the above".
+- Keep questions to one sentence. Assume no linguistics training.
+- The fact is ONE sentence that pays off the question with something worth \
+knowing, not a restatement of the answer.
+- Be accurate. If you are unsure of a figure, ask something you are sure of \
+instead. A wrong fact is worse than a dull one.
+- Do NOT ask about any of the questions listed as already asked."""
+
+
+async def generate_trivia(
+    target_language: str, count: int, avoid: list[str] | None = None,
+    model: str | None = None,
+) -> list[dict]:
+    """A batch of language-trivia questions written in *target_language*.
+
+    *avoid* carries questions already in the bank so the corpus grows rather
+    than circling the same handful. Returns [] on anything unexpected — this
+    feeds a waiting-room game, and no game is better than a broken one.
+    """
+    settings = get_settings()
+    if getattr(settings, "tutor_dev_mock", False):
+        return [
+            {"question": f"[{target_language}] Q{i}",
+             "options": [f"A{i}", f"B{i}", f"C{i}"],
+             "answer_index": i % 3,
+             "fact": f"[{target_language}] fact {i}"}
+            for i in range(count)
+        ]
+    avoid_block = ""
+    if avoid:
+        joined = "\n".join(f"- {q}" for q in avoid[:80])
+        avoid_block = f"\n\nAlready asked, do not repeat:\n{joined}"
+    resp = await _client().messages.create(
+        model=model or resolve_model("translate"),
+        max_tokens=4096,
+        system=_TRIVIA_SYSTEM.format(target=target_language),
+        messages=[{
+            "role": "user",
+            "content": f"Write {count} questions.{avoid_block}",
+        }],
+        output_config={"format": {"type": "json_schema", "schema": _TRIVIA_SCHEMA}},
+    )
+    text = next((b.text for b in resp.content if b.type == "text"), "{}")
+    try:
+        data = json.loads(text)
+    except (json.JSONDecodeError, TypeError):
+        return []
+    out = []
+    for q in data.get("questions", []):
+        opts = [str(o).strip() for o in q.get("options", []) if str(o).strip()]
+        idx = q.get("answer_index")
+        # A question whose answer index doesn't point at a real option is
+        # unanswerable; drop it rather than storing a broken row.
+        if (len(opts) < 2 or not isinstance(idx, int)
+                or not 0 <= idx < len(opts)
+                or not (q.get("question") or "").strip()
+                or not (q.get("fact") or "").strip()):
+            continue
+        out.append({
+            "question": q["question"].strip(),
+            "options": opts,
+            "answer_index": idx,
+            "fact": q["fact"].strip(),
+        })
+    return out

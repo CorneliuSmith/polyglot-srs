@@ -1358,6 +1358,12 @@
     "startInEnglish": "Commencer en anglais",
     "gameHint": "Associez en attendant : ce sont les mots à venir.",
     "matched": "{{count}} associés",
-    "firstWords": "Les premiers mots arrivent…"
+    "firstWords": "Les premiers mots arrivent…",
+    "triviaHint": "En attendant : un peu de linguistique.",
+    "triviaScore": "{{count}} bonnes réponses",
+    "triviaRight": "Exact.",
+    "triviaWrong": "Pas tout à fait.",
+    "triviaNext": "Question suivante",
+    "stalled": "Cela prend plus de temps que prévu. Vous pouvez commencer en anglais : le basculement se fera tout seul."
   }
 }

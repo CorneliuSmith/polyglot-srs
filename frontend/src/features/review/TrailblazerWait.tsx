@@ -1,14 +1,18 @@
-import { useEffect, useMemo, useState } from 'react'
+import { useEffect, useMemo, useRef, useState } from 'react'
 import { useQuery } from '@tanstack/react-query'
 import { useTranslation } from 'react-i18next'
 import { Compass, Sparkles } from 'lucide-react'
 import { getSessionReadiness } from '../../api/review'
 import type { SessionReadiness } from '../../api/types'
+import TriviaGame from './TriviaGame'
 
 /** How many pairs the match game needs before it's worth showing. Below
  * this the screen is animation + progress only — anything else we could
  * show would be English, which is what the learner chose to wait out. */
 const MIN_GAME_PAIRS = 4
+/** No new rows in this long and the fill isn't happening — say so rather
+ * than leaving someone watching a bar that will never move. */
+const STALL_AFTER_MS = 45_000
 const ROUND_SIZE = 5
 
 interface Props {
@@ -23,6 +27,9 @@ interface Props {
   onStart: () => void
   /** The support language's display name, for the headline. */
   localeName?: string
+  /** Overridable so a test can exercise the real stall path without
+   * waiting 45 seconds or fighting the poll interval with fake timers. */
+  stallAfterMs?: number
 }
 
 /** Deterministic-enough shuffle for a game round. */
@@ -152,9 +159,24 @@ export default function TrailblazerWait({
   limit,
   onStart,
   localeName,
+  stallAfterMs = STALL_AFTER_MS,
 }: Props) {
   const { t } = useTranslation()
   const [waiting, setWaiting] = useState(false)
+
+  // A wait that never moves has to say so. Sitting at "0 % ready" forever
+  // is indistinguishable from a hang, and the causes (no provider key, the
+  // course switched off, an empty budget) are all invisible from here.
+  const [stalled, setStalled] = useState(false)
+  // Trivia is the fallback when this session has nothing to play with yet.
+  // If its bank is empty too, fall through to plain progress rather than
+  // showing an empty frame.
+  const [noTrivia, setNoTrivia] = useState(false)
+  // Starts at 0, not -1: a lane reporting zero ready rows is not progress,
+  // and treating it as such armed nothing on the first poll — the wait sat
+  // at 0% forever without ever admitting it had stopped.
+  const highWater = useRef(0)
+  const lastProgressAt = useRef(Date.now())
 
   const readiness = useQuery<SessionReadiness>({
     queryKey: ['session-readiness', languageId, kind, limit],
@@ -165,6 +187,27 @@ export default function TrailblazerWait({
 
   const lane = readiness.data?.[kind]
   const pct = lane ? Math.round(lane.pct * 100) : 0
+
+  // Keyed on the COUNT and the fetch timestamp, not on `lane` itself:
+  // react-query's structural sharing keeps the object referentially stable
+  // when a poll returns identical data, so depending on the object meant
+  // the effect never re-ran and the timer was never armed — the exact case
+  // this is here to catch.
+  const readyCount = lane?.ready
+  const fetchedAt = readiness.dataUpdatedAt
+  useEffect(() => {
+    if (readyCount == null) return
+    if (readyCount > highWater.current) {
+      highWater.current = readyCount
+      lastProgressAt.current = Date.now()
+      setStalled(false)
+      return
+    }
+    const timer = window.setTimeout(() => {
+      if (Date.now() - lastProgressAt.current >= stallAfterMs) setStalled(true)
+    }, stallAfterMs)
+    return () => window.clearTimeout(timer)
+  }, [readyCount, fetchedAt, stallAfterMs])
 
   // The wait must never be what blocks a session: a failed readiness check
   // or a lane that's already over the bar both mean "just start".
@@ -217,11 +260,23 @@ export default function TrailblazerWait({
           <p className="text-xs text-gray-500">
             {t('trailblazer.progress', { pct })}
           </p>
+          {stalled && (
+            <p className="text-xs text-amber-700" data-testid="trailblazer-stalled">
+              {t('trailblazer.stalled')}
+            </p>
+          )}
         </div>
 
         {waiting && pool.length >= MIN_GAME_PAIRS ? (
+          // Enough of the session has landed to play with the real thing.
           <div className="flex justify-center">
             <MatchGame pool={pool} />
+          </div>
+        ) : waiting && !noTrivia ? (
+          // Nothing of this session yet — but the trivia bank is shared per
+          // locale, so it was stocked long before this learner arrived.
+          <div className="flex justify-center">
+            <TriviaGame onEmpty={() => setNoTrivia(true)} />
           </div>
         ) : waiting ? (
           <p className="text-sm text-gray-500">{t('trailblazer.firstWords')}</p>

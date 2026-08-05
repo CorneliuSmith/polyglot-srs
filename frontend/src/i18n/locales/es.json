@@ -1358,6 +1358,12 @@
     "startInEnglish": "Empezar en inglés",
     "gameHint": "Empareja mientras esperas: son las palabras que vienen.",
     "matched": "{{count}} emparejadas",
-    "firstWords": "Las primeras palabras están en camino…"
+    "firstWords": "Las primeras palabras están en camino…",
+    "triviaHint": "Mientras esperas: un poco sobre el lenguaje.",
+    "triviaScore": "{{count}} correctas",
+    "triviaRight": "Correcto.",
+    "triviaWrong": "No exactamente.",
+    "triviaNext": "Siguiente pregunta",
+    "stalled": "Esto está tardando más de lo normal. Puedes empezar en inglés y cambiará solo cuando llegue."
   }
 }
