@@ -206,10 +206,45 @@ describe('TrailblazerWait', () => {
     expect(onExit).toHaveBeenCalled()
   })
 
-  it('does not cry stall while rows are still landing', async () => {
+  it('still reports a stall when the window outlasts the poll interval', async () => {
+    // The production case, and the one the other stall tests miss: the
+    // window is 45s and the lane is polled every 5s. While the timer was
+    // armed inside the effect that watches the query, every poll tore it
+    // down and started a fresh one, so it never reached its own deadline —
+    // a fill that had stopped sat at the same percentage forever without
+    // ever admitting it. Both the shorter tests pass with that bug present,
+    // because their window is shorter than one poll.
+    mocked.mockResolvedValue(readiness(0.5, false))
+    renderWait(vi.fn(), 6000)
+    await screen.findByTestId('trailblazer-stalled', undefined, { timeout: 9000 })
+  }, 12000)
+
+  it('does not cry stall before the window is actually up', async () => {
+    // The check runs on a repeating tick now, so the thing to guard is the
+    // opposite mistake: reporting a stall the moment a poll comes back
+    // unchanged. Nothing may appear until the full window has passed.
     mocked.mockResolvedValue(readiness(0.3, false))
-    renderWait(vi.fn(), 50)
+    renderWait(vi.fn(), 10_000)
     await screen.findByText('trailblazer.title')
+    await new Promise((r) => setTimeout(r, 250))
     expect(screen.queryByTestId('trailblazer-stalled')).not.toBeInTheDocument()
   })
+
+  it('takes the stall notice back down as soon as rows land again', async () => {
+    // A stall is a guess, and a slow fill that resumes must be able to
+    // withdraw it — otherwise the first quiet stretch marks the screen dead
+    // for the rest of the wait.
+    mocked.mockResolvedValue(readiness(0.3, false))
+    renderWait(vi.fn(), 200)
+    await screen.findByTestId('trailblazer-stalled')
+    // A later poll reports more rows ready. That is movement, and it must
+    // reset the clock rather than being ignored because a stall was
+    // already showing.
+    mocked.mockResolvedValue(readiness(0.5, false))
+    await waitFor(
+      () => expect(screen.getByText('trailblazer.progress:50')).toBeInTheDocument(),
+      { timeout: 8000 },
+    )
+    expect(screen.queryByTestId('trailblazer-stalled')).not.toBeInTheDocument()
+  }, 12000)
 })

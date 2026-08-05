@@ -9,7 +9,11 @@ apply path and the review-queue path in one sweep.
 """
 from __future__ import annotations
 
-from backend.services.auto_translate import run_translation_cycle
+from backend.services.auto_translate import (
+    note_missing_content,
+    run_translation_cycle,
+    words_with_pending_examples,
+)
 
 from .conftest import requires_db
 
@@ -489,3 +493,77 @@ async def test_status_counts_match_the_queues(pool, monkeypatch):
             "UPDATE languages SET auto_translate_enabled = false WHERE id = $1",
             course)
     del uid
+
+
+async def _reviewed_example(pool, lang: str, vid: str, sentence: str,
+                            meaning: str) -> None:
+    async with pool.privileged_connection() as conn:
+        await conn.execute(
+            "INSERT INTO example_sentences (language_id, vocabulary_id, "
+            "sentence, translation, translation_locale, source, reviewed) "
+            "VALUES ($1, $2, $3, $4, 'en', 'human', true)",
+            lang, vid, sentence, meaning,
+        )
+
+
+async def test_example_demand_survives_a_row_limited_pass(pool, monkeypatch):
+    """A word owns several sentences, so one demand row is not one unit of
+    work.
+
+    Every other kind maps a ref_id to exactly one thing to translate, and the
+    lane clears the whole batch once it has run. Examples don't: the pass is
+    limited by SENTENCE rows, so the words whose sentences fall past the
+    limit were being cleared having had nothing done for them. They then
+    dropped to the breadth-first sweep, where examples run last, behind the
+    entire untranslated word backlog — on a real course, never. Readiness
+    settled at exactly the fraction glosses alone can reach (50% on a
+    vocab-only batch) and stopped.
+    """
+    _mock_ai(monkeypatch, auto_translate_words_per_cycle=3)
+    course = await _lang(pool, "at12", "Limitish", auto=True)
+    await _lang(pool, "fr6", "French6", auto=False)
+    await _learner(pool, "fr@at12", course, "fr6")
+
+    # Glossed in the support locale already, so ONLY example demand exists.
+    first = await _word(pool, course, "alpha", 1, "alpha")
+    second = await _word(pool, course, "beta", 2, "beta")
+    async with pool.privileged_connection() as conn:
+        for vid, gloss in ((first, "alpha-fr"), (second, "beta-fr")):
+            await conn.execute(
+                "INSERT INTO translations (vocabulary_id, locale, definition) "
+                "VALUES ($1, 'fr6', $2)", vid, gloss)
+
+    # Four sentences across two words, against a three-row budget.
+    await _reviewed_example(pool, course, first, "Alpha one.", "The first.")
+    await _reviewed_example(pool, course, first, "Alpha two.", "The second.")
+    await _reviewed_example(pool, course, second, "Beta one.", "The third.")
+    await _reviewed_example(pool, course, second, "Beta two.", "The fourth.")
+
+    async with pool.privileged_connection() as conn:
+        await note_missing_content(conn, "fr6", vocab_ids=[first, second])
+        kinds = await conn.fetch(
+            "SELECT DISTINCT kind FROM translation_demand WHERE locale = 'fr6'")
+        assert [r["kind"] for r in kinds] == ["example"]
+
+    await _cycle(pool)
+
+    async with pool.privileged_connection() as conn:
+        # The pass could not have covered all four.
+        done = await conn.fetchval(
+            "SELECT count(*) FROM example_sentences "
+            "WHERE translation_locale = 'fr6' AND vocabulary_id = ANY($1)",
+            [first, second])
+        assert done < 4
+        left = {
+            str(r["ref_id"]) for r in await conn.fetch(
+                "SELECT ref_id FROM translation_demand "
+                "WHERE locale = 'fr6' AND kind = 'example'")
+        }
+        # Whichever words still have a sentence waiting must still be queued;
+        # the ones fully covered must not be.
+        still = {
+            str(x) for x in await words_with_pending_examples(
+                conn, course, "fr6", [first, second])
+        }
+        assert still, "the budget was too small for this to cover everything"
+        assert left == still
