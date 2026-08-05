@@ -8,11 +8,16 @@ import { languageTheme } from '../lib/languageColors'
 import { visibleLanguages, languageDisplayName } from '../lib/languages'
 import CircleFlag from './CircleFlag'
 
-/** The active-language picker. A custom listbox rather than a native
+/** The active-language picker. *compact* is the header variant: the same
+ * control, narrower, so every section can carry it without a labelled block
+ * eating a row. It still shows the flag AND the name — a bare flag is a
+ * guessing game for anyone who doesn't know the mapping.
+ *
+ * A custom listbox rather than a native
  * <select> so each option (and the trigger) can carry its circle flag —
  * <option> can't render images. Keyboard support mirrors a native select:
  * Enter/Space/arrows open, arrows move, Enter picks, Escape closes. */
-export default function LanguagePicker() {
+export default function LanguagePicker({ compact = false }: { compact?: boolean } = {}) {
   const { t, i18n } = useTranslation()
   const activeLanguageId = usePrefsStore((s) => s.activeLanguageId)
   const setActiveLanguageId = usePrefsStore((s) => s.setActiveLanguageId)
@@ -117,7 +122,7 @@ export default function LanguagePicker() {
   const theme = languageTheme(active?.code)
 
   return (
-    <div ref={rootRef} className="relative">
+    <div ref={rootRef} data-testid="language-picker" className="relative">
       <button
         ref={buttonRef}
         type="button"
@@ -131,7 +136,11 @@ export default function LanguagePicker() {
         aria-haspopup="listbox"
         aria-expanded={open}
         aria-label={t('picker.selectLanguage')}
-        className="w-full flex items-center gap-2.5 rounded-lg border border-gray-300 bg-white px-3 py-2 text-sm text-start focus:outline-none focus:ring-2 focus:ring-lang"
+        className={`flex items-center gap-2.5 rounded-lg border border-gray-300 bg-white text-start focus:outline-none focus:ring-2 focus:ring-lang ${
+          compact
+            ? 'w-auto max-w-[11rem] px-2.5 py-1.5 text-xs'
+            : 'w-full px-3 py-2 text-sm'
+        }`}
         style={{ minHeight: '44px', borderLeft: `6px solid ${theme.primary}` }}
       >
         <CircleFlag code={active?.code} />

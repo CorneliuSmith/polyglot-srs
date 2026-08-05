@@ -98,7 +98,9 @@
     "dayStudied": "studied",
     "dayNotStudied": "not studied",
     "activityDay": "{{date}}: {{vocab}} vocab, {{grammar}} grammar",
-    "levelProgress": "{{level}} progress"
+    "levelProgress": "{{level}} progress",
+    "progressEmptyTitle": "Nothing to chart yet",
+    "progressEmptyBody": "Once you've learned and reviewed a few items, your streak, forecast, activity and level progress appear here."
   },
   "stages": {
     "beginner": "Beginner",
@@ -449,7 +451,8 @@
   "staffBar": {
     "reviewMode": "Review mode",
     "flagOn": "Select any text to flag it",
-    "flagOff": "Flag content as you study"
+    "flagOff": "Flag content as you study",
+    "collapse": "Collapse"
   },
   "whatsNew": {
     "title": "What’s new",

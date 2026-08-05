@@ -104,7 +104,9 @@
     "dayStudied": "تمت الدراسة",
     "dayNotStudied": "بلا دراسة",
     "activityDay": "{{date}}: {{vocab}} مفردات، {{grammar}} قواعد",
-    "levelProgress": "تقدم {{level}}"
+    "levelProgress": "تقدم {{level}}",
+    "progressEmptyTitle": "لا يوجد ما يُعرض بعد",
+    "progressEmptyBody": "بعد أن تتعلم وتراجع بعض العناصر، ستظهر هنا سلسلتك وتوقعاتك ونشاطك وتقدمك حسب المستوى."
   },
   "stages": {
     "beginner": "مبتدئ",
@@ -479,7 +481,8 @@
   "staffBar": {
     "reviewMode": "وضع المراجعة",
     "flagOn": "حدد أي نص للإبلاغ عنه",
-    "flagOff": "أبلغ عن المحتوى أثناء دراستك"
+    "flagOff": "أبلغ عن المحتوى أثناء دراستك",
+    "collapse": "طي"
   },
   "whatsNew": {
     "title": "ما الجديد",
