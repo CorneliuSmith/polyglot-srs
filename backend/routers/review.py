@@ -80,6 +80,7 @@ from backend.services.translate import (
     generate_trivia,
     translations_available,
 )
+from backend.services.trivia_corpus import offline_questions, seed_questions
 
 logger = logging.getLogger(__name__)
 
@@ -233,6 +234,11 @@ async def trivia(limit: int = 6, user: dict = Depends(get_current_user)):
     a learner is running low, so it grows into a corpus instead of being
     regenerated per session. Costs the OPERATOR's key, not the learner's
     allowance: it is shared content, like a translated gloss.
+
+    There are three sources, tried in that order: the bank, the written
+    baseline (services/trivia_corpus — free, instant, needs no provider),
+    and the generator. The baseline comes before the model deliberately —
+    an empty bank should not depend on a key being configured.
     """
     limit = max(1, min(limit, 20))
     async with rls_connection(user["id"]) as conn:
@@ -242,21 +248,67 @@ async def trivia(limit: int = 6, user: dict = Depends(get_current_user)):
         questions = await unseen_trivia(conn, user["id"], locale, limit)
         remaining = await count_unseen(conn, user["id"], locale)
 
-    # An EMPTY bank is filled inline, not in the background. Backgrounding
-    # it means the first learner to reach a locale always gets nothing and
-    # has to come back later — the same "first one here gets an empty
-    # screen" trap this whole screen exists to avoid. They are already
-    # waiting, so this is the one place where spending a few seconds is
-    # the right call rather than an imposition.
+    # Nothing to ask: lay down the written baseline first. It costs no API
+    # call and no waiting, so there is no reason to reach for the model
+    # while an unseeded locale still has twenty questions sitting in the
+    # source tree.
+    if not questions:
+        await _seed_baseline(locale)
+        async with rls_connection(user["id"]) as conn:
+            questions = await unseen_trivia(conn, user["id"], locale, limit)
+            remaining = await count_unseen(conn, user["id"], locale)
+
+    # Still nothing — this learner has worked through the baseline, or the
+    # locale has none. An EMPTY bank is filled inline, not in the
+    # background: backgrounding it means the first learner to reach a
+    # locale always gets nothing and has to come back later, the same
+    # "first one here gets an empty screen" trap this whole screen exists
+    # to avoid. They are already waiting, so spending a few seconds here
+    # is the right call rather than an imposition.
     if not questions and translations_available():
         await _top_up_trivia(locale)
         async with rls_connection(user["id"]) as conn:
             questions = await unseen_trivia(conn, user["id"], locale, limit)
     # Running low but not empty: top up behind them, so the NEXT wait is
     # already stocked and nobody pays for it twice.
-    elif remaining < LOW_WATER and translations_available():
+    elif questions and remaining < LOW_WATER and translations_available():
         asyncio.create_task(_top_up_trivia(locale))
+
+    # Last resort: serve the baseline straight from memory. Reaching here
+    # means the bank could not be read OR written — in practice, the
+    # migration hasn't been applied yet. The game still plays; what is lost
+    # is the record of what was asked, so questions may repeat.
+    if not questions:
+        questions = offline_questions(locale, limit)
     return {"locale": locale, "questions": questions}
+
+
+# Locales whose baseline has already been laid down by this process. The
+# insert is idempotent, so this is only about not re-running twenty no-op
+# statements on every request from a learner who has read them all.
+_SEEDED: set[str] = set()
+
+
+async def _seed_baseline(locale: str) -> None:
+    """Write the baseline corpus into the bank for *locale*.
+
+    Never raises: a bank that can't be written falls through to the
+    in-memory path, which is worse but still a game.
+    """
+    if locale in _SEEDED:
+        return
+    _SEEDED.add(locale)
+    items = seed_questions(locale)
+    if not items:
+        return
+    try:
+        async with privileged_connection() as conn:
+            stored = await store_trivia(conn, locale, items, source="seed")
+        if stored:
+            logger.info("seeded %d baseline trivia for %s", stored, locale)
+    except Exception as exc:  # noqa: BLE001 — a game bank, never a page
+        _SEEDED.discard(locale)
+        logger.debug("trivia baseline seed skipped for %s: %s", locale, exc)
 
 
 async def _top_up_trivia(locale: str) -> None:

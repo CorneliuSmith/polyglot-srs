@@ -1356,6 +1356,7 @@
     "progress": "{{pct}}% ready",
     "waitAndPlay": "Wait & play",
     "startInEnglish": "Start in English",
+    "leave": "Back to Study",
     "gameHint": "Match while you wait — these are the words coming up.",
     "matched": "{{count}} matched",
     "firstWords": "The first words are on their way…",

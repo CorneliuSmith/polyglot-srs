@@ -89,11 +89,17 @@ async def existing_questions(
 
 
 async def store_trivia(
-    conn: asyncpg.Connection, locale: str, items: list[dict]
+    conn: asyncpg.Connection, locale: str, items: list[dict],
+    source: str = "ai",
 ) -> int:
     """Add questions to the bank. The (locale, question) unique constraint
     absorbs a generator that repeats itself, so a duplicate costs nothing
-    and never raises."""
+    and never raises.
+
+    *source* separates the written baseline ("seed") from what the model
+    wrote ("ai") — worth being able to tell apart when reviewing the bank,
+    since one has been read by a person and the other has not.
+    """
     if not items or not await table_present(conn, "language_trivia"):
         return 0
     stored = 0
@@ -101,13 +107,13 @@ async def store_trivia(
         added = await conn.fetchval(
             """
             INSERT INTO language_trivia
-                (locale, question, options, answer_index, fact)
-            VALUES ($1, $2, $3, $4, $5)
+                (locale, question, options, answer_index, fact, source)
+            VALUES ($1, $2, $3, $4, $5, $6)
             ON CONFLICT (locale, question) DO NOTHING
             RETURNING id
             """,
             locale, it["question"], it["options"], it["answer_index"],
-            it["fact"],
+            it["fact"], source,
         )
         if added:
             stored += 1
@@ -118,12 +124,20 @@ async def mark_seen(
     conn: asyncpg.Connection, user_id: str, trivia_ids: list[str]
 ) -> None:
     """Record what was asked, so the bank rotates. Best-effort: failing to
-    record is a repeated question later, not an error now."""
+    record is a repeated question later, not an error now.
+
+    The SELECT filters to ids the bank actually holds. Questions served
+    from the in-memory baseline (trivia_corpus.offline_questions, used when
+    the table can't be read) carry ids that were never stored, and the
+    foreign key would reject the whole statement — losing the real ids
+    alongside them.
+    """
     if not trivia_ids or not await table_present(conn, "user_trivia_seen"):
         return
     await conn.execute(
         """INSERT INTO user_trivia_seen (user_id, trivia_id)
-           SELECT $1, unnest($2::uuid[])
+           SELECT $1, t.id FROM language_trivia t
+            WHERE t.id = ANY($2::uuid[])
            ON CONFLICT DO NOTHING""",
         user_id, trivia_ids,
     )

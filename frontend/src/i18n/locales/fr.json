@@ -1356,6 +1356,7 @@
     "progress": "{{pct}} % prêt",
     "waitAndPlay": "Attendre et jouer",
     "startInEnglish": "Commencer en anglais",
+    "leave": "Retour à Étudier",
     "gameHint": "Associez en attendant : ce sont les mots à venir.",
     "matched": "{{count}} associés",
     "firstWords": "Les premiers mots arrivent…",

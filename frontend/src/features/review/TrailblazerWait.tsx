@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useRef, useState } from 'react'
 import { useQuery } from '@tanstack/react-query'
 import { useTranslation } from 'react-i18next'
-import { Compass, Sparkles } from 'lucide-react'
+import { ArrowLeft, Compass, Sparkles } from 'lucide-react'
 import { getSessionReadiness } from '../../api/review'
 import type { SessionReadiness } from '../../api/types'
 import TriviaGame from './TriviaGame'
@@ -25,6 +25,12 @@ interface Props {
    * English", or readiness crossed the threshold, or readiness itself
    * failed (the wait must never be what blocks a session). */
   onStart: () => void
+  /** Leaves the session entirely. Required, not optional: the tab bar is
+   * hidden on session routes, so without this the screen is a dead end —
+   * a learner who wants neither to wait nor to read English has nowhere
+   * to go but the browser's Back button, and on the native shells not
+   * even that. */
+  onExit: () => void
   /** The support language's display name, for the headline. */
   localeName?: string
   /** Overridable so a test can exercise the real stall path without
@@ -152,12 +158,14 @@ function MatchGame({ pool }: { pool: Pair[] }) {
  * in the learner's language yet. Checking readiness is itself what primes
  * the translation queue server-side, so opening this screen starts the
  * fill. Auto-advances the moment the lane crosses the threshold; "Start in
- * English" is always one tap away — nobody is ever held here. */
+ * English" is always one tap away, and so is leaving altogether — nobody
+ * is ever held here. */
 export default function TrailblazerWait({
   languageId,
   kind,
   limit,
   onStart,
+  onExit,
   localeName,
   stallAfterMs = STALL_AFTER_MS,
 }: Props) {
@@ -220,8 +228,21 @@ export default function TrailblazerWait({
 
   if (!readiness.data || shouldStart) {
     return (
-      <div className="min-h-screen bg-gray-50 flex items-center justify-center">
+      <div className="min-h-screen bg-gray-50 flex flex-col items-center justify-center gap-4">
         <p className="text-gray-500">{t('learnSession.preparing')}</p>
+        {/* A readiness check that never answers used to leave the learner
+            on a bare "preparing…" with nothing to press. */}
+        {!shouldStart && (
+          <button
+            type="button"
+            onClick={onExit}
+            data-testid="trailblazer-exit"
+            className="flex items-center gap-1 text-xs text-gray-500 hover:text-gray-700"
+          >
+            <ArrowLeft className="w-3.5 h-3.5 rtl:rotate-180" />
+            {t('trailblazer.leave')}
+          </button>
+        )}
       </div>
     )
   }
@@ -304,6 +325,19 @@ export default function TrailblazerWait({
             {t('trailblazer.startInEnglish')}
           </button>
         </div>
+
+        {/* Neither waiting nor starting is a choice someone has to be
+            argued out of. The tab bar is hidden on session routes, so this
+            is the only way back — quiet, but always there. */}
+        <button
+          type="button"
+          onClick={onExit}
+          data-testid="trailblazer-exit"
+          className="mx-auto flex items-center gap-1 text-xs text-gray-500 hover:text-gray-700"
+        >
+          <ArrowLeft className="w-3.5 h-3.5 rtl:rotate-180" />
+          {t('trailblazer.leave')}
+        </button>
       </div>
     </div>
   )
