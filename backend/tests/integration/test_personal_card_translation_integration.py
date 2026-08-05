@@ -14,6 +14,7 @@ from __future__ import annotations
 
 from backend.repositories.cards import get_due_cards
 from backend.repositories.personal_decks import (
+    list_decks,
     list_personal_cards,
     store_card_translations,
     untranslated_cards,
@@ -196,3 +197,57 @@ async def test_deleting_a_card_takes_its_locale_translations_with_it(pool):
             "SELECT count(*) FROM user_cloze_card_translations "
             "WHERE cloze_id = $1", cloze) == 0
     del uid, lang
+
+
+async def test_the_review_session_survives_a_missing_overlay_migration(pool):
+    """The whole review session must not die because ONE new table is absent.
+
+    This is the trap the codebase documents and I walked into anyway: the
+    pooled connection runs a single transaction, so a query naming a missing
+    table doesn't just fail itself — it aborts the transaction, and every
+    later query in the request dies too, INCLUDING the fallback meant to
+    rescue it. try/except reads as safe and isn't. Probing with to_regclass
+    never raises, so nothing is poisoned.
+
+    Symptom when this regresses: get_due_cards 500s and the review page sits
+    on "Loading cards…" forever.
+    """
+    lang, uid, _ = await _setup(pool, "pcm", "pcn")
+
+    async with pool.privileged_connection() as conn:
+        await conn.execute(
+            "ALTER TABLE user_cloze_card_translations RENAME TO ucct_hidden")
+        try:
+            # Vocabulary, grammar AND personal cards all still come back.
+            due = await get_due_cards(conn, lang, 20, "pcn")
+            assert any(d["card_type"] == "personal" for d in due)
+            # The card falls back to its minted-language translation.
+            personal = next(d for d in due if d["card_type"] == "personal")
+            assert personal["translation"] == "This city is very big."
+
+            # The transaction is still usable — the real tell. Under the old
+            # try/except this raised "current transaction is aborted".
+            assert await conn.fetchval("SELECT 1") == 1
+
+            # And the deck listing degrades rather than exploding.
+            assert await untranslated_cards(conn, lang, "pcn") == []
+            assert len(await list_personal_cards(conn, lang)) == 1
+            assert await conn.fetchval("SELECT 1") == 1
+        finally:
+            await conn.execute(
+                "ALTER TABLE ucct_hidden RENAME TO user_cloze_card_translations")
+    del uid
+
+
+async def test_personal_decks_survive_a_missing_deck_migration(pool):
+    """Same discipline for the older personal_decks migration."""
+    lang, uid, _ = await _setup(pool, "pco", "pcp")
+
+    async with pool.privileged_connection() as conn:
+        await conn.execute("ALTER TABLE personal_decks RENAME TO pd_hidden")
+        try:
+            assert await list_decks(conn, lang) == []
+            assert await conn.fetchval("SELECT 1") == 1
+        finally:
+            await conn.execute("ALTER TABLE pd_hidden RENAME TO personal_decks")
+    del uid

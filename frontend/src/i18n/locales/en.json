@@ -427,7 +427,8 @@
     "durationMin_one": "{{count}} min",
     "durationMin_other": "{{count}} min",
     "durationSec_one": "{{count}} sec",
-    "durationSec_other": "{{count}} sec"
+    "durationSec_other": "{{count}} sec",
+    "loadFailed": "Couldn't load your review session."
   },
   "about": {
     "title": "Things to know",

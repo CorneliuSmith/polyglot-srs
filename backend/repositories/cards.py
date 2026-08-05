@@ -15,7 +15,10 @@ import asyncpg
 from backend.repositories.curriculum import get_read_ref_keys, resolve_related
 from backend.repositories.explicit_gate import fetch_explicit_gated
 from backend.repositories.gym import get_gym_progress
-from backend.services.auto_translate import note_missing_content
+from backend.services.auto_translate import (
+    note_missing_content,
+    table_present,
+)
 from backend.services.cell_glosses import cell_gloss
 from backend.services.extract import ANSWER_MARKER, make_cloze
 from backend.services.gym_manifest import nonstandard_point_titles
@@ -350,12 +353,17 @@ async def get_due_cards(
     """
     personal_rows = []
     if want_vocab:
-        try:
-            personal_rows = await conn.fetch(
-                personal_sql, language_id, limit, eff_locale)
-        except asyncpg.exceptions.UndefinedTableError:
-            personal_rows = await conn.fetch(
-                personal_sql_no_overlay, language_id, limit)
+        # PROBED, never caught. A query naming a missing table doesn't just
+        # fail itself — the pooled connection runs one transaction, so the
+        # throw aborts it and every later query in the request dies with it,
+        # fallback included. Catching the error here took the whole review
+        # session down: the due-cards request 500'd and the page sat on
+        # "Loading cards…" forever. to_regclass never raises.
+        overlay = await table_present(conn, "user_cloze_card_translations")
+        personal_rows = await conn.fetch(
+            *( (personal_sql, language_id, limit, eff_locale) if overlay
+               else (personal_sql_no_overlay, language_id, limit) )
+        )
 
     # Per-sentence history for the gap-hunting rotation (one query for the
     # whole batch).

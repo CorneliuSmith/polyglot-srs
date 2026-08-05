@@ -447,7 +447,8 @@
     "durationSec_one": "{{count}} сек",
     "durationSec_few": "{{count}} сек",
     "durationSec_many": "{{count}} сек",
-    "durationSec_other": "{{count}} сек"
+    "durationSec_other": "{{count}} сек",
+    "loadFailed": "Не удалось загрузить сессию повторения."
   },
   "about": {
     "title": "Что стоит знать",
