@@ -199,8 +199,7 @@ export default function TrailblazerWait({
   // Keyed on the COUNT and the fetch timestamp, not on `lane` itself:
   // react-query's structural sharing keeps the object referentially stable
   // when a poll returns identical data, so depending on the object meant
-  // the effect never re-ran and the timer was never armed — the exact case
-  // this is here to catch.
+  // the effect never re-ran and progress was never recorded.
   const readyCount = lane?.ready
   const fetchedAt = readiness.dataUpdatedAt
   useEffect(() => {
@@ -209,13 +208,21 @@ export default function TrailblazerWait({
       highWater.current = readyCount
       lastProgressAt.current = Date.now()
       setStalled(false)
-      return
     }
-    const timer = window.setTimeout(() => {
+  }, [readyCount, fetchedAt])
+
+  // The stall check runs on its OWN clock, deliberately not keyed to the
+  // query. Armed inside the effect above, every 5-second poll tore the
+  // 45-second timer down and started a fresh one, so it could never reach
+  // its own deadline: a fill that had genuinely stopped sat there
+  // indefinitely without ever saying so, which is exactly the case this
+  // exists to report.
+  useEffect(() => {
+    const tick = window.setInterval(() => {
       if (Date.now() - lastProgressAt.current >= stallAfterMs) setStalled(true)
-    }, stallAfterMs)
-    return () => window.clearTimeout(timer)
-  }, [readyCount, fetchedAt, stallAfterMs])
+    }, Math.min(1000, stallAfterMs))
+    return () => window.clearInterval(tick)
+  }, [stallAfterMs])
 
   // The wait must never be what blocks a session: a failed readiness check
   // or a lane that's already over the bar both mean "just start".

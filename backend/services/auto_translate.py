@@ -442,6 +442,43 @@ async def pending_examples(
     return [dict(r) for r in rows]
 
 
+async def words_with_pending_examples(
+    conn: asyncpg.Connection, language_id: str, locale: str, vocab_ids: list,
+) -> set:
+    """Which of *vocab_ids* still have an example sentence awaiting *locale*.
+
+    Demand for the example kind is recorded per WORD, but the work is per
+    SENTENCE, and a word commonly owns three. One ref_id is therefore not
+    one unit of work, and clearing the whole batch after a row-limited pass
+    deleted the demand for every word whose sentences fell past the limit —
+    they then dropped to the breadth-first sweep, where examples run last,
+    behind the entire untranslated word backlog. On a large course that is
+    never: the readiness bar sat at exactly the fraction glosses alone can
+    reach and stopped.
+
+    Predicate identical to pending_examples, so "nothing pending" here means
+    exactly "that query would return nothing".
+    """
+    rows = await conn.fetch(
+        """
+        SELECT DISTINCT es.vocabulary_id
+        FROM example_sentences es
+        WHERE es.language_id = $1
+          AND es.vocabulary_id = ANY($3::uuid[])
+          AND es.translation_locale = 'en'
+          AND es.reviewed
+          AND es.translation IS NOT NULL AND es.translation <> ''
+          AND NOT EXISTS (
+            SELECT 1 FROM example_sentences es2
+             WHERE es2.vocabulary_id = es.vocabulary_id
+               AND es2.sentence = es.sentence
+               AND es2.translation_locale = $2)
+        """,
+        language_id, locale, list(vocab_ids),
+    )
+    return {r["vocabulary_id"] for r in rows}
+
+
 def self_pair(pair) -> bool:
     """Learning a language THROUGH itself (Spanish course, Spanish support).
 
@@ -758,8 +795,23 @@ async def process_demand(conn: asyncpg.Connection, budget: int,
                 conn, b["language_id"], b["locale"],
                 take, ids)
             if rows:
-                stats["examples"] += await _translate_examples(conn, pair, rows)
+                done = await _translate_examples(conn, pair, rows)
+                stats["examples"] += done
                 n = len(rows)
+                # Keep the words that still have sentences waiting. Unlike
+                # every other kind, one ref_id here is not one unit of work
+                # — a word owns several sentences, so a row-limited pass
+                # covers only some of the batch. Clearing all of it dropped
+                # the rest onto the sweep, which reaches examples last.
+                #
+                # Only when something actually landed, though: retaining
+                # after a pass that applied nothing would spin the same rows
+                # every cycle and wedge the lane behind content the
+                # generator keeps refusing.
+                if done:
+                    still = await words_with_pending_examples(
+                        conn, b["language_id"], b["locale"], ids)
+                    ids = [i for i in ids if i not in still]
         elif kind == "gym":
             rows = await pending_gym_labels(conn, b["language_code"],
                                             b["locale"])
