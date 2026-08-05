@@ -170,14 +170,27 @@ describe('BottomNav during a session', () => {
   })
 })
 
-describe('The language switcher follows you', () => {
-  it('is present on every section, not just Study', async () => {
-    // Which language you're in changes what ALL four show — Practice's Gym
-    // availability, Progress's numbers, More's language guide. Going back
-    // to Study to change it and returning was a detour with no purpose.
+describe('The interface-language escape hatch', () => {
+  it('puts the globe on every section', async () => {
+    // Someone stranded in a language they cannot read has to be able to
+    // change it from wherever they are — they cannot navigate to a
+    // specific page for it, because they cannot read the way there.
     for (const ui of [<PracticePage key="p" />, <MorePage key="m" />]) {
       const { unmount } = renderAt(ui)
-      expect(await screen.findByTestId('language-picker')).toBeInTheDocument()
+      expect(
+        await screen.findByTestId('ui-language-switcher'),
+      ).toBeInTheDocument()
+      unmount()
+    }
+  })
+
+  it('does not put the STUDY language picker on every section', async () => {
+    // A different kind of choice: deliberate, infrequent, and legible by
+    // definition. It belongs on Study, not following the learner around.
+    for (const ui of [<PracticePage key="p" />, <MorePage key="m" />]) {
+      const { unmount } = renderAt(ui)
+      await screen.findByTestId('ui-language-switcher')
+      expect(screen.queryByTestId('language-picker')).toBeNull()
       unmount()
     }
   })
