@@ -16,8 +16,17 @@ from backend.repositories.personal_decks import (
     list_decks,
     list_personal_cards,
     rename_deck,
+    store_card_translations,
+    untranslated_cards,
 )
 from backend.repositories.pool import rls_connection
+from backend.repositories.tutor import log_tutor_usage
+from backend.services.allowance import get_allowance, reject_if_unavailable
+from backend.services.models import resolve_model
+from backend.services.translate import (
+    generate_sentence_translations,
+    translations_available,
+)
 
 router = APIRouter()
 
@@ -77,3 +86,85 @@ async def move_card(card_id: str, body: CardFile, user: dict = Depends(get_curre
         if not await file_card(conn, card_id, body.deck_id):
             raise HTTPException(status_code=404, detail="Card or deck not found")
     return {"ok": True}
+
+
+# Personal cards are ONE learner's private text, so the background loop
+# deliberately never sweeps them — spending the operator's key on content
+# nobody else will ever see doesn't scale. They're filled on request from
+# the learner's OWN allowance instead, which is why there are two endpoints:
+# one that only reports what it would cost, and one that spends.
+
+class TranslateCards(BaseModel):
+    language_id: str
+
+
+@router.get("/translation-status")
+async def translation_status(
+    language_id: str, user: dict = Depends(get_current_user),
+):
+    """How many personal cards don't read in the learner's language yet.
+
+    Spends nothing. This is what lets the UI say "12 of your own cards can
+    be translated, it will use 1 of your daily messages" BEFORE the learner
+    agrees to it.
+    """
+    async with rls_connection(user["id"]) as conn:
+        locale = await conn.fetchval(
+            "SELECT support_locale FROM user_profiles WHERE id = $1", user["id"]
+        )
+        pending = await untranslated_cards(conn, language_id, locale or "en")
+    allowance = await get_allowance(user["id"], language_id)
+    return {
+        "locale": locale,
+        "pending": len(pending),
+        "available": translations_available(),
+        "remaining": allowance.get("remaining"),
+        "unlimited": allowance.get("unlimited"),
+    }
+
+
+@router.post("/translate")
+async def translate_cards(
+    body: TranslateCards, user: dict = Depends(get_current_user),
+):
+    """Translate the learner's own cards into their support language.
+
+    Charged to THEIR allowance (one unit, like a tutor message), because
+    this is private content translated at their request — unlike course
+    material, where one fill serves every learner of the pair.
+    """
+    allowance = await get_allowance(user["id"], body.language_id)
+    reject_if_unavailable(allowance)
+    if not translations_available():
+        raise HTTPException(
+            status_code=status.HTTP_503_SERVICE_UNAVAILABLE,
+            detail={"code": "translation_unavailable"},
+        )
+
+    async with rls_connection(user["id"]) as conn:
+        locale = await conn.fetchval(
+            "SELECT support_locale FROM user_profiles WHERE id = $1", user["id"]
+        )
+        pending = await untranslated_cards(conn, body.language_id, locale or "en")
+        if not pending:
+            return {"translated": 0, "charged": False}
+        locale_name = await conn.fetchval(
+            "SELECT name FROM languages WHERE code = $1", locale
+        )
+
+    items = [{"i": i, "sentence": c["translation"]}
+             for i, c in enumerate(pending)]
+    results = await generate_sentence_translations(locale_name or locale, items)
+    pairs = [(str(pending[r["i"]]["id"]), r["translation"])
+             for r in results if r.get("translation")]
+
+    async with rls_connection(user["id"]) as conn:
+        stored = await store_card_translations(conn, pairs, locale)
+        # Charged only when work was actually done — a run that produced
+        # nothing must not cost the learner an allowance unit.
+        if stored:
+            await log_tutor_usage(
+                conn, user["id"], body.language_id,
+                resolve_model("translate"), kind="chat",
+            )
+    return {"translated": stored, "charged": bool(stored), "locale": locale}

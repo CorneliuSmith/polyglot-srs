@@ -714,7 +714,13 @@
     "deckFor": "مجموعة لـ{{answer}}",
     "titleGrammar": "مسار القواعد {{level}}",
     "titleVocab": "مفردات {{level}}",
-    "titleAlphabet": "الحروف الأبجدية"
+    "titleAlphabet": "الحروف الأبجدية",
+    "translateOffer": "{{count}} من بطاقاتك ما زالت باللغة التي حفظتها بها.",
+    "translateCost": "ترجمتها تستهلك رسالة واحدة من حصتك، مثل سؤال المعلم. بطاقاتك خاصة، لذا لا يتم ذلك تلقائيًا في الخلفية.",
+    "translateAction": "ترجم بطاقاتي",
+    "translating": "جارٍ الترجمة…",
+    "translateDone": "تمت ترجمة {{count}} من بطاقاتك.",
+    "translateFailed": "لم تنجح العملية. لم تُخصم حصتك."
   },
   "notes": {
     "pickLanguageFirst": "اختر لغة من لوحة التحكم أولاً.",

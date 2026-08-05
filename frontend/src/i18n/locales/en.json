@@ -678,7 +678,13 @@
     "deckFor": "Deck for {{answer}}",
     "titleGrammar": "{{level}} Grammar Path",
     "titleVocab": "{{level}} Vocabulary",
-    "titleAlphabet": "Alphabet"
+    "titleAlphabet": "Alphabet",
+    "translateOffer": "{{count}} of your own cards still read in the language they were saved in.",
+    "translateCost": "Translating them uses one message from your allowance — the same as asking the tutor a question. Your saved cards are private, so this is never done in the background.",
+    "translateAction": "Translate my cards",
+    "translating": "Translating…",
+    "translateDone": "Translated {{count}} of your cards.",
+    "translateFailed": "That didn't work. Your allowance was not charged."
   },
   "notes": {
     "pickLanguageFirst": "Pick a language on the dashboard first.",

@@ -702,7 +702,13 @@
     "deckFor": "Колода для «{{answer}}»",
     "titleGrammar": "Путь грамматики {{level}}",
     "titleVocab": "Лексика {{level}}",
-    "titleAlphabet": "Алфавит"
+    "titleAlphabet": "Алфавит",
+    "translateOffer": "Ваших карточек на языке сохранения: {{count}}.",
+    "translateCost": "Перевод потратит одно сообщение из вашего лимита — как вопрос репетитору. Ваши карточки приватные, поэтому это никогда не делается в фоне.",
+    "translateAction": "Перевести мои карточки",
+    "translating": "Перевод…",
+    "translateDone": "Переведено карточек: {{count}}.",
+    "translateFailed": "Не получилось. Лимит не списан."
   },
   "notes": {
     "pickLanguageFirst": "Сначала выберите язык на главной.",

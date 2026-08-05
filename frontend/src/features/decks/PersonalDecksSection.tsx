@@ -8,6 +8,8 @@ import {
   getPersonalCards,
   getPersonalDecks,
   renamePersonalDeck,
+  getPersonalTranslationStatus,
+  translatePersonalCards,
 } from '../../api/personalDecks'
 
 /**
@@ -29,6 +31,26 @@ export default function PersonalDecksSection({ languageId }: { languageId: strin
   const { data: cards = [] } = useQuery({
     queryKey: ['personal-cards', languageId],
     queryFn: () => getPersonalCards(languageId),
+  })
+
+  // Personal cards are private, so the background loop never touches them
+  // (it would spend the operator's key on text only one person sees). They
+  // are translated on request from the learner's own allowance — so the
+  // offer states the count and the cost before anything is spent.
+  const { data: tstatus } = useQuery({
+    queryKey: ['personal-translation-status', languageId],
+    queryFn: () => getPersonalTranslationStatus(languageId),
+    retry: false,
+  })
+  const translateMutation = useMutation({
+    mutationFn: () => translatePersonalCards(languageId),
+    onSuccess: () => {
+      queryClient.invalidateQueries({
+        queryKey: ['personal-translation-status', languageId],
+      })
+      queryClient.invalidateQueries({ queryKey: ['personal-cards', languageId] })
+      queryClient.invalidateQueries({ queryKey: ['due-cards'] })
+    },
   })
 
   const invalidate = () => {
@@ -111,6 +133,36 @@ export default function PersonalDecksSection({ languageId }: { languageId: strin
           {t('decks.personalDecksSub')}
         </span>
       </h2>
+
+      {tstatus && tstatus.available && tstatus.pending > 0 && (
+        <div
+          data-testid="personal-translate-offer"
+          className="rounded-2xl border border-amber-200 bg-amber-50 px-4 py-3 space-y-2"
+        >
+          <p className="text-sm text-gray-700">
+            {t('decks.translateOffer', { count: tstatus.pending })}
+          </p>
+          <p className="text-xs text-gray-500">{t('decks.translateCost')}</p>
+          <button
+            type="button"
+            onClick={() => translateMutation.mutate()}
+            disabled={translateMutation.isPending}
+            className="rounded-xl bg-lang hover:bg-lang-dark disabled:opacity-40 text-lang-on text-sm font-semibold px-4 py-2"
+          >
+            {translateMutation.isPending
+              ? t('decks.translating')
+              : t('decks.translateAction')}
+          </button>
+          {translateMutation.isError && (
+            <p className="text-xs text-red-600">{t('decks.translateFailed')}</p>
+          )}
+        </div>
+      )}
+      {translateMutation.isSuccess && translateMutation.data.translated > 0 && (
+        <p className="text-xs text-green-700" data-testid="personal-translate-done">
+          {t('decks.translateDone', { count: translateMutation.data.translated })}
+        </p>
+      )}
 
       <form
         onSubmit={(e) => {

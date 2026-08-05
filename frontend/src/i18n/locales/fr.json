@@ -678,7 +678,13 @@
     "deckFor": "Paquet pour {{answer}}",
     "titleGrammar": "Parcours de grammaire {{level}}",
     "titleVocab": "Vocabulaire {{level}}",
-    "titleAlphabet": "Alphabet"
+    "titleAlphabet": "Alphabet",
+    "translateOffer": "{{count}} de vos propres cartes sont encore dans la langue où vous les avez enregistrées.",
+    "translateCost": "Les traduire utilise un message de votre quota, comme une question au tuteur. Vos cartes sont privées : cela n'est jamais fait en arrière-plan.",
+    "translateAction": "Traduire mes cartes",
+    "translating": "Traduction…",
+    "translateDone": "{{count}} de vos cartes ont été traduites.",
+    "translateFailed": "Échec. Votre quota n'a pas été débité."
   },
   "notes": {
     "pickLanguageFirst": "Choisissez d’abord une langue sur le tableau de bord.",
