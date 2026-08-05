@@ -249,3 +249,27 @@ export async function getVocabItem(vocabId: string): Promise<VocabItemDetail> {
   )
   return response.data
 }
+
+export interface TriviaQuestion {
+  id: string
+  question: string
+  options: string[]
+  answer_index: number
+  fact: string
+}
+
+/** Language trivia in the learner's support language. Shared bank, so it
+ * works even when nothing in their own session has been translated yet. */
+export async function getTrivia(limit = 6): Promise<TriviaQuestion[]> {
+  const { data } = await apiClient.get<{ questions: TriviaQuestion[] }>(
+    '/api/review/trivia',
+    { params: { limit } },
+  )
+  return data.questions ?? []
+}
+
+/** Record what was asked, so the bank rotates instead of repeating. */
+export async function markTriviaSeen(triviaIds: string[]): Promise<void> {
+  if (!triviaIds.length) return
+  await apiClient.post('/api/review/trivia/seen', { trivia_ids: triviaIds })
+}

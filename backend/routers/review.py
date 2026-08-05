@@ -2,6 +2,8 @@
 
 from __future__ import annotations
 
+import asyncio
+import logging
 from datetime import UTC, datetime
 
 from fastapi import APIRouter, Depends, HTTPException, status
@@ -48,6 +50,15 @@ from backend.repositories.gym import record_gym_attempt
 from backend.repositories.onboarding import get_placement_form_misses
 from backend.repositories.pool import privileged_connection, rls_connection
 from backend.repositories.review import add_card_feedback, insert_review_log
+from backend.repositories.trivia import (
+    LOW_WATER,
+    TOP_UP_BATCH,
+    count_unseen,
+    existing_questions,
+    mark_seen,
+    store_trivia,
+    unseen_trivia,
+)
 from backend.repositories.tutor import log_tutor_usage
 from backend.services.allowance import get_allowance, reject_if_unavailable
 from backend.services.auto_translate import kick
@@ -65,6 +76,12 @@ from backend.services.generate import (
 )
 from backend.services.models import resolve_model
 from backend.services.nlp import validate_answer_async
+from backend.services.translate import (
+    generate_trivia,
+    translations_available,
+)
+
+logger = logging.getLogger(__name__)
 
 router = APIRouter()
 
@@ -197,6 +214,65 @@ async def refresh_lessons(
             if card_id in details
         ]
     }
+
+
+class TriviaSeen(BaseModel):
+    trivia_ids: list[str] = Field(default_factory=list, max_length=50)
+
+
+@router.get("/trivia")
+async def trivia(limit: int = 6, user: dict = Depends(get_current_user)):
+    """Language trivia in the learner's own support language.
+
+    This is what the wait screen plays when the session it is waiting for
+    has nothing translated yet — the match game needs some of that session
+    to exist, which at 0% it doesn't, and 0% is exactly when someone is
+    sitting there.
+
+    The bank is shared per locale and tops itself up in the background when
+    a learner is running low, so it grows into a corpus instead of being
+    regenerated per session. Costs the OPERATOR's key, not the learner's
+    allowance: it is shared content, like a translated gloss.
+    """
+    limit = max(1, min(limit, 20))
+    async with rls_connection(user["id"]) as conn:
+        locale = await conn.fetchval(
+            "SELECT support_locale FROM user_profiles WHERE id = $1", user["id"]
+        ) or "en"
+        questions = await unseen_trivia(conn, user["id"], locale, limit)
+        remaining = await count_unseen(conn, user["id"], locale)
+
+    # Below the low-water mark, refill in the background. Never blocks the
+    # response: a learner waiting for a game must not also wait for the
+    # bank that stocks it.
+    if remaining < LOW_WATER and translations_available():
+        asyncio.create_task(_top_up_trivia(locale))
+    return {"locale": locale, "questions": questions}
+
+
+async def _top_up_trivia(locale: str) -> None:
+    """Grow the bank for *locale*. Fire-and-forget; never raises into a
+    request. Existing questions are passed to the generator so the corpus
+    widens rather than circling the same handful."""
+    try:
+        async with privileged_connection() as conn:
+            name = await conn.fetchval(
+                "SELECT name FROM languages WHERE code = $1", locale)
+            avoid = await existing_questions(conn, locale)
+        items = await generate_trivia(name or locale, TOP_UP_BATCH, avoid)
+        if items:
+            async with privileged_connection() as conn:
+                await store_trivia(conn, locale, items)
+    except Exception as exc:  # noqa: BLE001 — a game bank, never a page
+        logger.debug("trivia top-up skipped for %s: %s", locale, exc)
+
+
+@router.post("/trivia/seen")
+async def trivia_seen(body: TriviaSeen, user: dict = Depends(get_current_user)):
+    """Record which questions were asked, so the bank rotates."""
+    async with rls_connection(user["id"]) as conn:
+        await mark_seen(conn, user["id"], body.trivia_ids)
+    return {"ok": True}
 
 
 MAX_CRAM_POINTS = 12
