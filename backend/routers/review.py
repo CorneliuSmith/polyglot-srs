@@ -242,10 +242,19 @@ async def trivia(limit: int = 6, user: dict = Depends(get_current_user)):
         questions = await unseen_trivia(conn, user["id"], locale, limit)
         remaining = await count_unseen(conn, user["id"], locale)
 
-    # Below the low-water mark, refill in the background. Never blocks the
-    # response: a learner waiting for a game must not also wait for the
-    # bank that stocks it.
-    if remaining < LOW_WATER and translations_available():
+    # An EMPTY bank is filled inline, not in the background. Backgrounding
+    # it means the first learner to reach a locale always gets nothing and
+    # has to come back later — the same "first one here gets an empty
+    # screen" trap this whole screen exists to avoid. They are already
+    # waiting, so this is the one place where spending a few seconds is
+    # the right call rather than an imposition.
+    if not questions and translations_available():
+        await _top_up_trivia(locale)
+        async with rls_connection(user["id"]) as conn:
+            questions = await unseen_trivia(conn, user["id"], locale, limit)
+    # Running low but not empty: top up behind them, so the NEXT wait is
+    # already stocked and nobody pays for it twice.
+    elif remaining < LOW_WATER and translations_available():
         asyncio.create_task(_top_up_trivia(locale))
     return {"locale": locale, "questions": questions}
 

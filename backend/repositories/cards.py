@@ -930,6 +930,15 @@ async def session_readiness(
             out[key] = {"total": 0, "ready": 0, "pct": 1.0, "ready_enough": True}
         return out
 
+    # Learning a language THROUGH itself: the loop deliberately never
+    # renders example sentences, because doing so reproduces the drill
+    # sentence with the blank filled in (auto_translate.self_pair). Scoring
+    # those points anyway capped readiness below the start threshold
+    # forever — the wait screen could never advance on its own.
+    course_code = await conn.fetchval(
+        "SELECT code FROM languages WHERE id = $1", language_id)
+    scores_examples = course_code != locale
+
     batch = max(batch_size, 1)
     learn_v = await _select_vocab_candidate_ids(
         conn, user_id, language_id, batch, None)
@@ -948,11 +957,13 @@ async def session_readiness(
     for key, vocab_ids, grammar_ids in (
         ("learn", learn_v, learn_g), ("review", review_v, review_g),
     ):
-        # A word counts twice: its gloss AND its example meaning lines. The
-        # sentences are most of what a learner READS on a vocabulary card, so
-        # scoring only glosses reported "ready" while every example was still
-        # English — which also meant the mid-session swap never fired.
-        total = len(vocab_ids) * 2 + len(grammar_ids)
+        # A word counts twice — its gloss AND its example meaning lines —
+        # because the sentences are most of what a learner READS on a
+        # vocabulary card, and scoring only glosses reported "ready" while
+        # every example was still English. Except on the self-pair, where
+        # the second point is for work that will never happen.
+        per_word = 2 if scores_examples else 1
+        total = len(vocab_ids) * per_word + len(grammar_ids)
         ready = 0
         if vocab_ids:
             ready += int(await conn.fetchval(
@@ -963,7 +974,7 @@ async def session_readiness(
             # English example is missing its locale sibling" so a word that
             # simply HAS no examples counts as done, rather than holding the
             # score below 100% forever. Mirrors the demand detector exactly.
-            ready += int(await conn.fetchval(
+            ready += 0 if not scores_examples else int(await conn.fetchval(
                 """SELECT count(*) FROM unnest($1::uuid[]) AS w(id)
                     WHERE NOT EXISTS (
                         SELECT 1 FROM example_sentences es
