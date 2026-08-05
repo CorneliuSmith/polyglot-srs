@@ -267,50 +267,6 @@ describe('Dashboard tiles', () => {
     )
   })
 
-  it('shows the Gym tile only when the language has form categories', async () => {
-    const { getGymManifest } = await import('../api/gym')
-    const mockGym = getGymManifest as ReturnType<typeof vi.fn>
-    renderDashboard()
-    await screen.findByText(/learned today/i)
-    expect(screen.queryByTestId('tile-gym')).toBeNull()
-
-    cleanup()
-    mockGym.mockResolvedValue({
-      columns: [{ kind: 'verbs', label: 'Verbs', entries: [{}] }],
-    })
-    renderDashboard()
-    fireEvent.click(await screen.findByTestId('tile-gym'))
-    expect(mockNavigate).toHaveBeenCalledWith('/gym')
-  })
-
-  it('Letters and Things to Know are a coloured pair above the study tiles', async () => {
-    renderDashboard()
-    await screen.findByText(/learned today/i)
-
-    // One container holds the pair, so they share a row rather than stacking
-    // as two full-width grey rows that read as secondary chrome.
-    expect(screen.getByTestId('reference-tiles')).toBeDefined()
-    fireEvent.click(screen.getByTestId('tile-about'))
-    expect(mockNavigate).toHaveBeenCalledWith('/about')
-
-    // Spanish has a letter guide too (lettersData covers 22 languages, not
-    // just the non-Latin scripts), so the pair shares a row.
-    fireEvent.click(screen.getByTestId('tile-letters'))
-    expect(mockNavigate).toHaveBeenCalledWith('/letters')
-    expect(screen.getByTestId('reference-tiles').className).toContain('grid')
-  })
-
-  it('Read and Tutor are first-class tiles beside the command center', async () => {
-    renderDashboard()
-    await screen.findByText(/learned today/i)
-    // Distinctive destination tiles — not buried link-list rows.
-    expect(screen.getByTestId('feature-tiles')).toBeDefined()
-    fireEvent.click(screen.getByTestId('tile-read'))
-    expect(mockNavigate).toHaveBeenCalledWith('/read')
-    fireEvent.click(screen.getByTestId('tile-tutor'))
-    expect(mockNavigate).toHaveBeenCalledWith('/tutor')
-  })
-
   it('the Learn tile shows daily-goal progress, not the whole queue', async () => {
     renderDashboard()
     // 3 learned today of the default 20-goal; the queue moves to the sublabel

@@ -52,6 +52,9 @@ function lazyWithRetry<T extends ComponentType<any>>(
 const LoginPage = lazyWithRetry(() => import('./features/auth/LoginPage'))
 const ResetPasswordPage = lazyWithRetry(() => import('./features/auth/ResetPasswordPage'))
 const DashboardPage = lazyWithRetry(() => import('./features/dashboard/DashboardPage'))
+const PracticePage = lazyWithRetry(() => import('./features/dashboard/PracticePage'))
+const ProgressPage = lazyWithRetry(() => import('./features/dashboard/ProgressPage'))
+const MorePage = lazyWithRetry(() => import('./features/dashboard/MorePage'))
 const ReviewSessionPage = lazyWithRetry(() => import('./features/review/ReviewSessionPage'))
 const LearnPage = lazyWithRetry(() => import('./features/review/LearnPage'))
 const TutorPage = lazyWithRetry(() => import('./features/tutor/TutorPage'))
@@ -109,6 +112,10 @@ const router = createBrowserRouter([
     errorElement: <ErrorScreen />,
     children: [
       { path: '/', element: <DashboardPage /> },
+      // The dashboard's three siblings — see components/BottomNav.
+      { path: '/practice', element: <PracticePage /> },
+      { path: '/progress', element: <ProgressPage /> },
+      { path: '/more', element: <MorePage /> },
       { path: '/onboarding', element: <OnboardingPage /> },
       { path: '/welcome', element: <WelcomePage /> },
       { path: '/settings', element: <SettingsPage /> },

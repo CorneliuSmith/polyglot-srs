@@ -1,14 +1,5 @@
 import { useEffect, useState } from 'react'
-import {
-  Bell,
-  BookOpen,
-  Dumbbell,
-  Globe2,
-  Languages,
-  Menu,
-  MessagesSquare,
-} from 'lucide-react'
-import type { LucideIcon } from 'lucide-react'
+import { Bell, Menu } from 'lucide-react'
 import { Link, Navigate, useNavigate } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
@@ -22,19 +13,9 @@ import {
 } from '../../api/review'
 import { getMyRoles } from '../../api/contribute'
 import { getOnboardingStatus } from '../../api/onboarding'
-import { getLanguages } from '../../api/profile'
-import { lettersFor } from '../letters/lettersData'
-import { getRecommendations } from '../../api/recommendations'
-import { factsFor } from '../about/languageFacts'
 import { usePrefsStore } from '../../stores/prefsStore'
-import DirArrow from '../../components/DirArrow'
 import LanguagePicker from '../../components/LanguagePicker'
 import UiLanguageSwitcher from '../../components/UiLanguageSwitcher'
-import CEFRProgress from './CEFRProgress'
-import ForecastStrip from './ForecastStrip'
-import ActivityChart from './ActivityChart'
-import StageTiles from './StageTiles'
-import ProfileCard from './ProfileCard'
 import Walkthrough from '../onboarding/Walkthrough'
 import PlacementOffer from '../onboarding/PlacementOffer'
 import ReviewPromptGate from './ReviewPromptGate'
@@ -43,10 +24,7 @@ import { unseenWhatsNew } from '../announcements/whatsNew'
 import InstallPrompt from '../../components/InstallPrompt'
 import LearningTip from '../tips/LearningTip'
 import FeedbackAlert from '../feedback/FeedbackAlert'
-import FeedbackButton from '../feedback/FeedbackButton'
-import NewPicksPrompt from '../recommendations/NewPicksPrompt'
 import type { LearnDeck } from '../../api/types'
-import PersonalDecksSection from '../decks/PersonalDecksSection'
 import { useViewAsKey } from '../../stores/viewAsStore'
 
 /** A first-class practice-destination tile (Gym / Read / Tutor). Users have
@@ -63,77 +41,6 @@ import { useViewAsKey } from '../../stores/viewAsStore'
  * bg-lang-soft is theme-safe by construction — index.css maps it through
  * --lang-soft-surface, which `.dark` overrides so the pastel doesn't glare.
  */
-function ReferenceTile({
-  icon: Icon,
-  title,
-  caption,
-  testId,
-  onClick,
-  disabled = false,
-}: {
-  icon: LucideIcon
-  title: string
-  caption: string
-  testId: string
-  onClick: () => void
-  disabled?: boolean
-}) {
-  return (
-    <button
-      type="button"
-      onClick={onClick}
-      disabled={disabled}
-      data-testid={testId}
-      className="w-full rounded-2xl border border-lang/25 bg-lang-soft hover:border-lang disabled:opacity-50 px-4 py-3 text-start transition-colors flex items-center gap-3"
-      style={{ minHeight: '44px' }}
-    >
-      <span className="shrink-0 rounded-xl bg-lang/15 p-2">
-        <Icon aria-hidden className="h-5 w-5 text-lang" strokeWidth={1.75} />
-      </span>
-      <span className="min-w-0 flex-1">
-        <span className="block text-sm font-bold text-gray-900">{title}</span>
-        <span className="block text-xs font-normal text-gray-600 leading-tight">
-          {caption}
-        </span>
-      </span>
-      <DirArrow className="shrink-0 text-lang" />
-    </button>
-  )
-}
-
-function FeatureTile({
-  icon: Icon,
-  label,
-  caption,
-  testId,
-  onClick,
-  disabled = false,
-}: {
-  icon: LucideIcon
-  label: string
-  caption: string
-  testId: string
-  onClick: () => void
-  disabled?: boolean
-}) {
-  return (
-    <button
-      type="button"
-      onClick={onClick}
-      disabled={disabled}
-      data-testid={testId}
-      className="rounded-2xl border-2 border-lang/20 bg-white hover:border-lang hover:bg-lang-soft/40 disabled:opacity-50 p-3 text-center transition-colors"
-      style={{ minHeight: '44px' }}
-    >
-      <Icon aria-hidden className="mx-auto h-7 w-7 text-lang" strokeWidth={1.75} />
-      <span className="block mt-1.5 text-sm font-bold text-gray-900">{label}</span>
-      <span className="block mt-0.5 text-[11px] leading-tight text-gray-500">
-        {caption}
-      </span>
-    </button>
-  )
-}
-
 /** One Bunpro-style deck row. Two affordances, deliberately separated:
  * the Learn button STARTS learning from this deck (auto-adding it to the
  * queue if needed), and the chevron expands the deck's management panel —
@@ -324,17 +231,6 @@ export default function DashboardPage() {
     queryFn: getOnboardingStatus,
   })
 
-  // Active language CODE (for the Letters & Sounds gate) — shares the
-  // cached languages query with LanguagePicker.
-  const { data: allLanguages = [] } = useQuery({
-    queryKey: ['languages'],
-    queryFn: getLanguages,
-  })
-  const activeLanguageCode = allLanguages.find(
-    (l) => l.id === activeLanguageId,
-  )?.code
-  const hasLetters = !!lettersFor(activeLanguageCode)
-  const hasFacts = !!factsFor(activeLanguageCode)
 
   // The Gym tile shows only when this language has form categories to
   // train (empty manifest = uninflected language, no tile).
@@ -346,17 +242,6 @@ export default function DashboardPage() {
   })
   const hasGym = (gymManifest?.columns.length ?? 0) > 0
 
-  // Recommendations card (tutor+): a small, non-obtrusive pointer, only when
-  // the feature is on, the account is entitled, and there's actually a batch.
-  const { data: recoState } = useQuery({
-    queryKey: ['recommendations', activeLanguageId],
-    queryFn: () => getRecommendations(activeLanguageId!),
-    enabled: !!activeLanguageId,
-    retry: false,
-  })
-  const showRecoCard =
-    !!recoState?.enabled && recoState.entitled && recoState.batches.length > 0
-  const latestReco = recoState?.batches[0]
 
   const { data: stats, isLoading } = useQuery({
     queryKey: ['dashboard', activeLanguageId],
@@ -452,7 +337,7 @@ export default function DashboardPage() {
       {/* First time in this language? Offer to place them (self-gates on the
           server's per-language attempt history). */}
       <PlacementOffer languageId={activeLanguageId} />
-      <div className="max-w-2xl mx-auto px-4 py-8 space-y-6">
+      <div className="max-w-2xl mx-auto px-4 py-8 space-y-6 pb-24 md:pb-8">
         {/* Header. On phones the full row of destinations overflowed the
             viewport (the source of the "shaky", clipped layout), so the
             nav links collapse behind a menu button below md and only the
@@ -560,44 +445,6 @@ export default function DashboardPage() {
         <FeedbackAlert canSeeQueue={canContribute} />
 
         <LearningTip context="dashboard" />
-
-        {/* The reference pair, above the study tiles: Letters & Sounds (the
-            alphabet with pronunciation) and Things to Know (a one-minute
-            orientation — family, reach, word order, history). Either is
-            hidden when the language has no data for it, so the grid drops
-            to one column rather than leaving a gap. */}
-        {(hasLetters || hasFacts) && (
-          <div
-            data-testid="reference-tiles"
-            className={
-              hasLetters && hasFacts
-                ? 'grid grid-cols-1 sm:grid-cols-2 gap-3'
-                : 'space-y-3'
-            }
-          >
-            {hasLetters && (
-              <ReferenceTile
-                icon={Languages}
-                title={t('dashboard.lettersTitle')}
-                caption={t('dashboard.lettersSub')}
-                testId="tile-letters"
-                onClick={() => navigate('/letters')}
-                disabled={!activeLanguageId}
-              />
-            )}
-            {hasFacts && (
-              <ReferenceTile
-                icon={Globe2}
-                title={t('dashboard.aboutTitle')}
-                caption={t('dashboard.aboutSub')}
-                testId="tile-about"
-                onClick={() => navigate('/about')}
-                disabled={!activeLanguageId}
-              />
-            )}
-          </div>
-        )}
-
 
         {/* Command center: Learn (deck sections) + Review, Bunpro-style */}
         {isLoading || !stats ? (
@@ -713,15 +560,6 @@ export default function DashboardPage() {
                     <DeckRow key={deck.id} deck={deck} onLearn={handleLearnDeck} />
                   ))
                 )}
-                {/* Personal cards live here too. They used to appear ONLY on
-                    /decks, which nothing in the app links to — so a learner's
-                    own saved cards were reviewable but had no visible home,
-                    and the deck list looked like it had lost them. */}
-                {activeLanguageId && (
-                  <div className="border-t border-gray-100 p-4">
-                    <PersonalDecksSection languageId={activeLanguageId} />
-                  </div>
-                )}
               </div>
             )}
 
@@ -754,142 +592,9 @@ export default function DashboardPage() {
               </div>
             )}
 
-            {/* Practice & immersion destinations — same visual weight as the
-                command center, right where the eye already is. */}
-            <div
-              className={`grid gap-3 ${hasGym ? 'grid-cols-3' : 'grid-cols-2'}`}
-              data-testid="feature-tiles"
-            >
-              {hasGym && (
-                <FeatureTile
-                  icon={Dumbbell}
-                  label={t('nav.gym')}
-                  caption={t('dashboard.gymCaption')}
-                  testId="tile-gym"
-                  onClick={() => navigate('/gym')}
-                />
-              )}
-              <FeatureTile
-                icon={BookOpen}
-                label={t('nav.read')}
-                caption={t('dashboard.readCaption')}
-                testId="tile-read"
-                onClick={() => navigate('/read')}
-                disabled={!activeLanguageId}
-              />
-              <FeatureTile
-                icon={MessagesSquare}
-                label={t('nav.tutor')}
-                caption={t('dashboard.tutorCaption')}
-                testId="tile-tutor"
-                onClick={() => navigate('/tutor')}
-                disabled={!activeLanguageId}
-              />
-            </div>
-
-            {stats.forecast && <ForecastStrip forecast={stats.forecast} />}
-            {stats.activity && <ActivityChart activity={stats.activity} />}
-            {stats.stages && <StageTiles stages={stats.stages} />}
-            {stats.profile && (
-              <ProfileCard profile={stats.profile} streakDays={stats.streak_days} />
-            )}
           </div>
         )}
 
-        {/* CEFR Progress */}
-        {isLoading || !stats ? (
-          <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-6 animate-pulse">
-            <div className="h-4 w-28 bg-gray-200 rounded mb-4" />
-            {Array.from({ length: 6 }).map((_, i) => (
-              <div key={i} className="flex items-center gap-3 mb-3">
-                <div className="w-7 h-3 bg-gray-100 rounded" />
-                <div className="flex-1 h-2 bg-gray-100 rounded-full" />
-                <div className="w-9 h-3 bg-gray-100 rounded" />
-              </div>
-            ))}
-          </div>
-        ) : (
-          <CEFRProgress progress={stats.cefr_progress} />
-        )}
-
-        {/* Grammar path */}
-        <button
-          type="button"
-          onClick={() => navigate('/grammar')}
-          disabled={!activeLanguageId}
-          className="w-full bg-white hover:bg-gray-50 disabled:opacity-50 text-gray-800 font-semibold rounded-xl px-6 py-3 text-sm border border-gray-200 transition-colors text-start flex items-center justify-between"
-          style={{ minHeight: '44px' }}
-        >
-          <span>
-            {t('dashboard.grammarPathTitle')}
-            <span className="block text-xs font-normal text-gray-500">
-              {t('dashboard.grammarPathSub')}
-            </span>
-          </span>
-          <DirArrow className="text-lang" />
-        </button>
-
-        {/* Gym / Tutor / Reader now live as first-class tiles beside the
-            command center above — no buried link list to not-read. */}
-
-        {/* Recommendations (tutor+): non-obtrusive — only shows once there's a
-            weekly pick list to look at. */}
-        {showRecoCard && (
-          <button
-            type="button"
-            onClick={() => navigate('/recommendations')}
-            className="w-full bg-white hover:bg-gray-50 text-gray-800 font-semibold rounded-xl px-6 py-3 text-sm border border-gray-200 transition-colors text-start flex items-center justify-between"
-            style={{ minHeight: '44px' }}
-          >
-            <span>
-              {t('dashboard.recommendedTitle')}
-              <span className="block text-xs font-normal text-gray-500">
-                {latestReco
-                  ? t('dashboard.recommendedPicks', { count: latestReco.items.length })
-                  : t('dashboard.recommendedSub')}
-              </span>
-            </span>
-            <DirArrow className="text-lang" />
-          </button>
-        )}
-
-        {/* Learn from your own text */}
-        <button
-          type="button"
-          onClick={() => navigate('/notes')}
-          disabled={!activeLanguageId}
-          className="w-full bg-white hover:bg-gray-50 disabled:opacity-50 text-gray-800 font-semibold rounded-xl px-6 py-3 text-sm border border-gray-200 transition-colors text-start flex items-center justify-between"
-          style={{ minHeight: '44px' }}
-        >
-          <span>
-            {t('dashboard.ownTextTitle')}
-            <span className="block text-xs font-normal text-gray-500">
-              {t('dashboard.ownTextSub')}
-            </span>
-          </span>
-          <DirArrow className="text-lang" />
-        </button>
-
-        {/* Weekly picks, surfaced instead of waiting to be remembered.
-            Renders nothing unless there's a batch the learner hasn't seen. */}
-        <NewPicksPrompt />
-
-        {/* The general feedback channel. Deliberately on the home page and
-            not in Settings: everything else in the app can only report a
-            problem WITH A CARD, so anyone whose complaint was about the app
-            itself had nowhere to put it. */}
-        <FeedbackButton page="dashboard" />
-
-        {/* Contributor link — only for users with a role */}
-        {canContribute && (
-          <button
-            type="button"
-            onClick={() => navigate('/contribute')}
-            className="w-full text-sm text-gray-500 hover:text-lang hover:underline text-start"
-          >
-            {t('dashboard.contribute')}
-          </button>
-        )}
       </div>
     </div>
   )

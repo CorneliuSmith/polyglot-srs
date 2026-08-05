@@ -7,7 +7,13 @@
     "gym": "Ginásio",
     "search": "Pesquisar",
     "account": "Conta",
-    "menu": "Menu"
+    "menu": "Menu",
+    "study": "Estudar",
+    "practice": "Praticar",
+    "progress": "Progresso",
+    "more": "Mais",
+    "primary": "Secções principais",
+    "languageGuide": "Guia do idioma"
   },
   "header": {
     "whatsNew": "Novidades",

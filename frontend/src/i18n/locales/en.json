@@ -7,7 +7,13 @@
     "gym": "Gym",
     "search": "Search",
     "account": "Account",
-    "menu": "Menu"
+    "menu": "Menu",
+    "study": "Study",
+    "practice": "Practice",
+    "progress": "Progress",
+    "more": "More",
+    "primary": "Main sections",
+    "languageGuide": "Language guide"
   },
   "header": {
     "whatsNew": "What's new",

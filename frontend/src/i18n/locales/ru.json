@@ -7,7 +7,13 @@
     "gym": "Тренажёр",
     "search": "Поиск",
     "account": "Аккаунт",
-    "menu": "Меню"
+    "menu": "Меню",
+    "study": "Учёба",
+    "practice": "Практика",
+    "progress": "Прогресс",
+    "more": "Ещё",
+    "primary": "Основные разделы",
+    "languageGuide": "Справочник языка"
   },
   "header": {
     "whatsNew": "Что нового",
