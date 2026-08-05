@@ -589,6 +589,7 @@ function ReviewSessionInner({
         kind="review"
         limit={sessionSize}
         onStart={handleStart}
+        onExit={() => navigate('/')}
         localeName={(() => {
           // The DB name is English ("Spanish"), which read as a foreign word
           // dropped into a Spanish sentence. Intl gives the endonym.

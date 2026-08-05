@@ -35,6 +35,8 @@ function readiness(pct: number, ready_enough: boolean, pairs: string[] = []) {
   }
 }
 
+const onExit = vi.fn()
+
 function renderWait(onStart = vi.fn(), stallAfterMs?: number) {
   const client = new QueryClient({
     defaultOptions: { queries: { retry: false, gcTime: 0 } },
@@ -45,6 +47,7 @@ function renderWait(onStart = vi.fn(), stallAfterMs?: number) {
         languageId="lang-1"
         kind="learn"
         onStart={onStart}
+        onExit={onExit}
         stallAfterMs={stallAfterMs}
       />
     </QueryClientProvider>,
@@ -179,6 +182,28 @@ describe('TrailblazerWait', () => {
     mocked.mockResolvedValue(readiness(0, false))
     renderWait(vi.fn(), 50)
     expect(await screen.findByTestId('trailblazer-stalled')).toBeInTheDocument()
+  })
+
+  it('lets someone leave who wants neither the wait nor English', async () => {
+    // The tab bar is hidden on session routes, so before this the only
+    // affordance was "Start in English" — a dead end for anyone who wanted
+    // neither option, and on the native shells not even Back would help.
+    mocked.mockResolvedValue(readiness(0, false))
+    renderWait()
+    // Wait for the wait screen proper: the loading state carries its own
+    // copy of this control, and clicking that one leaves a detached node.
+    await screen.findByText('trailblazer.title')
+    await userEvent.click(screen.getByTestId('trailblazer-exit'))
+    expect(onExit).toHaveBeenCalled()
+  })
+
+  it('offers the way out while readiness is still being fetched', async () => {
+    // The "preparing…" state is where a hanging request strands someone,
+    // and it is the state they are most likely to describe as stuck.
+    mocked.mockReturnValue(new Promise(() => {}))
+    renderWait()
+    await userEvent.click(await screen.findByTestId('trailblazer-exit'))
+    expect(onExit).toHaveBeenCalled()
   })
 
   it('does not cry stall while rows are still landing', async () => {
